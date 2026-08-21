@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo, useState, type KeyboardEvent, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useMemo, useState, type KeyboardEvent, type ReactNode } from "react";
 import {
   ChevronDownIcon,
   ChevronRightIcon,
@@ -24,7 +24,7 @@ import "./prototype.css";
 
 type SellerType = "전체" | "개인" | "딜러";
 type SheetType = "filter" | "carType" | "maker" | "year" | "price" | "region" | "sort" | null;
-type DetailSheet = "contact" | "more" | null;
+type DetailSheet = "contact" | "more" | "priceHistory" | null;
 
 type Car = {
   id: number;
@@ -99,6 +99,17 @@ const extraInfo = [
   ["복합연비", "15.7km/ℓ"], ["전장 · 전폭 · 전고", "4,815 × 1,900 × 1,695"], ["공차중량", "1,375kg"], ["인승", "5인승"],
   ["압류 · 저당", "0건 · 0건"], ["재조사 보증", "가능"], ["수입구분", "정식수입"],
 ];
+
+const priceHistoryRows = [
+  { date: "2026.08.10", direction: "down", change: "50만원 인하", price: "1,519만원" },
+  { date: "2026.07.31", direction: "down", change: "40만원 인하", price: "1,519만원" },
+  { date: "2026.07.20", direction: "down", change: "30만원 인하", price: "1,489만원" },
+  { date: "2026.07.11", direction: "up", change: "100만원 인상", price: "1,519만원" },
+  { date: "2026.06.17", direction: "down", change: "20만원 인하", price: "1,499만원" },
+  { date: "2026.06.05", direction: "down", change: "50만원 인상", price: "1,569만원" },
+  { date: "2026.05.20", direction: "down", change: "10만원 인하", price: "1,509만원" },
+  { date: "2026.05.01", direction: "first", change: "최초 등록", price: "1,589만원" },
+] as const;
 
 const relatedCars = [
   { image: "raw-18.jpeg", title: "2021 벤츠 G클래스 3세대 G63 AMG", meta: "19년 12월식 · 42,920 km", price: "9,500만원", place: "경기 수원시", posted: "2일 전" },
@@ -318,7 +329,7 @@ function DetailHero({ onBack }: { onBack: () => void }) {
 }
 
 function VehicleSummary() {
-  const { liked, setLiked, notify } = useDetailUi();
+  const { liked, setLiked, setSheet, notify } = useDetailUi();
   return (
     <section className="vehicle-summary">
       <div className="vehicle-title-row"><h1>2019 벤틀리 컨티넨탈 GT 3세대 6.0 퍼스트 에디션</h1><button type="button" aria-label="매물 찜하기" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}</button></div>
@@ -327,7 +338,7 @@ function VehicleSummary() {
       <div className="detail-badges"><span>인증중고차</span><span>1년 보증</span></div>
       <div className="detail-price-row">
         <strong>1억 4,500만원</strong>
-        <button type="button" onClick={() => notify("최근 가격 변동 내역을 확인했어요")}>가격 변동</button>
+        <button type="button" onClick={() => setSheet("priceHistory")}>가격 변동</button>
       </div>
       <div className="detail-calculators">
         <button type="button" onClick={() => notify("비용 계산기를 열었어요")}>비용 계산기</button>
@@ -335,6 +346,53 @@ function VehicleSummary() {
       </div>
       <div className="vehicle-stats"><span><HeartFilledIcon />480</span><span><EyeOpenIcon />2,301</span><span><ClockIcon />1분 전</span></div>
     </section>
+  );
+}
+
+function PriceHistorySheet({ onClose }: { onClose: () => void }) {
+  const [page, setPage] = useState(1);
+  const visiblePages = [1, 2, 3, 4, 5, 10];
+  const selectPage = (nextPage: number) => setPage(Math.min(10, Math.max(1, nextPage)));
+
+  useEffect(() => {
+    const overlay = document.querySelector<HTMLElement>('[data-testid="sheet-overlay"]');
+    if (!overlay) return;
+    overlay.addEventListener("click", onClose);
+    return () => overlay.removeEventListener("click", onClose);
+  }, [onClose]);
+
+  return (
+    <div className="price-history-sheet">
+      <button className="price-history-close" type="button" aria-label="가격 변동 내역 닫기" onClick={onClose}>
+        <img src={asset("detail/price-history-close.svg")} alt="" />
+      </button>
+      <div className="price-history-table" role="table" aria-label="가격 변동 내역">
+        <div className="price-history-head" role="row">
+          <span role="columnheader">날짜</span><span role="columnheader">변동</span><span role="columnheader">가격</span>
+        </div>
+        {priceHistoryRows.map((row) => (
+          <div className="price-history-row" role="row" key={row.date}>
+            <span role="cell">{row.date}</span>
+            <strong className={row.direction === "down" ? "is-down" : ""} role="cell">
+              {row.direction === "first" ? <span className="price-history-tag-icon"><img src={asset("detail/price-tag.svg")} alt="" /><img src={asset("detail/price-tag-dot.svg")} alt="" /></span> : <img src={asset(`detail/price-${row.direction}.svg`)} alt="" />}
+              {row.change}
+            </strong>
+            <b role="cell">{row.price}</b>
+          </div>
+        ))}
+      </div>
+      <p className="price-history-note">가격 변동 내역은 판매자가 제공한 정보를 기준으로 합니다.</p>
+      <nav className="price-history-pagination" aria-label="가격 변동 페이지">
+        <button type="button" aria-label="이전 페이지" disabled={page === 1} onClick={() => selectPage(page - 1)}><img src={asset("detail/pagination-left.svg")} alt="" /></button>
+        {visiblePages.map((pageNumber, index) => (
+          <span key={pageNumber} className="price-history-page-slot">
+            {index === visiblePages.length - 1 ? <img className="price-history-ellipsis" src={asset("detail/pagination-ellipsis.svg")} alt="" /> : null}
+            <button type="button" aria-label={`${pageNumber} 페이지`} aria-current={page === pageNumber ? "page" : undefined} onClick={() => selectPage(pageNumber)}>{pageNumber}</button>
+          </span>
+        ))}
+        <button type="button" aria-label="다음 페이지" disabled={page === 10} onClick={() => selectPage(page + 1)}><img src={asset("detail/pagination-right.svg")} alt="" /></button>
+      </nav>
+    </div>
   );
 }
 
@@ -451,10 +509,10 @@ function VehicleDetail() {
         </main>
       </MobileScroll>
       {toast ? <div className="detail-toast" role="status">{toast}</div> : null}
-      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && setSheet(null)} title={sheet === "more" ? "매물 더보기" : "딜러 상담"} description={sheet === "more" ? "원하는 작업을 선택하세요." : "한강모터스 박성수 딜러에게 문의할 수 있어요."} snap={0.42}>
-        <div className="detail-sheet-actions">
+      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && setSheet(null)} title={sheet === "priceHistory" ? "가격 변동 내역" : sheet === "more" ? "매물 더보기" : "딜러 상담"} description={sheet === "priceHistory" ? undefined : sheet === "more" ? "원하는 작업을 선택하세요." : "한강모터스 박성수 딜러에게 문의할 수 있어요."} snap={sheet === "priceHistory" ? 0.75 : 0.42}>
+        {sheet === "priceHistory" ? <PriceHistorySheet onClose={() => setSheet(null)} /> : <div className="detail-sheet-actions">
           {sheet === "more" ? <><button type="button" onClick={() => { notify("매물 신고를 선택했어요"); setSheet(null); }}>허위매물 신고</button><button type="button" onClick={() => { notify("판매자를 차단했어요"); setSheet(null); }}>판매자 차단</button><button type="button" onClick={() => setSheet(null)}>취소</button></> : <><a href="tel:05062469261"><MobileIcon /> 050-6246-9261 전화하기</a><button type="button" onClick={() => { notify("상담 요청을 보냈어요"); setSheet(null); }}>문자로 상담 요청</button><button type="button" onClick={() => setSheet(null)}>닫기</button></>}
-        </div>
+        </div>}
       </BottomSheet>
     </div>
   );
