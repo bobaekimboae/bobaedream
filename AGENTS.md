@@ -1,4 +1,4 @@
-# Mobile Prototype Agent Guide
+# Mobile Web Prototype Agent Guide
 
 ## Prototype Instructions
 
@@ -13,18 +13,17 @@ When implementing from a selected generated mock, treat that image as the source
 ## Editing Boundary
 
 - Build app-specific UI in `src/Prototype.tsx` and `src/prototype.css`.
-- Treat `src/App.tsx`, `src/main.tsx`, `src/styles.css`, `src/mobile/`, `public/assets/iphone/`, `public/assets/android/`, `public/assets/status/`, `vite.config.ts`, `worker/index.js`, and `scripts/prepare-sites-build.mjs` as protected runtime files. Do not edit, replace, remove, or recreate them unless the user explicitly asks to change the mobile runtime itself. For an explicit runtime change, update the affected lock hashes only after verifying the new runtime behavior.
+- Treat `src/App.tsx`, `src/main.tsx`, `src/styles.css`, `src/mobile/`, `public/assets/iphone/`, `public/assets/android/`, `public/assets/status/`, `vite.config.ts`, `worker/index.js`, and `scripts/prepare-sites-build.mjs` as protected runtime files. Do not edit, replace, remove, or recreate them unless the user explicitly asks to change the mobile runtime itself. The approved runtime is now responsive mobile web; do not restore the device mockup. For an explicit runtime change, update the affected lock hashes only after verifying the new runtime behavior.
 - Run `npm run check:runtime` before preview or handoff. If it fails, restore the protected runtime instead of weakening or bypassing the check.
 - `npm run build` preserves the mobile runtime and prepares the static Cloudflare Worker output required by Sites. Before a Sites handoff, confirm `dist/client/index.html`, `dist/server/index.js`, `dist/.openai/hosting.json`, and source `.openai/hosting.json` exist, then run `npm run test:sites`. Do not replace this project with a Vinext starter.
 
 ## Runtime Contract
 
-- Preserve the mobile device runtime unless the user's task explicitly asks otherwise. Do not replace it with a standalone page. Visual fidelity applies to app-owned content inside the device screen, not to template-owned device chrome.
-- Keep `App` composed around `PhoneFrame` -> `KeyboardProvider`, with `StatusBar`, app content, `HomeIndicator`, and `KeyboardDock` mounted inside the phone frame. `StatusBar` and the iOS home indicator are overlaid device chrome. When the Android keyboard is closed, the app viewport reserves the protected navigation-bar region instead of painting behind it. When the Android keyboard is open, preserve the current full-screen keyboard layout: its asset includes the IME navigation strip and the separate black navigation bar is hidden. iOS screens continue to paint behind the home-indicator area and own their safe-area content padding.
-- Preserve the `iPhone` / `Pixel 10` device picker and both calibrated device presets. The Pixel screen is `427 x 952`; its `32 x 32` camera circle and `public/assets/android/navigation-bar.svg` bottom navigation bar are protected device chrome, not app content.
-- Preserve the device picker's intentionally lightweight Codex styling in the top-right corner: its trigger wrapper is borderless and transparent, its trigger sizes to content, and its right-aligned menu uses the compact 3px inset plus the specified hairline and elevation shadow layers. Keep the prototype root and default app screen white.
-- Preserve `StatusBar` as live device chrome, including its platform-specific typography, source status-icon assets, and spacing. Pixel 10 uses Roboto, Android indicators, and 32px top, left, and right padding. iPhone uses its iOS indicators, system typography, and calibrated spacing. Do not hardcode screenshot times like `9:41` into the status bar, replace its real-time clock, or move status bar content into app markup unless the user explicitly asks for a fixed/mock device time.
-- `PhoneFrame` owns the calibrated device frame, screen portal, device picker, camera cutout, and custom cursor. Keep device assets in `public/assets/iphone/` and `public/assets/android/`; if an asset fails to load, repair the asset path or restore the asset instead of removing the frame, keyboard, or image render.
+- Preserve the responsive mobile-web runtime. Do not render an iPhone/Android bezel, device picker, simulated status bar, camera cutout, home indicator, custom cursor, or simulated keyboard.
+- Keep `App` composed around `MobileRuntime` -> `MobileDeviceProvider` -> `PhoneFrame` -> `KeyboardProvider`. `PhoneFrame` is now a browser viewport shell and portal host, not a device frame.
+- On phones, the shell fills the full browser width and `100dvh`. On wider screens, keep the content column centered at a maximum width of 430px without adding device chrome.
+- Resolve top and bottom safe areas with `env(safe-area-inset-top)` and `env(safe-area-inset-bottom)`. Use the browser's native text-entry keyboard; do not reserve the legacy simulated-keyboard height.
+- Legacy device presets and assets remain checked in for compatibility only and must not appear in the deployed interface.
 - Use `MobileScroll` directly for simple single-screen prototypes. Use `FlowStack` for conventional multi-screen flows whose routes can own their fixed header and footer; when using it, define each route as a `FlowScreen`: `{ id, header?, headerHeight?, footer?, footerHeight?, render }`, and use `flow.push(screen)`, `flow.pop()`, and `flow.replace(screen)` from `FlowStack` render callbacks or `useFlow()` instead of introducing another router.
 - Use `Carousel` for a carousel, horizontal rail, swipeable cards, image or media strip, horizontally scrollable cards, chip rail, or other horizontal collection.
 - For a layered app shell—such as a persistent composer, independently presented sheet, pushed/peek sidebar, or app-wide transition—compose directly in `Prototype.tsx` rather than forcing it through `FlowStack`. Keep app-owned fixed chrome as sibling layers outside `MobileScroll`.
@@ -47,7 +46,7 @@ See `src/mobile/COMPONENTS.md` for the full component and gesture contract.
 
 ## Keyboard Rule
 
-The simulated keyboard is a separate top-layer component. Before presenting anything that behaves like iOS navigation or modal UI, dismiss it first.
+Text fields use the browser's native keyboard. Before presenting navigation or modal UI, blur the active field first.
 
 Call `keyboard.hide()` before:
 
@@ -57,22 +56,22 @@ Call `keyboard.hide()` before:
 
 `FlowStack` already hides the keyboard for `push`, `pop`, and `replace`. `BottomSheet` already hides it before opening. If you add new modal/sheet/navigation primitives, follow the same rule.
 
-When a composer, search surface, or other keyboard-attached component closes, call `keyboard.hide()` in the same event before changing that component's open state. Position attached surfaces from `useKeyboardInsets()` rather than a separate timer or visibility flag so both dismiss together.
+When a composer, search surface, or other keyboard-attached component closes, call `keyboard.hide()` in the same event before changing that component's open state. Do not add a simulated keyboard asset or a fixed keyboard-height inset.
 
-When any text-entry control loses focus, dismiss the simulated keyboard. If the control is custom or does not use the runtime's keyboard-aware fields, handle its blur event and call `keyboard.hide()` explicitly. Keep the keyboard open only when focus is moving directly to another text-entry control that should share the same keyboard session.
+When any text-entry control loses focus, clear the keyboard context. If the control is custom or does not use the runtime's keyboard-aware fields, handle its blur event and call `keyboard.hide()` explicitly.
 
 ## Interaction Rules
 
 - Do not trigger buttons or inputs after a pointer has become a drag. Preserve the drag suppression behavior in `MobileScroll`.
-- Do not allow native browser image/file dragging inside the phone frame. Preserve the phone-level `dragstart` suppression and non-draggable image styles so scroll drags that begin on images still scroll the prototype.
-- Use `KeyboardInput`, `KeyboardTextarea`, or `MobileTextField` for text entry so the simulated keyboard and safe-area insets stay connected.
-- Fixed phone chrome should not animate with pushed screens. Screen content can animate; the status bar, camera cutout, and preview chrome should stay put.
-- Keep the keyboard below the home indicator/safe area layer in z-index, and above ordinary app UI while visible.
-- Keep the home indicator as the topmost safe-area layer in the z-index above everything else in the prototype.
+- Do not allow native browser image/file dragging inside the mobile-web shell. Preserve the shell-level `dragstart` suppression and non-draggable image styles so scroll drags that begin on images still scroll the prototype.
+- Use `KeyboardInput`, `KeyboardTextarea`, or `MobileTextField` for text entry so focus and modal-dismissal behavior stay connected.
+- Fixed mobile-web headers and footers should not animate with pushed screens. Screen content can animate while browser chrome remains outside the app.
 
 ## Prototype-Specific Design Decisions
 
-- In BMW model-selection mode on the 393 px iPhone viewport, keep four model cards fully visible and show the fifth card partially at the right edge to communicate horizontal scrolling.
+- Deploy this prototype as responsive mobile web: remove all iPhone/Pixel mockup chrome and fill the browser viewport on mobile, while centering a bezel-free 430px content column on wider screens.
+
+- In BMW model-selection mode on the 393px mobile viewport, keep four model cards fully visible and show the fifth card partially at the right edge to communicate horizontal scrolling.
 - Label the BMW model-selection rail as `모델` and vertically center that label against the full rail height.
 - When Mercedes-Benz (`벤츠`) is selected, replace the manufacturer-logo rail with the Figma chip pattern: label it `모델` and show horizontally scrollable `E클래스`, `S클래스`, `GLC클래스`, `GLE클래스`, and `C클래스` outline chips. Selecting a chip filters the randomized Mercedes-Benz inventory.
 - The view-mode icon to the right of `최신순` toggles between the default compact list and the Figma full-width card feed. Show the three-line list icon in list mode and the exact Figma card-view icon (node `1412:157677`) in card mode so the icon always reflects the active layout. Card mode uses a large 380:220 vehicle photo, photo metadata overlay, two-line title, full specs/price/badges, seller details, and action icons; tapping it again restores the original list without clearing filters or randomized inventory.

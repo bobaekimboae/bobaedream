@@ -43,6 +43,36 @@ body,
 body {
   min-width: 320px;
   overflow: hidden;
+  background: #f3f4f6;
+}
+
+.mobile-web-stage {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  height: 100%;
+  height: 100dvh;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.mobile-web-screen {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+  cursor: auto;
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+@media (min-width: 431px) {
+  .mobile-web-stage {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
 }
 
 button,
@@ -240,6 +270,34 @@ button {
   box-shadow: none !important;
 }
 
+.device-screen.mobile-web-screen {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+  cursor: auto;
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+.mobile-web-screen,
+.mobile-web-screen * {
+  cursor: auto !important;
+}
+
+.mobile-web-screen button,
+.mobile-web-screen a,
+.mobile-web-screen [role="button"] {
+  cursor: pointer !important;
+}
+
+.mobile-web-screen *:focus-visible {
+  outline: 2px solid #1b4c8c !important;
+  outline-offset: 2px;
+}
+
 .flow-stack,
 .flow-scenes,
 .flow-screen {
@@ -290,6 +348,21 @@ button {
   height: var(--flow-footer-height);
   background: transparent;
   transition: bottom 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.mobile-web-screen .flow-fixed-header {
+  height: calc(var(--flow-header-height) + var(--device-safe-area-top, 0px));
+  padding-top: var(--device-safe-area-top, 0px);
+}
+
+.mobile-web-screen .flow-scenes {
+  top: calc(var(--flow-header-height) + var(--device-safe-area-top, 0px));
+}
+
+.mobile-web-screen .flow-fixed-footer {
+  bottom: 0;
+  height: calc(var(--flow-footer-height) + var(--device-safe-area-bottom, 0px));
+  padding-bottom: var(--device-safe-area-bottom, 0px);
 }
 
 .flow-scenes {
