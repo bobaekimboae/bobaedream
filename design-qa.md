@@ -101,5 +101,18 @@
 - Browser logs contain no warnings or errors.
 - Mobile runtime integrity, TypeScript compilation, Vite production build, Sites packaging, and all four Sites worker tests pass. Vite reports only its informational large-chunk advisory.
 
+## Listing vertical-spacing follow-up
+
+### Requested changes verified
+
+- Removed the second listing's position-specific extra minimum height so all eight compact listings render at the same 208px minimum height.
+- Compact listings now keep the location exactly 10px after the final price/badge element, including listings with zero badges.
+- Card view preserves its intended 20px content-to-location gap, with the same measurement whether a listing has zero, one, two, or three badges.
+
+### Verification
+
+- Measured all eight default listings at a `412 x 917` mobile viewport in list and card views.
+- Mobile runtime integrity, TypeScript compilation, Vite production build, Sites packaging, and all four Sites worker tests pass. Vite reports only its informational large-chunk advisory.
+
 final result: passed
 
