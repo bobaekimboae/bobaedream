@@ -61,5 +61,30 @@
 - [x] Browser interaction and console verification
 - [x] Runtime integrity and production compilation
 
+## Card-view and toolbar follow-up
+
+### Evidence
+
+- Source visual truth: Figma node `1412:147789` from file `bXm6a9oU2IlKcjv9xEum3l`, exported at its natural `412 x 1301` size as `reference-card-feed.png`.
+- Exact Figma sublayers inspected before implementation: region chevron `1439:196916`, sort arrow `1412:157675`, standard card information `1412:157711`, and lease-price card information `1412:195691`.
+- Browser-rendered implementation: `http://localhost:4173/`, captured at a `412 x 917` CSS viewport as `implementation-card-final.png`.
+- Equal-width source/implementation comparisons: `comparison-card-feed.png` and the focused `comparison-card-details.png`. The 45px Figma status bar was removed before comparison so the app content shares the same origin.
+- Responsive browser check: `393 x 852` CSS viewport, with a 393px card, 361px image, contact actions ending at x=375, and no horizontal overflow.
+
+### Findings
+
+- No actionable P0, P1, or P2 visual differences remain in the requested areas.
+- `전국` now uses the exact Figma triangle glyph at `10 x 5` inside its `20 x 20` frame. Its text starts at x=80 and the icon frame at x=110, matching the source.
+- `최신순` now uses the exact Figma down-arrow geometry inside an `18 x 18` frame. The sort group starts at x=286, the arrow frame at x=329, divider at x=363, and view toggle at x=376, matching the source.
+- Card information begins 10px below the image and keeps the source's 20px main-to-footer gap. Title is 17px/600/1.4, metadata is 15px/400/1.4, price uses a 17px amount with 16px prefix/unit, lease copy is 14px/600, badges are 12px in 20px-high pills, and address is 13px.
+- The card address omits the list-view-only view counter. Seller information uses the Figma two-line structure with a 26px avatar, 12px/600 name, 12px/400 sales line, and three 20px actions separated by 24px.
+- List view remains available, and switching list → card → list → card preserves the intended content and control labels.
+
+### Verification
+
+- Region and sort controls still open their respective bottom sheets; closing the region sheet and selecting the active sort option both work.
+- Browser logs contain no warnings or errors from the implementation.
+- Mobile runtime integrity, TypeScript compilation, Vite production build, Sites packaging, and all four Sites worker tests pass. Vite reports only its informational large-chunk advisory.
+
 final result: passed
 
