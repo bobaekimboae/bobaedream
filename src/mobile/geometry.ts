@@ -20,25 +20,25 @@ export type MobileDeviceGeometry = {
 };
 
 export const iphoneGeometry = {
-  // CSS-space coordinates for the 3x iPhone assets. Keep source PNG dimensions
-  // divisible by 3 so the rendered phone frame lands on whole CSS pixels.
+  // The responsive web runtime uses this as its interaction/animation baseline.
+  // Browser safe areas and the live viewport size are resolved in CSS/DOM.
   device: {
-    width: 511,
-    height: 968,
-  },
-  screen: {
-    x: 59,
-    y: 58,
     width: 393,
     height: 852,
-    radius: 42,
+  },
+  screen: {
+    x: 0,
+    y: 0,
+    width: 393,
+    height: 852,
+    radius: 0,
   },
   safeArea: {
-    top: 54,
-    bottom: 34,
+    top: 0,
+    bottom: 0,
   },
   keyboard: {
-    height: 338,
+    height: 0,
   },
 } as const satisfies MobileDeviceGeometry;
 

@@ -7,7 +7,7 @@
 - Browser-rendered implementation: `http://localhost:4173/`, captured in the in-app browser during this task in the open manufacturer and open price states.
 - Comparison evidence: each source and its matching browser screenshot were emitted together in the same comparison input during this task.
 - Browser stage screenshot: `1280 x 720`, device scale factor `1`.
-- Mobile runtime screen: iPhone preset, `393 x 852` CSS pixels; the surrounding device frame and status/home chrome are template-owned and excluded from fidelity findings.
+- Mobile web baseline: `393 x 852` CSS pixels, with additional checks at `360 x 800` and `390 x 844`; no device frame or simulated status/home chrome is rendered.
 - State: manufacturer sheet open with no search/selection; price sheet open on `현금 차량` with `0 ~ 전체`.
 
 ## Findings

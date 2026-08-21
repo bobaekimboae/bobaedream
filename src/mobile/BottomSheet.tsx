@@ -65,7 +65,8 @@ export function BottomSheet({
     },
   );
 
-  const sheetHeight = Math.round(device.geometry.screen.height * snap);
+  const viewportHeight = screenRef.current?.clientHeight ?? device.geometry.screen.height;
+  const sheetHeight = Math.round(viewportHeight * snap);
   const effectiveHeight = Math.max(260, sheetHeight - Math.min(keyboardHeight, 180));
   const sheetBottom =
     device.platform === "android"

@@ -97,136 +97,87 @@ test("BottomSheet remains mounted while its default exit animation plays", async
   await expect(page.getByTestId("bottom-sheet")).toHaveCount(0);
 });
 
-test("keyboard and its attached footer dismiss on the same transition", async ({ page }) => {
-  await page.goto("/tests/runtime-fixture.html?fixture=keyboard");
-  const input = page.getByLabel("Message");
-  const footer = page.getByTestId("flow-fixed-footer");
-  const keyboard = page.getByTestId("keyboard-dock");
+for (const viewport of [
+  { width: 360, height: 800 },
+  { width: 390, height: 844 },
+]) {
+  test(`mobile web fills the ${viewport.width}x${viewport.height} browser viewport without device chrome`, async ({ page }) => {
+    await page.setViewportSize(viewport);
+    await page.goto("/");
 
-  await input.click();
-  await expect(keyboard).toHaveAttribute("data-visible", "true");
-  await drag(page, footer, 0, 120, 5);
-  await expect(keyboard).toHaveAttribute("data-visible", "false");
+    const frame = page.getByTestId("phone-frame");
+    const screen = page.getByTestId("device-screen");
+    await expect(frame).toHaveAttribute("data-runtime", "mobile-web");
 
-  await page.waitForTimeout(100);
-  const progress = await page.evaluate(() => {
-    const footerElement = document.querySelector<HTMLElement>('[data-testid="flow-fixed-footer"]')!;
-    const keyboardElement = document.querySelector<HTMLElement>('[data-testid="keyboard-dock"]')!;
-    const fullHeight = Number.parseFloat(keyboardElement.style.height);
-    const footerRemaining = Number.parseFloat(getComputedStyle(footerElement).bottom);
-    const matrix = new DOMMatrixReadOnly(getComputedStyle(keyboardElement).transform);
-    return {
-      footer: footerRemaining / fullHeight,
-      keyboard: 1 - matrix.m42 / fullHeight,
-    };
+    const [frameBox, screenBox] = await Promise.all([frame.boundingBox(), screen.boundingBox()]);
+    expect(frameBox).not.toBeNull();
+    expect(screenBox).not.toBeNull();
+    expect(frameBox!.x).toBeCloseTo(0, 0);
+    expect(frameBox!.y).toBeCloseTo(0, 0);
+    expect(frameBox!.width).toBeCloseTo(viewport.width, 0);
+    expect(frameBox!.height).toBeCloseTo(viewport.height, 0);
+    expect(screenBox).toEqual(frameBox);
+
+    await expect(page.locator(".phone-bezel")).toHaveCount(0);
+    await expect(page.getByTestId("device-picker")).toHaveCount(0);
+    await expect(page.getByTestId("status-time")).toHaveCount(0);
+    await expect(page.getByTestId("home-indicator")).toHaveCount(0);
+    await expect(page.getByTestId("keyboard-dock")).toHaveCount(0);
+
+    const overflow = await screen.evaluate((element) => ({
+      clientWidth: element.clientWidth,
+      scrollWidth: element.scrollWidth,
+    }));
+    expect(overflow.scrollWidth).toBeLessThanOrEqual(overflow.clientWidth);
   });
-  expect(Math.abs(progress.footer - progress.keyboard)).toBeLessThan(0.18);
+}
 
-  await page.waitForTimeout(300);
-  expect(await footer.evaluate((element) => getComputedStyle(element).bottom)).toBe("34px");
+test("wide screens center a bezel-free 430px mobile web column", async ({ page }) => {
+  await page.setViewportSize({ width: 1100, height: 900 });
+  await page.goto("/");
+
+  const frameBox = await page.getByTestId("phone-frame").boundingBox();
+  expect(frameBox).not.toBeNull();
+  expect(frameBox!.width).toBeCloseTo(430, 0);
+  expect(frameBox!.x).toBeCloseTo((1100 - 430) / 2, 0);
+  expect(frameBox!.height).toBeCloseTo(900, 0);
 });
 
-test("switching to Pixel keeps the composer above Android navigation", async ({ page }) => {
+test("native text entry does not reserve or render a simulated keyboard", async ({ page }) => {
   await page.goto("/tests/runtime-fixture.html?fixture=keyboard");
   const input = page.getByLabel("Message");
-  await input.evaluate((element: HTMLInputElement) => {
-    element.value = "Draft message";
-  });
+  await input.click();
 
-  await page.getByTestId("device-picker").click();
-  await page.getByTestId("device-option-pixel-10").click();
-
-  const frame = page.getByTestId("phone-frame");
-  const screen = page.getByTestId("device-screen");
-  const statusIndicators = page.getByTestId("status-indicators");
-  const navigation = page.getByTestId("android-navigation-bar");
-  const footer = page.getByTestId("flow-fixed-footer");
-
-  await expect(frame).toHaveAttribute("data-device", "pixel-10");
-  await expect(screen).toHaveAttribute("data-device", "pixel-10");
-  await expect(page.locator(".phone-bezel")).toHaveAttribute(
-    "src",
-    "/assets/android/Pixel10.png",
-  );
-  await expect(statusIndicators).toHaveAttribute("data-platform", "android");
-  await expect(statusIndicators).toHaveAttribute(
-    "src",
-    "/assets/status/status-icons.svg",
-  );
-  await expect(navigation).toBeVisible();
-  await expect(page.getByTestId("home-indicator")).toHaveCount(0);
-  await expect(input).toHaveValue("Draft message");
-  await page.waitForTimeout(300);
+  await expect(input).toBeFocused();
+  await expect(page.getByTestId("keyboard-dock")).toHaveCount(0);
+  await expect(page.getByTestId("mobile-app-viewport")).toHaveAttribute("data-keyboard-visible", "false");
 
   const layout = await page.evaluate(() => {
-    const footerElement = document.querySelector<HTMLElement>(
-      '[data-testid="flow-fixed-footer"]',
-    )!;
-    const navigationElement = document.querySelector<HTMLElement>(
-      '[data-testid="android-navigation-bar"]',
-    )!;
-    const appViewportElement = document.querySelector<HTMLElement>(
-      '[data-testid="mobile-app-viewport"]',
-    )!;
-    return {
-      footerBottom: footerElement.getBoundingClientRect().bottom,
-      appViewportBottom: appViewportElement.getBoundingClientRect().bottom,
-      navigationTop: navigationElement.getBoundingClientRect().top,
-      navigationHeight: Number.parseFloat(getComputedStyle(navigationElement).height),
-      safeAreaBottom: Number.parseFloat(
-        getComputedStyle(document.querySelector<HTMLElement>('[data-testid="device-screen"]')!).getPropertyValue(
-          "--device-safe-area-bottom",
-        ),
-      ),
-    };
-  });
-
-  expect(layout.safeAreaBottom).toBe(layout.navigationHeight);
-  expect(Math.abs(layout.appViewportBottom - layout.navigationTop)).toBeLessThanOrEqual(1);
-  expect(Math.abs(layout.footerBottom - layout.navigationTop)).toBeLessThanOrEqual(1);
-
-  await input.click();
-  await expect(page.getByTestId("keyboard-dock")).toHaveAttribute("data-visible", "true");
-  await expect(navigation).toHaveCount(0);
-  await page.waitForTimeout(300);
-
-  const keyboardLayout = await page.evaluate(() => {
     const screen = document.querySelector<HTMLElement>('[data-testid="device-screen"]')!;
     const viewport = document.querySelector<HTMLElement>('[data-testid="mobile-app-viewport"]')!;
-    const scroll = document.querySelector<HTMLElement>('[data-testid="mobile-scroll"]')!;
-    const footerElement = document.querySelector<HTMLElement>('[data-testid="flow-fixed-footer"]')!;
-    const keyboard = document.querySelector<HTMLElement>('[data-testid="keyboard-dock"]')!;
-
     return {
       screenBottom: screen.getBoundingClientRect().bottom,
       viewportBottom: viewport.getBoundingClientRect().bottom,
-      scrollBottom: scroll.getBoundingClientRect().bottom,
-      footerBottom: footerElement.getBoundingClientRect().bottom,
-      keyboardTop: keyboard.getBoundingClientRect().top,
-      keyboardBottom: keyboard.getBoundingClientRect().bottom,
     };
   });
-
-  expect(keyboardLayout.viewportBottom).toBeCloseTo(keyboardLayout.screenBottom, 0);
-  expect(Math.abs(keyboardLayout.keyboardBottom - keyboardLayout.screenBottom)).toBeLessThanOrEqual(1);
-  expect(Math.abs(keyboardLayout.scrollBottom - keyboardLayout.keyboardTop)).toBeLessThanOrEqual(1);
-  expect(Math.abs(keyboardLayout.footerBottom - keyboardLayout.keyboardTop)).toBeLessThanOrEqual(1);
+  expect(layout.viewportBottom).toBeCloseTo(layout.screenBottom, 0);
 });
 
-test("FlowStack pushes and pops screens while dismissing the keyboard", async ({ page }) => {
+test("FlowStack pushes and pops screens without a device status-bar offset", async ({ page }) => {
   await page.goto("/tests/runtime-fixture.html?fixture=flow");
-  await page.getByLabel("Flow message").click();
-  await expect(page.getByTestId("keyboard-dock")).toHaveAttribute("data-visible", "true");
+  const input = page.getByLabel("Flow message");
+  await input.click();
 
   await page.getByRole("button", { name: "Push level 2" }).click();
   await expect(page.getByRole("heading", { name: "Screen stacking works" })).toBeVisible();
-  await expect(page.getByTestId("keyboard-dock")).toHaveAttribute("data-visible", "false");
-  const safeHeaderPlacement = await page.evaluate(() => {
+  await expect(input).not.toBeFocused();
+
+  const headerPlacement = await page.evaluate(() => {
     const screen = document.querySelector<HTMLElement>('[data-testid="device-screen"]')!;
     const toolbar = document.querySelector<HTMLElement>(".flow-fixture-header")!;
     return toolbar.getBoundingClientRect().top - screen.getBoundingClientRect().top;
   });
-  expect(safeHeaderPlacement).toBeGreaterThanOrEqual(54);
+  expect(Math.abs(headerPlacement)).toBeLessThanOrEqual(1);
 
   await page.getByRole("button", { name: "Push level 3" }).click();
   await expect(page.getByRole("heading", { name: "Nested view level 3" })).toBeVisible();
@@ -240,4 +191,3 @@ test("FlowStack pushes and pops screens while dismissing the keyboard", async ({
   await page.getByRole("button", { name: "Done" }).click();
   await expect(page.getByRole("heading", { name: "Flow root" })).toBeVisible();
 });
-
