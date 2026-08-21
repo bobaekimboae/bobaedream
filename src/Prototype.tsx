@@ -3,8 +3,6 @@ import {
   BookmarkFilledIcon,
   ChevronDownIcon,
   ChevronRightIcon,
-  ClockIcon,
-  EyeOpenIcon,
   HeartFilledIcon,
   HeartIcon,
   LockClosedIcon,
@@ -804,21 +802,28 @@ function DetailHero({ onBack }: { onBack: () => void }) {
 
 function VehicleSummary() {
   const { liked, setLiked, setSheet, notify } = useDetailUi();
+  const summarySpecs = ["2019", formatMileage("42,920 km"), "가솔린", "자동", "1인소유"];
   return (
     <section className="vehicle-summary">
-      <div className="vehicle-title-row"><h1>2019 벤틀리 컨티넨탈 GT 3세대 6.0 퍼스트 에디션</h1><button type="button" aria-label="매물 찜하기" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}</button></div>
-      <p className="vehicle-lead">6인승 독립시트로 뒷좌석의 편안함을 최우선으로 느껴보세요.</p>
-      <p className="vehicle-meta">172무2323 · 19년 02월 · {formatMileage("17,000 km")} · 가솔린</p>
-      <div className="detail-badges"><span>인증중고차</span><span>1년 보증</span></div>
+      <div className="vehicle-title-row"><h1>2019 벤틀리 컨티넨탈 GT 3세대 6.0 퍼스트 에디션</h1><button type="button" aria-label="매물 저장" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}<span>{liked ? "저장됨" : "저장"}</span></button></div>
+      <div className="vehicle-spec-row" aria-label="차량 핵심 정보">
+        {summarySpecs.map((spec) => <span key={spec}>{spec}</span>)}
+      </div>
       <div className="detail-price-row">
         <strong>1억 4,500만원</strong>
         <button type="button" onClick={() => setSheet("priceHistory")}>가격 변동</button>
       </div>
-      <div className="detail-calculators">
-        <button type="button" onClick={() => notify("비용 계산기를 열었어요")}>비용 계산기</button>
-        <button type="button" onClick={() => notify("보험료 계산을 시작해요")}>보험료 계산</button>
+      <p className="vehicle-finance">할부 예상 월 153만원부터</p>
+      <p className="vehicle-phone-note">판매자가 안심번호로 연락을 받아요</p>
+      <div className="detail-contact-row" aria-label="판매자 연락">
+        <a href="tel:05062469261">안심번호</a>
+        <button type="button" onClick={() => notify("카카오 상담을 준비했어요")}>카카오</button>
+        <button type="button" onClick={() => setSheet("contact")}>채팅</button>
       </div>
-      <div className="vehicle-stats"><span><HeartFilledIcon />480</span><span><EyeOpenIcon />2,301</span><span><ClockIcon />1분 전</span></div>
+      <div className="vehicle-location-row">
+        <p>서울 서초구 양재동</p>
+        <span>등록 2개월 전</span>
+      </div>
     </section>
   );
 }
@@ -968,12 +973,12 @@ function VehicleDetail() {
           <DetailHero onBack={flow.pop} />
           <VehicleSummary />
           <div className="detail-gray-stack">
+            <SellerCard />
             <SectionCard title="차량 정보"><InfoGrid items={vehicleInfo} /><div className="detail-subsection"><h3>상세 정보</h3><InfoGrid items={extraInfo} /></div></SectionCard>
             <OptionsCard />
             <HistoryCard />
             <InspectionCard />
             <WarrantyCard />
-            <SellerCard />
             <SaleCard />
             <DescriptionCard />
           </div>
@@ -993,12 +998,12 @@ function VehicleDetail() {
 }
 
 function DetailFooter() {
-  const { liked, setLiked, setSheet } = useDetailUi();
+  const { setSheet, notify } = useDetailUi();
   return (
     <div className="detail-bottom-bar">
-      <button className={`detail-bottom-like${liked ? " is-liked" : ""}`} type="button" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}<span>{liked ? "찜함" : "찜하기"}</span></button>
-      <button className="detail-consult" type="button" onClick={() => setSheet("contact")}>채팅</button>
       <a className="detail-call" href="tel:05062469261"><img src={asset("detail/call.svg")} alt="" /> 전화</a>
+      <button className="detail-zalo" type="button" onClick={() => notify("카카오 상담을 준비했어요")}>카카오</button>
+      <button className="detail-consult" type="button" onClick={() => setSheet("contact")}>채팅</button>
     </div>
   );
 }
