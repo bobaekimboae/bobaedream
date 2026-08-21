@@ -51,6 +51,23 @@ type Car = {
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}assets/${path}`;
 
+type FavoritesUi = { likedIds: number[]; toggleLiked: (id: number) => void };
+const FavoritesContext = createContext<FavoritesUi | null>(null);
+
+function FavoritesProvider({ children }: { children: ReactNode }) {
+  const [likedIds, setLikedIds] = useState<number[]>([]);
+  const toggleLiked = (id: number) => setLikedIds((current) => current.includes(id) ? current.filter((likedId) => likedId !== id) : [...current, id]);
+  return <FavoritesContext.Provider value={{ likedIds, toggleLiked }}>{children}</FavoritesContext.Provider>;
+}
+
+function useFavorites() {
+  const context = useContext(FavoritesContext);
+  if (!context) throw new Error("FavoritesProvider is missing");
+  return context;
+}
+
+const sellerLabel = (car: Car) => car.sellerType === "개인" ? "개인판매자" : car.dealer.replace(/\s*딜러$/, "");
+
 const brands = [
   { name: "BMW", logo: asset("brand/bmw.svg") },
   { name: "벤츠", logo: asset("brand/benz.png") },
@@ -92,7 +109,7 @@ const defaultCars: Car[] = [
   {
     id: 3, maker: "포르쉐", sellerType: "개인", image: "detail/raw-20.jpeg", title: "포르쉐 718 박스터", trim: "4.0 GTS",
     specs: ["24년03월", "8,130km", "가솔린", "흰색시트"], price: "13,900 만원",
-    place: "부산 해운대구", views: 219, dealer: "개인판매자 이현우", stock: 1, posted: "24분 전", photos: 18,
+    place: "부산 해운대구", views: 219, dealer: "개인판매자", stock: 1, posted: "24분 전", photos: 18,
   },
   {
     id: 4, maker: "벤틀리", sellerType: "딜러", image: "detail/raw-07.jpeg", title: "벤틀리 컨티넨탈 GT", trim: "6.0 W12",
@@ -102,7 +119,7 @@ const defaultCars: Car[] = [
   {
     id: 5, maker: "벤틀리", sellerType: "개인", image: "detail/raw-04.png", title: "벤틀리 플라잉스퍼", trim: "4.0 V8 아주르",
     specs: ["22년05월", "26,500km", "가솔린", "흰색시트"], price: "21,500 만원",
-    place: "대구 수성구", views: 175, dealer: "개인판매자 박서연", stock: 1, posted: "1시간 전", photos: 16,
+    place: "대구 수성구", views: 175, dealer: "개인판매자", stock: 1, posted: "1시간 전", photos: 16,
   },
   {
     id: 6, maker: "맥라렌", sellerType: "딜러", image: "detail/raw-19.jpeg", title: "맥라렌 570S 스파이더", trim: "3.8 V8",
@@ -123,29 +140,31 @@ const defaultCars: Car[] = [
 
 const bmwCars: Car[] = [
   { id: 101, maker: "BMW", modelGroup: "3시리즈", sellerType: "딜러", image: "cars/bmw/3-series.webp", imageFit: "contain", title: "BMW 3시리즈 320i", trim: "M 스포츠 프로", specs: ["23년09월", "21,430km", "가솔린", "검정색"], price: "5,390 만원", place: "서울 강남구 · BMW 인증센터", views: 184, dealer: "도이치모터스 김재현 딜러", stock: 14, posted: "2분 전", photos: 19 },
-  { id: 102, maker: "BMW", modelGroup: "3시리즈", sellerType: "개인", image: "cars/bmw/3-series.webp", imageFit: "contain", title: "BMW 3시리즈 330e", trim: "M 스포츠", specs: ["22년04월", "34,800km", "플러그인 하이브리드", "검정색"], price: "4,850 만원", place: "경기 고양시", views: 137, dealer: "개인판매자 강민준", stock: 1, posted: "18분 전", photos: 12 },
+  { id: 102, maker: "BMW", modelGroup: "3시리즈", sellerType: "개인", image: "cars/bmw/3-series.webp", imageFit: "contain", title: "BMW 3시리즈 330e", trim: "M 스포츠", specs: ["22년04월", "34,800km", "플러그인 하이브리드", "검정색"], price: "4,850 만원", place: "경기 고양시", views: 137, dealer: "개인판매자", stock: 1, posted: "18분 전", photos: 12 },
   { id: 103, maker: "BMW", modelGroup: "X1", sellerType: "딜러", image: "cars/bmw/x1.webp", imageFit: "contain", title: "BMW X1 sDrive20i", trim: "xLine", specs: ["24년01월", "12,700km", "가솔린", "흰색시트"], price: "5,120 만원", place: "부산 해운대구 · BMW 프리미엄 셀렉션", views: 211, dealer: "동성모터스 박지훈 딜러", stock: 9, posted: "6분 전", photos: 21 },
-  { id: 104, maker: "BMW", modelGroup: "X1", sellerType: "개인", image: "cars/bmw/x1.webp", imageFit: "contain", title: "BMW X1 xDrive20i", trim: "M 스포츠", specs: ["23년07월", "18,050km", "가솔린", "흰색시트"], price: "5,450 만원", place: "대전 유성구", views: 102, dealer: "개인판매자 이서진", stock: 1, posted: "41분 전", photos: 15 },
+  { id: 104, maker: "BMW", modelGroup: "X1", sellerType: "개인", image: "cars/bmw/x1.webp", imageFit: "contain", title: "BMW X1 xDrive20i", trim: "M 스포츠", specs: ["23년07월", "18,050km", "가솔린", "흰색시트"], price: "5,450 만원", place: "대전 유성구", views: 102, dealer: "개인판매자", stock: 1, posted: "41분 전", photos: 15 },
   { id: 105, maker: "BMW", modelGroup: "5시리즈", sellerType: "딜러", image: "cars/bmw/5-series.webp", imageFit: "contain", title: "BMW 5시리즈 530i", trim: "M 스포츠", specs: ["24년03월", "9,820km", "가솔린", "남색"], price: "7,640 만원", place: "서울 성동구 · 성수 전시장", views: 328, dealer: "한독모터스 오세훈 딜러", stock: 18, posted: "9분 전", photos: 27 },
   { id: 106, maker: "BMW", modelGroup: "5시리즈", sellerType: "딜러", image: "cars/bmw/5-series.webp", imageFit: "contain", title: "BMW 5시리즈 520i", trim: "럭셔리", specs: ["22년11월", "29,600km", "가솔린", "남색"], price: "5,750 만원", place: "광주 서구 · BMW 인증센터", views: 165, dealer: "코오롱모터스 한소희 딜러", stock: 11, posted: "53분 전", photos: 17 },
   { id: 107, maker: "BMW", modelGroup: "X3", sellerType: "딜러", image: "cars/bmw/x3.webp", imageFit: "contain", title: "BMW X3 xDrive20i", trim: "M 스포츠 프로", specs: ["24년02월", "14,390km", "가솔린", "갈색"], price: "7,180 만원", place: "경기 수원시 · BMW 프리미엄 셀렉션", views: 287, dealer: "내쇼날모터스 정우성 딜러", stock: 7, posted: "4분 전", photos: 23 },
-  { id: 108, maker: "BMW", modelGroup: "X3", sellerType: "개인", image: "cars/bmw/x3.webp", imageFit: "contain", title: "BMW X3 xDrive30e", trim: "M 스포츠", specs: ["22년08월", "41,200km", "플러그인 하이브리드", "갈색"], price: "5,980 만원", place: "울산 남구", views: 119, dealer: "개인판매자 김하늘", stock: 1, posted: "1시간 전", photos: 14 },
+  { id: 108, maker: "BMW", modelGroup: "X3", sellerType: "개인", image: "cars/bmw/x3.webp", imageFit: "contain", title: "BMW X3 xDrive30e", trim: "M 스포츠", specs: ["22년08월", "41,200km", "플러그인 하이브리드", "갈색"], price: "5,980 만원", place: "울산 남구", views: 119, dealer: "개인판매자", stock: 1, posted: "1시간 전", photos: 14 },
   { id: 109, maker: "BMW", modelGroup: "1시리즈", sellerType: "딜러", image: "cars/bmw/1-series.webp", imageFit: "contain", title: "BMW 1시리즈 120i", trim: "M 스포츠", specs: ["23년05월", "25,900km", "가솔린", "흰색시트"], price: "3,890 만원", place: "인천 남동구 · BMW 인증센터", views: 148, dealer: "바바리안모터스 장민호 딜러", stock: 13, posted: "14분 전", photos: 18 },
-  { id: 110, maker: "BMW", modelGroup: "1시리즈", sellerType: "개인", image: "cars/bmw/1-series.webp", imageFit: "contain", title: "BMW 1시리즈 M135i", trim: "xDrive", specs: ["22년06월", "33,100km", "가솔린", "흰색시트"], price: "4,320 만원", place: "경남 창원시", views: 202, dealer: "개인판매자 최은지", stock: 1, posted: "2시간 전", photos: 20 },
+  { id: 110, maker: "BMW", modelGroup: "1시리즈", sellerType: "개인", image: "cars/bmw/1-series.webp", imageFit: "contain", title: "BMW 1시리즈 M135i", trim: "xDrive", specs: ["22년06월", "33,100km", "가솔린", "흰색시트"], price: "4,320 만원", place: "경남 창원시", views: 202, dealer: "개인판매자", stock: 1, posted: "2시간 전", photos: 20 },
 ];
 
 const benzCars: Car[] = [
   { id: 201, maker: "벤츠", modelGroup: "E클래스", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 E클래스 E 300 4MATIC", trim: "AMG Line", specs: ["23년06월", "18,420km", "가솔린", "흰색시트"], price: "8,420 만원", place: "서울 강남구 · 한성자동차", views: 128, dealer: "스타모터스 이준호 딜러", stock: 12, posted: "3분 전", photos: 14 },
   { id: 202, maker: "벤츠", modelGroup: "E클래스", sellerType: "개인", image: "cars/thumbnail.png", title: "벤츠 E클래스 E 220 d 4MATIC", trim: "Exclusive", specs: ["22년02월", "36,700km", "디젤", "흰색시트"], price: "5,480 만원", place: "인천 연수구", views: 96, dealer: "개인판매자", stock: 1, posted: "18분 전", photos: 11 },
   { id: 203, maker: "벤츠", modelGroup: "S클래스", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 S클래스 S 450 4MATIC", trim: "Long", specs: ["23년11월", "11,840km", "가솔린", "검정색"], price: "16,900 만원", place: "서울 서초구 · 더클래스 효성", views: 342, dealer: "효성프리미어모터스 박정우 딜러", stock: 7, posted: "7분 전", photos: 24 },
-  { id: 204, maker: "벤츠", modelGroup: "S클래스", sellerType: "개인", image: "cars/thumbnail.png", title: "벤츠 S클래스 S 580 e 4MATIC", trim: "Long", specs: ["22년09월", "28,100km", "플러그인 하이브리드", "회색시트"], price: "14,700 만원", place: "경기 성남시", views: 207, dealer: "개인판매자 김도현", stock: 1, posted: "32분 전", photos: 18 },
+  { id: 204, maker: "벤츠", modelGroup: "S클래스", sellerType: "개인", image: "cars/thumbnail.png", title: "벤츠 S클래스 S 580 e 4MATIC", trim: "Long", specs: ["22년09월", "28,100km", "플러그인 하이브리드", "회색시트"], price: "14,700 만원", place: "경기 성남시", views: 207, dealer: "개인판매자", stock: 1, posted: "32분 전", photos: 18 },
   { id: 205, maker: "벤츠", modelGroup: "GLC클래스", sellerType: "딜러", image: "detail/raw-18.jpeg", title: "벤츠 GLC클래스 GLC 300 4MATIC", trim: "AMG Line", specs: ["24년01월", "9,760km", "가솔린", "흰색시트"], price: "7,950 만원", place: "부산 해운대구 · 벤츠 인증중고차", views: 255, dealer: "스타자동차 김민석 딜러", stock: 9, posted: "11분 전", photos: 21 },
-  { id: 206, maker: "벤츠", modelGroup: "GLC클래스", sellerType: "개인", image: "detail/raw-18.jpeg", title: "벤츠 GLC클래스 GLC 220 d 4MATIC", trim: "Avantgarde", specs: ["21년08월", "44,200km", "디젤", "흰색시트"], price: "4,890 만원", place: "대전 유성구", views: 154, dealer: "개인판매자 이서연", stock: 1, posted: "46분 전", photos: 13 },
+  { id: 206, maker: "벤츠", modelGroup: "GLC클래스", sellerType: "개인", image: "detail/raw-18.jpeg", title: "벤츠 GLC클래스 GLC 220 d 4MATIC", trim: "Avantgarde", specs: ["21년08월", "44,200km", "디젤", "흰색시트"], price: "4,890 만원", place: "대전 유성구", views: 154, dealer: "개인판매자", stock: 1, posted: "46분 전", photos: 13 },
   { id: 207, maker: "벤츠", modelGroup: "GLE클래스", sellerType: "딜러", image: "detail/raw-18.jpeg", title: "벤츠 GLE클래스 GLE 450 4MATIC", trim: "AMG Line", specs: ["23년04월", "22,600km", "가솔린", "흰색시트"], price: "11,900 만원", place: "경기 수원시 · 벤츠 인증중고차", views: 319, dealer: "모터원 이재훈 딜러", stock: 15, posted: "5분 전", photos: 27 },
-  { id: 208, maker: "벤츠", modelGroup: "GLE클래스", sellerType: "개인", image: "detail/raw-18.jpeg", title: "벤츠 GLE클래스 GLE 300 d 4MATIC", trim: "Premium", specs: ["22년12월", "31,300km", "디젤", "흰색시트"], price: "8,780 만원", place: "광주 서구", views: 181, dealer: "개인판매자 최윤아", stock: 1, posted: "1시간 전", photos: 17 },
+  { id: 208, maker: "벤츠", modelGroup: "GLE클래스", sellerType: "개인", image: "detail/raw-18.jpeg", title: "벤츠 GLE클래스 GLE 300 d 4MATIC", trim: "Premium", specs: ["22년12월", "31,300km", "디젤", "흰색시트"], price: "8,780 만원", place: "광주 서구", views: 181, dealer: "개인판매자", stock: 1, posted: "1시간 전", photos: 17 },
   { id: 209, maker: "벤츠", modelGroup: "C클래스", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 C클래스 C 300 4MATIC", trim: "AMG Line", specs: ["24년02월", "7,900km", "가솔린", "흰색시트"], price: "6,480 만원", place: "서울 성동구 · KCC오토", views: 223, dealer: "KCC오토 장현수 딜러", stock: 11, posted: "9분 전", photos: 20 },
-  { id: 210, maker: "벤츠", modelGroup: "C클래스", sellerType: "개인", image: "cars/thumbnail.png", title: "벤츠 C클래스 C 200 Avantgarde", trim: "Avantgarde", specs: ["22년05월", "29,400km", "가솔린", "흰색시트"], price: "4,350 만원", place: "경남 창원시", views: 117, dealer: "개인판매자 박지민", stock: 1, posted: "2시간 전", photos: 12 },
+  { id: 210, maker: "벤츠", modelGroup: "C클래스", sellerType: "개인", image: "cars/thumbnail.png", title: "벤츠 C클래스 C 200 Avantgarde", trim: "Avantgarde", specs: ["22년05월", "29,400km", "가솔린", "흰색시트"], price: "4,350 만원", place: "경남 창원시", views: 117, dealer: "개인판매자", stock: 1, posted: "2시간 전", photos: 12 },
 ];
+
+const inventoryCars = [...defaultCars, ...bmwCars, ...benzCars];
 
 function shuffleCars(source: Car[]) {
   const shuffled = [...source];
@@ -207,7 +226,7 @@ function Icon({ name, className = "" }: { name: string; className?: string }) {
   return <img className={`ui-icon ${className}`} src={asset(`ui/${name}`)} alt="" aria-hidden="true" draggable={false} />;
 }
 
-function Header({ query, setQuery, searchSaved, onToggleSearchSaved }: { query: string; setQuery: (query: string) => void; searchSaved: boolean; onToggleSearchSaved: () => void }) {
+function Header({ query, setQuery, searchSaved, onToggleSearchSaved, onOpenFavorites }: { query: string; setQuery: (query: string) => void; searchSaved: boolean; onToggleSearchSaved: () => void; onOpenFavorites: () => void }) {
   const keyboard = useKeyboard();
 
   return (
@@ -219,7 +238,7 @@ function Header({ query, setQuery, searchSaved, onToggleSearchSaved }: { query: 
         <span className="search-divider" />
         <button type="button" className={`search-save${searchSaved ? " is-saved" : ""}`} aria-label={searchSaved ? "저장한 검색 조건 삭제" : "검색 조건 저장"} aria-pressed={searchSaved} onPointerDown={(event) => event.preventDefault()} onClick={onToggleSearchSaved}>{searchSaved ? <BookmarkFilledIcon /> : <Icon name="bookmark.svg" />}</button>
       </label>
-      <button className="icon-button" type="button" aria-label="찜한 차량"><Icon name="heart.svg" /></button>
+      <button className="icon-button" type="button" aria-label="저장한 매물 열기" onClick={onOpenFavorites}><Icon name="heart.svg" /></button>
       <button className="icon-button" type="button" aria-label="메시지"><Icon name="message.svg" /></button>
     </header>
   );
@@ -234,6 +253,7 @@ function FilterChip({ label, icon, active, onClick }: { label: string; icon?: st
 }
 
 function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; cardView: boolean; liked: boolean; onToggleLike: () => void; onOpen: () => void }) {
+  const displayedSeller = sellerLabel(car);
   const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -258,9 +278,9 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
           <p className="location-line"><Icon name="location-gray.svg" />{car.place}<span className="dot">·</span><Icon name="views.svg" />{car.views}</p>
           <div className="dealer-line">
             <img className="dealer-avatar" src={asset("cars/dealer.png")} alt="" aria-hidden="true" draggable={false} />
-              <p><strong>{car.dealer}</strong><span>· 판매중 <b>{car.stock}대</b></span></p>
-            {cardView ? <div className="card-contact-actions"><button type="button" aria-label={`${car.dealer} 전화`} onClick={(event) => event.stopPropagation()}><Icon name="card-call.svg" /></button><button type="button" aria-label={`${car.dealer} 메시지`} onClick={(event) => event.stopPropagation()}><Icon name="card-message.svg" /></button></div> : null}
-            <button className={`like-button${liked ? " is-liked" : ""}`} type="button" aria-label={`${car.title} 찜하기`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}><Icon name={cardView ? "card-heart.svg" : "heart-outline.svg"} /></button>
+              <p><strong>{displayedSeller}</strong><span>· 판매중 <b>{car.stock}대</b></span></p>
+            {cardView ? <div className="card-contact-actions"><button type="button" aria-label={`${displayedSeller} 전화`} onClick={(event) => event.stopPropagation()}><Icon name="card-call.svg" /></button><button type="button" aria-label={`${displayedSeller} 메시지`} onClick={(event) => event.stopPropagation()}><Icon name="card-message.svg" /></button></div> : null}
+            <button className={`like-button${liked ? " is-liked" : ""}`} type="button" aria-label={`${car.title} ${liked ? "저장 해제" : "저장"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>{liked ? <HeartFilledIcon /> : <HeartIcon />}</button>
           </div>
         </div>
       </div>
@@ -303,8 +323,47 @@ function RegionSheet({ value, onChange, onClose, onConfirm }: { value: RegionSel
   );
 }
 
+function SavedListingsHeader() {
+  const flow = useFlow();
+  return (
+    <header className="saved-header">
+      <button type="button" aria-label="중고차 목록으로 돌아가기" onClick={() => flow.pop()}><Icon name="back.svg" /></button>
+      <h1>저장한 매물</h1>
+      <span aria-hidden="true" />
+    </header>
+  );
+}
+
+function SavedListingsScreen() {
+  const flow = useFlow();
+  const { likedIds, toggleLiked } = useFavorites();
+  const [activeTab, setActiveTab] = useState<"listings" | "videos">("listings");
+  const savedCars = inventoryCars.filter((car) => likedIds.includes(car.id));
+
+  return (
+    <MobileScroll className="saved-screen">
+      <main className="saved-listings" aria-label="저장한 매물">
+        <div className="saved-tabs" role="tablist" aria-label="저장 항목 유형">
+          <button type="button" role="tab" aria-selected={activeTab === "listings"} className={activeTab === "listings" ? "is-selected" : ""} onClick={() => setActiveTab("listings")}>매물 ({savedCars.length}/100)</button>
+          <button type="button" role="tab" aria-selected={activeTab === "videos"} className={activeTab === "videos" ? "is-selected" : ""} onClick={() => setActiveTab("videos")}>동영상 (0/100)</button>
+        </div>
+        {activeTab === "listings" && savedCars.length ? <section className="saved-car-list" aria-live="polite">
+          {savedCars.map((car) => (
+            <article key={car.id} className="saved-car-row" role="link" tabIndex={0} aria-label={`${car.title} 상세 보기`} onClick={() => flow.push(detailScreen)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); flow.push(detailScreen); } }}>
+              <img className={`saved-car-photo${car.imageFit === "contain" ? " is-catalog" : ""}`} src={asset(car.image)} alt={`${car.title} ${car.trim}`} draggable={false} />
+              <div className="saved-car-copy"><h2>{car.title}</h2><p>{car.trim} · {car.specs[0]} · {car.specs[3]}</p><strong>{car.price.replace(" ", "")}</strong></div>
+              <button type="button" className="saved-like-button" aria-label={`${car.title} 저장 해제`} aria-pressed="true" onClick={(event) => { event.stopPropagation(); toggleLiked(car.id); }}><HeartFilledIcon /></button>
+            </article>
+          ))}
+        </section> : <div className="saved-empty"><HeartIcon /><strong>{activeTab === "listings" ? "저장한 매물이 없어요" : "저장한 동영상이 없어요"}</strong><p>{activeTab === "listings" ? "목록에서 하트를 눌러 관심 매물을 모아보세요." : "마음에 드는 매물 영상을 저장해보세요."}</p></div>}
+      </main>
+    </MobileScroll>
+  );
+}
+
 function MarketplaceScreen() {
   const flow = useFlow();
+  const { likedIds, toggleLiked } = useFavorites();
   const [query, setQuery] = useState("");
   const [sellerType, setSellerType] = useState<SellerType>("전체");
   const [maker, setMaker] = useState<string | null>(null);
@@ -312,7 +371,6 @@ function MarketplaceScreen() {
   const [sort, setSort] = useState("최신순");
   const [cardView, setCardView] = useState(false);
   const [videoOnly, setVideoOnly] = useState(false);
-  const [liked, setLiked] = useState<number[]>([]);
   const [selectedModel, setSelectedModel] = useState<string | null>(null);
   const [shuffledCars, setShuffledCars] = useState<Car[]>(() => shuffleCars(defaultCars));
   const [region, setRegion] = useState<RegionSelection>(emptyRegion);
@@ -372,7 +430,7 @@ function MarketplaceScreen() {
     <>
       <MobileScroll className="app-screen">
         <main className="marketplace" aria-label="중고차 리스트">
-          <Header query={query} setQuery={setQuery} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} />
+          <Header query={query} setQuery={setQuery} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} />
           <section className="region-bar" aria-label="지역 선택">
             <button type="button" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={openRegionSheet}><Icon name="location-blue.svg" /><span className="region-label">지역:</span><strong>{regionLabel}</strong><Icon name="region-chevron.svg" /></button>
             <button type="button" className="reset-button" onClick={resetFilters}>초기화</button>
@@ -416,7 +474,7 @@ function MarketplaceScreen() {
             </div>
           </nav>
           <section className="car-list" aria-live="polite">
-            {visibleCars.length ? visibleCars.map((car) => <CarCard key={car.id} car={car} cardView={cardView} liked={liked.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => setLiked((current) => current.includes(car.id) ? current.filter((id) => id !== car.id) : [...current, car.id])} />) : (
+            {visibleCars.length ? visibleCars.map((car) => <CarCard key={car.id} car={car} cardView={cardView} liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} />) : (
               <div className="empty-state"><strong>조건에 맞는 차량이 없어요</strong><span>필터를 초기화하고 다시 찾아보세요.</span><button type="button" onClick={resetFilters}>필터 초기화</button></div>
             )}
           </section>
@@ -614,7 +672,7 @@ function WarrantyCard() {
 function SellerCard() {
   return (
     <section className="detail-card seller-card">
-      <div className="seller-profile"><img src={asset("detail/raw-10.jpeg")} alt="한강모터스 박성수 딜러" /><div><h2>한강모터스 박성수 <span>딜러</span></h2><p><b>10대</b> 판매완료 · <b>5대</b> 판매중</p><p>● 서울 서초구 오토갤러리</p></div></div>
+      <div className="seller-profile"><img src={asset("detail/raw-10.jpeg")} alt="한강모터스 박성수" /><div><h2>한강모터스 박성수</h2><p><b>10대</b> 판매완료 · <b>5대</b> 판매중</p><p>● 서울 서초구 오토갤러리</p></div></div>
       <dl className="detail-rows"><div><dt>종사원번호</dt><dd>SE25-00585 <u>상사/조합정보</u></dd></div><div><dt>매매유형</dt><dd>매매알선(소속 상사 매물)</dd></div></dl>
     </section>
   );
@@ -681,7 +739,7 @@ function VehicleDetail() {
         </main>
       </MobileScroll>
       {toast ? <div className="detail-toast" role="status">{toast}</div> : null}
-      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && setSheet(null)} title={sheet === "priceHistory" ? "가격 변동 내역" : sheet === "more" ? "매물 더보기" : "딜러 상담"} description={sheet === "priceHistory" ? undefined : sheet === "more" ? "원하는 작업을 선택하세요." : "한강모터스 박성수 딜러에게 문의할 수 있어요."} snap={sheet === "priceHistory" ? 0.75 : 0.42}>
+      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && setSheet(null)} title={sheet === "priceHistory" ? "가격 변동 내역" : sheet === "more" ? "매물 더보기" : "판매자 상담"} description={sheet === "priceHistory" ? undefined : sheet === "more" ? "원하는 작업을 선택하세요." : "한강모터스 박성수에게 문의할 수 있어요."} snap={sheet === "priceHistory" ? 0.75 : 0.42}>
         {sheet === "priceHistory" ? <PriceHistorySheet onClose={() => setSheet(null)} /> : <div className="detail-sheet-actions">
           {sheet === "more" ? <><button type="button" onClick={() => { notify("매물 신고를 선택했어요"); setSheet(null); }}>허위매물 신고</button><button type="button" onClick={() => { notify("판매자를 차단했어요"); setSheet(null); }}>판매자 차단</button><button type="button" onClick={() => setSheet(null)}>취소</button></> : <><a href="tel:05062469261"><MobileIcon /> 050-6246-9261 전화하기</a><button type="button" onClick={() => { notify("상담 요청을 보냈어요"); setSheet(null); }}>문자로 상담 요청</button><button type="button" onClick={() => setSheet(null)}>닫기</button></>}
         </div>}
@@ -702,9 +760,10 @@ function DetailFooter() {
 }
 
 const listScreen: FlowScreen = { id: "marketplace", render: () => <MarketplaceScreen /> };
+const savedListingsScreen: FlowScreen = { id: "saved-listings", header: () => <SavedListingsHeader />, headerHeight: 58, render: () => <SavedListingsScreen /> };
 const detailScreen: FlowScreen = { id: "vehicle-detail", footer: () => <DetailFooter />, footerHeight: 56, render: () => <VehicleDetail /> };
 
 export default function Prototype() {
-  return <DetailUiProvider><FlowStack initial={listScreen} /></DetailUiProvider>;
+  return <FavoritesProvider><DetailUiProvider><FlowStack initial={listScreen} /></DetailUiProvider></FavoritesProvider>;
 }
 
