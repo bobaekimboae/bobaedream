@@ -295,7 +295,7 @@ function MarketplaceScreen() {
             <FilterChip label="가격" onClick={() => setSheet("price")} />
           </Carousel>
           <section className={`brand-row${maker === "BMW" ? " is-model-mode" : ""}`} aria-label={maker === "BMW" ? "BMW 모델 빠른 선택" : "제조사 빠른 선택"}>
-            <span className="brand-title">{maker === "BMW" ? "BMW" : "제조사"}</span>
+            <span className="brand-title">{maker === "BMW" ? "모델" : "제조사"}</span>
             <Carousel ariaLabel={maker === "BMW" ? "BMW 모델" : "제조사"} className="brand-carousel" contentClassName={maker === "BMW" ? "bmw-model-track" : "brand-track"}>
               {maker === "BMW" ? bmwModels.map((model) => (
                 <button key={model.name} className={`bmw-model-card${selectedBmwModel === model.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedBmwModel === model.name} onClick={() => chooseBmwModel(model.name)}>

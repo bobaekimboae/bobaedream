@@ -73,3 +73,4 @@ When any text-entry control loses focus, dismiss the simulated keyboard. If the 
 ## Prototype-Specific Design Decisions
 
 - In BMW model-selection mode on the 393 px iPhone viewport, keep four model cards fully visible and show the fifth card partially at the right edge to communicate horizontal scrolling.
+- Label the BMW model-selection rail as `모델` and vertically center that label against the full rail height.
