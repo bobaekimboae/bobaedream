@@ -80,7 +80,6 @@ button { color: inherit; }
 .car-card:focus-visible { box-shadow: inset 0 0 0 2px var(--blue); }
 .car-card:active { background: #f8f8f8; }
 .car-card:nth-child(2) { min-height: 226px; }
-.car-card.is-compact { min-height: 174px; padding-bottom: 12px; }
 .car-photo-wrap { position: relative; width: 130px; height: 128px; overflow: hidden; border-radius: 12px; background: #edf1f4; }
 .car-photo { display: block; width: 100%; height: 100%; object-fit: cover; }
 .car-photo.is-catalog { padding: 6px; box-sizing: border-box; background: #fff; object-fit: contain; }
@@ -105,6 +104,36 @@ button { color: inherit; }
 .like-button .ui-icon { width: 20px; height: 20px; }
 .like-button.is-liked { border-radius: 50%; background: #fff0f4; }
 .like-button.is-liked .ui-icon { filter: invert(32%) sepia(68%) saturate(2012%) hue-rotate(316deg) brightness(93%) contrast(94%); }
+
+/* Full-width card view */
+.car-card.is-card-view, .car-card.is-card-view:nth-child(2) { display: block; min-height: 0; padding: 12px 0 16px; }
+.car-card.is-card-view .car-photo-wrap { width: calc(100% - 32px); height: auto; aspect-ratio: 380 / 220; margin: 0 16px; border-radius: 12px; background: #b9b9b9; }
+.car-card.is-card-view .car-photo { object-fit: cover; }
+.car-card.is-card-view .car-photo.is-catalog { padding: 0; background: #fff; object-fit: contain; }
+.card-photo-meta { position: absolute; right: 0; bottom: 0; left: 0; display: flex; align-items: center; justify-content: space-between; height: 40px; padding: 16px 8px 8px; box-sizing: border-box; background: linear-gradient(transparent, rgba(0,0,0,.55)); color: #fff; font-size: 11px; font-weight: 600; line-height: 14px; }
+.card-photo-meta span { display: flex; align-items: center; gap: 2px; }
+.card-photo-meta .ui-icon { width: 12px; height: 12px; }
+.car-card.is-card-view .car-copy { gap: 20px; padding: 0 16px; }
+.car-card.is-card-view .car-main { padding-top: 0; }
+.card-title-row { display: grid; grid-template-columns: minmax(0, 1fr) 24px; gap: 4px; align-items: start; }
+.card-title-row h2 { display: -webkit-box; overflow: hidden; font-size: 17px; line-height: 24px; letter-spacing: -.2px; text-overflow: unset; white-space: normal; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.card-title-row button, .card-contact-actions button { display: grid; place-items: center; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.card-title-row button { width: 24px; height: 24px; }
+.card-title-row svg { width: 24px; height: 24px; }
+.car-card.is-card-view .specs { margin-top: 6px !important; font-size: 15px; line-height: 20px; }
+.car-card.is-card-view .price { margin-top: 4px !important; font-size: 17px; line-height: 24px; }
+.car-card.is-card-view .badges { margin-top: 2px; }
+.car-card.is-card-view .car-footer { gap: 2px; }
+.car-card.is-card-view .location-line { height: 18px; }
+.car-card.is-card-view .location-line .ui-icon { width: 14px; height: 14px; }
+.car-card.is-card-view .dealer-line { grid-template-columns: 26px minmax(0, 1fr) auto 24px; gap: 12px; min-height: 35px; }
+.car-card.is-card-view .dealer-avatar { width: 26px; height: 26px; }
+.car-card.is-card-view .dealer-line p { white-space: normal; }
+.car-card.is-card-view .dealer-line strong { display: block; height: 18px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.card-contact-actions { display: flex; align-items: center; gap: 24px; }
+.card-contact-actions button { width: 20px; height: 24px; }
+.card-contact-actions .ui-icon { width: 20px; height: 20px; }
+.car-card.is-card-view .like-button { width: 24px; height: 24px; margin: 0; }
 
 .empty-state { display: flex; min-height: 280px; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: #767676; font-size: 14px; }
 .empty-state strong { color: var(--ink); font-size: 16px; }

@@ -221,7 +221,7 @@ function FilterChip({ label, icon, active, onClick }: { label: string; icon?: st
   );
 }
 
-function CarCard({ car, compact, liked, onToggleLike, onOpen }: { car: Car; compact: boolean; liked: boolean; onToggleLike: () => void; onOpen: () => void }) {
+function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; cardView: boolean; liked: boolean; onToggleLike: () => void; onOpen: () => void }) {
   const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -230,13 +230,15 @@ function CarCard({ car, compact, liked, onToggleLike, onOpen }: { car: Car; comp
   };
 
   return (
-    <article className={`car-card${compact ? " is-compact" : ""}`} role="link" tabIndex={0} aria-label={`${car.title} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
+    <article className={`car-card${cardView ? " is-card-view" : ""}`} role="link" tabIndex={0} aria-label={`${car.title} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
       <div className="car-photo-wrap">
         <img className={`car-photo${car.imageFit === "contain" ? " is-catalog" : ""}`} src={asset(car.image)} alt={`${car.title} ${car.trim} 차량, ${car.posted}, 사진 ${car.photos}장`} draggable={false} />
+        {cardView ? <div className="card-photo-meta"><span>{car.posted}</span><span>{car.photos}<Icon name="photo-count.svg" /></span></div> : null}
       </div>
       <div className="car-copy">
         <div className="car-main">
-          <h2>{car.title}</h2><p className="trim">{car.trim}</p><p className="specs">{car.specs.join(" · ")}</p>
+          {cardView ? <div className="card-title-row"><h2>{car.title} {car.trim}</h2><button type="button" aria-label={`${car.title} 더보기`} onClick={(event) => event.stopPropagation()}><Icon name="card-more.svg" /></button></div> : <><h2>{car.title}</h2><p className="trim">{car.trim}</p></>}
+          <p className="specs">{car.specs.join(" · ")}</p>
           <p className="price">{car.price}</p>{car.lease ? <p className="lease">{car.lease}</p> : null}
           <div className="badges"><span>인증중고차</span><span>1년 보증</span></div>
         </div>
@@ -245,7 +247,8 @@ function CarCard({ car, compact, liked, onToggleLike, onOpen }: { car: Car; comp
           <div className="dealer-line">
             <img className="dealer-avatar" src={asset("cars/dealer.png")} alt="" aria-hidden="true" draggable={false} />
             <p><strong>{car.dealer}</strong> · 판매중 <b>{car.stock}대</b></p>
-            <button className={`like-button${liked ? " is-liked" : ""}`} type="button" aria-label={`${car.title} 찜하기`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}><Icon name="heart-outline.svg" /></button>
+            {cardView ? <div className="card-contact-actions"><button type="button" aria-label={`${car.dealer} 전화`} onClick={(event) => event.stopPropagation()}><Icon name="card-call.svg" /></button><button type="button" aria-label={`${car.dealer} 메시지`} onClick={(event) => event.stopPropagation()}><Icon name="card-message.svg" /></button></div> : null}
+            <button className={`like-button${liked ? " is-liked" : ""}`} type="button" aria-label={`${car.title} 찜하기`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}><Icon name={cardView ? "card-heart.svg" : "heart-outline.svg"} /></button>
           </div>
         </div>
       </div>
@@ -260,7 +263,7 @@ function MarketplaceScreen() {
   const [maker, setMaker] = useState<string | null>(null);
   const [sheet, setSheet] = useState<SheetType>(null);
   const [sort, setSort] = useState("최신순");
-  const [compact, setCompact] = useState(false);
+  const [cardView, setCardView] = useState(false);
   const [videoOnly, setVideoOnly] = useState(false);
   const [liked, setLiked] = useState<number[]>([]);
   const [selectedModel, setSelectedModel] = useState<string | null>(null);
@@ -337,11 +340,11 @@ function MarketplaceScreen() {
             </div>
             <div className="sort-controls">
               <button type="button" className="sort-button" onClick={() => setSheet("sort")}>{sort}<Icon name="sort-arrow.svg" /></button><span className="toolbar-divider" />
-              <button type="button" className={`density-button${compact ? " is-active" : ""}`} aria-label="목록 간격 전환" aria-pressed={compact} onClick={() => setCompact((value) => !value)}><Icon name="list.svg" /></button>
+              <button type="button" className={`density-button${cardView ? " is-active" : ""}`} aria-label={cardView ? "목록형 보기로 전환" : "카드형 보기로 전환"} aria-pressed={cardView} onClick={() => setCardView((value) => !value)}><Icon name="list.svg" /></button>
             </div>
           </nav>
           <section className="car-list" aria-live="polite">
-            {visibleCars.length ? visibleCars.map((car) => <CarCard key={car.id} car={car} compact={compact} liked={liked.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => setLiked((current) => current.includes(car.id) ? current.filter((id) => id !== car.id) : [...current, car.id])} />) : (
+            {visibleCars.length ? visibleCars.map((car) => <CarCard key={car.id} car={car} cardView={cardView} liked={liked.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => setLiked((current) => current.includes(car.id) ? current.filter((id) => id !== car.id) : [...current, car.id])} />) : (
               <div className="empty-state"><strong>조건에 맞는 차량이 없어요</strong><span>필터를 초기화하고 다시 찾아보세요.</span><button type="button" onClick={resetFilters}>필터 초기화</button></div>
             )}
           </section>
