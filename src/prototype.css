@@ -111,7 +111,6 @@ button { color: inherit; }
 .car-footer { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .location-line { display: flex; align-items: center; gap: 2px; overflow: hidden; color: #767676; font-size: 13px; line-height: 18px; text-overflow: ellipsis; white-space: nowrap; }
 .location-line .ui-icon { width: 16px; height: 16px; }
-.location-line .dot { margin: 0 2px; }
 .dealer-line { display: grid; grid-template-columns: 18px minmax(0, 1fr) 20px; align-items: center; gap: 8px; min-width: 0; }
 .dealer-avatar { width: 18px; height: 18px; border-radius: 50%; object-fit: cover; }
 .dealer-line p { display: flex; flex-wrap: wrap; column-gap: 4px; overflow: visible; color: #767676; font-size: 12px; line-height: 16px; white-space: normal; }

@@ -468,7 +468,7 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
           </div> : <><p className="price">{car.price}</p>{car.lease ? <p className="lease">{car.lease}</p> : null}{badges.length ? <div className="badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}</>}
         </div>
         <div className="car-footer">
-          <p className="location-line"><Icon name="location-gray.svg" />{car.place}{cardView ? null : <><span className="dot">·</span><Icon name="views.svg" />{car.views}</>}</p>
+          <p className="location-line"><Icon name="location-gray.svg" />{car.place}</p>
           <div className="dealer-line">
             <img className="dealer-avatar" src={asset("cars/dealer.png")} alt="" aria-hidden="true" draggable={false} />
             {cardView ? <div className="dealer-copy"><strong>{displayedSeller}</strong><p><span>판매중 <b>{car.stock}대</b></span></p></div> : <p><strong>{displayedSeller}</strong><span>· 판매중 <b>{car.stock}대</b></span></p>}

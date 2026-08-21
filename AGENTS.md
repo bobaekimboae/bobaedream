@@ -70,6 +70,7 @@ When any text-entry control loses focus, clear the keyboard context. If the cont
 ## Prototype-Specific Design Decisions
 
 - Deploy this prototype as responsive mobile web: remove all iPhone/Pixel mockup chrome and fill the browser viewport on mobile, while centering a bezel-free 430px content column on wider screens.
+- Listing location rows show only the address. Do not append a separator, views icon, or numeric view count beside it in either list or card view.
 
 - In BMW model-selection mode on the 393px mobile viewport, keep four model cards fully visible and show the fifth card partially at the right edge to communicate horizontal scrolling.
 - Label the BMW model-selection rail as `모델` and vertically center that label against the full rail height.
