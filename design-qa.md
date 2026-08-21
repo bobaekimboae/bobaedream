@@ -1,53 +1,59 @@
 # Design QA
 
-**Source visual truth**
+## Source visual truth
 
-- Figma node: `1412:158566` in file `bXm6a9oU2IlKcjv9xEum3l`
-- Local capture: `C:\Users\sungn\Documents\Codex\2026-08-21\github-plugin-github-openai-curated-remote\work\qa\figma-reference.png`
-- Source pixels: 412 × 1239, normalized to 393 px wide for comparison
+- List Figma node: `1412:158566` in file `bXm6a9oU2IlKcjv9xEum3l`.
+- Detail Figma node: `1656:8414` in the same file.
+- Detail reference: `C:\Users\sungn\Documents\Codex\2026-08-21\github-plugin-github-openai-curated-remote\work\qa\detail-reference.png`.
+- Detail source pixels: 412 × 4493, normalized to 393 px wide for the mobile-runtime comparison.
 
-**Implementation evidence**
+## Implementation evidence
 
-- Local URL: `http://localhost:4173/`
-- Screenshot: `C:\Users\sungn\Documents\Codex\2026-08-21\github-plugin-github-openai-curated-remote\work\qa\implementation-final.png`
-- Side-by-side comparison: `C:\Users\sungn\Documents\Codex\2026-08-21\github-plugin-github-openai-curated-remote\work\qa\side-by-side-final.png`
-- CSS viewport: 393 × 852, device scale factor 1
-- Implementation pixels: 393 × 852
-- State: iPhone, default filters, keyboard closed, top of list
+- Local URL: `http://localhost:4173/`.
+- Top screenshot: `C:\Users\sungn\Documents\Codex\2026-08-21\github-plugin-github-openai-curated-remote\work\qa\detail-implementation-final.png`.
+- Mid-page screenshot: `C:\Users\sungn\Documents\Codex\2026-08-21\github-plugin-github-openai-curated-remote\work\qa\detail-implementation-mid.png`.
+- Final side-by-side: `C:\Users\sungn\Documents\Codex\2026-08-21\github-plugin-github-openai-curated-remote\work\qa\detail-side-by-side-final.png`.
+- Browser viewport: 1400 × 1200 during QA; device screen measured 393 × 852 CSS px at device scale factor 1.
+- Implementation capture pixels: 393 × 852.
+- State: iPhone, detail route, photo mode, keyboard closed, top and seller/sales regions.
 
-**Findings**
+## Findings
 
 - No actionable P0, P1, or P2 differences remain.
-- Fonts and typography: Pretendard, weights, hierarchy, line heights, truncation, and Korean copy match the source. The 393 px runtime naturally has slightly less horizontal room than the 412 px source frame.
-- Spacing and layout rhythm: header, region, chip rail, 86 px brand rail, 52 px video row, tabs, and 208/226 px card rhythm align with the source. The runtime-owned iOS status area is 9 px taller than the source status bar; this is an expected mobile-runtime difference.
-- Colors and visual tokens: gray scale, navy region accent, black selected chips, pink price, dividers, and badge fills match the Figma values.
-- Image quality and asset fidelity: all visible logos, icons, avatar, and the composed 130 × 128 vehicle thumbnail use exact Figma exports. No placeholder or hand-drawn asset remains.
-- Copy and content: labels, tabs, vehicle details, pricing, location, dealer, badges, and counts match the source.
+- Fonts and typography: Pretendard family, Korean hierarchy, 18 px section headings, 14 px body copy, price emphasis, line heights, and wrapping follow the Figma source. The protected runtime uses its live device typography for the status bar.
+- Spacing and layout rhythm: the 305 px media area, summary hierarchy, gray 8 px section gaps, white 8 px cards, two-column information grid, four-column option grid, seller card, pricing card, and horizontal related-car rails match the source structure. The fixed action footer is an intentional functional treatment so the primary actions remain reachable while scrolling.
+- Colors and visual tokens: navy call-to-action, pink price, blue inspection states, white cards, `#f1f1f1` page background, gray labels, dividers, badges, and progress bars match the Figma palette.
+- Image quality and asset fidelity: hero, option icons, dealer portrait, recommended-car photos, top action icons, and phone icon use exact exported Figma assets. The hero uses `object-fit: contain` on black to preserve the source crop and side bar.
+- Copy and content: title, description, specifications, option labels, insurance and inspection data, warranty, dealer details, estimated costs, sales copy, related inventory, safety notice, and phone number match the provided design.
 
-**Focused comparison**
+## Full-view and focused comparison
 
-- Header/filter/brand region: confirmed exact source icons and matching 44/54/86 px section sizing.
-- First two vehicle cards: confirmed exact composite thumbnail crop, 130 × 128 media slot, 16 px column gap, price/badge hierarchy, and dealer footer.
+- Top full-view comparison: `detail-side-by-side-final.png` confirms the same hero composition, media controls, title wrap, metadata, badges, price, stats, card start, and information density.
+- Focused mid-page comparison: `detail-implementation-mid.png` confirms the warranty, dealer, sales-cost, secondary action, and fixed-footer regions.
+- The Figma source is a 412 px-wide long frame while the protected mobile runtime is a 393 × 852 iPhone screen. Source evidence was normalized to 393 px before judging app-owned content. The bezel, dynamic island, live clock, status-bar colors, and home indicator are template-owned and intentionally preserved.
 
-**Interaction and browser checks**
+## Interaction and browser checks
 
-- Manufacturer selection reduced the list to the matching result and reflected its pressed state.
-- Individual/dealer tabs changed the visible result set; the individual card retained lease copy.
-- Like, compact list, video-only switch, and sort controls changed state correctly.
-- Search produced an accessible empty state and reset restored the list.
-- Filter and sort sheets opened and closed correctly.
-- Browser console warnings/errors: none.
+- Tapping any list card pushes the detail route; the detail back button returns to the preserved list state.
+- Media tabs switch between photo and video states; the image rail remains horizontally draggable.
+- Header share shows feedback; the overflow menu opens and closes its action sheet.
+- Header and footer like controls stay synchronized.
+- Consultation opens the dealer-contact sheet; the phone action exposes the `tel:` link.
+- Option and insurance buttons expand and collapse their additional information.
+- Sale actions, reporting, description expansion, and related-car cards provide visible feedback.
+- Browser console errors in a clean local preview: none.
 - Runtime integrity, production build, and Sites worker tests: passed.
 
-**Comparison history**
+## Comparison history
 
-- Initial P2: the vehicle image used the correct source raster but did not preserve Figma's exact composed crop and overlays.
-- Fix: replaced the layered recreation with the exact Figma export for node `1412:190485`.
-- Post-fix evidence: `side-by-side-final.png` shows matching thumbnail composition and metadata overlay.
+- Initial P1: the hero used `object-fit: cover`, which enlarged and cropped the vehicle compared with the Figma composition.
+- Fix: switched the exported hero media to `object-fit: contain` on the black source background.
+- Initial P2: the fixed phone action used a generic rectangular phone glyph.
+- Fix: replaced it with the exact Figma call icon export.
+- Post-fix evidence: `detail-side-by-side-final.png` shows the corrected vehicle scale, source side bar, media layout, and call action.
 
-**Follow-up polish**
+## Follow-up polish
 
-- P3: the runtime uses a live status-bar time and device bezel/dynamic island, while the Figma capture has a flat 9:41 status bar. This is intentionally preserved by the protected mobile runtime.
+- P3: the protected iPhone runtime shows a live white status bar and device frame, while the Figma long frame uses a flat black 9:41 status bar. This difference is intentional and outside app-owned content.
 
 final result: passed
-
