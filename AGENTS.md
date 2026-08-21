@@ -87,4 +87,5 @@ When any text-entry control loses focus, dismiss the simulated keyboard. If the 
 - Tapping the `가격` filter opens the Figma price sheet from node `1313:139816`, with cash/lease tabs, dual price controls, eight quick ranges, draft reset, dynamic result count, and confirm-to-apply behavior. Closing the sheet discards draft changes.
 - Keep the filter control fixed at the left of the filter rail. In the default state it shows the filter icon and `필터` text; after the user horizontally swipes the condition rail, collapse it to the icon-only state. `중고차`, `제조사`, `연식`, and `가격` move inside the horizontal `Carousel` without moving the fixed filter control.
 - Manufacturer brand marks start at least 28px from the sheet's left edge.
+- The detail hero contains 24 swipeable photo slides. Keep the lower-right counter synchronized with the visible slide so the first swipe changes `1/24` to `2/24` and subsequent swipes continue through `24/24`.
 

@@ -263,7 +263,8 @@ const sheetLabels: Record<Exclude<SheetType, null>, string> = {
   filter: "상세 필터", carType: "차량 유형", maker: "제조사", year: "연식", price: "가격", region: "지역", sort: "정렬",
 };
 
-const detailPhotos = ["raw-04.png", "raw-09.jpeg", "raw-07.jpeg", "raw-20.jpeg"].map((name) => asset(`detail/${name}`));
+const detailPhotoSources = ["raw-04.png", "raw-09.jpeg", "raw-07.jpeg", "raw-20.jpeg", "raw-05.jpeg", "raw-10.jpeg", "raw-18.jpeg", "raw-19.jpeg"].map((name) => asset(`detail/${name}`));
+const detailPhotos = Array.from({ length: 24 }, (_, index) => detailPhotoSources[index % detailPhotoSources.length]);
 
 const optionItems = [
   "파노라마 선루프", "LED 헤드램프", "어댑티브 크루즈 컨트롤", "후방카메라",
@@ -739,14 +740,29 @@ function InfoGrid({ items }: { items: string[][] }) {
 function DetailHero({ onBack }: { onBack: () => void }) {
   const { setSheet, notify } = useDetailUi();
   const [media, setMedia] = useState<"video" | "photos">("photos");
+  const [photoIndex, setPhotoIndex] = useState(1);
+  const heroRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const carousel = heroRef.current?.querySelector<HTMLElement>(".detail-media-carousel");
+    const firstPhoto = carousel?.querySelector<HTMLElement>(".detail-media-track > img");
+    if (!carousel || !firstPhoto) return;
+    const updatePhotoIndex = () => {
+      const photoWidth = firstPhoto.getBoundingClientRect().width || carousel.clientWidth;
+      setPhotoIndex(Math.min(detailPhotos.length, Math.max(1, Math.round(carousel.scrollLeft / photoWidth) + 1)));
+    };
+    carousel.addEventListener("scroll", updatePhotoIndex, { passive: true });
+    updatePhotoIndex();
+    return () => carousel.removeEventListener("scroll", updatePhotoIndex);
+  }, []);
 
   return (
-    <section className="detail-hero" aria-label="차량 사진">
+    <section ref={heroRef} className="detail-hero" aria-label="차량 사진">
       <Carousel ariaLabel="차량 사진" className="detail-media-carousel" contentClassName="detail-media-track">
-        {detailPhotos.map((photo, index) => <img key={photo} src={photo} alt={`벤틀리 차량 사진 ${index + 1}`} draggable={false} />)}
+        {detailPhotos.map((photo, index) => <img key={`${photo}-${index}`} src={photo} alt={`벤틀리 차량 사진 ${index + 1}`} draggable={false} />)}
       </Carousel>
       {media === "video" ? <div className="detail-video-overlay"><button type="button" onClick={() => setMedia("photos")} aria-label="영상 일시정지"><span>▶</span><b>차량 영상 재생 중</b></button></div> : null}
-      <div className="detail-photo-count">1/24</div>
+      <div className="detail-photo-count" aria-live="polite">{photoIndex}/{detailPhotos.length}</div>
       <div className="detail-media-tabs" role="tablist" aria-label="미디어 유형">
         <button type="button" role="tab" aria-selected={media === "video"} className={media === "video" ? "is-selected" : ""} onClick={() => setMedia("video")}>영상</button>
         <button type="button" role="tab" aria-selected={media === "photos"} className={media === "photos" ? "is-selected" : ""} onClick={() => setMedia("photos")}>사진 24</button>
