@@ -456,8 +456,11 @@ button { color: inherit; }
 .price-history-pagination { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; margin-bottom: -24px; transform: translateY(-24px); }
 .price-history-pagination button { display: grid; place-items: center; width: 36px; height: 36px; flex: 0 0 36px; padding: 0; border: 0; border-radius: 50%; background: #f3f3f3; color: #3a3a3a; font-size: 14px; font-weight: 600; cursor: pointer; }
 .price-history-pagination button[aria-current="page"] { background: #1b4c8c; color: #fff; }
-.price-history-pagination button:disabled { opacity: .45; cursor: default; }
-.price-history-pagination button img { width: 18px; height: 18px; }
+.price-history-pagination button:disabled { opacity: 1; cursor: default; }
+.price-history-pagination-arrow { display: grid; place-items: center; width: 18px; height: 18px; }
+.price-history-pagination-arrow img { display: block; width: 10px; height: 6px; }
+.price-history-pagination-arrow.is-previous img { transform: rotate(90deg); }
+.price-history-pagination-arrow.is-next img { transform: rotate(-90deg); }
 .price-history-page-slot { display: flex; align-items: center; gap: 8px; }
 .price-history-ellipsis { width: 13px; height: 3px; }
 
