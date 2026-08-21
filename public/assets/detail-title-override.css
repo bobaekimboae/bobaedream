@@ -1,7 +1,18 @@
 .vehicle-title-row {
-  display: none !important;
+  display: flex !important;
 }
 
-.vehicle-summary .vehicle-lead {
-  margin-top: 0 !important;
+.vehicle-title-row h1 {
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+.vehicle-title-row h1::before {
+  content: "벤틀리 컨티넨탈 GT";
+  display: block;
+  color: #101010;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: -.36px;
 }
