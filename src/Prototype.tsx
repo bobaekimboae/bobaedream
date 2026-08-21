@@ -29,7 +29,10 @@ type DetailSheet = "contact" | "more" | "priceHistory" | null;
 type Car = {
   id: number;
   maker: string;
+  modelGroup?: string;
   sellerType: Exclude<SellerType, "전체">;
+  image: string;
+  imageFit?: "cover" | "contain";
   title: string;
   trim: string;
   specs: string[];
@@ -53,28 +56,78 @@ const brands = [
   { name: "미니", logo: asset("brand/mini.svg") },
 ];
 
-const cars: Car[] = [
+const bmwModels = [
+  { name: "3시리즈", image: asset("cars/bmw/3-series.webp") },
+  { name: "X1", image: asset("cars/bmw/x1.webp") },
+  { name: "5시리즈", image: asset("cars/bmw/5-series.webp") },
+  { name: "X3", image: asset("cars/bmw/x3.webp") },
+  { name: "1시리즈", image: asset("cars/bmw/1-series.webp") },
+];
+
+const defaultCars: Car[] = [
   {
-    id: 1, maker: "벤츠", sellerType: "딜러", title: "제네시스 G80", trim: "가솔린 2.5 터보",
-    specs: ["26년02월", "17km", "가솔린", "갈색시트"], price: "7,000 만원",
-    place: "서울 서초구 · 오토갤러리", views: 73, dealer: "한강모터스 박강산 딜러", stock: 17, posted: "1분 전", photos: 9,
+    id: 1, maker: "벤츠", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 CLS 450 4MATIC", trim: "AMG Line",
+    specs: ["23년06월", "18,420km", "가솔린", "흰색"], price: "8,420 만원",
+    place: "서울 강남구 · 도산대로", views: 128, dealer: "스타모터스 이준호 딜러", stock: 12, posted: "3분 전", photos: 14,
   },
   {
-    id: 2, maker: "벤츠", sellerType: "개인", title: "제네시스 G80", trim: "가솔린 2.5 터보",
-    specs: ["26년02월", "17km", "가솔린", "갈색시트"], price: "월 7,000 만원", lease: "/15개월 (인수금 500만원)",
-    place: "서울 서초구 · 오토갤러리", views: 73, dealer: "한강모터스 박강산 딜러", stock: 17, posted: "1분 전", photos: 9,
+    id: 2, maker: "벤츠", sellerType: "딜러", image: "detail/raw-18.jpeg", title: "벤츠 G63 AMG", trim: "매뉴팩처 프로그램",
+    specs: ["21년12월", "31,900km", "가솔린", "흰색"], price: "19,800 만원",
+    place: "경기 성남시 · 분당전시장", views: 301, dealer: "와이즈오토 김태윤 딜러", stock: 8, posted: "12분 전", photos: 22,
   },
   {
-    id: 3, maker: "BMW", sellerType: "딜러", title: "제네시스 G80", trim: "가솔린 2.5 터보",
-    specs: ["26년02월", "17km", "가솔린", "갈색시트"], price: "7,000 만원",
-    place: "서울 서초구 · 오토갤러리", views: 73, dealer: "한강모터스 박강산 딜러", stock: 17, posted: "1분 전", photos: 9,
+    id: 3, maker: "포르쉐", sellerType: "개인", image: "detail/raw-20.jpeg", title: "포르쉐 718 박스터", trim: "4.0 GTS",
+    specs: ["24년03월", "8,130km", "가솔린", "흰색"], price: "13,900 만원",
+    place: "부산 해운대구", views: 219, dealer: "개인판매자 이현우", stock: 1, posted: "24분 전", photos: 18,
   },
   {
-    id: 4, maker: "아우디", sellerType: "딜러", title: "제네시스 G80", trim: "가솔린 2.5 터보",
-    specs: ["26년02월", "17km", "가솔린", "갈색시트"], price: "7,000 만원",
-    place: "서울 서초구 · 오토갤러리", views: 73, dealer: "한강모터스 박강산 딜러", stock: 17, posted: "1분 전", photos: 9,
+    id: 4, maker: "벤틀리", sellerType: "딜러", image: "detail/raw-07.jpeg", title: "벤틀리 컨티넨탈 GT", trim: "6.0 W12",
+    specs: ["19년11월", "42,920km", "가솔린", "검정색"], price: "15,700 만원",
+    place: "서울 서초구 · 양재전시장", views: 410, dealer: "라스트라다 최민석 딜러", stock: 21, posted: "37분 전", photos: 26,
+  },
+  {
+    id: 5, maker: "벤틀리", sellerType: "개인", image: "detail/raw-04.png", title: "벤틀리 플라잉스퍼", trim: "4.0 V8 아주르",
+    specs: ["22년05월", "26,500km", "가솔린", "흰색"], price: "21,500 만원",
+    place: "대구 수성구", views: 175, dealer: "개인판매자 박서연", stock: 1, posted: "1시간 전", photos: 16,
+  },
+  {
+    id: 6, maker: "맥라렌", sellerType: "딜러", image: "detail/raw-19.jpeg", title: "맥라렌 570S 스파이더", trim: "3.8 V8",
+    specs: ["19년08월", "19,600km", "가솔린", "흰색"], price: "18,900 만원",
+    place: "서울 성동구 · 성수전시장", views: 362, dealer: "프라임카 김도윤 딜러", stock: 15, posted: "2시간 전", photos: 24,
+  },
+  {
+    id: 7, maker: "롤스로이스", sellerType: "딜러", image: "detail/raw-05.jpeg", title: "롤스로이스 팬텀", trim: "6.7 V12 EWB",
+    specs: ["13년09월", "54,200km", "가솔린", "회색"], price: "27,000 만원",
+    place: "서울 서초구 · 오토갤러리", views: 508, dealer: "더클래스 윤성호 딜러", stock: 6, posted: "어제", photos: 31,
+  },
+  {
+    id: 8, maker: "벤츠", sellerType: "개인", image: "cars/thumbnail.png", title: "벤츠 E 300 4MATIC", trim: "아방가르드",
+    specs: ["22년02월", "36,700km", "가솔린", "흰색"], price: "5,480 만원",
+    place: "인천 연수구", views: 96, dealer: "개인판매자 정유진", stock: 1, posted: "어제", photos: 11,
   },
 ];
+
+const bmwCars: Car[] = [
+  { id: 101, maker: "BMW", modelGroup: "3시리즈", sellerType: "딜러", image: "cars/bmw/3-series.webp", imageFit: "contain", title: "BMW 3시리즈 320i", trim: "M 스포츠 프로", specs: ["23년09월", "21,430km", "가솔린", "검정색"], price: "5,390 만원", place: "서울 강남구 · BMW 인증센터", views: 184, dealer: "도이치모터스 김재현 딜러", stock: 14, posted: "2분 전", photos: 19 },
+  { id: 102, maker: "BMW", modelGroup: "3시리즈", sellerType: "개인", image: "cars/bmw/3-series.webp", imageFit: "contain", title: "BMW 3시리즈 330e", trim: "M 스포츠", specs: ["22년04월", "34,800km", "플러그인 하이브리드", "검정색"], price: "4,850 만원", place: "경기 고양시", views: 137, dealer: "개인판매자 강민준", stock: 1, posted: "18분 전", photos: 12 },
+  { id: 103, maker: "BMW", modelGroup: "X1", sellerType: "딜러", image: "cars/bmw/x1.webp", imageFit: "contain", title: "BMW X1 sDrive20i", trim: "xLine", specs: ["24년01월", "12,700km", "가솔린", "흰색"], price: "5,120 만원", place: "부산 해운대구 · BMW 프리미엄 셀렉션", views: 211, dealer: "동성모터스 박지훈 딜러", stock: 9, posted: "6분 전", photos: 21 },
+  { id: 104, maker: "BMW", modelGroup: "X1", sellerType: "개인", image: "cars/bmw/x1.webp", imageFit: "contain", title: "BMW X1 xDrive20i", trim: "M 스포츠", specs: ["23년07월", "18,050km", "가솔린", "흰색"], price: "5,450 만원", place: "대전 유성구", views: 102, dealer: "개인판매자 이서진", stock: 1, posted: "41분 전", photos: 15 },
+  { id: 105, maker: "BMW", modelGroup: "5시리즈", sellerType: "딜러", image: "cars/bmw/5-series.webp", imageFit: "contain", title: "BMW 5시리즈 530i", trim: "M 스포츠", specs: ["24년03월", "9,820km", "가솔린", "남색"], price: "7,640 만원", place: "서울 성동구 · 성수 전시장", views: 328, dealer: "한독모터스 오세훈 딜러", stock: 18, posted: "9분 전", photos: 27 },
+  { id: 106, maker: "BMW", modelGroup: "5시리즈", sellerType: "딜러", image: "cars/bmw/5-series.webp", imageFit: "contain", title: "BMW 5시리즈 520i", trim: "럭셔리", specs: ["22년11월", "29,600km", "가솔린", "남색"], price: "5,750 만원", place: "광주 서구 · BMW 인증센터", views: 165, dealer: "코오롱모터스 한소희 딜러", stock: 11, posted: "53분 전", photos: 17 },
+  { id: 107, maker: "BMW", modelGroup: "X3", sellerType: "딜러", image: "cars/bmw/x3.webp", imageFit: "contain", title: "BMW X3 xDrive20i", trim: "M 스포츠 프로", specs: ["24년02월", "14,390km", "가솔린", "갈색"], price: "7,180 만원", place: "경기 수원시 · BMW 프리미엄 셀렉션", views: 287, dealer: "내쇼날모터스 정우성 딜러", stock: 7, posted: "4분 전", photos: 23 },
+  { id: 108, maker: "BMW", modelGroup: "X3", sellerType: "개인", image: "cars/bmw/x3.webp", imageFit: "contain", title: "BMW X3 xDrive30e", trim: "M 스포츠", specs: ["22년08월", "41,200km", "플러그인 하이브리드", "갈색"], price: "5,980 만원", place: "울산 남구", views: 119, dealer: "개인판매자 김하늘", stock: 1, posted: "1시간 전", photos: 14 },
+  { id: 109, maker: "BMW", modelGroup: "1시리즈", sellerType: "딜러", image: "cars/bmw/1-series.webp", imageFit: "contain", title: "BMW 1시리즈 120i", trim: "M 스포츠", specs: ["23년05월", "25,900km", "가솔린", "흰색"], price: "3,890 만원", place: "인천 남동구 · BMW 인증센터", views: 148, dealer: "바바리안모터스 장민호 딜러", stock: 13, posted: "14분 전", photos: 18 },
+  { id: 110, maker: "BMW", modelGroup: "1시리즈", sellerType: "개인", image: "cars/bmw/1-series.webp", imageFit: "contain", title: "BMW 1시리즈 M135i", trim: "xDrive", specs: ["22년06월", "33,100km", "가솔린", "흰색"], price: "4,320 만원", place: "경남 창원시", views: 202, dealer: "개인판매자 최은지", stock: 1, posted: "2시간 전", photos: 20 },
+];
+
+function shuffleCars(source: Car[]) {
+  const shuffled = [...source];
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const target = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[target]] = [shuffled[target], shuffled[index]];
+  }
+  return shuffled;
+}
 
 const sheetLabels: Record<Exclude<SheetType, null>, string> = {
   filter: "상세 필터", carType: "차량 유형", maker: "제조사", year: "연식", price: "가격", region: "지역", sort: "정렬",
@@ -164,7 +217,7 @@ function CarCard({ car, compact, liked, onToggleLike, onOpen }: { car: Car; comp
   return (
     <article className={`car-card${compact ? " is-compact" : ""}`} role="link" tabIndex={0} aria-label={`${car.title} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
       <div className="car-photo-wrap">
-        <img className="car-photo" src={asset("cars/thumbnail.png")} alt={`${car.title} ${car.trim} 흰색 차량, ${car.posted}, 사진 ${car.photos}장`} draggable={false} />
+        <img className={`car-photo${car.imageFit === "contain" ? " is-catalog" : ""}`} src={asset(car.image)} alt={`${car.title} ${car.trim} 차량, ${car.posted}, 사진 ${car.photos}장`} draggable={false} />
       </div>
       <div className="car-copy">
         <div className="car-main">
@@ -195,14 +248,35 @@ function MarketplaceScreen() {
   const [compact, setCompact] = useState(false);
   const [videoOnly, setVideoOnly] = useState(false);
   const [liked, setLiked] = useState<number[]>([]);
+  const [selectedBmwModel, setSelectedBmwModel] = useState<string | null>(null);
+  const [shuffledCars, setShuffledCars] = useState<Car[]>(() => shuffleCars(defaultCars));
 
   const visibleCars = useMemo(() => {
     const normalized = query.trim().toLowerCase();
-    return cars.filter((car) => (sellerType === "전체" || car.sellerType === sellerType) && (!maker || car.maker === maker) && (!normalized || `${car.title} ${car.trim} ${car.maker}`.toLowerCase().includes(normalized)));
-  }, [maker, query, sellerType]);
+    return shuffledCars.filter((car) => (sellerType === "전체" || car.sellerType === sellerType) && (!maker || car.maker === maker) && (!selectedBmwModel || car.modelGroup === selectedBmwModel) && (!normalized || `${car.title} ${car.trim} ${car.maker}`.toLowerCase().includes(normalized)));
+  }, [maker, query, selectedBmwModel, sellerType, shuffledCars]);
 
-  const resetFilters = () => { setMaker(null); setSellerType("전체"); setQuery(""); setSort("최신순"); };
-  const chooseMaker = (nextMaker: string | null) => { setMaker(nextMaker); setSheet(null); };
+  const resetFilters = () => {
+    setMaker(null);
+    setSelectedBmwModel(null);
+    setShuffledCars(shuffleCars(defaultCars));
+    setSellerType("전체");
+    setQuery("");
+    setSort("최신순");
+  };
+
+  const chooseMaker = (nextMaker: string | null) => {
+    setMaker(nextMaker);
+    setSelectedBmwModel(null);
+    setShuffledCars(shuffleCars(nextMaker === "BMW" ? bmwCars : defaultCars));
+    setSheet(null);
+  };
+
+  const chooseBmwModel = (modelName: string) => {
+    const nextModel = selectedBmwModel === modelName ? null : modelName;
+    setSelectedBmwModel(nextModel);
+    setShuffledCars(shuffleCars(bmwCars));
+  };
 
   return (
     <>
@@ -220,11 +294,16 @@ function MarketplaceScreen() {
             <FilterChip label="연식" onClick={() => setSheet("year")} />
             <FilterChip label="가격" onClick={() => setSheet("price")} />
           </Carousel>
-          <section className="brand-row" aria-label="제조사 빠른 선택">
-            <span className="brand-title">제조사</span>
-            <Carousel ariaLabel="제조사" className="brand-carousel" contentClassName="brand-track">
-              {brands.map((brand) => (
-                <button key={brand.name} className={`brand-item${maker === brand.name ? " is-selected" : ""}`} type="button" aria-pressed={maker === brand.name} onClick={() => setMaker(maker === brand.name ? null : brand.name)}>
+          <section className={`brand-row${maker === "BMW" ? " is-model-mode" : ""}`} aria-label={maker === "BMW" ? "BMW 모델 빠른 선택" : "제조사 빠른 선택"}>
+            <span className="brand-title">{maker === "BMW" ? "BMW" : "제조사"}</span>
+            <Carousel ariaLabel={maker === "BMW" ? "BMW 모델" : "제조사"} className="brand-carousel" contentClassName={maker === "BMW" ? "bmw-model-track" : "brand-track"}>
+              {maker === "BMW" ? bmwModels.map((model) => (
+                <button key={model.name} className={`bmw-model-card${selectedBmwModel === model.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedBmwModel === model.name} onClick={() => chooseBmwModel(model.name)}>
+                  <img src={model.image} alt={`${model.name} 차량`} draggable={false} />
+                  <span>{model.name}</span>
+                </button>
+              )) : brands.map((brand) => (
+                <button key={brand.name} className="brand-item" type="button" aria-pressed={false} onClick={() => chooseMaker(brand.name)}>
                   {brand.full ? <img className="brand-full" src={brand.logo} alt="" aria-hidden="true" draggable={false} /> : <span className="brand-logo"><img src={brand.logo} alt="" aria-hidden="true" draggable={false} /></span>}
                   {!brand.full ? <span>{brand.name}</span> : null}
                 </button>
@@ -535,4 +614,3 @@ const detailScreen: FlowScreen = { id: "vehicle-detail", footer: () => <DetailFo
 export default function Prototype() {
   return <DetailUiProvider><FlowStack initial={listScreen} /></DetailUiProvider>;
 }
-
