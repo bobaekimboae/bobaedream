@@ -74,3 +74,5 @@ When any text-entry control loses focus, dismiss the simulated keyboard. If the 
 
 - In BMW model-selection mode on the 393 px iPhone viewport, keep four model cards fully visible and show the fifth card partially at the right edge to communicate horizontal scrolling.
 - Label the BMW model-selection rail as `모델` and vertically center that label against the full rail height.
+- When Mercedes-Benz (`벤츠`) is selected, replace the manufacturer-logo rail with the Figma chip pattern: label it `모델` and show horizontally scrollable `E클래스`, `S클래스`, `GLC클래스`, `GLE클래스`, and `C클래스` outline chips. Selecting a chip filters the randomized Mercedes-Benz inventory.
+

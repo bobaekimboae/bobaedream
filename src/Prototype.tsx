@@ -64,6 +64,8 @@ const bmwModels = [
   { name: "1시리즈", image: asset("cars/bmw/1-series.webp") },
 ];
 
+const benzModels = ["E클래스", "S클래스", "GLC클래스", "GLE클래스", "C클래스"];
+
 const defaultCars: Car[] = [
   {
     id: 1, maker: "벤츠", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 CLS 450 4MATIC", trim: "AMG Line",
@@ -118,6 +120,19 @@ const bmwCars: Car[] = [
   { id: 108, maker: "BMW", modelGroup: "X3", sellerType: "개인", image: "cars/bmw/x3.webp", imageFit: "contain", title: "BMW X3 xDrive30e", trim: "M 스포츠", specs: ["22년08월", "41,200km", "플러그인 하이브리드", "갈색"], price: "5,980 만원", place: "울산 남구", views: 119, dealer: "개인판매자 김하늘", stock: 1, posted: "1시간 전", photos: 14 },
   { id: 109, maker: "BMW", modelGroup: "1시리즈", sellerType: "딜러", image: "cars/bmw/1-series.webp", imageFit: "contain", title: "BMW 1시리즈 120i", trim: "M 스포츠", specs: ["23년05월", "25,900km", "가솔린", "흰색"], price: "3,890 만원", place: "인천 남동구 · BMW 인증센터", views: 148, dealer: "바바리안모터스 장민호 딜러", stock: 13, posted: "14분 전", photos: 18 },
   { id: 110, maker: "BMW", modelGroup: "1시리즈", sellerType: "개인", image: "cars/bmw/1-series.webp", imageFit: "contain", title: "BMW 1시리즈 M135i", trim: "xDrive", specs: ["22년06월", "33,100km", "가솔린", "흰색"], price: "4,320 만원", place: "경남 창원시", views: 202, dealer: "개인판매자 최은지", stock: 1, posted: "2시간 전", photos: 20 },
+];
+
+const benzCars: Car[] = [
+  { id: 201, maker: "벤츠", modelGroup: "E클래스", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 E클래스 E 300 4MATIC", trim: "AMG Line", specs: ["23년06월", "18,420km", "가솔린", "흰색"], price: "8,420 만원", place: "서울 강남구 · 한성자동차", views: 128, dealer: "스타모터스 이준호 딜러", stock: 12, posted: "3분 전", photos: 14 },
+  { id: 202, maker: "벤츠", modelGroup: "E클래스", sellerType: "개인", image: "cars/thumbnail.png", title: "벤츠 E클래스 E 220 d 4MATIC", trim: "Exclusive", specs: ["22년02월", "36,700km", "디젤", "흰색"], price: "5,480 만원", place: "인천 연수구", views: 96, dealer: "개인판매자 정유진", stock: 1, posted: "18분 전", photos: 11 },
+  { id: 203, maker: "벤츠", modelGroup: "S클래스", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 S클래스 S 450 4MATIC", trim: "Long", specs: ["23년11월", "11,840km", "가솔린", "검정색"], price: "16,900 만원", place: "서울 서초구 · 더클래스 효성", views: 342, dealer: "효성프리미어모터스 박정우 딜러", stock: 7, posted: "7분 전", photos: 24 },
+  { id: 204, maker: "벤츠", modelGroup: "S클래스", sellerType: "개인", image: "cars/thumbnail.png", title: "벤츠 S클래스 S 580 e 4MATIC", trim: "Long", specs: ["22년09월", "28,100km", "플러그인 하이브리드", "회색"], price: "14,700 만원", place: "경기 성남시", views: 207, dealer: "개인판매자 김도현", stock: 1, posted: "32분 전", photos: 18 },
+  { id: 205, maker: "벤츠", modelGroup: "GLC클래스", sellerType: "딜러", image: "detail/raw-18.jpeg", title: "벤츠 GLC클래스 GLC 300 4MATIC", trim: "AMG Line", specs: ["24년01월", "9,760km", "가솔린", "흰색"], price: "7,950 만원", place: "부산 해운대구 · 벤츠 인증중고차", views: 255, dealer: "스타자동차 김민석 딜러", stock: 9, posted: "11분 전", photos: 21 },
+  { id: 206, maker: "벤츠", modelGroup: "GLC클래스", sellerType: "개인", image: "detail/raw-18.jpeg", title: "벤츠 GLC클래스 GLC 220 d 4MATIC", trim: "Avantgarde", specs: ["21년08월", "44,200km", "디젤", "흰색"], price: "4,890 만원", place: "대전 유성구", views: 154, dealer: "개인판매자 이서연", stock: 1, posted: "46분 전", photos: 13 },
+  { id: 207, maker: "벤츠", modelGroup: "GLE클래스", sellerType: "딜러", image: "detail/raw-18.jpeg", title: "벤츠 GLE클래스 GLE 450 4MATIC", trim: "AMG Line", specs: ["23년04월", "22,600km", "가솔린", "흰색"], price: "11,900 만원", place: "경기 수원시 · 벤츠 인증중고차", views: 319, dealer: "모터원 이재훈 딜러", stock: 15, posted: "5분 전", photos: 27 },
+  { id: 208, maker: "벤츠", modelGroup: "GLE클래스", sellerType: "개인", image: "detail/raw-18.jpeg", title: "벤츠 GLE클래스 GLE 300 d 4MATIC", trim: "Premium", specs: ["22년12월", "31,300km", "디젤", "흰색"], price: "8,780 만원", place: "광주 서구", views: 181, dealer: "개인판매자 최윤아", stock: 1, posted: "1시간 전", photos: 17 },
+  { id: 209, maker: "벤츠", modelGroup: "C클래스", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 C클래스 C 300 4MATIC", trim: "AMG Line", specs: ["24년02월", "7,900km", "가솔린", "흰색"], price: "6,480 만원", place: "서울 성동구 · KCC오토", views: 223, dealer: "KCC오토 장현수 딜러", stock: 11, posted: "9분 전", photos: 20 },
+  { id: 210, maker: "벤츠", modelGroup: "C클래스", sellerType: "개인", image: "cars/thumbnail.png", title: "벤츠 C클래스 C 200 Avantgarde", trim: "Avantgarde", specs: ["22년05월", "29,400km", "가솔린", "흰색"], price: "4,350 만원", place: "경남 창원시", views: 117, dealer: "개인판매자 박지민", stock: 1, posted: "2시간 전", photos: 12 },
 ];
 
 function shuffleCars(source: Car[]) {
@@ -248,17 +263,17 @@ function MarketplaceScreen() {
   const [compact, setCompact] = useState(false);
   const [videoOnly, setVideoOnly] = useState(false);
   const [liked, setLiked] = useState<number[]>([]);
-  const [selectedBmwModel, setSelectedBmwModel] = useState<string | null>(null);
+  const [selectedModel, setSelectedModel] = useState<string | null>(null);
   const [shuffledCars, setShuffledCars] = useState<Car[]>(() => shuffleCars(defaultCars));
 
   const visibleCars = useMemo(() => {
     const normalized = query.trim().toLowerCase();
-    return shuffledCars.filter((car) => (sellerType === "전체" || car.sellerType === sellerType) && (!maker || car.maker === maker) && (!selectedBmwModel || car.modelGroup === selectedBmwModel) && (!normalized || `${car.title} ${car.trim} ${car.maker}`.toLowerCase().includes(normalized)));
-  }, [maker, query, selectedBmwModel, sellerType, shuffledCars]);
+    return shuffledCars.filter((car) => (sellerType === "전체" || car.sellerType === sellerType) && (!maker || car.maker === maker) && (!selectedModel || car.modelGroup === selectedModel) && (!normalized || `${car.title} ${car.trim} ${car.maker}`.toLowerCase().includes(normalized)));
+  }, [maker, query, selectedModel, sellerType, shuffledCars]);
 
   const resetFilters = () => {
     setMaker(null);
-    setSelectedBmwModel(null);
+    setSelectedModel(null);
     setShuffledCars(shuffleCars(defaultCars));
     setSellerType("전체");
     setQuery("");
@@ -267,15 +282,15 @@ function MarketplaceScreen() {
 
   const chooseMaker = (nextMaker: string | null) => {
     setMaker(nextMaker);
-    setSelectedBmwModel(null);
-    setShuffledCars(shuffleCars(nextMaker === "BMW" ? bmwCars : defaultCars));
+    setSelectedModel(null);
+    setShuffledCars(shuffleCars(nextMaker === "BMW" ? bmwCars : nextMaker === "벤츠" ? benzCars : defaultCars));
     setSheet(null);
   };
 
-  const chooseBmwModel = (modelName: string) => {
-    const nextModel = selectedBmwModel === modelName ? null : modelName;
-    setSelectedBmwModel(nextModel);
-    setShuffledCars(shuffleCars(bmwCars));
+  const chooseModel = (modelName: string) => {
+    const nextModel = selectedModel === modelName ? null : modelName;
+    setSelectedModel(nextModel);
+    setShuffledCars(shuffleCars(maker === "벤츠" ? benzCars : bmwCars));
   };
 
   return (
@@ -294,14 +309,16 @@ function MarketplaceScreen() {
             <FilterChip label="연식" onClick={() => setSheet("year")} />
             <FilterChip label="가격" onClick={() => setSheet("price")} />
           </Carousel>
-          <section className={`brand-row${maker === "BMW" ? " is-model-mode" : ""}`} aria-label={maker === "BMW" ? "BMW 모델 빠른 선택" : "제조사 빠른 선택"}>
-            <span className="brand-title">{maker === "BMW" ? "모델" : "제조사"}</span>
-            <Carousel ariaLabel={maker === "BMW" ? "BMW 모델" : "제조사"} className="brand-carousel" contentClassName={maker === "BMW" ? "bmw-model-track" : "brand-track"}>
+          <section className={`brand-row${maker === "BMW" ? " is-model-mode" : maker === "벤츠" ? " is-benz-model-mode" : ""}`} aria-label={maker === "BMW" ? "BMW 모델 빠른 선택" : maker === "벤츠" ? "벤츠 모델 빠른 선택" : "제조사 빠른 선택"}>
+            <span className="brand-title">{maker === "BMW" || maker === "벤츠" ? "모델" : "제조사"}</span>
+            <Carousel ariaLabel={maker === "BMW" ? "BMW 모델" : maker === "벤츠" ? "벤츠 모델" : "제조사"} className="brand-carousel" contentClassName={maker === "BMW" ? "bmw-model-track" : maker === "벤츠" ? "benz-model-track" : "brand-track"}>
               {maker === "BMW" ? bmwModels.map((model) => (
-                <button key={model.name} className={`bmw-model-card${selectedBmwModel === model.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedBmwModel === model.name} onClick={() => chooseBmwModel(model.name)}>
+                <button key={model.name} className={`bmw-model-card${selectedModel === model.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model.name} onClick={() => chooseModel(model.name)}>
                   <img src={model.image} alt={`${model.name} 차량`} draggable={false} />
                   <span>{model.name}</span>
                 </button>
+              )) : maker === "벤츠" ? benzModels.map((model) => (
+                <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} onClick={() => chooseModel(model)}>{model}</button>
               )) : brands.map((brand) => (
                 <button key={brand.name} className="brand-item" type="button" aria-pressed={false} onClick={() => chooseMaker(brand.name)}>
                   {brand.full ? <img className="brand-full" src={brand.logo} alt="" aria-hidden="true" draggable={false} /> : <span className="brand-logo"><img src={brand.logo} alt="" aria-hidden="true" draggable={false} /></span>}
@@ -614,3 +631,4 @@ const detailScreen: FlowScreen = { id: "vehicle-detail", footer: () => <DetailFo
 export default function Prototype() {
   return <DetailUiProvider><FlowStack initial={listScreen} /></DetailUiProvider>;
 }
+

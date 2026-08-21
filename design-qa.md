@@ -1,36 +1,37 @@
-# Design QA — BMW model label
+# Design QA — Mercedes-Benz model chips
 
-- Source visual truth: `C:\Users\sungn\AppData\Local\Temp\codex-clipboard-e4d5e8a0-9b93-4e00-b314-9cd5245ad70a.png` plus the user's explicit label/alignment instruction.
-- Browser-rendered implementation: `qa-model-label-full.png`
-- Focused implementation region: `qa-model-label-region.png`
-- Side-by-side comparison evidence: `qa-model-label-comparison.png`
+- Source visual truth: `qa-figma-benz.png`, exported from Figma node `1412:196155` after `get_design_context`.
+- Browser-rendered implementation: `qa-benz-screen.png`.
+- Side-by-side comparison evidence: `qa-benz-comparison.png`.
 - Viewport: 1400 × 1200 browser viewport; protected phone screen measured at 393 × 852 CSS px; deviceScaleFactor 1.
-- Pixel dimensions: source 1220 × 274 px; full implementation 1400 × 1200 px; focused implementation 393 × 96 px. Focused evidence remains saved at 1:1 density.
-- State: BMW selected, model rail visible, no individual BMW model filter selected.
+- Pixel dimensions and normalization: source 412 × 393 px, normalized proportionally to 393 × 375 px; implementation cropped at 393 × 375 px from the unscaled 393 × 852 phone screen.
+- State: Mercedes-Benz (`벤츠`) selected, model-chip rail visible, no individual model selected.
 
-**Full-view evidence**
+**Full-view comparison evidence**
 
-- The left rail label reads `모델`; the four-complete-plus-fifth-peek card composition is unchanged.
-- The label box spans 94 px inside the 96 px row and its measured center equals the row center exactly (`centerDelta: 0`).
+- `qa-benz-comparison.png` places the complete exported source node and the matching implementation region in one comparison input.
+- The implementation reproduces the `모델` label followed by `E클래스`, `S클래스`, `GLC클래스`, `GLE클래스`, and `C클래스` in a horizontally clipped chip rail.
+- The protected iPhone dynamic island differs from the older status-bar device shown in Figma; this is intentional template-owned device chrome and does not alter app-owned content.
 
-**Focused comparison evidence**
+**Focused region comparison evidence**
 
-- `qa-model-label-comparison.png` places the source and implementation in one comparison input.
-- The updated label sits beside the first 3시리즈 card and aligns vertically to the center of the compact model rail.
+- The full Figma node is already a focused 412 × 393 upper-list region, so a second crop was not needed.
+- At the 393 px implementation width, `GLE클래스` peeks at the right edge, preserving the horizontal-scroll affordance visible in the source.
 
 **Required fidelity surfaces**
 
-- Fonts and typography: `모델` uses the existing Pretendard 12 px semibold treatment and remains legible.
-- Spacing and layout rhythm: the label is vertically centered without changing card width, gap, row height, or fifth-card peek.
-- Colors and visual tokens: neutral dark text and white rail background remain unchanged.
-- Image quality and asset fidelity: all five BMW vehicle images remain centered, sharp, and uncropped.
-- Copy and content: the prior `BMW` rail label is replaced exactly with `모델`.
+- Fonts and typography: Pretendard medium, 15 px, 20 px line height is used for the model label and chips; weights and truncation match the source hierarchy.
+- Spacing and layout rhythm: 54 px model row, 6 px chip gaps, 16 px label/rail edges, 34 px chip height, and pill radii match the Figma measurements after viewport normalization.
+- Colors and visual tokens: white background, `#616161` label, `#3a3a3a` chip text, and `#e0e0e0` outlines match the supplied gray tokens.
+- Image quality and asset fidelity: the targeted model pattern contains no raster imagery; existing Mercedes-Benz listing photos remain sharp and use committed local assets.
+- Copy and content: all five Korean model names and their order match the Figma node exactly.
 
 **Interaction checks**
 
-- BMW tap reveals the updated model rail.
-- Five model cards remain horizontally draggable and selectable.
-- Browser console warnings/errors: none.
+- Tapping the Mercedes-Benz logo replaces the manufacturer-logo rail with the model-chip rail.
+- Each model chip toggles its selected state and filters the randomized Mercedes-Benz inventory; `E클래스` produced only two E-Class listings during verification.
+- A filtered listing opens the existing working vehicle-detail screen.
+- Browser console errors: none.
 - Runtime integrity, production build, and hosting package tests: passed.
 
 **Findings**
@@ -39,11 +40,12 @@
 
 **Comparison history**
 
-- Earlier state used `BMW` and top-aligned the label with manual padding.
-- The label is now `모델`, stretched across the rail height, and centered with flex alignment; post-fix measurement confirms zero vertical-center offset.
+- Initial implementation state had no Mercedes-Benz model rail.
+- The new Figma-matched chip rail, randomized Mercedes-Benz inventory, chip filtering, and detail navigation were added and verified in the post-fix visual evidence.
 
 **Follow-up polish**
 
-- None required for handoff.
+- None required for this handoff.
 
 final result: passed
+
