@@ -115,5 +115,19 @@
 - Measured all eight default listings at a `412 x 917` mobile viewport in list and card views, including content-to-location and seller-to-divider gaps.
 - Mobile runtime integrity, TypeScript compilation, Vite production build, Sites packaging, and all four Sites worker tests pass. Vite reports only its informational large-chunk advisory.
 
+## Price-history pagination arrow follow-up
+
+### Source and implementation
+
+- Source visual truth: Figma node `1674:15393`, with pagination node `1674:15566` and previous/next icon nodes `1674:15568` and `1674:15587`.
+- Reused the exact Figma-exported chevron assets already stored as `pagination-left.svg` and `pagination-right.svg`; normalized source comparison confirmed their vector markup matches the current Figma exports.
+- Both controls keep the Figma 36px gray circle and 18px icon frame. The chevron leaf is now rendered at its natural 10px-by-6px size, rotated 90 degrees left and -90 degrees right.
+- The disabled previous button keeps full opacity so its `#f3f3f3` surface and asset-provided `#c0c0c0` chevron match Figma instead of fading together.
+
+### Verification
+
+- Verified the price-history bottom sheet at a 375px mobile viewport, including disabled previous and enabled next states.
+- Mobile runtime integrity, TypeScript compilation, Vite production build, Sites packaging, and all four Sites worker tests pass. Vite reports only its informational large-chunk advisory.
+
 final result: passed
 
