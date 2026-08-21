@@ -81,17 +81,17 @@ const emptyRegion: RegionSelection = { province: "", district: "", radius: "" };
 const defaultCars: Car[] = [
   {
     id: 1, maker: "벤츠", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 CLS 450 4MATIC", trim: "AMG Line",
-    specs: ["23년06월", "18,420km", "가솔린", "흰색"], price: "8,420 만원",
-    place: "서울 강남구 · 도산대로", views: 128, dealer: "스타모터스 이준호 딜러", stock: 12, posted: "3분 전", photos: 14,
+    specs: ["23년06월", "18,420km", "가솔린", "흰색시트"], price: "8,420 만원",
+    place: "서울 강남구 · 오토갤러리", views: 128, dealer: "스타모터스 이준호 딜러", stock: 12, posted: "3분 전", photos: 14,
   },
   {
     id: 2, maker: "벤츠", sellerType: "딜러", image: "detail/raw-18.jpeg", title: "벤츠 G63 AMG", trim: "매뉴팩처 프로그램",
-    specs: ["21년12월", "31,900km", "가솔린", "흰색"], price: "19,800 만원",
-    place: "경기 성남시 · 분당전시장", views: 301, dealer: "와이즈오토 김태윤 딜러", stock: 8, posted: "12분 전", photos: 22,
+    specs: ["21년12월", "31,900km", "가솔린", "흰색시트"], price: "19,800 만원",
+    place: "경기 성남시 · 오토갤러리", views: 301, dealer: "와이즈오토 김태윤", stock: 8, posted: "12분 전", photos: 22,
   },
   {
     id: 3, maker: "포르쉐", sellerType: "개인", image: "detail/raw-20.jpeg", title: "포르쉐 718 박스터", trim: "4.0 GTS",
-    specs: ["24년03월", "8,130km", "가솔린", "흰색"], price: "13,900 만원",
+    specs: ["24년03월", "8,130km", "가솔린", "흰색시트"], price: "13,900 만원",
     place: "부산 해운대구", views: 219, dealer: "개인판매자 이현우", stock: 1, posted: "24분 전", photos: 18,
   },
   {
@@ -101,50 +101,50 @@ const defaultCars: Car[] = [
   },
   {
     id: 5, maker: "벤틀리", sellerType: "개인", image: "detail/raw-04.png", title: "벤틀리 플라잉스퍼", trim: "4.0 V8 아주르",
-    specs: ["22년05월", "26,500km", "가솔린", "흰색"], price: "21,500 만원",
+    specs: ["22년05월", "26,500km", "가솔린", "흰색시트"], price: "21,500 만원",
     place: "대구 수성구", views: 175, dealer: "개인판매자 박서연", stock: 1, posted: "1시간 전", photos: 16,
   },
   {
     id: 6, maker: "맥라렌", sellerType: "딜러", image: "detail/raw-19.jpeg", title: "맥라렌 570S 스파이더", trim: "3.8 V8",
-    specs: ["19년08월", "19,600km", "가솔린", "흰색"], price: "18,900 만원",
+    specs: ["19년08월", "19,600km", "가솔린", "흰색시트"], price: "18,900 만원",
     place: "서울 성동구 · 성수전시장", views: 362, dealer: "프라임카 김도윤 딜러", stock: 15, posted: "2시간 전", photos: 24,
   },
   {
     id: 7, maker: "롤스로이스", sellerType: "딜러", image: "detail/raw-05.jpeg", title: "롤스로이스 팬텀", trim: "6.7 V12 EWB",
-    specs: ["13년09월", "54,200km", "가솔린", "회색"], price: "27,000 만원",
+    specs: ["13년09월", "54,200km", "가솔린", "회색시트"], price: "27,000 만원",
     place: "서울 서초구 · 오토갤러리", views: 508, dealer: "더클래스 윤성호 딜러", stock: 6, posted: "어제", photos: 31,
   },
   {
     id: 8, maker: "벤츠", sellerType: "개인", image: "cars/thumbnail.png", title: "벤츠 E 300 4MATIC", trim: "아방가르드",
-    specs: ["22년02월", "36,700km", "가솔린", "흰색"], price: "5,480 만원",
-    place: "인천 연수구", views: 96, dealer: "개인판매자 정유진", stock: 1, posted: "어제", photos: 11,
+    specs: ["22년02월", "36,700km", "가솔린", "흰색시트"], price: "5,480 만원",
+    place: "인천 연수구", views: 96, dealer: "개인판매자", stock: 1, posted: "어제", photos: 11,
   },
 ];
 
 const bmwCars: Car[] = [
   { id: 101, maker: "BMW", modelGroup: "3시리즈", sellerType: "딜러", image: "cars/bmw/3-series.webp", imageFit: "contain", title: "BMW 3시리즈 320i", trim: "M 스포츠 프로", specs: ["23년09월", "21,430km", "가솔린", "검정색"], price: "5,390 만원", place: "서울 강남구 · BMW 인증센터", views: 184, dealer: "도이치모터스 김재현 딜러", stock: 14, posted: "2분 전", photos: 19 },
   { id: 102, maker: "BMW", modelGroup: "3시리즈", sellerType: "개인", image: "cars/bmw/3-series.webp", imageFit: "contain", title: "BMW 3시리즈 330e", trim: "M 스포츠", specs: ["22년04월", "34,800km", "플러그인 하이브리드", "검정색"], price: "4,850 만원", place: "경기 고양시", views: 137, dealer: "개인판매자 강민준", stock: 1, posted: "18분 전", photos: 12 },
-  { id: 103, maker: "BMW", modelGroup: "X1", sellerType: "딜러", image: "cars/bmw/x1.webp", imageFit: "contain", title: "BMW X1 sDrive20i", trim: "xLine", specs: ["24년01월", "12,700km", "가솔린", "흰색"], price: "5,120 만원", place: "부산 해운대구 · BMW 프리미엄 셀렉션", views: 211, dealer: "동성모터스 박지훈 딜러", stock: 9, posted: "6분 전", photos: 21 },
-  { id: 104, maker: "BMW", modelGroup: "X1", sellerType: "개인", image: "cars/bmw/x1.webp", imageFit: "contain", title: "BMW X1 xDrive20i", trim: "M 스포츠", specs: ["23년07월", "18,050km", "가솔린", "흰색"], price: "5,450 만원", place: "대전 유성구", views: 102, dealer: "개인판매자 이서진", stock: 1, posted: "41분 전", photos: 15 },
+  { id: 103, maker: "BMW", modelGroup: "X1", sellerType: "딜러", image: "cars/bmw/x1.webp", imageFit: "contain", title: "BMW X1 sDrive20i", trim: "xLine", specs: ["24년01월", "12,700km", "가솔린", "흰색시트"], price: "5,120 만원", place: "부산 해운대구 · BMW 프리미엄 셀렉션", views: 211, dealer: "동성모터스 박지훈 딜러", stock: 9, posted: "6분 전", photos: 21 },
+  { id: 104, maker: "BMW", modelGroup: "X1", sellerType: "개인", image: "cars/bmw/x1.webp", imageFit: "contain", title: "BMW X1 xDrive20i", trim: "M 스포츠", specs: ["23년07월", "18,050km", "가솔린", "흰색시트"], price: "5,450 만원", place: "대전 유성구", views: 102, dealer: "개인판매자 이서진", stock: 1, posted: "41분 전", photos: 15 },
   { id: 105, maker: "BMW", modelGroup: "5시리즈", sellerType: "딜러", image: "cars/bmw/5-series.webp", imageFit: "contain", title: "BMW 5시리즈 530i", trim: "M 스포츠", specs: ["24년03월", "9,820km", "가솔린", "남색"], price: "7,640 만원", place: "서울 성동구 · 성수 전시장", views: 328, dealer: "한독모터스 오세훈 딜러", stock: 18, posted: "9분 전", photos: 27 },
   { id: 106, maker: "BMW", modelGroup: "5시리즈", sellerType: "딜러", image: "cars/bmw/5-series.webp", imageFit: "contain", title: "BMW 5시리즈 520i", trim: "럭셔리", specs: ["22년11월", "29,600km", "가솔린", "남색"], price: "5,750 만원", place: "광주 서구 · BMW 인증센터", views: 165, dealer: "코오롱모터스 한소희 딜러", stock: 11, posted: "53분 전", photos: 17 },
   { id: 107, maker: "BMW", modelGroup: "X3", sellerType: "딜러", image: "cars/bmw/x3.webp", imageFit: "contain", title: "BMW X3 xDrive20i", trim: "M 스포츠 프로", specs: ["24년02월", "14,390km", "가솔린", "갈색"], price: "7,180 만원", place: "경기 수원시 · BMW 프리미엄 셀렉션", views: 287, dealer: "내쇼날모터스 정우성 딜러", stock: 7, posted: "4분 전", photos: 23 },
   { id: 108, maker: "BMW", modelGroup: "X3", sellerType: "개인", image: "cars/bmw/x3.webp", imageFit: "contain", title: "BMW X3 xDrive30e", trim: "M 스포츠", specs: ["22년08월", "41,200km", "플러그인 하이브리드", "갈색"], price: "5,980 만원", place: "울산 남구", views: 119, dealer: "개인판매자 김하늘", stock: 1, posted: "1시간 전", photos: 14 },
-  { id: 109, maker: "BMW", modelGroup: "1시리즈", sellerType: "딜러", image: "cars/bmw/1-series.webp", imageFit: "contain", title: "BMW 1시리즈 120i", trim: "M 스포츠", specs: ["23년05월", "25,900km", "가솔린", "흰색"], price: "3,890 만원", place: "인천 남동구 · BMW 인증센터", views: 148, dealer: "바바리안모터스 장민호 딜러", stock: 13, posted: "14분 전", photos: 18 },
-  { id: 110, maker: "BMW", modelGroup: "1시리즈", sellerType: "개인", image: "cars/bmw/1-series.webp", imageFit: "contain", title: "BMW 1시리즈 M135i", trim: "xDrive", specs: ["22년06월", "33,100km", "가솔린", "흰색"], price: "4,320 만원", place: "경남 창원시", views: 202, dealer: "개인판매자 최은지", stock: 1, posted: "2시간 전", photos: 20 },
+  { id: 109, maker: "BMW", modelGroup: "1시리즈", sellerType: "딜러", image: "cars/bmw/1-series.webp", imageFit: "contain", title: "BMW 1시리즈 120i", trim: "M 스포츠", specs: ["23년05월", "25,900km", "가솔린", "흰색시트"], price: "3,890 만원", place: "인천 남동구 · BMW 인증센터", views: 148, dealer: "바바리안모터스 장민호 딜러", stock: 13, posted: "14분 전", photos: 18 },
+  { id: 110, maker: "BMW", modelGroup: "1시리즈", sellerType: "개인", image: "cars/bmw/1-series.webp", imageFit: "contain", title: "BMW 1시리즈 M135i", trim: "xDrive", specs: ["22년06월", "33,100km", "가솔린", "흰색시트"], price: "4,320 만원", place: "경남 창원시", views: 202, dealer: "개인판매자 최은지", stock: 1, posted: "2시간 전", photos: 20 },
 ];
 
 const benzCars: Car[] = [
-  { id: 201, maker: "벤츠", modelGroup: "E클래스", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 E클래스 E 300 4MATIC", trim: "AMG Line", specs: ["23년06월", "18,420km", "가솔린", "흰색"], price: "8,420 만원", place: "서울 강남구 · 한성자동차", views: 128, dealer: "스타모터스 이준호 딜러", stock: 12, posted: "3분 전", photos: 14 },
-  { id: 202, maker: "벤츠", modelGroup: "E클래스", sellerType: "개인", image: "cars/thumbnail.png", title: "벤츠 E클래스 E 220 d 4MATIC", trim: "Exclusive", specs: ["22년02월", "36,700km", "디젤", "흰색"], price: "5,480 만원", place: "인천 연수구", views: 96, dealer: "개인판매자 정유진", stock: 1, posted: "18분 전", photos: 11 },
+  { id: 201, maker: "벤츠", modelGroup: "E클래스", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 E클래스 E 300 4MATIC", trim: "AMG Line", specs: ["23년06월", "18,420km", "가솔린", "흰색시트"], price: "8,420 만원", place: "서울 강남구 · 한성자동차", views: 128, dealer: "스타모터스 이준호 딜러", stock: 12, posted: "3분 전", photos: 14 },
+  { id: 202, maker: "벤츠", modelGroup: "E클래스", sellerType: "개인", image: "cars/thumbnail.png", title: "벤츠 E클래스 E 220 d 4MATIC", trim: "Exclusive", specs: ["22년02월", "36,700km", "디젤", "흰색시트"], price: "5,480 만원", place: "인천 연수구", views: 96, dealer: "개인판매자", stock: 1, posted: "18분 전", photos: 11 },
   { id: 203, maker: "벤츠", modelGroup: "S클래스", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 S클래스 S 450 4MATIC", trim: "Long", specs: ["23년11월", "11,840km", "가솔린", "검정색"], price: "16,900 만원", place: "서울 서초구 · 더클래스 효성", views: 342, dealer: "효성프리미어모터스 박정우 딜러", stock: 7, posted: "7분 전", photos: 24 },
-  { id: 204, maker: "벤츠", modelGroup: "S클래스", sellerType: "개인", image: "cars/thumbnail.png", title: "벤츠 S클래스 S 580 e 4MATIC", trim: "Long", specs: ["22년09월", "28,100km", "플러그인 하이브리드", "회색"], price: "14,700 만원", place: "경기 성남시", views: 207, dealer: "개인판매자 김도현", stock: 1, posted: "32분 전", photos: 18 },
-  { id: 205, maker: "벤츠", modelGroup: "GLC클래스", sellerType: "딜러", image: "detail/raw-18.jpeg", title: "벤츠 GLC클래스 GLC 300 4MATIC", trim: "AMG Line", specs: ["24년01월", "9,760km", "가솔린", "흰색"], price: "7,950 만원", place: "부산 해운대구 · 벤츠 인증중고차", views: 255, dealer: "스타자동차 김민석 딜러", stock: 9, posted: "11분 전", photos: 21 },
-  { id: 206, maker: "벤츠", modelGroup: "GLC클래스", sellerType: "개인", image: "detail/raw-18.jpeg", title: "벤츠 GLC클래스 GLC 220 d 4MATIC", trim: "Avantgarde", specs: ["21년08월", "44,200km", "디젤", "흰색"], price: "4,890 만원", place: "대전 유성구", views: 154, dealer: "개인판매자 이서연", stock: 1, posted: "46분 전", photos: 13 },
-  { id: 207, maker: "벤츠", modelGroup: "GLE클래스", sellerType: "딜러", image: "detail/raw-18.jpeg", title: "벤츠 GLE클래스 GLE 450 4MATIC", trim: "AMG Line", specs: ["23년04월", "22,600km", "가솔린", "흰색"], price: "11,900 만원", place: "경기 수원시 · 벤츠 인증중고차", views: 319, dealer: "모터원 이재훈 딜러", stock: 15, posted: "5분 전", photos: 27 },
-  { id: 208, maker: "벤츠", modelGroup: "GLE클래스", sellerType: "개인", image: "detail/raw-18.jpeg", title: "벤츠 GLE클래스 GLE 300 d 4MATIC", trim: "Premium", specs: ["22년12월", "31,300km", "디젤", "흰색"], price: "8,780 만원", place: "광주 서구", views: 181, dealer: "개인판매자 최윤아", stock: 1, posted: "1시간 전", photos: 17 },
-  { id: 209, maker: "벤츠", modelGroup: "C클래스", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 C클래스 C 300 4MATIC", trim: "AMG Line", specs: ["24년02월", "7,900km", "가솔린", "흰색"], price: "6,480 만원", place: "서울 성동구 · KCC오토", views: 223, dealer: "KCC오토 장현수 딜러", stock: 11, posted: "9분 전", photos: 20 },
-  { id: 210, maker: "벤츠", modelGroup: "C클래스", sellerType: "개인", image: "cars/thumbnail.png", title: "벤츠 C클래스 C 200 Avantgarde", trim: "Avantgarde", specs: ["22년05월", "29,400km", "가솔린", "흰색"], price: "4,350 만원", place: "경남 창원시", views: 117, dealer: "개인판매자 박지민", stock: 1, posted: "2시간 전", photos: 12 },
+  { id: 204, maker: "벤츠", modelGroup: "S클래스", sellerType: "개인", image: "cars/thumbnail.png", title: "벤츠 S클래스 S 580 e 4MATIC", trim: "Long", specs: ["22년09월", "28,100km", "플러그인 하이브리드", "회색시트"], price: "14,700 만원", place: "경기 성남시", views: 207, dealer: "개인판매자 김도현", stock: 1, posted: "32분 전", photos: 18 },
+  { id: 205, maker: "벤츠", modelGroup: "GLC클래스", sellerType: "딜러", image: "detail/raw-18.jpeg", title: "벤츠 GLC클래스 GLC 300 4MATIC", trim: "AMG Line", specs: ["24년01월", "9,760km", "가솔린", "흰색시트"], price: "7,950 만원", place: "부산 해운대구 · 벤츠 인증중고차", views: 255, dealer: "스타자동차 김민석 딜러", stock: 9, posted: "11분 전", photos: 21 },
+  { id: 206, maker: "벤츠", modelGroup: "GLC클래스", sellerType: "개인", image: "detail/raw-18.jpeg", title: "벤츠 GLC클래스 GLC 220 d 4MATIC", trim: "Avantgarde", specs: ["21년08월", "44,200km", "디젤", "흰색시트"], price: "4,890 만원", place: "대전 유성구", views: 154, dealer: "개인판매자 이서연", stock: 1, posted: "46분 전", photos: 13 },
+  { id: 207, maker: "벤츠", modelGroup: "GLE클래스", sellerType: "딜러", image: "detail/raw-18.jpeg", title: "벤츠 GLE클래스 GLE 450 4MATIC", trim: "AMG Line", specs: ["23년04월", "22,600km", "가솔린", "흰색시트"], price: "11,900 만원", place: "경기 수원시 · 벤츠 인증중고차", views: 319, dealer: "모터원 이재훈 딜러", stock: 15, posted: "5분 전", photos: 27 },
+  { id: 208, maker: "벤츠", modelGroup: "GLE클래스", sellerType: "개인", image: "detail/raw-18.jpeg", title: "벤츠 GLE클래스 GLE 300 d 4MATIC", trim: "Premium", specs: ["22년12월", "31,300km", "디젤", "흰색시트"], price: "8,780 만원", place: "광주 서구", views: 181, dealer: "개인판매자 최윤아", stock: 1, posted: "1시간 전", photos: 17 },
+  { id: 209, maker: "벤츠", modelGroup: "C클래스", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 C클래스 C 300 4MATIC", trim: "AMG Line", specs: ["24년02월", "7,900km", "가솔린", "흰색시트"], price: "6,480 만원", place: "서울 성동구 · KCC오토", views: 223, dealer: "KCC오토 장현수 딜러", stock: 11, posted: "9분 전", photos: 20 },
+  { id: 210, maker: "벤츠", modelGroup: "C클래스", sellerType: "개인", image: "cars/thumbnail.png", title: "벤츠 C클래스 C 200 Avantgarde", trim: "Avantgarde", specs: ["22년05월", "29,400km", "가솔린", "흰색시트"], price: "4,350 만원", place: "경남 창원시", views: 117, dealer: "개인판매자 박지민", stock: 1, posted: "2시간 전", photos: 12 },
 ];
 
 function shuffleCars(source: Car[]) {
@@ -258,7 +258,7 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
           <p className="location-line"><Icon name="location-gray.svg" />{car.place}<span className="dot">·</span><Icon name="views.svg" />{car.views}</p>
           <div className="dealer-line">
             <img className="dealer-avatar" src={asset("cars/dealer.png")} alt="" aria-hidden="true" draggable={false} />
-            <p><strong>{car.dealer}</strong> · 판매중 <b>{car.stock}대</b></p>
+              <p><strong>{car.dealer}</strong><span>· 판매중 <b>{car.stock}대</b></span></p>
             {cardView ? <div className="card-contact-actions"><button type="button" aria-label={`${car.dealer} 전화`} onClick={(event) => event.stopPropagation()}><Icon name="card-call.svg" /></button><button type="button" aria-label={`${car.dealer} 메시지`} onClick={(event) => event.stopPropagation()}><Icon name="card-message.svg" /></button></div> : null}
             <button className={`like-button${liked ? " is-liked" : ""}`} type="button" aria-label={`${car.title} 찜하기`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}><Icon name={cardView ? "card-heart.svg" : "heart-outline.svg"} /></button>
           </div>

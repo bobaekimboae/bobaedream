@@ -100,8 +100,9 @@ button { color: inherit; }
 .location-line .dot { margin: 0 2px; }
 .dealer-line { display: grid; grid-template-columns: 18px minmax(0, 1fr) 20px; align-items: center; gap: 8px; min-width: 0; }
 .dealer-avatar { width: 18px; height: 18px; border-radius: 50%; object-fit: cover; }
-.dealer-line p { overflow: hidden; color: #767676; font-size: 12px; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; }
+.dealer-line p { display: flex; flex-wrap: wrap; column-gap: 4px; overflow: visible; color: #767676; font-size: 12px; line-height: 16px; white-space: normal; }
 .dealer-line strong { color: #3a3a3a; font-weight: 600; }
+.dealer-line p span { white-space: nowrap; }
 .dealer-line b { color: var(--ink); font-weight: 400; }
 .like-button { display: grid; place-items: center; width: 24px; height: 24px; margin-left: -4px; }
 .like-button .ui-icon { width: 20px; height: 20px; }
@@ -132,7 +133,6 @@ button { color: inherit; }
 .car-card.is-card-view .dealer-line { grid-template-columns: 26px minmax(0, 1fr) auto 24px; gap: 12px; min-height: 35px; }
 .car-card.is-card-view .dealer-avatar { width: 26px; height: 26px; }
 .car-card.is-card-view .dealer-line p { white-space: normal; }
-.car-card.is-card-view .dealer-line strong { display: block; height: 18px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .card-contact-actions { display: flex; align-items: center; gap: 24px; }
 .card-contact-actions button { width: 20px; height: 24px; }
 .card-contact-actions .ui-icon { width: 20px; height: 20px; }
