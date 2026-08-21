@@ -857,14 +857,14 @@ function PriceHistorySheet({ onClose }: { onClose: () => void }) {
       </div>
       <p className="price-history-note">가격 변동 내역은 판매자가 제공한 정보를 기준으로 합니다.</p>
       <nav className="price-history-pagination" aria-label="가격 변동 페이지">
-        <button type="button" aria-label="이전 페이지" disabled={page === 1} onClick={() => selectPage(page - 1)}><img src={asset("detail/pagination-left.svg")} alt="" /></button>
+        <button type="button" aria-label="이전 페이지" disabled={page === 1} onClick={() => selectPage(page - 1)}><span className="price-history-pagination-arrow is-previous" aria-hidden="true"><img src={asset("detail/pagination-left.svg")} alt="" /></span></button>
         {visiblePages.map((pageNumber, index) => (
           <span key={pageNumber} className="price-history-page-slot">
             {index === visiblePages.length - 1 ? <img className="price-history-ellipsis" src={asset("detail/pagination-ellipsis.svg")} alt="" /> : null}
             <button type="button" aria-label={`${pageNumber} 페이지`} aria-current={page === pageNumber ? "page" : undefined} onClick={() => selectPage(pageNumber)}>{pageNumber}</button>
           </span>
         ))}
-        <button type="button" aria-label="다음 페이지" disabled={page === 10} onClick={() => selectPage(page + 1)}><img src={asset("detail/pagination-right.svg")} alt="" /></button>
+        <button type="button" aria-label="다음 페이지" disabled={page === 10} onClick={() => selectPage(page + 1)}><span className="price-history-pagination-arrow is-next" aria-hidden="true"><img src={asset("detail/pagination-right.svg")} alt="" /></span></button>
       </nav>
     </div>
   );
