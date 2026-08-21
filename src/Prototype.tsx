@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState, type KeyboardEvent, type ReactNode } from "react";
 import {
+  BookmarkFilledIcon,
   ChevronDownIcon,
   ChevronRightIcon,
   ClockIcon,
@@ -206,7 +207,7 @@ function Icon({ name, className = "" }: { name: string; className?: string }) {
   return <img className={`ui-icon ${className}`} src={asset(`ui/${name}`)} alt="" aria-hidden="true" draggable={false} />;
 }
 
-function Header({ query, setQuery }: { query: string; setQuery: (query: string) => void }) {
+function Header({ query, setQuery, searchSaved, onToggleSearchSaved }: { query: string; setQuery: (query: string) => void; searchSaved: boolean; onToggleSearchSaved: () => void }) {
   const keyboard = useKeyboard();
 
   return (
@@ -216,7 +217,7 @@ function Header({ query, setQuery }: { query: string; setQuery: (query: string) 
         <Icon name="search.svg" />
         <KeyboardInput aria-label="중고차 검색" value={query} onChange={(event) => setQuery(event.currentTarget.value)} onBlur={() => keyboard.hide()} placeholder="중고차" />
         <span className="search-divider" />
-        <button type="button" className="search-save" aria-label="검색 조건 저장"><Icon name="bookmark.svg" /></button>
+        <button type="button" className={`search-save${searchSaved ? " is-saved" : ""}`} aria-label={searchSaved ? "저장한 검색 조건 삭제" : "검색 조건 저장"} aria-pressed={searchSaved} onPointerDown={(event) => event.preventDefault()} onClick={onToggleSearchSaved}>{searchSaved ? <BookmarkFilledIcon /> : <Icon name="bookmark.svg" />}</button>
       </label>
       <button className="icon-button" type="button" aria-label="찜한 차량"><Icon name="heart.svg" /></button>
       <button className="icon-button" type="button" aria-label="메시지"><Icon name="message.svg" /></button>
@@ -316,6 +317,14 @@ function MarketplaceScreen() {
   const [shuffledCars, setShuffledCars] = useState<Car[]>(() => shuffleCars(defaultCars));
   const [region, setRegion] = useState<RegionSelection>(emptyRegion);
   const [draftRegion, setDraftRegion] = useState<RegionSelection>(emptyRegion);
+  const [searchSaved, setSearchSaved] = useState(false);
+  const [searchToast, setSearchToast] = useState("");
+
+  useEffect(() => {
+    if (!searchToast) return;
+    const timer = window.setTimeout(() => setSearchToast(""), 1800);
+    return () => window.clearTimeout(timer);
+  }, [searchToast]);
 
   const regionLabel = region.radius ? `내 주변 ${region.radius}` : [region.province, region.district].filter(Boolean).join(" ") || "전국";
   const regionKeyword = region.province === "광주" ? "광주" : region.province;
@@ -340,6 +349,12 @@ function MarketplaceScreen() {
     setSheet("region");
   };
 
+  const toggleSearchSaved = () => {
+    const nextSaved = !searchSaved;
+    setSearchSaved(nextSaved);
+    setSearchToast(nextSaved ? "검색 조건을 저장했습니다." : "저장한 검색 조건을 삭제했습니다.");
+  };
+
   const chooseMaker = (nextMaker: string | null) => {
     setMaker(nextMaker);
     setSelectedModel(null);
@@ -357,7 +372,7 @@ function MarketplaceScreen() {
     <>
       <MobileScroll className="app-screen">
         <main className="marketplace" aria-label="중고차 리스트">
-          <Header query={query} setQuery={setQuery} />
+          <Header query={query} setQuery={setQuery} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} />
           <section className="region-bar" aria-label="지역 선택">
             <button type="button" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={openRegionSheet}><Icon name="location-blue.svg" /><span className="region-label">지역:</span><strong>{regionLabel}</strong><Icon name="region-chevron.svg" /></button>
             <button type="button" className="reset-button" onClick={resetFilters}>초기화</button>
@@ -407,6 +422,7 @@ function MarketplaceScreen() {
           </section>
         </main>
       </MobileScroll>
+      {searchToast ? <div className="market-toast" role="status" aria-live="polite">{searchToast}</div> : null}
       <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && setSheet(null)} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "region" ? 0.53 : 0.48}>
         {sheet === "region" ? <RegionSheet value={draftRegion} onChange={setDraftRegion} onClose={() => setSheet(null)} onConfirm={() => { setRegion(draftRegion); setSheet(null); }} /> : <div className="sheet-options">
           {sheet === "maker" || sheet === "filter" ? <><button type="button" className={!maker ? "is-selected" : ""} onClick={() => chooseMaker(null)}>전체 제조사</button>{brands.map((brand) => <button key={brand.name} type="button" className={maker === brand.name ? "is-selected" : ""} onClick={() => chooseMaker(brand.name)}>{brand.name}</button>)}</> : sheet === "sort" ? ["최신순", "낮은 가격순", "높은 가격순"].map((label) => <button key={label} type="button" className={sort === label ? "is-selected" : ""} onClick={() => { setSort(label); setSheet(null); }}>{label}</button>) : ["전체", "추천 조건", "인기 조건"].map((label) => <button key={label} type="button" onClick={() => setSheet(null)}>{label}</button>)}

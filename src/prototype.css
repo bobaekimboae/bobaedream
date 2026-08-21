@@ -18,6 +18,9 @@ button { color: inherit; }
 .search-divider { width: 1px; height: 32px; background: #c0c0c0; }
 .search-save { display: grid; place-items: center; width: 24px; height: 24px; }
 .search-save .ui-icon { width: 24px; height: 24px; }
+.search-save svg { width: 24px; height: 24px; }
+.search-save.is-saved { color: var(--blue); }
+.market-toast { position: absolute; right: 24px; bottom: calc(var(--mobile-safe-area-height, 34px) + 22px); left: 24px; z-index: 18; padding: 12px 14px; border-radius: 10px; background: rgba(26,26,26,.92); color: #fff; font-size: 14px; font-weight: 500; line-height: 20px; text-align: center; box-shadow: 0 4px 14px rgba(0,0,0,.18); pointer-events: none; }
 
 .region-bar { display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 16px; background: #fff; }
 .region-bar button:first-child { display: flex; align-items: center; gap: 4px; min-height: 40px; font-size: 15px; }
