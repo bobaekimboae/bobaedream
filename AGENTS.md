@@ -90,5 +90,6 @@ When any text-entry control loses focus, clear the keyboard context. If the cont
 - Keep the filter control fixed at the left of the filter rail. In the default state it shows the filter icon and `필터` text; after the user horizontally swipes the condition rail, collapse it to the icon-only state. `중고차`, `제조사`, `연식`, and `가격` move inside the horizontal `Carousel` without moving the fixed filter control.
 - Manufacturer brand marks start at least 28px from the sheet's left edge.
 - The detail hero contains 24 swipeable photo slides. Keep the lower-right counter synchronized with the visible slide so the first swipe changes `1/24` to `2/24` and subsequent swipes continue through `24/24`.
+- Match the price-history pagination arrows to Figma node `1674:15566`: 36px gray circular buttons, an 18px icon frame, and the exact exported 10px-by-6px chevron rotated 90 degrees for previous and -90 degrees for next. Preserve the asset's own gray states and never fade the entire disabled button.
 
 
