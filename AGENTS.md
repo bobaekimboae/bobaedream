@@ -85,6 +85,6 @@ When any text-entry control loses focus, dismiss the simulated keyboard. If the 
 - Display vehicle mileage in truncated buckets across listing and detail surfaces: `54,200km` becomes `5만km`, `26,500km` becomes `2만km`, and values below 10,000km use truncated thousand-kilometer buckets such as `9,820km → 9천km` and `8,130km → 8천km`.
 - Keep manufacturer rows easy to scan on mobile: use large Korean brand names, generous row height, and clear left padding before the real brand marks.
 - Tapping the `가격` filter opens the Figma price sheet from node `1313:139816`, with cash/lease tabs, dual price controls, eight quick ranges, draft reset, dynamic result count, and confirm-to-apply behavior. Closing the sheet discards draft changes.
-- Keep the icon-only filter button fixed at the left of the filter rail. `중고차`, `제조사`, `연식`, and `가격` move inside the horizontal `Carousel` without moving the fixed filter control.
+- Keep the filter control fixed at the left of the filter rail. In the default state it shows the filter icon and `필터` text; after the user horizontally swipes the condition rail, collapse it to the icon-only state. `중고차`, `제조사`, `연식`, and `가격` move inside the horizontal `Carousel` without moving the fixed filter control.
 - Manufacturer brand marks start at least 28px from the sheet's left edge.
 

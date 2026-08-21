@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState, type CSSProperties, type KeyboardEvent, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type ReactNode } from "react";
 import {
   BookmarkFilledIcon,
   ChevronDownIcon,
@@ -547,6 +547,8 @@ function MarketplaceScreen() {
   const [draftPrice, setDraftPrice] = useState<PriceSelection>(emptyPrice);
   const [searchSaved, setSearchSaved] = useState(false);
   const [searchToast, setSearchToast] = useState("");
+  const [filterCompact, setFilterCompact] = useState(false);
+  const filterSwipeStart = useRef<{ x: number; y: number } | null>(null);
 
   useEffect(() => {
     if (!searchToast) return;
@@ -620,8 +622,23 @@ function MarketplaceScreen() {
             <button type="button" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={openRegionSheet}><Icon name="location-blue.svg" /><span className="region-label">지역:</span><strong>{regionLabel}</strong><Icon name="region-chevron.svg" /></button>
             <button type="button" className="reset-button" onClick={resetFilters}>초기화</button>
           </section>
-          <section className="filter-shell" aria-label="중고차 필터">
-            <button className="filter-fixed" type="button" aria-label="필터" onClick={() => setSheet("filter")}><Icon name="filter.svg" /></button>
+          <section
+            className={`filter-shell${filterCompact ? " is-filter-compact" : ""}`}
+            aria-label="중고차 필터"
+            onPointerDownCapture={(event) => {
+              filterSwipeStart.current = (event.target as HTMLElement).closest(".filter-rail") ? { x: event.clientX, y: event.clientY } : null;
+            }}
+            onPointerMoveCapture={(event) => {
+              const start = filterSwipeStart.current;
+              if (!start || filterCompact) return;
+              const deltaX = event.clientX - start.x;
+              const deltaY = event.clientY - start.y;
+              if (Math.abs(deltaX) > 8 && Math.abs(deltaX) > Math.abs(deltaY)) setFilterCompact(true);
+            }}
+            onPointerUpCapture={() => { filterSwipeStart.current = null; }}
+            onPointerCancelCapture={() => { filterSwipeStart.current = null; }}
+          >
+            <button className="filter-fixed" type="button" aria-label="필터" onClick={() => setSheet("filter")}><Icon name="filter.svg" /><span>필터</span></button>
             <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
               <FilterChip label="중고차" active onClick={() => setSheet("carType")} />
               <FilterChip label={maker ?? "제조사"} active={Boolean(maker)} onClick={() => setSheet("maker")} />
@@ -940,8 +957,8 @@ function DetailFooter() {
   return (
     <div className="detail-bottom-bar">
       <button className={`detail-bottom-like${liked ? " is-liked" : ""}`} type="button" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}<span>{liked ? "찜함" : "찜하기"}</span></button>
-      <button className="detail-consult" type="button" onClick={() => setSheet("contact")}>상담</button>
-      <a className="detail-call" href="tel:05062469261"><img src={asset("detail/call.svg")} alt="" /> 전화하기</a>
+      <button className="detail-consult" type="button" onClick={() => setSheet("contact")}>채팅</button>
+      <a className="detail-call" href="tel:05062469261"><img src={asset("detail/call.svg")} alt="" /> 전화</a>
     </div>
   );
 }
