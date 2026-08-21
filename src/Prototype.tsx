@@ -117,7 +117,8 @@ const priceFilterLabel = (value: PriceSelection) => {
 const formatMileage = (value: string) => value.replace(/(\d[\d,]*)\s*km/i, (match, digits: string) => {
   const kilometers = Number(digits.replaceAll(",", ""));
   if (!Number.isFinite(kilometers)) return match;
-  return kilometers < 10_000 ? "1만km 미만" : `${Math.floor(kilometers / 10_000)}만km`;
+  if (kilometers < 1_000) return "1천km 미만";
+  return kilometers < 10_000 ? `${Math.floor(kilometers / 1_000)}천km` : `${Math.floor(kilometers / 10_000)}만km`;
 });
 
 const brands = [
@@ -619,13 +620,15 @@ function MarketplaceScreen() {
             <button type="button" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={openRegionSheet}><Icon name="location-blue.svg" /><span className="region-label">지역:</span><strong>{regionLabel}</strong><Icon name="region-chevron.svg" /></button>
             <button type="button" className="reset-button" onClick={resetFilters}>초기화</button>
           </section>
-          <Carousel ariaLabel="중고차 필터" className="filter-rail" contentClassName="filter-track">
-            <FilterChip label="필터" icon="filter.svg" onClick={() => setSheet("filter")} />
-            <FilterChip label="중고차" active onClick={() => setSheet("carType")} />
-            <FilterChip label={maker ?? "제조사"} active={Boolean(maker)} onClick={() => setSheet("maker")} />
-            <FilterChip label="연식" onClick={() => setSheet("year")} />
-            <FilterChip label={priceFilterLabel(price)} active={price.min !== 0 || price.max !== null} onClick={openPriceSheet} />
-          </Carousel>
+          <section className="filter-shell" aria-label="중고차 필터">
+            <button className="filter-fixed" type="button" aria-label="필터" onClick={() => setSheet("filter")}><Icon name="filter.svg" /></button>
+            <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
+              <FilterChip label="중고차" active onClick={() => setSheet("carType")} />
+              <FilterChip label={maker ?? "제조사"} active={Boolean(maker)} onClick={() => setSheet("maker")} />
+              <FilterChip label="연식" onClick={() => setSheet("year")} />
+              <FilterChip label={priceFilterLabel(price)} active={price.min !== 0 || price.max !== null} onClick={openPriceSheet} />
+            </Carousel>
+          </section>
           <section className={`brand-row${maker === "BMW" ? " is-model-mode" : maker === "벤츠" ? " is-benz-model-mode" : ""}`} aria-label={maker === "BMW" ? "BMW 모델 빠른 선택" : maker === "벤츠" ? "벤츠 모델 빠른 선택" : "제조사 빠른 선택"}>
             <span className="brand-title">{maker === "BMW" || maker === "벤츠" ? "모델" : "제조사"}</span>
             <Carousel ariaLabel={maker === "BMW" ? "BMW 모델" : maker === "벤츠" ? "벤츠 모델" : "제조사"} className="brand-carousel" contentClassName={maker === "BMW" ? "bmw-model-track" : maker === "벤츠" ? "benz-model-track" : "brand-track"}>
