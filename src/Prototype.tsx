@@ -25,6 +25,8 @@ import "./prototype.css";
 type SellerType = "전체" | "개인" | "딜러";
 type SheetType = "filter" | "carType" | "maker" | "year" | "price" | "region" | "sort" | null;
 type DetailSheet = "contact" | "more" | "priceHistory" | null;
+type RegionSelection = { province: string; district: string; radius: string };
+type RegionMenu = "province" | "district" | "radius" | null;
 
 type Car = {
   id: number;
@@ -65,6 +67,15 @@ const bmwModels = [
 ];
 
 const benzModels = ["E클래스", "S클래스", "GLC클래스", "GLE클래스", "C클래스"];
+const quickRegions = ["경기", "서울", "부산", "대구", "인천", "전남광주"];
+const provinceOptions = ["전국", "경기", "서울", "부산", "대구", "인천", "광주", "대전", "울산", "경남"];
+const districtsByProvince: Record<string, string[]> = {
+  경기: ["전체", "성남시", "고양시", "수원시"], 서울: ["전체", "강남구", "서초구", "성동구"], 부산: ["전체", "해운대구"],
+  대구: ["전체", "수성구"], 인천: ["전체", "연수구", "남동구"], 광주: ["전체", "서구"], 대전: ["전체", "유성구"],
+  울산: ["전체", "남구"], 경남: ["전체", "창원시"],
+};
+const radiusOptions = ["5km", "10km", "20km", "50km"];
+const emptyRegion: RegionSelection = { province: "", district: "", radius: "" };
 
 const defaultCars: Car[] = [
   {
@@ -256,6 +267,41 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
   );
 }
 
+function RegionSheet({ value, onChange, onClose, onConfirm }: { value: RegionSelection; onChange: (value: RegionSelection) => void; onClose: () => void; onConfirm: () => void }) {
+  const [menu, setMenu] = useState<RegionMenu>(null);
+  const districtOptions = value.province ? districtsByProvince[value.province] ?? ["전체"] : [];
+  const chooseProvince = (province: string) => {
+    onChange(province === "전국" ? emptyRegion : { province, district: "", radius: "" });
+    setMenu(null);
+  };
+  const chooseQuickRegion = (label: string) => chooseProvince(label === "전남광주" ? "광주" : label);
+
+  return (
+    <div className="region-sheet">
+      <button className="region-sheet-close" type="button" aria-label="지역 선택 닫기" onClick={onClose}><Icon name="sheet-close.svg" /></button>
+      <div className="region-fields">
+        <div className="region-select-wrap">
+          <button className="region-select" type="button" aria-expanded={menu === "province"} onClick={() => setMenu((current) => current === "province" ? null : "province")}><span className={value.province ? "has-value" : ""}>{value.province || "시/도 선택"}</span><Icon name="sheet-chevron.svg" /></button>
+          {menu === "province" ? <div className="region-menu" role="listbox" aria-label="시도 선택">{provinceOptions.map((province) => <button key={province} type="button" role="option" aria-selected={(value.province || "전국") === province} onClick={() => chooseProvince(province)}>{province}</button>)}</div> : null}
+        </div>
+        <div className="region-quick-chips" aria-label="빠른 지역 선택">{quickRegions.map((label) => <button key={label} type="button" className={(value.province === (label === "전남광주" ? "광주" : label)) ? "is-selected" : ""} aria-pressed={value.province === (label === "전남광주" ? "광주" : label)} onClick={() => chooseQuickRegion(label)}>{label}</button>)}</div>
+        <div className="region-select-wrap">
+          <button className="region-select" type="button" disabled={!value.province} aria-expanded={menu === "district"} onClick={() => setMenu((current) => current === "district" ? null : "district")}><span className={value.district ? "has-value" : ""}>{value.district || "시/군/구 선택"}</span><Icon name="sheet-chevron.svg" /></button>
+          {menu === "district" ? <div className="region-menu" role="listbox" aria-label="시군구 선택">{districtOptions.map((district) => <button key={district} type="button" role="option" aria-selected={(value.district || "전체") === district} onClick={() => { onChange({ ...value, district: district === "전체" ? "" : district, radius: "" }); setMenu(null); }}>{district}</button>)}</div> : null}
+        </div>
+      </div>
+      <div className="region-around">
+        <div className="region-around-heading"><span /><strong>내 주변 검색</strong></div>
+        <div className="region-select-wrap">
+          <button className="region-select" type="button" aria-expanded={menu === "radius"} onClick={() => setMenu((current) => current === "radius" ? null : "radius")}><span className={value.radius ? "has-value" : ""}>{value.radius ? `내 위치에서 ${value.radius}` : "내 위치와 검색 반경 선택"}</span><Icon name="sheet-chevron.svg" /></button>
+          {menu === "radius" ? <div className="region-menu is-upward" role="listbox" aria-label="검색 반경 선택">{radiusOptions.map((radius) => <button key={radius} type="button" role="option" aria-selected={value.radius === radius} onClick={() => { onChange({ province: "", district: "", radius }); setMenu(null); }}>{radius}</button>)}</div> : null}
+        </div>
+      </div>
+      <div className="region-actions"><button type="button" className="region-reset" onClick={() => { onChange(emptyRegion); setMenu(null); }}>초기화</button><button type="button" className="region-confirm" onClick={onConfirm}>확인</button></div>
+    </div>
+  );
+}
+
 function MarketplaceScreen() {
   const flow = useFlow();
   const [query, setQuery] = useState("");
@@ -268,11 +314,16 @@ function MarketplaceScreen() {
   const [liked, setLiked] = useState<number[]>([]);
   const [selectedModel, setSelectedModel] = useState<string | null>(null);
   const [shuffledCars, setShuffledCars] = useState<Car[]>(() => shuffleCars(defaultCars));
+  const [region, setRegion] = useState<RegionSelection>(emptyRegion);
+  const [draftRegion, setDraftRegion] = useState<RegionSelection>(emptyRegion);
+
+  const regionLabel = region.radius ? `내 주변 ${region.radius}` : [region.province, region.district].filter(Boolean).join(" ") || "전국";
+  const regionKeyword = region.province === "광주" ? "광주" : region.province;
 
   const visibleCars = useMemo(() => {
     const normalized = query.trim().toLowerCase();
-    return shuffledCars.filter((car) => (sellerType === "전체" || car.sellerType === sellerType) && (!maker || car.maker === maker) && (!selectedModel || car.modelGroup === selectedModel) && (!normalized || `${car.title} ${car.trim} ${car.maker}`.toLowerCase().includes(normalized)));
-  }, [maker, query, selectedModel, sellerType, shuffledCars]);
+    return shuffledCars.filter((car) => (sellerType === "전체" || car.sellerType === sellerType) && (!maker || car.maker === maker) && (!selectedModel || car.modelGroup === selectedModel) && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || `${car.title} ${car.trim} ${car.maker}`.toLowerCase().includes(normalized)));
+  }, [maker, query, region.district, regionKeyword, selectedModel, sellerType, shuffledCars]);
 
   const resetFilters = () => {
     setMaker(null);
@@ -281,6 +332,12 @@ function MarketplaceScreen() {
     setSellerType("전체");
     setQuery("");
     setSort("최신순");
+    setRegion(emptyRegion);
+  };
+
+  const openRegionSheet = () => {
+    setDraftRegion(region);
+    setSheet("region");
   };
 
   const chooseMaker = (nextMaker: string | null) => {
@@ -302,7 +359,7 @@ function MarketplaceScreen() {
         <main className="marketplace" aria-label="중고차 리스트">
           <Header query={query} setQuery={setQuery} />
           <section className="region-bar" aria-label="지역 선택">
-            <button type="button" onClick={() => setSheet("region")}><Icon name="location-blue.svg" /><span className="region-label">지역:</span><strong>전국</strong><Icon name="region-chevron.svg" /></button>
+            <button type="button" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={openRegionSheet}><Icon name="location-blue.svg" /><span className="region-label">지역:</span><strong>{regionLabel}</strong><Icon name="region-chevron.svg" /></button>
             <button type="button" className="reset-button" onClick={resetFilters}>초기화</button>
           </section>
           <Carousel ariaLabel="중고차 필터" className="filter-rail" contentClassName="filter-track">
@@ -350,10 +407,10 @@ function MarketplaceScreen() {
           </section>
         </main>
       </MobileScroll>
-      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && setSheet(null)} title={sheet ? sheetLabels[sheet] : "필터"} description="원하는 조건을 선택해 매물을 좁혀보세요." snap={0.48}>
-        <div className="sheet-options">
-          {sheet === "maker" || sheet === "filter" ? <><button type="button" className={!maker ? "is-selected" : ""} onClick={() => chooseMaker(null)}>전체 제조사</button>{brands.map((brand) => <button key={brand.name} type="button" className={maker === brand.name ? "is-selected" : ""} onClick={() => chooseMaker(brand.name)}>{brand.name}</button>)}</> : sheet === "sort" ? ["최신순", "낮은 가격순", "높은 가격순"].map((label) => <button key={label} type="button" className={sort === label ? "is-selected" : ""} onClick={() => { setSort(label); setSheet(null); }}>{label}</button>) : ["전체", sheet === "region" ? "서울" : "추천 조건", sheet === "region" ? "경기" : "인기 조건"].map((label) => <button key={label} type="button" onClick={() => setSheet(null)}>{label}</button>)}
-        </div>
+      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && setSheet(null)} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "region" ? 0.53 : 0.48}>
+        {sheet === "region" ? <RegionSheet value={draftRegion} onChange={setDraftRegion} onClose={() => setSheet(null)} onConfirm={() => { setRegion(draftRegion); setSheet(null); }} /> : <div className="sheet-options">
+          {sheet === "maker" || sheet === "filter" ? <><button type="button" className={!maker ? "is-selected" : ""} onClick={() => chooseMaker(null)}>전체 제조사</button>{brands.map((brand) => <button key={brand.name} type="button" className={maker === brand.name ? "is-selected" : ""} onClick={() => chooseMaker(brand.name)}>{brand.name}</button>)}</> : sheet === "sort" ? ["최신순", "낮은 가격순", "높은 가격순"].map((label) => <button key={label} type="button" className={sort === label ? "is-selected" : ""} onClick={() => { setSort(label); setSheet(null); }}>{label}</button>) : ["전체", "추천 조건", "인기 조건"].map((label) => <button key={label} type="button" onClick={() => setSheet(null)}>{label}</button>)}
+        </div>}
       </BottomSheet>
     </>
   );

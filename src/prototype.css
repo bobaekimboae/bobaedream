@@ -142,6 +142,40 @@ button { color: inherit; }
 .sheet-options button { min-height: 46px; padding: 0 14px; border: 1px solid #e2e2e2; border-radius: 12px; background: #fff; color: #3a3a3a; font-size: 14px; font-weight: 600; text-align: left; }
 .sheet-options button.is-selected { border-color: var(--blue); background: #eef4fb; color: var(--blue); }
 
+/* Figma region-selection sheet */
+.bottom-sheet:has(.region-sheet) { border-radius: 14px 14px 0 0; box-shadow: none; }
+.bottom-sheet:has(.region-sheet) .sheet-handle-zone { display: none; }
+.bottom-sheet:has(.region-sheet) .sheet-header { display: flex; align-items: center; height: 60px; padding: 0 20px; box-sizing: border-box; }
+.bottom-sheet:has(.region-sheet) .sheet-title { color: #1a1a1a; font-size: 18px; font-weight: 600; line-height: 25px; }
+.bottom-sheet:has(.region-sheet) .sheet-content { overflow: visible; padding: 0; }
+.region-sheet { position: relative; height: 389px; color: #1a1a1a; font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.region-sheet button { border: 0; background: none; font-family: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.region-sheet-close { position: absolute; z-index: 4; top: -49px; right: 17px; display: grid; place-items: center; width: 24px; height: 24px; padding: 3px; }
+.region-sheet-close .ui-icon { width: 12px; height: 12px; }
+.region-fields { display: flex; flex-direction: column; gap: 12px; padding: 4px 20px 0; }
+.region-select-wrap { position: relative; width: 100%; }
+.region-select { display: flex; align-items: center; gap: 16px; width: 100%; height: 54px; padding: 0 14px; border: 1px solid #ebebeb !important; border-radius: 10px; background: #fff !important; color: #616161; font-size: 16px; font-weight: 400; line-height: 22px; text-align: left; }
+.region-select:disabled { opacity: 1; color: #9e9e9e; cursor: default; }
+.region-select span { flex: 1; }
+.region-select span.has-value { color: #1a1a1a; }
+.region-select .ui-icon { width: 11px; height: 6px; flex: 0 0 auto; }
+.region-quick-chips { display: flex; gap: 8px; align-items: center; height: 32px; }
+.region-quick-chips button { min-width: 48px; height: 32px; padding: 0 10px; border: 1px solid #ebebeb; border-radius: 9999px; background: #fff; color: #1a1a1a; font-size: 14px; font-weight: 500; line-height: 20px; white-space: nowrap; }
+.region-quick-chips button.is-selected { border-color: #1b4c8c; background: #f2f6fb; color: #1b4c8c; }
+.region-menu { position: absolute; z-index: 6; top: 58px; right: 0; left: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); max-height: 184px; padding: 8px; overflow: auto; border: 1px solid #ebebeb; border-radius: 10px; background: #fff; box-shadow: 0 8px 22px rgba(0,0,0,.14); }
+.region-menu.is-upward { top: auto; bottom: 58px; }
+.region-menu button { min-height: 38px; padding: 0 10px; border-radius: 7px; color: #3a3a3a; font-size: 14px; text-align: left; }
+.region-menu button[aria-selected="true"] { background: #eef4fb; color: #1b4c8c; font-weight: 600; }
+.region-around { display: flex; flex-direction: column; gap: 12px; padding: 20px 20px 12px; }
+.region-around-heading { display: flex; flex-direction: column; gap: 24px; }
+.region-around-heading > span { height: 1px; background: #ebebeb; }
+.region-around-heading strong { font-size: 16px; font-weight: 600; line-height: 22px; }
+.region-actions { display: flex; gap: 8px; align-items: center; padding: 16px 20px 8px; }
+.region-actions button { height: 52px; border-radius: 8px; font-size: 16px; font-weight: 600; line-height: 22px; }
+.region-reset { width: 118px; color: #505050; }
+.region-confirm { flex: 1; background: #1b4c8c !important; color: #fff; }
+
+
 /* Vehicle detail screen */
 .detail-scene { position: relative; width: 100%; height: 100%; background: #fff; }
 .detail-screen { background: #f1f1f1; color: #222; font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
