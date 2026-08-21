@@ -1,18 +1,26 @@
 .vehicle-title-row {
   display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
 }
 
 .vehicle-title-row h1 {
+  min-width: 0 !important;
+  flex: 1 1 auto !important;
+  margin: 0 !important;
+  color: transparent !important;
   font-size: 0 !important;
   line-height: 0 !important;
 }
 
 .vehicle-title-row h1::before {
-  content: "벤틀리 컨티넨탈 GT";
+  content: "벤틀리 컨티넨탈 GT 퍼스트 에디션";
   display: block;
-  color: #101010;
-  font-size: 18px;
+  color: #222;
+  font-size: 22px;
   font-weight: 700;
-  line-height: 26px;
-  letter-spacing: -.36px;
+  line-height: 30px;
+  letter-spacing: -.55px;
+  word-break: keep-all;
 }
