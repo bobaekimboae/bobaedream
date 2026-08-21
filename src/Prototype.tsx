@@ -12,6 +12,27 @@ import {
   QuestionMarkCircledIcon,
 } from "@radix-ui/react-icons";
 import {
+  siBentley,
+  siBugatti,
+  siCadillac,
+  siChevrolet,
+  siFerrari,
+  siFord,
+  siHonda,
+  siInfiniti,
+  siJeep,
+  siLamborghini,
+  siMaserati,
+  siNissan,
+  siSubaru,
+  siSuzuki,
+  siTesla,
+  siToyota,
+  siVolkswagen,
+  siVolvo,
+  type SimpleIcon,
+} from "simple-icons";
+import {
   BottomSheet,
   Carousel,
   FlowStack,
@@ -74,6 +95,37 @@ const brands = [
   { name: "아우디", logo: asset("brand/audi.svg") },
   { name: "포르쉐", logo: asset("brand/porsche.png"), full: true },
   { name: "미니", logo: asset("brand/mini.svg") },
+];
+
+type MakerOption = { name: string; maker: string; logo?: string; icon?: SimpleIcon; color?: string };
+const makerOptions: MakerOption[] = [
+  { name: "BMW", maker: "BMW", logo: asset("brand/bmw.svg") },
+  { name: "메르세데스-벤츠", maker: "벤츠", logo: asset("brand/benz.png") },
+  { name: "아우디", maker: "아우디", logo: asset("brand/audi.svg") },
+  { name: "포르쉐", maker: "포르쉐", logo: asset("brand/porsche.png") },
+  { name: "미니", maker: "미니", logo: asset("brand/mini.svg") },
+  { name: "랜드로버", maker: "랜드로버", logo: asset("brand/land-rover.svg") },
+  { name: "볼보", maker: "볼보", icon: siVolvo, color: "#173a6b" },
+  { name: "렉서스", maker: "렉서스", logo: asset("brand/lexus.svg") },
+  { name: "테슬라", maker: "테슬라", icon: siTesla, color: "#e82127" },
+  { name: "폭스바겐", maker: "폭스바겐", icon: siVolkswagen, color: "#143c6f" },
+  { name: "토요타", maker: "토요타", icon: siToyota },
+  { name: "혼다", maker: "혼다", icon: siHonda },
+  { name: "재규어", maker: "재규어", logo: asset("brand/jaguar.png") },
+  { name: "쉐보레", maker: "쉐보레", icon: siChevrolet, color: "#d7a52b" },
+  { name: "포드", maker: "포드", icon: siFord, color: "#153e7b" },
+  { name: "지프", maker: "지프", icon: siJeep },
+  { name: "캐딜락", maker: "캐딜락", icon: siCadillac },
+  { name: "링컨", maker: "링컨", logo: asset("brand/lincoln.png") },
+  { name: "닛산", maker: "닛산", icon: siNissan },
+  { name: "인피니티", maker: "인피니티", icon: siInfiniti },
+  { name: "마세라티", maker: "마세라티", icon: siMaserati },
+  { name: "벤틀리", maker: "벤틀리", icon: siBentley },
+  { name: "페라리", maker: "페라리", icon: siFerrari, color: "#d3182d" },
+  { name: "람보르기니", maker: "람보르기니", icon: siLamborghini, color: "#a98224" },
+  { name: "부가티", maker: "부가티", icon: siBugatti, color: "#bf1238" },
+  { name: "스바루", maker: "스바루", icon: siSubaru, color: "#174c92" },
+  { name: "스즈키", maker: "스즈키", icon: siSuzuki, color: "#d71920" },
 ];
 
 const bmwModels = [
@@ -249,6 +301,38 @@ function FilterChip({ label, icon, active, onClick }: { label: string; icon?: st
     <button className={`filter-chip${active ? " is-active" : ""}`} type="button" aria-pressed={active} onClick={onClick}>
       {icon ? <Icon name={icon} /> : null}<span>{label}</span>{!icon || active ? <Icon name={active ? "close.svg" : "chevron-down.svg"} /> : null}
     </button>
+  );
+}
+
+function MakerMark({ option }: { option: MakerOption }) {
+  if (option.logo) return <img className="maker-option-logo" src={option.logo} alt="" aria-hidden="true" draggable={false} />;
+  if (!option.icon) return null;
+  return <svg className="maker-option-logo" viewBox="0 0 24 24" fill={option.color ?? `#${option.icon.hex}`} aria-hidden="true"><path d={option.icon.path} /></svg>;
+}
+
+function MakerSheet({ selected, onChoose, onClose }: { selected: string | null; onChoose: (maker: string | null) => void; onClose: () => void }) {
+  const keyboard = useKeyboard();
+  const [query, setQuery] = useState("");
+  const filteredOptions = makerOptions.filter((option) => option.name.toLowerCase().includes(query.trim().toLowerCase()));
+
+  return (
+    <div className="maker-sheet">
+      <button type="button" className="maker-sheet-close" aria-label="제조사 선택 닫기" onClick={onClose}><Icon name="sheet-close.svg" /></button>
+      <label className="maker-search">
+        <Icon name="search.svg" />
+        <KeyboardInput aria-label="제조사 검색" value={query} onChange={(event) => setQuery(event.currentTarget.value)} onBlur={() => keyboard.hide()} placeholder="검색" />
+      </label>
+      <div className="maker-list" role="radiogroup" aria-label="제조사 목록">
+        {filteredOptions.map((option) => (
+          <label key={option.name} className={`maker-option${selected === option.maker ? " is-selected" : ""}`}>
+            <MakerMark option={option} />
+            <span>{option.name}</span>
+            <input type="radio" name="maker" value={option.maker} checked={selected === option.maker} onChange={() => onChoose(option.maker)} />
+          </label>
+        ))}
+        {!filteredOptions.length ? <div className="maker-empty"><strong>검색 결과가 없어요</strong><span>다른 제조사명을 입력해보세요.</span></div> : null}
+      </div>
+    </div>
   );
 }
 
@@ -481,9 +565,9 @@ function MarketplaceScreen() {
         </main>
       </MobileScroll>
       {searchToast ? <div className="market-toast" role="status" aria-live="polite">{searchToast}</div> : null}
-      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && setSheet(null)} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "region" ? 0.53 : 0.48}>
-        {sheet === "region" ? <RegionSheet value={draftRegion} onChange={setDraftRegion} onClose={() => setSheet(null)} onConfirm={() => { setRegion(draftRegion); setSheet(null); }} /> : <div className="sheet-options">
-          {sheet === "maker" || sheet === "filter" ? <><button type="button" className={!maker ? "is-selected" : ""} onClick={() => chooseMaker(null)}>전체 제조사</button>{brands.map((brand) => <button key={brand.name} type="button" className={maker === brand.name ? "is-selected" : ""} onClick={() => chooseMaker(brand.name)}>{brand.name}</button>)}</> : sheet === "sort" ? ["최신순", "낮은 가격순", "높은 가격순"].map((label) => <button key={label} type="button" className={sort === label ? "is-selected" : ""} onClick={() => { setSort(label); setSheet(null); }}>{label}</button>) : ["전체", "추천 조건", "인기 조건"].map((label) => <button key={label} type="button" onClick={() => setSheet(null)}>{label}</button>)}
+      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && setSheet(null)} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" || sheet === "maker" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "maker" ? 0.9 : sheet === "region" ? 0.53 : 0.48}>
+        {sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={() => setSheet(null)} /> : sheet === "region" ? <RegionSheet value={draftRegion} onChange={setDraftRegion} onClose={() => setSheet(null)} onConfirm={() => { setRegion(draftRegion); setSheet(null); }} /> : <div className="sheet-options">
+          {sheet === "filter" ? <><button type="button" className={!maker ? "is-selected" : ""} onClick={() => chooseMaker(null)}>전체 제조사</button>{brands.map((brand) => <button key={brand.name} type="button" className={maker === brand.name ? "is-selected" : ""} onClick={() => chooseMaker(brand.name)}>{brand.name}</button>)}</> : sheet === "sort" ? ["최신순", "낮은 가격순", "높은 가격순"].map((label) => <button key={label} type="button" className={sort === label ? "is-selected" : ""} onClick={() => { setSort(label); setSheet(null); }}>{label}</button>) : ["전체", "추천 조건", "인기 조건"].map((label) => <button key={label} type="button" onClick={() => setSheet(null)}>{label}</button>)}
         </div>}
       </BottomSheet>
     </>

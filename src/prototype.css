@@ -146,6 +146,30 @@ button { color: inherit; }
 .sheet-options button { min-height: 46px; padding: 0 14px; border: 1px solid #e2e2e2; border-radius: 12px; background: #fff; color: #3a3a3a; font-size: 14px; font-weight: 600; text-align: left; }
 .sheet-options button.is-selected { border-color: var(--blue); background: #eef4fb; color: var(--blue); }
 
+/* Manufacturer selection sheet */
+.sheet-overlay:has(+ .bottom-sheet .maker-sheet) { background: rgba(0, 0, 0, .18); }
+.bottom-sheet:has(.maker-sheet) { height: 100%; border-radius: 16px 16px 0 0; box-shadow: none; }
+.bottom-sheet:has(.maker-sheet) .sheet-handle-zone { display: none; }
+.bottom-sheet:has(.maker-sheet) .sheet-header { display: grid; place-items: center; flex: 0 0 45px; height: 45px; padding: 0; border-bottom: 1px solid #ebebeb; box-sizing: border-box; }
+.bottom-sheet:has(.maker-sheet) .sheet-title { color: #171717; font-size: 17px; font-weight: 700; line-height: 23px; }
+.bottom-sheet:has(.maker-sheet) .sheet-content { min-height: 0; flex: 1; padding: 0; overflow: visible; }
+.maker-sheet { position: relative; display: flex; height: 100%; min-height: 0; flex-direction: column; background: #fff; color: #171717; }
+.maker-sheet-close { position: absolute; z-index: 4; top: -40px; right: 7px; display: grid; place-items: center; width: 34px; height: 34px; padding: 0; border: 0; background: transparent; }
+.maker-sheet-close .ui-icon { width: 14px; height: 14px; filter: brightness(0); }
+.maker-search { display: grid; grid-template-columns: 21px minmax(0, 1fr); align-items: center; gap: 8px; flex: 0 0 36px; height: 36px; margin: 11px 14px 7px; padding: 0 11px; border-radius: 18px; box-sizing: border-box; background: #f3f3f3; }
+.maker-search .ui-icon { width: 18px; height: 18px; opacity: .58; }
+.maker-search input { min-width: 0; height: 100%; padding: 0; border: 0; outline: 0; background: transparent; color: #222; font: inherit; font-size: 13px; line-height: 19px; }
+.maker-search input::placeholder { color: #8c8c8c; opacity: 1; }
+.maker-list { min-height: 0; flex: 1; padding: 0 14px calc(var(--mobile-safe-area-height) + 8px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; }
+.maker-list::-webkit-scrollbar { display: none; }
+.maker-option { display: grid; grid-template-columns: 28px minmax(0, 1fr) 20px; align-items: center; gap: 8px; min-height: 32px; border-bottom: 1px solid #ededed; cursor: pointer; }
+.maker-option-logo { display: block; width: 24px; height: 24px; object-fit: contain; }
+.maker-option svg.maker-option-logo { padding: 3px; box-sizing: border-box; }
+.maker-option > span { overflow: hidden; color: #171717; font-size: 13px; font-weight: 600; line-height: 18px; text-overflow: ellipsis; white-space: nowrap; }
+.maker-option input { width: 15px; height: 15px; margin: 0; accent-color: #1b4c8c; }
+.maker-empty { display: flex; min-height: 260px; flex-direction: column; align-items: center; justify-content: center; gap: 7px; color: #8c8c8c; font-size: 14px; }
+.maker-empty strong { color: #333; font-size: 16px; }
+
 /* Figma region-selection sheet */
 .bottom-sheet:has(.region-sheet) { border-radius: 14px 14px 0 0; box-shadow: none; }
 .bottom-sheet:has(.region-sheet) .sheet-handle-zone { display: none; }
