@@ -82,4 +82,5 @@ When any text-entry control loses focus, dismiss the simulated keyboard. If the 
 - All private-party listings display only `개인판매자` with no personal name, and all dealer listings omit the trailing `딜러` label after the seller's name.
 - Each listing heart toggles between a gray outline and a solid red saved state. The header heart opens a `저장한 매물` FlowStack screen with dynamic listing/video counts, removable saved rows, and an empty state.
 - Tapping the `제조사` filter opens a near-full-height manufacturer sheet matching the supplied reference, with a centered title, close action, keyboard-aware search, real brand marks, scrollable rows, native single-select radios, and immediate inventory filtering on selection.
+- Display vehicle mileage in truncated ten-thousand-kilometer buckets across listing and detail surfaces: for example, `54,200km` becomes `5만km` and `26,500km` becomes `2만km`; values below 10,000km display as `1만km 미만`.
 

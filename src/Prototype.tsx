@@ -88,6 +88,11 @@ function useFavorites() {
 }
 
 const sellerLabel = (car: Car) => car.sellerType === "개인" ? "개인판매자" : car.dealer.replace(/\s*딜러$/, "");
+const formatMileage = (value: string) => value.replace(/(\d[\d,]*)\s*km/i, (match, digits: string) => {
+  const kilometers = Number(digits.replaceAll(",", ""));
+  if (!Number.isFinite(kilometers)) return match;
+  return kilometers < 10_000 ? "1만km 미만" : `${Math.floor(kilometers / 10_000)}만km`;
+});
 
 const brands = [
   { name: "BMW", logo: asset("brand/bmw.svg") },
@@ -241,7 +246,7 @@ const optionItems = [
 ];
 
 const vehicleInfo = [
-  ["연식", "2021년 1월"], ["주행거리", "42,000 km"], ["연료", "가솔린"], ["변속기", "자동 8단"],
+  ["연식", "2021년 1월"], ["주행거리", formatMileage("42,000 km")], ["연료", "가솔린"], ["변속기", "자동 8단"],
   ["배기량", "2,497 cc"], ["색상", "검정색 (외장) · 흰색 (시트)"], ["지역", "서울 서초구"], ["사고이력", "없음"],
 ];
 
@@ -354,7 +359,7 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
       <div className="car-copy">
         <div className="car-main">
           {cardView ? <div className="card-title-row"><h2>{car.title} {car.trim}</h2><button type="button" aria-label={`${car.title} 더보기`} onClick={(event) => event.stopPropagation()}><Icon name="card-more.svg" /></button></div> : <><h2>{car.title}</h2><p className="trim">{car.trim}</p></>}
-          <p className="specs">{car.specs.join(" · ")}</p>
+          <p className="specs">{car.specs.map((spec, index) => index === 1 ? formatMileage(spec) : spec).join(" · ")}</p>
           <p className="price">{car.price}</p>{car.lease ? <p className="lease">{car.lease}</p> : null}
           <div className="badges"><span>인증중고차</span><span>1년 보증</span></div>
         </div>
@@ -648,7 +653,7 @@ function VehicleSummary() {
     <section className="vehicle-summary">
       <div className="vehicle-title-row"><h1>2019 벤틀리 컨티넨탈 GT 3세대 6.0 퍼스트 에디션</h1><button type="button" aria-label="매물 찜하기" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}</button></div>
       <p className="vehicle-lead">6인승 독립시트로 뒷좌석의 편안함을 최우선으로 느껴보세요.</p>
-      <p className="vehicle-meta">172무2323 · 19년 02월 · 17,000 km · 가솔린</p>
+      <p className="vehicle-meta">172무2323 · 19년 02월 · {formatMileage("17,000 km")} · 가솔린</p>
       <div className="detail-badges"><span>인증중고차</span><span>1년 보증</span></div>
       <div className="detail-price-row">
         <strong>1억 4,500만원</strong>
@@ -793,7 +798,7 @@ function CarRail({ title, cars: railCars }: { title: string; cars: RailCar[] }) 
   const { notify } = useDetailUi();
   return (
     <section className="related-section"><h2>{title}</h2><Carousel ariaLabel={title} className="related-carousel" contentClassName="related-track">
-      {railCars.map((car) => <button key={`${title}-${car.title}`} className="related-card" type="button" onClick={() => notify(`${car.title} 매물을 열었어요`)}><div className="related-photo"><img src={asset(`detail/${car.image}`)} alt={car.title} draggable={false} /><span>{car.posted}</span><b>10 ▣</b></div><div><h3>{car.title}</h3>{car.meta ? <p>{car.meta}</p> : null}<strong>{car.price}</strong><small>● {car.place}</small></div></button>)}
+      {railCars.map((car) => <button key={`${title}-${car.title}`} className="related-card" type="button" onClick={() => notify(`${car.title} 매물을 열었어요`)}><div className="related-photo"><img src={asset(`detail/${car.image}`)} alt={car.title} draggable={false} /><span>{car.posted}</span><b>10 ▣</b></div><div><h3>{car.title}</h3>{car.meta ? <p>{formatMileage(car.meta)}</p> : null}<strong>{car.price}</strong><small>● {car.place}</small></div></button>)}
     </Carousel></section>
   );
 }
