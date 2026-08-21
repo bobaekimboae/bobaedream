@@ -129,9 +129,13 @@ button { color: inherit; }
 .vehicle-meta { margin-top: 8px; }
 .detail-badges { display: flex; gap: 4px; margin-top: 8px; }
 .detail-badges span { height: 20px; padding: 0 6px; border-radius: 4px; background: #ebebeb; color: #505050; font-size: 12px; line-height: 20px; }
-.detail-price { display: flex; align-items: center; gap: 3px; margin: 8px 0 0; padding: 0; border: 0; background: none; color: #f14069; font-size: 20px; font-weight: 700; line-height: 28px; cursor: pointer; }
-.detail-price svg { width: 20px; height: 20px; }
-.vehicle-stats { display: flex; gap: 14px; align-items: center; height: 32px; padding-top: 6px; color: #8c8c8c; font-size: 14px; }
+.detail-price-row { display: flex; align-items: center; gap: 8px; margin-top: 8px; line-height: 28px; }
+.detail-price-row strong { color: #f14069; font-size: 20px; font-weight: 700; letter-spacing: -.4px; }
+.detail-price-row button { padding: 0; border: 0; background: none; color: #595959; font-size: 14px; line-height: 20px; text-decoration: underline; text-underline-position: from-font; cursor: pointer; }
+.detail-calculators { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding-top: 8px; }
+.detail-calculators button { height: 36px; padding: 0 12px; border: 1px solid #c0c0c0; border-radius: 8px; background: #fff; color: #505050; font-size: 13px; font-weight: 600; line-height: 18px; cursor: pointer; }
+.detail-calculators button:active { background: #f7f7f7; }
+.vehicle-stats { display: flex; gap: 12px; align-items: center; height: 32px; padding: 6px 0; color: #8c8c8c; font-size: 14px; box-sizing: border-box; }
 .vehicle-stats span { display: flex; align-items: center; gap: 4px; }
 .vehicle-stats svg { width: 16px; height: 16px; }
 .detail-gray-stack { display: flex; flex-direction: column; gap: 8px; padding: 8px; background: #f1f1f1; }
@@ -236,3 +240,4 @@ button { color: inherit; }
   .car-photo-wrap { width: 124px; }
   .detail-media-track > img { width: 393px; flex-basis: 393px; }
 }
+

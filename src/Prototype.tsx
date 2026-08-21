@@ -318,14 +318,21 @@ function DetailHero({ onBack }: { onBack: () => void }) {
 }
 
 function VehicleSummary() {
-  const { liked, setLiked } = useDetailUi();
+  const { liked, setLiked, notify } = useDetailUi();
   return (
     <section className="vehicle-summary">
       <div className="vehicle-title-row"><h1>2019 벤틀리 컨티넨탈 GT 3세대 6.0 퍼스트 에디션</h1><button type="button" aria-label="매물 찜하기" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}</button></div>
       <p className="vehicle-lead">6인승 독립시트로 뒷좌석의 편안함을 최우선으로 느껴보세요.</p>
       <p className="vehicle-meta">172무2323 · 19년 02월 · 17,000 km · 가솔린</p>
       <div className="detail-badges"><span>인증중고차</span><span>1년 보증</span></div>
-      <button className="detail-price" type="button">1억 4,500만원 <ChevronRightIcon /></button>
+      <div className="detail-price-row">
+        <strong>1억 4,500만원</strong>
+        <button type="button" onClick={() => notify("최근 가격 변동 내역을 확인했어요")}>가격 변동</button>
+      </div>
+      <div className="detail-calculators">
+        <button type="button" onClick={() => notify("비용 계산기를 열었어요")}>비용 계산기</button>
+        <button type="button" onClick={() => notify("보험료 계산을 시작해요")}>보험료 계산</button>
+      </div>
       <div className="vehicle-stats"><span><HeartFilledIcon />480</span><span><EyeOpenIcon />2,301</span><span><ClockIcon />1분 전</span></div>
     </section>
   );
@@ -470,3 +477,4 @@ const detailScreen: FlowScreen = { id: "vehicle-detail", footer: () => <DetailFo
 export default function Prototype() {
   return <DetailUiProvider><FlowStack initial={listScreen} /></DetailUiProvider>;
 }
+
