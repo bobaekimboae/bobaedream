@@ -1,0 +1,7 @@
+.vehicle-title-row {
+  display: none !important;
+}
+
+.vehicle-summary .vehicle-lead {
+  margin-top: 0 !important;
+}
