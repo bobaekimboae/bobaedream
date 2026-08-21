@@ -422,6 +422,10 @@ function PriceSheet({ value, onChange, onClose, onReset, onConfirm, resultCount 
 
 function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; cardView: boolean; liked: boolean; onToggleLike: () => void; onOpen: () => void }) {
   const displayedSeller = sellerLabel(car);
+  const cardPriceMatch = car.price.match(/^(월\s*)?(.+?)(\s*만원)$/);
+  const cardPricePrefix = cardPriceMatch?.[1] ?? "";
+  const cardPriceAmount = cardPriceMatch?.[2] ?? car.price;
+  const cardPriceUnit = cardPriceMatch?.[3] ?? "";
   const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -439,16 +443,17 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
         <div className="car-main">
           {cardView ? <div className="card-title-row"><h2>{car.title} {car.trim}</h2><button type="button" aria-label={`${car.title} 더보기`} onClick={(event) => event.stopPropagation()}><Icon name="card-more.svg" /></button></div> : <><h2>{car.title}</h2><p className="trim">{car.trim}</p></>}
           <p className="specs">{car.specs.map((spec, index) => index === 1 ? formatMileage(spec) : spec).join(" · ")}</p>
-          <p className="price">{car.price}</p>{car.lease ? <p className="lease">{car.lease}</p> : null}
-          <div className="badges"><span>인증중고차</span><span>1년 보증</span></div>
+          {cardView ? <div className="card-price-block">
+            <div className="card-price-row"><p className="price">{cardPricePrefix ? <span className="card-price-unit">{cardPricePrefix}</span> : null}<span>{cardPriceAmount}</span><span className="card-price-unit">{cardPriceUnit}</span></p>{car.lease ? <p className="lease">{car.lease}</p> : null}</div>
+            <div className="badges"><span>인증중고차</span><span>1년 보증</span></div>
+          </div> : <><p className="price">{car.price}</p>{car.lease ? <p className="lease">{car.lease}</p> : null}<div className="badges"><span>인증중고차</span><span>1년 보증</span></div></>}
         </div>
         <div className="car-footer">
-          <p className="location-line"><Icon name="location-gray.svg" />{car.place}<span className="dot">·</span><Icon name="views.svg" />{car.views}</p>
+          <p className="location-line"><Icon name="location-gray.svg" />{car.place}{cardView ? null : <><span className="dot">·</span><Icon name="views.svg" />{car.views}</>}</p>
           <div className="dealer-line">
             <img className="dealer-avatar" src={asset("cars/dealer.png")} alt="" aria-hidden="true" draggable={false} />
-              <p><strong>{displayedSeller}</strong><span>· 판매중 <b>{car.stock}대</b></span></p>
-            {cardView ? <div className="card-contact-actions"><button type="button" aria-label={`${displayedSeller} 전화`} onClick={(event) => event.stopPropagation()}><Icon name="card-call.svg" /></button><button type="button" aria-label={`${displayedSeller} 메시지`} onClick={(event) => event.stopPropagation()}><Icon name="card-message.svg" /></button></div> : null}
-            <button className={`like-button${liked ? " is-liked" : ""}`} type="button" aria-label={`${car.title} ${liked ? "저장 해제" : "저장"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>{liked ? <HeartFilledIcon /> : <HeartIcon />}</button>
+            {cardView ? <div className="dealer-copy"><strong>{displayedSeller}</strong><p><span>판매중 <b>{car.stock}대</b></span></p></div> : <p><strong>{displayedSeller}</strong><span>· 판매중 <b>{car.stock}대</b></span></p>}
+            {cardView ? <div className="card-contact-actions"><button type="button" aria-label={`${displayedSeller} 전화`} onClick={(event) => event.stopPropagation()}><Icon name="card-call.svg" /></button><button type="button" aria-label={`${displayedSeller} 메시지`} onClick={(event) => event.stopPropagation()}><Icon name="card-message.svg" /></button><button className={`like-button${liked ? " is-liked" : ""}`} type="button" aria-label={`${car.title} ${liked ? "저장 해제" : "저장"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>{liked ? <HeartFilledIcon /> : <HeartIcon />}</button></div> : <button className={`like-button${liked ? " is-liked" : ""}`} type="button" aria-label={`${car.title} ${liked ? "저장 해제" : "저장"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>{liked ? <HeartFilledIcon /> : <HeartIcon />}</button>}
           </div>
         </div>
       </div>
@@ -620,7 +625,7 @@ function MarketplaceScreen() {
         <main className="marketplace" aria-label="중고차 리스트">
           <Header query={query} setQuery={setQuery} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} />
           <section className="region-bar" aria-label="지역 선택">
-            <button type="button" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={openRegionSheet}><Icon name="location-blue.svg" /><span className="region-label">지역:</span><strong>{regionLabel}</strong><Icon name="region-chevron.svg" /></button>
+            <button type="button" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={openRegionSheet}><Icon name="location-blue.svg" /><span className="region-label">지역:</span><strong>{regionLabel}</strong><span className="region-chevron-icon" aria-hidden="true"><Icon name="region-chevron.svg" /></span></button>
             <button type="button" className="reset-button" onClick={resetFilters}>초기화</button>
           </section>
           <section
@@ -674,7 +679,7 @@ function MarketplaceScreen() {
               {(["전체", "개인", "딜러"] as SellerType[]).map((tab) => <button key={tab} type="button" role="tab" aria-selected={sellerType === tab} className={sellerType === tab ? "is-selected" : ""} onClick={() => setSellerType(tab)}>{tab}</button>)}
             </div>
             <div className="sort-controls">
-              <button type="button" className="sort-button" onClick={() => setSheet("sort")}>{sort}<Icon name="sort-arrow.svg" /></button><span className="toolbar-divider" />
+              <button type="button" className="sort-button" onClick={() => setSheet("sort")}>{sort}<span className="sort-arrow-icon" aria-hidden="true"><Icon name="sort-arrow.svg" /></span></button><span className="toolbar-divider" />
               <button type="button" className={`density-button${cardView ? " is-active" : ""}`} aria-label={cardView ? "목록형 보기로 전환" : "카드형 보기로 전환"} aria-pressed={cardView} onClick={() => setCardView((value) => !value)}><Icon name={cardView ? "card-view.svg" : "list.svg"} /></button>
             </div>
           </nav>
