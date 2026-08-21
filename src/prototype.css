@@ -96,11 +96,10 @@ button { color: inherit; }
 .car-card { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 16px; min-height: 208px; padding: 12px 16px 16px; border-bottom: 1px solid var(--line); box-sizing: border-box; background: #fff; cursor: pointer; outline: 0; transition: min-height 160ms ease, padding 160ms ease, background 120ms ease; }
 .car-card:focus-visible { box-shadow: inset 0 0 0 2px var(--blue); }
 .car-card:active { background: #f8f8f8; }
-.car-card:nth-child(2) { min-height: 226px; }
 .car-photo-wrap { position: relative; width: 130px; height: 128px; overflow: hidden; border-radius: 12px; background: #edf1f4; }
 .car-photo { display: block; width: 100%; height: 100%; object-fit: cover; }
 .car-photo.is-catalog { padding: 6px; box-sizing: border-box; background: #fff; object-fit: contain; }
-.car-copy { display: flex; min-width: 0; flex-direction: column; justify-content: space-between; gap: 10px; }
+.car-copy { display: flex; min-width: 0; flex-direction: column; justify-content: flex-start; gap: 10px; }
 .car-main h2, .car-main p, .car-footer p { margin: 0; }
 .car-main h2, .trim { overflow: hidden; color: #000; font-size: 15px; font-weight: 600; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; }
 .specs { margin-top: 4px !important; overflow: hidden; color: #6a6a6a; font-size: 13px; font-weight: 400; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; }
@@ -125,7 +124,7 @@ button { color: inherit; }
 .like-button.is-liked svg { color: #f14069; }
 
 /* Full-width card view */
-.car-card.is-card-view, .car-card.is-card-view:nth-child(2) { display: block; min-height: 0; padding: 12px 0 16px; }
+.car-card.is-card-view { display: block; min-height: 0; padding: 12px 0 16px; }
 .car-card.is-card-view .car-photo-wrap { width: calc(100% - 32px); height: auto; aspect-ratio: 380 / 220; margin: 0 16px; border-radius: 12px; background: #b9b9b9; }
 .car-card.is-card-view .car-photo { object-fit: cover; }
 .car-card.is-card-view .car-photo.is-catalog { padding: 0; background: #fff; object-fit: contain; }
