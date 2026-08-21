@@ -86,5 +86,20 @@
 - Browser logs contain no warnings or errors from the implementation.
 - Mobile runtime integrity, TypeScript compilation, Vite production build, Sites packaging, and all four Sites worker tests pass. Vite reports only its informational large-chunk advisory.
 
+## Marketplace behavior follow-up
+
+### Requested changes verified
+
+- Region sheet confirm action now reads `737대 매물 보기` and renders with `rgb(26, 26, 26)` (`#1a1a1a`) background and white text.
+- Listing badges are assigned when each inventory is shuffled. The first eight default listings visibly cover 0, 1, 2, and 3 badges, selected without duplicates from `브랜드인증`, `제조사보증`, `1인소유`, `가격인하`, and `인증중고차`.
+- Price-to-badge spacing measures 2px in compact list view and approximately 2px in full-width card view for both the first and second listings.
+- Selecting the BMW logo changes the manufacturer chip to `BMW` with a dedicated clear action. Tapping `BMW` opens the manufacturer sheet with BMW selected; tapping `BMW 제조사 필터 해제` restores the `제조사` chip, the five-logo manufacturer rail, and the default eight-listing inventory.
+
+### Verification
+
+- Tested at a `412 x 917` mobile viewport in the in-app browser.
+- Browser logs contain no warnings or errors.
+- Mobile runtime integrity, TypeScript compilation, Vite production build, Sites packaging, and all four Sites worker tests pass. Vite reports only its informational large-chunk advisory.
+
 final result: passed
 
