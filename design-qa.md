@@ -1,59 +1,64 @@
-# Manufacturer sheet design QA
+# Manufacturer and price-filter design QA
 
 ## Evidence
 
-- Source visual truth: `C:\Users\sungn\Downloads\ChatGPT Image 2026년 8월 21일 오후 07_17_54.png`
-- Browser-rendered implementation: `C:\Users\sungn\Documents\Codex\2026-08-21\github-plugin-github-openai-curated-remote\work\bobaedream\maker-sheet-implementation.png`
-- Side-by-side comparison: `C:\Users\sungn\Documents\Codex\2026-08-21\github-plugin-github-openai-curated-remote\work\bobaedream\maker-sheet-comparison.png`
-- Browser viewport: `1400 x 1200`, device scale factor `1`
-- Mobile screen: `393 x 852` CSS pixels and rendered pixels
-- Source pixels: `898 x 1751`; normalized to `393 x 766`
-- Implementation sheet: `393 x 767`; compared as a `393 x 766` sheet crop so browser stage, phone frame, and density do not affect judgment
-- State: default manufacturer sheet, no search query, no selected manufacturer
+- Manufacturer source visual truth: `N:\개인\Screenshot_20260821_185215_Ch Tt.png` (`1080 x 2100` pixels).
+- Price source visual truth: Figma node `1313:139816`, rendered by Figma at `412 x 805` pixels.
+- Browser-rendered implementation: `http://localhost:4173/`, captured in the in-app browser during this task in the open manufacturer and open price states.
+- Comparison evidence: each source and its matching browser screenshot were emitted together in the same comparison input during this task.
+- Browser stage screenshot: `1280 x 720`, device scale factor `1`.
+- Mobile runtime screen: iPhone preset, `393 x 852` CSS pixels; the surrounding device frame and status/home chrome are template-owned and excluded from fidelity findings.
+- State: manufacturer sheet open with no search/selection; price sheet open on `현금 차량` with `0 ~ 전체`.
 
 ## Findings
 
 - No actionable P0, P1, or P2 differences remain.
-- Fonts and typography: Korean sans-serif hierarchy, weights, sizes, and row-label density match the reference after normalization.
-- Spacing and layout rhythm: the 45px title bar, compact search field, 32px brand rows, separators, edge insets, and right radio alignment reproduce the source composition.
-- Colors and visual tokens: white sheet, soft gray search field, light separators, muted placeholder, and dark text match the reference palette.
-- Image quality and asset fidelity: actual supplied/project brand assets, Simple Icons marks, and sourced brand logo images are used; no placeholder boxes, emoji, CSS drawings, or handwritten SVG substitutes are present.
-- Copy and content: title, search placeholder, Korean manufacturer names, and reference ordering are reproduced through the visible Maserati row.
-- Residual P3: the browser QA capture includes its translucent pointer indicator over the search field and the mobile template's home indicator at the bottom; both are preview-environment chrome and not app UI drift.
+- Fonts and typography: manufacturer names now use a readable 17px medium weight and the price sheet follows the Figma 18px title, 16px tabs/values, 13px quick ranges, and 12px helper labels.
+- Spacing and layout rhythm: manufacturer rows use 54px height with 20px sheet insets and 12px logo-to-label spacing. The price sheet reproduces the 60px header, 52px tab strip, paired amount fields, dual range, two rows of quick filters, and safe-area-aware action bar.
+- Colors and visual tokens: white surfaces, gray search/quick-filter fills, light separators, black range/control states, dimmed overlay, and navy confirm action match the supplied references.
+- Image quality and asset fidelity: manufacturer rows keep the project's real sourced brand marks; no placeholder logos or improvised icon drawings were introduced. Existing close/search assets are reused.
+- Copy and content: Korean manufacturer labels, `가격`, `현금 차량`, `리스/렌트`, minimum/maximum labels, all eight price ranges, reset action, and dynamic result-count CTA match the requested product language.
 
 ## Full-view comparison evidence
 
-- The normalized side-by-side image shows the same near-full-height bottom-sheet proportion, rounded top corners, centered title, right close control, search bar, dense manufacturer rows, and aligned radio column.
-- The implementation exposes the same number of visible rows at the normalized sheet height, including the bottom Maserati row.
+- Manufacturer comparison shows the requested larger names, generous vertical rhythm, left breathing room for the brand marks, and consistently aligned radio controls.
+- Price comparison shows the same bottom-sheet anatomy and hierarchy as Figma, including the dual-ended price range, quick selections, and bottom actions.
+- The implementation keeps the existing market list visible under the dimmed overlay, which matches the intended bottom-sheet interaction.
 
 ## Focused region comparison evidence
 
-- The header/search/first-five-row region was inspected in the same comparison image at readable scale.
-- Title centering, close-icon offset, search radius, logo-to-label spacing, row separators, and radio sizing align with the reference.
+- Manufacturer header/search/first six rows were inspected at readable scale: title hierarchy, search-field radius, logo inset, label size, row separators, and radio alignment are consistent.
+- Price input/range/preset/action regions were inspected together: field padding, thumb size, selected-range line, chip grid, and CTA proportions are consistent with the Figma node.
 
 ## Primary interactions tested
 
-- Opened the sheet from the `제조사` filter chip.
-- Entered `벤츠` and confirmed only `메르세데스-벤츠` remained.
-- Selected `메르세데스-벤츠` and confirmed the filter changed to `벤츠` and the inventory switched to Mercedes listings.
-- Reopened the sheet and confirmed the selected radio state persisted.
-- Closed the sheet with the X control without changing the current selection.
-- Browser-driven testing surfaced no uncaught runtime failure; `check:runtime`, production build, and Sites tests are used as the repeatable runtime checks.
+- Opened and closed the manufacturer sheet; the complete list remains scrollable and selectable.
+- Opened the price sheet from the filter rail and switched the cash/lease tabs.
+- Selected `5천~7천`; the draft fields changed to `5,000 ~ 7,000만원` and the CTA changed from `8대` to `1대`.
+- Confirmed the draft; the filter chip changed to `5,000~7,000만원` and the list reduced to the matching 5,480만원 vehicle.
+- Reloaded and reopened the sheet to verify the default `0 ~ 전체` state.
+- Closing sheets dismisses the simulated keyboard/focus state.
+- Runtime integrity, production build, and Sites packaging tests pass; browser-driven interaction surfaced no uncaught runtime failure.
 
 ## Comparison history
 
-1. Initial comparison found a P2 density mismatch: 55px rows and a 52px search field exposed far fewer manufacturers than the reference. It also found missing reference brands (랜드로버, 렉서스, 재규어, 링컨) and a clipped close icon.
-2. Fixed the close control overflow, added real brand marks and the missing manufacturers, reduced the sheet to the reference 90% height, and compacted the header, search, rows, typography, logos, and radios.
-3. Post-fix visual evidence in `maker-sheet-comparison.png` shows no remaining actionable P0/P1/P2 difference.
+1. Initial price implementation had a P2 bottom safe-area issue: the action row was partially clipped by the home-indicator region.
+2. Increased the price sheet's maximum snap height and added safe-area bottom padding to the action row.
+3. Post-fix combined comparison shows both buttons fully visible above the home indicator with no actionable P0/P1/P2 drift.
+4. Manufacturer source and implementation comparison passed on the first post-change review; its remaining differences are intentional product constraints (Korean names and real project logos rather than the reference's Vietnamese, logo-free list).
 
 ## Implementation checklist
 
-- [x] Reference-matched manufacturer bottom sheet
-- [x] Search filtering
-- [x] Single-select radio state
-- [x] Immediate inventory filtering
-- [x] Close action and scrolling
-- [x] Browser-rendered comparison at 1:1 mobile scale
+- [x] Larger manufacturer title and row labels
+- [x] Clear left padding and real brand marks
+- [x] Figma-matched price bottom sheet
+- [x] Cash/lease tabs
+- [x] Dual range controls
+- [x] Eight quick price ranges
+- [x] Draft reset and close-without-apply behavior
+- [x] Dynamic result count and confirm-to-filter behavior
+- [x] Keyboard/focus dismissal
+- [x] Browser-rendered visual and interaction verification
 
 final result: passed
 

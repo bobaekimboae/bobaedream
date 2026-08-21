@@ -83,4 +83,6 @@ When any text-entry control loses focus, dismiss the simulated keyboard. If the 
 - Each listing heart toggles between a gray outline and a solid red saved state. The header heart opens a `저장한 매물` FlowStack screen with dynamic listing/video counts, removable saved rows, and an empty state.
 - Tapping the `제조사` filter opens a near-full-height manufacturer sheet matching the supplied reference, with a centered title, close action, keyboard-aware search, real brand marks, scrollable rows, native single-select radios, and immediate inventory filtering on selection.
 - Display vehicle mileage in truncated ten-thousand-kilometer buckets across listing and detail surfaces: for example, `54,200km` becomes `5만km` and `26,500km` becomes `2만km`; values below 10,000km display as `1만km 미만`.
+- Keep manufacturer rows easy to scan on mobile: use large Korean brand names, generous row height, and clear left padding before the real brand marks.
+- Tapping the `가격` filter opens the Figma price sheet from node `1313:139816`, with cash/lease tabs, dual price controls, eight quick ranges, draft reset, dynamic result count, and confirm-to-apply behavior. Closing the sheet discards draft changes.
 

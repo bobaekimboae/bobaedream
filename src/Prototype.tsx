@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState, type KeyboardEvent, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useMemo, useState, type CSSProperties, type KeyboardEvent, type ReactNode } from "react";
 import {
   BookmarkFilledIcon,
   ChevronDownIcon,
@@ -49,6 +49,8 @@ type SheetType = "filter" | "carType" | "maker" | "year" | "price" | "region" | 
 type DetailSheet = "contact" | "more" | "priceHistory" | null;
 type RegionSelection = { province: string; district: string; radius: string };
 type RegionMenu = "province" | "district" | "radius" | null;
+type PriceMode = "cash" | "lease";
+type PriceSelection = { mode: PriceMode; min: number; max: number | null };
 
 type Car = {
   id: number;
@@ -88,6 +90,30 @@ function useFavorites() {
 }
 
 const sellerLabel = (car: Car) => car.sellerType === "개인" ? "개인판매자" : car.dealer.replace(/\s*딜러$/, "");
+const emptyPrice: PriceSelection = { mode: "cash", min: 0, max: null };
+const priceSteps = [0, 500, 1000, 2000, 3000, 5000, 7000, 10000, 15000, 20000, 30000];
+const pricePresets = [
+  { label: "5백 이하", min: 0, max: 500 },
+  { label: "5백~1천", min: 500, max: 1000 },
+  { label: "1천~2천", min: 1000, max: 2000 },
+  { label: "2천~3천", min: 2000, max: 3000 },
+  { label: "3천~5천", min: 3000, max: 5000 },
+  { label: "5천~7천", min: 5000, max: 7000 },
+  { label: "7천~1억", min: 7000, max: 10000 },
+  { label: "1억 이상", min: 10000, max: null },
+];
+const parsePrice = (value: string) => Number(value.replace(/[^\d]/g, ""));
+const matchesPrice = (car: Car, value: PriceSelection) => {
+  const amount = parsePrice(car.price);
+  return amount >= value.min && (value.max === null || amount <= value.max);
+};
+const formatPriceValue = (value: number) => value.toLocaleString("ko-KR");
+const priceFilterLabel = (value: PriceSelection) => {
+  if (value.min === 0 && value.max === null) return "가격";
+  if (value.max === null) return `${formatPriceValue(value.min)}만원 이상`;
+  if (value.min === 0) return `${formatPriceValue(value.max)}만원 이하`;
+  return `${formatPriceValue(value.min)}~${formatPriceValue(value.max)}만원`;
+};
 const formatMileage = (value: string) => value.replace(/(\d[\d,]*)\s*km/i, (match, digits: string) => {
   const kilometers = Number(digits.replaceAll(",", ""));
   if (!Number.isFinite(kilometers)) return match;
@@ -341,6 +367,57 @@ function MakerSheet({ selected, onChoose, onClose }: { selected: string | null; 
   );
 }
 
+function PriceSheet({ value, onChange, onClose, onReset, onConfirm, resultCount }: { value: PriceSelection; onChange: (value: PriceSelection) => void; onClose: () => void; onReset: () => void; onConfirm: () => void; resultCount: number }) {
+  const minIndex = Math.max(0, priceSteps.indexOf(value.min));
+  const maxIndex = value.max === null ? priceSteps.length - 1 : Math.max(1, priceSteps.indexOf(value.max));
+  const rangeMax = priceSteps.length - 1;
+  const rangeStyle = {
+    "--price-start": `${(minIndex / rangeMax) * 100}%`,
+    "--price-end": `${(maxIndex / rangeMax) * 100}%`,
+  } as CSSProperties;
+  const setMinIndex = (nextIndex: number) => {
+    const safeIndex = Math.min(nextIndex, maxIndex - 1);
+    onChange({ ...value, min: priceSteps[safeIndex] });
+  };
+  const setMaxIndex = (nextIndex: number) => {
+    const safeIndex = Math.max(nextIndex, minIndex + 1);
+    onChange({ ...value, max: safeIndex === rangeMax ? null : priceSteps[safeIndex] });
+  };
+
+  return (
+    <div className="price-filter-sheet">
+      <button className="price-filter-close" type="button" aria-label="가격 필터 닫기" onClick={onClose}><Icon name="sheet-close.svg" /></button>
+      <div className="price-mode-tabs" role="tablist" aria-label="가격 유형">
+        <button type="button" role="tab" aria-selected={value.mode === "cash"} className={value.mode === "cash" ? "is-selected" : ""} onClick={() => onChange({ ...value, mode: "cash" })}>현금 차량</button>
+        <button type="button" role="tab" aria-selected={value.mode === "lease"} className={value.mode === "lease" ? "is-selected" : ""} onClick={() => onChange({ ...value, mode: "lease" })}>리스/렌트</button>
+      </div>
+      <div className="price-filter-body">
+        <div className="price-input-row" aria-label="선택한 가격 범위">
+          <div className="price-input-box"><span>최소</span><strong>{formatPriceValue(value.min)}</strong><b>만원</b></div>
+          <span className="price-range-separator">~</span>
+          <div className="price-input-box"><span>최대</span><strong>{value.max === null ? "전체" : formatPriceValue(value.max)}</strong><b>만원</b></div>
+        </div>
+        <div className="price-range" style={rangeStyle}>
+          <div className="price-range-line" aria-hidden="true" />
+          <input type="range" min="0" max={rangeMax} step="1" value={minIndex} aria-label="최소 가격" onChange={(event) => setMinIndex(Number(event.currentTarget.value))} />
+          <input type="range" min="0" max={rangeMax} step="1" value={maxIndex} aria-label="최대 가격" onChange={(event) => setMaxIndex(Number(event.currentTarget.value))} />
+          <div className="price-range-labels" aria-hidden="true"><span>0원</span><span>5,000만원</span><span>전체</span></div>
+        </div>
+        <div className="price-presets" aria-label="추천 가격 범위">
+          {pricePresets.map((preset) => {
+            const selected = value.min === preset.min && value.max === preset.max;
+            return <button key={preset.label} type="button" className={selected ? "is-selected" : ""} aria-pressed={selected} onClick={() => onChange({ ...value, min: preset.min, max: preset.max })}>{preset.label}</button>;
+          })}
+        </div>
+      </div>
+      <div className="price-filter-actions">
+        <button type="button" className="price-filter-reset" onClick={onReset}>초기화</button>
+        <button type="button" className="price-filter-confirm" onClick={onConfirm}>{resultCount.toLocaleString("ko-KR")}대 매물 보기</button>
+      </div>
+    </div>
+  );
+}
+
 function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; cardView: boolean; liked: boolean; onToggleLike: () => void; onOpen: () => void }) {
   const displayedSeller = sellerLabel(car);
   const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
@@ -452,6 +529,7 @@ function SavedListingsScreen() {
 
 function MarketplaceScreen() {
   const flow = useFlow();
+  const keyboard = useKeyboard();
   const { likedIds, toggleLiked } = useFavorites();
   const [query, setQuery] = useState("");
   const [sellerType, setSellerType] = useState<SellerType>("전체");
@@ -464,6 +542,8 @@ function MarketplaceScreen() {
   const [shuffledCars, setShuffledCars] = useState<Car[]>(() => shuffleCars(defaultCars));
   const [region, setRegion] = useState<RegionSelection>(emptyRegion);
   const [draftRegion, setDraftRegion] = useState<RegionSelection>(emptyRegion);
+  const [price, setPrice] = useState<PriceSelection>(emptyPrice);
+  const [draftPrice, setDraftPrice] = useState<PriceSelection>(emptyPrice);
   const [searchSaved, setSearchSaved] = useState(false);
   const [searchToast, setSearchToast] = useState("");
 
@@ -473,13 +553,21 @@ function MarketplaceScreen() {
     return () => window.clearTimeout(timer);
   }, [searchToast]);
 
+  const closeSheet = () => {
+    if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
+    keyboard.hide();
+    setSheet(null);
+  };
+
   const regionLabel = region.radius ? `내 주변 ${region.radius}` : [region.province, region.district].filter(Boolean).join(" ") || "전국";
   const regionKeyword = region.province === "광주" ? "광주" : region.province;
 
-  const visibleCars = useMemo(() => {
+  const filteredWithoutPrice = useMemo(() => {
     const normalized = query.trim().toLowerCase();
     return shuffledCars.filter((car) => (sellerType === "전체" || car.sellerType === sellerType) && (!maker || car.maker === maker) && (!selectedModel || car.modelGroup === selectedModel) && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || `${car.title} ${car.trim} ${car.maker}`.toLowerCase().includes(normalized)));
   }, [maker, query, region.district, regionKeyword, selectedModel, sellerType, shuffledCars]);
+  const visibleCars = useMemo(() => filteredWithoutPrice.filter((car) => matchesPrice(car, price)), [filteredWithoutPrice, price]);
+  const draftPriceCount = useMemo(() => filteredWithoutPrice.filter((car) => matchesPrice(car, draftPrice)).length, [draftPrice, filteredWithoutPrice]);
 
   const resetFilters = () => {
     setMaker(null);
@@ -489,11 +577,18 @@ function MarketplaceScreen() {
     setQuery("");
     setSort("최신순");
     setRegion(emptyRegion);
+    setPrice(emptyPrice);
+    setDraftPrice(emptyPrice);
   };
 
   const openRegionSheet = () => {
     setDraftRegion(region);
     setSheet("region");
+  };
+
+  const openPriceSheet = () => {
+    setDraftPrice(price);
+    setSheet("price");
   };
 
   const toggleSearchSaved = () => {
@@ -506,7 +601,7 @@ function MarketplaceScreen() {
     setMaker(nextMaker);
     setSelectedModel(null);
     setShuffledCars(shuffleCars(nextMaker === "BMW" ? bmwCars : nextMaker === "벤츠" ? benzCars : defaultCars));
-    setSheet(null);
+    closeSheet();
   };
 
   const chooseModel = (modelName: string) => {
@@ -529,7 +624,7 @@ function MarketplaceScreen() {
             <FilterChip label="중고차" active onClick={() => setSheet("carType")} />
             <FilterChip label={maker ?? "제조사"} active={Boolean(maker)} onClick={() => setSheet("maker")} />
             <FilterChip label="연식" onClick={() => setSheet("year")} />
-            <FilterChip label="가격" onClick={() => setSheet("price")} />
+            <FilterChip label={priceFilterLabel(price)} active={price.min !== 0 || price.max !== null} onClick={openPriceSheet} />
           </Carousel>
           <section className={`brand-row${maker === "BMW" ? " is-model-mode" : maker === "벤츠" ? " is-benz-model-mode" : ""}`} aria-label={maker === "BMW" ? "BMW 모델 빠른 선택" : maker === "벤츠" ? "벤츠 모델 빠른 선택" : "제조사 빠른 선택"}>
             <span className="brand-title">{maker === "BMW" || maker === "벤츠" ? "모델" : "제조사"}</span>
@@ -570,8 +665,8 @@ function MarketplaceScreen() {
         </main>
       </MobileScroll>
       {searchToast ? <div className="market-toast" role="status" aria-live="polite">{searchToast}</div> : null}
-      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && setSheet(null)} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" || sheet === "maker" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "maker" ? 0.9 : sheet === "region" ? 0.53 : 0.48}>
-        {sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={() => setSheet(null)} /> : sheet === "region" ? <RegionSheet value={draftRegion} onChange={setDraftRegion} onClose={() => setSheet(null)} onConfirm={() => { setRegion(draftRegion); setSheet(null); }} /> : <div className="sheet-options">
+      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && closeSheet()} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" || sheet === "maker" || sheet === "price" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "maker" ? 0.9 : sheet === "region" ? 0.53 : sheet === "price" ? 0.62 : 0.48}>
+        {sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftPrice} onChange={setDraftPrice} onClose={closeSheet} onReset={() => setDraftPrice(emptyPrice)} onConfirm={() => { setPrice(draftPrice); closeSheet(); }} resultCount={draftPriceCount} /> : <div className="sheet-options">
           {sheet === "filter" ? <><button type="button" className={!maker ? "is-selected" : ""} onClick={() => chooseMaker(null)}>전체 제조사</button>{brands.map((brand) => <button key={brand.name} type="button" className={maker === brand.name ? "is-selected" : ""} onClick={() => chooseMaker(brand.name)}>{brand.name}</button>)}</> : sheet === "sort" ? ["최신순", "낮은 가격순", "높은 가격순"].map((label) => <button key={label} type="button" className={sort === label ? "is-selected" : ""} onClick={() => { setSort(label); setSheet(null); }}>{label}</button>) : ["전체", "추천 조건", "인기 조건"].map((label) => <button key={label} type="button" onClick={() => setSheet(null)}>{label}</button>)}
         </div>}
       </BottomSheet>
