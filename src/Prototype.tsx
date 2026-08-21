@@ -51,6 +51,7 @@ type RegionSelection = { province: string; district: string; radius: string };
 type RegionMenu = "province" | "district" | "radius" | null;
 type PriceMode = "cash" | "lease";
 type PriceSelection = { mode: PriceMode; min: number; max: number | null };
+type ListingBadge = "브랜드인증" | "제조사보증" | "1인소유" | "가격인하" | "인증중고차";
 
 type Car = {
   id: number;
@@ -70,6 +71,7 @@ type Car = {
   stock: number;
   posted: string;
   photos: number;
+  badges?: ListingBadge[];
 };
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}assets/${path}`;
@@ -178,6 +180,7 @@ const districtsByProvince: Record<string, string[]> = {
 };
 const radiusOptions = ["5km", "10km", "20km", "50km"];
 const emptyRegion: RegionSelection = { province: "", district: "", radius: "" };
+const listingBadgeOptions: ListingBadge[] = ["브랜드인증", "제조사보증", "1인소유", "가격인하", "인증중고차"];
 
 const defaultCars: Car[] = [
   {
@@ -251,7 +254,14 @@ const benzCars: Car[] = [
 const inventoryCars = [...defaultCars, ...bmwCars, ...benzCars];
 
 function shuffleCars(source: Car[]) {
-  const shuffled = [...source];
+  const shuffled = source.map((car) => {
+    const badgePool = [...listingBadgeOptions];
+    for (let index = badgePool.length - 1; index > 0; index -= 1) {
+      const target = Math.floor(Math.random() * (index + 1));
+      [badgePool[index], badgePool[target]] = [badgePool[target], badgePool[index]];
+    }
+    return { ...car, badges: badgePool.slice(0, car.id % 4) };
+  });
   for (let index = shuffled.length - 1; index > 0; index -= 1) {
     const target = Math.floor(Math.random() * (index + 1));
     [shuffled[index], shuffled[target]] = [shuffled[target], shuffled[index]];
@@ -329,7 +339,15 @@ function Header({ query, setQuery, searchSaved, onToggleSearchSaved, onOpenFavor
   );
 }
 
-function FilterChip({ label, icon, active, onClick }: { label: string; icon?: string; active?: boolean; onClick: () => void }) {
+function FilterChip({ label, icon, active, onClick, onClear }: { label: string; icon?: string; active?: boolean; onClick: () => void; onClear?: () => void }) {
+  if (active && onClear) {
+    return (
+      <div className="filter-chip is-active">
+        <button className="filter-chip-label" type="button" aria-pressed="true" onClick={onClick}><span>{label}</span></button>
+        <button className="filter-chip-clear" type="button" aria-label={`${label} 제조사 필터 해제`} onClick={onClear}><Icon name="close.svg" /></button>
+      </div>
+    );
+  }
   return (
     <button className={`filter-chip${active ? " is-active" : ""}`} type="button" aria-pressed={active} onClick={onClick}>
       {icon ? <Icon name={icon} /> : null}<span>{label}</span>{!icon || active ? <Icon name={active ? "close.svg" : "chevron-down.svg"} /> : null}
@@ -422,6 +440,7 @@ function PriceSheet({ value, onChange, onClose, onReset, onConfirm, resultCount 
 
 function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; cardView: boolean; liked: boolean; onToggleLike: () => void; onOpen: () => void }) {
   const displayedSeller = sellerLabel(car);
+  const badges = car.badges ?? [];
   const cardPriceMatch = car.price.match(/^(월\s*)?(.+?)(\s*만원)$/);
   const cardPricePrefix = cardPriceMatch?.[1] ?? "";
   const cardPriceAmount = cardPriceMatch?.[2] ?? car.price;
@@ -445,8 +464,8 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
           <p className="specs">{car.specs.map((spec, index) => index === 1 ? formatMileage(spec) : spec).join(" · ")}</p>
           {cardView ? <div className="card-price-block">
             <div className="card-price-row"><p className="price">{cardPricePrefix ? <span className="card-price-unit">{cardPricePrefix}</span> : null}<span>{cardPriceAmount}</span><span className="card-price-unit">{cardPriceUnit}</span></p>{car.lease ? <p className="lease">{car.lease}</p> : null}</div>
-            <div className="badges"><span>인증중고차</span><span>1년 보증</span></div>
-          </div> : <><p className="price">{car.price}</p>{car.lease ? <p className="lease">{car.lease}</p> : null}<div className="badges"><span>인증중고차</span><span>1년 보증</span></div></>}
+            {badges.length ? <div className="badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}
+          </div> : <><p className="price">{car.price}</p>{car.lease ? <p className="lease">{car.lease}</p> : null}{badges.length ? <div className="badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}</>}
         </div>
         <div className="car-footer">
           <p className="location-line"><Icon name="location-gray.svg" />{car.place}{cardView ? null : <><span className="dot">·</span><Icon name="views.svg" />{car.views}</>}</p>
@@ -491,7 +510,7 @@ function RegionSheet({ value, resultCount, onChange, onClose, onConfirm }: { val
           {menu === "radius" ? <div className="region-menu is-upward" role="listbox" aria-label="검색 반경 선택">{radiusOptions.map((radius) => <button key={radius} type="button" role="option" aria-selected={value.radius === radius} onClick={() => { onChange({ province: "", district: "", radius }); setMenu(null); }}>{radius}</button>)}</div> : null}
         </div>
       </div>
-      <div className="region-actions"><button type="button" className="region-reset" onClick={() => { onChange(emptyRegion); setMenu(null); }}>초기화</button><button type="button" className="region-confirm" onClick={onConfirm}>{resultCount.toLocaleString("ko-KR")}대 보기</button></div>
+      <div className="region-actions"><button type="button" className="region-reset" onClick={() => { onChange(emptyRegion); setMenu(null); }}>초기화</button><button type="button" className="region-confirm" onClick={onConfirm}>{resultCount.toLocaleString("ko-KR")}대 매물 보기</button></div>
     </div>
   );
 }
@@ -647,7 +666,7 @@ function MarketplaceScreen() {
             <button className="filter-fixed" type="button" aria-label="필터" onClick={() => setSheet("filter")}><Icon name="filter.svg" /><span>필터</span></button>
             <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
               <FilterChip label="중고차" active onClick={() => setSheet("carType")} />
-              <FilterChip label={maker ?? "제조사"} active={Boolean(maker)} onClick={() => setSheet("maker")} />
+              <FilterChip label={maker ?? "제조사"} active={Boolean(maker)} onClick={() => setSheet("maker")} onClear={maker ? () => chooseMaker(null) : undefined} />
               <FilterChip label="연식" onClick={() => setSheet("year")} />
               <FilterChip label={priceFilterLabel(price)} active={price.min !== 0 || price.max !== null} onClick={openPriceSheet} />
             </Carousel>
@@ -692,7 +711,7 @@ function MarketplaceScreen() {
       </MobileScroll>
       {searchToast ? <div className="market-toast" role="status" aria-live="polite">{searchToast}</div> : null}
       <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && closeSheet()} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" || sheet === "maker" || sheet === "price" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "maker" ? 0.9 : sheet === "region" ? 0.53 : sheet === "price" ? 0.62 : 0.48}>
-        {sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} resultCount={798} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftPrice} onChange={setDraftPrice} onClose={closeSheet} onReset={() => setDraftPrice(emptyPrice)} onConfirm={() => { setPrice(draftPrice); closeSheet(); }} resultCount={draftPriceCount} /> : <div className="sheet-options">
+        {sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} resultCount={737} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftPrice} onChange={setDraftPrice} onClose={closeSheet} onReset={() => setDraftPrice(emptyPrice)} onConfirm={() => { setPrice(draftPrice); closeSheet(); }} resultCount={draftPriceCount} /> : <div className="sheet-options">
           {sheet === "filter" ? <><button type="button" className={!maker ? "is-selected" : ""} onClick={() => chooseMaker(null)}>전체 제조사</button>{brands.map((brand) => <button key={brand.name} type="button" className={maker === brand.name ? "is-selected" : ""} onClick={() => chooseMaker(brand.name)}>{brand.name}</button>)}</> : sheet === "sort" ? ["최신순", "낮은 가격순", "높은 가격순"].map((label) => <button key={label} type="button" className={sort === label ? "is-selected" : ""} onClick={() => { setSort(label); setSheet(null); }}>{label}</button>) : ["전체", "추천 조건", "인기 조건"].map((label) => <button key={label} type="button" onClick={() => setSheet(null)}>{label}</button>)}
         </div>}
       </BottomSheet>
