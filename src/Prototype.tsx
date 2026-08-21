@@ -422,6 +422,10 @@ function PriceSheet({ value, onChange, onClose, onReset, onConfirm, resultCount 
 
 function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; cardView: boolean; liked: boolean; onToggleLike: () => void; onOpen: () => void }) {
   const displayedSeller = sellerLabel(car);
+  const cardPriceMatch = car.price.match(/^(월\s*)?(.+?)(\s*만원)$/);
+  const cardPricePrefix = cardPriceMatch?.[1] ?? "";
+  const cardPriceAmount = cardPriceMatch?.[2] ?? car.price;
+  const cardPriceUnit = cardPriceMatch?.[3] ?? "";
   const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -439,16 +443,17 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
         <div className="car-main">
           {cardView ? <div className="card-title-row"><h2>{car.title} {car.trim}</h2><button type="button" aria-label={`${car.title} 더보기`} onClick={(event) => event.stopPropagation()}><Icon name="card-more.svg" /></button></div> : <><h2>{car.title}</h2><p className="trim">{car.trim}</p></>}
           <p className="specs">{car.specs.map((spec, index) => index === 1 ? formatMileage(spec) : spec).join(" · ")}</p>
-          <p className="price">{car.price}</p>{car.lease ? <p className="lease">{car.lease}</p> : null}
-          <div className="badges"><span>인증중고차</span><span>1년 보증</span></div>
+          {cardView ? <div className="card-price-block">
+            <div className="card-price-row"><p className="price">{cardPricePrefix ? <span className="card-price-unit">{cardPricePrefix}</span> : null}<span>{cardPriceAmount}</span><span className="card-price-unit">{cardPriceUnit}</span></p>{car.lease ? <p className="lease">{car.lease}</p> : null}</div>
+            <div className="badges"><span>인증중고차</span><span>1년 보증</span></div>
+          </div> : <><p className="price">{car.price}</p>{car.lease ? <p className="lease">{car.lease}</p> : null}<div className="badges"><span>인증중고차</span><span>1년 보증</span></div></>}
         </div>
         <div className="car-footer">
-          <p className="location-line"><Icon name="location-gray.svg" />{car.place}<span className="dot">·</span><Icon name="views.svg" />{car.views}</p>
+          <p className="location-line"><Icon name="location-gray.svg" />{car.place}{cardView ? null : <><span className="dot">·</span><Icon name="views.svg" />{car.views}</>}</p>
           <div className="dealer-line">
             <img className="dealer-avatar" src={asset("cars/dealer.png")} alt="" aria-hidden="true" draggable={false} />
-              <p><strong>{displayedSeller}</strong><span>· 판매중 <b>{car.stock}대</b></span></p>
-            {cardView ? <div className="card-contact-actions"><button type="button" aria-label={`${displayedSeller} 전화`} onClick={(event) => event.stopPropagation()}><Icon name="card-call.svg" /></button><button type="button" aria-label={`${displayedSeller} 메시지`} onClick={(event) => event.stopPropagation()}><Icon name="card-message.svg" /></button></div> : null}
-            <button className={`like-button${liked ? " is-liked" : ""}`} type="button" aria-label={`${car.title} ${liked ? "저장 해제" : "저장"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>{liked ? <HeartFilledIcon /> : <HeartIcon />}</button>
+            {cardView ? <div className="dealer-copy"><strong>{displayedSeller}</strong><p><span>판매중 <b>{car.stock}대</b></span></p></div> : <p><strong>{displayedSeller}</strong><span>· 판매중 <b>{car.stock}대</b></span></p>}
+            {cardView ? <div className="card-contact-actions"><button type="button" aria-label={`${displayedSeller} 전화`} onClick={(event) => event.stopPropagation()}><Icon name="card-call.svg" /></button><button type="button" aria-label={`${displayedSeller} 메시지`} onClick={(event) => event.stopPropagation()}><Icon name="card-message.svg" /></button><button className={`like-button${liked ? " is-liked" : ""}`} type="button" aria-label={`${car.title} ${liked ? "저장 해제" : "저장"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>{liked ? <HeartFilledIcon /> : <HeartIcon />}</button></div> : <button className={`like-button${liked ? " is-liked" : ""}`} type="button" aria-label={`${car.title} ${liked ? "저장 해제" : "저장"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>{liked ? <HeartFilledIcon /> : <HeartIcon />}</button>}
           </div>
         </div>
       </div>
@@ -456,7 +461,7 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
   );
 }
 
-function RegionSheet({ value, onChange, onClose, onConfirm }: { value: RegionSelection; onChange: (value: RegionSelection) => void; onClose: () => void; onConfirm: () => void }) {
+function RegionSheet({ value, resultCount, onChange, onClose, onConfirm }: { value: RegionSelection; resultCount: number; onChange: (value: RegionSelection) => void; onClose: () => void; onConfirm: () => void }) {
   const [menu, setMenu] = useState<RegionMenu>(null);
   const districtOptions = value.province ? districtsByProvince[value.province] ?? ["전체"] : [];
   const chooseProvince = (province: string) => {
@@ -470,23 +475,23 @@ function RegionSheet({ value, onChange, onClose, onConfirm }: { value: RegionSel
       <button className="region-sheet-close" type="button" aria-label="지역 선택 닫기" onClick={onClose}><Icon name="sheet-close.svg" /></button>
       <div className="region-fields">
         <div className="region-select-wrap">
-          <button className="region-select" type="button" aria-expanded={menu === "province"} onClick={() => setMenu((current) => current === "province" ? null : "province")}><span className={value.province ? "has-value" : ""}>{value.province || "시/도 선택"}</span><Icon name="sheet-chevron.svg" /></button>
+          <button className="region-select" type="button" aria-expanded={menu === "province"} onClick={() => setMenu((current) => current === "province" ? null : "province")}><span className={`region-select-value${value.province ? " has-value" : ""}`}>{value.province || "시/도 선택"}</span><span className="region-select-chevron" aria-hidden="true"><Icon name="sheet-chevron.svg" /></span></button>
           {menu === "province" ? <div className="region-menu" role="listbox" aria-label="시도 선택">{provinceOptions.map((province) => <button key={province} type="button" role="option" aria-selected={(value.province || "전국") === province} onClick={() => chooseProvince(province)}>{province}</button>)}</div> : null}
         </div>
         <div className="region-quick-chips" aria-label="빠른 지역 선택">{quickRegions.map((label) => <button key={label} type="button" className={(value.province === (label === "전남광주" ? "광주" : label)) ? "is-selected" : ""} aria-pressed={value.province === (label === "전남광주" ? "광주" : label)} onClick={() => chooseQuickRegion(label)}>{label}</button>)}</div>
         <div className="region-select-wrap">
-          <button className="region-select" type="button" disabled={!value.province} aria-expanded={menu === "district"} onClick={() => setMenu((current) => current === "district" ? null : "district")}><span className={value.district ? "has-value" : ""}>{value.district || "시/군/구 선택"}</span><Icon name="sheet-chevron.svg" /></button>
+          <button className="region-select" type="button" disabled={!value.province} aria-expanded={menu === "district"} onClick={() => setMenu((current) => current === "district" ? null : "district")}><span className={`region-select-value${value.district ? " has-value" : ""}`}>{value.district || "시/군/구 선택"}</span><span className="region-select-chevron" aria-hidden="true"><Icon name="sheet-chevron.svg" /></span></button>
           {menu === "district" ? <div className="region-menu" role="listbox" aria-label="시군구 선택">{districtOptions.map((district) => <button key={district} type="button" role="option" aria-selected={(value.district || "전체") === district} onClick={() => { onChange({ ...value, district: district === "전체" ? "" : district, radius: "" }); setMenu(null); }}>{district}</button>)}</div> : null}
         </div>
       </div>
       <div className="region-around">
         <div className="region-around-heading"><span /><strong>내 주변 검색</strong></div>
         <div className="region-select-wrap">
-          <button className="region-select" type="button" aria-expanded={menu === "radius"} onClick={() => setMenu((current) => current === "radius" ? null : "radius")}><span className={value.radius ? "has-value" : ""}>{value.radius ? `내 위치에서 ${value.radius}` : "내 위치와 검색 반경 선택"}</span><Icon name="sheet-chevron.svg" /></button>
+          <button className="region-select" type="button" aria-expanded={menu === "radius"} onClick={() => setMenu((current) => current === "radius" ? null : "radius")}><span className={`region-select-value${value.radius ? " has-value" : ""}`}>{value.radius ? `내 위치에서 ${value.radius}` : "내 위치와 검색 반경 선택"}</span><span className="region-select-chevron" aria-hidden="true"><Icon name="sheet-chevron.svg" /></span></button>
           {menu === "radius" ? <div className="region-menu is-upward" role="listbox" aria-label="검색 반경 선택">{radiusOptions.map((radius) => <button key={radius} type="button" role="option" aria-selected={value.radius === radius} onClick={() => { onChange({ province: "", district: "", radius }); setMenu(null); }}>{radius}</button>)}</div> : null}
         </div>
       </div>
-      <div className="region-actions"><button type="button" className="region-reset" onClick={() => { onChange(emptyRegion); setMenu(null); }}>초기화</button><button type="button" className="region-confirm" onClick={onConfirm}>확인</button></div>
+      <div className="region-actions"><button type="button" className="region-reset" onClick={() => { onChange(emptyRegion); setMenu(null); }}>초기화</button><button type="button" className="region-confirm" onClick={onConfirm}>{resultCount.toLocaleString("ko-KR")}대 보기</button></div>
     </div>
   );
 }
@@ -620,7 +625,7 @@ function MarketplaceScreen() {
         <main className="marketplace" aria-label="중고차 리스트">
           <Header query={query} setQuery={setQuery} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} />
           <section className="region-bar" aria-label="지역 선택">
-            <button type="button" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={openRegionSheet}><Icon name="location-blue.svg" /><span className="region-label">지역:</span><strong>{regionLabel}</strong><Icon name="region-chevron.svg" /></button>
+            <button type="button" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={openRegionSheet}><Icon name="location-blue.svg" /><span className="region-label">지역:</span><strong>{regionLabel}</strong><span className="region-chevron-icon" aria-hidden="true"><Icon name="region-chevron.svg" /></span></button>
             <button type="button" className="reset-button" onClick={resetFilters}>초기화</button>
           </section>
           <section
@@ -674,7 +679,7 @@ function MarketplaceScreen() {
               {(["전체", "개인", "딜러"] as SellerType[]).map((tab) => <button key={tab} type="button" role="tab" aria-selected={sellerType === tab} className={sellerType === tab ? "is-selected" : ""} onClick={() => setSellerType(tab)}>{tab}</button>)}
             </div>
             <div className="sort-controls">
-              <button type="button" className="sort-button" onClick={() => setSheet("sort")}>{sort}<Icon name="sort-arrow.svg" /></button><span className="toolbar-divider" />
+              <button type="button" className="sort-button" onClick={() => setSheet("sort")}>{sort}<span className="sort-arrow-icon" aria-hidden="true"><Icon name="sort-arrow.svg" /></span></button><span className="toolbar-divider" />
               <button type="button" className={`density-button${cardView ? " is-active" : ""}`} aria-label={cardView ? "목록형 보기로 전환" : "카드형 보기로 전환"} aria-pressed={cardView} onClick={() => setCardView((value) => !value)}><Icon name={cardView ? "card-view.svg" : "list.svg"} /></button>
             </div>
           </nav>
@@ -687,7 +692,7 @@ function MarketplaceScreen() {
       </MobileScroll>
       {searchToast ? <div className="market-toast" role="status" aria-live="polite">{searchToast}</div> : null}
       <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && closeSheet()} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" || sheet === "maker" || sheet === "price" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "maker" ? 0.9 : sheet === "region" ? 0.53 : sheet === "price" ? 0.62 : 0.48}>
-        {sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftPrice} onChange={setDraftPrice} onClose={closeSheet} onReset={() => setDraftPrice(emptyPrice)} onConfirm={() => { setPrice(draftPrice); closeSheet(); }} resultCount={draftPriceCount} /> : <div className="sheet-options">
+        {sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} resultCount={798} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftPrice} onChange={setDraftPrice} onClose={closeSheet} onReset={() => setDraftPrice(emptyPrice)} onConfirm={() => { setPrice(draftPrice); closeSheet(); }} resultCount={draftPriceCount} /> : <div className="sheet-options">
           {sheet === "filter" ? <><button type="button" className={!maker ? "is-selected" : ""} onClick={() => chooseMaker(null)}>전체 제조사</button>{brands.map((brand) => <button key={brand.name} type="button" className={maker === brand.name ? "is-selected" : ""} onClick={() => chooseMaker(brand.name)}>{brand.name}</button>)}</> : sheet === "sort" ? ["최신순", "낮은 가격순", "높은 가격순"].map((label) => <button key={label} type="button" className={sort === label ? "is-selected" : ""} onClick={() => { setSort(label); setSheet(null); }}>{label}</button>) : ["전체", "추천 조건", "인기 조건"].map((label) => <button key={label} type="button" onClick={() => setSheet(null)}>{label}</button>)}
         </div>}
       </BottomSheet>
@@ -986,4 +991,5 @@ const detailScreen: FlowScreen = { id: "vehicle-detail", footer: () => <DetailFo
 export default function Prototype() {
   return <FavoritesProvider><DetailUiProvider><FlowStack initial={listScreen} /></DetailUiProvider></FavoritesProvider>;
 }
+
 
