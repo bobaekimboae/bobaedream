@@ -70,3 +70,6 @@ When any text-entry control loses focus, dismiss the simulated keyboard. If the 
 - Keep the keyboard below the home indicator/safe area layer in z-index, and above ordinary app UI while visible.
 - Keep the home indicator as the topmost safe-area layer in the z-index above everything else in the prototype.
 
+## Prototype-Specific Design Decisions
+
+- In BMW model-selection mode on the 393 px iPhone viewport, keep four model cards fully visible and show the fifth card partially at the right edge to communicate horizontal scrolling.
