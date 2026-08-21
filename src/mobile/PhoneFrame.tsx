@@ -142,4 +142,3 @@ export function PhoneFrame({ children }: PropsWithChildren) {
     </ScreenPortalContext.Provider>
   );
 }
-

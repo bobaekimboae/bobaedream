@@ -134,4 +134,3 @@ export function BottomSheet({
     </Dialog.Root>
   );
 }
-

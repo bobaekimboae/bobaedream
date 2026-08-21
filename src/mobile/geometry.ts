@@ -66,4 +66,3 @@ export const pixelGeometry = {
 } as const satisfies MobileDeviceGeometry;
 
 export type IPhoneGeometry = typeof iphoneGeometry;
-

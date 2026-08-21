@@ -46,4 +46,3 @@ for (const relativePath of protectedFiles) {
 
 writeFileSync(lockPath, `${JSON.stringify(hashes, null, 2)}\n`);
 console.log(`Updated mobile-runtime.lock.json (${protectedFiles.length} protected files).`);
-

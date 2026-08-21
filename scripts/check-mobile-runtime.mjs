@@ -31,4 +31,3 @@ if (failures.length > 0) {
 }
 
 console.log(`Mobile runtime integrity check passed (${Object.keys(lockedFiles).length} protected files).`);
-

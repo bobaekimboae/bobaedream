@@ -13,4 +13,3 @@ export default {
     return env.ASSETS.fetch(new Request(indexUrl, request));
   },
 };
-

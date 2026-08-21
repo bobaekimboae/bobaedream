@@ -4,4 +4,3 @@ export const mobileAssets = {
   androidKeyboard: "/assets/android/Keyboard.png",
   pixel10Bezel: "/assets/android/Pixel10.png",
 } as const;
-

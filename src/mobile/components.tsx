@@ -107,4 +107,3 @@ function StatusIndicators({ platform }: { platform: "ios" | "android" }) {
     />
   );
 }
-

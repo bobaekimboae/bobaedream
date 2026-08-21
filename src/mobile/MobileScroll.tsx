@@ -464,4 +464,3 @@ export function MobileScroll({ className, children }: MobileScrollProps) {
     </section>
   );
 }
-
