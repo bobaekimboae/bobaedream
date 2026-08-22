@@ -1,26 +1,320 @@
-.vehicle-title-row {
+.vehicle-summary {
   display: flex !important;
-  align-items: flex-start !important;
-  justify-content: space-between !important;
-  gap: 16px !important;
+  flex-direction: column !important;
+  padding: 18px 14px 18px !important;
+  background: #fff !important;
+}
+
+.vehicle-title-row {
+  order: 1;
 }
 
 .vehicle-title-row h1 {
+  position: relative !important;
   min-width: 0 !important;
   flex: 1 1 auto !important;
   margin: 0 !important;
+  overflow: hidden !important;
+  color: transparent !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  line-height: 30px !important;
+  letter-spacing: -.55px !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.vehicle-title-row h1::before {
+  content: "아우디 A6 3.0 TDI 콰트로" !important;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  color: #222;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vehicle-title-row button {
+  min-width: 70px !important;
+  height: 36px !important;
+  gap: 5px !important;
+  padding: 0 11px !important;
+  border: 1px solid #dedede !important;
+  border-radius: 999px !important;
+  color: #333 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+
+.vehicle-title-row svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.vehicle-spec-row {
+  order: 2;
+  flex-wrap: nowrap !important;
+  margin-top: 12px !important;
+  overflow: hidden !important;
+  color: #666 !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  line-height: 22px !important;
+  white-space: nowrap !important;
+}
+
+.vehicle-spec-row span {
+  font-size: 0 !important;
+}
+
+.vehicle-spec-row span::after {
+  color: #666;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.vehicle-spec-row span:nth-child(1)::after {
+  content: "2012년식";
+}
+
+.vehicle-spec-row span:nth-child(2)::after {
+  content: "125,109km";
+}
+
+.vehicle-spec-row span:nth-child(3)::after {
+  content: "디젤";
+}
+
+.vehicle-spec-row span:nth-child(4)::after {
+  content: "28나7105";
+}
+
+.vehicle-spec-row span:nth-child(n+5) {
+  display: none !important;
+}
+
+.detail-badges,
+.vehicle-finance {
+  order: 3;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+  margin: 10px 0 0 !important;
   color: transparent !important;
   font-size: 0 !important;
   line-height: 0 !important;
 }
 
-.vehicle-title-row h1::before {
-  content: "벤틀리 컨티넨탈 GT 퍼스트 에디션";
-  display: block;
-  color: #222;
-  font-size: 22px;
+.detail-badges span,
+.vehicle-finance::before,
+.vehicle-finance::after {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 9px;
+  border-radius: 6px;
+  background: #e9f6ee;
+  color: #16834b;
+  font-size: 13px;
   font-weight: 700;
-  line-height: 30px;
-  letter-spacing: -.55px;
-  word-break: keep-all;
+  line-height: 24px;
+}
+
+.vehicle-finance::before {
+  content: "무사고 확인";
+}
+
+.vehicle-finance::after {
+  content: "보험 이력 공개";
+  background: #ededed;
+  color: #555;
+  font-weight: 600;
+}
+
+.detail-price-row {
+  order: 4;
+  align-items: baseline !important;
+  gap: 8px !important;
+  margin-top: 14px !important;
+  line-height: 30px !important;
+}
+
+.detail-price-row strong {
+  color: #f14069 !important;
+  font-size: 0 !important;
+  font-weight: 800 !important;
+  letter-spacing: -.6px !important;
+}
+
+.detail-price-row strong::after {
+  content: "600만원";
+  font-size: 24px;
+}
+
+.detail-price-row button {
+  display: none !important;
+}
+
+.detail-price-row span,
+.detail-price-row:not(:has(span))::after {
+  min-width: 0;
+  overflow: hidden;
+  color: #8c8c8c;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.detail-price-row:not(:has(span))::after {
+  content: "총비용계산기 · 보험료 계산 가능";
+}
+
+.vehicle-phone-note {
+  display: none !important;
+}
+
+.vehicle-location-row {
+  order: 5;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 5px !important;
+  margin-top: 16px !important;
+  padding-top: 0 !important;
+  border-top: 0 !important;
+  color: #9a9a9a !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+
+.vehicle-location-row p,
+.vehicle-location-row span {
+  color: transparent !important;
+  font-size: 0 !important;
+}
+
+.vehicle-location-row p::before {
+  content: "서울 강남구 도곡동 · 오토갤러리";
+  color: #222;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.vehicle-location-row span::before {
+  content: "성능점검 완료 · 실매물 확인";
+  color: #9a9a9a;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.vehicle-location-row::after {
+  content: "등록 1시간 전";
+  margin-top: 9px;
+  color: #222;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.vehicle-summary:has(.vehicle-posted-row) .vehicle-location-row::after {
+  content: none;
+}
+
+.vehicle-posted-row {
+  order: 6;
+}
+
+.detail-contact-row {
+  order: 7;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 78px !important;
+  gap: 10px !important;
+  align-items: center !important;
+  height: 62px !important;
+  margin-top: 14px !important;
+  padding: 0 14px 0 16px !important;
+  border-radius: 18px !important;
+  background: #f5f5f5 !important;
+  box-sizing: border-box !important;
+}
+
+.detail-contact-row button:first-of-type {
+  display: none !important;
+}
+
+.detail-contact-row a,
+.detail-contact-row button:last-child {
+  height: 42px !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+.detail-contact-row a {
+  justify-content: flex-start !important;
+  overflow: hidden !important;
+  background: transparent !important;
+  color: transparent !important;
+  font-size: 0 !important;
+}
+
+.detail-contact-row a::before {
+  content: "문의 메시지를 입력하세요";
+  overflow: hidden;
+  color: #9a9a9a;
+  font-size: 15px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.detail-contact-row button:last-child {
+  border-radius: 999px !important;
+  background: #ffd000 !important;
+  color: transparent !important;
+  font-size: 0 !important;
+}
+
+.detail-contact-row button:last-child::before {
+  content: "보내기";
+  color: #171717;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.detail-message-row {
+  order: 7;
+}
+
+.detail-bottom-bar {
+  grid-template-columns: 72px minmax(0, 1fr) minmax(0, 1.35fr) !important;
+}
+
+.detail-call {
+  grid-column: 3 !important;
+  background: #ffd000 !important;
+  font-weight: 800 !important;
+  box-shadow: none !important;
+}
+
+.detail-zalo {
+  grid-column: 1 !important;
+  background: #fff !important;
+  color: transparent !important;
+  font-size: 0 !important;
+}
+
+.detail-zalo::before {
+  content: "찜하기";
+  color: #222;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.detail-consult {
+  grid-column: 2 !important;
+  background: #f0f0f0 !important;
+  font-weight: 700 !important;
 }
