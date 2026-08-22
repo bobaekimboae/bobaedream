@@ -153,3 +153,18 @@
 
 final result: passed
 
+## ChoTot Filter Prototype Follow-up
+
+### Cross-check
+
+- Compared the shared ChoTot captures and the research sheet against the implementation: the all-filter sheet has the same 13-group hierarchy and an internal scroll area with a fixed bottom action area.
+- The bottom actions retain the two-part anatomy: reset at left and an emphasized live result-count CTA at right.
+- Notion source SVGs now provide the filter, search, close, list-view, and right-chevron glyphs; no replacement drawings were introduced.
+
+### Functional Verification
+
+- The full-width desktop draft uses 15 mixed test listings.
+- Diesel changed the preview count to 2; adding white in the color selection sub-screen changed it to 1, and applying returned the single Kia Carnival listing.
+- Hyundai followed by Grandeur GN7 in the model sub-screen changed the preview count to 1.
+- TypeScript, Vite build, Sites worker tests, and mobile-runtime integrity all pass. Browser console warnings and errors are absent.
+

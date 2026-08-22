@@ -40,15 +40,16 @@ import {
   useFlow,
   useKeyboard,
 } from "./mobile";
+import { ChoTotFilterSheet, emptyChoTotFilters, type ChoTotFilterState } from "./ChoTotFilterSheet";
 import "./prototype.css";
 
-type SellerType = "전체" | "개인" | "딜러";
+export type SellerType = "전체" | "개인" | "딜러";
 type SheetType = "filter" | "carType" | "maker" | "year" | "price" | "region" | "sort" | null;
 type DetailSheet = "contact" | "more" | "priceHistory" | null;
 type RegionSelection = { province: string; district: string; radius: string };
 type RegionMenu = "province" | "district" | "radius" | null;
 type PriceMode = "cash" | "lease";
-type PriceSelection = { mode: PriceMode; min: number; max: number | null };
+export type PriceSelection = { mode: PriceMode; min: number; max: number | null };
 type ListingBadge = "브랜드인증" | "제조사보증" | "1인소유" | "가격인하" | "인증중고차";
 
 type Car = {
@@ -70,6 +71,19 @@ type Car = {
   posted: string;
   photos: number;
   badges?: ListingBadge[];
+  filter?: {
+    year: number;
+    seats: string;
+    condition: "신차" | "중고";
+    mileage: number;
+    owners: string;
+    transmission: string;
+    fuel: string;
+    color: string;
+    origin: string;
+    body: string;
+    video: boolean;
+  };
 };
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}assets/${path}`;
@@ -250,6 +264,65 @@ const benzCars: Car[] = [
 ];
 
 const inventoryCars = [...defaultCars, ...bmwCars, ...benzCars];
+
+type ChoTotCarSeed = Omit<Car, "id" | "sellerType" | "views" | "dealer" | "stock" | "posted" | "photos">;
+const makeChoTotCar = (id: number, seed: ChoTotCarSeed): Car => ({
+  ...seed,
+  id,
+  sellerType: seed.title.includes("개인") ? "개인" : seed.maker === "제네시스" || seed.maker === "현대" && seed.title.includes("아이오닉") || seed.maker === "렉서스" || seed.maker === "포르쉐" ? "개인" : "딜러",
+  views: 160 + id * 17,
+  dealer: seed.title.includes("개인") ? "개인판매자" : `${seed.maker} 인증센터 딜러`,
+  stock: seed.title.includes("개인") ? 1 : 6,
+  posted: `${(id % 11) + 2}분 전`,
+  photos: 12 + (id % 16),
+});
+
+const chototTestCars: Car[] = [
+  makeChoTotCar(1001, { maker: "현대", image: "cars/thumbnail.png", title: "현대 그랜저 GN7", trim: "캘리그래피 하이브리드 무사고", specs: ["2023년식", "30,000km", "하이브리드", "312하8451"], price: "4,150 만원", place: "서울 강남구 · 오토갤러리", filter: { year: 2023, seats: "5인승", condition: "중고", mileage: 30000, owners: "1인", transmission: "오토", fuel: "하이브리드", color: "검정", origin: "국산", body: "세단", video: true } }),
+  makeChoTotCar(1002, { maker: "기아", image: "detail/raw-09.jpeg", title: "기아 카니발 4세대", trim: "하이리무진 7인승 리무진시트", specs: ["2022년식", "50,000km", "디젤", "265루0194"], price: "3,980 만원", place: "경기 성남시 · 분당전시장", filter: { year: 2022, seats: "7인승 이상", condition: "중고", mileage: 50000, owners: "1인", transmission: "오토", fuel: "디젤", color: "흰색", origin: "국산", body: "승합", video: true } }),
+  makeChoTotCar(1003, { maker: "제네시스", image: "detail/raw-04.png", title: "제네시스 G80 RG3", trim: "2.5T AWD 파퓰러패키지", specs: ["2021년식", "40,000km", "가솔린", "157거6028"], price: "4,290 만원", place: "서울 서초구", filter: { year: 2021, seats: "5인승", condition: "중고", mileage: 40000, owners: "2인", transmission: "오토", fuel: "가솔린", color: "회색", origin: "국산", body: "세단", video: false } }),
+  makeChoTotCar(1004, { maker: "현대", image: "cars/thumbnail.png", title: "현대 아이오닉 5", trim: "롱레인지 프레스티지 AWD", specs: ["2022년식", "30,000km", "전기", "49버1307"], price: "3,190 만원", place: "인천 연수구", filter: { year: 2022, seats: "5인승", condition: "중고", mileage: 30000, owners: "1인", transmission: "오토", fuel: "전기", color: "흰색", origin: "국산", body: "SUV", video: true } }),
+  makeChoTotCar(1005, { maker: "기아", image: "detail/raw-20.jpeg", title: "기아 쏘렌토 MQ4", trim: "하이브리드 시그니처 6인승", specs: ["2023년식", "20,000km", "하이브리드", "201나7735"], price: "3,690 만원", place: "부산 해운대구 · 센텀전시장", filter: { year: 2023, seats: "6인승", condition: "중고", mileage: 20000, owners: "1인", transmission: "오토", fuel: "하이브리드", color: "회색", origin: "국산", body: "SUV", video: false } }),
+  makeChoTotCar(1006, { maker: "BMW", image: "cars/bmw/5-series.webp", imageFit: "contain", title: "BMW 5시리즈 530i", trim: "M 스포츠 정식출고", specs: ["2024년식", "9,000km", "가솔린", "329도5521"], price: "7,640 만원", place: "서울 성동구 · 성수전시장", filter: { year: 2024, seats: "5인승", condition: "중고", mileage: 9000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "흰색", origin: "독일", body: "세단", video: true } }),
+  makeChoTotCar(1007, { maker: "벤츠", image: "cars/thumbnail.png", title: "벤츠 E클래스 E 300 4MATIC", trim: "AMG Line 제조사보증", specs: ["2023년식", "10,000km", "가솔린", "118머4207"], price: "8,420 만원", place: "서울 강남구 · 한성자동차", filter: { year: 2023, seats: "5인승", condition: "중고", mileage: 10000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "검정", origin: "독일", body: "세단", video: true } }),
+  makeChoTotCar(1008, { maker: "아우디", image: "detail/raw-18.jpeg", title: "아우디 A6 3.0 TDI 콰트로", trim: "정식수입 무사고 실매물", specs: ["2012년식", "125,109km", "디젤", "28나7105"], price: "600 만원", place: "서울 강남구 도곡동 · 오토갤러리", filter: { year: 2012, seats: "5인승", condition: "중고", mileage: 125109, owners: "3인 이상", transmission: "오토", fuel: "디젤", color: "은색", origin: "독일", body: "세단", video: false } }),
+  makeChoTotCar(1009, { maker: "포르쉐", image: "detail/raw-20.jpeg", title: "포르쉐 718 박스터", trim: "4.0 GTS 스포츠크로노", specs: ["2024년식", "8,000km", "가솔린", "39라7180"], price: "13,900 만원", place: "부산 해운대구", filter: { year: 2024, seats: "2인승", condition: "중고", mileage: 8000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "노랑", origin: "독일", body: "스포츠카", video: true } }),
+  makeChoTotCar(1010, { maker: "랜드로버", image: "detail/raw-07.jpeg", title: "랜드로버 레인지로버 스포츠", trim: "P360 HSE 다이내믹", specs: ["2020년식", "60,000km", "가솔린", "143무9116"], price: "6,290 만원", place: "대구 수성구 · 수입차전시장", filter: { year: 2020, seats: "5인승", condition: "중고", mileage: 60000, owners: "2인", transmission: "오토", fuel: "가솔린", color: "흰색", origin: "영국", body: "SUV", video: false } }),
+  makeChoTotCar(1011, { maker: "렉서스", image: "cars/bmw/x1.webp", imageFit: "contain", title: "렉서스 ES300h", trim: "럭셔리 플러스 1인소유", specs: ["2022년식", "30,000km", "하이브리드", "177서3001"], price: "4,550 만원", place: "경기 고양시", filter: { year: 2022, seats: "5인승", condition: "중고", mileage: 30000, owners: "1인", transmission: "CVT", fuel: "하이브리드", color: "은색", origin: "일본", body: "세단", video: true } }),
+  makeChoTotCar(1012, { maker: "벤틀리", image: "detail/raw-05.jpeg", title: "벤틀리 컨티넨탈 GT", trim: "6.0 W12 뮬리너 사양", specs: ["2019년식", "40,000km", "가솔린", "172무2323"], price: "15,700 만원", place: "서울 서초구 · 양재전시장", filter: { year: 2019, seats: "4인승", condition: "중고", mileage: 40000, owners: "2인", transmission: "오토", fuel: "가솔린", color: "검정", origin: "영국", body: "스포츠카", video: false } }),
+  makeChoTotCar(1013, { maker: "페라리", image: "detail/raw-19.jpeg", title: "페라리 296 GTB", trim: "3.0 PHEV 카본패키지", specs: ["2024년식", "1,000km", "가솔린 하이브리드", "229마2626"], price: "33,900 만원", place: "서울 성동구 · 성수전시장", filter: { year: 2024, seats: "2인승", condition: "신차", mileage: 1000, owners: "1인", transmission: "오토", fuel: "하이브리드", color: "빨강", origin: "이탈리아", body: "스포츠카", video: true } }),
+  makeChoTotCar(1014, { maker: "람보르기니", image: "detail/raw-04.png", title: "람보르기니 우라칸 EVO", trim: "LP640-4 리프팅시스템", specs: ["2020년식", "10,000km", "가솔린", "640어2020"], price: "24,900 만원", place: "서울 강남구 · 슈퍼카전시장", filter: { year: 2020, seats: "2인승", condition: "중고", mileage: 10000, owners: "2인", transmission: "오토", fuel: "가솔린", color: "노랑", origin: "이탈리아", body: "스포츠카", video: true } }),
+  makeChoTotCar(1015, { maker: "롤스로이스", image: "detail/raw-05.jpeg", title: "롤스로이스 팬텀", trim: "6.7 V12 EWB 투톤", specs: ["2013년식", "50,000km", "가솔린", "100러6700"], price: "27,000 만원", place: "서울 서초구 · 오토갤러리", filter: { year: 2013, seats: "4인승", condition: "중고", mileage: 50000, owners: "3인 이상", transmission: "오토", fuel: "가솔린", color: "검정", origin: "영국", body: "세단", video: false } }),
+];
+
+function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
+  const data = car.filter;
+  if (!data) return false;
+  const price = parsePrice(car.price);
+  const yearMatch = value.year === "전체"
+    || value.year === "2024~2026" && data.year >= 2024
+    || value.year === "2021~2023" && data.year >= 2021 && data.year <= 2023
+    || value.year === "2018~2020" && data.year >= 2018 && data.year <= 2020
+    || value.year === "2017 이전" && data.year <= 2017;
+  const mileageLimit = Number(value.mileageMax.replaceAll(",", ""));
+
+  return (value.price.min === 0 || price >= value.price.min)
+    && (value.price.max === null || price <= value.price.max)
+    && (value.seats === "전체" || data.seats === value.seats)
+    && (!value.maker || car.maker === value.maker)
+    && (!value.model || car.title.includes(value.model))
+    && yearMatch
+    && (value.condition === "전체" || data.condition === value.condition)
+    && (!mileageLimit || data.mileage <= mileageLimit)
+    && (value.owners === "전체" || data.owners === value.owners)
+    && (value.transmission === "전체" || data.transmission === value.transmission)
+    && (value.fuel === "전체" || data.fuel === value.fuel)
+    && (!value.colors.length || value.colors.includes(data.color))
+    && (value.origin === "전체" || data.origin === value.origin)
+    && (value.body === "전체" || data.body === value.body)
+    && (!value.videoOnly || data.video)
+    && (value.seller === "전체" || car.sellerType === value.seller);
+}
 
 function shuffleCars(source: Car[]) {
   const shuffled = source.map((car) => {
@@ -556,18 +629,13 @@ function MarketplaceScreen() {
   const keyboard = useKeyboard();
   const { likedIds, toggleLiked } = useFavorites();
   const [query, setQuery] = useState("");
-  const [sellerType, setSellerType] = useState<SellerType>("전체");
-  const [maker, setMaker] = useState<string | null>(null);
+  const [filters, setFilters] = useState<ChoTotFilterState>(emptyChoTotFilters);
+  const [draftFilters, setDraftFilters] = useState<ChoTotFilterState>(emptyChoTotFilters);
   const [sheet, setSheet] = useState<SheetType>(null);
   const [sort, setSort] = useState("최신순");
   const [cardView, setCardView] = useState(false);
-  const [videoOnly, setVideoOnly] = useState(false);
-  const [selectedModel, setSelectedModel] = useState<string | null>(null);
-  const [shuffledCars, setShuffledCars] = useState<Car[]>(() => shuffleCars(defaultCars));
   const [region, setRegion] = useState<RegionSelection>(emptyRegion);
   const [draftRegion, setDraftRegion] = useState<RegionSelection>(emptyRegion);
-  const [price, setPrice] = useState<PriceSelection>(emptyPrice);
-  const [draftPrice, setDraftPrice] = useState<PriceSelection>(emptyPrice);
   const [searchSaved, setSearchSaved] = useState(false);
   const [searchToast, setSearchToast] = useState("");
   const [filterCompact, setFilterCompact] = useState(false);
@@ -587,24 +655,21 @@ function MarketplaceScreen() {
 
   const regionLabel = region.radius ? `내 주변 ${region.radius}` : [region.province, region.district].filter(Boolean).join(" ") || "전국";
   const regionKeyword = region.province === "광주" ? "광주" : region.province;
+  const { maker, model: selectedModel, price, seller: sellerType, videoOnly } = filters;
 
   const filteredWithoutPrice = useMemo(() => {
     const normalized = query.trim().toLowerCase();
-    return shuffledCars.filter((car) => (sellerType === "전체" || car.sellerType === sellerType) && (!maker || car.maker === maker) && (!selectedModel || car.modelGroup === selectedModel) && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || `${car.title} ${car.trim} ${car.maker}`.toLowerCase().includes(normalized)));
-  }, [maker, query, region.district, regionKeyword, selectedModel, sellerType, shuffledCars]);
-  const visibleCars = useMemo(() => filteredWithoutPrice.filter((car) => matchesPrice(car, price)), [filteredWithoutPrice, price]);
-  const draftPriceCount = useMemo(() => filteredWithoutPrice.filter((car) => matchesPrice(car, draftPrice)).length, [draftPrice, filteredWithoutPrice]);
+    return chototTestCars.filter((car) => matchesChoTotFilters(car, filters) && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || `${car.title} ${car.trim} ${car.maker}`.toLowerCase().includes(normalized)));
+  }, [filters, query, region.district, regionKeyword]);
+  const visibleCars = useMemo(() => [...filteredWithoutPrice].sort((first, second) => sort === "낮은 가격순" ? parsePrice(first.price) - parsePrice(second.price) : sort === "높은 가격순" ? parsePrice(second.price) - parsePrice(first.price) : second.id - first.id), [filteredWithoutPrice, sort]);
+  const draftFilterCount = useMemo(() => chototTestCars.filter((car) => matchesChoTotFilters(car, draftFilters)).length, [draftFilters]);
 
   const resetFilters = () => {
-    setMaker(null);
-    setSelectedModel(null);
-    setShuffledCars(shuffleCars(defaultCars));
-    setSellerType("전체");
+    setFilters(emptyChoTotFilters);
+    setDraftFilters(emptyChoTotFilters);
     setQuery("");
     setSort("최신순");
     setRegion(emptyRegion);
-    setPrice(emptyPrice);
-    setDraftPrice(emptyPrice);
   };
 
   const openRegionSheet = () => {
@@ -613,7 +678,7 @@ function MarketplaceScreen() {
   };
 
   const openPriceSheet = () => {
-    setDraftPrice(price);
+    setDraftFilters(filters);
     setSheet("price");
   };
 
@@ -624,16 +689,13 @@ function MarketplaceScreen() {
   };
 
   const chooseMaker = (nextMaker: string | null) => {
-    setMaker(nextMaker);
-    setSelectedModel(null);
-    setShuffledCars(shuffleCars(nextMaker === "BMW" ? bmwCars : nextMaker === "벤츠" ? benzCars : defaultCars));
+    setFilters((current) => ({ ...current, maker: nextMaker, model: null }));
     closeSheet();
   };
 
   const chooseModel = (modelName: string) => {
     const nextModel = selectedModel === modelName ? null : modelName;
-    setSelectedModel(nextModel);
-    setShuffledCars(shuffleCars(maker === "벤츠" ? benzCars : bmwCars));
+    setFilters((current) => ({ ...current, model: nextModel }));
   };
 
   return (
@@ -661,7 +723,7 @@ function MarketplaceScreen() {
             onPointerUpCapture={() => { filterSwipeStart.current = null; }}
             onPointerCancelCapture={() => { filterSwipeStart.current = null; }}
           >
-            <button className="filter-fixed" type="button" aria-label="필터" onClick={() => setSheet("filter")}><Icon name="filter.svg" /><span>필터</span></button>
+            <button className="filter-fixed" type="button" aria-label="필터" onClick={() => { setDraftFilters(filters); setSheet("filter"); }}><Icon name="notion-filter.svg" /><span>필터</span></button>
             <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
               <FilterChip label="중고차" active onClick={() => setSheet("carType")} />
               <FilterChip label={maker ?? "제조사"} active={Boolean(maker)} onClick={() => setSheet("maker")} onClear={maker ? () => chooseMaker(null) : undefined} />
@@ -689,15 +751,15 @@ function MarketplaceScreen() {
           </section>
           <section className="video-toggle-row" aria-label="영상 매물 설정">
             <span>영상 매물</span>
-            <button type="button" role="switch" aria-checked={videoOnly} className={videoOnly ? "is-on" : ""} onClick={() => setVideoOnly((value) => !value)}><span /></button>
+            <button type="button" role="switch" aria-checked={videoOnly} className={videoOnly ? "is-on" : ""} onClick={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))}><span /></button>
           </section>
           <nav className="list-toolbar" aria-label="매물 유형과 정렬">
             <div className="seller-tabs" role="tablist" aria-label="판매자 유형">
-              {(["전체", "개인", "딜러"] as SellerType[]).map((tab) => <button key={tab} type="button" role="tab" aria-selected={sellerType === tab} className={sellerType === tab ? "is-selected" : ""} onClick={() => setSellerType(tab)}>{tab}</button>)}
+              {(["전체", "개인", "딜러"] as SellerType[]).map((tab) => <button key={tab} type="button" role="tab" aria-selected={sellerType === tab} className={sellerType === tab ? "is-selected" : ""} onClick={() => setFilters((current) => ({ ...current, seller: tab }))}>{tab}</button>)}
             </div>
             <div className="sort-controls">
               <button type="button" className="sort-button" onClick={() => setSheet("sort")}>{sort}<span className="sort-arrow-icon" aria-hidden="true"><Icon name="sort-arrow.svg" /></span></button><span className="toolbar-divider" />
-              <button type="button" className={`density-button${cardView ? " is-active" : ""}`} aria-label={cardView ? "목록형 보기로 전환" : "카드형 보기로 전환"} aria-pressed={cardView} onClick={() => setCardView((value) => !value)}><Icon name={cardView ? "card-view.svg" : "list.svg"} /></button>
+              <button type="button" className={`density-button${cardView ? " is-active" : ""}`} aria-label={cardView ? "목록형 보기로 전환" : "카드형 보기로 전환"} aria-pressed={cardView} onClick={() => setCardView((value) => !value)}><Icon name={cardView ? "card-view.svg" : "notion-list.svg"} /></button>
             </div>
           </nav>
           <section className="car-list" aria-live="polite">
@@ -708,9 +770,9 @@ function MarketplaceScreen() {
         </main>
       </MobileScroll>
       {searchToast ? <div className="market-toast" role="status" aria-live="polite">{searchToast}</div> : null}
-      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && closeSheet()} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" || sheet === "maker" || sheet === "price" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "maker" ? 0.9 : sheet === "region" ? 0.53 : sheet === "price" ? 0.62 : 0.48}>
-        {sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} resultCount={737} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftPrice} onChange={setDraftPrice} onClose={closeSheet} onReset={() => setDraftPrice(emptyPrice)} onConfirm={() => { setPrice(draftPrice); closeSheet(); }} resultCount={draftPriceCount} /> : <div className="sheet-options">
-          {sheet === "filter" ? <><button type="button" className={!maker ? "is-selected" : ""} onClick={() => chooseMaker(null)}>전체 제조사</button>{brands.map((brand) => <button key={brand.name} type="button" className={maker === brand.name ? "is-selected" : ""} onClick={() => chooseMaker(brand.name)}>{brand.name}</button>)}</> : sheet === "sort" ? ["최신순", "낮은 가격순", "높은 가격순"].map((label) => <button key={label} type="button" className={sort === label ? "is-selected" : ""} onClick={() => { setSort(label); setSheet(null); }}>{label}</button>) : ["전체", "추천 조건", "인기 조건"].map((label) => <button key={label} type="button" onClick={() => setSheet(null)}>{label}</button>)}
+      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && closeSheet()} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" || sheet === "maker" || sheet === "price" || sheet === "filter" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "filter" || sheet === "maker" ? 0.96 : sheet === "region" ? 0.53 : sheet === "price" ? 0.62 : 0.48}>
+        {sheet === "filter" ? <ChoTotFilterSheet value={draftFilters} onChange={setDraftFilters} onClose={closeSheet} onReset={() => setDraftFilters(emptyChoTotFilters)} onConfirm={() => { setFilters(draftFilters); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} resultCount={filteredWithoutPrice.length} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftFilters.price} onChange={(nextPrice) => setDraftFilters((current) => ({ ...current, price: nextPrice }))} onClose={closeSheet} onReset={() => setDraftFilters((current) => ({ ...current, price: emptyPrice }))} onConfirm={() => { setFilters((current) => ({ ...current, price: draftFilters.price })); closeSheet(); }} resultCount={draftFilterCount} /> : <div className="sheet-options">
+          {sheet === "sort" ? ["최신순", "낮은 가격순", "높은 가격순"].map((label) => <button key={label} type="button" className={sort === label ? "is-selected" : ""} onClick={() => { setSort(label); setSheet(null); }}>{label}</button>) : ["전체", "추천 조건", "인기 조건"].map((label) => <button key={label} type="button" onClick={() => setSheet(null)}>{label}</button>)}
         </div>}
       </BottomSheet>
     </>

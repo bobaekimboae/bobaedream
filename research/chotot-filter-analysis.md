@@ -29,19 +29,25 @@ The first capture pass establishes these confirmed behavior rules:
 - The top-level reset control removes the current automobile category as well,
   so Bobaedream must distinguish a global reset from an in-category reset.
 
-## Implementation Implications
+## Applied Prototype
 
-The initial GitHub prototype should first reproduce the confirmed rules below
-before adding unverified controls:
+The GitHub prototype now applies the confirmed filter structure to the 15-car
+benchmark listing set.
 
-1. A full-height all-filter sheet with fixed reset and result CTA buttons.
-2. Brand selection that conditionally reveals model selection.
-3. Price minimum/maximum fields with preview count and explicit apply.
-4. Single-select chips for fuel and body type.
-5. Applied filter chips, a scoped in-list reset, real test-listing filtering,
-   and return-state restoration after opening a detail page.
+1. A full-height all-filter sheet keeps reset and the current result count
+   fixed at the bottom while its content scrolls.
+2. It includes all 13 observed groups: price, seats, manufacturer, year,
+   condition, owner count, transmission, fuel, color, origin, body type,
+   video availability, and seller type.
+3. Manufacturer selection reveals a model selector; model and origin use
+   single-choice sub-screens, while color uses a checkbox sub-screen.
+4. Fuel, body type, seller, condition, transmission, year, seats, and owner
+   count use single-choice chips. Selecting used condition exposes the
+   mileage field.
+5. The listing does not change until the sheet's result CTA is pressed. The
+   preview count changes immediately for each draft selection.
+6. The production prototype uses the user-provided Notion originals for the
+   filter, search, close, list-view, and right-chevron icons.
 
-Remaining capture work: color, origin, transmission, owner count, condition,
-seller type, video toggle, year, seat count, full price range, and every
-unseen child screen must be captured to the final scroll position before those
-controls are implemented.
+The previous DOM override is intentionally not loaded on the filter prototype:
+it forced every list card visible and would have broken real filter results.

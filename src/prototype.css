@@ -472,6 +472,21 @@ button { color: inherit; }
 .price-history-page-slot { display: flex; align-items: center; gap: 8px; }
 .price-history-ellipsis { width: 13px; height: 3px; }
 
+@media (min-width: 820px) {
+  body { background: #ffffff; }
+  #root .mobile-web-stage { max-width: none !important; margin: 0; box-shadow: none; }
+  .marketplace { padding-inline: 24px; }
+  .top-bar { max-width: 1440px; margin: 0 auto; }
+  .region-bar, .filter-shell, .brand-row, .video-toggle-row, .list-toolbar { max-width: 1440px; margin-right: auto; margin-left: auto; }
+  .car-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 1440px; margin: 0 auto; border-top: 1px solid var(--line); }
+  .car-card, .car-card.has-no-badges:not(.is-card-view) { min-height: 192px; padding: 16px; border-right: 1px solid var(--line); }
+  .car-card:nth-child(3n) { border-right: 0; }
+  .car-photo-wrap { width: 120px; height: 120px; }
+  .car-card.is-card-view { grid-column: span 1; padding: 16px; }
+  .car-card.is-card-view .car-photo-wrap { width: 100%; margin: 0; }
+  .car-card.is-card-view .car-copy { padding: 0; }
+}
+
 @media (max-width: 390px) {
   .top-bar { gap: 10px; }
   .car-card { grid-template-columns: 124px minmax(0, 1fr); gap: 14px; }
