@@ -144,12 +144,14 @@ const brands = [
 ];
 
 const vehicleCategoryOptions = [
-  { label: "자동차", source: "Ô tô", icon: "notion-list.svg" },
-  { label: "오토바이", source: "Xe máy", icon: "notion-filter.svg" },
-  { label: "화물차/덤프", source: "Xe tải, xe ben", icon: "notion-search.svg" },
-  { label: "자전거", source: "Xe đạp", icon: "notion-chevron-right.svg" },
-  { label: "기타 이동수단", source: "Phương tiện khác", icon: "notion-close.svg" },
-  { label: "차량 부품", source: "Phụ tùng xe", icon: "notion-list.svg" },
+  { label: "전체", source: "All", icon: "notion-list.svg" },
+  { label: "중고차", source: "Ô tô", icon: "notion-list.svg" },
+  { label: "트럭-특장-버스", source: "Xe tải, xe ben", icon: "notion-search.svg" },
+  { label: "바이크", source: "Xe máy", icon: "notion-filter.svg" },
+  { label: "캠핑카", source: "Bobaedream taxonomy", icon: "notion-chevron-right.svg" },
+  { label: "올드카", source: "Bobaedream taxonomy", icon: "notion-close.svg" },
+  { label: "건설기계", source: "Bobaedream taxonomy", icon: "notion-filter.svg" },
+  { label: "부품-용품", source: "Phụ tùng xe", icon: "notion-list.svg" },
 ];
 
 type MakerOption = { name: string; maker: string; logo?: string; icon?: SimpleIcon; color?: string };
@@ -308,7 +310,7 @@ function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
   const data = car.filter;
   if (!data) return false;
   const price = parsePrice(car.price);
-  const category = "자동차";
+  const category = "중고차";
   const yearMatch = value.year === "전체"
     || value.year === "2024~2026" && data.year >= 2024
     || value.year === "2021~2023" && data.year >= 2021 && data.year <= 2023
@@ -752,7 +754,6 @@ function MarketplaceScreen() {
             </Carousel>
           </section>
           <section className="vehicle-category-row" aria-label="차량 카테고리 빠른 선택">
-            <span className="vehicle-category-title">카테고리</span>
             <Carousel ariaLabel="차량 카테고리" className="vehicle-category-carousel" contentClassName="vehicle-category-track">
               {vehicleCategoryOptions.map((option) => (
                 <button key={option.label} className={`vehicle-category-item${category === option.label ? " is-selected" : ""}`} type="button" aria-pressed={category === option.label} title={option.source} onClick={() => chooseCategory(option.label)}>

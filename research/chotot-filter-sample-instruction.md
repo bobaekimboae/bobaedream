@@ -9,6 +9,8 @@ Build ChoTot filter parity one filter at a time. The first sample is the vehicle
 - Source URL: https://xe.chotot.com/mua-ban-xe-tp-ho-chi-minh
 - Observed top filter order: `Lọc` -> `Xe cộ` -> `Giá` -> `Tình trạng` -> `Đăng bởi`
 - Observed category rail order: `Ô tô`, `Xe máy`, `Xe tải, xe ben`, `Xe đạp`, `Phương tiện khác`, `Phụ tùng xe`
+- Airbnb visual reference folder: https://drive.google.com/drive/u/0/folders/1KGBPNTyCjgaCU50m-5RfrUGFkw-QdvdJ
+- Category rail visual direction: icon above label, no rounded tile background, muted inactive state, black selected state, and a thin selected underline.
 
 ## Work Loop
 
@@ -22,15 +24,17 @@ Build ChoTot filter parity one filter at a time. The first sample is the vehicle
 
 ## Sample Mapping
 
-| ChoTot text | Korean prototype text | Prototype behavior |
+| ChoTot text / source | Korean prototype text | Prototype behavior |
 | --- | --- | --- |
 | Xe cộ | 차량 카테고리 | First filter chip |
-| Ô tô | 자동차 | Shows current car inventory |
-| Xe máy | 오토바이 | Shows empty state until sample motorcycle data exists |
-| Xe tải, xe ben | 화물차/덤프 | Shows empty state until sample truck data exists |
-| Xe đạp | 자전거 | Shows empty state until sample bicycle data exists |
-| Phương tiện khác | 기타 이동수단 | Shows empty state until matching sample data exists |
-| Phụ tùng xe | 차량 부품 | Shows empty state until sample parts data exists |
+| All | 전체 | Shows all current sample inventory |
+| Ô tô | 중고차 | Shows current 15 used-car inventory |
+| Xe tải, xe ben | 트럭-특장-버스 | Shows empty state until matching truck, specialty, or bus data exists |
+| Xe máy | 바이크 | Shows empty state until sample motorcycle data exists |
+| Bobaedream taxonomy | 캠핑카 | Shows empty state until sample camping-car data exists |
+| Bobaedream taxonomy | 올드카 | Shows empty state until sample old-car data exists |
+| Bobaedream taxonomy | 건설기계 | Shows empty state until sample construction-equipment data exists |
+| Phụ tùng xe | 부품-용품 | Shows empty state until sample parts/accessories data exists |
 
 ## Icon Rule
 
@@ -42,8 +46,8 @@ Build ChoTot filter parity one filter at a time. The first sample is the vehicle
 ## Sample Done Criteria
 
 - `차량 카테고리` is the first individual filter after `필터`.
-- The visible category rail replaces the previous manufacturer-logo rail.
-- Category options use the ChoTot order translated into Korean.
-- Selecting `자동차` keeps the current 15 listing sample visible.
-- Selecting a non-car category changes the listing result to the empty state.
+- The visible category rail follows the Airbnb-style icon tab pattern and replaces the previous manufacturer-logo rail.
+- Category options use the Bobaedream category order requested by the user while preserving ChoTot's filter entry pattern.
+- Selecting `중고차` keeps the current 15 listing sample visible.
+- Selecting a non-used-car category changes the listing result to the empty state.
 - The full filter sheet also lists `차량 카테고리` before `가격`.
