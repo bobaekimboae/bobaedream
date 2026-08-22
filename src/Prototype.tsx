@@ -143,6 +143,15 @@ const brands = [
   { name: "미니", logo: asset("brand/mini.svg") },
 ];
 
+const vehicleCategoryOptions = [
+  { label: "자동차", source: "Ô tô", icon: "notion-list.svg" },
+  { label: "오토바이", source: "Xe máy", icon: "notion-filter.svg" },
+  { label: "화물차/덤프", source: "Xe tải, xe ben", icon: "notion-search.svg" },
+  { label: "자전거", source: "Xe đạp", icon: "notion-chevron-right.svg" },
+  { label: "기타 이동수단", source: "Phương tiện khác", icon: "notion-close.svg" },
+  { label: "차량 부품", source: "Phụ tùng xe", icon: "notion-list.svg" },
+];
+
 type MakerOption = { name: string; maker: string; logo?: string; icon?: SimpleIcon; color?: string };
 const makerOptions: MakerOption[] = [
   { name: "BMW", maker: "BMW", logo: asset("brand/bmw.svg") },
@@ -299,6 +308,7 @@ function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
   const data = car.filter;
   if (!data) return false;
   const price = parsePrice(car.price);
+  const category = "자동차";
   const yearMatch = value.year === "전체"
     || value.year === "2024~2026" && data.year >= 2024
     || value.year === "2021~2023" && data.year >= 2021 && data.year <= 2023
@@ -307,6 +317,7 @@ function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
   const mileageLimit = Number(value.mileageMax.replaceAll(",", ""));
 
   return (value.price.min === 0 || price >= value.price.min)
+    && (value.category === "전체" || value.category === category)
     && (value.price.max === null || price <= value.price.max)
     && (value.seats === "전체" || data.seats === value.seats)
     && (!value.maker || car.maker === value.maker)
@@ -415,13 +426,13 @@ function FilterChip({ label, icon, active, onClick, onClear }: { label: string; 
     return (
       <div className="filter-chip is-active">
         <button className="filter-chip-label" type="button" aria-pressed="true" onClick={onClick}><span>{label}</span></button>
-        <button className="filter-chip-clear" type="button" aria-label={`${label} 제조사 필터 해제`} onClick={onClear}><Icon name="close.svg" /></button>
+        <button className="filter-chip-clear" type="button" aria-label={`${label} 필터 해제`} onClick={onClear}><Icon name="close.svg" /></button>
       </div>
     );
   }
   return (
     <button className={`filter-chip${active ? " is-active" : ""}`} type="button" aria-pressed={active} onClick={onClick}>
-      {icon ? <Icon name={icon} /> : null}<span>{label}</span>{!icon || active ? <Icon name={active ? "close.svg" : "chevron-down.svg"} /> : null}
+      {icon ? <Icon name={icon} /> : null}<span>{label}</span>{!icon && !active ? <Icon name="chevron-down.svg" /> : null}
     </button>
   );
 }
@@ -655,7 +666,7 @@ function MarketplaceScreen() {
 
   const regionLabel = region.radius ? `내 주변 ${region.radius}` : [region.province, region.district].filter(Boolean).join(" ") || "전국";
   const regionKeyword = region.province === "광주" ? "광주" : region.province;
-  const { maker, model: selectedModel, price, seller: sellerType, videoOnly } = filters;
+  const { maker, model: selectedModel, price, seller: sellerType, videoOnly, category } = filters;
 
   const filteredWithoutPrice = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -704,6 +715,10 @@ function MarketplaceScreen() {
     setFilters((current) => ({ ...current, model: nextModel }));
   };
 
+  const chooseCategory = (nextCategory: string) => {
+    setFilters((current) => ({ ...current, category: current.category === nextCategory ? "전체" : nextCategory }));
+  };
+
   return (
     <>
       <MobileScroll className="app-screen">
@@ -716,15 +731,16 @@ function MarketplaceScreen() {
           <section className="filter-shell" aria-label="중고차 필터">
             <button className="filter-fixed" type="button" aria-label="필터" onClick={() => { setDraftFilters(filters); setFilterFocus(null); setSheet("filter"); }}><Icon name="notion-filter.svg" /><span>필터</span></button>
             <div className="filter-pinned-chip">
-              <FilterChip label="중고차" active onClick={() => openQuickFilter("condition")} />
+              <FilterChip label={category === "전체" ? "차량 카테고리" : category} active={category !== "전체"} onClick={() => openQuickFilter("category")} onClear={category !== "전체" ? () => setFilters((current) => ({ ...current, category: "전체" })) : undefined} />
             </div>
             <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
+              <FilterChip label={priceFilterLabel(price)} active={price.min !== 0 || price.max !== null} onClick={() => openQuickFilter("price")} />
+              <FilterChip label={filters.condition === "전체" ? "차량 상태" : filters.condition} active={filters.condition !== "전체"} onClick={() => openQuickFilter("condition")} />
+              <FilterChip label={filters.seller === "전체" ? "판매자" : filters.seller} active={filters.seller !== "전체"} onClick={() => openQuickFilter("seller")} />
               <FilterChip label={maker ?? "제조사"} active={Boolean(maker)} onClick={() => openQuickFilter("maker")} onClear={maker ? () => setFilters((current) => ({ ...current, maker: null, model: null })) : undefined} />
               <FilterChip label={selectedModel ?? "모델"} active={Boolean(selectedModel)} onClick={() => openQuickFilter("model")} />
-              <FilterChip label={priceFilterLabel(price)} active={price.min !== 0 || price.max !== null} onClick={() => openQuickFilter("price")} />
               <FilterChip label={filters.year === "전체" ? "연식" : filters.year} active={filters.year !== "전체"} onClick={() => openQuickFilter("year")} />
               <FilterChip label={filters.seats === "전체" ? "좌석 수" : filters.seats} active={filters.seats !== "전체"} onClick={() => openQuickFilter("seats")} />
-              <FilterChip label={filters.condition === "전체" ? "차량 상태" : filters.condition} active={filters.condition !== "전체"} onClick={() => openQuickFilter("condition")} />
               <FilterChip label={filters.mileageMax ? `${filters.mileageMax}km 이하` : "주행거리"} active={Boolean(filters.mileageMax)} onClick={() => openQuickFilter("mileage")} />
               <FilterChip label={filters.owners === "전체" ? "소유자 수" : filters.owners} active={filters.owners !== "전체"} onClick={() => openQuickFilter("owners")} />
               <FilterChip label={filters.transmission === "전체" ? "변속기" : filters.transmission} active={filters.transmission !== "전체"} onClick={() => openQuickFilter("transmission")} />
@@ -733,27 +749,32 @@ function MarketplaceScreen() {
               <FilterChip label={filters.origin === "전체" ? "원산지" : filters.origin} active={filters.origin !== "전체"} onClick={() => openQuickFilter("origin")} />
               <FilterChip label={filters.body === "전체" ? "차체 유형" : filters.body} active={filters.body !== "전체"} onClick={() => openQuickFilter("body")} />
               <FilterChip label="영상 매물" active={filters.videoOnly} onClick={() => openQuickFilter("video")} />
-              <FilterChip label={filters.seller === "전체" ? "판매자" : filters.seller} active={filters.seller !== "전체"} onClick={() => openQuickFilter("seller")} />
             </Carousel>
           </section>
-          <section className={`brand-row${maker === "BMW" ? " is-model-mode" : maker === "벤츠" ? " is-benz-model-mode" : ""}`} aria-label={maker === "BMW" ? "BMW 모델 빠른 선택" : maker === "벤츠" ? "벤츠 모델 빠른 선택" : "제조사 빠른 선택"}>
-            <span className="brand-title">{maker === "BMW" || maker === "벤츠" ? "모델" : "제조사"}</span>
-            <Carousel ariaLabel={maker === "BMW" ? "BMW 모델" : maker === "벤츠" ? "벤츠 모델" : "제조사"} className="brand-carousel" contentClassName={maker === "BMW" ? "bmw-model-track" : maker === "벤츠" ? "benz-model-track" : "brand-track"}>
+          <section className="vehicle-category-row" aria-label="차량 카테고리 빠른 선택">
+            <span className="vehicle-category-title">카테고리</span>
+            <Carousel ariaLabel="차량 카테고리" className="vehicle-category-carousel" contentClassName="vehicle-category-track">
+              {vehicleCategoryOptions.map((option) => (
+                <button key={option.label} className={`vehicle-category-item${category === option.label ? " is-selected" : ""}`} type="button" aria-pressed={category === option.label} title={option.source} onClick={() => chooseCategory(option.label)}>
+                  <span className="vehicle-category-icon"><Icon name={option.icon} /></span>
+                  <span>{option.label}</span>
+                </button>
+              ))}
+            </Carousel>
+          </section>
+          {maker === "BMW" || maker === "벤츠" ? <section className={`brand-row${maker === "BMW" ? " is-model-mode" : " is-benz-model-mode"}`} aria-label={maker === "BMW" ? "BMW 모델 빠른 선택" : "벤츠 모델 빠른 선택"}>
+            <span className="brand-title">모델</span>
+            <Carousel ariaLabel={maker === "BMW" ? "BMW 모델" : "벤츠 모델"} className="brand-carousel" contentClassName={maker === "BMW" ? "bmw-model-track" : "benz-model-track"}>
               {maker === "BMW" ? bmwModels.map((model) => (
                 <button key={model.name} className={`bmw-model-card${selectedModel === model.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model.name} onClick={() => chooseModel(model.name)}>
                   <img src={model.image} alt={`${model.name} 차량`} draggable={false} />
                   <span>{model.name}</span>
                 </button>
-              )) : maker === "벤츠" ? benzModels.map((model) => (
+              )) : benzModels.map((model) => (
                 <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} onClick={() => chooseModel(model)}>{model}</button>
-              )) : brands.map((brand) => (
-                <button key={brand.name} className="brand-item" type="button" aria-pressed={false} onClick={() => chooseMaker(brand.name)}>
-                  {brand.full ? <img className="brand-full" src={brand.logo} alt="" aria-hidden="true" draggable={false} /> : <span className="brand-logo"><img src={brand.logo} alt="" aria-hidden="true" draggable={false} /></span>}
-                  {!brand.full ? <span>{brand.name}</span> : null}
-                </button>
               ))}
             </Carousel>
-          </section>
+          </section> : null}
           <section className="video-toggle-row" aria-label="영상 매물 설정">
             <span>영상 매물</span>
             <button type="button" role="switch" aria-checked={videoOnly} className={videoOnly ? "is-on" : ""} onClick={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))}><span /></button>
