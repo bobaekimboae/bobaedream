@@ -30,13 +30,11 @@ button { color: inherit; }
 .region-chevron-icon .ui-icon { width: 10px; height: 5px; object-fit: fill; }
 .reset-button { min-height: 40px; color: #3a3a3a; font-size: 15px; font-weight: 600; }
 
-.filter-shell { display: grid; grid-template-columns: 92px minmax(0, 1fr); align-items: center; height: 54px; background: #fff; transition: grid-template-columns 160ms ease; }
-.filter-shell.is-filter-compact { grid-template-columns: 58px minmax(0, 1fr); }
-.filter-fixed { z-index: 2; display: flex; align-items: center; justify-content: center; gap: 5px; width: 68px; height: 34px; margin-left: 16px; border-radius: 30px; background: var(--soft); color: #3a3a3a; font-size: 15px; font-weight: 500; white-space: nowrap; transition: width 160ms ease, border-radius 160ms ease; }
-.filter-shell.is-filter-compact .filter-fixed { width: 34px; border-radius: 50%; }
-.filter-fixed span { overflow: hidden; max-width: 30px; opacity: 1; transition: max-width 140ms ease, opacity 100ms ease; }
-.filter-shell.is-filter-compact .filter-fixed span { max-width: 0; opacity: 0; }
+.filter-shell { display: grid; grid-template-columns: 92px 89px minmax(0, 1fr); align-items: center; height: 54px; background: #fff; }
+.filter-fixed { z-index: 2; display: flex; align-items: center; justify-content: center; gap: 5px; width: 68px; height: 34px; margin-left: 16px; border-radius: 30px; background: var(--soft); color: #3a3a3a; font-size: 15px; font-weight: 500; white-space: nowrap; }
+.filter-fixed span { overflow: hidden; max-width: 30px; }
 .filter-fixed .ui-icon { width: 20px; height: 20px; }
+.filter-pinned-chip { z-index: 1; display: flex; align-items: center; height: 54px; background: #fff; }
 .filter-rail { min-width: 0; height: 54px; background: #fff; }
 .filter-track { display: flex; align-items: center; gap: 6px; min-width: max-content; padding: 10px 16px 10px 0; }
 .filter-chip { display: flex; align-items: center; justify-content: center; gap: 6px; height: 34px; padding: 7px 12px; border-radius: 30px; background: var(--soft); color: #3a3a3a; font-size: 15px; font-weight: 500; white-space: nowrap; }
