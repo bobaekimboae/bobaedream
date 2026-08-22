@@ -129,5 +129,42 @@
 - Verified the price-history bottom sheet at a 375px mobile viewport, including disabled previous and enabled next states.
 - Mobile runtime integrity, TypeScript compilation, Vite production build, Sites packaging, and all four Sites worker tests pass. Vite reports only its informational large-chunk advisory.
 
+## ChoTot detail/listing tuning follow-up
+
+### Requested changes verified
+
+- The temporary 15-listing override now uses the requested Korean benchmark metadata format: `연식 · 주행거리 · 연료 · 차량번호`.
+- Detail top information follows the requested order: car name, title, metadata, pink price, region, sale/view/posted state, and chat/phone CTA.
+- The detail title hierarchy preserves the ChoTot-tuned typography: 19px title lines, 27px line height, 700 weight, tight 14px metadata, and heart-only save control.
+- Selecting a list card stores that listing and rewrites the detail hero, name, subtitle, metadata, price, region, seller name, and selected vehicle information values.
+- Existing repo assets are reused only from `public/assets`; no external vehicle photos were rehosted. The first listing no longer points to the dealer portrait as a vehicle hero image.
+
+### Browser checks
+
+- At `http://127.0.0.1:5174/`, the list screen rendered the 15-listing override with the normalized metadata format.
+- Opening the Audi A6 listing produced: `아우디 A6 3.0 TDI 콰트로`, `정식수입 무사고 실매물`, `2012년식 · 125,109km · 디젤 · 28나7105`, `600만원`, and `서울 강남구 도곡동 · 오토갤러리`.
+- Opening the Hyundai Grandeur listing produced: `현대 그랜저 GN7`, `캘리그래피 하이브리드 무사고`, `2023년식 · 30,000km · 하이브리드 · 312하8451`, and `4,150만원`.
+
+### Verification
+
+- JavaScript syntax check passes for `public/assets/test-listings-override.js`.
+- Mobile runtime integrity passes.
+- TypeScript compilation, Vite production build, Sites packaging, and all four Sites worker tests pass. Vite reports only its informational large-chunk advisory.
+
 final result: passed
+
+## ChoTot Filter Prototype Follow-up
+
+### Cross-check
+
+- Compared the shared ChoTot captures and the research sheet against the implementation: the all-filter sheet has the same 13-group hierarchy and an internal scroll area with a fixed bottom action area.
+- The bottom actions retain the two-part anatomy: reset at left and an emphasized live result-count CTA at right.
+- Notion source SVGs now provide the filter, search, close, list-view, and right-chevron glyphs; no replacement drawings were introduced.
+
+### Functional Verification
+
+- The full-width desktop draft uses 15 mixed test listings.
+- Diesel changed the preview count to 2; adding white in the color selection sub-screen changed it to 1, and applying returned the single Kia Carnival listing.
+- Hyundai followed by Grandeur GN7 in the model sub-screen changed the preview count to 1.
+- TypeScript, Vite build, Sites worker tests, and mobile-runtime integrity all pass. Browser console warnings and errors are absent.
 

@@ -155,6 +155,10 @@
   display: none !important;
 }
 
+.vehicle-spec-row span[data-override-value]::after {
+  content: attr(data-override-value) !important;
+}
+
 .detail-badges,
 .vehicle-finance {
   display: none !important;
@@ -180,6 +184,10 @@
   content: "600만원";
   font-size: 20px;
   line-height: 28px;
+}
+
+.detail-price-row strong[data-override-price]::after {
+  content: attr(data-override-price) !important;
 }
 
 .detail-price-row button {
@@ -233,11 +241,19 @@
   line-height: 24px;
 }
 
+.vehicle-location-row p[data-override-location]::before {
+  content: attr(data-override-location) !important;
+}
+
 .vehicle-location-row span::before {
   content: "성능점검 완료 · 실매물 확인";
   color: #9a9a9a;
   font-size: 14px;
   line-height: 20px;
+}
+
+.vehicle-location-row span[data-override-status]::before {
+  content: attr(data-override-status) !important;
 }
 
 .vehicle-location-row::after {
@@ -247,6 +263,10 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
+}
+
+.vehicle-location-row[data-override-posted]::after {
+  content: attr(data-override-posted) !important;
 }
 
 .vehicle-summary:has(.vehicle-posted-row) .vehicle-location-row::after {
