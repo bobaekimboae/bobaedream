@@ -638,8 +638,6 @@ function MarketplaceScreen() {
   const [draftRegion, setDraftRegion] = useState<RegionSelection>(emptyRegion);
   const [searchSaved, setSearchSaved] = useState(false);
   const [searchToast, setSearchToast] = useState("");
-  const [filterCompact, setFilterCompact] = useState(false);
-  const filterSwipeStart = useRef<{ x: number; y: number } | null>(null);
 
   useEffect(() => {
     if (!searchToast) return;
@@ -707,25 +705,12 @@ function MarketplaceScreen() {
             <button type="button" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={openRegionSheet}><Icon name="location-blue.svg" /><span className="region-label">지역:</span><strong>{regionLabel}</strong><span className="region-chevron-icon" aria-hidden="true"><Icon name="region-chevron.svg" /></span></button>
             <button type="button" className="reset-button" onClick={resetFilters}>초기화</button>
           </section>
-          <section
-            className={`filter-shell${filterCompact ? " is-filter-compact" : ""}`}
-            aria-label="중고차 필터"
-            onPointerDownCapture={(event) => {
-              filterSwipeStart.current = (event.target as HTMLElement).closest(".filter-rail") ? { x: event.clientX, y: event.clientY } : null;
-            }}
-            onPointerMoveCapture={(event) => {
-              const start = filterSwipeStart.current;
-              if (!start || filterCompact) return;
-              const deltaX = event.clientX - start.x;
-              const deltaY = event.clientY - start.y;
-              if (Math.abs(deltaX) > 8 && Math.abs(deltaX) > Math.abs(deltaY)) setFilterCompact(true);
-            }}
-            onPointerUpCapture={() => { filterSwipeStart.current = null; }}
-            onPointerCancelCapture={() => { filterSwipeStart.current = null; }}
-          >
+          <section className="filter-shell" aria-label="중고차 필터">
             <button className="filter-fixed" type="button" aria-label="필터" onClick={() => { setDraftFilters(filters); setSheet("filter"); }}><Icon name="notion-filter.svg" /><span>필터</span></button>
-            <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
+            <div className="filter-pinned-chip">
               <FilterChip label="중고차" active onClick={() => setSheet("carType")} />
+            </div>
+            <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
               <FilterChip label={maker ?? "제조사"} active={Boolean(maker)} onClick={() => setSheet("maker")} onClear={maker ? () => chooseMaker(null) : undefined} />
               <FilterChip label="연식" onClick={() => setSheet("year")} />
               <FilterChip label={priceFilterLabel(price)} active={price.min !== 0 || price.max !== null} onClick={openPriceSheet} />
