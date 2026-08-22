@@ -1,54 +1,105 @@
 .vehicle-summary {
   display: flex !important;
   flex-direction: column !important;
-  padding: 18px 14px 18px !important;
+  padding: 28px 14px 18px !important;
   background: #fff !important;
 }
 
 .vehicle-title-row {
   order: 1;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
 }
 
 .vehicle-title-row h1 {
-  position: relative !important;
+  display: flex !important;
   min-width: 0 !important;
   flex: 1 1 auto !important;
+  flex-direction: column !important;
+  gap: 4px !important;
   margin: 0 !important;
   overflow: hidden !important;
   color: transparent !important;
-  font-size: 22px !important;
-  font-weight: 700 !important;
-  line-height: 30px !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
   letter-spacing: -.55px !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
+  white-space: normal !important;
 }
 
-.vehicle-title-row h1::before {
-  content: "아우디 A6 3.0 TDI 콰트로" !important;
-  position: absolute;
-  inset: 0;
+.vehicle-title-row h1::before,
+.vehicle-title-row h1::after,
+.vehicle-title-row h1 .vehicle-name,
+.vehicle-title-row h1 .vehicle-headline {
+  display: block;
   overflow: hidden;
   color: #222;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: -.55px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
+.vehicle-title-row h1::before {
+  content: "아우디 A6 3.0 TDI 콰트로" !important;
+}
+
+.vehicle-title-row h1::after {
+  content: "정식수입 무사고 실매물" !important;
+}
+
+.vehicle-title-row h1:has(.vehicle-name)::before,
+.vehicle-title-row h1:has(.vehicle-name)::after {
+  content: none !important;
+}
+
 .vehicle-title-row button {
-  min-width: 70px !important;
-  height: 36px !important;
-  gap: 5px !important;
-  padding: 0 11px !important;
+  width: 44px !important;
+  min-width: 44px !important;
+  height: 44px !important;
+  flex: 0 0 44px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  padding: 0 !important;
   border: 1px solid #dedede !important;
-  border-radius: 999px !important;
-  color: #333 !important;
-  font-size: 14px !important;
-  line-height: 20px !important;
+  border-radius: 50% !important;
+  background: #fff !important;
+  color: #222 !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+.vehicle-title-row button span {
+  display: none !important;
+}
+
+.vehicle-title-row button::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url("/bobaedream/assets/ui/chotot-heart.svg") center / 24px 24px no-repeat;
+}
+
+.vehicle-title-row button:has(img)::before {
+  content: none;
 }
 
 .vehicle-title-row svg {
-  width: 20px !important;
-  height: 20px !important;
+  display: none !important;
+}
+
+.vehicle-title-row button img {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.vehicle-title-row button[aria-pressed="true"] {
+  color: #f14069 !important;
 }
 
 .vehicle-spec-row {
@@ -64,6 +115,9 @@
 }
 
 .vehicle-spec-row span {
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: 22px !important;
   font-size: 0 !important;
 }
 
@@ -95,47 +149,14 @@
 
 .detail-badges,
 .vehicle-finance {
-  order: 3;
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 6px !important;
-  margin: 10px 0 0 !important;
-  color: transparent !important;
-  font-size: 0 !important;
-  line-height: 0 !important;
-}
-
-.detail-badges span,
-.vehicle-finance::before,
-.vehicle-finance::after {
-  display: inline-flex;
-  align-items: center;
-  height: 24px;
-  padding: 0 9px;
-  border-radius: 6px;
-  background: #e9f6ee;
-  color: #16834b;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 24px;
-}
-
-.vehicle-finance::before {
-  content: "무사고 확인";
-}
-
-.vehicle-finance::after {
-  content: "보험 이력 공개";
-  background: #ededed;
-  color: #555;
-  font-weight: 600;
+  display: none !important;
 }
 
 .detail-price-row {
-  order: 4;
+  order: 3;
   align-items: baseline !important;
   gap: 8px !important;
-  margin-top: 14px !important;
+  margin-top: 22px !important;
   line-height: 30px !important;
 }
 
@@ -176,11 +197,11 @@
 }
 
 .vehicle-location-row {
-  order: 5;
+  order: 4;
   display: flex !important;
   flex-direction: column !important;
   gap: 5px !important;
-  margin-top: 16px !important;
+  margin-top: 20px !important;
   padding-top: 0 !important;
   border-top: 0 !important;
   color: #9a9a9a !important;
@@ -223,11 +244,11 @@
 }
 
 .vehicle-posted-row {
-  order: 6;
+  order: 5;
 }
 
 .detail-contact-row {
-  order: 7;
+  order: 6;
   display: grid !important;
   grid-template-columns: minmax(0, 1fr) 78px !important;
   gap: 10px !important;
@@ -285,7 +306,7 @@
 }
 
 .detail-message-row {
-  order: 7;
+  order: 6;
 }
 
 .detail-bottom-bar {
@@ -307,10 +328,25 @@
 }
 
 .detail-zalo::before {
-  content: "찜하기";
-  color: #222;
-  font-size: 11px;
-  font-weight: 500;
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url("/bobaedream/assets/ui/chotot-heart.svg") center / 24px 24px no-repeat;
+}
+
+.detail-zalo svg,
+.detail-bottom-like span {
+  display: none !important;
+}
+
+.detail-bottom-like img {
+  width: 22px !important;
+  height: 22px !important;
+}
+
+.detail-bottom-like {
+  justify-content: center !important;
 }
 
 .detail-consult {
