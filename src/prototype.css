@@ -30,7 +30,7 @@ button { color: inherit; }
 .region-chevron-icon .ui-icon { width: 10px; height: 5px; object-fit: fill; }
 .reset-button { min-height: 40px; color: #3a3a3a; font-size: 15px; font-weight: 600; }
 
-.filter-shell { display: grid; grid-template-columns: 92px 89px minmax(0, 1fr); align-items: center; height: 54px; background: #fff; }
+.filter-shell { display: grid; grid-template-columns: 92px max-content minmax(0, 1fr); align-items: center; column-gap: 6px; height: 54px; background: #fff; }
 .filter-fixed { z-index: 2; display: flex; align-items: center; justify-content: center; gap: 5px; width: 68px; height: 34px; margin-left: 16px; border-radius: 30px; background: var(--soft); color: #3a3a3a; font-size: 15px; font-weight: 500; white-space: nowrap; }
 .filter-fixed span { overflow: hidden; max-width: 30px; }
 .filter-fixed .ui-icon { width: 20px; height: 20px; }
