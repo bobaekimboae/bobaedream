@@ -146,12 +146,12 @@ const brands = [
 const vehicleCategoryOptions = [
   { label: "전체", source: "All", icon: "notion-list.svg" },
   { label: "중고차", source: "Ô tô", icon: "notion-list.svg" },
-  { label: "트럭-특장-버스", source: "Xe tải, xe ben", icon: "notion-search.svg" },
+  { label: "트럭 · 특장 · 버스", source: "Xe tải, xe ben", icon: "notion-search.svg" },
   { label: "바이크", source: "Xe máy", icon: "notion-filter.svg" },
   { label: "캠핑카", source: "Bobaedream taxonomy", icon: "notion-chevron-right.svg" },
   { label: "올드카", source: "Bobaedream taxonomy", icon: "notion-close.svg" },
   { label: "건설기계", source: "Bobaedream taxonomy", icon: "notion-filter.svg" },
-  { label: "부품-용품", source: "Phụ tùng xe", icon: "notion-list.svg" },
+  { label: "부품 · 용품", source: "Phụ tùng xe", icon: "notion-list.svg" },
 ];
 
 type MakerOption = { name: string; maker: string; logo?: string; icon?: SimpleIcon; color?: string };
