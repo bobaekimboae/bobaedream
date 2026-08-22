@@ -121,6 +121,14 @@
   font-size: 0 !important;
 }
 
+.vehicle-spec-row span + span::before {
+  width: 3px !important;
+  height: 3px !important;
+  margin: 0 4px !important;
+  border-radius: 50% !important;
+  background: #a8a8a8 !important;
+}
+
 .vehicle-spec-row span::after {
   color: #666;
   font-size: 14px;
@@ -157,7 +165,7 @@
   align-items: baseline !important;
   gap: 8px !important;
   margin-top: 8px !important;
-  line-height: 30px !important;
+  line-height: 28px !important;
 }
 
 .detail-price-row strong {
@@ -165,11 +173,13 @@
   font-size: 0 !important;
   font-weight: 800 !important;
   letter-spacing: -.6px !important;
+  line-height: 28px !important;
 }
 
 .detail-price-row strong::after {
   content: "600만원";
-  font-size: 24px;
+  font-size: 20px;
+  line-height: 28px;
 }
 
 .detail-price-row button {
