@@ -1,7 +1,7 @@
 .vehicle-summary {
   display: flex !important;
   flex-direction: column !important;
-  padding: 28px 14px 18px !important;
+  padding: 15px 12px 18px !important;
   background: #fff !important;
 }
 
@@ -10,7 +10,7 @@
   display: flex !important;
   align-items: flex-start !important;
   justify-content: space-between !important;
-  gap: 16px !important;
+  gap: 12px !important;
 }
 
 .vehicle-title-row h1 {
@@ -18,13 +18,13 @@
   min-width: 0 !important;
   flex: 1 1 auto !important;
   flex-direction: column !important;
-  gap: 4px !important;
+  gap: 0 !important;
   margin: 0 !important;
   overflow: hidden !important;
   color: transparent !important;
   font-size: 0 !important;
   line-height: 0 !important;
-  letter-spacing: -.55px !important;
+  letter-spacing: -.45px !important;
   white-space: normal !important;
 }
 
@@ -35,10 +35,10 @@
   display: block;
   overflow: hidden;
   color: #222;
-  font-size: 22px;
+  font-size: 19px;
   font-weight: 700;
-  line-height: 30px;
-  letter-spacing: -.55px;
+  line-height: 27px;
+  letter-spacing: -.45px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -105,26 +105,26 @@
 .vehicle-spec-row {
   order: 2;
   flex-wrap: nowrap !important;
-  margin-top: 12px !important;
+  margin-top: 10px !important;
   overflow: hidden !important;
   color: #666 !important;
-  font-size: 15px !important;
+  font-size: 14px !important;
   font-weight: 500 !important;
-  line-height: 22px !important;
+  line-height: 21px !important;
   white-space: nowrap !important;
 }
 
 .vehicle-spec-row span {
   display: inline-flex !important;
   align-items: center !important;
-  min-height: 22px !important;
+  min-height: 21px !important;
   font-size: 0 !important;
 }
 
 .vehicle-spec-row span::after {
   color: #666;
-  font-size: 15px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 21px;
 }
 
 .vehicle-spec-row span:nth-child(1)::after {
@@ -156,7 +156,7 @@
   order: 3;
   align-items: baseline !important;
   gap: 8px !important;
-  margin-top: 22px !important;
+  margin-top: 8px !important;
   line-height: 30px !important;
 }
 
