@@ -42,7 +42,7 @@
 .chotot-toggle-row.is-on i::after { transform: translateX(18px); }
 .chotot-filter-actions { display: grid; grid-template-columns: 112px minmax(0,1fr); flex: 0 0 76px; gap: 8px; padding: 12px 16px 16px; border-top: 1px solid #ececec; box-sizing: border-box; background: #fff; }
 .chotot-filter-actions button, .chotot-nested-actions button { min-height: 48px; border-radius: 10px; background: #f0f0f0; color: #333; font-size: 16px; font-weight: 600; }
-.chotot-filter-actions button:last-child, .chotot-nested-actions button:last-child { background: #ffd000; color: #1a1a1a; font-weight: 700; }
+.chotot-filter-actions button:last-child, .chotot-nested-actions button:last-child { background: #111; color: #fff; font-weight: 700; }
 .chotot-nested-sheet { height: min(824px, calc(100vh - 28px)); }
 .chotot-nested-content { padding: 16px 20px; }
 .chotot-search { display: grid; grid-template-columns: 20px minmax(0,1fr); height: 44px; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; background: #f2f2f2; }
