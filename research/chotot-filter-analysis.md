@@ -51,3 +51,25 @@ benchmark listing set.
 
 The previous DOM override is intentionally not loaded on the filter prototype:
 it forced every list card visible and would have broken real filter results.
+
+## Vehicle Category Revision
+
+The later ChoTot capture set (`Screenshot_20260822_173326_Ch Tt.png`,
+`Screenshot_20260822_173330_Ch Tt.png`, and
+`Screenshot_20260822_173345_Ch Tt.png`) supersedes the previous Airbnb-style
+category-grid idea for the vehicle category sheet.
+
+Confirmed direction:
+
+- Follow ChoTot's `Tất cả danh mục` category sheet structure.
+- Use a parent vehicle row (`Xe cộ` -> `차량`) with rounded child chips.
+- Keep the sheet typography, row height, divider rhythm, chip size, and header
+  spacing close to ChoTot.
+- Use black for the Bobaedream bottom CTA instead of ChoTot yellow.
+- Do not use checkmarks, two-column icon cards, or large category tiles.
+- Keep `전체 차량` and `중고차` as distinct states so the all-vehicle category
+  does not collide with passenger used cars.
+- Exclude `하이브리드` from vehicle category. It belongs in fuel/powertrain.
+- After category selection, update the active top chip, search placeholder,
+  category-specific brand rail, category-specific filter chips, and list data
+  in the same way ChoTot updates the motorcycle listing after `Xe máy`.
