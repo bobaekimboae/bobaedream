@@ -5,7 +5,6 @@
 .bottom-sheet:has(.chotot-filter-sheet) .sheet-content { height: 100%; min-height: 0; padding: 0; overflow: hidden; }
 .chotot-filter-sheet { display: flex; height: min(824px, calc(100vh - 28px)); min-height: 0; flex-direction: column; background: #fff; color: #1a1a1a; font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
 .chotot-quick-sheet { height: min(340px, calc(100vh - 160px)); }
-.chotot-quick-sheet[data-quick-filter="category"] { height: min(610px, calc(100vh - 56px)); }
 .chotot-quick-sheet.is-tall { height: min(620px, calc(100vh - 56px)); }
 .chotot-quick-section { min-height: 116px; border-bottom: 0; }
 .chotot-mileage-field { margin: 0; }
@@ -24,14 +23,6 @@
 .chotot-choice-chips button.is-selected { background: #1b1b1b; color: #fff; font-weight: 600; }
 .chotot-choice-chips.compact { margin-top: 12px; flex-wrap: nowrap; overflow-x: auto; }
 .chotot-choice-chips.compact button { flex: 0 0 auto; }
-.chotot-category-picker { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-.chotot-category-option { position: relative; display: grid; min-height: 94px; align-content: center; justify-items: start; gap: 8px; padding: 14px; border: 1px solid #dedede; border-radius: 8px; box-sizing: border-box; background: #fff; color: #222; font-size: 15px; font-weight: 700; line-height: 20px; text-align: left; word-break: keep-all; }
-.chotot-category-option.is-selected { padding: 13px; border: 2px solid #111; background: #f8f8f8; color: #111; }
-.chotot-category-option-icon { display: grid; width: 30px; height: 30px; place-items: center; }
-.chotot-category-option-icon img { width: 24px; height: 24px; object-fit: contain; filter: brightness(0); opacity: .7; }
-.chotot-category-option.is-selected .chotot-category-option-icon img { opacity: 1; }
-.chotot-category-option-check { position: absolute; top: 10px; right: 10px; display: grid; width: 20px; height: 20px; place-items: center; border-radius: 50%; background: #111; color: #fff; }
-.chotot-category-option-check svg { width: 14px; height: 14px; }
 .chotot-price-fields { display: grid; grid-template-columns: minmax(0,1fr) 16px minmax(0,1fr); align-items: center; gap: 8px; }
 .chotot-price-fields > span { color: #8c8c8c; text-align: center; }
 .chotot-price-fields label, .chotot-inline-field { display: grid; grid-template-columns: 1fr auto; grid-template-rows: 17px 22px; align-items: end; height: 58px; padding: 8px 12px; border: 1px solid #dedede; border-radius: 8px; box-sizing: border-box; }
