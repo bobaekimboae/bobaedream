@@ -45,7 +45,7 @@ export const emptyChoTotFilters: ChoTotFilterState = {
 type View = "root" | "color" | "origin" | "model";
 
 const makerOptions = ["현대", "기아", "제네시스", "BMW", "벤츠", "아우디", "포르쉐", "랜드로버", "렉서스", "벤틀리", "페라리", "람보르기니", "롤스로이스"];
-const categoryOptions = ["전체", "중고차", "트럭-특장-버스", "바이크", "캠핑카", "올드카", "건설기계", "부품-용품"];
+const categoryOptions = ["전체", "중고차", "트럭 · 특장 · 버스", "바이크", "캠핑카", "올드카", "건설기계", "부품 · 용품"];
 const modelsByMaker: Record<string, string[]> = {
   현대: ["그랜저 GN7", "아이오닉 5"],
   기아: ["카니발 4세대", "쏘렌토 MQ4"],

@@ -29,12 +29,12 @@ Build ChoTot filter parity one filter at a time. The first sample is the vehicle
 | Xe cộ | 차량 카테고리 | First filter chip |
 | All | 전체 | Shows all current sample inventory |
 | Ô tô | 중고차 | Shows current 15 used-car inventory |
-| Xe tải, xe ben | 트럭-특장-버스 | Shows empty state until matching truck, specialty, or bus data exists |
+| Xe tải, xe ben | 트럭 · 특장 · 버스 | Shows empty state until matching truck, specialty, or bus data exists |
 | Xe máy | 바이크 | Shows empty state until sample motorcycle data exists |
 | Bobaedream taxonomy | 캠핑카 | Shows empty state until sample camping-car data exists |
 | Bobaedream taxonomy | 올드카 | Shows empty state until sample old-car data exists |
 | Bobaedream taxonomy | 건설기계 | Shows empty state until sample construction-equipment data exists |
-| Phụ tùng xe | 부품-용품 | Shows empty state until sample parts/accessories data exists |
+| Phụ tùng xe | 부품 · 용품 | Shows empty state until sample parts/accessories data exists |
 
 ## Icon Rule
 
