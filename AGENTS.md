@@ -95,7 +95,7 @@ When any text-entry control loses focus, clear the keyboard context. If the cont
 - On first entry, show the Figma vehicle-category rail (`중고차`, `트럭 · 특장 · 버스`, `바이크`, `캠핑카`, `건설기계`, `부품 · 용품`) in place of the manufacturer rail, using the exact exported category icons. Tapping `중고차` replaces that rail with the existing BMW/Mercedes manufacturer selector without leaving the listing screen.
 - Tapping the pinned `카테고리` chip, including after it changes to `중고차`, opens the Figma category sheet from node `8698:49850`. Keep the `중고차` row expanded by default with `전체 중고차`, `국산차`, `수입차`, and `전기차` chips; its right arrow toggles only that child row without dismissing the sheet.
 - Match the detail `차량 옵션` card to Figma node `1786:9245`: use the twelve exported option icons in their exact text order, including `사이드 에어백` in the second row, keep a four-column 14 px label grid, and use the exported information glyph beside both paid selected options.
-- Render Porsche with the clean crest mark only; never use a logo image that includes an extra `포르쉐` caption inside the artwork.
+- Render Porsche with `public/assets/brand/porsche-symbol.png`, the high-resolution transparent export of the exact user-provided crest, in both manufacturer rails and the manufacturer sheet; never substitute a generic icon or use different artwork.
 - Match the detail `차량 정보` card to Figma node `1797:13393`: show the eight core fields as full-width 44px table rows with labels on the left and semibold values aligned in a single right column. Keep extended details collapsed behind the centered `더보기` control and rotate the exact exported chevron when the card expands.
 
 
