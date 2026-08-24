@@ -816,7 +816,7 @@ function MarketplaceScreen() {
           <section className="filter-shell" aria-label="중고차 필터">
             <button className="filter-fixed" type="button" aria-label="필터" onClick={() => { setDraftFilters(filters); setFilterFocus(null); setSheet("filter"); }}><Icon name="notion-filter.svg" /><span>필터</span></button>
             <div className="filter-pinned-chip">
-              <FilterChip label={categoryIsDefault ? "차량 카테고리" : category} active={!categoryIsDefault} onClick={() => openQuickFilter("category")} onClear={!categoryIsDefault ? () => setFilters((current) => ({ ...current, category: "전체 차량", maker: null, model: null })) : undefined} />
+              <FilterChip label={categoryIsDefault ? "카테고리" : category} active={!categoryIsDefault} onClick={() => openQuickFilter("category")} onClear={!categoryIsDefault ? () => setFilters((current) => ({ ...current, category: "전체 차량", maker: null, model: null })) : undefined} />
             </div>
             <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
               <FilterChip label={priceFilterLabel(price)} active={price.min !== 0 || price.max !== null} onClick={() => openQuickFilter("price")} />
