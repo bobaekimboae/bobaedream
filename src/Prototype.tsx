@@ -147,6 +147,15 @@ const brands = [
   { name: "미니", logo: asset("brand/mini.svg") },
 ];
 
+const vehicleCategories = [
+  { name: "중고차", icon: "categories/used-car.svg" },
+  { name: "트럭 · 특장\n· 버스", icon: "categories/truck.svg" },
+  { name: "바이크", icon: "categories/bike.svg" },
+  { name: "캠핑카", icon: "categories/camping.svg" },
+  { name: "건설기계", icon: "categories/construction.svg" },
+  { name: "부품 · 용품", icon: "categories/parts.svg" },
+] as const;
+
 type MakerOption = { name: string; maker: string; logo?: string; icon?: SimpleIcon; color?: string };
 const makerOptions: MakerOption[] = [
   { name: "BMW", maker: "BMW", logo: asset("brand/bmw.svg") },
@@ -718,6 +727,7 @@ function MarketplaceScreen() {
   const [draftRegion, setDraftRegion] = useState<RegionSelection>(emptyRegion);
   const [searchSaved, setSearchSaved] = useState(false);
   const [searchToast, setSearchToast] = useState("");
+  const [categoryLandingOpen, setCategoryLandingOpen] = useState(true);
 
   useEffect(() => {
     if (!searchToast) return;
@@ -785,6 +795,15 @@ function MarketplaceScreen() {
     setFilters((current) => ({ ...current, model: nextModel }));
   };
 
+  const chooseVehicleCategory = (categoryName: string) => {
+    if (categoryName === "중고차") {
+      setFilters((current) => ({ ...current, category: "중고차", maker: null, model: null }));
+      setCategoryLandingOpen(false);
+      return;
+    }
+    setSearchToast(`${categoryName.replace("\n", " ")} 카테고리는 준비 중입니다.`);
+  };
+
   return (
     <>
       <MobileScroll className="app-screen">
@@ -817,7 +836,16 @@ function MarketplaceScreen() {
               <FilterChip label="영상 매물" active={filters.videoOnly} onClick={() => openQuickFilter("video")} />
             </Carousel>
           </section>
-          {maker === "BMW" || maker === "벤츠" ? <section className={`brand-row${maker === "BMW" ? " is-model-mode" : " is-benz-model-mode"}`} aria-label={maker === "BMW" ? "BMW 모델 빠른 선택" : "벤츠 모델 빠른 선택"}>
+          {categoryLandingOpen ? <section className="category-row" aria-label="차량 대카테고리 선택">
+            <Carousel ariaLabel="차량 대카테고리" className="category-carousel" contentClassName="category-track">
+              {vehicleCategories.map((categoryOption) => (
+                <button key={categoryOption.name} className="category-item" type="button" onClick={() => chooseVehicleCategory(categoryOption.name)}>
+                  <span className="category-icon"><img src={asset(categoryOption.icon)} alt="" aria-hidden="true" draggable={false} /></span>
+                  <span>{categoryOption.name.split("\n").map((line, index) => <span key={line}>{index ? <><br />{line}</> : line}</span>)}</span>
+                </button>
+              ))}
+            </Carousel>
+          </section> : maker === "BMW" || maker === "벤츠" ? <section className={`brand-row${maker === "BMW" ? " is-model-mode" : " is-benz-model-mode"}`} aria-label={maker === "BMW" ? "BMW 모델 빠른 선택" : "벤츠 모델 빠른 선택"}>
             <span className="brand-title">모델</span>
             <Carousel ariaLabel={maker === "BMW" ? "BMW 모델" : "벤츠 모델"} className="brand-carousel" contentClassName={maker === "BMW" ? "bmw-model-track" : "benz-model-track"}>
               {maker === "BMW" ? bmwModels.map((model) => (

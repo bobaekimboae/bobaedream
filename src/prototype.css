@@ -8,7 +8,7 @@ button { color: inherit; }
 .ui-icon { display: block; width: 20px; height: 20px; flex: 0 0 auto; object-fit: contain; pointer-events: none; }
 
 .top-bar { display: grid; grid-template-columns: 24px minmax(0, 1fr) 24px 24px; align-items: center; gap: 14px; height: 56px; padding: 6px 16px 8px 12px; box-sizing: border-box; background: #fff; }
-.icon-button, .search-save, .region-bar button, .filter-fixed, .filter-chip, .brand-item, .bmw-model-card, .benz-model-chip, .seller-tabs button, .sort-button, .density-button, .like-button, .sheet-options button, .empty-state button { border: 0; background: none; padding: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.icon-button, .search-save, .region-bar button, .filter-fixed, .filter-chip, .category-item, .brand-item, .bmw-model-card, .benz-model-chip, .seller-tabs button, .sort-button, .density-button, .like-button, .sheet-options button, .empty-state button { border: 0; background: none; padding: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .icon-button { display: grid; place-items: center; width: 24px; height: 24px; }
 .icon-button .ui-icon { width: 24px; height: 24px; }
 .back-button .ui-icon { transform: rotate(180deg) scaleY(-1); }
@@ -43,6 +43,15 @@ button { color: inherit; }
 .filter-chip-label { height: 20px; }
 .filter-chip-clear { width: 20px; height: 20px; justify-content: center; }
 .filter-chip-clear .ui-icon { width: 20px; height: 20px; }
+
+.category-row { height: 108px; background: #fff; }
+.category-carousel { height: 108px; }
+.category-track { display: flex; align-items: flex-start; gap: 18px; min-width: max-content; padding: 8px 16px 12px 24px; box-sizing: border-box; }
+.category-item { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 60px; min-height: 88px; color: #616161; font-size: 14px; font-weight: 500; line-height: 19.6px; text-align: center; white-space: nowrap; }
+.category-icon { display: grid; place-items: center; width: 44px; height: 44px; flex: 0 0 44px; border-radius: 50%; background: #f0f0f0; }
+.category-icon img { display: block; width: 24px; height: 24px; object-fit: contain; }
+.category-item > span:last-child { display: block; width: 60px; }
+.category-item:active .category-icon { background: #e6edf7; }
 
 .brand-row { display: grid; grid-template-columns: 63px minmax(0, 1fr); align-items: center; height: 86px; background: #fff; }
 .brand-title { padding-left: 16px; font-size: 15px; font-weight: 600; }
@@ -477,7 +486,7 @@ button { color: inherit; }
   #root .mobile-web-stage { max-width: none !important; margin: 0; box-shadow: none; }
   .marketplace { padding-inline: 24px; }
   .top-bar { max-width: 1440px; margin: 0 auto; }
-  .region-bar, .filter-shell, .brand-row, .video-toggle-row, .list-toolbar { max-width: 1440px; margin-right: auto; margin-left: auto; }
+  .region-bar, .filter-shell, .category-row, .brand-row, .video-toggle-row, .list-toolbar { max-width: 1440px; margin-right: auto; margin-left: auto; }
   .car-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 1440px; margin: 0 auto; border-top: 1px solid var(--line); }
   .car-card, .car-card.has-no-badges:not(.is-card-view) { min-height: 192px; padding: 16px; border-right: 1px solid var(--line); }
   .car-card:nth-child(3n) { border-right: 0; }

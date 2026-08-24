@@ -92,5 +92,6 @@ When any text-entry control loses focus, clear the keyboard context. If the cont
 - Manufacturer brand marks start at least 28px from the sheet's left edge.
 - The detail hero contains 24 swipeable photo slides. Keep the lower-right counter synchronized with the visible slide so the first swipe changes `1/24` to `2/24` and subsequent swipes continue through `24/24`.
 - Match the price-history pagination arrows to Figma node `1674:15566`: 36px gray circular buttons, an 18px icon frame, and the exact exported 10px-by-6px chevron rotated 90 degrees for previous and -90 degrees for next. Preserve the asset's own gray states and never fade the entire disabled button.
+- On first entry, show the Figma vehicle-category rail (`중고차`, `트럭 · 특장 · 버스`, `바이크`, `캠핑카`, `건설기계`, `부품 · 용품`) in place of the manufacturer rail, using the exact exported category icons. Tapping `중고차` replaces that rail with the existing BMW/Mercedes manufacturer selector without leaving the listing screen.
 
 
