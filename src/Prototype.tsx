@@ -156,6 +156,18 @@ const vehicleCategories = [
   { name: "부품 · 용품", icon: "categories/parts.svg" },
 ] as const;
 
+const categorySheetItems: ReadonlyArray<{ name: string; icon?: string }> = [
+  { name: "중고차", icon: "categories/used-car.svg" },
+  { name: "트럭 · 특장 · 버스", icon: "categories/truck.svg" },
+  { name: "바이크", icon: "categories/bike.svg" },
+  { name: "캠핑카", icon: "categories/camping.svg" },
+  { name: "올드카" },
+  { name: "건설기계", icon: "categories/construction.svg" },
+  { name: "부품 · 용품", icon: "categories/parts.svg" },
+];
+
+const usedCarCategoryOptions = ["전체 중고차", "국산차", "수입차", "전기차"] as const;
+
 type MakerOption = { name: string; maker: string; logo?: string; icon?: SimpleIcon; color?: string };
 const makerOptions: MakerOption[] = [
   { name: "BMW", maker: "BMW", logo: asset("brand/bmw.svg") },
@@ -422,7 +434,7 @@ function shuffleCars(source: Car[]) {
 }
 
 const sheetLabels: Record<Exclude<SheetType, null>, string> = {
-  filter: "상세 필터", quick: "빠른 필터", carType: "차량 유형", maker: "제조사", year: "연식", price: "가격", region: "지역", sort: "정렬",
+  filter: "상세 필터", quick: "빠른 필터", carType: "카테고리", maker: "제조사", year: "연식", price: "가격", region: "지역", sort: "정렬",
 };
 
 const detailPhotoSources = ["raw-04.png", "raw-09.jpeg", "raw-07.jpeg", "raw-20.jpeg", "raw-05.jpeg", "raw-10.jpeg", "raw-18.jpeg", "raw-19.jpeg"].map((name) => asset(`detail/${name}`));
@@ -504,6 +516,40 @@ function FilterChip({ label, icon, active, onClick, onClear }: { label: string; 
     <button className={`filter-chip${active ? " is-active" : ""}`} type="button" aria-pressed={active} onClick={onClick}>
       {icon ? <Icon name={icon} /> : null}<span>{label}</span>{!icon && !active ? <Icon name="chevron-down.svg" /> : null}
     </button>
+  );
+}
+
+function CategoryFilterSheet({ selected, onChoose, onClose }: { selected: string; onChoose: (category: string) => void; onClose: () => void }) {
+  const [usedCarOpen, setUsedCarOpen] = useState(true);
+  const selectedChild = selected === "전체 차량" || selected === "중고차" ? "전체 중고차" : selected;
+
+  return (
+    <div className="category-filter-sheet">
+      <header className="category-filter-header">
+        <h2>카테고리</h2>
+        <button type="button" aria-label="카테고리 닫기" onClick={onClose}><Icon name="sheet-close.svg" /></button>
+      </header>
+      <div className="category-filter-list">
+        {categorySheetItems.map((item) => item.name === "중고차" ? (
+          <section key={item.name} className="category-filter-group">
+            <div className="category-filter-row">
+              <span className="category-filter-mark"><img src={asset(item.icon ?? "categories/used-car.svg")} alt="" aria-hidden="true" draggable={false} /></span>
+              <strong>{item.name}</strong>
+              <button className={`category-filter-toggle${usedCarOpen ? " is-open" : ""}`} type="button" aria-label={`중고차 하위 카테고리 ${usedCarOpen ? "숨기기" : "보기"}`} aria-expanded={usedCarOpen} onClick={() => setUsedCarOpen((open) => !open)}><Icon name="notion-chevron-right.svg" /></button>
+            </div>
+            {usedCarOpen ? <div className="category-filter-children" aria-label="중고차 하위 카테고리">
+              {usedCarCategoryOptions.map((option) => <button key={option} type="button" className={selectedChild === option ? "is-selected" : ""} aria-pressed={selectedChild === option} onClick={() => onChoose(option)}>{option}</button>)}
+            </div> : null}
+          </section>
+        ) : (
+          <button key={item.name} className="category-filter-row category-filter-link" type="button" onClick={() => onChoose(item.name)}>
+            <span className="category-filter-mark">{item.icon ? <img src={asset(item.icon)} alt="" aria-hidden="true" draggable={false} /> : null}</span>
+            <strong>{item.name}</strong>
+            <Icon name="notion-chevron-right.svg" />
+          </button>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -775,6 +821,11 @@ function MarketplaceScreen() {
 
   const openQuickFilter = (focus: ChoTotFilterFocus) => {
     setDraftFilters(filters);
+    if (focus === "category") {
+      setQuickFilterFocus(null);
+      setSheet("carType");
+      return;
+    }
     setQuickFilterFocus(focus);
     setSheet("quick");
   };
@@ -802,6 +853,20 @@ function MarketplaceScreen() {
       return;
     }
     setSearchToast(`${categoryName.replace("\n", " ")} 카테고리는 준비 중입니다.`);
+  };
+
+  const chooseCategoryFilter = (categoryName: string) => {
+    const nextCategory = categoryName === "전체 중고차" ? "중고차" : categoryName;
+    if (["중고차", "국산차", "수입차", "전기차"].includes(nextCategory)) {
+      const nextFilters = { ...filters, category: nextCategory, maker: null, model: null };
+      setFilters(nextFilters);
+      setDraftFilters(nextFilters);
+      setCategoryLandingOpen(false);
+      closeSheet();
+      return;
+    }
+    setSearchToast(`${categoryName} 카테고리는 준비 중입니다.`);
+    closeSheet();
   };
 
   return (
@@ -889,8 +954,8 @@ function MarketplaceScreen() {
         </main>
       </MobileScroll>
       {searchToast ? <div className="market-toast" role="status" aria-live="polite">{searchToast}</div> : null}
-      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && closeSheet()} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" || sheet === "maker" || sheet === "price" || sheet === "filter" || sheet === "quick" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "filter" || sheet === "maker" || sheet === "quick" ? 0.96 : sheet === "region" ? 0.53 : sheet === "price" ? 0.62 : 0.48}>
-        {sheet === "filter" ? <ChoTotFilterSheet value={draftFilters} focus={filterFocus} onChange={setDraftFilters} onClose={() => { setFilterFocus(null); closeSheet(); }} onReset={() => setDraftFilters(emptyChoTotFilters)} onConfirm={() => { setFilters(draftFilters); setFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "quick" && quickFilterFocus ? <ChoTotQuickFilterSheet focus={quickFilterFocus} value={draftFilters} onChange={setDraftFilters} onClose={() => { setQuickFilterFocus(null); closeSheet(); }} onConfirm={() => { setFilters(draftFilters); setQuickFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} resultCount={filteredWithoutPrice.length} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftFilters.price} onChange={(nextPrice) => setDraftFilters((current) => ({ ...current, price: nextPrice }))} onClose={closeSheet} onReset={() => setDraftFilters((current) => ({ ...current, price: emptyPrice }))} onConfirm={() => { setFilters((current) => ({ ...current, price: draftFilters.price })); closeSheet(); }} resultCount={draftFilterCount} /> : <div className="sheet-options">
+      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && closeSheet()} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" || sheet === "maker" || sheet === "price" || sheet === "filter" || sheet === "quick" || sheet === "carType" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "filter" || sheet === "maker" || sheet === "quick" ? 0.96 : sheet === "carType" ? 0.8 : sheet === "region" ? 0.53 : sheet === "price" ? 0.62 : 0.48}>
+        {sheet === "filter" ? <ChoTotFilterSheet value={draftFilters} focus={filterFocus} onChange={setDraftFilters} onClose={() => { setFilterFocus(null); closeSheet(); }} onReset={() => setDraftFilters(emptyChoTotFilters)} onConfirm={() => { setFilters(draftFilters); setFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "carType" ? <CategoryFilterSheet selected={category} onChoose={chooseCategoryFilter} onClose={closeSheet} /> : sheet === "quick" && quickFilterFocus ? <ChoTotQuickFilterSheet focus={quickFilterFocus} value={draftFilters} onChange={setDraftFilters} onClose={() => { setQuickFilterFocus(null); closeSheet(); }} onConfirm={() => { setFilters(draftFilters); setQuickFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} resultCount={filteredWithoutPrice.length} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftFilters.price} onChange={(nextPrice) => setDraftFilters((current) => ({ ...current, price: nextPrice }))} onClose={closeSheet} onReset={() => setDraftFilters((current) => ({ ...current, price: emptyPrice }))} onConfirm={() => { setFilters((current) => ({ ...current, price: draftFilters.price })); closeSheet(); }} resultCount={draftFilterCount} /> : <div className="sheet-options">
           {sheet === "sort" ? ["최신순", "낮은 가격순", "높은 가격순"].map((label) => <button key={label} type="button" className={sort === label ? "is-selected" : ""} onClick={() => { setSort(label); setSheet(null); }}>{label}</button>) : ["전체", "추천 조건", "인기 조건"].map((label) => <button key={label} type="button" onClick={() => setSheet(null)}>{label}</button>)}
         </div>}
       </BottomSheet>
