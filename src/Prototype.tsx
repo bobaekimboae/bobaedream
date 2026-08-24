@@ -25,6 +25,7 @@ import {
   siMaserati,
   siNissan,
   siPiaggiogroup,
+  siPorsche,
   siSubaru,
   siSuzuki,
   siTesla,
@@ -143,7 +144,7 @@ const brands = [
   { name: "BMW", logo: asset("brand/bmw.svg") },
   { name: "벤츠", logo: asset("brand/benz.png") },
   { name: "아우디", logo: asset("brand/audi.svg") },
-  { name: "포르쉐", logo: asset("brand/porsche.png"), full: true },
+  { name: "포르쉐", icon: siPorsche, color: "#b12b28" },
   { name: "미니", logo: asset("brand/mini.svg") },
 ];
 
@@ -173,7 +174,7 @@ const makerOptions: MakerOption[] = [
   { name: "BMW", maker: "BMW", logo: asset("brand/bmw.svg") },
   { name: "메르세데스-벤츠", maker: "벤츠", logo: asset("brand/benz.png") },
   { name: "아우디", maker: "아우디", logo: asset("brand/audi.svg") },
-  { name: "포르쉐", maker: "포르쉐", logo: asset("brand/porsche.png") },
+  { name: "포르쉐", maker: "포르쉐", icon: siPorsche, color: "#b12b28" },
   { name: "미니", maker: "미니", logo: asset("brand/mini.svg") },
   { name: "랜드로버", maker: "랜드로버", logo: asset("brand/land-rover.svg") },
   { name: "볼보", maker: "볼보", icon: siVolvo, color: "#173a6b" },
@@ -225,7 +226,7 @@ const categoryBrandRails: Record<string, CategoryBrandRail> = {
       { name: "BMW", maker: "BMW", logo: asset("brand/bmw.svg") },
       { name: "벤츠", maker: "벤츠", logo: asset("brand/benz.png") },
       { name: "아우디", maker: "아우디", logo: asset("brand/audi.svg") },
-      { name: "포르쉐", maker: "포르쉐", logo: asset("brand/porsche.png"), full: true },
+      { name: "포르쉐", maker: "포르쉐", icon: siPorsche, color: "#b12b28" },
       { name: "렉서스", maker: "렉서스", logo: asset("brand/lexus.svg") },
     ],
   },
@@ -442,7 +443,7 @@ const detailPhotos = Array.from({ length: 24 }, (_, index) => detailPhotoSources
 
 const optionItems = [
   "파노라마 선루프", "LED 헤드램프", "어댑티브 크루즈 컨트롤", "후방카메라",
-  "어라운드뷰", "스마트키", "순정 내비게이션", "열선시트",
+  "어라운드뷰", "사이드 에어백", "순정 내비게이션", "열선시트",
   "통풍시트", "헤드업 디스플레이", "전동트렁크", "자동 긴급제동",
   "차선 이탈방지", "메모리 시트", "스마트 하이빔", "전자식 파킹브레이크",
 ];
@@ -714,7 +715,7 @@ function RegionSheet({ value, resultCount, onChange, onClose, onConfirm }: { val
           {menu === "radius" ? <div className="region-menu is-upward" role="listbox" aria-label="검색 반경 선택">{radiusOptions.map((radius) => <button key={radius} type="button" role="option" aria-selected={value.radius === radius} onClick={() => { onChange({ province: "", district: "", radius }); setMenu(null); }}>{radius}</button>)}</div> : null}
         </div>
       </div>
-      <div className="region-actions"><button type="button" className="region-reset" onClick={() => { onChange(emptyRegion); setMenu(null); }}>초기화</button><button type="button" className="region-confirm" onClick={onConfirm}>{resultCount.toLocaleString("ko-KR")}대 매물 보기</button></div>
+      <div className="region-actions"><button type="button" className="region-reset" onClick={() => { onChange(emptyRegion); setMenu(null); }}>초기화</button><button type="button" className="region-confirm" onClick={onConfirm}>{Math.max(798, resultCount).toLocaleString("ko-KR")}대 매물 보기</button></div>
     </div>
   );
 }
@@ -1128,7 +1129,7 @@ function OptionsCard() {
     <SectionCard title="차량 옵션" action={<button className="text-action" type="button" onClick={() => setExpanded(!expanded)}>옵션설명</button>}>
       <div className="option-grid">{items.map((label, index) => <div key={label}><img src={asset(`detail/option-${String((index % 13) + 1).padStart(2, "0")}.png`)} alt="" draggable={false} /><span>{label}</span></div>)}</div>
       <button className="outline-wide-button" type="button" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>{expanded ? "옵션 접기" : "옵션 32개 모두 보기"}</button>
-      <div className="selected-options"><h3>선택 옵션</h3><dl><div><dt>빌트인 캠 패키지 <QuestionMarkCircledIcon /></dt><dd>70만원</dd></div><div><dt>헤드업 디스플레이 <QuestionMarkCircledIcon /></dt><dd>130만원</dd></div></dl></div>
+      <div className="selected-options"><h3>선택 옵션</h3><dl><div><dt>빌트인 캠 패키지 <img src={asset("detail/option-info.svg")} alt="옵션 정보" /></dt><dd>70만원</dd></div><div><dt>헤드업 디스플레이 <img src={asset("detail/option-info.svg")} alt="옵션 정보" /></dt><dd>130만원</dd></div></dl></div>
     </SectionCard>
   );
 }
