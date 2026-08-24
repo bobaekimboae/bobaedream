@@ -6,14 +6,20 @@
 .chotot-filter-sheet { display: flex; height: min(824px, calc(100vh - 28px)); min-height: 0; flex-direction: column; background: #fff; color: #1a1a1a; font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
 .chotot-quick-sheet { height: min(340px, calc(100vh - 160px)); }
 .chotot-quick-sheet.is-tall { height: min(620px, calc(100vh - 56px)); }
+.chotot-quick-sheet[data-quick-filter="category"] { height: min(824px, calc(100vh - 28px)); }
 .chotot-quick-section { min-height: 116px; border-bottom: 0; }
+.chotot-quick-sheet[data-quick-filter="category"] .chotot-quick-section { min-height: 0; padding: 18px 0 0; border-bottom: 0; }
 .chotot-mileage-field { margin: 0; }
 .chotot-filter-sheet button { border: 0; font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .chotot-filter-header, .chotot-nested-header { display: flex; height: 64px; flex: 0 0 64px; align-items: center; justify-content: space-between; padding: 0 20px; border-bottom: 1px solid #f1f1f1; box-sizing: border-box; }
+.chotot-filter-header.is-category-header { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; height: 82px; flex-basis: 82px; align-items: center; padding: 18px 18px 0; }
 .chotot-filter-header h2, .chotot-nested-header h2 { margin: 0; color: #171717; font-size: 20px; font-weight: 700; line-height: 28px; }
+.chotot-filter-header.is-category-header h2 { text-align: center; }
 .chotot-filter-header button, .chotot-nested-header button { display: grid; width: 36px; height: 36px; place-items: center; background: transparent; }
+.chotot-filter-header.is-category-header button { width: 44px; height: 44px; }
 .mobile-web-screen .chotot-filter-header button:focus, .mobile-web-screen .chotot-filter-header button:focus-visible, .mobile-web-screen .chotot-nested-header button:focus, .mobile-web-screen .chotot-nested-header button:focus-visible { outline: none !important; box-shadow: none !important; }
 .chotot-filter-header img, .chotot-nested-header img { width: 20px; height: 20px; }
+.chotot-filter-header.is-category-header img { width: 26px; height: 26px; }
 .chotot-filter-scroll, .chotot-nested-content { min-height: 0; flex: 1; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; }
 .chotot-filter-scroll::-webkit-scrollbar, .chotot-nested-content::-webkit-scrollbar { display: none; }
 .chotot-filter-section { padding: 22px 20px; border-bottom: 8px solid #f6f6f6; }
@@ -23,6 +29,17 @@
 .chotot-choice-chips button.is-selected { background: #1b1b1b; color: #fff; font-weight: 600; }
 .chotot-choice-chips.compact { margin-top: 12px; flex-wrap: nowrap; overflow-x: auto; }
 .chotot-choice-chips.compact button { flex: 0 0 auto; }
+.chotot-category-source { margin: -2px -20px 0; color: #222; }
+.chotot-quick-sheet[data-quick-filter="category"] .chotot-category-source { margin: 0; }
+.chotot-category-parent { display: grid; grid-template-columns: 32px minmax(0, 1fr) 32px; width: 100%; min-height: 56px; align-items: center; gap: 8px; padding: 0 16px; background: #fff; color: #252525; font-size: 18px; font-weight: 500; line-height: 26px; text-align: left; }
+.chotot-category-icon { display: grid; width: 32px; height: 32px; place-items: center; }
+.chotot-category-icon img { width: 24px; height: 24px; object-fit: contain; filter: brightness(0); opacity: .9; }
+.chotot-category-chevron { display: grid; width: 32px; height: 32px; place-items: center; justify-self: end; }
+.chotot-category-chevron img { width: 21px; height: 21px; object-fit: contain; filter: brightness(0); }
+.chotot-category-chevron.is-open img { transform: rotate(90deg); }
+.chotot-category-child-chips { display: flex; flex-wrap: wrap; gap: 10px 8px; padding: 8px 16px 24px 56px; border-bottom: 1px solid #eeeeee; }
+.chotot-category-child-chips button { min-height: 40px; padding: 8px 16px; border-radius: 20px; background: #f1f1f1; color: #2a2a2a; font-size: 16px; font-weight: 500; line-height: 22px; }
+.chotot-category-child-chips button.is-selected { background: #1b1b1b; color: #fff; font-weight: 600; }
 .chotot-price-fields { display: grid; grid-template-columns: minmax(0,1fr) 16px minmax(0,1fr); align-items: center; gap: 8px; }
 .chotot-price-fields > span { color: #8c8c8c; text-align: center; }
 .chotot-price-fields label, .chotot-inline-field { display: grid; grid-template-columns: 1fr auto; grid-template-rows: 17px 22px; align-items: end; height: 58px; padding: 8px 12px; border: 1px solid #dedede; border-radius: 8px; box-sizing: border-box; }

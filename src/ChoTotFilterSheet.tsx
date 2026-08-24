@@ -23,8 +23,10 @@ export type ChoTotFilterState = {
 
 export type ChoTotFilterFocus = "category" | "price" | "seats" | "maker" | "model" | "year" | "condition" | "mileage" | "owners" | "transmission" | "fuel" | "color" | "origin" | "body" | "video" | "seller";
 
+export const vehicleCategoryOptions = ["전체 차량", "중고차", "국산차", "수입차", "전기차", "화물 · 특장 · 버스", "바이크", "캠핑카", "올드카", "건설기계", "부품 · 용품"];
+
 export const emptyChoTotFilters: ChoTotFilterState = {
-  category: "전체",
+  category: "전체 차량",
   price: { mode: "cash", min: 0, max: null },
   seats: "전체",
   maker: null,
@@ -45,7 +47,6 @@ export const emptyChoTotFilters: ChoTotFilterState = {
 type View = "root" | "color" | "origin" | "model";
 
 const makerOptions = ["현대", "기아", "제네시스", "BMW", "벤츠", "아우디", "포르쉐", "랜드로버", "렉서스", "벤틀리", "페라리", "람보르기니", "롤스로이스"];
-const categoryOptions = ["전체", "중고차", "트럭 · 특장 · 버스", "바이크", "캠핑카", "올드카", "건설기계", "부품 · 용품"];
 const modelsByMaker: Record<string, string[]> = {
   현대: ["그랜저 GN7", "아이오닉 5"],
   기아: ["카니발 4세대", "쏘렌토 MQ4"],
@@ -86,6 +87,23 @@ function ChoiceChips({ options, value, onChange }: { options: string[]; value: s
   return <div className="chotot-choice-chips">{options.map((option) => <button key={option} type="button" className={value === option ? "is-selected" : ""} aria-pressed={value === option} onClick={() => onChange(option)}>{option}</button>)}</div>;
 }
 
+function VehicleCategoryChooser({ value, onChange }: { value: string; onChange: (value: string) => void }) {
+  return (
+    <div className="chotot-category-source">
+      <button type="button" className="chotot-category-parent" aria-expanded="true">
+        <span className="chotot-category-icon" aria-hidden="true"><img src={asset("notion-list.svg")} alt="" /></span>
+        <span>차량</span>
+        <span className="chotot-category-chevron is-open" aria-hidden="true"><img src={asset("notion-chevron-right.svg")} alt="" /></span>
+      </button>
+      <div className="chotot-category-child-chips" aria-label="차량 카테고리">
+        {vehicleCategoryOptions.map((option) => (
+          <button key={option} type="button" className={value === option ? "is-selected" : ""} aria-pressed={value === option} onClick={() => onChange(option)}>{option}</button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function MiniHeader({ title, onBack }: { title: string; onBack: () => void }) {
   return <header className="chotot-nested-header"><button type="button" aria-label={`${title} 화면 닫기`} onClick={onBack}><img src={asset("notion-close.svg")} alt="" /></button><h2>{title}</h2></header>;
 }
@@ -104,8 +122,9 @@ export function ChoTotQuickFilterSheet({ focus, value, onChange, onClose, onConf
 }) {
   const [modelSearch, setModelSearch] = useState("");
   const setValue = <K extends keyof ChoTotFilterState>(key: K, next: ChoTotFilterState[K]) => onChange({ ...value, [key]: next });
+  const chooseCategory = (next: string) => onChange({ ...value, category: next, maker: null, model: null });
   const reset = () => {
-    if (focus === "category") setValue("category", "전체");
+    if (focus === "category") setValue("category", "전체 차량");
     else if (focus === "price") onChange({ ...value, price: { mode: "cash", min: 0, max: null } });
     else if (focus === "seats") setValue("seats", "전체");
     else if (focus === "maker") onChange({ ...value, maker: null, model: null });
@@ -125,13 +144,17 @@ export function ChoTotQuickFilterSheet({ focus, value, onChange, onClose, onConf
   const title = quickFilterTitles[focus];
   const modelOptions = value.maker ? modelsByMaker[value.maker] ?? [] : [];
   const searchedModels = modelOptions.filter((model) => model.toLowerCase().includes(modelSearch.toLowerCase()));
-  const tall = ["maker", "model", "color", "origin"].includes(focus);
+  const tall = ["category", "maker", "model", "color", "origin"].includes(focus);
 
   return <div className={`chotot-filter-sheet chotot-quick-sheet${tall ? " is-tall" : ""}`} data-quick-filter={focus}>
-    <header className="chotot-filter-header"><h2>{title}</h2><button type="button" aria-label={`${title} 닫기`} onClick={onClose}><img src={asset("notion-close.svg")} alt="" /></button></header>
+    <header className={`chotot-filter-header${focus === "category" ? " is-category-header" : ""}`}>
+      {focus === "category" ? <button type="button" aria-label={`${title} 닫기`} onClick={onClose}><img src={asset("notion-close.svg")} alt="" /></button> : null}
+      <h2>{title}</h2>
+      {focus === "category" ? <span aria-hidden="true" /> : <button type="button" aria-label={`${title} 닫기`} onClick={onClose}><img src={asset("notion-close.svg")} alt="" /></button>}
+    </header>
     <div className="chotot-filter-scroll">
       <section className="chotot-filter-section chotot-quick-section">
-        {focus === "category" ? <ChoiceChips options={categoryOptions} value={value.category} onChange={(next) => setValue("category", next)} /> : null}
+        {focus === "category" ? <VehicleCategoryChooser value={value.category} onChange={chooseCategory} /> : null}
         {focus === "price" ? <><div className="chotot-price-fields"><label><span>최소</span><input inputMode="numeric" value={value.price.min || ""} onChange={(event) => setValue("price", { ...value.price, min: Number(event.currentTarget.value.replaceAll(",", "")) || 0 })} placeholder="최소 금액" /><b>만원</b></label><span>~</span><label><span>최대</span><input inputMode="numeric" value={value.price.max ?? ""} onChange={(event) => setValue("price", { ...value.price, max: event.currentTarget.value ? Number(event.currentTarget.value.replaceAll(",", "")) : null })} placeholder="최대 금액" /><b>만원</b></label></div><div className="chotot-choice-chips compact"><button type="button" className={value.price.min === 0 && value.price.max === 1000 ? "is-selected" : ""} onClick={() => setValue("price", { ...value.price, min: 0, max: 1000 })}>1천만원 이하</button><button type="button" className={value.price.min === 1000 && value.price.max === 3000 ? "is-selected" : ""} onClick={() => setValue("price", { ...value.price, min: 1000, max: 3000 })}>1천~3천만원</button><button type="button" className={value.price.min === 3000 && value.price.max === 7000 ? "is-selected" : ""} onClick={() => setValue("price", { ...value.price, min: 3000, max: 7000 })}>3천~7천만원</button></div></> : null}
         {focus === "seats" ? <ChoiceChips options={["전체", "2인승", "4인승", "5인승", "6인승", "7인승 이상"]} value={value.seats} onChange={(next) => setValue("seats", next)} /> : null}
         {focus === "maker" ? <ChoiceChips options={makerOptions} value={value.maker ?? ""} onChange={(next) => onChange({ ...value, maker: next, model: null })} /> : null}
@@ -141,7 +164,7 @@ export function ChoTotQuickFilterSheet({ focus, value, onChange, onClose, onConf
         {focus === "mileage" ? <label className="chotot-inline-field chotot-mileage-field"><span>최대 주행거리</span><input inputMode="numeric" value={value.mileageMax} onChange={(event) => setValue("mileageMax", event.currentTarget.value.replaceAll(",", ""))} placeholder="예: 50,000" /><b>km 이하</b></label> : null}
         {focus === "owners" ? <ChoiceChips options={["전체", "1인", "2인", "3인 이상"]} value={value.owners} onChange={(next) => setValue("owners", next)} /> : null}
         {focus === "transmission" ? <ChoiceChips options={["전체", "오토", "수동", "CVT"]} value={value.transmission} onChange={(next) => setValue("transmission", next)} /> : null}
-        {focus === "fuel" ? <ChoiceChips options={["전체", "가솔린", "디젤", "하이브리드", "전기"]} value={value.fuel} onChange={(next) => setValue("fuel", next)} /> : null}
+        {focus === "fuel" ? <ChoiceChips options={["전체", "가솔린", "디젤", "전기"]} value={value.fuel} onChange={(next) => setValue("fuel", next)} /> : null}
         {focus === "color" ? <div className="chotot-check-list">{colorOptions.map((color) => <label key={color}><span>{color}</span><input type="checkbox" checked={value.colors.includes(color)} onChange={() => setValue("colors", value.colors.includes(color) ? value.colors.filter((entry) => entry !== color) : [...value.colors, color])} /></label>)}</div> : null}
         {focus === "origin" ? <div className="chotot-radio-list">{originOptions.map((origin) => <button key={origin} type="button" onClick={() => setValue("origin", origin)}><span>{origin}</span><i className={value.origin === origin ? "is-selected" : ""} /></button>)}</div> : null}
         {focus === "body" ? <ChoiceChips options={["전체", "세단", "SUV", "해치백", "승합", "스포츠카"]} value={value.body} onChange={(next) => setValue("body", next)} /> : null}
@@ -174,6 +197,7 @@ export function ChoTotFilterSheet({ value, onChange, onClose, onReset, onConfirm
 
   const setValue = <K extends keyof ChoTotFilterState>(key: K, next: ChoTotFilterState[K]) => onChange({ ...value, [key]: next });
   const chooseMaker = (maker: string) => onChange({ ...value, maker, model: null });
+  const chooseCategory = (category: string) => onChange({ ...value, category, maker: null, model: null });
 
   useEffect(() => {
     if (!focus || view !== "root") return;
@@ -213,7 +237,7 @@ export function ChoTotFilterSheet({ value, onChange, onClose, onReset, onConfirm
   return <div className="chotot-filter-sheet" ref={rootRef}>
     <header className="chotot-filter-header"><h2>필터</h2><button type="button" aria-label="필터 닫기" onClick={onClose}><img src={asset("notion-close.svg")} alt="" /></button></header>
     <div className="chotot-filter-scroll">
-      <Section title="차량 카테고리" focus="category"><ChoiceChips options={categoryOptions} value={value.category} onChange={(category) => setValue("category", category)} /></Section>
+      <Section title="차량 카테고리" focus="category"><VehicleCategoryChooser value={value.category} onChange={chooseCategory} /></Section>
       <Section title="가격" focus="price">
         <div className="chotot-price-fields"><label><span>최소</span><input inputMode="numeric" value={value.price.min || ""} onChange={(event) => setValue("price", { ...value.price, min: Number(event.currentTarget.value.replaceAll(",", "")) || 0 })} placeholder="최소 금액" /><b>만원</b></label><span>~</span><label><span>최대</span><input inputMode="numeric" value={value.price.max ?? ""} onChange={(event) => setValue("price", { ...value.price, max: event.currentTarget.value ? Number(event.currentTarget.value.replaceAll(",", "")) : null })} placeholder="최대 금액" /><b>만원</b></label></div>
         <div className="chotot-choice-chips compact"><button type="button" className={value.price.min === 0 && value.price.max === 1000 ? "is-selected" : ""} onClick={() => setValue("price", { ...value.price, min: 0, max: 1000 })}>1천만원 이하</button><button type="button" className={value.price.min === 1000 && value.price.max === 3000 ? "is-selected" : ""} onClick={() => setValue("price", { ...value.price, min: 1000, max: 3000 })}>1천~3천만원</button><button type="button" className={value.price.min === 3000 && value.price.max === 7000 ? "is-selected" : ""} onClick={() => setValue("price", { ...value.price, min: 3000, max: 7000 })}>3천~7천만원</button></div>
@@ -224,7 +248,7 @@ export function ChoTotFilterSheet({ value, onChange, onClose, onReset, onConfirm
       <Section title="차량 상태" focus="condition"><ChoiceChips options={["전체", "신차", "중고"]} value={value.condition} onChange={(condition) => setValue("condition", condition)} />{value.condition === "중고" ? <label className="chotot-inline-field"><span>주행거리</span><input inputMode="numeric" value={value.mileageMax} onChange={(event) => setValue("mileageMax", event.currentTarget.value)} placeholder="최대 주행거리" /><b>km 이하</b></label> : null}</Section>
       <Section title="소유자 수" focus="owners"><ChoiceChips options={["전체", "1인", "2인", "3인 이상"]} value={value.owners} onChange={(owners) => setValue("owners", owners)} /></Section>
       <Section title="변속기" focus="transmission"><ChoiceChips options={["전체", "오토", "수동", "CVT"]} value={value.transmission} onChange={(transmission) => setValue("transmission", transmission)} /></Section>
-      <Section title="연료" focus="fuel"><ChoiceChips options={["전체", "가솔린", "디젤", "하이브리드", "전기"]} value={value.fuel} onChange={(fuel) => setValue("fuel", fuel)} /></Section>
+      <Section title="연료" focus="fuel"><ChoiceChips options={["전체", "가솔린", "디젤", "전기"]} value={value.fuel} onChange={(fuel) => setValue("fuel", fuel)} /></Section>
       <Section title="색상" focus="color"><LabelRow label="외장 색상" summary={selectedColors || undefined} onClick={() => { setSearch(""); setView("color"); }} /></Section>
       <Section title="원산지" focus="origin"><LabelRow label="원산지" summary={value.origin === "전체" ? undefined : value.origin} onClick={() => { setSearch(""); setView("origin"); }} /></Section>
       <Section title="차체 유형" focus="body"><ChoiceChips options={["전체", "세단", "SUV", "해치백", "승합", "스포츠카"]} value={value.body} onChange={(body) => setValue("body", body)} /></Section>
