@@ -1006,6 +1006,23 @@ function InfoGrid({ items }: { items: string[][] }) {
   return <dl className="detail-info-grid">{items.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>;
 }
 
+function VehicleInfoCard() {
+  const [expanded, setExpanded] = useState(false);
+  const items = expanded ? [...vehicleInfo, ...extraInfo] : vehicleInfo;
+
+  return (
+    <SectionCard title="차량 정보" className="vehicle-info-card">
+      <dl className="vehicle-info-rows">
+        {items.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+      </dl>
+      <button className="vehicle-info-toggle" type="button" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>
+        {expanded ? "접기" : "더보기"}
+        <img className={expanded ? "is-expanded" : ""} src={asset("detail/vehicle-info-chevron.svg")} alt="" />
+      </button>
+    </SectionCard>
+  );
+}
+
 function DetailHero({ onBack }: { onBack: () => void }) {
   const { setSheet, notify } = useDetailUi();
   const [media, setMedia] = useState<"video" | "photos">("photos");
@@ -1221,7 +1238,7 @@ function VehicleDetail() {
           <VehicleSummary />
           <div className="detail-gray-stack">
             <SellerCard />
-            <SectionCard title="차량 정보"><InfoGrid items={vehicleInfo} /><div className="detail-subsection"><h3>상세 정보</h3><InfoGrid items={extraInfo} /></div></SectionCard>
+            <VehicleInfoCard />
             <OptionsCard />
             <HistoryCard />
             <InspectionCard />
