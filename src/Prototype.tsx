@@ -16,18 +16,22 @@ import {
   siChevrolet,
   siFerrari,
   siFord,
+  siHyundai,
   siHonda,
   siInfiniti,
   siJeep,
+  siKia,
   siLamborghini,
   siMaserati,
   siNissan,
+  siPiaggiogroup,
   siSubaru,
   siSuzuki,
   siTesla,
   siToyota,
   siVolkswagen,
   siVolvo,
+  siYamahamotorcorporation,
   type SimpleIcon,
 } from "simple-icons";
 import {
@@ -40,7 +44,7 @@ import {
   useFlow,
   useKeyboard,
 } from "./mobile";
-import { ChoTotFilterSheet, ChoTotQuickFilterSheet, emptyChoTotFilters, type ChoTotFilterFocus, type ChoTotFilterState } from "./ChoTotFilterSheet";
+import { ChoTotFilterSheet, ChoTotQuickFilterSheet, emptyChoTotFilters, vehicleCategoryOptions, type ChoTotFilterFocus, type ChoTotFilterState } from "./ChoTotFilterSheet";
 import "./prototype.css";
 
 export type SellerType = "전체" | "개인" | "딜러";
@@ -143,17 +147,6 @@ const brands = [
   { name: "미니", logo: asset("brand/mini.svg") },
 ];
 
-const vehicleCategoryOptions = [
-  { label: "전체", source: "All", icon: "notion-list.svg" },
-  { label: "중고차", source: "Ô tô", icon: "notion-list.svg" },
-  { label: "트럭 · 특장 · 버스", source: "Xe tải, xe ben", icon: "notion-search.svg" },
-  { label: "바이크", source: "Xe máy", icon: "notion-filter.svg" },
-  { label: "캠핑카", source: "Bobaedream taxonomy", icon: "notion-chevron-right.svg" },
-  { label: "올드카", source: "Bobaedream taxonomy", icon: "notion-close.svg" },
-  { label: "건설기계", source: "Bobaedream taxonomy", icon: "notion-filter.svg" },
-  { label: "부품 · 용품", source: "Phụ tùng xe", icon: "notion-list.svg" },
-];
-
 type MakerOption = { name: string; maker: string; logo?: string; icon?: SimpleIcon; color?: string };
 const makerOptions: MakerOption[] = [
   { name: "BMW", maker: "BMW", logo: asset("brand/bmw.svg") },
@@ -184,6 +177,67 @@ const makerOptions: MakerOption[] = [
   { name: "스바루", maker: "스바루", icon: siSubaru, color: "#174c92" },
   { name: "스즈키", maker: "스즈키", icon: siSuzuki, color: "#d71920" },
 ];
+
+type BrandRailOption = { name: string; maker?: string; logo?: string; icon?: SimpleIcon; color?: string; full?: boolean };
+type CategoryBrandRail = { title: string; options: BrandRailOption[] };
+
+const domesticMakerNames = new Set(["현대", "기아", "제네시스"]);
+const defaultBrandRailOptions: BrandRailOption[] = [
+  ...brands.map((brand) => ({ ...brand, maker: brand.name })),
+  { name: "현대", maker: "현대", icon: siHyundai, color: "#002c5f" },
+  { name: "기아", maker: "기아", icon: siKia, color: "#05141f" },
+];
+const categoryBrandRails: Record<string, CategoryBrandRail> = {
+  "전체 차량": { title: "제조사", options: defaultBrandRailOptions },
+  중고차: { title: "제조사", options: defaultBrandRailOptions },
+  국산차: {
+    title: "제조사",
+    options: [
+      { name: "현대", maker: "현대", icon: siHyundai, color: "#002c5f" },
+      { name: "기아", maker: "기아", icon: siKia, color: "#05141f" },
+      { name: "제네시스", maker: "제네시스" },
+    ],
+  },
+  수입차: {
+    title: "제조사",
+    options: [
+      { name: "BMW", maker: "BMW", logo: asset("brand/bmw.svg") },
+      { name: "벤츠", maker: "벤츠", logo: asset("brand/benz.png") },
+      { name: "아우디", maker: "아우디", logo: asset("brand/audi.svg") },
+      { name: "포르쉐", maker: "포르쉐", logo: asset("brand/porsche.png"), full: true },
+      { name: "렉서스", maker: "렉서스", logo: asset("brand/lexus.svg") },
+    ],
+  },
+  전기차: {
+    title: "제조사",
+    options: [
+      { name: "현대", maker: "현대", icon: siHyundai, color: "#002c5f" },
+      { name: "테슬라", maker: "테슬라", icon: siTesla, color: "#e82127" },
+      { name: "BMW", maker: "BMW", logo: asset("brand/bmw.svg") },
+    ],
+  },
+  바이크: {
+    title: "브랜드",
+    options: [
+      { name: "혼다", maker: "혼다", icon: siHonda },
+      { name: "야마하", maker: "야마하", icon: siYamahamotorcorporation, color: "#4b1f84" },
+      { name: "스즈키", maker: "스즈키", icon: siSuzuki, color: "#d71920" },
+      { name: "피아지오", maker: "피아지오", icon: siPiaggiogroup, color: "#00573f" },
+    ],
+  },
+  "화물 · 특장 · 버스": {
+    title: "제조사",
+    options: [
+      { name: "현대", maker: "현대", icon: siHyundai, color: "#002c5f" },
+      { name: "기아", maker: "기아", icon: siKia, color: "#05141f" },
+      { name: "쉐보레", maker: "쉐보레", icon: siChevrolet, color: "#d7a52b" },
+    ],
+  },
+  캠핑카: { title: "제조사", options: defaultBrandRailOptions.slice(0, 5) },
+  올드카: { title: "제조사", options: defaultBrandRailOptions.slice(0, 5) },
+  건설기계: { title: "제조사", options: [{ name: "현대", maker: "현대", icon: siHyundai, color: "#002c5f" }, { name: "볼보", maker: "볼보", icon: siVolvo, color: "#173a6b" }] },
+  "부품 · 용품": { title: "분류", options: [{ name: "타이어" }, { name: "휠" }, { name: "튜닝" }, { name: "오디오" }] },
+};
 
 const bmwModels = [
   { name: "3시리즈", image: asset("cars/bmw/3-series.webp") },
@@ -289,19 +343,19 @@ const makeChoTotCar = (id: number, seed: ChoTotCarSeed): Car => ({
 });
 
 const chototTestCars: Car[] = [
-  makeChoTotCar(1001, { maker: "현대", image: "cars/thumbnail.png", title: "현대 그랜저 GN7", trim: "캘리그래피 하이브리드 무사고", specs: ["2023년식", "30,000km", "하이브리드", "312하8451"], price: "4,150 만원", place: "서울 강남구 · 오토갤러리", filter: { year: 2023, seats: "5인승", condition: "중고", mileage: 30000, owners: "1인", transmission: "오토", fuel: "하이브리드", color: "검정", origin: "국산", body: "세단", video: true } }),
+  makeChoTotCar(1001, { maker: "현대", image: "cars/thumbnail.png", title: "현대 그랜저 GN7", trim: "캘리그래피 무사고", specs: ["2023년식", "30,000km", "가솔린", "312하8451"], price: "4,150 만원", place: "서울 강남구 · 오토갤러리", filter: { year: 2023, seats: "5인승", condition: "중고", mileage: 30000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "검정", origin: "국산", body: "세단", video: true } }),
   makeChoTotCar(1002, { maker: "기아", image: "detail/raw-09.jpeg", title: "기아 카니발 4세대", trim: "하이리무진 7인승 리무진시트", specs: ["2022년식", "50,000km", "디젤", "265루0194"], price: "3,980 만원", place: "경기 성남시 · 분당전시장", filter: { year: 2022, seats: "7인승 이상", condition: "중고", mileage: 50000, owners: "1인", transmission: "오토", fuel: "디젤", color: "흰색", origin: "국산", body: "승합", video: true } }),
   makeChoTotCar(1003, { maker: "제네시스", image: "detail/raw-04.png", title: "제네시스 G80 RG3", trim: "2.5T AWD 파퓰러패키지", specs: ["2021년식", "40,000km", "가솔린", "157거6028"], price: "4,290 만원", place: "서울 서초구", filter: { year: 2021, seats: "5인승", condition: "중고", mileage: 40000, owners: "2인", transmission: "오토", fuel: "가솔린", color: "회색", origin: "국산", body: "세단", video: false } }),
   makeChoTotCar(1004, { maker: "현대", image: "cars/thumbnail.png", title: "현대 아이오닉 5", trim: "롱레인지 프레스티지 AWD", specs: ["2022년식", "30,000km", "전기", "49버1307"], price: "3,190 만원", place: "인천 연수구", filter: { year: 2022, seats: "5인승", condition: "중고", mileage: 30000, owners: "1인", transmission: "오토", fuel: "전기", color: "흰색", origin: "국산", body: "SUV", video: true } }),
-  makeChoTotCar(1005, { maker: "기아", image: "detail/raw-20.jpeg", title: "기아 쏘렌토 MQ4", trim: "하이브리드 시그니처 6인승", specs: ["2023년식", "20,000km", "하이브리드", "201나7735"], price: "3,690 만원", place: "부산 해운대구 · 센텀전시장", filter: { year: 2023, seats: "6인승", condition: "중고", mileage: 20000, owners: "1인", transmission: "오토", fuel: "하이브리드", color: "회색", origin: "국산", body: "SUV", video: false } }),
+  makeChoTotCar(1005, { maker: "기아", image: "detail/raw-20.jpeg", title: "기아 쏘렌토 MQ4", trim: "시그니처 6인승", specs: ["2023년식", "20,000km", "가솔린", "201나7735"], price: "3,690 만원", place: "부산 해운대구 · 센텀전시장", filter: { year: 2023, seats: "6인승", condition: "중고", mileage: 20000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "회색", origin: "국산", body: "SUV", video: false } }),
   makeChoTotCar(1006, { maker: "BMW", image: "cars/bmw/5-series.webp", imageFit: "contain", title: "BMW 5시리즈 530i", trim: "M 스포츠 정식출고", specs: ["2024년식", "9,000km", "가솔린", "329도5521"], price: "7,640 만원", place: "서울 성동구 · 성수전시장", filter: { year: 2024, seats: "5인승", condition: "중고", mileage: 9000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "흰색", origin: "독일", body: "세단", video: true } }),
   makeChoTotCar(1007, { maker: "벤츠", image: "cars/thumbnail.png", title: "벤츠 E클래스 E 300 4MATIC", trim: "AMG Line 제조사보증", specs: ["2023년식", "10,000km", "가솔린", "118머4207"], price: "8,420 만원", place: "서울 강남구 · 한성자동차", filter: { year: 2023, seats: "5인승", condition: "중고", mileage: 10000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "검정", origin: "독일", body: "세단", video: true } }),
   makeChoTotCar(1008, { maker: "아우디", image: "detail/raw-18.jpeg", title: "아우디 A6 3.0 TDI 콰트로", trim: "정식수입 무사고 실매물", specs: ["2012년식", "125,109km", "디젤", "28나7105"], price: "600 만원", place: "서울 강남구 도곡동 · 오토갤러리", filter: { year: 2012, seats: "5인승", condition: "중고", mileage: 125109, owners: "3인 이상", transmission: "오토", fuel: "디젤", color: "은색", origin: "독일", body: "세단", video: false } }),
   makeChoTotCar(1009, { maker: "포르쉐", image: "detail/raw-20.jpeg", title: "포르쉐 718 박스터", trim: "4.0 GTS 스포츠크로노", specs: ["2024년식", "8,000km", "가솔린", "39라7180"], price: "13,900 만원", place: "부산 해운대구", filter: { year: 2024, seats: "2인승", condition: "중고", mileage: 8000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "노랑", origin: "독일", body: "스포츠카", video: true } }),
   makeChoTotCar(1010, { maker: "랜드로버", image: "detail/raw-07.jpeg", title: "랜드로버 레인지로버 스포츠", trim: "P360 HSE 다이내믹", specs: ["2020년식", "60,000km", "가솔린", "143무9116"], price: "6,290 만원", place: "대구 수성구 · 수입차전시장", filter: { year: 2020, seats: "5인승", condition: "중고", mileage: 60000, owners: "2인", transmission: "오토", fuel: "가솔린", color: "흰색", origin: "영국", body: "SUV", video: false } }),
-  makeChoTotCar(1011, { maker: "렉서스", image: "cars/bmw/x1.webp", imageFit: "contain", title: "렉서스 ES300h", trim: "럭셔리 플러스 1인소유", specs: ["2022년식", "30,000km", "하이브리드", "177서3001"], price: "4,550 만원", place: "경기 고양시", filter: { year: 2022, seats: "5인승", condition: "중고", mileage: 30000, owners: "1인", transmission: "CVT", fuel: "하이브리드", color: "은색", origin: "일본", body: "세단", video: true } }),
+  makeChoTotCar(1011, { maker: "렉서스", image: "cars/bmw/x1.webp", imageFit: "contain", title: "렉서스 ES300h", trim: "럭셔리 플러스 1인소유", specs: ["2022년식", "30,000km", "가솔린", "177서3001"], price: "4,550 만원", place: "경기 고양시", filter: { year: 2022, seats: "5인승", condition: "중고", mileage: 30000, owners: "1인", transmission: "CVT", fuel: "가솔린", color: "은색", origin: "일본", body: "세단", video: true } }),
   makeChoTotCar(1012, { maker: "벤틀리", image: "detail/raw-05.jpeg", title: "벤틀리 컨티넨탈 GT", trim: "6.0 W12 뮬리너 사양", specs: ["2019년식", "40,000km", "가솔린", "172무2323"], price: "15,700 만원", place: "서울 서초구 · 양재전시장", filter: { year: 2019, seats: "4인승", condition: "중고", mileage: 40000, owners: "2인", transmission: "오토", fuel: "가솔린", color: "검정", origin: "영국", body: "스포츠카", video: false } }),
-  makeChoTotCar(1013, { maker: "페라리", image: "detail/raw-19.jpeg", title: "페라리 296 GTB", trim: "3.0 PHEV 카본패키지", specs: ["2024년식", "1,000km", "가솔린 하이브리드", "229마2626"], price: "33,900 만원", place: "서울 성동구 · 성수전시장", filter: { year: 2024, seats: "2인승", condition: "신차", mileage: 1000, owners: "1인", transmission: "오토", fuel: "하이브리드", color: "빨강", origin: "이탈리아", body: "스포츠카", video: true } }),
+  makeChoTotCar(1013, { maker: "페라리", image: "detail/raw-19.jpeg", title: "페라리 296 GTB", trim: "3.0 터보 카본패키지", specs: ["2024년식", "1,000km", "가솔린", "229마2626"], price: "33,900 만원", place: "서울 성동구 · 성수전시장", filter: { year: 2024, seats: "2인승", condition: "신차", mileage: 1000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "빨강", origin: "이탈리아", body: "스포츠카", video: true } }),
   makeChoTotCar(1014, { maker: "람보르기니", image: "detail/raw-04.png", title: "람보르기니 우라칸 EVO", trim: "LP640-4 리프팅시스템", specs: ["2020년식", "10,000km", "가솔린", "640어2020"], price: "24,900 만원", place: "서울 강남구 · 슈퍼카전시장", filter: { year: 2020, seats: "2인승", condition: "중고", mileage: 10000, owners: "2인", transmission: "오토", fuel: "가솔린", color: "노랑", origin: "이탈리아", body: "스포츠카", video: true } }),
   makeChoTotCar(1015, { maker: "롤스로이스", image: "detail/raw-05.jpeg", title: "롤스로이스 팬텀", trim: "6.7 V12 EWB 투톤", specs: ["2013년식", "50,000km", "가솔린", "100러6700"], price: "27,000 만원", place: "서울 서초구 · 오토갤러리", filter: { year: 2013, seats: "4인승", condition: "중고", mileage: 50000, owners: "3인 이상", transmission: "오토", fuel: "가솔린", color: "검정", origin: "영국", body: "세단", video: false } }),
 ];
@@ -310,7 +364,12 @@ function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
   const data = car.filter;
   if (!data) return false;
   const price = parsePrice(car.price);
-  const category = "중고차";
+  const category = vehicleCategoryOptions.includes(value.category) ? value.category : "전체 차량";
+  const categoryMatch = category === "전체 차량"
+    || category === "중고차"
+    || category === "국산차" && domesticMakerNames.has(car.maker)
+    || category === "수입차" && !domesticMakerNames.has(car.maker)
+    || category === "전기차" && data.fuel === "전기";
   const yearMatch = value.year === "전체"
     || value.year === "2024~2026" && data.year >= 2024
     || value.year === "2021~2023" && data.year >= 2021 && data.year <= 2023
@@ -319,7 +378,7 @@ function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
   const mileageLimit = Number(value.mileageMax.replaceAll(",", ""));
 
   return (value.price.min === 0 || price >= value.price.min)
-    && (value.category === "전체" || value.category === category)
+    && categoryMatch
     && (value.price.max === null || price <= value.price.max)
     && (value.seats === "전체" || data.seats === value.seats)
     && (!value.maker || car.maker === value.maker)
@@ -405,7 +464,7 @@ function Icon({ name, className = "" }: { name: string; className?: string }) {
   return <img className={`ui-icon ${className}`} src={asset(`ui/${name}`)} alt="" aria-hidden="true" draggable={false} />;
 }
 
-function Header({ query, setQuery, searchSaved, onToggleSearchSaved, onOpenFavorites }: { query: string; setQuery: (query: string) => void; searchSaved: boolean; onToggleSearchSaved: () => void; onOpenFavorites: () => void }) {
+function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearchSaved, onOpenFavorites }: { query: string; setQuery: (query: string) => void; searchPlaceholder: string; searchSaved: boolean; onToggleSearchSaved: () => void; onOpenFavorites: () => void }) {
   const keyboard = useKeyboard();
 
   return (
@@ -413,7 +472,7 @@ function Header({ query, setQuery, searchSaved, onToggleSearchSaved, onOpenFavor
       <button className="icon-button back-button" type="button" aria-label="뒤로 가기" onClick={() => window.history.back()}><Icon name="back.svg" /></button>
       <label className="search-field">
         <Icon name="search.svg" />
-        <KeyboardInput aria-label="중고차 검색" value={query} onChange={(event) => setQuery(event.currentTarget.value)} onBlur={() => keyboard.hide()} placeholder="중고차" />
+        <KeyboardInput aria-label={`${searchPlaceholder} 검색`} value={query} onChange={(event) => setQuery(event.currentTarget.value)} onBlur={() => keyboard.hide()} placeholder={searchPlaceholder} />
         <span className="search-divider" />
         <button type="button" className={`search-save${searchSaved ? " is-saved" : ""}`} aria-label={searchSaved ? "저장한 검색 조건 삭제" : "검색 조건 저장"} aria-pressed={searchSaved} onPointerDown={(event) => event.preventDefault()} onClick={onToggleSearchSaved}>{searchSaved ? <BookmarkFilledIcon /> : <Icon name="bookmark.svg" />}</button>
       </label>
@@ -443,6 +502,12 @@ function MakerMark({ option }: { option: MakerOption }) {
   if (option.logo) return <img className="maker-option-logo" src={option.logo} alt="" aria-hidden="true" draggable={false} />;
   if (!option.icon) return null;
   return <svg className="maker-option-logo" viewBox="0 0 24 24" fill={option.color ?? `#${option.icon.hex}`} aria-hidden="true"><path d={option.icon.path} /></svg>;
+}
+
+function BrandRailMark({ option }: { option: BrandRailOption }) {
+  if (option.logo) return <span className="brand-logo"><img className={option.full ? "brand-full" : ""} src={option.logo} alt="" aria-hidden="true" draggable={false} /></span>;
+  if (option.icon) return <span className="brand-logo"><svg viewBox="0 0 24 24" fill={option.color ?? `#${option.icon.hex}`} aria-hidden="true"><path d={option.icon.path} /></svg></span>;
+  return <span className="brand-logo"><span className="brand-logo-fallback" aria-hidden="true">{option.name.slice(0, 2)}</span></span>;
 }
 
 function MakerSheet({ selected, onChoose, onClose }: { selected: string | null; onChoose: (maker: string | null) => void; onClose: () => void }) {
@@ -669,6 +734,9 @@ function MarketplaceScreen() {
   const regionLabel = region.radius ? `내 주변 ${region.radius}` : [region.province, region.district].filter(Boolean).join(" ") || "전국";
   const regionKeyword = region.province === "광주" ? "광주" : region.province;
   const { maker, model: selectedModel, price, seller: sellerType, videoOnly, category } = filters;
+  const categoryIsDefault = category === "전체 차량";
+  const categorySearchPlaceholder = categoryIsDefault ? "중고차" : category;
+  const categoryBrandRail = categoryBrandRails[category] ?? categoryBrandRails["전체 차량"];
 
   const filteredWithoutPrice = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -717,15 +785,11 @@ function MarketplaceScreen() {
     setFilters((current) => ({ ...current, model: nextModel }));
   };
 
-  const chooseCategory = (nextCategory: string) => {
-    setFilters((current) => ({ ...current, category: current.category === nextCategory ? "전체" : nextCategory }));
-  };
-
   return (
     <>
       <MobileScroll className="app-screen">
         <main className="marketplace" aria-label="중고차 리스트">
-          <Header query={query} setQuery={setQuery} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} />
+          <Header query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} />
           <section className="region-bar" aria-label="지역 선택">
             <button type="button" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={openRegionSheet}><Icon name="location-blue.svg" /><span className="region-label">지역:</span><strong>{regionLabel}</strong><span className="region-chevron-icon" aria-hidden="true"><Icon name="region-chevron.svg" /></span></button>
             <button type="button" className="reset-button" onClick={resetFilters}>초기화</button>
@@ -733,7 +797,7 @@ function MarketplaceScreen() {
           <section className="filter-shell" aria-label="중고차 필터">
             <button className="filter-fixed" type="button" aria-label="필터" onClick={() => { setDraftFilters(filters); setFilterFocus(null); setSheet("filter"); }}><Icon name="notion-filter.svg" /><span>필터</span></button>
             <div className="filter-pinned-chip">
-              <FilterChip label={category === "전체" ? "차량 카테고리" : category} active={category !== "전체"} onClick={() => openQuickFilter("category")} onClear={category !== "전체" ? () => setFilters((current) => ({ ...current, category: "전체" })) : undefined} />
+              <FilterChip label={categoryIsDefault ? "차량 카테고리" : category} active={!categoryIsDefault} onClick={() => openQuickFilter("category")} onClear={!categoryIsDefault ? () => setFilters((current) => ({ ...current, category: "전체 차량", maker: null, model: null })) : undefined} />
             </div>
             <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
               <FilterChip label={priceFilterLabel(price)} active={price.min !== 0 || price.max !== null} onClick={() => openQuickFilter("price")} />
@@ -753,16 +817,6 @@ function MarketplaceScreen() {
               <FilterChip label="영상 매물" active={filters.videoOnly} onClick={() => openQuickFilter("video")} />
             </Carousel>
           </section>
-          <section className="vehicle-category-row" aria-label="차량 카테고리 빠른 선택">
-            <Carousel ariaLabel="차량 카테고리" className="vehicle-category-carousel" contentClassName="vehicle-category-track">
-              {vehicleCategoryOptions.map((option) => (
-                <button key={option.label} className={`vehicle-category-item${category === option.label ? " is-selected" : ""}`} type="button" aria-pressed={category === option.label} title={option.source} onClick={() => chooseCategory(option.label)}>
-                  <span className="vehicle-category-icon"><Icon name={option.icon} /></span>
-                  <span>{option.label}</span>
-                </button>
-              ))}
-            </Carousel>
-          </section>
           {maker === "BMW" || maker === "벤츠" ? <section className={`brand-row${maker === "BMW" ? " is-model-mode" : " is-benz-model-mode"}`} aria-label={maker === "BMW" ? "BMW 모델 빠른 선택" : "벤츠 모델 빠른 선택"}>
             <span className="brand-title">모델</span>
             <Carousel ariaLabel={maker === "BMW" ? "BMW 모델" : "벤츠 모델"} className="brand-carousel" contentClassName={maker === "BMW" ? "bmw-model-track" : "benz-model-track"}>
@@ -775,7 +829,17 @@ function MarketplaceScreen() {
                 <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} onClick={() => chooseModel(model)}>{model}</button>
               ))}
             </Carousel>
-          </section> : null}
+          </section> : <section className="brand-row category-brand-row" aria-label={`${categoryBrandRail.title} 빠른 선택`}>
+            <span className="brand-title">{categoryBrandRail.title}</span>
+            <Carousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName="brand-track">
+              {categoryBrandRail.options.map((option) => (
+                <button key={option.name} className={`brand-item${option.maker && maker === option.maker ? " is-selected" : ""}`} type="button" aria-pressed={Boolean(option.maker && maker === option.maker)} onClick={() => option.maker ? setFilters((current) => ({ ...current, maker: option.maker ?? null, model: null })) : undefined}>
+                  <BrandRailMark option={option} />
+                  <span>{option.name}</span>
+                </button>
+              ))}
+            </Carousel>
+          </section>}
           <section className="video-toggle-row" aria-label="영상 매물 설정">
             <span>영상 매물</span>
             <button type="button" role="switch" aria-checked={videoOnly} className={videoOnly ? "is-on" : ""} onClick={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))}><span /></button>

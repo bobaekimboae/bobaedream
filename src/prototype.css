@@ -44,16 +44,6 @@ button { color: inherit; }
 .filter-chip-clear { width: 20px; height: 20px; justify-content: center; }
 .filter-chip-clear .ui-icon { width: 20px; height: 20px; }
 
-.vehicle-category-row { height: 82px; border-bottom: 1px solid #ebebeb; background: #fff; }
-.vehicle-category-carousel { height: 82px; }
-.vehicle-category-track { display: flex; gap: 28px; min-width: max-content; padding: 0 18px; }
-.vehicle-category-item { position: relative; display: flex; width: 78px; height: 82px; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 10px 0 12px; border: 0; border-radius: 0; background: transparent; color: #717171; font-size: 12px; font-weight: 600; line-height: 15px; white-space: normal; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-.vehicle-category-item.is-selected { color: #111; font-weight: 700; }
-.vehicle-category-item.is-selected::after { position: absolute; right: 0; bottom: 0; left: 0; height: 2px; border-radius: 2px; background: #111; content: ""; }
-.vehicle-category-icon { display: grid; width: 28px; height: 28px; place-items: center; background: transparent; }
-.vehicle-category-icon .ui-icon { width: 24px; height: 24px; filter: brightness(0); opacity: .62; }
-.vehicle-category-item.is-selected .vehicle-category-icon .ui-icon { opacity: 1; }
-.vehicle-category-item > span:last-child { display: -webkit-box; overflow: hidden; max-width: 82px; min-height: 15px; text-align: center; text-overflow: ellipsis; word-break: keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .brand-row { display: grid; grid-template-columns: 63px minmax(0, 1fr); align-items: center; height: 86px; background: #fff; }
 .brand-title { padding-left: 16px; font-size: 15px; font-weight: 600; }
 .brand-carousel { height: 70px; }
@@ -62,6 +52,8 @@ button { color: inherit; }
 .brand-item.is-selected { background: #f2f6fb; color: var(--blue); }
 .brand-logo { display: grid; place-items: center; width: 48px; height: 48px; }
 .brand-logo img { display: block; max-width: 48px; max-height: 36px; object-fit: contain; }
+.brand-logo svg { display: block; width: 34px; height: 34px; }
+.brand-logo-fallback { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; background: #f1f1f1; color: #222; font-size: 12px; font-weight: 700; }
 .brand-item:first-child .brand-logo img { width: 34px; height: 34px; }
 .brand-item:nth-child(2) .brand-logo img { width: 37px; height: 36px; }
 .brand-full { width: 48px; height: 70px; object-fit: contain; }
@@ -485,7 +477,7 @@ button { color: inherit; }
   #root .mobile-web-stage { max-width: none !important; margin: 0; box-shadow: none; }
   .marketplace { padding-inline: 24px; }
   .top-bar { max-width: 1440px; margin: 0 auto; }
-  .region-bar, .filter-shell, .brand-row, .vehicle-category-row, .video-toggle-row, .list-toolbar { max-width: 1440px; margin-right: auto; margin-left: auto; }
+  .region-bar, .filter-shell, .brand-row, .video-toggle-row, .list-toolbar { max-width: 1440px; margin-right: auto; margin-left: auto; }
   .car-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 1440px; margin: 0 auto; border-top: 1px solid var(--line); }
   .car-card, .car-card.has-no-badges:not(.is-card-view) { min-height: 192px; padding: 16px; border-right: 1px solid var(--line); }
   .car-card:nth-child(3n) { border-right: 0; }
