@@ -159,10 +159,10 @@ const vehicleCategories = [
 
 const categorySheetItems: ReadonlyArray<{ name: string; icon?: string }> = [
   { name: "중고차", icon: "categories/used-car.svg" },
-  { name: "트럭 · 특장 · 버스", icon: "categories/truck.svg" },
+  { name: "트럭 · 특장", icon: "categories/truck.svg" },
   { name: "바이크", icon: "categories/bike.svg" },
   { name: "캠핑카", icon: "categories/camping.svg" },
-  { name: "올드카" },
+  { name: "올드카", icon: "categories/used-car.svg" },
   { name: "건설기계", icon: "categories/construction.svg" },
   { name: "부품 · 용품", icon: "categories/parts.svg" },
 ];
@@ -528,7 +528,7 @@ function CategoryFilterSheet({ selected, onChoose, onClose }: { selected: string
     <div className="category-filter-sheet">
       <header className="category-filter-header">
         <h2>카테고리</h2>
-        <button type="button" aria-label="카테고리 닫기" onClick={onClose}><Icon name="sheet-close.svg" /></button>
+        <button type="button" aria-label="카테고리 닫기" onClick={onClose}><Icon name="category-sheet-close.svg" /></button>
       </header>
       <div className="category-filter-list">
         {categorySheetItems.map((item) => item.name === "중고차" ? (
@@ -536,7 +536,7 @@ function CategoryFilterSheet({ selected, onChoose, onClose }: { selected: string
             <div className="category-filter-row">
               <span className="category-filter-mark"><img src={asset(item.icon ?? "categories/used-car.svg")} alt="" aria-hidden="true" draggable={false} /></span>
               <strong>{item.name}</strong>
-              <button className={`category-filter-toggle${usedCarOpen ? " is-open" : ""}`} type="button" aria-label={`중고차 하위 카테고리 ${usedCarOpen ? "숨기기" : "보기"}`} aria-expanded={usedCarOpen} onClick={() => setUsedCarOpen((open) => !open)}><Icon name="notion-chevron-right.svg" /></button>
+              <button className="category-filter-toggle" type="button" aria-label={`중고차 하위 카테고리 ${usedCarOpen ? "숨기기" : "보기"}`} aria-expanded={usedCarOpen} onClick={() => setUsedCarOpen((open) => !open)}><Icon name={usedCarOpen ? "category-chevron-down.svg" : "category-chevron-right.svg"} /></button>
             </div>
             {usedCarOpen ? <div className="category-filter-children" aria-label="중고차 하위 카테고리">
               {usedCarCategoryOptions.map((option) => <button key={option} type="button" className={selectedChild === option ? "is-selected" : ""} aria-pressed={selectedChild === option} onClick={() => onChoose(option)}>{option}</button>)}
@@ -546,7 +546,7 @@ function CategoryFilterSheet({ selected, onChoose, onClose }: { selected: string
           <button key={item.name} className="category-filter-row category-filter-link" type="button" onClick={() => onChoose(item.name)}>
             <span className="category-filter-mark">{item.icon ? <img src={asset(item.icon)} alt="" aria-hidden="true" draggable={false} /> : null}</span>
             <strong>{item.name}</strong>
-            <Icon name="notion-chevron-right.svg" />
+            <Icon name="category-chevron-right.svg" />
           </button>
         ))}
       </div>

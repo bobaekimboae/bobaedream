@@ -1,50 +1,43 @@
-# Design QA — Quick filter replacement
+# Design QA — 전체차량 카테고리 바텀시트
 
 ## Comparison target
 
-- Source visual truth:
-  - `C:\Users\sungn\Documents\Codex\2026-08-25\https-bobaekimboae-github-io-bobaedream-https\work\figma-filter-row.png` — Figma node `1841:16243`, 399 × 54 px.
-  - `C:\Users\sungn\Documents\Codex\2026-08-25\https-bobaekimboae-github-io-bobaedream-https\work\figma-quick-filter.png` — Figma node `1841:16429`, 552 × 84 px.
-- Implementation screenshot: `C:\Users\sungn\Documents\Codex\2026-08-25\https-bobaekimboae-github-io-bobaedream-https\work\bobaedream\implementation-final-412x915.png`, 412 × 915 px.
-- Viewport: 412 × 915 CSS px, `deviceScaleFactor: 1`.
-- State: default listing state, no applied filters, category landing rail visible.
-- Density normalization: all captures are 1×. The affected-area comparison uses the first 399 px of the implementation and quick-filter source so both sides are 399 × 138 px.
-
-## Evidence
-
-- Full affected-area comparison: `C:\Users\sungn\Documents\Codex\2026-08-25\https-bobaekimboae-github-io-bobaedream-https\work\bobaedream\design-qa-affected-area-comparison.png`.
-- Normalized source region: `C:\Users\sungn\Documents\Codex\2026-08-25\https-bobaekimboae-github-io-bobaedream-https\work\bobaedream\design-qa-source-affected-area.png`, 399 × 138 px.
-- Normalized implementation region: `C:\Users\sungn\Documents\Codex\2026-08-25\https-bobaekimboae-github-io-bobaedream-https\work\bobaedream\design-qa-implementation-affected-area.png`, 399 × 138 px.
-- Focused filter-row comparison: `C:\Users\sungn\Documents\Codex\2026-08-25\https-bobaekimboae-github-io-bobaedream-https\work\bobaedream\design-qa-filter-comparison.png`.
-- Focused category-row comparison: `C:\Users\sungn\Documents\Codex\2026-08-25\https-bobaekimboae-github-io-bobaedream-https\work\bobaedream\design-qa-category-comparison.png`.
+- Source visual truth: `C:\Users\sungn\Documents\Codex\2026-08-25\https-bobaekimboae-github-io-bobaedream-https\work\figma-category-bottom-sheet.png` — Figma node `1841:16124`, 412 × 917 px.
+- Implementation screenshot: `C:\Users\sungn\Documents\Codex\2026-08-25\https-bobaekimboae-github-io-bobaedream-https\work\implementation-category-bottom-sheet.png`, 412 × 915 px.
+- Combined comparison: `C:\Users\sungn\Documents\Codex\2026-08-25\https-bobaekimboae-github-io-bobaedream-https\work\category-bottom-sheet-comparison.png`, 848 × 961 px.
+- Viewport: 412 × 915 CSS px.
+- State: default listing with the `전체차량` filter opened.
 
 ## Findings
 
-- No actionable P0, P1, or P2 mismatch remains in the requested filter and quick-category regions.
-- Fonts and typography: Pretendard 500, 15 px quick-filter labels and 14 px category labels match the Figma hierarchy, weight, line height, wrapping, and truncation. Minor raster antialiasing variation is acceptable.
-- Spacing and layout rhythm: filter chips use 6 px gaps, 10 px vertical rail padding, 34 px chip height, and the category rail is 84 px tall. The category content width is exactly 552 px with 24 px leading padding and 18 px gaps.
-- Colors and visual tokens: gray chips use `#f0f0f0`, active `전체차량` uses `#1a1a1a` with white copy, labels use the matching gray values, and the background remains white.
-- Image quality and asset fidelity: all six unique category icons are the exact exported Figma assets already committed in the project. `올드카` intentionally reuses the exact used-car icon from the source. The filter, close, and chevron glyphs use the existing exact exported SVG assets; no icons are approximated in CSS or inline markup.
-- Copy and content: the default chip reads `전체차량`; the condition order begins `제조사`, `연식`, `가격`; the category order is `중고차`, `트럭 · 특장`, `바이크`, `캠핑카`, `올드카`, `건설기계`, `부품 · 용품`.
-- Responsiveness: at 412 px, the first five category items are visible as in the screen reference; the 552 px rail drags horizontally to a measured maximum `scrollLeft` of 140 px, exposing the remaining items.
-- Accessibility and interactions: `전체차량` opens the category sheet, its clear control resets category state, `중고차` transitions to the manufacturer rail, and the category rail remains keyboard/drag accessible through the existing carousel runtime.
+- No actionable P0, P1, or P2 mismatch remains in the requested bottom-sheet region.
+- Geometry: the sheet is 526 px high, begins at y=389 in the 412 × 915 viewport, and uses the Figma 14 px top radius.
+- Header: the 56 px header has a centered 18 px/600 title, a transparent 26 px close target, and the exact Figma 12 px close glyph.
+- Overlay: the background uses the source 20% black scrim with no extra sheet shadow.
+- Content: the order and copy match the source: `중고차`, `트럭 · 특장`, `바이크`, `캠핑카`, `올드카`, `건설기계`, `부품 · 용품`.
+- Assets: the close, down-chevron, and right-chevron SVGs are exact exports from node `1841:16124`; category icons reuse the matching exported project assets. `올드카` correctly reuses the used-car icon.
+- Chips: `전체 중고차`, `국산차`, `수입차`, and `전기차` use the source gray treatment in the default sheet state.
+- Responsiveness: the fixed visual height is capped by `calc(100vh - 28px)` so the content remains usable on shorter mobile screens.
+
+## Interaction verification
+
+- `전체차량` opens the category bottom sheet.
+- The close control dismisses the sheet after the existing exit animation.
+- The sheet can be reopened after closing.
+- Selecting `국산차` applies the category, updates the filter chip, and closes the sheet.
+- Browser console errors: none.
 
 ## Comparison history
 
-1. Baseline capture (`work\original-live.png`) showed P1/P2 mismatches: gray `카테고리` instead of black `전체차량`, the wrong condition order, a 108 px category row, no `올드카`, and `트럭 · 특장 · 버스` wrapping to two lines. These were corrected in `src/Prototype.tsx` and `src/prototype.css`.
-2. First implementation pass showed a P2 icon mismatch because the filter chip still used the three-line list glyph, plus a P2 16 px trailing category-rail padding that produced a 568 px content width. The filter now uses the exact slider asset and the category rail measures the Figma 552 px.
-3. Post-fix comparison (`design-qa-affected-area-comparison.png`) shows no remaining actionable P0/P1/P2 mismatch.
+1. Baseline implementation was 550 px tall, started 24 px too high, left-aligned the title, used a gray circular close control, showed a full arrow instead of a chevron, omitted the `올드카` icon, and used `트럭 · 특장 · 버스` copy.
+2. The first correction aligned the sheet geometry, overlay, centered header, row copy, old-car icon, and neutral chip styling.
+3. The final correction replaced the close and navigation glyphs with the exact Figma-exported SVGs. The combined comparison shows no remaining actionable mismatch.
 
 ## Verification
 
-- `npm run check:runtime`: passed.
+- `npm run check:runtime`: passed (28 protected files unchanged).
 - `npm run build`: passed.
-- Primary interactions tested: category sheet open/close, `중고차` category transition, and horizontal quick-category drag.
-- Browser console errors/warnings: none.
-- Focused region comparisons were required because icon, chip, and text fidelity is too small to judge reliably from the full screen alone.
-
-## Follow-up polish
-
-- P3: text antialiasing varies slightly between Figma export rasterization and the browser renderer; no code change is warranted.
+- `npm run test:sites`: passed (4/4 tests).
+- `git diff --check`: passed.
 
 final result: passed
