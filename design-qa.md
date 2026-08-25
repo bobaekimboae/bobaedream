@@ -40,4 +40,14 @@
 - `npm run test:sites`: passed (4/4 tests).
 - `git diff --check`: passed.
 
+## Filter rail and applied-count follow-up
+
+- Browser evidence: `C:\Users\sungn\Documents\Codex\2026-08-25\https-bobaekimboae-github-io-bobaedream-https\work\filter-count-and-rail-412x915.png`, 412 × 915 px.
+- Only the left filter control remains fixed. `중고차`, `벤츠`, `연식`, `가격`, and all later conditions are children of the same horizontal `Carousel`.
+- A measured horizontal drag changed the condition rail from `scrollLeft: 0` to its `scrollLeft: 1200` maximum while the filter control stayed fixed.
+- Category alone keeps the default `필터` label because category is excluded from the applied count.
+- Selecting `벤츠` changes the fixed control to the black filter icon plus `1` with accessible label `필터 1개 적용됨`.
+- Applying `2021~2023` increases the control to `2` with accessible label `필터 2개 적용됨`.
+- Browser console errors: none.
+
 final result: passed

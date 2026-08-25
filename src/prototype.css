@@ -30,11 +30,13 @@ button { color: inherit; }
 .region-chevron-icon .ui-icon { width: 10px; height: 5px; object-fit: fill; }
 .reset-button { min-height: 40px; color: #3a3a3a; font-size: 15px; font-weight: 600; }
 
-.filter-shell { display: grid; grid-template-columns: 92px max-content minmax(0, 1fr); align-items: center; column-gap: 6px; height: 54px; background: #fff; }
+.filter-shell { display: grid; grid-template-columns: 92px minmax(0, 1fr); align-items: center; column-gap: 6px; height: 54px; background: #fff; }
 .filter-fixed { z-index: 2; display: flex; align-items: center; justify-content: center; gap: 6px; width: 76px; height: 34px; margin-left: 16px; border-radius: 30px; background: var(--soft); color: #3a3a3a; font-size: 15px; font-weight: 500; white-space: nowrap; }
 .filter-fixed span { overflow: hidden; max-width: 30px; }
 .filter-fixed .ui-icon { width: 20px; height: 20px; }
-.filter-pinned-chip { z-index: 1; display: flex; align-items: center; height: 54px; background: #fff; }
+.filter-shell.has-active-filters { grid-template-columns: 72px minmax(0, 1fr); }
+.filter-shell.has-active-filters .filter-fixed { width: 56px; color: #1a1a1a; font-weight: 600; }
+.filter-shell.has-active-filters .filter-fixed span { max-width: 18px; }
 .filter-rail { min-width: 0; height: 54px; background: #fff; }
 .filter-track { display: flex; align-items: center; gap: 6px; min-width: max-content; padding: 10px 16px 10px 0; }
 .filter-chip { display: flex; align-items: center; justify-content: center; gap: 6px; height: 34px; padding: 7px 12px; border-radius: 30px; background: var(--soft); color: #3a3a3a; font-size: 15px; font-weight: 500; white-space: nowrap; }
