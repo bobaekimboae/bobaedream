@@ -31,7 +31,7 @@ button { color: inherit; }
 .reset-button { min-height: 40px; color: #3a3a3a; font-size: 15px; font-weight: 600; }
 
 .filter-shell { display: grid; grid-template-columns: 92px max-content minmax(0, 1fr); align-items: center; column-gap: 6px; height: 54px; background: #fff; }
-.filter-fixed { z-index: 2; display: flex; align-items: center; justify-content: center; gap: 5px; width: 68px; height: 34px; margin-left: 16px; border-radius: 30px; background: var(--soft); color: #3a3a3a; font-size: 15px; font-weight: 500; white-space: nowrap; }
+.filter-fixed { z-index: 2; display: flex; align-items: center; justify-content: center; gap: 6px; width: 76px; height: 34px; margin-left: 16px; border-radius: 30px; background: var(--soft); color: #3a3a3a; font-size: 15px; font-weight: 500; white-space: nowrap; }
 .filter-fixed span { overflow: hidden; max-width: 30px; }
 .filter-fixed .ui-icon { width: 20px; height: 20px; }
 .filter-pinned-chip { z-index: 1; display: flex; align-items: center; height: 54px; background: #fff; }
@@ -44,10 +44,10 @@ button { color: inherit; }
 .filter-chip-clear { width: 20px; height: 20px; justify-content: center; }
 .filter-chip-clear .ui-icon { width: 20px; height: 20px; }
 
-.category-row { height: 108px; background: #fff; }
-.category-carousel { height: 108px; }
-.category-track { display: flex; align-items: flex-start; gap: 18px; min-width: max-content; padding: 8px 16px 12px 24px; box-sizing: border-box; }
-.category-item { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 60px; min-height: 88px; color: #616161; font-size: 14px; font-weight: 500; line-height: 19.6px; text-align: center; white-space: nowrap; }
+.category-row { height: 84px; background: #fff; }
+.category-carousel { height: 84px; }
+.category-track { display: flex; align-items: flex-start; gap: 18px; min-width: max-content; padding: 0 0 12px 24px; box-sizing: border-box; }
+.category-item { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 60px; min-height: 72px; color: #616161; font-size: 14px; font-weight: 500; line-height: 19.6px; text-align: center; white-space: nowrap; }
 .category-icon { display: grid; place-items: center; width: 44px; height: 44px; flex: 0 0 44px; border-radius: 50%; background: #f0f0f0; }
 .category-icon img { display: block; width: 24px; height: 24px; object-fit: contain; }
 .category-item > span:last-child { display: block; width: 60px; }

@@ -4,6 +4,8 @@
 
 In ChatGPT Work Mode, run `sites-preview start "$PWD"`, open `http://terminal.local:4173/` in the cloud browser, and verify the rendered app and its primary interactions. Keep that preview open and tell the user to inspect it in the cloud browser; do not present the local URL as a user-facing chat link. In Codex Desktop, run the local server yourself, open the preview in the in-app browser, and provide the clickable local URL. Do not deploy to Sites unless the user explicitly asks to share, publish, or deploy. Do not give the user server-start instructions when you can run it.
 
+For this repository, after a requested site change passes verification, publish it to the existing GitHub Pages deployment without asking for a separate confirmation.
+
 Before planning or implementing any mobile-app change, read this `AGENTS.md` in full. It is the source of truth for the template's runtime and component guidance.
 
 Before making substantial visual changes, use the Product Design plugin's `get-context` skill when the visual source is unclear or no longer matches the current goal. When the user gives durable prototype-specific design feedback, preferences, or decisions, record them in `AGENTS.md`.
@@ -92,7 +94,8 @@ When any text-entry control loses focus, clear the keyboard context. If the cont
 - Manufacturer brand marks start at least 28px from the sheet's left edge.
 - The detail hero contains 24 swipeable photo slides. Keep the lower-right counter synchronized with the visible slide so the first swipe changes `1/24` to `2/24` and subsequent swipes continue through `24/24`.
 - Match the price-history pagination arrows to Figma node `1674:15566`: 36px gray circular buttons, an 18px icon frame, and the exact exported 10px-by-6px chevron rotated 90 degrees for previous and -90 degrees for next. Preserve the asset's own gray states and never fade the entire disabled button.
-- On first entry, show the Figma vehicle-category rail (`중고차`, `트럭 · 특장 · 버스`, `바이크`, `캠핑카`, `건설기계`, `부품 · 용품`) in place of the manufacturer rail, using the exact exported category icons. Tapping `중고차` replaces that rail with the existing BMW/Mercedes manufacturer selector without leaving the listing screen.
+- On first entry, show the Figma vehicle-category rail in this exact order: `중고차`, `트럭 · 특장`, `바이크`, `캠핑카`, `올드카`, `건설기계`, `부품 · 용품`. Use the exact exported category icons, reuse the used-car icon for `올드카`, and keep the rail 84px tall with the Figma spacing. Tapping `중고차` replaces that rail with the existing BMW/Mercedes manufacturer selector without leaving the listing screen.
+- Keep the top quick-filter row in the Figma default state: the fixed `필터` chip is gray, the pinned default category is a black `전체차량` chip with a clear icon, and the scrollable conditions begin `제조사`, `연식`, `가격`.
 - Tapping the pinned `카테고리` chip, including after it changes to `중고차`, opens the Figma category sheet from node `8698:49850`. Keep the `중고차` row expanded by default with `전체 중고차`, `국산차`, `수입차`, and `전기차` chips; its right arrow toggles only that child row without dismissing the sheet.
 - Match the detail `차량 옵션` card to Figma node `1786:9245`: use the twelve exported option icons in their exact text order, including `사이드 에어백` in the second row, keep a four-column 14 px label grid, and use the exported information glyph beside both paid selected options.
 - Render Porsche with `public/assets/brand/porsche-symbol.png`, the high-resolution transparent export of the exact user-provided crest, in both manufacturer rails and the manufacturer sheet; never substitute a generic icon or use different artwork.

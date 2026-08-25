@@ -149,9 +149,10 @@ const brands = [
 
 const vehicleCategories = [
   { name: "중고차", icon: "categories/used-car.svg" },
-  { name: "트럭 · 특장\n· 버스", icon: "categories/truck.svg" },
+  { name: "트럭 · 특장", icon: "categories/truck.svg" },
   { name: "바이크", icon: "categories/bike.svg" },
   { name: "캠핑카", icon: "categories/camping.svg" },
+  { name: "올드카", icon: "categories/used-car.svg" },
   { name: "건설기계", icon: "categories/construction.svg" },
   { name: "부품 · 용품", icon: "categories/parts.svg" },
 ] as const;
@@ -879,17 +880,17 @@ function MarketplaceScreen() {
             <button type="button" className="reset-button" onClick={resetFilters}>초기화</button>
           </section>
           <section className="filter-shell" aria-label="중고차 필터">
-            <button className="filter-fixed" type="button" aria-label="필터" onClick={() => { setDraftFilters(filters); setFilterFocus(null); setSheet("filter"); }}><Icon name="notion-filter.svg" /><span>필터</span></button>
+            <button className="filter-fixed" type="button" aria-label="필터" onClick={() => { setDraftFilters(filters); setFilterFocus(null); setSheet("filter"); }}><Icon name="filter.svg" /><span>필터</span></button>
             <div className="filter-pinned-chip">
-              <FilterChip label={categoryIsDefault ? "카테고리" : category} active={!categoryIsDefault} onClick={() => openQuickFilter("category")} onClear={!categoryIsDefault ? () => setFilters((current) => ({ ...current, category: "전체 차량", maker: null, model: null })) : undefined} />
+              <FilterChip label={categoryIsDefault ? "전체차량" : category} active onClick={() => openQuickFilter("category")} onClear={() => setFilters((current) => ({ ...current, category: "전체 차량", maker: null, model: null }))} />
             </div>
             <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
+              <FilterChip label={maker ?? "제조사"} active={Boolean(maker)} onClick={() => openQuickFilter("maker")} onClear={maker ? () => setFilters((current) => ({ ...current, maker: null, model: null })) : undefined} />
+              <FilterChip label={filters.year === "전체" ? "연식" : filters.year} active={filters.year !== "전체"} onClick={() => openQuickFilter("year")} />
               <FilterChip label={priceFilterLabel(price)} active={price.min !== 0 || price.max !== null} onClick={() => openQuickFilter("price")} />
               <FilterChip label={filters.condition === "전체" ? "차량 상태" : filters.condition} active={filters.condition !== "전체"} onClick={() => openQuickFilter("condition")} />
               <FilterChip label={filters.seller === "전체" ? "판매자" : filters.seller} active={filters.seller !== "전체"} onClick={() => openQuickFilter("seller")} />
-              <FilterChip label={maker ?? "제조사"} active={Boolean(maker)} onClick={() => openQuickFilter("maker")} onClear={maker ? () => setFilters((current) => ({ ...current, maker: null, model: null })) : undefined} />
               <FilterChip label={selectedModel ?? "모델"} active={Boolean(selectedModel)} onClick={() => openQuickFilter("model")} />
-              <FilterChip label={filters.year === "전체" ? "연식" : filters.year} active={filters.year !== "전체"} onClick={() => openQuickFilter("year")} />
               <FilterChip label={filters.seats === "전체" ? "좌석 수" : filters.seats} active={filters.seats !== "전체"} onClick={() => openQuickFilter("seats")} />
               <FilterChip label={filters.mileageMax ? `${filters.mileageMax}km 이하` : "주행거리"} active={Boolean(filters.mileageMax)} onClick={() => openQuickFilter("mileage")} />
               <FilterChip label={filters.owners === "전체" ? "소유자 수" : filters.owners} active={filters.owners !== "전체"} onClick={() => openQuickFilter("owners")} />
