@@ -1044,6 +1044,16 @@ function DetailHero({ onBack }: { onBack: () => void }) {
   const [photoIndex, setPhotoIndex] = useState(1);
   const heroRef = useRef<HTMLElement>(null);
 
+  const selectPhoto = (index: number) => {
+    const carousel = heroRef.current?.querySelector<HTMLElement>(".detail-media-carousel");
+    const firstPhoto = carousel?.querySelector<HTMLElement>(".detail-media-track > img");
+    if (!carousel || !firstPhoto) return;
+    const photoWidth = firstPhoto.getBoundingClientRect().width || carousel.clientWidth;
+    setMedia("photos");
+    setPhotoIndex(index + 1);
+    carousel.scrollTo({ left: photoWidth * index, behavior: "auto" });
+  };
+
   useEffect(() => {
     const carousel = heroRef.current?.querySelector<HTMLElement>(".detail-media-carousel");
     const firstPhoto = carousel?.querySelector<HTMLElement>(".detail-media-track > img");
@@ -1057,23 +1067,49 @@ function DetailHero({ onBack }: { onBack: () => void }) {
     return () => carousel.removeEventListener("scroll", updatePhotoIndex);
   }, []);
 
+  useEffect(() => {
+    const carousel = heroRef.current?.querySelector<HTMLElement>(".detail-thumbnail-carousel");
+    const activeThumbnail = carousel?.querySelector<HTMLElement>(`[data-thumbnail-index="${photoIndex - 1}"]`);
+    if (!carousel || !activeThumbnail) return;
+    const gutter = 12;
+    const thumbnailLeft = activeThumbnail.offsetLeft;
+    const thumbnailRight = thumbnailLeft + activeThumbnail.offsetWidth;
+    const visibleLeft = carousel.scrollLeft + gutter;
+    const visibleRight = carousel.scrollLeft + carousel.clientWidth - gutter;
+    if (thumbnailLeft < visibleLeft) carousel.scrollTo({ left: Math.max(0, thumbnailLeft - gutter), behavior: "smooth" });
+    else if (thumbnailRight > visibleRight) carousel.scrollTo({ left: thumbnailRight - carousel.clientWidth + gutter, behavior: "smooth" });
+  }, [photoIndex]);
+
   return (
     <section ref={heroRef} className="detail-hero" aria-label="차량 사진">
-      <Carousel ariaLabel="차량 사진" className="detail-media-carousel" contentClassName="detail-media-track">
-        {detailPhotos.map((photo, index) => <img key={`${photo}-${index}`} src={photo} alt={`벤틀리 차량 사진 ${index + 1}`} draggable={false} />)}
-      </Carousel>
-      {media === "video" ? <div className="detail-video-overlay"><button type="button" onClick={() => setMedia("photos")} aria-label="영상 일시정지"><span>▶</span><b>차량 영상 재생 중</b></button></div> : null}
-      <div className="detail-photo-count" aria-live="polite">{photoIndex}/{detailPhotos.length}</div>
-      <div className="detail-media-tabs" role="tablist" aria-label="미디어 유형">
-        <button type="button" role="tab" aria-selected={media === "video"} className={media === "video" ? "is-selected" : ""} onClick={() => setMedia("video")}>영상</button>
-        <button type="button" role="tab" aria-selected={media === "photos"} className={media === "photos" ? "is-selected" : ""} onClick={() => setMedia("photos")}>사진 24</button>
-      </div>
-      <div className="detail-hero-actions">
-        <button type="button" aria-label="목록으로 돌아가기" onClick={onBack}><img src={asset("detail/back.svg")} alt="" /></button>
-        <div>
-          <button type="button" aria-label="공유하기" onClick={() => notify("공유 링크를 복사했어요")}><img src={asset("detail/share.svg")} alt="" /></button>
-          <button type="button" aria-label="더보기" onClick={() => setSheet("more")}><img src={asset("detail/more.svg")} alt="" /></button>
+      <div className="detail-hero-main">
+        <Carousel ariaLabel="차량 사진" className="detail-media-carousel" contentClassName="detail-media-track">
+          {detailPhotos.map((photo, index) => <img key={`${photo}-${index}`} src={photo} alt={`벤틀리 차량 사진 ${index + 1}`} draggable={false} />)}
+        </Carousel>
+        {media === "video" ? <div className="detail-video-overlay"><button type="button" onClick={() => setMedia("photos")} aria-label="영상 일시정지"><span>▶</span><b>차량 영상 재생 중</b></button></div> : null}
+        <div className="detail-photo-count" aria-live="polite">{photoIndex}/{detailPhotos.length}</div>
+        <div className="detail-media-tabs" role="tablist" aria-label="미디어 유형">
+          <button type="button" role="tab" aria-selected={media === "video"} className={media === "video" ? "is-selected" : ""} onClick={() => setMedia("video")}>영상</button>
+          <button type="button" role="tab" aria-selected={media === "photos"} className={media === "photos" ? "is-selected" : ""} onClick={() => setMedia("photos")}>사진 24</button>
         </div>
+        <div className="detail-hero-actions">
+          <button type="button" aria-label="목록으로 돌아가기" onClick={onBack}><img src={asset("detail/back.svg")} alt="" /></button>
+          <div>
+            <button type="button" aria-label="공유하기" onClick={() => notify("공유 링크를 복사했어요")}><img src={asset("detail/share.svg")} alt="" /></button>
+            <button type="button" aria-label="더보기" onClick={() => setSheet("more")}><img src={asset("detail/more.svg")} alt="" /></button>
+          </div>
+        </div>
+      </div>
+      <div className="detail-thumbnail-region">
+        <Carousel ariaLabel="차량 사진 썸네일" className="detail-thumbnail-carousel" contentClassName="detail-thumbnail-track">
+          {detailPhotos.map((photo, index) => (
+            <button key={`thumbnail-${photo}-${index}`} className={`detail-thumbnail${photoIndex === index + 1 ? " is-selected" : ""}`} type="button" data-thumbnail-index={index} aria-label={`사진 ${index + 1} 보기`} aria-pressed={photoIndex === index + 1} onClick={() => selectPhoto(index)}>
+              <img src={photo} alt="" aria-hidden="true" draggable={false} />
+              {index === 0 ? <img className="detail-thumbnail-play" src={asset("detail/thumbnail-play.png")} alt="" aria-hidden="true" draggable={false} /> : null}
+            </button>
+          ))}
+        </Carousel>
+        {photoIndex < detailPhotos.length ? <button className="detail-thumbnail-next" type="button" aria-label="다음 사진 보기" onClick={() => selectPhoto(photoIndex)}><img src={asset("detail/thumbnail-next.png")} alt="" aria-hidden="true" draggable={false} /></button> : null}
       </div>
     </section>
   );
