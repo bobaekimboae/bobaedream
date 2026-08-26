@@ -16,7 +16,7 @@
 - Thumbnails use 6 px inner padding, 8 px image radii, and a 2 px dark inset outline on the active 12 px-radius item.
 - The first thumbnail uses the exact 32 px Figma play asset.
 - The rail uses the exact exported right-arrow asset in a 32 px white circular control with the source shadow and right inset.
-- Existing detail-page media tabs and photo counter are preserved above the newly requested rail.
+- The `영상` / `사진 24` media tabs have been removed from inside the hero photo; the synchronized lower-right photo counter remains.
 
 ## Interaction verification
 
@@ -25,6 +25,7 @@
 - Swiping the main photo changed the counter and active thumbnail together.
 - The next-arrow control advances the selected main photo and thumbnail.
 - Dragging the thumbnail rail changed its horizontal scroll position while keeping the main-photo selection unchanged.
+- No media tab container or `영상` / `사진 24` button remains in the rendered detail hero.
 - Browser console errors: none.
 
 ## Verification

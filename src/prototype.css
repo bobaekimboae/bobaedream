@@ -344,17 +344,10 @@ button { color: inherit; }
 .detail-media-track { display: flex; min-width: max-content; }
 .detail-media-track > img { display: block; width: min(100vw, 430px); height: 305px; flex: 0 0 min(100vw, 430px); object-fit: contain; background: #000; }
 .detail-photo-count { position: absolute; right: 18px; bottom: 11px; min-width: 48px; padding: 4px 10px; border-radius: 999px; background: rgba(0,0,0,.42); color: #fff; font-size: 16px; font-weight: 600; line-height: 22px; text-align: center; }
-.detail-media-tabs { position: absolute; bottom: 11px; left: 50%; display: flex; transform: translateX(-50%); border-radius: 2px; overflow: hidden; background: rgba(0,0,0,.5); }
-.detail-media-tabs button { height: 22px; padding: 0 8px; border: 0; background: transparent; color: #fff; font-size: 12px; cursor: pointer; }
-.detail-media-tabs button.is-selected { background: #fff; color: #222; }
 .detail-hero-actions { position: absolute; top: 0; right: 0; left: 0; display: flex; justify-content: space-between; align-items: center; height: 54px; padding: 0 16px; pointer-events: none; }
 .detail-hero-actions > div { display: flex; gap: 8px; }
 .detail-hero-actions button { display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; border-radius: 50%; background: #fff; cursor: pointer; pointer-events: auto; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
 .detail-hero-actions img { width: 24px; height: 24px; }
-.detail-video-overlay { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(0,0,0,.52); }
-.detail-video-overlay button { display: flex; flex-direction: column; align-items: center; gap: 10px; border: 0; background: none; color: #fff; cursor: pointer; }
-.detail-video-overlay span { display: grid; place-items: center; width: 54px; height: 54px; padding-left: 4px; border: 2px solid #fff; border-radius: 50%; font-size: 22px; }
-.detail-video-overlay b { font-size: 14px; }
 .detail-thumbnail-region { position: relative; height: 78px; margin-top: 8px; background: #fff; }
 .detail-thumbnail-carousel, .detail-thumbnail-track { height: 78px; }
 .detail-thumbnail-track { display: flex; min-width: max-content; padding: 0 12px; box-sizing: border-box; }

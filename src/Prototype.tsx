@@ -1040,7 +1040,6 @@ function VehicleInfoCard() {
 
 function DetailHero({ onBack }: { onBack: () => void }) {
   const { setSheet, notify } = useDetailUi();
-  const [media, setMedia] = useState<"video" | "photos">("photos");
   const [photoIndex, setPhotoIndex] = useState(1);
   const heroRef = useRef<HTMLElement>(null);
 
@@ -1049,7 +1048,6 @@ function DetailHero({ onBack }: { onBack: () => void }) {
     const firstPhoto = carousel?.querySelector<HTMLElement>(".detail-media-track > img");
     if (!carousel || !firstPhoto) return;
     const photoWidth = firstPhoto.getBoundingClientRect().width || carousel.clientWidth;
-    setMedia("photos");
     setPhotoIndex(index + 1);
     carousel.scrollTo({ left: photoWidth * index, behavior: "auto" });
   };
@@ -1086,12 +1084,7 @@ function DetailHero({ onBack }: { onBack: () => void }) {
         <Carousel ariaLabel="차량 사진" className="detail-media-carousel" contentClassName="detail-media-track">
           {detailPhotos.map((photo, index) => <img key={`${photo}-${index}`} src={photo} alt={`벤틀리 차량 사진 ${index + 1}`} draggable={false} />)}
         </Carousel>
-        {media === "video" ? <div className="detail-video-overlay"><button type="button" onClick={() => setMedia("photos")} aria-label="영상 일시정지"><span>▶</span><b>차량 영상 재생 중</b></button></div> : null}
         <div className="detail-photo-count" aria-live="polite">{photoIndex}/{detailPhotos.length}</div>
-        <div className="detail-media-tabs" role="tablist" aria-label="미디어 유형">
-          <button type="button" role="tab" aria-selected={media === "video"} className={media === "video" ? "is-selected" : ""} onClick={() => setMedia("video")}>영상</button>
-          <button type="button" role="tab" aria-selected={media === "photos"} className={media === "photos" ? "is-selected" : ""} onClick={() => setMedia("photos")}>사진 24</button>
-        </div>
         <div className="detail-hero-actions">
           <button type="button" aria-label="목록으로 돌아가기" onClick={onBack}><img src={asset("detail/back.svg")} alt="" /></button>
           <div>
