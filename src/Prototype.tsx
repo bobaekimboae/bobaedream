@@ -442,10 +442,18 @@ const detailPhotoSources = ["raw-04.png", "raw-09.jpeg", "raw-07.jpeg", "raw-20.
 const detailPhotos = Array.from({ length: 24 }, (_, index) => detailPhotoSources[index % detailPhotoSources.length]);
 
 const optionItems = [
-  "파노라마 선루프", "LED 헤드램프", "어댑티브 크루즈 컨트롤", "후방카메라",
-  "어라운드뷰", "사이드 에어백", "순정 내비게이션", "열선시트",
-  "통풍시트", "헤드업 디스플레이", "전동트렁크", "자동 긴급제동",
-  "차선 이탈방지", "메모리 시트", "스마트 하이빔", "전자식 파킹브레이크",
+  { label: "파노라마 선루프", icon: "option-01.png" },
+  { label: "LED 헤드램프", icon: "option-02.png" },
+  { label: "어댑티브 크루즈 컨트롤", icon: "option-03.png" },
+  { label: "후방카메라", icon: "option-04.png" },
+  { label: "어라운드뷰", icon: "option-05.png" },
+  { label: "스마트키", icon: "option-smart-key.png" },
+  { label: "순정 내비게이션", icon: "option-07.png" },
+  { label: "열선시트", icon: "option-08.png" },
+  { label: "통풍시트", icon: "option-09.png" },
+  { label: "헤드업 디스플레이", icon: "option-10.png" },
+  { label: "전동트렁크", icon: "option-11.png" },
+  { label: "자동 긴급제동", icon: "option-12.png" },
 ];
 
 const vehicleInfo = [
@@ -1084,6 +1092,7 @@ function DetailHero({ onBack }: { onBack: () => void }) {
         <Carousel ariaLabel="차량 사진" className="detail-media-carousel" contentClassName="detail-media-track">
           {detailPhotos.map((photo, index) => <img key={`${photo}-${index}`} src={photo} alt={`벤틀리 차량 사진 ${index + 1}`} draggable={false} />)}
         </Carousel>
+        {photoIndex === 1 ? <span className="detail-video-play" aria-hidden="true"><span /></span> : null}
         <div className="detail-photo-count" aria-live="polite">{photoIndex}/{detailPhotos.length}</div>
         <div className="detail-hero-actions">
           <button type="button" aria-label="목록으로 돌아가기" onClick={onBack}><img src={asset("detail/back.svg")} alt="" /></button>
@@ -1102,7 +1111,6 @@ function DetailHero({ onBack }: { onBack: () => void }) {
             </button>
           ))}
         </Carousel>
-        {photoIndex < detailPhotos.length ? <button className="detail-thumbnail-next" type="button" aria-label="다음 사진 보기" onClick={() => selectPhoto(photoIndex)}><img src={asset("detail/thumbnail-next.png")} alt="" aria-hidden="true" draggable={false} /></button> : null}
       </div>
     </section>
   );
@@ -1185,11 +1193,10 @@ function PriceHistorySheet({ onClose }: { onClose: () => void }) {
 
 function OptionsCard() {
   const [expanded, setExpanded] = useState(false);
-  const items = expanded ? optionItems : optionItems.slice(0, 12);
   return (
     <SectionCard title="차량 옵션" action={<button className="text-action" type="button" onClick={() => setExpanded(!expanded)}>옵션설명</button>}>
-      <div className="option-grid">{items.map((label, index) => <div key={label}><img src={asset(`detail/option-${String((index % 13) + 1).padStart(2, "0")}.png`)} alt="" draggable={false} /><span>{label}</span></div>)}</div>
-      <button className="outline-wide-button" type="button" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>{expanded ? "옵션 접기" : "옵션 32개 모두 보기"}</button>
+      <div className="option-grid">{optionItems.map(({ label, icon }) => <div key={label}><img src={asset(`detail/${icon}`)} alt="" draggable={false} /><span>{label}</span></div>)}</div>
+      <button className="outline-wide-button" type="button" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>옵션 32개 모두 보기</button>
       <div className="selected-options"><h3>선택 옵션</h3><dl><div><dt>빌트인 캠 패키지 <img src={asset("detail/option-info.svg")} alt="옵션 정보" /></dt><dd>70만원</dd></div><div><dt>헤드업 디스플레이 <img src={asset("detail/option-info.svg")} alt="옵션 정보" /></dt><dd>130만원</dd></div></dl></div>
     </SectionCard>
   );
