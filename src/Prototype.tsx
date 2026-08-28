@@ -440,6 +440,8 @@ const sheetLabels: Record<Exclude<SheetType, null>, string> = {
 
 const detailPhotoSources = ["raw-04.png", "raw-09.jpeg", "raw-07.jpeg", "raw-20.jpeg", "raw-05.jpeg", "raw-10.jpeg", "raw-18.jpeg", "raw-19.jpeg"].map((name) => asset(`detail/${name}`));
 const detailPhotos = Array.from({ length: 24 }, (_, index) => detailPhotoSources[index % detailPhotoSources.length]);
+const detailVehiclePlate = "172무2323";
+const vehicleHistoryUrl = (plate: string) => `vehicle-history/?plate=${encodeURIComponent(plate.replace(/\s+/g, ""))}`;
 
 const optionItems = [
   { label: "파노라마 선루프", icon: "option-01.png" },
@@ -1118,7 +1120,7 @@ function DetailHero({ onBack }: { onBack: () => void }) {
 
 function VehicleSummary() {
   const { liked, setLiked, setSheet, notify } = useDetailUi();
-  const summarySpecs = ["2019", formatMileage("42,920 km"), "가솔린", "자동", "1인소유"];
+  const summarySpecs = ["2019", formatMileage("42,920 km"), "가솔린", detailVehiclePlate, "1인소유"];
   return (
     <section className="vehicle-summary">
       <div className="vehicle-title-row"><h1>2019 벤틀리 컨티넨탈 GT 3세대 6.0 퍼스트 에디션</h1><button type="button" aria-label="매물 저장" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}<span>{liked ? "저장됨" : "저장"}</span></button></div>
@@ -1205,11 +1207,12 @@ function OptionsCard() {
 function HistoryCard() {
   const [expanded, setExpanded] = useState(false);
   return (
-    <SectionCard title="보험 이력">
+    <SectionCard title="보험 이력" action={<a className="history-link" href={vehicleHistoryUrl(detailVehiclePlate)}>통합 이력조회</a>}>
       <div className="insurance-summary"><div>내 차 피해<strong>0건</strong></div><div>상대 차 피해<strong>0건</strong></div><div>특수사항<strong>없음</strong></div></div>
       <h3 className="subheading">차량 이력 상세</h3>
       <dl className="detail-rows"><div><dt>특수 용도 이력</dt><dd>없음</dd></div><div><dt>용도 및 차종</dt><dd>자가용 승용</dd></div>{expanded ? <><div><dt>소유자 변경</dt><dd>1회</dd></div><div><dt>번호판 변경</dt><dd>없음</dd></div></> : null}</dl>
       <button className="outline-wide-button" type="button" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>{expanded ? "보험 이력 접기" : "보험 이력 전체 보기"}</button>
+      <a className="history-cta" href={vehicleHistoryUrl(detailVehiclePlate)}>차량번호 {detailVehiclePlate} 이력조회</a>
     </SectionCard>
   );
 }
@@ -1316,6 +1319,7 @@ function DetailFooter() {
   const { setSheet, notify } = useDetailUi();
   return (
     <div className="detail-bottom-bar">
+      <a className="detail-history" href={vehicleHistoryUrl(detailVehiclePlate)}>이력조회</a>
       <a className="detail-call" href="tel:05062469261"><img src={asset("detail/call.svg")} alt="" /> 전화</a>
       <button className="detail-zalo" type="button" onClick={() => notify("카카오 상담을 준비했어요")}>카카오</button>
       <button className="detail-consult" type="button" onClick={() => setSheet("contact")}>채팅</button>

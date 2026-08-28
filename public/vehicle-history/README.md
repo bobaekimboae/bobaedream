@@ -3,15 +3,16 @@
 GitHub Pages에서 독립 경로로 실행되는 차량이력 조회 화면입니다.
 
 - 공개 경로: `/bobaedream/vehicle-history/`
-- 시연 조회: `56마2883` / `최경미`
+- 딜러 상품 조회: 차량번호만 입력
 - 실제 연동: `config.js`의 `BOBAE_HISTORY_API_URL`에 공개 API 게이트웨이 주소 설정
 
 ## API 요청
 
 ```json
 {
-  "vehicleNumber": "56마2883",
-  "ownerName": "최경미"
+  "plate": "370도3826",
+  "consentId": "uuid",
+  "purpose": "USED_CAR_DEALER_LISTING_CHECK"
 }
 ```
 
@@ -19,8 +20,8 @@ API 키와 기관 인증서는 프론트엔드나 GitHub에 저장하지 않습�
 
 ## 포함 기능
 
-- 차량번호·소유자명 한글 입력
-- 개인정보 조회 동의
+- 차량번호 한글 입력
+- 딜러 상품 차량번호 기반 조회 동의
 - 위험등급과 핵심 지표
 - 19개 차량이력 전체 표시
 - 보험사고별 부품비·공임·도장비
