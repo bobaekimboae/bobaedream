@@ -441,7 +441,7 @@ const sheetLabels: Record<Exclude<SheetType, null>, string> = {
 const detailPhotoSources = ["raw-04.png", "raw-09.jpeg", "raw-07.jpeg", "raw-20.jpeg", "raw-05.jpeg", "raw-10.jpeg", "raw-18.jpeg", "raw-19.jpeg"].map((name) => asset(`detail/${name}`));
 const detailPhotos = Array.from({ length: 24 }, (_, index) => detailPhotoSources[index % detailPhotoSources.length]);
 const detailVehiclePlate = "172무2323";
-const vehicleHistoryUrl = (plate: string) => `vehicle-history/?plate=${encodeURIComponent(plate.replace(/\s+/g, ""))}`;
+const vehicleHistoryUrl = (plate: string) => `vehicle-history/?mode=dealer&plate=${encodeURIComponent(plate.replace(/\s+/g, ""))}`;
 
 const optionItems = [
   { label: "파노라마 선루프", icon: "option-01.png" },
