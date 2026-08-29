@@ -749,7 +749,6 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
                   <h2>{car.title}</h2>
                   <p className="trim">{car.trim}</p>
                 </div>
-                {likeButton}
               </div>
             </>
           )}
@@ -764,7 +763,7 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
           <div className="dealer-line">
             <img className="dealer-avatar" src={asset(sellerAvatar(car))} alt={`${displayedSeller} 프로필`} draggable={false} />
             {cardView ? <div className="dealer-copy"><strong>{displayedSeller}</strong></div> : <p><strong>{displayedSeller}</strong></p>}
-            {cardView ? <div className="card-contact-actions"><button type="button" aria-label={`${displayedSeller} 전화`} onClick={(event) => event.stopPropagation()}><Icon name="card-call.svg" /></button><button type="button" aria-label={`${displayedSeller} 메시지`} onClick={(event) => event.stopPropagation()}><Icon name="card-message.svg" /></button></div> : null}
+            {cardView ? <div className="card-contact-actions"><button type="button" aria-label={`${displayedSeller} 전화`} onClick={(event) => event.stopPropagation()}><Icon name="card-call.svg" /></button><button type="button" aria-label={`${displayedSeller} 메시지`} onClick={(event) => event.stopPropagation()}><Icon name="card-message.svg" /></button></div> : likeButton}
           </div>
         </div>
       </div>

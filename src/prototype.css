@@ -116,7 +116,7 @@ button { color: inherit; }
 .car-main h2, .car-main p, .car-footer p { margin: 0; }
 .car-title-copy { display: flex; min-width: 0; flex-direction: column; gap: 0; }
 .car-main h2, .trim { overflow: hidden; color: #202124; font-size: 16px; font-weight: 700; line-height: 20px; letter-spacing: 0; text-overflow: ellipsis; white-space: nowrap; word-break: keep-all; }
-.car-title-row { display: grid; grid-template-columns: minmax(0, 1fr) 28px; align-items: start; gap: 6px; min-width: 0; }
+.car-title-row { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; min-width: 0; }
 .car-title-row h2 { min-width: 0; }
 .specs { margin-top: 3px !important; overflow: hidden; color: #878787; font-size: 13px; font-weight: 400; line-height: 18px; text-overflow: ellipsis; white-space: nowrap; }
 .price { margin-top: 1px !important; color: var(--accent); font-size: 18.5px; font-weight: 800; line-height: 23px; letter-spacing: 0; }
@@ -126,13 +126,13 @@ button { color: inherit; }
 .car-footer { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .location-line { display: flex; align-items: center; gap: 5px; overflow: hidden; color: #8f8f8f; font-size: 13.5px; font-weight: 400; line-height: 19px; text-overflow: ellipsis; white-space: nowrap; }
 .location-line .ui-icon { width: 17px; height: 17px; opacity: .72; }
-.dealer-line { display: grid; grid-template-columns: 19px minmax(0, 1fr); align-items: center; gap: 7px; min-width: 0; }
+.dealer-line { display: grid; grid-template-columns: 19px minmax(0, 1fr) 26px; align-items: center; gap: 7px; min-width: 0; }
 .dealer-avatar { width: 19px; height: 19px; border-radius: 50%; object-fit: cover; }
 .dealer-line p { display: flex; flex-wrap: nowrap; column-gap: 4px; overflow: hidden; color: #5f5f5f; font-size: 13.5px; line-height: 19px; text-overflow: ellipsis; white-space: nowrap; }
 .dealer-line strong { overflow: hidden; color: #303030; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
 .dealer-line p span { white-space: nowrap; }
 .dealer-line b { color: var(--ink); font-weight: 400; }
-.like-button { display: grid; place-items: center; width: 26px; height: 26px; margin-top: -3px; margin-left: 0; }
+.like-button { display: grid; place-items: center; width: 26px; height: 26px; margin: 0; }
 .like-button .ui-icon { width: 21px; height: 21px; }
 .like-button svg { width: 21px; height: 21px; color: #222; }
 .like-button.is-liked { color: #f14069; }
