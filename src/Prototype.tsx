@@ -667,6 +667,10 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
     }
   };
 
+  const likeButton = (
+    <button className={`like-button${liked ? " is-liked" : ""}`} type="button" aria-label={`${car.title} ${liked ? "저장 해제" : "저장"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>{liked ? <HeartFilledIcon /> : <HeartIcon />}</button>
+  );
+
   return (
     <article className={`car-card${cardView ? " is-card-view" : ""}${badges.length ? " has-badges" : " has-no-badges"}`} role="link" tabIndex={0} aria-label={`${car.title} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
       <div className="car-photo-wrap">
@@ -675,7 +679,23 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
       </div>
       <div className="car-copy">
         <div className="car-main">
-          {cardView ? <div className="card-title-row"><h2>{car.title} {car.trim}</h2><button type="button" aria-label={`${car.title} 더보기`} onClick={(event) => event.stopPropagation()}><Icon name="card-more.svg" /></button></div> : <><h2>{car.title}</h2><p className="trim">{car.trim}</p></>}
+          {cardView ? (
+            <div className="card-title-row">
+              <h2>{car.title} {car.trim}</h2>
+              <div className="card-title-actions">
+                <button className="card-more-button" type="button" aria-label={`${car.title} 더보기`} onClick={(event) => event.stopPropagation()}><Icon name="card-more.svg" /></button>
+                {likeButton}
+              </div>
+            </div>
+          ) : (
+            <>
+              <div className="car-title-row">
+                <h2>{car.title}</h2>
+                {likeButton}
+              </div>
+              <p className="trim">{car.trim}</p>
+            </>
+          )}
           <p className="specs">{car.specs.map((spec, index) => index === 1 ? formatMileage(spec) : spec).join(" · ")}</p>
           {cardView ? <div className="card-price-block">
             <div className="card-price-row"><p className="price">{cardPricePrefix ? <span className="card-price-unit">{cardPricePrefix}</span> : null}<span>{cardPriceAmount}</span><span className="card-price-unit">{cardPriceUnit}</span></p>{car.lease ? <p className="lease">{car.lease}</p> : null}</div>
@@ -687,7 +707,7 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
           <div className="dealer-line">
             <img className="dealer-avatar" src={asset("cars/dealer.png")} alt="" aria-hidden="true" draggable={false} />
             {cardView ? <div className="dealer-copy"><strong>{displayedSeller}</strong><p><span>판매중 <b>{car.stock}대</b></span></p></div> : <p><strong>{displayedSeller}</strong><span>· 판매중 <b>{car.stock}대</b></span></p>}
-            {cardView ? <div className="card-contact-actions"><button type="button" aria-label={`${displayedSeller} 전화`} onClick={(event) => event.stopPropagation()}><Icon name="card-call.svg" /></button><button type="button" aria-label={`${displayedSeller} 메시지`} onClick={(event) => event.stopPropagation()}><Icon name="card-message.svg" /></button><button className={`like-button${liked ? " is-liked" : ""}`} type="button" aria-label={`${car.title} ${liked ? "저장 해제" : "저장"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>{liked ? <HeartFilledIcon /> : <HeartIcon />}</button></div> : <button className={`like-button${liked ? " is-liked" : ""}`} type="button" aria-label={`${car.title} ${liked ? "저장 해제" : "저장"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>{liked ? <HeartFilledIcon /> : <HeartIcon />}</button>}
+            {cardView ? <div className="card-contact-actions"><button type="button" aria-label={`${displayedSeller} 전화`} onClick={(event) => event.stopPropagation()}><Icon name="card-call.svg" /></button><button type="button" aria-label={`${displayedSeller} 메시지`} onClick={(event) => event.stopPropagation()}><Icon name="card-message.svg" /></button></div> : null}
           </div>
         </div>
       </div>
