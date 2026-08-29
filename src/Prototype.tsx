@@ -698,10 +698,9 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
           ) : (
             <>
               <div className="car-title-row">
-                <h2>{car.title}</h2>
+                <h2>{car.title} {car.trim}</h2>
                 {likeButton}
               </div>
-              <p className="trim">{car.trim}</p>
             </>
           )}
           <p className="specs">{car.specs.map((spec, index) => index === 1 ? formatMileage(spec) : spec).join(" · ")}</p>
