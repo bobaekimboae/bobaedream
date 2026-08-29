@@ -160,7 +160,7 @@ const vehicleCategories = [
   { name: "트럭 · 특장", icon: "categories/truck.svg" },
   { name: "바이크", icon: "categories/bike.svg" },
   { name: "캠핑카", icon: "categories/camping.svg" },
-  { name: "올드카", icon: "categories/used-car.svg" },
+  { name: "올드카", icon: "categories/old-car.svg" },
   { name: "건설기계", icon: "categories/construction.svg" },
   { name: "부품 · 용품", icon: "categories/parts.svg" },
 ] as const;
@@ -170,7 +170,7 @@ const categorySheetItems: ReadonlyArray<{ name: string; icon?: string }> = [
   { name: "트럭 · 특장", icon: "categories/truck.svg" },
   { name: "바이크", icon: "categories/bike.svg" },
   { name: "캠핑카", icon: "categories/camping.svg" },
-  { name: "올드카", icon: "categories/used-car.svg" },
+  { name: "올드카", icon: "categories/old-car.svg" },
   { name: "건설기계", icon: "categories/construction.svg" },
   { name: "부품 · 용품", icon: "categories/parts.svg" },
 ];
