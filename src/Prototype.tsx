@@ -65,6 +65,7 @@ type Car = {
   imageFit?: "cover" | "contain";
   title: string;
   trim: string;
+  headline?: string;
   specs: string[];
   price: string;
   lease?: string;
@@ -146,6 +147,16 @@ const formatMileage = (value: string) => value.replace(/(\d[\d,]*)\s*km/i, (matc
   if (kilometers < 1_000) return "1천km 미만";
   return kilometers < 10_000 ? `${Math.floor(kilometers / 1_000)}천km` : `${Math.floor(kilometers / 10_000)}만km`;
 });
+
+const listingFeatureHeadline = (car: Car) => {
+  if (car.headline) return car.headline;
+  if (car.badges?.length) return car.badges.slice(0, 3).join(" · ");
+  if (car.filter?.condition === "신차") return "신차급 컨디션 · 제조사보증 확인";
+  if (car.filter?.owners === "1인") return "1인소유 · 실내외 관리 우수";
+  if (car.sellerType === "개인") return "개인 직거래 · 실매물 확인 · 관리 양호";
+  const mileage = car.specs[1] ? formatMileage(car.specs[1]) : "";
+  return mileage ? `${mileage} 주행 · 내외관 관리 우수` : "무사고 중심 · 인기 옵션 · 바로 상담";
+};
 
 const brands = [
   { name: "BMW", logo: asset("brand/bmw.svg") },
@@ -292,21 +303,25 @@ const listingBadgeOptions: ListingBadge[] = ["브랜드인증", "제조사보증
 const defaultCars: Car[] = [
   {
     id: 1, maker: "벤츠", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 CLS 450 4MATIC", trim: "AMG Line",
+    headline: "무사고 · 1인소유 · 실내 컨디션 우수",
     specs: ["23년06월", "18,420km", "가솔린", "흰색시트"], price: "8,420 만원",
     place: "서울 강남구 · 오토갤러리", views: 128, dealer: sellerScenario.name, stock: 12, posted: "3분 전", photos: 14,
   },
   {
     id: 2, maker: "벤츠", sellerType: "딜러", image: "detail/raw-18.jpeg", title: "벤츠 G63 AMG", trim: "매뉴팩처 프로그램",
+    headline: "희소 컬러 · 정비완료 · 옵션 풍부",
     specs: ["21년12월", "31,900km", "가솔린", "흰색시트"], price: "19,800 만원",
     place: "경기 성남시 · 오토갤러리", views: 301, dealer: sellerScenario.name, stock: 8, posted: "12분 전", photos: 22,
   },
   {
     id: 3, maker: "포르쉐", sellerType: "개인", image: "detail/raw-20.jpeg", title: "포르쉐 718 박스터", trim: "4.0 GTS",
+    headline: "짧은 주행 · 오픈 에어링 · 관리 양호",
     specs: ["24년03월", "8,130km", "가솔린", "흰색시트"], price: "13,900 만원",
     place: "부산 해운대구", views: 219, dealer: "개인판매자", stock: 1, posted: "24분 전", photos: 18,
   },
   {
     id: 4, maker: "벤틀리", sellerType: "딜러", image: "detail/raw-07.jpeg", title: "벤틀리 컨티넨탈 GT", trim: "6.0 W12",
+    headline: "보험이력 0건 · W12 쿠페 · 고급 옵션",
     specs: ["19년11월", "42,920km", "가솔린", "검정색"], price: "15,700 만원",
     place: "서울 서초구 · 양재전시장", views: 410, dealer: sellerScenario.name, stock: 21, posted: "37분 전", photos: 26,
   },
@@ -668,6 +683,7 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
   const cardPricePrefix = cardPriceMatch?.[1] ?? "";
   const cardPriceAmount = cardPriceMatch?.[2] ?? car.price;
   const cardPriceUnit = cardPriceMatch?.[3] ?? "";
+  const headline = listingFeatureHeadline(car);
   const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -704,6 +720,7 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
               <p className="trim">{car.trim}</p>
             </>
           )}
+          <p className="feature-headline">{headline}</p>
           <p className="specs">{car.specs.map((spec, index) => index === 1 ? formatMileage(spec) : spec).join(" · ")}</p>
           {cardView ? <div className="card-price-block">
             <div className="card-price-row"><p className="price">{cardPricePrefix ? <span className="card-price-unit">{cardPricePrefix}</span> : null}<span>{cardPriceAmount}</span><span className="card-price-unit">{cardPriceUnit}</span></p>{car.lease ? <p className="lease">{car.lease}</p> : null}</div>
