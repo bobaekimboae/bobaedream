@@ -210,7 +210,7 @@ const defaultBrandRailOptions: BrandRailOption[] = [
   { name: "기아", maker: "기아", icon: siKia, color: "#05141f" },
 ];
 const categoryBrandRails: Record<string, CategoryBrandRail> = {
-  "전체 차량": { title: "제조사", options: defaultBrandRailOptions },
+  "전체": { title: "제조사", options: defaultBrandRailOptions },
   중고차: { title: "제조사", options: defaultBrandRailOptions },
   국산차: {
     title: "제조사",
@@ -386,8 +386,8 @@ function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
   const data = car.filter;
   if (!data) return false;
   const price = parsePrice(car.price);
-  const category = vehicleCategoryOptions.includes(value.category) ? value.category : "전체 차량";
-  const categoryMatch = category === "전체 차량"
+  const category = vehicleCategoryOptions.includes(value.category) ? value.category : "전체";
+  const categoryMatch = category === "전체"
     || category === "중고차"
     || category === "국산차" && domesticMakerNames.has(car.maker)
     || category === "수입차" && !domesticMakerNames.has(car.maker)
@@ -532,7 +532,7 @@ function FilterChip({ label, icon, active, onClick, onClear }: { label: string; 
 
 function CategoryFilterSheet({ selected, onChoose, onClose }: { selected: string; onChoose: (category: string) => void; onClose: () => void }) {
   const [usedCarOpen, setUsedCarOpen] = useState(true);
-  const selectedChild = selected === "전체 차량" || selected === "중고차" ? "전체 중고차" : selected;
+  const selectedChild = selected === "전체" || selected === "중고차" ? "전체 중고차" : selected;
 
   return (
     <div className="category-filter-sheet">
@@ -801,9 +801,9 @@ function MarketplaceScreen() {
   const regionLabel = region.radius ? `내 주변 ${region.radius}` : [region.province, region.district].filter(Boolean).join(" ") || "전국";
   const regionKeyword = region.province === "광주" ? "광주" : region.province;
   const { maker, model: selectedModel, price, seller: sellerType, videoOnly, category } = filters;
-  const categoryIsDefault = category === "전체 차량";
+  const categoryIsDefault = category === "전체";
   const categorySearchPlaceholder = categoryIsDefault ? "중고차" : category;
-  const categoryBrandRail = categoryBrandRails[category] ?? categoryBrandRails["전체 차량"];
+  const categoryBrandRail = categoryBrandRails[category] ?? categoryBrandRails["전체"];
   const activeFilterCount = [
     Boolean(maker),
     Boolean(selectedModel),
@@ -909,7 +909,7 @@ function MarketplaceScreen() {
           <section className={`filter-shell${activeFilterCount ? " has-active-filters" : ""}`} aria-label="중고차 필터">
             <button className="filter-fixed" type="button" aria-label={activeFilterCount ? `필터 ${activeFilterCount}개 적용됨` : "필터"} onClick={() => { setDraftFilters(filters); setFilterFocus(null); setSheet("filter"); }}><Icon name="filter.svg" /><span>{activeFilterCount || "필터"}</span></button>
             <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
-              <FilterChip label={categoryIsDefault ? "전체차량" : category} active onClick={() => openQuickFilter("category")} onClear={() => setFilters((current) => ({ ...current, category: "전체 차량", maker: null, model: null }))} />
+              <FilterChip label={categoryIsDefault ? "전체차량" : category} active onClick={() => openQuickFilter("category")} onClear={() => setFilters((current) => ({ ...current, category: "전체", maker: null, model: null }))} />
               <FilterChip label={maker ?? "제조사"} active={Boolean(maker)} onClick={() => openQuickFilter("maker")} onClear={maker ? () => setFilters((current) => ({ ...current, maker: null, model: null })) : undefined} />
               <FilterChip label={filters.year === "전체" ? "연식" : filters.year} active={filters.year !== "전체"} onClick={() => openQuickFilter("year")} />
               <FilterChip label={priceFilterLabel(price)} active={price.min !== 0 || price.max !== null} onClick={() => openQuickFilter("price")} />
