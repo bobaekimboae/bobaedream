@@ -167,7 +167,7 @@ const categorySheetItems: ReadonlyArray<{ name: string; icon?: string }> = [
   { name: "부품 · 용품", icon: "categories/parts.svg" },
 ];
 
-const usedCarCategoryOptions = ["전체 중고차", "국산차", "수입차", "전기차"] as const;
+const usedCarCategoryOptions = ["전체", "국산차", "수입차", "전기차"] as const;
 
 type MakerOption = { name: string; maker: string; logo?: string; icon?: SimpleIcon; color?: string };
 const makerOptions: MakerOption[] = [
@@ -532,7 +532,7 @@ function FilterChip({ label, icon, active, onClick, onClear }: { label: string; 
 
 function CategoryFilterSheet({ selected, onChoose, onClose }: { selected: string; onChoose: (category: string) => void; onClose: () => void }) {
   const [usedCarOpen, setUsedCarOpen] = useState(true);
-  const selectedChild = selected === "전체" || selected === "중고차" ? "전체 중고차" : selected;
+  const selectedChild = selected === "전체" || selected === "중고차" ? "전체" : selected;
 
   return (
     <div className="category-filter-sheet">
@@ -884,7 +884,7 @@ function MarketplaceScreen() {
   };
 
   const chooseCategoryFilter = (categoryName: string) => {
-    const nextCategory = categoryName === "전체 중고차" ? "중고차" : categoryName;
+    const nextCategory = categoryName === "전체" ? "중고차" : categoryName;
     if (["중고차", "국산차", "수입차", "전기차"].includes(nextCategory)) {
       const nextFilters = { ...filters, category: nextCategory, maker: null, model: null };
       setFilters(nextFilters);
