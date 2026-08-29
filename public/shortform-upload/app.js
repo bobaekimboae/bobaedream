@@ -416,7 +416,7 @@
     const fields = [
       { label: "차량명", done: Boolean(listing.title && listing.make && listing.model) },
       { label: "가격/주행거리", done: Boolean(listing.price && listing.mileage) },
-      { label: "차원 도시", done: Boolean(listing.city) },
+      { label: "차량 도시", done: Boolean(listing.city) },
       { label: "VIN 또는 차량번호", done: Boolean(listing.vin || listing.plate) },
       { label: "딜러 연락처", done: Boolean(listing.dealer && listing.phone) },
       {
@@ -427,7 +427,7 @@
         label: `필수 영상 ${doneVideos}/${videos.length}`,
         done: doneVideos >= videos.length,
       },
-      { label: "차원 인증 자료", done: proofDone },
+      { label: "차량 인증 자료", done: proofDone },
     ];
     const done = fields.filter((item) => item.done).length;
     return {
@@ -578,10 +578,10 @@
       <header class="topbar">
         <div class="topbar-inner">
           <div class="brand">
-            <div class="brand-mark">BB</div>
+            <div class="brand-mark">BO</div>
             <div>
               <p class="brand-title">보배드림 숏폼 촬영 업로더</p>
-              <div class="brand-subtitle">58닷컴 촬영폼 + 자유 숏폼 + CARS24형 매물 분류</div>
+              <div class="brand-subtitle">촬영팀용 샷리스트, 딜러용 자유 숏폼, 검수용 등록폼</div>
             </div>
           </div>
           <nav class="nav" aria-label="주요 메뉴">
@@ -604,6 +604,7 @@
     const c = completion(listing);
     return `
       ${renderFormHeader(listing, c)}
+      ${renderMissionBar(listing, c)}
       <div class="workspace">
         <section class="panel">
           ${renderBasics(listing)}
@@ -628,13 +629,15 @@
   }
 
   function renderFormHeader(listing, c) {
+    const typeLabel = vehicleTypes[listing.listingType]?.label || "승용/SUV";
+    const summary = [typeLabel, listing.city || "도시 미입력", listing.dealer || "딜러 미입력"].join(" · ");
     return `
       <div class="form-header">
         <div class="form-header-main">
           <button type="button" class="back-button" data-action="set-view" data-view="inventory" aria-label="매물함으로">‹</button>
           <div class="header-title">
-            <h1>중고차 매물 등록</h1>
-            <p>완성도 ${c.percent}%</p>
+            <h1>${escapeHtml(listing.title || "중고차 매물 등록")}</h1>
+            <p>${escapeHtml(summary)} · 완성도 ${c.percent}%</p>
           </div>
           <button type="button" class="draft-chip" data-action="set-view" data-view="inventory">
             초안 <b>${state.listings.filter((item) => item.status !== "review").length}</b>
@@ -642,6 +645,32 @@
         </div>
         <div class="progress-track"><div class="progress-fill" style="width:${c.percent}%"></div></div>
       </div>
+    `;
+  }
+
+  function renderMissionBar(listing, c) {
+    const photoSlotId = firstMissingPhotoSlot(listing);
+    const missingVideo = requiredVideoSlots(listing).find((slotItem) => !assetsForSlot(listing, slotItem.id).length);
+    const nextPhoto = photoSlotId ? getSlot(photoSlotId, listing) : getSlot("defect", listing);
+    const nextVideo = missingVideo || getSlot(firstVideoSlot(listing), listing);
+    return `
+      <section class="mission-bar" aria-label="촬영 진행 요약">
+        <article>
+          <span>다음 사진</span>
+          <strong>${escapeHtml(nextPhoto?.label || "추가 촬영")}</strong>
+          <button type="button" data-action="open-camera" data-mode="photo" data-slot="${nextPhoto?.id || "defect"}">바로 촬영</button>
+        </article>
+        <article>
+          <span>다음 영상</span>
+          <strong>${escapeHtml(nextVideo?.label || "자유 숏폼")}</strong>
+          <button type="button" data-action="open-camera" data-mode="video" data-slot="${nextVideo?.id || "short_free"}">영상 촬영</button>
+        </article>
+        <article>
+          <span>현재 상태</span>
+          <strong>${c.complete ? "검수 요청 가능" : `${c.donePhotos}/${c.totalPhotos} 필수 컷`}</strong>
+          <button type="button" data-action="set-view" data-view="inventory">매물함 보기</button>
+        </article>
+      </section>
     `;
   }
 
@@ -673,7 +702,7 @@
           ${field("year", "연식", listing.year)}
           ${field("mileage", "주행거리(km)", listing.mileage)}
           ${field("price", "가격(만원)", listing.price)}
-          ${field("city", "차원 소재 도시", listing.city)}
+          ${field("city", "차량 소재 도시", listing.city)}
           ${field("plate", "차량번호", listing.plate)}
           ${field("vin", "VIN", listing.vin, "full")}
           ${field("dealer", "딜러명", listing.dealer)}
@@ -705,12 +734,12 @@
         <h2 class="section-title">업로드 사진 및 영상 <small>필수</small></h2>
         <p class="section-hint">첫 사진은 좌전 45도 차량 사진을 권장합니다. 사진은 최대 30장, 영상은 자유 숏폼과 부위별 영상 모두 등록할 수 있습니다.</p>
         <div class="media-actions">
-          <button type="button" class="big-action" data-action="open-camera" data-mode="photo" data-slot="${firstMissing || "front_left_45"}">
+          <button type="button" class="big-action photo-action" data-action="open-camera" data-mode="photo" data-slot="${firstMissing || "front_left_45"}">
             <span aria-hidden="true">▢</span>
             <strong>부위별 사진 촬영</strong>
             <small>${c.donePhotos}/${c.totalPhotos} 필수 컷 완료</small>
           </button>
-          <button type="button" class="big-action" data-action="open-camera" data-mode="video" data-slot="${firstVideoSlot(listing)}">
+          <button type="button" class="big-action video-action" data-action="open-camera" data-mode="video" data-slot="${firstVideoSlot(listing)}">
             <span aria-hidden="true">▶</span>
             <strong>숏폼 영상 촬영</strong>
             <small>${c.doneVideos}/${c.totalVideos} 필수 영상 완료</small>
@@ -798,7 +827,7 @@
     const proofAsset = assetsForSlot(listing, selected)[0];
     return `
       <div class="section">
-        <h2 class="section-title">차원 인증 <small>한 가지 필수</small></h2>
+        <h2 class="section-title">차량 인증 <small>한 가지 필수</small></h2>
         <p class="section-hint">58닷컴 방식처럼 매물 신뢰를 위해 등록증, 성능점검기록부, 차량 명판 중 하나를 먼저 받습니다.</p>
         <div class="radio-row">
           ${proofSlots
@@ -815,7 +844,7 @@
           ${
             proofAsset
               ? `<div class="asset-grid">${renderAssetCard(proofAsset, listing)}</div>`
-              : `<button type="button" class="big-action" data-action="open-picker" data-kind="photo" data-slot="${proofSlot.id}">
+              : `<button type="button" class="big-action document-action" data-action="open-picker" data-kind="photo" data-slot="${proofSlot.id}">
                   <span aria-hidden="true">▢</span>
                   <strong>${proofSlot.label} 사진 등록</strong>
                   <small>${proofSlot.hint}</small>
