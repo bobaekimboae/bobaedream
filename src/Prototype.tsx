@@ -157,6 +157,8 @@ const displaySpecs = (specs: string[]) => specs
   .filter((spec) => !vehicleNumberPattern.test(spec.trim()))
   .map((spec, index) => index === 1 ? formatMileage(spec) : spec)
   .join(" · ");
+
+const displayListPlace = (place: string) => place.split(" · ")[0].trim();
 const emptyPrice: PriceSelection = { mode: "cash", min: 0, max: null };
 const priceSteps = [0, 500, 1000, 2000, 3000, 5000, 7000, 10000, 15000, 20000, 30000];
 const pricePresets = [
@@ -759,7 +761,7 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
           </div> : <><p className="price">{cardPricePrefix ? <span className="price-unit">{cardPricePrefix}</span> : null}<span>{cardPriceAmount}</span><span className="price-unit">{cardPriceUnit}</span></p>{car.lease ? <p className="lease">{car.lease}</p> : null}{badges.length ? <div className="badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}</>}
         </div>
         <div className="car-footer">
-          <p className="location-line"><Icon name="location-gray.svg" />{car.place}</p>
+          <p className="location-line"><Icon name="location-gray.svg" />{displayListPlace(car.place)}</p>
           <div className="dealer-line">
             <img className="dealer-avatar" src={asset(sellerAvatar(car))} alt={`${displayedSeller} 프로필`} draggable={false} />
             {cardView ? <div className="dealer-copy"><strong>{displayedSeller}</strong></div> : <p><strong>{displayedSeller}</strong></p>}
