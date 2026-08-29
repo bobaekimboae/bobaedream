@@ -107,7 +107,16 @@ function useFavorites() {
   return context;
 }
 
-const sellerLabel = (car: Car) => car.sellerType === "개인" ? "개인판매자" : car.dealer.replace(/\s*딜러$/, "");
+const sellerScenario = {
+  name: "이은호 딜러",
+  company: "한강모터스",
+  location: "서울 서초구 오토갤러리",
+  staffNumber: "SE25-00585",
+  phoneLabel: "050-6246-9261",
+  phoneHref: "tel:05062469261",
+} as const;
+
+const sellerLabel = (car: Car) => car.sellerType === "개인" ? "개인판매자" : sellerScenario.name;
 const emptyPrice: PriceSelection = { mode: "cash", min: 0, max: null };
 const priceSteps = [0, 500, 1000, 2000, 3000, 5000, 7000, 10000, 15000, 20000, 30000];
 const pricePresets = [
@@ -285,12 +294,12 @@ const defaultCars: Car[] = [
   {
     id: 1, maker: "벤츠", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 CLS 450 4MATIC", trim: "AMG Line",
     specs: ["23년06월", "18,420km", "가솔린", "흰색시트"], price: "8,420 만원",
-    place: "서울 강남구 · 오토갤러리", views: 128, dealer: "스타모터스 이준호 딜러", stock: 12, posted: "3분 전", photos: 14,
+    place: "서울 강남구 · 오토갤러리", views: 128, dealer: sellerScenario.name, stock: 12, posted: "3분 전", photos: 14,
   },
   {
     id: 2, maker: "벤츠", sellerType: "딜러", image: "detail/raw-18.jpeg", title: "벤츠 G63 AMG", trim: "매뉴팩처 프로그램",
     specs: ["21년12월", "31,900km", "가솔린", "흰색시트"], price: "19,800 만원",
-    place: "경기 성남시 · 오토갤러리", views: 301, dealer: "와이즈오토 김태윤", stock: 8, posted: "12분 전", photos: 22,
+    place: "경기 성남시 · 오토갤러리", views: 301, dealer: sellerScenario.name, stock: 8, posted: "12분 전", photos: 22,
   },
   {
     id: 3, maker: "포르쉐", sellerType: "개인", image: "detail/raw-20.jpeg", title: "포르쉐 718 박스터", trim: "4.0 GTS",
@@ -300,7 +309,7 @@ const defaultCars: Car[] = [
   {
     id: 4, maker: "벤틀리", sellerType: "딜러", image: "detail/raw-07.jpeg", title: "벤틀리 컨티넨탈 GT", trim: "6.0 W12",
     specs: ["19년11월", "42,920km", "가솔린", "검정색"], price: "15,700 만원",
-    place: "서울 서초구 · 양재전시장", views: 410, dealer: "라스트라다 최민석 딜러", stock: 21, posted: "37분 전", photos: 26,
+    place: "서울 서초구 · 양재전시장", views: 410, dealer: sellerScenario.name, stock: 21, posted: "37분 전", photos: 26,
   },
   {
     id: 5, maker: "벤틀리", sellerType: "개인", image: "detail/raw-04.png", title: "벤틀리 플라잉스퍼", trim: "4.0 V8 아주르",
@@ -310,12 +319,12 @@ const defaultCars: Car[] = [
   {
     id: 6, maker: "맥라렌", sellerType: "딜러", image: "detail/raw-19.jpeg", title: "맥라렌 570S 스파이더", trim: "3.8 V8",
     specs: ["19년08월", "19,600km", "가솔린", "흰색시트"], price: "18,900 만원",
-    place: "서울 성동구 · 성수전시장", views: 362, dealer: "프라임카 김도윤 딜러", stock: 15, posted: "2시간 전", photos: 24,
+    place: "서울 성동구 · 성수전시장", views: 362, dealer: sellerScenario.name, stock: 15, posted: "2시간 전", photos: 24,
   },
   {
     id: 7, maker: "롤스로이스", sellerType: "딜러", image: "detail/raw-05.jpeg", title: "롤스로이스 팬텀", trim: "6.7 V12 EWB",
     specs: ["13년09월", "54,200km", "가솔린", "회색시트"], price: "27,000 만원",
-    place: "서울 서초구 · 오토갤러리", views: 508, dealer: "더클래스 윤성호 딜러", stock: 6, posted: "어제", photos: 31,
+    place: "서울 서초구 · 오토갤러리", views: 508, dealer: sellerScenario.name, stock: 6, posted: "어제", photos: 31,
   },
   {
     id: 8, maker: "벤츠", sellerType: "개인", image: "cars/thumbnail.png", title: "벤츠 E 300 4MATIC", trim: "아방가르드",
@@ -325,28 +334,28 @@ const defaultCars: Car[] = [
 ];
 
 const bmwCars: Car[] = [
-  { id: 101, maker: "BMW", modelGroup: "3시리즈", sellerType: "딜러", image: "cars/bmw/3-series.webp", imageFit: "contain", title: "BMW 3시리즈 320i", trim: "M 스포츠 프로", specs: ["23년09월", "21,430km", "가솔린", "검정색"], price: "5,390 만원", place: "서울 강남구 · BMW 인증센터", views: 184, dealer: "도이치모터스 김재현 딜러", stock: 14, posted: "2분 전", photos: 19 },
+  { id: 101, maker: "BMW", modelGroup: "3시리즈", sellerType: "딜러", image: "cars/bmw/3-series.webp", imageFit: "contain", title: "BMW 3시리즈 320i", trim: "M 스포츠 프로", specs: ["23년09월", "21,430km", "가솔린", "검정색"], price: "5,390 만원", place: "서울 강남구 · BMW 인증센터", views: 184, dealer: sellerScenario.name, stock: 14, posted: "2분 전", photos: 19 },
   { id: 102, maker: "BMW", modelGroup: "3시리즈", sellerType: "개인", image: "cars/bmw/3-series.webp", imageFit: "contain", title: "BMW 3시리즈 330e", trim: "M 스포츠", specs: ["22년04월", "34,800km", "플러그인 하이브리드", "검정색"], price: "4,850 만원", place: "경기 고양시", views: 137, dealer: "개인판매자", stock: 1, posted: "18분 전", photos: 12 },
-  { id: 103, maker: "BMW", modelGroup: "X1", sellerType: "딜러", image: "cars/bmw/x1.webp", imageFit: "contain", title: "BMW X1 sDrive20i", trim: "xLine", specs: ["24년01월", "12,700km", "가솔린", "흰색시트"], price: "5,120 만원", place: "부산 해운대구 · BMW 프리미엄 셀렉션", views: 211, dealer: "동성모터스 박지훈 딜러", stock: 9, posted: "6분 전", photos: 21 },
+  { id: 103, maker: "BMW", modelGroup: "X1", sellerType: "딜러", image: "cars/bmw/x1.webp", imageFit: "contain", title: "BMW X1 sDrive20i", trim: "xLine", specs: ["24년01월", "12,700km", "가솔린", "흰색시트"], price: "5,120 만원", place: "부산 해운대구 · BMW 프리미엄 셀렉션", views: 211, dealer: sellerScenario.name, stock: 9, posted: "6분 전", photos: 21 },
   { id: 104, maker: "BMW", modelGroup: "X1", sellerType: "개인", image: "cars/bmw/x1.webp", imageFit: "contain", title: "BMW X1 xDrive20i", trim: "M 스포츠", specs: ["23년07월", "18,050km", "가솔린", "흰색시트"], price: "5,450 만원", place: "대전 유성구", views: 102, dealer: "개인판매자", stock: 1, posted: "41분 전", photos: 15 },
-  { id: 105, maker: "BMW", modelGroup: "5시리즈", sellerType: "딜러", image: "cars/bmw/5-series.webp", imageFit: "contain", title: "BMW 5시리즈 530i", trim: "M 스포츠", specs: ["24년03월", "9,820km", "가솔린", "남색"], price: "7,640 만원", place: "서울 성동구 · 성수 전시장", views: 328, dealer: "한독모터스 오세훈 딜러", stock: 18, posted: "9분 전", photos: 27 },
-  { id: 106, maker: "BMW", modelGroup: "5시리즈", sellerType: "딜러", image: "cars/bmw/5-series.webp", imageFit: "contain", title: "BMW 5시리즈 520i", trim: "럭셔리", specs: ["22년11월", "29,600km", "가솔린", "남색"], price: "5,750 만원", place: "광주 서구 · BMW 인증센터", views: 165, dealer: "코오롱모터스 한소희 딜러", stock: 11, posted: "53분 전", photos: 17 },
-  { id: 107, maker: "BMW", modelGroup: "X3", sellerType: "딜러", image: "cars/bmw/x3.webp", imageFit: "contain", title: "BMW X3 xDrive20i", trim: "M 스포츠 프로", specs: ["24년02월", "14,390km", "가솔린", "갈색"], price: "7,180 만원", place: "경기 수원시 · BMW 프리미엄 셀렉션", views: 287, dealer: "내쇼날모터스 정우성 딜러", stock: 7, posted: "4분 전", photos: 23 },
+  { id: 105, maker: "BMW", modelGroup: "5시리즈", sellerType: "딜러", image: "cars/bmw/5-series.webp", imageFit: "contain", title: "BMW 5시리즈 530i", trim: "M 스포츠", specs: ["24년03월", "9,820km", "가솔린", "남색"], price: "7,640 만원", place: "서울 성동구 · 성수 전시장", views: 328, dealer: sellerScenario.name, stock: 18, posted: "9분 전", photos: 27 },
+  { id: 106, maker: "BMW", modelGroup: "5시리즈", sellerType: "딜러", image: "cars/bmw/5-series.webp", imageFit: "contain", title: "BMW 5시리즈 520i", trim: "럭셔리", specs: ["22년11월", "29,600km", "가솔린", "남색"], price: "5,750 만원", place: "광주 서구 · BMW 인증센터", views: 165, dealer: sellerScenario.name, stock: 11, posted: "53분 전", photos: 17 },
+  { id: 107, maker: "BMW", modelGroup: "X3", sellerType: "딜러", image: "cars/bmw/x3.webp", imageFit: "contain", title: "BMW X3 xDrive20i", trim: "M 스포츠 프로", specs: ["24년02월", "14,390km", "가솔린", "갈색"], price: "7,180 만원", place: "경기 수원시 · BMW 프리미엄 셀렉션", views: 287, dealer: sellerScenario.name, stock: 7, posted: "4분 전", photos: 23 },
   { id: 108, maker: "BMW", modelGroup: "X3", sellerType: "개인", image: "cars/bmw/x3.webp", imageFit: "contain", title: "BMW X3 xDrive30e", trim: "M 스포츠", specs: ["22년08월", "41,200km", "플러그인 하이브리드", "갈색"], price: "5,980 만원", place: "울산 남구", views: 119, dealer: "개인판매자", stock: 1, posted: "1시간 전", photos: 14 },
-  { id: 109, maker: "BMW", modelGroup: "1시리즈", sellerType: "딜러", image: "cars/bmw/1-series.webp", imageFit: "contain", title: "BMW 1시리즈 120i", trim: "M 스포츠", specs: ["23년05월", "25,900km", "가솔린", "흰색시트"], price: "3,890 만원", place: "인천 남동구 · BMW 인증센터", views: 148, dealer: "바바리안모터스 장민호 딜러", stock: 13, posted: "14분 전", photos: 18 },
+  { id: 109, maker: "BMW", modelGroup: "1시리즈", sellerType: "딜러", image: "cars/bmw/1-series.webp", imageFit: "contain", title: "BMW 1시리즈 120i", trim: "M 스포츠", specs: ["23년05월", "25,900km", "가솔린", "흰색시트"], price: "3,890 만원", place: "인천 남동구 · BMW 인증센터", views: 148, dealer: sellerScenario.name, stock: 13, posted: "14분 전", photos: 18 },
   { id: 110, maker: "BMW", modelGroup: "1시리즈", sellerType: "개인", image: "cars/bmw/1-series.webp", imageFit: "contain", title: "BMW 1시리즈 M135i", trim: "xDrive", specs: ["22년06월", "33,100km", "가솔린", "흰색시트"], price: "4,320 만원", place: "경남 창원시", views: 202, dealer: "개인판매자", stock: 1, posted: "2시간 전", photos: 20 },
 ];
 
 const benzCars: Car[] = [
-  { id: 201, maker: "벤츠", modelGroup: "E클래스", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 E클래스 E 300 4MATIC", trim: "AMG Line", specs: ["23년06월", "18,420km", "가솔린", "흰색시트"], price: "8,420 만원", place: "서울 강남구 · 한성자동차", views: 128, dealer: "스타모터스 이준호 딜러", stock: 12, posted: "3분 전", photos: 14 },
+  { id: 201, maker: "벤츠", modelGroup: "E클래스", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 E클래스 E 300 4MATIC", trim: "AMG Line", specs: ["23년06월", "18,420km", "가솔린", "흰색시트"], price: "8,420 만원", place: "서울 강남구 · 한성자동차", views: 128, dealer: sellerScenario.name, stock: 12, posted: "3분 전", photos: 14 },
   { id: 202, maker: "벤츠", modelGroup: "E클래스", sellerType: "개인", image: "cars/thumbnail.png", title: "벤츠 E클래스 E 220 d 4MATIC", trim: "Exclusive", specs: ["22년02월", "36,700km", "디젤", "흰색시트"], price: "5,480 만원", place: "인천 연수구", views: 96, dealer: "개인판매자", stock: 1, posted: "18분 전", photos: 11 },
-  { id: 203, maker: "벤츠", modelGroup: "S클래스", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 S클래스 S 450 4MATIC", trim: "Long", specs: ["23년11월", "11,840km", "가솔린", "검정색"], price: "16,900 만원", place: "서울 서초구 · 더클래스 효성", views: 342, dealer: "효성프리미어모터스 박정우 딜러", stock: 7, posted: "7분 전", photos: 24 },
+  { id: 203, maker: "벤츠", modelGroup: "S클래스", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 S클래스 S 450 4MATIC", trim: "Long", specs: ["23년11월", "11,840km", "가솔린", "검정색"], price: "16,900 만원", place: "서울 서초구 · 더클래스 효성", views: 342, dealer: sellerScenario.name, stock: 7, posted: "7분 전", photos: 24 },
   { id: 204, maker: "벤츠", modelGroup: "S클래스", sellerType: "개인", image: "cars/thumbnail.png", title: "벤츠 S클래스 S 580 e 4MATIC", trim: "Long", specs: ["22년09월", "28,100km", "플러그인 하이브리드", "회색시트"], price: "14,700 만원", place: "경기 성남시", views: 207, dealer: "개인판매자", stock: 1, posted: "32분 전", photos: 18 },
-  { id: 205, maker: "벤츠", modelGroup: "GLC클래스", sellerType: "딜러", image: "detail/raw-18.jpeg", title: "벤츠 GLC클래스 GLC 300 4MATIC", trim: "AMG Line", specs: ["24년01월", "9,760km", "가솔린", "흰색시트"], price: "7,950 만원", place: "부산 해운대구 · 벤츠 인증중고차", views: 255, dealer: "스타자동차 김민석 딜러", stock: 9, posted: "11분 전", photos: 21 },
+  { id: 205, maker: "벤츠", modelGroup: "GLC클래스", sellerType: "딜러", image: "detail/raw-18.jpeg", title: "벤츠 GLC클래스 GLC 300 4MATIC", trim: "AMG Line", specs: ["24년01월", "9,760km", "가솔린", "흰색시트"], price: "7,950 만원", place: "부산 해운대구 · 벤츠 인증중고차", views: 255, dealer: sellerScenario.name, stock: 9, posted: "11분 전", photos: 21 },
   { id: 206, maker: "벤츠", modelGroup: "GLC클래스", sellerType: "개인", image: "detail/raw-18.jpeg", title: "벤츠 GLC클래스 GLC 220 d 4MATIC", trim: "Avantgarde", specs: ["21년08월", "44,200km", "디젤", "흰색시트"], price: "4,890 만원", place: "대전 유성구", views: 154, dealer: "개인판매자", stock: 1, posted: "46분 전", photos: 13 },
-  { id: 207, maker: "벤츠", modelGroup: "GLE클래스", sellerType: "딜러", image: "detail/raw-18.jpeg", title: "벤츠 GLE클래스 GLE 450 4MATIC", trim: "AMG Line", specs: ["23년04월", "22,600km", "가솔린", "흰색시트"], price: "11,900 만원", place: "경기 수원시 · 벤츠 인증중고차", views: 319, dealer: "모터원 이재훈 딜러", stock: 15, posted: "5분 전", photos: 27 },
+  { id: 207, maker: "벤츠", modelGroup: "GLE클래스", sellerType: "딜러", image: "detail/raw-18.jpeg", title: "벤츠 GLE클래스 GLE 450 4MATIC", trim: "AMG Line", specs: ["23년04월", "22,600km", "가솔린", "흰색시트"], price: "11,900 만원", place: "경기 수원시 · 벤츠 인증중고차", views: 319, dealer: sellerScenario.name, stock: 15, posted: "5분 전", photos: 27 },
   { id: 208, maker: "벤츠", modelGroup: "GLE클래스", sellerType: "개인", image: "detail/raw-18.jpeg", title: "벤츠 GLE클래스 GLE 300 d 4MATIC", trim: "Premium", specs: ["22년12월", "31,300km", "디젤", "흰색시트"], price: "8,780 만원", place: "광주 서구", views: 181, dealer: "개인판매자", stock: 1, posted: "1시간 전", photos: 17 },
-  { id: 209, maker: "벤츠", modelGroup: "C클래스", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 C클래스 C 300 4MATIC", trim: "AMG Line", specs: ["24년02월", "7,900km", "가솔린", "흰색시트"], price: "6,480 만원", place: "서울 성동구 · KCC오토", views: 223, dealer: "KCC오토 장현수 딜러", stock: 11, posted: "9분 전", photos: 20 },
+  { id: 209, maker: "벤츠", modelGroup: "C클래스", sellerType: "딜러", image: "cars/thumbnail.png", title: "벤츠 C클래스 C 300 4MATIC", trim: "AMG Line", specs: ["24년02월", "7,900km", "가솔린", "흰색시트"], price: "6,480 만원", place: "서울 성동구 · KCC오토", views: 223, dealer: sellerScenario.name, stock: 11, posted: "9분 전", photos: 20 },
   { id: 210, maker: "벤츠", modelGroup: "C클래스", sellerType: "개인", image: "cars/thumbnail.png", title: "벤츠 C클래스 C 200 Avantgarde", trim: "Avantgarde", specs: ["22년05월", "29,400km", "가솔린", "흰색시트"], price: "4,350 만원", place: "경남 창원시", views: 117, dealer: "개인판매자", stock: 1, posted: "2시간 전", photos: 12 },
 ];
 
@@ -358,7 +367,7 @@ const makeChoTotCar = (id: number, seed: ChoTotCarSeed): Car => ({
   id,
   sellerType: seed.title.includes("개인") ? "개인" : seed.maker === "제네시스" || seed.maker === "현대" && seed.title.includes("아이오닉") || seed.maker === "렉서스" || seed.maker === "포르쉐" ? "개인" : "딜러",
   views: 160 + id * 17,
-  dealer: seed.title.includes("개인") ? "개인판매자" : `${seed.maker} 인증센터 딜러`,
+  dealer: seed.title.includes("개인") ? "개인판매자" : sellerScenario.name,
   stock: seed.title.includes("개인") ? 1 : 6,
   posted: `${(id % 11) + 2}분 전`,
   photos: 12 + (id % 16),
@@ -1258,8 +1267,8 @@ function WarrantyCard() {
 function SellerCard() {
   return (
     <section className="detail-card seller-card">
-      <div className="seller-profile"><img src={asset("detail/raw-10.jpeg")} alt="한강모터스 박성수" /><div><h2>한강모터스 박성수</h2><p><b>10대</b> 판매완료 · <b>5대</b> 판매중</p><p>● 서울 서초구 오토갤러리</p></div></div>
-      <dl className="detail-rows"><div><dt>종사원번호</dt><dd>SE25-00585 <u>상사/조합정보</u></dd></div><div><dt>매매유형</dt><dd>매매알선(소속 상사 매물)</dd></div></dl>
+      <div className="seller-profile"><img src={asset("detail/raw-10.jpeg")} alt={sellerScenario.name} /><div><h2>{sellerScenario.name}</h2><p><b>10대</b> 판매완료 · <b>5대</b> 판매중</p><p>● {sellerScenario.location}</p></div></div>
+      <dl className="detail-rows"><div><dt>종사원번호</dt><dd>{sellerScenario.staffNumber} <u>상사/조합정보</u></dd></div><div><dt>매매유형</dt><dd>매매알선(소속 상사 매물)</dd></div></dl>
     </section>
   );
 }
@@ -1319,15 +1328,15 @@ function VehicleDetail() {
             <SaleCard />
             <DescriptionCard />
           </div>
-          <CarRail title="김종선 딜러의 다른 매물" cars={relatedCars} />
+          <CarRail title={`${sellerScenario.name}의 다른 매물`} cars={relatedCars} />
           <CarRail title="동급매물" cars={classCars} />
           <p className="safety-copy">안전한 거래와 허위매물 근절을 위해 안심번호(050) 이용 시 통화 내용이 보배드림에 안전하게 보관됩니다.<br />보배드림은 등록 시스템만 제공하며, 판매자가 직접 등록한 차량에 대한 모든 책임은 판매자에게 있습니다. <button type="button" onClick={() => notify("신고하기를 선택했어요")}>신고하기</button></p>
         </main>
       </MobileScroll>
       {toast ? <div className="detail-toast" role="status">{toast}</div> : null}
-      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && setSheet(null)} title={sheet === "priceHistory" ? "가격 변동 내역" : sheet === "more" ? "매물 더보기" : "판매자 상담"} description={sheet === "priceHistory" ? undefined : sheet === "more" ? "원하는 작업을 선택하세요." : "한강모터스 박성수에게 문의할 수 있어요."} snap={sheet === "priceHistory" ? 0.75 : 0.42}>
+      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && setSheet(null)} title={sheet === "priceHistory" ? "가격 변동 내역" : sheet === "more" ? "매물 더보기" : "판매자 상담"} description={sheet === "priceHistory" ? undefined : sheet === "more" ? "원하는 작업을 선택하세요." : `${sellerScenario.name}에게 문의할 수 있어요.`} snap={sheet === "priceHistory" ? 0.75 : 0.42}>
         {sheet === "priceHistory" ? <PriceHistorySheet onClose={() => setSheet(null)} /> : <div className="detail-sheet-actions">
-          {sheet === "more" ? <><button type="button" onClick={() => { notify("매물 신고를 선택했어요"); setSheet(null); }}>허위매물 신고</button><button type="button" onClick={() => { notify("판매자를 차단했어요"); setSheet(null); }}>판매자 차단</button><button type="button" onClick={() => setSheet(null)}>취소</button></> : <><a href="tel:05062469261"><MobileIcon /> 050-6246-9261 전화하기</a><button type="button" onClick={() => { notify("상담 요청을 보냈어요"); setSheet(null); }}>문자로 상담 요청</button><button type="button" onClick={() => setSheet(null)}>닫기</button></>}
+          {sheet === "more" ? <><button type="button" onClick={() => { notify("매물 신고를 선택했어요"); setSheet(null); }}>허위매물 신고</button><button type="button" onClick={() => { notify("판매자를 차단했어요"); setSheet(null); }}>판매자 차단</button><button type="button" onClick={() => setSheet(null)}>취소</button></> : <><a href={sellerScenario.phoneHref}><MobileIcon /> {sellerScenario.phoneLabel} 전화하기</a><button type="button" onClick={() => { notify("상담 요청을 보냈어요"); setSheet(null); }}>문자로 상담 요청</button><button type="button" onClick={() => setSheet(null)}>닫기</button></>}
         </div>}
       </BottomSheet>
     </div>
