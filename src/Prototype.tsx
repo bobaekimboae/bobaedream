@@ -884,12 +884,11 @@ function MarketplaceScreen() {
   };
 
   const chooseCategoryFilter = (categoryName: string) => {
-    const nextCategory = categoryName === "전체" ? "중고차" : categoryName;
-    if (["중고차", "국산차", "수입차", "전기차"].includes(nextCategory)) {
-      const nextFilters = { ...filters, category: nextCategory, maker: null, model: null };
+    if (["전체", "중고차", "국산차", "수입차", "전기차"].includes(categoryName)) {
+      const nextFilters = { ...filters, category: categoryName, maker: null, model: null };
       setFilters(nextFilters);
       setDraftFilters(nextFilters);
-      setCategoryLandingOpen(false);
+      setCategoryLandingOpen(categoryName === "전체");
       closeSheet();
       return;
     }
