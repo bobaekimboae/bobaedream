@@ -67,7 +67,7 @@ Confirmed direction:
   spacing close to ChoTot.
 - Use black for the Bobaedream bottom CTA instead of ChoTot yellow.
 - Do not use checkmarks, two-column icon cards, or large category tiles.
-- Keep `전체 차량` and `중고차` as distinct states so the all-vehicle category
+- Keep `전체` and `중고차` as distinct states so the all-vehicle category
   does not collide with passenger used cars.
 - Exclude `하이브리드` from vehicle category. It belongs in fuel/powertrain.
 - After category selection, update the active top chip, search placeholder,
