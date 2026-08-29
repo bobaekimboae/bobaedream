@@ -711,7 +711,10 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
         <div className="car-main">
           {cardView ? (
             <div className="card-title-row">
-              <h2>{car.title} {car.trim}</h2>
+              <div className="car-title-copy">
+                <h2>{car.title}</h2>
+                <p className="trim">{car.trim}</p>
+              </div>
               <div className="card-title-actions">
                 <button className="card-more-button" type="button" aria-label={`${car.title} 더보기`} onClick={(event) => event.stopPropagation()}><Icon name="card-more.svg" /></button>
                 {likeButton}
@@ -720,7 +723,10 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
           ) : (
             <>
               <div className="car-title-row">
-                <h2>{car.title} {car.trim}</h2>
+                <div className="car-title-copy">
+                  <h2>{car.title}</h2>
+                  <p className="trim">{car.trim}</p>
+                </div>
                 {likeButton}
               </div>
             </>
