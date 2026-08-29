@@ -912,7 +912,7 @@ function MarketplaceScreen() {
               <FilterChip label={maker ?? "제조사"} active={Boolean(maker)} onClick={() => openQuickFilter("maker")} onClear={maker ? () => setFilters((current) => ({ ...current, maker: null, model: null })) : undefined} />
               <FilterChip label={filters.year === "전체" ? "연식" : filters.year} active={filters.year !== "전체"} onClick={() => openQuickFilter("year")} />
               <FilterChip label={priceFilterLabel(price)} active={price.min !== 0 || price.max !== null} onClick={() => openQuickFilter("price")} />
-              <FilterChip label={filters.condition === "전체" ? "차량 상태" : filters.condition} active={filters.condition !== "전체"} onClick={() => openQuickFilter("condition")} />
+              <FilterChip label={filters.condition === "전체" ? "상태" : filters.condition} active={filters.condition !== "전체"} onClick={() => openQuickFilter("condition")} />
               <FilterChip label={filters.seller === "전체" ? "판매자" : filters.seller} active={filters.seller !== "전체"} onClick={() => openQuickFilter("seller")} />
               <FilterChip label={selectedModel ?? "모델"} active={Boolean(selectedModel)} onClick={() => openQuickFilter("model")} />
               <FilterChip label={filters.seats === "전체" ? "좌석 수" : filters.seats} active={filters.seats !== "전체"} onClick={() => openQuickFilter("seats")} />
