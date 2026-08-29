@@ -909,7 +909,7 @@ function MarketplaceScreen() {
           <section className={`filter-shell${activeFilterCount ? " has-active-filters" : ""}`} aria-label="중고차 필터">
             <button className="filter-fixed" type="button" aria-label={activeFilterCount ? `필터 ${activeFilterCount}개 적용됨` : "필터"} onClick={() => { setDraftFilters(filters); setFilterFocus(null); setSheet("filter"); }}><Icon name="filter.svg" /><span>{activeFilterCount || "필터"}</span></button>
             <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
-              <FilterChip label={categoryIsDefault ? "전체차량" : category} active onClick={() => openQuickFilter("category")} onClear={() => setFilters((current) => ({ ...current, category: "전체", maker: null, model: null }))} />
+              <FilterChip label={categoryIsDefault ? "전체" : category} active onClick={() => openQuickFilter("category")} onClear={() => setFilters((current) => ({ ...current, category: "전체", maker: null, model: null }))} />
               <FilterChip label={maker ?? "제조사"} active={Boolean(maker)} onClick={() => openQuickFilter("maker")} onClear={maker ? () => setFilters((current) => ({ ...current, maker: null, model: null })) : undefined} />
               <FilterChip label={filters.year === "전체" ? "연식" : filters.year} active={filters.year !== "전체"} onClick={() => openQuickFilter("year")} />
               <FilterChip label={priceFilterLabel(price)} active={price.min !== 0 || price.max !== null} onClick={() => openQuickFilter("price")} />
