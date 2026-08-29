@@ -119,7 +119,7 @@ button { color: inherit; }
 .car-title-row { display: grid; grid-template-columns: minmax(0, 1fr) 28px; align-items: start; gap: 6px; min-width: 0; }
 .car-title-row h2 { min-width: 0; }
 .specs { margin-top: 3px !important; overflow: hidden; color: #878787; font-size: 13px; font-weight: 400; line-height: 18px; text-overflow: ellipsis; white-space: nowrap; }
-.price { margin-top: 1px !important; color: var(--accent); font-size: 18.5px; font-weight: 800; line-height: 23px; letter-spacing: 0; }
+.price { margin-top: 1px !important; color: #1a1a1a; font-size: 18.5px; font-weight: 800; line-height: 23px; letter-spacing: 0; }
 .lease { margin-top: 0 !important; overflow: hidden; color: #858585; font-size: 12.5px; font-weight: 500; line-height: 17px; text-overflow: ellipsis; white-space: nowrap; }
 .badges { display: flex; gap: 4px; margin-top: 3px; overflow: hidden; }
 .badges span { display: inline-flex; align-items: center; height: 18px; padding: 0 6px; border-radius: 4px; background: #f1f1f1; color: #666; font-size: 11px; font-weight: 400; line-height: 18px; white-space: nowrap; }
