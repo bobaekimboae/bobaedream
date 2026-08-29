@@ -1,144 +1,23 @@
 <!doctype html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>보배드림 촬영 업로드</title>
+    <meta
+      name="description"
+      content="보배드림 딜러와 촬영팀을 위한 휴대폰 숏폼 촬영 업로더 프로토타입"
+    />
+    <title>보배드림 숏폼 촬영 업로더</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="app-shell" aria-label="보배드림 촬영 업로드 프로토타입">
-      <section id="formScreen" class="screen screen-form is-active">
-        <header class="form-header">
-          <button class="icon-button" type="button" aria-label="뒤로가기">‹</button>
-          <div class="title-stack">
-            <h1>중고차 등록</h1>
-            <span>완성도 20%</span>
-          </div>
-          <button class="draft-button" type="button">임시저장 <b id="draftCount">0</b></button>
-        </header>
-        <div class="progress-line"><span></span></div>
+    <div id="app" class="app-root"></div>
 
-        <div class="form-content">
-          <section class="field-block">
-            <h2>차량 소재지 <em>(필수)</em></h2>
-            <button class="select-row" id="cityButton" type="button">
-              <span id="cityValue">서울</span>
-              <small>변경</small>
-            </button>
-          </section>
+    <input id="filePicker" type="file" accept="image/*,video/*" multiple hidden />
+    <input id="replacePicker" type="file" accept="image/*,video/*" hidden />
 
-          <section class="field-block media-section">
-            <div class="section-row">
-              <h2>사진 및 동영상 <em>(필수)</em></h2>
-              <button class="rule-button" type="button">촬영 가이드</button>
-            </div>
-            <p class="notice">첫 사진은 차량 앞 45도 사진을 권장합니다. 사진과 영상은 최대 20개까지 등록됩니다.</p>
-            <div class="upload-choice">
-              <button id="addPhoto" type="button">
-                <span class="line-icon camera-icon" aria-hidden="true"></span>
-                사진 추가
-              </button>
-              <button id="addVideo" type="button">
-                <span class="line-icon video-icon" aria-hidden="true"></span>
-                영상 추가
-              </button>
-            </div>
-            <div id="mediaPreview" class="media-preview" aria-live="polite"></div>
-          </section>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-          <section class="field-block">
-            <h2>촬영 방식 <em>(선택)</em></h2>
-            <div class="mode-toggle" role="radiogroup" aria-label="촬영 방식">
-              <button class="is-active" type="button" data-capture-mode="free">자유 숏폼</button>
-              <button type="button" data-capture-mode="guided">템플릿 촬영</button>
-            </div>
-            <p id="modeSummary" class="helper-copy">틱톡처럼 정해진 섹션 없이 딜러가 자유롭게 촬영한 영상을 그대로 올립니다.</p>
-          </section>
-
-          <section class="field-block">
-            <h2>매물 분류 <em>Cars24식 보기</em></h2>
-            <div id="categoryRail" class="category-rail" aria-label="매물 분류"></div>
-            <p id="categorySummary" class="helper-copy">SUV 분류로 촬영 템플릿과 리스트 노출 기준을 잡습니다.</p>
-          </section>
-
-          <section class="field-block">
-            <h2>촬영 부위 템플릿 <em>운영 기준</em></h2>
-            <div id="capturePlan" class="capture-plan"></div>
-          </section>
-
-          <section class="field-block proof-section">
-            <h2>차량 인증 <em>(1개 이상)</em></h2>
-            <div class="proof-tabs" role="radiogroup" aria-label="차량 인증 방식">
-              <label><input type="radio" name="proof" value="license" checked /> 자동차 등록증</label>
-              <label><input type="radio" name="proof" value="inspection" /> 성능점검표</label>
-              <label><input type="radio" name="proof" value="plate" /> 차량번호판</label>
-            </div>
-            <button id="proofCapture" class="proof-upload" type="button">
-              <span class="line-icon camera-icon" aria-hidden="true"></span>
-              <strong id="proofLabel">자동차 등록증 촬영</strong>
-              <small>매물 검수용으로만 사용</small>
-            </button>
-          </section>
-
-          <section class="field-block">
-            <h2>VIN 번호 <em>(선택)</em></h2>
-            <input id="vinInput" class="vin-input" placeholder="차대번호 17자리 입력" maxlength="17" />
-          </section>
-        </div>
-
-        <footer class="bottom-submit">
-          <button class="save-draft" id="saveDraft" type="button">임시저장</button>
-          <button class="primary-submit" id="publishButton" type="button">등록 정보 저장</button>
-        </footer>
-      </section>
-
-      <section id="cameraScreen" class="screen screen-camera" aria-label="차량 촬영">
-        <header class="dark-header">
-          <button class="close-button" id="closeCamera" type="button" aria-label="닫기">×</button>
-          <h1>차량 영상</h1>
-          <button class="flash-button" id="flashButton" type="button" aria-label="밝기 보정">번개</button>
-        </header>
-        <div class="camera-stage">
-          <video id="cameraFeed" autoplay muted playsinline></video>
-          <div id="cameraFallback" class="camera-fallback"></div>
-          <div class="guide-pill" id="guidePill">차량 외관 촬영</div>
-          <div class="focus-frame" aria-hidden="true">
-            <span></span><span></span><span></span><span></span>
-          </div>
-          <p class="guide-text">선택한 촬영 위치가 맞는지 확인해 주세요</p>
-          <div class="shot-tabs" id="shotTabs"></div>
-        </div>
-        <footer class="camera-controls">
-          <button class="mode-button is-active" data-mode="shoot" type="button">촬영</button>
-          <button class="record-button" id="recordButton" type="button" aria-label="녹화 시작"><span></span></button>
-          <button class="mode-button" id="openAlbumFromCamera" data-mode="album" type="button">앨범</button>
-        </footer>
-      </section>
-
-      <section id="albumScreen" class="screen screen-album" aria-label="앨범 선택">
-        <header class="dark-header">
-          <button class="close-button" id="closeAlbum" type="button" aria-label="닫기">×</button>
-          <h1>내 앨범</h1>
-          <button class="done-button" id="albumDone" type="button">완료</button>
-        </header>
-        <div class="album-banner">차량 사진 또는 영상을 선택해 주세요</div>
-        <div class="album-actions">
-          <button id="pickFiles" type="button">내 파일 선택</button>
-          <button id="selectAllSamples" type="button">샘플 전체 선택</button>
-        </div>
-        <input id="fileInput" type="file" accept="image/*,video/*" multiple />
-        <div id="albumGrid" class="album-grid"></div>
-        <footer class="album-footer">
-          <button class="mode-button" id="albumShoot" type="button">촬영</button>
-          <strong>앨범</strong>
-          <span id="selectedCounter">0/20</span>
-        </footer>
-      </section>
-
-      <section id="toast" class="toast" role="status" aria-live="polite"></section>
-    </main>
-    <script src="./sample-assets.js"></script>
-    <script src="./app.js"></script>
+    <script src="./app.js" defer></script>
   </body>
 </html>
