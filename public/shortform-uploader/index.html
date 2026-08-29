@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="보배드림 중고차 매물 등록용 숏폼 촬영 업로더 데모"
+    />
+    <title>보배드림 숏폼 촬영 업로더</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="보배드림 홈">
+          <span class="brand-mark">B</span>
+          <span>보배드림</span>
+        </a>
+        <nav class="topnav" aria-label="주요 메뉴">
+          <a href="#shortform">숏폼카</a>
+          <a href="#form">중고차</a>
+          <a href="#research">조사표</a>
+          <a class="nav-strong" href="#form">매물등록</a>
+        </nav>
+      </header>
+
+      <main id="top" class="page-shell">
+        <section id="form" class="phone-stage" aria-labelledby="pageTitle">
+          <div class="status-strip">
+            <div>
+              <p class="eyebrow">58닷컴 등록폼 + Cars24 영상 챕터</p>
+              <h1 id="pageTitle">중고차 매물 등록</h1>
+            </div>
+            <span class="draft-pill" id="draftState">임시저장 대기</span>
+          </div>
+
+          <div class="progress-block" aria-label="등록 완료도">
+            <div class="progress-copy">
+              <strong id="progressLabel">완료도 0%</strong>
+              <span id="missingLabel">필수 사진과 영상 챕터를 등록하세요</span>
+            </div>
+            <div class="progress-track">
+              <span id="progressBar"></span>
+            </div>
+          </div>
+
+          <section class="vehicle-card" aria-labelledby="vehicleTitle">
+            <div class="vehicle-photo" id="heroPreview">
+              <div class="car-outline" aria-hidden="true"></div>
+              <span>대표 이미지</span>
+            </div>
+            <div class="vehicle-meta">
+              <p class="eyebrow">등록 예시 매물</p>
+              <h2 id="vehicleTitle">제네시스 GV80 2.5T AWD</h2>
+              <dl class="meta-grid">
+                <div>
+                  <dt>연식</dt>
+                  <dd>2024년 3월</dd>
+                </div>
+                <div>
+                  <dt>주행</dt>
+                  <dd>18,240km</dd>
+                </div>
+                <div>
+                  <dt>연료</dt>
+                  <dd>가솔린</dd>
+                </div>
+                <div>
+                  <dt>가격</dt>
+                  <dd>6,780만원</dd>
+                </div>
+              </dl>
+            </div>
+          </section>
+
+          <section class="upload-card" aria-labelledby="uploadTitle">
+            <div class="section-head">
+              <div>
+                <h2 id="uploadTitle">사진 및 영상 업로드</h2>
+                <p>첫 이미지는 좌측 전방 45도 사진을 권장합니다.</p>
+              </div>
+              <button class="text-button" type="button" data-action="rules">촬영 규칙 보기</button>
+            </div>
+
+            <div class="entry-grid">
+              <button class="entry-card" type="button" data-open-panel="photo">
+                <span class="entry-icon"><img src="./public/icons/camera.svg" alt="" /></span>
+                <strong>사진 추가</strong>
+                <small><span id="photoCount">0</span>/30장</small>
+              </button>
+              <button class="entry-card" type="button" data-open-panel="video">
+                <span class="entry-icon"><img src="./public/icons/video.svg" alt="" /></span>
+                <strong>영상 추가</strong>
+                <small><span id="videoCount">0</span>/9개</small>
+              </button>
+            </div>
+
+            <div class="mode-tabs" role="tablist" aria-label="촬영 모드">
+              <button class="mode-tab active" type="button" data-mode="template">템플릿형 촬영</button>
+              <button class="mode-tab" type="button" data-mode="freeform">자유형 숏폼</button>
+            </div>
+
+            <div class="notice-row">
+              <span>번호판 가림</span>
+              <button class="switch" type="button" id="plateMaskToggle" aria-pressed="true">
+                <span></span>
+              </button>
+            </div>
+
+            <div class="upload-queue" id="uploadQueue" aria-live="polite"></div>
+          </section>
+
+          <section class="slot-section" aria-labelledby="photoSlotsTitle">
+            <div class="section-head compact">
+              <div>
+                <h2 id="photoSlotsTitle">사진 체크리스트</h2>
+                <p id="photoMissingText">필수 12장 이상 권장</p>
+              </div>
+              <button class="small-button" type="button" data-open-panel="photo">촬영</button>
+            </div>
+            <div class="slot-list" id="photoSlots"></div>
+          </section>
+
+          <section id="shortform" class="slot-section" aria-labelledby="videoSlotsTitle">
+            <div class="section-head compact">
+              <div>
+                <h2 id="videoSlotsTitle">영상 챕터</h2>
+                <p>Cars24 방식으로 섹션별 확인</p>
+              </div>
+              <button class="small-button" type="button" data-open-panel="video">촬영</button>
+            </div>
+            <div class="chapter-grid" id="videoChapters"></div>
+          </section>
+        </section>
+
+        <aside class="viewer-panel" aria-labelledby="viewerTitle">
+          <div class="viewer-card">
+            <div class="viewer-header">
+              <div>
+                <p class="eyebrow">Cars24식 미리보기</p>
+                <h2 id="viewerTitle">매물 영상 투어</h2>
+                <span>GV80 AWD · 18,240km · 가솔린 · 6,780만원</span>
+              </div>
+              <div class="viewer-actions">
+                <button type="button" id="favoriteBtn" aria-pressed="false">♡</button>
+                <button type="button" id="muteBtn" aria-pressed="false">음소거</button>
+              </div>
+            </div>
+            <div class="video-frame" id="viewerFrame">
+              <video id="mainVideo" playsinline controls></video>
+              <div class="empty-video" id="emptyVideo">
+                <img src="./public/icons/video.svg" alt="" />
+                <strong>챕터 영상을 등록하면 여기서 재생됩니다</strong>
+                <span>하단 챕터 탭을 누르면 해당 섹션으로 이동합니다.</span>
+              </div>
+              <span class="chapter-badge" id="currentChapterBadge">Walkaround</span>
+            </div>
+            <div class="viewer-tabs" id="viewerTabs" role="tablist" aria-label="영상 챕터 탭"></div>
+          </div>
+
+          <section id="research" class="research-card" aria-labelledby="researchTitle">
+            <h2 id="researchTitle">해외 유사 솔루션 조사</h2>
+            <div class="research-table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>서비스</th>
+                    <th>핵심 기능</th>
+                    <th>적용</th>
+                  </tr>
+                </thead>
+                <tbody id="researchRows"></tbody>
+              </table>
+            </div>
+          </section>
+        </aside>
+      </main>
+
+      <div class="bottom-safe">
+        <button class="primary-action" type="button" id="saveDraftBtn">임시저장</button>
+        <button class="ghost-action" type="button" id="resetBtn">데모 초기화</button>
+      </div>
+    </div>
+
+    <section class="capture-panel" id="photoPanel" aria-hidden="true" aria-labelledby="photoPanelTitle">
+      <div class="capture-shell">
+        <div class="capture-top">
+          <button class="close-button" type="button" data-close-panel>닫기</button>
+          <h2 id="photoPanelTitle">사진 촬영</h2>
+          <button class="done-button" type="button" data-close-panel>완료</button>
+        </div>
+        <div class="camera-preview">
+          <div class="guide-frame">
+            <div class="car-outline large" aria-hidden="true"></div>
+            <span id="selectedPhotoPill">좌측 전방 45도</span>
+          </div>
+          <button class="mask-chip" type="button" id="panelMaskToggle">번호판 가림 ON</button>
+        </div>
+        <div class="capture-controls">
+          <button type="button" class="album-button" data-photo-source="album">앨범</button>
+          <button type="button" class="shutter" data-photo-source="camera" aria-label="사진 촬영"></button>
+          <span class="counter" id="photoCounterPanel">0/30</span>
+        </div>
+        <div class="capture-carousel" id="photoCarousel"></div>
+      </div>
+    </section>
+
+    <section class="capture-panel" id="videoPanel" aria-hidden="true" aria-labelledby="videoPanelTitle">
+      <div class="capture-shell">
+        <div class="capture-top">
+          <button class="close-button" type="button" data-close-panel>닫기</button>
+          <h2 id="videoPanelTitle">차량 영상</h2>
+          <button class="done-button" type="button" data-close-panel>완료</button>
+        </div>
+        <div class="camera-preview video-preview">
+          <div class="guide-frame">
+            <img src="./public/icons/video.svg" alt="" />
+            <span id="selectedVideoPill">외관 한바퀴</span>
+            <strong id="timerText">00:00</strong>
+          </div>
+        </div>
+        <div class="quick-chips" id="quickVideoChips"></div>
+        <div class="capture-controls">
+          <button type="button" class="album-button" data-video-source="album">앨범</button>
+          <button type="button" class="record-button" data-video-source="camera" aria-label="영상 촬영"></button>
+          <span class="counter" id="videoCounterPanel">0/9</span>
+        </div>
+        <div class="capture-carousel video" id="videoCarousel"></div>
+      </div>
+    </section>
+
+    <input id="photoCameraInput" class="sr-only" type="file" accept="image/*" capture="environment" />
+    <input id="photoAlbumInput" class="sr-only" type="file" accept="image/*" multiple />
+    <input id="videoCameraInput" class="sr-only" type="file" accept="video/*" capture="environment" />
+    <input id="videoAlbumInput" class="sr-only" type="file" accept="video/*" />
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./app.js" defer></script>
+  </body>
+</html>
