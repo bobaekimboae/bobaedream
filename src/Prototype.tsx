@@ -126,11 +126,30 @@ const dealerNamePool = [
   "서민호 딜러",
 ] as const;
 
+const dealerAvatarPool = [
+  "cars/sellers/lee-eunho.png",
+  "cars/sellers/kim-hyewon.png",
+  "cars/sellers/park-junseo.png",
+  "cars/sellers/choi-minjae.png",
+  "cars/sellers/jung-daeun.png",
+  "cars/sellers/oh-sehun.png",
+  "cars/sellers/han-jiwoo.png",
+  "cars/sellers/seo-minho.png",
+] as const;
+
+const privateSellerAvatar = "cars/sellers/private-seller.png";
+
 const sellerLabel = (car: Car) => {
   if (car.sellerType === "개인") return "개인판매자";
   if (car.dealer && car.dealer !== sellerScenario.name) return car.dealer;
   const index = ((car.id - 1) % dealerNamePool.length + dealerNamePool.length) % dealerNamePool.length;
   return dealerNamePool[index];
+};
+
+const sellerAvatar = (car: Car) => {
+  if (car.sellerType === "개인") return privateSellerAvatar;
+  const index = ((car.id - 1) % dealerAvatarPool.length + dealerAvatarPool.length) % dealerAvatarPool.length;
+  return dealerAvatarPool[index];
 };
 
 const vehicleNumberPattern = /^([가-힣]{2}\s*)?\d{2,3}\s*[가-힣]\s*\d{4}$/;
@@ -743,7 +762,7 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
         <div className="car-footer">
           <p className="location-line"><Icon name="location-gray.svg" />{car.place}</p>
           <div className="dealer-line">
-            <img className="dealer-avatar" src={asset("cars/dealer.png")} alt="" aria-hidden="true" draggable={false} />
+            <img className="dealer-avatar" src={asset(sellerAvatar(car))} alt={`${displayedSeller} 프로필`} draggable={false} />
             {cardView ? <div className="dealer-copy"><strong>{displayedSeller}</strong></div> : <p><strong>{displayedSeller}</strong></p>}
             {cardView ? <div className="card-contact-actions"><button type="button" aria-label={`${displayedSeller} 전화`} onClick={(event) => event.stopPropagation()}><Icon name="card-call.svg" /></button><button type="button" aria-label={`${displayedSeller} 메시지`} onClick={(event) => event.stopPropagation()}><Icon name="card-message.svg" /></button></div> : null}
           </div>
