@@ -116,7 +116,8 @@ button { color: inherit; }
 .car-main h2, .trim { overflow: hidden; color: #000; font-size: 15px; font-weight: 600; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; }
 .car-title-row { display: grid; grid-template-columns: minmax(0, 1fr) 24px; align-items: start; gap: 8px; min-width: 0; }
 .car-title-row h2 { min-width: 0; }
-.specs { margin-top: 4px !important; overflow: hidden; color: #6a6a6a; font-size: 13px; font-weight: 400; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; }
+.feature-headline { margin-top: 3px !important; overflow: hidden; color: #1b4c8c; font-size: 13px; font-weight: 600; line-height: 18px; text-overflow: ellipsis; white-space: nowrap; }
+.specs { margin-top: 2px !important; overflow: hidden; color: #6a6a6a; font-size: 13px; font-weight: 400; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; }
 .price { margin-top: 4px !important; color: var(--accent); font-size: 17px; font-weight: 700; line-height: 1.4; }
 .lease { margin-top: -1px !important; color: #767676; font-size: 13px; font-weight: 600; line-height: 1.4; }
 .badges { display: flex; gap: 4px; margin-top: 2px; }
@@ -153,7 +154,8 @@ button { color: inherit; }
 .card-title-row button { width: 24px; height: 24px; }
 .card-title-row .card-more-button .ui-icon { width: 24px; height: 24px; }
 .card-title-row .like-button svg { width: 20px; height: 20px; }
-.car-card.is-card-view .specs { height: 20px; margin-top: 6px !important; font-size: 15px; font-weight: 400; line-height: 1.4; }
+.car-card.is-card-view .feature-headline { margin-top: 6px !important; font-size: 14px; line-height: 20px; }
+.car-card.is-card-view .specs { height: 20px; margin-top: 3px !important; font-size: 15px; font-weight: 400; line-height: 1.4; }
 .card-price-block { display: flex; flex-direction: column; gap: 2px; margin-top: 4px; }
 .card-price-row { display: flex; align-items: center; gap: 2px; min-width: 0; height: 24px; white-space: nowrap; }
 .car-card.is-card-view .price { margin: 0 !important; font-size: 17px; font-weight: 700; line-height: 1.4; }
