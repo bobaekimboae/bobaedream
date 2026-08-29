@@ -109,7 +109,6 @@ function useFavorites() {
 
 const sellerScenario = {
   name: "이은호 딜러",
-  company: "한강모터스",
   location: "서울 서초구 오토갤러리",
   staffNumber: "SE25-00585",
   phoneLabel: "050-6246-9261",
