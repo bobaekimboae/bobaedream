@@ -755,9 +755,9 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
           )}
           <p className="specs">{displaySpecs(car.specs)}</p>
           {cardView ? <div className="card-price-block">
-            <div className="card-price-row"><p className="price">{cardPricePrefix ? <span className="card-price-unit">{cardPricePrefix}</span> : null}<span>{cardPriceAmount}</span><span className="card-price-unit">{cardPriceUnit}</span></p>{car.lease ? <p className="lease">{car.lease}</p> : null}</div>
+            <div className="card-price-row"><p className="price">{cardPricePrefix ? <span className="price-unit">{cardPricePrefix}</span> : null}<span>{cardPriceAmount}</span><span className="price-unit">{cardPriceUnit}</span></p>{car.lease ? <p className="lease">{car.lease}</p> : null}</div>
             {badges.length ? <div className="badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}
-          </div> : <><p className="price">{car.price}</p>{car.lease ? <p className="lease">{car.lease}</p> : null}{badges.length ? <div className="badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}</>}
+          </div> : <><p className="price">{cardPricePrefix ? <span className="price-unit">{cardPricePrefix}</span> : null}<span>{cardPriceAmount}</span><span className="price-unit">{cardPriceUnit}</span></p>{car.lease ? <p className="lease">{car.lease}</p> : null}{badges.length ? <div className="badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}</>}
         </div>
         <div className="car-footer">
           <p className="location-line"><Icon name="location-gray.svg" />{car.place}</p>
