@@ -88,15 +88,17 @@ function ChoiceChips({ options, value, onChange }: { options: string[]; value: s
 }
 
 function VehicleCategoryChooser({ value, onChange }: { value: string; onChange: (value: string) => void }) {
+  const options = value === "전체" ? vehicleCategoryOptions.filter((option) => option !== "전체") : vehicleCategoryOptions;
+
   return (
     <div className="chotot-category-source">
       <button type="button" className="chotot-category-parent" aria-expanded="true">
         <span className="chotot-category-icon" aria-hidden="true"><img src={asset("notion-list.svg")} alt="" /></span>
-        <span>차량</span>
+        <span>{value === "전체" ? "전체" : "차량"}</span>
         <span className="chotot-category-chevron is-open" aria-hidden="true"><img src={asset("notion-chevron-right.svg")} alt="" /></span>
       </button>
       <div className="chotot-category-child-chips" aria-label="차량 카테고리">
-        {vehicleCategoryOptions.map((option) => (
+        {options.map((option) => (
           <button key={option} type="button" className={value === option ? "is-selected" : ""} aria-pressed={value === option} onClick={() => onChange(option)}>{option}</button>
         ))}
       </div>
