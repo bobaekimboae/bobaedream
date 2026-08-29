@@ -715,7 +715,7 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
           <p className="location-line"><Icon name="location-gray.svg" />{car.place}</p>
           <div className="dealer-line">
             <img className="dealer-avatar" src={asset("cars/dealer.png")} alt="" aria-hidden="true" draggable={false} />
-            {cardView ? <div className="dealer-copy"><strong>{displayedSeller}</strong><p><span>판매중 <b>{car.stock}대</b></span></p></div> : <p><strong>{displayedSeller}</strong><span>· 판매중 <b>{car.stock}대</b></span></p>}
+            {cardView ? <div className="dealer-copy"><span className="seller-name-label">판매자명</span><strong>{displayedSeller}</strong><p><span>판매중 <b>{car.stock}대</b></span></p></div> : <p><span className="seller-name-label">판매자명</span><strong>{displayedSeller}</strong><span>· 판매중 <b>{car.stock}대</b></span></p>}
             {cardView ? <div className="card-contact-actions"><button type="button" aria-label={`${displayedSeller} 전화`} onClick={(event) => event.stopPropagation()}><Icon name="card-call.svg" /></button><button type="button" aria-label={`${displayedSeller} 메시지`} onClick={(event) => event.stopPropagation()}><Icon name="card-message.svg" /></button></div> : null}
           </div>
         </div>
@@ -1267,7 +1267,7 @@ function WarrantyCard() {
 function SellerCard() {
   return (
     <section className="detail-card seller-card">
-      <div className="seller-profile"><img src={asset("detail/raw-10.jpeg")} alt={sellerScenario.name} /><div><h2>{sellerScenario.name}</h2><p><b>10대</b> 판매완료 · <b>5대</b> 판매중</p><p>● {sellerScenario.location}</p></div></div>
+      <div className="seller-profile"><img src={asset("detail/raw-10.jpeg")} alt={sellerScenario.name} /><div><span className="seller-name-label">판매자명</span><h2>{sellerScenario.name}</h2><p><b>10대</b> 판매완료 · <b>5대</b> 판매중</p><p>● {sellerScenario.location}</p></div></div>
       <dl className="detail-rows"><div><dt>종사원번호</dt><dd>{sellerScenario.staffNumber} <u>상사/조합정보</u></dd></div><div><dt>매매유형</dt><dd>매매알선(소속 상사 매물)</dd></div></dl>
     </section>
   );
