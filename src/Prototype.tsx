@@ -705,7 +705,10 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
     <article className={`car-card${cardView ? " is-card-view" : ""}${badges.length ? " has-badges" : " has-no-badges"}`} role="link" tabIndex={0} aria-label={`${car.title} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
       <div className="car-photo-wrap">
         <img className={`car-photo${car.imageFit === "contain" ? " is-catalog" : ""}`} src={asset(car.image)} alt={`${car.title} ${car.trim} 차량, ${car.posted}, 사진 ${car.photos}장`} draggable={false} />
-        {cardView ? <div className="card-photo-meta"><span>{car.posted}</span><span>{car.photos}<Icon name="photo-count.svg" /></span></div> : null}
+        <div className="card-photo-meta" aria-hidden="true">
+          <span className="card-posted">{car.posted}</span>
+          <span className="card-photo-count">{car.photos}<Icon name="photo-count.svg" /></span>
+        </div>
       </div>
       <div className="car-copy">
         <div className="car-main">
@@ -1388,5 +1391,3 @@ const detailScreen: FlowScreen = { id: "vehicle-detail", footer: () => <DetailFo
 export default function Prototype() {
   return <FavoritesProvider><DetailUiProvider><FlowStack initial={listScreen} /></DetailUiProvider></FavoritesProvider>;
 }
-
-
