@@ -205,6 +205,98 @@ button {
   line-height: 1.5;
 }
 
+.helper-copy {
+  margin: 12px 0 0;
+  color: #767e88;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.mode-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4px;
+  border-radius: 10px;
+  background: #f0f2f5;
+}
+
+.mode-toggle button {
+  height: 44px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #737b85;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.mode-toggle button.is-active {
+  background: #fff;
+  color: #222;
+  box-shadow: 0 4px 14px rgba(20, 30, 45, 0.1);
+}
+
+.category-rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 3px;
+}
+
+.category-rail button {
+  height: 38px;
+  padding: 0 14px;
+  border: 1px solid #e3e6ea;
+  border-radius: 999px;
+  background: #fff;
+  color: #4a5159;
+  font-size: 14px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.category-rail button.is-active {
+  border-color: var(--orange);
+  background: #fff4ef;
+  color: #e35231;
+}
+
+.capture-plan {
+  display: grid;
+  gap: 10px;
+}
+
+.plan-row {
+  display: grid;
+  gap: 5px;
+  padding: 12px 13px;
+  border: 1px solid #eceef2;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.plan-row strong {
+  color: #222;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.plan-row span {
+  color: #e45a39;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.plan-row small {
+  color: #69717b;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
 .select-row {
   width: 100%;
   min-height: 50px;
