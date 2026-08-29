@@ -93,7 +93,7 @@ Do not add:
 | --- | --- | --- |
 | Tất cả danh mục | 전체 카테고리 | Full category sheet title in ChoTot; Bobaedream sheet title can be `차량 카테고리` when opened from the vehicle filter chip |
 | Xe cộ | 차량 | Parent row for every vehicle-related category |
-| Tất cả xe cộ | 전체 차량 | Shows every vehicle-related listing group |
+| Tất cả xe cộ | 전체 | Shows every vehicle-related listing group |
 | Ô tô | 중고차 | Shows passenger used-car inventory |
 | Bobaedream taxonomy | 국산차 | Child of `중고차`; shows domestic passenger used cars |
 | Bobaedream taxonomy | 수입차 | Child of `중고차`; shows imported passenger used cars |
@@ -109,13 +109,13 @@ Do not include `하이브리드` in the vehicle category sheet. Hybrid belongs i
 
 ## Recommended Bobaedream Vehicle Category IA
 
-The category state must distinguish `전체 차량` from `중고차`.
+The category state must distinguish `전체` from `중고차`.
 
 ```text
 차량 카테고리
 
 차량
-[전체 차량] [중고차] [국산차] [수입차]
+[전체] [중고차] [국산차] [수입차]
 [전기차] [화물 · 특장 · 버스]
 [바이크] [캠핑카] [올드카]
 [건설기계] [부품 · 용품]
@@ -123,7 +123,7 @@ The category state must distinguish `전체 차량` from `중고차`.
 
 State meaning:
 
-- `전체 차량`: no vehicle-group restriction; include all vehicle-related categories.
+- `전체`: no vehicle-group restriction; include all vehicle-related categories.
 - `중고차`: passenger used cars only; includes domestic, imported, and electric passenger used cars.
 - `국산차`: passenger used cars where maker origin is domestic.
 - `수입차`: passenger used cars where maker origin is imported.
