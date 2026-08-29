@@ -23,10 +23,10 @@ export type ChoTotFilterState = {
 
 export type ChoTotFilterFocus = "category" | "price" | "seats" | "maker" | "model" | "year" | "condition" | "mileage" | "owners" | "transmission" | "fuel" | "color" | "origin" | "body" | "video" | "seller";
 
-export const vehicleCategoryOptions = ["전체 차량", "중고차", "국산차", "수입차", "전기차", "화물 · 특장 · 버스", "바이크", "캠핑카", "올드카", "건설기계", "부품 · 용품"];
+export const vehicleCategoryOptions = ["전체", "중고차", "국산차", "수입차", "전기차", "화물 · 특장 · 버스", "바이크", "캠핑카", "올드카", "건설기계", "부품 · 용품"];
 
 export const emptyChoTotFilters: ChoTotFilterState = {
-  category: "전체 차량",
+  category: "전체",
   price: { mode: "cash", min: 0, max: null },
   seats: "전체",
   maker: null,
@@ -124,7 +124,7 @@ export function ChoTotQuickFilterSheet({ focus, value, onChange, onClose, onConf
   const setValue = <K extends keyof ChoTotFilterState>(key: K, next: ChoTotFilterState[K]) => onChange({ ...value, [key]: next });
   const chooseCategory = (next: string) => onChange({ ...value, category: next, maker: null, model: null });
   const reset = () => {
-    if (focus === "category") setValue("category", "전체 차량");
+    if (focus === "category") setValue("category", "전체");
     else if (focus === "price") onChange({ ...value, price: { mode: "cash", min: 0, max: null } });
     else if (focus === "seats") setValue("seats", "전체");
     else if (focus === "maker") onChange({ ...value, maker: null, model: null });
