@@ -147,18 +147,6 @@ const formatMileage = (value: string) => value.replace(/(\d[\d,]*)\s*km/i, (matc
   return kilometers < 10_000 ? `${Math.floor(kilometers / 1_000)}천km` : `${Math.floor(kilometers / 10_000)}만km`;
 });
 
-const listingFeaturePoints: Record<number, string> = {
-  1: "무사고",
-  2: "희소색상",
-  3: "짧은주행",
-  4: "보험이력 0건",
-};
-
-const listingTrimLine = (car: Car) => {
-  const point = listingFeaturePoints[car.id] ?? car.badges?.[0] ?? (car.filter?.condition === "신차" ? "신차급" : car.filter?.owners === "1인" ? "1인소유" : car.sellerType === "개인" ? "개인매물" : "관리우수");
-  return point ? `${car.trim} · ${point}` : car.trim;
-};
-
 const brands = [
   { name: "BMW", logo: asset("brand/bmw.svg") },
   { name: "벤츠", logo: asset("brand/benz.png") },
@@ -680,7 +668,6 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
   const cardPricePrefix = cardPriceMatch?.[1] ?? "";
   const cardPriceAmount = cardPriceMatch?.[2] ?? car.price;
   const cardPriceUnit = cardPriceMatch?.[3] ?? "";
-  const trimLine = listingTrimLine(car);
   const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -702,7 +689,7 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
         <div className="car-main">
           {cardView ? (
             <div className="card-title-row">
-              <h2>{car.title} {trimLine}</h2>
+              <h2>{car.title} {car.trim}</h2>
               <div className="card-title-actions">
                 <button className="card-more-button" type="button" aria-label={`${car.title} 더보기`} onClick={(event) => event.stopPropagation()}><Icon name="card-more.svg" /></button>
                 {likeButton}
@@ -714,7 +701,7 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
                 <h2>{car.title}</h2>
                 {likeButton}
               </div>
-              <p className="trim">{trimLine}</p>
+              <p className="trim">{car.trim}</p>
             </>
           )}
           <p className="specs">{car.specs.map((spec, index) => index === 1 ? formatMileage(spec) : spec).join(" · ")}</p>
