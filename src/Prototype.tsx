@@ -132,6 +132,12 @@ const sellerLabel = (car: Car) => {
   const index = ((car.id - 1) % dealerNamePool.length + dealerNamePool.length) % dealerNamePool.length;
   return dealerNamePool[index];
 };
+
+const vehicleNumberPattern = /^([가-힣]{2}\s*)?\d{2,3}\s*[가-힣]\s*\d{4}$/;
+const displaySpecs = (specs: string[]) => specs
+  .filter((spec) => !vehicleNumberPattern.test(spec.trim()))
+  .map((spec, index) => index === 1 ? formatMileage(spec) : spec)
+  .join(" · ");
 const emptyPrice: PriceSelection = { mode: "cash", min: 0, max: null };
 const priceSteps = [0, 500, 1000, 2000, 3000, 5000, 7000, 10000, 15000, 20000, 30000];
 const pricePresets = [
@@ -719,7 +725,7 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
               </div>
             </>
           )}
-          <p className="specs">{car.specs.map((spec, index) => index === 1 ? formatMileage(spec) : spec).join(" · ")}</p>
+          <p className="specs">{displaySpecs(car.specs)}</p>
           {cardView ? <div className="card-price-block">
             <div className="card-price-row"><p className="price">{cardPricePrefix ? <span className="card-price-unit">{cardPricePrefix}</span> : null}<span>{cardPriceAmount}</span><span className="card-price-unit">{cardPriceUnit}</span></p>{car.lease ? <p className="lease">{car.lease}</p> : null}</div>
             {badges.length ? <div className="badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}
