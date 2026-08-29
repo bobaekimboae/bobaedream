@@ -115,7 +115,23 @@ const sellerScenario = {
   phoneHref: "tel:05062469261",
 } as const;
 
-const sellerLabel = (car: Car) => car.sellerType === "개인" ? "개인판매자" : sellerScenario.name;
+const dealerNamePool = [
+  sellerScenario.name,
+  "김혜원 딜러",
+  "박준서 딜러",
+  "최민재 딜러",
+  "정다은 딜러",
+  "오세훈 딜러",
+  "한지우 딜러",
+  "서민호 딜러",
+] as const;
+
+const sellerLabel = (car: Car) => {
+  if (car.sellerType === "개인") return "개인판매자";
+  if (car.dealer && car.dealer !== sellerScenario.name) return car.dealer;
+  const index = ((car.id - 1) % dealerNamePool.length + dealerNamePool.length) % dealerNamePool.length;
+  return dealerNamePool[index];
+};
 const emptyPrice: PriceSelection = { mode: "cash", min: 0, max: null };
 const priceSteps = [0, 500, 1000, 2000, 3000, 5000, 7000, 10000, 15000, 20000, 30000];
 const pricePresets = [
