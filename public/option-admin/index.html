@@ -1,0 +1,1538 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>보배드림 옵션 관리자모드</title>
+    <style>
+      :root {
+        --bg: #f4f6f9;
+        --panel: #ffffff;
+        --panel-2: #f9fafc;
+        --line: #dbe1ea;
+        --line-2: #e9edf3;
+        --text: #1f2937;
+        --muted: #687386;
+        --soft: #8a94a6;
+        --blue: #1f5fae;
+        --blue-2: #e7f0ff;
+        --navy: #15253b;
+        --red: #d9222a;
+        --green: #15803d;
+        --amber: #b45309;
+        --shadow: 0 10px 30px rgba(21, 37, 59, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR",
+          "Apple SD Gothic Neo", Roboto, Arial, sans-serif;
+        letter-spacing: 0;
+      }
+
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      .app-shell {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 248px minmax(0, 1fr);
+      }
+
+      .sidebar {
+        background: var(--navy);
+        color: #fff;
+        padding: 22px 18px;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 26px;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        background: #fff;
+        color: var(--red);
+        font-weight: 900;
+        letter-spacing: -0.3px;
+      }
+
+      .brand strong {
+        display: block;
+        font-size: 17px;
+      }
+
+      .brand span {
+        display: block;
+        margin-top: 2px;
+        color: rgba(255, 255, 255, 0.62);
+        font-size: 12px;
+      }
+
+      .nav-title {
+        margin: 24px 10px 9px;
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .nav-item {
+        width: 100%;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.76);
+        padding: 11px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        font-size: 14px;
+      }
+
+      .nav-item.active {
+        background: #24476e;
+        color: #fff;
+      }
+
+      .nav-count {
+        min-width: 24px;
+        height: 20px;
+        border-radius: 999px;
+        display: inline-grid;
+        place-items: center;
+        background: rgba(255, 255, 255, 0.14);
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 11px;
+      }
+
+      .content {
+        min-width: 0;
+      }
+
+      .topbar {
+        height: 66px;
+        background: rgba(255, 255, 255, 0.92);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(10px);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 28px;
+      }
+
+      .topbar h1 {
+        margin: 0;
+        font-size: 20px;
+        line-height: 1.2;
+      }
+
+      .topbar p {
+        margin: 4px 0 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .top-actions,
+      .toolbar-actions,
+      .row-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn {
+        min-height: 36px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--text);
+        padding: 0 13px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        font-weight: 750;
+        font-size: 13px;
+        white-space: nowrap;
+      }
+
+      .btn.primary {
+        border-color: var(--blue);
+        background: var(--blue);
+        color: #fff;
+      }
+
+      .btn.danger {
+        border-color: #ffe0e2;
+        color: var(--red);
+        background: #fff7f7;
+      }
+
+      .btn.icon {
+        width: 36px;
+        padding: 0;
+      }
+
+      .main-grid {
+        padding: 22px 28px 34px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 376px;
+        gap: 18px;
+        align-items: start;
+      }
+
+      .metric-grid {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(5, minmax(140px, 1fr));
+        gap: 10px;
+      }
+
+      .metric {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 14px 15px;
+        box-shadow: 0 1px 0 rgba(21, 37, 59, 0.03);
+      }
+
+      .metric span {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .metric strong {
+        display: block;
+        margin-top: 6px;
+        font-size: 24px;
+        line-height: 1;
+      }
+
+      .metric small {
+        display: block;
+        margin-top: 8px;
+        color: var(--soft);
+        font-size: 11px;
+      }
+
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .panel-head {
+        min-height: 58px;
+        border-bottom: 1px solid var(--line);
+        padding: 14px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+      }
+
+      .panel-head h2,
+      .form-section h3 {
+        margin: 0;
+        font-size: 15px;
+      }
+
+      .panel-head p {
+        margin: 4px 0 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .toolbar {
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--line-2);
+        display: grid;
+        grid-template-columns: minmax(220px, 1fr) 140px 140px 122px auto;
+        gap: 8px;
+      }
+
+      .field {
+        display: grid;
+        gap: 6px;
+      }
+
+      .field label {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .input,
+      .select,
+      .textarea {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--text);
+        min-height: 38px;
+        padding: 0 11px;
+        outline: none;
+      }
+
+      .textarea {
+        min-height: 74px;
+        padding: 10px 11px;
+        resize: vertical;
+      }
+
+      .input:focus,
+      .select:focus,
+      .textarea:focus {
+        border-color: #8fb6e8;
+        box-shadow: 0 0 0 3px rgba(31, 95, 174, 0.12);
+      }
+
+      .table-wrap {
+        overflow: auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 980px;
+      }
+
+      th {
+        height: 42px;
+        background: #f7f9fc;
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
+        text-align: left;
+        font-size: 12px;
+        font-weight: 850;
+        padding: 0 10px;
+        white-space: nowrap;
+      }
+
+      td {
+        border-bottom: 1px solid var(--line-2);
+        padding: 12px 10px;
+        font-size: 13px;
+        vertical-align: middle;
+      }
+
+      tbody tr {
+        transition: background 0.16s ease;
+      }
+
+      tbody tr:hover {
+        background: #f8fbff;
+      }
+
+      tbody tr.selected {
+        background: #eef6ff;
+      }
+
+      .option-cell {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 210px;
+      }
+
+      .icon-box {
+        width: 36px;
+        height: 36px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        display: grid;
+        place-items: center;
+        color: #526070;
+        flex: 0 0 auto;
+      }
+
+      .icon-box svg {
+        width: 21px;
+        height: 21px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 1.9;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .option-main strong {
+        display: block;
+        font-size: 13px;
+      }
+
+      .option-main span {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .badge,
+      .chip {
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        white-space: nowrap;
+        font-size: 11px;
+        font-weight: 850;
+      }
+
+      .badge {
+        min-height: 23px;
+        padding: 0 9px;
+      }
+
+      .badge.live {
+        background: #e9f8ef;
+        color: var(--green);
+      }
+
+      .badge.review {
+        background: #fff3df;
+        color: var(--amber);
+      }
+
+      .badge.hidden {
+        background: #eef1f5;
+        color: #5e6878;
+      }
+
+      .badge.blocked {
+        background: #fff0f0;
+        color: var(--red);
+      }
+
+      .badge.blue {
+        background: var(--blue-2);
+        color: var(--blue);
+      }
+
+      .chip {
+        min-height: 24px;
+        padding: 0 8px;
+        background: #f1f4f8;
+        color: #4d596b;
+        margin: 2px 3px 2px 0;
+      }
+
+      .switch-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--line-2);
+      }
+
+      .switch-row:last-child {
+        border-bottom: 0;
+      }
+
+      .switch-row strong {
+        display: block;
+        font-size: 13px;
+      }
+
+      .switch-row span {
+        display: block;
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .toggle {
+        width: 42px;
+        height: 24px;
+        border: 0;
+        border-radius: 999px;
+        padding: 2px;
+        background: #c6ccd6;
+        display: inline-flex;
+        justify-content: flex-start;
+        transition: background 0.16s ease;
+      }
+
+      .toggle::before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 1px 4px rgba(21, 37, 59, 0.25);
+        transition: transform 0.16s ease;
+      }
+
+      .toggle.on {
+        background: var(--blue);
+      }
+
+      .toggle.on::before {
+        transform: translateX(18px);
+      }
+
+      .form-panel {
+        position: sticky;
+        top: 84px;
+      }
+
+      .form-body {
+        padding: 16px;
+        display: grid;
+        gap: 16px;
+      }
+
+      .form-section {
+        display: grid;
+        gap: 10px;
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .check-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .check-pill {
+        min-height: 34px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #3b4657;
+        font-size: 12px;
+        font-weight: 750;
+      }
+
+      .check-pill input {
+        accent-color: var(--blue);
+      }
+
+      .dropzone {
+        border: 1.5px dashed #b9c4d3;
+        border-radius: 8px;
+        background: #f8fbff;
+        padding: 14px;
+        min-height: 110px;
+        display: grid;
+        grid-template-columns: 56px minmax(0, 1fr);
+        gap: 12px;
+        align-items: center;
+      }
+
+      .drop-preview {
+        width: 56px;
+        height: 56px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: #fff;
+        display: grid;
+        place-items: center;
+        color: #536071;
+        overflow: hidden;
+      }
+
+      .drop-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .drop-copy strong {
+        display: block;
+        font-size: 13px;
+      }
+
+      .drop-copy span {
+        display: block;
+        margin: 5px 0 9px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .file-input {
+        display: none;
+      }
+
+      .history {
+        display: grid;
+        gap: 8px;
+      }
+
+      .history-item {
+        border: 1px solid var(--line-2);
+        border-radius: 8px;
+        padding: 10px;
+        display: grid;
+        gap: 5px;
+        background: #fff;
+      }
+
+      .history-item strong {
+        font-size: 12px;
+      }
+
+      .history-item span {
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .toast {
+        position: fixed;
+        right: 22px;
+        bottom: 22px;
+        max-width: 340px;
+        border-radius: 8px;
+        background: #15253b;
+        color: #fff;
+        padding: 13px 15px;
+        box-shadow: 0 18px 44px rgba(21, 37, 59, 0.24);
+        font-size: 13px;
+        opacity: 0;
+        transform: translateY(12px);
+        pointer-events: none;
+        transition:
+          opacity 0.18s ease,
+          transform 0.18s ease;
+        z-index: 40;
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .empty {
+        display: none;
+        padding: 34px 18px;
+        text-align: center;
+        color: var(--muted);
+      }
+
+      .empty.show {
+        display: block;
+      }
+
+      @media (max-width: 1180px) {
+        .app-shell {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          position: relative;
+          height: auto;
+          display: grid;
+          grid-template-columns: auto 1fr;
+          gap: 12px;
+          padding: 14px 16px;
+        }
+
+        .brand {
+          margin-bottom: 0;
+        }
+
+        .nav-title {
+          display: none;
+        }
+
+        .nav-group {
+          display: flex;
+          gap: 8px;
+          overflow-x: auto;
+          align-items: center;
+        }
+
+        .nav-item {
+          width: auto;
+          min-width: max-content;
+        }
+
+        .main-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .form-panel {
+          position: static;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .topbar {
+          height: auto;
+          min-height: 64px;
+          padding: 12px 14px;
+          align-items: flex-start;
+          gap: 12px;
+          flex-direction: column;
+        }
+
+        .top-actions,
+        .toolbar-actions {
+          width: 100%;
+          overflow-x: auto;
+          padding-bottom: 2px;
+        }
+
+        .main-grid {
+          padding: 14px;
+        }
+
+        .metric-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .toolbar {
+          grid-template-columns: 1fr;
+        }
+
+        .two-col,
+        .check-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          grid-template-columns: 1fr;
+        }
+
+        .dropzone {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="관리자 메뉴">
+        <div class="brand">
+          <div class="brand-mark">B</div>
+          <div>
+            <strong>보배드림 Admin</strong>
+            <span>차량 기준정보 관리</span>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-title">기준정보</div>
+          <button class="nav-item active" type="button">
+            옵션 마스터 <span class="nav-count">352</span>
+          </button>
+          <button class="nav-item" type="button">
+            옵션 아이콘 관리 <span class="nav-count">84</span>
+          </button>
+          <button class="nav-item" type="button">
+            외부 옵션명 매핑 <span class="nav-count">128</span>
+          </button>
+          <button class="nav-item" type="button">
+            차량유형별 노출 <span class="nav-count">5</span>
+          </button>
+          <div class="nav-title">운영 검수</div>
+          <button class="nav-item" type="button">
+            승인 대기 <span class="nav-count">18</span>
+          </button>
+          <button class="nav-item" type="button">
+            변경 이력 <span class="nav-count">41</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <h1>옵션 추가 및 아이콘 등록 관리자모드</h1>
+            <p>원문 옵션명을 보배드림 공식명으로 표준화하고, 아이콘과 노출 위치를 함께 관리합니다.</p>
+          </div>
+          <div class="top-actions">
+            <button class="btn" id="exportJson" type="button">JSON 내보내기</button>
+            <button class="btn" id="resetDemo" type="button">데모 초기화</button>
+            <button class="btn primary" id="focusForm" type="button">신규 옵션 등록</button>
+          </div>
+        </header>
+
+        <section class="main-grid">
+          <div class="metric-grid" aria-label="옵션 관리 현황">
+            <div class="metric">
+              <span>전체 옵션</span>
+              <strong id="metricTotal">0</strong>
+              <small>공식 옵션명 기준</small>
+            </div>
+            <div class="metric">
+              <span>사용중</span>
+              <strong id="metricLive">0</strong>
+              <small>서비스 노출 가능</small>
+            </div>
+            <div class="metric">
+              <span>검토중</span>
+              <strong id="metricReview">0</strong>
+              <small>명칭 또는 아이콘 검수</small>
+            </div>
+            <div class="metric">
+              <span>아이콘 연결</span>
+              <strong id="metricIcon">0</strong>
+              <small>SVG/PNG 등록 완료</small>
+            </div>
+            <div class="metric">
+              <span>외부명 매핑</span>
+              <strong id="metricAlias">0</strong>
+              <small>동처디·제조사·영문명</small>
+            </div>
+          </div>
+
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>옵션 마스터 목록</h2>
+                <p>카테고리, 차종 노출, 검색필터 사용 여부를 한 번에 확인합니다.</p>
+              </div>
+              <div class="toolbar-actions">
+                <span class="badge blue" id="resultCount">0건 표시</span>
+              </div>
+            </div>
+
+            <div class="toolbar">
+              <input
+                class="input"
+                id="searchInput"
+                type="search"
+                placeholder="옵션명, 원문명, 별칭 검색"
+                aria-label="옵션 검색"
+              />
+              <select class="select" id="categoryFilter" aria-label="카테고리 필터">
+                <option value="all">전체 카테고리</option>
+                <option value="안전">안전</option>
+                <option value="편의">편의</option>
+                <option value="외관">외관</option>
+                <option value="내장">내장</option>
+                <option value="멀티미디어">멀티미디어</option>
+              </select>
+              <select class="select" id="vehicleFilter" aria-label="차량유형 필터">
+                <option value="all">전체 차량유형</option>
+                <option value="승용">승용</option>
+                <option value="SUV">SUV</option>
+                <option value="화물">화물</option>
+                <option value="캠핑카">캠핑카</option>
+                <option value="바이크">바이크</option>
+              </select>
+              <select class="select" id="statusFilter" aria-label="상태 필터">
+                <option value="all">전체 상태</option>
+                <option value="사용중">사용중</option>
+                <option value="검토중">검토중</option>
+                <option value="숨김">숨김</option>
+                <option value="폐기">폐기</option>
+              </select>
+              <button class="btn" id="clearFilters" type="button">필터 해제</button>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>상태</th>
+                    <th>공식 옵션명</th>
+                    <th>카테고리</th>
+                    <th>차량유형</th>
+                    <th>노출 정책</th>
+                    <th>외부명 매핑</th>
+                    <th>수정일</th>
+                    <th>관리</th>
+                  </tr>
+                </thead>
+                <tbody id="optionRows"></tbody>
+              </table>
+            </div>
+            <div class="empty" id="emptyState">조건에 맞는 옵션이 없습니다.</div>
+          </section>
+
+          <aside class="panel form-panel" id="formPanel">
+            <div class="panel-head">
+              <div>
+                <h2 id="formTitle">신규 옵션 등록</h2>
+                <p>명칭, 아이콘, 노출 위치를 함께 등록합니다.</p>
+              </div>
+              <span class="badge review" id="draftState">작성중</span>
+            </div>
+
+            <form class="form-body" id="optionForm">
+              <input type="hidden" id="editingId" />
+
+              <section class="form-section">
+                <h3>공식 명칭</h3>
+                <div class="two-col">
+                  <div class="field">
+                    <label for="optionName">공식 옵션명</label>
+                    <input class="input" id="optionName" required value="고속도로 주행 보조" />
+                  </div>
+                  <div class="field">
+                    <label for="shortName">짧은 표시명</label>
+                    <input class="input" id="shortName" required value="HDA" />
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="sourceName">원문명 / 직역 / 별칭</label>
+                  <textarea class="textarea" id="sourceName">Highway Driving Assist, HDA, 高速公路驾驶辅助, 고속도로 운전 보조</textarea>
+                </div>
+              </section>
+
+              <section class="form-section">
+                <h3>분류</h3>
+                <div class="two-col">
+                  <div class="field">
+                    <label for="category">카테고리</label>
+                    <select class="select" id="category">
+                      <option>안전</option>
+                      <option>편의</option>
+                      <option>외관</option>
+                      <option>내장</option>
+                      <option>멀티미디어</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="subType">세부유형</label>
+                    <input class="input" id="subType" value="주행보조" />
+                  </div>
+                </div>
+                <div class="field">
+                  <label>적용 차량유형</label>
+                  <div class="check-grid">
+                    <label class="check-pill"><input type="checkbox" name="vehicle" value="승용" checked /> 승용</label>
+                    <label class="check-pill"><input type="checkbox" name="vehicle" value="SUV" checked /> SUV</label>
+                    <label class="check-pill"><input type="checkbox" name="vehicle" value="화물" /> 화물</label>
+                    <label class="check-pill"><input type="checkbox" name="vehicle" value="캠핑카" /> 캠핑카</label>
+                    <label class="check-pill"><input type="checkbox" name="vehicle" value="바이크" /> 바이크</label>
+                  </div>
+                </div>
+              </section>
+
+              <section class="form-section">
+                <h3>아이콘 등록</h3>
+                <div class="dropzone">
+                  <div class="drop-preview" id="dropPreview" aria-label="아이콘 미리보기">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M4 16c2.6-3.6 5.3-5.4 8-5.4s5.4 1.8 8 5.4" />
+                      <path d="M8.2 16a4 4 0 0 1 7.6 0" />
+                      <path d="M12 16h.01" />
+                      <path d="M5 19h14" />
+                    </svg>
+                  </div>
+                  <div class="drop-copy">
+                    <strong>SVG 우선, PNG 보조</strong>
+                    <span>24/32/48px 미리보기 기준. 보배드림 공통 회색 라인 스타일을 권장합니다.</span>
+                    <label class="btn" for="iconFile">아이콘 파일 선택</label>
+                    <input class="file-input" id="iconFile" type="file" accept=".svg,.png,image/svg+xml,image/png" />
+                  </div>
+                </div>
+              </section>
+
+              <section class="form-section">
+                <h3>노출 정책</h3>
+                <div>
+                  <div class="switch-row">
+                    <div>
+                      <strong>매물 등록폼 노출</strong>
+                      <span>딜러가 옵션을 선택할 수 있게 표시</span>
+                    </div>
+                    <button class="toggle on" data-toggle="formExpose" type="button" aria-label="등록폼 노출"></button>
+                  </div>
+                  <div class="switch-row">
+                    <div>
+                      <strong>상세페이지 노출</strong>
+                      <span>매물 상세의 옵션 영역에 표시</span>
+                    </div>
+                    <button class="toggle on" data-toggle="detailExpose" type="button" aria-label="상세페이지 노출"></button>
+                  </div>
+                  <div class="switch-row">
+                    <div>
+                      <strong>검색필터 사용</strong>
+                      <span>중고차 검색 필터로 연결</span>
+                    </div>
+                    <button class="toggle on" data-toggle="filterExpose" type="button" aria-label="검색필터 사용"></button>
+                  </div>
+                </div>
+              </section>
+
+              <section class="form-section">
+                <h3>상태 및 검수</h3>
+                <div class="two-col">
+                  <div class="field">
+                    <label for="status">상태</label>
+                    <select class="select" id="status">
+                      <option>검토중</option>
+                      <option>사용중</option>
+                      <option>숨김</option>
+                      <option>폐기</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="emptyLabel">미장착 표시명</label>
+                    <input class="input" id="emptyLabel" value="HDA없음" />
+                  </div>
+                </div>
+              </section>
+
+              <div class="row-actions">
+                <button class="btn primary" type="submit">저장 및 목록 반영</button>
+                <button class="btn" id="newDraft" type="button">새 입력</button>
+                <button class="btn danger" id="deleteOption" type="button">숨김 처리</button>
+              </div>
+
+              <section class="form-section">
+                <h3>최근 승인 이력</h3>
+                <div class="history" id="historyList"></div>
+              </section>
+            </form>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+      const iconMap = {
+        camera:
+          '<svg viewBox="0 0 24 24"><path d="M4 8.5h3l1.4-2h7.2l1.4 2h3v10H4z"/><circle cx="12" cy="13.5" r="3.2"/></svg>',
+        shield:
+          '<svg viewBox="0 0 24 24"><path d="M12 3.5 19 6v5.2c0 4.4-2.8 7.5-7 9.3-4.2-1.8-7-4.9-7-9.3V6z"/><path d="m9 12 2 2 4-4"/></svg>',
+        seat:
+          '<svg viewBox="0 0 24 24"><path d="M8 4h6.2c1.2 0 2.1 1 1.9 2.2L15 13H7.2L6.5 6.2C6.3 5 6.9 4 8 4z"/><path d="M7 13h10l2 6H6z"/><path d="M5 20h15"/></svg>',
+        light:
+          '<svg viewBox="0 0 24 24"><path d="M5 7h6c3.5 0 6 2.2 8 5-2 2.8-4.5 5-8 5H5z"/><path d="M4 9H2"/><path d="M4 12H2"/><path d="M4 15H2"/></svg>',
+        screen:
+          '<svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="2"/><path d="M9 20h6"/><path d="M12 16v4"/></svg>',
+        assist:
+          '<svg viewBox="0 0 24 24"><path d="M4 16c2.6-3.6 5.3-5.4 8-5.4s5.4 1.8 8 5.4"/><path d="M8.2 16a4 4 0 0 1 7.6 0"/><path d="M12 16h.01"/><path d="M5 19h14"/></svg>',
+      };
+
+      const seedOptions = [
+        {
+          id: "OPT_SAFE_0001",
+          name: "후방 카메라",
+          short: "후방카메라",
+          category: "안전",
+          subType: "주차보조",
+          vehicles: ["승용", "SUV", "화물", "캠핑카"],
+          status: "사용중",
+          icon: "camera",
+          aliases: ["Rear Camera", "리어뷰 카메라", "후방캠", "倒车影像"],
+          updatedAt: "2026-08-31",
+          exposure: { form: true, detail: true, filter: true },
+          emptyLabel: "후방카메라없음",
+        },
+        {
+          id: "OPT_SAFE_0002",
+          name: "고속도로 주행 보조",
+          short: "HDA",
+          category: "안전",
+          subType: "주행보조",
+          vehicles: ["승용", "SUV"],
+          status: "검토중",
+          icon: "assist",
+          aliases: ["Highway Driving Assist", "HDA", "高速公路驾驶辅助"],
+          updatedAt: "2026-08-31",
+          exposure: { form: true, detail: true, filter: true },
+          emptyLabel: "HDA없음",
+        },
+        {
+          id: "OPT_CONV_0007",
+          name: "전동 테일게이트",
+          short: "전동트렁크",
+          category: "편의",
+          subType: "적재/트렁크",
+          vehicles: ["SUV", "캠핑카"],
+          status: "사용중",
+          icon: "seat",
+          aliases: ["Power Tailgate", "파워 테일게이트", "电动尾门"],
+          updatedAt: "2026-08-30",
+          exposure: { form: true, detail: true, filter: false },
+          emptyLabel: "전동테일게이트없음",
+        },
+        {
+          id: "OPT_EXT_0014",
+          name: "LED 헤드램프",
+          short: "LED램프",
+          category: "외관",
+          subType: "조명",
+          vehicles: ["승용", "SUV", "화물", "캠핑카", "바이크"],
+          status: "사용중",
+          icon: "light",
+          aliases: ["LED Headlamp", "LED 헤드라이트", "LED大灯"],
+          updatedAt: "2026-08-29",
+          exposure: { form: true, detail: true, filter: true },
+          emptyLabel: "LED헤드램프없음",
+        },
+        {
+          id: "OPT_IN_0021",
+          name: "가죽 시트",
+          short: "가죽시트",
+          category: "내장",
+          subType: "시트",
+          vehicles: ["승용", "SUV", "캠핑카"],
+          status: "사용중",
+          icon: "seat",
+          aliases: ["Leather Seat", "천연가죽 시트", "真皮座椅"],
+          updatedAt: "2026-08-28",
+          exposure: { form: true, detail: true, filter: true },
+          emptyLabel: "가죽시트없음",
+        },
+        {
+          id: "OPT_MEDIA_0012",
+          name: "내비게이션",
+          short: "내비게이션",
+          category: "멀티미디어",
+          subType: "인포테인먼트",
+          vehicles: ["승용", "SUV", "화물", "캠핑카"],
+          status: "사용중",
+          icon: "screen",
+          aliases: ["Navigation", "Navi", "导航"],
+          updatedAt: "2026-08-28",
+          exposure: { form: true, detail: true, filter: true },
+          emptyLabel: "내비게이션없음",
+        },
+        {
+          id: "OPT_SAFE_0036",
+          name: "ABS",
+          short: "ABS",
+          category: "안전",
+          subType: "제동보조",
+          vehicles: ["승용", "SUV", "화물", "캠핑카", "바이크"],
+          status: "숨김",
+          icon: "shield",
+          aliases: ["Anti-lock Brake System", "잠김 방지 브레이크", "ABS防抱死"],
+          updatedAt: "2026-08-26",
+          exposure: { form: false, detail: true, filter: false },
+          emptyLabel: "ABS없음",
+        },
+      ];
+
+      const historySeed = [
+        "김운영 매니저가 HDA 별칭을 추가했습니다.",
+        "디자인 검수자가 LED 헤드램프 아이콘을 승인했습니다.",
+        "시스템이 후방카메라없음 표기 규칙을 통과 처리했습니다.",
+      ];
+
+      let options = loadOptions();
+      let selectedId = options[0]?.id || "";
+      let uploadedIconMarkup = "";
+
+      const rowsEl = document.getElementById("optionRows");
+      const emptyEl = document.getElementById("emptyState");
+      const toastEl = document.getElementById("toast");
+      const historyEl = document.getElementById("historyList");
+
+      function loadOptions() {
+        const saved = localStorage.getItem("bobaedream-option-admin");
+        if (!saved) return structuredClone(seedOptions);
+        try {
+          return JSON.parse(saved);
+        } catch {
+          return structuredClone(seedOptions);
+        }
+      }
+
+      function saveOptions() {
+        localStorage.setItem("bobaedream-option-admin", JSON.stringify(options));
+      }
+
+      function iconFor(option) {
+        if (option.customIcon) return option.customIcon;
+        return iconMap[option.icon] || iconMap.shield;
+      }
+
+      function iconByCategory(category) {
+        return {
+          안전: "shield",
+          편의: "assist",
+          외관: "light",
+          내장: "seat",
+          멀티미디어: "screen",
+        }[category] || "shield";
+      }
+
+      function statusClass(status) {
+        if (status === "사용중") return "live";
+        if (status === "검토중") return "review";
+        if (status === "폐기") return "blocked";
+        return "hidden";
+      }
+
+      function exposureText(exposure) {
+        const labels = [];
+        if (exposure.form) labels.push("등록폼");
+        if (exposure.detail) labels.push("상세");
+        if (exposure.filter) labels.push("필터");
+        return labels.length ? labels : ["미노출"];
+      }
+
+      function render() {
+        const query = document.getElementById("searchInput").value.trim().toLowerCase();
+        const category = document.getElementById("categoryFilter").value;
+        const vehicle = document.getElementById("vehicleFilter").value;
+        const status = document.getElementById("statusFilter").value;
+
+        const filtered = options.filter((option) => {
+          const haystack = [option.name, option.short, option.category, option.subType, ...option.aliases]
+            .join(" ")
+            .toLowerCase();
+          return (
+            (!query || haystack.includes(query)) &&
+            (category === "all" || option.category === category) &&
+            (vehicle === "all" || option.vehicles.includes(vehicle)) &&
+            (status === "all" || option.status === status)
+          );
+        });
+
+        rowsEl.innerHTML = filtered
+          .map(
+            (option) => `
+              <tr class="${option.id === selectedId ? "selected" : ""}" data-id="${option.id}">
+                <td><span class="badge ${statusClass(option.status)}">${option.status}</span></td>
+                <td>
+                  <div class="option-cell">
+                    <div class="icon-box">${iconFor(option)}</div>
+                    <div class="option-main">
+                      <strong>${option.name}</strong>
+                      <span>${option.id} · ${option.short}</span>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <span class="badge blue">${option.category}</span>
+                  <div style="margin-top: 5px; color: var(--muted); font-size: 11px;">${option.subType}</div>
+                </td>
+                <td>${option.vehicles.map((item) => `<span class="chip">${item}</span>`).join("")}</td>
+                <td>${exposureText(option.exposure).map((item) => `<span class="chip">${item}</span>`).join("")}</td>
+                <td>${option.aliases.slice(0, 3).map((item) => `<span class="chip">${item}</span>`).join("")}</td>
+                <td>${option.updatedAt}</td>
+                <td>
+                  <div class="row-actions">
+                    <button class="btn icon" type="button" data-edit="${option.id}" aria-label="${option.name} 수정">수정</button>
+                  </div>
+                </td>
+              </tr>
+            `,
+          )
+          .join("");
+
+        document.getElementById("resultCount").textContent = `${filtered.length}건 표시`;
+        emptyEl.classList.toggle("show", filtered.length === 0);
+        updateMetrics();
+        bindRows();
+      }
+
+      function updateMetrics() {
+        document.getElementById("metricTotal").textContent = options.length;
+        document.getElementById("metricLive").textContent = options.filter((item) => item.status === "사용중").length;
+        document.getElementById("metricReview").textContent = options.filter((item) => item.status === "검토중").length;
+        document.getElementById("metricIcon").textContent = options.filter((item) => item.icon).length;
+        document.getElementById("metricAlias").textContent = options.reduce((total, item) => total + item.aliases.length, 0);
+      }
+
+      function bindRows() {
+        document.querySelectorAll("[data-edit]").forEach((button) => {
+          button.addEventListener("click", (event) => {
+            const id = event.currentTarget.dataset.edit;
+            const option = options.find((item) => item.id === id);
+            if (option) {
+              selectedId = id;
+              fillForm(option);
+              render();
+            }
+          });
+        });
+
+        document.querySelectorAll("tbody tr[data-id]").forEach((row) => {
+          row.addEventListener("click", (event) => {
+            if (event.target.closest("button")) return;
+            const option = options.find((item) => item.id === row.dataset.id);
+            if (option) {
+              selectedId = option.id;
+              fillForm(option);
+              render();
+            }
+          });
+        });
+      }
+
+      function fillForm(option) {
+        document.getElementById("editingId").value = option.id;
+        document.getElementById("formTitle").textContent = "옵션 수정";
+        document.getElementById("optionName").value = option.name;
+        document.getElementById("shortName").value = option.short;
+        document.getElementById("sourceName").value = option.aliases.join(", ");
+        document.getElementById("category").value = option.category;
+        document.getElementById("subType").value = option.subType;
+        document.getElementById("status").value = option.status;
+        document.getElementById("emptyLabel").value = option.emptyLabel;
+        document.querySelectorAll("input[name='vehicle']").forEach((input) => {
+          input.checked = option.vehicles.includes(input.value);
+        });
+        setToggle("formExpose", option.exposure.form);
+        setToggle("detailExpose", option.exposure.detail);
+        setToggle("filterExpose", option.exposure.filter);
+        document.getElementById("dropPreview").innerHTML = iconFor(option);
+        uploadedIconMarkup = option.customIcon || "";
+        document.getElementById("draftState").textContent = option.status;
+        document.getElementById("draftState").className = `badge ${statusClass(option.status)}`;
+        document.getElementById("formPanel").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      function newForm() {
+        selectedId = "";
+        document.getElementById("editingId").value = "";
+        document.getElementById("formTitle").textContent = "신규 옵션 등록";
+        document.getElementById("optionName").value = "";
+        document.getElementById("shortName").value = "";
+        document.getElementById("sourceName").value = "";
+        document.getElementById("category").value = "안전";
+        document.getElementById("subType").value = "";
+        document.getElementById("status").value = "검토중";
+        document.getElementById("emptyLabel").value = "";
+        document.querySelectorAll("input[name='vehicle']").forEach((input) => {
+          input.checked = ["승용", "SUV"].includes(input.value);
+        });
+        setToggle("formExpose", true);
+        setToggle("detailExpose", true);
+        setToggle("filterExpose", false);
+        document.getElementById("dropPreview").innerHTML = iconMap.shield;
+        uploadedIconMarkup = "";
+        document.getElementById("draftState").textContent = "작성중";
+        document.getElementById("draftState").className = "badge review";
+        render();
+      }
+
+      function getToggle(name) {
+        return document.querySelector(`[data-toggle="${name}"]`).classList.contains("on");
+      }
+
+      function setToggle(name, active) {
+        document.querySelector(`[data-toggle="${name}"]`).classList.toggle("on", active);
+      }
+
+      function normalizeAliases(value) {
+        return value
+          .split(",")
+          .map((item) => item.trim())
+          .filter(Boolean);
+      }
+
+      function today() {
+        return new Date().toISOString().slice(0, 10);
+      }
+
+      function nextId(category) {
+        const prefix = {
+          안전: "OPT_SAFE",
+          편의: "OPT_CONV",
+          외관: "OPT_EXT",
+          내장: "OPT_IN",
+          멀티미디어: "OPT_MEDIA",
+        }[category];
+        const count = options.filter((item) => item.id.startsWith(prefix)).length + 1;
+        return `${prefix}_${String(count).padStart(4, "0")}`;
+      }
+
+      function toast(message) {
+        toastEl.textContent = message;
+        toastEl.classList.add("show");
+        window.clearTimeout(window.toastTimer);
+        window.toastTimer = window.setTimeout(() => toastEl.classList.remove("show"), 2300);
+      }
+
+      function renderHistory() {
+        historyEl.innerHTML = historySeed
+          .map(
+            (item, index) => `
+              <div class="history-item">
+                <strong>${item}</strong>
+                <span>2026-08-${31 - index} · 기준정보 관리팀</span>
+              </div>
+            `,
+          )
+          .join("");
+      }
+
+      document.getElementById("optionForm").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const id = document.getElementById("editingId").value;
+        const category = document.getElementById("category").value;
+        const vehicles = Array.from(document.querySelectorAll("input[name='vehicle']:checked")).map((input) => input.value);
+        if (!vehicles.length) {
+          toast("적용 차량유형을 1개 이상 선택해야 합니다.");
+          return;
+        }
+
+        const option = {
+          id: id || nextId(category),
+          name: document.getElementById("optionName").value.trim(),
+          short: document.getElementById("shortName").value.trim(),
+          category,
+          subType: document.getElementById("subType").value.trim() || "미분류",
+          vehicles,
+          status: document.getElementById("status").value,
+          icon: iconByCategory(category),
+          customIcon: uploadedIconMarkup,
+          aliases: normalizeAliases(document.getElementById("sourceName").value),
+          updatedAt: today(),
+          exposure: {
+            form: getToggle("formExpose"),
+            detail: getToggle("detailExpose"),
+            filter: getToggle("filterExpose"),
+          },
+          emptyLabel: document.getElementById("emptyLabel").value.trim(),
+        };
+
+        if (!option.name || !option.short) {
+          toast("공식 옵션명과 짧은 표시명을 입력해야 합니다.");
+          return;
+        }
+
+        const existingIndex = options.findIndex((item) => item.id === id);
+        if (existingIndex >= 0) {
+          options[existingIndex] = option;
+          selectedId = option.id;
+          toast("옵션 수정 사항이 반영되었습니다.");
+        } else {
+          options = [option, ...options];
+          selectedId = option.id;
+          toast("신규 옵션이 목록에 추가되었습니다.");
+        }
+
+        saveOptions();
+        fillForm(option);
+        render();
+      });
+
+      document.querySelectorAll("[data-toggle]").forEach((button) => {
+        button.addEventListener("click", () => {
+          button.classList.toggle("on");
+        });
+      });
+
+      document.getElementById("newDraft").addEventListener("click", () => {
+        newForm();
+        toast("새 옵션 입력 상태로 전환했습니다.");
+      });
+
+      document.getElementById("deleteOption").addEventListener("click", () => {
+        const id = document.getElementById("editingId").value;
+        const option = options.find((item) => item.id === id);
+        if (!option) {
+          toast("숨김 처리할 옵션을 먼저 선택하세요.");
+          return;
+        }
+        option.status = "숨김";
+        option.updatedAt = today();
+        saveOptions();
+        fillForm(option);
+        render();
+        toast("선택한 옵션을 숨김 처리했습니다.");
+      });
+
+      document.getElementById("iconFile").addEventListener("change", (event) => {
+        const file = event.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          const preview = document.getElementById("dropPreview");
+          if (file.type.includes("svg")) {
+            uploadedIconMarkup = reader.result;
+          } else {
+            uploadedIconMarkup = `<img alt="업로드한 옵션 아이콘" src="${reader.result}" />`;
+          }
+          preview.innerHTML = uploadedIconMarkup;
+          toast("아이콘 미리보기가 등록되었습니다.");
+        };
+        if (file.type.includes("svg")) {
+          reader.readAsText(file);
+        } else {
+          reader.readAsDataURL(file);
+        }
+      });
+
+      document.getElementById("focusForm").addEventListener("click", () => {
+        newForm();
+        document.getElementById("optionName").focus();
+      });
+
+      document.getElementById("clearFilters").addEventListener("click", () => {
+        document.getElementById("searchInput").value = "";
+        document.getElementById("categoryFilter").value = "all";
+        document.getElementById("vehicleFilter").value = "all";
+        document.getElementById("statusFilter").value = "all";
+        render();
+      });
+
+      document.getElementById("exportJson").addEventListener("click", () => {
+        const blob = new Blob([JSON.stringify(options, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "bobaedream-option-master.json";
+        link.click();
+        URL.revokeObjectURL(url);
+        toast("옵션 마스터 JSON을 내려받았습니다.");
+      });
+
+      document.getElementById("resetDemo").addEventListener("click", () => {
+        options = structuredClone(seedOptions);
+        selectedId = options[0].id;
+        saveOptions();
+        fillForm(options[0]);
+        render();
+        toast("데모 데이터를 초기화했습니다.");
+      });
+
+      ["searchInput", "categoryFilter", "vehicleFilter", "statusFilter"].forEach((id) => {
+        document.getElementById(id).addEventListener("input", render);
+      });
+
+      renderHistory();
+      fillForm(options[0]);
+      render();
+    </script>
+  </body>
+</html>
