@@ -65,24 +65,24 @@ const references = [
 
 const koreanNames = {
   Home: "홈",
-  "Web Installation & Usage": "웹 설치 및 사용법",
-  "Installing Fuse": "퓨즈 설치",
+  "Web Installation & Usage": "웹 설치 및 사용",
+  "Installing Fuse": "설치 가이드",
   "Guide to Web Components": "웹 컴포넌트 가이드",
   "Web Component Basics": "웹 컴포넌트 기본",
   "Style Customization": "스타일 커스터마이징",
   "Light DOM Style Considerations": "라이트 DOM 스타일 고려사항",
-  "Working with Forms": "폼 연동",
-  "Working with LiveView": "라이브뷰 연동",
-  "Fuse Components in React": "React 컴포넌트 사용",
-  "Fuse in Next.js (SSR)": "Next.js SSR 적용",
+  "Working with Forms": "폼 작업",
+  "Working with LiveView": "LiveView 작업",
+  "Fuse Components in React": "React 컴포넌트",
+  "Fuse in Next.js (SSR)": "Next.js SSR",
   "AI Agent Skill": "AI 에이전트 스킬",
   Changelog: "변경 이력",
-  "Migrating From Spark": "스파크 마이그레이션",
+  "Migrating From Spark": "Spark에서 이전",
   "Design Tokens": "디자인 토큰",
   Typography: "타이포그래피",
   Forms: "폼",
-  "Dimensions/Layout": "치수 및 레이아웃",
-  Lists: "목록",
+  "Dimensions/Layout": "치수/레이아웃",
+  Lists: "리스트",
   Buttons: "버튼",
   "Style Guide": "스타일 가이드",
   Installation: "설치",
@@ -91,15 +91,15 @@ const koreanNames = {
   Font: "폰트",
   Spacing: "간격",
   Size: "크기",
-  Elevation: "그림자/높이",
+  Elevation: "그림자/고도",
   Motion: "모션",
   Breakpoints: "반응형 분기점",
   Icons: "아이콘",
   Imagery: "이미지",
   Layout: "레이아웃",
-  "Typography & Headings": "타이포그래피 및 제목",
+  "Typography & Headings": "타이포그래피와 제목",
   "Usability Standards": "사용성 기준",
-  "Visual Language": "시각 언어",
+  "Visual Language": "비주얼 언어",
   Components: "컴포넌트",
   Accordion: "아코디언",
   Badge: "배지",
@@ -119,9 +119,9 @@ const koreanNames = {
   Gallery: "갤러리",
   "Gallery Grid": "갤러리 그리드",
   "Gallery Thumbnails": "갤러리 썸네일",
-  Headshot: "프로필 사진",
-  Input: "입력",
-  "Input Lite": "입력 라이트",
+  Headshot: "헤드샷",
+  Input: "입력 필드",
+  "Input Lite": "입력 필드 라이트",
   Link: "링크",
   "Link Pack": "링크 묶음",
   List: "목록",
@@ -131,7 +131,7 @@ const koreanNames = {
   Notification: "알림",
   "Page Section": "페이지 섹션",
   Pagination: "페이지네이션",
-  "Paging Button": "페이지 이동 버튼",
+  "Paging Button": "페이지 버튼",
   Picker: "피커",
   "Picker Option": "피커 옵션",
   Popover: "팝오버",
@@ -139,8 +139,8 @@ const koreanNames = {
   "Progress Bar": "진행 바",
   Radio: "라디오",
   "Radio Lite": "라디오 라이트",
-  Range: "범위 슬라이더",
-  "Range Dual": "이중 범위 슬라이더",
+  Range: "범위",
+  "Range Dual": "이중 범위",
   Rating: "평점",
   "Rating Input": "평점 입력",
   Reveal: "펼쳐보기",
@@ -152,11 +152,11 @@ const koreanNames = {
   Stack: "스택",
   SVG: "SVG 아이콘",
   Switch: "스위치",
-  Tabs: "탭 목록",
-  Tab: "탭",
+  Tabs: "탭",
+  Tab: "탭 항목",
   "Tab Panel": "탭 패널",
-  Textarea: "긴 텍스트 입력",
-  "Textarea Lite": "긴 텍스트 입력 라이트",
+  Textarea: "텍스트영역",
+  "Textarea Lite": "텍스트영역 라이트",
   Tooltip: "툴팁",
   "plop:component": "컴포넌트 자동 생성 슬롯",
   Principles: "원칙",
@@ -164,9 +164,9 @@ const koreanNames = {
   "Motion Principles": "모션 원칙",
   "Content Strategy": "콘텐츠 전략",
   "Content Strategy Principles": "콘텐츠 전략 원칙",
-  "Voice and Tone": "보이스 앤 톤",
+  "Voice and Tone": "보이스와 톤",
   "Grammar and Mechanics": "문법과 표기",
-  Vocabulary: "용어 사전",
+  Vocabulary: "용어집",
   Accessibility: "접근성",
   "Accessibility Principles": "접근성 원칙",
   "Accessibility Checklist": "접근성 체크리스트",
@@ -178,7 +178,7 @@ const koreanNames = {
   "Focus State": "포커스 상태",
   "Keyboard Interaction": "키보드 상호작용",
   "Logical Tab Order": "논리적 탭 순서",
-  "Minimum Contrast Ratio": "최소 대비율",
+  "Minimum Contrast Ratio": "최소 명도 대비",
   "Text Contrast": "텍스트 대비",
   "Multi Device Responsive Design": "다중 기기 반응형",
   "Text Resizing": "텍스트 확대",
@@ -193,14 +193,21 @@ const koreanNames = {
   "Form Errors": "폼 오류",
   "Form Labels": "폼 라벨",
   "Forms Keyboard Accessible": "폼 키보드 접근성",
-  "Written Material (Copy)": "작성 문구",
+  "Written Material (Copy)": "문구",
   "Clear Content": "명확한 콘텐츠",
   "Meaningful Link Text": "의미 있는 링크 텍스트",
   "Image Text Alternatives": "이미지 대체 텍스트",
   "Image Alt Text": "이미지 Alt 텍스트",
   "Color Contrast": "색상 대비",
-  Resources: "리소스",
-  Toolbox: "도구함",
+  Resources: "자료",
+  Toolbox: "툴박스",
+  "Bobaedream Admin": "보배드림 관리",
+  Registry: "컴포넌트 등록/수정",
+  "Measurement Master": "측정 마스터",
+  "Vehicle Listing Patterns": "매물 리스트 패턴",
+  "Vehicle Detail Patterns": "매물 상세 패턴",
+  "Filter Patterns": "필터 패턴",
+  "AI Measurement Workflow": "AI 측정 워크플로우",
   "Design System": "디자인 시스템",
   Overview: "개요",
   Status: "상태",
@@ -319,6 +326,214 @@ const requiredItems = new Set([
   "Chip", "Filter chip", "Input chip", "Dialog", "Divider", "Search field", "Sheet", "Snackbar",
   "State layer", "Video player", "Creating forms", "Empty states", "Filtering", "Uploading files", "Legal link",
 ]);
+
+function slugifySidebarSegment(value) {
+  return value
+    .replace(/~~/g, "")
+    .replace(/&/g, " and ")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function sidebarNode(entry, trail = [], depth = 0) {
+  const config = typeof entry === "string" ? { title: entry } : entry;
+  const path = [...trail, config.title];
+  const id = path.map(slugifySidebarSegment).filter(Boolean).join("-");
+  const status = config.status || (holdItems.has(config.title) ? "deprecated" : "stable");
+  return {
+    id,
+    title: config.title,
+    koTitle: koreanNames[config.title] || config.title,
+    href: config.href || `#${id}`,
+    depth,
+    status,
+    children: config.children?.map((child) => sidebarNode(child, path, depth + 1)) || [],
+  };
+}
+
+const sidebarTree = (entries) => entries.map((entry) => sidebarNode(entry));
+const customSidebarItem = (title, href, children) => ({ title, href, status: "custom", children });
+
+const fuseSidebarTree = sidebarTree([
+  "Home",
+  {
+    title: "Web Installation & Usage",
+    children: [
+      "Installing Fuse",
+      {
+        title: "Guide to Web Components",
+        children: [
+          "Web Component Basics",
+          "Style Customization",
+          "Light DOM Style Considerations",
+          "Working with Forms",
+          "Working with LiveView",
+        ],
+      },
+      "Fuse Components in React",
+      "Fuse in Next.js (SSR)",
+      "AI Agent Skill",
+      "Changelog",
+      {
+        title: "Migrating From Spark",
+        children: ["Design Tokens", "Typography", "Forms", "Dimensions/Layout", "Lists", "Buttons"],
+      },
+    ],
+  },
+  {
+    title: "Style Guide",
+    children: [
+      {
+        title: "Design Tokens",
+        children: ["Installation", "Schema", "Color", "Font", "Spacing", "Size", "Elevation", "Motion", "Breakpoints"],
+      },
+      "Icons",
+      "Forms",
+      "Imagery",
+      "Layout",
+      "Spacing",
+      "Typography & Headings",
+      "Usability Standards",
+      "Visual Language",
+    ],
+  },
+  {
+    title: "Components",
+    children: [
+      "Accordion",
+      "Badge",
+      "Breadcrumb",
+      "Button",
+      "Callout",
+      "Card",
+      "Card Carousel",
+      "Checkbox",
+      "Checkbox Lite",
+      "Disclaimer",
+      "Feedback Thumbs",
+      "Fieldset",
+      "Figure",
+      "Filter",
+      "Form Module",
+      "Gallery",
+      "Gallery Grid",
+      "Gallery Thumbnails",
+      "Headshot",
+      "Input",
+      "Input Lite",
+      "Link",
+      "Link Pack",
+      "List",
+      "Menu",
+      "Menu Item",
+      { title: "Modal", status: "deprecated" },
+      "Notification",
+      "Page Section",
+      "Pagination",
+      "Paging Button",
+      "Picker",
+      "Picker Option",
+      "Popover",
+      { title: "Price Range", status: "deprecated" },
+      "Progress Bar",
+      "Radio",
+      "Radio Lite",
+      "Range",
+      "Range Dual",
+      "Rating",
+      "Rating Input",
+      "Reveal",
+      "Save",
+      "Select",
+      "Select Lite",
+      "Separator",
+      "Spinner",
+      "Stack",
+      "SVG",
+      "Switch",
+      "Tabs",
+      "Tab",
+      "Tab Panel",
+      "Textarea",
+      "Textarea Lite",
+      "Tooltip",
+    ],
+  },
+  {
+    title: "Principles",
+    children: ["Design Principles", "Motion Principles"],
+  },
+  {
+    title: "Content Strategy",
+    children: ["Content Strategy Principles", "Voice and Tone", "Grammar and Mechanics", "Vocabulary"],
+  },
+  {
+    title: "Accessibility",
+    children: [
+      "Accessibility Principles",
+      {
+        title: "Accessibility Checklist",
+        children: [
+          "Global Code",
+          "Default Language",
+          "Semantic HTML",
+          "Unique Page Title Element",
+          "Keyboard Navigation",
+          "Focus State",
+          "Keyboard Interaction",
+          "Logical Tab Order",
+          "Minimum Contrast Ratio",
+          "Text Contrast",
+          "Multi Device Responsive Design",
+          "Text Resizing",
+          "Touch Targets",
+          "Moving, Flashing, or Blinking Content",
+          "Content Flash",
+          "Stop Motion",
+          "Headings",
+          "Clear Headings",
+          "Sequential Headings",
+          "Forms, Labels, and Errors",
+          "Form Errors",
+          "Form Labels",
+          "Forms Keyboard Accessible",
+          "Written Material (Copy)",
+          "Clear Content",
+          "Meaningful Link Text",
+          "Image Text Alternatives",
+          "Image Alt Text",
+        ],
+      },
+      "Color Contrast",
+    ],
+  },
+  {
+    title: "Resources",
+    children: ["Toolbox"],
+  },
+  customSidebarItem("Bobaedream Admin", "#registry", [
+    customSidebarItem("Registry", "#registry"),
+    customSidebarItem("Measurement Master", "#workflow"),
+    customSidebarItem("Vehicle Listing Patterns", "#components"),
+    customSidebarItem("Vehicle Detail Patterns", "#preview"),
+    customSidebarItem("Filter Patterns", "#preview"),
+    customSidebarItem("AI Measurement Workflow", "#workflow"),
+  ]),
+]);
+
+const bobaedreamUseCases = {
+  Filter: ["연식, 주행거리, 가격, 지역, 제조사 필터", "PC 사이드 필터와 모바일 바텀시트 필터", "선택 조건 칩과 결과 수 동기화"],
+  Card: ["매물 카드", "리스트형/갤러리형/추천 매물 카드", "썸네일, 가격, 신뢰 배지, 판매자 메타 조합"],
+  Gallery: ["차량 사진 영역", "상세 대표 이미지와 썸네일 rail", "동영상 진입, 전체보기, 사진 개수 표시"],
+  Badge: ["무사고, 진단, 급매, 실매물", "가격인하, 브랜드인증, 판매완료 상태", "카드와 상세 상단의 신뢰 신호"],
+  Save: ["찜 버튼", "매물 카드/상세 상단/하단 CTA 저장 상태", "저장 완료 알림과 active 피드백"],
+  Pagination: ["매물 리스트 페이지 이동", "SEO 페이지네이션과 이전/다음 버튼", "모바일 더보기 전환 기준"],
+  "Range Dual": ["가격/주행거리 범위 선택", "연식 시작/끝 선택", "바텀시트 내 최소/최대 입력 동기화"],
+  Tabs: ["상세정보, 성능점검, 보험이력", "딜러 정보와 리뷰 전환", "sticky anchor tab과 aria 연결"],
+  Notification: ["견적/문의/오류 알림", "찜 저장 완료와 가격 변동 안내", "등록 폼 검증 결과 피드백"],
+  "Bobaedream Admin": ["컴포넌트 등록/수정", "측정 마스터 관리", "AI 측정 워크플로우 운영"],
+};
 
 const fuseGroups = [
   ["Home", "Cars.com Fuse 공개 사이드바의 첫 진입점", ["Home"]],
@@ -480,6 +695,32 @@ const seedItems = [
     note: "결과 0건 disabled 상태 포함",
   },
   {
+    id: "component-filter-panel",
+    type: "컴포넌트",
+    name: "차량 필터 패널",
+    standard: "BobaFilterPanel",
+    status: "검토필요",
+    platform: "공통",
+    sheet: "04_컴포넌트마스터",
+    pcValue: "304px side rail",
+    moValue: "bottom sheet",
+    props: "year, mileage, price, region, maker, selected chips",
+    note: "Fuse Filter를 보배드림 연식/주행거리/가격/지역/제조사 필터로 연결",
+  },
+  {
+    id: "component-badge",
+    type: "컴포넌트",
+    name: "신뢰 배지",
+    standard: "BobaBadge",
+    status: "검토필요",
+    platform: "공통",
+    sheet: "04_컴포넌트마스터",
+    pcValue: "20px min-height",
+    moValue: "20px min-height",
+    props: "accident-free, inspected, urgent, real-listing, price-drop",
+    note: "무사고, 진단, 급매, 실매물, 가격인하 상태를 Badge로 통합",
+  },
+  {
     id: "component-bottom-cta",
     type: "컴포넌트",
     name: "상세 하단 문의 바",
@@ -491,6 +732,45 @@ const seedItems = [
     moValue: "height 72px",
     props: "position, bottom, safe-area, shadow, z-index",
     note: "iOS safe area와 sticky bottom 우선",
+  },
+  {
+    id: "component-pagination",
+    type: "컴포넌트",
+    name: "매물 페이지네이션",
+    standard: "BobaPagination",
+    status: "검토필요",
+    platform: "PC웹",
+    sheet: "04_컴포넌트마스터",
+    pcValue: "40px button",
+    moValue: "더보기 전환 검토",
+    props: "page, previous, next, ellipsis, selected",
+    note: "매물 리스트 페이지 이동과 SEO 페이지 탐색에 사용",
+  },
+  {
+    id: "component-tabs",
+    type: "컴포넌트",
+    name: "상세 탭",
+    standard: "BobaTabs",
+    status: "검토필요",
+    platform: "공통",
+    sheet: "04_컴포넌트마스터",
+    pcValue: "sticky top",
+    moValue: "horizontal scroll",
+    props: "detail, inspection, insurance, dealer, reviews",
+    note: "상세정보, 성능점검, 보험이력 전환 기준",
+  },
+  {
+    id: "component-notification",
+    type: "컴포넌트",
+    name: "문의/오류 알림",
+    standard: "BobaNotification",
+    status: "검토필요",
+    platform: "공통",
+    sheet: "04_컴포넌트마스터",
+    pcValue: "page notice/toast",
+    moValue: "snackbar/inline",
+    props: "quote, inquiry, error, success, dismiss",
+    note: "견적, 문의, 오류, 찜 저장 완료 피드백",
   },
   {
     id: "icon-filter",
@@ -575,6 +855,14 @@ const seedItems = [
 let items = loadItems();
 
 const elements = {
+  sidebar: document.querySelector("#designSidebar"),
+  sidebarNav: document.querySelector("#sidebarNav"),
+  sidebarSearch: document.querySelector("#sidebarSearch"),
+  sidebarEmpty: document.querySelector("#sidebarEmpty"),
+  menuToggle: document.querySelector("#menuToggle"),
+  closeSidebar: document.querySelector("#closeSidebar"),
+  sidebarOverlay: document.querySelector("#sidebarOverlay"),
+  docPage: document.querySelector("#docPage"),
   metricGrid: document.querySelector("#metricGrid"),
   referenceRows: document.querySelector("#referenceRows"),
   fuseCatalog: document.querySelector("#fuseCatalog"),
@@ -617,6 +905,11 @@ document.addEventListener("DOMContentLoaded", () => {
 function bindEvents() {
   window.addEventListener("hashchange", syncActiveNav);
   document.addEventListener("click", handleTableAction);
+  elements.sidebarNav.addEventListener("click", handleSidebarClick);
+  elements.sidebarSearch.addEventListener("input", renderSidebar);
+  elements.menuToggle.addEventListener("click", openSidebar);
+  elements.closeSidebar.addEventListener("click", closeSidebar);
+  elements.sidebarOverlay.addEventListener("click", closeSidebar);
   elements.form.addEventListener("submit", saveItem);
   elements.clearButton.addEventListener("click", clearForm);
   elements.newItemButton.addEventListener("click", () => {
@@ -638,7 +931,9 @@ function loadItems() {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (!stored) return seedItems;
     const parsed = JSON.parse(stored);
-    return Array.isArray(parsed) ? parsed : seedItems;
+    if (!Array.isArray(parsed)) return seedItems;
+    const storedIds = new Set(parsed.map((item) => item.id));
+    return [...parsed, ...seedItems.filter((item) => !storedIds.has(item.id))];
   } catch {
     return seedItems;
   }
@@ -649,11 +944,200 @@ function persistItems() {
 }
 
 function renderAll() {
+  renderSidebar();
   renderMetrics();
   renderReferences();
   renderCatalogs();
   renderCards();
   renderRegistry();
+}
+
+function renderSidebar() {
+  const query = elements.sidebarSearch.value.trim().toLowerCase();
+  const visibleTree = filterSidebarTree(fuseSidebarTree, query);
+  elements.sidebarEmpty.hidden = visibleTree.length > 0;
+  elements.sidebarNav.innerHTML = visibleTree.length ? renderSidebarList(visibleTree) : "";
+  syncActiveNav();
+}
+
+function renderSidebarList(nodes) {
+  return `
+    <ul class="fuse-nav-list">
+      ${nodes.map((node) => renderSidebarItem(node)).join("")}
+    </ul>
+  `;
+}
+
+function renderSidebarItem(node) {
+  const hasChildren = node.children.length > 0;
+  const classNames = [
+    "nav-link",
+    "fuse-nav-link",
+    `depth-${node.depth}`,
+    hasChildren ? "has-children" : "",
+    node.status === "deprecated" ? "deprecated" : "",
+    node.status === "custom" ? "custom" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return `
+    <li class="fuse-nav-item">
+      <a
+        class="${classNames}"
+        href="${escapeHtml(node.href)}"
+        data-sidebar-id="${escapeHtml(node.id)}"
+        data-doc-title="${escapeHtml(node.title)}"
+        data-doc-route="${isDocumentRoute(node) ? "true" : "false"}"
+        style="padding-left:${10 + node.depth * 14}px"
+      >
+        <span class="nav-content">
+          ${hasChildren ? '<span class="nav-caret" aria-hidden="true">›</span>' : ""}
+          <span class="nav-name">${escapeHtml(displayNodeName(node))}</span>
+        </span>
+        ${node.status === "deprecated" ? '<em class="nav-status">deprecated</em>' : ""}
+      </a>
+      ${hasChildren ? renderSidebarList(node.children) : ""}
+    </li>
+  `;
+}
+
+function filterSidebarTree(nodes, query) {
+  if (!query) return nodes;
+  return nodes
+    .map((node) => {
+      const children = filterSidebarTree(node.children, query);
+      if (sidebarNodeMatches(node, query) || children.length) {
+        return { ...node, children };
+      }
+      return null;
+    })
+    .filter(Boolean);
+}
+
+function sidebarNodeMatches(node, query) {
+  return [node.title, node.koTitle, node.href].join(" ").toLowerCase().includes(query);
+}
+
+function displayNodeName(node) {
+  return `${node.title} (${node.koTitle})`;
+}
+
+function isDocumentRoute(node) {
+  return node.status !== "custom" || !["#registry", "#workflow", "#components", "#preview"].includes(node.href);
+}
+
+function handleSidebarClick(event) {
+  const link = event.target.closest(".fuse-nav-link");
+  if (!link) return;
+
+  if (link.dataset.docRoute === "true") {
+    event.preventDefault();
+    const href = link.getAttribute("href");
+    if (window.location.hash === href) {
+      syncActiveNav();
+    } else {
+      window.location.hash = href;
+    }
+    elements.docPage.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  closeSidebar();
+}
+
+function openSidebar() {
+  document.body.classList.add("sidebar-open");
+  elements.menuToggle.setAttribute("aria-expanded", "true");
+}
+
+function closeSidebar() {
+  document.body.classList.remove("sidebar-open");
+  elements.menuToggle.setAttribute("aria-expanded", "false");
+}
+
+function flattenSidebar(nodes, trail = []) {
+  return nodes.flatMap((node) => {
+    const path = [...trail, displayNodeName(node)];
+    return [{ ...node, path }, ...flattenSidebar(node.children, path)];
+  });
+}
+
+function findSidebarNodeByHash(hash) {
+  return flattenSidebar(fuseSidebarTree).find((node) => node.href === hash);
+}
+
+function renderDocumentPage(node) {
+  if (!node || !elements.docPage) return;
+
+  const statusLabel = node.status === "deprecated" ? "deprecated" : node.status === "custom" ? "보배드림 운영" : "stable";
+  const useCases = bobaedreamUseCases[node.title] || [
+    `${displayNodeName(node)} 문서는 보배드림 화면의 구성요소, 속성, 상태, 사용 기준을 정리합니다.`,
+    "디자이너와 개발자가 같은 명칭으로 검색하고 Storybook 예시와 연결합니다.",
+    "AI가 측정한 값은 Measurement Master에 저장한 뒤 확정 기준만 문서에 반영합니다.",
+  ];
+  const path = node.path?.join(" / ") || displayNodeName(node);
+
+  elements.docPage.innerHTML = `
+    <div class="doc-page-layout">
+      <article class="doc-main">
+        <nav class="doc-breadcrumb" aria-label="문서 경로">${escapeHtml(path)}</nav>
+        <div class="doc-title-row">
+          <div>
+            <p class="eyebrow">${node.status === "custom" ? "Bobaedream Admin" : "Fuse Navigation"}</p>
+            <h2>${escapeHtml(displayNodeName(node))}</h2>
+          </div>
+          <span class="doc-status ${escapeHtml(node.status)}">${escapeHtml(statusLabel)}</span>
+        </div>
+        <p class="doc-lede">${escapeHtml(catalogNote(node.title, node.path?.at(-2) || ""))}</p>
+        <div class="doc-rule-grid">
+          ${useCases
+            .map(
+              (item) => `
+                <section>
+                  <strong>${escapeHtml(item)}</strong>
+                  <span>PC 웹, 모바일 웹, 앱 화면에서 같은 토큰과 컴포넌트 명칭으로 관리합니다.</span>
+                </section>
+              `,
+            )
+            .join("")}
+        </div>
+        ${renderIconsDoc(node)}
+      </article>
+      <aside class="doc-aside">
+        <strong>문서 운영 기준</strong>
+        <ul>
+          <li>영문명과 한국어명을 함께 표기합니다.</li>
+          <li>Seed Design처럼 목적, 사용 시점, 상태를 문장으로 남깁니다.</li>
+          <li>Cars.com Fuse, eBay Playbook, Seed Design 출처를 함께 기록합니다.</li>
+        </ul>
+      </aside>
+    </div>
+  `;
+}
+
+function renderIconsDoc(node) {
+  if (node.title !== "Icons") return "";
+
+  return `
+    <div class="doc-icon-library">
+      <h3>아이콘 라이브러리 명칭</h3>
+      <p>Fuse의 material, custom, cars-duotone, social, oem 구조를 보배드림 interface, vehicle, commerce, media로 재구성합니다.</p>
+      <div class="doc-icon-grid">
+        ${items
+          .filter((item) => item.type === "아이콘")
+          .map(
+            (item) => `
+              <article>
+                <span class="icon-glyph">${getIconGlyph(item.name)}</span>
+                <strong>${escapeHtml(item.name)}</strong>
+                <code>${escapeHtml(item.standard)}</code>
+              </article>
+            `,
+          )
+          .join("")}
+      </div>
+    </div>
+  `;
 }
 
 function renderMetrics() {
@@ -1030,10 +1514,19 @@ function downloadFile(filename, content, type) {
 }
 
 function syncActiveNav() {
-  const hash = window.location.hash || "#overview";
+  const hash = window.location.hash || "#style-guide-icons";
+  const selectedNode = findSidebarNodeByHash(hash) || findSidebarNodeByHash("#style-guide-icons");
+  if (selectedNode) renderDocumentPage(selectedNode);
+
   document.querySelectorAll(".nav-link").forEach((link) => {
     link.classList.toggle("active", link.getAttribute("href") === hash);
   });
+
+  const activeLink = document.querySelector(".fuse-nav-link.active");
+  const scroller = elements.sidebar?.querySelector(".sidebar-scroll");
+  if (activeLink && scroller && !elements.sidebarSearch.value.trim() && window.innerWidth > 760) {
+    scroller.scrollTop = Math.max(0, activeLink.offsetTop - 170);
+  }
 }
 
 function showToast(message) {

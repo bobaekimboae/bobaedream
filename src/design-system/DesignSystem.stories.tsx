@@ -5,6 +5,7 @@ import {
   ComponentSpecTable,
   DetailCTA,
   FilterRail,
+  FuseNavigationPreview,
   IconLibrary,
   ListingCard,
   Overview,
@@ -38,6 +39,11 @@ export const 개요: Story = {
 export const 레퍼런스_매트릭스: Story = {
   name: "Reference / Cars.com Fuse 전체 목차",
   render: () => <ReferenceMatrix />,
+};
+
+export const Fuse형_좌측_사이드바: Story = {
+  name: "Reference / Fuse형 좌측 사이드바",
+  render: () => <FuseNavigationPreview />,
 };
 
 export const 토큰: Story = {

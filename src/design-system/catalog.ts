@@ -14,6 +14,18 @@ export type CatalogGroup = {
   items: CatalogItem[];
 };
 
+export type SidebarStatus = "stable" | "deprecated" | "custom";
+
+export type SidebarNode = {
+  id: string;
+  title: string;
+  koTitle: string;
+  href: string;
+  depth: number;
+  status: SidebarStatus;
+  children?: SidebarNode[];
+};
+
 export type Token = {
   name: string;
   value: string;
@@ -29,6 +41,14 @@ export type IconSpec = {
 };
 
 type CatalogInput = string | [label: string, parent: string];
+type SidebarInput =
+  | string
+  | {
+      title: string;
+      href?: string;
+      status?: SidebarStatus;
+      children?: SidebarInput[];
+    };
 
 const referenceStatus: Record<string, CatalogStatus> = {
   Modal: "보류",
@@ -37,24 +57,24 @@ const referenceStatus: Record<string, CatalogStatus> = {
 
 const koreanNames: Record<string, string> = {
   Home: "홈",
-  "Web Installation & Usage": "웹 설치 및 사용법",
-  "Installing Fuse": "퓨즈 설치",
+  "Web Installation & Usage": "웹 설치 및 사용",
+  "Installing Fuse": "설치 가이드",
   "Guide to Web Components": "웹 컴포넌트 가이드",
   "Web Component Basics": "웹 컴포넌트 기본",
   "Style Customization": "스타일 커스터마이징",
   "Light DOM Style Considerations": "라이트 DOM 스타일 고려사항",
-  "Working with Forms": "폼 연동",
-  "Working with LiveView": "라이브뷰 연동",
-  "Fuse Components in React": "React 컴포넌트 사용",
-  "Fuse in Next.js (SSR)": "Next.js SSR 적용",
+  "Working with Forms": "폼 작업",
+  "Working with LiveView": "LiveView 작업",
+  "Fuse Components in React": "React 컴포넌트",
+  "Fuse in Next.js (SSR)": "Next.js SSR",
   "AI Agent Skill": "AI 에이전트 스킬",
   Changelog: "변경 이력",
-  "Migrating From Spark": "스파크 마이그레이션",
+  "Migrating From Spark": "Spark에서 이전",
   "Design Tokens": "디자인 토큰",
   Typography: "타이포그래피",
   Forms: "폼",
-  "Dimensions/Layout": "치수 및 레이아웃",
-  Lists: "목록",
+  "Dimensions/Layout": "치수/레이아웃",
+  Lists: "리스트",
   Buttons: "버튼",
   "Style Guide": "스타일 가이드",
   Installation: "설치",
@@ -63,15 +83,15 @@ const koreanNames: Record<string, string> = {
   Font: "폰트",
   Spacing: "간격",
   Size: "크기",
-  Elevation: "그림자/높이",
+  Elevation: "그림자/고도",
   Motion: "모션",
   Breakpoints: "반응형 분기점",
   Icons: "아이콘",
   Imagery: "이미지",
   Layout: "레이아웃",
-  "Typography & Headings": "타이포그래피 및 제목",
+  "Typography & Headings": "타이포그래피와 제목",
   "Usability Standards": "사용성 기준",
-  "Visual Language": "시각 언어",
+  "Visual Language": "비주얼 언어",
   Components: "컴포넌트",
   Accordion: "아코디언",
   Badge: "배지",
@@ -91,9 +111,9 @@ const koreanNames: Record<string, string> = {
   Gallery: "갤러리",
   "Gallery Grid": "갤러리 그리드",
   "Gallery Thumbnails": "갤러리 썸네일",
-  Headshot: "프로필 사진",
-  Input: "입력",
-  "Input Lite": "입력 라이트",
+  Headshot: "헤드샷",
+  Input: "입력 필드",
+  "Input Lite": "입력 필드 라이트",
   Link: "링크",
   "Link Pack": "링크 묶음",
   List: "목록",
@@ -103,7 +123,7 @@ const koreanNames: Record<string, string> = {
   Notification: "알림",
   "Page Section": "페이지 섹션",
   Pagination: "페이지네이션",
-  "Paging Button": "페이지 이동 버튼",
+  "Paging Button": "페이지 버튼",
   Picker: "피커",
   "Picker Option": "피커 옵션",
   Popover: "팝오버",
@@ -111,8 +131,8 @@ const koreanNames: Record<string, string> = {
   "Progress Bar": "진행 바",
   Radio: "라디오",
   "Radio Lite": "라디오 라이트",
-  Range: "범위 슬라이더",
-  "Range Dual": "이중 범위 슬라이더",
+  Range: "범위",
+  "Range Dual": "이중 범위",
   Rating: "평점",
   "Rating Input": "평점 입력",
   Reveal: "펼쳐보기",
@@ -124,11 +144,11 @@ const koreanNames: Record<string, string> = {
   Stack: "스택",
   SVG: "SVG 아이콘",
   Switch: "스위치",
-  Tabs: "탭 목록",
-  Tab: "탭",
+  Tabs: "탭",
+  Tab: "탭 항목",
   "Tab Panel": "탭 패널",
-  Textarea: "긴 텍스트 입력",
-  "Textarea Lite": "긴 텍스트 입력 라이트",
+  Textarea: "텍스트영역",
+  "Textarea Lite": "텍스트영역 라이트",
   Tooltip: "툴팁",
   "plop:component": "컴포넌트 자동 생성 슬롯",
   Principles: "원칙",
@@ -136,9 +156,9 @@ const koreanNames: Record<string, string> = {
   "Motion Principles": "모션 원칙",
   "Content Strategy": "콘텐츠 전략",
   "Content Strategy Principles": "콘텐츠 전략 원칙",
-  "Voice and Tone": "보이스 앤 톤",
+  "Voice and Tone": "보이스와 톤",
   "Grammar and Mechanics": "문법과 표기",
-  Vocabulary: "용어 사전",
+  Vocabulary: "용어집",
   Accessibility: "접근성",
   "Accessibility Principles": "접근성 원칙",
   "Accessibility Checklist": "접근성 체크리스트",
@@ -150,7 +170,7 @@ const koreanNames: Record<string, string> = {
   "Focus State": "포커스 상태",
   "Keyboard Interaction": "키보드 상호작용",
   "Logical Tab Order": "논리적 탭 순서",
-  "Minimum Contrast Ratio": "최소 대비율",
+  "Minimum Contrast Ratio": "최소 명도 대비",
   "Text Contrast": "텍스트 대비",
   "Multi Device Responsive Design": "다중 기기 반응형",
   "Text Resizing": "텍스트 확대",
@@ -165,14 +185,21 @@ const koreanNames: Record<string, string> = {
   "Form Errors": "폼 오류",
   "Form Labels": "폼 라벨",
   "Forms Keyboard Accessible": "폼 키보드 접근성",
-  "Written Material (Copy)": "작성 문구",
+  "Written Material (Copy)": "문구",
   "Clear Content": "명확한 콘텐츠",
   "Meaningful Link Text": "의미 있는 링크 텍스트",
   "Image Text Alternatives": "이미지 대체 텍스트",
   "Image Alt Text": "이미지 Alt 텍스트",
   "Color Contrast": "색상 대비",
-  Resources: "리소스",
-  Toolbox: "도구함",
+  Resources: "자료",
+  Toolbox: "툴박스",
+  "Bobaedream Admin": "보배드림 관리",
+  Registry: "컴포넌트 등록/수정",
+  "Measurement Master": "측정 마스터",
+  "Vehicle Listing Patterns": "매물 리스트 패턴",
+  "Vehicle Detail Patterns": "매물 상세 패턴",
+  "Filter Patterns": "필터 패턴",
+  "AI Measurement Workflow": "AI 측정 워크플로우",
   "Design System": "디자인 시스템",
   Overview: "개요",
   Status: "상태",
@@ -512,6 +539,221 @@ const marketplaceItem = (label: string, note: string, status: CatalogStatus = "�
   parent,
   status,
 });
+
+const slugifySidebarSegment = (value: string) =>
+  value
+    .replace(/~~/g, "")
+    .replace(/&/g, " and ")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+const sidebarNode = (entry: SidebarInput, trail: string[] = [], depth = 0): SidebarNode => {
+  const config = typeof entry === "string" ? { title: entry } : entry;
+  const path = [...trail, config.title];
+  const id = path.map(slugifySidebarSegment).filter(Boolean).join("-");
+  const status = config.status ?? (referenceStatus[config.title] === "보류" ? "deprecated" : "stable");
+  const children = config.children?.map((child) => sidebarNode(child, path, depth + 1));
+
+  return {
+    id,
+    title: config.title,
+    koTitle: koreanNames[config.title] ?? config.title,
+    href: config.href ?? `#${id}`,
+    depth,
+    status,
+    children,
+  };
+};
+
+const sidebarTree = (entries: SidebarInput[]) => entries.map((entry) => sidebarNode(entry));
+
+const customSidebarItem = (title: string, href?: string, children?: SidebarInput[]): SidebarInput => ({
+  title,
+  href,
+  status: "custom",
+  children,
+});
+
+export const fuseSidebarTree: SidebarNode[] = sidebarTree([
+  "Home",
+  {
+    title: "Web Installation & Usage",
+    children: [
+      "Installing Fuse",
+      {
+        title: "Guide to Web Components",
+        children: [
+          "Web Component Basics",
+          "Style Customization",
+          "Light DOM Style Considerations",
+          "Working with Forms",
+          "Working with LiveView",
+        ],
+      },
+      "Fuse Components in React",
+      "Fuse in Next.js (SSR)",
+      "AI Agent Skill",
+      "Changelog",
+      {
+        title: "Migrating From Spark",
+        children: ["Design Tokens", "Typography", "Forms", "Dimensions/Layout", "Lists", "Buttons"],
+      },
+    ],
+  },
+  {
+    title: "Style Guide",
+    children: [
+      {
+        title: "Design Tokens",
+        children: ["Installation", "Schema", "Color", "Font", "Spacing", "Size", "Elevation", "Motion", "Breakpoints"],
+      },
+      "Icons",
+      "Forms",
+      "Imagery",
+      "Layout",
+      "Spacing",
+      "Typography & Headings",
+      "Usability Standards",
+      "Visual Language",
+    ],
+  },
+  {
+    title: "Components",
+    children: [
+      "Accordion",
+      "Badge",
+      "Breadcrumb",
+      "Button",
+      "Callout",
+      "Card",
+      "Card Carousel",
+      "Checkbox",
+      "Checkbox Lite",
+      "Disclaimer",
+      "Feedback Thumbs",
+      "Fieldset",
+      "Figure",
+      "Filter",
+      "Form Module",
+      "Gallery",
+      "Gallery Grid",
+      "Gallery Thumbnails",
+      "Headshot",
+      "Input",
+      "Input Lite",
+      "Link",
+      "Link Pack",
+      "List",
+      "Menu",
+      "Menu Item",
+      { title: "Modal", status: "deprecated" },
+      "Notification",
+      "Page Section",
+      "Pagination",
+      "Paging Button",
+      "Picker",
+      "Picker Option",
+      "Popover",
+      { title: "Price Range", status: "deprecated" },
+      "Progress Bar",
+      "Radio",
+      "Radio Lite",
+      "Range",
+      "Range Dual",
+      "Rating",
+      "Rating Input",
+      "Reveal",
+      "Save",
+      "Select",
+      "Select Lite",
+      "Separator",
+      "Spinner",
+      "Stack",
+      "SVG",
+      "Switch",
+      "Tabs",
+      "Tab",
+      "Tab Panel",
+      "Textarea",
+      "Textarea Lite",
+      "Tooltip",
+    ],
+  },
+  {
+    title: "Principles",
+    children: ["Design Principles", "Motion Principles"],
+  },
+  {
+    title: "Content Strategy",
+    children: ["Content Strategy Principles", "Voice and Tone", "Grammar and Mechanics", "Vocabulary"],
+  },
+  {
+    title: "Accessibility",
+    children: [
+      "Accessibility Principles",
+      {
+        title: "Accessibility Checklist",
+        children: [
+          "Global Code",
+          "Default Language",
+          "Semantic HTML",
+          "Unique Page Title Element",
+          "Keyboard Navigation",
+          "Focus State",
+          "Keyboard Interaction",
+          "Logical Tab Order",
+          "Minimum Contrast Ratio",
+          "Text Contrast",
+          "Multi Device Responsive Design",
+          "Text Resizing",
+          "Touch Targets",
+          "Moving, Flashing, or Blinking Content",
+          "Content Flash",
+          "Stop Motion",
+          "Headings",
+          "Clear Headings",
+          "Sequential Headings",
+          "Forms, Labels, and Errors",
+          "Form Errors",
+          "Form Labels",
+          "Forms Keyboard Accessible",
+          "Written Material (Copy)",
+          "Clear Content",
+          "Meaningful Link Text",
+          "Image Text Alternatives",
+          "Image Alt Text",
+        ],
+      },
+      "Color Contrast",
+    ],
+  },
+  {
+    title: "Resources",
+    children: ["Toolbox"],
+  },
+  customSidebarItem("Bobaedream Admin", "#registry", [
+    customSidebarItem("Registry", "#registry"),
+    customSidebarItem("Measurement Master", "#workflow"),
+    customSidebarItem("Vehicle Listing Patterns", "#components"),
+    customSidebarItem("Vehicle Detail Patterns", "#preview"),
+    customSidebarItem("Filter Patterns", "#preview"),
+    customSidebarItem("AI Measurement Workflow", "#workflow"),
+  ]),
+]);
+
+export const bobaedreamUseCases: Record<string, string[]> = {
+  Filter: ["연식, 주행거리, 가격, 지역, 제조사 필터", "PC 사이드 필터와 모바일 바텀시트 필터", "선택 조건 칩과 결과 수 동기화"],
+  Card: ["매물 카드", "리스트형/갤러리형/추천 매물 카드", "썸네일, 가격, 신뢰 배지, 판매자 메타 조합"],
+  Gallery: ["차량 사진 영역", "상세 대표 이미지와 썸네일 rail", "동영상 진입, 전체보기, 사진 개수 표시"],
+  Badge: ["무사고, 진단, 급매, 실매물", "가격인하, 브랜드인증, 판매완료 상태", "카드와 상세 상단의 신뢰 신호"],
+  Save: ["찜 버튼", "매물 카드/상세 상단/하단 CTA 저장 상태", "저장 완료 알림과 active 피드백"],
+  Pagination: ["매물 리스트 페이지 이동", "SEO 페이지네이션과 이전/다음 버튼", "모바일 더보기 전환 기준"],
+  "Range Dual": ["가격/주행거리 범위 선택", "연식 시작/끝 선택", "바텀시트 내 최소/최대 입력 동기화"],
+  Tabs: ["상세정보, 성능점검, 보험이력", "딜러 정보와 리뷰 전환", "sticky anchor tab과 aria 연결"],
+  Notification: ["견적/문의/오류 알림", "찜 저장 완료와 가격 변동 안내", "등록 폼 검증 결과 피드백"],
+  "Bobaedream Admin": ["컴포넌트 등록/수정", "측정 마스터 관리", "AI 측정 워크플로우 운영"],
+};
 
 export const referenceSystems = [
   {
@@ -928,10 +1170,15 @@ export const iconLibraries = [
 export const componentSpecs = [
   { name: "BobaBreadcrumb", category: "Navigation", pc: "상단 GNB 아래 전체 경로", mo: "부모 링크 1개와 현재 제목", source: "Fuse Breadcrumb + eBay Breadcrumb" },
   { name: "BobaButton", category: "Buttons", pc: "40px 높이", mo: "44px 이상 터치 영역", source: "Fuse Button + eBay Buttons" },
+  { name: "BobaFilterPanel", category: "Filter", pc: "연식/주행거리/가격/지역/제조사 사이드 필터", mo: "바텀시트 필터와 선택 칩", source: "Fuse Filter + eBay Filtering" },
   { name: "BobaFilterChip", category: "Filtering", pc: "36px 높이", mo: "34px 높이, horizontal carousel", source: "Fuse Filter + eBay Chip" },
   { name: "BobaListingCard", category: "Card/List row", pc: "썸네일 230px, hover shadow", mo: "좌측 썸네일 124px", source: "Fuse Card + eBay Item tile/List row" },
+  { name: "BobaBadge", category: "Badge", pc: "무사고/진단/급매/실매물 상태", mo: "카드 썸네일과 정보 영역에 20px 이상", source: "Fuse Badge + eBay Signal" },
   { name: "BobaGallery", category: "Media", pc: "큰 이미지 + 썸네일 rail", mo: "스와이프 + 카운터", source: "Fuse Gallery + eBay Media container" },
   { name: "BobaSave", category: "Commerce", pc: "outline/active", mo: "44px hit area", source: "Fuse Save + eBay Icon button" },
   { name: "BobaRangeDual", category: "Forms", pc: "가격/연식 범위", mo: "바텀시트 내 dual control", source: "Fuse Range Dual + eBay Numeric stepper" },
+  { name: "BobaPagination", category: "Pagination", pc: "검색 결과 페이지 이동", mo: "더보기 또는 간소 페이지 버튼", source: "Fuse Pagination + eBay Pagination" },
+  { name: "BobaTabs", category: "Tabs", pc: "상세정보/성능점검/보험이력 sticky tab", mo: "상단 고정 anchor tab", source: "Fuse Tabs + Tab Panel" },
+  { name: "BobaNotification", category: "Notification", pc: "견적/문의/오류 toast와 page notice", mo: "snackbar와 inline error", source: "Fuse Notification + eBay Snackbar" },
   { name: "BobaDetailCTA", category: "Sticky action", pc: "우측 문의 패널", mo: "safe-area 하단 고정", source: "eBay Action bar + Sheet" },
 ];

@@ -12,36 +12,33 @@
   </head>
   <body>
     <div class="app-shell">
-      <aside class="sidebar" aria-label="디자인 시스템 메뉴">
-        <a class="brand" href="#overview" aria-label="보배드림 디자인 시스템 홈">
-          <span class="brand-mark">B</span>
-          <span>
-            <strong>Bobaedream DS</strong>
-            <small>Design Playbook</small>
-          </span>
-        </a>
+      <button class="mobile-menu-button" id="menuToggle" type="button" aria-controls="designSidebar" aria-expanded="false">
+        메뉴
+      </button>
 
-        <nav class="nav">
-          <p class="nav-label">Get Started</p>
-          <a href="#overview" class="nav-link active">개요</a>
-          <a href="#references" class="nav-link">해외 레퍼런스</a>
-          <a href="#catalog" class="nav-link">전체 카탈로그</a>
-          <a href="#workflow" class="nav-link">운영 흐름</a>
+      <aside class="sidebar" id="designSidebar" aria-label="디자인 시스템 메뉴">
+        <div class="sidebar-scroll">
+          <div class="brand-row">
+            <a class="brand" href="#style-guide-icons" aria-label="보배드림 디자인 시스템 Style Guide Icons">
+              <span class="brand-mark">B</span>
+              <span>
+                <strong>Bobaedream DS</strong>
+                <small>Powered by Fuse structure</small>
+              </span>
+            </a>
+            <button class="sidebar-close" id="closeSidebar" type="button" aria-label="메뉴 닫기">×</button>
+          </div>
 
-          <p class="nav-label">Foundations</p>
-          <a href="#tokens" class="nav-link">디자인 토큰</a>
-          <a href="#icons" class="nav-link">아이콘</a>
-          <a href="#states" class="nav-link">상태값</a>
+          <label class="sidebar-search">
+            <span>Search</span>
+            <input id="sidebarSearch" autocomplete="off" placeholder="Button, 버튼, Icons, 아이콘" />
+          </label>
 
-          <p class="nav-label">Components</p>
-          <a href="#components" class="nav-link">컴포넌트</a>
-          <a href="#buttons" class="nav-link">버튼</a>
-          <a href="#preview" class="nav-link">매물 UI 프리뷰</a>
-
-          <p class="nav-label">Admin</p>
-          <a href="#registry" class="nav-link">등록·수정</a>
-        </nav>
+          <nav class="nav fuse-nav" id="sidebarNav" aria-label="Fuse형 문서 목차"></nav>
+          <p class="nav-empty" id="sidebarEmpty" hidden>검색 결과가 없습니다.</p>
+        </div>
       </aside>
+      <button class="sidebar-overlay" id="sidebarOverlay" type="button" aria-label="메뉴 닫기"></button>
 
       <main class="page">
         <header class="topbar">
@@ -55,6 +52,8 @@
             <button class="primary-button" id="newItemButton" type="button">항목 등록</button>
           </div>
         </header>
+
+        <section id="docPage" class="section doc-section" aria-live="polite"></section>
 
         <section id="overview" class="section">
           <div class="section-heading">

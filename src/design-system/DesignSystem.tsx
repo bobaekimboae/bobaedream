@@ -1,9 +1,11 @@
-import type { ReactNode } from "react";
-import type { CatalogGroup } from "./catalog";
+import { useMemo, useState, type ReactNode } from "react";
+import type { CatalogGroup, SidebarNode } from "./catalog";
 import {
+  bobaedreamUseCases,
   bobaedreamTokens,
   componentSpecs,
   ebayGroups,
+  fuseSidebarTree,
   fuseGroups,
   iconLibraries,
   referenceSystems,
@@ -20,6 +22,27 @@ const statusClass = (status?: string) => {
 
 const formatItemName = (item: { label: string; korean?: string }) =>
   item.korean ? `${item.label} (${item.korean})` : item.label;
+
+const formatSidebarName = (item: { title: string; koTitle?: string }) =>
+  item.koTitle ? `${item.title} (${item.koTitle})` : item.title;
+
+const sidebarMatches = (item: SidebarNode, query: string) =>
+  [item.title, item.koTitle, item.href].join(" ").toLowerCase().includes(query);
+
+const filterSidebar = (nodes: SidebarNode[], query: string): SidebarNode[] => {
+  if (!query) return nodes;
+
+  return nodes.reduce<SidebarNode[]>((result, node) => {
+    const children = node.children ? filterSidebar(node.children, query) : undefined;
+    if (sidebarMatches(node, query) || children?.length) {
+      result.push({ ...node, children });
+    }
+    return result;
+  }, []);
+};
+
+const countSidebarItems = (nodes: SidebarNode[]): number =>
+  nodes.reduce((total, node) => total + 1 + (node.children ? countSidebarItems(node.children) : 0), 0);
 
 export function StoryFrame({ title, eyebrow, children }: { title: string; eyebrow?: string; children: ReactNode }) {
   return (
@@ -79,6 +102,114 @@ export function CatalogColumn({ title, groups }: { title: string; groups: Catalo
         </article>
       ))}
     </div>
+  );
+}
+
+function SidebarTree({
+  nodes,
+  activeId,
+  onSelect,
+}: {
+  nodes: SidebarNode[];
+  activeId: string;
+  onSelect: (node: SidebarNode) => void;
+}) {
+  return (
+    <ul className="bd-fuse-nav-list">
+      {nodes.map((node) => (
+        <li className="bd-fuse-nav-item" key={node.id}>
+          <button
+            className={`bd-fuse-nav-link is-depth-${node.depth} ${node.id === activeId ? "is-active" : ""} ${
+              node.status === "deprecated" ? "is-deprecated" : ""
+            } ${node.status === "custom" ? "is-custom" : ""}`}
+            style={{ paddingLeft: 10 + node.depth * 14 }}
+            type="button"
+            onClick={() => onSelect(node)}
+          >
+            <span className="bd-fuse-nav-content">
+              {node.children?.length ? <span className="bd-fuse-nav-caret">›</span> : null}
+              <span>{formatSidebarName(node)}</span>
+            </span>
+            {node.status === "deprecated" ? <em>deprecated</em> : null}
+          </button>
+          {node.children?.length ? <SidebarTree nodes={node.children} activeId={activeId} onSelect={onSelect} /> : null}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function findSidebarNode(nodes: SidebarNode[], predicate: (node: SidebarNode) => boolean): SidebarNode | undefined {
+  for (const node of nodes) {
+    if (predicate(node)) return node;
+    const child = node.children ? findSidebarNode(node.children, predicate) : undefined;
+    if (child) return child;
+  }
+  return undefined;
+}
+
+export function FuseNavigationPreview() {
+  const defaultNode = findSidebarNode(fuseSidebarTree, (node) => node.title === "Icons") ?? fuseSidebarTree[0];
+  const [query, setQuery] = useState("");
+  const [activeNode, setActiveNode] = useState<SidebarNode>(defaultNode);
+  const filteredTree = useMemo(() => filterSidebar(fuseSidebarTree, query.trim().toLowerCase()), [query]);
+  const activeUseCases = bobaedreamUseCases[activeNode.title] ?? [
+    `${formatSidebarName(activeNode)} 문서는 보배드림 화면의 구성, 상태, 속성, 사용 기준을 함께 기록합니다.`,
+    "디자이너와 개발자가 같은 명칭으로 검색하고 Storybook 예시와 연결합니다.",
+    "AI 측정값은 Measurement Master에 남긴 뒤 확정 기준만 컴포넌트 문서로 승격합니다.",
+  ];
+
+  return (
+    <StoryFrame eyebrow="Fuse Sidebar" title="Cars.com Fuse형 문서 탐색">
+      <div className="bd-fuse-shell">
+        <aside className="bd-fuse-sidebar" aria-label="Fuse형 보배드림 디자인 시스템 메뉴">
+          <a className="bd-fuse-brand" href="https://fuse.cars.com/style-guide/icons" target="_blank" rel="noreferrer">
+            <span className="bd-fuse-brand-mark">B</span>
+            <span>
+              <strong>Bobaedream DS</strong>
+              <small>Powered by Fuse structure</small>
+            </span>
+          </a>
+          <label className="bd-fuse-search">
+            <span>Search</span>
+            <input
+              aria-label="문서 메뉴 검색"
+              value={query}
+              onChange={(event) => setQuery(event.currentTarget.value)}
+              placeholder="Button, 버튼, Icons, 아이콘"
+            />
+          </label>
+          <nav className="bd-fuse-nav">
+            {filteredTree.length ? (
+              <SidebarTree nodes={filteredTree} activeId={activeNode.id} onSelect={setActiveNode} />
+            ) : (
+              <p className="bd-fuse-empty">검색 결과가 없습니다.</p>
+            )}
+          </nav>
+        </aside>
+        <article className="bd-fuse-doc">
+          <p className="bd-fuse-breadcrumb">Style Guide / Icons</p>
+          <h2>{formatSidebarName(activeNode)}</h2>
+          <p>
+            Cars.com Fuse의 좌측 Docsify/Breeze형 문서 구조를 보배드림 운영 문서에 맞게 변환했습니다.
+            메뉴는 영문과 한국어를 함께 표기하고, deprecated 항목은 낮은 대비와 상태 라벨로 표시합니다.
+          </p>
+          <div className="bd-fuse-doc-grid">
+            {activeUseCases.map((item) => (
+              <section key={item}>
+                <strong>{item}</strong>
+                <span>보배드림 중고차 PC웹, 모바일웹, 앱 화면 기준으로 관리합니다.</span>
+              </section>
+            ))}
+          </div>
+          <div className="bd-note">
+            검색어 <code>Button</code>, <code>버튼</code>, <code>Icon</code>, <code>아이콘</code>, <code>Filter</code>,
+            <code>필터</code>를 모두 같은 메뉴에서 찾을 수 있습니다.
+          </div>
+        </article>
+      </div>
+      <p className="bd-fuse-count">총 {countSidebarItems(fuseSidebarTree)}개 메뉴 항목 + 보배드림 운영 메뉴가 포함됩니다.</p>
+    </StoryFrame>
   );
 }
 
