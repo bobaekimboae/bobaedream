@@ -293,80 +293,100 @@
               <span id="editBannerText">현재 수정 중</span>
               <button class="ghost-button" type="button" id="cancelEditButton">수정 취소</button>
             </div>
-            <label>
-              구분
-              <select id="itemType" required aria-describedby="itemTypeError">
-                <option value="토큰">토큰</option>
-                <option value="컴포넌트">컴포넌트</option>
-                <option value="아이콘">아이콘</option>
-                <option value="버튼">버튼</option>
-                <option value="상태">상태</option>
-                <option value="해외 레퍼런스">해외 레퍼런스</option>
-                <option value="운영">운영</option>
-              </select>
-              <span class="field-error" id="itemTypeError"></span>
-            </label>
-            <label>
-              항목명
-              <input id="itemName" required aria-describedby="itemNameError" placeholder="예: 매물 카드" />
-              <span class="field-error" id="itemNameError"></span>
-            </label>
-            <label>
-              표준명
-              <input id="itemStandard" required aria-describedby="itemStandardError" placeholder="예: ListingCard" />
-              <span class="field-error" id="itemStandardError"></span>
-            </label>
-            <label>
-              상태
-              <select id="itemStatus" required aria-describedby="itemStatusError">
-                <option value="검토필요">검토필요</option>
-                <option value="등록완료">등록완료</option>
-                <option value="확정">확정</option>
-                <option value="Figma반영대기">Figma반영대기</option>
-                <option value="제외">제외</option>
-              </select>
-              <span class="field-error" id="itemStatusError"></span>
-            </label>
-            <label>
-              플랫폼
-              <select id="itemPlatform" required aria-describedby="itemPlatformError">
-                <option value="공통">공통</option>
-                <option value="PC웹">PC웹</option>
-                <option value="모바일웹">모바일웹</option>
-                <option value="앱">앱</option>
-              </select>
-              <span class="field-error" id="itemPlatformError"></span>
-            </label>
-            <label>
-              Sheet 탭
-              <input id="itemSheet" placeholder="예: 04_컴포넌트마스터" />
-            </label>
-            <label>
-              PC값
-              <input id="itemPcValue" placeholder="예: 16px" />
-            </label>
-            <label>
-              MO값
-              <input id="itemMoValue" placeholder="예: 14px" />
-            </label>
-            <label class="wide-field">
-              주요 속성
-              <input id="itemProps" aria-describedby="itemPropsError" placeholder="예: height, padding, radius, color" />
-              <span class="field-error" id="itemPropsError"></span>
-            </label>
-            <label class="wide-field">
-              비고
-              <textarea id="itemNote" rows="3" placeholder="측정 기준, 적용 위치, 검토 사유"></textarea>
-            </label>
+
+            <fieldset class="registry-form-section">
+              <legend><span class="form-step">1</span>기본 정보</legend>
+              <label>
+                구분
+                <select id="itemType" required aria-describedby="itemTypeError">
+                  <option value="토큰">토큰</option>
+                  <option value="컴포넌트">컴포넌트</option>
+                  <option value="아이콘">아이콘</option>
+                  <option value="버튼">버튼</option>
+                  <option value="상태">상태</option>
+                  <option value="해외 레퍼런스">해외 레퍼런스</option>
+                  <option value="운영">운영</option>
+                </select>
+                <span class="field-error" id="itemTypeError"></span>
+              </label>
+              <label>
+                항목명
+                <input id="itemName" required aria-describedby="itemNameError" placeholder="예: 매물 카드" />
+                <span class="field-error" id="itemNameError"></span>
+              </label>
+              <label>
+                표준명
+                <input id="itemStandard" required aria-describedby="itemStandardError" placeholder="예: ListingCard" />
+                <span class="field-error" id="itemStandardError"></span>
+              </label>
+            </fieldset>
+
+            <fieldset class="registry-form-section">
+              <legend><span class="form-step">2</span>운영 기준</legend>
+              <label>
+                상태
+                <select id="itemStatus" required aria-describedby="itemStatusError">
+                  <option value="검토필요">검토필요</option>
+                  <option value="등록완료">등록완료</option>
+                  <option value="확정">확정</option>
+                  <option value="Figma반영대기">Figma반영대기</option>
+                  <option value="제외">제외</option>
+                </select>
+                <span class="field-error" id="itemStatusError"></span>
+              </label>
+              <label>
+                플랫폼
+                <select id="itemPlatform" required aria-describedby="itemPlatformError">
+                  <option value="공통">공통</option>
+                  <option value="PC웹">PC웹</option>
+                  <option value="모바일웹">모바일웹</option>
+                  <option value="앱">앱</option>
+                </select>
+                <span class="field-error" id="itemPlatformError"></span>
+              </label>
+              <label>
+                Sheet 탭
+                <input id="itemSheet" placeholder="예: 04_컴포넌트마스터" />
+              </label>
+            </fieldset>
+
+            <fieldset class="registry-form-section">
+              <legend><span class="form-step">3</span>반응형 값</legend>
+              <label>
+                PC값
+                <input id="itemPcValue" placeholder="예: 16px" />
+              </label>
+              <label>
+                MO값
+                <input id="itemMoValue" placeholder="예: 14px" />
+              </label>
+              <label>
+                주요 속성
+                <input id="itemProps" aria-describedby="itemPropsError" placeholder="예: height, padding, radius, color" />
+                <span class="field-error" id="itemPropsError"></span>
+              </label>
+            </fieldset>
+
+            <fieldset class="registry-form-section">
+              <legend><span class="form-step">4</span>메모</legend>
+              <label>
+                비고
+                <textarea id="itemNote" rows="4" placeholder="측정 기준, 적용 위치, 검토 사유"></textarea>
+              </label>
+            </fieldset>
 
             <div class="form-actions">
-              <button class="primary-button" type="submit" id="saveButton">등록</button>
-              <button class="ghost-button" type="button" id="clearButton">초기화</button>
-              <button class="ghost-button" type="button" id="exportCsvButton">CSV 내보내기</button>
-              <label class="file-button">
-                JSON 가져오기
-                <input type="file" id="importJsonInput" accept="application/json" />
-              </label>
+              <div class="form-actions-secondary">
+                <button class="ghost-button" type="button" id="exportCsvButton">CSV 내보내기</button>
+                <label class="file-button">
+                  JSON 가져오기
+                  <input type="file" id="importJsonInput" accept="application/json" />
+                </label>
+              </div>
+              <div class="form-actions-primary">
+                <button class="ghost-button" type="button" id="clearButton">초기화</button>
+                <button class="primary-button" type="submit" id="saveButton">등록</button>
+              </div>
             </div>
           </form>
 
