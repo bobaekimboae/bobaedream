@@ -13,7 +13,7 @@
   --bd-color-sidebar-ink: #ffffff;
   --bd-color-sidebar-muted: rgba(255, 255, 255, 0.72);
   --bd-color-sidebar-soft: rgba(255, 255, 255, 0.08);
-  --bd-color-sidebar-active: rgba(192, 152, 239, 0.16);
+  --bd-color-sidebar-active: transparent;
   --bd-color-sidebar-accent: #c098ef;
   --bd-color-sidebar-line: rgba(255, 255, 255, 0.18);
   --bd-radius-card: 8px;
@@ -243,7 +243,7 @@ a {
 .bd-fuse-shell {
   display: grid;
   min-height: 720px;
-  grid-template-columns: 304px minmax(0, 1fr);
+  grid-template-columns: 300px minmax(0, 1fr);
   overflow: hidden;
   border: 1px solid #e4e7ec;
   border-radius: 8px;
@@ -255,7 +255,7 @@ a {
   border-right: 1px solid var(--bd-color-sidebar-line);
   background: var(--bd-color-sidebar-bg);
   color: var(--bd-color-sidebar-ink);
-  padding: 18px 14px 24px;
+  padding: 26px 18px 18px;
 }
 
 .bd-fuse-brand {
@@ -324,55 +324,70 @@ a {
 }
 
 .bd-fuse-nav-list .bd-fuse-nav-list {
-  margin-top: 2px;
+  margin-top: 0;
+  margin-left: 35px;
 }
 
 .bd-fuse-nav-link {
+  position: relative;
   display: flex;
   width: 100%;
-  min-height: 32px;
+  min-height: 28px;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
   border: 0;
-  border-radius: 6px;
+  border-radius: 0;
   background: transparent;
   color: var(--bd-color-sidebar-ink);
-  padding: 6px 10px;
+  padding: 0;
   font-size: 14px;
-  line-height: 20px;
+  font-weight: 600;
+  line-height: 28px;
   text-align: left;
 }
 
 .bd-fuse-nav-link.is-depth-0 {
-  margin-top: 10px;
+  min-height: 32px;
+  margin-top: 0;
   color: var(--bd-color-sidebar-ink);
-  font-size: 13px;
-  font-weight: 850;
+  padding-left: 24px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 32px;
 }
 
 .bd-fuse-nav-link:hover {
-  background: var(--bd-color-sidebar-soft);
+  color: var(--bd-color-sidebar-accent);
 }
 
 .bd-fuse-nav-link.is-active {
   background: var(--bd-color-sidebar-active);
   color: var(--bd-color-sidebar-accent);
-  font-weight: 800;
 }
 
 .bd-fuse-nav-content {
   display: inline-flex;
   min-width: 0;
   align-items: flex-start;
-  gap: 5px;
+  gap: 0;
 }
 
 .bd-fuse-nav-caret {
+  position: absolute;
+  left: 4px;
   flex: 0 0 auto;
   color: rgba(255, 255, 255, 0.54);
   font-size: 15px;
   line-height: 18px;
+}
+
+.bd-fuse-nav-link:not(.is-depth-0).has-children {
+  padding-left: 18px;
+}
+
+.bd-fuse-nav-link:not(.is-depth-0).has-children .bd-fuse-nav-caret {
+  left: 0;
 }
 
 .bd-fuse-nav-link.is-deprecated span {

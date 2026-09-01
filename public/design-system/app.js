@@ -116,8 +116,10 @@ const koreanNames = {
   Breakpoints: "반응형 분기점",
   Icons: "아이콘",
   "UI Icons": "UI 아이콘",
+  "Frequent Icons": "자주쓰는 아이콘",
   "Option Icons": "옵션 아이콘",
-  "Vehicle Icons": "차량 아이콘",
+  "Vehicle Info Icons": "차량 관련 아이콘",
+  "Community Icons": "커뮤니티 아이콘",
   Imagery: "이미지",
   Layout: "레이아웃",
   "Typography & Headings": "타이포그래피와 제목",
@@ -228,6 +230,10 @@ const koreanNames = {
   Storybook: "스토리북",
   "QA Checklist": "QA 체크리스트",
   Toolbox: "툴박스",
+  "Cars.com Cross-check": "Cars.com IA 대조",
+  "Component IA": "컴포넌트 문서 구조",
+  "Naming Gaps": "명칭 차이",
+  "Migration Order": "이식 순서",
   Foundations: "파운데이션",
   "Design Token": "디자인 토큰",
   Iconography: "아이콘그래피",
@@ -404,7 +410,7 @@ const requiredItems = new Set([
   "Home", "Web Installation & Usage", "System Installation", "Guide to Web Components", "Web Component Basics",
   "Style Customization", "Working with Forms", "React Components", "AI Agent Skill", "Changelog",
   "Design Tokens", "Color", "Font", "Spacing", "Size", "Elevation", "Motion", "Breakpoints", "Icons",
-  "UI Icons", "Option Icons", "Vehicle Icons",
+  "UI Icons", "Frequent Icons", "Option Icons", "Vehicle Info Icons", "Community Icons",
   "Forms", "Imagery", "Layout", "Typography & Headings", "Usability Standards", "Visual Language",
   "Accordion", "Badge", "Breadcrumb", "Button", "Card", "Card Carousel", "Checkbox", "Fieldset",
   "Filter", "Form Module", "Gallery", "Gallery Grid", "Gallery Thumbnails", "Input", "Link", "List",
@@ -419,6 +425,7 @@ const requiredItems = new Set([
   "Color Contrast", "Action bar", "Alert notice", "Buttons", "CTA button", "Icon button", "Carousel",
   "Chip", "Filter chip", "Input chip", "Dialog", "Divider", "Search field", "Sheet", "Snackbar",
   "State layer", "Video player", "Creating forms", "Empty states", "Filtering", "Uploading files", "Legal link",
+  "Cars.com Cross-check", "Component IA", "Naming Gaps", "Migration Order",
 ]);
 
 function slugifySidebarSegment(value) {
@@ -517,8 +524,10 @@ const fuseSidebarTree = sidebarTree([
     href: "#style-guide-icons",
     children: [
       { title: "UI Icons", href: "#style-guide-icons-ui-icons" },
+      { title: "Frequent Icons", href: "#style-guide-icons-frequent-icons" },
       { title: "Option Icons", href: "#style-guide-icons-option-icons" },
-      { title: "Vehicle Icons", href: "#style-guide-icons-vehicle-icons" },
+      { title: "Vehicle Info Icons", href: "#style-guide-icons-vehicle-info-icons" },
+      { title: "Community Icons", href: "#style-guide-icons-community-icons" },
     ],
   },
   {
@@ -697,6 +706,10 @@ const fuseSidebarTree = sidebarTree([
       "Toolbox",
       "References",
       "Coverage Matrix",
+      {
+        title: "Cars.com Cross-check",
+        children: ["Component IA", "Naming Gaps", "Migration Order"],
+      },
       "Storybook",
       "QA Checklist",
       {
@@ -726,10 +739,12 @@ const bobaedreamUseCases = {
   Tabs: ["상세정보", "성능점검", "보험이력"],
   Notification: ["성공", "오류", "가격 변동"],
   "보배드림 운영": ["등록", "수정", "검토"],
-  Icons: ["UI 아이콘", "옵션 아이콘", "차량 아이콘"],
+  Icons: ["UI 아이콘", "자주쓰는 아이콘", "옵션 아이콘", "차량 관련 아이콘", "커뮤니티 아이콘"],
   "UI Icons": ["검색", "닫기", "필터"],
+  "Frequent Icons": ["찜", "전화", "사진", "조회수"],
   "Option Icons": ["편의 옵션", "안전 옵션", "상태 표시"],
-  "Vehicle Icons": ["차종", "브랜드", "카테고리"],
+  "Vehicle Info Icons": ["연식", "주행거리", "연료", "가격", "차종"],
+  "Community Icons": ["댓글", "추천", "공유", "조회"],
 };
 
 const fuseGroups = [
@@ -748,7 +763,7 @@ const fuseGroups = [
     "Style Guide", ["Design Tokens", "Style Guide"], ["Installation", "Design Tokens"], ["Schema", "Design Tokens"],
     ["Color", "Design Tokens"], ["Font", "Design Tokens"], ["Spacing", "Design Tokens"], ["Size", "Design Tokens"],
     ["Elevation", "Design Tokens"], ["Motion", "Design Tokens"], ["Breakpoints", "Design Tokens"], ["Icons", "Style Guide"],
-    ["UI Icons", "Icons"], ["Option Icons", "Icons"], ["Vehicle Icons", "Icons"],
+    ["UI Icons", "Icons"], ["Frequent Icons", "Icons"], ["Option Icons", "Icons"], ["Vehicle Info Icons", "Icons"], ["Community Icons", "Icons"],
     ["Forms", "Style Guide"], ["Imagery", "Style Guide"], ["Layout", "Style Guide"], ["Spacing", "Style Guide"],
     ["Typography & Headings", "Style Guide"], ["Usability Standards", "Style Guide"], ["Visual Language", "Style Guide"],
   ]],
@@ -849,41 +864,51 @@ const iconLibraryGroups = [
   {
     id: "ui",
     title: "UI 아이콘",
-    description: "검색, 닫기, 필터, 목록, 찜처럼 화면 조작에 직접 쓰는 아이콘입니다.",
+    description: "검색, 닫기, 필터, 화살표처럼 화면 조작에 직접 쓰는 기본 UI 아이콘입니다.",
     folder: "ui",
     files: [
       "back.svg",
-      "bookmark.svg",
-      "card-call.svg",
-      "card-heart.svg",
-      "card-message.svg",
-      "card-more.svg",
-      "card-view.svg",
       "category-chevron-down.svg",
       "category-chevron-right.svg",
       "category-sheet-close.svg",
       "chevron-down.svg",
-      "chotot-heart.svg",
       "close.svg",
       "filter.svg",
-      "heart-outline.svg",
-      "heart.svg",
       "list.svg",
-      "location-blue.svg",
-      "location-gray.svg",
-      "message.svg",
       "notion-chevron-right.svg",
       "notion-close.svg",
       "notion-filter.svg",
       "notion-list.svg",
       "notion-search.svg",
-      "photo-count.svg",
       "region-chevron.svg",
       "search.svg",
       "sheet-chevron.svg",
       "sheet-close.svg",
       "sort-arrow.svg",
+    ],
+  },
+  {
+    id: "frequent",
+    title: "자주쓰는 아이콘",
+    description: "중고차 매물 리스트와 상세 페이지에서 반복 노출되는 핵심 액션 아이콘입니다.",
+    folder: "ui",
+    files: [
+      "card-call.svg",
+      "card-heart.svg",
+      "card-message.svg",
+      "card-more.svg",
+      "card-view.svg",
+      "bookmark.svg",
+      "heart-outline.svg",
+      "heart.svg",
+      "location-blue.svg",
+      "location-gray.svg",
+      "photo-count.svg",
       "views.svg",
+      "../detail/call.svg",
+      "../detail/share.svg",
+      "../detail/more.svg",
+      "../detail/back.svg",
     ],
   },
   {
@@ -911,8 +936,8 @@ const iconLibraryGroups = [
   },
   {
     id: "vehicle",
-    title: "차량 아이콘",
-    description: "차종, 카테고리, 제조사 로고처럼 차량 분류에 쓰는 아이콘입니다.",
+    title: "차량 관련 아이콘",
+    description: "연식, 주행거리, 가격, 차종, 브랜드처럼 매물 정보와 차량 분류에 쓰는 아이콘입니다.",
     folder: "categories",
     files: [
       "used-car.svg",
@@ -922,6 +947,12 @@ const iconLibraryGroups = [
       "construction.svg",
       "old-car.svg",
       "parts.svg",
+      "../detail/vehicle-info-chevron.svg",
+      "../detail/price-tag.svg",
+      "../detail/price-tag-dot.svg",
+      "../detail/price-up.svg",
+      "../detail/price-down.svg",
+      "../detail/price-history-close.svg",
       "../brand/audi.svg",
       "../brand/benz.png",
       "../brand/bmw.svg",
@@ -934,12 +965,81 @@ const iconLibraryGroups = [
       "../brand/porsche.png",
     ],
   },
+  {
+    id: "community",
+    title: "커뮤니티 아이콘",
+    description: "게시글, 댓글, 추천, 공유, 조회처럼 커뮤니티 화면에서 쓰는 아이콘입니다.",
+    folder: "ui",
+    files: [
+      "message.svg",
+      "card-message.svg",
+      "heart.svg",
+      "heart-outline.svg",
+      "bookmark.svg",
+      "views.svg",
+      "card-view.svg",
+      "../detail/share.svg",
+      "../detail/more.svg",
+    ],
+  },
 ];
+
+const optionIconCategories = [
+  {
+    id: "safety",
+    title: "안전",
+    description: "에어백, 경고 알림, 충돌 예방처럼 안전 옵션에 쓰는 아이콘입니다.",
+  },
+  {
+    id: "convenience",
+    title: "편의",
+    description: "스마트키, 무선충전, 전동 트렁크처럼 사용 편의 옵션에 쓰는 아이콘입니다.",
+  },
+  {
+    id: "parking",
+    title: "주차/카메라",
+    description: "후방카메라, 360도 보기, 주차 보조처럼 주차 확인에 쓰는 아이콘입니다.",
+  },
+  {
+    id: "seat",
+    title: "시트/공조",
+    description: "열선, 통풍처럼 좌석과 공조 옵션에 쓰는 아이콘입니다.",
+  },
+  {
+    id: "driving",
+    title: "주행/표시",
+    description: "HUD, 조명, 주행 보조처럼 운전 중 확인하는 옵션에 쓰는 아이콘입니다.",
+  },
+  {
+    id: "etc",
+    title: "기타",
+    description: "분류가 확정되지 않았거나 안내성으로 쓰는 옵션 아이콘입니다.",
+  },
+];
+
+const optionIconMetadata = {
+  "option-01": { name: "무선충전 옵션 아이콘", category: "convenience" },
+  "option-02": { name: "LED 헤드램프 옵션 아이콘", category: "driving" },
+  "option-03": { name: "주차 보조 옵션 아이콘", category: "parking" },
+  "option-04": { name: "후방카메라 옵션 아이콘", category: "parking" },
+  "option-05": { name: "360도 어라운드뷰 옵션 아이콘", category: "parking" },
+  "option-06": { name: "에어백 옵션 아이콘", category: "safety" },
+  "option-07": { name: "주차 센서 옵션 아이콘", category: "parking" },
+  "option-08": { name: "열선시트 옵션 아이콘", category: "seat" },
+  "option-09": { name: "통풍시트 옵션 아이콘", category: "seat" },
+  "option-10": { name: "HUD 옵션 아이콘", category: "driving" },
+  "option-11": { name: "전동 트렁크 옵션 아이콘", category: "convenience" },
+  "option-12": { name: "안전 경고 옵션 아이콘", category: "safety" },
+  "option-13": { name: "차선/충돌 경고 옵션 아이콘", category: "safety" },
+  "option-info": { name: "옵션 정보 아이콘", category: "etc" },
+  "option-smart-key": { name: "스마트키 옵션 아이콘", category: "convenience" },
+};
 
 const assetIconRegistryItems = iconLibraryGroups.flatMap((group) =>
   group.files.map((file) => {
     const extension = iconFileExtension(file);
     const iconName = iconDisplayName(group.id, file);
+    const optionMeta = group.id === "option" ? optionIconMetadata[iconBaseName(file)] : null;
     const standardBase = `${group.id}_${iconBaseName(file)}`.replace(/[^a-z0-9]+/gi, "_").replace(/^_+|_+$/g, "").toLowerCase();
     return {
       id: `icon-${standardBase}`,
@@ -951,7 +1051,7 @@ const assetIconRegistryItems = iconLibraryGroups.flatMap((group) =>
       sheet: "07_아이콘명칭규칙",
       pcValue: extension === "svg" ? "24px" : "원본 비율",
       moValue: extension === "svg" ? "24px" : "원본 비율",
-      props: `group:${group.id}, ${extension}, download, white background, alt text`,
+      props: `group:${group.id}${optionMeta ? `, optionCategory:${optionMeta.category}` : ""}, ${extension}, download, white background, alt text`,
       note: `${group.title} 그룹에서 다운로드해 재사용합니다.`,
       iconPath: iconAssetPath(`${group.folder}/${file}`),
       iconFileName: `ic_${standardBase}.${extension}`,
@@ -1294,11 +1394,23 @@ const elements = {
   confirmMessage: document.querySelector("#confirmMessage"),
   cancelConfirmButton: document.querySelector("#cancelConfirmButton"),
   confirmDeleteButton: document.querySelector("#confirmDeleteButton"),
+  iconEditDialog: document.querySelector("#iconEditDialog"),
+  iconEditForm: document.querySelector("#iconEditForm"),
+  iconEditId: document.querySelector("#iconEditId"),
+  iconEditPreview: document.querySelector("#iconEditPreview"),
+  iconEditName: document.querySelector("#iconEditName"),
+  iconEditCategory: document.querySelector("#iconEditCategory"),
+  iconEditStandard: document.querySelector("#iconEditStandard"),
+  iconEditNote: document.querySelector("#iconEditNote"),
+  closeIconEditButton: document.querySelector("#closeIconEditButton"),
+  cancelIconEditButton: document.querySelector("#cancelIconEditButton"),
 };
 
 let formBaseline = "";
 let pendingConfirm = null;
 let previousFocus = null;
+let selectedIconIds = new Set();
+let previousIconEditFocus = null;
 
 document.addEventListener("DOMContentLoaded", async () => {
   bindEvents();
@@ -1313,6 +1425,8 @@ function bindEvents() {
   window.addEventListener("resize", handleSidebarViewportChange);
   document.addEventListener("click", handleTableAction);
   document.addEventListener("click", handleSectionScrollClick);
+  document.addEventListener("click", handleIconDocumentClick);
+  document.addEventListener("change", handleIconDocumentChange);
   document.addEventListener("keydown", handleGlobalKeydown);
   elements.sidebarNav.addEventListener("click", handleSidebarClick);
   elements.sidebarSearch.addEventListener("input", renderSidebar);
@@ -1357,6 +1471,12 @@ function bindEvents() {
   elements.confirmDeleteButton.addEventListener("click", runPendingConfirm);
   elements.confirmDialog.addEventListener("click", (event) => {
     if (event.target === elements.confirmDialog) closeConfirm();
+  });
+  elements.iconEditForm.addEventListener("submit", saveIconEdit);
+  elements.closeIconEditButton.addEventListener("click", closeIconEditDialog);
+  elements.cancelIconEditButton.addEventListener("click", closeIconEditDialog);
+  elements.iconEditDialog.addEventListener("click", (event) => {
+    if (event.target === elements.iconEditDialog) closeIconEditDialog();
   });
   syncIconUploadVisibility();
   syncActiveNav();
@@ -1543,7 +1663,6 @@ function renderSidebarItem(node, query = "", activeHash = currentRouteHash()) {
         data-doc-route="${isDocumentRoute(node) ? "true" : "false"}"
         title="${escapeAttribute(nodeLabel)}"
         aria-label="${escapeAttribute(nodeLabel)}"
-        style="padding-left:${10 + node.depth * 14}px"
       >
         <span class="nav-content">
           ${hasChildren ? '<span class="nav-caret" aria-hidden="true">›</span>' : ""}
@@ -1647,6 +1766,7 @@ function openSidebar() {
   document.body.classList.add("sidebar-open");
   if (window.innerWidth > 760) setSidebarCollapsed(false);
   elements.menuToggle.setAttribute("aria-expanded", "true");
+  elements.closeSidebar.focus({ preventScroll: true });
 }
 
 function closeSidebar() {
@@ -1667,18 +1787,15 @@ function setSidebarCollapsed(collapsed, options = {}) {
   const shouldPersist = options.persist !== false && window.innerWidth > 760;
   document.body.classList.toggle("sidebar-collapsed", collapsed);
   elements.menuToggle.setAttribute("aria-expanded", String(!collapsed));
-  elements.menuToggle.textContent = collapsed ? "메뉴 열기" : "메뉴";
   elements.menuToggle.setAttribute("aria-label", collapsed ? "좌측 메뉴 열기" : "좌측 메뉴");
   elements.collapseSidebar.setAttribute("aria-expanded", String(!collapsed));
   elements.collapseSidebar.setAttribute("aria-label", collapsed ? "좌측 메뉴 열기" : "좌측 메뉴 접기");
-  elements.collapseSidebar.textContent = collapsed ? "열기" : "접기";
   if (shouldPersist) localStorage.setItem(SIDEBAR_COLLAPSE_KEY, collapsed ? "true" : "false");
 }
 
 function restoreSidebarState() {
   if (window.innerWidth <= 760) {
     document.body.classList.remove("sidebar-collapsed");
-    elements.menuToggle.textContent = "메뉴 열기";
     elements.menuToggle.setAttribute("aria-expanded", "false");
     elements.menuToggle.setAttribute("aria-label", "좌측 메뉴 열기");
     elements.collapseSidebar.setAttribute("aria-expanded", "true");
@@ -2023,11 +2140,12 @@ function renderDocPropsTable(props = []) {
 }
 
 function renderSpecializedDoc(node) {
-  if (node.title === "Icons" || node.title === "UI Icons" || node.title === "Option Icons" || node.title === "Vehicle Icons") {
+  if (["Icons", "UI Icons", "Frequent Icons", "Option Icons", "Vehicle Info Icons", "Community Icons"].includes(node.title)) {
     return renderIconsDoc(node);
   }
   if (node.title === "Spacing") return renderSpacingDoc(node);
   if (node.title === "References") return renderReferencesDoc();
+  if (["Cars.com Cross-check", "Component IA", "Naming Gaps", "Migration Order"].includes(node.title)) return renderCarsCrossCheckDoc();
   if (node.title === "Coverage Matrix" || node.title === "Bootstrap Cross-check") return renderCoverageMatrixDoc();
   return "";
 }
@@ -2061,6 +2179,70 @@ function renderReferencesDoc() {
   `;
 }
 
+function renderCarsCrossCheckDoc() {
+  const summaryRows = [
+    ["확인 범위", "Cars.com Fuse 좌측 목차 130개 링크 중 주요 문서 116페이지를 확인했습니다.", "보배드림 목차 233개 항목과 대조했습니다."],
+    ["문서 골격", "컴포넌트 문서는 Overview, Examples, Importing, API Documentation, Usage가 반복됩니다.", "보배드림 컴포넌트 문서의 기본 순서로 사용합니다."],
+    ["보강 기준", "페이지 성격에 따라 Behavior, Appearance, Accessibility를 추가합니다.", "자동차 거래 화면에서 필요한 상태와 모바일 기준만 보강합니다."],
+  ];
+  const structureRows = [
+    ["Overview", "컴포넌트 정의와 사용 목적", "한 문단으로 짧게 씁니다."],
+    ["Examples", "대표 예시와 변형", "보배드림 매물 리스트, 상세, 등록 흐름 예시를 씁니다."],
+    ["Importing", "프론트엔드 적용 위치", "Nuxt/Vue 또는 공용 컴포넌트 import 예시를 둡니다."],
+    ["API Documentation", "props, 상태, 이벤트", "필수 속성과 기본값을 표로 정리합니다."],
+    ["Usage", "사용/비사용 기준", "실무 판단 규칙만 남깁니다."],
+    ["Accessibility", "키보드, aria, 터치 영역", "필요한 컴포넌트에만 독립 섹션으로 둡니다."],
+  ];
+  const namingRows = [
+    ["Installing Fuse", "System Installation", "브랜드명은 빼고 보배드림 설치 기준으로 치환"],
+    ["Fuse Components in React", "React Components", "프레임워크명만 남겨 개발자가 찾기 쉽게 치환"],
+    ["Fuse in Next.js (SSR)", "Next.js SSR", "보배드림 SSR 적용 기준으로 치환"],
+    ["Usage", "각 문서 하위 Usage", "전역 메뉴로 중복 노출하지 않고 문서 내부 섹션으로 유지"],
+  ];
+
+  return `
+    <div class="doc-summary-grid">
+      <article>
+        <strong>130개</strong>
+        <p>Cars.com Fuse 좌측 목차 링크 기준입니다.</p>
+      </article>
+      <article>
+        <strong>116페이지</strong>
+        <p>주요 문서 페이지의 섹션 구조를 확인했습니다.</p>
+      </article>
+      <article>
+        <strong>233개</strong>
+        <p>현재 보배드림 디자인 시스템 누적 목차입니다.</p>
+      </article>
+    </div>
+    ${renderSimpleRowsTable("Cars.com IA 대조 요약", ["항목", "확인 내용", "보배드림 적용"], summaryRows)}
+    ${renderSimpleRowsTable("컴포넌트 문서 기본 구조", ["섹션", "역할", "작성 기준"], structureRows)}
+    ${renderSimpleRowsTable("명칭 차이 처리", ["Cars.com 명칭", "보배드림 명칭", "처리 기준"], namingRows)}
+  `;
+}
+
+function renderSimpleRowsTable(caption, headers, rows) {
+  return `
+    <div class="doc-table-wrap">
+      <table class="doc-props-table">
+        <caption>${escapeHtml(caption)}</caption>
+        <thead>
+          <tr>${headers.map((header) => `<th>${escapeHtml(header)}</th>`).join("")}</tr>
+        </thead>
+        <tbody>
+          ${rows
+            .map(
+              (row) => `
+                <tr>${row.map((cell, index) => `<td>${index === 0 ? `<strong>${escapeHtml(cell)}</strong>` : escapeHtml(cell)}</td>`).join("")}</tr>
+              `,
+            )
+            .join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
 function renderCoverageMatrixDoc() {
   const topLevelCounts = flattenSidebar(fuseSidebarTree)
     .filter((entry) => entry.status !== "custom")
@@ -2072,6 +2254,7 @@ function renderCoverageMatrixDoc() {
   const total = [...topLevelCounts.values()].reduce((sum, count) => sum + count, 0);
   const sourceRows = [
     ["Cars.com 뼈대", "설치, 스타일 가이드, 컴포넌트, 원칙, 콘텐츠, 접근성, 리소스", "좌측 목차의 기본 구조로 사용"],
+    ["Cars.com 목차별 크로스체크", "130개 목차 링크 중 주요 문서 116페이지 확인", "Overview, Examples, Importing, API Documentation, Usage 순서를 기본 구조로 사용"],
     ["Seed 보강", "파운데이션, 모바일 앱 컴포넌트, 패턴, 짧은 한국어 문서 구조", "보배드림에 필요한 누락 항목 추가"],
     ["Bootstrap 크로스체크", "Getting Started, Customize, Layout, Content, Forms, Components, Helpers, Utilities", "프론트엔드 구현자가 찾는 축을 Resources에서 검토"],
   ];
@@ -2952,7 +3135,7 @@ function renderIconsDoc(node) {
   return `
     <div class="doc-icon-library">
       <h3>아이콘 라이브러리</h3>
-      <p>아이콘은 UI, 옵션, 차량 3개 그룹으로 관리합니다. 각 아이콘은 흰 배경에서 확인하고 바로 다운로드합니다.</p>
+      <p>아이콘은 UI, 자주쓰는, 옵션, 차량 관련, 커뮤니티 5개 그룹으로 관리합니다. 필요한 아이콘을 선택해 개별 또는 일괄 다운로드합니다.</p>
       <div class="doc-icon-tabs" aria-label="아이콘 그룹">
         ${iconLibraryGroups
           .map(
@@ -2964,6 +3147,8 @@ function renderIconsDoc(node) {
           )
           .join("")}
       </div>
+      ${renderIconBulkToolbar(groups)}
+      ${groups.some((group) => group.id === "option") ? renderOptionBulkUploadPanel() : ""}
       <div class="doc-icon-groups">
         ${groups.map((group) => renderIconGroup(group)).join("")}
       </div>
@@ -2972,6 +3157,8 @@ function renderIconsDoc(node) {
 }
 
 function renderIconGroup(group) {
+  if (group.id === "option") return renderOptionIconGroup(group);
+
   return `
     <section class="doc-icon-group">
       <div class="doc-icon-group-header">
@@ -2981,16 +3168,88 @@ function renderIconGroup(group) {
         </div>
         <span>${group.items.length}개</span>
       </div>
-      <div class="doc-icon-grid">
-        ${group.items
+      ${renderIconGrid(group.items)}
+    </section>
+  `;
+}
+
+function renderIconBulkToolbar(groups) {
+  const visibleCount = groups.reduce((count, group) => count + group.items.length, 0);
+  const selectedCount = selectedDownloadableIconItems().length;
+
+  return `
+    <div class="doc-icon-toolbar" aria-label="아이콘 선택 도구">
+      <label class="doc-icon-select-all">
+        <input type="checkbox" data-icon-select-all />
+        <span>현재 화면 전체 선택</span>
+      </label>
+      <button class="icon-bulk-button" type="button" data-icon-bulk-download ${selectedCount ? "" : "disabled"}>
+        선택 아이콘 일괄 다운로드
+      </button>
+      <button class="icon-bulk-secondary" type="button" data-icon-clear-selection ${selectedCount ? "" : "disabled"}>
+        선택 해제
+      </button>
+      <span class="doc-icon-selection-status" data-icon-selection-count>${selectedCount}개 선택 / ${visibleCount}개 표시</span>
+    </div>
+  `;
+}
+
+function renderOptionBulkUploadPanel() {
+  return `
+    <section class="doc-option-upload" aria-label="옵션 아이콘 일괄 업로드">
+      <div>
+        <h4>옵션 아이콘 일괄 업로드</h4>
+        <p>SVG, PNG 파일을 여러 개 선택하면 선택한 옵션 카테고리로 한 번에 등록합니다.</p>
+      </div>
+      <div class="doc-option-upload-controls">
+        <label>
+          카테고리
+          <select data-option-bulk-category>
+            ${optionIconCategories
+              .map((category) => `<option value="${escapeAttribute(category.id)}">${escapeHtml(category.title)}</option>`)
+              .join("")}
+          </select>
+        </label>
+        <label class="doc-option-file-button">
+          파일 선택
+          <input type="file" data-option-bulk-upload accept=".svg,.png,image/svg+xml,image/png" multiple />
+        </label>
+      </div>
+    </section>
+  `;
+}
+
+function renderOptionIconGroup(group) {
+  const categoryGroups = optionIconCategories
+    .map((category) => ({
+      ...category,
+      items: group.items.filter((item) => optionIconMetaForItem(item).category === category.id),
+    }))
+    .filter((category) => category.items.length);
+
+  return `
+    <section class="doc-icon-group doc-option-icon-group">
+      <div class="doc-icon-group-header">
+        <div>
+          <h4>${escapeHtml(group.title)}</h4>
+          <p>${escapeHtml(group.description)}</p>
+        </div>
+        <span>${group.items.length}개</span>
+      </div>
+      <div class="doc-option-category-list">
+        ${categoryGroups
           .map(
-            (item) => `
-              <article>
-                ${renderIconVisual(item, "doc-icon-preview")}
-                <strong>${escapeHtml(item.name)}</strong>
-                <code>${escapeHtml(item.standard)}</code>
-                ${renderIconDownloadLink(item)}
-              </article>
+            (category) => `
+              <section class="doc-option-category" data-option-category="${escapeAttribute(category.id)}">
+                <div class="doc-option-category-header">
+                  <div>
+                    <h5>${escapeHtml(category.title)}</h5>
+                    <p>${escapeHtml(category.description)}</p>
+                  </div>
+                  <span>${category.items.length}개</span>
+                </div>
+                ${renderIconGrid(category.items, { editable: true })}
+              </section>
             `,
           )
           .join("")}
@@ -2999,11 +3258,295 @@ function renderIconGroup(group) {
   `;
 }
 
+function renderIconGrid(iconItems, options = {}) {
+  return `
+    <div class="doc-icon-grid">
+      ${iconItems.map((item) => renderIconCard(item, options)).join("")}
+    </div>
+  `;
+}
+
+function renderIconCard(item, options = {}) {
+  const isSelected = selectedIconIds.has(item.id);
+  const editable = options.editable && resolveIconGroup(item) === "option";
+  return `
+    <article class="doc-icon-card${isSelected ? " is-selected" : ""}" data-icon-card="${escapeAttribute(item.id)}">
+      <label class="doc-icon-select-control">
+        <input type="checkbox" value="${escapeAttribute(item.id)}" data-icon-select ${isSelected ? "checked" : ""} />
+        <span>선택</span>
+      </label>
+      ${renderIconVisual(item, "doc-icon-preview")}
+      <strong>${escapeHtml(displayIconName(item))}</strong>
+      <code>${escapeHtml(item.standard)}</code>
+      <div class="doc-icon-card-actions">
+        ${renderIconDownloadLink(item)}
+        ${editable ? `<button class="icon-edit-button" type="button" data-icon-edit="${escapeAttribute(item.id)}">수정</button>` : ""}
+      </div>
+    </article>
+  `;
+}
+
+function handleIconDocumentClick(event) {
+  const bulkDownloadButton = event.target.closest("[data-icon-bulk-download]");
+  if (bulkDownloadButton) {
+    downloadSelectedIcons();
+    return;
+  }
+
+  const clearSelectionButton = event.target.closest("[data-icon-clear-selection]");
+  if (clearSelectionButton) {
+    selectedIconIds.clear();
+    syncIconSelectionUi();
+    showToast("아이콘 선택을 해제했습니다.");
+    return;
+  }
+
+  const editButton = event.target.closest("[data-icon-edit]");
+  if (editButton) {
+    openIconEditDialog(editButton.dataset.iconEdit);
+  }
+}
+
+function handleIconDocumentChange(event) {
+  const selectAll = event.target.closest("[data-icon-select-all]");
+  if (selectAll) {
+    setVisibleIconSelection(selectAll.checked);
+    return;
+  }
+
+  const checkbox = event.target.closest("[data-icon-select]");
+  if (checkbox) {
+    if (checkbox.checked) {
+      selectedIconIds.add(checkbox.value);
+    } else {
+      selectedIconIds.delete(checkbox.value);
+    }
+    syncIconSelectionUi();
+    return;
+  }
+
+  const bulkUploadInput = event.target.closest("[data-option-bulk-upload]");
+  if (bulkUploadInput) {
+    handleOptionBulkUpload(bulkUploadInput);
+  }
+}
+
+function setVisibleIconSelection(checked) {
+  visibleIconInputs().forEach((input) => {
+    input.checked = checked;
+    if (checked) {
+      selectedIconIds.add(input.value);
+    } else {
+      selectedIconIds.delete(input.value);
+    }
+  });
+  syncIconSelectionUi();
+}
+
+function visibleIconInputs() {
+  return [...document.querySelectorAll("[data-icon-select]")];
+}
+
+function selectedDownloadableIconItems() {
+  const selectedItems = activeItems().filter((item) => selectedIconIds.has(item.id) && item.type === "아이콘");
+  return selectedItems.filter((item) => Boolean(getIconSource(item)));
+}
+
+function syncIconSelectionUi() {
+  const visibleInputs = visibleIconInputs();
+  const selectedVisibleCount = visibleInputs.filter((input) => selectedIconIds.has(input.value)).length;
+  const selectedCount = selectedDownloadableIconItems().length;
+
+  visibleInputs.forEach((input) => {
+    input.checked = selectedIconIds.has(input.value);
+    input.closest("[data-icon-card]")?.classList.toggle("is-selected", input.checked);
+  });
+
+  document.querySelectorAll("[data-icon-select-all]").forEach((input) => {
+    input.checked = Boolean(visibleInputs.length && selectedVisibleCount === visibleInputs.length);
+    input.indeterminate = selectedVisibleCount > 0 && selectedVisibleCount < visibleInputs.length;
+  });
+
+  document.querySelectorAll("[data-icon-selection-count]").forEach((node) => {
+    node.textContent = `${selectedCount}개 선택 / ${visibleInputs.length}개 표시`;
+  });
+
+  document.querySelectorAll("[data-icon-bulk-download], [data-icon-clear-selection]").forEach((button) => {
+    button.disabled = selectedCount === 0;
+  });
+}
+
+function downloadSelectedIcons() {
+  const selectedItems = selectedDownloadableIconItems();
+  if (!selectedItems.length) {
+    showToast("다운로드할 아이콘을 선택하세요.");
+    return;
+  }
+
+  selectedItems.forEach((item, index) => {
+    window.setTimeout(() => downloadIconItem(item), index * 120);
+  });
+  showToast(`${selectedItems.length}개 아이콘 다운로드를 시작했습니다.`);
+}
+
+function downloadIconItem(item) {
+  const source = getIconSource(item);
+  if (!source) return;
+
+  const anchor = document.createElement("a");
+  anchor.href = source;
+  anchor.download = iconDownloadName(item);
+  anchor.rel = "noopener";
+  document.body.append(anchor);
+  anchor.click();
+  anchor.remove();
+}
+
+async function handleOptionBulkUpload(input) {
+  const files = [...(input.files || [])];
+  if (!files.length) return;
+
+  const uploadPanel = input.closest(".doc-option-upload");
+  const categoryId = uploadPanel?.querySelector("[data-option-bulk-category]")?.value || "etc";
+  const validFiles = files.filter(isSupportedOptionIconFile);
+  if (!validFiles.length) {
+    input.value = "";
+    showToast("SVG 또는 PNG 아이콘 파일을 선택하세요.");
+    return;
+  }
+
+  try {
+    const uploadedItems = [];
+    for (const file of validFiles) {
+      uploadedItems.push(await createOptionIconItemFromFile(file, categoryId));
+    }
+    items = [...items, ...uploadedItems];
+    persistItems();
+    input.value = "";
+    renderAll();
+    showToast(`${uploadedItems.length}개 옵션 아이콘을 등록했습니다.`);
+  } catch {
+    input.value = "";
+    showToast("옵션 아이콘 파일을 읽지 못했습니다.");
+  }
+}
+
+function isSupportedOptionIconFile(file) {
+  const name = file.name.toLowerCase();
+  const isSupportedType = file.type === "image/svg+xml" || file.type === "image/png" || /\.(svg|png)$/i.test(name);
+  return isSupportedType && file.size <= 500 * 1024;
+}
+
+async function createOptionIconItemFromFile(file, categoryId) {
+  const dataUrl = await readFileAsDataUrl(file);
+  const now = new Date().toISOString();
+  const category = optionCategoryById(categoryId);
+  const extension = iconFileExtension(file.name);
+  const standard = uniqueOptionIconStandardName(standardFromUploadedOptionIcon(file.name, categoryId, extension));
+  return {
+    id: createId(),
+    type: "아이콘",
+    name: labelFromIconFileName(file.name) || `${category.title} 옵션 아이콘`,
+    standard,
+    status: "검토필요",
+    platform: "공통",
+    sheet: "07_아이콘명칭규칙",
+    pcValue: extension === "svg" ? "24px" : "원본 비율",
+    moValue: extension === "svg" ? "24px" : "원본 비율",
+    props: `group:option, optionCategory:${category.id}, ${extension}, bulk upload, download`,
+    note: `${category.title} 카테고리로 일괄 업로드했습니다.`,
+    iconPath: "",
+    iconData: dataUrl,
+    iconFileName: standard,
+    createdAt: now,
+    updatedAt: now,
+    archived: false,
+  };
+}
+
+function standardFromUploadedOptionIcon(filename, categoryId, extension) {
+  const base = iconBaseName(filename)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "");
+  return `ic_option_${categoryId}_${base || "uploaded"}_24.${extension}`;
+}
+
+function uniqueOptionIconStandardName(standard) {
+  const seen = new Set(items.map((item) => item.standard.toLowerCase()));
+  if (!seen.has(standard.toLowerCase())) return standard;
+
+  const extension = iconFileExtension(standard);
+  const base = standard.replace(new RegExp(`\\.${extension}$`, "i"), "");
+  let index = 2;
+  let next = `${base}_${index}.${extension}`;
+  while (seen.has(next.toLowerCase())) {
+    index += 1;
+    next = `${base}_${index}.${extension}`;
+  }
+  return next;
+}
+
+function openIconEditDialog(iconId) {
+  const item = items.find((candidate) => candidate.id === iconId && candidate.type === "아이콘");
+  if (!item) return;
+
+  previousIconEditFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  const meta = optionIconMetaForItem(item);
+  elements.iconEditId.value = item.id;
+  elements.iconEditName.value = displayIconName(item);
+  elements.iconEditCategory.value = meta.category;
+  elements.iconEditStandard.value = item.standard;
+  elements.iconEditNote.value = item.note || "";
+  elements.iconEditPreview.innerHTML = renderIconVisual(item, "form-icon-preview");
+  elements.iconEditDialog.hidden = false;
+  document.body.classList.add("modal-open");
+  elements.iconEditName.focus();
+}
+
+function closeIconEditDialog() {
+  elements.iconEditDialog.hidden = true;
+  document.body.classList.remove("modal-open");
+  previousIconEditFocus?.focus({ preventScroll: true });
+  previousIconEditFocus = null;
+}
+
+function saveIconEdit(event) {
+  event.preventDefault();
+  const iconId = elements.iconEditId.value;
+  const item = items.find((candidate) => candidate.id === iconId && candidate.type === "아이콘");
+  if (!item) return;
+
+  const category = optionCategoryById(elements.iconEditCategory.value);
+  item.name = elements.iconEditName.value.trim() || item.name;
+  item.standard = elements.iconEditStandard.value.trim() || item.standard;
+  item.note = elements.iconEditNote.value.trim();
+  item.props = setOptionCategoryInProps(item.props, category.id);
+  item.updatedAt = new Date().toISOString();
+  persistItems();
+  closeIconEditDialog();
+  renderAll();
+  showToast(`${category.title} 카테고리로 수정했습니다.`);
+}
+
+function setOptionCategoryInProps(props = "", categoryId) {
+  const parts = String(props || "")
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .filter((part) => !/^optionCategory:/i.test(part));
+  if (!parts.some((part) => part === "group:option")) parts.unshift("group:option");
+  parts.splice(1, 0, `optionCategory:${categoryId}`);
+  return parts.join(", ");
+}
+
 function iconGroupIdForNode(node) {
   if (node.title === "Icons") return "all";
   if (node.title === "UI Icons") return "ui";
+  if (node.title === "Frequent Icons") return "frequent";
   if (node.title === "Option Icons") return "option";
-  if (node.title === "Vehicle Icons") return "vehicle";
+  if (node.title === "Vehicle Info Icons") return "vehicle";
+  if (node.title === "Community Icons") return "community";
   return "";
 }
 
@@ -3242,12 +3785,13 @@ function renderRegistry() {
 }
 
 function renderRegistryRow(item, query) {
+  const itemName = item.type === "아이콘" ? displayIconName(item) : item.name;
   return `
     <tr>
       <td><span class="registry-tag">${escapeHtml(item.type)}</span></td>
       <td>${renderIconVisual(item)}</td>
       <td>
-        <strong>${highlightText(item.name, query)}</strong>
+        <strong>${highlightText(itemName, query)}</strong>
         <br>
         <small>${highlightText(item.props || "", query)}</small>
       </td>
@@ -3262,6 +3806,7 @@ function renderRegistryRow(item, query) {
 }
 
 function renderRegistryCard(item, query) {
+  const itemName = item.type === "아이콘" ? displayIconName(item) : item.name;
   return `
     <article class="registry-card">
       <div class="registry-card-head">
@@ -3275,7 +3820,7 @@ function renderRegistryCard(item, query) {
       <dl>
         <div>
           <dt>항목명</dt>
-          <dd><strong>${highlightText(item.name, query)}</strong></dd>
+          <dd><strong>${highlightText(itemName, query)}</strong></dd>
         </div>
         <div>
           <dt>표준명</dt>
@@ -3534,7 +4079,7 @@ function readFileAsDataUrl(file) {
 
 function labelFromIconFileName(filename = "") {
   return filename
-    .replace(/\.svg$/i, "")
+    .replace(/\.(svg|png)$/i, "")
     .replace(/[_-]+/g, " ")
     .replace(/\s+/g, " ")
     .trim();
@@ -3699,6 +4244,8 @@ function syncActiveNav() {
   if (activeLink && scroller && !elements.sidebarSearch.value.trim() && window.innerWidth > 760) {
     scroller.scrollTop = Math.max(0, activeLink.offsetTop - 170);
   }
+
+  syncIconSelectionUi();
 }
 
 function currentRouteHash() {
@@ -3926,6 +4473,19 @@ function runPendingConfirm() {
 }
 
 function handleGlobalKeydown(event) {
+  if (event.key === "Escape" && document.body.classList.contains("sidebar-open")) {
+    event.preventDefault();
+    closeSidebar();
+    elements.menuToggle.focus({ preventScroll: true });
+    return;
+  }
+
+  if (event.key === "Escape" && !elements.iconEditDialog.hidden) {
+    event.preventDefault();
+    closeIconEditDialog();
+    return;
+  }
+
   if (elements.confirmDialog.hidden) return;
 
   if (event.key === "Escape") {
@@ -4008,7 +4568,7 @@ function renderIconVisual(item, className = "registry-icon-thumb") {
   if (item.type !== "아이콘") return '<span class="registry-icon-empty">-</span>';
 
   const source = getIconSource(item);
-  const label = item.name || item.standard || "아이콘";
+  const label = displayIconName(item);
   if (source) {
     return `
       <span class="${escapeAttribute(className)}" title="${escapeAttribute(label)}">
@@ -4025,7 +4585,7 @@ function renderIconVisual(item, className = "registry-icon-thumb") {
 }
 
 function getIconSource(item) {
-  if (item.iconData?.startsWith("data:image/svg+xml")) return item.iconData;
+  if (item.iconData?.startsWith("data:image/")) return item.iconData;
   if (item.iconPath) return resolveIconPath(item.iconPath);
   return getMappedIconPath(item);
 }
@@ -4040,7 +4600,7 @@ function renderIconDownloadLink(item, className = "icon-download-link") {
       class="${escapeAttribute(className)}"
       href="${escapeAttribute(source)}"
       download="${escapeAttribute(iconDownloadName(item))}"
-      aria-label="${escapeAttribute(`${item.name || item.standard} ${downloadLabel}`)}"
+      aria-label="${escapeAttribute(`${displayIconName(item)} ${downloadLabel}`)}"
     >
       ${escapeHtml(downloadLabel)}
     </a>
@@ -4092,10 +4652,17 @@ function iconDisplayName(groupId, fileName = "") {
     construction: "건설기계",
     "old-car": "올드카",
     parts: "부품",
+    "vehicle-info-chevron": "차량 정보 펼침",
+    "price-tag": "가격 태그",
+    "price-tag-dot": "가격 태그 표시점",
+    "price-up": "가격 상승",
+    "price-down": "가격 하락",
+    "price-history-close": "가격 이력 닫기",
   };
   const uiNames = {
     back: "뒤로가기",
     bookmark: "북마크",
+    call: "전화",
     "card-call": "매물 카드 전화",
     "card-heart": "매물 카드 찜",
     "card-message": "매물 카드 메시지",
@@ -4114,6 +4681,7 @@ function iconDisplayName(groupId, fileName = "") {
     "location-blue": "위치 파랑",
     "location-gray": "위치 회색",
     message: "메시지",
+    more: "더보기",
     "notion-chevron-right": "노션형 오른쪽 화살표",
     "notion-close": "노션형 닫기",
     "notion-filter": "노션형 필터",
@@ -4125,24 +4693,55 @@ function iconDisplayName(groupId, fileName = "") {
     "sheet-chevron": "시트 화살표",
     "sheet-close": "시트 닫기",
     "sort-arrow": "정렬 화살표",
+    share: "공유",
     views: "조회수",
   };
 
   if (groupId === "option") {
-    const optionMatch = baseName.match(/^option-(\d+)$/);
-    if (optionMatch) return `옵션 ${optionMatch[1]} 아이콘`;
-    if (baseName === "option-smart-key") return "스마트키 옵션 아이콘";
-    if (baseName === "option-info") return "옵션 정보 아이콘";
+    if (optionIconMetadata[baseName]) return optionIconMetadata[baseName].name;
     return `${baseName.replace(/-/g, " ")} 옵션 아이콘`;
   }
   if (groupId === "vehicle") return `${vehicleBrandNames[baseName] || vehicleCategoryNames[baseName] || baseName.replace(/-/g, " ")} 아이콘`;
   return `${uiNames[baseName] || baseName.replace(/-/g, " ")} 아이콘`;
 }
 
+function displayIconName(item) {
+  if (resolveIconGroup(item) !== "option") return item.name || item.standard || "아이콘";
+  return optionIconMetaForItem(item).name || item.name || item.standard || "옵션 아이콘";
+}
+
+function optionIconMetaForItem(item) {
+  const categoryFromProps = String(item.props || "").match(/optionCategory:([a-z-]+)/i)?.[1];
+  const baseName = optionIconBaseName(item);
+  const meta = optionIconMetadata[baseName] || {};
+  return {
+    name: meta.name || "",
+    category: categoryFromProps || meta.category || "etc",
+  };
+}
+
+function optionIconBaseName(item) {
+  const haystack = [item.iconPath, item.iconFileName, item.standard, item.name].join(" ").toLowerCase();
+  const smartKeyMatch = haystack.match(/option[-_]smart[-_]key/);
+  if (smartKeyMatch) return "option-smart-key";
+  const infoMatch = haystack.match(/option[-_]info/);
+  if (infoMatch) return "option-info";
+  const optionMatch = haystack.match(/option[-_](\d+)/);
+  if (optionMatch) return `option-${optionMatch[1].padStart(2, "0")}`;
+  return "";
+}
+
+function optionCategoryById(categoryId) {
+  return optionIconCategories.find((category) => category.id === categoryId) || optionIconCategories.at(-1);
+}
+
 function resolveIconGroup(item) {
   const haystack = [item.props, item.iconPath, item.standard, item.name].join(" ").toLowerCase();
+  if (haystack.includes("group:ui")) return "ui";
+  if (haystack.includes("group:frequent")) return "frequent";
   if (haystack.includes("group:option") || /option-|option_|option\b|옵션/.test(haystack)) return "option";
-  if (haystack.includes("group:vehicle") || /categories|brand|vehicle|car|truck|bike|camping|차량|브랜드/.test(haystack)) return "vehicle";
+  if (haystack.includes("group:vehicle") || /categories|brand|vehicle|truck|bike|camping|used-car|차량|차종|브랜드/.test(haystack)) return "vehicle";
+  if (haystack.includes("group:community") || /community|comment|reply|post|board|댓글|게시글|커뮤니티/.test(haystack)) return "community";
   return "ui";
 }
 

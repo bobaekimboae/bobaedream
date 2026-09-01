@@ -12,8 +12,8 @@
   </head>
   <body>
     <div class="app-shell">
-      <button class="mobile-menu-button" id="menuToggle" type="button" aria-controls="designSidebar" aria-expanded="false" aria-label="좌측 메뉴 열기">
-        메뉴 열기
+      <button class="mobile-menu-button sidebar-toggle-button" id="menuToggle" type="button" aria-controls="designSidebar" aria-expanded="false" aria-label="좌측 메뉴 열기">
+        <span class="sidebar-toggle-icon" aria-hidden="true"><span></span></span>
       </button>
 
       <aside class="sidebar" id="designSidebar" aria-label="디자인 시스템 메뉴">
@@ -26,8 +26,8 @@
                 <small>보배드림 운영 문서</small>
               </span>
             </a>
-            <button class="sidebar-collapse-button" id="collapseSidebar" type="button" aria-controls="designSidebar" aria-expanded="true" aria-label="좌측 메뉴 접기">
-              접기
+            <button class="sidebar-collapse-button sidebar-toggle-button" id="collapseSidebar" type="button" aria-controls="designSidebar" aria-expanded="true" aria-label="좌측 메뉴 접기">
+              <span class="sidebar-toggle-icon" aria-hidden="true"><span></span></span>
             </button>
             <button class="sidebar-close" id="closeSidebar" type="button" aria-label="메뉴 닫기">×</button>
           </div>
@@ -456,6 +456,50 @@
           <button class="ghost-button" type="button" id="cancelConfirmButton">취소</button>
           <button class="danger-button" type="button" id="confirmDeleteButton">삭제</button>
         </div>
+      </section>
+    </div>
+    <div class="icon-edit-backdrop" id="iconEditDialog" hidden>
+      <section class="icon-edit-modal" role="dialog" aria-modal="true" aria-labelledby="iconEditTitle">
+        <form id="iconEditForm">
+          <input id="iconEditId" type="hidden" />
+          <div class="icon-edit-head">
+            <div>
+              <p>옵션 아이콘 수정</p>
+              <h2 id="iconEditTitle">아이콘 정보</h2>
+            </div>
+            <button class="icon-edit-close" id="closeIconEditButton" type="button" aria-label="수정 레이어 닫기">×</button>
+          </div>
+          <div class="icon-edit-preview" id="iconEditPreview" aria-hidden="true"></div>
+          <div class="icon-edit-grid">
+            <label>
+              아이콘 이름
+              <input id="iconEditName" required />
+            </label>
+            <label>
+              옵션 카테고리
+              <select id="iconEditCategory">
+                <option value="safety">안전</option>
+                <option value="convenience">편의</option>
+                <option value="parking">주차/카메라</option>
+                <option value="seat">시트/공조</option>
+                <option value="driving">주행/표시</option>
+                <option value="etc">기타</option>
+              </select>
+            </label>
+            <label>
+              표준명
+              <input id="iconEditStandard" />
+            </label>
+            <label>
+              메모
+              <textarea id="iconEditNote" rows="3"></textarea>
+            </label>
+          </div>
+          <div class="icon-edit-actions">
+            <button class="ghost-button" id="cancelIconEditButton" type="button">취소</button>
+            <button class="primary-button" type="submit">수정 저장</button>
+          </div>
+        </form>
       </section>
     </div>
     <script src="./app.js" defer></script>

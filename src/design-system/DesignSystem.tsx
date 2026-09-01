@@ -121,8 +121,7 @@ function SidebarTree({
           <button
             className={`bd-fuse-nav-link is-depth-${node.depth} ${node.id === activeId ? "is-active" : ""} ${
               node.status === "deprecated" ? "is-deprecated" : ""
-            } ${node.status === "custom" ? "is-custom" : ""}`}
-            style={{ paddingLeft: 10 + node.depth * 14 }}
+            } ${node.status === "custom" ? "is-custom" : ""} ${node.children?.length ? "has-children" : ""}`}
             type="button"
             onClick={() => onSelect(node)}
           >
