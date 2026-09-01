@@ -9,6 +9,12 @@ const VALIDATION_FIELDS = ["itemType", "itemName", "itemStandard", "itemStatus",
 
 const references = [
   {
+    name: "Cars.com Design System",
+    focus: "전체 목차와 공개 토큰 구조",
+    apply: "보배드림형 샘플 템플릿과 개발 참고 항목",
+    url: "https://fuse.cars.com/",
+  },
+  {
     name: "자동차 UI 레퍼런스",
     focus: "자동차 UI 목차",
     apply: "문서 구조와 컴포넌트 분류",
@@ -1055,15 +1061,13 @@ function persistItems() {
 }
 
 async function hydrateItemsFromRepoData() {
-  if (localStorage.getItem(STORAGE_KEY)) return;
-
   try {
     const response = await fetch("./data/registry.json", { cache: "no-cache" });
     if (!response.ok) return;
     const payload = await response.json();
     const repoItems = normalizeRegistryItems(readRegistryPayload(payload));
     if (!repoItems.length) return;
-    items = mergeSeedItems(repoItems);
+    items = mergeSeedItems([...items, ...repoItems]);
     persistItems();
   } catch {
     items = mergeSeedItems(items);
@@ -1329,6 +1333,7 @@ function renderDocumentPage(node) {
             )
             .join("")}
         </div>
+        ${renderTemplateDoc(node)}
         ${renderIconsDoc(node)}
         ${renderSpacingDoc(node)}
       </article>
@@ -1342,6 +1347,353 @@ function renderDocumentPage(node) {
       </aside>
     </div>
   `;
+}
+
+function renderTemplateDoc(node) {
+  if (!node || node.status === "custom") return "";
+
+  const profile = templateProfileForNode(node);
+  const componentName = componentNameForNode(node);
+  const relatedTokens = tokenTemplateItemsForNode(node);
+
+  return `
+    <div class="doc-template-section">
+      <section class="template-panel template-panel-hero">
+        <div>
+          <p class="eyebrow">Cars.com 구조 참고 · 보배드림형 재작성</p>
+          <h3>${escapeHtml(profile.title)}</h3>
+          <p>${escapeHtml(profile.description)}</p>
+        </div>
+        <div class="template-kpi">
+          <strong>${escapeHtml(profile.kind)}</strong>
+          <span>${escapeHtml(profile.owner)}</span>
+        </div>
+      </section>
+
+      ${renderTemplateCoverage(node)}
+
+      <div class="template-meta-grid">
+        <section class="template-panel">
+          <h4>프론트엔드 템플릿</h4>
+          <dl class="template-definition">
+            <div><dt>컴포넌트/문서명</dt><dd><code>${escapeHtml(componentName)}</code></dd></div>
+            <div><dt>CSS 블록</dt><dd><code>${escapeHtml(`bd-${slugifySidebarSegment(displayNodeName(node))}`)}</code></dd></div>
+            <div><dt>상태</dt><dd>${escapeHtml(node.status === "deprecated" ? "보배드림 대체 검토" : "샘플 등록완료")}</dd></div>
+          </dl>
+        </section>
+        <section class="template-panel">
+          <h4>한국형 적용 기준</h4>
+          <ul class="template-checklist">
+            ${profile.rules.map((rule) => `<li>${escapeHtml(rule)}</li>`).join("")}
+          </ul>
+        </section>
+      </div>
+
+      <section class="template-panel">
+        <h4>개발 체크리스트</h4>
+        <div class="template-check-grid">
+          ${profile.checklist.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
+        </div>
+      </section>
+
+      <section class="template-panel">
+        <h4>샘플 마크업</h4>
+        <pre class="template-code"><code>${escapeHtml(sampleMarkupForNode(node, componentName))}</code></pre>
+      </section>
+
+      ${relatedTokens.length ? renderTokenTemplateTable(node, relatedTokens) : ""}
+    </div>
+  `;
+}
+
+function renderTemplateCoverage(node) {
+  if (node.title !== "Home") return "";
+
+  const groups = flattenSidebar(fuseSidebarTree)
+    .filter((entry) => entry.status !== "custom")
+    .reduce((summary, entry) => {
+      const top = entry.path?.[0] || entry.title;
+      summary.set(top, (summary.get(top) || 0) + 1);
+      return summary;
+    }, new Map());
+  const total = [...groups.values()].reduce((sum, count) => sum + count, 0);
+
+  return `
+    <section class="template-panel">
+      <h4>전체 목차 커버리지</h4>
+      <p class="template-copy">Cars.com 공개 목차를 기준으로 ${total}개 문서 항목을 보배드림 샘플 템플릿으로 등록했습니다.</p>
+      <div class="template-coverage-grid">
+        ${[...groups.entries()]
+          .map(
+            ([title, count]) => `
+              <span>
+                <strong>${escapeHtml(displayName(title))}</strong>
+                <em>${count}개</em>
+              </span>
+            `,
+          )
+          .join("")}
+      </div>
+    </section>
+  `;
+}
+
+function templateProfileForNode(node) {
+  const path = node.path || [node.title];
+  const parent = path.at(-2) || "";
+  const label = displayName(node.title);
+
+  if (isInSourceSection(node, "Components")) {
+    return {
+      kind: "컴포넌트",
+      owner: "FE · Design",
+      title: `${label} 컴포넌트 템플릿`,
+      description: "매물 탐색, 상세, 등록 화면에서 같은 구조로 재사용할 수 있게 목적, 구조, 상태, 접근성 기준을 한 화면에 정리합니다.",
+      rules: [
+        "터치 영역은 모바일 44px 이상을 우선합니다.",
+        "가격, 연식, 주행거리처럼 숫자 정보는 줄바꿈과 말줄임 기준을 먼저 잡습니다.",
+        "딜러/개인 판매자 맥락이 달라도 컴포넌트 이름과 상태명은 유지합니다.",
+      ],
+      checklist: ["props 정의", "variant 표", "loading/empty/error", "keyboard", "mobile sheet", "Storybook"],
+    };
+  }
+
+  if (isInSourceSection(node, "Style Guide")) {
+    return {
+      kind: isInSourceSection(node, "Design Tokens") ? "토큰" : "스타일",
+      owner: "Design System",
+      title: `${label} 스타일 템플릿`,
+      description: "공개 디자인 시스템의 분류 방식을 참고하되, 보배드림의 한국어 문구, 국내 차량 거래 흐름, 모바일 밀도에 맞춰 다시 쓴 기준입니다.",
+      rules: [
+        "토큰은 의미 기반 이름을 먼저 쓰고, 원시 값은 문서 표에서만 노출합니다.",
+        "보배드림 파란색, 가격 강조, 신뢰 상태는 별도 semantic token으로 분리합니다.",
+        "문구는 짧은 한국어 한 문장으로 시작하고 예시는 실제 중고차 화면으로 씁니다.",
+      ],
+      checklist: ["CSS 변수", "Figma 변수", "반응형 값", "라이트/다크", "사용 예시", "금지 예시"],
+    };
+  }
+
+  if (isInSourceSection(node, "Web Installation & Usage")) {
+    return {
+      kind: "개발 가이드",
+      owner: "Frontend",
+      title: `${label} 개발 적용 템플릿`,
+      description: "디자인 시스템을 실제 보배드림 프론트엔드 코드에 붙일 때 필요한 설치, import, SSR, 마이그레이션 기준입니다.",
+      rules: [
+        "토큰과 컴포넌트 import 경로는 한 곳에서 관리합니다.",
+        "기존 PC/모바일 분기 코드는 새 토큰으로 바꾸되 화면 단위로 검수합니다.",
+        "문서 예시는 복사 가능한 최소 코드와 실제 화면 이름을 함께 제공합니다.",
+      ],
+      checklist: ["install", "import", "SSR", "theme", "migration", "QA"],
+    };
+  }
+
+  if (isInSourceSection(node, "Accessibility")) {
+    return {
+      kind: "접근성",
+      owner: "Design · FE · QA",
+      title: `${label} 접근성 템플릿`,
+      description: "한국어 화면, 모바일 조작, 차량 이미지 탐색을 기준으로 접근성 점검 항목을 정리합니다.",
+      rules: [
+        "차량명, 가격, 주요 상태는 스크린리더에서 끊기지 않게 읽힙니다.",
+        "필터, 찜, 문의 버튼은 키보드와 터치에서 같은 결과를 냅니다.",
+        "이미지 대체 텍스트는 차량 정보 확인에 필요한 사실만 적습니다.",
+      ],
+      checklist: ["role", "label", "focus", "contrast", "touch", "reduced motion"],
+    };
+  }
+
+  if (isInSourceSection(node, "Content Strategy")) {
+    return {
+      kind: "콘텐츠",
+      owner: "UX Writing",
+      title: `${label} 콘텐츠 템플릿`,
+      description: "중고차 거래자가 빠르게 이해할 수 있도록 한국어 표현, 오류 문구, 법적 고지, 버튼 라벨을 짧게 정리합니다.",
+      rules: [
+        "문장은 짧게 쓰고 한 문장에 한 행동만 담습니다.",
+        "책임 소재가 필요한 안내는 모호한 표현을 피합니다.",
+        "딜러와 개인 판매자 모두에게 자연스러운 높임말을 씁니다.",
+      ],
+      checklist: ["버튼 라벨", "오류 문구", "도움말", "법적 고지", "빈 상태", "용어 통일"],
+    };
+  }
+
+  if (isInSourceSection(node, "Principles")) {
+    return {
+      kind: "원칙",
+      owner: "Product",
+      title: `${label} 원칙 템플릿`,
+      description: "제품 판단이 흔들릴 때 우선순위를 정하기 위한 보배드림형 디자인 원칙입니다.",
+      rules: [
+        "거래 신뢰를 장식보다 먼저 보여줍니다.",
+        "모바일 탐색에서는 필터 복귀와 선택 해제가 쉬워야 합니다.",
+        "움직임은 의미 있는 상태 변화에만 씁니다.",
+      ],
+      checklist: ["판단 기준", "예외 기준", "화면 예시", "측정 지표", "담당자", "변경 이력"],
+    };
+  }
+
+  return {
+    kind: "문서",
+    owner: "Design System",
+    title: `${label} 문서 템플릿`,
+    description: "보배드림 디자인 시스템에서 반복해서 재사용할 수 있게 목적, 기준, 개발 참고값을 정리한 문서입니다.",
+    rules: [
+      "한 항목은 한 화면에서 바로 판단할 수 있게 짧게 씁니다.",
+      "영문명과 한국어명을 함께 두어 디자인과 개발의 명칭을 맞춥니다.",
+      "확정 전 항목은 샘플로 표시하고 운영 배포 전 검수합니다.",
+    ],
+    checklist: ["정의", "사용 위치", "상태", "토큰", "컴포넌트", "검수"],
+  };
+}
+
+function isInSourceSection(node, sectionName) {
+  return (node.path || []).some((part) => part === sectionName || part.startsWith(`${sectionName} (`));
+}
+
+function componentNameForNode(node) {
+  const name = displayNodeName(node).replace(/\([^)]*\)/g, "");
+  const parts = slugifySidebarSegment(name)
+    .split("-")
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1));
+  return `Boba${parts.join("") || "Template"}`;
+}
+
+function sampleMarkupForNode(node, componentName) {
+  const blockName = `bd-${slugifySidebarSegment(displayNodeName(node)) || "template"}`;
+  const title = displayNodeName(node);
+
+  if (isInSourceSection(node, "Components")) {
+    return `<${componentName}
+  className="${blockName}"
+  variant="default"
+  size="md"
+  data-screen="listing"
+>
+  ${title} 샘플
+</${componentName}>`;
+  }
+
+  if (isInSourceSection(node, "Design Tokens")) {
+    return `:root {
+  --${blockName}-value: var(--bd-template-token);
+}`;
+  }
+
+  return `<section class="${blockName}" data-template="bobaedream">
+  <h2>${title}</h2>
+  <p>보배드림 화면 기준으로 작성한 한국어 샘플 템플릿입니다.</p>
+</section>`;
+}
+
+function tokenTemplateItemsForNode(node) {
+  const category = tokenTemplateCategoryForNode(node);
+  if (!category) return [];
+
+  return activeItems().filter((item) => {
+    if (item.type !== "토큰" || !item.standard.startsWith("--bd-template-")) return false;
+    if (category === "all") return true;
+    return item.props.split(",").map((part) => part.trim()).includes(category);
+  });
+}
+
+function tokenTemplateCategoryForNode(node) {
+  const path = node.path || [];
+  const isStyleGuideTokenIndex =
+    node.title === "Design Tokens" &&
+    path.some((part) => part.includes("Style Guide")) &&
+    path.at(-1)?.includes("Design Tokens");
+  const hasDesignTokenParent = path.slice(0, -1).some((part) => part.includes("Design Tokens"));
+
+  if (!isStyleGuideTokenIndex && !hasDesignTokenParent) return "";
+
+  const map = {
+    Color: "color",
+    Font: "font",
+    Spacing: "spacing",
+    Size: "size",
+    Elevation: "elevation",
+    Motion: "motion",
+    Breakpoints: "breakpoint",
+    "Design Tokens": "all",
+  };
+
+  return map[node.title] || "";
+}
+
+function renderTokenTemplateTable(node, relatedTokens) {
+  return `
+    <section class="template-panel">
+      <h4>${escapeHtml(displayNodeName(node))} 샘플 토큰</h4>
+      <p class="template-copy">Cars.com 공개 토큰 분류를 보배드림 변수명으로 바꾼 개발 참고용 템플릿입니다.</p>
+      <div class="template-token-table-wrap">
+        <table class="template-token-table">
+          <thead>
+            <tr>
+              <th>토큰</th>
+              <th>값</th>
+              <th>분류</th>
+              <th>보배드림 적용</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${relatedTokens
+              .map(
+                (item) => `
+                  <tr>
+                    <td><code>${escapeHtml(item.standard)}</code></td>
+                    <td>${renderTokenValuePreview(item)}</td>
+                    <td>${escapeHtml(item.props)}</td>
+                    <td>${escapeHtml(item.note)}</td>
+                  </tr>
+                `,
+              )
+              .join("")}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  `;
+}
+
+function renderTokenValuePreview(item) {
+  const value = item.pcValue || item.moValue || "-";
+  const colorStyle = tokenColorStyle(value);
+  const spacingStyle = tokenSpacingStyle(value);
+  const shadowStyle = item.standard.includes("elevation") ? tokenShadowStyle(value) : "";
+
+  return `
+    <span class="template-token-value">
+      ${
+        colorStyle || spacingStyle || shadowStyle
+          ? `<span class="template-token-preview" style="${colorStyle || spacingStyle || shadowStyle}"></span>`
+          : ""
+      }
+      <code>${escapeHtml(value)}</code>
+    </span>
+  `;
+}
+
+function tokenColorStyle(value) {
+  const candidate = String(value || "").trim();
+  const isColor =
+    /^#[0-9a-f]{3,8}$/i.test(candidate) ||
+    /^rgba?\([^)]{1,80}\)$/i.test(candidate) ||
+    /^color-mix\([^)]{1,160}\)$/i.test(candidate);
+  return isColor ? `--preview-color: ${escapeAttribute(candidate)}; background: var(--preview-color);` : "";
+}
+
+function tokenSpacingStyle(value) {
+  const candidate = String(value || "").trim();
+  if (!/^\d+(\.\d+)?px$/.test(candidate)) return "";
+  return `--preview-width: ${escapeAttribute(candidate)}; width: min(var(--preview-width), 72px); background: var(--color-primary);`;
+}
+
+function tokenShadowStyle(value) {
+  const candidate = String(value || "").trim();
+  if (!candidate || candidate.length > 180 || /[<>{}]/.test(candidate)) return "";
+  return `box-shadow: ${escapeAttribute(candidate)}; background: #fff;`;
 }
 
 function renderSpacingDoc(node) {
@@ -1465,7 +1817,7 @@ function renderIconsDoc(node) {
 }
 
 function renderMetrics() {
-  const groups = ["토큰", "컴포넌트", "아이콘", "버튼"];
+  const groups = ["토큰", "템플릿", "컴포넌트", "아이콘", "버튼"];
   const visibleItems = activeItems();
   elements.metricGrid.innerHTML = groups
     .map((group) => {
@@ -1561,10 +1913,21 @@ function renderTokenCards() {
     .map(
       (item) => {
         const isSpacing = item.standard.startsWith("--bd-space");
-        const swatchStyle = isSpacing ? ` style="--spacing-width: ${escapeAttribute(item.pcValue || item.moValue)}"` : "";
+        const isTemplateSpacing = item.standard.startsWith("--bd-template-spacing");
+        const colorStyle = tokenColorStyle(item.pcValue || item.moValue);
+        const spacingStyle =
+          isSpacing || isTemplateSpacing ? tokenSpacingStyle(item.pcValue || item.moValue).replace("--preview-width", "--spacing-width") : "";
+        const swatchClass = [
+          "token-swatch",
+          isSpacing || isTemplateSpacing ? "spacing-token-swatch" : "",
+          colorStyle ? "color-token-swatch" : "",
+        ]
+          .filter(Boolean)
+          .join(" ");
+        const swatchStyle = colorStyle || spacingStyle ? ` style="${colorStyle || spacingStyle}"` : "";
         return `
         <article class="system-card">
-          <div class="token-swatch${isSpacing ? " spacing-token-swatch" : ""}"${swatchStyle}></div>
+          <div class="${swatchClass}"${swatchStyle}></div>
           <span class="tag">${escapeHtml(item.status)}</span>
           <h3>${escapeHtml(item.name)}</h3>
           <p><code>${escapeHtml(item.standard)}</code></p>
