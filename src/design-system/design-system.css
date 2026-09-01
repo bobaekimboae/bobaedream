@@ -126,6 +126,7 @@ a {
 
 .bd-catalog-column {
   display: grid;
+  min-width: 0;
   align-content: start;
   gap: 12px;
 }
@@ -143,11 +144,13 @@ a {
 
 .bd-catalog-list {
   display: grid;
+  min-width: 0;
   gap: 8px;
   margin-top: 14px;
 }
 
 .bd-catalog-item {
+  min-width: 0;
   border: 1px solid var(--bd-color-line);
   border-radius: 8px;
   background: #fff;
@@ -172,9 +175,11 @@ a {
 }
 
 .bd-catalog-title-row strong {
+  min-width: 0;
   color: var(--bd-color-ink);
   font-size: 13px;
   line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .bd-catalog-title-row em {
@@ -210,6 +215,7 @@ a {
   margin: 6px 0 0;
   font-size: 12px;
   line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 
 .bd-fuse-shell {
@@ -492,6 +498,7 @@ a {
   padding: 2px 5px;
   color: #334155;
   font-size: 12px;
+  overflow-wrap: anywhere;
 }
 
 .bd-icon-section {

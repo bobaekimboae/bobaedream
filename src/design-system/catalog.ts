@@ -58,15 +58,15 @@ const referenceStatus: Record<string, CatalogStatus> = {
 const koreanNames: Record<string, string> = {
   Home: "홈",
   "Web Installation & Usage": "웹 설치 및 사용",
-  "Installing Fuse": "설치 가이드",
+  "System Installation": "설치 가이드",
   "Guide to Web Components": "웹 컴포넌트 가이드",
   "Web Component Basics": "웹 컴포넌트 기본",
   "Style Customization": "스타일 커스터마이징",
   "Light DOM Style Considerations": "라이트 DOM 스타일 고려사항",
   "Working with Forms": "폼 작업",
   "Working with LiveView": "LiveView 작업",
-  "Fuse Components in React": "React 컴포넌트",
-  "Fuse in Next.js (SSR)": "Next.js SSR",
+  "React Components": "React 컴포넌트",
+  "Next.js SSR": "Next.js SSR",
   "AI Agent Skill": "AI 에이전트 스킬",
   Changelog: "변경 이력",
   "Migrating From Spark": "Spark에서 이전",
@@ -288,12 +288,12 @@ const koreanNames: Record<string, string> = {
 const requiredLabels = new Set([
   "Home",
   "Web Installation & Usage",
-  "Installing Fuse",
+  "System Installation",
   "Guide to Web Components",
   "Web Component Basics",
   "Style Customization",
   "Working with Forms",
-  "Fuse Components in React",
+  "React Components",
   "AI Agent Skill",
   "Changelog",
   "Design Tokens",
@@ -379,17 +379,17 @@ const requiredLabels = new Set([
 ]);
 
 const fuseNotes: Record<string, string> = {
-  Home: "디자인 시스템 첫 화면입니다. 보배드림 DS의 목적, 바로가기, 최신 변경 이력을 노출합니다.",
-  "Web Installation & Usage": "개발자가 패키지 설치, 프레임워크 적용, 마이그레이션 방법을 확인하는 시작 영역입니다.",
-  "Installing Fuse": "Storybook, CSS 변수, Laravel Blade 적용을 위한 설치 절차와 의존성 버전을 기록합니다.",
-  "Guide to Web Components": "컴포넌트 사용 기본 규칙, 속성, 슬롯, 이벤트, 스타일 확장 방식을 설명합니다.",
+  Home: "첫 화면과 주요 바로가기를 보여줍니다.",
+  "Web Installation & Usage": "설치와 개발 적용 방법입니다.",
+  "System Installation": "설치 절차와 의존성 버전입니다.",
+  "Guide to Web Components": "컴포넌트 사용 기본 규칙입니다.",
   "Web Component Basics": "커스텀 엘리먼트 구조를 이해하고 React/Blade에서 동일하게 사용할 최소 규칙입니다.",
   "Style Customization": "브랜드 컬러, spacing, radius, typography를 토큰으로 바꾸는 허용 범위입니다.",
   "Light DOM Style Considerations": "slot, light DOM, 외부 CSS 영향도를 점검해 예기치 않은 스타일 누수를 막는 기준입니다.",
   "Working with Forms": "입력, 오류, 검증, disabled, required 상태를 폼 컴포넌트와 연결하는 규칙입니다.",
   "Working with LiveView": "서버 렌더링/부분 갱신 화면에서 컴포넌트 상태가 깨지지 않도록 확인하는 기준입니다.",
-  "Fuse Components in React": "React/Vite/Storybook에서 보배드림 컴포넌트를 실제 렌더링하는 예시 영역입니다.",
-  "Fuse in Next.js (SSR)": "SSR 환경에서 hydration, CSS 로딩, 아이콘 렌더링 문제가 없는지 확인하는 가이드입니다.",
+  "React Components": "React/Vite/Storybook 렌더링 예시입니다.",
+  "Next.js SSR": "SSR 환경의 렌더링 기준입니다.",
   "AI Agent Skill": "Codex가 토큰, 컴포넌트, 아이콘 명칭을 읽고 수정할 수 있게 하는 작업 지시서 영역입니다.",
   Changelog: "디자인 토큰과 컴포넌트 변경 이력을 날짜, 작성자, 영향 범위 기준으로 남깁니다.",
   "Migrating From Spark": "기존 Spark 계열 규칙을 신규 보배드림 DS 규칙으로 전환하는 대응표입니다.",
@@ -397,8 +397,8 @@ const fuseNotes: Record<string, string> = {
   "Dimensions/Layout": "컨테이너, 그리드, 카드, 리스트, 상세 화면의 크기와 배치 전환 기준입니다.",
   Lists: "매물 리스트, 링크 목록, 옵션 목록처럼 반복 정보의 행 간격과 구분선을 정의합니다.",
   Buttons: "CTA, 보조 버튼, 아이콘 버튼, 링크 버튼의 높이, radius, 상태값을 정의합니다.",
-  "Style Guide": "토큰과 시각 언어를 사람이 읽고 AI가 추출할 수 있게 설명하는 기준 영역입니다.",
-  "Design Tokens": "색상, 폰트, 간격, 크기, 그림자, 모션, 반응형 분기점을 코드 변수로 관리합니다.",
+  "Style Guide": "토큰과 시각 기준을 관리합니다.",
+  "Design Tokens": "색상, 글꼴, 간격을 코드 값으로 관리합니다.",
   Installation: "토큰 패키지 설치, import 경로, CSS variables 연결 방식을 기록합니다.",
   Schema: "토큰의 이름, 타입, 값, 설명, 플랫폼 매핑 컬럼 구조를 정의합니다.",
   Color: "브랜드, 본문, 보조 텍스트, 경고, 성공, 구분선 색상을 WCAG 대비와 함께 관리합니다.",
@@ -408,7 +408,7 @@ const fuseNotes: Record<string, string> = {
   Elevation: "카드 hover, 드롭다운, 모달, 모바일 하단 고정바의 shadow 레벨입니다.",
   Motion: "hover, active, sheet open, save feedback 등 전환 시간과 easing 기준입니다.",
   Breakpoints: "MO 360/390, tablet 768, PC 1280/1440, wide 1920 기준 반응형 분기점입니다.",
-  Icons: "material, custom, cars-duotone, social, oem 구조를 보배드림 아이콘 명칭 체계로 변환합니다.",
+  Icons: "아이콘 이름과 크기 규칙입니다.",
   Forms: "매물 등록/수정, 검색 필터, 문의 폼의 라벨, 도움말, 오류 상태 기준입니다.",
   Imagery: "차량 사진 비율, object-fit, 썸네일 crop, 갤러리, 대체 텍스트 기준입니다.",
   Layout: "PC/MO 컨테이너, 사이드바, sticky filter, 상세 CTA 배치 기준입니다.",
@@ -481,7 +481,7 @@ const fuseNotes: Record<string, string> = {
   "Voice and Tone": "보배드림의 신뢰감 있는 말투, 안내/경고/성공 상태의 톤을 정의합니다.",
   "Grammar and Mechanics": "띄어쓰기, 숫자/단위 표기, 가격 표기, 문장 부호 규칙입니다.",
   Vocabulary: "제조사, 모델, 트림, 사고, 진단, 금융 등 서비스 용어 사전입니다.",
-  Accessibility: "색상, 키보드, 문서 구조, 대체 텍스트, 모바일 조작성의 접근성 기준입니다.",
+  Accessibility: "누구나 탐색하고 문의할 수 있게 하는 기준입니다.",
   "Accessibility Principles": "장애 여부와 입력 장치와 관계없이 매물 탐색과 문의가 가능해야 한다는 원칙입니다.",
   "Accessibility Checklist": "개발/QA가 화면마다 체크하는 접근성 항목 목록입니다.",
   "Global Code": "전체 HTML 구조, landmarks, aria 사용의 기본 품질 기준입니다.",
@@ -525,7 +525,7 @@ const catalogItem = (label: string, parent?: string): CatalogItem => ({
   parent,
   note:
     fuseNotes[label] ??
-    `${parent ? `${parent} 하위 항목으로, ` : ""}보배드림 화면에서 동일한 분류와 설명을 유지해야 하는 항목입니다.`,
+    `${parent ? `${parent}에서 쓰는 ` : ""}보배드림 UI 항목입니다.`,
   status: itemStatus(label),
 });
 
@@ -580,7 +580,7 @@ export const fuseSidebarTree: SidebarNode[] = sidebarTree([
   {
     title: "Web Installation & Usage",
     children: [
-      "Installing Fuse",
+      "System Installation",
       {
         title: "Guide to Web Components",
         children: [
@@ -591,8 +591,8 @@ export const fuseSidebarTree: SidebarNode[] = sidebarTree([
           "Working with LiveView",
         ],
       },
-      "Fuse Components in React",
-      "Fuse in Next.js (SSR)",
+      "React Components",
+      "Next.js SSR",
       "AI Agent Skill",
       "Changelog",
       {
@@ -732,13 +732,13 @@ export const fuseSidebarTree: SidebarNode[] = sidebarTree([
     title: "Resources",
     children: ["Toolbox"],
   },
-  customSidebarItem("Bobaedream Admin", "#registry", [
-    customSidebarItem("Registry", "#registry"),
-    customSidebarItem("Measurement Master", "#workflow"),
-    customSidebarItem("Vehicle Listing Patterns", "#components"),
-    customSidebarItem("Vehicle Detail Patterns", "#preview"),
-    customSidebarItem("Filter Patterns", "#preview"),
-    customSidebarItem("AI Measurement Workflow", "#workflow"),
+  customSidebarItem("보배드림 관리", "#registry", [
+    customSidebarItem("컴포넌트 등록/수정", "#registry"),
+    customSidebarItem("측정 마스터", "#workflow"),
+    customSidebarItem("매물 목록 패턴", "#components"),
+    customSidebarItem("매물 상세 패턴", "#preview"),
+    customSidebarItem("필터 패턴", "#preview"),
+    customSidebarItem("AI 측정 흐름", "#workflow"),
   ]),
 ]);
 
@@ -752,27 +752,27 @@ export const bobaedreamUseCases: Record<string, string[]> = {
   "Range Dual": ["가격/주행거리 범위 선택", "연식 시작/끝 선택", "바텀시트 내 최소/최대 입력 동기화"],
   Tabs: ["상세정보, 성능점검, 보험이력", "딜러 정보와 리뷰 전환", "sticky anchor tab과 aria 연결"],
   Notification: ["견적/문의/오류 알림", "찜 저장 완료와 가격 변동 안내", "등록 폼 검증 결과 피드백"],
-  "Bobaedream Admin": ["컴포넌트 등록/수정", "측정 마스터 관리", "AI 측정 워크플로우 운영"],
+  "보배드림 관리": ["컴포넌트 등록/수정", "측정 마스터 관리", "AI 측정 워크플로우 운영"],
 };
 
 export const referenceSystems = [
   {
-    name: "Cars.com Fuse",
-    role: "자동차 플랫폼 기준",
-    url: "https://fuse.cars.com/",
-    apply: "공개 사이드바 전체 목차, Icons 라이브러리 구조, Breadcrumb/Filter/Gallery/Save/Range Dual",
+    name: "자동차 UI 레퍼런스",
+    role: "자동차 UI 목차",
+    url: "https://www.autotrader.com/",
+    apply: "문서 구조와 컴포넌트 분류",
   },
   {
     name: "eBay Playbook",
-    role: "마켓플레이스 문서 구조",
+    role: "마켓플레이스 UI",
     url: "https://playbook.ebay.com/design-system/components",
-    apply: "Tokens, Components, Patterns, Process, Change log",
+    apply: "토큰, 컴포넌트, 패턴 분류",
   },
   {
     name: "Seed Design",
-    role: "한국어 설명 톤",
+    role: "간결한 한국어 설명",
     url: "https://seed-design.io/",
-    apply: "항목별 한국어 설명, 사용 기준, 개발/디자인 공통 언어",
+    apply: "한 문장 정의와 표 문구",
   },
   {
     name: "Storybook",
@@ -791,23 +791,23 @@ export const referenceSystems = [
 export const fuseGroups: CatalogGroup[] = [
   {
     group: "Home",
-    description: "Cars.com Fuse 공개 사이드바의 첫 진입점",
+    description: "첫 화면",
     items: catalogItems(["Home"]),
   },
   {
     group: "Web Installation & Usage",
-    description: "설치, Web Components, React/SSR, AI Agent Skill, 마이그레이션 전체",
+    description: "설치와 개발 적용",
     items: catalogItems([
       "Web Installation & Usage",
-      ["Installing Fuse", "Web Installation & Usage"],
+      ["System Installation", "Web Installation & Usage"],
       ["Guide to Web Components", "Web Installation & Usage"],
       ["Web Component Basics", "Guide to Web Components"],
       ["Style Customization", "Guide to Web Components"],
       ["Light DOM Style Considerations", "Guide to Web Components"],
       ["Working with Forms", "Guide to Web Components"],
       ["Working with LiveView", "Guide to Web Components"],
-      ["Fuse Components in React", "Web Installation & Usage"],
-      ["Fuse in Next.js (SSR)", "Web Installation & Usage"],
+      ["React Components", "Web Installation & Usage"],
+      ["Next.js SSR", "Web Installation & Usage"],
       ["AI Agent Skill", "Web Installation & Usage"],
       ["Changelog", "Web Installation & Usage"],
       ["Migrating From Spark", "Web Installation & Usage"],
@@ -821,7 +821,7 @@ export const fuseGroups: CatalogGroup[] = [
   },
   {
     group: "Style Guide",
-    description: "토큰, 아이콘, 폼, 이미지, 레이아웃, 타이포그래피, 사용성, 시각 언어",
+    description: "토큰과 시각 기준",
     items: catalogItems([
       "Style Guide",
       ["Design Tokens", "Style Guide"],
@@ -846,7 +846,7 @@ export const fuseGroups: CatalogGroup[] = [
   },
   {
     group: "Components",
-    description: "Cars.com Fuse 공개 컴포넌트 목록 전체. 취소선 항목도 보류 상태로 보존",
+    description: "컴포넌트 목록",
     items: catalogItems([
       "Components",
       ["Accordion", "Components"],
@@ -911,12 +911,12 @@ export const fuseGroups: CatalogGroup[] = [
   },
   {
     group: "Principles",
-    description: "디자인 원칙과 모션 원칙",
+    description: "원칙",
     items: catalogItems(["Principles", ["Design Principles", "Principles"], ["Motion Principles", "Principles"]]),
   },
   {
     group: "Content Strategy",
-    description: "콘텐츠 전략, 보이스톤, 문법, 용어",
+    description: "문구와 용어",
     items: catalogItems([
       "Content Strategy",
       ["Content Strategy Principles", "Content Strategy"],
@@ -927,7 +927,7 @@ export const fuseGroups: CatalogGroup[] = [
   },
   {
     group: "Accessibility",
-    description: "접근성 원칙, 체크리스트 세부 항목, 색상 대비",
+    description: "접근성 기준",
     items: catalogItems([
       "Accessibility",
       ["Accessibility Principles", "Accessibility"],
@@ -965,7 +965,7 @@ export const fuseGroups: CatalogGroup[] = [
   },
   {
     group: "Resources",
-    description: "운영 도구와 참고 자료",
+    description: "도구",
     items: catalogItems(["Resources", ["Toolbox", "Resources"]]),
   },
 ];
@@ -973,7 +973,7 @@ export const fuseGroups: CatalogGroup[] = [
 export const ebayGroups: CatalogGroup[] = [
   {
     group: "Design System",
-    description: "eBay Playbook 디자인 시스템 상위 정보 구조",
+    description: "상위 구조",
     items: [
       marketplaceItem("Overview", "보배드림 DS 첫 화면과 운영 목적을 설명합니다.", "필수"),
       marketplaceItem("Principles", "마켓플레이스 UX 의사결정 기준을 보배드림 원칙으로 변환합니다.", "필수"),
@@ -986,7 +986,7 @@ export const ebayGroups: CatalogGroup[] = [
   },
   {
     group: "Tokens",
-    description: "eBay Playbook 공개 토큰 카테고리",
+    description: "토큰 분류",
     items: [
       "Overview",
       "Change log",
@@ -1007,7 +1007,7 @@ export const ebayGroups: CatalogGroup[] = [
   },
   {
     group: "Components",
-    description: "eBay Playbook 공개 컴포넌트 카테고리와 하위 분류",
+    description: "컴포넌트 분류",
     items: [
       marketplaceItem("Overview", "컴포넌트 문서 작성 방식과 상태 표기 기준입니다.", "필수"),
       marketplaceItem("Status", "컴포넌트 사용 가능/보류/폐기 상태를 표시합니다.", "필수"),
@@ -1088,7 +1088,7 @@ export const ebayGroups: CatalogGroup[] = [
   },
   {
     group: "Patterns",
-    description: "eBay Playbook 공개 패턴 분류",
+    description: "패턴 분류",
     items: [
       marketplaceItem("Overview", "패턴 문서의 구조와 적용 원칙입니다.", "필수"),
       marketplaceItem("Bulk editing", "관리자 옵션/아이콘 일괄 수정입니다.", "권장"),
@@ -1123,7 +1123,7 @@ export const iconLibraries = [
   {
     library: "interface",
     korean: "인터페이스",
-    source: "Fuse material 기본 라이브러리 대응",
+    source: "보배드림 기본 아이콘",
     icons: [
       { name: "ic_interface_search_24", korean: "검색", size: "24px", usage: "검색창, 제조사 검색" },
       { name: "ic_interface_filter_24", korean: "필터", size: "24px", usage: "상단 필터, 조건 개수 표시" },
@@ -1134,7 +1134,7 @@ export const iconLibraries = [
   {
     library: "vehicle",
     korean: "차량",
-    source: "Fuse cars-duotone, OEM 라이브러리 대응",
+    source: "보배드림 차량 아이콘",
     icons: [
       { name: "ic_vehicle_used_car_24", korean: "중고차", size: "24px", usage: "차량 카테고리" },
       { name: "ic_vehicle_truck_24", korean: "트럭 · 특장", size: "24px", usage: "차량 카테고리" },
@@ -1146,7 +1146,7 @@ export const iconLibraries = [
   {
     library: "commerce",
     korean: "거래",
-    source: "Fuse custom 라이브러리 대응",
+    source: "보배드림 커스텀 아이콘",
     icons: [
       { name: "ic_commerce_save_24", korean: "찜", size: "24px", usage: "매물 저장" },
       { name: "ic_commerce_call_24", korean: "전화", size: "24px", usage: "딜러 문의" },
@@ -1157,7 +1157,7 @@ export const iconLibraries = [
   {
     library: "media",
     korean: "미디어",
-    source: "Fuse Gallery, SVG 컴포넌트 대응",
+    source: "보배드림 미디어 아이콘",
     icons: [
       { name: "ic_media_photo_24", korean: "사진", size: "24px", usage: "사진 개수, 갤러리" },
       { name: "ic_media_video_24", korean: "영상", size: "24px", usage: "숏폼, 차량 영상" },
@@ -1168,17 +1168,17 @@ export const iconLibraries = [
 ];
 
 export const componentSpecs = [
-  { name: "BobaBreadcrumb", category: "Navigation", pc: "상단 GNB 아래 전체 경로", mo: "부모 링크 1개와 현재 제목", source: "Fuse Breadcrumb + eBay Breadcrumb" },
-  { name: "BobaButton", category: "Buttons", pc: "40px 높이", mo: "44px 이상 터치 영역", source: "Fuse Button + eBay Buttons" },
-  { name: "BobaFilterPanel", category: "Filter", pc: "연식/주행거리/가격/지역/제조사 사이드 필터", mo: "바텀시트 필터와 선택 칩", source: "Fuse Filter + eBay Filtering" },
-  { name: "BobaFilterChip", category: "Filtering", pc: "36px 높이", mo: "34px 높이, horizontal carousel", source: "Fuse Filter + eBay Chip" },
-  { name: "BobaListingCard", category: "Card/List row", pc: "썸네일 230px, hover shadow", mo: "좌측 썸네일 124px", source: "Fuse Card + eBay Item tile/List row" },
-  { name: "BobaBadge", category: "Badge", pc: "무사고/진단/급매/실매물 상태", mo: "카드 썸네일과 정보 영역에 20px 이상", source: "Fuse Badge + eBay Signal" },
-  { name: "BobaGallery", category: "Media", pc: "큰 이미지 + 썸네일 rail", mo: "스와이프 + 카운터", source: "Fuse Gallery + eBay Media container" },
-  { name: "BobaSave", category: "Commerce", pc: "outline/active", mo: "44px hit area", source: "Fuse Save + eBay Icon button" },
-  { name: "BobaRangeDual", category: "Forms", pc: "가격/연식 범위", mo: "바텀시트 내 dual control", source: "Fuse Range Dual + eBay Numeric stepper" },
-  { name: "BobaPagination", category: "Pagination", pc: "검색 결과 페이지 이동", mo: "더보기 또는 간소 페이지 버튼", source: "Fuse Pagination + eBay Pagination" },
-  { name: "BobaTabs", category: "Tabs", pc: "상세정보/성능점검/보험이력 sticky tab", mo: "상단 고정 anchor tab", source: "Fuse Tabs + Tab Panel" },
-  { name: "BobaNotification", category: "Notification", pc: "견적/문의/오류 toast와 page notice", mo: "snackbar와 inline error", source: "Fuse Notification + eBay Snackbar" },
+  { name: "BobaBreadcrumb", category: "Navigation", pc: "상단 GNB 아래 전체 경로", mo: "부모 링크 1개와 현재 제목", source: "보배드림 탐색 기준" },
+  { name: "BobaButton", category: "Buttons", pc: "40px 높이", mo: "44px 이상 터치 영역", source: "보배드림 버튼 기준" },
+  { name: "BobaFilterPanel", category: "Filter", pc: "연식/주행거리/가격/지역/제조사 사이드 필터", mo: "바텀시트 필터와 선택 칩", source: "보배드림 필터 기준" },
+  { name: "BobaFilterChip", category: "Filtering", pc: "36px 높이", mo: "34px 높이, horizontal carousel", source: "보배드림 칩 기준" },
+  { name: "BobaListingCard", category: "Card/List row", pc: "썸네일 230px, hover shadow", mo: "좌측 썸네일 124px", source: "보배드림 매물 카드 기준" },
+  { name: "BobaBadge", category: "Badge", pc: "무사고/진단/급매/실매물 상태", mo: "카드 썸네일과 정보 영역에 20px 이상", source: "보배드림 배지 기준" },
+  { name: "BobaGallery", category: "Media", pc: "큰 이미지 + 썸네일 rail", mo: "스와이프 + 카운터", source: "보배드림 갤러리 기준" },
+  { name: "BobaSave", category: "Commerce", pc: "outline/active", mo: "44px hit area", source: "보배드림 저장 기준" },
+  { name: "BobaRangeDual", category: "Forms", pc: "가격/연식 범위", mo: "바텀시트 내 dual control", source: "보배드림 범위 입력 기준" },
+  { name: "BobaPagination", category: "Pagination", pc: "검색 결과 페이지 이동", mo: "더보기 또는 간소 페이지 버튼", source: "보배드림 페이지네이션 기준" },
+  { name: "BobaTabs", category: "Tabs", pc: "상세정보/성능점검/보험이력 sticky tab", mo: "상단 고정 anchor tab", source: "보배드림 탭 기준" },
+  { name: "BobaNotification", category: "Notification", pc: "견적/문의/오류 toast와 page notice", mo: "snackbar와 inline error", source: "보배드림 알림 기준" },
   { name: "BobaDetailCTA", category: "Sticky action", pc: "우측 문의 패널", mo: "safe-area 하단 고정", source: "eBay Action bar + Sheet" },
 ];

@@ -5,7 +5,7 @@ import {
   ComponentSpecTable,
   DetailCTA,
   FilterRail,
-  FuseNavigationPreview,
+  BobaNavigationPreview,
   IconLibrary,
   ListingCard,
   Overview,
@@ -21,7 +21,7 @@ const meta = {
     docs: {
       description: {
         component:
-          "Cars.com Fuse 전체 공개 목차와 eBay Playbook 카테고리를 기준으로 재구성하고, Seed Design처럼 항목별 한국어 설명을 붙인 보배드림 디자인 시스템입니다.",
+          "보배드림 화면에 쓰는 토큰, 컴포넌트, 아이콘 기준입니다.",
       },
     },
   },
@@ -37,13 +37,13 @@ export const 개요: Story = {
 };
 
 export const 레퍼런스_매트릭스: Story = {
-  name: "Reference / Cars.com Fuse 전체 목차",
+  name: "Reference / 목차",
   render: () => <ReferenceMatrix />,
 };
 
-export const Fuse형_좌측_사이드바: Story = {
-  name: "Reference / Fuse형 좌측 사이드바",
-  render: () => <FuseNavigationPreview />,
+export const 보배드림_좌측_사이드바: Story = {
+  name: "Navigation / 좌측 사이드바",
+  render: () => <BobaNavigationPreview />,
 };
 
 export const 토큰: Story = {

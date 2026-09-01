@@ -6,7 +6,7 @@
     <title>보배드림 디자인 시스템</title>
     <meta
       name="description"
-      content="보배드림 중고차 앱, 모바일웹, PC웹 디자인 시스템 등록·수정 관리자"
+      content="보배드림 중고차 디자인 시스템 관리자"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
@@ -19,22 +19,26 @@
       <aside class="sidebar" id="designSidebar" aria-label="디자인 시스템 메뉴">
         <div class="sidebar-scroll">
           <div class="brand-row">
-            <a class="brand" href="#style-guide-icons" aria-label="보배드림 디자인 시스템 Style Guide Icons">
+            <a class="brand" href="#style-guide-icons" aria-label="보배드림 디자인 시스템 아이콘 문서">
               <span class="brand-mark">B</span>
               <span>
-                <strong>Bobaedream DS</strong>
-                <small>Powered by Fuse structure</small>
+                <strong>보배드림 DS</strong>
+                <small>보배드림 운영 문서</small>
               </span>
             </a>
             <button class="sidebar-close" id="closeSidebar" type="button" aria-label="메뉴 닫기">×</button>
           </div>
 
           <label class="sidebar-search">
-            <span>Search</span>
+            <span class="tool-label-row">
+              <span>검색</span>
+              <button class="mini-button" id="clearSidebarSearch" type="button">지우기</button>
+            </span>
             <input id="sidebarSearch" autocomplete="off" placeholder="Button, 버튼, Icons, 아이콘" />
           </label>
 
-          <nav class="nav fuse-nav" id="sidebarNav" aria-label="Fuse형 문서 목차"></nav>
+          <nav class="nav fuse-nav" id="sidebarNav" aria-label="보배드림 문서 목차"></nav>
+          <p class="sidebar-search-count" id="sidebarSearchCount" aria-live="polite"></p>
           <p class="nav-empty" id="sidebarEmpty" hidden>검색 결과가 없습니다.</p>
         </div>
       </aside>
@@ -43,11 +47,11 @@
       <main class="page">
         <header class="topbar">
           <div>
-            <p class="eyebrow">Bobaedream Used Car Renewal</p>
+            <p class="eyebrow">보배드림 중고차 리뉴얼</p>
             <h1>보배드림 디자인 시스템</h1>
           </div>
           <div class="topbar-actions">
-            <a class="ghost-button" href="../storybook/index.html">Storybook</a>
+            <a class="ghost-button" href="../storybook/index.html">스토리북</a>
             <button class="ghost-button" id="exportJsonButton" type="button">JSON 내보내기</button>
             <button class="primary-button" id="newItemButton" type="button">항목 등록</button>
           </div>
@@ -58,13 +62,12 @@
         <section id="overview" class="section">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Overview</p>
-              <h2>eBay Playbook형 디자인 시스템 사이트</h2>
+              <p class="eyebrow">개요</p>
+              <h2>보배드림 디자인 시스템</h2>
             </div>
             <p>
-              보배드림 중고차 리스트, 필터, 상세, 등록 화면의 UI 규칙을 문서화하고
-              실제 항목 등록과 수정까지 할 수 있는 운영 화면입니다. Cars.com Fuse 전체 목차를
-              포함하고, Seed Design처럼 영문명과 한국어명을 함께 표시합니다.
+              보배드림 디자인 시스템은 중고차 탐색과 거래 화면에 쓰는 토큰,
+              컴포넌트, 아이콘 규칙입니다.
             </p>
           </div>
 
@@ -74,15 +77,13 @@
             <article class="notice-panel">
               <h3>운영 기준</h3>
               <p>
-                Notion은 의사결정과 가이드, Google Sheet는 측정값 DB, 이 사이트는
-                디자인 시스템을 검색하고 등록·수정하는 공개 카탈로그로 사용합니다.
+                확정 기준은 이 사이트에 남기고, 측정값은 Google Sheet에 보관합니다.
               </p>
             </article>
             <article class="notice-panel">
               <h3>등록 데이터</h3>
               <p>
-                토큰, 컴포넌트, 아이콘, 버튼, 상태값을 동일한 스키마로 관리합니다.
-                등록된 데이터는 브라우저에 저장되며 JSON 또는 CSV로 백업할 수 있습니다.
+                토큰, 컴포넌트, 아이콘, 버튼, 상태를 같은 형식으로 관리합니다.
               </p>
             </article>
           </div>
@@ -91,12 +92,11 @@
         <section id="references" class="section">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">References</p>
-              <h2>해외 디자인 시스템 크로스체크</h2>
+              <p class="eyebrow">참고 기준</p>
+              <h2>레퍼런스</h2>
             </div>
             <p>
-              해외 플랫폼은 구조만 참고하고, 보배드림 중고차 매물 탐색과 등록 문맥에
-              맞게 선별 적용합니다.
+              외부 시스템은 구조만 참고하고, 보배드림 화면 기준으로 다시 씁니다.
             </p>
           </div>
           <div class="table-wrap">
@@ -117,22 +117,20 @@
         <section id="catalog" class="section">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Catalog</p>
-              <h2>Cars.com Fuse 전체 목차 + eBay Playbook 대응</h2>
+              <p class="eyebrow">목록</p>
+              <h2>목차</h2>
             </div>
             <p>
-              Cars.com Fuse 공개 사이드바의 모든 항목을 누락 없이 넣고,
-              <code>Accordion (아코디언)</code>처럼 영문 기능명과 한국어명을 같이 표기합니다.
-              설명은 Seed Design 방식에 맞춰 정의, 구성, 상태, 사용 기준을 바로 읽을 수 있게 작성했습니다.
+              영문명과 한국어명을 함께 표기하고, 각 항목은 한 문장으로 정의합니다.
             </p>
           </div>
           <div class="catalog-layout">
             <article class="catalog-column">
-              <h3>Cars.com Fuse 전체 항목</h3>
+              <h3>보배드림 문서 항목</h3>
               <div id="fuseCatalog" class="catalog-list"></div>
             </article>
             <article class="catalog-column">
-              <h3>eBay Playbook 대응 항목</h3>
+              <h3>외부 구조 대응 항목</h3>
               <div id="ebayCatalog" class="catalog-list"></div>
             </article>
           </div>
@@ -141,34 +139,33 @@
         <section id="workflow" class="section">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Workflow</p>
-              <h2>Codex 자동 운영 흐름</h2>
+              <p class="eyebrow">작업 흐름</p>
+              <h2>운영 흐름</h2>
             </div>
             <p>
-              하루 1회 또는 2회 화면을 점검해 측정값을 누적하고, 확정된 항목만 Figma
-              라이브러리로 승격합니다.
+              측정, 기록, 검토, 반영 순서로 관리합니다.
             </p>
           </div>
           <div class="workflow">
             <article>
               <span>01</span>
               <h3>페이지 확인</h3>
-              <p>PC 1440px, 모바일 390px 기준으로 리스트·상세·등록 페이지를 엽니다.</p>
+              <p>PC 1440px, MO 390px 화면을 확인합니다.</p>
             </article>
             <article>
               <span>02</span>
               <h3>CSS 측정</h3>
-              <p>Computed 기준으로 폰트, 간격, radius, shadow, z-index, safe area를 측정합니다.</p>
+              <p>폰트, 간격, radius, shadow를 기록합니다.</p>
             </article>
             <article>
               <span>03</span>
               <h3>마스터 저장</h3>
-              <p>측정값은 Google Sheet, 확정 기준은 이 사이트와 Notion에 기록합니다.</p>
+              <p>측정값은 Sheet에, 기준은 문서에 남깁니다.</p>
             </article>
             <article>
               <span>04</span>
               <h3>Figma 승격</h3>
-              <p>검토필요 상태가 닫힌 항목만 Variables와 Components로 반영합니다.</p>
+              <p>확정 항목만 Figma로 반영합니다.</p>
             </article>
           </div>
         </section>
@@ -176,10 +173,10 @@
         <section id="tokens" class="section">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Foundations</p>
+              <p class="eyebrow">기초</p>
               <h2>디자인 토큰</h2>
             </div>
-            <p>색상, 타이포그래피, 간격, 반응형, 모션을 개발 변수로 연결합니다.</p>
+            <p>색상, 글꼴, 간격, 크기를 코드 값으로 관리합니다.</p>
           </div>
           <div class="card-grid" id="tokenCards"></div>
         </section>
@@ -187,10 +184,10 @@
         <section id="components" class="section">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Components</p>
+              <p class="eyebrow">컴포넌트</p>
               <h2>중고차 핵심 컴포넌트</h2>
             </div>
-            <p>매물 카드, 필터, 썸네일, 뱃지, 하단 CTA 등 개발 단위로 관리합니다.</p>
+            <p>매물 카드, 필터, 뱃지, CTA를 화면 단위로 관리합니다.</p>
           </div>
           <div class="component-grid" id="componentCards"></div>
         </section>
@@ -198,10 +195,10 @@
         <section id="icons" class="section">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Icons</p>
+              <p class="eyebrow">아이콘</p>
               <h2>아이콘 명칭 규칙</h2>
             </div>
-            <p>아이콘 파일명은 <code>ic_도메인_의미_크기.svg</code>, 컴포넌트명은 PascalCase로 고정합니다.</p>
+            <p>아이콘은 <code>ic_도메인_의미_크기.svg</code> 형식으로 저장합니다.</p>
           </div>
           <div class="icon-grid" id="iconGrid"></div>
         </section>
@@ -209,10 +206,10 @@
         <section id="buttons" class="section">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Buttons</p>
+              <p class="eyebrow">버튼</p>
               <h2>버튼 스타일</h2>
             </div>
-            <p>등록, 문의, 필터, 찜, 하단 CTA까지 상태별 스타일을 분리합니다.</p>
+            <p>버튼은 역할과 상태 기준으로 구분합니다.</p>
           </div>
           <div class="button-showcase">
             <button class="demo-button demo-primary">Primary</button>
@@ -227,10 +224,10 @@
         <section id="states" class="section">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">States</p>
+              <p class="eyebrow">상태</p>
               <h2>인터랙션 상태값</h2>
             </div>
-            <p>Default, Hover, Active, Focus, Disabled, Loading, Empty, Error, Selected, Visited를 표준 상태로 사용합니다.</p>
+            <p>기본 상태와 오류, 선택, 비활성 상태를 함께 관리합니다.</p>
           </div>
           <div class="state-row" id="stateRow"></div>
         </section>
@@ -238,10 +235,10 @@
         <section id="preview" class="section">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Preview</p>
+              <p class="eyebrow">미리보기</p>
               <h2>매물 UI 프리뷰</h2>
             </div>
-            <p>등록된 토큰과 컴포넌트가 실제 리스트 카드에서 어떻게 쓰이는지 확인합니다.</p>
+            <p>토큰과 컴포넌트가 매물 카드에 적용된 모습을 확인합니다.</p>
           </div>
 
           <div class="preview-grid">
@@ -279,20 +276,26 @@
         <section id="registry" class="section">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Registry Admin</p>
+              <p class="eyebrow">운영 관리</p>
               <h2>디자인 시스템 항목 등록·수정</h2>
             </div>
             <p>
-              이 화면에서 새 항목을 등록하고 기존 항목을 수정합니다. 공개 페이지에서도
-              실제 저장, 수정, 삭제, 검색, 내보내기가 동작합니다.
+              새 항목을 등록하고 기존 항목을 수정합니다.
             </p>
           </div>
+          <p class="storage-notice">
+            변경 내용은 이 브라우저에 저장됩니다. 팀 공용 반영은 JSON 내보내기 후 저장소 데이터 파일에 병합하세요.
+          </p>
 
-          <form class="registry-form" id="registryForm">
+          <form class="registry-form" id="registryForm" novalidate>
             <input type="hidden" id="itemId" />
+            <div class="edit-banner" id="editBanner" hidden>
+              <span id="editBannerText">현재 수정 중</span>
+              <button class="ghost-button" type="button" id="cancelEditButton">수정 취소</button>
+            </div>
             <label>
               구분
-              <select id="itemType" required>
+              <select id="itemType" required aria-describedby="itemTypeError">
                 <option value="토큰">토큰</option>
                 <option value="컴포넌트">컴포넌트</option>
                 <option value="아이콘">아이콘</option>
@@ -301,33 +304,38 @@
                 <option value="해외 레퍼런스">해외 레퍼런스</option>
                 <option value="운영">운영</option>
               </select>
+              <span class="field-error" id="itemTypeError"></span>
             </label>
             <label>
               항목명
-              <input id="itemName" required placeholder="예: 매물 카드" />
+              <input id="itemName" required aria-describedby="itemNameError" placeholder="예: 매물 카드" />
+              <span class="field-error" id="itemNameError"></span>
             </label>
             <label>
               표준명
-              <input id="itemStandard" required placeholder="예: ListingCard" />
+              <input id="itemStandard" required aria-describedby="itemStandardError" placeholder="예: ListingCard" />
+              <span class="field-error" id="itemStandardError"></span>
             </label>
             <label>
               상태
-              <select id="itemStatus" required>
+              <select id="itemStatus" required aria-describedby="itemStatusError">
                 <option value="검토필요">검토필요</option>
                 <option value="등록완료">등록완료</option>
                 <option value="확정">확정</option>
                 <option value="Figma반영대기">Figma반영대기</option>
                 <option value="제외">제외</option>
               </select>
+              <span class="field-error" id="itemStatusError"></span>
             </label>
             <label>
               플랫폼
-              <select id="itemPlatform" required>
+              <select id="itemPlatform" required aria-describedby="itemPlatformError">
                 <option value="공통">공통</option>
                 <option value="PC웹">PC웹</option>
                 <option value="모바일웹">모바일웹</option>
                 <option value="앱">앱</option>
               </select>
+              <span class="field-error" id="itemPlatformError"></span>
             </label>
             <label>
               Sheet 탭
@@ -343,7 +351,8 @@
             </label>
             <label class="wide-field">
               주요 속성
-              <input id="itemProps" placeholder="예: height, padding, radius, color" />
+              <input id="itemProps" aria-describedby="itemPropsError" placeholder="예: height, padding, radius, color" />
+              <span class="field-error" id="itemPropsError"></span>
             </label>
             <label class="wide-field">
               비고
@@ -363,7 +372,10 @@
 
           <div class="registry-tools">
             <label>
-              검색
+              <span class="tool-label-row">
+                <span>검색</span>
+                <button class="mini-button" id="clearSearchButton" type="button">지우기</button>
+              </span>
               <input id="searchInput" placeholder="항목명, 표준명, 속성 검색" />
             </label>
             <label>
@@ -381,9 +393,20 @@
             </label>
             <button class="danger-button" id="resetDataButton" type="button">샘플 데이터 복원</button>
           </div>
+          <p class="registry-summary" id="registrySummary" aria-live="polite"></p>
 
-          <div class="table-wrap">
-            <table>
+          <div class="table-wrap registry-table-wrap">
+            <table class="registry-table">
+              <colgroup>
+                <col class="col-type" />
+                <col class="col-name" />
+                <col class="col-standard" />
+                <col class="col-status" />
+                <col class="col-platform" />
+                <col class="col-value" />
+                <col class="col-value" />
+                <col class="col-actions" />
+              </colgroup>
               <thead>
                 <tr>
                   <th>구분</th>
@@ -399,11 +422,25 @@
               <tbody id="registryRows"></tbody>
             </table>
           </div>
+          <div class="registry-cards" id="registryCards" aria-live="polite"></div>
         </section>
       </main>
     </div>
 
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      <span id="toastMessage"></span>
+      <button type="button" id="toastAction" hidden></button>
+    </div>
+    <div class="confirm-backdrop" id="confirmDialog" hidden>
+      <section class="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="confirmTitle" aria-describedby="confirmMessage">
+        <h2 id="confirmTitle">확인</h2>
+        <p id="confirmMessage"></p>
+        <div class="confirm-actions">
+          <button class="ghost-button" type="button" id="cancelConfirmButton">취소</button>
+          <button class="danger-button" type="button" id="confirmDeleteButton">삭제</button>
+        </div>
+      </section>
+    </div>
     <script src="./app.js" defer></script>
   </body>
 </html>

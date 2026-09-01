@@ -412,7 +412,7 @@ GitHub Pages는 정적 호스팅이므로 실제 서버 저장소 업로드는 �
 | eBizAutos Mobile App | `https://www.ebizautos.com/mobile-app/` | 모바일 앱에서 사진과 워크어라운드 영상 업로드, 인벤토리 배포 |
 | Phyron | `https://www.phyron.com/` | AI 촬영 가이드, 인벤토리 영상 자동 생성, 소셜 광고 배포 |
 | Phyron Inventory Videos | `https://www.phyron.com/inventory-videos` | 기존 매물 사진·데이터 기반 자동 영상 생성 |
-| Dealer Video Inventory | `https://apps.apple.com/us/app/dealer-video-inventory/id1092619527` | 딜러가 재고 차량 영상을 촬영하고 웹사이트, Cars.com, Autotrader, YouTube 등에 배포 |
+| Dealer Video Inventory | `https://apps.apple.com/us/app/dealer-video-inventory/id1092619527` | 딜러가 재고 차량 영상을 촬영하고 웹사이트, 외부 판매 채널, YouTube 등에 배포 |
 | DealerVision Walkaround Videos | `https://www.dealervision.com/walkaround-videos/` | VIN 단위 워크어라운드 영상 촬영·자동 게시 |
 | Autos On Video | `https://www.autosonvideo.com/` | 딜러용 스마트폰 사진·영상 앱, 차량 머천다이징 |
 | WalkTheLot | `https://walkthelot.com/` | 차량 사진, 영상, 360도, 게시 워크플로우 |

@@ -1,64 +1,71 @@
 const STORAGE_KEY = "bobaedream-design-system-registry-v1";
+const SCHEMA_VERSION = "1.0";
+const PROJECT_ID = "bobaedream-design-system";
+const DEFAULT_STATUS = "검토필요";
+const DEFAULT_TYPE = "토큰";
+const DEFAULT_PLATFORM = "공통";
+const STANDARD_NAME_PATTERN = /^[A-Za-z0-9._:-]+$/;
+const VALIDATION_FIELDS = ["itemType", "itemName", "itemStandard", "itemStatus", "itemPlatform", "itemProps"];
 
 const references = [
   {
-    name: "Cars.com Fuse",
-    focus: "자동차 플랫폼 디자인 시스템 목차와 컴포넌트 구조",
-    apply: "공개 사이드바 전체 항목, Icons, Breadcrumb, Filter, Gallery, Save, Range Dual",
-    url: "https://fuse.cars.com/",
+    name: "자동차 UI 레퍼런스",
+    focus: "자동차 UI 목차",
+    apply: "문서 구조와 컴포넌트 분류",
+    url: "https://www.autotrader.com/",
   },
   {
     name: "Seed Design",
-    focus: "한국어 중심 컴포넌트 설명, Anatomy, Properties, Guidelines 구조",
-    apply: "영문명+한국어명 병기, 항목별 정의와 사용 기준 설명 방식",
+    focus: "간결한 한국어 설명",
+    apply: "한 문장 정의와 표 문구",
     url: "https://seed-design.io/",
   },
   {
     name: "Google Material 3",
-    focus: "토큰, 컴포넌트, 상태, 접근성 기준",
-    apply: "필터 칩, 버튼 상태, 컬러 토큰, 모션 토큰",
+    focus: "토큰과 상태",
+    apply: "칩, 버튼, 컬러 기준",
     url: "https://m3.material.io/",
   },
   {
     name: "Apple HIG",
-    focus: "모바일 터치 영역, safe area, 네이티브 앱 패턴",
-    apply: "상세 하단 CTA, iOS safe area, 앱 탭 구조",
+    focus: "모바일 조작성",
+    apply: "하단 CTA와 safe area",
     url: "https://developer.apple.com/design/human-interface-guidelines/",
   },
   {
     name: "Shopify Polaris",
-    focus: "운영형 서비스 컴포넌트와 상태 배지",
-    apply: "판매자 관리, 등록 폼, 상태 라벨",
+    focus: "운영 UI",
+    apply: "폼, 배지, 상태 라벨",
     url: "https://shopify.dev/docs/api/polaris",
   },
   {
     name: "eBay Evo Design System",
-    focus: "마켓플레이스 카드, 리스트, 칩, 입력 컴포넌트",
-    apply: "매물 카드, 가격 강조, 뱃지, 리스트 밀도",
+    focus: "마켓플레이스 UI",
+    apply: "카드, 칩, 리스트 밀도",
     url: "https://playbook.ebay.com/design-system/components",
   },
   {
     name: "IBM Carbon",
-    focus: "색상, spacing, 토큰, 컴포넌트 문서 구조",
-    apply: "측정 속성 사전, spacing scale, 상태별 명세",
+    focus: "토큰 구조",
+    apply: "간격, 색상, 상태값",
     url: "https://carbondesignsystem.com/",
   },
   {
     name: "GOV.UK Design System",
-    focus: "접근성, 폼, 오류 메시지, 사용자 과업 중심 패턴",
-    apply: "등록 폼 오류, 필수값, 도움말 문구",
+    focus: "접근성과 폼",
+    apply: "오류, 필수값, 도움말",
     url: "https://design-system.service.gov.uk/",
   },
   {
     name: "Storybook",
-    focus: "컴포넌트 실물 뷰어와 상태별 예제",
-    apply: "보배드림 DS 스토리, 문서, 접근성 검사",
+    focus: "컴포넌트 예제",
+    apply: "상태별 미리보기",
     url: "https://storybook.js.org/",
   },
   {
     name: "Chromatic",
-    focus: "시각 회귀 테스트와 승인 워크플로",
-    apply: "PR/배포 전 화면 변경 비교와 리뷰 이력",
+    focus: "시각 회귀",
+    apply: "화면 변경 비교",
     url: "https://www.chromatic.com/",
   },
 ];
@@ -66,15 +73,15 @@ const references = [
 const koreanNames = {
   Home: "홈",
   "Web Installation & Usage": "웹 설치 및 사용",
-  "Installing Fuse": "설치 가이드",
+  "System Installation": "설치 가이드",
   "Guide to Web Components": "웹 컴포넌트 가이드",
   "Web Component Basics": "웹 컴포넌트 기본",
   "Style Customization": "스타일 커스터마이징",
   "Light DOM Style Considerations": "라이트 DOM 스타일 고려사항",
   "Working with Forms": "폼 작업",
   "Working with LiveView": "LiveView 작업",
-  "Fuse Components in React": "React 컴포넌트",
-  "Fuse in Next.js (SSR)": "Next.js SSR",
+  "React Components": "React 컴포넌트",
+  "Next.js SSR": "Next.js SSR",
   "AI Agent Skill": "AI 에이전트 스킬",
   Changelog: "변경 이력",
   "Migrating From Spark": "Spark에서 이전",
@@ -294,22 +301,25 @@ const koreanNames = {
 };
 
 const catalogNotes = {
-  Home: "디자인 시스템 첫 화면으로 목적, 바로가기, 최신 변경 이력을 노출합니다.",
-  "Web Installation & Usage": "설치, 프레임워크 적용, 마이그레이션 방법을 확인하는 시작 영역입니다.",
-  "Design Tokens": "색상, 폰트, 간격, 크기, 그림자, 모션, 반응형 분기점을 코드 변수로 관리합니다.",
-  Icons: "Fuse의 material, custom, cars-duotone, social, oem 구조를 보배드림 아이콘 명칭 체계로 변환합니다.",
-  Breadcrumb: "홈에서 현재 매물/카테고리까지의 정보 구조를 보여주는 탐색 컴포넌트입니다.",
-  Filter: "상단 필터, 사이드 필터, 모바일 바텀시트 필터의 공통 동작 기준입니다.",
-  Gallery: "상세 대표 이미지, 스와이프, 전체보기, 영상 진입을 관리합니다.",
-  Save: "찜하기, 저장 매물, 비교 후보 저장의 활성/비활성 상태를 관리합니다.",
-  Accessibility: "색상, 키보드, 문서 구조, 대체 텍스트, 모바일 조작성의 접근성 기준입니다.",
-  "Color Contrast": "색상 조합별 대비 수치를 기록하고 실패 조합은 사용 금지합니다.",
+  Home: "첫 화면과 주요 바로가기를 보여줍니다.",
+  "Web Installation & Usage": "설치와 개발 적용 방법입니다.",
+  "System Installation": "설치 절차와 의존성 버전입니다.",
+  "React Components": "React 환경의 렌더링 예시입니다.",
+  "Next.js SSR": "SSR 환경의 렌더링 기준입니다.",
+  "Design Tokens": "색상, 글꼴, 간격을 코드 값으로 관리합니다.",
+  Icons: "아이콘 이름과 크기 규칙입니다.",
+  Breadcrumb: "현재 위치를 보여주는 탐색 컴포넌트입니다.",
+  Filter: "차량 조건을 선택하고 해제하는 필터입니다.",
+  Gallery: "차량 사진과 영상을 탐색하는 영역입니다.",
+  Save: "매물을 저장하거나 해제하는 버튼입니다.",
+  Accessibility: "누구나 탐색하고 문의할 수 있게 하는 기준입니다.",
+  "Color Contrast": "텍스트와 배경의 최소 대비 기준입니다.",
 };
 
 const holdItems = new Set(["Modal", "Price Range", "CCD"]);
 const requiredItems = new Set([
-  "Home", "Web Installation & Usage", "Installing Fuse", "Guide to Web Components", "Web Component Basics",
-  "Style Customization", "Working with Forms", "Fuse Components in React", "AI Agent Skill", "Changelog",
+  "Home", "Web Installation & Usage", "System Installation", "Guide to Web Components", "Web Component Basics",
+  "Style Customization", "Working with Forms", "React Components", "AI Agent Skill", "Changelog",
   "Design Tokens", "Color", "Font", "Spacing", "Size", "Elevation", "Motion", "Breakpoints", "Icons",
   "Forms", "Imagery", "Layout", "Typography & Headings", "Usability Standards", "Visual Language",
   "Accordion", "Badge", "Breadcrumb", "Button", "Card", "Card Carousel", "Checkbox", "Fieldset",
@@ -360,7 +370,7 @@ const fuseSidebarTree = sidebarTree([
   {
     title: "Web Installation & Usage",
     children: [
-      "Installing Fuse",
+      "System Installation",
       {
         title: "Guide to Web Components",
         children: [
@@ -371,8 +381,8 @@ const fuseSidebarTree = sidebarTree([
           "Working with LiveView",
         ],
       },
-      "Fuse Components in React",
-      "Fuse in Next.js (SSR)",
+      "React Components",
+      "Next.js SSR",
       "AI Agent Skill",
       "Changelog",
       {
@@ -512,49 +522,49 @@ const fuseSidebarTree = sidebarTree([
     title: "Resources",
     children: ["Toolbox"],
   },
-  customSidebarItem("Bobaedream Admin", "#registry", [
-    customSidebarItem("Registry", "#registry"),
-    customSidebarItem("Measurement Master", "#workflow"),
-    customSidebarItem("Vehicle Listing Patterns", "#components"),
-    customSidebarItem("Vehicle Detail Patterns", "#preview"),
-    customSidebarItem("Filter Patterns", "#preview"),
-    customSidebarItem("AI Measurement Workflow", "#workflow"),
+  customSidebarItem("보배드림 관리", "#registry", [
+    customSidebarItem("컴포넌트 등록/수정", "#registry"),
+    customSidebarItem("측정 마스터", "#workflow"),
+    customSidebarItem("매물 목록 패턴", "#components"),
+    customSidebarItem("매물 상세 패턴", "#preview"),
+    customSidebarItem("필터 패턴", "#preview"),
+    customSidebarItem("AI 측정 흐름", "#workflow"),
   ]),
 ]);
 
 const bobaedreamUseCases = {
-  Filter: ["연식, 주행거리, 가격, 지역, 제조사 필터", "PC 사이드 필터와 모바일 바텀시트 필터", "선택 조건 칩과 결과 수 동기화"],
-  Card: ["매물 카드", "리스트형/갤러리형/추천 매물 카드", "썸네일, 가격, 신뢰 배지, 판매자 메타 조합"],
-  Gallery: ["차량 사진 영역", "상세 대표 이미지와 썸네일 rail", "동영상 진입, 전체보기, 사진 개수 표시"],
-  Badge: ["무사고, 진단, 급매, 실매물", "가격인하, 브랜드인증, 판매완료 상태", "카드와 상세 상단의 신뢰 신호"],
-  Save: ["찜 버튼", "매물 카드/상세 상단/하단 CTA 저장 상태", "저장 완료 알림과 active 피드백"],
-  Pagination: ["매물 리스트 페이지 이동", "SEO 페이지네이션과 이전/다음 버튼", "모바일 더보기 전환 기준"],
-  "Range Dual": ["가격/주행거리 범위 선택", "연식 시작/끝 선택", "바텀시트 내 최소/최대 입력 동기화"],
-  Tabs: ["상세정보, 성능점검, 보험이력", "딜러 정보와 리뷰 전환", "sticky anchor tab과 aria 연결"],
-  Notification: ["견적/문의/오류 알림", "찜 저장 완료와 가격 변동 안내", "등록 폼 검증 결과 피드백"],
-  "Bobaedream Admin": ["컴포넌트 등록/수정", "측정 마스터 관리", "AI 측정 워크플로우 운영"],
+  Filter: ["조건 선택", "선택 칩", "결과 수 반영"],
+  Card: ["매물 요약", "썸네일", "가격과 판매자 정보"],
+  Gallery: ["차량 사진", "썸네일", "전체보기"],
+  Badge: ["무사고", "진단", "판매 상태"],
+  Save: ["찜하기", "저장 해제", "완료 알림"],
+  Pagination: ["페이지 이동", "이전/다음", "더보기 전환"],
+  "Range Dual": ["최소값", "최대값", "범위 입력"],
+  Tabs: ["상세정보", "성능점검", "보험이력"],
+  Notification: ["성공", "오류", "가격 변동"],
+  "보배드림 관리": ["등록", "수정", "검토"],
 };
 
 const fuseGroups = [
-  ["Home", "Cars.com Fuse 공개 사이드바의 첫 진입점", ["Home"]],
-  ["Web Installation & Usage", "설치, Web Components, React/SSR, AI Agent Skill, 마이그레이션 전체", [
-    "Web Installation & Usage", ["Installing Fuse", "Web Installation & Usage"], ["Guide to Web Components", "Web Installation & Usage"],
+  ["Home", "첫 화면", ["Home"]],
+  ["Web Installation & Usage", "설치와 개발 적용", [
+    "Web Installation & Usage", ["System Installation", "Web Installation & Usage"], ["Guide to Web Components", "Web Installation & Usage"],
     ["Web Component Basics", "Guide to Web Components"], ["Style Customization", "Guide to Web Components"],
     ["Light DOM Style Considerations", "Guide to Web Components"], ["Working with Forms", "Guide to Web Components"],
-    ["Working with LiveView", "Guide to Web Components"], ["Fuse Components in React", "Web Installation & Usage"],
-    ["Fuse in Next.js (SSR)", "Web Installation & Usage"], ["AI Agent Skill", "Web Installation & Usage"],
+    ["Working with LiveView", "Guide to Web Components"], ["React Components", "Web Installation & Usage"],
+    ["Next.js SSR", "Web Installation & Usage"], ["AI Agent Skill", "Web Installation & Usage"],
     ["Changelog", "Web Installation & Usage"], ["Migrating From Spark", "Web Installation & Usage"],
     ["Design Tokens", "Migrating From Spark"], ["Typography", "Migrating From Spark"], ["Forms", "Migrating From Spark"],
     ["Dimensions/Layout", "Migrating From Spark"], ["Lists", "Migrating From Spark"], ["Buttons", "Migrating From Spark"],
   ]],
-  ["Style Guide", "토큰, 아이콘, 폼, 이미지, 레이아웃, 타이포그래피, 사용성, 시각 언어", [
+  ["Style Guide", "토큰과 시각 기준", [
     "Style Guide", ["Design Tokens", "Style Guide"], ["Installation", "Design Tokens"], ["Schema", "Design Tokens"],
     ["Color", "Design Tokens"], ["Font", "Design Tokens"], ["Spacing", "Design Tokens"], ["Size", "Design Tokens"],
     ["Elevation", "Design Tokens"], ["Motion", "Design Tokens"], ["Breakpoints", "Design Tokens"], ["Icons", "Style Guide"],
     ["Forms", "Style Guide"], ["Imagery", "Style Guide"], ["Layout", "Style Guide"], ["Spacing", "Style Guide"],
     ["Typography & Headings", "Style Guide"], ["Usability Standards", "Style Guide"], ["Visual Language", "Style Guide"],
   ]],
-  ["Components", "Cars.com Fuse 공개 컴포넌트 목록 전체. 취소선 항목도 보류 상태로 보존", [
+  ["Components", "컴포넌트 목록", [
     "Components", ["Accordion", "Components"], ["Badge", "Components"], ["Breadcrumb", "Components"], ["Button", "Components"],
     ["Callout", "Components"], ["Card", "Components"], ["Card Carousel", "Components"], ["Checkbox", "Components"],
     ["Checkbox Lite", "Components"], ["Disclaimer", "Components"], ["Feedback Thumbs", "Components"], ["Fieldset", "Components"],
@@ -571,12 +581,12 @@ const fuseGroups = [
     ["Tab Panel", "Components"], ["Textarea", "Components"], ["Textarea Lite", "Components"], ["Tooltip", "Components"],
     ["plop:component", "Components"],
   ]],
-  ["Principles", "디자인 원칙과 모션 원칙", ["Principles", ["Design Principles", "Principles"], ["Motion Principles", "Principles"]]],
-  ["Content Strategy", "콘텐츠 전략, 보이스톤, 문법, 용어", [
+  ["Principles", "원칙", ["Principles", ["Design Principles", "Principles"], ["Motion Principles", "Principles"]]],
+  ["Content Strategy", "문구와 용어", [
     "Content Strategy", ["Content Strategy Principles", "Content Strategy"], ["Voice and Tone", "Content Strategy"],
     ["Grammar and Mechanics", "Content Strategy"], ["Vocabulary", "Content Strategy"],
   ]],
-  ["Accessibility", "접근성 원칙, 체크리스트 세부 항목, 색상 대비", [
+  ["Accessibility", "접근성 기준", [
     "Accessibility", ["Accessibility Principles", "Accessibility"], ["Accessibility Checklist", "Accessibility"],
     ["Global Code", "Accessibility Checklist"], ["Default Language", "Accessibility Checklist"], ["Semantic HTML", "Accessibility Checklist"],
     ["Unique Page Title Element", "Accessibility Checklist"], ["Keyboard Navigation", "Accessibility Checklist"],
@@ -592,13 +602,13 @@ const fuseGroups = [
     ["Meaningful Link Text", "Accessibility Checklist"], ["Image Text Alternatives", "Accessibility Checklist"],
     ["Image Alt Text", "Accessibility Checklist"], ["Color Contrast", "Accessibility"],
   ]],
-  ["Resources", "운영 도구와 참고 자료", ["Resources", ["Toolbox", "Resources"]]],
+  ["Resources", "도구", ["Resources", ["Toolbox", "Resources"]]],
 ];
 
 const ebayGroups = [
-  ["Design System", "eBay Playbook 디자인 시스템 상위 정보 구조", ["Overview", "Principles", "Tokens", "Components", "Patterns", "Processes", "Change log"]],
-  ["Tokens", "eBay Playbook 공개 토큰 카테고리", ["Overview", "Change log", "Theming", "Color", "Dimension", "Spacing", "Typography", "Breakpoints", "Shadow", "Shape", "Opacity", "Motion", "Illustration"]],
-  ["Components", "eBay Playbook 공개 컴포넌트 카테고리와 하위 분류", [
+  ["Design System", "상위 구조", ["Overview", "Principles", "Tokens", "Components", "Patterns", "Processes", "Change log"]],
+  ["Tokens", "토큰 분류", ["Overview", "Change log", "Theming", "Color", "Dimension", "Spacing", "Typography", "Breakpoints", "Shadow", "Shape", "Opacity", "Motion", "Illustration"]],
+  ["Components", "컴포넌트 분류", [
     "Overview", "Status", "Accordion", "Action bar", "Alert notice", ["Inline notice", "Alert notice"], ["Page notice", "Alert notice"],
     ["Section notice", "Alert notice"], "Avatar", "Badge", "Banner", "Breadcrumb", "Buttons", ["CTA button", "Buttons"],
     ["Icon button", "Buttons"], ["Link button", "Buttons"], "Calendar", "Card", "Carousel", "CCD", "Chip", ["Filter chip", "Chip"],
@@ -612,7 +622,7 @@ const ebayGroups = [
     ["Context sheet", "Sheet"], ["Focus sheet", "Sheet"], "Signal", "Snackbar", "State layer", "Tab", "Table", "Tip",
     ["Tooltip", "Tip"], ["Tourtip", "Tip"], "Toggle button group", "Video player",
   ]],
-  ["Patterns", "eBay Playbook 공개 패턴 분류", ["Overview", "Bulk editing", "Creating forms", "Empty states", "Filtering", "Requesting user feedback", "Uploading files", "Using links", ["Text link", "Using links"], ["Legal link", "Using links"]]],
+  ["Patterns", "패턴 분류", ["Overview", "Bulk editing", "Creating forms", "Empty states", "Filtering", "Requesting user feedback", "Uploading files", "Using links", ["Text link", "Using links"], ["Legal link", "Using links"]]],
 ];
 
 const seedItems = [
@@ -705,7 +715,7 @@ const seedItems = [
     pcValue: "304px side rail",
     moValue: "bottom sheet",
     props: "year, mileage, price, region, maker, selected chips",
-    note: "Fuse Filter를 보배드림 연식/주행거리/가격/지역/제조사 필터로 연결",
+    note: "보배드림 연식/주행거리/가격/지역/제조사 필터 기준",
   },
   {
     id: "component-badge",
@@ -858,6 +868,8 @@ const elements = {
   sidebar: document.querySelector("#designSidebar"),
   sidebarNav: document.querySelector("#sidebarNav"),
   sidebarSearch: document.querySelector("#sidebarSearch"),
+  clearSidebarSearch: document.querySelector("#clearSidebarSearch"),
+  sidebarSearchCount: document.querySelector("#sidebarSearchCount"),
   sidebarEmpty: document.querySelector("#sidebarEmpty"),
   menuToggle: document.querySelector("#menuToggle"),
   closeSidebar: document.querySelector("#closeSidebar"),
@@ -873,7 +885,11 @@ const elements = {
   buttonCards: document.querySelector("#buttonCards"),
   stateRow: document.querySelector("#stateRow"),
   registryRows: document.querySelector("#registryRows"),
+  registryCards: document.querySelector("#registryCards"),
+  registrySummary: document.querySelector("#registrySummary"),
   form: document.querySelector("#registryForm"),
+  editBanner: document.querySelector("#editBanner"),
+  editBannerText: document.querySelector("#editBannerText"),
   itemId: document.querySelector("#itemId"),
   itemType: document.querySelector("#itemType"),
   itemName: document.querySelector("#itemName"),
@@ -885,62 +901,199 @@ const elements = {
   itemMoValue: document.querySelector("#itemMoValue"),
   itemProps: document.querySelector("#itemProps"),
   itemNote: document.querySelector("#itemNote"),
+  itemTypeError: document.querySelector("#itemTypeError"),
+  itemNameError: document.querySelector("#itemNameError"),
+  itemStandardError: document.querySelector("#itemStandardError"),
+  itemStatusError: document.querySelector("#itemStatusError"),
+  itemPlatformError: document.querySelector("#itemPlatformError"),
+  itemPropsError: document.querySelector("#itemPropsError"),
   saveButton: document.querySelector("#saveButton"),
   clearButton: document.querySelector("#clearButton"),
+  cancelEditButton: document.querySelector("#cancelEditButton"),
   newItemButton: document.querySelector("#newItemButton"),
   exportJsonButton: document.querySelector("#exportJsonButton"),
   exportCsvButton: document.querySelector("#exportCsvButton"),
   importJsonInput: document.querySelector("#importJsonInput"),
   searchInput: document.querySelector("#searchInput"),
+  clearSearchButton: document.querySelector("#clearSearchButton"),
   typeFilter: document.querySelector("#typeFilter"),
   resetDataButton: document.querySelector("#resetDataButton"),
   toast: document.querySelector("#toast"),
+  toastMessage: document.querySelector("#toastMessage"),
+  toastAction: document.querySelector("#toastAction"),
+  confirmDialog: document.querySelector("#confirmDialog"),
+  confirmTitle: document.querySelector("#confirmTitle"),
+  confirmMessage: document.querySelector("#confirmMessage"),
+  cancelConfirmButton: document.querySelector("#cancelConfirmButton"),
+  confirmDeleteButton: document.querySelector("#confirmDeleteButton"),
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-  renderAll();
+let formBaseline = "";
+let pendingConfirm = null;
+let previousFocus = null;
+
+document.addEventListener("DOMContentLoaded", async () => {
   bindEvents();
+  await hydrateItemsFromRepoData();
+  renderAll();
+  captureFormBaseline();
 });
 
 function bindEvents() {
   window.addEventListener("hashchange", syncActiveNav);
   document.addEventListener("click", handleTableAction);
+  document.addEventListener("keydown", handleGlobalKeydown);
   elements.sidebarNav.addEventListener("click", handleSidebarClick);
   elements.sidebarSearch.addEventListener("input", renderSidebar);
+  elements.clearSidebarSearch.addEventListener("click", () => {
+    elements.sidebarSearch.value = "";
+    renderSidebar();
+    elements.sidebarSearch.focus();
+  });
   elements.menuToggle.addEventListener("click", openSidebar);
   elements.closeSidebar.addEventListener("click", closeSidebar);
   elements.sidebarOverlay.addEventListener("click", closeSidebar);
   elements.form.addEventListener("submit", saveItem);
-  elements.clearButton.addEventListener("click", clearForm);
-  elements.newItemButton.addEventListener("click", () => {
+  elements.form.addEventListener("input", clearLiveValidation);
+  elements.form.addEventListener("change", clearLiveValidation);
+  elements.clearButton.addEventListener("click", () => clearForm());
+  elements.cancelEditButton.addEventListener("click", () => {
     clearForm();
-    document.querySelector("#registry").scrollIntoView({ behavior: "smooth" });
-    elements.itemName.focus();
+    showToast("수정을 취소했습니다.");
+  });
+  elements.newItemButton.addEventListener("click", () => {
+    confirmBeforeLosingFormChanges(() => {
+      clearForm();
+      document.querySelector("#registry").scrollIntoView({ behavior: "smooth" });
+      elements.itemName.focus();
+    });
   });
   elements.exportJsonButton.addEventListener("click", exportJson);
   elements.exportCsvButton.addEventListener("click", exportCsv);
   elements.importJsonInput.addEventListener("change", importJson);
   elements.searchInput.addEventListener("input", renderRegistry);
+  elements.clearSearchButton.addEventListener("click", () => {
+    elements.searchInput.value = "";
+    renderRegistry();
+    elements.searchInput.focus();
+  });
   elements.typeFilter.addEventListener("change", renderRegistry);
   elements.resetDataButton.addEventListener("click", resetData);
+  elements.cancelConfirmButton.addEventListener("click", closeConfirm);
+  elements.confirmDeleteButton.addEventListener("click", runPendingConfirm);
+  elements.confirmDialog.addEventListener("click", (event) => {
+    if (event.target === elements.confirmDialog) closeConfirm();
+  });
   syncActiveNav();
 }
 
 function loadItems() {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
-    if (!stored) return seedItems;
+    if (!stored) return cloneSeedItems();
     const parsed = JSON.parse(stored);
-    if (!Array.isArray(parsed)) return seedItems;
-    const storedIds = new Set(parsed.map((item) => item.id));
-    return [...parsed, ...seedItems.filter((item) => !storedIds.has(item.id))];
+    const storedItems = normalizeRegistryItems(readRegistryPayload(parsed));
+    return mergeSeedItems(storedItems);
   } catch {
-    return seedItems;
+    return cloneSeedItems();
   }
 }
 
 function persistItems() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(buildRegistryPayload(items)));
+}
+
+async function hydrateItemsFromRepoData() {
+  if (localStorage.getItem(STORAGE_KEY)) return;
+
+  try {
+    const response = await fetch("./data/registry.json", { cache: "no-cache" });
+    if (!response.ok) return;
+    const payload = await response.json();
+    const repoItems = normalizeRegistryItems(readRegistryPayload(payload));
+    if (!repoItems.length) return;
+    items = mergeSeedItems(repoItems);
+    persistItems();
+  } catch {
+    items = mergeSeedItems(items);
+  }
+}
+
+function cloneSeedItems() {
+  return seedItems.map((item) => normalizeRegistryItem(item));
+}
+
+function readRegistryPayload(payload) {
+  if (Array.isArray(payload)) return payload;
+  if (!payload || typeof payload !== "object") {
+    throw new Error("Registry JSON object expected.");
+  }
+  if (payload.schema_version !== SCHEMA_VERSION) {
+    throw new Error(`지원하지 않는 schema_version: ${payload.schema_version || "없음"}`);
+  }
+  if (!Array.isArray(payload.items)) {
+    throw new Error("items 배열이 필요합니다.");
+  }
+  return payload.items;
+}
+
+function buildRegistryPayload(sourceItems = items) {
+  return {
+    schema_version: SCHEMA_VERSION,
+    project: PROJECT_ID,
+    updated_at: new Date().toISOString(),
+    items: sourceItems.map((item) => normalizeRegistryItem(item)),
+  };
+}
+
+function normalizeRegistryItems(sourceItems = []) {
+  const seenIds = new Set();
+  const seenStandards = new Set();
+
+  return sourceItems
+    .map((item) => normalizeRegistryItem(item))
+    .filter((item) => {
+      const standardKey = item.standard.toLowerCase();
+      if (seenIds.has(item.id) || seenStandards.has(standardKey)) return false;
+      seenIds.add(item.id);
+      seenStandards.add(standardKey);
+      return true;
+    });
+}
+
+function normalizeRegistryItem(item = {}) {
+  const now = new Date().toISOString();
+  return {
+    id: String(item.id || createId()),
+    type: String(item.type || DEFAULT_TYPE),
+    name: String(item.name || "").trim(),
+    standard: String(item.standard || "").trim(),
+    status: String(item.status || DEFAULT_STATUS),
+    platform: String(item.platform || DEFAULT_PLATFORM),
+    sheet: String(item.sheet || "").trim(),
+    pcValue: String(item.pcValue || "").trim(),
+    moValue: String(item.moValue || "").trim(),
+    props: String(item.props || "").trim(),
+    note: String(item.note || "").trim(),
+    createdAt: item.createdAt || item.updatedAt || now,
+    updatedAt: item.updatedAt || now,
+    archived: Boolean(item.archived),
+  };
+}
+
+function mergeSeedItems(sourceItems = []) {
+  const normalized = normalizeRegistryItems(sourceItems);
+  const seenIds = new Set(normalized.map((item) => item.id));
+  const seenStandards = new Set(normalized.map((item) => item.standard.toLowerCase()));
+  const missingSeeds = cloneSeedItems().filter((item) => {
+    const standardKey = item.standard.toLowerCase();
+    return !seenIds.has(item.id) && !seenStandards.has(standardKey);
+  });
+  return [...normalized, ...missingSeeds];
+}
+
+function activeItems() {
+  return items.filter((item) => !item.archived);
 }
 
 function renderAll() {
@@ -955,20 +1108,22 @@ function renderAll() {
 function renderSidebar() {
   const query = elements.sidebarSearch.value.trim().toLowerCase();
   const visibleTree = filterSidebarTree(fuseSidebarTree, query);
+  const count = countSidebarItems(visibleTree);
   elements.sidebarEmpty.hidden = visibleTree.length > 0;
-  elements.sidebarNav.innerHTML = visibleTree.length ? renderSidebarList(visibleTree) : "";
+  elements.sidebarSearchCount.textContent = query ? `${count}개 결과` : "";
+  elements.sidebarNav.innerHTML = visibleTree.length ? renderSidebarList(visibleTree, query) : "";
   syncActiveNav();
 }
 
-function renderSidebarList(nodes) {
+function renderSidebarList(nodes, query = "") {
   return `
     <ul class="fuse-nav-list">
-      ${nodes.map((node) => renderSidebarItem(node)).join("")}
+      ${nodes.map((node) => renderSidebarItem(node, query)).join("")}
     </ul>
   `;
 }
 
-function renderSidebarItem(node) {
+function renderSidebarItem(node, query = "") {
   const hasChildren = node.children.length > 0;
   const classNames = [
     "nav-link",
@@ -993,11 +1148,11 @@ function renderSidebarItem(node) {
       >
         <span class="nav-content">
           ${hasChildren ? '<span class="nav-caret" aria-hidden="true">›</span>' : ""}
-          <span class="nav-name">${escapeHtml(displayNodeName(node))}</span>
+          <span class="nav-name">${highlightText(displayNodeName(node), query)}</span>
         </span>
         ${node.status === "deprecated" ? '<em class="nav-status">deprecated</em>' : ""}
       </a>
-      ${hasChildren ? renderSidebarList(node.children) : ""}
+      ${hasChildren ? renderSidebarList(node.children, query) : ""}
     </li>
   `;
 }
@@ -1015,12 +1170,16 @@ function filterSidebarTree(nodes, query) {
     .filter(Boolean);
 }
 
+function countSidebarItems(nodes) {
+  return nodes.reduce((count, node) => count + 1 + countSidebarItems(node.children), 0);
+}
+
 function sidebarNodeMatches(node, query) {
   return [node.title, node.koTitle, node.href].join(" ").toLowerCase().includes(query);
 }
 
 function displayNodeName(node) {
-  return `${node.title} (${node.koTitle})`;
+  return node.koTitle && node.koTitle !== node.title ? `${node.title} (${node.koTitle})` : node.title;
 }
 
 function isDocumentRoute(node) {
@@ -1071,9 +1230,9 @@ function renderDocumentPage(node) {
 
   const statusLabel = node.status === "deprecated" ? "deprecated" : node.status === "custom" ? "보배드림 운영" : "stable";
   const useCases = bobaedreamUseCases[node.title] || [
-    `${displayNodeName(node)} 문서는 보배드림 화면의 구성요소, 속성, 상태, 사용 기준을 정리합니다.`,
-    "디자이너와 개발자가 같은 명칭으로 검색하고 Storybook 예시와 연결합니다.",
-    "AI가 측정한 값은 Measurement Master에 저장한 뒤 확정 기준만 문서에 반영합니다.",
+    `${displayNodeName(node)}는 보배드림 화면에서 쓰는 UI 항목입니다.`,
+    "명칭, 상태, 기준값을 함께 관리합니다.",
+    "확정 항목만 Figma와 코드에 반영합니다.",
   ];
   const path = node.path?.join(" / ") || displayNodeName(node);
 
@@ -1083,7 +1242,7 @@ function renderDocumentPage(node) {
         <nav class="doc-breadcrumb" aria-label="문서 경로">${escapeHtml(path)}</nav>
         <div class="doc-title-row">
           <div>
-            <p class="eyebrow">${node.status === "custom" ? "Bobaedream Admin" : "Fuse Navigation"}</p>
+            <p class="eyebrow">${node.status === "custom" ? "보배드림 운영" : "보배드림 문서"}</p>
             <h2>${escapeHtml(displayNodeName(node))}</h2>
           </div>
           <span class="doc-status ${escapeHtml(node.status)}">${escapeHtml(statusLabel)}</span>
@@ -1104,11 +1263,11 @@ function renderDocumentPage(node) {
         ${renderIconsDoc(node)}
       </article>
       <aside class="doc-aside">
-        <strong>문서 운영 기준</strong>
+        <strong>문서 기준</strong>
         <ul>
-          <li>영문명과 한국어명을 함께 표기합니다.</li>
-          <li>Seed Design처럼 목적, 사용 시점, 상태를 문장으로 남깁니다.</li>
-          <li>Cars.com Fuse, eBay Playbook, Seed Design 출처를 함께 기록합니다.</li>
+          <li>한 항목은 한 문장으로 정의합니다.</li>
+          <li>영문명과 한국어명을 함께 씁니다.</li>
+          <li>상태와 기준값은 표로 남깁니다.</li>
         </ul>
       </aside>
     </div>
@@ -1121,9 +1280,9 @@ function renderIconsDoc(node) {
   return `
     <div class="doc-icon-library">
       <h3>아이콘 라이브러리 명칭</h3>
-      <p>Fuse의 material, custom, cars-duotone, social, oem 구조를 보배드림 interface, vehicle, commerce, media로 재구성합니다.</p>
+      <p>아이콘은 interface, vehicle, commerce, media로 분류합니다.</p>
       <div class="doc-icon-grid">
-        ${items
+        ${activeItems()
           .filter((item) => item.type === "아이콘")
           .map(
             (item) => `
@@ -1142,9 +1301,10 @@ function renderIconsDoc(node) {
 
 function renderMetrics() {
   const groups = ["토큰", "컴포넌트", "아이콘", "버튼"];
+  const visibleItems = activeItems();
   elements.metricGrid.innerHTML = groups
     .map((group) => {
-      const count = items.filter((item) => item.type === group).length;
+      const count = visibleItems.filter((item) => item.type === group).length;
       return `<article class="metric-card"><strong>${count}</strong><span>${escapeHtml(group)} 등록 항목</span></article>`;
     })
     .join("");
@@ -1204,15 +1364,16 @@ function renderCatalogItem(entry) {
 }
 
 function displayName(label) {
-  return `${label} (${koreanNames[label] || label})`;
+  const koreanName = koreanNames[label];
+  return koreanName && koreanName !== label ? `${label} (${koreanName})` : label;
 }
 
 function catalogNote(label, parent) {
   if (holdItems.has(label)) {
-    return `${displayName(label)} 항목은 원문에서 보류/취소선 기준으로 남기고, 보배드림에서는 대체 컴포넌트를 우선 검토합니다.`;
+    return `${displayName(label)}은 보류 항목입니다. 대체 컴포넌트를 검토합니다.`;
   }
   if (catalogNotes[label]) return catalogNotes[label];
-  return `${displayName(label)} 항목은 ${parent ? `${parent} 기준 안에서 ` : ""}보배드림 UI에 맞는 구성요소, 속성, 상태, 사용 규칙을 문서화합니다.`;
+  return `${displayName(label)}은 ${parent ? `${parent}에서 쓰는 ` : ""}보배드림 UI 항목입니다.`;
 }
 
 function catalogStatus(label) {
@@ -1230,7 +1391,7 @@ function renderCards() {
 }
 
 function renderTokenCards() {
-  elements.tokenCards.innerHTML = items
+  elements.tokenCards.innerHTML = activeItems()
     .filter((item) => item.type === "토큰")
     .map(
       (item) => `
@@ -1247,7 +1408,7 @@ function renderTokenCards() {
 }
 
 function renderComponentCards() {
-  elements.componentCards.innerHTML = items
+  elements.componentCards.innerHTML = activeItems()
     .filter((item) => item.type === "컴포넌트")
     .map(
       (item) => `
@@ -1263,7 +1424,7 @@ function renderComponentCards() {
 }
 
 function renderIconCards() {
-  elements.iconGrid.innerHTML = items
+  elements.iconGrid.innerHTML = activeItems()
     .filter((item) => item.type === "아이콘")
     .map(
       (item) => `
@@ -1278,7 +1439,7 @@ function renderIconCards() {
 }
 
 function renderButtonCards() {
-  elements.buttonCards.innerHTML = items
+  elements.buttonCards.innerHTML = activeItems()
     .filter((item) => item.type === "버튼")
     .map(
       (item) => `
@@ -1294,7 +1455,7 @@ function renderButtonCards() {
 }
 
 function renderStateCards() {
-  elements.stateRow.innerHTML = items
+  elements.stateRow.innerHTML = activeItems()
     .filter((item) => item.type === "상태")
     .map(
       (item) => `
@@ -1308,64 +1469,116 @@ function renderStateCards() {
 }
 
 function renderRegistry() {
-  const query = elements.searchInput.value.trim().toLowerCase();
+  const query = elements.searchInput.value.trim();
+  const queryKey = query.toLowerCase();
   const type = elements.typeFilter.value;
-  const filtered = items.filter((item) => {
+  const visibleItems = activeItems();
+  const filtered = visibleItems.filter((item) => {
     const matchesType = type === "전체" || item.type === type;
     const haystack = [item.type, item.name, item.standard, item.status, item.platform, item.props, item.note]
       .join(" ")
       .toLowerCase();
-    return matchesType && (!query || haystack.includes(query));
+    return matchesType && (!queryKey || haystack.includes(queryKey));
   });
 
+  elements.registrySummary.textContent =
+    type === "전체" && !query
+      ? `전체 ${visibleItems.length}개 항목`
+      : `전체 ${visibleItems.length}개 중 ${filtered.length}개 표시`;
+
   elements.registryRows.innerHTML =
-    filtered
-      .map(
-        (item) => `
-          <tr>
-            <td><span class="registry-tag">${escapeHtml(item.type)}</span></td>
-            <td><strong>${escapeHtml(item.name)}</strong><br><small>${escapeHtml(item.props || "")}</small></td>
-            <td><code>${escapeHtml(item.standard)}</code></td>
-            <td><span class="status" data-status="${escapeHtml(item.status)}">${escapeHtml(item.status)}</span></td>
-            <td>${escapeHtml(item.platform)}</td>
-            <td>${escapeHtml(item.pcValue || "-")}</td>
-            <td>${escapeHtml(item.moValue || "-")}</td>
-            <td>
-              <div class="row-actions">
-                <button type="button" data-action="edit" data-id="${escapeHtml(item.id)}">수정</button>
-                <button type="button" data-action="duplicate" data-id="${escapeHtml(item.id)}">복제</button>
-                <button class="delete" type="button" data-action="delete" data-id="${escapeHtml(item.id)}">삭제</button>
-              </div>
-            </td>
-          </tr>
-        `,
-      )
-      .join("") || `<tr><td colspan="8">검색 결과가 없습니다.</td></tr>`;
+    filtered.map((item) => renderRegistryRow(item, query)).join("") ||
+    `<tr class="empty-row"><td colspan="8">검색 결과가 없습니다.</td></tr>`;
+
+  elements.registryCards.innerHTML =
+    filtered.map((item) => renderRegistryCard(item, query)).join("") ||
+    `<article class="registry-empty-card">검색 결과가 없습니다.</article>`;
+}
+
+function renderRegistryRow(item, query) {
+  return `
+    <tr>
+      <td><span class="registry-tag">${escapeHtml(item.type)}</span></td>
+      <td>
+        <strong>${highlightText(item.name, query)}</strong>
+        <br>
+        <small>${highlightText(item.props || "", query)}</small>
+      </td>
+      <td><code>${highlightText(item.standard, query)}</code></td>
+      <td><span class="status" data-status="${escapeHtml(item.status)}">${escapeHtml(item.status)}</span></td>
+      <td><span class="platform-badge">${escapeHtml(item.platform)}</span></td>
+      <td>${escapeHtml(item.pcValue || "-")}</td>
+      <td>${escapeHtml(item.moValue || "-")}</td>
+      <td>${renderRegistryActions(item.id)}</td>
+    </tr>
+  `;
+}
+
+function renderRegistryCard(item, query) {
+  return `
+    <article class="registry-card">
+      <div class="registry-card-badges">
+        <span class="registry-tag">${escapeHtml(item.type)}</span>
+        <span class="status" data-status="${escapeHtml(item.status)}">${escapeHtml(item.status)}</span>
+        <span class="platform-badge">${escapeHtml(item.platform)}</span>
+      </div>
+      <dl>
+        <div>
+          <dt>항목명</dt>
+          <dd><strong>${highlightText(item.name, query)}</strong></dd>
+        </div>
+        <div>
+          <dt>표준명</dt>
+          <dd><code>${highlightText(item.standard, query)}</code></dd>
+        </div>
+        <div>
+          <dt>주요 속성</dt>
+          <dd>${highlightText(item.props || "-", query)}</dd>
+        </div>
+      </dl>
+      ${renderRegistryActions(item.id)}
+    </article>
+  `;
+}
+
+function renderRegistryActions(id) {
+  const safeId = escapeHtml(id);
+  return `
+    <div class="row-actions registry-actions">
+      <button type="button" data-action="edit" data-id="${safeId}">수정</button>
+      <button type="button" data-action="duplicate" data-id="${safeId}">복제</button>
+      <button class="delete" type="button" data-action="delete" data-id="${safeId}">삭제</button>
+    </div>
+  `;
 }
 
 function saveItem(event) {
   event.preventDefault();
 
-  const currentId = elements.itemId.value;
-  const item = {
-    id: currentId || createId(),
-    type: elements.itemType.value,
-    name: elements.itemName.value.trim(),
-    standard: elements.itemStandard.value.trim(),
-    status: elements.itemStatus.value,
-    platform: elements.itemPlatform.value,
-    sheet: elements.itemSheet.value.trim(),
-    pcValue: elements.itemPcValue.value.trim(),
-    moValue: elements.itemMoValue.value.trim(),
-    props: elements.itemProps.value.trim(),
-    note: elements.itemNote.value.trim(),
-    updatedAt: new Date().toISOString(),
-  };
-
-  if (!item.name || !item.standard) {
-    showToast("항목명과 표준명을 입력해야 합니다.");
+  const validation = validateForm();
+  if (!validation.valid) {
+    validation.firstInvalid?.focus();
+    showToast("필수 항목을 확인하세요.");
     return;
   }
+
+  const currentId = elements.itemId.value;
+  if (isDuplicateStandard(validation.item.standard, currentId)) {
+    setFieldError("itemStandard", "이미 등록된 표준명입니다.");
+    elements.itemStandard.focus();
+    showToast("표준명을 확인하세요.");
+    return;
+  }
+
+  const existing = currentId ? items.find((entry) => entry.id === currentId) : null;
+  const now = new Date().toISOString();
+  const item = {
+    id: currentId || createId(),
+    ...validation.item,
+    createdAt: existing?.createdAt || now,
+    updatedAt: now,
+    archived: false,
+  };
 
   if (currentId) {
     items = items.map((entry) => (entry.id === currentId ? item : entry));
@@ -1390,36 +1603,44 @@ function handleTableAction(event) {
   if (!item) return;
 
   if (action === "edit") {
-    fillForm(item);
-    document.querySelector("#registry").scrollIntoView({ behavior: "smooth" });
-    showToast("수정할 항목을 불러왔습니다.");
+    confirmBeforeLosingFormChanges(() => {
+      fillForm(item);
+      document.querySelector("#registry").scrollIntoView({ behavior: "smooth" });
+      showToast("수정할 항목을 불러왔습니다.");
+    });
   }
 
   if (action === "duplicate") {
-    const copy = {
-      ...item,
-      id: createId(),
-      name: `${item.name} 복제`,
-      status: "검토필요",
-      updatedAt: new Date().toISOString(),
-    };
-    items = [copy, ...items];
-    persistItems();
-    renderAll();
-    showToast("항목을 복제했습니다.");
+    confirmBeforeLosingFormChanges(() => duplicateItem(item));
   }
 
   if (action === "delete") {
-    const confirmed = window.confirm(`${item.name} 항목을 삭제할까요?`);
-    if (!confirmed) return;
-    items = items.filter((entry) => entry.id !== id);
-    persistItems();
-    renderAll();
-    showToast("항목을 삭제했습니다.");
+    openDeleteConfirm(item);
   }
 }
 
+function duplicateItem(item) {
+  const now = new Date().toISOString();
+  const copy = {
+    ...item,
+    id: createId(),
+    name: `${item.name} 복제`,
+    standard: uniqueStandardName(`${item.standard}_copy`),
+    status: DEFAULT_STATUS,
+    createdAt: now,
+    updatedAt: now,
+    archived: false,
+  };
+  items = [copy, ...items];
+  persistItems();
+  renderAll();
+  fillForm(copy);
+  document.querySelector("#registry").scrollIntoView({ behavior: "smooth" });
+  showToast("항목을 복제했습니다. 내용을 확인하세요.");
+}
+
 function fillForm(item) {
+  clearFieldErrors();
   elements.itemId.value = item.id;
   elements.itemType.value = item.type;
   elements.itemName.value = item.name;
@@ -1431,22 +1652,29 @@ function fillForm(item) {
   elements.itemMoValue.value = item.moValue || "";
   elements.itemProps.value = item.props || "";
   elements.itemNote.value = item.note || "";
+  elements.editBanner.hidden = false;
+  elements.editBannerText.textContent = `현재 수정 중: ${item.standard} / ${item.name}`;
   elements.saveButton.textContent = "수정 저장";
+  captureFormBaseline();
 }
 
 function clearForm() {
   elements.form.reset();
   elements.itemId.value = "";
-  elements.itemType.value = "토큰";
-  elements.itemStatus.value = "검토필요";
-  elements.itemPlatform.value = "공통";
+  elements.itemType.value = DEFAULT_TYPE;
+  elements.itemStatus.value = DEFAULT_STATUS;
+  elements.itemPlatform.value = DEFAULT_PLATFORM;
+  elements.editBanner.hidden = true;
+  elements.editBannerText.textContent = "현재 수정 중";
   elements.saveButton.textContent = "등록";
+  clearFieldErrors();
+  captureFormBaseline();
 }
 
 function exportJson() {
   downloadFile(
     "bobaedream-design-system-registry.json",
-    JSON.stringify(items, null, 2),
+    JSON.stringify(buildRegistryPayload(items), null, 2),
     "application/json",
   );
   showToast("JSON 파일을 내보냈습니다.");
@@ -1454,7 +1682,7 @@ function exportJson() {
 
 function exportCsv() {
   const header = ["구분", "항목명", "표준명", "상태", "플랫폼", "Sheet탭", "PC값", "MO값", "주요속성", "비고"];
-  const rows = items.map((item) => [
+  const rows = activeItems().map((item) => [
     item.type,
     item.name,
     item.standard,
@@ -1479,13 +1707,16 @@ function importJson(event) {
   reader.onload = () => {
     try {
       const parsed = JSON.parse(String(reader.result));
-      if (!Array.isArray(parsed)) throw new Error("Invalid JSON");
-      items = parsed.map((entry) => ({ ...entry, id: entry.id || createId() }));
+      const importedItems = normalizeRegistryItems(readImportPayload(parsed));
+      if (!importedItems.length) throw new Error("items 배열이 비어 있습니다.");
+      assertRegistryImportItems(importedItems);
+      items = mergeImportedItems(importedItems);
       persistItems();
+      clearForm();
       renderAll();
       showToast("JSON 데이터를 가져왔습니다.");
-    } catch {
-      showToast("JSON 파일 형식이 올바르지 않습니다.");
+    } catch (error) {
+      showToast(error.message || "JSON 파일 형식이 올바르지 않습니다.");
     } finally {
       event.target.value = "";
     }
@@ -1494,13 +1725,18 @@ function importJson(event) {
 }
 
 function resetData() {
-  const confirmed = window.confirm("현재 저장된 데이터를 지우고 샘플 데이터로 복원할까요?");
-  if (!confirmed) return;
-  items = seedItems.map((item) => ({ ...item }));
-  persistItems();
-  clearForm();
-  renderAll();
-  showToast("샘플 데이터를 복원했습니다.");
+  openConfirm({
+    title: "샘플 데이터로 복원할까요?",
+    message: "이 브라우저에 저장된 Registry 변경 내용이 샘플 기준으로 바뀝니다.",
+    confirmLabel: "복원",
+    onConfirm: () => {
+      items = cloneSeedItems();
+      persistItems();
+      clearForm();
+      renderAll();
+      showToast("샘플 데이터를 복원했습니다.");
+    },
+  });
 }
 
 function downloadFile(filename, content, type) {
@@ -1529,13 +1765,269 @@ function syncActiveNav() {
   }
 }
 
-function showToast(message) {
-  elements.toast.textContent = message;
+function validateForm() {
+  clearFieldErrors();
+  const item = readFormItem();
+  const errors = {};
+
+  if (!item.type) errors.itemType = "구분을 선택하세요.";
+  if (item.name.length < 2) errors.itemName = "항목명은 2자 이상 입력하세요.";
+  if (!item.standard) {
+    errors.itemStandard = "표준명을 입력하세요.";
+  } else if (!STANDARD_NAME_PATTERN.test(item.standard)) {
+    errors.itemStandard = "영문, 숫자, 마침표, 콜론, 밑줄, 하이픈만 사용하세요.";
+  }
+  if (!item.status) errors.itemStatus = "상태를 선택하세요.";
+  if (!item.platform) errors.itemPlatform = "플랫폼을 선택하세요.";
+  if (!item.props) errors.itemProps = "주요 속성을 1개 이상 입력하세요.";
+
+  Object.entries(errors).forEach(([fieldId, message]) => setFieldError(fieldId, message));
+  const firstInvalid = VALIDATION_FIELDS.map((fieldId) => elements[fieldId]).find((field) =>
+    field?.getAttribute("aria-invalid") === "true",
+  );
+
+  return { valid: Object.keys(errors).length === 0, item, firstInvalid };
+}
+
+function readFormItem() {
+  return {
+    type: elements.itemType.value,
+    name: elements.itemName.value.trim(),
+    standard: elements.itemStandard.value.trim(),
+    status: elements.itemStatus.value,
+    platform: elements.itemPlatform.value,
+    sheet: elements.itemSheet.value.trim(),
+    pcValue: elements.itemPcValue.value.trim(),
+    moValue: elements.itemMoValue.value.trim(),
+    props: elements.itemProps.value.trim(),
+    note: elements.itemNote.value.trim(),
+  };
+}
+
+function setFieldError(fieldId, message) {
+  const field = elements[fieldId];
+  const error = elements[`${fieldId}Error`];
+  if (!field || !error) return;
+  field.setAttribute("aria-invalid", "true");
+  error.textContent = message;
+  field.closest("label")?.classList.add("has-error");
+}
+
+function clearFieldErrors() {
+  VALIDATION_FIELDS.forEach((fieldId) => {
+    const field = elements[fieldId];
+    const error = elements[`${fieldId}Error`];
+    if (!field || !error) return;
+    field.removeAttribute("aria-invalid");
+    error.textContent = "";
+    field.closest("label")?.classList.remove("has-error");
+  });
+}
+
+function clearLiveValidation(event) {
+  const fieldId = event.target?.id;
+  if (!VALIDATION_FIELDS.includes(fieldId)) return;
+  const field = elements[fieldId];
+  const error = elements[`${fieldId}Error`];
+  field?.removeAttribute("aria-invalid");
+  if (error) error.textContent = "";
+  field?.closest("label")?.classList.remove("has-error");
+}
+
+function formSnapshot() {
+  return JSON.stringify({
+    id: elements.itemId.value,
+    ...readFormItem(),
+  });
+}
+
+function captureFormBaseline() {
+  formBaseline = formSnapshot();
+}
+
+function isFormDirty() {
+  return formSnapshot() !== formBaseline;
+}
+
+function confirmBeforeLosingFormChanges(next) {
+  if (!isFormDirty()) {
+    next();
+    return;
+  }
+
+  openConfirm({
+    title: "수정 중인 항목을 바꿀까요?",
+    message: "저장하지 않은 변경 내용은 사라집니다.",
+    confirmLabel: "전환",
+    onConfirm: next,
+    danger: false,
+  });
+}
+
+function isDuplicateStandard(standard, currentId = "") {
+  const key = standard.toLowerCase();
+  return activeItems().some((item) => item.id !== currentId && item.standard.toLowerCase() === key);
+}
+
+function uniqueStandardName(baseStandard) {
+  const sanitized = sanitizeStandardName(baseStandard) || "item_copy";
+  let candidate = sanitized;
+  let index = 2;
+  const used = new Set(activeItems().map((item) => item.standard.toLowerCase()));
+
+  while (used.has(candidate.toLowerCase())) {
+    candidate = `${sanitized}_${index}`;
+    index += 1;
+  }
+
+  return candidate;
+}
+
+function sanitizeStandardName(value) {
+  return String(value || "")
+    .trim()
+    .replace(/\s+/g, "_")
+    .replace(/[^A-Za-z0-9._:-]/g, "");
+}
+
+function openDeleteConfirm(item) {
+  openConfirm({
+    title: "항목을 삭제할까요?",
+    message: `삭제 대상: ${item.standard} / ${item.name}\n삭제한 항목은 목록에서 숨김 처리됩니다.`,
+    confirmLabel: "삭제",
+    onConfirm: () => archiveItem(item.id),
+    danger: true,
+  });
+}
+
+function archiveItem(id) {
+  items = items.map((entry) =>
+    entry.id === id ? { ...entry, archived: true, updatedAt: new Date().toISOString() } : entry,
+  );
+  persistItems();
+  if (elements.itemId.value === id) clearForm();
+  renderAll();
+  showToast("항목을 삭제했습니다.", {
+    actionLabel: "되돌리기",
+    onAction: () => restoreItem(id),
+  });
+}
+
+function restoreItem(id) {
+  items = items.map((entry) =>
+    entry.id === id ? { ...entry, archived: false, updatedAt: new Date().toISOString() } : entry,
+  );
+  persistItems();
+  renderAll();
+  showToast("삭제를 되돌렸습니다.");
+}
+
+function readImportPayload(payload) {
+  if (Array.isArray(payload)) {
+    throw new Error("schema_version이 있는 Registry JSON을 가져오세요.");
+  }
+  return readRegistryPayload(payload);
+}
+
+function mergeImportedItems(importedItems) {
+  const importedIds = new Set(importedItems.map((item) => item.id));
+  const importedStandards = new Set(importedItems.map((item) => item.standard.toLowerCase()));
+  const remainingItems = items.filter(
+    (item) => !importedIds.has(item.id) && !importedStandards.has(item.standard.toLowerCase()),
+  );
+  return normalizeRegistryItems([...importedItems, ...remainingItems]);
+}
+
+function assertRegistryImportItems(importedItems) {
+  const invalidItem = importedItems.find(
+    (item) =>
+      !item.type ||
+      item.name.length < 2 ||
+      !item.standard ||
+      !STANDARD_NAME_PATTERN.test(item.standard) ||
+      !item.status ||
+      !item.platform ||
+      !item.props,
+  );
+
+  if (invalidItem) {
+    throw new Error(`${invalidItem.standard || invalidItem.name || "알 수 없는 항목"}의 필수 값을 확인하세요.`);
+  }
+}
+
+function openConfirm({ title, message, confirmLabel, onConfirm, danger = true }) {
+  pendingConfirm = onConfirm;
+  previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  elements.confirmTitle.textContent = title;
+  elements.confirmMessage.textContent = message;
+  elements.confirmDeleteButton.textContent = confirmLabel;
+  elements.confirmDeleteButton.className = danger ? "danger-button" : "primary-button";
+  elements.confirmDialog.hidden = false;
+  document.body.classList.add("modal-open");
+  elements.cancelConfirmButton.focus();
+}
+
+function closeConfirm() {
+  elements.confirmDialog.hidden = true;
+  document.body.classList.remove("modal-open");
+  pendingConfirm = null;
+  previousFocus?.focus?.();
+  previousFocus = null;
+}
+
+function runPendingConfirm() {
+  const confirmAction = pendingConfirm;
+  closeConfirm();
+  confirmAction?.();
+}
+
+function handleGlobalKeydown(event) {
+  if (elements.confirmDialog.hidden) return;
+
+  if (event.key === "Escape") {
+    event.preventDefault();
+    closeConfirm();
+  }
+
+  if (event.key !== "Tab") return;
+  const focusable = [elements.cancelConfirmButton, elements.confirmDeleteButton].filter(Boolean);
+  const first = focusable[0];
+  const last = focusable.at(-1);
+  if (!first || !last) return;
+
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+}
+
+function showToast(message, action = null) {
+  elements.toastMessage.textContent = message;
+  elements.toastAction.hidden = true;
+  elements.toastAction.onclick = null;
+
+  if (action?.actionLabel && typeof action.onAction === "function") {
+    elements.toastAction.textContent = action.actionLabel;
+    elements.toastAction.hidden = false;
+    elements.toastAction.onclick = () => {
+      window.clearTimeout(showToast.timer);
+      hideToast();
+      action.onAction();
+    };
+  }
+
   elements.toast.classList.add("show");
   window.clearTimeout(showToast.timer);
   showToast.timer = window.setTimeout(() => {
-    elements.toast.classList.remove("show");
-  }, 2400);
+    hideToast();
+  }, action ? 5200 : 2600);
+}
+
+function hideToast() {
+  elements.toast.classList.remove("show");
 }
 
 function createId() {
@@ -1545,6 +2037,27 @@ function createId() {
 function csvCell(value = "") {
   const text = String(value ?? "");
   return `"${text.replaceAll('"', '""')}"`;
+}
+
+function highlightText(value = "", query = "") {
+  const text = String(value ?? "");
+  const needle = String(query ?? "").trim();
+  if (!needle) return escapeHtml(text);
+
+  const lowerText = text.toLowerCase();
+  const lowerNeedle = needle.toLowerCase();
+  let cursor = 0;
+  let html = "";
+  let matchIndex = lowerText.indexOf(lowerNeedle, cursor);
+
+  while (matchIndex >= 0) {
+    html += escapeHtml(text.slice(cursor, matchIndex));
+    html += `<mark class="search-highlight">${escapeHtml(text.slice(matchIndex, matchIndex + needle.length))}</mark>`;
+    cursor = matchIndex + needle.length;
+    matchIndex = lowerText.indexOf(lowerNeedle, cursor);
+  }
+
+  return html + escapeHtml(text.slice(cursor));
 }
 
 function escapeHtml(value = "") {

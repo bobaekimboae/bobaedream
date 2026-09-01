@@ -21,10 +21,10 @@ const statusClass = (status?: string) => {
 };
 
 const formatItemName = (item: { label: string; korean?: string }) =>
-  item.korean ? `${item.label} (${item.korean})` : item.label;
+  item.korean && item.korean !== item.label ? `${item.label} (${item.korean})` : item.label;
 
 const formatSidebarName = (item: { title: string; koTitle?: string }) =>
-  item.koTitle ? `${item.title} (${item.koTitle})` : item.title;
+  item.koTitle && item.koTitle !== item.title ? `${item.title} (${item.koTitle})` : item.title;
 
 const sidebarMatches = (item: SidebarNode, query: string) =>
   [item.title, item.koTitle, item.href].join(" ").toLowerCase().includes(query);
@@ -58,7 +58,7 @@ export function StoryFrame({ title, eyebrow, children }: { title: string; eyebro
 
 export function ReferenceMatrix() {
   return (
-    <StoryFrame eyebrow="Cars.com Fuse + eBay Playbook" title="레퍼런스 매트릭스">
+    <StoryFrame eyebrow="Bobaedream DS" title="레퍼런스 매트릭스">
       <section className="bd-grid bd-grid-4">
         {referenceSystems.map((system) => (
           <article className="bd-panel" key={system.name}>
@@ -72,7 +72,7 @@ export function ReferenceMatrix() {
         ))}
       </section>
       <section className="bd-two-column">
-        <CatalogColumn title="Fuse 카테고리" groups={fuseGroups} />
+        <CatalogColumn title="보배드림 문서 항목" groups={fuseGroups} />
         <CatalogColumn title="eBay 카테고리" groups={ebayGroups} />
       </section>
     </StoryFrame>
@@ -148,30 +148,30 @@ function findSidebarNode(nodes: SidebarNode[], predicate: (node: SidebarNode) =>
   return undefined;
 }
 
-export function FuseNavigationPreview() {
+export function BobaNavigationPreview() {
   const defaultNode = findSidebarNode(fuseSidebarTree, (node) => node.title === "Icons") ?? fuseSidebarTree[0];
   const [query, setQuery] = useState("");
   const [activeNode, setActiveNode] = useState<SidebarNode>(defaultNode);
   const filteredTree = useMemo(() => filterSidebar(fuseSidebarTree, query.trim().toLowerCase()), [query]);
   const activeUseCases = bobaedreamUseCases[activeNode.title] ?? [
-    `${formatSidebarName(activeNode)} 문서는 보배드림 화면의 구성, 상태, 속성, 사용 기준을 함께 기록합니다.`,
-    "디자이너와 개발자가 같은 명칭으로 검색하고 Storybook 예시와 연결합니다.",
-    "AI 측정값은 Measurement Master에 남긴 뒤 확정 기준만 컴포넌트 문서로 승격합니다.",
+    `${formatSidebarName(activeNode)}는 보배드림 화면에서 쓰는 UI 항목입니다.`,
+    "명칭, 상태, 기준값을 함께 관리합니다.",
+    "확정 항목만 Figma와 코드에 반영합니다.",
   ];
 
   return (
-    <StoryFrame eyebrow="Fuse Sidebar" title="Cars.com Fuse형 문서 탐색">
+    <StoryFrame eyebrow="보배드림 DS" title="보배드림 문서 탐색">
       <div className="bd-fuse-shell">
-        <aside className="bd-fuse-sidebar" aria-label="Fuse형 보배드림 디자인 시스템 메뉴">
-          <a className="bd-fuse-brand" href="https://fuse.cars.com/style-guide/icons" target="_blank" rel="noreferrer">
+        <aside className="bd-fuse-sidebar" aria-label="보배드림 디자인 시스템 메뉴">
+          <a className="bd-fuse-brand" href="#overview">
             <span className="bd-fuse-brand-mark">B</span>
             <span>
-              <strong>Bobaedream DS</strong>
-              <small>Powered by Fuse structure</small>
+              <strong>보배드림 DS</strong>
+              <small>보배드림 운영 문서</small>
             </span>
           </a>
           <label className="bd-fuse-search">
-            <span>Search</span>
+            <span>검색</span>
             <input
               aria-label="문서 메뉴 검색"
               value={query}
@@ -188,11 +188,10 @@ export function FuseNavigationPreview() {
           </nav>
         </aside>
         <article className="bd-fuse-doc">
-          <p className="bd-fuse-breadcrumb">Style Guide / Icons</p>
+          <p className="bd-fuse-breadcrumb">스타일 가이드 / 아이콘</p>
           <h2>{formatSidebarName(activeNode)}</h2>
           <p>
-            Cars.com Fuse의 좌측 Docsify/Breeze형 문서 구조를 보배드림 운영 문서에 맞게 변환했습니다.
-            메뉴는 영문과 한국어를 함께 표기하고, deprecated 항목은 낮은 대비와 상태 라벨로 표시합니다.
+            영문명과 한국어명을 함께 표기합니다. 각 항목은 한 문장으로 정의합니다.
           </p>
           <div className="bd-fuse-doc-grid">
             {activeUseCases.map((item) => (
@@ -208,7 +207,7 @@ export function FuseNavigationPreview() {
           </div>
         </article>
       </div>
-      <p className="bd-fuse-count">총 {countSidebarItems(fuseSidebarTree)}개 메뉴 항목 + 보배드림 운영 메뉴가 포함됩니다.</p>
+      <p className="bd-fuse-count">총 {countSidebarItems(fuseSidebarTree)}개 문서 항목입니다.</p>
     </StoryFrame>
   );
 }
@@ -258,11 +257,10 @@ export function IconGlyph({ label }: { label: string }) {
 
 export function IconLibrary() {
   return (
-    <StoryFrame eyebrow="Style Guide / Icons" title="아이콘 라이브러리">
+    <StoryFrame eyebrow="스타일 가이드 / 아이콘" title="아이콘 라이브러리">
       <div className="bd-icon-section">
         <div className="bd-note">
-          Fuse의 아이콘 라이브러리 분류인 material, custom, cars-duotone, social, oem 구조를 보배드림용
-          interface, vehicle, commerce, media로 재정의했습니다.
+          아이콘은 interface, vehicle, commerce, media로 분류합니다.
         </div>
         {iconLibraries.map((library) => (
           <section className="bd-icon-library" key={library.library}>
@@ -467,10 +465,9 @@ export function Overview() {
       <section className="bd-hero-panel">
         <div>
           <span className="bd-kicker">Storybook + Chromatic Ready</span>
-          <h2>디자이너와 개발자가 같은 화면을 보는 운영형 디자인 시스템</h2>
+          <h2>보배드림 디자인 시스템 기준</h2>
           <p>
-            Cars.com Fuse의 자동차 도메인 구조와 eBay Playbook의 마켓플레이스 문서 구조를 합쳐,
-            보배드림 중고차/신차/숏폼/차량이력 화면의 컴포넌트를 상태별로 관리합니다.
+            보배드림 화면에 쓰는 토큰, 컴포넌트, 아이콘 기준입니다.
           </p>
         </div>
         <div className="bd-hero-preview">
