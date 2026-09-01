@@ -8,10 +8,13 @@
     "update:runtime-lock": "node scripts/update-mobile-runtime-lock.mjs",
     "test:runtime": "playwright test",
     "test:sites": "node --test tests/sites-worker.test.mjs",
+    "storybook": "storybook dev -p 6006 --host 0.0.0.0",
+    "storybook:build": "storybook build -o dist/client/storybook",
+    "chromatic": "chromatic --storybook-build-dir dist/client/storybook",
     "predev": "npm run check:runtime",
     "dev": "vite",
     "prebuild": "npm run check:runtime",
-    "build": "tsc && vite build && node scripts/prepare-sites-build.mjs"
+    "build": "tsc && vite build && node scripts/prepare-sites-build.mjs && npm run storybook:build"
   },
   "dependencies": {
     "@fontsource/roboto": "5.2.10",
@@ -26,11 +29,15 @@
   },
   "devDependencies": {
     "@playwright/test": "1.61.1",
+    "@storybook/addon-a11y": "^10.5.10",
+    "@storybook/addon-docs": "^10.5.10",
+    "@storybook/react-vite": "^10.5.10",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "6.0.3",
+    "chromatic": "^18.7.2",
+    "storybook": "^10.5.10",
     "typescript": "7.0.2",
     "vite": "8.1.3"
   }
 }
-

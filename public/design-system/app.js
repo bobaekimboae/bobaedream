@@ -2,6 +2,18 @@ const STORAGE_KEY = "bobaedream-design-system-registry-v1";
 
 const references = [
   {
+    name: "Cars.com Fuse",
+    focus: "자동차 플랫폼 디자인 시스템 목차와 컴포넌트 구조",
+    apply: "공개 사이드바 전체 항목, Icons, Breadcrumb, Filter, Gallery, Save, Range Dual",
+    url: "https://fuse.cars.com/",
+  },
+  {
+    name: "Seed Design",
+    focus: "한국어 중심 컴포넌트 설명, Anatomy, Properties, Guidelines 구조",
+    apply: "영문명+한국어명 병기, 항목별 정의와 사용 기준 설명 방식",
+    url: "https://seed-design.io/",
+  },
+  {
     name: "Google Material 3",
     focus: "토큰, 컴포넌트, 상태, 접근성 기준",
     apply: "필터 칩, 버튼 상태, 컬러 토큰, 모션 토큰",
@@ -37,6 +49,355 @@ const references = [
     apply: "등록 폼 오류, 필수값, 도움말 문구",
     url: "https://design-system.service.gov.uk/",
   },
+  {
+    name: "Storybook",
+    focus: "컴포넌트 실물 뷰어와 상태별 예제",
+    apply: "보배드림 DS 스토리, 문서, 접근성 검사",
+    url: "https://storybook.js.org/",
+  },
+  {
+    name: "Chromatic",
+    focus: "시각 회귀 테스트와 승인 워크플로",
+    apply: "PR/배포 전 화면 변경 비교와 리뷰 이력",
+    url: "https://www.chromatic.com/",
+  },
+];
+
+const koreanNames = {
+  Home: "홈",
+  "Web Installation & Usage": "웹 설치 및 사용법",
+  "Installing Fuse": "퓨즈 설치",
+  "Guide to Web Components": "웹 컴포넌트 가이드",
+  "Web Component Basics": "웹 컴포넌트 기본",
+  "Style Customization": "스타일 커스터마이징",
+  "Light DOM Style Considerations": "라이트 DOM 스타일 고려사항",
+  "Working with Forms": "폼 연동",
+  "Working with LiveView": "라이브뷰 연동",
+  "Fuse Components in React": "React 컴포넌트 사용",
+  "Fuse in Next.js (SSR)": "Next.js SSR 적용",
+  "AI Agent Skill": "AI 에이전트 스킬",
+  Changelog: "변경 이력",
+  "Migrating From Spark": "스파크 마이그레이션",
+  "Design Tokens": "디자인 토큰",
+  Typography: "타이포그래피",
+  Forms: "폼",
+  "Dimensions/Layout": "치수 및 레이아웃",
+  Lists: "목록",
+  Buttons: "버튼",
+  "Style Guide": "스타일 가이드",
+  Installation: "설치",
+  Schema: "스키마",
+  Color: "색상",
+  Font: "폰트",
+  Spacing: "간격",
+  Size: "크기",
+  Elevation: "그림자/높이",
+  Motion: "모션",
+  Breakpoints: "반응형 분기점",
+  Icons: "아이콘",
+  Imagery: "이미지",
+  Layout: "레이아웃",
+  "Typography & Headings": "타이포그래피 및 제목",
+  "Usability Standards": "사용성 기준",
+  "Visual Language": "시각 언어",
+  Components: "컴포넌트",
+  Accordion: "아코디언",
+  Badge: "배지",
+  Breadcrumb: "브레드크럼",
+  Button: "버튼",
+  Callout: "콜아웃",
+  Card: "카드",
+  "Card Carousel": "카드 캐러셀",
+  Checkbox: "체크박스",
+  "Checkbox Lite": "체크박스 라이트",
+  Disclaimer: "고지문",
+  "Feedback Thumbs": "피드백 엄지",
+  Fieldset: "필드셋",
+  Figure: "피겨",
+  Filter: "필터",
+  "Form Module": "폼 모듈",
+  Gallery: "갤러리",
+  "Gallery Grid": "갤러리 그리드",
+  "Gallery Thumbnails": "갤러리 썸네일",
+  Headshot: "프로필 사진",
+  Input: "입력",
+  "Input Lite": "입력 라이트",
+  Link: "링크",
+  "Link Pack": "링크 묶음",
+  List: "목록",
+  Menu: "메뉴",
+  "Menu Item": "메뉴 항목",
+  Modal: "모달",
+  Notification: "알림",
+  "Page Section": "페이지 섹션",
+  Pagination: "페이지네이션",
+  "Paging Button": "페이지 이동 버튼",
+  Picker: "피커",
+  "Picker Option": "피커 옵션",
+  Popover: "팝오버",
+  "Price Range": "가격 범위",
+  "Progress Bar": "진행 바",
+  Radio: "라디오",
+  "Radio Lite": "라디오 라이트",
+  Range: "범위 슬라이더",
+  "Range Dual": "이중 범위 슬라이더",
+  Rating: "평점",
+  "Rating Input": "평점 입력",
+  Reveal: "펼쳐보기",
+  Save: "저장/찜",
+  Select: "셀렉트",
+  "Select Lite": "셀렉트 라이트",
+  Separator: "구분선",
+  Spinner: "스피너",
+  Stack: "스택",
+  SVG: "SVG 아이콘",
+  Switch: "스위치",
+  Tabs: "탭 목록",
+  Tab: "탭",
+  "Tab Panel": "탭 패널",
+  Textarea: "긴 텍스트 입력",
+  "Textarea Lite": "긴 텍스트 입력 라이트",
+  Tooltip: "툴팁",
+  "plop:component": "컴포넌트 자동 생성 슬롯",
+  Principles: "원칙",
+  "Design Principles": "디자인 원칙",
+  "Motion Principles": "모션 원칙",
+  "Content Strategy": "콘텐츠 전략",
+  "Content Strategy Principles": "콘텐츠 전략 원칙",
+  "Voice and Tone": "보이스 앤 톤",
+  "Grammar and Mechanics": "문법과 표기",
+  Vocabulary: "용어 사전",
+  Accessibility: "접근성",
+  "Accessibility Principles": "접근성 원칙",
+  "Accessibility Checklist": "접근성 체크리스트",
+  "Global Code": "전역 코드",
+  "Default Language": "기본 언어",
+  "Semantic HTML": "시맨틱 HTML",
+  "Unique Page Title Element": "고유 페이지 제목",
+  "Keyboard Navigation": "키보드 탐색",
+  "Focus State": "포커스 상태",
+  "Keyboard Interaction": "키보드 상호작용",
+  "Logical Tab Order": "논리적 탭 순서",
+  "Minimum Contrast Ratio": "최소 대비율",
+  "Text Contrast": "텍스트 대비",
+  "Multi Device Responsive Design": "다중 기기 반응형",
+  "Text Resizing": "텍스트 확대",
+  "Touch Targets": "터치 타깃",
+  "Moving, Flashing, or Blinking Content": "움직임/깜빡임 콘텐츠",
+  "Content Flash": "콘텐츠 깜빡임",
+  "Stop Motion": "모션 정지",
+  Headings: "제목 구조",
+  "Clear Headings": "명확한 제목",
+  "Sequential Headings": "순차 제목",
+  "Forms, Labels, and Errors": "폼 라벨 오류",
+  "Form Errors": "폼 오류",
+  "Form Labels": "폼 라벨",
+  "Forms Keyboard Accessible": "폼 키보드 접근성",
+  "Written Material (Copy)": "작성 문구",
+  "Clear Content": "명확한 콘텐츠",
+  "Meaningful Link Text": "의미 있는 링크 텍스트",
+  "Image Text Alternatives": "이미지 대체 텍스트",
+  "Image Alt Text": "이미지 Alt 텍스트",
+  "Color Contrast": "색상 대비",
+  Resources: "리소스",
+  Toolbox: "도구함",
+  "Design System": "디자인 시스템",
+  Overview: "개요",
+  Status: "상태",
+  Tokens: "토큰",
+  Patterns: "패턴",
+  Processes: "프로세스",
+  "Change log": "변경 로그",
+  Theming: "테마",
+  Dimension: "치수",
+  Shadow: "그림자",
+  Shape: "형태",
+  Opacity: "투명도",
+  Illustration: "일러스트레이션",
+  "Action bar": "액션 바",
+  "Alert notice": "알림 노티스",
+  "Inline notice": "인라인 노티스",
+  "Page notice": "페이지 노티스",
+  "Section notice": "섹션 노티스",
+  Avatar: "아바타",
+  Banner: "배너",
+  "CTA button": "CTA 버튼",
+  "Icon button": "아이콘 버튼",
+  "Link button": "링크 버튼",
+  Calendar: "캘린더",
+  Carousel: "캐러셀",
+  CCD: "CCD",
+  Chip: "칩",
+  "Filter chip": "필터 칩",
+  "Input chip": "입력 칩",
+  "Data visualization": "데이터 시각화",
+  Graphs: "그래프",
+  Metrics: "지표",
+  Dialog: "다이얼로그",
+  Alert: "경고",
+  Confirmation: "확인",
+  Standard: "표준",
+  Divider: "디바이더",
+  "Education notice": "교육 노티스",
+  "EEK rating and range": "EEK 등급 및 범위",
+  Expansion: "확장",
+  Combobox: "콤보박스",
+  "Date field": "날짜 필드",
+  Dropdown: "드롭다운",
+  "Numeric stepper": "숫자 스테퍼",
+  Password: "비밀번호",
+  "Phone number": "전화번호",
+  "Radio button": "라디오 버튼",
+  "Select list": "셀렉트 목록",
+  "Text area": "텍스트 영역",
+  "Text field": "텍스트 필드",
+  "Item tile": "아이템 타일",
+  "List row": "리스트 행",
+  Loading: "로딩",
+  "Expressive loader": "표현형 로더",
+  "Skeleton loader": "스켈레톤 로더",
+  "Media container": "미디어 컨테이너",
+  Navigation: "내비게이션",
+  "Top navigation bar": "상단 내비게이션 바",
+  Panel: "패널",
+  "Progress stepper": "진행 스테퍼",
+  "Search field": "검색 필드",
+  "Section header": "섹션 헤더",
+  "Segmented button": "세그먼트 버튼",
+  Sheet: "시트",
+  "Context sheet": "컨텍스트 시트",
+  "Focus sheet": "포커스 시트",
+  Signal: "시그널",
+  Snackbar: "스낵바",
+  "State layer": "상태 레이어",
+  Table: "테이블",
+  Tip: "팁",
+  Tourtip: "투어팁",
+  "Toggle button group": "토글 버튼 그룹",
+  "Video player": "비디오 플레이어",
+  "Bulk editing": "일괄 편집",
+  "Creating forms": "폼 작성",
+  "Empty states": "빈 상태",
+  Filtering: "필터링",
+  "Requesting user feedback": "사용자 피드백 요청",
+  "Uploading files": "파일 업로드",
+  "Using links": "링크 사용",
+  "Text link": "텍스트 링크",
+  "Legal link": "법적 링크",
+};
+
+const catalogNotes = {
+  Home: "디자인 시스템 첫 화면으로 목적, 바로가기, 최신 변경 이력을 노출합니다.",
+  "Web Installation & Usage": "설치, 프레임워크 적용, 마이그레이션 방법을 확인하는 시작 영역입니다.",
+  "Design Tokens": "색상, 폰트, 간격, 크기, 그림자, 모션, 반응형 분기점을 코드 변수로 관리합니다.",
+  Icons: "Fuse의 material, custom, cars-duotone, social, oem 구조를 보배드림 아이콘 명칭 체계로 변환합니다.",
+  Breadcrumb: "홈에서 현재 매물/카테고리까지의 정보 구조를 보여주는 탐색 컴포넌트입니다.",
+  Filter: "상단 필터, 사이드 필터, 모바일 바텀시트 필터의 공통 동작 기준입니다.",
+  Gallery: "상세 대표 이미지, 스와이프, 전체보기, 영상 진입을 관리합니다.",
+  Save: "찜하기, 저장 매물, 비교 후보 저장의 활성/비활성 상태를 관리합니다.",
+  Accessibility: "색상, 키보드, 문서 구조, 대체 텍스트, 모바일 조작성의 접근성 기준입니다.",
+  "Color Contrast": "색상 조합별 대비 수치를 기록하고 실패 조합은 사용 금지합니다.",
+};
+
+const holdItems = new Set(["Modal", "Price Range", "CCD"]);
+const requiredItems = new Set([
+  "Home", "Web Installation & Usage", "Installing Fuse", "Guide to Web Components", "Web Component Basics",
+  "Style Customization", "Working with Forms", "Fuse Components in React", "AI Agent Skill", "Changelog",
+  "Design Tokens", "Color", "Font", "Spacing", "Size", "Elevation", "Motion", "Breakpoints", "Icons",
+  "Forms", "Imagery", "Layout", "Typography & Headings", "Usability Standards", "Visual Language",
+  "Accordion", "Badge", "Breadcrumb", "Button", "Card", "Card Carousel", "Checkbox", "Fieldset",
+  "Filter", "Form Module", "Gallery", "Gallery Grid", "Gallery Thumbnails", "Input", "Link", "List",
+  "Menu", "Notification", "Pagination", "Picker", "Popover", "Progress Bar", "Radio", "Range",
+  "Range Dual", "Rating", "Save", "Select", "Separator", "SVG", "Switch", "Tabs", "Textarea", "Tooltip",
+  "Accessibility Principles", "Accessibility Checklist", "Global Code", "Default Language", "Semantic HTML",
+  "Unique Page Title Element", "Keyboard Navigation", "Focus State", "Keyboard Interaction", "Logical Tab Order",
+  "Minimum Contrast Ratio", "Text Contrast", "Multi Device Responsive Design", "Text Resizing", "Touch Targets",
+  "Moving, Flashing, or Blinking Content", "Content Flash", "Stop Motion", "Headings", "Clear Headings",
+  "Sequential Headings", "Forms, Labels, and Errors", "Form Errors", "Form Labels", "Forms Keyboard Accessible",
+  "Written Material (Copy)", "Clear Content", "Meaningful Link Text", "Image Text Alternatives", "Image Alt Text",
+  "Color Contrast", "Action bar", "Alert notice", "Buttons", "CTA button", "Icon button", "Carousel",
+  "Chip", "Filter chip", "Input chip", "Dialog", "Divider", "Search field", "Sheet", "Snackbar",
+  "State layer", "Video player", "Creating forms", "Empty states", "Filtering", "Uploading files", "Legal link",
+]);
+
+const fuseGroups = [
+  ["Home", "Cars.com Fuse 공개 사이드바의 첫 진입점", ["Home"]],
+  ["Web Installation & Usage", "설치, Web Components, React/SSR, AI Agent Skill, 마이그레이션 전체", [
+    "Web Installation & Usage", ["Installing Fuse", "Web Installation & Usage"], ["Guide to Web Components", "Web Installation & Usage"],
+    ["Web Component Basics", "Guide to Web Components"], ["Style Customization", "Guide to Web Components"],
+    ["Light DOM Style Considerations", "Guide to Web Components"], ["Working with Forms", "Guide to Web Components"],
+    ["Working with LiveView", "Guide to Web Components"], ["Fuse Components in React", "Web Installation & Usage"],
+    ["Fuse in Next.js (SSR)", "Web Installation & Usage"], ["AI Agent Skill", "Web Installation & Usage"],
+    ["Changelog", "Web Installation & Usage"], ["Migrating From Spark", "Web Installation & Usage"],
+    ["Design Tokens", "Migrating From Spark"], ["Typography", "Migrating From Spark"], ["Forms", "Migrating From Spark"],
+    ["Dimensions/Layout", "Migrating From Spark"], ["Lists", "Migrating From Spark"], ["Buttons", "Migrating From Spark"],
+  ]],
+  ["Style Guide", "토큰, 아이콘, 폼, 이미지, 레이아웃, 타이포그래피, 사용성, 시각 언어", [
+    "Style Guide", ["Design Tokens", "Style Guide"], ["Installation", "Design Tokens"], ["Schema", "Design Tokens"],
+    ["Color", "Design Tokens"], ["Font", "Design Tokens"], ["Spacing", "Design Tokens"], ["Size", "Design Tokens"],
+    ["Elevation", "Design Tokens"], ["Motion", "Design Tokens"], ["Breakpoints", "Design Tokens"], ["Icons", "Style Guide"],
+    ["Forms", "Style Guide"], ["Imagery", "Style Guide"], ["Layout", "Style Guide"], ["Spacing", "Style Guide"],
+    ["Typography & Headings", "Style Guide"], ["Usability Standards", "Style Guide"], ["Visual Language", "Style Guide"],
+  ]],
+  ["Components", "Cars.com Fuse 공개 컴포넌트 목록 전체. 취소선 항목도 보류 상태로 보존", [
+    "Components", ["Accordion", "Components"], ["Badge", "Components"], ["Breadcrumb", "Components"], ["Button", "Components"],
+    ["Callout", "Components"], ["Card", "Components"], ["Card Carousel", "Components"], ["Checkbox", "Components"],
+    ["Checkbox Lite", "Components"], ["Disclaimer", "Components"], ["Feedback Thumbs", "Components"], ["Fieldset", "Components"],
+    ["Figure", "Components"], ["Filter", "Components"], ["Form Module", "Components"], ["Gallery", "Components"],
+    ["Gallery Grid", "Components"], ["Gallery Thumbnails", "Components"], ["Headshot", "Components"], ["Input", "Components"],
+    ["Input Lite", "Components"], ["Link", "Components"], ["Link Pack", "Components"], ["List", "Components"],
+    ["Menu", "Components"], ["Menu Item", "Components"], ["Modal", "Components"], ["Notification", "Components"],
+    ["Page Section", "Components"], ["Pagination", "Components"], ["Paging Button", "Components"], ["Picker", "Components"],
+    ["Picker Option", "Components"], ["Popover", "Components"], ["Price Range", "Components"], ["Progress Bar", "Components"],
+    ["Radio", "Components"], ["Radio Lite", "Components"], ["Range", "Components"], ["Range Dual", "Components"],
+    ["Rating", "Components"], ["Rating Input", "Components"], ["Reveal", "Components"], ["Save", "Components"],
+    ["Select", "Components"], ["Select Lite", "Components"], ["Separator", "Components"], ["Spinner", "Components"],
+    ["Stack", "Components"], ["SVG", "Components"], ["Switch", "Components"], ["Tabs", "Components"], ["Tab", "Components"],
+    ["Tab Panel", "Components"], ["Textarea", "Components"], ["Textarea Lite", "Components"], ["Tooltip", "Components"],
+    ["plop:component", "Components"],
+  ]],
+  ["Principles", "디자인 원칙과 모션 원칙", ["Principles", ["Design Principles", "Principles"], ["Motion Principles", "Principles"]]],
+  ["Content Strategy", "콘텐츠 전략, 보이스톤, 문법, 용어", [
+    "Content Strategy", ["Content Strategy Principles", "Content Strategy"], ["Voice and Tone", "Content Strategy"],
+    ["Grammar and Mechanics", "Content Strategy"], ["Vocabulary", "Content Strategy"],
+  ]],
+  ["Accessibility", "접근성 원칙, 체크리스트 세부 항목, 색상 대비", [
+    "Accessibility", ["Accessibility Principles", "Accessibility"], ["Accessibility Checklist", "Accessibility"],
+    ["Global Code", "Accessibility Checklist"], ["Default Language", "Accessibility Checklist"], ["Semantic HTML", "Accessibility Checklist"],
+    ["Unique Page Title Element", "Accessibility Checklist"], ["Keyboard Navigation", "Accessibility Checklist"],
+    ["Focus State", "Accessibility Checklist"], ["Keyboard Interaction", "Accessibility Checklist"], ["Logical Tab Order", "Accessibility Checklist"],
+    ["Minimum Contrast Ratio", "Accessibility Checklist"], ["Text Contrast", "Accessibility Checklist"],
+    ["Multi Device Responsive Design", "Accessibility Checklist"], ["Text Resizing", "Accessibility Checklist"],
+    ["Touch Targets", "Accessibility Checklist"], ["Moving, Flashing, or Blinking Content", "Accessibility Checklist"],
+    ["Content Flash", "Accessibility Checklist"], ["Stop Motion", "Accessibility Checklist"], ["Headings", "Accessibility Checklist"],
+    ["Clear Headings", "Accessibility Checklist"], ["Sequential Headings", "Accessibility Checklist"],
+    ["Forms, Labels, and Errors", "Accessibility Checklist"], ["Form Errors", "Accessibility Checklist"],
+    ["Form Labels", "Accessibility Checklist"], ["Forms Keyboard Accessible", "Accessibility Checklist"],
+    ["Written Material (Copy)", "Accessibility Checklist"], ["Clear Content", "Accessibility Checklist"],
+    ["Meaningful Link Text", "Accessibility Checklist"], ["Image Text Alternatives", "Accessibility Checklist"],
+    ["Image Alt Text", "Accessibility Checklist"], ["Color Contrast", "Accessibility"],
+  ]],
+  ["Resources", "운영 도구와 참고 자료", ["Resources", ["Toolbox", "Resources"]]],
+];
+
+const ebayGroups = [
+  ["Design System", "eBay Playbook 디자인 시스템 상위 정보 구조", ["Overview", "Principles", "Tokens", "Components", "Patterns", "Processes", "Change log"]],
+  ["Tokens", "eBay Playbook 공개 토큰 카테고리", ["Overview", "Change log", "Theming", "Color", "Dimension", "Spacing", "Typography", "Breakpoints", "Shadow", "Shape", "Opacity", "Motion", "Illustration"]],
+  ["Components", "eBay Playbook 공개 컴포넌트 카테고리와 하위 분류", [
+    "Overview", "Status", "Accordion", "Action bar", "Alert notice", ["Inline notice", "Alert notice"], ["Page notice", "Alert notice"],
+    ["Section notice", "Alert notice"], "Avatar", "Badge", "Banner", "Breadcrumb", "Buttons", ["CTA button", "Buttons"],
+    ["Icon button", "Buttons"], ["Link button", "Buttons"], "Calendar", "Card", "Carousel", "CCD", "Chip", ["Filter chip", "Chip"],
+    ["Input chip", "Chip"], "Data visualization", ["Graphs", "Data visualization"], ["Metrics", "Data visualization"], "Dialog",
+    ["Alert", "Dialog"], ["Confirmation", "Dialog"], ["Standard", "Dialog"], "Divider", "Education notice", "EEK rating and range",
+    "Expansion", "Input", ["Checkbox", "Input"], ["Combobox", "Input"], ["Date field", "Input"], ["Dropdown", "Input"],
+    ["Numeric stepper", "Input"], ["Password", "Input"], ["Phone number", "Input"], ["Radio button", "Input"], ["Select list", "Input"],
+    ["Switch", "Input"], ["Text area", "Input"], ["Text field", "Input"], "Item tile", "List row", "Loading",
+    ["Expressive loader", "Loading"], ["Skeleton loader", "Loading"], "Media container", "Navigation", ["Top navigation bar", "Navigation"],
+    "Pagination", "Panel", "Popover", "Progress stepper", "Search field", "Section header", "Segmented button", "Sheet",
+    ["Context sheet", "Sheet"], ["Focus sheet", "Sheet"], "Signal", "Snackbar", "State layer", "Tab", "Table", "Tip",
+    ["Tooltip", "Tip"], ["Tourtip", "Tip"], "Toggle button group", "Video player",
+  ]],
+  ["Patterns", "eBay Playbook 공개 패턴 분류", ["Overview", "Bulk editing", "Creating forms", "Empty states", "Filtering", "Requesting user feedback", "Uploading files", "Using links", ["Text link", "Using links"], ["Legal link", "Using links"]]],
 ];
 
 const seedItems = [
@@ -216,6 +577,8 @@ let items = loadItems();
 const elements = {
   metricGrid: document.querySelector("#metricGrid"),
   referenceRows: document.querySelector("#referenceRows"),
+  fuseCatalog: document.querySelector("#fuseCatalog"),
+  ebayCatalog: document.querySelector("#ebayCatalog"),
   tokenCards: document.querySelector("#tokenCards"),
   componentCards: document.querySelector("#componentCards"),
   iconGrid: document.querySelector("#iconGrid"),
@@ -288,6 +651,7 @@ function persistItems() {
 function renderAll() {
   renderMetrics();
   renderReferences();
+  renderCatalogs();
   renderCards();
   renderRegistry();
 }
@@ -315,6 +679,62 @@ function renderReferences() {
       `,
     )
     .join("");
+}
+
+function renderCatalogs() {
+  renderCatalog(elements.fuseCatalog, fuseGroups);
+  renderCatalog(elements.ebayCatalog, ebayGroups);
+}
+
+function renderCatalog(target, groups) {
+  if (!target) return;
+  target.innerHTML = groups
+    .map(
+      ([title, description, entries]) => `
+        <article class="catalog-group">
+          <h4>${escapeHtml(displayName(title))}</h4>
+          <p>${escapeHtml(description)}</p>
+          <div class="catalog-items">
+            ${entries.map((entry) => renderCatalogItem(entry)).join("")}
+          </div>
+        </article>
+      `,
+    )
+    .join("");
+}
+
+function renderCatalogItem(entry) {
+  const label = Array.isArray(entry) ? entry[0] : entry;
+  const parent = Array.isArray(entry) ? entry[1] : "";
+  const status = catalogStatus(label);
+  return `
+    <article class="catalog-item ${status.className}">
+      <div class="catalog-item-title">
+        <strong>${escapeHtml(displayName(label))}</strong>
+        <em>${status.label}</em>
+      </div>
+      ${parent ? `<small>${escapeHtml(parent)} 하위 항목</small>` : ""}
+      <p>${escapeHtml(catalogNote(label, parent))}</p>
+    </article>
+  `;
+}
+
+function displayName(label) {
+  return `${label} (${koreanNames[label] || label})`;
+}
+
+function catalogNote(label, parent) {
+  if (holdItems.has(label)) {
+    return `${displayName(label)} 항목은 원문에서 보류/취소선 기준으로 남기고, 보배드림에서는 대체 컴포넌트를 우선 검토합니다.`;
+  }
+  if (catalogNotes[label]) return catalogNotes[label];
+  return `${displayName(label)} 항목은 ${parent ? `${parent} 기준 안에서 ` : ""}보배드림 UI에 맞는 구성요소, 속성, 상태, 사용 규칙을 문서화합니다.`;
+}
+
+function catalogStatus(label) {
+  if (holdItems.has(label)) return { label: "보류", className: "hold" };
+  if (requiredItems.has(label)) return { label: "필수", className: "required" };
+  return { label: "권장", className: "recommended" };
 }
 
 function renderCards() {

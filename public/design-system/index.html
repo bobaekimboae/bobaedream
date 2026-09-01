@@ -25,6 +25,7 @@
           <p class="nav-label">Get Started</p>
           <a href="#overview" class="nav-link active">개요</a>
           <a href="#references" class="nav-link">해외 레퍼런스</a>
+          <a href="#catalog" class="nav-link">전체 카탈로그</a>
           <a href="#workflow" class="nav-link">운영 흐름</a>
 
           <p class="nav-label">Foundations</p>
@@ -49,6 +50,7 @@
             <h1>보배드림 디자인 시스템</h1>
           </div>
           <div class="topbar-actions">
+            <a class="ghost-button" href="../storybook/index.html">Storybook</a>
             <button class="ghost-button" id="exportJsonButton" type="button">JSON 내보내기</button>
             <button class="primary-button" id="newItemButton" type="button">항목 등록</button>
           </div>
@@ -62,7 +64,8 @@
             </div>
             <p>
               보배드림 중고차 리스트, 필터, 상세, 등록 화면의 UI 규칙을 문서화하고
-              실제 항목 등록과 수정까지 할 수 있는 운영 화면입니다.
+              실제 항목 등록과 수정까지 할 수 있는 운영 화면입니다. Cars.com Fuse 전체 목차를
+              포함하고, Seed Design처럼 영문명과 한국어명을 함께 표시합니다.
             </p>
           </div>
 
@@ -109,6 +112,30 @@
               </thead>
               <tbody id="referenceRows"></tbody>
             </table>
+          </div>
+        </section>
+
+        <section id="catalog" class="section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Catalog</p>
+              <h2>Cars.com Fuse 전체 목차 + eBay Playbook 대응</h2>
+            </div>
+            <p>
+              Cars.com Fuse 공개 사이드바의 모든 항목을 누락 없이 넣고,
+              <code>Accordion (아코디언)</code>처럼 영문 기능명과 한국어명을 같이 표기합니다.
+              설명은 Seed Design 방식에 맞춰 정의, 구성, 상태, 사용 기준을 바로 읽을 수 있게 작성했습니다.
+            </p>
+          </div>
+          <div class="catalog-layout">
+            <article class="catalog-column">
+              <h3>Cars.com Fuse 전체 항목</h3>
+              <div id="fuseCatalog" class="catalog-list"></div>
+            </article>
+            <article class="catalog-column">
+              <h3>eBay Playbook 대응 항목</h3>
+              <div id="ebayCatalog" class="catalog-list"></div>
+            </article>
           </div>
         </section>
 
