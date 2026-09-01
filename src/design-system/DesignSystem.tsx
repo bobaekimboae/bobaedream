@@ -127,7 +127,7 @@ function SidebarTree({
           >
             <span className="bd-fuse-nav-content">
               {node.children?.length ? <span className="bd-fuse-nav-caret">›</span> : null}
-              <span>{formatSidebarName(node)}</span>
+              <span className="bd-fuse-nav-name">{formatSidebarName(node)}</span>
             </span>
             {node.status === "deprecated" ? <em>deprecated</em> : null}
           </button>

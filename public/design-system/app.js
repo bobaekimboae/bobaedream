@@ -1411,6 +1411,7 @@ let pendingConfirm = null;
 let previousFocus = null;
 let selectedIconIds = new Set();
 let previousIconEditFocus = null;
+let sectionNavFrame = 0;
 
 document.addEventListener("DOMContentLoaded", async () => {
   bindEvents();
@@ -1423,6 +1424,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 function bindEvents() {
   window.addEventListener("hashchange", renderSidebar);
   window.addEventListener("resize", handleSidebarViewportChange);
+  window.addEventListener("scroll", handlePageScroll, { passive: true });
   document.addEventListener("click", handleTableAction);
   document.addEventListener("click", handleSectionScrollClick);
   document.addEventListener("click", handleIconDocumentClick);
@@ -1758,8 +1760,17 @@ function handleSectionScrollClick(event) {
   if (!target) return;
 
   event.preventDefault();
+  setActivePageSectionTarget(button.dataset.scrollTarget);
   target.scrollIntoView({ behavior: "smooth", block: "start" });
   if (button.closest(".sidebar")) closeSidebar();
+}
+
+function handlePageScroll() {
+  if (sectionNavFrame) return;
+  sectionNavFrame = window.requestAnimationFrame(() => {
+    sectionNavFrame = 0;
+    syncActivePageSectionNav();
+  });
 }
 
 function openSidebar() {
@@ -4238,6 +4249,7 @@ function syncActiveNav() {
   document.querySelectorAll(".nav-link").forEach((link) => {
     link.classList.toggle("active", link.getAttribute("href") === hash);
   });
+  syncActivePageSectionNav();
 
   const activeLink = document.querySelector(".fuse-nav-link.active");
   const scroller = elements.sidebar?.querySelector(".sidebar-scroll");
@@ -4246,6 +4258,52 @@ function syncActiveNav() {
   }
 
   syncIconSelectionUi();
+}
+
+function syncActivePageSectionNav() {
+  const route = resolveRoute();
+  const links = document.querySelectorAll(".nav-section-link[data-scroll-target], .doc-toc-link[data-scroll-target]");
+
+  if (route.type !== "document" || !links.length) {
+    setActivePageSectionTarget("");
+    return;
+  }
+
+  const targets = documentSectionsForNode(route.node)
+    .map(([, target]) => target)
+    .filter((target) => document.querySelector(target));
+
+  if (!targets.length) {
+    setActivePageSectionTarget("");
+    return;
+  }
+
+  const activationTop = Math.min(180, Math.max(112, window.innerHeight * 0.22));
+  let activeTarget = targets[0];
+
+  for (const target of targets) {
+    const section = document.querySelector(target);
+    if (section && section.getBoundingClientRect().top <= activationTop) {
+      activeTarget = target;
+    }
+  }
+
+  setActivePageSectionTarget(activeTarget);
+}
+
+function setActivePageSectionTarget(activeTarget) {
+  document.querySelectorAll(".nav-section-link[data-scroll-target], .doc-toc-link[data-scroll-target]").forEach((link) => {
+    const isActive = Boolean(activeTarget) && link.dataset.scrollTarget === activeTarget;
+    link.classList.toggle("active", isActive);
+
+    if (link.classList.contains("nav-section-link")) {
+      if (isActive) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    }
+  });
 }
 
 function currentRouteHash() {

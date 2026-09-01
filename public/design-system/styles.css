@@ -439,8 +439,30 @@ body.sidebar-open .mobile-menu-button {
 }
 
 .nav-section-link .nav-name {
+  position: relative;
   border-left: 1px solid rgba(255, 255, 255, 0.24);
   padding-left: 14px;
+}
+
+.nav-section-link.active {
+  color: var(--color-sidebar-accent);
+  font-weight: 700;
+}
+
+.nav-section-link.active .nav-name {
+  border-left-color: var(--color-sidebar-accent);
+  color: var(--color-sidebar-accent);
+}
+
+.nav-section-link.active .nav-name::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1px;
+  width: 2px;
+  border-radius: 999px;
+  background: var(--color-sidebar-accent);
+  content: "";
 }
 
 .nav-link.deprecated .nav-name {
@@ -741,6 +763,12 @@ body.sidebar-open .mobile-menu-button {
 .doc-toc-link:hover {
   background: #f2f4f7;
   color: #101828;
+}
+
+.doc-toc-link.active {
+  background: #eef4ff;
+  color: var(--color-primary);
+  font-weight: 850;
 }
 
 .doc-lede {
