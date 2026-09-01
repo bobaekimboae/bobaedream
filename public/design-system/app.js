@@ -794,7 +794,7 @@ const seedItems = [
     moValue: "24px",
     props: "width, height, stroke, active color, hit area",
     note: "필터 버튼과 칩에 사용",
-    iconPath: "../assets/ui/filter.svg",
+    iconPath: iconAssetPath("ui/filter.svg"),
     iconFileName: "filter.svg",
   },
   {
@@ -809,7 +809,7 @@ const seedItems = [
     moValue: "24px",
     props: "outline, active fill, scale animation",
     note: "매물 카드와 상세 상단 공통",
-    iconPath: "../assets/ui/heart.svg",
+    iconPath: iconAssetPath("ui/heart.svg"),
     iconFileName: "heart.svg",
   },
   {
@@ -2256,18 +2256,46 @@ function renderIconVisual(item, className = "registry-icon-thumb") {
 
 function getIconSource(item) {
   if (item.iconData?.startsWith("data:image/svg+xml")) return item.iconData;
-  if (item.iconPath) return item.iconPath;
+  if (item.iconPath) return resolveIconPath(item.iconPath);
   return getMappedIconPath(item);
 }
 
 function getMappedIconPath(item) {
   const key = `${item.standard || ""} ${item.name || ""}`.toLowerCase();
   if (/filter.*chip.*close|chip.*close|닫|엑스/.test(key)) return "./icons/ic_filter_chip_close_24.svg";
-  if (/filter|필터/.test(key)) return "../assets/ui/filter.svg";
-  if (/favorite|heart|save|찜|하트/.test(key)) return "../assets/ui/heart.svg";
-  if (/search|검색/.test(key)) return "../assets/ui/search.svg";
-  if (/call|phone|전화/.test(key)) return "../assets/detail/call.svg";
+  if (/filter|필터/.test(key)) return iconAssetPath("ui/filter.svg");
+  if (/favorite|heart|save|찜|하트/.test(key)) return iconAssetPath("ui/heart.svg");
+  if (/search|검색/.test(key)) return iconAssetPath("ui/search.svg");
+  if (/call|phone|전화/.test(key)) return iconAssetPath("ui/card-call.svg");
   return "";
+}
+
+function resolveIconPath(path) {
+  const rawPath = String(path || "").trim();
+  if (!rawPath) return "";
+  if (/^(data:|https?:|blob:)/i.test(rawPath)) return rawPath;
+
+  const slash = "/";
+  const assetSegment = "assets";
+  const assetMarker = `${slash}${assetSegment}${slash}`;
+  const assetIndex = rawPath.indexOf(assetMarker);
+  if (assetIndex >= 0) {
+    return iconAssetPath(rawPath.slice(assetIndex + assetMarker.length));
+  }
+
+  return rawPath;
+}
+
+function iconAssetPath(path) {
+  const cleanPath = String(path || "").replace(/^\/+/, "");
+  return `${getSiteRootPath()}assets/${cleanPath}`;
+}
+
+function getSiteRootPath() {
+  const pathname = window.location?.pathname || "/";
+  const designSystemIndex = pathname.indexOf("/design-system");
+  if (designSystemIndex <= 0) return "/";
+  return `${pathname.slice(0, designSystemIndex)}/`;
 }
 
 function escapeHtml(value = "") {
