@@ -319,6 +319,25 @@
                 <input id="itemStandard" required aria-describedby="itemStandardError" placeholder="예: ListingCard" />
                 <span class="field-error" id="itemStandardError"></span>
               </label>
+              <div class="icon-upload-panel" id="iconUploadPanel" hidden>
+                <div class="icon-preview-box" id="iconPreview" aria-live="polite">
+                  <span>아이콘</span>
+                </div>
+                <div class="icon-upload-control">
+                  <strong>SVG 미리보기</strong>
+                  <div class="icon-upload-actions">
+                    <label class="file-button">
+                      SVG 선택
+                      <input type="file" id="itemIconInput" accept=".svg,image/svg+xml" />
+                    </label>
+                    <button class="ghost-button" type="button" id="clearIconButton">지우기</button>
+                  </div>
+                  <small id="iconFileName">선택된 파일 없음</small>
+                </div>
+                <input type="hidden" id="itemIconData" />
+                <input type="hidden" id="itemIconFileName" />
+                <input type="hidden" id="itemIconPath" />
+              </div>
             </fieldset>
 
             <fieldset class="registry-form-section">
@@ -419,6 +438,7 @@
             <table class="registry-table">
               <colgroup>
                 <col class="col-type" />
+                <col class="col-icon" />
                 <col class="col-name" />
                 <col class="col-standard" />
                 <col class="col-status" />
@@ -430,6 +450,7 @@
               <thead>
                 <tr>
                   <th>구분</th>
+                  <th>아이콘</th>
                   <th>항목명</th>
                   <th>표준명</th>
                   <th>상태</th>

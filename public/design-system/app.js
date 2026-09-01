@@ -794,6 +794,8 @@ const seedItems = [
     moValue: "24px",
     props: "width, height, stroke, active color, hit area",
     note: "필터 버튼과 칩에 사용",
+    iconPath: "../assets/ui/filter.svg",
+    iconFileName: "filter.svg",
   },
   {
     id: "icon-favorite",
@@ -807,6 +809,23 @@ const seedItems = [
     moValue: "24px",
     props: "outline, active fill, scale animation",
     note: "매물 카드와 상세 상단 공통",
+    iconPath: "../assets/ui/heart.svg",
+    iconFileName: "heart.svg",
+  },
+  {
+    id: "icon-filter-chip-close",
+    type: "아이콘",
+    name: "필터 칩 닫기 아이콘",
+    standard: "ic_filter_chip_close_24.svg",
+    status: "등록완료",
+    platform: "공통",
+    sheet: "07_아이콘명칭규칙",
+    pcValue: "24px",
+    moValue: "24px",
+    props: "width, height, fill, color, hit area, aria-label",
+    note: "선택된 필터 칩을 해제할 때 사용",
+    iconPath: "./icons/ic_filter_chip_close_24.svg",
+    iconFileName: "ic_filter_chip_close_24.svg",
   },
   {
     id: "button-primary",
@@ -901,6 +920,14 @@ const elements = {
   itemMoValue: document.querySelector("#itemMoValue"),
   itemProps: document.querySelector("#itemProps"),
   itemNote: document.querySelector("#itemNote"),
+  iconUploadPanel: document.querySelector("#iconUploadPanel"),
+  iconPreview: document.querySelector("#iconPreview"),
+  itemIconInput: document.querySelector("#itemIconInput"),
+  clearIconButton: document.querySelector("#clearIconButton"),
+  iconFileName: document.querySelector("#iconFileName"),
+  itemIconData: document.querySelector("#itemIconData"),
+  itemIconFileName: document.querySelector("#itemIconFileName"),
+  itemIconPath: document.querySelector("#itemIconPath"),
   itemTypeError: document.querySelector("#itemTypeError"),
   itemNameError: document.querySelector("#itemNameError"),
   itemStandardError: document.querySelector("#itemStandardError"),
@@ -956,6 +983,9 @@ function bindEvents() {
   elements.form.addEventListener("submit", saveItem);
   elements.form.addEventListener("input", clearLiveValidation);
   elements.form.addEventListener("change", clearLiveValidation);
+  elements.itemType.addEventListener("change", syncIconUploadVisibility);
+  elements.itemIconInput.addEventListener("change", handleIconFileChange);
+  elements.clearIconButton.addEventListener("click", clearIconPreview);
   elements.clearButton.addEventListener("click", () => clearForm());
   elements.cancelEditButton.addEventListener("click", () => {
     clearForm();
@@ -984,6 +1014,7 @@ function bindEvents() {
   elements.confirmDialog.addEventListener("click", (event) => {
     if (event.target === elements.confirmDialog) closeConfirm();
   });
+  syncIconUploadVisibility();
   syncActiveNav();
 }
 
@@ -1075,6 +1106,9 @@ function normalizeRegistryItem(item = {}) {
     moValue: String(item.moValue || "").trim(),
     props: String(item.props || "").trim(),
     note: String(item.note || "").trim(),
+    iconPath: String(item.iconPath || "").trim(),
+    iconData: String(item.iconData || "").trim(),
+    iconFileName: String(item.iconFileName || "").trim(),
     createdAt: item.createdAt || item.updatedAt || now,
     updatedAt: item.updatedAt || now,
     archived: Boolean(item.archived),
@@ -1287,7 +1321,7 @@ function renderIconsDoc(node) {
           .map(
             (item) => `
               <article>
-                <span class="icon-glyph">${getIconGlyph(item.name)}</span>
+                ${renderIconVisual(item, "doc-icon-preview")}
                 <strong>${escapeHtml(item.name)}</strong>
                 <code>${escapeHtml(item.standard)}</code>
               </article>
@@ -1429,7 +1463,7 @@ function renderIconCards() {
     .map(
       (item) => `
         <article class="icon-card">
-          <span class="icon-glyph">${getIconGlyph(item.name)}</span>
+          ${renderIconVisual(item, "icon-card-preview")}
           <strong>${escapeHtml(item.name)}</strong>
           <small>${escapeHtml(item.standard)}</small>
         </article>
@@ -1475,7 +1509,16 @@ function renderRegistry() {
   const visibleItems = activeItems();
   const filtered = visibleItems.filter((item) => {
     const matchesType = type === "전체" || item.type === type;
-    const haystack = [item.type, item.name, item.standard, item.status, item.platform, item.props, item.note]
+    const haystack = [
+      item.type,
+      item.name,
+      item.standard,
+      item.status,
+      item.platform,
+      item.props,
+      item.note,
+      item.iconFileName,
+    ]
       .join(" ")
       .toLowerCase();
     return matchesType && (!queryKey || haystack.includes(queryKey));
@@ -1488,7 +1531,7 @@ function renderRegistry() {
 
   elements.registryRows.innerHTML =
     filtered.map((item) => renderRegistryRow(item, query)).join("") ||
-    `<tr class="empty-row"><td colspan="8">검색 결과가 없습니다.</td></tr>`;
+    `<tr class="empty-row"><td colspan="9">검색 결과가 없습니다.</td></tr>`;
 
   elements.registryCards.innerHTML =
     filtered.map((item) => renderRegistryCard(item, query)).join("") ||
@@ -1499,6 +1542,7 @@ function renderRegistryRow(item, query) {
   return `
     <tr>
       <td><span class="registry-tag">${escapeHtml(item.type)}</span></td>
+      <td>${renderIconVisual(item)}</td>
       <td>
         <strong>${highlightText(item.name, query)}</strong>
         <br>
@@ -1517,10 +1561,13 @@ function renderRegistryRow(item, query) {
 function renderRegistryCard(item, query) {
   return `
     <article class="registry-card">
-      <div class="registry-card-badges">
-        <span class="registry-tag">${escapeHtml(item.type)}</span>
-        <span class="status" data-status="${escapeHtml(item.status)}">${escapeHtml(item.status)}</span>
-        <span class="platform-badge">${escapeHtml(item.platform)}</span>
+      <div class="registry-card-head">
+        ${renderIconVisual(item, "registry-card-icon")}
+        <div class="registry-card-badges">
+          <span class="registry-tag">${escapeHtml(item.type)}</span>
+          <span class="status" data-status="${escapeHtml(item.status)}">${escapeHtml(item.status)}</span>
+          <span class="platform-badge">${escapeHtml(item.platform)}</span>
+        </div>
       </div>
       <dl>
         <div>
@@ -1652,9 +1699,15 @@ function fillForm(item) {
   elements.itemMoValue.value = item.moValue || "";
   elements.itemProps.value = item.props || "";
   elements.itemNote.value = item.note || "";
+  elements.itemIconData.value = item.iconData || "";
+  elements.itemIconFileName.value = item.iconFileName || "";
+  elements.itemIconPath.value = item.iconPath || "";
+  elements.itemIconInput.value = "";
   elements.editBanner.hidden = false;
   elements.editBannerText.textContent = `현재 수정 중: ${item.standard} / ${item.name}`;
   elements.saveButton.textContent = "수정 저장";
+  syncIconUploadVisibility();
+  updateIconPreview(item);
   captureFormBaseline();
 }
 
@@ -1664,11 +1717,128 @@ function clearForm() {
   elements.itemType.value = DEFAULT_TYPE;
   elements.itemStatus.value = DEFAULT_STATUS;
   elements.itemPlatform.value = DEFAULT_PLATFORM;
+  elements.itemIconData.value = "";
+  elements.itemIconFileName.value = "";
+  elements.itemIconPath.value = "";
+  elements.itemIconInput.value = "";
   elements.editBanner.hidden = true;
   elements.editBannerText.textContent = "현재 수정 중";
   elements.saveButton.textContent = "등록";
   clearFieldErrors();
+  syncIconUploadVisibility();
   captureFormBaseline();
+}
+
+function syncIconUploadVisibility() {
+  const isIcon = elements.itemType.value === "아이콘";
+  elements.iconUploadPanel.hidden = !isIcon;
+  if (!isIcon) return;
+  updateIconPreview();
+}
+
+function updateIconPreview(item = readFormItem()) {
+  if (item.type !== "아이콘") {
+    elements.iconPreview.innerHTML = "<span>아이콘</span>";
+    elements.iconFileName.textContent = "선택된 파일 없음";
+    return;
+  }
+
+  elements.iconPreview.innerHTML = renderIconVisual(item, "form-icon-preview");
+  elements.iconFileName.textContent = item.iconFileName || item.standard || "선택된 파일 없음";
+}
+
+function clearIconPreview() {
+  elements.itemIconData.value = "";
+  elements.itemIconFileName.value = "";
+  elements.itemIconPath.value = "";
+  elements.itemIconInput.value = "";
+  updateIconPreview();
+  showToast("아이콘 미리보기를 지웠습니다.");
+}
+
+async function handleIconFileChange(event) {
+  const file = event.target.files?.[0];
+  if (!file) return;
+
+  const isSvg = file.type === "image/svg+xml" || file.name.toLowerCase().endsWith(".svg");
+  if (!isSvg) {
+    event.target.value = "";
+    showToast("SVG 파일만 등록할 수 있습니다.");
+    return;
+  }
+
+  if (file.size > 150 * 1024) {
+    event.target.value = "";
+    showToast("SVG 파일은 150KB 이하로 등록하세요.");
+    return;
+  }
+
+  try {
+    const dataUrl = await readFileAsDataUrl(file);
+    elements.itemType.value = "아이콘";
+    elements.itemIconData.value = dataUrl;
+    elements.itemIconFileName.value = file.name;
+    elements.itemIconPath.value = "";
+
+    if (!elements.itemName.value.trim()) {
+      elements.itemName.value = labelFromIconFileName(file.name);
+    }
+    if (!elements.itemStandard.value.trim()) {
+      elements.itemStandard.value = standardFromIconFileName(file.name);
+    }
+    if (!elements.itemSheet.value.trim()) {
+      elements.itemSheet.value = "07_아이콘명칭규칙";
+    }
+    if (!elements.itemPcValue.value.trim()) {
+      elements.itemPcValue.value = "24px";
+    }
+    if (!elements.itemMoValue.value.trim()) {
+      elements.itemMoValue.value = "24px";
+    }
+    if (!elements.itemProps.value.trim()) {
+      elements.itemProps.value = "width, height, fill, color, hit area, aria-label";
+    }
+
+    clearFieldErrors();
+    syncIconUploadVisibility();
+    showToast("SVG 아이콘을 불러왔습니다.");
+  } catch {
+    event.target.value = "";
+    showToast("SVG 파일을 읽지 못했습니다.");
+  }
+}
+
+function readFileAsDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result || ""));
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+function labelFromIconFileName(filename = "") {
+  return filename
+    .replace(/\.svg$/i, "")
+    .replace(/[_-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function standardFromIconFileName(filename = "") {
+  const source = filename.toLowerCase();
+  const tokens = [];
+
+  if (/filter|필터/.test(source)) tokens.push("filter");
+  if (/chip|칩/.test(source)) tokens.push("chip");
+  if (/close|x|엑스|닫|삭제/.test(source)) tokens.push("close");
+  if (/search|검색/.test(source)) tokens.push("search");
+  if (/heart|favorite|찜|하트/.test(source)) tokens.push("favorite");
+  if (/call|phone|전화/.test(source)) tokens.push("call");
+
+  if (!tokens.length) tokens.push("custom", "icon");
+  if (tokens.length === 1 && !tokens.includes("icon")) tokens.push("icon");
+  return `ic_${tokens.join("_")}_24.svg`;
 }
 
 function exportJson() {
@@ -1790,6 +1960,7 @@ function validateForm() {
 }
 
 function readFormItem() {
+  const isIcon = elements.itemType.value === "아이콘";
   return {
     type: elements.itemType.value,
     name: elements.itemName.value.trim(),
@@ -1801,6 +1972,9 @@ function readFormItem() {
     moValue: elements.itemMoValue.value.trim(),
     props: elements.itemProps.value.trim(),
     note: elements.itemNote.value.trim(),
+    iconData: isIcon ? elements.itemIconData.value.trim() : "",
+    iconFileName: isIcon ? elements.itemIconFileName.value.trim() : "",
+    iconPath: isIcon ? elements.itemIconPath.value.trim() : "",
   };
 }
 
@@ -2060,6 +2234,42 @@ function highlightText(value = "", query = "") {
   return html + escapeHtml(text.slice(cursor));
 }
 
+function renderIconVisual(item, className = "registry-icon-thumb") {
+  if (item.type !== "아이콘") return '<span class="registry-icon-empty">-</span>';
+
+  const source = getIconSource(item);
+  const label = item.name || item.standard || "아이콘";
+  if (source) {
+    return `
+      <span class="${escapeAttribute(className)}" title="${escapeAttribute(label)}">
+        <img src="${escapeAttribute(source)}" alt="${escapeAttribute(label)}" loading="lazy" />
+      </span>
+    `;
+  }
+
+  return `
+    <span class="${escapeAttribute(className)}" title="${escapeAttribute(label)}">
+      <span class="icon-fallback">${escapeHtml(getIconGlyph(label))}</span>
+    </span>
+  `;
+}
+
+function getIconSource(item) {
+  if (item.iconData?.startsWith("data:image/svg+xml")) return item.iconData;
+  if (item.iconPath) return item.iconPath;
+  return getMappedIconPath(item);
+}
+
+function getMappedIconPath(item) {
+  const key = `${item.standard || ""} ${item.name || ""}`.toLowerCase();
+  if (/filter.*chip.*close|chip.*close|닫|엑스/.test(key)) return "./icons/ic_filter_chip_close_24.svg";
+  if (/filter|필터/.test(key)) return "../assets/ui/filter.svg";
+  if (/favorite|heart|save|찜|하트/.test(key)) return "../assets/ui/heart.svg";
+  if (/search|검색/.test(key)) return "../assets/ui/search.svg";
+  if (/call|phone|전화/.test(key)) return "../assets/detail/call.svg";
+  return "";
+}
+
 function escapeHtml(value = "") {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -2069,7 +2279,12 @@ function escapeHtml(value = "") {
     .replaceAll("'", "&#039;");
 }
 
+function escapeAttribute(value = "") {
+  return escapeHtml(value);
+}
+
 function getIconGlyph(name) {
+  if (name.includes("닫") || name.includes("엑스") || name.includes("close")) return "X";
   if (name.includes("필터")) return "F";
   if (name.includes("찜")) return "H";
   if (name.includes("전화")) return "T";
