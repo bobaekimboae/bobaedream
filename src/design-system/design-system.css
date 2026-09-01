@@ -612,15 +612,30 @@ a {
 
 .bd-breadcrumb.is-mobile {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  min-height: 44px;
+  max-width: 100%;
+  align-items: center;
+  gap: 6px;
   font-size: 14px;
 }
 
+.bd-breadcrumb.is-mobile a,
 .bd-breadcrumb.is-mobile span {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bd-breadcrumb.is-mobile a {
+  flex: 0 0 auto;
+}
+
+.bd-breadcrumb.is-mobile span {
+  flex: 0 1 auto;
   color: var(--bd-color-ink);
-  font-size: 20px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .bd-button {

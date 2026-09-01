@@ -73,7 +73,7 @@ export function ReferenceMatrix() {
       </section>
       <section className="bd-two-column">
         <CatalogColumn title="보배드림 문서 항목" groups={fuseGroups} />
-        <CatalogColumn title="eBay 카테고리" groups={ebayGroups} />
+        <CatalogColumn title="보강 카테고리" groups={ebayGroups} />
       </section>
     </StoryFrame>
   );
@@ -156,7 +156,7 @@ export function BobaNavigationPreview() {
   const activeUseCases = bobaedreamUseCases[activeNode.title] ?? [
     `${formatSidebarName(activeNode)}는 보배드림 화면에서 쓰는 UI 항목입니다.`,
     "명칭, 상태, 기준값을 함께 관리합니다.",
-    "확정 항목만 Figma와 코드에 반영합니다.",
+    "상태와 예시는 등록/수정 화면에서 갱신합니다.",
   ];
 
   return (
@@ -290,22 +290,29 @@ export function IconLibrary() {
 }
 
 export function BobaBreadcrumb({ mobile = false }: { mobile?: boolean }) {
-  const crumbs = ["홈", "중고차", "국산차", "현대", "그랜저"];
+  const crumbs = [
+    { label: "홈", href: "/" },
+    { label: "중고차", href: "/cars" },
+    { label: "국산차", href: "/cars/domestic" },
+    { label: "현대", href: "/cars/domestic/hyundai" },
+    { label: "그랜저" },
+  ];
   if (mobile) {
     return (
-      <nav className="bd-breadcrumb is-mobile" aria-label="Breadcrumb">
-        <a href="#">‹ 중고차</a>
-        <span aria-current="page">현대 그랜저</span>
+      <nav className="bd-breadcrumb is-mobile" aria-label="breadcrumb">
+        <a href="/cars/search">‹ 검색결과</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">제네시스 GV80 3.5 터보 AWD 7인승</span>
       </nav>
     );
   }
 
   return (
-    <nav className="bd-breadcrumb" aria-label="Breadcrumb">
+    <nav className="bd-breadcrumb" aria-label="breadcrumb">
       <ol>
         {crumbs.map((crumb, index) => (
-          <li key={crumb} aria-current={index === crumbs.length - 1 ? "page" : undefined}>
-            {index === crumbs.length - 1 ? <span>{crumb}</span> : <a href="#">{crumb}</a>}
+          <li key={crumb.label} aria-current={index === crumbs.length - 1 ? "page" : undefined}>
+            {index === crumbs.length - 1 ? <span>{crumb.label}</span> : <a href={crumb.href}>{crumb.label}</a>}
           </li>
         ))}
       </ol>

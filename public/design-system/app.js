@@ -1,4 +1,5 @@
 const STORAGE_KEY = "bobaedream-design-system-registry-v1";
+const SIDEBAR_COLLAPSE_KEY = "bobaedream-design-system-sidebar-collapsed";
 const SCHEMA_VERSION = "1.0";
 const PROJECT_ID = "bobaedream-design-system";
 const DEFAULT_STATUS = "검토필요";
@@ -25,6 +26,12 @@ const references = [
     focus: "간결한 한국어 설명",
     apply: "한 문장 정의와 표 문구",
     url: "https://seed-design.io/",
+  },
+  {
+    name: "Bootstrap",
+    focus: "대표 UI 키트의 문서 구조",
+    apply: "설치, 커스터마이즈, 레이아웃, 폼, 컴포넌트, 헬퍼, 유틸리티 축 검토",
+    url: "https://getbootstrap.com/docs/5.3/getting-started/introduction/",
   },
   {
     name: "Google Material 3",
@@ -108,6 +115,9 @@ const koreanNames = {
   Motion: "모션",
   Breakpoints: "반응형 분기점",
   Icons: "아이콘",
+  "UI Icons": "UI 아이콘",
+  "Option Icons": "옵션 아이콘",
+  "Vehicle Icons": "차량 아이콘",
   Imagery: "이미지",
   Layout: "레이아웃",
   "Typography & Headings": "타이포그래피와 제목",
@@ -213,7 +223,74 @@ const koreanNames = {
   "Image Alt Text": "이미지 Alt 텍스트",
   "Color Contrast": "색상 대비",
   Resources: "자료",
+  References: "참고 문서",
+  "Coverage Matrix": "커버리지 매트릭스",
+  Storybook: "스토리북",
+  "QA Checklist": "QA 체크리스트",
   Toolbox: "툴박스",
+  Foundations: "파운데이션",
+  "Design Token": "디자인 토큰",
+  Iconography: "아이콘그래피",
+  Gradient: "그라디언트",
+  Radius: "모서리",
+  State: "상태",
+  Feedback: "피드백",
+  "Inclusive Design": "포용적 디자인",
+  "International Design": "국제화 디자인",
+  "Mobile/App Components": "모바일/앱 컴포넌트",
+  "Action Button": "액션 버튼",
+  "Alert Dialog": "알림 다이얼로그",
+  "Attachment Input": "첨부 입력",
+  "Bottom Navigation": "하단 내비게이션",
+  "Bottom Sheet": "하단 시트",
+  "Content Placeholder": "콘텐츠 플레이스홀더",
+  "Contextual Floating Button": "컨텍스트 플로팅 버튼",
+  "Date Picker": "날짜 선택",
+  Divider: "구분선",
+  Field: "필드",
+  "Floating Action Button": "플로팅 액션 버튼",
+  Footer: "푸터",
+  "Help Bubble": "도움말 버블",
+  "Identity Placeholder": "식별 플레이스홀더",
+  "Image Frame": "이미지 프레임",
+  "Input Button": "입력 버튼",
+  "Manner Temp & Manner Temp Badge": "매너 온도/배지",
+  "Menu Sheet": "메뉴 시트",
+  "Notification Badge": "알림 배지",
+  "Page Banner": "페이지 배너",
+  "Progress Circle": "진행 원",
+  "Quantity Picker": "수량 선택",
+  "Reaction Button": "반응 버튼",
+  "Result Section": "결과 섹션",
+  "Scroll Fog": "스크롤 포그",
+  "Segmented Control": "세그먼트 컨트롤",
+  "Select Box": "셀렉트 박스",
+  "Side Navigation": "사이드 내비게이션",
+  "Side Panel": "사이드 패널",
+  Skeleton: "스켈레톤",
+  Slider: "슬라이더",
+  "Table Pagination": "테이블 페이지네이션",
+  "Tag Group": "태그 그룹",
+  "Text Input & Textarea": "텍스트 입력/텍스트영역",
+  "Time Picker": "시간 선택",
+  "Top Navigation": "상단 내비게이션",
+  "Wheel Picker": "휠 피커",
+  "Bootstrap Cross-check": "Bootstrap 크로스체크",
+  "Getting Started": "시작하기",
+  Customize: "커스터마이즈",
+  Sass: "Sass",
+  Options: "옵션",
+  "Color modes": "컬러 모드",
+  "CSS variables": "CSS 변수",
+  Optimize: "최적화",
+  Content: "콘텐츠",
+  Reboot: "리부트",
+  Tables: "테이블",
+  Figures: "피겨",
+  Helpers: "헬퍼",
+  Utilities: "유틸리티",
+  "Text truncation": "텍스트 말줄임",
+  "Visually hidden": "시각적 숨김",
   "Bobaedream Admin": "보배드림 관리",
   Registry: "컴포넌트 등록/수정",
   "Measurement Master": "측정 마스터",
@@ -314,7 +391,7 @@ const catalogNotes = {
   "Next.js SSR": "SSR 환경의 렌더링 기준입니다.",
   "Design Tokens": "색상, 글꼴, 간격을 코드 값으로 관리합니다.",
   Icons: "아이콘 이름과 크기 규칙입니다.",
-  Breadcrumb: "현재 위치를 보여주는 탐색 컴포넌트입니다.",
+  Breadcrumb: "현재 페이지 위치와 상위 이동 경로를 보여주는 탐색 컴포넌트입니다.",
   Filter: "차량 조건을 선택하고 해제하는 필터입니다.",
   Gallery: "차량 사진과 영상을 탐색하는 영역입니다.",
   Save: "매물을 저장하거나 해제하는 버튼입니다.",
@@ -322,11 +399,12 @@ const catalogNotes = {
   "Color Contrast": "텍스트와 배경의 최소 대비 기준입니다.",
 };
 
-const holdItems = new Set(["Modal", "Price Range", "CCD"]);
+const holdItems = new Set([]);
 const requiredItems = new Set([
   "Home", "Web Installation & Usage", "System Installation", "Guide to Web Components", "Web Component Basics",
   "Style Customization", "Working with Forms", "React Components", "AI Agent Skill", "Changelog",
   "Design Tokens", "Color", "Font", "Spacing", "Size", "Elevation", "Motion", "Breakpoints", "Icons",
+  "UI Icons", "Option Icons", "Vehicle Icons",
   "Forms", "Imagery", "Layout", "Typography & Headings", "Usability Standards", "Visual Language",
   "Accordion", "Badge", "Breadcrumb", "Button", "Card", "Card Carousel", "Checkbox", "Fieldset",
   "Filter", "Form Module", "Gallery", "Gallery Grid", "Gallery Thumbnails", "Input", "Link", "List",
@@ -404,7 +482,27 @@ const fuseSidebarTree = sidebarTree([
         title: "Design Tokens",
         children: ["Installation", "Schema", "Color", "Font", "Spacing", "Size", "Elevation", "Motion", "Breakpoints"],
       },
-      "Icons",
+      {
+        title: "Foundations",
+        children: [
+          "Design Token",
+          "Color",
+          "Typography",
+          "Iconography",
+          "Elevation",
+          "Gradient",
+          "Inclusive Design",
+          "International Design",
+          "Layout",
+          "Motion",
+          "Radius",
+          "Spacing",
+          "State",
+          "Voice and Tone",
+          "Writing",
+          "Feedback",
+        ],
+      },
       "Forms",
       "Imagery",
       "Layout",
@@ -412,6 +510,15 @@ const fuseSidebarTree = sidebarTree([
       "Typography & Headings",
       "Usability Standards",
       "Visual Language",
+    ],
+  },
+  {
+    title: "Icons",
+    href: "#style-guide-icons",
+    children: [
+      { title: "UI Icons", href: "#style-guide-icons-ui-icons" },
+      { title: "Option Icons", href: "#style-guide-icons-option-icons" },
+      { title: "Vehicle Icons", href: "#style-guide-icons-vehicle-icons" },
     ],
   },
   {
@@ -474,6 +581,66 @@ const fuseSidebarTree = sidebarTree([
       "Textarea",
       "Textarea Lite",
       "Tooltip",
+      {
+        title: "Mobile/App Components",
+        children: [
+          "Action Button",
+          "Alert Dialog",
+          "Attachment Input",
+          "Avatar",
+          "Bottom Navigation",
+          "Bottom Sheet",
+          "Chip",
+          "Content Placeholder",
+          "Contextual Floating Button",
+          "Date Picker",
+          "Dialog",
+          "Divider",
+          "Field",
+          "Floating Action Button",
+          "Footer",
+          "Help Bubble",
+          "Identity Placeholder",
+          "Image Frame",
+          "Input Button",
+          "Manner Temp & Manner Temp Badge",
+          "Menu Sheet",
+          "Notification Badge",
+          "Page Banner",
+          "Progress Circle",
+          "Quantity Picker",
+          "Reaction Button",
+          "Result Section",
+          "Scroll Fog",
+          "Segmented Control",
+          "Select Box",
+          "Side Navigation",
+          "Side Panel",
+          "Skeleton",
+          "Slider",
+          "Table Pagination",
+          "Tag Group",
+          "Text Input & Textarea",
+          "Time Picker",
+          "Top Navigation",
+          "Wheel Picker",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Patterns",
+    children: [
+      "Bulk editing",
+      "Creating forms",
+      "Empty states",
+      "Filtering",
+      "Loading",
+      "Requesting user feedback",
+      "Uploading files",
+      "Using links",
+      "Text link",
+      "Legal link",
     ],
   },
   {
@@ -526,16 +693,26 @@ const fuseSidebarTree = sidebarTree([
   },
   {
     title: "Resources",
-    children: ["Toolbox"],
+    children: [
+      "Toolbox",
+      "References",
+      "Coverage Matrix",
+      "Storybook",
+      "QA Checklist",
+      {
+        title: "Bootstrap Cross-check",
+        children: ["Getting Started", "Customize", "Layout", "Content", "Forms", "Components", "Helpers", "Utilities"],
+      },
+      customSidebarItem("보배드림 운영", "#registry", [
+        customSidebarItem("컴포넌트 등록/수정", "#registry"),
+        customSidebarItem("측정 마스터", "#workflow"),
+        customSidebarItem("매물 목록 패턴", "#component-showcase"),
+        customSidebarItem("매물 상세 패턴", "#preview"),
+        customSidebarItem("필터 패턴", "#preview"),
+        customSidebarItem("AI 측정 흐름", "#workflow"),
+      ]),
+    ],
   },
-  customSidebarItem("보배드림 관리", "#registry", [
-    customSidebarItem("컴포넌트 등록/수정", "#registry"),
-    customSidebarItem("측정 마스터", "#workflow"),
-    customSidebarItem("매물 목록 패턴", "#components"),
-    customSidebarItem("매물 상세 패턴", "#preview"),
-    customSidebarItem("필터 패턴", "#preview"),
-    customSidebarItem("AI 측정 흐름", "#workflow"),
-  ]),
 ]);
 
 const bobaedreamUseCases = {
@@ -548,7 +725,11 @@ const bobaedreamUseCases = {
   "Range Dual": ["최소값", "최대값", "범위 입력"],
   Tabs: ["상세정보", "성능점검", "보험이력"],
   Notification: ["성공", "오류", "가격 변동"],
-  "보배드림 관리": ["등록", "수정", "검토"],
+  "보배드림 운영": ["등록", "수정", "검토"],
+  Icons: ["UI 아이콘", "옵션 아이콘", "차량 아이콘"],
+  "UI Icons": ["검색", "닫기", "필터"],
+  "Option Icons": ["편의 옵션", "안전 옵션", "상태 표시"],
+  "Vehicle Icons": ["차종", "브랜드", "카테고리"],
 };
 
 const fuseGroups = [
@@ -567,6 +748,7 @@ const fuseGroups = [
     "Style Guide", ["Design Tokens", "Style Guide"], ["Installation", "Design Tokens"], ["Schema", "Design Tokens"],
     ["Color", "Design Tokens"], ["Font", "Design Tokens"], ["Spacing", "Design Tokens"], ["Size", "Design Tokens"],
     ["Elevation", "Design Tokens"], ["Motion", "Design Tokens"], ["Breakpoints", "Design Tokens"], ["Icons", "Style Guide"],
+    ["UI Icons", "Icons"], ["Option Icons", "Icons"], ["Vehicle Icons", "Icons"],
     ["Forms", "Style Guide"], ["Imagery", "Style Guide"], ["Layout", "Style Guide"], ["Spacing", "Style Guide"],
     ["Typography & Headings", "Style Guide"], ["Usability Standards", "Style Guide"], ["Visual Language", "Style Guide"],
   ]],
@@ -662,6 +844,123 @@ const spacingRegistryItems = spacingTokenScale.map((token) => ({
   props: "margin, padding, gap",
   note: token.usage,
 }));
+
+const iconLibraryGroups = [
+  {
+    id: "ui",
+    title: "UI 아이콘",
+    description: "검색, 닫기, 필터, 목록, 찜처럼 화면 조작에 직접 쓰는 아이콘입니다.",
+    folder: "ui",
+    files: [
+      "back.svg",
+      "bookmark.svg",
+      "card-call.svg",
+      "card-heart.svg",
+      "card-message.svg",
+      "card-more.svg",
+      "card-view.svg",
+      "category-chevron-down.svg",
+      "category-chevron-right.svg",
+      "category-sheet-close.svg",
+      "chevron-down.svg",
+      "chotot-heart.svg",
+      "close.svg",
+      "filter.svg",
+      "heart-outline.svg",
+      "heart.svg",
+      "list.svg",
+      "location-blue.svg",
+      "location-gray.svg",
+      "message.svg",
+      "notion-chevron-right.svg",
+      "notion-close.svg",
+      "notion-filter.svg",
+      "notion-list.svg",
+      "notion-search.svg",
+      "photo-count.svg",
+      "region-chevron.svg",
+      "search.svg",
+      "sheet-chevron.svg",
+      "sheet-close.svg",
+      "sort-arrow.svg",
+      "views.svg",
+    ],
+  },
+  {
+    id: "option",
+    title: "옵션 아이콘",
+    description: "스마트키, 안전/편의 사양, 상세 옵션 목록에 쓰는 아이콘입니다.",
+    folder: "detail",
+    files: [
+      "option-01.png",
+      "option-02.png",
+      "option-03.png",
+      "option-04.png",
+      "option-05.png",
+      "option-06.png",
+      "option-07.png",
+      "option-08.png",
+      "option-09.png",
+      "option-10.png",
+      "option-11.png",
+      "option-12.png",
+      "option-13.png",
+      "option-info.svg",
+      "option-smart-key.png",
+    ],
+  },
+  {
+    id: "vehicle",
+    title: "차량 아이콘",
+    description: "차종, 카테고리, 제조사 로고처럼 차량 분류에 쓰는 아이콘입니다.",
+    folder: "categories",
+    files: [
+      "used-car.svg",
+      "truck.svg",
+      "bike.svg",
+      "camping.svg",
+      "construction.svg",
+      "old-car.svg",
+      "parts.svg",
+      "../brand/audi.svg",
+      "../brand/benz.png",
+      "../brand/bmw.svg",
+      "../brand/jaguar.png",
+      "../brand/land-rover.svg",
+      "../brand/lexus.svg",
+      "../brand/lincoln.png",
+      "../brand/mini.svg",
+      "../brand/porsche-symbol.png",
+      "../brand/porsche.png",
+    ],
+  },
+];
+
+const assetIconRegistryItems = iconLibraryGroups.flatMap((group) =>
+  group.files.map((file) => {
+    const extension = iconFileExtension(file);
+    const iconName = iconDisplayName(group.id, file);
+    const standardBase = `${group.id}_${iconBaseName(file)}`.replace(/[^a-z0-9]+/gi, "_").replace(/^_+|_+$/g, "").toLowerCase();
+    return {
+      id: `icon-${standardBase}`,
+      type: "아이콘",
+      name: iconName,
+      standard: `ic_${standardBase}.${extension}`,
+      status: "등록완료",
+      platform: "공통",
+      sheet: "07_아이콘명칭규칙",
+      pcValue: extension === "svg" ? "24px" : "원본 비율",
+      moValue: extension === "svg" ? "24px" : "원본 비율",
+      props: `group:${group.id}, ${extension}, download, white background, alt text`,
+      note: `${group.title} 그룹에서 다운로드해 재사용합니다.`,
+      iconPath: iconAssetPath(`${group.folder}/${file}`),
+      iconFileName: `ic_${standardBase}.${extension}`,
+      createdAt: "2026-09-02T00:00:00.000Z",
+      updatedAt: "2026-09-02T00:00:00.000Z",
+      archived: false,
+    };
+  }),
+);
 
 const seedItems = [
   {
@@ -853,6 +1152,7 @@ const seedItems = [
     iconPath: "./icons/ic_filter_chip_close_24.svg",
     iconFileName: "ic_filter_chip_close_24.svg",
   },
+  ...assetIconRegistryItems,
   {
     id: "button-primary",
     type: "버튼",
@@ -909,6 +1209,19 @@ const seedItems = [
 
 let items = loadItems();
 
+const STATIC_ROUTE_SECTIONS = new Map([
+  ["#home", ["overview", "catalog"]],
+  ["#catalog", ["catalog"]],
+  ["#workflow", ["workflow"]],
+  ["#tokens", ["tokens"]],
+  ["#component-showcase", ["component-showcase"]],
+  ["#icons", ["icons"]],
+  ["#buttons", ["buttons"]],
+  ["#states", ["states"]],
+  ["#preview", ["preview"]],
+  ["#registry", ["registry"]],
+]);
+
 const elements = {
   sidebar: document.querySelector("#designSidebar"),
   sidebarNav: document.querySelector("#sidebarNav"),
@@ -917,9 +1230,11 @@ const elements = {
   sidebarSearchCount: document.querySelector("#sidebarSearchCount"),
   sidebarEmpty: document.querySelector("#sidebarEmpty"),
   menuToggle: document.querySelector("#menuToggle"),
+  collapseSidebar: document.querySelector("#collapseSidebar"),
   closeSidebar: document.querySelector("#closeSidebar"),
   sidebarOverlay: document.querySelector("#sidebarOverlay"),
   docPage: document.querySelector("#docPage"),
+  pageSections: [...document.querySelectorAll("main.page > .section")],
   metricGrid: document.querySelector("#metricGrid"),
   referenceRows: document.querySelector("#referenceRows"),
   fuseCatalog: document.querySelector("#fuseCatalog"),
@@ -987,14 +1302,17 @@ let previousFocus = null;
 
 document.addEventListener("DOMContentLoaded", async () => {
   bindEvents();
+  restoreSidebarState();
   await hydrateItemsFromRepoData();
   renderAll();
   captureFormBaseline();
 });
 
 function bindEvents() {
-  window.addEventListener("hashchange", syncActiveNav);
+  window.addEventListener("hashchange", renderSidebar);
+  window.addEventListener("resize", handleSidebarViewportChange);
   document.addEventListener("click", handleTableAction);
+  document.addEventListener("click", handleSectionScrollClick);
   document.addEventListener("keydown", handleGlobalKeydown);
   elements.sidebarNav.addEventListener("click", handleSidebarClick);
   elements.sidebarSearch.addEventListener("input", renderSidebar);
@@ -1003,7 +1321,8 @@ function bindEvents() {
     renderSidebar();
     elements.sidebarSearch.focus();
   });
-  elements.menuToggle.addEventListener("click", openSidebar);
+  elements.menuToggle.addEventListener("click", handleSidebarOpenButton);
+  elements.collapseSidebar.addEventListener("click", () => setSidebarCollapsed(true));
   elements.closeSidebar.addEventListener("click", closeSidebar);
   elements.sidebarOverlay.addEventListener("click", closeSidebar);
   elements.form.addEventListener("submit", saveItem);
@@ -1020,8 +1339,7 @@ function bindEvents() {
   elements.newItemButton.addEventListener("click", () => {
     confirmBeforeLosingFormChanges(() => {
       clearForm();
-      document.querySelector("#registry").scrollIntoView({ behavior: "smooth" });
-      elements.itemName.focus();
+      navigateToStaticRoute("#registry", () => elements.itemName.focus());
     });
   });
   elements.exportJsonButton.addEventListener("click", exportJson);
@@ -1180,29 +1498,35 @@ function renderAll() {
 
 function renderSidebar() {
   const query = elements.sidebarSearch.value.trim().toLowerCase();
+  const activeHash = currentRouteHash();
   const visibleTree = filterSidebarTree(fuseSidebarTree, query);
   const count = countSidebarItems(visibleTree);
   elements.sidebarEmpty.hidden = visibleTree.length > 0;
   elements.sidebarSearchCount.textContent = query ? `${count}개 결과` : "";
-  elements.sidebarNav.innerHTML = visibleTree.length ? renderSidebarList(visibleTree, query) : "";
+  elements.sidebarNav.innerHTML = visibleTree.length ? renderSidebarList(visibleTree, query, activeHash) : "";
   syncActiveNav();
 }
 
-function renderSidebarList(nodes, query = "") {
+function renderSidebarList(nodes, query = "", activeHash = currentRouteHash()) {
   return `
     <ul class="fuse-nav-list">
-      ${nodes.map((node) => renderSidebarItem(node, query)).join("")}
+      ${nodes.map((node) => renderSidebarItem(node, query, activeHash)).join("")}
     </ul>
   `;
 }
 
-function renderSidebarItem(node, query = "") {
+function renderSidebarItem(node, query = "", activeHash = currentRouteHash()) {
   const hasChildren = node.children.length > 0;
+  const nodeLabel = displayNodeName(node);
+  const isActive = node.href === activeHash;
+  const isExpanded = Boolean(query) || node.depth === 0 || nodeContainsHash(node, activeHash);
+  const sectionLinks = !query && isActive ? renderSidebarPageSections(node) : "";
   const classNames = [
     "nav-link",
     "fuse-nav-link",
     `depth-${node.depth}`,
     hasChildren ? "has-children" : "",
+    hasChildren && isExpanded ? "expanded" : "",
     node.status === "deprecated" ? "deprecated" : "",
     node.status === "custom" ? "custom" : "",
   ]
@@ -1217,16 +1541,46 @@ function renderSidebarItem(node, query = "") {
         data-sidebar-id="${escapeHtml(node.id)}"
         data-doc-title="${escapeHtml(node.title)}"
         data-doc-route="${isDocumentRoute(node) ? "true" : "false"}"
+        title="${escapeAttribute(nodeLabel)}"
+        aria-label="${escapeAttribute(nodeLabel)}"
         style="padding-left:${10 + node.depth * 14}px"
       >
         <span class="nav-content">
           ${hasChildren ? '<span class="nav-caret" aria-hidden="true">›</span>' : ""}
-          <span class="nav-name">${highlightText(displayNodeName(node), query)}</span>
+          <span class="nav-name">${highlightText(nodeLabel, query)}</span>
         </span>
         ${node.status === "deprecated" ? '<em class="nav-status">deprecated</em>' : ""}
       </a>
-      ${hasChildren ? renderSidebarList(node.children, query) : ""}
+      ${hasChildren && isExpanded ? renderSidebarList(node.children, query, activeHash) : ""}
+      ${sectionLinks}
     </li>
+  `;
+}
+
+function nodeContainsHash(node, hash) {
+  return node.href === hash || node.children.some((child) => nodeContainsHash(child, hash));
+}
+
+function renderSidebarPageSections(node) {
+  if (!isDocumentRoute(node)) return "";
+  const sections = documentSectionsForNode(node);
+  if (!sections.length) return "";
+  return `
+    <ul class="fuse-nav-list nav-page-sections" aria-label="${escapeAttribute(displayNodeName(node))} 페이지 목차">
+      ${sections
+        .map(
+          ([label, target]) => `
+            <li class="fuse-nav-item">
+              <button class="nav-link nav-section-link depth-${node.depth + 1}" type="button" data-scroll-target="${escapeAttribute(target)}">
+                <span class="nav-content">
+                  <span class="nav-name">${escapeHtml(label)}</span>
+                </span>
+              </button>
+            </li>
+          `,
+        )
+        .join("")}
+    </ul>
   `;
 }
 
@@ -1256,7 +1610,7 @@ function displayNodeName(node) {
 }
 
 function isDocumentRoute(node) {
-  return node.status !== "custom" || !["#registry", "#workflow", "#components", "#preview"].includes(node.href);
+  return node.status !== "custom" || !["#registry", "#workflow", "#component-showcase", "#preview"].includes(node.href);
 }
 
 function handleSidebarClick(event) {
@@ -1277,14 +1631,67 @@ function handleSidebarClick(event) {
   closeSidebar();
 }
 
+function handleSectionScrollClick(event) {
+  const button = event.target.closest("[data-scroll-target]");
+  if (!button) return;
+
+  const target = document.querySelector(button.dataset.scrollTarget || "");
+  if (!target) return;
+
+  event.preventDefault();
+  target.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (button.closest(".sidebar")) closeSidebar();
+}
+
 function openSidebar() {
   document.body.classList.add("sidebar-open");
+  if (window.innerWidth > 760) setSidebarCollapsed(false);
   elements.menuToggle.setAttribute("aria-expanded", "true");
 }
 
 function closeSidebar() {
   document.body.classList.remove("sidebar-open");
   elements.menuToggle.setAttribute("aria-expanded", "false");
+}
+
+function handleSidebarOpenButton() {
+  if (window.innerWidth > 760) {
+    setSidebarCollapsed(false);
+    return;
+  }
+
+  openSidebar();
+}
+
+function setSidebarCollapsed(collapsed, options = {}) {
+  const shouldPersist = options.persist !== false && window.innerWidth > 760;
+  document.body.classList.toggle("sidebar-collapsed", collapsed);
+  elements.menuToggle.setAttribute("aria-expanded", String(!collapsed));
+  elements.menuToggle.textContent = collapsed ? "메뉴 열기" : "메뉴";
+  elements.menuToggle.setAttribute("aria-label", collapsed ? "좌측 메뉴 열기" : "좌측 메뉴");
+  elements.collapseSidebar.setAttribute("aria-expanded", String(!collapsed));
+  elements.collapseSidebar.setAttribute("aria-label", collapsed ? "좌측 메뉴 열기" : "좌측 메뉴 접기");
+  elements.collapseSidebar.textContent = collapsed ? "열기" : "접기";
+  if (shouldPersist) localStorage.setItem(SIDEBAR_COLLAPSE_KEY, collapsed ? "true" : "false");
+}
+
+function restoreSidebarState() {
+  if (window.innerWidth <= 760) {
+    document.body.classList.remove("sidebar-collapsed");
+    elements.menuToggle.textContent = "메뉴 열기";
+    elements.menuToggle.setAttribute("aria-expanded", "false");
+    elements.menuToggle.setAttribute("aria-label", "좌측 메뉴 열기");
+    elements.collapseSidebar.setAttribute("aria-expanded", "true");
+    return;
+  }
+
+  const collapsed = localStorage.getItem(SIDEBAR_COLLAPSE_KEY) === "true" && window.innerWidth > 760;
+  setSidebarCollapsed(collapsed, { persist: false });
+}
+
+function handleSidebarViewportChange() {
+  closeSidebar();
+  restoreSidebarState();
 }
 
 function flattenSidebar(nodes, trail = []) {
@@ -1300,17 +1707,17 @@ function findSidebarNodeByHash(hash) {
 
 function renderDocumentPage(node) {
   if (!node || !elements.docPage) return;
+  if (node.title === "Breadcrumb") {
+    renderBreadcrumbDocumentPage(node);
+    return;
+  }
 
   const statusLabel = node.status === "deprecated" ? "deprecated" : node.status === "custom" ? "보배드림 운영" : "stable";
-  const useCases = bobaedreamUseCases[node.title] || [
-    `${displayNodeName(node)}는 보배드림 화면에서 쓰는 UI 항목입니다.`,
-    "명칭, 상태, 기준값을 함께 관리합니다.",
-    "확정 항목만 Figma와 코드에 반영합니다.",
-  ];
   const path = node.path?.join(" / ") || displayNodeName(node);
+  const profile = documentProfileForNode(node);
 
   elements.docPage.innerHTML = `
-    <div class="doc-page-layout">
+    <div class="doc-page-layout component-doc">
       <article class="doc-main">
         <nav class="doc-breadcrumb" aria-label="문서 경로">${escapeHtml(path)}</nav>
         <div class="doc-title-row">
@@ -1318,35 +1725,774 @@ function renderDocumentPage(node) {
             <p class="eyebrow">${node.status === "custom" ? "보배드림 운영" : "보배드림 문서"}</p>
             <h2>${escapeHtml(displayNodeName(node))}</h2>
           </div>
-          <span class="doc-status ${escapeHtml(node.status)}">${escapeHtml(statusLabel)}</span>
+          <div class="doc-title-actions">
+            <span class="doc-status ${escapeHtml(node.status)}">${escapeHtml(statusLabel)}</span>
+            ${renderDocHeaderActions(node)}
+          </div>
         </div>
-        <p class="doc-lede">${escapeHtml(catalogNote(node.title, node.path?.at(-2) || ""))}</p>
-        <div class="doc-rule-grid">
-          ${useCases
-            .map(
-              (item) => `
-                <section>
-                  <strong>${escapeHtml(item)}</strong>
-                  <span>PC 웹, 모바일 웹, 앱 화면에서 같은 토큰과 컴포넌트 명칭으로 관리합니다.</span>
-                </section>
-              `,
-            )
-            .join("")}
-        </div>
-        ${renderTemplateDoc(node)}
-        ${renderIconsDoc(node)}
-        ${renderSpacingDoc(node)}
+        <p class="doc-lede">${escapeHtml(profile.lede)}</p>
+        <p class="doc-sublede">${escapeHtml(profile.sublede)}</p>
+
+        <section class="component-doc-section" id="doc-overview">
+          <h3>Overview</h3>
+          <div class="doc-summary-grid">
+            ${profile.overview
+              .map(
+                ([title, description]) => `
+                  <article>
+                    <strong>${escapeHtml(title)}</strong>
+                    <p>${escapeHtml(description)}</p>
+                  </article>
+                `,
+              )
+              .join("")}
+          </div>
+        </section>
+
+        <section class="component-doc-section" id="doc-examples">
+          <h3>Examples</h3>
+          ${renderDocExamples(profile.examples)}
+          ${renderSpecializedDoc(node)}
+        </section>
+
+        <section class="component-doc-section" id="doc-api">
+          <h3>API</h3>
+          ${renderDocPropsTable(profile.props)}
+        </section>
+
+        <section class="component-doc-section" id="doc-usage">
+          <h3>Usage</h3>
+          <div class="doc-guideline-grid">
+            ${profile.usage
+              .map(
+                ([title, description]) => `
+                  <article>
+                    <strong>${escapeHtml(title)}</strong>
+                    <p>${escapeHtml(description)}</p>
+                  </article>
+                `,
+              )
+              .join("")}
+          </div>
+        </section>
+
+        <section class="component-doc-section" id="doc-accessibility">
+          <h3>Accessibility</h3>
+          <ul class="doc-checklist">
+            ${profile.accessibility.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+          </ul>
+        </section>
       </article>
       <aside class="doc-aside">
-        <strong>문서 기준</strong>
-        <ul>
-          <li>한 항목은 한 문장으로 정의합니다.</li>
-          <li>영문명과 한국어명을 함께 씁니다.</li>
-          <li>상태와 기준값은 표로 남깁니다.</li>
-        </ul>
+        <strong>목차</strong>
+        ${renderDocToc(documentSectionsForNode(node))}
       </aside>
     </div>
   `;
+}
+
+function renderDocHeaderActions(node) {
+  const storybookHref = storybookHrefForNode(node);
+  return `
+    <label class="doc-theme-control">
+      <span>테마</span>
+      <select aria-label="테마 선택">
+        <option>Light</option>
+        <option>Contrast</option>
+      </select>
+    </label>
+    <a class="doc-storybook-link" href="${escapeAttribute(storybookHref)}">Storybook</a>
+  `;
+}
+
+function storybookHrefForNode(node) {
+  const component = slugifySidebarSegment(node.title || "");
+  return `../storybook/index.html${component ? `?path=/docs/${component}` : ""}`;
+}
+
+function documentProfileForNode(node) {
+  const label = displayName(node.title);
+  const parent = node.path?.at(-2) || "";
+  const top = node.path?.[0] || node.title;
+  const useCases = bobaedreamUseCases[node.title] || [`${label} 기본`, `${label} 상태`, `${label} 반응형`];
+  const isComponent = isInSourceSection(node, "Components") || top === "Icons";
+  const isStyle = isInSourceSection(node, "Style Guide") || node.title === "Icons";
+  const isA11y = isInSourceSection(node, "Accessibility");
+  const isResource = isInSourceSection(node, "Resources") || node.status === "custom";
+  const category = isComponent ? "component" : isStyle ? "style" : isA11y ? "accessibility" : isResource ? "resource" : "guide";
+
+  return {
+    lede: ledeForDocument(node, category),
+    sublede: subledeForDocument(node, category),
+    overview: overviewForDocument(node, category),
+    examples: examplesForDocument(node, useCases, category),
+    props: propsForDocument(node, category),
+    usage: usageForDocument(node, category),
+    accessibility: accessibilityForDocument(node, category),
+    parent,
+  };
+}
+
+function ledeForDocument(node, category) {
+  const label = displayName(node.title);
+  if (category === "component") return `${label}은 보배드림 화면에서 반복되는 사용자 행동을 일관된 UI로 제공하는 항목입니다.`;
+  if (category === "style") return `${label}은 보배드림 화면의 시각 기준을 토큰과 사용 규칙으로 정리한 항목입니다.`;
+  if (category === "accessibility") return `${label}은 모든 사용자가 중고차 정보를 탐색하고 문의할 수 있도록 보장하는 기준입니다.`;
+  if (category === "resource") return `${label}은 디자인 시스템을 운영하고 수정할 때 참고하는 내부 자료입니다.`;
+  return catalogNote(node.title, node.path?.at(-2) || "");
+}
+
+function subledeForDocument(node, category) {
+  if (category === "component") return "예시, 상태, 속성, 접근성 기준을 먼저 확인하고 화면에 적용합니다.";
+  if (category === "style") return "값 자체보다 언제 어떤 화면에 쓰는지 먼저 판단할 수 있게 정리합니다.";
+  if (category === "accessibility") return "키보드, 스크린리더, 터치 조작, 명도 대비를 함께 확인합니다.";
+  if (category === "resource") return "레퍼런스와 운영 도구는 이 영역에 모아 본문 문서가 산만해지지 않게 관리합니다.";
+  return "필요한 정보만 짧게 확인하고 바로 구현할 수 있게 구성합니다.";
+}
+
+function overviewForDocument(node, category) {
+  const label = displayName(node.title);
+  if (category === "style") {
+    return [
+      ["정의", `${label} 기준은 색, 글꼴, 간격, 상태처럼 반복되는 시각 결정을 통일합니다.`],
+      ["목적", "디자인과 코드가 같은 이름을 사용해 화면 편차를 줄입니다."],
+      ["사용 위치", "매물 목록, 상세, 등록, 검색 필터, 마이페이지 화면 전반에 적용합니다."],
+    ];
+  }
+  if (category === "accessibility") {
+    return [
+      ["정의", `${label}은 사용자가 정보를 놓치지 않고 조작할 수 있게 하는 품질 기준입니다.`],
+      ["목적", "탐색, 문의, 등록 과정에서 키보드와 보조기술 사용성을 보장합니다."],
+      ["사용 위치", "링크, 폼, 필터, 차량 이미지, CTA가 있는 모든 화면에 적용합니다."],
+    ];
+  }
+  if (category === "resource") {
+    return [
+      ["정의", `${label}은 디자인 시스템 관리자가 항목을 수정하고 검수할 때 쓰는 자료입니다.`],
+      ["목적", "외부 참고, QA, Storybook, 등록 데이터를 문서 본문과 분리해 관리합니다."],
+      ["사용 위치", "운영 회의, 컴포넌트 등록, 배포 전 검수, 문서 업데이트에 사용합니다."],
+    ];
+  }
+  return [
+    ["정의", `${label}은 보배드림 중고차 서비스에서 반복되는 UI 단위입니다.`],
+    ["목적", "사용자가 차량 정보를 빠르게 이해하고 다음 행동으로 이동하게 돕습니다."],
+    ["사용 위치", "매물 목록, 차량 상세, 검색 결과, 매물 등록 흐름에서 사용합니다."],
+  ];
+}
+
+function examplesForDocument(node, useCases, category) {
+  const label = displayName(node.title);
+  if (node.title === "References") {
+    return references.slice(0, 4).map((reference) => [reference.name, reference.apply]);
+  }
+  if (node.title === "Coverage Matrix" || node.title === "Bootstrap Cross-check") {
+    return [
+      ["목차 뼈대", "설치, 스타일, 컴포넌트, 접근성, 리소스 구조를 모두 포함합니다."],
+      ["누적 항목", "자동차 서비스에 필요한 카드, 필터, 갤러리, 저장, 문의 흐름을 우선합니다."],
+      ["보강 항목", "모바일 앱 컴포넌트, 파운데이션, 유틸리티성 기준은 별도 그룹으로 관리합니다."],
+    ];
+  }
+  if (category === "style") {
+    return useCases.map((item) => [`${item}`, `${label} 값을 보배드림 화면 토큰으로 적용합니다.`]);
+  }
+  return useCases.map((item) => [`${item}`, `${label} 문서의 실제 화면 예시입니다.`]);
+}
+
+function propsForDocument(node, category) {
+  if (node.title === "References") {
+    return [
+      ["name", "string", "참고 문서 이름입니다."],
+      ["focus", "string", "구조적으로 참고한 부분입니다."],
+      ["apply", "string", "보배드림에 적용한 방식입니다."],
+      ["url", "string", "원문 확인 링크입니다."],
+    ];
+  }
+  if (category === "style") {
+    return [
+      ["token", "string", "디자인과 코드에서 공유하는 이름입니다."],
+      ["value", "string", "CSS 변수, px, color, duration 등 실제 값입니다."],
+      ["alias", "string", "의미 기반 이름으로 연결하는 별칭입니다."],
+      ["platform", "pc | mobile | app | common", "적용 플랫폼 범위입니다."],
+    ];
+  }
+  if (category === "accessibility") {
+    return [
+      ["role", "string", "필요한 ARIA role 또는 HTML 의미 요소입니다."],
+      ["label", "string", "스크린리더가 읽는 이름입니다."],
+      ["focusable", "boolean", "키보드 포커스 대상 여부입니다."],
+      ["contrast", "AA | AAA", "텍스트와 배경의 명도 대비 기준입니다."],
+    ];
+  }
+  return [
+    ["variant", "string", "화면 맥락에 맞는 형태입니다."],
+    ["size", "sm | md | lg", "컴포넌트 크기입니다."],
+    ["disabled", "boolean", "사용 불가 상태입니다."],
+    ["ariaLabel", "string", "아이콘 버튼이나 축약 UI의 접근성 이름입니다."],
+  ];
+}
+
+function usageForDocument(node, category) {
+  const label = displayName(node.title);
+  if (category === "style") {
+    return [
+      ["사용", `${label} 값은 토큰명으로 적용하고 화면별 임의 값을 줄입니다.`],
+      ["변경", "값을 바꿀 때는 영향 화면과 Storybook 예시를 함께 확인합니다."],
+      ["금지", "동일 역할의 값을 새 이름으로 중복 생성하지 않습니다."],
+    ];
+  }
+  if (category === "resource") {
+    return [
+      ["사용", "운영 자료는 Resources에 모아 문서 본문과 분리합니다."],
+      ["수정", "항목 변경은 등록/수정 폼에서 표준명, 상태, 메모를 함께 남깁니다."],
+      ["금지", "개별 컴포넌트 본문에 외부 참고 문구를 길게 노출하지 않습니다."],
+    ];
+  }
+  return [
+    ["사용", `${label}은 사용자가 다음 행동을 예측할 수 있는 위치에 배치합니다.`],
+    ["상태", "기본, 선택, 비활성, 오류, 포커스 상태를 구분합니다."],
+    ["금지", "진행률, 도움말, 광고 문구처럼 역할이 다른 정보를 섞지 않습니다."],
+  ];
+}
+
+function accessibilityForDocument(node, category) {
+  if (category === "style") {
+    return [
+      "색상은 텍스트 대비 기준을 먼저 확인합니다.",
+      "모션과 상태 변화는 정보 전달 목적이 있을 때만 사용합니다.",
+      "반응형에서 글자와 컨트롤이 겹치지 않는지 확인합니다.",
+    ];
+  }
+  if (category === "resource") {
+    return [
+      "운영 화면의 버튼과 링크는 키보드로 접근 가능해야 합니다.",
+      "등록/수정 폼은 오류 메시지를 필드와 연결합니다.",
+      "QA 문서는 모바일 390px과 데스크톱 1440px을 함께 확인합니다.",
+    ];
+  }
+  return [
+    "키보드 Tab 순서가 화면 순서와 일치해야 합니다.",
+    "아이콘만 있는 컨트롤은 접근성 이름을 제공합니다.",
+    "모바일 터치 영역은 44px 이상을 권장합니다.",
+  ];
+}
+
+function renderDocExamples(examples = []) {
+  return `
+    <div class="doc-example-grid">
+      ${examples
+        .map(
+          ([title, description]) => `
+            <article>
+              <strong>${escapeHtml(title)}</strong>
+              <p>${escapeHtml(description)}</p>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function renderDocPropsTable(props = []) {
+  return `
+    <div class="doc-table-wrap">
+      <table class="doc-props-table">
+        <thead>
+          <tr>
+            <th>속성</th>
+            <th>타입</th>
+            <th>설명</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${props
+            .map(
+              ([name, type, description]) => `
+                <tr>
+                  <td><code>${escapeHtml(name)}</code></td>
+                  <td><code>${escapeHtml(type)}</code></td>
+                  <td>${escapeHtml(description)}</td>
+                </tr>
+              `,
+            )
+            .join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function renderSpecializedDoc(node) {
+  if (node.title === "Icons" || node.title === "UI Icons" || node.title === "Option Icons" || node.title === "Vehicle Icons") {
+    return renderIconsDoc(node);
+  }
+  if (node.title === "Spacing") return renderSpacingDoc(node);
+  if (node.title === "References") return renderReferencesDoc();
+  if (node.title === "Coverage Matrix" || node.title === "Bootstrap Cross-check") return renderCoverageMatrixDoc();
+  return "";
+}
+
+function renderReferencesDoc() {
+  return `
+    <div class="doc-table-wrap">
+      <table class="doc-props-table">
+        <thead>
+          <tr>
+            <th>문서</th>
+            <th>확인한 구조</th>
+            <th>보배드림 적용</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${references
+            .map(
+              (reference) => `
+                <tr>
+                  <td><a href="${escapeAttribute(reference.url)}" target="_blank" rel="noopener">${escapeHtml(reference.name)}</a></td>
+                  <td>${escapeHtml(reference.focus)}</td>
+                  <td>${escapeHtml(reference.apply)}</td>
+                </tr>
+              `,
+            )
+            .join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function renderCoverageMatrixDoc() {
+  const topLevelCounts = flattenSidebar(fuseSidebarTree)
+    .filter((entry) => entry.status !== "custom")
+    .reduce((summary, entry) => {
+      const top = entry.path?.[0] || entry.title;
+      summary.set(top, (summary.get(top) || 0) + 1);
+      return summary;
+    }, new Map());
+  const total = [...topLevelCounts.values()].reduce((sum, count) => sum + count, 0);
+  const sourceRows = [
+    ["Cars.com 뼈대", "설치, 스타일 가이드, 컴포넌트, 원칙, 콘텐츠, 접근성, 리소스", "좌측 목차의 기본 구조로 사용"],
+    ["Seed 보강", "파운데이션, 모바일 앱 컴포넌트, 패턴, 짧은 한국어 문서 구조", "보배드림에 필요한 누락 항목 추가"],
+    ["Bootstrap 크로스체크", "Getting Started, Customize, Layout, Content, Forms, Components, Helpers, Utilities", "프론트엔드 구현자가 찾는 축을 Resources에서 검토"],
+  ];
+  const bootstrapRows = [
+    ["Getting Started", "Web Installation & Usage", "설치, 웹 컴포넌트 기본, React, Next.js SSR, 변경 이력"],
+    ["Customize", "Style Guide / Design Tokens", "색상, 글꼴, 간격, 크기, 모션, 브레이크포인트, CSS 변수 기준"],
+    ["Layout", "Style Guide", "레이아웃, 간격, 반응형 분기점, 콘텐츠 폭 기준"],
+    ["Content", "Style Guide / Content Strategy", "타이포그래피, 이미지, 문구, 용어, 표기 기준"],
+    ["Forms", "Components / Patterns", "Input, Checkbox, Radio, Select, Textarea, Form Module, Creating forms"],
+    ["Components", "Components", "Cars.com 뼈대의 컴포넌트 목록과 보배드림 차량 거래 컴포넌트"],
+    ["Helpers", "Accessibility / Resources", "말줄임, 시각적 숨김, 포커스, 링크 텍스트, 터치 타깃"],
+    ["Utilities", "Style Guide / Resources", "spacing, color, display, overflow, position처럼 구현 보조 기준"],
+  ];
+  return `
+    <div class="doc-summary-grid">
+      <article>
+        <strong>${total}개</strong>
+        <p>좌측 목차에 등록된 전체 보배드림 문서 항목입니다.</p>
+      </article>
+      <article>
+        <strong>Cars.com</strong>
+        <p>전체 IA의 뼈대와 컴포넌트 분류 기준입니다.</p>
+      </article>
+      <article>
+        <strong>Seed + Bootstrap</strong>
+        <p>한국어 문서 방식과 대표 UI 키트 구조를 보강 기준으로 봅니다.</p>
+      </article>
+    </div>
+    <div class="doc-table-wrap">
+      <table class="doc-props-table">
+        <caption>참고 기준 반영 방식</caption>
+        <thead>
+          <tr>
+            <th>기준</th>
+            <th>확인 항목</th>
+            <th>반영 방식</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${sourceRows
+            .map(
+              ([source, checked, applied]) => `
+                <tr>
+                  <td><strong>${escapeHtml(source)}</strong></td>
+                  <td>${escapeHtml(checked)}</td>
+                  <td>${escapeHtml(applied)}</td>
+                </tr>
+              `,
+            )
+            .join("")}
+        </tbody>
+      </table>
+    </div>
+    <div class="doc-table-wrap">
+      <table class="doc-props-table">
+        <caption>Bootstrap 화면 구조 크로스체크</caption>
+        <thead>
+          <tr>
+            <th>Bootstrap 축</th>
+            <th>보배드림 위치</th>
+            <th>현재 누적 항목</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${bootstrapRows
+            .map(
+              ([source, location, accumulated]) => `
+                <tr>
+                  <td><strong>${escapeHtml(source)}</strong></td>
+                  <td>${escapeHtml(location)}</td>
+                  <td>${escapeHtml(accumulated)}</td>
+                </tr>
+              `,
+            )
+            .join("")}
+        </tbody>
+      </table>
+    </div>
+    <div class="doc-table-wrap">
+      <table class="doc-props-table">
+        <caption>현재 좌측 목차 누적 수</caption>
+        <thead>
+          <tr>
+            <th>메뉴</th>
+            <th>등록 항목 수</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${[...topLevelCounts.entries()]
+            .map(
+              ([title, count]) => `
+                <tr>
+                  <td><strong>${escapeHtml(displayName(title))}</strong></td>
+                  <td>${count}개</td>
+                </tr>
+              `,
+            )
+            .join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function documentSectionsForNode(node) {
+  if (node.title === "Breadcrumb") {
+    return [
+      ["Overview", "#breadcrumb-overview"],
+      ["Examples", "#breadcrumb-examples"],
+      ["Importing", "#breadcrumb-importing"],
+      ["API Examples", "#breadcrumb-api-examples"],
+      ["Usage", "#breadcrumb-usage"],
+      ["Accessibility", "#breadcrumb-accessibility"],
+    ];
+  }
+  return [
+    ["Overview", "#doc-overview"],
+    ["Examples", "#doc-examples"],
+    ["API", "#doc-api"],
+    ["Usage", "#doc-usage"],
+    ["Accessibility", "#doc-accessibility"],
+  ];
+}
+
+function renderDocToc(sections = []) {
+  return `
+    <ul class="doc-toc-list">
+      ${sections
+        .map(
+          ([label, target]) => `
+            <li>
+              <button class="doc-toc-link" type="button" data-scroll-target="${escapeAttribute(target)}">
+                ${escapeHtml(label)}
+              </button>
+            </li>
+          `,
+        )
+        .join("")}
+    </ul>
+  `;
+}
+
+function renderBreadcrumbDocumentPage(node) {
+  const path = node.path?.join(" / ") || displayNodeName(node);
+  const statusLabel = node.status === "deprecated" ? "deprecated" : "stable";
+  const examples = [
+    [
+      { label: "홈", href: "/" },
+      { label: "중고차", href: "/cars" },
+      { label: "국산차", href: "/cars/domestic" },
+      { label: "현대", href: "/cars/domestic/hyundai" },
+      { label: "그랜저" },
+    ],
+    [
+      { label: "홈", href: "/" },
+      { label: "중고차", href: "/cars" },
+      { label: "검색결과", href: "/cars/search" },
+      { label: "제네시스 GV80" },
+    ],
+    [
+      { label: "홈", href: "/" },
+      { label: "내차팔기", href: "/sell" },
+      { label: "사진등록", href: "/sell/photos" },
+      { label: "옵션선택" },
+    ],
+  ];
+  const anatomy = [
+    ["홈 링크", "서비스 최상위로 돌아가는 첫 링크입니다."],
+    ["상위 경로 링크", "현재 페이지보다 위에 있는 카테고리나 단계입니다."],
+    ["구분자", "경로 사이를 나누는 시각 요소입니다."],
+    ["현재 페이지", "마지막 항목이며 링크로 처리하지 않습니다."],
+    ["모바일 축약 영역", "긴 경로를 부모 맥락과 현재 페이지 중심으로 줄입니다."],
+  ];
+  const states = [
+    ["current", "현재 페이지 항목입니다. `aria-current=\"page\"`를 적용합니다."],
+    ["overflow", "4단계 이상 경로에서 중간 항목을 줄여 보여줍니다."],
+    ["compact", "모바일에서 이전 단계와 현재 페이지만 남기는 표시입니다."],
+    ["disabled-link", "상위 경로는 보이지만 이동할 수 없는 항목입니다."],
+  ];
+  const props = [
+    ["items", "Array<{ label: string; href?: string }>", "표시할 경로 목록입니다. 마지막 항목은 현재 페이지입니다."],
+    ["separator", "string | Component", "`>` 또는 아이콘 구분자를 지정합니다."],
+    ["maxItems", "number", "노출할 최대 항목 수입니다. 초과 시 overflow 규칙을 적용합니다."],
+    ["currentLabel", "string", "현재 페이지 라벨을 별도로 덮어쓸 때 사용합니다."],
+    ["compact", "boolean", "모바일 축약 표시를 강제로 켜거나 끕니다."],
+    ["ariaLabel", "string", "탐색 영역의 접근성 라벨입니다. 기본값은 `breadcrumb`입니다."],
+  ];
+  const accessibility = [
+    '`nav aria-label="breadcrumb"` 구조를 사용합니다.',
+    '마지막 항목에는 `aria-current="page"`를 적용합니다.',
+    "현재 페이지는 링크로 처리하지 않습니다.",
+    "키보드 Tab 이동 순서가 화면 순서와 일치하는지 확인합니다.",
+    "모바일 터치 영역은 44px 이상을 권장합니다.",
+  ];
+
+  elements.docPage.innerHTML = `
+    <div class="doc-page-layout breadcrumb-doc">
+      <article class="doc-main">
+        <nav class="doc-breadcrumb" aria-label="문서 경로">${escapeHtml(path)}</nav>
+        <div class="doc-title-row">
+          <div>
+            <p class="eyebrow">보배드림 컴포넌트</p>
+            <h2>${escapeHtml(displayNodeName(node))}</h2>
+          </div>
+          <div class="doc-title-actions">
+            <span class="doc-status ${escapeHtml(node.status)}">${escapeHtml(statusLabel)}</span>
+            ${renderDocHeaderActions(node)}
+          </div>
+        </div>
+        <p class="doc-lede">Breadcrumb은 사용자가 현재 페이지의 위치를 이해하고 상위 단계로 이동할 수 있게 하는 탐색 컴포넌트입니다.</p>
+        <p class="doc-sublede">차량 상세, 검색 결과, 매물 등록처럼 2단계 이상 깊이가 있는 화면에서 사용합니다.</p>
+
+        <section class="breadcrumb-section" id="breadcrumb-overview">
+          <h3>Overview</h3>
+          <div class="breadcrumb-info-grid">
+            <article>
+              <strong>정의</strong>
+              <p>현재 페이지가 서비스 구조 안에서 어디에 있는지 보여주는 보조 탐색입니다.</p>
+            </article>
+            <article>
+              <strong>목적</strong>
+              <p>사용자가 상위 목록, 카테고리, 이전 맥락으로 빠르게 이동하게 돕습니다.</p>
+            </article>
+            <article>
+              <strong>사용 위치</strong>
+              <p>차량 상세 상단, 검색 결과 상세 진입, 내차팔기 등록 단계 화면에 둡니다.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="breadcrumb-section" id="breadcrumb-anatomy">
+          <h3>Anatomy</h3>
+          <div class="breadcrumb-anatomy">
+            ${renderBreadcrumbTrail([
+              { label: "홈", href: "/" },
+              { label: "중고차", href: "/cars" },
+              { label: "국산차", href: "/cars/domestic" },
+              { label: "제네시스 GV80" },
+            ])}
+            <dl>
+              ${anatomy.map(([term, description]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(description)}</dd></div>`).join("")}
+            </dl>
+          </div>
+        </section>
+
+        <section class="breadcrumb-section" id="breadcrumb-examples">
+          <h3>Examples</h3>
+          <div class="breadcrumb-example-grid">
+            ${examples
+              .map(
+                (labels, index) => `
+                  <article>
+                    <strong>예시 ${index + 1}</strong>
+                    ${renderBreadcrumbTrail(labels)}
+                  </article>
+                `,
+              )
+              .join("")}
+          </div>
+        </section>
+
+        <section class="breadcrumb-section" id="breadcrumb-states">
+          <h3>States</h3>
+          <div class="breadcrumb-state-grid">
+            ${states
+              .map(
+                ([state, description]) => `
+                  <article>
+                    <code>${escapeHtml(state)}</code>
+                    <p>${escapeHtml(description)}</p>
+                  </article>
+                `,
+              )
+              .join("")}
+          </div>
+        </section>
+
+        <section class="breadcrumb-section" id="breadcrumb-mobile">
+          <h3>Mobile</h3>
+          <p>모바일에서는 4단계 이상일 때 전체 경로를 모두 노출하지 않습니다.</p>
+          <div class="breadcrumb-mobile-examples">
+            <span>‹ 검색결과 / 제네시스 GV80 3.5 터보 AWD 7인승 아주 긴 매물명</span>
+            <span>홈 &gt; ... &gt; 제네시스 GV80</span>
+          </div>
+        </section>
+
+        <section class="breadcrumb-section" id="breadcrumb-importing">
+          <h3>Importing</h3>
+          <pre class="template-code"><code>${escapeHtml(`import BobaBreadcrumb from '@/components/navigation/BobaBreadcrumb.vue';`)}</code></pre>
+        </section>
+
+        <section class="breadcrumb-section" id="breadcrumb-api-examples">
+          <h3>API Examples</h3>
+          <div class="breadcrumb-table-wrap">
+            <table class="breadcrumb-props-table">
+              <thead>
+                <tr>
+                  <th>속성</th>
+                  <th>타입</th>
+                  <th>설명</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${props
+                  .map(
+                    ([name, type, description]) => `
+                      <tr>
+                        <td><code>${escapeHtml(name)}</code></td>
+                        <td><code>${escapeHtml(type)}</code></td>
+                        <td>${escapeHtml(description)}</td>
+                      </tr>
+                    `,
+                  )
+                  .join("")}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="breadcrumb-section" id="breadcrumb-usage">
+          <h3>Usage</h3>
+          <div class="breadcrumb-guideline-grid">
+            <article>
+              <strong>Do</strong>
+              <p>사용자의 방문 기록이 아니라 서비스 계층 구조를 보여줍니다.</p>
+            </article>
+            <article>
+              <strong>Do</strong>
+              <p>짧고 알아보기 쉬운 명칭을 씁니다. 차량명은 핵심 모델명 위주로 줄입니다.</p>
+            </article>
+            <article>
+              <strong>Don’t</strong>
+              <p>매물 등록 진행률을 Breadcrumb으로 표시하지 않습니다. 진행 단계는 Stepper를 사용합니다.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="breadcrumb-section" id="breadcrumb-accessibility">
+          <h3>Accessibility</h3>
+          <ul class="breadcrumb-checklist">
+            ${accessibility.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+          </ul>
+        </section>
+
+        <section class="breadcrumb-section" id="breadcrumb-specification">
+          <h3>Specification</h3>
+          <div class="breadcrumb-info-grid">
+            <article>
+              <strong>Desktop</strong>
+              <p>전역 내비게이션 아래 좌측에 배치하고, 3단계 이하는 전체 경로를 노출합니다.</p>
+            </article>
+            <article>
+              <strong>Mobile</strong>
+              <p>4단계 이상은 compact 또는 overflow 형태로 줄이고 터치 영역은 44px 이상으로 잡습니다.</p>
+            </article>
+            <article>
+              <strong>운영 기준</strong>
+              <p>채널이 달라도 items 데이터와 현재 페이지 표시는 동일하게 유지합니다.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="breadcrumb-section" id="breadcrumb-code">
+          <h3>Code Example</h3>
+          <pre class="template-code"><code>${escapeHtml(breadcrumbVueCodeExample())}</code></pre>
+        </section>
+      </article>
+      <aside class="doc-aside">
+        <strong>목차</strong>
+        ${renderDocToc(documentSectionsForNode(node))}
+      </aside>
+    </div>
+  `;
+}
+
+function renderBreadcrumbTrail(items = []) {
+  return `
+    <nav class="bd-breadcrumb-preview" aria-label="breadcrumb">
+      <ol>
+        ${items
+          .map((item, index) => {
+            const crumb = typeof item === "string" ? { label: item, href: breadcrumbHrefForLabel(item) } : item;
+            const isCurrent = index === items.length - 1;
+            return `
+              <li ${isCurrent ? 'aria-current="page"' : ""}>
+                ${
+                  isCurrent
+                    ? `<span>${escapeHtml(crumb.label)}</span>`
+                    : `<a href="${escapeAttribute(crumb.href || breadcrumbHrefForLabel(crumb.label))}">${escapeHtml(crumb.label)}</a><span class="bd-breadcrumb-separator" aria-hidden="true">&gt;</span>`
+                }
+              </li>
+            `;
+          })
+          .join("")}
+      </ol>
+    </nav>
+  `;
+}
+
+function breadcrumbHrefForLabel(label = "") {
+  const map = {
+    홈: "/",
+    중고차: "/cars",
+    국산차: "/cars/domestic",
+    현대: "/cars/domestic/hyundai",
+    검색결과: "/cars/search",
+    내차팔기: "/sell",
+    사진등록: "/sell/photos",
+  };
+  return map[label] || "/";
+}
+
+function breadcrumbVueCodeExample() {
+  return `<BobaBreadcrumb
+  :items="[
+    { label: '홈', href: '/' },
+    { label: '중고차', href: '/cars' },
+    { label: '국산차', href: '/cars/domestic' },
+    { label: '제네시스 GV80' }
+  ]"
+/>`;
 }
 
 function renderTemplateDoc(node) {
@@ -1360,7 +2506,7 @@ function renderTemplateDoc(node) {
     <div class="doc-template-section">
       <section class="template-panel template-panel-hero">
         <div>
-          <p class="eyebrow">Cars.com 구조 참고 · 보배드림형 재작성</p>
+            <p class="eyebrow">보배드림 디자인 시스템</p>
           <h3>${escapeHtml(profile.title)}</h3>
           <p>${escapeHtml(profile.description)}</p>
         </div>
@@ -1421,7 +2567,7 @@ function renderTemplateCoverage(node) {
   return `
     <section class="template-panel">
       <h4>전체 목차 커버리지</h4>
-      <p class="template-copy">Cars.com 공개 목차를 기준으로 ${total}개 문서 항목을 보배드림 샘플 템플릿으로 등록했습니다.</p>
+      <p class="template-copy">보배드림 디자인 시스템에 ${total}개 문서 항목을 샘플 템플릿으로 등록했습니다.</p>
       <div class="template-coverage-grid">
         ${[...groups.entries()]
           .map(
@@ -1451,10 +2597,10 @@ function templateProfileForNode(node) {
       description: "매물 탐색, 상세, 등록 화면에서 같은 구조로 재사용할 수 있게 목적, 구조, 상태, 접근성 기준을 한 화면에 정리합니다.",
       rules: [
         "터치 영역은 모바일 44px 이상을 우선합니다.",
-        "가격, 연식, 주행거리처럼 숫자 정보는 줄바꿈과 말줄임 기준을 먼저 잡습니다.",
-        "딜러/개인 판매자 맥락이 달라도 컴포넌트 이름과 상태명은 유지합니다.",
+        "컴포넌트별 상태는 실제 사용자 행동과 화면 맥락에 맞게 정의합니다.",
+        "같은 기능은 플랫폼이 달라도 동일한 이름과 상태명으로 관리합니다.",
       ],
-      checklist: ["props 정의", "variant 표", "loading/empty/error", "keyboard", "mobile sheet", "Storybook"],
+      checklist: ["props 정의", "variant 표", "상태 정의", "keyboard", "responsive", "Storybook"],
     };
   }
 
@@ -1626,7 +2772,7 @@ function renderTokenTemplateTable(node, relatedTokens) {
   return `
     <section class="template-panel">
       <h4>${escapeHtml(displayNodeName(node))} 샘플 토큰</h4>
-      <p class="template-copy">Cars.com 공개 토큰 분류를 보배드림 변수명으로 바꾼 개발 참고용 템플릿입니다.</p>
+      <p class="template-copy">보배드림 변수명으로 정리한 개발 참고용 토큰 템플릿입니다.</p>
       <div class="template-token-table-wrap">
         <table class="template-token-table">
           <thead>
@@ -1792,28 +2938,73 @@ function spacingTokenItemsForDocs() {
 }
 
 function renderIconsDoc(node) {
-  if (node.title !== "Icons") return "";
+  const selectedGroupId = iconGroupIdForNode(node);
+  if (!selectedGroupId) return "";
+
+  const iconItems = activeItems().filter((item) => item.type === "아이콘");
+  const groups = iconLibraryGroups
+    .map((group) => ({
+      ...group,
+      items: iconItems.filter((item) => resolveIconGroup(item) === group.id),
+    }))
+    .filter((group) => selectedGroupId === "all" || group.id === selectedGroupId);
 
   return `
     <div class="doc-icon-library">
-      <h3>아이콘 라이브러리 명칭</h3>
-      <p>아이콘은 interface, vehicle, commerce, media로 분류합니다.</p>
+      <h3>아이콘 라이브러리</h3>
+      <p>아이콘은 UI, 옵션, 차량 3개 그룹으로 관리합니다. 각 아이콘은 흰 배경에서 확인하고 바로 다운로드합니다.</p>
+      <div class="doc-icon-tabs" aria-label="아이콘 그룹">
+        ${iconLibraryGroups
+          .map(
+            (group) => `
+              <a class="${selectedGroupId === group.id ? "active" : ""}" href="#style-guide-icons-${group.id}-icons">
+                ${escapeHtml(group.title)}
+              </a>
+            `,
+          )
+          .join("")}
+      </div>
+      <div class="doc-icon-groups">
+        ${groups.map((group) => renderIconGroup(group)).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function renderIconGroup(group) {
+  return `
+    <section class="doc-icon-group">
+      <div class="doc-icon-group-header">
+        <div>
+          <h4>${escapeHtml(group.title)}</h4>
+          <p>${escapeHtml(group.description)}</p>
+        </div>
+        <span>${group.items.length}개</span>
+      </div>
       <div class="doc-icon-grid">
-        ${activeItems()
-          .filter((item) => item.type === "아이콘")
+        ${group.items
           .map(
             (item) => `
               <article>
                 ${renderIconVisual(item, "doc-icon-preview")}
                 <strong>${escapeHtml(item.name)}</strong>
                 <code>${escapeHtml(item.standard)}</code>
+                ${renderIconDownloadLink(item)}
               </article>
             `,
           )
           .join("")}
       </div>
-    </div>
+    </section>
   `;
+}
+
+function iconGroupIdForNode(node) {
+  if (node.title === "Icons") return "all";
+  if (node.title === "UI Icons") return "ui";
+  if (node.title === "Option Icons") return "option";
+  if (node.title === "Vehicle Icons") return "vehicle";
+  return "";
 }
 
 function renderMetrics() {
@@ -1828,6 +3019,7 @@ function renderMetrics() {
 }
 
 function renderReferences() {
+  if (!elements.referenceRows) return;
   elements.referenceRows.innerHTML = references
     .map(
       (reference) => `
@@ -1843,8 +3035,20 @@ function renderReferences() {
 }
 
 function renderCatalogs() {
-  renderCatalog(elements.fuseCatalog, fuseGroups);
+  renderCatalog(elements.fuseCatalog, catalogGroupsFromSidebarTree(fuseSidebarTree));
   renderCatalog(elements.ebayCatalog, ebayGroups);
+}
+
+function catalogGroupsFromSidebarTree(tree) {
+  return tree.map((node) => [
+    node.title,
+    catalogNote(node.title, ""),
+    node.children.length ? flattenCatalogEntries(node.children, node.title) : [node.title],
+  ]);
+}
+
+function flattenCatalogEntries(nodes, parent) {
+  return nodes.flatMap((node) => [[node.title, parent], ...flattenCatalogEntries(node.children, node.title)]);
 }
 
 function renderCatalog(target, groups) {
@@ -1964,6 +3168,7 @@ function renderIconCards() {
           ${renderIconVisual(item, "icon-card-preview")}
           <strong>${escapeHtml(item.name)}</strong>
           <small>${escapeHtml(item.standard)}</small>
+          ${renderIconDownloadLink(item, "icon-download-link compact")}
         </article>
       `,
     )
@@ -2141,6 +3346,8 @@ function saveItem(event) {
 function handleTableAction(event) {
   const button = event.target.closest("[data-action]");
   if (!button) return;
+  event.preventDefault();
+  event.stopPropagation();
 
   const id = button.dataset.id;
   const action = button.dataset.action;
@@ -2150,7 +3357,7 @@ function handleTableAction(event) {
   if (action === "edit") {
     confirmBeforeLosingFormChanges(() => {
       fillForm(item);
-      document.querySelector("#registry").scrollIntoView({ behavior: "smooth" });
+      navigateToStaticRoute("#registry");
       showToast("수정할 항목을 불러왔습니다.");
     });
   }
@@ -2180,13 +3387,16 @@ function duplicateItem(item) {
   persistItems();
   renderAll();
   fillForm(copy);
-  document.querySelector("#registry").scrollIntoView({ behavior: "smooth" });
+  navigateToStaticRoute("#registry");
   showToast("항목을 복제했습니다. 내용을 확인하세요.");
 }
 
 function fillForm(item) {
   clearFieldErrors();
   elements.itemId.value = item.id;
+  ensureSelectOption(elements.itemType, item.type);
+  ensureSelectOption(elements.itemStatus, item.status);
+  ensureSelectOption(elements.itemPlatform, item.platform);
   elements.itemType.value = item.type;
   elements.itemName.value = item.name;
   elements.itemStandard.value = item.standard;
@@ -2207,6 +3417,13 @@ function fillForm(item) {
   syncIconUploadVisibility();
   updateIconPreview(item);
   captureFormBaseline();
+}
+
+function ensureSelectOption(select, value) {
+  if (!select || !value) return;
+  const hasOption = [...select.options].some((option) => option.value === value);
+  if (hasOption) return;
+  select.add(new Option(value, value));
 }
 
 function clearForm() {
@@ -2417,10 +3634,61 @@ function downloadFile(filename, content, type) {
   URL.revokeObjectURL(url);
 }
 
+function resolveRoute(hash = window.location.hash || "#home") {
+  if (STATIC_ROUTE_SECTIONS.has(hash)) {
+    return {
+      type: "static",
+      hash,
+      sectionIds: STATIC_ROUTE_SECTIONS.get(hash),
+    };
+  }
+
+  const selectedNode = findSidebarNodeByHash(hash);
+  if (selectedNode && isDocumentRoute(selectedNode)) {
+    return {
+      type: "document",
+      hash: selectedNode.href,
+      node: selectedNode,
+    };
+  }
+
+  return {
+    type: "static",
+    hash: "#home",
+    sectionIds: STATIC_ROUTE_SECTIONS.get("#home"),
+  };
+}
+
+function setVisibleSections(sectionIds = []) {
+  const visibleIds = new Set(sectionIds);
+  elements.pageSections.forEach((section) => {
+    section.hidden = !visibleIds.has(section.id);
+  });
+}
+
+function navigateToStaticRoute(hash, onReady) {
+  if (window.location.hash !== hash) {
+    window.location.hash = hash;
+  }
+  syncActiveNav();
+  window.requestAnimationFrame(() => {
+    const firstSectionId = STATIC_ROUTE_SECTIONS.get(hash)?.[0];
+    document.getElementById(firstSectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    onReady?.();
+  });
+}
+
 function syncActiveNav() {
-  const hash = window.location.hash || "#style-guide-icons";
-  const selectedNode = findSidebarNodeByHash(hash) || findSidebarNodeByHash("#style-guide-icons");
-  if (selectedNode) renderDocumentPage(selectedNode);
+  const route = resolveRoute();
+  const hash = route.hash;
+
+  if (route.type === "document") {
+    renderDocumentPage(route.node);
+    setVisibleSections(["docPage"]);
+  } else {
+    elements.docPage.innerHTML = "";
+    setVisibleSections(route.sectionIds);
+  }
 
   document.querySelectorAll(".nav-link").forEach((link) => {
     link.classList.toggle("active", link.getAttribute("href") === hash);
@@ -2431,6 +3699,10 @@ function syncActiveNav() {
   if (activeLink && scroller && !elements.sidebarSearch.value.trim() && window.innerWidth > 760) {
     scroller.scrollTop = Math.max(0, activeLink.offsetTop - 170);
   }
+}
+
+function currentRouteHash() {
+  return resolveRoute().hash;
 }
 
 function validateForm() {
@@ -2756,6 +4028,122 @@ function getIconSource(item) {
   if (item.iconData?.startsWith("data:image/svg+xml")) return item.iconData;
   if (item.iconPath) return resolveIconPath(item.iconPath);
   return getMappedIconPath(item);
+}
+
+function renderIconDownloadLink(item, className = "icon-download-link") {
+  const source = getIconSource(item);
+  if (!source) return "";
+  const downloadLabel = `${iconFileExtension(iconDownloadName(item)).toUpperCase()} 다운로드`;
+
+  return `
+    <a
+      class="${escapeAttribute(className)}"
+      href="${escapeAttribute(source)}"
+      download="${escapeAttribute(iconDownloadName(item))}"
+      aria-label="${escapeAttribute(`${item.name || item.standard} ${downloadLabel}`)}"
+    >
+      ${escapeHtml(downloadLabel)}
+    </a>
+  `;
+}
+
+function iconDownloadName(item) {
+  const fromFile = item.iconFileName || item.standard || item.name || "bobaedream-icon.svg";
+  const fileName = String(fromFile)
+    .trim()
+    .replace(/[\\/:*?"<>|]+/g, "-")
+    .replace(/\s+/g, "-");
+  if (/\.[a-z0-9]+$/i.test(fileName)) return fileName;
+  return `${fileName}.${iconFileExtension(item.iconPath || item.iconData || fileName)}`;
+}
+
+function iconFileExtension(fileName = "") {
+  const source = String(fileName || "").toLowerCase();
+  if (source.startsWith("data:image/svg+xml")) return "svg";
+  const match = source.match(/\.([a-z0-9]+)(?:[?#].*)?$/);
+  return match ? match[1] : "svg";
+}
+
+function iconBaseName(fileName = "") {
+  const normalized = String(fileName || "").replace(/\\/g, "/");
+  const name = normalized.split("/").pop() || normalized;
+  return name.replace(/\.[a-z0-9]+$/i, "");
+}
+
+function iconDisplayName(groupId, fileName = "") {
+  const baseName = iconBaseName(fileName);
+  const vehicleBrandNames = {
+    audi: "아우디 브랜드",
+    benz: "벤츠 브랜드",
+    bmw: "BMW 브랜드",
+    jaguar: "재규어 브랜드",
+    "land-rover": "랜드로버 브랜드",
+    lexus: "렉서스 브랜드",
+    lincoln: "링컨 브랜드",
+    mini: "MINI 브랜드",
+    "porsche-symbol": "포르쉐 심볼",
+    porsche: "포르쉐 브랜드",
+  };
+  const vehicleCategoryNames = {
+    "used-car": "중고차",
+    truck: "트럭",
+    bike: "바이크",
+    camping: "캠핑카",
+    construction: "건설기계",
+    "old-car": "올드카",
+    parts: "부품",
+  };
+  const uiNames = {
+    back: "뒤로가기",
+    bookmark: "북마크",
+    "card-call": "매물 카드 전화",
+    "card-heart": "매물 카드 찜",
+    "card-message": "매물 카드 메시지",
+    "card-more": "매물 카드 더보기",
+    "card-view": "매물 카드 조회",
+    "category-chevron-down": "카테고리 아래 화살표",
+    "category-chevron-right": "카테고리 오른쪽 화살표",
+    "category-sheet-close": "카테고리 시트 닫기",
+    "chevron-down": "아래 화살표",
+    "chotot-heart": "초톳 하트",
+    close: "닫기",
+    filter: "필터",
+    "heart-outline": "찜 외곽선",
+    heart: "찜",
+    list: "목록",
+    "location-blue": "위치 파랑",
+    "location-gray": "위치 회색",
+    message: "메시지",
+    "notion-chevron-right": "노션형 오른쪽 화살표",
+    "notion-close": "노션형 닫기",
+    "notion-filter": "노션형 필터",
+    "notion-list": "노션형 목록",
+    "notion-search": "노션형 검색",
+    "photo-count": "사진 개수",
+    "region-chevron": "지역 화살표",
+    search: "검색",
+    "sheet-chevron": "시트 화살표",
+    "sheet-close": "시트 닫기",
+    "sort-arrow": "정렬 화살표",
+    views: "조회수",
+  };
+
+  if (groupId === "option") {
+    const optionMatch = baseName.match(/^option-(\d+)$/);
+    if (optionMatch) return `옵션 ${optionMatch[1]} 아이콘`;
+    if (baseName === "option-smart-key") return "스마트키 옵션 아이콘";
+    if (baseName === "option-info") return "옵션 정보 아이콘";
+    return `${baseName.replace(/-/g, " ")} 옵션 아이콘`;
+  }
+  if (groupId === "vehicle") return `${vehicleBrandNames[baseName] || vehicleCategoryNames[baseName] || baseName.replace(/-/g, " ")} 아이콘`;
+  return `${uiNames[baseName] || baseName.replace(/-/g, " ")} 아이콘`;
+}
+
+function resolveIconGroup(item) {
+  const haystack = [item.props, item.iconPath, item.standard, item.name].join(" ").toLowerCase();
+  if (haystack.includes("group:option") || /option-|option_|option\b|옵션/.test(haystack)) return "option";
+  if (haystack.includes("group:vehicle") || /categories|brand|vehicle|car|truck|bike|camping|차량|브랜드/.test(haystack)) return "vehicle";
+  return "ui";
 }
 
 function getMappedIconPath(item) {
