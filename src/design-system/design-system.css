@@ -14,6 +14,21 @@
   --bd-radius-chip: 999px;
   --bd-shadow-panel: 0 16px 38px rgba(17, 24, 39, 0.08);
   --bd-shadow-sticky: 0 -2px 14px rgba(17, 24, 39, 0.12);
+  --bd-space-4: 4px;
+  --bd-space-8: 8px;
+  --bd-space-10: 10px;
+  --bd-space-12: 12px;
+  --bd-space-14: 14px;
+  --bd-space-16: 16px;
+  --bd-space-18: 18px;
+  --bd-space-20: 20px;
+  --bd-space-24: 24px;
+  --bd-space-32: 32px;
+  --bd-space-40: 40px;
+  --bd-space-48: 48px;
+  --bd-space-56: 56px;
+  --bd-space-64: 64px;
+  --bd-space-gap: var(--bd-space-16);
   font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 

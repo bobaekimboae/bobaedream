@@ -625,6 +625,38 @@ const ebayGroups = [
   ["Patterns", "패턴 분류", ["Overview", "Bulk editing", "Creating forms", "Empty states", "Filtering", "Requesting user feedback", "Uploading files", "Using links", ["Text link", "Using links"], ["Legal link", "Using links"]]],
 ];
 
+const spacingTokenScale = [
+  { id: "4", step: "0.5", token: "--bd-space-4", value: "4px", label: "간격 4", usage: "아이콘과 텍스트 사이, 가격과 단위 사이" },
+  { id: "8", step: "1", token: "--bd-space-8", value: "8px", label: "간격 8", usage: "칩 사이, 작은 버튼 내부, 썸네일 안쪽 여백" },
+  { id: "10", step: "1.25", token: "--bd-space-10", value: "10px", label: "간격 10", usage: "컴팩트 카드 행, 작은 입력 보조 영역" },
+  { id: "12", step: "1.5", token: "--bd-space-12", value: "12px", label: "간격 12", usage: "매물 카드 내부, 필터 레일, 입력 묶음" },
+  { id: "14", step: "1.75", token: "--bd-space-14", value: "14px", label: "간격 14", usage: "모바일 리스트 보조 간격, 좁은 카드 padding" },
+  { id: "16", step: "2", token: "--bd-space-16", value: "16px", label: "간격 16", usage: "기본 스택 간격, 폼 필드 사이, 카드 묶음" },
+  { id: "18", step: "2.25", token: "--bd-space-18", value: "18px", label: "간격 18", usage: "PC 카드 내부 여백, 섹션 안쪽 보조 간격" },
+  { id: "20", step: "2.5", token: "--bd-space-20", value: "20px", label: "간격 20", usage: "모바일 화면 좌우 여백, 리스트 블록 간격" },
+  { id: "24", step: "3", token: "--bd-space-24", value: "24px", label: "간격 24", usage: "섹션 내부 그룹, 상세 정보 블록 상하 간격" },
+  { id: "32", step: "4", token: "--bd-space-32", value: "32px", label: "간격 32", usage: "문서 섹션, PC 콘텐츠 그룹 사이" },
+  { id: "40", step: "5", token: "--bd-space-40", value: "40px", label: "간격 40", usage: "큰 화면 섹션 상하 여백, 주요 카드 그룹" },
+  { id: "48", step: "6", token: "--bd-space-48", value: "48px", label: "간격 48", usage: "페이지 블록 분리, 문서 상단 여백" },
+  { id: "56", step: "7", token: "--bd-space-56", value: "56px", label: "간격 56", usage: "넓은 화면 주요 섹션 간격" },
+  { id: "64", step: "8", token: "--bd-space-64", value: "64px", label: "간격 64", usage: "PC 최상위 페이지 섹션 분리" },
+  { id: "gap", step: "stack", token: "--bd-space-gap", value: "16px", label: "기본 스택 간격", usage: "카드 목록, 폼 행, 반복 요소의 기본 gap" },
+];
+
+const spacingRegistryItems = spacingTokenScale.map((token) => ({
+  id: `token-space-${token.id}`,
+  type: "토큰",
+  name: token.label,
+  standard: token.token,
+  status: "등록완료",
+  platform: "공통",
+  sheet: "06_디자인토큰마스터",
+  pcValue: token.value,
+  moValue: token.value,
+  props: "margin, padding, gap",
+  note: token.usage,
+}));
+
 const seedItems = [
   {
     id: "ref-ebay",
@@ -652,19 +684,7 @@ const seedItems = [
     props: "text, background, border, semantic color",
     note: "HEX와 rgba를 분리 등록",
   },
-  {
-    id: "token-spacing",
-    type: "토큰",
-    name: "Spacing Token",
-    standard: "--space-12",
-    status: "검토필요",
-    platform: "공통",
-    sheet: "06_디자인토큰마스터",
-    pcValue: "12px",
-    moValue: "12px",
-    props: "margin, padding, gap",
-    note: "필터 칩과 썸네일 간격 우선 측정",
-  },
+  ...spacingRegistryItems,
   {
     id: "token-breakpoint",
     type: "토큰",
@@ -1094,6 +1114,21 @@ function normalizeRegistryItems(sourceItems = []) {
 
 function normalizeRegistryItem(item = {}) {
   const now = new Date().toISOString();
+  if (String(item.id || "") === "token-spacing" && String(item.standard || "").trim() === "--space-12") {
+    const spacingToken = spacingTokenScale.find((token) => token.id === "12");
+    item = {
+      ...item,
+      id: `token-space-${spacingToken.id}`,
+      name: spacingToken.label,
+      standard: spacingToken.token,
+      status: "등록완료",
+      pcValue: spacingToken.value,
+      moValue: spacingToken.value,
+      props: "margin, padding, gap",
+      note: spacingToken.usage,
+    };
+  }
+
   return {
     id: String(item.id || createId()),
     type: String(item.type || DEFAULT_TYPE),
@@ -1295,6 +1330,7 @@ function renderDocumentPage(node) {
             .join("")}
         </div>
         ${renderIconsDoc(node)}
+        ${renderSpacingDoc(node)}
       </article>
       <aside class="doc-aside">
         <strong>문서 기준</strong>
@@ -1306,6 +1342,101 @@ function renderDocumentPage(node) {
       </aside>
     </div>
   `;
+}
+
+function renderSpacingDoc(node) {
+  if (node.title !== "Spacing") return "";
+
+  const spacingItems = spacingTokenItemsForDocs();
+  return `
+    <div class="doc-spacing-section">
+      <section class="doc-spacing-intro">
+        <h3>간격 토큰</h3>
+        <p>간격은 8px 기준으로 관리합니다. 중간값은 모바일 밀도와 카드 내부 정렬이 필요할 때만 씁니다.</p>
+        <div class="spacing-principles">
+          <span>margin</span>
+          <span>padding</span>
+          <span>gap</span>
+          <span>stack 16px</span>
+        </div>
+      </section>
+
+      <div class="spacing-token-table-wrap">
+        <table class="spacing-token-table">
+          <thead>
+            <tr>
+              <th>토큰</th>
+              <th>값</th>
+              <th>기준</th>
+              <th>사용 위치</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${spacingItems
+              .map(
+                ({ token, item }) => `
+                  <tr>
+                    <td><code>${escapeHtml(token.token)}</code></td>
+                    <td>
+                      <div class="spacing-ruler" aria-label="${escapeAttribute(token.value)} 간격">
+                        <span class="spacing-ruler-bar" style="--spacing-width: ${escapeAttribute(token.value)}"></span>
+                        <strong>${escapeHtml(token.value)}</strong>
+                      </div>
+                    </td>
+                    <td>${escapeHtml(token.step)}</td>
+                    <td>${escapeHtml(item.note || token.usage)}</td>
+                  </tr>
+                `,
+              )
+              .join("")}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="spacing-example-grid">
+        <article>
+          <strong>컴팩트</strong>
+          <p>4-8px는 아이콘과 텍스트처럼 붙어 읽히는 요소에 씁니다.</p>
+          <div class="spacing-chip-row compact">
+            <span>필터</span><span>연식</span><span>가격</span>
+          </div>
+        </article>
+        <article>
+          <strong>기본</strong>
+          <p>12-20px는 카드, 폼, 리스트 행의 기본 여백으로 씁니다.</p>
+          <div class="spacing-card-demo">
+            <span></span>
+            <div><b>현대 팰리세이드</b><small>2023년식 · 5만km</small></div>
+          </div>
+        </article>
+        <article>
+          <strong>섹션</strong>
+          <p>24-64px는 화면 블록과 문서 섹션을 분리할 때 씁니다.</p>
+          <div class="spacing-section-demo">
+            <span></span><span></span><span></span>
+          </div>
+        </article>
+      </div>
+    </div>
+  `;
+}
+
+function spacingTokenItemsForDocs() {
+  const registryTokens = new Map(
+    activeItems()
+      .filter((item) => item.type === "토큰")
+      .map((item) => [item.standard, item]),
+  );
+
+  return spacingTokenScale.map((token) => ({
+    token,
+    item:
+      registryTokens.get(token.token) || {
+        note: token.usage,
+        pcValue: token.value,
+        moValue: token.value,
+      },
+  }));
 }
 
 function renderIconsDoc(node) {
@@ -1428,15 +1559,19 @@ function renderTokenCards() {
   elements.tokenCards.innerHTML = activeItems()
     .filter((item) => item.type === "토큰")
     .map(
-      (item) => `
+      (item) => {
+        const isSpacing = item.standard.startsWith("--bd-space");
+        const swatchStyle = isSpacing ? ` style="--spacing-width: ${escapeAttribute(item.pcValue || item.moValue)}"` : "";
+        return `
         <article class="system-card">
-          <div class="token-swatch"></div>
+          <div class="token-swatch${isSpacing ? " spacing-token-swatch" : ""}"${swatchStyle}></div>
           <span class="tag">${escapeHtml(item.status)}</span>
           <h3>${escapeHtml(item.name)}</h3>
           <p><code>${escapeHtml(item.standard)}</code></p>
           <p>PC ${escapeHtml(item.pcValue || "-")} · MO ${escapeHtml(item.moValue || "-")}</p>
         </article>
-      `,
+      `;
+      },
     )
     .join("");
 }
