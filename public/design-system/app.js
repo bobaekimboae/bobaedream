@@ -119,6 +119,7 @@ const koreanNames = {
   "Frequent Icons": "자주쓰는 아이콘",
   "Option Icons": "옵션 아이콘",
   "Vehicle Info Icons": "차량 관련 아이콘",
+  "Brand Icons": "브랜드 아이콘",
   "Community Icons": "커뮤니티 아이콘",
   Imagery: "이미지",
   Layout: "레이아웃",
@@ -410,7 +411,7 @@ const requiredItems = new Set([
   "Home", "Web Installation & Usage", "System Installation", "Guide to Web Components", "Web Component Basics",
   "Style Customization", "Working with Forms", "React Components", "AI Agent Skill", "Changelog",
   "Design Tokens", "Color", "Font", "Spacing", "Size", "Elevation", "Motion", "Breakpoints", "Icons",
-  "UI Icons", "Frequent Icons", "Option Icons", "Vehicle Info Icons", "Community Icons",
+  "UI Icons", "Frequent Icons", "Option Icons", "Vehicle Info Icons", "Brand Icons", "Community Icons",
   "Forms", "Imagery", "Layout", "Typography & Headings", "Usability Standards", "Visual Language",
   "Accordion", "Badge", "Breadcrumb", "Button", "Card", "Card Carousel", "Checkbox", "Fieldset",
   "Filter", "Form Module", "Gallery", "Gallery Grid", "Gallery Thumbnails", "Input", "Link", "List",
@@ -527,6 +528,7 @@ const fuseSidebarTree = sidebarTree([
       { title: "Frequent Icons", href: "#style-guide-icons-frequent-icons" },
       { title: "Option Icons", href: "#style-guide-icons-option-icons" },
       { title: "Vehicle Info Icons", href: "#style-guide-icons-vehicle-info-icons" },
+      { title: "Brand Icons", href: "#style-guide-icons-brand-icons" },
       { title: "Community Icons", href: "#style-guide-icons-community-icons" },
     ],
   },
@@ -739,11 +741,12 @@ const bobaedreamUseCases = {
   Tabs: ["상세정보", "성능점검", "보험이력"],
   Notification: ["성공", "오류", "가격 변동"],
   "보배드림 운영": ["등록", "수정", "검토"],
-  Icons: ["UI 아이콘", "자주쓰는 아이콘", "옵션 아이콘", "차량 관련 아이콘", "커뮤니티 아이콘"],
+  Icons: ["UI 아이콘", "자주쓰는 아이콘", "옵션 아이콘", "차량 관련 아이콘", "브랜드 아이콘", "커뮤니티 아이콘"],
   "UI Icons": ["검색", "닫기", "필터"],
   "Frequent Icons": ["찜", "전화", "사진", "조회수"],
   "Option Icons": ["편의 옵션", "안전 옵션", "상태 표시"],
   "Vehicle Info Icons": ["연식", "주행거리", "연료", "가격", "차종"],
+  "Brand Icons": ["제조사 로고", "브랜드 필터", "상세 브랜드 표시"],
   "Community Icons": ["댓글", "추천", "공유", "조회"],
 };
 
@@ -763,7 +766,7 @@ const fuseGroups = [
     "Style Guide", ["Design Tokens", "Style Guide"], ["Installation", "Design Tokens"], ["Schema", "Design Tokens"],
     ["Color", "Design Tokens"], ["Font", "Design Tokens"], ["Spacing", "Design Tokens"], ["Size", "Design Tokens"],
     ["Elevation", "Design Tokens"], ["Motion", "Design Tokens"], ["Breakpoints", "Design Tokens"], ["Icons", "Style Guide"],
-    ["UI Icons", "Icons"], ["Frequent Icons", "Icons"], ["Option Icons", "Icons"], ["Vehicle Info Icons", "Icons"], ["Community Icons", "Icons"],
+    ["UI Icons", "Icons"], ["Frequent Icons", "Icons"], ["Option Icons", "Icons"], ["Vehicle Info Icons", "Icons"], ["Brand Icons", "Icons"], ["Community Icons", "Icons"],
     ["Forms", "Style Guide"], ["Imagery", "Style Guide"], ["Layout", "Style Guide"], ["Spacing", "Style Guide"],
     ["Typography & Headings", "Style Guide"], ["Usability Standards", "Style Guide"], ["Visual Language", "Style Guide"],
   ]],
@@ -937,7 +940,7 @@ const iconLibraryGroups = [
   {
     id: "vehicle",
     title: "차량 관련 아이콘",
-    description: "연식, 주행거리, 가격, 차종, 브랜드처럼 매물 정보와 차량 분류에 쓰는 아이콘입니다.",
+    description: "연식, 주행거리, 가격, 차종처럼 매물 정보와 차량 분류에 쓰는 아이콘입니다.",
     folder: "categories",
     files: [
       "used-car.svg",
@@ -953,16 +956,24 @@ const iconLibraryGroups = [
       "../detail/price-up.svg",
       "../detail/price-down.svg",
       "../detail/price-history-close.svg",
-      "../brand/audi.svg",
-      "../brand/benz.png",
-      "../brand/bmw.svg",
-      "../brand/jaguar.png",
-      "../brand/land-rover.svg",
-      "../brand/lexus.svg",
-      "../brand/lincoln.png",
-      "../brand/mini.svg",
-      "../brand/porsche-symbol.png",
-      "../brand/porsche.png",
+    ],
+  },
+  {
+    id: "brand",
+    title: "브랜드 아이콘",
+    description: "제조사 로고, 브랜드 필터, 차량 상세의 브랜드 표시에 쓰는 아이콘입니다.",
+    folder: "brand",
+    files: [
+      "audi.svg",
+      "benz.png",
+      "bmw.svg",
+      "jaguar.png",
+      "land-rover.svg",
+      "lexus.svg",
+      "lincoln.png",
+      "mini.svg",
+      "porsche-symbol.png",
+      "porsche.png",
     ],
   },
   {
@@ -1573,7 +1584,7 @@ function normalizeRegistryItem(item = {}) {
     };
   }
 
-  return {
+  const normalized = {
     id: String(item.id || createId()),
     type: String(item.type || DEFAULT_TYPE),
     name: String(item.name || "").trim(),
@@ -1592,6 +1603,31 @@ function normalizeRegistryItem(item = {}) {
     updatedAt: item.updatedAt || now,
     archived: Boolean(item.archived),
   };
+
+  migrateBrandIconItem(normalized);
+  return normalized;
+}
+
+function migrateBrandIconItem(item) {
+  if (item.type !== "아이콘") return item;
+
+  const haystack = [item.props, item.iconPath, item.iconFileName, item.standard, item.name].join(" ").toLowerCase();
+  const isBrandAsset = /\/brand\/|\\brand\\|brand|audi|benz|bmw|jaguar|land-rover|lexus|lincoln|mini|porsche|브랜드|제조사/.test(haystack);
+  if (!isBrandAsset) return item;
+
+  const baseName = iconBaseName(item.iconPath || item.iconFileName || item.standard.replace(/^ic_(vehicle|brand)_/i, ""));
+  if (!baseName) return item;
+
+  const extension = iconFileExtension(item.iconPath || item.iconFileName || item.standard);
+  const standardBase = baseName.replace(/[^a-z0-9]+/gi, "_").replace(/^_+|_+$/g, "").toLowerCase();
+  item.id = `icon_brand_${standardBase}`;
+  item.standard = `ic_brand_${standardBase}.${extension}`;
+  item.props = item.props
+    ? item.props.replace(/group:vehicle/gi, "group:brand")
+    : "group:brand, download, white background, alt text";
+  if (!/group:brand/i.test(item.props)) item.props = `group:brand, ${item.props}`;
+
+  return item;
 }
 
 function mergeSeedItems(sourceItems = []) {
@@ -2151,7 +2187,7 @@ function renderDocPropsTable(props = []) {
 }
 
 function renderSpecializedDoc(node) {
-  if (["Icons", "UI Icons", "Frequent Icons", "Option Icons", "Vehicle Info Icons", "Community Icons"].includes(node.title)) {
+  if (["Icons", "UI Icons", "Frequent Icons", "Option Icons", "Vehicle Info Icons", "Brand Icons", "Community Icons"].includes(node.title)) {
     return renderIconsDoc(node);
   }
   if (node.title === "Spacing") return renderSpacingDoc(node);
@@ -3146,7 +3182,7 @@ function renderIconsDoc(node) {
   return `
     <div class="doc-icon-library">
       <h3>아이콘 라이브러리</h3>
-      <p>아이콘은 UI, 자주쓰는, 옵션, 차량 관련, 커뮤니티 5개 그룹으로 관리합니다. 필요한 아이콘을 선택해 개별 또는 일괄 다운로드합니다.</p>
+      <p>아이콘은 UI, 자주쓰는, 옵션, 차량 관련, 브랜드, 커뮤니티 6개 그룹으로 관리합니다. 필요한 아이콘을 선택해 개별 또는 일괄 다운로드합니다.</p>
       <div class="doc-icon-tabs" aria-label="아이콘 그룹">
         ${iconLibraryGroups
           .map(
@@ -3557,6 +3593,7 @@ function iconGroupIdForNode(node) {
   if (node.title === "Frequent Icons") return "frequent";
   if (node.title === "Option Icons") return "option";
   if (node.title === "Vehicle Info Icons") return "vehicle";
+  if (node.title === "Brand Icons") return "brand";
   if (node.title === "Community Icons") return "community";
   return "";
 }
@@ -4759,6 +4796,7 @@ function iconDisplayName(groupId, fileName = "") {
     if (optionIconMetadata[baseName]) return optionIconMetadata[baseName].name;
     return `${baseName.replace(/-/g, " ")} 옵션 아이콘`;
   }
+  if (groupId === "brand") return `${vehicleBrandNames[baseName] || baseName.replace(/-/g, " ")} 아이콘`;
   if (groupId === "vehicle") return `${vehicleBrandNames[baseName] || vehicleCategoryNames[baseName] || baseName.replace(/-/g, " ")} 아이콘`;
   return `${uiNames[baseName] || baseName.replace(/-/g, " ")} 아이콘`;
 }
@@ -4798,7 +4836,8 @@ function resolveIconGroup(item) {
   if (haystack.includes("group:ui")) return "ui";
   if (haystack.includes("group:frequent")) return "frequent";
   if (haystack.includes("group:option") || /option-|option_|option\b|옵션/.test(haystack)) return "option";
-  if (haystack.includes("group:vehicle") || /categories|brand|vehicle|truck|bike|camping|used-car|차량|차종|브랜드/.test(haystack)) return "vehicle";
+  if (haystack.includes("group:brand") || /\/brand\/|brand|audi|benz|bmw|jaguar|land-rover|lexus|lincoln|mini|porsche|브랜드|제조사/.test(haystack)) return "brand";
+  if (haystack.includes("group:vehicle") || /categories|vehicle|truck|bike|camping|used-car|차량|차종/.test(haystack)) return "vehicle";
   if (haystack.includes("group:community") || /community|comment|reply|post|board|댓글|게시글|커뮤니티/.test(haystack)) return "community";
   return "ui";
 }
