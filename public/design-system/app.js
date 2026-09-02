@@ -3096,7 +3096,7 @@ function renderPaginationDocumentPage(node) {
         <p class="doc-sublede">중고차 매물 리스트, 딜러 매물 목록, 커뮤니티 게시판처럼 결과가 여러 페이지로 나뉘는 화면에 사용합니다.</p>
         <div class="pagination-top-preview" aria-label="페이지네이션 미리보기">
           <div>
-            <span>Chợ Tốt형 · 40px · #ffd400</span>
+            <span>Chợ Tốt형 · 40px · #ffd400 · 최댓값 4</span>
             ${renderBobaPaginationTemplate({ variant: "chotot", totalPages: 4 })}
           </div>
           <div>
@@ -3132,7 +3132,7 @@ function renderPaginationDocumentPage(node) {
                 <strong>Chợ Tốt형 목록 페이지네이션</strong>
                 <p>차량 목록 하단에서 4페이지까지 번호를 그대로 노출하는 구조입니다.</p>
               </div>
-              <span>40px · #ffd400 · max 4</span>
+              <span>40px · #ffd400 · 최댓값 4</span>
             </div>
             ${renderPaginationListTemplate()}
           </div>
@@ -3299,6 +3299,7 @@ function renderBobaPaginationTemplate(options = {}) {
     <nav class="bd-pagination-template is-${escapeAttribute(variant)}" aria-label="검색 결과 페이지" data-pagination-template data-pagination-variant="${escapeAttribute(variant)}" data-total-pages="${totalPages}" data-current-page="${currentPage}">
       ${renderPaginationControls({ currentPage, totalPages, variant, baseUrl: "/cars/search" })}
     </nav>
+    ${renderPaginationMaxSummary({ currentPage, totalPages, variant })}
   `;
 }
 
@@ -3372,6 +3373,16 @@ function renderCompactPaginationControls(currentPage, totalPages) {
   `;
 }
 
+function renderPaginationMaxSummary({ currentPage, totalPages, variant }) {
+  return `
+    <div class="bd-pagination-max-summary" data-pagination-max-summary data-pagination-variant="${escapeAttribute(variant)}" data-total-pages="${totalPages}">
+      <span>현재 <strong data-pagination-current-label>${currentPage}</strong></span>
+      <span>최댓값 <strong data-pagination-total-label>${totalPages}</strong></span>
+      <span>마지막 페이지에서 다음 버튼 disabled</span>
+    </div>
+  `;
+}
+
 function paginationVueCodeExample() {
   return `<BobaPagination
   :current-page="1"
@@ -3438,6 +3449,16 @@ function updatePaginationTemplates(variant, currentPage) {
     const page = clampPage(currentPage, totalPages);
     root.dataset.currentPage = String(page);
     root.innerHTML = renderCompactPaginationControls(page, totalPages);
+  });
+
+  document.querySelectorAll("[data-pagination-max-summary]").forEach((summary) => {
+    if (summary.dataset.paginationVariant !== variant) return;
+    const totalPages = Math.max(1, Number(summary.dataset.totalPages || 1));
+    const page = clampPage(currentPage, totalPages);
+    const currentLabel = summary.querySelector("[data-pagination-current-label]");
+    const totalLabel = summary.querySelector("[data-pagination-total-label]");
+    if (currentLabel) currentLabel.textContent = String(page);
+    if (totalLabel) totalLabel.textContent = String(totalPages);
   });
 }
 

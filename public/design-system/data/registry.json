@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "project": "bobaedream-design-system",
-  "updated_at": "2026-09-02T09:16:41.880Z",
+  "updated_at": "2026-09-02T09:56:06.485Z",
   "items": [
     {
       "id": "ref-ebay",
@@ -1689,17 +1689,17 @@
       "status": "등록완료",
       "platform": "PC 웹, 모바일 웹",
       "sheet": "04_컴포넌트마스터",
-      "pcValue": "숫자형 페이지 버튼",
-      "moValue": "compact page / prev next",
+      "pcValue": "40px 번호 버튼 / 최댓값 4",
+      "moValue": "compact 1 / 4 · 이전/다음",
       "props": "currentPage, totalPages, pageSize, totalItems, baseUrl, ariaLabel",
-      "note": "매물 리스트 마지막 카드 아래에 배치하고 검색 설명, 추천 키워드 영역보다 먼저 노출하는 페이지네이션 템플릿입니다.",
+      "note": "Chợ Tốt 차량 목록처럼 1부터 최댓값 4까지 번호를 그대로 노출하고 마지막 페이지에서 다음 버튼을 비활성화하는 페이지네이션 템플릿입니다.",
       "iconPath": "",
       "iconData": "",
       "iconFileName": "",
       "appliedPage": "중고차 검색 결과, 딜러 매물 목록",
       "appliedUrl": "/cars/search?page=1",
       "createdAt": "2026-09-02T08:57:58.367Z",
-      "updatedAt": "2026-09-02T08:57:58.367Z",
+      "updatedAt": "2026-09-02T09:56:06.485Z",
       "archived": false
     },
     {

@@ -1710,7 +1710,7 @@ body.sidebar-open .mobile-menu-button {
   padding: 12px;
 }
 
-.pagination-top-preview span {
+.pagination-top-preview > div > span {
   color: #344054;
   font-size: 13px;
   font-weight: 850;
@@ -1859,6 +1859,32 @@ body.sidebar-open .mobile-menu-button {
   align-items: center;
   justify-content: center;
   gap: 8px;
+}
+
+.bd-pagination-max-summary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  color: #667085;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.bd-pagination-max-summary span {
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
+  border: 1px solid #e4e7ec;
+  border-radius: 999px;
+  background: #fff;
+  padding: 0 10px;
+}
+
+.bd-pagination-max-summary strong {
+  margin-left: 4px;
+  color: #101828;
+  font-size: 12px;
 }
 
 .bd-pagination-page,
