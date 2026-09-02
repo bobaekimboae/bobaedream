@@ -1342,46 +1342,46 @@ const seedItems = [
     id: "icon-filter",
     type: "아이콘",
     name: "필터 아이콘",
-    standard: "ic_action_filter_24.svg",
+    standard: "ic_interface_filter_24.svg",
     status: "등록완료",
     platform: "공통",
     sheet: "07_아이콘명칭규칙",
     pcValue: "24px",
     moValue: "24px",
-    props: "width, height, stroke, active color, hit area",
+    props: "group:ui, UI 아이콘, width, height, stroke, active color, hit area, download, white background, alt text",
     note: "필터 버튼과 칩에 사용",
     iconPath: iconAssetPath("ui/filter.svg"),
-    iconFileName: "filter.svg",
+    iconFileName: "ic_interface_filter_24.svg",
   },
   {
     id: "icon-favorite",
     type: "아이콘",
     name: "찜 아이콘",
-    standard: "ic_action_favorite_24.svg",
+    standard: "ic_interface_favorite_24.svg",
     status: "등록완료",
     platform: "공통",
     sheet: "07_아이콘명칭규칙",
     pcValue: "24px",
     moValue: "24px",
-    props: "outline, active fill, scale animation",
+    props: "group:frequent, 자주쓰는 아이콘, outline, active fill, scale animation, download, white background, alt text",
     note: "매물 카드와 상세 상단 공통",
     iconPath: iconAssetPath("ui/heart.svg"),
-    iconFileName: "heart.svg",
+    iconFileName: "ic_interface_favorite_24.svg",
   },
   {
     id: "icon-filter-chip-close",
     type: "아이콘",
     name: "필터 칩 닫기 아이콘",
-    standard: "ic_filter_chip_close_24.svg",
+    standard: "ic_interface_chip_close_24.svg",
     status: "등록완료",
     platform: "공통",
     sheet: "07_아이콘명칭규칙",
     pcValue: "24px",
     moValue: "24px",
-    props: "width, height, fill, color, hit area, aria-label",
+    props: "group:ui, UI 아이콘, width, height, fill, color, hit area, aria-label, download, white background, alt text",
     note: "선택된 필터 칩을 해제할 때 사용",
     iconPath: "./icons/ic_filter_chip_close_24.svg",
-    iconFileName: "ic_filter_chip_close_24.svg",
+    iconFileName: "ic_interface_chip_close_24.svg",
   },
   ...assetIconRegistryItems,
   {
@@ -1653,7 +1653,8 @@ async function hydrateItemsFromRepoData() {
     const repoItems = normalizeRegistryItems(readRegistryPayload(payload));
     if (!repoItems.length) return;
     repoMetricCounts = metricCountsForItems(repoItems);
-    items = mergeSeedItems([...items, ...repoItems]);
+    const customItems = items.filter((item) => !isSeedRegistryItem(item) && !isLegacyGeneratedIconItem(item));
+    items = mergeSeedItems([...repoItems, ...customItems], { includeIconSeeds: false });
     persistItems();
   } catch {
     items = mergeSeedItems(items);
@@ -1689,15 +1690,12 @@ function buildRegistryPayload(sourceItems = items) {
 
 function normalizeRegistryItems(sourceItems = []) {
   const seenIds = new Set();
-  const seenStandards = new Set();
 
   return sourceItems
     .map((item) => normalizeRegistryItem(item))
     .filter((item) => {
-      const standardKey = item.standard.toLowerCase();
-      if (seenIds.has(item.id) || seenStandards.has(standardKey)) return false;
+      if (seenIds.has(item.id)) return false;
       seenIds.add(item.id);
-      seenStandards.add(standardKey);
       return true;
     });
 }
@@ -1741,41 +1739,33 @@ function normalizeRegistryItem(item = {}) {
     archived: Boolean(item.archived),
   };
 
-  migrateBrandIconItem(normalized);
   return normalized;
 }
 
-function migrateBrandIconItem(item) {
-  if (item.type !== "아이콘") return item;
-
-  const haystack = [item.props, item.iconPath, item.iconFileName, item.standard, item.name].join(" ").toLowerCase();
-  const isBrandAsset = /\/brand\/|\\brand\\|brand|audi|benz|bmw|jaguar|land-rover|lexus|lincoln|mini|porsche|브랜드|제조사/.test(haystack);
-  if (!isBrandAsset) return item;
-
-  const baseName = iconBaseName(item.iconPath || item.iconFileName || item.standard.replace(/^ic_(vehicle|brand)_/i, ""));
-  if (!baseName) return item;
-
-  const extension = iconFileExtension(item.iconPath || item.iconFileName || item.standard);
-  const standardBase = baseName.replace(/[^a-z0-9]+/gi, "_").replace(/^_+|_+$/g, "").toLowerCase();
-  item.id = `icon_brand_${standardBase}`;
-  item.standard = `ic_brand_${standardBase}.${extension}`;
-  item.props = item.props
-    ? item.props.replace(/group:vehicle/gi, "group:brand")
-    : "group:brand, download, white background, alt text";
-  if (!/group:brand/i.test(item.props)) item.props = `group:brand, ${item.props}`;
-
-  return item;
-}
-
-function mergeSeedItems(sourceItems = []) {
+function mergeSeedItems(sourceItems = [], options = {}) {
+  const { includeIconSeeds = true } = options;
   const normalized = normalizeRegistryItems(sourceItems);
   const seenIds = new Set(normalized.map((item) => item.id));
-  const seenStandards = new Set(normalized.map((item) => item.standard.toLowerCase()));
-  const missingSeeds = cloneSeedItems().filter((item) => {
-    const standardKey = item.standard.toLowerCase();
-    return !seenIds.has(item.id) && !seenStandards.has(standardKey);
-  });
+  const seedSource = includeIconSeeds
+    ? cloneSeedItems()
+    : cloneSeedItems().filter((item) => item.type !== "아이콘");
+  const missingSeeds = seedSource.filter((item) => !seenIds.has(item.id));
   return [...normalized, ...missingSeeds];
+}
+
+function isSeedRegistryItem(item) {
+  const id = String(item.id || "");
+  return seedItems.some((seedItem) => String(seedItem.id || "") === id);
+}
+
+function isLegacyGeneratedIconItem(item) {
+  if (String(item.type || "") !== "아이콘") return false;
+
+  const id = String(item.id || "").toLowerCase();
+  if (!/^icon_brand_[a-z0-9_]+$/.test(id)) return false;
+
+  const source = [item.iconPath, item.iconFileName, item.standard].join(" ").toLowerCase();
+  return /(^|[\\/])assets[\\/](brand)[\\/]/.test(source) || source.includes("/brand/");
 }
 
 function activeItems() {
@@ -2118,6 +2108,10 @@ function renderDocumentPage(node) {
   }
   if (node.title === "Breadcrumb") {
     renderBreadcrumbDocumentPage(node);
+    return;
+  }
+  if (node.title === "Pagination") {
+    renderPaginationDocumentPage(node);
     return;
   }
 
@@ -2643,6 +2637,15 @@ function documentSectionsForNode(node) {
       ["Accessibility", "#breadcrumb-accessibility"],
     ];
   }
+  if (node.title === "Pagination") {
+    return [
+      ["Overview", "#pagination-overview"],
+      ["Template", "#pagination-template"],
+      ["API", "#pagination-api"],
+      ["Usage", "#pagination-usage"],
+      ["Accessibility", "#pagination-accessibility"],
+    ];
+  }
   return [
     ["Overview", "#doc-overview"],
     ["Examples", "#doc-examples"],
@@ -3012,6 +3015,222 @@ function calloutStorybookCodeExample() {
     density: 'comfortable',
   },
 };`;
+}
+
+function renderPaginationDocumentPage(node) {
+  const path = node.path?.join(" / ") || displayNodeName(node);
+  const statusLabel = node.status === "deprecated" ? "deprecated" : "stable";
+  const overview = [
+    ["정의", "Pagination은 여러 페이지로 나뉜 매물 목록에서 사용자가 원하는 페이지로 이동하게 하는 탐색 컴포넌트입니다."],
+    ["목적", "목록 끝에서 현재 위치를 확인하고 이전, 다음, 특정 페이지로 이동할 수 있게 합니다."],
+    ["사용 위치", "중고차 검색 결과, 딜러 보유 매물, 커뮤니티 목록처럼 결과 수가 많은 화면 하단에 배치합니다."],
+  ];
+  const anatomy = [
+    ["이전 버튼", "첫 페이지에서는 disabled 상태로 보여줍니다."],
+    ["페이지 번호", "현재 페이지 주변 번호를 원형 버튼으로 노출합니다."],
+    ["현재 페이지", "`aria-current=\"page\"`를 적용하고 보배드림 primary 색상으로 강조합니다."],
+    ["다음 버튼", "마지막 페이지가 아니면 다음 페이지 링크 또는 이벤트를 제공합니다."],
+    ["하단 맥락", "매물 리스트 뒤, 검색 설명과 추천 키워드 영역보다 위에 배치합니다."],
+  ];
+  const props = [
+    ["currentPage", "number", "현재 페이지 번호입니다."],
+    ["totalPages", "number", "전체 페이지 수입니다."],
+    ["pageSize", "number", "한 페이지에 표시할 매물 수입니다."],
+    ["totalItems", "number", "전체 검색 결과 수입니다."],
+    ["siblingCount", "number", "현재 페이지 양옆에 노출할 번호 개수입니다. 기본값은 1입니다."],
+    ["baseUrl", "string", "SEO 링크가 필요한 목록의 기본 URL입니다."],
+    ["onPageChange", "(page: number) => void", "클라이언트 라우팅 또는 데이터 재조회 이벤트입니다."],
+    ["ariaLabel", "string", "페이지네이션 nav의 접근성 이름입니다."],
+    ["variant", "list | compact | seo", "목록 하단, 모바일 간소형, SEO 링크형 표시를 선택합니다."],
+  ];
+  const usage = [
+    ["매물 리스트", "리스트의 마지막 카드 아래 중앙에 배치하고, 광고나 추천 섹션보다 먼저 노출합니다."],
+    ["번호 노출", "전체 페이지가 적으면 모든 번호를 보여주고, 많으면 현재 페이지 주변과 처음/끝만 남깁니다."],
+    ["모바일", "공간이 좁으면 `이전 1 / 4 다음` 형태의 compact 표시를 우선합니다."],
+    ["SEO", "검색 결과 페이지는 실제 href를 제공해 새로고침과 검색엔진 접근을 보장합니다."],
+    ["로딩", "페이지 이동 중에는 클릭을 잠시 막고 현재 페이지 표시를 유지합니다."],
+  ];
+  const accessibility = [
+    '`nav aria-label="검색 결과 페이지"` 구조를 사용합니다.',
+    '현재 페이지 번호에는 `aria-current="page"`를 적용합니다.',
+    "첫 페이지의 이전 버튼과 마지막 페이지의 다음 버튼은 disabled 상태를 명확히 제공합니다.",
+    "이전/다음 아이콘 버튼에는 `aria-label`을 제공합니다.",
+    "모바일 터치 영역은 44px 이상을 권장합니다.",
+    "페이지 이동 후 목록 제목 또는 결과 영역으로 포커스 이동을 검토합니다.",
+  ];
+
+  elements.docPage.innerHTML = `
+    <div class="doc-page-layout pagination-doc">
+      <article class="doc-main">
+        <nav class="doc-breadcrumb" aria-label="문서 경로">${escapeHtml(path)}</nav>
+        <div class="doc-title-row">
+          <div>
+            <p class="eyebrow">보배드림 컴포넌트</p>
+            <h2>${escapeHtml(displayNodeName(node))}</h2>
+          </div>
+          <div class="doc-title-actions">
+            <span class="doc-status ${escapeHtml(node.status)}">${escapeHtml(statusLabel)}</span>
+            ${renderDocHeaderActions(node)}
+          </div>
+        </div>
+        <p class="doc-lede">Pagination은 검색 결과와 목록 화면에서 현재 페이지 위치를 보여주고 다음 결과로 이동하게 하는 컴포넌트입니다.</p>
+        <p class="doc-sublede">중고차 매물 리스트, 딜러 매물 목록, 커뮤니티 게시판처럼 결과가 여러 페이지로 나뉘는 화면에 사용합니다.</p>
+
+        <section class="pagination-section" id="pagination-overview">
+          <h3>Overview</h3>
+          <div class="pagination-info-grid">
+            ${overview
+              .map(
+                ([title, description]) => `
+                  <article>
+                    <strong>${escapeHtml(title)}</strong>
+                    <p>${escapeHtml(description)}</p>
+                  </article>
+                `,
+              )
+              .join("")}
+          </div>
+        </section>
+
+        <section class="pagination-section" id="pagination-template">
+          <div class="pagination-section-heading">
+            <h3>Template</h3>
+            <p>매물 리스트 하단에서 바로 쓰는 숫자형 페이지네이션 템플릿입니다.</p>
+          </div>
+          ${renderPaginationListTemplate()}
+          <div class="pagination-anatomy-grid">
+            ${anatomy
+              .map(
+                ([title, description]) => `
+                  <article>
+                    <strong>${escapeHtml(title)}</strong>
+                    <p>${escapeHtml(description)}</p>
+                  </article>
+                `,
+              )
+              .join("")}
+          </div>
+          <div class="pagination-mobile-template">
+            <strong>Mobile compact</strong>
+            ${renderCompactPaginationTemplate()}
+          </div>
+        </section>
+
+        <section class="pagination-section" id="pagination-api">
+          <h3>API</h3>
+          ${renderDocPropsTable(props)}
+          <pre class="template-code"><code>${escapeHtml(paginationVueCodeExample())}</code></pre>
+        </section>
+
+        <section class="pagination-section" id="pagination-usage">
+          <h3>Usage</h3>
+          <div class="pagination-guideline-grid">
+            ${usage
+              .map(
+                ([title, description]) => `
+                  <article>
+                    <strong>${escapeHtml(title)}</strong>
+                    <p>${escapeHtml(description)}</p>
+                  </article>
+                `,
+              )
+              .join("")}
+          </div>
+        </section>
+
+        <section class="pagination-section" id="pagination-accessibility">
+          <h3>Accessibility</h3>
+          <ul class="pagination-checklist">
+            ${accessibility.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+          </ul>
+        </section>
+
+        <section class="pagination-section pagination-reference-note">
+          <h3>Reference</h3>
+          <p>차량 목록 하단의 숫자형 페이지 이동 구조를 확인하고 보배드림 목록 UX에 맞게 재작성했습니다.</p>
+          <a href="https://xe.chotot.com/mua-ban-oto-quan-ba-dinh-ha-noi" target="_blank" rel="noopener">참고 페이지 확인</a>
+        </section>
+      </article>
+      <aside class="doc-aside">
+        <strong>목차</strong>
+        ${renderDocToc(documentSectionsForNode(node))}
+      </aside>
+    </div>
+  `;
+}
+
+function renderPaginationListTemplate() {
+  const listings = [
+    ["제네시스 GV80 3.5 터보 AWD", "2024 · 18,200km · 가솔린 · 자동", "7,280만원"],
+    ["현대 그랜저 하이브리드 캘리그래피", "2023 · 24,600km · 하이브리드 · 자동", "4,120만원"],
+    ["기아 쏘렌토 MQ4 디젤 2.2", "2022 · 51,300km · 디젤 · 자동", "3,380만원"],
+  ];
+
+  return `
+    <div class="pagination-list-template">
+      <div class="pagination-list-stack" aria-label="매물 리스트 예시">
+        ${listings
+          .map(
+            ([title, meta, price]) => `
+              <article>
+                <span aria-hidden="true"></span>
+                <div>
+                  <strong>${escapeHtml(title)}</strong>
+                  <p>${escapeHtml(meta)}</p>
+                </div>
+                <em>${escapeHtml(price)}</em>
+              </article>
+            `,
+          )
+          .join("")}
+      </div>
+      ${renderBobaPaginationTemplate()}
+      <div class="pagination-seo-block">
+        <strong>검색 결과 안내</strong>
+        <p>검색 조건에 맞는 중고차 매물을 최신순으로 보여주고, 다음 페이지에서 더 많은 매물을 확인합니다.</p>
+      </div>
+    </div>
+  `;
+}
+
+function renderBobaPaginationTemplate() {
+  return `
+    <nav class="bd-pagination-template" aria-label="검색 결과 페이지">
+      <button class="bd-pagination-nav" type="button" aria-label="이전 페이지" disabled>
+        <span aria-hidden="true">&lsaquo;</span>
+      </button>
+      <a class="bd-pagination-page" href="/cars/search?page=1" aria-current="page">1</a>
+      <a class="bd-pagination-page" href="/cars/search?page=2">2</a>
+      <a class="bd-pagination-page" href="/cars/search?page=3">3</a>
+      <a class="bd-pagination-page" href="/cars/search?page=4">4</a>
+      <button class="bd-pagination-nav" type="button" aria-label="다음 페이지">
+        <span aria-hidden="true">&rsaquo;</span>
+      </button>
+    </nav>
+  `;
+}
+
+function renderCompactPaginationTemplate() {
+  return `
+    <nav class="bd-pagination-compact" aria-label="검색 결과 페이지">
+      <button type="button" aria-label="이전 페이지" disabled>&lsaquo;</button>
+      <span><strong>1</strong> / 4</span>
+      <button type="button" aria-label="다음 페이지">&rsaquo;</button>
+    </nav>
+  `;
+}
+
+function paginationVueCodeExample() {
+  return `<BobaPagination
+  :current-page="1"
+  :total-pages="4"
+  :page-size="20"
+  :total-items="63"
+  base-url="/cars/search"
+  aria-label="검색 결과 페이지"
+  variant="list"
+  @page-change="fetchListings"
+/>`;
 }
 
 function renderBreadcrumbDocumentPage(node) {

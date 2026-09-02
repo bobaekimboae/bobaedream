@@ -1653,6 +1653,264 @@ body.sidebar-open .mobile-menu-button {
   line-height: 1.6;
 }
 
+.pagination-doc .doc-main {
+  display: grid;
+  gap: 24px;
+}
+
+.pagination-section {
+  display: grid;
+  gap: 14px;
+  border: 1px solid #e4e7ec;
+  border-radius: 8px;
+  background: #fff;
+  padding: 18px;
+}
+
+.pagination-section h3,
+.pagination-section p {
+  margin: 0;
+}
+
+.pagination-section h3 {
+  color: #101828;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.pagination-section p {
+  color: #667085;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.pagination-section-heading {
+  display: grid;
+  gap: 6px;
+}
+
+.pagination-info-grid,
+.pagination-anatomy-grid,
+.pagination-guideline-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.pagination-info-grid article,
+.pagination-anatomy-grid article,
+.pagination-guideline-grid article {
+  min-width: 0;
+  border: 1px solid #e4e7ec;
+  border-radius: 8px;
+  background: #fff;
+  padding: 14px;
+}
+
+.pagination-info-grid strong,
+.pagination-anatomy-grid strong,
+.pagination-guideline-grid strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #101828;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.pagination-list-template {
+  display: grid;
+  gap: 18px;
+  border: 1px solid #e4e7ec;
+  border-radius: 8px;
+  background: #f3f5f8;
+  padding: 20px;
+}
+
+.pagination-list-stack {
+  display: grid;
+  gap: 0;
+  max-width: 760px;
+  overflow: hidden;
+  border: 1px solid #e4e7ec;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.pagination-list-stack article {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  min-width: 0;
+  padding: 14px 16px;
+}
+
+.pagination-list-stack article + article {
+  border-top: 1px solid #eef1f5;
+}
+
+.pagination-list-stack article > span {
+  display: block;
+  width: 88px;
+  height: 64px;
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(18, 71, 160, 0.22), rgba(17, 114, 69, 0.16)),
+    #dfe6f2;
+}
+
+.pagination-list-stack strong,
+.pagination-list-stack p,
+.pagination-list-stack em {
+  margin: 0;
+}
+
+.pagination-list-stack strong {
+  display: block;
+  overflow: hidden;
+  color: #101828;
+  font-size: 15px;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pagination-list-stack p {
+  margin-top: 5px;
+  color: #667085;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.pagination-list-stack em {
+  color: #d92d20;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.bd-pagination-template,
+.bd-pagination-compact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.bd-pagination-page,
+.bd-pagination-nav,
+.bd-pagination-compact button {
+  display: inline-grid;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  place-items: center;
+  border: 1px solid #d9dee8;
+  border-radius: 999px;
+  background: #fff;
+  color: #344054;
+  font-size: 14px;
+  font-weight: 850;
+  line-height: 1;
+  box-shadow: 0 8px 18px rgba(16, 24, 40, 0.06);
+}
+
+.bd-pagination-page:hover,
+.bd-pagination-nav:not(:disabled):hover,
+.bd-pagination-compact button:not(:disabled):hover {
+  border-color: #b8ccf5;
+  color: var(--color-primary);
+}
+
+.bd-pagination-page[aria-current="page"] {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.bd-pagination-nav:disabled,
+.bd-pagination-compact button:disabled {
+  background: #f8fafc;
+  color: #c4cad4;
+  cursor: default;
+  box-shadow: none;
+}
+
+.bd-pagination-nav span,
+.bd-pagination-compact button {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.pagination-seo-block {
+  max-width: 100%;
+  border: 1px solid #e4e7ec;
+  border-radius: 8px;
+  background: #fff;
+  padding: 16px 18px;
+}
+
+.pagination-seo-block strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #101828;
+  font-size: 14px;
+}
+
+.pagination-mobile-template {
+  display: grid;
+  gap: 10px;
+  max-width: 320px;
+  border: 1px solid #e4e7ec;
+  border-radius: 8px;
+  background: #fff;
+  padding: 14px;
+}
+
+.pagination-mobile-template > strong {
+  color: #101828;
+  font-size: 13px;
+}
+
+.bd-pagination-compact span {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e4e7ec;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #667085;
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.bd-pagination-compact strong {
+  color: #101828;
+  font-size: 14px;
+}
+
+.pagination-checklist {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 18px;
+  color: #475467;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.pagination-reference-note a {
+  width: max-content;
+  max-width: 100%;
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 850;
+  overflow-wrap: anywhere;
+}
+
 .callout-doc .doc-main {
   display: grid;
   gap: 24px;
@@ -3427,7 +3685,10 @@ body.modal-open {
   .callout-guideline-grid,
   .callout-name-list,
   .callout-anatomy-grid,
-  .callout-code-grid {
+  .callout-code-grid,
+  .pagination-info-grid,
+  .pagination-anatomy-grid,
+  .pagination-guideline-grid {
     grid-template-columns: 1fr;
   }
 
@@ -3557,6 +3818,9 @@ body.modal-open {
   .breadcrumb-state-grid,
   .breadcrumb-guideline-grid,
   .breadcrumb-anatomy,
+  .pagination-info-grid,
+  .pagination-anatomy-grid,
+  .pagination-guideline-grid,
   .callout-preview-grid,
   .callout-guideline-grid,
   .callout-name-list,
@@ -3568,6 +3832,33 @@ body.modal-open {
   .template-check-grid,
   .template-coverage-grid {
     grid-template-columns: 1fr;
+  }
+
+  .pagination-list-template {
+    padding: 14px;
+  }
+
+  .pagination-list-stack article {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .pagination-list-stack article > span {
+    width: 72px;
+    height: 56px;
+  }
+
+  .pagination-list-stack em {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .bd-pagination-page,
+  .bd-pagination-nav,
+  .bd-pagination-compact button {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
   }
 
   .doc-title-row {
