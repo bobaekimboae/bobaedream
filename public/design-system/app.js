@@ -1871,6 +1871,10 @@ function findSidebarNodeByHash(hash) {
 
 function renderDocumentPage(node) {
   if (!node || !elements.docPage) return;
+  if (node.title === "Callout") {
+    renderCalloutDocumentPage(node);
+    return;
+  }
   if (node.title === "Breadcrumb") {
     renderBreadcrumbDocumentPage(node);
     return;
@@ -1999,7 +2003,7 @@ function documentProfileForNode(node) {
 
 function ledeForDocument(node, category) {
   const label = displayName(node.title);
-  if (category === "component") return `${label}은 보배드림 화면에서 반복되는 사용자 행동을 일관된 UI로 제공하는 항목입니다.`;
+  if (category === "component") return `${label}은 보배드림 화면의 반복되는 구조와 상태를 표준화하는 컴포넌트입니다.`;
   if (category === "style") return `${label}은 보배드림 화면의 시각 기준을 토큰과 사용 규칙으로 정리한 항목입니다.`;
   if (category === "accessibility") return `${label}은 모든 사용자가 중고차 정보를 탐색하고 문의할 수 있도록 보장하는 기준입니다.`;
   if (category === "resource") return `${label}은 디자인 시스템을 운영하고 수정할 때 참고하는 내부 자료입니다.`;
@@ -2038,7 +2042,7 @@ function overviewForDocument(node, category) {
     ];
   }
   return [
-    ["정의", `${label}은 보배드림 중고차 서비스에서 반복되는 UI 단위입니다.`],
+    ["정의", `${label}은 화면에서 반복 사용되는 구조와 상태를 표준화한 UI 항목입니다.`],
     ["목적", "사용자가 차량 정보를 빠르게 이해하고 다음 행동으로 이동하게 돕습니다."],
     ["사용 위치", "매물 목록, 차량 상세, 검색 결과, 매물 등록 흐름에서 사용합니다."],
   ];
@@ -2059,7 +2063,7 @@ function examplesForDocument(node, useCases, category) {
   if (category === "style") {
     return useCases.map((item) => [`${item}`, `${label} 값을 보배드림 화면 토큰으로 적용합니다.`]);
   }
-  return useCases.map((item) => [`${item}`, `${label} 문서의 실제 화면 예시입니다.`]);
+  return useCases.map((item) => [`${item}`, `${label} 적용 예시입니다.`]);
 }
 
 function propsForDocument(node, category) {
@@ -2113,8 +2117,8 @@ function usageForDocument(node, category) {
   }
   return [
     ["사용", `${label}은 사용자가 다음 행동을 예측할 수 있는 위치에 배치합니다.`],
-    ["상태", "기본, 선택, 비활성, 오류, 포커스 상태를 구분합니다."],
-    ["금지", "진행률, 도움말, 광고 문구처럼 역할이 다른 정보를 섞지 않습니다."],
+    ["상태", "컴포넌트 역할에 맞는 default, hover, focus, disabled 상태를 정의합니다."],
+    ["금지", "서로 다른 역할의 정보나 행동을 한 컴포넌트에 억지로 합치지 않습니다."],
   ];
 }
 
@@ -2407,6 +2411,19 @@ function renderCoverageMatrixDoc() {
 }
 
 function documentSectionsForNode(node) {
+  if (node.title === "Callout") {
+    return [
+      ["Preview", "#callout-preview"],
+      ["Anatomy", "#callout-anatomy"],
+      ["Properties", "#callout-properties"],
+      ["Guidelines", "#callout-guidelines"],
+      ["Specification", "#callout-specification"],
+      ["Importing", "#callout-importing"],
+      ["Usage", "#callout-usage"],
+      ["API Documentation", "#callout-api"],
+      ["Accessibility", "#callout-accessibility"],
+    ];
+  }
   if (node.title === "Breadcrumb") {
     return [
       ["Overview", "#breadcrumb-overview"],
@@ -2442,6 +2459,350 @@ function renderDocToc(sections = []) {
         .join("")}
     </ul>
   `;
+}
+
+function renderCalloutDocumentPage(node) {
+  const path = node.path?.join(" / ") || displayNodeName(node);
+  const statusLabel = node.status === "deprecated" ? "deprecated" : "stable";
+  const examples = calloutExampleItems();
+  const support = ["Figma", "React", "Next.js", "Laravel Blade", "Storybook"];
+  const anatomy = [
+    ["Container", "메시지 전체를 감싸는 박스입니다. tone에 맞는 배경, 테두리, 안쪽 여백을 가집니다."],
+    ["Prefix Icon", "정보 성격을 빠르게 인지하게 하는 아이콘입니다. tone과 같은 의미를 가져야 합니다."],
+    ["Title", "안내 성격을 한눈에 보여주는 짧은 제목입니다."],
+    ["Description", "사용자가 알아야 할 핵심 정보입니다. 1-2문장 안에서 끝냅니다."],
+    ["Link Text", "보조 설명이나 관련 화면으로 이동할 때만 둡니다."],
+    ["Close Button", "한 번만 보여도 되는 안내에 한해 제공합니다."],
+  ];
+  const properties = [
+    ["tone", "neutral | informative | positive | warning | critical", "메시지 목적과 위험도에 맞춰 선택합니다."],
+    ["title", "string", "짧은 제목입니다. 예: 보험이력 안내"],
+    ["description", "string", "핵심 설명입니다. 1-2문장을 권장합니다."],
+    ["icon", "IconName", "tone에 맞는 Prefix Icon 이름입니다."],
+    ["linkText", "string", "선택 링크 텍스트입니다. 예: 자세히 보기, 서류 확인"],
+    ["href", "string", "링크 이동 경로입니다."],
+    ["dismissible", "boolean", "사용자가 닫을 수 있는 안내인지 결정합니다."],
+    ["density", "comfortable | compact", "PC와 모바일의 밀도 차이를 조절합니다."],
+  ];
+  const guidelines = [
+    ["작성법", "제목은 성격을 짧게 쓰고, 본문은 사용자가 지금 확인해야 할 내용만 남깁니다."],
+    ["사용 위치", "매물 상세, 보험이력, 성능점검, 사진 등록, 검색 결과 안내처럼 페이지 안에 머물러야 하는 정보에 사용합니다."],
+    ["사용 금지", "약관 전문, 법적 책임 고지, 즉시 사라지는 저장 피드백, 사용자의 결정을 막는 확인 창에는 사용하지 않습니다."],
+    ["역할 구분", "Disclaimer, Notification, Modal과 목적이 겹치지 않게 문구와 동작을 분리합니다."],
+  ];
+  const specs = [
+    ["Container", "padding", "PC 16px 18px / MO 14px 16px"],
+    ["Container", "radius", "8px"],
+    ["Container", "gap", "12px"],
+    ["Container", "min-height", "56px"],
+    ["Prefix Icon", "size", "20px"],
+    ["Title", "font", "14px / 700 / line-height 20px"],
+    ["Description", "font", "14px / 400 / line-height 20px"],
+    ["Link Text", "font", "14px / 700 / underline on hover"],
+    ["Close Button", "target", "40px x 40px, icon 16px"],
+    ["Responsive", "width", "부모 폭 100%, 긴 문장은 줄바꿈"],
+  ];
+  const toneSpecs = [
+    ["neutral", "bg.neutral.weak", "fg.neutral", "일반 안내"],
+    ["informative", "bg.informative.weak", "fg.informative", "도움말, 보험이력, 조회 안내"],
+    ["positive", "bg.positive.weak", "fg.positive", "저장 완료, 등록 완료"],
+    ["warning", "bg.warning.weak", "fg.warning", "구매 전 확인 필요"],
+    ["critical", "bg.critical.weak", "fg.critical", "허위매물, 오류, 즉시 조치"],
+  ];
+  const roleRows = [
+    ["Callout", "페이지 안에서 중요한 정보, 팁, 주의를 강조", "법적 고지 전체, 즉시 사라지는 피드백"],
+    ["Disclaimer", "약관, 책임 고지, 법적 안내", "일반 팁이나 짧은 안내"],
+    ["Notification / Toast", "저장 완료, 삭제 완료 같은 일시 피드백", "페이지에 계속 남아야 하는 안내"],
+    ["Modal / Alert Dialog", "사용자 결정을 막고 확인이 필요한 상황", "단순 정보 안내"],
+  ];
+  const accessibility = [
+    "정적인 안내는 제목과 본문을 가진 의미 있는 영역으로 제공하고, 동적으로 삽입되는 안내는 목적에 맞는 role을 사용합니다.",
+    "저장 완료처럼 비차단 피드백은 `role=\"status\"`와 `aria-live=\"polite\"`를 사용합니다.",
+    "즉시 인지가 필요한 critical 메시지는 `role=\"alert\"` 또는 `aria-live=\"assertive\"`를 검토합니다.",
+    "닫기 버튼에는 `aria-label=\"안내 닫기\"`처럼 대상이 분명한 이름을 제공합니다.",
+    "색상만으로 tone을 구분하지 않고 제목, 아이콘, 본문을 함께 제공합니다.",
+    "텍스트와 배경 대비는 WCAG AA 이상을 기준으로 확인합니다.",
+  ];
+
+  elements.docPage.innerHTML = `
+    <div class="doc-page-layout callout-doc">
+      <article class="doc-main">
+        <nav class="doc-breadcrumb" aria-label="문서 경로">${escapeHtml(path)}</nav>
+        <div class="doc-title-row">
+          <div>
+            <p class="eyebrow">보배드림 컴포넌트</p>
+            <h2>${escapeHtml(displayNodeName(node))}</h2>
+          </div>
+          <div class="doc-title-actions">
+            <span class="doc-status ${escapeHtml(node.status)}">${escapeHtml(statusLabel)}</span>
+            ${renderDocHeaderActions(node)}
+          </div>
+        </div>
+        <p class="doc-lede">Callout (콜아웃)은 사용자에게 중요한 정보, 팁, 주의 사항을 화면 안에서 시각적으로 강조해 전달하는 메시지 컴포넌트입니다.</p>
+        <p class="doc-sublede">매물 상세의 보험이력 안내, 성능점검 주의, 신고 안내, 필터 결과 안내처럼 페이지 안에 머물러야 하는 정보를 전달합니다.</p>
+        <div class="callout-support-row" aria-label="지원 플랫폼">
+          ${support.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
+        </div>
+
+        <section class="callout-section callout-preview-section" id="callout-preview">
+          <div class="callout-section-heading">
+            <h3>Preview</h3>
+            <p>보배드림 실제 화면에서 쓰는 콜아웃 예시입니다.</p>
+          </div>
+          ${renderCalloutPreviewGrid(examples)}
+        </section>
+
+        <section class="callout-section" id="callout-anatomy">
+          <div class="callout-section-heading">
+            <h3>Anatomy</h3>
+            <p>콜아웃은 컨테이너, 아이콘, 제목, 본문, 링크, 닫기 버튼으로 구성합니다.</p>
+          </div>
+          <div class="callout-anatomy-grid">
+            <div>
+              ${renderCalloutPreviewItem({
+                tone: "informative",
+                icon: "i",
+                title: "보험이력 안내",
+                description: "보험이력 조회 결과는 등록 시점 기준으로 표시됩니다. 최신 정보는 구매 전 다시 확인하세요.",
+                linkText: "보험이력 보기",
+                href: "/cars/insurance",
+                dismissible: true,
+              })}
+              <dl class="callout-name-list">
+                <div><dt>국문 기능명</dt><dd>콜아웃 / 강조 안내 박스</dd></div>
+                <div><dt>영어 발음</dt><dd>Callout [콜-아웃]</dd></div>
+                <div><dt>어원</dt><dd>영어 call out에서 온 말로, 사용자의 주의를 특정 정보로 끌어내는 의미입니다.</dd></div>
+              </dl>
+            </div>
+            <dl class="callout-anatomy-list">
+              ${anatomy.map(([term, description]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(description)}</dd></div>`).join("")}
+            </dl>
+          </div>
+        </section>
+
+        <section class="callout-section" id="callout-properties">
+          <div class="callout-section-heading">
+            <h3>Properties</h3>
+            <p>디자인과 코드가 같은 속성명을 사용합니다.</p>
+          </div>
+          ${renderSimpleRowsTable("Callout properties", ["속성", "값", "설명"], properties)}
+        </section>
+
+        <section class="callout-section" id="callout-guidelines">
+          <div class="callout-section-heading">
+            <h3>Guidelines</h3>
+            <p>필요한 안내만 짧게 남기고, 다른 피드백 컴포넌트와 역할을 섞지 않습니다.</p>
+          </div>
+          <div class="callout-guideline-grid">
+            ${guidelines
+              .map(
+                ([title, description]) => `
+                  <article>
+                    <strong>${escapeHtml(title)}</strong>
+                    <p>${escapeHtml(description)}</p>
+                  </article>
+                `,
+              )
+              .join("")}
+          </div>
+          ${renderSimpleRowsTable("역할 구분", ["컴포넌트", "쓰는 상황", "쓰지 말아야 할 상황"], roleRows)}
+        </section>
+
+        <section class="callout-section" id="callout-specification">
+          <div class="callout-section-heading">
+            <h3>Specification</h3>
+            <p>PC와 모바일에서 같은 구조를 유지하고, 밀도만 조절합니다.</p>
+          </div>
+          ${renderSimpleRowsTable("레이아웃 기준", ["슬롯", "속성", "값"], specs)}
+          ${renderSimpleRowsTable("Tone token", ["tone", "background", "foreground", "사용 상황"], toneSpecs)}
+        </section>
+
+        <section class="callout-section" id="callout-importing">
+          <div class="callout-section-heading">
+            <h3>Importing</h3>
+            <p>프론트엔드에서 바로 찾을 수 있게 프레임워크별 import 기준을 둡니다.</p>
+          </div>
+          <pre class="template-code"><code>${escapeHtml(calloutImportCodeExample())}</code></pre>
+        </section>
+
+        <section class="callout-section" id="callout-usage">
+          <div class="callout-section-heading">
+            <h3>Usage</h3>
+            <p>보배드림 화면 맥락에 맞는 tone과 동작을 선택합니다.</p>
+          </div>
+          <div class="callout-code-grid">
+            <article>
+              <strong>Next / React</strong>
+              <pre class="template-code"><code>${escapeHtml(calloutReactCodeExample())}</code></pre>
+            </article>
+            <article>
+              <strong>Laravel Blade</strong>
+              <pre class="template-code"><code>${escapeHtml(calloutBladeCodeExample())}</code></pre>
+            </article>
+          </div>
+        </section>
+
+        <section class="callout-section" id="callout-api">
+          <div class="callout-section-heading">
+            <h3>API Documentation</h3>
+            <p>Storybook args와 실제 컴포넌트 props를 같은 이름으로 맞춥니다.</p>
+          </div>
+          <pre class="template-code"><code>${escapeHtml(calloutStorybookCodeExample())}</code></pre>
+        </section>
+
+        <section class="callout-section" id="callout-accessibility">
+          <div class="callout-section-heading">
+            <h3>Accessibility</h3>
+            <p>읽기 순서, 실시간 안내, 닫기 조작, 색상 대비를 함께 확인합니다.</p>
+          </div>
+          <ul class="callout-checklist">
+            ${accessibility.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+          </ul>
+        </section>
+      </article>
+      <aside class="doc-aside">
+        <strong>목차</strong>
+        ${renderDocToc(documentSectionsForNode(node))}
+      </aside>
+    </div>
+  `;
+}
+
+function calloutExampleItems() {
+  return [
+    {
+      tone: "informative",
+      icon: "i",
+      title: "보험이력 안내",
+      description: "보험이력 조회 결과는 등록 시점 기준으로 표시됩니다. 최신 정보는 구매 전 다시 확인하세요.",
+      linkText: "보험이력 보기",
+      href: "/cars/insurance",
+      role: "note",
+      ariaLive: "off",
+    },
+    {
+      tone: "warning",
+      icon: "!",
+      title: "확인 필요",
+      description: "보험이력 조회 결과가 없는 차량은 판매자에게 별도 서류 확인을 요청하세요.",
+      linkText: "서류 확인 기준",
+      href: "/guide/documents",
+      role: "note",
+      ariaLive: "off",
+    },
+    {
+      tone: "critical",
+      icon: "!",
+      title: "허위매물 신고",
+      description: "허위매물 신고가 접수된 차량은 관리자 검수 후 노출이 제한될 수 있습니다.",
+      linkText: "신고 기준 보기",
+      href: "/report/fake-listing",
+      role: "alert",
+      ariaLive: "assertive",
+    },
+    {
+      tone: "positive",
+      icon: "✓",
+      title: "저장 완료",
+      description: "매물 정보가 저장되었습니다. 등록 검수 후 검색 결과에 반영됩니다.",
+      role: "status",
+      ariaLive: "polite",
+    },
+    {
+      tone: "neutral",
+      icon: "i",
+      title: "사진 등록 안내",
+      description: "사진은 최대 20장까지 등록할 수 있으며 첫 번째 사진이 대표 이미지로 사용됩니다.",
+      role: "note",
+      ariaLive: "off",
+    },
+    {
+      tone: "neutral",
+      icon: "i",
+      title: "필터 결과 없음",
+      description: "선택한 조건에 맞는 차량이 없습니다. 조건을 줄이거나 필터를 초기화해 다시 확인하세요.",
+      linkText: "필터 초기화",
+      href: "/cars/search",
+      dismissible: true,
+      role: "note",
+      ariaLive: "polite",
+    },
+  ];
+}
+
+function renderCalloutPreviewGrid(items = []) {
+  return `
+    <div class="callout-preview-grid">
+      ${items.map((item) => renderCalloutPreviewItem(item)).join("")}
+    </div>
+  `;
+}
+
+function renderCalloutPreviewItem(item = {}) {
+  const tone = item.tone || "neutral";
+  const role = item.role || "note";
+  const ariaLive = item.ariaLive || "off";
+  return `
+    <article class="bd-callout bd-callout-${escapeAttribute(tone)}" role="${escapeAttribute(role)}" aria-live="${escapeAttribute(ariaLive)}">
+      <span class="bd-callout-icon" aria-hidden="true">${escapeHtml(item.icon || "i")}</span>
+      <div class="bd-callout-body">
+        <strong>${escapeHtml(item.title || "")}</strong>
+        <p>${escapeHtml(item.description || "")}</p>
+        ${
+          item.linkText
+            ? `<a class="bd-callout-link" href="${escapeAttribute(item.href || "#")}">${escapeHtml(item.linkText)}</a>`
+            : ""
+        }
+      </div>
+      ${
+        item.dismissible
+          ? `<button class="bd-callout-close" type="button" aria-label="${escapeAttribute(`${item.title || "안내"} 닫기`)}">×</button>`
+          : ""
+      }
+    </article>
+  `;
+}
+
+function calloutImportCodeExample() {
+  return `import { BobaCallout } from '@/components/feedback/BobaCallout';
+import BobaCallout from '@/components/feedback/BobaCallout.vue';
+
+@include('components.feedback.callout')`;
+}
+
+function calloutReactCodeExample() {
+  return `<BobaCallout
+  tone="informative"
+  title="보험이력 안내"
+  description="보험이력 조회 결과는 등록 시점 기준으로 표시됩니다. 최신 정보는 구매 전 다시 확인하세요."
+  linkText="보험이력 보기"
+  href="/cars/123/insurance"
+/>`;
+}
+
+function calloutBladeCodeExample() {
+  return `<x-boba-callout
+  tone="warning"
+  title="확인 필요"
+  link-text="서류 확인 기준"
+  href="/guide/documents"
+>
+  보험이력 조회 결과가 없는 차량은 판매자에게 별도 서류 확인을 요청하세요.
+</x-boba-callout>`;
+}
+
+function calloutStorybookCodeExample() {
+  return `export const InsuranceHistory = {
+  args: {
+    tone: 'informative',
+    title: '보험이력 안내',
+    description: '보험이력 조회 결과는 등록 시점 기준으로 표시됩니다. 최신 정보는 구매 전 다시 확인하세요.',
+    linkText: '보험이력 보기',
+    href: '/cars/123/insurance',
+    dismissible: false,
+    density: 'comfortable',
+  },
+};`;
 }
 
 function renderBreadcrumbDocumentPage(node) {

@@ -1254,10 +1254,10 @@
       "sheet": "04_컴포넌트템플릿",
       "pcValue": "https://fuse.cars.com/components/callout",
       "moValue": "컴포넌트 하위",
-      "props": "purpose, anatomy, props, variants, states, a11y, responsive, qa",
-      "note": "콜아웃 항목을 보배드림 매물 탐색, 상세, 등록 화면에서 재사용하는 컴포넌트 템플릿입니다.",
+      "props": "tone, title, description, icon, linkText, href, dismissible, density, role, ariaLive",
+      "note": "중요 정보, 팁, 주의 사항을 화면 안에서 강조하는 Callout 템플릿입니다. 보험이력, 성능점검, 허위매물 신고, 필터 결과 안내에 사용합니다.",
       "createdAt": "2026-09-01T00:00:00.000Z",
-      "updatedAt": "2026-09-01T13:49:45.492Z",
+      "updatedAt": "2026-09-02T00:00:00.000Z",
       "archived": false
     },
     {
