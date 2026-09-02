@@ -313,6 +313,16 @@
                 <input type="hidden" id="itemIconData" />
                 <input type="hidden" id="itemIconFileName" />
                 <input type="hidden" id="itemIconPath" />
+                <div class="icon-tracking-fields">
+                  <label>
+                    적용중인 페이지
+                    <input id="itemAppliedPage" placeholder="예: 매물 리스트, 차량 상세, 내차팔기 사진등록" />
+                  </label>
+                  <label>
+                    적용중인 URL
+                    <input id="itemAppliedUrl" placeholder="예: /car/list, /car/detail/:id" />
+                  </label>
+                </div>
               </div>
             </fieldset>
 
@@ -490,6 +500,14 @@
             <label>
               표준명
               <input id="iconEditStandard" />
+            </label>
+            <label>
+              적용중인 페이지
+              <input id="iconEditAppliedPage" placeholder="예: 차량 상세, 매물 리스트" />
+            </label>
+            <label>
+              적용중인 URL
+              <input id="iconEditAppliedUrl" placeholder="예: /car/detail/:id" />
             </label>
             <label>
               메모

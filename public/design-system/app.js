@@ -1503,6 +1503,8 @@ const elements = {
   itemIconData: document.querySelector("#itemIconData"),
   itemIconFileName: document.querySelector("#itemIconFileName"),
   itemIconPath: document.querySelector("#itemIconPath"),
+  itemAppliedPage: document.querySelector("#itemAppliedPage"),
+  itemAppliedUrl: document.querySelector("#itemAppliedUrl"),
   itemTypeError: document.querySelector("#itemTypeError"),
   itemNameError: document.querySelector("#itemNameError"),
   itemStandardError: document.querySelector("#itemStandardError"),
@@ -1535,6 +1537,8 @@ const elements = {
   iconEditName: document.querySelector("#iconEditName"),
   iconEditCategory: document.querySelector("#iconEditCategory"),
   iconEditStandard: document.querySelector("#iconEditStandard"),
+  iconEditAppliedPage: document.querySelector("#iconEditAppliedPage"),
+  iconEditAppliedUrl: document.querySelector("#iconEditAppliedUrl"),
   iconEditNote: document.querySelector("#iconEditNote"),
   closeIconEditButton: document.querySelector("#closeIconEditButton"),
   cancelIconEditButton: document.querySelector("#cancelIconEditButton"),
@@ -1730,6 +1734,8 @@ function normalizeRegistryItem(item = {}) {
     iconPath: String(item.iconPath || "").trim(),
     iconData: String(item.iconData || "").trim(),
     iconFileName: String(item.iconFileName || "").trim(),
+    appliedPage: String(item.appliedPage || "").trim(),
+    appliedUrl: String(item.appliedUrl || "").trim(),
     createdAt: item.createdAt || item.updatedAt || now,
     updatedAt: item.updatedAt || now,
     archived: Boolean(item.archived),
@@ -4108,6 +4114,8 @@ function openIconEditDialog(iconId) {
   elements.iconEditName.value = displayIconName(item);
   elements.iconEditCategory.value = meta.category;
   elements.iconEditStandard.value = item.standard;
+  elements.iconEditAppliedPage.value = item.appliedPage || "";
+  elements.iconEditAppliedUrl.value = item.appliedUrl || "";
   elements.iconEditNote.value = item.note || "";
   elements.iconEditPreview.innerHTML = renderIconVisual(item, "form-icon-preview");
   elements.iconEditDialog.hidden = false;
@@ -4135,6 +4143,8 @@ function saveIconEdit(event) {
   if (!item.iconFileName || item.iconFileName === previousStandard) {
     item.iconFileName = item.standard;
   }
+  item.appliedPage = elements.iconEditAppliedPage.value.trim();
+  item.appliedUrl = elements.iconEditAppliedUrl.value.trim();
   item.note = elements.iconEditNote.value.trim();
   item.props = setOptionCategoryInProps(item.props, category.id);
   item.updatedAt = new Date().toISOString();
@@ -4463,6 +4473,8 @@ function renderRegistry() {
       item.props,
       item.note,
       item.iconFileName,
+      item.appliedPage,
+      item.appliedUrl,
     ]
       .join(" ")
       .toLowerCase();
@@ -4493,6 +4505,7 @@ function renderRegistryRow(item, query) {
         <strong>${highlightText(itemName, query)}</strong>
         <br>
         <small>${highlightText(item.props || "", query)}</small>
+        ${renderIconTracking(item, query)}
       </td>
       <td><code>${highlightText(item.standard, query)}</code></td>
       <td><span class="status" data-status="${escapeHtml(item.status)}">${escapeHtml(item.status)}</span></td>
@@ -4529,10 +4542,29 @@ function renderRegistryCard(item, query) {
           <dt>주요 속성</dt>
           <dd>${highlightText(item.props || "-", query)}</dd>
         </div>
+        ${
+          iconTrackingText(item)
+            ? `<div>
+                <dt>적용</dt>
+                <dd>${highlightText(iconTrackingText(item), query)}</dd>
+              </div>`
+            : ""
+        }
       </dl>
       ${renderRegistryActions(item.id)}
     </article>
   `;
+}
+
+function iconTrackingText(item) {
+  if (item.type !== "아이콘") return "";
+  return [item.appliedPage, item.appliedUrl].filter(Boolean).join(" · ");
+}
+
+function renderIconTracking(item, query = "") {
+  const tracking = iconTrackingText(item);
+  if (!tracking) return "";
+  return `<small class="registry-tracking">적용: ${highlightText(tracking, query)}</small>`;
 }
 
 function renderRegistryActions(id) {
@@ -4654,6 +4686,8 @@ function fillForm(item) {
   elements.itemIconData.value = item.iconData || "";
   elements.itemIconFileName.value = item.iconFileName || "";
   elements.itemIconPath.value = item.iconPath || "";
+  elements.itemAppliedPage.value = item.appliedPage || "";
+  elements.itemAppliedUrl.value = item.appliedUrl || "";
   elements.itemIconInput.value = "";
   elements.editBanner.hidden = false;
   elements.editBannerText.textContent = `현재 수정 중: ${item.standard} / ${item.name}`;
@@ -4679,6 +4713,8 @@ function clearForm() {
   elements.itemIconData.value = "";
   elements.itemIconFileName.value = "";
   elements.itemIconPath.value = "";
+  elements.itemAppliedPage.value = "";
+  elements.itemAppliedUrl.value = "";
   elements.itemIconInput.value = "";
   elements.editBanner.hidden = true;
   elements.editBannerText.textContent = "현재 수정 중";
@@ -4810,7 +4846,7 @@ function exportJson() {
 }
 
 function exportCsv() {
-  const header = ["구분", "항목명", "표준명", "상태", "플랫폼", "Sheet탭", "PC값", "MO값", "주요속성", "비고"];
+  const header = ["구분", "항목명", "표준명", "상태", "플랫폼", "Sheet탭", "PC값", "MO값", "주요속성", "적용중인 페이지", "적용중인 URL", "비고"];
   const rows = activeItems().map((item) => [
     item.type,
     item.name,
@@ -4821,6 +4857,8 @@ function exportCsv() {
     item.pcValue,
     item.moValue,
     item.props,
+    item.appliedPage,
+    item.appliedUrl,
     item.note,
   ]);
   const csv = [header, ...rows].map((row) => row.map(csvCell).join(",")).join("\n");
@@ -5042,6 +5080,8 @@ function readFormItem() {
     iconData: isIcon ? elements.itemIconData.value.trim() : "",
     iconFileName: isIcon ? elements.itemIconFileName.value.trim() : "",
     iconPath: isIcon ? elements.itemIconPath.value.trim() : "",
+    appliedPage: isIcon ? elements.itemAppliedPage.value.trim() : "",
+    appliedUrl: isIcon ? elements.itemAppliedUrl.value.trim() : "",
   };
 }
 

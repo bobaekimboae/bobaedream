@@ -2970,6 +2970,22 @@ textarea[aria-invalid="true"] {
   overflow-wrap: anywhere;
 }
 
+.icon-tracking-fields {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.registry-tracking {
+  display: block;
+  margin-top: 4px;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
 .registry-icon-thumb,
 .registry-card-icon,
 .registry-icon-empty {
@@ -3666,6 +3682,10 @@ body.modal-open {
   .icon-preview-box {
     width: 72px;
     height: 72px;
+  }
+
+  .icon-tracking-fields {
+    grid-template-columns: 1fr;
   }
 
   .edit-banner {
