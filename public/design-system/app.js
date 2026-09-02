@@ -86,15 +86,15 @@ const references = [
 const koreanNames = {
   Home: "홈",
   "Web Installation & Usage": "웹 설치 및 사용",
-  "System Installation": "설치 가이드",
+  "Installing Fuse": "설치 가이드",
   "Guide to Web Components": "웹 컴포넌트 가이드",
   "Web Component Basics": "웹 컴포넌트 기본",
   "Style Customization": "스타일 커스터마이징",
   "Light DOM Style Considerations": "라이트 DOM 스타일 고려사항",
   "Working with Forms": "폼 작업",
   "Working with LiveView": "LiveView 작업",
-  "React Components": "React 컴포넌트",
-  "Next.js SSR": "Next.js SSR",
+  "Fuse Components in React": "React 컴포넌트",
+  "Fuse in Next.js (SSR)": "Next.js SSR",
   "AI Agent Skill": "AI 에이전트 스킬",
   Changelog: "변경 이력",
   "Migrating From Spark": "Spark에서 이전",
@@ -184,7 +184,6 @@ const koreanNames = {
   Textarea: "텍스트영역",
   "Textarea Lite": "텍스트영역 라이트",
   Tooltip: "툴팁",
-  "plop:component": "컴포넌트 자동 생성 슬롯",
   Principles: "원칙",
   "Design Principles": "디자인 원칙",
   "Motion Principles": "모션 원칙",
@@ -393,9 +392,9 @@ const koreanNames = {
 const catalogNotes = {
   Home: "첫 화면과 주요 바로가기를 보여줍니다.",
   "Web Installation & Usage": "설치와 개발 적용 방법입니다.",
-  "System Installation": "설치 절차와 의존성 버전입니다.",
-  "React Components": "React 환경의 렌더링 예시입니다.",
-  "Next.js SSR": "SSR 환경의 렌더링 기준입니다.",
+  "Installing Fuse": "설치 절차와 의존성 버전입니다.",
+  "Fuse Components in React": "React 환경의 렌더링 예시입니다.",
+  "Fuse in Next.js (SSR)": "SSR 환경의 렌더링 기준입니다.",
   "Design Tokens": "색상, 글꼴, 간격을 코드 값으로 관리합니다.",
   Icons: "아이콘 이름과 크기 규칙입니다.",
   Breadcrumb: "현재 페이지 위치와 상위 이동 경로를 보여주는 탐색 컴포넌트입니다.",
@@ -408,8 +407,8 @@ const catalogNotes = {
 
 const holdItems = new Set([]);
 const requiredItems = new Set([
-  "Home", "Web Installation & Usage", "System Installation", "Guide to Web Components", "Web Component Basics",
-  "Style Customization", "Working with Forms", "React Components", "AI Agent Skill", "Changelog",
+  "Home", "Web Installation & Usage", "Installing Fuse", "Guide to Web Components", "Web Component Basics",
+  "Style Customization", "Working with Forms", "Fuse Components in React", "AI Agent Skill", "Changelog",
   "Design Tokens", "Color", "Font", "Spacing", "Size", "Elevation", "Motion", "Breakpoints", "Icons",
   "UI Icons", "Frequent Icons", "Option Icons", "Vehicle Info Icons", "Brand Icons", "Community Icons",
   "Forms", "Imagery", "Layout", "Typography & Headings", "Usability Standards", "Visual Language",
@@ -462,7 +461,7 @@ const fuseSidebarTree = sidebarTree([
   {
     title: "Web Installation & Usage",
     children: [
-      "System Installation",
+      "Installing Fuse",
       {
         title: "Guide to Web Components",
         children: [
@@ -473,8 +472,8 @@ const fuseSidebarTree = sidebarTree([
           "Working with LiveView",
         ],
       },
-      "React Components",
-      "Next.js SSR",
+      "Fuse Components in React",
+      "Fuse in Next.js (SSR)",
       "AI Agent Skill",
       "Changelog",
       {
@@ -753,11 +752,11 @@ const bobaedreamUseCases = {
 const fuseGroups = [
   ["Home", "첫 화면", ["Home"]],
   ["Web Installation & Usage", "설치와 개발 적용", [
-    "Web Installation & Usage", ["System Installation", "Web Installation & Usage"], ["Guide to Web Components", "Web Installation & Usage"],
+    "Web Installation & Usage", ["Installing Fuse", "Web Installation & Usage"], ["Guide to Web Components", "Web Installation & Usage"],
     ["Web Component Basics", "Guide to Web Components"], ["Style Customization", "Guide to Web Components"],
     ["Light DOM Style Considerations", "Guide to Web Components"], ["Working with Forms", "Guide to Web Components"],
-    ["Working with LiveView", "Guide to Web Components"], ["React Components", "Web Installation & Usage"],
-    ["Next.js SSR", "Web Installation & Usage"], ["AI Agent Skill", "Web Installation & Usage"],
+    ["Working with LiveView", "Guide to Web Components"], ["Fuse Components in React", "Web Installation & Usage"],
+    ["Fuse in Next.js (SSR)", "Web Installation & Usage"], ["AI Agent Skill", "Web Installation & Usage"],
     ["Changelog", "Web Installation & Usage"], ["Migrating From Spark", "Web Installation & Usage"],
     ["Design Tokens", "Migrating From Spark"], ["Typography", "Migrating From Spark"], ["Forms", "Migrating From Spark"],
     ["Dimensions/Layout", "Migrating From Spark"], ["Lists", "Migrating From Spark"], ["Buttons", "Migrating From Spark"],
@@ -785,7 +784,6 @@ const fuseGroups = [
     ["Select", "Components"], ["Select Lite", "Components"], ["Separator", "Components"], ["Spinner", "Components"],
     ["Stack", "Components"], ["SVG", "Components"], ["Switch", "Components"], ["Tabs", "Components"], ["Tab", "Components"],
     ["Tab Panel", "Components"], ["Textarea", "Components"], ["Textarea Lite", "Components"], ["Tooltip", "Components"],
-    ["plop:component", "Components"],
   ]],
   ["Principles", "원칙", ["Principles", ["Design Principles", "Principles"], ["Motion Principles", "Principles"]]],
   ["Content Strategy", "문구와 용어", [
@@ -1091,7 +1089,7 @@ const seedItems = [
     id: "token-color",
     type: "토큰",
     name: "Color Token",
-    standard: "--color-primary",
+    standard: "--bd-color-primary",
     status: "검토필요",
     platform: "공통",
     sheet: "06_디자인토큰마스터",
@@ -1105,7 +1103,7 @@ const seedItems = [
     id: "token-breakpoint",
     type: "토큰",
     name: "Breakpoint Token",
-    standard: "--bp-mobile",
+    standard: "--bd-bp-mobile",
     status: "검토필요",
     platform: "공통",
     sheet: "06_디자인토큰마스터",
@@ -1321,7 +1319,7 @@ const seedItems = [
 let items = loadItems();
 
 const STATIC_ROUTE_SECTIONS = new Map([
-  ["#home", ["overview", "catalog"]],
+  ["#home", ["overview"]],
   ["#catalog", ["catalog"]],
   ["#workflow", ["workflow"]],
   ["#tokens", ["tokens"]],
@@ -1347,6 +1345,7 @@ const elements = {
   docPage: document.querySelector("#docPage"),
   pageSections: [...document.querySelectorAll("main.page > .section")],
   metricGrid: document.querySelector("#metricGrid"),
+  homeEntryGrid: document.querySelector("#homeEntryGrid"),
   referenceRows: document.querySelector("#referenceRows"),
   fuseCatalog: document.querySelector("#fuseCatalog"),
   ebayCatalog: document.querySelector("#ebayCatalog"),
@@ -1423,6 +1422,7 @@ let previousFocus = null;
 let selectedIconIds = new Set();
 let previousIconEditFocus = null;
 let sectionNavFrame = 0;
+let expandedSidebarIds = new Set();
 
 document.addEventListener("DOMContentLoaded", async () => {
   bindEvents();
@@ -1647,11 +1647,40 @@ function activeItems() {
 
 function renderAll() {
   renderSidebar();
-  renderMetrics();
-  renderReferences();
-  renderCatalogs();
-  renderCards();
-  renderRegistry();
+}
+
+const DYNAMIC_SECTION_ELEMENTS = {
+  overview: ["metricGrid", "homeEntryGrid"],
+  catalog: ["fuseCatalog", "ebayCatalog"],
+  tokens: ["tokenCards"],
+  "component-showcase": ["componentCards"],
+  icons: ["iconGrid"],
+  buttons: ["buttonCards"],
+  states: ["stateRow"],
+  registry: ["registryRows", "registryCards", "registrySummary"],
+};
+
+function renderStaticRouteContent(sectionIds = []) {
+  const activeSectionIds = new Set(sectionIds);
+  if (activeSectionIds.has("overview")) renderHome();
+  if (activeSectionIds.has("catalog")) renderCatalogs();
+  if (activeSectionIds.has("tokens")) renderTokenCards();
+  if (activeSectionIds.has("component-showcase")) renderComponentCards();
+  if (activeSectionIds.has("icons")) renderIconCards();
+  if (activeSectionIds.has("buttons")) renderButtonCards();
+  if (activeSectionIds.has("states")) renderStateCards();
+  if (activeSectionIds.has("registry")) renderRegistry();
+}
+
+function clearInactiveDynamicSections(sectionIds = []) {
+  const activeSectionIds = new Set(sectionIds);
+  Object.entries(DYNAMIC_SECTION_ELEMENTS).forEach(([sectionId, elementKeys]) => {
+    if (activeSectionIds.has(sectionId)) return;
+    elementKeys.forEach((key) => {
+      const element = elements[key];
+      if (element) element.innerHTML = "";
+    });
+  });
 }
 
 function renderSidebar() {
@@ -1665,9 +1694,10 @@ function renderSidebar() {
   syncActiveNav();
 }
 
-function renderSidebarList(nodes, query = "", activeHash = currentRouteHash()) {
+function renderSidebarList(nodes, query = "", activeHash = currentRouteHash(), listId = "") {
+  const idAttribute = listId ? ` id="${escapeAttribute(listId)}"` : "";
   return `
-    <ul class="fuse-nav-list">
+    <ul class="fuse-nav-list"${idAttribute}>
       ${nodes.map((node) => renderSidebarItem(node, query, activeHash)).join("")}
     </ul>
   `;
@@ -1675,10 +1705,12 @@ function renderSidebarList(nodes, query = "", activeHash = currentRouteHash()) {
 
 function renderSidebarItem(node, query = "", activeHash = currentRouteHash()) {
   const hasChildren = node.children.length > 0;
-  const nodeLabel = displayNodeName(node);
+  const nodeLabel = displaySidebarName(node);
+  const nodeTitle = displayNodeName(node);
   const isActive = node.href === activeHash;
-  const isExpanded = Boolean(query) || node.depth === 0 || nodeContainsHash(node, activeHash);
-  const sectionLinks = !query && isActive ? renderSidebarPageSections(node) : "";
+  const isExpanded = isSidebarNodeExpanded(node, query, activeHash);
+  const visibleChildren = sidebarChildrenForRender(node, query, activeHash, isExpanded);
+  const childListId = sidebarChildListId(node);
   const classNames = [
     "nav-link",
     "fuse-nav-link",
@@ -1692,30 +1724,90 @@ function renderSidebarItem(node, query = "", activeHash = currentRouteHash()) {
     .join(" ");
 
   return `
-    <li class="fuse-nav-item">
-      <a
-        class="${classNames}"
-        href="${escapeHtml(node.href)}"
-        data-sidebar-id="${escapeHtml(node.id)}"
-        data-doc-title="${escapeHtml(node.title)}"
-        data-doc-route="${isDocumentRoute(node) ? "true" : "false"}"
-        title="${escapeAttribute(nodeLabel)}"
-        aria-label="${escapeAttribute(nodeLabel)}"
-      >
-        <span class="nav-content">
-          ${hasChildren ? '<span class="nav-caret" aria-hidden="true">›</span>' : ""}
-          <span class="nav-name">${highlightText(nodeLabel, query)}</span>
-        </span>
-        ${node.status === "deprecated" ? '<em class="nav-status">deprecated</em>' : ""}
-      </a>
-      ${hasChildren && isExpanded ? renderSidebarList(node.children, query, activeHash) : ""}
-      ${sectionLinks}
+    <li class="fuse-nav-item depth-${node.depth}">
+      <div class="nav-row depth-${node.depth}">
+        ${
+          hasChildren
+            ? `<button
+                class="nav-disclosure"
+                type="button"
+                data-sidebar-toggle="${escapeAttribute(node.id)}"
+                aria-expanded="${isExpanded ? "true" : "false"}"
+                aria-controls="${escapeAttribute(childListId)}"
+                aria-label="${escapeAttribute(`${nodeLabel} ${isExpanded ? "접기" : "열기"}`)}"
+              >
+                <span class="nav-caret" aria-hidden="true">›</span>
+              </button>`
+            : '<span class="nav-disclosure-placeholder" aria-hidden="true"></span>'
+        }
+        <a
+          class="${classNames}"
+          href="${escapeAttribute(node.href)}"
+          data-sidebar-id="${escapeAttribute(node.id)}"
+          data-doc-title="${escapeAttribute(node.title)}"
+          data-doc-route="${isDocumentRoute(node) ? "true" : "false"}"
+          title="${escapeAttribute(nodeTitle)}"
+          aria-label="${escapeAttribute(nodeTitle)}"
+        >
+          <span class="nav-content">
+            <span class="nav-name">${highlightText(nodeLabel, query)}</span>
+          </span>
+          ${node.status === "deprecated" ? '<em class="nav-status">deprecated</em>' : ""}
+        </a>
+      </div>
+      ${hasChildren && isExpanded ? renderSidebarList(visibleChildren, query, activeHash, childListId) : ""}
     </li>
   `;
 }
 
+function sidebarChildListId(node) {
+  return `nav-children-${node.id}`;
+}
+
+function isSidebarNodeExpanded(node, query, activeHash) {
+  if (!node.children.length) return false;
+  return Boolean(query) || expandedSidebarIds.has(node.id) || nodeHasActiveDescendant(node, activeHash);
+}
+
+function sidebarChildrenForRender(node, query, activeHash, isExpanded) {
+  if (!isExpanded) return [];
+  if (query || expandedSidebarIds.has(node.id)) return node.children;
+  return node.children.filter((child) => nodeContainsHash(child, activeHash));
+}
+
 function nodeContainsHash(node, hash) {
   return node.href === hash || node.children.some((child) => nodeContainsHash(child, hash));
+}
+
+function nodeHasActiveDescendant(node, hash) {
+  return node.children.some((child) => nodeContainsHash(child, hash));
+}
+
+function findSidebarNodeById(id, nodes = fuseSidebarTree) {
+  for (const node of nodes) {
+    if (node.id === id) return node;
+    const child = findSidebarNodeById(id, node.children);
+    if (child) return child;
+  }
+  return null;
+}
+
+function toggleSidebarNode(id) {
+  const node = findSidebarNodeById(id);
+  if (!node || !node.children.length) return;
+
+  if (expandedSidebarIds.has(id)) {
+    expandedSidebarIds.delete(id);
+  } else {
+    if (node.depth === 0) {
+      expandedSidebarIds = new Set(
+        [...expandedSidebarIds].filter((expandedId) => findSidebarNodeById(expandedId)?.depth !== 0),
+      );
+    }
+    expandedSidebarIds.add(id);
+  }
+
+  renderSidebar();
 }
 
 function renderSidebarPageSections(node) {
@@ -1766,11 +1858,23 @@ function displayNodeName(node) {
   return node.koTitle && node.koTitle !== node.title ? `${node.title} (${node.koTitle})` : node.title;
 }
 
+function displaySidebarName(node) {
+  return node.koTitle || node.title;
+}
+
 function isDocumentRoute(node) {
   return node.status !== "custom" || !["#registry", "#workflow", "#component-showcase", "#preview"].includes(node.href);
 }
 
 function handleSidebarClick(event) {
+  const disclosure = event.target.closest("[data-sidebar-toggle]");
+  if (disclosure) {
+    event.preventDefault();
+    event.stopPropagation();
+    toggleSidebarNode(disclosure.dataset.sidebarToggle);
+    return;
+  }
+
   const link = event.target.closest(".fuse-nav-link");
   if (!link) return;
 
@@ -2245,8 +2349,8 @@ function renderCarsCrossCheckDoc() {
     ["Accessibility", "키보드, aria, 터치 영역", "필요한 컴포넌트에만 독립 섹션으로 둡니다."],
   ];
   const namingRows = [
-    ["Installing Fuse", "System Installation", "브랜드명은 빼고 보배드림 설치 기준으로 치환"],
-    ["Fuse Components in React", "React Components", "프레임워크명만 남겨 개발자가 찾기 쉽게 치환"],
+    ["Installing Fuse", "설치 가이드", "영문 키는 원문과 맞추고 화면에는 보배드림 한국어명을 노출"],
+    ["Fuse Components in React", "React 컴포넌트", "영문 키는 원문과 맞추고 화면에는 보배드림 한국어명을 노출"],
     ["Fuse in Next.js (SSR)", "Next.js SSR", "보배드림 SSR 적용 기준으로 치환"],
     ["Usage", "각 문서 하위 Usage", "전역 메뉴로 중복 노출하지 않고 문서 내부 섹션으로 유지"],
   ];
@@ -2538,7 +2642,7 @@ function renderCalloutDocumentPage(node) {
             ${renderDocHeaderActions(node)}
           </div>
         </div>
-        <p class="doc-lede">Callout (콜아웃)은 사용자에게 중요한 정보, 팁, 주의 사항을 화면 안에서 시각적으로 강조해 전달하는 메시지 컴포넌트입니다.</p>
+        <p class="doc-lede">콜아웃은 사용자에게 중요한 정보, 팁, 주의 사항을 화면 안에서 시각적으로 강조해 전달하는 메시지 컴포넌트입니다.</p>
         <p class="doc-sublede">매물 상세의 보험이력 안내, 성능점검 주의, 신고 안내, 필터 결과 안내처럼 페이지 안에 머물러야 하는 정보를 전달합니다.</p>
         <div class="callout-support-row" aria-label="지원 플랫폼">
           ${support.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
@@ -3963,6 +4067,68 @@ function iconGroupIdForNode(node) {
   return "";
 }
 
+const homeEntryLinks = [
+  {
+    href: "#web-installation-and-usage",
+    title: "웹 설치 및 사용",
+    description: "설치, 웹 컴포넌트, React, Next.js 적용 기준",
+  },
+  {
+    href: "#style-guide",
+    title: "스타일 가이드",
+    description: "토큰, 색상, 글꼴, 간격, 반응형 기준",
+  },
+  {
+    href: "#components",
+    title: "컴포넌트",
+    description: "중고차 탐색과 등록 화면의 UI 단위",
+  },
+  {
+    href: "#style-guide-icons",
+    title: "아이콘",
+    description: "UI, 자주쓰는, 옵션, 차량, 커뮤니티, 브랜드 아이콘",
+  },
+  {
+    href: "#accessibility",
+    title: "접근성",
+    description: "키보드, 포커스, 대비, 터치 타깃 체크 기준",
+  },
+  {
+    href: "#resources",
+    title: "리소스",
+    description: "참고 출처와 크로스체크 결과를 분리 보관",
+  },
+  {
+    href: "#catalog",
+    title: "전체 목차",
+    description: "Cars.com과 Seed 기준으로 정리한 보배드림 문서 구조",
+  },
+  {
+    href: "#registry",
+    title: "항목 등록/수정",
+    description: "토큰, 컴포넌트, 아이콘 자산을 등록하고 관리",
+  },
+];
+
+function renderHome() {
+  renderMetrics();
+  renderHomeEntryLinks();
+}
+
+function renderHomeEntryLinks() {
+  if (!elements.homeEntryGrid) return;
+  elements.homeEntryGrid.innerHTML = homeEntryLinks
+    .map(
+      (entry) => `
+        <a class="home-entry-card" href="${escapeAttribute(entry.href)}">
+          <strong>${escapeHtml(entry.title)}</strong>
+          <span>${escapeHtml(entry.description)}</span>
+        </a>
+      `,
+    )
+    .join("");
+}
+
 function renderMetrics() {
   const groups = ["토큰", "템플릿", "컴포넌트", "아이콘", "버튼"];
   const visibleItems = activeItems();
@@ -4011,15 +4177,18 @@ function renderCatalog(target, groups) {
   if (!target) return;
   target.innerHTML = groups
     .map(
-      ([title, description, entries]) => `
+      ([title, description, entries]) => {
+        const note = description || "";
+        return `
         <article class="catalog-group">
-          <h4>${escapeHtml(displayName(title))}</h4>
-          <p>${escapeHtml(description)}</p>
+          <h4 title="${escapeAttribute(displayName(title))}">${escapeHtml(displayKoreanName(title))}</h4>
+          ${note ? `<p>${escapeHtml(note)}</p>` : ""}
           <div class="catalog-items">
             ${entries.map((entry) => renderCatalogItem(entry)).join("")}
           </div>
         </article>
-      `,
+      `;
+      },
     )
     .join("");
 }
@@ -4031,11 +4200,10 @@ function renderCatalogItem(entry) {
   return `
     <article class="catalog-item ${status.className}">
       <div class="catalog-item-title">
-        <strong>${escapeHtml(displayName(label))}</strong>
+        <strong title="${escapeAttribute(displayName(label))}">${escapeHtml(displayKoreanName(label))}</strong>
         <em>${status.label}</em>
       </div>
-      ${parent ? `<small>${escapeHtml(parent)} 하위 항목</small>` : ""}
-      <p>${escapeHtml(catalogNote(label, parent))}</p>
+      ${catalogNote(label, parent) ? `<p>${escapeHtml(catalogNote(label, parent))}</p>` : ""}
     </article>
   `;
 }
@@ -4045,12 +4213,25 @@ function displayName(label) {
   return koreanName && koreanName !== label ? `${label} (${koreanName})` : label;
 }
 
-function catalogNote(label, parent) {
-  if (holdItems.has(label)) {
-    return `${displayName(label)}은 보류 항목입니다. 대체 컴포넌트를 검토합니다.`;
+function displayKoreanName(label) {
+  return koreanNames[label] || label;
+}
+
+function josa(word, withJong, withoutJong) {
+  const ch = String(word).replace(/[)\]\s]+$/, "").slice(-1);
+  const code = ch.charCodeAt(0);
+  if (code >= 0xac00 && code <= 0xd7a3) {
+    return (code - 0xac00) % 28 ? withJong : withoutJong;
   }
-  if (catalogNotes[label]) return catalogNotes[label];
-  return `${displayName(label)}은 ${parent ? `${parent}에서 쓰는 ` : ""}보배드림 UI 항목입니다.`;
+  return withJong;
+}
+
+function catalogNote(label, parent) {
+  const name = displayKoreanName(label);
+  if (holdItems.has(label)) {
+    return `${name}${josa(name, "은", "는")} 보류 항목입니다. 대체 컴포넌트를 검토합니다.`;
+  }
+  return catalogNotes[label] || "";
 }
 
 function catalogStatus(label) {
@@ -4639,14 +4820,18 @@ function navigateToStaticRoute(hash, onReady) {
 function syncActiveNav() {
   const route = resolveRoute();
   const hash = route.hash;
+  const sectionIds = route.type === "document" ? ["docPage"] : route.sectionIds;
+
+  clearInactiveDynamicSections(sectionIds);
 
   if (route.type === "document") {
     renderDocumentPage(route.node);
-    setVisibleSections(["docPage"]);
   } else {
     elements.docPage.innerHTML = "";
-    setVisibleSections(route.sectionIds);
+    renderStaticRouteContent(route.sectionIds);
   }
+
+  setVisibleSections(sectionIds);
 
   document.querySelectorAll(".nav-link").forEach((link) => {
     link.classList.toggle("active", link.getAttribute("href") === hash);

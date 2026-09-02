@@ -336,16 +336,57 @@ body.sidebar-open .mobile-menu-button {
 }
 
 .fuse-nav-list .fuse-nav-list {
-  margin-top: 0;
-  margin-left: 35px;
+  margin-top: 2px;
+  margin-left: 18px;
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+  padding-left: 8px;
 }
 
 .fuse-nav-item {
   min-width: 0;
 }
 
+.nav-row {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  min-width: 0;
+  align-items: center;
+  column-gap: 2px;
+  border-radius: 6px;
+}
+
+.nav-row:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-disclosure,
+.nav-disclosure-placeholder {
+  width: 24px;
+  height: 28px;
+  min-height: 28px;
+}
+
+.nav-disclosure {
+  display: inline-grid;
+  place-items: center;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0;
+}
+
+.nav-disclosure:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-sidebar-accent);
+}
+
+.nav-disclosure:focus-visible {
+  outline: 2px solid var(--color-sidebar-accent);
+  outline-offset: 1px;
+}
+
 .nav-link {
-  position: relative;
   display: flex;
   min-height: 28px;
   min-width: 0;
@@ -355,12 +396,12 @@ body.sidebar-open .mobile-menu-button {
   gap: 6px;
   overflow: hidden;
   border: 0;
-  border-radius: 0;
+  border-radius: 5px;
   background: transparent;
-  color: var(--color-sidebar-ink);
-  padding: 0;
-  font-size: 14px;
-  font-weight: 600;
+  color: rgba(255, 255, 255, 0.78);
+  padding: 0 7px;
+  font-size: 13px;
+  font-weight: 400;
   line-height: 28px;
   text-align: left;
   text-overflow: ellipsis;
@@ -368,13 +409,23 @@ body.sidebar-open .mobile-menu-button {
 }
 
 .nav-link.depth-0 {
-  min-height: 32px;
+  min-height: 30px;
   margin-top: 0;
   color: var(--color-sidebar-ink);
-  padding-left: 24px;
-  font-size: 16px;
+  padding-left: 4px;
+  font-size: 14px;
   font-weight: 600;
-  line-height: 32px;
+  line-height: 30px;
+}
+
+.nav-link.depth-1 {
+  font-size: 13px;
+}
+
+.nav-link.depth-2,
+.nav-link.depth-3 {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 12px;
 }
 
 .nav-link:hover {
@@ -382,8 +433,9 @@ body.sidebar-open .mobile-menu-button {
 }
 
 .nav-link.active {
-  background: transparent;
+  background: rgba(105, 179, 255, 0.14);
   color: var(--color-sidebar-accent);
+  font-weight: 600;
 }
 
 .nav-content {
@@ -404,24 +456,13 @@ body.sidebar-open .mobile-menu-button {
 }
 
 .nav-caret {
-  position: absolute;
-  left: 4px;
-  flex: 0 0 auto;
-  color: rgba(255, 255, 255, 0.54);
+  display: block;
   font-size: 15px;
   line-height: 18px;
   transition: transform 0.18s ease;
 }
 
-.nav-link:not(.depth-0).has-children {
-  padding-left: 18px;
-}
-
-.nav-link:not(.depth-0).has-children .nav-caret {
-  left: 0;
-}
-
-.nav-link.expanded > .nav-content > .nav-caret {
+.nav-disclosure[aria-expanded="true"] .nav-caret {
   transform: rotate(90deg);
 }
 
@@ -621,6 +662,7 @@ body.sidebar-open .mobile-menu-button {
   padding: 0 8px;
   font-size: 12px;
   font-weight: 850;
+  white-space: nowrap;
 }
 
 .doc-theme-control select {
@@ -630,6 +672,7 @@ body.sidebar-open .mobile-menu-button {
   color: #101828;
   font-size: 12px;
   font-weight: 850;
+  white-space: nowrap;
 }
 
 .doc-storybook-link {
@@ -2109,6 +2152,47 @@ body.sidebar-open .mobile-menu-button {
   font-weight: 650;
 }
 
+.home-entry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.home-entry-card {
+  display: grid;
+  min-height: 112px;
+  align-content: start;
+  gap: 9px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-panel);
+  background: var(--color-panel);
+  box-shadow: var(--shadow-panel);
+  padding: 18px;
+  color: var(--color-ink);
+}
+
+.home-entry-card:hover {
+  border-color: #b2ccff;
+  background: #f8fbff;
+}
+
+.home-entry-card strong {
+  min-width: 0;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-entry-card span {
+  color: var(--color-muted);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.55;
+}
+
 .notice-grid,
 .preview-grid {
   display: grid;
@@ -3313,6 +3397,7 @@ body.modal-open {
 
 @media (max-width: 1080px) {
   .metric-grid,
+  .home-entry-grid,
   .workflow,
   .card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3433,6 +3518,7 @@ body.modal-open {
   }
 
   .metric-grid,
+  .home-entry-grid,
   .workflow,
   .card-grid,
   .catalog-layout,
