@@ -3288,8 +3288,9 @@ function renderPaginationControls({ currentPage, totalPages, variant, baseUrl })
       .map((page) => {
         if (page === "ellipsis") return `<span class="bd-pagination-ellipsis" aria-hidden="true">…</span>`;
         const isCurrent = page === currentPage;
+        const serviceHref = `${baseUrl}?page=${page}`;
         return `
-          <a class="bd-pagination-page" href="${escapeAttribute(`${baseUrl}?page=${page}`)}" data-pagination-page="${page}" ${isCurrent ? 'aria-current="page"' : ""}>
+          <a class="bd-pagination-page" href="#components-pagination" data-demo-href="${escapeAttribute(serviceHref)}" data-pagination-page="${page}" aria-label="${page} 페이지로 이동" ${isCurrent ? 'aria-current="page"' : ""}>
             ${page}
           </a>
         `;
