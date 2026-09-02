@@ -393,16 +393,138 @@ const catalogNotes = {
   Home: "첫 화면과 주요 바로가기를 보여줍니다.",
   "Web Installation & Usage": "설치와 개발 적용 방법입니다.",
   "Installing Fuse": "설치 절차와 의존성 버전입니다.",
-  "Fuse Components in React": "React 환경의 렌더링 예시입니다.",
+  "Guide to Web Components": "컴포넌트 사용 기본 규칙입니다.",
+  "Web Component Basics": "커스텀 엘리먼트 구조를 이해하고 React/Blade에서 동일하게 사용할 최소 규칙입니다.",
+  "Style Customization": "브랜드 컬러, spacing, radius, typography를 토큰으로 바꾸는 허용 범위입니다.",
+  "Light DOM Style Considerations": "slot, light DOM, 외부 CSS 영향도를 점검해 예기치 않은 스타일 누수를 막는 기준입니다.",
+  "Working with Forms": "입력, 오류, 검증, disabled, required 상태를 폼 컴포넌트와 연결하는 규칙입니다.",
+  "Working with LiveView": "서버 렌더링/부분 갱신 화면에서 컴포넌트 상태가 깨지지 않도록 확인하는 기준입니다.",
+  "Fuse Components in React": "React/Vite/Storybook 렌더링 예시입니다.",
   "Fuse in Next.js (SSR)": "SSR 환경의 렌더링 기준입니다.",
+  "AI Agent Skill": "Codex가 토큰, 컴포넌트, 아이콘 명칭을 읽고 수정할 수 있게 하는 작업 지시서 영역입니다.",
+  Changelog: "디자인 토큰과 컴포넌트 변경 이력을 날짜, 작성자, 영향 범위 기준으로 남깁니다.",
+  "Migrating From Spark": "기존 Spark 계열 규칙을 신규 보배드림 DS 규칙으로 전환하는 대응표입니다.",
+  Typography: "제목, 본문, 가격, 메타, 라벨 텍스트 크기와 줄높이의 기준입니다.",
+  "Dimensions/Layout": "컨테이너, 그리드, 카드, 리스트, 상세 화면의 크기와 배치 전환 기준입니다.",
+  Lists: "매물 리스트, 링크 목록, 옵션 목록처럼 반복 정보의 행 간격과 구분선을 정의합니다.",
+  Buttons: "CTA, 보조 버튼, 아이콘 버튼, 링크 버튼의 높이, radius, 상태값을 정의합니다.",
+  "Style Guide": "토큰과 시각 기준을 관리합니다.",
   "Design Tokens": "색상, 글꼴, 간격을 코드 값으로 관리합니다.",
+  Installation: "토큰 패키지 설치, import 경로, CSS variables 연결 방식을 기록합니다.",
+  Schema: "토큰의 이름, 타입, 값, 설명, 플랫폼 매핑 컬럼 구조를 정의합니다.",
+  Color: "브랜드, 본문, 보조 텍스트, 경고, 성공, 구분선 색상을 WCAG 대비와 함께 관리합니다.",
+  Font: "폰트 패밀리, 굵기, 숫자 정렬, fallback을 정의합니다.",
+  Spacing: "섹션, 카드, 썸네일, 칩, 아이콘과 텍스트 사이의 기본 간격 단위를 정의합니다.",
+  Size: "버튼 높이, 아이콘 크기, 터치 타깃, 썸네일 비율 같은 크기 토큰입니다.",
+  Elevation: "카드 hover, 드롭다운, 모달, 모바일 하단 고정바의 shadow 레벨입니다.",
+  Motion: "hover, active, sheet open, save feedback 등 전환 시간과 easing 기준입니다.",
+  Breakpoints: "MO 360/390, tablet 768, PC 1280/1440, wide 1920 기준 반응형 분기점입니다.",
   Icons: "아이콘 이름과 크기 규칙입니다.",
-  Breadcrumb: "현재 페이지 위치와 상위 이동 경로를 보여주는 탐색 컴포넌트입니다.",
-  Filter: "차량 조건을 선택하고 해제하는 필터입니다.",
-  Gallery: "차량 사진과 영상을 탐색하는 영역입니다.",
-  Save: "매물을 저장하거나 해제하는 버튼입니다.",
+  Forms: "매물 등록/수정, 검색 필터, 문의 폼의 라벨, 도움말, 오류 상태 기준입니다.",
+  Imagery: "차량 사진 비율, object-fit, 썸네일 crop, 갤러리, 대체 텍스트 기준입니다.",
+  Layout: "PC/MO 컨테이너, 사이드바, sticky filter, 상세 CTA 배치 기준입니다.",
+  "Typography & Headings": "H1-H6, 섹션 제목, 가격, 차량명, 메타 텍스트 위계를 정의합니다.",
+  "Usability Standards": "찾기 쉬움, 읽기 쉬움, 조작 실수 방지, 모바일 터치성을 점검합니다.",
+  "Visual Language": "보배드림의 정보 밀도, 강조 색상, 자동차 거래 신뢰감 표현 기준입니다.",
+  Components: "실제 화면에서 조립되는 UI 단위를 Storybook 스토리와 코드 API로 관리합니다.",
+  Accordion: "상세 옵션, FAQ, 보험/성능 정보처럼 접고 펼치는 콘텐츠에 사용합니다.",
+  Badge: "무사고, 진단, 급매, 인증, 가격인하 같은 상태를 짧게 표시합니다.",
+  Breadcrumb: "홈에서 현재 매물/카테고리까지의 정보 구조를 보여주는 탐색 컴포넌트입니다.",
+  Button: "주요 CTA, 보조 CTA, outline, ghost, disabled 상태를 관리합니다.",
+  Callout: "중요 정보, 팁, 주의 사항을 화면 안에서 강조해 전달합니다.",
+  "Card Carousel": "추천 매물, 최근 본 매물, 비슷한 차량을 가로 스크롤로 노출합니다.",
+  Checkbox: "복수 옵션 선택, 약관 동의, 비교 선택에 사용하는 표준 체크박스입니다.",
+  "Checkbox Lite": "밀도 높은 필터 목록에서 간결하게 쓰는 경량 체크박스입니다.",
+  Disclaimer: "가격, 보증, 성능점검, 제휴 광고의 법적/운영 고지를 표시합니다.",
+  "Feedback Thumbs": "콘텐츠 도움 여부, 상담 품질, 검색 결과 피드백을 빠르게 수집합니다.",
+  Fieldset: "제조사, 모델, 가격대, 연식처럼 관련 입력 묶음에 제목과 구조를 제공합니다.",
+  Figure: "차량 이미지와 캡션, 출처, 주석을 함께 묶는 미디어 컴포넌트입니다.",
+  Filter: "상단 필터, 사이드 필터, 모바일 바텀시트 필터의 공통 동작 기준입니다.",
+  "Form Module": "매물 등록/수정 폼의 섹션 단위 묶음과 검증 흐름을 관리합니다.",
+  Gallery: "상세 대표 이미지, 스와이프, 전체보기, 영상 진입을 관리합니다.",
+  "Gallery Grid": "차량 사진을 여러 장 한 화면에서 비교할 때 쓰는 그리드입니다.",
+  "Gallery Thumbnails": "대표 이미지 하단/측면 썸네일 목록과 선택 상태를 정의합니다.",
+  Headshot: "딜러, 판매자, 상담원 프로필 사진 표시 기준입니다.",
+  Input: "검색어, 가격, 주행거리, 연락처 같은 텍스트 입력의 표준 컴포넌트입니다.",
+  "Input Lite": "필터나 테이블 안에서 쓰는 낮은 높이의 경량 입력입니다.",
+  Link: "일반 링크, 딜러 페이지 이동, 외부 링크의 색상과 hover 상태를 관리합니다.",
+  "Link Pack": "관련 링크 묶음, 푸터 링크, 상세 보조 링크 그룹에 사용합니다.",
+  List: "검색 결과, 옵션 정보, 사양 목록 등 반복 행의 간격과 구분선을 정의합니다.",
+  Menu: "계정 메뉴, 정렬 메뉴, 더보기 메뉴의 컨테이너입니다.",
+  "Menu Item": "메뉴 내부 개별 액션의 높이, 아이콘, disabled 상태를 정의합니다.",
+  Modal: "원문에서 취소선 처리된 항목입니다. 신규 구현은 Sheet/Dialog 기준으로 대체 검토합니다.",
+  Notification: "저장 완료, 문의 완료, 오류, 가격 변동 알림을 표시합니다.",
+  "Page Section": "목록/상세 화면의 큰 섹션 제목, 간격, 배경을 맞추는 레이아웃 단위입니다.",
+  Pagination: "검색 결과 페이지 이동, SEO 페이지, 딜러 매물 목록에 사용합니다.",
+  "Paging Button": "캐러셀, 갤러리, 페이지 이동에서 이전/다음 조작을 제공합니다.",
+  Picker: "차종, 제조사, 지역처럼 한 항목을 고르는 선택 UI입니다.",
+  "Picker Option": "Picker 내부 선택 항목의 label, meta, selected 상태입니다.",
+  Popover: "정렬, 도움말, 간단 필터처럼 작은 오버레이 콘텐츠를 표시합니다.",
+  "Price Range": "원문에서 취소선 처리된 항목입니다. 보배드림은 Range Dual로 우선 통합합니다.",
+  "Progress Bar": "사진 업로드, 등록 진행, 비동기 로딩 진행률을 표시합니다.",
+  Radio: "단일 선택 옵션을 폼 안에서 명확하게 보여주는 표준 라디오입니다.",
+  "Radio Lite": "필터 바텀시트나 고밀도 리스트에서 쓰는 경량 라디오입니다.",
+  Range: "가격, 연식, 주행거리 등 단일 범위 입력에 사용합니다.",
+  "Range Dual": "가격 최소/최대, 연식 시작/끝처럼 양방향 범위를 조절합니다.",
+  Rating: "딜러 평가, 차량 상태, 리뷰 점수를 읽기 전용으로 보여줍니다.",
+  "Rating Input": "사용자가 별점/평점을 입력하는 상태와 키보드 조작 기준입니다.",
+  Reveal: "접힌 정보 더보기, 옵션 전체보기, 고지문 펼치기에 사용합니다.",
+  Save: "찜하기, 저장 매물, 비교 후보 저장의 활성/비활성 상태를 관리합니다.",
+  Select: "정렬, 지역, 옵션 선택용 기본 셀렉트입니다.",
+  "Select Lite": "테이블/필터 안에서 쓰는 낮은 밀도의 셀렉트입니다.",
+  Separator: "매물 카드, 사양 행, 섹션 사이의 시각적 구분선입니다.",
+  Spinner: "데이터 로딩 중임을 알리는 최소 피드백 컴포넌트입니다.",
+  Stack: "컴포넌트 내부 세로/가로 간격을 일관되게 쌓는 레이아웃 유틸리티입니다.",
+  SVG: "아이콘 렌더링, 크기, 색상, 접근성 라벨의 공통 래퍼입니다.",
+  Switch: "알림 수신, 판매 옵션 공개 여부처럼 즉시 켜고 끄는 설정에 사용합니다.",
+  Tabs: "상세 정보, 성능점검, 보험이력, 리뷰처럼 동등한 콘텐츠 그룹을 전환합니다.",
+  Tab: "탭 목록 안의 개별 선택 항목입니다.",
+  "Tab Panel": "선택된 탭이 보여주는 콘텐츠 영역과 aria 연결 기준입니다.",
+  Textarea: "문의 내용, 설명, 신고 사유처럼 긴 텍스트 입력에 사용합니다.",
+  "Textarea Lite": "간단 메모나 고밀도 폼의 경량 긴 텍스트 입력입니다.",
+  Tooltip: "아이콘 버튼, 약어, 가격 계산 기준에 짧은 도움말을 제공합니다.",
+  Principles: "보배드림 디자인 의사결정의 상위 원칙과 모션 원칙을 모읍니다.",
+  "Design Principles": "신뢰, 빠른 비교, 명확한 거래 행동을 우선하는 설계 원칙입니다.",
+  "Motion Principles": "과장되지 않은 피드백, 위치 변화, sheet 전환, 저장 애니메이션 원칙입니다.",
+  "Content Strategy": "버튼명, 필터명, 고지문, 오류문구의 말투와 작성 기준을 관리합니다.",
+  "Content Strategy Principles": "콘텐츠가 짧고 명확하며 거래 리스크를 줄이는 방향으로 쓰이게 합니다.",
+  "Voice and Tone": "보배드림의 신뢰감 있는 말투, 안내/경고/성공 상태의 톤을 정의합니다.",
+  "Grammar and Mechanics": "띄어쓰기, 숫자/단위 표기, 가격 표기, 문장 부호 규칙입니다.",
+  Vocabulary: "제조사, 모델, 트림, 사고, 진단, 금융 등 서비스 용어 사전입니다.",
   Accessibility: "누구나 탐색하고 문의할 수 있게 하는 기준입니다.",
-  "Color Contrast": "텍스트와 배경의 최소 대비 기준입니다.",
+  "Accessibility Principles": "장애 여부와 입력 장치와 관계없이 매물 탐색과 문의가 가능해야 한다는 원칙입니다.",
+  "Accessibility Checklist": "개발/QA가 화면마다 체크하는 접근성 항목 목록입니다.",
+  "Global Code": "전체 HTML 구조, landmarks, aria 사용의 기본 품질 기준입니다.",
+  "Default Language": "문서 기본 언어를 ko로 선언해 스크린리더 발음을 안정화합니다.",
+  "Semantic HTML": "버튼은 button, 링크는 a, 목록은 list로 구현하는 기본 원칙입니다.",
+  "Unique Page Title Element": "각 페이지가 고유한 title을 가져 현재 위치를 이해할 수 있게 합니다.",
+  "Keyboard Navigation": "마우스 없이 주요 탐색, 필터, 저장, 문의 조작이 가능해야 합니다.",
+  "Focus State": "포커스 위치가 모든 배경에서 충분히 보이도록 스타일을 정의합니다.",
+  "Keyboard Interaction": "컴포넌트별 Enter, Space, Escape, Arrow 키 동작을 명시합니다.",
+  "Logical Tab Order": "화면 시각 순서와 키보드 이동 순서가 자연스럽게 일치해야 합니다.",
+  "Minimum Contrast Ratio": "텍스트와 UI 컴포넌트의 최소 대비 기준을 검수합니다.",
+  "Text Contrast": "가격, 메타, disabled, 오류 문구의 대비를 별도로 확인합니다.",
+  "Multi Device Responsive Design": "PC, 태블릿, 모바일에서 내용이 겹치거나 잘리지 않는지 확인합니다.",
+  "Text Resizing": "사용자가 글자를 키워도 CTA, 필터, 카드가 깨지지 않도록 합니다.",
+  "Touch Targets": "모바일 터치 영역은 최소 44px 수준으로 유지합니다.",
+  "Moving, Flashing, or Blinking Content": "움직이거나 깜빡이는 콘텐츠가 사용자를 방해하지 않도록 제한합니다.",
+  "Content Flash": "광과민 위험이 있는 빠른 깜빡임을 금지합니다.",
+  "Stop Motion": "자동 재생, carousel, 영상에는 정지/제어 방법을 제공합니다.",
+  Headings: "페이지 제목과 섹션 제목의 문서 구조를 관리합니다.",
+  "Clear Headings": "제목만 보고도 섹션 목적과 현재 맥락을 이해할 수 있게 합니다.",
+  "Sequential Headings": "h1부터 순차적으로 heading level을 사용합니다.",
+  "Forms, Labels, and Errors": "폼 라벨, 도움말, 오류 연결을 스크린리더 기준으로 점검합니다.",
+  "Form Errors": "오류 위치, 원인, 해결 방법이 입력 항목과 연결되어야 합니다.",
+  "Form Labels": "모든 입력에는 보이는 라벨 또는 접근 가능한 이름이 있어야 합니다.",
+  "Forms Keyboard Accessible": "폼 입력, 선택, 제출이 키보드만으로 가능해야 합니다.",
+  "Written Material (Copy)": "문구가 짧고 명확하며 전문 용어는 필요한 곳에만 사용되는지 점검합니다.",
+  "Clear Content": "사용자가 거래 판단에 필요한 정보를 빠르게 이해할 수 있게 씁니다.",
+  "Meaningful Link Text": "링크 텍스트만으로 이동 목적을 알 수 있어야 합니다.",
+  "Image Text Alternatives": "이미지 의미를 전달하는 대체 텍스트 정책을 관리합니다.",
+  "Image Alt Text": "차량 사진, 아이콘, 배지 이미지의 alt 규칙을 정의합니다.",
+  "Color Contrast": "색상 조합별 대비 수치를 기록하고 실패 조합은 사용 금지합니다.",
+  Resources: "디자인/개발/QA가 함께 참고하는 외부 도구와 운영 자료를 모읍니다.",
+  Toolbox: "측정 도구, 접근성 도구, Storybook/Chromatic 운영 링크를 등록합니다.",
 };
 
 const holdItems = new Set([]);
@@ -1317,6 +1439,7 @@ const seedItems = [
 ];
 
 let items = loadItems();
+let repoMetricCounts = new Map();
 
 const STATIC_ROUTE_SECTIONS = new Map([
   ["#home", ["overview"]],
@@ -1342,6 +1465,7 @@ const elements = {
   collapseSidebar: document.querySelector("#collapseSidebar"),
   closeSidebar: document.querySelector("#closeSidebar"),
   sidebarOverlay: document.querySelector("#sidebarOverlay"),
+  globalStorybookLink: document.querySelector('.topbar-actions a[href="../storybook/index.html"]'),
   docPage: document.querySelector("#docPage"),
   pageSections: [...document.querySelectorAll("main.page > .section")],
   metricGrid: document.querySelector("#metricGrid"),
@@ -1427,6 +1551,7 @@ let expandedSidebarIds = new Set();
 document.addEventListener("DOMContentLoaded", async () => {
   bindEvents();
   restoreSidebarState();
+  removeGlobalStorybookLink();
   await hydrateItemsFromRepoData();
   renderAll();
   captureFormBaseline();
@@ -1495,6 +1620,11 @@ function bindEvents() {
   syncActiveNav();
 }
 
+function removeGlobalStorybookLink() {
+  elements.globalStorybookLink?.remove();
+  elements.globalStorybookLink = null;
+}
+
 function loadItems() {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -1518,6 +1648,7 @@ async function hydrateItemsFromRepoData() {
     const payload = await response.json();
     const repoItems = normalizeRegistryItems(readRegistryPayload(payload));
     if (!repoItems.length) return;
+    repoMetricCounts = metricCountsForItems(repoItems);
     items = mergeSeedItems([...items, ...repoItems]);
     persistItems();
   } catch {
@@ -1987,24 +2118,11 @@ function renderDocumentPage(node) {
   const statusLabel = node.status === "deprecated" ? "deprecated" : node.status === "custom" ? "보배드림 운영" : "stable";
   const path = node.path?.join(" / ") || displayNodeName(node);
   const profile = documentProfileForNode(node);
-
-  elements.docPage.innerHTML = `
-    <div class="doc-page-layout component-doc">
-      <article class="doc-main">
-        <nav class="doc-breadcrumb" aria-label="문서 경로">${escapeHtml(path)}</nav>
-        <div class="doc-title-row">
-          <div>
-            <p class="eyebrow">${node.status === "custom" ? "보배드림 운영" : "보배드림 문서"}</p>
-            <h2>${escapeHtml(displayNodeName(node))}</h2>
-          </div>
-          <div class="doc-title-actions">
-            <span class="doc-status ${escapeHtml(node.status)}">${escapeHtml(statusLabel)}</span>
-            ${renderDocHeaderActions(node)}
-          </div>
-        </div>
-        <p class="doc-lede">${escapeHtml(profile.lede)}</p>
-        <p class="doc-sublede">${escapeHtml(profile.sublede)}</p>
-
+  const specializedDoc = renderSpecializedDoc(node);
+  const tocSections = documentSectionsForProfile(profile, specializedDoc);
+  const docSections = [
+    profile.overview.length
+      ? `
         <section class="component-doc-section" id="doc-overview">
           <h3>Overview</h3>
           <div class="doc-summary-grid">
@@ -2020,18 +2138,27 @@ function renderDocumentPage(node) {
               .join("")}
           </div>
         </section>
-
+      `
+      : "",
+    profile.examples.length || specializedDoc
+      ? `
         <section class="component-doc-section" id="doc-examples">
           <h3>Examples</h3>
-          ${renderDocExamples(profile.examples)}
-          ${renderSpecializedDoc(node)}
+          ${profile.examples.length ? renderDocExamples(profile.examples) : ""}
+          ${specializedDoc}
         </section>
-
+      `
+      : "",
+    profile.props.length
+      ? `
         <section class="component-doc-section" id="doc-api">
           <h3>API</h3>
           ${renderDocPropsTable(profile.props)}
         </section>
-
+      `
+      : "",
+    profile.usage.length
+      ? `
         <section class="component-doc-section" id="doc-usage">
           <h3>Usage</h3>
           <div class="doc-guideline-grid">
@@ -2047,20 +2174,56 @@ function renderDocumentPage(node) {
               .join("")}
           </div>
         </section>
-
+      `
+      : "",
+    profile.accessibility.length
+      ? `
         <section class="component-doc-section" id="doc-accessibility">
           <h3>Accessibility</h3>
           <ul class="doc-checklist">
             ${profile.accessibility.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
           </ul>
         </section>
+      `
+      : "",
+  ]
+    .filter(Boolean)
+    .join("");
+
+  elements.docPage.innerHTML = `
+    <div class="doc-page-layout component-doc">
+      <article class="doc-main">
+        <nav class="doc-breadcrumb" aria-label="문서 경로">${escapeHtml(path)}</nav>
+        <div class="doc-title-row">
+          <div>
+            <p class="eyebrow">${node.status === "custom" ? "보배드림 운영" : "보배드림 문서"}</p>
+            <h2>${escapeHtml(displayNodeName(node))}</h2>
+          </div>
+          <div class="doc-title-actions">
+            <span class="doc-status ${escapeHtml(node.status)}">${escapeHtml(statusLabel)}</span>
+            ${renderDocHeaderActions(node)}
+          </div>
+        </div>
+        ${profile.lede ? `<p class="doc-lede">${escapeHtml(profile.lede)}</p>` : ""}
+        ${profile.sublede ? `<p class="doc-sublede">${escapeHtml(profile.sublede)}</p>` : ""}
+        ${docSections}
       </article>
       <aside class="doc-aside">
         <strong>목차</strong>
-        ${renderDocToc(documentSectionsForNode(node))}
+        ${renderDocToc(tocSections)}
       </aside>
     </div>
   `;
+}
+
+function documentSectionsForProfile(profile, specializedDoc = "") {
+  const sections = [];
+  if (profile.overview.length) sections.push(["Overview", "#doc-overview"]);
+  if (profile.examples.length || specializedDoc) sections.push(["Examples", "#doc-examples"]);
+  if (profile.props.length) sections.push(["API", "#doc-api"]);
+  if (profile.usage.length) sections.push(["Usage", "#doc-usage"]);
+  if (profile.accessibility.length) sections.push(["Accessibility", "#doc-accessibility"]);
+  return sections;
 }
 
 function renderDocHeaderActions(node) {
@@ -2083,10 +2246,9 @@ function storybookHrefForNode(node) {
 }
 
 function documentProfileForNode(node) {
-  const label = displayName(node.title);
   const parent = node.path?.at(-2) || "";
   const top = node.path?.[0] || node.title;
-  const useCases = bobaedreamUseCases[node.title] || [`${label} 기본`, `${label} 상태`, `${label} 반응형`];
+  const useCases = bobaedreamUseCases[node.title] || [];
   const isComponent = isInSourceSection(node, "Components") || top === "Icons";
   const isStyle = isInSourceSection(node, "Style Guide") || node.title === "Icons";
   const isA11y = isInSourceSection(node, "Accessibility");
@@ -2106,54 +2268,19 @@ function documentProfileForNode(node) {
 }
 
 function ledeForDocument(node, category) {
-  const label = displayName(node.title);
-  if (category === "component") return `${label}은 보배드림 화면의 반복되는 구조와 상태를 표준화하는 컴포넌트입니다.`;
-  if (category === "style") return `${label}은 보배드림 화면의 시각 기준을 토큰과 사용 규칙으로 정리한 항목입니다.`;
-  if (category === "accessibility") return `${label}은 모든 사용자가 중고차 정보를 탐색하고 문의할 수 있도록 보장하는 기준입니다.`;
-  if (category === "resource") return `${label}은 디자인 시스템을 운영하고 수정할 때 참고하는 내부 자료입니다.`;
-  return catalogNote(node.title, node.path?.at(-2) || "");
+  return "";
 }
 
 function subledeForDocument(node, category) {
-  if (category === "component") return "예시, 상태, 속성, 접근성 기준을 먼저 확인하고 화면에 적용합니다.";
-  if (category === "style") return "값 자체보다 언제 어떤 화면에 쓰는지 먼저 판단할 수 있게 정리합니다.";
-  if (category === "accessibility") return "키보드, 스크린리더, 터치 조작, 명도 대비를 함께 확인합니다.";
-  if (category === "resource") return "레퍼런스와 운영 도구는 이 영역에 모아 본문 문서가 산만해지지 않게 관리합니다.";
-  return "필요한 정보만 짧게 확인하고 바로 구현할 수 있게 구성합니다.";
+  return "";
 }
 
 function overviewForDocument(node, category) {
-  const label = displayName(node.title);
-  if (category === "style") {
-    return [
-      ["정의", `${label} 기준은 색, 글꼴, 간격, 상태처럼 반복되는 시각 결정을 통일합니다.`],
-      ["목적", "디자인과 코드가 같은 이름을 사용해 화면 편차를 줄입니다."],
-      ["사용 위치", "매물 목록, 상세, 등록, 검색 필터, 마이페이지 화면 전반에 적용합니다."],
-    ];
-  }
-  if (category === "accessibility") {
-    return [
-      ["정의", `${label}은 사용자가 정보를 놓치지 않고 조작할 수 있게 하는 품질 기준입니다.`],
-      ["목적", "탐색, 문의, 등록 과정에서 키보드와 보조기술 사용성을 보장합니다."],
-      ["사용 위치", "링크, 폼, 필터, 차량 이미지, CTA가 있는 모든 화면에 적용합니다."],
-    ];
-  }
-  if (category === "resource") {
-    return [
-      ["정의", `${label}은 디자인 시스템 관리자가 항목을 수정하고 검수할 때 쓰는 자료입니다.`],
-      ["목적", "외부 참고, QA, Storybook, 등록 데이터를 문서 본문과 분리해 관리합니다."],
-      ["사용 위치", "운영 회의, 컴포넌트 등록, 배포 전 검수, 문서 업데이트에 사용합니다."],
-    ];
-  }
-  return [
-    ["정의", `${label}은 화면에서 반복 사용되는 구조와 상태를 표준화한 UI 항목입니다.`],
-    ["목적", "사용자가 차량 정보를 빠르게 이해하고 다음 행동으로 이동하게 돕습니다."],
-    ["사용 위치", "매물 목록, 차량 상세, 검색 결과, 매물 등록 흐름에서 사용합니다."],
-  ];
+  const note = catalogNote(node.title, node.path?.at(-2) || "");
+  return note ? [["정의", note]] : [];
 }
 
 function examplesForDocument(node, useCases, category) {
-  const label = displayName(node.title);
   if (node.title === "References") {
     return references.slice(0, 4).map((reference) => [reference.name, reference.apply]);
   }
@@ -2164,10 +2291,7 @@ function examplesForDocument(node, useCases, category) {
       ["보강 항목", "모바일 앱 컴포넌트, 파운데이션, 유틸리티성 기준은 별도 그룹으로 관리합니다."],
     ];
   }
-  if (category === "style") {
-    return useCases.map((item) => [`${item}`, `${label} 값을 보배드림 화면 토큰으로 적용합니다.`]);
-  }
-  return useCases.map((item) => [`${item}`, `${label} 적용 예시입니다.`]);
+  return useCases.map((item) => [item, "보배드림 실제 화면 기준으로 확인합니다."]);
 }
 
 function propsForDocument(node, category) {
@@ -2204,14 +2328,6 @@ function propsForDocument(node, category) {
 }
 
 function usageForDocument(node, category) {
-  const label = displayName(node.title);
-  if (category === "style") {
-    return [
-      ["사용", `${label} 값은 토큰명으로 적용하고 화면별 임의 값을 줄입니다.`],
-      ["변경", "값을 바꿀 때는 영향 화면과 Storybook 예시를 함께 확인합니다."],
-      ["금지", "동일 역할의 값을 새 이름으로 중복 생성하지 않습니다."],
-    ];
-  }
   if (category === "resource") {
     return [
       ["사용", "운영 자료는 Resources에 모아 문서 본문과 분리합니다."],
@@ -2219,32 +2335,15 @@ function usageForDocument(node, category) {
       ["금지", "개별 컴포넌트 본문에 외부 참고 문구를 길게 노출하지 않습니다."],
     ];
   }
-  return [
-    ["사용", `${label}은 사용자가 다음 행동을 예측할 수 있는 위치에 배치합니다.`],
-    ["상태", "컴포넌트 역할에 맞는 default, hover, focus, disabled 상태를 정의합니다."],
-    ["금지", "서로 다른 역할의 정보나 행동을 한 컴포넌트에 억지로 합치지 않습니다."],
-  ];
+  return [];
 }
 
 function accessibilityForDocument(node, category) {
-  if (category === "style") {
-    return [
-      "색상은 텍스트 대비 기준을 먼저 확인합니다.",
-      "모션과 상태 변화는 정보 전달 목적이 있을 때만 사용합니다.",
-      "반응형에서 글자와 컨트롤이 겹치지 않는지 확인합니다.",
-    ];
-  }
-  if (category === "resource") {
-    return [
-      "운영 화면의 버튼과 링크는 키보드로 접근 가능해야 합니다.",
-      "등록/수정 폼은 오류 메시지를 필드와 연결합니다.",
-      "QA 문서는 모바일 390px과 데스크톱 1440px을 함께 확인합니다.",
-    ];
-  }
+  if (!isInSourceSection(node, "Accessibility")) return [];
   return [
-    "키보드 Tab 순서가 화면 순서와 일치해야 합니다.",
-    "아이콘만 있는 컨트롤은 접근성 이름을 제공합니다.",
-    "모바일 터치 영역은 44px 이상을 권장합니다.",
+    "키보드만으로 탐색과 주요 조작이 가능해야 합니다.",
+    "스크린리더가 페이지 구조와 현재 위치를 이해할 수 있어야 합니다.",
+    "텍스트, 아이콘, 상태 색상의 대비와 대체 정보를 함께 확인합니다.",
   ];
 }
 
@@ -4131,13 +4230,19 @@ function renderHomeEntryLinks() {
 
 function renderMetrics() {
   const groups = ["토큰", "템플릿", "컴포넌트", "아이콘", "버튼"];
-  const visibleItems = activeItems();
+  const counts = repoMetricCounts.size ? repoMetricCounts : metricCountsForItems(activeItems());
   elements.metricGrid.innerHTML = groups
     .map((group) => {
-      const count = visibleItems.filter((item) => item.type === group).length;
+      const count = counts.get(group) || 0;
       return `<article class="metric-card"><strong>${count}</strong><span>${escapeHtml(group)} 등록 항목</span></article>`;
     })
     .join("");
+}
+
+function metricCountsForItems(sourceItems) {
+  return sourceItems
+    .filter((item) => !item.archived)
+    .reduce((counts, item) => counts.set(item.type, (counts.get(item.type) || 0) + 1), new Map());
 }
 
 function renderReferences() {
