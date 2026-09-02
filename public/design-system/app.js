@@ -2641,7 +2641,9 @@ function documentSectionsForNode(node) {
   if (node.title === "Pagination") {
     return [
       ["Overview", "#pagination-overview"],
-      ["Template", "#pagination-template"],
+      ["Chợ Tốt형", "#pagination-chotot-template"],
+      ["Airbnb형", "#pagination-airbnb-template"],
+      ["Specification", "#pagination-specification"],
       ["API", "#pagination-api"],
       ["Usage", "#pagination-usage"],
       ["Accessibility", "#pagination-accessibility"],
@@ -3124,10 +3126,36 @@ function renderPaginationDocumentPage(node) {
             <h3>Template</h3>
             <p>매물 리스트와 검색 결과 하단에서 바로 쓰는 동작형 페이지네이션 템플릿입니다.</p>
           </div>
-          ${renderPaginationListTemplate()}
-          ${renderAirbnbSearchTemplate()}
-          ${renderSimpleRowsTable("Chợ Tốt 페이지네이션 실측값", ["항목", "값", "적용 기준"], chototSpecs)}
-          ${renderSimpleRowsTable("Airbnb 페이지네이션 실측값", ["항목", "값", "적용 기준"], airbnbSpecs)}
+          <div class="pagination-template-block" id="pagination-chotot-template">
+            <div class="pagination-template-header">
+              <div>
+                <strong>Chợ Tốt형 목록 페이지네이션</strong>
+                <p>차량 목록 하단에서 4페이지까지 번호를 그대로 노출하는 구조입니다.</p>
+              </div>
+              <span>40px · #ffd400 · max 4</span>
+            </div>
+            ${renderPaginationListTemplate()}
+          </div>
+          <div class="pagination-template-block" id="pagination-airbnb-template">
+            <div class="pagination-template-header">
+              <div>
+                <strong>Airbnb형 검색 결과 페이지네이션</strong>
+                <p>카드형 검색 결과에서 현재 페이지 주변 번호와 마지막 페이지를 함께 보여주는 구조입니다.</p>
+              </div>
+              <span>32px · #222222 · max 15</span>
+            </div>
+            ${renderAirbnbSearchTemplate()}
+          </div>
+          <div class="pagination-template-block" id="pagination-specification">
+            <div class="pagination-template-header">
+              <div>
+                <strong>Specification</strong>
+                <p>원본 기준을 비교해 재사용할 수 있도록 수치와 색상 값을 분리해 기록합니다.</p>
+              </div>
+            </div>
+            ${renderSimpleRowsTable("Chợ Tốt 페이지네이션 실측값", ["항목", "값", "적용 기준"], chototSpecs)}
+            ${renderSimpleRowsTable("Airbnb 페이지네이션 실측값", ["항목", "값", "적용 기준"], airbnbSpecs)}
+          </div>
           <div class="pagination-anatomy-grid">
             ${anatomy
               .map(
@@ -3149,7 +3177,16 @@ function renderPaginationDocumentPage(node) {
         <section class="pagination-section" id="pagination-api">
           <h3>API</h3>
           ${renderDocPropsTable(props)}
-          <pre class="template-code"><code>${escapeHtml(paginationVueCodeExample())}</code></pre>
+          <div class="pagination-code-grid">
+            <article>
+              <strong>Chợ Tốt형</strong>
+              <pre class="template-code"><code>${escapeHtml(paginationVueCodeExample())}</code></pre>
+            </article>
+            <article>
+              <strong>Airbnb형</strong>
+              <pre class="template-code"><code>${escapeHtml(paginationAirbnbVueCodeExample())}</code></pre>
+            </article>
+          </div>
         </section>
 
         <section class="pagination-section" id="pagination-usage">
@@ -3344,6 +3381,20 @@ function paginationVueCodeExample() {
   base-url="/cars/search"
   aria-label="검색 결과 페이지"
   variant="list"
+  @page-change="fetchListings"
+/>`;
+}
+
+function paginationAirbnbVueCodeExample() {
+  return `<BobaPagination
+  :current-page="1"
+  :total-pages="15"
+  :page-size="20"
+  :total-items="300"
+  :sibling-count="1"
+  base-url="/cars/search"
+  aria-label="검색 결과 페이지"
+  variant="airbnb"
   @page-change="fetchListings"
 />`;
 }
