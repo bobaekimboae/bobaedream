@@ -1568,6 +1568,7 @@ function bindEvents() {
   document.addEventListener("click", handleTableAction);
   document.addEventListener("click", handleSectionScrollClick);
   document.addEventListener("click", handleIconDocumentClick);
+  document.addEventListener("click", handlePaginationTemplateClick);
   document.addEventListener("change", handleIconDocumentChange);
   document.addEventListener("keydown", handleGlobalKeydown);
   elements.sidebarNav.addEventListener("click", handleSidebarClick);
@@ -3028,9 +3029,25 @@ function renderPaginationDocumentPage(node) {
   const anatomy = [
     ["이전 버튼", "첫 페이지에서는 disabled 상태로 보여줍니다."],
     ["페이지 번호", "현재 페이지 주변 번호를 원형 버튼으로 노출합니다."],
-    ["현재 페이지", "`aria-current=\"page\"`를 적용하고 보배드림 primary 색상으로 강조합니다."],
+    ["현재 페이지", "`aria-current=\"page\"`를 적용하고 참고 템플릿의 현재 페이지 색상으로 강조합니다."],
     ["다음 버튼", "마지막 페이지가 아니면 다음 페이지 링크 또는 이벤트를 제공합니다."],
     ["하단 맥락", "매물 리스트 뒤, 검색 설명과 추천 키워드 영역보다 위에 배치합니다."],
+  ];
+  const chototSpecs = [
+    ["번호 버튼", "40px × 40px", "원형, `border-radius: 100%`"],
+    ["버튼 간격", "8px", "각 버튼 x 좌표가 48px 간격으로 반복"],
+    ["현재 페이지", "background/border #ffd400", "텍스트 #222222, 16px, weight 400"],
+    ["일반 페이지", "background #ffffff, border #e8e8e8 2px", "텍스트 #222222, 16px, weight 400"],
+    ["이전/다음", "40px 터치 영역, 아이콘 36px", "첫 페이지 이전은 #dddddd disabled"],
+    ["최대 페이지", "4", "샘플은 1에서 4까지 이동 후 다음 버튼 disabled"],
+  ];
+  const airbnbSpecs = [
+    ["번호 버튼", "32px × 32px", "원형, `border-radius: 50%`"],
+    ["버튼 간격", "16px", "각 번호 x 좌표가 48px 간격으로 반복"],
+    ["현재 페이지", "background #222222", "텍스트 #ffffff, 14px, weight 500"],
+    ["일반 페이지", "background transparent, border none", "텍스트 #222222, 14px, weight 500"],
+    ["이전/다음", "32px 높이", "첫 페이지 이전은 #dddddd disabled"],
+    ["최대 페이지", "15", "1, 2, 3, 4, …, 15 구조로 끝 페이지를 노출"],
   ];
   const props = [
     ["currentPage", "number", "현재 페이지 번호입니다."],
@@ -3076,8 +3093,14 @@ function renderPaginationDocumentPage(node) {
         <p class="doc-lede">Pagination은 검색 결과와 목록 화면에서 현재 페이지 위치를 보여주고 다음 결과로 이동하게 하는 컴포넌트입니다.</p>
         <p class="doc-sublede">중고차 매물 리스트, 딜러 매물 목록, 커뮤니티 게시판처럼 결과가 여러 페이지로 나뉘는 화면에 사용합니다.</p>
         <div class="pagination-top-preview" aria-label="페이지네이션 미리보기">
-          <span>매물 리스트 하단 페이지 이동</span>
-          ${renderBobaPaginationTemplate()}
+          <div>
+            <span>Chợ Tốt형 · 40px · #ffd400</span>
+            ${renderBobaPaginationTemplate({ variant: "chotot", totalPages: 4 })}
+          </div>
+          <div>
+            <span>Airbnb형 · 32px · #222222</span>
+            ${renderAirbnbPaginationTemplate({ totalPages: 15 })}
+          </div>
         </div>
 
         <section class="pagination-section" id="pagination-overview">
@@ -3099,9 +3122,12 @@ function renderPaginationDocumentPage(node) {
         <section class="pagination-section" id="pagination-template">
           <div class="pagination-section-heading">
             <h3>Template</h3>
-            <p>매물 리스트 하단에서 바로 쓰는 숫자형 페이지네이션 템플릿입니다.</p>
+            <p>매물 리스트와 검색 결과 하단에서 바로 쓰는 동작형 페이지네이션 템플릿입니다.</p>
           </div>
           ${renderPaginationListTemplate()}
+          ${renderAirbnbSearchTemplate()}
+          ${renderSimpleRowsTable("Chợ Tốt 페이지네이션 실측값", ["항목", "값", "적용 기준"], chototSpecs)}
+          ${renderSimpleRowsTable("Airbnb 페이지네이션 실측값", ["항목", "값", "적용 기준"], airbnbSpecs)}
           <div class="pagination-anatomy-grid">
             ${anatomy
               .map(
@@ -3151,8 +3177,9 @@ function renderPaginationDocumentPage(node) {
 
         <section class="pagination-section pagination-reference-note">
           <h3>Reference</h3>
-          <p>차량 목록 하단의 숫자형 페이지 이동 구조를 확인하고 보배드림 목록 UX에 맞게 재작성했습니다.</p>
+          <p>Chợ Tốt 차량 목록과 Google 검색을 통해 진입한 Airbnb 숙소 검색 결과의 페이지 이동 구조를 확인하고 재사용 템플릿으로 정리했습니다.</p>
           <a href="https://xe.chotot.com/mua-ban-oto-quan-ba-dinh-ha-noi" target="_blank" rel="noopener">참고 페이지 확인</a>
+          <a href="https://www.airbnb.co.kr/s/%EB%A1%9C%EC%8A%A4%EC%95%A4%EC%A0%A4%EB%A0%88%EC%8A%A4/homes" target="_blank" rel="noopener">Airbnb 검색 결과 확인</a>
         </section>
       </article>
       <aside class="doc-aside">
@@ -3188,7 +3215,7 @@ function renderPaginationListTemplate() {
           )
           .join("")}
       </div>
-      ${renderBobaPaginationTemplate()}
+      ${renderBobaPaginationTemplate({ variant: "chotot", totalPages: 4 })}
       <div class="pagination-seo-block">
         <strong>검색 결과 안내</strong>
         <p>검색 조건에 맞는 중고차 매물을 최신순으로 보여주고, 다음 페이지에서 더 많은 매물을 확인합니다.</p>
@@ -3197,30 +3224,113 @@ function renderPaginationListTemplate() {
   `;
 }
 
-function renderBobaPaginationTemplate() {
+function renderAirbnbSearchTemplate() {
+  const listings = [
+    ["로스앤젤레스의 집", "월 단위 숙박 · 게스트 선호", "₩2,646,426"],
+    ["샌타모니카의 아파트", "바다 근처 · 주방 · 와이파이", "₩3,734,481"],
+    ["웨스트할리우드의 방", "후기 4.9 · 장기 숙박 가능", "₩2,358,573"],
+  ];
+
   return `
-    <nav class="bd-pagination-template" aria-label="검색 결과 페이지">
-      <button class="bd-pagination-nav" type="button" aria-label="이전 페이지" disabled>
-        <span aria-hidden="true">&lsaquo;</span>
-      </button>
-      <a class="bd-pagination-page" href="/cars/search?page=1" aria-current="page">1</a>
-      <a class="bd-pagination-page" href="/cars/search?page=2">2</a>
-      <a class="bd-pagination-page" href="/cars/search?page=3">3</a>
-      <a class="bd-pagination-page" href="/cars/search?page=4">4</a>
-      <button class="bd-pagination-nav" type="button" aria-label="다음 페이지">
-        <span aria-hidden="true">&rsaquo;</span>
-      </button>
+    <div class="pagination-airbnb-template">
+      <div class="pagination-airbnb-list" aria-label="Airbnb 숙소 검색 결과 예시">
+        ${listings
+          .map(
+            ([title, meta, price]) => `
+              <article>
+                <span aria-hidden="true"></span>
+                <div>
+                  <strong>${escapeHtml(title)}</strong>
+                  <p>${escapeHtml(meta)}</p>
+                  <em>${escapeHtml(price)}</em>
+                </div>
+              </article>
+            `,
+          )
+          .join("")}
+      </div>
+      ${renderAirbnbPaginationTemplate({ totalPages: 15 })}
+    </div>
+  `;
+}
+
+function renderBobaPaginationTemplate(options = {}) {
+  const currentPage = clampPage(options.currentPage || 1, options.totalPages || 4);
+  const totalPages = Math.max(1, Number(options.totalPages || 4));
+  const variant = options.variant || "chotot";
+  return `
+    <nav class="bd-pagination-template is-${escapeAttribute(variant)}" aria-label="검색 결과 페이지" data-pagination-template data-pagination-variant="${escapeAttribute(variant)}" data-total-pages="${totalPages}" data-current-page="${currentPage}">
+      ${renderPaginationControls({ currentPage, totalPages, variant, baseUrl: "/cars/search" })}
     </nav>
   `;
 }
 
-function renderCompactPaginationTemplate() {
+function renderAirbnbPaginationTemplate(options = {}) {
+  const currentPage = clampPage(options.currentPage || 1, options.totalPages || 15);
+  const totalPages = Math.max(1, Number(options.totalPages || 15));
   return `
-    <nav class="bd-pagination-compact" aria-label="검색 결과 페이지">
-      <button type="button" aria-label="이전 페이지" disabled>&lsaquo;</button>
-      <span><strong>1</strong> / 4</span>
-      <button type="button" aria-label="다음 페이지">&rsaquo;</button>
+    <nav class="bd-pagination-template is-airbnb" aria-label="숙소 검색 결과 페이지" data-pagination-template data-pagination-variant="airbnb" data-total-pages="${totalPages}" data-current-page="${currentPage}">
+      ${renderPaginationControls({ currentPage, totalPages, variant: "airbnb", baseUrl: "/s/los-angeles/homes" })}
     </nav>
+  `;
+}
+
+function renderPaginationControls({ currentPage, totalPages, variant, baseUrl }) {
+  const pages = paginationPageModel(currentPage, totalPages, variant);
+  const previousDisabled = currentPage <= 1;
+  const nextDisabled = currentPage >= totalPages;
+
+  return `
+    <button class="bd-pagination-nav" type="button" aria-label="이전 페이지" data-pagination-action="previous" ${previousDisabled ? "disabled" : ""}>
+      <span aria-hidden="true">&lsaquo;</span>
+    </button>
+    ${pages
+      .map((page) => {
+        if (page === "ellipsis") return `<span class="bd-pagination-ellipsis" aria-hidden="true">…</span>`;
+        const isCurrent = page === currentPage;
+        return `
+          <a class="bd-pagination-page" href="${escapeAttribute(`${baseUrl}?page=${page}`)}" data-pagination-page="${page}" ${isCurrent ? 'aria-current="page"' : ""}>
+            ${page}
+          </a>
+        `;
+      })
+      .join("")}
+    <button class="bd-pagination-nav" type="button" aria-label="다음 페이지" data-pagination-action="next" ${nextDisabled ? "disabled" : ""}>
+      <span aria-hidden="true">&rsaquo;</span>
+    </button>
+  `;
+}
+
+function paginationPageModel(currentPage, totalPages, variant) {
+  if (variant === "airbnb" && totalPages > 5) {
+    if (currentPage <= 3) return [1, 2, 3, 4, "ellipsis", totalPages];
+    if (currentPage >= totalPages - 2) return [1, "ellipsis", totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+    return [1, "ellipsis", currentPage - 1, currentPage, currentPage + 1, "ellipsis", totalPages];
+  }
+  return Array.from({ length: totalPages }, (_, index) => index + 1);
+}
+
+function clampPage(page, totalPages) {
+  const pageNumber = Number(page) || 1;
+  const maxPage = Math.max(1, Number(totalPages) || 1);
+  return Math.min(Math.max(1, pageNumber), maxPage);
+}
+
+function renderCompactPaginationTemplate(options = {}) {
+  const currentPage = clampPage(options.currentPage || 1, options.totalPages || 4);
+  const totalPages = Math.max(1, Number(options.totalPages || 4));
+  return `
+    <nav class="bd-pagination-compact" aria-label="검색 결과 페이지" data-pagination-compact data-pagination-variant="chotot" data-total-pages="${totalPages}" data-current-page="${currentPage}">
+      ${renderCompactPaginationControls(currentPage, totalPages)}
+    </nav>
+  `;
+}
+
+function renderCompactPaginationControls(currentPage, totalPages) {
+  return `
+    <button type="button" aria-label="이전 페이지" data-pagination-action="previous" ${currentPage <= 1 ? "disabled" : ""}>&lsaquo;</button>
+    <span><strong>${currentPage}</strong> / ${totalPages}</span>
+    <button type="button" aria-label="다음 페이지" data-pagination-action="next" ${currentPage >= totalPages ? "disabled" : ""}>&rsaquo;</button>
   `;
 }
 
@@ -3235,6 +3345,48 @@ function paginationVueCodeExample() {
   variant="list"
   @page-change="fetchListings"
 />`;
+}
+
+function handlePaginationTemplateClick(event) {
+  const control = event.target.closest("[data-pagination-action], [data-pagination-page]");
+  if (!control) return;
+
+  const root = control.closest("[data-pagination-template], [data-pagination-compact]");
+  if (!root) return;
+
+  event.preventDefault();
+
+  const variant = root.dataset.paginationVariant || "chotot";
+  const totalPages = Math.max(1, Number(root.dataset.totalPages || 1));
+  const currentPage = clampPage(root.dataset.currentPage || 1, totalPages);
+  const action = control.dataset.paginationAction;
+  const requestedPage = control.dataset.paginationPage;
+  const nextPage = action === "previous"
+    ? currentPage - 1
+    : action === "next"
+      ? currentPage + 1
+      : Number(requestedPage || currentPage);
+  updatePaginationTemplates(variant, clampPage(nextPage, totalPages));
+}
+
+function updatePaginationTemplates(variant, currentPage) {
+  document.querySelectorAll("[data-pagination-template]").forEach((root) => {
+    if (root.dataset.paginationVariant !== variant) return;
+    const totalPages = Math.max(1, Number(root.dataset.totalPages || 1));
+    const page = clampPage(currentPage, totalPages);
+    const templateVariant = root.dataset.paginationVariant || variant;
+    const baseUrl = templateVariant === "airbnb" ? "/s/los-angeles/homes" : "/cars/search";
+    root.dataset.currentPage = String(page);
+    root.innerHTML = renderPaginationControls({ currentPage: page, totalPages, variant: templateVariant, baseUrl });
+  });
+
+  document.querySelectorAll("[data-pagination-compact]").forEach((root) => {
+    if (root.dataset.paginationVariant !== variant) return;
+    const totalPages = Math.max(1, Number(root.dataset.totalPages || 1));
+    const page = clampPage(currentPage, totalPages);
+    root.dataset.currentPage = String(page);
+    root.innerHTML = renderCompactPaginationControls(page, totalPages);
+  });
 }
 
 function renderBreadcrumbDocumentPage(node) {

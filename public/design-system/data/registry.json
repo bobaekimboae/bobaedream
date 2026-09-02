@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "project": "bobaedream-design-system",
-  "updated_at": "2026-09-02T08:57:58.367Z",
+  "updated_at": "2026-09-02T09:16:41.880Z",
   "items": [
     {
       "id": "ref-ebay",
@@ -1700,6 +1700,27 @@
       "appliedUrl": "/cars/search?page=1",
       "createdAt": "2026-09-02T08:57:58.367Z",
       "updatedAt": "2026-09-02T08:57:58.367Z",
+      "archived": false
+    },
+    {
+      "id": "template-airbnb-search-pagination",
+      "type": "템플릿",
+      "name": "Airbnb형 검색 결과 페이지네이션 템플릿",
+      "standard": "bd-template-airbnb-search-pagination",
+      "status": "등록완료",
+      "platform": "PC 웹, 모바일 웹",
+      "sheet": "04_컴포넌트마스터",
+      "pcValue": "32px page / max page exposed",
+      "moValue": "32px page / compact fallback",
+      "props": "currentPage, totalPages, siblingCount, edgePage, cursor, ariaLabel",
+      "note": "Airbnb 숙소 검색 결과처럼 현재 페이지, 주변 번호, 생략 기호, 마지막 페이지를 함께 보여주는 페이지네이션 템플릿입니다.",
+      "iconPath": "",
+      "iconData": "",
+      "iconFileName": "",
+      "appliedPage": "숙소형 검색 결과, 카드 그리드형 매물 목록",
+      "appliedUrl": "/cars/search?page=1",
+      "createdAt": "2026-09-02T09:16:41.880Z",
+      "updatedAt": "2026-09-02T09:16:41.880Z",
       "archived": false
     },
     {
