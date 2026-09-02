@@ -3926,8 +3926,12 @@ function saveIconEdit(event) {
   if (!item) return;
 
   const category = optionCategoryById(elements.iconEditCategory.value);
+  const previousStandard = item.standard;
   item.name = elements.iconEditName.value.trim() || item.name;
   item.standard = elements.iconEditStandard.value.trim() || item.standard;
+  if (!item.iconFileName || item.iconFileName === previousStandard) {
+    item.iconFileName = item.standard;
+  }
   item.note = elements.iconEditNote.value.trim();
   item.props = setOptionCategoryInProps(item.props, category.id);
   item.updatedAt = new Date().toISOString();
@@ -5164,7 +5168,7 @@ function iconDisplayName(groupId, fileName = "") {
 
 function displayIconName(item) {
   if (resolveIconGroup(item) !== "option") return item.name || item.standard || "아이콘";
-  return optionIconMetaForItem(item).name || item.name || item.standard || "옵션 아이콘";
+  return item.name || optionIconMetaForItem(item).name || item.standard || "옵션 아이콘";
 }
 
 function optionIconMetaForItem(item) {
