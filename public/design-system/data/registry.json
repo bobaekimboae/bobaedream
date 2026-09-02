@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "project": "bobaedream-design-system",
-  "updated_at": "2026-09-02T09:56:06.485Z",
+  "updated_at": "2026-09-02T10:13:32.970Z",
   "items": [
     {
       "id": "ref-ebay",
@@ -1721,6 +1721,27 @@
       "appliedUrl": "/cars/search?page=1",
       "createdAt": "2026-09-02T09:16:41.880Z",
       "updatedAt": "2026-09-02T09:16:41.880Z",
+      "archived": false
+    },
+    {
+      "id": "template-reddit-developer-pagination",
+      "type": "템플릿",
+      "name": "Reddit형 개발자 앱 페이지네이션 템플릿",
+      "standard": "bd-template-reddit-developer-pagination",
+      "status": "등록완료",
+      "platform": "PC 웹, 모바일 웹",
+      "sheet": "04_컴포넌트마스터",
+      "pcValue": "32px pill 버튼 / 1 … 5 6 7 … 65",
+      "moValue": "32px pill 버튼 / 좁은 화면은 동일 구조 유지",
+      "props": "currentPage, totalPages, siblingCount, edgePage, baseUrl, ariaLabel",
+      "note": "Reddit 개발자 앱 목록처럼 현재 페이지, 다음 2개 번호, 생략 기호, 마지막 페이지를 함께 노출하는 동작형 페이지네이션 템플릿입니다.",
+      "iconPath": "",
+      "iconData": "",
+      "iconFileName": "",
+      "appliedPage": "커뮤니티 앱 목록, 게시판형 목록, 확장형 검색 결과",
+      "appliedUrl": "/community/apps?page=5",
+      "createdAt": "2026-09-02T10:13:32.970Z",
+      "updatedAt": "2026-09-02T10:13:32.970Z",
       "archived": false
     },
     {

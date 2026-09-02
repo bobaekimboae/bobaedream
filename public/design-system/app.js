@@ -2643,6 +2643,7 @@ function documentSectionsForNode(node) {
       ["Overview", "#pagination-overview"],
       ["Chợ Tốt형", "#pagination-chotot-template"],
       ["Airbnb형", "#pagination-airbnb-template"],
+      ["Reddit형", "#pagination-reddit-template"],
       ["Specification", "#pagination-specification"],
       ["API", "#pagination-api"],
       ["Usage", "#pagination-usage"],
@@ -3051,6 +3052,15 @@ function renderPaginationDocumentPage(node) {
     ["이전/다음", "32px 높이", "첫 페이지 이전은 #dddddd disabled"],
     ["최대 페이지", "15", "1, 2, 3, 4, …, 15 구조로 끝 페이지를 노출"],
   ];
+  const redditSpecs = [
+    ["커스텀 요소", "`devvit-pagination-bar`", "`currentpage=\"5\"`, `totalpages=\"65\"`"],
+    ["노출 구조", "‹ 1 … 5 6 7 … 65 ›", "현재 페이지, 다음 2개, 처음/마지막 페이지를 노출"],
+    ["버튼 높이", "32px", "이전/다음 버튼 32px × 32px"],
+    ["현재 페이지", "background #d93900", "텍스트 #ffffff, 12px, weight 600"],
+    ["일반 페이지", "background #e5ebee", "텍스트 #000000, 12px, weight 600"],
+    ["모서리", "border-radius 9999px", "pill 형태, border transparent 1px"],
+    ["최대 페이지", "65", "마지막 페이지에서 다음 버튼 disabled"],
+  ];
   const props = [
     ["currentPage", "number", "현재 페이지 번호입니다."],
     ["totalPages", "number", "전체 페이지 수입니다."],
@@ -3094,6 +3104,7 @@ function renderPaginationDocumentPage(node) {
         </div>
         <p class="doc-lede">Pagination은 검색 결과와 목록 화면에서 현재 페이지 위치를 보여주고 다음 결과로 이동하게 하는 컴포넌트입니다.</p>
         <p class="doc-sublede">중고차 매물 리스트, 딜러 매물 목록, 커뮤니티 게시판처럼 결과가 여러 페이지로 나뉘는 화면에 사용합니다.</p>
+        ${renderPaginationJumpLinks()}
         <div class="pagination-top-preview" aria-label="페이지네이션 미리보기">
           <div>
             <span>Chợ Tốt형 · 40px · #ffd400 · 최댓값 4</span>
@@ -3102,6 +3113,10 @@ function renderPaginationDocumentPage(node) {
           <div>
             <span>Airbnb형 · 32px · #222222</span>
             ${renderAirbnbPaginationTemplate({ totalPages: 15 })}
+          </div>
+          <div>
+            <span>Reddit형 · 32px · #d93900 · 최댓값 65</span>
+            ${renderRedditPaginationTemplate({ currentPage: 5, totalPages: 65 })}
           </div>
         </div>
 
@@ -3146,6 +3161,16 @@ function renderPaginationDocumentPage(node) {
             </div>
             ${renderAirbnbSearchTemplate()}
           </div>
+          <div class="pagination-template-block" id="pagination-reddit-template">
+            <div class="pagination-template-header">
+              <div>
+                <strong>Reddit 개발자 앱 페이지네이션</strong>
+                <p>개발자 앱 목록처럼 현재 페이지, 다음 번호, 처음/마지막 페이지를 함께 보여주는 구조입니다.</p>
+              </div>
+              <span>32px · #d93900 · 최댓값 65</span>
+            </div>
+            ${renderRedditDeveloperTemplate()}
+          </div>
           <div class="pagination-template-block" id="pagination-specification">
             <div class="pagination-template-header">
               <div>
@@ -3155,6 +3180,7 @@ function renderPaginationDocumentPage(node) {
             </div>
             ${renderSimpleRowsTable("Chợ Tốt 페이지네이션 실측값", ["항목", "값", "적용 기준"], chototSpecs)}
             ${renderSimpleRowsTable("Airbnb 페이지네이션 실측값", ["항목", "값", "적용 기준"], airbnbSpecs)}
+            ${renderSimpleRowsTable("Reddit 페이지네이션 실측값", ["항목", "값", "적용 기준"], redditSpecs)}
           </div>
           <div class="pagination-anatomy-grid">
             ${anatomy
@@ -3186,6 +3212,10 @@ function renderPaginationDocumentPage(node) {
               <strong>Airbnb형</strong>
               <pre class="template-code"><code>${escapeHtml(paginationAirbnbVueCodeExample())}</code></pre>
             </article>
+            <article>
+              <strong>Reddit형</strong>
+              <pre class="template-code"><code>${escapeHtml(paginationRedditVueCodeExample())}</code></pre>
+            </article>
           </div>
         </section>
 
@@ -3214,9 +3244,10 @@ function renderPaginationDocumentPage(node) {
 
         <section class="pagination-section pagination-reference-note">
           <h3>Reference</h3>
-          <p>Chợ Tốt 차량 목록과 Google 검색을 통해 진입한 Airbnb 숙소 검색 결과의 페이지 이동 구조를 확인하고 재사용 템플릿으로 정리했습니다.</p>
+          <p>Chợ Tốt 차량 목록, Airbnb 숙소 검색 결과, Reddit 개발자 앱 목록의 페이지 이동 구조를 확인하고 재사용 템플릿으로 정리했습니다.</p>
           <a href="https://xe.chotot.com/mua-ban-oto-quan-ba-dinh-ha-noi" target="_blank" rel="noopener">참고 페이지 확인</a>
           <a href="https://www.airbnb.co.kr/s/%EB%A1%9C%EC%8A%A4%EC%95%A4%EC%A0%A4%EB%A0%88%EC%8A%A4/homes" target="_blank" rel="noopener">Airbnb 검색 결과 확인</a>
+          <a href="https://developers.reddit.com/apps?page=5" target="_blank" rel="noopener">Reddit 개발자 앱 확인</a>
         </section>
       </article>
       <aside class="doc-aside">
@@ -3224,6 +3255,31 @@ function renderPaginationDocumentPage(node) {
         ${renderDocToc(documentSectionsForNode(node))}
       </aside>
     </div>
+  `;
+}
+
+function renderPaginationJumpLinks() {
+  const links = [
+    ["Chợ Tốt형", "#pagination-chotot-template", "40px · 최댓값 4"],
+    ["Airbnb형", "#pagination-airbnb-template", "32px · 최댓값 15"],
+    ["Reddit형", "#pagination-reddit-template", "32px · 최댓값 65"],
+    ["실측값", "#pagination-specification", "수치 · 컬러"],
+    ["API", "#pagination-api", "재사용 코드"],
+  ];
+
+  return `
+    <nav class="pagination-jump-links" aria-label="페이지네이션 템플릿 바로가기">
+      ${links
+        .map(
+          ([label, target, meta]) => `
+            <a href="${escapeAttribute(target)}" data-scroll-target="${escapeAttribute(target)}">
+              <strong>${escapeHtml(label)}</strong>
+              <span>${escapeHtml(meta)}</span>
+            </a>
+          `,
+        )
+        .join("")}
+    </nav>
   `;
 }
 
@@ -3291,6 +3347,36 @@ function renderAirbnbSearchTemplate() {
   `;
 }
 
+function renderRedditDeveloperTemplate() {
+  const listings = [
+    ["BS", "Basketball Scoreboard App", "예측, 실시간 업데이트, 알림을 제공하는 스포츠 앱", "154 communities"],
+    ["MA", "Mod App: Day-Of-Week Rules for Post Flairs.", "요일 조건에 따라 포스트 플레어와 고정 댓글을 관리", "153 communities"],
+    ["CL", "Community Links", "FAQ, 위키, 규칙, 메가스레드 링크를 모아 노출", "151 communities"],
+  ];
+
+  return `
+    <div class="pagination-reddit-template">
+      <div class="pagination-reddit-list" aria-label="Reddit 개발자 앱 목록 예시">
+        ${listings
+          .map(
+            ([initial, title, description, meta]) => `
+              <article>
+                <span aria-hidden="true">${escapeHtml(initial)}</span>
+                <div>
+                  <strong>${escapeHtml(title)}</strong>
+                  <p>${escapeHtml(description)}</p>
+                  <em>In ${escapeHtml(meta)}</em>
+                </div>
+              </article>
+            `,
+          )
+          .join("")}
+      </div>
+      ${renderRedditPaginationTemplate({ currentPage: 5, totalPages: 65 })}
+    </div>
+  `;
+}
+
 function renderBobaPaginationTemplate(options = {}) {
   const currentPage = clampPage(options.currentPage || 1, options.totalPages || 4);
   const totalPages = Math.max(1, Number(options.totalPages || 4));
@@ -3310,6 +3396,18 @@ function renderAirbnbPaginationTemplate(options = {}) {
     <nav class="bd-pagination-template is-airbnb" aria-label="숙소 검색 결과 페이지" data-pagination-template data-pagination-variant="airbnb" data-total-pages="${totalPages}" data-current-page="${currentPage}">
       ${renderPaginationControls({ currentPage, totalPages, variant: "airbnb", baseUrl: "/s/los-angeles/homes" })}
     </nav>
+    ${renderPaginationMaxSummary({ currentPage, totalPages, variant: "airbnb" })}
+  `;
+}
+
+function renderRedditPaginationTemplate(options = {}) {
+  const currentPage = clampPage(options.currentPage || 5, options.totalPages || 65);
+  const totalPages = Math.max(1, Number(options.totalPages || 65));
+  return `
+    <nav class="bd-pagination-template is-reddit" aria-label="Reddit 앱 목록 페이지" data-pagination-template data-pagination-variant="reddit" data-total-pages="${totalPages}" data-current-page="${currentPage}">
+      ${renderPaginationControls({ currentPage, totalPages, variant: "reddit", baseUrl: "https://developers.reddit.com/apps" })}
+    </nav>
+    ${renderPaginationMaxSummary({ currentPage, totalPages, variant: "reddit" })}
   `;
 }
 
@@ -3341,6 +3439,11 @@ function renderPaginationControls({ currentPage, totalPages, variant, baseUrl })
 }
 
 function paginationPageModel(currentPage, totalPages, variant) {
+  if (variant === "reddit" && totalPages > 5) {
+    if (currentPage <= 3) return [1, 2, 3, "ellipsis", totalPages];
+    if (currentPage >= totalPages - 2) return [1, "ellipsis", totalPages - 2, totalPages - 1, totalPages];
+    return [1, "ellipsis", currentPage, currentPage + 1, currentPage + 2, "ellipsis", totalPages];
+  }
   if (variant === "airbnb" && totalPages > 5) {
     if (currentPage <= 3) return [1, 2, 3, 4, "ellipsis", totalPages];
     if (currentPage >= totalPages - 2) return [1, "ellipsis", totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
@@ -3410,6 +3513,19 @@ function paginationAirbnbVueCodeExample() {
 />`;
 }
 
+function paginationRedditVueCodeExample() {
+  return `<BobaPagination
+  :current-page="5"
+  :total-pages="65"
+  :page-size="20"
+  :total-items="1300"
+  base-url="/community/apps"
+  aria-label="앱 목록 페이지"
+  variant="reddit"
+  @page-change="fetchApps"
+/>`;
+}
+
 function handlePaginationTemplateClick(event) {
   const control = event.target.closest("[data-pagination-action], [data-pagination-page]");
   if (!control) return;
@@ -3438,7 +3554,11 @@ function updatePaginationTemplates(variant, currentPage) {
     const totalPages = Math.max(1, Number(root.dataset.totalPages || 1));
     const page = clampPage(currentPage, totalPages);
     const templateVariant = root.dataset.paginationVariant || variant;
-    const baseUrl = templateVariant === "airbnb" ? "/s/los-angeles/homes" : "/cars/search";
+    const baseUrl = templateVariant === "airbnb"
+      ? "/s/los-angeles/homes"
+      : templateVariant === "reddit"
+        ? "https://developers.reddit.com/apps"
+        : "/cars/search";
     root.dataset.currentPage = String(page);
     root.innerHTML = renderPaginationControls({ currentPage: page, totalPages, variant: templateVariant, baseUrl });
   });
