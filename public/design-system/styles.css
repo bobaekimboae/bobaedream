@@ -1689,6 +1689,22 @@ body.sidebar-open .mobile-menu-button {
   gap: 6px;
 }
 
+.pagination-top-preview {
+  display: grid;
+  gap: 12px;
+  max-width: 520px;
+  border: 1px solid #d7e1f5;
+  border-radius: 8px;
+  background: #f6f9ff;
+  padding: 16px;
+}
+
+.pagination-top-preview > span {
+  color: #344054;
+  font-size: 13px;
+  font-weight: 850;
+}
+
 .pagination-info-grid,
 .pagination-anatomy-grid,
 .pagination-guideline-grid {

@@ -3075,6 +3075,10 @@ function renderPaginationDocumentPage(node) {
         </div>
         <p class="doc-lede">Pagination은 검색 결과와 목록 화면에서 현재 페이지 위치를 보여주고 다음 결과로 이동하게 하는 컴포넌트입니다.</p>
         <p class="doc-sublede">중고차 매물 리스트, 딜러 매물 목록, 커뮤니티 게시판처럼 결과가 여러 페이지로 나뉘는 화면에 사용합니다.</p>
+        <div class="pagination-top-preview" aria-label="페이지네이션 미리보기">
+          <span>매물 리스트 하단 페이지 이동</span>
+          ${renderBobaPaginationTemplate()}
+        </div>
 
         <section class="pagination-section" id="pagination-overview">
           <h3>Overview</h3>
