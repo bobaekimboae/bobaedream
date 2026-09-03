@@ -1597,6 +1597,7 @@ function bindEvents() {
   document.addEventListener("click", handleIconDocumentClick);
   document.addEventListener("click", handlePaginationTemplateClick);
   document.addEventListener("click", handleBottomSheetDemoClick);
+  document.addEventListener("input", handleBottomSheetDemoInput);
   document.addEventListener("change", handleIconDocumentChange);
   document.addEventListener("keydown", handleGlobalKeydown);
   elements.sidebarNav.addEventListener("click", handleSidebarClick);
@@ -3902,7 +3903,7 @@ function renderBobaBottomSheetDemo() {
       <div class="bd-bottom-sheet-demo" data-bottom-sheet-demo data-sheet-state="full">
         <div class="bd-bottom-sheet-phone">
           <div class="bd-sheet-page" aria-hidden="true">
-            <div class="bd-sheet-search-pill">중고차 · 제네시스 GV80 · 전국</div>
+            <div class="bd-sheet-search-pill" data-bottom-sheet-summary>중고차 · 국산차, 수입차 · 300대</div>
             <div class="bd-sheet-card-list">
               <span></span><span></span><span></span>
             </div>
@@ -3920,24 +3921,23 @@ function renderBobaBottomSheetDemo() {
               <section>
                 <h5>차량 조건</h5>
                 <div class="bd-sheet-chip-grid">
-                  ${chips.map((chip, index) => `<button class="bd-sheet-chip${index < 2 ? " is-selected" : ""}" type="button">${escapeHtml(chip)}</button>`).join("")}
+                  ${chips.map((chip, index) => `<button class="bd-sheet-chip${index < 2 ? " is-selected" : ""}" type="button" data-bottom-sheet-chip aria-pressed="${index < 2 ? "true" : "false"}">${escapeHtml(chip)}</button>`).join("")}
                 </div>
               </section>
               <section class="bd-sheet-range">
                 <div>
                   <h5>가격</h5>
-                  <strong>2,000만원 - 6,000만원</strong>
+                  <strong data-bottom-sheet-range-label>2,000만원 - 6,000만원</strong>
                 </div>
-                <div class="bd-sheet-slider" aria-label="가격 범위">
-                  <img class="bd-sheet-slider-track" src="/assets/bottom-sheet/sheet-slider-track.svg" alt="" aria-hidden="true" />
-                  <img class="bd-sheet-slider-thumb is-min" src="/assets/bottom-sheet/sheet-slider-thumb.svg" alt="" aria-hidden="true" />
-                  <img class="bd-sheet-slider-thumb is-max" src="/assets/bottom-sheet/sheet-slider-thumb.svg" alt="" aria-hidden="true" />
+                <div class="bd-sheet-slider" data-bottom-sheet-range style="--min-position: 20%; --max-position: 60%;">
+                  <input class="bd-sheet-range-input is-min" type="range" min="0" max="10000" step="100" value="2000" data-bottom-sheet-range-min aria-label="최소 가격" />
+                  <input class="bd-sheet-range-input is-max" type="range" min="0" max="10000" step="100" value="6000" data-bottom-sheet-range-max aria-label="최대 가격" />
                 </div>
               </section>
             </div>
             <footer class="bd-sheet-footer">
-              <button type="button">초기화</button>
-              <button type="button">검색 결과 300대 보기</button>
+              <button type="button" data-bottom-sheet-reset>초기화</button>
+              <button type="button" data-bottom-sheet-apply>검색 결과 300대 보기</button>
             </footer>
           </section>
         </div>
@@ -4010,6 +4010,34 @@ function bottomSheetVueCodeExample() {
 }
 
 function handleBottomSheetDemoClick(event) {
+  const chipButton = event.target.closest("[data-bottom-sheet-chip]");
+  if (chipButton) {
+    chipButton.classList.toggle("is-selected");
+    chipButton.setAttribute("aria-pressed", chipButton.classList.contains("is-selected") ? "true" : "false");
+    const demo = chipButton.closest("[data-bottom-sheet-demo]");
+    if (demo) updateBottomSheetDemoState(demo);
+    return;
+  }
+
+  const resetButton = event.target.closest("[data-bottom-sheet-reset]");
+  if (resetButton) {
+    const demo = resetButton.closest("[data-bottom-sheet-demo]");
+    if (!demo) return;
+    resetBottomSheetDemo(demo);
+    return;
+  }
+
+  const applyButton = event.target.closest("[data-bottom-sheet-apply]");
+  if (applyButton) {
+    const demo = applyButton.closest("[data-bottom-sheet-demo]");
+    if (!demo) return;
+    updateBottomSheetDemoState(demo);
+    demo.classList.add("is-closed");
+    syncBottomSheetDemoControls(demo, "");
+    showToast("바텀시트 필터가 적용되었습니다.");
+    return;
+  }
+
   const stateButton = event.target.closest("[data-bottom-sheet-state]");
   if (stateButton) {
     const demo = stateButton.closest(".boba-bottom-sheet-demo-wrap")?.querySelector("[data-bottom-sheet-demo]");
@@ -4040,11 +4068,83 @@ function handleBottomSheetDemoClick(event) {
   }
 }
 
+function handleBottomSheetDemoInput(event) {
+  if (!event.target.matches("[data-bottom-sheet-range-min], [data-bottom-sheet-range-max]")) return;
+  const demo = event.target.closest("[data-bottom-sheet-demo]");
+  if (!demo) return;
+  normalizeBottomSheetRange(demo, event.target);
+  updateBottomSheetDemoState(demo);
+}
+
 function syncBottomSheetDemoControls(demo, activeState) {
   const wrap = demo.closest(".boba-bottom-sheet-demo-wrap");
   wrap?.querySelectorAll("[data-bottom-sheet-state]").forEach((button) => {
     button.setAttribute("aria-pressed", button.dataset.bottomSheetState === activeState ? "true" : "false");
   });
+}
+
+function resetBottomSheetDemo(demo) {
+  demo.querySelectorAll("[data-bottom-sheet-chip]").forEach((button, index) => {
+    const selected = index < 2;
+    button.classList.toggle("is-selected", selected);
+    button.setAttribute("aria-pressed", selected ? "true" : "false");
+  });
+  const minInput = demo.querySelector("[data-bottom-sheet-range-min]");
+  const maxInput = demo.querySelector("[data-bottom-sheet-range-max]");
+  if (minInput) minInput.value = "2000";
+  if (maxInput) maxInput.value = "6000";
+  demo.classList.remove("is-closed");
+  syncBottomSheetDemoControls(demo, demo.dataset.sheetState || "full");
+  updateBottomSheetDemoState(demo);
+}
+
+function normalizeBottomSheetRange(demo, changedInput) {
+  const minInput = demo.querySelector("[data-bottom-sheet-range-min]");
+  const maxInput = demo.querySelector("[data-bottom-sheet-range-max]");
+  if (!minInput || !maxInput) return;
+  const step = Number(minInput.step || 100);
+  const minValue = Number(minInput.value);
+  const maxValue = Number(maxInput.value);
+  if (changedInput === minInput && minValue > maxValue - step) {
+    minInput.value = String(maxValue - step);
+  }
+  if (changedInput === maxInput && maxValue < minValue + step) {
+    maxInput.value = String(minValue + step);
+  }
+}
+
+function updateBottomSheetDemoState(demo) {
+  const minInput = demo.querySelector("[data-bottom-sheet-range-min]");
+  const maxInput = demo.querySelector("[data-bottom-sheet-range-max]");
+  const range = demo.querySelector("[data-bottom-sheet-range]");
+  if (!minInput || !maxInput || !range) return;
+  const min = Number(minInput.min || 0);
+  const max = Number(minInput.max || 10000);
+  const minValue = Number(minInput.value);
+  const maxValue = Number(maxInput.value);
+  const minPosition = ((minValue - min) / (max - min)) * 100;
+  const maxPosition = ((maxValue - min) / (max - min)) * 100;
+  range.style.setProperty("--min-position", `${minPosition}%`);
+  range.style.setProperty("--max-position", `${maxPosition}%`);
+  const selectedChips = [...demo.querySelectorAll("[data-bottom-sheet-chip].is-selected")].map((button) => button.textContent.trim());
+  const resultCount = Math.max(
+    12,
+    300 -
+      Math.max(0, selectedChips.length - 2) * 17 -
+      Math.max(0, Math.floor((minValue - 2000) / 1000)) * 6 -
+      Math.max(0, Math.floor((6000 - maxValue) / 1000)) * 9,
+  );
+  const rangeLabel = demo.querySelector("[data-bottom-sheet-range-label]");
+  if (rangeLabel) rangeLabel.textContent = `${formatKoreanPrice(minValue)} - ${formatKoreanPrice(maxValue)}`;
+  const applyButton = demo.querySelector("[data-bottom-sheet-apply]");
+  if (applyButton) applyButton.textContent = `검색 결과 ${resultCount}대 보기`;
+  const summary = demo.querySelector("[data-bottom-sheet-summary]");
+  if (summary) summary.textContent = `중고차 · ${selectedChips.slice(0, 3).join(", ") || "전체"} · ${resultCount}대`;
+}
+
+function formatKoreanPrice(value) {
+  if (value <= 0) return "전체";
+  return `${Number(value).toLocaleString("ko-KR")}만원`;
 }
 
 function renderBreadcrumbDocumentPage(node) {
