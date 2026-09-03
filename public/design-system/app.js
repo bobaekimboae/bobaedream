@@ -3909,11 +3909,11 @@ function renderBobaBottomSheetDemo() {
           </div>
           <div class="bd-bottom-sheet-overlay"></div>
           <section class="bd-bottom-sheet-panel" role="dialog" aria-modal="true" aria-labelledby="boba-bottom-sheet-title">
-            <img class="bd-sheet-handle" src="../assets/bottom-sheet/sheet-handle.svg" alt="" aria-hidden="true" />
+            <img class="bd-sheet-handle" src="/assets/bottom-sheet/sheet-handle.svg" alt="" aria-hidden="true" />
             <header class="bd-sheet-header">
               <h4 id="boba-bottom-sheet-title">차량 검색 필터</h4>
               <button type="button" data-bottom-sheet-close aria-label="바텀시트 닫기">
-                <img src="../assets/bottom-sheet/sheet-close.svg" alt="" aria-hidden="true" />
+                <img src="/assets/bottom-sheet/sheet-close.svg" alt="" aria-hidden="true" />
               </button>
             </header>
             <div class="bd-sheet-body">
@@ -3929,9 +3929,9 @@ function renderBobaBottomSheetDemo() {
                   <strong>2,000만원 - 6,000만원</strong>
                 </div>
                 <div class="bd-sheet-slider" aria-label="가격 범위">
-                  <img class="bd-sheet-slider-track" src="../assets/bottom-sheet/sheet-slider-track.svg" alt="" aria-hidden="true" />
-                  <img class="bd-sheet-slider-thumb is-min" src="../assets/bottom-sheet/sheet-slider-thumb.svg" alt="" aria-hidden="true" />
-                  <img class="bd-sheet-slider-thumb is-max" src="../assets/bottom-sheet/sheet-slider-thumb.svg" alt="" aria-hidden="true" />
+                  <img class="bd-sheet-slider-track" src="/assets/bottom-sheet/sheet-slider-track.svg" alt="" aria-hidden="true" />
+                  <img class="bd-sheet-slider-thumb is-min" src="/assets/bottom-sheet/sheet-slider-thumb.svg" alt="" aria-hidden="true" />
+                  <img class="bd-sheet-slider-thumb is-max" src="/assets/bottom-sheet/sheet-slider-thumb.svg" alt="" aria-hidden="true" />
                 </div>
               </section>
             </div>
@@ -3948,10 +3948,10 @@ function renderBobaBottomSheetDemo() {
 
 function bottomSheetAssetItems() {
   return [
-    ["드래그 핸들", "sheet-handle.svg", "../assets/bottom-sheet/sheet-handle.svg", "40×4px", "#b0b0b0"],
-    ["닫기 아이콘", "sheet-close.svg", "../assets/bottom-sheet/sheet-close.svg", "16×16px", "#222222"],
-    ["슬라이더 막대", "sheet-slider-track.svg", "../assets/bottom-sheet/sheet-slider-track.svg", "280×4px", "#dddddd / #222222"],
-    ["슬라이더 원", "sheet-slider-thumb.svg", "../assets/bottom-sheet/sheet-slider-thumb.svg", "28×28px", "#ffffff / #222222"],
+    ["드래그 핸들", "sheet-handle.svg", "/assets/bottom-sheet/sheet-handle.svg", "40×4px", "#b0b0b0"],
+    ["닫기 아이콘", "sheet-close.svg", "/assets/bottom-sheet/sheet-close.svg", "16×16px", "#222222"],
+    ["슬라이더 막대", "sheet-slider-track.svg", "/assets/bottom-sheet/sheet-slider-track.svg", "280×4px", "#dddddd / #222222"],
+    ["슬라이더 원", "sheet-slider-thumb.svg", "/assets/bottom-sheet/sheet-slider-thumb.svg", "28×28px", "#ffffff / #222222"],
   ];
 }
 
