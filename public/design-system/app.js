@@ -858,6 +858,7 @@ const bobaedreamUseCases = {
   Badge: ["무사고", "진단", "판매 상태"],
   Save: ["찜하기", "저장 해제", "완료 알림"],
   Pagination: ["페이지 이동", "이전/다음", "더보기 전환"],
+  "Bottom Sheet": ["차량 검색", "필터 조건", "가격 범위"],
   "Range Dual": ["최소값", "최대값", "범위 입력"],
   Tabs: ["상세정보", "성능점검", "보험이력"],
   Notification: ["성공", "오류", "가격 변동"],
@@ -945,7 +946,7 @@ const ebayGroups = [
     ["Switch", "Input"], ["Text area", "Input"], ["Text field", "Input"], "Item tile", "List row", "Loading",
     ["Expressive loader", "Loading"], ["Skeleton loader", "Loading"], "Media container", "Navigation", ["Top navigation bar", "Navigation"],
     "Pagination", "Panel", "Popover", "Progress stepper", "Search field", "Section header", "Segmented button", "Sheet",
-    ["Context sheet", "Sheet"], ["Focus sheet", "Sheet"], "Signal", "Snackbar", "State layer", "Tab", "Table", "Tip",
+    ["Bottom Sheet", "Sheet"], ["Context sheet", "Sheet"], ["Focus sheet", "Sheet"], "Signal", "Snackbar", "State layer", "Tab", "Table", "Tip",
     ["Tooltip", "Tip"], ["Tourtip", "Tip"], "Toggle button group", "Video player",
   ]],
   ["Patterns", "패턴 분류", ["Overview", "Bulk editing", "Creating forms", "Empty states", "Filtering", "Requesting user feedback", "Uploading files", "Using links", ["Text link", "Using links"], ["Legal link", "Using links"]]],
@@ -1274,6 +1275,32 @@ const seedItems = [
     note: "보배드림 연식/주행거리/가격/지역/제조사 필터 기준",
   },
   {
+    id: "component-bottom-sheet",
+    type: "컴포넌트",
+    name: "검색/필터 바텀시트",
+    standard: "BobaBottomSheet",
+    status: "검토필요",
+    platform: "모바일웹",
+    sheet: "04_컴포넌트마스터",
+    pcValue: "modal 또는 side panel 전환",
+    moValue: "390×652px, top 12px, radius 32px",
+    props: "open, title, ariaLabel, snapPoints, defaultSnapPoint, sections, footerAction, rangeControls",
+    note: "Airbnb 체험 검색/필터 바텀시트 실측값을 기준으로 보배드림 차량 검색과 필터 수정 흐름에 적용",
+  },
+  {
+    id: "template-airbnb-experiences-bottom-sheet",
+    type: "템플릿",
+    name: "Airbnb형 체험 검색 바텀시트",
+    standard: "template_airbnb_experiences_bottom_sheet",
+    status: "등록완료",
+    platform: "모바일웹",
+    sheet: "09_템플릿",
+    pcValue: "dialog fallback",
+    moValue: "search 390×664px / filter 390×652px",
+    props: "search sheet, filter sheet, chip group, range slider assets, fixed footer CTA",
+    note: "Airbnb 체험 검색 URL을 모바일 렌더링으로 측정하고 보배드림 필터 바텀시트 샘플 템플릿으로 정리",
+  },
+  {
     id: "component-badge",
     type: "컴포넌트",
     name: "신뢰 배지",
@@ -1569,6 +1596,7 @@ function bindEvents() {
   document.addEventListener("click", handleSectionScrollClick);
   document.addEventListener("click", handleIconDocumentClick);
   document.addEventListener("click", handlePaginationTemplateClick);
+  document.addEventListener("click", handleBottomSheetDemoClick);
   document.addEventListener("change", handleIconDocumentChange);
   document.addEventListener("keydown", handleGlobalKeydown);
   elements.sidebarNav.addEventListener("click", handleSidebarClick);
@@ -2115,6 +2143,10 @@ function renderDocumentPage(node) {
     renderPaginationDocumentPage(node);
     return;
   }
+  if (node.title === "Bottom Sheet") {
+    renderBottomSheetDocumentPage(node);
+    return;
+  }
 
   const statusLabel = node.status === "deprecated" ? "deprecated" : node.status === "custom" ? "보배드림 운영" : "stable";
   const path = node.path?.join(" / ") || displayNodeName(node);
@@ -2648,6 +2680,18 @@ function documentSectionsForNode(node) {
       ["API", "#pagination-api"],
       ["Usage", "#pagination-usage"],
       ["Accessibility", "#pagination-accessibility"],
+    ];
+  }
+  if (node.title === "Bottom Sheet") {
+    return [
+      ["Overview", "#bottom-sheet-overview"],
+      ["Airbnb Search", "#bottom-sheet-airbnb-search"],
+      ["Airbnb Filter", "#bottom-sheet-airbnb-filter"],
+      ["Specification", "#bottom-sheet-specification"],
+      ["Assets", "#bottom-sheet-assets"],
+      ["API", "#bottom-sheet-api"],
+      ["Usage", "#bottom-sheet-usage"],
+      ["Accessibility", "#bottom-sheet-accessibility"],
     ];
   }
   return [
@@ -3579,6 +3623,414 @@ function updatePaginationTemplates(variant, currentPage) {
     const totalLabel = summary.querySelector("[data-pagination-total-label]");
     if (currentLabel) currentLabel.textContent = String(page);
     if (totalLabel) totalLabel.textContent = String(totalPages);
+  });
+}
+
+function renderBottomSheetDocumentPage(node) {
+  const path = node.path?.join(" / ") || displayNodeName(node);
+  const statusLabel = node.status === "deprecated" ? "deprecated" : "stable";
+  const overview = [
+    ["정의", "Bottom Sheet는 모바일 화면 하단에서 올라와 검색, 필터, 선택 작업을 한 흐름 안에서 처리하는 오버레이 컴포넌트입니다."],
+    ["목적", "현재 목록을 떠나지 않고 조건을 조정한 뒤 결과로 즉시 돌아가게 합니다."],
+    ["사용 위치", "차량 검색 필터, 매물 등록 옵션 선택, 가격/연식/주행거리 범위 선택, 정렬 조건 변경에 사용합니다."],
+  ];
+  const airbnbSearchSpecs = [
+    ["측정 화면", "iPhone 13 · CSS viewport 390×664", "Airbnb 체험 검색 상단 pill 클릭"],
+    ["검색 dialog", "390×664px", "전체 화면 fixed dialog, background #ffffff"],
+    ["상단 검색 pill", "238×58px", "border #dddddd 1px, radius 40px, shadow 0 6px 20px rgba(0,0,0,.10)"],
+    ["메인 카드", "366×248px", "x 12px, y 92px, radius 24px, padding 24px"],
+    ["검색 입력", "318×54px", "radius 8px, padding 0 20px, outline shadow #8c8c8c 1px"],
+    ["접힌 카드", "366×56px", "radius 16px, padding 19px 24px, shadow 0 1px 2px rgba(0,0,0,.05)"],
+    ["하단 액션", "48px height", "검색 CTA radius 12px, padding 14px 24px"],
+  ];
+  const airbnbFilterSpecs = [
+    ["측정 화면", "iPhone 13 · CSS viewport 390×664", "Airbnb 체험 검색 필터 버튼 클릭"],
+    ["overlay", "390×664px", "position fixed, z-index 2000, background #222222"],
+    ["dialog", "390×652px", "x 0, y 12px, radius 32px 32px 0 0, shadow 0 8px 28px rgba(0,0,0,.28)"],
+    ["header", "64px 기준", "title 16px/600/20px, close icon 16×16px"],
+    ["filter chip", "42px height", "border #dddddd 1px, radius 28px, padding 11px 16px, text #222222"],
+    ["footer", "390×65px", "padding 12px 24px, shadow 0 -2px 16px rgba(0,0,0,.16)"],
+    ["result CTA", "186×40px", "background #222222, text #ffffff, radius 12px, padding 11px 20px"],
+    ["reset action", "83×40px", "disabled text #c1c1c1, padding 11px 12px"],
+  ];
+  const bobaSpecs = [
+    ["container", "max-width 390px, height 652px", "모바일웹은 viewport 하단 고정, 앱은 safe area 포함"],
+    ["snap point", "peek 220px / half 420px / full 652px", "피크, 반확장, 전체 확장 상태를 지원"],
+    ["top radius", "32px 32px 0 0", "Airbnb 필터 dialog 기준"],
+    ["content padding", "24px", "섹션 내부 기본 여백"],
+    ["chip", "42px, radius 28px", "제조사, 연식, 지역, 옵션 조건 선택"],
+    ["slider", "track 280×4px, thumb 28×28px", "가격, 연식, 주행거리 범위 입력"],
+    ["footer", "65px min-height", "초기화와 결과 보기 CTA를 고정"],
+    ["primary CTA", "#d71920", "보배드림 브랜드 액션 컬러로 치환"],
+  ];
+  const props = [
+    ["open", "boolean", "시트 표시 여부입니다."],
+    ["title", "string", "상단 제목입니다. 예: 필터, 검색 조건"],
+    ["ariaLabel", "string", "dialog 접근성 이름입니다."],
+    ["snapPoints", "Array<'peek' | 'half' | 'full'>", "지원할 높이 상태입니다."],
+    ["defaultSnapPoint", "'peek' | 'half' | 'full'", "열릴 때 기본 높이입니다."],
+    ["sections", "BottomSheetSection[]", "검색, 날짜, 가격, 옵션 같은 본문 섹션입니다."],
+    ["footerAction", "{ label: string; disabled?: boolean }", "결과 보기 또는 적용 버튼입니다."],
+    ["dismissible", "boolean", "닫기 버튼과 overlay 닫기를 허용할지 결정합니다."],
+  ];
+  const usage = [
+    ["검색 유지", "목록 화면 위에서 조건을 바꾸고 결과로 돌아오게 합니다."],
+    ["많은 선택지", "옵션, 차종, 지역처럼 항목이 많으면 chip grid와 검색 입력을 함께 둡니다."],
+    ["범위 입력", "가격, 연식, 주행거리는 slider와 직접 입력을 같이 제공합니다."],
+    ["결과 수 피드백", "CTA에는 현재 조건 기준 결과 수를 보여줍니다."],
+    ["PC 전환", "PC에서는 같은 내용을 side panel 또는 modal로 전환합니다."],
+  ];
+  const accessibility = [
+    '`role="dialog"`와 `aria-modal="true"`를 적용합니다.',
+    "제목은 `aria-labelledby`로 연결하고, 닫기 버튼에는 명확한 `aria-label`을 둡니다.",
+    "시트가 열리면 포커스를 첫 조작 가능한 요소로 이동하고 닫힐 때 호출 버튼으로 돌려보냅니다.",
+    "터치 타깃은 44px 이상을 권장합니다. 원본 close 아이콘은 16px지만 보배드림은 40px 버튼 안에 둡니다.",
+    "ESC, overlay, 닫기 버튼의 동작을 동일하게 처리합니다.",
+    "가격 slider는 `aria-valuemin`, `aria-valuemax`, `aria-valuenow`를 제공합니다.",
+  ];
+
+  elements.docPage.innerHTML = `
+    <div class="doc-page-layout bottom-sheet-doc">
+      <article class="doc-main">
+        <nav class="doc-breadcrumb" aria-label="문서 경로">${escapeHtml(path)}</nav>
+        <div class="doc-title-row">
+          <div>
+            <p class="eyebrow">보배드림 모바일 컴포넌트</p>
+            <h2>${escapeHtml(displayNodeName(node))}</h2>
+          </div>
+          <div class="doc-title-actions">
+            <span class="doc-status ${escapeHtml(node.status)}">${escapeHtml(statusLabel)}</span>
+            ${renderDocHeaderActions(node)}
+          </div>
+        </div>
+        <p class="doc-lede">Bottom Sheet는 모바일에서 검색 조건, 필터, 범위 입력을 화면 하단 오버레이로 처리하는 컴포넌트입니다.</p>
+        <p class="doc-sublede">Airbnb 체험 검색의 검색 시트와 필터 시트를 실측해 보배드림 차량 검색·매물 등록 흐름에 맞게 재사용 템플릿으로 정리했습니다.</p>
+
+        <section class="bottom-sheet-section" id="bottom-sheet-overview">
+          <h3>Overview</h3>
+          <div class="bottom-sheet-info-grid">
+            ${overview
+              .map(
+                ([title, description]) => `
+                  <article>
+                    <strong>${escapeHtml(title)}</strong>
+                    <p>${escapeHtml(description)}</p>
+                  </article>
+                `,
+              )
+              .join("")}
+          </div>
+        </section>
+
+        <section class="bottom-sheet-section bottom-sheet-preview-section" id="bottom-sheet-airbnb-search">
+          <div class="bottom-sheet-section-heading">
+            <h3>Airbnb Search Sheet</h3>
+            <p>상단 검색 pill을 누르면 위치, 날짜, 여행자 조건을 카드형 시트에서 단계적으로 수정합니다.</p>
+          </div>
+          ${renderAirbnbSearchSheetTemplate()}
+        </section>
+
+        <section class="bottom-sheet-section bottom-sheet-preview-section" id="bottom-sheet-airbnb-filter">
+          <div class="bottom-sheet-section-heading">
+            <h3>Airbnb Filter Sheet</h3>
+            <p>필터 버튼을 누르면 chip 선택과 하단 결과 보기 CTA가 있는 둥근 바텀시트가 열립니다.</p>
+          </div>
+          ${renderAirbnbFilterSheetTemplate()}
+          ${renderBobaBottomSheetDemo()}
+        </section>
+
+        <section class="bottom-sheet-section" id="bottom-sheet-specification">
+          <div class="bottom-sheet-section-heading">
+            <h3>Specification</h3>
+            <p>원본 관찰값과 보배드림 적용값을 분리해 기록합니다.</p>
+          </div>
+          ${renderSimpleRowsTable("Airbnb 검색 시트 실측값", ["항목", "값", "적용 기준"], airbnbSearchSpecs)}
+          ${renderSimpleRowsTable("Airbnb 필터 시트 실측값", ["항목", "값", "적용 기준"], airbnbFilterSpecs)}
+          ${renderSimpleRowsTable("보배드림 Bottom Sheet 적용값", ["항목", "값", "적용 기준"], bobaSpecs)}
+        </section>
+
+        <section class="bottom-sheet-section" id="bottom-sheet-assets">
+          <div class="bottom-sheet-section-heading">
+            <h3>Assets</h3>
+            <p>시트에 사용한 SVG 자산입니다. 드래그 핸들, 닫기 아이콘, 슬라이더 막대와 원을 바로 내려받아 재사용합니다.</p>
+          </div>
+          ${renderBottomSheetAssetDownloads()}
+        </section>
+
+        <section class="bottom-sheet-section" id="bottom-sheet-api">
+          <h3>API</h3>
+          ${renderDocPropsTable(props)}
+          <pre class="template-code"><code>${escapeHtml(bottomSheetVueCodeExample())}</code></pre>
+        </section>
+
+        <section class="bottom-sheet-section" id="bottom-sheet-usage">
+          <h3>Usage</h3>
+          <div class="bottom-sheet-guideline-grid">
+            ${usage
+              .map(
+                ([title, description]) => `
+                  <article>
+                    <strong>${escapeHtml(title)}</strong>
+                    <p>${escapeHtml(description)}</p>
+                  </article>
+                `,
+              )
+              .join("")}
+          </div>
+        </section>
+
+        <section class="bottom-sheet-section" id="bottom-sheet-accessibility">
+          <h3>Accessibility</h3>
+          <ul class="bottom-sheet-checklist">
+            ${accessibility.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+          </ul>
+        </section>
+
+        <section class="bottom-sheet-section bottom-sheet-reference-note">
+          <h3>Reference</h3>
+          <p>Airbnb 체험 검색 페이지를 2026-09-03에 Playwright 모바일 렌더링으로 확인했습니다.</p>
+          <a href="https://www.airbnb.co.kr/s/experiences?location_search=NEARBY&search_type=unknown&refinement_paths%5B%5D=%2Fexperiences&source=structured_search_input_header&flexible_trip_lengths%5B%5D=one_week&center_lat=37.57&center_lng=127&monthly_start_date=2026-10-01&monthly_length=3&monthly_end_date=2027-01-01&price_filter_input_type=2&price_filter_num_nights=5&channel=EXPLORE" target="_blank" rel="noopener">Airbnb 체험 검색 확인</a>
+        </section>
+      </article>
+      <aside class="doc-aside">
+        <strong>목차</strong>
+        ${renderDocToc(documentSectionsForNode(node))}
+      </aside>
+    </div>
+  `;
+}
+
+function renderAirbnbSearchSheetTemplate() {
+  return `
+    <div class="bottom-sheet-airbnb-search" aria-label="Airbnb 검색 바텀시트 템플릿">
+      <div class="airbnb-sheet-mobile-shell is-search-sheet">
+        <div class="airbnb-sheet-search-top">
+          <button type="button" aria-label="뒤로">‹</button>
+          <div>
+            <strong>근처의 체험</strong>
+            <span>언제든지 · 게스트 추가</span>
+          </div>
+          <button type="button" aria-label="필터 보기">⌘</button>
+        </div>
+        <section class="airbnb-search-dialog" role="dialog" aria-modal="true" aria-labelledby="airbnb-search-title">
+          <button class="airbnb-floating-close" type="button" aria-label="닫기">×</button>
+          <div class="airbnb-service-tabs" role="tablist" aria-label="서비스 유형">
+            <button type="button" role="tab">숙소</button>
+            <button type="button" role="tab" aria-selected="true">체험</button>
+            <button type="button" role="tab">서비스</button>
+          </div>
+          <article class="airbnb-search-card">
+            <h4 id="airbnb-search-title">위치</h4>
+            <button class="airbnb-search-input" type="button">도시나 명소로 검색</button>
+            <button class="airbnb-nearby-row" type="button">
+              <span aria-hidden="true">⌖</span>
+              <strong>근처 체험 찾기</strong>
+              <em>가까운 곳에서 즐길 수 있는 체험을 찾아보세요.</em>
+            </button>
+          </article>
+          <button class="airbnb-collapsed-field" type="button"><span>날짜</span><strong>날짜 추가</strong></button>
+          <button class="airbnb-collapsed-field" type="button"><span>여행자</span><strong>게스트 추가</strong></button>
+          <footer class="airbnb-search-footer">
+            <button type="button">전체 삭제</button>
+            <button type="button"><span aria-hidden="true">⌕</span>검색</button>
+          </footer>
+        </section>
+      </div>
+    </div>
+  `;
+}
+
+function renderAirbnbFilterSheetTemplate() {
+  const chips = [
+    "미식 문화",
+    "당일 여행",
+    "갤러리",
+    "건축",
+    "공연",
+    "다이닝",
+    "랜드마크",
+    "문화 체험",
+    "박물관",
+    "뷰티",
+    "수상스포츠",
+    "식도락 탐방",
+  ];
+
+  return `
+    <div class="bottom-sheet-airbnb-filter" aria-label="Airbnb 필터 바텀시트 템플릿">
+      <div class="airbnb-filter-overlay">
+        <section class="airbnb-filter-dialog" role="dialog" aria-modal="true" aria-labelledby="airbnb-filter-title">
+          <header>
+            <h4 id="airbnb-filter-title">필터</h4>
+            <button type="button" aria-label="닫기">×</button>
+          </header>
+          <div class="airbnb-filter-body">
+            <h5>추천</h5>
+            <div class="airbnb-filter-chip-row">
+              ${chips.slice(0, 2).map((chip) => `<button type="button">${escapeHtml(chip)}</button>`).join("")}
+            </div>
+            <hr />
+            <h5>체험 유형</h5>
+            <div class="airbnb-filter-chip-row">
+              ${chips.slice(2).map((chip) => `<button type="button">${escapeHtml(chip)}</button>`).join("")}
+            </div>
+          </div>
+          <footer>
+            <button type="button" disabled>전체 해제</button>
+            <a href="#components-mobile-app-components-bottom-sheet">300개 이상의 결과 보기</a>
+          </footer>
+        </section>
+      </div>
+    </div>
+  `;
+}
+
+function renderBobaBottomSheetDemo() {
+  const chips = ["국산차", "수입차", "SUV", "세단", "무사고", "1인신조", "보험이력 있음", "실매물"];
+  return `
+    <div class="boba-bottom-sheet-demo-wrap">
+      <div class="bottom-sheet-section-heading">
+        <h3>보배드림 적용 템플릿</h3>
+        <p>상태 버튼으로 peek, half, full 높이를 전환해 실제 동작 흐름을 확인합니다.</p>
+      </div>
+      <div class="bottom-sheet-state-controls" aria-label="바텀시트 상태">
+        <button type="button" data-bottom-sheet-state="peek" aria-pressed="false">Peek</button>
+        <button type="button" data-bottom-sheet-state="half" aria-pressed="false">Half</button>
+        <button type="button" data-bottom-sheet-state="full" aria-pressed="true">Full</button>
+        <button type="button" data-bottom-sheet-open>열기</button>
+      </div>
+      <div class="bd-bottom-sheet-demo" data-bottom-sheet-demo data-sheet-state="full">
+        <div class="bd-bottom-sheet-phone">
+          <div class="bd-sheet-page" aria-hidden="true">
+            <div class="bd-sheet-search-pill">중고차 · 제네시스 GV80 · 전국</div>
+            <div class="bd-sheet-card-list">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="bd-bottom-sheet-overlay"></div>
+          <section class="bd-bottom-sheet-panel" role="dialog" aria-modal="true" aria-labelledby="boba-bottom-sheet-title">
+            <img class="bd-sheet-handle" src="../assets/bottom-sheet/sheet-handle.svg" alt="" aria-hidden="true" />
+            <header class="bd-sheet-header">
+              <h4 id="boba-bottom-sheet-title">차량 검색 필터</h4>
+              <button type="button" data-bottom-sheet-close aria-label="바텀시트 닫기">
+                <img src="../assets/bottom-sheet/sheet-close.svg" alt="" aria-hidden="true" />
+              </button>
+            </header>
+            <div class="bd-sheet-body">
+              <section>
+                <h5>차량 조건</h5>
+                <div class="bd-sheet-chip-grid">
+                  ${chips.map((chip, index) => `<button class="bd-sheet-chip${index < 2 ? " is-selected" : ""}" type="button">${escapeHtml(chip)}</button>`).join("")}
+                </div>
+              </section>
+              <section class="bd-sheet-range">
+                <div>
+                  <h5>가격</h5>
+                  <strong>2,000만원 - 6,000만원</strong>
+                </div>
+                <div class="bd-sheet-slider" aria-label="가격 범위">
+                  <img class="bd-sheet-slider-track" src="../assets/bottom-sheet/sheet-slider-track.svg" alt="" aria-hidden="true" />
+                  <img class="bd-sheet-slider-thumb is-min" src="../assets/bottom-sheet/sheet-slider-thumb.svg" alt="" aria-hidden="true" />
+                  <img class="bd-sheet-slider-thumb is-max" src="../assets/bottom-sheet/sheet-slider-thumb.svg" alt="" aria-hidden="true" />
+                </div>
+              </section>
+            </div>
+            <footer class="bd-sheet-footer">
+              <button type="button">초기화</button>
+              <button type="button">검색 결과 300대 보기</button>
+            </footer>
+          </section>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function bottomSheetAssetItems() {
+  return [
+    ["드래그 핸들", "sheet-handle.svg", "../assets/bottom-sheet/sheet-handle.svg", "40×4px", "#b0b0b0"],
+    ["닫기 아이콘", "sheet-close.svg", "../assets/bottom-sheet/sheet-close.svg", "16×16px", "#222222"],
+    ["슬라이더 막대", "sheet-slider-track.svg", "../assets/bottom-sheet/sheet-slider-track.svg", "280×4px", "#dddddd / #222222"],
+    ["슬라이더 원", "sheet-slider-thumb.svg", "../assets/bottom-sheet/sheet-slider-thumb.svg", "28×28px", "#ffffff / #222222"],
+  ];
+}
+
+function renderBottomSheetAssetDownloads() {
+  return `
+    <div class="bottom-sheet-asset-grid">
+      ${bottomSheetAssetItems()
+        .map(
+          ([name, fileName, source, size, color]) => `
+            <article>
+              <div class="bottom-sheet-asset-preview">
+                <img src="${escapeAttribute(source)}" alt="" aria-hidden="true" />
+              </div>
+              <strong>${escapeHtml(name)}</strong>
+              <code>${escapeHtml(fileName)}</code>
+              <dl>
+                <div><dt>size</dt><dd>${escapeHtml(size)}</dd></div>
+                <div><dt>color</dt><dd>${escapeHtml(color)}</dd></div>
+              </dl>
+              <a href="${escapeAttribute(source)}" download>SVG 다운로드</a>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function bottomSheetVueCodeExample() {
+  return `<BobaBottomSheet
+  v-model:open="filterOpen"
+  title="차량 검색 필터"
+  aria-label="차량 검색 필터"
+  :snap-points="['peek', 'half', 'full']"
+  default-snap-point="full"
+  :sections="vehicleFilterSections"
+  :footer-action="{ label: '검색 결과 300대 보기' }"
+  :range-controls="[
+    { id: 'price', label: '가격', min: 0, max: 10000, step: 100 },
+    { id: 'mileage', label: '주행거리', min: 0, max: 300000, step: 1000 }
+  ]"
+/>`;
+}
+
+function handleBottomSheetDemoClick(event) {
+  const stateButton = event.target.closest("[data-bottom-sheet-state]");
+  if (stateButton) {
+    const demo = stateButton.closest(".boba-bottom-sheet-demo-wrap")?.querySelector("[data-bottom-sheet-demo]");
+    if (!demo) return;
+    const state = stateButton.dataset.bottomSheetState || "full";
+    demo.dataset.sheetState = state;
+    demo.classList.remove("is-closed");
+    syncBottomSheetDemoControls(demo, state);
+    return;
+  }
+
+  const openButton = event.target.closest("[data-bottom-sheet-open]");
+  if (openButton) {
+    const demo = openButton.closest(".boba-bottom-sheet-demo-wrap")?.querySelector("[data-bottom-sheet-demo]");
+    if (!demo) return;
+    demo.dataset.sheetState = "full";
+    demo.classList.remove("is-closed");
+    syncBottomSheetDemoControls(demo, "full");
+    return;
+  }
+
+  const closeButton = event.target.closest("[data-bottom-sheet-close]");
+  if (closeButton) {
+    const demo = closeButton.closest("[data-bottom-sheet-demo]");
+    if (!demo) return;
+    demo.classList.add("is-closed");
+    syncBottomSheetDemoControls(demo, "");
+  }
+}
+
+function syncBottomSheetDemoControls(demo, activeState) {
+  const wrap = demo.closest(".boba-bottom-sheet-demo-wrap");
+  wrap?.querySelectorAll("[data-bottom-sheet-state]").forEach((button) => {
+    button.setAttribute("aria-pressed", button.dataset.bottomSheetState === activeState ? "true" : "false");
   });
 }
 

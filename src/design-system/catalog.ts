@@ -1245,6 +1245,7 @@ export const ebayGroups: CatalogGroup[] = [
       marketplaceItem("Section header", "섹션 제목과 보조 액션 영역입니다.", "필수"),
       marketplaceItem("Segmented button", "보기 방식/조건 전환 버튼 그룹입니다.", "권장"),
       marketplaceItem("Sheet", "모바일 바텀시트와 포커스 시트입니다.", "필수"),
+      marketplaceItem("Bottom Sheet", "차량 검색, 필터 조건, 범위 입력을 하단 오버레이에서 처리합니다.", "필수", "Sheet"),
       marketplaceItem("Context sheet", "필터, 정렬, 공유처럼 맥락 기반 sheet입니다.", "필수", "Sheet"),
       marketplaceItem("Focus sheet", "입력이나 선택에 집중하는 sheet입니다.", "권장", "Sheet"),
       marketplaceItem("Signal", "상태 신호, 신뢰 배지, 시스템 상태 표시입니다.", "권장"),

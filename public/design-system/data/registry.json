@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "project": "bobaedream-design-system",
-  "updated_at": "2026-09-02T10:13:32.970Z",
+  "updated_at": "2026-09-03T00:01:20.176Z",
   "items": [
     {
       "id": "ref-ebay",
@@ -337,6 +337,38 @@
       "note": "보배드림 연식/주행거리/가격/지역/제조사 필터 기준",
       "createdAt": "2026-09-01T00:00:00.000Z",
       "updatedAt": "2026-09-01T00:00:00.000Z",
+      "archived": false
+    },
+    {
+      "id": "component-bottom-sheet",
+      "type": "컴포넌트",
+      "name": "검색/필터 바텀시트",
+      "standard": "BobaBottomSheet",
+      "status": "검토필요",
+      "platform": "모바일웹",
+      "sheet": "04_컴포넌트마스터",
+      "pcValue": "modal 또는 side panel 전환",
+      "moValue": "390×652px, top 12px, radius 32px",
+      "props": "open, title, ariaLabel, snapPoints, defaultSnapPoint, sections, footerAction, rangeControls",
+      "note": "Airbnb 체험 검색/필터 바텀시트 실측값을 기준으로 보배드림 차량 검색과 필터 수정 흐름에 적용",
+      "createdAt": "2026-09-03T00:01:20.176Z",
+      "updatedAt": "2026-09-03T00:01:20.176Z",
+      "archived": false
+    },
+    {
+      "id": "template-airbnb-experiences-bottom-sheet",
+      "type": "템플릿",
+      "name": "Airbnb형 체험 검색 바텀시트",
+      "standard": "template_airbnb_experiences_bottom_sheet",
+      "status": "등록완료",
+      "platform": "모바일웹",
+      "sheet": "09_템플릿",
+      "pcValue": "dialog fallback",
+      "moValue": "search 390×664px / filter 390×652px",
+      "props": "search sheet, filter sheet, chip group, range slider assets, fixed footer CTA",
+      "note": "Airbnb 체험 검색 URL을 모바일 렌더링으로 측정하고 보배드림 필터 바텀시트 샘플 템플릿으로 정리",
+      "createdAt": "2026-09-03T00:01:20.176Z",
+      "updatedAt": "2026-09-03T00:01:20.176Z",
       "archived": false
     },
     {
