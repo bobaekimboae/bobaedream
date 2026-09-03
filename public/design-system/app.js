@@ -3752,7 +3752,7 @@ function renderBottomSheetDocumentPage(node) {
         <section class="bottom-sheet-section" id="bottom-sheet-assets">
           <div class="bottom-sheet-section-heading">
             <h3>Assets</h3>
-            <p>시트에 사용한 SVG 자산입니다. 드래그 핸들, 닫기 아이콘, 슬라이더 막대와 원을 바로 내려받아 재사용합니다.</p>
+            <p>Airbnb 화면에서 추출한 SVG/PNG 레퍼런스와 보배드림 적용 자산을 함께 내려받아 비교·재사용합니다.</p>
           </div>
           ${renderBottomSheetAssetDownloads()}
         </section>
@@ -3805,15 +3805,15 @@ function renderAirbnbSearchSheetTemplate() {
     <div class="bottom-sheet-airbnb-search" aria-label="Airbnb 검색 바텀시트 템플릿">
       <div class="airbnb-sheet-mobile-shell is-search-sheet">
         <div class="airbnb-sheet-search-top">
-          <button type="button" aria-label="뒤로">‹</button>
+          <button type="button" aria-label="뒤로"><img src="/assets/bottom-sheet/airbnb-reference/airbnb-search-01-뒤로.svg" alt="" aria-hidden="true" /></button>
           <div>
             <strong>근처의 체험</strong>
             <span>언제든지 · 게스트 추가</span>
           </div>
-          <button type="button" aria-label="필터 보기">⌘</button>
+          <button type="button" aria-label="필터 보기"><img src="/assets/bottom-sheet/airbnb-reference/airbnb-search-02-필터-보기.svg" alt="" aria-hidden="true" /></button>
         </div>
         <section class="airbnb-search-dialog" role="dialog" aria-modal="true" aria-labelledby="airbnb-search-title">
-          <button class="airbnb-floating-close" type="button" aria-label="닫기">×</button>
+          <button class="airbnb-floating-close" type="button" aria-label="닫기"><img src="/assets/bottom-sheet/airbnb-reference/airbnb-filter-123-닫기.svg" alt="" aria-hidden="true" /></button>
           <div class="airbnb-service-tabs" role="tablist" aria-label="서비스 유형">
             <button type="button" role="tab">숙소</button>
             <button type="button" role="tab" aria-selected="true">체험</button>
@@ -3862,7 +3862,7 @@ function renderAirbnbFilterSheetTemplate() {
         <section class="airbnb-filter-dialog" role="dialog" aria-modal="true" aria-labelledby="airbnb-filter-title">
           <header>
             <h4 id="airbnb-filter-title">필터</h4>
-            <button type="button" aria-label="닫기">×</button>
+            <button type="button" aria-label="닫기"><img src="/assets/bottom-sheet/airbnb-reference/airbnb-filter-123-닫기.svg" alt="" aria-hidden="true" /></button>
           </header>
           <div class="airbnb-filter-body">
             <h5>추천</h5>
@@ -3948,10 +3948,17 @@ function renderBobaBottomSheetDemo() {
 
 function bottomSheetAssetItems() {
   return [
-    ["드래그 핸들", "sheet-handle.svg", "/assets/bottom-sheet/sheet-handle.svg", "40×4px", "#b0b0b0"],
-    ["닫기 아이콘", "sheet-close.svg", "/assets/bottom-sheet/sheet-close.svg", "16×16px", "#222222"],
-    ["슬라이더 막대", "sheet-slider-track.svg", "/assets/bottom-sheet/sheet-slider-track.svg", "280×4px", "#dddddd / #222222"],
-    ["슬라이더 원", "sheet-slider-thumb.svg", "/assets/bottom-sheet/sheet-slider-thumb.svg", "28×28px", "#ffffff / #222222"],
+    { group: "Airbnb 원본 추출", name: "뒤로 아이콘", fileName: "airbnb-search-01-뒤로.svg", source: "/assets/bottom-sheet/airbnb-reference/airbnb-search-01-뒤로.svg", size: "16×16px", color: "#222222", format: "SVG" },
+    { group: "Airbnb 원본 추출", name: "필터 아이콘", fileName: "airbnb-search-02-필터-보기.svg", source: "/assets/bottom-sheet/airbnb-reference/airbnb-search-02-필터-보기.svg", size: "16×16px", color: "#222222", format: "SVG" },
+    { group: "Airbnb 원본 추출", name: "닫기 아이콘", fileName: "airbnb-filter-123-닫기.svg", source: "/assets/bottom-sheet/airbnb-reference/airbnb-filter-123-닫기.svg", size: "16×16px", color: "#222222", format: "SVG" },
+    { group: "Airbnb 원본 추출", name: "가격 슬라이더 막대/원", fileName: "airbnb-price-slider-bar-thumb.png", source: "/assets/bottom-sheet/airbnb-reference/airbnb-price-slider-bar-thumb.png", size: "390×118 CSS / 1170×354 PNG", color: "#e61e4d, #dddddd, #ffffff", format: "PNG" },
+    { group: "Airbnb 원본 추출", name: "가격 범위 컨트롤", fileName: "airbnb-price-range-control.png", source: "/assets/bottom-sheet/airbnb-reference/airbnb-price-range-control.png", size: "390×188 CSS / 1170×564 PNG", color: "#e61e4d, #222222, #dddddd", format: "PNG" },
+    { group: "Airbnb 원본 추출", name: "소요 시간 슬라이더", fileName: "airbnb-duration-slider-bar-thumb.png", source: "/assets/bottom-sheet/airbnb-reference/airbnb-duration-slider-bar-thumb.png", size: "390×130 CSS / 1170×390 PNG", color: "#222222, #dddddd, #ffffff", format: "PNG" },
+    { group: "Airbnb 원본 추출", name: "추출 매니페스트", fileName: "airbnb-reference-assets.json", source: "/assets/bottom-sheet/airbnb-reference/airbnb-reference-assets.json", size: "측정 JSON", color: "source, rect, color", format: "JSON" },
+    { group: "보배드림 적용 자산", name: "드래그 핸들", fileName: "sheet-handle.svg", source: "/assets/bottom-sheet/sheet-handle.svg", size: "40×4px", color: "#b0b0b0", format: "SVG" },
+    { group: "보배드림 적용 자산", name: "닫기 아이콘", fileName: "sheet-close.svg", source: "/assets/bottom-sheet/sheet-close.svg", size: "16×16px", color: "#222222", format: "SVG" },
+    { group: "보배드림 적용 자산", name: "슬라이더 막대", fileName: "sheet-slider-track.svg", source: "/assets/bottom-sheet/sheet-slider-track.svg", size: "280×4px", color: "#dddddd / #222222", format: "SVG" },
+    { group: "보배드림 적용 자산", name: "슬라이더 원", fileName: "sheet-slider-thumb.svg", source: "/assets/bottom-sheet/sheet-slider-thumb.svg", size: "28×28px", color: "#ffffff / #222222", format: "SVG" },
   ];
 }
 
@@ -3960,18 +3967,24 @@ function renderBottomSheetAssetDownloads() {
     <div class="bottom-sheet-asset-grid">
       ${bottomSheetAssetItems()
         .map(
-          ([name, fileName, source, size, color]) => `
+          ({ group, name, fileName, source, size, color, format }) => `
             <article>
+              <span class="bottom-sheet-asset-group">${escapeHtml(group)}</span>
               <div class="bottom-sheet-asset-preview">
-                <img src="${escapeAttribute(source)}" alt="" aria-hidden="true" />
+                ${
+                  format === "JSON"
+                    ? `<span class="bottom-sheet-file-badge">JSON</span>`
+                    : `<img src="${escapeAttribute(source)}" alt="" aria-hidden="true" />`
+                }
               </div>
               <strong>${escapeHtml(name)}</strong>
               <code>${escapeHtml(fileName)}</code>
               <dl>
+                <div><dt>format</dt><dd>${escapeHtml(format)}</dd></div>
                 <div><dt>size</dt><dd>${escapeHtml(size)}</dd></div>
                 <div><dt>color</dt><dd>${escapeHtml(color)}</dd></div>
               </dl>
-              <a href="${escapeAttribute(source)}" download>SVG 다운로드</a>
+              <a href="${escapeAttribute(source)}" download>${escapeHtml(format)} 다운로드</a>
             </article>
           `,
         )

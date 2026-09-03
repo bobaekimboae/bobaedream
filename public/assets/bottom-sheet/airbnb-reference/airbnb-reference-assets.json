@@ -1,0 +1,138 @@
+{
+  "searchSvgs": [
+    {
+      "file": "airbnb-search-01-뒤로.svg",
+      "title": "뒤로",
+      "rect": {
+        "x": 36,
+        "y": 33,
+        "width": 16,
+        "height": 16
+      },
+      "fill": "none",
+      "stroke": "#222222",
+      "color": "#222222"
+    },
+    {
+      "file": "airbnb-search-02-필터-보기.svg",
+      "title": "필터 보기",
+      "rect": {
+        "x": 338,
+        "y": 33,
+        "width": 16,
+        "height": 16
+      },
+      "fill": "none",
+      "stroke": "#222222",
+      "color": "#222222"
+    }
+  ],
+  "filterSvgs": [
+    {
+      "file": "airbnb-filter-123-닫기.svg",
+      "title": "닫기",
+      "rect": {
+        "x": 350,
+        "y": 28,
+        "width": 16,
+        "height": 16
+      },
+      "fill": "none",
+      "stroke": "#222222",
+      "color": "#222222"
+    }
+  ],
+  "scrollInfo": {
+    "candidates": [
+      {
+        "index": 0,
+        "tag": "DIV",
+        "cls": "s1xk3x4r atm_l1_1wugsn5 atm_e2_1osqo2v dir dir-ltr",
+        "text": "체험 유형갤러리건축공연다이닝랜드마크문화 체험박물관뷰티비행쇼핑 & 패션수상스포츠시식·시음식도",
+        "scrollHeight": 1819,
+        "clientHeight": 539
+      }
+    ],
+    "used": {
+      "tag": "DIV",
+      "cls": "s1xk3x4r atm_l1_1wugsn5 atm_e2_1osqo2v dir dir-ltr",
+      "scrollTop": 760,
+      "scrollHeight": 1819,
+      "clientHeight": 539
+    }
+  },
+  "ranges": [
+    {
+      "index": 0,
+      "rect": {
+        "x": 24,
+        "y": 154.828125,
+        "width": 342,
+        "height": 1
+      },
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(16, 16, 16)",
+      "border": "0px none rgb(16, 16, 16)",
+      "radius": "8px",
+      "value": "3000",
+      "min": "3000",
+      "max": "500000"
+    },
+    {
+      "index": 1,
+      "rect": {
+        "x": 24,
+        "y": 154.828125,
+        "width": 342,
+        "height": 1
+      },
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(16, 16, 16)",
+      "border": "0px none rgb(16, 16, 16)",
+      "radius": "8px",
+      "value": "500000",
+      "min": "3000",
+      "max": "500000"
+    },
+    {
+      "index": 2,
+      "rect": {
+        "x": 24,
+        "y": 369.828125,
+        "width": 342,
+        "height": 4
+      },
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(16, 16, 16)",
+      "border": "0px none rgb(16, 16, 16)",
+      "radius": "8px",
+      "value": "1",
+      "min": "1",
+      "max": "7"
+    },
+    {
+      "index": 3,
+      "rect": {
+        "x": 24,
+        "y": 369.828125,
+        "width": 342,
+        "height": 4
+      },
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(16, 16, 16)",
+      "border": "0px none rgb(16, 16, 16)",
+      "radius": "8px",
+      "value": "7",
+      "min": "1",
+      "max": "7"
+    }
+  ],
+  "sliderClip": {
+    "x": 18,
+    "y": 4,
+    "width": 354,
+    "height": 148
+  },
+  "source": "https://www.airbnb.co.kr/s/experiences?location_search=NEARBY&search_type=unknown&refinement_paths%5B%5D=%2Fexperiences&source=structured_search_input_header&flexible_trip_lengths%5B%5D=one_week&center_lat=37.57&center_lng=127&monthly_start_date=2026-10-01&monthly_length=3&monthly_end_date=2027-01-01&price_filter_input_type=2&price_filter_num_nights=5&channel=EXPLORE",
+  "capturedAt": "2026-09-03T00:41:27.996Z"
+}

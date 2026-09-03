@@ -2420,6 +2420,14 @@ body.sidebar-open .mobile-menu-button {
   line-height: 1;
 }
 
+.airbnb-sheet-search-top button img,
+.airbnb-floating-close img,
+.airbnb-filter-dialog header button img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
 .airbnb-sheet-search-top div {
   display: grid;
   height: 58px;
@@ -3017,7 +3025,7 @@ body.sidebar-open .mobile-menu-button {
 
 .bottom-sheet-asset-preview {
   display: grid;
-  height: 82px;
+  height: 96px;
   place-items: center;
   border: 1px solid #eef1f5;
   border-radius: 8px;
@@ -3026,8 +3034,36 @@ body.sidebar-open .mobile-menu-button {
 }
 
 .bottom-sheet-asset-preview img {
-  max-width: 150px;
-  max-height: 42px;
+  max-width: 100%;
+  max-height: 72px;
+  object-fit: contain;
+}
+
+.bottom-sheet-asset-group {
+  display: inline-flex;
+  width: max-content;
+  max-width: 100%;
+  margin-bottom: 10px;
+  border-radius: 999px;
+  background: #eef4ff;
+  color: #1d4ed8;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.bottom-sheet-file-badge {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border: 1px solid #c7d7fe;
+  border-radius: 8px;
+  background: #fff;
+  color: #1d4ed8;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0;
 }
 
 .bottom-sheet-asset-grid code {
