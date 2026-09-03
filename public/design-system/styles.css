@@ -2768,8 +2768,8 @@ body.sidebar-open .mobile-menu-button {
 }
 
 .bottom-sheet-state-controls button[aria-pressed="true"] {
-  border-color: #d71920;
-  background: #d71920;
+  border-color: #222;
+  background: #222;
   color: #fff;
 }
 
@@ -2929,9 +2929,9 @@ body.sidebar-open .mobile-menu-button {
 }
 
 .bd-sheet-chip.is-selected {
-  border-color: #d71920;
-  background: #fff4f4;
-  color: #b2171d;
+  border-color: #222;
+  background: #f7f7f7;
+  color: #222;
 }
 
 .bd-sheet-range {
@@ -2947,7 +2947,7 @@ body.sidebar-open .mobile-menu-button {
 }
 
 .bd-sheet-range strong {
-  color: #d71920;
+  color: #222;
   font-size: 13px;
   font-weight: 900;
   white-space: nowrap;
@@ -3015,7 +3015,7 @@ body.sidebar-open .mobile-menu-button {
 
 .bd-sheet-footer button:last-child {
   flex: 1;
-  background: #d71920;
+  background: #222;
   color: #fff;
 }
 

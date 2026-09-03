@@ -3661,7 +3661,7 @@ function renderBottomSheetDocumentPage(node) {
     ["chip", "42px, radius 28px", "제조사, 연식, 지역, 옵션 조건 선택"],
     ["slider", "track 280×4px, thumb 28×28px", "가격, 연식, 주행거리 범위 입력"],
     ["footer", "65px min-height", "초기화와 결과 보기 CTA를 고정"],
-    ["primary CTA", "#d71920", "보배드림 브랜드 액션 컬러로 치환"],
+    ["primary CTA", "#222222", "Airbnb 필터 시트 원본처럼 검정 CTA 적용"],
   ];
   const props = [
     ["open", "boolean", "시트 표시 여부입니다."],
