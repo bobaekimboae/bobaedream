@@ -356,6 +356,22 @@
       "archived": false
     },
     {
+      "id": "component-filter-bottom-sheet",
+      "type": "컴포넌트",
+      "name": "필터 바텀시트",
+      "standard": "BobaFilterBottomSheet",
+      "status": "검토필요",
+      "platform": "모바일웹",
+      "sheet": "04_컴포넌트마스터",
+      "pcValue": "side filter panel 또는 dropdown popover",
+      "moValue": "filter rail 32px + sheet 390px width",
+      "props": "open, activeFilter, filters, selectedValues, rangeValues, resultCount, onReset, onApply",
+      "note": "Chợ Tốt 차량 목록의 필터 레일과 상황별 필터 시트를 기준으로 분리 등록",
+      "createdAt": "2026-09-03T01:09:00.000Z",
+      "updatedAt": "2026-09-03T01:09:00.000Z",
+      "archived": false
+    },
+    {
       "id": "template-airbnb-experiences-bottom-sheet",
       "type": "템플릿",
       "name": "Airbnb형 체험 검색 바텀시트",
@@ -369,6 +385,22 @@
       "note": "Airbnb 체험 검색 URL을 모바일 렌더링으로 측정하고 보배드림 필터 바텀시트 샘플 템플릿으로 정리",
       "createdAt": "2026-09-03T00:01:20.176Z",
       "updatedAt": "2026-09-03T00:01:20.176Z",
+      "archived": false
+    },
+    {
+      "id": "template-chotot-car-filter-bottom-sheet",
+      "type": "템플릿",
+      "name": "Chợ Tốt형 차량 필터 바텀시트",
+      "standard": "template_chotot_car_filter_bottom_sheet",
+      "status": "등록완료",
+      "platform": "모바일웹",
+      "sheet": "09_템플릿",
+      "pcValue": "left filter rail + inline popover",
+      "moValue": "32px pill rail / bottom filter sheet / fixed apply bar",
+      "props": "advanced, price range, year range, brand search, fuel, transmission, condition, seller",
+      "note": "Chợ Tốt 차량 검색 필터를 상황별로 측정해 보배드림 매물 리스트 필터 구조로 변환",
+      "createdAt": "2026-09-03T01:09:00.000Z",
+      "updatedAt": "2026-09-03T01:09:00.000Z",
       "archived": false
     },
     {

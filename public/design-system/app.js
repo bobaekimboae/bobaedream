@@ -249,6 +249,7 @@ const koreanNames = {
   "Attachment Input": "첨부 입력",
   "Bottom Navigation": "하단 내비게이션",
   "Bottom Sheet": "하단 시트",
+  "Filter Bottom Sheet": "필터 바텀시트",
   "Content Placeholder": "콘텐츠 플레이스홀더",
   "Contextual Floating Button": "컨텍스트 플로팅 버튼",
   "Date Picker": "날짜 선택",
@@ -722,6 +723,7 @@ const fuseSidebarTree = sidebarTree([
           "Avatar",
           "Bottom Navigation",
           "Bottom Sheet",
+          "Filter Bottom Sheet",
           "Chip",
           "Content Placeholder",
           "Contextual Floating Button",
@@ -1288,6 +1290,19 @@ const seedItems = [
     note: "Airbnb 체험 검색/필터 바텀시트 실측값을 기준으로 보배드림 차량 검색과 필터 수정 흐름에 적용",
   },
   {
+    id: "component-filter-bottom-sheet",
+    type: "컴포넌트",
+    name: "필터 바텀시트",
+    standard: "BobaFilterBottomSheet",
+    status: "검토필요",
+    platform: "모바일웹",
+    sheet: "04_컴포넌트마스터",
+    pcValue: "side filter panel 또는 dropdown popover",
+    moValue: "filter rail 32px + sheet 390px width",
+    props: "open, activeFilter, filters, selectedValues, rangeValues, resultCount, onReset, onApply",
+    note: "Chợ Tốt 차량 목록의 필터 레일과 상황별 필터 시트를 기준으로 분리 등록",
+  },
+  {
     id: "template-airbnb-experiences-bottom-sheet",
     type: "템플릿",
     name: "Airbnb형 체험 검색 바텀시트",
@@ -1299,6 +1314,19 @@ const seedItems = [
     moValue: "search 390×664px / filter 390×652px",
     props: "search sheet, filter sheet, chip group, range slider assets, fixed footer CTA",
     note: "Airbnb 체험 검색 URL을 모바일 렌더링으로 측정하고 보배드림 필터 바텀시트 샘플 템플릿으로 정리",
+  },
+  {
+    id: "template-chotot-car-filter-bottom-sheet",
+    type: "템플릿",
+    name: "Chợ Tốt형 차량 필터 바텀시트",
+    standard: "template_chotot_car_filter_bottom_sheet",
+    status: "등록완료",
+    platform: "모바일웹",
+    sheet: "09_템플릿",
+    pcValue: "left filter rail + inline popover",
+    moValue: "32px pill rail / bottom filter sheet / fixed apply bar",
+    props: "advanced, price range, year range, brand search, fuel, transmission, condition, seller",
+    note: "Chợ Tốt 차량 검색 필터를 상황별로 측정해 보배드림 매물 리스트 필터 구조로 변환",
   },
   {
     id: "component-badge",
@@ -1597,7 +1625,9 @@ function bindEvents() {
   document.addEventListener("click", handleIconDocumentClick);
   document.addEventListener("click", handlePaginationTemplateClick);
   document.addEventListener("click", handleBottomSheetDemoClick);
+  document.addEventListener("click", handleFilterBottomSheetDemoClick);
   document.addEventListener("input", handleBottomSheetDemoInput);
+  document.addEventListener("input", handleFilterBottomSheetDemoInput);
   document.addEventListener("change", handleIconDocumentChange);
   document.addEventListener("keydown", handleGlobalKeydown);
   elements.sidebarNav.addEventListener("click", handleSidebarClick);
@@ -2148,6 +2178,10 @@ function renderDocumentPage(node) {
     renderBottomSheetDocumentPage(node);
     return;
   }
+  if (node.title === "Filter Bottom Sheet") {
+    renderFilterBottomSheetDocumentPage(node);
+    return;
+  }
 
   const statusLabel = node.status === "deprecated" ? "deprecated" : node.status === "custom" ? "보배드림 운영" : "stable";
   const path = node.path?.join(" / ") || displayNodeName(node);
@@ -2693,6 +2727,19 @@ function documentSectionsForNode(node) {
       ["API", "#bottom-sheet-api"],
       ["Usage", "#bottom-sheet-usage"],
       ["Accessibility", "#bottom-sheet-accessibility"],
+    ];
+  }
+  if (node.title === "Filter Bottom Sheet") {
+    return [
+      ["Overview", "#filter-bottom-sheet-overview"],
+      ["Chợ Tốt IA", "#filter-bottom-sheet-chotot-ia"],
+      ["Scenarios", "#filter-bottom-sheet-scenarios"],
+      ["Interactive Demo", "#filter-bottom-sheet-demo"],
+      ["Specification", "#filter-bottom-sheet-specification"],
+      ["API", "#filter-bottom-sheet-api"],
+      ["Usage", "#filter-bottom-sheet-usage"],
+      ["Accessibility", "#filter-bottom-sheet-accessibility"],
+      ["Reference", "#filter-bottom-sheet-reference"],
     ];
   }
   return [
@@ -4145,6 +4192,606 @@ function updateBottomSheetDemoState(demo) {
 function formatKoreanPrice(value) {
   if (value <= 0) return "전체";
   return `${Number(value).toLocaleString("ko-KR")}만원`;
+}
+
+function renderFilterBottomSheetDocumentPage(node) {
+  const path = node.path?.join(" / ") || displayNodeName(node);
+  const statusLabel = node.status === "deprecated" ? "deprecated" : "stable";
+  const overview = [
+    ["정의", "Filter Bottom Sheet는 모바일 목록 화면에서 필터 레일을 누르면 조건별 시트를 열어 범위·단일·다중 선택을 처리하는 컴포넌트입니다."],
+    ["분리 기준", "일반 Bottom Sheet가 검색·선택 오버레이라면, Filter Bottom Sheet는 결과 목록을 유지한 채 필터 조건과 적용 CTA를 관리합니다."],
+    ["사용 위치", "중고차 검색 결과, 내차팔기 옵션 선택, 커뮤니티 검색 필터, 브랜드/차종 탐색 화면에 사용합니다."],
+  ];
+  const iaRows = [
+    ["전체 필터", "Lọc / Lọc Nâng Cao", "가격, 좌석수, 옵션을 한 번에 조합하는 고급 필터 시트"],
+    ["가격", "Giá", "필터 레일 아래 빠른 범위 조절 또는 시트형 범위 입력"],
+    ["연식", "Năm sản xuất", "최소·최대 연식 범위 선택"],
+    ["제조사", "Hãng xe", "검색 입력과 단일 선택 라디오 목록"],
+    ["연료", "Nhiên liệu", "가솔린, 디젤, 하이브리드, 전기 단일 선택"],
+    ["변속기", "Hộp số", "자동, 수동, 세미오토 단일 선택"],
+    ["상태", "Tình trạng", "신차급, 무사고, 성능점검 등 상태 선택"],
+    ["판매자", "Đăng bởi", "전체, 개인, 딜러, 인증 딜러 선택"],
+  ];
+  const scenarioRows = filterBottomSheetScenarios().map((scenario) => [
+    scenario.label,
+    scenario.source,
+    scenario.type,
+    scenario.description,
+  ]);
+  const specs = [
+    ["viewport", "390px 기준", "iPhone 13 CSS viewport에서 관찰한 모바일 목록 기준"],
+    ["filter rail", "height 32px, gap 8px", "가로 스크롤 pill 레일"],
+    ["active pill", "#222222 / #ffffff, radius 9999px", "현재 열린 필터 항목"],
+    ["inactive pill", "#f4f4f4 / #222222, radius 9999px", "대기 상태 필터 항목"],
+    ["clear action", "49.5×32px, radius 8px", "필터 조건 해제"],
+    ["sheet surface", "width 390px, background #ffffff", "모바일 viewport 폭을 채우는 필터 시트"],
+    ["sheet header", "44px 이상", "닫기 버튼, 제목, 선택 상태를 상단 고정"],
+    ["range track", "#ffd400 active / #eeeeee base", "Chợ Tốt 필터의 노란 범위 조절 기준"],
+    ["radio row", "min-height 40px", "제조사, 연료, 변속기, 상태, 판매자 목록"],
+    ["touch target", "44px 이상", "보배드림 적용 시 원본보다 터치 영역을 키워 접근성 보강"],
+  ];
+  const props = [
+    ["open", "boolean", "필터 시트 표시 여부입니다."],
+    ["activeFilter", "FilterKey", "현재 열린 필터입니다. 예: price, brand, fuel"],
+    ["filters", "FilterDefinition[]", "필터 레일과 시트 본문을 구성하는 정의 목록입니다."],
+    ["selectedValues", "Record<FilterKey, string[]>", "선택된 단일·다중 옵션 값입니다."],
+    ["rangeValues", "Record<FilterKey, { min: number; max: number }>", "가격, 연식, 주행거리 같은 범위 값입니다."],
+    ["resultCount", "number", "현재 조건 기준 결과 수입니다."],
+    ["onReset", "() => void", "현재 필터 또는 전체 필터를 초기화합니다."],
+    ["onApply", "(payload) => void", "선택 조건을 목록 쿼리에 반영합니다."],
+  ];
+  const usage = [
+    ["필터 레일 우선", "목록 상단에는 자주 쓰는 필터만 32px pill로 노출하고, 세부 조건은 시트 안에서 처리합니다."],
+    ["상황별 시트", "가격·연식은 range, 제조사는 search+radio, 연료·변속기·상태·판매자는 radio 패턴을 사용합니다."],
+    ["결과 수 피드백", "적용 버튼에는 현재 조건의 결과 수를 표시해 사용자가 닫기 전에 범위를 판단하게 합니다."],
+    ["초기화 범위", "단일 필터 시트에서는 해당 필터만, 전체 필터에서는 모든 조건을 초기화합니다."],
+    ["PC 전환", "PC에서는 같은 데이터 구조를 좌측 필터 패널 또는 상단 dropdown popover로 전환합니다."],
+  ];
+  const accessibility = [
+    '`role="dialog"`와 `aria-modal="true"`를 적용합니다.',
+    "시트 제목은 `aria-labelledby`로 연결하고 닫기 버튼에는 `aria-label`을 둡니다.",
+    "필터 레일 버튼은 현재 열린 항목에 `aria-pressed=\"true\"`를 적용합니다.",
+    "라디오 그룹은 하나의 선택지만 유지하고, 다중 선택은 체크박스 또는 토글 버튼으로 구분합니다.",
+    "범위 슬라이더에는 `aria-valuemin`, `aria-valuemax`, `aria-valuenow`를 제공합니다.",
+    "닫기, 적용, 초기화 이후 포커스 위치가 예측 가능해야 합니다.",
+  ];
+
+  elements.docPage.innerHTML = `
+    <div class="doc-page-layout filter-bottom-sheet-doc">
+      <article class="doc-main">
+        <nav class="doc-breadcrumb" aria-label="문서 경로">${escapeHtml(path)}</nav>
+        <div class="doc-title-row">
+          <div>
+            <p class="eyebrow">보배드림 모바일 컴포넌트</p>
+            <h2>${escapeHtml(displayNodeName(node))}</h2>
+          </div>
+          <div class="doc-title-actions">
+            <span class="doc-status ${escapeHtml(node.status)}">${escapeHtml(statusLabel)}</span>
+            ${renderDocHeaderActions(node)}
+          </div>
+        </div>
+        <p class="doc-lede">필터 바텀시트는 목록 화면을 유지한 상태에서 조건을 빠르게 바꾸고 결과 수를 확인하는 모바일 필터 컴포넌트입니다.</p>
+        <p class="doc-sublede">Chợ Tốt 차량 목록의 필터 레일과 상황별 시트를 보배드림 중고차 탐색에 맞춰 재사용 가능한 구조로 정리했습니다.</p>
+
+        <section class="filter-bottom-sheet-section" id="filter-bottom-sheet-overview">
+          <h3>Overview</h3>
+          <div class="bottom-sheet-info-grid">
+            ${overview
+              .map(
+                ([title, description]) => `
+                  <article>
+                    <strong>${escapeHtml(title)}</strong>
+                    <p>${escapeHtml(description)}</p>
+                  </article>
+                `,
+              )
+              .join("")}
+          </div>
+        </section>
+
+        <section class="filter-bottom-sheet-section" id="filter-bottom-sheet-chotot-ia">
+          <div class="bottom-sheet-section-heading">
+            <h3>Chợ Tốt IA</h3>
+            <p>원본 필터 명칭을 보배드림 정보 구조로 바꿔 등록합니다.</p>
+          </div>
+          ${renderSimpleRowsTable("Chợ Tốt 필터 구조 매핑", ["보배드림 항목", "원본 항목", "문서화 기준"], iaRows)}
+        </section>
+
+        <section class="filter-bottom-sheet-section" id="filter-bottom-sheet-scenarios">
+          <div class="bottom-sheet-section-heading">
+            <h3>Scenarios</h3>
+            <p>필터 유형별로 필요한 입력 패턴을 분리합니다.</p>
+          </div>
+          ${renderSimpleRowsTable("상황별 필터 시트", ["필터", "원본", "타입", "사용 방식"], scenarioRows)}
+        </section>
+
+        <section class="filter-bottom-sheet-section filter-bottom-sheet-preview-section" id="filter-bottom-sheet-demo">
+          <div class="bottom-sheet-section-heading">
+            <h3>Interactive Demo</h3>
+            <p>필터 pill을 눌러 시트를 열고, 범위·검색·라디오·다중 선택을 직접 바꿉니다.</p>
+          </div>
+          ${renderChototFilterBottomSheetDemo()}
+        </section>
+
+        <section class="filter-bottom-sheet-section" id="filter-bottom-sheet-specification">
+          <div class="bottom-sheet-section-heading">
+            <h3>Specification</h3>
+            <p>원본 관찰값과 보배드림 적용값을 함께 기록해 개발자가 그대로 재사용할 수 있게 합니다.</p>
+          </div>
+          ${renderSimpleRowsTable("Chợ Tốt형 필터 바텀시트 적용값", ["항목", "값", "적용 기준"], specs)}
+        </section>
+
+        <section class="filter-bottom-sheet-section" id="filter-bottom-sheet-api">
+          <h3>API</h3>
+          ${renderDocPropsTable(props)}
+          <pre class="template-code"><code>${escapeHtml(filterBottomSheetVueCodeExample())}</code></pre>
+        </section>
+
+        <section class="filter-bottom-sheet-section" id="filter-bottom-sheet-usage">
+          <h3>Usage</h3>
+          <div class="bottom-sheet-guideline-grid">
+            ${usage
+              .map(
+                ([title, description]) => `
+                  <article>
+                    <strong>${escapeHtml(title)}</strong>
+                    <p>${escapeHtml(description)}</p>
+                  </article>
+                `,
+              )
+              .join("")}
+          </div>
+        </section>
+
+        <section class="filter-bottom-sheet-section" id="filter-bottom-sheet-accessibility">
+          <h3>Accessibility</h3>
+          <ul class="bottom-sheet-checklist">
+            ${accessibility.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+          </ul>
+        </section>
+
+        <section class="filter-bottom-sheet-section bottom-sheet-reference-note" id="filter-bottom-sheet-reference">
+          <h3>Reference</h3>
+          <p>Chợ Tốt 차량 목록 페이지를 2026-09-03에 모바일 viewport로 확인했습니다. 본문 상단에는 보배드림 기준만 노출하고, 참고 출처는 하단에 보관합니다.</p>
+          <a href="https://xe.chotot.com/mua-ban-oto-quan-ba-dinh-ha-noi?event_source=search_direct&_ga=2.1787733720289.1563775871.1785062928&ctfp=f1a5085e-e676-4f82-b221-c4b2222a9c67" target="_blank" rel="noopener">Chợ Tốt 차량 목록 확인</a>
+        </section>
+      </article>
+      <aside class="doc-aside">
+        <strong>목차</strong>
+        ${renderDocToc(documentSectionsForNode(node))}
+      </aside>
+    </div>
+  `;
+}
+
+function filterBottomSheetScenarios() {
+  return [
+    {
+      id: "advanced",
+      label: "전체 필터",
+      source: "Lọc Nâng Cao",
+      type: "range + multi",
+      description: "가격, 차종, 좌석, 옵션을 한 번에 조합합니다.",
+      mode: "multi",
+      options: ["국산차", "수입차", "SUV", "세단", "전기", "무사고", "1인신조", "인증 딜러"],
+      selected: ["국산차", "SUV"],
+    },
+    {
+      id: "price",
+      label: "가격",
+      source: "Giá",
+      type: "range",
+      description: "최소·최대 가격을 빠르게 조정합니다.",
+      range: { min: 0, max: 50000, step: 500, valueMin: 1000, valueMax: 30000, unit: "만원" },
+    },
+    {
+      id: "year",
+      label: "연식",
+      source: "Năm sản xuất",
+      type: "range",
+      description: "최소·최대 연식을 조정합니다.",
+      range: { min: 2000, max: 2026, step: 1, valueMin: 2018, valueMax: 2026, unit: "년" },
+    },
+    {
+      id: "brand",
+      label: "제조사",
+      source: "Hãng xe",
+      type: "search + single",
+      description: "제조사를 검색하고 하나만 선택합니다.",
+      mode: "single",
+      search: true,
+      options: ["현대", "기아", "제네시스", "쉐보레", "르노코리아", "KG모빌리티", "BMW", "메르세데스-벤츠", "테슬라"],
+      selected: ["현대"],
+    },
+    {
+      id: "fuel",
+      label: "연료",
+      source: "Nhiên liệu",
+      type: "single",
+      description: "연료 유형을 하나만 선택합니다.",
+      mode: "single",
+      options: ["전체", "가솔린", "디젤", "하이브리드", "전기", "LPG"],
+      selected: ["전체"],
+    },
+    {
+      id: "transmission",
+      label: "변속기",
+      source: "Hộp số",
+      type: "single",
+      description: "변속기 유형을 하나만 선택합니다.",
+      mode: "single",
+      options: ["전체", "자동", "수동", "세미오토"],
+      selected: ["전체"],
+    },
+    {
+      id: "condition",
+      label: "상태",
+      source: "Tình trạng",
+      type: "single",
+      description: "차량 상태 기준을 선택합니다.",
+      mode: "single",
+      options: ["전체", "신차급", "무사고", "성능점검", "보험이력 있음"],
+      selected: ["전체"],
+    },
+    {
+      id: "seller",
+      label: "판매자",
+      source: "Đăng bởi",
+      type: "single",
+      description: "판매 주체를 선택합니다.",
+      mode: "single",
+      options: ["전체", "개인", "딜러", "인증 딜러"],
+      selected: ["전체"],
+    },
+  ];
+}
+
+function renderChototFilterBottomSheetDemo() {
+  const scenarios = filterBottomSheetScenarios();
+  const activeId = scenarios[0].id;
+  return `
+    <div class="chotot-filter-demo" data-chotot-filter-demo data-active-scenario="${escapeAttribute(activeId)}">
+      <div class="chotot-demo-device">
+        <div class="chotot-demo-screen">
+          <header class="chotot-demo-topbar">
+            <strong>보배드림 중고차</strong>
+            <button type="button">저장</button>
+          </header>
+          <div class="chotot-result-heading">
+            <span>서울 중고차 2,843대</span>
+            <button type="button" data-chotot-reset>지우기</button>
+          </div>
+          <div class="chotot-filter-rail" aria-label="차량 필터">
+            ${scenarios
+              .map(
+                (scenario) => `
+                  <button
+                    type="button"
+                    class="chotot-filter-pill${scenario.id === activeId ? " is-active" : ""}"
+                    data-chotot-filter-tab="${escapeAttribute(scenario.id)}"
+                    aria-pressed="${scenario.id === activeId ? "true" : "false"}"
+                  >
+                    ${escapeHtml(scenario.label)}
+                  </button>
+                `,
+              )
+              .join("")}
+          </div>
+          <div class="chotot-list-preview" aria-hidden="true">
+            <article><span></span><div><strong>그랜저 IG 2.4 프리미엄</strong><em>2019 · 62,000km · 서울</em></div></article>
+            <article><span></span><div><strong>제네시스 GV80 AWD</strong><em>2022 · 31,000km · 경기</em></div></article>
+            <article><span></span><div><strong>기아 쏘렌토 하이브리드</strong><em>2021 · 48,000km · 인천</em></div></article>
+          </div>
+          <div class="chotot-sheet-scrim" data-chotot-sheet-close></div>
+          <section class="chotot-filter-sheet" role="dialog" aria-modal="true" aria-labelledby="chotot-filter-title">
+            <header>
+              <button type="button" data-chotot-sheet-close aria-label="필터 닫기">×</button>
+              <div>
+                <span data-chotot-source-label>Lọc Nâng Cao</span>
+                <h4 id="chotot-filter-title" data-chotot-title>전체 필터</h4>
+              </div>
+              <button type="button" data-chotot-reset>초기화</button>
+            </header>
+            <div class="chotot-filter-sheet-body">
+              ${scenarios.map((scenario) => renderChototFilterPanel(scenario, scenario.id === activeId)).join("")}
+            </div>
+            <footer>
+              <span data-chotot-summary>국산차, SUV · 271대</span>
+              <button type="button" data-chotot-apply>결과 271대 보기</button>
+            </footer>
+          </section>
+        </div>
+      </div>
+      <div class="chotot-demo-notes">
+        <strong>분류 제안</strong>
+        <p>필터 바텀시트는 Mobile/App Components 아래 독립 컴포넌트로 두고, 일반 Bottom Sheet 문서에는 오버레이 공통 규격만 남깁니다.</p>
+      </div>
+    </div>
+  `;
+}
+
+function renderChototFilterPanel(scenario, active) {
+  const hidden = active ? "" : " hidden";
+  if (scenario.range) {
+    return `
+      <div class="chotot-filter-panel${active ? " is-active" : ""}" data-chotot-panel="${escapeAttribute(scenario.id)}"${hidden}>
+        <p>${escapeHtml(scenario.description)}</p>
+        ${renderChototRangeControl(scenario)}
+      </div>
+    `;
+  }
+  return `
+    <div class="chotot-filter-panel${active ? " is-active" : ""}" data-chotot-panel="${escapeAttribute(scenario.id)}"${hidden} data-choice-mode="${escapeAttribute(scenario.mode || "single")}">
+      <p>${escapeHtml(scenario.description)}</p>
+      ${
+        scenario.search
+          ? `<label class="chotot-search-field"><span>검색</span><input type="search" data-chotot-brand-search placeholder="제조사명을 입력하세요" /></label>`
+          : ""
+      }
+      <div class="chotot-option-list">
+        ${(scenario.options || [])
+          .map((option) => {
+            const selected = (scenario.selected || []).includes(option);
+            return `
+              <button
+                type="button"
+                class="chotot-option-row${selected ? " is-selected" : ""}"
+                data-chotot-option
+                aria-pressed="${selected ? "true" : "false"}"
+              >
+                <span>${escapeHtml(option)}</span>
+                <i aria-hidden="true"></i>
+              </button>
+            `;
+          })
+          .join("")}
+      </div>
+    </div>
+  `;
+}
+
+function renderChototRangeControl(scenario) {
+  const { min, max, step, valueMin, valueMax, unit } = scenario.range;
+  const minPosition = ((valueMin - min) / (max - min)) * 100;
+  const maxPosition = ((valueMax - min) / (max - min)) * 100;
+  return `
+    <div
+      class="chotot-range-control"
+      data-chotot-range="${escapeAttribute(scenario.id)}"
+      style="--min-position: ${minPosition}%; --max-position: ${maxPosition}%;"
+    >
+      <div class="chotot-range-values">
+        <strong data-chotot-range-label>${escapeHtml(formatFilterBottomSheetRange(scenario.id, valueMin, valueMax, unit))}</strong>
+        <span>${escapeHtml(formatFilterBottomSheetRangeEnd(scenario.id, min, unit))} - ${escapeHtml(formatFilterBottomSheetRangeEnd(scenario.id, max, unit))}</span>
+      </div>
+      <div class="chotot-range-track">
+        <input type="range" min="${escapeAttribute(min)}" max="${escapeAttribute(max)}" step="${escapeAttribute(step)}" value="${escapeAttribute(valueMin)}" data-chotot-range-min aria-label="${escapeAttribute(scenario.label)} 최소값" />
+        <input type="range" min="${escapeAttribute(min)}" max="${escapeAttribute(max)}" step="${escapeAttribute(step)}" value="${escapeAttribute(valueMax)}" data-chotot-range-max aria-label="${escapeAttribute(scenario.label)} 최대값" />
+      </div>
+      <div class="chotot-range-selects">
+        <span>최소 ${escapeHtml(formatFilterBottomSheetValue(scenario.id, valueMin, unit))}</span>
+        <span>최대 ${escapeHtml(formatFilterBottomSheetValue(scenario.id, valueMax, unit))}</span>
+      </div>
+    </div>
+  `;
+}
+
+function filterBottomSheetVueCodeExample() {
+  return `<BobaFilterBottomSheet
+  v-model:open="filterOpen"
+  active-filter="price"
+  :filters="vehicleFilters"
+  :selected-values="selectedFilterValues"
+  :range-values="{
+    price: { min: 1000, max: 30000 },
+    year: { min: 2018, max: 2026 }
+  }"
+  :result-count="271"
+  @reset="resetVehicleFilters"
+  @apply="applyVehicleFilters"
+/>`;
+}
+
+function handleFilterBottomSheetDemoClick(event) {
+  const tab = event.target.closest("[data-chotot-filter-tab]");
+  if (tab) {
+    const demo = tab.closest("[data-chotot-filter-demo]");
+    if (!demo) return;
+    setChototFilterScenario(demo, tab.dataset.chototFilterTab || "advanced", true);
+    return;
+  }
+
+  const closeButton = event.target.closest("[data-chotot-sheet-close]");
+  if (closeButton) {
+    const demo = closeButton.closest("[data-chotot-filter-demo]");
+    if (!demo) return;
+    demo.classList.add("is-sheet-closed");
+    return;
+  }
+
+  const optionButton = event.target.closest("[data-chotot-option]");
+  if (optionButton) {
+    const panel = optionButton.closest("[data-chotot-panel]");
+    const demo = optionButton.closest("[data-chotot-filter-demo]");
+    if (!panel || !demo) return;
+    const mode = panel.dataset.choiceMode || "single";
+    if (mode === "single") {
+      panel.querySelectorAll("[data-chotot-option]").forEach((button) => {
+        button.classList.toggle("is-selected", button === optionButton);
+        button.setAttribute("aria-pressed", button === optionButton ? "true" : "false");
+      });
+    } else {
+      optionButton.classList.toggle("is-selected");
+      optionButton.setAttribute("aria-pressed", optionButton.classList.contains("is-selected") ? "true" : "false");
+    }
+    updateChototFilterDemoState(demo);
+    return;
+  }
+
+  const resetButton = event.target.closest("[data-chotot-reset]");
+  if (resetButton) {
+    const demo = resetButton.closest("[data-chotot-filter-demo]");
+    if (!demo) return;
+    resetChototFilterDemo(demo);
+    return;
+  }
+
+  const applyButton = event.target.closest("[data-chotot-apply]");
+  if (applyButton) {
+    const demo = applyButton.closest("[data-chotot-filter-demo]");
+    if (!demo) return;
+    updateChototFilterDemoState(demo);
+    demo.classList.add("is-sheet-closed");
+    showToast("필터 바텀시트 조건이 적용되었습니다.");
+  }
+}
+
+function handleFilterBottomSheetDemoInput(event) {
+  const rangeInput = event.target.closest("[data-chotot-range-min], [data-chotot-range-max]");
+  if (rangeInput) {
+    const demo = rangeInput.closest("[data-chotot-filter-demo]");
+    if (!demo) return;
+    normalizeChototRange(rangeInput.closest("[data-chotot-range]"), rangeInput);
+    updateChototFilterDemoState(demo);
+    return;
+  }
+
+  const searchInput = event.target.closest("[data-chotot-brand-search]");
+  if (searchInput) {
+    const panel = searchInput.closest("[data-chotot-panel]");
+    if (!panel) return;
+    const keyword = searchInput.value.trim().toLowerCase();
+    panel.querySelectorAll("[data-chotot-option]").forEach((button) => {
+      const matched = button.textContent.trim().toLowerCase().includes(keyword);
+      button.hidden = Boolean(keyword && !matched);
+    });
+  }
+}
+
+function setChototFilterScenario(demo, scenarioId, openSheet) {
+  const scenario = filterBottomSheetScenarios().find((item) => item.id === scenarioId) || filterBottomSheetScenarios()[0];
+  demo.dataset.activeScenario = scenario.id;
+  demo.querySelectorAll("[data-chotot-filter-tab]").forEach((button) => {
+    const active = button.dataset.chototFilterTab === scenario.id;
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+  demo.querySelectorAll("[data-chotot-panel]").forEach((panel) => {
+    const active = panel.dataset.chototPanel === scenario.id;
+    panel.classList.toggle("is-active", active);
+    panel.hidden = !active;
+  });
+  const title = demo.querySelector("[data-chotot-title]");
+  const source = demo.querySelector("[data-chotot-source-label]");
+  if (title) title.textContent = scenario.label;
+  if (source) source.textContent = scenario.source;
+  if (openSheet) demo.classList.remove("is-sheet-closed");
+  updateChototFilterDemoState(demo);
+}
+
+function resetChototFilterDemo(demo) {
+  filterBottomSheetScenarios().forEach((scenario) => {
+    const panel = demo.querySelector(`[data-chotot-panel="${CSS.escape(scenario.id)}"]`);
+    if (!panel) return;
+    panel.querySelectorAll("[data-chotot-option]").forEach((button) => {
+      const selected = (scenario.selected || []).includes(button.textContent.trim());
+      button.classList.toggle("is-selected", selected);
+      button.setAttribute("aria-pressed", selected ? "true" : "false");
+      button.hidden = false;
+    });
+    const range = panel.querySelector("[data-chotot-range]");
+    if (range && scenario.range) {
+      const minInput = range.querySelector("[data-chotot-range-min]");
+      const maxInput = range.querySelector("[data-chotot-range-max]");
+      if (minInput) minInput.value = String(scenario.range.valueMin);
+      if (maxInput) maxInput.value = String(scenario.range.valueMax);
+      updateChototRangeLabels(range);
+    }
+    const searchInput = panel.querySelector("[data-chotot-brand-search]");
+    if (searchInput) searchInput.value = "";
+  });
+  demo.classList.remove("is-sheet-closed");
+  updateChototFilterDemoState(demo);
+  showToast("필터 조건을 초기화했습니다.");
+}
+
+function normalizeChototRange(range, changedInput) {
+  if (!range) return;
+  const minInput = range.querySelector("[data-chotot-range-min]");
+  const maxInput = range.querySelector("[data-chotot-range-max]");
+  if (!minInput || !maxInput) return;
+  const step = Number(minInput.step || 1);
+  const minValue = Number(minInput.value);
+  const maxValue = Number(maxInput.value);
+  if (changedInput === minInput && minValue > maxValue - step) {
+    minInput.value = String(maxValue - step);
+  }
+  if (changedInput === maxInput && maxValue < minValue + step) {
+    maxInput.value = String(minValue + step);
+  }
+  updateChototRangeLabels(range);
+}
+
+function updateChototRangeLabels(range) {
+  const key = range.dataset.chototRange || "price";
+  const minInput = range.querySelector("[data-chotot-range-min]");
+  const maxInput = range.querySelector("[data-chotot-range-max]");
+  if (!minInput || !maxInput) return;
+  const min = Number(minInput.min || 0);
+  const max = Number(minInput.max || 100);
+  const minValue = Number(minInput.value);
+  const maxValue = Number(maxInput.value);
+  const minPosition = ((minValue - min) / (max - min)) * 100;
+  const maxPosition = ((maxValue - min) / (max - min)) * 100;
+  range.style.setProperty("--min-position", `${minPosition}%`);
+  range.style.setProperty("--max-position", `${maxPosition}%`);
+  const unit = key === "year" ? "년" : "만원";
+  const label = range.querySelector("[data-chotot-range-label]");
+  if (label) label.textContent = formatFilterBottomSheetRange(key, minValue, maxValue, unit);
+  const selects = range.querySelectorAll(".chotot-range-selects span");
+  if (selects[0]) selects[0].textContent = `최소 ${formatFilterBottomSheetValue(key, minValue, unit)}`;
+  if (selects[1]) selects[1].textContent = `최대 ${formatFilterBottomSheetValue(key, maxValue, unit)}`;
+}
+
+function updateChototFilterDemoState(demo) {
+  demo.querySelectorAll("[data-chotot-range]").forEach(updateChototRangeLabels);
+  const activePanel = demo.querySelector("[data-chotot-panel]:not([hidden])");
+  const activeSelected = activePanel
+    ? [...activePanel.querySelectorAll("[data-chotot-option].is-selected")]
+        .map((button) => button.textContent.trim())
+        .filter((label) => label && label !== "전체")
+    : [];
+  const selected = [...demo.querySelectorAll("[data-chotot-option].is-selected")]
+    .map((button) => button.textContent.trim())
+    .filter((label) => label && label !== "전체");
+  const priceMin = Number(demo.querySelector('[data-chotot-range="price"] [data-chotot-range-min]')?.value || 1000);
+  const priceMax = Number(demo.querySelector('[data-chotot-range="price"] [data-chotot-range-max]')?.value || 30000);
+  const yearMin = Number(demo.querySelector('[data-chotot-range="year"] [data-chotot-range-min]')?.value || 2018);
+  const resultCount = Math.max(18, 312 - selected.length * 11 - Math.floor(priceMin / 5000) * 8 - Math.max(0, Math.floor((30000 - priceMax) / 5000)) * 9 - Math.max(0, yearMin - 2018) * 7);
+  const summaryLabels = activeSelected.length ? activeSelected : selected;
+  const summaryText = `${summaryLabels.slice(0, 2).join(", ") || "전체"} · ${resultCount}대`;
+  const summary = demo.querySelector("[data-chotot-summary]");
+  const applyButton = demo.querySelector("[data-chotot-apply]");
+  if (summary) summary.textContent = summaryText;
+  if (applyButton) applyButton.textContent = `결과 ${resultCount}대 보기`;
+}
+
+function formatFilterBottomSheetRange(key, minValue, maxValue, unit) {
+  return `${formatFilterBottomSheetValue(key, minValue, unit)} - ${formatFilterBottomSheetValue(key, maxValue, unit)}`;
+}
+
+function formatFilterBottomSheetRangeEnd(key, value, unit) {
+  if (key === "price" && value >= 50000) return "5억원+";
+  return formatFilterBottomSheetValue(key, value, unit);
+}
+
+function formatFilterBottomSheetValue(key, value, unit) {
+  if (key === "price") {
+    if (value <= 0) return "전체";
+    if (value >= 10000) return `${Number(value / 10000).toLocaleString("ko-KR", { maximumFractionDigits: 1 })}억원`;
+    return `${Number(value).toLocaleString("ko-KR")}${unit}`;
+  }
+  return `${Number(value).toLocaleString("ko-KR")}${unit}`;
 }
 
 function renderBreadcrumbDocumentPage(node) {
