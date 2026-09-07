@@ -1270,11 +1270,11 @@ function PriceHistorySheet({ onClose }: { onClose: () => void }) {
   );
 }
 
-function OptionsCard() {
+function OptionsCard({ desktop = false }: { desktop?: boolean }) {
   const [expanded, setExpanded] = useState(false);
   return (
     <SectionCard title="차량 옵션" action={<button className="text-action" type="button" onClick={() => setExpanded(!expanded)}>옵션설명</button>}>
-      <div className="option-grid">{optionItems.map(({ label, icon }) => <div key={label}><img src={asset(`detail/${icon}`)} alt="" draggable={false} /><span>{label}</span></div>)}</div>
+      <div className="option-grid">{optionItems.map(({ label, icon }, index) => <div key={label}><img src={desktop ? pcAsset(`9653-img${index + 1}.png`) : asset(`detail/${icon}`)} alt="" draggable={false} /><span>{label}</span></div>)}</div>
       <button className="outline-wide-button" type="button" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>옵션 32개 모두 보기</button>
       <div className="selected-options"><h3>선택 옵션</h3><dl><div><dt>빌트인 캠 패키지 <img src={asset("detail/option-info.svg")} alt="옵션 정보" /></dt><dd>70만원</dd></div><div><dt>헤드업 디스플레이 <img src={asset("detail/option-info.svg")} alt="옵션 정보" /></dt><dd>130만원</dd></div></dl></div>
     </SectionCard>
@@ -1333,10 +1333,10 @@ function SaleCard() {
   );
 }
 
-function DescriptionCard() {
+function DescriptionCard({ desktop = false }: { desktop?: boolean }) {
   const [expanded, setExpanded] = useState(false);
   return (
-    <SectionCard title="상세 설명">
+    <SectionCard title={desktop ? "차량 설명" : "상세 설명"}>
       <div className={`description-copy${expanded ? " is-expanded" : ""}`}>
         <p>2022년 5월식 벤틀리 컨티넨탈 GT 4.0 모델을 판매합니다.<br />벤틀리가 V8엔진으로 구동되는 3세대 컨티넨탈 GT를 선보였다. 쿠페와 컨버터블 형태로 출시될 이 모델은 올해 말부터 미국에서 판매될 예정이며, 이어 2020년 상반기에는 유럽 및 다른 국가에서도 판매될 예정이다.</p>
         <p>파워트레인은 기존의 6.0리터 W12엔진 대신 4.0리터 V8 가솔린 트윈터보 엔진이 장착됐다. 최대출력 550마력, 최고토크 78.5kg·m의 파워를 발휘합니다.</p>
@@ -1358,12 +1358,122 @@ function CarRail({ title, cars: railCars }: { title: string; cars: RailCar[] }) 
   );
 }
 
+const pcAsset = (name: string) => asset(`pc-detail/${name}`);
+
+function DesktopGallery({ onBack }: { onBack: () => void }) {
+  const { setSheet, notify } = useDetailUi();
+  const [selected, setSelected] = useState(0);
+  const thumbs = useRef<HTMLDivElement>(null);
+  const photos = Array.from({ length: 24 }, (_, i) => pcAsset(`9573-imgImage${i % 8 || ""}.png`));
+  const choose = (index: number) => setSelected((index + photos.length) % photos.length);
+  useEffect(() => {
+    const rail = thumbs.current?.querySelector<HTMLElement>(".pc-thumbnails");
+    const thumb = rail?.querySelector<HTMLElement>(`[data-photo="${selected}"]`);
+    if (rail && thumb) rail.scrollTo({ left: Math.max(0, thumb.offsetLeft - rail.clientWidth / 2 + 48), behavior: "smooth" });
+  }, [selected]);
+  const share = async () => {
+    try { await navigator.clipboard.writeText(window.location.href); notify("공유 링크를 복사했어요"); }
+    catch { notify("주소창의 링크를 복사해 공유해 주세요."); }
+  };
+  return <section className="pc-gallery" aria-label="차량 사진">
+    <div className="pc-hero" onKeyDown={(event) => { if (event.key === "ArrowRight") choose(selected + 1); if (event.key === "ArrowLeft") choose(selected - 1); }} tabIndex={0}>
+      <img className="pc-hero-photo" src={selected === 0 ? pcAsset("9550-imgFrame1000006297.png") : photos[selected]} alt={`벤틀리 차량 사진 ${selected + 1}`} draggable={false} />
+      <div className="pc-hero-tools"><button aria-label="목록으로 돌아가기" onClick={onBack}><img src={asset("detail/back.svg")} alt="" /></button><div><button aria-label="공유하기" onClick={share}><img src={pcAsset("9550-imgSvgexport211.svg")} alt="" /></button><button aria-label="더보기" onClick={() => setSheet("more")}><img src={pcAsset("9550-imgSvgexport241.svg")} alt="" /></button></div></div>
+      {selected === 0 && <span className="pc-play" aria-hidden="true"><img src={pcAsset("9550-imgMaskGroup.svg")} alt="" /><img src={pcAsset("9550-imgFill7.svg")} alt="" /></span>}
+      <button className="pc-photo-prev" aria-label="이전 사진" onClick={() => choose(selected - 1)}><img src={pcAsset("9573-imgFrame1000006284.svg")} alt="" /></button>
+      <button className="pc-photo-next" aria-label="다음 사진" onClick={() => choose(selected + 1)}><img src={pcAsset("9573-imgFrame1000006284.svg")} alt="" /></button>
+      <span className="pc-photo-counter" aria-live="polite">{selected + 1}/24</span>
+    </div>
+    <div className="pc-thumbnail-region" ref={thumbs}>
+      <Carousel ariaLabel="차량 사진 썸네일" className="pc-thumbnails" contentClassName="pc-thumbnail-track">
+        {photos.map((src, i) => <button key={i} data-photo={i} aria-label={`사진 ${i + 1} 보기`} aria-pressed={i === selected} onClick={() => choose(i)}><img src={src} alt="" draggable={false} />{i === 0 && <span className="pc-thumb-play" aria-hidden="true"><img src={pcAsset("9550-imgMaskGroup.svg")} alt="" /><img src={pcAsset("9550-imgFill7.svg")} alt="" /></span>}</button>)}
+      </Carousel>
+      <button className="pc-rail-next" aria-label="다음 썸네일" onClick={() => choose(selected + 1)}><img src={pcAsset("9573-imgFrame1000006284.svg")} alt="" /></button>
+    </div>
+  </section>;
+}
+
+function DesktopVehicleInfo() {
+  const [expanded, setExpanded] = useState(false);
+  const rows = [
+    ["주행거리", formatMileage("42,000km"), "imgPropertyStatus1"], ["연료", "가솔린", "imgImage213"],
+    ["변속기", "자동 8단", "imgImage214"], ["배기량", "2,497 cc", "imgImage215"],
+    ["색상", "검정색 (외장) · 흰색 (시트)", "imgImage216"], ["지역", "서울 서초구", "imgImage217"],
+    ["사고이력", "없음", "imgImage218"],
+  ];
+  return <SectionCard title="차량 정보" className="pc-info">
+    <dl>{rows.map(([label, value, icon]) => <div key={label}><dt><img src={pcAsset(`9626-${icon}.png`)} alt="" />{label}</dt><dd>{value}</dd></div>)}{expanded && extraInfo.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
+    <button className="vehicle-info-toggle" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>{expanded ? "접기" : "더보기"}<img className={expanded ? "is-expanded" : ""} src={pcAsset("9626-imgFrame1000006238.svg")} alt="" /></button>
+  </SectionCard>;
+}
+
+function DesktopSummary({ jump }: { jump: (id: string) => void }) {
+  const { liked, setLiked, setSheet, notify } = useDetailUi();
+  const [costOpen, setCostOpen] = useState(false);
+  return <aside className="pc-sidebar">
+    <section className="detail-card pc-summary">
+      <div className="pc-title-row"><h1>벤틀리 컨티넨탈 GT 3세대 6.0 퍼스트 에디션</h1><button aria-label="매물 저장" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <img src={pcAsset("9877-imgIcon.svg")} alt="" />}<span>{liked ? 1 : 0}</span></button></div>
+      <p className="pc-specs">172무2323 · 19년 02월 · {formatMileage("17,000 km")} · 가솔린</p>
+      <div className="pc-badges"><span>인증중고차</span><span>1년 보증</span></div>
+      <div className="pc-price-row"><strong>1억 4,500만원</strong><button onClick={() => setSheet("priceHistory")}>가격 변동</button><button className="pc-insurance" onClick={() => notify("보험료는 보험사 상담을 통해 확인해 주세요.")}>보험료 계산</button></div>
+      <p className="pc-summary-note">6인승 독립시트로 뒷좌석의 편안함을 최우선으로 느껴보세요.</p>
+      <div className="pc-summary-links"><button onClick={() => jump("pc-history")}><b>보험이력</b><span>0건 <img src={pcAsset("9877-imgIcon1.svg")} alt="" /></span></button><button onClick={() => jump("pc-inspection")}><b>성능점검</b><span>보기 <img src={pcAsset("9877-imgIcon1.svg")} alt="" /></span></button></div>
+      <div className="pc-calculators"><button onClick={() => setCostOpen(!costOpen)} aria-expanded={costOpen}>비용계산기</button><button onClick={() => jump("pc-related")}>동급매물</button><button onClick={() => notify("판매 완료된 매물 정보가 없습니다.")}>팔린매물</button></div>
+      {costOpen && <div className="pc-cost"><strong>차량 구매 비용</strong><p>차량가 1억 4,500만원</p><p>이전 등록비와 보험료는 별도입니다.</p></div>}
+    </section>
+    <section className="detail-card pc-seller">
+      <div className="seller-profile"><img src={pcAsset("9877-imgFrame1000006239.png")} alt="한강모터스 박성수" /><div><h2>한강모터스 박성수 <span>딜러</span></h2><p><b>5대</b> 판매중 · <b>10대</b> 판매완료</p><p>● 서울 서초구 오토갤러리</p></div></div>
+      <dl><div><dt>종사원번호</dt><dd>SE25-00585 <button onClick={() => notify("한강모터스 · 서울 서초구 오토갤러리 · SE25-00585")}>상사/조합정보</button></dd></div><div><dt>매매유형</dt><dd>매매알선(소속 상사 매물)</dd></div></dl>
+      <div className="pc-seller-contact"><button onClick={() => setSheet("contact")}>채팅</button><a href="tel:05062469261"><img src={pcAsset("9877-imgSvgexport251.svg")} alt="" />050-6246-9261</a></div>
+      <button className="pc-report" onClick={() => setSheet("more")}>신고하기</button>
+    </section>
+  </aside>;
+}
+
+function DesktopHeader({ onBack }: { onBack: () => void }) {
+  const { notify } = useDetailUi();
+  return <header className="pc-header">
+    <div className="pc-header-inner"><div className="pc-account">{["로그인", "회원가입", "고객센터"].map(label => <button key={label} onClick={() => notify(`${label}는 정식 서비스에서 이용해 주세요.`)}>{label}</button>)}</div>
+      <button className="pc-logo" aria-label="보배드림 목록" onClick={onBack}><span><img src={pcAsset("9546-imgGroup.svg")} alt="" /></span><img src={pcAsset("9546-imgLogo.svg")} alt="보배드림" /></button>
+      <div className="pc-navigation"><nav aria-label="주 메뉴">{["내차사기", "내차팔기", "딜러", "부품·용품", "커뮤니티", "컨텐츠", "더보기"].map(label => <button className={label === "커뮤니티" ? "active" : ""} key={label} onClick={() => label === "내차사기" ? onBack() : notify(`${label}는 정식 서비스에서 이용해 주세요.`)}>{label}{label === "더보기" && <img src={pcAsset("9546-imgIcon.svg")} alt="" />}</button>)}</nav><div className="pc-nav-icons">{[["검색", "img1IconSearchSize24"], ["마이페이지", "img1IconUserSmileSize24"], ["저장한 매물", "img1IconHeartSize24"], ["알림", "img1IconNoticeSize24"], ["전체 메뉴", "imgGroup1000005392"]].map(([label, icon]) => <button key={label} aria-label={label} onClick={() => label === "검색" ? onBack() : notify(`${label}를 확인하려면 목록으로 돌아가 주세요.`)}><img src={pcAsset(`9546-${icon}.svg`)} alt="" /></button>)}</div></div>
+    </div>
+  </header>;
+}
+
+function DesktopVehicleDetail({ onBack }: { onBack: () => void }) {
+  const content = useRef<HTMLDivElement>(null);
+  const jump = (id: string) => {
+    const target = content.current?.querySelector<HTMLElement>(`#${id}`);
+    const scroll = content.current?.closest(".detail-screen");
+    if (target && scroll) scroll.scrollTo({ top: target.getBoundingClientRect().top - scroll.getBoundingClientRect().top + scroll.scrollTop - 16, behavior: "smooth" });
+  };
+  return <div className="pc-detail" ref={content}>
+    <DesktopHeader onBack={onBack} />
+    <main className="pc-detail-container" aria-label="중고차 PC 상세">
+      <div className="pc-detail-columns"><div className="pc-detail-left"><DesktopGallery onBack={onBack} /><DescriptionCard desktop /><DesktopVehicleInfo /><OptionsCard desktop /><div id="pc-history"><HistoryCard /></div><div id="pc-inspection"><InspectionCard /></div><WarrantyCard /></div><DesktopSummary jump={jump} /></div>
+      <CarRail title="한강모터스 박성수의 다른 매물" cars={relatedCars} />
+      <div id="pc-related"><CarRail title="동급매물" cars={classCars} /></div>
+      <p className="safety-copy">안전한 거래와 허위매물 근절을 위해 안심번호(050) 이용 시 통화 내용이 보배드림에 안전하게 보관됩니다.<br />보배드림은 등록 시스템만 제공하며, 판매자가 직접 등록한 차량에 대한 모든 책임은 판매자에게 있습니다.</p>
+      <button className="pc-return" onClick={onBack}>목록으로 돌아가기</button>
+    </main>
+    <footer className="pc-footer"><div><section><h3>(주) 보배네트워크 사업자 정보</h3><p>대표이사: 김보배　|　사업자등록번호: 117-81-64543</p><p>주소: (07995) 서울 양천구 목동동로 233-1 드림타워 11, 12층</p><p>통신판매업신고번호: 제2013-서울양천-0465호　|　개인정보관리책임자: 이은호</p><p>팩스: 02-6499-2329　|　메일: bobaedream@bobaedream.co.kr</p><p>Copyright ⓒ (주)보배네트워크</p></section><section><h3>고객센터</h3><strong>02-784-2329</strong><p>평일　09:00 ~ 18:00</p><p>점심시간　11:30 ~ 12:30</p></section></div><p>회사소개　　제휴/광고문의　　이용약관　　제휴/신고센터　　고객센터　　청소년보호정책　　개인정보취급방침　　원격지원</p><div className="pc-footer-social">{["imgGroup", "imgPrimeFacebook", "imgMdiYoutube", "imgFrame1000005307"].map(icon => <img key={icon} src={pcAsset(`10204-${icon}.svg`)} alt="" />)}</div></footer>
+  </div>;
+}
+
 function VehicleDetail() {
   const flow = useFlow();
+  const [desktop, setDesktop] = useState(() => window.matchMedia("(min-width: 820px)").matches);
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 820px)");
+    const update = () => setDesktop(query.matches);
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
   const { sheet, setSheet, toast, notify } = useDetailUi();
   return (
     <div className="detail-scene">
       <MobileScroll className="detail-screen">
+        {desktop ? <DesktopVehicleDetail onBack={flow.pop} /> : <>
         <main className="vehicle-detail" aria-label="중고차 상세">
           <DetailHero onBack={flow.pop} />
           <VehicleSummary />
@@ -1381,6 +1491,7 @@ function VehicleDetail() {
           <CarRail title="동급매물" cars={classCars} />
           <p className="safety-copy">안전한 거래와 허위매물 근절을 위해 안심번호(050) 이용 시 통화 내용이 보배드림에 안전하게 보관됩니다.<br />보배드림은 등록 시스템만 제공하며, 판매자가 직접 등록한 차량에 대한 모든 책임은 판매자에게 있습니다. <button type="button" onClick={() => notify("신고하기를 선택했어요")}>신고하기</button></p>
         </main>
+        </>}
       </MobileScroll>
       {toast ? <div className="detail-toast" role="status">{toast}</div> : null}
       <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && setSheet(null)} title={sheet === "priceHistory" ? "가격 변동 내역" : sheet === "more" ? "매물 더보기" : "판매자 상담"} description={sheet === "priceHistory" ? undefined : sheet === "more" ? "원하는 작업을 선택하세요." : `${sellerScenario.name}에게 문의할 수 있어요.`} snap={sheet === "priceHistory" ? 0.75 : 0.42}>

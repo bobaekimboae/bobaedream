@@ -71,6 +71,8 @@ When any text-entry control loses focus, clear the keyboard context. If the cont
 
 ## Prototype-Specific Design Decisions
 
+- On desktop viewports (820px and wider), list entries open the PC detail from Figma node `2607:9545`: a 1200px content area with a 736px media/information column, 12px gap, and 452px price/seller column. Preserve the separate mobile detail below that breakpoint. PC uses its own title and price classes so the existing mobile override stylesheet cannot replace PC content.
+
 - Deploy this prototype as responsive mobile web: remove all iPhone/Pixel mockup chrome and fill the browser viewport on mobile, while centering a bezel-free 430px content column on wider screens.
 - Listing location rows show only the address. Do not append a separator, views icon, or numeric view count beside it in either list or card view.
 

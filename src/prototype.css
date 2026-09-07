@@ -533,6 +533,143 @@ button { color: inherit; }
 .price-history-page-slot { display: flex; align-items: center; gap: 8px; }
 .price-history-ellipsis { width: 13px; height: 3px; }
 
+/* Desktop detail follows Figma 2607:9545; mobile detail stays independent. */
+.pc-detail { background: #f1f1f1; min-height: 100%; font-family: "Pretendard", sans-serif; color: #222; }
+.pc-detail * { box-sizing: border-box; }
+.pc-detail button { cursor: pointer; }
+.pc-header { height: 117px; background: white; border-bottom: 1px solid #e0e0e0; }
+.pc-header-inner { max-width: 1280px; margin: auto; }
+.pc-account { height: 29px; display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
+.pc-account button { border: 0; padding: 0; background: none; color: #767676; font-size: 12px; font-weight: 600; }
+.pc-account button + button { border-left: 1px solid #e0e0e0; padding-left: 8px; }
+.pc-logo { display: flex; align-items: center; gap: 8px; height: 30px; padding: 0; border: 0; background: none; }
+.pc-logo > span { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #1b498c; }
+.pc-logo > span img { width: 21px; height: 20px; }
+.pc-logo > img { width: 84px; height: 24px; }
+.pc-navigation { display: flex; justify-content: space-between; align-items: center; height: 58px; }
+.pc-navigation nav { display: flex; gap: 28px; height: 54px; }
+.pc-navigation nav button { display: flex; gap: 2px; align-items: center; padding: 0; border: 0; background: none; font-size: 16px; font-weight: 600; }
+.pc-navigation nav button.active { color: #1b498c; border-bottom: 3px solid #1b498c; }
+.pc-navigation nav img { width: 18px; height: 18px; }
+.pc-nav-icons { display: flex; gap: 20px; }
+.pc-nav-icons button { border: 0; background: none; width: 24px; height: 24px; padding: 0; }
+.pc-nav-icons img { width: 24px; height: 24px; }
+.pc-detail-container { width: min(1200px, calc(100% - 48px)); margin: auto; padding: 24px 0 40px; }
+.pc-detail-columns { display: grid; grid-template-columns: minmax(0, 736fr) minmax(0, 452fr); gap: 12px; align-items: start; }
+.pc-detail-left, .pc-sidebar { display: flex; min-width: 0; flex-direction: column; gap: 12px; }
+.pc-detail .detail-card { padding: 16px 20px; border-radius: 8px; }
+.pc-detail .detail-section-heading { min-height: 41px; }
+.pc-gallery { min-width: 0; }
+.pc-hero { position: relative; height: auto; aspect-ratio: 736 / 412; background: #000; border-radius: 8px; overflow: hidden; }
+.pc-hero-photo { display: block; width: 100%; height: 100%; object-fit: contain; }
+.pc-hero-tools { position: absolute; top: 10px; left: 16px; right: 16px; display: flex; justify-content: space-between; }
+.pc-hero-tools > div { display: flex; gap: 8px; }
+.pc-hero-tools button, .pc-photo-prev, .pc-photo-next, .pc-rail-next { display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; border-radius: 50%; background: white; }
+.pc-hero-tools img { width: 24px; height: 24px; }
+.pc-play { position: absolute; top: 50%; left: 50%; width: 56px; height: 56px; transform: translate(-50%, -50%); pointer-events: none; }
+.pc-photo-prev, .pc-photo-next { position: absolute; top: 50%; transform: translateY(-50%); opacity: 0; transition: opacity .15s; }
+.pc-photo-prev { left: 16px; }
+.pc-photo-next { right: 16px; }
+.pc-photo-prev img { transform: rotate(180deg); }
+.pc-photo-prev img, .pc-photo-next img, .pc-rail-next img { width: 24px; height: 24px; }
+.pc-hero:hover .pc-photo-prev, .pc-hero:hover .pc-photo-next, .pc-hero:focus-within .pc-photo-prev, .pc-hero:focus-within .pc-photo-next { opacity: 1; }
+.pc-photo-counter { position: absolute; bottom: 12px; right: 16px; padding: 4px 10px; border-radius: 20px; background: #0009; color: white; font-size: 13px; }
+.pc-thumbnail-region { position: relative; margin-top: 12px; height: 112px; }
+.pc-thumbnails { height: 112px; }
+.pc-thumbnail-track { display: flex; align-items: center; gap: 12px; min-width: max-content; height: 112px; padding: 8px 14px; }
+.pc-thumbnail-track button { position: relative; width: 84px; height: 84px; flex: 0 0 84px; padding: 0; border: 0; background: none; border-radius: 8px; }
+.pc-thumbnail-track button[aria-pressed="true"] { margin-inline: 0 8px; box-shadow: 0 0 0 8px #f1f1f1, 0 0 0 10px #222; }
+.pc-thumbnail-track button > img:first-child { width: 84px; height: 84px; object-fit: cover; border-radius: 8px; }
+.pc-thumbnail-track .pc-thumb-play { position: absolute; width: 32px; height: 32px; top: 26px; left: 26px; }
+.pc-rail-next { position: absolute; right: 16px; top: 34px; width: 44px; height: 44px; box-shadow: 0 2px 6px #0002; }
+.pc-detail .description-copy { font-size: 14px; line-height: 20px; max-height: 128px; }
+.pc-detail .description-copy.is-expanded { max-height: none; }
+.pc-detail .contact-chip { font-size: 14px; margin-top: 0; height: 41px; }
+.pc-detail .contact-chip a { display: none; }
+.pc-detail .more-copy-button { font-size: 14px; margin-top: 12px; height: 32px; }
+.pc-info .detail-section-heading { min-height: 25px; padding-bottom: 0; }
+.pc-info dl { margin: 0; }
+.pc-info dl > div { display: grid; grid-template-columns: 216px 1fr; align-items: center; min-height: 45px; border-bottom: 1px solid #f1f1f1; font-size: 16px; }
+.pc-info dt { display: flex; align-items: center; gap: 8px; }
+.pc-info dt img { width: 20px; height: 20px; }
+.pc-info dd { margin: 0; font-weight: 600; }
+.pc-info .vehicle-info-toggle { margin: 0; height: 32px; width: 100%; }
+.pc-summary .pc-title-row h1 { font-size: 22px; line-height: 1.4; max-width: 302px; letter-spacing: -.44px; }
+.pc-summary .pc-title-row button { border: 1px solid #eee; border-radius: 100px; min-width: 50px; font-weight: 400; }
+.pc-summary .pc-title-row img, .pc-summary .pc-title-row svg { width: 20px; height: 20px; }
+.pc-summary .pc-title-row button[aria-pressed="true"] { color: #f14069; }
+.pc-detail .pc-summary { padding: 20px; }
+.pc-specs { color: #595959; font-size: 14px; margin: 8px 0 10px; line-height: 20px; }
+.pc-summary .pc-badges { margin-top: 0; }
+.pc-summary .pc-price-row { margin-top: 8px; min-height: 44px; padding-bottom: 8px; flex-wrap: wrap; }
+.pc-summary .pc-price-row strong { font-size: 24px; color: #f14069; line-height: 34px; }
+.pc-summary .pc-price-row .pc-insurance { margin-left: auto; border: 1px solid #c0c0c0; border-radius: 8px; padding: 8px 10px; text-decoration: none; font-size: 13px; font-weight: 600; height: 36px; }
+.pc-summary-note { margin: 0; font-size: 14px; color: #595959; line-height: 20px; }
+.pc-summary-links { border-top: 1px solid #ebebeb; margin-top: 16px; padding-top: 8px; }
+.pc-summary-links button { display: flex; width: 100%; justify-content: space-between; align-items: center; height: 36px; padding: 0; border: 0; background: white; font-size: 14px; }
+.pc-summary-links span { display: flex; align-items: center; gap: 4px; }
+.pc-summary-links img { width: 18px; height: 18px; }
+.pc-calculators { display: flex; gap: 8px; padding-top: 10px; }
+.pc-calculators button { flex: 1; border: 1px solid #c0c0c0; border-radius: 8px; height: 36px; background: white; color: #505050; font-size: 13px; font-weight: 600; }
+.pc-cost { background: #f5f5f5; padding: 12px; margin-top: 12px; font-size: 14px; border-radius: 8px; }
+.pc-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.pc-title-row h1 { margin: 0; flex: 1; min-width: 0; color: #101010; font-weight: 700; }
+.pc-title-row button { display: flex; height: 32px; gap: 3px; align-items: center; justify-content: center; background: #fff; padding: 0 9px; font-size: 14px; }
+.pc-price-row { display: flex; gap: 8px; align-items: center; }
+.pc-price-row > button { border: 0; background: none; padding: 0; font-size: 14px; color: #595959; text-decoration: underline; }
+.pc-badges { display: flex; gap: 4px; }
+.pc-badges span { height: 20px; padding: 0 6px; border-radius: 4px; background: #ebebeb; color: #505050; font-size: 12px; line-height: 20px; }
+.pc-play img:first-child, .pc-thumb-play img:first-child { width: 100%; height: 100%; }
+.pc-play img:last-child, .pc-thumb-play img:last-child { position: absolute; width: 37%; height: 50%; left: 37%; top: 25%; }
+.pc-seller .seller-profile { gap: 16px; align-items: center; border-bottom: 1px solid #e9e9e9; min-height: 86px; }
+.pc-seller .seller-profile > img { width: 48px; height: 48px; }
+.pc-seller .seller-profile h2 { line-height: 22px; margin: 0; font-size: 16px; }
+.pc-seller .seller-profile p { font-size: 14px; line-height: 20px; }
+.pc-seller dl { margin: 10px 0 0; font-size: 14px; }
+.pc-seller dl > div { display: flex; justify-content: space-between; gap: 8px; min-height: 32px; align-items: center; }
+.pc-seller dt { font-weight: 600; white-space: nowrap; }
+.pc-seller dd { margin: 0; text-align: right; }
+.pc-seller dd button { border: 0; background: none; padding: 0; color: #8c8c8c; text-decoration: underline; }
+.pc-seller-contact { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 12px 0; }
+.pc-seller-contact button, .pc-seller-contact a { display: flex; align-items: center; justify-content: center; gap: 8px; height: 40px; border-radius: 8px; background: #f1f1f1; border: 0; font-size: 16px; font-weight: 600; text-decoration: none; }
+.pc-seller-contact a { background: #1b498c; color: white; white-space: nowrap; }
+.pc-seller-contact img { width: 24px; height: 24px; }
+.pc-report { display: block; width: 100%; border: 0; background: white; color: #8c8c8c; text-decoration: underline; font-size: 14px; padding-top: 8px; }
+.pc-detail .option-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; padding: 12px 0; margin-bottom: 16px; }
+.pc-detail .option-grid > div { gap: 16px; min-height: 96px; }
+.pc-detail .option-grid img { width: 32px; height: 32px; margin: 4px; }
+.pc-detail .outline-wide-button { display: block; max-width: 340px; margin: 16px auto 0; }
+.pc-detail .detail-rows > div { display: flex; justify-content: space-between; }
+.pc-detail .warranty-box { gap: 16px; }
+.pc-detail .warranty-box small { font-size: 12px; }
+.pc-detail .related-section { padding: 16px 20px; border-radius: 8px; margin-top: 12px; }
+.pc-detail .related-track { gap: 39px; }
+.pc-detail .related-card { width: 196px; flex-basis: 196px; }
+.pc-detail .related-photo { width: 196px; height: 196px; }
+.pc-detail .safety-copy { padding: 16px 8px; margin: 12px 0; }
+.pc-return { display: block; margin: auto; padding: 10px 28px; background: white; border: 1px solid #c0c0c0; border-radius: 8px; }
+.pc-footer { border-top: 1px solid #e0e0e0; padding: 48px max(24px, calc((100% - 1248px) / 2)); background: white; color: #767676; font-size: 14px; }
+.pc-footer > div:first-child { display: flex; justify-content: space-between; gap: 24px; padding-bottom: 24px; border-bottom: 1px solid #e0e0e0; }
+.pc-footer h3 { font-size: 14px; color: #101010; margin: 0 0 8px; }
+.pc-footer p { margin: 8px 0; }
+.pc-footer strong { color: #101010; font-size: 18px; }
+.pc-footer > p { margin-top: 24px; }
+.pc-footer-social { display: flex; gap: 16px; margin-top: 16px; }
+.pc-footer-social img { width: 24px; height: 24px; }
+@media (min-width: 820px) {
+  .flow-stack:has(.pc-detail) > .flow-fixed-footer { display: none; }
+  .pc-header-inner { width: min(1280px, calc(100% - 48px)); }
+}
+@media (min-width: 820px) and (max-width: 1100px) {
+  .pc-detail-columns { grid-template-columns: minmax(0, 1fr) 350px; }
+  .pc-navigation nav { gap: 16px; }
+  .pc-nav-icons { gap: 12px; }
+  .pc-info dl > div { grid-template-columns: 140px 1fr; font-size: 14px; }
+  .pc-detail .option-grid { grid-template-columns: repeat(3, 1fr); }
+  .pc-summary .pc-title-row h1 { font-size: 20px; }
+  .pc-seller-contact { grid-template-columns: 1fr; }
+}
+
 @media (min-width: 820px) {
   body { background: #ffffff; }
   #root .mobile-web-stage { max-width: none !important; margin: 0; box-shadow: none; }
@@ -554,4 +691,3 @@ button { color: inherit; }
   .car-photo-wrap { width: 104px; height: 104px; }
   .detail-media-track > img { width: 393px; flex-basis: 393px; }
 }
-
