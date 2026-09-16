@@ -35,11 +35,12 @@
     .topbar {
       height: 58px;
       padding: max(env(safe-area-inset-top), 0px) 14px 0;
-      background: var(--at-red);
-      color: #fff;
+      background: var(--panel);
+      color: var(--ink);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      border-bottom: 1px solid rgba(15, 23, 42, .08);
     }
 
     .logo {
@@ -55,8 +56,8 @@
       width: 28px;
       height: 28px;
       border-radius: 7px;
-      background: #fff;
-      color: var(--at-red);
+      background: var(--at-red);
+      color: #fff;
       display: grid;
       place-items: center;
       font-size: 17px;
