@@ -287,15 +287,21 @@
       padding: 0 17px 2px;
       scrollbar-width: none;
     }
+
+    .body-rail {
+      --body-gap: 12px;
+      gap: var(--body-gap);
+    }
     .body-rail::-webkit-scrollbar, .brand-rail::-webkit-scrollbar, .offer-rail::-webkit-scrollbar { display: none; }
 
     .body-type {
-      flex: 0 0 92px;
+      flex: 0 0 calc((100% - 34px - (var(--body-gap) * 3)) / 4);
+      max-width: calc((100% - 34px - (var(--body-gap) * 3)) / 4);
       text-align: center;
     }
 
     .body-image {
-      height: 70px;
+      height: 64px;
       display: flex;
       align-items: flex-end;
       justify-content: center;
@@ -303,8 +309,9 @@
     }
 
     .body-image img {
-      width: 104px;
-      height: 66px;
+      width: 100%;
+      max-width: 88px;
+      height: 60px;
       object-fit: contain;
       filter: drop-shadow(0 6px 4px rgba(15,23,42,.15));
     }
