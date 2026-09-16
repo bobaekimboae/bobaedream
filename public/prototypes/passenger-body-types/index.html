@@ -248,6 +248,9 @@
     .vehicle {
       width: 100%;
       height: 100%;
+      display: block;
+      object-fit: contain;
+      object-position: center bottom;
       overflow: visible;
       filter: drop-shadow(0 5px 5px rgba(15, 23, 42, 0.16));
     }
@@ -373,96 +376,56 @@
       <div class="body-carousel" aria-label="승용 바디타입 가로 캐러셀">
         <button class="body-type" type="button" aria-label="경차">
           <span class="vehicle-box">
-            <svg class="vehicle" viewBox="0 0 160 100" aria-hidden="true">
-              <path d="M20 63c7-18 23-29 48-30h22c20 0 34 10 45 30l10 3v13H13V68l7-5Z" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.4"/>
-              <path d="M57 37h31c15 2 25 10 33 25H43c4-12 8-20 14-25Z" fill="#cbd5e1"/>
-              <circle cx="48" cy="78" r="11" fill="#111827"/><circle cx="120" cy="78" r="11" fill="#111827"/>
-              <circle cx="48" cy="78" r="5" fill="#cbd5e1"/><circle cx="120" cy="78" r="5" fill="#cbd5e1"/>
-            </svg>
+            <img class="vehicle" src="./assets/kei.svg" alt="" loading="lazy" />
           </span>
           <span class="body-label">경차</span>
         </button>
 
         <button class="body-type" type="button" aria-label="세단">
           <span class="vehicle-box">
-            <svg class="vehicle" viewBox="0 0 160 100" aria-hidden="true">
-              <path d="M14 66c12-18 35-28 69-31h24c22 4 36 14 47 30l-2 13H8V70l6-4Z" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.4"/>
-              <path d="M62 39h43c15 5 26 13 33 24H37c7-12 15-20 25-24Z" fill="#cbd5e1"/>
-              <circle cx="45" cy="78" r="10" fill="#111827"/><circle cx="124" cy="78" r="10" fill="#111827"/>
-              <circle cx="45" cy="78" r="5" fill="#cbd5e1"/><circle cx="124" cy="78" r="5" fill="#cbd5e1"/>
-            </svg>
+            <img class="vehicle" src="./assets/sedan.svg" alt="" loading="lazy" />
           </span>
           <span class="body-label">세단</span>
         </button>
 
         <button class="body-type" type="button" aria-label="해치백">
           <span class="vehicle-box">
-            <svg class="vehicle" viewBox="0 0 160 100" aria-hidden="true">
-              <path d="M17 64c9-20 30-30 60-31h23c22 2 36 13 45 31l7 5v9H10V69l7-5Z" fill="#dbeafe" stroke="#9bbce8" stroke-width="2.4"/>
-              <path d="M63 38h37c16 3 27 12 34 25H42c6-13 13-21 21-25Z" fill="#93c5fd"/>
-              <circle cx="48" cy="78" r="10" fill="#111827"/><circle cx="121" cy="78" r="10" fill="#111827"/>
-              <circle cx="48" cy="78" r="5" fill="#cbd5e1"/><circle cx="121" cy="78" r="5" fill="#cbd5e1"/>
-            </svg>
+            <img class="vehicle" src="./assets/hatchback.svg" alt="" loading="lazy" />
           </span>
           <span class="body-label">해치백</span>
         </button>
 
         <button class="body-type" type="button" aria-label="왜건">
           <span class="vehicle-box">
-            <svg class="vehicle" viewBox="0 0 160 100" aria-hidden="true">
-              <path d="M12 65c13-21 34-30 69-31h45c17 4 27 13 33 29l-8 15H7V70l5-5Z" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.4"/>
-              <path d="M60 39h65c13 3 22 12 27 24H36c7-12 15-20 24-24Z" fill="#cbd5e1"/>
-              <circle cx="45" cy="78" r="10" fill="#111827"/><circle cx="126" cy="78" r="10" fill="#111827"/>
-              <circle cx="45" cy="78" r="5" fill="#cbd5e1"/><circle cx="126" cy="78" r="5" fill="#cbd5e1"/>
-            </svg>
+            <img class="vehicle" src="./assets/wagon.svg" alt="" loading="lazy" />
           </span>
           <span class="body-label">왜건</span>
         </button>
 
         <button class="body-type" type="button" aria-label="쿠페">
           <span class="vehicle-box">
-            <svg class="vehicle" viewBox="0 0 160 100" aria-hidden="true">
-              <path d="M12 67c18-20 42-30 78-31h12c23 4 39 14 52 29l-5 13H8v-8l4-3Z" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.4"/>
-              <path d="M68 41h32c17 4 30 12 39 22H39c8-11 18-18 29-22Z" fill="#cbd5e1"/>
-              <circle cx="45" cy="78" r="10" fill="#111827"/><circle cx="124" cy="78" r="10" fill="#111827"/>
-              <circle cx="45" cy="78" r="5" fill="#cbd5e1"/><circle cx="124" cy="78" r="5" fill="#cbd5e1"/>
-            </svg>
+            <img class="vehicle" src="./assets/coupe.svg" alt="" loading="lazy" />
           </span>
           <span class="body-label">쿠페</span>
         </button>
 
         <button class="body-type" type="button" aria-label="컨버터블">
           <span class="vehicle-box">
-            <svg class="vehicle" viewBox="0 0 160 100" aria-hidden="true">
-              <path d="M13 68c17-18 42-26 75-27h18c22 4 38 12 49 25l-5 12H8v-7l5-3Z" fill="#fee2e2" stroke="#fca5a5" stroke-width="2.4"/>
-              <path d="M63 50h24m12-1h18" stroke="#1f2937" stroke-width="4" stroke-linecap="round"/>
-              <circle cx="45" cy="78" r="10" fill="#111827"/><circle cx="124" cy="78" r="10" fill="#111827"/>
-              <circle cx="45" cy="78" r="5" fill="#cbd5e1"/><circle cx="124" cy="78" r="5" fill="#cbd5e1"/>
-            </svg>
+            <img class="vehicle" src="./assets/convertible.svg" alt="" loading="lazy" />
           </span>
           <span class="body-label">컨버터블</span>
         </button>
 
         <button class="body-type" type="button" aria-label="SUV">
           <span class="vehicle-box">
-            <svg class="vehicle" viewBox="0 0 160 100" aria-hidden="true">
-              <path d="M16 61c10-22 32-34 63-35h32c22 4 35 16 43 34l2 18H9V68l7-7Z" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.4"/>
-              <path d="M60 32h50c16 4 27 14 33 28H38c6-14 14-23 22-28Z" fill="#cbd5e1"/>
-              <circle cx="47" cy="78" r="11" fill="#111827"/><circle cx="124" cy="78" r="11" fill="#111827"/>
-              <circle cx="47" cy="78" r="5" fill="#cbd5e1"/><circle cx="124" cy="78" r="5" fill="#cbd5e1"/>
-            </svg>
+            <img class="vehicle" src="./assets/suv.svg" alt="" loading="lazy" />
           </span>
           <span class="body-label">SUV</span>
         </button>
 
         <button class="body-type" type="button" aria-label="RV·MPV">
           <span class="vehicle-box">
-            <svg class="vehicle" viewBox="0 0 160 100" aria-hidden="true">
-              <path d="M18 58c10-21 27-32 52-33h50c18 2 29 13 36 32v21H10V66l8-8Z" fill="#e0f2fe" stroke="#93c5fd" stroke-width="2.4"/>
-              <path d="M55 31h62c14 2 24 12 29 27H36c5-13 11-22 19-27Z" fill="#bae6fd"/>
-              <circle cx="48" cy="78" r="11" fill="#111827"/><circle cx="124" cy="78" r="11" fill="#111827"/>
-              <circle cx="48" cy="78" r="5" fill="#cbd5e1"/><circle cx="124" cy="78" r="5" fill="#cbd5e1"/>
-            </svg>
+            <img class="vehicle" src="./assets/mpv.svg" alt="" loading="lazy" />
           </span>
           <span class="body-label">RV·MPV</span>
         </button>
