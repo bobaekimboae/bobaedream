@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>보배드림 AutoTrader형 모바일 메인 시안</title>
+  <style>
+    :root {
+      --at-red: #d71920;
+      --at-red-deep: #b50913;
+      --at-blue: #006dff;
+      --ink: #172033;
+      --muted: #657083;
+      --line: #dfe5ee;
+      --page: #f0f2f5;
+      --panel: #fff;
+      --shadow: 0 18px 42px rgba(18, 31, 53, .18);
+      font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Sans KR", "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; background: #dfe4eb; color: var(--ink); }
+    body { display: flex; justify-content: center; }
+    button, input { font: inherit; }
+    button { border: 0; background: none; color: inherit; padding: 0; }
+
+    .phone {
+      width: min(100vw, 430px);
+      min-height: 100dvh;
+      background: var(--page);
+      overflow: hidden;
+      box-shadow: 0 28px 80px rgba(15, 23, 42, .18);
+    }
+
+    .topbar {
+      height: 58px;
+      padding: max(env(safe-area-inset-top), 0px) 14px 0;
+      background: var(--at-red);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-weight: 950;
+      letter-spacing: -.045em;
+      line-height: .9;
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: #fff;
+      color: var(--at-red);
+      display: grid;
+      place-items: center;
+      font-size: 17px;
+      font-weight: 950;
+      transform: skewX(-9deg);
+    }
+
+    .logo-text {
+      display: grid;
+      gap: 1px;
+      font-size: 18px;
+    }
+
+    .logo-text small {
+      font-size: 10px;
+      letter-spacing: .09em;
+      font-weight: 800;
+      opacity: .82;
+    }
+
+    .top-icons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .top-icons svg { width: 23px; height: 23px; stroke-width: 2.2; }
+
+    .hero {
+      position: relative;
+      min-height: 216px;
+      padding: 22px 18px 78px;
+      color: #fff;
+      background:
+        linear-gradient(112deg, var(--at-red) 0 55%, rgba(215,25,32,.82) 56% 68%, rgba(255,255,255,.1) 69% 100%),
+        linear-gradient(145deg, #d71920 0%, #c40f18 72%, #a60610 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 86% 23%, rgba(255,255,255,.2) 0 54px, transparent 55px),
+        linear-gradient(116deg, transparent 0 59%, rgba(255,255,255,.28) 60% 61%, transparent 62% 100%);
+      pointer-events: none;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      width: 68%;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 31px;
+      line-height: 1.07;
+      letter-spacing: -.064em;
+      font-weight: 950;
+    }
+
+    .hero p {
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.86);
+      font-size: 14px;
+      line-height: 1.44;
+      font-weight: 700;
+      letter-spacing: -.035em;
+    }
+
+    .hero-photo {
+      position: absolute;
+      right: -34px;
+      bottom: 12px;
+      width: 238px;
+      height: 132px;
+      z-index: 1;
+      filter: drop-shadow(0 17px 18px rgba(89,0,7,.32));
+    }
+
+    .search-panel {
+      position: relative;
+      z-index: 3;
+      margin: -58px 13px 0;
+      background: var(--panel);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .vehicle-tabs {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      padding: 0;
+      scrollbar-width: none;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+    .vehicle-tabs::-webkit-scrollbar { display: none; }
+
+    .vehicle-tab {
+      flex: 0 0 88px;
+      height: 78px;
+      padding: 8px 8px 7px;
+      display: grid;
+      grid-template-rows: 32px 1fr;
+      justify-items: center;
+      align-items: center;
+      gap: 5px;
+      border-right: 1px solid #edf0f5;
+      color: #3a4658;
+      font-size: 11px;
+      line-height: 1.08;
+      font-weight: 850;
+      letter-spacing: -.04em;
+      text-align: center;
+      white-space: normal;
+    }
+
+    .vehicle-tab.active {
+      color: var(--at-red);
+      box-shadow: inset 0 -3px 0 var(--at-red);
+      background: #fff8f8;
+    }
+
+    .vehicle-tab img {
+      max-width: 42px;
+      max-height: 31px;
+      object-fit: contain;
+      filter: drop-shadow(0 3px 3px rgba(15, 23, 42, .14));
+    }
+
+    .search-form { padding: 14px; display: grid; gap: 10px; }
+
+    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+
+    .field {
+      height: 47px;
+      border: 1px solid #d5dde8;
+      border-radius: 7px;
+      background: #fff;
+      padding: 0 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-width: 0;
+      color: #2d3748;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: -.035em;
+    }
+
+    .field span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .field.muted { color: #98a2b3; }
+
+    .postal {
+      justify-content: flex-start;
+      gap: 9px;
+      color: #667085;
+    }
+
+    .field svg { flex: 0 0 auto; }
+
+    .cta {
+      height: 50px;
+      border-radius: 7px;
+      background: var(--at-blue);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 950;
+      letter-spacing: -.04em;
+      box-shadow: 0 8px 16px rgba(0, 109, 255, .22);
+    }
+
+    .quick-links {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      padding-top: 2px;
+      color: #536174;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: -.03em;
+    }
+
+    .section {
+      margin-top: 10px;
+      padding: 23px 0 22px;
+      background: #fff;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .section-head {
+      padding: 0 17px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 23px;
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: -.06em;
+    }
+
+    .section-note {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: -.03em;
+    }
+
+    .more { color: #5f6c7e; font-size: 13px; font-weight: 850; letter-spacing: -.04em; }
+
+    .body-rail, .brand-rail, .offer-rail {
+      display: flex;
+      overflow-x: auto;
+      gap: 18px;
+      padding: 0 17px 2px;
+      scrollbar-width: none;
+    }
+    .body-rail::-webkit-scrollbar, .brand-rail::-webkit-scrollbar, .offer-rail::-webkit-scrollbar { display: none; }
+
+    .body-type {
+      flex: 0 0 82px;
+      text-align: center;
+    }
+
+    .body-image {
+      height: 56px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      margin-bottom: 9px;
+    }
+
+    .body-image img {
+      width: 84px;
+      height: 54px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 4px rgba(15,23,42,.15));
+    }
+
+    .body-type strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.1;
+      font-weight: 900;
+      letter-spacing: -.045em;
+      white-space: nowrap;
+    }
+
+    .brand-pill {
+      flex: 0 0 auto;
+      min-width: 82px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #dde3ec;
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: 0 3px 8px rgba(15,23,42,.05);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: -.04em;
+    }
+
+    .sell-block {
+      margin-top: 10px;
+      padding: 18px 17px;
+      background: #fff;
+    }
+
+    .sell-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 128px;
+      padding: 20px;
+      border-radius: 9px;
+      background: linear-gradient(103deg, #172033 0 58%, #e8f2ff 59% 100%);
+      color: #fff;
+      box-shadow: 0 12px 22px rgba(15,23,42,.12);
+    }
+
+    .sell-card h2 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-size: 23px;
+      line-height: 1.14;
+      letter-spacing: -.06em;
+      font-weight: 950;
+      width: 58%;
+    }
+
+    .sell-card p {
+      position: relative;
+      z-index: 1;
+      margin: 8px 0 0;
+      color: rgba(255,255,255,.78);
+      width: 58%;
+      font-size: 12px;
+      line-height: 1.42;
+      letter-spacing: -.03em;
+      font-weight: 700;
+    }
+
+    .sell-car {
+      position: absolute;
+      right: -18px;
+      bottom: 2px;
+      width: 178px;
+      height: 92px;
+      filter: drop-shadow(0 10px 8px rgba(15,23,42,.18));
+    }
+
+    .offer-card {
+      flex: 0 0 174px;
+      border: 1px solid #e1e7ef;
+      border-radius: 9px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 5px 12px rgba(15,23,42,.06);
+    }
+
+    .offer-image {
+      height: 92px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #f8fafc, #e8edf5);
+    }
+
+    .offer-image img { width: 132px; height: 76px; object-fit: contain; filter: drop-shadow(0 7px 5px rgba(15,23,42,.16)); }
+    .offer-copy { padding: 11px; }
+    .offer-copy strong { display: block; font-size: 14px; line-height: 1.24; font-weight: 900; letter-spacing: -.04em; }
+    .offer-copy span { display: block; margin-top: 5px; color: var(--at-blue); font-size: 13px; font-weight: 950; letter-spacing: -.035em; }
+
+    .memo {
+      padding: 17px;
+      color: #657083;
+      background: #fff;
+      font-size: 12px;
+      line-height: 1.55;
+      letter-spacing: -.02em;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    @media (min-width: 431px) {
+      .phone { margin: 24px 0; border-radius: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="phone" aria-label="보배드림 AutoTrader형 모바일 메인 시안">
+    <header class="topbar">
+      <div class="logo" aria-label="보배드림">
+        <span class="logo-mark">B</span>
+        <span class="logo-text">보배드림<small>BOBAEDREAM</small></span>
+      </div>
+      <div class="top-icons" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <h1>차를 사고파는 가장 좋은 방법</h1>
+        <p>AutoTrader Canada 메인의 검색 흐름을 보배드림 모바일웹에 맞춰 재현한 시안입니다.</p>
+      </div>
+      <svg class="hero-photo" viewBox="0 0 360 180" aria-hidden="true">
+        <defs><linearGradient id="paint" x1="0" x2="1"><stop stop-color="#ffffff"/><stop offset="1" stop-color="#d8e0ea"/></linearGradient></defs>
+        <path d="M34 118c11-35 54-58 109-62h82c37 4 70 26 88 60l23 10v20H19v-16l15-12Z" fill="url(#paint)" stroke="rgba(255,255,255,.8)" stroke-width="3"/>
+        <path d="M127 64h89c27 7 48 27 60 49H91c9-23 21-40 36-49Z" fill="#9fb7cf" opacity=".68"/>
+        <path d="M42 118h286" stroke="#b6c4d2" stroke-width="6" stroke-linecap="round" opacity=".8"/>
+        <circle cx="92" cy="143" r="25" fill="#111827"/><circle cx="272" cy="143" r="25" fill="#111827"/><circle cx="92" cy="143" r="11" fill="#d4dce7"/><circle cx="272" cy="143" r="11" fill="#d4dce7"/>
+      </svg>
+    </section>
+
+    <section class="search-panel" aria-label="매물 검색 패널">
+      <div class="vehicle-tabs" aria-label="차량 유형 탭">
+        <button class="vehicle-tab active" type="button"><img src="../../assets/categories/used-car.svg" alt="" />중고차</button>
+        <button class="vehicle-tab" type="button"><img src="../../assets/categories/truck.svg" alt="" />트럭<br />특장</button>
+        <button class="vehicle-tab" type="button"><img src="../../assets/categories/bike.svg" alt="" />바이크</button>
+        <button class="vehicle-tab" type="button"><img src="../../assets/categories/camping.svg" alt="" />캠핑카</button>
+        <button class="vehicle-tab" type="button"><img src="../../assets/categories/construction.svg" alt="" />건설기계</button>
+        <button class="vehicle-tab" type="button"><img src="../../assets/categories/parts.svg" alt="" />부품<br />용품</button>
+      </div>
+      <div class="search-form">
+        <div class="row-2">
+          <button class="field" type="button"><span>전체 제조사</span><b>⌄</b></button>
+          <button class="field muted" type="button"><span>전체 모델</span><b>⌄</b></button>
+        </div>
+        <button class="field postal" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#667085" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>지역 또는 키워드 입력</span>
+        </button>
+        <button class="cta" type="button">검색 결과 보기</button>
+        <div class="quick-links"><span>상세검색</span><span>최근 본 매물</span><span>내 차 팔기</span></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="body-title">
+      <div class="section-head">
+        <div><h2 class="section-title" id="body-title">차체 유형으로 찾기</h2><span class="section-note">원본의 Browse by body type 영역</span></div>
+        <span class="more">전체보기 ›</span>
+      </div>
+      <div class="body-rail" aria-label="차체 유형 가로 목록">
+        <button class="body-type" type="button"><span class="body-image"><img src="../passenger-body-types/assets/suv.svg" alt="" /></span><strong>SUV</strong></button>
+        <button class="body-type" type="button"><span class="body-image"><img src="../passenger-body-types/assets/sedan.svg" alt="" /></span><strong>세단</strong></button>
+        <button class="body-type" type="button"><span class="body-image"><img src="../passenger-body-types/assets/coupe.svg" alt="" /></span><strong>쿠페</strong></button>
+        <button class="body-type" type="button"><span class="body-image"><img src="../passenger-body-types/assets/hatchback.svg" alt="" /></span><strong>해치백</strong></button>
+        <button class="body-type" type="button"><span class="body-image"><img src="../passenger-body-types/assets/convertible.svg" alt="" /></span><strong>컨버터블</strong></button>
+        <button class="body-type" type="button"><span class="body-image"><img src="../passenger-body-types/assets/mpv.svg" alt="" /></span><strong>RV·MPV</strong></button>
+        <button class="body-type" type="button"><span class="body-image"><img src="../passenger-body-types/assets/wagon.svg" alt="" /></span><strong>왜건</strong></button>
+        <button class="body-type" type="button"><span class="body-image"><img src="../passenger-body-types/assets/kei.svg" alt="" /></span><strong>경차</strong></button>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="brand-title">
+      <div class="section-head">
+        <div><h2 class="section-title" id="brand-title">인기 제조사</h2><span class="section-note">AutoTrader 인기 브랜드 레일 대체</span></div>
+        <span class="more">더보기 ›</span>
+      </div>
+      <div class="brand-rail" aria-label="인기 제조사">
+        <button class="brand-pill" type="button">현대</button><button class="brand-pill" type="button">기아</button><button class="brand-pill" type="button">BMW</button><button class="brand-pill" type="button">벤츠</button><button class="brand-pill" type="button">아우디</button><button class="brand-pill" type="button">포르쉐</button>
+      </div>
+    </section>
+
+    <section class="sell-block">
+      <div class="sell-card">
+        <h2>내 차 팔기,<br />빠르고 쉽게</h2>
+        <p>원본의 Sell my car 프로모션을 보배드림 판매 유도 카드로 적용했습니다.</p>
+        <svg class="sell-car" viewBox="0 0 360 180" aria-hidden="true"><path d="M38 116c10-33 50-56 104-60h80c36 4 68 25 85 58l21 8v20H20v-16l18-10Z" fill="#fff" stroke="#c5d2e0" stroke-width="3"/><path d="M128 62h86c26 7 47 26 58 48H92c9-23 20-39 36-48Z" fill="#bad0e5" opacity=".78"/><circle cx="92" cy="142" r="25" fill="#1f2937"/><circle cx="270" cy="142" r="25" fill="#1f2937"/><circle cx="92" cy="142" r="11" fill="#cbd5e1"/><circle cx="270" cy="142" r="11" fill="#cbd5e1"/></svg>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="offer-title">
+      <div class="section-head">
+        <div><h2 class="section-title" id="offer-title">추천 매물</h2><span class="section-note">메인 하단 카드 밀도 확인</span></div>
+        <span class="more">전체 ›</span>
+      </div>
+      <div class="offer-rail" aria-label="추천 매물">
+        <article class="offer-card"><div class="offer-image"><img src="../passenger-body-types/assets/suv.svg" alt="" /></div><div class="offer-copy"><strong>BMW X3 xDrive20i</strong><span>5,280만원</span></div></article>
+        <article class="offer-card"><div class="offer-image"><img src="../passenger-body-types/assets/sedan.svg" alt="" /></div><div class="offer-copy"><strong>벤츠 E300 AMG</strong><span>6,150만원</span></div></article>
+        <article class="offer-card"><div class="offer-image"><img src="../passenger-body-types/assets/coupe.svg" alt="" /></div><div class="offer-copy"><strong>포르쉐 911 Carrera</strong><span>1억 6,900만원</span></div></article>
+      </div>
+    </section>
+
+    <p class="memo">차량 유형 이미지는 보배드림 테스트 자산을 사용합니다. 같은 경로의 이미지를 교체하면 AutoTrader형 메인 구조 안에서 크기, 여백, 탭 노출 상태를 바로 비교할 수 있습니다.</p>
+  </main>
+</body>
+</html>
+
