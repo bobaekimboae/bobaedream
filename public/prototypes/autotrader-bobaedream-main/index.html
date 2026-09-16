@@ -318,20 +318,42 @@
       white-space: nowrap;
     }
 
-    .brand-pill {
-      flex: 0 0 auto;
-      min-width: 82px;
-      height: 42px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .brand-card {
+      flex: 0 0 76px;
+      display: grid;
+      justify-items: center;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .brand-emblem {
+      width: 62px;
+      height: 62px;
       border: 1px solid #dde3ec;
-      border-radius: 999px;
-      background: #fff;
-      box-shadow: 0 3px 8px rgba(15,23,42,.05);
-      font-size: 14px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
+      box-shadow: 0 5px 12px rgba(15,23,42,.08);
+    }
+
+    .brand-emblem img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-emblem.wide img { width: 44px; height: 28px; }
+    .brand-emblem.porsche img { width: 34px; height: 42px; }
+
+    .brand-name {
+      font-size: 13px;
+      line-height: 1;
       font-weight: 900;
-      letter-spacing: -.04em;
+      letter-spacing: -.045em;
+      color: #172033;
+      white-space: nowrap;
     }
 
     .sell-block {
@@ -489,11 +511,16 @@
 
     <section class="section" aria-labelledby="brand-title">
       <div class="section-head">
-        <div><h2 class="section-title" id="brand-title">인기 제조사</h2><span class="section-note">AutoTrader 인기 브랜드 레일 대체</span></div>
+        <div><h2 class="section-title" id="brand-title">인기 제조사</h2><span class="section-note">실제 제조사 엠블럼 적용</span></div>
         <span class="more">더보기 ›</span>
       </div>
       <div class="brand-rail" aria-label="인기 제조사">
-        <button class="brand-pill" type="button">현대</button><button class="brand-pill" type="button">기아</button><button class="brand-pill" type="button">BMW</button><button class="brand-pill" type="button">벤츠</button><button class="brand-pill" type="button">아우디</button><button class="brand-pill" type="button">포르쉐</button>
+        <button class="brand-card" type="button" aria-label="현대"><span class="brand-emblem"><img data-img="./brand-emblems/hyundai.svg" alt="" /></span><span class="brand-name">현대</span></button>
+        <button class="brand-card" type="button" aria-label="기아"><span class="brand-emblem wide"><img data-img="./brand-emblems/kia.svg" alt="" /></span><span class="brand-name">기아</span></button>
+        <button class="brand-card" type="button" aria-label="BMW"><span class="brand-emblem"><img data-img="../../|assets/brand/bmw.svg" alt="" /></span><span class="brand-name">BMW</span></button>
+        <button class="brand-card" type="button" aria-label="벤츠"><span class="brand-emblem"><img data-img="../../|assets/brand/benz.png" alt="" /></span><span class="brand-name">벤츠</span></button>
+        <button class="brand-card" type="button" aria-label="아우디"><span class="brand-emblem wide"><img data-img="../../|assets/brand/audi.svg" alt="" /></span><span class="brand-name">아우디</span></button>
+        <button class="brand-card" type="button" aria-label="포르쉐"><span class="brand-emblem porsche"><img data-img="../../|assets/brand/porsche-symbol.png" alt="" /></span><span class="brand-name">포르쉐</span></button>
       </div>
     </section>
 
