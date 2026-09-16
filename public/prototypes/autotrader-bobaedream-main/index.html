@@ -143,106 +143,119 @@
       position: relative;
       z-index: 3;
       margin: -58px 13px 0;
+      padding: 18px 17px 20px;
       background: var(--panel);
       border-radius: 22px;
       box-shadow: var(--shadow);
-      overflow: hidden;
+      overflow: visible;
     }
 
     .vehicle-tabs {
       display: flex;
-      gap: 0;
+      gap: 9px;
       overflow-x: auto;
-      padding: 0;
+      padding: 0 0 18px;
       scrollbar-width: none;
-      border-bottom: 1px solid var(--line);
       background: #fff;
     }
     .vehicle-tabs::-webkit-scrollbar { display: none; }
 
     .vehicle-tab {
-      flex: 0 0 88px;
-      height: 78px;
-      padding: 8px 8px 7px;
-      display: grid;
-      grid-template-rows: 32px 1fr;
-      justify-items: center;
+      flex: 0 0 auto;
+      height: 39px;
+      padding: 0 18px;
+      display: inline-flex;
       align-items: center;
-      gap: 5px;
-      border-right: 1px solid #edf0f5;
-      color: #3a4658;
-      font-size: 11px;
-      line-height: 1.08;
-      font-weight: 850;
-      letter-spacing: -.04em;
+      justify-content: center;
+      border: 1px solid #e1e3e7;
+      border-radius: 999px;
+      background: #f8f8f8;
+      color: #40444c;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.75), 0 1px 2px rgba(15,23,42,.05);
+      font-size: 15px;
+      line-height: 1;
+      font-weight: 650;
+      letter-spacing: -.035em;
       text-align: center;
-      white-space: normal;
+      white-space: nowrap;
     }
 
     .vehicle-tab.active {
-      color: var(--at-red);
-      box-shadow: inset 0 -3px 0 var(--at-red);
-      background: #fff8f8;
+      border-color: #232323;
+      background: #232323;
+      color: #fff;
+      box-shadow: none;
+      font-weight: 850;
     }
 
-    .vehicle-tab img {
-      max-width: 42px;
-      max-height: 31px;
-      object-fit: contain;
-      filter: drop-shadow(0 3px 3px rgba(15, 23, 42, .14));
-    }
+    .search-form { display: grid; gap: 14px; }
 
-    .search-form { padding: 14px; display: grid; gap: 10px; }
+    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
-    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
-
-    .field {
-      height: 47px;
-      border: 1px solid #d5dde8;
-      border-radius: 7px;
+    .select-field {
+      position: relative;
+      height: 55px;
+      border: 1px solid #cfd3d9;
+      border-radius: 4px;
       background: #fff;
-      padding: 0 12px;
+      padding: 0 13px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       min-width: 0;
-      color: #2d3748;
-      font-size: 14px;
-      font-weight: 800;
+      color: #4a4f58;
+      font-size: 17px;
+      font-weight: 500;
       letter-spacing: -.035em;
     }
 
-    .field span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .field.muted { color: #98a2b3; }
-
-    .postal {
-      justify-content: flex-start;
-      gap: 9px;
-      color: #667085;
+    .select-field label {
+      position: absolute;
+      left: 12px;
+      top: -11px;
+      padding: 0 6px;
+      background: #fff;
+      color: #575b63;
+      font-size: 15px;
+      line-height: 1;
+      font-weight: 650;
+      letter-spacing: -.035em;
     }
 
-    .field svg { flex: 0 0 auto; }
+    .select-field.muted { color: #b5bac2; border-color: #e2e5e9; }
+    .select-field.muted label { color: #b7bcc4; }
+
+    .select-value { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    .chevron {
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 7px solid currentColor;
+      margin-left: 8px;
+      opacity: .95;
+      flex: 0 0 auto;
+    }
 
     .cta {
       height: 50px;
-      border-radius: 7px;
-      background: var(--at-blue);
+      border-radius: 999px;
+      background: #0878ea;
       color: #fff;
       font-size: 17px;
-      font-weight: 950;
-      letter-spacing: -.04em;
-      box-shadow: 0 8px 16px rgba(0, 109, 255, .22);
+      font-weight: 850;
+      letter-spacing: -.035em;
+      box-shadow: none;
     }
 
-    .quick-links {
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      padding-top: 2px;
-      color: #536174;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: -.03em;
+    .advanced-link {
+      justify-self: center;
+      margin-top: 3px;
+      color: #1268bf;
+      font-size: 15px;
+      font-weight: 850;
+      letter-spacing: -.035em;
     }
 
     .section {
@@ -478,24 +491,19 @@
 
     <section class="search-panel" aria-label="매물 검색 패널">
       <div class="vehicle-tabs" aria-label="차량 유형 탭">
-        <button class="vehicle-tab active" type="button"><img data-img="../../|assets/categories/used-car.svg" alt="" />중고차</button>
-        <button class="vehicle-tab" type="button"><img data-img="../../|assets/categories/truck.svg" alt="" />트럭<br />특장</button>
-        <button class="vehicle-tab" type="button"><img data-img="../../|assets/categories/bike.svg" alt="" />바이크</button>
-        <button class="vehicle-tab" type="button"><img data-img="../../|assets/categories/camping.svg" alt="" />캠핑카</button>
-        <button class="vehicle-tab" type="button"><img data-img="../../|assets/categories/construction.svg" alt="" />건설기계</button>
-        <button class="vehicle-tab" type="button"><img data-img="../../|assets/categories/parts.svg" alt="" />부품<br />용품</button>
+        <button class="vehicle-tab active" type="button">중고차</button>
+        <button class="vehicle-tab" type="button">바이크</button>
+        <button class="vehicle-tab" type="button">트레일러</button>
+        <button class="vehicle-tab" type="button">상용차</button>
       </div>
       <div class="search-form">
         <div class="row-2">
-          <button class="field" type="button"><span>전체 제조사</span><b>⌄</b></button>
-          <button class="field muted" type="button"><span>전체 모델</span><b>⌄</b></button>
+          <button class="select-field" type="button"><label>제조사</label><span class="select-value">전체 제조사</span><span class="chevron" aria-hidden="true"></span></button>
+          <button class="select-field muted" type="button"><label>모델</label><span class="select-value">전체 모델</span><span class="chevron" aria-hidden="true"></span></button>
         </div>
-        <button class="field postal" type="button">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#667085" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>지역 또는 키워드 입력</span>
-        </button>
-        <button class="cta" type="button">검색 결과 보기</button>
-        <div class="quick-links"><span>상세검색</span><span>최근 본 매물</span><span>내 차 팔기</span></div>
+        <button class="select-field" type="button"><span class="select-value">지역 또는 우편번호</span><span class="chevron" aria-hidden="true"></span></button>
+        <button class="cta" type="button">404,717대 매물 보기</button>
+        <button class="advanced-link" type="button">상세 필터</button>
       </div>
     </section>
 
