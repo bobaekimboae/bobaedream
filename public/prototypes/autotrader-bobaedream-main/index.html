@@ -87,12 +87,12 @@
 
     .hero {
       position: relative;
-      min-height: 216px;
-      padding: 22px 18px 78px;
+      min-height: 244px;
+      padding: 22px 18px 88px;
       color: #fff;
-      background:
-        linear-gradient(112deg, var(--at-red) 0 55%, rgba(215,25,32,.82) 56% 68%, rgba(255,255,255,.1) 69% 100%),
-        linear-gradient(145deg, #d71920 0%, #c40f18 72%, #a60610 100%);
+      background-image: linear-gradient(180deg, rgba(5,10,20,.2) 0%, rgba(5,10,20,.38) 100%), var(--hero-bg, url("./hero-types/used-car.jpg"));
+      background-size: cover;
+      background-position: center;
       overflow: hidden;
     }
 
@@ -100,43 +100,33 @@
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(circle at 86% 23%, rgba(255,255,255,.2) 0 54px, transparent 55px),
-        linear-gradient(116deg, transparent 0 59%, rgba(255,255,255,.28) 60% 61%, transparent 62% 100%);
+      background: linear-gradient(90deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,.18) 48%, rgba(0,0,0,.06) 100%);
       pointer-events: none;
     }
 
     .hero-copy {
       position: relative;
       z-index: 1;
-      width: 68%;
+      width: 72%;
+      padding-top: 6px;
+      text-shadow: 0 2px 10px rgba(0,0,0,.28);
     }
 
     .hero h1 {
       margin: 0;
-      font-size: 31px;
-      line-height: 1.07;
+      font-size: 30px;
+      line-height: 1.08;
       letter-spacing: -.064em;
       font-weight: 950;
     }
 
     .hero p {
       margin: 10px 0 0;
-      color: rgba(255,255,255,.86);
+      color: rgba(255,255,255,.9);
       font-size: 14px;
       line-height: 1.44;
       font-weight: 700;
       letter-spacing: -.035em;
-    }
-
-    .hero-photo {
-      position: absolute;
-      right: -34px;
-      bottom: 12px;
-      width: 238px;
-      height: 132px;
-      z-index: 1;
-      filter: drop-shadow(0 17px 18px rgba(89,0,7,.32));
     }
 
     .search-panel {
@@ -475,33 +465,26 @@
       </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" data-hero>
       <div class="hero-copy">
-        <h1>차를 사고파는 가장 좋은 방법</h1>
-        <p>AutoTrader Canada 메인의 검색 흐름을 보배드림 모바일웹에 맞춰 재현한 시안입니다.</p>
+        <h1 data-hero-title>좋은 차를 찾는 가장 빠른 방법</h1>
+        <p data-hero-copy>보배드림에서 내 조건에 맞는 중고차를 바로 찾아보세요.</p>
       </div>
-      <svg class="hero-photo" viewBox="0 0 360 180" aria-hidden="true">
-        <defs><linearGradient id="paint" x1="0" x2="1"><stop stop-color="#ffffff"/><stop offset="1" stop-color="#d8e0ea"/></linearGradient></defs>
-        <path d="M34 118c11-35 54-58 109-62h82c37 4 70 26 88 60l23 10v20H19v-16l15-12Z" fill="url(#paint)" stroke="rgba(255,255,255,.8)" stroke-width="3"/>
-        <path d="M127 64h89c27 7 48 27 60 49H91c9-23 21-40 36-49Z" fill="#9fb7cf" opacity=".68"/>
-        <path d="M42 118h286" stroke="#b6c4d2" stroke-width="6" stroke-linecap="round" opacity=".8"/>
-        <circle cx="92" cy="143" r="25" fill="#111827"/><circle cx="272" cy="143" r="25" fill="#111827"/><circle cx="92" cy="143" r="11" fill="#d4dce7"/><circle cx="272" cy="143" r="11" fill="#d4dce7"/>
-      </svg>
     </section>
 
     <section class="search-panel" aria-label="매물 검색 패널">
       <div class="vehicle-tabs" aria-label="차량 유형 탭">
-        <button class="vehicle-tab active" type="button">중고차</button>
-        <button class="vehicle-tab" type="button">바이크</button>
-        <button class="vehicle-tab" type="button">트레일러</button>
-        <button class="vehicle-tab" type="button">상용차</button>
+        <button class="vehicle-tab active" type="button" data-vehicle-type="used-car">중고차</button>
+        <button class="vehicle-tab" type="button" data-vehicle-type="bike">바이크</button>
+        <button class="vehicle-tab" type="button" data-vehicle-type="trailer">트레일러</button>
+        <button class="vehicle-tab" type="button" data-vehicle-type="commercial">상용차</button>
       </div>
       <div class="search-form">
         <div class="row-2">
           <button class="select-field" type="button"><label>제조사</label><span class="select-value">전체 제조사</span><span class="chevron" aria-hidden="true"></span></button>
           <button class="select-field muted" type="button"><label>모델</label><span class="select-value">전체 모델</span><span class="chevron" aria-hidden="true"></span></button>
         </div>
-        <button class="select-field" type="button"><span class="select-value">지역 또는 우편번호</span><span class="chevron" aria-hidden="true"></span></button>
+        <button class="select-field" type="button"><label>지역</label><span class="select-value">전국</span><span class="chevron" aria-hidden="true"></span></button>
         <button class="cta" type="button">404,717대 매물 보기</button>
         <button class="advanced-link" type="button">상세 필터</button>
       </div>
@@ -564,6 +547,51 @@
   <script>
     document.querySelectorAll('img[data-img]').forEach((img) => {
       img.src = img.dataset.img.replace('|', '');
+    });
+
+    const heroData = {
+      'used-car': {
+        title: '좋은 차를 찾는 가장 빠른 방법',
+        copy: '보배드림에서 내 조건에 맞는 중고차를 바로 찾아보세요.',
+        image: './hero-types/used-car.jpg',
+        count: '404,717대 매물 보기'
+      },
+      bike: {
+        title: '라이딩을 시작할 바이크 찾기',
+        copy: '스쿠터부터 대형 바이크까지 원하는 조건으로 탐색하세요.',
+        image: './hero-types/bike.jpg',
+        count: '18,240대 매물 보기'
+      },
+      trailer: {
+        title: '캠핑과 이동을 위한 트레일러',
+        copy: '카라반, 트레일러, 캠핑 장비형 매물을 한 번에 확인하세요.',
+        image: './hero-types/trailer.jpg',
+        count: '7,820대 매물 보기'
+      },
+      commercial: {
+        title: '일을 움직이는 상용차 찾기',
+        copy: '화물, 특장, 밴, 업무용 차량을 목적에 맞게 찾아보세요.',
+        image: './hero-types/commercial.jpg',
+        count: '36,910대 매물 보기'
+      }
+    };
+
+    const hero = document.querySelector('[data-hero]');
+    const heroTitle = document.querySelector('[data-hero-title]');
+    const heroCopy = document.querySelector('[data-hero-copy]');
+    const cta = document.querySelector('.cta');
+
+    document.querySelectorAll('[data-vehicle-type]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const data = heroData[button.dataset.vehicleType];
+        if (!data) return;
+        document.querySelectorAll('[data-vehicle-type]').forEach((item) => item.classList.remove('active'));
+        button.classList.add('active');
+        hero.style.setProperty('--hero-bg', `url("${data.image}")`);
+        heroTitle.textContent = data.title;
+        heroCopy.textContent = data.copy;
+        cta.textContent = data.count;
+      });
     });
   </script>
 
