@@ -189,7 +189,7 @@
       border: 1px solid #cfd3d9;
       border-radius: 4px;
       background: #fff;
-      padding: 0 13px;
+      padding: 0 15px 0 17px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -200,21 +200,8 @@
       letter-spacing: -.035em;
     }
 
-    .select-field label {
-      position: absolute;
-      left: 12px;
-      top: -11px;
-      padding: 0 6px;
-      background: #fff;
-      color: #575b63;
-      font-size: 15px;
-      line-height: 1;
-      font-weight: 650;
-      letter-spacing: -.035em;
-    }
 
     .select-field.muted { color: #b5bac2; border-color: #e2e5e9; }
-    .select-field.muted label { color: #b7bcc4; }
 
     .select-value { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
@@ -482,10 +469,10 @@
       </div>
       <div class="search-form">
         <div class="row-2">
-          <button class="select-field" type="button"><label>제조사</label><span class="select-value">전체 제조사</span><span class="chevron" aria-hidden="true"></span></button>
-          <button class="select-field muted" type="button"><label>모델</label><span class="select-value">전체 모델</span><span class="chevron" aria-hidden="true"></span></button>
+          <button class="select-field" type="button"><span class="select-value">제조사 선택</span><span class="chevron" aria-hidden="true"></span></button>
+          <button class="select-field muted" type="button"><span class="select-value">모델 선택</span><span class="chevron" aria-hidden="true"></span></button>
         </div>
-        <button class="select-field" type="button"><label>지역</label><span class="select-value">전국</span><span class="chevron" aria-hidden="true"></span></button>
+        <button class="select-field" type="button"><span class="select-value">전국</span><span class="chevron" aria-hidden="true"></span></button>
         <button class="cta" type="button">404,717대 매물 보기</button>
         <button class="advanced-link" type="button">상세 필터</button>
       </div>
