@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>보배드림 승용 바디타입 캐러셀</title>
+  <style>
+    :root {
+      --blue: #0878ff;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #e6eaf0;
+      --soft: #f5f7fa;
+      --thumb-w: 19vw;
+      --thumb-max: 78px;
+      --thumb-h: 54px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: #eef2f6;
+      font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Sans KR", "Segoe UI", sans-serif;
+      color: var(--ink);
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+    }
+
+    .phone {
+      width: min(100vw, 430px);
+      min-height: 100vh;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 18px 60px rgba(15, 23, 42, 0.12);
+    }
+
+    .topbar {
+      height: 56px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .brand {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: #0f223d;
+    }
+
+    .top-icons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: #111827;
+    }
+
+    .icon {
+      width: 26px;
+      height: 26px;
+      display: inline-block;
+    }
+
+    .hero {
+      padding: 28px 20px 26px;
+      border-bottom: 8px solid var(--soft);
+      background: #fff;
+    }
+
+    .headline {
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.12;
+      font-weight: 900;
+      letter-spacing: -0.055em;
+    }
+
+    .sub {
+      margin: 8px 0 22px;
+      font-size: 15px;
+      line-height: 1.5;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: -0.025em;
+    }
+
+    .search {
+      height: 54px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 16px;
+      border: 1px solid #d8dee8;
+      border-radius: 17px;
+      color: #98a2b3;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .filter-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .filter {
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border: 1px solid #d8dee8;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      white-space: nowrap;
+    }
+
+    .cta {
+      width: 100%;
+      height: 52px;
+      margin-top: 14px;
+      border: 0;
+      border-radius: 18px;
+      background: var(--blue);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      box-shadow: 0 8px 16px rgba(8, 120, 255, 0.18);
+    }
+
+    .promo {
+      position: relative;
+      min-height: 124px;
+      padding: 26px 20px;
+      overflow: hidden;
+      border-bottom: 8px solid var(--soft);
+      background:
+        linear-gradient(90deg, rgba(239, 247, 255, 0.96) 0%, rgba(239, 247, 255, 0.88) 48%, rgba(239, 247, 255, 0.25) 100%),
+        linear-gradient(135deg, #e5f1ff, #ffffff);
+    }
+
+    .promo h2 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      width: 58%;
+      font-size: 25px;
+      line-height: 1.12;
+      font-weight: 950;
+      letter-spacing: -0.055em;
+      color: #0f2a4c;
+    }
+
+    .promo p {
+      position: relative;
+      z-index: 1;
+      margin: 8px 0 0;
+      width: 64%;
+      font-size: 13px;
+      font-weight: 700;
+      color: #42526b;
+      letter-spacing: -0.03em;
+    }
+
+    .promo-car {
+      position: absolute;
+      right: -42px;
+      bottom: -4px;
+      width: 220px;
+      height: 120px;
+      opacity: 0.92;
+    }
+
+    .section {
+      padding: 26px 0 24px;
+      border-bottom: 8px solid var(--soft);
+      background: #fff;
+    }
+
+    .section-head {
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 25px;
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: -0.055em;
+    }
+
+    .see-all {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: #667085;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .body-carousel {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
+      padding: 0 20px 2px;
+      scrollbar-width: none;
+    }
+
+    .body-carousel::-webkit-scrollbar { display: none; }
+
+    .body-type {
+      flex: 0 0 19%;
+      max-width: 82px;
+      min-width: 68px;
+      scroll-snap-align: start;
+      text-align: center;
+    }
+
+    .vehicle-box {
+      width: min(var(--thumb-w), var(--thumb-max));
+      height: var(--thumb-h);
+      margin: 0 auto 8px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .vehicle {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      filter: drop-shadow(0 5px 5px rgba(15, 23, 42, 0.16));
+    }
+
+    .body-label {
+      display: block;
+      font-size: 14px;
+      line-height: 1.12;
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      white-space: nowrap;
+    }
+
+    .brand-carousel {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      padding: 0 20px 2px;
+      scrollbar-width: none;
+    }
+
+    .brand-carousel::-webkit-scrollbar { display: none; }
+
+    .brand-item {
+      flex: 0 0 74px;
+      text-align: center;
+    }
+
+    .brand-mark {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 8px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #f2f4f7;
+      color: #667085;
+      font-size: 19px;
+      font-weight: 950;
+    }
+
+    .brand-label {
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: -0.045em;
+      white-space: nowrap;
+    }
+
+    .note {
+      padding: 18px 20px 26px;
+      color: #667085;
+      font-size: 12px;
+      line-height: 1.55;
+      letter-spacing: -0.02em;
+      background: #fff;
+    }
+
+    @media (min-width: 431px) {
+      .phone {
+        margin: 24px 0;
+        border-radius: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="phone" aria-label="보배드림 승용 바디타입 프로토타입">
+    <header class="topbar">
+      <div class="brand">보배드림</div>
+      <div class="top-icons" aria-hidden="true">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" />
+          <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+        </svg>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1 class="headline">중고차 검색</h1>
+      <p class="sub">좋은 차는 좋은 사람을 만듭니다.</p>
+      <div class="search" role="search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#475467" stroke-width="2.2" stroke-linecap="round">
+          <circle cx="10.5" cy="10.5" r="6.5" />
+          <path d="m16 16 4.2 4.2" />
+        </svg>
+        제조사, 모델명 검색
+      </div>
+      <div class="filter-row" aria-label="빠른 필터">
+        <div class="filter">지역 선택⌄</div>
+        <div class="filter">가격대⌄</div>
+        <div class="filter">연식⌄</div>
+      </div>
+      <button class="cta">매물 보기</button>
+    </section>
+
+    <section class="promo">
+      <h2>좋은 차가<br />좋은 일상을 만듭니다.</h2>
+      <p>보배드림과 함께, 더 나은 드라이빙 라이프</p>
+      <svg class="promo-car" viewBox="0 0 360 180" aria-hidden="true">
+        <defs>
+          <linearGradient id="carGrad" x1="0" x2="1">
+            <stop stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#d9e2ec"/>
+          </linearGradient>
+        </defs>
+        <path d="M38 116c10-33 50-56 104-60h80c36 4 68 25 85 58l21 8v20H20v-16l18-10Z" fill="url(#carGrad)" stroke="#b9c4d0" stroke-width="3"/>
+        <path d="M128 62h86c26 7 47 26 58 48H92c9-23 20-39 36-48Z" fill="#b8cce0" opacity=".7"/>
+        <circle cx="92" cy="142" r="25" fill="#1f2937"/>
+        <circle cx="270" cy="142" r="25" fill="#1f2937"/>
+        <circle cx="92" cy="142" r="11" fill="#cbd5e1"/>
+        <circle cx="270" cy="142" r="11" fill="#cbd5e1"/>
+      </svg>
+    </section>
+
+    <section class="section" aria-labelledby="body-title">
+      <div class="section-head">
+        <h2 class="section-title" id="body-title">승용 바디타입</h2>
+        <div class="see-all">전체보기 ›</div>
+      </div>
+      <div class="body-carousel" aria-label="승용 바디타입 가로 캐러셀">
+        <button class="body-type" type="button" aria-label="경차">
+          <span class="vehicle-box">
+            <svg class="vehicle" viewBox="0 0 160 100" aria-hidden="true">
+              <path d="M20 63c7-18 23-29 48-30h22c20 0 34 10 45 30l10 3v13H13V68l7-5Z" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.4"/>
+              <path d="M57 37h31c15 2 25 10 33 25H43c4-12 8-20 14-25Z" fill="#cbd5e1"/>
+              <circle cx="48" cy="78" r="11" fill="#111827"/><circle cx="120" cy="78" r="11" fill="#111827"/>
+              <circle cx="48" cy="78" r="5" fill="#cbd5e1"/><circle cx="120" cy="78" r="5" fill="#cbd5e1"/>
+            </svg>
+          </span>
+          <span class="body-label">경차</span>
+        </button>
+
+        <button class="body-type" type="button" aria-label="세단">
+          <span class="vehicle-box">
+            <svg class="vehicle" viewBox="0 0 160 100" aria-hidden="true">
+              <path d="M14 66c12-18 35-28 69-31h24c22 4 36 14 47 30l-2 13H8V70l6-4Z" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.4"/>
+              <path d="M62 39h43c15 5 26 13 33 24H37c7-12 15-20 25-24Z" fill="#cbd5e1"/>
+              <circle cx="45" cy="78" r="10" fill="#111827"/><circle cx="124" cy="78" r="10" fill="#111827"/>
+              <circle cx="45" cy="78" r="5" fill="#cbd5e1"/><circle cx="124" cy="78" r="5" fill="#cbd5e1"/>
+            </svg>
+          </span>
+          <span class="body-label">세단</span>
+        </button>
+
+        <button class="body-type" type="button" aria-label="해치백">
+          <span class="vehicle-box">
+            <svg class="vehicle" viewBox="0 0 160 100" aria-hidden="true">
+              <path d="M17 64c9-20 30-30 60-31h23c22 2 36 13 45 31l7 5v9H10V69l7-5Z" fill="#dbeafe" stroke="#9bbce8" stroke-width="2.4"/>
+              <path d="M63 38h37c16 3 27 12 34 25H42c6-13 13-21 21-25Z" fill="#93c5fd"/>
+              <circle cx="48" cy="78" r="10" fill="#111827"/><circle cx="121" cy="78" r="10" fill="#111827"/>
+              <circle cx="48" cy="78" r="5" fill="#cbd5e1"/><circle cx="121" cy="78" r="5" fill="#cbd5e1"/>
+            </svg>
+          </span>
+          <span class="body-label">해치백</span>
+        </button>
+
+        <button class="body-type" type="button" aria-label="왜건">
+          <span class="vehicle-box">
+            <svg class="vehicle" viewBox="0 0 160 100" aria-hidden="true">
+              <path d="M12 65c13-21 34-30 69-31h45c17 4 27 13 33 29l-8 15H7V70l5-5Z" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.4"/>
+              <path d="M60 39h65c13 3 22 12 27 24H36c7-12 15-20 24-24Z" fill="#cbd5e1"/>
+              <circle cx="45" cy="78" r="10" fill="#111827"/><circle cx="126" cy="78" r="10" fill="#111827"/>
+              <circle cx="45" cy="78" r="5" fill="#cbd5e1"/><circle cx="126" cy="78" r="5" fill="#cbd5e1"/>
+            </svg>
+          </span>
+          <span class="body-label">왜건</span>
+        </button>
+
+        <button class="body-type" type="button" aria-label="쿠페">
+          <span class="vehicle-box">
+            <svg class="vehicle" viewBox="0 0 160 100" aria-hidden="true">
+              <path d="M12 67c18-20 42-30 78-31h12c23 4 39 14 52 29l-5 13H8v-8l4-3Z" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.4"/>
+              <path d="M68 41h32c17 4 30 12 39 22H39c8-11 18-18 29-22Z" fill="#cbd5e1"/>
+              <circle cx="45" cy="78" r="10" fill="#111827"/><circle cx="124" cy="78" r="10" fill="#111827"/>
+              <circle cx="45" cy="78" r="5" fill="#cbd5e1"/><circle cx="124" cy="78" r="5" fill="#cbd5e1"/>
+            </svg>
+          </span>
+          <span class="body-label">쿠페</span>
+        </button>
+
+        <button class="body-type" type="button" aria-label="컨버터블">
+          <span class="vehicle-box">
+            <svg class="vehicle" viewBox="0 0 160 100" aria-hidden="true">
+              <path d="M13 68c17-18 42-26 75-27h18c22 4 38 12 49 25l-5 12H8v-7l5-3Z" fill="#fee2e2" stroke="#fca5a5" stroke-width="2.4"/>
+              <path d="M63 50h24m12-1h18" stroke="#1f2937" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="45" cy="78" r="10" fill="#111827"/><circle cx="124" cy="78" r="10" fill="#111827"/>
+              <circle cx="45" cy="78" r="5" fill="#cbd5e1"/><circle cx="124" cy="78" r="5" fill="#cbd5e1"/>
+            </svg>
+          </span>
+          <span class="body-label">컨버터블</span>
+        </button>
+
+        <button class="body-type" type="button" aria-label="SUV">
+          <span class="vehicle-box">
+            <svg class="vehicle" viewBox="0 0 160 100" aria-hidden="true">
+              <path d="M16 61c10-22 32-34 63-35h32c22 4 35 16 43 34l2 18H9V68l7-7Z" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.4"/>
+              <path d="M60 32h50c16 4 27 14 33 28H38c6-14 14-23 22-28Z" fill="#cbd5e1"/>
+              <circle cx="47" cy="78" r="11" fill="#111827"/><circle cx="124" cy="78" r="11" fill="#111827"/>
+              <circle cx="47" cy="78" r="5" fill="#cbd5e1"/><circle cx="124" cy="78" r="5" fill="#cbd5e1"/>
+            </svg>
+          </span>
+          <span class="body-label">SUV</span>
+        </button>
+
+        <button class="body-type" type="button" aria-label="RV·MPV">
+          <span class="vehicle-box">
+            <svg class="vehicle" viewBox="0 0 160 100" aria-hidden="true">
+              <path d="M18 58c10-21 27-32 52-33h50c18 2 29 13 36 32v21H10V66l8-8Z" fill="#e0f2fe" stroke="#93c5fd" stroke-width="2.4"/>
+              <path d="M55 31h62c14 2 24 12 29 27H36c5-13 11-22 19-27Z" fill="#bae6fd"/>
+              <circle cx="48" cy="78" r="11" fill="#111827"/><circle cx="124" cy="78" r="11" fill="#111827"/>
+              <circle cx="48" cy="78" r="5" fill="#cbd5e1"/><circle cx="124" cy="78" r="5" fill="#cbd5e1"/>
+            </svg>
+          </span>
+          <span class="body-label">RV·MPV</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="brand-title">
+      <div class="section-head">
+        <h2 class="section-title" id="brand-title">인기 제조사</h2>
+        <div class="see-all">전체보기 ›</div>
+      </div>
+      <div class="brand-carousel" aria-label="인기 제조사 가로 캐러셀">
+        <div class="brand-item"><div class="brand-mark">H</div><div class="brand-label">현대</div></div>
+        <div class="brand-item"><div class="brand-mark">K</div><div class="brand-label">기아</div></div>
+        <div class="brand-item"><div class="brand-mark">G</div><div class="brand-label">제네시스</div></div>
+        <div class="brand-item"><div class="brand-mark">R</div><div class="brand-label">르노코리아</div></div>
+        <div class="brand-item"><div class="brand-mark">KGM</div><div class="brand-label">KGM</div></div>
+      </div>
+    </section>
+
+    <p class="note">
+      실측 기준: 오토트레이더 모바일 캡처의 바디타입 차량 썸네일은 화면 폭의 약 18~20% 수준입니다.
+      이 프로토타입은 대형 카드 UI를 사용하지 않고, 같은 비율의 작은 차량 컷아웃 캐러셀로 고정했습니다.
+    </p>
+  </main>
+</body>
+</html>
