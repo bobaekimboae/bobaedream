@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>보배드림 시안 2 - 노란 검색형 모바일 메인</title>
+  <title>보배드림 시안 2 - 노란 검색형 모바일 앱 메인</title>
   <style>
     :root {
       --yellow: #ffd400;
@@ -18,17 +18,17 @@
     }
 
     * { box-sizing: border-box; }
-    html, body { margin: 0; min-height: 100%; background: var(--page); color: var(--ink); }
+    html, body { margin: 0; width: 100%; min-height: 100%; overflow-x: hidden; background: var(--page); color: var(--ink); }
     body { display: block; }
     button, input { font: inherit; }
     button { border: 0; background: none; color: inherit; padding: 0; }
 
     .phone {
       position: relative;
-      width: 100vw;
+      width: 100%;
       min-height: 100dvh;
       background: var(--page);
-      overflow: hidden;
+      overflow-x: hidden;
       box-shadow: none;
     }
 
@@ -337,10 +337,11 @@
     }
 
     .bottom-nav {
-      position: absolute;
+      position: fixed;
       left: 0;
       right: 0;
       bottom: 0;
+      z-index: 30;
       height: 74px;
       padding: 6px 14px max(env(safe-area-inset-bottom), 6px);
       background: rgba(255,255,255,.97);
@@ -412,7 +413,7 @@
   </style>
 </head>
 <body>
-  <main class="phone" aria-label="보배드림 노란 검색형 모바일 메인 시안 2">
+  <main class="phone" aria-label="보배드림 노란 검색형 모바일 앱 메인 시안 2">
     <section class="hero">
       <div class="hero-top">
         <button type="button" aria-label="뒤로가기">‹</button>
