@@ -18,14 +18,14 @@
     }
 
     * { box-sizing: border-box; }
-    html, body { margin: 0; width: 100%; min-height: 100%; overflow-x: hidden; background: var(--page); color: var(--ink); }
-    body { display: block; }
+    html, body { margin: 0; width: 100%; min-height: 100%; overflow-x: hidden; background: #dfe4eb; color: var(--ink); }
+    body { display: flex; justify-content: center; }
     button, input { font: inherit; }
     button { border: 0; background: none; color: inherit; padding: 0; }
 
     .phone {
       position: relative;
-      width: 100%;
+      width: min(100%, 430px);
       min-height: 100dvh;
       background: var(--page);
       overflow-x: hidden;
@@ -338,10 +338,11 @@
 
     .bottom-nav {
       position: fixed;
-      left: 0;
-      right: 0;
+      left: 50%;
       bottom: 0;
       z-index: 30;
+      width: min(100%, 430px);
+      transform: translateX(-50%);
       height: 74px;
       padding: 6px 14px max(env(safe-area-inset-bottom), 6px);
       background: rgba(255,255,255,.97);
