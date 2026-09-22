@@ -15,6 +15,7 @@ final class PublishedConfigurationController extends Controller
     {
         $bundle = $this->configuration->currentBundle();
         abort_if($bundle === null, 503, 'No published release bundle.');
+
         return response()->json(['data' => ['version' => $bundle->version, 'manifest' => $bundle->manifest, 'resolved_hash' => $bundle->manifest_hash]])->setEtag($bundle->manifest_hash);
     }
 
@@ -27,6 +28,7 @@ final class PublishedConfigurationController extends Controller
     {
         $schema = $this->configuration->registrationSchema($categoryNode);
         abort_if($schema === null, 404, 'No published schema for this category.');
+
         return response()->json(['data' => $schema]);
     }
 }

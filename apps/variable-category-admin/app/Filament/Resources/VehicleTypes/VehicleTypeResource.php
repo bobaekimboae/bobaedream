@@ -18,9 +18,15 @@ use Filament\Tables\Table;
 final class VehicleTypeResource extends Resource
 {
     protected static ?string $model = VehicleType::class;
+
     protected static ?string $modelLabel = '차량유형';
+
     protected static ?string $pluralModelLabel = '차량유형';
-    public static function getNavigationGroup(): ?string { return '분류 설계'; }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return '분류 설계';
+    }
 
     public static function form(Schema $schema): Schema
     {

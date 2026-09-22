@@ -64,6 +64,7 @@ final class ReleaseBundlePublisher
             $pointer->save();
             $this->auditLogger->record($actorId, 'ROLLBACK', ReleasePointer::class, $scope, $before, $pointer->toArray());
             Cache::forget("release-bundle:{$scope}");
+
             return $pointer;
         }, attempts: 3);
     }

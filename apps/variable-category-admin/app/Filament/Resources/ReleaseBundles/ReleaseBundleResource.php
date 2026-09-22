@@ -7,8 +7,8 @@ use App\Filament\Resources\ReleaseBundles\Pages\EditReleaseBundle;
 use App\Filament\Resources\ReleaseBundles\Pages\ListReleaseBundles;
 use App\Models\ReleaseBundle;
 use Filament\Forms\Components\Hidden;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
@@ -17,9 +17,15 @@ use Filament\Tables\Table;
 final class ReleaseBundleResource extends Resource
 {
     protected static ?string $model = ReleaseBundle::class;
+
     protected static ?string $modelLabel = 'Release Bundle';
+
     protected static ?string $pluralModelLabel = 'Release Center';
-    public static function getNavigationGroup(): ?string { return '배포'; }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return '배포';
+    }
 
     public static function form(Schema $schema): Schema
     {
@@ -32,10 +38,12 @@ final class ReleaseBundleResource extends Resource
             Hidden::make('created_by')->default(fn (): ?int => auth()->id()),
             Hidden::make('manifest_hash')->dehydrateStateUsing(function (mixed $state, callable $get): string {
                 $manifest = $get('manifest');
+
                 return hash('sha256', json_encode($manifest, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR));
             }),
         ]);
     }
+
     public static function table(Table $table): Table
     {
         return $table->columns([
@@ -46,5 +54,9 @@ final class ReleaseBundleResource extends Resource
             TextColumn::make('published_at')->label('배포')->dateTime('Y-m-d H:i'),
         ])->defaultSort('created_at', 'desc');
     }
-    public static function getPages(): array { return ['index' => ListReleaseBundles::route('/'), 'create' => CreateReleaseBundle::route('/create'), 'edit' => EditReleaseBundle::route('/{record}/edit')]; }
+
+    public static function getPages(): array
+    {
+        return ['index' => ListReleaseBundles::route('/'), 'create' => CreateReleaseBundle::route('/create'), 'edit' => EditReleaseBundle::route('/{record}/edit')];
+    }
 }

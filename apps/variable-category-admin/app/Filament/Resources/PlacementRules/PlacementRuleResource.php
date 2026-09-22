@@ -7,8 +7,8 @@ use App\Filament\Resources\PlacementRules\Pages\EditPlacementRule;
 use App\Filament\Resources\PlacementRules\Pages\ListPlacementRules;
 use App\Models\PlacementRule;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
@@ -17,9 +17,15 @@ use Filament\Tables\Table;
 final class PlacementRuleResource extends Resource
 {
     protected static ?string $model = PlacementRule::class;
+
     protected static ?string $modelLabel = '노출 규칙';
+
     protected static ?string $pluralModelLabel = '노출 규칙';
-    public static function getNavigationGroup(): ?string { return '노출 정책'; }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return '노출 정책';
+    }
 
     public static function form(Schema $schema): Schema
     {
@@ -34,6 +40,7 @@ final class PlacementRuleResource extends Resource
             Select::make('breaking_change')->options(['NONE' => '없음', 'BACKWARD_COMPATIBLE' => '호환', 'BREAKING' => 'Breaking'])->default('NONE')->required(),
         ]);
     }
+
     public static function table(Table $table): Table
     {
         return $table->columns([
@@ -45,5 +52,9 @@ final class PlacementRuleResource extends Resource
             TextColumn::make('updated_at')->label('수정일')->dateTime('Y-m-d H:i'),
         ]);
     }
-    public static function getPages(): array { return ['index' => ListPlacementRules::route('/'), 'create' => CreatePlacementRule::route('/create'), 'edit' => EditPlacementRule::route('/{record}/edit')]; }
+
+    public static function getPages(): array
+    {
+        return ['index' => ListPlacementRules::route('/'), 'create' => CreatePlacementRule::route('/create'), 'edit' => EditPlacementRule::route('/{record}/edit')];
+    }
 }

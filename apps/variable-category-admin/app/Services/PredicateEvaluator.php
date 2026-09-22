@@ -9,8 +9,8 @@ final class PredicateEvaluator
     private const OPERATORS = ['eq', 'neq', 'in', 'not_in', 'gte', 'lte', 'exists', 'and', 'or', 'not'];
 
     /**
-     * @param array<string, mixed> $predicate
-     * @param array<string, mixed> $context
+     * @param  array<string, mixed>  $predicate
+     * @param  array<string, mixed>  $context
      */
     public function matches(array $predicate, array $context): bool
     {
@@ -25,6 +25,7 @@ final class PredicateEvaluator
                 throw new InvalidArgumentException('Boolean predicate requires rules.');
             }
             $results = array_map(fn (mixed $child): bool => is_array($child) && $this->matches($child, $context), $children);
+
             return $operator === 'and' ? ! in_array(false, $results, true) : in_array(true, $results, true);
         }
 
@@ -33,6 +34,7 @@ final class PredicateEvaluator
             if (! is_array($child)) {
                 throw new InvalidArgumentException('Not predicate requires one rule.');
             }
+
             return ! $this->matches($child, $context);
         }
 

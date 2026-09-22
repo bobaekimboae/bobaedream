@@ -18,9 +18,15 @@ use Filament\Tables\Table;
 final class PlacementResource extends Resource
 {
     protected static ?string $model = Placement::class;
+
     protected static ?string $modelLabel = '노출 위치';
+
     protected static ?string $pluralModelLabel = '노출 위치';
-    public static function getNavigationGroup(): ?string { return '노출 정책'; }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return '노출 정책';
+    }
 
     public static function form(Schema $schema): Schema
     {
@@ -32,6 +38,7 @@ final class PlacementResource extends Resource
             Toggle::make('is_active')->label('사용')->default(true),
         ]);
     }
+
     public static function table(Table $table): Table
     {
         return $table->columns([
@@ -42,5 +49,9 @@ final class PlacementResource extends Resource
             IconColumn::make('is_active')->label('사용')->boolean(),
         ]);
     }
-    public static function getPages(): array { return ['index' => ListPlacements::route('/'), 'create' => CreatePlacement::route('/create'), 'edit' => EditPlacement::route('/{record}/edit')]; }
+
+    public static function getPages(): array
+    {
+        return ['index' => ListPlacements::route('/'), 'create' => CreatePlacement::route('/create'), 'edit' => EditPlacement::route('/{record}/edit')];
+    }
 }

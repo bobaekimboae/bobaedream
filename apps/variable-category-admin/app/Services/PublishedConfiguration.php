@@ -15,6 +15,7 @@ final class PublishedConfiguration
     {
         return Cache::remember("release-bundle:{$scope}", (int) env('RELEASE_CACHE_TTL', 300), function () use ($scope): ?ReleaseBundle {
             $id = ReleasePointer::query()->whereKey($scope)->value('current_release_bundle_id');
+
             return $id ? ReleaseBundle::query()->whereKey($id)->where('status', 'PUBLISHED')->first() : null;
         });
     }

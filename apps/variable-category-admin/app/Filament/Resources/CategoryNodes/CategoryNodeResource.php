@@ -19,9 +19,15 @@ use Filament\Tables\Table;
 final class CategoryNodeResource extends Resource
 {
     protected static ?string $model = CategoryNode::class;
+
     protected static ?string $modelLabel = '카테고리';
+
     protected static ?string $pluralModelLabel = '카테고리 트리';
-    public static function getNavigationGroup(): ?string { return '분류 설계'; }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return '분류 설계';
+    }
 
     public static function form(Schema $schema): Schema
     {

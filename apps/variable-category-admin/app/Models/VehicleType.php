@@ -13,6 +13,14 @@ final class VehicleType extends Model
     use SoftDeletes;
 
     protected $fillable = ['system_key', 'name_ko', 'name_en', 'namespace', 'is_active', 'sort_order'];
-    protected function casts(): array { return ['is_active' => 'boolean']; }
-    public function categoryNodes(): HasMany { return $this->hasMany(CategoryNode::class); }
+
+    protected function casts(): array
+    {
+        return ['is_active' => 'boolean'];
+    }
+
+    public function categoryNodes(): HasMany
+    {
+        return $this->hasMany(CategoryNode::class);
+    }
 }
