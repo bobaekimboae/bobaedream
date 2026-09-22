@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\PlacementRules;
 
+use App\Domain\Category\Enums\ReleaseStatus;
 use App\Filament\Resources\PlacementRules\Pages\CreatePlacementRule;
 use App\Filament\Resources\PlacementRules\Pages\EditPlacementRule;
 use App\Filament\Resources\PlacementRules\Pages\ListPlacementRules;
@@ -36,7 +37,7 @@ final class PlacementRuleResource extends Resource
             Textarea::make('predicate')->label('Search Predicate Contract JSON')->required()->json()->rows(12)
                 ->dehydrateStateUsing(fn (string|array $state): array => is_array($state) ? $state : json_decode($state, true, 512, JSON_THROW_ON_ERROR))
                 ->formatStateUsing(fn (mixed $state): string => json_encode($state, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR)),
-            Select::make('status')->options(['DRAFT' => 'Draft', 'QA_APPROVED' => 'QA 승인', 'PUBLISHED' => 'Published', 'ROLLED_BACK' => 'Rollback'])->default('DRAFT')->disabled(fn (?PlacementRule $record): bool => $record !== null && $record->status === \App\Domain\Category\Enums\ReleaseStatus::Published),
+            Select::make('status')->options(['DRAFT' => 'Draft', 'QA_APPROVED' => 'QA 승인', 'PUBLISHED' => 'Published', 'ROLLED_BACK' => 'Rollback'])->default('DRAFT')->disabled(fn (?PlacementRule $record): bool => $record !== null && $record->status === ReleaseStatus::Published),
             Select::make('breaking_change')->options(['NONE' => '없음', 'BACKWARD_COMPATIBLE' => '호환', 'BREAKING' => 'Breaking'])->default('NONE')->required(),
         ]);
     }
