@@ -33,8 +33,20 @@ test('public admin demo exposes the production operations model', () => {
     assert.match(html, new RegExp(label));
   }
 
-  for (const code of ['CAR', 'BIKE', 'TRUCK_SPECIAL', 'BUS', 'CAMPING_CARAVAN', 'CONSTRUCTION', 'FORKLIFT_LOGISTICS', 'AGRICULTURE', 'TRAILER', 'BOAT_PWC', 'ATV_UTV', 'E_BIKE', 'CONTAINER_MOBILE_HOME']) {
-    assert.match(script, new RegExp(`code: "${code}"`));
+  for (const code of ['CAR', 'BIKE', 'TRUCK_SPECIAL', 'BUS', 'CAMPING_CARAVAN', 'CONSTRUCTION', 'MATERIAL_HANDLING']) {
+    assert.match(script, new RegExp(`code: "${code}".*namespace: "VEHICLE_TYPE"`));
+  }
+
+  for (const code of ['ATTACHMENT', 'PARTS_GOODS']) {
+    assert.match(script, new RegExp(`code: "${code}".*namespace: "ASSET_TYPE"`));
+  }
+
+  for (const legacyCode of ['FORKLIFT_LOGISTICS', 'AGRICULTURE', 'TRAILER', 'BOAT_PWC', 'ATV_UTV', 'E_BIKE', 'CONTAINER_MOBILE_HOME']) {
+    assert.doesNotMatch(script, new RegExp(`code: "${legacyCode}"`));
+  }
+
+  for (const policyKey of ['filter', 'registration', 'list', 'detail', 'option', 'seller', 'product', 'makers', 'qa', 'platform']) {
+    assert.match(script, new RegExp(`"${policyKey}"`));
   }
 
   assert.match(script, /READ_ONLY SHADOW/);
