@@ -1,20 +1,17 @@
 const vehicleTypes = [
-  { code: "CAR", name: "중고차", icon: "directions_car", phase: "P1_LAUNCH", category: "done", placement: "done", filter: "done", registration: "done", list: "done", detail: "done", makers: "done", seller: "done", product: "review", release: "current" },
-  { code: "BIKE", name: "바이크", icon: "two_wheeler", phase: "P1_LAUNCH", category: "done", placement: "done", filter: "done", registration: "review", list: "done", detail: "done", makers: "done", seller: "done", product: "done", release: "current" },
-  { code: "TRUCK_SPECIAL", name: "트럭·특장", icon: "local_shipping", phase: "P1_LAUNCH", category: "done", placement: "done", filter: "review", registration: "done", list: "done", detail: "done", makers: "done", seller: "review", product: "done", release: "candidate" },
-  { code: "BUS", name: "버스", icon: "directions_bus", phase: "P1_LAUNCH", category: "done", placement: "done", filter: "done", registration: "done", list: "done", detail: "done", makers: "review", seller: "done", product: "done", release: "current" },
-  { code: "CAMPING_CARAVAN", name: "캠핑카·카라반", icon: "airport_shuttle", phase: "P1_LAUNCH", category: "done", placement: "review", filter: "done", registration: "done", list: "done", detail: "done", makers: "done", seller: "done", product: "review", release: "candidate" },
-  { code: "CONSTRUCTION", name: "건설기계", icon: "construction", phase: "P1_LAUNCH", category: "done", placement: "done", filter: "done", registration: "done", list: "review", detail: "done", makers: "done", seller: "done", product: "done", release: "current" },
-  { code: "FORKLIFT_LOGISTICS", name: "지게차·물류장비", icon: "forklift", phase: "P2_BETA", category: "done", placement: "done", filter: "review", registration: "done", list: "done", detail: "done", makers: "done", seller: "done", product: "missing", release: "candidate" },
-  { code: "AGRICULTURE", name: "농기계", icon: "agriculture", phase: "P2_BETA", category: "done", placement: "review", filter: "done", registration: "done", list: "done", detail: "missing", makers: "review", seller: "done", product: "done", release: "draft" },
-  { code: "TRAILER", name: "트레일러", icon: "rv_hookup", phase: "P2_BETA", category: "done", placement: "done", filter: "missing", registration: "review", list: "done", detail: "done", makers: "hold", seller: "done", product: "missing", release: "draft" },
-  { code: "BOAT_PWC", name: "보트·수상레저", icon: "directions_boat", phase: "P2_BETA", category: "done", placement: "done", filter: "done", registration: "done", list: "review", detail: "done", makers: "done", seller: "missing", product: "done", release: "candidate" },
-  { code: "ATV_UTV", name: "ATV·UTV", icon: "sports_motorsports", phase: "P3_PLAN", category: "done", placement: "review", filter: "missing", registration: "missing", list: "done", detail: "review", makers: "done", seller: "done", product: "done", release: "draft" },
-  { code: "E_BIKE", name: "전기자전거", icon: "electric_bike", phase: "P3_PLAN", category: "done", placement: "done", filter: "review", registration: "done", list: "done", detail: "done", makers: "done", seller: "done", product: "missing", release: "draft" },
-  { code: "CONTAINER_MOBILE_HOME", name: "컨테이너·이동식주택", icon: "home_work", phase: "P3_PLAN", category: "review", placement: "missing", filter: "done", registration: "done", list: "review", detail: "done", makers: "hold", seller: "done", product: "done", release: "draft" }
+  { code: "CAR", name: "중고차", namespace: "VEHICLE_TYPE", icon: "directions_car", phase: "P1_LAUNCH", category: "done", placement: "done", filter: "done", registration: "done", list: "done", detail: "done", option: "hold", seller: "done", product: "done", makers: "done", qa: "done", platform: "done", release: "current" },
+  { code: "BIKE", name: "바이크", namespace: "VEHICLE_TYPE", icon: "two_wheeler", phase: "P1_LAUNCH", category: "done", placement: "done", filter: "done", registration: "done", list: "done", detail: "done", option: "done", seller: "done", product: "done", makers: "done", qa: "done", platform: "done", release: "current" },
+  { code: "TRUCK_SPECIAL", name: "트럭·특장", namespace: "VEHICLE_TYPE", icon: "local_shipping", phase: "P1_LAUNCH", category: "done", placement: "done", filter: "done", registration: "done", list: "done", detail: "done", option: "done", seller: "done", product: "done", makers: "done", qa: "review", platform: "done", release: "candidate" },
+  { code: "BUS", name: "버스", namespace: "VEHICLE_TYPE", icon: "directions_bus", phase: "P1_LAUNCH", category: "done", placement: "done", filter: "done", registration: "done", list: "done", detail: "done", option: "done", seller: "done", product: "done", makers: "done", qa: "done", platform: "done", release: "current" },
+  { code: "CAMPING_CARAVAN", name: "캠핑카·카라반", namespace: "VEHICLE_TYPE", icon: "airport_shuttle", phase: "P1_LAUNCH", category: "done", placement: "done", filter: "done", registration: "done", list: "done", detail: "done", option: "done", seller: "done", product: "done", makers: "done", qa: "review", platform: "done", release: "candidate" },
+  { code: "CONSTRUCTION", name: "건설기계", namespace: "VEHICLE_TYPE", icon: "construction", phase: "P1_LAUNCH", category: "done", placement: "done", filter: "done", registration: "done", list: "done", detail: "done", option: "done", seller: "done", product: "done", makers: "done", qa: "done", platform: "review", release: "current" },
+  { code: "MATERIAL_HANDLING", name: "자재운반장비", namespace: "VEHICLE_TYPE", icon: "forklift", phase: "P1_LAUNCH", category: "done", placement: "done", filter: "done", registration: "done", list: "done", detail: "done", option: "hold", seller: "done", product: "done", makers: "done", qa: "review", platform: "done", release: "candidate" },
+  { code: "ATTACHMENT", name: "어태치먼트", namespace: "ASSET_TYPE", icon: "construction", phase: "P1_LAUNCH", category: "done", placement: "done", filter: "done", registration: "done", list: "done", detail: "done", option: "hold", seller: "done", product: "done", makers: "done", qa: "done", platform: "done", release: "current" },
+  { code: "PARTS_GOODS", name: "부품·용품", namespace: "ASSET_TYPE", icon: "settings", phase: "P1_LAUNCH", category: "done", placement: "done", filter: "done", registration: "done", list: "done", detail: "done", option: "hold", seller: "done", product: "done", makers: "done", qa: "done", platform: "done", release: "current" }
 ];
 
-const policyKeys = ["category", "placement", "filter", "registration", "list", "detail", "makers", "seller", "product"];
+const policyKeys = ["filter", "registration", "list", "detail", "option", "seller", "product", "makers", "qa", "platform"];
+const requiredPolicyKeys = ["filter", "registration", "list", "detail", "seller"];
 const stateMeta = {
   done: { icon: "check_circle", label: "완료" },
   review: { icon: "warning", label: "검수" },
@@ -23,49 +20,67 @@ const stateMeta = {
 };
 
 const queueRows = [
-  ["high", "긴급", "트레일러 필터 스키마 누락", "TRAILER", "1,248건", "박서윤", "2시간", "스키마 작성"],
-  ["high", "긴급", "BOAT_PWC 판매자 정책 미설정", "BOAT_PWC", "386건", "이현우", "4시간", "정책 연결"],
-  ["mid", "주의", "농기계 상세 필드 검수 지연", "AGRICULTURE", "729건", "정하늘", "오늘", "QA 검수"],
+  ["mid", "주의", "트럭·특장 QA 체크리스트 승인 대기", "TRUCK_SPECIAL", "1,248건", "박서윤", "오늘", "QA 승인"],
+  ["mid", "주의", "캠핑카 플랫폼별 상세 노출 검수", "CAMPING_CARAVAN", "386건", "이현우", "오늘", "플랫폼 확인"],
+  ["low", "정보", "자재운반장비 지게차 양쪽 노출 검수", "MATERIAL_HANDLING", "729건", "정하늘", "내일", "배치 확인"],
   ["mid", "주의", "Legacy 카테고리 매핑 3건 불일치", "CAR 외 2", "12,842건", "오민재", "오늘", "매핑 확인"],
-  ["low", "정보", "릴리스 v1.1.0 사전 스모크 준비", "4개 유형", "14,205건", "김태민", "내일", "체크리스트"]
+  ["low", "정보", "릴리스 v1.1.0 사전 스모크 준비", "9개 유형·자산", "14,205건", "김태민", "내일", "체크리스트"]
 ];
 
 const issueRows = [
-  ["danger", "P0", "PUBLISH_BLOCK", "트레일러 검색 필터가 후보 버전에 없습니다.", "TRAILER · WEB", "박서윤", "12:30", "작업 중"],
-  ["danger", "P0", "POLICY_MISSING", "수상레저 개인 판매자 노출 정책이 없습니다.", "BOAT_PWC · 386건", "이현우", "14:00", "미할당"],
-  ["warning", "P1", "SCHEMA_REVIEW", "농기계 상세 필드 2개가 QA 승인을 기다립니다.", "AGRICULTURE", "정하늘", "오늘", "검수 대기"],
+  ["warning", "P1", "QA_REVIEW", "트럭·특장 개발 완료 판정 체크리스트가 QA 승인을 기다립니다.", "TRUCK_SPECIAL", "박서윤", "오늘", "검수 대기"],
+  ["warning", "P1", "PLATFORM_DIFF", "캠핑카 모바일 상세 노출 순서 검수가 필요합니다.", "CAMPING_CARAVAN", "이현우", "오늘", "검수 대기"],
+  ["info", "P2", "DUAL_PLACEMENT", "지게차가 건설기계와 자재운반장비 양쪽에 노출되는지 확인합니다.", "MATERIAL_HANDLING", "정하늘", "내일", "예정"],
   ["warning", "P1", "MAPPING_MISMATCH", "기존 category_id 매핑 결과가 계약과 다릅니다.", "Legacy Adapter · 3건", "오민재", "오늘", "원인 분석"],
-  ["info", "P2", "RELEASE_READY", "v1.1.0 후보 번들의 사전 스모크를 준비합니다.", "4개 차량유형", "김태민", "내일", "예정"]
+  ["info", "P2", "RELEASE_READY", "v1.1.0 후보 번들의 사전 스모크를 준비합니다.", "9개 유형·자산", "김태민", "내일", "예정"]
 ];
 
 const categoryTrees = {
   CAR: [
     [0, "중고차", "CAR_ROOT", false], [1, "국산차", "CAR_DOMESTIC", false], [2, "승용차", "CAR_DOMESTIC_SEDAN", true], [2, "SUV·RV", "CAR_DOMESTIC_SUV", true], [1, "수입차", "CAR_IMPORTED", false], [2, "유럽", "CAR_IMPORTED_EU", true], [2, "미국·일본", "CAR_IMPORTED_ETC", true]
   ],
+  BIKE: [
+    [0, "바이크", "BIKE_ROOT", false], [1, "온로드", "BIKE_ONROAD", false], [2, "스쿠터", "BIKE_SCOOTER", true], [2, "네이키드", "BIKE_NAKED", true], [1, "오프로드", "BIKE_OFFROAD", false], [2, "엔듀로", "BIKE_ENDURO", true], [1, "ATV", "BIKE_ATV", true]
+  ],
   TRUCK_SPECIAL: [
     [0, "트럭·특장", "TRUCK_ROOT", false], [1, "화물", "TRUCK_CARGO", false], [2, "카고", "TRUCK_CARGO_FLAT", true], [2, "윙바디", "TRUCK_CARGO_WING", true], [1, "특장", "TRUCK_SPECIAL", false], [2, "냉동탑", "TRUCK_COLD", true], [2, "크레인", "TRUCK_CRANE", true]
   ],
-  BIKE: [
-    [0, "바이크", "BIKE_ROOT", false], [1, "온로드", "BIKE_ONROAD", false], [2, "스쿠터", "BIKE_SCOOTER", true], [2, "네이키드", "BIKE_NAKED", true], [1, "오프로드", "BIKE_OFFROAD", false], [2, "엔듀로", "BIKE_ENDURO", true]
+  BUS: [
+    [0, "버스", "BUS_ROOT", false], [1, "시내·마을버스", "BUS_CITY", true], [1, "전세·관광버스", "BUS_COACH", true], [1, "미니버스", "BUS_MINI", true]
+  ],
+  CAMPING_CARAVAN: [
+    [0, "캠핑카·카라반", "CAMPING_ROOT", false], [1, "캠핑카", "MOTORHOME", true], [1, "카라반", "CARAVAN", true], [1, "트레일러형", "CAMPING_TRAILER", true]
+  ],
+  CONSTRUCTION: [
+    [0, "건설기계", "CONSTRUCTION_ROOT", false], [1, "굴착기", "EXCAVATOR", true], [1, "로더", "LOADER", true], [1, "지게차 함께 노출", "FORKLIFT_CROSS_PLACEMENT", true], [1, "어태치먼트", "ATTACHMENT_CROSS_PLACEMENT", true]
+  ],
+  MATERIAL_HANDLING: [
+    [0, "자재운반장비", "MATERIAL_HANDLING_ROOT", false], [1, "지게차", "FORKLIFT", true], [1, "고소작업대", "AERIAL_PLATFORM", true], [1, "팔레트 장비", "PALLET_EQUIPMENT", true]
+  ],
+  ATTACHMENT: [
+    [0, "어태치먼트", "ATTACHMENT_ROOT", false], [1, "굴착기 어태치먼트", "EXCAVATOR_ATTACHMENT", true], [1, "버킷", "BUCKET", true], [1, "브레이커", "BREAKER", true]
+  ],
+  PARTS_GOODS: [
+    [0, "부품·용품", "PARTS_ROOT", false], [1, "자동차 부품", "CAR_PARTS", true], [1, "바이크 부품", "BIKE_PARTS", true], [1, "트럭·버스 부품", "TRUCK_BUS_PARTS", true], [1, "건설기계 부품", "CONSTRUCTION_PARTS", true], [1, "캠핑카 용품", "CAMPING_GOODS", true]
   ]
 };
 
 const fields = [
-  ["vehicle.price", "판매가격", "INTEGER", "PRICE_INPUT", "REQUIRED", "전체", "success", "PUBLISHED"],
-  ["car.fuel_type", "연료", "ENUM", "SELECT", "REQUIRED", "중고차", "warning", "QA REVIEW"],
-  ["truck.payload_kg", "적재량", "INTEGER", "UNIT_INPUT", "REQUIRED", "트럭·특장", "success", "PUBLISHED"],
+  ["car.make_id", "제조사", "REFERENCE", "CASCADE_SELECT", "REQUIRED", "중고차", "success", "PUBLISHED"],
+  ["car.fuel_type", "연료·동력", "ENUM", "SELECT", "REQUIRED", "중고차", "success", "PUBLISHED"],
   ["bike.engine_cc", "배기량", "INTEGER", "UNIT_INPUT", "REQUIRED", "바이크", "success", "PUBLISHED"],
-  ["agri.operating_hours", "사용시간", "INTEGER", "UNIT_INPUT", "CONDITIONAL", "농기계", "warning", "QA REVIEW"],
-  ["boat.hull_material", "선체 재질", "ENUM", "RADIO", "OPTIONAL", "보트·수상레저", "neutral", "DRAFT"]
+  ["truck.payload_kg", "적재중량", "INTEGER", "UNIT_INPUT", "REQUIRED", "트럭·특장", "success", "PUBLISHED"],
+  ["construction.operating_hours", "사용시간", "INTEGER", "UNIT_INPUT", "CONDITIONAL", "건설기계", "warning", "QA REVIEW"],
+  ["parts_goods.oem_number", "OEM 번호", "STRING", "TEXT_INPUT", "OPTIONAL", "부품·용품", "success", "PUBLISHED"]
 ];
 
 const schemas = [
   ["중고차", "FILTER", "WEB", "v18", "24", "success", "PUBLISHED", "09-21 18:20"],
-  ["중고차", "REGISTRATION", "ADMIN", "v12", "41", "success", "PUBLISHED", "09-21 17:12"],
-  ["트럭·특장", "FILTER", "WEB", "v7", "19", "warning", "QA_APPROVED", "09-22 09:40"],
-  ["농기계", "DETAIL", "MOBILE_APP", "v3", "17", "warning", "QA_REVIEW", "09-22 08:21"],
-  ["트레일러", "FILTER", "WEB", "—", "0", "danger", "MISSING", "—"],
-  ["보트·수상레저", "LIST_META", "WEB", "v4", "8", "neutral", "DRAFT", "09-21 13:02"]
+  ["중고차", "REGISTRATION_FORM", "ADMIN", "v12", "41", "success", "PUBLISHED", "09-21 17:12"],
+  ["바이크", "OPTION", "ALL", "v4", "2", "success", "PUBLISHED", "09-22 09:10"],
+  ["트럭·특장", "QA_CHECKLIST", "ADMIN", "v1", "8", "warning", "QA_REVIEW", "09-22 09:40"],
+  ["캠핑카·카라반", "PLATFORM_DIFF", "ALL", "v1", "3", "warning", "QA_REVIEW", "09-22 08:21"],
+  ["부품·용품", "MAKE_MODEL", "ADMIN", "v5", "3", "success", "PUBLISHED", "09-21 13:02"]
 ];
 
 const releaseDiff = [
@@ -119,8 +134,9 @@ function renderMatrix() {
   const rows = vehicleTypes.filter((item) => {
     const states = policyKeys.map((key) => item[key]);
     const queryMatch = `${item.name} ${item.code}`.toLowerCase().includes(query);
-    const statusMatch = status === "all" || (status === "missing" && states.includes("missing")) || (status === "review" && states.includes("review")) || (status === "ready" && states.every((value) => value === "done"));
-    const blockedCodes = ["TRAILER", "ATV_UTV", "CONTAINER_MOBILE_HOME"];
+    const requiredStates = requiredPolicyKeys.map((key) => item[key]);
+    const statusMatch = status === "all" || (status === "missing" && states.includes("missing")) || (status === "review" && states.includes("review")) || (status === "ready" && requiredStates.every((value) => value === "done"));
+    const blockedCodes = vehicleTypes.filter((item) => item.qa === "review" || item.platform === "review").map((item) => item.code);
     const summaryMatch = summaryFilter === "all" || (summaryFilter === "missing" && states.includes("missing")) || (summaryFilter === "review" && states.includes("review")) || (summaryFilter === "blocked" && blockedCodes.includes(item.code));
     return queryMatch && statusMatch && summaryMatch && (phase === "all" || item.phase === phase);
   });
@@ -130,10 +146,10 @@ function renderMatrix() {
       <td class="sticky-col"><div class="type-cell"><span class="type-icon"><span class="material-symbols-rounded">${item.icon}</span></span><span><strong>${item.name}</strong><small>${item.code}</small></span></div></td>
       ${policyKeys.map((key) => `<td>${stateCell(item[key])}</td>`).join("")}
       <td><span class="release-tag ${item.release === "current" ? "current" : ""}">${item.release}</span></td>
-    </tr>`).join("") || `<tr><td colspan="11"><div class="empty-state"><span class="material-symbols-rounded">search_off</span>조건에 맞는 차량유형이 없습니다.</div></td></tr>`;
+    </tr>`).join("") || `<tr><td colspan="12"><div class="empty-state"><span class="material-symbols-rounded">search_off</span>조건에 맞는 차량유형이 없습니다.</div></td></tr>`;
 
   document.querySelector("#matrix-count").textContent = `(${rows.length})`;
-  document.querySelector("#matrix-result-count").textContent = `총 ${rows.length}개 차량유형`;
+  document.querySelector("#matrix-result-count").textContent = `총 ${rows.length}개 유형·자산`;
   document.querySelectorAll("#matrix-body tr[data-type]").forEach((row) => {
     const select = () => {
       selectedType = vehicleTypes.find((item) => item.code === row.dataset.type);
@@ -147,13 +163,13 @@ function renderMatrix() {
 }
 
 function selectedGaps() {
-  const label = { category: "카테고리", placement: "배치", filter: "필터", registration: "등록폼", list: "목록", detail: "상세", makers: "제조사·모델", seller: "판매자 정책", product: "상품 정책" };
+  const label = { filter: "필터", registration: "등록폼", list: "목록", detail: "상세", option: "옵션", seller: "판매자", product: "유료상품", makers: "제조사·모델", qa: "QA", platform: "플랫폼차이" };
   return policyKeys.filter((key) => ["missing", "review"].includes(selectedType[key])).map((key) => ({ key, label: label[key], state: selectedType[key] }));
 }
 
 function renderInspector() {
   document.querySelector("#inspector-name").textContent = selectedType.name;
-  document.querySelector("#inspector-code").textContent = `VEHICLE_TYPE · ${selectedType.code}`;
+  document.querySelector("#inspector-code").textContent = `${selectedType.namespace} · ${selectedType.code}`;
   document.querySelector("#inspector-phase").textContent = selectedType.phase;
   document.querySelector("#inspector-icon").textContent = selectedType.icon;
   const gaps = selectedGaps();
@@ -181,7 +197,7 @@ function renderInspector() {
 function renderTypes() {
   const query = document.querySelector("#type-search").value.trim().toLowerCase();
   const rows = vehicleTypes.filter((item) => `${item.name} ${item.code}`.toLowerCase().includes(query));
-  document.querySelector("#types-body").innerHTML = rows.map((item, index) => `<tr><td>${String(index + 1).padStart(2, "0")}</td><td><code>${item.code}</code></td><td><strong>${item.name}</strong></td><td>VEHICLE_TYPE</td><td>${6 + (index % 7)}개</td><td>${badge(item.phase === "P1_LAUNCH" ? "success" : item.phase === "P2_BETA" ? "info" : "neutral", item.phase)}</td><td>${badge("success", "ACTIVE")}</td></tr>`).join("");
+  document.querySelector("#types-body").innerHTML = rows.map((item, index) => `<tr><td>${String(index + 1).padStart(2, "0")}</td><td><code>${item.code}</code></td><td><strong>${item.name}</strong></td><td>${item.namespace}</td><td>${6 + (index % 7)}개</td><td>${badge("success", item.phase)}</td><td>${badge("success", "ACTIVE")}</td></tr>`).join("");
 }
 
 function renderCategoryTree(code = "CAR") {
