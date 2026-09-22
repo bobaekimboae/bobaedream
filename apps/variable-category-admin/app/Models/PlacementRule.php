@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @property array<string, mixed> $predicate
+ * @property ReleaseStatus $status
+ * @property string $system_key
+ * @property int $version
+ * @property-read Placement $placement
+ */
 final class PlacementRule extends Model
 {
     use HasUuids;
@@ -18,6 +25,7 @@ final class PlacementRule extends Model
         return ['predicate' => 'array', 'status' => ReleaseStatus::class];
     }
 
+    /** @return BelongsTo<Placement, $this> */
     public function placement(): BelongsTo
     {
         return $this->belongsTo(Placement::class);

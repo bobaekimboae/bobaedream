@@ -6,6 +6,13 @@ use App\Domain\Category\Enums\ReleaseStatus;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property ReleaseStatus $status
+ * @property string $id
+ * @property string $version
+ * @property string $manifest_hash
+ * @property int|null $qa_approved_by
+ */
 final class ReleaseBundle extends Model
 {
     use HasUuids;

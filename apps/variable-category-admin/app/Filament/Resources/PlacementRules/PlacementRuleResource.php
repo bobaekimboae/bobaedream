@@ -22,7 +22,7 @@ final class PlacementRuleResource extends Resource
 
     protected static ?string $pluralModelLabel = '노출 규칙';
 
-    public static function getNavigationGroup(): ?string
+    public static function getNavigationGroup(): string
     {
         return '노출 정책';
     }
@@ -35,8 +35,8 @@ final class PlacementRuleResource extends Resource
             TextInput::make('version')->numeric()->minValue(1)->default(1)->required(),
             Textarea::make('predicate')->label('Search Predicate Contract JSON')->required()->json()->rows(12)
                 ->dehydrateStateUsing(fn (string|array $state): array => is_array($state) ? $state : json_decode($state, true, 512, JSON_THROW_ON_ERROR))
-                ->formatStateUsing(fn (mixed $state): string => json_encode($state, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)),
-            Select::make('status')->options(['DRAFT' => 'Draft', 'QA_APPROVED' => 'QA 승인', 'PUBLISHED' => 'Published', 'ROLLED_BACK' => 'Rollback'])->default('DRAFT')->disabled(fn (?PlacementRule $record): bool => $record?->status?->value === 'PUBLISHED'),
+                ->formatStateUsing(fn (mixed $state): string => json_encode($state, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR)),
+            Select::make('status')->options(['DRAFT' => 'Draft', 'QA_APPROVED' => 'QA 승인', 'PUBLISHED' => 'Published', 'ROLLED_BACK' => 'Rollback'])->default('DRAFT')->disabled(fn (?PlacementRule $record): bool => $record !== null && $record->status === \App\Domain\Category\Enums\ReleaseStatus::Published),
             Select::make('breaking_change')->options(['NONE' => '없음', 'BACKWARD_COMPATIBLE' => '호환', 'BREAKING' => 'Breaking'])->default('NONE')->required(),
         ]);
     }

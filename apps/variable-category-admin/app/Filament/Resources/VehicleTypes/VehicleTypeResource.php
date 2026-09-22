@@ -23,7 +23,7 @@ final class VehicleTypeResource extends Resource
 
     protected static ?string $pluralModelLabel = '차량유형';
 
-    public static function getNavigationGroup(): ?string
+    public static function getNavigationGroup(): string
     {
         return '분류 설계';
     }

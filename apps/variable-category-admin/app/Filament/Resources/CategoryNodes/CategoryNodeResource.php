@@ -24,7 +24,7 @@ final class CategoryNodeResource extends Resource
 
     protected static ?string $pluralModelLabel = '카테고리 트리';
 
-    public static function getNavigationGroup(): ?string
+    public static function getNavigationGroup(): string
     {
         return '분류 설계';
     }

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'release_cache_ttl' => (int) env('RELEASE_CACHE_TTL', 300),
     'connection' => env('LEGACY_LISTING_CONNECTION', 'legacy'),
     'table' => env('LEGACY_LISTING_TABLE', 'listings'),
     'columns' => [

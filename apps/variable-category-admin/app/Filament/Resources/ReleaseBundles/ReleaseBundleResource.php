@@ -22,7 +22,7 @@ final class ReleaseBundleResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Release Center';
 
-    public static function getNavigationGroup(): ?string
+    public static function getNavigationGroup(): string
     {
         return '배포';
     }
@@ -33,9 +33,13 @@ final class ReleaseBundleResource extends Resource
             TextInput::make('version')->label('버전')->required()->unique(ignoreRecord: true)->disabled(fn (): bool => auth()->user()?->role === 'qa_approver'),
             Textarea::make('manifest')->label('Manifest JSON')->json()->required()->rows(18)->disabled(fn (): bool => auth()->user()?->role === 'qa_approver')
                 ->dehydrateStateUsing(fn (string|array $state): array => is_array($state) ? $state : json_decode($state, true, 512, JSON_THROW_ON_ERROR))
-                ->formatStateUsing(fn (mixed $state): string => json_encode($state, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)),
+                ->formatStateUsing(fn (mixed $state): string => json_encode($state, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR)),
             Hidden::make('status')->default('DRAFT'),
-            Hidden::make('created_by')->default(fn (): ?int => auth()->id()),
+            Hidden::make('created_by')->default(function (): ?int {
+                $id = auth()->id();
+
+                return $id === null ? null : (int) $id;
+            }),
             Hidden::make('manifest_hash')->dehydrateStateUsing(function (mixed $state, callable $get): string {
                 $manifest = $get('manifest');
 

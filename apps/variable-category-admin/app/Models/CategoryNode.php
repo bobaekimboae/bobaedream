@@ -20,16 +20,19 @@ final class CategoryNode extends Model
         return ['is_leaf' => 'boolean', 'is_active' => 'boolean'];
     }
 
+    /** @return BelongsTo<VehicleType, $this> */
     public function vehicleType(): BelongsTo
     {
         return $this->belongsTo(VehicleType::class);
     }
 
+    /** @return BelongsTo<CategoryNode, $this> */
     public function parent(): BelongsTo
     {
         return $this->belongsTo(self::class, 'parent_id');
     }
 
+    /** @return HasMany<CategoryNode, $this> */
     public function children(): HasMany
     {
         return $this->hasMany(self::class, 'parent_id')->orderBy('sort_order');

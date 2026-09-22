@@ -53,8 +53,7 @@ final class PredicateEvaluator
             'not_in' => is_array($expected) && ! in_array($actual, $expected, true),
             'gte' => is_numeric($actual) && is_numeric($expected) && (float) $actual >= (float) $expected,
             'lte' => is_numeric($actual) && is_numeric($expected) && (float) $actual <= (float) $expected,
-            'exists' => (bool) $expected === ($actual !== null),
-            default => false,
+            default => (bool) $expected === ($actual !== null),
         };
     }
 }

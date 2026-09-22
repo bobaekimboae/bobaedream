@@ -7,7 +7,10 @@ use Illuminate\Support\Str;
 
 final class AuditLogger
 {
-    /** @param array<string, mixed>|null $before @param array<string, mixed>|null $after */
+    /**
+     * @param array<string, mixed>|null $before
+     * @param array<string, mixed>|null $after
+     */
     public function record(?int $actorId, string $action, string $subjectType, string $subjectId, ?array $before, ?array $after): AuditLog
     {
         $previousHash = AuditLog::query()->lockForUpdate()->latest('created_at')->value('record_hash');

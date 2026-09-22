@@ -18,6 +18,7 @@ final class FieldSet extends Model
         return ['status' => ReleaseStatus::class, 'applies_to' => 'array', 'published_at' => 'immutable_datetime'];
     }
 
+    /** @return BelongsToMany<FieldDefinition, $this> */
     public function fields(): BelongsToMany
     {
         return $this->belongsToMany(FieldDefinition::class, 'field_set_items')->withPivot(['context', 'required_level', 'sort_order', 'visibility_rule'])->withTimestamps();

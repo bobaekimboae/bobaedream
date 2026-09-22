@@ -23,7 +23,7 @@ final class PlacementResource extends Resource
 
     protected static ?string $pluralModelLabel = '노출 위치';
 
-    public static function getNavigationGroup(): ?string
+    public static function getNavigationGroup(): string
     {
         return '노출 정책';
     }

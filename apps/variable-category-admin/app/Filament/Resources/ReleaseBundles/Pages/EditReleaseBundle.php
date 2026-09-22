@@ -4,11 +4,13 @@ namespace App\Filament\Resources\ReleaseBundles\Pages;
 
 use App\Domain\Category\Enums\ReleaseStatus;
 use App\Filament\Resources\ReleaseBundles\ReleaseBundleResource;
+use App\Models\ReleaseBundle;
 use App\Services\ReleaseBundlePublisher;
 use Filament\Actions\Action;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
 
+/** @property ReleaseBundle $record */
 final class EditReleaseBundle extends EditRecord
 {
     protected static string $resource = ReleaseBundleResource::class;

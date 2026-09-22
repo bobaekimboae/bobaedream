@@ -6,7 +6,7 @@ use Carbon\CarbonImmutable;
 
 final readonly class ListingContract
 {
-    /** @param array<string, scalar|array|null> $customAttributes */
+    /** @param array<string, mixed> $customAttributes */
     public function __construct(
         public string $listingId,
         public string $legacyCategoryCode,
@@ -24,7 +24,7 @@ final readonly class ListingContract
         public array $customAttributes = [],
     ) {}
 
-    /** @return array<string, scalar|array|null> */
+    /** @return array<string, mixed> */
     public function toPredicateContext(): array
     {
         return [

@@ -25,7 +25,7 @@ final class FieldDefinitionResource extends Resource
 
     protected static ?string $pluralModelLabel = '필드 코드북';
 
-    public static function getNavigationGroup(): ?string
+    public static function getNavigationGroup(): string
     {
         return '스키마 설계';
     }

@@ -19,6 +19,7 @@ final class VehicleType extends Model
         return ['is_active' => 'boolean'];
     }
 
+    /** @return HasMany<CategoryNode, $this> */
     public function categoryNodes(): HasMany
     {
         return $this->hasMany(CategoryNode::class);

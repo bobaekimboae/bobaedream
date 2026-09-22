@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/** @property string $system_key */
 final class Placement extends Model
 {
     use HasUuids;
@@ -17,6 +18,7 @@ final class Placement extends Model
         return ['is_active' => 'boolean'];
     }
 
+    /** @return HasMany<PlacementRule, $this> */
     public function rules(): HasMany
     {
         return $this->hasMany(PlacementRule::class);
