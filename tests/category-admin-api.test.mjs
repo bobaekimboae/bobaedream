@@ -146,15 +146,74 @@ test("variable matrix covers every launch scope with screen-level schemas", asyn
   await withApp(async ({ baseUrl }) => {
     const result = await request(baseUrl, "/api/admin/variable-matrix");
     assert.equal(result.response.status, 200);
+    assert.deepEqual(result.json.schema_types, [
+      "FILTER",
+      "REGISTRATION_FORM",
+      "LIST_META",
+      "DETAIL",
+      "OPTION",
+      "SELLER",
+      "PAID_PRODUCT",
+      "MAKE_MODEL",
+      "QA_CHECKLIST",
+      "PLATFORM_DIFF",
+    ]);
     const scopes = new Map(result.json.scopes.map((scope) => [scope.scope_key, scope]));
+    const requiredTypes = ["FILTER", "REGISTRATION_FORM", "LIST_META", "DETAIL", "SELLER"];
+    const optionScopes = new Set(["BIKE", "TRUCK_SPECIAL", "BUS", "CAMPING_CARAVAN", "CONSTRUCTION"]);
     for (const key of ["CAR", "BIKE", "TRUCK_SPECIAL", "BUS", "CAMPING_CARAVAN", "CONSTRUCTION", "MATERIAL_HANDLING", "ATTACHMENT", "PARTS_GOODS"]) {
       assert.ok(scopes.has(key), key);
-      assert.equal(scopes.get(key).completeness_percent, 100, key);
-      for (const type of ["FILTER", "REGISTRATION_FORM", "LIST_META", "DETAIL", "OPTION", "SELLER"]) {
-        assert.ok(scopes.get(key).schema_counts[type] > 0, `${key} ${type}`);
-      }
+      const scope = scopes.get(key);
+      assert.equal(scope.completeness_percent, 100, key);
+      assert.deepEqual(scope.missing_required_schema_types, [], key);
+      for (const type of requiredTypes) assert.ok(scope.schema_counts[type] > 0, `${key} ${type}`);
+      assert.ok(scope.schema_counts.PAID_PRODUCT > 0, `${key} PAID_PRODUCT`);
+      assert.ok(scope.schema_counts.MAKE_MODEL > 0, `${key} MAKE_MODEL`);
+      assert.equal(scope.schema_counts.QA_CHECKLIST, 0, `${key} QA_CHECKLIST starts as explicit backlog`);
+      assert.equal(scope.schema_counts.PLATFORM_DIFF, 0, `${key} PLATFORM_DIFF starts as explicit backlog`);
+      assert.equal(scope.schema_counts.OPTION > 0, optionScopes.has(key), `${key} OPTION should reflect real option groups only`);
     }
     assert.equal(scopes.has("FORKLIFT_LOGISTICS"), false);
+  });
+});
+
+test("enum variables expose option set keys and DETAIL schemas are sectioned for real screens", async () => {
+  await withApp(async ({ baseUrl }) => {
+    const variables = await request(baseUrl, "/api/admin/variables");
+    const enumVariables = variables.json.filter((item) => item.data_type === "enum");
+    assert.ok(enumVariables.length > 0);
+    assert.ok(enumVariables.every((item) => item.option_set_key), "enum variables must point to option set keys");
+
+    const matrix = await request(baseUrl, "/api/admin/variable-matrix");
+    const car = matrix.json.scopes.find((scope) => scope.scope_key === "CAR");
+    const carDetail = car.schemas.find((schema) => schema.schema_type === "DETAIL");
+    const sections = new Set(carDetail.items.map((item) => item.section_key));
+    for (const section of ["BASIC_INFO", "SPEC", "CONDITION", "SELLER", "LOCATION", "MONETIZATION"]) {
+      assert.ok(sections.has(section), `CAR DETAIL missing ${section}`);
+    }
+    assert.equal(car.schemas.find((schema) => schema.schema_type === "OPTION").item_count, 0);
+  });
+});
+
+test("created enum variables receive option set keys automatically", async () => {
+  await withApp(async ({ baseUrl }) => {
+    const created = await request(baseUrl, "/api/admin/variables", {
+      method: "POST",
+      role: "CATEGORY_MANAGER",
+      body: {
+        item_key: "bike.demo_enum",
+        variable_group: "OPTION",
+        item_name_ko: "데모 선택값",
+        screen_label: "데모 선택값",
+        ui_component: "single_select",
+        data_type: "enum",
+        source_site: "보배드림 가변설계 정본",
+        source_url: "https://docs.google.com/spreadsheets/d/1ei78gzOyLeKXcVrrsKmNx5U3zWXmvpGyY6E9dcVOeFo/edit",
+        korea_applicability: "APPLY",
+      },
+    });
+    assert.equal(created.response.status, 201);
+    assert.equal(created.json.option_set_key, "bike.demo_enum.options");
   });
 });
 

@@ -20,6 +20,8 @@ export const SCHEMA_TYPES = Object.freeze([
   "SELLER",
   "PAID_PRODUCT",
   "MAKE_MODEL",
+  "QA_CHECKLIST",
+  "PLATFORM_DIFF",
 ]);
 
 export const PLATFORMS = Object.freeze(["PC_WEB", "MOBILE_WEB", "MOBILE_APP", "ADMIN", "ALL"]);

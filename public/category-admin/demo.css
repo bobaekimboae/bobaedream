@@ -279,7 +279,15 @@
 }
 
 .matrix-table table {
-  min-width: 860px;
+  min-width: 1180px;
+}
+
+.matrix-table td:last-child small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 10px;
+  white-space: normal;
 }
 
 #matrixRows tr.selected td {
@@ -303,7 +311,7 @@
 
 .schema-type-tabs {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 6px;
   margin-bottom: 12px;
 }

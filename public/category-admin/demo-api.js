@@ -1,4 +1,4 @@
-const STORAGE_KEY = "bobaedream-category-admin-public-demo-v3";
+const STORAGE_KEY = "bobaedream-category-admin-public-demo-v4";
 const now = () => new Date().toISOString();
 const makeId = (prefix) => `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
 const memory = new Map();
@@ -220,9 +220,20 @@ const variableDefinitions = {
 };
 
 const defaultSource = ["보배드림 가변설계 정본", "https://docs.google.com/spreadsheets/d/1ei78gzOyLeKXcVrrsKmNx5U3zWXmvpGyY6E9dcVOeFo/edit"];
-const sourceByScope = Object.fromEntries(Object.keys(variableDefinitions).map((scope) => [scope, defaultSource]));
+const paidProductDefinitions = [
+  ["premium_listing_available", "프리미엄 노출 가능", "PAID_PRODUCT", "toggle", "boolean"],
+  ["top_placement_available", "상단노출 가능", "PAID_PRODUCT", "toggle", "boolean"],
+  ["lead_fee_available", "문의 리드 과금 가능", "PAID_PRODUCT", "toggle", "boolean"],
+  ["monthly_plan_available", "월정액 상품 가능", "PAID_PRODUCT", "toggle", "boolean"],
+];
+const enrichedVariableDefinitions = Object.fromEntries(Object.entries(variableDefinitions).map(([scope, rows]) => [
+  scope,
+  [...rows, ...paidProductDefinitions],
+]));
+const sourceByScope = Object.fromEntries(Object.keys(enrichedVariableDefinitions).map((scope) => [scope, defaultSource]));
+const optionSetKey = (scope, key, type) => type === "enum" ? `${scope}.${key}.options` : null;
 
-const variableSeed = Object.entries(variableDefinitions).flatMap(([scope, rows]) => rows.map(([key, label, group, component, type], index) => ({
+const variableSeed = Object.entries(enrichedVariableDefinitions).flatMap(([scope, rows]) => rows.map(([key, label, group, component, type], index) => ({
   id: `demo_var_${scope}_${index}`,
   item_key: `${scope}.${key}`,
   variable_group: group,
@@ -231,6 +242,7 @@ const variableSeed = Object.entries(variableDefinitions).flatMap(([scope, rows])
   screen_label: label,
   ui_component: component,
   data_type: type,
+  option_set_key: optionSetKey(scope, key, type),
   source_site: sourceByScope[scope][0],
   source_url: sourceByScope[scope][1],
   korea_applicability: "APPLY",
@@ -238,16 +250,20 @@ const variableSeed = Object.entries(variableDefinitions).flatMap(([scope, rows])
 })));
 
 const assetScopes = new Set(["ATTACHMENT", "PARTS_GOODS"]);
-const schemaTypes = ["FILTER", "REGISTRATION_FORM", "LIST_META", "DETAIL", "OPTION", "SELLER"];
-const schemaPlatform = { FILTER: "MOBILE_APP", REGISTRATION_FORM: "ADMIN", LIST_META: "ALL", DETAIL: "ALL", OPTION: "ALL", SELLER: "ADMIN" };
+const schemaTypes = ["FILTER", "REGISTRATION_FORM", "LIST_META", "DETAIL", "OPTION", "SELLER", "PAID_PRODUCT", "MAKE_MODEL", "QA_CHECKLIST", "PLATFORM_DIFF"];
+const requiredSchemaTypes = ["FILTER", "REGISTRATION_FORM", "LIST_META", "DETAIL", "SELLER"];
+const schemaPlatform = { FILTER: "MOBILE_APP", REGISTRATION_FORM: "ADMIN", LIST_META: "ALL", DETAIL: "ALL", OPTION: "ALL", SELLER: "ADMIN", PAID_PRODUCT: "ADMIN", MAKE_MODEL: "ADMIN", QA_CHECKLIST: "ADMIN", PLATFORM_DIFF: "ALL" };
 function schemaItemKeys(scope, type) {
-  const rows = variableDefinitions[scope.toLowerCase()] || [];
+  const rows = enrichedVariableDefinitions[scope.toLowerCase()] || [];
   const keysByGroup = (...groups) => rows.filter((row) => groups.includes(row[2])).map((row) => row[0]);
   const allKeys = rows.map((row) => row[0]);
   if (type === "REGISTRATION_FORM" || type === "DETAIL") return allKeys;
   if (type === "FILTER") return keysByGroup("FILTER", "MAKE_MODEL_MASTER", "PRICE_DISPLAY", "LOCATION_STORAGE", "CONDITION_GRADE", "SELLER_TYPE");
   if (type === "OPTION") return keysByGroup("OPTION").slice(0, 8);
   if (type === "SELLER") return keysByGroup("SELLER_TYPE");
+  if (type === "PAID_PRODUCT") return keysByGroup("PAID_PRODUCT");
+  if (type === "MAKE_MODEL") return keysByGroup("MAKE_MODEL_MASTER");
+  if (type === "QA_CHECKLIST" || type === "PLATFORM_DIFF") return [];
   return allKeys.filter((key) => [
     "make_id", "model_id", "model_year", "sale_price", "mileage_km", "region_code", "storage_region_code",
     "truck_body_type", "bus_type", "bike_style", "camping_type", "equipment_type", "attachment_type",
@@ -255,9 +271,10 @@ function schemaItemKeys(scope, type) {
   ].includes(key)).slice(0, 8);
 }
 
-const schemaSeed = Object.keys(variableDefinitions).flatMap((scope, scopeIndex) => schemaTypes.map((type, typeIndex) => {
+const schemaSeed = Object.keys(enrichedVariableDefinitions).flatMap((scope, scopeIndex) => schemaTypes.map((type, typeIndex) => {
   const target = scope.toUpperCase();
-  const itemCount = schemaItemKeys(target, type).length || Math.min(variableDefinitions[scope].length, 2);
+  const itemCount = schemaItemKeys(target, type).length;
+  if (!itemCount) return null;
   return {
     id: `demo_schema_${scope}_${type.toLowerCase()}`,
     title: `${target} ${type} ${schemaPlatform[type]}`,
@@ -273,7 +290,7 @@ const schemaSeed = Object.keys(variableDefinitions).flatMap((scope, scopeIndex) 
     item_count: itemCount,
     updated_at: now(),
   };
-}));
+}).filter(Boolean));
 
 const makeSeed = [
   ["CAR", "HYUNDAI", "현대"], ["CAR", "KIA", "기아"], ["CAR", "GENESIS", "제네시스"],
@@ -331,14 +348,31 @@ function schemaItemsFor(schema, state) {
   const itemKeys = schemaItemKeys(schemaTarget(schema), schema.schema_type);
   const selected = itemKeys.length
     ? itemKeys.map((key) => state.variables.find((item) => item.item_key === `${schemaTarget(schema).toLowerCase()}.${key}`)).filter(Boolean)
-    : state.variables.filter((item) => item.item_key.startsWith(prefix)).slice(0, schema.item_count || 8);
+    : [];
   return selected.map((item, index) => ({
     ...item,
     item_order: index + 1,
-    section_key: index < 4 ? "BASIC" : "ADDITIONAL",
+    section_key: sectionKeyFor(schema.schema_type, item, index),
     exposure_type: schema.schema_type === "FILTER" ? (index < 5 ? "DEFAULT" : "MORE") : "SECTION",
     required_level: index < 4 ? "REQUIRED" : "RECOMMENDED",
   }));
+}
+function sectionKeyFor(type, item, index) {
+  if (type === "LIST_META") return index < 3 ? "CARD_PRIMARY" : "CARD_META";
+  if (type === "PAID_PRODUCT") return "MONETIZATION";
+  if (type === "MAKE_MODEL") return "MAKE_MODEL";
+  if (type === "OPTION") return "OPTION";
+  if (type === "SELLER") return "SELLER";
+  if (type !== "DETAIL") return index < 4 ? "BASIC" : "ADDITIONAL";
+  const group = item?.variable_group;
+  if (["MAKE_MODEL_MASTER", "PRICE_DISPLAY"].includes(group)) return "BASIC_INFO";
+  if (["FILTER", "DETAIL_BASIC", "CONDITION_GRADE"].includes(group)) return "SPEC";
+  if (["TRUST_VERIFICATION", "LEGAL_DOCUMENT"].includes(group)) return "CONDITION";
+  if (group === "SELLER_TYPE") return "SELLER";
+  if (group === "LOCATION_STORAGE") return "LOCATION";
+  if (["DELIVERY_TRANSPORT", "REGISTRATION_FIELD"].includes(group)) return "TRANSACTION";
+  if (group === "PAID_PRODUCT") return "MONETIZATION";
+  return "ADDITIONAL";
 }
 function variableMatrix(state, scopeKey = null) {
   const scopes = state.registry
@@ -351,7 +385,8 @@ function variableMatrix(state, scopeKey = null) {
         const items = schemaItemsFor(schema, state);
         return { ...schema, item_count: items.length, items };
       });
-      const readyCount = schemas.filter((schema) => schema.status !== "MISSING" && schema.item_count > 0).length;
+      const readyCount = schemas.filter((schema) => requiredSchemaTypes.includes(schema.schema_type) && schema.status !== "MISSING" && schema.item_count > 0).length;
+      const missingRequired = schemas.filter((schema) => requiredSchemaTypes.includes(schema.schema_type) && (schema.status === "MISSING" || schema.item_count <= 0)).map((schema) => schema.schema_type);
       return {
         scope_key: row.system_key,
         namespace: row.namespace,
@@ -361,9 +396,11 @@ function variableMatrix(state, scopeKey = null) {
         status: row.status,
         field_count: state.variables.filter((item) => item.item_key.startsWith(`${row.system_key.toLowerCase()}.`) && item.status !== "ARCHIVED").length,
         schema_counts: Object.fromEntries(schemas.map((schema) => [schema.schema_type, schema.item_count])),
+        required_schema_types: requiredSchemaTypes,
+        missing_required_schema_types: missingRequired,
         schema_ready_count: readyCount,
         published_count: schemas.filter((schema) => schema.workflow_status === "PUBLISHED").length,
-        completeness_percent: Math.round((readyCount / schemaTypes.length) * 100),
+        completeness_percent: Math.round((readyCount / requiredSchemaTypes.length) * 100),
         schemas,
       };
     });
@@ -410,7 +447,13 @@ export function createDemoApi() {
     }
     if (url.pathname === "/api/admin/variables") {
       if (method === "GET") return state.variables;
-      const row = { id: makeId("variable"), ...bodyOf(options) }; state.variables.push(row); addAudit(state, "CREATE", "variable_item", row.id, role); save(state); return row;
+      const payload = bodyOf(options);
+      const row = {
+        id: makeId("variable"),
+        ...payload,
+        option_set_key: payload.option_set_key || (payload.data_type === "enum" ? `${String(payload.item_key || "").toLowerCase()}.options` : null),
+      };
+      state.variables.push(row); addAudit(state, "CREATE", "variable_item", row.id, role); save(state); return row;
     }
     match = url.pathname.match(/^\/api\/admin\/variables\/([^/]+)$/);
     if (match && method === "DELETE") { const row = state.variables.find((item) => item.id === match[1]); if (row) row.status = "ARCHIVED"; addAudit(state, "ARCHIVE", "variable_item", match[1], role); save(state); return row; }

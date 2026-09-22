@@ -1,8 +1,8 @@
 # 보배드림 차량유형별 멀티 카테고리 관리자 개발 지시문
 
-문서 상태: 개발 착수 정본 1차 구현본  
+문서 상태: 개발 착수 정본 2차 구현본  
 적용 코드: `admin-server/`, `public/category-admin/`  
-최초 구현 범위: `CAR`, `TRUCK_SPECIAL`, `PARTS_GOODS`
+최초 구현 범위: `CAR`, `BIKE`, `TRUCK_SPECIAL`, `BUS`, `CAMPING_CARAVAN`, `CONSTRUCTION`, `MATERIAL_HANDLING`, `ATTACHMENT`, `PARTS_GOODS`
 
 > 운영 콘솔 V2와 전체 차량유형 가변 매트릭스의 최신 구현 기준은
 > [`OPERATIONS-CONSOLE-V2.md`](OPERATIONS-CONSOLE-V2.md)를 우선한다.
@@ -117,6 +117,10 @@
 - SELLER
 - PAID_PRODUCT
 - MAKE_MODEL
+- QA_CHECKLIST
+- PLATFORM_DIFF
+
+완료율은 `FILTER`, `REGISTRATION_FORM`, `LIST_META`, `DETAIL`, `SELLER`만 필수 기준으로 계산한다. `OPTION`, `PAID_PRODUCT`, `MAKE_MODEL`, `QA_CHECKLIST`, `PLATFORM_DIFF`는 선택 또는 운영 설계축이며 필수 완료율과 섞지 않는다.
 
 해석 우선순위:
 

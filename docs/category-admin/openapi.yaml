@@ -8,7 +8,7 @@ paths:
   /api/admin/variable-matrix:
     get:
       summary: 차량유형별 가변 화면 매트릭스
-      description: 필터, 등록폼, 리스트 메타, 상세, 옵션, 판매자 스키마의 유형별 항목 수와 배포 상태를 운영자 화면에 제공한다.
+      description: 필수 스키마인 필터, 등록폼, 리스트 메타, 상세, 판매자와 선택 설계축인 옵션, 유료상품, 제조사·모델, QA, 플랫폼 차이의 유형별 항목 수와 배포 상태를 운영자 화면에 제공한다.
       parameters:
         - { name: scope_key, in: query, required: false, schema: { type: string } }
       responses:

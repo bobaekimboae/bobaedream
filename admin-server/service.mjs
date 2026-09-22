@@ -10,6 +10,12 @@ import {
 
 const now = () => new Date().toISOString();
 
+function inferOptionSetKey(itemKey, dataType) {
+  if (dataType !== "enum") return null;
+  const normalized = String(itemKey || "").trim().toLowerCase();
+  return normalized ? `${normalized}.options` : null;
+}
+
 function conflict(message, code = "conflict") {
   const error = new Error(message);
   error.statusCode = 409;
@@ -197,7 +203,7 @@ export class AdminService {
       ui_component: payload.ui_component,
       data_type: payload.data_type,
       unit: payload.unit || null,
-      option_set_key: payload.option_set_key || null,
+      option_set_key: payload.option_set_key || inferOptionSetKey(payload.item_key, payload.data_type),
       validation_rules_json: JSON.stringify(payload.validation_rules_json || {}),
       source_site: payload.source_site,
       source_url: payload.source_url,
@@ -241,7 +247,8 @@ export class AdminService {
   }
 
   variableMatrix(scopeKey = null) {
-    const schemaTypes = ["FILTER", "REGISTRATION_FORM", "LIST_META", "DETAIL", "OPTION", "SELLER"];
+    const schemaTypes = ["FILTER", "REGISTRATION_FORM", "LIST_META", "DETAIL", "OPTION", "SELLER", "PAID_PRODUCT", "MAKE_MODEL", "QA_CHECKLIST", "PLATFORM_DIFF"];
+    const requiredSchemaTypes = ["FILTER", "REGISTRATION_FORM", "LIST_META", "DETAIL", "SELLER"];
     const registryRows = this.database.db.prepare(`
       SELECT * FROM registry_items
       WHERE namespace IN ('VEHICLE_TYPE', 'ASSET_TYPE') AND status != 'ARCHIVED'
@@ -282,7 +289,8 @@ export class AdminService {
         });
 
         const publishedCount = packedSchemas.filter((schema) => schema.workflow_status === "PUBLISHED").length;
-        const readyCount = packedSchemas.filter((schema) => schema.status !== "MISSING" && schema.item_count > 0).length;
+        const readyCount = packedSchemas.filter((schema) => requiredSchemaTypes.includes(schema.schema_type) && schema.status !== "MISSING" && schema.item_count > 0).length;
+        const missingRequired = packedSchemas.filter((schema) => requiredSchemaTypes.includes(schema.schema_type) && (schema.status === "MISSING" || schema.item_count <= 0)).map((schema) => schema.schema_type);
         return {
           scope_key: row.system_key,
           namespace: row.namespace,
@@ -292,9 +300,11 @@ export class AdminService {
           status: row.status,
           field_count: Number(this.database.db.prepare("SELECT COUNT(*) AS count FROM variable_items WHERE item_key LIKE ? AND status != 'ARCHIVED'").get(`${row.system_key.toLowerCase()}.%`).count),
           schema_counts: Object.fromEntries(packedSchemas.map((schema) => [schema.schema_type, schema.item_count])),
+          required_schema_types: requiredSchemaTypes,
+          missing_required_schema_types: missingRequired,
           schema_ready_count: readyCount,
           published_count: publishedCount,
-          completeness_percent: Math.round((readyCount / schemaTypes.length) * 100),
+          completeness_percent: Math.round((readyCount / requiredSchemaTypes.length) * 100),
           schemas: packedSchemas,
         };
       });

@@ -298,7 +298,23 @@ const variableDefinitions = {
   ],
 };
 
-const variableItems = Object.entries(variableDefinitions).flatMap(([scope, items]) => {
+const paidProductDefinitions = [
+  ["premium_listing_available", "프리미엄 노출 가능", "PAID_PRODUCT", "toggle", "boolean", "RECOMMENDED"],
+  ["top_placement_available", "상단노출 가능", "PAID_PRODUCT", "toggle", "boolean", "RECOMMENDED"],
+  ["lead_fee_available", "문의 리드 과금 가능", "PAID_PRODUCT", "toggle", "boolean", "RECOMMENDED"],
+  ["monthly_plan_available", "월정액 상품 가능", "PAID_PRODUCT", "toggle", "boolean", "RECOMMENDED"],
+];
+
+const enrichedVariableDefinitions = Object.fromEntries(Object.entries(variableDefinitions).map(([scope, items]) => [
+  scope,
+  [...items, ...paidProductDefinitions],
+]));
+
+function optionSetKey(scope, key, dataType) {
+  return dataType === "enum" ? `${scope.toLowerCase()}.${key}.options` : null;
+}
+
+const variableItems = Object.entries(enrichedVariableDefinitions).flatMap(([scope, items]) => {
   const [sourceSite, sourceUrl] = defaultSource;
   return items.map(([key, label, group, component, dataType, required], index) => ({
     id: `var_${scope.toLowerCase()}_${key}`,
@@ -310,7 +326,7 @@ const variableItems = Object.entries(variableDefinitions).flatMap(([scope, items
     ui_component: component,
     data_type: dataType,
     unit: key.endsWith("_km") ? "km" : key.endsWith("_kg") ? "kg" : key === "sale_price" ? "KRW" : null,
-    option_set_key: null,
+    option_set_key: optionSetKey(scope, key, dataType),
     validation_rules_json: JSON.stringify(required === "REQUIRED" ? { required: true } : {}),
     source_site: sourceSite,
     source_url: sourceUrl,
@@ -351,7 +367,7 @@ function schema(scope, type, categoryKey, platform, items, version = "1.0.0") {
         schema_id: id,
         variable_item_id: variable.id,
         item_order: index + 1,
-        section_key: index < 4 ? "BASIC" : "ADDITIONAL",
+        section_key: sectionKeyFor(type, variable, index),
         exposure_type: type === "FILTER" ? (index < 5 ? "DEFAULT" : "MORE") : "SECTION",
         required_level: JSON.parse(variable.validation_rules_json).required ? "REQUIRED" : "RECOMMENDED",
         is_visible: 1,
@@ -365,7 +381,25 @@ function schema(scope, type, categoryKey, platform, items, version = "1.0.0") {
   };
 }
 
-const schemaPackages = Object.entries(variableDefinitions).flatMap(([scope, rows]) => {
+function sectionKeyFor(type, variable, index) {
+  if (type === "LIST_META") return index < 3 ? "CARD_PRIMARY" : "CARD_META";
+  if (type === "PAID_PRODUCT") return "MONETIZATION";
+  if (type === "MAKE_MODEL") return "MAKE_MODEL";
+  if (type === "OPTION") return "OPTION";
+  if (type === "SELLER") return "SELLER";
+  if (type !== "DETAIL") return index < 4 ? "BASIC" : "ADDITIONAL";
+  const group = variable?.variable_group;
+  if (["MAKE_MODEL_MASTER", "PRICE_DISPLAY"].includes(group)) return "BASIC_INFO";
+  if (["FILTER", "DETAIL_BASIC", "CONDITION_GRADE"].includes(group)) return "SPEC";
+  if (["TRUST_VERIFICATION", "LEGAL_DOCUMENT"].includes(group)) return "CONDITION";
+  if (group === "SELLER_TYPE") return "SELLER";
+  if (group === "LOCATION_STORAGE") return "LOCATION";
+  if (["DELIVERY_TRANSPORT", "REGISTRATION_FIELD"].includes(group)) return "TRANSACTION";
+  if (group === "PAID_PRODUCT") return "MONETIZATION";
+  return "ADDITIONAL";
+}
+
+const schemaPackages = Object.entries(enrichedVariableDefinitions).flatMap(([scope, rows]) => {
   const allKeys = rows.map((row) => row[0]);
   const keysForGroups = (...groups) => rows.filter((row) => groups.includes(row[2])).map((row) => row[0]);
   const filterKeys = keysForGroups("FILTER", "MAKE_MODEL_MASTER", "PRICE_DISPLAY", "LOCATION_STORAGE", "CONDITION_GRADE", "SELLER_TYPE");
@@ -376,14 +410,18 @@ const schemaPackages = Object.entries(variableDefinitions).flatMap(([scope, rows
   ].includes(key)).slice(0, 8);
   const optionKeys = keysForGroups("OPTION");
   const sellerKeys = keysForGroups("SELLER_TYPE");
+  const paidProductKeys = keysForGroups("PAID_PRODUCT");
+  const makeModelKeys = keysForGroups("MAKE_MODEL_MASTER");
   return [
     schema(scope, "REGISTRATION_FORM", null, "ADMIN", allKeys),
     schema(scope, "FILTER", null, "MOBILE_APP", filterKeys),
     schema(scope, "LIST_META", null, "ALL", listKeys.length ? listKeys : allKeys.slice(0, 6)),
     schema(scope, "DETAIL", null, "ALL", allKeys),
-    schema(scope, "OPTION", null, "ALL", optionKeys.length ? optionKeys : allKeys.slice(-2)),
     schema(scope, "SELLER", null, "ADMIN", sellerKeys.length ? sellerKeys : allKeys.slice(-1)),
-  ];
+    paidProductKeys.length ? schema(scope, "PAID_PRODUCT", null, "ADMIN", paidProductKeys) : null,
+    makeModelKeys.length ? schema(scope, "MAKE_MODEL", null, "ADMIN", makeModelKeys) : null,
+    optionKeys.length ? schema(scope, "OPTION", null, "ALL", optionKeys) : null,
+  ].filter(Boolean);
 });
 
 const manufacturers = [

@@ -19,6 +19,18 @@ const state = {
   matrix: null, matrixScope: null, matrixSchemaType: "FILTER",
 };
 const api = createAdminApi({ runtime, demoApi, fetchImpl: fetch, roleProvider: () => state.role });
+const schemaLabels = {
+  FILTER: "필터",
+  REGISTRATION_FORM: "등록폼",
+  LIST_META: "리스트",
+  DETAIL: "상세",
+  OPTION: "옵션",
+  SELLER: "판매자",
+  PAID_PRODUCT: "유료상품",
+  MAKE_MODEL: "제조사·모델",
+  QA_CHECKLIST: "QA",
+  PLATFORM_DIFF: "플랫폼차이",
+};
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
@@ -99,7 +111,7 @@ function findMatrixScope() {
 }
 
 function findMatrixSchema(scope) {
-  return scope?.schemas.find((schema) => schema.schema_type === state.matrixSchemaType) || scope?.schemas[0];
+  return scope?.schemas.find((schema) => schema.schema_type === state.matrixSchemaType) || scope?.schemas.find((schema) => (schema.item_count || 0) > 0) || scope?.schemas[0];
 }
 
 async function loadMatrix() {
@@ -109,15 +121,20 @@ async function loadMatrix() {
   const complete = scopes.filter((scope) => scope.completeness_percent === 100).length;
   const fields = scopes.reduce((sum, scope) => sum + scope.field_count, 0);
   const published = scopes.reduce((sum, scope) => sum + scope.published_count, 0);
+  const requiredCount = scopes[0]?.required_schema_types?.length || 5;
   $("#matrixMetrics").innerHTML = [
     ["관리 유형", scopes.length, "차량유형 + 자산유형"],
     ["전체 필드", fields, "실제 화면 항목"],
     ["배포 스키마", published, "Published 단위"],
-    ["완료 유형", complete, "6개 스키마 모두 준비"],
+    ["완료 유형", complete, `필수 ${requiredCount}개 스키마 기준`],
   ].map(([label, value, note]) => `<article class="metric-card"><span>${label}</span><strong>${value}</strong><small>${note}</small></article>`).join("");
   $("#matrixScopeTabs").innerHTML = scopes.map((scope) => `<button class="${scope.scope_key === state.matrixScope ? "active" : ""}" data-matrix-scope="${scope.scope_key}"><b>${escapeHtml(scope.name_ko)}</b><small>${escapeHtml(scope.scope_key)}</small></button>`).join("");
-  const columns = ["FILTER", "REGISTRATION_FORM", "LIST_META", "DETAIL", "OPTION", "SELLER"];
-  $("#matrixRows").innerHTML = scopes.map((scope) => `<tr class="${scope.scope_key === state.matrixScope ? "selected" : ""}" data-matrix-row="${scope.scope_key}"><td><b>${escapeHtml(scope.name_ko)}</b><small>${escapeHtml(scope.scope_key)} · ${escapeHtml(scope.namespace)}</small></td>${columns.map((type) => `<td><button class="count-button" data-matrix-cell="${scope.scope_key}" data-schema-type="${type}">${scope.schema_counts[type] || 0}</button></td>`).join("")}<td>${badge(scope.completeness_percent === 100 ? "READY" : "CHECK")}</td></tr>`).join("");
+  const columns = state.matrix.schema_types || Object.keys(schemaLabels);
+  $("#matrixRows").innerHTML = scopes.map((scope) => {
+    const missingRequired = scope.missing_required_schema_types || [];
+    const status = missingRequired.length === 0 ? "READY" : "CHECK";
+    return `<tr class="${scope.scope_key === state.matrixScope ? "selected" : ""}" data-matrix-row="${scope.scope_key}"><td><b>${escapeHtml(scope.name_ko)}</b><small>${escapeHtml(scope.scope_key)} · ${escapeHtml(scope.namespace)}</small></td>${columns.map((type) => `<td><button class="count-button" title="${escapeHtml(schemaLabels[type] || type)}" data-matrix-cell="${scope.scope_key}" data-schema-type="${type}">${scope.schema_counts[type] || 0}</button></td>`).join("")}<td>${badge(status)}<small>${missingRequired.length ? escapeHtml(missingRequired.join(", ")) : "필수 충족"}</small></td></tr>`;
+  }).join("");
   renderMatrixDetail();
 }
 
@@ -130,8 +147,9 @@ function renderMatrixDetail() {
     return;
   }
   $("#matrixDetailTitle").textContent = `${scope.name_ko} · ${scope.scope_key}`;
-  $("#matrixDetailStatus").textContent = `${schema.schema_type} / ${schema.platform || "-"} / ${schema.item_count || 0}개 항목`;
-  $("#matrixSchemaTabs").innerHTML = scope.schemas.map((item) => `<button class="${item.schema_type === state.matrixSchemaType ? "active" : ""}" data-matrix-schema-type="${item.schema_type}">${escapeHtml(item.schema_type)}<b>${item.item_count || 0}</b></button>`).join("");
+  const isRequired = (scope.required_schema_types || []).includes(schema.schema_type);
+  $("#matrixDetailStatus").textContent = `${schemaLabels[schema.schema_type] || schema.schema_type} / ${schema.platform || "-"} / ${schema.item_count || 0}개 항목 / ${isRequired ? "필수" : "선택"}`;
+  $("#matrixSchemaTabs").innerHTML = scope.schemas.map((item) => `<button class="${item.schema_type === state.matrixSchemaType ? "active" : ""}" data-matrix-schema-type="${item.schema_type}">${escapeHtml(schemaLabels[item.schema_type] || item.schema_type)}<b>${item.item_count || 0}</b></button>`).join("");
   $("#matrixFieldRows").innerHTML = (schema.items || []).map((item, index) => `<tr><td>${index + 1}</td><td><b>${escapeHtml(item.screen_label || item.item_name_ko)}</b><small>${escapeHtml(item.variable_group || item.section_key || "")}</small></td><td><code>${escapeHtml(item.item_key)}</code></td><td>${escapeHtml(item.ui_component)}<small>${escapeHtml(item.data_type)}${item.unit ? ` · ${escapeHtml(item.unit)}` : ""}</small></td><td>${escapeHtml(item.required_level || "OPTIONAL")}</td></tr>`).join("") || '<tr><td colspan="5">이 화면 스키마에 연결된 항목이 없습니다.</td></tr>';
   $$("#matrixRows tr").forEach((row) => row.classList.toggle("selected", row.dataset.matrixRow === scope.scope_key));
   $$("#matrixScopeTabs button").forEach((button) => button.classList.toggle("active", button.dataset.matrixScope === scope.scope_key));

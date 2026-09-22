@@ -11,20 +11,34 @@ namespaces:
 primary_types:
   implemented:
     - CAR
-    - TRUCK_SPECIAL
-    - PARTS_GOODS
-  registry_seeded:
     - BIKE
+    - TRUCK_SPECIAL
     - BUS
-    - CONSTRUCTION
-    - FORKLIFT_LOGISTICS
     - CAMPING_CARAVAN
+    - CONSTRUCTION
+    - MATERIAL_HANDLING
+    - ATTACHMENT
+    - PARTS_GOODS
+  registry_seeded: []
 schema_types:
   seeded:
     - FILTER
     - REGISTRATION_FORM
     - LIST_META
     - DETAIL
+    - OPTION
+    - SELLER
+    - PAID_PRODUCT
+    - MAKE_MODEL
+  matrix_backlog:
+    - QA_CHECKLIST
+    - PLATFORM_DIFF
+required_schema_types:
+  - FILTER
+  - REGISTRATION_FORM
+  - LIST_META
+  - DETAIL
+  - SELLER
 publish_order:
   - registry_items
   - category_nodes
