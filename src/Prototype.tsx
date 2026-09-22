@@ -53,6 +53,7 @@ type DetailSheet = "contact" | "more" | "priceHistory" | null;
 type RegionSelection = { province: string; district: string; radius: string };
 type RegionMenu = "province" | "district" | "radius" | null;
 type PriceMode = "cash" | "lease";
+type QuickFilterStyle = "chotot" | "guazi" | "dongchedi";
 export type PriceSelection = { mode: PriceMode; min: number; max: number | null };
 type ListingBadge = "브랜드인증" | "제조사보증" | "1인소유" | "가격인하" | "인증중고차";
 
@@ -324,6 +325,11 @@ const bmwModels = [
 
 const benzModels = ["E클래스", "S클래스", "GLC클래스", "GLE클래스", "C클래스"];
 const quickRegions = ["경기", "서울", "부산", "대구", "인천", "전남광주"];
+const quickFilterStyleOptions: Array<{ value: QuickFilterStyle; label: string }> = [
+  { value: "chotot", label: "초톳" },
+  { value: "guazi", label: "과쯔" },
+  { value: "dongchedi", label: "동처띠" },
+];
 const provinceOptions = ["전국", "경기", "서울", "부산", "대구", "인천", "광주", "대전", "울산", "경남"];
 const districtsByProvince: Record<string, string[]> = {
   경기: ["전체", "성남시", "고양시", "수원시"], 서울: ["전체", "강남구", "서초구", "성동구"], 부산: ["전체", "해운대구"],
@@ -866,6 +872,7 @@ function MarketplaceScreen() {
   const [searchSaved, setSearchSaved] = useState(false);
   const [searchToast, setSearchToast] = useState("");
   const [categoryLandingOpen, setCategoryLandingOpen] = useState(true);
+  const [quickFilterStyle, setQuickFilterStyle] = useState<QuickFilterStyle>("chotot");
 
   useEffect(() => {
     if (!searchToast) return;
@@ -1010,7 +1017,7 @@ function MarketplaceScreen() {
             <button type="button" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={openRegionSheet}><Icon name="location-blue.svg" /><span className="region-label">지역:</span><strong>{regionLabel}</strong><span className="region-chevron-icon" aria-hidden="true"><Icon name="region-chevron.svg" /></span></button>
             <button type="button" className="reset-button" onClick={() => resetFilters()}>초기화</button>
           </section>
-          <section className={`filter-shell${activeFilterCount ? " has-active-filters" : ""}`} aria-label="중고차 필터">
+          <section className={`filter-shell quick-style-${quickFilterStyle}${activeFilterCount ? " has-active-filters" : ""}`} aria-label="중고차 필터">
             <button className="filter-fixed" type="button" aria-label={activeFilterCount ? `필터 ${activeFilterCount}개 적용됨` : "필터"} onClick={() => { setDraftFilters(filters); setFilterFocus(null); setSheet("filter"); }}><Icon name="filter.svg" /><span>{activeFilterCount || "필터"}</span></button>
             <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
               <FilterChip label={categoryIsDefault ? "전체" : category} active onClick={() => openQuickFilter("category")} onClear={clearCategoryFilter} />
@@ -1063,9 +1070,17 @@ function MarketplaceScreen() {
               ))}
             </Carousel>
           </section>}
-          <section className="video-toggle-row" aria-label="영상 매물 설정">
-            <span>영상 매물</span>
-            <button type="button" role="switch" aria-checked={videoOnly} className={videoOnly ? "is-on" : ""} onClick={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))}><span /></button>
+          <section className="video-toggle-row" aria-label="영상 보기와 퀵필터 사례 선택">
+            <div className="video-toggle-copy">
+              <span>영상보기</span>
+              <button type="button" role="switch" aria-checked={videoOnly} className={videoOnly ? "is-on" : ""} onClick={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))}><span /></button>
+            </div>
+            <label className="quick-style-select">
+              <span>적용 사이트</span>
+              <select value={quickFilterStyle} onChange={(event) => setQuickFilterStyle(event.currentTarget.value as QuickFilterStyle)}>
+                {quickFilterStyleOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
+              </select>
+            </label>
           </section>
           <nav className="list-toolbar" aria-label="매물 유형과 정렬">
             <div className="seller-tabs" role="tablist" aria-label="판매자 유형">
