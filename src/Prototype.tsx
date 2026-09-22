@@ -298,12 +298,14 @@ const categoryBrandRails: Record<string, CategoryBrandRail> = {
       { name: "피아지오", maker: "피아지오", icon: siPiaggiogroup, color: "#00573f" },
     ],
   },
-  "화물 · 특장 · 버스": {
+  "트럭 · 특장": {
     title: "제조사",
     options: [
       { name: "현대", maker: "현대", icon: siHyundai, color: "#002c5f" },
-      { name: "기아", maker: "기아", icon: siKia, color: "#05141f" },
-      { name: "쉐보레", maker: "쉐보레", icon: siChevrolet, color: "#d7a52b" },
+      { name: "타타대우", maker: "타타대우" },
+      { name: "이스즈", maker: "이스즈" },
+      { name: "만트럭", maker: "만트럭" },
+      { name: "볼보", maker: "볼보", icon: siVolvo, color: "#173a6b" },
     ],
   },
   캠핑카: { title: "제조사", options: defaultBrandRailOptions.slice(0, 5) },
@@ -442,7 +444,8 @@ function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
     || category === "중고차"
     || category === "국산차" && domesticMakerNames.has(car.maker)
     || category === "수입차" && !domesticMakerNames.has(car.maker)
-    || category === "전기차" && data.fuel === "전기";
+    || category === "전기차" && data.fuel === "전기"
+    || ["트럭 · 특장", "바이크", "캠핑카", "올드카", "건설기계", "부품 · 용품"].includes(category);
   const yearMatch = value.year === "전체"
     || value.year === "2024~2026" && data.year >= 2024
     || value.year === "2021~2023" && data.year >= 2021 && data.year <= 2023
@@ -953,8 +956,8 @@ function MarketplaceScreen() {
   };
 
   const chooseVehicleCategory = (categoryName: string) => {
-    if (categoryName === "중고차") {
-      setFilters((current) => ({ ...current, category: "중고차", maker: null, model: null }));
+    if (vehicleCategoryOptions.includes(categoryName)) {
+      setFilters((current) => ({ ...current, category: categoryName, maker: null, model: null }));
       setCategoryLandingOpen(false);
       return;
     }
@@ -962,7 +965,7 @@ function MarketplaceScreen() {
   };
 
   const chooseCategoryFilter = (categoryName: string) => {
-    if (["전체", "중고차", "국산차", "수입차", "전기차"].includes(categoryName)) {
+    if (vehicleCategoryOptions.includes(categoryName)) {
       const nextFilters = { ...filters, category: categoryName, maker: null, model: null };
       setFilters(nextFilters);
       setDraftFilters(nextFilters);
