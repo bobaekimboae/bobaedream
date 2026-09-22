@@ -1,25 +1,61 @@
 name: Category Admin CI
-# Production gate for the isolated variable-category admin application.
+# Validates both the production Node vertical slice and the isolated Laravel platform.
 on:
-  workflow_dispatch:
+  workflow_dispatch: {}
   push:
     branches: [main, codex/variable-category-admin]
     paths:
+      - 'admin-server/**'
       - 'apps/variable-category-admin/**'
       - 'public/category-admin/**'
+      - 'tests/category-admin-api.test.mjs'
+      - 'docs/category-admin/**'
+      - 'deploy/category-admin/**'
+      - 'package.json'
+      - 'package-lock.json'
       - '.github/workflows/category-admin-ci.yml'
   pull_request:
     paths:
+      - 'admin-server/**'
       - 'apps/variable-category-admin/**'
       - 'public/category-admin/**'
+      - 'tests/category-admin-api.test.mjs'
+      - 'docs/category-admin/**'
+      - 'deploy/category-admin/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/category-admin-ci.yml'
+
 concurrency:
   group: category-admin-${{ github.ref }}
   cancel-in-progress: true
+
 permissions:
   contents: read
+
 jobs:
-  contract:
+  node-contract:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run test:admin
+
+  container-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -f deploy/category-admin/Dockerfile -t bobaedream-category-admin:ci .
+
+  laravel-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
     defaults:
       run:
         working-directory: apps/variable-category-admin
@@ -27,12 +63,14 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '24'
       - run: node --test tests-contract/*.test.mjs
       - run: node --check public/admin-demo/app.js
       - run: git diff --check
-  backend:
+
+  laravel-backend:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     defaults:
       run:
         working-directory: apps/variable-category-admin

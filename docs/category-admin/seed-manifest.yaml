@@ -1,0 +1,39 @@
+manifest_version: 1
+scope: P1_VERTICAL_SLICE
+namespaces:
+  - VEHICLE_TYPE
+  - ASSET_TYPE
+  - OVERLAY
+  - THEME_OVERLAY
+  - TRANSACTION_TYPE
+  - SELLER_CHANNEL
+  - SERVICE_BM
+primary_types:
+  implemented:
+    - CAR
+    - TRUCK_SPECIAL
+    - PARTS_GOODS
+  registry_seeded:
+    - BIKE
+    - BUS
+    - CONSTRUCTION
+    - FORKLIFT_LOGISTICS
+    - CAMPING_CARAVAN
+schema_types:
+  seeded:
+    - FILTER
+    - REGISTRATION_FORM
+    - LIST_META
+    - DETAIL
+publish_order:
+  - registry_items
+  - category_nodes
+  - category_node_bindings
+  - category_placements
+  - variable_items
+  - schemas
+  - schema_items
+  - manufacturers
+  - models
+  - legacy_field_mappings
+verification_command: npm run test:admin
