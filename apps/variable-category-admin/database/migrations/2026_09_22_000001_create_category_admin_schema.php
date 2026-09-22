@@ -75,7 +75,7 @@ return new class extends Migration
         Schema::create('category_nodes', function (Blueprint $table): void {
             $table->uuid('id')->primary();
             $table->foreignUuid('vehicle_type_id')->constrained()->cascadeOnDelete();
-            $table->foreignUuid('parent_id')->nullable()->references('id')->on('category_nodes')->restrictOnDelete();
+            $table->uuid('parent_id')->nullable();
             $table->string('system_key', 96)->unique();
             $table->string('name_ko', 160);
             $table->string('name_en', 160)->nullable();
@@ -86,6 +86,9 @@ return new class extends Migration
             $table->timestampsTz();
             $table->softDeletesTz();
             $table->index(['vehicle_type_id', 'parent_id', 'sort_order']);
+        });
+        Schema::table('category_nodes', function (Blueprint $table): void {
+            $table->foreign('parent_id')->references('id')->on('category_nodes')->restrictOnDelete();
         });
         Schema::create('field_definitions', function (Blueprint $table): void {
             $table->uuid('id')->primary();
