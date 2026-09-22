@@ -1,0 +1,17 @@
+services:
+  category-admin:
+    build:
+      context: ../..
+      dockerfile: deploy/category-admin/Dockerfile
+    ports:
+      - "8788:8788"
+    environment:
+      ADMIN_HOST: 0.0.0.0
+      ADMIN_PORT: 8788
+      ADMIN_DB_PATH: /data/category-admin.sqlite
+    volumes:
+      - category-admin-data:/data
+    restart: unless-stopped
+
+volumes:
+  category-admin-data:

@@ -1,0 +1,40 @@
+name: Category Admin CI
+
+on:
+  pull_request:
+    paths:
+      - "admin-server/**"
+      - "public/category-admin/**"
+      - "tests/category-admin-api.test.mjs"
+      - "docs/category-admin/**"
+      - "deploy/category-admin/**"
+      - "package.json"
+      - ".github/workflows/category-admin-ci.yml"
+  push:
+    branches: [main]
+    paths:
+      - "admin-server/**"
+      - "public/category-admin/**"
+      - "tests/category-admin-api.test.mjs"
+      - "deploy/category-admin/**"
+
+permissions:
+  contents: read
+
+jobs:
+  contract-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run test:admin
+
+  container-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -f deploy/category-admin/Dockerfile -t bobaedream-category-admin:ci .

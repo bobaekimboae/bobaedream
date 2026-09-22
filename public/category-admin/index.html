@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>보배드림 카테고리 운영 관리자</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./demo.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">B</span>
+        <div><strong>보배드림 카테고리 운영</strong><small>Multi Category Control Plane</small></div>
+      </div>
+      <div class="top-actions">
+        <span id="health" class="health">연결 확인 중</span>
+        <label class="role-select">권한
+          <select id="roleSelect">
+            <option>SUPER_ADMIN</option><option>PRODUCT_OWNER</option><option>CATEGORY_MANAGER</option>
+            <option>QA_REVIEWER</option><option>PUBLISHER</option><option>READ_ONLY</option>
+          </select>
+        </label>
+      </div>
+    </header>
+    <div id="runtimeBanner" class="runtime-banner" hidden>
+      공개 데모 모드입니다. 변경값은 현재 브라우저에만 저장되며 실제 운영 데이터에는 반영되지 않습니다.
+    </div>
+
+    <div class="app-shell">
+      <aside class="sidebar">
+        <nav id="navigation">
+          <button class="active" data-page="dashboard"><span>01</span>대시보드</button>
+          <button data-page="registry"><span>02</span>유형 레지스트리</button>
+          <button data-page="categories"><span>03</span>카테고리·배치</button>
+          <button data-page="variables"><span>04</span>가변 항목 사전</button>
+          <button data-page="schemas"><span>05</span>화면 스키마</button>
+          <button data-page="makeModel"><span>06</span>제조사·모델</button>
+          <button data-page="integration"><span>07</span>기존 관리자 연동</button>
+          <button data-page="audit"><span>08</span>감사 로그</button>
+        </nav>
+        <div class="sidebar-note">
+          <strong>현재 구현 범위</strong>
+          <span>CAR · TRUCK_SPECIAL · PARTS_GOODS</span>
+          <small>Published 설정만 공개 API에 노출됩니다.</small>
+        </div>
+      </aside>
+
+      <main>
+        <section class="page active" id="dashboard">
+          <div class="page-title"><div><p>CONTROL PLANE</p><h1>운영 현황</h1><span>차량유형·카테고리·가변 스키마의 배포 상태를 확인합니다.</span></div><button class="secondary" data-refresh="dashboard">새로고침</button></div>
+          <div id="metricGrid" class="metric-grid"></div>
+          <div class="two-column">
+            <article class="panel"><div class="panel-title"><h2>스키마 승인 상태</h2></div><div id="workflowChart" class="status-list"></div></article>
+            <article class="panel"><div class="panel-title"><h2>최근 배포</h2></div><div id="recentPublishes" class="compact-list"></div></article>
+          </div>
+          <article class="panel"><div class="panel-title"><h2>구조 원칙</h2><span>매물 원본과 설정 정보는 분리합니다.</span></div>
+            <div class="architecture-strip"><div><b>기존 매물 관리자</b><span>매물·판매자·가격·사진의 정본</span></div><i>→</i><div><b>연동 계층</b><span>필드 매핑·검증·분류</span></div><i>→</i><div><b>신규 설정 관리자</b><span>카테고리·스키마·배포</span></div><i>→</i><div><b>검색 Projection</b><span>리스트·필터용 읽기 모델</span></div></div>
+          </article>
+        </section>
+
+        <section class="page" id="registry">
+          <div class="page-title"><div><p>TYPE REGISTRY</p><h1>유형 레지스트리</h1><span>차량유형, 자산유형, 오버레이, 판매채널과 BM을 서로 다른 namespace로 관리합니다.</span></div><button class="primary" data-open="registryDialog">새 항목 추가</button></div>
+          <div class="toolbar"><select id="registryNamespace"><option value="">전체 namespace</option></select><input id="registrySearch" placeholder="키 또는 한국어명 검색" /></div>
+          <div class="table-card"><table><thead><tr><th>Namespace</th><th>System key</th><th>한국어명</th><th>출시 단계</th><th>상태</th><th></th></tr></thead><tbody id="registryRows"></tbody></table></div>
+        </section>
+
+        <section class="page" id="categories">
+          <div class="page-title"><div><p>CATEGORY & PLACEMENT</p><h1>카테고리·메뉴 배치</h1><span>한 매물을 여러 카테고리에 노출하되 원본 차량유형은 하나만 유지합니다.</span></div><button class="primary" data-open="categoryDialog">카테고리 추가</button></div>
+          <div id="categoryCards" class="category-tree"></div>
+        </section>
+
+        <section class="page" id="variables">
+          <div class="page-title"><div><p>VARIABLE DICTIONARY</p><h1>가변 항목 사전</h1><span>항목의 의미와 데이터 타입만 정의하고, 화면별 필수 여부·순서는 스키마에서 관리합니다.</span></div><button class="primary" data-open="variableDialog">가변 항목 추가</button></div>
+          <div class="toolbar"><select id="variableScope"><option value="">전체 범위</option><option>car</option><option>truck_special</option><option>parts_goods</option></select><input id="variableSearch" placeholder="item_key 또는 라벨 검색" /></div>
+          <div class="table-card"><table><thead><tr><th>Item key</th><th>화면 라벨</th><th>그룹</th><th>UI / 타입</th><th>출처</th><th>상태</th><th></th></tr></thead><tbody id="variableRows"></tbody></table></div>
+        </section>
+
+        <section class="page" id="schemas">
+          <div class="page-title"><div><p>SCHEMA RELEASE</p><h1>화면 스키마·배포</h1><span>필터·등록폼·리스트·상세를 플랫폼별로 독립 검수하고 배포합니다.</span></div><button class="primary" data-open="schemaDialog">Draft 생성</button></div>
+          <div class="legend"><span><i class="dot draft"></i>Draft</span><span><i class="dot review"></i>검수 요청</span><span><i class="dot approved"></i>QA 승인</span><span><i class="dot published"></i>배포됨</span></div>
+          <div id="schemaCards" class="schema-grid"></div>
+        </section>
+
+        <section class="page" id="makeModel">
+          <div class="page-title"><div><p>MAKE & MODEL MASTER</p><h1>제조사·모델 마스터</h1><span>차량유형별 제조사와 모델을 독립적으로 관리하고 기존 코드와 매핑합니다.</span></div><div class="button-row"><button class="secondary" data-open="modelDialog">모델 추가</button><button class="primary" data-open="makeDialog">제조사 추가</button></div></div>
+          <div class="toolbar"><select id="makeScope"><option value="">전체 범위</option><option>CAR</option><option>TRUCK_SPECIAL</option><option>BIKE</option></select></div>
+          <div class="make-layout"><div id="makeRows" class="make-list"></div><div class="table-card"><table><thead><tr><th>제조사</th><th>Model key</th><th>모델명</th><th>상태</th></tr></thead><tbody id="modelRows"></tbody></table></div></div>
+        </section>
+
+        <section class="page" id="integration">
+          <div class="page-title"><div><p>LEGACY ADAPTER</p><h1>기존 중고차 관리자 연동</h1><span>기존 매물 필드를 신규 데이터 키로 변환하고, 카테고리 중복 노출 결과를 미리 검증합니다.</span></div></div>
+          <div class="two-column integration-grid">
+            <article class="panel"><div class="panel-title"><h2>Legacy 필드 매핑</h2><span>기존 컬럼은 CAR 정본으로 유지</span></div><div id="legacyMappings" class="mapping-list"></div></article>
+            <article class="panel"><div class="panel-title"><h2>매물 분류 Dry Run</h2><span>저장 없이 노출 카테고리를 계산</span></div>
+              <form id="classifierForm" class="stack-form">
+                <label>예시 유형<select name="preset"><option value="import_ev">수입 전기차</option><option value="bus">버스</option><option value="forklift">지게차</option><option value="parts">자동차 부품</option></select></label>
+                <label>매물 ID<input name="listing_id" value="TEST-10001" required /></label>
+                <button class="primary" type="submit">카테고리 판정 실행</button>
+              </form><pre id="classifierResult" class="code-result">결과가 여기에 표시됩니다.</pre>
+            </article>
+          </div>
+        </section>
+
+        <section class="page" id="audit">
+          <div class="page-title"><div><p>AUDIT TRAIL</p><h1>감사 로그</h1><span>추가·수정·검수·배포·롤백과 분류 실행을 추적합니다.</span></div><button class="secondary" data-refresh="audit">새로고침</button></div>
+          <div id="auditRows" class="timeline"></div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="registryDialog"><form method="dialog" class="dialog-form" data-form="registry"><div class="dialog-head"><h2>레지스트리 항목 추가</h2><button value="cancel">×</button></div><label>Namespace<select name="namespace" required></select></label><label>System key<input name="system_key" placeholder="예: AGRICULTURE" required /></label><label>한국어명<input name="name_ko" required /></label><label>출시 단계<select name="launch_status"><option>P1_LAUNCH</option><option>P2_NEXT</option><option>HOLD</option><option>RESEARCH</option></select></label><button class="primary" value="default" type="submit">저장</button></form></dialog>
+    <dialog id="categoryDialog"><form method="dialog" class="dialog-form" data-form="category"><div class="dialog-head"><h2>카테고리 추가</h2><button value="cancel">×</button></div><label>Category key<input name="category_node_key" required /></label><label>한국어명<input name="category_name_ko" required /></label><label>Slug<input name="slug" required /></label><label>Listing domain<select name="listing_domain"><option>VEHICLE_LISTING</option><option>PARTS_LISTING</option><option>SERVICE_LISTING</option></select></label><button class="primary" type="submit">저장</button></form></dialog>
+    <dialog id="variableDialog"><form method="dialog" class="dialog-form wide" data-form="variable"><div class="dialog-head"><h2>가변 항목 추가</h2><button value="cancel">×</button></div><div class="form-grid"><label>Item key<input name="item_key" placeholder="bike.seat_height_mm" required /></label><label>한국어 라벨<input name="item_name_ko" required /></label><label>Variable group<select name="variable_group"><option>FILTER</option><option>REGISTRATION_FIELD</option><option>LIST_META</option><option>DETAIL_BASIC</option><option>OPTION</option><option>TRUST_VERIFICATION</option><option>LEGAL_DOCUMENT</option></select></label><label>UI component<input name="ui_component" value="single_select" required /></label><label>Data type<select name="data_type"><option>string</option><option>integer</option><option>decimal</option><option>enum</option><option>boolean</option><option>date</option><option>range</option></select></label><label>출처 사이트<input name="source_site" required /></label><label class="full">출처 URL<input name="source_url" type="url" required /></label><label class="full">한국 적용 판단<input name="korea_applicability" value="APPLY" required /></label></div><button class="primary" type="submit">저장</button></form></dialog>
+    <dialog id="schemaDialog"><form method="dialog" class="dialog-form" data-form="schema"><div class="dialog-head"><h2>스키마 Draft 생성</h2><button value="cancel">×</button></div><label>기존 스키마 복제<select name="clone_schema_id" id="cloneSchemaSelect"></select></label><label>신규 버전<input name="schema_version" value="1.1.0" required /></label><label>제목<input name="title" placeholder="CAR 모바일 필터 v1.1" required /></label><button class="primary" type="submit">Draft 생성</button></form></dialog>
+    <dialog id="makeDialog"><form method="dialog" class="dialog-form" data-form="make"><div class="dialog-head"><h2>제조사 추가</h2><button value="cancel">×</button></div><label>Scope<select name="scope_key"><option>CAR</option><option>TRUCK_SPECIAL</option><option>BIKE</option><option>CONSTRUCTION</option></select></label><label>Manufacturer key<input name="manufacturer_key" required /></label><label>한국어명<input name="name_ko" required /></label><label>영문명<input name="name_en" /></label><button class="primary" type="submit">저장</button></form></dialog>
+    <dialog id="modelDialog"><form method="dialog" class="dialog-form" data-form="model"><div class="dialog-head"><h2>모델 추가</h2><button value="cancel">×</button></div><label>제조사<select name="manufacturer_id" id="modelMakeSelect" required></select></label><label>Model key<input name="model_key" required /></label><label>한국어명<input name="name_ko" required /></label><label>영문명<input name="name_en" /></label><button class="primary" type="submit">저장</button></form></dialog>
+
+    <div id="toast" class="toast"></div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

@@ -4,6 +4,10 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "admin:start": "node admin-server/start.mjs",
+    "admin:seed": "node admin-server/seed.mjs",
+    "test:admin": "node --test tests/category-admin-api.test.mjs",
+    "verify:admin": "npm run test:admin",
     "check:runtime": "node scripts/check-mobile-runtime.mjs",
     "update:runtime-lock": "node scripts/update-mobile-runtime-lock.mjs",
     "test:runtime": "playwright test",
@@ -14,7 +18,8 @@
     "predev": "npm run check:runtime",
     "dev": "vite",
     "prebuild": "npm run check:runtime",
-    "build": "tsc && vite build && node scripts/prepare-sites-build.mjs && npm run storybook:build"
+    "build": "tsc && vite build && node scripts/prepare-sites-build.mjs && npm run storybook:build",
+    "verify": "npm run check:runtime && npm run test:admin && npm run build && npm run test:sites"
   },
   "dependencies": {
     "@fontsource/roboto": "5.2.10",

@@ -1,0 +1,14 @@
+.runtime-banner {
+  padding: 9px 24px;
+  background: #fff4e2;
+  border-bottom: 1px solid #f2d69e;
+  color: #7c4b08;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.health.demo {
+  background: #fff4e2;
+  color: #7c4b08;
+}

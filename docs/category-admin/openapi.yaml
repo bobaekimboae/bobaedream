@@ -1,0 +1,48 @@
+openapi: 3.1.0
+info:
+  title: Bobaedream Multi Category Admin API
+  version: 1.0.0
+servers:
+  - url: http://127.0.0.1:8788
+paths:
+  /api/v1/placements:
+    get:
+      summary: 공개 메뉴 배치 목록
+      responses:
+        "200": { description: Active placements }
+  /api/v1/placements/{placement_key}/schemas/{schema_type}:
+    get:
+      summary: Published 화면 스키마 해석
+      parameters:
+        - { name: placement_key, in: path, required: true, schema: { type: string } }
+        - { name: schema_type, in: path, required: true, schema: { type: string } }
+        - { name: platform, in: query, required: true, schema: { type: string, enum: [PC_WEB, MOBILE_WEB, MOBILE_APP, ADMIN, ALL] } }
+      responses:
+        "200": { description: Published schema snapshot }
+        "404": { description: No published schema }
+  /api/admin/schemas/{id}/actions/publish:
+    post:
+      summary: QA 승인 스키마 배포
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string } }
+      responses:
+        "200": { description: Published snapshot and hash }
+        "403": { description: Publisher permission required }
+        "409": { description: Invalid workflow transition }
+        "422": { description: Schema validation failed }
+  /api/admin/schemas/{id}/actions/rollback:
+    post:
+      summary: 이전 Published snapshot 복구
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string } }
+      responses:
+        "200": { description: Activated previous snapshot }
+        "409": { description: Previous snapshot missing }
+  /api/internal/v1/listings/{listing_id}/classify:
+    post:
+      summary: 매물 다중 카테고리 판정 및 Projection 생성
+      parameters:
+        - { name: listing_id, in: path, required: true, schema: { type: string } }
+        - { name: dry_run, in: query, schema: { type: boolean, default: false } }
+      responses:
+        "200": { description: Classification projection }
