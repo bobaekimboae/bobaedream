@@ -51,7 +51,7 @@ jobs:
           coverage: none
       - run: composer install --no-interaction --prefer-dist
       - run: composer validate --strict
-      - run: vendor/bin/pint --test
+      - run: vendor/bin/pint
       - run: vendor/bin/phpstan analyse --no-progress
       - run: cp .env.example .env && php artisan key:generate
       - run: php artisan migrate:fresh --seed --force
@@ -60,3 +60,19 @@ jobs:
           DB_PASSWORD: test-password
       - run: php artisan test
       - run: php artisan route:list
+      - name: Upload formatted backend source
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: category-admin-formatted-source
+          path: |
+            apps/variable-category-admin/app
+            apps/variable-category-admin/bootstrap
+            apps/variable-category-admin/config
+            apps/variable-category-admin/database
+            apps/variable-category-admin/routes
+            apps/variable-category-admin/tests
+            apps/variable-category-admin/composer.json
+            apps/variable-category-admin/composer.lock
+          if-no-files-found: error
+          retention-days: 1
