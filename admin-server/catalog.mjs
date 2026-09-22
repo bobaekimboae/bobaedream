@@ -194,9 +194,10 @@ export function classifyListing(listing, placements) {
     case "CONSTRUCTION":
       add("CONSTRUCTION");
       break;
-    case "FORKLIFT_LOGISTICS":
+    case "MATERIAL_HANDLING":
       add("CONSTRUCTION");
       add("MATERIAL_HANDLING");
+      if (listing.asset_subtype === "FORKLIFT") add("FORKLIFT");
       break;
     default:
       break;

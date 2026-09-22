@@ -1,4 +1,4 @@
-const STORAGE_KEY = "bobaedream-category-admin-public-demo-v1";
+const STORAGE_KEY = "bobaedream-category-admin-public-demo-v3";
 const now = () => new Date().toISOString();
 const makeId = (prefix) => `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
 const memory = new Map();
@@ -12,7 +12,7 @@ const registrySeed = [
   ["VEHICLE_TYPE", "TRUCK_SPECIAL", "트럭·특장"],
   ["VEHICLE_TYPE", "BUS", "버스"],
   ["VEHICLE_TYPE", "CONSTRUCTION", "건설기계"],
-  ["VEHICLE_TYPE", "FORKLIFT_LOGISTICS", "지게차·물류장비"],
+  ["VEHICLE_TYPE", "MATERIAL_HANDLING", "자재운반장비"],
   ["VEHICLE_TYPE", "CAMPING_CARAVAN", "캠핑카·카라반"],
   ["ASSET_TYPE", "ATTACHMENT", "어태치먼트"],
   ["ASSET_TYPE", "PARTS_GOODS", "부품·용품"],
@@ -55,7 +55,8 @@ const categorySeed = [
   ["CAMPING_CARAVAN", "캠핑카", 1, "VEHICLE_LISTING", ["VEHICLE_TYPE:CAMPING_CARAVAN:PRIMARY_TYPE"]],
   ["BUS", "버스", 1, "VEHICLE_LISTING", ["VEHICLE_TYPE:BUS:PRIMARY_TYPE"]],
   ["CONSTRUCTION", "건설기계", 1, "VEHICLE_LISTING", ["VEHICLE_TYPE:CONSTRUCTION:PRIMARY_TYPE"]],
-  ["MATERIAL_HANDLING", "자재 운송 장비", 1, "VEHICLE_LISTING", []],
+  ["MATERIAL_HANDLING", "자재 운송 장비", 1, "VEHICLE_LISTING", ["VEHICLE_TYPE:MATERIAL_HANDLING:PRIMARY_TYPE"]],
+  ["FORKLIFT", "지게차", 2, "VEHICLE_LISTING", ["VEHICLE_TYPE:MATERIAL_HANDLING:PRIMARY_TYPE"]],
   ["PARTS_GOODS", "부품·용품", 1, "PARTS_LISTING", ["ASSET_TYPE:PARTS_GOODS:PRIMARY_TYPE"]],
 ].map(([key, name, depth, domain, bindings], index) => ({
   id: `demo_cat_${index + 1}`,
@@ -75,38 +76,151 @@ const variableDefinitions = {
   car: [
     ["make_id", "제조사", "MAKE_MODEL_MASTER", "cascading_select", "string"],
     ["model_id", "모델", "MAKE_MODEL_MASTER", "cascading_select", "string"],
+    ["generation_id", "세대", "MAKE_MODEL_MASTER", "cascading_select", "string"],
+    ["trim_id", "세부모델·트림", "MAKE_MODEL_MASTER", "cascading_select", "string"],
     ["model_year", "연식", "FILTER", "year_range", "integer"],
+    ["first_registration_date", "최초등록", "REGISTRATION_FIELD", "month_picker", "date"],
     ["sale_price", "가격", "PRICE_DISPLAY", "price_input", "integer"],
     ["mileage_km", "주행거리", "FILTER", "range_input", "integer"],
     ["fuel_type", "연료·동력", "FILTER", "multi_select", "enum"],
     ["transmission_type", "변속기", "FILTER", "single_select", "enum"],
+    ["body_type", "차체형식", "FILTER", "multi_select", "enum"],
+    ["exterior_color", "색상", "FILTER", "multi_select", "enum"],
     ["region_code", "지역", "LOCATION_STORAGE", "region_selector", "string"],
+    ["seller_type", "판매자 유형", "SELLER_TYPE", "single_select", "enum"],
     ["accident_disclosure", "사고 여부", "TRUST_VERIFICATION", "single_select", "enum"],
+    ["insurance_history_available", "보험이력 제공", "TRUST_VERIFICATION", "toggle", "boolean"],
+    ["performance_inspection_id", "성능점검기록부", "LEGAL_DOCUMENT", "document_reference", "string"],
+    ["certification_type", "인증 여부", "TRUST_VERIFICATION", "single_select", "enum"],
+  ],
+  bike: [
+    ["make_id", "제조사", "MAKE_MODEL_MASTER", "cascading_select", "string"],
+    ["model_id", "모델", "MAKE_MODEL_MASTER", "cascading_select", "string"],
+    ["displacement_cc", "배기량", "FILTER", "range_input", "integer"],
+    ["model_year", "연식", "FILTER", "year_range", "integer"],
+    ["first_registration_date", "최초등록", "REGISTRATION_FIELD", "month_picker", "date"],
+    ["sale_price", "가격", "PRICE_DISPLAY", "price_input", "integer"],
+    ["mileage_km", "주행거리", "FILTER", "range_input", "integer"],
+    ["transmission_type", "기어방식", "FILTER", "single_select", "enum"],
+    ["abs_available", "ABS", "OPTION", "toggle", "boolean"],
+    ["bike_style", "차체유형", "FILTER", "multi_select", "enum"],
+    ["usage_type", "용도", "FILTER", "multi_select", "enum"],
+    ["engine_type", "엔진형식", "DETAIL_BASIC", "single_select", "enum"],
+    ["electric_drive", "전기오토바이", "FILTER", "toggle", "boolean"],
+    ["customized", "튜닝·커스텀", "OPTION", "toggle", "boolean"],
+    ["region_code", "지역", "LOCATION_STORAGE", "region_selector", "string"],
+    ["seller_type", "판매자 유형", "SELLER_TYPE", "single_select", "enum"],
   ],
   truck_special: [
     ["truck_body_type", "트럭·특장 유형", "FILTER", "category_selector", "enum"],
     ["make_id", "제조사", "MAKE_MODEL_MASTER", "cascading_select", "string"],
     ["model_id", "모델", "MAKE_MODEL_MASTER", "cascading_select", "string"],
+    ["model_year", "연식", "FILTER", "year_range", "integer"],
+    ["sale_price", "가격", "PRICE_DISPLAY", "price_input", "integer"],
+    ["mileage_km", "주행거리", "FILTER", "range_input", "integer"],
     ["payload_kg", "적재중량", "FILTER", "range_input", "integer"],
+    ["gross_vehicle_weight_kg", "총중량", "DETAIL_BASIC", "number_input", "integer"],
     ["axle_configuration", "축 구성", "FILTER", "multi_select", "enum"],
+    ["drive_configuration", "구동 방식", "FILTER", "multi_select", "enum"],
+    ["superstructure_type", "특장 구조", "OPTION", "conditional_select", "enum"],
+    ["inspection_expiry_date", "검사 유효기간", "LEGAL_DOCUMENT", "date_picker", "date"],
     ["storage_region_code", "차고지·보관지", "LOCATION_STORAGE", "region_selector", "string"],
+    ["seller_type", "판매자 유형", "SELLER_TYPE", "single_select", "enum"],
+  ],
+  bus: [
+    ["bus_type", "버스 유형", "FILTER", "category_selector", "enum"],
+    ["make_id", "제조사", "MAKE_MODEL_MASTER", "cascading_select", "string"],
+    ["model_id", "모델", "MAKE_MODEL_MASTER", "cascading_select", "string"],
+    ["seat_capacity", "승차정원", "FILTER", "range_input", "integer"],
+    ["seat_layout", "좌석배치", "OPTION", "single_select", "enum"],
+    ["usage_type", "용도", "FILTER", "multi_select", "enum"],
+    ["model_year", "연식", "FILTER", "year_range", "integer"],
+    ["sale_price", "가격", "PRICE_DISPLAY", "price_input", "integer"],
+    ["mileage_km", "주행거리", "FILTER", "range_input", "integer"],
+    ["fuel_type", "연료", "FILTER", "multi_select", "enum"],
+    ["transmission_type", "변속기", "FILTER", "single_select", "enum"],
+    ["region_code", "지역", "LOCATION_STORAGE", "region_selector", "string"],
+    ["seller_type", "판매자 유형", "SELLER_TYPE", "single_select", "enum"],
+  ],
+  camping_caravan: [
+    ["camping_type", "캠핑 차량 형태", "FILTER", "category_selector", "enum"],
+    ["base_vehicle", "베이스차량", "MAKE_MODEL_MASTER", "cascading_select", "string"],
+    ["seat_capacity", "승차인원", "FILTER", "range_input", "integer"],
+    ["sleep_capacity", "취침인원", "FILTER", "range_input", "integer"],
+    ["bed_count", "침상 수", "DETAIL_BASIC", "number_input", "integer"],
+    ["toilet_available", "화장실", "OPTION", "toggle", "boolean"],
+    ["shower_available", "샤워실", "OPTION", "toggle", "boolean"],
+    ["kitchen_available", "주방", "OPTION", "toggle", "boolean"],
+    ["electrical_system", "전기설비", "OPTION", "multi_select", "enum"],
+    ["solar_available", "태양광", "OPTION", "toggle", "boolean"],
+    ["expansion_type", "확장 여부", "OPTION", "single_select", "enum"],
+    ["model_year", "연식", "FILTER", "year_range", "integer"],
+    ["sale_price", "가격", "PRICE_DISPLAY", "price_input", "integer"],
+    ["mileage_km", "주행거리", "FILTER", "range_input", "integer"],
+    ["region_code", "지역", "LOCATION_STORAGE", "region_selector", "string"],
+    ["seller_type", "판매자 유형", "SELLER_TYPE", "single_select", "enum"],
+  ],
+  construction: [
+    ["equipment_type", "장비유형", "FILTER", "category_selector", "enum"],
+    ["make_id", "제조사", "MAKE_MODEL_MASTER", "cascading_select", "string"],
+    ["model_id", "모델", "MAKE_MODEL_MASTER", "cascading_select", "string"],
+    ["model_year", "연식", "FILTER", "year_range", "integer"],
+    ["sale_price", "가격", "PRICE_DISPLAY", "price_input", "integer"],
+    ["working_hours", "사용시간", "FILTER", "range_input", "integer"],
+    ["operating_weight_kg", "작업중량", "DETAIL_BASIC", "number_input", "integer"],
+    ["bucket_capacity_m3", "버킷용량", "DETAIL_BASIC", "number_input", "decimal"],
+    ["undercarriage_type", "궤도·휠", "FILTER", "single_select", "enum"],
+    ["condition_grade", "장비상태", "CONDITION_GRADE", "single_select", "enum"],
+    ["attachment_included", "어태치먼트 포함", "OPTION", "toggle", "boolean"],
+    ["storage_region_code", "보관지", "LOCATION_STORAGE", "region_selector", "string"],
+    ["seller_type", "판매자 유형", "SELLER_TYPE", "single_select", "enum"],
+  ],
+  material_handling: [
+    ["equipment_type", "장비유형", "FILTER", "category_selector", "enum"],
+    ["power_source", "동력원", "FILTER", "multi_select", "enum"],
+    ["lift_capacity_kg", "인양능력", "FILTER", "range_input", "integer"],
+    ["lift_height_mm", "인양높이", "FILTER", "range_input", "integer"],
+    ["mast_type", "마스트", "FILTER", "single_select", "enum"],
+    ["make_id", "제조사", "MAKE_MODEL_MASTER", "cascading_select", "string"],
+    ["model_id", "모델", "MAKE_MODEL_MASTER", "cascading_select", "string"],
+    ["model_year", "연식", "FILTER", "year_range", "integer"],
+    ["sale_price", "가격", "PRICE_DISPLAY", "price_input", "integer"],
+    ["working_hours", "사용시간", "FILTER", "range_input", "integer"],
+    ["battery_condition", "배터리상태", "CONDITION_GRADE", "single_select", "enum"],
+    ["storage_region_code", "보관지", "LOCATION_STORAGE", "region_selector", "string"],
+    ["seller_type", "판매자 유형", "SELLER_TYPE", "single_select", "enum"],
+  ],
+  attachment: [
+    ["attachment_type", "어태치먼트 유형", "FILTER", "category_selector", "enum"],
+    ["compatible_equipment_type", "호환 장비", "FILTER", "multi_select", "enum"],
+    ["compatible_make_id", "호환 제조사", "MAKE_MODEL_MASTER", "cascading_select", "string"],
+    ["compatible_model_id", "호환 모델", "MAKE_MODEL_MASTER", "cascading_select", "string"],
+    ["specification", "규격", "DETAIL_BASIC", "text_input", "string"],
+    ["weight_kg", "중량", "DETAIL_BASIC", "number_input", "integer"],
+    ["coupler_type", "연결방식", "FILTER", "single_select", "enum"],
+    ["condition_grade", "상태", "CONDITION_GRADE", "single_select", "enum"],
+    ["sale_price", "가격", "PRICE_DISPLAY", "price_input", "integer"],
+    ["region_code", "지역", "LOCATION_STORAGE", "region_selector", "string"],
+    ["seller_type", "판매자 유형", "SELLER_TYPE", "single_select", "enum"],
   ],
   parts_goods: [
     ["parts_category_id", "부품 카테고리", "FILTER", "category_selector", "string"],
     ["compatible_vehicle_type", "호환 차량유형", "FILTER", "multi_select", "enum"],
     ["compatible_make_id", "호환 제조사", "MAKE_MODEL_MASTER", "cascading_select", "string"],
+    ["compatible_model_id", "호환 모델", "MAKE_MODEL_MASTER", "cascading_select", "string"],
+    ["compatible_year_range", "호환 연식", "REGISTRATION_FIELD", "year_range", "range"],
     ["oem_number", "OEM 번호", "FILTER", "text_input", "string"],
     ["part_origin_type", "부품 구분", "FILTER", "single_select", "enum"],
     ["condition_grade", "상태", "CONDITION_GRADE", "single_select", "enum"],
+    ["installation_position", "장착 위치", "FILTER", "single_select", "enum"],
+    ["sale_price", "가격", "PRICE_DISPLAY", "price_input", "integer"],
     ["delivery_method", "배송·직거래", "DELIVERY_TRANSPORT", "multi_select", "enum"],
+    ["seller_type", "개인·업체 구분", "SELLER_TYPE", "single_select", "enum"],
   ],
 };
 
-const sourceByScope = {
-  car: ["Auto Trader UK", "https://www.autotrader.co.uk/car-search"],
-  truck_special: ["TruckScout24", "https://www.truckscout24.com/"],
-  parts_goods: ["eBay Motors Parts", "https://www.ebay.com/b/Auto-Parts-and-Vehicles/6000/bn_1865334"],
-};
+const defaultSource = ["보배드림 가변설계 정본", "https://docs.google.com/spreadsheets/d/1ei78gzOyLeKXcVrrsKmNx5U3zWXmvpGyY6E9dcVOeFo/edit"];
+const sourceByScope = Object.fromEntries(Object.keys(variableDefinitions).map((scope) => [scope, defaultSource]));
 
 const variableSeed = Object.entries(variableDefinitions).flatMap(([scope, rows]) => rows.map(([key, label, group, component, type], index) => ({
   id: `demo_var_${scope}_${index}`,
@@ -123,29 +237,42 @@ const variableSeed = Object.entries(variableDefinitions).flatMap(([scope, rows])
   status: "ACTIVE",
 })));
 
-const schemaSeed = [
-  ["CAR", "FILTER", "MOBILE_APP", 11],
-  ["CAR", "REGISTRATION_FORM", "ADMIN", 16],
-  ["CAR", "LIST_META", "ALL", 7],
-  ["CAR", "DETAIL", "ALL", 16],
-  ["TRUCK_SPECIAL", "FILTER", "MOBILE_APP", 9],
-  ["TRUCK_SPECIAL", "REGISTRATION_FORM", "ADMIN", 13],
-  ["PARTS_GOODS", "FILTER", "MOBILE_APP", 10],
-  ["PARTS_GOODS", "REGISTRATION_FORM", "ADMIN", 12],
-].map(([target, type, platform, count], index) => ({
-  id: `demo_schema_${index + 1}`,
-  title: `${target} ${type} ${platform}`,
-  schema_type: type,
-  vehicle_type_key: target === "PARTS_GOODS" ? null : target,
-  asset_type_key: target === "PARTS_GOODS" ? target : null,
-  category_node_key: null,
-  platform,
-  schema_version: "1.0.0",
-  workflow_status: "PUBLISHED",
-  publication_status: "PUBLISHED",
-  schema_hash: `demo-sha256-${index + 1}`,
-  item_count: count,
-  updated_at: now(),
+const assetScopes = new Set(["ATTACHMENT", "PARTS_GOODS"]);
+const schemaTypes = ["FILTER", "REGISTRATION_FORM", "LIST_META", "DETAIL", "OPTION", "SELLER"];
+const schemaPlatform = { FILTER: "MOBILE_APP", REGISTRATION_FORM: "ADMIN", LIST_META: "ALL", DETAIL: "ALL", OPTION: "ALL", SELLER: "ADMIN" };
+function schemaItemKeys(scope, type) {
+  const rows = variableDefinitions[scope.toLowerCase()] || [];
+  const keysByGroup = (...groups) => rows.filter((row) => groups.includes(row[2])).map((row) => row[0]);
+  const allKeys = rows.map((row) => row[0]);
+  if (type === "REGISTRATION_FORM" || type === "DETAIL") return allKeys;
+  if (type === "FILTER") return keysByGroup("FILTER", "MAKE_MODEL_MASTER", "PRICE_DISPLAY", "LOCATION_STORAGE", "CONDITION_GRADE", "SELLER_TYPE");
+  if (type === "OPTION") return keysByGroup("OPTION").slice(0, 8);
+  if (type === "SELLER") return keysByGroup("SELLER_TYPE");
+  return allKeys.filter((key) => [
+    "make_id", "model_id", "model_year", "sale_price", "mileage_km", "region_code", "storage_region_code",
+    "truck_body_type", "bus_type", "bike_style", "camping_type", "equipment_type", "attachment_type",
+    "parts_category_id", "payload_kg", "seat_capacity", "sleep_capacity", "working_hours", "condition_grade",
+  ].includes(key)).slice(0, 8);
+}
+
+const schemaSeed = Object.keys(variableDefinitions).flatMap((scope, scopeIndex) => schemaTypes.map((type, typeIndex) => {
+  const target = scope.toUpperCase();
+  const itemCount = schemaItemKeys(target, type).length || Math.min(variableDefinitions[scope].length, 2);
+  return {
+    id: `demo_schema_${scope}_${type.toLowerCase()}`,
+    title: `${target} ${type} ${schemaPlatform[type]}`,
+    schema_type: type,
+    vehicle_type_key: assetScopes.has(target) ? null : target,
+    asset_type_key: assetScopes.has(target) ? target : null,
+    category_node_key: null,
+    platform: schemaPlatform[type],
+    schema_version: "1.0.0",
+    workflow_status: "PUBLISHED",
+    publication_status: "PUBLISHED",
+    schema_hash: `demo-sha256-${scopeIndex + 1}-${typeIndex + 1}`,
+    item_count: itemCount,
+    updated_at: now(),
+  };
 }));
 
 const makeSeed = [
@@ -198,6 +325,50 @@ function bodyOf(options) { return options?.body ? (typeof options.body === "stri
 function addAudit(state, action, entityType, entityId, role) {
   state.audit.unshift({ id: makeId("audit"), actor_id: "public-demo", actor_role: role, action, entity_type: entityType, entity_id: entityId, created_at: now() });
 }
+function schemaTarget(schema) { return schema.vehicle_type_key || schema.asset_type_key || schema.category_node_key || ""; }
+function schemaItemsFor(schema, state) {
+  const prefix = `${schemaTarget(schema).toLowerCase()}.`;
+  const itemKeys = schemaItemKeys(schemaTarget(schema), schema.schema_type);
+  const selected = itemKeys.length
+    ? itemKeys.map((key) => state.variables.find((item) => item.item_key === `${schemaTarget(schema).toLowerCase()}.${key}`)).filter(Boolean)
+    : state.variables.filter((item) => item.item_key.startsWith(prefix)).slice(0, schema.item_count || 8);
+  return selected.map((item, index) => ({
+    ...item,
+    item_order: index + 1,
+    section_key: index < 4 ? "BASIC" : "ADDITIONAL",
+    exposure_type: schema.schema_type === "FILTER" ? (index < 5 ? "DEFAULT" : "MORE") : "SECTION",
+    required_level: index < 4 ? "REQUIRED" : "RECOMMENDED",
+  }));
+}
+function variableMatrix(state, scopeKey = null) {
+  const scopes = state.registry
+    .filter((row) => ["VEHICLE_TYPE", "ASSET_TYPE"].includes(row.namespace) && row.status !== "ARCHIVED")
+    .filter((row) => !scopeKey || row.system_key === scopeKey)
+    .map((row) => {
+      const schemas = schemaTypes.map((type) => {
+        const schema = state.schemas.find((item) => schemaTarget(item) === row.system_key && item.schema_type === type);
+        if (!schema) return { schema_type: type, status: "MISSING", item_count: 0, items: [] };
+        const items = schemaItemsFor(schema, state);
+        return { ...schema, item_count: items.length, items };
+      });
+      const readyCount = schemas.filter((schema) => schema.status !== "MISSING" && schema.item_count > 0).length;
+      return {
+        scope_key: row.system_key,
+        namespace: row.namespace,
+        name_ko: row.name_ko,
+        name_en: row.name_en,
+        launch_status: row.launch_status,
+        status: row.status,
+        field_count: state.variables.filter((item) => item.item_key.startsWith(`${row.system_key.toLowerCase()}.`) && item.status !== "ARCHIVED").length,
+        schema_counts: Object.fromEntries(schemas.map((schema) => [schema.schema_type, schema.item_count])),
+        schema_ready_count: readyCount,
+        published_count: schemas.filter((schema) => schema.workflow_status === "PUBLISHED").length,
+        completeness_percent: Math.round((readyCount / schemaTypes.length) * 100),
+        schemas,
+      };
+    });
+  return { generated_at: now(), schema_types: schemaTypes, scopes };
+}
 function classify(payload) {
   const categories = payload.listing_domain === "PARTS_LISTING" ? ["PARTS_GOODS"] : ["ALL_VEHICLES"];
   if (payload.vehicle_type_key === "CAR") {
@@ -206,7 +377,7 @@ function classify(payload) {
     if (payload.theme_keys?.includes("LUXURY")) categories.push("LUXURY_CAR", "THEME_CAR");
   }
   if (payload.vehicle_type_key === "BUS") categories.push("TRUCK_SPECIAL_BUS", "BUS");
-  if (payload.vehicle_type_key === "FORKLIFT_LOGISTICS") categories.push("CONSTRUCTION", "MATERIAL_HANDLING");
+  if (payload.vehicle_type_key === "MATERIAL_HANDLING") categories.push("CONSTRUCTION", "MATERIAL_HANDLING", "FORKLIFT");
   return { dry_run: true, projection: { listing_id: payload.listing_id, listing_domain: payload.listing_domain, vehicle_type_key: payload.vehicle_type_key || null, asset_type_key: payload.asset_type_key || null, category_node_keys: [...new Set(categories)], attributes: payload.attributes || {}, resolution_version: "public-demo-v1", projected_at: now() } };
 }
 
@@ -251,7 +422,8 @@ export function createDemoApi() {
       state.schemas.unshift(row); addAudit(state, "CREATE_DRAFT", "schema", row.id, role); save(state); return row;
     }
     match = url.pathname.match(/^\/api\/admin\/schemas\/([^/]+)$/);
-    if (match && method === "GET") { const row = state.schemas.find((schema) => schema.id === match[1]); return { ...row, items: state.variables.slice(0, row.item_count || 8), validation_rules: [], conditional_rules: [], option_sets: [] }; }
+    if (url.pathname === "/api/admin/variable-matrix") return variableMatrix(state, url.searchParams.get("scope_key"));
+    if (match && method === "GET") { const row = state.schemas.find((schema) => schema.id === match[1]); return { ...row, items: schemaItemsFor(row, state), validation_rules: [], conditional_rules: [], option_sets: [] }; }
     match = url.pathname.match(/^\/api\/admin\/schemas\/([^/]+)\/actions\/(request-review|approve|publish|rollback)$/);
     if (match) {
       const row = state.schemas.find((schema) => schema.id === match[1]); const action = match[2];

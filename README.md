@@ -43,6 +43,9 @@ http://127.0.0.1:8788/category-admin/
 
 상세 개발 지시서는 [`docs/category-admin/DEVELOPMENT-INSTRUCTION.md`](docs/category-admin/DEVELOPMENT-INSTRUCTION.md)를 참고합니다.
 
+운영 콘솔 V2와 전체 차량유형 가변 매트릭스 구현 기준은
+[`docs/category-admin/OPERATIONS-CONSOLE-V2.md`](docs/category-admin/OPERATIONS-CONSOLE-V2.md)를 우선합니다.
+
 ```bash
 npm run test:admin
 npm run verify

@@ -4,6 +4,7 @@ import test from "node:test";
 import { createAdminApp } from "../admin-server/app.mjs";
 import { AdminDatabase } from "../admin-server/database.mjs";
 import { createDemoApi } from "../public/category-admin/demo-api.js";
+import { createAdminApi, resolveRuntimeConfig } from "../public/category-admin/runtime.js";
 
 async function withApp(run) {
   const database = new AdminDatabase(":memory:");
@@ -51,10 +52,12 @@ test("registry namespaces keep vehicle types, overlays, assets, sellers and BM s
     assert.equal(result.response.status, 200);
     const byKey = new Map(result.json.map((row) => [row.system_key, row.namespace]));
     assert.equal(byKey.get("CAR"), "VEHICLE_TYPE");
+    assert.equal(byKey.get("MATERIAL_HANDLING"), "VEHICLE_TYPE");
     assert.equal(byKey.get("EV_OVERLAY"), "OVERLAY");
     assert.equal(byKey.get("PARTS_GOODS"), "ASSET_TYPE");
     assert.equal(byKey.get("DEALER_COMPLEX"), "SELLER_CHANNEL");
     assert.equal(byKey.get("TOP_PLACEMENT"), "SERVICE_BM");
+    assert.equal(byKey.has("FORKLIFT_LOGISTICS"), false);
   });
 });
 
@@ -139,6 +142,22 @@ test("PARTS_GOODS uses PARTS_LISTING and never appears in ALL_VEHICLES", async (
   });
 });
 
+test("variable matrix covers every launch scope with screen-level schemas", async () => {
+  await withApp(async ({ baseUrl }) => {
+    const result = await request(baseUrl, "/api/admin/variable-matrix");
+    assert.equal(result.response.status, 200);
+    const scopes = new Map(result.json.scopes.map((scope) => [scope.scope_key, scope]));
+    for (const key of ["CAR", "BIKE", "TRUCK_SPECIAL", "BUS", "CAMPING_CARAVAN", "CONSTRUCTION", "MATERIAL_HANDLING", "ATTACHMENT", "PARTS_GOODS"]) {
+      assert.ok(scopes.has(key), key);
+      assert.equal(scopes.get(key).completeness_percent, 100, key);
+      for (const type of ["FILTER", "REGISTRATION_FORM", "LIST_META", "DETAIL", "OPTION", "SELLER"]) {
+        assert.ok(scopes.get(key).schema_counts[type] > 0, `${key} ${type}`);
+      }
+    }
+    assert.equal(scopes.has("FORKLIFT_LOGISTICS"), false);
+  });
+});
+
 test("one CAR listing resolves to multiple category placements without changing vehicle type", async () => {
   await withApp(async ({ baseUrl }) => {
     const payload = {
@@ -158,6 +177,20 @@ test("one CAR listing resolves to multiple category placements without changing 
     const projection = await request(baseUrl, "/api/internal/v1/listings/CAR-100/projection");
     assert.equal(projection.response.status, 200);
     assert.ok(projection.json.category_node_keys_json.includes("IMPORTED_CAR"));
+  });
+});
+
+test("material handling listings can appear in both construction and forklift views", async () => {
+  await withApp(async ({ baseUrl }) => {
+    const result = await request(baseUrl, "/api/internal/v1/listings/FORK-1/classify?dry_run=true", {
+      method: "POST",
+      body: { listing_domain: "VEHICLE_LISTING", vehicle_type_key: "MATERIAL_HANDLING", asset_subtype: "FORKLIFT", attributes: { lift_capacity_kg: 2500 } },
+    });
+    assert.equal(result.response.status, 200);
+    assert.equal(result.json.projection.vehicle_type_key, "MATERIAL_HANDLING");
+    assert.ok(result.json.projection.category_node_keys.includes("CONSTRUCTION"));
+    assert.ok(result.json.projection.category_node_keys.includes("MATERIAL_HANDLING"));
+    assert.ok(result.json.projection.category_node_keys.includes("FORKLIFT"));
   });
 });
 
@@ -192,4 +225,49 @@ test("public GitHub Pages demo loads dashboard and keeps mutations in demo state
   });
   assert.ok(classification.projection.category_node_keys.includes("IMPORTED_CAR"));
   assert.ok(classification.projection.category_node_keys.includes("ELECTRIC_CAR"));
+
+  const matrix = await demo("/api/admin/variable-matrix");
+  assert.ok(matrix.scopes.find((scope) => scope.scope_key === "BIKE").schema_counts.FILTER > 0);
+  assert.ok(matrix.scopes.find((scope) => scope.scope_key === "MATERIAL_HANDLING"));
+});
+
+test("runtime mode is explicit and live API never falls back to demo data", async () => {
+  const publicDemo = resolveRuntimeConfig({
+    hostname: "bobaekimboae.github.io",
+    origin: "https://bobaekimboae.github.io",
+  });
+  assert.equal(publicDemo.mode, "PUBLIC_DEMO");
+  assert.equal(publicDemo.isDemo, true);
+
+  const staging = resolveRuntimeConfig({
+    hostname: "category-admin.staging.bobaedream.co.kr",
+    origin: "https://category-admin.staging.bobaedream.co.kr",
+  });
+  assert.equal(staging.mode, "STAGING_API");
+  assert.equal(staging.isDemo, false);
+
+  let demoCalls = 0;
+  const liveApi = createAdminApi({
+    runtime: resolveRuntimeConfig({
+      hostname: "admin.bobaedream.co.kr",
+      origin: "https://admin.bobaedream.co.kr",
+      configuredMode: "LIVE_API",
+    }),
+    demoApi: async () => { demoCalls += 1; return { mode: "PUBLIC_DEMO" }; },
+    fetchImpl: async () => { throw new Error("network down"); },
+  });
+
+  await assert.rejects(
+    liveApi("/api/admin/health"),
+    /데모 데이터로 전환하지 않았습니다/,
+  );
+  assert.equal(demoCalls, 0);
+});
+
+test("seed references use the bobaedream design source instead of external marketplaces", async () => {
+  const demo = createDemoApi();
+  const variables = await demo("/api/admin/variables");
+  assert.ok(variables.length > 0);
+  assert.ok(variables.every((item) => item.source_site === "보배드림 가변설계 정본"));
+  assert.ok(variables.every((item) => !/Auto Trader|eBay|TruckScout/i.test(item.source_site)));
 });

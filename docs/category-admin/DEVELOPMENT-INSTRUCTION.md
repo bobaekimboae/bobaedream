@@ -4,6 +4,9 @@
 적용 코드: `admin-server/`, `public/category-admin/`  
 최초 구현 범위: `CAR`, `TRUCK_SPECIAL`, `PARTS_GOODS`
 
+> 운영 콘솔 V2와 전체 차량유형 가변 매트릭스의 최신 구현 기준은
+> [`OPERATIONS-CONSOLE-V2.md`](OPERATIONS-CONSOLE-V2.md)를 우선한다.
+
 ## 1. 개발 목표
 
 기존 중고차 중심 관리자 구조를 폐기하지 않고 매물 운영 정본으로 유지한다. 신규 관리자는 차량유형별 카테고리, 화면 스키마, 제조사·모델, 판매채널, 유료상품과 배포 버전을 관리하는 Control Plane으로 구현한다.

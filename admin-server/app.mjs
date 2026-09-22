@@ -123,6 +123,11 @@ async function routeApi(req, res, url, service) {
     }
   }
 
+  if (req.method === "GET" && path === "/api/admin/variable-matrix") {
+    requirePermission("read");
+    return json(res, 200, service.variableMatrix(url.searchParams.get("scope_key")));
+  }
+
   match = path.match(/^\/api\/admin\/schemas\/([^/]+)$/);
   if (match && req.method === "GET") {
     requirePermission("read");

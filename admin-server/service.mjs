@@ -240,6 +240,67 @@ export class AdminService {
     `).all().map(normalizeDbRow);
   }
 
+  variableMatrix(scopeKey = null) {
+    const schemaTypes = ["FILTER", "REGISTRATION_FORM", "LIST_META", "DETAIL", "OPTION", "SELLER"];
+    const registryRows = this.database.db.prepare(`
+      SELECT * FROM registry_items
+      WHERE namespace IN ('VEHICLE_TYPE', 'ASSET_TYPE') AND status != 'ARCHIVED'
+      ORDER BY namespace, sort_order, system_key
+    `).all().map(normalizeDbRow);
+    const scopes = registryRows
+      .filter((row) => !scopeKey || row.system_key === scopeKey)
+      .map((row) => {
+        const schemas = this.database.db.prepare(`
+          SELECT s.*, COUNT(si.id) AS item_count
+          FROM schemas s
+          LEFT JOIN schema_items si ON si.schema_id = s.id AND si.is_visible = 1
+          WHERE ${row.namespace === "ASSET_TYPE" ? "s.asset_type_key" : "s.vehicle_type_key"} = ?
+          GROUP BY s.id
+          ORDER BY s.schema_type, s.platform, s.updated_at DESC
+        `).all(row.system_key).map(normalizeDbRow);
+
+        const schemaByType = new Map();
+        for (const schema of schemas) {
+          const current = schemaByType.get(schema.schema_type);
+          if (!current || schema.workflow_status === "PUBLISHED") schemaByType.set(schema.schema_type, schema);
+        }
+
+        const packedSchemas = schemaTypes.map((type) => {
+          const schema = schemaByType.get(type);
+          if (!schema) return { schema_type: type, status: "MISSING", item_count: 0, items: [] };
+          const snapshot = this.buildSnapshot(schema);
+          return {
+            id: schema.id,
+            schema_type: schema.schema_type,
+            platform: schema.platform,
+            schema_version: schema.schema_version,
+            workflow_status: schema.workflow_status,
+            publication_status: schema.publication_status,
+            item_count: snapshot.items.length,
+            items: snapshot.items,
+          };
+        });
+
+        const publishedCount = packedSchemas.filter((schema) => schema.workflow_status === "PUBLISHED").length;
+        const readyCount = packedSchemas.filter((schema) => schema.status !== "MISSING" && schema.item_count > 0).length;
+        return {
+          scope_key: row.system_key,
+          namespace: row.namespace,
+          name_ko: row.name_ko,
+          name_en: row.name_en,
+          launch_status: row.launch_status,
+          status: row.status,
+          field_count: Number(this.database.db.prepare("SELECT COUNT(*) AS count FROM variable_items WHERE item_key LIKE ? AND status != 'ARCHIVED'").get(`${row.system_key.toLowerCase()}.%`).count),
+          schema_counts: Object.fromEntries(packedSchemas.map((schema) => [schema.schema_type, schema.item_count])),
+          schema_ready_count: readyCount,
+          published_count: publishedCount,
+          completeness_percent: Math.round((readyCount / schemaTypes.length) * 100),
+          schemas: packedSchemas,
+        };
+      });
+    return { generated_at: now(), schema_types: schemaTypes, scopes };
+  }
+
   schemaDetails(id) {
     const schema = this.database.get("schemas", id);
     if (!schema) throw notFound("schema not found");

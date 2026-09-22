@@ -6,7 +6,7 @@ const registryRows = [
   ["VEHICLE_TYPE", "TRUCK_SPECIAL", "트럭·특장", "P1_LAUNCH"],
   ["VEHICLE_TYPE", "BUS", "버스", "P1_LAUNCH"],
   ["VEHICLE_TYPE", "CONSTRUCTION", "건설기계", "P1_LAUNCH"],
-  ["VEHICLE_TYPE", "FORKLIFT_LOGISTICS", "지게차·물류장비", "P1_LAUNCH"],
+  ["VEHICLE_TYPE", "MATERIAL_HANDLING", "자재운반장비", "P1_LAUNCH"],
   ["VEHICLE_TYPE", "CAMPING_CARAVAN", "캠핑카·카라반", "P1_LAUNCH"],
   ["ASSET_TYPE", "ATTACHMENT", "어태치먼트", "P1_LAUNCH"],
   ["ASSET_TYPE", "PARTS_GOODS", "부품·용품", "P1_LAUNCH"],
@@ -69,7 +69,7 @@ const categoryDefinitions = [
   ["CONSTRUCTION", null, "건설기계", "VEHICLE_LISTING", 8],
   ["ATTACHMENT", "CONSTRUCTION", "어태치먼트", "PARTS_LISTING", 2],
   ["MATERIAL_HANDLING", null, "자재 운송 장비", "VEHICLE_LISTING", 9],
-  ["FORKLIFT_LOGISTICS", "MATERIAL_HANDLING", "지게차", "VEHICLE_LISTING", 1],
+  ["FORKLIFT", "MATERIAL_HANDLING", "지게차", "VEHICLE_LISTING", 1],
   ["PARTS_GOODS", null, "부품·용품", "PARTS_LISTING", 10],
   ["CAR_PARTS", "PARTS_GOODS", "자동차 부품·용품", "PARTS_LISTING", 1],
   ["TRUCK_PARTS", "PARTS_GOODS", "트럭 부품·용품", "PARTS_LISTING", 2],
@@ -120,7 +120,8 @@ const bindingMap = {
   CAMPING_CARAVAN: [["VEHICLE_TYPE", "CAMPING_CARAVAN", "PRIMARY_TYPE"]],
   BUS: [["VEHICLE_TYPE", "BUS", "PRIMARY_TYPE"]],
   CONSTRUCTION: [["VEHICLE_TYPE", "CONSTRUCTION", "PRIMARY_TYPE"]],
-  FORKLIFT_LOGISTICS: [["VEHICLE_TYPE", "FORKLIFT_LOGISTICS", "PRIMARY_TYPE"]],
+  MATERIAL_HANDLING: [["VEHICLE_TYPE", "MATERIAL_HANDLING", "PRIMARY_TYPE"]],
+  FORKLIFT: [["VEHICLE_TYPE", "MATERIAL_HANDLING", "PRIMARY_TYPE"]],
   ATTACHMENT: [["ASSET_TYPE", "ATTACHMENT", "PRIMARY_TYPE"]],
   PARTS_GOODS: [["ASSET_TYPE", "PARTS_GOODS", "PRIMARY_TYPE"]],
 };
@@ -148,11 +149,7 @@ const placements = categories.map((category, index) => ({
   updated_at: now(),
 }));
 
-const sourceByScope = {
-  CAR: ["Auto Trader UK", "https://www.autotrader.co.uk/car-search"],
-  TRUCK_SPECIAL: ["TruckScout24", "https://www.truckscout24.com/"],
-  PARTS_GOODS: ["eBay Motors Parts & Accessories", "https://www.ebay.com/b/Auto-Parts-and-Vehicles/6000/bn_1865334"],
-};
+const defaultSource = ["보배드림 가변설계 정본", "https://docs.google.com/spreadsheets/d/1ei78gzOyLeKXcVrrsKmNx5U3zWXmvpGyY6E9dcVOeFo/edit"];
 
 const variableDefinitions = {
   CAR: [
@@ -166,12 +163,32 @@ const variableDefinitions = {
     ["mileage_km", "주행거리", "FILTER", "range_input", "integer", "REQUIRED"],
     ["fuel_type", "연료·동력", "FILTER", "multi_select", "enum", "REQUIRED"],
     ["transmission_type", "변속기", "FILTER", "single_select", "enum", "REQUIRED"],
+    ["body_type", "차체형식", "FILTER", "multi_select", "enum", "RECOMMENDED"],
     ["exterior_color", "색상", "FILTER", "multi_select", "enum", "RECOMMENDED"],
     ["region_code", "지역", "LOCATION_STORAGE", "region_selector", "string", "REQUIRED"],
     ["seller_type", "판매자 유형", "SELLER_TYPE", "single_select", "enum", "REQUIRED"],
     ["accident_disclosure", "사고 여부", "TRUST_VERIFICATION", "single_select", "enum", "REQUIRED"],
     ["insurance_history_available", "보험이력 제공", "TRUST_VERIFICATION", "toggle", "boolean", "RECOMMENDED"],
     ["performance_inspection_id", "성능점검기록부", "LEGAL_DOCUMENT", "document_reference", "string", "RECOMMENDED"],
+    ["certification_type", "인증 여부", "TRUST_VERIFICATION", "single_select", "enum", "OPTIONAL"],
+  ],
+  BIKE: [
+    ["make_id", "제조사", "MAKE_MODEL_MASTER", "cascading_select", "string", "REQUIRED"],
+    ["model_id", "모델", "MAKE_MODEL_MASTER", "cascading_select", "string", "REQUIRED"],
+    ["displacement_cc", "배기량", "FILTER", "range_input", "integer", "REQUIRED"],
+    ["model_year", "연식", "FILTER", "year_range", "integer", "REQUIRED"],
+    ["first_registration_date", "최초등록", "REGISTRATION_FIELD", "month_picker", "date", "RECOMMENDED"],
+    ["sale_price", "가격", "PRICE_DISPLAY", "price_input", "integer", "REQUIRED"],
+    ["mileage_km", "주행거리", "FILTER", "range_input", "integer", "REQUIRED"],
+    ["transmission_type", "기어방식", "FILTER", "single_select", "enum", "RECOMMENDED"],
+    ["abs_available", "ABS", "OPTION", "toggle", "boolean", "RECOMMENDED"],
+    ["bike_style", "차체유형", "FILTER", "multi_select", "enum", "REQUIRED"],
+    ["usage_type", "용도", "FILTER", "multi_select", "enum", "RECOMMENDED"],
+    ["engine_type", "엔진형식", "DETAIL_BASIC", "single_select", "enum", "RECOMMENDED"],
+    ["electric_drive", "전기오토바이", "FILTER", "toggle", "boolean", "OPTIONAL"],
+    ["customized", "튜닝·커스텀", "OPTION", "toggle", "boolean", "OPTIONAL"],
+    ["region_code", "지역", "LOCATION_STORAGE", "region_selector", "string", "REQUIRED"],
+    ["seller_type", "판매자 유형", "SELLER_TYPE", "single_select", "enum", "REQUIRED"],
   ],
   TRUCK_SPECIAL: [
     ["truck_body_type", "트럭·특장 유형", "FILTER", "category_selector", "enum", "REQUIRED"],
@@ -187,6 +204,83 @@ const variableDefinitions = {
     ["superstructure_type", "특장 구조", "OPTION", "conditional_select", "enum", "RECOMMENDED"],
     ["inspection_expiry_date", "검사 유효기간", "LEGAL_DOCUMENT", "date_picker", "date", "RECOMMENDED"],
     ["storage_region_code", "차고지·보관지", "LOCATION_STORAGE", "region_selector", "string", "REQUIRED"],
+    ["seller_type", "판매자 유형", "SELLER_TYPE", "single_select", "enum", "REQUIRED"],
+  ],
+  BUS: [
+    ["bus_type", "버스 유형", "FILTER", "category_selector", "enum", "REQUIRED"],
+    ["make_id", "제조사", "MAKE_MODEL_MASTER", "cascading_select", "string", "REQUIRED"],
+    ["model_id", "모델", "MAKE_MODEL_MASTER", "cascading_select", "string", "REQUIRED"],
+    ["seat_capacity", "승차정원", "FILTER", "range_input", "integer", "REQUIRED"],
+    ["seat_layout", "좌석배치", "OPTION", "single_select", "enum", "RECOMMENDED"],
+    ["usage_type", "용도", "FILTER", "multi_select", "enum", "REQUIRED"],
+    ["model_year", "연식", "FILTER", "year_range", "integer", "REQUIRED"],
+    ["sale_price", "가격", "PRICE_DISPLAY", "price_input", "integer", "REQUIRED"],
+    ["mileage_km", "주행거리", "FILTER", "range_input", "integer", "REQUIRED"],
+    ["fuel_type", "연료", "FILTER", "multi_select", "enum", "RECOMMENDED"],
+    ["transmission_type", "변속기", "FILTER", "single_select", "enum", "RECOMMENDED"],
+    ["region_code", "지역", "LOCATION_STORAGE", "region_selector", "string", "REQUIRED"],
+    ["seller_type", "판매자 유형", "SELLER_TYPE", "single_select", "enum", "REQUIRED"],
+  ],
+  CAMPING_CARAVAN: [
+    ["camping_type", "캠핑 차량 형태", "FILTER", "category_selector", "enum", "REQUIRED"],
+    ["base_vehicle", "베이스차량", "MAKE_MODEL_MASTER", "cascading_select", "string", "RECOMMENDED"],
+    ["seat_capacity", "승차인원", "FILTER", "range_input", "integer", "REQUIRED"],
+    ["sleep_capacity", "취침인원", "FILTER", "range_input", "integer", "REQUIRED"],
+    ["bed_count", "침상 수", "DETAIL_BASIC", "number_input", "integer", "RECOMMENDED"],
+    ["toilet_available", "화장실", "OPTION", "toggle", "boolean", "RECOMMENDED"],
+    ["shower_available", "샤워실", "OPTION", "toggle", "boolean", "RECOMMENDED"],
+    ["kitchen_available", "주방", "OPTION", "toggle", "boolean", "RECOMMENDED"],
+    ["electrical_system", "전기설비", "OPTION", "multi_select", "enum", "RECOMMENDED"],
+    ["solar_available", "태양광", "OPTION", "toggle", "boolean", "OPTIONAL"],
+    ["expansion_type", "확장 여부", "OPTION", "single_select", "enum", "OPTIONAL"],
+    ["model_year", "연식", "FILTER", "year_range", "integer", "REQUIRED"],
+    ["sale_price", "가격", "PRICE_DISPLAY", "price_input", "integer", "REQUIRED"],
+    ["mileage_km", "주행거리", "FILTER", "range_input", "integer", "RECOMMENDED"],
+    ["region_code", "지역", "LOCATION_STORAGE", "region_selector", "string", "REQUIRED"],
+    ["seller_type", "판매자 유형", "SELLER_TYPE", "single_select", "enum", "REQUIRED"],
+  ],
+  CONSTRUCTION: [
+    ["equipment_type", "장비유형", "FILTER", "category_selector", "enum", "REQUIRED"],
+    ["make_id", "제조사", "MAKE_MODEL_MASTER", "cascading_select", "string", "REQUIRED"],
+    ["model_id", "모델", "MAKE_MODEL_MASTER", "cascading_select", "string", "REQUIRED"],
+    ["model_year", "연식", "FILTER", "year_range", "integer", "REQUIRED"],
+    ["sale_price", "가격", "PRICE_DISPLAY", "price_input", "integer", "REQUIRED"],
+    ["working_hours", "사용시간", "FILTER", "range_input", "integer", "REQUIRED"],
+    ["operating_weight_kg", "작업중량", "DETAIL_BASIC", "number_input", "integer", "RECOMMENDED"],
+    ["bucket_capacity_m3", "버킷용량", "DETAIL_BASIC", "number_input", "decimal", "RECOMMENDED"],
+    ["undercarriage_type", "궤도·휠", "FILTER", "single_select", "enum", "RECOMMENDED"],
+    ["condition_grade", "장비상태", "CONDITION_GRADE", "single_select", "enum", "REQUIRED"],
+    ["attachment_included", "어태치먼트 포함", "OPTION", "toggle", "boolean", "RECOMMENDED"],
+    ["storage_region_code", "보관지", "LOCATION_STORAGE", "region_selector", "string", "REQUIRED"],
+    ["seller_type", "판매자 유형", "SELLER_TYPE", "single_select", "enum", "REQUIRED"],
+  ],
+  MATERIAL_HANDLING: [
+    ["equipment_type", "장비유형", "FILTER", "category_selector", "enum", "REQUIRED"],
+    ["power_source", "동력원", "FILTER", "multi_select", "enum", "REQUIRED"],
+    ["lift_capacity_kg", "인양능력", "FILTER", "range_input", "integer", "REQUIRED"],
+    ["lift_height_mm", "인양높이", "FILTER", "range_input", "integer", "RECOMMENDED"],
+    ["mast_type", "마스트", "FILTER", "single_select", "enum", "RECOMMENDED"],
+    ["make_id", "제조사", "MAKE_MODEL_MASTER", "cascading_select", "string", "REQUIRED"],
+    ["model_id", "모델", "MAKE_MODEL_MASTER", "cascading_select", "string", "REQUIRED"],
+    ["model_year", "연식", "FILTER", "year_range", "integer", "REQUIRED"],
+    ["sale_price", "가격", "PRICE_DISPLAY", "price_input", "integer", "REQUIRED"],
+    ["working_hours", "사용시간", "FILTER", "range_input", "integer", "REQUIRED"],
+    ["battery_condition", "배터리상태", "CONDITION_GRADE", "single_select", "enum", "RECOMMENDED"],
+    ["storage_region_code", "보관지", "LOCATION_STORAGE", "region_selector", "string", "REQUIRED"],
+    ["seller_type", "판매자 유형", "SELLER_TYPE", "single_select", "enum", "REQUIRED"],
+  ],
+  ATTACHMENT: [
+    ["attachment_type", "어태치먼트 유형", "FILTER", "category_selector", "enum", "REQUIRED"],
+    ["compatible_equipment_type", "호환 장비", "FILTER", "multi_select", "enum", "REQUIRED"],
+    ["compatible_make_id", "호환 제조사", "MAKE_MODEL_MASTER", "cascading_select", "string", "RECOMMENDED"],
+    ["compatible_model_id", "호환 모델", "MAKE_MODEL_MASTER", "cascading_select", "string", "RECOMMENDED"],
+    ["specification", "규격", "DETAIL_BASIC", "text_input", "string", "REQUIRED"],
+    ["weight_kg", "중량", "DETAIL_BASIC", "number_input", "integer", "RECOMMENDED"],
+    ["coupler_type", "연결방식", "FILTER", "single_select", "enum", "RECOMMENDED"],
+    ["condition_grade", "상태", "CONDITION_GRADE", "single_select", "enum", "REQUIRED"],
+    ["sale_price", "가격", "PRICE_DISPLAY", "price_input", "integer", "REQUIRED"],
+    ["region_code", "지역", "LOCATION_STORAGE", "region_selector", "string", "REQUIRED"],
+    ["seller_type", "판매자 유형", "SELLER_TYPE", "single_select", "enum", "REQUIRED"],
   ],
   PARTS_GOODS: [
     ["parts_category_id", "부품 카테고리", "FILTER", "category_selector", "string", "REQUIRED"],
@@ -205,7 +299,7 @@ const variableDefinitions = {
 };
 
 const variableItems = Object.entries(variableDefinitions).flatMap(([scope, items]) => {
-  const [sourceSite, sourceUrl] = sourceByScope[scope];
+  const [sourceSite, sourceUrl] = defaultSource;
   return items.map(([key, label, group, component, dataType, required], index) => ({
     id: `var_${scope.toLowerCase()}_${key}`,
     item_key: `${scope.toLowerCase()}.${key}`,
@@ -227,14 +321,16 @@ const variableItems = Object.entries(variableDefinitions).flatMap(([scope, items
   }));
 });
 
+const ASSET_SCOPES = new Set(["ATTACHMENT", "PARTS_GOODS"]);
+
 function schema(scope, type, categoryKey, platform, items, version = "1.0.0") {
   const id = `schema_${scope.toLowerCase()}_${type.toLowerCase()}_${platform.toLowerCase()}_v1`;
   return {
     row: {
       id,
       schema_type: type,
-      vehicle_type_key: scope === "PARTS_GOODS" ? null : scope,
-      asset_type_key: scope === "PARTS_GOODS" ? scope : null,
+      vehicle_type_key: ASSET_SCOPES.has(scope) ? null : scope,
+      asset_type_key: ASSET_SCOPES.has(scope) ? scope : null,
       category_node_key: categoryKey,
       platform,
       schema_version: version,
@@ -269,16 +365,26 @@ function schema(scope, type, categoryKey, platform, items, version = "1.0.0") {
   };
 }
 
-const schemaPackages = [
-  schema("CAR", "REGISTRATION_FORM", null, "ADMIN", variableDefinitions.CAR.map((row) => row[0])),
-  schema("CAR", "FILTER", null, "MOBILE_APP", ["make_id", "model_id", "model_year", "sale_price", "mileage_km", "fuel_type", "transmission_type", "exterior_color", "region_code", "seller_type", "accident_disclosure"]),
-  schema("CAR", "LIST_META", null, "ALL", ["make_id", "model_id", "model_year", "mileage_km", "fuel_type", "sale_price", "region_code"]),
-  schema("CAR", "DETAIL", null, "ALL", variableDefinitions.CAR.map((row) => row[0])),
-  schema("TRUCK_SPECIAL", "REGISTRATION_FORM", null, "ADMIN", variableDefinitions.TRUCK_SPECIAL.map((row) => row[0])),
-  schema("TRUCK_SPECIAL", "FILTER", null, "MOBILE_APP", ["truck_body_type", "make_id", "model_id", "model_year", "sale_price", "mileage_km", "payload_kg", "axle_configuration", "storage_region_code"]),
-  schema("PARTS_GOODS", "REGISTRATION_FORM", null, "ADMIN", variableDefinitions.PARTS_GOODS.map((row) => row[0])),
-  schema("PARTS_GOODS", "FILTER", null, "MOBILE_APP", ["parts_category_id", "compatible_vehicle_type", "compatible_make_id", "compatible_model_id", "oem_number", "part_origin_type", "condition_grade", "sale_price", "delivery_method", "seller_type"]),
-];
+const schemaPackages = Object.entries(variableDefinitions).flatMap(([scope, rows]) => {
+  const allKeys = rows.map((row) => row[0]);
+  const keysForGroups = (...groups) => rows.filter((row) => groups.includes(row[2])).map((row) => row[0]);
+  const filterKeys = keysForGroups("FILTER", "MAKE_MODEL_MASTER", "PRICE_DISPLAY", "LOCATION_STORAGE", "CONDITION_GRADE", "SELLER_TYPE");
+  const listKeys = allKeys.filter((key) => [
+    "make_id", "model_id", "model_year", "sale_price", "mileage_km", "region_code", "storage_region_code",
+    "truck_body_type", "bus_type", "bike_style", "camping_type", "equipment_type", "attachment_type",
+    "parts_category_id", "payload_kg", "seat_capacity", "sleep_capacity", "working_hours", "condition_grade",
+  ].includes(key)).slice(0, 8);
+  const optionKeys = keysForGroups("OPTION");
+  const sellerKeys = keysForGroups("SELLER_TYPE");
+  return [
+    schema(scope, "REGISTRATION_FORM", null, "ADMIN", allKeys),
+    schema(scope, "FILTER", null, "MOBILE_APP", filterKeys),
+    schema(scope, "LIST_META", null, "ALL", listKeys.length ? listKeys : allKeys.slice(0, 6)),
+    schema(scope, "DETAIL", null, "ALL", allKeys),
+    schema(scope, "OPTION", null, "ALL", optionKeys.length ? optionKeys : allKeys.slice(-2)),
+    schema(scope, "SELLER", null, "ADMIN", sellerKeys.length ? sellerKeys : allKeys.slice(-1)),
+  ];
+});
 
 const manufacturers = [
   ["CAR", "HYUNDAI", "현대", "Hyundai"], ["CAR", "KIA", "기아", "Kia"], ["CAR", "GENESIS", "제네시스", "Genesis"],
