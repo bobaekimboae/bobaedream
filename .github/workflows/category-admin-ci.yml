@@ -1,4 +1,5 @@
 name: Category Admin CI
+# Production gate for the isolated variable-category admin application.
 on:
   workflow_dispatch:
   push:
