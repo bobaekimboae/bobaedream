@@ -1,40 +1,105 @@
 name: Category Admin CI
-
+# Validates both the production Node vertical slice and the isolated Laravel platform.
 on:
+  workflow_dispatch: {}
+  push:
+    branches: [main, codex/variable-category-admin]
+    paths:
+      - 'admin-server/**'
+      - 'apps/variable-category-admin/**'
+      - 'public/category-admin/**'
+      - 'tests/category-admin-api.test.mjs'
+      - 'docs/category-admin/**'
+      - 'deploy/category-admin/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/category-admin-ci.yml'
   pull_request:
     paths:
-      - "admin-server/**"
-      - "public/category-admin/**"
-      - "tests/category-admin-api.test.mjs"
-      - "docs/category-admin/**"
-      - "deploy/category-admin/**"
-      - "package.json"
-      - ".github/workflows/category-admin-ci.yml"
-  push:
-    branches: [main]
-    paths:
-      - "admin-server/**"
-      - "public/category-admin/**"
-      - "tests/category-admin-api.test.mjs"
-      - "deploy/category-admin/**"
+      - 'admin-server/**'
+      - 'apps/variable-category-admin/**'
+      - 'public/category-admin/**'
+      - 'tests/category-admin-api.test.mjs'
+      - 'docs/category-admin/**'
+      - 'deploy/category-admin/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/category-admin-ci.yml'
+
+concurrency:
+  group: category-admin-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
 
 jobs:
-  contract-tests:
+  node-contract:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: '24'
           cache: npm
       - run: npm ci --no-audit --no-fund
       - run: npm run test:admin
 
   container-build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - run: docker build -f deploy/category-admin/Dockerfile -t bobaedream-category-admin:ci .
+
+  laravel-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: apps/variable-category-admin
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test tests-contract/*.test.mjs
+      - run: node --check public/admin-demo/app.js
+      - run: git diff --check
+
+  laravel-backend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: apps/variable-category-admin
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: category_admin
+          POSTGRES_USER: category_admin
+          POSTGRES_PASSWORD: test-password
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U category_admin"
+          --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: intl, pdo_pgsql, zip
+          coverage: none
+      - run: composer install --no-interaction --prefer-dist
+      - run: composer validate --strict
+      - run: vendor/bin/pint --test
+      - run: vendor/bin/phpstan analyse --no-progress
+      - run: cp .env.example .env && php artisan key:generate
+      - run: php artisan migrate:fresh --seed --force
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PASSWORD: test-password
+      - run: php artisan test
+      - run: php artisan route:list
