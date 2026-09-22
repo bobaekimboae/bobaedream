@@ -4,6 +4,7 @@ import test from "node:test";
 import { createAdminApp } from "../admin-server/app.mjs";
 import { AdminDatabase } from "../admin-server/database.mjs";
 import { createDemoApi } from "../public/category-admin/demo-api.js";
+import { createAdminApi, resolveRuntimeConfig } from "../public/category-admin/runtime.js";
 
 async function withApp(run) {
   const database = new AdminDatabase(":memory:");
@@ -192,4 +193,45 @@ test("public GitHub Pages demo loads dashboard and keeps mutations in demo state
   });
   assert.ok(classification.projection.category_node_keys.includes("IMPORTED_CAR"));
   assert.ok(classification.projection.category_node_keys.includes("ELECTRIC_CAR"));
+});
+
+test("runtime mode is explicit and live API never falls back to demo data", async () => {
+  const publicDemo = resolveRuntimeConfig({
+    hostname: "bobaekimboae.github.io",
+    origin: "https://bobaekimboae.github.io",
+  });
+  assert.equal(publicDemo.mode, "PUBLIC_DEMO");
+  assert.equal(publicDemo.isDemo, true);
+
+  const staging = resolveRuntimeConfig({
+    hostname: "category-admin.staging.bobaedream.co.kr",
+    origin: "https://category-admin.staging.bobaedream.co.kr",
+  });
+  assert.equal(staging.mode, "STAGING_API");
+  assert.equal(staging.isDemo, false);
+
+  let demoCalls = 0;
+  const liveApi = createAdminApi({
+    runtime: resolveRuntimeConfig({
+      hostname: "admin.bobaedream.co.kr",
+      origin: "https://admin.bobaedream.co.kr",
+      configuredMode: "LIVE_API",
+    }),
+    demoApi: async () => { demoCalls += 1; return { mode: "PUBLIC_DEMO" }; },
+    fetchImpl: async () => { throw new Error("network down"); },
+  });
+
+  await assert.rejects(
+    liveApi("/api/admin/health"),
+    /데모 데이터로 전환하지 않았습니다/,
+  );
+  assert.equal(demoCalls, 0);
+});
+
+test("seed references use the bobaedream design source instead of external marketplaces", async () => {
+  const demo = createDemoApi();
+  const variables = await demo("/api/admin/variables");
+  assert.ok(variables.length > 0);
+  assert.ok(variables.every((item) => item.source_site === "보배드림 가변설계 정본"));
+  assert.ok(variables.every((item) => !/Auto Trader|eBay|TruckScout/i.test(item.source_site)));
 });
