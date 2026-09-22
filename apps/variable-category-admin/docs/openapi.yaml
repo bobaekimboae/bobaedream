@@ -1,0 +1,86 @@
+openapi: 3.1.0
+info:
+  title: Bobaedream Variable Category API
+  version: 1.0.0
+  description: Published category configuration and resolver preview API.
+servers:
+  - url: /api/v1
+paths:
+  /health:
+    get:
+      operationId: health
+      responses:
+        '200': {description: Healthy}
+  /configuration/current:
+    get:
+      operationId: currentConfiguration
+      description: Returns only the GLOBAL Published Release Bundle. Supports ETag.
+      responses:
+        '200':
+          description: Current published configuration
+          headers:
+            ETag: {schema: {type: string}}
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [data]
+                properties:
+                  data:
+                    type: object
+                    required: [version, manifest, resolved_hash]
+                    properties:
+                      version: {type: string}
+                      manifest: {type: object, additionalProperties: true}
+                      resolved_hash: {type: string, pattern: '^[a-f0-9]{64}$'}
+        '503': {description: No Published Release Bundle}
+  /vehicle-types:
+    get:
+      operationId: listVehicleTypes
+      responses:
+        '200':
+          description: Active vehicle types
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: {$ref: '#/components/schemas/VehicleType'}
+  /registration-schema/{categoryNodeKey}:
+    get:
+      operationId: registrationSchema
+      parameters:
+        - in: path
+          name: categoryNodeKey
+          required: true
+          schema: {type: string}
+      responses:
+        '200': {description: Latest Published field set}
+        '404': {description: No Published schema}
+  /resolver/preview/{listingId}:
+    get:
+      operationId: resolverPreview
+      security: [{sessionAuth: []}]
+      parameters:
+        - in: path
+          name: listingId
+          required: true
+          schema: {type: string, maxLength: 128, pattern: '^[A-Za-z0-9_-]+$'}
+      responses:
+        '200':
+          description: Placement matches with deterministic resolved hash
+        '401': {description: Authentication required}
+        '404': {description: Published listing not found}
+components:
+  securitySchemes:
+    sessionAuth: {type: apiKey, in: cookie, name: bobaedream_category_admin_session}
+  schemas:
+    VehicleType:
+      type: object
+      required: [system_key, name_ko]
+      properties:
+        system_key: {type: string}
+        name_ko: {type: string}
+        name_en: {type: [string, 'null']}
