@@ -910,12 +910,33 @@ function MarketplaceScreen() {
   const visibleCars = useMemo(() => [...filteredWithoutPrice].sort((first, second) => sort === "낮은 가격순" ? parsePrice(first.price) - parsePrice(second.price) : sort === "높은 가격순" ? parsePrice(second.price) - parsePrice(first.price) : second.id - first.id), [filteredWithoutPrice, sort]);
   const draftFilterCount = useMemo(() => chototTestCars.filter((car) => matchesChoTotFilters(car, draftFilters)).length, [draftFilters]);
 
-  const resetFilters = () => {
+  const resetFilters = ({ closeActiveSheet = true }: { closeActiveSheet?: boolean } = {}) => {
     setFilters(emptyChoTotFilters);
     setDraftFilters(emptyChoTotFilters);
+    setDraftRegion(emptyRegion);
     setQuery("");
     setSort("최신순");
     setRegion(emptyRegion);
+    setCategoryLandingOpen(true);
+    setFilterFocus(null);
+    setQuickFilterFocus(null);
+    if (closeActiveSheet) setSheet(null);
+  };
+
+  const clearCategoryFilter = () => {
+    setFilters((current) => ({ ...current, category: "전체", maker: null, model: null }));
+    setDraftFilters((current) => ({ ...current, category: "전체", maker: null, model: null }));
+    setCategoryLandingOpen(true);
+  };
+
+  const clearMakerFilter = () => {
+    setFilters((current) => ({ ...current, maker: null, model: null }));
+    setDraftFilters((current) => ({ ...current, maker: null, model: null }));
+  };
+
+  const applyMakerFilter = (nextMaker: string | null) => {
+    setFilters((current) => ({ ...current, maker: nextMaker, model: null }));
+    setDraftFilters((current) => ({ ...current, maker: nextMaker, model: null }));
   };
 
   const openRegionSheet = () => {
@@ -946,19 +967,22 @@ function MarketplaceScreen() {
   };
 
   const chooseMaker = (nextMaker: string | null) => {
-    setFilters((current) => ({ ...current, maker: nextMaker, model: null }));
+    applyMakerFilter(nextMaker);
     closeSheet();
   };
 
   const chooseModel = (modelName: string) => {
     const nextModel = selectedModel === modelName ? null : modelName;
     setFilters((current) => ({ ...current, model: nextModel }));
+    setDraftFilters((current) => ({ ...current, model: nextModel }));
   };
 
   const chooseVehicleCategory = (categoryName: string) => {
     if (vehicleCategoryOptions.includes(categoryName)) {
-      setFilters((current) => ({ ...current, category: categoryName, maker: null, model: null }));
-      setCategoryLandingOpen(false);
+      const nextFilters = { ...filters, category: categoryName, maker: null, model: null };
+      setFilters(nextFilters);
+      setDraftFilters(nextFilters);
+      setCategoryLandingOpen(categoryName === "전체");
       return;
     }
     setSearchToast(`${categoryName.replace("\n", " ")} 카테고리는 준비 중입니다.`);
@@ -984,13 +1008,13 @@ function MarketplaceScreen() {
           <Header query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} />
           <section className="region-bar" aria-label="지역 선택">
             <button type="button" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={openRegionSheet}><Icon name="location-blue.svg" /><span className="region-label">지역:</span><strong>{regionLabel}</strong><span className="region-chevron-icon" aria-hidden="true"><Icon name="region-chevron.svg" /></span></button>
-            <button type="button" className="reset-button" onClick={resetFilters}>초기화</button>
+            <button type="button" className="reset-button" onClick={() => resetFilters()}>초기화</button>
           </section>
           <section className={`filter-shell${activeFilterCount ? " has-active-filters" : ""}`} aria-label="중고차 필터">
             <button className="filter-fixed" type="button" aria-label={activeFilterCount ? `필터 ${activeFilterCount}개 적용됨` : "필터"} onClick={() => { setDraftFilters(filters); setFilterFocus(null); setSheet("filter"); }}><Icon name="filter.svg" /><span>{activeFilterCount || "필터"}</span></button>
             <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
-              <FilterChip label={categoryIsDefault ? "전체" : category} active onClick={() => openQuickFilter("category")} onClear={() => setFilters((current) => ({ ...current, category: "전체", maker: null, model: null }))} />
-              <FilterChip label={maker ?? "제조사"} active={Boolean(maker)} onClick={() => openQuickFilter("maker")} onClear={maker ? () => setFilters((current) => ({ ...current, maker: null, model: null })) : undefined} />
+              <FilterChip label={categoryIsDefault ? "전체" : category} active onClick={() => openQuickFilter("category")} onClear={clearCategoryFilter} />
+              <FilterChip label={maker ?? "제조사"} active={Boolean(maker)} onClick={() => openQuickFilter("maker")} onClear={maker ? clearMakerFilter : undefined} />
               <FilterChip label={filters.year === "전체" ? "연식" : filters.year} active={filters.year !== "전체"} onClick={() => openQuickFilter("year")} />
               <FilterChip label={priceFilterLabel(price)} active={price.min !== 0 || price.max !== null} onClick={() => openQuickFilter("price")} />
               <FilterChip label={filters.condition === "전체" ? "상태" : filters.condition} active={filters.condition !== "전체"} onClick={() => openQuickFilter("condition")} />
@@ -1032,7 +1056,7 @@ function MarketplaceScreen() {
             <span className="brand-title">{categoryBrandRail.title}</span>
             <Carousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName="brand-track">
               {categoryBrandRail.options.map((option) => (
-                <button key={option.name} className={`brand-item${option.maker && maker === option.maker ? " is-selected" : ""}`} type="button" aria-pressed={Boolean(option.maker && maker === option.maker)} onClick={() => option.maker ? setFilters((current) => ({ ...current, maker: option.maker ?? null, model: null })) : undefined}>
+                <button key={option.name} className={`brand-item${option.maker && maker === option.maker ? " is-selected" : ""}`} type="button" aria-pressed={Boolean(option.maker && maker === option.maker)} onClick={() => option.maker ? applyMakerFilter(option.maker) : undefined}>
                   <BrandRailMark option={option} />
                   <span>{option.name}</span>
                 </button>
@@ -1054,14 +1078,14 @@ function MarketplaceScreen() {
           </nav>
           <section className="car-list" aria-live="polite">
             {visibleCars.length ? visibleCars.map((car) => <CarCard key={car.id} car={car} cardView={cardView} liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} />) : (
-              <div className="empty-state"><strong>조건에 맞는 차량이 없어요</strong><span>필터를 초기화하고 다시 찾아보세요.</span><button type="button" onClick={resetFilters}>필터 초기화</button></div>
+              <div className="empty-state"><strong>조건에 맞는 차량이 없어요</strong><span>필터를 초기화하고 다시 찾아보세요.</span><button type="button" onClick={() => resetFilters()}>필터 초기화</button></div>
             )}
           </section>
         </main>
       </MobileScroll>
       {searchToast ? <div className="market-toast" role="status" aria-live="polite">{searchToast}</div> : null}
       <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && closeSheet()} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" || sheet === "maker" || sheet === "price" || sheet === "filter" || sheet === "quick" || sheet === "carType" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "filter" || sheet === "maker" || sheet === "quick" ? 0.96 : sheet === "carType" ? 0.8 : sheet === "region" ? 0.53 : sheet === "price" ? 0.62 : 0.48}>
-        {sheet === "filter" ? <ChoTotFilterSheet value={draftFilters} focus={filterFocus} onChange={setDraftFilters} onClose={() => { setFilterFocus(null); closeSheet(); }} onReset={() => setDraftFilters(emptyChoTotFilters)} onConfirm={() => { setFilters(draftFilters); setFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "carType" ? <CategoryFilterSheet selected={category} onChoose={chooseCategoryFilter} onClose={closeSheet} /> : sheet === "quick" && quickFilterFocus ? <ChoTotQuickFilterSheet focus={quickFilterFocus} value={draftFilters} onChange={setDraftFilters} onClose={() => { setQuickFilterFocus(null); closeSheet(); }} onConfirm={() => { setFilters(draftFilters); setQuickFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} resultCount={filteredWithoutPrice.length} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftFilters.price} onChange={(nextPrice) => setDraftFilters((current) => ({ ...current, price: nextPrice }))} onClose={closeSheet} onReset={() => setDraftFilters((current) => ({ ...current, price: emptyPrice }))} onConfirm={() => { setFilters((current) => ({ ...current, price: draftFilters.price })); closeSheet(); }} resultCount={draftFilterCount} /> : <div className="sheet-options">
+        {sheet === "filter" ? <ChoTotFilterSheet value={draftFilters} focus={filterFocus} onChange={setDraftFilters} onClose={() => { setFilterFocus(null); closeSheet(); }} onReset={() => resetFilters({ closeActiveSheet: false })} onConfirm={() => { setFilters(draftFilters); setFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "carType" ? <CategoryFilterSheet selected={category} onChoose={chooseCategoryFilter} onClose={closeSheet} /> : sheet === "quick" && quickFilterFocus ? <ChoTotQuickFilterSheet focus={quickFilterFocus} value={draftFilters} onChange={setDraftFilters} onClose={() => { setQuickFilterFocus(null); closeSheet(); }} onConfirm={() => { setFilters(draftFilters); setQuickFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} resultCount={filteredWithoutPrice.length} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftFilters.price} onChange={(nextPrice) => setDraftFilters((current) => ({ ...current, price: nextPrice }))} onClose={closeSheet} onReset={() => setDraftFilters((current) => ({ ...current, price: emptyPrice }))} onConfirm={() => { setFilters((current) => ({ ...current, price: draftFilters.price })); closeSheet(); }} resultCount={draftFilterCount} /> : <div className="sheet-options">
           {sheet === "sort" ? ["최신순", "낮은 가격순", "높은 가격순"].map((label) => <button key={label} type="button" className={sort === label ? "is-selected" : ""} onClick={() => { setSort(label); setSheet(null); }}>{label}</button>) : ["전체", "추천 조건", "인기 조건"].map((label) => <button key={label} type="button" onClick={() => setSheet(null)}>{label}</button>)}
         </div>}
       </BottomSheet>
