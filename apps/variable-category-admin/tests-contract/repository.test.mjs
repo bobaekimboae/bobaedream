@@ -24,3 +24,19 @@ test('public API and adapter boundaries are documented', () => {
   assert.match(read('app/Contracts/ListingGateway.php'), /interface ListingGateway/);
   assert.match(read('app/Domain/Listing/ListingContract.php'), /final readonly class ListingContract/);
 });
+
+test('public admin demo exposes the production operations model', () => {
+  const html = read('public/admin-demo/index.html');
+  const script = read('public/admin-demo/app.js');
+
+  for (const label of ['정책 매트릭스', '운영 작업 큐', '릴리스 상세·검수', '기존 관리자 연동', '감사 로그']) {
+    assert.match(html, new RegExp(label));
+  }
+
+  for (const code of ['CAR', 'BIKE', 'TRUCK_SPECIAL', 'BUS', 'CAMPING_CARAVAN', 'CONSTRUCTION', 'FORKLIFT_LOGISTICS', 'AGRICULTURE', 'TRAILER', 'BOAT_PWC', 'ATV_UTV', 'E_BIKE', 'CONTAINER_MOBILE_HOME']) {
+    assert.match(script, new RegExp(`code: "${code}"`));
+  }
+
+  assert.match(script, /READ_ONLY SHADOW/);
+  assert.doesNotMatch(script, /fetch\s*\(/);
+});

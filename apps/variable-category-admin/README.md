@@ -14,6 +14,7 @@
 - Filament 관리자 패널 및 공개 API
 - Docker Compose, Pest, Larastan, Pint, GitHub Actions
 - GitHub Pages용 무데이터 관리자 화면 데모
+- 13개 차량유형 정책 매트릭스, 운영 작업 큐, 릴리스 영향 검수 UI
 
 ## 기술 기준
 
@@ -38,6 +39,15 @@ docker compose exec app php artisan make:filament-user
 - 관리자: `http://localhost:8080/admin`
 - API 상태: `http://localhost:8080/api/v1/health`
 - 정적 데모: `http://localhost:8080/admin-demo/`
+
+### 공개 데모 사용 흐름
+
+1. `정책 매트릭스`에서 누락·검수·발행 차단 상태를 필터링합니다.
+2. 차량유형 행을 선택해 오른쪽 패널에서 정책 상속 구조와 변경 이력을 확인합니다.
+3. `운영 작업 큐`에서 영향도와 SLA 순으로 조치 대상을 확인합니다.
+4. `릴리스 센터`에서 현재·후보 버전의 변경 영향과 검증 결과를 검수합니다.
+
+공개 데모는 비식별 예시 데이터만 사용하며 저장·승인·배포 동작은 수행하지 않습니다.
 
 ## 기존 관리자 연결
 

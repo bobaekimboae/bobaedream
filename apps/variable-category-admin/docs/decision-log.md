@@ -10,6 +10,9 @@
 - Predicate는 JSON AST와 허용 연산자만 사용한다.
 - 기존 매물 시스템은 Listing Contract를 통해서만 연결한다.
 - Publish는 Release Bundle 단위이며 current/candidate/previous pointer를 사용한다.
+- 관리자 첫 화면은 단순 통계가 아니라 SLA 기반 작업 큐와 current/candidate/previous 상태를 우선 노출한다.
+- 다중 차량유형 설정은 카드 나열이 아닌 정책 매트릭스와 우측 상속 검사 패널로 비교한다.
+- 위험한 변경은 릴리스 센터에서 영향 매물·검증·담당자·리스크를 확인한 뒤 승인한다.
 
 ## 사업 승인 전 HOLD
 

@@ -4,94 +4,119 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="보배드림 차량유형별 멀티 카테고리 관리자 공개 데모">
-  <title>보배드림 카테고리 운영센터</title>
+  <title>보배드림 정책 매트릭스 스튜디오</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="app-shell">
-  <aside class="sidebar" aria-label="관리 메뉴">
-    <div class="brand"><span class="brand-mark">B</span><span>보배드림<br><small>카테고리 운영센터</small></span></div>
-    <nav id="nav">
-      <button class="nav-item active" data-view="dashboard"><span>⌂</span>운영 현황</button>
-      <p>분류 설계</p>
-      <button class="nav-item" data-view="types"><span>◇</span>차량유형</button>
-      <button class="nav-item" data-view="categories"><span>⌘</span>카테고리 트리</button>
-      <p>스키마 설계</p>
-      <button class="nav-item" data-view="fields"><span>▤</span>필드 코드북</button>
-      <button class="nav-item" data-view="resolver"><span>⌁</span>Resolver Preview</button>
-      <p>배포</p>
-      <button class="nav-item" data-view="release"><span>⇧</span>Release Center</button>
-      <button class="nav-item" data-view="audit"><span>◷</span>감사 로그</button>
-    </nav>
-    <div class="sidebar-foot"><span class="health-dot"></span> Published API 정상<br><small>v2026.09.22.1</small></div>
-  </aside>
+<div class="app-frame">
+  <header class="global-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">B</span>
+      <span><strong>보배드림 정책 매트릭스 스튜디오</strong><small>Multi Category Vehicle Operations</small></span>
+    </div>
+    <div class="header-actions">
+      <time datetime="2026-09-22">2026. 09. 22 (화)</time>
+      <span class="demo-pill">공개 데모</span>
+      <label class="role-label" for="role-select">권한</label>
+      <select id="role-select" aria-label="권한 미리보기">
+        <option>SUPER_ADMIN</option><option>PRODUCT_OWNER</option><option>CATEGORY_MANAGER</option><option>QA_REVIEWER</option><option>PUBLISHER</option><option>READ_ONLY</option>
+      </select>
+      <button class="icon-button user-button" aria-label="사용자 메뉴"><span class="material-symbols-rounded">person</span></button>
+    </div>
+  </header>
 
-  <main>
-    <header class="topbar">
-      <button class="mobile-menu" id="mobile-menu" aria-label="메뉴 열기">☰</button>
-      <div><h1 id="page-title">운영 현황</h1><p>차량유형·스키마·노출 정책을 안전하게 배포합니다.</p></div>
-      <div class="top-actions"><span class="env">PUBLIC DEMO</span><button class="avatar" title="데모 사용자">QA</button></div>
-    </header>
+  <div class="workspace-shell">
+    <aside class="sidebar" id="sidebar" aria-label="관리 메뉴">
+      <button class="mobile-close icon-button" id="mobile-close" aria-label="메뉴 닫기"><span class="material-symbols-rounded">close</span></button>
+      <nav id="nav">
+        <p>운영</p>
+        <button class="nav-item" data-view="operations"><span class="material-symbols-rounded">monitoring</span>운영 현황</button>
+        <button class="nav-item" data-view="issues"><span class="material-symbols-rounded">assignment_late</span>작업 큐 <b class="nav-count">5</b></button>
+        <p>설계</p>
+        <button class="nav-item" data-view="types"><span class="material-symbols-rounded">directions_car</span>차량유형 관리</button>
+        <button class="nav-item" data-view="categories"><span class="material-symbols-rounded">account_tree</span>카테고리·배치</button>
+        <button class="nav-item active" data-view="policy"><span class="material-symbols-rounded">grid_view</span>정책 매트릭스</button>
+        <button class="nav-item" data-view="fields"><span class="material-symbols-rounded">data_object</span>가변 항목 사전</button>
+        <button class="nav-item" data-view="schemas"><span class="material-symbols-rounded">view_quilt</span>화면 스키마</button>
+        <p>배포</p>
+        <button class="nav-item" data-view="release"><span class="material-symbols-rounded">rocket_launch</span>릴리스 센터</button>
+        <button class="nav-item" data-view="resolver"><span class="material-symbols-rounded">rule</span>Resolver Preview</button>
+        <p>연동·감사</p>
+        <button class="nav-item" data-view="integration"><span class="material-symbols-rounded">sync_alt</span>기존 관리자 연동</button>
+        <button class="nav-item" data-view="audit"><span class="material-symbols-rounded">history</span>감사 로그</button>
+      </nav>
+      <div class="sidebar-foot"><span><i class="health-dot"></i> Published API 정상</span><small>current v1.0.0 · p95 34ms</small></div>
+    </aside>
 
-    <section class="view active" id="dashboard">
-      <div class="notice"><b>읽기 전용 공개 데모</b><span>실데이터·내부 URL·운영 비밀값은 포함하지 않습니다.</span></div>
-      <div class="metric-grid">
-        <article class="metric"><span>활성 차량유형</span><strong>10</strong><small>전체 차량 포함</small></article>
-        <article class="metric"><span>카테고리 노드</span><strong>184</strong><small class="positive">검증 100%</small></article>
-        <article class="metric"><span>필드 정의</span><strong>126</strong><small>민감 필드 0</small></article>
-        <article class="metric"><span>Published Release</span><strong class="release-number">22.1</strong><small class="positive">API 정상</small></article>
-      </div>
-      <div class="grid two">
-        <article class="panel"><div class="panel-head"><div><h2>현재 Release Bundle</h2><p>GLOBAL 포인터가 참조하는 운영 버전</p></div><span class="badge green">PUBLISHED</span></div>
-          <dl class="release-info"><div><dt>버전</dt><dd>2026.09.22.1</dd></div><div><dt>배포 시각</dt><dd>2026-09-22 11:40 KST</dd></div><div><dt>QA 승인자</dt><dd>qa_approver</dd></div><div><dt>Manifest Hash</dt><dd class="mono">74d9…3ac2</dd></div></dl>
-          <div class="pointer"><span>previous<br><b>22.0</b></span><i>→</i><span class="current">current<br><b>22.1</b></span><i>→</i><span>candidate<br><b>없음</b></span></div>
-        </article>
-        <article class="panel"><div class="panel-head"><div><h2>통합 품질</h2><p>기존 매물 관리자 Shadow Read</p></div><button class="text-button" data-view-jump="resolver">상세 보기</button></div>
-          <div class="quality"><div><span>분류 일치율</span><b>99.94%</b><progress value="99.94" max="100"></progress></div><div><span>미매핑률</span><b>0.06%</b><progress value="0.06" max="1"></progress></div><div><span>Resolver p95</span><b>34ms</b><progress value="34" max="200"></progress></div></div>
-        </article>
-      </div>
-      <article class="panel"><div class="panel-head"><div><h2>차량유형별 준비 상태</h2><p>카테고리·필드·노출 정책의 배포 가능 여부</p></div><button class="primary" data-view-jump="types">차량유형 관리</button></div><div class="table-wrap"><table><thead><tr><th>차량유형</th><th>카테고리</th><th>필드</th><th>규칙</th><th>완성도</th><th>상태</th></tr></thead><tbody id="readiness-body"></tbody></table></div></article>
-    </section>
+    <main>
+      <button class="mobile-menu icon-button" id="mobile-menu" aria-label="관리 메뉴 열기"><span class="material-symbols-rounded">menu</span></button>
 
-    <section class="view" id="types">
-      <div class="section-actions"><div class="search"><span>⌕</span><input id="type-search" placeholder="차량유형 검색"></div><button class="primary" id="add-type">+ 차량유형 추가</button></div>
-      <article class="panel"><div class="table-wrap"><table><thead><tr><th>정렬</th><th>시스템 키</th><th>노출명</th><th>네임스페이스</th><th>카테고리</th><th>상태</th></tr></thead><tbody id="types-body"></tbody></table></div></article>
-    </section>
+      <section class="view active" id="policy" aria-labelledby="policy-title">
+        <div class="page-heading"><div><span class="eyebrow">POLICY MATRIX</span><h1 id="policy-title">차량유형 정책 매트릭스</h1><p>13개 차량유형의 카테고리부터 상품 정책까지, 필요한 구성과 상태를 한눈에 확인하고 편집합니다.</p></div><button class="secondary help-button"><span class="material-symbols-rounded">help</span>매트릭스 가이드</button></div>
+        <div class="summary-strip" aria-label="정책 상태 요약">
+          <button class="summary-item active" data-summary="all"><span class="summary-icon neutral"><span class="material-symbols-rounded">directions_car</span></span><span><small>전체 차량유형</small><strong>13<em>개</em></strong></span><span class="material-symbols-rounded arrow">chevron_right</span></button>
+          <button class="summary-item" data-summary="missing"><span class="summary-icon danger"><span class="material-symbols-rounded">error</span></span><span><small>누락 항목</small><strong>9<em>개</em></strong></span><span class="material-symbols-rounded arrow">chevron_right</span></button>
+          <button class="summary-item" data-summary="review"><span class="summary-icon warning"><span class="material-symbols-rounded">warning</span></span><span><small>검수 필요</small><strong>18<em>개</em></strong></span><span class="material-symbols-rounded arrow">chevron_right</span></button>
+          <button class="summary-item" data-summary="blocked"><span class="summary-icon blocked"><span class="material-symbols-rounded">pause_circle</span></span><span><small>발행 차단</small><strong>3<em>개</em></strong></span><span class="material-symbols-rounded arrow">chevron_right</span></button>
+        </div>
+        <div class="policy-workspace">
+          <div class="matrix-surface">
+            <div class="matrix-toolbar">
+              <label class="search-field"><span class="material-symbols-rounded">search</span><input id="matrix-search" type="search" placeholder="차량유형, 카테고리, 정책명으로 검색"></label>
+              <label><span>상태</span><select id="matrix-status"><option value="all">전체</option><option value="missing">누락 있음</option><option value="review">검수 필요</option><option value="ready">완료</option></select></label>
+              <label><span>출시단계</span><select id="matrix-phase"><option value="all">전체</option><option value="P1_LAUNCH">P1 출시</option><option value="P2_BETA">P2 베타</option><option value="P3_PLAN">P3 계획</option></select></label>
+              <label><span>플랫폼</span><select id="matrix-platform"><option>전체</option><option>WEB</option><option>MOBILE_APP</option><option>ADMIN</option></select></label>
+              <label><span>릴리스</span><select id="matrix-release"><option>current v1.0.0</option><option>candidate v1.1.0</option><option>previous v0.9.3</option></select></label>
+            </div>
+            <div class="matrix-table-wrap"><table class="matrix-table"><thead><tr><th class="sticky-col">차량유형 <span id="matrix-count">(13)</span></th><th>카테고리</th><th>배치</th><th>필터</th><th>등록폼</th><th>목록</th><th>상세</th><th>제조사·모델</th><th>판매자 정책</th><th>상품 정책</th><th>릴리스</th></tr></thead><tbody id="matrix-body"></tbody></table></div>
+            <div class="matrix-footer"><span id="matrix-result-count">총 13개 차량유형</span><div><button class="icon-button" aria-label="이전 페이지" disabled><span class="material-symbols-rounded">chevron_left</span></button><b>1</b><button class="icon-button" aria-label="다음 페이지" disabled><span class="material-symbols-rounded">chevron_right</span></button></div></div>
+          </div>
+          <aside class="inspector" aria-live="polite">
+            <div class="inspector-head"><div class="vehicle-symbol"><span class="material-symbols-rounded" id="inspector-icon">directions_car</span></div><div><h2 id="inspector-name">중고차</h2><p><span id="inspector-phase">P1_LAUNCH</span> · <b>ACTIVE</b></p><code id="inspector-code">VEHICLE_TYPE · CAR</code></div><button class="icon-button" id="inspector-close" aria-label="상세 패널 닫기"><span class="material-symbols-rounded">close</span></button></div>
+            <div class="inspector-tabs" role="tablist"><button class="active" data-inspector-tab="inheritance" role="tab">정책 상속 구조</button><button data-inspector-tab="gaps" role="tab">누락 항목 <span id="gap-count">1</span></button><button data-inspector-tab="history" role="tab">변경 이력</button></div>
+            <div id="inspector-content"></div>
+            <button class="primary inspector-action" id="edit-schema"><span class="material-symbols-rounded">edit</span>스키마 편집</button>
+          </aside>
+        </div>
+      </section>
 
-    <section class="view" id="categories">
-      <div class="split-layout">
-        <article class="panel tree-panel"><div class="panel-head"><div><h2>카테고리 트리</h2><p>유형과 노드는 분리하여 관리합니다.</p></div><select id="category-type"></select></div><div id="category-tree" class="tree"></div></article>
-        <article class="panel detail-panel"><div class="panel-head"><div><h2 id="node-title">카테고리 상세</h2><p>Published 노드는 직접 수정할 수 없습니다.</p></div><span class="badge blue">READ ONLY</span></div><div class="form-grid"><label>시스템 키<input id="node-key" readonly></label><label>노출명<input id="node-name" readonly></label><label>깊이<input id="node-depth" readonly></label><label>말단 노드<input id="node-leaf" readonly></label></div><div class="callout">변경하려면 Draft 복사본을 만든 뒤 QA 승인과 Release Bundle 배포를 거쳐야 합니다.</div></article>
-      </div>
-    </section>
+      <section class="view" id="operations" aria-labelledby="operations-title">
+        <div class="page-heading"><div><span class="eyebrow">OPERATIONS</span><h1 id="operations-title">운영 현황</h1><p>장식용 지표 대신 오늘 처리해야 할 위험과 릴리스 상태를 보여줍니다.</p></div><button class="secondary"><span class="material-symbols-rounded">refresh</span>새로고침</button></div>
+        <div class="summary-strip compact"><button class="summary-item"><span class="summary-icon danger"><span class="material-symbols-rounded">report</span></span><span><small>즉시 조치</small><strong>28</strong></span></button><button class="summary-item"><span class="summary-icon warning"><span class="material-symbols-rounded">schedule</span></span><span><small>승인 대기</small><strong>14</strong></span></button><button class="summary-item"><span class="summary-icon neutral"><span class="material-symbols-rounded">sync_problem</span></span><span><small>연동 지연</small><strong>3</strong></span></button></div>
+        <article class="surface"><div class="surface-head"><div><h2>오늘의 작업 큐</h2><p>영향도와 SLA를 기준으로 자동 정렬됩니다.</p></div><button class="text-button" data-view-jump="issues">전체 작업 보기</button></div><div class="table-wrap"><table><thead><tr><th>우선순위</th><th>이슈</th><th>영향 차량유형</th><th>영향 매물</th><th>담당자</th><th>SLA</th><th>다음 행동</th></tr></thead><tbody id="operations-queue"></tbody></table></div></article>
+        <article class="release-strip"><div><span class="status-dot success"></span><small>현재 운영 버전</small><strong>v1.0.0</strong><em>스모크 정상</em></div><div><span class="status-dot info"></span><small>배포 후보 버전</small><strong>v1.1.0</strong><em>QA 검수 중</em></div><div><span class="status-dot neutral"></span><small>이전 버전</small><strong>v0.9.3</strong><em>복구 가능</em></div><button class="primary" data-view-jump="release">검토 시작<span class="material-symbols-rounded">arrow_forward</span></button></article>
+      </section>
 
-    <section class="view" id="fields">
-      <div class="section-actions"><div class="filters"><button class="chip active">전체 126</button><button class="chip">공통 18</button><button class="chip">유형별 108</button></div><button class="primary">+ 필드 정의</button></div>
-      <article class="panel"><div class="table-wrap"><table><thead><tr><th>필드 키</th><th>한국어명</th><th>데이터형</th><th>UI</th><th>필수 수준</th><th>적용 유형</th></tr></thead><tbody id="fields-body"></tbody></table></div></article>
-    </section>
+      <section class="view" id="issues" aria-labelledby="issues-title"><div class="page-heading"><div><span class="eyebrow">WORK QUEUE</span><h1 id="issues-title">운영 작업 큐</h1><p>발행 차단, 승인 지연, 미분류, 규칙 충돌과 연동 오류를 한곳에서 처리합니다.</p></div></div><article class="surface"><div class="queue-filters"><button class="chip active">전체 28</button><button class="chip">긴급 4</button><button class="chip">발행 차단 3</button><button class="chip">내 작업 7</button></div><div class="table-wrap"><table><thead><tr><th>심각도</th><th>유형</th><th>설명</th><th>영향 범위</th><th>소유자</th><th>마감</th><th>상태</th></tr></thead><tbody id="issues-body"></tbody></table></div></article></section>
 
-    <section class="view" id="resolver">
-      <div class="grid resolver-grid">
-        <article class="panel"><div class="panel-head"><div><h2>Listing Contract 입력</h2><p>실매물 대신 비식별 예제 데이터만 사용합니다.</p></div><span class="badge gray">SHADOW</span></div>
-          <div class="form-grid"><label>매물 ID<input value="00000000-0000-4000-8000-000000000001"></label><label>기존 카테고리<select id="legacy-category"><option value="CAR_IMPORTED">수입 승용</option><option value="TRUCK_CARGO">화물 트럭</option><option value="BIKE_SCOOTER">스쿠터</option></select></label><label>상태<select id="listing-status"><option>ACTIVE</option><option>PUBLISHED</option><option>DRAFT</option></select></label><label>연료<select id="fuel"><option value="GASOLINE">가솔린</option><option value="ELECTRIC">전기</option><option value="DIESEL">디젤</option></select></label><label>가격(만원)<input id="price" type="number" value="7800"></label><label>판매자<select><option>DEALER</option><option>PRIVATE</option></select></label></div><button class="primary full" id="run-resolver">Resolver 실행</button>
-        </article>
-        <article class="panel result-panel"><div class="panel-head"><div><h2>판정 결과</h2><p>규칙·버전·근거를 함께 반환합니다.</p></div><span class="badge green" id="resolver-state">MATCHED</span></div><div id="resolver-result"></div></article>
-      </div>
-    </section>
+      <section class="view" id="types" aria-labelledby="types-title"><div class="page-heading"><div><span class="eyebrow">TYPE REGISTRY</span><h1 id="types-title">차량유형 관리</h1><p>차량유형과 자산유형을 안정된 코드와 출시 단계로 관리합니다.</p></div><button class="primary" id="add-type"><span class="material-symbols-rounded">add</span>차량유형 추가</button></div><article class="surface"><div class="table-toolbar"><label class="search-field"><span class="material-symbols-rounded">search</span><input id="type-search" placeholder="차량유형 검색"></label><select aria-label="네임스페이스 필터"><option>전체 namespace</option><option>VEHICLE_TYPE</option><option>ASSET_TYPE</option></select></div><div class="table-wrap"><table><thead><tr><th>정렬</th><th>시스템 키</th><th>노출명</th><th>네임스페이스</th><th>카테고리</th><th>출시단계</th><th>상태</th></tr></thead><tbody id="types-body"></tbody></table></div></article></section>
 
-    <section class="view" id="release">
-      <div class="section-actions"><div><span class="eyebrow">RELEASE PIPELINE</span><h2>Draft → QA Approved → Published</h2></div><button class="primary" id="new-release">+ 새 Bundle</button></div>
-      <div class="pipeline"><div><span>1</span><b>Draft 작성</b><small>Schema·Rule 조합</small></div><i>→</i><div><span>2</span><b>영향 분석</b><small>Diff·Completeness</small></div><i>→</i><div><span>3</span><b>QA 승인</b><small>작성자와 승인자 분리</small></div><i>→</i><div class="live"><span>4</span><b>Atomic Publish</b><small>Pointer 전환</small></div></div>
-      <article class="panel"><div class="table-wrap"><table><thead><tr><th>버전</th><th>상태</th><th>구성요소</th><th>완성도</th><th>작성 시각</th><th>작업</th></tr></thead><tbody><tr><td class="mono">2026.09.22.2</td><td><span class="badge amber">QA_APPROVED</span></td><td>Types 10 · Schemas 34 · Rules 48</td><td>100%</td><td>12:18</td><td><button class="danger" id="publish-btn">Publish</button></td></tr><tr><td class="mono">2026.09.22.1</td><td><span class="badge green">PUBLISHED</span></td><td>Types 10 · Schemas 34 · Rules 46</td><td>100%</td><td>11:40</td><td><button class="secondary">상세</button></td></tr><tr><td class="mono">2026.09.22.0</td><td><span class="badge gray">PREVIOUS</span></td><td>Types 9 · Schemas 31 · Rules 42</td><td>98.2%</td><td>09:12</td><td><button class="secondary">비교</button></td></tr></tbody></table></div></article>
-    </section>
+      <section class="view" id="categories" aria-labelledby="categories-title"><div class="page-heading"><div><span class="eyebrow">CATEGORY & PLACEMENT</span><h1 id="categories-title">카테고리·배치</h1><p>의미 노드와 실제 노출 위치를 분리해 다중 배치를 관리합니다.</p></div><button class="primary"><span class="material-symbols-rounded">add</span>노드 추가</button></div><div class="split-layout"><article class="surface tree-panel"><div class="surface-head"><div><h2>카테고리 트리</h2><p>유형별 의미 체계</p></div><select id="category-type" aria-label="카테고리 차량유형"></select></div><div id="category-tree" class="tree"></div></article><article class="surface detail-panel"><div class="surface-head"><div><h2 id="node-title">카테고리 상세</h2><p>Published 노드는 새 버전으로만 변경할 수 있습니다.</p></div><span class="state-badge info">READ ONLY</span></div><div class="form-grid"><label>시스템 키<input id="node-key" readonly></label><label>노출명<input id="node-name" readonly></label><label>깊이<input id="node-depth" readonly></label><label>말단 노드<input id="node-leaf" readonly></label></div><div class="callout"><span class="material-symbols-rounded">info</span>변경하려면 Draft 복사본을 만든 뒤 QA 승인과 Release Bundle 배포를 거쳐야 합니다.</div></article></div></section>
 
-    <section class="view" id="audit">
-      <article class="panel"><div class="panel-head"><div><h2>불변 감사 로그</h2><p>이전 레코드 해시를 포함한 append-only 기록입니다.</p></div><span class="badge green">CHAIN VALID</span></div><div class="timeline" id="audit-list"></div></article>
-    </section>
-  </main>
+      <section class="view" id="fields" aria-labelledby="fields-title"><div class="page-heading"><div><span class="eyebrow">FIELD DICTIONARY</span><h1 id="fields-title">가변 항목 사전</h1><p>모든 스키마가 공유하는 필드 타입·단위·검증·선택지를 관리합니다.</p></div><button class="primary"><span class="material-symbols-rounded">add</span>필드 정의</button></div><article class="surface"><div class="queue-filters"><button class="chip active">전체 126</button><button class="chip">공통 18</button><button class="chip">유형별 108</button><button class="chip">검수 필요 4</button></div><div class="table-wrap"><table><thead><tr><th>필드 키</th><th>한국어명</th><th>데이터형</th><th>UI</th><th>필수 수준</th><th>적용 유형</th><th>상태</th></tr></thead><tbody id="fields-body"></tbody></table></div></article></section>
+
+      <section class="view" id="schemas" aria-labelledby="schemas-title"><div class="page-heading"><div><span class="eyebrow">SCHEMA CATALOG</span><h1 id="schemas-title">화면 스키마</h1><p>필터·등록폼·목록·상세를 플랫폼별 독립 버전으로 검수합니다.</p></div><button class="primary" id="new-schema"><span class="material-symbols-rounded">add</span>Draft 생성</button></div><article class="surface"><div class="table-toolbar"><label class="search-field"><span class="material-symbols-rounded">search</span><input placeholder="차량유형 또는 스키마 검색"></label><select aria-label="스키마 종류 필터"><option>전체 종류</option><option>FILTER</option><option>REGISTRATION</option><option>LIST_META</option><option>DETAIL</option></select><select aria-label="스키마 상태 필터"><option>전체 상태</option><option>PUBLISHED</option><option>QA_APPROVED</option><option>DRAFT</option></select></div><div class="table-wrap"><table><thead><tr><th>차량유형</th><th>스키마 종류</th><th>플랫폼</th><th>버전</th><th>필드</th><th>상태</th><th>최종 변경</th><th>작업</th></tr></thead><tbody id="schemas-body"></tbody></table></div></article></section>
+
+      <section class="view" id="release" aria-labelledby="release-title">
+        <div class="page-heading"><div><span class="eyebrow">RELEASE COMMAND CENTER</span><h1 id="release-title">릴리스 상세·검수</h1><p>변경 영향과 검증 결과를 확인한 뒤 안전하게 승인·배포합니다.</p></div><button class="primary" id="qa-approve"><span class="material-symbols-rounded">check</span>QA 승인</button></div>
+        <article class="release-header"><div><small>릴리스 버전</small><strong>v1.1.0</strong><span class="state-badge info">QA 검수 중</span></div><div><small>타깃 배포일</small><strong>2026-09-23 10:00</strong><em>약 11시간 후 배포 예정</em></div><div><small>작성자</small><strong>김태민</strong><em>플랫폼개발팀</em></div><div><small>영향 대상</small><strong>4개 차량유형</strong><em>승용·트럭·부품·바이크</em></div><div><small>변경 항목</small><strong>총 32건</strong><em>스키마 18 · 규칙 8 · 정책 6</em></div></article>
+        <ol class="stage-track" aria-label="릴리스 단계"><li class="done"><b>1</b><span>DRAFT<small>09-20 14:21</small></span></li><li class="done"><b>2</b><span>자동 검증<small>통과</small></span></li><li class="current"><b>3</b><span>QA 승인<small>진행 중</small></span></li><li><b>4</b><span>CANDIDATE<small>대기</small></span></li><li><b>5</b><span>사전 스모크<small>대기</small></span></li><li><b>6</b><span>PUBLISH<small>대기</small></span></li><li><b>7</b><span>사후 스모크<small>대기</small></span></li></ol>
+        <div class="release-workspace"><article class="surface"><div class="queue-filters"><button class="chip active">전체 32</button><button class="chip">차량유형 4</button><button class="chip">카테고리 8</button><button class="chip">스키마 18</button><button class="chip">규칙 8</button></div><div class="table-wrap"><table><thead><tr><th>유형</th><th>대상</th><th>변경 내용</th><th>영향 매물</th><th>검증</th><th>담당자</th><th>리스크</th></tr></thead><tbody id="release-diff"></tbody></table></div></article><aside class="release-detail"><span class="state-badge warning">중간 리스크</span><h2>연료 타입 코드값 추가</h2><p>승용차 기본정보 · <code>car.fuel_type</code></p><div class="diff-box"><div><small>현재 v1.0.0</small><ol><li>가솔린</li><li>디젤</li><li>LPG</li><li>하이브리드</li><li>전기</li></ol></div><span class="material-symbols-rounded">arrow_forward</span><div><small>후보 v1.1.0</small><ol><li>가솔린</li><li>디젤</li><li>LPG</li><li>하이브리드</li><li>전기</li><li class="added">수소</li></ol></div></div><dl class="impact-list"><div><dt>영향 매물</dt><dd>12,842건</dd></div><div><dt>노출 위치</dt><dd>3개 화면</dd></div><div><dt>관련 규칙</dt><dd>R-102</dd></div><div><dt>최종 수정</dt><dd>2026-09-21 16:42</dd></div></dl></aside></div>
+      </section>
+
+      <section class="view" id="resolver" aria-labelledby="resolver-title"><div class="page-heading"><div><span class="eyebrow">RESOLVER PREVIEW</span><h1 id="resolver-title">매물 분류 미리보기</h1><p>비식별 예제 매물로 규칙·버전·상속 근거를 검증합니다.</p></div></div><div class="resolver-grid"><article class="surface"><div class="surface-head"><div><h2>Listing Contract 입력</h2><p>운영 데이터는 사용하지 않습니다.</p></div><span class="state-badge neutral">SHADOW</span></div><div class="form-grid"><label>매물 ID<input value="TEST-10001"></label><label>기존 카테고리<select id="legacy-category"><option value="CAR_IMPORTED">수입 승용</option><option value="TRUCK_CARGO">화물 트럭</option><option value="BIKE_SCOOTER">스쿠터</option></select></label><label>상태<select id="listing-status"><option>ACTIVE</option><option>PUBLISHED</option><option>DRAFT</option></select></label><label>연료<select id="fuel"><option value="GASOLINE">가솔린</option><option value="ELECTRIC">전기</option><option value="DIESEL">디젤</option></select></label><label>가격(만원)<input id="price" type="number" value="7800"></label><label>판매자<select><option>DEALER</option><option>PRIVATE</option></select></label></div><button class="primary full" id="run-resolver">Resolver 실행</button></article><article class="surface result-panel"><div class="surface-head"><div><h2>판정 결과</h2><p>규칙·버전·근거를 함께 반환합니다.</p></div><span class="state-badge success" id="resolver-state">MATCHED</span></div><div id="resolver-result"></div></article></div></section>
+
+      <section class="view" id="integration" aria-labelledby="integration-title"><div class="page-heading"><div><span class="eyebrow">LEGACY ADAPTER</span><h1 id="integration-title">기존 관리자 연동</h1><p>읽기 전용 Listing Contract의 지연·오류·매핑 상태를 추적합니다.</p></div><button class="secondary"><span class="material-symbols-rounded">sync</span>상태 확인</button></div><div class="integration-grid"><article class="surface"><div class="surface-head"><div><h2>연동 상태</h2><p>마지막 24시간</p></div><span class="state-badge success">정상</span></div><dl class="health-list"><div><dt>Source lag</dt><dd>12초</dd></div><div><dt>Outbox lag</dt><dd>4초</dd></div><div><dt>Dead letter</dt><dd>0건</dd></div><div><dt>Schema mismatch</dt><dd>3건</dd></div><div><dt>Last checkpoint</dt><dd>2026-09-22 10:24:18</dd></div></dl></article><article class="surface"><div class="surface-head"><div><h2>Legacy 필드 매핑</h2><p>기존 컬럼은 원본 시스템이 계속 소유합니다.</p></div></div><div id="mapping-list" class="mapping-list"></div></article></div></section>
+
+      <section class="view" id="audit" aria-labelledby="audit-title"><div class="page-heading"><div><span class="eyebrow">IMMUTABLE AUDIT</span><h1 id="audit-title">감사 로그</h1><p>이전 레코드 해시를 포함한 append-only 변경 이력을 확인합니다.</p></div><span class="state-badge success"><span class="material-symbols-rounded">verified</span>CHAIN VALID</span></div><article class="surface"><div class="timeline" id="audit-list"></div></article></section>
+    </main>
+  </div>
 </div>
-
-<dialog id="demo-dialog"><form method="dialog"><h3 id="dialog-title">공개 데모 안내</h3><p id="dialog-text">실제 변경은 로그인된 Laravel 관리자에서만 수행됩니다.</p><button class="primary">확인</button></form></dialog>
+<div class="mobile-overlay" id="mobile-overlay"></div>
+<dialog id="demo-dialog"><form method="dialog"><button class="dialog-close icon-button" aria-label="닫기"><span class="material-symbols-rounded">close</span></button><span class="dialog-symbol material-symbols-rounded">lock</span><h3 id="dialog-title">공개 데모 안내</h3><p id="dialog-text">실제 변경은 로그인된 운영 관리자에서만 수행됩니다.</p><button class="primary">확인</button></form></dialog>
 <script src="app.js"></script>
 </body>
 </html>
