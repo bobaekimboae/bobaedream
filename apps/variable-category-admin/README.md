@@ -67,3 +67,7 @@ docker compose exec app php artisan make:filament-user
 ## 라이선스
 
 회사의 권리자 승인 전 라이선스를 임의 확정하지 않습니다. 현재 저장소는 `UNLICENSED`이며 외부 사용·재배포 권한을 부여하지 않습니다.
+
+## Verification gates
+
+The pull request runs Composer validation, Pint, PHPStan level 7, PostgreSQL migration and seeding, Pest, route registration, contract tests, and JavaScript syntax checks. Local PHP 8.4 verification has confirmed Pint, PHPStan, Laravel boot, schema migration, seeding, and route registration.
