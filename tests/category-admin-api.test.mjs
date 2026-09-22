@@ -3,6 +3,7 @@ import { createServer } from "node:http";
 import test from "node:test";
 import { createAdminApp } from "../admin-server/app.mjs";
 import { AdminDatabase } from "../admin-server/database.mjs";
+import { createDemoApi } from "../public/category-admin/demo-api.js";
 
 async function withApp(run) {
   const database = new AdminDatabase(":memory:");
@@ -169,4 +170,26 @@ test("read-only administrators cannot mutate configuration", async () => {
     });
     assert.equal(result.response.status, 403);
   });
+});
+
+test("public GitHub Pages demo loads dashboard and keeps mutations in demo state", async () => {
+  const demo = createDemoApi();
+  const health = await demo("/api/admin/health");
+  assert.equal(health.mode, "PUBLIC_DEMO");
+
+  const before = await demo("/api/admin/registry");
+  const created = await demo("/api/admin/registry", {
+    method: "POST",
+    body: JSON.stringify({ namespace: "VEHICLE_TYPE", system_key: "AGRICULTURE", name_ko: "농기계", launch_status: "HOLD" }),
+  }, "SUPER_ADMIN");
+  assert.equal(created.system_key, "AGRICULTURE");
+  const after = await demo("/api/admin/registry");
+  assert.equal(after.length, before.length + 1);
+
+  const classification = await demo("/api/internal/v1/listings/DEMO-1/classify?dry_run=true", {
+    method: "POST",
+    body: JSON.stringify({ listing_domain: "VEHICLE_LISTING", vehicle_type_key: "CAR", origin_type: "IMPORT", fuel_type: "ELECTRIC", theme_keys: ["LUXURY"] }),
+  });
+  assert.ok(classification.projection.category_node_keys.includes("IMPORTED_CAR"));
+  assert.ok(classification.projection.category_node_keys.includes("ELECTRIC_CAR"));
 });

@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
     <title>보배드림 카테고리 운영 관리자</title>
-    <link rel="stylesheet" href="/category-admin/styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./demo.css" />
   </head>
   <body>
     <header class="topbar">
@@ -23,6 +24,9 @@
         </label>
       </div>
     </header>
+    <div id="runtimeBanner" class="runtime-banner" hidden>
+      공개 데모 모드입니다. 변경값은 현재 브라우저에만 저장되며 실제 운영 데이터에는 반영되지 않습니다.
+    </div>
 
     <div class="app-shell">
       <aside class="sidebar">
@@ -114,6 +118,6 @@
     <dialog id="modelDialog"><form method="dialog" class="dialog-form" data-form="model"><div class="dialog-head"><h2>모델 추가</h2><button value="cancel">×</button></div><label>제조사<select name="manufacturer_id" id="modelMakeSelect" required></select></label><label>Model key<input name="model_key" required /></label><label>한국어명<input name="name_ko" required /></label><label>영문명<input name="name_en" /></label><button class="primary" type="submit">저장</button></form></dialog>
 
     <div id="toast" class="toast"></div>
-    <script type="module" src="/category-admin/app.js"></script>
+    <script type="module" src="./app.js"></script>
   </body>
 </html>
