@@ -1,4 +1,4 @@
-const STORAGE_KEY = "bobaedream-category-admin-public-demo-v1";
+const STORAGE_KEY = "bobaedream-category-admin-public-demo-v2";
 const now = () => new Date().toISOString();
 const makeId = (prefix) => `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
 const memory = new Map();
@@ -103,9 +103,9 @@ const variableDefinitions = {
 };
 
 const sourceByScope = {
-  car: ["Auto Trader UK", "https://www.autotrader.co.uk/car-search"],
-  truck_special: ["TruckScout24", "https://www.truckscout24.com/"],
-  parts_goods: ["eBay Motors Parts", "https://www.ebay.com/b/Auto-Parts-and-Vehicles/6000/bn_1865334"],
+  car: ["보배드림 가변설계 정본", "https://docs.google.com/spreadsheets/d/1ei78gzOyLeKXcVrrsKmNx5U3zWXmvpGyY6E9dcVOeFo/edit"],
+  truck_special: ["보배드림 가변설계 정본", "https://docs.google.com/spreadsheets/d/1ei78gzOyLeKXcVrrsKmNx5U3zWXmvpGyY6E9dcVOeFo/edit"],
+  parts_goods: ["보배드림 가변설계 정본", "https://docs.google.com/spreadsheets/d/1ei78gzOyLeKXcVrrsKmNx5U3zWXmvpGyY6E9dcVOeFo/edit"],
 };
 
 const variableSeed = Object.entries(variableDefinitions).flatMap(([scope, rows]) => rows.map(([key, label, group, component, type], index) => ({

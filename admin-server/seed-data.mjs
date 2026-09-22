@@ -149,9 +149,9 @@ const placements = categories.map((category, index) => ({
 }));
 
 const sourceByScope = {
-  CAR: ["Auto Trader UK", "https://www.autotrader.co.uk/car-search"],
-  TRUCK_SPECIAL: ["TruckScout24", "https://www.truckscout24.com/"],
-  PARTS_GOODS: ["eBay Motors Parts & Accessories", "https://www.ebay.com/b/Auto-Parts-and-Vehicles/6000/bn_1865334"],
+  CAR: ["보배드림 가변설계 정본", "https://docs.google.com/spreadsheets/d/1ei78gzOyLeKXcVrrsKmNx5U3zWXmvpGyY6E9dcVOeFo/edit"],
+  TRUCK_SPECIAL: ["보배드림 가변설계 정본", "https://docs.google.com/spreadsheets/d/1ei78gzOyLeKXcVrrsKmNx5U3zWXmvpGyY6E9dcVOeFo/edit"],
+  PARTS_GOODS: ["보배드림 가변설계 정본", "https://docs.google.com/spreadsheets/d/1ei78gzOyLeKXcVrrsKmNx5U3zWXmvpGyY6E9dcVOeFo/edit"],
 };
 
 const variableDefinitions = {
