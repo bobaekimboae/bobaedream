@@ -1,0 +1,62 @@
+name: Category Admin CI
+on:
+  push:
+    branches: [main, codex/variable-category-admin]
+    paths:
+      - 'apps/variable-category-admin/**'
+      - 'public/category-admin/**'
+      - '.github/workflows/category-admin-ci.yml'
+  pull_request:
+    paths:
+      - 'apps/variable-category-admin/**'
+      - 'public/category-admin/**'
+permissions:
+  contents: read
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/variable-category-admin
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests-contract/*.test.mjs
+      - run: node --check public/admin-demo/app.js
+      - run: git diff --check
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/variable-category-admin
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: category_admin
+          POSTGRES_USER: category_admin
+          POSTGRES_PASSWORD: test-password
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U category_admin"
+          --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: intl, pdo_pgsql, zip
+          coverage: none
+      - run: composer install --no-interaction --prefer-dist
+      - run: composer validate --strict
+      - run: vendor/bin/pint --test
+      - run: vendor/bin/phpstan analyse --no-progress
+      - run: cp .env.example .env && php artisan key:generate
+      - run: php artisan migrate:fresh --seed --force
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PASSWORD: test-password
+      - run: php artisan test
+      - run: php artisan route:list
