@@ -106,16 +106,15 @@ button { color: inherit; }
 .brand-row.is-guazi-card-mode { height: 86px; }
 .brand-row.is-guazi-card-mode .brand-carousel { height: 72px; }
 .guazi-model-track { display: flex; align-items: center; gap: 8px; min-width: max-content; padding: 7px 16px 7px 0; }
-.guazi-model-card { display: grid; grid-template-rows: 28px 17px 13px; align-content: center; justify-items: center; min-width: 80px; height: 72px; padding: 6px 9px 7px; border-radius: 6px; background: #f7f8fc; color: #252527; text-align: center; transition: background 140ms ease, color 140ms ease, box-shadow 140ms ease; }
+.guazi-model-card { display: grid; grid-template-rows: 24px 17px 13px; align-content: center; justify-items: center; row-gap: 2px; min-width: 80px; height: 72px; padding: 5px 8px 6px; border-radius: 6px; background: #f7f8fc; color: #252527; text-align: center; transition: background 140ms ease, color 140ms ease, box-shadow 140ms ease; }
 .guazi-model-card img { display: block; width: 48px; height: 24px; object-fit: contain; mix-blend-mode: multiply; }
 .guazi-model-card strong { display: block; max-width: 78px; overflow: hidden; color: inherit; font-size: 12px; font-weight: 650; line-height: 17px; text-overflow: ellipsis; white-space: nowrap; }
 .guazi-model-card span { display: block; max-width: 78px; overflow: hidden; color: #8a8d93; font-size: 11px; font-weight: 500; line-height: 13px; text-overflow: ellipsis; white-space: nowrap; }
 .guazi-model-card.is-selected { background: #1f1f1f; color: #fff; box-shadow: none; }
 .guazi-model-card.is-selected img { mix-blend-mode: normal; filter: brightness(1.08); }
 .guazi-model-card.is-selected span { color: rgba(255, 255, 255, .72); }
-.guazi-model-card.is-variant-card { min-width: 96px; }
+.guazi-model-card.is-variant-card { grid-template-rows: 28px 20px; row-gap: 4px; min-width: 96px; padding-top: 8px; padding-bottom: 8px; }
 .guazi-model-card.is-variant-card strong { max-width: 94px; }
-.guazi-model-card.is-variant-card span { max-width: 94px; }
 
 .video-toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 56px; padding: 7px 16px 0; border-top: 7px solid #f3f3f3; box-sizing: border-box; background: #fff; color: #3a3a3a; font-size: 15px; font-weight: 500; }
 .video-toggle-copy { display: flex; align-items: center; gap: 8px; min-width: 0; }
