@@ -402,7 +402,6 @@ const quickGenerationsByMakerModel: Record<string, Record<string, QuickGeneratio
     ],
   },
 };
-const choTotConditionFilters = ["신차", "중고"] as const;
 const choTotColorFilters = ["흰색", "검정"] as const;
 const quickRegions = ["경기", "서울", "부산", "대구", "인천", "전남광주"];
 const quickFilterStyleOptions: Array<{ value: QuickFilterStyle; label: string }> = [
@@ -1112,12 +1111,6 @@ function MarketplaceScreen() {
     setSelectedVariant((current) => current === variantName ? null : variantName);
   };
 
-  const chooseConditionQuickFilter = (condition: string) => {
-    const nextCondition = filters.condition === condition ? "전체" : condition;
-    setFilters((current) => ({ ...current, condition: nextCondition }));
-    setDraftFilters((current) => ({ ...current, condition: nextCondition }));
-  };
-
   const chooseColorQuickFilter = (color: string) => {
     const nextColors = filters.colors.includes(color) ? [] : [color];
     setFilters((current) => ({ ...current, colors: nextColors }));
@@ -1205,16 +1198,6 @@ function MarketplaceScreen() {
       onClear: selectedVariant ? clearVariantFilter : undefined,
     } : null,
     showAfterUxDepth ? {
-      key: "condition",
-      label: filters.condition === "전체" ? "상태" : filters.condition,
-      active: filters.condition !== "전체",
-      onClick: () => openQuickFilter("condition"),
-      onClear: filters.condition !== "전체" ? () => {
-        setFilters((current) => ({ ...current, condition: "전체" }));
-        setDraftFilters((current) => ({ ...current, condition: "전체" }));
-      } : undefined,
-    } : null,
-    showAfterUxDepth ? {
       key: "color",
       label: filters.colors.length ? filters.colors.join(", ") : "색상",
       active: filters.colors.length > 0,
@@ -1241,8 +1224,7 @@ function MarketplaceScreen() {
   const showModelQuickRail = Boolean(maker && !selectedModel && modelQuickOptions.length);
   const showGenerationQuickRail = Boolean(usesUxDepth && selectedModel && !selectedGeneration && generationQuickOptions.length);
   const showVariantQuickRail = Boolean(usesUxDepth && selectedGeneration && !selectedVariant && variantQuickOptions.length);
-  const showConditionQuickRail = Boolean(showAfterUxDepth && filters.condition === "전체");
-  const showColorQuickRail = Boolean(showAfterUxDepth && filters.condition !== "전체");
+  const showColorQuickRail = Boolean(showAfterUxDepth);
   const showCategoryQuickRail = categoryLandingOpen && !maker;
 
   return (
@@ -1291,13 +1273,6 @@ function MarketplaceScreen() {
             <Carousel ariaLabel={`${selectedGeneration} 세부모델`} className="brand-carousel" contentClassName="benz-model-track">
               {variantQuickOptions.map((variant) => (
                 <button key={variant} className={`benz-model-chip${selectedVariant === variant ? " is-selected" : ""}`} type="button" aria-pressed={selectedVariant === variant} onClick={() => chooseVariant(variant)}>{variant}</button>
-              ))}
-            </Carousel>
-          </section> : showConditionQuickRail ? <section className="brand-row is-benz-model-mode" aria-label="상태 빠른 선택">
-            <span className="brand-title">상태</span>
-            <Carousel ariaLabel="상태" className="brand-carousel" contentClassName="benz-model-track">
-              {choTotConditionFilters.map((condition) => (
-                <button key={condition} className={`benz-model-chip${filters.condition === condition ? " is-selected" : ""}`} type="button" aria-pressed={filters.condition === condition} onClick={() => chooseConditionQuickFilter(condition)}>{condition}</button>
               ))}
             </Carousel>
           </section> : showColorQuickRail ? <section className="brand-row is-benz-model-mode" aria-label="색상 빠른 선택">
