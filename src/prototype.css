@@ -47,9 +47,6 @@ button { color: inherit; }
 .filter-chip-clear { width: 20px; height: 20px; justify-content: center; }
 .filter-chip-clear .ui-icon { width: 20px; height: 20px; }
 
-.filter-shell.quick-style-guazi .filter-chip.is-active { background: #188d47; color: #fff; }
-.filter-shell.quick-style-dongchedi .filter-chip.is-active { background: #9b6f08; color: #fff; }
-
 .category-row { height: 92px; background: #fff; }
 .category-carousel { height: 92px; }
 .category-track { display: flex; align-items: flex-start; gap: 0; min-width: max-content; padding: 5px 12px 10px; box-sizing: border-box; }
