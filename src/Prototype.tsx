@@ -61,6 +61,10 @@ const isDesktopPreview = () => {
   const params = new URLSearchParams(window.location.search);
   return params.get("desktop") === "1" || params.get("pc") === "1";
 };
+const getInitialQuickFilterStyle = (): QuickFilterStyle => {
+  const qf = new URLSearchParams(window.location.search).get("qf");
+  return qf === "guazi" || qf === "dongchedi" ? qf : "chotot";
+};
 const isForcedMobileView = () => !isDesktopPreview();
 const forcedMobileDesignWidth = 430;
 
@@ -1009,7 +1013,7 @@ function MarketplaceScreen() {
   const [searchSaved, setSearchSaved] = useState(false);
   const [searchToast, setSearchToast] = useState("");
   const [categoryLandingOpen, setCategoryLandingOpen] = useState(true);
-  const [quickFilterStyle, setQuickFilterStyle] = useState<QuickFilterStyle>("chotot");
+  const [quickFilterStyle, setQuickFilterStyle] = useState<QuickFilterStyle>(() => getInitialQuickFilterStyle());
   const [selectedGeneration, setSelectedGeneration] = useState<string | null>(null);
   const [selectedVariant, setSelectedVariant] = useState<string | null>(null);
 
@@ -1173,6 +1177,14 @@ function MarketplaceScreen() {
     const nextColors = filters.colors.includes(color) ? [] : [color];
     setFilters((current) => ({ ...current, colors: nextColors }));
     setDraftFilters((current) => ({ ...current, colors: nextColors }));
+  };
+
+  const chooseQuickFilterStyle = (style: QuickFilterStyle) => {
+    setQuickFilterStyle(style);
+    const url = new URL(window.location.href);
+    if (style === "chotot") url.searchParams.delete("qf");
+    else url.searchParams.set("qf", style);
+    window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
   };
 
   const chooseVehicleCategory = (categoryName: string) => {
@@ -1383,7 +1395,7 @@ function MarketplaceScreen() {
             </div>
             <label className="quick-style-select">
               <span>적용 사이트</span>
-              <select value={quickFilterStyle} onChange={(event) => setQuickFilterStyle(event.currentTarget.value as QuickFilterStyle)}>
+              <select value={quickFilterStyle} onChange={(event) => chooseQuickFilterStyle(event.currentTarget.value as QuickFilterStyle)}>
                 {quickFilterStyleOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
               </select>
             </label>
