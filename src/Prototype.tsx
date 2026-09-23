@@ -1033,6 +1033,7 @@ function MarketplaceScreen() {
     setDraftFilters((current) => ({ ...current, maker: null, model: null }));
     setSelectedGeneration(null);
     setSelectedVariant(null);
+    setCategoryLandingOpen(category === "전체");
   };
 
   const clearModelFilter = () => {
@@ -1239,6 +1240,7 @@ function MarketplaceScreen() {
   const showVariantQuickRail = Boolean(usesUxDepth && selectedGeneration && !selectedVariant && variantQuickOptions.length);
   const showConditionQuickRail = Boolean(showAfterUxDepth && filters.condition === "전체");
   const showColorQuickRail = Boolean(showAfterUxDepth && filters.condition !== "전체");
+  const showCategoryQuickRail = categoryLandingOpen && !maker;
 
   return (
     <>
@@ -1255,7 +1257,7 @@ function MarketplaceScreen() {
               {quickFilterChips.map((chip) => <FilterChip key={chip.key} label={chip.label} active={chip.active} onClick={chip.onClick} onClear={chip.onClear} />)}
             </Carousel>
           </section>
-          {categoryLandingOpen ? <section className="category-row" aria-label="차량 대카테고리 선택">
+          {showCategoryQuickRail ? <section className="category-row" aria-label="차량 대카테고리 선택">
             <Carousel ariaLabel="차량 대카테고리" className="category-carousel" contentClassName="category-track">
               {vehicleCategories.map((categoryOption) => (
                 <button key={categoryOption.name} className="category-item" type="button" onClick={() => chooseVehicleCategory(categoryOption.name)}>
