@@ -48,7 +48,7 @@ import { ChoTotFilterSheet, ChoTotQuickFilterSheet, emptyChoTotFilters, vehicleC
 import "./prototype.css";
 
 export type SellerType = "전체" | "개인" | "딜러";
-type SheetType = "filter" | "quick" | "carType" | "maker" | "year" | "price" | "region" | "sort" | null;
+type SheetType = "filter" | "quick" | "carType" | "maker" | "vehicle" | "year" | "price" | "region" | "sort" | null;
 type DetailSheet = "contact" | "more" | "priceHistory" | null;
 type RegionSelection = { province: string; district: string; radius: string };
 type RegionMenu = "province" | "district" | "radius" | null;
@@ -744,7 +744,7 @@ function shuffleCars(source: Car[]) {
 }
 
 const sheetLabels: Record<Exclude<SheetType, null>, string> = {
-  filter: "상세 필터", quick: "빠른 필터", carType: "카테고리", maker: "제조사", year: "연식", price: "가격", region: "지역", sort: "정렬",
+  filter: "상세 필터", quick: "빠른 필터", carType: "카테고리", maker: "제조사", vehicle: "차종 선택", year: "연식", price: "가격", region: "지역", sort: "정렬",
 };
 
 const detailPhotoSources = ["raw-04.png", "raw-09.jpeg", "raw-07.jpeg", "raw-20.jpeg", "raw-05.jpeg", "raw-10.jpeg", "raw-18.jpeg", "raw-19.jpeg"].map((name) => asset(`detail/${name}`));
@@ -984,6 +984,86 @@ function PriceSheet({ value, onChange, onClose, onReset, onConfirm, resultCount 
       <div className="price-filter-actions">
         <button type="button" className="price-filter-reset" onClick={onReset}>초기화</button>
         <button type="button" className="price-filter-confirm" onClick={onConfirm}>{resultCount.toLocaleString("ko-KR")}대 매물 보기</button>
+      </div>
+    </div>
+  );
+}
+
+function VehiclePickerSheet({
+  maker,
+  model,
+  generation,
+  makerOptions,
+  onApply,
+}: {
+  maker: string | null;
+  model: string | null;
+  generation: string | null;
+  makerOptions: BrandRailOption[];
+  onApply: (maker: string | null, model: string | null, generation: string | null) => void;
+}) {
+  const [draftMaker, setDraftMaker] = useState<string | null>(maker);
+  const [draftModel, setDraftModel] = useState<string | null>(model);
+  const [draftGeneration, setDraftGeneration] = useState<string | null>(generation);
+  const modelOptions = draftMaker ? quickModelsByMaker[draftMaker] ?? [] : [];
+  const generationOptions = draftMaker && draftModel ? quickGenerationsByMakerModel[draftMaker]?.[draftModel] ?? [] : [];
+  const visibleMakerOptions = makerOptions.filter((option) => option.maker);
+
+  useEffect(() => {
+    setDraftMaker(maker);
+    setDraftModel(model);
+    setDraftGeneration(generation);
+  }, [maker, model, generation]);
+
+  const chooseMaker = (nextMaker: string | null) => {
+    setDraftMaker(nextMaker);
+    setDraftModel(null);
+    setDraftGeneration(null);
+  };
+  const chooseModel = (nextModel: string | null) => {
+    setDraftModel(nextModel);
+    setDraftGeneration(null);
+  };
+
+  return (
+    <div className="vehicle-picker-sheet">
+      <section className="vehicle-picker-section">
+        <h3>제조사</h3>
+        <div className="vehicle-picker-grid is-makers">
+          {visibleMakerOptions.map((option) => (
+            <button key={option.name} type="button" className={draftMaker === option.maker ? "is-selected" : ""} aria-pressed={draftMaker === option.maker} onClick={() => chooseMaker(option.maker ?? null)}>
+              <BrandRailMark option={option} />
+              <span>{option.name}</span>
+            </button>
+          ))}
+        </div>
+      </section>
+      <section className="vehicle-picker-section">
+        <h3>모델</h3>
+        <div className="vehicle-picker-grid">
+          {modelOptions.length ? modelOptions.map((option) => {
+            const disabled = quickModelVisualsByMaker[draftMaker ?? ""]?.[option]?.count === "0대";
+            return <button key={option} type="button" className={draftModel === option ? "is-selected" : ""} aria-pressed={draftModel === option} disabled={disabled} onClick={() => chooseModel(option)}>{formatModelLabel(option)}</button>;
+          }) : <p>제조사를 먼저 선택하세요.</p>}
+        </div>
+      </section>
+      <section className="vehicle-picker-section">
+        <h3>세대</h3>
+        <div className="vehicle-picker-grid is-generations">
+          {generationOptions.length ? generationOptions.map((option) => {
+            const disabled = (option.count ?? option.variants.reduce((sum, variant) => sum + toTrimOption(variant).count, 0)) === 0;
+            return (
+              <button key={option.name} type="button" className={draftGeneration === option.name ? "is-selected" : ""} aria-pressed={draftGeneration === option.name} disabled={disabled} onClick={() => setDraftGeneration(option.name)}>
+                <strong>{generationCardLabel(option)}</strong>
+                <small>{compactGenerationCardYearLabel(option.years)}</small>
+              </button>
+            );
+          }) : <p>모델을 먼저 선택하세요.</p>}
+        </div>
+      </section>
+      <div className="vehicle-picker-actions">
+        <button type="button" className="vehicle-picker-reset" onClick={() => chooseMaker(null)}>초기화</button>
+        <button type="button" className="vehicle-picker-apply" onClick={() => onApply(draftMaker, draftModel, draftGeneration)}>적용</button>
       </div>
     </div>
   );
@@ -1316,6 +1396,18 @@ function MarketplaceScreen() {
     setTrimApplied(false);
   };
 
+  const clearVehicleSummaryStep = () => {
+    if (selectedGeneration) {
+      clearGenerationFilter();
+      return;
+    }
+    if (selectedModel) {
+      clearModelFilter();
+      return;
+    }
+    clearMakerFilter();
+  };
+
   const applyMakerFilter = (nextMaker: string | null) => {
     setFilters((current) => ({ ...current, maker: nextMaker, model: null }));
     setDraftFilters((current) => ({ ...current, maker: nextMaker, model: null }));
@@ -1354,6 +1446,21 @@ function MarketplaceScreen() {
 
   const chooseMaker = (nextMaker: string | null) => {
     applyMakerFilter(nextMaker);
+    closeSheet();
+  };
+
+  const applyVehicleSummarySelection = (nextMaker: string | null, nextModel: string | null, nextGeneration: string | null) => {
+    const safeModel = nextMaker && nextModel ? nextModel : null;
+    const generationOptionsForSelection = nextMaker && safeModel ? quickGenerationsByMakerModel[nextMaker]?.[safeModel] ?? [] : [];
+    const safeGeneration = generationOptionsForSelection.some((option) => option.name === nextGeneration) ? nextGeneration : null;
+    const nextFilters = { ...filters, maker: nextMaker, model: safeModel };
+    setFilters(nextFilters);
+    setDraftFilters(nextFilters);
+    setSelectedGeneration(safeGeneration);
+    setSelectedVariants([]);
+    setTrimApplied(false);
+    setCategoryLandingOpen(!nextMaker && category === "전체");
+    replaceFilterParams(nextMaker, safeModel);
     closeSheet();
   };
 
@@ -1434,6 +1541,11 @@ function MarketplaceScreen() {
     : selectedVariants.length === 1
       ? selectedVariants[0]
       : `${selectedVariants[0]} 외 ${selectedVariants.length - 1}`;
+  const vehicleSummaryLabel = [
+    maker,
+    selectedModel ? formatModelLabel(selectedModel) : null,
+    selectedGenerationOption ? generationDisplayLabel(selectedGenerationOption) : null,
+  ].filter(Boolean).join(" ");
 
   const quickFilterChips = [
     {
@@ -1443,7 +1555,13 @@ function MarketplaceScreen() {
       onClick: () => openQuickFilter("category"),
       onClear: clearCategoryFilter,
     },
-    maker ? {
+    isGuaziQuickStyle && maker ? {
+      key: "vehicle-summary",
+      label: vehicleSummaryLabel,
+      active: true,
+      onClick: () => setSheet("vehicle"),
+      onClear: clearVehicleSummaryStep,
+    } : maker ? {
       key: "maker",
       label: maker,
       active: true,
@@ -1455,7 +1573,7 @@ function MarketplaceScreen() {
       active: false,
       onClick: () => openQuickFilter("maker"),
     },
-    maker && selectedModel ? {
+    isGuaziQuickStyle ? null : maker && selectedModel ? {
       key: "model",
       label: formatModelLabel(selectedModel),
       active: true,
@@ -1467,7 +1585,7 @@ function MarketplaceScreen() {
       active: false,
       onClick: () => openQuickFilter("model"),
     } : null,
-    usesUxDepth && selectedModel ? {
+    isGuaziQuickStyle ? null : usesUxDepth && selectedModel ? {
       key: "generation",
       label: selectedGenerationOption ? generationDisplayLabel(selectedGenerationOption) : "세대",
       active: Boolean(selectedGeneration),
@@ -1682,8 +1800,8 @@ function MarketplaceScreen() {
         </main>
       </MobileScroll>
       {searchToast ? <div className="market-toast" role="status" aria-live="polite">{searchToast}</div> : null}
-      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && closeSheet()} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" || sheet === "maker" || sheet === "price" || sheet === "filter" || sheet === "quick" || sheet === "carType" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "filter" || sheet === "maker" || sheet === "quick" ? 0.96 : sheet === "carType" ? 0.8 : sheet === "region" ? 0.53 : sheet === "price" ? 0.62 : 0.48}>
-        {sheet === "filter" ? <ChoTotFilterSheet value={draftFilters} focus={filterFocus} onChange={setDraftFilters} onClose={() => { setFilterFocus(null); closeSheet(); }} onReset={() => resetFilters({ closeActiveSheet: false })} onConfirm={() => { setFilters(draftFilters); setFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "carType" ? <CategoryFilterSheet selected={category} onChoose={chooseCategoryFilter} onClose={closeSheet} /> : sheet === "quick" && quickFilterFocus ? <ChoTotQuickFilterSheet focus={quickFilterFocus} value={draftFilters} onChange={setDraftFilters} onClose={() => { setQuickFilterFocus(null); closeSheet(); }} onConfirm={() => { setFilters(draftFilters); setQuickFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} resultCount={filteredWithoutPrice.length} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftFilters.price} onChange={(nextPrice) => setDraftFilters((current) => ({ ...current, price: nextPrice }))} onClose={closeSheet} onReset={() => setDraftFilters((current) => ({ ...current, price: emptyPrice }))} onConfirm={() => { setFilters((current) => ({ ...current, price: draftFilters.price })); closeSheet(); }} resultCount={draftFilterCount} /> : <div className="sheet-options">
+      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && closeSheet()} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" || sheet === "maker" || sheet === "vehicle" || sheet === "price" || sheet === "filter" || sheet === "quick" || sheet === "carType" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "filter" || sheet === "maker" || sheet === "quick" ? 0.96 : sheet === "vehicle" ? 0.86 : sheet === "carType" ? 0.8 : sheet === "region" ? 0.53 : sheet === "price" ? 0.62 : 0.48}>
+        {sheet === "filter" ? <ChoTotFilterSheet value={draftFilters} focus={filterFocus} onChange={setDraftFilters} onClose={() => { setFilterFocus(null); closeSheet(); }} onReset={() => resetFilters({ closeActiveSheet: false })} onConfirm={() => { setFilters(draftFilters); setFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "carType" ? <CategoryFilterSheet selected={category} onChoose={chooseCategoryFilter} onClose={closeSheet} /> : sheet === "quick" && quickFilterFocus ? <ChoTotQuickFilterSheet focus={quickFilterFocus} value={draftFilters} onChange={setDraftFilters} onClose={() => { setQuickFilterFocus(null); closeSheet(); }} onConfirm={() => { setFilters(draftFilters); setQuickFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "vehicle" ? <VehiclePickerSheet maker={maker} model={selectedModel} generation={selectedGeneration} makerOptions={categoryBrandRail.options} onApply={applyVehicleSummarySelection} /> : sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} resultCount={filteredWithoutPrice.length} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftFilters.price} onChange={(nextPrice) => setDraftFilters((current) => ({ ...current, price: nextPrice }))} onClose={closeSheet} onReset={() => setDraftFilters((current) => ({ ...current, price: emptyPrice }))} onConfirm={() => { setFilters((current) => ({ ...current, price: draftFilters.price })); closeSheet(); }} resultCount={draftFilterCount} /> : <div className="sheet-options">
           {sheet === "sort" ? ["최신순", "낮은 가격순", "높은 가격순"].map((label) => <button key={label} type="button" className={sort === label ? "is-selected" : ""} onClick={() => { setSort(label); setSheet(null); }}>{label}</button>) : ["전체", "추천 조건", "인기 조건"].map((label) => <button key={label} type="button" onClick={() => setSheet(null)}>{label}</button>)}
         </div>}
       </BottomSheet>
