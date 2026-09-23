@@ -59,6 +59,7 @@ type ListingBadge = "브랜드인증" | "제조사보증" | "1인소유" | "가�
 
 const isDesktopPreview = () => new URLSearchParams(window.location.search).get("desktop") === "1";
 const isForcedMobileView = () => !isDesktopPreview();
+const forcedMobileDesignWidth = 430;
 
 type Car = {
   id: number;
@@ -1570,8 +1571,31 @@ const detailScreen: FlowScreen = { id: "vehicle-detail", footer: () => <DetailFo
 
 export default function Prototype() {
   useEffect(() => {
-    document.documentElement.toggleAttribute("data-force-mobile", isForcedMobileView());
-    return () => document.documentElement.removeAttribute("data-force-mobile");
+    const root = document.documentElement;
+    const updateForcedMobileViewport = () => {
+      const forced = isForcedMobileView();
+      const viewportWidth = window.visualViewport?.width ?? window.innerWidth;
+      const viewportHeight = window.visualViewport?.height ?? window.innerHeight;
+      const wide = forced && viewportWidth > forcedMobileDesignWidth;
+      const scale = wide ? viewportWidth / forcedMobileDesignWidth : 1;
+
+      root.toggleAttribute("data-force-mobile", forced);
+      root.toggleAttribute("data-force-mobile-wide", wide);
+      root.style.setProperty("--force-mobile-scale", String(scale));
+      root.style.setProperty("--force-mobile-height", `${viewportHeight / scale}px`);
+    };
+
+    updateForcedMobileViewport();
+    window.addEventListener("resize", updateForcedMobileViewport);
+    window.visualViewport?.addEventListener("resize", updateForcedMobileViewport);
+    return () => {
+      root.removeAttribute("data-force-mobile");
+      root.removeAttribute("data-force-mobile-wide");
+      root.style.removeProperty("--force-mobile-scale");
+      root.style.removeProperty("--force-mobile-height");
+      window.removeEventListener("resize", updateForcedMobileViewport);
+      window.visualViewport?.removeEventListener("resize", updateForcedMobileViewport);
+    };
   }, []);
 
   return <FavoritesProvider><DetailUiProvider><FlowStack initial={listScreen} /></DetailUiProvider></FavoritesProvider>;
