@@ -346,8 +346,46 @@ const benzEncarClassOrder = [
   "스프린터", "190-클래스", "기타",
 ];
 type QuickGenerationOption = { name: string; years: string; variants: string[]; image?: string };
-const quickModelImagesByMaker: Record<string, Record<string, string>> = {
-  벤츠: { "A-클래스": benzAClassImages.W177 },
+type QuickModelVisual = { image: string; count?: string };
+const quickModelVisualsByMaker: Record<string, Record<string, QuickModelVisual>> = {
+  벤츠: {
+    "A-클래스": { image: asset("cars/mercedes/models/a-class.png"), count: "588대" },
+    "B-클래스": { image: asset("cars/mercedes/models/b-class.png"), count: "67대" },
+    "C-클래스": { image: asset("cars/mercedes/models/c-class.png"), count: "1,285대" },
+    "CL-클래스": { image: asset("cars/mercedes/models/cl-class.png"), count: "15대" },
+    "CLA-클래스": { image: asset("cars/mercedes/models/cla-class.png"), count: "468대" },
+    "CLE-클래스": { image: asset("cars/mercedes/models/cle-class.png"), count: "307대" },
+    "CLK-클래스": { image: asset("cars/mercedes/models/clk-class.png"), count: "3대" },
+    "CLS-클래스": { image: asset("cars/mercedes/models/cls-class.png"), count: "786대" },
+    "E-클래스": { image: asset("cars/mercedes/models/e-class.png"), count: "4,538대" },
+    EQA: { image: asset("cars/mercedes/models/eqa.png"), count: "106대" },
+    EQB: { image: asset("cars/mercedes/models/eqb.png"), count: "113대" },
+    EQC: { image: asset("cars/mercedes/models/eqc.png"), count: "18대" },
+    EQE: { image: asset("cars/mercedes/models/eqe.png"), count: "132대" },
+    EQS: { image: asset("cars/mercedes/models/eqs.png"), count: "170대" },
+    "G-클래스": { image: asset("cars/mercedes/models/g-class.png"), count: "490대" },
+    "GL-클래스": { image: asset("cars/mercedes/models/gl-class.png"), count: "7대" },
+    "GLA-클래스": { image: asset("cars/mercedes/models/gla-class.png"), count: "341대" },
+    "GLB-클래스": { image: asset("cars/mercedes/models/glb-class.png"), count: "455대" },
+    "GLC-클래스": { image: asset("cars/mercedes/models/glc-class.png"), count: "1,473대" },
+    "GLE-클래스": { image: asset("cars/mercedes/models/gle-class.png"), count: "1,436대" },
+    "GLK-클래스": { image: asset("cars/mercedes/models/glk-class.png"), count: "46대" },
+    "GLS-클래스": { image: asset("cars/mercedes/models/gls-class.png"), count: "410대" },
+    "M-클래스": { image: asset("cars/mercedes/models/m-class.png"), count: "40대" },
+    "R-클래스": { image: asset("cars/mercedes/models/r-class.png"), count: "2대" },
+    "S-클래스": { image: asset("cars/mercedes/models/s-class.png"), count: "2,835대" },
+    "SL-클래스": { image: asset("cars/mercedes/models/sl-class.png"), count: "79대" },
+    "SLC-클래스": { image: asset("cars/mercedes/models/slc-class.png"), count: "27대" },
+    "SLK-클래스": { image: asset("cars/mercedes/models/slk-class.png"), count: "38대" },
+    SLR: { image: asset("cars/mercedes/models/slr.png"), count: "0대" },
+    "SLS AMG": { image: asset("cars/mercedes/models/sls-amg.png"), count: "2대" },
+    "AMG GT": { image: asset("cars/mercedes/models/amg-gt.png"), count: "403대" },
+    "SEL/SEC": { image: asset("cars/mercedes/models/sel-sec.png"), count: "7대" },
+    "V-클래스": { image: asset("cars/mercedes/models/v-class.png"), count: "21대" },
+    스프린터: { image: asset("cars/mercedes/models/sprinter.png"), count: "85대" },
+    "190-클래스": { image: asset("cars/mercedes/models/190-class.png"), count: "0대" },
+    기타: { image: asset("cars/mercedes/models/other.png") },
+  },
 };
 const quickModelsByMaker: Record<string, string[]> = {
   BMW: bmwModels.map((model) => model.name),
@@ -1276,12 +1314,12 @@ function MarketplaceScreen() {
             <span className="brand-title">모델</span>
             <Carousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName={isGuaziQuickStyle ? "guazi-model-track" : "benz-model-track"}>
               {modelQuickOptions.map((model) => {
-                const modelImage = maker ? quickModelImagesByMaker[maker]?.[model] : undefined;
-                return isGuaziQuickStyle && modelImage ? (
+                const modelVisual = maker ? quickModelVisualsByMaker[maker]?.[model] : undefined;
+                return isGuaziQuickStyle && modelVisual ? (
                   <button key={model} className={`guazi-model-card${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} onClick={() => chooseModel(model)}>
-                    <img src={modelImage} alt="" aria-hidden="true" draggable={false} />
+                    <img src={modelVisual.image} alt="" aria-hidden="true" draggable={false} />
                     <strong>{model}</strong>
-                    <span>588대</span>
+                    {modelVisual.count ? <span>{modelVisual.count}</span> : null}
                   </button>
                 ) : (
                   <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} onClick={() => chooseModel(model)}>{model}</button>
@@ -1314,7 +1352,6 @@ function MarketplaceScreen() {
                   <button key={variant} className={`guazi-model-card is-variant-card${selectedVariant === variant ? " is-selected" : ""}`} type="button" aria-pressed={selectedVariant === variant} onClick={() => chooseVariant(variant)}>
                     <img src={selectedGenerationOption.image} alt="" aria-hidden="true" draggable={false} />
                     <strong>{variant}</strong>
-                    <span>세부모델</span>
                   </button>
                 ) : (
                   <button key={variant} className={`benz-model-chip${selectedVariant === variant ? " is-selected" : ""}`} type="button" aria-pressed={selectedVariant === variant} onClick={() => chooseVariant(variant)}>{variant}</button>
