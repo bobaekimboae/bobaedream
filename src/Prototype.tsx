@@ -180,6 +180,7 @@ const pricePresets = [
   { label: "1억 이상", min: 10000, max: null },
 ];
 const parsePrice = (value: string) => Number(value.replace(/[^\d]/g, ""));
+const normalizeModelSearchText = (value: string) => value.replace(/[-\s]/g, "").toLowerCase();
 const matchesPrice = (car: Car, value: PriceSelection) => {
   const amount = parsePrice(car.price);
   return amount >= value.min && (value.max === null || amount <= value.max);
@@ -330,11 +331,17 @@ const bmwModels = [
   { name: "1시리즈", image: asset("cars/bmw/1-series.webp") },
 ];
 
-const benzModels = ["E클래스", "S클래스", "GLC클래스", "GLE클래스", "C클래스"];
+const benzEncarClassOrder = [
+  "A-클래스", "B-클래스", "C-클래스", "CL-클래스", "CLA-클래스", "CLE-클래스", "CLK-클래스", "CLS-클래스",
+  "E-클래스", "EQA", "EQB", "EQC", "EQE", "EQS", "G-클래스", "GL-클래스", "GLA-클래스", "GLB-클래스",
+  "GLC-클래스", "GLE-클래스", "GLK-클래스", "GLS-클래스", "M-클래스", "R-클래스", "S-클래스",
+  "SL-클래스", "SLC-클래스", "SLK-클래스", "SLR", "SLS AMG", "AMG GT", "SEL/SEC", "V-클래스",
+  "스프린터", "190-클래스", "기타",
+];
 type QuickGenerationOption = { name: string; years: string; variants: string[] };
 const quickModelsByMaker: Record<string, string[]> = {
   BMW: bmwModels.map((model) => model.name),
-  벤츠: ["E클래스", "S클래스", "C클래스", "GLC클래스", "GLE클래스", "A클래스", "CLA클래스"],
+  벤츠: benzEncarClassOrder,
   현대: ["그랜저", "아이오닉 5", "쏘나타", "아반떼"],
   기아: ["카니발", "쏘렌토", "K5", "스포티지"],
   제네시스: ["G80", "GV70", "GV80"],
@@ -368,35 +375,35 @@ const quickGenerationsByMakerModel: Record<string, Record<string, QuickGeneratio
     ],
   },
   벤츠: {
-    E클래스: [
+    "E-클래스": [
       { name: "6세대 W214", years: "2023~현재", variants: ["E200", "E300 4MATIC", "E350 e 4MATIC"] },
       { name: "5세대 W213", years: "2016~2023", variants: ["E220d", "E250", "E300 아방가르드", "E300 4MATIC", "E350 e 4MATIC 익스클루시브"] },
       { name: "4세대 W212", years: "2009~2016", variants: ["E200 CGI 블루이피션시", "E220 CDI", "E300", "E350"] },
     ],
-    S클래스: [
+    "S-클래스": [
       { name: "7세대 W223", years: "2020~현재", variants: ["S350d", "S500 4MATIC", "Maybach"] },
       { name: "6세대 W222", years: "2013~2020", variants: ["S350d", "S400", "S560"] },
       { name: "5세대 W221", years: "2005~2013", variants: ["S350", "S500L", "S600L"] },
       { name: "4세대 W220", years: "1998~2005", variants: ["S320", "S500", "S500L"] },
     ],
-    C클래스: [
+    "C-클래스": [
       { name: "6세대 W206", years: "2021~현재", variants: ["C200", "C300", "AMG Line"] },
       { name: "5세대 W205", years: "2014~2021", variants: ["C200", "C220d", "C300"] },
       { name: "4세대 W204", years: "2007~2014", variants: ["C200", "C220 CDI", "C250"] },
     ],
-    GLC클래스: [
+    "GLC-클래스": [
       { name: "2세대 X254", years: "2022~현재", variants: ["GLC 300 4MATIC", "GLC 300e 4MATIC", "AMG Line"] },
       { name: "1세대 X253", years: "2015~2022", variants: ["GLC350e 4MATIC", "GLC300 4MATIC 쿠페", "GLC220d 4MATIC"] },
     ],
-    GLE클래스: [
+    "GLE-클래스": [
       { name: "2세대 V167", years: "2019~현재", variants: ["GLE 300d 4MATIC", "GLE 450 4MATIC", "AMG Line"] },
       { name: "1세대 W166", years: "2015~2019", variants: ["GLE 350d", "GLE 400", "AMG"] },
     ],
-    A클래스: [
+    "A-클래스": [
       { name: "4세대 W177", years: "2018~현재", variants: ["A220", "A250 4MATIC", "AMG A45 S 4MATIC+"] },
       { name: "3세대 W176", years: "2012~2018", variants: ["A180", "A200", "A45 AMG"] },
     ],
-    CLA클래스: [
+    "CLA-클래스": [
       { name: "2세대 C118", years: "2019~현재", variants: ["CLA 220", "CLA 250 4MATIC", "AMG CLA 45 S"] },
       { name: "1세대 C117", years: "2013~2019", variants: ["CLA 200", "CLA 250", "CLA 45 AMG"] },
     ],
@@ -543,7 +550,7 @@ function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
     && (value.price.max === null || price <= value.price.max)
     && (value.seats === "전체" || data.seats === value.seats)
     && (!value.maker || car.maker === value.maker)
-    && (!value.model || car.title.includes(value.model))
+    && (!value.model || normalizeModelSearchText(`${car.title} ${car.trim} ${car.modelGroup ?? ""}`).includes(normalizeModelSearchText(value.model)))
     && yearMatch
     && (value.condition === "전체" || data.condition === value.condition)
     && (!mileageLimit || data.mileage <= mileageLimit)
