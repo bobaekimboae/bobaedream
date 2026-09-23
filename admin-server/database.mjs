@@ -199,6 +199,7 @@ CREATE TABLE IF NOT EXISTS listing_read_models (
   vehicle_type_key TEXT,
   asset_type_key TEXT,
   category_node_keys_json TEXT NOT NULL,
+  placement_keys_json TEXT NOT NULL DEFAULT '[]',
   overlay_keys_json TEXT NOT NULL DEFAULT '[]',
   attributes_json TEXT NOT NULL DEFAULT '{}',
   resolution_version TEXT NOT NULL,
@@ -217,6 +218,16 @@ CREATE TABLE IF NOT EXISTS listing_category_resolutions (
   display_enabled INTEGER NOT NULL DEFAULT 1,
   created_at TEXT NOT NULL,
   UNIQUE(listing_id, category_node_key, resolution_version)
+);
+
+CREATE TABLE IF NOT EXISTS listing_placement_resolutions (
+  id TEXT PRIMARY KEY,
+  listing_id TEXT NOT NULL,
+  placement_key TEXT NOT NULL,
+  resolution_version TEXT NOT NULL,
+  display_enabled INTEGER NOT NULL DEFAULT 1,
+  created_at TEXT NOT NULL,
+  UNIQUE(listing_id, placement_key, resolution_version)
 );
 
 CREATE TABLE IF NOT EXISTS audit_logs (
@@ -249,6 +260,10 @@ export class AdminDatabase {
     if (filePath !== ":memory:") mkdirSync(dirname(filePath), { recursive: true });
     this.db = new DatabaseSync(filePath);
     this.db.exec(SCHEMA_SQL);
+    const readModelColumns = new Set(this.db.prepare("PRAGMA table_info(listing_read_models)").all().map((column) => column.name));
+    if (!readModelColumns.has("placement_keys_json")) {
+      this.db.exec("ALTER TABLE listing_read_models ADD COLUMN placement_keys_json TEXT NOT NULL DEFAULT '[]'");
+    }
   }
 
   close() {
@@ -330,6 +345,7 @@ export class AdminDatabase {
   seed({ force = false } = {}) {
     if (force) {
       this.db.exec(`
+        DELETE FROM listing_placement_resolutions;
         DELETE FROM listing_category_resolutions;
         DELETE FROM listing_read_models;
         DELETE FROM outbox_events;

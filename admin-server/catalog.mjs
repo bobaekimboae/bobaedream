@@ -154,14 +154,14 @@ export function normalizeDbRow(row) {
   return result;
 }
 
-export function classifyListing(listing, placements) {
-  const keys = new Set();
+export function classifyListing(listing, categoryKeys, placementsByCategory) {
+  const categories = new Set();
   const add = (key) => {
-    if (placements.has(key)) keys.add(key);
+    if (categoryKeys.has(key)) categories.add(key);
   };
 
   if (listing.listing_domain === "VEHICLE_LISTING") add("ALL_VEHICLES");
-  if (listing.listing_domain === "PARTS_LISTING") add("PARTS_GOODS");
+  if (listing.listing_domain === "PARTS_LISTING" && listing.asset_type_key === "PARTS_GOODS") add("PARTS_GOODS");
 
   switch (listing.vehicle_type_key) {
     case "CAR":
@@ -183,21 +183,18 @@ export function classifyListing(listing, placements) {
       if (listing.asset_subtype === "ATV") add("ATV");
       break;
     case "TRUCK_SPECIAL":
-      add("TRUCK_SPECIAL_BUS");
+      add("TRUCK_SPECIAL");
       break;
     case "BUS":
-      add("TRUCK_SPECIAL_BUS");
       add("BUS");
       break;
     case "CAMPING_CARAVAN":
-      add("TRUCK_SPECIAL_BUS");
       add("CAMPING_CARAVAN");
       break;
     case "CONSTRUCTION":
       add("CONSTRUCTION");
       break;
     case "MATERIAL_HANDLING":
-      add("CONSTRUCTION");
       add("MATERIAL_HANDLING");
       if (listing.asset_subtype === "FORKLIFT") add("FORKLIFT");
       break;
@@ -206,10 +203,25 @@ export function classifyListing(listing, placements) {
   }
 
   if (listing.asset_type_key === "ATTACHMENT") {
-    add("CONSTRUCTION");
     add("ATTACHMENT");
-    add("PARTS_GOODS");
   }
 
-  return [...keys];
+  if (listing.asset_type_key === "PARTS_GOODS") {
+    const compatibleCategory = {
+      CAR: "CAR_PARTS",
+      BIKE: "BIKE_PARTS",
+      TRUCK_SPECIAL: "TRUCK_PARTS",
+      BUS: "BUS_PARTS",
+      CONSTRUCTION: "CONSTRUCTION_PARTS",
+      CAMPING_CARAVAN: "CAMPING_PARTS",
+    }[listing.compatible_vehicle_type];
+    if (compatibleCategory) add(compatibleCategory);
+  }
+
+  const placementKeys = new Set();
+  for (const categoryKey of categories) {
+    for (const placementKey of placementsByCategory.get(categoryKey) || []) placementKeys.add(placementKey);
+  }
+
+  return { categoryNodeKeys: [...categories], placementKeys: [...placementKeys] };
 }

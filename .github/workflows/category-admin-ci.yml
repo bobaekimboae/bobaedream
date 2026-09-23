@@ -44,7 +44,7 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci --no-audit --no-fund
-      - run: npm run test:admin
+      - run: npm run verify
 
   container-build:
     runs-on: ubuntu-latest

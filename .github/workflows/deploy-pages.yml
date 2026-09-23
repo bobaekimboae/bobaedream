@@ -24,7 +24,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci --no-audit --no-fund
-      - run: npm run build
+      - name: Verify and build
+        run: npm run verify
       - name: Prepare project-site paths
         run: find dist/client -type f \( -name '*.html' -o -name '*.js' -o -name '*.css' \) -exec sed -i 's|/assets/|/bobaedream/assets/|g' {} +
       - uses: actions/configure-pages@v5

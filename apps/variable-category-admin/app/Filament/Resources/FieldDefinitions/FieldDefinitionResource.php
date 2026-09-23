@@ -33,7 +33,7 @@ final class FieldDefinitionResource extends Resource
     public static function form(Schema $schema): Schema
     {
         return $schema->components([
-            TextInput::make('system_key')->label('필드 키')->required()->alphaDash()->unique(ignoreRecord: true),
+            TextInput::make('system_key')->label('필드 키')->required()->regex('/^[a-z][a-z0-9_]*(\.[a-z][a-z0-9_]*)+$/')->helperText('예: car.make_id, bike.engine_cc')->unique(ignoreRecord: true),
             TextInput::make('label_ko')->label('한국어명')->required(),
             TextInput::make('label_en')->label('영문명'),
             Select::make('data_type')->options(collect(FieldDataType::cases())->mapWithKeys(fn ($case) => [$case->value => $case->value]))->required(),

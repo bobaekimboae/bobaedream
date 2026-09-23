@@ -1,4 +1,4 @@
-const STORAGE_KEY = "bobaedream-category-admin-public-demo-v4";
+const STORAGE_KEY = "bobaedream-category-admin-public-demo-v5";
 const now = () => new Date().toISOString();
 const makeId = (prefix) => `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
 const memory = new Map();
@@ -39,7 +39,7 @@ const registrySeed = [
   sort_order: index + 1,
 }));
 
-const categorySeed = [
+const categoryDefinitions = [
   ["ALL_VEHICLES", "전체 차량", 1, "VEHICLE_LISTING", []],
   ["USED_CAR", "중고차", 1, "VEHICLE_LISTING", ["VEHICLE_TYPE:CAR:PRIMARY_TYPE"]],
   ["DOMESTIC_CAR", "국산차", 2, "VEHICLE_LISTING", ["VEHICLE_TYPE:CAR:PRIMARY_TYPE"]],
@@ -49,16 +49,24 @@ const categorySeed = [
   ["LUXURY_CAR", "럭셔리카", 2, "VEHICLE_LISTING", ["VEHICLE_TYPE:CAR:PRIMARY_TYPE", "THEME_OVERLAY:LUXURY:THEME"]],
   ["SUPERCAR", "슈퍼카", 2, "VEHICLE_LISTING", ["VEHICLE_TYPE:CAR:PRIMARY_TYPE", "THEME_OVERLAY:SUPERCAR:THEME"]],
   ["CLASSIC_CAR", "클래식카", 2, "VEHICLE_LISTING", ["VEHICLE_TYPE:CAR:PRIMARY_TYPE", "THEME_OVERLAY:CLASSIC_OLD:THEME"]],
-  ["IMPORT_CAR", "수입차 전문관", 1, "VEHICLE_LISTING", ["VEHICLE_TYPE:CAR:PRIMARY_TYPE", "OVERLAY:IMPORT_OVERLAY:OVERLAY"]],
   ["BIKE", "바이크", 1, "VEHICLE_LISTING", ["VEHICLE_TYPE:BIKE:PRIMARY_TYPE"]],
-  ["TRUCK_SPECIAL_BUS", "트럭·특장·버스", 1, "VEHICLE_LISTING", ["VEHICLE_TYPE:TRUCK_SPECIAL:PRIMARY_TYPE"]],
+  ["TRUCK_SPECIAL", "트럭·특장", 1, "VEHICLE_LISTING", ["VEHICLE_TYPE:TRUCK_SPECIAL:PRIMARY_TYPE"]],
   ["CAMPING_CARAVAN", "캠핑카", 1, "VEHICLE_LISTING", ["VEHICLE_TYPE:CAMPING_CARAVAN:PRIMARY_TYPE"]],
   ["BUS", "버스", 1, "VEHICLE_LISTING", ["VEHICLE_TYPE:BUS:PRIMARY_TYPE"]],
   ["CONSTRUCTION", "건설기계", 1, "VEHICLE_LISTING", ["VEHICLE_TYPE:CONSTRUCTION:PRIMARY_TYPE"]],
+  ["ATTACHMENT", "어태치먼트", 1, "PARTS_LISTING", ["ASSET_TYPE:ATTACHMENT:PRIMARY_TYPE"]],
   ["MATERIAL_HANDLING", "자재 운송 장비", 1, "VEHICLE_LISTING", ["VEHICLE_TYPE:MATERIAL_HANDLING:PRIMARY_TYPE"]],
   ["FORKLIFT", "지게차", 2, "VEHICLE_LISTING", ["VEHICLE_TYPE:MATERIAL_HANDLING:PRIMARY_TYPE"]],
   ["PARTS_GOODS", "부품·용품", 1, "PARTS_LISTING", ["ASSET_TYPE:PARTS_GOODS:PRIMARY_TYPE"]],
-].map(([key, name, depth, domain, bindings], index) => ({
+];
+const demoAliasPlacements = {
+  IMPORTED_CAR: ["IMPORT_CAR_HOME"],
+  BUS: ["TRUCK_SPECIAL_BUS_BUS"],
+  CAMPING_CARAVAN: ["TRUCK_SPECIAL_BUS_CAMPING"],
+  FORKLIFT: ["CONSTRUCTION_FORKLIFT"],
+  ATTACHMENT: ["CONSTRUCTION_ATTACHMENT", "PARTS_GOODS_ATTACHMENT"],
+};
+const categorySeed = categoryDefinitions.map(([key, name, depth, domain, bindings], index) => ({
   id: `demo_cat_${index + 1}`,
   category_node_key: key,
   category_name_ko: name,
@@ -66,6 +74,7 @@ const categorySeed = [
   depth,
   listing_domain: domain,
   placement_key: key,
+  placement_keys: [key, ...(demoAliasPlacements[key] || [])],
   registration_enabled: key !== "ALL_VEHICLES",
   bindings,
   status: "ACTIVE",
@@ -407,15 +416,33 @@ function variableMatrix(state, scopeKey = null) {
   return { generated_at: now(), schema_types: schemaTypes, scopes };
 }
 function classify(payload) {
-  const categories = payload.listing_domain === "PARTS_LISTING" ? ["PARTS_GOODS"] : ["ALL_VEHICLES"];
+  const categories = payload.listing_domain === "VEHICLE_LISTING"
+    ? ["ALL_VEHICLES"]
+    : (payload.asset_type_key === "PARTS_GOODS" ? ["PARTS_GOODS"] : []);
   if (payload.vehicle_type_key === "CAR") {
     categories.push("USED_CAR", payload.origin_type === "IMPORT" ? "IMPORTED_CAR" : "DOMESTIC_CAR");
     if (payload.fuel_type === "ELECTRIC") categories.push("ELECTRIC_CAR");
     if (payload.theme_keys?.includes("LUXURY")) categories.push("LUXURY_CAR", "THEME_CAR");
   }
-  if (payload.vehicle_type_key === "BUS") categories.push("TRUCK_SPECIAL_BUS", "BUS");
-  if (payload.vehicle_type_key === "MATERIAL_HANDLING") categories.push("CONSTRUCTION", "MATERIAL_HANDLING", "FORKLIFT");
-  return { dry_run: true, projection: { listing_id: payload.listing_id, listing_domain: payload.listing_domain, vehicle_type_key: payload.vehicle_type_key || null, asset_type_key: payload.asset_type_key || null, category_node_keys: [...new Set(categories)], attributes: payload.attributes || {}, resolution_version: "public-demo-v1", projected_at: now() } };
+  if (payload.vehicle_type_key === "BUS") categories.push("BUS");
+  if (payload.vehicle_type_key === "MATERIAL_HANDLING") categories.push("MATERIAL_HANDLING", "FORKLIFT");
+  if (payload.asset_type_key === "ATTACHMENT") categories.push("ATTACHMENT");
+  const categoryNodeKeys = [...new Set(categories)];
+  const placementAliases = {
+    IMPORTED_CAR: ["IMPORT_CAR_HOME"],
+    BUS: ["TRUCK_SPECIAL_BUS_BUS"],
+    CAMPING_CARAVAN: ["TRUCK_SPECIAL_BUS_CAMPING"],
+    FORKLIFT: ["CONSTRUCTION_FORKLIFT"],
+    ATTACHMENT: ["CONSTRUCTION_ATTACHMENT", "PARTS_GOODS_ATTACHMENT"],
+  };
+  const placementKeys = [...new Set(categoryNodeKeys.flatMap((key) => [key, ...(placementAliases[key] || [])]))];
+  const overlayKeys = [...new Set([
+    ...(payload.overlay_keys || []),
+    ...(payload.origin_type === "IMPORT" ? ["IMPORT_OVERLAY"] : []),
+    ...(payload.fuel_type === "ELECTRIC" ? ["EV_OVERLAY"] : []),
+    ...(payload.theme_keys || []),
+  ])];
+  return { dry_run: true, projection: { listing_id: payload.listing_id, listing_domain: payload.listing_domain, vehicle_type_key: payload.vehicle_type_key || null, asset_type_key: payload.asset_type_key || null, category_node_keys: categoryNodeKeys, placement_keys: placementKeys, overlay_keys: overlayKeys, attributes: payload.attributes || {}, resolution_version: "public-demo-v1", projected_at: now() } };
 }
 
 export function createDemoApi() {

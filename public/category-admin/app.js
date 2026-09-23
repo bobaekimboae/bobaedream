@@ -167,7 +167,10 @@ async function loadRegistry() {
 
 async function loadCategories() {
   state.categories = await api("/api/admin/categories");
-  $("#categoryCards").innerHTML = state.categories.map((category) => `<article class="category-card ${category.depth > 1 ? "child" : ""}"><div class="category-top"><div><h3>${escapeHtml(category.category_name_ko)}</h3><code>${escapeHtml(category.category_node_key)}</code></div>${badge(category.status)}</div><p>${escapeHtml(category.listing_domain)} · ${escapeHtml(category.placement_key || "노출 위치 없음")} · ${category.registration_enabled ? "등록 가능" : "검색 전용"}</p><div class="bindings">${category.bindings.map((binding) => `<span class="binding">${escapeHtml(binding)}</span>`).join("") || '<span class="binding">바인딩 없음</span>'}</div></article>`).join("");
+  $("#categoryCards").innerHTML = state.categories.map((category) => {
+    const placements = category.placement_keys || (category.placement_key ? [category.placement_key] : []);
+    return `<article class="category-card ${category.depth > 1 ? "child" : ""}"><div class="category-top"><div><h3>${escapeHtml(category.category_name_ko)}</h3><code>${escapeHtml(category.category_node_key)}</code></div>${badge(category.status)}</div><p>${escapeHtml(category.listing_domain)} · ${category.registration_enabled ? "등록 가능" : "검색 전용"}</p><div class="bindings"><span class="binding">노출 위치 ${placements.length}개</span>${placements.map((placement) => `<span class="binding">${escapeHtml(placement)}</span>`).join("") || '<span class="binding">노출 위치 없음</span>'}</div><div class="bindings">${category.bindings.map((binding) => `<span class="binding">${escapeHtml(binding)}</span>`).join("") || '<span class="binding">정본 바인딩 없음</span>'}</div></article>`;
+  }).join("");
 }
 
 async function loadVariables() {
@@ -239,8 +242,9 @@ async function loadIntegration() {
 function renderClassifierSummary(result) {
   const projection = result.projection || {};
   const categories = projection.category_node_keys || [];
+  const placements = projection.placement_keys || [];
   const overlays = projection.overlay_keys || [];
-  $("#classifierSummary").innerHTML = `<div class="result-status"><strong>Dry Run 완료</strong><span>기존 매물 원본 변경 없음</span></div><div class="result-grid"><div><span>매물 ID</span><b>${escapeHtml(projection.listing_id)}</b></div><div><span>매물 영역</span><b>${escapeHtml(projection.listing_domain)}</b></div><div><span>기본 유형</span><b>${escapeHtml(projection.vehicle_type_key || projection.asset_type_key || "-")}</b></div><div><span>판정 카테고리</span><b>${categories.length}개</b></div></div><div class="result-section"><span>적용 카테고리</span><div class="result-chips">${categories.map((category) => `<b>${escapeHtml(category)}</b>`).join("") || "없음"}</div></div><div class="result-section"><span>적용 오버레이</span><div class="result-chips muted">${overlays.map((overlay) => `<b>${escapeHtml(overlay)}</b>`).join("") || "없음"}</div></div>`;
+  $("#classifierSummary").innerHTML = `<div class="result-status"><strong>Dry Run 완료</strong><span>기존 매물 원본 변경 없음</span></div><div class="result-grid"><div><span>매물 ID</span><b>${escapeHtml(projection.listing_id)}</b></div><div><span>매물 영역</span><b>${escapeHtml(projection.listing_domain)}</b></div><div><span>기본 유형</span><b>${escapeHtml(projection.vehicle_type_key || projection.asset_type_key || "-")}</b></div><div><span>의미 카테고리 / 노출 위치</span><b>${categories.length} / ${placements.length}개</b></div></div><div class="result-section"><span>의미 카테고리</span><div class="result-chips">${categories.map((category) => `<b>${escapeHtml(category)}</b>`).join("") || "없음"}</div></div><div class="result-section"><span>노출 위치</span><div class="result-chips">${placements.map((placement) => `<b>${escapeHtml(placement)}</b>`).join("") || "없음"}</div></div><div class="result-section"><span>적용 오버레이</span><div class="result-chips muted">${overlays.map((overlay) => `<b>${escapeHtml(overlay)}</b>`).join("") || "없음"}</div></div>`;
   $("#classifierResult").textContent = JSON.stringify(result, null, 2);
 }
 

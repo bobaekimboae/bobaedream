@@ -233,6 +233,8 @@ POST /api/internal/v1/listings/{listing_id}/classify
 GET  /api/internal/v1/listings/{listing_id}/projection
 ```
 
+분류 응답은 의미 분류인 `category_node_keys`와 실제 메뉴·전문관 노출인 `placement_keys`를 반드시 별도 배열로 반환한다. `IMPORT_CAR_HOME`, `CONSTRUCTION_FORKLIFT`, `TRUCK_SPECIAL_BUS_BUS` 같은 alias placement를 `category_node_keys`에 넣지 않는다.
+
 ## 7. 배포 전 필수 교체
 
 현재 GitHub 구현은 계약 검증과 통합 개발을 바로 시작할 수 있는 실행형 수직 절편이다. 보배드림 운영망 반영 전 다음 항목을 반드시 교체한다.

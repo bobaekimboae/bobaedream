@@ -54,4 +54,46 @@ paths:
         - { name: listing_id, in: path, required: true, schema: { type: string } }
         - { name: dry_run, in: query, schema: { type: boolean, default: false } }
       responses:
-        "200": { description: Classification projection }
+        "200":
+          description: 의미 카테고리와 실제 노출 위치가 분리된 classification projection
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ClassificationResult"
+  /api/internal/v1/listings/{listing_id}/projection:
+    get:
+      summary: 저장된 매물 분류 Projection 조회
+      parameters:
+        - { name: listing_id, in: path, required: true, schema: { type: string } }
+      responses:
+        "200":
+          description: Stored classification projection
+        "404": { description: Projection missing }
+components:
+  schemas:
+    ClassificationResult:
+      type: object
+      required: [dry_run, projection]
+      properties:
+        dry_run: { type: boolean }
+        projection:
+          type: object
+          required: [listing_id, listing_domain, category_node_keys, placement_keys, overlay_keys, resolution_version]
+          properties:
+            listing_id: { type: string }
+            listing_domain: { type: string, enum: [VEHICLE_LISTING, PARTS_LISTING] }
+            vehicle_type_key: { type: [string, "null"] }
+            asset_type_key: { type: [string, "null"] }
+            category_node_keys:
+              type: array
+              description: 매물의 의미 분류 키. 메뉴 alias 키를 포함하지 않는다.
+              items: { type: string }
+            placement_keys:
+              type: array
+              description: PC·모바일·전문관 등 실제 노출 위치 키.
+              items: { type: string }
+            overlay_keys:
+              type: array
+              items: { type: string }
+            attributes: { type: object, additionalProperties: true }
+            resolution_version: { type: string }

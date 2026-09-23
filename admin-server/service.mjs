@@ -128,16 +128,21 @@ export class AdminService {
 
   listCategories() {
     const rows = this.database.db.prepare(`
-      SELECT c.*, p.placement_key, p.platform AS placement_platform, p.is_visible AS placement_visible,
-             GROUP_CONCAT(r.namespace || ':' || r.system_key || ':' || b.binding_role) AS bindings
+      SELECT c.*,
+             GROUP_CONCAT(DISTINCT p.placement_key) AS placement_keys,
+             GROUP_CONCAT(DISTINCT r.namespace || ':' || r.system_key || ':' || b.binding_role) AS bindings
       FROM category_nodes c
       LEFT JOIN category_placements p ON p.category_node_id = c.id
       LEFT JOIN category_node_bindings b ON b.category_node_id = c.id
       LEFT JOIN registry_items r ON r.id = b.registry_item_id
-      GROUP BY c.id, p.id
+      GROUP BY c.id
       ORDER BY c.depth, c.sort_order, c.category_node_key
     `).all();
-    return rows.map((row) => ({ ...normalizeDbRow(row), bindings: row.bindings ? row.bindings.split(",") : [] }));
+    return rows.map((row) => ({
+      ...normalizeDbRow(row),
+      placement_keys: row.placement_keys ? row.placement_keys.split(",") : [],
+      bindings: row.bindings ? row.bindings.split(",") : [],
+    }));
   }
 
   createCategory(payload, context) {
@@ -617,16 +622,33 @@ export class AdminService {
     if (listing.listing_domain === "VEHICLE_LISTING" && !listing.vehicle_type_key) errors.push("vehicle_type_key is required for VEHICLE_LISTING");
     if (listing.listing_domain === "PARTS_LISTING" && listing.vehicle_type_key) errors.push("PARTS_LISTING must not store PARTS_GOODS as vehicle_type_key");
     if (errors.length) throw invalid(errors);
-    const placementKeys = new Set(this.database.db.prepare("SELECT placement_key FROM category_placements WHERE is_visible = 1").all().map((row) => row.placement_key));
-    const categories = classifyListing(listing, placementKeys);
+    const categoryKeys = new Set(this.database.db.prepare("SELECT category_node_key FROM category_nodes WHERE status = 'ACTIVE'").all().map((row) => row.category_node_key));
+    const placementsByCategory = new Map();
+    for (const row of this.database.db.prepare(`
+      SELECT c.category_node_key, p.placement_key
+      FROM category_placements p
+      JOIN category_nodes c ON c.id = p.category_node_id
+      WHERE p.is_visible = 1 AND c.status = 'ACTIVE'
+      ORDER BY p.sort_order
+    `).all()) {
+      if (!placementsByCategory.has(row.category_node_key)) placementsByCategory.set(row.category_node_key, []);
+      placementsByCategory.get(row.category_node_key).push(row.placement_key);
+    }
+    const { categoryNodeKeys, placementKeys } = classifyListing(listing, categoryKeys, placementsByCategory);
     const resolutionVersion = `classification-${new Date().toISOString().slice(0, 10)}`;
     const projection = {
       listing_id: String(listing.listing_id),
       listing_domain: listing.listing_domain,
       vehicle_type_key: listing.vehicle_type_key || null,
       asset_type_key: listing.asset_type_key || (listing.listing_domain === "PARTS_LISTING" ? "PARTS_GOODS" : null),
-      category_node_keys: categories,
-      overlay_keys: listing.overlay_keys || [],
+      category_node_keys: categoryNodeKeys,
+      placement_keys: placementKeys,
+      overlay_keys: [...new Set([
+        ...(listing.overlay_keys || []),
+        ...(listing.origin_type === "IMPORT" ? ["IMPORT_OVERLAY"] : []),
+        ...(listing.fuel_type === "ELECTRIC" ? ["EV_OVERLAY"] : []),
+        ...(listing.theme_keys || []),
+      ])],
       attributes: listing.attributes || {},
       resolution_version: resolutionVersion,
       source_updated_at: listing.source_updated_at || null,
@@ -636,24 +658,32 @@ export class AdminService {
 
     this.database.transaction(() => {
       this.database.db.prepare("DELETE FROM listing_category_resolutions WHERE listing_id = ?").run(projection.listing_id);
+      this.database.db.prepare("DELETE FROM listing_placement_resolutions WHERE listing_id = ?").run(projection.listing_id);
       this.database.db.prepare("DELETE FROM listing_read_models WHERE listing_id = ?").run(projection.listing_id);
       this.database.insert("listing_read_models", {
         listing_id: projection.listing_id,
         listing_domain: projection.listing_domain,
         vehicle_type_key: projection.vehicle_type_key,
         asset_type_key: projection.asset_type_key,
-        category_node_keys_json: JSON.stringify(categories),
+        category_node_keys_json: JSON.stringify(categoryNodeKeys),
+        placement_keys_json: JSON.stringify(placementKeys),
         overlay_keys_json: JSON.stringify(projection.overlay_keys),
         attributes_json: JSON.stringify(projection.attributes),
         resolution_version: projection.resolution_version,
         source_updated_at: projection.source_updated_at,
         projected_at: projection.projected_at,
       });
-      for (const [index, categoryKey] of categories.entries()) {
+      for (const [index, categoryKey] of categoryNodeKeys.entries()) {
         this.database.insert("listing_category_resolutions", {
           id: makeId("resolution"), listing_id: projection.listing_id, category_node_key: categoryKey,
           assignment_type: index === 0 ? "PRIMARY" : "AUTOMATIC", assignment_source: "RULE_ENGINE",
           resolution_version: resolutionVersion, is_primary: index === 0 ? 1 : 0, display_enabled: 1, created_at: now(),
+        });
+      }
+      for (const placementKey of placementKeys) {
+        this.database.insert("listing_placement_resolutions", {
+          id: makeId("placement_resolution"), listing_id: projection.listing_id, placement_key: placementKey,
+          resolution_version: resolutionVersion, display_enabled: 1, created_at: now(),
         });
       }
     });

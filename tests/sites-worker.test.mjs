@@ -4,16 +4,27 @@ import test from "node:test";
 import worker from "../worker/index.js";
 
 function request(path, init = {}) {
-  return worker.fetch(new Request(`https://bobaedream.example${path}`, init));
+  return worker.fetch(new Request(`https://bobaedream.example${path}`, init), {
+    ASSETS: {
+      async fetch(assetRequest) {
+        const pathname = new URL(assetRequest.url).pathname;
+        if (pathname !== "/index.html") return new Response("not found", { status: 404 });
+        return new Response(await readFile(new URL("../dist/client/index.html", import.meta.url), "utf8"), {
+          status: 200,
+          headers: { "content-type": "text/html; charset=utf-8" },
+        });
+      },
+    },
+  });
 }
 
 test("serves existing static assets without a fallback", async () => {
-  const response = await request("/assets/does-not-exist.js");
+  const response = await request("/assets/does-not-exist.js", { headers: { accept: "application/javascript" } });
   assert.equal(response.status, 404);
 });
 
 test("falls back to index.html for an unknown app route", async () => {
-  const response = await request("/market/list?maker=BMW");
+  const response = await request("/market/list?maker=BMW", { headers: { accept: "text/html" } });
   assert.equal(response.status, 200);
   assert.match(await response.text(), /id="root"/);
 });

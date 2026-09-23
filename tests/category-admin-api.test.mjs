@@ -233,9 +233,14 @@ test("one CAR listing resolves to multiple category placements without changing 
     for (const category of ["ALL_VEHICLES", "USED_CAR", "IMPORTED_CAR", "ELECTRIC_CAR", "LUXURY_CAR", "THEME_CAR"]) {
       assert.ok(result.json.projection.category_node_keys.includes(category), category);
     }
+    assert.ok(result.json.projection.placement_keys.includes("IMPORT_CAR_HOME"));
+    assert.equal(result.json.projection.category_node_keys.includes("IMPORT_CAR_HOME"), false);
+    assert.ok(result.json.projection.overlay_keys.includes("IMPORT_OVERLAY"));
+    assert.ok(result.json.projection.overlay_keys.includes("EV_OVERLAY"));
     const projection = await request(baseUrl, "/api/internal/v1/listings/CAR-100/projection");
     assert.equal(projection.response.status, 200);
     assert.ok(projection.json.category_node_keys_json.includes("IMPORTED_CAR"));
+    assert.ok(projection.json.placement_keys_json.includes("IMPORT_CAR_HOME"));
   });
 });
 
@@ -247,9 +252,41 @@ test("material handling listings can appear in both construction and forklift vi
     });
     assert.equal(result.response.status, 200);
     assert.equal(result.json.projection.vehicle_type_key, "MATERIAL_HANDLING");
-    assert.ok(result.json.projection.category_node_keys.includes("CONSTRUCTION"));
     assert.ok(result.json.projection.category_node_keys.includes("MATERIAL_HANDLING"));
     assert.ok(result.json.projection.category_node_keys.includes("FORKLIFT"));
+    assert.equal(result.json.projection.category_node_keys.includes("CONSTRUCTION"), false);
+    assert.ok(result.json.projection.placement_keys.includes("CONSTRUCTION_FORKLIFT"));
+  });
+});
+
+test("semantic categories and alias placements stay separate", async () => {
+  await withApp(async ({ baseUrl }) => {
+    const categories = await request(baseUrl, "/api/admin/categories");
+    const keys = new Set(categories.json.map((row) => row.category_node_key));
+    assert.equal(keys.has("IMPORT_CAR"), false);
+    assert.equal(keys.has("TRUCK_SPECIAL_BUS"), false);
+
+    const bus = await request(baseUrl, "/api/internal/v1/listings/BUS-1/classify?dry_run=true", {
+      method: "POST",
+      body: { listing_domain: "VEHICLE_LISTING", vehicle_type_key: "BUS", attributes: {} },
+    });
+    assert.deepEqual(bus.json.projection.category_node_keys, ["ALL_VEHICLES", "BUS"]);
+    assert.ok(bus.json.projection.placement_keys.includes("TRUCK_SPECIAL_BUS_BUS"));
+    assert.equal(bus.json.projection.category_node_keys.includes("TRUCK_SPECIAL_BUS_BUS"), false);
+  });
+});
+
+test("attachment remains one asset category with construction and parts placements", async () => {
+  await withApp(async ({ baseUrl }) => {
+    const result = await request(baseUrl, "/api/internal/v1/listings/ATTACHMENT-1/classify?dry_run=true", {
+      method: "POST",
+      body: { listing_domain: "PARTS_LISTING", asset_type_key: "ATTACHMENT", attributes: { attachment_type: "BUCKET" } },
+    });
+    assert.deepEqual(result.json.projection.category_node_keys, ["ATTACHMENT"]);
+    assert.ok(result.json.projection.placement_keys.includes("CONSTRUCTION_ATTACHMENT"));
+    assert.ok(result.json.projection.placement_keys.includes("PARTS_GOODS_ATTACHMENT"));
+    assert.equal(result.json.projection.category_node_keys.includes("CONSTRUCTION"), false);
+    assert.equal(result.json.projection.category_node_keys.includes("PARTS_GOODS"), false);
   });
 });
 

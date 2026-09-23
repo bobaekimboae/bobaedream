@@ -50,5 +50,15 @@ test('public admin demo exposes the production operations model', () => {
   }
 
   assert.match(script, /READ_ONLY SHADOW/);
+  assert.match(script, /판정 방식/);
+  assert.match(script, /결정론적/);
+  assert.match(script, /FALLBACK/);
+  assert.match(html, /Primary placement/);
+  assert.match(html, /Alias placement/);
+  assert.match(html, /id="type-namespace"/);
+  assert.match(html, /id="schema-search"/);
+  assert.doesNotMatch(script, /FORKLIFT_CROSS_PLACEMENT/);
+  assert.doesNotMatch(script, /ATTACHMENT_CROSS_PLACEMENT/);
+  assert.doesNotMatch(script, /신뢰도/);
   assert.doesNotMatch(script, /fetch\s*\(/);
 });

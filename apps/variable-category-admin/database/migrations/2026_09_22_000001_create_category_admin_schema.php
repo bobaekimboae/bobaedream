@@ -183,14 +183,25 @@ return new class extends Migration
         Schema::create('listing_taxonomy_assignments', function (Blueprint $table): void {
             $table->uuid('id')->primary();
             $table->string('listing_id', 128)->index();
-            $table->foreignUuid('vehicle_type_id')->constrained()->restrictOnDelete();
+            $table->foreignUuid('vehicle_type_id')->nullable()->constrained('vehicle_types')->restrictOnDelete();
+            $table->foreignUuid('asset_type_id')->nullable()->constrained('vehicle_types')->restrictOnDelete();
             $table->foreignUuid('primary_category_node_id')->constrained('category_nodes')->restrictOnDelete();
             $table->unsignedInteger('schema_version');
             $table->string('mapping_source', 32);
-            $table->decimal('mapping_confidence', 5, 4)->nullable();
+            $table->string('mapping_method', 32)->default('DETERMINISTIC_RULE');
+            $table->string('mapping_rule_key', 128)->nullable();
+            $table->unsignedInteger('mapping_rule_version')->nullable();
             $table->timestampsTz();
             $table->unique('listing_id');
+            $table->index(['vehicle_type_id', 'asset_type_id']);
         });
+        if (DB::getDriverName() === 'pgsql') {
+            DB::statement(<<<'SQL'
+ALTER TABLE listing_taxonomy_assignments
+ADD CONSTRAINT listing_taxonomy_scope_check
+CHECK (num_nonnulls(vehicle_type_id, asset_type_id) = 1)
+SQL);
+        }
         Schema::create('listing_attribute_values', function (Blueprint $table): void {
             $table->uuid('id')->primary();
             $table->string('listing_id', 128)->index();

@@ -14,7 +14,7 @@
 - Filament 관리자 패널 및 공개 API
 - Docker Compose, Pest, Larastan, Pint, GitHub Actions
 - GitHub Pages용 무데이터 관리자 화면 데모
-- 13개 차량유형 정책 매트릭스, 운영 작업 큐, 릴리스 영향 검수 UI
+- 7개 차량유형과 2개 자산유형 정책 매트릭스, 운영 작업 큐, 릴리스 영향 검수 UI
 
 ## 기술 기준
 
@@ -69,6 +69,7 @@ docker compose exec app php artisan make:filament-user
 ## 구현 정본
 
 - `AGENTS.md`: Codex 실행 지시문
+- [`../../docs/category-admin/FULL-AUDIT-FIX-INSTRUCTION.md`](../../docs/category-admin/FULL-AUDIT-FIX-INSTRUCTION.md): 저장소 전체 관리자 전수검수 결과와 수정 우선순위
 - `docs/spec/requirements.md`: 기능·비기능 요구사항
 - `docs/openapi.yaml`: 외부 API 계약
 - `docs/erd.md`: 데이터 모델

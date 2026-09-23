@@ -60,14 +60,13 @@ const categoryDefinitions = [
   ["THEME_CAR", "USED_CAR", "테마별 차량", "VEHICLE_LISTING", 8],
   ["BRAND_CERTIFIED_CAR", "USED_CAR", "브랜드인증 중고차", "VEHICLE_LISTING", 9],
   ["DEALER_COMPLEX_CAR", "USED_CAR", "매매단지별 중고차", "VEHICLE_LISTING", 10],
-  ["IMPORT_CAR", null, "수입차 전문관", "VEHICLE_LISTING", 3],
   ["BIKE", null, "바이크", "VEHICLE_LISTING", 4],
   ["ATV", "BIKE", "ATV", "VEHICLE_LISTING", 1],
-  ["TRUCK_SPECIAL_BUS", null, "트럭·특장·버스", "VEHICLE_LISTING", 5],
+  ["TRUCK_SPECIAL", null, "트럭·특장", "VEHICLE_LISTING", 5],
   ["CAMPING_CARAVAN", null, "캠핑카", "VEHICLE_LISTING", 6],
   ["BUS", null, "버스", "VEHICLE_LISTING", 7],
   ["CONSTRUCTION", null, "건설기계", "VEHICLE_LISTING", 8],
-  ["ATTACHMENT", "CONSTRUCTION", "어태치먼트", "PARTS_LISTING", 2],
+  ["ATTACHMENT", null, "어태치먼트", "PARTS_LISTING", 11],
   ["MATERIAL_HANDLING", null, "자재 운송 장비", "VEHICLE_LISTING", 9],
   ["FORKLIFT", "MATERIAL_HANDLING", "지게차", "VEHICLE_LISTING", 1],
   ["PARTS_GOODS", null, "부품·용품", "PARTS_LISTING", 10],
@@ -114,9 +113,8 @@ const bindingMap = {
   CLASSIC_CAR: [["VEHICLE_TYPE", "CAR", "PRIMARY_TYPE"], ["THEME_OVERLAY", "CLASSIC_OLD", "THEME"]],
   BRAND_CERTIFIED_CAR: [["VEHICLE_TYPE", "CAR", "PRIMARY_TYPE"], ["OVERLAY", "BRAND_CERTIFIED_OVERLAY", "OVERLAY"]],
   DEALER_COMPLEX_CAR: [["VEHICLE_TYPE", "CAR", "PRIMARY_TYPE"], ["SELLER_CHANNEL", "DEALER_COMPLEX", "SELLER_CHANNEL"]],
-  IMPORT_CAR: [["VEHICLE_TYPE", "CAR", "PRIMARY_TYPE"], ["OVERLAY", "IMPORT_OVERLAY", "OVERLAY"]],
   BIKE: [["VEHICLE_TYPE", "BIKE", "PRIMARY_TYPE"]],
-  TRUCK_SPECIAL_BUS: [["VEHICLE_TYPE", "TRUCK_SPECIAL", "PRIMARY_TYPE"]],
+  TRUCK_SPECIAL: [["VEHICLE_TYPE", "TRUCK_SPECIAL", "PRIMARY_TYPE"]],
   CAMPING_CARAVAN: [["VEHICLE_TYPE", "CAMPING_CARAVAN", "PRIMARY_TYPE"]],
   BUS: [["VEHICLE_TYPE", "BUS", "PRIMARY_TYPE"]],
   CONSTRUCTION: [["VEHICLE_TYPE", "CONSTRUCTION", "PRIMARY_TYPE"]],
@@ -135,7 +133,7 @@ const categoryBindings = Object.entries(bindingMap).flatMap(([categoryKey, bindi
   created_at: now(),
 })));
 
-const placements = categories.map((category, index) => ({
+const primaryPlacements = categories.map((category, index) => ({
   id: `placement_${category.category_node_key.toLowerCase()}`,
   placement_key: category.category_node_key,
   category_node_id: category.id,
@@ -148,6 +146,34 @@ const placements = categories.map((category, index) => ({
   created_at: now(),
   updated_at: now(),
 }));
+
+const categoryByKey = new Map(categories.map((category) => [category.category_node_key, category]));
+const aliasPlacementDefinitions = [
+  ["IMPORT_CAR_HOME", "IMPORTED_CAR", null, "수입차 전문관"],
+  ["TRUCK_SPECIAL_BUS", "TRUCK_SPECIAL", null, "트럭·특장·버스"],
+  ["TRUCK_SPECIAL_BUS_BUS", "BUS", "TRUCK_SPECIAL_BUS", "버스"],
+  ["TRUCK_SPECIAL_BUS_CAMPING", "CAMPING_CARAVAN", "TRUCK_SPECIAL_BUS", "캠핑카"],
+  ["CONSTRUCTION_FORKLIFT", "FORKLIFT", "CONSTRUCTION", "지게차"],
+  ["CONSTRUCTION_ATTACHMENT", "ATTACHMENT", "CONSTRUCTION", "어태치먼트"],
+  ["PARTS_GOODS_ATTACHMENT", "ATTACHMENT", "PARTS_GOODS", "어태치먼트"],
+];
+const aliasPlacementIdByKey = new Map(aliasPlacementDefinitions.map(([placementKey]) => [placementKey, `placement_alias_${placementKey.toLowerCase()}`]));
+const aliasPlacements = aliasPlacementDefinitions.map(([placementKey, categoryKey, parentPlacementKey, menuName], index) => ({
+  id: `placement_alias_${placementKey.toLowerCase()}`,
+  placement_key: placementKey,
+  category_node_id: categoryByKey.get(categoryKey).id,
+  parent_placement_id: parentPlacementKey
+    ? (aliasPlacementIdByKey.get(parentPlacementKey) || `placement_${parentPlacementKey.toLowerCase()}`)
+    : null,
+  platform: "ALL",
+  menu_name_ko: menuName,
+  sort_order: primaryPlacements.length + index + 1,
+  is_visible: 1,
+  exclusion_registry_refs_json: JSON.stringify([]),
+  created_at: now(),
+  updated_at: now(),
+}));
+const placements = [...primaryPlacements, ...aliasPlacements];
 
 const defaultSource = ["보배드림 가변설계 정본", "https://docs.google.com/spreadsheets/d/1ei78gzOyLeKXcVrrsKmNx5U3zWXmvpGyY6E9dcVOeFo/edit"];
 

@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\AuditLog;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 final class AuditLogger
@@ -13,21 +14,29 @@ final class AuditLogger
      */
     public function record(?int $actorId, string $action, string $subjectType, string $subjectId, ?array $before, ?array $after): AuditLog
     {
-        $previousHash = AuditLog::query()->lockForUpdate()->latest('created_at')->value('record_hash');
-        $createdAt = now();
-        $payload = [$actorId, $action, $subjectType, $subjectId, $before, $after, $previousHash, $createdAt->toISOString()];
+        return DB::transaction(function () use ($actorId, $action, $subjectType, $subjectId, $before, $after): AuditLog {
+            // An empty audit table has no row to lock. PostgreSQL's transaction-scoped
+            // advisory lock serializes both the first record and every subsequent link.
+            if (DB::getDriverName() === 'pgsql') {
+                DB::select('SELECT pg_advisory_xact_lock(?)', [734291]);
+            }
 
-        return AuditLog::query()->create([
-            'actor_id' => $actorId,
-            'action' => $action,
-            'subject_type' => $subjectType,
-            'subject_id' => $subjectId,
-            'before' => $before,
-            'after' => $after,
-            'previous_hash' => $previousHash,
-            'record_hash' => hash('sha256', json_encode($payload, JSON_THROW_ON_ERROR)),
-            'request_id' => request()->header('X-Request-Id', (string) Str::uuid()),
-            'created_at' => $createdAt,
-        ]);
+            $previousHash = AuditLog::query()->lockForUpdate()->latest('created_at')->latest('id')->value('record_hash');
+            $createdAt = now();
+            $payload = [$actorId, $action, $subjectType, $subjectId, $before, $after, $previousHash, $createdAt->toISOString()];
+
+            return AuditLog::query()->create([
+                'actor_id' => $actorId,
+                'action' => $action,
+                'subject_type' => $subjectType,
+                'subject_id' => $subjectId,
+                'before' => $before,
+                'after' => $after,
+                'previous_hash' => $previousHash,
+                'record_hash' => hash('sha256', json_encode($payload, JSON_THROW_ON_ERROR)),
+                'request_id' => request()->header('X-Request-Id', (string) Str::uuid()),
+                'created_at' => $createdAt,
+            ]);
+        }, attempts: 3);
     }
 }

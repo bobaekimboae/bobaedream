@@ -37,9 +37,7 @@ final class CategoryNodeResource extends Resource
             TextInput::make('system_key')->label('시스템 키')->required()->alphaDash()->maxLength(96)->unique(ignoreRecord: true),
             TextInput::make('name_ko')->label('한국어명')->required()->maxLength(160),
             TextInput::make('name_en')->label('영문명')->maxLength(160),
-            TextInput::make('depth')->numeric()->minValue(0)->maxValue(8)->default(0)->required(),
             TextInput::make('sort_order')->numeric()->minValue(0)->default(0),
-            Toggle::make('is_leaf')->label('말단 노드'),
             Toggle::make('is_active')->label('사용')->default(true),
         ]);
     }

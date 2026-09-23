@@ -41,6 +41,9 @@ http://127.0.0.1:8788/category-admin/
 - Published snapshot 공개 API
 - 역할 기반 쓰기·검수·배포 권한과 감사 로그
 
+전수검수 결과와 수정 우선순위는
+[`docs/category-admin/FULL-AUDIT-FIX-INSTRUCTION.md`](docs/category-admin/FULL-AUDIT-FIX-INSTRUCTION.md)를 먼저 확인합니다.
+
 상세 개발 지시서는 [`docs/category-admin/DEVELOPMENT-INSTRUCTION.md`](docs/category-admin/DEVELOPMENT-INSTRUCTION.md)를 참고합니다.
 
 운영 콘솔 V2와 전체 차량유형 가변 매트릭스 구현 기준은
