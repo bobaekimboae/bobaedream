@@ -428,9 +428,25 @@ const trimCountOverrides: Record<string, number> = {
 };
 const toTrimOption = (variant: string | QuickTrimOption): QuickTrimOption => typeof variant === "string" ? { name: variant, count: trimCountOverrides[variant] ?? 7 } : variant;
 const formatModelLabel = (value: string) => value.replace(/-/g, "");
+const generationLabelByCode: Record<string, string> = {
+  G20: "7세대",
+  F30: "6세대",
+  E90: "5세대",
+  G60: "8세대",
+  G30: "7세대",
+  F10: "6세대",
+  U11: "3세대",
+  F48: "2세대",
+  G45: "4세대",
+  G01: "3세대",
+  F40: "3세대",
+  F20: "2세대",
+};
 const generationDisplayLabel = (generation: QuickGenerationOption) => {
   const explicit = generation.name.match(/(\d+)세대/);
   if (explicit) return `${explicit[1]}세대`;
+  const codeLabel = generationLabelByCode[generation.name];
+  if (codeLabel) return codeLabel;
   if (generation.name.includes("W177")) return "4세대";
   if (generation.name.includes("W176")) return "3세대";
   if (generation.name.includes("W169")) return "2세대";
