@@ -400,8 +400,10 @@ const quickGenerationsByMakerModel: Record<string, Record<string, QuickGeneratio
       { name: "1세대 W166", years: "2015~2019", variants: ["GLE 350d", "GLE 400", "AMG"] },
     ],
     "A-클래스": [
-      { name: "4세대 W177", years: "2018~현재", variants: ["A220", "A250 4MATIC", "AMG A45 S 4MATIC+"] },
-      { name: "3세대 W176", years: "2012~2018", variants: ["A180", "A200", "A45 AMG"] },
+      { name: "A-클래스 W177", years: "2019~현재", variants: ["A180", "A200d", "A220", "A250 4MATIC", "AMG A35 4MATIC", "AMG A45 S 4MATIC+"] },
+      { name: "A-클래스 W176", years: "2013~2018", variants: ["A180 CDI", "A200 CDI", "A200", "A220", "A45 AMG 4MATIC"] },
+      { name: "A-클래스 W169", years: "2005~2012", variants: ["A170", "A180 CDI", "A200", "A200 Turbo"] },
+      { name: "A-클래스 W168", years: "1997~2004", variants: ["A140", "A160", "A190"] },
     ],
     "CLA-클래스": [
       { name: "2세대 C118", years: "2019~현재", variants: ["CLA 220", "CLA 250 4MATIC", "AMG CLA 45 S"] },
@@ -517,6 +519,7 @@ const chototTestCars: Car[] = [
   makeChoTotCar(1005, { maker: "기아", image: "detail/raw-07.jpeg", title: "기아 쏘렌토 MQ4", trim: "시그니처 6인승", specs: ["2023년식", "20,000km", "가솔린", "201나7735"], price: "3,690 만원", place: "부산 해운대구 · 센텀전시장", filter: { year: 2023, seats: "6인승", condition: "중고", mileage: 20000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "회색", origin: "국산", body: "SUV", video: false } }),
   makeChoTotCar(1006, { maker: "BMW", image: "detail/raw-05.jpeg", title: "BMW 5시리즈 530i", trim: "M 스포츠 정식출고", specs: ["2024년식", "9,000km", "가솔린", "329도5521"], price: "7,640 만원", place: "서울 성동구 · 성수전시장", filter: { year: 2024, seats: "5인승", condition: "중고", mileage: 9000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "흰색", origin: "독일", body: "세단", video: true } }),
   makeChoTotCar(1007, { maker: "벤츠", image: "detail/raw-18.jpeg", title: "벤츠 E클래스 E 300 4MATIC", trim: "AMG Line 제조사보증", specs: ["2023년식", "10,000km", "가솔린", "118머4207"], price: "8,420 만원", place: "서울 강남구 · 한성자동차", filter: { year: 2023, seats: "5인승", condition: "중고", mileage: 10000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "검정", origin: "독일", body: "세단", video: true } }),
+  makeChoTotCar(1016, { maker: "벤츠", modelGroup: "A-클래스", image: "detail/raw-20.jpeg", title: "벤츠 A클래스 A 220", trim: "A-클래스 W177 AMG Line", specs: ["2022년식", "18,000km", "가솔린", "220어1770"], price: "3,390 만원", place: "서울 강남구 · 벤츠 인증중고차", filter: { year: 2022, seats: "5인승", condition: "중고", mileage: 18000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "흰색", origin: "독일", body: "해치백", video: true } }),
   makeChoTotCar(1008, { maker: "아우디", image: "detail/raw-18.jpeg", title: "아우디 A6 3.0 TDI 콰트로", trim: "정식수입 무사고 실매물", specs: ["2012년식", "125,109km", "디젤", "28나7105"], price: "600 만원", place: "서울 강남구 도곡동 · 오토갤러리", filter: { year: 2012, seats: "5인승", condition: "중고", mileage: 125109, owners: "3인 이상", transmission: "오토", fuel: "디젤", color: "은색", origin: "독일", body: "세단", video: false } }),
   makeChoTotCar(1009, { maker: "포르쉐", image: "detail/raw-20.jpeg", title: "포르쉐 718 박스터", trim: "4.0 GTS 스포츠크로노", specs: ["2024년식", "8,000km", "가솔린", "39라7180"], price: "13,900 만원", place: "부산 해운대구", filter: { year: 2024, seats: "2인승", condition: "중고", mileage: 8000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "노랑", origin: "독일", body: "스포츠카", video: true } }),
   makeChoTotCar(1010, { maker: "랜드로버", image: "detail/raw-07.jpeg", title: "랜드로버 레인지로버 스포츠", trim: "P360 HSE 다이내믹", specs: ["2020년식", "60,000km", "가솔린", "143무9116"], price: "6,290 만원", place: "대구 수성구 · 수입차전시장", filter: { year: 2020, seats: "5인승", condition: "중고", mileage: 60000, owners: "2인", transmission: "오토", fuel: "가솔린", color: "흰색", origin: "영국", body: "SUV", video: false } }),
