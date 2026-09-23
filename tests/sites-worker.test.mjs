@@ -3,8 +3,20 @@ import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 import worker from "../worker/index.js";
 
+async function assetFetch(request) {
+  const url = new URL(request.url);
+  try {
+    const file = await readFile(new URL(`../dist/client${url.pathname}`, import.meta.url));
+    return new Response(file, { status: 200 });
+  } catch {
+    return new Response("not found", { status: 404 });
+  }
+}
+
 function request(path, init = {}) {
-  return worker.fetch(new Request(`https://bobaedream.example${path}`, init));
+  return worker.fetch(new Request(`https://bobaedream.example${path}`, init), {
+    ASSETS: { fetch: assetFetch },
+  });
 }
 
 test("serves existing static assets without a fallback", async () => {
@@ -13,7 +25,7 @@ test("serves existing static assets without a fallback", async () => {
 });
 
 test("falls back to index.html for an unknown app route", async () => {
-  const response = await request("/market/list?maker=BMW");
+  const response = await request("/market/list?maker=BMW", { headers: { accept: "text/html" } });
   assert.equal(response.status, 200);
   assert.match(await response.text(), /id="root"/);
 });
