@@ -57,6 +57,9 @@ type QuickFilterStyle = "chotot" | "guazi" | "dongchedi";
 export type PriceSelection = { mode: PriceMode; min: number; max: number | null };
 type ListingBadge = "브랜드인증" | "제조사보증" | "1인소유" | "가격인하" | "인증중고차";
 
+const isDesktopPreview = () => new URLSearchParams(window.location.search).get("desktop") === "1";
+const isForcedMobileView = () => !isDesktopPreview();
+
 type Car = {
   id: number;
   maker: string;
@@ -1504,8 +1507,12 @@ function DesktopVehicleDetail({ onBack }: { onBack: () => void }) {
 
 function VehicleDetail() {
   const flow = useFlow();
-  const [desktop, setDesktop] = useState(() => window.matchMedia("(min-width: 820px)").matches);
+  const [desktop, setDesktop] = useState(() => isDesktopPreview() && window.matchMedia("(min-width: 820px)").matches);
   useEffect(() => {
+    if (isForcedMobileView()) {
+      setDesktop(false);
+      return;
+    }
     const query = window.matchMedia("(min-width: 820px)");
     const update = () => setDesktop(query.matches);
     query.addEventListener("change", update);
@@ -1562,5 +1569,10 @@ const savedListingsScreen: FlowScreen = { id: "saved-listings", header: () => <S
 const detailScreen: FlowScreen = { id: "vehicle-detail", footer: () => <DetailFooter />, footerHeight: 56, render: () => <VehicleDetail /> };
 
 export default function Prototype() {
+  useEffect(() => {
+    document.documentElement.toggleAttribute("data-force-mobile", isForcedMobileView());
+    return () => document.documentElement.removeAttribute("data-force-mobile");
+  }, []);
+
   return <FavoritesProvider><DetailUiProvider><FlowStack initial={listScreen} /></DetailUiProvider></FavoritesProvider>;
 }
