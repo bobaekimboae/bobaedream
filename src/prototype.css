@@ -95,6 +95,14 @@ button { color: inherit; }
 .benz-model-track { display: flex; align-items: center; gap: 6px; min-width: max-content; padding: 10px 16px 10px 0; }
 .benz-model-chip { height: 34px; padding: 7px 16px; border: 1px solid #e0e0e0; border-radius: 30px; background: #fff; color: #3a3a3a; font-size: 15px; font-weight: 500; line-height: 20px; white-space: nowrap; transition: border-color 140ms ease, background 140ms ease, color 140ms ease; }
 .benz-model-chip.is-selected { border-color: var(--blue); background: #f3f7fc; color: var(--blue); }
+.brand-row.is-generation-mode { grid-template-columns: 55px minmax(0, 1fr); height: 64px; border-bottom: 1px solid #f3f3f3; }
+.brand-row.is-generation-mode .brand-title { padding-left: 16px; color: #616161; font-size: 15px; font-weight: 500; }
+.brand-row.is-generation-mode .brand-carousel { height: 64px; }
+.generation-track { display: flex; align-items: center; gap: 7px; min-width: max-content; padding: 8px 16px 8px 0; }
+.generation-chip { display: grid; align-content: center; min-width: 118px; height: 48px; gap: 1px; padding: 6px 14px; border-radius: 14px; text-align: left; }
+.generation-chip strong { color: inherit; font-size: 14px; font-weight: 700; line-height: 18px; }
+.generation-chip span { color: #8a8d93; font-size: 11px; font-weight: 500; line-height: 15px; }
+.generation-chip.is-selected span { color: inherit; opacity: .78; }
 
 .video-toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 56px; padding: 7px 16px 0; border-top: 7px solid #f3f3f3; box-sizing: border-box; background: #fff; color: #3a3a3a; font-size: 15px; font-weight: 500; }
 .video-toggle-copy { display: flex; align-items: center; gap: 8px; min-width: 0; }

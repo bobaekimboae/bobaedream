@@ -328,15 +328,76 @@ const bmwModels = [
 ];
 
 const benzModels = ["E클래스", "S클래스", "GLC클래스", "GLE클래스", "C클래스"];
+type QuickGenerationOption = { name: string; years: string; variants: string[] };
 const quickModelsByMaker: Record<string, string[]> = {
   BMW: bmwModels.map((model) => model.name),
-  벤츠: ["C클래스", "GLC클래스", "E클래스", "S클래스"],
+  벤츠: ["E클래스", "S클래스", "C클래스", "GLC클래스", "GLE클래스", "A클래스", "CLA클래스"],
   현대: ["그랜저", "아이오닉 5", "쏘나타", "아반떼"],
   기아: ["카니발", "쏘렌토", "K5", "스포티지"],
   제네시스: ["G80", "GV70", "GV80"],
   아우디: ["A6", "A7", "Q5"],
   포르쉐: ["718", "911", "카이엔"],
   렉서스: ["ES300h", "NX", "RX"],
+};
+const quickGenerationsByMakerModel: Record<string, Record<string, QuickGenerationOption[]>> = {
+  BMW: {
+    "3시리즈": [
+      { name: "G20", years: "2019~현재", variants: ["320i", "320d", "330i", "M 스포츠"] },
+      { name: "F30", years: "2012~2018", variants: ["320d", "328i", "Luxury", "M 스포츠"] },
+      { name: "E90", years: "2005~2011", variants: ["320i", "325i", "330i"] },
+    ],
+    "5시리즈": [
+      { name: "G60", years: "2023~현재", variants: ["520i", "530i", "530e", "M 스포츠"] },
+      { name: "G30", years: "2017~2023", variants: ["520d", "530i", "530e", "M 스포츠"] },
+      { name: "F10", years: "2010~2016", variants: ["520d", "528i", "535i"] },
+    ],
+    X1: [
+      { name: "U11", years: "2022~현재", variants: ["sDrive18d", "xDrive20i", "M 스포츠"] },
+      { name: "F48", years: "2015~2022", variants: ["sDrive18d", "xDrive20d"] },
+    ],
+    X3: [
+      { name: "G45", years: "2024~현재", variants: ["20 xDrive", "30e xDrive", "M50"] },
+      { name: "G01", years: "2017~2024", variants: ["20d", "30d", "M40i"] },
+    ],
+    "1시리즈": [
+      { name: "F40", years: "2019~현재", variants: ["118d", "120i", "M135i"] },
+      { name: "F20", years: "2011~2019", variants: ["118d", "120d", "M 스포츠"] },
+    ],
+  },
+  벤츠: {
+    E클래스: [
+      { name: "6세대 W214", years: "2023~현재", variants: ["E200", "E300 4MATIC", "E350 e 4MATIC"] },
+      { name: "5세대 W213", years: "2016~2023", variants: ["E220d", "E250", "E300 아방가르드", "E300 4MATIC", "E350 e 4MATIC 익스클루시브"] },
+      { name: "4세대 W212", years: "2009~2016", variants: ["E200 CGI 블루이피션시", "E220 CDI", "E300", "E350"] },
+    ],
+    S클래스: [
+      { name: "7세대 W223", years: "2020~현재", variants: ["S350d", "S500 4MATIC", "Maybach"] },
+      { name: "6세대 W222", years: "2013~2020", variants: ["S350d", "S400", "S560"] },
+      { name: "5세대 W221", years: "2005~2013", variants: ["S350", "S500L", "S600L"] },
+      { name: "4세대 W220", years: "1998~2005", variants: ["S320", "S500", "S500L"] },
+    ],
+    C클래스: [
+      { name: "6세대 W206", years: "2021~현재", variants: ["C200", "C300", "AMG Line"] },
+      { name: "5세대 W205", years: "2014~2021", variants: ["C200", "C220d", "C300"] },
+      { name: "4세대 W204", years: "2007~2014", variants: ["C200", "C220 CDI", "C250"] },
+    ],
+    GLC클래스: [
+      { name: "2세대 X254", years: "2022~현재", variants: ["GLC 300 4MATIC", "GLC 300e 4MATIC", "AMG Line"] },
+      { name: "1세대 X253", years: "2015~2022", variants: ["GLC350e 4MATIC", "GLC300 4MATIC 쿠페", "GLC220d 4MATIC"] },
+    ],
+    GLE클래스: [
+      { name: "2세대 V167", years: "2019~현재", variants: ["GLE 300d 4MATIC", "GLE 450 4MATIC", "AMG Line"] },
+      { name: "1세대 W166", years: "2015~2019", variants: ["GLE 350d", "GLE 400", "AMG"] },
+    ],
+    A클래스: [
+      { name: "4세대 W177", years: "2018~현재", variants: ["A220", "A250 4MATIC", "AMG A45 S 4MATIC+"] },
+      { name: "3세대 W176", years: "2012~2018", variants: ["A180", "A200", "A45 AMG"] },
+    ],
+    CLA클래스: [
+      { name: "2세대 C118", years: "2019~현재", variants: ["CLA 220", "CLA 250 4MATIC", "AMG CLA 45 S"] },
+      { name: "1세대 C117", years: "2013~2019", variants: ["CLA 200", "CLA 250", "CLA 45 AMG"] },
+    ],
+  },
 };
 const choTotConditionFilters = ["신차", "중고"] as const;
 const choTotColorFilters = ["흰색", "검정"] as const;
@@ -889,6 +950,8 @@ function MarketplaceScreen() {
   const [searchToast, setSearchToast] = useState("");
   const [categoryLandingOpen, setCategoryLandingOpen] = useState(true);
   const [quickFilterStyle, setQuickFilterStyle] = useState<QuickFilterStyle>("chotot");
+  const [selectedGeneration, setSelectedGeneration] = useState<string | null>(null);
+  const [selectedVariant, setSelectedVariant] = useState<string | null>(null);
 
   useEffect(() => {
     if (!searchToast) return;
@@ -908,9 +971,18 @@ function MarketplaceScreen() {
   const categoryIsDefault = category === "전체";
   const categorySearchPlaceholder = categoryIsDefault ? "중고차" : category;
   const categoryBrandRail = categoryBrandRails[category] ?? categoryBrandRails["전체"];
+  const usesUxDepth = maker === "BMW" || maker === "벤츠";
+
+  useEffect(() => {
+    setSelectedGeneration(null);
+    setSelectedVariant(null);
+  }, [maker, selectedModel]);
+
   const activeFilterCount = [
     Boolean(maker),
     Boolean(selectedModel),
+    Boolean(selectedGeneration),
+    Boolean(selectedVariant),
     price.min !== 0 || price.max !== null,
     filters.year !== "전체",
     filters.condition !== "전체",
@@ -943,28 +1015,47 @@ function MarketplaceScreen() {
     setCategoryLandingOpen(true);
     setFilterFocus(null);
     setQuickFilterFocus(null);
+    setSelectedGeneration(null);
+    setSelectedVariant(null);
     if (closeActiveSheet) setSheet(null);
   };
 
   const clearCategoryFilter = () => {
     setFilters((current) => ({ ...current, category: "전체", maker: null, model: null }));
     setDraftFilters((current) => ({ ...current, category: "전체", maker: null, model: null }));
+    setSelectedGeneration(null);
+    setSelectedVariant(null);
     setCategoryLandingOpen(true);
   };
 
   const clearMakerFilter = () => {
     setFilters((current) => ({ ...current, maker: null, model: null }));
     setDraftFilters((current) => ({ ...current, maker: null, model: null }));
+    setSelectedGeneration(null);
+    setSelectedVariant(null);
   };
 
   const clearModelFilter = () => {
     setFilters((current) => ({ ...current, model: null }));
     setDraftFilters((current) => ({ ...current, model: null }));
+    setSelectedGeneration(null);
+    setSelectedVariant(null);
+  };
+
+  const clearGenerationFilter = () => {
+    setSelectedGeneration(null);
+    setSelectedVariant(null);
+  };
+
+  const clearVariantFilter = () => {
+    setSelectedVariant(null);
   };
 
   const applyMakerFilter = (nextMaker: string | null) => {
     setFilters((current) => ({ ...current, maker: nextMaker, model: null }));
     setDraftFilters((current) => ({ ...current, maker: nextMaker, model: null }));
+    setSelectedGeneration(null);
+    setSelectedVariant(null);
   };
 
   const openRegionSheet = () => {
@@ -1003,6 +1094,18 @@ function MarketplaceScreen() {
     const nextModel = selectedModel === modelName ? null : modelName;
     setFilters((current) => ({ ...current, model: nextModel }));
     setDraftFilters((current) => ({ ...current, model: nextModel }));
+    setSelectedGeneration(null);
+    setSelectedVariant(null);
+  };
+
+  const chooseGeneration = (generationName: string) => {
+    const nextGeneration = selectedGeneration === generationName ? null : generationName;
+    setSelectedGeneration(nextGeneration);
+    setSelectedVariant(null);
+  };
+
+  const chooseVariant = (variantName: string) => {
+    setSelectedVariant((current) => current === variantName ? null : variantName);
   };
 
   const chooseConditionQuickFilter = (condition: string) => {
@@ -1022,6 +1125,8 @@ function MarketplaceScreen() {
       const nextFilters = { ...filters, category: categoryName, maker: null, model: null };
       setFilters(nextFilters);
       setDraftFilters(nextFilters);
+      setSelectedGeneration(null);
+      setSelectedVariant(null);
       setCategoryLandingOpen(categoryName === "전체");
       return;
     }
@@ -1033,6 +1138,8 @@ function MarketplaceScreen() {
       const nextFilters = { ...filters, category: categoryName, maker: null, model: null };
       setFilters(nextFilters);
       setDraftFilters(nextFilters);
+      setSelectedGeneration(null);
+      setSelectedVariant(null);
       setCategoryLandingOpen(categoryName === "전체");
       closeSheet();
       return;
@@ -1040,6 +1147,12 @@ function MarketplaceScreen() {
     setSearchToast(`${categoryName} 카테고리는 준비 중입니다.`);
     closeSheet();
   };
+
+  const modelQuickOptions = maker ? quickModelsByMaker[maker] ?? [] : [];
+  const generationQuickOptions = maker && selectedModel ? quickGenerationsByMakerModel[maker]?.[selectedModel] ?? [] : [];
+  const selectedGenerationOption = generationQuickOptions.find((generation) => generation.name === selectedGeneration);
+  const variantQuickOptions = selectedGenerationOption?.variants ?? [];
+  const showAfterUxDepth = Boolean(selectedModel && (!usesUxDepth || !generationQuickOptions.length || selectedVariant));
 
   const quickFilterChips = [
     {
@@ -1073,7 +1186,21 @@ function MarketplaceScreen() {
       active: false,
       onClick: () => openQuickFilter("model"),
     } : null,
-    maker && selectedModel ? {
+    usesUxDepth && selectedModel ? {
+      key: "generation",
+      label: selectedGeneration ?? "세대",
+      active: Boolean(selectedGeneration),
+      onClick: () => setSearchToast(selectedGeneration ? "세대 조건이 적용됐습니다." : "아래 세대 칩에서 선택하세요."),
+      onClear: selectedGeneration ? clearGenerationFilter : undefined,
+    } : null,
+    usesUxDepth && selectedGeneration ? {
+      key: "variant",
+      label: selectedVariant ?? "세부모델",
+      active: Boolean(selectedVariant),
+      onClick: () => setSearchToast(selectedVariant ? "세부모델 조건이 적용됐습니다." : "아래 세부모델 칩에서 선택하세요."),
+      onClear: selectedVariant ? clearVariantFilter : undefined,
+    } : null,
+    showAfterUxDepth ? {
       key: "condition",
       label: filters.condition === "전체" ? "상태" : filters.condition,
       active: filters.condition !== "전체",
@@ -1083,7 +1210,7 @@ function MarketplaceScreen() {
         setDraftFilters((current) => ({ ...current, condition: "전체" }));
       } : undefined,
     } : null,
-    maker && selectedModel ? {
+    showAfterUxDepth ? {
       key: "color",
       label: filters.colors.length ? filters.colors.join(", ") : "색상",
       active: filters.colors.length > 0,
@@ -1107,10 +1234,11 @@ function MarketplaceScreen() {
     } : null,
   ].filter((chip): chip is { key: string; label: string; active: boolean; onClick: () => void; onClear?: () => void } => Boolean(chip));
 
-  const modelQuickOptions = maker ? quickModelsByMaker[maker] ?? [] : [];
   const showModelQuickRail = Boolean(maker && !selectedModel && modelQuickOptions.length);
-  const showConditionQuickRail = Boolean(maker && selectedModel && filters.condition === "전체");
-  const showColorQuickRail = Boolean(maker && selectedModel && filters.condition !== "전체");
+  const showGenerationQuickRail = Boolean(usesUxDepth && selectedModel && !selectedGeneration && generationQuickOptions.length);
+  const showVariantQuickRail = Boolean(usesUxDepth && selectedGeneration && !selectedVariant && variantQuickOptions.length);
+  const showConditionQuickRail = Boolean(showAfterUxDepth && filters.condition === "전체");
+  const showColorQuickRail = Boolean(showAfterUxDepth && filters.condition !== "전체");
 
   return (
     <>
@@ -1141,6 +1269,23 @@ function MarketplaceScreen() {
             <Carousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName="benz-model-track">
               {modelQuickOptions.map((model) => (
                 <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} onClick={() => chooseModel(model)}>{model}</button>
+              ))}
+            </Carousel>
+          </section> : showGenerationQuickRail ? <section className="brand-row is-generation-mode" aria-label={`${selectedModel} 세대 빠른 선택`}>
+            <span className="brand-title">세대</span>
+            <Carousel ariaLabel={`${selectedModel} 세대`} className="brand-carousel" contentClassName="generation-track">
+              {generationQuickOptions.map((generation) => (
+                <button key={generation.name} className={`benz-model-chip generation-chip${selectedGeneration === generation.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedGeneration === generation.name} onClick={() => chooseGeneration(generation.name)}>
+                  <strong>{generation.name}</strong>
+                  <span>{generation.years}</span>
+                </button>
+              ))}
+            </Carousel>
+          </section> : showVariantQuickRail ? <section className="brand-row is-benz-model-mode" aria-label={`${selectedGeneration} 세부모델 빠른 선택`}>
+            <span className="brand-title">세부</span>
+            <Carousel ariaLabel={`${selectedGeneration} 세부모델`} className="brand-carousel" contentClassName="benz-model-track">
+              {variantQuickOptions.map((variant) => (
+                <button key={variant} className={`benz-model-chip${selectedVariant === variant ? " is-selected" : ""}`} type="button" aria-pressed={selectedVariant === variant} onClick={() => chooseVariant(variant)}>{variant}</button>
               ))}
             </Carousel>
           </section> : showConditionQuickRail ? <section className="brand-row is-benz-model-mode" aria-label="상태 빠른 선택">
