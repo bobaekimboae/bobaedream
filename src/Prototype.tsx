@@ -456,12 +456,28 @@ const generationDisplayLabel = (generation: QuickGenerationOption) => {
   if (generation.name.includes("W168")) return "1세대";
   return generation.name.replace(/\s?[A-Z]\d{2,3}.*/, "");
 };
+const generationCodeLabel = (generation: QuickGenerationOption) => {
+  const code = generation.name.match(/\b[A-Z]{1,3}\d{2,3}\b/);
+  return code?.[0] ?? "";
+};
+const generationCardLabel = (generation: QuickGenerationOption) => {
+  const display = generationDisplayLabel(generation);
+  const code = generationCodeLabel(generation);
+  return code ? `${display} ${code}` : display;
+};
 const compactYearLabel = (years: string) => {
   const current = years.match(/^(\d{4})~현재$/);
   if (current) return `${current[1].slice(2)} ~ 현재`;
   const range = years.match(/^(\d{4})~(\d{4})$/);
   if (range) return `${range[1].slice(2)} ~ ${range[2].slice(2)}년식`;
   return years;
+};
+const compactGenerationCardYearLabel = (years: string) => {
+  const current = years.match(/^(\d{4})~현재$/);
+  if (current) return `${current[1].slice(2)}~현재`;
+  const range = years.match(/^(\d{4})~(\d{4})$/);
+  if (range) return `${range[1].slice(2)}~${range[2].slice(2)}년`;
+  return years.replace(/\s+/g, "");
 };
 const generationCountLabel = (generation: QuickGenerationOption) => {
   const count = generation.count ?? generation.variants.reduce((sum, variant) => sum + toTrimOption(variant).count, 0);
@@ -879,7 +895,6 @@ function DepthCard({ label, sub, image, selected, disabled, onClick }: { label: 
 function TrimChip({ label, selected, disabled, onClick }: { label: string; selected?: boolean; disabled?: boolean; onClick: () => void }) {
   return (
     <button type="button" className={`trim-chip${selected ? " is-selected" : ""}`} disabled={disabled} aria-pressed={Boolean(selected)} onClick={onClick}>
-      <span className="trim-chip-check" aria-hidden="true">{selected ? "✓" : ""}</span>
       {label}
     </button>
   );
@@ -1125,6 +1140,7 @@ function MarketplaceScreen() {
   const [quickFilterStyle, setQuickFilterStyle] = useState<QuickFilterStyle>(() => getInitialQuickFilterStyle());
   const [selectedGeneration, setSelectedGeneration] = useState<string | null>(null);
   const [selectedVariants, setSelectedVariants] = useState<string[]>([]);
+  const [debouncedSelectedVariants, setDebouncedSelectedVariants] = useState<string[]>([]);
   const [trimApplied, setTrimApplied] = useState(false);
 
   useEffect(() => {
@@ -1146,10 +1162,12 @@ function MarketplaceScreen() {
   const categorySearchPlaceholder = categoryIsDefault ? "중고차" : category;
   const categoryBrandRail = categoryBrandRails[category] ?? categoryBrandRails["전체"];
   const usesUxDepth = maker === "BMW" || maker === "벤츠";
+  const isGuaziQuickStyle = quickFilterStyle === "guazi";
   const modelQuickOptions = maker ? quickModelsByMaker[maker] ?? [] : [];
   const generationQuickOptions = maker && selectedModel ? quickGenerationsByMakerModel[maker]?.[selectedModel] ?? [] : [];
   const selectedGenerationOption = generationQuickOptions.find((generation) => generation.name === selectedGeneration);
   const variantQuickOptions = selectedGenerationOption?.variants ?? [];
+  const effectiveSelectedVariants = isGuaziQuickStyle ? debouncedSelectedVariants : selectedVariants;
 
   useEffect(() => {
     setSelectedGeneration(null);
@@ -1157,11 +1175,20 @@ function MarketplaceScreen() {
     setTrimApplied(false);
   }, [maker, selectedModel]);
 
+  useEffect(() => {
+    if (!isGuaziQuickStyle) {
+      setDebouncedSelectedVariants(selectedVariants);
+      return undefined;
+    }
+    const timer = window.setTimeout(() => setDebouncedSelectedVariants(selectedVariants), 300);
+    return () => window.clearTimeout(timer);
+  }, [isGuaziQuickStyle, selectedVariants]);
+
   const activeFilterCount = [
     Boolean(maker),
     Boolean(selectedModel),
     Boolean(selectedGeneration),
-    trimApplied && selectedVariants.length > 0,
+    isGuaziQuickStyle ? selectedVariants.length > 0 : trimApplied && selectedVariants.length > 0,
     price.min !== 0 || price.max !== null,
     filters.year !== "전체",
     filters.condition !== "전체",
@@ -1182,10 +1209,11 @@ function MarketplaceScreen() {
     return chototTestCars.filter((car) => {
       const searchText = `${car.title} ${car.trim} ${car.maker} ${car.modelGroup ?? ""}`;
       const generationMatch = !selectedGeneration || normalizeModelSearchText(searchText).includes(normalizeModelSearchText(generationDisplayLabel(selectedGenerationOption ?? { name: selectedGeneration, years: "", variants: [] }))) || normalizeModelSearchText(searchText).includes(normalizeModelSearchText(selectedGeneration));
-      const trimMatch = !trimApplied || selectedVariants.length === 0 || selectedVariants.some((variant) => normalizeModelSearchText(searchText).includes(normalizeModelSearchText(variant)));
+      const activeTrimVariants = isGuaziQuickStyle ? effectiveSelectedVariants : trimApplied ? selectedVariants : [];
+      const trimMatch = activeTrimVariants.length === 0 || activeTrimVariants.some((variant) => normalizeModelSearchText(searchText).includes(normalizeModelSearchText(variant)));
       return matchesChoTotFilters(car, filters) && generationMatch && trimMatch && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || searchText.toLowerCase().includes(normalized));
     });
-  }, [filters, query, region.district, regionKeyword, selectedGeneration, selectedGenerationOption, selectedVariants, trimApplied]);
+  }, [effectiveSelectedVariants, filters, isGuaziQuickStyle, query, region.district, regionKeyword, selectedGeneration, selectedGenerationOption, selectedVariants, trimApplied]);
   const visibleCars = useMemo(() => [...filteredWithoutPrice].sort((first, second) => sort === "낮은 가격순" ? parsePrice(first.price) - parsePrice(second.price) : sort === "높은 가격순" ? parsePrice(second.price) - parsePrice(first.price) : second.id - first.id), [filteredWithoutPrice, sort]);
   const draftFilterCount = useMemo(() => chototTestCars.filter((car) => matchesChoTotFilters(car, draftFilters)).length, [draftFilters]);
 
@@ -1340,10 +1368,6 @@ function MarketplaceScreen() {
     setTrimApplied(false);
   };
 
-  const applyTrimFilters = () => {
-    setTrimApplied(true);
-  };
-
   const chooseQuickFilterStyle = (style: QuickFilterStyle) => {
     setQuickFilterStyle(style);
     const url = new URL(window.location.href);
@@ -1384,7 +1408,6 @@ function MarketplaceScreen() {
     closeSheet();
   };
 
-  const isGuaziQuickStyle = quickFilterStyle === "guazi";
   const guaziVisualsForMaker = maker ? quickModelVisualsByMaker[maker] : undefined;
   const selectedGenerationVisual = selectedGenerationOption?.image ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.image : undefined);
   const selectedGenerationSummary = selectedGenerationOption
@@ -1393,13 +1416,12 @@ function MarketplaceScreen() {
         : compactYearLabel(selectedGenerationOption.years))
     : "";
   const variantTrimOptions = variantQuickOptions.map(toTrimOption);
-  const selectedTrimCount = variantTrimOptions.filter((variant) => selectedVariants.includes(variant.name)).reduce((sum, variant) => sum + variant.count, 0);
-  const trimActionLabel = selectedVariants.length
-    ? (showGuaziInventoryCounts
-        ? `적용 ${selectedVariants.length} / ${selectedTrimCount.toLocaleString("ko-KR")}대`
-        : `적용 ${selectedVariants.length}`)
-    : "전체";
   const showAfterUxDepth = Boolean(selectedModel && (!usesUxDepth || !generationQuickOptions.length || trimApplied));
+  const selectedTrimChipLabel = selectedVariants.length === 0
+    ? "트림"
+    : selectedVariants.length === 1
+      ? selectedVariants[0]
+      : `${selectedVariants[0]} 외 ${selectedVariants.length - 1}`;
 
   const quickFilterChips = [
     {
@@ -1442,8 +1464,8 @@ function MarketplaceScreen() {
     } : null,
     usesUxDepth && selectedGeneration ? {
       key: "variant",
-      label: selectedVariants.length ? `트림 ${selectedVariants.length}` : "트림",
-      active: trimApplied && selectedVariants.length > 0,
+      label: selectedTrimChipLabel,
+      active: isGuaziQuickStyle ? selectedVariants.length > 0 : trimApplied && selectedVariants.length > 0,
       onClick: selectedVariants.length ? returnToTrimDepth : () => setSearchToast("아래 트림 칩에서 선택하세요."),
       onClear: selectedVariants.length ? clearVariantFilter : undefined,
     } : null,
@@ -1473,8 +1495,8 @@ function MarketplaceScreen() {
 
   const showModelQuickRail = Boolean(maker && !selectedModel && modelQuickOptions.length);
   const showGenerationQuickRail = Boolean(usesUxDepth && selectedModel && !selectedGeneration && generationQuickOptions.length);
-  const showVariantQuickRail = Boolean(usesUxDepth && selectedGeneration && !trimApplied && variantQuickOptions.length);
-  const showVehicleHeaderRail = Boolean(usesUxDepth && selectedGeneration && trimApplied);
+  const showVariantQuickRail = Boolean(usesUxDepth && selectedGeneration && variantQuickOptions.length && (isGuaziQuickStyle || !trimApplied));
+  const showVehicleHeaderRail = Boolean(!isGuaziQuickStyle && usesUxDepth && selectedGeneration && trimApplied);
   const showCategoryQuickRail = categoryLandingOpen && !maker;
   const showGuaziMakerRail = Boolean(isGuaziQuickStyle && !showCategoryQuickRail && !showModelQuickRail && !showGenerationQuickRail && !showVariantQuickRail && !showVehicleHeaderRail && categoryBrandRail.title === "제조사");
 
@@ -1550,8 +1572,8 @@ function MarketplaceScreen() {
                 return (
                   <DepthCard
                     key={generation.name}
-                    label={generationDisplayLabel(generation)}
-                    sub={compactYearLabel(generation.years)}
+                    label={generationCardLabel(generation)}
+                    sub={compactGenerationCardYearLabel(generation.years)}
                     image={generationImage ? <img src={generationImage} alt="" aria-hidden="true" draggable={false} /> : undefined}
                     selected={selectedGeneration === generation.name}
                     disabled={(generation.count ?? generation.variants.reduce((sum, variant) => sum + toTrimOption(variant).count, 0)) === 0}
@@ -1574,14 +1596,12 @@ function MarketplaceScreen() {
             </Carousel>
           </section> : showVariantQuickRail && isGuaziQuickStyle ? <section className="depth-rail" aria-label={`${selectedGeneration} 트림 빠른 선택`}>
             <span className="depth-rail-label">트림</span>
-            <div className="depth-trim-shell">
-              <Carousel ariaLabel={`${selectedGeneration} 트림`} className="brand-carousel" contentClassName="depth-rail-track is-chips">
-                {variantTrimOptions.map((variant) => (
-                  <TrimChip key={variant.name} label={variant.name} selected={selectedVariants.includes(variant.name)} disabled={variant.count === 0} onClick={() => chooseVariant(variant.name)} />
-                ))}
-              </Carousel>
-              <button className="depth-rail-action" type="button" onClick={applyTrimFilters}>{trimActionLabel}</button>
-            </div>
+            <Carousel ariaLabel={`${selectedGeneration} 트림`} className="brand-carousel" contentClassName="depth-rail-track is-chips">
+              <TrimChip label="전체" selected={selectedVariants.length === 0} onClick={clearVariantFilter} />
+              {variantTrimOptions.map((variant) => (
+                <TrimChip key={variant.name} label={variant.name} selected={selectedVariants.includes(variant.name)} disabled={variant.count === 0} onClick={() => chooseVariant(variant.name)} />
+              ))}
+            </Carousel>
           </section> : showVariantQuickRail ? <section className="brand-row is-benz-model-mode" aria-label={`${selectedGeneration} 트림 빠른 선택`}>
             <span className="brand-title">트림</span>
             <Carousel ariaLabel={`${selectedGeneration} 트림`} className="brand-carousel" contentClassName="benz-model-track">
