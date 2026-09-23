@@ -330,6 +330,15 @@ const quickFilterStyleOptions: Array<{ value: QuickFilterStyle; label: string }>
   { value: "guazi", label: "과쯔" },
   { value: "dongchedi", label: "동처띠" },
 ];
+const typeQuickFilters = [
+  { label: "전체", body: "전체", image: "cars/types/all.jpg", description: "모든 차체" },
+  { label: "경차", body: "경차", image: "cars/types/compact.jpg", description: "작은 차" },
+  { label: "세단", body: "세단", image: "cars/types/sedan.jpg", description: "승용 세단" },
+  { label: "SUV", body: "SUV", image: "cars/types/suv.jpg", description: "레저형" },
+  { label: "승합", body: "승합", image: "cars/types/van.jpg", description: "다인승" },
+  { label: "스포츠카", body: "스포츠카", image: "cars/types/sports.jpg", description: "고성능" },
+  { label: "픽업", body: "픽업", image: "cars/types/pickup.jpg", description: "적재형" },
+] as const;
 const provinceOptions = ["전국", "경기", "서울", "부산", "대구", "인천", "광주", "대전", "울산", "경남"];
 const districtsByProvince: Record<string, string[]> = {
   경기: ["전체", "성남시", "고양시", "수원시"], 서울: ["전체", "강남구", "서초구", "성동구"], 부산: ["전체", "해운대구"],
@@ -502,6 +511,12 @@ const detailPhotoSources = ["raw-04.png", "raw-09.jpeg", "raw-07.jpeg", "raw-20.
 const detailPhotos = Array.from({ length: 24 }, (_, index) => detailPhotoSources[index % detailPhotoSources.length]);
 const detailVehiclePlate = "172무2323";
 const vehicleHistoryUrl = (plate: string) => `vehicle-history/?mode=dealer&plate=${encodeURIComponent(plate.replace(/\s+/g, ""))}`;
+
+function getInitialQuickFilterStyle(): QuickFilterStyle {
+  if (typeof window === "undefined") return "chotot";
+  const value = new URLSearchParams(window.location.search).get("qf");
+  return value === "guazi" || value === "dongchedi" ? value : "chotot";
+}
 
 const optionItems = [
   { label: "파노라마 선루프", icon: "option-01.png" },
@@ -872,13 +887,20 @@ function MarketplaceScreen() {
   const [searchSaved, setSearchSaved] = useState(false);
   const [searchToast, setSearchToast] = useState("");
   const [categoryLandingOpen, setCategoryLandingOpen] = useState(true);
-  const [quickFilterStyle, setQuickFilterStyle] = useState<QuickFilterStyle>("chotot");
+  const [quickFilterStyle, setQuickFilterStyle] = useState<QuickFilterStyle>(getInitialQuickFilterStyle);
 
   useEffect(() => {
     if (!searchToast) return;
     const timer = window.setTimeout(() => setSearchToast(""), 1800);
     return () => window.clearTimeout(timer);
   }, [searchToast]);
+
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (quickFilterStyle === "chotot") url.searchParams.delete("qf");
+    else url.searchParams.set("qf", quickFilterStyle);
+    window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+  }, [quickFilterStyle]);
 
   const closeSheet = () => {
     if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
@@ -984,6 +1006,18 @@ function MarketplaceScreen() {
     setDraftFilters((current) => ({ ...current, model: nextModel }));
   };
 
+  const toggleBodyQuickFilter = (body: string) => {
+    const nextBody = body === "전체" || filters.body === body ? "전체" : body;
+    setFilters((current) => ({ ...current, body: nextBody }));
+    setDraftFilters((current) => ({ ...current, body: nextBody }));
+  };
+
+  const openBodyQuickSheet = () => {
+    setDraftFilters(filters);
+    setQuickFilterFocus("body");
+    setSheet("quick");
+  };
+
   const chooseVehicleCategory = (categoryName: string) => {
     if (vehicleCategoryOptions.includes(categoryName)) {
       const nextFilters = { ...filters, category: categoryName, maker: null, model: null };
@@ -1017,7 +1051,7 @@ function MarketplaceScreen() {
             <button type="button" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={openRegionSheet}><Icon name="location-blue.svg" /><span className="region-label">지역:</span><strong>{regionLabel}</strong><span className="region-chevron-icon" aria-hidden="true"><Icon name="region-chevron.svg" /></span></button>
             <button type="button" className="reset-button" onClick={() => resetFilters()}>초기화</button>
           </section>
-          <section className={`filter-shell quick-style-${quickFilterStyle}${activeFilterCount ? " has-active-filters" : ""}`} aria-label="중고차 필터">
+          <section className={`filter-shell${activeFilterCount ? " has-active-filters" : ""}`} aria-label="중고차 필터">
             <button className="filter-fixed" type="button" aria-label={activeFilterCount ? `필터 ${activeFilterCount}개 적용됨` : "필터"} onClick={() => { setDraftFilters(filters); setFilterFocus(null); setSheet("filter"); }}><Icon name="filter.svg" /><span>{activeFilterCount || "필터"}</span></button>
             <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
               <FilterChip label={categoryIsDefault ? "전체" : category} active onClick={() => openQuickFilter("category")} onClear={clearCategoryFilter} />
@@ -1047,29 +1081,42 @@ function MarketplaceScreen() {
                 </button>
               ))}
             </Carousel>
-          </section> : maker === "BMW" || maker === "벤츠" ? <section className={`brand-row${maker === "BMW" ? " is-model-mode" : " is-benz-model-mode"}`} aria-label={maker === "BMW" ? "BMW 모델 빠른 선택" : "벤츠 모델 빠른 선택"}>
-            <span className="brand-title">모델</span>
-            <Carousel ariaLabel={maker === "BMW" ? "BMW 모델" : "벤츠 모델"} className="brand-carousel" contentClassName={maker === "BMW" ? "bmw-model-track" : "benz-model-track"}>
-              {maker === "BMW" ? bmwModels.map((model) => (
-                <button key={model.name} className={`bmw-model-card${selectedModel === model.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model.name} onClick={() => chooseModel(model.name)}>
-                  <img src={model.image} alt={`${model.name} 차량`} draggable={false} />
-                  <span>{model.name}</span>
-                </button>
-              )) : benzModels.map((model) => (
-                <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} onClick={() => chooseModel(model)}>{model}</button>
-              ))}
-            </Carousel>
-          </section> : <section className="brand-row category-brand-row" aria-label={`${categoryBrandRail.title} 빠른 선택`}>
-            <span className="brand-title">{categoryBrandRail.title}</span>
-            <Carousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName="brand-track">
-              {categoryBrandRail.options.map((option) => (
-                <button key={option.name} className={`brand-item${option.maker && maker === option.maker ? " is-selected" : ""}`} type="button" aria-pressed={Boolean(option.maker && maker === option.maker)} onClick={() => option.maker ? applyMakerFilter(option.maker) : undefined}>
-                  <BrandRailMark option={option} />
-                  <span>{option.name}</span>
-                </button>
-              ))}
-            </Carousel>
-          </section>}
+          </section> : <>
+            {category === "중고차" ? <section className={`type-quick-row type-quick-${quickFilterStyle}`} aria-label="유형별 퀵필터">
+              <Carousel ariaLabel="유형별 퀵필터" className="type-quick-carousel" contentClassName="type-quick-track">
+                {typeQuickFilters.map((option) => (
+                  <button key={option.body} className={`type-quick-card${filters.body === option.body || option.body === "전체" && filters.body === "전체" ? " is-selected" : ""}`} type="button" aria-pressed={filters.body === option.body || option.body === "전체" && filters.body === "전체"} onClick={() => toggleBodyQuickFilter(option.body)}>
+                    <span className="type-quick-image"><img src={asset(option.image)} alt="" aria-hidden="true" draggable={false} /></span>
+                    <span className="type-quick-text"><strong>{option.label}</strong><small>{option.description}</small></span>
+                  </button>
+                ))}
+                <button className="type-quick-more" type="button" onClick={openBodyQuickSheet}>유형 전체보기 ›</button>
+              </Carousel>
+            </section> : null}
+            {maker === "BMW" || maker === "벤츠" ? <section className={`brand-row${maker === "BMW" ? " is-model-mode" : " is-benz-model-mode"}`} aria-label={maker === "BMW" ? "BMW 모델 빠른 선택" : "벤츠 모델 빠른 선택"}>
+              <span className="brand-title">모델</span>
+              <Carousel ariaLabel={maker === "BMW" ? "BMW 모델" : "벤츠 모델"} className="brand-carousel" contentClassName={maker === "BMW" ? "bmw-model-track" : "benz-model-track"}>
+                {maker === "BMW" ? bmwModels.map((model) => (
+                  <button key={model.name} className={`bmw-model-card${selectedModel === model.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model.name} onClick={() => chooseModel(model.name)}>
+                    <img src={model.image} alt={`${model.name} 차량`} draggable={false} />
+                    <span>{model.name}</span>
+                  </button>
+                )) : benzModels.map((model) => (
+                  <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} onClick={() => chooseModel(model)}>{model}</button>
+                ))}
+              </Carousel>
+            </section> : <section className="brand-row category-brand-row" aria-label={`${categoryBrandRail.title} 빠른 선택`}>
+              <span className="brand-title">{categoryBrandRail.title}</span>
+              <Carousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName="brand-track">
+                {categoryBrandRail.options.map((option) => (
+                  <button key={option.name} className={`brand-item${option.maker && maker === option.maker ? " is-selected" : ""}`} type="button" aria-pressed={Boolean(option.maker && maker === option.maker)} onClick={() => option.maker ? applyMakerFilter(option.maker) : undefined}>
+                    <BrandRailMark option={option} />
+                    <span>{option.name}</span>
+                  </button>
+                ))}
+              </Carousel>
+            </section>}
+          </>}
           <section className="video-toggle-row" aria-label="영상 보기와 퀵필터 사례 선택">
             <div className="video-toggle-copy">
               <span>영상보기</span>

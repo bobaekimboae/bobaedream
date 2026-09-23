@@ -169,7 +169,7 @@ export function ChoTotQuickFilterSheet({ focus, value, onChange, onClose, onConf
         {focus === "fuel" ? <ChoiceChips options={["전체", "가솔린", "디젤", "전기"]} value={value.fuel} onChange={(next) => setValue("fuel", next)} /> : null}
         {focus === "color" ? <div className="chotot-check-list">{colorOptions.map((color) => <label key={color}><span>{color}</span><input type="checkbox" checked={value.colors.includes(color)} onChange={() => setValue("colors", value.colors.includes(color) ? value.colors.filter((entry) => entry !== color) : [...value.colors, color])} /></label>)}</div> : null}
         {focus === "origin" ? <div className="chotot-radio-list">{originOptions.map((origin) => <button key={origin} type="button" onClick={() => setValue("origin", origin)}><span>{origin}</span><i className={value.origin === origin ? "is-selected" : ""} /></button>)}</div> : null}
-        {focus === "body" ? <ChoiceChips options={["전체", "세단", "SUV", "해치백", "승합", "스포츠카"]} value={value.body} onChange={(next) => setValue("body", next)} /> : null}
+        {focus === "body" ? <ChoiceChips options={["전체", "경차", "세단", "SUV", "해치백", "승합", "스포츠카", "픽업"]} value={value.body} onChange={(next) => setValue("body", next)} /> : null}
         {focus === "video" ? <button type="button" className={`chotot-toggle-row${value.videoOnly ? " is-on" : ""}`} role="switch" aria-checked={value.videoOnly} onClick={() => setValue("videoOnly", !value.videoOnly)}><span>영상이 있는 매물만 보기</span><i /></button> : null}
         {focus === "seller" ? <ChoiceChips options={["전체", "개인", "딜러"]} value={value.seller} onChange={(next) => setValue("seller", next as SellerType)} /> : null}
       </section>
@@ -253,7 +253,7 @@ export function ChoTotFilterSheet({ value, onChange, onClose, onReset, onConfirm
       <Section title="연료" focus="fuel"><ChoiceChips options={["전체", "가솔린", "디젤", "전기"]} value={value.fuel} onChange={(fuel) => setValue("fuel", fuel)} /></Section>
       <Section title="색상" focus="color"><LabelRow label="외장 색상" summary={selectedColors || undefined} onClick={() => { setSearch(""); setView("color"); }} /></Section>
       <Section title="원산지" focus="origin"><LabelRow label="원산지" summary={value.origin === "전체" ? undefined : value.origin} onClick={() => { setSearch(""); setView("origin"); }} /></Section>
-      <Section title="차체 유형" focus="body"><ChoiceChips options={["전체", "세단", "SUV", "해치백", "승합", "스포츠카"]} value={value.body} onChange={(body) => setValue("body", body)} /></Section>
+      <Section title="차체 유형" focus="body"><ChoiceChips options={["전체", "경차", "세단", "SUV", "해치백", "승합", "스포츠카", "픽업"]} value={value.body} onChange={(body) => setValue("body", body)} /></Section>
       <Section title="영상 매물" focus="video"><button type="button" className={`chotot-toggle-row${value.videoOnly ? " is-on" : ""}`} role="switch" aria-checked={value.videoOnly} onClick={() => setValue("videoOnly", !value.videoOnly)}><span>영상이 있는 매물만 보기</span><i /></button></Section>
       <Section title="판매자" focus="seller"><ChoiceChips options={["전체", "개인", "딜러"]} value={value.seller} onChange={(seller) => setValue("seller", seller as SellerType)} /></Section>
     </div>
