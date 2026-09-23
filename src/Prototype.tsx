@@ -57,7 +57,10 @@ type QuickFilterStyle = "chotot" | "guazi" | "dongchedi";
 export type PriceSelection = { mode: PriceMode; min: number; max: number | null };
 type ListingBadge = "브랜드인증" | "제조사보증" | "1인소유" | "가격인하" | "인증중고차";
 
-const isDesktopPreview = () => new URLSearchParams(window.location.search).get("desktop") === "1";
+const isDesktopPreview = () => {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("desktop") === "1" || params.get("pc") === "1";
+};
 const isForcedMobileView = () => !isDesktopPreview();
 const forcedMobileDesignWidth = 430;
 
