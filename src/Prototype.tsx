@@ -220,6 +220,7 @@ const vehicleCategories = [
   { name: "건설기계", icon: "categories/construction.svg" },
   { name: "부품 · 용품", icon: "categories/parts.svg" },
 ] as const;
+const guaziVehicleTypeCategories = vehicleCategories.filter((category) => ["중고차", "트럭 · 특장", "바이크", "캠핑카", "올드카"].includes(category.name));
 
 const categorySheetItems: ReadonlyArray<{ name: string; icon?: string }> = [
   { name: "중고차", icon: "categories/used-car.svg" },
@@ -865,6 +866,25 @@ function BrandRailMark({ option }: { option: BrandRailOption }) {
   return <span className="brand-logo"><span className="brand-logo-fallback" aria-hidden="true">{option.name.slice(0, 2)}</span></span>;
 }
 
+function DepthCard({ label, sub, image, selected, disabled, onClick }: { label: string; sub?: string; image?: ReactNode; selected?: boolean; disabled?: boolean; onClick: () => void }) {
+  return (
+    <button type="button" className={`depth-card${selected ? " is-selected" : ""}`} disabled={disabled} aria-pressed={Boolean(selected)} onClick={onClick}>
+      <span className="depth-card-media">{image}</span>
+      <strong className="depth-card-label">{label}</strong>
+      {sub ? <small className="depth-card-sub">{sub}</small> : null}
+    </button>
+  );
+}
+
+function TrimChip({ label, selected, disabled, onClick }: { label: string; selected?: boolean; disabled?: boolean; onClick: () => void }) {
+  return (
+    <button type="button" className={`trim-chip${selected ? " is-selected" : ""}`} disabled={disabled} aria-pressed={Boolean(selected)} onClick={onClick}>
+      <span className="trim-chip-check" aria-hidden="true">{selected ? "✓" : ""}</span>
+      {label}
+    </button>
+  );
+}
+
 function MakerSheet({ selected, onChoose, onClose }: { selected: string | null; onChoose: (maker: string | null) => void; onClose: () => void }) {
   const keyboard = useKeyboard();
   const [query, setQuery] = useState("");
@@ -1299,9 +1319,10 @@ function MarketplaceScreen() {
 
   const chooseModel = (modelName: string) => {
     const nextModel = selectedModel === modelName ? null : modelName;
+    const nextGenerations = nextModel && maker ? quickGenerationsByMakerModel[maker]?.[nextModel] ?? [] : [];
     setFilters((current) => ({ ...current, model: nextModel }));
     setDraftFilters((current) => ({ ...current, model: nextModel }));
-    setSelectedGeneration(null);
+    setSelectedGeneration(isGuaziQuickStyle && nextGenerations.length === 1 ? nextGenerations[0].name : null);
     setSelectedVariants([]);
     setTrimApplied(false);
     replaceFilterParams(maker, nextModel);
@@ -1365,7 +1386,6 @@ function MarketplaceScreen() {
 
   const isGuaziQuickStyle = quickFilterStyle === "guazi";
   const guaziVisualsForMaker = maker ? quickModelVisualsByMaker[maker] : undefined;
-  const hasGuaziModelCards = Boolean(isGuaziQuickStyle && guaziVisualsForMaker);
   const selectedGenerationVisual = selectedGenerationOption?.image ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.image : undefined);
   const selectedGenerationSummary = selectedGenerationOption
     ? (showGuaziInventoryCounts
@@ -1473,7 +1493,20 @@ function MarketplaceScreen() {
               {quickFilterChips.map((chip) => <FilterChip key={chip.key} label={chip.label} active={chip.active} onClick={chip.onClick} onClear={chip.onClear} />)}
             </Carousel>
           </section>
-          {showCategoryQuickRail ? <section className="category-row" aria-label="차량 대카테고리 선택">
+          {showCategoryQuickRail && isGuaziQuickStyle ? <section className="depth-rail no-label" aria-label="차량유형 빠른 선택">
+            <Carousel ariaLabel="차량유형" className="brand-carousel" contentClassName="depth-rail-track">
+              <DepthCard label="전체" onClick={() => { clearCategoryFilter(); setCategoryLandingOpen(false); }} />
+              {guaziVehicleTypeCategories.map((categoryOption) => (
+                <DepthCard
+                  key={categoryOption.name}
+                  label={categoryOption.name}
+                  image={<img src={asset(categoryOption.icon)} alt="" aria-hidden="true" draggable={false} />}
+                  selected={category === categoryOption.name}
+                  onClick={() => chooseVehicleCategory(categoryOption.name)}
+                />
+              ))}
+            </Carousel>
+          </section> : showCategoryQuickRail ? <section className="category-row" aria-label="차량 대카테고리 선택">
             <Carousel ariaLabel="차량 대카테고리" className="category-carousel" contentClassName="category-track">
               {vehicleCategories.map((categoryOption) => (
                 <button key={categoryOption.name} className="category-item" type="button" onClick={() => chooseVehicleCategory(categoryOption.name)}>
@@ -1482,34 +1515,56 @@ function MarketplaceScreen() {
                 </button>
               ))}
             </Carousel>
-          </section> : showModelQuickRail ? <section className={`brand-row is-benz-model-mode${hasGuaziModelCards ? " is-guazi-card-mode" : ""}`} aria-label={`${maker} 모델 빠른 선택`}>
-            <span className="brand-title">모델</span>
-            <Carousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName={hasGuaziModelCards ? "guazi-model-track" : "benz-model-track"}>
+          </section> : showModelQuickRail && isGuaziQuickStyle ? <section className="depth-rail" aria-label={`${maker} 모델 빠른 선택`}>
+            <span className="depth-rail-label">모델</span>
+            <Carousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName="depth-rail-track">
+              <DepthCard label="전체" onClick={clearModelFilter} />
               {modelQuickOptions.map((model) => {
                 const modelVisual = guaziVisualsForMaker?.[model];
-                return hasGuaziModelCards && modelVisual ? (
-                  <button key={model} className={`guazi-model-card${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} onClick={() => chooseModel(model)}>
-                    <img src={modelVisual.image} alt="" aria-hidden="true" draggable={false} />
-                    <strong>{formatModelLabel(model)}</strong>
-                    {showGuaziInventoryCounts && modelVisual.count ? <span>{modelVisual.count}</span> : null}
-                  </button>
-                ) : (
-                  <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} onClick={() => chooseModel(model)}>{formatModelLabel(model)}</button>
+                return (
+                  <DepthCard
+                    key={model}
+                    label={formatModelLabel(model)}
+                    image={modelVisual?.image ? <img src={modelVisual.image} alt="" aria-hidden="true" draggable={false} /> : undefined}
+                    selected={selectedModel === model}
+                    disabled={modelVisual?.count === "0대"}
+                    onClick={() => chooseModel(model)}
+                  />
                 );
               })}
             </Carousel>
-          </section> : showGenerationQuickRail ? <section className={`brand-row is-generation-mode${isGuaziQuickStyle && selectedGenerationVisual ? " is-guazi-card-mode" : ""}`} aria-label={`${selectedModel} 세대 빠른 선택`}>
-            <span className="brand-title">세대</span>
-            <Carousel ariaLabel={`${selectedModel} 세대`} className="brand-carousel" contentClassName={isGuaziQuickStyle && selectedGenerationVisual ? "guazi-model-track" : "generation-track"}>
+          </section> : showModelQuickRail ? <section className="brand-row is-benz-model-mode" aria-label={`${maker} 모델 빠른 선택`}>
+            <span className="brand-title">모델</span>
+            <Carousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName="benz-model-track">
+              {modelQuickOptions.map((model) => {
+                const modelVisual = guaziVisualsForMaker?.[model];
+                return <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} disabled={modelVisual?.count === "0대"} onClick={() => chooseModel(model)}>{formatModelLabel(model)}</button>;
+              })}
+            </Carousel>
+          </section> : showGenerationQuickRail && isGuaziQuickStyle ? <section className="depth-rail" aria-label={`${selectedModel} 세대 빠른 선택`}>
+            <span className="depth-rail-label">세대</span>
+            <Carousel ariaLabel={`${selectedModel} 세대`} className="brand-carousel" contentClassName="depth-rail-track">
+              <DepthCard label="전체" onClick={clearGenerationFilter} />
               {generationQuickOptions.map((generation) => {
                 const generationImage = generation.image ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.image : undefined);
-                return isGuaziQuickStyle && generationImage ? (
-                  <button key={generation.name} className={`guazi-model-card is-generation-card${selectedGeneration === generation.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedGeneration === generation.name} onClick={() => chooseGeneration(generation.name)}>
-                    <img src={generationImage} alt="" aria-hidden="true" draggable={false} />
-                    <strong>{generationDisplayLabel(generation)}</strong>
-                    <span>{showGuaziInventoryCounts ? `${compactYearLabel(generation.years)} · ${generationCountLabel(generation)}` : compactYearLabel(generation.years)}</span>
-                  </button>
-                ) : (
+                return (
+                  <DepthCard
+                    key={generation.name}
+                    label={generationDisplayLabel(generation)}
+                    sub={compactYearLabel(generation.years)}
+                    image={generationImage ? <img src={generationImage} alt="" aria-hidden="true" draggable={false} /> : undefined}
+                    selected={selectedGeneration === generation.name}
+                    disabled={(generation.count ?? generation.variants.reduce((sum, variant) => sum + toTrimOption(variant).count, 0)) === 0}
+                    onClick={() => chooseGeneration(generation.name)}
+                  />
+                );
+              })}
+            </Carousel>
+          </section> : showGenerationQuickRail ? <section className="brand-row is-generation-mode" aria-label={`${selectedModel} 세대 빠른 선택`}>
+            <span className="brand-title">세대</span>
+            <Carousel ariaLabel={`${selectedModel} 세대`} className="brand-carousel" contentClassName="generation-track">
+              {generationQuickOptions.map((generation) => {
+                return (
                   <button key={generation.name} className={`benz-model-chip generation-chip${selectedGeneration === generation.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedGeneration === generation.name} onClick={() => chooseGeneration(generation.name)}>
                     <strong>{generation.name}</strong>
                     <span>{generation.years}</span>
@@ -1517,40 +1572,51 @@ function MarketplaceScreen() {
                 );
               })}
             </Carousel>
-          </section> : showVariantQuickRail ? <section className={`brand-row is-benz-model-mode${isGuaziQuickStyle ? " is-guazi-card-mode is-guazi-trim-mode" : ""}`} aria-label={`${selectedGeneration} 트림 빠른 선택`}>
-            <span className="brand-title">트림</span>
-            {isGuaziQuickStyle ? <div className="guazi-trim-shell">
-              <Carousel ariaLabel={`${selectedGeneration} 트림`} className="brand-carousel" contentClassName="guazi-trim-track">
+          </section> : showVariantQuickRail && isGuaziQuickStyle ? <section className="depth-rail" aria-label={`${selectedGeneration} 트림 빠른 선택`}>
+            <span className="depth-rail-label">트림</span>
+            <div className="depth-trim-shell">
+              <Carousel ariaLabel={`${selectedGeneration} 트림`} className="brand-carousel" contentClassName="depth-rail-track is-chips">
                 {variantTrimOptions.map((variant) => (
-                  <button key={variant.name} className={`guazi-trim-card${selectedVariants.includes(variant.name) ? " is-selected" : ""}`} type="button" aria-pressed={selectedVariants.includes(variant.name)} disabled={variant.count === 0} onClick={() => chooseVariant(variant.name)}>
-                    <span className="guazi-trim-check" aria-hidden="true">✓</span>
-                    <strong>{variant.name}</strong>
-                    {showGuaziInventoryCounts ? <span>{variant.count.toLocaleString("ko-KR")}대</span> : null}
-                  </button>
+                  <TrimChip key={variant.name} label={variant.name} selected={selectedVariants.includes(variant.name)} disabled={variant.count === 0} onClick={() => chooseVariant(variant.name)} />
                 ))}
               </Carousel>
-              <div className="guazi-trim-action">
-                <button type="button" onClick={applyTrimFilters}>{trimActionLabel}</button>
-              </div>
-            </div> : <Carousel ariaLabel={`${selectedGeneration} 트림`} className="brand-carousel" contentClassName="benz-model-track">
+              <button className="depth-rail-action" type="button" onClick={applyTrimFilters}>{trimActionLabel}</button>
+            </div>
+          </section> : showVariantQuickRail ? <section className="brand-row is-benz-model-mode" aria-label={`${selectedGeneration} 트림 빠른 선택`}>
+            <span className="brand-title">트림</span>
+            <Carousel ariaLabel={`${selectedGeneration} 트림`} className="brand-carousel" contentClassName="benz-model-track">
               {variantTrimOptions.map((variant) => (
                 <button key={variant.name} className={`benz-model-chip${selectedVariants.includes(variant.name) ? " is-selected" : ""}`} type="button" aria-pressed={selectedVariants.includes(variant.name)} disabled={variant.count === 0} onClick={() => chooseVariant(variant.name)}>{variant.name}</button>
               ))}
-            </Carousel>}
-          </section> : showVehicleHeaderRail && isGuaziQuickStyle ? <section className="brand-row is-guazi-card-mode is-guazi-vehicle-header-mode" aria-label="선택 차종 요약">
-            <span className="brand-title">차종</span>
-            <div className="guazi-vehicle-header">
+            </Carousel>
+          </section> : showVehicleHeaderRail && isGuaziQuickStyle ? <section className="depth-rail is-vehicle-header" aria-label="선택 차종 요약">
+            <span className="depth-rail-label">차종</span>
+            <div className="depth-vehicle-header">
               {selectedGenerationVisual ? <img src={selectedGenerationVisual} alt="" aria-hidden="true" draggable={false} /> : null}
               <div>
                 <strong>{maker} {selectedModel ? formatModelLabel(selectedModel) : ""} {selectedGenerationOption ? generationDisplayLabel(selectedGenerationOption) : ""}</strong>
                 <span>{selectedGenerationSummary}</span>
               </div>
             </div>
-          </section> : <section className={`brand-row category-brand-row${showGuaziMakerRail ? " is-guazi-card-mode is-guazi-maker-mode" : ""}`} aria-label={`${categoryBrandRail.title} 빠른 선택`}>
-            <span className="brand-title">{categoryBrandRail.title}</span>
-            <Carousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName={showGuaziMakerRail ? "guazi-maker-track" : "brand-track"}>
+          </section> : showGuaziMakerRail ? <section className="depth-rail" aria-label={`${categoryBrandRail.title} 빠른 선택`}>
+            <span className="depth-rail-label">{categoryBrandRail.title}</span>
+            <Carousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName="depth-rail-track">
+              <DepthCard label="전체" onClick={() => { applyMakerFilter(null); setCategoryLandingOpen(false); }} />
               {categoryBrandRail.options.map((option) => (
-                <button key={option.name} className={`${showGuaziMakerRail ? "guazi-maker-card" : "brand-item"}${option.maker && maker === option.maker ? " is-selected" : ""}`} type="button" aria-pressed={Boolean(option.maker && maker === option.maker)} onClick={() => option.maker ? applyMakerFilter(option.maker) : undefined}>
+                <DepthCard
+                  key={option.name}
+                  label={option.name}
+                  image={<BrandRailMark option={option} />}
+                  selected={Boolean(option.maker && maker === option.maker)}
+                  onClick={() => option.maker ? applyMakerFilter(option.maker) : undefined}
+                />
+              ))}
+            </Carousel>
+          </section> : <section className="brand-row category-brand-row" aria-label={`${categoryBrandRail.title} 빠른 선택`}>
+            <span className="brand-title">{categoryBrandRail.title}</span>
+            <Carousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName="brand-track">
+              {categoryBrandRail.options.map((option) => (
+                <button key={option.name} className={`brand-item${option.maker && maker === option.maker ? " is-selected" : ""}`} type="button" aria-pressed={Boolean(option.maker && maker === option.maker)} onClick={() => option.maker ? applyMakerFilter(option.maker) : undefined}>
                   <BrandRailMark option={option} />
                   <span>{option.name}</span>
                 </button>
