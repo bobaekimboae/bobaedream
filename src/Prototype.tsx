@@ -1235,6 +1235,25 @@ function MarketplaceScreen() {
     setTrimApplied(false);
   };
 
+  const returnToModelDepth = () => {
+    setFilters((current) => ({ ...current, model: null }));
+    setDraftFilters((current) => ({ ...current, model: null }));
+    setSelectedGeneration(null);
+    setSelectedVariants([]);
+    setTrimApplied(false);
+    replaceFilterParams(maker, null);
+  };
+
+  const returnToGenerationDepth = () => {
+    setSelectedGeneration(null);
+    setSelectedVariants([]);
+    setTrimApplied(false);
+  };
+
+  const returnToTrimDepth = () => {
+    setTrimApplied(false);
+  };
+
   const applyMakerFilter = (nextMaker: string | null) => {
     setFilters((current) => ({ ...current, maker: nextMaker, model: null }));
     setDraftFilters((current) => ({ ...current, maker: nextMaker, model: null }));
@@ -1376,7 +1395,7 @@ function MarketplaceScreen() {
       key: "model",
       label: formatModelLabel(selectedModel),
       active: true,
-      onClick: () => openQuickFilter("model"),
+      onClick: usesUxDepth ? returnToModelDepth : () => openQuickFilter("model"),
       onClear: clearModelFilter,
     } : maker ? {
       key: "model",
@@ -1388,14 +1407,14 @@ function MarketplaceScreen() {
       key: "generation",
       label: selectedGenerationOption ? `${formatModelLabel(selectedModel)} ${generationDisplayLabel(selectedGenerationOption)}` : "세대",
       active: Boolean(selectedGeneration),
-      onClick: () => setSearchToast(selectedGeneration ? "세대 조건이 적용됐습니다." : "아래 세대 칩에서 선택하세요."),
+      onClick: selectedGeneration ? returnToGenerationDepth : () => setSearchToast("아래 세대 칩에서 선택하세요."),
       onClear: selectedGeneration ? clearGenerationFilter : undefined,
     } : null,
     usesUxDepth && selectedGeneration ? {
       key: "variant",
       label: selectedVariants.length ? `트림 ${selectedVariants.length}` : "트림",
       active: trimApplied && selectedVariants.length > 0,
-      onClick: () => setSearchToast(trimApplied ? "트림 조건이 적용됐습니다." : "아래 트림 칩에서 선택하세요."),
+      onClick: selectedVariants.length ? returnToTrimDepth : () => setSearchToast("아래 트림 칩에서 선택하세요."),
       onClear: selectedVariants.length ? clearVariantFilter : undefined,
     } : null,
     showAfterUxDepth ? {
