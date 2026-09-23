@@ -740,9 +740,10 @@ button { color: inherit; }
 
 html[data-force-mobile] body { background: #f3f4f6; }
 html[data-force-mobile] #root .mobile-web-stage {
-  max-width: 430px !important;
-  margin: 0 auto;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, .05);
+  width: 100vw;
+  max-width: none !important;
+  margin: 0;
+  box-shadow: none;
 }
 html[data-force-mobile] .marketplace { padding-inline: 0; }
 html[data-force-mobile] .top-bar,
