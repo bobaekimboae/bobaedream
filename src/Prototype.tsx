@@ -478,6 +478,17 @@ const districtsByProvince: Record<string, string[]> = {
 };
 const radiusOptions = ["5km", "10km", "20km", "50km"];
 const emptyRegion: RegionSelection = { province: "", district: "", radius: "" };
+const getInitialChoTotFilters = (): ChoTotFilterState => {
+  const params = new URLSearchParams(window.location.search);
+  const categoryParam = params.get("category") ?? "";
+  const makerParam = params.get("maker") ?? "";
+  const modelParam = params.get("model") ?? "";
+  const category = vehicleCategoryOptions.includes(categoryParam) ? categoryParam : "전체";
+  const maker = quickModelsByMaker[makerParam] ? makerParam : null;
+  const model = maker && quickModelsByMaker[maker]?.includes(modelParam) ? modelParam : null;
+
+  return { ...emptyChoTotFilters, category, maker, model };
+};
 const listingBadgeOptions: ListingBadge[] = ["브랜드인증", "제조사보증", "1인소유", "가격인하", "인증중고차"];
 
 const defaultCars: Car[] = [
@@ -1000,9 +1011,10 @@ function MarketplaceScreen() {
   const flow = useFlow();
   const keyboard = useKeyboard();
   const { likedIds, toggleLiked } = useFavorites();
+  const initialFilters = getInitialChoTotFilters();
   const [query, setQuery] = useState("");
-  const [filters, setFilters] = useState<ChoTotFilterState>(emptyChoTotFilters);
-  const [draftFilters, setDraftFilters] = useState<ChoTotFilterState>(emptyChoTotFilters);
+  const [filters, setFilters] = useState<ChoTotFilterState>(() => initialFilters);
+  const [draftFilters, setDraftFilters] = useState<ChoTotFilterState>(() => initialFilters);
   const [filterFocus, setFilterFocus] = useState<ChoTotFilterFocus | null>(null);
   const [quickFilterFocus, setQuickFilterFocus] = useState<ChoTotFilterFocus | null>(null);
   const [sheet, setSheet] = useState<SheetType>(null);
@@ -1012,7 +1024,7 @@ function MarketplaceScreen() {
   const [draftRegion, setDraftRegion] = useState<RegionSelection>(emptyRegion);
   const [searchSaved, setSearchSaved] = useState(false);
   const [searchToast, setSearchToast] = useState("");
-  const [categoryLandingOpen, setCategoryLandingOpen] = useState(true);
+  const [categoryLandingOpen, setCategoryLandingOpen] = useState(() => !initialFilters.maker && initialFilters.category === "전체");
   const [quickFilterStyle, setQuickFilterStyle] = useState<QuickFilterStyle>(() => getInitialQuickFilterStyle());
   const [selectedGeneration, setSelectedGeneration] = useState<string | null>(null);
   const [selectedVariant, setSelectedVariant] = useState<string | null>(null);
@@ -1069,6 +1081,17 @@ function MarketplaceScreen() {
   const visibleCars = useMemo(() => [...filteredWithoutPrice].sort((first, second) => sort === "낮은 가격순" ? parsePrice(first.price) - parsePrice(second.price) : sort === "높은 가격순" ? parsePrice(second.price) - parsePrice(first.price) : second.id - first.id), [filteredWithoutPrice, sort]);
   const draftFilterCount = useMemo(() => chototTestCars.filter((car) => matchesChoTotFilters(car, draftFilters)).length, [draftFilters]);
 
+  const replaceFilterParams = (nextMaker: string | null, nextModel: string | null, nextCategory = filters.category) => {
+    const url = new URL(window.location.href);
+    if (nextCategory === "전체") url.searchParams.delete("category");
+    else url.searchParams.set("category", nextCategory);
+    if (nextMaker) url.searchParams.set("maker", nextMaker);
+    else url.searchParams.delete("maker");
+    if (nextMaker && nextModel) url.searchParams.set("model", nextModel);
+    else url.searchParams.delete("model");
+    window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+  };
+
   const resetFilters = ({ closeActiveSheet = true }: { closeActiveSheet?: boolean } = {}) => {
     setFilters(emptyChoTotFilters);
     setDraftFilters(emptyChoTotFilters);
@@ -1081,6 +1104,7 @@ function MarketplaceScreen() {
     setQuickFilterFocus(null);
     setSelectedGeneration(null);
     setSelectedVariant(null);
+    replaceFilterParams(null, null);
     if (closeActiveSheet) setSheet(null);
   };
 
@@ -1090,6 +1114,7 @@ function MarketplaceScreen() {
     setSelectedGeneration(null);
     setSelectedVariant(null);
     setCategoryLandingOpen(true);
+    replaceFilterParams(null, null, "전체");
   };
 
   const clearMakerFilter = () => {
@@ -1098,6 +1123,7 @@ function MarketplaceScreen() {
     setSelectedGeneration(null);
     setSelectedVariant(null);
     setCategoryLandingOpen(category === "전체");
+    replaceFilterParams(null, null);
   };
 
   const clearModelFilter = () => {
@@ -1105,6 +1131,7 @@ function MarketplaceScreen() {
     setDraftFilters((current) => ({ ...current, model: null }));
     setSelectedGeneration(null);
     setSelectedVariant(null);
+    replaceFilterParams(maker, null);
   };
 
   const clearGenerationFilter = () => {
@@ -1121,6 +1148,7 @@ function MarketplaceScreen() {
     setDraftFilters((current) => ({ ...current, maker: nextMaker, model: null }));
     setSelectedGeneration(null);
     setSelectedVariant(null);
+    replaceFilterParams(nextMaker, null);
   };
 
   const openRegionSheet = () => {
@@ -1161,6 +1189,7 @@ function MarketplaceScreen() {
     setDraftFilters((current) => ({ ...current, model: nextModel }));
     setSelectedGeneration(null);
     setSelectedVariant(null);
+    replaceFilterParams(maker, nextModel);
   };
 
   const chooseGeneration = (generationName: string) => {
@@ -1195,6 +1224,7 @@ function MarketplaceScreen() {
       setSelectedGeneration(null);
       setSelectedVariant(null);
       setCategoryLandingOpen(categoryName === "전체");
+      replaceFilterParams(null, null, categoryName);
       return;
     }
     setSearchToast(`${categoryName.replace("\n", " ")} 카테고리는 준비 중입니다.`);
@@ -1208,6 +1238,7 @@ function MarketplaceScreen() {
       setSelectedGeneration(null);
       setSelectedVariant(null);
       setCategoryLandingOpen(categoryName === "전체");
+      replaceFilterParams(null, null, categoryName);
       closeSheet();
       return;
     }
@@ -1263,9 +1294,9 @@ function MarketplaceScreen() {
     } : null,
     usesUxDepth && selectedGeneration ? {
       key: "variant",
-      label: selectedVariant ?? "세부모델",
+      label: selectedVariant ?? "세부",
       active: Boolean(selectedVariant),
-      onClick: () => setSearchToast(selectedVariant ? "세부모델 조건이 적용됐습니다." : "아래 세부모델 칩에서 선택하세요."),
+      onClick: () => setSearchToast(selectedVariant ? "세부 조건이 적용됐습니다." : "아래 세부 칩에서 선택하세요."),
       onClear: selectedVariant ? clearVariantFilter : undefined,
     } : null,
     showAfterUxDepth ? {
