@@ -331,6 +331,13 @@ const bmwModels = [
   { name: "1시리즈", image: asset("cars/bmw/1-series.webp") },
 ];
 
+const benzAClassImages = {
+  W177: asset("cars/mercedes/a-class/w177.png"),
+  W176: asset("cars/mercedes/a-class/w176.png"),
+  W169: asset("cars/mercedes/a-class/w169.png"),
+  W168: asset("cars/mercedes/a-class/w168.png"),
+};
+
 const benzEncarClassOrder = [
   "A-클래스", "B-클래스", "C-클래스", "CL-클래스", "CLA-클래스", "CLE-클래스", "CLK-클래스", "CLS-클래스",
   "E-클래스", "EQA", "EQB", "EQC", "EQE", "EQS", "G-클래스", "GL-클래스", "GLA-클래스", "GLB-클래스",
@@ -338,7 +345,10 @@ const benzEncarClassOrder = [
   "SL-클래스", "SLC-클래스", "SLK-클래스", "SLR", "SLS AMG", "AMG GT", "SEL/SEC", "V-클래스",
   "스프린터", "190-클래스", "기타",
 ];
-type QuickGenerationOption = { name: string; years: string; variants: string[] };
+type QuickGenerationOption = { name: string; years: string; variants: string[]; image?: string };
+const quickModelImagesByMaker: Record<string, Record<string, string>> = {
+  벤츠: { "A-클래스": benzAClassImages.W177 },
+};
 const quickModelsByMaker: Record<string, string[]> = {
   BMW: bmwModels.map((model) => model.name),
   벤츠: benzEncarClassOrder,
@@ -400,10 +410,10 @@ const quickGenerationsByMakerModel: Record<string, Record<string, QuickGeneratio
       { name: "1세대 W166", years: "2015~2019", variants: ["GLE 350d", "GLE 400", "AMG"] },
     ],
     "A-클래스": [
-      { name: "A-클래스 W177", years: "2019~현재", variants: ["A180", "A200d", "A220", "A250 4MATIC", "AMG A35 4MATIC", "AMG A45 S 4MATIC+"] },
-      { name: "A-클래스 W176", years: "2013~2018", variants: ["A180 CDI", "A200 CDI", "A200", "A220", "A45 AMG 4MATIC"] },
-      { name: "A-클래스 W169", years: "2005~2012", variants: ["A170", "A180 CDI", "A200", "A200 Turbo"] },
-      { name: "A-클래스 W168", years: "1997~2004", variants: ["A140", "A160", "A190"] },
+      { name: "A-클래스 W177", years: "2019~현재", image: benzAClassImages.W177, variants: ["A180", "A200d", "A220", "A250 4MATIC", "AMG A35 4MATIC", "AMG A45 S 4MATIC+"] },
+      { name: "A-클래스 W176", years: "2013~2018", image: benzAClassImages.W176, variants: ["A180 CDI", "A200 CDI", "A200", "A220", "A45 AMG 4MATIC"] },
+      { name: "A-클래스 W169", years: "2005~2012", image: benzAClassImages.W169, variants: ["A170", "A180 CDI", "A200", "A200 Turbo"] },
+      { name: "A-클래스 W168", years: "1997~2004", image: benzAClassImages.W168, variants: ["A140", "A160", "A190"] },
     ],
     "CLA-클래스": [
       { name: "2세대 C118", years: "2019~현재", variants: ["CLA 220", "CLA 250 4MATIC", "AMG CLA 45 S"] },
@@ -1159,6 +1169,7 @@ function MarketplaceScreen() {
   const generationQuickOptions = maker && selectedModel ? quickGenerationsByMakerModel[maker]?.[selectedModel] ?? [] : [];
   const selectedGenerationOption = generationQuickOptions.find((generation) => generation.name === selectedGeneration);
   const variantQuickOptions = selectedGenerationOption?.variants ?? [];
+  const isGuaziQuickStyle = quickFilterStyle === "guazi";
   const showAfterUxDepth = Boolean(selectedModel && (!usesUxDepth || !generationQuickOptions.length || selectedVariant));
 
   const quickFilterChips = [
@@ -1261,28 +1272,53 @@ function MarketplaceScreen() {
                 </button>
               ))}
             </Carousel>
-          </section> : showModelQuickRail ? <section className="brand-row is-benz-model-mode" aria-label={`${maker} 모델 빠른 선택`}>
+          </section> : showModelQuickRail ? <section className={`brand-row is-benz-model-mode${isGuaziQuickStyle ? " is-guazi-card-mode" : ""}`} aria-label={`${maker} 모델 빠른 선택`}>
             <span className="brand-title">모델</span>
-            <Carousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName="benz-model-track">
-              {modelQuickOptions.map((model) => (
-                <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} onClick={() => chooseModel(model)}>{model}</button>
-              ))}
+            <Carousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName={isGuaziQuickStyle ? "guazi-model-track" : "benz-model-track"}>
+              {modelQuickOptions.map((model) => {
+                const modelImage = maker ? quickModelImagesByMaker[maker]?.[model] : undefined;
+                return isGuaziQuickStyle && modelImage ? (
+                  <button key={model} className={`guazi-model-card${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} onClick={() => chooseModel(model)}>
+                    <img src={modelImage} alt="" aria-hidden="true" draggable={false} />
+                    <strong>{model}</strong>
+                    <span>588대</span>
+                  </button>
+                ) : (
+                  <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} onClick={() => chooseModel(model)}>{model}</button>
+                );
+              })}
             </Carousel>
-          </section> : showGenerationQuickRail ? <section className="brand-row is-generation-mode" aria-label={`${selectedModel} 세대 빠른 선택`}>
+          </section> : showGenerationQuickRail ? <section className={`brand-row is-generation-mode${isGuaziQuickStyle ? " is-guazi-card-mode" : ""}`} aria-label={`${selectedModel} 세대 빠른 선택`}>
             <span className="brand-title">세대</span>
-            <Carousel ariaLabel={`${selectedModel} 세대`} className="brand-carousel" contentClassName="generation-track">
+            <Carousel ariaLabel={`${selectedModel} 세대`} className="brand-carousel" contentClassName={isGuaziQuickStyle ? "guazi-model-track" : "generation-track"}>
               {generationQuickOptions.map((generation) => (
-                <button key={generation.name} className={`benz-model-chip generation-chip${selectedGeneration === generation.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedGeneration === generation.name} onClick={() => chooseGeneration(generation.name)}>
-                  <strong>{generation.name}</strong>
-                  <span>{generation.years}</span>
-                </button>
+                isGuaziQuickStyle && generation.image ? (
+                  <button key={generation.name} className={`guazi-model-card${selectedGeneration === generation.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedGeneration === generation.name} onClick={() => chooseGeneration(generation.name)}>
+                    <img src={generation.image} alt="" aria-hidden="true" draggable={false} />
+                    <strong>{generation.name.replace("A-클래스 ", "")}</strong>
+                    <span>{generation.years}</span>
+                  </button>
+                ) : (
+                  <button key={generation.name} className={`benz-model-chip generation-chip${selectedGeneration === generation.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedGeneration === generation.name} onClick={() => chooseGeneration(generation.name)}>
+                    <strong>{generation.name}</strong>
+                    <span>{generation.years}</span>
+                  </button>
+                )
               ))}
             </Carousel>
-          </section> : showVariantQuickRail ? <section className="brand-row is-benz-model-mode" aria-label={`${selectedGeneration} 세부모델 빠른 선택`}>
+          </section> : showVariantQuickRail ? <section className={`brand-row is-benz-model-mode${isGuaziQuickStyle && selectedGenerationOption?.image ? " is-guazi-card-mode" : ""}`} aria-label={`${selectedGeneration} 세부모델 빠른 선택`}>
             <span className="brand-title">세부</span>
-            <Carousel ariaLabel={`${selectedGeneration} 세부모델`} className="brand-carousel" contentClassName="benz-model-track">
+            <Carousel ariaLabel={`${selectedGeneration} 세부모델`} className="brand-carousel" contentClassName={isGuaziQuickStyle && selectedGenerationOption?.image ? "guazi-model-track" : "benz-model-track"}>
               {variantQuickOptions.map((variant) => (
-                <button key={variant} className={`benz-model-chip${selectedVariant === variant ? " is-selected" : ""}`} type="button" aria-pressed={selectedVariant === variant} onClick={() => chooseVariant(variant)}>{variant}</button>
+                isGuaziQuickStyle && selectedGenerationOption?.image ? (
+                  <button key={variant} className={`guazi-model-card is-variant-card${selectedVariant === variant ? " is-selected" : ""}`} type="button" aria-pressed={selectedVariant === variant} onClick={() => chooseVariant(variant)}>
+                    <img src={selectedGenerationOption.image} alt="" aria-hidden="true" draggable={false} />
+                    <strong>{variant}</strong>
+                    <span>세부모델</span>
+                  </button>
+                ) : (
+                  <button key={variant} className={`benz-model-chip${selectedVariant === variant ? " is-selected" : ""}`} type="button" aria-pressed={selectedVariant === variant} onClick={() => chooseVariant(variant)}>{variant}</button>
+                )
               ))}
             </Carousel>
           </section> : showColorQuickRail ? <section className="brand-row is-benz-model-mode" aria-label="색상 빠른 선택">
