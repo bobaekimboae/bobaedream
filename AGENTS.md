@@ -108,5 +108,6 @@ When any text-entry control loses focus, clear the keyboard context. If the cont
 - Render Porsche with `public/assets/brand/porsche-symbol.png`, the high-resolution transparent export of the exact user-provided crest, in both manufacturer rails and the manufacturer sheet; never substitute a generic icon or use different artwork.
 - Match the detail `차량 정보` card to Figma node `1797:13393`, but omit the `지역` row per the latest product decision: show the remaining seven core fields as full-width 44px table rows with labels on the left and semibold values aligned in a single right column. Keep extended details collapsed behind the centered `더보기` control and rotate the exact exported chevron when the card expands.
 - Keep the default GitHub Pages URL in the mobile marketplace view. Expose the PC marketplace/detail preview through an explicit `?desktop=1` or `?pc=1` query parameter so mobile sharing links do not accidentally render the desktop layout.
+- In the `과쯔` quick-filter depth flow, selected depth chips are navigation controls as well as active filters: tapping the selected model chip returns to the model rail, tapping the selected generation chip returns to the generation rail, and tapping the selected trim chip returns to the trim rail without changing protected runtime files.
 
-
+
