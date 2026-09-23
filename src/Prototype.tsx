@@ -1478,8 +1478,7 @@ function MarketplaceScreen() {
                   <button key={generation.name} className={`guazi-model-card is-generation-card${selectedGeneration === generation.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedGeneration === generation.name} onClick={() => chooseGeneration(generation.name)}>
                     <img src={generationImage} alt="" aria-hidden="true" draggable={false} />
                     <strong>{generationDisplayLabel(generation)}</strong>
-                    <span>{compactYearLabel(generation.years)}</span>
-                    <em>{generationCountLabel(generation)}</em>
+                    <span>{compactYearLabel(generation.years)} · {generationCountLabel(generation)}</span>
                   </button>
                 ) : (
                   <button key={generation.name} className={`benz-model-chip generation-chip${selectedGeneration === generation.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedGeneration === generation.name} onClick={() => chooseGeneration(generation.name)}>
