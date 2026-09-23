@@ -9,7 +9,7 @@ button { color: inherit; }
 .ui-icon { display: block; width: 20px; height: 20px; flex: 0 0 auto; object-fit: contain; pointer-events: none; }
 
 .top-bar { display: grid; grid-template-columns: 24px minmax(0, 1fr) 24px 24px; align-items: center; gap: 14px; height: 56px; padding: 6px 16px 8px 12px; box-sizing: border-box; background: #fff; }
-.icon-button, .search-save, .region-bar button, .filter-fixed, .filter-chip, .category-item, .brand-item, .bmw-model-card, .benz-model-chip, .guazi-model-card, .guazi-trim-card, .seller-tabs button, .sort-button, .density-button, .like-button, .sheet-options button, .empty-state button { border: 0; background: none; padding: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.icon-button, .search-save, .region-bar button, .filter-fixed, .filter-chip, .category-item, .brand-item, .bmw-model-card, .benz-model-chip, .depth-card, .trim-chip, .guazi-model-card, .guazi-trim-card, .seller-tabs button, .sort-button, .density-button, .like-button, .sheet-options button, .empty-state button { border: 0; background: none; padding: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .icon-button { display: grid; place-items: center; width: 24px; height: 24px; }
 .icon-button .ui-icon { width: 24px; height: 24px; }
 .back-button .ui-icon { transform: rotate(180deg) scaleY(-1); }
@@ -103,6 +103,37 @@ button { color: inherit; }
 .generation-chip strong { color: inherit; font-size: 14px; font-weight: 700; line-height: 18px; }
 .generation-chip span { color: #8a8d93; font-size: 11px; font-weight: 500; line-height: 15px; }
 .generation-chip.is-selected span { color: inherit; opacity: .78; }
+.depth-rail { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; height: 96px; border-bottom: 1px solid #f3f3f3; background: #fff; box-sizing: border-box; }
+.depth-rail-label { display: flex; align-self: stretch; align-items: center; padding: 0 8px 0 16px; color: #656d7a; font-size: 13px; font-weight: 500; white-space: nowrap; }
+.depth-rail.no-label { grid-template-columns: minmax(0, 1fr); }
+.depth-rail-track { display: flex; align-items: center; gap: 8px; min-width: max-content; padding: 12px 16px 12px 0; scrollbar-width: none; }
+.depth-rail.no-label .depth-rail-track { padding-left: 16px; }
+.depth-card { position: relative; display: flex; width: 80px; height: 72px; flex: 0 0 80px; flex-direction: column; align-items: center; box-sizing: border-box; padding: 9px 4px 0; border: 1.5px solid transparent; border-radius: 8px; background: #f7f8fc; color: #16181d; font: inherit; text-align: center; transition: background 140ms ease, border-color 140ms ease, color 140ms ease, opacity 140ms ease; }
+.depth-card.is-selected { border-color: var(--blue); background: color-mix(in srgb, var(--blue) 8%, #fff); color: var(--blue); }
+.depth-card:disabled { opacity: .4; cursor: default; }
+.depth-card-media { display: grid; width: 48px; height: 24px; place-items: end center; }
+.depth-card-media img { max-width: 48px; max-height: 24px; object-fit: contain; mix-blend-mode: multiply; }
+.depth-card-media .brand-logo { display: grid; width: 48px; height: 24px; place-items: center; }
+.depth-card-media .brand-logo img { max-width: 28px; max-height: 28px; object-fit: contain; mix-blend-mode: normal; }
+.depth-card-media .brand-logo svg { width: 28px; height: 28px; }
+.depth-card-media .brand-logo-fallback { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 50%; background: #edf0f4; color: #656d7a; font-size: 10px; font-weight: 700; }
+.depth-card-label { max-width: 100%; margin-top: 8px; overflow: hidden; color: inherit; font-size: 12px; font-weight: 500; line-height: 15px; text-overflow: ellipsis; white-space: nowrap; }
+.depth-card-sub { max-width: 100%; margin-top: 1px; overflow: hidden; color: #8a919c; font-size: 11px; font-weight: 500; line-height: 13px; text-overflow: ellipsis; white-space: nowrap; }
+.depth-card.is-selected .depth-card-sub { color: #656d7a; }
+.depth-trim-shell { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 8px; align-items: center; min-width: 0; height: 96px; }
+.depth-rail-track.is-chips { align-items: center; padding: 32px 0; }
+.depth-rail-action { height: 32px; margin-right: 16px; padding: 0 14px; border: 0; border-radius: 8px; background: #16181d; color: #fff; font: inherit; font-size: 13px; font-weight: 700; white-space: nowrap; cursor: pointer; }
+.trim-chip { display: inline-flex; height: 32px; flex: 0 0 auto; align-items: center; box-sizing: border-box; gap: 6px; padding: 0 12px; border: 1.5px solid transparent; border-radius: 8px; background: #f7f8fc; color: #16181d; font: inherit; font-size: 13px; font-weight: 500; white-space: nowrap; transition: background 140ms ease, border-color 140ms ease, color 140ms ease, opacity 140ms ease; }
+.trim-chip-check { display: grid; width: 16px; height: 16px; place-items: center; box-sizing: border-box; border: 1.5px solid #b8c0cc; border-radius: 4px; background: #fff; color: #fff; font-size: 11px; font-weight: 700; line-height: 1; }
+.trim-chip.is-selected { border-color: var(--blue); background: color-mix(in srgb, var(--blue) 8%, #fff); color: var(--blue); font-weight: 700; }
+.trim-chip.is-selected .trim-chip-check { border-color: var(--blue); background: var(--blue); }
+.trim-chip:disabled { opacity: .4; cursor: default; }
+.depth-rail.is-vehicle-header { grid-template-columns: 55px minmax(0, 1fr); }
+.depth-vehicle-header { display: flex; align-items: center; gap: 10px; min-width: 0; height: 96px; padding: 12px 16px 12px 0; box-sizing: border-box; }
+.depth-vehicle-header img { width: 56px; height: 28px; flex: 0 0 56px; object-fit: contain; mix-blend-mode: multiply; }
+.depth-vehicle-header div { display: grid; gap: 2px; min-width: 0; }
+.depth-vehicle-header strong { overflow: hidden; color: #16181d; font-size: 15px; font-weight: 700; line-height: 19px; text-overflow: ellipsis; white-space: nowrap; }
+.depth-vehicle-header span { overflow: hidden; color: #656d7a; font-size: 12px; font-weight: 500; line-height: 15px; text-overflow: ellipsis; white-space: nowrap; }
 .brand-row.is-guazi-card-mode { grid-template-columns: 55px minmax(0, 1fr); align-items: center; height: 96px; border-bottom: 1px solid #f3f3f3; }
 .brand-row.is-guazi-card-mode .brand-title { display: flex; align-self: stretch; align-items: center; padding-left: 16px; color: #656d7a; font-size: 13px; font-weight: 500; }
 .brand-row.is-guazi-card-mode .brand-carousel { height: 96px; }
