@@ -58,7 +58,7 @@ final class CategoryNode extends Model
             }
 
             $node->depth = $nextDepth;
-            $node->is_leaf = ! $node->exists || ! self::query()->where('parent_id', $node->id)->exists();
+            $node->is_leaf = !$node->exists || !self::query()->where('parent_id', $node->id)->exists();
         });
 
         static::saved(function (self $node): void {
@@ -98,7 +98,7 @@ final class CategoryNode extends Model
             return;
         }
         self::query()->whereKey($nodeId)->update([
-            'is_leaf' => ! self::query()->where('parent_id', $nodeId)->exists(),
+            'is_leaf' => !self::query()->where('parent_id', $nodeId)->exists(),
         ]);
     }
 
