@@ -328,19 +328,22 @@ const categoryBrandRails: Record<string, CategoryBrandRail> = {
   "부품 · 용품": { title: "분류", options: [{ name: "타이어" }, { name: "휠" }, { name: "튜닝" }, { name: "오디오" }] },
 };
 
+const mercedesModelCard = (name: string) => asset(`cars/mercedes/models/card/${name}.png`);
+const bmwModelCard = (name: string) => asset(`cars/bmw/card/${name}.png`);
+
 const bmwModels = [
-  { name: "3시리즈", image: asset("cars/bmw/3-series.webp") },
-  { name: "X1", image: asset("cars/bmw/x1.webp") },
-  { name: "5시리즈", image: asset("cars/bmw/5-series.webp") },
-  { name: "X3", image: asset("cars/bmw/x3.webp") },
-  { name: "1시리즈", image: asset("cars/bmw/1-series.webp") },
+  { name: "3시리즈", image: bmwModelCard("3-series") },
+  { name: "X1", image: bmwModelCard("x1") },
+  { name: "5시리즈", image: bmwModelCard("5-series") },
+  { name: "X3", image: bmwModelCard("x3") },
+  { name: "1시리즈", image: bmwModelCard("1-series") },
 ];
 
 const benzAClassImages = {
-  W177: asset("cars/mercedes/a-class/w177.png"),
-  W176: asset("cars/mercedes/a-class/w176.png"),
-  W169: asset("cars/mercedes/a-class/w169.png"),
-  W168: asset("cars/mercedes/a-class/w168.png"),
+  W177: asset("cars/mercedes/a-class/card/w177.png"),
+  W176: asset("cars/mercedes/a-class/card/w176.png"),
+  W169: asset("cars/mercedes/a-class/card/w169.png"),
+  W168: asset("cars/mercedes/a-class/card/w168.png"),
 };
 
 const benzEncarClassOrder = [
@@ -356,42 +359,42 @@ type QuickModelVisual = { image: string; count?: string };
 const quickModelVisualsByMaker: Record<string, Record<string, QuickModelVisual>> = {
   BMW: Object.fromEntries(bmwModels.map((model) => [model.name, { image: model.image }])) as Record<string, QuickModelVisual>,
   벤츠: {
-    "A-클래스": { image: asset("cars/mercedes/models/a-class.png"), count: "588대" },
-    "B-클래스": { image: asset("cars/mercedes/models/b-class.png"), count: "67대" },
-    "C-클래스": { image: asset("cars/mercedes/models/c-class.png"), count: "1,285대" },
-    "CL-클래스": { image: asset("cars/mercedes/models/cl-class.png"), count: "15대" },
-    "CLA-클래스": { image: asset("cars/mercedes/models/cla-class.png"), count: "468대" },
-    "CLE-클래스": { image: asset("cars/mercedes/models/cle-class.png"), count: "307대" },
-    "CLK-클래스": { image: asset("cars/mercedes/models/clk-class.png"), count: "3대" },
-    "CLS-클래스": { image: asset("cars/mercedes/models/cls-class.png"), count: "786대" },
-    "E-클래스": { image: asset("cars/mercedes/models/e-class.png"), count: "4,538대" },
-    EQA: { image: asset("cars/mercedes/models/eqa.png"), count: "106대" },
-    EQB: { image: asset("cars/mercedes/models/eqb.png"), count: "113대" },
-    EQC: { image: asset("cars/mercedes/models/eqc.png"), count: "18대" },
-    EQE: { image: asset("cars/mercedes/models/eqe.png"), count: "132대" },
-    EQS: { image: asset("cars/mercedes/models/eqs.png"), count: "170대" },
-    "G-클래스": { image: asset("cars/mercedes/models/g-class.png"), count: "490대" },
-    "GL-클래스": { image: asset("cars/mercedes/models/gl-class.png"), count: "7대" },
-    "GLA-클래스": { image: asset("cars/mercedes/models/gla-class.png"), count: "341대" },
-    "GLB-클래스": { image: asset("cars/mercedes/models/glb-class.png"), count: "455대" },
-    "GLC-클래스": { image: asset("cars/mercedes/models/glc-class.png"), count: "1,473대" },
-    "GLE-클래스": { image: asset("cars/mercedes/models/gle-class.png"), count: "1,436대" },
-    "GLK-클래스": { image: asset("cars/mercedes/models/glk-class.png"), count: "46대" },
-    "GLS-클래스": { image: asset("cars/mercedes/models/gls-class.png"), count: "410대" },
-    "M-클래스": { image: asset("cars/mercedes/models/m-class.png"), count: "40대" },
-    "R-클래스": { image: asset("cars/mercedes/models/r-class.png"), count: "2대" },
-    "S-클래스": { image: asset("cars/mercedes/models/s-class.png"), count: "2,835대" },
-    "SL-클래스": { image: asset("cars/mercedes/models/sl-class.png"), count: "79대" },
-    "SLC-클래스": { image: asset("cars/mercedes/models/slc-class.png"), count: "27대" },
-    "SLK-클래스": { image: asset("cars/mercedes/models/slk-class.png"), count: "38대" },
-    SLR: { image: asset("cars/mercedes/models/slr.png"), count: "0대" },
-    "SLS AMG": { image: asset("cars/mercedes/models/sls-amg.png"), count: "2대" },
-    "AMG GT": { image: asset("cars/mercedes/models/amg-gt.png"), count: "403대" },
-    "SEL/SEC": { image: asset("cars/mercedes/models/sel-sec.png"), count: "7대" },
-    "V-클래스": { image: asset("cars/mercedes/models/v-class.png"), count: "21대" },
-    스프린터: { image: asset("cars/mercedes/models/sprinter.png"), count: "85대" },
-    "190-클래스": { image: asset("cars/mercedes/models/190-class.png"), count: "0대" },
-    기타: { image: asset("cars/mercedes/models/other.png") },
+    "A-클래스": { image: mercedesModelCard("a-class"), count: "588대" },
+    "B-클래스": { image: mercedesModelCard("b-class"), count: "67대" },
+    "C-클래스": { image: mercedesModelCard("c-class"), count: "1,285대" },
+    "CL-클래스": { image: mercedesModelCard("cl-class"), count: "15대" },
+    "CLA-클래스": { image: mercedesModelCard("cla-class"), count: "468대" },
+    "CLE-클래스": { image: mercedesModelCard("cle-class"), count: "307대" },
+    "CLK-클래스": { image: mercedesModelCard("clk-class"), count: "3대" },
+    "CLS-클래스": { image: mercedesModelCard("cls-class"), count: "786대" },
+    "E-클래스": { image: mercedesModelCard("e-class"), count: "4,538대" },
+    EQA: { image: mercedesModelCard("eqa"), count: "106대" },
+    EQB: { image: mercedesModelCard("eqb"), count: "113대" },
+    EQC: { image: mercedesModelCard("eqc"), count: "18대" },
+    EQE: { image: mercedesModelCard("eqe"), count: "132대" },
+    EQS: { image: mercedesModelCard("eqs"), count: "170대" },
+    "G-클래스": { image: mercedesModelCard("g-class"), count: "490대" },
+    "GL-클래스": { image: mercedesModelCard("gl-class"), count: "7대" },
+    "GLA-클래스": { image: mercedesModelCard("gla-class"), count: "341대" },
+    "GLB-클래스": { image: mercedesModelCard("glb-class"), count: "455대" },
+    "GLC-클래스": { image: mercedesModelCard("glc-class"), count: "1,473대" },
+    "GLE-클래스": { image: mercedesModelCard("gle-class"), count: "1,436대" },
+    "GLK-클래스": { image: mercedesModelCard("glk-class"), count: "46대" },
+    "GLS-클래스": { image: mercedesModelCard("gls-class"), count: "410대" },
+    "M-클래스": { image: mercedesModelCard("m-class"), count: "40대" },
+    "R-클래스": { image: mercedesModelCard("r-class"), count: "2대" },
+    "S-클래스": { image: mercedesModelCard("s-class"), count: "2,835대" },
+    "SL-클래스": { image: mercedesModelCard("sl-class"), count: "79대" },
+    "SLC-클래스": { image: mercedesModelCard("slc-class"), count: "27대" },
+    "SLK-클래스": { image: mercedesModelCard("slk-class"), count: "38대" },
+    SLR: { image: mercedesModelCard("slr"), count: "0대" },
+    "SLS AMG": { image: mercedesModelCard("sls-amg"), count: "2대" },
+    "AMG GT": { image: mercedesModelCard("amg-gt"), count: "403대" },
+    "SEL/SEC": { image: mercedesModelCard("sel-sec"), count: "7대" },
+    "V-클래스": { image: mercedesModelCard("v-class"), count: "21대" },
+    스프린터: { image: mercedesModelCard("sprinter"), count: "85대" },
+    "190-클래스": { image: mercedesModelCard("190-class"), count: "0대" },
+    기타: { image: mercedesModelCard("other") },
   },
 };
 const showGuaziInventoryCounts = false;
@@ -876,16 +879,25 @@ function MakerMark({ option }: { option: MakerOption }) {
   return <svg className="maker-option-logo" viewBox="0 0 24 24" fill={option.color ?? `#${option.icon.hex}`} aria-hidden="true"><path d={option.icon.path} /></svg>;
 }
 
-function BrandRailMark({ option }: { option: BrandRailOption }) {
-  if (option.logo) return <span className="brand-logo"><img className={option.full ? "brand-full" : ""} src={option.logo} alt="" aria-hidden="true" draggable={false} /></span>;
-  if (option.icon) return <span className="brand-logo"><svg viewBox="0 0 24 24" fill={option.color ?? `#${option.icon.hex}`} aria-hidden="true"><path d={option.icon.path} /></svg></span>;
-  return <span className="brand-logo"><span className="brand-logo-fallback" aria-hidden="true">{option.name.slice(0, 2)}</span></span>;
+const depthBrandLogoOverrides: Record<string, string> = {
+  벤츠: asset("brand/depth/benz.png"),
+  포르쉐: asset("brand/depth/porsche-symbol.png"),
+};
+const wordmarkBrandNames = new Set(["아우디", "기아", "미니", "랜드로버", "렉서스"]);
+
+function BrandRailMark({ option, variant = "default" }: { option: BrandRailOption; variant?: "default" | "depth" }) {
+  const isDepth = variant === "depth";
+  const logoClass = `brand-logo${isDepth ? " is-depth" : ""}${isDepth && wordmarkBrandNames.has(option.name) ? " is-wordmark" : ""}`;
+  const logo = isDepth && option.logo ? depthBrandLogoOverrides[option.name] ?? option.logo : option.logo;
+  if (logo) return <span className={logoClass}><img className={option.full ? "brand-full" : ""} src={logo} alt="" aria-hidden="true" draggable={false} /></span>;
+  if (option.icon) return <span className={logoClass}><svg viewBox="0 0 24 24" fill={option.color ?? `#${option.icon.hex}`} aria-hidden="true"><path d={option.icon.path} /></svg></span>;
+  return <span className={logoClass}><span className="brand-logo-fallback" aria-hidden="true">{option.name.slice(0, 2)}</span></span>;
 }
 
-function DepthCard({ label, sub, image, selected, disabled, onClick }: { label: string; sub?: string; image?: ReactNode; selected?: boolean; disabled?: boolean; onClick: () => void }) {
+function DepthCard({ label, sub, image, selected, disabled, mediaKind, onClick }: { label: string; sub?: string; image?: ReactNode; selected?: boolean; disabled?: boolean; mediaKind?: "brand"; onClick: () => void }) {
   return (
     <button type="button" className={`depth-card${selected ? " is-selected" : ""}`} disabled={disabled} aria-pressed={Boolean(selected)} onClick={onClick}>
-      <span className="depth-card-media">{image}</span>
+      <span className={`depth-card-media${mediaKind === "brand" ? " is-brand" : ""}`}>{image}</span>
       <strong className="depth-card-label">{label}</strong>
       {sub ? <small className="depth-card-sub">{sub}</small> : null}
     </button>
@@ -1540,7 +1552,6 @@ function MarketplaceScreen() {
           </section> : showModelQuickRail && isGuaziQuickStyle ? <section className="depth-rail" aria-label={`${maker} 모델 빠른 선택`}>
             <span className="depth-rail-label">모델</span>
             <Carousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName="depth-rail-track">
-              <DepthCard label="전체" onClick={clearModelFilter} />
               {modelQuickOptions.map((model) => {
                 const modelVisual = guaziVisualsForMaker?.[model];
                 return (
@@ -1566,7 +1577,6 @@ function MarketplaceScreen() {
           </section> : showGenerationQuickRail && isGuaziQuickStyle ? <section className="depth-rail" aria-label={`${selectedModel} 세대 빠른 선택`}>
             <span className="depth-rail-label">세대</span>
             <Carousel ariaLabel={`${selectedModel} 세대`} className="brand-carousel" contentClassName="depth-rail-track">
-              <DepthCard label="전체" onClick={clearGenerationFilter} />
               {generationQuickOptions.map((generation) => {
                 const generationImage = generation.image ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.image : undefined);
                 return (
@@ -1621,12 +1631,12 @@ function MarketplaceScreen() {
           </section> : showGuaziMakerRail ? <section className="depth-rail" aria-label={`${categoryBrandRail.title} 빠른 선택`}>
             <span className="depth-rail-label">{categoryBrandRail.title}</span>
             <Carousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName="depth-rail-track">
-              <DepthCard label="전체" onClick={() => { applyMakerFilter(null); setCategoryLandingOpen(false); }} />
               {categoryBrandRail.options.map((option) => (
                 <DepthCard
                   key={option.name}
                   label={option.name}
-                  image={<BrandRailMark option={option} />}
+                  image={<BrandRailMark option={option} variant="depth" />}
+                  mediaKind="brand"
                   selected={Boolean(option.maker && maker === option.maker)}
                   onClick={() => option.maker ? applyMakerFilter(option.maker) : undefined}
                 />

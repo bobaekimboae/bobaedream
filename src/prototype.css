@@ -114,9 +114,15 @@ button { color: inherit; }
 .depth-card:disabled { opacity: .4; cursor: default; }
 .depth-card-media { display: grid; width: 48px; height: 24px; place-items: end center; }
 .depth-card-media img { max-width: 48px; max-height: 24px; object-fit: contain; mix-blend-mode: multiply; }
+.depth-card-media.is-brand { height: 28px; place-items: end center; }
 .depth-card-media .brand-logo { display: grid; width: 48px; height: 24px; place-items: center; }
 .depth-card-media .brand-logo img { max-width: 28px; max-height: 28px; object-fit: contain; mix-blend-mode: normal; }
 .depth-card-media .brand-logo svg { width: 28px; height: 28px; }
+.depth-card-media .brand-logo.is-depth { width: 48px; height: 28px; place-items: end center; }
+.depth-card-media .brand-logo.is-depth img { max-width: 28px; max-height: 28px; }
+.depth-card-media .brand-logo.is-depth svg { width: 28px; height: 28px; }
+.depth-card-media .brand-logo.is-depth.is-wordmark img,
+.depth-card-media .brand-logo.is-depth.is-wordmark svg { width: 44px; max-width: 44px; height: auto; max-height: 28px; }
 .depth-card-media .brand-logo-fallback { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 50%; background: #edf0f4; color: #656d7a; font-size: 10px; font-weight: 700; }
 .depth-card-label { max-width: 100%; margin-top: 8px; overflow: hidden; color: inherit; font-size: 12px; font-weight: 500; line-height: 15px; text-overflow: ellipsis; white-space: nowrap; }
 .depth-card-sub { max-width: 100%; margin-top: 1px; overflow: hidden; color: #8a919c; font-size: 11px; font-weight: 500; line-height: 13px; text-overflow: ellipsis; white-space: nowrap; }
