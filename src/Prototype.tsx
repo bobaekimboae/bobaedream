@@ -352,8 +352,15 @@ const benzEncarClassOrder = [
 type QuickTrimOption = { name: string; count: number };
 type QuickGenerationOption = { name: string; years: string; variants: Array<string | QuickTrimOption>; image?: string; count?: number };
 type QuickModelVisual = { image: string; count?: string };
+type QuickDepthCompletion = "maker" | "model" | "generation" | "trim";
 const quickModelVisualsByMaker: Record<string, Record<string, QuickModelVisual>> = {
-  BMW: Object.fromEntries(bmwModels.map((model) => [model.name, { image: model.image }])) as Record<string, QuickModelVisual>,
+  BMW: {
+    "3시리즈": { image: asset("cars/bmw/3-series.webp"), count: "785대" },
+    X1: { image: asset("cars/bmw/x1.webp"), count: "231대" },
+    "5시리즈": { image: asset("cars/bmw/5-series.webp"), count: "1,240대" },
+    X3: { image: asset("cars/bmw/x3.webp"), count: "512대" },
+    "1시리즈": { image: asset("cars/bmw/1-series.webp"), count: "188대" },
+  },
   벤츠: {
     "A-클래스": { image: asset("cars/mercedes/models/a-class.png"), count: "588대" },
     "B-클래스": { image: asset("cars/mercedes/models/b-class.png"), count: "67대" },
@@ -464,6 +471,8 @@ const generationCountLabel = (generation: QuickGenerationOption) => {
   const count = generation.count ?? generation.variants.reduce((sum, variant) => sum + toTrimOption(variant).count, 0);
   return `${count.toLocaleString("ko-KR")}대`;
 };
+const generationCount = (generation: QuickGenerationOption) => generation.count ?? generation.variants.reduce((sum, variant) => sum + toTrimOption(variant).count, 0);
+const inventoryCount = (value?: string) => value ? Number(value.replace(/[^\d]/g, "")) : null;
 const quickModelsByMaker: Record<string, string[]> = {
   BMW: bmwModels.map((model) => model.name),
   벤츠: benzEncarClassOrder,
@@ -654,10 +663,10 @@ const chototTestCars: Car[] = [
   makeChoTotCar(1005, { maker: "기아", image: "detail/raw-07.jpeg", title: "기아 쏘렌토 MQ4", trim: "시그니처 6인승", specs: ["2023년식", "20,000km", "가솔린", "201나7735"], price: "3,690 만원", place: "부산 해운대구 · 센텀전시장", filter: { year: 2023, seats: "6인승", condition: "중고", mileage: 20000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "회색", origin: "국산", body: "SUV", video: false } }),
   makeChoTotCar(1006, { maker: "BMW", image: "detail/raw-05.jpeg", title: "BMW 5시리즈 530i", trim: "M 스포츠 정식출고", specs: ["2024년식", "9,000km", "가솔린", "329도5521"], price: "7,640 만원", place: "서울 성동구 · 성수전시장", filter: { year: 2024, seats: "5인승", condition: "중고", mileage: 9000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "흰색", origin: "독일", body: "세단", video: true } }),
   makeChoTotCar(1007, { maker: "벤츠", image: "detail/raw-18.jpeg", title: "벤츠 E클래스 E 300 4MATIC", trim: "AMG Line 제조사보증", specs: ["2023년식", "10,000km", "가솔린", "118머4207"], price: "8,420 만원", place: "서울 강남구 · 한성자동차", filter: { year: 2023, seats: "5인승", condition: "중고", mileage: 10000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "검정", origin: "독일", body: "세단", video: true } }),
-  makeChoTotCar(1016, { maker: "벤츠", modelGroup: "A-클래스", image: "cars/mercedes/models/a-class.png", imageFit: "contain", title: "벤츠 A클래스 A 220", trim: "A-클래스 W177 AMG Line", specs: ["2022년식", "18,000km", "가솔린", "220어1770"], price: "3,390 만원", place: "서울 강남구 · 벤츠 인증중고차", filter: { year: 2022, seats: "5인승", condition: "중고", mileage: 18000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "흰색", origin: "독일", body: "해치백", video: true } }),
-  makeChoTotCar(1017, { maker: "벤츠", modelGroup: "C-클래스", image: "cars/mercedes/models/c-class.png", imageFit: "contain", title: "벤츠 C클래스 C 300 4MATIC", trim: "6세대 W206 AMG Line", specs: ["2024년식", "12,000km", "가솔린", "300서2060"], price: "6,780 만원", place: "서울 강남구 · 벤츠 인증중고차", filter: { year: 2024, seats: "5인승", condition: "중고", mileage: 12000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "검정", origin: "독일", body: "세단", video: true } }),
-  makeChoTotCar(1018, { maker: "벤츠", modelGroup: "C-클래스", image: "cars/mercedes/models/c-class.png", imageFit: "contain", title: "벤츠 C클래스 C 200", trim: "6세대 W206 Avantgarde", specs: ["2023년식", "24,000km", "가솔린", "200다2061"], price: "5,690 만원", place: "서울 서초구 · 한성자동차", filter: { year: 2023, seats: "5인승", condition: "중고", mileage: 24000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "흰색", origin: "독일", body: "세단", video: false } }),
-  makeChoTotCar(1019, { maker: "벤츠", modelGroup: "C-클래스", image: "cars/mercedes/models/c-class.png", imageFit: "contain", title: "벤츠 C클래스 C 220d", trim: "5세대 W205 C220d", specs: ["2019년식", "58,000km", "디젤", "220마2050"], price: "3,280 만원", place: "경기 고양시 · 수입차전시장", filter: { year: 2019, seats: "5인승", condition: "중고", mileage: 58000, owners: "2인", transmission: "오토", fuel: "디젤", color: "은색", origin: "독일", body: "세단", video: false } }),
+  makeChoTotCar(1016, { maker: "벤츠", modelGroup: "A-클래스", image: "cars/mercedes/models/a-class.png", imageFit: "contain", title: "벤츠 A클래스 A 220", trim: "4세대 AMG Line", specs: ["2022년식", "18,000km", "가솔린", "220어1770"], price: "3,390 만원", place: "서울 강남구 · 벤츠 인증중고차", filter: { year: 2022, seats: "5인승", condition: "중고", mileage: 18000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "흰색", origin: "독일", body: "해치백", video: true } }),
+  makeChoTotCar(1017, { maker: "벤츠", modelGroup: "C-클래스", image: "cars/mercedes/models/c-class.png", imageFit: "contain", title: "벤츠 C클래스 C 300 4MATIC", trim: "6세대 AMG Line", specs: ["2024년식", "12,000km", "가솔린", "300서2060"], price: "6,780 만원", place: "서울 강남구 · 벤츠 인증중고차", filter: { year: 2024, seats: "5인승", condition: "중고", mileage: 12000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "검정", origin: "독일", body: "세단", video: true } }),
+  makeChoTotCar(1018, { maker: "벤츠", modelGroup: "C-클래스", image: "cars/mercedes/models/c-class.png", imageFit: "contain", title: "벤츠 C클래스 C 200", trim: "6세대 Avantgarde", specs: ["2023년식", "24,000km", "가솔린", "200다2061"], price: "5,690 만원", place: "서울 서초구 · 한성자동차", filter: { year: 2023, seats: "5인승", condition: "중고", mileage: 24000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "흰색", origin: "독일", body: "세단", video: false } }),
+  makeChoTotCar(1019, { maker: "벤츠", modelGroup: "C-클래스", image: "cars/mercedes/models/c-class.png", imageFit: "contain", title: "벤츠 C클래스 C 220d", trim: "5세대 C220d", specs: ["2019년식", "58,000km", "디젤", "220마2050"], price: "3,280 만원", place: "경기 고양시 · 수입차전시장", filter: { year: 2019, seats: "5인승", condition: "중고", mileage: 58000, owners: "2인", transmission: "오토", fuel: "디젤", color: "은색", origin: "독일", body: "세단", video: false } }),
   makeChoTotCar(1008, { maker: "아우디", image: "detail/raw-18.jpeg", title: "아우디 A6 3.0 TDI 콰트로", trim: "정식수입 무사고 실매물", specs: ["2012년식", "125,109km", "디젤", "28나7105"], price: "600 만원", place: "서울 강남구 도곡동 · 오토갤러리", filter: { year: 2012, seats: "5인승", condition: "중고", mileage: 125109, owners: "3인 이상", transmission: "오토", fuel: "디젤", color: "은색", origin: "독일", body: "세단", video: false } }),
   makeChoTotCar(1009, { maker: "포르쉐", image: "detail/raw-20.jpeg", title: "포르쉐 718 박스터", trim: "4.0 GTS 스포츠크로노", specs: ["2024년식", "8,000km", "가솔린", "39라7180"], price: "13,900 만원", place: "부산 해운대구", filter: { year: 2024, seats: "2인승", condition: "중고", mileage: 8000, owners: "1인", transmission: "오토", fuel: "가솔린", color: "노랑", origin: "독일", body: "스포츠카", video: true } }),
   makeChoTotCar(1010, { maker: "랜드로버", image: "detail/raw-07.jpeg", title: "랜드로버 레인지로버 스포츠", trim: "P360 HSE 다이내믹", specs: ["2020년식", "60,000km", "가솔린", "143무9116"], price: "6,290 만원", place: "대구 수성구 · 수입차전시장", filter: { year: 2020, seats: "5인승", condition: "중고", mileage: 60000, owners: "2인", transmission: "오토", fuel: "가솔린", color: "흰색", origin: "영국", body: "SUV", video: false } }),
@@ -1104,6 +1113,7 @@ function MarketplaceScreen() {
   const [selectedGeneration, setSelectedGeneration] = useState<string | null>(null);
   const [selectedVariants, setSelectedVariants] = useState<string[]>([]);
   const [trimApplied, setTrimApplied] = useState(false);
+  const [quickDepthCompletion, setQuickDepthCompletion] = useState<QuickDepthCompletion | null>(null);
 
   useEffect(() => {
     if (!searchToast) return;
@@ -1128,11 +1138,13 @@ function MarketplaceScreen() {
   const generationQuickOptions = maker && selectedModel ? quickGenerationsByMakerModel[maker]?.[selectedModel] ?? [] : [];
   const selectedGenerationOption = generationQuickOptions.find((generation) => generation.name === selectedGeneration);
   const variantQuickOptions = selectedGenerationOption?.variants ?? [];
+  const variantTrimOptions = variantQuickOptions.map(toTrimOption);
 
   useEffect(() => {
     setSelectedGeneration(null);
     setSelectedVariants([]);
     setTrimApplied(false);
+    setQuickDepthCompletion(null);
   }, [maker, selectedModel]);
 
   const activeFilterCount = [
@@ -1191,6 +1203,7 @@ function MarketplaceScreen() {
     setSelectedGeneration(null);
     setSelectedVariants([]);
     setTrimApplied(false);
+    setQuickDepthCompletion(null);
     replaceFilterParams(null, null);
     if (closeActiveSheet) setSheet(null);
   };
@@ -1201,6 +1214,7 @@ function MarketplaceScreen() {
     setSelectedGeneration(null);
     setSelectedVariants([]);
     setTrimApplied(false);
+    setQuickDepthCompletion(null);
     setCategoryLandingOpen(true);
     replaceFilterParams(null, null, "전체");
   };
@@ -1211,6 +1225,7 @@ function MarketplaceScreen() {
     setSelectedGeneration(null);
     setSelectedVariants([]);
     setTrimApplied(false);
+    setQuickDepthCompletion(null);
     setCategoryLandingOpen(category === "전체");
     replaceFilterParams(null, null);
   };
@@ -1221,6 +1236,7 @@ function MarketplaceScreen() {
     setSelectedGeneration(null);
     setSelectedVariants([]);
     setTrimApplied(false);
+    setQuickDepthCompletion(null);
     replaceFilterParams(maker, null);
   };
 
@@ -1228,11 +1244,13 @@ function MarketplaceScreen() {
     setSelectedGeneration(null);
     setSelectedVariants([]);
     setTrimApplied(false);
+    setQuickDepthCompletion(null);
   };
 
   const clearVariantFilter = () => {
     setSelectedVariants([]);
     setTrimApplied(false);
+    setQuickDepthCompletion(null);
   };
 
   const returnToModelDepth = () => {
@@ -1241,6 +1259,7 @@ function MarketplaceScreen() {
     setSelectedGeneration(null);
     setSelectedVariants([]);
     setTrimApplied(false);
+    setQuickDepthCompletion(null);
     replaceFilterParams(maker, null);
   };
 
@@ -1248,10 +1267,12 @@ function MarketplaceScreen() {
     setSelectedGeneration(null);
     setSelectedVariants([]);
     setTrimApplied(false);
+    setQuickDepthCompletion(null);
   };
 
   const returnToTrimDepth = () => {
     setTrimApplied(false);
+    setQuickDepthCompletion(null);
   };
 
   const applyMakerFilter = (nextMaker: string | null) => {
@@ -1260,6 +1281,7 @@ function MarketplaceScreen() {
     setSelectedGeneration(null);
     setSelectedVariants([]);
     setTrimApplied(false);
+    setQuickDepthCompletion(null);
     replaceFilterParams(nextMaker, null);
   };
 
@@ -1302,6 +1324,7 @@ function MarketplaceScreen() {
     setSelectedGeneration(null);
     setSelectedVariants([]);
     setTrimApplied(false);
+    setQuickDepthCompletion(null);
     replaceFilterParams(maker, nextModel);
   };
 
@@ -1310,16 +1333,53 @@ function MarketplaceScreen() {
     setSelectedGeneration(nextGeneration);
     setSelectedVariants([]);
     setTrimApplied(false);
+    setQuickDepthCompletion(null);
   };
 
   const chooseVariant = (variantName: string) => {
     setSelectedVariants((current) => current.includes(variantName) ? current.filter((variant) => variant !== variantName) : [...current, variantName]);
     setTrimApplied(false);
+    setQuickDepthCompletion(null);
   };
 
   const applyTrimFilters = () => {
     if (!selectedVariants.length) return;
     setTrimApplied(true);
+    setQuickDepthCompletion("trim");
+  };
+
+  const chooseAllMakers = () => {
+    setFilters((current) => ({ ...current, maker: null, model: null }));
+    setDraftFilters((current) => ({ ...current, maker: null, model: null }));
+    setSelectedGeneration(null);
+    setSelectedVariants([]);
+    setTrimApplied(false);
+    setCategoryLandingOpen(false);
+    setQuickDepthCompletion("maker");
+    replaceFilterParams(null, null);
+  };
+
+  const chooseAllModels = () => {
+    setFilters((current) => ({ ...current, model: null }));
+    setDraftFilters((current) => ({ ...current, model: null }));
+    setSelectedGeneration(null);
+    setSelectedVariants([]);
+    setTrimApplied(false);
+    setQuickDepthCompletion("model");
+    replaceFilterParams(maker, null);
+  };
+
+  const chooseAllGenerations = () => {
+    setSelectedGeneration(null);
+    setSelectedVariants([]);
+    setTrimApplied(false);
+    setQuickDepthCompletion("generation");
+  };
+
+  const chooseAllTrims = () => {
+    setSelectedVariants([]);
+    setTrimApplied(true);
+    setQuickDepthCompletion("trim");
   };
 
   const chooseQuickFilterStyle = (style: QuickFilterStyle) => {
@@ -1338,6 +1398,7 @@ function MarketplaceScreen() {
       setSelectedGeneration(null);
       setSelectedVariants([]);
       setTrimApplied(false);
+      setQuickDepthCompletion(null);
       setCategoryLandingOpen(categoryName === "전체");
       replaceFilterParams(null, null, categoryName);
       return;
@@ -1353,6 +1414,7 @@ function MarketplaceScreen() {
       setSelectedGeneration(null);
       setSelectedVariants([]);
       setTrimApplied(false);
+      setQuickDepthCompletion(null);
       setCategoryLandingOpen(categoryName === "전체");
       replaceFilterParams(null, null, categoryName);
       closeSheet();
@@ -1362,14 +1424,60 @@ function MarketplaceScreen() {
     closeSheet();
   };
 
+  const modelOptionCount = (modelName: string) => {
+    const visualCount = maker ? inventoryCount(quickModelVisualsByMaker[maker]?.[modelName]?.count) : null;
+    if (visualCount !== null) return visualCount;
+    return chototTestCars.filter((car) => car.maker === maker && normalizeModelSearchText(`${car.title} ${car.modelGroup ?? ""}`).includes(normalizeModelSearchText(modelName))).length;
+  };
+  const makerOptionCount = (makerName: string) => {
+    const visualCounts = Object.values(quickModelVisualsByMaker[makerName] ?? {}).map((visual) => inventoryCount(visual.count)).filter((count): count is number => count !== null);
+    return visualCounts.length ? visualCounts.reduce((sum, count) => sum + count, 0) : chototTestCars.filter((car) => car.maker === makerName).length;
+  };
+  const makerTotalCount = categoryBrandRail.options.reduce((sum, option) => sum + (option.maker ? makerOptionCount(option.maker) : 0), 0);
+  const modelTotalCount = modelQuickOptions.reduce((sum, modelName) => sum + modelOptionCount(modelName), 0);
+  const generationTotalCount = generationQuickOptions.reduce((sum, generation) => sum + generationCount(generation), 0);
+
+  useEffect(() => {
+    if (quickDepthCompletion || !maker || selectedModel || modelQuickOptions.length === 0) return;
+    const availableModels = modelQuickOptions.filter((modelName) => modelOptionCount(modelName) > 0);
+    if (availableModels.length !== 1) return;
+    const [onlyModel] = availableModels;
+    setFilters((current) => ({ ...current, model: onlyModel }));
+    setDraftFilters((current) => ({ ...current, model: onlyModel }));
+    replaceFilterParams(maker, onlyModel);
+  }, [maker, modelQuickOptions.join("|"), quickDepthCompletion, selectedModel]);
+
+  useEffect(() => {
+    if (quickDepthCompletion || !selectedModel || selectedGeneration || generationQuickOptions.length === 0) return;
+    const availableGenerations = generationQuickOptions.filter((generation) => generationCount(generation) > 0);
+    if (availableGenerations.length !== 1) return;
+    setSelectedGeneration(availableGenerations[0].name);
+  }, [generationQuickOptions, quickDepthCompletion, selectedGeneration, selectedModel]);
+
+  useEffect(() => {
+    if (quickDepthCompletion || !selectedGeneration || trimApplied || selectedVariants.length > 0 || variantTrimOptions.length === 0) return;
+    const availableTrims = variantTrimOptions.filter((variant) => variant.count > 0);
+    if (availableTrims.length !== 1) return;
+    setSelectedVariants([availableTrims[0].name]);
+    setTrimApplied(true);
+    setQuickDepthCompletion("trim");
+  }, [quickDepthCompletion, selectedGeneration, selectedVariants.length, trimApplied, variantTrimOptions]);
+
   const isGuaziQuickStyle = quickFilterStyle === "guazi";
   const guaziVisualsForMaker = maker ? quickModelVisualsByMaker[maker] : undefined;
   const hasGuaziModelCards = Boolean(isGuaziQuickStyle && guaziVisualsForMaker);
   const selectedGenerationVisual = selectedGenerationOption?.image ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.image : undefined);
   const selectedGenerationSummary = selectedGenerationOption ? `${compactYearLabel(selectedGenerationOption.years)} · ${generationCountLabel(selectedGenerationOption)}` : "";
-  const variantTrimOptions = variantQuickOptions.map(toTrimOption);
   const selectedTrimCount = variantTrimOptions.filter((variant) => selectedVariants.includes(variant.name)).reduce((sum, variant) => sum + variant.count, 0);
-  const showAfterUxDepth = Boolean(selectedModel && (!usesUxDepth || !generationQuickOptions.length || trimApplied));
+  const showAfterUxDepth = Boolean(quickDepthCompletion || (selectedModel && (!usesUxDepth || !generationQuickOptions.length || trimApplied)));
+  const vehicleHeaderTitle = quickDepthCompletion === "maker" ? `${categoryIsDefault ? "중고차" : category} 전체`
+    : quickDepthCompletion === "model" ? `${maker} 전체`
+      : quickDepthCompletion === "generation" ? `${maker} ${selectedModel ? formatModelLabel(selectedModel) : ""} 전체`
+        : `${maker} ${selectedModel ? formatModelLabel(selectedModel) : ""} ${selectedGenerationOption ? generationDisplayLabel(selectedGenerationOption) : ""}`;
+  const vehicleHeaderSummary = quickDepthCompletion === "maker" ? `${makerTotalCount.toLocaleString("ko-KR")}대`
+    : quickDepthCompletion === "model" ? `${modelTotalCount.toLocaleString("ko-KR")}대`
+      : quickDepthCompletion === "generation" ? `${generationTotalCount.toLocaleString("ko-KR")}대`
+        : selectedGenerationOption ? `${compactYearLabel(selectedGenerationOption.years)} · ${(selectedVariants.length ? selectedTrimCount : generationCount(selectedGenerationOption)).toLocaleString("ko-KR")}대` : selectedGenerationSummary;
 
   const quickFilterChips = [
     {
@@ -1441,12 +1549,12 @@ function MarketplaceScreen() {
     } : null,
   ].filter((chip): chip is { key: string; label: string; active: boolean; onClick: () => void; onClear?: () => void } => Boolean(chip));
 
-  const showModelQuickRail = Boolean(maker && !selectedModel && modelQuickOptions.length);
-  const showGenerationQuickRail = Boolean(usesUxDepth && selectedModel && !selectedGeneration && generationQuickOptions.length);
-  const showVariantQuickRail = Boolean(usesUxDepth && selectedGeneration && !trimApplied && variantQuickOptions.length);
-  const showVehicleHeaderRail = Boolean(usesUxDepth && selectedGeneration && trimApplied);
-  const showCategoryQuickRail = categoryLandingOpen && !maker;
-  const showGuaziMakerRail = Boolean(isGuaziQuickStyle && !showCategoryQuickRail && !showModelQuickRail && !showGenerationQuickRail && !showVariantQuickRail && !showVehicleHeaderRail && categoryBrandRail.title === "제조사");
+  const showModelQuickRail = Boolean(!quickDepthCompletion && maker && !selectedModel && modelQuickOptions.length);
+  const showGenerationQuickRail = Boolean(!quickDepthCompletion && usesUxDepth && selectedModel && !selectedGeneration && generationQuickOptions.length);
+  const showVariantQuickRail = Boolean(!quickDepthCompletion && usesUxDepth && selectedGeneration && !trimApplied && variantQuickOptions.length);
+  const showVehicleHeaderRail = Boolean(isGuaziQuickStyle && (quickDepthCompletion || (usesUxDepth && selectedGeneration && trimApplied)));
+  const showCategoryQuickRail = categoryLandingOpen && !maker && quickDepthCompletion !== "maker";
+  const showGuaziMakerRail = Boolean(isGuaziQuickStyle && !quickDepthCompletion && !showCategoryQuickRail && !showModelQuickRail && !showGenerationQuickRail && !showVariantQuickRail && !showVehicleHeaderRail && categoryBrandRail.title === "제조사");
 
   return (
     <>
@@ -1475,42 +1583,61 @@ function MarketplaceScreen() {
           </section> : showModelQuickRail ? <section className={`brand-row is-benz-model-mode${hasGuaziModelCards ? " is-guazi-card-mode" : ""}`} aria-label={`${maker} 모델 빠른 선택`}>
             <span className="brand-title">모델</span>
             <Carousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName={hasGuaziModelCards ? "guazi-model-track" : "benz-model-track"}>
+              {hasGuaziModelCards ? <button className="guazi-model-card is-all-card" type="button" onClick={chooseAllModels}>
+                <span className="guazi-all-mark" aria-hidden="true">ALL</span>
+                <strong>전체</strong>
+                <span>{modelTotalCount.toLocaleString("ko-KR")}대</span>
+              </button> : null}
               {modelQuickOptions.map((model) => {
                 const modelVisual = guaziVisualsForMaker?.[model];
+                const count = modelOptionCount(model);
                 return hasGuaziModelCards && modelVisual ? (
-                  <button key={model} className={`guazi-model-card${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} onClick={() => chooseModel(model)}>
+                  <button key={model} className={`guazi-model-card${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} disabled={count === 0} onClick={() => chooseModel(model)}>
                     <img src={modelVisual.image} alt="" aria-hidden="true" draggable={false} />
                     <strong>{formatModelLabel(model)}</strong>
-                    {modelVisual.count ? <span>{modelVisual.count}</span> : null}
+                    <span>{count.toLocaleString("ko-KR")}대</span>
                   </button>
                 ) : (
-                  <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} onClick={() => chooseModel(model)}>{formatModelLabel(model)}</button>
+                  <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} disabled={count === 0} onClick={() => chooseModel(model)}>{formatModelLabel(model)}</button>
                 );
               })}
             </Carousel>
           </section> : showGenerationQuickRail ? <section className={`brand-row is-generation-mode${isGuaziQuickStyle && selectedGenerationVisual ? " is-guazi-card-mode" : ""}`} aria-label={`${selectedModel} 세대 빠른 선택`}>
             <span className="brand-title">세대</span>
-            <Carousel ariaLabel={`${selectedModel} 세대`} className="brand-carousel" contentClassName={isGuaziQuickStyle && selectedGenerationVisual ? "guazi-model-track" : "generation-track"}>
+            <Carousel ariaLabel={`${selectedModel} 세대`} className="brand-carousel" contentClassName={isGuaziQuickStyle && selectedGenerationVisual ? "guazi-model-track guazi-generation-track" : "generation-track"}>
+              {isGuaziQuickStyle && selectedGenerationVisual ? <button className="guazi-model-card is-generation-card is-all-card" type="button" onClick={chooseAllGenerations}>
+                <img src={selectedGenerationVisual} alt="" aria-hidden="true" draggable={false} />
+                <strong>전체</strong>
+                <span>전 세대</span>
+                <em>{generationTotalCount.toLocaleString("ko-KR")}대</em>
+              </button> : null}
               {generationQuickOptions.map((generation) => {
                 const generationImage = generation.image ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.image : undefined);
+                const count = generationCount(generation);
                 return isGuaziQuickStyle && generationImage ? (
-                  <button key={generation.name} className={`guazi-model-card is-generation-card${selectedGeneration === generation.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedGeneration === generation.name} onClick={() => chooseGeneration(generation.name)}>
+                  <button key={generation.name} className={`guazi-model-card is-generation-card${selectedGeneration === generation.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedGeneration === generation.name} disabled={count === 0} onClick={() => chooseGeneration(generation.name)}>
                     <img src={generationImage} alt="" aria-hidden="true" draggable={false} />
                     <strong>{generationDisplayLabel(generation)}</strong>
-                    <span>{compactYearLabel(generation.years)} · {generationCountLabel(generation)}</span>
+                    <span>{compactYearLabel(generation.years)}</span>
+                    <em>{count.toLocaleString("ko-KR")}대</em>
                   </button>
                 ) : (
-                  <button key={generation.name} className={`benz-model-chip generation-chip${selectedGeneration === generation.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedGeneration === generation.name} onClick={() => chooseGeneration(generation.name)}>
-                    <strong>{generation.name}</strong>
-                    <span>{generation.years}</span>
+                  <button key={generation.name} className={`benz-model-chip generation-chip${selectedGeneration === generation.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedGeneration === generation.name} disabled={count === 0} onClick={() => chooseGeneration(generation.name)}>
+                    <strong>{generationDisplayLabel(generation)}</strong>
+                    <span>{compactYearLabel(generation.years)}</span>
                   </button>
                 );
               })}
             </Carousel>
-          </section> : showVariantQuickRail ? <section className={`brand-row is-benz-model-mode${isGuaziQuickStyle ? " is-guazi-card-mode is-guazi-trim-mode" : ""}`} aria-label={`${selectedGeneration} 트림 빠른 선택`}>
+          </section> : showVariantQuickRail ? <section className={`brand-row is-benz-model-mode${isGuaziQuickStyle ? " is-guazi-card-mode is-guazi-trim-mode" : ""}`} aria-label={`${selectedModel ? formatModelLabel(selectedModel) : "선택 모델"} ${selectedGenerationOption ? generationDisplayLabel(selectedGenerationOption) : "선택 세대"} 트림 빠른 선택`}>
             <span className="brand-title">트림</span>
             {isGuaziQuickStyle ? <div className="guazi-trim-shell">
-              <Carousel ariaLabel={`${selectedGeneration} 트림`} className="brand-carousel" contentClassName="guazi-trim-track">
+              <Carousel ariaLabel={`${selectedModel ? formatModelLabel(selectedModel) : "선택 모델"} ${selectedGenerationOption ? generationDisplayLabel(selectedGenerationOption) : "선택 세대"} 트림`} className="brand-carousel" contentClassName="guazi-trim-track">
+                <button className="guazi-trim-card is-all-card" type="button" onClick={chooseAllTrims}>
+                  <span className="guazi-trim-check" aria-hidden="true">✓</span>
+                  <strong>전체</strong>
+                  <span>{(selectedGenerationOption ? generationCount(selectedGenerationOption) : 0).toLocaleString("ko-KR")}대</span>
+                </button>
                 {variantTrimOptions.map((variant) => (
                   <button key={variant.name} className={`guazi-trim-card${selectedVariants.includes(variant.name) ? " is-selected" : ""}`} type="button" aria-pressed={selectedVariants.includes(variant.name)} disabled={variant.count === 0} onClick={() => chooseVariant(variant.name)}>
                     <span className="guazi-trim-check" aria-hidden="true">✓</span>
@@ -1522,27 +1649,33 @@ function MarketplaceScreen() {
               <div className="guazi-trim-action">
                 <button type="button" disabled={!selectedVariants.length} onClick={applyTrimFilters}>적용 {selectedVariants.length} / {selectedTrimCount.toLocaleString("ko-KR")}대</button>
               </div>
-            </div> : <Carousel ariaLabel={`${selectedGeneration} 트림`} className="brand-carousel" contentClassName="benz-model-track">
+            </div> : <Carousel ariaLabel={`${selectedModel ? formatModelLabel(selectedModel) : "선택 모델"} ${selectedGenerationOption ? generationDisplayLabel(selectedGenerationOption) : "선택 세대"} 트림`} className="brand-carousel" contentClassName="benz-model-track">
               {variantTrimOptions.map((variant) => (
                 <button key={variant.name} className={`benz-model-chip${selectedVariants.includes(variant.name) ? " is-selected" : ""}`} type="button" aria-pressed={selectedVariants.includes(variant.name)} disabled={variant.count === 0} onClick={() => chooseVariant(variant.name)}>{variant.name}</button>
               ))}
             </Carousel>}
-          </section> : showVehicleHeaderRail && isGuaziQuickStyle ? <section className="brand-row is-guazi-card-mode is-guazi-vehicle-header-mode" aria-label="선택 차종 요약">
+          </section> : showVehicleHeaderRail ? <section className="brand-row is-guazi-card-mode is-guazi-vehicle-header-mode" aria-label="선택 차종 요약">
             <span className="brand-title">차종</span>
             <div className="guazi-vehicle-header">
               {selectedGenerationVisual ? <img src={selectedGenerationVisual} alt="" aria-hidden="true" draggable={false} /> : null}
               <div>
-                <strong>{maker} {selectedModel ? formatModelLabel(selectedModel) : ""} {selectedGenerationOption ? generationDisplayLabel(selectedGenerationOption) : ""}</strong>
-                <span>{selectedGenerationSummary}</span>
+                <strong>{vehicleHeaderTitle}</strong>
+                <span>{vehicleHeaderSummary}</span>
               </div>
             </div>
           </section> : <section className={`brand-row category-brand-row${showGuaziMakerRail ? " is-guazi-card-mode is-guazi-maker-mode" : ""}`} aria-label={`${categoryBrandRail.title} 빠른 선택`}>
             <span className="brand-title">{categoryBrandRail.title}</span>
             <Carousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName={showGuaziMakerRail ? "guazi-maker-track" : "brand-track"}>
+              {showGuaziMakerRail ? <button className="guazi-maker-card is-all-card" type="button" onClick={chooseAllMakers}>
+                <span className="guazi-maker-all-mark" aria-hidden="true">ALL</span>
+                <span>전체</span>
+                <small>{makerTotalCount.toLocaleString("ko-KR")}대</small>
+              </button> : null}
               {categoryBrandRail.options.map((option) => (
                 <button key={option.name} className={`${showGuaziMakerRail ? "guazi-maker-card" : "brand-item"}${option.maker && maker === option.maker ? " is-selected" : ""}`} type="button" aria-pressed={Boolean(option.maker && maker === option.maker)} onClick={() => option.maker ? applyMakerFilter(option.maker) : undefined}>
                   <BrandRailMark option={option} />
                   <span>{option.name}</span>
+                  {showGuaziMakerRail && option.maker ? <small>{makerOptionCount(option.maker).toLocaleString("ko-KR")}대</small> : null}
                 </button>
               ))}
             </Carousel>
