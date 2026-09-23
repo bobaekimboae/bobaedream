@@ -328,6 +328,18 @@ const bmwModels = [
 ];
 
 const benzModels = ["E클래스", "S클래스", "GLC클래스", "GLE클래스", "C클래스"];
+const quickModelsByMaker: Record<string, string[]> = {
+  BMW: bmwModels.map((model) => model.name),
+  벤츠: ["C클래스", "GLC클래스", "E클래스", "S클래스"],
+  현대: ["그랜저", "아이오닉 5", "쏘나타", "아반떼"],
+  기아: ["카니발", "쏘렌토", "K5", "스포티지"],
+  제네시스: ["G80", "GV70", "GV80"],
+  아우디: ["A6", "A7", "Q5"],
+  포르쉐: ["718", "911", "카이엔"],
+  렉서스: ["ES300h", "NX", "RX"],
+};
+const choTotConditionFilters = ["신차", "중고"] as const;
+const choTotColorFilters = ["흰색", "검정"] as const;
 const quickRegions = ["경기", "서울", "부산", "대구", "인천", "전남광주"];
 const quickFilterStyleOptions: Array<{ value: QuickFilterStyle; label: string }> = [
   { value: "chotot", label: "초톳" },
@@ -945,6 +957,11 @@ function MarketplaceScreen() {
     setDraftFilters((current) => ({ ...current, maker: null, model: null }));
   };
 
+  const clearModelFilter = () => {
+    setFilters((current) => ({ ...current, model: null }));
+    setDraftFilters((current) => ({ ...current, model: null }));
+  };
+
   const applyMakerFilter = (nextMaker: string | null) => {
     setFilters((current) => ({ ...current, maker: nextMaker, model: null }));
     setDraftFilters((current) => ({ ...current, maker: nextMaker, model: null }));
@@ -988,6 +1005,18 @@ function MarketplaceScreen() {
     setDraftFilters((current) => ({ ...current, model: nextModel }));
   };
 
+  const chooseConditionQuickFilter = (condition: string) => {
+    const nextCondition = filters.condition === condition ? "전체" : condition;
+    setFilters((current) => ({ ...current, condition: nextCondition }));
+    setDraftFilters((current) => ({ ...current, condition: nextCondition }));
+  };
+
+  const chooseColorQuickFilter = (color: string) => {
+    const nextColors = filters.colors.includes(color) ? [] : [color];
+    setFilters((current) => ({ ...current, colors: nextColors }));
+    setDraftFilters((current) => ({ ...current, colors: nextColors }));
+  };
+
   const chooseVehicleCategory = (categoryName: string) => {
     if (vehicleCategoryOptions.includes(categoryName)) {
       const nextFilters = { ...filters, category: categoryName, maker: null, model: null };
@@ -1012,6 +1041,77 @@ function MarketplaceScreen() {
     closeSheet();
   };
 
+  const quickFilterChips = [
+    {
+      key: "category",
+      label: categoryIsDefault ? "전체" : category,
+      active: true,
+      onClick: () => openQuickFilter("category"),
+      onClear: clearCategoryFilter,
+    },
+    maker ? {
+      key: "maker",
+      label: maker,
+      active: true,
+      onClick: () => openQuickFilter("maker"),
+      onClear: clearMakerFilter,
+    } : {
+      key: "maker",
+      label: "제조사",
+      active: false,
+      onClick: () => openQuickFilter("maker"),
+    },
+    maker && selectedModel ? {
+      key: "model",
+      label: selectedModel,
+      active: true,
+      onClick: () => openQuickFilter("model"),
+      onClear: clearModelFilter,
+    } : maker ? {
+      key: "model",
+      label: "모델",
+      active: false,
+      onClick: () => openQuickFilter("model"),
+    } : null,
+    maker && selectedModel ? {
+      key: "condition",
+      label: filters.condition === "전체" ? "상태" : filters.condition,
+      active: filters.condition !== "전체",
+      onClick: () => openQuickFilter("condition"),
+      onClear: filters.condition !== "전체" ? () => {
+        setFilters((current) => ({ ...current, condition: "전체" }));
+        setDraftFilters((current) => ({ ...current, condition: "전체" }));
+      } : undefined,
+    } : null,
+    maker && selectedModel ? {
+      key: "color",
+      label: filters.colors.length ? filters.colors.join(", ") : "색상",
+      active: filters.colors.length > 0,
+      onClick: () => openQuickFilter("color"),
+      onClear: filters.colors.length ? () => {
+        setFilters((current) => ({ ...current, colors: [] }));
+        setDraftFilters((current) => ({ ...current, colors: [] }));
+      } : undefined,
+    } : null,
+    {
+      key: "price",
+      label: priceFilterLabel(price),
+      active: price.min !== 0 || price.max !== null,
+      onClick: () => openQuickFilter("price"),
+    },
+    !selectedModel ? {
+      key: "year",
+      label: filters.year === "전체" ? "연식" : filters.year,
+      active: filters.year !== "전체",
+      onClick: () => openQuickFilter("year"),
+    } : null,
+  ].filter((chip): chip is { key: string; label: string; active: boolean; onClick: () => void; onClear?: () => void } => Boolean(chip));
+
+  const modelQuickOptions = maker ? quickModelsByMaker[maker] ?? [] : [];
+  const showModelQuickRail = Boolean(maker && !selectedModel && modelQuickOptions.length);
+  const showConditionQuickRail = Boolean(maker && selectedModel && filters.condition === "전체");
+  const showColorQuickRail = Boolean(maker && selectedModel && filters.condition !== "전체");
+
   return (
     <>
       <MobileScroll className="app-screen">
@@ -1024,22 +1124,7 @@ function MarketplaceScreen() {
           <section className={`filter-shell quick-style-${quickFilterStyle}${activeFilterCount ? " has-active-filters" : ""}`} aria-label="중고차 필터">
             <button className="filter-fixed" type="button" aria-label={activeFilterCount ? `필터 ${activeFilterCount}개 적용됨` : "필터"} onClick={() => { setDraftFilters(filters); setFilterFocus(null); setSheet("filter"); }}><Icon name="filter.svg" /><span>{activeFilterCount || "필터"}</span></button>
             <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
-              <FilterChip label={categoryIsDefault ? "전체" : category} active onClick={() => openQuickFilter("category")} onClear={clearCategoryFilter} />
-              <FilterChip label={maker ?? "제조사"} active={Boolean(maker)} onClick={() => openQuickFilter("maker")} onClear={maker ? clearMakerFilter : undefined} />
-              <FilterChip label={filters.year === "전체" ? "연식" : filters.year} active={filters.year !== "전체"} onClick={() => openQuickFilter("year")} />
-              <FilterChip label={priceFilterLabel(price)} active={price.min !== 0 || price.max !== null} onClick={() => openQuickFilter("price")} />
-              <FilterChip label={filters.condition === "전체" ? "상태" : filters.condition} active={filters.condition !== "전체"} onClick={() => openQuickFilter("condition")} />
-              <FilterChip label={filters.seller === "전체" ? "판매자" : filters.seller} active={filters.seller !== "전체"} onClick={() => openQuickFilter("seller")} />
-              <FilterChip label={selectedModel ?? "모델"} active={Boolean(selectedModel)} onClick={() => openQuickFilter("model")} />
-              <FilterChip label={filters.seats === "전체" ? "좌석 수" : filters.seats} active={filters.seats !== "전체"} onClick={() => openQuickFilter("seats")} />
-              <FilterChip label={filters.mileageMax ? `${filters.mileageMax}km 이하` : "주행거리"} active={Boolean(filters.mileageMax)} onClick={() => openQuickFilter("mileage")} />
-              <FilterChip label={filters.owners === "전체" ? "소유자 수" : filters.owners} active={filters.owners !== "전체"} onClick={() => openQuickFilter("owners")} />
-              <FilterChip label={filters.transmission === "전체" ? "변속기" : filters.transmission} active={filters.transmission !== "전체"} onClick={() => openQuickFilter("transmission")} />
-              <FilterChip label={filters.fuel === "전체" ? "연료" : filters.fuel} active={filters.fuel !== "전체"} onClick={() => openQuickFilter("fuel")} />
-              <FilterChip label={filters.colors.length ? `색상 ${filters.colors.length}` : "색상"} active={filters.colors.length > 0} onClick={() => openQuickFilter("color")} />
-              <FilterChip label={filters.origin === "전체" ? "원산지" : filters.origin} active={filters.origin !== "전체"} onClick={() => openQuickFilter("origin")} />
-              <FilterChip label={filters.body === "전체" ? "차체 유형" : filters.body} active={filters.body !== "전체"} onClick={() => openQuickFilter("body")} />
-              <FilterChip label="영상 매물" active={filters.videoOnly} onClick={() => openQuickFilter("video")} />
+              {quickFilterChips.map((chip) => <FilterChip key={chip.key} label={chip.label} active={chip.active} onClick={chip.onClick} onClear={chip.onClear} />)}
             </Carousel>
           </section>
           {categoryLandingOpen ? <section className="category-row" aria-label="차량 대카테고리 선택">
@@ -1051,16 +1136,25 @@ function MarketplaceScreen() {
                 </button>
               ))}
             </Carousel>
-          </section> : maker === "BMW" || maker === "벤츠" ? <section className={`brand-row${maker === "BMW" ? " is-model-mode" : " is-benz-model-mode"}`} aria-label={maker === "BMW" ? "BMW 모델 빠른 선택" : "벤츠 모델 빠른 선택"}>
+          </section> : showModelQuickRail ? <section className="brand-row is-benz-model-mode" aria-label={`${maker} 모델 빠른 선택`}>
             <span className="brand-title">모델</span>
-            <Carousel ariaLabel={maker === "BMW" ? "BMW 모델" : "벤츠 모델"} className="brand-carousel" contentClassName={maker === "BMW" ? "bmw-model-track" : "benz-model-track"}>
-              {maker === "BMW" ? bmwModels.map((model) => (
-                <button key={model.name} className={`bmw-model-card${selectedModel === model.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model.name} onClick={() => chooseModel(model.name)}>
-                  <img src={model.image} alt={`${model.name} 차량`} draggable={false} />
-                  <span>{model.name}</span>
-                </button>
-              )) : benzModels.map((model) => (
+            <Carousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName="benz-model-track">
+              {modelQuickOptions.map((model) => (
                 <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} onClick={() => chooseModel(model)}>{model}</button>
+              ))}
+            </Carousel>
+          </section> : showConditionQuickRail ? <section className="brand-row is-benz-model-mode" aria-label="상태 빠른 선택">
+            <span className="brand-title">상태</span>
+            <Carousel ariaLabel="상태" className="brand-carousel" contentClassName="benz-model-track">
+              {choTotConditionFilters.map((condition) => (
+                <button key={condition} className={`benz-model-chip${filters.condition === condition ? " is-selected" : ""}`} type="button" aria-pressed={filters.condition === condition} onClick={() => chooseConditionQuickFilter(condition)}>{condition}</button>
+              ))}
+            </Carousel>
+          </section> : showColorQuickRail ? <section className="brand-row is-benz-model-mode" aria-label="색상 빠른 선택">
+            <span className="brand-title">색상</span>
+            <Carousel ariaLabel="색상" className="brand-carousel" contentClassName="benz-model-track">
+              {choTotColorFilters.map((color) => (
+                <button key={color} className={`benz-model-chip${filters.colors.includes(color) ? " is-selected" : ""}`} type="button" aria-pressed={filters.colors.includes(color)} onClick={() => chooseColorQuickFilter(color)}>{color}</button>
               ))}
             </Carousel>
           </section> : <section className="brand-row category-brand-row" aria-label={`${categoryBrandRail.title} 빠른 선택`}>
