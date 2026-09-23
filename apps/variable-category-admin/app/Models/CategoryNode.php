@@ -39,7 +39,7 @@ final class CategoryNode extends Model
                 $cursor = $parent;
                 $visited = [];
                 while ($cursor !== null) {
-                    if ($node->id !== null && $cursor->id === $node->id) {
+                    if ($cursor->id === $node->id) {
                         throw ValidationException::withMessages(['parent_id' => '자기 자신 또는 하위 카테고리를 상위로 지정할 수 없습니다.']);
                     }
                     if (isset($visited[$cursor->id])) {
