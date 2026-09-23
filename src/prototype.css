@@ -43,7 +43,9 @@ button { color: inherit; }
 .filter-chip { display: flex; align-items: center; justify-content: center; gap: 5px; height: 30px; padding: 5px 11px; border-radius: 30px; background: #f7f8fc; color: #32373f; font-size: 14px; font-weight: 500; line-height: 20px; white-space: nowrap; }
 .filter-chip.is-active { background: var(--ink); color: #fff; }
 .filter-chip > button { display: flex; align-items: center; min-width: 0; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; }
-.filter-chip-label { height: 20px; }
+.filter-chip.is-vehicle-summary { max-width: 220px; }
+.filter-chip-label { height: 20px; overflow: hidden; }
+.filter-chip-label span { display: block; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .filter-chip-clear { width: 20px; height: 20px; justify-content: center; }
 .filter-chip-clear .ui-icon { width: 20px; height: 20px; }
 
@@ -283,12 +285,13 @@ button { color: inherit; }
 .sheet-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding-bottom: 24px; }
 .sheet-options button { min-height: 46px; padding: 0 14px; border: 1px solid #e2e2e2; border-radius: 12px; background: #fff; color: #3a3a3a; font-size: 14px; font-weight: 600; text-align: left; }
 .sheet-options button.is-selected { border-color: var(--blue); background: #eef4fb; color: var(--blue); }
-.bottom-sheet:has(.vehicle-picker-sheet) .sheet-content { min-height: 0; padding: 0; overflow: hidden; }
-.vehicle-picker-sheet { display: flex; height: min(680px, calc(100vh - 120px)); min-height: 0; flex-direction: column; gap: 18px; padding: 4px 16px calc(var(--mobile-safe-area-height, 34px) + 16px); box-sizing: border-box; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; }
+.bottom-sheet:has(.vehicle-picker-sheet) { max-height: 80vh; }
+.bottom-sheet:has(.vehicle-picker-sheet) .sheet-content { display: flex; min-height: 0; padding: 0; overflow: hidden; }
+.vehicle-picker-sheet { display: flex; width: 100%; max-height: 80vh; min-height: 0; flex-direction: column; gap: 18px; padding: 4px 16px 0; box-sizing: border-box; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; }
 .vehicle-picker-sheet::-webkit-scrollbar { display: none; }
 .vehicle-picker-section { display: grid; gap: 10px; }
 .vehicle-picker-section h3 { margin: 0; color: #656d7a; font-size: 13px; font-weight: 700; line-height: 18px; }
-.vehicle-picker-grid { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: none; }
+.vehicle-picker-grid { display: flex; flex-wrap: wrap; gap: 8px; overflow: visible; padding-bottom: 2px; scrollbar-width: none; }
 .vehicle-picker-grid::-webkit-scrollbar { display: none; }
 .vehicle-picker-grid button { flex: 0 0 auto; min-width: 74px; height: 36px; padding: 0 12px; border: 1px solid #dde1e7; border-radius: 18px; background: #fff; color: #16181d; font: inherit; font-size: 13px; font-weight: 500; white-space: nowrap; }
 .vehicle-picker-grid button.is-selected { border-color: var(--blue); background: color-mix(in srgb, var(--blue) 8%, #fff); color: var(--blue); font-weight: 700; }
@@ -303,7 +306,7 @@ button { color: inherit; }
 .vehicle-picker-grid.is-generations strong { color: inherit; font-size: 12px; font-weight: 600; line-height: 16px; }
 .vehicle-picker-grid.is-generations small { color: #8a919c; font-size: 11px; font-weight: 500; line-height: 14px; }
 .vehicle-picker-grid.is-generations button.is-selected small { color: #656d7a; }
-.vehicle-picker-actions { position: sticky; bottom: 0; display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 8px; padding-top: 4px; background: linear-gradient(180deg, rgba(255,255,255,0), #fff 18px); }
+.vehicle-picker-actions { position: sticky; bottom: 0; display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 8px; margin: 0 -16px; padding: 18px 16px calc(var(--mobile-safe-area-height, 34px) + 16px); background: linear-gradient(180deg, rgba(255,255,255,0), #fff 18px); }
 .vehicle-picker-actions button { height: 44px; border: 0; border-radius: 12px; font-size: 14px; font-weight: 700; }
 .vehicle-picker-reset { background: #f1f3f6; color: #656d7a; }
 .vehicle-picker-apply { background: var(--blue); color: #fff; }

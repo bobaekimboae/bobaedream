@@ -823,17 +823,18 @@ function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearc
   );
 }
 
-function FilterChip({ label, icon, active, onClick, onClear }: { label: string; icon?: string; active?: boolean; onClick: () => void; onClear?: () => void }) {
+function FilterChip({ label, icon, active, className = "", onClick, onClear }: { label: string; icon?: string; active?: boolean; className?: string; onClick: () => void; onClear?: () => void }) {
+  const chipClassName = `filter-chip${active ? " is-active" : ""}${className ? ` ${className}` : ""}`;
   if (active && onClear) {
     return (
-      <div className="filter-chip is-active">
+      <div className={chipClassName}>
         <button className="filter-chip-label" type="button" aria-pressed="true" onClick={onClick}><span>{label}</span></button>
         <button className="filter-chip-clear" type="button" aria-label={`${label} 필터 해제`} onClick={onClear}><Icon name="close.svg" /></button>
       </div>
     );
   }
   return (
-    <button className={`filter-chip${active ? " is-active" : ""}`} type="button" aria-pressed={active} onClick={onClick}>
+    <button className={chipClassName} type="button" aria-pressed={active} onClick={onClick}>
       {icon ? <Icon name={icon} /> : null}<span>{label}</span>{!icon && !active ? <Icon name="chevron-down.svg" /> : null}
     </button>
   );
@@ -1535,19 +1536,23 @@ function MarketplaceScreen() {
         : compactYearLabel(selectedGenerationOption.years))
     : "";
   const variantTrimOptions = variantQuickOptions.map(toTrimOption);
-  const showAfterUxDepth = Boolean(selectedModel && (!usesUxDepth || !generationQuickOptions.length || trimApplied));
   const selectedTrimChipLabel = selectedVariants.length === 0
     ? "트림"
     : selectedVariants.length === 1
       ? selectedVariants[0]
       : `${selectedVariants[0]} 외 ${selectedVariants.length - 1}`;
+  const mileageChipLabel = filters.mileageMax
+    ? `${Number(filters.mileageMax).toLocaleString("ko-KR")}km 이하`
+    : "주행";
+  const accessibleDepthLabel = (value: string | null) => (value ? formatModelLabel(value).replaceAll("A-클래스", "A클래스") : "");
   const vehicleSummaryLabel = [
     maker,
     selectedModel ? formatModelLabel(selectedModel) : null,
     selectedGenerationOption ? generationDisplayLabel(selectedGenerationOption) : null,
   ].filter(Boolean).join(" ");
 
-  const quickFilterChips = [
+  type QuickFilterChip = { key: string; label: string; active: boolean; className?: string; onClick: () => void; onClear?: () => void };
+  const quickFilterChips: QuickFilterChip[] = ([
     {
       key: "category",
       label: categoryIsDefault ? "전체" : category,
@@ -1559,6 +1564,7 @@ function MarketplaceScreen() {
       key: "vehicle-summary",
       label: vehicleSummaryLabel,
       active: true,
+      className: "is-vehicle-summary",
       onClick: () => setSheet("vehicle"),
       onClear: clearVehicleSummaryStep,
     } : maker ? {
@@ -1599,7 +1605,29 @@ function MarketplaceScreen() {
       onClick: selectedVariants.length ? returnToTrimDepth : () => setSearchToast("아래 트림 칩에서 선택하세요."),
       onClear: selectedVariants.length ? clearVariantFilter : undefined,
     } : null,
-    showAfterUxDepth ? {
+    {
+      key: "price",
+      label: priceFilterLabel(price),
+      active: price.min !== 0 || price.max !== null,
+      onClick: () => openQuickFilter("price"),
+    },
+    !selectedGeneration ? {
+      key: "year",
+      label: filters.year === "전체" ? "연식" : filters.year,
+      active: filters.year !== "전체",
+      onClick: () => openQuickFilter("year"),
+    } : null,
+    {
+      key: "mileage",
+      label: mileageChipLabel,
+      active: Boolean(filters.mileageMax),
+      onClick: () => openQuickFilter("mileage"),
+      onClear: filters.mileageMax ? () => {
+        setFilters((current) => ({ ...current, mileageMax: "" }));
+        setDraftFilters((current) => ({ ...current, mileageMax: "" }));
+      } : undefined,
+    },
+    {
       key: "color",
       label: filters.colors.length ? filters.colors.join(", ") : "색상",
       active: filters.colors.length > 0,
@@ -1608,20 +1636,8 @@ function MarketplaceScreen() {
         setFilters((current) => ({ ...current, colors: [] }));
         setDraftFilters((current) => ({ ...current, colors: [] }));
       } : undefined,
-    } : null,
-    {
-      key: "price",
-      label: priceFilterLabel(price),
-      active: price.min !== 0 || price.max !== null,
-      onClick: () => openQuickFilter("price"),
     },
-    !selectedModel ? {
-      key: "year",
-      label: filters.year === "전체" ? "연식" : filters.year,
-      active: filters.year !== "전체",
-      onClick: () => openQuickFilter("year"),
-    } : null,
-  ].filter((chip): chip is { key: string; label: string; active: boolean; onClick: () => void; onClear?: () => void } => Boolean(chip));
+  ] as Array<QuickFilterChip | null>).filter((chip): chip is QuickFilterChip => Boolean(chip));
 
   const showModelQuickRail = Boolean(maker && !selectedModel && modelQuickOptions.length);
   const showGenerationQuickRail = Boolean(usesUxDepth && selectedModel && !selectedGeneration && generationQuickOptions.length);
@@ -1642,7 +1658,7 @@ function MarketplaceScreen() {
           <section className={`filter-shell quick-style-${quickFilterStyle}${activeFilterCount ? " has-active-filters" : ""}`} aria-label="중고차 필터">
             <button className="filter-fixed" type="button" aria-label={activeFilterCount ? `필터 ${activeFilterCount}개 적용됨` : "필터"} onClick={() => { setDraftFilters(filters); setFilterFocus(null); setSheet("filter"); }}><Icon name="filter.svg" /><span>{activeFilterCount || "필터"}</span></button>
             <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
-              {quickFilterChips.map((chip) => <FilterChip key={chip.key} label={chip.label} active={chip.active} onClick={chip.onClick} onClear={chip.onClear} />)}
+              {quickFilterChips.map((chip) => <FilterChip key={chip.key} label={chip.label} active={chip.active} className={chip.className} onClick={chip.onClick} onClear={chip.onClear} />)}
             </Carousel>
           </section>
           {showCategoryQuickRail && isGuaziQuickStyle ? <section className="depth-rail no-label" aria-label="차량유형 빠른 선택">
@@ -1692,9 +1708,9 @@ function MarketplaceScreen() {
                 return <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} disabled={modelVisual?.count === "0대"} onClick={() => chooseModel(model)}>{formatModelLabel(model)}</button>;
               })}
             </Carousel>
-          </section> : showGenerationQuickRail && isGuaziQuickStyle ? <section className="depth-rail" aria-label={`${selectedModel} 세대 빠른 선택`}>
+          </section> : showGenerationQuickRail && isGuaziQuickStyle ? <section className="depth-rail" aria-label={`${accessibleDepthLabel(selectedModel)} 세대 빠른 선택`}>
             <span className="depth-rail-label">세대</span>
-            <Carousel ariaLabel={`${selectedModel} 세대`} className="brand-carousel" contentClassName="depth-rail-track">
+            <Carousel ariaLabel={`${accessibleDepthLabel(selectedModel)} 세대`} className="brand-carousel" contentClassName="depth-rail-track">
               {generationQuickOptions.map((generation) => {
                 const generationImage = generation.image ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.image : undefined);
                 return (
@@ -1710,9 +1726,9 @@ function MarketplaceScreen() {
                 );
               })}
             </Carousel>
-          </section> : showGenerationQuickRail ? <section className="brand-row is-generation-mode" aria-label={`${selectedModel} 세대 빠른 선택`}>
+          </section> : showGenerationQuickRail ? <section className="brand-row is-generation-mode" aria-label={`${accessibleDepthLabel(selectedModel)} 세대 빠른 선택`}>
             <span className="brand-title">세대</span>
-            <Carousel ariaLabel={`${selectedModel} 세대`} className="brand-carousel" contentClassName="generation-track">
+            <Carousel ariaLabel={`${accessibleDepthLabel(selectedModel)} 세대`} className="brand-carousel" contentClassName="generation-track">
               {generationQuickOptions.map((generation) => {
                 return (
                   <button key={generation.name} className={`benz-model-chip generation-chip${selectedGeneration === generation.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedGeneration === generation.name} onClick={() => chooseGeneration(generation.name)}>
@@ -1722,17 +1738,17 @@ function MarketplaceScreen() {
                 );
               })}
             </Carousel>
-          </section> : showVariantQuickRail && isGuaziQuickStyle ? <section className="depth-rail" aria-label={`${selectedGeneration} 트림 빠른 선택`}>
+          </section> : showVariantQuickRail && isGuaziQuickStyle ? <section className="depth-rail" aria-label={`${accessibleDepthLabel(selectedGeneration)} 트림 빠른 선택`}>
             <span className="depth-rail-label">트림</span>
-            <Carousel ariaLabel={`${selectedGeneration} 트림`} className="brand-carousel" contentClassName="depth-rail-track is-chips">
+            <Carousel ariaLabel={`${accessibleDepthLabel(selectedGeneration)} 트림`} className="brand-carousel" contentClassName="depth-rail-track is-chips">
               <TrimChip label="전체" selected={selectedVariants.length === 0} onClick={clearVariantFilter} />
               {variantTrimOptions.map((variant) => (
                 <TrimChip key={variant.name} label={variant.name} selected={selectedVariants.includes(variant.name)} disabled={variant.count === 0} onClick={() => chooseVariant(variant.name)} />
               ))}
             </Carousel>
-          </section> : showVariantQuickRail ? <section className="brand-row is-benz-model-mode" aria-label={`${selectedGeneration} 트림 빠른 선택`}>
+          </section> : showVariantQuickRail ? <section className="brand-row is-benz-model-mode" aria-label={`${accessibleDepthLabel(selectedGeneration)} 트림 빠른 선택`}>
             <span className="brand-title">트림</span>
-            <Carousel ariaLabel={`${selectedGeneration} 트림`} className="brand-carousel" contentClassName="benz-model-track">
+            <Carousel ariaLabel={`${accessibleDepthLabel(selectedGeneration)} 트림`} className="brand-carousel" contentClassName="benz-model-track">
               {variantTrimOptions.map((variant) => (
                 <button key={variant.name} className={`benz-model-chip${selectedVariants.includes(variant.name) ? " is-selected" : ""}`} type="button" aria-pressed={selectedVariants.includes(variant.name)} disabled={variant.count === 0} onClick={() => chooseVariant(variant.name)}>{variant.name}</button>
               ))}
