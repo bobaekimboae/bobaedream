@@ -745,6 +745,15 @@ html[data-force-mobile] #root .mobile-web-stage {
   margin: 0;
   box-shadow: none;
 }
+html[data-force-mobile-wide] body { overflow: hidden; }
+html[data-force-mobile-wide] #root .mobile-web-stage {
+  width: 430px;
+  max-width: 430px !important;
+  height: var(--force-mobile-height, 100dvh);
+  min-height: var(--force-mobile-height, 100dvh);
+  transform: scale(var(--force-mobile-scale, 1));
+  transform-origin: top left;
+}
 html[data-force-mobile] .marketplace { padding-inline: 0; }
 html[data-force-mobile] .top-bar,
 html[data-force-mobile] .region-bar,
