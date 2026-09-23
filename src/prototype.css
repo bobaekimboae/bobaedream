@@ -9,7 +9,7 @@ button { color: inherit; }
 .ui-icon { display: block; width: 20px; height: 20px; flex: 0 0 auto; object-fit: contain; pointer-events: none; }
 
 .top-bar { display: grid; grid-template-columns: 24px minmax(0, 1fr) 24px 24px; align-items: center; gap: 14px; height: 56px; padding: 6px 16px 8px 12px; box-sizing: border-box; background: #fff; }
-.icon-button, .search-save, .region-bar button, .filter-fixed, .filter-chip, .category-item, .brand-item, .bmw-model-card, .benz-model-chip, .seller-tabs button, .sort-button, .density-button, .like-button, .sheet-options button, .empty-state button { border: 0; background: none; padding: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.icon-button, .search-save, .region-bar button, .filter-fixed, .filter-chip, .category-item, .brand-item, .bmw-model-card, .benz-model-chip, .guazi-model-card, .seller-tabs button, .sort-button, .density-button, .like-button, .sheet-options button, .empty-state button { border: 0; background: none; padding: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .icon-button { display: grid; place-items: center; width: 24px; height: 24px; }
 .icon-button .ui-icon { width: 24px; height: 24px; }
 .back-button .ui-icon { transform: rotate(180deg) scaleY(-1); }
@@ -103,6 +103,19 @@ button { color: inherit; }
 .generation-chip strong { color: inherit; font-size: 14px; font-weight: 700; line-height: 18px; }
 .generation-chip span { color: #8a8d93; font-size: 11px; font-weight: 500; line-height: 15px; }
 .generation-chip.is-selected span { color: inherit; opacity: .78; }
+.brand-row.is-guazi-card-mode { height: 86px; }
+.brand-row.is-guazi-card-mode .brand-carousel { height: 72px; }
+.guazi-model-track { display: flex; align-items: center; gap: 8px; min-width: max-content; padding: 7px 16px 7px 0; }
+.guazi-model-card { display: grid; grid-template-rows: 28px 17px 13px; align-content: center; justify-items: center; min-width: 80px; height: 72px; padding: 6px 9px 7px; border-radius: 6px; background: #f7f8fc; color: #252527; text-align: center; transition: background 140ms ease, color 140ms ease, box-shadow 140ms ease; }
+.guazi-model-card img { display: block; width: 48px; height: 24px; object-fit: contain; mix-blend-mode: multiply; }
+.guazi-model-card strong { display: block; max-width: 78px; overflow: hidden; color: inherit; font-size: 12px; font-weight: 650; line-height: 17px; text-overflow: ellipsis; white-space: nowrap; }
+.guazi-model-card span { display: block; max-width: 78px; overflow: hidden; color: #8a8d93; font-size: 11px; font-weight: 500; line-height: 13px; text-overflow: ellipsis; white-space: nowrap; }
+.guazi-model-card.is-selected { background: #1f1f1f; color: #fff; box-shadow: none; }
+.guazi-model-card.is-selected img { mix-blend-mode: normal; filter: brightness(1.08); }
+.guazi-model-card.is-selected span { color: rgba(255, 255, 255, .72); }
+.guazi-model-card.is-variant-card { min-width: 96px; }
+.guazi-model-card.is-variant-card strong { max-width: 94px; }
+.guazi-model-card.is-variant-card span { max-width: 94px; }
 
 .video-toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 56px; padding: 7px 16px 0; border-top: 7px solid #f3f3f3; box-sizing: border-box; background: #fff; color: #3a3a3a; font-size: 15px; font-weight: 500; }
 .video-toggle-copy { display: flex; align-items: center; gap: 8px; min-width: 0; }
