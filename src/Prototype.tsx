@@ -393,6 +393,8 @@ const quickModelVisualsByMaker: Record<string, Record<string, QuickModelVisual>>
     기타: { image: asset("cars/mercedes/models/other.png") },
   },
 };
+const showGuaziInventoryCounts = false;
+
 const trimCountOverrides: Record<string, number> = {
   A180: 0,
   A200d: 6,
@@ -1318,7 +1320,6 @@ function MarketplaceScreen() {
   };
 
   const applyTrimFilters = () => {
-    if (!selectedVariants.length) return;
     setTrimApplied(true);
   };
 
@@ -1366,9 +1367,18 @@ function MarketplaceScreen() {
   const guaziVisualsForMaker = maker ? quickModelVisualsByMaker[maker] : undefined;
   const hasGuaziModelCards = Boolean(isGuaziQuickStyle && guaziVisualsForMaker);
   const selectedGenerationVisual = selectedGenerationOption?.image ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.image : undefined);
-  const selectedGenerationSummary = selectedGenerationOption ? `${compactYearLabel(selectedGenerationOption.years)} · ${generationCountLabel(selectedGenerationOption)}` : "";
+  const selectedGenerationSummary = selectedGenerationOption
+    ? (showGuaziInventoryCounts
+        ? `${compactYearLabel(selectedGenerationOption.years)} · ${generationCountLabel(selectedGenerationOption)}`
+        : compactYearLabel(selectedGenerationOption.years))
+    : "";
   const variantTrimOptions = variantQuickOptions.map(toTrimOption);
   const selectedTrimCount = variantTrimOptions.filter((variant) => selectedVariants.includes(variant.name)).reduce((sum, variant) => sum + variant.count, 0);
+  const trimActionLabel = selectedVariants.length
+    ? (showGuaziInventoryCounts
+        ? `적용 ${selectedVariants.length} / ${selectedTrimCount.toLocaleString("ko-KR")}대`
+        : `적용 ${selectedVariants.length}`)
+    : "전체";
   const showAfterUxDepth = Boolean(selectedModel && (!usesUxDepth || !generationQuickOptions.length || trimApplied));
 
   const quickFilterChips = [
@@ -1405,7 +1415,7 @@ function MarketplaceScreen() {
     } : null,
     usesUxDepth && selectedModel ? {
       key: "generation",
-      label: selectedGenerationOption ? `${formatModelLabel(selectedModel)} ${generationDisplayLabel(selectedGenerationOption)}` : "세대",
+      label: selectedGenerationOption ? generationDisplayLabel(selectedGenerationOption) : "세대",
       active: Boolean(selectedGeneration),
       onClick: selectedGeneration ? returnToGenerationDepth : () => setSearchToast("아래 세대 칩에서 선택하세요."),
       onClear: selectedGeneration ? clearGenerationFilter : undefined,
@@ -1481,7 +1491,7 @@ function MarketplaceScreen() {
                   <button key={model} className={`guazi-model-card${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} onClick={() => chooseModel(model)}>
                     <img src={modelVisual.image} alt="" aria-hidden="true" draggable={false} />
                     <strong>{formatModelLabel(model)}</strong>
-                    {modelVisual.count ? <span>{modelVisual.count}</span> : null}
+                    {showGuaziInventoryCounts && modelVisual.count ? <span>{modelVisual.count}</span> : null}
                   </button>
                 ) : (
                   <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} onClick={() => chooseModel(model)}>{formatModelLabel(model)}</button>
@@ -1497,7 +1507,7 @@ function MarketplaceScreen() {
                   <button key={generation.name} className={`guazi-model-card is-generation-card${selectedGeneration === generation.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedGeneration === generation.name} onClick={() => chooseGeneration(generation.name)}>
                     <img src={generationImage} alt="" aria-hidden="true" draggable={false} />
                     <strong>{generationDisplayLabel(generation)}</strong>
-                    <span>{compactYearLabel(generation.years)} · {generationCountLabel(generation)}</span>
+                    <span>{showGuaziInventoryCounts ? `${compactYearLabel(generation.years)} · ${generationCountLabel(generation)}` : compactYearLabel(generation.years)}</span>
                   </button>
                 ) : (
                   <button key={generation.name} className={`benz-model-chip generation-chip${selectedGeneration === generation.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedGeneration === generation.name} onClick={() => chooseGeneration(generation.name)}>
@@ -1515,12 +1525,12 @@ function MarketplaceScreen() {
                   <button key={variant.name} className={`guazi-trim-card${selectedVariants.includes(variant.name) ? " is-selected" : ""}`} type="button" aria-pressed={selectedVariants.includes(variant.name)} disabled={variant.count === 0} onClick={() => chooseVariant(variant.name)}>
                     <span className="guazi-trim-check" aria-hidden="true">✓</span>
                     <strong>{variant.name}</strong>
-                    <span>{variant.count.toLocaleString("ko-KR")}대</span>
+                    {showGuaziInventoryCounts ? <span>{variant.count.toLocaleString("ko-KR")}대</span> : null}
                   </button>
                 ))}
               </Carousel>
               <div className="guazi-trim-action">
-                <button type="button" disabled={!selectedVariants.length} onClick={applyTrimFilters}>적용 {selectedVariants.length} / {selectedTrimCount.toLocaleString("ko-KR")}대</button>
+                <button type="button" onClick={applyTrimFilters}>{trimActionLabel}</button>
               </div>
             </div> : <Carousel ariaLabel={`${selectedGeneration} 트림`} className="brand-carousel" contentClassName="benz-model-track">
               {variantTrimOptions.map((variant) => (
