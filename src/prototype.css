@@ -107,27 +107,27 @@ button { color: inherit; }
 .brand-row.is-guazi-card-mode .brand-title { display: flex; align-self: stretch; align-items: center; padding-left: 16px; color: #656d7a; font-size: 13px; font-weight: 500; }
 .brand-row.is-guazi-card-mode .brand-carousel { height: 96px; }
 .guazi-model-track { display: flex; align-items: center; gap: 8px; min-width: max-content; padding: 12px 16px 12px 0; }
-.guazi-model-card { display: flex; flex-direction: column; align-items: flex-start; box-sizing: border-box; min-width: 80px; height: 72px; padding: 9px 8px 6px; border-radius: 8px; background: #f5f7fa; color: #252527; text-align: left; transition: background 140ms ease, color 140ms ease, box-shadow 140ms ease; }
+.guazi-model-card { display: flex; flex-direction: column; align-items: flex-start; box-sizing: border-box; min-width: 80px; height: 72px; padding: 8px 7px 5px; border: 1px solid transparent; border-radius: 8px; background: #f7f8fc; color: #252527; text-align: left; transition: background 140ms ease, border-color 140ms ease, color 140ms ease, box-shadow 140ms ease; }
 .guazi-model-card img { display: block; width: 48px; height: 24px; margin: 0 0 8px; object-fit: contain; mix-blend-mode: multiply; }
 .guazi-model-card strong { display: block; max-width: 78px; overflow: hidden; color: #16181d; font-size: 12px; font-weight: 500; line-height: 15px; text-overflow: ellipsis; white-space: nowrap; }
 .guazi-model-card span { display: block; max-width: 78px; margin-top: 1px; overflow: hidden; color: #8a919c; font-size: 11px; font-weight: 500; line-height: 13px; text-overflow: ellipsis; white-space: nowrap; }
 .guazi-model-card em { display: block; max-width: 78px; overflow: hidden; color: #8a919c; font-size: 10px; font-style: normal; font-weight: 500; line-height: 12px; text-overflow: ellipsis; white-space: nowrap; }
-.guazi-model-card.is-selected { background: #1f1f1f; color: #fff; box-shadow: none; }
-.guazi-model-card.is-selected strong { color: #fff; }
+.guazi-model-card.is-selected { border-color: #188d47; background: #effaf4; color: #189747; box-shadow: none; }
+.guazi-model-card.is-selected strong { color: #189747; }
 .guazi-model-card.is-selected img { mix-blend-mode: normal; filter: brightness(1.08); }
 .guazi-model-card.is-selected span,
-.guazi-model-card.is-selected em { color: rgba(255, 255, 255, .72); }
-.guazi-model-card.is-generation-card { min-width: 84px; height: 88px; padding-bottom: 5px; }
+.guazi-model-card.is-selected em { color: #656d7a; }
+.guazi-model-card.is-generation-card { min-width: 84px; height: 72px; }
 .guazi-maker-track { display: flex; align-items: center; gap: 8px; min-width: max-content; padding: 12px 16px 12px 0; }
-.guazi-maker-card { display: flex; flex-direction: column; align-items: center; justify-content: center; box-sizing: border-box; gap: 5px; width: 68px; height: 72px; border-radius: 8px; background: #f5f7fa; color: #16181d; font-size: 12px; font-weight: 500; line-height: 15px; white-space: nowrap; transition: background 140ms ease, color 140ms ease; }
+.guazi-maker-card { display: flex; flex-direction: column; align-items: center; justify-content: center; box-sizing: border-box; gap: 5px; width: 68px; height: 72px; border: 1px solid transparent; border-radius: 8px; background: #f7f8fc; color: #16181d; font-size: 12px; font-weight: 500; line-height: 15px; white-space: nowrap; transition: background 140ms ease, border-color 140ms ease, color 140ms ease; }
 .guazi-maker-card .brand-logo { width: 36px; height: 32px; }
 .guazi-maker-card .brand-logo img { max-width: 28px; max-height: 28px; }
 .guazi-maker-card .brand-logo svg { width: 28px; height: 28px; }
 .guazi-maker-card .brand-logo-fallback { width: 28px; height: 28px; font-size: 10px; }
-.guazi-maker-card.is-selected { background: #1f1f1f; color: #fff; }
+.guazi-maker-card.is-selected { border-color: #188d47; background: #effaf4; color: #189747; }
 .guazi-trim-shell { display: grid; grid-template-columns: minmax(0, 1fr) 104px; align-items: center; min-width: 0; height: 96px; }
 .guazi-trim-track { display: flex; align-items: center; gap: 8px; min-width: max-content; padding: 32px 8px 32px 0; }
-.guazi-trim-card { display: inline-flex; align-items: center; box-sizing: border-box; gap: 5px; height: 32px; min-width: 86px; padding: 0 10px; border-radius: 8px; background: #f5f7fa; color: #16181d; white-space: nowrap; transition: background 140ms ease, color 140ms ease, opacity 140ms ease; }
+.guazi-trim-card { display: inline-flex; align-items: center; box-sizing: border-box; gap: 5px; height: 32px; min-width: 86px; padding: 0 10px; border-radius: 8px; background: #f7f8fc; color: #16181d; white-space: nowrap; transition: background 140ms ease, color 140ms ease, opacity 140ms ease; }
 .guazi-trim-card strong { color: inherit; font-size: 13px; font-weight: 500; line-height: 16px; }
 .guazi-trim-card span:last-child { color: #8a919c; font-size: 11px; font-weight: 500; line-height: 14px; }
 .guazi-trim-check { display: grid; width: 16px; height: 16px; flex: 0 0 16px; place-items: center; border-radius: 50%; background: #e4e7ec; color: transparent; font-size: 11px; font-weight: 700; line-height: 16px; }
