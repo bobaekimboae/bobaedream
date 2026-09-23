@@ -23,7 +23,7 @@ final class CategoryNode extends Model
 
     protected static function booted(): void
     {
-        static::saving(function (self $node): void {
+        self::saving(function (self $node): void {
             $nextDepth = 1;
             if ($node->parent_id === null) {
                 $nextDepth = 1;
@@ -58,21 +58,21 @@ final class CategoryNode extends Model
             }
 
             $node->depth = $nextDepth;
-            $node->is_leaf = !$node->exists || !self::query()->where('parent_id', $node->id)->exists();
+            $node->is_leaf = ! $node->exists || ! self::query()->where('parent_id', $node->id)->exists();
         });
 
-        static::saved(function (self $node): void {
+        self::saved(function (self $node): void {
             $originalParentId = $node->getOriginal('parent_id');
             self::refreshLeafFlag(is_string($originalParentId) ? $originalParentId : null);
             self::refreshLeafFlag($node->parent_id);
             self::refreshDescendantDepths($node);
         });
 
-        static::deleted(function (self $node): void {
+        self::deleted(function (self $node): void {
             self::refreshLeafFlag($node->parent_id);
         });
 
-        static::restored(function (self $node): void {
+        self::restored(function (self $node): void {
             self::refreshLeafFlag($node->parent_id);
         });
     }
@@ -98,7 +98,7 @@ final class CategoryNode extends Model
             return;
         }
         self::query()->whereKey($nodeId)->update([
-            'is_leaf' => !self::query()->where('parent_id', $nodeId)->exists(),
+            'is_leaf' => ! self::query()->where('parent_id', $nodeId)->exists(),
         ]);
     }
 
