@@ -33,7 +33,7 @@
   .bbm-filter { overflow: clip; border-radius: 12px; background: #fff; }
   .bbm-filter-summary { display: flex; flex-direction: column; gap: 14px; padding: 20px 16px; }
   .bbm-filter-summary-top, .bbm-filter-summary-tools { display: flex; align-items: center; justify-content: space-between; }
-  /* QF-072 필터 제목 18/700 + 적용 필터 개수 배지(26 원형 #222, 두 자리부터 알약) + 모두 지우기 */
+  /* QF-074 필터 제목 18/700 + 적용 필터 개수 배지(26 원형 #222, 두 자리부터 알약) + 모두 지우기 */
   .bbm-filter-title { display: flex; align-items: center; gap: 8px; min-width: 0; }
   .bbm-filter-summary-top strong { color: #222; font-size: 18px; font-weight: 700; line-height: 26px; }
   .bbm-filter-count { display: inline-flex; min-width: 26px; height: 26px; align-items: center; justify-content: center; padding: 0 6px; border-radius: 13px; box-sizing: border-box; background: #222; color: #fff; font-size: 12px; font-weight: 600; line-height: 18px; font-variant-numeric: tabular-nums; }
@@ -61,6 +61,31 @@
   .bbm-catalog-row.is-selected { color: var(--blue); font-weight: 600; }
   .bbm-catalog-row em { color: #9e9e9e; font-size: 12px; font-style: normal; font-weight: 500; line-height: 16.8px; }
   .bbm-catalog-row em.is-zero { color: #e0e0e0; }
+
+  /* QF-067 제조사 · 모델 · 등급 드릴다운 */
+  .bbm-filter-item { position: relative; }
+  .bbm-filter-label { display: flex; min-width: 0; flex-direction: column; gap: 2px; }
+  .bbm-filter-path { overflow: hidden; color: #1b4c8c; font-size: 12px; font-weight: 500; line-height: 16.8px; text-overflow: ellipsis; white-space: nowrap; }
+  .bbm-filter-item-reset { position: absolute; top: 14px; right: 44px; height: 20px; padding: 0; border: 0; background: none; color: #767676; font-size: 12px; font-weight: 600; line-height: 20px; text-decoration: underline; }
+  .bbm-filter-item.is-open .bbm-filter-item-reset { top: 12px; }
+  .bbm-path-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 12px 16px 4px; }
+  .bbm-path-chip { display: inline-flex; align-items: center; gap: 4px; max-width: 100%; height: 28px; padding: 0 8px 0 10px; border: 1px solid #1b4c8c; border-radius: 14px; box-sizing: border-box; background: #f2f6fb; color: #1b4c8c; font-size: 12px; font-weight: 600; line-height: 16px; }
+  .bbm-path-chip > span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .bbm-path-chip-x { font-size: 15px; font-weight: 500; line-height: 1; }
+  .bbm-catalog-row { min-height: 40px; box-sizing: border-box; }
+  .bbm-catalog-section.is-drill { padding: 0 0 12px; }
+  .bbm-catalog-back { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; gap: 4px; width: 100%; min-height: 40px; padding: 10px 8px 10px 4px; border: 0; box-sizing: border-box; background: #fff; color: #222; font-size: 14px; font-weight: 600; line-height: 20px; text-align: left; }
+  .bbm-catalog-empty { margin: 0; padding: 10px 8px; color: #9e9e9e; font-size: 14px; line-height: 20px; }
+  .bbm-grade-group + .bbm-grade-group { margin-top: 4px; border-top: 1px solid #f4f4f4; }
+  .bbm-grade-row { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 40px; padding: 10px 8px; border: 0; border-radius: 6px; box-sizing: border-box; background: none; color: #1a1a1a; font-size: 14px; font-weight: 400; line-height: 20px; text-align: left; }
+  .bbm-grade-row:hover:not(:disabled) { background: #f7f8fc; }
+  .bbm-grade-row:disabled { color: #c0c0c0; cursor: default; }
+  .bbm-grade-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .bbm-grade-row em { color: #9e9e9e; font-size: 12px; font-style: normal; font-weight: 500; line-height: 16.8px; }
+  .bbm-grade-row em.is-zero { color: #e0e0e0; }
+  .bbm-checkbox { display: grid; width: 18px; height: 18px; flex: none; place-items: center; border: 1.5px solid #c0c0c0; border-radius: 4px; box-sizing: border-box; background: #fff; color: #fff; }
+  .bbm-checkbox .bb-icon { width: 14px; height: 14px; }
+  .bbm-grade-row.is-checked .bbm-checkbox { border-color: var(--blue); background: var(--blue); }
 
   /* QF-050 우측 콘텐츠: 상단 패널 */
   .bbm-content { min-width: 0; }
@@ -92,36 +117,7 @@
   .bbm-sort, .bbm-view { display: inline-flex; align-items: center; gap: 8px; padding: 0; border: 0; background: none; color: #3a3a3a; font-size: 15px; font-weight: 500; line-height: 21px; }
   .marketplace.is-bbm .car-list.bbm-list { display: block; max-width: none; margin: 0; padding: 0; border-top: 0; background: #fff; }
   .marketplace.is-bbm .car-list.is-pc-grid { max-width: none; margin: 0; }
-  .bbm-card { padding: 16px 20px 0; cursor: pointer; outline: 0; }
-  .bbm-card::after { content: ""; display: block; height: 1px; margin-top: 15px; background: #ebebeb; }
-  .bbm-card:last-child { padding-bottom: 16px; }
-  .bbm-card:last-child::after { display: none; }
-  .bbm-card:focus-visible { box-shadow: inset 0 0 0 2px var(--blue); }
-  .bbm-card-main { display: flex; gap: 16px; }
-  .bbm-card-image { position: relative; width: 160px; height: 160px; flex: 0 0 160px; overflow: hidden; border-radius: 8px; background: #ebebeb; }
-  .bbm-card-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
-  .bbm-card-image img.is-catalog { padding: 6px; box-sizing: border-box; background: #fff; object-fit: contain; }
-  .bbm-card-media-footer { position: absolute; right: 0; bottom: 0; left: 0; display: flex; align-items: center; justify-content: space-between; height: 24px; padding: 0 8px; background: linear-gradient(transparent, rgba(0, 0, 0, .5)); color: #fff; font-size: 12px; font-weight: 500; line-height: 16.8px; }
-  .bbm-card-count { display: inline-flex; align-items: center; gap: 2px; font-size: 11px; font-weight: 600; line-height: 12px; }
-  .bbm-card-content { display: flex; min-width: 0; flex: 1; flex-direction: column; }
-  .bbm-card-title { margin: 0; overflow: hidden; color: #222; font-size: 16px; font-weight: 600; line-height: 22.4px; text-overflow: ellipsis; white-space: nowrap; }
-  .bbm-card-spec { height: 24px; margin: 4px 0 0; overflow: hidden; color: #595959; font-size: 14px; font-weight: 400; line-height: 19.6px; text-overflow: ellipsis; white-space: nowrap; }
-  .bbm-card-price-row { display: flex; align-items: center; gap: 8px; height: 19.6px; margin-top: 6px; }
-  .bbm-card-price { margin: 0; color: #222; font-size: 16px; font-weight: 700; line-height: 17.6px; white-space: nowrap; }
-  .bbm-card-price span { margin-left: 2px; font-size: 14px; font-weight: 400; line-height: 19.6px; }
-  .bbm-card-badges { display: flex; gap: 4px; }
-  .bbm-card-badges span { display: inline-flex; align-items: center; height: 20px; padding: 0 4px; border-radius: 4px; background: #ebebeb; color: #505050; font-size: 11px; font-weight: 500; line-height: 11px; white-space: nowrap; }
-  .bbm-card-location { display: flex; align-items: center; gap: 2px; height: 32px; margin: 14px 0 0; padding-top: 8px; box-sizing: border-box; color: #505050; font-size: 14px; font-weight: 400; line-height: 19.6px; }
-  .bbm-card-location .bb-icon { color: #9e9e9e; }
-  .bbm-card-meta { display: flex; align-items: center; justify-content: space-between; height: 48px; }
-  .bbm-card-seller { display: flex; align-items: center; gap: 8px; min-width: 0; color: #222; font-size: 12px; font-weight: 400; line-height: 16.8px; }
-  .bbm-card-seller img { width: 18px; height: 18px; flex: none; border-radius: 50%; object-fit: cover; }
-  .bbm-card-seller-info { position: relative; padding-left: 9px; color: #595959; }
-  .bbm-card-seller-info::before { content: ""; position: absolute; top: 4px; left: 0; width: 1px; height: 9px; background: #e0e0e0; }
-  .bbm-card-seller-info b { color: #222; font-weight: 600; }
-  .bbm-card-actions { display: flex; gap: 4px; }
-  .bbm-card-actions button { display: grid; place-items: center; width: 48px; height: 48px; padding: 12px; border: 0; background: none; color: #3a3a3a; }
-  .bbm-card-actions button.is-liked { color: #f14069; }
+  /* QF-091: 카드는 원본 car-list-result-card 값(bbm-tokens.css .bbm-result-card)으로 바꿈 */
 }
 
 /* 원본 반응형: 1200 이하는 헤더 좌우 16, 본문 좌우 24(300 + 24 + 나머지). 1119 이하는 사이드바 240·간격 16·좌우 16 (원본 1024 실측: 16 + 240 + 16 + 736 + 16) */

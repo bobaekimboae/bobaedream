@@ -1,0 +1,249 @@
+/* QF-091 개발 시안 원본(dev.bbmuseum.co.kr/car/list) computed style 값 모음.
+   PC 1440×1000 = .marketplace.is-bbm, 모바일 393×852 과쯔 = .marketplace.is-bbm-m. 아이콘은 public/assets/bbm/(원본 파일). */
+:root {
+  --bbm-text: #1a1a1a;
+  --bbm-text-strong: #222;
+  --bbm-text-sub: #595959;
+  --bbm-text-muted: #767676;
+  --bbm-text-weak: #8c8c8c;
+  --bbm-text-disabled: #9e9e9e;
+  --bbm-tab-inactive: #616161;
+  --bbm-toolbar-text: #3a3a3a;
+  --bbm-line: #ebebeb;
+  --bbm-line-strong: #e0e0e0;
+  --bbm-chip-bg: #f0f0f0;
+  --bbm-chip-filter-bg: #f4f4f4;
+  --bbm-icon-box: #f0f0f0;
+  --bbm-badge-bg: #ebebeb;
+  --bbm-badge-text: #505050;
+  --bbm-photo-bg: #ebebeb;
+  --bbm-blue: #1b4c8c;
+  --bbm-page-bg: #f4f4f4;
+}
+
+/* 원본 글꼴 Pretendard */
+.marketplace.is-bbm, .marketplace.is-bbm-m, .bbm-bottom-gnb, .bbmf-overlay, .bbmf-full { font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.marketplace.is-bbm-m button, .marketplace.is-bbm-m input, .bbm-bottom-gnb button, .bbmf-overlay button, .bbmf-overlay input, .bbmf-full button, .bbmf-full input, .bbmf-overlay select { font-family: inherit; }
+
+/* ── 공통: 차량 유형 줄 */
+.bbm-category-menu__list { display: flex; gap: 18px; margin: 0; list-style: none; background: #fff; }
+.bbm-category-menu__item { flex: none; width: 60px; }
+.bbm-category-menu__button { display: flex; width: 65px; flex-direction: column; align-items: center; padding: 0; border: 0; background: none; cursor: pointer; }
+.bbm-category-menu__icon-box { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; background: var(--bbm-icon-box); }
+.bbm-category-menu__icon-box img { width: 24px; height: 24px; }
+.bbm-category-menu__label { width: 60px; color: var(--bbm-text-sub); font-size: 14px; font-weight: 500; line-height: 19.6px; text-align: center; white-space: nowrap; }
+
+/* ── 공통: 체크 선택 모양 = 원본 검정(#222) 채움 + 흰 체크 */
+.bbmf-check.is-checked .bbmf-check-box, .marketplace.is-bbm .bbm-grade-row.is-checked .bbm-checkbox { border-color: var(--bbm-text-strong); background: var(--bbm-text-strong); }
+
+/* ── 공통: 스위치 sm 38×20 */
+.bbm-switch-sm { position: relative; width: 38px; height: 20px; flex: none; padding: 0; border: 0; border-radius: 100px; background: var(--bbm-line-strong); cursor: pointer; }
+.bbm-switch-sm span { position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: #fff; }
+.bbm-switch-sm.is-on { background: var(--bbm-blue); }
+.bbm-switch-sm.is-on span { transform: translateX(18px); }
+
+/* ── 공통: 매물 카드 */
+.bbm-result-card { position: relative; cursor: pointer; outline: 0; }
+.bbm-result-card:focus-visible { box-shadow: inset 0 0 0 2px var(--bbm-blue); }
+.bbm-card-main { display: flex; }
+.bbm-card-photo { position: relative; flex: none; overflow: hidden; background: var(--bbm-photo-bg); }
+.bbm-card-photo > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.bbm-card-photo > img.is-catalog { padding: 6px; box-sizing: border-box; background: #fff; object-fit: contain; }
+.bbm-card-media-footer { position: absolute; right: 0; bottom: 0; left: 0; display: flex; align-items: center; justify-content: space-between; box-sizing: border-box; background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)); color: #fff; }
+.bbm-card-count { display: inline-flex; align-items: center; gap: 2px; font-size: 11px; font-weight: 600; line-height: 12px; }
+.bbm-card-count img { width: 12px; height: 12px; }
+.bbm-card-content { display: flex; min-width: 0; flex: 1; flex-direction: column; }
+.bbm-card-text { display: flex; min-width: 0; flex-direction: column; }
+.bbm-card-title { align-self: flex-start; max-width: 100%; overflow: hidden; color: var(--bbm-text-strong); font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.bbm-card-spec { overflow: hidden; font-size: 14px; font-weight: 400; text-overflow: ellipsis; white-space: nowrap; }
+.bbm-card-price { display: inline-flex; align-items: baseline; color: var(--bbm-text-strong); font-size: 16px; font-weight: 700; white-space: nowrap; }
+.bbm-card-price-unit { font-size: 14px; font-weight: 400; line-height: 19.6px; }
+.bbm-card-badges { display: flex; align-items: center; gap: 4px; }
+.bbm-card-badges span { display: inline-flex; align-items: center; height: 20px; padding: 0 3px; border-radius: 4px; background: var(--bbm-badge-bg); color: var(--bbm-badge-text); font-size: 11px; font-weight: 500; line-height: 11px; white-space: nowrap; }
+.bbm-card-meta { display: flex; flex-direction: column; }
+.bbm-card-location { display: flex; align-items: center; gap: 4px; }
+.bbm-card-location img { width: 16px; height: 16px; flex: none; }
+.bbm-card-meta-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.bbm-card-seller { display: flex; min-width: 0; align-items: center; gap: 8px; }
+.bbm-card-seller-logo { flex: none; border-radius: 50%; background: var(--bbm-text); object-fit: cover; }
+.bbm-card-seller-text { display: flex; min-width: 0; align-items: center; gap: 4px; font-size: 12px; line-height: 16.8px; }
+.bbm-card-seller-text strong { font-weight: 400; white-space: nowrap; }
+.bbm-card-seller-info { color: var(--bbm-text-weak); white-space: nowrap; }
+.bbm-card-seller-info b { color: var(--bbm-text); font-weight: 400; }
+.bbm-card-actions { display: flex; gap: 4px; }
+.bbm-card-actions button { display: grid; place-items: center; padding: 0; border: 0; background: none; color: var(--bbm-toolbar-text); cursor: pointer; }
+.bbm-card-wish-on { width: 24px; height: 24px; background: #f14069; -webkit-mask-position: center; mask-position: center; -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+
+/* ═════════ PC(.marketplace.is-bbm) ═════════ */
+@media (min-width: 820px) {
+  /* 헤더: 유틸 링크 12/16.8 600 #767676 + 1×8 구분선, 로고 113.9×28, 아이콘 24(간격 20) */
+  .marketplace.is-bbm .bbm-header-top { gap: 8px; }
+  .marketplace.is-bbm .bbm-header-top-item { display: inline-flex; align-items: center; gap: 8px; }
+  .marketplace.is-bbm .bbm-header-top-item img { width: 1px; height: 8px; }
+  .marketplace.is-bbm .bbm-header-top button + button::before, .marketplace.is-bbm .bbm-header-top-item button::before { display: none; }
+  .marketplace.is-bbm .bbm-header-top button + button { margin-left: 0; }
+  .marketplace.is-bbm .bbm-logo { gap: 0; }
+  .marketplace.is-bbm .bbm-logo > img { width: 113.9px; height: 28px; }
+  .marketplace.is-bbm .bbm-gnb-more img { width: 18px; height: 18px; }
+  .marketplace.is-bbm .bbm-header-icons img { width: 24px; height: 24px; }
+  .marketplace.is-bbm .bbm-header { box-shadow: 0 1px 0 var(--bbm-line-strong); }
+
+  /* 좌측 필터: 제목 16/22.4 600, 초기화 14/19.6 700 #222, 요약 94, 첫 항목 위 선 */
+  .marketplace.is-bbm .bbm-filter-summary-top { height: 22.4px; }
+  .marketplace.is-bbm .bbm-filter-summary-top strong { font-size: 16px; font-weight: 600; line-height: 22.4px; }
+  .marketplace.is-bbm .bbm-filter-count { min-width: 22px; height: 22px; border-radius: 11px; }
+  .marketplace.is-bbm .bbm-filter-summary-tools { height: 18px; }
+  .marketplace.is-bbm .bbm-filter-menu { border-top: 1px solid var(--bbm-line); }
+  .marketplace.is-bbm .bbm-filter-toggle { line-height: 19.6px; }
+  .marketplace.is-bbm .bbm-filter-toggle { height: 48px; padding: 14px 16px; box-sizing: border-box; }
+  .marketplace.is-bbm .bbm-filter-item.is-open .bbm-filter-toggle { height: 45px; padding: 12px 16px; }
+  /* 원본 셰브론: 20×20 #9E9E9E 선 1.667(배경 이미지) */
+  .marketplace.is-bbm .bbm-filter-chevron { width: 20px; height: 20px; flex: none; }
+  .marketplace.is-bbm .bbm-filter-action { padding: 16px; border-bottom: 1px solid var(--bbm-line); }
+  .marketplace.is-bbm .bbm-filter-action .bbmf-exclude { justify-content: center; width: 100%; }
+  .marketplace.is-bbm .bbm-filter-label-text { display: inline-flex; align-items: center; gap: 4px; }
+  .marketplace.is-bbm .bbm-filter-label-icon { width: 18px; height: 18px; }
+  .marketplace.is-bbm .bbm-catalog-row { min-height: 39.6px; font-weight: 400; }
+  .marketplace.is-bbm .bbm-catalog-row:hover { background: none; }
+  .marketplace.is-bbm .bbm-catalog-row.is-selected { color: var(--bbm-blue); }
+
+  /* 상단 패널: 흰 머리(위 라운드 12, 16/0/8/20, 간격 8) + 유형 줄(아래 라운드 12, 8/20/20, 간격 18) + 24 */
+  .marketplace.is-bbm .bbm-content-head { display: block; padding: 0; border-radius: 0; background: none; }
+  .marketplace.is-bbm .bbm-content-header { display: flex; flex-direction: column; gap: 8px; padding: 16px 0 8px 20px; border-radius: 12px 12px 0 0; background: #fff; }
+  .marketplace.is-bbm .bbm-breadcrumb { height: 17px; }
+  .marketplace.is-bbm .bbm-summary { gap: 20px; }
+  .marketplace.is-bbm .bbm-save-search { gap: 5px; }
+  .marketplace.is-bbm .bbm-save-search img { width: 20px; height: 20px; }
+  .marketplace.is-bbm .bbm-chips { height: 52px; padding: 10px 0; box-sizing: border-box; flex-wrap: nowrap; }
+  .marketplace.is-bbm .bbm-filter-button { gap: 2px; padding: 6px 12px 6px 10px; background: var(--bbm-chip-filter-bg); }
+  .marketplace.is-bbm .bbm-filter-button img { width: 20px; height: 20px; }
+  .marketplace.is-bbm .bbm-chips .filter-chip:not(.is-vehicle-summary) { flex: none; gap: 2px; height: 32px; padding: 6px 8px 6px 12px; border: 0; background: var(--bbm-chip-bg); color: var(--bbm-text); font-size: 14px; font-weight: 600; line-height: 19.6px; }
+  .marketplace.is-bbm .bbm-chips .filter-chip .ui-icon { width: 20px; height: 20px; }
+  .marketplace.is-bbm .bbm-chips .filter-chip.is-active:not(.is-vehicle-summary) { gap: 4px; background: var(--bbm-text-strong); color: #fff; }
+  .marketplace.is-bbm .bbm-chips .filter-chip.is-active .filter-chip-label { padding: 0; color: #fff; font: inherit; }
+  .marketplace.is-bbm .bbm-chips .filter-chip.is-active .filter-chip-clear { width: 20px; height: 20px; padding: 0; }
+  .marketplace.is-bbm .bbm-quick-slot { margin-left: 0; border-radius: 0 0 12px 12px; background: #fff; overflow: hidden; }
+  .marketplace.is-bbm .bbm-content-head.has-category-menu .bbm-quick-slot { background: none; }
+  .marketplace.is-bbm .bbm-category-menu__list { padding: 8px 20px 20px; border-radius: 0 0 12px 12px; }
+  .marketplace.is-bbm .bbm-category-menu__button { gap: 12px; }
+
+  /* 목록 툴바: 탭 간격 18, 높이 55 */
+  .marketplace.is-bbm .bbm-seller-tabs { gap: 18px; }
+  .marketplace.is-bbm .bbm-seller-tabs button { height: 55px; }
+  .marketplace.is-bbm .bbm-sort img { width: 18px; height: 18px; }
+  .marketplace.is-bbm .bbm-view img { width: 20px; height: 20px; }
+  .marketplace.is-bbm .bbm-results { margin-top: 24px; }
+
+  /* 카드 PC: 16/20, 사진 160 라운드 8, 간격 16, 제목 16/22.4 600, 사양 14/19.6 #595959(높이 24) */
+  .marketplace.is-bbm .bbm-result-card { padding: 16px 20px; }
+  .marketplace.is-bbm .bbm-result-card::after { content: ""; position: absolute; right: 20px; bottom: 0; left: 20px; height: 1px; background: var(--bbm-line); }
+  .marketplace.is-bbm .bbm-result-card:last-child::after { display: none; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-main { gap: 16px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-photo { width: 160px; height: 160px; border-radius: 8px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-media-footer { height: 24px; padding: 0 8px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-time { font-size: 12px; font-weight: 500; line-height: 16.8px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-content { gap: 12px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-text { gap: 4px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-title { font-size: 16px; line-height: 22.4px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-spec { height: 24px; color: var(--bbm-text-sub); line-height: 19.6px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-price-badges { display: flex; align-items: center; gap: 8px; height: 24px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-price { line-height: 17.6px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-price-unit { margin-left: 2px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-location { height: 32px; padding-top: 8px; box-sizing: border-box; color: #505050; font-size: 14px; line-height: 19.6px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-meta-row { height: 48px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-seller-logo { width: 18px; height: 18px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-seller-text strong { color: var(--bbm-text-strong); }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-seller-text strong::after { content: "·"; margin-left: 4px; color: var(--bbm-text-weak); }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-actions button { width: 48px; height: 48px; padding: 12px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-actions img { width: 24px; height: 24px; }
+}
+
+/* ═════════ 모바일 과쯔(.marketplace.is-bbm-m) ═════════ */
+.marketplace.is-bbm-m { padding-bottom: 74px; background: #fff; }
+/* 헤더 56: 6/16/8/12, 간격 18, 검색칸 239×42 #F0F0F0 */
+.top-bar.is-bbm { gap: 18px; }
+.top-bar.is-bbm .search-field { gap: 8px; padding: 5px 8px; background: var(--bbm-chip-bg); }
+.top-bar.is-bbm .search-field input { height: 21px; font-size: 15px; font-weight: 600; line-height: 21px; }
+.top-bar.is-bbm .search-field input::placeholder { color: var(--bbm-text-muted); }
+.top-bar.is-bbm .search-field .ui-icon:first-child { width: 20px; height: 20px; }
+.top-bar.is-bbm .search-field input { margin-right: -8px; }
+.top-bar.is-bbm .search-divider { width: 0.8px; margin: 0; }
+.top-bar.is-bbm .back-button .ui-icon { transform: none; }
+.top-bar.is-bbm .search-save { margin-left: 0; }
+.top-bar.is-bbm .search-save .ui-icon { width: 24px; height: 24px; }
+/* 지역 44: 14/16/10, 아이콘 20 회색, "지역:" 500 #9E9E9E · "전국" 600 #1A1A1A(간격 10), 셰브론 10×5 */
+.region-bar.is-bbm { height: 44px; padding: 14px 16px 10px; box-sizing: border-box; }
+.region-bar.is-bbm > button:first-child { height: 21px; gap: 4px; }
+.region-bar.is-bbm .ui-icon { width: 20px; height: 20px; }
+.region-bar.is-bbm .region-text { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; line-height: 21px; }
+.region-bar.is-bbm .region-label { color: var(--bbm-text-disabled); font-weight: 500; }
+.region-bar.is-bbm strong { color: var(--bbm-text); font-size: 15px; font-weight: 600; line-height: 21px; }
+.region-bar.is-bbm .region-chevron-icon { display: grid; width: 20px; height: 20px; place-items: center; }
+.region-bar.is-bbm .region-chevron-icon img { width: 10px; height: 5px; }
+.region-bar.is-bbm .reset-button { height: 21px; color: var(--bbm-toolbar-text); font-size: 15px; font-weight: 600; line-height: 21px; }
+/* 칩 줄 52: 10/16, 필터 70×32(3/14/3/8, 간격 4) + 6, 칩 간격 8, 14/14 500 */
+.filter-shell.is-bbm { height: 52px; padding: 10px 0 10px 16px; box-sizing: border-box; gap: 0; }
+.filter-shell.is-bbm .filter-fixed { flex: none; justify-content: flex-start; width: max-content; min-width: 0; box-sizing: border-box; margin-left: 0; height: 32px; margin-right: 6px; padding: 3px 14px 3px 8px; gap: 4px; border-radius: 30px; background: var(--bbm-chip-filter-bg); color: var(--bbm-text-strong); font-size: 14px; font-weight: 500; line-height: 14px; }
+.filter-shell.is-bbm .filter-fixed .ui-icon { width: 20px; height: 20px; }
+.filter-shell.is-bbm .filter-fixed span { max-width: none; }
+.filter-shell.is-bbm { display: flex; align-items: center; }
+.filter-shell.is-bbm .filter-rail { flex: 1; min-width: 0; height: 32px; margin: 0; }
+.filter-shell.is-bbm .filter-track { gap: 8px; padding: 0 16px 0 0; }
+.filter-shell.is-bbm .filter-chip { flex: none; height: 32px; padding: 3px 6px 3px 14px; gap: 6px; border: 0; border-radius: 30px; box-sizing: border-box; background: var(--bbm-chip-filter-bg); color: var(--bbm-text); font-size: 14px; font-weight: 500; line-height: 14px; }
+.filter-shell.is-bbm .filter-chip .ui-icon { width: 20px; height: 20px; }
+.filter-shell.is-bbm .filter-chip.is-active { padding: 3px 5px 3px 14px; gap: 2px; background: var(--bbm-text-strong); color: #fff; }
+.filter-shell.is-bbm .filter-chip.is-active .filter-chip-label { padding: 0; color: #fff; font: inherit; }
+.filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear { display: grid; width: 26px; height: 26px; padding: 0; place-items: center; }
+/* 유형 줄 100: 8/0/12/24, 간격 18, 아이콘·글자 간격 8, 아래 회색 8 */
+.marketplace.is-bbm-m .bbm-category-menu { overflow-x: auto; border-bottom: 8px solid var(--bbm-page-bg); scrollbar-width: none; }
+.marketplace.is-bbm-m .bbm-category-menu::-webkit-scrollbar { display: none; }
+.marketplace.is-bbm-m .bbm-category-menu__list { width: max-content; padding: 8px 24px 12px; }
+.marketplace.is-bbm-m .bbm-category-menu__button { gap: 8px; }
+/* 퀵필터 레일(규격 그대로) 아래 회색 8: 레일 안쪽 여백을 줄이지 않도록 다음 줄 위에 둔다 */
+.marketplace.is-bbm-m .depth-rail + .bbm-m-options { margin-top: 8px; box-shadow: 0 -8px 0 var(--bbm-page-bg); }
+/* 영상 매물 · 업데이트순 44 */
+.bbm-m-options { display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 12px 16px; box-sizing: border-box; background: #fff; }
+.bbm-m-video { display: flex; align-items: center; gap: 8px; color: var(--bbm-toolbar-text); font-size: 15px; font-weight: 600; line-height: 20px; }
+.bbm-m-sort { display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none; color: var(--bbm-text); font: inherit; font-size: 14px; font-weight: 600; line-height: 19.6px; cursor: pointer; }
+.bbm-m-sort img { width: 18px; height: 18px; }
+.bbm-m-options .quick-style-select { margin-left: auto; margin-right: 12px; }
+/* 목록 탭 48: 탭 12/8/16, 14/19.6 600·500, 아래 선 */
+.bbm-m-toolbar { display: flex; align-items: center; justify-content: space-between; height: 48px; padding: 0 16px; border-bottom: 1px solid var(--bbm-line); box-sizing: border-box; background: #fff; }
+.bbm-m-toolbar .bbm-seller-tabs { display: flex; align-self: stretch; }
+.bbm-m-toolbar .bbm-seller-tabs button { position: relative; height: 47px; padding: 12px 8px 16px; border: 0; background: none; color: var(--bbm-tab-inactive); font-size: 14px; font-weight: 500; line-height: 19.6px; cursor: pointer; }
+.bbm-m-toolbar .bbm-seller-tabs button.is-selected { color: var(--bbm-text); font-weight: 600; }
+.bbm-m-toolbar .bbm-seller-tabs button.is-selected::after { content: ""; position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; background: var(--bbm-text); }
+.bbm-m-view { display: grid; width: 20px; height: 47px; place-items: center; padding: 0; border: 0; background: none; }
+.bbm-m-view img { width: 20px; height: 20px; }
+/* 카드 모바일: 12/0, 아래 선, 사진 122×120 라운드 12, 간격 24 */
+.bbm-m-list { padding: 0 16px; }
+.bbm-result-card.is-mobile { padding: 12px 0; border-bottom: 1px solid var(--bbm-line); }
+.bbm-result-card.is-mobile .bbm-card-main { gap: 24px; }
+.bbm-result-card.is-mobile .bbm-card-photo { width: 122px; height: 120px; border-radius: 12px; }
+.bbm-result-card.is-mobile .bbm-card-media-footer { height: 31.4px; padding: 8px 9px; }
+.bbm-result-card.is-mobile .bbm-card-time { font-size: 11px; font-weight: 600; line-height: 15.4px; }
+.bbm-result-card.is-mobile .bbm-card-text { height: 104px; }
+.bbm-result-card.is-mobile .bbm-card-title { font-size: 15px; line-height: 21px; }
+.bbm-result-card.is-mobile .bbm-card-spec { height: 24px; color: var(--bbm-tab-inactive); line-height: 24px; }
+.bbm-result-card.is-mobile .bbm-card-price-badges { display: flex; flex-direction: column; align-items: flex-start; }
+.bbm-result-card.is-mobile .bbm-card-price { height: 24px; align-items: center; line-height: 22.4px; }
+.bbm-result-card.is-mobile .bbm-card-badges { height: 28px; }
+.bbm-result-card.is-mobile .bbm-card-location { height: 24px; gap: 2px; color: var(--bbm-text-muted); font-size: 13px; line-height: 18px; }
+.bbm-result-card.is-mobile .bbm-card-meta-row { height: 20px; margin-top: 4px; }
+.bbm-result-card.is-mobile .bbm-card-seller-logo { width: 16px; height: 16px; }
+.bbm-result-card.is-mobile .bbm-card-seller-text { gap: 8px; }
+.bbm-result-card.is-mobile .bbm-card-seller-text strong { color: var(--bbm-text); }
+.bbm-result-card.is-mobile .bbm-card-actions button, .bbm-result-card.is-mobile .bbm-card-actions img { width: 20px; height: 20px; }
+.bbm-result-card.is-mobile .bbm-card-wish-on { width: 20px; height: 20px; }
+/* 하단 탭바 74 */
+.bbm-bottom-gnb { position: absolute; right: 0; bottom: 0; left: 0; z-index: 30; height: 74px; padding-top: 5px; box-sizing: border-box; }
+.bbm-bottom-gnb__background { position: absolute; top: 0; left: -1px; width: 100%; height: 75px; pointer-events: none; }
+.bbm-bottom-gnb__inner { position: relative; display: flex; height: 69px; }
+.bbm-bottom-gnb__item { display: flex; flex: 1; flex-direction: column; align-items: center; gap: 4px; margin-top: 11px; padding: 7px 0 10px; border: 0; background: none; color: var(--bbm-text-muted); cursor: pointer; }
+.bbm-bottom-gnb__item img { width: 24px; height: 24px; }
+.bbm-bottom-gnb__label { color: var(--bbm-text-disabled); font-size: 11px; font-weight: 500; line-height: 13px; }
+.bbm-bottom-gnb__item.is-active .bbm-bottom-gnb__label { color: var(--bbm-text); font-weight: 700; }
+.bbm-bottom-gnb__item.is-register { flex: 0 0 84px; margin-top: 0; padding: 0 0 4px; }
+.bbm-bottom-gnb__register-button { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; background: var(--bbm-blue); }
+.bbm-bottom-gnb__register-button img { width: 32px; height: 32px; }
+.bbm-bottom-gnb__register-label { padding: 2px 12px; border-radius: 50px; background: var(--bbm-blue); color: #fff; font-size: 11px; font-weight: 700; line-height: 13px; }

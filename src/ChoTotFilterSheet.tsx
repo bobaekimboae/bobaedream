@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { PriceSelection, SellerType } from "./Prototype";
 import "./chotot-filter.css";
+import { emptyBbmFilters, type BbmFilterValues } from "./prototype/filters/bbm-filter-state";
 
 export type ChoTotFilterState = {
   category: string;
@@ -19,6 +20,8 @@ export type ChoTotFilterState = {
   body: string;
   videoOnly: boolean;
   seller: SellerType;
+  // QF-076: 개발 시안형 필터 공유 상태(사이드바·칩·모달·바텀시트·전체 필터 화면이 같은 값)
+  bbm?: BbmFilterValues;
 };
 
 export type ChoTotFilterFocus = "category" | "price" | "seats" | "maker" | "model" | "year" | "condition" | "mileage" | "owners" | "transmission" | "fuel" | "color" | "origin" | "body" | "video" | "seller";
@@ -42,6 +45,7 @@ export const emptyChoTotFilters: ChoTotFilterState = {
   body: "전체",
   videoOnly: false,
   seller: "전체",
+  bbm: emptyBbmFilters,
 };
 
 type View = "root" | "color" | "origin" | "model";
