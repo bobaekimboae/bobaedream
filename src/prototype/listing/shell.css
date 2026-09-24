@@ -1,0 +1,23 @@
+.top-bar { display: grid; grid-template-columns: 24px minmax(0, 1fr) 24px 24px; align-items: center; gap: 14px; height: 56px; padding: 6px 16px 8px 12px; box-sizing: border-box; background: #fff; }
+.icon-button, .search-save, .region-bar button, .filter-fixed, .filter-chip, .category-item, .brand-item, .bmw-model-card, .benz-model-chip, .depth-card, .trim-chip, .guazi-model-card, .guazi-trim-card, .seller-tabs button, .sort-button, .density-button, .like-button, .sheet-options button, .empty-state button { border: 0; background: none; padding: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.icon-button { display: grid; place-items: center; width: 24px; height: 24px; }
+.icon-button .ui-icon { width: 24px; height: 24px; }
+.back-button .ui-icon { transform: rotate(180deg) scaleY(-1); }
+.search-field { display: grid; grid-template-columns: 20px minmax(0, 1fr) 1px 24px; align-items: center; gap: 8px; min-width: 0; height: 42px; padding: 5px 8px 5px 12px; border-radius: 999px; background: var(--soft); box-sizing: border-box; }
+.search-field input { min-width: 0; height: 28px; padding: 0; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: 15px; font-weight: 600; }
+.search-field input::placeholder { color: #767676; opacity: 1; }
+.search-divider { width: 1px; height: 32px; background: #c0c0c0; }
+.search-save { display: grid; place-items: center; width: 24px; height: 24px; }
+.search-save .ui-icon { width: 24px; height: 24px; }
+.search-save svg { width: 24px; height: 24px; }
+.search-save.is-saved { color: var(--blue); }
+.market-toast { position: absolute; right: 24px; bottom: calc(var(--mobile-safe-area-height, 34px) + 22px); left: 24px; z-index: 18; padding: 12px 14px; border-radius: 10px; background: rgba(26,26,26,.92); color: #fff; font-size: 14px; font-weight: 500; line-height: 20px; text-align: center; box-shadow: 0 4px 14px rgba(0,0,0,.18); pointer-events: none; }
+
+.region-bar { display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 16px; background: #fff; }
+.region-bar button:first-child { display: flex; align-items: center; gap: 4px; min-height: 40px; font-size: 15px; }
+.region-label { color: #9e9e9e; font-weight: 500; }
+.region-bar strong { margin-left: 6px; color: var(--blue); font-weight: 600; }
+.region-chevron-icon { display: grid; width: 20px; height: 20px; flex: 0 0 20px; place-items: center; }
+.region-chevron-icon .ui-icon { width: 10px; height: 5px; object-fit: fill; }
+.reset-button { min-height: 40px; color: #3a3a3a; font-size: 15px; font-weight: 600; }
+

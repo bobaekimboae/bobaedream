@@ -1,127 +1,39 @@
-# Mobile Web Prototype Agent Guide
+# Bobaedream Agent Guide
 
-## Prototype Instructions
+## Before Work
 
-In ChatGPT Work Mode, run `sites-preview start "$PWD"`, open `http://terminal.local:4173/` in the cloud browser, and verify the rendered app and its primary interactions. Keep that preview open and tell the user to inspect it in the cloud browser; do not present the local URL as a user-facing chat link. In Codex Desktop, run the local server yourself, open the preview in the in-app browser, and provide the clickable local URL. Do not deploy to Sites unless the user explicitly asks to share, publish, or deploy. Do not give the user server-start instructions when you can run it.
-
-For this repository, after a requested site change passes verification, publish it to the existing GitHub Pages deployment without asking for a separate confirmation.
-
-Before planning or implementing any mobile-app change, read this `AGENTS.md` in full. It is the source of truth for the template's runtime and component guidance.
-
-Before making substantial visual changes, use the Product Design plugin's `get-context` skill when the visual source is unclear or no longer matches the current goal. When the user gives durable prototype-specific design feedback, preferences, or decisions, record them in `AGENTS.md`.
-
-When implementing from a selected generated mock, treat that image as the source of truth for layout, component anatomy, density, spacing, color, typography, visible content, and hierarchy.
+- Read this file before planning or editing.
+- For quick-filter work, also read `docs/quick-filter-spec.md` and `docs/보배드림_차량이미지_로고_에셋지침_v1.md`.
+- Add new quick-filter rules to `docs/quick-filter-spec.md`, not to this file.
 
 ## Editing Boundary
 
-- Build app-specific UI in `src/Prototype.tsx` and `src/prototype.css`.
-- Treat `src/App.tsx`, `src/main.tsx`, `src/styles.css`, `src/mobile/`, `public/assets/iphone/`, `public/assets/android/`, `public/assets/status/`, `vite.config.ts`, `worker/index.js`, and `scripts/prepare-sites-build.mjs` as protected runtime files. Do not edit, replace, remove, or recreate them unless the user explicitly asks to change the mobile runtime itself. The approved runtime is now responsive mobile web; do not restore the device mockup. For an explicit runtime change, update the affected lock hashes only after verifying the new runtime behavior.
-- Run `npm run check:runtime` before preview or handoff. If it fails, restore the protected runtime instead of weakening or bypassing the check.
-- `npm run build` preserves the mobile runtime and prepares the static Cloudflare Worker output required by Sites. Before a Sites handoff, confirm `dist/client/index.html`, `dist/server/index.js`, `dist/.openai/hosting.json`, and source `.openai/hosting.json` exist, then run `npm run test:sites`. Do not replace this project with a Vinext starter.
+- App-specific prototype code lives in `src/Prototype.tsx`, `src/prototype.css`, and `src/prototype/`.
+- Protected runtime files: `src/App.tsx`, `src/main.tsx`, `src/styles.css`, `src/mobile/`, `public/assets/iphone/`, `public/assets/android/`, `public/assets/status/`, `vite.config.ts`, `worker/index.js`, and `scripts/prepare-sites-build.mjs`.
+- Do not edit protected runtime files unless the user explicitly asks for runtime changes. If runtime changes are requested, update lock hashes only after verifying the new behavior.
+- Preserve the responsive mobile-web runtime. Do not restore device mockups, simulated status bars, bezels, home indicators, or simulated keyboards.
+- See `src/mobile/COMPONENTS.md` for the mobile component, keyboard, carousel, sheet, and gesture contract.
 
-## Runtime Contract
+## Quick-Filter Scope
 
-- Preserve the responsive mobile-web runtime. Do not render an iPhone/Android bezel, device picker, simulated status bar, camera cutout, home indicator, custom cursor, or simulated keyboard.
-- Keep `App` composed around `MobileRuntime` -> `MobileDeviceProvider` -> `PhoneFrame` -> `KeyboardProvider`. `PhoneFrame` is now a browser viewport shell and portal host, not a device frame.
-- On phones, the shell fills the full browser width and `100dvh`. On wider screens, keep the content column centered at a maximum width of 430px without adding device chrome.
-- Resolve top and bottom safe areas with `env(safe-area-inset-top)` and `env(safe-area-inset-bottom)`. Use the browser's native text-entry keyboard; do not reserve the legacy simulated-keyboard height.
-- Legacy device presets and assets remain checked in for compatibility only and must not appear in the deployed interface.
-- Use `MobileScroll` directly for simple single-screen prototypes. Use `FlowStack` for conventional multi-screen flows whose routes can own their fixed header and footer; when using it, define each route as a `FlowScreen`: `{ id, header?, headerHeight?, footer?, footerHeight?, render }`, and use `flow.push(screen)`, `flow.pop()`, and `flow.replace(screen)` from `FlowStack` render callbacks or `useFlow()` instead of introducing another router.
-- Use `Carousel` for a carousel, horizontal rail, swipeable cards, image or media strip, horizontally scrollable cards, chip rail, or other horizontal collection.
-- For a layered app shell—such as a persistent composer, independently presented sheet, pushed/peek sidebar, or app-wide transition—compose directly in `Prototype.tsx` rather than forcing it through `FlowStack`. Keep app-owned fixed chrome as sibling layers outside `MobileScroll`.
-- When using `FlowScreen`, put route-owned fixed headers or footers in `FlowScreen.header` or `FlowScreen.footer`. Set `headerHeight` to the visible app-toolbar height; `FlowStack` adds the device's top safe-area/status-bar inset automatically. Do not include `StatusBar` or its height in the header. Set `footerHeight` to the full app-footer height. `FlowScreen.footer` is an overlay, not reserved layout space; screens using it must add their own bottom content padding such as `padding-bottom: calc(var(--flow-footer-height) + var(--mobile-safe-area-height) + 24px)` so final content can scroll above the footer while still painting behind it.
-- Render only scrollable content inside `MobileScroll`; it is for content that should move with scroll and rubber-band overscroll. Keep app-owned headers, nav bars, tabs, composers, and overlays outside it. This keeps scroll physics, safe areas, keyboard insets, scrollbars, and drag click suppression active without letting content paint under fixed chrome.
-- Buttons, links, cards, and images inside `MobileScroll` should still allow drag scrolling when the pointer moves beyond tap slop. Use `data-scroll-drag="ignore"` only for rare controls that must own the drag gesture themselves.
-- Do not add `var(--keyboard-height)` to ordinary screen/content padding inside `MobileScroll`; the scroll viewport already shrinks above the simulated keyboard. For custom fixed composers, search bars, or toast chrome, use `useKeyboardInsets().bottomInset`. It is relative to the app viewport: Android returns `0` while the closed-keyboard viewport already reserves navigation, then returns the keyboard height while open; iOS continues to clear the home indicator while closed and ride directly above the keyboard while open. Do not pin custom bottom chrome to `bottom: 0` or only `keyboardHeight`.
-- Use `KeyboardInput`, `KeyboardTextarea`, or `MobileTextField` for every text-entry control. A raw `input` or `textarea` disconnects focus, keyboard animation, safe-area insets, and attached surfaces.
-- Use `BottomSheet` for phone-scoped sheets. Its props are `open`, `onOpenChange`, `title`, optional `description`, optional `snap`, and `children`; it renders through the phone screen portal and dismisses the keyboard before opening.
+- Until repository splitting is complete, these paths are outside normal quick-filter work: `apps/variable-category-admin`, `admin-server`, `public/category-admin`, `public/shortform*`, `public/option-admin`, and `public/vehicle-history`.
+- Do not change those out-of-scope paths for quick-filter tasks unless the user explicitly includes them.
 
-## Horizontal Carousels
+## Validation
 
-- Use `Carousel` for horizontally draggable cards, images, media, chips, or other horizontal collections. Do not recreate these with `overflow-x`, custom pointer handlers, or a generic div.
-- `Carousel` can be nested directly inside `MobileScroll`. It owns horizontal gestures and automatically yields vertical gestures to the parent.
-- Never put `data-scroll-drag="ignore"` on or around a `Carousel`; doing so prevents vertical parent scrolling when a gesture begins inside it.
-- Do not add CSS scroll snapping to `Carousel`; its runtime owns momentum and release motion.
-- Use `data-scroll-drag="ignore"` only when a control must prevent parent scrolling in every drag direction.
+- Run `npm run check:runtime` before preview or handoff when prototype files changed.
+- Run `npm run verify:qf` for quick-filter and prototype-screen changes. It runs runtime check, TypeScript, and Vite build without Storybook or admin tests.
+- Run full `npm run verify` for main deployment or changes that touch deployment, admin, Storybook, shared package scripts, or workflows.
+- Run `npm run build` when verifying Pages output; confirm `dist/client` does not contain Storybook unless intentionally building Storybook elsewhere.
 
-See `src/mobile/COMPONENTS.md` for the full component and gesture contract.
+## Deploy And Merge
 
-## Keyboard Rule
+- Publish to the existing GitHub Pages deployment only when the user asks for deployment or the current instruction explicitly approves it.
+- Do not merge PRs unless the user approves merge for that step.
+- Report PR links, commit hashes, validation results, deployment run, deployed `v` value, bundle name, and itemized ID results when the instruction includes IDs.
 
-Text fields use the browser's native keyboard. Before presenting navigation or modal UI, blur the active field first.
+## Documentation
 
-Call `keyboard.hide()` before:
-
-- pushing, popping, or replacing FlowStack routes
-- opening bottom sheets, action sheets, dialogs, menus, or navigation sheets
-- starting transitions where the destination should not inherit text-input focus
-
-`FlowStack` already hides the keyboard for `push`, `pop`, and `replace`. `BottomSheet` already hides it before opening. If you add new modal/sheet/navigation primitives, follow the same rule.
-
-When a composer, search surface, or other keyboard-attached component closes, call `keyboard.hide()` in the same event before changing that component's open state. Do not add a simulated keyboard asset or a fixed keyboard-height inset.
-
-When any text-entry control loses focus, clear the keyboard context. If the control is custom or does not use the runtime's keyboard-aware fields, handle its blur event and call `keyboard.hide()` explicitly.
-
-## Interaction Rules
-
-- Do not trigger buttons or inputs after a pointer has become a drag. Preserve the drag suppression behavior in `MobileScroll`.
-- Do not allow native browser image/file dragging inside the mobile-web shell. Preserve the shell-level `dragstart` suppression and non-draggable image styles so scroll drags that begin on images still scroll the prototype.
-- Use `KeyboardInput`, `KeyboardTextarea`, or `MobileTextField` for text entry so focus and modal-dismissal behavior stay connected.
-- Fixed mobile-web headers and footers should not animate with pushed screens. Screen content can animate while browser chrome remains outside the app.
-
-## Prototype-Specific Design Decisions
-
-- On desktop viewports (820px and wider), list entries open the PC detail from Figma node `2607:9545`: a 1200px content area with a 736px media/information column, 12px gap, and 452px price/seller column. Preserve the separate mobile detail below that breakpoint. PC uses its own title and price classes so the existing mobile override stylesheet cannot replace PC content.
-
-- Deploy this prototype as responsive mobile web: remove all iPhone/Pixel mockup chrome and fill the browser viewport on mobile, while centering a bezel-free 430px content column on wider screens.
-- Listing location rows show only the address. Do not append a separator, views icon, or numeric view count beside it in either list or card view.
-
-- In BMW model-selection mode on the 393px mobile viewport, keep four model cards fully visible and show the fifth card partially at the right edge to communicate horizontal scrolling.
-- Label the BMW model-selection rail as `모델` and vertically center that label against the full rail height.
-- When Mercedes-Benz (`벤츠`) is selected, replace the manufacturer-logo rail with the Figma chip pattern: label it `모델` and show horizontally scrollable outline chips in Encar class order, beginning `A-클래스`, `B-클래스`, `C-클래스`, `CL-클래스`, `CLA-클래스`, `CLE-클래스`, `CLK-클래스`, `CLS-클래스`, `E-클래스`, then EQ/G/GL/S/SL/AMG/V/스프린터/190/기타 classes. Selecting a chip filters the randomized Mercedes-Benz inventory.
-- `A-클래스` depth follows the Encar-style model group path: `A-클래스` opens generation/model chips named `A-클래스 W177`, `A-클래스 W176`, `A-클래스 W169`, and `A-클래스 W168`, then detail-grade chips such as `A220`, `A250 4MATIC`, `AMG A35 4MATIC`, and `AMG A45 S 4MATIC+`.
-- In the `과쯔` quick-filter style, Mercedes-Benz `A-클래스` model, generation, and detail-grade rails use measured Guazi image cards: 72px card height, minimum 80px width, 48×24 vehicle image, 12px primary label, and 11px secondary label. The A-Class generation images are white studio cutouts generated for `W177`, `W176`, `W169`, and `W168`.
-- In the `과쯔` quick-filter style, every Mercedes-Benz model chip in the Encar class order uses a generated white/silver vehicle image card. Model cards show the model name plus inventory count; detail-grade cards show only the grade name below the image and must not add a generic `세부모델` label.
-- The view-mode icon to the right of `최신순` toggles between the default compact list and the Figma full-width card feed. Show the three-line list icon in list mode and the exact Figma card-view icon (node `1412:157677`) in card mode so the icon always reflects the active layout. Card mode uses a large 380:220 vehicle photo, photo metadata overlay, two-line title, full specs/price/badges, seller details, and action icons; tapping it again restores the original list without clearing filters or randomized inventory.
-- Tapping `지역: 전국` opens the Figma region-selection sheet from node `1674:17622`. Preserve its 14 px top radius, 60 px title row, gray circular close control, exact chevron asset, province and district selectors, six quick-region chips, nearby-radius selector, and 118 px reset plus flexible navy `798대 매물 보기` confirm action. Confirmed province/district selections update the header label and filter inventory; dismissing the sheet does not apply draft changes.
-- The bookmark control inside the top search field is a reversible saved-search toggle. Its inactive state uses the existing outline asset; its active state uses a solid blue bookmark. Show `검색 조건을 저장했습니다.` after saving and `저장한 검색 조건을 삭제했습니다.` after removing, then dismiss each phone-scoped toast automatically.
-- Listing metadata uses the corrected user-facing labels: Jeong Yujin listings show `개인판매자`, Kim Taeyoon shows `와이즈오토 김태윤`, relevant complexes show `오토갤러리`, and white/gray seat colors show `흰색시트`/`회색시트`; seller availability text must wrap instead of clipping.
-- All private-party listings display only `개인판매자` with no personal name, and all dealer listings omit the trailing `딜러` label after the seller's name.
-- Each listing heart toggles between a gray outline and a solid red saved state. The header heart opens a `저장한 매물` FlowStack screen with dynamic listing/video counts, removable saved rows, and an empty state.
-- Tapping the `제조사` filter opens a near-full-height manufacturer sheet matching the supplied reference, with a centered title, close action, keyboard-aware search, real brand marks, scrollable rows, native single-select radios, and immediate inventory filtering on selection.
-- After a quick manufacturer logo is selected, the active manufacturer chip separates its label and clear action: tapping the label (for example `BMW`) reopens the manufacturer sheet, while tapping its `X` resets manufacturer/model selection and restores the default manufacturer rail and inventory.
-- Listing cards receive 0–3 non-duplicated badges when their inventory is shuffled, selected from `브랜드인증`, `제조사보증`, `1인소유`, `가격인하`, and `인증중고차`. Keep the price-to-badge gap consistently 2 px in both compact and card views, and render no empty badge row when a listing receives zero badges.
-- Keep the compact listing's price/badge block and location block in normal flow with a consistent 10px gap. Listings without badges must use the same visual gap from price to location that badged listings use from badges to location, reduce their compact row height by the absent 22px badge row, and keep the seller-to-bottom-divider spacing equal to badged listings. No row may receive a special extra height based on its list position.
-- Display vehicle mileage in truncated buckets across listing and detail surfaces: `54,200km` becomes `5만km`, `26,500km` becomes `2만km`, and values below 10,000km use truncated thousand-kilometer buckets such as `9,820km → 9천km` and `8,130km → 8천km`.
-- Keep manufacturer rows easy to scan on mobile: use large Korean brand names, generous row height, and clear left padding before the real brand marks.
-- Tapping the `가격` filter opens the Figma price sheet from node `1313:139816`, with cash/lease tabs, dual price controls, eight quick ranges, draft reset, dynamic result count, and confirm-to-apply behavior. Closing the sheet discards draft changes.
-- Keep only the filter control fixed at the left of the filter rail. `중고차`, the selected manufacturer such as `벤츠`, `연식`, `가격`, and every other condition move together inside the horizontal `Carousel`. In the default state the fixed control shows the filter icon and `필터` text. As soon as any non-category condition is applied, hide the `필터` text and show only the black filter icon plus the number of active non-category filter groups; manufacturer selection starts the count at `1` and each additional condition increments it.
-- Manufacturer brand marks start at least 28px from the sheet's left edge.
-- The detail hero contains 24 swipeable photo slides. Keep the lower-right counter synchronized with the visible slide so the first swipe changes `1/24` to `2/24` and subsequent swipes continue through `24/24`.
-- Match the updated detail thumbnail rail in Figma node `1797:14837`: place a 74px rail directly against the 305px hero, use 64px square thumbnails with 8px gaps and 12px side padding, let the next thumbnail peek at the right edge, and draw the selected state as a white separation ring plus a dark outer outline. Keep thumbnail taps, the main photo carousel, the active outline, and the `1/24` counter synchronized; do not restore the old equal-width five-item rail or next-arrow overlay.
-- Do not show the centered `영상` / `사진 24` media tabs inside the detail hero photo. Keep only the synchronized lower-right photo counter over the image and the thumbnail rail beneath it.
-- Match the price-history pagination arrows to Figma node `1674:15566`: 36px gray circular buttons, an 18px icon frame, and the exact exported 10px-by-6px chevron rotated 90 degrees for previous and -90 degrees for next. Preserve the asset's own gray states and never fade the entire disabled button.
-- On first entry, show the Figma vehicle-category rail in this exact order: `중고차`, `트럭 · 특장`, `바이크`, `캠핑카`, `올드카`, `건설기계`, `부품 · 용품`. Use the exact exported category icons, render `올드카` with the user-supplied AutoScout icon at `public/assets/categories/old-car.svg` flipped horizontally, and keep the rail 84px tall with the Figma spacing. Tapping `중고차` replaces that rail with the existing BMW/Mercedes manufacturer selector without leaving the listing screen.
-- Keep the top quick-filter row in the Figma default state: the fixed `필터` chip is gray, the pinned default category is a black `전체` chip with a clear icon, and the scrollable conditions begin `제조사`, `연식`, `가격`.
-- Tapping the pinned `카테고리` chip, including after it changes to `중고차`, opens the Figma category sheet from node `8698:49850`. Keep the `중고차` row expanded by default with `전체 중고차`, `국산차`, `수입차`, and `전기차` chips; its right arrow toggles only that child row without dismissing the sheet.
-- Match the updated detail `차량 옵션` card in Figma node `1797:14837`: keep the four-column 14px label grid and use this exact icon/name order: `파노라마 선루프`, `LED 헤드램프`, `어댑티브 크루즈 컨트롤`, `후방카메라`, `어라운드뷰`, `스마트키`, `순정 내비게이션`, `열선시트`, `통풍시트`, `헤드업 디스플레이`, `전동트렁크`, `자동 긴급제동`. The sixth icon must be the exported smart-key artwork from node `1797:15054`, and the exported information glyph remains beside both paid selected options.
-- Render Porsche with `public/assets/brand/porsche-symbol.png`, the high-resolution transparent export of the exact user-provided crest, in both manufacturer rails and the manufacturer sheet; never substitute a generic icon or use different artwork.
-- Match the detail `차량 정보` card to Figma node `1797:13393`, but omit the `지역` row per the latest product decision: show the remaining seven core fields as full-width 44px table rows with labels on the left and semibold values aligned in a single right column. Keep extended details collapsed behind the centered `더보기` control and rotate the exact exported chevron when the card expands.
-- Keep the default GitHub Pages URL in the mobile marketplace view. Expose the PC marketplace/detail preview through an explicit `?desktop=1` or `?pc=1` query parameter so mobile sharing links do not accidentally render the desktop layout.
-- In the `과쯔` quick-filter depth flow, selected depth chips are navigation controls as well as active filters: tapping the selected model chip returns to the model rail, tapping the selected generation chip returns to the generation rail, and tapping the selected trim chip returns to the trim rail without changing protected runtime files.
-- In the `과쯔` quick-filter follow-up spec, hide inventory-count text by default while keeping count calculation behind a single display flag, use 80×72 centered model/generation cards, keep generation labels to generation plus year only, use Bobaedream blue for selected trim states, and keep the trim apply action in a separate grid column so it never overlaps scrolling chips.
-- In the `과쯔` quick-filter mode, the first four scenario depths (`차량유형`, `제조사`, `모델`, `세대`) must all render with one shared 80×72 `DepthCard` pattern; only the image and label/sub-label change by depth. The fifth `트림` depth uses text-only `TrimChip` controls, not image cards.
-- In the `과쯔` quick-filter mode, trim chips follow the ChoTot-style text pill pattern and apply immediately on toggle with no checkbox, no apply button, and no vehicle-header replacement. Generation cards are the only depth cards that show code names such as `W177`; selected filter chips keep generation labels code-free.
-- In the `과쯔` quick-filter mode, vehicle images used inside `DepthCard` are trimmed into dedicated 48×24 display assets that fill the slot width, manufacturer logos use trimmed symbol marks at 28px height or wordmarks at 44px width, and the `제조사`/`모델`/`세대` rails do not show a leading `전체` card. Only the `트림` rail keeps the `전체` text chip.
-- In the `과쯔` quick-filter mode, the top filter rail summarizes manufacturer, model, and generation in one selected vehicle chip. Its clear action unwinds the deepest selected level first, and tapping the label opens the vehicle selection sheet so manufacturer/model/generation can be changed together without adding a back card to the depth rail.
-- Latest `과쯔` v2 depth spec: keep the flow `차량유형 → 제조사 → 모델 → 세대 → 트림`; `제조사`/`모델`/`세대` use one shared 80×72 `DepthCard` pattern inside a 96px rail with 12px vertical padding, 13px centered rail labels, `#F7F8FC` cards, 8px radius/gap, Bobaedream blue selected states, 48×24 vehicle slots, and 28px symbol or 44px wordmark logos. Generation cards may show code names such as `W177`; the merged summary chip must not.
-- Latest `과쯔` v2 trim spec: trim uses immediate-toggle ChoTot-style text pills only, height 32, white background, `#DDE1E7` border, pill radius, 14px/400 text, Bobaedream blue selected state, disabled zero-inventory choices, no checkbox, no apply button, and no vehicle-header replacement. The trim rail keeps only the leading `전체` chip.
-- Latest `과쯔` v2 top-chip and sheet rules: the chip order is fixed as `[필터] [중고차/카테고리] [요약 칩] [트림] [가격] [연식] [주행] [색상]`; show `연식` until a generation is selected, hide it after generation selection, and always show `색상`. The merged vehicle summary chip is max 220px with ellipsis while its clear `X` remains visible.
-- Latest `과쯔` v2 vehicle-picker sheet rules: tapping the merged summary chip opens the vehicle picker sheet. Its model and generation options wrap to multiple lines, manufacturer options wrap when the list grows beyond one row, the sheet is capped at 80% viewport height with internal vertical scrolling, and reset/apply actions stay sticky at the bottom.
-- Latest `과쯔` depth fallback rule: if a selected model has no generation data, skip the generation depth and show trim choices when they exist; if neither generation nor trim data exists, keep the model rail visible with that model selected instead of returning to the manufacturer rail. In the vehicle picker sheet, show `세대 정보 없음` only after a model without generation data is selected.
-- Latest `과쯔` vehicle image rule: model and generation card images must be front-left three-quarter views, white or silver/light-colored, whitespace-trimmed into 2:1 card assets at 144×72 or larger, and bottom-aligned so the visible vehicle remains about 45–47×20–23 in the 48×24 slot.
-- Manufacturer emblem source decision: prefer the sheet-provided Dongchedi-style brand marks in `public/assets/brand/dongchedi/` for matched manufacturer rails and picker sheets. Keep explicit fallback assets only for brands missing from the workbook, such as `리막` and `루시드`.
-- Asset quality rule: vehicle images and manufacturer marks follow `docs/보배드림_차량이미지_로고_에셋지침_v1.md`; passenger vehicles use `bodyFit: "width"`, while commercial/high-body vehicles and two-wheelers use `bodyFit: "height"` without changing the depth-card slot for the active spec.
-- Latest `과쯔` v5 model-card rule: 모델 카드 2줄째 = 바디타입 한 단어 / BEV만 좌상단(4·4) 16px 스파크 아이콘 #177245 / 이미지 칸 56×28.
-
-
+- Legacy preview and Work Mode notes live in `docs/legacy-agent-notes.md`.
+- Quick-filter behavior and visual rules live in `docs/quick-filter-spec.md`.
+- Vehicle image and logo asset rules live in `docs/보배드림_차량이미지_로고_에셋지침_v1.md`.

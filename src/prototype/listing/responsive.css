@@ -1,0 +1,88 @@
+@media (min-width: 820px) {
+  body { background: #ffffff; }
+  #root .mobile-web-stage { max-width: none !important; margin: 0; box-shadow: none; }
+  .marketplace { padding-inline: 24px; }
+  .top-bar { max-width: 1440px; margin: 0 auto; }
+  .region-bar, .filter-shell, .category-row, .brand-row, .video-toggle-row, .list-toolbar { max-width: 1440px; margin-right: auto; margin-left: auto; }
+  .car-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; max-width: 1440px; margin: 0 auto; padding: 12px; border-top: 0; background: #f4f5f7; }
+  .car-card, .car-card.has-no-badges:not(.is-card-view) { min-height: 156px; padding: 12px 14px; border-right: 0; border-bottom: 0; border-radius: 12px; }
+  .car-card:nth-child(3n) { border-right: 0; }
+  .car-photo-wrap { width: 132px; height: 132px; }
+  .car-card.is-card-view { grid-column: span 1; padding: 16px; }
+  .car-card.is-card-view .car-photo-wrap { width: 100%; margin: 0; }
+  .car-card.is-card-view .car-copy { padding: 0; }
+}
+
+@media (max-width: 390px) {
+  .top-bar { gap: 10px; }
+  .car-card { grid-template-columns: 124px minmax(0, 1fr); gap: 10px; padding: 12px; }
+  .car-photo-wrap { width: 124px; height: 124px; }
+  .car-copy { min-height: 124px; }
+  .car-main h2, .trim { font-size: 15.5px; line-height: 20px; }
+  .specs, .location-line, .dealer-line p { font-size: 12.5px; line-height: 17px; }
+  .detail-media-track > img { width: 393px; flex-basis: 393px; }
+}
+
+html[data-force-mobile] body { background: #f3f4f6; }
+html[data-force-mobile] #root .mobile-web-stage {
+  width: 100vw;
+  max-width: none !important;
+  margin: 0;
+  box-shadow: none;
+}
+html[data-force-mobile-wide] body { overflow: hidden; }
+html[data-force-mobile-wide] #root .mobile-web-stage {
+  width: 430px;
+  max-width: 430px !important;
+  height: var(--force-mobile-height, 100dvh);
+  min-height: var(--force-mobile-height, 100dvh);
+  transform: scale(var(--force-mobile-scale, 1));
+  transform-origin: top left;
+}
+html[data-force-mobile] .marketplace { padding-inline: 0; }
+html[data-force-mobile] .top-bar,
+html[data-force-mobile] .region-bar,
+html[data-force-mobile] .filter-shell,
+html[data-force-mobile] .category-row,
+html[data-force-mobile] .brand-row,
+html[data-force-mobile] .video-toggle-row,
+html[data-force-mobile] .list-toolbar {
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+}
+html[data-force-mobile] .car-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: none;
+  margin: 0;
+  padding: 0 0 calc(var(--mobile-safe-area-height) + 88px);
+  border-top: 8px solid #f5f5f5;
+  background: #fff;
+}
+html[data-force-mobile] .car-card,
+html[data-force-mobile] .car-card.has-no-badges:not(.is-card-view) {
+  min-height: 156px;
+  padding: 12px 14px;
+  border-right: 0;
+  border-bottom: 1px solid #f0f1f3;
+  border-radius: 0;
+}
+html[data-force-mobile] .car-photo-wrap {
+  width: 132px;
+  height: 132px;
+}
+html[data-force-mobile] .car-card.is-card-view {
+  display: block;
+  grid-column: auto;
+  min-height: 0;
+  padding: 12px 0 16px;
+}
+html[data-force-mobile] .car-card.is-card-view .car-photo-wrap {
+  width: calc(100% - 32px);
+  height: auto;
+  aspect-ratio: 380 / 220;
+  margin: 0 16px;
+}
+html[data-force-mobile] .car-card.is-card-view .car-copy { padding: 0 16px; }
