@@ -1,0 +1,157 @@
+.filter-shell { display: grid; grid-template-columns: 92px minmax(0, 1fr); align-items: center; column-gap: 6px; height: 50px; background: #fff; }
+.filter-fixed { z-index: 2; display: flex; align-items: center; justify-content: center; gap: 6px; width: 76px; height: 34px; margin-left: 16px; border-radius: 30px; background: var(--soft); color: #3a3a3a; font-size: 15px; font-weight: 500; white-space: nowrap; }
+.filter-fixed span { overflow: hidden; max-width: 30px; }
+.filter-fixed .ui-icon { width: 20px; height: 20px; }
+.filter-shell.has-active-filters { grid-template-columns: 72px minmax(0, 1fr); }
+.filter-shell.has-active-filters .filter-fixed { width: 56px; color: #1a1a1a; font-weight: 600; }
+.filter-shell.has-active-filters .filter-fixed span { max-width: 18px; }
+.filter-rail { min-width: 0; height: 50px; background: #fff; }
+.filter-track { display: flex; align-items: center; gap: 6px; min-width: max-content; padding: 10px 16px 10px 0; }
+.filter-chip { display: flex; align-items: center; justify-content: center; gap: 5px; height: 30px; padding: 5px 11px; border-radius: 30px; background: #f7f8fc; color: #32373f; font-size: 14px; font-weight: 500; line-height: 20px; white-space: nowrap; }
+.filter-chip.is-active { background: var(--ink); color: #fff; }
+.filter-chip > button { display: flex; align-items: center; min-width: 0; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.filter-chip.is-vehicle-summary { max-width: 220px; }
+.filter-chip-label { height: 20px; overflow: hidden; }
+.filter-chip-label span { display: block; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.filter-chip-clear { width: 20px; height: 20px; justify-content: center; }
+.filter-chip-clear .ui-icon { width: 20px; height: 20px; }
+
+.category-row { height: 92px; background: #fff; }
+.category-carousel { height: 92px; }
+.category-track { display: flex; align-items: flex-start; gap: 0; min-width: max-content; padding: 5px 12px 10px; box-sizing: border-box; }
+.category-item { display: flex; flex-direction: column; align-items: center; gap: 7px; width: var(--measured-category-slot); min-height: 77px; color: #4e5156; font-size: 12px; font-weight: 500; line-height: 16px; text-align: center; white-space: nowrap; }
+.category-icon { display: grid; place-items: end center; width: 56px; height: 28px; flex: 0 0 28px; background: transparent; }
+.category-icon img { display: block; object-fit: contain; object-position: center bottom; }
+.category-icon.is-fit-width img { width: 56px; height: auto; max-height: 28px; }
+.category-icon.is-fit-height img { width: auto; height: 28px; max-width: 56px; }
+.category-item > span:last-child { display: block; width: var(--measured-category-slot); }
+.category-item:active .category-icon { transform: translateY(1px); }
+
+.brand-row { display: grid; grid-template-columns: 63px minmax(0, 1fr); align-items: center; height: 86px; background: #fff; }
+.brand-title { padding-left: 16px; font-size: 15px; font-weight: 600; }
+.brand-carousel { height: 70px; }
+.brand-track { display: flex; gap: 32px; min-width: max-content; padding: 0 16px 0 0; }
+.brand-item { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 48px; height: 70px; border-radius: 10px; color: #616161; font-size: 13px; font-weight: 500; transition: background 120ms ease, color 120ms ease; }
+.brand-item.is-selected { background: #f2f6fb; color: var(--blue); }
+.brand-logo { display: grid; place-items: center; width: 48px; height: 48px; }
+.brand-logo img { display: block; max-width: 48px; max-height: 36px; object-fit: contain; }
+.brand-logo svg { display: block; width: 34px; height: 34px; }
+.brand-logo-fallback { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; background: #f1f1f1; color: #222; font-size: 12px; font-weight: 700; }
+.brand-item:first-child .brand-logo img { width: 34px; height: 34px; }
+.brand-item:nth-child(2) .brand-logo img { width: 37px; height: 36px; }
+.brand-full { width: 48px; height: 70px; object-fit: contain; }
+.category-brand-row { grid-template-columns: 63px minmax(0, 1fr); height: 86px; padding: 0; box-sizing: border-box; }
+.category-brand-row .brand-title { display: block; color: #616161; font-size: 15px; font-weight: 500; }
+.category-brand-row .brand-carousel { height: 70px; }
+.category-brand-row .brand-track { gap: 32px; padding: 0 16px 0 0; }
+.category-brand-row .brand-item { width: 48px; height: 70px; gap: 4px; border-radius: 10px; background: transparent; color: #616161; font-size: 13px; line-height: normal; }
+.category-brand-row .brand-item.is-selected { background: transparent; color: var(--ink); }
+.category-brand-row .brand-logo { width: 48px; height: 48px; margin-top: 0; }
+.category-brand-row .brand-logo img { max-width: 48px; max-height: 36px; }
+.category-brand-row .brand-logo svg { width: 34px; height: 34px; }
+.category-brand-row .brand-logo-fallback { width: 34px; height: 34px; font-size: 12px; }
+.category-brand-row .brand-item:first-child .brand-logo img,
+.category-brand-row .brand-item:nth-child(2) .brand-logo img { width: auto; height: auto; max-width: 34px; max-height: 27px; }
+.brand-row.is-model-mode { grid-template-columns: 46px minmax(0, 1fr); height: 63px; border-top: 0; border-bottom: 0; }
+.brand-row.is-model-mode .brand-title { display: flex; align-self: stretch; align-items: center; padding: 0 0 0 16px; color: #616161; font-size: 13px; font-weight: 600; }
+.brand-row.is-model-mode .brand-carousel { height: 63px; }
+.bmw-model-track { display: flex; align-items: center; gap: 8px; min-width: max-content; padding: 10px 16px 10px 0; }
+.bmw-model-card { display: grid; grid-template-rows: 25px 18px; width: var(--measured-model-card-w); height: var(--measured-model-card-h); overflow: hidden; border: 0; border-radius: 6px; background: #f7f8fc; color: #252527; font-size: 12px; font-weight: 500; line-height: 18px; text-align: center; transition: box-shadow 140ms ease, background 140ms ease, color 140ms ease; }
+.bmw-model-card img { display: block; width: 55px; height: 21px; margin: 4px auto 0; object-fit: contain; }
+.bmw-model-card span { display: grid; place-items: start center; border-top: 0; white-space: nowrap; }
+.bmw-model-card.is-selected { background: #eef4ff; color: var(--blue); box-shadow: inset 0 0 0 1px var(--blue); }
+.brand-row.is-benz-model-mode { grid-template-columns: 55px minmax(0, 1fr); height: 54px; border-bottom: 1px solid #f3f3f3; }
+.brand-row.is-benz-model-mode .brand-title { padding-left: 16px; color: #616161; font-size: 15px; font-weight: 500; }
+.brand-row.is-benz-model-mode .brand-carousel { height: 54px; }
+.benz-model-track { display: flex; align-items: center; gap: 6px; min-width: max-content; padding: 10px 16px 10px 0; }
+.benz-model-chip { height: 34px; padding: 7px 16px; border: 1px solid #e0e0e0; border-radius: 30px; background: #fff; color: #3a3a3a; font-size: 15px; font-weight: 500; line-height: 20px; white-space: nowrap; transition: border-color 140ms ease, background 140ms ease, color 140ms ease; }
+.benz-model-chip.is-selected { border-color: var(--blue); background: #f3f7fc; color: var(--blue); }
+.brand-row.is-generation-mode { grid-template-columns: 55px minmax(0, 1fr); height: 64px; border-bottom: 1px solid #f3f3f3; }
+.brand-row.is-generation-mode .brand-title { padding-left: 16px; color: #616161; font-size: 15px; font-weight: 500; }
+.brand-row.is-generation-mode .brand-carousel { height: 64px; }
+.generation-track { display: flex; align-items: center; gap: 7px; min-width: max-content; padding: 8px 16px 8px 0; }
+.generation-chip { display: grid; align-content: center; min-width: 118px; height: 48px; gap: 1px; padding: 6px 14px; border-radius: 14px; text-align: left; }
+.generation-chip strong { color: inherit; font-size: 14px; font-weight: 700; line-height: 18px; }
+.generation-chip span { color: #8a8d93; font-size: 11px; font-weight: 500; line-height: 15px; }
+.generation-chip.is-selected span { color: inherit; opacity: .78; }
+.depth-rail { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; height: 96px; border-bottom: 1px solid #f3f3f3; background: #fff; box-sizing: border-box; }
+.depth-rail-label { display: flex; align-self: stretch; align-items: center; padding: 0 8px 0 16px; color: #656d7a; font-size: 13px; font-weight: 500; white-space: nowrap; }
+.depth-rail.no-label { grid-template-columns: minmax(0, 1fr); }
+.depth-rail .brand-carousel { height: 96px; }
+.depth-rail-track { display: flex; align-items: center; box-sizing: border-box; min-width: max-content; height: 96px; gap: 8px; padding: 12px 16px 12px 0; scrollbar-width: none; }
+.depth-rail.no-label .depth-rail-track { padding-left: 16px; }
+.depth-card { position: relative; display: flex; width: 80px; height: 72px; flex: 0 0 80px; flex-direction: column; align-items: center; box-sizing: border-box; padding: 7px 4px 0; border: 1.5px solid transparent; border-radius: 8px; background: #f7f8fc; color: #16181d; font: inherit; text-align: center; transition: background 140ms ease, border-color 140ms ease, color 140ms ease, opacity 140ms ease; }
+.depth-card.is-selected { border-color: var(--blue); background: color-mix(in srgb, var(--blue) 8%, #fff); color: var(--blue); }
+.depth-card:disabled { opacity: .4; cursor: default; }
+.depth-card-ev { position: absolute; top: 4px; left: 4px; display: grid; width: 16px; height: 16px; place-items: center; color: #177245; pointer-events: none; }
+.depth-card-ev svg { display: block; width: 16px; height: 16px; }
+.depth-card-media { display: grid; width: 56px; height: 28px; place-items: end center; }
+.depth-card-media img { max-width: 56px; max-height: 28px; object-fit: contain; mix-blend-mode: multiply; }
+.depth-card-media.is-fit-width img { width: 56px; height: auto; max-height: 28px; object-position: center bottom; }
+.depth-card-media.is-fit-height img { width: auto; height: 28px; max-width: 56px; object-position: center bottom; }
+.depth-card-media.is-brand { width: 48px; height: 28px; place-items: end center; }
+.depth-card-media .brand-logo { display: grid; width: 48px; height: 28px; place-items: center; }
+.depth-card-media .brand-logo img { max-width: 28px; max-height: 28px; object-fit: contain; mix-blend-mode: normal; }
+.depth-card-media .brand-logo svg { width: 28px; height: 28px; }
+.depth-card-media .brand-logo.is-depth { width: 48px; height: 28px; place-items: end center; }
+.depth-card-media .brand-logo.is-depth img { max-width: 28px; max-height: 28px; }
+.depth-card-media .brand-logo.is-depth svg { width: 28px; height: 28px; }
+.depth-card-media .brand-logo.is-depth.is-wordmark img,
+.depth-card-media .brand-logo.is-depth.is-wordmark svg { width: 44px; max-width: 44px; height: auto; max-height: 28px; }
+.depth-card-media .brand-logo-fallback { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 50%; background: #edf0f4; color: #656d7a; font-size: 10px; font-weight: 700; }
+.depth-card-label { max-width: 100%; margin-top: 6px; overflow: hidden; color: inherit; font-size: 12px; font-weight: 500; line-height: 15px; text-overflow: ellipsis; white-space: nowrap; }
+.depth-card-sub { max-width: 100%; margin-top: 1px; overflow: hidden; color: #8a919c; font-size: 11px; font-weight: 500; line-height: 13px; text-overflow: ellipsis; white-space: nowrap; }
+.depth-card.is-selected .depth-card-sub { color: #656d7a; }
+.depth-rail-track.is-chips { align-items: center; padding-top: 0; padding-bottom: 0; }
+.trim-chip { display: inline-flex; height: 32px; flex: 0 0 auto; align-items: center; box-sizing: border-box; padding: 0 16px; border: 1px solid #dde1e7; border-radius: 16px; background: #fff; color: #16181d; font: inherit; font-size: 14px; font-weight: 400; white-space: nowrap; transition: background 140ms ease, border-color 140ms ease, color 140ms ease, opacity 140ms ease; }
+.trim-chip.is-selected { border-color: var(--blue); background: color-mix(in srgb, var(--blue) 8%, #fff); color: var(--blue); font-weight: 700; }
+.trim-chip:disabled { opacity: .4; cursor: default; }
+.depth-rail.is-vehicle-header { grid-template-columns: 55px minmax(0, 1fr); }
+.depth-vehicle-header { display: flex; align-items: center; gap: 10px; min-width: 0; height: 96px; padding: 12px 16px 12px 0; box-sizing: border-box; }
+.depth-vehicle-header img { width: 56px; height: 28px; flex: 0 0 56px; object-fit: contain; mix-blend-mode: multiply; }
+.depth-vehicle-header div { display: grid; gap: 2px; min-width: 0; }
+.depth-vehicle-header strong { overflow: hidden; color: #16181d; font-size: 15px; font-weight: 700; line-height: 19px; text-overflow: ellipsis; white-space: nowrap; }
+.depth-vehicle-header span { overflow: hidden; color: #656d7a; font-size: 12px; font-weight: 500; line-height: 15px; text-overflow: ellipsis; white-space: nowrap; }
+.brand-row.is-guazi-card-mode { grid-template-columns: 55px minmax(0, 1fr); align-items: center; height: 96px; border-bottom: 1px solid #f3f3f3; }
+.brand-row.is-guazi-card-mode .brand-title { display: flex; align-self: stretch; align-items: center; padding-left: 16px; color: #656d7a; font-size: 13px; font-weight: 500; }
+.brand-row.is-guazi-card-mode .brand-carousel { height: 96px; }
+.guazi-model-track { display: flex; align-items: center; gap: 8px; min-width: max-content; padding: 12px 16px 12px 0; }
+.guazi-model-card { display: flex; flex-direction: column; align-items: center; box-sizing: border-box; min-width: 80px; height: 72px; padding: 8px 6px 3px; border: 1px solid transparent; border-radius: 8px; background: #f7f8fc; color: #252527; text-align: center; transition: background 140ms ease, border-color 140ms ease, color 140ms ease, box-shadow 140ms ease; }
+.guazi-model-card img { display: block; width: 48px; height: 24px; margin: 0 0 8px; object-fit: contain; mix-blend-mode: multiply; }
+.guazi-model-card strong { display: block; max-width: 78px; overflow: hidden; color: #16181d; font-size: 12px; font-weight: 500; line-height: 14px; text-overflow: ellipsis; white-space: nowrap; }
+.guazi-model-card span { display: block; max-width: 78px; margin-top: 1px; overflow: hidden; color: #8a919c; font-size: 11px; font-weight: 500; line-height: 12px; text-overflow: ellipsis; white-space: nowrap; }
+.guazi-model-card em { display: block; max-width: 78px; overflow: hidden; color: #8a919c; font-size: 10px; font-style: normal; font-weight: 500; line-height: 12px; text-overflow: ellipsis; white-space: nowrap; }
+.guazi-model-card.is-selected { border-color: var(--blue); background: #eef4ff; color: var(--blue); box-shadow: none; }
+.guazi-model-card.is-selected strong { color: var(--blue); }
+.guazi-model-card.is-selected img { mix-blend-mode: normal; filter: brightness(1.08); }
+.guazi-model-card.is-selected span,
+.guazi-model-card.is-selected em { color: #656d7a; }
+.guazi-model-card.is-generation-card { min-width: 80px; width: 80px; height: 72px; }
+.guazi-maker-track { display: flex; align-items: center; gap: 8px; min-width: max-content; padding: 12px 16px 12px 0; }
+.guazi-maker-card { display: flex; flex-direction: column; align-items: center; justify-content: center; box-sizing: border-box; gap: 5px; width: 68px; height: 72px; border: 1px solid transparent; border-radius: 8px; background: #f7f8fc; color: #16181d; font-size: 12px; font-weight: 500; line-height: 15px; white-space: nowrap; transition: background 140ms ease, border-color 140ms ease, color 140ms ease; }
+.guazi-maker-card .brand-logo { width: 36px; height: 32px; }
+.guazi-maker-card .brand-logo img { max-width: 28px; max-height: 28px; }
+.guazi-maker-card .brand-logo svg { width: 28px; height: 28px; }
+.guazi-maker-card .brand-logo-fallback { width: 28px; height: 28px; font-size: 10px; }
+.guazi-maker-card.is-selected { border-color: var(--blue); background: #eef4ff; color: var(--blue); }
+.guazi-trim-shell { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 8px; align-items: center; min-width: 0; height: 96px; }
+.guazi-trim-track { display: flex; align-items: center; gap: 8px; min-width: max-content; padding: 32px 0; }
+.guazi-trim-card { display: inline-flex; align-items: center; box-sizing: border-box; gap: 5px; height: 32px; min-width: 86px; padding: 0 10px; border: 1.5px solid transparent; border-radius: 8px; background: #f7f8fc; color: #16181d; white-space: nowrap; transition: background 140ms ease, border-color 140ms ease, color 140ms ease, opacity 140ms ease; }
+.guazi-trim-card strong { color: inherit; font-size: 13px; font-weight: 500; line-height: 16px; }
+.guazi-trim-card span:last-child { color: #8a919c; font-size: 11px; font-weight: 500; line-height: 14px; }
+.guazi-trim-check { display: grid; width: 16px; height: 16px; flex: 0 0 16px; place-items: center; border-radius: 50%; background: #e4e7ec; color: transparent; font-size: 11px; font-weight: 700; line-height: 16px; }
+.guazi-trim-card.is-selected { border-color: var(--blue); background: #eef4ff; color: var(--blue); }
+.guazi-trim-card.is-selected strong { color: var(--blue); font-weight: 700; }
+.guazi-trim-card.is-selected .guazi-trim-check { background: var(--blue); color: #fff; }
+.guazi-trim-card.is-selected span:last-child { color: var(--blue); }
+.guazi-trim-card:disabled { opacity: .42; cursor: default; }
+.guazi-trim-action { display: flex; align-items: center; justify-content: flex-end; height: 96px; padding-right: 16px; background: #fff; }
+.guazi-trim-action button { height: 34px; padding: 0 12px; border: 0; border-radius: 10px; background: #1f1f1f; color: #fff; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.guazi-trim-action button:disabled { background: #edf0f4; color: #a4abb5; }
+.brand-row.is-guazi-vehicle-header-mode { grid-template-columns: 55px minmax(0, 1fr); }
+.guazi-vehicle-header { display: flex; align-items: center; gap: 10px; min-width: 0; height: 96px; padding: 12px 16px 12px 0; box-sizing: border-box; }
+.guazi-vehicle-header img { width: 56px; height: 28px; flex: 0 0 56px; object-fit: contain; mix-blend-mode: multiply; }
+.guazi-vehicle-header div { display: grid; gap: 2px; min-width: 0; }
+.guazi-vehicle-header strong { overflow: hidden; color: #16181d; font-size: 15px; font-weight: 700; line-height: 19px; text-overflow: ellipsis; white-space: nowrap; }
+.guazi-vehicle-header span { overflow: hidden; color: #656d7a; font-size: 12px; font-weight: 500; line-height: 15px; text-overflow: ellipsis; white-space: nowrap; }
+
