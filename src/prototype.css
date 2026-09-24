@@ -53,8 +53,10 @@ button { color: inherit; }
 .category-carousel { height: 92px; }
 .category-track { display: flex; align-items: flex-start; gap: 0; min-width: max-content; padding: 5px 12px 10px; box-sizing: border-box; }
 .category-item { display: flex; flex-direction: column; align-items: center; gap: 7px; width: var(--measured-category-slot); min-height: 77px; color: #4e5156; font-size: 12px; font-weight: 500; line-height: 16px; text-align: center; white-space: nowrap; }
-.category-icon { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 42px; border-radius: 50%; background: #f4f4f4; }
-.category-icon img { display: block; width: 34px; height: 24px; object-fit: contain; }
+.category-icon { display: grid; place-items: end center; width: 56px; height: 28px; flex: 0 0 28px; background: transparent; }
+.category-icon img { display: block; object-fit: contain; object-position: center bottom; }
+.category-icon.is-fit-width img { width: 56px; height: auto; max-height: 28px; }
+.category-icon.is-fit-height img { width: auto; height: 28px; max-width: 56px; }
 .category-item > span:last-child { display: block; width: var(--measured-category-slot); }
 .category-item:active .category-icon { transform: translateY(1px); }
 
@@ -116,6 +118,8 @@ button { color: inherit; }
 .depth-card:disabled { opacity: .4; cursor: default; }
 .depth-card-media { display: grid; width: 48px; height: 24px; place-items: end center; }
 .depth-card-media img { max-width: 48px; max-height: 24px; object-fit: contain; mix-blend-mode: multiply; }
+.depth-card-media.is-fit-width img { width: 48px; height: auto; max-height: 24px; object-position: center bottom; }
+.depth-card-media.is-fit-height img { width: auto; height: 24px; max-width: 48px; object-position: center bottom; }
 .depth-card-media.is-brand { height: 28px; place-items: end center; }
 .depth-card-media .brand-logo { display: grid; width: 48px; height: 24px; place-items: center; }
 .depth-card-media .brand-logo img { max-width: 28px; max-height: 28px; object-fit: contain; mix-blend-mode: normal; }

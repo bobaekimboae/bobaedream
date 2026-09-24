@@ -206,14 +206,15 @@ const brands = [
   { name: "미니", logo: asset("brand/dongchedi/mini.png") },
 ];
 
-const vehicleCategories = [
-  { name: "중고차", icon: "categories/used-car.svg" },
-  { name: "트럭 · 특장", icon: "categories/truck.svg" },
-  { name: "바이크", icon: "categories/bike.svg" },
-  { name: "캠핑카", icon: "categories/camping.svg" },
-  { name: "올드카", icon: "categories/old-car.svg" },
-  { name: "건설기계", icon: "categories/construction.svg" },
-  { name: "부품 · 용품", icon: "categories/parts.svg" },
+type VehicleBodyFit = "width" | "height";
+const vehicleCategories: ReadonlyArray<{ name: string; icon: string; bodyFit: VehicleBodyFit }> = [
+  { name: "중고차", icon: "categories/used-car.svg", bodyFit: "width" },
+  { name: "트럭 · 특장", icon: "categories/truck.svg", bodyFit: "height" },
+  { name: "바이크", icon: "categories/bike.svg", bodyFit: "height" },
+  { name: "캠핑카", icon: "categories/camping.svg", bodyFit: "height" },
+  { name: "올드카", icon: "categories/old-car.svg", bodyFit: "width" },
+  { name: "건설기계", icon: "categories/construction.svg", bodyFit: "height" },
+  { name: "부품 · 용품", icon: "categories/parts.svg", bodyFit: "height" },
 ] as const;
 const guaziVehicleTypeCategories = vehicleCategories.filter((category) => ["중고차", "트럭 · 특장", "바이크", "캠핑카", "올드카"].includes(category.name));
 
@@ -231,7 +232,11 @@ const usedCarCategoryOptions = ["전체", "국산차", "수입차", "전기차"]
 
 type MakerOption = { name: string; maker: string; logo?: string; icon?: SimpleIcon; color?: string };
 const autohomeBrandLogo = (name: string) => asset(`brand/autohome/${name}.png`);
-const dongchediBrandLogo = (name: string) => asset(`brand/dongchedi/${name}.png`);
+const dongchediBrandLogo = (name: string) => {
+  if (name === "audi") return asset("brand/audi.svg");
+  if (name === "porsche") return asset("brand/porsche-symbol.png");
+  return asset(`brand/dongchedi/${name}.png`);
+};
 const makerOptions: MakerOption[] = [
   { name: "BMW", maker: "BMW", logo: dongchediBrandLogo("bmw") },
   { name: "메르세데스-벤츠", maker: "벤츠", logo: dongchediBrandLogo("benz") },
@@ -351,13 +356,14 @@ const categoryBrandRails: Record<string, CategoryBrandRail> = {
 
 const mercedesModelCard = (name: string) => asset(`cars/mercedes/models/card/${name}.png`);
 const bmwModelCard = (name: string) => asset(`cars/bmw/card/${name}.png`);
+const bmw3SeriesGenerationCard = (name: string) => asset(`cars/bmw/3-series/${name}.webp`);
 
 const bmwModels = [
-  { name: "3시리즈", image: bmwModelCard("3-series") },
-  { name: "X1", image: bmwModelCard("x1") },
-  { name: "5시리즈", image: bmwModelCard("5-series") },
-  { name: "X3", image: bmwModelCard("x3") },
-  { name: "1시리즈", image: bmwModelCard("1-series") },
+  { name: "3시리즈", image: bmwModelCard("3-series"), bodyFit: "width" as const },
+  { name: "X1", image: bmwModelCard("x1"), bodyFit: "width" as const },
+  { name: "5시리즈", image: bmwModelCard("5-series"), bodyFit: "width" as const },
+  { name: "X3", image: bmwModelCard("x3"), bodyFit: "width" as const },
+  { name: "1시리즈", image: bmwModelCard("1-series"), bodyFit: "width" as const },
 ];
 
 const benzAClassImages = {
@@ -375,10 +381,10 @@ const benzEncarClassOrder = [
   "스프린터", "190-클래스", "기타",
 ];
 type QuickTrimOption = { name: string; count: number };
-type QuickGenerationOption = { name: string; years: string; variants: Array<string | QuickTrimOption>; image?: string; count?: number };
-type QuickModelVisual = { image: string; count?: string };
+type QuickGenerationOption = { name: string; years: string; variants: Array<string | QuickTrimOption>; image?: string; bodyFit?: VehicleBodyFit; count?: number };
+type QuickModelVisual = { image: string; bodyFit?: VehicleBodyFit; count?: string };
 const quickModelVisualsByMaker: Record<string, Record<string, QuickModelVisual>> = {
-  BMW: Object.fromEntries(bmwModels.map((model) => [model.name, { image: model.image }])) as Record<string, QuickModelVisual>,
+  BMW: Object.fromEntries(bmwModels.map((model) => [model.name, { image: model.image, bodyFit: model.bodyFit }])) as Record<string, QuickModelVisual>,
   벤츠: {
     "A-클래스": { image: mercedesModelCard("a-class"), count: "588대" },
     "B-클래스": { image: mercedesModelCard("b-class"), count: "67대" },
@@ -530,9 +536,9 @@ const quickModelsByMaker: Record<string, string[]> = {
 const quickGenerationsByMakerModel: Record<string, Record<string, QuickGenerationOption[]>> = {
   BMW: {
     "3시리즈": [
-      { name: "G20", years: "2019~현재", variants: ["320i", "320d", "330i", "M 스포츠"] },
-      { name: "F30", years: "2012~2018", variants: ["320d", "328i", "Luxury", "M 스포츠"] },
-      { name: "E90", years: "2005~2011", variants: ["320i", "325i", "330i"] },
+      { name: "G20", years: "2019~현재", image: bmw3SeriesGenerationCard("g20"), bodyFit: "width", variants: ["320i", "320d", "330i", "M 스포츠"] },
+      { name: "F30", years: "2012~2018", image: bmw3SeriesGenerationCard("f30"), bodyFit: "width", variants: ["320d", "328i", "Luxury", "M 스포츠"] },
+      { name: "E90", years: "2005~2011", image: bmw3SeriesGenerationCard("e90"), bodyFit: "width", variants: ["320i", "325i", "330i"] },
     ],
     "5시리즈": [
       { name: "G60", years: "2023~현재", variants: ["520i", "530i", "530e", "M 스포츠"] },
@@ -926,10 +932,11 @@ function BrandRailMark({ option, variant = "default" }: { option: BrandRailOptio
   return <span className={logoClass}><span className="brand-logo-fallback" aria-hidden="true">{option.name.slice(0, 2)}</span></span>;
 }
 
-function DepthCard({ label, sub, image, selected, disabled, mediaKind, onClick }: { label: string; sub?: string; image?: ReactNode; selected?: boolean; disabled?: boolean; mediaKind?: "brand"; onClick: () => void }) {
+function DepthCard({ label, sub, image, imageFit = "width", selected, disabled, mediaKind, onClick }: { label: string; sub?: string; image?: ReactNode; imageFit?: VehicleBodyFit; selected?: boolean; disabled?: boolean; mediaKind?: "brand"; onClick: () => void }) {
+  const mediaClassName = `depth-card-media${mediaKind === "brand" ? " is-brand" : ` is-fit-${imageFit}`}`;
   return (
     <button type="button" className={`depth-card${selected ? " is-selected" : ""}`} disabled={disabled} aria-pressed={Boolean(selected)} onClick={onClick}>
-      <span className={`depth-card-media${mediaKind === "brand" ? " is-brand" : ""}`}>{image}</span>
+      <span className={mediaClassName}>{image}</span>
       <strong className="depth-card-label">{label}</strong>
       {sub ? <small className="depth-card-sub">{sub}</small> : null}
     </button>
@@ -1706,6 +1713,7 @@ function MarketplaceScreen() {
                   key={categoryOption.name}
                   label={categoryOption.name}
                   image={<img src={asset(categoryOption.icon)} alt="" aria-hidden="true" draggable={false} />}
+                  imageFit={categoryOption.bodyFit}
                   selected={category === categoryOption.name}
                   onClick={() => chooseVehicleCategory(categoryOption.name)}
                 />
@@ -1715,7 +1723,7 @@ function MarketplaceScreen() {
             <Carousel ariaLabel="차량 대카테고리" className="category-carousel" contentClassName="category-track">
               {vehicleCategories.map((categoryOption) => (
                 <button key={categoryOption.name} className="category-item" type="button" onClick={() => chooseVehicleCategory(categoryOption.name)}>
-                  <span className="category-icon"><img src={asset(categoryOption.icon)} alt="" aria-hidden="true" draggable={false} /></span>
+                  <span className={`category-icon is-fit-${categoryOption.bodyFit}`}><img src={asset(categoryOption.icon)} alt="" aria-hidden="true" draggable={false} /></span>
                   <span>{categoryOption.name.split("\n").map((line, index) => <span key={line}>{index ? <><br />{line}</> : line}</span>)}</span>
                 </button>
               ))}
@@ -1730,6 +1738,7 @@ function MarketplaceScreen() {
                     key={model}
                     label={formatModelLabel(model)}
                     image={modelVisual?.image ? <img src={modelVisual.image} alt="" aria-hidden="true" draggable={false} /> : undefined}
+                    imageFit={modelVisual?.bodyFit ?? "width"}
                     selected={selectedModel === model}
                     disabled={modelVisual?.count === "0대"}
                     onClick={() => chooseModel(model)}
@@ -1750,12 +1759,14 @@ function MarketplaceScreen() {
             <Carousel ariaLabel={`${accessibleDepthLabel(selectedModel)} 세대`} className="brand-carousel" contentClassName="depth-rail-track">
               {generationQuickOptions.map((generation) => {
                 const generationImage = generation.image ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.image : undefined);
+                const generationImageFit = generation.bodyFit ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.bodyFit : undefined) ?? "width";
                 return (
                   <DepthCard
                     key={generation.name}
                     label={generationCardLabel(generation)}
                     sub={compactGenerationCardYearLabel(generation.years)}
                     image={generationImage ? <img src={generationImage} alt="" aria-hidden="true" draggable={false} /> : undefined}
+                    imageFit={generationImageFit}
                     selected={selectedGeneration === generation.name}
                     disabled={(generation.count ?? generation.variants.reduce((sum, variant) => sum + toTrimOption(variant).count, 0)) === 0}
                     onClick={() => chooseGeneration(generation.name)}
