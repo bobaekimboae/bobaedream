@@ -23,6 +23,8 @@
 - Card vertical layout: top 7, image 28, gap 6, name 15, gap 1, second line 13.
 - Manufacturer logo slot remains 48×28.
 - Manufacturer logos use 28px symbol marks or 44px wordmarks, centered and bottom-aligned.
+- In Guazi mode, the `차량유형` depth uses photorealistic transparent vehicle cutouts in the same 56×28 media slot as model cards; do not use category illustration icons there.
+- Passenger-car and classic-car type cards use width fit. Truck, motorcycle, and camper type cards use height fit.
 
 ## Body Type And EV
 
