@@ -60,7 +60,7 @@ import {
   type SheetType,
 } from "../data";
 import { BrandRailMark, CategoryFilterSheet, DepthCard, MakerSheet, PriceSheet, TrimChip, VehiclePickerSheet } from "../quick-filter";
-import { BbCarCard, BbFilterSidebar, BbHeader, BbIcon, BbSwitch } from "./pc-bbmuseum";
+import { BbCarCard, BbFilterSidebar, BbHeader, BbIcon, BbSwitch, type BbMakerSelection } from "./pc-bbmuseum";
 
 let detailScreen: FlowScreen;
 let savedListingsScreen: FlowScreen;
@@ -452,7 +452,7 @@ function MarketplaceScreen() {
     filters.body !== "전체",
     filters.videoOnly,
   ].filter(Boolean).length;
-  // QF-072: 적용 필터 개수 배지 = 선택된 필터 "값"의 개수(퀵필터·상세필터 모두). 트림·색상은 고른 개수만큼, 지역도 포함
+  // QF-074: 적용 필터 개수 배지 = 선택된 필터 "값"의 개수(퀵필터·상세필터 모두). 트림·색상은 고른 개수만큼, 지역도 포함
   const selectedFilterValueCount = [
     Boolean(maker),
     Boolean(selectedModel),
@@ -1058,6 +1058,37 @@ function MarketplaceScreen() {
         onClear: sellerType !== "전체" ? () => setFilters((current) => ({ ...current, seller: "전체" })) : undefined,
       },
     ].filter((chip): chip is NonNullable<typeof chip> => Boolean(chip));
+    // QF-067: 좌측 필터 제조사·모델·등급 = 퀵필터 제조사·모델·세대·트림과 같은 상태(하나의 원본)
+    const bbmModelCount = (makerName: string, modelName: string) => {
+      const visualCount = quickModelVisualsByMaker[makerName]?.[modelName]?.count;
+      if (visualCount) return Number(visualCount.replace(/[^0-9]/g, ""));
+      const key = normalizeModelSearchText(modelName);
+      return chototTestCars.filter((car) => car.maker === makerName && normalizeModelSearchText(`${car.title} ${car.trim} ${car.modelGroup ?? ""}`).includes(key)).length;
+    };
+    const bbmSelection: BbMakerSelection = {
+      maker,
+      model: selectedModel,
+      modelLabel: selectedModel ? formatModelLabel(selectedModel) : null,
+      generation: selectedGeneration,
+      generationLabel: selectedGenerationOption ? generationCardLabel(selectedGenerationOption) : null,
+      grades: selectedVariants,
+      modelsFor: (makerName) => (quickModelsByMaker[makerName] ?? []).map((name) => ({ name, label: formatModelLabel(name), count: bbmModelCount(makerName, name) })),
+      gradeGroupsFor: (makerName, modelName) => (quickGenerationsByMakerModel[makerName]?.[modelName] ?? []).map((generation) => ({
+        name: generation.name,
+        title: `${generationCardLabel(generation)} · ${compactGenerationCardYearLabel(generation.years)}`,
+        grades: generation.variants.map(toTrimOption),
+      })),
+      onChooseMaker: (makerName) => { if (maker !== makerName) applyMakerFilter(makerName); },
+      onChooseModel: (modelName) => { if (selectedModel !== modelName) chooseModel(modelName); },
+      onToggleGrade: (generationName, grade) => {
+        if (generationName && selectedGeneration !== generationName) chooseGeneration(generationName);
+        chooseVariant(grade);
+      },
+      onClearMaker: clearMakerFilter,
+      onClearModel: clearModelFilter,
+      // 등급 단계 × = 세대 묶음과 등급을 함께 해제
+      onClearGrades: clearGenerationFilter,
+    };
     const bbmItems = visibleCars.length ? visibleCars.map((car) => pcGridView
       ? <CarCard key={car.id} car={car} cardView={false} liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} />
       : <BbCarCard key={car.id} car={car} liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} onNotify={setSearchToast} />) : carListItems;
@@ -1067,7 +1098,7 @@ function MarketplaceScreen() {
           <main className="marketplace is-bbm" aria-label="중고차 리스트">
             <BbHeader onNotify={setSearchToast} onOpenFavorites={() => flow.push(savedListingsScreen)} />
             <div className="bbm-page">
-              <BbFilterSidebar maker={maker} appliedCount={selectedFilterValueCount} onChooseMaker={applyMakerFilter} onReset={() => resetFilters()} onNotify={setSearchToast} />
+              <BbFilterSidebar selection={bbmSelection} appliedCount={selectedFilterValueCount} onReset={() => resetFilters()} onNotify={setSearchToast} />
               <div className="bbm-content">
                 <section className="bbm-content-head" aria-label="검색 조건">
                   <nav className="bbm-breadcrumb" aria-label="현재 위치"><strong>{categoryIsDefault ? "전체차량" : category}</strong>{vehicleSummaryLabel ? <span>{vehicleSummaryLabel}</span> : null}</nav>

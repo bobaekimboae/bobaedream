@@ -1,10 +1,10 @@
-import { useState, type CSSProperties, type KeyboardEvent } from "react";
+import { useEffect, useState, type CSSProperties, type KeyboardEvent } from "react";
 import { asset, displayListPlace, displaySpecs, sellerAvatar, sellerLabel, type Car } from "../data";
 
 // 보배드림 개발 시안(bbmuseum) PC 매물리스트 1단계 이식(QF-048~050). 구조·수치·문구만 따르고 코드·이미지는 새로 만든다.
 
 // OP-010: 노션 "베트남 초톳" 아이콘(public/assets/icons/bb/, currentColor). 매핑표는 docs/icon-map.md
-type BbIconName = "search" | "mypage" | "heart" | "heart-filled" | "chat" | "notification" | "menu" | "chevron-down" | "filter" | "saved-search" | "view-list" | "location-pin" | "photo-count";
+type BbIconName = "search" | "mypage" | "heart" | "heart-filled" | "chat" | "notification" | "menu" | "chevron-down" | "filter" | "saved-search" | "view-list" | "location-pin" | "photo-count" | "chevron-left" | "check";
 
 function BbIcon({ name, size = 20, className = "" }: { name: BbIconName; size?: 16 | 20 | 24 | 18 | 12; className?: string }) {
   const style = { "--bb-icon": `url("${asset(`icons/bb/${name}.svg`)}")`, "--bb-size": `${size}px` } as CSSProperties;
@@ -39,8 +39,9 @@ function BbHeader({ onNotify, onOpenFavorites }: { onNotify: (message: string) =
   );
 }
 
-// 원본 좌측 필터 27개 항목(순서 그대로). 1단계는 제조사·모델만 펼침 내용을 만든다.
-const bbFilterMenu = ["바디타입", "차급", "제조사 · 모델", "연식", "주행거리", "가격", "지역", "매매단지", "인승", "구동방식", "성능 · 보험", "판매자 구분", "판매방식", "외부색상", "시트색상", "연료", "변속기", "옵션", "최고출력", "연비", "배기량", "공차중량", "크기", "전기차 주행 가능 거리", "차량 특징", "광고기간", "차량번호 / 판매자"];
+// 원본 좌측 필터 27개 항목. QF-067: "제조사 · 모델 · 등급"을 맨 위로(나머지 순서 그대로)
+const bbMakerItem = "제조사 · 모델 · 등급";
+const bbFilterMenu = [bbMakerItem, "바디타입", "차급", "연식", "주행거리", "가격", "지역", "매매단지", "인승", "구동방식", "성능 · 보험", "판매자 구분", "판매방식", "외부색상", "시트색상", "연료", "변속기", "옵션", "최고출력", "연비", "배기량", "공차중량", "크기", "전기차 주행 가능 거리", "차량 특징", "광고기간", "차량번호 / 판매자"];
 
 type CatalogRow = [label: string, count: number, maker?: string];
 // 원본 제조사 목록·매물 수(2026-09-24 기준). maker는 우리 시안 데이터의 제조사 이름(다르면 지정)
@@ -49,20 +50,115 @@ const bbCatalog: Array<{ title: string; rows: CatalogRow[] }> = [
   { title: "수입차 인기", rows: [["벤츠", 1973], ["포르쉐", 899], ["BMW", 841], ["페라리", 541], ["람보르기니", 331], ["롤스로이스", 312]] },
   { title: "수입차 이름순", rows: [["BMW", 841], ["BYD", 0], ["DS", 0], ["GMC", 78], ["닛산", 10], ["다이하쓰", 3], ["닷지", 75], ["동펑", 2], ["란치아", 0], ["람보르기니", 331], ["랜드로버", 303], ["렉서스", 61], ["로버", 1], ["로터스", 11], ["롤스로이스", 312], ["르노", 1], ["링컨", 36], ["마세라티", 118], ["마이바흐", 13], ["마쯔다", 5], ["맥라렌", 97], ["머큐리", 0], ["모건", 1], ["미니", 76], ["미쓰비시", 1], ["미쯔오카", 6], ["벤츠", 1973], ["벤틀리", 305], ["볼보", 45], ["부가티", 1], ["북기은상", 0], ["뷰익", 0], ["비이스만", 0], ["사브", 4], ["새턴", 0], ["선롱", 0], ["쉐보레", 76], ["스마트", 11], ["스바루", 3], ["스즈키", 20], ["스카니아", 0], ["스파이커", 0], ["시트로엥", 3], ["아우디", 221], ["알파로메오", 3], ["알핀", 2], ["애스턴마틴", 70], ["어큐라", 0], ["오스틴", 0], ["오펠", 0], ["올즈모빌", 0], ["웨스트필드", 0], ["이네오스", 1], ["이베코", 9], ["이스즈", 0], ["인피니티", 12], ["재규어", 68], ["지프", 95], ["캐딜락", 88], ["코닉세크", 0, "코닉세그"], ["크라이슬러", 9], ["테슬라", 59], ["토요타", 52], ["파가니", 0], ["페라리", 541], ["포드", 152], ["포르쉐", 899], ["포톤", 0], ["폭스바겐", 50], ["폰티악", 1], ["폴스타", 3], ["푸조", 5], ["피스커", 0], ["피아트", 19], ["허머", 20], ["혼다", 12], ["홀덴", 0], ["히노", 0], ["기타 수입차", 25]] },
 ];
+const bbMakerLabel = (maker: string) => bbCatalog.flatMap((section) => section.rows).find(([name, , key]) => (key ?? name) === maker)?.[0] ?? maker;
 
 function BbSwitch({ checked, label, onChange }: { checked: boolean; label: string; onChange: () => void }) {
   return <button type="button" role="switch" aria-checked={checked} aria-label={label} className={`bbm-switch${checked ? " is-on" : ""}`} onClick={onChange}><span /></button>;
 }
 
-function BbFilterSidebar({ maker, appliedCount, onChooseMaker, onReset, onNotify }: { maker: string | null; appliedCount: number; onChooseMaker: (maker: string | null) => void; onReset: () => void; onNotify: (message: string) => void }) {
-  const [openItems, setOpenItems] = useState<string[]>(["제조사 · 모델"]);
+// QF-067 제조사 → 모델 → 등급 드릴다운. 선택 상태는 목록 화면(퀵필터와 같은 원본)에서 받아서 읽고 쓴다.
+type BbModelRow = { name: string; label: string; count: number | null };
+type BbGradeGroup = { name: string | null; title: string | null; grades: Array<{ name: string; count: number }> };
+type BbMakerSelection = {
+  maker: string | null;
+  model: string | null;
+  modelLabel: string | null;
+  generation: string | null;
+  generationLabel: string | null;
+  grades: string[];
+  modelsFor: (maker: string) => BbModelRow[];
+  gradeGroupsFor: (maker: string, model: string) => BbGradeGroup[];
+  onChooseMaker: (maker: string) => void;
+  onChooseModel: (model: string) => void;
+  onToggleGrade: (generation: string | null, grade: string) => void;
+  onClearMaker: () => void;
+  onClearModel: () => void;
+  onClearGrades: () => void;
+};
+type BbDrillView = { stage: "maker" } | { stage: "model"; maker: string } | { stage: "grade"; maker: string; model: string };
+
+function BbMakerGradeFilter({ selection, view, setView }: { selection: BbMakerSelection; view: BbDrillView; setView: (view: BbDrillView) => void }) {
+  const { maker, model, grades } = selection;
+  const pathChips = [
+    maker ? { key: "maker", label: bbMakerLabel(maker), onClear: selection.onClearMaker } : null,
+    maker && model ? { key: "model", label: selection.modelLabel ?? model, onClear: selection.onClearModel } : null,
+    grades.length ? { key: "grades", label: `등급 ${grades.length}개`, onClear: selection.onClearGrades } : selection.generation ? { key: "grades", label: selection.generationLabel ?? selection.generation, onClear: selection.onClearGrades } : null,
+  ].filter((chip): chip is NonNullable<typeof chip> => Boolean(chip));
+  const count = (value: number | null) => value === null ? null : <em className={value === 0 ? "is-zero" : ""}>{value.toLocaleString("ko-KR")}</em>;
+
+  return (
+    <div className="bbm-maker-grade">
+      {pathChips.length ? <div className="bbm-path-chips" aria-label="선택한 제조사·모델·등급">
+        {pathChips.map((chip) => <button key={chip.key} type="button" className="bbm-path-chip" aria-label={`${chip.label} 선택 해제`} onClick={chip.onClear}><span>{chip.label}</span><span className="bbm-path-chip-x" aria-hidden="true">×</span></button>)}
+      </div> : null}
+      <div className="bbm-catalog">
+        {view.stage === "maker" ? bbCatalog.map((section) => (
+          <div key={section.title} className="bbm-catalog-section">
+            <p className="bbm-catalog-title">{section.title}</p>
+            {section.rows.map(([name, rowCount, makerKey]) => {
+              const key = makerKey ?? name;
+              const selected = maker === key;
+              return <button key={`${section.title}-${name}`} type="button" className={`bbm-catalog-row${selected ? " is-selected" : ""}`} aria-pressed={selected} onClick={() => { selection.onChooseMaker(key); setView({ stage: "model", maker: key }); }}><span>{name}</span>{count(rowCount)}</button>;
+            })}
+          </div>
+        )) : view.stage === "model" ? (
+          <div className="bbm-catalog-section is-drill">
+            <button type="button" className="bbm-catalog-back" onClick={() => setView({ stage: "maker" })}><BbIcon name="chevron-left" size={20} />{bbMakerLabel(view.maker)}</button>
+            {selection.modelsFor(view.maker).length ? selection.modelsFor(view.maker).map((row) => {
+              const selected = maker === view.maker && model === row.name;
+              return <button key={row.name} type="button" className={`bbm-catalog-row${selected ? " is-selected" : ""}`} aria-pressed={selected} onClick={() => { selection.onChooseModel(row.name); setView({ stage: "grade", maker: view.maker, model: row.name }); }}><span>{row.label}</span>{count(row.count)}</button>;
+            }) : <p className="bbm-catalog-empty">모델 정보 없음</p>}
+          </div>
+        ) : (
+          <div className="bbm-catalog-section is-drill">
+            <button type="button" className="bbm-catalog-back" onClick={() => setView({ stage: "model", maker: view.maker })}><BbIcon name="chevron-left" size={20} />{selection.modelsFor(view.maker).find((row) => row.name === view.model)?.label ?? view.model}</button>
+            {(() => {
+              const groups = selection.gradeGroupsFor(view.maker, view.model).filter((group) => group.grades.length);
+              if (!groups.length) return <p className="bbm-catalog-empty">등급 정보 없음</p>;
+              return groups.map((group) => (
+                <div key={group.name ?? "direct"} className="bbm-grade-group">
+                  {group.title ? <p className="bbm-catalog-title">{group.title}</p> : null}
+                  {group.grades.map((grade) => {
+                    const checked = model === view.model && grades.includes(grade.name) && (!group.name || selection.generation === group.name);
+                    return (
+                      <button key={`${group.name}-${grade.name}`} type="button" role="checkbox" aria-checked={checked} disabled={grade.count === 0} className={`bbm-grade-row${checked ? " is-checked" : ""}`} onClick={() => selection.onToggleGrade(group.name, grade.name)}>
+                        <span className="bbm-checkbox" aria-hidden="true">{checked ? <BbIcon name="check" size={16} /> : null}</span>
+                        <span className="bbm-grade-name">{grade.name}</span>
+                        {count(grade.count)}
+                      </button>
+                    );
+                  })}
+                </div>
+              ));
+            })()}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function BbFilterSidebar({ selection, appliedCount, onReset, onNotify }: { selection: BbMakerSelection; appliedCount: number; onReset: () => void; onNotify: (message: string) => void }) {
+  const [openItems, setOpenItems] = useState<string[]>([bbMakerItem]);
   const [keepSearch, setKeepSearch] = useState(false);
+  const { maker, model } = selection;
+  const [view, setView] = useState<BbDrillView>(() => maker && model ? { stage: "grade", maker, model } : maker ? { stage: "model", maker } : { stage: "maker" });
+  // 퀵필터·상단 칩에서 바뀐 선택을 사이드바 단계에 반영(같은 단계로 열기)
+  useEffect(() => {
+    setView(maker && model ? { stage: "grade", maker, model } : maker ? { stage: "model", maker } : { stage: "maker" });
+    if (maker) setOpenItems((current) => current.includes(bbMakerItem) ? current : [...current, bbMakerItem]);
+  }, [maker, model]);
   const toggle = (label: string) => setOpenItems((current) => current.includes(label) ? current.filter((item) => item !== label) : [...current, label]);
+  const collapsedPath = [
+    maker ? bbMakerLabel(maker) : null,
+    maker && model ? selection.modelLabel ?? model : null,
+    selection.grades.length ? `등급 ${selection.grades.length}개` : selection.generation ? selection.generationLabel ?? selection.generation : null,
+  ].filter(Boolean).join(" › ");
   return (
     <aside className="bbm-filter" aria-label="필터">
       <div className="bbm-filter-summary">
         <div className="bbm-filter-summary-top">
-          {/* QF-072: 제목 오른쪽 적용 필터 개수 배지(0개면 숨김) + 오른쪽 끝 모두 지우기 */}
+          {/* QF-074: 제목 오른쪽 적용 필터 개수 배지(0개면 숨김) + 오른쪽 끝 모두 지우기 */}
           <div className="bbm-filter-title"><strong>필터</strong>{appliedCount > 0 ? <span className="bbm-filter-count" aria-label={`적용된 필터 ${appliedCount}개`}>{appliedCount}</span> : null}</div>
           <button type="button" className="bbm-filter-reset" onClick={onReset}>모두 지우기</button>
         </div>
@@ -74,27 +170,15 @@ function BbFilterSidebar({ maker, appliedCount, onChooseMaker, onReset, onNotify
       <div className="bbm-filter-menu">
         {bbFilterMenu.map((label) => {
           const open = openItems.includes(label);
+          const isMaker = label === bbMakerItem;
           return (
-            <section key={label} className={`bbm-filter-item${open ? " is-open" : ""}`}>
-              <button type="button" className="bbm-filter-toggle" aria-expanded={open} onClick={() => toggle(label)}><span>{label}</span><BbIcon name="chevron-down" size={20} className="bbm-filter-chevron" /></button>
-              {open ? (label === "제조사 · 모델" ? (
-                <div className="bbm-catalog">
-                  {bbCatalog.map((section) => (
-                    <div key={section.title} className="bbm-catalog-section">
-                      <p className="bbm-catalog-title">{section.title}</p>
-                      {section.rows.map(([name, count, makerKey]) => {
-                        const key = makerKey ?? name;
-                        const selected = maker === key;
-                        return (
-                          <button key={`${section.title}-${name}`} type="button" className={`bbm-catalog-row${selected ? " is-selected" : ""}`} aria-pressed={selected} onClick={() => onChooseMaker(selected ? null : key)}>
-                            <span>{name}</span><em className={count === 0 ? "is-zero" : ""}>{count.toLocaleString("ko-KR")}</em>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  ))}
-                </div>
-              ) : <p className="bbm-filter-pending">준비 중</p>) : null}
+            <section key={label} className={`bbm-filter-item${open ? " is-open" : ""}${isMaker ? " is-maker-grade" : ""}`}>
+              <button type="button" className="bbm-filter-toggle" aria-expanded={open} onClick={() => toggle(label)}>
+                <span className="bbm-filter-label">{label}{isMaker && !open && collapsedPath ? <small className="bbm-filter-path">{collapsedPath}</small> : null}</span>
+                <BbIcon name="chevron-down" size={20} className="bbm-filter-chevron" />
+              </button>
+              {isMaker && maker ? <button type="button" className="bbm-filter-item-reset" onClick={selection.onClearMaker}>초기화</button> : null}
+              {open ? (isMaker ? <BbMakerGradeFilter selection={selection} view={view} setView={setView} /> : <p className="bbm-filter-pending">준비 중</p>) : null}
             </section>
           );
         })}
@@ -146,4 +230,4 @@ function BbCarCard({ car, liked, onToggleLike, onOpen, onNotify }: { car: Car; l
   );
 }
 
-export { BbIcon, BbHeader, BbFilterSidebar, BbSwitch, BbCarCard };
+export { BbIcon, BbHeader, BbFilterSidebar, BbSwitch, BbCarCard, type BbMakerSelection, type BbModelRow, type BbGradeGroup };
