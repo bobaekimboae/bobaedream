@@ -61,6 +61,11 @@ import {
 } from "../data";
 import { BrandRailMark, CategoryFilterSheet, DepthCard, MakerSheet, PriceSheet, TrimChip, VehiclePickerSheet } from "../quick-filter";
 import { BbCarCard, BbFilterSidebar, BbHeader, BbIcon, BbSwitch, type BbMakerSelection } from "./pc-bbmuseum";
+import { emptyBbmFilters, type BbmFilterValues } from "../filters/bbm-filter-state";
+import { BbmPartsGallery } from "../filters/bbm-parts-gallery";
+
+// QF-076 부품 비교 화면(&bbmparts=1)
+const bbmPartsMode = new URLSearchParams(window.location.search).get("bbmparts") === "1";
 
 let detailScreen: FlowScreen;
 let savedListingsScreen: FlowScreen;
@@ -1040,6 +1045,12 @@ function MarketplaceScreen() {
   const pcCurrentSelection = vehicleSummaryLabel || (categoryIsDefault ? "전체" : category);
   const pcActivePriceLink = pcPriceLinks.find((link) => link.min === price.min && link.max === price.max)?.label;
 
+  // QF-076: 제조사·모델·등급 외 필터(filters.bbm)는 선택 모양만 남기고 목록을 거르지 않는다 → "확인 N대"는 지금 목록 수
+  const countWithBbm = (_bbm: BbmFilterValues) => visibleCars.length;
+  const setBbmFilters = (bbm: BbmFilterValues) => setFilters((current) => ({ ...current, bbm }));
+  if (bbmPartsMode) {
+    return <MobileScroll className="app-screen"><BbmPartsGallery value={filters.bbm ?? emptyBbmFilters} onChange={setBbmFilters} cars={chototTestCars} countWith={countWithBbm} /></MobileScroll>;
+  }
   if (desktop && pcLayoutStyle === "bbmuseum") {
     // 칩 순서: 원본 [필터][전체차량][제조사][연식][가격][연료][판매자] + 요약 칩·트림 칩은 퀵필터 규격 위치(카테고리 바로 뒤)
     const chipByKey = (key: string) => quickFilterChips.find((chip) => chip.key === key);
@@ -1098,7 +1109,7 @@ function MarketplaceScreen() {
           <main className="marketplace is-bbm" aria-label="중고차 리스트">
             <BbHeader onNotify={setSearchToast} onOpenFavorites={() => flow.push(savedListingsScreen)} />
             <div className="bbm-page">
-              <BbFilterSidebar selection={bbmSelection} appliedCount={selectedFilterValueCount} onReset={() => resetFilters()} onNotify={setSearchToast} />
+              <BbFilterSidebar selection={bbmSelection} appliedCount={selectedFilterValueCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} />
               <div className="bbm-content">
                 <section className="bbm-content-head" aria-label="검색 조건">
                   <nav className="bbm-breadcrumb" aria-label="현재 위치"><strong>{categoryIsDefault ? "전체차량" : category}</strong>{vehicleSummaryLabel ? <span>{vehicleSummaryLabel}</span> : null}</nav>

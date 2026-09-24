@@ -1,0 +1,168 @@
+/* QF-076 개발 시안형 필터 공통 부품. 수치는 원본 실측(docs/bbm-filter-spec.md): PC 1440×900, 모바일 393×852.
+   색: 글자 #1A1A1A · 보조 #767676 · 수 #9E9E9E · 비활성 #E0E0E0 · 확인(모달·시트) #010F21 · 확인(전체 화면) #1B4C8C */
+
+/* ── 체크 행 */
+.bbmf-check { display: flex; align-items: center; gap: 8px; width: 100%; min-width: 0; height: 24px; padding: 0; border: 0; background: none; color: #1a1a1a; font: inherit; text-align: left; cursor: pointer; }
+.bbmf-check-box { position: relative; flex: none; width: 20px; height: 20px; margin-right: 0; border: 1px solid #d9d9d9; border-radius: 4px; box-sizing: border-box; background: #fff; }
+.bbmf-check.is-checked .bbmf-check-box { border-color: #1b4c8c; background: #1b4c8c; }
+.bbmf-check.is-checked .bbmf-check-box::after { content: ""; position: absolute; inset: 0; background: #fff; -webkit-mask: var(--bbmf-check-icon) center / 14px no-repeat; mask: var(--bbmf-check-icon) center / 14px no-repeat; }
+.bbmf-check-label { overflow: hidden; margin-left: 0; font-size: 14px; font-weight: 500; line-height: 19.6px; text-overflow: ellipsis; white-space: nowrap; }
+.bbmf-check-count { flex: none; color: #9e9e9e; font-size: 14px; font-weight: 500; line-height: 19.6px; font-variant-numeric: tabular-nums; }
+.bbmf-check.is-disabled { cursor: default; }
+.bbmf-check.is-disabled .bbmf-check-label, .bbmf-check.is-disabled .bbmf-check-count { color: #e0e0e0; }
+.bbmf-check.is-disabled .bbmf-check-box { border-color: #eeeeee; }
+/* 옵션 모달: 글자·수 15px, 행 간격 32 */
+.bbmf-check.is-option .bbmf-check-label, .bbmf-check.is-option .bbmf-check-count { font-size: 15px; line-height: 15px; }
+.bbmf-check-grid:has(.is-option) { row-gap: 8px; }
+/* 모달: 상자 20, 이름은 상자에서 28(간격 8), 수는 이름 오른쪽 8, 행 24 · 간격 36 */
+/* 사이드바 펼침: 상자 17, 이름 x49(행 x24 기준 +25), 수 12px 오른쪽 끝, 행 간격 33.6 */
+.bbmf-check.is-sidebar { height: 19.6px; }
+.bbmf-check.is-sidebar .bbmf-check-box { width: 17px; height: 17px; }
+.bbmf-check.is-sidebar .bbmf-check-label { flex: 1; }
+.bbmf-check.is-sidebar .bbmf-check-count { font-size: 12px; line-height: 16.8px; }
+
+.bbmf-check-grid { display: grid; row-gap: 12px; }
+.bbmf-check-grid.is-col-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.bbmf-check-grid:has(.is-sidebar) { row-gap: 14px; }
+
+/* ── 단위 입력칸(combo): 사이드바 216×40 · 모달 166×48, 테두리 1px #E0E0E0 · 라운드 8, 입력 14px 400 + 단위 14px 600 + ▾18 */
+.bbmf-unit-field { display: flex; flex: 1; align-items: center; gap: 8px; min-width: 0; height: 40px; padding: 0 14px; border: 1px solid #e0e0e0; border-radius: 8px; box-sizing: border-box; background: #fff; }
+.bbmf-unit-field:focus-within { border-color: #1a1a1a; }
+.bbmf-unit-field input { flex: 1; min-width: 0; padding: 0; border: 0; outline: 0; background: none; color: #1a1a1a; font: inherit; font-size: 14px; font-weight: 400; line-height: 19.6px; }
+.bbmf-unit-field input::placeholder { color: #1a1a1a; }
+.bbmf-unit { flex: none; color: #1a1a1a; font-size: 14px; font-weight: 600; line-height: 19.6px; }
+.bbmf-unit-chevron { color: #1a1a1a; }
+.bbmf-range.is-inline { display: flex; align-items: center; gap: 11px; }
+.bbmf-range.is-inline .bbmf-unit-field { padding: 0 16px; }
+/* 크기 모달만 입력칸 48 · 16px */
+.bbmf-sections.is-size .bbmf-unit-field { height: 48px; }
+.bbmf-sections.is-size .bbmf-unit-field input { font-size: 16px; line-height: 22.4px; }
+.bbmf-range-sep { flex: none; width: 18px; color: #1a1a1a; font-size: 14px; font-weight: 500; line-height: 19.6px; text-align: center; }
+.bbmf-range.is-stack, .bbmf-period { display: flex; flex-direction: column; gap: 6px; }
+.bbmf-range.is-stack > div, .bbmf-period > div { display: flex; align-items: center; gap: 6px; }
+.bbmf-range.is-stack .bbmf-unit-field { flex: 0 0 216px; }
+.bbmf-range-word { flex: none; margin-left: 2px; color: #767676; font-size: 12px; font-weight: 500; line-height: 16.8px; }
+
+/* ── 슬라이더(모양): 가로 348, 손잡이 24 흰색 + 연회색 테두리, 막대 파랑 */
+.bbmf-slider { position: relative; height: 24px; margin: 24px 12px 25px; }
+.bbmf-sections.is-size .bbmf-slider { margin: 17px 12px 0; }
+.bbmf-sections.is-size .bbmf-section-title { margin-bottom: 18px; }
+.bbmf-slider i { position: absolute; top: 10.5px; right: 0; left: 0; height: 3px; border-radius: 2px; background: #1b4c8c; }
+.bbmf-slider b { position: absolute; top: 0; width: 24px; height: 24px; border: 1px solid #e0e0e0; border-radius: 50%; box-sizing: border-box; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); }
+.bbmf-slider b.is-min { left: -12px; }
+.bbmf-slider b.is-max { right: -12px; }
+
+/* ── 선택 상자(연식): 105×40 */
+.bbmf-select { position: relative; display: flex; flex: 0 0 105px; align-items: center; height: 40px; border: 1px solid #e0e0e0; border-radius: 8px; box-sizing: border-box; background: #fff; }
+.bbmf-select select { width: 100%; height: 100%; padding: 0 36px 0 14px; border: 0; border-radius: 8px; outline: 0; appearance: none; background: none; color: #1a1a1a; font: inherit; font-size: 14px; font-weight: 400; line-height: 19.6px; cursor: pointer; }
+.bbmf-select .bbmf-unit-chevron { position: absolute; right: 14px; pointer-events: none; }
+
+/* ── 색 칩: 높이 40, 안쪽 10/12, 간격 8, 동그라미 16 */
+.bbmf-color-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.bbmf-color-chips button { display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 10px 12px; border: 0; border-radius: 6px; box-sizing: border-box; background: #f4f4f4; color: #1a1a1a; font: inherit; font-size: 14px; font-weight: 500; line-height: 14px; cursor: pointer; }
+.bbmf-color-chips button.is-selected { background: #fff; box-shadow: inset 0 0 0 1px #1b4c8c; color: #1b4c8c; }
+.bbmf-swatch { flex: none; width: 16px; height: 16px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1); }
+
+/* ── 선택 버튼 2열: md 182×40(변속기) · lg 181×44(광고기간), 선택 #1B4C8C 채움 */
+.bbmf-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.bbmf-choices.is-lg { gap: 10px; }
+.bbmf-choices.is-first-full > :first-child { grid-column: 1 / -1; }
+.bbmf-choices button { height: 40px; padding: 0 8px; border: 0; border-radius: 6px; background: #f4f4f4; color: #333; font: inherit; font-size: 14px; font-weight: 400; line-height: 19.6px; cursor: pointer; }
+.bbmf-choices.is-lg button { height: 44px; color: #505050; font-weight: 500; }
+.bbmf-choices button.is-selected { background: #1b4c8c; color: #fff; }
+
+/* ── 검색칸: 252×44, 돋보기 파랑 */
+.bbmf-keyword { display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 13px; border: 1px solid #e0e0e0; border-radius: 8px; box-sizing: border-box; color: #1a1a1a; }
+.bbmf-keyword input { flex: 1; min-width: 0; padding: 0; border: 0; outline: 0; background: none; color: #1a1a1a; font: inherit; font-size: 14px; font-weight: 500; line-height: 19.6px; }
+.bbmf-keyword input::placeholder { color: #9e9e9e; }
+
+/* ── 섹션 제목(크기 14px 600 · 시트 14px 400 #767676 · 옵션 15px 500 #333) */
+.bbmf-sections { display: flex; flex-direction: column; gap: 24px; }
+.bbmf-sections.is-size { gap: 34px; }
+.bbmf-section-title { margin: 0 0 12px; color: #1a1a1a; font-size: 14px; font-weight: 600; line-height: 19.6px; }
+.bbmf-section-title.is-muted { margin-bottom: 12px; color: #767676; font-weight: 400; }
+.bbmf-section-title.is-option { margin-bottom: 4px; color: #333; font-size: 15px; font-weight: 500; line-height: 15px; }
+
+/* ── 옵션 모달: 왼쪽 탭 62 + 간격 16 + 목록 */
+.bbmf-options { display: flex; align-items: flex-start; gap: 16px; }
+.bbmf-options .bbmf-tabs.is-side { position: sticky; top: 0; }
+.bbmf-options-list { display: flex; flex: 1; flex-direction: column; gap: 26px; min-width: 0; }
+
+/* ── 사이드바 펼침 안쪽: 위 8 · 좌우 24 · 아래 28 */
+.bbmf-panel { padding: 8px 24px 28px; }
+.bbmf-panel .bbmf-check-grid { row-gap: 14px; }
+.bbmf-panel-gap { margin-top: 28px; }
+.bbmf-panel-presets { margin-top: 28px; }
+.bbmf-panel-presets.is-col-3 .bbmf-presets { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* ── 구간 칩(회색) */
+.bbmf-presets { display: grid; gap: 10px; }
+.bbmf-presets.is-col-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.bbmf-presets.is-col-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.bbmf-presets button { height: 44px; padding: 0 8px; border: 1px solid transparent; border-radius: 6px; box-sizing: border-box; background: #f4f4f4; color: #505050; font: inherit; font-size: 14px; font-weight: 500; line-height: 14px; cursor: pointer; }
+.bbmf-presets button.is-selected { border-color: #1b4c8c; background: #fff; color: #1b4c8c; font-weight: 600; }
+
+/* ── 탭 */
+.bbmf-tabs { display: flex; border-bottom: 1px solid #ebebeb; }
+.bbmf-tabs button { position: relative; flex: 1; height: 44.4px; padding: 0; border: 0; background: none; color: #767676; font: inherit; font-size: 16px; font-weight: 600; line-height: 22.4px; cursor: pointer; }
+.bbmf-tabs button.is-selected { color: #1a1a1a; }
+.bbmf-tabs button.is-selected::after { content: ""; position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; background: #1a1a1a; }
+
+.bbmf-tabs.is-side { flex-direction: column; gap: 6px; width: 62px; border: 0; }
+.bbmf-tabs.is-side button { flex: none; height: 32px; border-radius: 20px; background: #f3f3f3; color: #b3b3b3; font-size: 12px; line-height: 12px; }
+.bbmf-tabs.is-side button.is-selected { background: #4d4d4d; color: #fff; }
+.bbmf-tabs.is-side button.is-selected::after { display: none; }
+
+/* ── 아래 버튼 줄: 초기화 118(전체 화면 112) + 간격 8 + 확인(나머지) */
+.bbmf-actions { display: flex; flex: none; gap: 8px; padding: 16px 20px; }
+.bbmf-actions button { height: 44px; padding: 0 14px; border: 1px solid; border-radius: 8px; box-sizing: border-box; font: inherit; font-size: 16px; font-weight: 600; line-height: 16px; white-space: nowrap; cursor: pointer; }
+.bbmf-reset { flex: 0 0 118px; border-color: #e0e0e0 !important; background: transparent; color: #505050; }
+.bbmf-confirm { flex: 1; border-color: #010f21 !important; background: #010f21; color: #fff; }
+.bbmf-actions.is-sheet { padding: 35px 20px 16px; }
+.bbmf-actions.is-full { padding: 16px; border-top: 1px solid #f4f4f4; background: #fff; }
+.bbmf-actions.is-full .bbmf-reset { flex-basis: 112px; background: #fff; }
+.bbmf-actions.is-full .bbmf-confirm { border-color: #1b4c8c !important; background: #1b4c8c; }
+
+/* ── 닫기 버튼 24×32 */
+.bbmf-close { display: grid; place-items: center; width: 24px; height: 32px; padding: 0; border: 0; background: none; cursor: pointer; }
+/* 노션 닫기_X 는 24 안에 10px 글리프 → 원본 X(약 16px)에 맞춰 1.5배 */
+.bbmf-close img { width: 24px; height: 24px; transform: scale(1.5); }
+
+/* ── 딤 */
+.bbmf-overlay { position: fixed; inset: 0; z-index: 80; display: flex; background: rgba(0, 0, 0, 0.5); }
+.bbmf-overlay.is-modal { align-items: center; justify-content: center; padding: 24px; }
+.bbmf-overlay.is-sheet { align-items: flex-end; }
+
+/* ── PC 모달 412, 라운드 14. 머리 56(제목 top 16.3, 닫기 top 11.5 · 오른쪽 20, 아래 구분선), 본문 첫 줄 top 64, 좌우 20 */
+.bbmf-modal { display: flex; flex-direction: column; width: 412px; max-height: min(852px, calc(100vh - 48px)); border-radius: 14px; background: #fff; color: #1a1a1a; }
+.bbmf-modal.is-tall { height: min(762px, calc(100vh - 48px)); }
+.bbmf-modal-header, .bbmf-sheet-header { position: relative; flex: none; height: 56px; box-sizing: border-box; border-bottom: 1px solid #ebebeb; }
+.bbmf-modal-header h3, .bbmf-sheet-header h3 { display: flex; align-items: center; justify-content: center; gap: 4px; margin: 0; padding-top: 16.3px; font-size: 16px; font-weight: 600; line-height: 22.4px; text-align: center; }
+.bbmf-modal-header .bbmf-close, .bbmf-sheet-header .bbmf-close { position: absolute; top: 11.5px; right: 20px; }
+.bbmf-modal-body { flex: 1; min-height: 0; overflow-y: auto; padding: 8px 20px 20px; }
+.bbmf-modal > .bbmf-actions { border-top: 1px solid #ebebeb; }
+
+/* ── 모바일 바텀시트: 폭 100%, 위 라운드 14 */
+.bbmf-sheet { display: flex; flex-direction: column; width: 100%; max-height: calc(100% - 24px); border-radius: 14px 14px 0 0; background: #fff; color: #1a1a1a; }
+.bbmf-sheet-body { flex: 1; min-height: 0; overflow-y: auto; padding: 0 20px; }
+
+/* ── 모바일 전체 필터 화면: 머리(제목 왼쪽 16 · 닫기 오른쪽 16), 도구 줄, 항목 58 */
+.bbmf-full { position: fixed; inset: 0; z-index: 70; display: flex; flex-direction: column; background: #fff; color: #1a1a1a; }
+.bbmf-full-header { display: flex; flex: none; align-items: center; justify-content: space-between; height: 56px; padding: 0 16px; }
+.bbmf-full-header h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 22.4px; }
+.bbmf-full-header .bbmf-close { height: 24px; }
+.bbmf-full-tools { display: flex; flex: none; flex-direction: column; gap: 18px; padding: 19px 16px 25px; }
+.bbmf-full-body { flex: 1; min-height: 0; overflow-y: auto; }
+.bbmf-full-item { display: flex; align-items: center; justify-content: space-between; width: calc(100% - 32px); height: 58px; margin: 0 16px; padding: 0; border: 0; border-bottom: 1px solid #ebebeb; background: none; color: #1a1a1a; font: inherit; font-size: 14px; font-weight: 600; line-height: 19.6px; text-align: left; cursor: pointer; }
+.bbmf-save-search { display: flex; align-items: center; justify-content: center; gap: 4px; width: 100%; height: 36px; padding: 0 12px; border: 1px solid transparent; border-radius: 8px; background: #fafafa; color: #505050; font: inherit; font-size: 13px; font-weight: 600; line-height: 13px; }
+
+/* ── QF-076 부품 비교 화면(&bbmparts=1) */
+.bbmf-gallery { min-height: 100%; padding: 24px 16px 64px; box-sizing: border-box; background: #f4f4f4; color: #1a1a1a; }
+.bbmf-gallery h1 { margin: 0 0 4px; font-size: 20px; line-height: 28px; }
+.bbmf-gallery > p { margin: 0 0 20px; color: #767676; font-size: 13px; line-height: 18px; }
+.bbmf-gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 412px), 1fr)); gap: 16px; }
+.bbmf-gallery-card { padding: 16px; border-radius: 12px; background: #fff; }
+.bbmf-gallery-card h2 { margin: 0 0 12px; color: #767676; font-size: 12px; font-weight: 600; line-height: 16px; }
+.bbmf-gallery-card .bbmf-actions { padding: 16px 0 0; }
+.bbmf-gallery-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+.bbmf-gallery-buttons button { height: 36px; padding: 0 14px; border: 1px solid #e0e0e0; border-radius: 8px; background: #fff; color: #1a1a1a; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }

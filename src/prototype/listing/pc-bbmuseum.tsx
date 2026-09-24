@@ -1,4 +1,8 @@
 import { useEffect, useState, type CSSProperties, type KeyboardEvent } from "react";
+import { BbmActionBar, BbmModal } from "../filters/bbm-filter-parts";
+import { bbmSidebarItems, type BbmFilterItem } from "../filters/bbm-filter-options";
+import { BbmExpandPanel, BbmModalPanel, clearBbmItem } from "../filters/bbm-filter-panels";
+import type { BbmFilterValues } from "../filters/bbm-filter-state";
 import { asset, displayListPlace, displaySpecs, sellerAvatar, sellerLabel, type Car } from "../data";
 
 // 보배드림 개발 시안(bbmuseum) PC 매물리스트 1단계 이식(QF-048~050). 구조·수치·문구만 따르고 코드·이미지는 새로 만든다.
@@ -41,7 +45,9 @@ function BbHeader({ onNotify, onOpenFavorites }: { onNotify: (message: string) =
 
 // 원본 좌측 필터 27개 항목. QF-067: "제조사 · 모델 · 등급"을 맨 위로(나머지 순서 그대로)
 const bbMakerItem = "제조사 · 모델 · 등급";
-const bbFilterMenu = [bbMakerItem, "바디타입", "차급", "연식", "주행거리", "가격", "지역", "매매단지", "인승", "구동방식", "성능 · 보험", "판매자 구분", "판매방식", "외부색상", "시트색상", "연료", "변속기", "옵션", "최고출력", "연비", "배기량", "공차중량", "크기", "전기차 주행 가능 거리", "차량 특징", "광고기간", "차량번호 / 판매자"];
+// QF-076: 항목 순서·열림 방식(펼침/412 모달)은 원본 수집 결과(bbm-filter-options.ts)
+const bbFilterMenu = [bbMakerItem, ...bbmSidebarItems.map((item) => item.label)];
+const bbFilterItemByLabel = new Map(bbmSidebarItems.map((item) => [item.label, item]));
 
 type CatalogRow = [label: string, count: number, maker?: string];
 // 원본 제조사 목록·매물 수(2026-09-24 기준). maker는 우리 시안 데이터의 제조사 이름(다르면 지정)
@@ -138,7 +144,11 @@ function BbMakerGradeFilter({ selection, view, setView }: { selection: BbMakerSe
   );
 }
 
-function BbFilterSidebar({ selection, appliedCount, onReset, onNotify }: { selection: BbMakerSelection; appliedCount: number; onReset: () => void; onNotify: (message: string) => void }) {
+function BbFilterSidebar({ selection, appliedCount, onReset, onNotify, bbm, onBbmChange, countWithBbm }: { selection: BbMakerSelection; appliedCount: number; onReset: () => void; onNotify: (message: string) => void; bbm: BbmFilterValues; onBbmChange: (next: BbmFilterValues) => void; countWithBbm: (next: BbmFilterValues) => number }) {
+  // 모달형 항목: 사이드바 대신 412 모달을 연다. 모달 안에서는 초안(draft)을 고치고 [확인]에서 공유 상태에 반영
+  const [modalItem, setModalItem] = useState<BbmFilterItem | null>(null);
+  const [draft, setDraft] = useState<BbmFilterValues>(bbm);
+  const openModal = (item: BbmFilterItem) => { setDraft(bbm); setModalItem(item); };
   const [openItems, setOpenItems] = useState<string[]>([bbMakerItem]);
   const [keepSearch, setKeepSearch] = useState(false);
   const { maker, model } = selection;
@@ -173,16 +183,29 @@ function BbFilterSidebar({ selection, appliedCount, onReset, onNotify }: { selec
           const isMaker = label === bbMakerItem;
           return (
             <section key={label} className={`bbm-filter-item${open ? " is-open" : ""}${isMaker ? " is-maker-grade" : ""}`}>
-              <button type="button" className="bbm-filter-toggle" aria-expanded={open} onClick={() => toggle(label)}>
+              <button type="button" className="bbm-filter-toggle" aria-expanded={bbFilterItemByLabel.get(label)?.mode === "modal" ? undefined : open} aria-haspopup={bbFilterItemByLabel.get(label)?.mode === "modal" ? "dialog" : undefined} onClick={() => { const item = bbFilterItemByLabel.get(label); if (item?.mode === "modal") openModal(item); else toggle(label); }}>
                 <span className="bbm-filter-label">{label}{isMaker && !open && collapsedPath ? <small className="bbm-filter-path">{collapsedPath}</small> : null}</span>
                 <BbIcon name="chevron-down" size={20} className="bbm-filter-chevron" />
               </button>
               {isMaker && maker ? <button type="button" className="bbm-filter-item-reset" onClick={selection.onClearMaker}>초기화</button> : null}
-              {open ? (isMaker ? <BbMakerGradeFilter selection={selection} view={view} setView={setView} /> : <p className="bbm-filter-pending">준비 중</p>) : null}
+              {open ? (isMaker ? <BbMakerGradeFilter selection={selection} view={view} setView={setView} /> : <BbmExpandPanel label={label} value={bbm} onChange={onBbmChange} />) : null}
             </section>
           );
         })}
       </div>
+      {modalItem ? (
+        <BbmModal
+          title={modalItem.modalTitle ?? modalItem.label}
+          wide={modalItem.label === "옵션"}
+          onClose={() => setModalItem(null)}
+          footer={modalItem.label === "광고기간" ? undefined : modalItem.label === "옵션"
+            ? <BbmActionBar count={0} resetLabel="취소" confirmLabel="선택완료" onReset={() => setModalItem(null)} onConfirm={() => { onBbmChange(draft); setModalItem(null); }} />
+            : <BbmActionBar count={countWithBbm(draft)} onReset={() => setDraft(clearBbmItem(modalItem, draft))} onConfirm={() => { onBbmChange(draft); setModalItem(null); }} />}
+        >
+          {/* 광고기간은 원본처럼 아래 버튼 없이 고르면 바로 반영하고 닫는다 */}
+          <BbmModalPanel item={modalItem} value={draft} onChange={modalItem.label === "광고기간" ? (next) => { onBbmChange(next); setModalItem(null); } : setDraft} />
+        </BbmModal>
+      ) : null}
     </aside>
   );
 }
