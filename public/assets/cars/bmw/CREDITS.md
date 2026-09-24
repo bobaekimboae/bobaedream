@@ -28,3 +28,8 @@ Source files already present in this repository:
 - Background cleanup and 192×96 transparent canvas placement were applied, but no white/silver vehicle color filter was used.
 - White/silver original source unavailable: `3-series`, `5-series`, `x3`, `3-series/g20`, `3-series/f30`, `3-series/e90`.
 - `x1` remains unchanged.
+
+2026-09-24 QF-040 trim pass:
+
+- `card/3-series.png`, `card/5-series.png`, `card/x3.png`, `3-series/g20.webp`, `3-series/f30.webp`, and `3-series/e90.webp` were whitespace-trimmed to the vehicle outline and re-placed on the `192×96` canvas (width fit, bottom aligned) with `scripts/car-image-trim.mjs`. No color or filter changes.
+- `3-series/g20.webp`, `f30.webp`, and `e90.webp` still show the same G20 vehicle; generation-specific photos remain unavailable.

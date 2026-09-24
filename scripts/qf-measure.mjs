@@ -94,6 +94,13 @@ function measureRailInPage() {
       return chip ? { text: chip.textContent.trim(), width: round(chip.getBoundingClientRect().width) } : null;
     })(),
     topChips: [...document.querySelectorAll(".filter-track .filter-chip")].map((chip) => chip.textContent.trim()),
+    // QF-028: 칩별 ▾(chevron-down) / × 표시 여부
+    topChipMarks: [...document.querySelectorAll(".filter-track .filter-chip")].map((chip) => ({
+      label: chip.textContent.trim(),
+      active: chip.classList.contains("is-active"),
+      chevron: Boolean(chip.querySelector("img[src*='chevron-down']")),
+      clear: Boolean(chip.querySelector(".filter-chip-clear")),
+    })),
     horizontalOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
   };
 }
@@ -172,11 +179,14 @@ page.on("console", (msg) => { if (msg.type() === "error") consoleErrors.push(msg
 page.on("pageerror", (err) => consoleErrors.push(String(err)));
 
 const steps = [];
+let picker = null;
 async function step(name) {
   await page.waitForTimeout(300);
   const data = await addVisibleSizes(page, await page.evaluate(measureRailInPage));
   const shot = join(outDir, `${String(steps.length + 1).padStart(2, "0")}-${name}.png`);
   await page.screenshot({ path: shot });
+  const rail = page.locator(".depth-rail").first();
+  if (await rail.count()) await rail.screenshot({ path: shot.replace(/\.png$/, "-rail.png") });
   steps.push({ step: name, shot, ...data });
 }
 
@@ -199,6 +209,23 @@ try {
   await step("bmw-models");
   await clickCard(page, /^3시리즈$/);
   await step("3-series-generations");
+  // QF-018: 차종 시트에서 세대 없는 모델(SLS AMG) 선택 시 세대 칸 문구
+  await page.locator(".filter-chip.is-vehicle-summary .filter-chip-label").evaluate((el) => el.click());
+  const sheet = page.locator(".vehicle-picker-sheet");
+  await sheet.waitFor({ timeout: 5000 });
+  await sheet.locator(".vehicle-picker-grid.is-makers button", { hasText: /^벤츠$/ }).first().evaluate((el) => el.click());
+  await sheet.locator(".vehicle-picker-grid:not(.is-makers):not(.is-generations) button", { hasText: /^SLS AMG$/ }).first().evaluate((el) => el.click());
+  await page.waitForTimeout(300);
+  picker = await page.evaluate(() => {
+    const sheetEl = document.querySelector(".vehicle-picker-sheet");
+    const panel = sheetEl.closest("[role='dialog']") ?? sheetEl;
+    return {
+      generationText: document.querySelector(".vehicle-picker-grid.is-generations")?.textContent?.trim() ?? null,
+      selectedModel: document.querySelector(".vehicle-picker-grid:not(.is-makers):not(.is-generations) .is-selected")?.textContent ?? null,
+      sheetHeightPct: Math.round((panel.getBoundingClientRect().height / window.innerHeight) * 100),
+    };
+  });
+  await page.screenshot({ path: join(outDir, `${String(steps.length + 1).padStart(2, "0")}-picker-sls-amg.png`) });
 } catch (error) {
   steps.push({ step: "error", error: String(error) });
   process.exitCode = 1;
@@ -207,14 +234,14 @@ try {
   preview?.kill();
 }
 
-const report = { url: targetUrl, commit, viewport: "393x852@3x", measuredAt: new Date().toISOString(), consoleErrors, steps };
+const report = { url: targetUrl, commit, viewport: "393x852@3x", measuredAt: new Date().toISOString(), consoleErrors, steps, picker };
 writeFileSync(join(outDir, "measure.json"), JSON.stringify(report, null, 2));
 
 const fmt = (v) => (Array.isArray(v) ? v.join("×") : v ?? "-");
 for (const s of steps) {
   if (s.error) { console.log(`\n[${s.step}] ${s.error}`); continue; }
   console.log(`\n[${s.step}] 레일 ${s.railHeight}px · 라벨 ${s.railLabel ? `${s.railLabel.text} ${s.railLabel.fontSize} ${s.railLabel.color} 중앙차 ${s.railLabel.centerOffset}` : "없음"} · 요약칩 ${s.summaryChip ? `${s.summaryChip.text} (${s.summaryChip.width}px)` : "-"} · 가로넘침 ${s.horizontalOverflow ? "있음" : "없음"}`);
-  console.log(`  상단 칩: ${s.topChips.join(" | ")}`);
+  console.log(`  상단 칩: ${s.topChipMarks.map((c) => `${c.label}${c.chevron ? "▾" : ""}${c.clear ? "×" : ""}`).join(" | ")}`);
   if (s.cards.length) {
     // 화면에 보이는 카드와 전기차 카드만 표로 (전체는 measure.json)
     console.table(s.cards.filter((c) => c.visible || c.spark).map((c) => ({ 이름: c.label, "2줄째": c.sub ?? "-", 카드: fmt(c.size), "위/아래": `${c.padTop}/${c.padBottom}`, 이미지칸: fmt(c.media?.size), "실제보임": fmt(c.visible?.size), 로고: fmt(c.logo?.size), 스파크: c.spark ? `${c.spark.x},${c.spark.y} ${fmt(c.spark.size)}` : "-", 선택: c.selected ? "O" : "" })));
@@ -223,5 +250,6 @@ for (const s of steps) {
     console.table(s.chips.slice(0, 8).map((c) => ({ 칩: c.label, 크기: fmt(c.size), 중앙차: c.centerOffset, 글자: c.fontSize, 선택: c.selected ? "O" : "", 비활성: c.disabled ? "O" : "" })));
   }
 }
+if (picker) console.log(`\n[차종 시트] 벤츠 ${picker.selectedModel ?? "-"} 선택 → 세대 칸 "${picker.generationText}" · 시트 높이 ${picker.sheetHeightPct}%`);
 console.log(`\n콘솔 오류 ${consoleErrors.length}건${consoleErrors.length ? `: ${consoleErrors.slice(0, 3).join(" | ")}` : ""}`);
 console.log(`결과: ${join(outDir, "measure.json")}`);

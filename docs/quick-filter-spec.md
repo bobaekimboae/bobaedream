@@ -12,7 +12,7 @@
 ## Depth Card
 
 - Card size: 80×72.
-- Rail height: 96 with 12px top and bottom padding.
+- Rail height: 96 with 12px top and bottom padding. The 1px bottom divider is drawn just outside the rail (`box-shadow`) so it does not reduce the bottom padding.
 - Rail label: 13px, vertically centered against the rail.
 - Card background: `#F7F8FC`.
 - Card radius: 8px.
