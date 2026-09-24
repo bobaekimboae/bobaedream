@@ -86,26 +86,36 @@
 
   .marketplace.is-pc .car-list.is-pc-rows { display: block; max-width: none; margin: 0; padding: 0; border-top: 0; background: #fff; border-radius: 0 0 12px 12px; }
   .marketplace.is-pc .car-list.is-pc-grid { max-width: none; margin: 0; border-radius: 0 0 12px 12px; }
+  /* QF-071 초톳 PC 카드 정밀 교정: 사진 (0,0) 기준 제목 0 · 사양 28 · 가격 52 · 위치 85 · 판매자 126(문의·찜 120) */
   .marketplace.is-pc .pc-car-row { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 16px; min-height: 193px; padding: 16px 20px; border: 0; border-bottom: 1px solid #f4f4f4; border-radius: 0; box-sizing: border-box; }
   .marketplace.is-pc .pc-car-row:last-child { border-bottom: 0; }
-  .marketplace.is-pc .pc-car-row .car-photo-wrap { width: 160px; height: 160px; border-radius: 8px; }
-  .marketplace.is-pc .pc-car-row .card-photo-meta { font-size: 12px; font-weight: 400; }
-  .pc-car-copy { display: flex; min-width: 0; flex-direction: column; }
+  .marketplace.is-pc .pc-car-row .car-photo-wrap { width: 160px; height: 160px; overflow: hidden; border-radius: 8px; background: #f4f4f4; }
+  .marketplace.is-pc .pc-car-row .car-photo { padding: 0; background: none; object-fit: cover; }
+  .pc-car-photo-empty { display: grid; width: 100%; height: 100%; place-items: center; color: #c0c0c0; }
+  .pc-car-photo-meta { position: absolute; right: 0; bottom: 0; left: 0; display: flex; align-items: center; justify-content: space-between; height: 24px; padding: 0 8px; box-sizing: border-box; background: linear-gradient(rgba(34, 34, 34, 0), rgba(34, 34, 34, .75)); color: #fff; }
+  .pc-car-posted { font-size: 12px; font-weight: 400; line-height: 18px; }
+  .pc-car-photo-count { display: inline-flex; align-items: center; gap: 2px; font-size: 10px; font-weight: 700; line-height: 15px; }
+  .pc-car-copy { display: flex; min-width: 0; min-height: 160px; flex-direction: column; }
   .pc-car-title { display: -webkit-box; margin: 0; overflow: hidden; color: #222; font-size: 16px; font-weight: 600; line-height: 24px; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
-  .pc-car-specs { margin: 4px 0 0; overflow: hidden; color: #595959; font-size: 14px; line-height: 21px; text-overflow: ellipsis; white-space: nowrap; }
-  .pc-car-price { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 4px; }
-  .marketplace.is-pc .pc-car-price .price { margin: 0 !important; color: #e5193b; font-size: 16px; font-weight: 700; line-height: 24px; }
-  .pc-car-lease { color: #595959; font-size: 14px; }
+  .pc-car-specs { display: flex; gap: 8px; height: 20px; margin: 4px 0 0; overflow: hidden; color: #595959; font-size: 14px; font-weight: 400; line-height: 20px; white-space: nowrap; }
+  .pc-car-price { display: flex; flex-wrap: nowrap; align-items: center; gap: 8px; height: 24px; margin-top: 4px; }
+  .marketplace.is-pc .pc-car-price .price { margin: 0 !important; color: #e5193b; font-size: 16px; font-weight: 700; line-height: 24px; white-space: nowrap; }
+  .pc-car-market { display: inline-flex; align-items: center; gap: 2px; height: 20px; padding: 2px 6px 2px 4px; border-radius: 5px; box-sizing: border-box; background: #d9f2e4; color: #108446; font-size: 11px; font-weight: 500; line-height: 11px; white-space: nowrap; }
+  .pc-car-lease { color: #595959; font-size: 14px; white-space: nowrap; }
   .marketplace.is-pc .pc-car-price .badges { margin: 0; }
-  .pc-car-location { display: flex; align-items: center; gap: 4px; margin: 4px 0 0; overflow: hidden; color: #8c8c8c; font-size: 14px; line-height: 21px; text-overflow: ellipsis; white-space: nowrap; }
-  .pc-car-location .ui-icon { width: 14px; height: 14px; opacity: .7; }
-  .pc-car-seller { display: flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 8px; }
-  .pc-car-seller .dealer-avatar { width: 20px; height: 20px; }
-  .pc-car-seller strong { overflow: hidden; color: #595959; font-size: 12px; font-weight: 500; text-overflow: ellipsis; white-space: nowrap; }
-  .pc-car-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
-  .pc-inquiry-button { width: 77px; height: 32px; padding: 0; border: 1px solid #dadada; border-radius: 8px; box-sizing: border-box; background: #fff; color: #222; font-size: 14px; font-weight: 600; cursor: pointer; }
+  .pc-car-location { display: flex; align-items: center; gap: 4px; height: 20px; margin: 9px 0 15px; color: #595959; font-size: 14px; font-weight: 400; line-height: 20px; }
+  .pc-car-location > .bb-icon { color: #c0c0c0; }
+  .pc-car-place { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .pc-car-place em { color: #8c8c8c; font-style: normal; }
+  .pc-car-views { display: inline-flex; align-items: center; gap: 2px; margin-left: auto; color: #8c8c8c; white-space: nowrap; }
+  .pc-car-seller { display: flex; align-items: center; height: 32px; margin: auto 0 8px; }
+  .pc-car-seller .dealer-avatar { width: 20px; height: 20px; flex: none; border-radius: 50%; opacity: 1; }
+  .pc-car-seller strong { margin-left: 8px; overflow: hidden; color: #222; font-size: 12px; font-weight: 400; line-height: 18px; text-overflow: ellipsis; white-space: nowrap; }
+  .pc-car-verified { margin-left: 4px; color: #595959; }
+  .pc-car-sold { margin-left: 4px; color: #8c8c8c; font-size: 12px; line-height: 18px; white-space: nowrap; }
+  .pc-car-actions { display: flex; align-items: center; gap: 16px; margin: 0 8px 0 auto; }
+  .pc-inquiry-button { display: inline-flex; align-items: center; justify-content: center; gap: 4px; width: 77px; height: 32px; padding: 0 12px; border: 1px solid #dadada; border-radius: 8px; box-sizing: border-box; background: #fff; color: #222; font-size: 14px; font-weight: 700; line-height: 20px; cursor: pointer; }
   .pc-like-button { display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; background: none; color: #222; cursor: pointer; }
-  .pc-like-button svg { width: 20px; height: 20px; }
   .pc-like-button.is-liked { color: #f14069; }
 }
 

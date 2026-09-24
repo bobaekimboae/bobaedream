@@ -4,10 +4,11 @@ import { asset, displayListPlace, displaySpecs, sellerAvatar, sellerLabel, type 
 // 보배드림 개발 시안(bbmuseum) PC 매물리스트 1단계 이식(QF-048~050). 구조·수치·문구만 따르고 코드·이미지는 새로 만든다.
 
 // OP-010: 노션 "베트남 초톳" 아이콘(public/assets/icons/bb/, currentColor). 매핑표는 docs/icon-map.md
-type BbIconName = "search" | "mypage" | "heart" | "heart-filled" | "chat" | "notification" | "menu" | "chevron-down" | "filter" | "saved-search" | "view-list" | "location-pin" | "photo-count";
+type BbIconName = "search" | "mypage" | "heart" | "heart-filled" | "chat" | "notification" | "menu" | "chevron-down" | "filter" | "saved-search" | "view-list" | "location-pin" | "photo-count" | "verified" | "play" | "arrow-down";
 
-function BbIcon({ name, size = 20, className = "" }: { name: BbIconName; size?: 16 | 20 | 24 | 18 | 12; className?: string }) {
-  const style = { "--bb-icon": `url("${asset(`icons/bb/${name}.svg`)}")`, "--bb-size": `${size}px` } as CSSProperties;
+// size는 정사각 크기, box는 가로×세로가 다른 아이콘(예: 사진 수 9×12)
+function BbIcon({ name, size = 20, box, className = "" }: { name: BbIconName; size?: 12 | 16 | 18 | 20 | 24; box?: [number, number]; className?: string }) {
+  const style = { "--bb-icon": `url("${asset(`icons/bb/${name}.svg`)}")`, "--bb-size": `${size}px`, ...(box ? { width: box[0], height: box[1] } : {}) } as CSSProperties;
   return <span className={`bb-icon ${className}`} style={style} aria-hidden="true" />;
 }
 

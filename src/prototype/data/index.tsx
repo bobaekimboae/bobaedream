@@ -61,6 +61,8 @@ type Car = {
   posted: string;
   photos: number;
   badges?: ListingBadge[];
+  // PC 초톳형 카드 시세 배지 문구(예: "시세보다 17% 낮음"). 데이터가 있을 때만 표시
+  market?: string;
   filter?: {
     year: number;
     seats: string;
