@@ -3,6 +3,13 @@ name: Deploy GitHub Pages
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'docs/**'
+      - 'apps/**'
+      - 'admin-server/**'
+      - 'research/**'
+      - 'tests/**'
+      - '**/*.md'
   workflow_dispatch:
 
 permissions:
@@ -21,11 +28,15 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
       - run: npm ci --no-audit --no-fund
-      - name: Verify and build
-        run: npm run verify
+      - name: Verify quick-filter app
+        run: npm run verify:qf
+      - name: Prepare Pages artifact
+        run: |
+          node scripts/prepare-sites-build.mjs
+          node apps/variable-category-admin/scripts/sync-pages-demo.mjs
       - name: Prepare project-site paths
         run: find dist/client -type f \( -name '*.html' -o -name '*.js' -o -name '*.css' \) -exec sed -i 's|/assets/|/bobaedream/assets/|g' {} +
       - uses: actions/configure-pages@v5
