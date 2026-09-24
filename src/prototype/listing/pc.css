@@ -119,3 +119,9 @@
 @media (min-width: 820px) and (max-width: 1179px) {
   .pc-header-pill.is-support, .pc-header-pill.is-login { display: none; }
 }
+
+/* 본문 1200을 온전히 쓰는 폭에서는 검색창을 초톳과 같은 457로 고정(글꼴·버튼 폭 차이로 줄어들지 않게) */
+@media (min-width: 1248px) {
+  .pc-search { flex: 0 0 457px; }
+  .pc-list-header-right { min-width: 0; flex-shrink: 1; gap: 4px; }
+}
