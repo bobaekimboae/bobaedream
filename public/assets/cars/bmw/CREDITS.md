@@ -15,3 +15,9 @@ Source files already present in this repository:
 - `3-series`, `5-series`, and `x3` were rebuilt from the repository source images with edge background removal and silver studio-card toning.
 - BMW 3 Series generation files were added under `public/assets/cars/bmw/3-series/`.
 - Exact generation-specific external source images were not available in the repository; `g20.webp`, `f30.webp`, and `e90.webp` are separate transparent crops derived from the existing 3 Series repository source so the UI no longer reuses one identical file for all generations.
+
+2026-09-24 QF-026/QF-033 v5 pass:
+
+- `3-series`, `5-series`, and `x3` model cards plus BMW 3 Series `g20`, `f30`, and `e90` generation cards were retuned from dark gray/black toward white/silver studio-card presentation.
+- The affected card assets remain transparent `192×96` 2:1 files for the updated 56×28 model/generation slot.
+- `x1` was intentionally left unchanged per the v5 instruction.

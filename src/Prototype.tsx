@@ -201,12 +201,13 @@ const formatMileage = (value: string) => value.replace(/(\d[\d,]*)\s*km/i, (matc
 const brands = [
   { name: "BMW", logo: asset("brand/dongchedi/bmw.png") },
   { name: "벤츠", logo: asset("brand/dongchedi/benz.png") },
-  { name: "아우디", logo: asset("brand/dongchedi/audi.png") },
-  { name: "포르쉐", logo: asset("brand/dongchedi/porsche.png") },
+  { name: "아우디", logo: asset("brand/audi.svg") },
+  { name: "포르쉐", logo: asset("brand/porsche-symbol.png") },
   { name: "미니", logo: asset("brand/dongchedi/mini.png") },
 ];
 
 type VehicleBodyFit = "width" | "height";
+type BodyType = "세단" | "SUV" | "해치백" | "쿠페" | "컨버터블" | "왜건" | "MPV" | "밴" | "픽업";
 const vehicleCategories: ReadonlyArray<{ name: string; icon: string; bodyFit: VehicleBodyFit }> = [
   { name: "중고차", icon: "categories/used-car.svg", bodyFit: "width" },
   { name: "트럭 · 특장", icon: "categories/truck.svg", bodyFit: "height" },
@@ -359,11 +360,11 @@ const bmwModelCard = (name: string) => asset(`cars/bmw/card/${name}.png`);
 const bmw3SeriesGenerationCard = (name: string) => asset(`cars/bmw/3-series/${name}.webp`);
 
 const bmwModels = [
-  { name: "3시리즈", image: bmwModelCard("3-series"), bodyFit: "width" as const },
-  { name: "X1", image: bmwModelCard("x1"), bodyFit: "width" as const },
-  { name: "5시리즈", image: bmwModelCard("5-series"), bodyFit: "width" as const },
-  { name: "X3", image: bmwModelCard("x3"), bodyFit: "width" as const },
-  { name: "1시리즈", image: bmwModelCard("1-series"), bodyFit: "width" as const },
+  { name: "3시리즈", image: bmwModelCard("3-series"), bodyFit: "width" as const, bodyType: "세단" as const },
+  { name: "X1", image: bmwModelCard("x1"), bodyFit: "width" as const, bodyType: "SUV" as const },
+  { name: "5시리즈", image: bmwModelCard("5-series"), bodyFit: "width" as const, bodyType: "세단" as const },
+  { name: "X3", image: bmwModelCard("x3"), bodyFit: "width" as const, bodyType: "SUV" as const },
+  { name: "1시리즈", image: bmwModelCard("1-series"), bodyFit: "width" as const, bodyType: "해치백" as const },
 ];
 
 const benzAClassImages = {
@@ -381,46 +382,46 @@ const benzEncarClassOrder = [
   "스프린터", "190-클래스", "기타",
 ];
 type QuickTrimOption = { name: string; count: number };
-type QuickGenerationOption = { name: string; years: string; variants: Array<string | QuickTrimOption>; image?: string; bodyFit?: VehicleBodyFit; count?: number };
-type QuickModelVisual = { image: string; bodyFit?: VehicleBodyFit; count?: string };
+type QuickGenerationOption = { name: string; years: string; variants: Array<string | QuickTrimOption>; image?: string; bodyFit?: VehicleBodyFit; bodyType?: BodyType; isEV?: boolean; count?: number };
+type QuickModelVisual = { image: string; bodyFit?: VehicleBodyFit; bodyType?: BodyType; isEV?: boolean; count?: string };
 const quickModelVisualsByMaker: Record<string, Record<string, QuickModelVisual>> = {
-  BMW: Object.fromEntries(bmwModels.map((model) => [model.name, { image: model.image, bodyFit: model.bodyFit }])) as Record<string, QuickModelVisual>,
+  BMW: Object.fromEntries(bmwModels.map((model) => [model.name, { image: model.image, bodyFit: model.bodyFit, bodyType: model.bodyType }])) as Record<string, QuickModelVisual>,
   벤츠: {
-    "A-클래스": { image: mercedesModelCard("a-class"), count: "588대" },
-    "B-클래스": { image: mercedesModelCard("b-class"), count: "67대" },
-    "C-클래스": { image: mercedesModelCard("c-class"), count: "1,285대" },
-    "CL-클래스": { image: mercedesModelCard("cl-class"), count: "15대" },
-    "CLA-클래스": { image: mercedesModelCard("cla-class"), count: "468대" },
-    "CLE-클래스": { image: mercedesModelCard("cle-class"), count: "307대" },
-    "CLK-클래스": { image: mercedesModelCard("clk-class"), count: "3대" },
-    "CLS-클래스": { image: mercedesModelCard("cls-class"), count: "786대" },
-    "E-클래스": { image: mercedesModelCard("e-class"), count: "4,538대" },
-    EQA: { image: mercedesModelCard("eqa"), count: "106대" },
-    EQB: { image: mercedesModelCard("eqb"), count: "113대" },
-    EQC: { image: mercedesModelCard("eqc"), count: "18대" },
-    EQE: { image: mercedesModelCard("eqe"), count: "132대" },
-    EQS: { image: mercedesModelCard("eqs"), count: "170대" },
-    "G-클래스": { image: mercedesModelCard("g-class"), count: "490대" },
-    "GL-클래스": { image: mercedesModelCard("gl-class"), count: "7대" },
-    "GLA-클래스": { image: mercedesModelCard("gla-class"), count: "341대" },
-    "GLB-클래스": { image: mercedesModelCard("glb-class"), count: "455대" },
-    "GLC-클래스": { image: mercedesModelCard("glc-class"), count: "1,473대" },
-    "GLE-클래스": { image: mercedesModelCard("gle-class"), count: "1,436대" },
-    "GLK-클래스": { image: mercedesModelCard("glk-class"), count: "46대" },
-    "GLS-클래스": { image: mercedesModelCard("gls-class"), count: "410대" },
-    "M-클래스": { image: mercedesModelCard("m-class"), count: "40대" },
-    "R-클래스": { image: mercedesModelCard("r-class"), count: "2대" },
-    "S-클래스": { image: mercedesModelCard("s-class"), count: "2,835대" },
-    "SL-클래스": { image: mercedesModelCard("sl-class"), count: "79대" },
-    "SLC-클래스": { image: mercedesModelCard("slc-class"), count: "27대" },
-    "SLK-클래스": { image: mercedesModelCard("slk-class"), count: "38대" },
-    SLR: { image: mercedesModelCard("slr"), count: "0대" },
-    "SLS AMG": { image: mercedesModelCard("sls-amg"), count: "2대" },
-    "AMG GT": { image: mercedesModelCard("amg-gt"), count: "403대" },
-    "SEL/SEC": { image: mercedesModelCard("sel-sec"), count: "7대" },
-    "V-클래스": { image: mercedesModelCard("v-class"), count: "21대" },
-    스프린터: { image: mercedesModelCard("sprinter"), count: "85대" },
-    "190-클래스": { image: mercedesModelCard("190-class"), count: "0대" },
+    "A-클래스": { image: mercedesModelCard("a-class"), bodyType: "해치백", count: "588대" },
+    "B-클래스": { image: mercedesModelCard("b-class"), bodyType: "MPV", count: "67대" },
+    "C-클래스": { image: mercedesModelCard("c-class"), bodyType: "세단", count: "1,285대" },
+    "CL-클래스": { image: mercedesModelCard("cl-class"), bodyType: "쿠페", count: "15대" },
+    "CLA-클래스": { image: mercedesModelCard("cla-class"), bodyType: "쿠페", count: "468대" },
+    "CLE-클래스": { image: mercedesModelCard("cle-class"), bodyType: "쿠페", count: "307대" },
+    "CLK-클래스": { image: mercedesModelCard("clk-class"), bodyType: "쿠페", count: "3대" },
+    "CLS-클래스": { image: mercedesModelCard("cls-class"), bodyType: "쿠페", count: "786대" },
+    "E-클래스": { image: mercedesModelCard("e-class"), bodyType: "세단", count: "4,538대" },
+    EQA: { image: mercedesModelCard("eqa"), bodyType: "SUV", isEV: true, count: "106대" },
+    EQB: { image: mercedesModelCard("eqb"), bodyType: "SUV", isEV: true, count: "113대" },
+    EQC: { image: mercedesModelCard("eqc"), bodyType: "SUV", isEV: true, count: "18대" },
+    EQE: { image: mercedesModelCard("eqe"), bodyType: "세단", isEV: true, count: "132대" },
+    EQS: { image: mercedesModelCard("eqs"), bodyType: "세단", isEV: true, count: "170대" },
+    "G-클래스": { image: mercedesModelCard("g-class"), bodyType: "SUV", count: "490대" },
+    "GL-클래스": { image: mercedesModelCard("gl-class"), bodyType: "SUV", count: "7대" },
+    "GLA-클래스": { image: mercedesModelCard("gla-class"), bodyType: "SUV", count: "341대" },
+    "GLB-클래스": { image: mercedesModelCard("glb-class"), bodyType: "SUV", count: "455대" },
+    "GLC-클래스": { image: mercedesModelCard("glc-class"), bodyType: "SUV", count: "1,473대" },
+    "GLE-클래스": { image: mercedesModelCard("gle-class"), bodyType: "SUV", count: "1,436대" },
+    "GLK-클래스": { image: mercedesModelCard("glk-class"), bodyType: "SUV", count: "46대" },
+    "GLS-클래스": { image: mercedesModelCard("gls-class"), bodyType: "SUV", count: "410대" },
+    "M-클래스": { image: mercedesModelCard("m-class"), bodyType: "SUV", count: "40대" },
+    "R-클래스": { image: mercedesModelCard("r-class"), bodyType: "MPV", count: "2대" },
+    "S-클래스": { image: mercedesModelCard("s-class"), bodyType: "세단", count: "2,835대" },
+    "SL-클래스": { image: mercedesModelCard("sl-class"), bodyType: "컨버터블", count: "79대" },
+    "SLC-클래스": { image: mercedesModelCard("slc-class"), bodyType: "컨버터블", count: "27대" },
+    "SLK-클래스": { image: mercedesModelCard("slk-class"), bodyType: "컨버터블", count: "38대" },
+    SLR: { image: mercedesModelCard("slr"), bodyType: "쿠페", count: "0대" },
+    "SLS AMG": { image: mercedesModelCard("sls-amg"), bodyType: "쿠페", count: "2대" },
+    "AMG GT": { image: mercedesModelCard("amg-gt"), bodyType: "쿠페", count: "403대" },
+    "SEL/SEC": { image: mercedesModelCard("sel-sec"), bodyType: "쿠페", count: "7대" },
+    "V-클래스": { image: mercedesModelCard("v-class"), bodyType: "밴", count: "21대" },
+    스프린터: { image: mercedesModelCard("sprinter"), bodyType: "밴", bodyFit: "height", count: "85대" },
+    "190-클래스": { image: mercedesModelCard("190-class"), bodyType: "세단", count: "0대" },
     기타: { image: mercedesModelCard("other") },
   },
 };
@@ -513,6 +514,14 @@ const generationCountLabel = (generation: QuickGenerationOption) => {
   const count = generation.count ?? generation.variants.reduce((sum, variant) => sum + toTrimOption(variant).count, 0);
   return `${count.toLocaleString("ko-KR")}대`;
 };
+const bodyTypeLabel = (bodyType?: BodyType, isEV?: boolean) => bodyType ? `${isEV ? "전기 " : ""}${bodyType}` : "";
+const modelBodyTabs = ["전체", "세단", "SUV", "해치백", "쿠페", "전기차"] as const;
+type ModelBodyTab = (typeof modelBodyTabs)[number];
+const matchesModelBodyTab = (visual: QuickModelVisual | undefined, tab: ModelBodyTab) => {
+  if (tab === "전체") return true;
+  if (tab === "전기차") return Boolean(visual?.isEV);
+  return visual?.bodyType === tab;
+};
 const quickModelsByMaker: Record<string, string[]> = {
   BMW: bmwModels.map((model) => model.name),
   벤츠: benzEncarClassOrder,
@@ -536,62 +545,62 @@ const quickModelsByMaker: Record<string, string[]> = {
 const quickGenerationsByMakerModel: Record<string, Record<string, QuickGenerationOption[]>> = {
   BMW: {
     "3시리즈": [
-      { name: "G20", years: "2019~현재", image: bmw3SeriesGenerationCard("g20"), bodyFit: "width", variants: ["320i", "320d", "330i", "M 스포츠"] },
-      { name: "F30", years: "2012~2018", image: bmw3SeriesGenerationCard("f30"), bodyFit: "width", variants: ["320d", "328i", "Luxury", "M 스포츠"] },
-      { name: "E90", years: "2005~2011", image: bmw3SeriesGenerationCard("e90"), bodyFit: "width", variants: ["320i", "325i", "330i"] },
+      { name: "G20", years: "2019~현재", image: bmw3SeriesGenerationCard("g20"), bodyFit: "width", bodyType: "세단", variants: ["320i", "320d", "330i", "M 스포츠"] },
+      { name: "F30", years: "2012~2018", image: bmw3SeriesGenerationCard("f30"), bodyFit: "width", bodyType: "세단", variants: ["320d", "328i", "Luxury", "M 스포츠"] },
+      { name: "E90", years: "2005~2011", image: bmw3SeriesGenerationCard("e90"), bodyFit: "width", bodyType: "세단", variants: ["320i", "325i", "330i"] },
     ],
     "5시리즈": [
-      { name: "G60", years: "2023~현재", variants: ["520i", "530i", "530e", "M 스포츠"] },
-      { name: "G30", years: "2017~2023", variants: ["520d", "530i", "530e", "M 스포츠"] },
-      { name: "F10", years: "2010~2016", variants: ["520d", "528i", "535i"] },
+      { name: "G60", years: "2023~현재", bodyType: "세단", variants: ["520i", "530i", "530e", "M 스포츠"] },
+      { name: "G30", years: "2017~2023", bodyType: "세단", variants: ["520d", "530i", "530e", "M 스포츠"] },
+      { name: "F10", years: "2010~2016", bodyType: "세단", variants: ["520d", "528i", "535i"] },
     ],
     X1: [
-      { name: "U11", years: "2022~현재", variants: ["sDrive18d", "xDrive20i", "M 스포츠"] },
-      { name: "F48", years: "2015~2022", variants: ["sDrive18d", "xDrive20d"] },
+      { name: "U11", years: "2022~현재", bodyType: "SUV", variants: ["sDrive18d", "xDrive20i", "M 스포츠"] },
+      { name: "F48", years: "2015~2022", bodyType: "SUV", variants: ["sDrive18d", "xDrive20d"] },
     ],
     X3: [
-      { name: "G45", years: "2024~현재", variants: ["20 xDrive", "30e xDrive", "M50"] },
-      { name: "G01", years: "2017~2024", variants: ["20d", "30d", "M40i"] },
+      { name: "G45", years: "2024~현재", bodyType: "SUV", variants: ["20 xDrive", "30e xDrive", "M50"] },
+      { name: "G01", years: "2017~2024", bodyType: "SUV", variants: ["20d", "30d", "M40i"] },
     ],
     "1시리즈": [
-      { name: "F40", years: "2019~현재", variants: ["118d", "120i", "M135i"] },
-      { name: "F20", years: "2011~2019", variants: ["118d", "120d", "M 스포츠"] },
+      { name: "F40", years: "2019~현재", bodyType: "해치백", variants: ["118d", "120i", "M135i"] },
+      { name: "F20", years: "2011~2019", bodyType: "해치백", variants: ["118d", "120d", "M 스포츠"] },
     ],
   },
   벤츠: {
     "E-클래스": [
-      { name: "6세대 W214", years: "2023~현재", variants: ["E200", "E300 4MATIC", "E350 e 4MATIC"] },
-      { name: "5세대 W213", years: "2016~2023", variants: ["E220d", "E250", "E300 아방가르드", "E300 4MATIC", "E350 e 4MATIC 익스클루시브"] },
-      { name: "4세대 W212", years: "2009~2016", variants: ["E200 CGI 블루이피션시", "E220 CDI", "E300", "E350"] },
+      { name: "6세대 W214", years: "2023~현재", bodyType: "세단", variants: ["E200", "E300 4MATIC", "E350 e 4MATIC"] },
+      { name: "5세대 W213", years: "2016~2023", bodyType: "세단", variants: ["E220d", "E250", "E300 아방가르드", "E300 4MATIC", "E350 e 4MATIC 익스클루시브"] },
+      { name: "4세대 W212", years: "2009~2016", bodyType: "세단", variants: ["E200 CGI 블루이피션시", "E220 CDI", "E300", "E350"] },
     ],
     "S-클래스": [
-      { name: "7세대 W223", years: "2020~현재", variants: ["S350d", "S500 4MATIC", "Maybach"] },
-      { name: "6세대 W222", years: "2013~2020", variants: ["S350d", "S400", "S560"] },
-      { name: "5세대 W221", years: "2005~2013", variants: ["S350", "S500L", "S600L"] },
-      { name: "4세대 W220", years: "1998~2005", variants: ["S320", "S500", "S500L"] },
+      { name: "7세대 W223", years: "2020~현재", bodyType: "세단", variants: ["S350d", "S500 4MATIC", "Maybach"] },
+      { name: "6세대 W222", years: "2013~2020", bodyType: "세단", variants: ["S350d", "S400", "S560"] },
+      { name: "5세대 W221", years: "2005~2013", bodyType: "세단", variants: ["S350", "S500L", "S600L"] },
+      { name: "4세대 W220", years: "1998~2005", bodyType: "세단", variants: ["S320", "S500", "S500L"] },
     ],
     "C-클래스": [
-      { name: "6세대 W206", years: "2021~현재", variants: ["C200", "C300", "AMG Line"] },
-      { name: "5세대 W205", years: "2014~2021", variants: ["C200", "C220d", "C300"] },
-      { name: "4세대 W204", years: "2007~2014", variants: ["C200", "C220 CDI", "C250"] },
+      { name: "6세대 W206", years: "2021~현재", bodyType: "세단", variants: ["C200", "C300", "AMG Line"] },
+      { name: "5세대 W205", years: "2014~2021", bodyType: "세단", variants: ["C200", "C220d", "C300"] },
+      { name: "4세대 W204", years: "2007~2014", bodyType: "세단", variants: ["C200", "C220 CDI", "C250"] },
     ],
     "GLC-클래스": [
-      { name: "2세대 X254", years: "2022~현재", variants: ["GLC 300 4MATIC", "GLC 300e 4MATIC", "AMG Line"] },
-      { name: "1세대 X253", years: "2015~2022", variants: ["GLC350e 4MATIC", "GLC300 4MATIC 쿠페", "GLC220d 4MATIC"] },
+      { name: "2세대 X254", years: "2022~현재", bodyType: "SUV", variants: ["GLC 300 4MATIC", "GLC 300e 4MATIC", "AMG Line"] },
+      { name: "1세대 X253", years: "2015~2022", bodyType: "SUV", variants: ["GLC350e 4MATIC", "GLC300 4MATIC 쿠페", "GLC220d 4MATIC"] },
     ],
     "GLE-클래스": [
-      { name: "2세대 V167", years: "2019~현재", variants: ["GLE 300d 4MATIC", "GLE 450 4MATIC", "AMG Line"] },
-      { name: "1세대 W166", years: "2015~2019", variants: ["GLE 350d", "GLE 400", "AMG"] },
+      { name: "2세대 V167", years: "2019~현재", bodyType: "SUV", variants: ["GLE 300d 4MATIC", "GLE 450 4MATIC", "AMG Line"] },
+      { name: "1세대 W166", years: "2015~2019", bodyType: "SUV", variants: ["GLE 350d", "GLE 400", "AMG"] },
     ],
     "A-클래스": [
-      { name: "A-클래스 W177", years: "2019~현재", image: benzAClassImages.W177, variants: ["A180", "A200d", "A220", "A250 4MATIC", "AMG A35 4MATIC", "AMG A45 S 4MATIC+"] },
-      { name: "A-클래스 W176", years: "2013~2018", image: benzAClassImages.W176, variants: ["A180 CDI", "A200 CDI", "A200", "A220", "A45 AMG 4MATIC"] },
-      { name: "A-클래스 W169", years: "2005~2012", image: benzAClassImages.W169, variants: ["A170", "A180 CDI", "A200", "A200 Turbo"] },
-      { name: "A-클래스 W168", years: "1997~2004", image: benzAClassImages.W168, variants: ["A140", "A160", "A190"] },
+      { name: "A-클래스 W177", years: "2019~현재", image: benzAClassImages.W177, bodyType: "해치백", variants: ["A180", "A200d", "A220", "A250 4MATIC", "AMG A35 4MATIC", "AMG A45 S 4MATIC+"] },
+      { name: "A-클래스 W176", years: "2013~2018", image: benzAClassImages.W176, bodyType: "해치백", variants: ["A180 CDI", "A200 CDI", "A200", "A220", "A45 AMG 4MATIC"] },
+      { name: "A-클래스 W169", years: "2005~2012", image: benzAClassImages.W169, bodyType: "해치백", variants: ["A170", "A180 CDI", "A200", "A200 Turbo"] },
+      { name: "A-클래스 W168", years: "1997~2004", image: benzAClassImages.W168, bodyType: "해치백", variants: ["A140", "A160", "A190"] },
     ],
     "CLA-클래스": [
-      { name: "2세대 C118", years: "2019~현재", variants: ["CLA 220", "CLA 250 4MATIC", "AMG CLA 45 S"] },
-      { name: "1세대 C117", years: "2013~2019", variants: ["CLA 200", "CLA 250", "CLA 45 AMG"] },
+      { name: "2세대 C118", years: "2019~현재", bodyType: "쿠페", variants: ["CLA 220", "CLA 250 4MATIC", "AMG CLA 45 S"] },
+      { name: "1세대 C117", years: "2013~2019", bodyType: "쿠페", variants: ["CLA 200", "CLA 250", "CLA 45 AMG"] },
     ],
   },
 };
@@ -932,10 +941,15 @@ function BrandRailMark({ option, variant = "default" }: { option: BrandRailOptio
   return <span className={logoClass}><span className="brand-logo-fallback" aria-hidden="true">{option.name.slice(0, 2)}</span></span>;
 }
 
-function DepthCard({ label, sub, image, imageFit = "width", selected, disabled, mediaKind, onClick }: { label: string; sub?: string; image?: ReactNode; imageFit?: VehicleBodyFit; selected?: boolean; disabled?: boolean; mediaKind?: "brand"; onClick: () => void }) {
+function ElectricSparkIcon() {
+  return <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M9.2 1.2 3.5 8.7h3.8l-.7 6.1 5.9-7.8H8.6l.6-5.8Z" fill="currentColor" /></svg>;
+}
+
+function DepthCard({ label, sub, image, imageFit = "width", selected, disabled, mediaKind, isEV, onClick }: { label: string; sub?: string; image?: ReactNode; imageFit?: VehicleBodyFit; selected?: boolean; disabled?: boolean; mediaKind?: "brand"; isEV?: boolean; onClick: () => void }) {
   const mediaClassName = `depth-card-media${mediaKind === "brand" ? " is-brand" : ` is-fit-${imageFit}`}`;
   return (
     <button type="button" className={`depth-card${selected ? " is-selected" : ""}`} disabled={disabled} aria-pressed={Boolean(selected)} onClick={onClick}>
+      {isEV ? <span className="depth-card-ev" role="img" aria-label="전기차"><ElectricSparkIcon /></span> : null}
       <span className={mediaClassName}>{image}</span>
       <strong className="depth-card-label">{label}</strong>
       {sub ? <small className="depth-card-sub">{sub}</small> : null}
@@ -1274,6 +1288,7 @@ function MarketplaceScreen() {
   const [selectedVariants, setSelectedVariants] = useState<string[]>([]);
   const [debouncedSelectedVariants, setDebouncedSelectedVariants] = useState<string[]>([]);
   const [trimApplied, setTrimApplied] = useState(false);
+  const [modelBodyTabByMaker, setModelBodyTabByMaker] = useState<Record<string, ModelBodyTab>>({});
 
   useEffect(() => {
     if (!searchToast) return;
@@ -1570,6 +1585,14 @@ function MarketplaceScreen() {
   };
 
   const guaziVisualsForMaker = maker ? quickModelVisualsByMaker[maker] : undefined;
+  const savedModelBodyTab = maker ? modelBodyTabByMaker[maker] ?? "전체" : "전체";
+  const isModelBodyTabAvailable = (tab: ModelBodyTab) => tab === "전체" || modelQuickOptions.some((model) => matchesModelBodyTab(guaziVisualsForMaker?.[model], tab));
+  const activeModelBodyTab = isModelBodyTabAvailable(savedModelBodyTab) ? savedModelBodyTab : "전체";
+  const visibleModelQuickOptions = modelQuickOptions.filter((model) => matchesModelBodyTab(guaziVisualsForMaker?.[model], activeModelBodyTab));
+  const chooseModelBodyTab = (tab: ModelBodyTab) => {
+    if (!maker || !isModelBodyTabAvailable(tab)) return;
+    setModelBodyTabByMaker((current) => ({ ...current, [maker]: tab }));
+  };
   const selectedGenerationVisual = selectedGenerationOption?.image ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.image : undefined);
   const selectedGenerationSummary = selectedGenerationOption
     ? (showGuaziInventoryCounts
@@ -1684,6 +1707,7 @@ function MarketplaceScreen() {
   const hasDirectVariantDepth = Boolean(usesUxDepth && selectedModel && !hasGenerationDepth && directVariantQuickOptions.length);
   const shouldStayOnSelectedModelRail = Boolean(isGuaziQuickStyle && selectedModel && !hasGenerationDepth && !hasDirectVariantDepth);
   const showModelQuickRail = Boolean(maker && modelQuickOptions.length && (!selectedModel || shouldStayOnSelectedModelRail));
+  const showModelBodyTabs = Boolean(isGuaziQuickStyle && showModelQuickRail && maker && modelQuickOptions.length >= 12);
   const showGenerationQuickRail = Boolean(usesUxDepth && selectedModel && !selectedGeneration && generationQuickOptions.length);
   const showVariantQuickRail = Boolean(usesUxDepth && ((selectedGeneration && variantQuickOptions.length) || hasDirectVariantDepth) && (isGuaziQuickStyle || !trimApplied));
   const showVehicleHeaderRail = Boolean(!isGuaziQuickStyle && usesUxDepth && selectedGeneration && trimApplied);
@@ -1728,17 +1752,30 @@ function MarketplaceScreen() {
                 </button>
               ))}
             </Carousel>
-          </section> : showModelQuickRail && isGuaziQuickStyle ? <section className="depth-rail" aria-label={`${maker} 모델 빠른 선택`}>
+          </section> : showModelQuickRail && isGuaziQuickStyle ? <section className={`depth-rail${showModelBodyTabs ? " has-model-body-tabs" : ""}`} aria-label={`${maker} 모델 빠른 선택`}>
             <span className="depth-rail-label">모델</span>
+            {showModelBodyTabs ? <div className="model-body-tabs" role="tablist" aria-label={`${maker} 차체 필터`}>
+              {modelBodyTabs.map((tab) => {
+                const available = isModelBodyTabAvailable(tab);
+                const selected = activeModelBodyTab === tab;
+                return (
+                  <button key={tab} type="button" role="tab" aria-selected={selected} className={selected ? "is-selected" : ""} disabled={!available} onClick={() => chooseModelBodyTab(tab)}>
+                    {tab}
+                  </button>
+                );
+              })}
+            </div> : null}
             <Carousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName="depth-rail-track">
-              {modelQuickOptions.map((model) => {
+              {visibleModelQuickOptions.map((model) => {
                 const modelVisual = guaziVisualsForMaker?.[model];
                 return (
                   <DepthCard
                     key={model}
                     label={formatModelLabel(model)}
+                    sub={bodyTypeLabel(modelVisual?.bodyType, modelVisual?.isEV)}
                     image={modelVisual?.image ? <img src={modelVisual.image} alt="" aria-hidden="true" draggable={false} /> : undefined}
                     imageFit={modelVisual?.bodyFit ?? "width"}
+                    isEV={modelVisual?.isEV}
                     selected={selectedModel === model}
                     disabled={modelVisual?.count === "0대"}
                     onClick={() => chooseModel(model)}
@@ -1759,7 +1796,8 @@ function MarketplaceScreen() {
             <Carousel ariaLabel={`${accessibleDepthLabel(selectedModel)} 세대`} className="brand-carousel" contentClassName="depth-rail-track">
               {generationQuickOptions.map((generation) => {
                 const generationImage = generation.image ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.image : undefined);
-                const generationImageFit = generation.bodyFit ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.bodyFit : undefined) ?? "width";
+                const selectedModelVisual = selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel] : undefined;
+                const generationImageFit = generation.bodyFit ?? selectedModelVisual?.bodyFit ?? "width";
                 return (
                   <DepthCard
                     key={generation.name}
@@ -1767,6 +1805,7 @@ function MarketplaceScreen() {
                     sub={compactGenerationCardYearLabel(generation.years)}
                     image={generationImage ? <img src={generationImage} alt="" aria-hidden="true" draggable={false} /> : undefined}
                     imageFit={generationImageFit}
+                    isEV={generation.isEV ?? selectedModelVisual?.isEV}
                     selected={selectedGeneration === generation.name}
                     disabled={(generation.count ?? generation.variants.reduce((sum, variant) => sum + toTrimOption(variant).count, 0)) === 0}
                     onClick={() => chooseGeneration(generation.name)}

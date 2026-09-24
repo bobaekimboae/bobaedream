@@ -113,15 +113,26 @@ button { color: inherit; }
 .depth-rail .brand-carousel { height: 96px; }
 .depth-rail-track { display: flex; align-items: center; box-sizing: border-box; min-width: max-content; height: 96px; gap: 8px; padding: 12px 16px 12px 0; scrollbar-width: none; }
 .depth-rail.no-label .depth-rail-track { padding-left: 16px; }
-.depth-card { position: relative; display: flex; width: 80px; height: 72px; flex: 0 0 80px; flex-direction: column; align-items: center; box-sizing: border-box; padding: 9px 4px 0; border: 1.5px solid transparent; border-radius: 8px; background: #f7f8fc; color: #16181d; font: inherit; text-align: center; transition: background 140ms ease, border-color 140ms ease, color 140ms ease, opacity 140ms ease; }
+.depth-rail.has-model-body-tabs { grid-template-rows: 38px 96px; align-items: stretch; height: 134px; }
+.depth-rail.has-model-body-tabs .depth-rail-label { grid-row: 1 / span 2; }
+.depth-rail.has-model-body-tabs .brand-carousel { grid-column: 2; grid-row: 2; height: 96px; }
+.model-body-tabs { display: flex; grid-column: 2; grid-row: 1; align-items: center; gap: 6px; min-width: 0; overflow-x: auto; padding: 5px 16px 5px 0; scrollbar-width: none; }
+.model-body-tabs::-webkit-scrollbar { display: none; }
+.model-body-tabs button { display: inline-flex; height: 28px; flex: 0 0 auto; align-items: center; justify-content: center; padding: 0 12px; border: 1px solid transparent; border-radius: 999px; background: #f7f8fc; color: #32373f; font-size: 13px; font-weight: 500; line-height: 18px; white-space: nowrap; cursor: pointer; transition: background 140ms ease, border-color 140ms ease, color 140ms ease, opacity 140ms ease; }
+.model-body-tabs button.is-selected,
+.model-body-tabs button[aria-selected="true"] { border-color: var(--blue); background: #fff; color: var(--blue); font-weight: 700; }
+.model-body-tabs button:disabled { opacity: .38; cursor: default; }
+.depth-card { position: relative; display: flex; width: 80px; height: 72px; flex: 0 0 80px; flex-direction: column; align-items: center; box-sizing: border-box; padding: 7px 4px 0; border: 1.5px solid transparent; border-radius: 8px; background: #f7f8fc; color: #16181d; font: inherit; text-align: center; transition: background 140ms ease, border-color 140ms ease, color 140ms ease, opacity 140ms ease; }
 .depth-card.is-selected { border-color: var(--blue); background: color-mix(in srgb, var(--blue) 8%, #fff); color: var(--blue); }
 .depth-card:disabled { opacity: .4; cursor: default; }
-.depth-card-media { display: grid; width: 48px; height: 24px; place-items: end center; }
-.depth-card-media img { max-width: 48px; max-height: 24px; object-fit: contain; mix-blend-mode: multiply; }
-.depth-card-media.is-fit-width img { width: 48px; height: auto; max-height: 24px; object-position: center bottom; }
-.depth-card-media.is-fit-height img { width: auto; height: 24px; max-width: 48px; object-position: center bottom; }
-.depth-card-media.is-brand { height: 28px; place-items: end center; }
-.depth-card-media .brand-logo { display: grid; width: 48px; height: 24px; place-items: center; }
+.depth-card-ev { position: absolute; top: 4px; left: 4px; display: grid; width: 16px; height: 16px; place-items: center; color: #177245; pointer-events: none; }
+.depth-card-ev svg { display: block; width: 16px; height: 16px; }
+.depth-card-media { display: grid; width: 56px; height: 28px; place-items: end center; }
+.depth-card-media img { max-width: 56px; max-height: 28px; object-fit: contain; mix-blend-mode: multiply; }
+.depth-card-media.is-fit-width img { width: 56px; height: auto; max-height: 28px; object-position: center bottom; }
+.depth-card-media.is-fit-height img { width: auto; height: 28px; max-width: 56px; object-position: center bottom; }
+.depth-card-media.is-brand { width: 48px; height: 28px; place-items: end center; }
+.depth-card-media .brand-logo { display: grid; width: 48px; height: 28px; place-items: center; }
 .depth-card-media .brand-logo img { max-width: 28px; max-height: 28px; object-fit: contain; mix-blend-mode: normal; }
 .depth-card-media .brand-logo svg { width: 28px; height: 28px; }
 .depth-card-media .brand-logo.is-depth { width: 48px; height: 28px; place-items: end center; }
@@ -130,7 +141,7 @@ button { color: inherit; }
 .depth-card-media .brand-logo.is-depth.is-wordmark img,
 .depth-card-media .brand-logo.is-depth.is-wordmark svg { width: 44px; max-width: 44px; height: auto; max-height: 28px; }
 .depth-card-media .brand-logo-fallback { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 50%; background: #edf0f4; color: #656d7a; font-size: 10px; font-weight: 700; }
-.depth-card-label { max-width: 100%; margin-top: 8px; overflow: hidden; color: inherit; font-size: 12px; font-weight: 500; line-height: 15px; text-overflow: ellipsis; white-space: nowrap; }
+.depth-card-label { max-width: 100%; margin-top: 6px; overflow: hidden; color: inherit; font-size: 12px; font-weight: 500; line-height: 15px; text-overflow: ellipsis; white-space: nowrap; }
 .depth-card-sub { max-width: 100%; margin-top: 1px; overflow: hidden; color: #8a919c; font-size: 11px; font-weight: 500; line-height: 13px; text-overflow: ellipsis; white-space: nowrap; }
 .depth-card.is-selected .depth-card-sub { color: #656d7a; }
 .depth-rail-track.is-chips { align-items: center; padding-top: 0; padding-bottom: 0; }
