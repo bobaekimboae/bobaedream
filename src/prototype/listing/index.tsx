@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
-import { BookmarkFilledIcon, HeartFilledIcon, HeartIcon } from "@radix-ui/react-icons";
+import { BookmarkFilledIcon, BookmarkIcon, ChevronDownIcon, ChevronRightIcon, ChevronUpIcon, DashboardIcon, HeartFilledIcon, HeartIcon, MagnifyingGlassIcon, RowsIcon } from "@radix-ui/react-icons";
 import { BottomSheet, Carousel, KeyboardInput, MobileScroll, type FlowScreen, useFlow, useKeyboard } from "../../mobile";
 import { ChoTotFilterSheet, ChoTotQuickFilterSheet, emptyChoTotFilters, type ChoTotFilterFocus, type ChoTotFilterState } from "../../ChoTotFilterSheet";
 import { Icon } from "../shared";
@@ -27,6 +27,7 @@ import {
   guaziVehicleTypeCategories,
   importedBrandRailOptions,
   inventoryCars,
+  isDesktopPreview,
   matchesChoTotFilters,
   matchesPrice,
   normalizeModelSearchText,
@@ -68,6 +69,76 @@ function configureListingScreens(screens: { detailScreen: FlowScreen; savedListi
   savedListingsScreen = screens.savedListingsScreen;
 }
 
+// PC 목록 레이아웃(QF-042~045)은 ?pc=1 이고 폭 820 이상일 때만 켠다. 모바일 마크업은 그대로 둔다.
+const desktopLayoutQuery = "(min-width: 820px)";
+const pcAsset = (name: string) => asset(`pc-detail/${name}`);
+
+function useDesktopLayout() {
+  const [desktop, setDesktop] = useState(() => isDesktopPreview() && window.matchMedia(desktopLayoutQuery).matches);
+  useEffect(() => {
+    if (!isDesktopPreview()) return undefined;
+    const media = window.matchMedia(desktopLayoutQuery);
+    const update = () => setDesktop(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+  return desktop;
+}
+
+const pcPriceLinks = [
+  { label: "1,000만원 이하", min: 0, max: 1000 },
+  { label: "1,000~2,000만원", min: 1000, max: 2000 },
+  { label: "2,000~3,000만원", min: 2000, max: 3000 },
+  { label: "3,000~5,000만원", min: 3000, max: 5000 },
+  { label: "5,000만원~1억원", min: 5000, max: 10000 },
+  { label: "1억~2억원", min: 10000, max: 20000 },
+  { label: "2억원 이상", min: 20000, max: null },
+];
+const pcBodyLinks = ["세단", "SUV", "해치백", "스포츠카", "승합"];
+
+function PcHeader({ query, setQuery, searchPlaceholder, regionLabel, onOpenRegion, onOpenFavorites, onNotify }: { query: string; setQuery: (query: string) => void; searchPlaceholder: string; regionLabel: string; onOpenRegion: () => void; onOpenFavorites: () => void; onNotify: (message: string) => void }) {
+  const keyboard = useKeyboard();
+  return (
+    <header className="pc-list-header" aria-label="보배드림 중고차 검색">
+      <div className="pc-list-header-inner">
+        <div className="pc-list-header-left">
+          <button type="button" className="pc-header-icon" aria-label="전체 메뉴" onClick={() => onNotify("전체 메뉴는 정식 서비스에서 이용해 주세요.")}><img src={pcAsset("9546-imgGroup1000005392.svg")} alt="" draggable={false} /></button>
+          <button type="button" className="pc-list-logo" aria-label="보배드림 중고차 처음으로" onClick={() => document.querySelector(".app-screen")?.scrollTo({ top: 0 })}><span><img src={pcAsset("9546-imgGroup.svg")} alt="" draggable={false} /></span><img src={pcAsset("9546-imgLogo.svg")} alt="보배드림" draggable={false} /></button>
+          <button type="button" className="pc-region-pill" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={onOpenRegion}><Icon name="location-blue.svg" /><span>{regionLabel}</span><ChevronDownIcon /></button>
+        </div>
+        <label className="pc-search">
+          <KeyboardInput aria-label={`${searchPlaceholder} 검색`} value={query} onChange={(event) => setQuery(event.currentTarget.value)} onBlur={() => keyboard.hide()} placeholder={`${searchPlaceholder} 모델명, 트림으로 검색`} />
+          <button type="button" className="pc-search-button" aria-label="검색" onPointerDown={(event) => event.preventDefault()} onClick={() => keyboard.hide()}><MagnifyingGlassIcon /></button>
+        </label>
+        <div className="pc-list-header-right">
+          <button type="button" className="pc-header-icon" aria-label="저장한 매물 열기" onClick={onOpenFavorites}><img src={pcAsset("9546-img1IconHeartSize24.svg")} alt="" draggable={false} /></button>
+          <button type="button" className="pc-header-icon" aria-label="알림" onClick={() => onNotify("알림은 정식 서비스에서 이용해 주세요.")}><img src={pcAsset("9546-img1IconNoticeSize24.svg")} alt="" draggable={false} /></button>
+          <button type="button" className="pc-header-pill is-support" onClick={() => onNotify("고객센터는 정식 서비스에서 이용해 주세요.")}>고객센터</button>
+          <button type="button" className="pc-header-pill is-login" onClick={() => onNotify("로그인은 정식 서비스에서 이용해 주세요.")}>로그인</button>
+          <button type="button" className="pc-header-pill is-primary" onClick={() => onNotify("내차팔기는 정식 서비스에서 이용해 주세요.")}>내차팔기</button>
+          <button type="button" className="pc-profile-menu" aria-label="내 정보 메뉴" onClick={() => onNotify("내 정보는 정식 서비스에서 이용해 주세요.")}><img src={pcAsset("9546-img1IconUserSmileSize24.svg")} alt="" draggable={false} /><ChevronDownIcon /></button>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function PcSidebarCard({ title, items, activeLabel, onChoose, visibleCount = 5 }: { title: string; items: string[]; activeLabel?: string; onChoose: (label: string) => void; visibleCount?: number }) {
+  const [open, setOpen] = useState(true);
+  const [expanded, setExpanded] = useState(false);
+  const shownItems = expanded ? items : items.slice(0, visibleCount);
+  return (
+    <section className="pc-sidebar-card" aria-label={title}>
+      <button type="button" className="pc-sidebar-title" aria-expanded={open} onClick={() => setOpen((value) => !value)}><strong>{title}</strong>{open ? <ChevronUpIcon /> : <ChevronDownIcon />}</button>
+      {open ? <>
+        <ul>{shownItems.map((label) => <li key={label}><button type="button" className={activeLabel === label ? "is-selected" : ""} aria-pressed={activeLabel === label} onClick={() => onChoose(label)}>{label}</button></li>)}</ul>
+        {items.length > visibleCount ? <button type="button" className="pc-sidebar-more" aria-expanded={expanded} onClick={() => setExpanded((value) => !value)}>{expanded ? "접기" : "더보기"}{expanded ? <ChevronUpIcon /> : <ChevronDownIcon />}</button> : null}
+      </> : null}
+    </section>
+  );
+}
+
 function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearchSaved, onOpenFavorites }: { query: string; setQuery: (query: string) => void; searchPlaceholder: string; searchSaved: boolean; onToggleSearchSaved: () => void; onOpenFavorites: () => void }) {
   const keyboard = useKeyboard();
 
@@ -103,6 +174,48 @@ function FilterChip({ label, icon, active, className = "", onClick, onClear }: {
   );
 }
 
+
+// PC 기본 목록: 초톳 PC처럼 한 줄에 1개인 가로형 카드
+function PcCarRow({ car, liked, onToggleLike, onOpen }: { car: Car; liked: boolean; onToggleLike: () => void; onOpen: () => void }) {
+  const displayedSeller = sellerLabel(car);
+  const badges = car.badges ?? [];
+  const specs = [displaySpecs(car.specs.slice(0, 3)), car.filter?.transmission].filter(Boolean).join(" · ");
+  const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      onOpen();
+    }
+  };
+  return (
+    <article className="car-card pc-car-row" role="link" tabIndex={0} aria-label={`${car.title} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
+      <div className="car-photo-wrap">
+        <img className={`car-photo${car.imageFit === "contain" ? " is-catalog" : ""}`} src={asset(car.image)} alt={`${car.title} ${car.trim} 차량, ${car.posted}, 사진 ${car.photos}장`} draggable={false} />
+        <div className="card-photo-meta" aria-hidden="true">
+          <span className="card-posted">{car.posted}</span>
+          <span className="card-photo-count">{car.photos}<Icon name="photo-count.svg" /></span>
+        </div>
+      </div>
+      <div className="pc-car-copy">
+        <h2 className="pc-car-title">{car.title} {car.trim}</h2>
+        <p className="pc-car-specs">{specs}</p>
+        <div className="pc-car-price">
+          <p className="price">{car.price}</p>
+          {car.lease ? <span className="pc-car-lease">{car.lease}</span> : null}
+          {badges.length ? <div className="badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}
+        </div>
+        <p className="pc-car-location"><Icon name="location-gray.svg" />{displayListPlace(car.place)}</p>
+        <div className="pc-car-seller">
+          <img className="dealer-avatar" src={asset(sellerAvatar(car))} alt={`${displayedSeller} 프로필`} draggable={false} />
+          <strong>{displayedSeller}</strong>
+          <div className="pc-car-actions">
+            <button type="button" className="pc-inquiry-button" onClick={(event) => event.stopPropagation()}>문의</button>
+            <button className={`pc-like-button${liked ? " is-liked" : ""}`} type="button" aria-label={`${car.title} ${liked ? "저장 해제" : "저장"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>{liked ? <HeartFilledIcon /> : <HeartIcon />}</button>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
 
 function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; cardView: boolean; liked: boolean; onToggleLike: () => void; onOpen: () => void }) {
   const displayedSeller = sellerLabel(car);
@@ -269,6 +382,10 @@ function MarketplaceScreen() {
   const [selectedVariants, setSelectedVariants] = useState<string[]>([]);
   const [debouncedSelectedVariants, setDebouncedSelectedVariants] = useState<string[]>([]);
   const [trimApplied, setTrimApplied] = useState(false);
+  const desktop = useDesktopLayout();
+  const [pcGridView, setPcGridView] = useState(false);
+  const pcFilterRowRef = useRef<HTMLDivElement>(null);
+  const [pcFilterCanScroll, setPcFilterCanScroll] = useState(false);
 
   useEffect(() => {
     if (!searchToast) return;
@@ -674,6 +791,57 @@ function MarketplaceScreen() {
       } : undefined,
     },
   ] as Array<QuickFilterChip | null>).filter((chip): chip is QuickFilterChip => Boolean(chip));
+  const marketSheet = (
+      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && closeSheet()} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" || sheet === "maker" || sheet === "vehicle" || sheet === "price" || sheet === "filter" || sheet === "quick" || sheet === "carType" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "filter" || sheet === "maker" || sheet === "quick" ? 0.96 : sheet === "vehicle" ? 0.8 : sheet === "carType" ? 0.8 : sheet === "region" ? 0.53 : sheet === "price" ? 0.62 : 0.48}>
+        {sheet === "filter" ? <ChoTotFilterSheet value={draftFilters} focus={filterFocus} onChange={setDraftFilters} onClose={() => { setFilterFocus(null); closeSheet(); }} onReset={() => resetFilters({ closeActiveSheet: false })} onConfirm={() => { setFilters(draftFilters); setFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "carType" ? <CategoryFilterSheet selected={category} onChoose={chooseCategoryFilter} onClose={closeSheet} /> : sheet === "quick" && quickFilterFocus ? <ChoTotQuickFilterSheet focus={quickFilterFocus} value={draftFilters} onChange={setDraftFilters} onClose={() => { setQuickFilterFocus(null); closeSheet(); }} onConfirm={() => { setFilters(draftFilters); setQuickFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "vehicle" ? <VehiclePickerSheet maker={maker} model={selectedModel} generation={selectedGeneration} makerOptions={categoryBrandRail.options} onApply={applyVehicleSummarySelection} /> : sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} resultCount={filteredWithoutPrice.length} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftFilters.price} onChange={(nextPrice) => setDraftFilters((current) => ({ ...current, price: nextPrice }))} onClose={closeSheet} onReset={() => setDraftFilters((current) => ({ ...current, price: emptyPrice }))} onConfirm={() => { setFilters((current) => ({ ...current, price: draftFilters.price })); closeSheet(); }} resultCount={draftFilterCount} /> : <div className="sheet-options">
+          {sheet === "sort" ? ["최신순", "낮은 가격순", "높은 가격순"].map((label) => <button key={label} type="button" className={sort === label ? "is-selected" : ""} onClick={() => { setSort(label); setSheet(null); }}>{label}</button>) : ["전체", "추천 조건", "인기 조건"].map((label) => <button key={label} type="button" onClick={() => setSheet(null)}>{label}</button>)}
+        </div>}
+      </BottomSheet>
+  );
+
+  if (desktop) {
+    // PC 필터 칩 줄은 초톳 PC처럼 연료·변속기를 색상 앞에 추가한다(모바일 칩 순서는 그대로).
+    const colorIndex = quickFilterChips.findIndex((chip) => chip.key === "color");
+    quickFilterChips.splice(colorIndex < 0 ? quickFilterChips.length : colorIndex, 0,
+      {
+        key: "fuel",
+        label: filters.fuel === "전체" ? "연료" : filters.fuel,
+        active: filters.fuel !== "전체",
+        onClick: () => openQuickFilter("fuel"),
+        onClear: filters.fuel !== "전체" ? () => {
+          setFilters((current) => ({ ...current, fuel: "전체" }));
+          setDraftFilters((current) => ({ ...current, fuel: "전체" }));
+        } : undefined,
+      },
+      {
+        key: "transmission",
+        label: filters.transmission === "전체" ? "변속기" : filters.transmission,
+        active: filters.transmission !== "전체",
+        onClick: () => openQuickFilter("transmission"),
+        onClear: filters.transmission !== "전체" ? () => {
+          setFilters((current) => ({ ...current, transmission: "전체" }));
+          setDraftFilters((current) => ({ ...current, transmission: "전체" }));
+        } : undefined,
+      },
+    );
+  }
+
+  useEffect(() => {
+    if (!desktop) return undefined;
+    const rail = pcFilterRowRef.current?.querySelector<HTMLElement>(".filter-rail");
+    if (!rail) return undefined;
+    const update = () => setPcFilterCanScroll(rail.scrollLeft + rail.clientWidth < rail.scrollWidth - 1);
+    update();
+    rail.addEventListener("scroll", update, { passive: true });
+    const observer = new ResizeObserver(update);
+    observer.observe(rail);
+    const track = rail.querySelector(".filter-track");
+    if (track) observer.observe(track);
+    return () => {
+      rail.removeEventListener("scroll", update);
+      observer.disconnect();
+    };
+  }, [desktop, quickFilterChips.length]);
 
   const hasGenerationDepth = Boolean(usesUxDepth && selectedModel && generationQuickOptions.length);
   const hasDirectVariantDepth = Boolean(usesUxDepth && selectedModel && !hasGenerationDepth && directVariantQuickOptions.length);
@@ -685,22 +853,17 @@ function MarketplaceScreen() {
   const showCategoryQuickRail = categoryLandingOpen && !maker;
   const showGuaziMakerRail = Boolean(isGuaziQuickStyle && !showCategoryQuickRail && !showModelQuickRail && !showGenerationQuickRail && !showVariantQuickRail && !showVehicleHeaderRail && categoryBrandRail.title === "제조사");
 
-  return (
-    <>
-      <MobileScroll className="app-screen">
-        <main className="marketplace" aria-label="중고차 리스트">
-          <Header query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} />
-          <section className="region-bar" aria-label="지역 선택">
-            <button type="button" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={openRegionSheet}><Icon name="location-blue.svg" /><span className="region-label">지역:</span><strong>{regionLabel}</strong><span className="region-chevron-icon" aria-hidden="true"><Icon name="region-chevron.svg" /></span></button>
-            <button type="button" className="reset-button" onClick={() => resetFilters()}>초기화</button>
-          </section>
+  // 필터 칩 줄과 퀵필터 레일은 모바일·PC가 같은 마크업을 쓰고, PC에서는 필터 헤더 패널 안으로 위치만 옮긴다.
+  const filterShell = (
           <section className={`filter-shell quick-style-${quickFilterStyle}${activeFilterCount ? " has-active-filters" : ""}`} aria-label="중고차 필터">
             <button className="filter-fixed" type="button" aria-label={activeFilterCount ? `필터 ${activeFilterCount}개 적용됨` : "필터"} onClick={() => { setDraftFilters(filters); setFilterFocus(null); setSheet("filter"); }}><Icon name="filter.svg" /><span>{activeFilterCount || "필터"}</span></button>
             <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
               {quickFilterChips.map((chip) => <FilterChip key={chip.key} label={chip.label} active={chip.active} className={chip.className} onClick={chip.onClick} onClear={chip.onClear} />)}
             </Carousel>
           </section>
-          {showCategoryQuickRail && isGuaziQuickStyle ? <section className="depth-rail no-label" aria-label="차량유형 빠른 선택">
+  );
+  const quickRail = (
+          showCategoryQuickRail && isGuaziQuickStyle ? <section className="depth-rail no-label" aria-label="차량유형 빠른 선택">
             <Carousel ariaLabel="차량유형" className="brand-carousel" contentClassName="depth-rail-track">
               <DepthCard label="전체" onClick={() => { clearCategoryFilter(); setCategoryLandingOpen(false); }} />
               {guaziVehicleTypeCategories.map((categoryOption) => (
@@ -833,7 +996,98 @@ function MarketplaceScreen() {
                 </button>
               ))}
             </Carousel>
-          </section>}
+          </section>
+  );
+  const quickStyleSelect = (
+            <label className="quick-style-select">
+              <span>적용 사이트</span>
+              <select value={quickFilterStyle} onChange={(event) => chooseQuickFilterStyle(event.currentTarget.value as QuickFilterStyle)}>
+                {quickFilterStyleOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
+              </select>
+            </label>
+  );
+  const carListItems = visibleCars.length ? visibleCars.map((car) => desktop && !pcGridView
+    ? <PcCarRow key={car.id} car={car} liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} />
+    : <CarCard key={car.id} car={car} cardView={cardView && !desktop} liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} />) : (
+    <div className="empty-state"><strong>조건에 맞는 차량이 없어요</strong><span>필터를 초기화하고 다시 찾아보세요.</span><button type="button" onClick={() => resetFilters()}>필터 초기화</button></div>
+  );
+  const pcToday = new Date();
+  const pcTitleMonth = `${pcToday.getFullYear()}.${String(pcToday.getMonth() + 1).padStart(2, "0")}`;
+  const pcCurrentSelection = vehicleSummaryLabel || (categoryIsDefault ? "전체" : category);
+  const pcActivePriceLink = pcPriceLinks.find((link) => link.min === price.min && link.max === price.max)?.label;
+
+  if (desktop) {
+    return (
+      <>
+        <MobileScroll className="app-screen">
+          <main className="marketplace is-pc" aria-label="중고차 리스트">
+            <PcHeader query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} regionLabel={regionLabel} onOpenRegion={openRegionSheet} onOpenFavorites={() => flow.push(savedListingsScreen)} onNotify={setSearchToast} />
+            <div className="pc-page">
+              <section className="pc-filter-panel" aria-label="검색 조건">
+                <nav className="pc-breadcrumb" aria-label="현재 위치"><span>보배드림 중고차</span><span>중고차</span><span>{regionLabel}</span><strong>{pcCurrentSelection}</strong></nav>
+                <div className="pc-filter-title">
+                  <h1>{visibleCars.length.toLocaleString("ko-KR")}대 중고차 · {regionLabel} · {pcTitleMonth}</h1>
+                  <button type="button" className={`pc-save-search${searchSaved ? " is-saved" : ""}`} aria-pressed={searchSaved} onClick={toggleSearchSaved}>{searchSaved ? <BookmarkFilledIcon /> : <BookmarkIcon />}검색 저장</button>
+                </div>
+                <div className="pc-filter-row" ref={pcFilterRowRef}>
+                  {filterShell}
+                  {pcFilterCanScroll ? <button type="button" className="pc-filter-next" aria-label="필터 더 보기" onClick={() => pcFilterRowRef.current?.querySelector<HTMLElement>(".filter-rail")?.scrollBy({ left: 240, behavior: "smooth" })}><ChevronRightIcon /></button> : null}
+                  <button type="button" className="pc-filter-reset" onClick={() => resetFilters()}>초기화</button>
+                </div>
+                <div className="pc-quick-slot">{quickRail}</div>
+              </section>
+              <div className="pc-columns">
+                <section className="pc-list-panel" aria-label="매물 목록">
+                  <nav className="pc-list-head" aria-label="매물 유형과 정렬">
+                    <div className="pc-seller-tabs" role="tablist" aria-label="판매자 유형">
+                      {(["전체", "개인", "딜러"] as SellerType[]).map((tab) => <button key={tab} type="button" role="tab" aria-selected={sellerType === tab} className={sellerType === tab ? "is-selected" : ""} onClick={() => setFilters((current) => ({ ...current, seller: tab }))}>{tab}</button>)}
+                    </div>
+                    <div className="pc-list-controls">
+                      <label className="pc-video-toggle"><span>영상 보기</span><button type="button" role="switch" aria-checked={videoOnly} className={videoOnly ? "is-on" : ""} onClick={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))}><span /></button></label>
+                      <span className="pc-list-divider" aria-hidden="true" />
+                      <button type="button" className="pc-sort-button" onClick={() => setSheet("sort")}>{sort}<ChevronDownIcon /></button>
+                      <span className="pc-list-divider" aria-hidden="true" />
+                      <button type="button" className="pc-view-toggle" aria-pressed={pcGridView} onClick={() => setPcGridView((value) => !value)}>{pcGridView ? <RowsIcon /> : <DashboardIcon />}{pcGridView ? "목록 보기" : "그리드 보기"}</button>
+                    </div>
+                  </nav>
+                  <section className={`car-list ${pcGridView ? "is-pc-grid" : "is-pc-rows"}`} aria-live="polite">{carListItems}</section>
+                </section>
+                <aside className="pc-sidebar" aria-label="추천 검색">
+                  <section className="pc-sidebar-card is-site-select" aria-label="퀵필터 사례">{quickStyleSelect}</section>
+                  <PcSidebarCard title="가격대별 중고차" items={pcPriceLinks.map((link) => link.label)} activeLabel={pcActivePriceLink} onChoose={(label) => {
+                    const link = pcPriceLinks.find((item) => item.label === label);
+                    if (!link) return;
+                    const nextPrice = label === pcActivePriceLink ? emptyPrice : { ...price, min: link.min, max: link.max };
+                    setFilters((current) => ({ ...current, price: nextPrice }));
+                    setDraftFilters((current) => ({ ...current, price: nextPrice }));
+                  }} />
+                  <PcSidebarCard title="차체 유형별 중고차" items={pcBodyLinks} activeLabel={filters.body === "전체" ? undefined : filters.body} onChoose={(label) => {
+                    const nextBody = filters.body === label ? "전체" : label;
+                    setFilters((current) => ({ ...current, body: nextBody }));
+                    setDraftFilters((current) => ({ ...current, body: nextBody }));
+                  }} />
+                </aside>
+              </div>
+            </div>
+          </main>
+        </MobileScroll>
+        {searchToast ? <div className="market-toast" role="status" aria-live="polite">{searchToast}</div> : null}
+        {marketSheet}
+      </>
+    );
+  }
+
+  return (
+    <>
+      <MobileScroll className="app-screen">
+        <main className="marketplace" aria-label="중고차 리스트">
+          <Header query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} />
+          <section className="region-bar" aria-label="지역 선택">
+            <button type="button" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={openRegionSheet}><Icon name="location-blue.svg" /><span className="region-label">지역:</span><strong>{regionLabel}</strong><span className="region-chevron-icon" aria-hidden="true"><Icon name="region-chevron.svg" /></span></button>
+            <button type="button" className="reset-button" onClick={() => resetFilters()}>초기화</button>
+          </section>
+          {filterShell}
+          {quickRail}
           <section className="video-toggle-row" aria-label="영상 보기와 퀵필터 사례 선택">
             <div className="video-toggle-copy">
               <span>영상보기</span>
@@ -855,19 +1109,11 @@ function MarketplaceScreen() {
               <button type="button" className={`density-button${cardView ? " is-active" : ""}`} aria-label={cardView ? "목록형 보기로 전환" : "카드형 보기로 전환"} aria-pressed={cardView} onClick={() => setCardView((value) => !value)}><Icon name={cardView ? "card-view.svg" : "notion-list.svg"} /></button>
             </div>
           </nav>
-          <section className="car-list" aria-live="polite">
-            {visibleCars.length ? visibleCars.map((car) => <CarCard key={car.id} car={car} cardView={cardView} liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} />) : (
-              <div className="empty-state"><strong>조건에 맞는 차량이 없어요</strong><span>필터를 초기화하고 다시 찾아보세요.</span><button type="button" onClick={() => resetFilters()}>필터 초기화</button></div>
-            )}
-          </section>
+          <section className="car-list" aria-live="polite">{carListItems}</section>
         </main>
       </MobileScroll>
       {searchToast ? <div className="market-toast" role="status" aria-live="polite">{searchToast}</div> : null}
-      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && closeSheet()} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" || sheet === "maker" || sheet === "vehicle" || sheet === "price" || sheet === "filter" || sheet === "quick" || sheet === "carType" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "filter" || sheet === "maker" || sheet === "quick" ? 0.96 : sheet === "vehicle" ? 0.8 : sheet === "carType" ? 0.8 : sheet === "region" ? 0.53 : sheet === "price" ? 0.62 : 0.48}>
-        {sheet === "filter" ? <ChoTotFilterSheet value={draftFilters} focus={filterFocus} onChange={setDraftFilters} onClose={() => { setFilterFocus(null); closeSheet(); }} onReset={() => resetFilters({ closeActiveSheet: false })} onConfirm={() => { setFilters(draftFilters); setFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "carType" ? <CategoryFilterSheet selected={category} onChoose={chooseCategoryFilter} onClose={closeSheet} /> : sheet === "quick" && quickFilterFocus ? <ChoTotQuickFilterSheet focus={quickFilterFocus} value={draftFilters} onChange={setDraftFilters} onClose={() => { setQuickFilterFocus(null); closeSheet(); }} onConfirm={() => { setFilters(draftFilters); setQuickFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "vehicle" ? <VehiclePickerSheet maker={maker} model={selectedModel} generation={selectedGeneration} makerOptions={categoryBrandRail.options} onApply={applyVehicleSummarySelection} /> : sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} resultCount={filteredWithoutPrice.length} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftFilters.price} onChange={(nextPrice) => setDraftFilters((current) => ({ ...current, price: nextPrice }))} onClose={closeSheet} onReset={() => setDraftFilters((current) => ({ ...current, price: emptyPrice }))} onConfirm={() => { setFilters((current) => ({ ...current, price: draftFilters.price })); closeSheet(); }} resultCount={draftFilterCount} /> : <div className="sheet-options">
-          {sheet === "sort" ? ["최신순", "낮은 가격순", "높은 가격순"].map((label) => <button key={label} type="button" className={sort === label ? "is-selected" : ""} onClick={() => { setSort(label); setSheet(null); }}>{label}</button>) : ["전체", "추천 조건", "인기 조건"].map((label) => <button key={label} type="button" onClick={() => setSheet(null)}>{label}</button>)}
-        </div>}
-      </BottomSheet>
+      {marketSheet}
     </>
   );
 }
