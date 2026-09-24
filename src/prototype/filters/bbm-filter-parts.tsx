@@ -52,17 +52,27 @@ export function BbmUnitField({ value, placeholder, unit, onChange }: { value: st
 }
 
 // ── 범위 입력: layout="stack"(사이드바, 최저/최대 두 줄 + 오른쪽 "부터/까지") · "inline"(모달, 최저 ~ 최대 한 줄)
-export function BbmRangeInputs({ unit, min, max, onChange, layout = "inline" }: { unit: string; min: string; max: string; onChange: (next: { min: string; max: string }) => void; layout?: "stack" | "inline" }) {
+export function BbmRangeInputs({ unit, min, max, onChange, layout = "inline" }: { unit: string; min: string; max: string; onChange: (next: { min: string; max: string }) => void; layout?: "stack" | "inline" | "pair" }) {
   const minField = <BbmUnitField value={min} placeholder="최저" unit={unit} onChange={(next) => onChange({ min: next, max })} />;
   const maxField = <BbmUnitField value={max} placeholder="최대" unit={unit} onChange={(next) => onChange({ min, max: next })} />;
+  // pair: 가격 칩 모달·시트 원본 — [최저] 부터 [최대] 까지 한 줄
+  if (layout === "pair") return <div className="bbmf-range is-pair">{minField}<span className="bbmf-range-word">부터</span>{maxField}<span className="bbmf-range-word">까지</span></div>;
   return layout === "inline"
     ? <div className="bbmf-range is-inline">{minField}<span className="bbmf-range-sep" aria-hidden="true">~</span>{maxField}</div>
     : <div className="bbmf-range is-stack"><div>{minField}<span className="bbmf-range-word">부터</span></div><div>{maxField}<span className="bbmf-range-word">까지</span></div></div>;
 }
 
-// ── 범위 슬라이더(모양만: 양 끝 손잡이 + 파랑 막대). 이번 과제는 목록을 거르지 않으므로 값과 연결하지 않는다
-export function BbmSlider({ label }: { label: string }) {
-  return <div className="bbmf-slider" role="img" aria-label={`${label} 범위 막대`}><i /><b className="is-min" /><b className="is-max" /></div>;
+// ── 범위 슬라이더: 양 끝 손잡이 + 사이 파랑 막대. from·to(0~1)는 최저·최대 값 위치(값 없으면 양 끝)
+export function BbmSlider({ label, from = 0, to = 1 }: { label: string; from?: number; to?: number }) {
+  // 값이 없으면 손잡이는 막대 양 끝(가운데가 끝점), 값이 있으면 원본 실측처럼 양 끝 10px 안쪽 구간에 비례해 놓는다
+  const unset = from <= 0 && to >= 1;
+  const at = (p: number) => unset ? `${p * 100}%` : `calc(10px + ${p} * (100% - 20px))`;
+  return (
+    <div className="bbmf-slider" role="img" aria-label={`${label} 범위 막대`}>
+      <em /><i style={{ left: at(from), right: `calc(100% - ${at(to)})` }} />
+      <b className="is-min" style={{ left: `calc(${at(from)} - 12px)` }} /><b className="is-max" style={{ left: `calc(${at(to)} - 12px)` }} />
+    </div>
+  );
 }
 
 // ── 선택 상자(연식 년·월). 105×40, 테두리 #E0E0E0, 라운드 8
@@ -151,17 +161,17 @@ function useEscape(onClose: () => void) {
 }
 
 function CloseButton({ onClose }: { onClose: () => void }) {
-  return <button type="button" className="bbmf-close" aria-label="닫기" onClick={onClose}><img src={icon("close")} alt="" draggable={false} /></button>;
+  return <button type="button" className="bbmf-close" aria-label="닫기" onClick={onClose}><img src={asset("bbm/modal-close.svg")} alt="" draggable={false} /></button>;
 }
 
 // ── PC 가운데 모달: 폭 412, 라운드 14, 딤 rgba(0,0,0,.5), 제목 16/22.4 600 가운데 + 오른쪽 닫기 24×32
-export function BbmModal({ title, titleIcon, onClose, footer, children, wide = false }: { title: string; titleIcon?: ReactNode; onClose: () => void; footer?: ReactNode; children: ReactNode; wide?: boolean }) {
+export function BbmModal({ title, titleIcon, onClose, footer, children, wide = false, flush = false }: { title: string; titleIcon?: ReactNode; onClose: () => void; footer?: ReactNode; children: ReactNode; wide?: boolean; flush?: boolean }) {
   useEscape(onClose);
   return createPortal(
     <div className="bbmf-overlay is-modal" onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}>
       <section className={`bbmf-modal${wide ? " is-tall" : ""}`} role="dialog" aria-modal="true" aria-label={title}>
         <header className="bbmf-modal-header"><h3>{titleIcon}{title}</h3><CloseButton onClose={onClose} /></header>
-        <div className="bbmf-modal-body">{children}</div>
+        <div className={`bbmf-modal-body${flush ? " is-flush" : ""}`}>{children}</div>
         {footer}
       </section>
     </div>,
@@ -170,13 +180,14 @@ export function BbmModal({ title, titleIcon, onClose, footer, children, wide = f
 }
 
 // ── 모바일 바텀시트: 제목 가운데 + 닫기, 아래 [초기화] + [N대 보기]
-export function BbmSheet({ title, onClose, footer, children }: { title: string; onClose: () => void; footer?: ReactNode; children: ReactNode }) {
+// modalBody: 모바일 전체 필터 안 항목 시트(원본은 PC 모달과 같은 본문 — 여백 8/20, 매물 수는 이름 옆)
+export function BbmSheet({ title, onClose, footer, children, flush = false, modalBody = false }: { title: string; onClose: () => void; footer?: ReactNode; children: ReactNode; flush?: boolean; modalBody?: boolean }) {
   useEscape(onClose);
   return createPortal(
     <div className="bbmf-overlay is-sheet" onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}>
-      <section className="bbmf-sheet" role="dialog" aria-modal="true" aria-label={title}>
+      <section className={`bbmf-sheet${modalBody ? " is-modal-body" : ""}`} role="dialog" aria-modal="true" aria-label={title}>
         <header className="bbmf-sheet-header"><h3>{title}</h3><CloseButton onClose={onClose} /></header>
-        <div className="bbmf-sheet-body">{children}</div>
+        <div className={`bbmf-sheet-body${flush ? " is-flush" : ""}`}>{children}</div>
         {footer}
       </section>
     </div>,
@@ -186,15 +197,20 @@ export function BbmSheet({ title, onClose, footer, children }: { title: string; 
 
 // ── 모바일 전체 필터 화면(QF-091 원본 실측): 머리 57(제목 왼쪽 16/22.4 600 · 닫기 24), 요약(검색조건 유지 · 최근검색기록 · [검색조건 저장]),
 //    항목 행 58(14px 600, 오른쪽 셰브론), 아래 버튼 줄 77(초기화 112 + 파랑 N대 보기)
-export function BbmFullItem({ label, icon, onOpen }: { label: string; icon?: string; onOpen: () => void }) {
-  return <button type="button" className="bbmf-full-item" onClick={onOpen}><span className="bbmf-full-item-label">{icon ? <img src={icon} alt="" aria-hidden="true" /> : null}{label}</span><i className="bbmf-full-chevron" aria-hidden="true" /></button>;
+export function BbmFullItem({ label, icon, value, onClear, onOpen }: { label: string; icon?: string; value?: string; onClear?: () => void; onOpen: () => void }) {
+  return (
+    <div className={`bbmf-full-item-wrap${value ? " is-applied" : ""}`}>
+      <button type="button" className="bbmf-full-item" onClick={onOpen}><span className="bbmf-full-item-label">{icon ? <img src={icon} alt="" aria-hidden="true" /> : null}{label}</span><i className="bbmf-full-chevron" aria-hidden="true" /></button>
+      {value ? <span className="bbmf-full-value"><span>{value}</span>{onClear ? <button type="button" aria-label={`${label} 조건 해제`} onClick={onClear}>×</button> : null}</span> : null}
+    </div>
+  );
 }
 
 export function BbmFullExcludeAction({ onClick }: { onClick: () => void }) {
   return <div className="bbmf-full-action"><button type="button" className="bbmf-exclude" onClick={onClick}><i className="bbmf-circle-icon is-minus" aria-hidden="true" />제조사·모델 제외하기</button></div>;
 }
 
-export function BbmFullFilter({ onClose, keepSearch, onToggleKeep, onSaveSearch, footer, children }: { onClose: () => void; keepSearch?: boolean; onToggleKeep?: () => void; onSaveSearch?: () => void; footer?: ReactNode; children: ReactNode }) {
+export function BbmFullFilter({ onClose, keepSearch, onToggleKeep, onSaveSearch, history = 0, footer, children }: { onClose: () => void; keepSearch?: boolean; onToggleKeep?: () => void; onSaveSearch?: () => void; history?: number; footer?: ReactNode; children: ReactNode }) {
   useEscape(onClose);
   return createPortal(
     <div className="bbmf-full" role="dialog" aria-modal="true" aria-label="필터">
@@ -203,7 +219,7 @@ export function BbmFullFilter({ onClose, keepSearch, onToggleKeep, onSaveSearch,
         <div className="bbmf-full-summary">
           <div className="bbmf-full-tools">
             <label className="bbmf-full-keep"><button type="button" role="switch" aria-checked={Boolean(keepSearch)} aria-label="검색조건 유지" className={`bbmf-keep-switch${keepSearch ? " is-on" : ""}`} onClick={onToggleKeep}><span /></button><span>검색조건 유지</span></label>
-            <button type="button" className="bbmf-full-history">최근검색기록 0</button>
+            <button type="button" className="bbmf-full-history">최근검색기록 {history}</button>
           </div>
           <button type="button" className="bbmf-save-search" onClick={onSaveSearch}><i className="bbmf-circle-icon is-plus" aria-hidden="true" />검색조건 저장</button>
         </div>

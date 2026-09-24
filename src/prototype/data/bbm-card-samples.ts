@@ -3,7 +3,7 @@
 type SampleSource = { id: number; specs: string[]; filter?: { year: number; mileage: number; fuel: string }; badges?: string[] };
 
 const horsepowerPool = [190, 204, 245, 258, 150, 170, 305, 367, 122, 184, 225, 272];
-const badgePool: string[][] = [["인증중고차", "1년보증"], ["인증중고차"], [], ["1년보증"], [], ["인증중고차", "1년보증"]];
+const badgePool: string[][] = [["인증중고차", "1년보증"], ["인증중고차", "1년보증"], [], ["1년보증"], ["인증중고차"], []];
 
 const yearFromSpecs = (source: SampleSource) => {
   if (source.filter?.year) return source.filter.year;

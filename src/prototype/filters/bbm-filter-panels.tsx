@@ -2,14 +2,18 @@ import { useRef, useState } from "react";
 import { BbmCheckGrid, BbmCheckRow, BbmChoiceGrid, BbmColorChips, BbmKeywordInput, BbmPresetChips, BbmRangeInputs, BbmSelectBox, BbmSlider, BbmTabs } from "./bbm-filter-parts";
 import { bbmAdPeriods, bbmCheckOptions, bbmOptionGroups, bbmRangePresets, type BbmFilterItem } from "./bbm-filter-options";
 import { bbmOriginalCounts } from "./bbm-original-counts";
-import { setBbmChecks, setBbmRange, toggleBbmCheck, type BbmCheckKey, type BbmFilterValues, type BbmPriceTab, type BbmRangeKey } from "./bbm-filter-state";
+import { bbmMileagePresetRange, bbmPricePresetRange, bbmRangeBounds, bbmYearPresetRange, setBbmAdPeriod, setBbmChecks, setBbmKeyword, setBbmRange, toggleBbmCheck, type BbmCheckKey, type BbmFilterValues, type BbmPriceTab, type BbmRangeKey } from "./bbm-filter-state";
 
 // QF-076: 사이드바 펼침형 6개 · 모달형 20개의 안쪽 화면. 선택지·순서·문구·단위는 원본 수집(docs/bbm-filter-spec.json) 그대로.
 // 이번 과제는 모양만: 고른 값은 filters.bbm 에 남지만 매물 목록은 거르지 않는다. 매물 수는 원본 숫자(bbm-original-counts.ts).
 
-type PanelProps = { value: BbmFilterValues; onChange: (next: BbmFilterValues) => void };
+// countOf: 우리 데이터로 거르는 항목의 선택지 옆 매물 수(QF-090). null 이면 원본 숫자 글자
+type PanelProps = { value: BbmFilterValues; onChange: (next: BbmFilterValues) => void; countOf?: (key: BbmCheckKey, option: string) => number | null };
 
 const originalCount = (key: BbmCheckKey, option: string) => bbmOriginalCounts[key]?.[option] ?? null;
+const optionCount = (countOf: PanelProps["countOf"], key: BbmCheckKey, option: string) => countOf?.(key, option) ?? originalCount(key, option);
+// 슬라이더 눈금 끝(원본 가격 슬라이더: 0 ~ 1억)
+const sliderMax: Partial<Record<BbmRangeKey, number>> = { price: 10000, mileage: 300000, power: 600, efficiency: 20, displacement: 5000, weight: 3000, evRange: 600, length: 6000, width: 2200, height: 2200 };
 const thisYear = 2026;
 const years = Array.from({ length: thisYear - 1989 }, (_, index) => `${thisYear - index}년`);
 const months = Array.from({ length: 12 }, (_, index) => `${index + 1}월`);
@@ -27,28 +31,41 @@ const seatSwatches: Record<string, string> = {
   "빨간색 계열": "#d83a3a", "주황색 계열": "#f0662a", "청색 계열": "#1e3a9a", "흰색 계열": "#ffffff", 기타: "#ffffff",
 };
 
-function CheckList({ checkKey, value, onChange, size = "modal", columns = 1 }: PanelProps & { checkKey: BbmCheckKey; size?: "modal" | "sidebar"; columns?: 1 | 2 }) {
+function CheckList({ checkKey, value, onChange, countOf, size = "modal", columns = 1 }: PanelProps & { checkKey: BbmCheckKey; size?: "modal" | "sidebar"; columns?: 1 | 2 }) {
   return (
     <BbmCheckGrid columns={columns} label={checkKey}>
-      {bbmCheckOptions[checkKey].map((option) => <BbmCheckRow key={option} size={size} label={option} count={originalCount(checkKey, option)} checked={Boolean(value.checks[checkKey]?.includes(option))} onToggle={() => onChange(toggleBbmCheck(value, checkKey, option))} />)}
+      {bbmCheckOptions[checkKey].map((option) => <BbmCheckRow key={option} size={size} label={option} count={optionCount(countOf, checkKey, option)} checked={Boolean(value.checks[checkKey]?.includes(option))} onToggle={() => onChange(toggleBbmCheck(value, checkKey, option))} />)}
     </BbmCheckGrid>
   );
 }
 
 function Presets({ rangeKey, value, onChange }: PanelProps & { rangeKey: BbmRangeKey }) {
   const range = value.ranges[rangeKey];
-  return <BbmPresetChips options={bbmRangePresets[rangeKey]?.presets ?? []} selected={range?.preset ?? null} onPick={(preset) => onChange(setBbmRange(value, rangeKey, { min: "", max: "", preset: range?.preset === preset ? undefined : preset }))} />;
+  // 구간 칩은 최저·최대 칸을 채운다(원본: 3천만원 → 3,000 ~ 3999, ~3년 → 2023년 9월 ~ 2026년 9월, 5천~1만km → 5,000 ~ 10,000). 같은 칩을 다시 누르면 해제
+  const pick = (preset: string) => {
+    if (range?.preset === preset) return onChange(setBbmRange(value, rangeKey, { min: "", max: "" }));
+    const filled = rangeKey === "price" ? bbmPricePresetRange(preset) : rangeKey === "year" ? bbmYearPresetRange(preset) : rangeKey === "mileage" ? bbmMileagePresetRange(preset) : { min: "", max: "", preset };
+    onChange(setBbmRange(value, rangeKey, filled));
+  };
+  return <BbmPresetChips options={bbmRangePresets[rangeKey]?.presets ?? []} selected={range?.preset ?? null} onPick={pick} />;
 }
 
-function RangeFields({ rangeKey, value, onChange, layout, unit }: PanelProps & { rangeKey: BbmRangeKey; layout: "stack" | "inline"; unit?: string }) {
+function RangeFields({ rangeKey, value, onChange, layout, unit }: PanelProps & { rangeKey: BbmRangeKey; layout: "stack" | "inline" | "pair"; unit?: string }) {
   const range = value.ranges[rangeKey] ?? { min: "", max: "" };
-  return <BbmRangeInputs layout={layout} unit={unit ?? bbmRangePresets[rangeKey]?.unit ?? ""} min={range.min} max={range.max} onChange={(next) => onChange(setBbmRange(value, rangeKey, next))} />;
+  // 직접 입력하면 구간 칩 선택은 풀린다
+  return <BbmRangeInputs layout={layout} unit={unit ?? bbmRangePresets[rangeKey]?.unit ?? ""} min={range.min} max={range.max} onChange={(next) => onChange(setBbmRange(value, rangeKey, { min: next.min, max: next.max }))} />;
+}
+
+function RangeSlider({ rangeKey, value, label }: { rangeKey: BbmRangeKey; value: BbmFilterValues; label: string }) {
+  const { min, max } = bbmRangeBounds(rangeKey, value.ranges[rangeKey]);
+  const end = sliderMax[rangeKey] ?? 100;
+  return <BbmSlider label={label} from={min === null ? 0 : Math.min(1, min / end)} to={max === null ? 1 : Math.min(1, (max + 1) / end)} />;
 }
 
 // ── 사이드바 펼침형(바디타입 · 차급 · 연식 · 주행거리 · 가격 · 차량번호/판매자)
-export function BbmExpandPanel({ label, value, onChange }: PanelProps & { label: string }) {
+export function BbmExpandPanel({ label, value, onChange, countOf, variant = "sidebar" }: PanelProps & { label: string; variant?: "sidebar" | "chip" }) {
   if (label === "바디타입" || label === "차급") {
-    return <div className="bbmf-panel"><CheckList checkKey={label === "바디타입" ? "bodyType" : "carClass"} size="sidebar" value={value} onChange={onChange} /></div>;
+    return <div className="bbmf-panel"><CheckList checkKey={label === "바디타입" ? "bodyType" : "carClass"} size="sidebar" value={value} onChange={onChange} countOf={countOf} /></div>;
   }
   if (label === "연식") {
     const year = value.ranges.year ?? { min: "", max: "" };
@@ -68,6 +85,17 @@ export function BbmExpandPanel({ label, value, onChange }: PanelProps & { label:
   if (label === "주행거리") {
     return <div className="bbmf-panel"><RangeFields rangeKey="mileage" layout="stack" value={value} onChange={onChange} /><div className="bbmf-panel-presets"><Presets rangeKey="mileage" value={value} onChange={onChange} /></div></div>;
   }
+  if (label === "가격" && variant === "chip") {
+    // 상단 가격 칩 모달·시트(원본): 탭, [최저 만원] 부터 [최대 만원] 까지 한 줄, 슬라이더, 구간 칩 2열 10개
+    return (
+      <div className="bbmf-price-chip">
+        <BbmTabs label="가격 종류" tabs={["일반", "리스 / 렌트"] as const} value={value.priceTab} onChange={(tab: BbmPriceTab) => onChange({ ...value, priceTab: tab })} />
+        <div className="bbmf-price-chip-fields"><RangeFields rangeKey="price" layout="pair" value={value} onChange={onChange} /></div>
+        <RangeSlider rangeKey="price" value={value} label="가격" />
+        <Presets rangeKey="price" value={value} onChange={onChange} />
+      </div>
+    );
+  }
   if (label === "가격") {
     return (
       <div className="bbmf-panel">
@@ -78,13 +106,13 @@ export function BbmExpandPanel({ label, value, onChange }: PanelProps & { label:
     );
   }
   if (label === "차량번호 / 판매자") {
-    return <div className="bbmf-panel"><BbmKeywordInput value={value.keyword} placeholder="차량번호 / 판매자" onChange={(keyword) => onChange({ ...value, keyword })} /></div>;
+    return <div className="bbmf-panel"><BbmKeywordInput value={value.keyword} placeholder="차량번호 / 판매자" onChange={(keyword) => onChange(setBbmKeyword(value, keyword))} /></div>;
   }
   return null;
 }
 
 // ── 모달형 20개 안쪽
-export function BbmModalPanel({ item, value, onChange }: PanelProps & { item: BbmFilterItem }) {
+export function BbmModalPanel({ item, value, onChange, countOf }: PanelProps & { item: BbmFilterItem }) {
   const [optionTab, setOptionTab] = useState(bbmOptionGroups[0][0]);
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
   if (item.label === "외부색상") {
@@ -102,7 +130,7 @@ export function BbmModalPanel({ item, value, onChange }: PanelProps & { item: Bb
     return <BbmChoiceGrid options={bbmCheckOptions.transmission} selected={value.checks.transmission ?? []} onToggle={(option) => onChange(toggleBbmCheck(value, "transmission", option))} />;
   }
   if (item.label === "광고기간") {
-    return <BbmChoiceGrid size="lg" firstFull options={bbmAdPeriods} selected={[value.adPeriod]} onToggle={(option) => onChange({ ...value, adPeriod: option })} />;
+    return <BbmChoiceGrid size="lg" firstFull options={bbmAdPeriods} selected={[value.adPeriod]} onToggle={(option) => onChange(setBbmAdPeriod(value, option))} />;
   }
   if (item.label === "옵션") {
     // 왼쪽 세로 탭 → 오른쪽 목록의 해당 섹션으로 이동(원본처럼 한 목록 안에 여섯 섹션)
@@ -124,15 +152,15 @@ export function BbmModalPanel({ item, value, onChange }: PanelProps & { item: Bb
     return (
       <div className="bbmf-sections is-size">
         {([["전장", "length"], ["전폭", "width"], ["전고", "height"]] as Array<[string, BbmRangeKey]>).map(([title, rangeKey]) => (
-          <section key={title}><h4 className="bbmf-section-title">{title}</h4><RangeFields rangeKey={rangeKey} unit="mm" layout="inline" value={value} onChange={onChange} /><BbmSlider label={title} /></section>
+          <section key={title}><h4 className="bbmf-section-title">{title}</h4><RangeFields rangeKey={rangeKey} unit="mm" layout="inline" value={value} onChange={onChange} /><RangeSlider rangeKey={rangeKey} value={value} label={title} /></section>
         ))}
       </div>
     );
   }
   if (item.rangeKey) {
-    return <div><RangeFields rangeKey={item.rangeKey} layout="inline" value={value} onChange={onChange} /><BbmSlider label={item.label} /><Presets rangeKey={item.rangeKey} value={value} onChange={onChange} /></div>;
+    return <div><RangeFields rangeKey={item.rangeKey} layout="inline" value={value} onChange={onChange} /><RangeSlider rangeKey={item.rangeKey} value={value} label={item.label} /><Presets rangeKey={item.rangeKey} value={value} onChange={onChange} /></div>;
   }
-  if (item.checkKey) return <CheckList checkKey={item.checkKey} columns={item.columns ?? 1} value={value} onChange={onChange} />;
+  if (item.checkKey) return <CheckList checkKey={item.checkKey} columns={item.columns ?? 1} value={value} onChange={onChange} countOf={countOf} />;
   return null;
 }
 
@@ -140,6 +168,7 @@ export function BbmModalPanel({ item, value, onChange }: PanelProps & { item: Bb
 export function clearBbmItem(item: BbmFilterItem, value: BbmFilterValues): BbmFilterValues {
   if (item.label === "시트색상") return setBbmChecks(setBbmChecks(value, "seatColor", []), "seatFinish", []);
   if (item.label === "크기") return (["length", "width", "height"] as BbmRangeKey[]).reduce((next, key) => setBbmRange(next, key, { min: "", max: "" }), value);
+  if (item.label === "광고기간") return setBbmAdPeriod(value, "전체");
   if (item.checkKey) return setBbmChecks(value, item.checkKey, []);
   if (item.rangeKey) return setBbmRange(value, item.rangeKey, { min: "", max: "" });
   return value;

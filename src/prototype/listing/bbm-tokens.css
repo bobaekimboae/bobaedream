@@ -89,7 +89,7 @@
   .marketplace.is-bbm .bbm-header { box-shadow: 0 1px 0 var(--bbm-line-strong); }
 
   /* 좌측 필터: 제목 16/22.4 600, 초기화 14/19.6 700 #222, 요약 94, 첫 항목 위 선 */
-  .marketplace.is-bbm .bbm-filter-summary-top { height: 22.4px; }
+  .marketplace.is-bbm .bbm-filter-summary-top { min-height: 22.4px; }
   .marketplace.is-bbm .bbm-filter-summary-top strong { font-size: 16px; font-weight: 600; line-height: 22.4px; }
   .marketplace.is-bbm .bbm-filter-count { min-width: 22px; height: 22px; border-radius: 11px; }
   .marketplace.is-bbm .bbm-filter-summary-tools { height: 18px; }
@@ -117,9 +117,9 @@
   .marketplace.is-bbm .bbm-chips { height: 52px; padding: 10px 0; box-sizing: border-box; flex-wrap: nowrap; }
   .marketplace.is-bbm .bbm-filter-button { gap: 2px; padding: 6px 12px 6px 10px; background: var(--bbm-chip-filter-bg); }
   .marketplace.is-bbm .bbm-filter-button img { width: 20px; height: 20px; }
-  .marketplace.is-bbm .bbm-chips .filter-chip:not(.is-vehicle-summary) { flex: none; gap: 2px; height: 32px; padding: 6px 8px 6px 12px; border: 0; background: var(--bbm-chip-bg); color: var(--bbm-text); font-size: 14px; font-weight: 600; line-height: 19.6px; }
+  .marketplace.is-bbm .bbm-chips .filter-chip { flex: none; gap: 2px; height: 32px; padding: 6px 8px 6px 12px; border: 0; background: var(--bbm-chip-bg); color: var(--bbm-text); font-size: 14px; font-weight: 600; line-height: 19.6px; }
   .marketplace.is-bbm .bbm-chips .filter-chip .ui-icon { width: 20px; height: 20px; }
-  .marketplace.is-bbm .bbm-chips .filter-chip.is-active:not(.is-vehicle-summary) { gap: 4px; background: var(--bbm-text-strong); color: #fff; }
+  .marketplace.is-bbm .bbm-chips .filter-chip.is-active { gap: 4px; background: var(--bbm-text-strong); color: #fff; }
   .marketplace.is-bbm .bbm-chips .filter-chip.is-active .filter-chip-label { padding: 0; color: #fff; font: inherit; }
   .marketplace.is-bbm .bbm-chips .filter-chip.is-active .filter-chip-clear { width: 20px; height: 20px; padding: 0; }
   .marketplace.is-bbm .bbm-quick-slot { margin-left: 0; border-radius: 0 0 12px 12px; background: #fff; overflow: hidden; }
@@ -247,3 +247,87 @@
 .bbm-bottom-gnb__register-button { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; background: var(--bbm-blue); }
 .bbm-bottom-gnb__register-button img { width: 32px; height: 32px; }
 .bbm-bottom-gnb__register-label { padding: 2px 12px; border-radius: 50px; background: var(--bbm-blue); color: #fff; font-size: 11px; font-weight: 700; line-height: 13px; }
+
+/* ═════════ QF-085·086·089: 선택 상태 표시(원본 2026-09-24 실측) ═════════ */
+/* 필터 칩: 조건이 걸리면 진한 채움(#222) + 흰 아이콘 + 개수. PC는 누를 수 없음 */
+.marketplace.is-bbm .bbm-filter-button[aria-disabled="true"] { cursor: default; }
+.marketplace.is-bbm .bbm-filter-button.is-applied, .filter-shell.is-bbm .filter-fixed.is-applied { background: var(--bbm-text-strong); color: #fff; }
+.marketplace.is-bbm .bbm-filter-button.is-applied img, .filter-shell.is-bbm .filter-fixed.is-applied .ui-icon { filter: brightness(0) invert(1); }
+.marketplace.is-bbm .bbm-filter-button.is-applied b { display: inline; min-width: 0; height: auto; margin: 0; padding: 0; border-radius: 0; background: none; color: #fff; font-size: 14px; font-weight: 600; line-height: 19.6px; }
+.filter-shell.is-bbm .filter-fixed-count { color: #fff; font-size: 14px; font-weight: 500; line-height: 14px; }
+/* 사이드바 머리 배지: 26 원형 #222, 13px 700 */
+.marketplace.is-bbm .bbm-filter-count { min-width: 26px; height: 26px; border-radius: 14px; font-size: 13px; font-weight: 700; }
+/* 값이 걸린 사이드바 항목: 제목 보배 파랑 + 왼쪽 3px 파랑 막대(머리 높이만큼) */
+.marketplace.is-bbm .bbm-filter-toggle { position: relative; }
+.marketplace.is-bbm .bbm-filter-item.is-applied .bbm-filter-label-text { color: var(--bbm-blue); }
+.marketplace.is-bbm .bbm-filter-item.is-applied .bbm-filter-toggle::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 3px; background: var(--bbm-blue); }
+/* 구간 칩 선택: 보배 파랑 채움 + 흰 글자 */
+.bbmf-presets button.is-selected { border-color: var(--bbm-blue); background: var(--bbm-blue); color: #fff; font-weight: 500; }
+/* 슬라이더: 회색 막대 위에 두 손잡이 사이만 파랑 */
+.bbmf-slider em { position: absolute; top: 10.5px; right: 0; left: 0; height: 3px; border-radius: 2px; background: var(--bbm-line-strong); }
+.bbmf-slider i { right: auto; }
+.bbmf-slider b.is-min, .bbmf-slider b.is-max { right: auto; }
+/* 가격 칩 모달·시트: 탭 → [최저] 부터 [최대] 까지(48) → 슬라이더 → 구간 칩 2열 */
+.bbmf-price-chip-fields { margin-top: 28px; }
+.bbmf-range.is-pair { display: flex; align-items: center; gap: 10px; }
+.bbmf-range.is-pair .bbmf-unit-field { flex: 1; height: 48px; padding: 0 16px; }
+.bbmf-range.is-pair .bbmf-unit-field input { font-size: 16px; line-height: 22.4px; }
+.bbmf-range.is-pair .bbmf-range-word { margin-left: 0; }
+.bbmf-price-chip .bbmf-slider { margin: 27px 12px 29px; }
+.bbmf-sheet .bbmf-price-chip { margin-bottom: -2px; }
+/* 칩 모달에서 사이드바 펼침 내용(연식)을 쓸 때 사이드바 여백 제거 */
+.bbmf-chip-expand .bbmf-panel { padding: 0; }
+/* PC 칩·적용 칩으로 연 펼침형 항목 모달(바디타입 등): 원본 본문 여백 위 16 · 좌우 16 · 아래 24 */
+.bbmf-modal .bbmf-chip-expand { margin: 8px -4px 4px; }
+.bbmf-modal .bbmf-chip-expand .bbmf-check.is-sidebar { height: 20px; }
+.bbmf-modal .bbmf-chip-expand .bbmf-check.is-sidebar .bbmf-check-box { width: 20px; height: 20px; }
+.bbmf-modal .bbmf-chip-expand .bbmf-check-grid:has(.is-sidebar) { row-gap: 14px; }
+.bbmf-actions.is-single .bbmf-reset { flex: 1; }
+/* 모바일 전체 필터 항목: 값이 걸리면 제목 파랑 + 왼쪽 막대 + 오른쪽 회색 알약(값 ×) */
+.bbmf-full-item-wrap { position: relative; }
+.bbmf-full-item-wrap.is-applied .bbmf-full-item-label { color: var(--bbm-blue); }
+.bbmf-full-item-wrap.is-applied::before { content: ""; position: absolute; top: 0; bottom: 1px; left: 0; z-index: 1; width: 3px; background: var(--bbm-blue); }
+.bbmf-full-value { position: absolute; top: 50%; right: 42px; display: inline-flex; max-width: 58%; align-items: center; gap: 4px; height: 30px; padding: 0 10px 0 12px; border: 1px solid var(--bbm-line); border-radius: 100px; box-sizing: border-box; background: #f4f4f4; color: #505050; font-size: 13px; font-weight: 500; line-height: 18px; transform: translateY(-50%); }
+.bbmf-full-value > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bbmf-full-value button { padding: 0; border: 0; background: none; color: #9e9e9e; font: inherit; font-size: 14px; line-height: 1; cursor: pointer; }
+/* 제조사·모델 목록(칩 모달·시트) — 원본 실측: 검색 영역 16(칸 48 #F4F4F4 라운드 100), 목록 좌우 8, 섹션 제목 13/600 #767676(안쪽 8),
+   행 48(안쪽 12/8, 로고 24, 간격 8, 이름 16/400), 매물 수 13/400 #9E9E9E + 셰브론 20 */
+.bbm-maker-list { display: flex; flex-direction: column; padding: 0 8px 8px; }
+.bbm-maker-search-wrap { margin: 0 -8px; padding: 16px; }
+.bbm-maker-search { display: flex; align-items: center; gap: 8px; height: 48px; padding: 0 12px; border-radius: 100px; background: var(--bbm-chip-filter-bg); }
+.bbm-maker-search img { width: 20px; height: 20px; }
+.bbm-maker-search input { flex: 1; min-width: 0; padding: 0; border: 0; outline: 0; background: none; color: var(--bbm-text); font: inherit; font-size: 16px; font-weight: 500; line-height: 24px; }
+.bbm-maker-search input::placeholder { color: var(--bbm-text-disabled); }
+.bbm-maker-section-title { margin: 0; padding: 8px; color: var(--bbm-text-muted); font-size: 13px; font-weight: 600; line-height: 18px; }
+.bbm-maker-row { display: flex; align-items: center; gap: 8px; width: 100%; height: 48px; padding: 12px 8px; border: 0; box-sizing: border-box; background: none; color: var(--bbm-text); font: inherit; font-size: 16px; font-weight: 400; line-height: 24px; text-align: left; cursor: pointer; }
+.bbm-maker-row.is-selected .bbm-maker-name { color: var(--bbm-blue); font-weight: 600; }
+.bbm-maker-row.is-empty { color: #c8c8c8; cursor: default; }
+.bbm-maker-row.is-empty .bbm-maker-logo { opacity: 0.35; }
+.bbm-maker-logo { display: grid; width: 24px; height: 24px; flex: none; place-items: center; overflow: hidden; }
+.bbm-maker-logo .brand-logo { width: 24px; height: 24px; }
+.bbm-maker-logo img, .bbm-maker-logo svg { max-width: 24px; max-height: 20px; }
+.bbm-maker-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bbm-maker-count { margin-left: 16px; color: var(--bbm-text-disabled); font-size: 13px; font-weight: 400; line-height: 18px; }
+.bbm-maker-chevron { position: relative; width: 20px; height: 20px; flex: none; }
+.bbm-maker-chevron::after { content: ""; position: absolute; top: 6px; left: 5px; width: 7px; height: 7px; border-top: 1.5px solid #9e9e9e; border-right: 1.5px solid #9e9e9e; transform: rotate(45deg); }
+.bbm-maker-row.is-model { padding-left: 8px; }
+.bbm-maker-empty { margin: 0; padding: 16px; color: var(--bbm-text-disabled); font-size: 14px; }
+/* 필터 초기화 확인 창 본문 */
+.bbmf-confirm-text { margin: 0; padding: 0; color: var(--bbm-text); font-size: 16px; font-weight: 400; line-height: 22.4px; }
+/* 원본: 개수가 있는 필터 칩은 안쪽 4/14/4/8·간격 4, 마우스를 올린 적용 칩은 #595959 */
+.marketplace.is-bbm .bbm-filter-button.is-applied { gap: 4px; padding: 4px 14px 4px 8px; }
+@media (hover: hover) {
+  .marketplace.is-bbm .bbm-chips .filter-chip.is-active:hover { background: #595959; }
+}
+/* 원본 모바일: 개수가 있는 필터 칩은 안쪽 4/14/4/8, 숫자 16px 600, 오른쪽 여백 8 */
+.filter-shell.is-bbm .filter-fixed.is-applied { margin-right: 8px; padding: 4px 14px 4px 8px; }
+.filter-shell.is-bbm .filter-fixed-count { font-size: 16px; font-weight: 600; line-height: 20px; }
+.filter-shell.is-bbm .filter-fixed-count { margin-right: 2px; }
+/* 원본: 칩 스크롤 영역은 오른쪽 16 안쪽에서 끝난다(가운데 맞춤 기준이 같아지도록) */
+.filter-shell.is-bbm { padding-right: 16px; }
+.filter-shell.is-bbm .filter-track { padding-right: 0; }
+/* 원본 가격 시트: 탭이 1px 위(본문 위 여백 15) */
+.bbmf-sheet .bbmf-price-chip .bbmf-tabs { margin-top: -1px; }
+.bbmf-sheet .bbmf-price-chip .bbmf-price-chip-fields { margin-top: 29px; }
+/* OP-011 빌드 버전 표시(&debug=1 일 때만) */
+.build-badge { position: fixed; right: 8px; bottom: 8px; z-index: 9999; padding: 3px 7px; border-radius: 6px; background: rgba(26, 26, 26, 0.72); color: #fff; font: 500 11px/15px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; pointer-events: none; }

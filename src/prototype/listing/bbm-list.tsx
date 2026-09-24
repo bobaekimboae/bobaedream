@@ -1,4 +1,4 @@
-import type { KeyboardEvent, ReactNode } from "react";
+import { useState, type KeyboardEvent, type ReactNode } from "react";
 import { asset, displayListPlace, sellerAvatar, sellerLabel, type Car } from "../data";
 import { bbmCardBadges, bbmCardSpec } from "../data/bbm-card-samples";
 import "./bbm-tokens.css";
@@ -121,5 +121,50 @@ export function BbmBottomGnb({ onNotify }: { onNotify: (message: string) => void
         ))}
       </div>
     </nav>
+  );
+}
+
+// ── QF-085·086: 제조사 칩 모달·시트(원본: 검색칸 + 국산차/수입차 인기/수입차 이름순 로고 목록, 매물 수, 오른쪽 셰브론)
+export type BbmMakerRow = { label: string; key: string; count: number | null };
+export function BbmMakerList({ sections, selected, renderLogo, onChoose }: { sections: Array<{ title: string; rows: BbmMakerRow[] }>; selected?: string | null; renderLogo: (key: string, label: string) => ReactNode; onChoose: (key: string) => void }) {
+  const [query, setQuery] = useState("");
+  const keyword = query.trim();
+  return (
+    <div className="bbm-maker-list">
+      <div className="bbm-maker-search-wrap"><label className="bbm-maker-search"><img src={bbmIcon("m-header-search")} alt="" aria-hidden="true" /><input value={query} placeholder="검색" aria-label="제조사 검색" onChange={(event) => setQuery(event.target.value)} /></label></div>
+      {sections.map((section) => {
+        const rows = section.rows.filter((row) => !keyword || row.label.includes(keyword));
+        if (!rows.length) return null;
+        return (
+          <section key={section.title} className="bbm-maker-section">
+            <p className="bbm-maker-section-title">{section.title}</p>
+            {rows.map((row) => (
+              <button key={`${section.title}-${row.label}`} type="button" className={`bbm-maker-row${selected === row.key ? " is-selected" : ""}${row.count === 0 ? " is-empty" : ""}`} disabled={row.count === 0} onClick={() => onChoose(row.key)}>
+                <span className="bbm-maker-logo">{renderLogo(row.key, row.label)}</span>
+                <span className="bbm-maker-name">{row.label}</span>
+                {row.count === null ? null : <span className="bbm-maker-count">{row.count.toLocaleString("ko-KR")}</span>}
+                <i className="bbm-maker-chevron" aria-hidden="true" />
+              </button>
+            ))}
+          </section>
+        );
+      })}
+    </div>
+  );
+}
+
+// ── "모델" 칩 모달·시트: 그 제조사의 모델 목록. 고르면 퀵필터 모델 선택과 같은 동작
+export function BbmModelList({ rows, selected, onChoose }: { rows: Array<{ name: string; label: string; count: number | null }>; selected?: string | null; onChoose: (name: string) => void }) {
+  if (!rows.length) return <p className="bbm-maker-empty">모델 정보 없음</p>;
+  return (
+    <div className="bbm-maker-list">
+      {rows.map((row) => (
+        <button key={row.name} type="button" className={`bbm-maker-row is-model${selected === row.name ? " is-selected" : ""}${row.count === 0 ? " is-empty" : ""}`} disabled={row.count === 0} onClick={() => onChoose(row.name)}>
+          <span className="bbm-maker-name">{row.label}</span>
+          {row.count === null ? null : <span className="bbm-maker-count">{row.count.toLocaleString("ko-KR")}</span>}
+          <i className="bbm-maker-chevron" aria-hidden="true" />
+        </button>
+      ))}
+    </div>
   );
 }

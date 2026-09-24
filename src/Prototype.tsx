@@ -3,6 +3,7 @@ import { FlowStack, type FlowScreen } from "./mobile";
 import { FavoritesProvider, isForcedMobileView, forcedMobileDesignWidth } from "./prototype/data";
 import { DetailFooter, DetailUiProvider, VehicleDetail } from "./prototype/detail";
 import { configureListingScreens, MarketplaceScreen, SavedListingsHeader, SavedListingsScreen } from "./prototype/listing";
+import { BuildBadge } from "./prototype/build-badge";
 import "./prototype.css";
 
 export type { PriceSelection, SellerType } from "./prototype/data";
@@ -42,5 +43,5 @@ export default function Prototype() {
     };
   }, []);
 
-  return <FavoritesProvider><DetailUiProvider><FlowStack initial={listScreen} /></DetailUiProvider></FavoritesProvider>;
+  return <FavoritesProvider><DetailUiProvider><FlowStack initial={listScreen} /><BuildBadge /></DetailUiProvider></FavoritesProvider>;
 }
