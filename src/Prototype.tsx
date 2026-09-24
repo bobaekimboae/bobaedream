@@ -373,6 +373,7 @@ const benzAClassImages = {
   W169: asset("cars/mercedes/a-class/card/w169.png"),
   W168: asset("cars/mercedes/a-class/card/w168.png"),
 };
+const benzEClassGenerationCard = (name: string) => asset(`cars/mercedes/e-class/${name}.webp`);
 
 const benzEncarClassOrder = [
   "A-클래스", "B-클래스", "C-클래스", "CL-클래스", "CLA-클래스", "CLE-클래스", "CLK-클래스", "CLS-클래스",
@@ -514,14 +515,7 @@ const generationCountLabel = (generation: QuickGenerationOption) => {
   const count = generation.count ?? generation.variants.reduce((sum, variant) => sum + toTrimOption(variant).count, 0);
   return `${count.toLocaleString("ko-KR")}대`;
 };
-const bodyTypeLabel = (bodyType?: BodyType, isEV?: boolean) => bodyType ? `${isEV ? "전기 " : ""}${bodyType}` : "";
-const modelBodyTabs = ["전체", "세단", "SUV", "해치백", "쿠페", "전기차"] as const;
-type ModelBodyTab = (typeof modelBodyTabs)[number];
-const matchesModelBodyTab = (visual: QuickModelVisual | undefined, tab: ModelBodyTab) => {
-  if (tab === "전체") return true;
-  if (tab === "전기차") return Boolean(visual?.isEV);
-  return visual?.bodyType === tab;
-};
+const bodyTypeLabel = (bodyType?: BodyType) => bodyType ?? "";
 const quickModelsByMaker: Record<string, string[]> = {
   BMW: bmwModels.map((model) => model.name),
   벤츠: benzEncarClassOrder,
@@ -569,9 +563,9 @@ const quickGenerationsByMakerModel: Record<string, Record<string, QuickGeneratio
   },
   벤츠: {
     "E-클래스": [
-      { name: "6세대 W214", years: "2023~현재", bodyType: "세단", variants: ["E200", "E300 4MATIC", "E350 e 4MATIC"] },
-      { name: "5세대 W213", years: "2016~2023", bodyType: "세단", variants: ["E220d", "E250", "E300 아방가르드", "E300 4MATIC", "E350 e 4MATIC 익스클루시브"] },
-      { name: "4세대 W212", years: "2009~2016", bodyType: "세단", variants: ["E200 CGI 블루이피션시", "E220 CDI", "E300", "E350"] },
+      { name: "6세대 W214", years: "2023~현재", image: benzEClassGenerationCard("w214"), bodyFit: "width", bodyType: "세단", variants: ["E200", "E300 4MATIC", "E350 e 4MATIC"] },
+      { name: "5세대 W213", years: "2016~2023", image: benzEClassGenerationCard("w213"), bodyFit: "width", bodyType: "세단", variants: ["E220d", "E250", "E300 아방가르드", "E300 4MATIC", "E350 e 4MATIC 익스클루시브"] },
+      { name: "4세대 W212", years: "2009~2016", image: benzEClassGenerationCard("w212"), bodyFit: "width", bodyType: "세단", variants: ["E200 CGI 블루이피션시", "E220 CDI", "E300", "E350"] },
     ],
     "S-클래스": [
       { name: "7세대 W223", years: "2020~현재", bodyType: "세단", variants: ["S350d", "S500 4MATIC", "Maybach"] },
@@ -1288,7 +1282,6 @@ function MarketplaceScreen() {
   const [selectedVariants, setSelectedVariants] = useState<string[]>([]);
   const [debouncedSelectedVariants, setDebouncedSelectedVariants] = useState<string[]>([]);
   const [trimApplied, setTrimApplied] = useState(false);
-  const [modelBodyTabByMaker, setModelBodyTabByMaker] = useState<Record<string, ModelBodyTab>>({});
 
   useEffect(() => {
     if (!searchToast) return;
@@ -1585,14 +1578,6 @@ function MarketplaceScreen() {
   };
 
   const guaziVisualsForMaker = maker ? quickModelVisualsByMaker[maker] : undefined;
-  const savedModelBodyTab = maker ? modelBodyTabByMaker[maker] ?? "전체" : "전체";
-  const isModelBodyTabAvailable = (tab: ModelBodyTab) => tab === "전체" || modelQuickOptions.some((model) => matchesModelBodyTab(guaziVisualsForMaker?.[model], tab));
-  const activeModelBodyTab = isModelBodyTabAvailable(savedModelBodyTab) ? savedModelBodyTab : "전체";
-  const visibleModelQuickOptions = modelQuickOptions.filter((model) => matchesModelBodyTab(guaziVisualsForMaker?.[model], activeModelBodyTab));
-  const chooseModelBodyTab = (tab: ModelBodyTab) => {
-    if (!maker || !isModelBodyTabAvailable(tab)) return;
-    setModelBodyTabByMaker((current) => ({ ...current, [maker]: tab }));
-  };
   const selectedGenerationVisual = selectedGenerationOption?.image ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.image : undefined);
   const selectedGenerationSummary = selectedGenerationOption
     ? (showGuaziInventoryCounts
@@ -1707,7 +1692,6 @@ function MarketplaceScreen() {
   const hasDirectVariantDepth = Boolean(usesUxDepth && selectedModel && !hasGenerationDepth && directVariantQuickOptions.length);
   const shouldStayOnSelectedModelRail = Boolean(isGuaziQuickStyle && selectedModel && !hasGenerationDepth && !hasDirectVariantDepth);
   const showModelQuickRail = Boolean(maker && modelQuickOptions.length && (!selectedModel || shouldStayOnSelectedModelRail));
-  const showModelBodyTabs = Boolean(isGuaziQuickStyle && showModelQuickRail && maker && modelQuickOptions.length >= 12);
   const showGenerationQuickRail = Boolean(usesUxDepth && selectedModel && !selectedGeneration && generationQuickOptions.length);
   const showVariantQuickRail = Boolean(usesUxDepth && ((selectedGeneration && variantQuickOptions.length) || hasDirectVariantDepth) && (isGuaziQuickStyle || !trimApplied));
   const showVehicleHeaderRail = Boolean(!isGuaziQuickStyle && usesUxDepth && selectedGeneration && trimApplied);
@@ -1752,27 +1736,16 @@ function MarketplaceScreen() {
                 </button>
               ))}
             </Carousel>
-          </section> : showModelQuickRail && isGuaziQuickStyle ? <section className={`depth-rail${showModelBodyTabs ? " has-model-body-tabs" : ""}`} aria-label={`${maker} 모델 빠른 선택`}>
+          </section> : showModelQuickRail && isGuaziQuickStyle ? <section className="depth-rail" aria-label={`${maker} 모델 빠른 선택`}>
             <span className="depth-rail-label">모델</span>
-            {showModelBodyTabs ? <div className="model-body-tabs" role="tablist" aria-label={`${maker} 차체 필터`}>
-              {modelBodyTabs.map((tab) => {
-                const available = isModelBodyTabAvailable(tab);
-                const selected = activeModelBodyTab === tab;
-                return (
-                  <button key={tab} type="button" role="tab" aria-selected={selected} className={selected ? "is-selected" : ""} disabled={!available} onClick={() => chooseModelBodyTab(tab)}>
-                    {tab}
-                  </button>
-                );
-              })}
-            </div> : null}
             <Carousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName="depth-rail-track">
-              {visibleModelQuickOptions.map((model) => {
+              {modelQuickOptions.map((model) => {
                 const modelVisual = guaziVisualsForMaker?.[model];
                 return (
                   <DepthCard
                     key={model}
                     label={formatModelLabel(model)}
-                    sub={bodyTypeLabel(modelVisual?.bodyType, modelVisual?.isEV)}
+                    sub={bodyTypeLabel(modelVisual?.bodyType)}
                     image={modelVisual?.image ? <img src={modelVisual.image} alt="" aria-hidden="true" draggable={false} /> : undefined}
                     imageFit={modelVisual?.bodyFit ?? "width"}
                     isEV={modelVisual?.isEV}

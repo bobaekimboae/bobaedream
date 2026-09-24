@@ -21,3 +21,10 @@ Source files already present in this repository:
 - `3-series`, `5-series`, and `x3` model cards plus BMW 3 Series `g20`, `f30`, and `e90` generation cards were retuned from dark gray/black toward white/silver studio-card presentation.
 - The affected card assets remain transparent `192×96` 2:1 files for the updated 56×28 model/generation slot.
 - `x1` was intentionally left unchanged per the v5 instruction.
+
+2026-09-24 QF-026 hotfix:
+
+- The v5 white/silver retuning created visible blotches/noise, so the affected BMW cards were rebuilt from the original repository color images without vehicle color conversion.
+- Background cleanup and 192×96 transparent canvas placement were applied, but no white/silver vehicle color filter was used.
+- White/silver original source unavailable: `3-series`, `5-series`, `x3`, `3-series/g20`, `3-series/f30`, `3-series/e90`.
+- `x1` remains unchanged.
