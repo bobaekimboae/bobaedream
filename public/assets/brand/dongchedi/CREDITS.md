@@ -14,3 +14,7 @@ Rows were matched by brand name. `리막` and `루시드` were not present in th
 - PNG logo edge alpha was tightened and transparent bounds were trimmed to prevent white/near-white boxes in manufacturer cards.
 - `아우디` display now prefers `public/assets/brand/audi.svg` because the Dongchedi wordmark is too small at 44px card width.
 - `포르쉐` display now uses the user-provided `public/assets/brand/porsche-symbol.png` per the repository prototype rule.
+
+2026-09-24 QF-029 v5 pass:
+
+- The 과쯔 manufacturer depth rail and default imported-brand rail now route `아우디` to the four-ring `public/assets/brand/audi.svg` symbol instead of the unreadable Dongchedi wordmark.

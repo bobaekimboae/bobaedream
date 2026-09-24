@@ -121,6 +121,7 @@ When any text-entry control loses focus, clear the keyboard context. If the cont
 - Latest `과쯔` depth fallback rule: if a selected model has no generation data, skip the generation depth and show trim choices when they exist; if neither generation nor trim data exists, keep the model rail visible with that model selected instead of returning to the manufacturer rail. In the vehicle picker sheet, show `세대 정보 없음` only after a model without generation data is selected.
 - Latest `과쯔` vehicle image rule: model and generation card images must be front-left three-quarter views, white or silver/light-colored, whitespace-trimmed into 2:1 card assets at 144×72 or larger, and bottom-aligned so the visible vehicle remains about 45–47×20–23 in the 48×24 slot.
 - Manufacturer emblem source decision: prefer the sheet-provided Dongchedi-style brand marks in `public/assets/brand/dongchedi/` for matched manufacturer rails and picker sheets. Keep explicit fallback assets only for brands missing from the workbook, such as `리막` and `루시드`.
-- Asset quality rule: vehicle images and manufacturer marks follow `docs/보배드림_차량이미지_로고_에셋지침_v1.md`; passenger vehicles use `bodyFit: "width"`, while commercial/high-body vehicles and two-wheelers use `bodyFit: "height"` without changing the 48×24 depth-card slot.
+- Asset quality rule: vehicle images and manufacturer marks follow `docs/보배드림_차량이미지_로고_에셋지침_v1.md`; passenger vehicles use `bodyFit: "width"`, while commercial/high-body vehicles and two-wheelers use `bodyFit: "height"` without changing the depth-card slot for the active spec.
+- Latest `과쯔` v5 model-card rule: 모델 카드 2줄째 = 바디타입(BEV는 '전기 ○○') / BEV만 좌상단(4·4) 16px 스파크 아이콘 #177245 / 이미지 칸 56×28 / 모델 12개 이상 브랜드만 차체 탭.
 
 
