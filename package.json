@@ -22,7 +22,8 @@
     "prebuild": "npm run check:runtime",
     "build": "tsc && vite build && node scripts/prepare-sites-build.mjs && node apps/variable-category-admin/scripts/sync-pages-demo.mjs",
     "verify": "npm run check:runtime && npm run test:admin && npm run build && npm run test:sites",
-    "diff:bbm": "node scripts/bbm-diff.mjs"
+    "diff:bbm": "node scripts/bbm-diff.mjs",
+    "diff:bbm:flow": "node scripts/bbm-diff-flow.mjs"
   },
   "dependencies": {
     "@fontsource/roboto": "5.2.10",
