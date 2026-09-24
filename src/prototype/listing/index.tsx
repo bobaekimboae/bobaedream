@@ -178,11 +178,17 @@ function FilterChip({ label, icon, active, className = "", onClick, onClear }: {
 }
 
 
-// PC 기본 목록: 초톳 PC처럼 한 줄에 1개인 가로형 카드
+// PC 초톳형 카드(QF-045, QF-071 정밀 교정): 초톳 PC 1440 실측 좌표. 사진 왼쪽 위 = (0,0), 오른쪽 내용 x 176
+// 제목 y0 · 사양 y28 · 가격 y52 · 위치 y85 · 판매자 y126(문의·찜 y120) — 아래 줄은 사진 아래 끝에 맞춘다
 function PcCarRow({ car, liked, onToggleLike, onOpen }: { car: Car; liked: boolean; onToggleLike: () => void; onOpen: () => void }) {
   const displayedSeller = sellerLabel(car);
   const badges = car.badges ?? [];
-  const specs = [displaySpecs(car.specs.slice(0, 3)), car.filter?.transmission].filter(Boolean).join(" · ");
+  const [photoFailed, setPhotoFailed] = useState(!car.image);
+  // 사양은 "·" 없이 항목별로(연식·주행거리·연료·변속기)
+  const specItems = [...displaySpecs(car.specs.slice(0, 3)).split(" · "), car.filter?.transmission].filter((item): item is string => Boolean(item));
+  // 위치: 기본 글자 + 괄호 보조 지역(있을 때만 #8C8C8C)
+  const place = displayListPlace(car.place);
+  const placeMatch = place.match(/^(.*?)\s*(\(.+\))$/);
   const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -191,28 +197,36 @@ function PcCarRow({ car, liked, onToggleLike, onOpen }: { car: Car; liked: boole
   };
   return (
     <article className="car-card pc-car-row" role="link" tabIndex={0} aria-label={`${car.title} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
-      <div className="car-photo-wrap">
-        <img className={`car-photo${car.imageFit === "contain" ? " is-catalog" : ""}`} src={asset(car.image)} alt={`${car.title} ${car.trim} 차량, ${car.posted}, 사진 ${car.photos}장`} draggable={false} />
-        <div className="card-photo-meta" aria-hidden="true">
-          <span className="card-posted">{car.posted}</span>
-          <span className="card-photo-count">{car.photos}<Icon name="photo-count.svg" /></span>
+      <div className={`car-photo-wrap${photoFailed ? " is-empty" : ""}`}>
+        {photoFailed
+          ? <span className="pc-car-photo-empty" aria-label="사진 없음" role="img"><BbIcon name="photo-count" size={24} /></span>
+          : <img className="car-photo" src={asset(car.image)} alt={`${car.title} ${car.trim} 차량, ${car.posted}, 사진 ${car.photos}장`} draggable={false} onError={() => setPhotoFailed(true)} />}
+        <div className="pc-car-photo-meta" aria-hidden="true">
+          <span className="pc-car-posted">{car.posted}</span>
+          <span className="pc-car-photo-count">{car.photos}<BbIcon name="photo-count" box={[9, 12]} /></span>
         </div>
       </div>
       <div className="pc-car-copy">
         <h2 className="pc-car-title">{car.title} {car.trim}</h2>
-        <p className="pc-car-specs">{specs}</p>
+        <p className="pc-car-specs">{specItems.map((item) => <span key={item}>{item}</span>)}</p>
         <div className="pc-car-price">
           <p className="price">{car.price}</p>
+          {car.market ? <span className="pc-car-market"><BbIcon name="arrow-down" size={12} />{car.market}</span> : null}
           {car.lease ? <span className="pc-car-lease">{car.lease}</span> : null}
           {badges.length ? <div className="badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}
         </div>
-        <p className="pc-car-location"><Icon name="location-gray.svg" />{displayListPlace(car.place)}</p>
+        <div className="pc-car-location">
+          <BbIcon name="location-pin" size={16} />
+          <span className="pc-car-place">{placeMatch ? <>{placeMatch[1]} <em>{placeMatch[2]}</em></> : place}</span>
+          {car.filter?.video ? <span className="pc-car-views"><BbIcon name="play" size={18} />{car.views.toLocaleString("ko-KR")}</span> : null}
+        </div>
         <div className="pc-car-seller">
           <img className="dealer-avatar" src={asset(sellerAvatar(car))} alt={`${displayedSeller} 프로필`} draggable={false} />
           <strong>{displayedSeller}</strong>
+          {car.sellerType === "딜러" ? <><BbIcon name="verified" size={16} className="pc-car-verified" /><span className="pc-car-sold">{car.stock}대 판매</span></> : null}
           <div className="pc-car-actions">
-            <button type="button" className="pc-inquiry-button" onClick={(event) => event.stopPropagation()}>문의</button>
-            <button className={`pc-like-button${liked ? " is-liked" : ""}`} type="button" aria-label={`${car.title} ${liked ? "저장 해제" : "저장"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>{liked ? <HeartFilledIcon /> : <HeartIcon />}</button>
+            <button type="button" className="pc-inquiry-button" onClick={(event) => event.stopPropagation()}><BbIcon name="chat" size={20} />문의</button>
+            <button className={`pc-like-button${liked ? " is-liked" : ""}`} type="button" aria-label={`${car.title} ${liked ? "저장 해제" : "저장"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}><BbIcon name={liked ? "heart-filled" : "heart"} size={24} /></button>
           </div>
         </div>
       </div>

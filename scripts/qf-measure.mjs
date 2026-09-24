@@ -257,13 +257,69 @@ try {
 } catch (error) {
   pc.steps.push({ step: "error", error: String(error) });
   process.exitCode = 1;
+}
+
+// QF-071: PC 초톳형 매물 카드(.pc-car-row) 요소 측정. 좌표는 사진 왼쪽 위 = (0,0)
+function measureChototCard(card) {
+  const round = (n) => Math.round(n * 10) / 10;
+  const photo = card.querySelector(".car-photo-wrap").getBoundingClientRect();
+  const at = (el) => { if (!el) return null; const b = el.getBoundingClientRect(); return { x: round(b.left - photo.left), y: round(b.top - photo.top), w: round(b.width), h: round(b.height) }; };
+  const font = (el) => { if (!el) return null; const s = getComputedStyle(el); return `${s.fontSize}/${s.lineHeight} ${s.fontWeight} ${s.color}`; };
+  const q = (s) => card.querySelector(s);
+  const specs = [...card.querySelectorAll(".pc-car-specs span")];
+  return {
+    card: round(card.getBoundingClientRect().height),
+    photo: { ...at(q(".car-photo-wrap")), radius: getComputedStyle(q(".car-photo-wrap")).borderRadius, fit: q(".car-photo") ? getComputedStyle(q(".car-photo")).objectFit : "empty", empty: Boolean(q(".pc-car-photo-empty")) },
+    gradient: { ...at(q(".pc-car-photo-meta")), bg: getComputedStyle(q(".pc-car-photo-meta")).backgroundImage },
+    posted: { ...at(q(".pc-car-posted")), font: font(q(".pc-car-posted")) },
+    count: { ...at(q(".pc-car-photo-count")), font: font(q(".pc-car-photo-count")), icon: at(q(".pc-car-photo-count .bb-icon")), right: round(photo.right - q(".pc-car-photo-count").getBoundingClientRect().right) },
+    title: { ...at(q(".pc-car-title")), font: font(q(".pc-car-title")), lines: Math.round(q(".pc-car-title").getBoundingClientRect().height / 24), text: q(".pc-car-title").textContent },
+    specs: { ...at(q(".pc-car-specs")), font: font(q(".pc-car-specs")), items: specs.map((s) => s.textContent), gap: specs.length > 1 ? round(specs[1].getBoundingClientRect().left - specs[0].getBoundingClientRect().right) : null, hasDot: q(".pc-car-specs").textContent.includes("·") },
+    price: { ...at(q(".pc-car-price .price")), font: font(q(".pc-car-price .price")), text: q(".pc-car-price .price").textContent },
+    market: q(".pc-car-market") ? at(q(".pc-car-market")) : null,
+    pin: { ...at(q(".pc-car-location > .bb-icon")), color: getComputedStyle(q(".pc-car-location > .bb-icon")).color },
+    place: { ...at(q(".pc-car-place")), font: font(q(".pc-car-place")) },
+    views: q(".pc-car-views") ? at(q(".pc-car-views")) : null,
+    avatar: at(q(".pc-car-seller .dealer-avatar")),
+    name: { ...at(q(".pc-car-seller strong")), font: font(q(".pc-car-seller strong")) },
+    verified: q(".pc-car-verified") ? { ...at(q(".pc-car-verified")), color: getComputedStyle(q(".pc-car-verified")).color } : null,
+    sold: q(".pc-car-sold") ? { ...at(q(".pc-car-sold")), font: font(q(".pc-car-sold")) } : null,
+    inquiry: { ...at(q(".pc-inquiry-button")), font: font(q(".pc-inquiry-button")), icon: at(q(".pc-inquiry-button .bb-icon")) },
+    like: { ...at(q(".pc-like-button")), icon: at(q(".pc-like-button .bb-icon")), right: round(card.getBoundingClientRect().right - 20 - q(".pc-like-button").getBoundingClientRect().right) },
+  };
+}
+let chototCards = null;
+try {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  page.on("pageerror", (err) => pc.consoleErrors.push(String(err)));
+  page.on("console", (msg) => { if (msg.type() === "error" && !msg.location()?.url?.includes("broken-photo-test")) pc.consoleErrors.push(msg.text()); });
+  await page.goto(`${pc.url}&pcl=chotot`, { waitUntil: "networkidle" });
+  await page.locator(".pc-car-row").first().waitFor({ timeout: 15000 });
+  const cards = page.locator(".pc-car-row");
+  const normal = await cards.nth(0).evaluate(measureChototCard);
+  await cards.nth(0).screenshot({ path: join(outDir, "pc-card-chotot.png") });
+  // 경계 사례: 우리 데이터에 없어서 브라우저 안에서만 바꿔 확인(저장소 데이터는 그대로)
+  await cards.nth(1).evaluate((card) => { card.querySelector(".pc-car-title").textContent = "제목이 아주 긴 매물 예시 — 벤츠 E클래스 E 300 4MATIC AMG 라인 익스클루시브 파노라마 선루프 부메스터 사운드 풀옵션 무사고 1인 신조"; });
+  const twoLine = await cards.nth(1).evaluate(measureChototCard);
+  await cards.nth(1).screenshot({ path: join(outDir, "pc-card-chotot-2line.png") });
+  await cards.nth(2).evaluate((card) => { card.querySelector(".pc-car-price .price").textContent = "123,456,789 만원"; });
+  const longPrice = await cards.nth(2).evaluate(measureChototCard);
+  await cards.nth(3).evaluate((card) => { card.querySelector(".car-photo").src = "/broken-photo-test.jpg"; });
+  await page.waitForTimeout(500);
+  const noPhoto = await cards.nth(3).evaluate(measureChototCard);
+  await cards.nth(3).screenshot({ path: join(outDir, "pc-card-chotot-nophoto.png") });
+  chototCards = { normal, twoLine, longPrice, noPhoto };
+  await page.close();
+} catch (error) {
+  pc.steps.push({ step: "chotot-card-error", error: String(error) });
+  process.exitCode = 1;
 } finally {
   await browser.close();
   preview?.kill();
 }
 
 const pack = ({ name, url, viewport, consoleErrors: errors, steps: list }) => ({ name, url, viewport, consoleErrors: errors, steps: list });
-const report = { url: targetUrl, commit, measuredAt: new Date().toISOString(), mobile: pack(mobile), pc: pack(pc), picker };
+const report = { url: targetUrl, commit, measuredAt: new Date().toISOString(), mobile: pack(mobile), pc: pack(pc), picker, chototCards };
 writeFileSync(join(outDir, "measure.json"), JSON.stringify(report, null, 2));
 
 const fmt = (v) => (Array.isArray(v) ? v.join("×") : v ?? "-");
@@ -303,5 +359,26 @@ for (const name of ["maker", "benz-models"]) {
   console.table(Object.fromEntries(Object.keys({ ...m, ...p }).map((key) => [key, { "모바일 393": m[key] ?? "-", "PC 1440": p[key] ?? "-" }])));
 }
 for (const s of pc.steps.filter((x) => x.error)) console.log(`[PC ${s.step}] ${s.error}`);
+
+// QF-071 초톳 PC 카드 비교(초톳 1440 실측 기준, y 위치 ±1 이내)
+if (chototCards) {
+  const c = chototCards.normal;
+  const rows = [
+    ["카드 한 칸", 193, c.card], ["사진", "160×160 r8 cover", `${c.photo.w}×${c.photo.h} r${parseFloat(c.photo.radius)} ${c.photo.fit}`],
+    ["그라데이션 높이", 24, c.gradient.h], ["등록 시간 x / 글자", "8 / 12/18 400", `${c.posted.x} / ${c.posted.font}`], ["사진 수 오른쪽 / 글자", "8 / 10/15 700", `${c.count.right} / ${c.count.font}`], ["사진 수 아이콘", "9×12", `${c.count.icon?.w}×${c.count.icon?.h}`],
+    ["제목 x / y", "176 / 0", `${c.title.x} / ${c.title.y}`], ["제목 글자", "16/24 600", c.title.font],
+    ["사양 y / 글자", "28 / 14/20 400", `${c.specs.y} / ${c.specs.font}`], ["사양 간격 / 점", "8 / 없음", `${c.specs.gap} / ${c.specs.hasDot ? "있음" : "없음"}`],
+    ["가격 y / 글자", "52 / 16/24 700 #E5193B", `${c.price.y} / ${c.price.font}`],
+    ["위치 핀 y / 크기 / 색", "87 / 16 / #C0C0C0", `${c.pin.y} / ${c.pin.w} / ${c.pin.color}`], ["위치 글자 x / y", "196 / 85", `${c.place.x} / ${c.place.y}`],
+    ["아바타 y / 크기", "126 / 20", `${c.avatar.y} / ${c.avatar.w}`], ["이름 x / y / 글자", "204 / 127 / 12/18 400 #222", `${c.name.x} / ${c.name.y} / ${c.name.font}`],
+    ["인증 아이콘 / 판매 수", "16 #595959 / 12/18 #8C8C8C", c.verified ? `${c.verified.w} ${c.verified.color} / ${c.sold?.font}` : "개인(없음)"],
+    ["문의 x / y / 크기", "703 / 120 / 77×32", `${c.inquiry.x} / ${c.inquiry.y} / ${c.inquiry.w}×${c.inquiry.h}`], ["문의 글자 / 아이콘", "14/20 700 / 20", `${c.inquiry.font} / ${c.inquiry.icon?.w}`],
+    ["찜 버튼 x / y / 크기 / 아이콘", "796 / 120 / 32 / 24", `${c.like.x} / ${c.like.y} / ${c.like.w} / ${c.like.icon?.w}`], ["찜 오른쪽 여백", 8, c.like.right],
+  ];
+  console.log("\n[QF-071 초톳형 PC 카드 (&pcl=chotot, 첫 카드)]");
+  console.table(rows.map(([항목, 초톳, 우리]) => ({ 항목, 초톳, 우리 })));
+  const e = chototCards;
+  console.log(`경계: 제목 2줄 → ${e.twoLine.title.lines}줄, 카드 ${e.twoLine.card}, 위치 y ${e.twoLine.place.y}, 판매자 y ${e.twoLine.avatar.y} / 긴 가격 "${e.longPrice.price.text}" 폭 ${e.longPrice.price.w}, 카드 ${e.longPrice.card} / 사진 없음 → 자리표시 ${e.noPhoto.photo.empty ? "표시" : "없음"}, 카드 ${e.noPhoto.card}`);
+}
 console.log(`\n콘솔 오류 모바일 ${consoleErrors.length}건 · PC ${pc.consoleErrors.length}건${consoleErrors.length ? `: ${consoleErrors.slice(0, 3).join(" | ")}` : ""}`);
 console.log(`결과: ${join(outDir, "measure.json")}`);
