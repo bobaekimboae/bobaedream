@@ -19,6 +19,13 @@
 - Until repository splitting is complete, these paths are outside normal quick-filter work: `apps/variable-category-admin`, `admin-server`, `public/category-admin`, `public/shortform*`, `public/option-admin`, and `public/vehicle-history`.
 - Do not change those out-of-scope paths for quick-filter tasks unless the user explicitly includes them.
 
+## 작업 방식
+
+- PC 작업 대상은 개발 시안형 레이아웃(기본 `&pc=1`, `.marketplace.is-bbm`) 하나다. 초톳형(`&pcl=chotot`, QF-042~045)은 비교용으로 동결하고 더 이상 수정하지 않는다.
+- 지시문에 레이아웃이 적혀 있지 않으면 개발 시안형으로 작업한다. 헷갈리면 시작 전에 묻는다.
+- 과제 ID는 사용자가 준 번호만 쓴다. 스스로 새 번호를 만들지 않는다.
+- 로컬 미리보기를 보여줄 때는 어느 브랜치·커밋으로 빌드했는지 함께 알린다.
+
 ## Validation
 
 - Run `npm run check:runtime` before preview or handoff when prototype files changed.
