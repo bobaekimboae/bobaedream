@@ -13,6 +13,7 @@
     "test:runtime": "playwright test",
     "test:sites": "node --test tests/sites-worker.test.mjs",
     "verify:qf": "npm run check:runtime && tsc && vite build",
+    "measure:qf": "node scripts/qf-measure.mjs",
     "storybook": "storybook dev -p 6006 --host 0.0.0.0",
     "storybook:build": "storybook build -o dist/client/storybook",
     "chromatic": "chromatic --storybook-build-dir dist/client/storybook",
