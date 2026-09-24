@@ -1,4 +1,5 @@
 import { useEffect, type CSSProperties, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { asset } from "../data";
 import "./bbm-filter-parts.css";
 
@@ -156,44 +157,60 @@ function CloseButton({ onClose }: { onClose: () => void }) {
 // ── PC 가운데 모달: 폭 412, 라운드 14, 딤 rgba(0,0,0,.5), 제목 16/22.4 600 가운데 + 오른쪽 닫기 24×32
 export function BbmModal({ title, titleIcon, onClose, footer, children, wide = false }: { title: string; titleIcon?: ReactNode; onClose: () => void; footer?: ReactNode; children: ReactNode; wide?: boolean }) {
   useEscape(onClose);
-  return (
+  return createPortal(
     <div className="bbmf-overlay is-modal" onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}>
       <section className={`bbmf-modal${wide ? " is-tall" : ""}`} role="dialog" aria-modal="true" aria-label={title}>
         <header className="bbmf-modal-header"><h3>{titleIcon}{title}</h3><CloseButton onClose={onClose} /></header>
         <div className="bbmf-modal-body">{children}</div>
         {footer}
       </section>
-    </div>
+    </div>,
+    document.body,
   );
 }
 
 // ── 모바일 바텀시트: 제목 가운데 + 닫기, 아래 [초기화] + [N대 보기]
 export function BbmSheet({ title, onClose, footer, children }: { title: string; onClose: () => void; footer?: ReactNode; children: ReactNode }) {
   useEscape(onClose);
-  return (
+  return createPortal(
     <div className="bbmf-overlay is-sheet" onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}>
       <section className="bbmf-sheet" role="dialog" aria-modal="true" aria-label={title}>
         <header className="bbmf-sheet-header"><h3>{title}</h3><CloseButton onClose={onClose} /></header>
         <div className="bbmf-sheet-body">{children}</div>
         {footer}
       </section>
-    </div>
+    </div>,
+    document.body,
   );
 }
 
-// ── 모바일 전체 필터 화면 틀: 머리(제목 왼쪽 · 닫기 오른쪽), 검색조건 유지·최근검색기록·[검색조건 저장], 항목 목록(행 58), 아래 버튼 줄
-export function BbmFullItem({ label, onOpen }: { label: string; onOpen: () => void }) {
-  return <button type="button" className="bbmf-full-item" onClick={onOpen}><span>{label}</span></button>;
+// ── 모바일 전체 필터 화면(QF-091 원본 실측): 머리 57(제목 왼쪽 16/22.4 600 · 닫기 24), 요약(검색조건 유지 · 최근검색기록 · [검색조건 저장]),
+//    항목 행 58(14px 600, 오른쪽 셰브론), 아래 버튼 줄 77(초기화 112 + 파랑 N대 보기)
+export function BbmFullItem({ label, icon, onOpen }: { label: string; icon?: string; onOpen: () => void }) {
+  return <button type="button" className="bbmf-full-item" onClick={onOpen}><span className="bbmf-full-item-label">{icon ? <img src={icon} alt="" aria-hidden="true" /> : null}{label}</span><i className="bbmf-full-chevron" aria-hidden="true" /></button>;
 }
 
-export function BbmFullFilter({ onClose, tools, footer, children }: { onClose: () => void; tools?: ReactNode; footer?: ReactNode; children: ReactNode }) {
+export function BbmFullExcludeAction({ onClick }: { onClick: () => void }) {
+  return <div className="bbmf-full-action"><button type="button" className="bbmf-exclude" onClick={onClick}><i className="bbmf-circle-icon is-minus" aria-hidden="true" />제조사·모델 제외하기</button></div>;
+}
+
+export function BbmFullFilter({ onClose, keepSearch, onToggleKeep, onSaveSearch, footer, children }: { onClose: () => void; keepSearch?: boolean; onToggleKeep?: () => void; onSaveSearch?: () => void; footer?: ReactNode; children: ReactNode }) {
   useEscape(onClose);
-  return (
+  return createPortal(
     <div className="bbmf-full" role="dialog" aria-modal="true" aria-label="필터">
-      <header className="bbmf-full-header"><h3>필터</h3><CloseButton onClose={onClose} /></header>
-      {tools ? <div className="bbmf-full-tools">{tools}</div> : null}
-      <div className="bbmf-full-body">{children}</div>
+      <header className="bbmf-full-header"><h3>필터</h3><button type="button" className="bbmf-full-close" aria-label="닫기" onClick={onClose}><img src={asset("bbm/m-full-close.svg")} alt="" draggable={false} /></button></header>
+      <div className="bbmf-full-body">
+        <div className="bbmf-full-summary">
+          <div className="bbmf-full-tools">
+            <label className="bbmf-full-keep"><button type="button" role="switch" aria-checked={Boolean(keepSearch)} aria-label="검색조건 유지" className={`bbmf-keep-switch${keepSearch ? " is-on" : ""}`} onClick={onToggleKeep}><span /></button><span>검색조건 유지</span></label>
+            <button type="button" className="bbmf-full-history">최근검색기록 0</button>
+          </div>
+          <button type="button" className="bbmf-save-search" onClick={onSaveSearch}><i className="bbmf-circle-icon is-plus" aria-hidden="true" />검색조건 저장</button>
+        </div>
+        <div className="bbmf-full-menu">{children}</div>
+      </div>
       {footer}
-    </div>
+    </div>,
+    document.body,
   );
 }

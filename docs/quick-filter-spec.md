@@ -47,6 +47,8 @@
 ## Summary Chips And Top Rail
 
 - Top chip order: `[필터] [중고차/카테고리] [요약 칩] [트림] [가격] [연식] [주행] [색상]`.
+- Guazi (dev-draft baseline, QF-091): top chips follow the bbmuseum original `[필터] [전체차량/카테고리] [제조사 or 요약 칩] [트림] [연식] [가격] [연료] [판매자]` on PC and mobile; the summary chip keeps its width, clear, and depth-return behavior.
+- Guazi (QF-091): the category landing shows the original circular vehicle-type row instead of the depth-0 type cards. Choosing a type swaps the same slot to the quick-filter rail from the manufacturer step; clearing the category chip brings the type row back. Rail, DepthCard, and trim chip specs are unchanged.
 - Show `연식` until generation selection; hide it after generation selection.
 - Always show `색상`.
 - Vehicle summary chip combines manufacturer, model, and generation.

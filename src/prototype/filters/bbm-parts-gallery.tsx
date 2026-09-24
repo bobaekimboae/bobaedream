@@ -64,7 +64,7 @@ export function BbmPartsGallery({ value, onChange, countWith }: { value: BbmFilt
       ) : null}
       {overlay === "sheet" ? <BbmSheet title="연료" onClose={close} footer={actions("sheet", "보기")}>{checkList("fuel", draft, setDraft)}</BbmSheet> : null}
       {overlay === "full" ? (
-        <BbmFullFilter onClose={close} footer={actions("full", "보기")} tools={<button type="button" className="bbmf-save-search">검색조건 저장</button>}>
+        <BbmFullFilter onClose={close} footer={actions("full", "보기")}>
           {["카테고리", "제조사 · 모델", ...bbmSidebarItems.map((item) => item.label)].map((label) => <BbmFullItem key={label} label={label} onOpen={() => undefined} />)}
         </BbmFullFilter>
       ) : null}

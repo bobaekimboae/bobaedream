@@ -1,4 +1,4 @@
-import { useEffect, useState, type CSSProperties, type KeyboardEvent } from "react";
+import { Fragment, useEffect, useState, type CSSProperties, type KeyboardEvent } from "react";
 import { BbmActionBar, BbmModal } from "../filters/bbm-filter-parts";
 import { bbmSidebarItems, type BbmFilterItem } from "../filters/bbm-filter-options";
 import { BbmExpandPanel, BbmModalPanel, clearBbmItem } from "../filters/bbm-filter-panels";
@@ -16,26 +16,27 @@ function BbIcon({ name, size = 20, className = "" }: { name: BbIconName; size?: 
 }
 
 const bbGnbItems = ["숏폼카", "중고차", "수입차", "매물등록", "중고차딜러", "커뮤니티"];
-const bbHeaderIcons: Array<[BbIconName, string]> = [["search", "검색"], ["mypage", "마이페이지"], ["heart", "찜"], ["chat", "채팅"], ["notification", "알림"], ["menu", "메뉴"]];
+// QF-091: 헤더 아이콘·로고는 개발 시안 원본 파일(public/assets/bbm/)
+const bbHeaderIcons: Array<[string, string]> = [["search", "검색"], ["mypage", "마이페이지"], ["heart", "찜"], ["chat", "채팅"], ["notification", "알림"], ["menu", "메뉴"]];
+const bbmAsset = (name: string) => asset(`bbm/${name}.svg`);
 
 function BbHeader({ onNotify, onOpenFavorites }: { onNotify: (message: string) => void; onOpenFavorites: () => void }) {
   return (
     <header className="bbm-header" aria-label="보배드림">
       <div className="bbm-header-inner">
         <div className="bbm-header-top">
-          {["로그인", "회원가입", "고객센터"].map((label) => <button key={label} type="button" onClick={() => onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`)}>{label}</button>)}
+          {["로그인", "회원가입", "고객센터"].map((label, index) => <span key={label} className="bbm-header-top-item">{index ? <img src={bbmAsset("header-top-divider")} alt="" aria-hidden="true" /> : null}<button type="button" onClick={() => onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`)}>{label}</button></span>)}
         </div>
         <button type="button" className="bbm-logo" aria-label="보배드림 처음으로" onClick={() => document.querySelector(".app-screen")?.scrollTo({ top: 0 })}>
-          <span><img src={asset("pc-detail/9546-imgGroup.svg")} alt="" draggable={false} /></span>
-          <img src={asset("pc-detail/9546-imgLogo.svg")} alt="보배드림" draggable={false} />
+          <img src={bbmAsset("header-logo")} alt="보배드림" draggable={false} />
         </button>
         <div className="bbm-gnb-row">
           <nav className="bbm-gnb" aria-label="주 메뉴">
             {bbGnbItems.map((label) => <button key={label} type="button" className={label === "중고차" ? "is-active" : ""} aria-current={label === "중고차" ? "page" : undefined} onClick={() => label === "중고차" ? undefined : onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`)}>{label}</button>)}
-            <button type="button" className="bbm-gnb-more" onClick={() => onNotify("더보기는 정식 서비스에서 이용해 주세요.")}>더보기<BbIcon name="chevron-down" size={18} /></button>
+            <button type="button" className="bbm-gnb-more" onClick={() => onNotify("더보기는 정식 서비스에서 이용해 주세요.")}>더보기<img src={bbmAsset("gnb-more")} alt="" aria-hidden="true" /></button>
           </nav>
           <div className="bbm-header-icons">
-            {bbHeaderIcons.map(([icon, label]) => <button key={icon} type="button" aria-label={label} onClick={() => icon === "heart" ? onOpenFavorites() : onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`)}><BbIcon name={icon} size={24} /></button>)}
+            {bbHeaderIcons.map(([icon, label]) => <button key={icon} type="button" aria-label={label} onClick={() => icon === "heart" ? onOpenFavorites() : onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`)}><img src={bbmAsset(`header-${icon}`)} alt="" aria-hidden="true" /></button>)}
           </div>
         </div>
       </div>
@@ -43,10 +44,10 @@ function BbHeader({ onNotify, onOpenFavorites }: { onNotify: (message: string) =
   );
 }
 
-// 원본 좌측 필터 27개 항목. QF-067: "제조사 · 모델 · 등급"을 맨 위로(나머지 순서 그대로)
-const bbMakerItem = "제조사 · 모델 · 등급";
+// 원본 좌측 필터 27개 항목. QF-091: 제목·위치는 원본대로("제조사 · 모델", 3번째), 안의 제조사 → 모델 → 등급 동작은 QF-067 유지
+const bbMakerItem = "제조사 · 모델";
 // QF-076: 항목 순서·열림 방식(펼침/412 모달)은 원본 수집 결과(bbm-filter-options.ts)
-const bbFilterMenu = [bbMakerItem, ...bbmSidebarItems.map((item) => item.label)];
+const bbFilterMenu = [bbmSidebarItems[0].label, bbmSidebarItems[1].label, bbMakerItem, ...bbmSidebarItems.slice(2).map((item) => item.label)];
 const bbFilterItemByLabel = new Map(bbmSidebarItems.map((item) => [item.label, item]));
 
 type CatalogRow = [label: string, count: number, maker?: string];
@@ -170,7 +171,7 @@ function BbFilterSidebar({ selection, appliedCount, onReset, onNotify, bbm, onBb
         <div className="bbm-filter-summary-top">
           {/* QF-074: 제목 오른쪽 적용 필터 개수 배지(0개면 숨김) + 오른쪽 끝 모두 지우기 */}
           <div className="bbm-filter-title"><strong>필터</strong>{appliedCount > 0 ? <span className="bbm-filter-count" aria-label={`적용된 필터 ${appliedCount}개`}>{appliedCount}</span> : null}</div>
-          <button type="button" className="bbm-filter-reset" onClick={onReset}>모두 지우기</button>
+          <button type="button" className="bbm-filter-reset" onClick={onReset}>초기화</button>
         </div>
         <div className="bbm-filter-summary-tools">
           <label className="bbm-filter-keep"><BbSwitch checked={keepSearch} label="검색조건 유지" onChange={() => setKeepSearch((value) => !value)} /><span>검색조건 유지</span></label>
@@ -182,14 +183,17 @@ function BbFilterSidebar({ selection, appliedCount, onReset, onNotify, bbm, onBb
           const open = openItems.includes(label);
           const isMaker = label === bbMakerItem;
           return (
-            <section key={label} className={`bbm-filter-item${open ? " is-open" : ""}${isMaker ? " is-maker-grade" : ""}`}>
+            <Fragment key={label}>
+            <section className={`bbm-filter-item${open ? " is-open" : ""}${isMaker ? " is-maker-grade" : ""}`}>
               <button type="button" className="bbm-filter-toggle" aria-expanded={bbFilterItemByLabel.get(label)?.mode === "modal" ? undefined : open} aria-haspopup={bbFilterItemByLabel.get(label)?.mode === "modal" ? "dialog" : undefined} onClick={() => { const item = bbFilterItemByLabel.get(label); if (item?.mode === "modal") openModal(item); else toggle(label); }}>
-                <span className="bbm-filter-label">{label}{isMaker && !open && collapsedPath ? <small className="bbm-filter-path">{collapsedPath}</small> : null}</span>
-                <BbIcon name="chevron-down" size={20} className="bbm-filter-chevron" />
+                <span className="bbm-filter-label"><span className="bbm-filter-label-text">{label === "전기차 주행 가능 거리" ? <img className="bbm-filter-label-icon" src={bbmAsset("filter-ev-range")} alt="" aria-hidden="true" /> : null}{label}</span>{isMaker && !open && collapsedPath ? <small className="bbm-filter-path">{collapsedPath}</small> : null}</span>
+                <img className="bbm-filter-chevron" src={bbmAsset("filter-chevron")} alt="" aria-hidden="true" />
               </button>
               {isMaker && maker ? <button type="button" className="bbm-filter-item-reset" onClick={selection.onClearMaker}>초기화</button> : null}
               {open ? (isMaker ? <BbMakerGradeFilter selection={selection} view={view} setView={setView} /> : <BbmExpandPanel label={label} value={bbm} onChange={onBbmChange} />) : null}
             </section>
+            {isMaker ? <div className="bbm-filter-action"><button type="button" className="bbmf-exclude" onClick={() => onNotify("제조사·모델 제외하기는 정식 서비스에서 이용해 주세요.")}><i className="bbmf-circle-icon is-minus" aria-hidden="true" />제조사·모델 제외하기</button></div> : null}
+            </Fragment>
           );
         })}
       </div>

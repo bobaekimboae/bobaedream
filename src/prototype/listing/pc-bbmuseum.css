@@ -117,36 +117,7 @@
   .bbm-sort, .bbm-view { display: inline-flex; align-items: center; gap: 8px; padding: 0; border: 0; background: none; color: #3a3a3a; font-size: 15px; font-weight: 500; line-height: 21px; }
   .marketplace.is-bbm .car-list.bbm-list { display: block; max-width: none; margin: 0; padding: 0; border-top: 0; background: #fff; }
   .marketplace.is-bbm .car-list.is-pc-grid { max-width: none; margin: 0; }
-  .bbm-card { padding: 16px 20px 0; cursor: pointer; outline: 0; }
-  .bbm-card::after { content: ""; display: block; height: 1px; margin-top: 15px; background: #ebebeb; }
-  .bbm-card:last-child { padding-bottom: 16px; }
-  .bbm-card:last-child::after { display: none; }
-  .bbm-card:focus-visible { box-shadow: inset 0 0 0 2px var(--blue); }
-  .bbm-card-main { display: flex; gap: 16px; }
-  .bbm-card-image { position: relative; width: 160px; height: 160px; flex: 0 0 160px; overflow: hidden; border-radius: 8px; background: #ebebeb; }
-  .bbm-card-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
-  .bbm-card-image img.is-catalog { padding: 6px; box-sizing: border-box; background: #fff; object-fit: contain; }
-  .bbm-card-media-footer { position: absolute; right: 0; bottom: 0; left: 0; display: flex; align-items: center; justify-content: space-between; height: 24px; padding: 0 8px; background: linear-gradient(transparent, rgba(0, 0, 0, .5)); color: #fff; font-size: 12px; font-weight: 500; line-height: 16.8px; }
-  .bbm-card-count { display: inline-flex; align-items: center; gap: 2px; font-size: 11px; font-weight: 600; line-height: 12px; }
-  .bbm-card-content { display: flex; min-width: 0; flex: 1; flex-direction: column; }
-  .bbm-card-title { margin: 0; overflow: hidden; color: #222; font-size: 16px; font-weight: 600; line-height: 22.4px; text-overflow: ellipsis; white-space: nowrap; }
-  .bbm-card-spec { height: 24px; margin: 4px 0 0; overflow: hidden; color: #595959; font-size: 14px; font-weight: 400; line-height: 19.6px; text-overflow: ellipsis; white-space: nowrap; }
-  .bbm-card-price-row { display: flex; align-items: center; gap: 8px; height: 19.6px; margin-top: 6px; }
-  .bbm-card-price { margin: 0; color: #222; font-size: 16px; font-weight: 700; line-height: 17.6px; white-space: nowrap; }
-  .bbm-card-price span { margin-left: 2px; font-size: 14px; font-weight: 400; line-height: 19.6px; }
-  .bbm-card-badges { display: flex; gap: 4px; }
-  .bbm-card-badges span { display: inline-flex; align-items: center; height: 20px; padding: 0 4px; border-radius: 4px; background: #ebebeb; color: #505050; font-size: 11px; font-weight: 500; line-height: 11px; white-space: nowrap; }
-  .bbm-card-location { display: flex; align-items: center; gap: 2px; height: 32px; margin: 14px 0 0; padding-top: 8px; box-sizing: border-box; color: #505050; font-size: 14px; font-weight: 400; line-height: 19.6px; }
-  .bbm-card-location .bb-icon { color: #9e9e9e; }
-  .bbm-card-meta { display: flex; align-items: center; justify-content: space-between; height: 48px; }
-  .bbm-card-seller { display: flex; align-items: center; gap: 8px; min-width: 0; color: #222; font-size: 12px; font-weight: 400; line-height: 16.8px; }
-  .bbm-card-seller img { width: 18px; height: 18px; flex: none; border-radius: 50%; object-fit: cover; }
-  .bbm-card-seller-info { position: relative; padding-left: 9px; color: #595959; }
-  .bbm-card-seller-info::before { content: ""; position: absolute; top: 4px; left: 0; width: 1px; height: 9px; background: #e0e0e0; }
-  .bbm-card-seller-info b { color: #222; font-weight: 600; }
-  .bbm-card-actions { display: flex; gap: 4px; }
-  .bbm-card-actions button { display: grid; place-items: center; width: 48px; height: 48px; padding: 12px; border: 0; background: none; color: #3a3a3a; }
-  .bbm-card-actions button.is-liked { color: #f14069; }
+  /* QF-091: 카드는 원본 car-list-result-card 값(bbm-tokens.css .bbm-result-card)으로 바꿈 */
 }
 
 /* 원본 반응형: 1200 이하는 헤더 좌우 16, 본문 좌우 24(300 + 24 + 나머지). 1119 이하는 사이드바 240·간격 16·좌우 16 (원본 1024 실측: 16 + 240 + 16 + 736 + 16) */
