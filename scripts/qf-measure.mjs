@@ -2,7 +2,8 @@
 // 과쯔 퀵필터 실측 스크립트 (OP-008)
 // 사용: npm run measure:qf [-- <URL>]
 //   URL 기본값: 로컬 vite preview (없으면 dist/client로 자동 실행)
-// 출력: reports/shots/<커밋>/measure.json, 단계별 PNG, 콘솔 표
+// 측정: 모바일 393×852 @3x(전체 흐름) + PC 1440×900 @1x &pc=1(제조사·벤츠 모델 레일)
+// 출력: reports/shots/<커밋>/measure.json, 단계별 PNG(PC는 pc-*.png), 콘솔 표
 import { chromium } from "@playwright/test";
 import { execSync, spawn } from "node:child_process";
 import { mkdirSync, writeFileSync, existsSync } from "node:fs";
@@ -101,6 +102,14 @@ function measureRailInPage() {
       chevron: Boolean(chip.querySelector("img[src*='chevron-down']")),
       clear: Boolean(chip.querySelector(".filter-chip-clear")),
     })),
+    // 레일(Carousel)과 화면 안에 온전히 보이는 카드·칩 수
+    visibleCount: (() => {
+      const clip = rail.querySelector(".brand-carousel")?.getBoundingClientRect() ?? r;
+      const left = Math.max(clip.left, 0);
+      const right = Math.min(clip.right, window.innerWidth);
+      const items = [...rail.querySelectorAll(".depth-card, .trim-chip")].map((el) => el.getBoundingClientRect());
+      return { full: items.filter((b) => b.left >= left - 0.5 && b.right <= right + 0.5).length, partial: items.filter((b) => b.right > left && b.left < right).length, total: items.length };
+    })(),
     horizontalOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
   };
 }
@@ -137,7 +146,7 @@ async function visibleBounds(page, locator, scale) {
   }, { b64: png.toString("base64"), scale });
 }
 
-async function addVisibleSizes(page, result) {
+async function addVisibleSizes(page, result, viewportWidth, scale) {
   if (!result) return result;
   const medias = page.locator(".depth-rail .depth-card .depth-card-media");
   const count = Math.min(await medias.count(), result.cards.length);
@@ -145,8 +154,8 @@ async function addVisibleSizes(page, result) {
     const media = medias.nth(i);
     if (!(await media.isVisible())) continue;
     const box = await media.boundingBox();
-    if (!box || box.x < 0 || box.x + box.width > 393) continue; // 화면 밖 카드는 건너뜀
-    result.cards[i].visible = await visibleBounds(page, media, 3);
+    if (!box || box.x < 0 || box.x + box.width > viewportWidth) continue; // 화면 밖 카드는 건너뜀
+    result.cards[i].visible = await visibleBounds(page, media, scale);
   }
   return result;
 }
@@ -172,28 +181,36 @@ mkdirSync(outDir, { recursive: true });
 
 const preview = await ensurePreview(targetUrl);
 const browser = await chromium.launch();
-const context = await browser.newContext({ viewport: { width: 393, height: 852 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
-const page = await context.newPage();
-const consoleErrors = [];
-page.on("console", (msg) => { if (msg.type() === "error") consoleErrors.push(msg.text()); });
-page.on("pageerror", (err) => consoleErrors.push(String(err)));
 
-const steps = [];
+// 모바일(393×852 @3x)과 PC(1440×900 @1x, &pc=1)를 같은 방식으로 측정한다.
+async function createSession({ name, url, viewport, scale, mobile, prefix }) {
+  const context = await browser.newContext({ viewport, deviceScaleFactor: scale, isMobile: mobile, hasTouch: mobile });
+  const page = await context.newPage();
+  const session = { name, url, viewport: `${viewport.width}x${viewport.height}@${scale}x`, page, consoleErrors: [], steps: [] };
+  page.on("console", (msg) => { if (msg.type() === "error") session.consoleErrors.push(msg.text()); });
+  page.on("pageerror", (err) => session.consoleErrors.push(String(err)));
+  session.step = async (stepName) => {
+    await page.waitForTimeout(300);
+    const data = await addVisibleSizes(page, await page.evaluate(measureRailInPage), viewport.width, scale);
+    const shot = join(outDir, `${prefix}${String(session.steps.length + 1).padStart(2, "0")}-${stepName}.png`);
+    await page.screenshot({ path: shot });
+    const rail = page.locator(".depth-rail").first();
+    if (await rail.count()) await rail.screenshot({ path: shot.replace(/\.png$/, "-rail.png") });
+    session.steps.push({ step: stepName, shot, ...data });
+  };
+  session.open = async () => {
+    await page.goto(url, { waitUntil: "networkidle" });
+    await page.locator(".depth-rail").first().waitFor({ timeout: 15000 });
+  };
+  return session;
+}
+
+const mobile = await createSession({ name: "모바일", url: targetUrl, viewport: { width: 393, height: 852 }, scale: 3, mobile: true, prefix: "" });
+const pc = await createSession({ name: "PC", url: `${targetUrl}${targetUrl.includes("?") ? "&" : "?"}pc=1`, viewport: { width: 1440, height: 900 }, scale: 1, mobile: false, prefix: "pc-" });
+const { page, steps, consoleErrors } = mobile;
+const step = mobile.step;
+const open = mobile.open;
 let picker = null;
-async function step(name) {
-  await page.waitForTimeout(300);
-  const data = await addVisibleSizes(page, await page.evaluate(measureRailInPage));
-  const shot = join(outDir, `${String(steps.length + 1).padStart(2, "0")}-${name}.png`);
-  await page.screenshot({ path: shot });
-  const rail = page.locator(".depth-rail").first();
-  if (await rail.count()) await rail.screenshot({ path: shot.replace(/\.png$/, "-rail.png") });
-  steps.push({ step: name, shot, ...data });
-}
-
-async function open() {
-  await page.goto(targetUrl, { waitUntil: "networkidle" });
-  await page.locator(".depth-rail").first().waitFor({ timeout: 15000 });
-}
 
 try {
   await open();
@@ -229,12 +246,24 @@ try {
 } catch (error) {
   steps.push({ step: "error", error: String(error) });
   process.exitCode = 1;
+}
+
+// PC: 제조사 레일 → 벤츠 모델 레일
+try {
+  await pc.open();
+  await pc.step("maker");
+  await clickCard(pc.page, /^벤츠$/);
+  await pc.step("benz-models");
+} catch (error) {
+  pc.steps.push({ step: "error", error: String(error) });
+  process.exitCode = 1;
 } finally {
   await browser.close();
   preview?.kill();
 }
 
-const report = { url: targetUrl, commit, viewport: "393x852@3x", measuredAt: new Date().toISOString(), consoleErrors, steps, picker };
+const pack = ({ name, url, viewport, consoleErrors: errors, steps: list }) => ({ name, url, viewport, consoleErrors: errors, steps: list });
+const report = { url: targetUrl, commit, measuredAt: new Date().toISOString(), mobile: pack(mobile), pc: pack(pc), picker };
 writeFileSync(join(outDir, "measure.json"), JSON.stringify(report, null, 2));
 
 const fmt = (v) => (Array.isArray(v) ? v.join("×") : v ?? "-");
@@ -251,5 +280,28 @@ for (const s of steps) {
   }
 }
 if (picker) console.log(`\n[차종 시트] 벤츠 ${picker.selectedModel ?? "-"} 선택 → 세대 칸 "${picker.generationText}" · 시트 높이 ${picker.sheetHeightPct}%`);
-console.log(`\n콘솔 오류 ${consoleErrors.length}건${consoleErrors.length ? `: ${consoleErrors.slice(0, 3).join(" | ")}` : ""}`);
+
+// 모바일·PC 비교 (제조사 레일, 벤츠 모델 레일)
+const summarize = (s, errors) => {
+  if (!s || s.error) return { 레일: s?.error ? "오류" : "-" };
+  const card = s.cards[0];
+  const medias = [...new Set(s.cards.map((c) => fmt(c.media?.size)))].join(", ");
+  return {
+    레일: `${s.railHeight}px`,
+    카드: card ? fmt(card.size) : "-",
+    "위/아래": card ? `${card.padTop}/${card.padBottom}` : "-",
+    이미지칸: medias || "-",
+    "보이는 카드": `${s.visibleCount.full}개 (일부 ${s.visibleCount.partial} / 전체 ${s.visibleCount.total})`,
+    가로넘침: s.horizontalOverflow ? "있음" : "없음",
+    콘솔오류: `${errors.length}건`,
+  };
+};
+for (const name of ["maker", "benz-models"]) {
+  const m = summarize(mobile.steps.find((s) => s.step === name), mobile.consoleErrors);
+  const p = summarize(pc.steps.find((s) => s.step === name), pc.consoleErrors);
+  console.log(`\n[모바일·PC 비교: ${name}]`);
+  console.table(Object.fromEntries(Object.keys({ ...m, ...p }).map((key) => [key, { "모바일 393": m[key] ?? "-", "PC 1440": p[key] ?? "-" }])));
+}
+for (const s of pc.steps.filter((x) => x.error)) console.log(`[PC ${s.step}] ${s.error}`);
+console.log(`\n콘솔 오류 모바일 ${consoleErrors.length}건 · PC ${pc.consoleErrors.length}건${consoleErrors.length ? `: ${consoleErrors.slice(0, 3).join(" | ")}` : ""}`);
 console.log(`결과: ${join(outDir, "measure.json")}`);
