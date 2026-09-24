@@ -9,7 +9,8 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const ORIGIN = "https://dev.bbmuseum.co.kr/car/list";
-const OURS = "http://127.0.0.1:4173/bobaedream/";
+// 우리 화면 주소: 기본은 로컬 미리보기, BBM_OURS=https://bobaekimboae.github.io/bobaedream/ 로 배포본 대조
+const OURS = process.env.BBM_OURS ?? "http://127.0.0.1:4173/bobaedream/";
 const only = (process.argv.find((arg) => arg.startsWith("--only=")) ?? "").slice(7);
 const commit = (() => { try { const hash = execSync("git rev-parse --short HEAD").toString().trim(); const dirty = execSync("git status --porcelain").toString().trim(); return dirty ? `${hash}-dirty` : hash; } catch { return "local"; } })();
 const outDir = join("reports", "diff", commit);
