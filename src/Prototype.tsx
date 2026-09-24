@@ -14,6 +14,8 @@ import {
   siBugatti,
   siCadillac,
   siChevrolet,
+  siAcura,
+  siAstonmartin,
   siFerrari,
   siFord,
   siHyundai,
@@ -21,10 +23,17 @@ import {
   siInfiniti,
   siJeep,
   siKia,
+  siKoenigsegg,
   siLamborghini,
+  siLucid,
   siMaserati,
+  siMclaren,
   siNissan,
   siPiaggiogroup,
+  siPolestar,
+  siRimacautomobili,
+  siRollsroyce,
+  siDsautomobiles,
   siSubaru,
   siSuzuki,
   siTesla,
@@ -261,6 +270,16 @@ const makerOptions: MakerOption[] = [
   { name: "페라리", maker: "페라리", icon: siFerrari, color: "#d3182d" },
   { name: "람보르기니", maker: "람보르기니", icon: siLamborghini, color: "#a98224" },
   { name: "부가티", maker: "부가티", icon: siBugatti, color: "#bf1238" },
+  { name: "롤스로이스", maker: "롤스로이스", icon: siRollsroyce, color: "#6b5b95" },
+  { name: "맥라렌", maker: "맥라렌", icon: siMclaren, color: "#ff8700" },
+  { name: "애스턴마틴", maker: "애스턴마틴", icon: siAstonmartin, color: "#00594f" },
+  { name: "코닉세그", maker: "코닉세그", icon: siKoenigsegg, color: "#111111" },
+  { name: "리막", maker: "리막", icon: siRimacautomobili, color: "#1d4ed8" },
+  { name: "루시드", maker: "루시드", icon: siLucid, color: "#2f241f" },
+  { name: "폴스타", maker: "폴스타", icon: siPolestar, color: "#111111" },
+  { name: "애큐라", maker: "애큐라", icon: siAcura, color: "#111111" },
+  { name: "DS", maker: "DS", icon: siDsautomobiles, color: "#111111" },
+  { name: "마이바흐", maker: "마이바흐" },
   { name: "스바루", maker: "스바루", icon: siSubaru, color: "#174c92" },
   { name: "스즈키", maker: "스즈키", icon: siSuzuki, color: "#d71920" },
 ];
@@ -274,9 +293,29 @@ const defaultBrandRailOptions: BrandRailOption[] = [
   { name: "현대", maker: "현대", icon: siHyundai, color: "#002c5f" },
   { name: "기아", maker: "기아", icon: siKia, color: "#05141f" },
 ];
+const superLuxuryBrandRailOptions: BrandRailOption[] = [
+  { name: "벤틀리", maker: "벤틀리", icon: siBentley },
+  { name: "페라리", maker: "페라리", icon: siFerrari, color: "#d3182d" },
+  { name: "람보르기니", maker: "람보르기니", icon: siLamborghini, color: "#a98224" },
+  { name: "롤스로이스", maker: "롤스로이스", icon: siRollsroyce, color: "#6b5b95" },
+  { name: "맥라렌", maker: "맥라렌", icon: siMclaren, color: "#ff8700" },
+  { name: "애스턴마틴", maker: "애스턴마틴", icon: siAstonmartin, color: "#00594f" },
+  { name: "코닉세그", maker: "코닉세그", icon: siKoenigsegg, color: "#111111" },
+  { name: "리막", maker: "리막", icon: siRimacautomobili, color: "#1d4ed8" },
+  { name: "루시드", maker: "루시드", icon: siLucid, color: "#2f241f" },
+  { name: "폴스타", maker: "폴스타", icon: siPolestar, color: "#111111" },
+];
+const importedBrandRailOptions: BrandRailOption[] = [
+  { name: "BMW", maker: "BMW", logo: asset("brand/bmw.svg") },
+  { name: "벤츠", maker: "벤츠", logo: asset("brand/benz.png") },
+  { name: "아우디", maker: "아우디", logo: asset("brand/audi.svg") },
+  { name: "포르쉐", maker: "포르쉐", logo: asset("brand/porsche-symbol.png") },
+  { name: "렉서스", maker: "렉서스", logo: asset("brand/lexus.svg") },
+  ...superLuxuryBrandRailOptions,
+];
 const categoryBrandRails: Record<string, CategoryBrandRail> = {
-  "전체": { title: "제조사", options: defaultBrandRailOptions },
-  중고차: { title: "제조사", options: defaultBrandRailOptions },
+  "전체": { title: "제조사", options: [...defaultBrandRailOptions, ...superLuxuryBrandRailOptions] },
+  중고차: { title: "제조사", options: [...defaultBrandRailOptions, ...superLuxuryBrandRailOptions] },
   국산차: {
     title: "제조사",
     options: [
@@ -287,13 +326,7 @@ const categoryBrandRails: Record<string, CategoryBrandRail> = {
   },
   수입차: {
     title: "제조사",
-    options: [
-      { name: "BMW", maker: "BMW", logo: asset("brand/bmw.svg") },
-      { name: "벤츠", maker: "벤츠", logo: asset("brand/benz.png") },
-      { name: "아우디", maker: "아우디", logo: asset("brand/audi.svg") },
-      { name: "포르쉐", maker: "포르쉐", logo: asset("brand/porsche-symbol.png") },
-      { name: "렉서스", maker: "렉서스", logo: asset("brand/lexus.svg") },
-    ],
+    options: importedBrandRailOptions,
   },
   전기차: {
     title: "제조사",
@@ -495,6 +528,16 @@ const quickModelsByMaker: Record<string, string[]> = {
   아우디: ["A6", "A7", "Q5"],
   포르쉐: ["718", "911", "카이엔"],
   렉서스: ["ES300h", "NX", "RX"],
+  벤틀리: ["컨티넨탈 GT", "플라잉스퍼", "벤테이가"],
+  페라리: ["296 GTB", "로마", "SF90"],
+  람보르기니: ["우라칸", "우루스", "아벤타도르"],
+  롤스로이스: ["팬텀", "고스트", "컬리넌"],
+  맥라렌: ["570S", "720S", "아투라"],
+  애스턴마틴: ["DB11", "밴티지", "DBX"],
+  코닉세그: ["제스코", "레제라", "아제라"],
+  리막: ["네베라"],
+  루시드: ["에어"],
+  폴스타: ["폴스타 2", "폴스타 3"],
 };
 const quickGenerationsByMakerModel: Record<string, Record<string, QuickGenerationOption[]>> = {
   BMW: {
