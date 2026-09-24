@@ -180,11 +180,12 @@ export function BbmModal({ title, titleIcon, onClose, footer, children, wide = f
 }
 
 // ── 모바일 바텀시트: 제목 가운데 + 닫기, 아래 [초기화] + [N대 보기]
-export function BbmSheet({ title, onClose, footer, children, flush = false }: { title: string; onClose: () => void; footer?: ReactNode; children: ReactNode; flush?: boolean }) {
+// modalBody: 모바일 전체 필터 안 항목 시트(원본은 PC 모달과 같은 본문 — 여백 8/20, 매물 수는 이름 옆)
+export function BbmSheet({ title, onClose, footer, children, flush = false, modalBody = false }: { title: string; onClose: () => void; footer?: ReactNode; children: ReactNode; flush?: boolean; modalBody?: boolean }) {
   useEscape(onClose);
   return createPortal(
     <div className="bbmf-overlay is-sheet" onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}>
-      <section className="bbmf-sheet" role="dialog" aria-modal="true" aria-label={title}>
+      <section className={`bbmf-sheet${modalBody ? " is-modal-body" : ""}`} role="dialog" aria-modal="true" aria-label={title}>
         <header className="bbmf-sheet-header"><h3>{title}</h3><CloseButton onClose={onClose} /></header>
         <div className={`bbmf-sheet-body${flush ? " is-flush" : ""}`}>{children}</div>
         {footer}

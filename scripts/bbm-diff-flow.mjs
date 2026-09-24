@@ -10,7 +10,8 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const ORIGIN = "https://dev.bbmuseum.co.kr/car/list";
-const OURS = "http://127.0.0.1:4173/bobaedream/";
+// 우리 화면 주소: 기본은 로컬 미리보기, BBM_OURS=https://bobaekimboae.github.io/bobaedream/ 로 배포본 대조
+const OURS = process.env.BBM_OURS ?? "http://127.0.0.1:4173/bobaedream/";
 const only = (process.argv.find((arg) => arg.startsWith("--only=")) ?? "").slice(7);
 const commit = (() => { try { const hash = execSync("git rev-parse --short HEAD").toString().trim(); const dirty = execSync("git status --porcelain").toString().trim(); return dirty ? `${hash}-dirty` : hash; } catch { return "local"; } })();
 const outDir = join("reports", "diff", commit, "flow");
@@ -49,6 +50,8 @@ const A = {
     dialogConfirm: (p) => p.locator("[role=dialog]:visible").last().locator("button").filter({ hasText: /보기|확인|초기화/ }).last().click(),
     chip: (p, text) => p.locator(".car-list-content-header .car-list-mobile-filter__button").filter({ hasText: new RegExp(`^${text}`) }).first().click(),
     chipClear: (p, text) => p.locator(".car-list-content-header .car-list-mobile-filter__button").filter({ hasText: new RegExp(`^${text}`) }).locator("button").last().click(),
+    appliedChipOpen: (p, text) => p.locator(".car-list-content-header .car-list-mobile-filter__button").filter({ hasText: new RegExp(`^${text}`) }).locator("button").first().click(),
+    dialogClose: (p) => p.locator("[role=dialog]:visible").last().locator(".catalog-filter-modal__close, button[aria-label*=닫기]").first().click(),
     maker: (p, name) => p.locator(".car-list-filter-catalog__row").filter({ hasText: new RegExp(`^${name}`) }).first().click(),
     reset: (p) => p.locator("aside .car-list-filter-summary__reset").first().click(),
     mChip: (p, text) => p.locator(".car-list-content-header .car-list-mobile-filter__button").filter({ hasText: new RegExp(`^${text}`) }).first().click(),
@@ -65,6 +68,8 @@ const A = {
     dialogConfirm: (p) => p.locator(".bbmf-modal .bbmf-confirm").last().click(),
     chip: (p, text) => p.locator(".bbm-chips .filter-chip").filter({ hasText: new RegExp(`^${text}`) }).first().click(),
     chipClear: (p, text) => p.locator(".bbm-chips .filter-chip").filter({ hasText: new RegExp(`^${text}`) }).locator(".filter-chip-clear").first().click(),
+    appliedChipOpen: (p, text) => p.locator(".bbm-chips .filter-chip.is-active").filter({ hasText: new RegExp(`^${text}`) }).locator(".filter-chip-label").first().click(),
+    dialogClose: (p) => p.locator(".bbmf-modal .bbmf-close").last().click(),
     maker: (p, name) => p.locator(".bbm-catalog-row").filter({ hasText: new RegExp(`^${name}`) }).first().click(),
     reset: (p) => p.locator(".bbm-filter-reset").first().click(),
     mChip: (p, text) => p.locator(".filter-track .filter-chip").filter({ hasText: new RegExp(`^${text}`) }).first().tap(),
@@ -84,7 +89,11 @@ const SCENARIOS = [
     { key: "pc-2b-fuel-confirm", label: "② 확인", run: async (a, p) => { await a.dialogConfirm(p); }, regions: ["chips", "head", ["title", "연료"]] },
     { key: "pc-3a-price-modal", label: "③ 가격 칩 → 3천만원(모달 열린 상태)", run: async (a, p) => { await a.chip(p, "가격"); await p.waitForTimeout(700); await a.inDialog(p, "3천만원"); }, regions: ["modal"] },
     { key: "pc-3b-price-view", label: "③ N대 보기", run: async (a, p) => { await a.dialogConfirm(p); }, regions: ["chips", "head", ["title", "가격"]] },
-    { key: "pc-4-suv-x", label: "④ 적용 칩 SUV ×", run: async (a, p) => { await a.chipClear(p, "SUV"); }, regions: ["chips", "head", ["title", "바디타입"]] },
+    { key: "pc-3c-applied-open", label: "③+ 적용 칩 디젤 눌러 모달 열기", run: async (a, p) => { await a.appliedChipOpen(p, "디젤"); }, regions: ["modal"] },
+    { key: "pc-3d-applied-close", label: "③+ 모달 닫기(X)", run: async (a, p) => { await a.dialogClose(p); }, regions: ["chips", "head"] },
+    { key: "pc-3e-applied-open", label: "③+ 적용 칩 'SUV'(펼침형 항목) 눌러 모달 열기", run: async (a, p) => { await a.appliedChipOpen(p, "SUV"); }, regions: ["modal"] },
+    { key: "pc-3f-applied-close", label: "③+ 모달 닫기(X)", run: async (a, p) => { await a.dialogClose(p); }, regions: ["chips", "head"] },
+    { key: "pc-4-suv-x", label: "④ 적용 칩 × 해제(SUV)", run: async (a, p) => { await a.chipClear(p, "SUV"); }, regions: ["chips", "head", ["title", "바디타입"]] },
     { key: "pc-5-hyundai", label: "⑤ 좌측 제조사 현대", run: async (a, p) => { await a.maker(p, "현대"); }, regions: ["chips", "head", ["title", "제조사 · 모델"]] },
     { key: "pc-6a-reset-confirm", label: "⑥ 사이드바 초기화(확인 창)", run: async (a, p) => { await a.reset(p); }, regions: ["modal"] },
     { key: "pc-6b-reset", label: "⑥ 초기화 확인", run: async (a, p) => { await a.dialogConfirm(p); }, regions: ["chips", "head", "toolbar"] },
@@ -95,6 +104,9 @@ const SCENARIOS = [
     { key: "m-3a-body-sheet", label: "③ 필터 → 바디타입 → SUV(시트 열린 상태)", run: async (a, p) => { await a.mOpenFull(p); await p.waitForTimeout(900); await a.mFullItem(p, "바디타입"); await p.waitForTimeout(800); await a.mSheetPick(p, "SUV"); }, regions: ["sheet"] },
     { key: "m-3b-full", label: "③ 시트 N대 보기 → 전체 필터 화면", run: async (a, p) => { await a.mSheetConfirm(p); }, regions: ["full"] },
     { key: "m-3c-chips", label: "③ 전체 필터 N대 보기", run: async (a, p) => { await a.mFullConfirm(p); }, regions: ["chips"] },
+    { key: "m-3d-fuel-sheet", label: "③+ 필터 → 연료 → 디젤(시트 열린 상태)", run: async (a, p) => { await a.mOpenFull(p); await p.waitForTimeout(900); await a.mFullItem(p, "연료"); await p.waitForTimeout(800); await a.mSheetPick(p, "디젤"); }, regions: ["sheet"] },
+    { key: "m-3e-fuel-full", label: "③+ 시트 N대 보기 → 전체 필터 화면", run: async (a, p) => { await a.mSheetConfirm(p); }, regions: ["full"] },
+    { key: "m-3f-fuel-chips", label: "③+ 전체 필터 N대 보기", run: async (a, p) => { await a.mFullConfirm(p); }, regions: ["chips"] },
     { key: "m-4-maker-sheet", label: "④ 제조사 칩 시트", run: async (a, p) => { await a.mChip(p, "제조사"); }, regions: ["sheet"] },
   ] },
 ];
@@ -103,6 +115,13 @@ const SCENARIOS = [
 async function readState(page, side, device) {
   return page.evaluate(([side, device]) => {
     const text = (e) => (e?.textContent ?? "").replace(/\s+/g, " ").trim();
+    const visible = (e) => e && e.getClientRects().length > 0 && getComputedStyle(e).visibility !== "hidden";
+    // 열린 창(모달·시트) 아래 확인 버튼 문구, 숫자는 N 으로
+    const confirmText = (dialogs) => {
+      const box = [...document.querySelectorAll(dialogs)].filter(visible).pop();
+      const button = box && [...box.querySelectorAll("button")].filter((b) => visible(b) && /보기|확인|초기화|선택완료/.test(text(b))).pop();
+      return button ? text(button).replace(/[\d,]+/g, "N").replace(/\s+/g, "") : "-";
+    };
     if (side === "orig") {
       const chipEls = [...document.querySelectorAll(".car-list-content-header .car-list-mobile-filter__tabs-scroll > *")];
       const applied = chipEls.filter((e) => /selecte/.test(e.className) && !/전체차량/.test(text(e))).map(text);
@@ -112,7 +131,7 @@ async function readState(page, side, device) {
       const badge = device === "pc" ? text(document.querySelector("aside .car-list-filter-summary__selected-count")) : (filterChip.match(/\d+/)?.[0] ?? "");
       const blue = [...document.querySelectorAll("aside .car-list-filter-menu__label")].filter((e) => getComputedStyle(e).color === "rgb(27, 76, 140)").map(text);
       const history = text(document.querySelector(device === "pc" ? "aside .car-list-filter-summary__history" : ".car-list-filter-summary__history")).replace(/[^\d]/g, "");
-      return { count, applied, plain, badge, blue, history };
+      return { count, applied, plain, badge, blue, history, button: confirmText("[role=dialog], .catalog-filter-modal") };
     }
     const chipEls = [...document.querySelectorAll(device === "pc" ? ".bbm-chips .filter-chip" : ".filter-track .filter-chip")];
     const applied = chipEls.filter((e) => /is-active/.test(e.className) && !/전체차량/.test(text(e))).map(text);
@@ -121,7 +140,7 @@ async function readState(page, side, device) {
     const badge = device === "pc" ? text(document.querySelector(".bbm-filter-count")) : text(document.querySelector(".filter-fixed-count"));
     const blue = [...document.querySelectorAll(".bbm-filter-item.is-applied .bbm-filter-label-text")].map(text);
     const history = device === "pc" ? text(document.querySelector(".bbm-filter-history")).replace(/[^\d]/g, "") : (document.querySelector(".filter-shell.is-bbm")?.getAttribute("data-history") ?? "");
-    return { count, applied, plain, badge, blue, history };
+    return { count, applied, plain, badge, blue, history, button: confirmText(".bbmf-full, .bbmf-modal, .bbmf-sheet") };
   }, [side, device]);
 }
 
@@ -237,6 +256,7 @@ for (const scenario of SCENARIOS) {
       "배지 개수": [now.orig.badge || "0", now.ours.badge || "0"],
       "파랑 제목": scenario.device === "pc" ? [now.orig.blue.join(","), now.ours.blue.join(",")] : null,
       "최근검색기록": [now.orig.history || "-", now.ours.history || "-"],
+      "창 버튼 문구": [now.orig.button, now.ours.button],
     };
     row.checks = Object.fromEntries(Object.entries(checks).filter(([, v]) => v).map(([k, [o, u]]) => [k, { orig: o, ours: u, same: String(o) === String(u) }]));
     sides.orig.prev = now.orig; sides.ours.prev = now.ours;

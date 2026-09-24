@@ -152,7 +152,7 @@ export type BbmCarLike = {
   price?: string;
   filter?: { year: number; seats: string; mileage: number; transmission: string; fuel: string; color: string; origin: string; body: string; video: boolean };
 };
-const bodyTypeByBody: Record<string, string> = { 세단: "승용", 해치백: "승용", 왜건: "승용", SUV: "SUV", 승합: "승합", 스포츠카: "쿠페", 쿠페: "쿠페", 컨버터블: "컨버터블", 화물: "화물" };
+const bodyTypeByBody: Record<string, string> = { 세단: "승용", 해치백: "승용", 왜건: "승용", SUV: "SUV", RV: "RV", 승합: "승합", 스포츠카: "쿠페", 쿠페: "쿠페", 컨버터블: "컨버터블", 화물: "화물" };
 const fuelByFuel: Record<string, string> = { 가솔린: "가솔린", 디젤: "디젤", LPG: "LPG", 전기: "전기", 하이브리드: "가솔린 하이브리드" };
 const transmissionByValue: Record<string, string> = { 오토: "자동", 자동: "자동", CVT: "자동", 수동: "수동" };
 const colorByValue: Record<string, string> = { 흰색: "흰색", 검정: "검정색", 회색: "쥐색", 은색: "은색", 빨강: "빨간색", 노랑: "노란색", 파랑: "청색", 초록: "녹색" };

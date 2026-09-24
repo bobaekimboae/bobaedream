@@ -277,6 +277,11 @@
 .bbmf-sheet .bbmf-price-chip { margin-bottom: -2px; }
 /* 칩 모달에서 사이드바 펼침 내용(연식)을 쓸 때 사이드바 여백 제거 */
 .bbmf-chip-expand .bbmf-panel { padding: 0; }
+/* PC 칩·적용 칩으로 연 펼침형 항목 모달(바디타입 등): 원본 본문 여백 위 16 · 좌우 16 · 아래 24 */
+.bbmf-modal .bbmf-chip-expand { margin: 8px -4px 4px; }
+.bbmf-modal .bbmf-chip-expand .bbmf-check.is-sidebar { height: 20px; }
+.bbmf-modal .bbmf-chip-expand .bbmf-check.is-sidebar .bbmf-check-box { width: 20px; height: 20px; }
+.bbmf-modal .bbmf-chip-expand .bbmf-check-grid:has(.is-sidebar) { row-gap: 14px; }
 .bbmf-actions.is-single .bbmf-reset { flex: 1; }
 /* 모바일 전체 필터 항목: 값이 걸리면 제목 파랑 + 왼쪽 막대 + 오른쪽 회색 알약(값 ×) */
 .bbmf-full-item-wrap { position: relative; }
@@ -324,3 +329,5 @@
 /* 원본 가격 시트: 탭이 1px 위(본문 위 여백 15) */
 .bbmf-sheet .bbmf-price-chip .bbmf-tabs { margin-top: -1px; }
 .bbmf-sheet .bbmf-price-chip .bbmf-price-chip-fields { margin-top: 29px; }
+/* OP-011 빌드 버전 표시(&debug=1 일 때만) */
+.build-badge { position: fixed; right: 8px; bottom: 8px; z-index: 9999; padding: 3px 7px; border-radius: 6px; background: rgba(26, 26, 26, 0.72); color: #fff; font: 500 11px/15px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; pointer-events: none; }

@@ -148,8 +148,10 @@
 /* 제조사·모델 목록처럼 목록이 가장자리까지 가는 시트·모달 */
 .bbmf-sheet-body.is-flush, .bbmf-modal-body.is-flush { padding: 0; }
 /* 모바일 시트 체크 목록: 매물 수는 오른쪽 끝(12px 500 #9E9E9E) */
-.bbmf-sheet .bbmf-check .bbmf-check-label { flex: 1; }
-.bbmf-sheet .bbmf-check .bbmf-check-count { font-size: 12px; line-height: 16.8px; }
+.bbmf-sheet:not(.is-modal-body) .bbmf-check .bbmf-check-label { flex: 1; }
+.bbmf-sheet:not(.is-modal-body) .bbmf-check .bbmf-check-count { font-size: 12px; line-height: 16.8px; }
+/* 전체 필터 안 항목 시트: 원본은 PC 모달 본문과 같다 */
+.bbmf-sheet.is-modal-body .bbmf-sheet-body { padding: 8px 20px 20px; }
 
 /* ── 모바일 전체 필터 화면(QF-091 원본 실측) */
 .bbmf-full { position: fixed; inset: 0; z-index: 70; display: flex; flex-direction: column; background: #fff; color: #1a1a1a; }

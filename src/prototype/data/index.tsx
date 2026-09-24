@@ -709,7 +709,7 @@ const chototTestCars: Car[] = [
   makeChoTotCar(1015, { maker: "롤스로이스", image: "detail/raw-05.jpeg", title: "롤스로이스 팬텀", trim: "6.7 V12 EWB 투톤", specs: ["2013년식", "50,000km", "가솔린", "100러6700"], price: "27,000 만원", place: "서울 서초구 · 오토갤러리", filter: { year: 2013, seats: "4인승", condition: "중고", mileage: 50000, owners: "3인 이상", transmission: "오토", fuel: "가솔린", color: "검정", origin: "영국", body: "세단", video: false } }),
 ];
 
-// QF-090: 과쯔(개발 시안형) 필터 동작 확인용 추가 샘플 매물 41대(합계 60대). 차종·사진은 기존 매물을 그대로 쓰고
+// QF-090: 과쯔(개발 시안형) 필터 동작 확인용 추가 샘플 매물 41대 + 아래 RV·화물 4대(합계 64대). 차종·사진은 기존 매물을 그대로 쓰고
 // 연식·주행·가격·연료·바디·색상·인승·변속기·판매자·지역·영상 값만 고르게 섞는다(새 이미지 없음). 초톳·동처띠 모드에는 쓰지 않는다.
 const bbmSamplePools = {
   year: [2016, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2017, 2015, 2021],
@@ -748,7 +748,35 @@ const bbmExtraCars: Car[] = Array.from({ length: 41 }, (_, index) => {
     filter: { ...baseFilter, year, mileage, fuel, body: featured ? "SUV" : pick(bbmSamplePools.body, 6), color: pick(bbmSamplePools.color, 8), seats: pick(bbmSamplePools.seats, 9), transmission: pick(bbmSamplePools.transmission, 10), video: index % 3 === 0 },
   };
 });
-const bbmSampleCars: Car[] = [...chototTestCars, ...bbmExtraCars];
+// 크로스체크 보강: RV·화물 선택지도 목록이 걸러지도록 RV 2대(카니발 사진 재사용)·화물 2대(기존 트럭 아이콘을 썸네일로) 추가. 새 이미지 없음
+// id 는 기존 매물보다 작게 — 최신순(id 큰 순) 목록 맨 뒤에 둬서 첫 화면 카드는 그대로
+const bbmBodyExtraCars: Car[] = [
+  { base: 1002, id: 901, title: "기아 카니발 4세대", trim: "9인승 노블레스", body: "RV", year: 2021, mileage: 62000, price: 3290, fuel: "디젤", seats: "9인승", place: "경기 수원시", sellerType: "딜러" as const },
+  { base: 1002, id: 902, title: "기아 카니발 하이리무진", trim: "7인승 시그니처", body: "RV", year: 2023, mileage: 21000, price: 4890, fuel: "가솔린", seats: "7인승 이상", place: "서울 송파구", sellerType: "개인" as const },
+  { base: 1001, id: 903, title: "현대 포터2", trim: "초장축 슈퍼캡 CRDi", body: "화물", year: 2020, mileage: 118000, price: 1480, fuel: "디젤", seats: "3인승", place: "인천 남동구", sellerType: "딜러" as const, image: "categories/truck.svg" },
+  { base: 1001, id: 904, title: "기아 봉고3", trim: "1톤 킹캡 초장축", body: "화물", year: 2019, mileage: 142000, price: 1290, fuel: "디젤", seats: "3인승", place: "대구 달서구", sellerType: "개인" as const, image: "categories/truck.svg" },
+].map((seed) => {
+  const base = chototTestCars.find((car) => car.id === seed.base) ?? chototTestCars[0];
+  return {
+    ...base,
+    id: seed.id,
+    maker: seed.title.split(" ")[0],
+    title: seed.title,
+    trim: seed.trim,
+    image: seed.image ?? base.image,
+    imageFit: seed.image ? "contain" : base.imageFit,
+    sellerType: seed.sellerType,
+    dealer: seed.sellerType === "개인" ? "개인판매자" : base.dealer,
+    stock: seed.sellerType === "개인" ? 1 : 4,
+    specs: [`${seed.year}년식`, `${seed.mileage.toLocaleString("ko-KR")}km`, seed.fuel, ""],
+    price: `${seed.price.toLocaleString("ko-KR")} 만원`,
+    place: seed.place,
+    posted: `${seed.id % 20 + 1}분 전`,
+    photos: 10 + (seed.id % 9),
+    filter: { ...base.filter!, year: seed.year, mileage: seed.mileage, fuel: seed.fuel, body: seed.body, seats: seed.seats, transmission: seed.body === "화물" ? "수동" : "오토", video: false },
+  };
+});
+const bbmSampleCars: Car[] = [...chototTestCars, ...bbmExtraCars, ...bbmBodyExtraCars];
 
 function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
   const data = car.filter;

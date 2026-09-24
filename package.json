@@ -12,7 +12,7 @@
     "update:runtime-lock": "node scripts/update-mobile-runtime-lock.mjs",
     "test:runtime": "playwright test",
     "test:sites": "node --test tests/sites-worker.test.mjs",
-    "verify:qf": "npm run check:runtime && tsc && vite build",
+    "verify:qf": "npm run check:runtime && node scripts/build-info.mjs && tsc && vite build",
     "measure:qf": "node scripts/qf-measure.mjs",
     "storybook": "storybook dev -p 6006 --host 0.0.0.0",
     "storybook:build": "storybook build -o dist/client/storybook",
@@ -20,7 +20,7 @@
     "predev": "npm run check:runtime",
     "dev": "vite",
     "prebuild": "npm run check:runtime",
-    "build": "tsc && vite build && node scripts/prepare-sites-build.mjs && node apps/variable-category-admin/scripts/sync-pages-demo.mjs",
+    "build": "node scripts/build-info.mjs && tsc && vite build && node scripts/prepare-sites-build.mjs && node apps/variable-category-admin/scripts/sync-pages-demo.mjs",
     "verify": "npm run check:runtime && npm run test:admin && npm run build && npm run test:sites",
     "diff:bbm": "node scripts/bbm-diff.mjs",
     "diff:bbm:flow": "node scripts/bbm-diff-flow.mjs"

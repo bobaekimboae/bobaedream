@@ -408,6 +408,7 @@ function MarketplaceScreen() {
   const [bbmKeepSearch, setBbmKeepSearch] = useState(false);
   // QF-085·086: 상단 칩 모달(PC)·바텀시트(모바일). "제조사" · "모델" · 사이드바 항목 이름
   const [bbmChipPanel, setBbmChipPanel] = useState<string | null>(null);
+  // 적용 칩(예: "SUV")을 눌러 연 모달인지(원본: 버튼이 항상 "N대 보기")
   // 원본 실측(2026-09-24): 상단 칩 모달·시트는 고르는 즉시 적용 칩·배지가 바뀌지만 목록·총 대수·최근검색기록은 창을 닫을 때 갱신된다(bbmFrozen).
   // 모바일 전체 필터 안의 항목 시트는 초안(bbmFullDraft)이고 시트의 [N대 보기]에서 건다
   const [bbmFrozen, setBbmFrozen] = useState<{ cars: typeof chototTestCars; history: number } | null>(null);
@@ -1102,8 +1103,9 @@ function MarketplaceScreen() {
     const ids = bbmAppliedKey ? bbmAppliedKey.split("|") : [];
     bbmAppliedRef.current = ids;
     if (desktop || !isGuaziQuickStyle) return;
-    const added = ids.find((id) => !previous.includes(id));
-    const label = added ? bbmApplied.find((chip) => chip.id === added)?.label : undefined;
+    // 원본 실측(2026-09-24, 3회): 적용 칩이 늘면 새 칩이 아니라 맨 앞 적용 칩을 기준으로 맞춘다
+    const added = ids.some((id) => !previous.includes(id));
+    const label = added ? bbmApplied[0]?.label : undefined;
     if (!label) return;
     const frame = window.requestAnimationFrame(() => {
       const rail = document.querySelector<HTMLElement>(".filter-shell.is-bbm .filter-rail");
@@ -1111,7 +1113,7 @@ function MarketplaceScreen() {
       if (!rail || !chip) return;
       const railRect = rail.getBoundingClientRect();
       const chipRect = chip.getBoundingClientRect();
-      // 원본 실측(2026-09-24): 새 적용 칩의 왼쪽이 칩 스크롤 영역 왼쪽에서 약 47px 에 오도록
+      // 맨 앞 적용 칩의 왼쪽이 칩 스크롤 영역 왼쪽에서 약 47px 에 오도록
       rail.scrollLeft += chipRect.left - railRect.left - 47;
     });
     return () => window.cancelAnimationFrame(frame);
@@ -1149,7 +1151,8 @@ function MarketplaceScreen() {
     }
     const item = bbmSidebarItems.find((entry) => entry.label === bbmChipPanel);
     if (!item) return null;
-    const confirmStyle = !onDesktop || item.label === "연식" || item.label === "가격" ? "보기" : "확인";
+    // 원본 실측(2026-09-24): PC 칩으로 연 모달 버튼은 항목 종류를 따른다 — 펼침형(바디타입·연식·가격) "N대 보기", 모달형(연료·인승·판매자) "확인 N대"
+    const confirmStyle = !onDesktop || item.mode === "expand" ? "보기" : "확인";
     const footer = item.label === "광고기간" ? undefined : <BbmActionBar variant={onDesktop ? "modal" : "sheet"} confirmStyle={confirmStyle} count={shownCars.length} onReset={() => setPanelValue(clearBbmItem(item, panelValue))} onConfirm={apply} />;
     const body = item.mode === "expand"
       ? <BbmExpandPanel label={item.label} variant="chip" value={panelValue} onChange={setPanelValue} countOf={bbmCountOf} />
@@ -1360,7 +1363,7 @@ function MarketplaceScreen() {
           </BbmFullFilter>
         ) : null}
         {bbmFullOpen && bbmFullItem ? (
-          <BbmSheet title={bbmFullItem === "카테고리" ? "카테고리" : bbmFullItem.modalTitle ?? bbmFullItem.label} onClose={closeFullItem} footer={<BbmActionBar variant="sheet" confirmStyle="보기" count={visibleCars.length} onReset={() => { if (bbmFullItem !== "카테고리") setSheetValue(clearBbmItem(bbmFullItem, sheetValue)); }} onConfirm={() => { setBbmFilters(sheetValue); closeFullItem(); }} />}>
+          <BbmSheet title={bbmFullItem === "카테고리" ? "카테고리" : bbmFullItem.modalTitle ?? bbmFullItem.label} modalBody={bbmFullItem !== "카테고리" && bbmFullItem.mode !== "expand"} onClose={closeFullItem} footer={<BbmActionBar variant="sheet" confirmStyle="보기" count={visibleCars.length} onReset={() => { if (bbmFullItem !== "카테고리") setSheetValue(clearBbmItem(bbmFullItem, sheetValue)); }} onConfirm={() => { setBbmFilters(sheetValue); closeFullItem(); }} />}>
             {bbmFullItem === "카테고리" ? <BbmCategoryMenu onChoose={(label) => { chooseVehicleCategory(label); setBbmFullItem(null); }} />
               : bbmFullItem.mode === "expand" ? <div className="bbmf-chip-expand"><BbmExpandPanel label={bbmFullItem.label} variant={bbmFullItem.label === "가격" ? "chip" : "sidebar"} value={sheetValue} onChange={setSheetValue} countOf={bbmCountOf} /></div>
               : <BbmModalPanel item={bbmFullItem} value={sheetValue} onChange={setSheetValue} countOf={bbmCountOf} />}
