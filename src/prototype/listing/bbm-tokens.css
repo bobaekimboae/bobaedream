@@ -319,10 +319,9 @@
 @media (hover: hover) {
   .marketplace.is-bbm .bbm-chips .filter-chip.is-active:hover { background: #595959; }
 }
-/* 원본 모바일: 개수가 있는 필터 칩은 안쪽 4/14/4/8, 숫자 16px 600, 오른쪽 여백 8 */
-.filter-shell.is-bbm .filter-fixed.is-applied { margin-right: 8px; padding: 4px 14px 4px 8px; }
-.filter-shell.is-bbm .filter-fixed-count { font-size: 16px; font-weight: 600; line-height: 20px; }
-.filter-shell.is-bbm .filter-fixed-count { margin-right: 2px; }
+/* 원본 모바일(QF-092 재실측): 개수가 있는 필터 칩은 안쪽 4/14/4/8, 숫자 14px 500 + 오른쪽 안쪽 3(car-list-mobile-filter__button-icon-text), 칩 오른쪽 6(칩 줄이 밀리면 8 + 구분선) */
+.filter-shell.is-bbm .filter-fixed.is-applied { margin-right: 6px; padding: 4px 14px 4px 8px; }
+.filter-shell.is-bbm .filter-fixed-count { font-size: 14px; font-weight: 500; line-height: 20px; margin-right: 0; padding-right: 3px; }
 /* 원본: 칩 스크롤 영역은 오른쪽 16 안쪽에서 끝난다(가운데 맞춤 기준이 같아지도록) */
 .filter-shell.is-bbm { padding-right: 16px; }
 .filter-shell.is-bbm .filter-track { padding-right: 0; }

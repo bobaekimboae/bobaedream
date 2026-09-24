@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // OP-012: 개발 시안 원본(dev.bbmuseum.co.kr/car/list)과 우리 시안을 같은 크기·같은 상태로 찍어 영역별 픽셀 차이 비율을 낸다.
-// 사용: npm run diff:bbm [-- --only=pc|m] (vite preview 127.0.0.1:4173 이 떠 있어야 함)
+// 사용: npm run diff:bbm [-- --only=pc|m] [--state=pc-4,m-3] (vite preview 127.0.0.1:4173 이 떠 있어야 함)
 // 출력: reports/diff/<커밋>/summary.json · <상태>-<영역>.png(원본 | 우리 | 차이 빨강) — 커밋하지 않음
 // 매물 사진·매물 글자·매물 수 숫자는 두 쪽 모두 같은 회색 상자로 가려 모양·위치·크기만 비교한다.
 import { chromium } from "@playwright/test";
@@ -12,6 +12,8 @@ const ORIGIN = "https://dev.bbmuseum.co.kr/car/list";
 // 우리 화면 주소: 기본은 로컬 미리보기, BBM_OURS=https://bobaekimboae.github.io/bobaedream/ 로 배포본 대조
 const OURS = process.env.BBM_OURS ?? "http://127.0.0.1:4173/bobaedream/";
 const only = (process.argv.find((arg) => arg.startsWith("--only=")) ?? "").slice(7);
+// --state=<이름 일부>: 그 상태만(반복 대조용)
+const stateFilter = (process.argv.find((arg) => arg.startsWith("--state=")) ?? "").slice(8);
 const commit = (() => { try { const hash = execSync("git rev-parse --short HEAD").toString().trim(); const dirty = execSync("git status --porcelain").toString().trim(); return dirty ? `${hash}-dirty` : hash; } catch { return "local"; } })();
 const outDir = join("reports", "diff", commit);
 mkdirSync(outDir, { recursive: true });
@@ -59,6 +61,28 @@ const STATES = [
     ours: async (page) => { await page.locator(".filter-fixed").first().tap(); } },
 ];
 
+// QF-092 목록 영역: 스크롤·열기 도우미(원본은 창 스크롤, 우리는 .mobile-scroll 안 스크롤 — scrollIntoView 는 둘 다 된다)
+const into = (selector, block = "center") => (page) => page.evaluate(([selector, block]) => [...document.querySelectorAll(selector)].find((e) => e.getBoundingClientRect().width > 0)?.scrollIntoView({ block }), [selector, block]);
+const clickVisible = (selector) => (page) => page.evaluate((selector) => [...document.querySelectorAll(selector)].find((e) => e.getBoundingClientRect().width > 0)?.click(), selector);
+const scrollDown = (amount) => (page) => page.evaluate((amount) => { const scroller = document.querySelector(".mobile-scroll"); if (scroller) scroller.scrollTop += amount; else window.scrollBy(0, amount); }, amount);
+// 원본은 743쪽이라 번호가 10개(모바일 3개), 우리는 64대 4쪽 → 페이지 이동 비교 때만 원본 번호를 우리 개수(4)까지만 남긴다
+const sameAsOurPages = (page) => page.addStyleTag({ content: ".ui-pagination__page-item:nth-child(n+5){display:none!important}" });
+STATES.push(
+  { key: "pc-4-list-end", device: "pc", regions: [["pagination", ".car-list-pagination", ".car-list-pagination"]],
+    orig: async (page) => { await sameAsOurPages(page); await into(".car-list-pagination")(page); }, ours: into(".car-list-pagination") },
+  { key: "pc-5-footer", device: "pc", regions: [["footer", "footer.app-shell__footer", "footer.app-shell__footer"]], orig: into("footer.app-shell__footer", "end"), ours: into("footer.app-shell__footer", "end") },
+  { key: "pc-6-sort-open", device: "pc", regions: [["sort-menu", ".car-list-toolbar-menu", ".car-list-toolbar-menu"]], orig: clickVisible(".car-list-content-toolbar__sort"), ours: clickVisible(".bbm-sort") },
+  { key: "pc-7-view-open", device: "pc", regions: [["view-menu", ".car-list-toolbar-menu", ".car-list-toolbar-menu"]], orig: clickVisible(".car-list-content-toolbar__view"), ours: clickVisible(".bbm-view") },
+  { key: "m-3-list-end", device: "m", regions: [["pagination", ".car-list-pagination", ".car-list-pagination"]], orig: into(".car-list-pagination"), ours: into(".car-list-pagination") },
+  { key: "m-4-footer", device: "m", regions: [["footer", ".app-footer-mobile", ".app-footer-mobile"]], orig: into(".app-footer-mobile"), ours: into(".app-footer-mobile") },
+  { key: "m-4b-footer-open", device: "m", regions: [["footer-open", ".app-footer-mobile", ".app-footer-mobile"]],
+    orig: async (page) => { await clickVisible(".app-footer-mobile__biz-summary")(page); await page.waitForTimeout(300); await into(".app-footer-mobile")(page); },
+    ours: async (page) => { await clickVisible(".app-footer-mobile__biz-summary")(page); await page.waitForTimeout(300); await into(".app-footer-mobile")(page); } },
+  { key: "m-5-sort-sheet", device: "m", regions: [["sort-sheet", ".catalog-filter-modal", ".bbmf-sheet"]], overlay: true, orig: clickVisible(".car-list-content-toolbar__sort"), ours: async (page) => { await page.locator(".bbm-m-sort").tap(); } },
+  { key: "m-6-view-sheet", device: "m", regions: [["view-sheet", ".catalog-filter-modal", ".bbmf-sheet"]], overlay: true, orig: clickVisible(".car-list-content-toolbar__view"), ours: async (page) => { await page.locator(".bbm-m-view").tap(); } },
+  { key: "m-7-scrolled-chips", device: "m", regions: [["sticky-chips", ".car-list-content-header", ".filter-shell"]], orig: scrollDown(1500), ours: scrollDown(1500) },
+);
+
 const devices = {
   pc: { viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 1 },
   m: { viewport: { width: 393, height: 852 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true },
@@ -83,7 +107,7 @@ async function capture(browser, side, state) {
   for (const [name, origSel, oursSel] of state.regions) {
     const selector = side === "orig" ? origSel : oursSel;
     const info = await page.evaluate(([selector, masks, viewport]) => {
-      const element = selector.split(",").map((part) => document.querySelector(part.trim())).find((candidate) => candidate && candidate.getBoundingClientRect().width > 0);
+      const element = selector.split(",").flatMap((part) => [...document.querySelectorAll(part.trim())]).find((candidate) => candidate.getBoundingClientRect().width > 0);
       if (!element) return null;
       const rect = element.getBoundingClientRect();
       const box = { x: Math.max(0, rect.left), y: Math.max(0, rect.top), right: Math.min(viewport.width, rect.right), bottom: Math.min(viewport.height, rect.bottom) };
@@ -142,6 +166,7 @@ const tool = await browser.newPage();
 const summary = { commit, measuredAt: new Date().toISOString(), states: {} };
 for (const state of STATES) {
   if (only && state.device !== only) continue;
+  if (stateFilter && !stateFilter.split(",").some((part) => state.key.includes(part))) continue;
   const [orig, ours] = await Promise.all([capture(browser, "orig", state), capture(browser, "ours", state)]);
   summary.states[state.key] = { regions: {}, oursErrors: ours.errors, origErrors: orig.errors.slice(0, 3) };
   for (const [name] of state.regions) {
