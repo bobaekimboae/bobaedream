@@ -707,7 +707,7 @@ function MarketplaceScreen() {
                 <DepthCard
                   key={categoryOption.name}
                   label={categoryOption.name}
-                  image={<img src={asset(categoryOption.icon)} alt="" aria-hidden="true" draggable={false} />}
+                  image={<img src={asset(categoryOption.guaziImage ?? categoryOption.icon)} alt="" aria-hidden="true" draggable={false} />}
                   imageFit={categoryOption.bodyFit}
                   selected={category === categoryOption.name}
                   onClick={() => chooseVehicleCategory(categoryOption.name)}

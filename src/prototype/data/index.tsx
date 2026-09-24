@@ -187,12 +187,13 @@ const brands = [
 
 type VehicleBodyFit = "width" | "height";
 type BodyType = "세단" | "SUV" | "해치백" | "쿠페" | "컨버터블" | "왜건" | "MPV" | "밴" | "픽업";
-const vehicleCategories: ReadonlyArray<{ name: string; icon: string; bodyFit: VehicleBodyFit }> = [
-  { name: "중고차", icon: "categories/used-car.svg", bodyFit: "width" },
-  { name: "트럭 · 특장", icon: "categories/truck.svg", bodyFit: "height" },
-  { name: "바이크", icon: "categories/bike.svg", bodyFit: "height" },
-  { name: "캠핑카", icon: "categories/camping.svg", bodyFit: "height" },
-  { name: "올드카", icon: "categories/old-car.svg", bodyFit: "width" },
+type VehicleCategory = { name: string; icon: string; bodyFit: VehicleBodyFit; guaziImage?: string };
+const vehicleCategories: ReadonlyArray<VehicleCategory> = [
+  { name: "중고차", icon: "categories/used-car.svg", guaziImage: "vehicle-types/used-car.png", bodyFit: "width" },
+  { name: "트럭 · 특장", icon: "categories/truck.svg", guaziImage: "vehicle-types/truck.png", bodyFit: "height" },
+  { name: "바이크", icon: "categories/bike.svg", guaziImage: "vehicle-types/bike.png", bodyFit: "height" },
+  { name: "캠핑카", icon: "categories/camping.svg", guaziImage: "vehicle-types/camping.png", bodyFit: "height" },
+  { name: "올드카", icon: "categories/old-car.svg", guaziImage: "vehicle-types/old-car.png", bodyFit: "width" },
   { name: "건설기계", icon: "categories/construction.svg", bodyFit: "height" },
   { name: "부품 · 용품", icon: "categories/parts.svg", bodyFit: "height" },
 ] as const;
