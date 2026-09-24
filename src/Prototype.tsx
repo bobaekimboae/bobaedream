@@ -1038,6 +1038,7 @@ function VehiclePickerSheet({
   const [draftGeneration, setDraftGeneration] = useState<string | null>(generation);
   const modelOptions = draftMaker ? quickModelsByMaker[draftMaker] ?? [] : [];
   const generationOptions = draftMaker && draftModel ? quickGenerationsByMakerModel[draftMaker]?.[draftModel] ?? [] : [];
+  const generationEmptyText = draftModel ? "세대 정보 없음" : "모델을 먼저 선택하세요.";
   const visibleMakerOptions = makerOptions.filter((option) => option.maker);
 
   useEffect(() => {
@@ -1089,7 +1090,7 @@ function VehiclePickerSheet({
                 <small>{compactGenerationCardYearLabel(option.years)}</small>
               </button>
             );
-          }) : <p>모델을 먼저 선택하세요.</p>}
+          }) : <p>{generationEmptyText}</p>}
         </div>
       </section>
       <div className="vehicle-picker-actions">
@@ -1290,6 +1291,8 @@ function MarketplaceScreen() {
   const generationQuickOptions = maker && selectedModel ? quickGenerationsByMakerModel[maker]?.[selectedModel] ?? [] : [];
   const selectedGenerationOption = generationQuickOptions.find((generation) => generation.name === selectedGeneration);
   const variantQuickOptions = selectedGenerationOption?.variants ?? [];
+  const directVariantQuickOptions: Array<string | QuickTrimOption> = [];
+  const activeVariantQuickOptions = selectedGeneration ? variantQuickOptions : directVariantQuickOptions;
   const effectiveSelectedVariants = isGuaziQuickStyle ? debouncedSelectedVariants : selectedVariants;
 
   useEffect(() => {
@@ -1565,7 +1568,7 @@ function MarketplaceScreen() {
         ? `${compactYearLabel(selectedGenerationOption.years)} · ${generationCountLabel(selectedGenerationOption)}`
         : compactYearLabel(selectedGenerationOption.years))
     : "";
-  const variantTrimOptions = variantQuickOptions.map(toTrimOption);
+  const variantTrimOptions = activeVariantQuickOptions.map(toTrimOption);
   const selectedTrimChipLabel = selectedVariants.length === 0
     ? "트림"
     : selectedVariants.length === 1
@@ -1669,9 +1672,12 @@ function MarketplaceScreen() {
     },
   ] as Array<QuickFilterChip | null>).filter((chip): chip is QuickFilterChip => Boolean(chip));
 
-  const showModelQuickRail = Boolean(maker && !selectedModel && modelQuickOptions.length);
+  const hasGenerationDepth = Boolean(usesUxDepth && selectedModel && generationQuickOptions.length);
+  const hasDirectVariantDepth = Boolean(usesUxDepth && selectedModel && !hasGenerationDepth && directVariantQuickOptions.length);
+  const shouldStayOnSelectedModelRail = Boolean(isGuaziQuickStyle && selectedModel && !hasGenerationDepth && !hasDirectVariantDepth);
+  const showModelQuickRail = Boolean(maker && modelQuickOptions.length && (!selectedModel || shouldStayOnSelectedModelRail));
   const showGenerationQuickRail = Boolean(usesUxDepth && selectedModel && !selectedGeneration && generationQuickOptions.length);
-  const showVariantQuickRail = Boolean(usesUxDepth && selectedGeneration && variantQuickOptions.length && (isGuaziQuickStyle || !trimApplied));
+  const showVariantQuickRail = Boolean(usesUxDepth && ((selectedGeneration && variantQuickOptions.length) || hasDirectVariantDepth) && (isGuaziQuickStyle || !trimApplied));
   const showVehicleHeaderRail = Boolean(!isGuaziQuickStyle && usesUxDepth && selectedGeneration && trimApplied);
   const showCategoryQuickRail = categoryLandingOpen && !maker;
   const showGuaziMakerRail = Boolean(isGuaziQuickStyle && !showCategoryQuickRail && !showModelQuickRail && !showGenerationQuickRail && !showVariantQuickRail && !showVehicleHeaderRail && categoryBrandRail.title === "제조사");
@@ -1768,17 +1774,17 @@ function MarketplaceScreen() {
                 );
               })}
             </Carousel>
-          </section> : showVariantQuickRail && isGuaziQuickStyle ? <section className="depth-rail" aria-label={`${accessibleDepthLabel(selectedGeneration)} 트림 빠른 선택`}>
+          </section> : showVariantQuickRail && isGuaziQuickStyle ? <section className="depth-rail" aria-label={`${accessibleDepthLabel(selectedGeneration ?? selectedModel)} 트림 빠른 선택`}>
             <span className="depth-rail-label">트림</span>
-            <Carousel ariaLabel={`${accessibleDepthLabel(selectedGeneration)} 트림`} className="brand-carousel" contentClassName="depth-rail-track is-chips">
+            <Carousel ariaLabel={`${accessibleDepthLabel(selectedGeneration ?? selectedModel)} 트림`} className="brand-carousel" contentClassName="depth-rail-track is-chips">
               <TrimChip label="전체" selected={selectedVariants.length === 0} onClick={clearVariantFilter} />
               {variantTrimOptions.map((variant) => (
                 <TrimChip key={variant.name} label={variant.name} selected={selectedVariants.includes(variant.name)} disabled={variant.count === 0} onClick={() => chooseVariant(variant.name)} />
               ))}
             </Carousel>
-          </section> : showVariantQuickRail ? <section className="brand-row is-benz-model-mode" aria-label={`${accessibleDepthLabel(selectedGeneration)} 트림 빠른 선택`}>
+          </section> : showVariantQuickRail ? <section className="brand-row is-benz-model-mode" aria-label={`${accessibleDepthLabel(selectedGeneration ?? selectedModel)} 트림 빠른 선택`}>
             <span className="brand-title">트림</span>
-            <Carousel ariaLabel={`${accessibleDepthLabel(selectedGeneration)} 트림`} className="brand-carousel" contentClassName="benz-model-track">
+            <Carousel ariaLabel={`${accessibleDepthLabel(selectedGeneration ?? selectedModel)} 트림`} className="brand-carousel" contentClassName="benz-model-track">
               {variantTrimOptions.map((variant) => (
                 <button key={variant.name} className={`benz-model-chip${selectedVariants.includes(variant.name) ? " is-selected" : ""}`} type="button" aria-pressed={selectedVariants.includes(variant.name)} disabled={variant.count === 0} onClick={() => chooseVariant(variant.name)}>{variant.name}</button>
               ))}
@@ -1846,7 +1852,7 @@ function MarketplaceScreen() {
         </main>
       </MobileScroll>
       {searchToast ? <div className="market-toast" role="status" aria-live="polite">{searchToast}</div> : null}
-      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && closeSheet()} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" || sheet === "maker" || sheet === "vehicle" || sheet === "price" || sheet === "filter" || sheet === "quick" || sheet === "carType" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "filter" || sheet === "maker" || sheet === "quick" ? 0.96 : sheet === "vehicle" ? 0.86 : sheet === "carType" ? 0.8 : sheet === "region" ? 0.53 : sheet === "price" ? 0.62 : 0.48}>
+      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && closeSheet()} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" || sheet === "maker" || sheet === "vehicle" || sheet === "price" || sheet === "filter" || sheet === "quick" || sheet === "carType" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "filter" || sheet === "maker" || sheet === "quick" ? 0.96 : sheet === "vehicle" ? 0.8 : sheet === "carType" ? 0.8 : sheet === "region" ? 0.53 : sheet === "price" ? 0.62 : 0.48}>
         {sheet === "filter" ? <ChoTotFilterSheet value={draftFilters} focus={filterFocus} onChange={setDraftFilters} onClose={() => { setFilterFocus(null); closeSheet(); }} onReset={() => resetFilters({ closeActiveSheet: false })} onConfirm={() => { setFilters(draftFilters); setFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "carType" ? <CategoryFilterSheet selected={category} onChoose={chooseCategoryFilter} onClose={closeSheet} /> : sheet === "quick" && quickFilterFocus ? <ChoTotQuickFilterSheet focus={quickFilterFocus} value={draftFilters} onChange={setDraftFilters} onClose={() => { setQuickFilterFocus(null); closeSheet(); }} onConfirm={() => { setFilters(draftFilters); setQuickFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "vehicle" ? <VehiclePickerSheet maker={maker} model={selectedModel} generation={selectedGeneration} makerOptions={categoryBrandRail.options} onApply={applyVehicleSummarySelection} /> : sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} resultCount={filteredWithoutPrice.length} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftFilters.price} onChange={(nextPrice) => setDraftFilters((current) => ({ ...current, price: nextPrice }))} onClose={closeSheet} onReset={() => setDraftFilters((current) => ({ ...current, price: emptyPrice }))} onConfirm={() => { setFilters((current) => ({ ...current, price: draftFilters.price })); closeSheet(); }} resultCount={draftFilterCount} /> : <div className="sheet-options">
           {sheet === "sort" ? ["최신순", "낮은 가격순", "높은 가격순"].map((label) => <button key={label} type="button" className={sort === label ? "is-selected" : ""} onClick={() => { setSort(label); setSheet(null); }}>{label}</button>) : ["전체", "추천 조건", "인기 조건"].map((label) => <button key={label} type="button" onClick={() => setSheet(null)}>{label}</button>)}
         </div>}
