@@ -199,11 +199,11 @@ const formatMileage = (value: string) => value.replace(/(\d[\d,]*)\s*km/i, (matc
 });
 
 const brands = [
-  { name: "BMW", logo: asset("brand/bmw.svg") },
-  { name: "벤츠", logo: asset("brand/benz.png") },
-  { name: "아우디", logo: asset("brand/audi.svg") },
-  { name: "포르쉐", logo: asset("brand/porsche-symbol.png") },
-  { name: "미니", logo: asset("brand/mini.svg") },
+  { name: "BMW", logo: asset("brand/dongchedi/bmw.png") },
+  { name: "벤츠", logo: asset("brand/dongchedi/benz.png") },
+  { name: "아우디", logo: asset("brand/dongchedi/audi.png") },
+  { name: "포르쉐", logo: asset("brand/dongchedi/porsche.png") },
+  { name: "미니", logo: asset("brand/dongchedi/mini.png") },
 ];
 
 const vehicleCategories = [
@@ -231,44 +231,45 @@ const usedCarCategoryOptions = ["전체", "국산차", "수입차", "전기차"]
 
 type MakerOption = { name: string; maker: string; logo?: string; icon?: SimpleIcon; color?: string };
 const autohomeBrandLogo = (name: string) => asset(`brand/autohome/${name}.png`);
+const dongchediBrandLogo = (name: string) => asset(`brand/dongchedi/${name}.png`);
 const makerOptions: MakerOption[] = [
-  { name: "BMW", maker: "BMW", logo: asset("brand/bmw.svg") },
-  { name: "메르세데스-벤츠", maker: "벤츠", logo: asset("brand/benz.png") },
-  { name: "아우디", maker: "아우디", logo: asset("brand/audi.svg") },
-  { name: "포르쉐", maker: "포르쉐", logo: asset("brand/porsche-symbol.png") },
-  { name: "미니", maker: "미니", logo: asset("brand/mini.svg") },
-  { name: "랜드로버", maker: "랜드로버", logo: asset("brand/land-rover.svg") },
-  { name: "볼보", maker: "볼보", icon: siVolvo, color: "#173a6b" },
-  { name: "렉서스", maker: "렉서스", logo: asset("brand/lexus.svg") },
-  { name: "테슬라", maker: "테슬라", icon: siTesla, color: "#e82127" },
-  { name: "폭스바겐", maker: "폭스바겐", icon: siVolkswagen, color: "#143c6f" },
-  { name: "토요타", maker: "토요타", icon: siToyota },
-  { name: "혼다", maker: "혼다", icon: siHonda },
-  { name: "재규어", maker: "재규어", logo: asset("brand/jaguar.png") },
-  { name: "쉐보레", maker: "쉐보레", icon: siChevrolet, color: "#d7a52b" },
-  { name: "포드", maker: "포드", icon: siFord, color: "#153e7b" },
-  { name: "지프", maker: "지프", icon: siJeep },
-  { name: "캐딜락", maker: "캐딜락", icon: siCadillac },
-  { name: "링컨", maker: "링컨", logo: asset("brand/lincoln.png") },
-  { name: "닛산", maker: "닛산", icon: siNissan },
-  { name: "인피니티", maker: "인피니티", icon: siInfiniti },
-  { name: "마세라티", maker: "마세라티", logo: autohomeBrandLogo("maserati") },
-  { name: "벤틀리", maker: "벤틀리", logo: autohomeBrandLogo("bentley") },
-  { name: "페라리", maker: "페라리", logo: autohomeBrandLogo("ferrari") },
-  { name: "람보르기니", maker: "람보르기니", logo: autohomeBrandLogo("lamborghini") },
-  { name: "부가티", maker: "부가티", logo: autohomeBrandLogo("bugatti") },
-  { name: "롤스로이스", maker: "롤스로이스", logo: autohomeBrandLogo("rolls-royce") },
-  { name: "맥라렌", maker: "맥라렌", logo: autohomeBrandLogo("mclaren") },
-  { name: "애스턴마틴", maker: "애스턴마틴", logo: autohomeBrandLogo("aston-martin") },
-  { name: "코닉세그", maker: "코닉세그", logo: autohomeBrandLogo("koenigsegg") },
+  { name: "BMW", maker: "BMW", logo: dongchediBrandLogo("bmw") },
+  { name: "메르세데스-벤츠", maker: "벤츠", logo: dongchediBrandLogo("benz") },
+  { name: "아우디", maker: "아우디", logo: dongchediBrandLogo("audi") },
+  { name: "포르쉐", maker: "포르쉐", logo: dongchediBrandLogo("porsche") },
+  { name: "미니", maker: "미니", logo: dongchediBrandLogo("mini") },
+  { name: "랜드로버", maker: "랜드로버", logo: dongchediBrandLogo("land-rover") },
+  { name: "볼보", maker: "볼보", logo: dongchediBrandLogo("volvo") },
+  { name: "렉서스", maker: "렉서스", logo: dongchediBrandLogo("lexus") },
+  { name: "테슬라", maker: "테슬라", logo: dongchediBrandLogo("tesla") },
+  { name: "폭스바겐", maker: "폭스바겐", logo: dongchediBrandLogo("volkswagen") },
+  { name: "토요타", maker: "토요타", logo: dongchediBrandLogo("toyota") },
+  { name: "혼다", maker: "혼다", logo: dongchediBrandLogo("honda") },
+  { name: "재규어", maker: "재규어", logo: dongchediBrandLogo("jaguar") },
+  { name: "쉐보레", maker: "쉐보레", logo: dongchediBrandLogo("chevrolet") },
+  { name: "포드", maker: "포드", logo: dongchediBrandLogo("ford") },
+  { name: "지프", maker: "지프", logo: dongchediBrandLogo("jeep") },
+  { name: "캐딜락", maker: "캐딜락", logo: dongchediBrandLogo("cadillac") },
+  { name: "링컨", maker: "링컨", logo: dongchediBrandLogo("lincoln") },
+  { name: "닛산", maker: "닛산", logo: dongchediBrandLogo("nissan") },
+  { name: "인피니티", maker: "인피니티", logo: dongchediBrandLogo("infiniti") },
+  { name: "마세라티", maker: "마세라티", logo: dongchediBrandLogo("maserati") },
+  { name: "벤틀리", maker: "벤틀리", logo: dongchediBrandLogo("bentley") },
+  { name: "페라리", maker: "페라리", logo: dongchediBrandLogo("ferrari") },
+  { name: "람보르기니", maker: "람보르기니", logo: dongchediBrandLogo("lamborghini") },
+  { name: "부가티", maker: "부가티", logo: dongchediBrandLogo("bugatti") },
+  { name: "롤스로이스", maker: "롤스로이스", logo: dongchediBrandLogo("rolls-royce") },
+  { name: "맥라렌", maker: "맥라렌", logo: dongchediBrandLogo("mclaren") },
+  { name: "애스턴마틴", maker: "애스턴마틴", logo: dongchediBrandLogo("aston-martin") },
+  { name: "코닉세그", maker: "코닉세그", logo: dongchediBrandLogo("koenigsegg") },
   { name: "리막", maker: "리막", logo: autohomeBrandLogo("rimac") },
   { name: "루시드", maker: "루시드", logo: autohomeBrandLogo("lucid") },
-  { name: "폴스타", maker: "폴스타", logo: autohomeBrandLogo("polestar") },
-  { name: "애큐라", maker: "애큐라", logo: autohomeBrandLogo("acura") },
-  { name: "DS", maker: "DS", logo: autohomeBrandLogo("ds") },
-  { name: "마이바흐", maker: "마이바흐", logo: autohomeBrandLogo("maybach") },
-  { name: "스바루", maker: "스바루", icon: siSubaru, color: "#174c92" },
-  { name: "스즈키", maker: "스즈키", icon: siSuzuki, color: "#d71920" },
+  { name: "폴스타", maker: "폴스타", logo: dongchediBrandLogo("polestar") },
+  { name: "애큐라", maker: "애큐라", logo: dongchediBrandLogo("acura") },
+  { name: "DS", maker: "DS", logo: dongchediBrandLogo("ds") },
+  { name: "마이바흐", maker: "마이바흐", logo: dongchediBrandLogo("maybach") },
+  { name: "스바루", maker: "스바루", logo: dongchediBrandLogo("subaru") },
+  { name: "스즈키", maker: "스즈키", logo: dongchediBrandLogo("suzuki") },
 ];
 
 type BrandRailOption = { name: string; maker?: string; logo?: string; icon?: SimpleIcon; color?: string; full?: boolean };
@@ -277,27 +278,27 @@ type CategoryBrandRail = { title: string; options: BrandRailOption[] };
 const domesticMakerNames = new Set(["현대", "기아", "제네시스"]);
 const defaultBrandRailOptions: BrandRailOption[] = [
   ...brands.map((brand) => ({ ...brand, maker: brand.name })),
-  { name: "현대", maker: "현대", icon: siHyundai, color: "#002c5f" },
-  { name: "기아", maker: "기아", icon: siKia, color: "#05141f" },
+  { name: "현대", maker: "현대", logo: dongchediBrandLogo("hyundai") },
+  { name: "기아", maker: "기아", logo: dongchediBrandLogo("kia") },
 ];
 const superLuxuryBrandRailOptions: BrandRailOption[] = [
-  { name: "벤틀리", maker: "벤틀리", logo: autohomeBrandLogo("bentley") },
-  { name: "페라리", maker: "페라리", logo: autohomeBrandLogo("ferrari") },
-  { name: "람보르기니", maker: "람보르기니", logo: autohomeBrandLogo("lamborghini") },
-  { name: "롤스로이스", maker: "롤스로이스", logo: autohomeBrandLogo("rolls-royce") },
-  { name: "맥라렌", maker: "맥라렌", logo: autohomeBrandLogo("mclaren") },
-  { name: "애스턴마틴", maker: "애스턴마틴", logo: autohomeBrandLogo("aston-martin") },
-  { name: "코닉세그", maker: "코닉세그", logo: autohomeBrandLogo("koenigsegg") },
+  { name: "벤틀리", maker: "벤틀리", logo: dongchediBrandLogo("bentley") },
+  { name: "페라리", maker: "페라리", logo: dongchediBrandLogo("ferrari") },
+  { name: "람보르기니", maker: "람보르기니", logo: dongchediBrandLogo("lamborghini") },
+  { name: "롤스로이스", maker: "롤스로이스", logo: dongchediBrandLogo("rolls-royce") },
+  { name: "맥라렌", maker: "맥라렌", logo: dongchediBrandLogo("mclaren") },
+  { name: "애스턴마틴", maker: "애스턴마틴", logo: dongchediBrandLogo("aston-martin") },
+  { name: "코닉세그", maker: "코닉세그", logo: dongchediBrandLogo("koenigsegg") },
   { name: "리막", maker: "리막", logo: autohomeBrandLogo("rimac") },
   { name: "루시드", maker: "루시드", logo: autohomeBrandLogo("lucid") },
-  { name: "폴스타", maker: "폴스타", logo: autohomeBrandLogo("polestar") },
+  { name: "폴스타", maker: "폴스타", logo: dongchediBrandLogo("polestar") },
 ];
 const importedBrandRailOptions: BrandRailOption[] = [
-  { name: "BMW", maker: "BMW", logo: asset("brand/bmw.svg") },
-  { name: "벤츠", maker: "벤츠", logo: asset("brand/benz.png") },
-  { name: "아우디", maker: "아우디", logo: asset("brand/audi.svg") },
-  { name: "포르쉐", maker: "포르쉐", logo: asset("brand/porsche-symbol.png") },
-  { name: "렉서스", maker: "렉서스", logo: asset("brand/lexus.svg") },
+  { name: "BMW", maker: "BMW", logo: dongchediBrandLogo("bmw") },
+  { name: "벤츠", maker: "벤츠", logo: dongchediBrandLogo("benz") },
+  { name: "아우디", maker: "아우디", logo: dongchediBrandLogo("audi") },
+  { name: "포르쉐", maker: "포르쉐", logo: dongchediBrandLogo("porsche") },
+  { name: "렉서스", maker: "렉서스", logo: dongchediBrandLogo("lexus") },
   ...superLuxuryBrandRailOptions,
 ];
 const categoryBrandRails: Record<string, CategoryBrandRail> = {
@@ -306,9 +307,9 @@ const categoryBrandRails: Record<string, CategoryBrandRail> = {
   국산차: {
     title: "제조사",
     options: [
-      { name: "현대", maker: "현대", icon: siHyundai, color: "#002c5f" },
-      { name: "기아", maker: "기아", icon: siKia, color: "#05141f" },
-      { name: "제네시스", maker: "제네시스" },
+      { name: "현대", maker: "현대", logo: dongchediBrandLogo("hyundai") },
+      { name: "기아", maker: "기아", logo: dongchediBrandLogo("kia") },
+      { name: "제네시스", maker: "제네시스", logo: dongchediBrandLogo("genesis") },
     ],
   },
   수입차: {
@@ -318,9 +319,9 @@ const categoryBrandRails: Record<string, CategoryBrandRail> = {
   전기차: {
     title: "제조사",
     options: [
-      { name: "현대", maker: "현대", icon: siHyundai, color: "#002c5f" },
-      { name: "테슬라", maker: "테슬라", icon: siTesla, color: "#e82127" },
-      { name: "BMW", maker: "BMW", logo: asset("brand/bmw.svg") },
+      { name: "현대", maker: "현대", logo: dongchediBrandLogo("hyundai") },
+      { name: "테슬라", maker: "테슬라", logo: dongchediBrandLogo("tesla") },
+      { name: "BMW", maker: "BMW", logo: dongchediBrandLogo("bmw") },
     ],
   },
   바이크: {
@@ -335,16 +336,16 @@ const categoryBrandRails: Record<string, CategoryBrandRail> = {
   "트럭 · 특장": {
     title: "제조사",
     options: [
-      { name: "현대", maker: "현대", icon: siHyundai, color: "#002c5f" },
+      { name: "현대", maker: "현대", logo: dongchediBrandLogo("hyundai") },
       { name: "타타대우", maker: "타타대우" },
       { name: "이스즈", maker: "이스즈" },
       { name: "만트럭", maker: "만트럭" },
-      { name: "볼보", maker: "볼보", icon: siVolvo, color: "#173a6b" },
+      { name: "볼보", maker: "볼보", logo: dongchediBrandLogo("volvo") },
     ],
   },
   캠핑카: { title: "제조사", options: defaultBrandRailOptions.slice(0, 5) },
   올드카: { title: "제조사", options: defaultBrandRailOptions.slice(0, 5) },
-  건설기계: { title: "제조사", options: [{ name: "현대", maker: "현대", icon: siHyundai, color: "#002c5f" }, { name: "볼보", maker: "볼보", icon: siVolvo, color: "#173a6b" }] },
+  건설기계: { title: "제조사", options: [{ name: "현대", maker: "현대", logo: dongchediBrandLogo("hyundai") }, { name: "볼보", maker: "볼보", logo: dongchediBrandLogo("volvo") }] },
   "부품 · 용품": { title: "분류", options: [{ name: "타이어" }, { name: "휠" }, { name: "튜닝" }, { name: "오디오" }] },
 };
 
@@ -911,8 +912,8 @@ function MakerMark({ option }: { option: MakerOption }) {
 }
 
 const depthBrandLogoOverrides: Record<string, string> = {
-  벤츠: asset("brand/depth/benz.png"),
-  포르쉐: asset("brand/depth/porsche-symbol.png"),
+  벤츠: dongchediBrandLogo("benz"),
+  포르쉐: dongchediBrandLogo("porsche"),
 };
 const wordmarkBrandNames = new Set(["아우디", "기아", "미니", "랜드로버", "렉서스"]);
 
