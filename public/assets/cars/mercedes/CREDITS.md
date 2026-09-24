@@ -16,3 +16,8 @@ Source files already present in this repository:
 - Added E-Class generation asset paths `public/assets/cars/mercedes/e-class/w214.webp`, `w213.webp`, and `w212.webp`.
 - Generation-specific source photos were not available in the repository, so these are separate 192×96 transparent cards derived from the existing E-Class model crop.
 - Generation image source unavailable: `W214`, `W213`, `W212`.
+
+2026-09-24 QF-040 / QF-036 pass:
+
+- `e-class/w214.webp`, `w213.webp`, and `w212.webp` were whitespace-trimmed to the vehicle outline and re-placed on the `192×96` canvas (width fit, bottom aligned) with `scripts/car-image-trim.mjs`. No color or filter changes.
+- Generation-specific studio cutouts were not found: Wikimedia Commons only has street/show photos, which asset guide A excludes. Generation image source unavailable: `W214`, `W213`, `W212`.

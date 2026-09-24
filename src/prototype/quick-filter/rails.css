@@ -74,7 +74,7 @@
 .generation-chip strong { color: inherit; font-size: 14px; font-weight: 700; line-height: 18px; }
 .generation-chip span { color: #8a8d93; font-size: 11px; font-weight: 500; line-height: 15px; }
 .generation-chip.is-selected span { color: inherit; opacity: .78; }
-.depth-rail { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; height: 96px; border-bottom: 1px solid #f3f3f3; background: #fff; box-sizing: border-box; }
+.depth-rail { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; height: 96px; background: #fff; box-shadow: 0 1px 0 #f3f3f3; box-sizing: border-box; }
 .depth-rail-label { display: flex; align-self: stretch; align-items: center; padding: 0 8px 0 16px; color: #656d7a; font-size: 13px; font-weight: 500; white-space: nowrap; }
 .depth-rail.no-label { grid-template-columns: minmax(0, 1fr); }
 .depth-rail .brand-carousel { height: 96px; }
