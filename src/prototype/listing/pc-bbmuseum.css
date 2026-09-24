@@ -33,8 +33,11 @@
   .bbm-filter { overflow: clip; border-radius: 12px; background: #fff; }
   .bbm-filter-summary { display: flex; flex-direction: column; gap: 14px; padding: 20px 16px; }
   .bbm-filter-summary-top, .bbm-filter-summary-tools { display: flex; align-items: center; justify-content: space-between; }
-  .bbm-filter-summary-top strong { color: #222; font-size: 16px; font-weight: 600; line-height: 22.4px; }
-  .bbm-filter-reset { padding: 0; border: 0; background: none; color: #222; font-size: 14px; font-weight: 700; line-height: 19.6px; text-decoration: underline; }
+  /* QF-072 필터 제목 18/700 + 적용 필터 개수 배지(26 원형 #222, 두 자리부터 알약) + 모두 지우기 */
+  .bbm-filter-title { display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .bbm-filter-summary-top strong { color: #222; font-size: 18px; font-weight: 700; line-height: 26px; }
+  .bbm-filter-count { display: inline-flex; min-width: 26px; height: 26px; align-items: center; justify-content: center; padding: 0 6px; border-radius: 13px; box-sizing: border-box; background: #222; color: #fff; font-size: 12px; font-weight: 600; line-height: 18px; font-variant-numeric: tabular-nums; }
+  .bbm-filter-reset { padding: 0; border: 0; background: none; color: #222; font-size: 14px; font-weight: 700; line-height: 19.6px; text-decoration: underline; white-space: nowrap; }
   .bbm-filter-keep { display: flex; align-items: center; gap: 8px; color: #767676; font-size: 14px; font-weight: 500; line-height: 19.6px; }
   .bbm-filter-history { padding: 0; border: 0; background: none; color: #767676; font-size: 14px; font-weight: 500; line-height: 19.6px; }
   .bbm-filter-history b { font-weight: 600; }

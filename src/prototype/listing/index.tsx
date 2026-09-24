@@ -452,6 +452,27 @@ function MarketplaceScreen() {
     filters.body !== "전체",
     filters.videoOnly,
   ].filter(Boolean).length;
+  // QF-072: 적용 필터 개수 배지 = 선택된 필터 "값"의 개수(퀵필터·상세필터 모두). 트림·색상은 고른 개수만큼, 지역도 포함
+  const selectedFilterValueCount = [
+    Boolean(maker),
+    Boolean(selectedModel),
+    Boolean(selectedGeneration),
+    price.min !== 0 || price.max !== null,
+    filters.year !== "전체",
+    filters.condition !== "전체",
+    filters.seller !== "전체",
+    filters.seats !== "전체",
+    Boolean(filters.mileageMax),
+    filters.owners !== "전체",
+    filters.transmission !== "전체",
+    filters.fuel !== "전체",
+    filters.origin !== "전체",
+    filters.body !== "전체",
+    filters.videoOnly,
+    Boolean(region.province || region.district || region.radius),
+  ].filter(Boolean).length
+    + (isGuaziQuickStyle || trimApplied ? selectedVariants.length : 0)
+    + filters.colors.length;
 
   const filteredWithoutPrice = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -1046,7 +1067,7 @@ function MarketplaceScreen() {
           <main className="marketplace is-bbm" aria-label="중고차 리스트">
             <BbHeader onNotify={setSearchToast} onOpenFavorites={() => flow.push(savedListingsScreen)} />
             <div className="bbm-page">
-              <BbFilterSidebar maker={maker} onChooseMaker={applyMakerFilter} onReset={() => resetFilters()} onNotify={setSearchToast} />
+              <BbFilterSidebar maker={maker} appliedCount={selectedFilterValueCount} onChooseMaker={applyMakerFilter} onReset={() => resetFilters()} onNotify={setSearchToast} />
               <div className="bbm-content">
                 <section className="bbm-content-head" aria-label="검색 조건">
                   <nav className="bbm-breadcrumb" aria-label="현재 위치"><strong>{categoryIsDefault ? "전체차량" : category}</strong>{vehicleSummaryLabel ? <span>{vehicleSummaryLabel}</span> : null}</nav>

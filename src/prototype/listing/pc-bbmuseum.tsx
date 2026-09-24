@@ -54,14 +54,18 @@ function BbSwitch({ checked, label, onChange }: { checked: boolean; label: strin
   return <button type="button" role="switch" aria-checked={checked} aria-label={label} className={`bbm-switch${checked ? " is-on" : ""}`} onClick={onChange}><span /></button>;
 }
 
-function BbFilterSidebar({ maker, onChooseMaker, onReset, onNotify }: { maker: string | null; onChooseMaker: (maker: string | null) => void; onReset: () => void; onNotify: (message: string) => void }) {
+function BbFilterSidebar({ maker, appliedCount, onChooseMaker, onReset, onNotify }: { maker: string | null; appliedCount: number; onChooseMaker: (maker: string | null) => void; onReset: () => void; onNotify: (message: string) => void }) {
   const [openItems, setOpenItems] = useState<string[]>(["제조사 · 모델"]);
   const [keepSearch, setKeepSearch] = useState(false);
   const toggle = (label: string) => setOpenItems((current) => current.includes(label) ? current.filter((item) => item !== label) : [...current, label]);
   return (
     <aside className="bbm-filter" aria-label="필터">
       <div className="bbm-filter-summary">
-        <div className="bbm-filter-summary-top"><strong>필터</strong><button type="button" className="bbm-filter-reset" onClick={onReset}>초기화</button></div>
+        <div className="bbm-filter-summary-top">
+          {/* QF-072: 제목 오른쪽 적용 필터 개수 배지(0개면 숨김) + 오른쪽 끝 모두 지우기 */}
+          <div className="bbm-filter-title"><strong>필터</strong>{appliedCount > 0 ? <span className="bbm-filter-count" aria-label={`적용된 필터 ${appliedCount}개`}>{appliedCount}</span> : null}</div>
+          <button type="button" className="bbm-filter-reset" onClick={onReset}>모두 지우기</button>
+        </div>
         <div className="bbm-filter-summary-tools">
           <label className="bbm-filter-keep"><BbSwitch checked={keepSearch} label="검색조건 유지" onChange={() => setKeepSearch((value) => !value)} /><span>검색조건 유지</span></label>
           <button type="button" className="bbm-filter-history" onClick={() => onNotify("최근 검색 기록이 없습니다.")}>최근검색기록 <b>0</b></button>
