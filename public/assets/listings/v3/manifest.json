@@ -1,0 +1,207 @@
+{
+  "version": 3,
+  "createdAt": "2026-09-25",
+  "notice": "모든 이미지는 시안용이며 정식 서비스 적용 전에 실제 매물 사진으로 교체해야 합니다.",
+  "assets": [
+    {
+      "filename": "hyundai-grandeur-gn7.webp",
+      "vehicle": "현대 그랜저",
+      "generation": "GN7",
+      "color": "녹턴 그레이 메탈릭",
+      "size": { "width": 1200, "height": 900, "bytes": 97506 },
+      "purpose": "과쯔 목록 카드 대표 사진",
+      "generationMethod": "AI 생성 샘플(정식 서비스 전 실사 교체 필요)",
+      "source": "OpenAI imagegen · 2026-09-25"
+    },
+    {
+      "filename": "hyundai-avante-cn7.webp",
+      "vehicle": "현대 아반떼",
+      "generation": "CN7",
+      "color": "실버",
+      "size": { "width": 1200, "height": 900, "bytes": 87734 },
+      "purpose": "과쯔 목록 카드 대표 사진",
+      "generationMethod": "AI 생성 샘플(정식 서비스 전 실사 교체 필요)",
+      "source": "OpenAI imagegen · 2026-09-25"
+    },
+    {
+      "filename": "hyundai-sonata-dn8.webp",
+      "vehicle": "현대 쏘나타",
+      "generation": "DN8",
+      "color": "화이트",
+      "size": { "width": 1200, "height": 900, "bytes": 79132 },
+      "purpose": "과쯔 목록 카드 대표 사진",
+      "generationMethod": "AI 생성 샘플(정식 서비스 전 실사 교체 필요)",
+      "source": "OpenAI imagegen · 2026-09-25"
+    },
+    {
+      "filename": "hyundai-santafe-mx5.webp",
+      "vehicle": "현대 싼타페",
+      "generation": "MX5",
+      "color": "매트 그레이",
+      "size": { "width": 1200, "height": 900, "bytes": 91716 },
+      "purpose": "과쯔 목록 카드 대표 사진",
+      "generationMethod": "AI 생성 샘플(정식 서비스 전 실사 교체 필요)",
+      "source": "OpenAI imagegen · 2026-09-25"
+    },
+    {
+      "filename": "hyundai-tucson-nx4.webp",
+      "vehicle": "현대 투싼",
+      "generation": "NX4",
+      "color": "딥 블루",
+      "size": { "width": 1200, "height": 900, "bytes": 103444 },
+      "purpose": "과쯔 목록 카드 대표 사진",
+      "generationMethod": "AI 생성 샘플(정식 서비스 전 실사 교체 필요)",
+      "source": "OpenAI imagegen · 2026-09-25"
+    },
+    {
+      "filename": "hyundai-ioniq5-ne.webp",
+      "vehicle": "현대 아이오닉 5",
+      "generation": "NE",
+      "color": "화이트",
+      "size": { "width": 1200, "height": 900, "bytes": 79516 },
+      "purpose": "과쯔 목록 카드 대표 사진",
+      "generationMethod": "AI 생성 샘플(정식 서비스 전 실사 교체 필요)",
+      "source": "OpenAI imagegen · 2026-09-25"
+    },
+    {
+      "filename": "kia-carnival-ka4.webp",
+      "vehicle": "기아 카니발",
+      "generation": "KA4",
+      "color": "블랙",
+      "size": { "width": 1200, "height": 900, "bytes": 96998 },
+      "purpose": "과쯔 목록 카드 대표 사진",
+      "generationMethod": "AI 생성 샘플(정식 서비스 전 실사 교체 필요)",
+      "source": "OpenAI imagegen · 2026-09-25"
+    },
+    {
+      "filename": "kia-sorento-mq4.webp",
+      "vehicle": "기아 쏘렌토",
+      "generation": "MQ4",
+      "color": "메탈릭 그레이",
+      "size": { "width": 1200, "height": 900, "bytes": 108930 },
+      "purpose": "과쯔 목록 카드 대표 사진",
+      "generationMethod": "AI 생성 샘플(정식 서비스 전 실사 교체 필요)",
+      "source": "OpenAI imagegen · 2026-09-25"
+    },
+    {
+      "filename": "kia-sportage-nq5.webp",
+      "vehicle": "기아 스포티지",
+      "generation": "NQ5",
+      "color": "화이트",
+      "size": { "width": 1200, "height": 900, "bytes": 88326 },
+      "purpose": "과쯔 목록 카드 대표 사진",
+      "generationMethod": "AI 생성 샘플(정식 서비스 전 실사 교체 필요)",
+      "source": "OpenAI imagegen · 2026-09-25"
+    },
+    {
+      "filename": "kia-k5-dl3.webp",
+      "vehicle": "기아 K5",
+      "generation": "DL3",
+      "color": "블랙",
+      "size": { "width": 1200, "height": 900, "bytes": 101084 },
+      "purpose": "과쯔 목록 카드 대표 사진",
+      "generationMethod": "AI 생성 샘플(정식 서비스 전 실사 교체 필요)",
+      "source": "OpenAI imagegen · 2026-09-25"
+    },
+    {
+      "filename": "genesis-g80-rg3.webp",
+      "vehicle": "제네시스 G80",
+      "generation": "RG3",
+      "color": "다크 네이비",
+      "size": { "width": 1200, "height": 900, "bytes": 104962 },
+      "purpose": "과쯔 목록 카드 대표 사진",
+      "generationMethod": "AI 생성 샘플(정식 서비스 전 실사 교체 필요)",
+      "source": "OpenAI imagegen · 2026-09-25"
+    },
+    {
+      "filename": "genesis-gv70-jk1.webp",
+      "vehicle": "제네시스 GV70",
+      "generation": "JK1",
+      "color": "화이트",
+      "size": { "width": 1200, "height": 900, "bytes": 111388 },
+      "purpose": "과쯔 목록 카드 대표 사진",
+      "generationMethod": "AI 생성 샘플(정식 서비스 전 실사 교체 필요)",
+      "source": "OpenAI imagegen · 2026-09-25"
+    },
+    {
+      "filename": "bmw-5-g60.webp",
+      "vehicle": "BMW 5시리즈",
+      "generation": "G60",
+      "color": "옥사이드 그레이",
+      "size": { "width": 1200, "height": 900, "bytes": 111512 },
+      "purpose": "과쯔 목록 카드 대표 사진",
+      "generationMethod": "AI 생성 샘플(정식 서비스 전 실사 교체 필요)",
+      "source": "OpenAI imagegen · 2026-09-25"
+    },
+    {
+      "filename": "bmw-3-g20.webp",
+      "vehicle": "BMW 3시리즈",
+      "generation": "G20",
+      "color": "화이트",
+      "size": { "width": 1200, "height": 900, "bytes": 72878 },
+      "purpose": "과쯔 목록 카드 대표 사진",
+      "generationMethod": "AI 생성 샘플(정식 서비스 전 실사 교체 필요)",
+      "source": "OpenAI imagegen · 2026-09-25"
+    },
+    {
+      "filename": "mercedes-e-w214.webp",
+      "vehicle": "메르세데스-벤츠 E클래스",
+      "generation": "W214",
+      "color": "하이테크 실버",
+      "size": { "width": 1200, "height": 900, "bytes": 91462 },
+      "purpose": "과쯔 목록 카드 대표 사진",
+      "generationMethod": "AI 생성 샘플(정식 서비스 전 실사 교체 필요)",
+      "source": "OpenAI imagegen · 2026-09-25"
+    },
+    {
+      "filename": "mercedes-c-w206.webp",
+      "vehicle": "메르세데스-벤츠 C클래스",
+      "generation": "W206",
+      "color": "블랙",
+      "size": { "width": 1200, "height": 900, "bytes": 106972 },
+      "purpose": "과쯔 목록 카드 대표 사진",
+      "generationMethod": "AI 생성 샘플(정식 서비스 전 실사 교체 필요)",
+      "source": "OpenAI imagegen · 2026-09-25"
+    },
+    {
+      "filename": "tesla-model-y.webp",
+      "vehicle": "테슬라 모델 Y",
+      "generation": "1세대",
+      "color": "화이트",
+      "size": { "width": 1200, "height": 900, "bytes": 64334 },
+      "purpose": "과쯔 목록 카드 대표 사진",
+      "generationMethod": "AI 생성 샘플(정식 서비스 전 실사 교체 필요)",
+      "source": "OpenAI imagegen · 2026-09-25"
+    },
+    {
+      "filename": "lexus-es300h-7.webp",
+      "vehicle": "렉서스 ES 300h",
+      "generation": "7세대",
+      "color": "소닉 티타늄",
+      "size": { "width": 1200, "height": 900, "bytes": 84348 },
+      "purpose": "과쯔 목록 카드 대표 사진",
+      "generationMethod": "AI 생성 샘플(정식 서비스 전 실사 교체 필요)",
+      "source": "OpenAI imagegen · 2026-09-25"
+    },
+    {
+      "filename": "volvo-xc60-2.webp",
+      "vehicle": "볼보 XC60",
+      "generation": "2세대",
+      "color": "화이트",
+      "size": { "width": 1200, "height": 900, "bytes": 81486 },
+      "purpose": "과쯔 목록 카드 대표 사진",
+      "generationMethod": "AI 생성 샘플(정식 서비스 전 실사 교체 필요)",
+      "source": "OpenAI imagegen · 2026-09-25"
+    },
+    {
+      "filename": "byd-atto3.webp",
+      "vehicle": "BYD 아토 3",
+      "generation": "1세대",
+      "color": "서프 블루",
+      "size": { "width": 1200, "height": 900, "bytes": 92268 },
+      "purpose": "과쯔 목록 카드 대표 사진",
+      "generationMethod": "AI 생성 샘플(정식 서비스 전 실사 교체 필요)",
+      "source": "OpenAI imagegen · 2026-09-25"
+    }
+  ]
+}
