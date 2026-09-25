@@ -1,0 +1,41 @@
+/* QF-093 PC 혼합 배치(과쯔 PC 개발 시안형만, .marketplace.is-bbm.is-hybrid). 참고: 검트리 UK · 트레이드미.
+   개발팀·디자이너 합의가 필요한 배치 변경 — 원본과 다른 값은 reports/change-log.csv CH-0042~ 에 속성별로 기록.
+   · 1280 이상: 헤더 117 → 24 → 상단 영역(전체차량 · N대 · 검색저장 · 칩 줄 · 유형 줄/퀵필터 레일) 폭 1200 → 24 → 좌측 필터 300 + 24 + 목록 876
+   · 1024~1279: 좌측 필터 숨김, 상단 영역·목록은 화면 폭 − 양옆 24, 상단 "필터" 칩으로 왼쪽 펼침판(bbm-filter-drawer.tsx)
+   · 1023 이하: 모바일 화면(index.tsx hybridLayoutQuery)
+   카드·필터 안쪽·모달·푸터·목록 툴바·칩 모양과 퀵필터 레일 규격은 바꾸지 않는다(폭·위치만). */
+@media (min-width: 1024px) {
+  .marketplace.is-bbm.is-hybrid .bbm-hybrid-top { width: min(1200px, calc(100% - 48px)); margin: 24px auto 0; }
+  /* 상단 영역과 아래 두 칸 사이 24 = 예전 상단 패널과 목록 툴바 사이 간격(.bbm-results margin-top 24)을 그대로 옮김 */
+  .marketplace.is-bbm.is-hybrid .bbm-page { width: min(1200px, calc(100% - 48px)); margin-top: 24px; }
+  .marketplace.is-bbm.is-hybrid .bbm-results { margin-top: 0; }
+}
+/* 1280 이상: 좌측 필터 300 + 24 + 목록. 좌측 필터는 스크롤 상자(.mobile-scroll) 안에서 sticky — 화면 위 16에 붙어 따라오고, 화면보다 길면 필터 안에서 스크롤.
+   자기 칸(.bbm-page 행) 안에서만 움직여 푸터를 덮지 않는다(QF-059) */
+@media (min-width: 1280px) {
+  .marketplace.is-bbm.is-hybrid .bbm-page { grid-template-columns: 300px minmax(0, 1fr); gap: 24px; }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter::-webkit-scrollbar { display: none; }
+}
+/* 1024~1279: 좌측 필터 숨김, 목록이 본문 폭 전체. 이 폭에서만 상단 "필터" 칩을 누를 수 있다 */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .marketplace.is-bbm.is-hybrid .bbm-page { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter { display: none; }
+  /* 헤더 좌우 여백도 본문과 같은 24 — 로고 왼쪽 선 = 상단 영역 왼쪽 선(원본 헤더는 좌우 16, 1280 이상은 1200 가운데라 그대로) */
+  .marketplace.is-bbm.is-hybrid .bbm-header-inner { width: min(1200px, calc(100% - 48px)); }
+}
+
+/* 왼쪽 펼침판(1024~1279): 폭 320, 딤 rgba(0,0,0,.5). 확인 창·모달(.bbmf-overlay z 80)이 위에 오도록 79 */
+.bbm-drawer-root.marketplace.is-bbm { position: fixed; inset: 0; z-index: 79; min-height: 0; padding: 0; background: none; }
+.bbm-drawer-dim { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.5); }
+.bbm-drawer { position: absolute; top: 0; bottom: 0; left: 0; display: flex; flex-direction: column; width: 320px; background: #fff; color: #1a1a1a; }
+.bbm-drawer-header { display: flex; flex: none; align-items: center; justify-content: space-between; height: 57px; padding: 16px; border-bottom: 1px solid #ebebeb; box-sizing: border-box; }
+.bbm-drawer-header h2 { margin: 0; color: #1a1a1a; font-size: 16px; font-weight: 600; line-height: 22.4px; }
+.bbm-drawer-close { display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; }
+.bbm-drawer-close img { width: 24px; height: 24px; }
+.bbm-drawer-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+/* 펼침판 안의 좌측 필터: 같은 부품, 머리 "필터 · 초기화"는 펼침판 머리·아래 버튼으로 대신 */
+.bbm-drawer .bbm-filter { position: static; max-height: none; overflow: visible; border-radius: 0; }
+.bbm-drawer .bbm-filter-summary-top { display: none; }
+/* 1024 가로 넘침(QF-051): 원본 푸터 두 구역이 폭 1168 고정이라 1200보다 좁으면 넘친다 → 과쯔 PC만 본문 폭까지로(1200 이상에서는 그대로 1168) */
+.marketplace.is-bbm.is-hybrid .app-footer-top, .marketplace.is-bbm.is-hybrid .app-footer-bottom { max-width: 100%; }

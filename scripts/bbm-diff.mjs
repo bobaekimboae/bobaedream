@@ -27,9 +27,9 @@ const MASK = {
 
 const PC_REGIONS = [
   ["header", ".app-shell__header", ".bbm-header"],
-  ["sidebar", "aside.car-list-filter", "aside.bbm-filter"],
-  ["panel", ".car-list-content-header", ".bbm-content-header, .bbm-content-head"],
-  ["type-row", ".car-list-category-menu__list", ".bbm-category-menu__list, .bbm-quick-slot"],
+  ["sidebar", "aside.car-list-filter", "aside.bbm-filter", { fit: true }],
+  ["panel", ".car-list-content-header", ".bbm-content-header, .bbm-content-head", { fit: true }],
+  ["type-row", ".car-list-category-menu__list", ".bbm-category-menu__list, .bbm-quick-slot", { fit: true }],
   ["toolbar", ".car-list-content-toolbar", ".bbm-toolbar"],
   ["card", ".car-list-result-card", ".bbm-result-card, .bbm-list > *"],
 ];
@@ -45,7 +45,7 @@ const M_REGIONS = [
 
 const STATES = [
   { key: "pc-1-first", device: "pc", regions: PC_REGIONS },
-  { key: "pc-2-bodytype", device: "pc", regions: [["sidebar", "aside.car-list-filter", "aside.bbm-filter"]],
+  { key: "pc-2-bodytype", device: "pc", regions: [["sidebar", "aside.car-list-filter", "aside.bbm-filter", { fit: true }]],
     orig: async (page) => { await page.locator(".car-list-filter-menu__item").filter({ hasText: /^바디타입/ }).first().locator("button").first().click(); },
     ours: async (page) => { await page.locator(".bbm-filter-toggle").filter({ hasText: /^바디타입/ }).first().click(); } },
   { key: "pc-3-fuel-modal", device: "pc", regions: [["modal", "[role=dialog].catalog-filter-modal, .catalog-filter-modal[role=dialog], [role=dialog]", ".bbmf-modal"]], overlay: true,
@@ -123,12 +123,14 @@ async function capture(browser, side, state) {
 }
 
 // 브라우저 캔버스로 픽셀 비교(새 패키지 없이)
-async function compare(page, origShot, oursShot, origBox, oursBox) {
-  return page.evaluate(async ([origShot, oursShot, origBox, oursBox]) => {
+// fit: 두 쪽이 겹치는 왼쪽 위 크기만 비교 — QF-093 에서 폭·위치를 일부러 바꾼 PC 상단 패널·유형 줄·좌측 필터(위치·폭은 배치 수치로 따로 검증, 모양은 3% 기준 그대로)
+async function compare(page, origShot, oursShot, origBox, oursBox, fit = false) {
+  return page.evaluate(async ([origShot, oursShot, origBox, oursBox, fit]) => {
     const load = (b64) => new Promise((resolve) => { const image = new Image(); image.onload = () => resolve(image); image.src = `data:image/png;base64,${b64}`; });
     const [a, b] = await Promise.all([load(origShot), load(oursShot)]);
-    const w = Math.round(Math.max(origBox?.w ?? 0, oursBox?.w ?? 0));
-    const h = Math.round(Math.max(origBox?.h ?? 0, oursBox?.h ?? 0));
+    const pick = fit && origBox && oursBox ? Math.min : Math.max;
+    const w = Math.round(pick(origBox?.w ?? 0, oursBox?.w ?? 0));
+    const h = Math.round(pick(origBox?.h ?? 0, oursBox?.h ?? 0));
     if (!w || !h) return { ratio: 1, image: null, size: [0, 0] };
     const draw = (image, box) => {
       const canvas = document.createElement("canvas"); canvas.width = w; canvas.height = h;
@@ -157,7 +159,7 @@ async function compare(page, origShot, oursShot, origBox, oursBox) {
     }
     octx.putImageData(diffImage, w * 2 + 16, 0);
     return { ratio: differing / (w * h), image: out.toDataURL("image/png").split(",")[1], size: [w, h] };
-  }, [origShot, oursShot, origBox, oursBox]);
+  }, [origShot, oursShot, origBox, oursBox, fit]);
 }
 
 // 글꼴 렌더링 맞춤: 원본(창 스크롤)은 LCD 서브픽셀, 우리(스크롤 레이어)는 회색조로 그려져 글자 가장자리만으로 차이가 난다 → 둘 다 회색조
@@ -169,8 +171,8 @@ for (const state of STATES) {
   if (stateFilter && !stateFilter.split(",").some((part) => state.key.includes(part))) continue;
   const [orig, ours] = await Promise.all([capture(browser, "orig", state), capture(browser, "ours", state)]);
   summary.states[state.key] = { regions: {}, oursErrors: ours.errors, origErrors: orig.errors.slice(0, 3) };
-  for (const [name] of state.regions) {
-    const result = await compare(tool, orig.shot, ours.shot, orig.regions[name], ours.regions[name]);
+  for (const [name, , , options] of state.regions) {
+    const result = await compare(tool, orig.shot, ours.shot, orig.regions[name], ours.regions[name], options?.fit);
     if (result.image) writeFileSync(join(outDir, `${state.key}-${name}.png`), Buffer.from(result.image, "base64"));
     summary.states[state.key].regions[name] = { diff: Math.round(result.ratio * 1000) / 10, size: result.size, orig: orig.regions[name] ? [orig.regions[name].w, orig.regions[name].h].map(Math.round) : null, ours: ours.regions[name] ? [ours.regions[name].w, ours.regions[name].h].map(Math.round) : null };
     console.log(`${state.key.padEnd(18)} ${name.padEnd(12)} ${String(summary.states[state.key].regions[name].diff).padStart(6)}%  원본 ${summary.states[state.key].regions[name].orig} / 우리 ${summary.states[state.key].regions[name].ours}`);
