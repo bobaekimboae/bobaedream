@@ -21,6 +21,8 @@
 @media (min-width: 1024px) and (max-width: 1279px) {
   .marketplace.is-bbm.is-hybrid .bbm-page { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter { display: none; }
+  /* 헤더 좌우 여백도 본문과 같은 24 — 로고 왼쪽 선 = 상단 영역 왼쪽 선(원본 헤더는 좌우 16, 1280 이상은 1200 가운데라 그대로) */
+  .marketplace.is-bbm.is-hybrid .bbm-header-inner { width: min(1200px, calc(100% - 48px)); }
 }
 
 /* 왼쪽 펼침판(1024~1279): 폭 320, 딤 rgba(0,0,0,.5). 확인 창·모달(.bbmf-overlay z 80)이 위에 오도록 79 */

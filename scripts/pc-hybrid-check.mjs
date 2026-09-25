@@ -53,9 +53,11 @@ const railCards = async (page) => {
 
 // 폭별 배치
 for (const width of [1440, 1280, 1279, 1100, 1024, 1023]) {
+  // 로고 왼쪽 선(헤더)과 상단 영역 왼쪽 선
+  const logoX = async (page) => page.evaluate(() => { const logo = document.querySelector(".bbm-logo"); return logo && logo.getClientRects().length ? Math.round(logo.getBoundingClientRect().left) : null; });
   const { context, page, errors } = await open(width);
   const info = await layout(page);
-  summary.widths[width] = { ...info, consoleErrors: errors.length };
+  summary.widths[width] = { ...info, logoX: await logoX(page), consoleErrors: errors.length };
   if (width === 1440 || width === 1280) await page.screenshot({ path: join(outDir, `${width}-first.png`) });
   if (width === 1440 || width === 1280) summary.widths[width].rail = await railCards(page);
   await context.close();
@@ -70,6 +72,7 @@ check("상단 영역과 아래 두 칸 사이 24", w[1440].toolbar && w[1440].to
 check("1280 이상 필터 칩 비활성", w[1440].filterChipDisabled && w[1280].filterChipDisabled, `1440 ${w[1440].filterChipDisabled} · 1280 ${w[1280].filterChipDisabled}`);
 check("1024~1279 좌측 필터 숨김 · 목록 본문 폭 전체 · 필터 칩 활성", [1279, 1100, 1024].every((width) => !w[width].filter && !w[width].filterChipDisabled && w[width].list?.x === w[width].top?.x && w[width].list?.w === w[width].top?.w), [1279, 1100, 1024].map((width) => `${width}: 목록 x${w[width].list?.x} w${w[width].list?.w}`).join(" · "));
 check("1024 · 1100 · 1279 가로 넘침 없음", [1024, 1100, 1279].every((width) => w[width].overflowX === 0), [1024, 1100, 1279].map((width) => `${width}: ${w[width].overflowX}`).join(" · "));
+check("로고 x = 상단 영역 x(1024·1100·1279·1280·1440)", [1024, 1100, 1279, 1280, 1440].every((width) => w[width].logoX !== null && w[width].logoX === w[width].top?.x), [1024, 1100, 1279, 1280, 1440].map((width) => `${width}: 로고 ${w[width].logoX} / 상단 ${w[width].top?.x}`).join(" · "));
 check("1023 이하 모바일 화면", w[1023].mobile && !w[1023].pc, `mobile=${w[1023].mobile}`);
 check("콘솔 오류 0", Object.values(w).every((value) => value.consoleErrors === 0), Object.entries(w).map(([width, value]) => `${width}:${value.consoleErrors}`).join(" "));
 summary.rail = { 1440: w[1440].rail, 1280: w[1280].rail };
