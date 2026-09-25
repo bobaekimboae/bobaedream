@@ -67,8 +67,9 @@ export function BbmResultCard({ car, variant, liked, onToggleLike, onOpen, onCha
   return (
     <article className={`bbm-result-card is-${variant}`} role="link" tabIndex={0} aria-label={`${car.title} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
       <div className="bbm-card-main">
-        <div className="bbm-card-photo">
-          <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(car.image)} alt={`${car.title} ${car.trim}`} draggable={false} />
+        {/* 사진이 없는 매물은 원본처럼 빈 회색 칸(car-list-result-card__image 배경 #EBEBEB) */}
+        <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`}>
+          {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(car.image)} alt={`${car.title} ${car.trim}`} draggable={false} /> : null}
           <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span><span className="bbm-card-count">{car.photos}<img src={bbmIcon("card-photo-count")} alt="" /></span></div>
         </div>
         <div className="bbm-card-content">

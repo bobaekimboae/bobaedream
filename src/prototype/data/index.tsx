@@ -748,13 +748,14 @@ const bbmExtraCars: Car[] = Array.from({ length: 41 }, (_, index) => {
     filter: { ...baseFilter, year, mileage, fuel, body: featured ? "SUV" : pick(bbmSamplePools.body, 6), color: pick(bbmSamplePools.color, 8), seats: pick(bbmSamplePools.seats, 9), transmission: pick(bbmSamplePools.transmission, 10), video: index % 3 === 0 },
   };
 });
-// 크로스체크 보강: RV·화물 선택지도 목록이 걸러지도록 RV 2대(카니발 사진 재사용)·화물 2대(기존 트럭 아이콘을 썸네일로) 추가. 새 이미지 없음
+// 크로스체크 보강: RV·화물 선택지도 목록이 걸러지도록 RV 2대(기존 카니발 사진 재사용)·화물 2대 추가. 새 이미지 없음
+// QF-092: 화물 2대는 사진 없이 원본 카드의 빈 사진 자리(#EBEBEB 회색 칸)로 보인다(image "")
 // id 는 기존 매물보다 작게 — 최신순(id 큰 순) 목록 맨 뒤에 둬서 첫 화면 카드는 그대로
 const bbmBodyExtraCars: Car[] = [
   { base: 1002, id: 901, title: "기아 카니발 4세대", trim: "9인승 노블레스", body: "RV", year: 2021, mileage: 62000, price: 3290, fuel: "디젤", seats: "9인승", place: "경기 수원시", sellerType: "딜러" as const },
   { base: 1002, id: 902, title: "기아 카니발 하이리무진", trim: "7인승 시그니처", body: "RV", year: 2023, mileage: 21000, price: 4890, fuel: "가솔린", seats: "7인승 이상", place: "서울 송파구", sellerType: "개인" as const },
-  { base: 1001, id: 903, title: "현대 포터2", trim: "초장축 슈퍼캡 CRDi", body: "화물", year: 2020, mileage: 118000, price: 1480, fuel: "디젤", seats: "3인승", place: "인천 남동구", sellerType: "딜러" as const, image: "categories/truck.svg" },
-  { base: 1001, id: 904, title: "기아 봉고3", trim: "1톤 킹캡 초장축", body: "화물", year: 2019, mileage: 142000, price: 1290, fuel: "디젤", seats: "3인승", place: "대구 달서구", sellerType: "개인" as const, image: "categories/truck.svg" },
+  { base: 1001, id: 903, title: "현대 포터2", trim: "초장축 슈퍼캡 CRDi", body: "화물", year: 2020, mileage: 118000, price: 1480, fuel: "디젤", seats: "3인승", place: "인천 남동구", sellerType: "딜러" as const, image: "" },
+  { base: 1001, id: 904, title: "기아 봉고3", trim: "1톤 킹캡 초장축", body: "화물", year: 2019, mileage: 142000, price: 1290, fuel: "디젤", seats: "3인승", place: "대구 달서구", sellerType: "개인" as const, image: "" },
 ].map((seed) => {
   const base = chototTestCars.find((car) => car.id === seed.base) ?? chototTestCars[0];
   return {
@@ -764,7 +765,7 @@ const bbmBodyExtraCars: Car[] = [
     title: seed.title,
     trim: seed.trim,
     image: seed.image ?? base.image,
-    imageFit: seed.image ? "contain" : base.imageFit,
+    imageFit: base.imageFit,
     sellerType: seed.sellerType,
     dealer: seed.sellerType === "개인" ? "개인판매자" : base.dealer,
     stock: seed.sellerType === "개인" ? 1 : 4,

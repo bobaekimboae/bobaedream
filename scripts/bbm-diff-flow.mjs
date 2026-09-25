@@ -13,6 +13,8 @@ const ORIGIN = "https://dev.bbmuseum.co.kr/car/list";
 // 우리 화면 주소: 기본은 로컬 미리보기, BBM_OURS=https://bobaekimboae.github.io/bobaedream/ 로 배포본 대조
 const OURS = process.env.BBM_OURS ?? "http://127.0.0.1:4173/bobaedream/";
 const only = (process.argv.find((arg) => arg.startsWith("--only=")) ?? "").slice(7);
+// --scenario=2,3: 그 순번의 시나리오만(0부터, 반복 대조용)
+const pick = ((process.argv.find((arg) => arg.startsWith("--scenario=")) ?? "").slice(11)).split(",").filter(Boolean).map(Number);
 const commit = (() => { try { const hash = execSync("git rev-parse --short HEAD").toString().trim(); const dirty = execSync("git status --porcelain").toString().trim(); return dirty ? `${hash}-dirty` : hash; } catch { return "local"; } })();
 const outDir = join("reports", "diff", commit, "flow");
 mkdirSync(outDir, { recursive: true });
@@ -29,6 +31,9 @@ const R = {
     head: { orig: (p) => p.locator("aside .car-list-filter-summary").first(), ours: (p) => p.locator(".bbm-filter-summary").first() },
     toolbar: { orig: (p) => p.locator(".car-list-content-toolbar").first(), ours: (p) => p.locator(".bbm-toolbar").first() },
     modal: { orig: (p) => p.locator("[role=dialog]:visible").last(), ours: (p) => p.locator(".bbmf-modal").last() },
+    // QF-092 목록 영역
+    pagination: { orig: (p) => p.locator(".car-list-pagination").first(), ours: (p) => p.locator(".car-list-pagination").first() },
+    sortmenu: { orig: (p) => p.locator(".car-list-toolbar-menu:visible").first(), ours: (p) => p.locator(".car-list-toolbar-menu").first() },
     // 항목 제목: 항목 위쪽 머리 부분만(원본 항목 전체를 잡고 아래는 잘라 낸다 — cropHeight)
     title: (label) => ({ orig: (p) => p.locator(".car-list-filter-menu__item").filter({ hasText: new RegExp(`^${label}`) }).first(), ours: (p) => p.locator(".bbm-filter-item").filter({ has: p.locator(".bbm-filter-toggle", { hasText: new RegExp(`^${label}`) }) }).first() }),
   },
@@ -37,11 +42,14 @@ const R = {
     toolbar: { orig: (p) => p.locator(".car-list-content-toolbar").first(), ours: (p) => p.locator(".bbm-m-toolbar").first() },
     sheet: { orig: (p) => p.locator(".catalog-filter-modal:visible").last(), ours: (p) => p.locator(".bbmf-sheet").last() },
     full: { orig: (p) => p.locator(".car-list-filter--mobile-open").first(), ours: (p) => p.locator(".bbmf-full").first() },
+    pagination: { orig: (p) => p.locator(".car-list-pagination").first(), ours: (p) => p.locator(".car-list-pagination").first() },
   },
 };
 
 // ── 조작(원본 · 우리). 모바일 우리 화면은 터치(tap)로 누른다
 const tapOrClick = async (locator, mobile) => (mobile ? locator.tap() : locator.click());
+// 보이는 것 중 글자가 같은 요소를 DOM click(원본은 모바일에서도 tap 대신 이것이 안정적)
+const visClick = (p, sel, text) => p.evaluate(([sel, text]) => [...document.querySelectorAll(sel)].find((e) => e.getBoundingClientRect().width > 0 && (!text || e.textContent.trim() === text))?.click(), [sel, text]);
 const A = {
   orig: {
     openItem: (p, label) => p.locator(".car-list-filter-menu__item").filter({ hasText: new RegExp(`^${label}`) }).first().locator("button").first().click(),
@@ -60,6 +68,16 @@ const A = {
     mOpenFull: (p) => p.locator(".car-list-mobile-filter__button--filter button").first().click(),
     mFullItem: (p, label) => p.locator(".car-list-filter--mobile-open .car-list-filter-menu__label").filter({ hasText: new RegExp(`^${label}$`) }).first().click(),
     mFullConfirm: (p) => p.locator(".car-list-filter--mobile-open button").filter({ hasText: /보기/ }).last().click(),
+    // QF-092: 원본은 743쪽이라 번호가 10개 → 우리(64대 4쪽)와 같은 개수만 남긴다(비교용)
+    normalizePages: (p) => p.addStyleTag({ content: ".ui-pagination__page-item:nth-child(n+5){display:none!important}" }),
+    sortOpenPc: (p) => visClick(p, ".car-list-content-toolbar__sort"),
+    sortOpenM: (p) => visClick(p, ".car-list-content-toolbar__sort"),
+    sortPick: (p, text) => visClick(p, ".car-list-toolbar-menu__item, .car-list-toolbar-pop-modal__options button", text),
+    pageGo: (p, n) => visClick(p, ".ui-pagination__page", String(n)),
+    // 보이는 시트 안에서 글자가 이것으로 시작하는 가장 작은 선택지(체크 행)를 누른다
+    // 목록 툴바(판매자 탭 "딜러")를 뺀, 보이는 창 안의 글자 그대로인 선택지
+    sheetPickExact: (p, text) => p.evaluate((text) => { const leaf = [...document.querySelectorAll("*")].find((e) => e.children.length === 0 && e.textContent.trim() === text && e.getBoundingClientRect().height > 0 && !e.closest(".car-list-content-toolbar")); (leaf?.closest("button, label, [role=button], [role=checkbox]") ?? leaf)?.click(); }, text),
+    sheetOption: (p, text) => p.evaluate((text) => { const sheet = [...document.querySelectorAll(".catalog-filter-modal")].filter((e) => e.getBoundingClientRect().height > 0).pop(); const hit = [...(sheet?.querySelectorAll("label, button, [role=checkbox]") ?? [])].filter((e) => e.getBoundingClientRect().height > 0 && e.textContent.trim().startsWith(text)).sort((a, b) => a.textContent.length - b.textContent.length)[0]; hit?.click(); }, text),
   },
   ours: {
     openItem: (p, label) => p.locator(".bbm-filter-toggle").filter({ hasText: new RegExp(`^${label}`) }).first().click(),
@@ -78,6 +96,13 @@ const A = {
     mOpenFull: (p) => p.locator(".filter-fixed").first().tap(),
     mFullItem: (p, label) => p.locator(".bbmf-full-item").filter({ hasText: new RegExp(`^${label}`) }).first().tap(),
     mFullConfirm: (p) => p.locator(".bbmf-full .bbmf-confirm").last().tap(),
+    normalizePages: async () => {},
+    sortOpenPc: (p) => p.locator(".bbm-sort").first().click(),
+    sortOpenM: (p) => p.locator(".bbm-m-sort").first().tap(),
+    sortPick: async (p, text) => { const item = p.locator(".car-list-toolbar-menu__item, .car-list-toolbar-pop-modal__options button").filter({ hasText: new RegExp(`^${text}$`) }).first(); if (await p.locator(".is-bbm-m").count()) await item.tap(); else await item.click(); },
+    sheetPickExact: (p, text) => p.locator(".bbmf-sheet").last().locator(".bbmf-check, .bbmf-presets button, .bbmf-choices button").filter({ hasText: new RegExp(`^${text}`) }).first().tap(),
+    sheetOption: (p, text) => p.locator(".bbmf-sheet").last().locator(".bbmf-check, .bbmf-choices button").filter({ hasText: new RegExp(`^${text}`) }).first().tap(),
+    pageGo: async (p, n) => { const button = p.locator(".ui-pagination__page").filter({ hasText: new RegExp(`^${n}$`) }).first(); if (await p.locator(".is-bbm-m").count()) await button.tap(); else await button.click(); },
   },
 };
 
@@ -109,6 +134,19 @@ const SCENARIOS = [
     { key: "m-3f-fuel-chips", label: "③+ 전체 필터 N대 보기", run: async (a, p) => { await a.mFullConfirm(p); }, regions: ["chips"] },
     { key: "m-4-maker-sheet", label: "④ 제조사 칩 시트", run: async (a, p) => { await a.mChip(p, "제조사"); }, regions: ["sheet"] },
   ] },
+  // QF-092: 정렬 → 가격 낮은순, 2페이지 이동, 필터를 건 뒤 1페이지 복귀(새 화면에서 시작)
+  { device: "pc", steps: [
+    { key: "pc-7a-sort-menu", label: "⑦ 정렬 드롭다운 열기", run: async (a, p) => { await a.normalizePages(p); await a.sortOpenPc(p); }, regions: ["sortmenu"] },
+    { key: "pc-7b-sort-low", label: "⑦ 가격 낮은순", run: async (a, p) => { await a.sortPick(p, "가격 낮은순"); }, regions: ["toolbar", "chips"] },
+    { key: "pc-8-page2", label: "⑧ 2페이지로", run: async (a, p) => { await a.pageGo(p, 2); }, regions: ["pagination", "toolbar"] },
+    { key: "pc-9-filter-page1", label: "⑨ 바디타입 SUV 체크 → 1페이지", run: async (a, p) => { await a.openItem(p, "바디타입"); await p.waitForTimeout(500); await a.checkInSidebar(p, "바디타입", "SUV"); }, regions: ["pagination", "chips"] },
+  ] },
+  { device: "m", steps: [
+    { key: "m-5a-sort-sheet", label: "⑤ 정렬 시트 열기", run: async (a, p) => { await a.sortOpenM(p); }, regions: ["sheet"] },
+    { key: "m-5b-sort-low", label: "⑤ 가격 낮은순", run: async (a, p) => { await a.sortPick(p, "가격 낮은순"); }, regions: ["toolbar"] },
+    { key: "m-6-page2", label: "⑥ 2페이지로", run: async (a, p) => { await a.pageGo(p, 2); }, regions: ["pagination", "chips"] },
+    { key: "m-7-filter-page1", label: "⑦ 필터 → 판매자 구분 → 딜러 → N대 보기 → 전체 N대 보기 → 1페이지(우리 딜러 48대 = 3쪽이라 원본처럼 번호 3개)", run: async (a, p) => { await a.mOpenFull(p); await p.waitForTimeout(900); await a.mFullItem(p, "판매자 구분"); await p.waitForTimeout(800); await a.sheetPickExact(p, "딜러"); await p.waitForTimeout(500); await a.mSheetConfirm(p); await p.waitForTimeout(900); await a.mFullConfirm(p); }, regions: ["pagination", "chips"] },
+  ] },
 ];
 
 // ── 동작 상태 읽기(점검표용)
@@ -131,7 +169,7 @@ async function readState(page, side, device) {
       const badge = device === "pc" ? text(document.querySelector("aside .car-list-filter-summary__selected-count")) : (filterChip.match(/\d+/)?.[0] ?? "");
       const blue = [...document.querySelectorAll("aside .car-list-filter-menu__label")].filter((e) => getComputedStyle(e).color === "rgb(27, 76, 140)").map(text);
       const history = text(document.querySelector(device === "pc" ? "aside .car-list-filter-summary__history" : ".car-list-filter-summary__history")).replace(/[^\d]/g, "");
-      return { count, applied, plain, badge, blue, history, button: confirmText("[role=dialog], .catalog-filter-modal") };
+      return { count, applied, plain, badge, blue, history, button: confirmText("[role=dialog], .catalog-filter-modal"), page: text(document.querySelector(".ui-pagination__page.is-active")) || "-", sort: text([...document.querySelectorAll(".car-list-content-toolbar__sort")].find(visible)) || "-" };
     }
     const chipEls = [...document.querySelectorAll(device === "pc" ? ".bbm-chips .filter-chip" : ".filter-track .filter-chip")];
     const applied = chipEls.filter((e) => /is-active/.test(e.className) && !/전체차량/.test(text(e))).map(text);
@@ -140,7 +178,7 @@ async function readState(page, side, device) {
     const badge = device === "pc" ? text(document.querySelector(".bbm-filter-count")) : text(document.querySelector(".filter-fixed-count"));
     const blue = [...document.querySelectorAll(".bbm-filter-item.is-applied .bbm-filter-label-text")].map(text);
     const history = device === "pc" ? text(document.querySelector(".bbm-filter-history")).replace(/[^\d]/g, "") : (document.querySelector(".filter-shell.is-bbm")?.getAttribute("data-history") ?? "");
-    return { count, applied, plain, badge, blue, history, button: confirmText(".bbmf-full, .bbmf-modal, .bbmf-sheet") };
+    return { count, applied, plain, badge, blue, history, button: confirmText(".bbmf-full, .bbmf-modal, .bbmf-sheet"), page: text(document.querySelector(".ui-pagination__page.is-active")) || "-", sort: text([...document.querySelectorAll(".bbm-sort, .bbm-m-sort")].find(visible)) || "-" };
   }, [side, device]);
 }
 
@@ -218,6 +256,7 @@ const summary = { commit, measuredAt: new Date().toISOString(), steps: [] };
 const checkRows = [];
 for (const scenario of SCENARIOS) {
   if (only && scenario.device !== only) continue;
+  if (pick.length && !pick.includes(SCENARIOS.indexOf(scenario))) continue;
   const sides = {};
   for (const side of ["orig", "ours"]) {
     const context = await browser.newContext(devices[scenario.device]);
@@ -257,6 +296,8 @@ for (const scenario of SCENARIOS) {
       "파랑 제목": scenario.device === "pc" ? [now.orig.blue.join(","), now.ours.blue.join(",")] : null,
       "최근검색기록": [now.orig.history || "-", now.ours.history || "-"],
       "창 버튼 문구": [now.orig.button, now.ours.button],
+      "현재 페이지": [now.orig.page, now.ours.page],
+      "정렬 이름": [now.orig.sort, now.ours.sort],
     };
     row.checks = Object.fromEntries(Object.entries(checks).filter(([, v]) => v).map(([k, [o, u]]) => [k, { orig: o, ours: u, same: String(o) === String(u) }]));
     sides.orig.prev = now.orig; sides.ours.prev = now.ours;

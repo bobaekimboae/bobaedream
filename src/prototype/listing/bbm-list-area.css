@@ -1,0 +1,150 @@
+/* QF-092: 개발 시안 원본(dev.bbmuseum.co.kr/car/list) 목록 영역 규칙 — 페이지 이동(ui-pagination) · 푸터(app-footer) · 정렬/보기 방식 메뉴(car-list-toolbar-menu) · 모바일 정렬/보기 시트(car-list-toolbar-pop-modal) · 버튼(ui-btn).
+   원본 스타일시트에서 해당 클래스 규칙만 뽑아 CSS 변수를 실제 값으로 풀어 옮김(2026-09-25 수집). 원본은 보배드림 자체 개발물이라 값·문구·아이콘을 그대로 쓴다.
+   과쯔(개발 시안형) 화면에서만 이 클래스를 쓴다. 원본과 다르게 맞춘 부분은 파일 끝 "우리 쪽 연결"에만 둔다. */
+.app-shell__footer { background: #fff; border-top: 1px solid #e0e0e0; flex-shrink: 0; height: 382px; width: 100%; }
+.app-footer { display: flex; gap: 8px; height: 100%; width: 100%; }
+.app-footer-mobile { display: none; }
+.app-footer__inner { box-sizing: border-box; display: flex; flex-direction: column; gap: 24px; height: 382px; margin: 0px auto; max-width: 1200px; padding: 48px 16px; width: 100%; }
+.app-footer-top { border-bottom: 1px solid #e0e0e0; box-sizing: border-box; display: flex; gap: 8px; height: 164px; padding-bottom: 24px; width: 1168px; }
+.app-footer-top__left { flex: 1 1 0%; }
+.app-footer-top__right { display: flex; flex-direction: column; gap: 8px; height: 105px; width: 200px; }
+.app-footer-cs-phone, .app-footer-cs-title { margin: 0px; }
+.app-footer-cs-title { font-size: 14px; }
+.app-footer-cs-phone, .app-footer-cs-title { color: #1a1a1a; font-family: Pretendard, sans-serif; font-style: normal; font-weight: 600; letter-spacing: 0px; line-height: 140%; margin: 0px; }
+.app-footer-cs-phone { font-size: 18px; }
+.app-footer-cs-hours { display: flex; flex-direction: column; gap: 4px; height: 44px; width: 145px; }
+.app-footer-cs-hours p { align-items: center; color: #767676; display: flex; font-weight: 400; gap: 8px; justify-content: space-between; }
+.app-footer-biz-title, .app-footer-cs-hours p { font-family: Pretendard, sans-serif; font-size: 14px; font-style: normal; letter-spacing: 0px; line-height: 140%; margin: 0px; }
+.app-footer-biz-title { color: #1a1a1a; font-weight: 600; }
+.app-footer-biz-line { align-items: center; display: flex; gap: 8px; margin-top: 8px; }
+.app-footer-biz-text { color: #767676; font-family: Pretendard, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: 0px; line-height: 140%; }
+.app-footer-biz-divider { display: block; flex-shrink: 0; height: 8px; width: 1px; }
+.app-footer-biz-check { align-items: center; background: #fff; border: 1px solid #e0e0e0; border-radius: 4px; box-sizing: border-box; display: inline-flex; gap: 8px; height: 28px; justify-content: center; padding: 4px 8px; white-space: nowrap; width: 105px; }
+.app-footer-biz-check, .app-footer-biz-mail { color: #767676; font-family: Pretendard, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: 0px; line-height: 140%; }
+.app-footer-biz-mail { text-decoration: underline; }
+.app-footer-biz-copyright { color: #767676; font-family: Pretendard, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: 0px; line-height: 140%; margin: 8px 0px 0px; }
+.app-footer-bottom { align-items: center; display: flex; gap: 16px; height: 98px; justify-content: space-between; width: 1168px; }
+.app-footer-bottom__left { display: flex; flex: 1 1 0%; flex-direction: column; gap: 8px; height: 54px; justify-content: space-between; min-width: 0px; }
+.app-footer-links { align-items: center; display: flex; gap: 24px; }
+.app-footer-link { color: #333; font-family: Pretendard, sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 0px; line-height: 140%; text-decoration: none; }
+.app-footer-link--primary { color: #1b4c8c; font-weight: 600; }
+.app-footer-link--strong { color: #1a1a1a; font-weight: 600; }
+.app-footer-bottom__right { align-items: flex-end; display: inline-flex; flex-direction: column; gap: 8px; height: 98px; justify-content: flex-start; width: auto; }
+.app-footer-theme-toggle { align-items: center; background: #fff; border: 1px solid #ebebeb; border-radius: 100px; box-sizing: border-box; display: inline-flex; padding: 4px; }
+.app-footer-theme-toggle__button { align-items: center; background: transparent; border: 0px; border-radius: 100px; cursor: pointer; display: flex; gap: 10px; height: 26px; justify-content: center; padding: 0px; width: 26px; }
+.app-footer-theme-toggle__button.is-active { background: #ebebeb; }
+.app-footer-theme-toggle__icon { display: block; height: 12px; width: 12px; }
+.app-footer-theme-toggle__button.is-active .app-footer-theme-toggle__icon { filter: brightness(0) saturate(100%) invert(12%) sepia(0) saturate(27%) hue-rotate(210deg) brightness(93%) contrast(95%); }
+.app-footer-sns { align-items: center; display: flex; gap: 16px; height: 22px; }
+.app-footer-sns__link { align-items: center; display: inline-flex; justify-content: center; }
+.app-footer-sns__icon { display: block; height: 24px; width: 24px; }
+.app-footer-app-install { align-items: center; display: inline-flex; gap: 10px; }
+.app-footer-app-title { color: #616161; font-family: Pretendard, sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0px; line-height: 140%; white-space: nowrap; }
+.app-footer-app-divider { display: block; flex-shrink: 0; height: 24px; width: 1px; }
+.app-footer-store { align-items: center; display: inline-flex; gap: 16px; }
+.app-footer-store__link { align-items: center; display: inline-flex; justify-content: center; }
+.app-footer-store__icon { display: block; height: 24px; width: 24px; }
+@media (max-width: 1320px) { .app-footer__inner { box-sizing: border-box; padding-left: 16px; padding-right: 16px; width: 100%; } }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-shell__footer { background: #f4f4f4; border-top: 0px; height: auto; margin: 0px auto; padding-bottom: 0px; width: 100%; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer { display: block; gap: 0px; height: auto; padding: 0px; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer__inner { display: none; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-top { height: auto; padding-bottom: 16px; width: 100%; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-biz-line { flex-wrap: wrap; row-gap: 6px; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile { background: transparent; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; height: auto; padding: 32px 16px; width: 100%; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__contacts { display: flex; gap: 32px; height: 42px; width: 100%; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__contact-item { display: flex; flex-direction: column; gap: 2px; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__contact-label { color: #767676; font-size: 14px; font-weight: 600; line-height: 140%; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__contact-value { color: #1a1a1a; font-size: 16px; font-weight: 600; line-height: 140%; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__quick-links { align-items: center; background: #f4f4f4; border-radius: 10px; box-sizing: border-box; display: flex; height: 44px; justify-content: space-between; padding: 12px 20px; width: 100%; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__quick-link { align-items: center; appearance: none; background: transparent; border: 0px; color: #333; cursor: pointer; display: inline-flex; font-family: inherit; font-size: 14px; font-weight: 400; justify-content: center; line-height: 140%; padding: 0px; text-decoration: none; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__quick-link:disabled { cursor: default; opacity: 0.5; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__biz { border-bottom: 1px solid #e0e0e0; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; height: 44px; padding-bottom: 12px; padding-top: 12px; width: 100%; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__biz[open] { height: auto; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__biz-summary { align-items: center; box-sizing: border-box; cursor: pointer; display: inline-flex; gap: 8px; height: 20px; justify-content: flex-start; list-style: none; padding-right: 0px; position: relative; width: 100%; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__biz-summary::-webkit-details-marker { display: none; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__biz-summary-text { color: #1a1a1a; font-family: Pretendard, sans-serif; font-size: 14px; font-style: normal; font-weight: 600; letter-spacing: 0px; line-height: 140%; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__biz-chevron { display: block; height: 18px; position: static; transform: none; transition: transform 0.2s; width: 18px; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__biz[open] .app-footer-mobile__biz-chevron { transform: rotate(180deg); }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__biz-content { color: #767676; display: flex; flex-direction: column; font-family: Pretendard, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; gap: 2px; letter-spacing: 0px; line-height: 140%; margin-top: 8px; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__biz-content p { margin: 0px; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__biz-email { text-decoration: underline 0px; text-underline-offset: 0px; text-decoration-skip-ink: auto; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__links { align-items: center; display: flex; flex-wrap: nowrap; gap: 8px; justify-content: space-between; width: 100%; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__link { color: #767676; font-size: 14px; font-weight: 400; line-height: 140%; text-decoration: none; white-space: nowrap; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__link--primary { color: #1b4c8c; font-weight: 600; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__sns { align-items: center; display: flex; gap: 16px; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__sns-link { align-items: center; display: inline-flex; justify-content: center; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__sns-icon { display: block; height: 24px; width: 24px; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .app-footer-mobile__theme { display: flex; justify-content: flex-start; }
+.ui-btn { align-items: center; border: 1px solid transparent; border-radius: 8px; cursor: pointer; display: inline-flex; font-family: Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif,sans-serif; font-style: normal; font-weight: 600; gap: 8px; justify-content: center; letter-spacing: 0; line-height: 140%; min-width: 0px; text-align: center; text-decoration: none; transition: background-color 0.2s, border-color 0.2s, color 0.2s, opacity 0.2s; white-space: nowrap; }
+.ui-btn:disabled { cursor: not-allowed; }
+.ui-btn--md { font-size: 14px; min-height: 40px; min-width: 76px; padding: 0px 14px; }
+.ui-btn--lg { min-height: 44px; }
+.ui-btn--lg { font-size: 16px; min-width: 88px; padding: 0px 14px; }
+.ui-btn--full { width: 100%; }
+.ui-btn--align-left { justify-content: flex-start; text-align: left; }
+.ui-btn--align-center { justify-content: center; text-align: center; }
+.ui-btn--align-left .ui-btn__label { width: 100%; }
+.ui-btn--align-left .ui-btn__label { justify-content: flex-start; }
+.ui-btn--outline { background: #f4f4f4; border-color: transparent; color: #505050; }
+.ui-btn--outline:hover:not(:disabled):not(.is-loading) { background: #fafafa; border-color: transparent; }
+.ui-btn--outline.is-selected:not(:disabled):not(.is-loading) { background: #1b4c8c; border-color: #1b4c8c; color: #fff; }
+.ui-btn--outline.is-selected:hover:not(:disabled):not(.is-loading) { background: #406da8; border-color: #406da8; color: #fff; }
+.ui-btn--outline.is-selected:disabled, .ui-btn--outline:disabled { background: #f4f4f4; border-color: #ebebeb; color: #767676; }
+.ui-btn--ghost { background: transparent; border-color: transparent; color: #1b4c8c; }
+.ui-btn--ghost:hover:not(:disabled):not(.is-loading) { background: #f2f7fc; border-color: transparent; color: #406da8; }
+.ui-btn--ghost:disabled { background: transparent; border-color: transparent; color: #95b4db; }
+.ui-btn__label { align-items: center; display: inline-flex; justify-content: center; line-height: 1; min-height: 1em; overflow: hidden; text-overflow: ellipsis; }
+/* 원본 @media (max-width: 767px) */ .is-bbm-m .ui-btn--mobile-sm { font-size: 13px; min-height: 36px; min-width: 76px; padding: 0px 12px; }
+/* 원본 @media (max-width: 767px) */ .is-bbm-m .ui-btn--mobile-md { font-size: 14px; min-height: 40px; min-width: 76px; padding: 0px 14px; }
+/* 원본 @media (max-width: 767px) */ .is-bbm-m .ui-btn--mobile-lg { min-height: 44px; }
+/* 원본 @media (max-width: 767px) */ .is-bbm-m .ui-btn--mobile-form, .is-bbm-m .ui-btn--mobile-lg { font-size: 16px; min-width: 88px; padding: 0px 14px; }
+/* 원본 @media (max-width: 767px) */ .is-bbm-m .ui-btn--mobile-form { min-height: 54px; }
+/* 원본 @media (max-width: 767px) */ .is-bbm-m .ui-btn--mobile-xl { font-size: 16px; min-height: 48px; min-width: 88px; padding: 0px 16px; }
+.ui-pagination, .ui-pagination__pages { align-items: center; display: inline-flex; gap: 8px; min-width: 0px; }
+.ui-pagination__pages { list-style: none; margin: 0px; padding: 0px; }
+.ui-pagination__page-item { display: flex; }
+.ui-pagination__control, .ui-pagination__page { align-items: center; background: rgb(255, 255, 255); border: 2px solid rgb(232, 232, 232); border-radius: 100px; box-sizing: border-box; cursor: pointer; display: inline-flex; flex: 0 0 36px; height: 36px; justify-content: center; padding: 10px; width: 36px; }
+.ui-pagination__page { color: #3a3a3a; font-family: Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif,sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0; line-height: 140%; transition: background-color 0.2s, color 0.2s; }
+.ui-pagination__control:hover:not(:disabled), .ui-pagination__page:hover:not(:disabled):not(.is-active) { background: #f5f5f6; }
+.ui-pagination__page.is-active { background: #1a1a1a; border: 0px; color: #fff; }
+.ui-pagination__control:disabled, .ui-pagination__page:disabled { cursor: not-allowed; }
+.ui-pagination__control:disabled { opacity: 0.45; }
+.ui-pagination__icon { display: block; flex: 0 0 18px; height: 18px; width: 18px; }
+.ui-pagination__icon--left { transform: rotate(180deg); }
+.car-list-toolbar-menu { background: #fff; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 9px; box-sizing: border-box; min-width: 156px; padding: 8px; position: absolute; right: 0px; top: calc(100% + 8px); z-index: 6; }
+.car-list-toolbar-menu__grid { display: grid; gap: 12px; padding: 12px 8px; }
+.car-list-toolbar-menu__item.ui-btn { color: #505050; font-family: Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif,sans-serif; font-size: 14px; font-weight: 400; justify-content: flex-start; letter-spacing: 0; line-height: 140%; min-height: 24px; padding: 0px; width: 100%; }
+.car-list-toolbar-menu__item.is-selected, .car-list-toolbar-menu__item.ui-btn:hover:not(:disabled):not(.is-loading) { background: transparent; color: #1a1a1a; }
+.car-list-toolbar-pop-modal__body { padding: 16px 16px 34px; }
+.car-list-toolbar-pop-modal__options { gap: 10px; }
+.car-list-toolbar-pop-modal__options { display: flex; flex-direction: column; width: 100%; }
+.car-list-pagination { display: flex; justify-content: center; width: 100%; }
+/* 원본 @media (min-width: 769px) */ .marketplace.is-bbm .car-list-pagination { background: #fff; border-radius: 0px 0px 14px 14px; box-sizing: border-box; padding: 24px 20px 32px; }
+.car-list-toolbar-menu__item.ui-btn:hover:not(:disabled):not(.is-loading), .car-list-toolbar-menu__item.is-selected { color: #1a1a1a; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .car-list-pagination { background: #fff; box-sizing: border-box; justify-content: center; overflow-x: hidden; padding: 8px 16px; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .car-list-pagination .ui-pagination, .is-bbm-m .car-list-pagination .ui-pagination__pages { gap: 4px; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .car-list-pagination .ui-pagination__control, .is-bbm-m .car-list-pagination .ui-pagination__page { flex-basis: 32px; height: 32px; padding: 8px; width: 32px; }
+/* 원본 @media (max-width: 768px) */ .is-bbm-m .car-list-pagination .ui-pagination__icon { flex-basis: 16px; height: 16px; width: 16px; }
+
+/* ── 우리 쪽 연결(원본 구조와 다른 우리 DOM에 맞추는 부분) */
+/* PC 툴바 메뉴 기준점(원본 car-list-content-toolbar__menu-wrap) */
+.bbm-menu-wrap { position: relative; display: inline-flex; align-items: center; }
+/* PC: 목록 상자 아래 62px 뒤 푸터(원본 app-shell__content-inner 아래 여백 62), 푸터는 화면 폭 전체 */
+.marketplace.is-bbm:has(> .app-shell__footer) { padding-bottom: 0; }
+.marketplace.is-bbm > .app-shell__footer { margin-top: 62px; }
+/* 모바일: 페이지 이동은 목록 좌우 여백 밖까지(원본 폭 393), 목록과 푸터 사이 회색 24(원본 main 아래 여백), 푸터 아래는 하단 탭바 74 */
+.bbm-m-list > .car-list-pagination { margin: 0 -16px; width: auto; }
+.marketplace.is-bbm-m:has(> .app-shell__footer) { padding-bottom: 0; }
+.marketplace.is-bbm-m > .app-shell__footer { margin-top: 24px; padding-bottom: 74px; box-shadow: 0 -24px 0 #f4f4f4; }
+/* 모바일 칩 줄 고정(원본 car-list-content-header: sticky · top 0 · z 29). 스크롤 상자(.mobile-scroll) 안에서 붙는다 */
+.marketplace.is-bbm-m > .filter-shell.is-bbm { position: sticky; top: 0; z-index: 29; background: #fff; }
+/* 런타임 기본 p 줄높이(1.45)를 원본처럼 부모 값으로(원본 푸터 문단은 부모 140% 상속) */
+.app-footer-mobile__biz-content p { color: inherit; font-size: inherit; line-height: inherit; }
+/* 모바일 정렬·보기 시트: 원본 실측 본문 여백 위 8 · 좌우 20 · 아래 20(시트 머리 아래 첫 버튼 64) */
+.bbmf-sheet .car-list-toolbar-pop-modal__body { padding: 8px 20px 20px; }
+.bbm-card-photo.is-empty { background: #ebebeb; }
+/* 모바일 칩 줄이 밀려 있을 때 "필터" 칩(원본 car-list-mobile-filter__button--filter.is-scrolled): 글자 숨김·안쪽 4/8, 오른쪽 8px 뒤 1px #E8E8E8 구분선. 적용 개수가 있으면 개수는 그대로 */
+.filter-shell.is-bbm.is-scrolled .filter-fixed { position: relative; margin-right: 9px; overflow: visible; }
+.filter-shell.is-bbm.is-scrolled .filter-fixed::after { content: ""; position: absolute; top: 0; right: -9px; width: 1px; height: 100%; background: #e8e8e8; }
+.filter-shell.is-bbm.is-scrolled .filter-fixed:not(.is-applied) { padding: 4px 8px; }
+.filter-shell.is-bbm.is-scrolled .filter-fixed:not(.is-applied) > span { display: none; }

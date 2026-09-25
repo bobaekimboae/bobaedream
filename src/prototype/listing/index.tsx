@@ -69,6 +69,7 @@ import { BbmActionBar, BbmFullExcludeAction, BbmFullFilter, BbmFullItem, BbmModa
 import { bbmSidebarItems, type BbmFilterItem } from "../filters/bbm-filter-options";
 import { BbmExpandPanel, BbmModalPanel, clearBbmItem } from "../filters/bbm-filter-panels";
 import { BbmBottomGnb, BbmCategoryMenu, BbmMakerList, BbmMobileOptions, BbmModelList, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
+import { BBM_PAGE_SIZE, BbmFooter, BbmPagination, BbmPopOptions, BbmToolbarMenu, bbmSortOptions, bbmViewOptionsMobile, bbmViewOptionsPc, sortBbmCars, type BbmSort } from "./bbm-list-area";
 
 // QF-091: 적용 사이트 선택(시안 전환 도구)은 &debug=1 일 때만
 const debugMode = new URLSearchParams(window.location.search).get("debug") === "1";
@@ -414,6 +415,12 @@ function MarketplaceScreen() {
   const [bbmFrozen, setBbmFrozen] = useState<{ cars: typeof chototTestCars; history: number } | null>(null);
   const [bbmFullDraft, setBbmFullDraft] = useState<BbmFilterValues | null>(null);
   const [pcGridView, setPcGridView] = useState(false);
+  // QF-092: 과쯔 목록 영역 — 정렬(원본 10개) · 페이지(한 페이지 20대) · 열린 메뉴(PC 드롭다운 sort·view, 모바일 시트 m-sort·m-view)
+  const [bbmSort, setBbmSort] = useState<BbmSort>("업데이트순");
+  const [bbmPage, setBbmPage] = useState(1);
+  const [bbmMenu, setBbmMenu] = useState<"sort" | "view" | "m-sort" | "m-view" | null>(null);
+  // 모바일 칩 줄이 가로로 밀려 있으면 "필터" 칩을 아이콘만 + 오른쪽 구분선(원본 is-scrolled)
+  const [bbmRailScrolled, setBbmRailScrolled] = useState(false);
   const pcFilterRowRef = useRef<HTMLDivElement>(null);
   const [pcFilterCanScroll, setPcFilterCanScroll] = useState(false);
 
@@ -520,7 +527,7 @@ function MarketplaceScreen() {
   const bbmCountOf = (key: BbmCheckKey, option: string) => isBbmDataOption(key, option)
     ? baseListCars.filter((car) => matchesBbmFilters(car, filters.bbm, key) && bbmCarChecks(car)[key]?.includes(option)).length
     : null;
-  const visibleCars = useMemo(() => [...filteredWithoutPrice].sort((first, second) => sort === "낮은 가격순" ? parsePrice(first.price) - parsePrice(second.price) : sort === "높은 가격순" ? parsePrice(second.price) - parsePrice(first.price) : second.id - first.id), [filteredWithoutPrice, sort]);
+  const visibleCars = useMemo(() => isGuaziQuickStyle ? sortBbmCars(filteredWithoutPrice, bbmSort) : [...filteredWithoutPrice].sort((first, second) => sort === "낮은 가격순" ? parsePrice(first.price) - parsePrice(second.price) : sort === "높은 가격순" ? parsePrice(second.price) - parsePrice(first.price) : second.id - first.id), [bbmSort, filteredWithoutPrice, isGuaziQuickStyle, sort]);
   const draftFilterCount = useMemo(() => listingCars.filter((car) => matchesChoTotFilters(car, draftFilters)).length, [draftFilters, listingCars]);
 
   const replaceFilterParams = (nextMaker: string | null, nextModel: string | null, nextCategory = filters.category) => {
@@ -1080,6 +1087,27 @@ function MarketplaceScreen() {
   // 칩 창이 열려 있는 동안 목록·총 대수·최근검색기록은 연 순간 그대로
   const shownCars = bbmFrozen?.cars ?? visibleCars;
   const shownHistory = bbmFrozen ? bbmFrozen.history : bbmValue.history ?? 0;
+  // QF-092: 한 페이지 20대(원본). 필터·정렬·판매자 탭·검색을 바꾸면 1페이지로
+  const bbmPageKey = JSON.stringify([filters, query, region, selectedGeneration, effectiveSelectedVariants, bbmSort]);
+  useEffect(() => { setBbmPage(1); }, [bbmPageKey]);
+  const bbmPageCount = Math.max(1, Math.ceil(shownCars.length / BBM_PAGE_SIZE));
+  const bbmPageNow = Math.min(bbmPage, bbmPageCount);
+  const pagedCars = isGuaziQuickStyle ? shownCars.slice((bbmPageNow - 1) * BBM_PAGE_SIZE, bbmPageNow * BBM_PAGE_SIZE) : shownCars;
+  // 원본 실측: 페이지를 바꾸면 PC는 목록 상자 위 16px(scrollY 125), 모바일은 맨 위 근처로 올라간다
+  const goBbmPage = (next: number) => {
+    setBbmPage(next);
+    window.requestAnimationFrame(() => {
+      const scroller = document.querySelector<HTMLElement>(".marketplace.is-bbm, .marketplace.is-bbm-m")?.closest<HTMLElement>(".mobile-scroll");
+      const content = document.querySelector<HTMLElement>(".marketplace.is-bbm .bbm-content");
+      if (!scroller) return;
+      scroller.scrollTop = content ? scroller.scrollTop + content.getBoundingClientRect().top - scroller.getBoundingClientRect().top - 16 : 0;
+    });
+  };
+  const chooseBbmSort = (option: string) => { setBbmSort(option as BbmSort); setBbmMenu(null); };
+  const chooseBbmView = (option: string) => {
+    setBbmMenu(null);
+    if (option !== "목록으로 보기") setSearchToast(`${option}는 준비 중입니다.`);
+  };
   const groupChip = (key: string, label: string, panel: string, applied: boolean) => applied ? null : { key, label, active: false, onClick: () => openBbmChipPanel(panel) };
   type BbmChip = { key: string; label: string; active?: boolean; className?: string; onClick: () => void; onClear?: () => void };
   const bbmChips: BbmChip[] = ([
@@ -1095,29 +1123,26 @@ function MarketplaceScreen() {
     groupChip("fuel", "연료", "연료", Boolean(bbmValue.checks.fuel?.length)),
     groupChip("seller", "판매자", "판매자 구분", Boolean(bbmValue.checks.sellerKind?.length)),
   ] as Array<BbmChip | null | undefined>).filter((chip): chip is BbmChip => Boolean(chip));
-  // 원본 모바일: 새로 걸린 적용 칩이 보이도록 칩 줄을 스크롤한다
-  const bbmAppliedKey = bbmApplied.map((chip) => chip.id).join("|");
-  const bbmAppliedRef = useRef<string[]>([]);
+  // QF-092 원본 재실측(2026-09-25): 적용 칩이 바뀌어도 칩 줄 스크롤은 그대로(칩을 누를 때만 revealBbmChip). 예전 "맨 앞 적용 칩 47px" 규칙은 우연히 맞았던 것이라 뺐다
   useEffect(() => {
-    const previous = bbmAppliedRef.current;
-    const ids = bbmAppliedKey ? bbmAppliedKey.split("|") : [];
-    bbmAppliedRef.current = ids;
     if (desktop || !isGuaziQuickStyle) return;
-    // 원본 실측(2026-09-24, 3회): 적용 칩이 늘면 새 칩이 아니라 맨 앞 적용 칩을 기준으로 맞춘다
-    const added = ids.some((id) => !previous.includes(id));
-    const label = added ? bbmApplied[0]?.label : undefined;
-    if (!label) return;
-    const frame = window.requestAnimationFrame(() => {
-      const rail = document.querySelector<HTMLElement>(".filter-shell.is-bbm .filter-rail");
-      const chip = [...(rail?.querySelectorAll<HTMLElement>(".filter-chip.is-applied") ?? [])].find((element) => element.textContent?.trim().startsWith(label));
-      if (!rail || !chip) return;
-      const railRect = rail.getBoundingClientRect();
-      const chipRect = chip.getBoundingClientRect();
-      // 맨 앞 적용 칩의 왼쪽이 칩 스크롤 영역 왼쪽에서 약 47px 에 오도록
-      rail.scrollLeft += chipRect.left - railRect.left - 47;
-    });
-    return () => window.cancelAnimationFrame(frame);
-  }, [bbmAppliedKey]); // eslint-disable-line react-hooks/exhaustive-deps
+    const rail = document.querySelector<HTMLElement>(".filter-shell.is-bbm .filter-rail");
+    if (!rail) return;
+    const update = () => setBbmRailScrolled(rail.scrollLeft > 0);
+    update();
+    rail.addEventListener("scroll", update, { passive: true });
+    return () => rail.removeEventListener("scroll", update);
+  }, [desktop, isGuaziQuickStyle]);
+  // QF-092 원본 실측(2026-09-25): 모바일 칩을 누르면 칩 오른쪽 끝이 칩 줄 밖일 때만 그만큼 스크롤(가격 57 · 판매자 끝까지 · 연식 그대로)
+  const revealBbmChip = (label: string) => {
+    const rail = document.querySelector<HTMLElement>(".filter-shell.is-bbm .filter-rail");
+    const chip = [...(rail?.querySelectorAll<HTMLElement>(".filter-chip") ?? [])].find((element) => element.textContent?.trim().startsWith(label));
+    if (!rail || !chip) return;
+    const railRect = rail.getBoundingClientRect();
+    const chipRect = chip.getBoundingClientRect();
+    if (chipRect.right > railRect.right) rail.scrollLeft += chipRect.right - railRect.right;
+    else if (chipRect.left < railRect.left) rail.scrollLeft -= railRect.left - chipRect.left;
+  };
   // 적용 개수(필터 칩 숫자·사이드바 배지): 제조사·모델·등급 등 기존 값 + 개발 시안형 적용 칩
   const bbmAppliedCount = selectedFilterValueCount + bbmApplied.length;
   // 제조사·모델 목록(원본 숫자 글자) — 칩 모달·시트용
@@ -1194,7 +1219,7 @@ function MarketplaceScreen() {
       // 등급 단계 × = 세대 묶음과 등급을 함께 해제
       onClearGrades: clearGenerationFilter,
     };
-    const bbmItems = shownCars.length ? shownCars.map((car) => pcGridView
+    const bbmItems = shownCars.length ? pagedCars.map((car) => pcGridView
       ? <CarCard key={car.id} car={car} cardView={false} liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} />
       : <BbmResultCard key={car.id} car={car} variant="pc" liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅은 정식 서비스에서 이용해 주세요.")} />) : carListItems;
     return (
@@ -1228,15 +1253,32 @@ function MarketplaceScreen() {
                     <div className="bbm-toolbar-actions">
                       <label className="bbm-video-filter"><span>영상 매물</span><BbSwitch checked={videoOnly} label="영상 매물" onChange={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))} /></label>
                       <span className="bbm-toolbar-divider" aria-hidden="true" />
-                      <button type="button" className="bbm-sort" onClick={() => setSheet("sort")}>{sort === "최신순" ? "업데이트순" : sort}<img src={bbmIcon("toolbar-sort-chevron")} alt="" aria-hidden="true" /></button>
-                      <span className="bbm-toolbar-divider" aria-hidden="true" />
-                      <button type="button" className="bbm-view" aria-pressed={pcGridView} onClick={() => setPcGridView((value) => !value)}>{pcGridView ? "앨범형" : "목록형"}<img src={bbmIcon("toolbar-view-list")} alt="" aria-hidden="true" /></button>
+                      {isGuaziQuickStyle ? (
+                        <>
+                          {/* QF-092: 원본 정렬 드롭다운 10개 · 보기 방식 드롭다운 4개(예전 바텀시트 제거) */}
+                          <BbmToolbarMenu open={bbmMenu === "sort"} onClose={() => setBbmMenu(null)} options={bbmSortOptions} selected={bbmSort} onSelect={chooseBbmSort}>
+                            <button type="button" className="bbm-sort" aria-haspopup="true" aria-expanded={bbmMenu === "sort"} onClick={() => setBbmMenu((open) => open === "sort" ? null : "sort")}>{bbmSort}<img src={bbmIcon("toolbar-sort-chevron")} alt="" aria-hidden="true" /></button>
+                          </BbmToolbarMenu>
+                          <span className="bbm-toolbar-divider" aria-hidden="true" />
+                          <BbmToolbarMenu open={bbmMenu === "view"} onClose={() => setBbmMenu(null)} options={bbmViewOptionsPc} selected="목록으로 보기" onSelect={chooseBbmView}>
+                            <button type="button" className="bbm-view" aria-label="보기 방식 선택" aria-haspopup="true" aria-expanded={bbmMenu === "view"} onClick={() => setBbmMenu((open) => open === "view" ? null : "view")}>목록형<img src={bbmIcon("toolbar-view-list")} alt="" aria-hidden="true" /></button>
+                          </BbmToolbarMenu>
+                        </>
+                      ) : (
+                        <>
+                          <button type="button" className="bbm-sort" onClick={() => setSheet("sort")}>{sort === "최신순" ? "업데이트순" : sort}<img src={bbmIcon("toolbar-sort-chevron")} alt="" aria-hidden="true" /></button>
+                          <span className="bbm-toolbar-divider" aria-hidden="true" />
+                          <button type="button" className="bbm-view" aria-pressed={pcGridView} onClick={() => setPcGridView((value) => !value)}>{pcGridView ? "앨범형" : "목록형"}<img src={bbmIcon("toolbar-view-list")} alt="" aria-hidden="true" /></button>
+                        </>
+                      )}
                     </div>
                   </nav>
                   <div className={`car-list ${pcGridView ? "is-pc-grid" : "bbm-list"}`} aria-live="polite">{bbmItems}</div>
+                  {isGuaziQuickStyle && shownCars.length ? <BbmPagination page={bbmPageNow} total={bbmPageCount} windowSize={10} onChange={goBbmPage} /> : null}
                 </section>
               </div>
             </div>
+            {isGuaziQuickStyle ? <BbmFooter onNotify={setSearchToast} /> : null}
           </main>
         </MobileScroll>
         {searchToast ? <div className="market-toast" role="status" aria-live="polite">{searchToast}</div> : null}
@@ -1326,24 +1368,28 @@ function MarketplaceScreen() {
               <button type="button" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={openRegionSheet}><img className="ui-icon" src={bbmIcon("m-region-location")} alt="" aria-hidden="true" /><span className="region-text"><span className="region-label">지역:</span><strong>{regionLabel}</strong></span><span className="region-chevron-icon" aria-hidden="true"><img src={bbmIcon("m-region-chevron")} alt="" /></span></button>
               <button type="button" className="reset-button" onClick={() => resetFilters()}>초기화</button>
             </section>
-            <section className="filter-shell quick-style-guazi is-bbm" aria-label="중고차 필터" data-history={shownHistory}>
+            <section className={`filter-shell quick-style-guazi is-bbm${bbmRailScrolled ? " is-scrolled" : ""}`} aria-label="중고차 필터" data-history={shownHistory}>
               <button className={`filter-fixed${bbmAppliedCount ? " is-applied" : ""}`} type="button" aria-label={bbmAppliedCount ? `필터 ${bbmAppliedCount}개 적용됨` : "필터"} onClick={openBbmFull}><img className="ui-icon" src={bbmIcon("chip-filter")} alt="" aria-hidden="true" />{bbmAppliedCount ? <b className="filter-fixed-count">{bbmAppliedCount}</b> : <span>필터</span>}</button>
               <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
-                {bbmChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} onClick={chip.onClick} onClear={chip.onClear} />)}
+                {bbmChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} onClick={() => { revealBbmChip(chip.label); chip.onClick(); }} onClear={chip.onClear} />)}
               </Carousel>
             </section>
             {quickRail}
-            <BbmMobileOptions videoOnly={videoOnly} onToggleVideo={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))} sortLabel={sort === "최신순" ? "업데이트순" : sort} onSort={() => setSheet("sort")} extra={debugMode ? quickStyleSelect : null} />
+            <BbmMobileOptions videoOnly={videoOnly} onToggleVideo={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))} sortLabel={bbmSort} onSort={() => setBbmMenu("m-sort")} extra={debugMode ? quickStyleSelect : null} />
             <nav className="bbm-m-toolbar" aria-label="매물 유형과 보기">
               <BbmSellerTabs tabs={["전체", "개인", "딜러"] as SellerType[]} value={sellerType} onChange={(tab) => setFilters((current) => ({ ...current, seller: tab }))} onBrand={() => setSearchToast("브랜드 매물은 정식 서비스에서 이용해 주세요.")} />
-              <button type="button" className="bbm-m-view" aria-label="목록형 보기" onClick={() => setSearchToast("앨범형 보기는 정식 서비스에서 이용해 주세요.")}><img src={bbmIcon("toolbar-view-list")} alt="" aria-hidden="true" /></button>
+              <button type="button" className="bbm-m-view" aria-label="보기 방식 선택" onClick={() => setBbmMenu("m-view")}><img src={bbmIcon("toolbar-view-list")} alt="" aria-hidden="true" /></button>
             </nav>
             <section className="bbm-m-list" aria-live="polite">
-              {shownCars.length ? shownCars.map((car) => <BbmResultCard key={car.id} car={car} variant="mobile" liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅은 정식 서비스에서 이용해 주세요.")} />) : carListItems}
+              {shownCars.length ? pagedCars.map((car) => <BbmResultCard key={car.id} car={car} variant="mobile" liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅은 정식 서비스에서 이용해 주세요.")} />) : carListItems}
+              {shownCars.length ? <BbmPagination page={bbmPageNow} total={bbmPageCount} windowSize={3} onChange={goBbmPage} /> : null}
             </section>
+            <BbmFooter onNotify={setSearchToast} />
           </main>
         </MobileScroll>
         <BbmBottomGnb onNotify={setSearchToast} />
+        {bbmMenu === "m-sort" ? <BbmSheet title="정렬" flush onClose={() => setBbmMenu(null)}><BbmPopOptions options={bbmSortOptions} selected={bbmSort} onSelect={chooseBbmSort} /></BbmSheet> : null}
+        {bbmMenu === "m-view" ? <BbmSheet title="리스트 필터" flush onClose={() => setBbmMenu(null)}><BbmPopOptions options={bbmViewOptionsMobile} selected="목록으로 보기" onSelect={chooseBbmView} /></BbmSheet> : null}
         {bbmFullOpen ? (
           <BbmFullFilter
             onClose={closeFull}
