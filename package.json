@@ -25,7 +25,9 @@
     "diff:bbm": "node scripts/bbm-diff.mjs",
     "diff:bbm:flow": "node scripts/bbm-diff-flow.mjs",
     "regress:modes": "node scripts/regress-modes.mjs",
-    "check:hybrid": "node scripts/pc-hybrid-check.mjs"
+    "check:hybrid": "node scripts/pc-hybrid-check.mjs",
+    "diff:chotot-top": "node scripts/chotot-top-diff.mjs",
+    "check:top": "node scripts/pc-top-check.mjs"
   },
   "dependencies": {
     "@fontsource/roboto": "5.2.10",
