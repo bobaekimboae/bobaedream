@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// QF-092: 회귀 점검 — 초톳·동처띠 모드와 초톳형 PC를 직전 배포본(GitHub Pages)과 같은 크기·같은 상태로 찍어 화면 전체 픽셀 차이 비율을 낸다.
+// QF-092: 회귀 점검 — 초톳·동처띠 모드와 초톳형 PC(QF-093부터 모바일 과쯔 포함)를 직전 배포본(GitHub Pages)과 같은 크기·같은 상태로 찍어 화면 전체 픽셀 차이 비율을 낸다.
 // 사용: npm run regress:modes (vite preview 127.0.0.1:4173 필요) · 기준 주소 바꾸기: REGRESS_BASE=<배포 주소>
 // 출력: reports/diff/<커밋>/regress/summary.json · <이름>.png(배포본 | 지금 | 차이) — 커밋하지 않음
 import { chromium } from "@playwright/test";
@@ -23,6 +23,8 @@ const CASES = [
   ["chotot-pcl-first", "?qf=chotot&pc=1&pcl=chotot", pc], ["chotot-pcl-bottom", "?qf=chotot&pc=1&pcl=chotot", pc, toBottom],
   ["chotot-pc-first", "?qf=chotot&pc=1", pc], ["chotot-pc-bottom", "?qf=chotot&pc=1", pc, toBottom],
   ["dongchedi-pc-first", "?qf=dongchedi&pc=1", pc], ["dongchedi-pc-bottom", "?qf=dongchedi&pc=1", pc, toBottom],
+  // QF-093: PC 배치만 바꾸는 과제에서 모바일 과쯔가 그대로인지
+  ["guazi-m-first", "?qf=guazi", mobile], ["guazi-m-bottom", "?qf=guazi", mobile, toBottom],
 ];
 
 const browser = await chromium.launch({ args: ["--disable-lcd-text"] });

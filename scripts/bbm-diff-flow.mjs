@@ -59,7 +59,8 @@ const A = {
     chip: (p, text) => p.locator(".car-list-content-header .car-list-mobile-filter__button").filter({ hasText: new RegExp(`^${text}`) }).first().click(),
     chipClear: (p, text) => p.locator(".car-list-content-header .car-list-mobile-filter__button").filter({ hasText: new RegExp(`^${text}`) }).locator("button").last().click(),
     appliedChipOpen: (p, text) => p.locator(".car-list-content-header .car-list-mobile-filter__button").filter({ hasText: new RegExp(`^${text}`) }).locator("button").first().click(),
-    dialogClose: (p) => p.locator("[role=dialog]:visible").last().locator(".catalog-filter-modal__close, button[aria-label*=닫기]").first().click(),
+    // 닫은 뒤 마우스를 왼쪽 위로 치운다(닫기 버튼 자리 아래 칩에 걸린 hover 색이 배치 차이로 한쪽에만 남지 않게)
+    dialogClose: async (p) => { await p.locator("[role=dialog]:visible").last().locator(".catalog-filter-modal__close, button[aria-label*=닫기]").first().click(); await p.mouse.move(0, 0); },
     maker: (p, name) => p.locator(".car-list-filter-catalog__row").filter({ hasText: new RegExp(`^${name}`) }).first().click(),
     reset: (p) => p.locator("aside .car-list-filter-summary__reset").first().click(),
     mChip: (p, text) => p.locator(".car-list-content-header .car-list-mobile-filter__button").filter({ hasText: new RegExp(`^${text}`) }).first().click(),
@@ -87,7 +88,7 @@ const A = {
     chip: (p, text) => p.locator(".bbm-chips .filter-chip").filter({ hasText: new RegExp(`^${text}`) }).first().click(),
     chipClear: (p, text) => p.locator(".bbm-chips .filter-chip").filter({ hasText: new RegExp(`^${text}`) }).locator(".filter-chip-clear").first().click(),
     appliedChipOpen: (p, text) => p.locator(".bbm-chips .filter-chip.is-active").filter({ hasText: new RegExp(`^${text}`) }).locator(".filter-chip-label").first().click(),
-    dialogClose: (p) => p.locator(".bbmf-modal .bbmf-close").last().click(),
+    dialogClose: async (p) => { await p.locator(".bbmf-modal .bbmf-close").last().click(); await p.mouse.move(0, 0); },
     maker: (p, name) => p.locator(".bbm-catalog-row").filter({ hasText: new RegExp(`^${name}`) }).first().click(),
     reset: (p) => p.locator(".bbm-filter-reset").first().click(),
     mChip: (p, text) => p.locator(".filter-track .filter-chip").filter({ hasText: new RegExp(`^${text}`) }).first().tap(),
@@ -217,10 +218,12 @@ async function captureRegion(page, locator, cropHeight) {
   return { ...info, shot: shot.toString("base64") };
 }
 
-async function compare(tool, orig, ours) {
-  return tool.evaluate(async ([orig, ours]) => {
+// fit: 두 쪽이 겹치는 왼쪽 위 크기만 비교(QF-093 에서 폭·위치를 일부러 바꾼 PC 칩 줄 — 모양은 그대로 3% 기준)
+async function compare(tool, orig, ours, fit = false) {
+  return tool.evaluate(async ([orig, ours, fit]) => {
     const load = (b64) => new Promise((resolve) => { const image = new Image(); image.onload = () => resolve(image); image.src = `data:image/png;base64,${b64}`; });
-    const w = Math.round(Math.max(orig?.w ?? 0, ours?.w ?? 0)); const h = Math.round(Math.max(orig?.h ?? 0, ours?.h ?? 0));
+    const pick = fit && orig && ours ? Math.min : Math.max;
+    const w = Math.round(pick(orig?.w ?? 0, ours?.w ?? 0)); const h = Math.round(pick(orig?.h ?? 0, ours?.h ?? 0));
     if (!w || !h) return { ratio: 1, image: null };
     const draw = async (region) => {
       const canvas = document.createElement("canvas"); canvas.width = w; canvas.height = h;
@@ -240,7 +243,7 @@ async function compare(tool, orig, ours) {
     }
     octx.putImageData(diff, w * 2 + 16, 0);
     return { ratio: n / (w * h), image: out.toDataURL("image/png").split(",")[1] };
-  }, [orig, ours]);
+  }, [orig, ours, fit]);
 }
 
 const regionLocator = (device, name, side) => {
@@ -279,7 +282,7 @@ for (const scenario of SCENARIOS) {
     for (const name of step.regions) {
       const fail = (side) => (error) => { console.log(`  ${side} 캡처 실패`, name, error.message.split("\n")[0]); return null; };
       const [o, u] = [await captureRegion(sides.orig.page, regionLocator(scenario.device, name, "orig")(sides.orig.page), Array.isArray(name) ? 44 : 0).catch(fail("원본")), await captureRegion(sides.ours.page, regionLocator(scenario.device, name, "ours")(sides.ours.page), Array.isArray(name) ? 44 : 0).catch(fail("우리"))];
-      const result = await compare(tool, o, u);
+      const result = await compare(tool, o, u, scenario.device === "pc" && name === "chips");
       if (result.image) writeFileSync(join(outDir, `${step.key}-${regionName(name)}.png`), Buffer.from(result.image, "base64"));
       row.regions[regionName(name)] = Math.round(result.ratio * 1000) / 10;
     }
