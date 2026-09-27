@@ -1,0 +1,72 @@
+/* QF-095 과쯔 PC 상단 카드 = 초톳 PC 상단(xe.chotot.com, 1440, 2026-09-25 실측). 과쯔 PC(.marketplace.is-bbm.is-hybrid)만.
+   개발팀·디자이너 합의가 필요한 배치 변경 — 원본과 다른 값은 reports/change-log.csv CH-0053~ 에 속성별로.
+   카드 x·폭은 QF-093 규칙 그대로(1280 이상 1200 가운데, 1024~1279 화면 폭 − 양옆 24), 헤더 아래 16, 카드와 아래 두 칸 사이 24.
+   줄 순서와 간격(초톳 실측): 위 16 · 경로 21 · 8 · 제목 줄 32 · 8 · 칩 줄 52(위아래 10) · 유형 줄 110(위 8 + 칸 102) · 아래 16 = 263 */
+@media (min-width: 1024px) {
+  .marketplace.is-bbm.is-hybrid > .bbm-hybrid-top { margin-top: 16px; }
+}
+.marketplace.is-bbm.is-hybrid .bbm-content-head.is-chotot { display: flex; flex-direction: column; gap: 0; padding: 16px 20px; border-radius: 12px; box-sizing: border-box; background: #fff; color: #222; }
+
+/* 1줄 경로: 줄 21, 항목 12/18 400 #8C8C8C, 마지막 700 #222, 사이 "/" */
+.bbm-content-head.is-chotot .bbm-ct-crumbs { display: flex; align-items: center; height: 21px; min-width: 0; }
+.bbm-content-head.is-chotot .bbm-ct-crumbs ol { display: flex; align-items: center; min-width: 0; margin: 0; padding: 0; overflow: hidden; list-style: none; white-space: nowrap; }
+.bbm-content-head.is-chotot .bbm-ct-crumbs li { display: inline-flex; align-items: center; color: #8c8c8c; font-size: 12px; font-weight: 400; line-height: 18px; }
+.bbm-content-head.is-chotot .bbm-ct-crumbs button { padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
+.bbm-content-head.is-chotot .bbm-ct-crumbs button:hover { text-decoration: underline; }
+.bbm-content-head.is-chotot .bbm-ct-crumbs strong { color: #222; font-weight: 700; }
+.bbm-content-head.is-chotot .bbm-ct-crumb-sep { margin: 0 7px; color: #8c8c8c; }
+
+/* 2줄 제목 16/24 700 #222 + 오른쪽 20 검색저장(높이 32 · 알약 · 흰 배경 · 테두리 1 #DADADA · 14/20 700 · 아이콘 20) */
+.bbm-content-head.is-chotot .bbm-ct-title-row { display: flex; align-items: center; gap: 20px; height: 32px; margin-top: 8px; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-ct-title { display: block; height: auto; margin: 0; color: #222; font-size: 16px; font-weight: 700; line-height: 24px; white-space: nowrap; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-ct-title strong { color: inherit; font: inherit; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-ct-save { display: inline-flex; flex: none; align-items: center; gap: 4px; height: 32px; padding: 0 12px 0 8px; border: 1px solid #dadada; border-radius: 9999px; box-sizing: border-box; background: #fff; color: #222; font-size: 14px; font-weight: 700; line-height: 20px; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-ct-save img { width: 20px; height: 20px; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-ct-save.is-saved { border-color: var(--blue); color: var(--blue); }
+
+/* 3줄 칩 줄: 높이 52(위아래 10), 칩 32 · 알약 · #F4F4F4 · 14/20 500 #222 · 안쪽 4/12 · 사이 8 · 펼침 아이콘 20.
+   맨 앞 "필터" 칩(아이콘 20) 고정, 나머지는 가로 스크롤(넘치면 화살표 28, 스크롤 영역 오른쪽 90 비움 — 초톳 실측), 줄 오른쪽 끝 "필터 초기화" */
+.bbm-content-head.is-chotot .bbm-ct-chip-row { display: flex; align-items: center; height: 52px; margin-top: 8px; padding: 10px 0; box-sizing: border-box; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-chips { display: flex; flex: 1; align-items: center; gap: 8px; min-width: 0; height: 32px; padding: 0; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-filter-button { flex: none; gap: 2px; height: 32px; padding: 4px 12px; border: 0; border-radius: 9999px; box-sizing: border-box; background: #f4f4f4; color: #222; font-size: 14px; font-weight: 500; line-height: 20px; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-filter-button img { width: 20px; height: 20px; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-filter-button.is-applied { background: #222; color: #fff; }
+.bbm-content-head.is-chotot .bbm-ct-chip-scroll { position: relative; flex: 1; min-width: 0; margin-right: 90px; }
+.bbm-content-head.is-chotot .bbm-ct-chip-track-wrap { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
+.bbm-content-head.is-chotot .bbm-ct-chip-track-wrap::-webkit-scrollbar { display: none; }
+.bbm-content-head.is-chotot .bbm-ct-chip-track { display: flex; gap: 8px; width: max-content; }
+.bbm-content-head.is-chotot .bbm-ct-chip-arrow { position: absolute; top: 2px; display: grid; place-items: center; width: 28px; height: 28px; padding: 0; border: 0; background: none; cursor: pointer; }
+.bbm-content-head.is-chotot .bbm-ct-chip-arrow.is-next { right: -40px; }
+.bbm-content-head.is-chotot .bbm-ct-chip-arrow.is-prev { left: -40px; }
+.bbm-content-head.is-chotot .bbm-ct-chip-arrow img { width: 20px; height: 20px; transform: rotate(-90deg); }
+.bbm-content-head.is-chotot .bbm-ct-chip-arrow.is-prev img { transform: rotate(90deg); }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-chips .filter-chip { flex: none; gap: 2px; height: 32px; padding: 4px 12px; border: 0; border-radius: 9999px; box-sizing: border-box; background: #f4f4f4; color: #222; font-size: 14px; font-weight: 500; line-height: 20px; }
+/* 펼침 아이콘: 초톳처럼 20 칸 안 채운 삼각형 10×5 */
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-chips .filter-chip > .ui-icon { display: none; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-chips button.filter-chip:not(.is-active)::after { content: ""; flex: none; width: 20px; height: 20px; background: #222; clip-path: polygon(25% 40%, 75% 40%, 50% 65%); }
+/* 값이 걸린 칩: #222 · 흰 글자 · 뒤에 × 14(회색 #8C8C8C 원 + 흰 ×), 글자와 × 사이 6 */
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-chips .filter-chip.is-active { gap: 6px; background: #222; color: #fff; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-chips .filter-chip.is-active .filter-chip-label { padding: 0; border: 0; background: none; color: #fff; font: inherit; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-chips .filter-chip.is-active .filter-chip-clear { position: relative; flex: none; width: 14px; height: 14px; padding: 0; border: 0; border-radius: 50%; background: #8c8c8c; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-chips .filter-chip.is-active .filter-chip-clear > * { display: none; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-chips .filter-chip.is-active .filter-chip-clear::before,
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-chips .filter-chip.is-active .filter-chip-clear::after { content: ""; position: absolute; top: 6.25px; left: 3.5px; width: 7px; height: 1.5px; border-radius: 1px; background: #fff; transform: rotate(45deg); }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-chips .filter-chip.is-active .filter-chip-clear::after { transform: rotate(-45deg); }
+@media (hover: hover) {
+  .marketplace.is-bbm .bbm-content-head.is-chotot .bbm-chips .filter-chip.is-active:hover { background: #222; }
+}
+/* 필터 초기화(초톳 "Xóa lọc"): 14/20 700 #222, 배경 없음, 높이 32. 걸린 조건이 없으면 렌더하지 않음 */
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-ct-reset { flex: none; height: 32px; margin-left: auto; padding: 0; border: 1px solid transparent; border-radius: 8px; box-sizing: border-box; background: none; color: #222; font-size: 14px; font-weight: 700; line-height: 20px; cursor: pointer; }
+
+/* 4줄 유형 줄 / 퀵필터 레일: 높이 110 고정(유형 줄 위 8 + 칸 102, 레일 96은 가운데) — 전환 때 카드 높이가 흔들리지 않게. 좌우는 카드 여백 밖까지(레일 자체 여백 20 유지) */
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-quick-slot { display: flex; flex-direction: column; justify-content: center; height: 110px; margin: 0 -20px; overflow: hidden; border-radius: 0; background: none; }
+/* 유형 칸(초톳 브랜드 칸): 84×102 · 사이 8(피치 92) · 아이콘 40(칸 위 6) · 이름 14/21 400 #595959. 아이콘 그림은 원본 그대로 크기만 40 */
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-category-menu__list { gap: 8px; padding: 8px 20px 0; border-radius: 0; background: none; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-category-menu__item { width: 84px; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-category-menu__button { justify-content: flex-start; gap: 8px; width: 84px; height: 102px; padding: 0 4px; box-sizing: border-box; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-category-menu__icon-box { flex: none; width: 40px; height: 40px; margin: 6px; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-category-menu__icon-box img { width: 22px; height: 22px; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-category-menu__label { width: 76px; color: #595959; font-size: 14px; font-weight: 400; line-height: 21px; white-space: normal; }
+
+/* 목록 툴바 "목록형" 버튼 상자 높이 = 원본 car-list-content-toolbar__view 24(원본은 툴바 55 안에서 15.5 에 놓여 드롭다운 글자 픽셀 위치가 반 칸 어긋난다 — 같게 맞춤) */
+.marketplace.is-bbm.is-hybrid .bbm-view { height: 24px; }

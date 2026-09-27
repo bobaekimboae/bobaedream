@@ -70,6 +70,7 @@ import { bbmSidebarItems, type BbmFilterItem } from "../filters/bbm-filter-optio
 import { BbmExpandPanel, BbmModalPanel, clearBbmItem } from "../filters/bbm-filter-panels";
 import { BbmBottomGnb, BbmCategoryMenu, BbmMakerList, BbmMobileOptions, BbmModelList, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
+import { BbmChipScroller, BbmTopCrumbs, bbmTopMonth, bbmTopTitlePrefix, type BbmCrumb } from "./bbm-top-chotot";
 import { BBM_PAGE_SIZE, BbmFooter, BbmPagination, BbmPopOptions, BbmToolbarMenu, bbmSortOptions, bbmViewOptionsMobile, bbmViewOptionsPc, sortBbmCars, type BbmSort } from "./bbm-list-area";
 
 // QF-091: 적용 사이트 선택(시안 전환 도구)은 &debug=1 일 때만
@@ -424,6 +425,8 @@ function MarketplaceScreen() {
   // QF-093: 1024~1279 왼쪽 필터 펼침판
   const [bbmDrawerOpen, setBbmDrawerOpen] = useState(false);
   const [bbmDrawerReset, setBbmDrawerReset] = useState(0);
+  // QF-095: 상단 칩 줄 오른쪽 끝 "필터 초기화" → 좌측 필터 "초기화"와 같은 확인 창
+  const [bbmTopReset, setBbmTopReset] = useState(0);
   // QF-091: 과쯔(개발 시안형) 모바일 전체 필터 화면과 그 안의 항목 시트
   const [bbmFullOpen, setBbmFullOpen] = useState(false);
   const [bbmFullItem, setBbmFullItem] = useState<BbmFilterItem | "카테고리" | null>(null);
@@ -1257,6 +1260,36 @@ function MarketplaceScreen() {
                   <div className="bbm-quick-slot">{quickRail}</div>
                 </section>
     );
+    // QF-095: 과쯔 PC 상단 카드 — 초톳 PC 상단과 같은 구조(1줄 경로 · 2줄 제목 + 검색저장 · 3줄 칩 줄 + 필터 초기화 · 4줄 유형 줄/퀵필터 레일)
+    const bbmCrumbs: BbmCrumb[] = [
+      { label: "보배드림", onClick: () => setSearchToast("보배드림 홈은 정식 서비스에서 이용해 주세요.") },
+      { label: "중고차", onClick: clearCategoryFilter },
+      // 유형 "중고차"는 경로 둘째 칸과 겹치므로 셋째 칸은 "전체차량"으로
+      { label: categoryIsDefault || category === "중고차" ? "전체차량" : category, onClick: clearMakerFilter },
+      ...(maker ? [{ label: maker, onClick: clearModelFilter }] : []),
+      ...(maker && selectedModel ? [{ label: formatModelLabel(selectedModel), onClick: clearGenerationFilter }] : []),
+      ...(maker && selectedModel && selectedGenerationOption ? [{ label: generationDisplayLabel(selectedGenerationOption) }] : []),
+    ];
+    const bbmTitlePrefix = bbmTopTitlePrefix([regionLabel === "전국" ? null : regionLabel, categoryIsDefault || category === "중고차" ? null : category, maker, selectedModel ? formatModelLabel(selectedModel) : null]);
+    const bbmTopCard = (
+      <section className={`bbm-content-head is-chotot${showCategoryQuickRail ? " has-category-menu" : ""}`} aria-label="검색 조건">
+        <BbmTopCrumbs items={bbmCrumbs} />
+        <div className="bbm-ct-title-row">
+          <h1 className="bbm-ct-title bbm-summary">{bbmTitlePrefix} <strong>{shownCars.length.toLocaleString("ko-KR")}대</strong> · {bbmTopMonth()}</h1>
+          <button type="button" className={`bbm-save-search bbm-ct-save${searchSaved ? " is-saved" : ""}`} aria-pressed={searchSaved} onClick={toggleSearchSaved}><img src={bbmIcon("search-save")} alt="" aria-hidden="true" />검색저장</button>
+        </div>
+        <div className="bbm-ct-chip-row">
+          <div className="bbm-chips">
+            <button type="button" className={`bbm-filter-button${bbmAppliedCount ? " is-applied" : ""}`} aria-disabled={drawerFilterChip ? undefined : "true"} aria-haspopup={drawerFilterChip ? "dialog" : undefined} onClick={drawerFilterChip ? () => setBbmDrawerOpen(true) : undefined} aria-label={bbmAppliedCount ? `필터 ${bbmAppliedCount}개 적용됨` : "필터"}><img src={bbmIcon("chip-filter")} alt="" aria-hidden="true" />{bbmAppliedCount ? <b>{bbmAppliedCount}</b> : <span>필터</span>}</button>
+            <BbmChipScroller>
+              {bbmChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} onClick={chip.onClick} onClear={chip.onClear} />)}
+            </BbmChipScroller>
+          </div>
+          {bbmAppliedCount ? <button type="button" className="bbm-ct-reset" onClick={() => setBbmTopReset((value) => value + 1)}>필터 초기화</button> : null}
+        </div>
+        <div className="bbm-quick-slot">{quickRail}</div>
+      </section>
+    );
     const bbmItems = shownCars.length ? pagedCars.map((car) => pcGridView
       ? <CarCard key={car.id} car={car} cardView={false} liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} />
       : <BbmResultCard key={car.id} car={car} variant="pc" liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅은 정식 서비스에서 이용해 주세요.")} />) : carListItems;
@@ -1266,9 +1299,9 @@ function MarketplaceScreen() {
           <main className={`marketplace is-bbm${isGuaziQuickStyle ? " is-hybrid" : ""}`} aria-label="중고차 리스트">
             <BbHeader onNotify={setSearchToast} onOpenFavorites={() => flow.push(savedListingsScreen)} />
             {/* QF-093: 과쯔는 상단 패널(전체차량 · N대 · 검색저장 · 칩 줄 · 유형 줄/퀵필터 레일)을 본문 폭 전체로 */}
-            {isGuaziQuickStyle ? <div className="bbm-hybrid-top">{bbmContentHead}</div> : null}
+            {isGuaziQuickStyle ? <div className="bbm-hybrid-top">{bbmTopCard}</div> : null}
             <div className="bbm-page">
-              <BbFilterSidebar selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} />
+              <BbFilterSidebar selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} />
               <div className="bbm-content">
                 {isGuaziQuickStyle ? null : bbmContentHead}
                 <section className="bbm-results" aria-label="매물 목록">

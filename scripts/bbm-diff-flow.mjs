@@ -280,6 +280,8 @@ for (const scenario of SCENARIOS) {
       await page.waitForTimeout(side === "orig" ? 1500 : 500);
     }
     for (const name of step.regions) {
+      // QF-095: PC 칩 줄은 초톳 칩 모양으로 바뀌어 픽셀은 원본 대신 초톳 실측(npm run diff:chotot-top · check:top)으로 비교 — 동작 점검표는 그대로 원본과 비교
+      if (scenario.device === "pc" && name === "chips") { row.regions.chips = "초톳 기준"; continue; }
       const fail = (side) => (error) => { console.log(`  ${side} 캡처 실패`, name, error.message.split("\n")[0]); return null; };
       const [o, u] = [await captureRegion(sides.orig.page, regionLocator(scenario.device, name, "orig")(sides.orig.page), Array.isArray(name) ? 44 : 0).catch(fail("원본")), await captureRegion(sides.ours.page, regionLocator(scenario.device, name, "ours")(sides.ours.page), Array.isArray(name) ? 44 : 0).catch(fail("우리"))];
       const result = await compare(tool, o, u, scenario.device === "pc" && name === "chips");
@@ -305,7 +307,7 @@ for (const scenario of SCENARIOS) {
     row.checks = Object.fromEntries(Object.entries(checks).filter(([, v]) => v).map(([k, [o, u]]) => [k, { orig: o, ours: u, same: String(o) === String(u) }]));
     sides.orig.prev = now.orig; sides.ours.prev = now.ours;
     summary.steps.push(row);
-    console.log(`${step.key.padEnd(20)} ${Object.entries(row.regions).map(([k, v]) => `${k} ${v}%`).join(" · ")}${row.skipped.length ? `  [건너뜀 ${row.skipped.join(" / ")}]` : ""}`);
+    console.log(`${step.key.padEnd(20)} ${Object.entries(row.regions).map(([k, v]) => `${k} ${typeof v === "number" ? `${v}%` : v}`).join(" · ")}${row.skipped.length ? `  [건너뜀 ${row.skipped.join(" / ")}]` : ""}`);
     checkRows.push(row);
   }
   summary[`${scenario.device}Errors`] = sides.ours.errors;

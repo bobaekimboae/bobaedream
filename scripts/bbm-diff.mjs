@@ -28,8 +28,7 @@ const MASK = {
 const PC_REGIONS = [
   ["header", ".app-shell__header", ".bbm-header"],
   ["sidebar", "aside.car-list-filter", "aside.bbm-filter", { fit: true }],
-  ["panel", ".car-list-content-header", ".bbm-content-header, .bbm-content-head", { fit: true }],
-  ["type-row", ".car-list-category-menu__list", ".bbm-category-menu__list, .bbm-quick-slot", { fit: true }],
+  // QF-095: PC 상단 패널·유형 줄은 초톳 PC 상단 구조로 바뀌어 원본 대신 초톳 실측(npm run diff:chotot-top · check:top)으로 비교한다
   ["toolbar", ".car-list-content-toolbar", ".bbm-toolbar"],
   ["card", ".car-list-result-card", ".bbm-result-card, .bbm-list > *"],
 ];
