@@ -1,0 +1,24 @@
+/* OP-011 · QF-096 보완 3: &debug=1 일 때 오른쪽 아래 [로고 칸 안내선 □] [브랜치 @ 커밋 · 빌드 시각] */
+.debug-dock { position: fixed; right: 8px; bottom: 8px; z-index: 9999; display: flex; align-items: center; gap: 6px; }
+.debug-dock .build-badge { position: static; }
+.qf-guide-toggle { display: inline-flex; align-items: center; gap: 4px; padding: 2px 7px 2px 5px; border-radius: 6px; background: rgba(26, 26, 26, 0.72); color: #fff; font: 500 11px/15px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; cursor: pointer; user-select: none; }
+.qf-guide-toggle input { width: 12px; height: 12px; margin: 0; accent-color: #e5484d; }
+
+/* 안내선: outline(레이아웃 변화 없음) + 연한 빨강 세로 중심선(배경) · 칸 밖으로 나간 로고·이미지는 칸 오른쪽 위 빨간 점 8px */
+html[data-qf-guides="1"] :is(.kr-brand-logo.is-rail, .kr-brand-logo.is-list, .depth-card-media:not(.is-brand)) {
+  position: relative;
+  outline: 1px dashed #e5484d;
+  outline-offset: -1px;
+  background-image: linear-gradient(to right, transparent calc(50% - 0.5px), rgba(229, 72, 77, 0.35) calc(50% - 0.5px), rgba(229, 72, 77, 0.35) calc(50% + 0.5px), transparent calc(50% + 0.5px));
+}
+html[data-qf-guides="1"] [data-qf-outside="1"]::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e5484d;
+  pointer-events: none;
+}

@@ -18,7 +18,7 @@ const generated = readFileSync("src/prototype/data/model-catalog-kr.generated.ts
 const catalog = JSON.parse(generated.match(/modelCatalogKr: CatalogMaker\[\] = (\[.*\]);/s)[1]);
 const cut = (label) => label.replace(/\s*[([].*$/, "").trim() || label;
 // 순서: 숫자로 시작하는 현행 모델 → 영문 → 가나다 → 숫자로 시작하는 구형 모델(세부 모델에 "~현재" 없음) → 기타
-const oldNumeric = new Set(catalog.flatMap((entry) => entry.models.filter((model) => /^\d/.test(cut(model.label)) && !model.models.some((sub) => /현재/.test(sub.relYear ?? ""))).map((model) => cut(model.label))));
+const oldNumeric = new Set(catalog.flatMap((entry) => entry.models.filter((model) => /^\d/.test(cut(model.label)) && !/^\d+시리즈$/.test(cut(model.label)) && !model.models.some((sub) => /현재/.test(sub.relYear ?? ""))).map((model) => cut(model.label))));
 const bucket = (name) => name === "기타" ? 9 : /^\d/.test(name) ? (oldNumeric.has(name) ? 3 : 0) : /^[A-Za-z]/.test(name) ? 1 : /^[가-힣]/.test(name) ? 2 : 4;
 const latinKey = (name) => name.replace(/^([A-Za-z]+)-?클래스/, "$1-클래스").toUpperCase();
 const cmp = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
@@ -55,9 +55,10 @@ const topState = (page) => page.evaluate(() => {
   const chips = [...document.querySelectorAll(".filter-chip")].filter((chip) => chip.getClientRects().length && chip.getBoundingClientRect().width > 0).map((chip) => ({ label: chip.textContent.trim(), active: chip.classList.contains("is-active") }));
   const top = document.querySelector(".bbm-hybrid-top");
   const crumbs = top?.querySelector(".bbm-breadcrumb, [aria-label='현재 위치']")?.textContent.replace(/\s+/g, " ").trim() ?? "";
-  const titleMatch = top?.textContent.match(/([^\n]*?)중고차\s*([\d,]+)대/);
+  const titleText = top?.querySelector(".bbm-ct-title")?.textContent.replace(/\s+/g, " ").trim() ?? "";
+  const titleMatch = titleText.match(/중고차\s*([\d,]+)대/);
   const empty = /조건에 맞는 차량이 없어요/.test(document.body.textContent);
-  return { chips, crumbs, title: titleMatch ? `중고차 ${titleMatch[2]}대` : null, count: titleMatch ? Number(titleMatch[2].replace(/,/g, "")) : null, empty };
+  return { chips, crumbs, title: titleMatch ? titleText : null, count: titleMatch ? Number(titleMatch[1].replace(/,/g, "")) : null, empty };
 });
 
 for (const [tag, device, viewport] of [["pc-1440", "pc", { width: 1440, height: 900 }], ["pc-1280", "pc", { width: 1280, height: 720 }], ["m-393", "m", null]].filter(([tag]) => !only || tag === only)) {
@@ -146,6 +147,8 @@ for (const [tag, device, viewport] of [["pc-1440", "pc", { width: 1440, height: 
   check(`${tag} 모델 이미지 칸 56×28 안 · 폭 56 또는 높이 28 · 아래 정렬`, all.every(([, r]) => !r.imgBad?.length), all.filter(([, r]) => r.imgBad?.length).map(([m, r]) => `${m}: ${r.imgBad.join(",")}`).join(" / ") || "모두 맞음");
   check(`${tag} 이미지 없는 카드는 점선 56×28 · 카드 80×72`, all.every(([, r]) => !r.emptyBad?.length && !r.specBad?.length), all.filter(([, r]) => r.emptyBad?.length || r.specBad?.length).map(([m]) => m).join(", ") || "모두 맞음");
   if (device === "pc") {
+    const bmw = (makerResults.BMW?.side?.first10 ?? []).map((row) => row.replace(/\(\d+\)$/, ""));
+    check(`${tag} BMW 모델 순서 1시리즈 → … → 8시리즈 → i3`, bmw.slice(0, 9).join(" ") === "1시리즈 2시리즈 3시리즈 4시리즈 5시리즈 6시리즈 7시리즈 8시리즈 i3", bmw.join(" → "));
     check(`${tag} 좌측 필터 모델 목록 = 카탈로그 전체(0대 포함) · 같은 순서`, all.every(([, r]) => r.side && r.side.rows === r.side.expected && r.side.orderOk), all.map(([m, r]) => `${m} ${r.side?.rows}/${r.side?.expected}(0대 ${r.side?.zero})`).join(" · "));
     check(`${tag} 좌측 필터 1대 이상 모델 = 퀵필터 모델 카드(수 기준 하나)`, all.every(([, r]) => r.side?.railMatchesNonZero), all.filter(([, r]) => !r.side?.railMatchesNonZero).map(([m]) => m).join(", ") || "모두 같음");
     summary.order[tag] = Object.fromEntries(all.map(([m, r]) => [m, r.side?.first10]));
@@ -177,6 +180,7 @@ for (const [tag, device, viewport] of [["pc-1440", "pc", { width: 1440, height: 
   check(`${tag} 모델 × → 모델 줄 · [벤츠] 유지`, s2.chips.includes("벤츠") && !s2.chips.includes("C클래스") && /^모델/.test(s2.rail), `${s2.chips.join(" ")} · 줄 ${s2.rail} · ${s2.title ?? "-"}`);
   check(`${tag} 제조사 × → 제조사 줄`, !s3.chips.includes("벤츠") && !s3.chips.includes("C클래스") && s3.emptyChips.includes("제조사"), `${s3.chips.join(" ")} · 빈 칩 ${s3.emptyChips.join(" ")} · ${s3.title ?? "-"}`);
   check(`${tag} 칩 단계마다 목록 0대 없음`, steps.every((step) => !step.empty && (step.count === null || step.count > 0)), steps.map((step) => `${step.step} ${step.count ?? "-"}대`).join(" · "));
+  if (device === "pc") check(`${tag} 제목에 세부모델 이름 "벤츠 C클래스 W206 중고차 N대" · N = 목록 수`, /^벤츠 C클래스 W206 중고차 [\d,]+대/.test(s0.title ?? "") && s0.count > 0, s0.title ?? "-");
   check(`${tag} 줄 이름표 "세부모델"`, railAfterModel?.railLabel === "세부모델", railAfterModel?.railLabel ?? "없음");
 
   // 캡처: 포르쉐 모델 줄 → 718(911 은 샘플 매물이 없어 카드 없음) · 현대 → 그랜저

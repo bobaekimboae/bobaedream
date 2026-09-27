@@ -1357,7 +1357,7 @@ function MarketplaceScreen() {
       ...(maker && selectedModel ? [{ label: formatModelLabel(selectedModel), onClick: clearGenerationFilter }] : []),
       ...(maker && selectedModel && selectedGenerationOption ? [{ label: generationDisplayLabel(selectedGenerationOption) }] : []),
     ];
-    const bbmTitlePrefix = bbmTopTitlePrefix([regionLabel === "전국" ? null : regionLabel, categoryIsDefault || category === "중고차" ? null : category, maker, selectedModel ? formatModelLabel(selectedModel) : null]);
+    const bbmTitlePrefix = bbmTopTitlePrefix([regionLabel === "전국" ? null : regionLabel, categoryIsDefault || category === "중고차" ? null : category, maker, selectedModel ? formatModelLabel(selectedModel) : null, selectedModel && selectedGenerationOption ? generationDisplayLabel(selectedGenerationOption) : null]);
     const bbmTopCard = (
       <section className={`bbm-content-head is-chotot${showCategoryQuickRail ? " has-category-menu" : ""}`} aria-label="검색 조건">
         <BbmTopCrumbs items={bbmCrumbs} />
