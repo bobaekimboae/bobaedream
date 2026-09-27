@@ -1,0 +1,44 @@
+/* QF-100 과쯔 퀵필터 "바탕 없는(초톳식)" — 과쯔 모드 기본(.marketplace.is-qf-plain). 주소에 &qfcard=card 면 이 클래스가 빠져 이전 과쯔 카드 모양(비교용).
+   초톳 브랜드 줄 실측(xe.chotot.com/mua-ban-oto, 2026-09-27): PC 칸 84×102 · 피치 92 · 로고 상자 40×40(칸 위 6) · 이름 14/21 400 #595959(상자 아래 14)
+   모바일 393 칸 64×74 · 피치 72 · 로고 상자 36×36(칸 위 0) · 이름 12/18 500 #595959(상자 아래 2). 칸 배경·테두리·모서리 없음, 선택 표시 없음 */
+.marketplace.is-qf-plain .depth-rail { height: auto; }
+.marketplace.is-qf-plain .depth-rail-track { height: auto; align-items: flex-start; padding-top: 0; padding-bottom: 12px; }
+.marketplace.is-qf-plain .depth-card,
+.marketplace.is-qf-plain .depth-card.is-selected { height: auto; justify-content: flex-start; padding: 0 4px; border: 0; border-radius: 0; background: transparent; color: #222; transition: opacity 100ms ease; }
+/* 누르는 순간만: 칸 전체 opacity 0.6(0.1초) */
+.marketplace.is-qf-plain .depth-card:active { opacity: 0.6; }
+.marketplace.is-qf-plain .depth-card-label { display: -webkit-box; margin-top: 8px; overflow: hidden; white-space: normal; word-break: keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.marketplace.is-qf-plain .kr-maker-divider { align-self: center; }
+
+/* 제조사 칸(로고 상자) */
+.marketplace.is-qf-plain .depth-card-media.is-brand { display: flex; align-items: center; justify-content: center; }
+.kr-brand-logo.is-plain { display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; }
+.kr-brand-logo.is-plain img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; mix-blend-mode: normal; }
+.marketplace.is-qf-plain .depth-card:has(> .depth-card-media.is-brand) .depth-card-label { color: #595959; }
+
+/* PC(1440·1280) */
+.marketplace.is-bbm.is-qf-plain .depth-card { width: 84px; flex: 0 0 84px; }
+.marketplace.is-bbm.is-qf-plain .depth-card:has(> .depth-card-media.is-brand) { height: 102px; }
+.marketplace.is-bbm.is-qf-plain .depth-card-media.is-brand { width: 40px; height: 40px; margin-top: 6px; }
+.marketplace.is-bbm.is-qf-plain .depth-card:has(> .depth-card-media.is-brand) .depth-card-label { margin-top: 14px; font-size: 14px; font-weight: 400; line-height: 21px; }
+.marketplace.is-bbm.is-qf-plain .depth-card-media:not(.is-brand) { margin-top: 6px; }
+.marketplace.is-bbm.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-label { font-size: 14px; font-weight: 600; line-height: 21px; }
+.marketplace.is-bbm.is-qf-plain .depth-card-sub { margin-top: 0; color: #8c8c8c; font-size: 12px; font-weight: 400; line-height: 18px; }
+
+/* 모바일(393) */
+.marketplace.is-bbm-m.is-qf-plain .depth-card { width: 64px; flex: 0 0 64px; }
+.marketplace.is-bbm-m.is-qf-plain .depth-card:has(> .depth-card-media.is-brand) { height: 74px; }
+.marketplace.is-bbm-m.is-qf-plain .depth-card-media.is-brand { width: 36px; height: 36px; margin-top: 0; }
+.marketplace.is-bbm-m.is-qf-plain .depth-card:has(> .depth-card-media.is-brand) .depth-card-label { margin-top: 2px; font-size: 12px; font-weight: 500; line-height: 18px; }
+.marketplace.is-bbm-m.is-qf-plain .depth-card-media:not(.is-brand) { margin-top: 0; }
+.marketplace.is-bbm-m.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-label { font-size: 12px; font-weight: 600; line-height: 18px; }
+.marketplace.is-bbm-m.is-qf-plain .depth-card-sub { margin-top: 0; color: #8c8c8c; font-size: 11px; font-weight: 400; line-height: 16px; }
+/* 모바일 첫 칸 왼쪽 선: 초톳 실측처럼 첫 칩보다 4 왼쪽(칸 안 여백 4 → 로고·이름은 칩 선과 맞음) */
+.marketplace.is-bbm-m.is-qf-plain .depth-rail.is-kr-maker .depth-rail-track { padding-left: 12px; }
+
+/* 칩 줄 → 퀵필터 줄 간격: 과쯔에는 지역 칩 줄이 없어 초톳의 "필터 칩 줄 → 지역 칩 줄" 값 PC 18 · 모바일 14 를 쓴다.
+   나중에 지역 칩 줄이 생기면 그 줄 → 제조사 줄은 초톳 실측 PC 16 · 모바일 10 으로(margin-top 을 각각 2 · 4 줄인다) */
+.marketplace.is-bbm.is-qf-plain .bbm-content-head.is-chotot .depth-rail.is-kr-maker { margin-top: 8px; }
+.marketplace.is-bbm.is-qf-plain .bbm-content-head.is-chotot .depth-rail:not(.is-kr-maker) { margin-top: 2.1px; }
+.marketplace.is-bbm-m.is-qf-plain .depth-rail.is-kr-maker { margin-top: 4px; }
+.marketplace.is-bbm-m.is-qf-plain .depth-rail:not(.is-kr-maker) { margin-top: 4px; }

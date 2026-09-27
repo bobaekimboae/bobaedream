@@ -48,13 +48,20 @@ export function krListLogoSize(ratio: number) {
 }
 const px = (value: number) => `${Math.round(value * 100) / 100}px`;
 
-/** 로고 칸(퀵필터 48×28 · 목록 24×24). 로고가 없으면 빈 칸(이름 시작선을 맞춘다). 이미지는 alt=""(이름이 바로 옆) */
-export function KrBrandLogo({ name, kind }: { name: string; kind: "rail" | "list" }) {
+// QF-100 &qfcard=plain(초톳식): 로고 상자(PC 40×40 · 모바일 36×36) 안 크기를 상자에 대한 비율로 — 초톳 실측(PC·모바일 같은 비율):
+// 엠블럼(비율 1.25 이하) 긴 변 82%(벤츠 33/40 · 미쓰비시 32/40 · 마쯔다 33/40 · 혼다 31.7/40 · 빈패스트 33.7/40 평균), 가로형·글자 로고 폭 100%(포드·쉐보레 40/40 · 현대 39.3/40). 가로·세로 가운데
+export function krPlainLogoSize(ratio: number) {
+  if (ratio > 1.25) return { width: "100%", height: "auto" };
+  return ratio >= 1 ? { width: "82%", height: "auto" } : { width: "auto", height: "82%" };
+}
+
+/** 로고 칸(퀵필터 48×28 · 목록 24×24 · plain 40×40/36×36). 로고가 없으면 빈 칸(이름 시작선을 맞춘다). 이미지는 alt=""(이름이 바로 옆) */
+export function KrBrandLogo({ name, kind }: { name: string; kind: "rail" | "list" | "plain" }) {
   const logo = krBrandLogo(name);
-  const size = logo ? (kind === "rail" ? krRailLogoSize(logo.ratio) : krListLogoSize(logo.ratio)) : null;
+  const size = logo ? (kind === "plain" ? krPlainLogoSize(logo.ratio) : (() => { const value = kind === "rail" ? krRailLogoSize(logo.ratio) : krListLogoSize(logo.ratio); return { width: px(value.width), height: px(value.height) }; })()) : null;
   return (
     <span className={`kr-brand-logo is-${kind}${logo ? "" : " is-empty"}`} data-brand={krBrandName(name) ?? name} data-ratio={logo?.ratio}>
-      {logo && size ? <img src={asset(`brand/kr/${logo.slug}.png`)} alt="" draggable={false} style={{ width: px(size.width), height: px(size.height) }} /> : null}
+      {logo && size ? <img src={asset(`brand/kr/${logo.slug}.png`)} alt="" draggable={false} style={size} /> : null}
     </span>
   );
 }

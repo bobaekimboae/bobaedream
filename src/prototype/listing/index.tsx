@@ -476,6 +476,8 @@ function MarketplaceScreen() {
   // QF-097: 과쯔 카탈로그 제조사(9개)도 모델 → 세부 모델 → 트림 단계
   const usesUxDepth = maker === "BMW" || maker === "벤츠" || Boolean(quickFilterStyle === "guazi" && maker && catalogMakerNames.has(maker));
   const isGuaziQuickStyle = quickFilterStyle === "guazi";
+  // QF-100 최종: 과쯔 퀵필터(제조사·모델·세부모델 줄) 기본 = 바탕 없는 초톳식(plain). &qfcard=card 면 이전 과쯔 카드(비교용), &qfcard=plain 도 plain
+  const plainQuickCards = isGuaziQuickStyle && (typeof window === "undefined" || new URLSearchParams(window.location.search).get("qfcard") !== "card");
   // QF-090: 과쯔(개발 시안형)는 필터 동작 확인용 샘플 60대, 초톳·동처띠는 기존 19대 그대로
   const listingCars = isGuaziQuickStyle ? bbmSampleCars : chototTestCars;
   const bbmValue = filters.bbm ?? emptyBbmFilters;
@@ -1119,7 +1121,7 @@ function MarketplaceScreen() {
             // QF-096: 과쯔 제조사 줄 = 좌측 필터 목록 순서 + 승용 제조사 로고(brand/kr). 라벨 없이 첫 카드 왼쪽 선 = 첫 칩 왼쪽 선
             const sections = krMakerRailSections(category === "국산차" ? "domestic" : category === "수입차" ? "imported" : "all");
             const card = (item: { label: string; key: string }) => (
-              <DepthCard key={item.label} label={krRailLabel(item.label)} image={<KrBrandLogo name={item.label} kind="rail" />} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />
+              <DepthCard key={item.label} label={krRailLabel(item.label)} image={<KrBrandLogo name={item.label} kind={plainQuickCards ? "plain" : "rail"} />} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />
             );
             return (
               <section className="depth-rail no-label is-kr-maker" aria-label={`${categoryBrandRail.title} 빠른 선택`}>
@@ -1383,7 +1385,7 @@ function MarketplaceScreen() {
     return (
       <>
         <MobileScroll className="app-screen">
-          <main className={`marketplace is-bbm${isGuaziQuickStyle ? " is-hybrid" : ""}`} aria-label="중고차 리스트">
+          <main className={`marketplace is-bbm${isGuaziQuickStyle ? " is-hybrid" : ""}${plainQuickCards ? " is-qf-plain" : ""}`} aria-label="중고차 리스트">
             <BbHeader onNotify={setSearchToast} onOpenFavorites={() => flow.push(savedListingsScreen)} />
             {/* QF-093: 과쯔는 상단 패널(전체차량 · N대 · 검색저장 · 칩 줄 · 유형 줄/퀵필터 레일)을 본문 폭 전체로 */}
             {isGuaziQuickStyle ? <div className="bbm-hybrid-top">{bbmTopCard}</div> : null}
@@ -1514,7 +1516,7 @@ function MarketplaceScreen() {
     return (
       <>
         <MobileScroll className="app-screen">
-          <main className="marketplace is-bbm-m" aria-label="중고차 리스트">
+          <main className={`marketplace is-bbm-m${plainQuickCards ? " is-qf-plain" : ""}`} aria-label="중고차 리스트">
             <Header bbm query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} />
             <section className="region-bar is-bbm" aria-label="지역 선택">
               <button type="button" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={openRegionSheet}><img className="ui-icon" src={bbmIcon("m-region-location")} alt="" aria-hidden="true" /><span className="region-text"><span className="region-label">지역:</span><strong>{regionLabel}</strong></span><span className="region-chevron-icon" aria-hidden="true"><img src={bbmIcon("m-region-chevron")} alt="" /></span></button>

@@ -5,7 +5,7 @@
 .qf-guide-toggle input { width: 12px; height: 12px; margin: 0; accent-color: #e5484d; }
 
 /* 안내선: outline(레이아웃 변화 없음) + 연한 빨강 세로 중심선(배경) · 칸 밖으로 나간 로고·이미지는 칸 오른쪽 위 빨간 점 8px */
-html[data-qf-guides="1"] :is(.kr-brand-logo.is-rail, .kr-brand-logo.is-list, .depth-card-media:not(.is-brand)) {
+html[data-qf-guides="1"] :is(.kr-brand-logo.is-rail, .kr-brand-logo.is-list, .kr-brand-logo.is-plain, .depth-card-media:not(.is-brand)) {
   position: relative;
   outline: 1px dashed #e5484d;
   outline-offset: -1px;

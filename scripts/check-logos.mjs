@@ -12,6 +12,8 @@ const outDir = join("reports", "qf-096");
 mkdirSync(outDir, { recursive: true });
 const manifest = JSON.parse(readFileSync(join("public", "assets", "brand", "kr", "manifest.json"), "utf8"));
 const railSize = (r) => { if (r <= 1.25) { const w = Math.min(44, 28 * r); return { w, h: Math.min(28, w / r) }; } const w = Math.min(44, 28 * Math.sqrt(r)); return { w, h: w / r }; };
+// plain(초톳 실측): 엠블럼(비율 1.25 이하) 긴 변 82%, 가로형 폭 100%, 가운데
+const plainSize = (r, side) => (r > 1.25 ? { w: side, h: side / r } : r >= 1 ? { w: side * 0.82, h: side * 0.82 / r } : { w: side * 0.82 * r, h: side * 0.82 });
 const listSize = (r) => (r >= 1 ? { w: 24, h: 24 / r } : { w: 24 * r, h: 24 });
 let outsideTotal = 0; const outsideList = [];
 
@@ -35,7 +37,7 @@ const open = async (device) => {
 const measureLogos = (page, scope) => page.evaluate((scope) => [...document.querySelectorAll(`${scope} .kr-brand-logo`)].map((box) => {
   const b = box.getBoundingClientRect(); const img = box.querySelector("img"); const i = img?.getBoundingClientRect();
   const card = box.closest(".depth-card")?.getBoundingClientRect();
-  return { name: box.dataset.brand, kind: box.classList.contains("is-rail") ? "rail" : "list", box: [b.width, b.height], img: i ? [i.width, i.height] : null,
+  return { name: box.dataset.brand, kind: box.classList.contains("is-rail") ? "rail" : box.classList.contains("is-plain") ? "plain" : "list", box: [b.width, b.height], img: i ? [i.width, i.height] : null,
     outside: i ? Math.max(b.left - i.left, i.right - b.right, b.top - i.top, i.bottom - b.bottom) : 0,
     inCard: card ? { top: b.top - card.top, dx: (b.left + b.width / 2) - (card.left + card.width / 2) } : null, loaded: img ? img.complete && img.naturalWidth > 0 : null, dx: i ? (i.left + i.width / 2) - (b.left + b.width / 2) : 0, dy: i ? (i.top + i.height / 2) - (b.top + b.height / 2) : 0 };
 }), scope);
@@ -43,13 +45,15 @@ const verify = (place, logos) => {
   let bad = [];
   for (const logo of logos) {
     const entry = manifest.brands[logo.name];
-    const expectBox = logo.kind === "rail" ? [48, 28] : [24, 24];
+    // QF-100 최종: 퀵필터 제조사 줄 기본 = plain(초톳식) — 로고 상자 PC 40×40(칸 위 6) · 모바일 36×36(칸 위 0), &qfcard=card 면 48×28(카드 위 8)
+    const plainSide = logo.kind === "plain" ? logo.box[0] : 0;
+    const expectBox = logo.kind === "rail" ? [48, 28] : logo.kind === "plain" ? (plainSide > 38 ? [40, 40] : [36, 36]) : [24, 24];
     if (logo.outside > 0.5) { outsideTotal += 1; outsideList.push(`${place} ${logo.name} ${logo.outside.toFixed(1)}`); bad.push(`${logo.name} 칸 밖 ${logo.outside.toFixed(1)}`); }
-    if (logo.inCard && (Math.abs(logo.inCard.top - 8) > 0.6 || Math.abs(logo.inCard.dx) > 0.6)) bad.push(`${logo.name} 칸 위치(카드 위 ${logo.inCard.top.toFixed(1)} · 가로 ${logo.inCard.dx.toFixed(1)})`);
+    if (logo.inCard && (Math.abs(logo.inCard.top - (logo.kind === "plain" ? (plainSide > 38 ? 6 : 0) : 8)) > 0.6 || Math.abs(logo.inCard.dx) > 0.6)) bad.push(`${logo.name} 칸 위치(카드 위 ${logo.inCard.top.toFixed(1)} · 가로 ${logo.inCard.dx.toFixed(1)})`);
     if (Math.abs(logo.box[0] - expectBox[0]) > 0.5 || Math.abs(logo.box[1] - expectBox[1]) > 0.5) bad.push(`${logo.name} 칸 ${logo.box.join("×")}`);
     if (!entry?.file) { if (logo.img) bad.push(`${logo.name} 로고 없음인데 이미지 있음`); continue; }
     if (!logo.img || !logo.loaded) { bad.push(`${logo.name} 이미지 안 뜸`); continue; }
-    const want = logo.kind === "rail" ? railSize(entry.ratio) : listSize(entry.ratio);
+    const want = logo.kind === "rail" ? railSize(entry.ratio) : logo.kind === "plain" ? plainSize(entry.ratio, expectBox[0]) : listSize(entry.ratio);
     if (Math.abs(logo.img[0] - want.w) > 0.6 || Math.abs(logo.img[1] - want.h) > 0.6) bad.push(`${logo.name} ${logo.img.map((v) => v.toFixed(1)).join("×")} ≠ ${want.w.toFixed(1)}×${want.h.toFixed(1)}`);
     if (Math.abs(logo.dx) > 0.6 || Math.abs(logo.dy) > 0.6) bad.push(`${logo.name} 가운데 어긋남 ${logo.dx.toFixed(1)},${logo.dy.toFixed(1)}`);
   }
@@ -80,7 +84,7 @@ for (const width of [1440, 1280]) {
     check("80 칸에서 잘리는 카드 이름", true, summary.truncatedRailLabels.length ? summary.truncatedRailLabels.join(", ") : "없음");
     check("구분선 폭 1 · 높이 44 · #E4E7EC · 좌우 4", divider?.w === 1 && divider?.h === 44 && divider?.bg === "rgb(228, 231, 236)" && divider?.margin === "0px 4px", JSON.stringify(divider));
     const spacing = await page.evaluate(() => { const card = document.querySelector(".bbm-content-head").getBoundingClientRect(); const chip = document.querySelector(".bbm-filter-button").getBoundingClientRect(); const cards = [...document.querySelectorAll(".is-kr-maker .depth-card")].map((c) => c.getBoundingClientRect()); return { gap: Math.round(cards[0].top - chip.bottom), firstX: cards[0].left, chipX: chip.left, cardGap: Math.round(cards[1].left - cards[0].right), size: `${cards[0].width}×${cards[0].height}` }; });
-    check("PC 칩 줄 → 카드 줄 18 · 카드 사이 8 · 첫 카드 왼쪽 선 = 첫 칩 왼쪽 선 · 카드 80×72", spacing.gap === 18 && spacing.cardGap === 8 && spacing.firstX === spacing.chipX && spacing.size === "80×72", JSON.stringify(spacing));
+    check("PC 칩 줄 → 제조사 줄 18 · 칸 사이 8 · 첫 칸 왼쪽 선 = 첫 칩 왼쪽 선 · 칸 84×102(plain)", spacing.gap === 18 && spacing.cardGap === 8 && spacing.firstX === spacing.chipX && spacing.size === "84×102", JSON.stringify(spacing));
     await page.locator(".bbm-hybrid-top").screenshot({ path: join(outDir, "pc-1440-rail.png") });
     await page.evaluate(() => { const track = document.querySelector(".is-kr-maker .brand-carousel"); track.scrollLeft = document.querySelector(".kr-maker-divider").offsetLeft - 400; }); await page.waitForTimeout(300);
     await page.locator(".bbm-hybrid-top").screenshot({ path: join(outDir, "pc-1440-rail-divider.png") });
@@ -107,8 +111,9 @@ for (const width of [1440, 1280]) {
   const { context, page, errors, missing } = await open("m");
   await page.locator(".bbm-category-menu__button").filter({ hasText: /^중고차/ }).first().tap(); await page.waitForTimeout(600);
   verify("모바일 393 퀵필터 제조사 줄", await measureLogos(page, ".is-kr-maker"));
-  const spacing = await page.evaluate(() => { const chip = document.querySelector(".filter-shell.is-bbm .filter-fixed").getBoundingClientRect(); const first = document.querySelector(".is-kr-maker .depth-card").getBoundingClientRect(); return { gap: Math.round(first.top - chip.bottom), firstX: first.left, chipX: chip.left }; });
-  check("모바일 칩 줄 → 카드 줄 16 · 첫 카드 왼쪽 선 = 첫 칩 왼쪽 선", spacing.gap === 16 && spacing.firstX === spacing.chipX, JSON.stringify(spacing));
+  const spacing = await page.evaluate(() => { const chip = document.querySelector(".filter-shell.is-bbm .filter-fixed").getBoundingClientRect(); const first = document.querySelector(".is-kr-maker .depth-card").getBoundingClientRect(); const cards = [...document.querySelectorAll(".is-kr-maker .depth-card")].map((c) => c.getBoundingClientRect()); return { gap: Math.round(first.top - chip.bottom), firstX: first.left, chipX: chip.left, pitch: Math.round(cards[1].left - cards[0].left), size: `${first.width}×${first.height}` }; });
+  // 모바일 plain: 칩 줄 → 제조사 줄 14(초톳 필터 칩 줄 → 지역 칩 줄 값), 첫 칸은 첫 칩보다 4 왼쪽(초톳 실측, 칸 안 여백 4)
+  check("모바일 칩 줄 → 제조사 줄 14 · 첫 칸 = 첫 칩 − 4 · 칸 64×74 · 피치 72(plain)", spacing.gap === 14 && spacing.firstX === spacing.chipX - 4 && spacing.size === "64×74" && spacing.pitch === 72, JSON.stringify(spacing));
   await page.screenshot({ path: join(outDir, "m-393-rail.png"), clip: { x: 0, y: 0, width: 393, height: 330 } });
   await page.locator(".filter-track .filter-chip").filter({ hasText: /^제조사/ }).first().tap(); await page.waitForTimeout(600);
   verify("모바일 393 제조사 시트(필터 서랍)", await measureLogos(page, ".bbmf-sheet"));

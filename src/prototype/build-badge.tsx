@@ -7,13 +7,13 @@ const env = import.meta.env as Record<string, string | undefined>;
 export const buildInfo = { branch: env.VITE_BUILD_BRANCH ?? "dev", commit: env.VITE_BUILD_COMMIT ?? "dev", time: env.VITE_BUILD_TIME ?? "" };
 const debug = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("debug") === "1";
 
-// QF-096 보완 3: 배지 옆 "로고 칸 안내선" 체크박스(&debug=1 일 때만).
+// QF-096 보완 3: 배지 옆 "로고 칸 안내선" 체크박스(&debug=1 일 때만). QF-100: &qfcard=plain 의 로고 상자 40×40(모바일 36×36)도 같은 점선
 // 켜면 <html data-qf-guides="1"> — 퀵필터 로고 칸 48×28 · 모델/세부모델 이미지 칸 56×28 · 목록 로고 칸 24×24 에 빨간 점선(outline)과 세로 중심선(배경),
 // 칸 밖으로 나간 로고·이미지는 칸에 data-qf-outside → 빨간 점 8px. outline·배경·상대 위치만 써서 레이아웃은 그대로. 켠 상태는 브라우저 저장소에 기억
 const GUIDE_KEY = "qf-logo-guides";
 const readGuide = () => { try { return window.localStorage.getItem(GUIDE_KEY) === "1"; } catch { return false; } };
 const writeGuide = (on: boolean) => { try { window.localStorage.setItem(GUIDE_KEY, on ? "1" : "0"); } catch { /* 저장소를 못 쓰면 기억하지 않는다 */ } };
-const GUIDE_BOXES = ".kr-brand-logo.is-rail, .kr-brand-logo.is-list, .depth-card-media:not(.is-brand)";
+const GUIDE_BOXES = ".kr-brand-logo.is-rail, .kr-brand-logo.is-list, .kr-brand-logo.is-plain, .depth-card-media:not(.is-brand)";
 
 function markOutside() {
   for (const box of document.querySelectorAll<HTMLElement>(GUIDE_BOXES)) {
