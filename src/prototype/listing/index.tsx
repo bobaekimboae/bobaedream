@@ -788,6 +788,11 @@ function MarketplaceScreen() {
     setTrimApplied(false);
   };
 
+  // QF-105: 과쯔 퀵필터 트림 알약 — 누르면 그 트림 하나로 바로 적용(칩 줄에 [C200 ×], 트림 줄은 닫힘). 좌측 필터 등급은 chooseVariant(여럿 선택) 그대로
+  const chooseTrimPill = (variantName: string) => {
+    setSelectedVariants([variantName]);
+    setTrimApplied(false);
+  };
   const chooseVariant = (variantName: string) => {
     setSelectedVariants((current) => current.includes(variantName) ? current.filter((variant) => variant !== variantName) : [...current, variantName]);
     setTrimApplied(false);
@@ -1002,12 +1007,15 @@ function MarketplaceScreen() {
   const shouldStayOnSelectedModelRail = Boolean(isGuaziQuickStyle && selectedModel && !hasGenerationDepth && !hasDirectVariantDepth);
   const showModelQuickRail = Boolean(maker && modelQuickOptions.length && (!selectedModel || shouldStayOnSelectedModelRail));
   // QF-097: 카탈로그 세부 모델을 골랐는데 트림 데이터가 없으면 세부 모델 줄에 선택된 채로 남는다
-  const stayOnGenerationRail = Boolean(isCatalogMaker && selectedGeneration && !variantQuickOptions.length);
+  // QF-105: 과쯔는 트림이 1개뿐이면 트림 줄을 띄우지 않고 세부모델 줄에 선택된 채로 둔다. 트림을 고르면 트림 줄은 닫힌다(칩 [트림 ×] 로만 푼다)
+  const guaziTrimRailOptions = isGuaziQuickStyle && selectedGeneration ? variantTrimOptions : [];
+  const guaziTrimChosen = Boolean(isGuaziQuickStyle && selectedGeneration && selectedVariants.length > 0);
+  const stayOnGenerationRail = Boolean(isCatalogMaker && selectedGeneration && (isGuaziQuickStyle ? variantQuickOptions.length <= 1 : !variantQuickOptions.length) && !guaziTrimChosen);
   const showGenerationQuickRail = Boolean(usesUxDepth && selectedModel && (!selectedGeneration || stayOnGenerationRail) && railGenerationOptions.length);
-  const showVariantQuickRail = Boolean(usesUxDepth && ((selectedGeneration && variantQuickOptions.length) || hasDirectVariantDepth) && (isGuaziQuickStyle || !trimApplied));
+  const showVariantQuickRail = Boolean(usesUxDepth && ((selectedGeneration && (isGuaziQuickStyle ? guaziTrimRailOptions.length > 1 && !guaziTrimChosen : variantQuickOptions.length)) || hasDirectVariantDepth) && (isGuaziQuickStyle || !trimApplied));
   const showVehicleHeaderRail = Boolean(!isGuaziQuickStyle && usesUxDepth && selectedGeneration && trimApplied);
   const showCategoryQuickRail = categoryLandingOpen && !maker;
-  const showGuaziMakerRail = Boolean(isGuaziQuickStyle && !showCategoryQuickRail && !showModelQuickRail && !showGenerationQuickRail && !showVariantQuickRail && !showVehicleHeaderRail && categoryBrandRail.title === "제조사");
+  const showGuaziMakerRail = Boolean(isGuaziQuickStyle && !guaziTrimChosen && !showCategoryQuickRail && !showModelQuickRail && !showGenerationQuickRail && !showVariantQuickRail && !showVehicleHeaderRail && categoryBrandRail.title === "제조사");
 
   // 필터 칩 줄과 퀵필터 레일은 모바일·PC가 같은 마크업을 쓰고, PC에서는 필터 헤더 패널 안으로 위치만 옮긴다.
   const filterShell = (
@@ -1019,6 +1027,8 @@ function MarketplaceScreen() {
           </section>
   );
   const quickRail = (
+          // QF-105: 트림까지 고르면 퀵필터 줄은 닫힌다(칩 [트림 ×] 로 다시 연다)
+          guaziTrimChosen && !showGenerationQuickRail ? null :
           // QF-091: 과쯔(개발 시안형)는 퀵필터 0단계 대신 원본 차량 유형 줄. 유형을 고르면 같은 자리가 제조사 레일로 바뀐다
           showCategoryQuickRail && isGuaziQuickStyle ? <BbmCategoryMenu onChoose={chooseVehicleCategory} /> : showCategoryQuickRail ? <section className="category-row" aria-label="차량 대카테고리 선택">
             <Carousel ariaLabel="차량 대카테고리" className="category-carousel" contentClassName="category-track">
@@ -1093,12 +1103,12 @@ function MarketplaceScreen() {
                 );
               })}
             </Carousel>
-          </section> : showVariantQuickRail && isGuaziQuickStyle ? <section className="depth-rail" aria-label={`${accessibleDepthLabel(selectedGeneration ?? selectedModel)} 트림 빠른 선택`}>
+          </section> : showVariantQuickRail && isGuaziQuickStyle ? <section className="depth-rail is-trim-row" aria-label={`${accessibleDepthLabel(selectedGeneration ?? selectedModel)} 트림 빠른 선택`}>
+            {/* QF-105: 초톳 알약 줄 — "전체" 칩·선택 표시 없음, 처음엔 모든 트림, 누르면 바로 적용 */}
             <span className="depth-rail-label">트림</span>
             <Carousel ariaLabel={`${accessibleDepthLabel(selectedGeneration ?? selectedModel)} 트림`} className="brand-carousel" contentClassName="depth-rail-track is-chips">
-              <TrimChip label="전체" selected={selectedVariants.length === 0} onClick={clearVariantFilter} />
               {variantTrimOptions.map((variant) => (
-                <TrimChip key={variant.name} label={variant.name} selected={selectedVariants.includes(variant.name)} disabled={variant.count === 0} onClick={() => chooseVariant(variant.name)} />
+                <TrimChip key={variant.name} label={variant.name} disabled={variant.count === 0} onClick={() => chooseTrimPill(variant.name)} />
               ))}
             </Carousel>
           </section> : showVariantQuickRail ? <section className="brand-row is-benz-model-mode" aria-label={`${accessibleDepthLabel(selectedGeneration ?? selectedModel)} 트림 빠른 선택`}>
@@ -1225,9 +1235,11 @@ function MarketplaceScreen() {
       { key: "step-maker", label: maker, active: true, className: "is-vehicle-summary is-step", onClick: () => setSheet("vehicle"), onClear: clearMakerFilter },
       selectedModel ? { key: "step-model", label: formatModelLabel(selectedModel), active: true, className: "is-vehicle-summary is-step", onClick: () => setSheet("vehicle"), onClear: clearModelFilter } : null,
       selectedModel && selectedGenerationOption ? { key: "step-generation", label: generationDisplayLabel(selectedGenerationOption), active: true, className: "is-vehicle-summary is-step", onClick: () => setSheet("vehicle"), onClear: clearGenerationFilter } : null,
+      selectedModel && selectedGenerationOption && selectedVariants.length ? { key: "step-trim", label: selectedTrimChipLabel, active: true, className: "is-vehicle-summary is-step", onClick: () => setSheet("vehicle"), onClear: clearVariantFilter } : null,
     ] : []),
     maker && !selectedModel ? { key: "model", label: "모델", active: false, onClick: () => openBbmChipPanel("모델") } : null,
-    chipByKey("variant"),
+    // QF-105: 트림을 고르면 빈 "트림" 칩 대신 단계 칩 [트림 ×]
+    selectedVariants.length ? null : chipByKey("variant"),
     ...bbmApplied.map((chip) => ({ key: `applied-${chip.id}`, label: chip.label, active: true, className: "is-applied", onClick: () => openBbmChipPanel(bbmPanelForId(chip.id)), onClear: () => setBbmFilters(chip.clear(bbmValue)) })),
     maker ? null : { key: "maker", label: "제조사", active: false, onClick: () => openBbmChipPanel("제조사") },
     groupChip("year", "연식", "연식", rangeIsSet(bbmValue.ranges.year)),
@@ -1357,9 +1369,11 @@ function MarketplaceScreen() {
       { label: categoryIsDefault || category === "중고차" ? "전체차량" : category, onClick: clearMakerFilter },
       ...(maker ? [{ label: maker, onClick: clearModelFilter }] : []),
       ...(maker && selectedModel ? [{ label: formatModelLabel(selectedModel), onClick: clearGenerationFilter }] : []),
-      ...(maker && selectedModel && selectedGenerationOption ? [{ label: generationDisplayLabel(selectedGenerationOption) }] : []),
+      ...(maker && selectedModel && selectedGenerationOption ? [{ label: generationDisplayLabel(selectedGenerationOption), onClick: selectedVariants.length ? clearVariantFilter : undefined }] : []),
+      // QF-105: 트림까지 고르면 경로에 트림 이름을 이어 붙인다
+      ...(maker && selectedModel && selectedGenerationOption && selectedVariants.length ? [{ label: selectedTrimChipLabel }] : []),
     ];
-    const bbmTitlePrefix = bbmTopTitlePrefix([regionLabel === "전국" ? null : regionLabel, categoryIsDefault || category === "중고차" ? null : category, maker, selectedModel ? formatModelLabel(selectedModel) : null, selectedModel && selectedGenerationOption ? generationDisplayLabel(selectedGenerationOption) : null]);
+    const bbmTitlePrefix = bbmTopTitlePrefix([regionLabel === "전국" ? null : regionLabel, categoryIsDefault || category === "중고차" ? null : category, maker, selectedModel ? formatModelLabel(selectedModel) : null, selectedModel && selectedGenerationOption ? generationDisplayLabel(selectedGenerationOption) : null, selectedModel && selectedGenerationOption && selectedVariants.length ? selectedTrimChipLabel : null]);
     const bbmTopCard = (
       <section className={`bbm-content-head is-chotot${showCategoryQuickRail ? " has-category-menu" : ""}`} aria-label="검색 조건">
         <BbmTopCrumbs items={bbmCrumbs} />
@@ -1385,7 +1399,7 @@ function MarketplaceScreen() {
     return (
       <>
         <MobileScroll className="app-screen">
-          <main className={`marketplace is-bbm${isGuaziQuickStyle ? " is-hybrid" : ""}${plainQuickCards ? " is-qf-plain" : ""}`} aria-label="중고차 리스트">
+          <main className={`marketplace is-bbm${isGuaziQuickStyle ? " is-hybrid" : ""}${plainQuickCards ? " is-qf-plain" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}`} aria-label="중고차 리스트">
             <BbHeader onNotify={setSearchToast} onOpenFavorites={() => flow.push(savedListingsScreen)} />
             {/* QF-093: 과쯔는 상단 패널(전체차량 · N대 · 검색저장 · 칩 줄 · 유형 줄/퀵필터 레일)을 본문 폭 전체로 */}
             {isGuaziQuickStyle ? <div className="bbm-hybrid-top">{bbmTopCard}</div> : null}
@@ -1516,7 +1530,7 @@ function MarketplaceScreen() {
     return (
       <>
         <MobileScroll className="app-screen">
-          <main className={`marketplace is-bbm-m${plainQuickCards ? " is-qf-plain" : ""}`} aria-label="중고차 리스트">
+          <main className={`marketplace is-bbm-m${plainQuickCards ? " is-qf-plain" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}`} aria-label="중고차 리스트">
             <Header bbm query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} />
             <section className="region-bar is-bbm" aria-label="지역 선택">
               <button type="button" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={openRegionSheet}><img className="ui-icon" src={bbmIcon("m-region-location")} alt="" aria-hidden="true" /><span className="region-text"><span className="region-label">지역:</span><strong>{regionLabel}</strong></span><span className="region-chevron-icon" aria-hidden="true"><img src={bbmIcon("m-region-chevron")} alt="" /></span></button>

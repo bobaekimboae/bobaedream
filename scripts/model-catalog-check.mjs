@@ -3,6 +3,7 @@
 // ① 퀵필터 모델 줄 순서 = 숫자(현행) → 영문 → 가나다 → 숫자(구형, "~현재" 없음) → 기타(벤츠 A클래스 = A-클래스). PC 는 좌측 필터 모델 목록(0대 포함 전체)도 같은 순서·같은 개수
 // ② 전수 점검: 모든 모델 카드 · 세부 모델 카드 · 트림 칩을 눌러도 목록이 비지 않음(제목 "0대" 없음, 빈 목록 문구 없음)
 // ③ 단계별 칩: 벤츠 → C클래스 → W206 에서 [벤츠 ×][C클래스 ×][W206 ×], 세부 모델 × / 모델 × / 제조사 × 각각의 칩·줄·경로·제목·목록 수
+// ⑤ QF-105 트림 줄: 상자 높이 · 알약 규격 · "전체" 없음 · 이름표 위치 · C200 누름/× 흐름
 // ④ 이미지 칸 56×28 안(폭 56 또는 높이 28, 아래 정렬) · 빈 칸 점선 · 칸 폭 PC 84 · 모바일 64(QF-100 plain 기본, 이미지 칸 위 6 · 0, 이미지 → 이름 8) · 모델 보조 글자 = 차종(매물 수 아님) · 404 0 · 콘솔 오류 0 · 줄 이름표 "세부모델"
 // 캡처: reports/qf-097/  요약: reports/diff/models-summary[-크기].json
 // 사용: npm run check:models [-- --base=<주소>] [-- --only=pc-1440|pc-1280|m-393] (메모리가 모자라면 화면 크기별로 나눠 돌린다)
@@ -125,10 +126,11 @@ for (const [tag, device, viewport] of [["pc-1440", "pc", { width: 1440, height: 
         if (trim?.kind === "trim") {
           for (const [chipIndex, chip] of trim.chips.entries()) {
             if (chip.disabled) { results.push({ path: `${modelLabel} > ${subCard.label} > ${chip.label}`, count: 0, ok: true, disabled: true }); continue; }
-            await click(page.locator("section.depth-rail .trim-chip").nth(chipIndex));
+            // QF-105: 알약을 누르면 바로 적용되고 트림 줄은 닫힌다 → 칩 [트림 ×] 로 풀면 다시 열린다
+            await click(page.locator("section.depth-rail .trim-chip").nth(chipIndex)); await settle();
             top = await topState(page);
             results.push({ path: `${modelLabel} > ${subCard.label} > ${chip.label}`, count: top.count, ok: notZero(top) });
-            await click(page.locator("section.depth-rail .trim-chip").nth(chipIndex));
+            if (await stepChips().count() >= 4) { await click(stepChips().nth(3).locator(".filter-chip-clear")); await settle(); }
           }
         }
         // 세부 모델 × 로 세부 모델 줄로(칩 세 번째)
@@ -170,6 +172,27 @@ for (const [tag, device, viewport] of [["pc-1440", "pc", { width: 1440, height: 
   await shot("benz-c-sub"); await record("벤츠 → C클래스");
   await click(cardByLabel("W206")); await settle();
   await record("벤츠 → C클래스 → W206"); await shot("chips-3");
+  // QF-105 트림 줄: 상자 높이(PC 32 · 모바일 40 = 위 2 + 32 + 아래 6) · 알약 규격 · "전체" 없음 · 이름표 위치
+  const trimRow = await page.evaluate(() => {
+    const r = document.querySelector("section.depth-rail.is-trim-row"); if (!r) return null;
+    const rr = r.getBoundingClientRect(); const pills = [...r.querySelectorAll(".trim-chip")]; const p0 = pills[0].getBoundingClientRect(); const cs = getComputedStyle(pills[0]);
+    const l = r.querySelector(".depth-rail-label"); const range = document.createRange(); range.selectNodeContents(l); const t = range.getBoundingClientRect(); const lcs = getComputedStyle(l);
+    const topCard = document.querySelector(".bbm-hybrid-top")?.getBoundingClientRect();
+    return { box: Math.round(rr.height * 10) / 10, padTop: Math.round((p0.top - rr.top) * 10) / 10, padBottom: Math.round((rr.bottom - p0.bottom) * 10) / 10, pillToCardEnd: topCard ? Math.round((topCard.bottom - p0.bottom) * 10) / 10 : null,
+      labels: pills.map((p) => p.textContent.trim()), selected: pills.filter((p) => p.classList.contains("is-selected") || p.getAttribute("aria-pressed") === "true").length,
+      pill: { h: p0.height, radius: cs.borderTopLeftRadius, border: `${cs.borderTopWidth} ${cs.borderTopColor}`, bg: cs.backgroundColor, font: `${cs.fontSize} ${cs.fontWeight}`, color: cs.color, pad: cs.paddingLeft },
+      gap: pills.length > 1 ? Math.round((pills[1].getBoundingClientRect().left - p0.right) * 10) / 10 : null,
+      label: { text: l.textContent, x: Math.round(t.left * 10) / 10, toFirst: Math.round((p0.left - t.right) * 10) / 10, dy: Math.round(((t.top + t.height / 2) - (p0.top + p0.height / 2)) * 10) / 10, font: `${lcs.fontSize} ${lcs.fontWeight} ${lcs.color}` } };
+  });
+  const firstChipX = await page.evaluate(() => Math.min(...[...document.querySelectorAll(".bbm-filter-button, .filter-fixed, .filter-chip")].filter((e) => e.getBoundingClientRect().width).map((e) => e.getBoundingClientRect().left)));
+  summary.trimRow = { ...(summary.trimRow ?? {}), [tag]: { ...trimRow, firstChipX } };
+  check(`${tag} 트림 줄 상자 ${device === "pc" ? "32(알약 아래 → 상단 카드 끝 16)" : "40(위 2 · 아래 6)"} · 빈 공간 0`, trimRow && (device === "pc" ? trimRow.box === 32 && trimRow.pillToCardEnd === 16 : trimRow.box === 40 && trimRow.padTop === 2 && trimRow.padBottom === 6), JSON.stringify(trimRow && { box: trimRow.box, padTop: trimRow.padTop, padBottom: trimRow.padBottom, pillToCardEnd: trimRow.pillToCardEnd }));
+  check(`${tag} 트림 알약: 흰 바탕 · 1px #DDDDDD · 32 · 완전 둥근 · 좌우 16 · 14px 400 #222 · 사이 8 · "전체" 칩·선택 표시 없음`, trimRow && trimRow.pill.h === 32 && trimRow.pill.border === "1px rgb(221, 221, 221)" && trimRow.pill.bg === "rgb(255, 255, 255)" && trimRow.pill.font === "14px 400" && trimRow.pill.color === "rgb(34, 34, 34)" && trimRow.pill.pad === "16px" && parseFloat(trimRow.pill.radius) >= 16 && trimRow.gap === 8 && !trimRow.labels.includes("전체") && trimRow.selected === 0, JSON.stringify(trimRow && { ...trimRow.pill, gap: trimRow.gap, labels: trimRow.labels.join(",") }));
+  check(`${tag} 트림 이름표 "트림" 14px 400 #595959 · 왼쪽 = 첫 칩(${firstChipX}) · 첫 알약까지 12 · 세로 가운데`, trimRow && trimRow.label.text === "트림" && trimRow.label.font === "14px 400 rgb(89, 89, 89)" && Math.abs(trimRow.label.x - firstChipX) <= 0.6 && Math.abs(trimRow.label.toFirst - 12) <= 1 && Math.abs(trimRow.label.dy) <= 1, JSON.stringify(trimRow?.label));
+  // 흐름: C200 누름 → 칩 [벤츠][C클래스][W206][C200] · 트림 줄 닫힘 · 제목·경로 → [C200 ×] → 트림 줄 다시 열림
+  await click(page.locator("section.depth-rail.is-trim-row .trim-chip").filter({ hasText: /^C200$/ }).first()); await settle();
+  await record("W206 → C200"); await shot("trim-c200");
+  await click(chipClear("C200")); await settle(); await record("C200 ×"); await shot("trim-reopen");
   await click(chipClear("W206")); await settle(); await record("세부모델 ×");
   await click(cardByLabel("W206")); await settle();
   await click(chipClear("C클래스")); await settle(); await record("모델 ×");
@@ -184,6 +207,9 @@ for (const [tag, device, viewport] of [["pc-1440", "pc", { width: 1440, height: 
   check(`${tag} 제조사 × → 제조사 줄`, !s3.chips.includes("벤츠") && !s3.chips.includes("C클래스") && s3.emptyChips.includes("제조사"), `${s3.chips.join(" ")} · 빈 칩 ${s3.emptyChips.join(" ")} · ${s3.title ?? "-"}`);
   check(`${tag} 칩 단계마다 목록 0대 없음`, steps.every((step) => !step.empty && (step.count === null || step.count > 0)), steps.map((step) => `${step.step} ${step.count ?? "-"}대`).join(" · "));
   if (device === "pc") check(`${tag} 제목에 세부모델 이름 "벤츠 C클래스 W206 중고차 N대" · N = 목록 수`, /^벤츠 C클래스 W206 중고차 [\d,]+대/.test(s0.title ?? "") && s0.count > 0, s0.title ?? "-");
+  const t1 = at("W206 → C200"); const t2 = at("C200 ×");
+  check(`${tag} C200 누름 → 칩 [벤츠][C클래스][W206][C200] · 트림 줄 닫힘${device === "pc" ? " · 제목·경로에 C200" : ""}`, ["벤츠", "C클래스", "W206", "C200"].every((label) => t1.chips.includes(label)) && t1.rail === "없음" && (device !== "pc" || (/^벤츠 C클래스 W206 C200 중고차 [\d,]+대/.test(t1.title ?? "") && /C200$/.test(t1.crumbs))) && !t1.empty, `${t1.chips.join(" ")} · 줄 ${t1.rail} · ${t1.title ?? "-"} · ${t1.crumbs || "-"}`);
+  check(`${tag} [C200 ×] → 트림만 풀림 · 트림 줄 다시 열림`, !t2.chips.includes("C200") && t2.chips.includes("W206") && /^트림/.test(t2.rail), `${t2.chips.join(" ")} · 줄 ${t2.rail}`);
   check(`${tag} 줄 이름표 "세부모델"`, railAfterModel?.railLabel === "세부모델", railAfterModel?.railLabel ?? "없음");
 
   // 캡처: 포르쉐 모델 줄 → 718(911 은 샘플 매물이 없어 카드 없음) · 현대 → 그랜저
