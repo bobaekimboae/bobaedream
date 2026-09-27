@@ -40,13 +40,15 @@ export function krRailLogoSize(ratio: number) {
   if (ratio <= 2.5) { const width = Math.min(44, 28 * Math.sqrt(ratio)); return { width, height: width / ratio }; }
   return { width: 64, height: 64 / ratio };
 }
-// 목록(로고 칸 24×24) 표시 크기 — 비율 유지로 칸 안에 맞춤
+// 목록(로고 칸 32×24, QF-096 보완 2) 표시 크기 — 비율 1.25 이하(엠블럼) 높이 20 · 1.25 초과 폭 min(32, 20×√비율), 높이 = 폭÷비율
 export function krListLogoSize(ratio: number) {
-  return ratio >= 1 ? { width: 24, height: 24 / ratio } : { width: 24 * ratio, height: 24 };
+  if (ratio <= 1.25) return { width: 20 * ratio, height: 20 };
+  const width = Math.min(32, 20 * Math.sqrt(ratio));
+  return { width, height: width / ratio };
 }
 const px = (value: number) => `${Math.round(value * 100) / 100}px`;
 
-/** 로고 칸(퀵필터 48×28 · 목록 24×24). 로고가 없으면 빈 칸(이름 시작선을 맞춘다). 이미지는 alt=""(이름이 바로 옆) */
+/** 로고 칸(퀵필터 48×28 · 목록 32×24). 로고가 없으면 빈 칸(이름 시작선을 맞춘다). 이미지는 alt=""(이름이 바로 옆) */
 export function KrBrandLogo({ name, kind }: { name: string; kind: "rail" | "list" }) {
   const logo = krBrandLogo(name);
   const size = logo ? (kind === "rail" ? krRailLogoSize(logo.ratio) : krListLogoSize(logo.ratio)) : null;

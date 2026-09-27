@@ -93,7 +93,20 @@ const TABLE = `국산	현대	hyundai	당근	https://assetstorage.krrt.io/1584808
 // 로고 없음(파일을 만들지 않고 화면에서 빈칸)
 const NO_LOGO = ["GM대우", "기타 국산차", "모건", "비이스만", "스파이커", "알핀", "어큐라", "오스틴", "웨스트필드", "이네오스", "피스커", "홀덴", "기타 수입차"];
 // 공식 파일이 오면 같은 이름으로 교체할 임시 파일
-const TEMPORARY = new Set(["kgm", "renault"]);
+// QF-096 보완 2: 구형 로고 교체 — 위키백과 정보 상자 로고 파일(위키미디어 공용 SVG 는 공용 서버의 PNG 렌더). 원본 파일만 쓰고 다시 그리지 않는다.
+// 출처 우선순위 ① 브랜드 공식 보도자료·자료실 ② 위키백과 정보 상자 로고 파일 ③ 없으면 교체하지 않음. 연도를 확인한 것만 교체
+const WIKI = "위키백과 정보 상자(위키미디어)";
+const REFRESH = {
+  kgm: { source: WIKI, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/KG_Mobility_brand_logo.svg/1280px-KG_Mobility_brand_logo.svg.png", page: "https://commons.wikimedia.org/wiki/File:KG_Mobility_brand_logo.svg", year: 2023, yearNote: "2023년 3월 KG모빌리티 사명 변경·새 브랜딩(en.wikipedia KG Mobility), 파일 날짜 2024-01-01", official: false, license: "Public domain" },
+  citroen: { source: WIKI, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Citroen_2022.svg/1280px-Citroen_2022.svg.png", page: "https://commons.wikimedia.org/wiki/File:Citroen_2022.svg", year: 2022, yearNote: "위키백과 정보 상자 \"Logo since 2022\", 파일 날짜 2022-09-27", official: false, license: "Public domain" },
+  jaguar: { source: WIKI, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Jaguar_2024.svg/1280px-Jaguar_2024.svg.png", page: "https://commons.wikimedia.org/wiki/File:Jaguar_2024.svg", year: 2024, yearNote: "2024-11-19 새 로고·브랜딩 공개(en.wikipedia Jaguar Cars)", official: false, license: "Public domain" },
+  renault: { source: WIKI, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Renault_2021.svg/1280px-Renault_2021.svg.png", page: "https://commons.wikimedia.org/wiki/File:Renault_2021.svg", year: 2021, yearNote: "공용 파일 설명 \"Renault logo since 2021\"(로장주), 원본 954×1255", official: false, license: "Public domain" },
+  lancia: { source: WIKI, url: "https://upload.wikimedia.org/wikipedia/en/7/78/Lancia_logo_2022.png", page: "https://en.wikipedia.org/wiki/File:Lancia_logo_2022.png", year: 2022, yearNote: "위키백과 정보 상자 Lancia_logo_2022.png, 파일 날짜 2022-12-05", official: false, license: "Fair use(영문 위키백과 로컬 파일)" },
+  hino: { source: WIKI, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Hino_Motors_logo_2026.svg/1280px-Hino_Motors_logo_2026.svg.png", page: "https://commons.wikimedia.org/wiki/File:Hino_Motors_logo_2026.svg", year: 2026, yearNote: "공용 파일 설명 \"used since April, 2026\"", official: false, license: "Public domain" },
+};
+// 확인했지만 교체하지 않은 것(이유)
+const KEPT = { bentley: "2025 새 날개 B 로고 파일을 공식 자료·위키백과에서 찾지 못함 — 위키백과 정보 상자는 2021 파일(Bentley logo 2.svg)이라 연도 확인 불가, 그대로 둠" };
+const TEMPORARY = new Set([]);
 
 const rows = TABLE.split("\n").map((line) => { const [group, name, slug, source, url] = line.split("\t"); return { group, name, slug, source, url }; });
 const today = new Date().toLocaleDateString("sv-SE", { timeZone: "Asia/Seoul" });
@@ -107,7 +120,14 @@ for (const row of rows) {
   if (processed.has(row.slug)) continue;
   let bytes;
   try {
-    const response = await fetch(row.url, { headers: row.source === AUTOHOME ? { Referer: "https://www.autohome.com.cn/" } : {} });
+    const refresh = REFRESH[row.slug];
+    // 위키미디어는 요청이 몰리면 429 — 잠시 기다렸다 다시 받는다
+    let response;
+    for (let attempt = 0; attempt < 5; attempt += 1) {
+      response = await fetch(refresh?.url ?? row.url, { headers: refresh ? { "User-Agent": "bobaedream-prototype-logo-check/1.0" } : row.source === AUTOHOME ? { Referer: "https://www.autohome.com.cn/" } : {} });
+      if (response.status !== 429) break;
+      await new Promise((resolve) => setTimeout(resolve, 15000));
+    }
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     bytes = Buffer.from(await response.arrayBuffer());
     if (!bytes.length) throw new Error("빈 파일");
@@ -116,7 +136,7 @@ for (const row of rows) {
     processed.set(row.slug, null);
     continue;
   }
-  const mime = row.url.endsWith(".webp") ? "image/webp" : "image/png";
+  const mime = (REFRESH[row.slug]?.url ?? row.url).endsWith(".webp") ? "image/webp" : "image/png";
   const result = await page.evaluate(async ([b64, mime]) => {
     const blob = await (await fetch(`data:${mime};base64,${b64}`)).blob();
     const bitmap = await createImageBitmap(blob);
@@ -146,7 +166,7 @@ for (const row of rows) {
   if (result.error) { problems.push({ name: row.name, slug: row.slug, reason: result.error }); processed.set(row.slug, null); continue; }
   if (!result.transparent) problems.push({ name: row.name, slug: row.slug, reason: "투명 아님(알파 없음)" });
   writeFileSync(join(OUT, `${row.slug}.png`), Buffer.from(result.png, "base64"));
-  processed.set(row.slug, { ...result, png: undefined, source: row.source, url: row.url });
+  processed.set(row.slug, { ...result, png: undefined, source: REFRESH[row.slug]?.source ?? row.source, url: REFRESH[row.slug]?.url ?? row.url });
   console.log(`${row.slug.padEnd(14)} 원본 ${result.original.join("×")} → 로고 ${result.trimmed.join("×")} → ${result.final.join("×")} 비율 ${(result.trimmed[0] / result.trimmed[1]).toFixed(2)}${result.transparent ? "" : " [투명 아님]"}`);
 }
 
@@ -157,10 +177,12 @@ const manifest = {
   brands: Object.fromEntries(rows.map((row) => {
     const item = processed.get(row.slug);
     return [row.name, item ? {
-      group: row.group, slug: row.slug, file: `${row.slug}.png`, source: row.source, url: row.url,
+      group: row.group, slug: row.slug, file: `${row.slug}.png`, source: item.source, url: item.url,
+      ...(REFRESH[row.slug] ? { sourcePage: REFRESH[row.slug].page, logoYear: REFRESH[row.slug].year, logoYearNote: REFRESH[row.slug].yearNote, official: REFRESH[row.slug].official, license: REFRESH[row.slug].license, refreshed: "QF-096 보완 2" } : {}),
+      ...(KEPT[row.slug] ? { keptReason: KEPT[row.slug] } : {}),
       originalSize: item.original, trimmedSize: item.trimmed, finalSize: item.final,
       ratio: Math.round((item.trimmed[0] / item.trimmed[1]) * 1000) / 1000,
-      ...(TEMPORARY.has(row.slug) ? { replaceWithOfficial: true } : {}),
+      replaceWithOfficial: TEMPORARY.has(row.slug),
     } : { group: row.group, slug: row.slug, file: null, source: row.source, url: row.url, error: problems.find((p) => p.slug === row.slug)?.reason }];
   })),
   noLogo: NO_LOGO,
@@ -172,7 +194,9 @@ writeFileSync(join(OUT, "CREDITS.md"), `# 제조사 로고(과쯔 모드, QF-096
 - 받은 날짜: ${today}
 - 처리: 알파 16 이하 여백 자르기 → 비율 유지로 192×112 안(원본보다 키우지 않음) → PNG. 같은 slug(chevrolet·renault)는 파일 하나
 - 이름·원본 URL·크기·비율: manifest.json
-- 임시 파일(공식 파일이 오면 같은 이름으로 교체): kgm.png, renault.png (manifest "replaceWithOfficial": true)
+- QF-096 보완 2 교체(위키백과 정보 상자 원본 파일 · 위키미디어, 브랜드 공식 배포본 아님 → manifest "official": false):
+${Object.entries(REFRESH).map(([slug, r]) => `  - ${slug}.png: ${r.year}(${r.yearNote}) · ${r.license} · ${r.url}`).join("\n")}
+- 교체하지 않음: ${Object.entries(KEPT).map(([slug, reason]) => `${slug}.png — ${reason}`).join(" / ")}
 - 로고 없음(파일 없음, 화면 빈칸): ${NO_LOGO.join(", ")}
 - 다시 만들기: node scripts/brand-logos-kr.mjs
 `);
