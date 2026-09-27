@@ -1,4 +1,4 @@
-/* QF-100 과쯔 퀵필터 "바탕 없는(초톳식)" 시안 — 주소에 &qfcard=plain 이 있을 때만 .marketplace.is-qf-plain. 없으면 이 파일은 아무것도 바꾸지 않는다.
+/* QF-100 과쯔 퀵필터 "바탕 없는(초톳식)" — 과쯔 모드 기본(.marketplace.is-qf-plain). 주소에 &qfcard=card 면 이 클래스가 빠져 이전 과쯔 카드 모양(비교용).
    초톳 브랜드 줄 실측(xe.chotot.com/mua-ban-oto, 2026-09-27): PC 칸 84×102 · 피치 92 · 로고 상자 40×40(칸 위 6) · 이름 14/21 400 #595959(상자 아래 14)
    모바일 393 칸 64×74 · 피치 72 · 로고 상자 36×36(칸 위 0) · 이름 12/18 500 #595959(상자 아래 2). 칸 배경·테두리·모서리 없음, 선택 표시 없음 */
 .marketplace.is-qf-plain .depth-rail { height: auto; }
@@ -36,7 +36,9 @@
 /* 모바일 첫 칸 왼쪽 선: 초톳 실측처럼 첫 칩보다 4 왼쪽(칸 안 여백 4 → 로고·이름은 칩 선과 맞음) */
 .marketplace.is-bbm-m.is-qf-plain .depth-rail.is-kr-maker .depth-rail-track { padding-left: 12px; }
 
-/* 칩 줄 → 퀵필터 줄 간격: 초톳 실측(브랜드 줄 바로 위 칩 줄과의 간격) PC 16 · 모바일 10 */
-.marketplace.is-bbm.is-qf-plain .bbm-content-head.is-chotot .depth-rail.is-kr-maker { margin-top: 6px; }
-.marketplace.is-bbm.is-qf-plain .bbm-content-head.is-chotot .depth-rail:not(.is-kr-maker) { margin-top: -1.5px; }
-.marketplace.is-bbm-m.is-qf-plain .depth-rail.is-kr-maker { margin-top: 0; }
+/* 칩 줄 → 퀵필터 줄 간격: 과쯔에는 지역 칩 줄이 없어 초톳의 "필터 칩 줄 → 지역 칩 줄" 값 PC 18 · 모바일 14 를 쓴다.
+   나중에 지역 칩 줄이 생기면 그 줄 → 제조사 줄은 초톳 실측 PC 16 · 모바일 10 으로(margin-top 을 각각 2 · 4 줄인다) */
+.marketplace.is-bbm.is-qf-plain .bbm-content-head.is-chotot .depth-rail.is-kr-maker { margin-top: 8px; }
+.marketplace.is-bbm.is-qf-plain .bbm-content-head.is-chotot .depth-rail:not(.is-kr-maker) { margin-top: 2.1px; }
+.marketplace.is-bbm-m.is-qf-plain .depth-rail.is-kr-maker { margin-top: 4px; }
+.marketplace.is-bbm-m.is-qf-plain .depth-rail:not(.is-kr-maker) { margin-top: 4px; }

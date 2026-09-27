@@ -476,8 +476,8 @@ function MarketplaceScreen() {
   // QF-097: 과쯔 카탈로그 제조사(9개)도 모델 → 세부 모델 → 트림 단계
   const usesUxDepth = maker === "BMW" || maker === "벤츠" || Boolean(quickFilterStyle === "guazi" && maker && catalogMakerNames.has(maker));
   const isGuaziQuickStyle = quickFilterStyle === "guazi";
-  // QF-100: 주소에 &qfcard=plain 이 있으면 과쯔 퀵필터(제조사·모델·세부모델 줄)를 바탕 없는 초톳식으로. 없으면 지금 과쯔 카드 그대로
-  const plainQuickCards = isGuaziQuickStyle && typeof window !== "undefined" && new URLSearchParams(window.location.search).get("qfcard") === "plain";
+  // QF-100 최종: 과쯔 퀵필터(제조사·모델·세부모델 줄) 기본 = 바탕 없는 초톳식(plain). &qfcard=card 면 이전 과쯔 카드(비교용), &qfcard=plain 도 plain
+  const plainQuickCards = isGuaziQuickStyle && (typeof window === "undefined" || new URLSearchParams(window.location.search).get("qfcard") !== "card");
   // QF-090: 과쯔(개발 시안형)는 필터 동작 확인용 샘플 60대, 초톳·동처띠는 기존 19대 그대로
   const listingCars = isGuaziQuickStyle ? bbmSampleCars : chototTestCars;
   const bbmValue = filters.bbm ?? emptyBbmFilters;
@@ -1038,7 +1038,7 @@ function MarketplaceScreen() {
                   <DepthCard
                     key={model}
                     label={formatModelLabel(model)}
-                    sub={plainQuickCards && modelVisual?.count ? modelVisual.count : bodyTypeLabel(modelVisual?.bodyType)}
+                    sub={bodyTypeLabel(modelVisual?.bodyType)}
                     image={isCatalogMaker ? <CatalogModelImage src={modelVisual?.image || undefined} /> : modelVisual?.image ? <img src={modelVisual.image} alt="" aria-hidden="true" draggable={false} /> : undefined}
                     imageFit={modelVisual?.bodyFit ?? "width"}
                     isEV={modelVisual?.isEV}

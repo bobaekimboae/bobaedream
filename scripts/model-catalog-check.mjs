@@ -3,7 +3,7 @@
 // ① 퀵필터 모델 줄 순서 = 숫자(현행) → 영문 → 가나다 → 숫자(구형, "~현재" 없음) → 기타(벤츠 A클래스 = A-클래스). PC 는 좌측 필터 모델 목록(0대 포함 전체)도 같은 순서·같은 개수
 // ② 전수 점검: 모든 모델 카드 · 세부 모델 카드 · 트림 칩을 눌러도 목록이 비지 않음(제목 "0대" 없음, 빈 목록 문구 없음)
 // ③ 단계별 칩: 벤츠 → C클래스 → W206 에서 [벤츠 ×][C클래스 ×][W206 ×], 세부 모델 × / 모델 × / 제조사 × 각각의 칩·줄·경로·제목·목록 수
-// ④ 이미지 칸 56×28 안(폭 56 또는 높이 28, 아래 정렬) · 빈 칸 점선 · 카드 80×72 · 404 0 · 콘솔 오류 0 · 줄 이름표 "세부모델"
+// ④ 이미지 칸 56×28 안(폭 56 또는 높이 28, 아래 정렬) · 빈 칸 점선 · 칸 폭 PC 84 · 모바일 64(QF-100 plain 기본, 이미지 칸 위 6 · 0, 이미지 → 이름 8) · 모델 보조 글자 = 차종(매물 수 아님) · 404 0 · 콘솔 오류 0 · 줄 이름표 "세부모델"
 // 캡처: reports/qf-097/  요약: reports/diff/models-summary[-크기].json
 // 사용: npm run check:models [-- --base=<주소>] [-- --only=pc-1440|pc-1280|m-393] (메모리가 모자라면 화면 크기별로 나눠 돌린다)
 import { chromium, devices } from "@playwright/test";
@@ -42,6 +42,7 @@ const railState = (page) => page.evaluate(() => {
       const c = card.getBoundingClientRect(); const m = media.getBoundingClientRect(); const i = img?.getBoundingClientRect();
       return {
         label: card.querySelector(".depth-card-label")?.textContent ?? "", sub: card.querySelector(".depth-card-sub")?.textContent ?? "", disabled: card.disabled,
+        mediaTop: m.top - c.top, labelGap: card.querySelector(".depth-card-label").getBoundingClientRect().top - m.bottom,
         card: [Math.round(c.width), Math.round(c.height)], selected: card.classList.contains("is-selected"), media: [Math.round(m.width), Math.round(m.height)],
         img: img ? { w: Math.round(i.width * 10) / 10, h: Math.round(i.height * 10) / 10, bottomGap: Math.round((m.bottom - i.bottom) * 10) / 10, loaded: img.complete && img.naturalWidth > 0 } : null,
         empty: empty ? (() => { const e = empty.getBoundingClientRect(); return [Math.round(e.width), Math.round(e.height), getComputedStyle(empty).borderStyle]; })() : null,
@@ -95,7 +96,8 @@ for (const [tag, device, viewport] of [["pc-1440", "pc", { width: 1440, height: 
       withImage: cards.filter((card) => card.img).length, empty: cards.filter((card) => card.empty).length,
       imgBad: cards.filter((card) => card.img && (!card.img.loaded || card.img.w > 56.5 || card.img.h > 28.5 || (Math.abs(card.img.w - 56) > 0.6 && Math.abs(card.img.h - 28) > 0.6) || Math.abs(card.img.bottomGap) > 0.6)).map((card) => card.label),
       emptyBad: cards.filter((card) => !card.img && !(card.empty && card.empty[0] === 56 && card.empty[1] === 28 && card.empty[2] === "dashed")).map((card) => card.label),
-      specBad: cards.filter((card) => card.card[0] !== 80 || card.card[1] !== 72 || card.media[0] !== 56 || card.media[1] !== 28).map((card) => card.label),
+      specBad: cards.filter((card) => card.card[0] !== (device === "pc" ? 84 : 64) || card.media[0] !== 56 || card.media[1] !== 28 || Math.abs(card.mediaTop - (device === "pc" ? 6 : 0)) > 0.6 || Math.abs(card.labelGap - 8) > 0.6).map((card) => card.label),
+      subBad: cards.filter((card) => card.sub && !/^(세단|SUV|해치백|쿠페|컨버터블|왜건|MPV|밴|픽업)$/.test(card.sub)).map((card) => `${card.label}:${card.sub}`),
       disabled: cards.filter((card) => card.disabled).map((card) => card.label),
     };
     // PC: 좌측 필터 모델 목록(0대 포함 전체, 같은 순서) — 제조사 선택으로 모델 단계가 열려 있다
@@ -145,7 +147,8 @@ for (const [tag, device, viewport] of [["pc-1440", "pc", { width: 1440, height: 
   check(`${tag} 퀵필터 모델 카드는 샘플 매물 1대 이상만(비활성 카드 없음)`, all.every(([, r]) => !r.disabled?.length && r.cards > 0), all.filter(([, r]) => r.disabled?.length).map(([m, r]) => `${m}: ${r.disabled.join(",")}`).join(" / ") || "모두 맞음");
   check(`${tag} 전수 점검: 모델·세부 모델·트림을 눌러도 0대 없음`, Object.values(exhaustive).every((r) => !r.zero.length), Object.entries(exhaustive).map(([m, r]) => `${m} ${r.total}번${r.zero.length ? ` 0대 ${r.zero.join(",")}` : ""}`).join(" · "));
   check(`${tag} 모델 이미지 칸 56×28 안 · 폭 56 또는 높이 28 · 아래 정렬`, all.every(([, r]) => !r.imgBad?.length), all.filter(([, r]) => r.imgBad?.length).map(([m, r]) => `${m}: ${r.imgBad.join(",")}`).join(" / ") || "모두 맞음");
-  check(`${tag} 이미지 없는 카드는 점선 56×28 · 카드 80×72`, all.every(([, r]) => !r.emptyBad?.length && !r.specBad?.length), all.filter(([, r]) => r.emptyBad?.length || r.specBad?.length).map(([m]) => m).join(", ") || "모두 맞음");
+  check(`${tag} 모델 카드 보조 글자 = 차종(매물 수 없음)`, all.every(([, r]) => !r.subBad?.length), all.filter(([, r]) => r.subBad?.length).map(([m, r]) => `${m}: ${r.subBad.join(",")}`).join(" / ") || all.map(([m, r]) => `${m} ${r.labels.length}`).join(" · "));
+  check(`${tag} 이미지 없는 카드는 점선 56×28 · 칸 폭 ${device === "pc" ? 84 : 64} · 이미지 칸 위 ${device === "pc" ? 6 : 0} · 이미지 → 이름 8`, all.every(([, r]) => !r.emptyBad?.length && !r.specBad?.length), all.filter(([, r]) => r.emptyBad?.length || r.specBad?.length).map(([m]) => m).join(", ") || "모두 맞음");
   if (device === "pc") {
     const bmw = (makerResults.BMW?.side?.first10 ?? []).map((row) => row.replace(/\(\d+\)$/, ""));
     check(`${tag} BMW 모델 순서 1시리즈 → … → 8시리즈 → i3`, bmw.slice(0, 9).join(" ") === "1시리즈 2시리즈 3시리즈 4시리즈 5시리즈 6시리즈 7시리즈 8시리즈 i3", bmw.join(" → "));
