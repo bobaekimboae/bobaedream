@@ -1397,7 +1397,6 @@ function MarketplaceScreen() {
     // QF-095: 과쯔 PC 상단 카드 — 초톳 PC 상단과 같은 구조(1줄 경로 · 2줄 제목 + 검색저장 · 3줄 칩 줄 + 필터 초기화 · 4줄 유형 줄/퀵필터 레일)
     const bbmTopCard = (
       <section className={`bbm-content-head is-chotot${showCategoryQuickRail ? " has-category-menu" : ""}`} aria-label="검색 조건">
-        <BbmTopCrumbs items={bbmCrumbs} />
         <div className="bbm-ct-title-row">
           {/* QF-106: 제목은 상단 메뉴 카테고리 이름으로 고정(대수·날짜·칩 조건 없음). 탭 제목은 그대로 */}
           <h1 className="bbm-ct-title bbm-summary" data-count={shownCars.length}>{stablePageTitle(category)}</h1>
@@ -1426,7 +1425,8 @@ function MarketplaceScreen() {
           <main className={`marketplace is-bbm${isGuaziQuickStyle ? " is-hybrid" : ""}${plainQuickCards ? " is-qf-plain" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}`} aria-label="중고차 리스트">
             <BbHeader onNotify={setSearchToast} onOpenFavorites={() => flow.push(savedListingsScreen)} />
             {/* QF-093: 과쯔는 상단 패널(전체차량 · N대 · 검색저장 · 칩 줄 · 유형 줄/퀵필터 레일)을 본문 폭 전체로 */}
-            {isGuaziQuickStyle ? <div className="bbm-hybrid-top">{bbmTopCard}</div> : null}
+            {/* QF-106b: 경로는 상단 카드 밖(회색 바탕 위), 카드는 제목 줄부터 */}
+            {isGuaziQuickStyle ? <div className="bbm-hybrid-top"><BbmTopCrumbs items={bbmCrumbs} />{bbmTopCard}</div> : null}
             <div className="bbm-page">
               <BbFilterSidebar selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} />
               <div className="bbm-content">

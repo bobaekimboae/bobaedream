@@ -31,11 +31,12 @@ const card = ".bbm-hybrid-top .bbm-content-head";
 const measure = (page) => page.evaluate((card) => {
   const root = document.querySelector(card); const cr = root.getBoundingClientRect(); const cs = getComputedStyle(root);
   const box = (selector, scope = root) => { const element = scope.querySelector(selector); if (!element || !element.getClientRects().length) return null; const r = element.getBoundingClientRect(); return { x: Math.round(r.left - cr.left), y: Math.round(r.top - cr.top), w: Math.round(r.width), h: Math.round(r.height) }; };
-  const style = (selector) => { const element = root.querySelector(selector); if (!element) return null; const s = getComputedStyle(element); return { font: `${s.fontSize}/${s.lineHeight} ${s.fontWeight}`, color: s.color, bg: s.backgroundColor, border: s.border, radius: s.borderRadius, padding: s.padding, gap: s.gap }; };
+  const style = (selector, scope = root) => { const element = scope.querySelector(selector); if (!element) return null; const s = getComputedStyle(element); return { font: `${s.fontSize}/${s.lineHeight} ${s.fontWeight}`, color: s.color, bg: s.backgroundColor, border: s.border, radius: s.borderRadius, padding: s.padding, gap: s.gap }; };
   const chips = [...root.querySelectorAll(".bbm-ct-chip-track .filter-chip")].map((chip) => chip.getBoundingClientRect());
   return {
     card: { x: Math.round(cr.left), y: Math.round(cr.top), w: Math.round(cr.width), h: Math.round(cr.height), radius: cs.borderRadius, padding: cs.padding, bg: cs.backgroundColor },
-    crumbs: box(".bbm-ct-crumbs"), crumbItem: style(".bbm-ct-crumbs li"), crumbLast: style(".bbm-ct-crumbs strong"), crumbText: root.querySelector(".bbm-ct-crumbs")?.textContent.replace(/\s+/g, " ").trim(),
+    // QF-106b: 경로는 카드 밖(카드 부모 .bbm-hybrid-top 안) — 위치는 카드 기준(y 음수)
+    crumbs: box(".bbm-ct-crumbs", root.parentElement), crumbInCard: Boolean(root.querySelector(".bbm-ct-crumbs")), crumbItem: style(".bbm-ct-crumbs li", root.parentElement), crumbLast: style(".bbm-ct-crumbs strong", root.parentElement), crumbText: root.parentElement.querySelector(".bbm-ct-crumbs")?.textContent.replace(/\s+/g, " ").trim(),
     titleRow: box(".bbm-ct-title-row"), title: { ...box(".bbm-ct-title"), ...style(".bbm-ct-title"), text: root.querySelector(".bbm-ct-title")?.textContent.replace(/\s+/g, " ").trim() },
     save: { ...box(".bbm-ct-save"), ...style(".bbm-ct-save"), gapFromTitle: Math.round(root.querySelector(".bbm-ct-save").getBoundingClientRect().left - root.querySelector(".bbm-ct-title").getBoundingClientRect().right) },
     chipRow: box(".bbm-ct-chip-row"), region: box(".bbm-ct-region-row"), filterChip: { ...box(".bbm-filter-button"), ...style(".bbm-filter-button") },
@@ -60,9 +61,9 @@ for (const width of [1440, 1280, 1100]) {
 }
 const n = summary.numbers;
 const n1440 = n[1440];
-check("카드 1440 x 120 · 폭 1200 · 모서리 12 · 안쪽 16/20 · 흰 배경 · 헤더 아래 16", n1440.card.x === 120 && n1440.card.w === 1200 && n1440.card.radius === "12px" && n1440.card.padding === "16px 20px" && n1440.card.bg === "rgb(255, 255, 255)" && n1440.card.y === 117 + 16, JSON.stringify(n1440.card));
-check("카드 높이 311(QF-106 매뉴얼: 이미지 줄 상태)", n1440.card.h === 311, `${n1440.card.h}`);
-check("줄 위치(QF-106): 경로 16 · 제목 줄 45 · 칩 줄 95(칩 95) · 지역 줄 145 · 유형 칸 193", n1440.crumbs?.y === 16 && n1440.titleRow?.y === 45 && n1440.chipRow?.y === 95 && n1440.chip?.y === 95 && n1440.region?.y === 145 && n1440.cell?.y === 193, `경로 ${n1440.crumbs?.y} · 제목 줄 ${n1440.titleRow?.y} · 칩 줄 ${n1440.chipRow?.y}(칩 ${n1440.chip?.y}) · 지역 ${n1440.region?.y} · 칸 ${n1440.cell?.y}`);
+check("카드 1440 x 120 · 폭 1200 · 모서리 12 · 안쪽 16/20 · 흰 배경 · 헤더 아래 16 경로 18 → 12 → 카드(QF-106b)", n1440.card.x === 120 && n1440.card.w === 1200 && n1440.card.radius === "12px" && n1440.card.padding === "16px 20px" && n1440.card.bg === "rgb(255, 255, 255)" && n1440.card.y === 117 + 16 + 18 + 12, JSON.stringify(n1440.card));
+check("카드 높이 282(매뉴얼 v1.3: 이미지 줄 상태, 경로 카드 밖)", n1440.card.h === 282, `${n1440.card.h}`);
+check("줄 위치(매뉴얼 v1.3): 경로 카드 밖 -30(왼쪽 선 같음) · 제목 줄 16 · 칩 줄 66(칩 66) · 지역 줄 116 · 유형 칸 164", n1440.crumbs?.y === -30 && n1440.crumbs?.x === 0 && !n1440.crumbInCard && n1440.titleRow?.y === 16 && n1440.chipRow?.y === 66 && n1440.chip?.y === 66 && n1440.region?.y === 116 && n1440.cell?.y === 164, `경로 ${n1440.crumbs?.y} · 제목 줄 ${n1440.titleRow?.y} · 칩 줄 ${n1440.chipRow?.y}(칩 ${n1440.chip?.y}) · 지역 ${n1440.region?.y} · 칸 ${n1440.cell?.y}`);
 check("경로 12/18 400 #8C8C8C · 마지막 700 #222 · 사이 /", n1440.crumbItem?.font === "12px/18px 400" && n1440.crumbItem?.color === "rgb(140, 140, 140)" && n1440.crumbLast?.font.endsWith(" 700") && n1440.crumbLast?.color === "rgb(34, 34, 34)" && /\//.test(n1440.crumbText), `${n1440.crumbText}`);
 check("제목 16/24 700 #222 · \"중고차\" 고정(QF-106, 대수·날짜 없음)", n1440.title.font === "16px/24px 700" && n1440.title.color === "rgb(34, 34, 34)" && n1440.title.text === "중고차", `${n1440.title.text}`);
 check("검색저장: 제목 오른쪽 20 · 높이 32 · 알약 · 흰 배경 · 테두리 1 #DADADA · 14/20 700", n1440.save.gapFromTitle === 20 && n1440.save.h === 32 && n1440.save.radius === "9999px" && n1440.save.bg === "rgb(255, 255, 255)" && n1440.save.border === "1px solid rgb(218, 218, 218)" && n1440.save.font === "14px/20px 700", `간격 ${n1440.save.gapFromTitle} · ${n1440.save.h} · ${n1440.save.border}`);
@@ -73,7 +74,7 @@ check("걸린 조건 없으면 필터 초기화 숨김", n1440.reset === null, `
 for (const width of [1280, 1100]) {
   const m = n[width];
   const x = width === 1280 ? 40 : 24;
-  check(`${width} 같은 규칙(x ${x} · 폭 ${width === 1280 ? 1200 : width - 48} · 높이 311 · 줄 위치 같음)`, m.card.x === x && m.card.w === (width === 1280 ? 1200 : width - 48) && m.card.h === 311 && m.crumbs?.y === 16 && m.titleRow?.y === 45 && m.chipRow?.y === 95 && m.region?.y === 145 && m.cell?.y === 193, JSON.stringify(m.card));
+  check(`${width} 같은 규칙(x ${x} · 폭 ${width === 1280 ? 1200 : width - 48} · 높이 282 · 줄 위치 같음)`, m.card.x === x && m.card.w === (width === 1280 ? 1200 : width - 48) && m.card.h === 282 && m.crumbs?.y === -30 && m.crumbs?.x === 0 && m.titleRow?.y === 16 && m.chipRow?.y === 66 && m.region?.y === 116 && m.cell?.y === 164, JSON.stringify(m.card));
 }
 check("콘솔 오류 0(1440·1280·1100)", [1440, 1280, 1100].every((width) => n[width].consoleErrors === 0), [1440, 1280, 1100].map((width) => n[width].consoleErrors).join("/"));
 

@@ -1,12 +1,13 @@
 #!/usr/bin/env node
-// QF-106 상단 구조 안정성 자동 점검(docs/stable-top-manual.md v1.1 — 아래 기준 값은 매뉴얼 표와 같아야 한다). check:rail-vertical 을 합쳤다.
-// 흐름: 처음(유형 "중고차") → 벤츠 → C클래스 → W206 → C200 → 2023 → 연식 해제 → 필터 초기화 · 크기: PC 1440·1280 / 모바일 393·360 · 모양: plain(기본)·card
+// QF-106 상단 구조 안정성 자동 점검(docs/stable-top-manual.md v1.3 — 아래 기준 값은 매뉴얼 표와 같아야 한다). check:rail-vertical 을 합쳤다.
+// QF-106b: PC 0층 경로는 카드 밖(상단 메뉴 아래 16 · 카드 왼쪽 선 · 경로 → 카드 12), 첫 화면(유형 줄)도 이미지 줄 높이로 점검
+// 흐름: 첫 화면(유형 줄) → 처음(유형 "중고차") → 벤츠 → C클래스 → W206 → C200 → 2023 → 연식 해제 → 필터 초기화 · 크기: PC 1440·1280 / 모바일 393·360 · 모양: plain(기본)·card
 // 확인: ① 층 순서·개수 ② 층 간격(±0.5) ③ PC 카드 높이 = 허용 두 값 중 하나, 앞으로 가는 흐름(처음 → 2023) 높이 변화 1회
 //       ④ 칸 넘침 0 · 가로 스크롤바 보임 0 · 줄바꿈 0 ⑤ 제목 고정, 숫자·"년"·"월" 0 ⑥ 이미지 로딩 전후 층 위치 차이 0 ⑦ 모바일 지역 칩 줄 없음 · 경로·제목이 회색 띠 아래
 // 사용: npm run check:stability [-- --base=<주소>] [-- --mode=plain|card] [-- --only=pc-1440|pc-1280|m-393|m-360]
 // 결과: reports/qf-106/stability-<모양>.json · 단계 × 크기 표(콘솔) · 실패 캡처 reports/qf-106/fail-*.png
 import { chromium } from "@playwright/test";
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const arg = (name) => (process.argv.find((a) => a.startsWith(`--${name}=`)) ?? "").slice(name.length + 3);
@@ -15,14 +16,15 @@ const modes = arg("mode") ? [arg("mode")] : ["plain", "card"];
 const only = arg("only");
 const outDir = join("reports", "qf-106");
 mkdirSync(outDir, { recursive: true });
+for (const name of readdirSync(outDir)) if (/^fail-.*\.png$/.test(name)) rmSync(join(outDir, name)); // 지난 실패 캡처는 지운다
 
-// ── 매뉴얼 v1.1 기준 값
+// ── 매뉴얼 v1.3 기준 값
 const SPEC = {
   pc: {
     card: ".bbm-hybrid-top .bbm-content-head",
+    crumbs: { sel: ".bbm-hybrid-top > .bbm-ct-crumbs", h: 18, fromHeader: 16, toCard: 12 },
     layers: [
-      { id: "①경로", sel: ".bbm-ct-crumbs", h: 18, gap: 16 },
-      { id: "①제목", sel: ".bbm-ct-title-row", h: 32, gap: 11 },
+      { id: "①", sel: ".bbm-ct-title-row", h: 32, gap: 16 },
       { id: "②", sel: ".bbm-ct-chip-row", h: 32, gap: 18 },
       { id: "③", sel: ".bbm-ct-region-row", h: 32, gap: 18 },
       { id: "④", sel: ".bbm-quick-slot", h: null, gap: 16 },
@@ -41,7 +43,7 @@ const SPEC = {
     row: { plain: 2 + 74 + 6, card: 2 + 72 + 6, pill: 2 + 32 + 6 },
   },
 };
-const pcCardHeight = (row) => 16 + 18 + 11 + 32 + 18 + 32 + 18 + 32 + 16 + row + (row === 32 ? 24 : 16);
+const pcCardHeight = (row) => 16 + 32 + 18 + 32 + 18 + 32 + 16 + row + (row === 32 ? 24 : 16);
 const TITLE = "중고차";
 
 const browser = await chromium.launch({ args: ["--disable-lcd-text"] });
@@ -91,7 +93,9 @@ const measure = (page, device) => page.evaluate(([device, spec]) => {
   const chips = [...document.querySelectorAll(device === "pc" ? ".bbm-ct-chip-row .filter-chip" : ".filter-shell.is-bbm .filter-chip")].filter((el) => el.getBoundingClientRect().width).map((el) => `${el.textContent.trim()}${el.classList.contains("is-active") ? "×" : "▾"}`);
   const filterBtn = document.querySelector(device === "pc" ? ".bbm-filter-button" : ".filter-shell.is-bbm .filter-fixed");
   const filterBtnDark = filterBtn ? getComputedStyle(filterBtn).backgroundColor === "rgb(34, 34, 34)" : null;
-  return { layers, cardH, pill, railKind, overflow, scrollbars, wrapPills, wrapNames, cellH, title, regionRow, headOk, firstChip, firstInRail, chips, filterBtnDark, scrollTop: document.querySelector(".mobile-scroll")?.scrollTop ?? 0 };
+  // PC 0층 경로(카드 밖): 상단 메뉴 아래 간격 · 경로 → 카드 위 · 왼쪽 선 · 높이, 카드 안 경로 없음
+  const crumbs = device === "pc" ? (() => { const el = document.querySelector(spec.pc.crumbs.sel); const header = document.querySelector(".bbm-header"); if (!el || !card || !header) return { missing: true }; const b = el.getBoundingClientRect(); const c = card.getBoundingClientRect(); return { fromHeader: r(b.top - header.getBoundingClientRect().bottom), toCard: r(c.top - b.bottom), h: r(b.height), dx: r(b.left - c.left), inCard: Boolean(card.querySelector(".bbm-ct-crumbs")) }; })() : null;
+  return { crumbs, layers, cardH, pill, railKind, overflow, scrollbars, wrapPills, wrapNames, cellH, title, regionRow, headOk, firstChip, firstInRail, chips, filterBtnDark, scrollTop: document.querySelector(".mobile-scroll")?.scrollTop ?? 0 };
 }, [device, SPEC]);
 
 const judge = (m, device, mode) => {
@@ -111,6 +115,15 @@ const judge = (m, device, mode) => {
     prevBottom = layer.bottom;
   });
   if (device === "pc") {
+    const c = m.crumbs; const want = spec.crumbs;
+    if (!c || c.missing) problems.push("0 경로 없음(카드 밖)");
+    else {
+      if (Math.abs(c.fromHeader - want.fromHeader) > 0.5) problems.push(`0 경로 ← 상단 메뉴 ${c.fromHeader} ≠ ${want.fromHeader}`);
+      if (Math.abs(c.toCard - want.toCard) > 0.5) problems.push(`0 경로 → 카드 ${c.toCard} ≠ ${want.toCard}`);
+      if (Math.abs(c.h - want.h) > 0.5) problems.push(`0 경로 높이 ${c.h} ≠ ${want.h}`);
+      if (Math.abs(c.dx) > 0.5) problems.push(`0 경로 왼쪽 선 ${c.dx} ≠ 0`);
+      if (c.inCard) problems.push("카드 안에 경로 있음");
+    }
     const endGap = Math.round((m.cardH - m.layers.at(-1).bottom) * 10) / 10;
     const wantEnd = m.pill ? spec.endGap.pill : spec.endGap.image;
     if (Math.abs(endGap - wantEnd) > 0.5) problems.push(`④ → 카드 끝 ${endGap} ≠ ${wantEnd}`);
@@ -126,7 +139,7 @@ const judge = (m, device, mode) => {
   if (device === "m") {
     if (m.regionRow) problems.push("모바일 지역 칩 줄 있음");
     if (!m.headOk) problems.push("경로·제목이 회색 띠 아래 아님");
-    if (m.firstChip !== null && m.firstInRail !== null && Math.abs(m.firstInRail - (m.firstChip - 4)) > 0.5 && m.railKind !== "유형") problems.push(`④ 첫 칸 x ${m.firstInRail} ≠ ${m.firstChip - 4}`);
+    if (m.firstChip !== null && m.firstInRail !== null && Math.abs(m.firstInRail - (m.firstChip - 4)) > 0.5) problems.push(`④ 첫 칸 x ${m.firstInRail} ≠ ${m.firstChip - 4}`);
   }
   return problems;
 };
@@ -143,11 +156,12 @@ for (const mode of modes) {
     const click = async (locator) => { await locator.scrollIntoViewIfNeeded(); await (device === "m" ? locator.tap() : locator.click()); await page.waitForTimeout(350); };
     const card = (label) => page.locator(".depth-rail .depth-card").filter({ has: page.locator(".depth-card-label", { hasText: new RegExp(`^${label}$`) }) }).first();
     const top = async () => page.evaluate(() => { const s = document.querySelector(".mobile-scroll"); if (s) s.scrollTop = 0; window.scrollTo(0, 0); });
-    const open = async () => {
+    const land = async () => {
       await page.goto(url, { waitUntil: "networkidle", timeout: 60000 }); await page.waitForTimeout(300);
       await page.addStyleTag({ content: "*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}" });
-      await click(page.locator(".bbm-category-menu__button").filter({ hasText: /^중고차/ }).first());
     };
+    const chooseUsed = () => click(page.locator(".bbm-category-menu__button").filter({ hasText: /^중고차/ }).first());
+    const open = async () => { await land(); await chooseUsed(); };
     // ⑥ 이미지 로딩 전후 층 위치: 이미지를 막고 한 번, 풀고 한 번(처음 · 벤츠)
     const imageShift = [];
     for (const blocked of [true, false]) {
@@ -163,10 +177,12 @@ for (const mode of modes) {
     const maxShift = Math.max(...shift);
 
     errors.length = 0; // 이미지를 막은 실행의 "불러오기 실패"는 빼고 센다
-    await open();
+    await land();
     const steps = [];
-    const record = async (name) => { await top(); const m = await measure(page, device); const problems = judge(m, device, mode); steps.push({ name, ...m, problems }); if (problems.length) { failures += 1; await page.screenshot({ path: join(outDir, `fail-${mode}-${tag}-${steps.length}.png`) }); } };
-    await record("처음");
+    // 첫 화면 유형 줄은 두 모양 모두 plain 규격(PC 102 · 모바일 82)
+    const record = async (name, judgeMode = mode) => { await top(); const m = await measure(page, device); const problems = judge(m, device, judgeMode); steps.push({ name, ...m, problems }); if (problems.length) { failures += 1; await page.screenshot({ path: join(outDir, `fail-${mode}-${tag}-${steps.length}.png`) }); } };
+    await record("첫 화면", "plain");
+    await chooseUsed(); await record("처음");
     await click(card("벤츠")); await record("벤츠");
     await click(card("C클래스")); await record("C클래스");
     await click(card("W206")); await record("W206");
@@ -180,7 +196,7 @@ for (const mode of modes) {
     } else await click(page.locator(".region-bar.is-bbm .reset-button").first());
     await record("필터 초기화");
     // 앞으로 가는 흐름(처음 → 2023) 높이 변화 1회: PC 카드 높이 · 모바일 ④ 높이
-    const forward = steps.slice(0, 6).map((step) => device === "pc" ? step.cardH : step.layers.find((layer) => layer.id === "④")?.h);
+    const forward = steps.slice(1, 7).map((step) => device === "pc" ? step.cardH : step.layers.find((layer) => layer.id === "④")?.h);
     const changes = forward.slice(1).filter((value, i) => Math.abs(value - forward[i]) > 0.5).length;
     const flowProblems = [];
     if (changes !== 1) flowProblems.push(`앞으로 가는 흐름 높이 변화 ${changes}회(${forward.join("→")})`);

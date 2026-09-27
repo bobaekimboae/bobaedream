@@ -2,12 +2,14 @@
 // OP-013: 원본(dev.bbmuseum.co.kr/car/list)과 우리 시안에 같은 "조작 순서"를 실행하고, 단계마다 영역별 픽셀 차이 비율과
 // 동작 점검표(목록 수·적용 칩·빠진 칩·배지·파랑 제목이 같은 방향으로 바뀌었는지)를 만든다.
 // 사용: npm run diff:bbm:flow [-- --only=pc|m] (vite preview 127.0.0.1:4173 필요)
+// QF-106b: 기본 비교 기준 = reports/baseline/flow/(QF-106b 결과 화면·동작 값). --origin 원본 바로 비교 · --save-baseline 새 기준 저장(원본은 reports/baseline-archive/ 보관) — scripts/diff-baseline.mjs
 // 출력: reports/diff/<커밋>/flow/summary.json · checks.md · <단계>-<영역>.png(원본 | 우리 | 차이) — 커밋하지 않음
 // 모든 숫자(총 대수·매물 수·버튼 숫자·배지 숫자)와 매물 목록·사진은 두 쪽 모두 같은 회색 상자로 가리고 모양·위치·색·문구 구조만 비교한다.
 import { chromium } from "@playwright/test";
 import { execSync } from "node:child_process";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { archiveOrigin, baselineArgs, cropRegion, loadBaseline, saveBaseline } from "./diff-baseline.mjs";
 
 const ORIGIN = "https://dev.bbmuseum.co.kr/car/list";
 // 우리 화면 주소: 기본은 로컬 미리보기, BBM_OURS=https://bobaekimboae.github.io/bobaedream/ 로 배포본 대조
@@ -255,13 +257,19 @@ const regionName = (name) => Array.isArray(name) ? `title-${name[1].replace(/[^\
 // 글꼴 렌더링 맞춤(원본 LCD · 우리 회색조) → 둘 다 회색조
 const browser = await chromium.launch({ args: ["--disable-lcd-text"] });
 const tool = await browser.newPage();
-const summary = { commit, measuredAt: new Date().toISOString(), steps: [] };
+const mode = baselineArgs();
+const summary = { commit, measuredAt: new Date().toISOString(), basis: mode.useBaseline ? "baseline(QF-106b)" : "origin(dev.bbmuseum)", steps: [] };
+console.log(`비교 기준: ${summary.basis}${mode.save ? " · 새 기준 저장" : ""}`);
+// 기준 모드: 원본 쪽 = 저장된 기준(화면 조각 + 동작 값). 원본 브라우저는 열지 않는다
+const baseSide = (key) => ({ page: null, errors: [], prev: loadBaseline("flow", key).meta ?? {} });
 const checkRows = [];
 for (const scenario of SCENARIOS) {
   if (only && scenario.device !== only) continue;
   if (pick.length && !pick.includes(SCENARIOS.indexOf(scenario))) continue;
   const sides = {};
-  for (const side of ["orig", "ours"]) {
+  const scenarioKey = `start-${SCENARIOS.indexOf(scenario)}`;
+  if (mode.useBaseline) sides.orig = baseSide(scenarioKey);
+  for (const side of mode.useBaseline ? ["ours"] : ["orig", "ours"]) {
     const context = await browser.newContext(devices[scenario.device]);
     const page = await context.newPage();
     const errors = [];
@@ -272,9 +280,10 @@ for (const scenario of SCENARIOS) {
     await page.addStyleTag({ content: "*,*::before,*::after{transition:none!important;animation:none!important;caret-color:transparent!important}" });
     sides[side] = { context, page, errors, prev: await readState(page, side, scenario.device) };
   }
+  if (mode.save) { saveBaseline("flow", scenarioKey, null, sides.ours.prev); archiveOrigin("flow", scenarioKey, null, sides.orig.prev); }
   for (const step of scenario.steps) {
     const row = { key: step.key, label: step.label, regions: {}, skipped: [] };
-    for (const side of ["orig", "ours"]) {
+    for (const side of mode.useBaseline ? ["ours"] : ["orig", "ours"]) {
       const { page } = sides[side];
       try { await step.run(A[side], page); } catch (error) { row.skipped.push(`${side}: ${error.message.split("\n")[0]}`); }
       await page.waitForTimeout(side === "orig" ? 1500 : 500);
@@ -283,13 +292,21 @@ for (const scenario of SCENARIOS) {
       // QF-095: PC 칩 줄은 초톳 칩 모양으로 바뀌어 픽셀은 원본 대신 초톳 실측(npm run diff:chotot-top · check:top)으로 비교 — 동작 점검표는 그대로 원본과 비교
       if (scenario.device === "pc" && name === "chips") { row.regions.chips = "초톳 기준"; continue; }
       const fail = (side) => (error) => { console.log(`  ${side} 캡처 실패`, name, error.message.split("\n")[0]); return null; };
-      const [o, u] = [await captureRegion(sides.orig.page, regionLocator(scenario.device, name, "orig")(sides.orig.page), Array.isArray(name) ? 44 : 0).catch(fail("원본")), await captureRegion(sides.ours.page, regionLocator(scenario.device, name, "ours")(sides.ours.page), Array.isArray(name) ? 44 : 0).catch(fail("우리"))];
-      const result = await compare(tool, o, u, scenario.device === "pc" && name === "chips");
+      const [o, u] = [mode.useBaseline ? null : await captureRegion(sides.orig.page, regionLocator(scenario.device, name, "orig")(sides.orig.page), Array.isArray(name) ? 44 : 0).catch(fail("원본")), await captureRegion(sides.ours.page, regionLocator(scenario.device, name, "ours")(sides.ours.page), Array.isArray(name) ? 44 : 0).catch(fail("우리"))];
+      const key = `${step.key}-${regionName(name)}`;
+      let origRegion = o;
+      if (mode.useBaseline) origRegion = loadBaseline("flow", key).region;
+      if (mode.save) {
+        archiveOrigin("flow", key, await cropRegion(tool, o?.shot, o), o ? { w: Math.round(o.w), h: Math.round(o.h) } : null);
+        saveBaseline("flow", key, await cropRegion(tool, u?.shot, u), u ? { w: Math.round(u.w), h: Math.round(u.h) } : null);
+      }
+      const result = await compare(tool, origRegion, u, scenario.device === "pc" && name === "chips");
       if (result.image) writeFileSync(join(outDir, `${step.key}-${regionName(name)}.png`), Buffer.from(result.image, "base64"));
       row.regions[regionName(name)] = Math.round(result.ratio * 1000) / 10;
     }
     // 동작 점검표: 이전 단계 대비 같은 방향으로 바뀌었는가
-    const now = { orig: await readState(sides.orig.page, "orig", scenario.device), ours: await readState(sides.ours.page, "ours", scenario.device) };
+    const now = { orig: mode.useBaseline ? (loadBaseline("flow", `${step.key}-state`).meta ?? {}) : await readState(sides.orig.page, "orig", scenario.device), ours: await readState(sides.ours.page, "ours", scenario.device) };
+    if (mode.save) { saveBaseline("flow", `${step.key}-state`, null, now.ours); archiveOrigin("flow", `${step.key}-state`, null, now.orig); }
     const num = (text) => Number((text || "").replace(/[^\d]/g, "")) || 0;
     const dir = (a, b) => Math.sign(num(b) - num(a));
     const checks = {
@@ -311,7 +328,7 @@ for (const scenario of SCENARIOS) {
     checkRows.push(row);
   }
   summary[`${scenario.device}Errors`] = sides.ours.errors;
-  for (const side of ["orig", "ours"]) await sides[side].context.close();
+  for (const side of ["orig", "ours"]) await sides[side].context?.close();
 }
 writeFileSync(join(outDir, "summary.json"), JSON.stringify(summary, null, 2));
 const md = ["| 단계 | 항목 | 원본 | 우리 | 일치 |", "|---|---|---|---|---|", ...checkRows.flatMap((row) => Object.entries(row.checks).map(([k, v]) => `| ${row.label} | ${k} | ${v.orig === "" ? "-" : v.orig} | ${v.ours === "" ? "-" : v.ours} | ${v.same ? "O" : "X"} |`))];

@@ -17,12 +17,11 @@ const STORE: Record<ToggleKey, string> = { logo: "qf-logo-guides", layers: "qf-l
 const LABELS: Record<ToggleKey, string> = { logo: "로고·이미지 칸", layers: "층 상자", gaps: "간격 숫자" };
 const read = (key: ToggleKey) => { try { return window.localStorage.getItem(STORE[key]) === "1"; } catch { return false; } };
 const write = (key: ToggleKey, on: boolean) => { try { window.localStorage.setItem(STORE[key], on ? "1" : "0"); } catch { /* 저장소를 못 쓰면 기억하지 않는다 */ } };
-const GUIDE_BOXES = ".kr-brand-logo.is-rail, .kr-brand-logo.is-list, .kr-brand-logo.is-plain, .depth-card-media:not(.is-brand)";
+const GUIDE_BOXES = ".kr-brand-logo.is-rail, .kr-brand-logo.is-list, .kr-brand-logo.is-plain, .depth-card-media:not(.is-brand), .bbm-quick-slot .bbm-category-menu__icon-box, .bbm-m-quick-slot .bbm-category-menu__icon-box";
 
-// 매뉴얼 v1.1 층 표(scripts/stability-check.mjs 와 같은 값)
+// 매뉴얼 v1.3 층 표(scripts/stability-check.mjs 와 같은 값). PC 0층 경로는 카드 밖: 상단 메뉴 아래 16 · 경로 → 카드 12
 const PC_LAYERS = [
-  { id: "①경로", sel: ".bbm-ct-crumbs", h: 18, gap: 16 },
-  { id: "①제목", sel: ".bbm-ct-title-row", h: 32, gap: 11 },
+  { id: "①", sel: ".bbm-ct-title-row", h: 32, gap: 16 },
   { id: "②", sel: ".bbm-ct-chip-row", h: 32, gap: 18 },
   { id: "③", sel: ".bbm-ct-region-row", h: 32, gap: 18 },
   { id: "④", sel: ".bbm-quick-slot", h: 0, gap: 16 },
@@ -34,7 +33,7 @@ const M_LAYERS = [
   { id: "④", sel: ".bbm-m-quick-slot", h: 0, gap: 14 },
   { id: "⑤", sel: ".bbm-m-head", h: 0, gap: 0 },
 ];
-const pcCardHeight = (row: number) => 16 + 18 + 11 + 32 + 18 + 32 + 18 + 32 + 16 + row + (row === 32 ? 24 : 16);
+const pcCardHeight = (row: number) => 16 + 32 + 18 + 32 + 18 + 32 + 16 + row + (row === 32 ? 24 : 16);
 
 type Box = { x: number; y: number; w: number; h: number };
 type Mark = { kind: "layer" | "gap" | "dot"; box: Box; text: string; ok?: boolean };
@@ -64,6 +63,20 @@ function collectMarks(showLayers: boolean, showGaps: boolean): Mark[] {
   const pill = Boolean(rail && (rail.classList.contains("is-trim-row") || rail.classList.contains("is-year-row")));
   const rowH = pcCard ? (pill ? 32 : plain ? 102 : 72) : (pill ? 40 : plain ? 82 : 80);
   let prevBottom = origin;
+  // PC 0층 경로(카드 밖)
+  const crumbs = pcCard ? document.querySelector(".bbm-hybrid-top > .bbm-ct-crumbs") : null;
+  const header = document.querySelector(".bbm-header");
+  if (pcCard && crumbs && header) {
+    const box = rect(crumbs); const headerBottom = header.getBoundingClientRect().bottom;
+    const fromHeader = Math.round((box.y - headerBottom) * 10) / 10; const toCard = Math.round((origin - box.y - box.h) * 10) / 10;
+    if (showLayers) marks.push({ kind: "layer", box, text: "0경로" });
+    if (showGaps) {
+      marks.push({ kind: "gap", box: { x: box.x + box.w - 60, y: headerBottom, w: 0, h: box.y - headerBottom }, text: `${fromHeader}`, ok: Math.abs(fromHeader - 16) <= 0.5 });
+      marks.push({ kind: "gap", box: { x: box.x + box.w - 60, y: box.y + box.h, w: 0, h: origin - box.y - box.h }, text: `${toCard}`, ok: Math.abs(toCard - 12) <= 0.5 });
+    }
+    if ((showLayers || showGaps) && Math.abs(fromHeader - 16) > 0.5) marks.push({ kind: "dot", box, text: `간격 ${fromHeader} ≠ 16` });
+    if ((showLayers || showGaps) && Math.abs(toCard - 12) > 0.5) marks.push({ kind: "dot", box, text: `경로 → 카드 ${toCard} ≠ 12` });
+  }
   for (const layer of layers) {
     const el = document.querySelector(layer.sel);
     if (!el) continue;
