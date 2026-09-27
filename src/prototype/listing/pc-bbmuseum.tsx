@@ -67,7 +67,7 @@ function BbSwitch({ checked, label, onChange }: { checked: boolean; label: strin
 
 // QF-067 제조사 → 모델 → 등급 드릴다운. 선택 상태는 목록 화면(퀵필터와 같은 원본)에서 받아서 읽고 쓴다.
 type BbModelRow = { name: string; label: string; count: number | null };
-type BbGradeGroup = { name: string | null; title: string | null; grades: Array<{ name: string; count: number }> };
+type BbGradeGroup = { name: string | null; title: string | null; grades: Array<{ name: string; count: number }>; count?: number };
 type BbMakerSelection = {
   maker: string | null;
   model: string | null;
@@ -83,6 +83,8 @@ type BbMakerSelection = {
   onClearMaker: () => void;
   onClearModel: () => void;
   onClearGrades: () => void;
+  // QF-097(과쯔 카탈로그): 트림이 없는 세부 모델도 한 줄 체크로 고른다. 없으면 기존처럼 트림 있는 묶음만
+  onChooseGeneration?: (generation: string) => void;
 };
 type BbDrillView = { stage: "maker" } | { stage: "model"; maker: string } | { stage: "grade"; maker: string; model: string };
 
@@ -122,9 +124,18 @@ function BbMakerGradeFilter({ selection, view, setView, brandLogos = false }: { 
           <div className="bbm-catalog-section is-drill">
             <button type="button" className="bbm-catalog-back" onClick={() => setView({ stage: "model", maker: view.maker })}><BbIcon name="chevron-left" size={20} />{selection.modelsFor(view.maker).find((row) => row.name === view.model)?.label ?? view.model}</button>
             {(() => {
-              const groups = selection.gradeGroupsFor(view.maker, view.model).filter((group) => group.grades.length);
+              const groups = selection.gradeGroupsFor(view.maker, view.model).filter((group) => group.grades.length || (selection.onChooseGeneration && group.name));
               if (!groups.length) return <p className="bbm-catalog-empty">등급 정보 없음</p>;
-              return groups.map((group) => (
+              return groups.map((group) => !group.grades.length && group.name ? (() => {
+                const checked = model === view.model && selection.generation === group.name;
+                return (
+                  <button key={group.name} type="button" role="checkbox" aria-checked={checked} disabled={group.count === 0} className={`bbm-grade-row${checked ? " is-checked" : ""}`} onClick={() => selection.onChooseGeneration?.(group.name!)}>
+                    <span className="bbm-checkbox" aria-hidden="true">{checked ? <BbIcon name="check" size={16} /> : null}</span>
+                    <span className="bbm-grade-name">{group.title}</span>
+                    {group.count !== undefined ? count(group.count) : null}
+                  </button>
+                );
+              })() : (
                 <div key={group.name ?? "direct"} className="bbm-grade-group">
                   {group.title ? <p className="bbm-catalog-title">{group.title}</p> : null}
                   {group.grades.map((grade) => {

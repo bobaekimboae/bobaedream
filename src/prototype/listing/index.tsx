@@ -72,6 +72,7 @@ import { BbmBottomGnb, BbmCategoryMenu, BbmMakerList, BbmMobileOptions, BbmModel
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
 import { useBottomStickySidebar } from "./bbm-sticky-sidebar";
 import { KrBrandLogo, krMakerRailSections, krRailLabel } from "./bbm-brand-logos";
+import { CatalogModelImage, catalogMakerNames, guaziGenerationsByMakerModel, guaziModelVisualsByMaker, guaziModelsByMaker } from "./model-catalog-kr";
 import { BbmChipScroller, BbmTopCrumbs, bbmTopMonth, bbmTopTitlePrefix, type BbmCrumb } from "./bbm-top-chotot";
 import { BBM_PAGE_SIZE, BbmFooter, BbmPagination, BbmPopOptions, BbmToolbarMenu, bbmSortOptions, bbmViewOptionsMobile, bbmViewOptionsPc, sortBbmCars, type BbmSort } from "./bbm-list-area";
 
@@ -470,13 +471,19 @@ function MarketplaceScreen() {
   const categoryIsDefault = category === "전체";
   const categorySearchPlaceholder = categoryIsDefault ? "중고차" : category;
   const categoryBrandRail = categoryBrandRails[category] ?? categoryBrandRails["전체"];
-  const usesUxDepth = maker === "BMW" || maker === "벤츠";
+  // QF-097: 과쯔 카탈로그 제조사(9개)도 모델 → 세부 모델 → 트림 단계
+  const usesUxDepth = maker === "BMW" || maker === "벤츠" || Boolean(quickFilterStyle === "guazi" && maker && catalogMakerNames.has(maker));
   const isGuaziQuickStyle = quickFilterStyle === "guazi";
   // QF-090: 과쯔(개발 시안형)는 필터 동작 확인용 샘플 60대, 초톳·동처띠는 기존 19대 그대로
   const listingCars = isGuaziQuickStyle ? bbmSampleCars : chototTestCars;
   const bbmValue = filters.bbm ?? emptyBbmFilters;
-  const modelQuickOptions = maker ? quickModelsByMaker[maker] ?? [] : [];
-  const generationQuickOptions = maker && selectedModel ? quickGenerationsByMakerModel[maker]?.[selectedModel] ?? [] : [];
+  // QF-097: 과쯔는 9개 제조사의 모델·세부 모델을 카탈로그 스냅숏으로(model-catalog-kr), 나머지 제조사·다른 모드는 기존 데이터
+  const modelsByMakerMap = isGuaziQuickStyle ? guaziModelsByMaker : quickModelsByMaker;
+  const generationsByMakerModelMap = isGuaziQuickStyle ? guaziGenerationsByMakerModel : quickGenerationsByMakerModel;
+  const modelVisualsByMakerMap = isGuaziQuickStyle ? guaziModelVisualsByMaker : quickModelVisualsByMaker;
+  const isCatalogMaker = Boolean(isGuaziQuickStyle && maker && catalogMakerNames.has(maker));
+  const modelQuickOptions = maker ? modelsByMakerMap[maker] ?? [] : [];
+  const generationQuickOptions = maker && selectedModel ? generationsByMakerModelMap[maker]?.[selectedModel] ?? [] : [];
   const selectedGenerationOption = generationQuickOptions.find((generation) => generation.name === selectedGeneration);
   const variantQuickOptions = selectedGenerationOption?.variants ?? [];
   const directVariantQuickOptions: Array<string | QuickTrimOption> = [];
@@ -543,7 +550,11 @@ function MarketplaceScreen() {
     const normalized = query.trim().toLowerCase();
     return listingCars.filter((car) => {
       const searchText = `${car.title} ${car.trim} ${car.maker} ${car.modelGroup ?? ""}`;
-      const generationMatch = !selectedGeneration || normalizeModelSearchText(searchText).includes(normalizeModelSearchText(generationDisplayLabel(selectedGenerationOption ?? { name: selectedGeneration, years: "", variants: [] }))) || normalizeModelSearchText(searchText).includes(normalizeModelSearchText(selectedGeneration));
+      const searchKey = normalizeModelSearchText(searchText);
+      // QF-097: 카탈로그 세부 모델은 코드(없으면 N세대)가 매물 이름·트림에 들어 있으면 해당
+      const generationMatch = !selectedGeneration || (selectedGenerationOption?.matchKeys
+        ? !selectedGenerationOption.matchKeys.length || selectedGenerationOption.matchKeys.some((key) => searchKey.includes(normalizeModelSearchText(key)))
+        : searchKey.includes(normalizeModelSearchText(generationDisplayLabel(selectedGenerationOption ?? { name: selectedGeneration, years: "", variants: [] }))) || searchKey.includes(normalizeModelSearchText(selectedGeneration)));
       const activeTrimVariants = isGuaziQuickStyle ? effectiveSelectedVariants : trimApplied ? selectedVariants : [];
       const trimMatch = activeTrimVariants.length === 0 || activeTrimVariants.some((variant) => normalizeModelSearchText(searchText).includes(normalizeModelSearchText(variant)));
       return matchesChoTotFilters(car, filters) && generationMatch && trimMatch && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || searchText.toLowerCase().includes(normalized));
@@ -700,7 +711,7 @@ function MarketplaceScreen() {
 
   const applyVehicleSummarySelection = (nextMaker: string | null, nextModel: string | null, nextGeneration: string | null) => {
     const safeModel = nextMaker && nextModel ? nextModel : null;
-    const generationOptionsForSelection = nextMaker && safeModel ? quickGenerationsByMakerModel[nextMaker]?.[safeModel] ?? [] : [];
+    const generationOptionsForSelection = nextMaker && safeModel ? generationsByMakerModelMap[nextMaker]?.[safeModel] ?? [] : [];
     const safeGeneration = generationOptionsForSelection.some((option) => option.name === nextGeneration) ? nextGeneration : null;
     const nextFilters = { ...filters, maker: nextMaker, model: safeModel };
     setFilters(nextFilters);
@@ -715,7 +726,7 @@ function MarketplaceScreen() {
 
   const chooseModel = (modelName: string) => {
     const nextModel = selectedModel === modelName ? null : modelName;
-    const nextGenerations = nextModel && maker ? quickGenerationsByMakerModel[maker]?.[nextModel] ?? [] : [];
+    const nextGenerations = nextModel && maker ? generationsByMakerModelMap[maker]?.[nextModel] ?? [] : [];
     setFilters((current) => ({ ...current, model: nextModel }));
     setDraftFilters((current) => ({ ...current, model: nextModel }));
     setSelectedGeneration(isGuaziQuickStyle && nextGenerations.length === 1 ? nextGenerations[0].name : null);
@@ -776,7 +787,7 @@ function MarketplaceScreen() {
     closeSheet();
   };
 
-  const guaziVisualsForMaker = maker ? quickModelVisualsByMaker[maker] : undefined;
+  const guaziVisualsForMaker = maker ? modelVisualsByMakerMap[maker] : undefined;
   const selectedGenerationVisual = selectedGenerationOption?.image ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.image : undefined);
   const selectedGenerationSummary = selectedGenerationOption
     ? (showGuaziInventoryCounts
@@ -888,7 +899,7 @@ function MarketplaceScreen() {
   ] as Array<QuickFilterChip | null>).filter((chip): chip is QuickFilterChip => Boolean(chip));
   const marketSheet = (
       <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && closeSheet()} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" || sheet === "maker" || sheet === "vehicle" || sheet === "price" || sheet === "filter" || sheet === "quick" || sheet === "carType" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "filter" || sheet === "maker" || sheet === "quick" ? 0.96 : sheet === "vehicle" ? 0.8 : sheet === "carType" ? 0.8 : sheet === "region" ? 0.53 : sheet === "price" ? 0.62 : 0.48}>
-        {sheet === "filter" ? <ChoTotFilterSheet value={draftFilters} focus={filterFocus} onChange={setDraftFilters} onClose={() => { setFilterFocus(null); closeSheet(); }} onReset={() => resetFilters({ closeActiveSheet: false })} onConfirm={() => { setFilters(draftFilters); setFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "carType" ? <CategoryFilterSheet selected={category} onChoose={chooseCategoryFilter} onClose={closeSheet} /> : sheet === "quick" && quickFilterFocus ? <ChoTotQuickFilterSheet focus={quickFilterFocus} value={draftFilters} onChange={setDraftFilters} onClose={() => { setQuickFilterFocus(null); closeSheet(); }} onConfirm={() => { setFilters(draftFilters); setQuickFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "vehicle" ? <VehiclePickerSheet maker={maker} model={selectedModel} generation={selectedGeneration} makerOptions={categoryBrandRail.options} onApply={applyVehicleSummarySelection} renderMakerLogo={isGuaziQuickStyle ? (option) => <KrBrandLogo name={option.maker ?? option.name} kind="list" /> : undefined} /> : sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} resultCount={filteredWithoutPrice.length} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftFilters.price} onChange={(nextPrice) => setDraftFilters((current) => ({ ...current, price: nextPrice }))} onClose={closeSheet} onReset={() => setDraftFilters((current) => ({ ...current, price: emptyPrice }))} onConfirm={() => { setFilters((current) => ({ ...current, price: draftFilters.price })); closeSheet(); }} resultCount={draftFilterCount} /> : <div className="sheet-options">
+        {sheet === "filter" ? <ChoTotFilterSheet value={draftFilters} focus={filterFocus} onChange={setDraftFilters} onClose={() => { setFilterFocus(null); closeSheet(); }} onReset={() => resetFilters({ closeActiveSheet: false })} onConfirm={() => { setFilters(draftFilters); setFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "carType" ? <CategoryFilterSheet selected={category} onChoose={chooseCategoryFilter} onClose={closeSheet} /> : sheet === "quick" && quickFilterFocus ? <ChoTotQuickFilterSheet focus={quickFilterFocus} value={draftFilters} onChange={setDraftFilters} onClose={() => { setQuickFilterFocus(null); closeSheet(); }} onConfirm={() => { setFilters(draftFilters); setQuickFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "vehicle" ? <VehiclePickerSheet maker={maker} model={selectedModel} generation={selectedGeneration} makerOptions={categoryBrandRail.options} onApply={applyVehicleSummarySelection} modelsByMaker={modelsByMakerMap} generationsByMakerModel={generationsByMakerModelMap} modelVisualsByMaker={modelVisualsByMakerMap} renderMakerLogo={isGuaziQuickStyle ? (option) => <KrBrandLogo name={option.maker ?? option.name} kind="list" /> : undefined} /> : sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} resultCount={filteredWithoutPrice.length} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftFilters.price} onChange={(nextPrice) => setDraftFilters((current) => ({ ...current, price: nextPrice }))} onClose={closeSheet} onReset={() => setDraftFilters((current) => ({ ...current, price: emptyPrice }))} onConfirm={() => { setFilters((current) => ({ ...current, price: draftFilters.price })); closeSheet(); }} resultCount={draftFilterCount} /> : <div className="sheet-options">
           {sheet === "sort" ? ["최신순", "낮은 가격순", "높은 가격순"].map((label) => <button key={label} type="button" className={sort === label ? "is-selected" : ""} onClick={() => { setSort(label); setSheet(null); }}>{label}</button>) : ["전체", "추천 조건", "인기 조건"].map((label) => <button key={label} type="button" onClick={() => setSheet(null)}>{label}</button>)}
         </div>}
       </BottomSheet>
@@ -942,7 +953,9 @@ function MarketplaceScreen() {
   const hasDirectVariantDepth = Boolean(usesUxDepth && selectedModel && !hasGenerationDepth && directVariantQuickOptions.length);
   const shouldStayOnSelectedModelRail = Boolean(isGuaziQuickStyle && selectedModel && !hasGenerationDepth && !hasDirectVariantDepth);
   const showModelQuickRail = Boolean(maker && modelQuickOptions.length && (!selectedModel || shouldStayOnSelectedModelRail));
-  const showGenerationQuickRail = Boolean(usesUxDepth && selectedModel && !selectedGeneration && generationQuickOptions.length);
+  // QF-097: 카탈로그 세부 모델을 골랐는데 트림 데이터가 없으면 세부 모델 줄에 선택된 채로 남는다
+  const stayOnGenerationRail = Boolean(isCatalogMaker && selectedGeneration && !variantQuickOptions.length);
+  const showGenerationQuickRail = Boolean(usesUxDepth && selectedModel && (!selectedGeneration || stayOnGenerationRail) && generationQuickOptions.length);
   const showVariantQuickRail = Boolean(usesUxDepth && ((selectedGeneration && variantQuickOptions.length) || hasDirectVariantDepth) && (isGuaziQuickStyle || !trimApplied));
   const showVehicleHeaderRail = Boolean(!isGuaziQuickStyle && usesUxDepth && selectedGeneration && trimApplied);
   const showCategoryQuickRail = categoryLandingOpen && !maker;
@@ -978,7 +991,7 @@ function MarketplaceScreen() {
                     key={model}
                     label={formatModelLabel(model)}
                     sub={bodyTypeLabel(modelVisual?.bodyType)}
-                    image={modelVisual?.image ? <img src={modelVisual.image} alt="" aria-hidden="true" draggable={false} /> : undefined}
+                    image={isCatalogMaker ? <CatalogModelImage src={modelVisual?.image || undefined} /> : modelVisual?.image ? <img src={modelVisual.image} alt="" aria-hidden="true" draggable={false} /> : undefined}
                     imageFit={modelVisual?.bodyFit ?? "width"}
                     isEV={modelVisual?.isEV}
                     selected={selectedModel === model}
@@ -1000,15 +1013,16 @@ function MarketplaceScreen() {
             <span className="depth-rail-label">세대</span>
             <Carousel ariaLabel={`${accessibleDepthLabel(selectedModel)} 세대`} className="brand-carousel" contentClassName="depth-rail-track">
               {generationQuickOptions.map((generation) => {
-                const generationImage = generation.image ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.image : undefined);
+                // QF-097: 카탈로그 세부 모델은 자기 이미지만(없으면 점선 빈 칸)
+                const generationImage = isCatalogMaker ? generation.image : generation.image ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.image : undefined);
                 const selectedModelVisual = selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel] : undefined;
                 const generationImageFit = generation.bodyFit ?? selectedModelVisual?.bodyFit ?? "width";
                 return (
                   <DepthCard
                     key={generation.name}
                     label={generationCardLabel(generation)}
-                    sub={compactGenerationCardYearLabel(generation.years)}
-                    image={generationImage ? <img src={generationImage} alt="" aria-hidden="true" draggable={false} /> : undefined}
+                    sub={generation.cardSub ?? compactGenerationCardYearLabel(generation.years)}
+                    image={isCatalogMaker ? <CatalogModelImage src={generationImage} /> : generationImage ? <img src={generationImage} alt="" aria-hidden="true" draggable={false} /> : undefined}
                     imageFit={generationImageFit}
                     isEV={generation.isEV ?? selectedModelVisual?.isEV}
                     selected={selectedGeneration === generation.name}
@@ -1191,8 +1205,8 @@ function MarketplaceScreen() {
   // 제조사 목록 매물 수: 제조사·모델만 뺀 지금 조건으로 우리 데이터에서 센다(원본처럼 0대는 흐리게)
   const bbmMakerBase = listingCars.filter((car) => matchesChoTotFilters(car, { ...filters, maker: null, model: null }) && (!isGuaziQuickStyle || matchesBbmFilters(car, filters.bbm)));
   const bbmMakerSections = bbCatalog.map((section) => ({ title: section.title, rows: section.rows.map(([label, , key]) => ({ label, key: key ?? label, count: bbmMakerBase.filter((car) => car.maker === (key ?? label)).length })) }));
-  const bbmModelRows = (makerName: string) => (quickModelsByMaker[makerName] ?? []).map((name) => {
-    const visualCount = quickModelVisualsByMaker[makerName]?.[name]?.count;
+  const bbmModelRows = (makerName: string) => (modelsByMakerMap[makerName] ?? []).map((name) => {
+    const visualCount = modelVisualsByMakerMap[makerName]?.[name]?.count;
     const key = normalizeModelSearchText(name);
     const count = visualCount ? Number(visualCount.replace(/[^0-9]/g, "")) : listingCars.filter((car) => car.maker === makerName && normalizeModelSearchText(`${car.title} ${car.trim} ${car.modelGroup ?? ""}`).includes(key)).length;
     return { name, label: formatModelLabel(name), count };
@@ -1232,7 +1246,7 @@ function MarketplaceScreen() {
   if (desktop && pcLayoutStyle === "bbmuseum") {
     // QF-067: 좌측 필터 제조사·모델·등급 = 퀵필터 제조사·모델·세대·트림과 같은 상태(하나의 원본)
     const bbmModelCount = (makerName: string, modelName: string) => {
-      const visualCount = quickModelVisualsByMaker[makerName]?.[modelName]?.count;
+      const visualCount = modelVisualsByMakerMap[makerName]?.[modelName]?.count;
       if (visualCount) return Number(visualCount.replace(/[^0-9]/g, ""));
       const key = normalizeModelSearchText(modelName);
       return listingCars.filter((car) => car.maker === makerName && normalizeModelSearchText(`${car.title} ${car.trim} ${car.modelGroup ?? ""}`).includes(key)).length;
@@ -1244,11 +1258,12 @@ function MarketplaceScreen() {
       generation: selectedGeneration,
       generationLabel: selectedGenerationOption ? generationCardLabel(selectedGenerationOption) : null,
       grades: selectedVariants,
-      modelsFor: (makerName) => (quickModelsByMaker[makerName] ?? []).map((name) => ({ name, label: formatModelLabel(name), count: bbmModelCount(makerName, name) })),
-      gradeGroupsFor: (makerName, modelName) => (quickGenerationsByMakerModel[makerName]?.[modelName] ?? []).map((generation) => ({
+      modelsFor: (makerName) => (modelsByMakerMap[makerName] ?? []).map((name) => ({ name, label: formatModelLabel(name), count: bbmModelCount(makerName, name) })),
+      gradeGroupsFor: (makerName, modelName) => (generationsByMakerModelMap[makerName]?.[modelName] ?? []).map((generation) => ({
         name: generation.name,
-        title: `${generationCardLabel(generation)} · ${compactGenerationCardYearLabel(generation.years)}`,
+        title: `${generationCardLabel(generation)} · ${generation.cardSub ?? compactGenerationCardYearLabel(generation.years)}`,
         grades: generation.variants.map(toTrimOption),
+        count: generation.count,
       })),
       onChooseMaker: (makerName) => { if (maker !== makerName) applyMakerFilter(makerName); },
       onChooseModel: (modelName) => { if (selectedModel !== modelName) chooseModel(modelName); },
@@ -1260,6 +1275,7 @@ function MarketplaceScreen() {
       onClearModel: clearModelFilter,
       // 등급 단계 × = 세대 묶음과 등급을 함께 해제
       onClearGrades: clearGenerationFilter,
+      onChooseGeneration: isGuaziQuickStyle ? (generationName) => chooseGeneration(generationName) : undefined,
     };
     const drawerFilterChip = isGuaziQuickStyle && hybridNarrow;
     const bbmContentHead = (

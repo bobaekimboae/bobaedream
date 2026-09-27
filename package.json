@@ -29,7 +29,8 @@
     "diff:chotot-top": "node scripts/chotot-top-diff.mjs",
     "check:top": "node scripts/pc-top-check.mjs",
     "check:logos": "node scripts/check-logos.mjs",
-    "check:sidebar": "node scripts/sidebar-scroll-check.mjs"
+    "check:sidebar": "node scripts/sidebar-scroll-check.mjs",
+    "check:models": "node scripts/model-catalog-check.mjs"
   },
   "dependencies": {
     "@fontsource/roboto": "5.2.10",

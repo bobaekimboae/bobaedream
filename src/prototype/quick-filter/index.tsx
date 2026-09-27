@@ -19,6 +19,8 @@ import {
   toTrimOption,
   usedCarCategoryOptions,
   type BrandRailOption,
+  type QuickGenerationOption,
+  type QuickModelVisual,
   type MakerOption,
   type PriceSelection,
   type VehicleBodyFit,
@@ -187,6 +189,9 @@ function VehiclePickerSheet({
   makerOptions,
   onApply,
   renderMakerLogo,
+  modelsByMaker = quickModelsByMaker,
+  generationsByMakerModel = quickGenerationsByMakerModel,
+  modelVisualsByMaker = quickModelVisualsByMaker,
 }: {
   maker: string | null;
   model: string | null;
@@ -195,12 +200,16 @@ function VehiclePickerSheet({
   onApply: (maker: string | null, model: string | null, generation: string | null) => void;
   // QF-096: 과쯔 모드만 넘긴다 — 제조사 이름 앞 로고(24×24). 없으면 기존 로고(초톳·동처띠 그대로)
   renderMakerLogo?: (option: BrandRailOption) => ReactNode;
+  // QF-097: 과쯔 모드만 카탈로그 모델·세부 모델을 넘긴다. 없으면 기존 데이터(초톳·동처띠 그대로)
+  modelsByMaker?: Record<string, string[]>;
+  generationsByMakerModel?: Record<string, Record<string, QuickGenerationOption[]>>;
+  modelVisualsByMaker?: Record<string, Record<string, QuickModelVisual>>;
 }) {
   const [draftMaker, setDraftMaker] = useState<string | null>(maker);
   const [draftModel, setDraftModel] = useState<string | null>(model);
   const [draftGeneration, setDraftGeneration] = useState<string | null>(generation);
-  const modelOptions = draftMaker ? quickModelsByMaker[draftMaker] ?? [] : [];
-  const generationOptions = draftMaker && draftModel ? quickGenerationsByMakerModel[draftMaker]?.[draftModel] ?? [] : [];
+  const modelOptions = draftMaker ? modelsByMaker[draftMaker] ?? [] : [];
+  const generationOptions = draftMaker && draftModel ? generationsByMakerModel[draftMaker]?.[draftModel] ?? [] : [];
   const generationEmptyText = draftModel ? "세대 정보 없음" : "모델을 먼저 선택하세요.";
   const visibleMakerOptions = makerOptions.filter((option) => option.maker);
 
@@ -237,7 +246,7 @@ function VehiclePickerSheet({
         <h3>모델</h3>
         <div className="vehicle-picker-grid">
           {modelOptions.length ? modelOptions.map((option) => {
-            const disabled = quickModelVisualsByMaker[draftMaker ?? ""]?.[option]?.count === "0대";
+            const disabled = modelVisualsByMaker[draftMaker ?? ""]?.[option]?.count === "0대";
             return <button key={option} type="button" className={draftModel === option ? "is-selected" : ""} aria-pressed={draftModel === option} disabled={disabled} onClick={() => chooseModel(option)}>{formatModelLabel(option)}</button>;
           }) : <p>제조사를 먼저 선택하세요.</p>}
         </div>
@@ -250,7 +259,7 @@ function VehiclePickerSheet({
             return (
               <button key={option.name} type="button" className={draftGeneration === option.name ? "is-selected" : ""} aria-pressed={draftGeneration === option.name} disabled={disabled} onClick={() => setDraftGeneration(option.name)}>
                 <strong>{generationCardLabel(option)}</strong>
-                <small>{compactGenerationCardYearLabel(option.years)}</small>
+                <small>{option.cardSub ?? compactGenerationCardYearLabel(option.years)}</small>
               </button>
             );
           }) : <p>{generationEmptyText}</p>}

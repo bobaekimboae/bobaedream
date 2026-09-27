@@ -362,7 +362,9 @@ const benzEncarClassOrder = [
   "스프린터", "190-클래스", "기타",
 ];
 type QuickTrimOption = { name: string; count: number };
-type QuickGenerationOption = { name: string; years: string; variants: Array<string | QuickTrimOption>; image?: string; bodyFit?: VehicleBodyFit; bodyType?: BodyType; isEV?: boolean; count?: number };
+type QuickGenerationOption = { name: string; years: string; variants: Array<string | QuickTrimOption>; image?: string; bodyFit?: VehicleBodyFit; bodyType?: BodyType; isEV?: boolean; count?: number;
+  // QF-097(과쯔 카탈로그 세부 모델만): 카드 큰 글자 · 작은 글자 · 칩 표기 · 매물 거르기 말 · 카탈로그 value
+  cardLabel?: string; cardSub?: string; displayLabel?: string; matchKeys?: string[]; catalogValue?: number };
 type QuickModelVisual = { image: string; bodyFit?: VehicleBodyFit; bodyType?: BodyType; isEV?: boolean; count?: string };
 const quickModelVisualsByMaker: Record<string, Record<string, QuickModelVisual>> = {
   BMW: Object.fromEntries(bmwModels.map((model) => [model.name, { image: model.image, bodyFit: model.bodyFit, bodyType: model.bodyType }])) as Record<string, QuickModelVisual>,
@@ -457,6 +459,7 @@ const generationLabelByCode: Record<string, string> = {
   F20: "2세대",
 };
 const generationDisplayLabel = (generation: QuickGenerationOption) => {
+  if (generation.displayLabel) return generation.displayLabel;
   const explicit = generation.name.match(/(\d+)세대/);
   if (explicit) return `${explicit[1]}세대`;
   const codeLabel = generationLabelByCode[generation.name];
@@ -472,6 +475,7 @@ const generationCodeLabel = (generation: QuickGenerationOption) => {
   return code?.[0] ?? "";
 };
 const generationCardLabel = (generation: QuickGenerationOption) => {
+  if (generation.cardLabel) return generation.cardLabel;
   const display = generationDisplayLabel(generation);
   const code = generationCodeLabel(generation);
   return code ? `${display} ${code}` : display;
