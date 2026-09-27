@@ -5,6 +5,7 @@ import type { CatalogModel, CatalogSubModel } from "../data/model-catalog-kr.gen
 import "./model-catalog-kr.css";
 import "./qf-plain.css";
 import "./qf-trim.css";
+import "./qf-rail-vertical.css";
 
 // QF-097: 과쯔 모드 모델·세부 모델 = 개발 시안 카탈로그 스냅숏(9개 제조사: 벤츠·BMW·현대·기아·포르쉐·페라리·람보르기니·벤틀리·롤스로이스).
 // 화면은 API 를 부르지 않고 스냅숏에서 만든 model-catalog-kr.generated.ts 만 읽는다. 그 밖의 제조사는 기존 퀵필터 데이터 그대로.

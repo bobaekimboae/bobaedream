@@ -1,0 +1,270 @@
+{
+ "pc-1440": {
+  "steps": [
+   {
+    "step": "제조사",
+    "kind": "제조사 빠른 선택",
+    "railBox": 72,
+    "cellH": 72,
+    "overflowTop": 0,
+    "overflowBottom": 0,
+    "padTop": 0,
+    "padBottom": 0,
+    "chipToCell": 18,
+    "cellToCardEnd": 16,
+    "topCard": 233,
+    "scrollbar": "none/0px"
+   },
+   {
+    "step": "모델(벤츠)",
+    "kind": "벤츠 모델 빠른 선택",
+    "railBox": 72,
+    "cellH": 72,
+    "overflowTop": 0,
+    "overflowBottom": 0,
+    "padTop": 0,
+    "padBottom": 0,
+    "chipToCell": 18,
+    "cellToCardEnd": 16,
+    "topCard": 233,
+    "scrollbar": "스크롤 없음"
+   },
+   {
+    "step": "세부모델(C클래스)",
+    "kind": "C클래스 세부모델 빠른 선택",
+    "railBox": 72,
+    "cellH": 72,
+    "overflowTop": 0,
+    "overflowBottom": 0,
+    "padTop": 0,
+    "padBottom": 0,
+    "chipToCell": 18,
+    "cellToCardEnd": 16,
+    "topCard": 233,
+    "scrollbar": "스크롤 없음"
+   },
+   {
+    "step": "트림(W206)",
+    "kind": "trim",
+    "railBox": 32,
+    "cellH": 32,
+    "overflowTop": 0,
+    "overflowBottom": 0,
+    "padTop": 0,
+    "padBottom": 0,
+    "chipToCell": 18,
+    "cellToCardEnd": 16,
+    "topCard": 193,
+    "scrollbar": "스크롤 없음"
+   },
+   {
+    "step": "닫힘(C200)",
+    "rail": null,
+    "topCard": 148,
+    "chipToCardEnd": 16
+   }
+  ],
+  "errors": 0
+ },
+ "pc-1280": {
+  "steps": [
+   {
+    "step": "제조사",
+    "kind": "제조사 빠른 선택",
+    "railBox": 72,
+    "cellH": 72,
+    "overflowTop": 0,
+    "overflowBottom": 0,
+    "padTop": 0,
+    "padBottom": 0,
+    "chipToCell": 18,
+    "cellToCardEnd": 16,
+    "topCard": 233,
+    "scrollbar": "none/0px"
+   },
+   {
+    "step": "모델(벤츠)",
+    "kind": "벤츠 모델 빠른 선택",
+    "railBox": 72,
+    "cellH": 72,
+    "overflowTop": 0,
+    "overflowBottom": 0,
+    "padTop": 0,
+    "padBottom": 0,
+    "chipToCell": 18,
+    "cellToCardEnd": 16,
+    "topCard": 233,
+    "scrollbar": "스크롤 없음"
+   },
+   {
+    "step": "세부모델(C클래스)",
+    "kind": "C클래스 세부모델 빠른 선택",
+    "railBox": 72,
+    "cellH": 72,
+    "overflowTop": 0,
+    "overflowBottom": 0,
+    "padTop": 0,
+    "padBottom": 0,
+    "chipToCell": 18,
+    "cellToCardEnd": 16,
+    "topCard": 233,
+    "scrollbar": "스크롤 없음"
+   },
+   {
+    "step": "트림(W206)",
+    "kind": "trim",
+    "railBox": 32,
+    "cellH": 32,
+    "overflowTop": 0,
+    "overflowBottom": 0,
+    "padTop": 0,
+    "padBottom": 0,
+    "chipToCell": 18,
+    "cellToCardEnd": 16,
+    "topCard": 193,
+    "scrollbar": "스크롤 없음"
+   },
+   {
+    "step": "닫힘(C200)",
+    "rail": null,
+    "topCard": 148,
+    "chipToCardEnd": 16
+   }
+  ],
+  "errors": 0
+ },
+ "m-393": {
+  "steps": [
+   {
+    "step": "제조사",
+    "kind": "제조사 빠른 선택",
+    "railBox": 80,
+    "cellH": 72,
+    "overflowTop": -2,
+    "overflowBottom": -6,
+    "padTop": 2,
+    "padBottom": 6,
+    "chipToCell": 12,
+    "cellToCardEnd": null,
+    "topCard": null,
+    "scrollbar": "none/0px"
+   },
+   {
+    "step": "모델(벤츠)",
+    "kind": "벤츠 모델 빠른 선택",
+    "railBox": 80,
+    "cellH": 72,
+    "overflowTop": -2,
+    "overflowBottom": -6,
+    "padTop": 2,
+    "padBottom": 6,
+    "chipToCell": 12,
+    "cellToCardEnd": null,
+    "topCard": null,
+    "scrollbar": "스크롤 없음"
+   },
+   {
+    "step": "세부모델(C클래스)",
+    "kind": "C클래스 세부모델 빠른 선택",
+    "railBox": 80,
+    "cellH": 72,
+    "overflowTop": -2,
+    "overflowBottom": -6,
+    "padTop": 2,
+    "padBottom": 6,
+    "chipToCell": 12,
+    "cellToCardEnd": null,
+    "topCard": null,
+    "scrollbar": "스크롤 없음"
+   },
+   {
+    "step": "트림(W206)",
+    "kind": "trim",
+    "railBox": 40,
+    "cellH": 32,
+    "overflowTop": -2,
+    "overflowBottom": -6,
+    "padTop": 2,
+    "padBottom": 6,
+    "chipToCell": 12,
+    "cellToCardEnd": null,
+    "topCard": null,
+    "scrollbar": "스크롤 없음"
+   },
+   {
+    "step": "닫힘(C200)",
+    "rail": null,
+    "topCard": null,
+    "chipToCardEnd": null
+   }
+  ],
+  "errors": 0
+ },
+ "m-360": {
+  "steps": [
+   {
+    "step": "제조사",
+    "kind": "제조사 빠른 선택",
+    "railBox": 80,
+    "cellH": 72,
+    "overflowTop": -2,
+    "overflowBottom": -6,
+    "padTop": 2,
+    "padBottom": 6,
+    "chipToCell": 12,
+    "cellToCardEnd": null,
+    "topCard": null,
+    "scrollbar": "none/0px"
+   },
+   {
+    "step": "모델(벤츠)",
+    "kind": "벤츠 모델 빠른 선택",
+    "railBox": 80,
+    "cellH": 72,
+    "overflowTop": -2,
+    "overflowBottom": -6,
+    "padTop": 2,
+    "padBottom": 6,
+    "chipToCell": 12,
+    "cellToCardEnd": null,
+    "topCard": null,
+    "scrollbar": "스크롤 없음"
+   },
+   {
+    "step": "세부모델(C클래스)",
+    "kind": "C클래스 세부모델 빠른 선택",
+    "railBox": 80,
+    "cellH": 72,
+    "overflowTop": -2,
+    "overflowBottom": -6,
+    "padTop": 2,
+    "padBottom": 6,
+    "chipToCell": 12,
+    "cellToCardEnd": null,
+    "topCard": null,
+    "scrollbar": "스크롤 없음"
+   },
+   {
+    "step": "트림(W206)",
+    "kind": "trim",
+    "railBox": 40,
+    "cellH": 32,
+    "overflowTop": -2,
+    "overflowBottom": -6,
+    "padTop": 2,
+    "padBottom": 6,
+    "chipToCell": 12,
+    "cellToCardEnd": null,
+    "topCard": null,
+    "scrollbar": "스크롤 없음"
+   },
+   {
+    "step": "닫힘(C200)",
+    "rail": null,
+    "topCard": null,
+    "chipToCardEnd": null
+   }
+  ],
+  "errors": 0
+ }
+}
