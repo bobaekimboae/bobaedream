@@ -1,0 +1,26 @@
+/* QF-103 과쯔 퀵필터 줄 위아래 간격 = 초톳 실측(xe.chotot.com/mua-ban-oto, 2026-09-27). plain·card 모두(.marketplace.is-qf-guazi). 칸 안쪽·트림 줄(QF-105)은 그대로
+   PC: 줄 상자 높이 = 칸 높이(제조사 102 · 모델/세부모델 칸 높이), 칸 아래 → 상단 카드 끝 16, 줄이 닫히면 칩 줄 아래 → 카드 끝 16
+   모바일: 줄 상자 위 2 → 칸 → 칸 아래 6 → 줄 상자 끝. 가로 스크롤바는 숨김(스크롤은 그대로) */
+.marketplace.is-qf-guazi .depth-rail:not(.is-trim-row) { height: auto; }
+.marketplace.is-qf-guazi .depth-rail:not(.is-trim-row) .brand-carousel { height: auto; scrollbar-width: none; }
+.marketplace.is-qf-guazi .depth-rail .brand-carousel::-webkit-scrollbar { display: none; }
+.marketplace.is-qf-guazi .depth-rail:not(.is-trim-row) .depth-rail-track { height: auto; align-items: flex-start; padding-top: 0; padding-bottom: 0; }
+/* 이름표는 줄 상자(= 칸 높이)의 세로 가운데 */
+.marketplace.is-qf-guazi .depth-rail:not(.is-trim-row) .depth-rail-label,
+.marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-rail:not(.is-trim-row) .depth-rail-label,
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail:not(.is-trim-row) .depth-rail-label { padding-bottom: 0; }
+
+/* PC: 퀵필터 칸(유형 줄 때문에 110 고정)을 줄 높이에 맞추고, 줄이 없으면 칸을 없앤다 */
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail) { height: auto; justify-content: flex-start; }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot:empty { display: none; }
+
+/* 모바일: 위 2 · 아래 6 */
+.marketplace.is-bbm-m.is-qf-guazi .depth-rail:not(.is-trim-row),
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail.is-kr-maker,
+.marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-kr-maker { margin-top: 0; padding: 2px 0 6px; }
+
+/* PC 칩 줄 → 칸 18(칩 줄 아래 여백 10 + 줄 위 8, 제조사·모델·세부모델 같음). 줄이 닫히면 칩 줄 아래 여백 10 도 없애 칩 줄 아래 → 카드 끝 16(카드 아래 안쪽 여백) */
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .depth-rail:not(.is-trim-row),
+.marketplace.is-bbm.is-qf-guazi.is-qf-plain .bbm-content-head.is-chotot .depth-rail.is-kr-maker,
+.marketplace.is-bbm.is-qf-guazi.is-qf-plain .bbm-content-head.is-chotot .depth-rail:not(.is-kr-maker):not(.is-trim-row) { margin-top: 8px; }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot:has(> .bbm-quick-slot:empty) .bbm-ct-chip-row { padding-bottom: 0; margin-bottom: -5px; } /* 칩 줄 상자는 칩(32)보다 5 높다 */

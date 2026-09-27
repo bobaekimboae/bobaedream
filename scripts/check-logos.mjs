@@ -112,8 +112,8 @@ for (const width of [1440, 1280]) {
   await page.locator(".bbm-category-menu__button").filter({ hasText: /^중고차/ }).first().tap(); await page.waitForTimeout(600);
   verify("모바일 393 퀵필터 제조사 줄", await measureLogos(page, ".is-kr-maker"));
   const spacing = await page.evaluate(() => { const chip = document.querySelector(".filter-shell.is-bbm .filter-fixed").getBoundingClientRect(); const first = document.querySelector(".is-kr-maker .depth-card").getBoundingClientRect(); const cards = [...document.querySelectorAll(".is-kr-maker .depth-card")].map((c) => c.getBoundingClientRect()); return { gap: Math.round(first.top - chip.bottom), firstX: first.left, chipX: chip.left, pitch: Math.round(cards[1].left - cards[0].left), size: `${first.width}×${first.height}` }; });
-  // 모바일 plain: 칩 줄 → 제조사 줄 14(초톳 필터 칩 줄 → 지역 칩 줄 값), 첫 칸은 첫 칩보다 4 왼쪽(초톳 실측, 칸 안 여백 4)
-  check("모바일 칩 줄 → 제조사 줄 14 · 첫 칸 = 첫 칩 − 4 · 칸 64×74 · 피치 72(plain)", spacing.gap === 14 && spacing.firstX === spacing.chipX - 4 && spacing.size === "64×74" && spacing.pitch === 72, JSON.stringify(spacing));
+  // 모바일 plain: 줄 상자 위 2(QF-103 초톳 실측) → 칩 줄 아래 → 칸 12, 첫 칸은 첫 칩보다 4 왼쪽(초톳 실측, 칸 안 여백 4)
+  check("모바일 칩 줄 → 제조사 칸 12(칩 줄 아래 여백 10 + 줄 위 2, QF-103) · 첫 칸 = 첫 칩 − 4 · 칸 64×74 · 피치 72(plain)", spacing.gap === 12 && spacing.firstX === spacing.chipX - 4 && spacing.size === "64×74" && spacing.pitch === 72, JSON.stringify(spacing));
   await page.screenshot({ path: join(outDir, "m-393-rail.png"), clip: { x: 0, y: 0, width: 393, height: 330 } });
   await page.locator(".filter-track .filter-chip").filter({ hasText: /^제조사/ }).first().tap(); await page.waitForTimeout(600);
   verify("모바일 393 제조사 시트(필터 서랍)", await measureLogos(page, ".bbmf-sheet"));
