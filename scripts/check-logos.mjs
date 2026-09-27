@@ -67,6 +67,11 @@ for (const width of [1440, 1280]) {
   if (width === 1440) {
     summary.railOrder = order;
     check("퀵필터 순서: 국산 → 구분선 → 수입차 인기 → 이름순 나머지, 0대·기타 제외", order[0] === "현대" && order.includes("|") && order[order.indexOf("|") + 1] === "벤츠" && !order.some((name) => name.startsWith("기타")) && !order.includes("BYD"), `${order.slice(0, 10).join(" ")} … (카드 ${order.filter((x) => x !== "|").length})`);
+    // QF-096 보완: 카드에만 짧은 이름(쉐보레·르노코리아·KGM, 괄호 앞까지), 80 칸에서 잘리는 이름 목록
+    const labels = await page.evaluate(() => [...document.querySelectorAll(".is-kr-maker .depth-card-label")].map((label) => ({ text: label.textContent, cut: label.scrollWidth > label.clientWidth + 0.5 })));
+    summary.truncatedRailLabels = labels.filter((label) => label.cut).map((label) => label.text);
+    check("카드 짧은 이름: 쉐보레 · 르노코리아 · KGM, 괄호 없음", ["쉐보레", "르노코리아", "KGM"].every((name) => labels.some((label) => label.text === name)) && !labels.some((label) => label.text.includes("(")), labels.slice(0, 8).map((label) => label.text).join(" "));
+    check("80 칸에서 잘리는 카드 이름", true, summary.truncatedRailLabels.length ? summary.truncatedRailLabels.join(", ") : "없음");
     check("구분선 폭 1 · 높이 44 · #E4E7EC · 좌우 4", divider?.w === 1 && divider?.h === 44 && divider?.bg === "rgb(228, 231, 236)" && divider?.margin === "0px 4px", JSON.stringify(divider));
     const spacing = await page.evaluate(() => { const card = document.querySelector(".bbm-content-head").getBoundingClientRect(); const chip = document.querySelector(".bbm-filter-button").getBoundingClientRect(); const cards = [...document.querySelectorAll(".is-kr-maker .depth-card")].map((c) => c.getBoundingClientRect()); return { gap: Math.round(cards[0].top - chip.bottom), firstX: cards[0].left, chipX: chip.left, cardGap: Math.round(cards[1].left - cards[0].right), size: `${cards[0].width}×${cards[0].height}` }; });
     check("PC 칩 줄 → 카드 줄 18 · 카드 사이 8 · 첫 카드 왼쪽 선 = 첫 칩 왼쪽 선 · 카드 80×72", spacing.gap === 18 && spacing.cardGap === 8 && spacing.firstX === spacing.chipX && spacing.size === "80×72", JSON.stringify(spacing));
@@ -102,9 +107,18 @@ for (const width of [1440, 1280]) {
   await page.locator(".filter-track .filter-chip").filter({ hasText: /^제조사/ }).first().tap(); await page.waitForTimeout(600);
   verify("모바일 393 제조사 시트(필터 서랍)", await measureLogos(page, ".bbmf-sheet"));
   await page.screenshot({ path: join(outDir, "m-393-sheet.png") });
+  // QF-096 보완: 전체 필터 "제조사 · 모델" 차종 시트(과쯔만 로고 24×24, 이름 앞, 사이 8)
+  await page.locator(".bbmf-sheet .bbmf-close, .bbmf-sheet [aria-label=닫기]").first().tap().catch(() => page.keyboard.press("Escape"));
+  await page.waitForTimeout(500);
+  await page.locator(".filter-fixed").first().tap(); await page.waitForTimeout(800);
+  await page.locator(".bbmf-full-item").filter({ hasText: /^제조사 · 모델/ }).first().tap(); await page.waitForTimeout(900);
+  verify("모바일 393 차종 시트(제조사 · 모델)", await measureLogos(page, ".vehicle-picker-grid.is-makers"));
+  const pickerGap = await page.evaluate(() => { const button = document.querySelector(".vehicle-picker-grid.is-makers.has-kr-logo button"); const logo = button.querySelector(".kr-brand-logo").getBoundingClientRect(); const text = button.querySelector("span:last-child").getBoundingClientRect(); return Math.round(text.left - logo.right); });
+  check("차종 시트 로고와 이름 사이 8", pickerGap === 8, `${pickerGap}`);
+  await page.screenshot({ path: join(outDir, "m-393-vehicle-sheet.png") });
   check("모바일 로고 404 0 · 콘솔 오류 0", missing.length === 0 && errors.length === 0, `404 ${missing.length} · 오류 ${errors.length}`);
   // 접근성: 로고 이미지 alt="" · 카드·행 버튼 접근 이름 = 브랜드명
-  const a11y = await page.evaluate(() => ({ altNonEmpty: [...document.querySelectorAll(".kr-brand-logo img")].filter((img) => img.getAttribute("alt") !== "").length, rowNames: [...document.querySelectorAll(".bbmf-sheet .bbm-maker-row")].slice(0, 3).map((row) => row.querySelector(".bbm-maker-name").textContent) }));
+  const a11y = await page.evaluate(() => ({ altNonEmpty: [...document.querySelectorAll(".kr-brand-logo img")].filter((img) => img.getAttribute("alt") !== "").length, rowNames: [...document.querySelectorAll(".vehicle-picker-grid.is-makers button")].slice(0, 3).map((button) => button.textContent.trim()) }));
   check("로고 alt=\"\" · 버튼 이름 = 브랜드명", a11y.altNonEmpty === 0, `alt 있는 로고 ${a11y.altNonEmpty} · 예 ${a11y.rowNames.join(",")}`);
   await context.close();
 }

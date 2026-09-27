@@ -69,3 +69,9 @@ export function krMakerRailSections(scope: "all" | "domestic" | "imported") {
   if (scope === "imported") return { domestic: [], imported: importedItems };
   return { domestic: domesticItems, imported: importedItems };
 }
+
+// QF-096 보완: 퀵필터 제조사 카드(80 칸)에만 짧은 이름 — 좌측 필터·칩 모달·시트·필터 적용·칩 줄·경로·제목은 원래 표기 그대로
+const krRailLabels: Record<string, string> = { "쉐보레(국산)": "쉐보레", "르노코리아(삼성)": "르노코리아", "KG모빌리티(쌍용)": "KGM" };
+export function krRailLabel(label: string) {
+  return krRailLabels[label] ?? label.replace(/\s*\(.*\)\s*$/, "");
+}
