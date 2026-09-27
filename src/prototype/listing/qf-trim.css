@@ -1,0 +1,22 @@
+/* QF-105 과쯔 퀵필터(.marketplace.is-qf-guazi — plain·card 모두 같은 규칙): 트림 알약 줄 · 줄 앞 이름표. 초톳·동처띠는 이 클래스가 없어 그대로 */
+
+/* 줄 앞 이름표(모델 · 세부모델 · 트림): 14px 400 #595959, 콜론 없음, 왼쪽 = 첫 칩 왼쪽 선(PC 140 · 모바일 16), 이름표 → 첫 칸/첫 알약 12, 칸(알약) 세로 가운데 */
+.marketplace.is-qf-guazi .depth-rail-label { padding: 0 12px 0 16px; color: #595959; font-size: 14px; font-weight: 400; line-height: 21px; }
+.marketplace.is-bbm.is-qf-guazi .depth-rail-label { padding-left: 20px; }
+/* plain 모델·세부모델 줄: 칸(PC 81 · 모바일 70)이 줄 상자(96) 위에 붙어 있어, 이름표 아래 여백으로 칸 높이의 가운데에 맞춘다 */
+.marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-rail:not(.is-trim-row) .depth-rail-label { padding-bottom: 15px; }
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail:not(.is-trim-row) .depth-rail-label { padding-bottom: 26px; }
+
+/* 트림 줄 상자 = 알약 32 + 여백(모바일 위 2 · 아래 6, PC 알약 아래 → 상단 카드 끝 16). 이전 96 고정의 빈 공간을 없앤다 */
+.marketplace.is-qf-guazi .depth-rail.is-trim-row { height: auto; }
+.marketplace.is-qf-guazi .depth-rail.is-trim-row .brand-carousel { height: 32px; }
+.marketplace.is-qf-guazi .depth-rail.is-trim-row .depth-rail-track { height: 32px; align-items: center; padding-top: 0; padding-bottom: 0; }
+.marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-trim-row { margin-top: 0; padding: 2px 0 6px; }
+/* PC 퀵필터 칸은 110 고정(유형 줄 ↔ 레일 전환 흔들림 방지)이라, 트림 줄일 때만 내용 높이에 맞춘다 */
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail.is-trim-row) { height: auto; justify-content: flex-start; }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .depth-rail.is-trim-row { margin-top: 8px; margin-bottom: 0; } /* 칩 줄 → 알약 18(다른 퀵필터 줄과 같음) · 알약 아래 → 상단 카드 끝 16 */
+
+/* 알약(초톳 앱 "Dòng xe" 기준): 흰 바탕 · 1px #DDDDDD · 높이 32 · 완전 둥근 · 좌우 16 · 14px 400 #222 · 사이 8. 선택 표시 없음(누르면 바로 적용되고 줄이 닫힌다), 누르는 순간 opacity 0.6 */
+.marketplace.is-qf-guazi .depth-rail.is-trim-row .trim-chip,
+.marketplace.is-qf-guazi .depth-rail.is-trim-row .trim-chip.is-selected { height: 32px; padding: 0 16px; border: 1px solid #dddddd; border-radius: 9999px; background: #fff; color: #222; font-size: 14px; font-weight: 400; transition: opacity 100ms ease; }
+.marketplace.is-qf-guazi .depth-rail.is-trim-row .trim-chip:active:not(:disabled) { opacity: 0.6; }
