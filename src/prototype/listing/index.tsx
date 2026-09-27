@@ -70,6 +70,7 @@ import { bbmSidebarItems, type BbmFilterItem } from "../filters/bbm-filter-optio
 import { BbmExpandPanel, BbmModalPanel, clearBbmItem } from "../filters/bbm-filter-panels";
 import { BbmBottomGnb, BbmCategoryMenu, BbmMakerList, BbmMobileOptions, BbmModelList, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
+import { useBottomStickySidebar } from "./bbm-sticky-sidebar";
 import { KrBrandLogo, krMakerRailSections, krRailLabel } from "./bbm-brand-logos";
 import { BbmChipScroller, BbmTopCrumbs, bbmTopMonth, bbmTopTitlePrefix, type BbmCrumb } from "./bbm-top-chotot";
 import { BBM_PAGE_SIZE, BbmFooter, BbmPagination, BbmPopOptions, BbmToolbarMenu, bbmSortOptions, bbmViewOptionsMobile, bbmViewOptionsPc, sortBbmCars, type BbmSort } from "./bbm-list-area";
@@ -423,6 +424,8 @@ function MarketplaceScreen() {
   const [trimApplied, setTrimApplied] = useState(false);
   const desktop = useDesktopLayout(quickFilterStyle === "guazi" && pcLayoutStyle === "bbmuseum" ? hybridLayoutQuery : desktopLayoutQuery);
   const hybridNarrow = useMediaMatch(hybridNarrowQuery);
+  // QF-093 보완: 과쯔 PC 좌측 필터는 칸 안 스크롤 없이 아래 붙는 사이드바
+  useBottomStickySidebar(desktop && quickFilterStyle === "guazi" && pcLayoutStyle === "bbmuseum");
   // QF-093: 1024~1279 왼쪽 필터 펼침판
   const [bbmDrawerOpen, setBbmDrawerOpen] = useState(false);
   const [bbmDrawerReset, setBbmDrawerReset] = useState(0);
