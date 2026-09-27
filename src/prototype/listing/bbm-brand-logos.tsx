@@ -1,6 +1,7 @@
 import { asset } from "../data";
 import { krBrandLogos } from "./brand-logos-kr.generated";
 import { bbCatalog } from "./pc-bbmuseum";
+import brandTop10 from "../data/brand-top10.json";
 import "./bbm-brand-logos.css";
 
 // QF-096: 과쯔 모드 제조사 로고(public/assets/brand/kr). 기준 이름 = 좌측 필터 표기(bbCatalog 라벨).
@@ -48,11 +49,12 @@ export function krListLogoSize(ratio: number) {
 }
 const px = (value: number) => `${Math.round(value * 100) / 100}px`;
 
-// QF-100 &qfcard=plain(초톳식): 로고 상자(PC 40×40 · 모바일 36×36) 안 크기를 상자에 대한 비율로 — 초톳 실측(PC·모바일 같은 비율):
-// 엠블럼(비율 1.25 이하) 긴 변 82%(벤츠 33/40 · 미쓰비시 32/40 · 마쯔다 33/40 · 혼다 31.7/40 · 빈패스트 33.7/40 평균), 가로형·글자 로고 폭 100%(포드·쉐보레 40/40 · 현대 39.3/40). 가로·세로 가운데
+// QF-108 plain(초톳식) 로고 상자(PC 40×40 · 모바일 36×36) 안 크기 3단계(초톳 실측 M-041 · 매뉴얼 v1.3, 비율 = 잘라낸 로고 폭÷높이), 가로·세로 가운데
+//  1.25 이하: 긴 변 = 상자의 82.5%(PC 33 · 모바일 29.7) / 1.25 초과 1.6 미만: 폭 = 91%(PC 36.4 · 모바일 32.8) / 1.6 이상: 폭 = 100%(PC 40 · 모바일 36)
 export function krPlainLogoSize(ratio: number) {
-  if (ratio > 1.25) return { width: "100%", height: "auto" };
-  return ratio >= 1 ? { width: "82%", height: "auto" } : { width: "auto", height: "82%" };
+  if (ratio >= 1.6) return { width: "100%", height: "auto" };
+  if (ratio > 1.25) return { width: "91%", height: "auto" };
+  return ratio >= 1 ? { width: "82.5%", height: "auto" } : { width: "auto", height: "82.5%" };
 }
 
 /** 로고 칸(퀵필터 48×28 · 목록 24×24 · plain 40×40/36×36). 로고가 없으면 빈 칸(이름 시작선을 맞춘다). 이미지는 alt=""(이름이 바로 옆) */
@@ -77,6 +79,15 @@ export function krMakerRailSections(scope: "all" | "domestic" | "imported") {
   if (scope === "domestic") return { domestic: domesticItems, imported: [] };
   if (scope === "imported") return { domestic: [], imported: importedItems };
   return { domestic: domesticItems, imported: importedItems };
+}
+
+/** QF-108 과쯔 퀵필터 제조사 줄 = 월 단위 상위 10(src/prototype/data/brand-top10.json, 국산 → 구분선 → 수입) + "전체 브랜드" 칸. 이름은 좌측 필터 표기, 값은 catalog key */
+export function krTopTenSections(scope: "all" | "domestic" | "imported") {
+  const rows = bbCatalog.flatMap((section) => section.rows);
+  const toItem = (label: string) => { const row = rows.find(([name]) => name === label); return { label, key: row?.[2] ?? label, count: row?.[1] ?? 0 }; };
+  const domestic = scope === "imported" ? [] : brandTop10.domestic.map(toItem);
+  const imported = scope === "domestic" ? [] : brandTop10.imported.map(toItem);
+  return { domestic, imported, month: brandTop10.month };
 }
 
 // QF-096 보완: 퀵필터 제조사 카드(80 칸)에만 짧은 이름 — 좌측 필터·칩 모달·시트·필터 적용·칩 줄·경로·제목은 원래 표기 그대로

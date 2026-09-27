@@ -42,3 +42,12 @@
 .marketplace.is-bbm.is-qf-plain .bbm-content-head.is-chotot .depth-rail:not(.is-kr-maker) { margin-top: 2.1px; }
 .marketplace.is-bbm-m.is-qf-plain .depth-rail.is-kr-maker { margin-top: 4px; }
 .marketplace.is-bbm-m.is-qf-plain .depth-rail:not(.is-kr-maker) { margin-top: 4px; }
+
+/* QF-108 제조사 줄(초톳 실측 M-041 · 매뉴얼 v1.3): 이름 글자 상자 폭 고정 PC 76 · 모바일 56, 가운데, 최대 2줄 말줄임 */
+.marketplace.is-bbm.is-qf-plain .depth-card:has(> .depth-card-media.is-brand) .depth-card-label { width: 76px; text-align: center; }
+.marketplace.is-bbm-m.is-qf-plain .depth-card:has(> .depth-card-media.is-brand) .depth-card-label { width: 56px; text-align: center; }
+/* 11번째 "전체 브랜드": 로고 자리에 원형(PC 40 · 모바일 36, #F4F4F4) + 격자 아이콘, 이름 600 #222 */
+.kr-all-brands { display: grid; width: 100%; height: 100%; place-items: center; border-radius: 50%; background: #f4f4f4; color: #222; }
+.kr-all-brands svg { width: 50%; height: 50%; }
+.marketplace.is-qf-plain .depth-card:has(> .depth-card-media.is-brand > .kr-all-brands) .depth-card-label { color: #222; font-weight: 600; }
+.marketplace:not(.is-qf-plain) .kr-all-brands { width: 28px; height: 28px; }

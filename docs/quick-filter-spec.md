@@ -99,6 +99,12 @@
 - Images come from Daangn subseries first (generation match table `src/prototype/data/model-image-match.json`, `reports/qf-109/match.csv`; never guessed), then bobaedream `model_{n}.png`, else empty. Every image goes through the code-alignment part `scripts/image-normalize.mjs` (228×120, car width 224, baseline y 111, height ≤ 100, no upscaling, code-drawn shadow 220×12). Model card image = newest sub-model with a Daangn image. Rules: `docs/model-image-spec.md`. Check: `npm run check:model-images`.
 - Breadcrumb has no `전체차량` step: `보배드림 / 중고차 / 벤츠 …` (`중고차` clears the maker); other categories keep their name after `중고차`.
 
+## Maker Rail Top 10 (QF-108)
+
+- Guazi maker rail (plain and card) = monthly top 10 from `src/prototype/data/brand-top10.json` (domestic 6 → 1×44 divider → imported 4: 현대 · 제네시스 · 기아 · 쉐보레 · 르노코리아 · KGM │ BMW · 벤츠 · 아우디 · 포르쉐) + an 11th `전체 브랜드` cell (same cell size, circle PC 40 · mobile 36 #F4F4F4 with a grid icon, name 600 #222). It opens the same maker list as the `제조사 ▾` chip (PC modal · mobile bottom sheet: 국산차 → 수입차 인기 → 수입차 이름순, logo 24 + name + count, 0 greyed); choosing closes it and shows that maker's model rail (makers without model data stay on the maker rail). PC shows the 11 cells on one line at 1280/1440.
+- Maker name text box width is fixed (PC 76 · mobile 56), centered, max 2 lines.
+- Plain logo size inside the box by ratio r: r ≤ 1.25 long side 82.5% (PC 33 · mobile 29.7); 1.25 < r < 1.6 width 91% (36.4 · 32.8); r ≥ 1.6 width 100% (40 · 36). ChoTot comparison: `node scripts/brand-rail-compare.mjs` (scale 4, painted bounds).
+
 ## Existing Mode Notes
 
 - Keep ChoTot and Dongchedi modes visually unchanged when working on Guazi-specific changes unless the user explicitly requests a shared change.
