@@ -20,7 +20,8 @@
         192,
         96
       ],
-      "ratio": 2
+      "ratio": 2,
+      "replaceWithOfficial": false
     },
     "제네시스": {
       "group": "국산",
@@ -40,7 +41,8 @@
         192,
         39
       ],
-      "ratio": 4.969
+      "ratio": 4.969,
+      "replaceWithOfficial": false
     },
     "기아": {
       "group": "국산",
@@ -60,7 +62,8 @@
         192,
         45
       ],
-      "ratio": 4.235
+      "ratio": 4.235,
+      "replaceWithOfficial": false
     },
     "쉐보레(국산)": {
       "group": "국산",
@@ -80,49 +83,62 @@
         192,
         56
       ],
-      "ratio": 3.457
+      "ratio": 3.457,
+      "replaceWithOfficial": false
     },
     "르노코리아(삼성)": {
       "group": "국산",
       "slug": "renault",
       "file": "renault.png",
-      "source": "오토홈",
-      "url": "https://car3.autoimg.cn/cardfs/series/g6/M10/85/BF/autohomecar__Chxkj2DukI-AKWplAAASndx3lLE835.png",
+      "source": "위키백과 정보 상자(위키미디어)",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Renault_2021.svg/1280px-Renault_2021.svg.png",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Renault_2021.svg",
+      "logoYear": 2021,
+      "logoYearNote": "공용 파일 설명 \"Renault logo since 2021\"(로장주), 원본 954×1255",
+      "official": false,
+      "license": "Public domain",
+      "refreshed": "QF-096 보완 2",
       "originalSize": [
-        100,
-        100
+        1280,
+        1684
       ],
       "trimmedSize": [
-        66,
-        86
+        1280,
+        1684
       ],
       "finalSize": [
-        66,
-        86
+        85,
+        112
       ],
-      "ratio": 0.767,
-      "replaceWithOfficial": true
+      "ratio": 0.76,
+      "replaceWithOfficial": false
     },
     "KG모빌리티(쌍용)": {
       "group": "국산",
       "slug": "kgm",
       "file": "kgm.png",
-      "source": "당근",
-      "url": "https://assetstorage.krrt.io/1584808088326110608/5b72bca9-ca86-48b8-80b1-c3950ca3581d/width_360_height_240.webp",
+      "source": "위키백과 정보 상자(위키미디어)",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/KG_Mobility_brand_logo.svg/1280px-KG_Mobility_brand_logo.svg.png",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:KG_Mobility_brand_logo.svg",
+      "logoYear": 2023,
+      "logoYearNote": "2023년 3월 KG모빌리티 사명 변경·새 브랜딩(en.wikipedia KG Mobility), 파일 날짜 2024-01-01",
+      "official": false,
+      "license": "Public domain",
+      "refreshed": "QF-096 보완 2",
       "originalSize": [
-        360,
-        240
+        1280,
+        288
       ],
       "trimmedSize": [
-        254,
-        202
+        1280,
+        247
       ],
       "finalSize": [
-        141,
-        112
+        192,
+        37
       ],
-      "ratio": 1.257,
-      "replaceWithOfficial": true
+      "ratio": 5.182,
+      "replaceWithOfficial": false
     },
     "어울림모터스": {
       "group": "국산",
@@ -142,7 +158,8 @@
         112,
         112
       ],
-      "ratio": 1
+      "ratio": 1,
+      "replaceWithOfficial": false
     },
     "BMW": {
       "group": "수입",
@@ -162,7 +179,8 @@
         112,
         112
       ],
-      "ratio": 1
+      "ratio": 1,
+      "replaceWithOfficial": false
     },
     "BYD": {
       "group": "수입",
@@ -182,7 +200,8 @@
         192,
         37
       ],
-      "ratio": 5.128
+      "ratio": 5.128,
+      "replaceWithOfficial": false
     },
     "DS": {
       "group": "수입",
@@ -202,7 +221,8 @@
         91,
         112
       ],
-      "ratio": 0.817
+      "ratio": 0.817,
+      "replaceWithOfficial": false
     },
     "GMC": {
       "group": "수입",
@@ -222,7 +242,8 @@
         192,
         42
       ],
-      "ratio": 4.556
+      "ratio": 4.556,
+      "replaceWithOfficial": false
     },
     "닛산": {
       "group": "수입",
@@ -242,7 +263,8 @@
         134,
         112
       ],
-      "ratio": 1.194
+      "ratio": 1.194,
+      "replaceWithOfficial": false
     },
     "다이하쓰": {
       "group": "수입",
@@ -262,7 +284,8 @@
         192,
         73
       ],
-      "ratio": 2.625
+      "ratio": 2.625,
+      "replaceWithOfficial": false
     },
     "닷지": {
       "group": "수입",
@@ -282,7 +305,8 @@
         192,
         27
       ],
-      "ratio": 7
+      "ratio": 7,
+      "replaceWithOfficial": false
     },
     "동펑": {
       "group": "수입",
@@ -302,27 +326,35 @@
         113,
         112
       ],
-      "ratio": 1.005
+      "ratio": 1.005,
+      "replaceWithOfficial": false
     },
     "란치아": {
       "group": "수입",
       "slug": "lancia",
       "file": "lancia.png",
-      "source": "당근",
-      "url": "https://assetstorage.krrt.io/1584808088326110608/cb22606c-4b0a-4548-9b0b-656997c641bd/width_360_height_240.webp",
+      "source": "위키백과 정보 상자(위키미디어)",
+      "url": "https://upload.wikimedia.org/wikipedia/en/7/78/Lancia_logo_2022.png",
+      "sourcePage": "https://en.wikipedia.org/wiki/File:Lancia_logo_2022.png",
+      "logoYear": 2022,
+      "logoYearNote": "위키백과 정보 상자 Lancia_logo_2022.png, 파일 날짜 2022-12-05",
+      "official": false,
+      "license": "Fair use(영문 위키백과 로컬 파일)",
+      "refreshed": "QF-096 보완 2",
       "originalSize": [
-        360,
-        240
+        313,
+        318
       ],
       "trimmedSize": [
-        211,
-        213
+        313,
+        318
       ],
       "finalSize": [
-        111,
+        110,
         112
       ],
-      "ratio": 0.991
+      "ratio": 0.984,
+      "replaceWithOfficial": false
     },
     "람보르기니": {
       "group": "수입",
@@ -342,7 +374,8 @@
         99,
         112
       ],
-      "ratio": 0.888
+      "ratio": 0.888,
+      "replaceWithOfficial": false
     },
     "랜드로버": {
       "group": "수입",
@@ -362,7 +395,8 @@
         192,
         102
       ],
-      "ratio": 1.886
+      "ratio": 1.886,
+      "replaceWithOfficial": false
     },
     "렉서스": {
       "group": "수입",
@@ -382,7 +416,8 @@
         158,
         112
       ],
-      "ratio": 1.412
+      "ratio": 1.412,
+      "replaceWithOfficial": false
     },
     "로버": {
       "group": "수입",
@@ -402,7 +437,8 @@
         88,
         112
       ],
-      "ratio": 0.788
+      "ratio": 0.788,
+      "replaceWithOfficial": false
     },
     "로터스": {
       "group": "수입",
@@ -422,7 +458,8 @@
         112,
         112
       ],
-      "ratio": 1
+      "ratio": 1,
+      "replaceWithOfficial": false
     },
     "롤스로이스": {
       "group": "수입",
@@ -442,28 +479,35 @@
         65,
         112
       ],
-      "ratio": 0.582
+      "ratio": 0.582,
+      "replaceWithOfficial": false
     },
     "르노": {
       "group": "수입",
       "slug": "renault",
       "file": "renault.png",
-      "source": "오토홈",
-      "url": "https://car3.autoimg.cn/cardfs/series/g6/M10/85/BF/autohomecar__Chxkj2DukI-AKWplAAASndx3lLE835.png",
+      "source": "위키백과 정보 상자(위키미디어)",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Renault_2021.svg/1280px-Renault_2021.svg.png",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Renault_2021.svg",
+      "logoYear": 2021,
+      "logoYearNote": "공용 파일 설명 \"Renault logo since 2021\"(로장주), 원본 954×1255",
+      "official": false,
+      "license": "Public domain",
+      "refreshed": "QF-096 보완 2",
       "originalSize": [
-        100,
-        100
+        1280,
+        1684
       ],
       "trimmedSize": [
-        66,
-        86
+        1280,
+        1684
       ],
       "finalSize": [
-        66,
-        86
+        85,
+        112
       ],
-      "ratio": 0.767,
-      "replaceWithOfficial": true
+      "ratio": 0.76,
+      "replaceWithOfficial": false
     },
     "링컨": {
       "group": "수입",
@@ -483,7 +527,8 @@
         53,
         112
       ],
-      "ratio": 0.477
+      "ratio": 0.477,
+      "replaceWithOfficial": false
     },
     "마세라티": {
       "group": "수입",
@@ -503,7 +548,8 @@
         79,
         112
       ],
-      "ratio": 0.707
+      "ratio": 0.707,
+      "replaceWithOfficial": false
     },
     "마이바흐": {
       "group": "수입",
@@ -523,7 +569,8 @@
         150,
         112
       ],
-      "ratio": 1.335
+      "ratio": 1.335,
+      "replaceWithOfficial": false
     },
     "마쯔다": {
       "group": "수입",
@@ -543,7 +590,8 @@
         137,
         112
       ],
-      "ratio": 1.223
+      "ratio": 1.223,
+      "replaceWithOfficial": false
     },
     "맥라렌": {
       "group": "수입",
@@ -563,7 +611,8 @@
         190,
         112
       ],
-      "ratio": 1.697
+      "ratio": 1.697,
+      "replaceWithOfficial": false
     },
     "머큐리": {
       "group": "수입",
@@ -583,7 +632,8 @@
         112,
         112
       ],
-      "ratio": 1
+      "ratio": 1,
+      "replaceWithOfficial": false
     },
     "미니": {
       "group": "수입",
@@ -603,7 +653,8 @@
         192,
         83
       ],
-      "ratio": 2.314
+      "ratio": 2.314,
+      "replaceWithOfficial": false
     },
     "미쓰비시": {
       "group": "수입",
@@ -623,7 +674,8 @@
         129,
         112
       ],
-      "ratio": 1.156
+      "ratio": 1.156,
+      "replaceWithOfficial": false
     },
     "미쯔오카": {
       "group": "수입",
@@ -643,7 +695,8 @@
         104,
         112
       ],
-      "ratio": 0.927
+      "ratio": 0.927,
+      "replaceWithOfficial": false
     },
     "벤츠": {
       "group": "수입",
@@ -663,7 +716,8 @@
         114,
         112
       ],
-      "ratio": 1.021
+      "ratio": 1.021,
+      "replaceWithOfficial": false
     },
     "벤틀리": {
       "group": "수입",
@@ -671,6 +725,7 @@
       "file": "bentley.png",
       "source": "당근",
       "url": "https://assetstorage.krrt.io/1584808088326110608/569e9cf9-cbe3-44ef-bfe6-7ef21851b064/width_360_height_240.webp",
+      "keptReason": "2025 새 날개 B 로고 파일을 공식 자료·위키백과에서 찾지 못함 — 위키백과 정보 상자는 2021 파일(Bentley logo 2.svg)이라 연도 확인 불가, 그대로 둠",
       "originalSize": [
         360,
         240
@@ -683,7 +738,8 @@
         192,
         63
       ],
-      "ratio": 3.063
+      "ratio": 3.063,
+      "replaceWithOfficial": false
     },
     "볼보": {
       "group": "수입",
@@ -703,7 +759,8 @@
         112,
         112
       ],
-      "ratio": 1
+      "ratio": 1,
+      "replaceWithOfficial": false
     },
     "부가티": {
       "group": "수입",
@@ -723,7 +780,8 @@
         192,
         94
       ],
-      "ratio": 2.037
+      "ratio": 2.037,
+      "replaceWithOfficial": false
     },
     "북기은상": {
       "group": "수입",
@@ -743,7 +801,8 @@
         180,
         112
       ],
-      "ratio": 1.61
+      "ratio": 1.61,
+      "replaceWithOfficial": false
     },
     "뷰익": {
       "group": "수입",
@@ -763,7 +822,8 @@
         112,
         112
       ],
-      "ratio": 1
+      "ratio": 1,
+      "replaceWithOfficial": false
     },
     "사브": {
       "group": "수입",
@@ -783,7 +843,8 @@
         112,
         112
       ],
-      "ratio": 1
+      "ratio": 1,
+      "replaceWithOfficial": false
     },
     "새턴": {
       "group": "수입",
@@ -803,7 +864,8 @@
         112,
         112
       ],
-      "ratio": 1
+      "ratio": 1,
+      "replaceWithOfficial": false
     },
     "선롱": {
       "group": "수입",
@@ -823,7 +885,8 @@
         111,
         112
       ],
-      "ratio": 0.99
+      "ratio": 0.99,
+      "replaceWithOfficial": false
     },
     "쉐보레": {
       "group": "수입",
@@ -843,7 +906,8 @@
         192,
         56
       ],
-      "ratio": 3.457
+      "ratio": 3.457,
+      "replaceWithOfficial": false
     },
     "스마트": {
       "group": "수입",
@@ -863,7 +927,8 @@
         119,
         112
       ],
-      "ratio": 1.065
+      "ratio": 1.065,
+      "replaceWithOfficial": false
     },
     "스바루": {
       "group": "수입",
@@ -883,7 +948,8 @@
         192,
         104
       ],
-      "ratio": 1.838
+      "ratio": 1.838,
+      "replaceWithOfficial": false
     },
     "스즈키": {
       "group": "수입",
@@ -903,7 +969,8 @@
         112,
         112
       ],
-      "ratio": 1
+      "ratio": 1,
+      "replaceWithOfficial": false
     },
     "스카니아": {
       "group": "수입",
@@ -923,27 +990,35 @@
         117,
         112
       ],
-      "ratio": 1.048
+      "ratio": 1.048,
+      "replaceWithOfficial": false
     },
     "시트로엥": {
       "group": "수입",
       "slug": "citroen",
       "file": "citroen.png",
-      "source": "당근",
-      "url": "https://assetstorage.krrt.io/1584808088326110608/a5a53a87-e1cc-445d-81ee-8b14f065e7b1/width_360_height_240.webp",
+      "source": "위키백과 정보 상자(위키미디어)",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Citroen_2022.svg/1280px-Citroen_2022.svg.png",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Citroen_2022.svg",
+      "logoYear": 2022,
+      "logoYearNote": "위키백과 정보 상자 \"Logo since 2022\", 파일 날짜 2022-09-27",
+      "official": false,
+      "license": "Public domain",
+      "refreshed": "QF-096 보완 2",
       "originalSize": [
-        360,
-        240
+        1280,
+        1249
       ],
       "trimmedSize": [
-        167,
-        147
+        1280,
+        1248
       ],
       "finalSize": [
-        127,
+        115,
         112
       ],
-      "ratio": 1.136
+      "ratio": 1.026,
+      "replaceWithOfficial": false
     },
     "아우디": {
       "group": "수입",
@@ -963,7 +1038,8 @@
         192,
         67
       ],
-      "ratio": 2.847
+      "ratio": 2.847,
+      "replaceWithOfficial": false
     },
     "알파로메오": {
       "group": "수입",
@@ -983,7 +1059,8 @@
         112,
         112
       ],
-      "ratio": 1
+      "ratio": 1,
+      "replaceWithOfficial": false
     },
     "애스턴마틴": {
       "group": "수입",
@@ -1003,7 +1080,8 @@
         192,
         43
       ],
-      "ratio": 4.471
+      "ratio": 4.471,
+      "replaceWithOfficial": false
     },
     "오펠": {
       "group": "수입",
@@ -1023,7 +1101,8 @@
         140,
         112
       ],
-      "ratio": 1.25
+      "ratio": 1.25,
+      "replaceWithOfficial": false
     },
     "올즈모빌": {
       "group": "수입",
@@ -1043,7 +1122,8 @@
         192,
         93
       ],
-      "ratio": 2.063
+      "ratio": 2.063,
+      "replaceWithOfficial": false
     },
     "이베코": {
       "group": "수입",
@@ -1063,7 +1143,8 @@
         192,
         42
       ],
-      "ratio": 4.571
+      "ratio": 4.571,
+      "replaceWithOfficial": false
     },
     "이스즈": {
       "group": "수입",
@@ -1083,7 +1164,8 @@
         192,
         34
       ],
-      "ratio": 5.714
+      "ratio": 5.714,
+      "replaceWithOfficial": false
     },
     "인피니티": {
       "group": "수입",
@@ -1103,27 +1185,35 @@
         192,
         100
       ],
-      "ratio": 1.921
+      "ratio": 1.921,
+      "replaceWithOfficial": false
     },
     "재규어": {
       "group": "수입",
       "slug": "jaguar",
       "file": "jaguar.png",
-      "source": "당근",
-      "url": "https://assetstorage.krrt.io/1584808088326110608/fade6361-8103-4640-95fe-88f81e7b7fe7/width_360_height_240.webp",
+      "source": "위키백과 정보 상자(위키미디어)",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Jaguar_2024.svg/1280px-Jaguar_2024.svg.png",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Jaguar_2024.svg",
+      "logoYear": 2024,
+      "logoYearNote": "2024-11-19 새 로고·브랜딩 공개(en.wikipedia Jaguar Cars)",
+      "official": false,
+      "license": "Public domain",
+      "refreshed": "QF-096 보완 2",
       "originalSize": [
-        360,
-        240
+        1280,
+        159
       ],
       "trimmedSize": [
-        289,
-        119
+        1277,
+        158
       ],
       "finalSize": [
         192,
-        79
+        24
       ],
-      "ratio": 2.429
+      "ratio": 8.082,
+      "replaceWithOfficial": false
     },
     "지프": {
       "group": "수입",
@@ -1143,7 +1233,8 @@
         192,
         73
       ],
-      "ratio": 2.615
+      "ratio": 2.615,
+      "replaceWithOfficial": false
     },
     "캐딜락": {
       "group": "수입",
@@ -1163,7 +1254,8 @@
         192,
         73
       ],
-      "ratio": 2.635
+      "ratio": 2.635,
+      "replaceWithOfficial": false
     },
     "코닉세크": {
       "group": "수입",
@@ -1183,7 +1275,8 @@
         81,
         112
       ],
-      "ratio": 0.72
+      "ratio": 0.72,
+      "replaceWithOfficial": false
     },
     "크라이슬러": {
       "group": "수입",
@@ -1203,7 +1296,8 @@
         192,
         17
       ],
-      "ratio": 11.431
+      "ratio": 11.431,
+      "replaceWithOfficial": false
     },
     "테슬라": {
       "group": "수입",
@@ -1223,7 +1317,8 @@
         113,
         112
       ],
-      "ratio": 1.006
+      "ratio": 1.006,
+      "replaceWithOfficial": false
     },
     "토요타": {
       "group": "수입",
@@ -1243,7 +1338,8 @@
         171,
         112
       ],
-      "ratio": 1.53
+      "ratio": 1.53,
+      "replaceWithOfficial": false
     },
     "파가니": {
       "group": "수입",
@@ -1263,7 +1359,8 @@
         192,
         22
       ],
-      "ratio": 8.632
+      "ratio": 8.632,
+      "replaceWithOfficial": false
     },
     "페라리": {
       "group": "수입",
@@ -1283,7 +1380,8 @@
         83,
         112
       ],
-      "ratio": 0.743
+      "ratio": 0.743,
+      "replaceWithOfficial": false
     },
     "포드": {
       "group": "수입",
@@ -1303,7 +1401,8 @@
         192,
         72
       ],
-      "ratio": 2.649
+      "ratio": 2.649,
+      "replaceWithOfficial": false
     },
     "포르쉐": {
       "group": "수입",
@@ -1323,7 +1422,8 @@
         88,
         112
       ],
-      "ratio": 0.781
+      "ratio": 0.781,
+      "replaceWithOfficial": false
     },
     "포톤": {
       "group": "수입",
@@ -1343,7 +1443,8 @@
         111,
         112
       ],
-      "ratio": 0.99
+      "ratio": 0.99,
+      "replaceWithOfficial": false
     },
     "폭스바겐": {
       "group": "수입",
@@ -1363,7 +1464,8 @@
         112,
         112
       ],
-      "ratio": 1
+      "ratio": 1,
+      "replaceWithOfficial": false
     },
     "폰티악": {
       "group": "수입",
@@ -1383,7 +1485,8 @@
         60,
         112
       ],
-      "ratio": 0.538
+      "ratio": 0.538,
+      "replaceWithOfficial": false
     },
     "폴스타": {
       "group": "수입",
@@ -1403,7 +1506,8 @@
         111,
         112
       ],
-      "ratio": 0.99
+      "ratio": 0.99,
+      "replaceWithOfficial": false
     },
     "푸조": {
       "group": "수입",
@@ -1423,7 +1527,8 @@
         102,
         112
       ],
-      "ratio": 0.911
+      "ratio": 0.911,
+      "replaceWithOfficial": false
     },
     "피아트": {
       "group": "수입",
@@ -1443,7 +1548,8 @@
         182,
         112
       ],
-      "ratio": 1.625
+      "ratio": 1.625,
+      "replaceWithOfficial": false
     },
     "허머": {
       "group": "수입",
@@ -1463,7 +1569,8 @@
         192,
         20
       ],
-      "ratio": 9.556
+      "ratio": 9.556,
+      "replaceWithOfficial": false
     },
     "혼다": {
       "group": "수입",
@@ -1483,27 +1590,35 @@
         138,
         112
       ],
-      "ratio": 1.231
+      "ratio": 1.231,
+      "replaceWithOfficial": false
     },
     "히노": {
       "group": "수입",
       "slug": "hino",
       "file": "hino.png",
-      "source": "당근",
-      "url": "https://assetstorage.krrt.io/1584808088326110608/c733016a-ac4d-40ae-aa3d-bdf3c90ef6cb/width_360_height_240.webp",
+      "source": "위키백과 정보 상자(위키미디어)",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Hino_Motors_logo_2026.svg/1280px-Hino_Motors_logo_2026.svg.png",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Hino_Motors_logo_2026.svg",
+      "logoYear": 2026,
+      "logoYearNote": "공용 파일 설명 \"used since April, 2026\"",
+      "official": false,
+      "license": "Public domain",
+      "refreshed": "QF-096 보완 2",
       "originalSize": [
-        360,
-        240
+        1280,
+        1179
       ],
       "trimmedSize": [
-        268,
-        179
+        1280,
+        1179
       ],
       "finalSize": [
-        168,
+        122,
         112
       ],
-      "ratio": 1.497
+      "ratio": 1.086,
+      "replaceWithOfficial": false
     }
   },
   "noLogo": [

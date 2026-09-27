@@ -74,7 +74,7 @@
 - Trucks, special vehicles, buses, campers, vans, and motorcycles use `bodyFit: "height"` without changing the active slot size.
 - Prefer `public/assets/brand/dongchedi/` brand marks for matched manufacturer rails and picker sheets.
 - Keep explicit fallback assets only for brands missing from the workbook, such as `리막` and `루시드`.
-- Guazi (QF-096): maker rail, PC left filter maker list and maker chip modal/sheet use `public/assets/brand/kr/{slug}.png` (manifest.json, CREDITS.md; regenerate with `node scripts/brand-logos-kr.mjs`). Names follow the left filter labels (`bbCatalog`); aliases live in `bbm-brand-logos.tsx`. Rail logo size by ratio: ≤1.25 height 28 (width ≤44) · 1.25–2.5 width min(44, 28√ratio) · >2.5 width 64; list logo fits 24×24. Rail order = left filter (domestic → 1×44 #E4E7EC divider → popular imports → remaining imports by name), no label, zero-count and 기타 makers hidden. Check: `npm run check:logos`.
+- Guazi (QF-096): maker rail, PC left filter maker list and maker chip modal/sheet use `public/assets/brand/kr/{slug}.png` (manifest.json, CREDITS.md; regenerate with `node scripts/brand-logos-kr.mjs`). Names follow the left filter labels (`bbCatalog`); aliases live in `bbm-brand-logos.tsx`. Logo size by ratio r (trimmed width÷height), balanced height (QF-096 보완 3): rail height = min(28, 24·r^-0.35), width = height·r, capped at width 72 (then height = 72÷r); list box 32×24 with height = min(22, 18·r^-0.35), capped at width 32. Rail order = left filter (domestic → 1×44 #E4E7EC divider → popular imports → remaining imports by name), no label, zero-count and 기타 makers hidden. Check: `npm run check:logos`.
 
 ## Existing Mode Notes
 
