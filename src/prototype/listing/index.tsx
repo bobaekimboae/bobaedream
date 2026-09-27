@@ -70,6 +70,7 @@ import { bbmSidebarItems, type BbmFilterItem } from "../filters/bbm-filter-optio
 import { BbmExpandPanel, BbmModalPanel, clearBbmItem } from "../filters/bbm-filter-panels";
 import { BbmBottomGnb, BbmCategoryMenu, BbmMakerList, BbmMobileOptions, BbmModelList, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
+import { KrBrandLogo, krMakerRailSections } from "./bbm-brand-logos";
 import { BbmChipScroller, BbmTopCrumbs, bbmTopMonth, bbmTopTitlePrefix, type BbmCrumb } from "./bbm-top-chotot";
 import { BBM_PAGE_SIZE, BbmFooter, BbmPagination, BbmPopOptions, BbmToolbarMenu, bbmSortOptions, bbmViewOptionsMobile, bbmViewOptionsPc, sortBbmCars, type BbmSort } from "./bbm-list-area";
 
@@ -1050,7 +1051,22 @@ function MarketplaceScreen() {
                 <span>{selectedGenerationSummary}</span>
               </div>
             </div>
-          </section> : showGuaziMakerRail ? <section className="depth-rail" aria-label={`${categoryBrandRail.title} 빠른 선택`}>
+          </section> : showGuaziMakerRail && isGuaziQuickStyle ? (() => {
+            // QF-096: 과쯔 제조사 줄 = 좌측 필터 목록 순서 + 승용 제조사 로고(brand/kr). 라벨 없이 첫 카드 왼쪽 선 = 첫 칩 왼쪽 선
+            const sections = krMakerRailSections(category === "국산차" ? "domestic" : category === "수입차" ? "imported" : "all");
+            const card = (item: { label: string; key: string }) => (
+              <DepthCard key={item.label} label={item.label} image={<KrBrandLogo name={item.label} kind="rail" />} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />
+            );
+            return (
+              <section className="depth-rail no-label is-kr-maker" aria-label={`${categoryBrandRail.title} 빠른 선택`}>
+                <Carousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName="depth-rail-track">
+                  {sections.domestic.map(card)}
+                  {sections.domestic.length && sections.imported.length ? <span className="kr-maker-divider" aria-hidden="true" /> : null}
+                  {sections.imported.map(card)}
+                </Carousel>
+              </section>
+            );
+          })() : showGuaziMakerRail ? <section className="depth-rail" aria-label={`${categoryBrandRail.title} 빠른 선택`}>
             <span className="depth-rail-label">{categoryBrandRail.title}</span>
             <Carousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName="depth-rail-track">
               {categoryBrandRail.options.map((option) => (
@@ -1169,8 +1185,6 @@ function MarketplaceScreen() {
   };
   // 적용 개수(필터 칩 숫자·사이드바 배지): 제조사·모델·등급 등 기존 값 + 개발 시안형 적용 칩
   const bbmAppliedCount = selectedFilterValueCount + bbmApplied.length;
-  // 제조사·모델 목록(원본 숫자 글자) — 칩 모달·시트용
-  const bbmMakerOption = new Map(categoryBrandRails["전체"].options.filter((option) => option.maker).map((option) => [option.maker as string, option]));
   // 제조사 목록 매물 수: 제조사·모델만 뺀 지금 조건으로 우리 데이터에서 센다(원본처럼 0대는 흐리게)
   const bbmMakerBase = listingCars.filter((car) => matchesChoTotFilters(car, { ...filters, maker: null, model: null }) && (!isGuaziQuickStyle || matchesBbmFilters(car, filters.bbm)));
   const bbmMakerSections = bbCatalog.map((section) => ({ title: section.title, rows: section.rows.map(([label, , key]) => ({ label, key: key ?? label, count: bbmMakerBase.filter((car) => car.maker === (key ?? label)).length })) }));
@@ -1189,7 +1203,8 @@ function MarketplaceScreen() {
     const apply = close;
     const Frame = onDesktop ? BbmModal : BbmSheet;
     if (bbmChipPanel === "제조사") {
-      const list = <BbmMakerList sections={bbmMakerSections} selected={maker} renderLogo={(key) => { const option = bbmMakerOption.get(key); return option ? <BrandRailMark option={option} /> : null; }} onChoose={(key) => { if (maker !== key) applyMakerFilter(key); close(); }} />;
+      // QF-096: 제조사 목록 로고 = 승용 제조사 로고(brand/kr) 24×24, 로고 없는 행은 빈 칸
+      const list = <BbmMakerList sections={bbmMakerSections} selected={maker} renderLogo={(_key, label) => <KrBrandLogo name={label} kind="list" />} onChoose={(key) => { if (maker !== key) applyMakerFilter(key); close(); }} />;
       return onDesktop
         ? <BbmModal title="제조사" wide flush onClose={close}>{list}</BbmModal>
         : <BbmSheet title="제조사" flush onClose={close} footer={<div className="bbmf-actions is-sheet is-single"><button type="button" className="bbmf-reset" onClick={() => { clearMakerFilter(); close(); }}>초기화</button></div>}>{list}</BbmSheet>;
@@ -1301,7 +1316,7 @@ function MarketplaceScreen() {
             {/* QF-093: 과쯔는 상단 패널(전체차량 · N대 · 검색저장 · 칩 줄 · 유형 줄/퀵필터 레일)을 본문 폭 전체로 */}
             {isGuaziQuickStyle ? <div className="bbm-hybrid-top">{bbmTopCard}</div> : null}
             <div className="bbm-page">
-              <BbFilterSidebar selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} />
+              <BbFilterSidebar selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} />
               <div className="bbm-content">
                 {isGuaziQuickStyle ? null : bbmContentHead}
                 <section className="bbm-results" aria-label="매물 목록">
@@ -1345,7 +1360,7 @@ function MarketplaceScreen() {
         {renderBbmChipPanel(true)}
         {drawerFilterChip && bbmDrawerOpen ? (
           <BbmFilterDrawer count={visibleCars.length} onClose={() => setBbmDrawerOpen(false)} onReset={() => setBbmDrawerReset((value) => value + 1)}>
-            <BbFilterSidebar selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmDrawerReset} />
+            <BbFilterSidebar selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmDrawerReset} brandLogos={isGuaziQuickStyle} />
           </BbmFilterDrawer>
         ) : null}
         {marketSheet}
