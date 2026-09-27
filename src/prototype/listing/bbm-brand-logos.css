@@ -1,4 +1,4 @@
-/* QF-096 과쯔 모드 제조사 로고(brand/kr). 퀵필터 카드 로고 칸 48×28(글자 로고는 폭 64 까지 칸 밖으로, 카드 80 안) · 목록 로고 칸 32×24(보완 2). 가로·세로 가운데 */
+/* QF-096 과쯔 모드 제조사 로고(brand/kr). 퀵필터 카드 로고 칸 48×28(넓은 로고는 폭 72 까지 칸 밖으로(보완 3 높이 밸런스), 카드 80 안) · 목록 로고 칸 32×24(보완 2). 가로·세로 가운데 */
 .kr-brand-logo { display: flex; flex: none; align-items: center; justify-content: center; }
 .kr-brand-logo.is-rail { width: 48px; height: 28px; overflow: visible; }
 .kr-brand-logo.is-list { width: 32px; height: 24px; }

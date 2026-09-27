@@ -34,17 +34,20 @@ export function krBrandLogo(name: string) {
   return resolved ? krBrandLogos[resolved] ?? null : null;
 }
 
-// 퀵필터 카드(로고 칸 48×28) 표시 크기 — 비율 1.25 이하: 높이 28(폭 최대 44) · 1.25~2.5: 폭 min(44, 28√비율) · 2.5 초과(글자 로고): 폭 64(카드 80 안)
+// QF-096 보완 3(높이 밸런스, 비율 = 잘라낸 로고 폭÷높이): 넓은 로고일수록 조금씩 낮게 — 높이 = min(최대, 기준 × 비율^-0.35), 폭 = 높이 × 비율, 폭이 한도를 넘으면 폭 한도·높이 = 폭÷비율
+const balancedLogoSize = (ratio: number, base: number, maxHeight: number, maxWidth: number) => {
+  let height = Math.min(maxHeight, base * ratio ** -0.35);
+  let width = height * ratio;
+  if (width > maxWidth) { width = maxWidth; height = maxWidth / ratio; }
+  return { width, height };
+};
+// 퀵필터 제조사 카드(80 칸): 기준 24 · 최대 높이 28 · 최대 폭 72 (예: 벤츠 24×24, 현대 38×19, 기아 62×14, 허머 72×8, 링컨 13×28)
 export function krRailLogoSize(ratio: number) {
-  if (ratio <= 1.25) { const width = Math.min(44, 28 * ratio); return { width, height: width / ratio }; }
-  if (ratio <= 2.5) { const width = Math.min(44, 28 * Math.sqrt(ratio)); return { width, height: width / ratio }; }
-  return { width: 64, height: 64 / ratio };
+  return balancedLogoSize(ratio, 24, 28, 72);
 }
-// 목록(로고 칸 32×24, QF-096 보완 2) 표시 크기 — 비율 1.25 이하(엠블럼) 높이 20 · 1.25 초과 폭 min(32, 20×√비율), 높이 = 폭÷비율
+// 목록(로고 칸 32×24): 기준 18 · 최대 높이 22 · 최대 폭 32
 export function krListLogoSize(ratio: number) {
-  if (ratio <= 1.25) return { width: 20 * ratio, height: 20 };
-  const width = Math.min(32, 20 * Math.sqrt(ratio));
-  return { width, height: width / ratio };
+  return balancedLogoSize(ratio, 18, 22, 32);
 }
 const px = (value: number) => `${Math.round(value * 100) / 100}px`;
 
