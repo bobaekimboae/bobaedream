@@ -186,12 +186,15 @@ function VehiclePickerSheet({
   generation,
   makerOptions,
   onApply,
+  renderMakerLogo,
 }: {
   maker: string | null;
   model: string | null;
   generation: string | null;
   makerOptions: BrandRailOption[];
   onApply: (maker: string | null, model: string | null, generation: string | null) => void;
+  // QF-096: 과쯔 모드만 넘긴다 — 제조사 이름 앞 로고(24×24). 없으면 기존 로고(초톳·동처띠 그대로)
+  renderMakerLogo?: (option: BrandRailOption) => ReactNode;
 }) {
   const [draftMaker, setDraftMaker] = useState<string | null>(maker);
   const [draftModel, setDraftModel] = useState<string | null>(model);
@@ -221,10 +224,10 @@ function VehiclePickerSheet({
     <div className="vehicle-picker-sheet">
       <section className="vehicle-picker-section">
         <h3>제조사</h3>
-        <div className="vehicle-picker-grid is-makers">
+        <div className={`vehicle-picker-grid is-makers${renderMakerLogo ? " has-kr-logo" : ""}`}>
           {visibleMakerOptions.map((option) => (
             <button key={option.name} type="button" className={draftMaker === option.maker ? "is-selected" : ""} aria-pressed={draftMaker === option.maker} onClick={() => chooseMaker(option.maker ?? null)}>
-              <BrandRailMark option={option} />
+              {renderMakerLogo ? renderMakerLogo(option) : <BrandRailMark option={option} />}
               <span>{option.name}</span>
             </button>
           ))}

@@ -1,0 +1,1524 @@
+{
+  "generated": "2026-09-27",
+  "rule": "알파 16 이하 여백 자르기 → 비율 유지로 192×112 안(키우지 않음) → PNG",
+  "brands": {
+    "현대": {
+      "group": "국산",
+      "slug": "hyundai",
+      "file": "hyundai.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/2accf014-d825-4de4-a935-a22a7381cd28/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        240,
+        120
+      ],
+      "finalSize": [
+        192,
+        96
+      ],
+      "ratio": 2
+    },
+    "제네시스": {
+      "group": "국산",
+      "slug": "genesis",
+      "file": "genesis.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/4dadc64a-e9ec-450f-8fbb-21ec861b23be/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        318,
+        64
+      ],
+      "finalSize": [
+        192,
+        39
+      ],
+      "ratio": 4.969
+    },
+    "기아": {
+      "group": "국산",
+      "slug": "kia",
+      "file": "kia.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/806980d2-2ab0-4b44-8c3a-377306f3f595/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        288,
+        68
+      ],
+      "finalSize": [
+        192,
+        45
+      ],
+      "ratio": 4.235
+    },
+    "쉐보레(국산)": {
+      "group": "국산",
+      "slug": "chevrolet",
+      "file": "chevrolet.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/ed8a8bf1-4ef6-4906-a1eb-5e88ce2fec19/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        318,
+        92
+      ],
+      "finalSize": [
+        192,
+        56
+      ],
+      "ratio": 3.457
+    },
+    "르노코리아(삼성)": {
+      "group": "국산",
+      "slug": "renault",
+      "file": "renault.png",
+      "source": "오토홈",
+      "url": "https://car3.autoimg.cn/cardfs/series/g6/M10/85/BF/autohomecar__Chxkj2DukI-AKWplAAASndx3lLE835.png",
+      "originalSize": [
+        100,
+        100
+      ],
+      "trimmedSize": [
+        66,
+        86
+      ],
+      "finalSize": [
+        66,
+        86
+      ],
+      "ratio": 0.767,
+      "replaceWithOfficial": true
+    },
+    "KG모빌리티(쌍용)": {
+      "group": "국산",
+      "slug": "kgm",
+      "file": "kgm.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/5b72bca9-ca86-48b8-80b1-c3950ca3581d/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        254,
+        202
+      ],
+      "finalSize": [
+        141,
+        112
+      ],
+      "ratio": 1.257,
+      "replaceWithOfficial": true
+    },
+    "어울림모터스": {
+      "group": "국산",
+      "slug": "eoullim",
+      "file": "eoullim.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/be965c69-dd8c-4c40-be30-d66c29286dbc/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        194,
+        194
+      ],
+      "finalSize": [
+        112,
+        112
+      ],
+      "ratio": 1
+    },
+    "BMW": {
+      "group": "수입",
+      "slug": "bmw",
+      "file": "bmw.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/1917dcaa-b707-499d-b306-395fe7cd7d5a/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        200,
+        200
+      ],
+      "finalSize": [
+        112,
+        112
+      ],
+      "ratio": 1
+    },
+    "BYD": {
+      "group": "수입",
+      "slug": "byd",
+      "file": "byd.png",
+      "source": "오토홈",
+      "url": "https://car2.autoimg.cn/cardfs/series/g27/M0B/39/7F/autohomecar__CjIFVWTLOcOAIopLAABKh3_XoY8154.png",
+      "originalSize": [
+        600,
+        600
+      ],
+      "trimmedSize": [
+        482,
+        94
+      ],
+      "finalSize": [
+        192,
+        37
+      ],
+      "ratio": 5.128
+    },
+    "DS": {
+      "group": "수입",
+      "slug": "ds",
+      "file": "ds.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/9283cd32-0d20-47e6-85ff-4a01cd0e0ef2/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        156,
+        191
+      ],
+      "finalSize": [
+        91,
+        112
+      ],
+      "ratio": 0.817
+    },
+    "GMC": {
+      "group": "수입",
+      "slug": "gmc",
+      "file": "gmc.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/b3e7c265-ceda-40bc-8e7d-3f302982653d/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        328,
+        72
+      ],
+      "finalSize": [
+        192,
+        42
+      ],
+      "ratio": 4.556
+    },
+    "닛산": {
+      "group": "수입",
+      "slug": "nissan",
+      "file": "nissan.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/72f8297a-ea1c-4893-8e8d-fa9dff4af04f/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        228,
+        191
+      ],
+      "finalSize": [
+        134,
+        112
+      ],
+      "ratio": 1.194
+    },
+    "다이하쓰": {
+      "group": "수입",
+      "slug": "daihatsu",
+      "file": "daihatsu.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/6e723783-281a-457d-80b4-6f38ad94d70b/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        273,
+        104
+      ],
+      "finalSize": [
+        192,
+        73
+      ],
+      "ratio": 2.625
+    },
+    "닷지": {
+      "group": "수입",
+      "slug": "dodge",
+      "file": "dodge.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/7beed1ac-cb04-42c1-9fac-c04cbb7e14c6/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        350,
+        50
+      ],
+      "finalSize": [
+        192,
+        27
+      ],
+      "ratio": 7
+    },
+    "동펑": {
+      "group": "수입",
+      "slug": "dfsk",
+      "file": "dfsk.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/03319bb3-f983-4c43-91d4-1e298175d36d/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        196,
+        195
+      ],
+      "finalSize": [
+        113,
+        112
+      ],
+      "ratio": 1.005
+    },
+    "란치아": {
+      "group": "수입",
+      "slug": "lancia",
+      "file": "lancia.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/cb22606c-4b0a-4548-9b0b-656997c641bd/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        211,
+        213
+      ],
+      "finalSize": [
+        111,
+        112
+      ],
+      "ratio": 0.991
+    },
+    "람보르기니": {
+      "group": "수입",
+      "slug": "lamborghini",
+      "file": "lamborghini.png",
+      "source": "오토홈",
+      "url": "https://car3.autoimg.cn/cardfs/series/g32/M01/53/D2/autohomecar__ChxkPWb094SAHi7wAAFPgIT9lfo199.png",
+      "originalSize": [
+        600,
+        600
+      ],
+      "trimmedSize": [
+        389,
+        438
+      ],
+      "finalSize": [
+        99,
+        112
+      ],
+      "ratio": 0.888
+    },
+    "랜드로버": {
+      "group": "수입",
+      "slug": "land-rover",
+      "file": "land-rover.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/94536325-2f9b-4705-816c-95338706bcee/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        264,
+        140
+      ],
+      "finalSize": [
+        192,
+        102
+      ],
+      "ratio": 1.886
+    },
+    "렉서스": {
+      "group": "수입",
+      "slug": "lexus",
+      "file": "lexus.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/0aa05d33-d5c2-40cc-9786-6198af137da3/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        240,
+        170
+      ],
+      "finalSize": [
+        158,
+        112
+      ],
+      "ratio": 1.412
+    },
+    "로버": {
+      "group": "수입",
+      "slug": "mg-rover",
+      "file": "mg-rover.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/3e58cdc6-2e1c-4695-962a-cb057b17b885/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        160,
+        203
+      ],
+      "finalSize": [
+        88,
+        112
+      ],
+      "ratio": 0.788
+    },
+    "로터스": {
+      "group": "수입",
+      "slug": "lotus",
+      "file": "lotus.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/82515018-869b-459b-9880-b616fdd058d3/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        200,
+        200
+      ],
+      "finalSize": [
+        112,
+        112
+      ],
+      "ratio": 1
+    },
+    "롤스로이스": {
+      "group": "수입",
+      "slug": "rolls-royce",
+      "file": "rolls-royce.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/ebaa0451-59ec-4d0a-9dbd-01bbc57a6625/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        113,
+        194
+      ],
+      "finalSize": [
+        65,
+        112
+      ],
+      "ratio": 0.582
+    },
+    "르노": {
+      "group": "수입",
+      "slug": "renault",
+      "file": "renault.png",
+      "source": "오토홈",
+      "url": "https://car3.autoimg.cn/cardfs/series/g6/M10/85/BF/autohomecar__Chxkj2DukI-AKWplAAASndx3lLE835.png",
+      "originalSize": [
+        100,
+        100
+      ],
+      "trimmedSize": [
+        66,
+        86
+      ],
+      "finalSize": [
+        66,
+        86
+      ],
+      "ratio": 0.767,
+      "replaceWithOfficial": true
+    },
+    "링컨": {
+      "group": "수입",
+      "slug": "lincoln",
+      "file": "lincoln.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/21005e27-6a54-4e2f-a939-18c67f7765bd/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        114,
+        239
+      ],
+      "finalSize": [
+        53,
+        112
+      ],
+      "ratio": 0.477
+    },
+    "마세라티": {
+      "group": "수입",
+      "slug": "maserati",
+      "file": "maserati.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/8ac10cb1-1ce9-4656-ac45-89af24d5f105/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        152,
+        215
+      ],
+      "finalSize": [
+        79,
+        112
+      ],
+      "ratio": 0.707
+    },
+    "마이바흐": {
+      "group": "수입",
+      "slug": "maybach",
+      "file": "maybach.png",
+      "source": "오토홈",
+      "url": "https://car3.autoimg.cn/cardfs/series/g26/M04/10/B6/autohomecar__ChtlxWUNeQ6AHwRZAAGD7tbdbac971.png",
+      "originalSize": [
+        600,
+        600
+      ],
+      "trimmedSize": [
+        458,
+        343
+      ],
+      "finalSize": [
+        150,
+        112
+      ],
+      "ratio": 1.335
+    },
+    "마쯔다": {
+      "group": "수입",
+      "slug": "mazda",
+      "file": "mazda.png",
+      "source": "오토홈",
+      "url": "https://car3.autoimg.cn/cardfs/series/g33/M05/9A/21/autohomecar__ChxpVWnxyuWAfnTzAAB2Yh5JnZU141.png",
+      "originalSize": [
+        600,
+        600
+      ],
+      "trimmedSize": [
+        493,
+        403
+      ],
+      "finalSize": [
+        137,
+        112
+      ],
+      "ratio": 1.223
+    },
+    "맥라렌": {
+      "group": "수입",
+      "slug": "mclaren",
+      "file": "mclaren.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/82f2f738-d518-406a-9e85-c00fe5a177e9/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        207,
+        122
+      ],
+      "finalSize": [
+        190,
+        112
+      ],
+      "ratio": 1.697
+    },
+    "머큐리": {
+      "group": "수입",
+      "slug": "mercury",
+      "file": "mercury.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/f5e0a5cc-5ceb-4faa-a661-36cf493b8010/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        200,
+        200
+      ],
+      "finalSize": [
+        112,
+        112
+      ],
+      "ratio": 1
+    },
+    "미니": {
+      "group": "수입",
+      "slug": "mini",
+      "file": "mini.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/4eb04474-5fd7-410b-84f4-c3debce37dcf/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        324,
+        140
+      ],
+      "finalSize": [
+        192,
+        83
+      ],
+      "ratio": 2.314
+    },
+    "미쓰비시": {
+      "group": "수입",
+      "slug": "mitsubishi",
+      "file": "mitsubishi.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/491477e4-156d-4318-a152-3189f260c270/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        200,
+        173
+      ],
+      "finalSize": [
+        129,
+        112
+      ],
+      "ratio": 1.156
+    },
+    "미쯔오카": {
+      "group": "수입",
+      "slug": "mitsuoka",
+      "file": "mitsuoka.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/280fe70a-1c89-47ad-8836-09c91d60b2ff/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        216,
+        233
+      ],
+      "finalSize": [
+        104,
+        112
+      ],
+      "ratio": 0.927
+    },
+    "벤츠": {
+      "group": "수입",
+      "slug": "mercedes-benz",
+      "file": "mercedes-benz.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/d4aab2c7-ead1-4ec5-9de7-27e009af084d/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        196,
+        192
+      ],
+      "finalSize": [
+        114,
+        112
+      ],
+      "ratio": 1.021
+    },
+    "벤틀리": {
+      "group": "수입",
+      "slug": "bentley",
+      "file": "bentley.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/569e9cf9-cbe3-44ef-bfe6-7ef21851b064/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        294,
+        96
+      ],
+      "finalSize": [
+        192,
+        63
+      ],
+      "ratio": 3.063
+    },
+    "볼보": {
+      "group": "수입",
+      "slug": "volvo",
+      "file": "volvo.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/62cd7418-809d-4906-b62f-dcc938dab6e6/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        200,
+        200
+      ],
+      "finalSize": [
+        112,
+        112
+      ],
+      "ratio": 1
+    },
+    "부가티": {
+      "group": "수입",
+      "slug": "bugatti",
+      "file": "bugatti.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/4cccf143-496f-49d7-8120-60c53fccdb32/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        334,
+        164
+      ],
+      "finalSize": [
+        192,
+        94
+      ],
+      "ratio": 2.037
+    },
+    "북기은상": {
+      "group": "수입",
+      "slug": "baic-yinxiang",
+      "file": "baic-yinxiang.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/92cab266-2ca1-4541-9889-5fed1d92721e/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        264,
+        164
+      ],
+      "finalSize": [
+        180,
+        112
+      ],
+      "ratio": 1.61
+    },
+    "뷰익": {
+      "group": "수입",
+      "slug": "buick",
+      "file": "buick.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/ad919c46-6b7b-4539-8f57-14b4196d9cae/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        200,
+        200
+      ],
+      "finalSize": [
+        112,
+        112
+      ],
+      "ratio": 1
+    },
+    "사브": {
+      "group": "수입",
+      "slug": "saab",
+      "file": "saab.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/2c77bfc2-aac9-4770-9d7d-16757c07fbd5/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        197,
+        197
+      ],
+      "finalSize": [
+        112,
+        112
+      ],
+      "ratio": 1
+    },
+    "새턴": {
+      "group": "수입",
+      "slug": "saturn",
+      "file": "saturn.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/1dd867b5-54c4-42f0-a9a8-086b96a3b2bf/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        200,
+        200
+      ],
+      "finalSize": [
+        112,
+        112
+      ],
+      "ratio": 1
+    },
+    "선롱": {
+      "group": "수입",
+      "slug": "sunlong",
+      "file": "sunlong.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/0b111746-4198-4c2d-8e75-b44384f116f4/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        205,
+        207
+      ],
+      "finalSize": [
+        111,
+        112
+      ],
+      "ratio": 0.99
+    },
+    "쉐보레": {
+      "group": "수입",
+      "slug": "chevrolet",
+      "file": "chevrolet.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/ed8a8bf1-4ef6-4906-a1eb-5e88ce2fec19/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        318,
+        92
+      ],
+      "finalSize": [
+        192,
+        56
+      ],
+      "ratio": 3.457
+    },
+    "스마트": {
+      "group": "수입",
+      "slug": "smart",
+      "file": "smart.png",
+      "source": "오토홈",
+      "url": "https://car2.autoimg.cn/cardfs/series/g24/M09/4D/31/autohomecar__Chtk3WTLPFiADme1AABSunYlMPQ531.png",
+      "originalSize": [
+        600,
+        600
+      ],
+      "trimmedSize": [
+        394,
+        370
+      ],
+      "finalSize": [
+        119,
+        112
+      ],
+      "ratio": 1.065
+    },
+    "스바루": {
+      "group": "수입",
+      "slug": "subaru",
+      "file": "subaru.png",
+      "source": "오토홈",
+      "url": "https://car2.autoimg.cn/cardfs/series/g27/M0B/5F/69/autohomecar__ChxkmWS-PU-AMzmzAAJv9eajRO0786.png",
+      "originalSize": [
+        600,
+        600
+      ],
+      "trimmedSize": [
+        476,
+        259
+      ],
+      "finalSize": [
+        192,
+        104
+      ],
+      "ratio": 1.838
+    },
+    "스즈키": {
+      "group": "수입",
+      "slug": "suzuki",
+      "file": "suzuki.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/3ab59003-b42e-432f-ada1-f0de0ed70e35/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        200,
+        200
+      ],
+      "finalSize": [
+        112,
+        112
+      ],
+      "ratio": 1
+    },
+    "스카니아": {
+      "group": "수입",
+      "slug": "scania",
+      "file": "scania.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/a4fcdf5f-a5b1-4d15-add4-c678a68d7923/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        195,
+        186
+      ],
+      "finalSize": [
+        117,
+        112
+      ],
+      "ratio": 1.048
+    },
+    "시트로엥": {
+      "group": "수입",
+      "slug": "citroen",
+      "file": "citroen.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/a5a53a87-e1cc-445d-81ee-8b14f065e7b1/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        167,
+        147
+      ],
+      "finalSize": [
+        127,
+        112
+      ],
+      "ratio": 1.136
+    },
+    "아우디": {
+      "group": "수입",
+      "slug": "audi",
+      "file": "audi.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/d820b6b4-cebe-4852-ba89-350182f95c88/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        316,
+        111
+      ],
+      "finalSize": [
+        192,
+        67
+      ],
+      "ratio": 2.847
+    },
+    "알파로메오": {
+      "group": "수입",
+      "slug": "alfa-romeo",
+      "file": "alfa-romeo.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/d1e2bb61-333d-4c0f-9878-cea2e97b8290/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        204,
+        204
+      ],
+      "finalSize": [
+        112,
+        112
+      ],
+      "ratio": 1
+    },
+    "애스턴마틴": {
+      "group": "수입",
+      "slug": "aston-martin",
+      "file": "aston-martin.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/45d7f0bf-ff0a-4923-ac2e-35d640fbd0af/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        304,
+        68
+      ],
+      "finalSize": [
+        192,
+        43
+      ],
+      "ratio": 4.471
+    },
+    "오펠": {
+      "group": "수입",
+      "slug": "opel",
+      "file": "opel.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/c3d20b38-898a-4ebe-ab42-7f23f1d4dcdd/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        240,
+        192
+      ],
+      "finalSize": [
+        140,
+        112
+      ],
+      "ratio": 1.25
+    },
+    "올즈모빌": {
+      "group": "수입",
+      "slug": "oldsmobile",
+      "file": "oldsmobile.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/74348671-fb55-4100-9487-44a37cf708f4/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        297,
+        144
+      ],
+      "finalSize": [
+        192,
+        93
+      ],
+      "ratio": 2.063
+    },
+    "이베코": {
+      "group": "수입",
+      "slug": "iveco",
+      "file": "iveco.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/69bd0dde-caec-466a-b578-759415c12369/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        256,
+        56
+      ],
+      "finalSize": [
+        192,
+        42
+      ],
+      "ratio": 4.571
+    },
+    "이스즈": {
+      "group": "수입",
+      "slug": "isuzu",
+      "file": "isuzu.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/673407c7-7f7e-40fd-a978-94bee1496528/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        320,
+        56
+      ],
+      "finalSize": [
+        192,
+        34
+      ],
+      "ratio": 5.714
+    },
+    "인피니티": {
+      "group": "수입",
+      "slug": "infiniti",
+      "file": "infiniti.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/ad881355-aebd-49c2-ab7a-ace016e269ef/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        292,
+        152
+      ],
+      "finalSize": [
+        192,
+        100
+      ],
+      "ratio": 1.921
+    },
+    "재규어": {
+      "group": "수입",
+      "slug": "jaguar",
+      "file": "jaguar.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/fade6361-8103-4640-95fe-88f81e7b7fe7/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        289,
+        119
+      ],
+      "finalSize": [
+        192,
+        79
+      ],
+      "ratio": 2.429
+    },
+    "지프": {
+      "group": "수입",
+      "slug": "jeep",
+      "file": "jeep.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/45e8090d-f769-4c1b-8eed-fe767db9e4d7/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        272,
+        104
+      ],
+      "finalSize": [
+        192,
+        73
+      ],
+      "ratio": 2.615
+    },
+    "캐딜락": {
+      "group": "수입",
+      "slug": "cadillac",
+      "file": "cadillac.png",
+      "source": "오토홈",
+      "url": "https://car3.autoimg.cn/cardfs/series/g24/M06/68/22/autohomecar__Chxky2TIooeAbfRIAABmwXa1Tbc408.png",
+      "originalSize": [
+        600,
+        600
+      ],
+      "trimmedSize": [
+        498,
+        189
+      ],
+      "finalSize": [
+        192,
+        73
+      ],
+      "ratio": 2.635
+    },
+    "코닉세크": {
+      "group": "수입",
+      "slug": "koenigsegg",
+      "file": "koenigsegg.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/31014aac-f57f-4248-86c0-018d22c2375d/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        144,
+        200
+      ],
+      "finalSize": [
+        81,
+        112
+      ],
+      "ratio": 0.72
+    },
+    "크라이슬러": {
+      "group": "수입",
+      "slug": "chrysler",
+      "file": "chrysler.png",
+      "source": "오토홈",
+      "url": "https://car3.autoimg.cn/cardfs/series/g24/M02/A2/50/autohomecar__CjIFWGTCBsGAANQrAAC2du8Zeoo213.png",
+      "originalSize": [
+        600,
+        600
+      ],
+      "trimmedSize": [
+        583,
+        51
+      ],
+      "finalSize": [
+        192,
+        17
+      ],
+      "ratio": 11.431
+    },
+    "테슬라": {
+      "group": "수입",
+      "slug": "tesla",
+      "file": "tesla.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/e03a285d-075f-4599-ad40-8e2864ffd902/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        176,
+        175
+      ],
+      "finalSize": [
+        113,
+        112
+      ],
+      "ratio": 1.006
+    },
+    "토요타": {
+      "group": "수입",
+      "slug": "toyota",
+      "file": "toyota.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/e4820209-7256-4eac-bddf-9f7a356d8adb/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        251,
+        164
+      ],
+      "finalSize": [
+        171,
+        112
+      ],
+      "ratio": 1.53
+    },
+    "파가니": {
+      "group": "수입",
+      "slug": "pagani",
+      "file": "pagani.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/a9284f8b-e56f-4a4e-bed6-acb72e02cd54/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        328,
+        38
+      ],
+      "finalSize": [
+        192,
+        22
+      ],
+      "ratio": 8.632
+    },
+    "페라리": {
+      "group": "수입",
+      "slug": "ferrari",
+      "file": "ferrari.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/7d8416d9-20b7-4e26-9156-34c7119e0ad1/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        156,
+        210
+      ],
+      "finalSize": [
+        83,
+        112
+      ],
+      "ratio": 0.743
+    },
+    "포드": {
+      "group": "수입",
+      "slug": "ford",
+      "file": "ford.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/b5d05603-f68b-4869-8366-6ea6c851ef4e/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        302,
+        114
+      ],
+      "finalSize": [
+        192,
+        72
+      ],
+      "ratio": 2.649
+    },
+    "포르쉐": {
+      "group": "수입",
+      "slug": "porsche",
+      "file": "porsche.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/188f97bf-7ea5-4ede-93f8-e69d519b0acd/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        150,
+        192
+      ],
+      "finalSize": [
+        88,
+        112
+      ],
+      "ratio": 0.781
+    },
+    "포톤": {
+      "group": "수입",
+      "slug": "foton",
+      "file": "foton.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/e3daba62-3989-45e0-8570-94c9c07e9a3a/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        195,
+        197
+      ],
+      "finalSize": [
+        111,
+        112
+      ],
+      "ratio": 0.99
+    },
+    "폭스바겐": {
+      "group": "수입",
+      "slug": "volkswagen",
+      "file": "volkswagen.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/355f53a1-fc2a-4070-98e5-12d67b44ff03/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        200,
+        200
+      ],
+      "finalSize": [
+        112,
+        112
+      ],
+      "ratio": 1
+    },
+    "폰티악": {
+      "group": "수입",
+      "slug": "pontiac",
+      "file": "pontiac.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/fb853762-80a0-47dd-981e-00d1f2061a60/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        100,
+        186
+      ],
+      "finalSize": [
+        60,
+        112
+      ],
+      "ratio": 0.538
+    },
+    "폴스타": {
+      "group": "수입",
+      "slug": "polestar",
+      "file": "polestar.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/1c814dac-53b9-48de-8ee5-17fe44e70713/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        190,
+        192
+      ],
+      "finalSize": [
+        111,
+        112
+      ],
+      "ratio": 0.99
+    },
+    "푸조": {
+      "group": "수입",
+      "slug": "peugeot",
+      "file": "peugeot.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/6ca074fc-709b-4e0d-8a57-6a9db2190d4b/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        144,
+        158
+      ],
+      "finalSize": [
+        102,
+        112
+      ],
+      "ratio": 0.911
+    },
+    "피아트": {
+      "group": "수입",
+      "slug": "fiat",
+      "file": "fiat.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/b2666dc0-1faf-43ce-83f0-69154f886a3a/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        273,
+        168
+      ],
+      "finalSize": [
+        182,
+        112
+      ],
+      "ratio": 1.625
+    },
+    "허머": {
+      "group": "수입",
+      "slug": "hummer",
+      "file": "hummer.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/ddb970a8-71ab-4a98-a544-a31a1911d7d2/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        344,
+        36
+      ],
+      "finalSize": [
+        192,
+        20
+      ],
+      "ratio": 9.556
+    },
+    "혼다": {
+      "group": "수입",
+      "slug": "honda",
+      "file": "honda.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/d72bbfcc-1956-48c4-8899-2a69d180832b/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        192,
+        156
+      ],
+      "finalSize": [
+        138,
+        112
+      ],
+      "ratio": 1.231
+    },
+    "히노": {
+      "group": "수입",
+      "slug": "hino",
+      "file": "hino.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/c733016a-ac4d-40ae-aa3d-bdf3c90ef6cb/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        268,
+        179
+      ],
+      "finalSize": [
+        168,
+        112
+      ],
+      "ratio": 1.497
+    }
+  },
+  "noLogo": [
+    "GM대우",
+    "기타 국산차",
+    "모건",
+    "비이스만",
+    "스파이커",
+    "알핀",
+    "어큐라",
+    "오스틴",
+    "웨스트필드",
+    "이네오스",
+    "피스커",
+    "홀덴",
+    "기타 수입차"
+  ]
+}

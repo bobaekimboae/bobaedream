@@ -1,0 +1,24 @@
+/* QF-096 과쯔 모드 제조사 로고(brand/kr). 퀵필터 카드 로고 칸 48×28(글자 로고는 폭 64 까지 칸 밖으로, 카드 80 안) · 목록 로고 칸 24×24. 가로·세로 가운데 */
+.kr-brand-logo { display: flex; flex: none; align-items: center; justify-content: center; }
+.kr-brand-logo.is-rail { width: 48px; height: 28px; overflow: visible; }
+.kr-brand-logo.is-list { width: 24px; height: 24px; }
+.kr-brand-logo img { display: block; flex: none; max-width: none; max-height: none; object-fit: contain; }
+.depth-card-media .kr-brand-logo img, .kr-brand-logo.is-list img { max-width: none; max-height: none; mix-blend-mode: normal; }
+.depth-card-media.is-brand:has(> .kr-brand-logo) { place-items: center; }
+
+/* 퀵필터 제조사 줄: 국산과 수입 사이 구분선(폭 1 · 높이 44 · #E4E7EC · 좌우 4) */
+.kr-maker-divider { flex: none; width: 1px; height: 44px; margin: 0 4px; background: #e4e7ec; }
+
+/* 칩 줄 → 카드 줄 간격(초톳 기준): PC 18, 모바일 16. 첫 카드 왼쪽 선 = 첫 칩 왼쪽 선(PC 카드 안 20, 모바일 16). 레일 규격(96 · 카드 80×72)은 그대로 */
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-quick-slot:has(> .is-kr-maker) { justify-content: flex-start; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .depth-rail.is-kr-maker { margin-top: -4px; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .depth-rail.is-kr-maker .depth-rail-track { padding-right: 20px; padding-left: 20px; }
+.marketplace.is-bbm-m .depth-rail.is-kr-maker { margin-top: -6px; }
+
+/* 좌측 필터(PC)·펼침판 제조사 행: 이름 앞 로고 24×24, 사이 8. 행 높이는 원본 그대로(로고가 줄 높이 19.6 을 늘리지 않게 위아래 -2.2) */
+.bbm-catalog-name { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
+.bbm-catalog-name .kr-brand-logo { margin: -2.2px 0; }
+
+/* 전체 필터 "제조사 · 모델" 차종 시트(과쯔만 .has-kr-logo): 이름 앞 로고 24×24, 사이 8 — 좌측 필터와 같은 규칙. 초톳·동처띠는 기존 타일 그대로 */
+.vehicle-picker-grid.is-makers.has-kr-logo button { display: flex; width: auto; min-width: 0; height: 40px; flex-direction: row; align-items: center; justify-content: flex-start; gap: 8px; padding: 0 12px 0 10px; border-radius: 12px; }
+.vehicle-picker-grid.is-makers.has-kr-logo .kr-brand-logo { margin: 0; }
