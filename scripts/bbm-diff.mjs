@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 // OP-012: 개발 시안 원본(dev.bbmuseum.co.kr/car/list)과 우리 시안을 같은 크기·같은 상태로 찍어 영역별 픽셀 차이 비율을 낸다.
 // 사용: npm run diff:bbm [-- --only=pc|m] [--state=pc-4,m-3] (vite preview 127.0.0.1:4173 이 떠 있어야 함)
+// QF-106b: 기본 비교 기준 = reports/baseline/bbm/(QF-106b 결과). --origin 원본 바로 비교 · --save-baseline 새 기준 저장(원본은 reports/baseline-archive/ 보관) — scripts/diff-baseline.mjs
 // 출력: reports/diff/<커밋>/summary.json · <상태>-<영역>.png(원본 | 우리 | 차이 빨강) — 커밋하지 않음
 // 매물 사진·매물 글자·매물 수 숫자는 두 쪽 모두 같은 회색 상자로 가려 모양·위치·크기만 비교한다.
 import { chromium } from "@playwright/test";
 import { execSync } from "node:child_process";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { archiveOrigin, baselineArgs, cropRegion, loadBaseline, saveBaseline } from "./diff-baseline.mjs";
 
 const ORIGIN = "https://dev.bbmuseum.co.kr/car/list";
 // 우리 화면 주소: 기본은 로컬 미리보기, BBM_OURS=https://bobaekimboae.github.io/bobaedream/ 로 배포본 대조
@@ -164,16 +166,27 @@ async function compare(page, origShot, oursShot, origBox, oursBox, fit = false) 
 // 글꼴 렌더링 맞춤: 원본(창 스크롤)은 LCD 서브픽셀, 우리(스크롤 레이어)는 회색조로 그려져 글자 가장자리만으로 차이가 난다 → 둘 다 회색조
 const browser = await chromium.launch({ args: ["--disable-lcd-text"] });
 const tool = await browser.newPage();
-const summary = { commit, measuredAt: new Date().toISOString(), states: {} };
+const mode = baselineArgs();
+const summary = { commit, measuredAt: new Date().toISOString(), basis: mode.useBaseline ? "baseline(QF-106b)" : "origin(dev.bbmuseum)", states: {} };
+console.log(`비교 기준: ${summary.basis}${mode.save ? " · 새 기준 저장" : ""}`);
 for (const state of STATES) {
   if (only && state.device !== only) continue;
   if (stateFilter && !stateFilter.split(",").some((part) => state.key.includes(part))) continue;
-  const [orig, ours] = await Promise.all([capture(browser, "orig", state), capture(browser, "ours", state)]);
+  const ours = await capture(browser, "ours", state);
+  const orig = mode.useBaseline ? { errors: [], regions: {}, shots: {} } : await capture(browser, "orig", state);
   summary.states[state.key] = { regions: {}, oursErrors: ours.errors, origErrors: orig.errors.slice(0, 3) };
   for (const [name, , , options] of state.regions) {
-    const result = await compare(tool, orig.shot, ours.shot, orig.regions[name], ours.regions[name], options?.fit);
+    const key = `${state.key}-${name}`;
+    let origShot = orig.shot; let origBox = orig.regions[name];
+    if (mode.useBaseline) { const { region } = loadBaseline("bbm", key); origShot = region?.shot; origBox = region; }
+    if (mode.save) {
+      const oursBox = ours.regions[name]; const origCrop = await cropRegion(tool, orig.shot, origBox); const oursCrop = await cropRegion(tool, ours.shot, oursBox);
+      archiveOrigin("bbm", key, origCrop, origBox ? { w: Math.round(origBox.w), h: Math.round(origBox.h) } : null);
+      saveBaseline("bbm", key, oursCrop, oursBox ? { w: Math.round(oursBox.w), h: Math.round(oursBox.h), fit: Boolean(options?.fit) } : null);
+    }
+    const result = origShot || !mode.useBaseline ? await compare(tool, origShot, ours.shot, origBox, ours.regions[name], options?.fit) : { ratio: 1, image: null, size: [0, 0] };
     if (result.image) writeFileSync(join(outDir, `${state.key}-${name}.png`), Buffer.from(result.image, "base64"));
-    summary.states[state.key].regions[name] = { diff: Math.round(result.ratio * 1000) / 10, size: result.size, orig: orig.regions[name] ? [orig.regions[name].w, orig.regions[name].h].map(Math.round) : null, ours: ours.regions[name] ? [ours.regions[name].w, ours.regions[name].h].map(Math.round) : null };
+    summary.states[state.key].regions[name] = { diff: Math.round(result.ratio * 1000) / 10, size: result.size, orig: origBox ? [origBox.w, origBox.h].map(Math.round) : null, ours: ours.regions[name] ? [ours.regions[name].w, ours.regions[name].h].map(Math.round) : null };
     console.log(`${state.key.padEnd(18)} ${name.padEnd(12)} ${String(summary.states[state.key].regions[name].diff).padStart(6)}%  원본 ${summary.states[state.key].regions[name].orig} / 우리 ${summary.states[state.key].regions[name].ours}`);
   }
   if (ours.errors.length) console.log(`  우리 콘솔 오류 ${ours.errors.length}건: ${ours.errors[0]}`);
