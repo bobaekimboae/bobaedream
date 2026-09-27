@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // QF-096: 과쯔 제조사 로고 점검 — 퀵필터 제조사 줄(PC 1440·1280 · 모바일 393), 좌측 필터(PC), 제조사 칩 모달·시트(PC·모바일)의
 // 모든 로고 표시 크기가 규칙과 같은지, 로고 칸 가운데인지, 404·콘솔 오류가 없는지. 캡처는 reports/qf-096/ 에 저장한다.
-// 규칙(비율 = manifest 의 잘라낸 로고 폭÷높이): 퀵필터 칸 48×28 — 1.25 이하 높이 28(폭 최대 44) · 1.25~2.5 폭 min(44, 28√비율) · 2.5 초과 폭 64 / 목록 칸 24×24 — 비율 유지로 칸 안
+// 규칙(비율 = manifest 의 잘라낸 로고 폭÷높이, QF-096 보완 3 높이 밸런스): 퀵필터 칸 48×28(카드 80 안) — 높이 min(28, 24×비율^-0.35)·폭 72 한도 / 목록 칸 32×24 — 높이 min(22, 18×비율^-0.35)·폭 32 한도
 // 사용: npm run check:logos [-- --base=<주소>] (기본 vite preview 127.0.0.1:4173)
 import { chromium } from "@playwright/test";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -11,8 +11,10 @@ const base = (process.argv.find((arg) => arg.startsWith("--base=")) ?? "").slice
 const outDir = join("reports", "qf-096");
 mkdirSync(outDir, { recursive: true });
 const manifest = JSON.parse(readFileSync(join("public", "assets", "brand", "kr", "manifest.json"), "utf8"));
-const railSize = (r) => (r <= 1.25 ? { w: Math.min(44, 28 * r), h: Math.min(44, 28 * r) / r } : r <= 2.5 ? { w: Math.min(44, 28 * Math.sqrt(r)), h: Math.min(44, 28 * Math.sqrt(r)) / r } : { w: 64, h: 64 / r });
-const listSize = (r) => (r >= 1 ? { w: 24, h: 24 / r } : { w: 24 * r, h: 24 });
+// QF-096 보완 3 높이 밸런스: 높이 = min(최대, 기준 × 비율^-0.35), 폭 = 높이 × 비율, 폭 한도를 넘으면 폭 한도·높이 = 폭÷비율
+const balanced = (r, base, maxH, maxW) => { let h = Math.min(maxH, base * r ** -0.35); let w = h * r; if (w > maxW) { w = maxW; h = maxW / r; } return { w, h }; };
+const railSize = (r) => balanced(r, 24, 28, 72);
+const listSize = (r) => balanced(r, 18, 22, 32);
 
 const browser = await chromium.launch({ args: ["--disable-lcd-text"] });
 const summary = { base, measuredAt: new Date().toISOString(), places: {}, checks: [] };
@@ -39,7 +41,7 @@ const verify = (place, logos) => {
   let bad = [];
   for (const logo of logos) {
     const entry = manifest.brands[logo.name];
-    const expectBox = logo.kind === "rail" ? [48, 28] : [24, 24];
+    const expectBox = logo.kind === "rail" ? [48, 28] : [32, 24];
     if (Math.abs(logo.box[0] - expectBox[0]) > 0.5 || Math.abs(logo.box[1] - expectBox[1]) > 0.5) bad.push(`${logo.name} 칸 ${logo.box.join("×")}`);
     if (!entry?.file) { if (logo.img) bad.push(`${logo.name} 로고 없음인데 이미지 있음`); continue; }
     if (!logo.img || !logo.loaded) { bad.push(`${logo.name} 이미지 안 뜸`); continue; }
