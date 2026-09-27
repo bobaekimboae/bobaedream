@@ -117,9 +117,9 @@ check("콘솔 오류 0(1440·1280·1100)", [1440, 1280, 1100].every((width) => n
   await page.locator(".bbm-catalog-row").filter({ hasText: /^현대/ }).first().click(); await page.waitForTimeout(600);
   const m2 = await measure(page);
   check("제조사 현대 → 경로 \"… / 현대\" · 제목 \"중고차\" 그대로(QF-106)", /현대$/.test(m2.crumbText) && m2.title.text === "중고차", `${m2.crumbText} · ${m2.title.text}`);
-  await page.locator(".bbm-ct-crumbs button").filter({ hasText: /^전체차량$/ }).first().click(); await page.waitForTimeout(600);
+  await page.locator(".bbm-ct-crumbs button").filter({ hasText: /^중고차$/ }).first().click(); await page.waitForTimeout(600);
   const m3 = await measure(page);
-  check("경로 \"전체차량\" 누르면 그 단계로(현대 해제)", !/현대/.test(m3.crumbText) && m3.title.text === "중고차", `${m3.crumbText} · ${m3.title.text}`);
+  check("경로 \"중고차\" 누르면 그 단계로(현대 해제, QF-109 전체차량 단계 없음)", !/현대/.test(m3.crumbText) && !/전체차량/.test(m3.crumbText) && m3.title.text === "중고차", `${m3.crumbText} · ${m3.title.text}`);
   await context.close();
 }
 

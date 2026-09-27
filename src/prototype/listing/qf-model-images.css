@@ -1,0 +1,16 @@
+/* QF-109 과쯔 plain 모델·세부모델 칸 이미지 영역(초톳 칸 그대로 + 가로 이미지 영역). 이미지는 코드 정렬 부품(scripts/image-normalize.mjs)으로
+   만든 228×120(차 폭 224 · 바닥선 111 · 그림자 고정) — PC 76×40 에 1/3 로 꼭 맞고, 모바일 56×36 에는 폭 56 · 바닥 정렬로 들어간다.
+   PC: 칸 84×102(안쪽 좌우 4) · 이미지 영역 76×40(칸 위 6, 바닥 = 칸 위 46 = 제조사 줄 로고 상자 바닥) · 이름 칸 위 60 14/21 600 #222 폭 76 · 보조 글자 칸 위 81 12/16 #8C8C8C
+   모바일: 칸 64×74 · 이미지 영역 56×36(칸 위 0) · 이름 칸 위 38 12/18 600 폭 56 · 보조 글자 칸 위 56 11/14. 이미지 없는 칸: 같은 영역 1px 점선 #DADADA 모서리 6 */
+.marketplace.is-qf-guazi.is-qf-plain .depth-card-media:not(.is-brand) { display: flex; align-items: flex-end; justify-content: center; }
+.marketplace.is-qf-guazi.is-qf-plain .depth-card-media:not(.is-brand) img { display: block; width: 100%; height: 100%; max-width: none; max-height: none; object-fit: contain; object-position: center bottom; mix-blend-mode: normal; }
+.marketplace.is-qf-guazi.is-qf-plain .depth-card-media:not(.is-brand) .kr-model-empty { width: 100%; height: 100%; border: 1px dashed #dadada; border-radius: 6px; }
+.marketplace.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-label { width: 100%; color: #222; }
+
+.marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-card-media:not(.is-brand) { width: 76px; height: 40px; margin-top: 6px; }
+.marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-label { margin-top: 14px; font-size: 14px; font-weight: 600; line-height: 21px; }
+.marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-sub { margin-top: 0; font-size: 12px; line-height: 16px; color: #8c8c8c; }
+
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-card-media:not(.is-brand) { width: 56px; height: 36px; margin-top: 0; }
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-label { margin-top: 2px; font-size: 12px; font-weight: 600; line-height: 18px; }
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-sub { margin-top: 0; font-size: 11px; line-height: 14px; color: #8c8c8c; }

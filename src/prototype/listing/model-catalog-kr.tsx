@@ -6,6 +6,7 @@ import "./model-catalog-kr.css";
 import "./qf-plain.css";
 import "./qf-trim.css";
 import "./qf-rail-vertical.css";
+import "./qf-model-images.css";
 
 // QF-097: 과쯔 모드 모델·세부 모델 = 개발 시안 카탈로그 스냅숏(9개 제조사: 벤츠·BMW·현대·기아·포르쉐·페라리·람보르기니·벤틀리·롤스로이스).
 // 화면은 API 를 부르지 않고 스냅숏에서 만든 model-catalog-kr.generated.ts 만 읽는다. 그 밖의 제조사는 기존 퀵필터 데이터 그대로.
@@ -117,8 +118,9 @@ for (const { maker, makerId, models } of modelCatalogKr) {
         catalogValue: sub.value,
       };
     });
-    // 모델 카드 이미지 = 매물이 가장 많은 세부 모델의 이미지(그 세부 모델에 이미지가 없으면 다음으로 많은 것)
-    const top = [...model.models].sort((a, b) => b.count - a.count).find((sub) => sub.ratio);
+    // QF-109: 모델 카드 이미지 = 최신 세부 모델의 당근 이미지(최신부터 당근 이미지가 있는 것, 없으면 최신부터 이미지가 있는 것)
+    const newestFirst = [...model.models].sort((a, b) => startYear(b.relYear) - startYear(a.relYear));
+    const top = newestFirst.find((sub) => sub.source === "daangn") ?? newestFirst.find((sub) => sub.ratio);
     visuals[name] = {
       image: top ? asset(`models/kr/${makerId}/${top.value}.png`) : "",
       bodyFit: fitOf(top?.ratio),

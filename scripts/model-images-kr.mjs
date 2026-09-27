@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// QF-109 이후 사용하지 않음 — scripts/daangn-fetch.mjs → scripts/model-images-dg.mjs(코드 정렬 부품 scripts/image-normalize.mjs)로 대신한다. 기록용으로 남김
 // QF-097: 과쯔 모드 모델·세부 모델 이미지와 화면용 데이터 만들기(카탈로그 스냅숏 src/prototype/data/model-catalog-kr.json 기준).
 // 대상: 매물이 있는(count > 0) 모델의 매물이 있는 세부 모델. 이미지 우선순위
 //  ① 카탈로그 image_url(file4.bobaedream.co.kr) — image 값에 확장자가 없거나 빈 파일이면 건너뜀

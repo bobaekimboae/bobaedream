@@ -1,0 +1,356 @@
+{
+ "벤츠": {
+  "makerId": 21,
+  "models": {
+   "total": 38,
+   "daangn": 29,
+   "bobaedream": 6,
+   "none": 3,
+   "medium": 3,
+   "upscaleSkipped": 0
+  },
+  "subModels": {
+   "total": 67,
+   "daangn": 54,
+   "bobaedream": 9,
+   "none": 4,
+   "medium": 12,
+   "upscaleSkipped": 0
+  },
+  "mixedRows": [
+   {
+    "row": "E클래스 세부모델 줄",
+    "total": 5,
+    "daangn": 4,
+    "bobaedream": 1,
+    "none": 0,
+    "medium": 4,
+    "upscaleSkipped": 0
+   },
+   {
+    "row": "SL클래스 세부모델 줄",
+    "total": 4,
+    "daangn": 3,
+    "bobaedream": 1,
+    "none": 0,
+    "medium": 0,
+    "upscaleSkipped": 0
+   }
+  ]
+ },
+ "BMW": {
+  "makerId": 1,
+  "models": {
+   "total": 37,
+   "daangn": 30,
+   "bobaedream": 3,
+   "none": 4,
+   "medium": 0,
+   "upscaleSkipped": 0
+  },
+  "subModels": {
+   "total": 82,
+   "daangn": 69,
+   "bobaedream": 5,
+   "none": 8,
+   "medium": 6,
+   "upscaleSkipped": 0
+  },
+  "mixedRows": []
+ },
+ "현대": {
+  "makerId": 49,
+  "models": {
+   "total": 42,
+   "daangn": 36,
+   "bobaedream": 5,
+   "none": 1,
+   "medium": 0,
+   "upscaleSkipped": 0
+  },
+  "subModels": {
+   "total": 126,
+   "daangn": 103,
+   "bobaedream": 19,
+   "none": 4,
+   "medium": 0,
+   "upscaleSkipped": 0
+  },
+  "mixedRows": [
+   {
+    "row": "i30 세부모델 줄",
+    "total": 4,
+    "daangn": 3,
+    "bobaedream": 1,
+    "none": 0,
+    "medium": 0,
+    "upscaleSkipped": 0
+   },
+   {
+    "row": "i40 세부모델 줄",
+    "total": 3,
+    "daangn": 1,
+    "bobaedream": 2,
+    "none": 0,
+    "medium": 0,
+    "upscaleSkipped": 0
+   },
+   {
+    "row": "갤로퍼 세부모델 줄",
+    "total": 2,
+    "daangn": 1,
+    "bobaedream": 1,
+    "none": 0,
+    "medium": 0,
+    "upscaleSkipped": 0
+   },
+   {
+    "row": "그랜저 세부모델 줄",
+    "total": 12,
+    "daangn": 11,
+    "bobaedream": 1,
+    "none": 0,
+    "medium": 0,
+    "upscaleSkipped": 0
+   },
+   {
+    "row": "벨로스터 세부모델 줄",
+    "total": 4,
+    "daangn": 3,
+    "bobaedream": 1,
+    "none": 0,
+    "medium": 0,
+    "upscaleSkipped": 0
+   },
+   {
+    "row": "쏘나타 세부모델 줄",
+    "total": 14,
+    "daangn": 13,
+    "bobaedream": 1,
+    "none": 0,
+    "medium": 0,
+    "upscaleSkipped": 0
+   },
+   {
+    "row": "아반떼 세부모델 줄",
+    "total": 12,
+    "daangn": 9,
+    "bobaedream": 3,
+    "none": 0,
+    "medium": 0,
+    "upscaleSkipped": 0
+   },
+   {
+    "row": "제네시스 세부모델 줄",
+    "total": 4,
+    "daangn": 3,
+    "bobaedream": 1,
+    "none": 0,
+    "medium": 0,
+    "upscaleSkipped": 0
+   },
+   {
+    "row": "투스카니 세부모델 줄",
+    "total": 2,
+    "daangn": 1,
+    "bobaedream": 1,
+    "none": 0,
+    "medium": 0,
+    "upscaleSkipped": 0
+   }
+  ]
+ },
+ "기아": {
+  "makerId": 3,
+  "models": {
+   "total": 34,
+   "daangn": 32,
+   "bobaedream": 2,
+   "none": 0,
+   "medium": 0,
+   "upscaleSkipped": 0
+  },
+  "subModels": {
+   "total": 107,
+   "daangn": 86,
+   "bobaedream": 17,
+   "none": 4,
+   "medium": 0,
+   "upscaleSkipped": 0
+  },
+  "mixedRows": [
+   {
+    "row": "K3 세부모델 줄",
+    "total": 5,
+    "daangn": 3,
+    "bobaedream": 1,
+    "none": 1,
+    "medium": 0,
+    "upscaleSkipped": 0
+   },
+   {
+    "row": "K5 세부모델 줄",
+    "total": 10,
+    "daangn": 5,
+    "bobaedream": 5,
+    "none": 0,
+    "medium": 0,
+    "upscaleSkipped": 0
+   },
+   {
+    "row": "K7 세부모델 줄",
+    "total": 8,
+    "daangn": 7,
+    "bobaedream": 1,
+    "none": 0,
+    "medium": 0,
+    "upscaleSkipped": 0
+   },
+   {
+    "row": "모닝 세부모델 줄",
+    "total": 6,
+    "daangn": 4,
+    "bobaedream": 2,
+    "none": 0,
+    "medium": 0,
+    "upscaleSkipped": 0
+   },
+   {
+    "row": "스포티지 세부모델 줄",
+    "total": 8,
+    "daangn": 7,
+    "bobaedream": 1,
+    "none": 0,
+    "medium": 0,
+    "upscaleSkipped": 0
+   },
+   {
+    "row": "쏘렌토 세부모델 줄",
+    "total": 8,
+    "daangn": 6,
+    "bobaedream": 2,
+    "none": 0,
+    "medium": 0,
+    "upscaleSkipped": 0
+   },
+   {
+    "row": "카니발 세부모델 줄",
+    "total": 7,
+    "daangn": 4,
+    "bobaedream": 1,
+    "none": 2,
+    "medium": 0,
+    "upscaleSkipped": 0
+   },
+   {
+    "row": "프라이드 세부모델 줄",
+    "total": 2,
+    "daangn": 1,
+    "bobaedream": 1,
+    "none": 0,
+    "medium": 0,
+    "upscaleSkipped": 0
+   }
+  ]
+ },
+ "포르쉐": {
+  "makerId": 43,
+  "models": {
+   "total": 9,
+   "daangn": 8,
+   "bobaedream": 1,
+   "none": 0,
+   "medium": 0,
+   "upscaleSkipped": 0
+  },
+  "subModels": {
+   "total": 22,
+   "daangn": 18,
+   "bobaedream": 2,
+   "none": 2,
+   "medium": 1,
+   "upscaleSkipped": 0
+  },
+  "mixedRows": []
+ },
+ "페라리": {
+  "makerId": 41,
+  "models": {
+   "total": 21,
+   "daangn": 17,
+   "bobaedream": 2,
+   "none": 2,
+   "medium": 0,
+   "upscaleSkipped": 0
+  },
+  "subModels": {
+   "total": 21,
+   "daangn": 17,
+   "bobaedream": 2,
+   "none": 2,
+   "medium": 0,
+   "upscaleSkipped": 0
+  },
+  "mixedRows": []
+ },
+ "람보르기니": {
+  "makerId": 11,
+  "models": {
+   "total": 6,
+   "daangn": 5,
+   "bobaedream": 1,
+   "none": 0,
+   "medium": 0,
+   "upscaleSkipped": 0
+  },
+  "subModels": {
+   "total": 6,
+   "daangn": 5,
+   "bobaedream": 1,
+   "none": 0,
+   "medium": 0,
+   "upscaleSkipped": 0
+  },
+  "mixedRows": []
+ },
+ "벤틀리": {
+  "makerId": 22,
+  "models": {
+   "total": 5,
+   "daangn": 3,
+   "bobaedream": 2,
+   "none": 0,
+   "medium": 0,
+   "upscaleSkipped": 0
+  },
+  "subModels": {
+   "total": 9,
+   "daangn": 3,
+   "bobaedream": 4,
+   "none": 2,
+   "medium": 0,
+   "upscaleSkipped": 0
+  },
+  "mixedRows": []
+ },
+ "롤스로이스": {
+  "makerId": 16,
+  "models": {
+   "total": 7,
+   "daangn": 5,
+   "bobaedream": 0,
+   "none": 2,
+   "medium": 0,
+   "upscaleSkipped": 0
+  },
+  "subModels": {
+   "total": 9,
+   "daangn": 6,
+   "bobaedream": 0,
+   "none": 3,
+   "medium": 1,
+   "upscaleSkipped": 0
+  },
+  "mixedRows": []
+ }
+}
