@@ -3,6 +3,7 @@
 // ① 칸 안 스크롤 없음(scrollHeight ≤ clientHeight) ② 끝까지 내리면 마지막 항목 "차량번호 / 판매자"가 화면에 보임
 // ③ 더 내려도 필터 맨 아래가 화면 아래 16에 붙음 ④ 다시 올리면 필터 맨 위가 원래 자리(상단 영역 아래 24)
 // ⑤ 제조사·모델을 접어 필터가 화면보다 짧아지면 위 16에 붙음. 캡처: reports/qf-093-sidebar/
+// QF-110: 좌측 필터 순서(제조사 · 모델 맨 위, 바디타입·차급은 가격 아래)도 확인
 // 사용: npm run check:sidebar [-- --base=<주소>]
 import { chromium } from "@playwright/test";
 import { mkdirSync, writeFileSync } from "node:fs";
@@ -97,6 +98,17 @@ for (const [width, height] of [[1440, 900], [1280, 720], [1920, 1080]]) {
   const b = await state(page);
   check(`1440×1700 모든 항목 접음(필터 ${a.filterH} < 화면 ${a.viewport}) → 위 16에 붙음`, a.filterH <= a.viewport - 32 && b.filterTop === 16 && b.stickyTop === "16px", `필터 위 ${b.filterTop} · top ${b.stickyTop}`);
   await context.close();
+}
+// QF-110 순서 기준: 제조사 · 모델(펼침) → 연식 → 주행거리 → 가격 → 바디타입 → 차급(접힘) → 지역 → 매매단지 …(1440 · 1280)
+for (const width of [1440, 1280]) {
+  const page = await browser.newPage({ viewport: { width, height: 900 } });
+  await page.goto(`${base}?qf=guazi&pc=1`, { waitUntil: "networkidle" }); await page.waitForTimeout(600);
+  const rows = await page.evaluate(() => [...document.querySelectorAll("aside.bbm-filter .bbm-filter-toggle")].map((t) => ({ label: t.textContent.trim(), open: t.closest(".bbm-filter-item")?.classList.contains("is-open") })));
+  const head = rows.slice(0, 8).map((r) => r.label).join(" → ");
+  const want = "제조사 · 모델 → 연식 → 주행거리 → 가격 → 바디타입 → 차급 → 지역 → 매매단지";
+  const openOk = rows[0]?.open === true && rows.find((r) => r.label === "바디타입")?.open === false && rows.find((r) => r.label === "차급")?.open === false;
+  check(`${width} 좌측 필터 순서(QF-110) · 제조사·모델 펼침 · 바디타입·차급 접힘 · 항목 27`, head === want && openOk && rows.length === 27, `${head} … (${rows.length})`);
+  await page.close();
 }
 writeFileSync(join("reports", "diff", "sidebar-summary.json"), JSON.stringify(summary, null, 2));
 await browser.close();

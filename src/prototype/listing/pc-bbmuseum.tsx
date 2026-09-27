@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
 import { BbmActionBar, BbmModal } from "../filters/bbm-filter-parts";
-import { bbmSidebarItems, type BbmFilterItem } from "../filters/bbm-filter-options";
+import { BBM_MAKER_ITEM, bbmSidebarItems, type BbmFilterItem } from "../filters/bbm-filter-options";
 import { BbmExpandPanel, BbmModalPanel, clearBbmItem } from "../filters/bbm-filter-panels";
 import type { BbmCheckKey, BbmFilterValues } from "../filters/bbm-filter-state";
 import { KrBrandLogo } from "./bbm-brand-logos";
@@ -46,10 +46,11 @@ function BbHeader({ onNotify, onOpenFavorites }: { onNotify: (message: string) =
   );
 }
 
-// 원본 좌측 필터 27개 항목. QF-091: 제목·위치는 원본대로("제조사 · 모델", 3번째), 안의 제조사 → 모델 → 등급 동작은 QF-067 유지
-const bbMakerItem = "제조사 · 모델";
-// QF-076: 항목 순서·열림 방식(펼침/412 모달)은 원본 수집 결과(bbm-filter-options.ts)
-const bbFilterMenu = [bbmSidebarItems[0].label, bbmSidebarItems[1].label, bbMakerItem, ...bbmSidebarItems.slice(2).map((item) => item.label)];
+// 원본 좌측 필터 27개 항목. 안의 제조사 → 모델 → 등급 동작은 QF-067 유지
+const bbMakerItem = BBM_MAKER_ITEM;
+// 항목 순서: 원본(초톳·동처띠 PC 등 동결 모드) = 바디타입 → 차급 → 제조사 · 모델 → 연식 …
+// QF-110 과쯔는 설정 배열 bbmFilterOrder(제조사 · 모델 맨 위, 바디타입·차급은 가격 아래)를 order 로 넘긴다. 열림 방식(펼침/412 모달)은 원본 수집 결과(bbm-filter-options.ts)
+const bbFilterMenuOriginal = [bbmSidebarItems[0].label, bbmSidebarItems[1].label, bbMakerItem, ...bbmSidebarItems.slice(2).map((item) => item.label)];
 const bbFilterItemByLabel = new Map(bbmSidebarItems.map((item) => [item.label, item]));
 
 type CatalogRow = [label: string, count: number, maker?: string];
@@ -160,7 +161,7 @@ function BbMakerGradeFilter({ selection, view, setView, brandLogos = false }: { 
 
 // resetSignal: 값이 바뀔 때마다 "초기화" 확인 창을 연다(QF-093 왼쪽 펼침판 아래 [초기화] 버튼용)
 // brandLogos: 과쯔 모드만 제조사 행 앞에 로고 24×24(QF-096). 초톳·동처띠 PC 는 그대로
-function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNotify, bbm, onBbmChange, countWithBbm, countOf, resetSignal = 0, brandLogos = false }: { selection: BbMakerSelection; appliedCount: number; historyCount?: number; onReset: () => void; onNotify: (message: string) => void; bbm: BbmFilterValues; onBbmChange: (next: BbmFilterValues) => void; countWithBbm: (next: BbmFilterValues) => number; countOf?: (key: BbmCheckKey, option: string) => number | null; resetSignal?: number; brandLogos?: boolean }) {
+function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNotify, bbm, onBbmChange, countWithBbm, countOf, resetSignal = 0, brandLogos = false, order = bbFilterMenuOriginal }: { order?: string[]; selection: BbMakerSelection; appliedCount: number; historyCount?: number; onReset: () => void; onNotify: (message: string) => void; bbm: BbmFilterValues; onBbmChange: (next: BbmFilterValues) => void; countWithBbm: (next: BbmFilterValues) => number; countOf?: (key: BbmCheckKey, option: string) => number | null; resetSignal?: number; brandLogos?: boolean }) {
   // 모달형 항목: 사이드바 대신 412 모달을 연다. 원본 실측(2026-09-24): 모달 안 선택은 초안이고 [확인 N대]를 눌러야 조건이 걸린다(닫기 X는 버림)
   const [modalItem, setModalItem] = useState<BbmFilterItem | null>(null);
   const [draft, setDraft] = useState<BbmFilterValues>(bbm);
@@ -202,7 +203,7 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
         </div>
       </div>
       <div className="bbm-filter-menu">
-        {bbFilterMenu.map((label) => {
+        {order.map((label) => {
           const open = openItems.includes(label);
           const isMaker = label === bbMakerItem;
           // QF-089: 값이 걸린 항목은 제목 보배 파랑 + 왼쪽 파랑 막대

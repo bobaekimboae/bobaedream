@@ -105,6 +105,10 @@
 - Maker name text box width is fixed (PC 76 · mobile 56), centered, max 2 lines.
 - Plain logo size inside the box by ratio r: r ≤ 1.25 long side 82.5% (PC 33 · mobile 29.7); 1.25 < r < 1.6 width 91% (36.4 · 32.8); r ≥ 1.6 width 100% (40 · 36). ChoTot comparison: `node scripts/brand-rail-compare.mjs` (scale 4, painted bounds).
 
+## PC Left Filter Order (QF-110)
+
+- Guazi PC left filter (and the 1024–1279 drawer) order comes from one config array `bbmFilterOrder` in `src/prototype/filters/bbm-filter-options.ts`: `제조사 · 모델` (open by default) → `연식` → `주행거리` → `가격` → `바디타입` → `차급` (closed) → `지역` → `매매단지` → … (rest unchanged). The filter header stays on top. ChoTot/Dongchedi PC keep the original order (`order` prop not passed). The mobile filter sheet is unchanged for now and can switch to the same array later. Check: `npm run check:sidebar`.
+
 ## Existing Mode Notes
 
 - Keep ChoTot and Dongchedi modes visually unchanged when working on Guazi-specific changes unless the user explicitly requests a shared change.

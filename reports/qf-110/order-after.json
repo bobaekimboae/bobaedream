@@ -1,0 +1,276 @@
+{
+ "1280": [
+  {
+   "label": "제조사 · 모델",
+   "y": 95,
+   "open": true
+  },
+  {
+   "label": "연식",
+   "y": 790,
+   "open": false
+  },
+  {
+   "label": "주행거리",
+   "y": 839,
+   "open": false
+  },
+  {
+   "label": "가격",
+   "y": 888,
+   "open": false
+  },
+  {
+   "label": "바디타입",
+   "y": 937,
+   "open": false
+  },
+  {
+   "label": "차급",
+   "y": 986,
+   "open": false
+  },
+  {
+   "label": "지역",
+   "y": 1035,
+   "open": false
+  },
+  {
+   "label": "매매단지",
+   "y": 1084,
+   "open": false
+  },
+  {
+   "label": "인승",
+   "y": 1133,
+   "open": false
+  },
+  {
+   "label": "구동방식",
+   "y": 1182,
+   "open": false
+  },
+  {
+   "label": "성능 · 보험",
+   "y": 1231,
+   "open": false
+  },
+  {
+   "label": "판매자 구분",
+   "y": 1280,
+   "open": false
+  },
+  {
+   "label": "판매방식",
+   "y": 1329,
+   "open": false
+  },
+  {
+   "label": "외부색상",
+   "y": 1378,
+   "open": false
+  },
+  {
+   "label": "시트색상",
+   "y": 1427,
+   "open": false
+  },
+  {
+   "label": "연료",
+   "y": 1476,
+   "open": false
+  },
+  {
+   "label": "변속기",
+   "y": 1525,
+   "open": false
+  },
+  {
+   "label": "옵션",
+   "y": 1574,
+   "open": false
+  },
+  {
+   "label": "최고출력",
+   "y": 1623,
+   "open": false
+  },
+  {
+   "label": "연비",
+   "y": 1672,
+   "open": false
+  },
+  {
+   "label": "배기량",
+   "y": 1721,
+   "open": false
+  },
+  {
+   "label": "공차중량",
+   "y": 1770,
+   "open": false
+  },
+  {
+   "label": "크기",
+   "y": 1819,
+   "open": false
+  },
+  {
+   "label": "전기차 주행 가능 거리",
+   "y": 1868,
+   "open": false
+  },
+  {
+   "label": "차량 특징",
+   "y": 1917,
+   "open": false
+  },
+  {
+   "label": "광고기간",
+   "y": 1966,
+   "open": false
+  },
+  {
+   "label": "차량번호 / 판매자",
+   "y": 2015,
+   "open": false
+  }
+ ],
+ "1440": [
+  {
+   "label": "제조사 · 모델",
+   "y": 95,
+   "open": true
+  },
+  {
+   "label": "연식",
+   "y": 790,
+   "open": false
+  },
+  {
+   "label": "주행거리",
+   "y": 839,
+   "open": false
+  },
+  {
+   "label": "가격",
+   "y": 888,
+   "open": false
+  },
+  {
+   "label": "바디타입",
+   "y": 937,
+   "open": false
+  },
+  {
+   "label": "차급",
+   "y": 986,
+   "open": false
+  },
+  {
+   "label": "지역",
+   "y": 1035,
+   "open": false
+  },
+  {
+   "label": "매매단지",
+   "y": 1084,
+   "open": false
+  },
+  {
+   "label": "인승",
+   "y": 1133,
+   "open": false
+  },
+  {
+   "label": "구동방식",
+   "y": 1182,
+   "open": false
+  },
+  {
+   "label": "성능 · 보험",
+   "y": 1231,
+   "open": false
+  },
+  {
+   "label": "판매자 구분",
+   "y": 1280,
+   "open": false
+  },
+  {
+   "label": "판매방식",
+   "y": 1329,
+   "open": false
+  },
+  {
+   "label": "외부색상",
+   "y": 1378,
+   "open": false
+  },
+  {
+   "label": "시트색상",
+   "y": 1427,
+   "open": false
+  },
+  {
+   "label": "연료",
+   "y": 1476,
+   "open": false
+  },
+  {
+   "label": "변속기",
+   "y": 1525,
+   "open": false
+  },
+  {
+   "label": "옵션",
+   "y": 1574,
+   "open": false
+  },
+  {
+   "label": "최고출력",
+   "y": 1623,
+   "open": false
+  },
+  {
+   "label": "연비",
+   "y": 1672,
+   "open": false
+  },
+  {
+   "label": "배기량",
+   "y": 1721,
+   "open": false
+  },
+  {
+   "label": "공차중량",
+   "y": 1770,
+   "open": false
+  },
+  {
+   "label": "크기",
+   "y": 1819,
+   "open": false
+  },
+  {
+   "label": "전기차 주행 가능 거리",
+   "y": 1868,
+   "open": false
+  },
+  {
+   "label": "차량 특징",
+   "y": 1917,
+   "open": false
+  },
+  {
+   "label": "광고기간",
+   "y": 1966,
+   "open": false
+  },
+  {
+   "label": "차량번호 / 판매자",
+   "y": 2015,
+   "open": false
+  }
+ ]
+}
