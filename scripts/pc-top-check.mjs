@@ -38,7 +38,7 @@ const measure = (page) => page.evaluate((card) => {
     crumbs: box(".bbm-ct-crumbs"), crumbItem: style(".bbm-ct-crumbs li"), crumbLast: style(".bbm-ct-crumbs strong"), crumbText: root.querySelector(".bbm-ct-crumbs")?.textContent.replace(/\s+/g, " ").trim(),
     titleRow: box(".bbm-ct-title-row"), title: { ...box(".bbm-ct-title"), ...style(".bbm-ct-title"), text: root.querySelector(".bbm-ct-title")?.textContent.replace(/\s+/g, " ").trim() },
     save: { ...box(".bbm-ct-save"), ...style(".bbm-ct-save"), gapFromTitle: Math.round(root.querySelector(".bbm-ct-save").getBoundingClientRect().left - root.querySelector(".bbm-ct-title").getBoundingClientRect().right) },
-    chipRow: box(".bbm-ct-chip-row"), filterChip: { ...box(".bbm-filter-button"), ...style(".bbm-filter-button") },
+    chipRow: box(".bbm-ct-chip-row"), region: box(".bbm-ct-region-row"), filterChip: { ...box(".bbm-filter-button"), ...style(".bbm-filter-button") },
     chip: { ...box(".bbm-ct-chip-track button.filter-chip"), ...style(".bbm-ct-chip-track button.filter-chip") },
     chipGap: chips.length > 1 ? Math.round(chips[1].left - chips[0].right) : null,
     applied: root.querySelector(".bbm-ct-chip-track .filter-chip.is-active") ? { ...style(".bbm-ct-chip-track .filter-chip.is-active"), clear: { ...box(".filter-chip.is-active .filter-chip-clear"), bg: getComputedStyle(root.querySelector(".filter-chip.is-active .filter-chip-clear")).backgroundColor } } : null,
@@ -61,10 +61,10 @@ for (const width of [1440, 1280, 1100]) {
 const n = summary.numbers;
 const n1440 = n[1440];
 check("카드 1440 x 120 · 폭 1200 · 모서리 12 · 안쪽 16/20 · 흰 배경 · 헤더 아래 16", n1440.card.x === 120 && n1440.card.w === 1200 && n1440.card.radius === "12px" && n1440.card.padding === "16px 20px" && n1440.card.bg === "rgb(255, 255, 255)" && n1440.card.y === 117 + 16, JSON.stringify(n1440.card));
-check("카드 높이 263(초톳 실측)", n1440.card.h === 263, `${n1440.card.h}`);
-check("줄 위치: 경로 16 · 제목 줄 45 · 칩 줄 85(칩 95) · 유형 칸 145", n1440.crumbs?.y === 16 && n1440.titleRow?.y === 45 && n1440.chipRow?.y === 85 && n1440.chip?.y === 95 && n1440.cell?.y === 145, `경로 ${n1440.crumbs?.y} · 제목 줄 ${n1440.titleRow?.y} · 칩 줄 ${n1440.chipRow?.y}(칩 ${n1440.chip?.y}) · 칸 ${n1440.cell?.y}`);
+check("카드 높이 311(QF-106 매뉴얼: 이미지 줄 상태)", n1440.card.h === 311, `${n1440.card.h}`);
+check("줄 위치(QF-106): 경로 16 · 제목 줄 45 · 칩 줄 95(칩 95) · 지역 줄 145 · 유형 칸 193", n1440.crumbs?.y === 16 && n1440.titleRow?.y === 45 && n1440.chipRow?.y === 95 && n1440.chip?.y === 95 && n1440.region?.y === 145 && n1440.cell?.y === 193, `경로 ${n1440.crumbs?.y} · 제목 줄 ${n1440.titleRow?.y} · 칩 줄 ${n1440.chipRow?.y}(칩 ${n1440.chip?.y}) · 지역 ${n1440.region?.y} · 칸 ${n1440.cell?.y}`);
 check("경로 12/18 400 #8C8C8C · 마지막 700 #222 · 사이 /", n1440.crumbItem?.font === "12px/18px 400" && n1440.crumbItem?.color === "rgb(140, 140, 140)" && n1440.crumbLast?.font.endsWith(" 700") && n1440.crumbLast?.color === "rgb(34, 34, 34)" && /\//.test(n1440.crumbText), `${n1440.crumbText}`);
-check("제목 16/24 700 #222 · \"중고차 N대 · YYYY년 M월\"", n1440.title.font === "16px/24px 700" && n1440.title.color === "rgb(34, 34, 34)" && /^중고차 \d+대 · \d{4}년 \d{1,2}월$/.test(n1440.title.text), `${n1440.title.text}`);
+check("제목 16/24 700 #222 · \"중고차\" 고정(QF-106, 대수·날짜 없음)", n1440.title.font === "16px/24px 700" && n1440.title.color === "rgb(34, 34, 34)" && n1440.title.text === "중고차", `${n1440.title.text}`);
 check("검색저장: 제목 오른쪽 20 · 높이 32 · 알약 · 흰 배경 · 테두리 1 #DADADA · 14/20 700", n1440.save.gapFromTitle === 20 && n1440.save.h === 32 && n1440.save.radius === "9999px" && n1440.save.bg === "rgb(255, 255, 255)" && n1440.save.border === "1px solid rgb(218, 218, 218)" && n1440.save.font === "14px/20px 700", `간격 ${n1440.save.gapFromTitle} · ${n1440.save.h} · ${n1440.save.border}`);
 check("칩: 높이 32 · 알약 · #F4F4F4 · 14/20 500 #222 · 안쪽 4/12 · 사이 8", n1440.chip.h === 32 && n1440.chip.radius === "9999px" && n1440.chip.bg === "rgb(244, 244, 244)" && n1440.chip.font === "14px/20px 500" && n1440.chip.color === "rgb(34, 34, 34)" && n1440.chip.padding === "4px 12px" && n1440.chipGap === 8, `${n1440.chip.font} ${n1440.chip.padding} 사이 ${n1440.chipGap}`);
 check("필터 칩: 같은 모양 + 아이콘 20", n1440.filterChip.h === 32 && n1440.filterChip.bg === "rgb(244, 244, 244)" && n1440.filterChip.padding === "4px 12px", `${n1440.filterChip.padding}`);
@@ -73,7 +73,7 @@ check("걸린 조건 없으면 필터 초기화 숨김", n1440.reset === null, `
 for (const width of [1280, 1100]) {
   const m = n[width];
   const x = width === 1280 ? 40 : 24;
-  check(`${width} 같은 규칙(x ${x} · 폭 ${width === 1280 ? 1200 : width - 48} · 높이 263 · 줄 위치 같음)`, m.card.x === x && m.card.w === (width === 1280 ? 1200 : width - 48) && m.card.h === 263 && m.crumbs?.y === 16 && m.titleRow?.y === 45 && m.chipRow?.y === 85 && m.cell?.y === 145, JSON.stringify(m.card));
+  check(`${width} 같은 규칙(x ${x} · 폭 ${width === 1280 ? 1200 : width - 48} · 높이 311 · 줄 위치 같음)`, m.card.x === x && m.card.w === (width === 1280 ? 1200 : width - 48) && m.card.h === 311 && m.crumbs?.y === 16 && m.titleRow?.y === 45 && m.chipRow?.y === 95 && m.region?.y === 145 && m.cell?.y === 193, JSON.stringify(m.card));
 }
 check("콘솔 오류 0(1440·1280·1100)", [1440, 1280, 1100].every((width) => n[width].consoleErrors === 0), [1440, 1280, 1100].map((width) => n[width].consoleErrors).join("/"));
 
@@ -84,7 +84,7 @@ check("콘솔 오류 0(1440·1280·1100)", [1440, 1280, 1100].every((width) => n
   const modal = await page.locator(".bbmf-modal").count();
   check("칩(연식) → 모달 열림", modal > 0, `모달 ${modal}`);
   await page.keyboard.press("Escape"); await page.waitForTimeout(300);
-  const before = await page.locator(".bbm-summary strong").first().textContent();
+  const before = await page.locator(".bbm-ct-title").first().getAttribute("data-count");
   await page.locator(".bbm-filter-toggle").filter({ hasText: /^바디타입/ }).first().click(); await page.waitForTimeout(300);
   await page.locator(".bbm-filter-item").filter({ has: page.locator(".bbm-filter-toggle", { hasText: /^바디타입/ }) }).locator(".bbmf-check").filter({ hasText: /^SUV/ }).first().click(); await page.waitForTimeout(400);
   await page.locator(".bbm-filter-toggle").filter({ hasText: /^연료/ }).first().click(); await page.waitForTimeout(500);
@@ -99,7 +99,7 @@ check("콘솔 오류 0(1440·1280·1100)", [1440, 1280, 1100].every((width) => n
   await page.locator(".bbm-ct-reset").click(); await page.waitForTimeout(400);
   const confirm = await page.evaluate(() => [...document.querySelectorAll(".bbmf-modal")].map((modal) => modal.textContent.replace(/\s+/g, " ").trim()).pop() ?? "");
   await page.locator(".bbmf-modal").last().locator("button").filter({ hasText: /^초기화$/ }).last().click(); await page.waitForTimeout(500);
-  const after = await page.locator(".bbm-summary strong").first().textContent();
+  const after = await page.locator(".bbm-ct-title").first().getAttribute("data-count");
   const left = await page.evaluate(() => document.querySelectorAll(".bbm-ct-chip-track .filter-chip.is-active").length);
   const resetGone = !(await page.locator(".bbm-ct-reset").count());
   check("필터 초기화 → 좌측 필터와 같은 확인 창 → 초기화", /필터 초기화/.test(confirm) && after === before && resetGone, `창 "${confirm.slice(0, 28)}" · ${before} → ${after} · 남은 적용 칩 ${left} · 버튼 숨김 ${resetGone}`);
@@ -115,10 +115,10 @@ check("콘솔 오류 0(1440·1280·1100)", [1440, 1280, 1100].every((width) => n
   check("유형 \"중고차\" → 퀵필터 레일 전환, 카드 높이 그대로", Boolean(await page.locator(".bbm-quick-slot .depth-card").count()) && m1.card.h === h0, `레일 카드 ${await page.locator(".bbm-quick-slot .depth-card").count()} · 높이 ${h0} → ${m1.card.h}`);
   await page.locator(".bbm-catalog-row").filter({ hasText: /^현대/ }).first().click(); await page.waitForTimeout(600);
   const m2 = await measure(page);
-  check("제조사 현대 → 경로 \"… / 현대\" · 제목 \"현대 중고차 N대 · …\"", /현대$/.test(m2.crumbText) && /^현대 중고차 \d+대/.test(m2.title.text), `${m2.crumbText} · ${m2.title.text}`);
+  check("제조사 현대 → 경로 \"… / 현대\" · 제목 \"중고차\" 그대로(QF-106)", /현대$/.test(m2.crumbText) && m2.title.text === "중고차", `${m2.crumbText} · ${m2.title.text}`);
   await page.locator(".bbm-ct-crumbs button").filter({ hasText: /^전체차량$/ }).first().click(); await page.waitForTimeout(600);
   const m3 = await measure(page);
-  check("경로 \"전체차량\" 누르면 그 단계로(현대 해제)", !/현대/.test(m3.crumbText) && /^중고차 \d+대/.test(m3.title.text), `${m3.crumbText} · ${m3.title.text}`);
+  check("경로 \"전체차량\" 누르면 그 단계로(현대 해제)", !/현대/.test(m3.crumbText) && m3.title.text === "중고차", `${m3.crumbText} · ${m3.title.text}`);
   await context.close();
 }
 

@@ -16,7 +16,7 @@
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail.is-trim-row) { height: auto; justify-content: flex-start; }
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .depth-rail.is-trim-row { margin-top: 8px; margin-bottom: 0; } /* 칩 줄 → 알약 18(다른 퀵필터 줄과 같음) · 알약 아래 → 상단 카드 끝 16 */
 
-/* 알약(초톳 앱 "Dòng xe" 기준): 흰 바탕 · 1px #DDDDDD · 높이 32 · 완전 둥근 · 좌우 16 · 14px 400 #222 · 사이 8. 선택 표시 없음(누르면 바로 적용되고 줄이 닫힌다), 누르는 순간 opacity 0.6 */
+/* 알약(초톳 앱 "Dòng xe" 기준): 흰 바탕 · 1px #DADADA · 높이 32 · 완전 둥근 · 좌우 16 · 14/20 500 #222(QF-106 매뉴얼 §3) · 사이 8. 선택 표시 없음(누르면 바로 적용되고 줄이 닫힌다), 누르는 순간 opacity 0.6 */
 .marketplace.is-qf-guazi .depth-rail.is-trim-row .trim-chip,
-.marketplace.is-qf-guazi .depth-rail.is-trim-row .trim-chip.is-selected { height: 32px; padding: 0 16px; border: 1px solid #dddddd; border-radius: 9999px; background: #fff; color: #222; font-size: 14px; font-weight: 400; transition: opacity 100ms ease; }
+.marketplace.is-qf-guazi .depth-rail.is-trim-row .trim-chip.is-selected { height: 32px; padding: 0 16px; border: 1px solid #dadada; border-radius: 9999px; background: #fff; color: #222; font-size: 14px; font-weight: 500; line-height: 20px; transition: opacity 100ms ease; }
 .marketplace.is-qf-guazi .depth-rail.is-trim-row .trim-chip:active:not(:disabled) { opacity: 0.6; }

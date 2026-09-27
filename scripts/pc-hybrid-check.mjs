@@ -103,7 +103,7 @@ console.log(`퀵필터 레일 보이는 카드: 1440 ${w[1440].rail.full}개(일
 // 1100 "필터" 칩 → 펼침판 → SUV 체크 → N대 보기 → 적용 칩 SUV
 {
   const { context, page, errors } = await open(1100);
-  const before = await page.locator(".bbm-summary strong").first().textContent();
+  const before = await page.locator(".bbm-ct-title").first().getAttribute("data-count");
   await page.locator(".bbm-filter-button").click(); await page.waitForTimeout(500);
   const drawer = await page.evaluate(() => { const d = document.querySelector(".bbm-drawer"); if (!d) return null; const r = d.getBoundingClientRect(); return { x: Math.round(r.left), w: Math.round(r.width), h: Math.round(r.height), dim: getComputedStyle(document.querySelector(".bbm-drawer-dim")).backgroundColor, scrollLocked: getComputedStyle(document.querySelector(".mobile-scroll")).overflowY === "hidden" }; });
   check("1100 펼침판 폭 320 · 딤 rgba(0,0,0,0.5) · 뒤 스크롤 막힘", drawer?.x === 0 && drawer?.w === 320 && drawer?.dim === "rgba(0, 0, 0, 0.5)" && drawer?.scrollLocked, JSON.stringify(drawer));
@@ -116,7 +116,7 @@ console.log(`퀵필터 레일 보이는 카드: 1440 ${w[1440].rail.full}개(일
   await page.locator(".bbm-drawer .bbmf-confirm").click(); await page.waitForTimeout(500);
   const closed = !(await page.locator(".bbm-drawer").count());
   const applied = await page.evaluate(() => [...document.querySelectorAll(".bbm-chips .filter-chip.is-active")].map((chip) => chip.textContent.trim()));
-  const after = await page.locator(".bbm-summary strong").first().textContent();
+  const after = await page.locator(".bbm-ct-title").first().getAttribute("data-count");
   check("1100 펼침판 SUV 체크 → N대 보기 → 닫힘 · 적용 칩 SUV · 목록 줄어듦", closed && applied.includes("SUV") && parseInt(after) < parseInt(before), `버튼 "${confirmText}" · 적용 칩 ${applied.join(",")} · ${before} → ${after}`);
   // 바깥 누르기·Esc 로 닫힘
   await page.locator(".bbm-filter-button").click(); await page.waitForTimeout(300);

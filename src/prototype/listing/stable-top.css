@@ -1,0 +1,69 @@
+/* QF-106 상단 구조 안정성 매뉴얼 v1.1(docs/stable-top-manual.md) — 과쯔 모드(.marketplace.is-qf-guazi)만. 층 사이 간격은 층 상자의 margin-top 한 곳에서만 정한다 */
+
+/* ── 알약 줄(지역 · 연식): 높이 32 · 이름표 14/20 400 #595959 → 12 → 알약(흰 바탕 · 1px #DADADA · 완전 둥근 · 좌우 16 · 14/20 500 #222 · 사이 8) · 가로 스크롤(스크롤바 숨김) · 넘치면 › */
+.stable-pill-row { display: flex; align-items: center; height: 32px; min-width: 0; }
+.stable-pill-label { flex: none; margin-right: 12px; color: #595959; font-size: 14px; font-weight: 400; line-height: 20px; white-space: nowrap; }
+.stable-pill-scroll { position: relative; flex: 1; min-width: 0; }
+.stable-pill-track-wrap { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
+.stable-pill-track-wrap::-webkit-scrollbar { display: none; }
+.stable-pill-track { display: flex; gap: 8px; width: max-content; }
+.stable-pill { display: inline-flex; flex: none; align-items: center; gap: 4px; height: 32px; padding: 0 16px; border: 1px solid #dadada; border-radius: 9999px; box-sizing: border-box; background: #fff; color: #222; font: inherit; font-size: 14px; font-weight: 500; line-height: 20px; white-space: nowrap; cursor: pointer; transition: opacity 100ms ease; }
+.stable-pill img { width: 16px; height: 16px; }
+.stable-pill.is-selected { border-color: #222; background: #222; color: #fff; }
+.stable-pill:active { opacity: 0.6; }
+.stable-pill-arrow { position: absolute; top: 2px; display: grid; place-items: center; width: 28px; height: 28px; padding: 0; border: 0; background: #fff; box-shadow: 0 0 8px 6px #fff; cursor: pointer; }
+.stable-pill-arrow.is-next { right: 0; }
+.stable-pill-arrow.is-prev { left: 0; }
+.stable-pill-arrow img { width: 20px; height: 20px; transform: rotate(-90deg); }
+.stable-pill-arrow.is-prev img { transform: rotate(90deg); }
+
+/* ── PC 상단 카드(폭 1200 · 모서리 12 · 안쪽 위아래 16 · 좌우 20)
+   ① 경로 18 → 11 → 제목 줄 32 → 18 → ② 필터 칩 줄 32 → 18 → ③ 지역 칩 줄 32 → 16 → ④ 퀵필터 자리(이미지 줄 102 / 알약 줄 32) → 카드 끝 16(이미지) / 24(알약) */
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-ct-crumbs { height: 18px; }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-ct-title-row { height: 32px; margin-top: 11px; }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-ct-chip-row { height: 32px; margin-top: 18px; margin-bottom: 0; padding: 0; }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-ct-region-row { margin-top: 18px; }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot,
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail) { height: auto; margin: 16px -20px 0; justify-content: flex-start; }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot > * { margin-top: 0 !important; margin-bottom: 0 !important; }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail.is-trim-row) { margin-bottom: 8px; }
+/* 첫 화면 유형 줄도 이미지 줄 높이(칸 102, 위 여백 없음) */
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu__list { padding-top: 0; }
+
+/* ── 모델·세부모델 이미지 칸도 제조사 칸과 같은 높이(PC 84×102 · 모바일 64×74), 이름·보조 글자 각 1줄 말줄임 */
+.marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) { height: 102px; }
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) { height: 74px; }
+.marketplace.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-label { display: block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; -webkit-line-clamp: none; }
+.marketplace.is-qf-guazi .depth-card-sub { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ── ④ 알약 줄(트림 · 연식) 알약 = 매뉴얼 알약 규격(1px #DADADA · 14/20 500 — 트림은 qf-trim.css), 연식은 고른 알약만 #222 흰 글자 */
+.marketplace.is-qf-guazi .depth-rail.is-year-row .stable-pill-row { flex: 1; min-width: 0; }
+.marketplace.is-qf-guazi .depth-rail.is-year-row .brand-carousel { display: none; }
+
+/* ── 모바일(카드 없음, 화면 전체 흰 바탕)
+   ① 검색바 40(화면 위 10) → 8 → ② "지역: 전국 ▾" 줄 32 → 10 → ③ 필터 칩 줄 32(칩 사이 4) → 14 → ④ 퀵필터 자리(위 2 + 칸 + 아래 6) → 0 → ⑤ 회색 띠 8 · 경로 · 제목 · 관련 검색어 */
+.marketplace.is-bbm-m.is-qf-guazi .top-bar.is-bbm { height: 50px; min-height: 0; padding-top: 10px; padding-bottom: 0; box-sizing: border-box; align-items: center; }
+.marketplace.is-bbm-m.is-qf-guazi .top-bar.is-bbm .search-field { height: 40px; box-sizing: border-box; }
+.marketplace.is-bbm-m.is-qf-guazi .region-bar.is-bbm { height: 32px; min-height: 0; margin-top: 8px; padding-top: 0; padding-bottom: 0; box-sizing: border-box; }
+.marketplace.is-bbm-m.is-qf-guazi .region-bar.is-bbm > button { height: 32px; min-height: 0; }
+.marketplace.is-bbm-m.is-qf-guazi > .filter-shell.is-bbm { height: 32px; min-height: 0; margin-top: 10px; padding-top: 0; padding-bottom: 0; box-sizing: border-box; }
+.marketplace.is-bbm-m.is-qf-guazi > .filter-shell.is-bbm .filter-track { gap: 4px; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot { margin-top: 14px; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot > * { margin-top: 0 !important; margin-bottom: 0 !important; }
+/* ⑤ 회색 띠 8 → 경로(12/18) → 제목 "중고차"(16/24 700 #222) → 관련 검색어 알약(28 · 흰 바탕 · 1px #E8E8E8 · 모서리 8 · 14px · 사이 4 · 가로 스크롤) */
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-head { padding: 12px 16px 0; border-top: 8px solid var(--bbm-page-bg, #f4f4f4); background: #fff; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-head .bbm-ct-crumbs { display: flex; align-items: center; height: 18px; min-width: 0; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-head .bbm-ct-crumbs ol { display: flex; align-items: center; min-width: 0; margin: 0; padding: 0; overflow: hidden; list-style: none; white-space: nowrap; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-head .bbm-ct-crumbs li { display: inline-flex; align-items: center; color: #8c8c8c; font-size: 12px; font-weight: 400; line-height: 18px; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-head .bbm-ct-crumbs button { padding: 0; border: 0; background: none; color: inherit; font: inherit; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-head .bbm-ct-crumbs strong { color: #222; font-weight: 700; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-head .bbm-ct-crumb-sep { margin: 0 6px; color: #8c8c8c; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-title { margin: 4px 0 0; color: #222; font-size: 16px; font-weight: 700; line-height: 24px; white-space: nowrap; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-keywords { display: flex; gap: 4px; margin: 10px -16px 0; padding: 0 16px; overflow-x: auto; scrollbar-width: none; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-keywords::-webkit-scrollbar { display: none; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-keyword { flex: none; height: 28px; padding: 0 10px; border: 1px solid #e8e8e8; border-radius: 8px; box-sizing: border-box; background: #fff; color: #222; font: inherit; font-size: 14px; line-height: 26px; white-space: nowrap; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-keyword:active { opacity: 0.6; }
+
+/* 모바일 ④ 이름표 x = 첫 칩 − 4(첫 칸과 같은 선) */
+.marketplace.is-bbm-m.is-qf-guazi .depth-rail-label { padding-left: 12px; }
+.marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-kr-maker .depth-rail-track { padding-left: 12px; }
