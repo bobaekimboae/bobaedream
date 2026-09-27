@@ -53,6 +53,8 @@ import {
   vehicleCategoryOptions,
   type BrandRailOption,
   type Car,
+  type QuickGenerationOption,
+  type QuickModelVisual,
   type QuickTrimOption,
   type QuickFilterStyle,
   type RegionMenu,
@@ -72,7 +74,7 @@ import { BbmBottomGnb, BbmCategoryMenu, BbmMakerList, BbmMobileOptions, BbmModel
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
 import { useBottomStickySidebar } from "./bbm-sticky-sidebar";
 import { KrBrandLogo, krMakerRailSections, krRailLabel } from "./bbm-brand-logos";
-import { CatalogModelImage, catalogMakerNames, guaziGenerationsByMakerModel, guaziModelVisualsByMaker, guaziModelsByMaker } from "./model-catalog-kr";
+import { CatalogModelImage, catalogMakerNames, catalogModelOfCar, guaziGenerationsByMakerModel, guaziModelVisualsByMaker, guaziModelsByMaker } from "./model-catalog-kr";
 import { BbmChipScroller, BbmTopCrumbs, bbmTopMonth, bbmTopTitlePrefix, type BbmCrumb } from "./bbm-top-chotot";
 import { BBM_PAGE_SIZE, BbmFooter, BbmPagination, BbmPopOptions, BbmToolbarMenu, bbmSortOptions, bbmViewOptionsMobile, bbmViewOptionsPc, sortBbmCars, type BbmSort } from "./bbm-list-area";
 
@@ -479,11 +481,10 @@ function MarketplaceScreen() {
   const bbmValue = filters.bbm ?? emptyBbmFilters;
   // QF-097: 과쯔는 9개 제조사의 모델·세부 모델을 카탈로그 스냅숏으로(model-catalog-kr), 나머지 제조사·다른 모드는 기존 데이터
   const modelsByMakerMap = isGuaziQuickStyle ? guaziModelsByMaker : quickModelsByMaker;
-  const generationsByMakerModelMap = isGuaziQuickStyle ? guaziGenerationsByMakerModel : quickGenerationsByMakerModel;
-  const modelVisualsByMakerMap = isGuaziQuickStyle ? guaziModelVisualsByMaker : quickModelVisualsByMaker;
+  const rawGenerationsByMakerModelMap = isGuaziQuickStyle ? guaziGenerationsByMakerModel : quickGenerationsByMakerModel;
+  const rawModelVisualsByMakerMap = isGuaziQuickStyle ? guaziModelVisualsByMaker : quickModelVisualsByMaker;
   const isCatalogMaker = Boolean(isGuaziQuickStyle && maker && catalogMakerNames.has(maker));
-  const modelQuickOptions = maker ? modelsByMakerMap[maker] ?? [] : [];
-  const generationQuickOptions = maker && selectedModel ? generationsByMakerModelMap[maker]?.[selectedModel] ?? [] : [];
+  const generationQuickOptions = maker && selectedModel ? rawGenerationsByMakerModelMap[maker]?.[selectedModel] ?? [] : [];
   const selectedGenerationOption = generationQuickOptions.find((generation) => generation.name === selectedGeneration);
   const variantQuickOptions = selectedGenerationOption?.variants ?? [];
   const directVariantQuickOptions: Array<string | QuickTrimOption> = [];
@@ -557,11 +558,53 @@ function MarketplaceScreen() {
         : searchKey.includes(normalizeModelSearchText(generationDisplayLabel(selectedGenerationOption ?? { name: selectedGeneration, years: "", variants: [] }))) || searchKey.includes(normalizeModelSearchText(selectedGeneration)));
       const activeTrimVariants = isGuaziQuickStyle ? effectiveSelectedVariants : trimApplied ? selectedVariants : [];
       const trimMatch = activeTrimVariants.length === 0 || activeTrimVariants.some((variant) => normalizeModelSearchText(searchText).includes(normalizeModelSearchText(variant)));
-      return matchesChoTotFilters(car, filters) && generationMatch && trimMatch && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || searchText.toLowerCase().includes(normalized));
+      // QF-097 보완: 과쯔 카탈로그 제조사는 매물이 연결된 모델 하나로만 거른다(이름 일부 겹침 방지)
+      const catalogModelMatch = !isCatalogMaker || !filters.model || catalogModelOfCar(car) === filters.model;
+      return matchesChoTotFilters(car, filters) && catalogModelMatch && generationMatch && trimMatch && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || searchText.toLowerCase().includes(normalized));
     });
-  }, [effectiveSelectedVariants, filters, isGuaziQuickStyle, listingCars, query, region.district, regionKeyword, selectedGeneration, selectedGenerationOption, selectedVariants, trimApplied]);
+  }, [effectiveSelectedVariants, filters, isCatalogMaker, isGuaziQuickStyle, listingCars, query, region.district, regionKeyword, selectedGeneration, selectedGenerationOption, selectedVariants, trimApplied]);
   // QF-090: 우리 데이터가 있는 개발 시안형 항목(바디타입·연식·주행거리·가격·연료·변속기·인승·외부색상·판매자 구분·지역)으로 거른다
   const filteredWithoutPrice = useMemo(() => isGuaziQuickStyle ? baseListCars.filter((car) => matchesBbmFilters(car, filters.bbm)) : baseListCars, [baseListCars, filters.bbm, isGuaziQuickStyle]);
+  // QF-097 보완(매물 수 기준 하나로): 과쯔 카탈로그 제조사의 모델·세부 모델·트림 수 = 화면 샘플 매물 수(모델·세부 모델·트림만 뺀 지금 조건).
+  // 퀵필터 카드는 1대 이상만 보이고(눌러도 0대가 되지 않게), 좌측 필터·칩 모달·차종 시트는 원본처럼 0대도 보인다(0은 흐리게·비활성)
+  const depthBaseCars = useMemo(() => {
+    if (!isGuaziQuickStyle) return [];
+    const normalized = query.trim().toLowerCase();
+    return listingCars.filter((car) => {
+      const searchText = `${car.title} ${car.trim} ${car.maker} ${car.modelGroup ?? ""}`;
+      return matchesChoTotFilters(car, { ...filters, model: null }) && matchesBbmFilters(car, filters.bbm) && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || searchText.toLowerCase().includes(normalized));
+    });
+  }, [filters, isGuaziQuickStyle, listingCars, query, region.district, regionKeyword]);
+  const { generationsByMakerModelMap, modelVisualsByMakerMap } = useMemo(() => {
+    if (!isGuaziQuickStyle) return { generationsByMakerModelMap: rawGenerationsByMakerModelMap, modelVisualsByMakerMap: rawModelVisualsByMakerMap };
+    const generations = { ...rawGenerationsByMakerModelMap };
+    const visuals = { ...rawModelVisualsByMakerMap };
+    for (const makerName of catalogMakerNames) {
+      // 매물 한 대는 카탈로그 모델 하나에만 연결(catalogModelOfCar: 제목 앞부분이 가장 길게 맞는 모델)
+      const makerCars = depthBaseCars.filter((car) => car.maker === makerName).map((car) => ({ model: catalogModelOfCar(car), text: normalizeModelSearchText(`${car.title} ${car.trim} ${car.modelGroup ?? ""}`) }));
+      const makerGenerations: Record<string, QuickGenerationOption[]> = {};
+      const makerVisuals: Record<string, QuickModelVisual> = {};
+      for (const modelName of modelsByMakerMap[makerName] ?? []) {
+        const modelCars = makerCars.filter((car) => car.model === modelName).map((car) => car.text);
+        makerVisuals[modelName] = { ...(rawModelVisualsByMakerMap[makerName]?.[modelName] ?? { image: "" }), count: `${modelCars.length.toLocaleString("ko-KR")}대` };
+        makerGenerations[modelName] = (rawGenerationsByMakerModelMap[makerName]?.[modelName] ?? []).map((generation) => {
+          const keys = generation.matchKeys ?? [];
+          const generationCars = modelCars.filter((text) => !keys.length || keys.some((key) => text.includes(normalizeModelSearchText(key))));
+          return {
+            ...generation,
+            count: generationCars.length,
+            variants: generation.variants.map((variant) => { const option = toTrimOption(variant); return { ...option, count: generationCars.filter((text) => text.includes(normalizeModelSearchText(option.name))).length }; }),
+          };
+        });
+      }
+      generations[makerName] = makerGenerations;
+      visuals[makerName] = makerVisuals;
+    }
+    return { generationsByMakerModelMap: generations, modelVisualsByMakerMap: visuals };
+  }, [depthBaseCars, isGuaziQuickStyle, modelsByMakerMap, rawGenerationsByMakerModelMap, rawModelVisualsByMakerMap]);
+  // 퀵필터 줄(과쯔 카탈로그 제조사): 샘플 매물 1대 이상인 모델·세부 모델만
+  const modelQuickOptions = maker ? (modelsByMakerMap[maker] ?? []).filter((name) => !isCatalogMaker || modelVisualsByMakerMap[maker]?.[name]?.count !== "0대") : [];
+  const railGenerationOptions = maker && selectedModel ? (generationsByMakerModelMap[maker]?.[selectedModel] ?? []).filter((generation) => !isCatalogMaker || (generation.count ?? 0) > 0) : [];
   // 선택지 옆 매물 수: 그 항목만 뺀 나머지 조건을 모두 반영(원본과 같은 방식). 데이터 없는 항목은 null → 원본 숫자 글자
   const bbmCountOf = (key: BbmCheckKey, option: string) => isBbmDataOption(key, option)
     ? baseListCars.filter((car) => matchesBbmFilters(car, filters.bbm, key) && bbmCarChecks(car)[key]?.includes(option)).length
@@ -726,7 +769,8 @@ function MarketplaceScreen() {
 
   const chooseModel = (modelName: string) => {
     const nextModel = selectedModel === modelName ? null : modelName;
-    const nextGenerations = nextModel && maker ? generationsByMakerModelMap[maker]?.[nextModel] ?? [] : [];
+    // 과쯔 카탈로그 제조사는 샘플 매물이 있는 세부 모델만 센다(하나뿐이면 바로 고른다)
+    const nextGenerations = nextModel && maker ? (generationsByMakerModelMap[maker]?.[nextModel] ?? []).filter((generation) => !isCatalogMaker || (generation.count ?? 0) > 0) : [];
     setFilters((current) => ({ ...current, model: nextModel }));
     setDraftFilters((current) => ({ ...current, model: nextModel }));
     setSelectedGeneration(isGuaziQuickStyle && nextGenerations.length === 1 ? nextGenerations[0].name : null);
@@ -794,7 +838,9 @@ function MarketplaceScreen() {
         ? `${compactYearLabel(selectedGenerationOption.years)} · ${generationCountLabel(selectedGenerationOption)}`
         : compactYearLabel(selectedGenerationOption.years))
     : "";
-  const variantTrimOptions = activeVariantQuickOptions.map(toTrimOption);
+  // 과쯔 카탈로그 제조사: 트림 수도 샘플 매물 기준(0대 트림은 비활성)
+  const selectedGenerationView = isCatalogMaker && maker && selectedModel ? generationsByMakerModelMap[maker]?.[selectedModel]?.find((generation) => generation.name === selectedGeneration) : undefined;
+  const variantTrimOptions = (selectedGenerationView && selectedGeneration ? selectedGenerationView.variants : activeVariantQuickOptions).map(toTrimOption);
   const selectedTrimChipLabel = selectedVariants.length === 0
     ? "트림"
     : selectedVariants.length === 1
@@ -949,13 +995,13 @@ function MarketplaceScreen() {
     };
   }, [desktop, quickFilterChips.length]);
 
-  const hasGenerationDepth = Boolean(usesUxDepth && selectedModel && generationQuickOptions.length);
+  const hasGenerationDepth = Boolean(usesUxDepth && selectedModel && railGenerationOptions.length);
   const hasDirectVariantDepth = Boolean(usesUxDepth && selectedModel && !hasGenerationDepth && directVariantQuickOptions.length);
   const shouldStayOnSelectedModelRail = Boolean(isGuaziQuickStyle && selectedModel && !hasGenerationDepth && !hasDirectVariantDepth);
   const showModelQuickRail = Boolean(maker && modelQuickOptions.length && (!selectedModel || shouldStayOnSelectedModelRail));
   // QF-097: 카탈로그 세부 모델을 골랐는데 트림 데이터가 없으면 세부 모델 줄에 선택된 채로 남는다
   const stayOnGenerationRail = Boolean(isCatalogMaker && selectedGeneration && !variantQuickOptions.length);
-  const showGenerationQuickRail = Boolean(usesUxDepth && selectedModel && (!selectedGeneration || stayOnGenerationRail) && generationQuickOptions.length);
+  const showGenerationQuickRail = Boolean(usesUxDepth && selectedModel && (!selectedGeneration || stayOnGenerationRail) && railGenerationOptions.length);
   const showVariantQuickRail = Boolean(usesUxDepth && ((selectedGeneration && variantQuickOptions.length) || hasDirectVariantDepth) && (isGuaziQuickStyle || !trimApplied));
   const showVehicleHeaderRail = Boolean(!isGuaziQuickStyle && usesUxDepth && selectedGeneration && trimApplied);
   const showCategoryQuickRail = categoryLandingOpen && !maker;
@@ -1009,10 +1055,11 @@ function MarketplaceScreen() {
                 return <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} disabled={modelVisual?.count === "0대"} onClick={() => chooseModel(model)}>{formatModelLabel(model)}</button>;
               })}
             </Carousel>
-          </section> : showGenerationQuickRail && isGuaziQuickStyle ? <section className="depth-rail" aria-label={`${accessibleDepthLabel(selectedModel)} 세대 빠른 선택`}>
-            <span className="depth-rail-label">세대</span>
-            <Carousel ariaLabel={`${accessibleDepthLabel(selectedModel)} 세대`} className="brand-carousel" contentClassName="depth-rail-track">
-              {generationQuickOptions.map((generation) => {
+          </section> : showGenerationQuickRail && isGuaziQuickStyle ? <section className="depth-rail" aria-label={`${accessibleDepthLabel(selectedModel)} 세부모델 빠른 선택`}>
+            {/* QF-097 보완: 과쯔 줄 이름표 "세대" → "세부모델" */}
+            <span className="depth-rail-label">세부모델</span>
+            <Carousel ariaLabel={`${accessibleDepthLabel(selectedModel)} 세부모델`} className="brand-carousel" contentClassName="depth-rail-track">
+              {railGenerationOptions.map((generation) => {
                 // QF-097: 카탈로그 세부 모델은 자기 이미지만(없으면 점선 빈 칸)
                 const generationImage = isCatalogMaker ? generation.image : generation.image ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.image : undefined);
                 const selectedModelVisual = selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel] : undefined;
@@ -1035,7 +1082,7 @@ function MarketplaceScreen() {
           </section> : showGenerationQuickRail ? <section className="brand-row is-generation-mode" aria-label={`${accessibleDepthLabel(selectedModel)} 세대 빠른 선택`}>
             <span className="brand-title">세대</span>
             <Carousel ariaLabel={`${accessibleDepthLabel(selectedModel)} 세대`} className="brand-carousel" contentClassName="generation-track">
-              {generationQuickOptions.map((generation) => {
+              {railGenerationOptions.map((generation) => {
                 return (
                   <button key={generation.name} className={`benz-model-chip generation-chip${selectedGeneration === generation.name ? " is-selected" : ""}`} type="button" aria-pressed={selectedGeneration === generation.name} onClick={() => chooseGeneration(generation.name)}>
                     <strong>{generation.name}</strong>
@@ -1170,7 +1217,13 @@ function MarketplaceScreen() {
   const bbmChips: BbmChip[] = ([
     (() => { const chip = chipByKey("category"); return chip ? { ...chip, label: chip.label === "전체" ? "전체차량" : chip.label } : undefined; })(),
     // 원본: 제조사를 고르면 [현대 ×][모델] 이 적용 칩 앞, 고르기 전에는 적용 칩 뒤에 [제조사]
-    maker ? chipByKey("vehicle-summary") ?? chipByKey("maker") : null,
+    // QF-097 보완: 제조사·모델·세부 모델을 단계별 검정 적용 칩으로 [벤츠 ×][E클래스 ×][W213 ×]. 각 × 는 그 단계부터 아래만 푼다
+    // (세부 모델 × → 세부 모델 줄, 모델 × → 모델 줄(제조사 유지), 제조사 × → 제조사 줄). 칩을 누르면 차종 시트. 경로·제목은 그대로 이어 쓴다
+    ...(maker ? [
+      { key: "step-maker", label: maker, active: true, className: "is-vehicle-summary is-step", onClick: () => setSheet("vehicle"), onClear: clearMakerFilter },
+      selectedModel ? { key: "step-model", label: formatModelLabel(selectedModel), active: true, className: "is-vehicle-summary is-step", onClick: () => setSheet("vehicle"), onClear: clearModelFilter } : null,
+      selectedModel && selectedGenerationOption ? { key: "step-generation", label: generationDisplayLabel(selectedGenerationOption), active: true, className: "is-vehicle-summary is-step", onClick: () => setSheet("vehicle"), onClear: clearGenerationFilter } : null,
+    ] : []),
     maker && !selectedModel ? { key: "model", label: "모델", active: false, onClick: () => openBbmChipPanel("모델") } : null,
     chipByKey("variant"),
     ...bbmApplied.map((chip) => ({ key: `applied-${chip.id}`, label: chip.label, active: true, className: "is-applied", onClick: () => openBbmChipPanel(bbmPanelForId(chip.id)), onClear: () => setBbmFilters(chip.clear(bbmValue)) })),

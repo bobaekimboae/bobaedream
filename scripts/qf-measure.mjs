@@ -217,17 +217,18 @@ try {
   await step("maker");
   await clickCard(page, /^벤츠$/);
   await step("benz-models");
-  await clickCard(page, /^E-?클래스$/);
-  await step("e-class-generations");
+  // QF-097 보완: 과쯔 모델·세부 모델 카드는 샘플 매물이 있는 것만 보인다 — 세부 모델이 있는 C클래스(W206·W205)로 잰다
+  await clickCard(page, /^C-?클래스$/);
+  await step("c-class-generations");
   const firstGeneration = await clickFirstCard(page);
   await step(`generation-${firstGeneration}`.replace(/[^\w가-힣-]+/g, "_"));
   await open();
   await clickCard(page, /^BMW$/);
   await step("bmw-models");
-  await clickCard(page, /^3시리즈$/);
-  await step("3-series-generations");
+  await clickCard(page, /^5시리즈$/);
+  await step("5-series-selected");
   // QF-018: 차종 시트에서 세대 없는 모델(SLS AMG) 선택 시 세대 칸 문구
-  await page.locator(".filter-chip.is-vehicle-summary .filter-chip-label").evaluate((el) => el.click());
+  await page.locator(".filter-chip.is-vehicle-summary .filter-chip-label").first().evaluate((el) => el.click());
   const sheet = page.locator(".vehicle-picker-sheet");
   await sheet.waitFor({ timeout: 5000 });
   await sheet.locator(".vehicle-picker-grid.is-makers button", { hasText: /^벤츠$/ }).first().evaluate((el) => el.click());

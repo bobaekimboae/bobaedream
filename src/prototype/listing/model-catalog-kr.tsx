@@ -12,15 +12,17 @@ const norm = (value: string) => value.replace(/[-\s]/g, "").toLowerCase();
 /** 이름은 괄호 앞까지("G클래스 (G바겐)" → "G클래스", "더 뉴 K3 [2세대]" → "더 뉴 K3") */
 export const cutBracket = (label: string) => label.replace(/\s*[([].*$/, "").trim() || label;
 
-// 모델 순서(엔카식): 숫자 → 영문 → 가나다, "기타"는 맨 뒤. 벤츠 "A클래스"는 "A-클래스"로 보고 정렬(A-클래스 → AMG GT → C-클래스 …)
-const orderBucket = (name: string) => name === "기타" ? 9 : /^\d/.test(name) ? 0 : /^[A-Za-z]/.test(name) ? 1 : /^[가-힣]/.test(name) ? 2 : 3;
+// 모델 순서(엔카 기준, PR #88 보완): 숫자로 시작하는 현행 모델(BMW 3시리즈·포르쉐 911 등) → 영문 → 가나다 → 숫자로 시작하는 구형 모델(벤츠 190·280·600, BMW 02 등) → "기타".
+// 구형 = 카탈로그 세부 모델 가운데 "~현재"가 하나도 없는 모델. 벤츠 "A클래스"는 "A-클래스"로 읽어 정렬(A클래스 → AMG GT → B클래스 → C클래스 → CL클래스 → CLA클래스 …). 괄호(G바겐 등)는 이름에서 이미 뺐다
+const oldNumericModels = new Set<string>();
+const orderBucket = (name: string) => name === "기타" ? 9 : /^\d/.test(name) ? (oldNumericModels.has(name) ? 3 : 0) : /^[A-Za-z]/.test(name) ? 1 : /^[가-힣]/.test(name) ? 2 : 4;
 const latinKey = (name: string) => name.replace(/^([A-Za-z]+)클래스/, "$1-클래스").toUpperCase();
 const codePointCompare = (a: string, b: string) => (a < b ? -1 : a > b ? 1 : 0);
 export function compareModelNames(a: string, b: string) {
   const bucket = orderBucket(a) - orderBucket(b);
   if (bucket) return bucket;
-  if (orderBucket(a) === 0) return (parseInt(a, 10) - parseInt(b, 10)) || codePointCompare(latinKey(a), latinKey(b));
   if (orderBucket(a) === 1) return codePointCompare(latinKey(a), latinKey(b));
+  if (orderBucket(a) === 0 || orderBucket(a) === 3) return (parseInt(a, 10) - parseInt(b, 10)) || codePointCompare(latinKey(a), latinKey(b));
   return a.localeCompare(b, "ko");
 }
 
@@ -78,6 +80,7 @@ for (const { maker, makerId, models } of modelCatalogKr) {
     const name = existingNames.find((existing) => norm(existing) === norm(label)) ?? label;
     if (names.includes(name)) continue;
     names.push(name);
+    if (/^\d/.test(name) && !models.filter((entry) => cutBracket(entry.label) === label).some((entry) => entry.models.some((sub) => /현재/.test(sub.relYear ?? "")))) oldNumericModels.add(name);
     const existingVisual = existingVisuals[name];
     const existingGens = existingGenerations[name] ?? [];
     const subs = [...model.models].sort((a, b) => startYear(b.relYear) - startYear(a.relYear));
@@ -126,6 +129,21 @@ for (const { maker, makerId, models } of modelCatalogKr) {
 }
 
 export { guaziModelsByMaker, guaziGenerationsByMakerModel, guaziModelVisualsByMaker };
+
+/** 매물 한 대 → 카탈로그 모델 하나(PR #88 보완). 제목에서 제조사를 뺀 앞부분이 모델 이름으로 시작하는 것 중 가장 긴 이름(또는 modelGroup 과 같은 이름).
+ *  이름 일부만 겹치는 연결(벤츠 "220" ↔ "C 220d", 현대 "아이오닉" ↔ "아이오닉 5")을 막는다. 없으면 null */
+export function catalogModelOfCar(car: { maker: string; title: string; modelGroup?: string }) {
+  const names = guaziModelsByMaker[car.maker];
+  if (!names || !catalogMakerNames.has(car.maker)) return null;
+  const head = norm(car.title.startsWith(car.maker) ? car.title.slice(car.maker.length) : car.title);
+  const group = car.modelGroup ? norm(car.modelGroup) : null;
+  let best: string | null = null;
+  for (const name of names) {
+    const key = norm(name);
+    if ((group === key || head.startsWith(key)) && (!best || key.length > norm(best).length)) best = name;
+  }
+  return best;
+}
 
 /** 세부 모델 카드 이미지 칸: 이미지가 없으면 점선 빈 칸 */
 export function CatalogModelImage({ src }: { src?: string }) {

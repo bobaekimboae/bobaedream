@@ -12,7 +12,7 @@
 //  ③ 없음(화면은 점선 빈 칸)
 // 처리: 흰 배경이 남은 파일은 거절(다음 순서로) → 알파 16 이하 여백 자르기 → 비율 유지로 168×84 안(키우지 않음) → PNG
 // 출력: public/assets/models/kr/{maker_id}/{value}.png · public/assets/models/kr/manifest.json ·
-//       src/prototype/data/model-catalog-kr.generated.ts(화면용) · reports/qf-097/contact-sheet.png
+//       reports/qf-097/contact-sheet.png → 끝에 scripts/model-catalog-data.mjs(화면용 데이터 · missing-images.csv)
 // 사용: node scripts/model-images-kr.mjs
 import { chromium } from "@playwright/test";
 import { mkdirSync, readFileSync, writeFileSync, existsSync, rmSync } from "node:fs";
@@ -175,15 +175,8 @@ writeFileSync(join(OUT, "CREDITS.md"), `# 모델·세부 모델 이미지(과쯔
 - 다시 만들기: node scripts/model-catalog-kr.mjs → node scripts/model-images-kr.mjs
 `);
 
-// 화면용(매물 있는 모델·세부 모델만, 이미지 비율 포함). 순서·표기 규칙은 src/prototype/listing/model-catalog-kr.ts
-writeFileSync("src/prototype/data/model-catalog-kr.generated.ts", `// QF-097: node scripts/model-images-kr.mjs 로 만든 파일(직접 고치지 않음). 카탈로그 받은 날짜 ${snapshot.fetchedAt}
-// 매물이 있는(count > 0) 모델·세부 모델만. ratio 가 있으면 public/assets/models/kr/{makerId}/{value}.png 가 있다(가로÷세로)
-export type CatalogSubModel = { value: number; label: string; count: number; relYear: string | null; code: string | null; generation: string | null; ratio?: number };
-export type CatalogModel = { value: number; label: string; count: number; models: CatalogSubModel[] };
-export type CatalogMaker = { maker: string; makerId: number; models: CatalogModel[] };
-export const modelCatalogFetchedAt = ${JSON.stringify(snapshot.fetchedAt)};
-export const modelCatalogKr: CatalogMaker[] = ${JSON.stringify(screen)};
-`);
+// 화면용 데이터(0대 포함 전체 · 이미지 비율)와 이미지 없는 목록 CSV: scripts/model-catalog-data.mjs(이미지를 다시 받지 않고도 만들 수 있게 분리)
+await import("./model-catalog-data.mjs");
 
 // 검수용 한 장: 제조사별 줄, #F7F8FC 80×72 카드 안 56×28 자리(위 7) · 아래 이름 · 출처 표시(보=보배드림, 당=당근, 없음=점선)
 const images = Object.fromEntries(sheetRows.filter((row) => row.file).map((row) => [row.file, `data:image/png;base64,${readFileSync(row.file).toString("base64")}`]));
