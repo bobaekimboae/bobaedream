@@ -1,0 +1,2 @@
+/* QF-097 과쯔 모드 모델·세부 모델 카드: 이미지가 없는 세부 모델은 56×28 점선 빈 칸 */
+.depth-card-media .kr-model-empty { display: block; box-sizing: border-box; width: 56px; height: 28px; border: 1px dashed #c5cad3; border-radius: 4px; }
