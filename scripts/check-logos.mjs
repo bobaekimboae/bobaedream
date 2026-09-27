@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // QF-096: 과쯔 제조사 로고 점검 — 퀵필터 제조사 줄(PC 1440·1280 · 모바일 393), 좌측 필터(PC), 제조사 칩 모달·시트(PC·모바일)의
 // 모든 로고 표시 크기가 규칙과 같은지, 로고 칸 가운데인지, 404·콘솔 오류가 없는지. 캡처는 reports/qf-096/ 에 저장한다.
-// 규칙(비율 = manifest 의 잘라낸 로고 폭÷높이, QF-096 보완 3 높이 밸런스): 퀵필터 칸 48×28(카드 80 안) — 높이 min(28, 24×비율^-0.35)·폭 72 한도 / 목록 칸 32×24 — 높이 min(22, 18×비율^-0.35)·폭 32 한도
+// 규칙(비율 = manifest 의 잘라낸 로고 폭÷높이, 시안 v1 규격 — QF-096 보완 3에서 복원): 퀵필터 칸 48×28(카드 위 8 · 가로 가운데) — 1.25 이하 폭 min(44, 28×비율)·높이 min(28, 폭÷비율) · 1.25 초과 폭 min(44, 28√비율)·높이 폭÷비율 / 목록 칸 24×24 — 비율 유지로 칸 안(contain). 모든 로고가 칸 안(칸 밖 0개)
 // 사용: npm run check:logos [-- --base=<주소>] (기본 vite preview 127.0.0.1:4173)
 import { chromium } from "@playwright/test";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -11,10 +11,9 @@ const base = (process.argv.find((arg) => arg.startsWith("--base=")) ?? "").slice
 const outDir = join("reports", "qf-096");
 mkdirSync(outDir, { recursive: true });
 const manifest = JSON.parse(readFileSync(join("public", "assets", "brand", "kr", "manifest.json"), "utf8"));
-// QF-096 보완 3 높이 밸런스: 높이 = min(최대, 기준 × 비율^-0.35), 폭 = 높이 × 비율, 폭 한도를 넘으면 폭 한도·높이 = 폭÷비율
-const balanced = (r, base, maxH, maxW) => { let h = Math.min(maxH, base * r ** -0.35); let w = h * r; if (w > maxW) { w = maxW; h = maxW / r; } return { w, h }; };
-const railSize = (r) => balanced(r, 24, 28, 72);
-const listSize = (r) => balanced(r, 18, 22, 32);
+const railSize = (r) => { if (r <= 1.25) { const w = Math.min(44, 28 * r); return { w, h: Math.min(28, w / r) }; } const w = Math.min(44, 28 * Math.sqrt(r)); return { w, h: w / r }; };
+const listSize = (r) => (r >= 1 ? { w: 24, h: 24 / r } : { w: 24 * r, h: 24 });
+let outsideTotal = 0; const outsideList = [];
 
 const browser = await chromium.launch({ args: ["--disable-lcd-text"] });
 const summary = { base, measuredAt: new Date().toISOString(), places: {}, checks: [] };
@@ -35,13 +34,18 @@ const open = async (device) => {
 // 로고 칸 안 로고 크기·가운데 측정
 const measureLogos = (page, scope) => page.evaluate((scope) => [...document.querySelectorAll(`${scope} .kr-brand-logo`)].map((box) => {
   const b = box.getBoundingClientRect(); const img = box.querySelector("img"); const i = img?.getBoundingClientRect();
-  return { name: box.dataset.brand, kind: box.classList.contains("is-rail") ? "rail" : "list", box: [b.width, b.height], img: i ? [i.width, i.height] : null, loaded: img ? img.complete && img.naturalWidth > 0 : null, dx: i ? (i.left + i.width / 2) - (b.left + b.width / 2) : 0, dy: i ? (i.top + i.height / 2) - (b.top + b.height / 2) : 0 };
+  const card = box.closest(".depth-card")?.getBoundingClientRect();
+  return { name: box.dataset.brand, kind: box.classList.contains("is-rail") ? "rail" : "list", box: [b.width, b.height], img: i ? [i.width, i.height] : null,
+    outside: i ? Math.max(b.left - i.left, i.right - b.right, b.top - i.top, i.bottom - b.bottom) : 0,
+    inCard: card ? { top: b.top - card.top, dx: (b.left + b.width / 2) - (card.left + card.width / 2) } : null, loaded: img ? img.complete && img.naturalWidth > 0 : null, dx: i ? (i.left + i.width / 2) - (b.left + b.width / 2) : 0, dy: i ? (i.top + i.height / 2) - (b.top + b.height / 2) : 0 };
 }), scope);
 const verify = (place, logos) => {
   let bad = [];
   for (const logo of logos) {
     const entry = manifest.brands[logo.name];
-    const expectBox = logo.kind === "rail" ? [48, 28] : [32, 24];
+    const expectBox = logo.kind === "rail" ? [48, 28] : [24, 24];
+    if (logo.outside > 0.5) { outsideTotal += 1; outsideList.push(`${place} ${logo.name} ${logo.outside.toFixed(1)}`); bad.push(`${logo.name} 칸 밖 ${logo.outside.toFixed(1)}`); }
+    if (logo.inCard && (Math.abs(logo.inCard.top - 8) > 0.6 || Math.abs(logo.inCard.dx) > 0.6)) bad.push(`${logo.name} 칸 위치(카드 위 ${logo.inCard.top.toFixed(1)} · 가로 ${logo.inCard.dx.toFixed(1)})`);
     if (Math.abs(logo.box[0] - expectBox[0]) > 0.5 || Math.abs(logo.box[1] - expectBox[1]) > 0.5) bad.push(`${logo.name} 칸 ${logo.box.join("×")}`);
     if (!entry?.file) { if (logo.img) bad.push(`${logo.name} 로고 없음인데 이미지 있음`); continue; }
     if (!logo.img || !logo.loaded) { bad.push(`${logo.name} 이미지 안 뜸`); continue; }
@@ -127,6 +131,7 @@ for (const width of [1440, 1280]) {
 
 const files = Object.values(manifest.brands).filter((b) => b.file);
 check("로고 파일 고유 slug 73 · 받기 실패 0", new Set(files.map((b) => b.slug)).size === 73 && Object.values(manifest.brands).every((b) => !b.error), `slug ${new Set(files.map((b) => b.slug)).size}`);
+check("모든 로고가 칸 안(칸 밖 0개)", outsideTotal === 0, outsideTotal ? outsideList.slice(0, 6).join(" / ") : "0개");
 writeFileSync(join("reports", "diff", "logos-summary.json"), JSON.stringify(summary, null, 2));
 await browser.close();
 const failed = summary.checks.filter((item) => !item.ok).length;

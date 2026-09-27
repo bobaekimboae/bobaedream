@@ -13,7 +13,7 @@ const norm = (value: string) => value.replace(/[-\s]/g, "").toLowerCase();
 export const cutBracket = (label: string) => label.replace(/\s*[([].*$/, "").trim() || label;
 
 // 모델 순서(엔카 기준, PR #88 보완): 숫자로 시작하는 현행 모델(BMW 3시리즈·포르쉐 911 등) → 영문 → 가나다 → 숫자로 시작하는 구형 모델(벤츠 190·280·600, BMW 02 등) → "기타".
-// 구형 = 카탈로그 세부 모델 가운데 "~현재"가 하나도 없는 모델. 벤츠 "A클래스"는 "A-클래스"로 읽어 정렬(A클래스 → AMG GT → B클래스 → C클래스 → CL클래스 → CLA클래스 …). 괄호(G바겐 등)는 이름에서 이미 뺐다
+// 구형 = 카탈로그 세부 모델 가운데 "~현재"가 하나도 없는 모델(BMW "N시리즈"는 제외 — 6시리즈도 1~8시리즈 사이). 벤츠 "A클래스"는 "A-클래스"로 읽어 정렬(A클래스 → AMG GT → B클래스 → C클래스 → CL클래스 → CLA클래스 …). 괄호(G바겐 등)는 이름에서 이미 뺐다
 const oldNumericModels = new Set<string>();
 const orderBucket = (name: string) => name === "기타" ? 9 : /^\d/.test(name) ? (oldNumericModels.has(name) ? 3 : 0) : /^[A-Za-z]/.test(name) ? 1 : /^[가-힣]/.test(name) ? 2 : 4;
 const latinKey = (name: string) => name.replace(/^([A-Za-z]+)클래스/, "$1-클래스").toUpperCase();
@@ -80,7 +80,8 @@ for (const { maker, makerId, models } of modelCatalogKr) {
     const name = existingNames.find((existing) => norm(existing) === norm(label)) ?? label;
     if (names.includes(name)) continue;
     names.push(name);
-    if (/^\d/.test(name) && !models.filter((entry) => cutBracket(entry.label) === label).some((entry) => entry.models.some((sub) => /현재/.test(sub.relYear ?? "")))) oldNumericModels.add(name);
+    // 구형 숫자 모델: 이름이 숫자로 시작하고 "~현재"가 없는 모델. 단 BMW "N시리즈"(1~8시리즈)는 단종이어도 숫자 순서대로 앞에 둔다(QF-097 보완 2)
+    if (/^\d/.test(name) && !/^\d+시리즈$/.test(name) && !models.filter((entry) => cutBracket(entry.label) === label).some((entry) => entry.models.some((sub) => /현재/.test(sub.relYear ?? "")))) oldNumericModels.add(name);
     const existingVisual = existingVisuals[name];
     const existingGens = existingGenerations[name] ?? [];
     const subs = [...model.models].sort((a, b) => startYear(b.relYear) - startYear(a.relYear));
