@@ -68,7 +68,7 @@ import { bbmCarChecks, emptyBbmFilters, isBbmDataOption, matchesBbmFilters, rang
 import { bbmAppliedChips, bbmItemValue } from "../filters/bbm-applied";
 import { BbmPartsGallery } from "../filters/bbm-parts-gallery";
 import { BbmActionBar, BbmFullExcludeAction, BbmFullFilter, BbmFullItem, BbmModal, BbmSheet } from "../filters/bbm-filter-parts";
-import { bbmSidebarItems, type BbmFilterItem } from "../filters/bbm-filter-options";
+import { bbmFilterOrder, bbmSidebarItems, type BbmFilterItem } from "../filters/bbm-filter-options";
 import { BbmExpandPanel, BbmModalPanel, clearBbmItem } from "../filters/bbm-filter-panels";
 import { BbmBottomGnb, BbmCategoryMenu, BbmMakerList, BbmMobileOptions, BbmModelList, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
@@ -1431,7 +1431,7 @@ function MarketplaceScreen() {
             {/* QF-106b: 경로는 상단 카드 밖(회색 바탕 위), 카드는 제목 줄부터 */}
             {isGuaziQuickStyle ? <div className="bbm-hybrid-top"><BbmTopCrumbs items={bbmCrumbs} />{bbmTopCard}</div> : null}
             <div className="bbm-page">
-              <BbFilterSidebar selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} />
+              <BbFilterSidebar order={isGuaziQuickStyle ? bbmFilterOrder : undefined} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} />
               <div className="bbm-content">
                 {isGuaziQuickStyle ? null : bbmContentHead}
                 <section className="bbm-results" aria-label="매물 목록">
@@ -1475,7 +1475,7 @@ function MarketplaceScreen() {
         {renderBbmChipPanel(true)}
         {drawerFilterChip && bbmDrawerOpen ? (
           <BbmFilterDrawer count={visibleCars.length} onClose={() => setBbmDrawerOpen(false)} onReset={() => setBbmDrawerReset((value) => value + 1)}>
-            <BbFilterSidebar selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmDrawerReset} brandLogos={isGuaziQuickStyle} />
+            <BbFilterSidebar order={isGuaziQuickStyle ? bbmFilterOrder : undefined} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmDrawerReset} brandLogos={isGuaziQuickStyle} />
           </BbmFilterDrawer>
         ) : null}
         {marketSheet}

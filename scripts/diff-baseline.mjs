@@ -36,8 +36,8 @@ const write = (dir, key, png, meta) => {
 
 /** 새 기준 저장(우리) */
 export const saveBaseline = (kind, key, png, meta) => write(join(BASE, kind), key, png, meta);
-/** 이전 기준 보관(원본) */
-export const archiveOrigin = (kind, key, png, meta) => write(join(ARCHIVE, kind), key, png, meta);
+/** 이전 기준 보관(원본) — 이미 보관한 조각은 덮어쓰지 않는다(처음 보관본 유지) */
+export const archiveOrigin = (kind, key, png, meta) => { if (existsSync(join(ARCHIVE, kind, `${key}.json`))) return; write(join(ARCHIVE, kind), key, png, meta); };
 
 /** 저장된 기준 읽기: { shot, x: 0, y: 0, w, h, masks: [] } (가림은 이미 칠해져 있음) · meta */
 export const loadBaseline = (kind, key) => {

@@ -78,3 +78,9 @@ export const bbmSidebarItems: BbmFilterItem[] = [
   { label: "광고기간", mode: "modal" },
   { label: "차량번호 / 판매자", mode: "expand" },
 ];
+
+// QF-110 과쯔 좌측 필터 순서(한 곳에서 정의 — PC 좌측 필터가 쓰고, 나중에 모바일 필터 시트도 같은 배열을 쓸 수 있게).
+// 제조사 · 모델(처음부터 펼침) → 연식 → 주행거리 → 가격 → 바디타입 → 차급(접힘) → 지역 아래는 bbmSidebarItems 순서 그대로
+export const BBM_MAKER_ITEM = "제조사 · 모델";
+const bbmFilterHead = [BBM_MAKER_ITEM, "연식", "주행거리", "가격", "바디타입", "차급"];
+export const bbmFilterOrder: string[] = [...bbmFilterHead, ...bbmSidebarItems.map((item) => item.label).filter((label) => !bbmFilterHead.includes(label))];
