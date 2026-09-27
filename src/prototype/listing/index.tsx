@@ -73,7 +73,7 @@ import { BbmExpandPanel, BbmModalPanel, clearBbmItem } from "../filters/bbm-filt
 import { BbmBottomGnb, BbmCategoryMenu, BbmMakerList, BbmMobileOptions, BbmModelList, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
 import { useBottomStickySidebar } from "./bbm-sticky-sidebar";
-import { KrBrandLogo, krMakerRailSections, krRailLabel } from "./bbm-brand-logos";
+import { KrBrandLogo, krRailLabel, krTopTenSections } from "./bbm-brand-logos";
 import { StableRegionRow, StableYearRow, stablePageTitle, STABLE_YEAR_OPTIONS, stableKeywordPills } from "./stable-top";
 import { CatalogModelImage, catalogMakerNames, catalogModelOfCar, guaziGenerationsByMakerModel, guaziModelVisualsByMaker, guaziModelsByMaker } from "./model-catalog-kr";
 import { BbmChipScroller, BbmTopCrumbs, type BbmCrumb } from "./bbm-top-chotot";
@@ -1136,8 +1136,9 @@ function MarketplaceScreen() {
               </div>
             </div>
           </section> : showGuaziMakerRail && isGuaziQuickStyle ? (() => {
-            // QF-096: 과쯔 제조사 줄 = 좌측 필터 목록 순서 + 승용 제조사 로고(brand/kr). 라벨 없이 첫 카드 왼쪽 선 = 첫 칩 왼쪽 선
-            const sections = krMakerRailSections(category === "국산차" ? "domestic" : category === "수입차" ? "imported" : "all");
+            // QF-096: 과쯔 제조사 줄 = 승용 제조사 로고(brand/kr). 라벨 없이 첫 카드 왼쪽 선 = 첫 칩 왼쪽 선
+            // QF-108: 월 단위 상위 10(brand-top10.json) + 11번째 "전체 브랜드"(제조사 칩과 같은 목록 창을 연다)
+            const sections = krTopTenSections(category === "국산차" ? "domestic" : category === "수입차" ? "imported" : "all");
             const card = (item: { label: string; key: string }) => (
               <DepthCard key={item.label} label={krRailLabel(item.label)} image={<KrBrandLogo name={item.label} kind={plainQuickCards ? "plain" : "rail"} />} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />
             );
@@ -1147,6 +1148,7 @@ function MarketplaceScreen() {
                   {sections.domestic.map(card)}
                   {sections.domestic.length && sections.imported.length ? <span className="kr-maker-divider" aria-hidden="true" /> : null}
                   {sections.imported.map(card)}
+                  <DepthCard key="전체 브랜드" label="전체 브랜드" image={<span className="kr-all-brands" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="3" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /></svg></span>} mediaKind="brand" onClick={() => setBbmChipPanel("제조사")} />
                 </Carousel>
               </section>
             );

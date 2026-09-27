@@ -12,8 +12,8 @@ const outDir = join("reports", "qf-096");
 mkdirSync(outDir, { recursive: true });
 const manifest = JSON.parse(readFileSync(join("public", "assets", "brand", "kr", "manifest.json"), "utf8"));
 const railSize = (r) => { if (r <= 1.25) { const w = Math.min(44, 28 * r); return { w, h: Math.min(28, w / r) }; } const w = Math.min(44, 28 * Math.sqrt(r)); return { w, h: w / r }; };
-// plain(초톳 실측): 엠블럼(비율 1.25 이하) 긴 변 82%, 가로형 폭 100%, 가운데
-const plainSize = (r, side) => (r > 1.25 ? { w: side, h: side / r } : r >= 1 ? { w: side * 0.82, h: side * 0.82 / r } : { w: side * 0.82 * r, h: side * 0.82 });
+// plain(QF-108, 초톳 실측 M-041): 비율 1.25 이하 긴 변 82.5% · 1.25 초과 1.6 미만 폭 91% · 1.6 이상 폭 100%, 가운데
+const plainSize = (r, side) => (r >= 1.6 ? { w: side, h: side / r } : r > 1.25 ? { w: side * 0.91, h: (side * 0.91) / r } : r >= 1 ? { w: side * 0.825, h: (side * 0.825) / r } : { w: side * 0.825 * r, h: side * 0.825 });
 const listSize = (r) => (r >= 1 ? { w: 24, h: 24 / r } : { w: 24 * r, h: 24 });
 let outsideTotal = 0; const outsideList = [];
 
@@ -72,11 +72,16 @@ for (const width of [1440, 1280]) {
   await page.locator(".bbm-category-menu__button").filter({ hasText: /^중고차/ }).first().click(); await page.waitForTimeout(600);
   const rail = await measureLogos(page, ".is-kr-maker");
   verify(`PC ${width} 퀵필터 제조사 줄`, rail);
+  // QF-108: PC 는 11칸이 한 줄(가로 스크롤 없음) · 이름 글자 상자 폭 76
+  const oneLine = await page.evaluate(() => { const t = document.querySelector(".is-kr-maker .depth-rail-track"); const cards = [...document.querySelectorAll(".is-kr-maker .depth-card")]; const rail = document.querySelector(".is-kr-maker").getBoundingClientRect(); return { overflow: t.scrollWidth - t.clientWidth, n: cards.length, lastRight: Math.round(cards.at(-1).getBoundingClientRect().right), railRight: Math.round(rail.right), nameW: [...new Set(cards.map((c) => Math.round(c.querySelector(".depth-card-label").getBoundingClientRect().width)))] }; });
+  check(`PC ${width} 제조사 줄 11칸 한 줄(넘침 0) · 이름 상자 폭 76`, oneLine.n === 11 && oneLine.overflow <= 0 && oneLine.lastRight <= oneLine.railRight && oneLine.nameW.length === 1 && oneLine.nameW[0] === 76, JSON.stringify(oneLine));
   const order = await page.evaluate(() => [...document.querySelectorAll(".is-kr-maker .depth-rail-track > *")].map((e) => e.classList.contains("kr-maker-divider") ? "|" : e.textContent.trim()));
   const divider = await page.evaluate(() => { const d = document.querySelector(".kr-maker-divider"); if (!d) return null; const r = d.getBoundingClientRect(); const s = getComputedStyle(d); return { w: r.width, h: r.height, bg: s.backgroundColor, margin: s.margin }; });
   if (width === 1440) {
     summary.railOrder = order;
-    check("퀵필터 순서: 국산 → 구분선 → 수입차 인기 → 이름순 나머지, 0대·기타 제외", order[0] === "현대" && order.includes("|") && order[order.indexOf("|") + 1] === "벤츠" && !order.some((name) => name.startsWith("기타")) && !order.includes("BYD"), `${order.slice(0, 10).join(" ")} … (카드 ${order.filter((x) => x !== "|").length})`);
+    // QF-108: 월 단위 상위 10(국산 6 → 구분선 → 수입 4) + "전체 브랜드"
+    const want = "현대 제네시스 기아 쉐보레 르노코리아 KGM | BMW 벤츠 아우디 포르쉐 전체 브랜드";
+    check("퀵필터 제조사 줄 10개 + 전체 브랜드(국산 6 → 구분선 → 수입 4, brand-top10.json)", order.join(" ") === want, `${order.join(" ")} (카드 ${order.filter((x) => x !== "|").length})`);
     // QF-096 보완: 카드에만 짧은 이름(쉐보레·르노코리아·KGM, 괄호 앞까지), 80 칸에서 잘리는 이름 목록
     const labels = await page.evaluate(() => [...document.querySelectorAll(".is-kr-maker .depth-card-label")].map((label) => ({ text: label.textContent, cut: label.scrollWidth > label.clientWidth + 0.5 })));
     summary.truncatedRailLabels = labels.filter((label) => label.cut).map((label) => label.text);

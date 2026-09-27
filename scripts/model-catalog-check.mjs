@@ -82,8 +82,12 @@ for (const [tag, device, viewport] of [["pc-1440", "pc", { width: 1440, height: 
     await page.waitForTimeout(300);
     await page.addStyleTag({ content: "*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}" });
     await click(page.locator(".bbm-category-menu__button").filter({ hasText: /^중고차/ }).first());
-    if (!(await cardByLabel(maker).count())) return false;
-    await click(cardByLabel(maker)); await settle();
+    // QF-108: 제조사 줄은 상위 10 + "전체 브랜드" — 줄에 없는 제조사는 "전체 브랜드" 목록에서 고른다
+    if (await cardByLabel(maker).count()) { await click(cardByLabel(maker)); await settle(); return true; }
+    await click(page.locator("section.depth-rail .depth-card").filter({ hasText: "전체 브랜드" }).first());
+    const row = page.locator(".bbm-maker-list .bbm-maker-row").filter({ has: page.locator(".bbm-maker-name", { hasText: new RegExp(`^${esc(maker)}$`) }) }).first();
+    if (!(await row.count())) return false;
+    await click(row); await settle();
     return true;
   };
   const notZero = (state) => !state.empty && (state.count === null || state.count > 0);
