@@ -175,7 +175,7 @@ async function readState(page, side, device) {
     const chipEls = [...document.querySelectorAll(device === "pc" ? ".bbm-chips .filter-chip" : ".filter-track .filter-chip")];
     const applied = chipEls.filter((e) => /is-active/.test(e.className) && !/전체차량/.test(text(e))).map(text);
     const plain = chipEls.filter((e) => !/is-active/.test(e.className)).map(text);
-    const count = text(document.querySelector(".bbm-summary strong"));
+    const count = document.querySelector(".bbm-ct-title")?.getAttribute("data-count") ?? text(document.querySelector(".bbm-summary strong")); // QF-106: 제목 고정, 대수는 data-count
     const badge = device === "pc" ? text(document.querySelector(".bbm-filter-count")) : text(document.querySelector(".filter-fixed-count"));
     const blue = [...document.querySelectorAll(".bbm-filter-item.is-applied .bbm-filter-label-text")].map(text);
     const history = device === "pc" ? text(document.querySelector(".bbm-filter-history")).replace(/[^\d]/g, "") : (document.querySelector(".filter-shell.is-bbm")?.getAttribute("data-history") ?? "");

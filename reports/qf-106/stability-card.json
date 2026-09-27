@@ -1,0 +1,2046 @@
+{
+ "pc-1440": {
+  "steps": [
+   {
+    "name": "처음",
+    "layers": [
+     {
+      "id": "①경로",
+      "top": 16,
+      "bottom": 34,
+      "h": 18
+     },
+     {
+      "id": "①제목",
+      "top": 45,
+      "bottom": 77,
+      "h": 32
+     },
+     {
+      "id": "②",
+      "top": 95,
+      "bottom": 127,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 145,
+      "bottom": 177,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 193,
+      "bottom": 265,
+      "h": 72
+     }
+    ],
+    "cardH": 281,
+    "pill": false,
+    "railKind": "제조사",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [
+     72
+    ],
+    "title": "중고차",
+    "regionRow": true,
+    "headOk": null,
+    "firstChip": null,
+    "firstInRail": 140,
+    "chips": [
+     "중고차×",
+     "제조사▾",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": false,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "벤츠",
+    "layers": [
+     {
+      "id": "①경로",
+      "top": 16,
+      "bottom": 34,
+      "h": 18
+     },
+     {
+      "id": "①제목",
+      "top": 45,
+      "bottom": 77,
+      "h": 32
+     },
+     {
+      "id": "②",
+      "top": 95,
+      "bottom": 127,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 145,
+      "bottom": 177,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 193,
+      "bottom": 265,
+      "h": 72
+     }
+    ],
+    "cardH": 281,
+    "pill": false,
+    "railKind": "벤츠 모델",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [
+     72
+    ],
+    "title": "중고차",
+    "regionRow": true,
+    "headOk": null,
+    "firstChip": null,
+    "firstInRail": 140,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "모델▾",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "C클래스",
+    "layers": [
+     {
+      "id": "①경로",
+      "top": 16,
+      "bottom": 34,
+      "h": 18
+     },
+     {
+      "id": "①제목",
+      "top": 45,
+      "bottom": 77,
+      "h": 32
+     },
+     {
+      "id": "②",
+      "top": 95,
+      "bottom": 127,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 145,
+      "bottom": 177,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 193,
+      "bottom": 265,
+      "h": 72
+     }
+    ],
+    "cardH": 281,
+    "pill": false,
+    "railKind": "C클래스 세부모델",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [
+     72
+    ],
+    "title": "중고차",
+    "regionRow": true,
+    "headOk": null,
+    "firstChip": null,
+    "firstInRail": 140,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "C클래스×",
+     "세부모델▾",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "W206",
+    "layers": [
+     {
+      "id": "①경로",
+      "top": 16,
+      "bottom": 34,
+      "h": 18
+     },
+     {
+      "id": "①제목",
+      "top": 45,
+      "bottom": 77,
+      "h": 32
+     },
+     {
+      "id": "②",
+      "top": 95,
+      "bottom": 127,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 145,
+      "bottom": 177,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 193,
+      "bottom": 225,
+      "h": 32
+     }
+    ],
+    "cardH": 249,
+    "pill": true,
+    "railKind": "트림",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [],
+    "title": "중고차",
+    "regionRow": true,
+    "headOk": null,
+    "firstChip": null,
+    "firstInRail": 140,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "C클래스×",
+     "W206×",
+     "트림▾",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "C200",
+    "layers": [
+     {
+      "id": "①경로",
+      "top": 16,
+      "bottom": 34,
+      "h": 18
+     },
+     {
+      "id": "①제목",
+      "top": 45,
+      "bottom": 77,
+      "h": 32
+     },
+     {
+      "id": "②",
+      "top": 95,
+      "bottom": 127,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 145,
+      "bottom": 177,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 193,
+      "bottom": 225,
+      "h": 32
+     }
+    ],
+    "cardH": 249,
+    "pill": true,
+    "railKind": "연식",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [],
+    "title": "중고차",
+    "regionRow": true,
+    "headOk": null,
+    "firstChip": null,
+    "firstInRail": 140,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "C클래스×",
+     "W206×",
+     "C200×",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "2023",
+    "layers": [
+     {
+      "id": "①경로",
+      "top": 16,
+      "bottom": 34,
+      "h": 18
+     },
+     {
+      "id": "①제목",
+      "top": 45,
+      "bottom": 77,
+      "h": 32
+     },
+     {
+      "id": "②",
+      "top": 95,
+      "bottom": 127,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 145,
+      "bottom": 177,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 193,
+      "bottom": 225,
+      "h": 32
+     }
+    ],
+    "cardH": 249,
+    "pill": true,
+    "railKind": "연식",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [],
+    "title": "중고차",
+    "regionRow": true,
+    "headOk": null,
+    "firstChip": null,
+    "firstInRail": 140,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "C클래스×",
+     "W206×",
+     "C200×",
+     "2023년×",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "연식 해제",
+    "layers": [
+     {
+      "id": "①경로",
+      "top": 16,
+      "bottom": 34,
+      "h": 18
+     },
+     {
+      "id": "①제목",
+      "top": 45,
+      "bottom": 77,
+      "h": 32
+     },
+     {
+      "id": "②",
+      "top": 95,
+      "bottom": 127,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 145,
+      "bottom": 177,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 193,
+      "bottom": 225,
+      "h": 32
+     }
+    ],
+    "cardH": 249,
+    "pill": true,
+    "railKind": "연식",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [],
+    "title": "중고차",
+    "regionRow": true,
+    "headOk": null,
+    "firstChip": null,
+    "firstInRail": 140,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "C클래스×",
+     "W206×",
+     "C200×",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "필터 초기화",
+    "layers": [
+     {
+      "id": "①경로",
+      "top": 16,
+      "bottom": 34,
+      "h": 18
+     },
+     {
+      "id": "①제목",
+      "top": 45,
+      "bottom": 77,
+      "h": 32
+     },
+     {
+      "id": "②",
+      "top": 95,
+      "bottom": 127,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 145,
+      "bottom": 177,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 193,
+      "bottom": 265,
+      "h": 72
+     }
+    ],
+    "cardH": 281,
+    "pill": false,
+    "railKind": "제조사",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [
+     72
+    ],
+    "title": "중고차",
+    "regionRow": true,
+    "headOk": null,
+    "firstChip": null,
+    "firstInRail": 140,
+    "chips": [
+     "중고차×",
+     "제조사▾",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": false,
+    "scrollTop": 0,
+    "problems": []
+   }
+  ],
+  "forward": [
+   281,
+   281,
+   281,
+   249,
+   249,
+   249
+  ],
+  "changes": 1,
+  "maxShift": 0,
+  "errors": 0,
+  "flowProblems": []
+ },
+ "pc-1280": {
+  "steps": [
+   {
+    "name": "처음",
+    "layers": [
+     {
+      "id": "①경로",
+      "top": 16,
+      "bottom": 34,
+      "h": 18
+     },
+     {
+      "id": "①제목",
+      "top": 45,
+      "bottom": 77,
+      "h": 32
+     },
+     {
+      "id": "②",
+      "top": 95,
+      "bottom": 127,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 145,
+      "bottom": 177,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 193,
+      "bottom": 265,
+      "h": 72
+     }
+    ],
+    "cardH": 281,
+    "pill": false,
+    "railKind": "제조사",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [
+     72
+    ],
+    "title": "중고차",
+    "regionRow": true,
+    "headOk": null,
+    "firstChip": null,
+    "firstInRail": 60,
+    "chips": [
+     "중고차×",
+     "제조사▾",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": false,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "벤츠",
+    "layers": [
+     {
+      "id": "①경로",
+      "top": 16,
+      "bottom": 34,
+      "h": 18
+     },
+     {
+      "id": "①제목",
+      "top": 45,
+      "bottom": 77,
+      "h": 32
+     },
+     {
+      "id": "②",
+      "top": 95,
+      "bottom": 127,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 145,
+      "bottom": 177,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 193,
+      "bottom": 265,
+      "h": 72
+     }
+    ],
+    "cardH": 281,
+    "pill": false,
+    "railKind": "벤츠 모델",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [
+     72
+    ],
+    "title": "중고차",
+    "regionRow": true,
+    "headOk": null,
+    "firstChip": null,
+    "firstInRail": 60,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "모델▾",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "C클래스",
+    "layers": [
+     {
+      "id": "①경로",
+      "top": 16,
+      "bottom": 34,
+      "h": 18
+     },
+     {
+      "id": "①제목",
+      "top": 45,
+      "bottom": 77,
+      "h": 32
+     },
+     {
+      "id": "②",
+      "top": 95,
+      "bottom": 127,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 145,
+      "bottom": 177,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 193,
+      "bottom": 265,
+      "h": 72
+     }
+    ],
+    "cardH": 281,
+    "pill": false,
+    "railKind": "C클래스 세부모델",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [
+     72
+    ],
+    "title": "중고차",
+    "regionRow": true,
+    "headOk": null,
+    "firstChip": null,
+    "firstInRail": 60,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "C클래스×",
+     "세부모델▾",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "W206",
+    "layers": [
+     {
+      "id": "①경로",
+      "top": 16,
+      "bottom": 34,
+      "h": 18
+     },
+     {
+      "id": "①제목",
+      "top": 45,
+      "bottom": 77,
+      "h": 32
+     },
+     {
+      "id": "②",
+      "top": 95,
+      "bottom": 127,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 145,
+      "bottom": 177,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 193,
+      "bottom": 225,
+      "h": 32
+     }
+    ],
+    "cardH": 249,
+    "pill": true,
+    "railKind": "트림",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [],
+    "title": "중고차",
+    "regionRow": true,
+    "headOk": null,
+    "firstChip": null,
+    "firstInRail": 60,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "C클래스×",
+     "W206×",
+     "트림▾",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "C200",
+    "layers": [
+     {
+      "id": "①경로",
+      "top": 16,
+      "bottom": 34,
+      "h": 18
+     },
+     {
+      "id": "①제목",
+      "top": 45,
+      "bottom": 77,
+      "h": 32
+     },
+     {
+      "id": "②",
+      "top": 95,
+      "bottom": 127,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 145,
+      "bottom": 177,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 193,
+      "bottom": 225,
+      "h": 32
+     }
+    ],
+    "cardH": 249,
+    "pill": true,
+    "railKind": "연식",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [],
+    "title": "중고차",
+    "regionRow": true,
+    "headOk": null,
+    "firstChip": null,
+    "firstInRail": 60,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "C클래스×",
+     "W206×",
+     "C200×",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "2023",
+    "layers": [
+     {
+      "id": "①경로",
+      "top": 16,
+      "bottom": 34,
+      "h": 18
+     },
+     {
+      "id": "①제목",
+      "top": 45,
+      "bottom": 77,
+      "h": 32
+     },
+     {
+      "id": "②",
+      "top": 95,
+      "bottom": 127,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 145,
+      "bottom": 177,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 193,
+      "bottom": 225,
+      "h": 32
+     }
+    ],
+    "cardH": 249,
+    "pill": true,
+    "railKind": "연식",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [],
+    "title": "중고차",
+    "regionRow": true,
+    "headOk": null,
+    "firstChip": null,
+    "firstInRail": 60,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "C클래스×",
+     "W206×",
+     "C200×",
+     "2023년×",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "연식 해제",
+    "layers": [
+     {
+      "id": "①경로",
+      "top": 16,
+      "bottom": 34,
+      "h": 18
+     },
+     {
+      "id": "①제목",
+      "top": 45,
+      "bottom": 77,
+      "h": 32
+     },
+     {
+      "id": "②",
+      "top": 95,
+      "bottom": 127,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 145,
+      "bottom": 177,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 193,
+      "bottom": 225,
+      "h": 32
+     }
+    ],
+    "cardH": 249,
+    "pill": true,
+    "railKind": "연식",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [],
+    "title": "중고차",
+    "regionRow": true,
+    "headOk": null,
+    "firstChip": null,
+    "firstInRail": 60,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "C클래스×",
+     "W206×",
+     "C200×",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "필터 초기화",
+    "layers": [
+     {
+      "id": "①경로",
+      "top": 16,
+      "bottom": 34,
+      "h": 18
+     },
+     {
+      "id": "①제목",
+      "top": 45,
+      "bottom": 77,
+      "h": 32
+     },
+     {
+      "id": "②",
+      "top": 95,
+      "bottom": 127,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 145,
+      "bottom": 177,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 193,
+      "bottom": 265,
+      "h": 72
+     }
+    ],
+    "cardH": 281,
+    "pill": false,
+    "railKind": "제조사",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [
+     72
+    ],
+    "title": "중고차",
+    "regionRow": true,
+    "headOk": null,
+    "firstChip": null,
+    "firstInRail": 60,
+    "chips": [
+     "중고차×",
+     "제조사▾",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": false,
+    "scrollTop": 0,
+    "problems": []
+   }
+  ],
+  "forward": [
+   281,
+   281,
+   281,
+   249,
+   249,
+   249
+  ],
+  "changes": 1,
+  "maxShift": 0,
+  "errors": 0,
+  "flowProblems": []
+ },
+ "m-393": {
+  "steps": [
+   {
+    "name": "처음",
+    "layers": [
+     {
+      "id": "①",
+      "top": 10,
+      "bottom": 50,
+      "h": 40
+     },
+     {
+      "id": "②",
+      "top": 58,
+      "bottom": 90,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 100,
+      "bottom": 132,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 146,
+      "bottom": 226,
+      "h": 80
+     },
+     {
+      "id": "⑤",
+      "top": 226,
+      "bottom": 330,
+      "h": 104
+     }
+    ],
+    "cardH": null,
+    "pill": false,
+    "railKind": "제조사",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [
+     72
+    ],
+    "title": "중고차",
+    "regionRow": false,
+    "headOk": true,
+    "firstChip": 16,
+    "firstInRail": 12,
+    "chips": [
+     "중고차×",
+     "제조사▾",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": false,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "벤츠",
+    "layers": [
+     {
+      "id": "①",
+      "top": 10,
+      "bottom": 50,
+      "h": 40
+     },
+     {
+      "id": "②",
+      "top": 58,
+      "bottom": 90,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 100,
+      "bottom": 132,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 146,
+      "bottom": 226,
+      "h": 80
+     },
+     {
+      "id": "⑤",
+      "top": 226,
+      "bottom": 330,
+      "h": 104
+     }
+    ],
+    "cardH": null,
+    "pill": false,
+    "railKind": "벤츠 모델",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [
+     72
+    ],
+    "title": "중고차",
+    "regionRow": false,
+    "headOk": true,
+    "firstChip": 16,
+    "firstInRail": 12,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "모델▾",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "C클래스",
+    "layers": [
+     {
+      "id": "①",
+      "top": 10,
+      "bottom": 50,
+      "h": 40
+     },
+     {
+      "id": "②",
+      "top": 58,
+      "bottom": 90,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 100,
+      "bottom": 132,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 146,
+      "bottom": 226,
+      "h": 80
+     },
+     {
+      "id": "⑤",
+      "top": 226,
+      "bottom": 330,
+      "h": 104
+     }
+    ],
+    "cardH": null,
+    "pill": false,
+    "railKind": "C클래스 세부모델",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [
+     72
+    ],
+    "title": "중고차",
+    "regionRow": false,
+    "headOk": true,
+    "firstChip": 16,
+    "firstInRail": 12,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "C클래스×",
+     "세부모델▾",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "W206",
+    "layers": [
+     {
+      "id": "①",
+      "top": 10,
+      "bottom": 50,
+      "h": 40
+     },
+     {
+      "id": "②",
+      "top": 58,
+      "bottom": 90,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 100,
+      "bottom": 132,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 146,
+      "bottom": 186,
+      "h": 40
+     },
+     {
+      "id": "⑤",
+      "top": 186,
+      "bottom": 290,
+      "h": 104
+     }
+    ],
+    "cardH": null,
+    "pill": true,
+    "railKind": "트림",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [],
+    "title": "중고차",
+    "regionRow": false,
+    "headOk": true,
+    "firstChip": 16,
+    "firstInRail": 12,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "C클래스×",
+     "W206×",
+     "트림▾",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "C200",
+    "layers": [
+     {
+      "id": "①",
+      "top": 10,
+      "bottom": 50,
+      "h": 40
+     },
+     {
+      "id": "②",
+      "top": 58,
+      "bottom": 90,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 100,
+      "bottom": 132,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 146,
+      "bottom": 186,
+      "h": 40
+     },
+     {
+      "id": "⑤",
+      "top": 186,
+      "bottom": 290,
+      "h": 104
+     }
+    ],
+    "cardH": null,
+    "pill": true,
+    "railKind": "연식",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [],
+    "title": "중고차",
+    "regionRow": false,
+    "headOk": true,
+    "firstChip": 16,
+    "firstInRail": 12,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "C클래스×",
+     "W206×",
+     "C200×",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "2023",
+    "layers": [
+     {
+      "id": "①",
+      "top": 10,
+      "bottom": 50,
+      "h": 40
+     },
+     {
+      "id": "②",
+      "top": 58,
+      "bottom": 90,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 100,
+      "bottom": 132,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 146,
+      "bottom": 186,
+      "h": 40
+     },
+     {
+      "id": "⑤",
+      "top": 186,
+      "bottom": 290,
+      "h": 104
+     }
+    ],
+    "cardH": null,
+    "pill": true,
+    "railKind": "연식",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [],
+    "title": "중고차",
+    "regionRow": false,
+    "headOk": true,
+    "firstChip": 16,
+    "firstInRail": 12,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "C클래스×",
+     "W206×",
+     "C200×",
+     "2023년×",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "연식 해제",
+    "layers": [
+     {
+      "id": "①",
+      "top": 10,
+      "bottom": 50,
+      "h": 40
+     },
+     {
+      "id": "②",
+      "top": 58,
+      "bottom": 90,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 100,
+      "bottom": 132,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 146,
+      "bottom": 186,
+      "h": 40
+     },
+     {
+      "id": "⑤",
+      "top": 186,
+      "bottom": 290,
+      "h": 104
+     }
+    ],
+    "cardH": null,
+    "pill": true,
+    "railKind": "연식",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [],
+    "title": "중고차",
+    "regionRow": false,
+    "headOk": true,
+    "firstChip": 16,
+    "firstInRail": 12,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "C클래스×",
+     "W206×",
+     "C200×",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "필터 초기화",
+    "layers": [
+     {
+      "id": "①",
+      "top": 10,
+      "bottom": 50,
+      "h": 40
+     },
+     {
+      "id": "②",
+      "top": 58,
+      "bottom": 90,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 100,
+      "bottom": 132,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 146,
+      "bottom": 226,
+      "h": 80
+     },
+     {
+      "id": "⑤",
+      "top": 226,
+      "bottom": 330,
+      "h": 104
+     }
+    ],
+    "cardH": null,
+    "pill": false,
+    "railKind": "제조사",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [
+     72
+    ],
+    "title": "중고차",
+    "regionRow": false,
+    "headOk": true,
+    "firstChip": 16,
+    "firstInRail": 12,
+    "chips": [
+     "중고차×",
+     "제조사▾",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": false,
+    "scrollTop": 0,
+    "problems": []
+   }
+  ],
+  "forward": [
+   80,
+   80,
+   80,
+   40,
+   40,
+   40
+  ],
+  "changes": 1,
+  "maxShift": 0,
+  "errors": 0,
+  "flowProblems": []
+ },
+ "m-360": {
+  "steps": [
+   {
+    "name": "처음",
+    "layers": [
+     {
+      "id": "①",
+      "top": 10,
+      "bottom": 50,
+      "h": 40
+     },
+     {
+      "id": "②",
+      "top": 58,
+      "bottom": 90,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 100,
+      "bottom": 132,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 146,
+      "bottom": 226,
+      "h": 80
+     },
+     {
+      "id": "⑤",
+      "top": 226,
+      "bottom": 330,
+      "h": 104
+     }
+    ],
+    "cardH": null,
+    "pill": false,
+    "railKind": "제조사",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [
+     72
+    ],
+    "title": "중고차",
+    "regionRow": false,
+    "headOk": true,
+    "firstChip": 16,
+    "firstInRail": 12,
+    "chips": [
+     "중고차×",
+     "제조사▾",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": false,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "벤츠",
+    "layers": [
+     {
+      "id": "①",
+      "top": 10,
+      "bottom": 50,
+      "h": 40
+     },
+     {
+      "id": "②",
+      "top": 58,
+      "bottom": 90,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 100,
+      "bottom": 132,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 146,
+      "bottom": 226,
+      "h": 80
+     },
+     {
+      "id": "⑤",
+      "top": 226,
+      "bottom": 330,
+      "h": 104
+     }
+    ],
+    "cardH": null,
+    "pill": false,
+    "railKind": "벤츠 모델",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [
+     72
+    ],
+    "title": "중고차",
+    "regionRow": false,
+    "headOk": true,
+    "firstChip": 16,
+    "firstInRail": 12,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "모델▾",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "C클래스",
+    "layers": [
+     {
+      "id": "①",
+      "top": 10,
+      "bottom": 50,
+      "h": 40
+     },
+     {
+      "id": "②",
+      "top": 58,
+      "bottom": 90,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 100,
+      "bottom": 132,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 146,
+      "bottom": 226,
+      "h": 80
+     },
+     {
+      "id": "⑤",
+      "top": 226,
+      "bottom": 330,
+      "h": 104
+     }
+    ],
+    "cardH": null,
+    "pill": false,
+    "railKind": "C클래스 세부모델",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [
+     72
+    ],
+    "title": "중고차",
+    "regionRow": false,
+    "headOk": true,
+    "firstChip": 16,
+    "firstInRail": 12,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "C클래스×",
+     "세부모델▾",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "W206",
+    "layers": [
+     {
+      "id": "①",
+      "top": 10,
+      "bottom": 50,
+      "h": 40
+     },
+     {
+      "id": "②",
+      "top": 58,
+      "bottom": 90,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 100,
+      "bottom": 132,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 146,
+      "bottom": 186,
+      "h": 40
+     },
+     {
+      "id": "⑤",
+      "top": 186,
+      "bottom": 290,
+      "h": 104
+     }
+    ],
+    "cardH": null,
+    "pill": true,
+    "railKind": "트림",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [],
+    "title": "중고차",
+    "regionRow": false,
+    "headOk": true,
+    "firstChip": 16,
+    "firstInRail": 12,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "C클래스×",
+     "W206×",
+     "트림▾",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "C200",
+    "layers": [
+     {
+      "id": "①",
+      "top": 10,
+      "bottom": 50,
+      "h": 40
+     },
+     {
+      "id": "②",
+      "top": 58,
+      "bottom": 90,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 100,
+      "bottom": 132,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 146,
+      "bottom": 186,
+      "h": 40
+     },
+     {
+      "id": "⑤",
+      "top": 186,
+      "bottom": 290,
+      "h": 104
+     }
+    ],
+    "cardH": null,
+    "pill": true,
+    "railKind": "연식",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [],
+    "title": "중고차",
+    "regionRow": false,
+    "headOk": true,
+    "firstChip": 16,
+    "firstInRail": 12,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "C클래스×",
+     "W206×",
+     "C200×",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "2023",
+    "layers": [
+     {
+      "id": "①",
+      "top": 10,
+      "bottom": 50,
+      "h": 40
+     },
+     {
+      "id": "②",
+      "top": 58,
+      "bottom": 90,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 100,
+      "bottom": 132,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 146,
+      "bottom": 186,
+      "h": 40
+     },
+     {
+      "id": "⑤",
+      "top": 186,
+      "bottom": 290,
+      "h": 104
+     }
+    ],
+    "cardH": null,
+    "pill": true,
+    "railKind": "연식",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [],
+    "title": "중고차",
+    "regionRow": false,
+    "headOk": true,
+    "firstChip": 16,
+    "firstInRail": 12,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "C클래스×",
+     "W206×",
+     "C200×",
+     "2023년×",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "연식 해제",
+    "layers": [
+     {
+      "id": "①",
+      "top": 10,
+      "bottom": 50,
+      "h": 40
+     },
+     {
+      "id": "②",
+      "top": 58,
+      "bottom": 90,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 100,
+      "bottom": 132,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 146,
+      "bottom": 186,
+      "h": 40
+     },
+     {
+      "id": "⑤",
+      "top": 186,
+      "bottom": 290,
+      "h": 104
+     }
+    ],
+    "cardH": null,
+    "pill": true,
+    "railKind": "연식",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [],
+    "title": "중고차",
+    "regionRow": false,
+    "headOk": true,
+    "firstChip": 16,
+    "firstInRail": 12,
+    "chips": [
+     "중고차×",
+     "벤츠×",
+     "C클래스×",
+     "W206×",
+     "C200×",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": true,
+    "scrollTop": 0,
+    "problems": []
+   },
+   {
+    "name": "필터 초기화",
+    "layers": [
+     {
+      "id": "①",
+      "top": 10,
+      "bottom": 50,
+      "h": 40
+     },
+     {
+      "id": "②",
+      "top": 58,
+      "bottom": 90,
+      "h": 32
+     },
+     {
+      "id": "③",
+      "top": 100,
+      "bottom": 132,
+      "h": 32
+     },
+     {
+      "id": "④",
+      "top": 146,
+      "bottom": 226,
+      "h": 80
+     },
+     {
+      "id": "⑤",
+      "top": 226,
+      "bottom": 330,
+      "h": 104
+     }
+    ],
+    "cardH": null,
+    "pill": false,
+    "railKind": "제조사",
+    "overflow": 0,
+    "scrollbars": 0,
+    "wrapPills": [],
+    "wrapNames": [],
+    "cellH": [
+     72
+    ],
+    "title": "중고차",
+    "regionRow": false,
+    "headOk": true,
+    "firstChip": 16,
+    "firstInRail": 12,
+    "chips": [
+     "중고차×",
+     "제조사▾",
+     "연식▾",
+     "가격▾",
+     "연료▾",
+     "판매자▾"
+    ],
+    "filterBtnDark": false,
+    "scrollTop": 0,
+    "problems": []
+   }
+  ],
+  "forward": [
+   80,
+   80,
+   80,
+   40,
+   40,
+   40
+  ],
+  "changes": 1,
+  "maxShift": 0,
+  "errors": 0,
+  "flowProblems": []
+ }
+}

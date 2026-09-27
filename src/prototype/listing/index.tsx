@@ -64,7 +64,7 @@ import {
 } from "../data";
 import { BrandRailMark, CategoryFilterSheet, DepthCard, MakerSheet, PriceSheet, TrimChip, VehiclePickerSheet } from "../quick-filter";
 import { bbCatalog, BbCarCard, BbFilterSidebar, BbHeader, BbIcon, BbSwitch, type BbMakerSelection } from "./pc-bbmuseum";
-import { bbmCarChecks, emptyBbmFilters, isBbmDataOption, matchesBbmFilters, rangeIsSet, resetBbmFilters, type BbmCheckKey, type BbmFilterValues } from "../filters/bbm-filter-state";
+import { bbmCarChecks, emptyBbmFilters, isBbmDataOption, matchesBbmFilters, rangeIsSet, resetBbmFilters, setBbmChecks, setBbmRange, type BbmCheckKey, type BbmFilterValues } from "../filters/bbm-filter-state";
 import { bbmAppliedChips, bbmItemValue } from "../filters/bbm-applied";
 import { BbmPartsGallery } from "../filters/bbm-parts-gallery";
 import { BbmActionBar, BbmFullExcludeAction, BbmFullFilter, BbmFullItem, BbmModal, BbmSheet } from "../filters/bbm-filter-parts";
@@ -74,8 +74,9 @@ import { BbmBottomGnb, BbmCategoryMenu, BbmMakerList, BbmMobileOptions, BbmModel
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
 import { useBottomStickySidebar } from "./bbm-sticky-sidebar";
 import { KrBrandLogo, krMakerRailSections, krRailLabel } from "./bbm-brand-logos";
+import { StableRegionRow, StableYearRow, stablePageTitle, STABLE_YEAR_OPTIONS, stableKeywordPills } from "./stable-top";
 import { CatalogModelImage, catalogMakerNames, catalogModelOfCar, guaziGenerationsByMakerModel, guaziModelVisualsByMaker, guaziModelsByMaker } from "./model-catalog-kr";
-import { BbmChipScroller, BbmTopCrumbs, bbmTopMonth, bbmTopTitlePrefix, type BbmCrumb } from "./bbm-top-chotot";
+import { BbmChipScroller, BbmTopCrumbs, type BbmCrumb } from "./bbm-top-chotot";
 import { BBM_PAGE_SIZE, BbmFooter, BbmPagination, BbmPopOptions, BbmToolbarMenu, bbmSortOptions, bbmViewOptionsMobile, bbmViewOptionsPc, sortBbmCars, type BbmSort } from "./bbm-list-area";
 
 // QF-091: 적용 사이트 선택(시안 전환 도구)은 &debug=1 일 때만
@@ -626,19 +627,21 @@ function MarketplaceScreen() {
   };
 
   const resetFilters = ({ closeActiveSheet = true }: { closeActiveSheet?: boolean } = {}) => {
-    setFilters((current) => ({ ...emptyChoTotFilters, bbm: resetBbmFilters(current.bbm ?? emptyBbmFilters) }));
+    // QF-106: 과쯔 "필터 초기화"는 1번 상태(들어온 카테고리 유지 · ④ 제조사 이미지 줄)로 — 카테고리 없이 들어왔으면 첫 화면
+    const keepCategory = isGuaziQuickStyle && filters.category !== "전체" ? filters.category : null;
+    setFilters((current) => ({ ...emptyChoTotFilters, ...(keepCategory ? { category: keepCategory } : {}), bbm: resetBbmFilters(current.bbm ?? emptyBbmFilters) }));
     setDraftFilters(emptyChoTotFilters);
     setDraftRegion(emptyRegion);
     setQuery("");
     setSort("최신순");
     setRegion(emptyRegion);
-    setCategoryLandingOpen(true);
+    setCategoryLandingOpen(!keepCategory);
     setFilterFocus(null);
     setQuickFilterFocus(null);
     setSelectedGeneration(null);
     setSelectedVariants([]);
     setTrimApplied(false);
-    replaceFilterParams(null, null);
+    replaceFilterParams(null, null, keepCategory ?? undefined);
     if (closeActiveSheet) setSheet(null);
   };
 
@@ -1015,6 +1018,10 @@ function MarketplaceScreen() {
   const showVariantQuickRail = Boolean(usesUxDepth && ((selectedGeneration && (isGuaziQuickStyle ? guaziTrimRailOptions.length > 1 && !guaziTrimChosen : variantQuickOptions.length)) || hasDirectVariantDepth) && (isGuaziQuickStyle || !trimApplied));
   const showVehicleHeaderRail = Boolean(!isGuaziQuickStyle && usesUxDepth && selectedGeneration && trimApplied);
   const showCategoryQuickRail = categoryLandingOpen && !maker;
+  // QF-106: 연식 알약 줄 = 계층이 끝난 뒤(트림을 골랐거나 트림 1개 이하, 또는 세부모델이 없는 모델)
+  const showYearQuickRail = Boolean(isGuaziQuickStyle && maker && selectedModel && (
+    (selectedGeneration && (guaziTrimChosen || guaziTrimRailOptions.length <= 1)) || (!hasGenerationDepth && !hasDirectVariantDepth)
+  ));
   const showGuaziMakerRail = Boolean(isGuaziQuickStyle && !guaziTrimChosen && !showCategoryQuickRail && !showModelQuickRail && !showGenerationQuickRail && !showVariantQuickRail && !showVehicleHeaderRail && categoryBrandRail.title === "제조사");
 
   // 필터 칩 줄과 퀵필터 레일은 모바일·PC가 같은 마크업을 쓰고, PC에서는 필터 헤더 패널 안으로 위치만 옮긴다.
@@ -1028,7 +1035,8 @@ function MarketplaceScreen() {
   );
   const quickRail = (
           // QF-105: 트림까지 고르면 퀵필터 줄은 닫힌다(칩 [트림 ×] 로 다시 연다)
-          guaziTrimChosen && !showGenerationQuickRail ? null :
+          // QF-106: ④ 퀵필터 자리는 닫지 않는다 — 계층(제조사 → 모델 → 세부모델 → 트림)이 끝나면 연식 알약 줄
+          showYearQuickRail ? <StableYearRow value={bbmValue} onChange={(next) => setBbmFilters(next)} /> :
           // QF-091: 과쯔(개발 시안형)는 퀵필터 0단계 대신 원본 차량 유형 줄. 유형을 고르면 같은 자리가 제조사 레일로 바뀐다
           showCategoryQuickRail && isGuaziQuickStyle ? <BbmCategoryMenu onChoose={chooseVehicleCategory} /> : showCategoryQuickRail ? <section className="category-row" aria-label="차량 대카테고리 선택">
             <Carousel ariaLabel="차량 대카테고리" className="category-carousel" contentClassName="category-track">
@@ -1040,7 +1048,7 @@ function MarketplaceScreen() {
               ))}
             </Carousel>
           </section> : showModelQuickRail && isGuaziQuickStyle ? <section className="depth-rail" aria-label={`${maker} 모델 빠른 선택`}>
-            <span className="depth-rail-label">모델</span>
+            <span className="depth-rail-label">모델:</span>
             <Carousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName="depth-rail-track">
               {modelQuickOptions.map((model) => {
                 const modelVisual = guaziVisualsForMaker?.[model];
@@ -1069,7 +1077,7 @@ function MarketplaceScreen() {
             </Carousel>
           </section> : showGenerationQuickRail && isGuaziQuickStyle ? <section className="depth-rail" aria-label={`${accessibleDepthLabel(selectedModel)} 세부모델 빠른 선택`}>
             {/* QF-097 보완: 과쯔 줄 이름표 "세대" → "세부모델" */}
-            <span className="depth-rail-label">세부모델</span>
+            <span className="depth-rail-label">세부모델:</span>
             <Carousel ariaLabel={`${accessibleDepthLabel(selectedModel)} 세부모델`} className="brand-carousel" contentClassName="depth-rail-track">
               {railGenerationOptions.map((generation) => {
                 // QF-097: 카탈로그 세부 모델은 자기 이미지만(없으면 점선 빈 칸)
@@ -1105,7 +1113,7 @@ function MarketplaceScreen() {
             </Carousel>
           </section> : showVariantQuickRail && isGuaziQuickStyle ? <section className="depth-rail is-trim-row" aria-label={`${accessibleDepthLabel(selectedGeneration ?? selectedModel)} 트림 빠른 선택`}>
             {/* QF-105: 초톳 알약 줄 — "전체" 칩·선택 표시 없음, 처음엔 모든 트림, 누르면 바로 적용 */}
-            <span className="depth-rail-label">트림</span>
+            <span className="depth-rail-label">트림:</span>
             <Carousel ariaLabel={`${accessibleDepthLabel(selectedGeneration ?? selectedModel)} 트림`} className="brand-carousel" contentClassName="depth-rail-track is-chips">
               {variantTrimOptions.map((variant) => (
                 <TrimChip key={variant.name} label={variant.name} disabled={variant.count === 0} onClick={() => chooseTrimPill(variant.name)} />
@@ -1238,8 +1246,12 @@ function MarketplaceScreen() {
       selectedModel && selectedGenerationOption && selectedVariants.length ? { key: "step-trim", label: selectedTrimChipLabel, active: true, className: "is-vehicle-summary is-step", onClick: () => setSheet("vehicle"), onClear: clearVariantFilter } : null,
     ] : []),
     maker && !selectedModel ? { key: "model", label: "모델", active: false, onClick: () => openBbmChipPanel("모델") } : null,
+    // QF-106: 안 고른 단계 칩 = 다음 단계 이름(모델 ▾ → 세부모델 ▾ → 트림 ▾ → 연식 ▾)
+    maker && selectedModel && !selectedGeneration && hasGenerationDepth ? { key: "sub-model", label: "세부모델", active: false, onClick: () => setSheet("vehicle") } : null,
+    // 모바일 지역(② 드롭다운)으로 고른 지역 = 검정 적용 칩
+    !desktop && regionLabel !== "전국" ? { key: "region", label: regionLabel, active: true, className: "is-applied", onClick: openRegionSheet, onClear: () => setRegion(emptyRegion) } : null,
     // QF-105: 트림을 고르면 빈 "트림" 칩 대신 단계 칩 [트림 ×]
-    selectedVariants.length ? null : chipByKey("variant"),
+    selectedVariants.length || (selectedGeneration && guaziTrimRailOptions.length <= 1) ? null : chipByKey("variant"),
     ...bbmApplied.map((chip) => ({ key: `applied-${chip.id}`, label: chip.label, active: true, className: "is-applied", onClick: () => openBbmChipPanel(bbmPanelForId(chip.id)), onClear: () => setBbmFilters(chip.clear(bbmValue)) })),
     maker ? null : { key: "maker", label: "제조사", active: false, onClick: () => openBbmChipPanel("제조사") },
     groupChip("year", "연식", "연식", rangeIsSet(bbmValue.ranges.year)),
@@ -1307,6 +1319,27 @@ function MarketplaceScreen() {
       : <BbmModalPanel item={item} value={panelValue} onChange={setPanelValue} countOf={bbmCountOf} />;
     return <Frame title={item.modalTitle ?? item.label} onClose={close} footer={footer}>{item.mode === "expand" && item.label !== "가격" ? <div className="bbmf-chip-expand">{body}</div> : body}</Frame>;
   };
+  // QF-106: 경로는 PC 상단 카드 ① · 모바일 ⑤(회색 띠 아래)에서 같이 쓴다
+  const bbmCrumbs: BbmCrumb[] = [
+    { label: "보배드림", onClick: () => setSearchToast("보배드림 홈은 정식 서비스에서 이용해 주세요.") },
+    { label: "중고차", onClick: clearCategoryFilter },
+    // 유형 "중고차"는 경로 둘째 칸과 겹치므로 셋째 칸은 "전체차량"으로
+    { label: categoryIsDefault || category === "중고차" ? "전체차량" : category, onClick: clearMakerFilter },
+    ...(maker ? [{ label: maker, onClick: clearModelFilter }] : []),
+    ...(maker && selectedModel ? [{ label: formatModelLabel(selectedModel), onClick: clearGenerationFilter }] : []),
+    ...(maker && selectedModel && selectedGenerationOption ? [{ label: generationDisplayLabel(selectedGenerationOption), onClick: selectedVariants.length ? clearVariantFilter : undefined }] : []),
+    // QF-105: 트림까지 고르면 경로에 트림 이름을 이어 붙인다
+    ...(maker && selectedModel && selectedGenerationOption && selectedVariants.length ? [{ label: selectedTrimChipLabel }] : []),
+  ];
+  const bbmMobileCrumbs = bbmCrumbs;
+  // QF-106 모바일 ⑤ 관련 검색어 알약: 누르면 해당 조건 적용
+  const applyKeywordPill = (id: string) => {
+    if (id === "domestic" || id === "imported") { chooseCategoryFilter(id === "domestic" ? "국산차" : "수입차"); return; }
+    if (id === "price-1000") { setBbmFilters(setBbmRange(bbmValue, "price", { min: "", max: "1000" })); return; }
+    if (id === "light") { setBbmFilters(setBbmChecks(bbmValue, "carClass", ["경형"])); return; }
+    if (id === "suv") { setBbmFilters(setBbmChecks(bbmValue, "bodyType", ["SUV"])); return; }
+    if (id === "hybrid") setBbmFilters(setBbmChecks(bbmValue, "fuel", ["가솔린 하이브리드"]));
+  };
   if (bbmPartsMode) {
     return <MobileScroll className="app-screen"><BbmPartsGallery value={filters.bbm ?? emptyBbmFilters} onChange={setBbmFilters} cars={listingCars} countWith={countWithBbm} /></MobileScroll>;
   }
@@ -1362,23 +1395,12 @@ function MarketplaceScreen() {
                 </section>
     );
     // QF-095: 과쯔 PC 상단 카드 — 초톳 PC 상단과 같은 구조(1줄 경로 · 2줄 제목 + 검색저장 · 3줄 칩 줄 + 필터 초기화 · 4줄 유형 줄/퀵필터 레일)
-    const bbmCrumbs: BbmCrumb[] = [
-      { label: "보배드림", onClick: () => setSearchToast("보배드림 홈은 정식 서비스에서 이용해 주세요.") },
-      { label: "중고차", onClick: clearCategoryFilter },
-      // 유형 "중고차"는 경로 둘째 칸과 겹치므로 셋째 칸은 "전체차량"으로
-      { label: categoryIsDefault || category === "중고차" ? "전체차량" : category, onClick: clearMakerFilter },
-      ...(maker ? [{ label: maker, onClick: clearModelFilter }] : []),
-      ...(maker && selectedModel ? [{ label: formatModelLabel(selectedModel), onClick: clearGenerationFilter }] : []),
-      ...(maker && selectedModel && selectedGenerationOption ? [{ label: generationDisplayLabel(selectedGenerationOption), onClick: selectedVariants.length ? clearVariantFilter : undefined }] : []),
-      // QF-105: 트림까지 고르면 경로에 트림 이름을 이어 붙인다
-      ...(maker && selectedModel && selectedGenerationOption && selectedVariants.length ? [{ label: selectedTrimChipLabel }] : []),
-    ];
-    const bbmTitlePrefix = bbmTopTitlePrefix([regionLabel === "전국" ? null : regionLabel, categoryIsDefault || category === "중고차" ? null : category, maker, selectedModel ? formatModelLabel(selectedModel) : null, selectedModel && selectedGenerationOption ? generationDisplayLabel(selectedGenerationOption) : null, selectedModel && selectedGenerationOption && selectedVariants.length ? selectedTrimChipLabel : null]);
     const bbmTopCard = (
       <section className={`bbm-content-head is-chotot${showCategoryQuickRail ? " has-category-menu" : ""}`} aria-label="검색 조건">
         <BbmTopCrumbs items={bbmCrumbs} />
         <div className="bbm-ct-title-row">
-          <h1 className="bbm-ct-title bbm-summary">{bbmTitlePrefix} <strong>{shownCars.length.toLocaleString("ko-KR")}대</strong> · {bbmTopMonth()}</h1>
+          {/* QF-106: 제목은 상단 메뉴 카테고리 이름으로 고정(대수·날짜·칩 조건 없음). 탭 제목은 그대로 */}
+          <h1 className="bbm-ct-title bbm-summary" data-count={shownCars.length}>{stablePageTitle(category)}</h1>
           <button type="button" className={`bbm-save-search bbm-ct-save${searchSaved ? " is-saved" : ""}`} aria-pressed={searchSaved} onClick={toggleSearchSaved}><img src={bbmIcon("search-save")} alt="" aria-hidden="true" />검색저장</button>
         </div>
         <div className="bbm-ct-chip-row">
@@ -1390,6 +1412,8 @@ function MarketplaceScreen() {
           </div>
           {bbmAppliedCount ? <button type="button" className="bbm-ct-reset" onClick={() => setBbmTopReset((value) => value + 1)}>필터 초기화</button> : null}
         </div>
+        {/* QF-106 ③ 지역 칩 줄(PC만, 항상) */}
+        <StableRegionRow value={bbmValue} onChange={setBbmFilters} onNearby={() => setSearchToast("내 주변 매물은 정식 서비스에서 이용해 주세요.")} />
         <div className="bbm-quick-slot">{quickRail}</div>
       </section>
     );
@@ -1542,7 +1566,15 @@ function MarketplaceScreen() {
                 {bbmChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} onClick={() => { revealBbmChip(chip.label); chip.onClick(); }} onClear={chip.onClear} />)}
               </Carousel>
             </section>
-            {quickRail}
+            {/* QF-106 ④ 퀵필터 자리(항상) · ⑤ 회색 띠 → 경로 · 제목 · 관련 검색어 */}
+            <div className="bbm-m-quick-slot">{quickRail}</div>
+            <section className="bbm-m-head" aria-label="목록 머리">
+              <BbmTopCrumbs items={bbmMobileCrumbs} />
+              <h1 className="bbm-m-title" data-count={shownCars.length}>{stablePageTitle(category)}</h1>
+              <div className="bbm-m-keywords" role="list">
+                {stableKeywordPills.map((pill) => <button key={pill.label} type="button" role="listitem" className="bbm-m-keyword" onClick={() => applyKeywordPill(pill.id)}>{pill.label}</button>)}
+              </div>
+            </section>
             <BbmMobileOptions videoOnly={videoOnly} onToggleVideo={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))} sortLabel={bbmSort} onSort={() => setBbmMenu("m-sort")} extra={debugMode ? quickStyleSelect : null} />
             <nav className="bbm-m-toolbar" aria-label="매물 유형과 보기">
               <BbmSellerTabs tabs={["전체", "개인", "딜러"] as SellerType[]} value={sellerType} onChange={(tab) => setFilters((current) => ({ ...current, seller: tab }))} onBrand={() => setSearchToast("브랜드 매물은 정식 서비스에서 이용해 주세요.")} />

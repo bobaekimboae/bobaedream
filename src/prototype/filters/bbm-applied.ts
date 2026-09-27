@@ -10,6 +10,9 @@ const rangeUnit: Partial<Record<BbmRangeKey, string>> = { price: "만원", milea
 export function bbmRangeLabel(key: BbmRangeKey, value: BbmFilterValues) {
   const range = value.ranges[key];
   if (!rangeIsSet(range) || !range) return "";
+  // QF-106 연식 알약: 한 해("2023년") · "이전"(~2018년)
+  if (key === "year" && range.min && range.min === range.max) return `${range.min}년`;
+  if (key === "year" && range.preset === "이전" && !range.min && range.max) return `~${range.max}년`;
   if (key === "year") return range.min || range.max ? `${range.min ? `${range.min} ` : ""}~${range.max ? ` ${range.max}` : ""}` : range.preset ?? "";
   if (key === "mileage") {
     const { min, max } = bbmRangeBounds(key, range);
