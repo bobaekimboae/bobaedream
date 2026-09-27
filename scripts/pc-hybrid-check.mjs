@@ -78,12 +78,14 @@ check("콘솔 오류 0", Object.values(w).every((value) => value.consoleErrors =
 summary.rail = { 1440: w[1440].rail, 1280: w[1280].rail };
 console.log(`퀵필터 레일 보이는 카드: 1440 ${w[1440].rail.full}개(일부 ${w[1440].rail.partial} / 전체 ${w[1440].rail.total}, 폭 ${w[1440].rail.railWidth}) · 1280 ${w[1280].rail.full}개`);
 
-// 1440 목록 2,000px 스크롤 후 좌측 필터(화면 위 16), 목록 끝까지 내려도 푸터를 덮지 않음
+// 1440 목록 2,000px 스크롤 후 좌측 필터(QF-093 보완: 화면보다 길면 맨 아래가 화면 아래 16, 짧으면 위 16), 목록 끝까지 내려도 푸터를 덮지 않음
 {
   const { context, page } = await open(1440);
   await scrollTo(page, 2000); await page.waitForTimeout(400);
   const after = await layout(page);
-  check("1440 2,000px 스크롤 후 좌측 필터 화면 위 16", after.filter?.y === 16, JSON.stringify(after.filter));
+  const viewportH = await page.evaluate(() => document.querySelector(".mobile-scroll").clientHeight);
+  const stuck = after.filter && (after.filter.h > viewportH - 32 ? after.filter.y + after.filter.h === viewportH - 16 : after.filter.y === 16);
+  check("1440 2,000px 스크롤 후 좌측 필터 붙음(길면 아래 16 · 짧으면 위 16)", Boolean(stuck), `${JSON.stringify(after.filter)} · 화면 ${viewportH}`);
   await page.screenshot({ path: join(outDir, "1440-scrolled.png") });
   await scrollTo(page, 999999); await page.waitForTimeout(400);
   const end = await page.evaluate(() => { const f = document.querySelector(".bbm-page > .bbm-filter").getBoundingClientRect(); const footer = document.querySelector("footer.app-shell__footer").getBoundingClientRect(); return { filterBottom: Math.round(f.bottom), footerTop: Math.round(footer.top) }; });
