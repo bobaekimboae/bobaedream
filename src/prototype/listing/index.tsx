@@ -1322,9 +1322,10 @@ function MarketplaceScreen() {
   // QF-106: 경로는 PC 상단 카드 ① · 모바일 ⑤(회색 띠 아래)에서 같이 쓴다
   const bbmCrumbs: BbmCrumb[] = [
     { label: "보배드림", onClick: () => setSearchToast("보배드림 홈은 정식 서비스에서 이용해 주세요.") },
-    { label: "중고차", onClick: clearCategoryFilter },
-    // 유형 "중고차"는 경로 둘째 칸과 겹치므로 셋째 칸은 "전체차량"으로
-    { label: categoryIsDefault || category === "중고차" ? "전체차량" : category, onClick: clearMakerFilter },
+    // QF-109: 유형이 "중고차"(기본)면 "전체차량" 단계를 빼고 둘째 칸 "중고차"가 그 단계(누르면 제조사 풀기). 다른 유형은 셋째 칸에 유형 이름
+    ...(categoryIsDefault || category === "중고차"
+      ? [{ label: "중고차", onClick: clearMakerFilter }]
+      : [{ label: "중고차", onClick: clearCategoryFilter }, { label: category, onClick: clearMakerFilter }]),
     ...(maker ? [{ label: maker, onClick: clearModelFilter }] : []),
     ...(maker && selectedModel ? [{ label: formatModelLabel(selectedModel), onClick: clearGenerationFilter }] : []),
     ...(maker && selectedModel && selectedGenerationOption ? [{ label: generationDisplayLabel(selectedGenerationOption), onClick: selectedVariants.length ? clearVariantFilter : undefined }] : []),

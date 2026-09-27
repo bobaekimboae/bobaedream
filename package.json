@@ -31,7 +31,8 @@
     "check:logos": "node scripts/check-logos.mjs",
     "check:sidebar": "node scripts/sidebar-scroll-check.mjs",
     "check:models": "node scripts/model-catalog-check.mjs",
-    "check:stability": "node scripts/stability-check.mjs"
+    "check:stability": "node scripts/stability-check.mjs",
+    "check:model-images": "node scripts/model-images-check.mjs"
   },
   "dependencies": {
     "@fontsource/roboto": "5.2.10",

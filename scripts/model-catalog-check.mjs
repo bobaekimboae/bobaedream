@@ -67,6 +67,7 @@ const topState = (page) => page.evaluate(() => {
 for (const [tag, device, viewport] of [["pc-1440", "pc", { width: 1440, height: 900 }], ["pc-1280", "pc", { width: 1280, height: 720 }], ["m-393", "m", null]].filter(([tag]) => !only || tag === only)) {
   const context = device === "m" ? await browser.newContext({ ...devices["iPhone 13"], viewport: { width: 393, height: 852 }, deviceScaleFactor: 2 }) : await browser.newContext({ viewport, deviceScaleFactor: 1 });
   const page = await context.newPage();
+  const slot = device === "pc" ? [76, 40] : [56, 36];
   const errors = []; const missing = [];
   page.on("pageerror", (error) => errors.push(String(error)));
   page.on("console", (message) => { if (message.type() === "error") errors.push(message.text()); });
@@ -96,9 +97,10 @@ for (const [tag, device, viewport] of [["pc-1440", "pc", { width: 1440, height: 
     makerResults[maker] = {
       cards: labels.length, labels, orderOk: labels.join("|") === [...labels].sort(compare).join("|"),
       withImage: cards.filter((card) => card.img).length, empty: cards.filter((card) => card.empty).length,
-      imgBad: cards.filter((card) => card.img && (!card.img.loaded || card.img.w > 56.5 || card.img.h > 28.5 || (Math.abs(card.img.w - 56) > 0.6 && Math.abs(card.img.h - 28) > 0.6) || Math.abs(card.img.bottomGap) > 0.6)).map((card) => card.label),
-      emptyBad: cards.filter((card) => !card.img && !(card.empty && card.empty[0] === 56 && card.empty[1] === 28 && card.empty[2] === "dashed")).map((card) => card.label),
-      specBad: cards.filter((card) => card.card[0] !== (device === "pc" ? 84 : 64) || card.media[0] !== 56 || card.media[1] !== 28 || Math.abs(card.mediaTop - (device === "pc" ? 6 : 0)) > 0.6 || Math.abs(card.labelGap - 8) > 0.6).map((card) => card.label),
+      // QF-109: 이미지 영역 PC 76×40 · 모바일 56×36(코드 정렬 228×120 을 영역에 채움, 바닥 정렬)
+      imgBad: cards.filter((card) => card.img && (!card.img.loaded || card.img.w !== slot[0] || card.img.h !== slot[1] || Math.abs(card.img.bottomGap) > 0.6)).map((card) => card.label),
+      emptyBad: cards.filter((card) => !card.img && !(card.empty && card.empty[0] === slot[0] && card.empty[1] === slot[1] && card.empty[2] === "dashed")).map((card) => card.label),
+      specBad: cards.filter((card) => card.card[0] !== (device === "pc" ? 84 : 64) || card.media[0] !== slot[0] || card.media[1] !== slot[1] || Math.abs(card.mediaTop - (device === "pc" ? 6 : 0)) > 0.6 || Math.abs(card.labelGap - (device === "pc" ? 14 : 2)) > 0.6).map((card) => card.label),
       subBad: cards.filter((card) => card.sub && !/^(세단|SUV|해치백|쿠페|컨버터블|왜건|MPV|밴|픽업)$/.test(card.sub)).map((card) => `${card.label}:${card.sub}`),
       disabled: cards.filter((card) => card.disabled).map((card) => card.label),
     };
@@ -149,9 +151,9 @@ for (const [tag, device, viewport] of [["pc-1440", "pc", { width: 1440, height: 
   check(`${tag} 퀵필터 모델 순서 숫자(현행) → 영문 → 가나다 → 숫자(구형) → 기타`, all.every(([, r]) => r.orderOk), all.filter(([, r]) => !r.orderOk).map(([m]) => m).join(", ") || all.map(([m, r]) => `${m} ${r.cards}`).join(" · "));
   check(`${tag} 퀵필터 모델 카드는 샘플 매물 1대 이상만(비활성 카드 없음)`, all.every(([, r]) => !r.disabled?.length && r.cards > 0), all.filter(([, r]) => r.disabled?.length).map(([m, r]) => `${m}: ${r.disabled.join(",")}`).join(" / ") || "모두 맞음");
   check(`${tag} 전수 점검: 모델·세부 모델·트림을 눌러도 0대 없음`, Object.values(exhaustive).every((r) => !r.zero.length), Object.entries(exhaustive).map(([m, r]) => `${m} ${r.total}번${r.zero.length ? ` 0대 ${r.zero.join(",")}` : ""}`).join(" · "));
-  check(`${tag} 모델 이미지 칸 56×28 안 · 폭 56 또는 높이 28 · 아래 정렬`, all.every(([, r]) => !r.imgBad?.length), all.filter(([, r]) => r.imgBad?.length).map(([m, r]) => `${m}: ${r.imgBad.join(",")}`).join(" / ") || "모두 맞음");
+  check(`${tag} 모델 이미지 영역 ${slot.join("×")}(QF-109) · 이미지가 영역을 채움 · 아래 정렬`, all.every(([, r]) => !r.imgBad?.length), all.filter(([, r]) => r.imgBad?.length).map(([m, r]) => `${m}: ${r.imgBad.join(",")}`).join(" / ") || "모두 맞음");
   check(`${tag} 모델 카드 보조 글자 = 차종(매물 수 없음)`, all.every(([, r]) => !r.subBad?.length), all.filter(([, r]) => r.subBad?.length).map(([m, r]) => `${m}: ${r.subBad.join(",")}`).join(" / ") || all.map(([m, r]) => `${m} ${r.labels.length}`).join(" · "));
-  check(`${tag} 이미지 없는 카드는 점선 56×28 · 칸 폭 ${device === "pc" ? 84 : 64} · 이미지 칸 위 ${device === "pc" ? 6 : 0} · 이미지 → 이름 8`, all.every(([, r]) => !r.emptyBad?.length && !r.specBad?.length), all.filter(([, r]) => r.emptyBad?.length || r.specBad?.length).map(([m]) => m).join(", ") || "모두 맞음");
+  check(`${tag} 이미지 없는 카드는 점선 ${slot.join("×")} · 칸 폭 ${device === "pc" ? 84 : 64} · 이미지 영역 위 ${device === "pc" ? 6 : 0} · 이미지 → 이름 ${device === "pc" ? 14 : 2}`, all.every(([, r]) => !r.emptyBad?.length && !r.specBad?.length), all.filter(([, r]) => r.emptyBad?.length || r.specBad?.length).map(([m]) => m).join(", ") || "모두 맞음");
   if (device === "pc") {
     const bmw = (makerResults.BMW?.side?.first10 ?? []).map((row) => row.replace(/\(\d+\)$/, ""));
     check(`${tag} BMW 모델 순서 1시리즈 → … → 8시리즈 → i3`, bmw.slice(0, 9).join(" ") === "1시리즈 2시리즈 3시리즈 4시리즈 5시리즈 6시리즈 7시리즈 8시리즈 i3", bmw.join(" → "));

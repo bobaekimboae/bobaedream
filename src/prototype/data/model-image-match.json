@@ -1,0 +1,4971 @@
+{
+ "generated": "2026-09-27T14:54:38.677Z",
+ "makers": {
+  "벤츠": {
+   "70": {
+    "model": "EQS SUV",
+    "label": "EQS",
+    "code": "X296",
+    "source": "daangn",
+    "daangn": {
+     "id": "3412",
+     "name": "EQS SUV",
+     "rule": "단일 일치",
+     "confidence": "높음"
+    }
+   },
+   "201": {
+    "model": "E클래스",
+    "label": "E클래스",
+    "code": null,
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "203": {
+    "model": "G클래스",
+    "label": "G클래스",
+    "code": "W463",
+    "source": "daangn",
+    "daangn": {
+     "id": "2795",
+     "name": "G클래스(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "207": {
+    "model": "SL클래스",
+    "label": "SL클래스",
+    "code": "R230",
+    "source": "daangn",
+    "daangn": {
+     "id": "1154",
+     "name": "SL클래스(5세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "210": {
+    "model": "CL클래스",
+    "label": "CL클래스",
+    "code": "C215",
+    "source": "daangn",
+    "daangn": {
+     "id": "1110",
+     "name": "CL클래스(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "360": {
+    "model": "E클래스",
+    "label": "E클래스",
+    "code": "W214",
+    "source": "daangn",
+    "daangn": {
+     "id": "3503",
+     "name": "E클래스(6세대)",
+     "rule": "세대 밀어 맞춤",
+     "confidence": "중간"
+    }
+   },
+   "545": {
+    "model": "SLK클래스",
+    "label": "SLK클래스",
+    "code": "R171",
+    "source": "daangn",
+    "daangn": {
+     "id": "1149",
+     "name": "SLK클래스(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "558": {
+    "model": "마이바흐 S클래스",
+    "label": "마이바흐",
+    "code": "W222",
+    "source": null,
+    "daangn": null
+   },
+   "565": {
+    "model": "SL클래스",
+    "label": "SL클래스",
+    "code": "R232",
+    "source": "daangn",
+    "daangn": {
+     "id": "3419",
+     "name": "SL클래스(7세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "583": {
+    "model": "CLS클래스",
+    "label": "CLS클래스",
+    "code": "W219",
+    "source": "daangn",
+    "daangn": {
+     "id": "1112",
+     "name": "CLS클래스(1세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "600": {
+    "model": "SLR 맥라렌",
+    "label": "SLR 맥라렌",
+    "code": "C199, R199, Z199",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "621": {
+    "model": "S클래스",
+    "label": "S클래스",
+    "code": "W221",
+    "source": "daangn",
+    "daangn": {
+     "id": "1130",
+     "name": "S클래스(5세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "719": {
+    "model": "R클래스",
+    "label": "R클래스",
+    "code": "W251",
+    "source": "daangn",
+    "daangn": {
+     "id": "335",
+     "name": "R클래스",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "729": {
+    "model": "EQE",
+    "label": "EQE",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "3323",
+     "name": "EQE",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "761": {
+    "model": "C클래스",
+    "label": "C클래스",
+    "code": "W204",
+    "source": "daangn",
+    "daangn": {
+     "id": "325",
+     "name": "C클래스(3세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "792": {
+    "model": "SL클래스",
+    "label": "SL클래스",
+    "code": "R231",
+    "source": "daangn",
+    "daangn": {
+     "id": "336",
+     "name": "SL클래스(6세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "793": {
+    "model": "CL클래스",
+    "label": "CL클래스",
+    "code": "C216",
+    "source": "daangn",
+    "daangn": {
+     "id": "1476",
+     "name": "CL클래스(3세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "808": {
+    "model": "SL클래스",
+    "label": "SL클래스",
+    "code": null,
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "810": {
+    "model": "GLK클래스",
+    "label": "GLK클래스",
+    "code": "X204",
+    "source": "daangn",
+    "daangn": {
+     "id": "334",
+     "name": "GLK클래스",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "864": {
+    "model": "CLS클래스",
+    "label": "CLS클래스",
+    "code": "W218",
+    "source": "daangn",
+    "daangn": {
+     "id": "329",
+     "name": "CLS클래스(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "939": {
+    "model": "E클래스",
+    "label": "E클래스",
+    "code": "W212",
+    "source": "daangn",
+    "daangn": {
+     "id": "1117",
+     "name": "E클래스(4세대)",
+     "rule": "세대 밀어 맞춤",
+     "confidence": "중간"
+    }
+   },
+   "977": {
+    "model": "SLS AMG",
+    "label": "SLS AMG",
+    "code": "C197",
+    "source": "daangn",
+    "daangn": {
+     "id": "339",
+     "name": "SLS AMG",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1082": {
+    "model": "스프린터",
+    "label": "스프린터",
+    "code": "W906",
+    "source": "daangn",
+    "daangn": {
+     "id": "2839",
+     "name": "스프린터(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1083": {
+    "model": "SEL/SEC",
+    "label": "SEL",
+    "code": null,
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1097": {
+    "model": "190",
+    "label": "190",
+    "code": "W201",
+    "source": "daangn",
+    "daangn": {
+     "id": "582",
+     "name": "190-클래스",
+     "rule": "단일 일치",
+     "confidence": "높음"
+    }
+   },
+   "1109": {
+    "model": "M클래스",
+    "label": "M클래스",
+    "code": "W166",
+    "source": "daangn",
+    "daangn": {
+     "id": "1104",
+     "name": "M클래스(3세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1158": {
+    "model": "A클래스",
+    "label": "A클래스",
+    "code": "W176",
+    "source": "daangn",
+    "daangn": {
+     "id": "1097",
+     "name": "A클래스(3세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1165": {
+    "model": "CLA클래스",
+    "label": "CLA클래스",
+    "code": "C117",
+    "source": "daangn",
+    "daangn": {
+     "id": "961",
+     "name": "CLA클래스",
+     "rule": "세대 없는 이름 = 1세대",
+     "confidence": "중간"
+    }
+   },
+   "1188": {
+    "model": "GLA클래스",
+    "label": "GLA클래스",
+    "code": "X156",
+    "source": "daangn",
+    "daangn": {
+     "id": "1030",
+     "name": "GLA클래스",
+     "rule": "세대 없는 이름 = 1세대",
+     "confidence": "중간"
+    }
+   },
+   "1197": {
+    "model": "C클래스",
+    "label": "C클래스",
+    "code": "W206",
+    "source": "daangn",
+    "daangn": {
+     "id": "3218",
+     "name": "C클래스(5세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1220": {
+    "model": "AMG GT",
+    "label": "AMG GT",
+    "code": "C190",
+    "source": "daangn",
+    "daangn": {
+     "id": "1562",
+     "name": "AMG GT",
+     "rule": "세대 없는 이름 = 1세대",
+     "confidence": "중간"
+    }
+   },
+   "1248": {
+    "model": "GLE클래스",
+    "label": "GLE클래스",
+    "code": "W166",
+    "source": "daangn",
+    "daangn": {
+     "id": "1587",
+     "name": "GLE클래스(3세대)",
+     "rule": "세대 밀어 맞춤",
+     "confidence": "중간"
+    }
+   },
+   "1255": {
+    "model": "GLC클래스",
+    "label": "GLC클래스",
+    "code": "X253",
+    "source": "daangn",
+    "daangn": {
+     "id": "1586",
+     "name": "GLC클래스",
+     "rule": "세대 없는 이름 = 1세대",
+     "confidence": "중간"
+    }
+   },
+   "1267": {
+    "model": "C클래스",
+    "label": "C클래스",
+    "code": "W205",
+    "source": "daangn",
+    "daangn": {
+     "id": "1108",
+     "name": "C클래스(4세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1270": {
+    "model": "GLS클래스",
+    "label": "GLS클래스",
+    "code": "X166",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1272": {
+    "model": "S클래스",
+    "label": "S클래스",
+    "code": "W222",
+    "source": "daangn",
+    "daangn": {
+     "id": "327",
+     "name": "S클래스(6세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1273": {
+    "model": "V클래스",
+    "label": "V클래스",
+    "code": "W447",
+    "source": null,
+    "daangn": null
+   },
+   "1316": {
+    "model": "E클래스",
+    "label": "E클래스",
+    "code": "W213",
+    "source": "daangn",
+    "daangn": {
+     "id": "2322",
+     "name": "E클래스(5세대)",
+     "rule": "세대 밀어 맞춤",
+     "confidence": "중간"
+    }
+   },
+   "1324": {
+    "model": "GL클래스",
+    "label": "GL클래스",
+    "code": "X166",
+    "source": "daangn",
+    "daangn": {
+     "id": "333",
+     "name": "GL클래스(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1427": {
+    "model": "GLC클래스",
+    "label": "GLC클래스",
+    "code": "X254",
+    "source": "daangn",
+    "daangn": {
+     "id": "3335",
+     "name": "GLC클래스(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1447": {
+    "model": "CLS클래스",
+    "label": "CLS클래스",
+    "code": "C257",
+    "source": "daangn",
+    "daangn": {
+     "id": "2676",
+     "name": "CLS클래스(3세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1455": {
+    "model": "G클래스",
+    "label": "G클래스",
+    "code": "W463b",
+    "source": "daangn",
+    "daangn": {
+     "id": "3600",
+     "name": "G클래스(3세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1457": {
+    "model": "280",
+    "label": "280",
+    "code": null,
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1470": {
+    "model": "스프린터",
+    "label": "스프린터",
+    "code": "W907",
+    "source": "daangn",
+    "daangn": {
+     "id": "2838",
+     "name": "스프린터(3세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1548": {
+    "model": "E클래스",
+    "label": "E클래스",
+    "code": "W211",
+    "source": "daangn",
+    "daangn": {
+     "id": "1116",
+     "name": "E클래스(3세대)",
+     "rule": "세대 밀어 맞춤",
+     "confidence": "중간"
+    }
+   },
+   "1553": {
+    "model": "S클래스",
+    "label": "S클래스",
+    "code": "W220",
+    "source": "daangn",
+    "daangn": {
+     "id": "1126",
+     "name": "S클래스(4세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1557": {
+    "model": "S클래스",
+    "label": "S클래스",
+    "code": "W140",
+    "source": "daangn",
+    "daangn": {
+     "id": "1124",
+     "name": "S클래스(3세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1570": {
+    "model": "A클래스",
+    "label": "A클래스",
+    "code": "W177",
+    "source": "daangn",
+    "daangn": {
+     "id": "2798",
+     "name": "A클래스(4세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1575": {
+    "model": "G클래스",
+    "label": "G클래스",
+    "code": "W460,W461",
+    "source": "daangn",
+    "daangn": {
+     "id": "332",
+     "name": "G클래스(1세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1576": {
+    "model": "스프린터",
+    "label": "스프린터",
+    "code": "W903",
+    "source": "daangn",
+    "daangn": {
+     "id": "342",
+     "name": "스프린터",
+     "rule": "세대 없는 이름 = 1세대",
+     "confidence": "중간"
+    }
+   },
+   "1582": {
+    "model": "기타",
+    "label": "기타",
+    "code": null,
+    "source": null,
+    "daangn": null
+   },
+   "1602": {
+    "model": "EQB",
+    "label": "EQB",
+    "code": "X243",
+    "source": "daangn",
+    "daangn": {
+     "id": "3292",
+     "name": "EQB",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1619": {
+    "model": "A클래스",
+    "label": "A클래스",
+    "code": "W168",
+    "source": "daangn",
+    "daangn": {
+     "id": "1095",
+     "name": "A클래스(1세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1684": {
+    "model": "GLA클래스",
+    "label": "GLA클래스",
+    "code": "H247",
+    "source": "daangn",
+    "daangn": {
+     "id": "2981",
+     "name": "GLA클래스(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1689": {
+    "model": "GLE클래스",
+    "label": "GLE클래스",
+    "code": "W167",
+    "source": "daangn",
+    "daangn": {
+     "id": "2796",
+     "name": "GLE클래스(4세대)",
+     "rule": "세대 밀어 맞춤",
+     "confidence": "중간"
+    }
+   },
+   "1784": {
+    "model": "EQS",
+    "label": "EQS",
+    "code": "V297",
+    "source": "daangn",
+    "daangn": {
+     "id": "3155",
+     "name": "EQS",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1785": {
+    "model": "CLA클래스",
+    "label": "CLA클래스",
+    "code": "C118",
+    "source": "daangn",
+    "daangn": {
+     "id": "2842",
+     "name": "CLA클래스(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "중간"
+    }
+   },
+   "1826": {
+    "model": "GLS클래스",
+    "label": "GLS클래스",
+    "code": "X167",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1846": {
+    "model": "GLB클래스",
+    "label": "GLB클래스",
+    "code": "X247",
+    "source": "daangn",
+    "daangn": {
+     "id": "2980",
+     "name": "GLB클래스",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1859": {
+    "model": "S클래스",
+    "label": "S클래스",
+    "code": "W223",
+    "source": "daangn",
+    "daangn": {
+     "id": "3046",
+     "name": "S클래스(7세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1870": {
+    "model": "마이바흐 GLS클래스",
+    "label": "마이바흐 GLS클래스",
+    "code": null,
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1886": {
+    "model": "마이바흐 S클래스",
+    "label": "마이바흐",
+    "code": "Z223",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1894": {
+    "model": "EQA",
+    "label": "EQA",
+    "code": "H243",
+    "source": "daangn",
+    "daangn": {
+     "id": "3114",
+     "name": "EQA",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1970": {
+    "model": "EQE SUV",
+    "label": "EQE",
+    "code": "X294",
+    "source": "daangn",
+    "daangn": {
+     "id": "3476",
+     "name": "EQE SUV",
+     "rule": "단일 일치",
+     "confidence": "높음"
+    }
+   },
+   "2004": {
+    "model": "CLE클래스",
+    "label": "CLE클래스",
+    "code": "C236",
+    "source": "daangn",
+    "daangn": {
+     "id": "3533",
+     "name": "CLE",
+     "rule": "단일 일치",
+     "confidence": "높음"
+    }
+   },
+   "2025": {
+    "model": "마이바흐 EQS SUV",
+    "label": "마이바흐 EQS",
+    "code": "X296",
+    "source": null,
+    "daangn": null
+   },
+   "2076": {
+    "model": "AMG GT",
+    "label": "AMG GT",
+    "code": "C192",
+    "source": "daangn",
+    "daangn": {
+     "id": "3578",
+     "name": "AMG GT(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   }
+  },
+  "BMW": {
+   "1": {
+    "model": "3시리즈",
+    "label": "3시리즈",
+    "code": "E46",
+    "source": "daangn",
+    "daangn": {
+     "id": "1147",
+     "name": "3시리즈(4세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "2": {
+    "model": "5시리즈",
+    "label": "5시리즈",
+    "code": "E39",
+    "source": "daangn",
+    "daangn": {
+     "id": "1194",
+     "name": "5시리즈(4세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "3": {
+    "model": "7시리즈",
+    "label": "7시리즈",
+    "code": "E65",
+    "source": "daangn",
+    "daangn": {
+     "id": "1232",
+     "name": "7시리즈(4세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "4": {
+    "model": "8시리즈",
+    "label": "8시리즈",
+    "code": "E31",
+    "source": "daangn",
+    "daangn": {
+     "id": "316",
+     "name": "8시리즈",
+     "rule": "세대 없는 이름 = 1세대",
+     "confidence": "중간"
+    }
+   },
+   "82": {
+    "model": "7시리즈",
+    "label": "7시리즈",
+    "code": "G70",
+    "source": "daangn",
+    "daangn": {
+     "id": "3343",
+     "name": "7시리즈(7세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "83": {
+    "model": "i7",
+    "label": "i7",
+    "code": "G70",
+    "source": "daangn",
+    "daangn": {
+     "id": "3295",
+     "name": "i7",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "202": {
+    "model": "M3",
+    "label": "M3",
+    "code": "E36",
+    "source": "daangn",
+    "daangn": {
+     "id": "1275",
+     "name": "M3(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "215": {
+    "model": "2시리즈",
+    "label": "2시리즈",
+    "code": "G42",
+    "source": "daangn",
+    "daangn": {
+     "id": "2843",
+     "name": "2시리즈(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "281": {
+    "model": "M4",
+    "label": "M4",
+    "code": "F82",
+    "source": "daangn",
+    "daangn": {
+     "id": "1269",
+     "name": "M4",
+     "rule": "세대 없는 이름 = 1세대",
+     "confidence": "중간"
+    }
+   },
+   "355": {
+    "model": "i4",
+    "label": "i4",
+    "code": "G26",
+    "source": "daangn",
+    "daangn": {
+     "id": "3224",
+     "name": "i4",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "425": {
+    "model": "2시리즈",
+    "label": "2시리즈 액티브 투어러",
+    "code": "U06",
+    "source": "daangn",
+    "daangn": {
+     "id": "3305",
+     "name": "액티브투어러(2세대)",
+     "rule": "파생형 세대 일치",
+     "confidence": "높음"
+    }
+   },
+   "441": {
+    "model": "5시리즈",
+    "label": "5시리즈",
+    "code": "E60",
+    "source": "daangn",
+    "daangn": {
+     "id": "1195",
+     "name": "5시리즈(5세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "465": {
+    "model": "iX",
+    "label": "iX",
+    "code": "i20",
+    "source": "daangn",
+    "daangn": {
+     "id": "3151",
+     "name": "iX",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "540": {
+    "model": "iX1",
+    "label": "iX1",
+    "code": "U11",
+    "source": "daangn",
+    "daangn": {
+     "id": "3410",
+     "name": "iX1",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "572": {
+    "model": "6시리즈",
+    "label": "6시리즈",
+    "code": "E63",
+    "source": "daangn",
+    "daangn": {
+     "id": "1221",
+     "name": "6시리즈(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "574": {
+    "model": "XM",
+    "label": "XM",
+    "code": "G09",
+    "source": null,
+    "daangn": null
+   },
+   "593": {
+    "model": "3시리즈",
+    "label": "3시리즈",
+    "code": "E90",
+    "source": "daangn",
+    "daangn": {
+     "id": "1167",
+     "name": "3시리즈(5세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "721": {
+    "model": "1시리즈",
+    "label": "1시리즈",
+    "code": "E82",
+    "source": "daangn",
+    "daangn": {
+     "id": "1176",
+     "name": "1시리즈(1세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "785": {
+    "model": "M3",
+    "label": "M3",
+    "code": "F80",
+    "source": "daangn",
+    "daangn": {
+     "id": "1270",
+     "name": "M3(5세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "819": {
+    "model": "X6",
+    "label": "X6",
+    "code": "F16",
+    "source": "daangn",
+    "daangn": {
+     "id": "1326",
+     "name": "X6(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "820": {
+    "model": "X6",
+    "label": "X6",
+    "code": "G06",
+    "source": "daangn",
+    "daangn": {
+     "id": "2830",
+     "name": "X6(3세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "866": {
+    "model": "7시리즈",
+    "label": "7시리즈",
+    "code": "F01",
+    "source": "daangn",
+    "daangn": {
+     "id": "315",
+     "name": "7시리즈(5세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "926": {
+    "model": "X1",
+    "label": "X1",
+    "code": "U11",
+    "source": "daangn",
+    "daangn": {
+     "id": "3411",
+     "name": "X1(3세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "978": {
+    "model": "그란투리스모",
+    "label": "5시리즈 GT",
+    "code": "F07",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1008": {
+    "model": "M6",
+    "label": "M6",
+    "code": "E63",
+    "source": "daangn",
+    "daangn": {
+     "id": "1290",
+     "name": "M6(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1013": {
+    "model": "6시리즈",
+    "label": "6시리즈",
+    "code": "F12",
+    "source": "daangn",
+    "daangn": {
+     "id": "314",
+     "name": "6시리즈(3세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1025": {
+    "model": "Z8",
+    "label": "Z8",
+    "code": "E52",
+    "source": "daangn",
+    "daangn": {
+     "id": "1365",
+     "name": "Z8",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1058": {
+    "model": "M5",
+    "label": "M5",
+    "code": "E39",
+    "source": "daangn",
+    "daangn": {
+     "id": "1287",
+     "name": "M5(3세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1112": {
+    "model": "X4",
+    "label": "X4",
+    "code": "G02",
+    "source": "daangn",
+    "daangn": {
+     "id": "2703",
+     "name": "X4(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1131": {
+    "model": "1시리즈",
+    "label": "1시리즈",
+    "code": "F20",
+    "source": "daangn",
+    "daangn": {
+     "id": "307",
+     "name": "1시리즈(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1168": {
+    "model": "4시리즈",
+    "label": "4시리즈",
+    "code": "F32",
+    "source": "daangn",
+    "daangn": {
+     "id": "954",
+     "name": "4시리즈(1세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1201": {
+    "model": "i8",
+    "label": "i8",
+    "code": "I12",
+    "source": "daangn",
+    "daangn": {
+     "id": "1366",
+     "name": "i8",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1268": {
+    "model": "7시리즈",
+    "label": "7시리즈",
+    "code": "G11",
+    "source": "daangn",
+    "daangn": {
+     "id": "1575",
+     "name": "7시리즈(6세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1317": {
+    "model": "5시리즈",
+    "label": "5시리즈",
+    "code": "F10",
+    "source": "daangn",
+    "daangn": {
+     "id": "309",
+     "name": "5시리즈(6세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1321": {
+    "model": "3시리즈",
+    "label": "3시리즈",
+    "code": "F30",
+    "source": "daangn",
+    "daangn": {
+     "id": "308",
+     "name": "3시리즈(6세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1346": {
+    "model": "5시리즈",
+    "label": "5시리즈",
+    "code": "G30",
+    "source": "daangn",
+    "daangn": {
+     "id": "2573",
+     "name": "5시리즈(7세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1369": {
+    "model": "M6",
+    "label": "M6",
+    "code": "F12",
+    "source": "daangn",
+    "daangn": {
+     "id": "1272",
+     "name": "M6(3세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1371": {
+    "model": "X4 M",
+    "label": "X4 M",
+    "code": "F98",
+    "source": null,
+    "daangn": null
+   },
+   "1383": {
+    "model": "그란투리스모",
+    "label": "3시리즈 GT",
+    "code": "F34",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1463": {
+    "model": "X6",
+    "label": "X6",
+    "code": "E71",
+    "source": "daangn",
+    "daangn": {
+     "id": "1347",
+     "name": "X6(1세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1482": {
+    "model": "3시리즈",
+    "label": "3시리즈",
+    "code": "G20",
+    "source": "daangn",
+    "daangn": {
+     "id": "2729",
+     "name": "3시리즈(7세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1485": {
+    "model": "X7",
+    "label": "X7",
+    "code": "G07",
+    "source": "daangn",
+    "daangn": {
+     "id": "2728",
+     "name": "X7",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1497": {
+    "model": "X5 M",
+    "label": "X5 M",
+    "code": "F95",
+    "source": null,
+    "daangn": null
+   },
+   "1550": {
+    "model": "6시리즈",
+    "label": "6시리즈",
+    "code": "E24",
+    "source": "daangn",
+    "daangn": {
+     "id": "1220",
+     "name": "6시리즈(1세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1551": {
+    "model": "7시리즈",
+    "label": "7시리즈",
+    "code": "E38",
+    "source": "daangn",
+    "daangn": {
+     "id": "1224",
+     "name": "7시리즈(3세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1552": {
+    "model": "8시리즈",
+    "label": "8시리즈",
+    "code": "G15",
+    "source": "daangn",
+    "daangn": {
+     "id": "2806",
+     "name": "8시리즈(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1554": {
+    "model": "X5",
+    "label": "X5",
+    "code": "F15",
+    "source": "daangn",
+    "daangn": {
+     "id": "318",
+     "name": "X5(3세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1555": {
+    "model": "M3",
+    "label": "M3",
+    "code": "E90",
+    "source": "daangn",
+    "daangn": {
+     "id": "1284",
+     "name": "M3(4세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1556": {
+    "model": "X5",
+    "label": "X5",
+    "code": "E70",
+    "source": "daangn",
+    "daangn": {
+     "id": "1349",
+     "name": "X5(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1558": {
+    "model": "X4",
+    "label": "X4",
+    "code": "F26",
+    "source": "daangn",
+    "daangn": {
+     "id": "1338",
+     "name": "X4",
+     "rule": "세대 없는 이름 = 1세대",
+     "confidence": "중간"
+    }
+   },
+   "1563": {
+    "model": "M2",
+    "label": "M2",
+    "code": "F87",
+    "source": "daangn",
+    "daangn": {
+     "id": "2509",
+     "name": "M2",
+     "rule": "세대 없는 이름 = 1세대",
+     "confidence": "중간"
+    }
+   },
+   "1566": {
+    "model": "M8",
+    "label": "M8",
+    "code": "F92",
+    "source": "daangn",
+    "daangn": {
+     "id": "2824",
+     "name": "M8",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1567": {
+    "model": "X3 M",
+    "label": "X3 M",
+    "code": "F97",
+    "source": null,
+    "daangn": null
+   },
+   "1568": {
+    "model": "Z3",
+    "label": "Z3",
+    "code": "E36/7",
+    "source": "daangn",
+    "daangn": {
+     "id": "1360",
+     "name": "Z3",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1573": {
+    "model": "1M",
+    "label": "1M",
+    "code": "E82",
+    "source": "daangn",
+    "daangn": {
+     "id": "1268",
+     "name": "1M",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1574": {
+    "model": "그란투리스모",
+    "label": "6시리즈 GT",
+    "code": "G32",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1681": {
+    "model": "5시리즈",
+    "label": "5시리즈",
+    "code": null,
+    "source": null,
+    "daangn": null
+   },
+   "1683": {
+    "model": "2시리즈",
+    "label": "2시리즈 그란쿠페",
+    "code": "F44",
+    "source": null,
+    "daangn": null
+   },
+   "1693": {
+    "model": "1시리즈",
+    "label": "1시리즈",
+    "code": "F40",
+    "source": "daangn",
+    "daangn": {
+     "id": "2790",
+     "name": "1시리즈(3세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1751": {
+    "model": "M3",
+    "label": "M3",
+    "code": "E46",
+    "source": "daangn",
+    "daangn": {
+     "id": "1276",
+     "name": "M3(3세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1755": {
+    "model": "2시리즈",
+    "label": "2시리즈 액티브 투어러",
+    "code": "F45",
+    "source": null,
+    "daangn": null
+   },
+   "1760": {
+    "model": "X1",
+    "label": "X1",
+    "code": "E84",
+    "source": "daangn",
+    "daangn": {
+     "id": "1321",
+     "name": "X1",
+     "rule": "세대 없는 이름 = 1세대",
+     "confidence": "중간"
+    }
+   },
+   "1761": {
+    "model": "X1",
+    "label": "X1",
+    "code": "F48",
+    "source": "daangn",
+    "daangn": {
+     "id": "1593",
+     "name": "X1(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1762": {
+    "model": "X2",
+    "label": "X2",
+    "code": "F39",
+    "source": "daangn",
+    "daangn": {
+     "id": "2700",
+     "name": "X2",
+     "rule": "세대 없는 이름 = 1세대",
+     "confidence": "중간"
+    }
+   },
+   "1763": {
+    "model": "X3",
+    "label": "X3",
+    "code": "F25",
+    "source": "daangn",
+    "daangn": {
+     "id": "1323",
+     "name": "X3(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1764": {
+    "model": "X3",
+    "label": "X3",
+    "code": "G01",
+    "source": "daangn",
+    "daangn": {
+     "id": "2623",
+     "name": "X3(3세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1765": {
+    "model": "X5",
+    "label": "X5",
+    "code": "G05",
+    "source": "daangn",
+    "daangn": {
+     "id": "2708",
+     "name": "X5(4세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1766": {
+    "model": "M5",
+    "label": "M5",
+    "code": "E60",
+    "source": "daangn",
+    "daangn": {
+     "id": "1288",
+     "name": "M5(4세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1767": {
+    "model": "M5",
+    "label": "M5",
+    "code": "F10",
+    "source": "daangn",
+    "daangn": {
+     "id": "1271",
+     "name": "M5(5세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1768": {
+    "model": "M5",
+    "label": "M5",
+    "code": "F90",
+    "source": "daangn",
+    "daangn": {
+     "id": "2678",
+     "name": "M5(6세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1776": {
+    "model": "X6 M",
+    "label": "X6 M",
+    "code": "F86",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1777": {
+    "model": "Z4",
+    "label": "Z4",
+    "code": "G29",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1827": {
+    "model": "X6 M",
+    "label": "X6 M",
+    "code": "F96",
+    "source": null,
+    "daangn": null
+   },
+   "1868": {
+    "model": "4시리즈",
+    "label": "4시리즈",
+    "code": "G22",
+    "source": "daangn",
+    "daangn": {
+     "id": "3033",
+     "name": "4시리즈(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1877": {
+    "model": "M3",
+    "label": "M3",
+    "code": "G80",
+    "source": "daangn",
+    "daangn": {
+     "id": "3063",
+     "name": "M3(6세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1878": {
+    "model": "M4",
+    "label": "M4",
+    "code": "G82",
+    "source": "daangn",
+    "daangn": {
+     "id": "3073",
+     "name": "M4(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1971": {
+    "model": "M2",
+    "label": "M2",
+    "code": "G87",
+    "source": "daangn",
+    "daangn": {
+     "id": "3472",
+     "name": "M2(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1985": {
+    "model": "5시리즈",
+    "label": "5시리즈",
+    "code": "G60",
+    "source": "daangn",
+    "daangn": {
+     "id": "3461",
+     "name": "5시리즈(8세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1986": {
+    "model": "i5",
+    "label": "i5",
+    "code": "G60",
+    "source": "daangn",
+    "daangn": {
+     "id": "3462",
+     "name": "i5",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "2009": {
+    "model": "X2",
+    "label": "X2",
+    "code": "U10",
+    "source": "daangn",
+    "daangn": {
+     "id": "3552",
+     "name": "X2(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "2048": {
+    "model": "X3",
+    "label": "X3",
+    "code": "G45",
+    "source": "daangn",
+    "daangn": {
+     "id": "3572",
+     "name": "X3(4세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "2049": {
+    "model": "M5",
+    "label": "M5",
+    "code": "G90",
+    "source": "daangn",
+    "daangn": {
+     "id": "3579",
+     "name": "M5(7세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   }
+  },
+  "현대": {
+   "74": {
+    "model": "코나",
+    "label": "디 올 뉴 코나",
+    "code": "SX2",
+    "source": "daangn",
+    "daangn": {
+     "id": "3406",
+     "name": "디 올뉴코나",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "75": {
+    "model": "코나",
+    "label": "디 올 뉴 코나 하이브리드",
+    "code": "SX2",
+    "source": "daangn",
+    "daangn": {
+     "id": "3407",
+     "name": "디 올뉴코나 하이브리드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "87": {
+    "model": "그랜저",
+    "label": "디 올 뉴 그랜저",
+    "code": "GN7",
+    "source": "daangn",
+    "daangn": {
+     "id": "3357",
+     "name": "디 올뉴그랜저",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "264": {
+    "model": "아반떼",
+    "label": "더 뉴 아반떼 [CN7]",
+    "code": "CN7",
+    "source": "daangn",
+    "daangn": {
+     "id": "3437",
+     "name": "더 뉴아반떼(CN7)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "265": {
+    "model": "아반떼",
+    "label": "더 뉴 아반떼 하이브리드 [CN7]",
+    "code": "CN7",
+    "source": "daangn",
+    "daangn": {
+     "id": "3438",
+     "name": "더 뉴아반떼 하이브리드(CN7)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "376": {
+    "model": "에쿠스",
+    "label": "에쿠스",
+    "code": "LZ, YJ",
+    "source": "daangn",
+    "daangn": {
+     "id": "67",
+     "name": "에쿠스",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "377": {
+    "model": "다이너스티",
+    "label": "다이너스티",
+    "code": "LX",
+    "source": "daangn",
+    "daangn": {
+     "id": "235",
+     "name": "다이너스티",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "380": {
+    "model": "그랜저",
+    "label": "뉴그랜져",
+    "code": "LX",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "381": {
+    "model": "그랜저",
+    "label": "그랜저",
+    "code": "L",
+    "source": "daangn",
+    "daangn": {
+     "id": "234",
+     "name": "그랜저",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "386": {
+    "model": "쏘나타",
+    "label": "쏘나타2",
+    "code": "Y2",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "396": {
+    "model": "테라칸",
+    "label": "테라칸",
+    "code": "HP",
+    "source": "daangn",
+    "daangn": {
+     "id": "156",
+     "name": "테라칸",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "397": {
+    "model": "갤로퍼",
+    "label": "갤로퍼2",
+    "code": "M",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "398": {
+    "model": "갤로퍼",
+    "label": "갤로퍼",
+    "code": "M",
+    "source": "daangn",
+    "daangn": {
+     "id": "170",
+     "name": "갤로퍼",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "399": {
+    "model": "투스카니",
+    "label": "투스카니",
+    "code": "GK",
+    "source": "daangn",
+    "daangn": {
+     "id": "70",
+     "name": "투스카니",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "400": {
+    "model": "티뷰론",
+    "label": "티뷰론",
+    "code": "RD",
+    "source": "daangn",
+    "daangn": {
+     "id": "81",
+     "name": "티뷰론",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "405": {
+    "model": "엑셀",
+    "label": "엑셀",
+    "code": "X2",
+    "source": "daangn",
+    "daangn": {
+     "id": "1007",
+     "name": "엑셀",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "411": {
+    "model": "리베로",
+    "label": "리베로",
+    "code": "SR",
+    "source": "daangn",
+    "daangn": {
+     "id": "102",
+     "name": "리베로",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "413": {
+    "model": "카운티",
+    "label": "카운티",
+    "code": "CN",
+    "source": "daangn",
+    "daangn": {
+     "id": "985",
+     "name": "카운티",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "430": {
+    "model": "기타",
+    "label": "기타",
+    "code": null,
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "518": {
+    "model": "아반떼",
+    "label": "뉴아반떼XD",
+    "code": "XD",
+    "source": "daangn",
+    "daangn": {
+     "id": "79",
+     "name": "뉴아반떼XD",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "524": {
+    "model": "프레스토",
+    "label": "프레스토",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "1025",
+     "name": "프레스토",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "546": {
+    "model": "투싼",
+    "label": "투싼",
+    "code": "JM",
+    "source": "daangn",
+    "daangn": {
+     "id": "11",
+     "name": "투싼",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "548": {
+    "model": "포터",
+    "label": "포터2",
+    "code": "HR",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "567": {
+    "model": "스타렉스",
+    "label": "뉴스타렉스",
+    "code": "A1",
+    "source": "daangn",
+    "daangn": {
+     "id": "1034",
+     "name": "뉴스타렉스",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "590": {
+    "model": "쏘나타",
+    "label": "NF쏘나타",
+    "code": "NF",
+    "source": "daangn",
+    "daangn": {
+     "id": "162",
+     "name": "NF쏘나타",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "596": {
+    "model": "그랜저",
+    "label": "더 럭셔리 그랜저",
+    "code": "TG",
+    "source": "daangn",
+    "daangn": {
+     "id": "184",
+     "name": "더 럭셔리 그랜저",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "637": {
+    "model": "싼타페",
+    "label": "싼타페CM",
+    "code": "CM",
+    "source": "daangn",
+    "daangn": {
+     "id": "13",
+     "name": "싼타페(CM)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "680": {
+    "model": "아반떼",
+    "label": "아반떼HD",
+    "code": "HD",
+    "source": "daangn",
+    "daangn": {
+     "id": "5",
+     "name": "아반떼HD",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "681": {
+    "model": "베라크루즈",
+    "label": "베라크루즈",
+    "code": "EN",
+    "source": "daangn",
+    "daangn": {
+     "id": "12",
+     "name": "베라크루즈",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "682": {
+    "model": "투스카니",
+    "label": "뉴 투스카니",
+    "code": "GK",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "710": {
+    "model": "에어로",
+    "label": "e-에어로타운",
+    "code": null,
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "711": {
+    "model": "스타렉스",
+    "label": "그랜드스타렉스",
+    "code": "TQ",
+    "source": "daangn",
+    "daangn": {
+     "id": "14",
+     "name": "그랜드스타렉스",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "734": {
+    "model": "유니버스",
+    "label": "유니버스",
+    "code": "PV",
+    "source": "daangn",
+    "daangn": {
+     "id": "27",
+     "name": "유니버스",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "739": {
+    "model": "쏘나타",
+    "label": "NF쏘나타 트랜스폼",
+    "code": "NF",
+    "source": "daangn",
+    "daangn": {
+     "id": "7",
+     "name": "NF쏘나타 트랜스폼",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "748": {
+    "model": "그랜저",
+    "label": "그랜저HG",
+    "code": "HG",
+    "source": "daangn",
+    "daangn": {
+     "id": "209",
+     "name": "그랜저HG",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "756": {
+    "model": "제네시스",
+    "label": "제네시스",
+    "code": "BH",
+    "source": "daangn",
+    "daangn": {
+     "id": "9",
+     "name": "제네시스",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "757": {
+    "model": "카운티",
+    "label": "e-카운티",
+    "code": "CN",
+    "source": "daangn",
+    "daangn": {
+     "id": "22",
+     "name": "e-카운티",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "799": {
+    "model": "에어로",
+    "label": "슈퍼에어로시티",
+    "code": "CY",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "806": {
+    "model": "그랜저",
+    "label": "그랜저 뉴 럭셔리",
+    "code": "TG",
+    "source": "daangn",
+    "daangn": {
+     "id": "8",
+     "name": "그랜저 뉴 럭셔리",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "828": {
+    "model": "제네시스",
+    "label": "제네시스 쿠페",
+    "code": "BK",
+    "source": "daangn",
+    "daangn": {
+     "id": "6",
+     "name": "제네시스 쿠페",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "850": {
+    "model": "i30",
+    "label": "i30CW",
+    "code": "FD",
+    "source": "daangn",
+    "daangn": {
+     "id": "4",
+     "name": "i30cw",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "873": {
+    "model": "에쿠스",
+    "label": "뉴 에쿠스",
+    "code": "VI",
+    "source": "daangn",
+    "daangn": {
+     "id": "68",
+     "name": "뉴에쿠스",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "907": {
+    "model": "쏘나타",
+    "label": "쏘나타 하이브리드",
+    "code": "YF",
+    "source": "daangn",
+    "daangn": {
+     "id": "222",
+     "name": "YF쏘나타 하이브리드",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "932": {
+    "model": "쏘나타",
+    "label": "쏘나타 디 엣지 하이브리드",
+    "code": "DN8",
+    "source": "daangn",
+    "daangn": {
+     "id": "3452",
+     "name": "쏘나타 디 엣지 하이브리드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "944": {
+    "model": "그랜저",
+    "label": "그랜저HG 하이브리드",
+    "code": "HG",
+    "source": "daangn",
+    "daangn": {
+     "id": "955",
+     "name": "그랜저HG 하이브리드",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "948": {
+    "model": "투싼",
+    "label": "투싼ix",
+    "code": "LM",
+    "source": "daangn",
+    "daangn": {
+     "id": "115",
+     "name": "투싼 ix",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "949": {
+    "model": "쏘나타",
+    "label": "YF쏘나타",
+    "code": "YF",
+    "source": "daangn",
+    "daangn": {
+     "id": "120",
+     "name": "YF쏘나타",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "953": {
+    "model": "싼타페",
+    "label": "싼타페 더스타일",
+    "code": "CM",
+    "source": null,
+    "daangn": null
+   },
+   "982": {
+    "model": "i30",
+    "label": "뉴 i30",
+    "code": "GD",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "998": {
+    "model": "엑센트",
+    "label": "엑센트 (신형)",
+    "code": "RB",
+    "source": "daangn",
+    "daangn": {
+     "id": "200",
+     "name": "엑센트 신형",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1002": {
+    "model": "마이티",
+    "label": "e마이티",
+    "code": "WT1",
+    "source": "daangn",
+    "daangn": {
+     "id": "18",
+     "name": "e-마이티",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1011": {
+    "model": "쏘나타",
+    "label": "LF쏘나타 하이브리드",
+    "code": "LF",
+    "source": "daangn",
+    "daangn": {
+     "id": "1049",
+     "name": "LF쏘나타 하이브리드",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1015": {
+    "model": "아반떼",
+    "label": "아반떼MD",
+    "code": "MD",
+    "source": "daangn",
+    "daangn": {
+     "id": "185",
+     "name": "아반떼MD",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1060": {
+    "model": "벨로스터",
+    "label": "벨로스터",
+    "code": "FS",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1067": {
+    "model": "i40",
+    "label": "i40",
+    "code": "VF",
+    "source": "daangn",
+    "daangn": {
+     "id": "229",
+     "name": "i40",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1088": {
+    "model": "제네시스",
+    "label": "더 뉴 제네시스 쿠페",
+    "code": "BK",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1096": {
+    "model": "i40",
+    "label": "i40 살룬",
+    "code": "VF",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1102": {
+    "model": "싼타페",
+    "label": "싼타페DM",
+    "code": "DM",
+    "source": "daangn",
+    "daangn": {
+     "id": "281",
+     "name": "싼타페(DM)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1130": {
+    "model": "쏘나타",
+    "label": "쏘나타 더 브릴리언트",
+    "code": "YF",
+    "source": "daangn",
+    "daangn": {
+     "id": "970",
+     "name": "쏘나타 더 브릴리언트",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1141": {
+    "model": "맥스크루즈",
+    "label": "맥스크루즈",
+    "code": "NC",
+    "source": "daangn",
+    "daangn": {
+     "id": "929",
+     "name": "맥스크루즈",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1148": {
+    "model": "투싼",
+    "label": "뉴 투싼ix",
+    "code": "LM",
+    "source": "daangn",
+    "daangn": {
+     "id": "932",
+     "name": "뉴투싼 ix",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1167": {
+    "model": "제네시스",
+    "label": "제네시스 DH",
+    "code": "DH",
+    "source": "daangn",
+    "daangn": {
+     "id": "951",
+     "name": "제네시스DH",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1171": {
+    "model": "쏘나타",
+    "label": "LF쏘나타",
+    "code": "LF",
+    "source": "daangn",
+    "daangn": {
+     "id": "1005",
+     "name": "LF쏘나타",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1172": {
+    "model": "아반떼",
+    "label": "더 뉴 아반떼",
+    "code": "AD",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1198": {
+    "model": "아슬란",
+    "label": "아슬란",
+    "code": "AG",
+    "source": "daangn",
+    "daangn": {
+     "id": "1038",
+     "name": "아슬란",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1206": {
+    "model": "투싼",
+    "label": "올 뉴 투싼",
+    "code": "TL",
+    "source": "daangn",
+    "daangn": {
+     "id": "1063",
+     "name": "올 뉴투싼",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1210": {
+    "model": "i40",
+    "label": "더 뉴 i40 살룬",
+    "code": "VF",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1213": {
+    "model": "i30",
+    "label": "더 뉴 i30",
+    "code": "GD",
+    "source": "daangn",
+    "daangn": {
+     "id": "1056",
+     "name": "더 뉴i30",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1221": {
+    "model": "싼타페",
+    "label": "싼타페 더 프라임",
+    "code": "DM",
+    "source": "daangn",
+    "daangn": {
+     "id": "1551",
+     "name": "싼타페 더 프라임",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1228": {
+    "model": "아반떼",
+    "label": "아반떼AD",
+    "code": "AD",
+    "source": "daangn",
+    "daangn": {
+     "id": "1571",
+     "name": "아반떼AD",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1234": {
+    "model": "맥스크루즈",
+    "label": "더 뉴 맥스크루즈",
+    "code": "NC",
+    "source": "daangn",
+    "daangn": {
+     "id": "1572",
+     "name": "더 뉴맥스크루즈",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1242": {
+    "model": "쏠라티",
+    "label": "쏠라티",
+    "code": "H350",
+    "source": "daangn",
+    "daangn": {
+     "id": "1576",
+     "name": "쏠라티",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1244": {
+    "model": "아이오닉",
+    "label": "아이오닉 하이브리드",
+    "code": "AE",
+    "source": "daangn",
+    "daangn": {
+     "id": "1596",
+     "name": "아이오닉 하이브리드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1246": {
+    "model": "벨로스터",
+    "label": "더 뉴 벨로스터",
+    "code": "FS (F/L)",
+    "source": "daangn",
+    "daangn": {
+     "id": "1054",
+     "name": "더 뉴벨로스터",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1256": {
+    "model": "포니",
+    "label": "포니2",
+    "code": null,
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1281": {
+    "model": "카운티",
+    "label": "뉴 카운티",
+    "code": "CN",
+    "source": "daangn",
+    "daangn": {
+     "id": "986",
+     "name": "뉴카운티",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1299": {
+    "model": "i30",
+    "label": "i30 PD",
+    "code": "PD",
+    "source": "daangn",
+    "daangn": {
+     "id": "2534",
+     "name": "i30 PD",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1325": {
+    "model": "그랜저",
+    "label": "그랜저IG",
+    "code": "IG",
+    "source": "daangn",
+    "daangn": {
+     "id": "2569",
+     "name": "그랜저IG",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1336": {
+    "model": "쏘나타",
+    "label": "쏘나타 뉴 라이즈",
+    "code": "LF",
+    "source": "daangn",
+    "daangn": {
+     "id": "2588",
+     "name": "LF쏘나타 뉴라이즈",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1340": {
+    "model": "아이오닉",
+    "label": "아이오닉 일렉트릭",
+    "code": "AE",
+    "source": "daangn",
+    "daangn": {
+     "id": "2521",
+     "name": "아이오닉 일렉트릭",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1343": {
+    "model": "마이티",
+    "label": "올 뉴 마이티",
+    "code": "WQ",
+    "source": "daangn",
+    "daangn": {
+     "id": "1552",
+     "name": "올 뉴마이티",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1345": {
+    "model": "그랜저",
+    "label": "그랜저IG 하이브리드",
+    "code": "IG",
+    "source": "daangn",
+    "daangn": {
+     "id": "2591",
+     "name": "그랜저IG 하이브리드",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1352": {
+    "model": "쏘나타",
+    "label": "쏘나타 뉴 라이즈 하이브리드",
+    "code": "LF",
+    "source": "daangn",
+    "daangn": {
+     "id": "2598",
+     "name": "LF쏘나타 뉴라이즈 하이브리드",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1356": {
+    "model": "코나",
+    "label": "코나",
+    "code": "OS",
+    "source": "daangn",
+    "daangn": {
+     "id": "2606",
+     "name": "코나",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1399": {
+    "model": "스타렉스",
+    "label": "더 뉴 그랜드스타렉스",
+    "code": "TQ",
+    "source": "daangn",
+    "daangn": {
+     "id": "2631",
+     "name": "더 뉴그랜드스타렉스",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1408": {
+    "model": "벨로스터",
+    "label": "벨로스터 [JS]",
+    "code": "JS",
+    "source": "daangn",
+    "daangn": {
+     "id": "2640",
+     "name": "벨로스터(JS)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1409": {
+    "model": "싼타페",
+    "label": "싼타페TM",
+    "code": "TM",
+    "source": "daangn",
+    "daangn": {
+     "id": "2647",
+     "name": "싼타페(TM)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1425": {
+    "model": "넥쏘",
+    "label": "넥쏘",
+    "code": "FE",
+    "source": "daangn",
+    "daangn": {
+     "id": "2658",
+     "name": "넥쏘",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1429": {
+    "model": "코나",
+    "label": "코나 일렉트릭",
+    "code": "OS",
+    "source": "daangn",
+    "daangn": {
+     "id": "2668",
+     "name": "코나 일렉트릭",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1438": {
+    "model": "아반떼",
+    "label": "더 뉴 아반떼AD",
+    "code": "AD",
+    "source": "daangn",
+    "daangn": {
+     "id": "2695",
+     "name": "더 뉴아반떼AD",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1446": {
+    "model": "스쿠프",
+    "label": "뉴 스쿠프",
+    "code": "SLC",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1454": {
+    "model": "팰리세이드",
+    "label": "팰리세이드",
+    "code": "LX2",
+    "source": "daangn",
+    "daangn": {
+     "id": "2712",
+     "name": "팰리세이드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1480": {
+    "model": "쏘나타",
+    "label": "쏘나타 DN8",
+    "code": "DN8",
+    "source": "daangn",
+    "daangn": {
+     "id": "2741",
+     "name": "쏘나타(DN8)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1486": {
+    "model": "아이오닉",
+    "label": "더 뉴 아이오닉 일렉트릭",
+    "code": "AE",
+    "source": "daangn",
+    "daangn": {
+     "id": "2762",
+     "name": "더 뉴아이오닉 일렉트릭",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1493": {
+    "model": "그랜저",
+    "label": "더 뉴 그랜저",
+    "code": "IG",
+    "source": "daangn",
+    "daangn": {
+     "id": "2820",
+     "name": "더 뉴그랜저IG",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1494": {
+    "model": "쏘나타",
+    "label": "쏘나타 하이브리드 [DN8]",
+    "code": "DN8",
+    "source": "daangn",
+    "daangn": {
+     "id": "2787",
+     "name": "쏘나타(DN8) 하이브리드",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1496": {
+    "model": "싼타페",
+    "label": "더 뉴 싼타페",
+    "code": "TM",
+    "source": "daangn",
+    "daangn": {
+     "id": "2956",
+     "name": "더 뉴싼타페",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1525": {
+    "model": "그랜저",
+    "label": "디 올 뉴 그랜저 하이브리드",
+    "code": "GN7",
+    "source": "daangn",
+    "daangn": {
+     "id": "3358",
+     "name": "디 올뉴그랜저 하이브리드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1577": {
+    "model": "베뉴",
+    "label": "베뉴",
+    "code": "QX1",
+    "source": "daangn",
+    "daangn": {
+     "id": "2782",
+     "name": "베뉴",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1599": {
+    "model": "쏘나타",
+    "label": "쏘나타 디 엣지",
+    "code": "DN8",
+    "source": "daangn",
+    "daangn": {
+     "id": "3451",
+     "name": "쏘나타 디 엣지",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1600": {
+    "model": "아반떼",
+    "label": "올 뉴 아반떼 [CN7]",
+    "code": "CN7",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1638": {
+    "model": "아이오닉6",
+    "label": "아이오닉6",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "3313",
+     "name": "아이오닉 6",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1705": {
+    "model": "팰리세이드",
+    "label": "더 뉴 팰리세이드",
+    "code": "LX2",
+    "source": "daangn",
+    "daangn": {
+     "id": "3268",
+     "name": "더 뉴팰리세이드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1733": {
+    "model": "아반떼",
+    "label": "더 뉴 아반떼 N",
+    "code": "CN7",
+    "source": "daangn",
+    "daangn": {
+     "id": "3485",
+     "name": "더 뉴아반떼 N",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1747": {
+    "model": "그랜저",
+    "label": "더 뉴 그랜저 하이브리드",
+    "code": "IG",
+    "source": "daangn",
+    "daangn": {
+     "id": "2821",
+     "name": "더 뉴그랜저IG 하이브리드",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1748": {
+    "model": "포터",
+    "label": "포터2 일렉트릭",
+    "code": "HR",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1837": {
+    "model": "아반떼",
+    "label": "올 뉴 아반떼 하이브리드 [CN7]",
+    "code": "CN7",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1847": {
+    "model": "투싼",
+    "label": "디 올 뉴 투싼",
+    "code": "NX4",
+    "source": null,
+    "daangn": null
+   },
+   "1848": {
+    "model": "코나",
+    "label": "더 뉴 코나",
+    "code": "OS",
+    "source": "daangn",
+    "daangn": {
+     "id": "2997",
+     "name": "더 뉴코나",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1873": {
+    "model": "스타리아",
+    "label": "스타리아",
+    "code": "US4",
+    "source": "daangn",
+    "daangn": {
+     "id": "3067",
+     "name": "스타리아",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1880": {
+    "model": "아이오닉5",
+    "label": "아이오닉5",
+    "code": "NE",
+    "source": "daangn",
+    "daangn": {
+     "id": "3057",
+     "name": "아이오닉 5",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1889": {
+    "model": "싼타페",
+    "label": "더 뉴 싼타페 하이브리드",
+    "code": "TM",
+    "source": "daangn",
+    "daangn": {
+     "id": "3118",
+     "name": "더 뉴싼타페 하이브리드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1891": {
+    "model": "코나",
+    "label": "코나 N",
+    "code": "OS",
+    "source": "daangn",
+    "daangn": {
+     "id": "2999",
+     "name": "코나 N",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1892": {
+    "model": "투싼",
+    "label": "디 올 뉴 투싼 하이브리드",
+    "code": "NX4",
+    "source": null,
+    "daangn": null
+   },
+   "1896": {
+    "model": "벨로스터",
+    "label": "벨로스터 N",
+    "code": "JS N",
+    "source": "daangn",
+    "daangn": {
+     "id": "2677",
+     "name": "벨로스터 N",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1897": {
+    "model": "아반떼",
+    "label": "아반떼 N",
+    "code": "CN7",
+    "source": "daangn",
+    "daangn": {
+     "id": "2975",
+     "name": "아반떼 N",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1903": {
+    "model": "엑시언트",
+    "label": "엑시언트 프로",
+    "code": "QZ",
+    "source": null,
+    "daangn": null
+   },
+   "1905": {
+    "model": "캐스퍼",
+    "label": "캐스퍼",
+    "code": "AX1",
+    "source": "daangn",
+    "daangn": {
+     "id": "3139",
+     "name": "캐스퍼",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1975": {
+    "model": "싼타페",
+    "label": "디 올 뉴 싼타페",
+    "code": "MX5",
+    "source": "daangn",
+    "daangn": {
+     "id": "3493",
+     "name": "디 올뉴싼타페",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1976": {
+    "model": "싼타페",
+    "label": "디 올 뉴 싼타페 하이브리드",
+    "code": "MX5",
+    "source": "daangn",
+    "daangn": {
+     "id": "3494",
+     "name": "디 올뉴싼타페 하이브리드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1981": {
+    "model": "아이오닉5",
+    "label": "아이오닉 5 N",
+    "code": "NE-N",
+    "source": "daangn",
+    "daangn": {
+     "id": "3499",
+     "name": "아이오닉 5 N",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1996": {
+    "model": "투싼",
+    "label": "더 뉴 투싼",
+    "code": "NX4",
+    "source": "daangn",
+    "daangn": {
+     "id": "3523",
+     "name": "더 뉴투싼",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1997": {
+    "model": "투싼",
+    "label": "더 뉴 투싼 하이브리드",
+    "code": "NX4",
+    "source": "daangn",
+    "daangn": {
+     "id": "3524",
+     "name": "더 뉴투싼 하이브리드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "2030": {
+    "model": "캐스퍼",
+    "label": "캐스퍼 일렉트릭",
+    "code": "AX1",
+    "source": "daangn",
+    "daangn": {
+     "id": "3580",
+     "name": "캐스퍼 일렉트릭",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "2034": {
+    "model": "캐스퍼",
+    "label": "더 뉴 캐스퍼",
+    "code": "AX1",
+    "source": "daangn",
+    "daangn": {
+     "id": "3605",
+     "name": "더 뉴캐스퍼",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "2041": {
+    "model": "팰리세이드",
+    "label": "디 올 뉴 팰리세이드",
+    "code": "LX3",
+    "source": "daangn",
+    "daangn": {
+     "id": "3618",
+     "name": "디 올뉴팰리세이드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   }
+  },
+  "기아": {
+   "16": {
+    "model": "포텐샤",
+    "label": "포텐샤",
+    "code": "T1",
+    "source": "daangn",
+    "daangn": {
+     "id": "183",
+     "name": "포텐샤",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "19": {
+    "model": "엘란",
+    "label": "엘란",
+    "code": "M100",
+    "source": "daangn",
+    "daangn": {
+     "id": "1002",
+     "name": "엘란",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "20": {
+    "model": "캐피탈",
+    "label": "캐피탈",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "1033",
+     "name": "캐피탈",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "21": {
+    "model": "세피아",
+    "label": "세피아",
+    "code": "S-CAR",
+    "source": "daangn",
+    "daangn": {
+     "id": "244",
+     "name": "세피아",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "44": {
+    "model": "기타",
+    "label": "기타",
+    "code": null,
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "45": {
+    "model": "프라이드",
+    "label": "프라이드",
+    "code": "WA",
+    "source": "daangn",
+    "daangn": {
+     "id": "181",
+     "name": "프라이드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "52": {
+    "model": "코스모스",
+    "label": "코스모스",
+    "code": "AM818",
+    "source": "daangn",
+    "daangn": {
+     "id": "992",
+     "name": "코스모스",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "53": {
+    "model": "그랜버드",
+    "label": "그랜버드",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "990",
+     "name": "그랜버드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "209": {
+    "model": "K7",
+    "label": "K7 프리미어 하이브리드",
+    "code": "YG",
+    "source": "daangn",
+    "daangn": {
+     "id": "2780",
+     "name": "K7 프리미어 하이브리드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "496": {
+    "model": "K5",
+    "label": "K5 하이브리드 2세대",
+    "code": "JF",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "504": {
+    "model": "그랜버드",
+    "label": "뉴 그랜버드",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "41",
+     "name": "뉴그랜버드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "549": {
+    "model": "봉고",
+    "label": "봉고3",
+    "code": "PU",
+    "source": null,
+    "daangn": null
+   },
+   "586": {
+    "model": "레이",
+    "label": "레이",
+    "code": "TAM",
+    "source": "daangn",
+    "daangn": {
+     "id": "233",
+     "name": "레이",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "624": {
+    "model": "카니발",
+    "label": "그랜드 카니발",
+    "code": "VQ",
+    "source": "daangn",
+    "daangn": {
+     "id": "36",
+     "name": "그랜드카니발",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "628": {
+    "model": "프라이드",
+    "label": "뉴 프라이드",
+    "code": "JB",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "666": {
+    "model": "오피러스",
+    "label": "뉴 오피러스",
+    "code": "GH",
+    "source": "daangn",
+    "daangn": {
+     "id": "186",
+     "name": "뉴오피러스",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "671": {
+    "model": "셀토스",
+    "label": "디 올 뉴 셀토스",
+    "code": "SP3",
+    "source": "daangn",
+    "daangn": {
+     "id": "3755",
+     "name": "디 올뉴셀토스",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "735": {
+    "model": "K5",
+    "label": "K5 하이브리드",
+    "code": "TF",
+    "source": "daangn",
+    "daangn": {
+     "id": "223",
+     "name": "K5 하이브리드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "751": {
+    "model": "모하비",
+    "label": "모하비",
+    "code": "HM",
+    "source": "daangn",
+    "daangn": {
+     "id": "39",
+     "name": "모하비",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "754": {
+    "model": "모닝",
+    "label": "뉴모닝",
+    "code": "SA",
+    "source": "daangn",
+    "daangn": {
+     "id": "28",
+     "name": "뉴모닝",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "790": {
+    "model": "로체",
+    "label": "로체 이노베이션",
+    "code": "MG",
+    "source": "daangn",
+    "daangn": {
+     "id": "31",
+     "name": "로체 이노베이션",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "813": {
+    "model": "포르테",
+    "label": "포르테",
+    "code": "TD",
+    "source": "daangn",
+    "daangn": {
+     "id": "30",
+     "name": "포르테",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "825": {
+    "model": "쏘울",
+    "label": "쏘울",
+    "code": "AM",
+    "source": "daangn",
+    "daangn": {
+     "id": "33",
+     "name": "쏘울",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "875": {
+    "model": "쏘렌토",
+    "label": "쏘렌토R",
+    "code": "XM",
+    "source": "daangn",
+    "daangn": {
+     "id": "38",
+     "name": "쏘렌토 R",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "879": {
+    "model": "포르테",
+    "label": "포르테 쿱",
+    "code": "XK",
+    "source": "daangn",
+    "daangn": {
+     "id": "93",
+     "name": "포르테 쿱",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "883": {
+    "model": "오피러스",
+    "label": "오피러스 프리미엄",
+    "code": "GH",
+    "source": "daangn",
+    "daangn": {
+     "id": "32",
+     "name": "오피러스 프리미엄",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "942": {
+    "model": "셀토스",
+    "label": "더 뉴 셀토스",
+    "code": "SP2",
+    "source": "daangn",
+    "daangn": {
+     "id": "3299",
+     "name": "더 뉴셀토스",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "945": {
+    "model": "쏘울",
+    "label": "올 뉴 쏘울",
+    "code": "PS",
+    "source": "daangn",
+    "daangn": {
+     "id": "941",
+     "name": "올 뉴쏘울",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "954": {
+    "model": "K7",
+    "label": "K7",
+    "code": "VG",
+    "source": "daangn",
+    "daangn": {
+     "id": "145",
+     "name": "K7",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1020": {
+    "model": "K7",
+    "label": "더 프레스티지 K7",
+    "code": "VG",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1028": {
+    "model": "모닝",
+    "label": "올 뉴 모닝",
+    "code": "TA",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1071": {
+    "model": "스포티지",
+    "label": "스포티지R",
+    "code": "SL",
+    "source": "daangn",
+    "daangn": {
+     "id": "165",
+     "name": "스포티지 R",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1075": {
+    "model": "K5",
+    "label": "K5",
+    "code": "TF",
+    "source": "daangn",
+    "daangn": {
+     "id": "166",
+     "name": "K5",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1104": {
+    "model": "K9",
+    "label": "K9",
+    "code": "KH",
+    "source": "daangn",
+    "daangn": {
+     "id": "279",
+     "name": "K9(KH)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1111": {
+    "model": "쏘렌토",
+    "label": "뉴 쏘렌토R",
+    "code": "XM",
+    "source": "daangn",
+    "daangn": {
+     "id": "290",
+     "name": "뉴쏘렌토 R",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1115": {
+    "model": "K3",
+    "label": "K3",
+    "code": "YD",
+    "source": "daangn",
+    "daangn": {
+     "id": "295",
+     "name": "K3",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1128": {
+    "model": "K7",
+    "label": "더 뉴 K7",
+    "code": "VG",
+    "source": "daangn",
+    "daangn": {
+     "id": "537",
+     "name": "더 뉴K7",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1142": {
+    "model": "카렌스",
+    "label": "올 뉴 카렌스",
+    "code": "RP",
+    "source": "daangn",
+    "daangn": {
+     "id": "930",
+     "name": "올 뉴카렌스",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1156": {
+    "model": "K5",
+    "label": "더 뉴 K5",
+    "code": "TF",
+    "source": "daangn",
+    "daangn": {
+     "id": "935",
+     "name": "더 뉴K5",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1163": {
+    "model": "K3",
+    "label": "K3 쿱",
+    "code": "YK",
+    "source": "daangn",
+    "daangn": {
+     "id": "938",
+     "name": "K3 쿱",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1174": {
+    "model": "K7",
+    "label": "K7 하이브리드",
+    "code": "VG",
+    "source": "daangn",
+    "daangn": {
+     "id": "957",
+     "name": "K7 하이브리드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1180": {
+    "model": "카니발",
+    "label": "올 뉴 카니발",
+    "code": "YP",
+    "source": "daangn",
+    "daangn": {
+     "id": "1029",
+     "name": "올 뉴카니발",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1187": {
+    "model": "스포티지",
+    "label": "더 뉴 스포티지R",
+    "code": "SL",
+    "source": "daangn",
+    "daangn": {
+     "id": "936",
+     "name": "더 뉴스포티지R",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1193": {
+    "model": "쏘렌토",
+    "label": "올 뉴 쏘렌토",
+    "code": "UM",
+    "source": "daangn",
+    "daangn": {
+     "id": "1031",
+     "name": "올 뉴쏘렌토",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1203": {
+    "model": "K9",
+    "label": "더 뉴 K9",
+    "code": "KH",
+    "source": "daangn",
+    "daangn": {
+     "id": "1047",
+     "name": "더 뉴K9(KH)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1205": {
+    "model": "모닝",
+    "label": "더 뉴 모닝",
+    "code": "TA",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1222": {
+    "model": "K5",
+    "label": "K5 2세대",
+    "code": "JF",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1235": {
+    "model": "스포티지",
+    "label": "스포티지 4세대",
+    "code": "QL",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1247": {
+    "model": "K3",
+    "label": "더 뉴 K3",
+    "code": "YD",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1249": {
+    "model": "K7",
+    "label": "올 뉴 K7",
+    "code": "YG",
+    "source": "daangn",
+    "daangn": {
+     "id": "1598",
+     "name": "올 뉴K7",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1258": {
+    "model": "모닝",
+    "label": "올 뉴 모닝 [JA]",
+    "code": "JA",
+    "source": "daangn",
+    "daangn": {
+     "id": "2574",
+     "name": "올 뉴모닝(JA)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1260": {
+    "model": "니로",
+    "label": "니로",
+    "code": "DE",
+    "source": "daangn",
+    "daangn": {
+     "id": "1647",
+     "name": "니로",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1266": {
+    "model": "모하비",
+    "label": "더 뉴 모하비",
+    "code": "HM",
+    "source": "daangn",
+    "daangn": {
+     "id": "1600",
+     "name": "더 뉴모하비",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1302": {
+    "model": "카렌스",
+    "label": "더 뉴 카렌스",
+    "code": "RP",
+    "source": "daangn",
+    "daangn": {
+     "id": "2523",
+     "name": "더 뉴카렌스",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1328": {
+    "model": "K7",
+    "label": "올 뉴 K7 하이브리드",
+    "code": "YG",
+    "source": "daangn",
+    "daangn": {
+     "id": "2570",
+     "name": "올 뉴K7 하이브리드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1349": {
+    "model": "스팅어",
+    "label": "스팅어",
+    "code": "CK",
+    "source": "daangn",
+    "daangn": {
+     "id": "2597",
+     "name": "스팅어",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1360": {
+    "model": "쏘렌토",
+    "label": "더 뉴 쏘렌토",
+    "code": "UM",
+    "source": "daangn",
+    "daangn": {
+     "id": "2611",
+     "name": "더 뉴쏘렌토",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1361": {
+    "model": "스토닉",
+    "label": "스토닉",
+    "code": "YB CUV",
+    "source": "daangn",
+    "daangn": {
+     "id": "2607",
+     "name": "스토닉",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1398": {
+    "model": "레이",
+    "label": "더 뉴 레이",
+    "code": "TAM",
+    "source": "daangn",
+    "daangn": {
+     "id": "2630",
+     "name": "더 뉴레이",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1405": {
+    "model": "K5",
+    "label": "더 뉴 K5 2세대",
+    "code": "JF",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1410": {
+    "model": "K3",
+    "label": "올 뉴 K3",
+    "code": "BD",
+    "source": "daangn",
+    "daangn": {
+     "id": "2646",
+     "name": "올 뉴K3",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1412": {
+    "model": "카니발",
+    "label": "더 뉴 카니발",
+    "code": "YP",
+    "source": "daangn",
+    "daangn": {
+     "id": "2656",
+     "name": "더 뉴카니발",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1413": {
+    "model": "K9",
+    "label": "더 K9",
+    "code": "RJ",
+    "source": "daangn",
+    "daangn": {
+     "id": "2657",
+     "name": "더 K9(RJ)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1430": {
+    "model": "쏘울",
+    "label": "쏘울 EV",
+    "code": "PS",
+    "source": "daangn",
+    "daangn": {
+     "id": "1014",
+     "name": "쏘울 EV",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1431": {
+    "model": "스포티지",
+    "label": "스포티지 더 볼드",
+    "code": "QL",
+    "source": "daangn",
+    "daangn": {
+     "id": "2689",
+     "name": "스포티지 더 볼드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1467": {
+    "model": "니로",
+    "label": "니로 EV",
+    "code": "DE",
+    "source": "daangn",
+    "daangn": {
+     "id": "2688",
+     "name": "니로 EV",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1472": {
+    "model": "쏘울",
+    "label": "쏘울 부스터",
+    "code": "SK3",
+    "source": "daangn",
+    "daangn": {
+     "id": "2723",
+     "name": "쏘울 부스터",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1477": {
+    "model": "니로",
+    "label": "더 뉴 니로",
+    "code": "DE",
+    "source": "daangn",
+    "daangn": {
+     "id": "2740",
+     "name": "더 뉴니로",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1492": {
+    "model": "모하비",
+    "label": "모하비 더 마스터",
+    "code": "HM",
+    "source": "daangn",
+    "daangn": {
+     "id": "2793",
+     "name": "모하비 더 마스터",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1498": {
+    "model": "모닝",
+    "label": "모닝 어반",
+    "code": "JA",
+    "source": "daangn",
+    "daangn": {
+     "id": "2939",
+     "name": "모닝 어반",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1500": {
+    "model": "카니발",
+    "label": "뉴 카니발 R",
+    "code": "VQ",
+    "source": null,
+    "daangn": null
+   },
+   "1501": {
+    "model": "쏘렌토",
+    "label": "쏘렌토 4세대",
+    "code": "MQ4",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1505": {
+    "model": "카니발",
+    "label": "그랜드 카니발 R",
+    "code": "VQ",
+    "source": null,
+    "daangn": null
+   },
+   "1506": {
+    "model": "K3",
+    "label": "더 뉴 K3 [2세대]",
+    "code": "BD",
+    "source": null,
+    "daangn": null
+   },
+   "1622": {
+    "model": "모닝",
+    "label": "더 뉴 모닝 [JA]",
+    "code": "JA",
+    "source": "daangn",
+    "daangn": {
+     "id": "3473",
+     "name": "더 뉴모닝(JA)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1637": {
+    "model": "레이",
+    "label": "더 뉴 기아 레이",
+    "code": "TAM",
+    "source": "daangn",
+    "daangn": {
+     "id": "3332",
+     "name": "더 뉴기아 레이",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1692": {
+    "model": "니로",
+    "label": "디 올 뉴 니로 EV",
+    "code": "SG2",
+    "source": "daangn",
+    "daangn": {
+     "id": "3259",
+     "name": "디 올뉴니로EV",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1714": {
+    "model": "K7",
+    "label": "K7 프리미어",
+    "code": "YG",
+    "source": "daangn",
+    "daangn": {
+     "id": "2776",
+     "name": "K7 프리미어",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1726": {
+    "model": "셀토스",
+    "label": "셀토스",
+    "code": "SP2",
+    "source": "daangn",
+    "daangn": {
+     "id": "2783",
+     "name": "셀토스",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1738": {
+    "model": "봉고",
+    "label": "더 뉴 봉고3",
+    "code": "PU",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1745": {
+    "model": "K5",
+    "label": "K5 3세대",
+    "code": "DL3",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1746": {
+    "model": "K5",
+    "label": "K5 하이브리드 3세대",
+    "code": "DL3",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1780": {
+    "model": "봉고",
+    "label": "봉고3 EV",
+    "code": "PU",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1838": {
+    "model": "카니발",
+    "label": "카니발 4세대",
+    "code": "KA4",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1843": {
+    "model": "스팅어",
+    "label": "스팅어 마이스터",
+    "code": "CK",
+    "source": "daangn",
+    "daangn": {
+     "id": "2982",
+     "name": "스팅어 마이스터",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1874": {
+    "model": "K8",
+    "label": "K8",
+    "code": "GL3",
+    "source": "daangn",
+    "daangn": {
+     "id": "3066",
+     "name": "K8",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1882": {
+    "model": "K8",
+    "label": "K8 하이브리드",
+    "code": "GL3",
+    "source": "daangn",
+    "daangn": {
+     "id": "3096",
+     "name": "K8 하이브리드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1884": {
+    "model": "K9",
+    "label": "더 뉴 K9 [RJ]",
+    "code": "RJ",
+    "source": "daangn",
+    "daangn": {
+     "id": "3111",
+     "name": "더 뉴K9(RJ)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1888": {
+    "model": "스포티지",
+    "label": "디 올 뉴 스포티지",
+    "code": "NQ5",
+    "source": "daangn",
+    "daangn": {
+     "id": "3119",
+     "name": "디 올뉴스포티지",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1890": {
+    "model": "쏘렌토",
+    "label": "쏘렌토 4세대 하이브리드",
+    "code": "MQ4",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1893": {
+    "model": "EV6",
+    "label": "EV6",
+    "code": "CV",
+    "source": "daangn",
+    "daangn": {
+     "id": "3116",
+     "name": "EV6",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1895": {
+    "model": "스포티지",
+    "label": "디 올 뉴 스포티지 하이브리드",
+    "code": "NQ5",
+    "source": "daangn",
+    "daangn": {
+     "id": "3124",
+     "name": "디 올뉴스포티지 하이브리드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1915": {
+    "model": "니로",
+    "label": "디 올 뉴 니로",
+    "code": "SG2",
+    "source": "daangn",
+    "daangn": {
+     "id": "3197",
+     "name": "디 올뉴니로",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1972": {
+    "model": "EV9",
+    "label": "EV9",
+    "code": "MV1",
+    "source": "daangn",
+    "daangn": {
+     "id": "3454",
+     "name": "EV9",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1977": {
+    "model": "쏘렌토",
+    "label": "더 뉴 쏘렌토 4세대",
+    "code": "MQ4",
+    "source": "daangn",
+    "daangn": {
+     "id": "3495",
+     "name": "더 뉴쏘렌토(MQ4)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1978": {
+    "model": "쏘렌토",
+    "label": "더 뉴 쏘렌토 4세대 하이브리드",
+    "code": "MQ4",
+    "source": "daangn",
+    "daangn": {
+     "id": "3496",
+     "name": "더 뉴쏘렌토 하이브리드(MQ4)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1989": {
+    "model": "카니발",
+    "label": "더 뉴 카니발 4세대",
+    "code": " KA4 ",
+    "source": "daangn",
+    "daangn": {
+     "id": "3513",
+     "name": "더 뉴카니발(KA4)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1992": {
+    "model": "K5",
+    "label": "더 뉴 K5 3세대",
+    "code": "DL3",
+    "source": "daangn",
+    "daangn": {
+     "id": "3510",
+     "name": "더 뉴K5(DL3)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1993": {
+    "model": "K5",
+    "label": "더 뉴 K5 하이브리드 3세대",
+    "code": "DL3",
+    "source": "daangn",
+    "daangn": {
+     "id": "3511",
+     "name": "더 뉴K5 하이브리드(DL3)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "2023": {
+    "model": "EV3",
+    "label": "EV3",
+    "code": "SV1",
+    "source": "daangn",
+    "daangn": {
+     "id": "3567",
+     "name": "EV3",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "2026": {
+    "model": "K8",
+    "label": "더 뉴 K8",
+    "code": "GL3",
+    "source": "daangn",
+    "daangn": {
+     "id": "3593",
+     "name": "더 뉴K8",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "2027": {
+    "model": "K8",
+    "label": "더 뉴 K8 하이브리드",
+    "code": "GL3",
+    "source": "daangn",
+    "daangn": {
+     "id": "3594",
+     "name": "더 뉴K8 하이브리드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "2031": {
+    "model": "EV6",
+    "label": "더 뉴 EV6",
+    "code": "CV",
+    "source": "daangn",
+    "daangn": {
+     "id": "3564",
+     "name": "더 뉴EV6",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "2044": {
+    "model": "스포티지",
+    "label": "더 뉴 스포티지",
+    "code": "NQ5",
+    "source": "daangn",
+    "daangn": {
+     "id": "3613",
+     "name": "더 뉴스포티지",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "2045": {
+    "model": "스포티지",
+    "label": "더 뉴 스포티지 하이브리드",
+    "code": "NQ5",
+    "source": "daangn",
+    "daangn": {
+     "id": "3614",
+     "name": "더 뉴스포티지 하이브리드",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "2051": {
+    "model": "타스만",
+    "label": "타스만",
+    "code": "TK1",
+    "source": "daangn",
+    "daangn": {
+     "id": "3643",
+     "name": "타스만",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "2093": {
+    "model": "PV5",
+    "label": "PV5",
+    "code": "SW1",
+    "source": "daangn",
+    "daangn": {
+     "id": "3697",
+     "name": "PV5",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   }
+  },
+  "포르쉐": {
+   "339": {
+    "model": "박스터",
+    "label": "박스터",
+    "code": "987",
+    "source": "daangn",
+    "daangn": {
+     "id": "1418",
+     "name": "박스터(987)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "340": {
+    "model": "911",
+    "label": "911",
+    "code": "997",
+    "source": "daangn",
+    "daangn": {
+     "id": "1409",
+     "name": "911(997)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "344": {
+    "model": "카이엔",
+    "label": "카이엔",
+    "code": "955",
+    "source": "daangn",
+    "daangn": {
+     "id": "1421",
+     "name": "카이엔(1세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "455": {
+    "model": "911",
+    "label": "911",
+    "code": "991",
+    "source": "daangn",
+    "daangn": {
+     "id": "1410",
+     "name": "911(991)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "639": {
+    "model": "카이맨",
+    "label": "카이맨",
+    "code": "987",
+    "source": "daangn",
+    "daangn": {
+     "id": "1419",
+     "name": "카이맨(987)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "960": {
+    "model": "파나메라",
+    "label": "파나메라",
+    "code": "970",
+    "source": "daangn",
+    "daangn": {
+     "id": "876",
+     "name": "파나메라",
+     "rule": "세대 없는 이름 = 1세대",
+     "confidence": "중간"
+    }
+   },
+   "1076": {
+    "model": "카이엔",
+    "label": "카이엔",
+    "code": "958",
+    "source": "daangn",
+    "daangn": {
+     "id": "875",
+     "name": "카이엔(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1123": {
+    "model": "박스터",
+    "label": "박스터",
+    "code": "981",
+    "source": "daangn",
+    "daangn": {
+     "id": "873",
+     "name": "박스터(981)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1144": {
+    "model": "카이맨",
+    "label": "카이맨",
+    "code": "981",
+    "source": "daangn",
+    "daangn": {
+     "id": "874",
+     "name": "카이맨(981)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1183": {
+    "model": "마칸",
+    "label": "마칸",
+    "code": "95B",
+    "source": "daangn",
+    "daangn": {
+     "id": "960",
+     "name": "마칸",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1264": {
+    "model": "타이칸",
+    "label": "타이칸",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "3022",
+     "name": "타이칸",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1290": {
+    "model": "718",
+    "label": "718 박스터",
+    "code": "982",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1301": {
+    "model": "파나메라",
+    "label": "파나메라",
+    "code": "971",
+    "source": "daangn",
+    "daangn": {
+     "id": "2579",
+     "name": "파나메라(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1344": {
+    "model": "718",
+    "label": "718 카이맨",
+    "code": "982",
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1422": {
+    "model": "카이엔",
+    "label": "카이엔",
+    "code": "9Y0",
+    "source": "daangn",
+    "daangn": {
+     "id": "2629",
+     "name": "카이엔(3세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1488": {
+    "model": "911",
+    "label": "911",
+    "code": "992",
+    "source": "daangn",
+    "daangn": {
+     "id": "2770",
+     "name": "911(992)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1531": {
+    "model": "911",
+    "label": "911",
+    "code": "996",
+    "source": "daangn",
+    "daangn": {
+     "id": "1407",
+     "name": "911(996)",
+     "rule": "코드 일치",
+     "confidence": "높음"
+    }
+   },
+   "1534": {
+    "model": "944",
+    "label": "944",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "1415",
+     "name": "944",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1781": {
+    "model": "718",
+    "label": "718 스파이더",
+    "code": "982",
+    "source": null,
+    "daangn": null
+   },
+   "1920": {
+    "model": "911",
+    "label": "911",
+    "code": null,
+    "source": null,
+    "daangn": null
+   },
+   "2008": {
+    "model": "파나메라",
+    "label": "파나메라",
+    "code": "972",
+    "source": "daangn",
+    "daangn": {
+     "id": "3517",
+     "name": "파나메라(3세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "2053": {
+    "model": "마칸",
+    "label": "마칸 일렉트릭",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "3586",
+     "name": "마칸 일렉트릭",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   }
+  },
+  "페라리": {
+   "328": {
+    "model": "F355",
+    "label": "F355",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "844",
+     "name": "F355",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "483": {
+    "model": "360",
+    "label": "360",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "832",
+     "name": "360",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "489": {
+    "model": "575M",
+    "label": "575M",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "838",
+     "name": "575M",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "500": {
+    "model": "599",
+    "label": "599",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "839",
+     "name": "599",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "527": {
+    "model": "296",
+    "label": "296",
+    "code": null,
+    "source": null,
+    "daangn": null
+   },
+   "588": {
+    "model": "F430",
+    "label": "F430",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "845",
+     "name": "F430",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "601": {
+    "model": "612",
+    "label": "612",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "840",
+     "name": "612",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "936": {
+    "model": "캘리포니아",
+    "label": "캘리포니아",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "848",
+     "name": "캘리포니아",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "976": {
+    "model": "458",
+    "label": "458",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "834",
+     "name": "458",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1024": {
+    "model": "FF",
+    "label": "FF",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "841",
+     "name": "FF",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1117": {
+    "model": "F12",
+    "label": "F12",
+    "code": null,
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1230": {
+    "model": "488",
+    "label": "488",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "1067",
+     "name": "488",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1334": {
+    "model": "GTC4 루쏘",
+    "label": "GTC4 루쏘",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "2558",
+     "name": "GTC4 루쏘",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1397": {
+    "model": "812",
+    "label": "812",
+    "code": null,
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1401": {
+    "model": "308",
+    "label": "308",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "3649",
+     "name": "308",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1441": {
+    "model": "포르토피노",
+    "label": "포르토피노",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "2659",
+     "name": "포르토피노",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1479": {
+    "model": "328",
+    "label": "328",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "2742",
+     "name": "328",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1669": {
+    "model": "푸로산게",
+    "label": "푸로산게",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "3349",
+     "name": "푸로산게",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1702": {
+    "model": "로마",
+    "label": "로마",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "3025",
+     "name": "로마",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1740": {
+    "model": "F8",
+    "label": "F8",
+    "code": null,
+    "source": null,
+    "daangn": null
+   },
+   "1799": {
+    "model": "SF90",
+    "label": "SF90",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "3040",
+     "name": "SF90",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   }
+  },
+  "람보르기니": {
+   "448": {
+    "model": "무르시엘라고",
+    "label": "무르시엘라고",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "529",
+     "name": "무르시엘라고",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "555": {
+    "model": "가야르도",
+    "label": "가야르도",
+    "code": null,
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "608": {
+    "model": "아벤타도르",
+    "label": "아벤타도르",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "530",
+     "name": "아벤타도르",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1182": {
+    "model": "우라칸",
+    "label": "우라칸",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "1064",
+     "name": "우라칸",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1449": {
+    "model": "우루스",
+    "label": "우루스",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "2696",
+     "name": "우루스",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "2092": {
+    "model": "레부엘토",
+    "label": "레부엘토",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "3687",
+     "name": "레부엘토",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   }
+  },
+  "벤틀리": {
+   "462": {
+    "model": "아르나지",
+    "label": "아르나지",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "623",
+     "name": "아르나지",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "641": {
+    "model": "컨티넨탈 GT",
+    "label": "컨티넨탈 GT",
+    "code": null,
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1033": {
+    "model": "뮬산",
+    "label": "뮬산",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "621",
+     "name": "뮬산",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1091": {
+    "model": "컨티넨탈 GT",
+    "label": "컨티넨탈 GT",
+    "code": null,
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1190": {
+    "model": "플라잉스퍼",
+    "label": "플라잉스퍼",
+    "code": null,
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1322": {
+    "model": "벤테이가",
+    "label": "벤테이가",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "2596",
+     "name": "벤테이가",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1433": {
+    "model": "컨티넨탈 GT",
+    "label": "컨티넨탈 GT",
+    "code": null,
+    "source": "bobaedream",
+    "daangn": null
+   },
+   "1537": {
+    "model": "플라잉스퍼",
+    "label": "플라잉스퍼",
+    "code": null,
+    "source": null,
+    "daangn": null
+   },
+   "2043": {
+    "model": "컨티넨탈 GT",
+    "label": "컨티넨탈 GT",
+    "code": null,
+    "source": null,
+    "daangn": null
+   }
+  },
+  "롤스로이스": {
+   "450": {
+    "model": "팬텀",
+    "label": "팬텀",
+    "code": null,
+    "source": null,
+    "daangn": null
+   },
+   "981": {
+    "model": "고스트",
+    "label": "고스트",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "553",
+     "name": "고스트",
+     "rule": "세대 없는 이름 = 1세대",
+     "confidence": "중간"
+    }
+   },
+   "1021": {
+    "model": "컬리넌",
+    "label": "컬리넌",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "2682",
+     "name": "컬리넌",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1166": {
+    "model": "레이스",
+    "label": "레이스",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "1059",
+     "name": "레이스",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1341": {
+    "model": "던",
+    "label": "던",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "1589",
+     "name": "던",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   },
+   "1529": {
+    "model": "실버 클라우드",
+    "label": "실버 클라우드Ⅱ",
+    "code": null,
+    "source": null,
+    "daangn": null
+   },
+   "1844": {
+    "model": "고스트",
+    "label": "고스트",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "2985",
+     "name": "고스트(2세대)",
+     "rule": "세대 번호 일치",
+     "confidence": "높음"
+    }
+   },
+   "1959": {
+    "model": "팬텀",
+    "label": "팬텀",
+    "code": null,
+    "source": null,
+    "daangn": null
+   },
+   "1991": {
+    "model": "스펙터",
+    "label": "스펙터",
+    "code": null,
+    "source": "daangn",
+    "daangn": {
+     "id": "3470",
+     "name": "스펙터",
+     "rule": "이름 일치",
+     "confidence": "높음"
+    }
+   }
+  }
+ }
+}

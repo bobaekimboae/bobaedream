@@ -93,6 +93,12 @@
 - ④ never closes: maker → model → sub-model → trim pills (skipped when none) → year pills (`2026`…`2019`·`이전`, re-click clears, row stays). Labels `모델:` `세부모델:` `트림:` `연식:`. Guazi region/trim/year pills: 32 tall, 1px `#DADADA`, 14/20 500, selected `#222` (overrides the Trim Chips border/weight above for guazi). Model/sub-model cells keep a fixed height (PC 102 / mobile 74) with one-line name and sub text. `필터 초기화` returns to state 1 keeping the entry category.
 - Debug (`&debug=1`): `로고·이미지 칸` (red, replaces `로고 칸 안내선`), `층 상자` (blue dashed + layer numbers), `간격 숫자` (green = manual, red = differs); violations get an 8px red dot + short reason. Overlay only, remembered in localStorage.
 
+## Model Images (QF-109)
+
+- Guazi plain model/sub-model rails: image area PC 76×40 (card top 6, bottom 46 = maker logo box bottom) · mobile 56×36 (top 0); name PC top 60 14/21 600 width 76 · mobile top 38 12/18 600 width 56; sub text PC top 81 12/16 #8C8C8C · mobile top 56 11/14; one line each. Empty = same area 1px dashed #DADADA radius 6 (`src/prototype/listing/qf-model-images.css`).
+- Images come from Daangn subseries first (generation match table `src/prototype/data/model-image-match.json`, `reports/qf-109/match.csv`; never guessed), then bobaedream `model_{n}.png`, else empty. Every image goes through the code-alignment part `scripts/image-normalize.mjs` (228×120, car width 224, baseline y 111, height ≤ 100, no upscaling, code-drawn shadow 220×12). Model card image = newest sub-model with a Daangn image. Rules: `docs/model-image-spec.md`. Check: `npm run check:model-images`.
+- Breadcrumb has no `전체차량` step: `보배드림 / 중고차 / 벤츠 …` (`중고차` clears the maker); other categories keep their name after `중고차`.
+
 ## Existing Mode Notes
 
 - Keep ChoTot and Dongchedi modes visually unchanged when working on Guazi-specific changes unless the user explicitly requests a shared change.
