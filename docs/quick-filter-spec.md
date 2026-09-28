@@ -123,6 +123,13 @@
 - Title after choosing a type from the type row = the type name (`트럭 · 특장` · `바이크` · `캠핑카` · `올드카` · `건설기계` · `부품 · 용품`); 중고차 stays `중고차`.
 - `npm run check:stability` checks ① same first-cell x on every image rail, ② same x for the chip after `필터`, ③ same image-rail top and bottom lines (처음 → 벤츠 → C클래스 → W206 → C200).
 
+## Bike · Truck Maker Rails (QF-114)
+
+- For `바이크` and `트럭 · 특장` the guazi maker rail uses its own top 10 (`src/prototype/data/brand-top10-bike.json` · `brand-top10-truck.json`, month noted): bike 대림(DL) · KR모터스 │ 혼다 · 야마하 · 스즈키 · 가와사키 · BMW · 할리데이비슨 · 두카티 · 베스파; truck 현대 · 기아 · 타타대우 · KG모빌리티 │ 볼보 · 스카니아 · 만(MAN) · 벤츠 · 이베코 · 다프(DAF). No passenger brands. Same cell size, logo box, 3-step logo sizes, name width, no label, divider and 11th `전체 브랜드` as the passenger rail.
+- Brands with 0 sample listings stay in the rail and are dimmed (opacity 0.4); the 2026-09 guazi sample has no bike/truck listings, so all are dimmed. Brands without a logo file show a first-letter circle (#F4F4F4, 600).
+- `전체 브랜드` and the `제조사 ▾` chip open that type's full list only (국산 → 수입 이름순 → 기타), 0-count rows greyed but selectable.
+- Logos: 타타대우 · 만(MAN) from Daangn company images (`scripts/brand-logos-kr.mjs`); 대림 · KR모터스 · 야마하 · 가와사키 · 할리데이비슨 · 두카티 · 베스파 · 다프 have no source yet. Check: `node scripts/type-maker-check.mjs`.
+
 ## Existing Mode Notes
 
 - Keep ChoTot and Dongchedi modes visually unchanged when working on Guazi-specific changes unless the user explicitly requests a shared change.

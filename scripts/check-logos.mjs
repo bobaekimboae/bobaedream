@@ -140,7 +140,7 @@ for (const width of [1440, 1280]) {
 }
 
 const files = Object.values(manifest.brands).filter((b) => b.file);
-check("로고 파일 고유 slug 73 · 받기 실패 0", new Set(files.map((b) => b.slug)).size === 73 && Object.values(manifest.brands).every((b) => !b.error), `slug ${new Set(files.map((b) => b.slug)).size}`);
+check("로고 파일 고유 slug 75(QF-114 타타대우 · MAN 추가) · 받기 실패 0", new Set(files.map((b) => b.slug)).size === 75 && Object.values(manifest.brands).every((b) => !b.error), `slug ${new Set(files.map((b) => b.slug)).size}`);
 check("모든 로고가 칸 안(칸 밖 0개)", outsideTotal === 0, outsideTotal ? outsideList.slice(0, 6).join(" / ") : "0개");
 writeFileSync(join("reports", "diff", "logos-summary.json"), JSON.stringify(summary, null, 2));
 await browser.close();

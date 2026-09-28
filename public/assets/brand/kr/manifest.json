@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27",
+  "generated": "2026-09-28",
   "rule": "알파 16 이하 여백 자르기 → 비율 유지로 192×112 안(키우지 않음) → PNG",
   "brands": {
     "현대": {
@@ -1144,6 +1144,48 @@
         42
       ],
       "ratio": 4.571,
+      "replaceWithOfficial": false
+    },
+    "타타대우": {
+      "group": "국산",
+      "slug": "tata-daewoo",
+      "file": "tata-daewoo.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/5518b962-f7a7-46c9-b64a-a88a3db6bdbd/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        282,
+        184
+      ],
+      "finalSize": [
+        172,
+        112
+      ],
+      "ratio": 1.533,
+      "replaceWithOfficial": false
+    },
+    "만(MAN)": {
+      "group": "수입",
+      "slug": "man",
+      "file": "man.png",
+      "source": "당근",
+      "url": "https://assetstorage.krrt.io/1584808088326110608/8f297dfc-13d5-4d69-9abd-0ffcf2d07679/width_360_height_240.webp",
+      "originalSize": [
+        360,
+        240
+      ],
+      "trimmedSize": [
+        266,
+        148
+      ],
+      "finalSize": [
+        192,
+        107
+      ],
+      "ratio": 1.797,
       "replaceWithOfficial": false
     },
     "이스즈": {

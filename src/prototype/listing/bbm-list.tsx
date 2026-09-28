@@ -127,7 +127,7 @@ export function BbmBottomGnb({ onNotify }: { onNotify: (message: string) => void
 
 // ── QF-085·086: 제조사 칩 모달·시트(원본: 검색칸 + 국산차/수입차 인기/수입차 이름순 로고 목록, 매물 수, 오른쪽 셰브론)
 export type BbmMakerRow = { label: string; key: string; count: number | null };
-export function BbmMakerList({ sections, selected, renderLogo, onChoose }: { sections: Array<{ title: string; rows: BbmMakerRow[] }>; selected?: string | null; renderLogo: (key: string, label: string) => ReactNode; onChoose: (key: string) => void }) {
+export function BbmMakerList({ sections, selected, renderLogo, onChoose, allowEmpty = false }: { allowEmpty?: boolean; sections: Array<{ title: string; rows: BbmMakerRow[] }>; selected?: string | null; renderLogo: (key: string, label: string) => ReactNode; onChoose: (key: string) => void }) {
   const [query, setQuery] = useState("");
   const keyword = query.trim();
   return (
@@ -140,7 +140,7 @@ export function BbmMakerList({ sections, selected, renderLogo, onChoose }: { sec
           <section key={section.title} className="bbm-maker-section">
             <p className="bbm-maker-section-title">{section.title}</p>
             {rows.map((row) => (
-              <button key={`${section.title}-${row.label}`} type="button" className={`bbm-maker-row${selected === row.key ? " is-selected" : ""}${row.count === 0 ? " is-empty" : ""}`} disabled={row.count === 0} onClick={() => onChoose(row.key)}>
+              <button key={`${section.title}-${row.label}`} type="button" className={`bbm-maker-row${selected === row.key ? " is-selected" : ""}${row.count === 0 ? " is-empty" : ""}`} disabled={row.count === 0 && !allowEmpty} onClick={() => onChoose(row.key)}>
                 <span className="bbm-maker-logo">{renderLogo(row.key, row.label)}</span>
                 <span className="bbm-maker-name">{row.label}</span>
                 {row.count === null ? null : <span className="bbm-maker-count">{row.count.toLocaleString("ko-KR")}</span>}

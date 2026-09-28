@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// QF-114: 트럭 제조사 타타대우 · 만(MAN) 추가(당근 제조사 이미지)
 // QF-096: 과쯔 모드 제조사 로고 준비 — 원본 받기 → 알파 16 이하 여백 자르기 → 192×112 안에 비율 유지(키우지 않음) → PNG.
 // 출력: public/assets/brand/kr/{slug}.png · manifest.json · CREDITS.md, 검수용 reports/qf-096/contact-sheet.png
 // 새 패키지 없이 Playwright 크로미움 캔버스로 디코딩·자르기·축소한다. 다시 돌리면 같은 결과로 덮어쓴다.
@@ -68,6 +69,8 @@ const TABLE = `국산	현대	hyundai	당근	https://assetstorage.krrt.io/1584808
 수입	오펠	opel	당근	https://assetstorage.krrt.io/1584808088326110608/c3d20b38-898a-4ebe-ab42-7f23f1d4dcdd/width_360_height_240.webp
 수입	올즈모빌	oldsmobile	당근	https://assetstorage.krrt.io/1584808088326110608/74348671-fb55-4100-9487-44a37cf708f4/width_360_height_240.webp
 수입	이베코	iveco	당근	https://assetstorage.krrt.io/1584808088326110608/69bd0dde-caec-466a-b578-759415c12369/width_360_height_240.webp
+국산	타타대우	tata-daewoo	당근	https://assetstorage.krrt.io/1584808088326110608/5518b962-f7a7-46c9-b64a-a88a3db6bdbd/width_360_height_240.webp
+수입	만(MAN)	man	당근	https://assetstorage.krrt.io/1584808088326110608/8f297dfc-13d5-4d69-9abd-0ffcf2d07679/width_360_height_240.webp
 수입	이스즈	isuzu	당근	https://assetstorage.krrt.io/1584808088326110608/673407c7-7f7e-40fd-a978-94bee1496528/width_360_height_240.webp
 수입	인피니티	infiniti	당근	https://assetstorage.krrt.io/1584808088326110608/ad881355-aebd-49c2-ab7a-ace016e269ef/width_360_height_240.webp
 수입	재규어	jaguar	당근	https://assetstorage.krrt.io/1584808088326110608/fade6361-8103-4640-95fe-88f81e7b7fe7/width_360_height_240.webp
