@@ -33,6 +33,9 @@ export function bbmAppliedChips(value: BbmFilterValues): BbmAppliedChip[] {
     if (id === "ad") return { id, label: value.adPeriod, clear: (next) => clearBbmKey(next, "adPeriod") };
     if (id === "keyword") return { id, label: value.keyword, clear: (next) => clearBbmKey(next, "keyword") };
     const [kind, key, option] = id.split(":");
+    // QF-111: 구·군 칩은 시도를 뺀 이름([강남구 ×]), 시도 칩 ×는 그 시도의 구·군까지 함께 푼다
+    if (kind === "check" && key === "district") return { id, label: option.split(" ").slice(1).join(" "), clear: (next) => toggleBbmCheck(next, "district", option) };
+    if (kind === "check" && key === "region") return { id, label: option, clear: (next) => { let out = toggleBbmCheck(next, "region", option); for (const d of out.checks.district ?? []) if (d.startsWith(`${option} `)) out = toggleBbmCheck(out, "district", d); return out; } };
     if (kind === "check") return { id, label: option, clear: (next) => toggleBbmCheck(next, key as BbmCheckKey, option) };
     return { id, label: bbmRangeLabel(key as BbmRangeKey, value), clear: (next) => clearBbmKey(next, key as BbmRangeKey) };
   }).filter((chip) => chip.label);

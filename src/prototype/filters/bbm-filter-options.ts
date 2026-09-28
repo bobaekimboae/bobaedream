@@ -1,3 +1,4 @@
+import regionsKr from "../data/regions-kr.json";
 // QF-076: 개발 시안형 필터 선택지·문구 목록. 원본 전수 수집(docs/bbm-filter-spec.json, 2026-09-24) 기준.
 // 매물 수는 우리 시안 데이터로 계산(bbm-filter-state.ts). 우리 데이터에 없는 선택지는 0대·비활성.
 import type { BbmCheckKey, BbmRangeKey } from "./bbm-filter-state";
@@ -9,6 +10,8 @@ export const bbmCheckOptions: Record<BbmCheckKey, string[]> = {
   bodyType: ["승용", "SUV", "RV", "쿠페", "컨버터블", "승합", "화물", "기타"],
   carClass: ["경형", "소형", "준중형", "중형", "대형"],
   region: ["서울", "부산", "대구", "인천", "광주", "전남광주", "대전", "울산", "세종", "경기", "충북", "충남", "전남", "경북", "경남", "제주", "강원", "전북"],
+  // QF-111 구·군("서울 강남구" 형식, regions-kr.json 228개) — 퀵필터 지역 줄·모바일 지역 시트에서만 고른다
+  district: Object.entries(regionsKr.districts).flatMap(([sido, list]) => list.map((name) => `${sido} ${name}`)),
   complex: ["서울", "부산", "대구", "인천", "광주", "대전", "울산", "경기", "충북", "충남", "전남", "경북", "경남", "제주", "강원", "전북"],
   seats: ["2인승", "3인승", "4인승", "5인승", "6인승", "7인승", "8인승", "9인승", "10인승", "11인승", "15인승~"],
   drive: ["전륜", "후륜", "4륜"],

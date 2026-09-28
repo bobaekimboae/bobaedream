@@ -181,12 +181,13 @@ export function BbmModal({ title, titleIcon, onClose, footer, children, wide = f
 
 // ── 모바일 바텀시트: 제목 가운데 + 닫기, 아래 [초기화] + [N대 보기]
 // modalBody: 모바일 전체 필터 안 항목 시트(원본은 PC 모달과 같은 본문 — 여백 8/20, 매물 수는 이름 옆)
-export function BbmSheet({ title, onClose, footer, children, flush = false, modalBody = false }: { title: string; onClose: () => void; footer?: ReactNode; children: ReactNode; flush?: boolean; modalBody?: boolean }) {
+export function BbmSheet({ title, onClose, footer, children, flush = false, modalBody = false, onBack }: { onBack?: () => void; title: string; onClose: () => void; footer?: ReactNode; children: ReactNode; flush?: boolean; modalBody?: boolean }) {
   useEscape(onClose);
   return createPortal(
     <div className="bbmf-overlay is-sheet" onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}>
       <section className={`bbmf-sheet${modalBody ? " is-modal-body" : ""}`} role="dialog" aria-modal="true" aria-label={title}>
-        <header className="bbmf-sheet-header"><h3>{title}</h3><CloseButton onClose={onClose} /></header>
+        {/* QF-111: onBack 이 있으면 제목 앞 "←"(누르면 이전 단계) */}
+        <header className="bbmf-sheet-header">{onBack ? <h3><button type="button" className="bbmf-sheet-back" aria-label={`${title} 뒤로`} onClick={onBack}>← {title}</button></h3> : <h3>{title}</h3>}<CloseButton onClose={onClose} /></header>
         <div className={`bbmf-sheet-body${flush ? " is-flush" : ""}`}>{children}</div>
         {footer}
       </section>

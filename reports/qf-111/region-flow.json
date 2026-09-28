@@ -1,0 +1,444 @@
+{
+ "pc": {
+  "1280": {
+   "steps": [
+    {
+     "name": "처음",
+     "label": "지역:",
+     "selected": [],
+     "chips": [
+      "중고차"
+     ],
+     "filter": "필터",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 64,
+     "empty": false
+    },
+    {
+     "name": "서울",
+     "label": "서울:",
+     "selected": [
+      "서울 전체"
+     ],
+     "chips": [
+      "중고차",
+      "서울"
+     ],
+     "filter": "1",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 19,
+     "empty": false
+    },
+    {
+     "name": "강남구",
+     "label": "서울:",
+     "selected": [
+      "강남구"
+     ],
+     "chips": [
+      "중고차",
+      "서울",
+      "강남구"
+     ],
+     "filter": "2",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 9,
+     "empty": false
+    },
+    {
+     "name": "서초구",
+     "label": "서울:",
+     "selected": [
+      "서초구"
+     ],
+     "chips": [
+      "중고차",
+      "서울",
+      "서초구"
+     ],
+     "filter": "2",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 4,
+     "empty": false
+    },
+    {
+     "name": "서초구 해제",
+     "label": "서울:",
+     "selected": [
+      "서울 전체"
+     ],
+     "chips": [
+      "중고차",
+      "서울"
+     ],
+     "filter": "1",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 19,
+     "empty": false
+    },
+    {
+     "name": "[서울 ×]",
+     "label": "지역:",
+     "selected": [],
+     "chips": [
+      "중고차"
+     ],
+     "filter": "필터",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 64,
+     "empty": false
+    },
+    {
+     "name": "경기",
+     "label": "경기:",
+     "selected": [
+      "경기 전체"
+     ],
+     "chips": [
+      "중고차",
+      "경기"
+     ],
+     "filter": "1",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 8,
+     "empty": false
+    },
+    {
+     "name": "수원시",
+     "label": "경기:",
+     "selected": [
+      "수원시"
+     ],
+     "chips": [
+      "중고차",
+      "경기",
+      "수원시"
+     ],
+     "filter": "2",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 3,
+     "empty": false
+    },
+    {
+     "name": "세종",
+     "label": "지역:",
+     "selected": [
+      "세종"
+     ],
+     "chips": [
+      "중고차",
+      "세종"
+     ],
+     "filter": "1",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 0,
+     "empty": true
+    },
+    {
+     "name": "강남구 + 벤츠",
+     "label": "서울:",
+     "selected": [
+      "강남구"
+     ],
+     "chips": [
+      "중고차",
+      "벤츠",
+      "서울",
+      "강남구"
+     ],
+     "filter": "3",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 3,
+     "empty": false
+    },
+    {
+     "name": "벤츠 ×(지역 유지)",
+     "label": "서울:",
+     "selected": [
+      "강남구"
+     ],
+     "chips": [
+      "중고차",
+      "서울",
+      "강남구"
+     ],
+     "filter": "2",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 9,
+     "empty": false
+    }
+   ],
+   "errors": 0
+  },
+  "1440": {
+   "steps": [
+    {
+     "name": "처음",
+     "label": "지역:",
+     "selected": [],
+     "chips": [
+      "중고차"
+     ],
+     "filter": "필터",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 64,
+     "empty": false
+    },
+    {
+     "name": "서울",
+     "label": "서울:",
+     "selected": [
+      "서울 전체"
+     ],
+     "chips": [
+      "중고차",
+      "서울"
+     ],
+     "filter": "1",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 19,
+     "empty": false
+    },
+    {
+     "name": "강남구",
+     "label": "서울:",
+     "selected": [
+      "강남구"
+     ],
+     "chips": [
+      "중고차",
+      "서울",
+      "강남구"
+     ],
+     "filter": "2",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 9,
+     "empty": false
+    },
+    {
+     "name": "서초구",
+     "label": "서울:",
+     "selected": [
+      "서초구"
+     ],
+     "chips": [
+      "중고차",
+      "서울",
+      "서초구"
+     ],
+     "filter": "2",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 4,
+     "empty": false
+    },
+    {
+     "name": "서초구 해제",
+     "label": "서울:",
+     "selected": [
+      "서울 전체"
+     ],
+     "chips": [
+      "중고차",
+      "서울"
+     ],
+     "filter": "1",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 19,
+     "empty": false
+    },
+    {
+     "name": "[서울 ×]",
+     "label": "지역:",
+     "selected": [],
+     "chips": [
+      "중고차"
+     ],
+     "filter": "필터",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 64,
+     "empty": false
+    },
+    {
+     "name": "경기",
+     "label": "경기:",
+     "selected": [
+      "경기 전체"
+     ],
+     "chips": [
+      "중고차",
+      "경기"
+     ],
+     "filter": "1",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 8,
+     "empty": false
+    },
+    {
+     "name": "수원시",
+     "label": "경기:",
+     "selected": [
+      "수원시"
+     ],
+     "chips": [
+      "중고차",
+      "경기",
+      "수원시"
+     ],
+     "filter": "2",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 3,
+     "empty": false
+    },
+    {
+     "name": "세종",
+     "label": "지역:",
+     "selected": [
+      "세종"
+     ],
+     "chips": [
+      "중고차",
+      "세종"
+     ],
+     "filter": "1",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 0,
+     "empty": true
+    },
+    {
+     "name": "강남구 + 벤츠",
+     "label": "서울:",
+     "selected": [
+      "강남구"
+     ],
+     "chips": [
+      "중고차",
+      "벤츠",
+      "서울",
+      "강남구"
+     ],
+     "filter": "3",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 3,
+     "empty": false
+    },
+    {
+     "name": "벤츠 ×(지역 유지)",
+     "label": "서울:",
+     "selected": [
+      "강남구"
+     ],
+     "chips": [
+      "중고차",
+      "서울",
+      "강남구"
+     ],
+     "filter": "2",
+     "rowH": 32,
+     "cardH": 282,
+     "count": 9,
+     "empty": false
+    }
+   ],
+   "errors": 0
+  }
+ },
+ "m": {
+  "m-393": {
+   "s1": {
+    "title": "지역",
+    "cells": 18,
+    "h": 40,
+    "cols": 3
+   },
+   "s2": {
+    "title": "← 서울",
+    "selected": [
+     "서울 전체"
+    ],
+    "cells": 26
+   },
+   "back": "지역",
+   "s3": {
+    "open": false,
+    "bar": "서울 강남구",
+    "chips": [
+     "중고차",
+     "서울",
+     "강남구"
+    ],
+    "filter": "2",
+    "regionRow": false
+   },
+   "afterClear": {
+    "bar": "전국",
+    "chips": [
+     "중고차"
+    ]
+   },
+   "s4": {
+    "open": false,
+    "bar": "세종"
+   },
+   "errors": 0
+  },
+  "m-360": {
+   "s1": {
+    "title": "지역",
+    "cells": 18,
+    "h": 40,
+    "cols": 3
+   },
+   "s2": {
+    "title": "← 서울",
+    "selected": [
+     "서울 전체"
+    ],
+    "cells": 26
+   },
+   "back": "지역",
+   "s3": {
+    "open": false,
+    "bar": "서울 강남구",
+    "chips": [
+     "중고차",
+     "서울",
+     "강남구"
+    ],
+    "filter": "2",
+    "regionRow": false
+   },
+   "afterClear": {
+    "bar": "전국",
+    "chips": [
+     "중고차"
+    ]
+   },
+   "s4": {
+    "open": false,
+    "bar": "세종"
+   },
+   "errors": 0
+  }
+ }
+}
