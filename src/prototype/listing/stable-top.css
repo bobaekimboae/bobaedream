@@ -83,3 +83,12 @@
 .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__icon-box { flex: none; width: 36px; height: 36px; margin: 0; }
 .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__icon-box img { width: 20px; height: 20px; }
 .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__label { display: -webkit-box; width: 56px; overflow: hidden; color: #595959; font-size: 12px; font-weight: 500; line-height: 18px; white-space: normal; word-break: keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.stable-pill.is-all { font-weight: 700; }
+
+/* QF-111 모바일 지역 바텀시트: 3열 격자, 알약 높이 40, 선택 #222 */
+.stable-region-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 4px 16px 20px; }
+.stable-region-cell { display: inline-flex; align-items: center; justify-content: center; gap: 4px; height: 40px; min-width: 0; padding: 0 8px; border: 1px solid #dadada; border-radius: 9999px; box-sizing: border-box; background: #fff; color: #222; font: inherit; font-size: 14px; font-weight: 500; line-height: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.stable-region-cell.is-all { font-weight: 700; }
+.stable-region-cell.is-selected { border-color: #222; background: #222; color: #fff; }
+.stable-region-cell img { width: 16px; height: 16px; }
+.bbmf-sheet-back { padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }

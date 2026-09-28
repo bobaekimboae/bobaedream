@@ -109,6 +109,12 @@
 
 - Guazi PC left filter (and the 1024–1279 drawer) order comes from one config array `bbmFilterOrder` in `src/prototype/filters/bbm-filter-options.ts`: `제조사 · 모델` (open by default) → `연식` → `주행거리` → `가격` → `바디타입` → `차급` (closed) → `지역` → `매매단지` → … (rest unchanged). The filter header stays on top. ChoTot/Dongchedi PC keep the original order (`order` prop not passed). The mobile filter sheet is unchanged for now and can switch to the same array later. Check: `npm run check:sidebar`.
 
+## Region Drill (QF-111)
+
+- Data `src/prototype/data/regions-kr.json`: 17 sido + 228 si·gun·gu (no districts for 세종); metro cities sorted 가나다, provinces 시 first then 군. District values are stored as bbm check `district` = `"서울 강남구"` (sido included); listings match the first two words of `place`.
+- PC region row (always 32 tall, card height unchanged): `지역:` + 17 sido + `내 주변` → sido chosen: chip `[서울 ×]` and the same row becomes `서울:` + `서울 전체` (selected, 700) + district pills → district chosen: chip `[강남구 ×]`, row stays, one district at a time, same district or `서울 전체` clears it. `[서울 ×]` also clears its district and returns to the sido row; 세종 keeps the sido row.
+- Mobile `지역: 전국 ▾` opens a two-step bottom sheet (no chip row added): sido 3-column pills (40 tall) + `내 주변` → `← 서울` step with `서울 전체` + districts → choosing closes it, chips `[서울 ×][강남구 ×]`, bar `지역: 서울 강남구`; 세종 applies at once. `필터 N` counts sido and district separately; `필터 초기화` returns to the start. Check: `node scripts/region-flow-check.mjs`, `npm run check:stability` (region steps).
+
 ## Existing Mode Notes
 
 - Keep ChoTot and Dongchedi modes visually unchanged when working on Guazi-specific changes unless the user explicitly requests a shared change.

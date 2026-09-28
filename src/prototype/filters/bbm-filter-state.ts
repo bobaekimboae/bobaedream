@@ -3,7 +3,7 @@
 // 원본처럼 고르는 즉시 조건이 걸린다. 우리 데이터(Car.filter 등)에 값이 있는 항목만 목록을 거르고(BBM_DATA_*), 나머지는 선택 모양만 남는다.
 
 export type BbmCheckKey =
-  | "bodyType" | "carClass" | "region" | "complex" | "seats" | "drive" | "history" | "sellerKind" | "saleType"
+  | "bodyType" | "carClass" | "region" | "district" | "complex" | "seats" | "drive" | "history" | "sellerKind" | "saleType"
   | "exteriorColor" | "seatColor" | "seatFinish" | "fuel" | "transmission" | "options" | "features";
 export type BbmRangeKey = "year" | "mileage" | "price" | "power" | "efficiency" | "displacement" | "weight" | "length" | "width" | "height" | "evRange";
 export type BbmRange = { min: string; max: string; preset?: string };
@@ -24,7 +24,8 @@ export type BbmFilterValues = {
 export const emptyBbmFilters: BbmFilterValues = { checks: {}, ranges: {}, priceTab: "일반", adPeriod: "전체", keyword: "", order: [], history: 0 };
 
 // 우리 데이터로 실제로 거르는 항목(QF-090)
-export const BBM_DATA_CHECK_KEYS: BbmCheckKey[] = ["bodyType", "fuel", "transmission", "seats", "exteriorColor", "sellerKind", "region"];
+// QF-111: district(구·군) 값은 "서울 강남구"처럼 시도를 포함(중구 등 이름 겹침 방지). 매물은 place 앞 두 단어로 비교
+export const BBM_DATA_CHECK_KEYS: BbmCheckKey[] = ["bodyType", "fuel", "transmission", "seats", "exteriorColor", "sellerKind", "region", "district"];
 export const BBM_DATA_RANGE_KEYS: BbmRangeKey[] = ["year", "mileage", "price"];
 export const isBbmDataKey = (key: string) => (BBM_DATA_CHECK_KEYS as string[]).includes(key) || (BBM_DATA_RANGE_KEYS as string[]).includes(key);
 // 항목 안에서도 우리 데이터에 있는 선택지만 거른다(판매자 구분은 딜러·개인만)
@@ -90,7 +91,7 @@ export function bbmAppliedIds(value: BbmFilterValues) {
   };
   return ids.map((id, index) => ({ id, index })).sort((x, y) => rank(x.id) - rank(y.id) || x.index - y.index).map((entry) => entry.id);
 }
-const chipOrder = ["check:bodyType", "check:carClass", "range:year", "check:region", "check:complex", "check:seats", "check:drive", "check:history", "check:sellerKind", "check:saleType", "check:exteriorColor", "check:seatColor", "check:seatFinish", "check:fuel", "check:transmission", "check:options", "check:features", "range:mileage", "range:price", "range:power", "range:efficiency", "range:displacement", "range:weight", "range:length", "range:width", "range:height", "range:evRange"];
+const chipOrder = ["check:bodyType", "check:carClass", "range:year", "check:region", "check:district", "check:complex", "check:seats", "check:drive", "check:history", "check:sellerKind", "check:saleType", "check:exteriorColor", "check:seatColor", "check:seatFinish", "check:fuel", "check:transmission", "check:options", "check:features", "range:mileage", "range:price", "range:power", "range:efficiency", "range:displacement", "range:weight", "range:length", "range:width", "range:height", "range:evRange"];
 
 // ── 범위 해석: 입력칸(최저·최대) 또는 구간 칩 → 숫자 범위
 const num = (text: string) => { const n = Number(text.replace(/[^\d.]/g, "")); return Number.isFinite(n) && text.trim() ? n : null; };
@@ -162,6 +163,7 @@ export function bbmCarChecks(car: BbmCarLike): Partial<Record<BbmCheckKey, strin
   const values: Partial<Record<BbmCheckKey, string[]>> = {
     sellerKind: car.sellerType === "딜러" ? ["딜러"] : car.sellerType === "개인" ? ["개인"] : [],
     region: car.place ? [car.place.split(" ")[0]] : [],
+    district: car.place && car.place.split(" ").length > 1 ? [car.place.split(" ").slice(0, 2).join(" ")] : [],
   };
   if (!data) return values;
   values.bodyType = bodyTypeByBody[data.body] ? [bodyTypeByBody[data.body]] : ["기타"];
