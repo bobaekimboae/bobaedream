@@ -85,10 +85,10 @@ function ElectricSparkIcon() {
   return <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M9.2 1.2 3.5 8.7h3.8l-.7 6.1 5.9-7.8H8.6l.6-5.8Z" fill="currentColor" /></svg>;
 }
 
-function DepthCard({ label, sub, image, imageFit = "width", selected, disabled, mediaKind, isEV, onClick }: { label: string; sub?: string; image?: ReactNode; imageFit?: VehicleBodyFit; selected?: boolean; disabled?: boolean; mediaKind?: "brand"; isEV?: boolean; onClick: () => void }) {
+function DepthCard({ label, sub, image, imageFit = "width", selected, disabled, mediaKind, isEV, onClick, className }: { className?: string; label: string; sub?: string; image?: ReactNode; imageFit?: VehicleBodyFit; selected?: boolean; disabled?: boolean; mediaKind?: "brand"; isEV?: boolean; onClick: () => void }) {
   const mediaClassName = `depth-card-media${mediaKind === "brand" ? " is-brand" : ` is-fit-${imageFit}`}`;
   return (
-    <button type="button" className={`depth-card${selected ? " is-selected" : ""}`} disabled={disabled} aria-pressed={Boolean(selected)} onClick={onClick}>
+    <button type="button" className={`depth-card${selected ? " is-selected" : ""}${className ? ` ${className}` : ""}`} disabled={disabled} aria-pressed={Boolean(selected)} onClick={onClick}>
       {isEV ? <span className="depth-card-ev" role="img" aria-label="전기차"><ElectricSparkIcon /></span> : null}
       <span className={mediaClassName}>{image}</span>
       <strong className="depth-card-label">{label}</strong>

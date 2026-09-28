@@ -73,7 +73,7 @@ import { BbmExpandPanel, BbmModalPanel, clearBbmItem } from "../filters/bbm-filt
 import { BbmBottomGnb, BbmCategoryMenu, BbmMakerList, BbmMobileOptions, BbmModelList, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
 import { useBottomStickySidebar } from "./bbm-sticky-sidebar";
-import { KrBrandLogo, krRailLabel, krTopTenSections } from "./bbm-brand-logos";
+import { KrBrandLogo, krRailLabel, krTopTenSections, krTypeTop10 } from "./bbm-brand-logos";
 import { StableRegionRow, StableRegionSheet, stableRegionLabel, StableYearRow, stablePageTitle, STABLE_YEAR_OPTIONS, stableKeywordPills } from "./stable-top";
 import { CatalogModelImage, catalogMakerNames, catalogModelOfCar, guaziGenerationsByMakerModel, guaziModelVisualsByMaker, guaziModelsByMaker } from "./model-catalog-kr";
 import { BbmChipScroller, BbmTopCrumbs, type BbmCrumb } from "./bbm-top-chotot";
@@ -1024,7 +1024,7 @@ function MarketplaceScreen() {
   const showYearQuickRail = Boolean(isGuaziQuickStyle && maker && selectedModel && (
     (selectedGeneration && (guaziTrimChosen || guaziTrimRailOptions.length <= 1)) || (!hasGenerationDepth && !hasDirectVariantDepth)
   ));
-  const showGuaziMakerRail = Boolean(isGuaziQuickStyle && !guaziTrimChosen && !showCategoryQuickRail && !showModelQuickRail && !showGenerationQuickRail && !showVariantQuickRail && !showVehicleHeaderRail && categoryBrandRail.title === "제조사");
+  const showGuaziMakerRail = Boolean(isGuaziQuickStyle && !guaziTrimChosen && !showCategoryQuickRail && !showModelQuickRail && !showGenerationQuickRail && !showVariantQuickRail && !showVehicleHeaderRail && (categoryBrandRail.title === "제조사" || category === "바이크"));
 
   // 필터 칩 줄과 퀵필터 레일은 모바일·PC가 같은 마크업을 쓰고, PC에서는 필터 헤더 패널 안으로 위치만 옮긴다.
   const filterShell = (
@@ -1138,9 +1138,13 @@ function MarketplaceScreen() {
           </section> : showGuaziMakerRail && isGuaziQuickStyle ? (() => {
             // QF-096: 과쯔 제조사 줄 = 승용 제조사 로고(brand/kr). 라벨 없이 첫 카드 왼쪽 선 = 첫 칩 왼쪽 선
             // QF-108: 월 단위 상위 10(brand-top10.json) + 11번째 "전체 브랜드"(제조사 칩과 같은 목록 창을 연다)
-            const sections = krTopTenSections(category === "국산차" ? "domestic" : category === "수입차" ? "imported" : "all");
+            // QF-114: 바이크 · 트럭·특장은 유형별 상위 10(승용 브랜드 없음), 샘플 0대 칸은 흐리게(빼지 않음), 로고가 없으면 첫 글자 원형
+            const typeList = krTypeTop10(category);
+            const sections = krTopTenSections(category === "국산차" ? "domestic" : category === "수입차" ? "imported" : "all", typeList ? category : undefined);
+            // 샘플 매물은 모두 승용이고 유형 구분 값이 없어, 바이크·트럭 목록의 샘플 대수는 0(승용 매물을 세지 않음)
+            const sampleCount = (_key: string) => 0;
             const card = (item: { label: string; key: string }) => (
-              <DepthCard key={item.label} label={krRailLabel(item.label)} image={<KrBrandLogo name={item.label} kind={plainQuickCards ? "plain" : "rail"} />} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />
+              <DepthCard key={item.label} className={typeList && sampleCount(item.key) === 0 ? "is-dim" : undefined} label={krRailLabel(item.label)} image={<KrBrandLogo name={item.label} kind={plainQuickCards ? "plain" : "rail"} initialFallback={Boolean(typeList)} />} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />
             );
             return (
               <section className="depth-rail no-label is-kr-maker" aria-label={`${categoryBrandRail.title} 빠른 선택`}>
@@ -1286,7 +1290,11 @@ function MarketplaceScreen() {
   const bbmAppliedCount = selectedFilterValueCount + bbmApplied.length;
   // 제조사 목록 매물 수: 제조사·모델만 뺀 지금 조건으로 우리 데이터에서 센다(원본처럼 0대는 흐리게)
   const bbmMakerBase = listingCars.filter((car) => matchesChoTotFilters(car, { ...filters, maker: null, model: null }) && (!isGuaziQuickStyle || matchesBbmFilters(car, filters.bbm)));
-  const bbmMakerSections = bbCatalog.map((section) => ({ title: section.title, rows: section.rows.map(([label, , key]) => ({ label, key: key ?? label, count: bbmMakerBase.filter((car) => car.maker === (key ?? label)).length })) }));
+  // QF-114: 바이크 · 트럭·특장의 제조사 목록(전체 브랜드 · 제조사 칩)은 그 유형 목록만(국산 → 수입 이름순 → 기타), 승용 목록과 섞지 않음
+  const bbmTypeList = isGuaziQuickStyle ? krTypeTop10(category) : null;
+  const bbmMakerSections = bbmTypeList
+    ? [["국산", bbmTypeList.all.domestic], ["수입 이름순", bbmTypeList.all.imported], ["기타", bbmTypeList.all.etc]].map(([title, labels]) => ({ title: title as string, rows: (labels as string[]).map((label) => ({ label, key: label, count: 0 })) }))
+    : bbCatalog.map((section) => ({ title: section.title, rows: section.rows.map(([label, , key]) => ({ label, key: key ?? label, count: bbmMakerBase.filter((car) => car.maker === (key ?? label)).length })) }));
   const bbmModelRows = (makerName: string) => (modelsByMakerMap[makerName] ?? []).map((name) => {
     const visualCount = modelVisualsByMakerMap[makerName]?.[name]?.count;
     const key = normalizeModelSearchText(name);
@@ -1303,7 +1311,7 @@ function MarketplaceScreen() {
     const Frame = onDesktop ? BbmModal : BbmSheet;
     if (bbmChipPanel === "제조사") {
       // QF-096: 제조사 목록 로고 = 승용 제조사 로고(brand/kr) 24×24, 로고 없는 행은 빈 칸
-      const list = <BbmMakerList sections={bbmMakerSections} selected={maker} renderLogo={(_key, label) => <KrBrandLogo name={label} kind="list" />} onChoose={(key) => { if (maker !== key) applyMakerFilter(key); close(); }} />;
+      const list = <BbmMakerList sections={bbmMakerSections} allowEmpty={Boolean(bbmTypeList)} selected={maker} renderLogo={(_key, label) => <KrBrandLogo name={label} kind="list" initialFallback={Boolean(bbmTypeList)} />} onChoose={(key) => { if (maker !== key) applyMakerFilter(key); close(); }} />;
       return onDesktop
         ? <BbmModal title="제조사" wide flush onClose={close}>{list}</BbmModal>
         : <BbmSheet title="제조사" flush onClose={close} footer={<div className="bbmf-actions is-sheet is-single"><button type="button" className="bbmf-reset" onClick={() => { clearMakerFilter(); close(); }}>초기화</button></div>}>{list}</BbmSheet>;

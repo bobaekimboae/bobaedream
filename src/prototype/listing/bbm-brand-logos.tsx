@@ -2,6 +2,8 @@ import { asset } from "../data";
 import { krBrandLogos } from "./brand-logos-kr.generated";
 import { bbCatalog } from "./pc-bbmuseum";
 import brandTop10 from "../data/brand-top10.json";
+import brandTop10Bike from "../data/brand-top10-bike.json";
+import brandTop10Truck from "../data/brand-top10-truck.json";
 import "./bbm-brand-logos.css";
 
 // QF-096: 과쯔 모드 제조사 로고(public/assets/brand/kr). 기준 이름 = 좌측 필터 표기(bbCatalog 라벨).
@@ -58,8 +60,10 @@ export function krPlainLogoSize(ratio: number) {
 }
 
 /** 로고 칸(퀵필터 48×28 · 목록 24×24 · plain 40×40/36×36). 로고가 없으면 빈 칸(이름 시작선을 맞춘다). 이미지는 alt=""(이름이 바로 옆) */
-export function KrBrandLogo({ name, kind }: { name: string; kind: "rail" | "list" | "plain" }) {
+export function KrBrandLogo({ name, kind, initialFallback = false }: { name: string; kind: "rail" | "list" | "plain"; initialFallback?: boolean }) {
   const logo = krBrandLogo(name);
+  // QF-114: 로고를 못 구한 브랜드(바이크·트럭)는 이름 첫 글자 원형(#F4F4F4, 600)으로 임시 표시
+  if (!logo && initialFallback) return <span className={`kr-brand-logo is-${kind} is-initial`} data-brand={name}><span className="kr-brand-initial" aria-hidden="true">{krRailLabel(name).slice(0, 1)}</span></span>;
   const size = logo ? (kind === "plain" ? krPlainLogoSize(logo.ratio) : (() => { const value = kind === "rail" ? krRailLogoSize(logo.ratio) : krListLogoSize(logo.ratio); return { width: px(value.width), height: px(value.height) }; })()) : null;
   return (
     <span className={`kr-brand-logo is-${kind}${logo ? "" : " is-empty"}`} data-brand={krBrandName(name) ?? name} data-ratio={logo?.ratio}>
@@ -82,16 +86,21 @@ export function krMakerRailSections(scope: "all" | "domestic" | "imported") {
 }
 
 /** QF-108 과쯔 퀵필터 제조사 줄 = 월 단위 상위 10(src/prototype/data/brand-top10.json, 국산 → 구분선 → 수입) + "전체 브랜드" 칸. 이름은 좌측 필터 표기, 값은 catalog key */
-export function krTopTenSections(scope: "all" | "domestic" | "imported") {
+// QF-114: 바이크 · 트럭·특장은 유형별 상위 10(brand-top10-bike.json · brand-top10-truck.json) — 승용 목록과 섞지 않는다
+const typeTop10: Record<string, typeof brandTop10Bike> = { 바이크: brandTop10Bike, "트럭 · 특장": brandTop10Truck };
+export const krTypeTop10 = (category: string) => typeTop10[category] ?? null;
+export function krTopTenSections(scope: "all" | "domestic" | "imported", category?: string) {
+  const type = category ? typeTop10[category] : undefined;
   const rows = bbCatalog.flatMap((section) => section.rows);
-  const toItem = (label: string) => { const row = rows.find(([name]) => name === label); return { label, key: row?.[2] ?? label, count: row?.[1] ?? 0 }; };
-  const domestic = scope === "imported" ? [] : brandTop10.domestic.map(toItem);
-  const imported = scope === "domestic" ? [] : brandTop10.imported.map(toItem);
-  return { domestic, imported, month: brandTop10.month };
+  const toItem = (label: string) => { if (type) return { label, key: label, count: 0 }; const row = rows.find(([name]) => name === label); return { label, key: row?.[2] ?? label, count: row?.[1] ?? 0 }; };
+  const source = type ?? brandTop10;
+  const domestic = scope === "imported" ? [] : source.domestic.map(toItem);
+  const imported = scope === "domestic" ? [] : source.imported.map(toItem);
+  return { domestic, imported, month: source.month };
 }
 
 // QF-096 보완: 퀵필터 제조사 카드(80 칸)에만 짧은 이름 — 좌측 필터·칩 모달·시트·필터 적용·칩 줄·경로·제목은 원래 표기 그대로
-const krRailLabels: Record<string, string> = { "쉐보레(국산)": "쉐보레", "르노코리아(삼성)": "르노코리아", "KG모빌리티(쌍용)": "KGM" };
+const krRailLabels: Record<string, string> = { "쉐보레(국산)": "쉐보레", "르노코리아(삼성)": "르노코리아", "KG모빌리티(쌍용)": "KGM", "KG모빌리티": "KGM", "만(MAN)": "MAN", "다프(DAF)": "DAF", "대림(DL)": "대림" };
 export function krRailLabel(label: string) {
   return krRailLabels[label] ?? label.replace(/\s*\(.*\)\s*$/, "");
 }

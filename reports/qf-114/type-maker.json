@@ -1,0 +1,1116 @@
+{
+ "바이크": {
+  "pc-1440": {
+   "order": [
+    "대림",
+    "KR모터스",
+    "|",
+    "혼다",
+    "야마하",
+    "스즈키",
+    "가와사키",
+    "BMW",
+    "할리데이비슨",
+    "두카티",
+    "베스파",
+    "전체 브랜드"
+   ],
+   "n": 11,
+   "overflow": 0,
+   "lastRight": 1161,
+   "railRight": 1320,
+   "label": false,
+   "cells": [
+    {
+     "name": "대림",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "KR모터스",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "혼다",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 1.231,
+     "img": [
+      33,
+      26.8
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "야마하",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "스즈키",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 1,
+     "img": [
+      33,
+      33
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "가와사키",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "BMW",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 1,
+     "img": [
+      33,
+      33
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "할리데이비슨",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "두카티",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "베스파",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "전체 브랜드",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": null,
+     "img": null,
+     "initial": false,
+     "dim": false
+    }
+   ],
+   "errors": 0
+  },
+  "pc-1280": {
+   "order": [
+    "대림",
+    "KR모터스",
+    "|",
+    "혼다",
+    "야마하",
+    "스즈키",
+    "가와사키",
+    "BMW",
+    "할리데이비슨",
+    "두카티",
+    "베스파",
+    "전체 브랜드"
+   ],
+   "n": 11,
+   "overflow": 0,
+   "lastRight": 1081,
+   "railRight": 1240,
+   "label": false,
+   "cells": [
+    {
+     "name": "대림",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "KR모터스",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "혼다",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 1.231,
+     "img": [
+      33,
+      26.8
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "야마하",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "스즈키",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 1,
+     "img": [
+      33,
+      33
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "가와사키",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "BMW",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 1,
+     "img": [
+      33,
+      33
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "할리데이비슨",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "두카티",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "베스파",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "전체 브랜드",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": null,
+     "img": null,
+     "initial": false,
+     "dim": false
+    }
+   ],
+   "errors": 0
+  },
+  "m-393": {
+   "order": [
+    "대림",
+    "KR모터스",
+    "|",
+    "혼다",
+    "야마하",
+    "스즈키",
+    "가와사키",
+    "BMW",
+    "할리데이비슨",
+    "두카티",
+    "베스파",
+    "전체 브랜드"
+   ],
+   "n": 11,
+   "overflow": 0,
+   "lastRight": 813,
+   "railRight": 393,
+   "label": false,
+   "cells": [
+    {
+     "name": "대림",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "KR모터스",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "혼다",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": 1.231,
+     "img": [
+      29.7,
+      24.1
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "야마하",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "스즈키",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": 1,
+     "img": [
+      29.7,
+      29.7
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "가와사키",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "BMW",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": 1,
+     "img": [
+      29.7,
+      29.7
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "할리데이비슨",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "두카티",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "베스파",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "전체 브랜드",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": null,
+     "img": null,
+     "initial": false,
+     "dim": false
+    }
+   ],
+   "errors": 0
+  }
+ },
+ "트럭 · 특장": {
+  "pc-1440": {
+   "order": [
+    "현대",
+    "기아",
+    "타타대우",
+    "KGM",
+    "|",
+    "볼보",
+    "스카니아",
+    "MAN",
+    "벤츠",
+    "이베코",
+    "DAF",
+    "전체 브랜드"
+   ],
+   "n": 11,
+   "overflow": 0,
+   "lastRight": 1161,
+   "railRight": 1320,
+   "label": false,
+   "cells": [
+    {
+     "name": "현대",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 2,
+     "img": [
+      40,
+      20
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "기아",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 4.235,
+     "img": [
+      40,
+      9.4
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "타타대우",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 1.533,
+     "img": [
+      36.4,
+      23.7
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "KGM",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 5.182,
+     "img": [
+      40,
+      7.7
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "볼보",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 1,
+     "img": [
+      33,
+      33
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "스카니아",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 1.048,
+     "img": [
+      33,
+      31.6
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "MAN",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 1.797,
+     "img": [
+      40,
+      22.3
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "벤츠",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 1.021,
+     "img": [
+      33,
+      32.4
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "이베코",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 4.571,
+     "img": [
+      40,
+      8.8
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "DAF",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "전체 브랜드",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": null,
+     "img": null,
+     "initial": false,
+     "dim": false
+    }
+   ],
+   "errors": 0
+  },
+  "pc-1280": {
+   "order": [
+    "현대",
+    "기아",
+    "타타대우",
+    "KGM",
+    "|",
+    "볼보",
+    "스카니아",
+    "MAN",
+    "벤츠",
+    "이베코",
+    "DAF",
+    "전체 브랜드"
+   ],
+   "n": 11,
+   "overflow": 0,
+   "lastRight": 1081,
+   "railRight": 1240,
+   "label": false,
+   "cells": [
+    {
+     "name": "현대",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 2,
+     "img": [
+      40,
+      20
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "기아",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 4.235,
+     "img": [
+      40,
+      9.4
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "타타대우",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 1.533,
+     "img": [
+      36.4,
+      23.7
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "KGM",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 5.182,
+     "img": [
+      40,
+      7.7
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "볼보",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 1,
+     "img": [
+      33,
+      33
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "스카니아",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 1.048,
+     "img": [
+      33,
+      31.6
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "MAN",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 1.797,
+     "img": [
+      40,
+      22.3
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "벤츠",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 1.021,
+     "img": [
+      33,
+      32.4
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "이베코",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": 4.571,
+     "img": [
+      40,
+      8.8
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "DAF",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "전체 브랜드",
+     "size": [
+      84,
+      102
+     ],
+     "nameW": 76,
+     "box": 40,
+     "ratio": null,
+     "img": null,
+     "initial": false,
+     "dim": false
+    }
+   ],
+   "errors": 0
+  },
+  "m-393": {
+   "order": [
+    "현대",
+    "기아",
+    "타타대우",
+    "KGM",
+    "|",
+    "볼보",
+    "스카니아",
+    "MAN",
+    "벤츠",
+    "이베코",
+    "DAF",
+    "전체 브랜드"
+   ],
+   "n": 11,
+   "overflow": 0,
+   "lastRight": 813,
+   "railRight": 393,
+   "label": false,
+   "cells": [
+    {
+     "name": "현대",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": 2,
+     "img": [
+      36,
+      18
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "기아",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": 4.235,
+     "img": [
+      36,
+      8.4
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "타타대우",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": 1.533,
+     "img": [
+      32.8,
+      21.3
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "KGM",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": 5.182,
+     "img": [
+      36,
+      6.9
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "볼보",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": 1,
+     "img": [
+      29.7,
+      29.7
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "스카니아",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": 1.048,
+     "img": [
+      29.7,
+      28.4
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "MAN",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": 1.797,
+     "img": [
+      36,
+      20.1
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "벤츠",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": 1.021,
+     "img": [
+      29.7,
+      29.2
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "이베코",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": 4.571,
+     "img": [
+      36,
+      7.9
+     ],
+     "initial": false,
+     "dim": true
+    },
+    {
+     "name": "DAF",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": null,
+     "img": null,
+     "initial": true,
+     "dim": true
+    },
+    {
+     "name": "전체 브랜드",
+     "size": [
+      64,
+      74
+     ],
+     "nameW": 56,
+     "box": 36,
+     "ratio": null,
+     "img": null,
+     "initial": false,
+     "dim": false
+    }
+   ],
+   "errors": 0
+  }
+ }
+}
