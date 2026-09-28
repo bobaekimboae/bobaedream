@@ -4,13 +4,17 @@ import { bbmIcon } from "./bbm-list";
 import { BbmSheet } from "../filters/bbm-filter-parts";
 import regionsKr from "../data/regions-kr.json";
 import "./stable-top.css";
+import "./qf-align.css";
 
 // QF-106 상단 구조 안정성 매뉴얼 v1.1(docs/stable-top-manual.md) — 과쯔 모드 PC 상단 카드 ③ 지역 칩 줄 · ④ 연식 알약 줄 · 제목 고정 · 모바일 ⑤ 관련 검색어
 
 /** 제목 = 상단 메뉴(유형)로 들어온 카테고리 이름만. 대수·날짜·칩 조건은 넣지 않는다 */
+// QF-113 T6: 유형 줄에서 고른 유형이면 제목 = 유형 이름("트럭 · 특장" · "바이크" · "캠핑카" · "올드카" · "건설기계" · "부품 · 용품"), 중고차면 "중고차"
+const STABLE_TYPE_TITLES = ["트럭 · 특장", "바이크", "캠핑카", "올드카", "건설기계", "부품 · 용품"];
 export function stablePageTitle(category: string) {
   if (category === "국산차") return "국산 중고차";
   if (category === "수입차") return "수입 중고차";
+  if (STABLE_TYPE_TITLES.includes(category)) return category;
   return "중고차";
 }
 

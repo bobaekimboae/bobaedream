@@ -1,0 +1,10 @@
+/* QF-113 T1 과쯔 이미지 줄(제조사·모델·세부모델) 이름표 없음 — 첫 칸 x = 첫 칩 x(PC, 카드 안쪽 20) / 첫 칩 − 4(모바일 12). 이름표("트림:" "연식:" "지역:")는 알약 줄에만 */
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .depth-rail.no-label { grid-template-columns: minmax(0, 1fr); }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .depth-rail.no-label .depth-rail-track { padding-right: 20px; padding-left: 20px; }
+.marketplace.is-bbm-m.is-qf-guazi .depth-rail.no-label .depth-rail-track { padding-left: 12px; }
+
+/* QF-113 T2 "필터" 칩: 조건이 없으면 "필터", 있으면 "필터 N"(글자 유지 + 숫자, #222). 폭은 두 자리 수까지 들어가는 값으로 고정 → 조건 수가 바뀌어도 옆 칩이 밀리지 않음 */
+.marketplace.is-bbm.is-qf-guazi .bbm-hybrid-top .bbm-filter-button { justify-content: center; width: 92px; min-width: 92px; box-sizing: border-box; }
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-fixed { justify-content: center; width: 92px; min-width: 92px; }
+.marketplace.is-qf-guazi .bbm-filter-button b, .marketplace.is-qf-guazi .filter-fixed .filter-fixed-count { margin-left: 4px; }
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm.is-scrolled .filter-fixed:not(.is-applied) > span { display: inline; }
