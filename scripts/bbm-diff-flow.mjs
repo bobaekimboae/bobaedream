@@ -175,7 +175,8 @@ async function readState(page, side, device) {
       return { count, applied, plain, badge, blue, history, button: confirmText("[role=dialog], .catalog-filter-modal"), page: text(document.querySelector(".ui-pagination__page.is-active")) || "-", sort: text([...document.querySelectorAll(".car-list-content-toolbar__sort")].find(visible)) || "-" };
     }
     const chipEls = [...document.querySelectorAll(device === "pc" ? ".bbm-chips .filter-chip" : ".filter-track .filter-chip")];
-    const applied = chipEls.filter((e) => /is-active/.test(e.className) && !/전체차량/.test(text(e))).map(text);
+    // QF-113 T3: 첫 칩(유형)은 "전체차량" → "중고차" — 둘 다 적용 칩 수에서 뺀다
+    const applied = chipEls.filter((e) => /is-active/.test(e.className) && !/^(전체차량|중고차)$/.test(text(e))).map(text);
     const plain = chipEls.filter((e) => !/is-active/.test(e.className)).map(text);
     const count = document.querySelector(".bbm-ct-title")?.getAttribute("data-count") ?? text(document.querySelector(".bbm-summary strong")); // QF-106: 제목 고정, 대수는 data-count
     const badge = device === "pc" ? text(document.querySelector(".bbm-filter-count")) : text(document.querySelector(".filter-fixed-count"));

@@ -210,15 +210,16 @@ for (const [tag, device, viewport] of [["pc-1440", "pc", { width: 1440, height: 
   const at = (name) => steps.find((step) => step.step === name);
   const s0 = at("벤츠 → C클래스 → W206"); const s1 = at("세부모델 ×"); const s2 = at("모델 ×"); const s3 = at("제조사 ×");
   check(`${tag} 칩 3개 [벤츠 ×][C클래스 ×][W206 ×] · 빈 "제조사/모델" 칩 없음`, ["벤츠", "C클래스", "W206"].every((label) => s0.chips.includes(label)) && !s0.emptyChips.some((label) => /^(제조사|모델)$/.test(label)), `적용 ${s0.chips.join(" ")} · 빈 칩 ${s0.emptyChips.join(" ")} · 경로 ${s0.crumbs || "-"} · ${s0.title ?? "-"}`);
-  check(`${tag} 세부모델 × → 세부모델 줄 · [벤츠][C클래스] 유지`, s1.chips.includes("벤츠") && s1.chips.includes("C클래스") && !s1.chips.includes("W206") && /세부모델/.test(s1.rail), `${s1.chips.join(" ")} · 줄 ${s1.rail} · ${s1.title ?? "-"}`);
-  check(`${tag} 모델 × → 모델 줄 · [벤츠] 유지`, s2.chips.includes("벤츠") && !s2.chips.includes("C클래스") && /^모델/.test(s2.rail), `${s2.chips.join(" ")} · 줄 ${s2.rail} · ${s2.title ?? "-"}`);
+  check(`${tag} 세부모델 × → 세부모델 줄 · [벤츠][C클래스] 유지`, s1.chips.includes("벤츠") && s1.chips.includes("C클래스") && !s1.chips.includes("W206") && /세부모델|^sub/.test(s1.rail), `${s1.chips.join(" ")} · 줄 ${s1.rail} · ${s1.title ?? "-"}`);
+  check(`${tag} 모델 × → 모델 줄 · [벤츠] 유지`, s2.chips.includes("벤츠") && !s2.chips.includes("C클래스") && /^모델|^model/.test(s2.rail), `${s2.chips.join(" ")} · 줄 ${s2.rail} · ${s2.title ?? "-"}`);
   check(`${tag} 제조사 × → 제조사 줄`, !s3.chips.includes("벤츠") && !s3.chips.includes("C클래스") && s3.emptyChips.includes("제조사"), `${s3.chips.join(" ")} · 빈 칩 ${s3.emptyChips.join(" ")} · ${s3.title ?? "-"}`);
   check(`${tag} 칩 단계마다 목록 0대 없음`, steps.every((step) => !step.empty && (step.count === null || step.count > 0)), steps.map((step) => `${step.step} ${step.count ?? "-"}대`).join(" · "));
   if (device === "pc") check(`${tag} 제목 "중고차" 고정(QF-106 · 모든 단계, 대수 없음)`, steps.every((step) => step.title === "중고차"), [...new Set(steps.map((step) => step.title ?? "-"))].join(" / "));
   const t1 = at("W206 → C200"); const t2 = at("C200 ×");
   check(`${tag} C200 누름 → 칩 [벤츠][C클래스][W206][C200] · ④ = 연식 줄(QF-106)${device === "pc" ? " · 경로에 C200" : ""}`, ["벤츠", "C클래스", "W206", "C200"].every((label) => t1.chips.includes(label)) && /^연식/.test(t1.rail) && (device !== "pc" || /C200$/.test(t1.crumbs)) && !t1.empty, `${t1.chips.join(" ")} · 줄 ${t1.rail} · ${t1.title ?? "-"} · ${t1.crumbs || "-"}`);
   check(`${tag} [C200 ×] → 트림만 풀림 · 트림 줄 다시 열림`, !t2.chips.includes("C200") && t2.chips.includes("W206") && /^트림/.test(t2.rail), `${t2.chips.join(" ")} · 줄 ${t2.rail}`);
-  check(`${tag} 줄 이름표 "세부모델:"`, railAfterModel?.railLabel === "세부모델:", railAfterModel?.railLabel ?? "없음");
+  // QF-113 T1: 이미지 줄(모델·세부모델)은 이름표 없음
+  check(`${tag} 세부모델 줄 이름표 없음(QF-113)`, railAfterModel?.kind === "sub" && railAfterModel?.railLabel === "", `${railAfterModel?.kind} · "${railAfterModel?.railLabel ?? ""}"`);
 
   // 캡처: 포르쉐 모델 줄 → 718(911 은 샘플 매물이 없어 카드 없음) · 현대 → 그랜저
   await openMaker("포르쉐"); await shot("porsche-models");
