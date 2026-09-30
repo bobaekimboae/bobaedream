@@ -79,7 +79,6 @@ export function BbmSellerTypeSheet({
   return (
     <BbmSheet
       title="판매자 유형"
-      subtitle="원하는 판매자 유형을 선택하세요."
       variant="seller"
       onClose={onClose}
       footer={(
