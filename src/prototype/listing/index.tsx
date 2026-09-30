@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { BookmarkFilledIcon, BookmarkIcon, ChevronDownIcon, ChevronRightIcon, ChevronUpIcon, DashboardIcon, HeartFilledIcon, HeartIcon, MagnifyingGlassIcon, RowsIcon } from "@radix-ui/react-icons";
 import { BottomSheet, Carousel, KeyboardInput, MobileScroll, type FlowScreen, useFlow, useKeyboard } from "../../mobile";
 import { ChoTotFilterSheet, ChoTotQuickFilterSheet, emptyChoTotFilters, type ChoTotFilterFocus, type ChoTotFilterState } from "../../ChoTotFilterSheet";
@@ -77,7 +77,11 @@ import { KrBrandLogo, krRailLabel, krTopTenSections, krTypeTop10 } from "./bbm-b
 import { StableRegionRow, StableRegionSheet, stableRegionLabel, StableYearRow, stablePageTitle, STABLE_YEAR_OPTIONS, stableKeywordPills } from "./stable-top";
 import { CatalogModelImage, catalogMakerNames, catalogModelOfCar, guaziGenerationsByMakerModel, guaziModelVisualsByMaker, guaziModelsByMaker } from "./model-catalog-kr";
 import { BbmChipScroller, BbmTopCrumbs, type BbmCrumb } from "./bbm-top-chotot";
+import { setPretendard } from "../fonts/pretendard";
 import { BBM_PAGE_SIZE, BbmFooter, BbmPagination, BbmPopOptions, BbmToolbarMenu, bbmSortOptions, bbmViewOptionsMobile, bbmViewOptionsPc, sortBbmCars, type BbmSort } from "./bbm-list-area";
+
+// QF-120: 모듈을 읽는 순간(첫 렌더 전) 과쯔면 글꼴 CSS·미리 불러오기를 붙여 글꼴 요청을 앞당김
+if (getInitialQuickFilterStyle() === "guazi") setPretendard(true);
 
 // QF-091: 적용 사이트 선택(시안 전환 도구)은 &debug=1 일 때만
 const debugMode = new URLSearchParams(window.location.search).get("debug") === "1";
@@ -424,6 +428,8 @@ function MarketplaceScreen() {
   const [searchToast, setSearchToast] = useState("");
   const [categoryLandingOpen, setCategoryLandingOpen] = useState(() => !initialFilters.maker && initialFilters.category === "전체");
   const [quickFilterStyle, setQuickFilterStyle] = useState<QuickFilterStyle>(() => getInitialQuickFilterStyle());
+  // QF-120: 과쯔일 때만 Pretendard Variable(첫 그림 전에 붙이도록 layout effect)
+  useLayoutEffect(() => { setPretendard(quickFilterStyle === "guazi"); }, [quickFilterStyle]);
   const [selectedGeneration, setSelectedGeneration] = useState<string | null>(null);
   const [selectedVariants, setSelectedVariants] = useState<string[]>([]);
   const [debouncedSelectedVariants, setDebouncedSelectedVariants] = useState<string[]>([]);

@@ -1,0 +1,241 @@
+{
+ "before": "https://bobaekimboae.github.io/bobaedream/",
+ "after": "http://127.0.0.1:4173/bobaedream/",
+ "sizes": {
+  "pc-1440": {
+   "first": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [],
+    "avgWidthRatio": 1,
+    "matched": 98
+   },
+   "makers": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [],
+    "avgWidthRatio": 1,
+    "matched": 102
+   },
+   "benz": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [],
+    "avgWidthRatio": 1,
+    "matched": 100
+   },
+   "allbrands": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [],
+    "avgWidthRatio": 1,
+    "matched": 131
+   },
+   "mileage": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [],
+    "avgWidthRatio": 1,
+    "matched": 123
+   },
+   "cards": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [],
+    "avgWidthRatio": 1,
+    "matched": 94
+   }
+  },
+  "pc-1280": {
+   "first": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [],
+    "avgWidthRatio": 1,
+    "matched": 86
+   },
+   "makers": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [],
+    "avgWidthRatio": 1,
+    "matched": 90
+   },
+   "benz": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [],
+    "avgWidthRatio": 1,
+    "matched": 88
+   },
+   "allbrands": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [],
+    "avgWidthRatio": 1,
+    "matched": 117
+   },
+   "mileage": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [],
+    "avgWidthRatio": 1,
+    "matched": 118
+   },
+   "cards": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [],
+    "avgWidthRatio": 1,
+    "matched": 84
+   }
+  },
+  "m-393": {
+   "first": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [
+     "제네시스 G80 RG3 2.5T AWD 파퓰러패키지",
+     "기아 카니발 4세대 하이리무진 7인승 리무진시트"
+    ],
+    "avgWidthRatio": 1,
+    "matched": 62
+   },
+   "makers": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [
+     "제네시스 G80 RG3 2.5T AWD 파퓰러패키지",
+     "기아 카니발 4세대 하이리무진 7인승 리무진시트"
+    ],
+    "avgWidthRatio": 1,
+    "matched": 62
+   },
+   "benz": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [
+     "벤츠 C클래스 C 220d 5세대 W205 C220d",
+     "15년11월(16년형) · 4만km · 가솔린 하이브리드",
+     "벤츠 C클래스 C 200 6세대 W206 Avantgarde",
+     "벤츠 C클래스 C 300 4MATIC 6세대 W206 AMG Line",
+     "14년01월(15년형) · 2만km · 가솔린 하이브리드"
+    ],
+    "avgWidthRatio": 1,
+    "matched": 61
+   },
+   "allbrands": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [
+     "제네시스 G80 RG3 2.5T AWD 파퓰러패키지",
+     "기아 카니발 4세대 하이리무진 7인승 리무진시트"
+    ],
+    "avgWidthRatio": 1,
+    "matched": 91
+   },
+   "mileage": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [
+     "제네시스 G80 RG3 2.5T AWD 파퓰러패키지",
+     "기아 카니발 4세대 하이리무진 7인승 리무진시트"
+    ],
+    "avgWidthRatio": 1,
+    "matched": 101
+   },
+   "cards": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [
+     "제네시스 G80 RG3 2.5T AWD 파퓰러패키지",
+     "기아 카니발 4세대 하이리무진 7인승 리무진시트",
+     "람보르기니 우라칸 EVO LP640-4 리프팅시스템",
+     "18년10월(18년형) · 7만km · 가솔린 하이브리드"
+    ],
+    "avgWidthRatio": 1,
+    "matched": 65
+   }
+  },
+  "m-360": {
+   "first": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [
+     "제네시스 G80 RG3 2.5T AWD 파퓰러패키지",
+     "22년06월(22년형) · 23만km · 디젤",
+     "기아 카니발 4세대 하이리무진 7인승 리무진시트",
+     "14년01월(15년형) · 2만km · 가솔린"
+    ],
+    "avgWidthRatio": 1,
+    "matched": 56
+   },
+   "makers": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [
+     "제네시스 G80 RG3 2.5T AWD 파퓰러패키지",
+     "22년06월(22년형) · 23만km · 디젤",
+     "기아 카니발 4세대 하이리무진 7인승 리무진시트",
+     "14년01월(15년형) · 2만km · 가솔린"
+    ],
+    "avgWidthRatio": 1,
+    "matched": 56
+   },
+   "benz": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [
+     "벤츠 C클래스 C 220d 5세대 W205 C220d",
+     "15년11월(16년형) · 4만km · 가솔린 하이브리드",
+     "벤츠 C클래스 C 200 6세대 W206 Avantgarde",
+     "22년06월(22년형) · 23만km · 디젤"
+    ],
+    "avgWidthRatio": 1,
+    "matched": 56
+   },
+   "allbrands": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [
+     "제네시스 G80 RG3 2.5T AWD 파퓰러패키지",
+     "22년06월(22년형) · 23만km · 디젤",
+     "기아 카니발 4세대 하이리무진 7인승 리무진시트",
+     "14년01월(15년형) · 2만km · 가솔린"
+    ],
+    "avgWidthRatio": 1,
+    "matched": 84
+   },
+   "mileage": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [
+     "제네시스 G80 RG3 2.5T AWD 파퓰러패키지",
+     "22년06월(22년형) · 23만km · 디젤",
+     "기아 카니발 4세대 하이리무진 7인승 리무진시트",
+     "14년01월(15년형) · 2만km · 가솔린"
+    ],
+    "avgWidthRatio": 1,
+    "matched": 93
+   },
+   "cards": {
+    "wrapChanged": [],
+    "newlyClipped": [],
+    "clippedAfter": [
+     "제네시스 G80 RG3 2.5T AWD 파퓰러패키지",
+     "22년06월(22년형) · 23만km · 디젤",
+     "기아 카니발 4세대 하이리무진 7인승 리무진시트",
+     "14년01월(15년형) · 2만km · 가솔린",
+     "현대 그랜저 GN7 캘리그래피 무사고",
+     "20년08월(20년형) · 12만km · 디젤",
+     "롤스로이스 팬텀 6.7 V12 EWB 투톤",
+     "24년03월(25년형) · 3천km · 디젤",
+     "람보르기니 우라칸 EVO LP640-4 리프팅시스템",
+     "18년10월(18년형) · 7만km · 가솔린 하이브리드"
+    ],
+    "avgWidthRatio": 1,
+    "matched": 60
+   }
+  }
+ }
+}

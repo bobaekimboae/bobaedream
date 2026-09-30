@@ -1,0 +1,30 @@
+{
+ "PC 1440 전": {
+  "dcl": 415,
+  "load": 2854,
+  "fontsReady": 2862,
+  "fontFiles": 0,
+  "fontKB": 0
+ },
+ "PC 1440 후": {
+  "dcl": 410,
+  "load": 3059,
+  "fontsReady": 3065,
+  "fontFiles": 17,
+  "fontKB": 436
+ },
+ "모바일 393 전": {
+  "dcl": 425,
+  "load": 1829,
+  "fontsReady": 1835,
+  "fontFiles": 0,
+  "fontKB": 0
+ },
+ "모바일 393 후": {
+  "dcl": 418,
+  "load": 1974,
+  "fontsReady": 1978,
+  "fontFiles": 14,
+  "fontKB": 364
+ }
+}
