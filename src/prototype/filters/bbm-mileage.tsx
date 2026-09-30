@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type PointerEvent as ReactPointerEvent } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type PointerEvent as ReactPointerEvent } from "react";
 import { createPortal } from "react-dom";
 import { setBbmRange, type BbmFilterValues, type BbmRange } from "./bbm-filter-state";
 import "./bbm-mileage.css";
@@ -190,25 +190,77 @@ export function MileageFinalPanel({ value, onChange, layout }: { value: BbmFilte
   );
 }
 
-/** 모바일 바텀시트(mileage-final): 임시 값(draft)과 적용 값 분리. 닫기·배경·Esc 는 적용하지 않고 닫음 */
-export function MileageFinalSheet({ value, countOf, onApply, onClose }: { value: BbmFilterValues; countOf: (next: BbmFilterValues) => number; onApply: (next: BbmFilterValues) => void; onClose: () => void }) {
+const FOCUSABLE = 'button:not([disabled]), input:not([disabled]), [href], [tabindex]:not([tabindex="-1"])';
+const reducedMotion = () => typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
+/** QF-118 PC 모달이 열려 있는 동안 페이지 스크롤 잠금. 스크롤 상자(.mobile-scroll)의 스크롤바가 사라진 만큼 오른쪽 여백을 더해 화면이 옆으로 밀리지 않게 한다 */
+function useScrollLock(enabled: boolean) {
+  useLayoutEffect(() => {
+    if (!enabled) return;
+    const scroller = document.querySelector<HTMLElement>(".marketplace")?.closest<HTMLElement>(".mobile-scroll");
+    if (!scroller) return;
+    const before = scroller.clientWidth;
+    const prev = { overflowY: scroller.style.overflowY, paddingRight: scroller.style.paddingRight };
+    const top = scroller.scrollTop;
+    scroller.style.overflowY = "hidden";
+    const gained = scroller.clientWidth - before;
+    if (gained > 0) scroller.style.paddingRight = `${(parseFloat(getComputedStyle(scroller).paddingRight) || 0) + gained}px`;
+    scroller.scrollTop = top;
+    return () => { scroller.style.overflowY = prev.overflowY; scroller.style.paddingRight = prev.paddingRight; scroller.scrollTop = top; };
+  }, [enabled]);
+}
+
+/** 주행거리 임시 값 창(mileage-final). 임시 값(draft)과 적용 값 분리 — 닫기·배경·Esc 는 적용하지 않고 닫음.
+    variant "sheet" = 모바일 바텀시트(QF-117, 그대로) · "modal" = PC 가운데 모달(QF-118: 폭 min(480, 화면 − 48) · 최대 높이 화면 − 96 ·
+    페이지 스크롤 잠금 · 포커스 가두기 · 열 때 닫기 버튼에 포커스(preventScroll) · 닫히면 returnFocus() 로 복귀 · 0.15초 투명도+살짝 위로) */
+export function MileageFinalSheet({ value, countOf, onApply, onClose, variant = "sheet", returnFocus }: { value: BbmFilterValues; countOf: (next: BbmFilterValues) => number; onApply: (next: BbmFilterValues) => void; onClose: () => void; variant?: "sheet" | "modal"; returnFocus?: () => HTMLElement | null }) {
+  const modal = variant === "modal";
   const [draft, setDraft] = useState(value);
   const [count, setCount] = useState(() => countOf(value));
+  const [closing, setClosing] = useState(false);
+  const dialog = useRef<HTMLElement>(null);
+  const titleId = useId();
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
+  useScrollLock(modal);
   // 대수는 조작 반응을 막지 않게 짧게 늦춰 계산(손잡이는 즉시)
   useEffect(() => { const timer = window.setTimeout(() => setCount(countOf(draft)), 120); return () => window.clearTimeout(timer); }, [draft, countOf]);
-  useEffect(() => { const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") onClose(); }; window.addEventListener("keydown", onKey); return () => window.removeEventListener("keydown", onKey); }, [onClose]);
+  // 모달: 닫는 움직임(0.15초) 뒤에 실제로 닫고 포커스를 칩으로 돌려놓음
+  const close = () => {
+    if (!modal) { onClose(); return; }
+    if (closing) return;
+    const finish = () => { onCloseRef.current(); window.requestAnimationFrame(() => returnFocus?.()?.focus({ preventScroll: true })); };
+    if (reducedMotion()) { finish(); return; }
+    setClosing(true);
+    window.setTimeout(finish, 150);
+  };
+  const closeRef = useRef(close);
+  closeRef.current = close;
+  useEffect(() => { const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") closeRef.current(); }; window.addEventListener("keydown", onKey); return () => window.removeEventListener("keydown", onKey); }, []);
+  useEffect(() => { if (modal) dialog.current?.querySelector<HTMLElement>(".mf-close")?.focus({ preventScroll: true }); }, [modal]);
+  // Tab 은 모달 안에서만 돈다
+  const trap = (event: ReactKeyboardEvent<HTMLElement>) => {
+    if (!modal || event.key !== "Tab" || !dialog.current) return;
+    const items = [...dialog.current.querySelectorAll<HTMLElement>(FOCUSABLE)].filter((el) => el.offsetParent !== null || el === document.activeElement);
+    if (!items.length) return;
+    const first = items[0]; const last = items[items.length - 1];
+    if (event.shiftKey && (document.activeElement === first || !dialog.current.contains(document.activeElement))) { event.preventDefault(); last.focus({ preventScroll: true }); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus({ preventScroll: true }); }
+  };
   const invalid = mileageInvalid(draft.ranges.mileage);
+  // 모달은 주행거리 값만 적용(다른 필터는 지금 적용 값 그대로)
+  const confirm = () => { onApply(modal ? setBbmRange(value, "mileage", draft.ranges.mileage ?? { min: "", max: "" }) : draft); close(); };
   return createPortal(
-    <div className="bbmf-overlay is-sheet mf-overlay" onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}>
-      <section className="mf-sheet" role="dialog" aria-modal="true" aria-label="주행거리">
+    <div className={`bbmf-overlay mf-overlay ${modal ? "mf-modal-overlay" : "is-sheet"}${closing ? " is-closing" : ""}`} onClick={(event) => { if (event.target === event.currentTarget) close(); }}>
+      <section ref={dialog} className={`mf-sheet${modal ? " is-modal" : ""}`} role="dialog" aria-modal="true" {...(modal ? { "aria-labelledby": titleId } : { "aria-label": "주행거리" })} onKeyDown={trap}>
         <header className="mf-header">
-          <h3 className="mf-title">주행거리</h3>
-          <button type="button" className="mf-close" aria-label="닫기" onClick={onClose}><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg></button>
+          <h3 className="mf-title" id={titleId}>주행거리</h3>
+          <button type="button" className="mf-close" aria-label="닫기" onClick={close}><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg></button>
         </header>
         <div className="mf-body"><MileageFinalPanel value={draft} onChange={setDraft} layout="sheet" /></div>
         <div className="mf-actions">
           <button type="button" className="mf-reset" onClick={() => setDraft(setBbmRange(draft, "mileage", { min: "", max: "" }))}>초기화</button>
-          <button type="button" className="mf-confirm" disabled={invalid} onClick={() => { onApply(draft); onClose(); }}>{count.toLocaleString("ko-KR")}대 보기</button>
+          <button type="button" className="mf-confirm" disabled={invalid} onClick={confirm}>{count.toLocaleString("ko-KR")}대 보기</button>
         </div>
       </section>
     </div>,

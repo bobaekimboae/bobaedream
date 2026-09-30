@@ -72,3 +72,18 @@
 .mf-tick.is-first { transform: none; }
 .mf-tick.is-last { transform: none; }
 @media (prefers-reduced-motion: reduce) { .mf-handle-dot { transition: none; } }
+
+/* QF-118 PC 가운데 모달(과쯔 PC 상단 "주행거리" 칩). 내용·수치는 모바일 바텀시트와 같은 부품(헤더 64 · 본문 20/16/22 · 입력 1fr·12·1fr 사이 10 ·
+   칩 3열 사이 8 · 액션 바 80) — 폭 480 에서 본문 448 → 입력 (448 − 12 − 20) ÷ 2 = 208 · 칩 (448 − 16) ÷ 3 = 144 는 그리드가 계산(숫자 고정 없음) */
+.mf-modal-overlay { align-items: center; justify-content: center; padding: 48px 24px; box-sizing: border-box; animation: mf-fade-in 0.15s ease-out; }
+.mf-sheet.is-modal { width: min(480px, calc(100vw - 48px)); max-height: calc(100vh - 96px); border-radius: 16px; box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2); animation: mf-rise-in 0.15s ease-out; }
+.mf-sheet.is-modal .mf-actions { border-radius: 0 0 16px 16px; }
+.mf-modal-overlay.is-closing { animation: mf-fade-out 0.15s ease-in forwards; }
+.mf-modal-overlay.is-closing .mf-sheet.is-modal { animation: mf-rise-out 0.15s ease-in forwards; }
+@keyframes mf-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes mf-fade-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes mf-rise-in { from { transform: translateY(8px); } to { transform: none; } }
+@keyframes mf-rise-out { from { transform: none; } to { transform: translateY(8px); } }
+@media (prefers-reduced-motion: reduce) {
+  .mf-modal-overlay, .mf-sheet.is-modal, .mf-modal-overlay.is-closing, .mf-modal-overlay.is-closing .mf-sheet.is-modal { animation: none; }
+}
