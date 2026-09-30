@@ -66,6 +66,7 @@ import { BrandRailMark, CategoryFilterSheet, DepthCard, MakerSheet, PriceSheet, 
 import { bbCatalog, BbCarCard, BbFilterSidebar, BbHeader, BbIcon, BbSwitch, type BbMakerSelection } from "./pc-bbmuseum";
 import { bbmCarChecks, emptyBbmFilters, isBbmDataOption, matchesBbmFilters, rangeIsSet, resetBbmFilters, setBbmChecks, setBbmRange, type BbmCheckKey, type BbmFilterValues } from "../filters/bbm-filter-state";
 import { bbmAppliedChips, bbmItemValue } from "../filters/bbm-applied";
+import { MileageFinalSheet, mileageSummary } from "../filters/bbm-mileage";
 import { BbmPartsGallery } from "../filters/bbm-parts-gallery";
 import { BbmActionBar, BbmFullExcludeAction, BbmFullFilter, BbmFullItem, BbmModal, BbmSheet } from "../filters/bbm-filter-parts";
 import { bbmFilterOrder, bbmSidebarItems, type BbmFilterItem } from "../filters/bbm-filter-options";
@@ -1206,7 +1207,8 @@ function MarketplaceScreen() {
   // QF-089: 칩 순서(원본) [필터][전체차량][제조사 → 고르면 제조사 칩(요약 칩) + 모델][적용 칩들(건 순서)][연식][가격][연료][판매자].
   // 값이 걸린 필터 칩은 줄에서 빠지고 그 자리에 적용 칩(진한 채움 + ×)이 생긴다. 요약 칩·트림 칩은 퀵필터 규격 그대로
   const chipByKey = (key: string) => quickFilterChips.find((chip) => chip.key === key);
-  const bbmApplied = bbmAppliedChips(bbmValue);
+  // QF-117: 과쯔 주행거리 칩 표기 = "3~6만km"(칩) · "3.5~8만km"(직접 범위) · "10만km 이상"(최대 없음)
+  const bbmApplied = bbmAppliedChips(bbmValue).map((chip) => (isGuaziQuickStyle && chip.id === "range:mileage" ? { ...chip, label: mileageSummary(bbmValue.ranges.mileage) || chip.label } : chip));
   const bbmPanelForId = (id: string) => {
     const [kind, key] = id.split(":");
     if (id === "ad") return "광고기간";
@@ -1322,11 +1324,13 @@ function MarketplaceScreen() {
     }
     const item = bbmSidebarItems.find((entry) => entry.label === bbmChipPanel);
     if (!item) return null;
+    // QF-117: 과쯔 주행거리 칩 — 모바일은 전용 바텀시트, PC 모달은 확정 시안 패널(즉시 반영)
+    if (isGuaziQuickStyle && item.label === "주행거리" && !onDesktop) return <MileageFinalSheet value={bbmValue} countOf={countWithBbm} onApply={setBbmFilters} onClose={close} />;
     // 원본 실측(2026-09-24): PC 칩으로 연 모달 버튼은 항목 종류를 따른다 — 펼침형(바디타입·연식·가격) "N대 보기", 모달형(연료·인승·판매자) "확인 N대"
     const confirmStyle = !onDesktop || item.mode === "expand" ? "보기" : "확인";
     const footer = item.label === "광고기간" ? undefined : <BbmActionBar variant={onDesktop ? "modal" : "sheet"} confirmStyle={confirmStyle} count={shownCars.length} onReset={() => setPanelValue(clearBbmItem(item, panelValue))} onConfirm={apply} />;
     const body = item.mode === "expand"
-      ? <BbmExpandPanel label={item.label} variant="chip" value={panelValue} onChange={setPanelValue} countOf={bbmCountOf} />
+      ? <BbmExpandPanel label={item.label} variant="chip" value={panelValue} onChange={setPanelValue} countOf={bbmCountOf} mileageFinal={isGuaziQuickStyle} />
       : <BbmModalPanel item={item} value={panelValue} onChange={setPanelValue} countOf={bbmCountOf} />;
     return <Frame title={item.modalTitle ?? item.label} onClose={close} footer={footer}>{item.mode === "expand" && item.label !== "가격" ? <div className="bbmf-chip-expand">{body}</div> : body}</Frame>;
   };
@@ -1440,7 +1444,7 @@ function MarketplaceScreen() {
             {/* QF-106b: 경로는 상단 카드 밖(회색 바탕 위), 카드는 제목 줄부터 */}
             {isGuaziQuickStyle ? <div className="bbm-hybrid-top"><BbmTopCrumbs items={bbmCrumbs} />{bbmTopCard}</div> : null}
             <div className="bbm-page">
-              <BbFilterSidebar order={isGuaziQuickStyle ? bbmFilterOrder : undefined} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} />
+              <BbFilterSidebar mileageFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? bbmFilterOrder : undefined} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} />
               <div className="bbm-content">
                 {isGuaziQuickStyle ? null : bbmContentHead}
                 <section className="bbm-results" aria-label="매물 목록">
@@ -1484,7 +1488,7 @@ function MarketplaceScreen() {
         {renderBbmChipPanel(true)}
         {drawerFilterChip && bbmDrawerOpen ? (
           <BbmFilterDrawer count={visibleCars.length} onClose={() => setBbmDrawerOpen(false)} onReset={() => setBbmDrawerReset((value) => value + 1)}>
-            <BbFilterSidebar order={isGuaziQuickStyle ? bbmFilterOrder : undefined} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmDrawerReset} brandLogos={isGuaziQuickStyle} />
+            <BbFilterSidebar mileageFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? bbmFilterOrder : undefined} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmDrawerReset} brandLogos={isGuaziQuickStyle} />
           </BbmFilterDrawer>
         ) : null}
         {marketSheet}
@@ -1612,7 +1616,7 @@ function MarketplaceScreen() {
             footer={<BbmActionBar variant="full" confirmStyle="보기" count={visibleCars.length} onReset={() => setBbmFilters(resetBbmFilters(bbmValue))} onConfirm={closeFull} />}
           >
             <BbmFullItem label="카테고리" onOpen={() => openFullItem("카테고리")} />
-            {fullItems.map((item) => item ? <BbmFullItem key={item.label} label={item.label} icon={item.label === "전기차 주행 가능 거리" ? bbmIcon("filter-ev-range") : undefined} value={bbmItemValue(item.label, fullValue)} onClear={() => setBbmFilters(clearBbmItem(item, bbmValue))} onOpen={() => openFullItem(item)} /> : (
+            {fullItems.map((item) => item ? <BbmFullItem key={item.label} label={item.label} icon={item.label === "전기차 주행 가능 거리" ? bbmIcon("filter-ev-range") : undefined} value={isGuaziQuickStyle && item.label === "주행거리" ? mileageSummary(fullValue.ranges.mileage) : bbmItemValue(item.label, fullValue)} onClear={() => setBbmFilters(clearBbmItem(item, bbmValue))} onOpen={() => openFullItem(item)} /> : (
               <div key="maker" className="bbmf-full-maker">
                 <BbmFullItem label="제조사 · 모델" value={maker ? vehicleSummaryLabel : ""} onClear={clearMakerFilter} onOpen={() => { setBbmFullOpen(false); setSheet("vehicle"); }} />
                 <BbmFullExcludeAction onClick={() => setSearchToast("제조사·모델 제외하기는 정식 서비스에서 이용해 주세요.")} />
@@ -1620,7 +1624,9 @@ function MarketplaceScreen() {
             ))}
           </BbmFullFilter>
         ) : null}
-        {bbmFullOpen && bbmFullItem ? (
+        {/* QF-117: 과쯔 모바일 주행거리는 전용 바텀시트(임시 값 · 대수 실시간 · 적용해야 확정) */}
+        {bbmFullOpen && bbmFullItem && bbmFullItem !== "카테고리" && bbmFullItem.label === "주행거리" && isGuaziQuickStyle ? <MileageFinalSheet value={bbmValue} countOf={countWithBbm} onApply={setBbmFilters} onClose={closeFullItem} /> : null}
+        {bbmFullOpen && bbmFullItem && !(bbmFullItem !== "카테고리" && bbmFullItem.label === "주행거리" && isGuaziQuickStyle) ? (
           <BbmSheet title={bbmFullItem === "카테고리" ? "카테고리" : bbmFullItem.modalTitle ?? bbmFullItem.label} modalBody={bbmFullItem !== "카테고리" && bbmFullItem.mode !== "expand"} onClose={closeFullItem} footer={<BbmActionBar variant="sheet" confirmStyle="보기" count={visibleCars.length} onReset={() => { if (bbmFullItem !== "카테고리") setSheetValue(clearBbmItem(bbmFullItem, sheetValue)); }} onConfirm={() => { setBbmFilters(sheetValue); closeFullItem(); }} />}>
             {bbmFullItem === "카테고리" ? <BbmCategoryMenu onChoose={(label) => { chooseVehicleCategory(label); setBbmFullItem(null); }} />
               : bbmFullItem.mode === "expand" ? <div className="bbmf-chip-expand"><BbmExpandPanel label={bbmFullItem.label} variant={bbmFullItem.label === "가격" ? "chip" : "sidebar"} value={sheetValue} onChange={setSheetValue} countOf={bbmCountOf} /></div>

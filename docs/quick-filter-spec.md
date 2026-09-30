@@ -130,6 +130,15 @@
 - `전체 브랜드` and the `제조사 ▾` chip open that type's full list only (국산 → 수입 이름순 → 기타), 0-count rows greyed but selectable.
 - Logos: 타타대우 · 만(MAN) from Daangn company images (`scripts/brand-logos-kr.mjs`); 대림 · KR모터스 · 야마하 · 가와사키 · 할리데이비슨 · 두카티 · 베스파 · 다프 have no source yet. Check: `node scripts/type-maker-check.mjs`.
 
+## Mileage Filter Final (QF-117)
+
+- Guazi only (`mileage-final`, `src/prototype/filters/bbm-mileage.tsx` · `.css`; BbmSheet/ActionBar untouched). Value model unchanged: `ranges.mileage = { min, max, preset }` (comma strings), no max = `""` (null, "제한 없음").
+- Range 0–100,000 km, 1,000 km steps; the slider's right end = no max. Ticks 0 · 2만 · 4만 · 6만 · 8만 · 10만+ at exactly 0/20/40/60/80/100% of the track (inset 11), first/last tick centers = handle centers. Handles 22 (hit 44), no crossing, arrow keys ±1,000, bubbles show `0km` / `제한 없음` while dragging/focused.
+- Chips (5): 1만km 이하 (0–10,000) · 1~3만km · 3~6만km · 6~10만km (…100,000) · 10만km 이상 (100,000–no max). One at a time, re-tap clears, shown selected only when min/max match exactly. The old 8 chips and min/max dropdowns are gone in guazi.
+- Mobile bottom sheet: header 64 (title 20/28 750 −0.35px, close 36 visible / 44 hit, right 24), body 16 sides / 22 bottom, inputs `minmax(0,1fr) 12px minmax(0,1fr)` gap 10 (393: 164.5 · 12 · 164.5), 48 tall, 2px #E4E4E4, radius 12; chips 3 columns (393: 115×48); footer 80 with 초기화 92×52 + `N대 보기` (live draft count). Draft is separate from applied: close, backdrop and Esc discard it; min > max disables apply.
+- PC left sidebar (300) and the PC chip modal: inputs stacked full width, same slider/ticks, chips 2 columns, immediate apply as before; no mobile header/footer.
+- Summary text (chips row, filter list): chip name, direct range `3.5~8만km`, no max `N만km 이상`, no min `N만km 이하`. Check: `node scripts/mileage-check.mjs`.
+
 ## Existing Mode Notes
 
 - Keep ChoTot and Dongchedi modes visually unchanged when working on Guazi-specific changes unless the user explicitly requests a shared change.
