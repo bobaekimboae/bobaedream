@@ -10,12 +10,12 @@
   .marketplace.is-bbm.is-hybrid .bbm-page { width: min(1200px, calc(100% - 48px)); margin-top: 24px; }
   .marketplace.is-bbm.is-hybrid .bbm-results { margin-top: 0; }
 }
-/* 1280 이상: 좌측 필터 300 + 24 + 목록. 좌측 필터는 스크롤 상자(.mobile-scroll) 안에서 sticky — 화면보다 짧으면 위 16에 붙고, 길면 맨 아래가 화면 아래 16에 닿으면 붙는다(QF-093 보완).
+/* 1280 이상: 좌측 필터 300 + 24 + 목록. 좌측 필터는 스크롤 상자(.mobile-scroll) 안에서 위 16 에 붙는 sticky, 높이 = 화면 − 32 고정·안에서 따로 스크롤(QF-119).
    자기 칸(.bbm-page 행) 안에서만 움직여 푸터를 덮지 않는다(QF-059) */
 @media (min-width: 1280px) {
   .marketplace.is-bbm.is-hybrid .bbm-page { grid-template-columns: 300px minmax(0, 1fr); gap: 24px; }
-  /* QF-093 보완: 칸 안 스크롤·높이 고정 없음. top 은 bbm-sticky-sidebar.ts 가 min(16, 화면 높이 − 필터 높이 − 16)으로 맞춘다(아래 붙는 사이드바) */
-  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter { position: sticky; top: var(--bbm-filter-sticky-top, 16px); }
+  /* QF-119: 위 기준 sticky + 자기 스크롤 영역(qf-sidebar-stable.css). 예전 "아래 붙는 사이드바"(음수 top, bbm-sticky-sidebar.ts)는 없앰 */
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter { position: sticky; top: 16px; align-self: start; }
 }
 /* 1024~1279: 좌측 필터 숨김, 목록이 본문 폭 전체. 이 폭에서만 상단 "필터" 칩을 누를 수 있다 */
 @media (min-width: 1024px) and (max-width: 1279px) {

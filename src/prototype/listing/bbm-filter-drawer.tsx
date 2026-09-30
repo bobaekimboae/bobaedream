@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { BbmActionBar } from "../filters/bbm-filter-parts";
 import { bbmIcon } from "./bbm-list";
 import "./pc-hybrid.css";
+import "./qf-sidebar-stable.css";
 
 // QF-093: PC 1024~1279 에서 좌측 필터를 숨기고 상단 "필터" 칩으로 여는 왼쪽 펼침판(참고: 트레이드미 Refine).
 // 폭 320, 뒤는 딤 rgba(0,0,0,.5). 내용은 좌측 필터와 같은 부품·같은 필터 상태(children).
