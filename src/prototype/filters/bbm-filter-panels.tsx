@@ -71,7 +71,7 @@ export function BbmSellerTypeSheet({
   const [draft, setDraft] = useState<BbmFilterValues>(() => ({
     ...value,
     checks: { ...value.checks, sellerKind: [...(value.checks.sellerKind ?? [])] },
-    order: [...value.order],
+    order: [...(value.order ?? [])],
   }));
   const selected = draft.checks.sellerKind ?? [];
   const resultCount = countWith(draft);
