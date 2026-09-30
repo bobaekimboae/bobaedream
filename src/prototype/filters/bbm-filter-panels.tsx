@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { BbmCheckGrid, BbmCheckRow, BbmChoiceGrid, BbmColorChips, BbmKeywordInput, BbmPresetChips, BbmRangeInputs, BbmSelectBox, BbmSlider, BbmTabs } from "./bbm-filter-parts";
 import { bbmAdPeriods, bbmCheckOptions, bbmOptionGroups, bbmRangePresets, type BbmFilterItem } from "./bbm-filter-options";
 import { bbmOriginalCounts } from "./bbm-original-counts";
+import { MileageFinalPanel } from "./bbm-mileage";
 import { bbmMileagePresetRange, bbmPricePresetRange, bbmRangeBounds, bbmYearPresetRange, setBbmAdPeriod, setBbmChecks, setBbmKeyword, setBbmRange, toggleBbmCheck, type BbmCheckKey, type BbmFilterValues, type BbmPriceTab, type BbmRangeKey } from "./bbm-filter-state";
 
 // QF-076: 사이드바 펼침형 6개 · 모달형 20개의 안쪽 화면. 선택지·순서·문구·단위는 원본 수집(docs/bbm-filter-spec.json) 그대로.
@@ -63,7 +64,9 @@ function RangeSlider({ rangeKey, value, label }: { rangeKey: BbmRangeKey; value:
 }
 
 // ── 사이드바 펼침형(바디타입 · 차급 · 연식 · 주행거리 · 가격 · 차량번호/판매자)
-export function BbmExpandPanel({ label, value, onChange, countOf, variant = "sidebar" }: PanelProps & { label: string; variant?: "sidebar" | "chip" }) {
+export function BbmExpandPanel({ label, value, onChange, countOf, variant = "sidebar", mileageFinal = false }: PanelProps & { label: string; variant?: "sidebar" | "chip"; mileageFinal?: boolean }) {
+  // QF-117: 과쯔는 주행거리를 확정 시안(mileage-final)으로 — 입력 세로 · 듀얼 슬라이더 · 눈금 · 구간 칩 2열. 다른 모드는 아래 기존 그대로
+  if (label === "주행거리" && mileageFinal) return <div className="bbmf-panel is-mileage-final"><MileageFinalPanel value={value} onChange={onChange} layout="sidebar" /></div>;
   if (label === "바디타입" || label === "차급") {
     return <div className="bbmf-panel"><CheckList checkKey={label === "바디타입" ? "bodyType" : "carClass"} size="sidebar" value={value} onChange={onChange} countOf={countOf} /></div>;
   }

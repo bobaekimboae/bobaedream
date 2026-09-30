@@ -1,0 +1,597 @@
+{
+ "mobile": {
+  "375": {
+   "sheetW": 375,
+   "radius": "24px",
+   "headerH": 64,
+   "titleFont": "20px/28px 750 -0.35px",
+   "titleCenter": 455.5,
+   "closeCenter": 455.5,
+   "closeHit": [
+    44,
+    44
+   ],
+   "closeRight": 24,
+   "titleLeft": 24,
+   "fieldW": [
+    155.5,
+    155.5
+   ],
+   "fieldH": [
+    48,
+    48
+   ],
+   "sepW": 12,
+   "sliderH": 38,
+   "inset": [
+    11,
+    11
+   ],
+   "trackW": 321,
+   "trackH": 4,
+   "firstTickVsHandle": 0,
+   "lastTickVsHandle": 0,
+   "tickGaps": [
+    64.1875,
+    64.203125,
+    64.203125,
+    64.203125,
+    64.203125
+   ],
+   "handleSize": 22,
+   "chipW": [
+    109
+   ],
+   "chipH": [
+    48
+   ],
+   "chipRows": 2,
+   "reset": [
+    92,
+    52
+   ],
+   "confirm": [
+    233,
+    52
+   ],
+   "actionsH": 80,
+   "tickInside": true,
+   "overflow": false,
+   "errors": 0
+  },
+  "390": {
+   "sheetW": 390,
+   "radius": "24px",
+   "headerH": 64,
+   "titleFont": "20px/28px 750 -0.35px",
+   "titleCenter": 455.5,
+   "closeCenter": 455.5,
+   "closeHit": [
+    44,
+    44
+   ],
+   "closeRight": 24,
+   "titleLeft": 24,
+   "fieldW": [
+    163,
+    163
+   ],
+   "fieldH": [
+    48,
+    48
+   ],
+   "sepW": 12,
+   "sliderH": 38,
+   "inset": [
+    11,
+    11
+   ],
+   "trackW": 336,
+   "trackH": 4,
+   "firstTickVsHandle": 0,
+   "lastTickVsHandle": 0,
+   "tickGaps": [
+    67.1875,
+    67.203125,
+    67.203125,
+    67.203125,
+    67.203125
+   ],
+   "handleSize": 22,
+   "chipW": [
+    114
+   ],
+   "chipH": [
+    48
+   ],
+   "chipRows": 2,
+   "reset": [
+    92,
+    52
+   ],
+   "confirm": [
+    248,
+    52
+   ],
+   "actionsH": 80,
+   "tickInside": true,
+   "overflow": false,
+   "errors": 0
+  },
+  "393": {
+   "sheetW": 393,
+   "radius": "24px",
+   "headerH": 64,
+   "titleFont": "20px/28px 750 -0.35px",
+   "titleCenter": 455.5,
+   "closeCenter": 455.5,
+   "closeHit": [
+    44,
+    44
+   ],
+   "closeRight": 24,
+   "titleLeft": 24,
+   "fieldW": [
+    164.5,
+    164.5
+   ],
+   "fieldH": [
+    48,
+    48
+   ],
+   "sepW": 12,
+   "sliderH": 38,
+   "inset": [
+    11,
+    11
+   ],
+   "trackW": 339,
+   "trackH": 4,
+   "firstTickVsHandle": 0,
+   "lastTickVsHandle": 0,
+   "tickGaps": [
+    67.796875,
+    67.796875,
+    67.796875,
+    67.796875,
+    67.8125
+   ],
+   "handleSize": 22,
+   "chipW": [
+    115
+   ],
+   "chipH": [
+    48
+   ],
+   "chipRows": 2,
+   "reset": [
+    92,
+    52
+   ],
+   "confirm": [
+    251,
+    52
+   ],
+   "actionsH": 80,
+   "tickInside": true,
+   "overflow": false,
+   "errors": 0
+  },
+  "430": {
+   "sheetW": 430,
+   "radius": "24px",
+   "headerH": 64,
+   "titleFont": "20px/28px 750 -0.35px",
+   "titleCenter": 455.5,
+   "closeCenter": 455.5,
+   "closeHit": [
+    44,
+    44
+   ],
+   "closeRight": 24,
+   "titleLeft": 24,
+   "fieldW": [
+    183,
+    183
+   ],
+   "fieldH": [
+    48,
+    48
+   ],
+   "sepW": 12,
+   "sliderH": 38,
+   "inset": [
+    11,
+    11
+   ],
+   "trackW": 376,
+   "trackH": 4,
+   "firstTickVsHandle": 0,
+   "lastTickVsHandle": 0,
+   "tickGaps": [
+    75.1875,
+    75.203125,
+    75.203125,
+    75.203125,
+    75.203125
+   ],
+   "handleSize": 22,
+   "chipW": [
+    127.3
+   ],
+   "chipH": [
+    48
+   ],
+   "chipRows": 2,
+   "reset": [
+    92,
+    52
+   ],
+   "confirm": [
+    288,
+    52
+   ],
+   "actionsH": 80,
+   "tickInside": true,
+   "overflow": false,
+   "errors": 0
+  }
+ },
+ "pc": {
+  "1024": {
+   "asideW": 320,
+   "panelW": 272,
+   "fields": [
+    [
+     24,
+     473,
+     272
+    ],
+    [
+     24,
+     529,
+     272
+    ]
+   ],
+   "stacked": true,
+   "chipCols": 2,
+   "chipH": [
+    48
+   ],
+   "overflow": false,
+   "header": false,
+   "actions": false,
+   "countBefore": "64",
+   "after": {
+    "count": "17",
+    "chips": [
+     "중고차",
+     "1~3만km"
+    ]
+   },
+   "errors": 0
+  },
+  "1280": {
+   "asideW": 300,
+   "panelW": 252,
+   "fields": [
+    [
+     64,
+     483,
+     252
+    ],
+    [
+     64,
+     539,
+     252
+    ]
+   ],
+   "stacked": true,
+   "chipCols": 2,
+   "chipH": [
+    48
+   ],
+   "overflow": false,
+   "header": false,
+   "actions": false,
+   "countBefore": "64",
+   "after": {
+    "count": "17",
+    "chips": [
+     "중고차",
+     "1~3만km"
+    ]
+   },
+   "errors": 0
+  },
+  "1440": {
+   "asideW": 300,
+   "panelW": 252,
+   "fields": [
+    [
+     144,
+     483,
+     252
+    ],
+    [
+     144,
+     539,
+     252
+    ]
+   ],
+   "stacked": true,
+   "chipCols": 2,
+   "chipH": [
+    48
+   ],
+   "overflow": false,
+   "header": false,
+   "actions": false,
+   "countBefore": "64",
+   "after": {
+    "count": "17",
+    "chips": [
+     "중고차",
+     "1~3만km"
+    ]
+   },
+   "errors": 0
+  }
+ },
+ "behavior": {
+  "dragMax": {
+   "min": "",
+   "max": "60,000",
+   "handles": [
+    [
+     0,
+     "0km"
+    ],
+    [
+     60000,
+     "60,000km"
+    ]
+   ],
+   "chip": [],
+   "confirm": "42대 보기",
+   "disabled": false,
+   "open": true
+  },
+  "dragMin": {
+   "min": "35,000",
+   "max": "60,000",
+   "handles": [
+    [
+     35000,
+     "35,000km"
+    ],
+    [
+     60000,
+     "60,000km"
+    ]
+   ],
+   "chip": [],
+   "confirm": "15대 보기",
+   "disabled": false,
+   "open": true
+  },
+  "chip36": {
+   "min": "30,000",
+   "max": "60,000",
+   "handles": [
+    [
+     30000,
+     "30,000km"
+    ],
+    [
+     60000,
+     "60,000km"
+    ]
+   ],
+   "chip": [
+    "3~6만km"
+   ],
+   "confirm": "18대 보기",
+   "disabled": false,
+   "open": true
+  },
+  "chip36off": {
+   "min": "",
+   "max": "",
+   "handles": [
+    [
+     0,
+     "0km"
+    ],
+    [
+     100000,
+     "제한 없음"
+    ]
+   ],
+   "chip": [],
+   "confirm": "64대 보기",
+   "disabled": false,
+   "open": true
+  },
+  "chip10up": {
+   "min": "100,000",
+   "max": "",
+   "handles": [
+    [
+     100000,
+     "100,000km"
+    ],
+    [
+     100000,
+     "제한 없음"
+    ]
+   ],
+   "chip": [
+    "10만km 이상"
+   ],
+   "confirm": "14대 보기",
+   "disabled": false,
+   "open": true
+  },
+  "chip610": {
+   "min": "60,000",
+   "max": "100,000",
+   "handles": [
+    [
+     60000,
+     "60,000km"
+    ],
+    [
+     100000,
+     "100,000km"
+    ]
+   ],
+   "chip": [
+    "6~10만km"
+   ],
+   "confirm": "9대 보기",
+   "disabled": false,
+   "open": true
+  },
+  "keyMin": {
+   "min": "3,000",
+   "max": "",
+   "handles": [
+    [
+     3000,
+     "3,000km"
+    ],
+    [
+     100000,
+     "제한 없음"
+    ]
+   ],
+   "chip": [],
+   "confirm": "9대 보기",
+   "disabled": false,
+   "open": true
+  },
+  "keyMax": {
+   "min": "3,000",
+   "max": "99,000",
+   "handles": [
+    [
+     3000,
+     "3,000km"
+    ],
+    [
+     99000,
+     "99,000km"
+    ]
+   ],
+   "chip": [],
+   "confirm": "9대 보기",
+   "disabled": false,
+   "open": true
+  },
+  "keyEnd": {
+   "min": "3,000",
+   "max": "",
+   "handles": [
+    [
+     3000,
+     "3,000km"
+    ],
+    [
+     100000,
+     "제한 없음"
+    ]
+   ],
+   "chip": [],
+   "confirm": "9대 보기",
+   "disabled": false,
+   "open": true
+  },
+  "invalid": {
+   "min": "50,000",
+   "max": "20,000",
+   "handles": [
+    [
+     50000,
+     "50,000km"
+    ],
+    [
+     20000,
+     "20,000km"
+    ]
+   ],
+   "chip": [],
+   "confirm": "0대 보기",
+   "disabled": true,
+   "open": true
+  },
+  "typed": {
+   "min": "10,000",
+   "max": "30,000",
+   "handles": [
+    [
+     10000,
+     "10,000km"
+    ],
+    [
+     30000,
+     "30,000km"
+    ]
+   ],
+   "chip": [
+    "1~3만km"
+   ],
+   "confirm": "17대 보기",
+   "disabled": false,
+   "open": true
+  },
+  "afterClose": {
+   "list": "주행거리"
+  },
+  "reopen": {
+   "min": "",
+   "max": "",
+   "handles": [
+    [
+     0,
+     "0km"
+    ],
+    [
+     100000,
+     "제한 없음"
+    ]
+   ],
+   "chip": [],
+   "confirm": "64대 보기",
+   "disabled": false,
+   "open": true
+  },
+  "applied": {
+   "button": "18대 보기",
+   "list": "주행거리3~6만km×"
+  },
+  "afterReset": {
+   "min": "",
+   "max": "",
+   "handles": [
+    [
+     0,
+     "0km"
+    ],
+    [
+     100000,
+     "제한 없음"
+    ]
+   ],
+   "chip": [],
+   "confirm": "26대 보기",
+   "disabled": false,
+   "open": true
+  },
+  "resetApplied": {
+   "연료": "연료디젤×",
+   "주행거리": "주행거리"
+  },
+  "errors": 0
+ }
+}
