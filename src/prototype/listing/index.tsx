@@ -1264,9 +1264,11 @@ function MarketplaceScreen() {
     !desktop && !isGuaziQuickStyle && regionLabel !== "전국" ? { key: "region", label: regionLabel, active: true, className: "is-applied", onClick: openRegionSheet, onClear: () => setRegion(emptyRegion) } : null,
     // QF-105: 트림을 고르면 빈 "트림" 칩 대신 단계 칩 [트림 ×]
     selectedVariants.length || (selectedGeneration && guaziTrimRailOptions.length <= 1) ? null : chipByKey("variant"),
-    ...bbmApplied.map((chip) => ({ key: `applied-${chip.id}`, label: chip.label, active: true, className: "is-applied", onClick: () => openBbmChipPanel(bbmPanelForId(chip.id)), onClear: () => setBbmFilters(chip.clear(bbmValue)) })),
+    ...bbmApplied.map((chip) => ({ key: `applied-${chip.id}`, label: chip.label, active: true, className: chip.id === "range:mileage" ? "is-applied is-mileage" : "is-applied", onClick: () => openBbmChipPanel(bbmPanelForId(chip.id)), onClear: () => setBbmFilters(chip.clear(bbmValue)) })),
     maker ? null : { key: "maker", label: "제조사", active: false, onClick: () => openBbmChipPanel("제조사") },
     groupChip("year", "연식", "연식", rangeIsSet(bbmValue.ranges.year)),
+    // QF-118: 과쯔 PC 는 좌측 필터 순서대로 연식 다음 "주행거리 ▾"(누르면 가운데 모달). 모바일은 그대로
+    desktop && isGuaziQuickStyle ? (() => { const chip = groupChip("mileage", "주행거리", "주행거리", rangeIsSet(bbmValue.ranges.mileage)); return chip ? { ...chip, className: "is-mileage" } : null; })() : null,
     groupChip("price", "가격", "가격", rangeIsSet(bbmValue.ranges.price)),
     groupChip("fuel", "연료", "연료", Boolean(bbmValue.checks.fuel?.length)),
     groupChip("seller", "판매자", "판매자 구분", Boolean(bbmValue.checks.sellerKind?.length)),
@@ -1307,6 +1309,10 @@ function MarketplaceScreen() {
     return { name, label: formatModelLabel(name), count };
   });
   // 칩 모달(PC 412) · 바텀시트(모바일). 버튼 숫자는 원본처럼 누르기 전 목록 수. 버튼 문구: PC 연식·가격 "N대 보기", 연료·판매자 "확인 N대", 모바일은 모두 "N대 보기"
+  const focusMileageChip = () => {
+    const chip = document.querySelector<HTMLElement>(".marketplace.is-bbm .bbm-chips .filter-chip.is-mileage");
+    return chip ? (chip.matches("button") ? chip : chip.querySelector<HTMLElement>(".filter-chip-label")) : null;
+  };
   const renderBbmChipPanel = (onDesktop: boolean) => {
     if (!bbmChipPanel) return null;
     const close = () => { setBbmChipPanel(null); setBbmFrozen(null); };
@@ -1329,6 +1335,8 @@ function MarketplaceScreen() {
     if (!item) return null;
     // QF-117: 과쯔 주행거리 칩 — 모바일은 전용 바텀시트, PC 모달은 확정 시안 패널(즉시 반영)
     if (isGuaziQuickStyle && item.label === "주행거리" && !onDesktop) return <MileageFinalSheet value={bbmValue} countOf={countWithBbm} onApply={setBbmFilters} onClose={close} />;
+    // QF-118: 과쯔 PC 주행거리 칩 → 가운데 모달(모바일 시트와 같은 내용, 임시 값 · "N대 보기"로 적용). 닫히면 주행거리 칩(적용 칩 포함)으로 포커스 복귀
+    if (isGuaziQuickStyle && item.label === "주행거리" && onDesktop) return <MileageFinalSheet variant="modal" value={bbmValue} countOf={countWithBbm} onApply={setBbmFilters} onClose={close} returnFocus={focusMileageChip} />;
     // 원본 실측(2026-09-24): PC 칩으로 연 모달 버튼은 항목 종류를 따른다 — 펼침형(바디타입·연식·가격) "N대 보기", 모달형(연료·인승·판매자) "확인 N대"
     const confirmStyle = !onDesktop || item.mode === "expand" ? "보기" : "확인";
     const footer = item.label === "광고기간" ? undefined : <BbmActionBar variant={onDesktop ? "modal" : "sheet"} confirmStyle={confirmStyle} count={shownCars.length} onReset={() => setPanelValue(clearBbmItem(item, panelValue))} onConfirm={apply} />;
