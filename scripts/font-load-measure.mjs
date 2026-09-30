@@ -22,8 +22,8 @@ for (const [name, opts, query] of [["PC 1440", { viewport: { width: 1440, height
       await cdp.send("Network.emulateNetworkConditions", { offline: false, latency: 40, downloadThroughput: (10 * 1024 * 1024) / 8, uploadThroughput: (5 * 1024 * 1024) / 8 });
       if (tag === "전") await page.route(/\/fonts\/pretendard\//, (route) => route.abort());
       let bytes = 0; let count = 0;
-      // 바이트는 받은 조각 파일 크기(public/fonts/pretendard/…)로 셈(woff2 는 이미 압축돼 전송 크기와 거의 같음)
-      page.on("response", (res) => { const m = res.url().match(/\/fonts\/pretendard\/(woff2-dynamic-subset\/[^/?]+\.woff2)/); if (m && res.ok()) { count += 1; bytes += statSync(join("public", "fonts", "pretendard", m[1])).size; } });
+      // 바이트는 받은 조각 파일 크기(public/assets/fonts/pretendard/…)로 셈(woff2 는 이미 압축돼 전송 크기와 거의 같음)
+      page.on("response", (res) => { const m = res.url().match(/\/fonts\/pretendard\/(woff2-dynamic-subset\/[^/?]+\.woff2)/); if (m && res.ok()) { count += 1; bytes += statSync(join("public", "assets", "fonts", "pretendard", m[1])).size; } });
       await page.goto(base + query, { waitUntil: "load" });
       const t = await page.evaluate(async () => { await document.fonts.ready; const nav = performance.getEntriesByType("navigation")[0]; return { dcl: nav.domContentLoadedEventEnd, load: nav.loadEventEnd, fonts: performance.now() }; });
       await page.waitForTimeout(500);
