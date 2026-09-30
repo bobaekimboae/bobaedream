@@ -1,4 +1,4 @@
-import { useEffect, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useId, useRef, type CSSProperties, type ReactNode, type Ref } from "react";
 import { createPortal } from "react-dom";
 import { asset } from "../data";
 import "./bbm-filter-parts.css";
@@ -160,8 +160,8 @@ function useEscape(onClose: () => void) {
   }, [onClose]);
 }
 
-function CloseButton({ onClose }: { onClose: () => void }) {
-  return <button type="button" className="bbmf-close" aria-label="닫기" onClick={onClose}><img src={asset("bbm/modal-close.svg")} alt="" draggable={false} /></button>;
+function CloseButton({ onClose, buttonRef }: { onClose: () => void; buttonRef?: Ref<HTMLButtonElement> }) {
+  return <button ref={buttonRef} type="button" className="bbmf-close" aria-label="닫기" onClick={onClose}><img src={asset("bbm/modal-close.svg")} alt="" draggable={false} /></button>;
 }
 
 // ── PC 가운데 모달: 폭 412, 라운드 14, 딤 rgba(0,0,0,.5), 제목 16/22.4 600 가운데 + 오른쪽 닫기 24×32
@@ -181,13 +181,43 @@ export function BbmModal({ title, titleIcon, onClose, footer, children, wide = f
 
 // ── 모바일 바텀시트: 제목 가운데 + 닫기, 아래 [초기화] + [N대 보기]
 // modalBody: 모바일 전체 필터 안 항목 시트(원본은 PC 모달과 같은 본문 — 여백 8/20, 매물 수는 이름 옆)
-export function BbmSheet({ title, onClose, footer, children, flush = false, modalBody = false, onBack }: { onBack?: () => void; title: string; onClose: () => void; footer?: ReactNode; children: ReactNode; flush?: boolean; modalBody?: boolean }) {
+export function BbmSheet({ title, onClose, footer, children, flush = false, modalBody = false, onBack, variant = "default" }: { onBack?: () => void; title: string; onClose: () => void; footer?: ReactNode; children: ReactNode; flush?: boolean; modalBody?: boolean; variant?: "default" | "seller" }) {
+  const titleId = useId();
+  const closeRef = useRef<HTMLButtonElement | null>(null);
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
   useEscape(onClose);
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    const previousActive = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    document.body.style.overflow = "hidden";
+    window.requestAnimationFrame(() => closeRef.current?.focus());
+
+    const historyMarker = `bbmf:${titleId}`;
+    const previousState = window.history.state;
+    window.history.pushState({ ...previousState, __bbmfSheet: historyMarker }, "", window.location.href);
+    let closedByPopState = false;
+    const onPopState = () => {
+      closedByPopState = true;
+      onCloseRef.current();
+    };
+    window.addEventListener("popstate", onPopState);
+
+    return () => {
+      window.removeEventListener("popstate", onPopState);
+      document.body.style.overflow = previousOverflow;
+      previousActive?.focus();
+      if (!closedByPopState && window.history.state?.__bbmfSheet === historyMarker) window.history.back();
+    };
+  }, [titleId]);
+
+  const seller = variant === "seller";
   return createPortal(
-    <div className="bbmf-overlay is-sheet" onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}>
-      <section className={`bbmf-sheet${modalBody ? " is-modal-body" : ""}`} role="dialog" aria-modal="true" aria-label={title}>
+    <div className={`bbmf-overlay is-sheet${seller ? " is-seller-overlay" : ""}`} onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}>
+      <section className={`bbmf-sheet${modalBody ? " is-modal-body" : ""}${seller ? " is-seller" : ""}`} role="dialog" aria-modal="true" aria-labelledby={titleId}>
         {/* QF-111: onBack 이 있으면 제목 앞 "←"(누르면 이전 단계) */}
-        <header className="bbmf-sheet-header">{onBack ? <h3><button type="button" className="bbmf-sheet-back" aria-label={`${title} 뒤로`} onClick={onBack}>← {title}</button></h3> : <h3>{title}</h3>}<CloseButton onClose={onClose} /></header>
+        <header className="bbmf-sheet-header">{onBack ? <h3 id={titleId}><button type="button" className="bbmf-sheet-back" aria-label={`${title} 뒤로`} onClick={onBack}>← {title}</button></h3> : <h3 id={titleId}>{title}</h3>}<CloseButton buttonRef={closeRef} onClose={onClose} /></header>
         <div className={`bbmf-sheet-body${flush ? " is-flush" : ""}`}>{children}</div>
         {footer}
       </section>
