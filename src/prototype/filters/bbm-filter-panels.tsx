@@ -16,8 +16,8 @@ const originalCount = (key: BbmCheckKey, option: string) => bbmOriginalCounts[ke
 const optionCount = (countOf: PanelProps["countOf"], key: BbmCheckKey, option: string) => countOf?.(key, option) ?? originalCount(key, option);
 
 const sellerTypeOptions = [
-  { label: "개인", icon: "icons/seller-type/private.svg" },
-  { label: "딜러", icon: "icons/seller-type/dealer.svg" },
+  { label: "개인", icon: "icons/seller-type/private.svg", description: null },
+  { label: "딜러", icon: "icons/seller-type/dealer.svg", description: null },
   { label: "실차주", icon: "icons/seller-type/direct-owner.svg", description: "딜러가 직접 매입해 판매하는 차량" },
   { label: "브랜드 인증", icon: "icons/seller-type/brand-certified.svg", description: "제조사가 공식 인증·보증하는 차량" },
   { label: "리스·렌트 제휴", icon: "icons/seller-type/lease-rent.svg", description: "리스·렌터카 제휴 차량" },
