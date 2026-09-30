@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { asset } from "../data";
-import { BbmCheckGrid, BbmCheckRow, BbmChoiceGrid, BbmColorChips, BbmKeywordInput, BbmPresetChips, BbmRangeInputs, BbmSelectBox, BbmSlider, BbmTabs } from "./bbm-filter-parts";
+import { BbmCheckGrid, BbmCheckRow, BbmChoiceGrid, BbmColorChips, BbmKeywordInput, BbmPresetChips, BbmRangeInputs, BbmSelectBox, BbmSheet, BbmSlider, BbmTabs } from "./bbm-filter-parts";
 import { bbmAdPeriods, bbmCheckOptions, bbmOptionGroups, bbmRangePresets, type BbmFilterItem } from "./bbm-filter-options";
 import { bbmOriginalCounts } from "./bbm-original-counts";
 import { MileageFinalPanel } from "./bbm-mileage";
@@ -52,6 +52,60 @@ function SellerTypeList({ value, onChange, countOf }: PanelProps) {
         );
       })}
     </div>
+  );
+}
+
+export function BbmSellerTypeSheet({
+  value,
+  onApply,
+  onClose,
+  countWith,
+  countOf,
+}: {
+  value: BbmFilterValues;
+  onApply: (next: BbmFilterValues) => void;
+  onClose: () => void;
+  countWith: (next: BbmFilterValues) => number;
+  countOf?: PanelProps["countOf"];
+}) {
+  const [draft, setDraft] = useState<BbmFilterValues>(() => ({
+    ...value,
+    checks: { ...value.checks, sellerKind: [...(value.checks.sellerKind ?? [])] },
+    order: [...value.order],
+  }));
+  const selected = draft.checks.sellerKind ?? [];
+  const resultCount = countWith(draft);
+
+  return (
+    <BbmSheet
+      title="판매자 유형"
+      variant="seller"
+      onClose={onClose}
+      footer={(
+        <div className="bbmf-seller-actions">
+          <button
+            type="button"
+            className="bbmf-seller-reset"
+            disabled={!selected.length}
+            onClick={() => setDraft(setBbmChecks(draft, "sellerKind", []))}
+          >
+            초기화
+          </button>
+          <button
+            type="button"
+            className="bbmf-seller-confirm"
+            onClick={() => {
+              onApply(draft);
+              onClose();
+            }}
+          >
+            {resultCount.toLocaleString("ko-KR")}대 보기
+          </button>
+        </div>
+      )}
+    >
+      <SellerTypeList value={draft} onChange={setDraft} countOf={countOf} />
+    </BbmSheet>
   );
 }
 // 슬라이더 눈금 끝(원본 가격 슬라이더: 0 ~ 1억)
