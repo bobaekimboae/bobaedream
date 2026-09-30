@@ -82,12 +82,11 @@ export const bbmOriginalCounts: Partial<Record<BbmCheckKey, Record<string, numbe
     "차량 이력 공개": 8441
   },
   "sellerKind": {
-    "딜러": 13420,
     "개인": 873,
-    "인증차량": 3165,
-    "브랜드인증 딜러": 5,
-    "리스렌트제휴": 3710,
-    "실차주": 14847
+    "딜러": 13420,
+    "실차주": 14847,
+    "브랜드 인증": 3165,
+    "리스·렌트 제휴": 3710
   },
   "saleType": {
     "일반": 11137,
