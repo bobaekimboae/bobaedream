@@ -147,6 +147,12 @@
 - Mileage height never changes while operating (sheet and sidebar): the min > max error overlays the gap under the inputs, the pressed handle grows only via `transform`, and handle focus uses `preventScroll`. Tick `0` is left-aligned from the first handle center, `10만+` right-aligned to the last handle center, others centered; all inside the slider.
 - Check: `node scripts/sidebar-stable-check.mjs` (PC 1024 · 1280 · 1440 step table + mobile 393 sheet), `npm run check:sidebar`.
 
+## Pretendard Variable (QF-120)
+
+- Guazi only: `src/prototype/fonts/pretendard.ts` attaches `public/fonts/pretendard/pretendard-guazi.css` (Pretendard Variable 45–920, Korean dynamic subset from pretendard@1.3.9, `OFL.txt`) and `<html class="qf-font-pretendard">` when `?qf=guazi` (module load + layout effect, removed when switching modes). `font-display: swap`; the 14 first-screen subsets (5, 78–79, 81–91) are preloaded.
+- Font order: `"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif`, applied to every text element in guazi with `!important` (debug badge/overlays excluded), because the shared `src/prototype/base.css` still imports the CDN static `Pretendard` for ChoTot/Dongchedi (unchanged).
+- Intermediate weights (650, 750) now render as themselves. Checks: `node scripts/font-impact-check.mjs` (line wraps/clipping before vs after), `node scripts/font-load-measure.mjs` (first-screen load).
+
 ## Existing Mode Notes
 
 - Keep ChoTot and Dongchedi modes visually unchanged when working on Guazi-specific changes unless the user explicitly requests a shared change.
