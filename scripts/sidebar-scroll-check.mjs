@@ -1,8 +1,9 @@
 #!/usr/bin/env node
-// QF-093 보완: 과쯔 PC 좌측 필터 "아래 붙는 사이드바" 점검(1440×900 · 1280×720 · 1920×1080).
-// ① 칸 안 스크롤 없음(scrollHeight ≤ clientHeight) ② 끝까지 내리면 마지막 항목 "차량번호 / 판매자"가 화면에 보임
-// ③ 더 내려도 필터 맨 아래가 화면 아래 16에 붙음 ④ 다시 올리면 필터 맨 위가 원래 자리(상단 영역 아래 24)
-// ⑤ 제조사·모델을 접어 필터가 화면보다 짧아지면 위 16에 붙음. 캡처: reports/qf-093-sidebar/
+// QF-119: 과쯔 PC 좌측 필터 "위 기준 sticky + 자기 스크롤" 점검(1440×900 · 1280×720 · 1920×1080 · 1440×1700).
+// ① 높이 = 화면 − 32 고정, 머리(필터 · 초기화 · 검색조건 유지) 아래 항목 목록만 overflow-y auto · overscroll contain
+// ② 처음 필터 맨 위 = 상단 영역 아래 24 ③ 내리면 위 16 에 붙고 높이 그대로 ④ 맨 끝에서 푸터를 덮지 않음 ⑤ 다시 올리면 원래 자리
+// ⑥ 사이드바 안 스크롤로 마지막 항목 "차량번호 / 판매자"가 보이고 페이지 scrollTop 은 그대로 ⑦ 항목을 모두 접어도 높이·위치 그대로
+// (예전 QF-093 보완 "아래 붙는 사이드바"(음수 top)는 QF-119 에서 없앰. 캡처: reports/qf-093-sidebar/)
 // QF-110: 좌측 필터 순서(제조사 · 모델 맨 위, 바디타입·차급은 가격 아래)도 확인
 // 사용: npm run check:sidebar [-- --base=<주소>]
 import { chromium } from "@playwright/test";
@@ -19,21 +20,24 @@ const check = (name, ok, detail) => { summary.checks.push({ name, ok, detail });
 const state = (page) => page.evaluate(() => {
   const scroller = document.querySelector(".mobile-scroll");
   const filter = document.querySelector(".bbm-page > .bbm-filter");
+  const menu = filter.querySelector(":scope > .bbm-filter-menu");
+  const head = filter.querySelector(":scope > .bbm-filter-summary").getBoundingClientRect();
   const f = filter.getBoundingClientRect();
   const top = document.querySelector(".bbm-hybrid-top").getBoundingClientRect();
   const last = [...filter.querySelectorAll(".bbm-filter-toggle")].find((toggle) => /차량번호/.test(toggle.textContent));
   const l = last?.getBoundingClientRect();
   const footer = document.querySelector("footer.app-shell__footer")?.getBoundingClientRect();
+  const ms = getComputedStyle(menu);
   return {
     viewport: scroller.clientHeight, scrollTop: Math.round(scroller.scrollTop), max: scroller.scrollHeight - scroller.clientHeight,
-    filterTop: Math.round(f.top), filterBottom: Math.round(f.bottom), filterH: Math.round(f.height), topAreaBottom: Math.round(top.bottom),
-    innerScroll: filter.scrollHeight > filter.clientHeight + 1, overflowY: getComputedStyle(filter).overflowY, stickyTop: getComputedStyle(filter).top,
-    lastVisible: l ? l.top >= 0 && l.bottom <= scroller.clientHeight : false, lastLabel: last?.textContent.trim(), footerTop: footer ? Math.round(footer.top) : null,
+    filterTop: Math.round(f.top), filterBottom: Math.round(f.bottom), filterH: Math.round(f.height), topAreaBottom: Math.round(top.bottom), headOffset: Math.round(head.top - f.top),
+    menuOverflow: ms.overflowY, menuOverscroll: ms.overscrollBehaviorY, menuScrollTop: Math.round(menu.scrollTop), menuScrollable: menu.scrollHeight > menu.clientHeight + 1, stickyTop: getComputedStyle(filter).top,
+    lastVisible: l ? l.top >= f.top - 0.5 && l.bottom <= f.bottom + 0.5 : false, lastLabel: last?.textContent.trim(), footerTop: footer ? Math.round(footer.top) : null,
   };
 });
 const scrollTo = (page, top) => page.evaluate((top) => { document.querySelector(".mobile-scroll").scrollTop = top; }, top);
 
-for (const [width, height] of [[1440, 900], [1280, 720], [1920, 1080]]) {
+for (const [width, height] of [[1440, 900], [1280, 720], [1920, 1080], [1440, 1700]]) {
   const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1 });
   const page = await context.newPage();
   const errors = [];
@@ -44,59 +48,36 @@ for (const [width, height] of [[1440, 900], [1280, 720], [1920, 1080]]) {
   await page.addStyleTag({ content: "*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}" });
   const s0 = await state(page);
   const tag = `${width}×${height}`;
-  check(`${tag} 칸 안 스크롤 없음`, !s0.innerScroll && s0.overflowY !== "auto" && s0.overflowY !== "scroll", `scrollHeight>clientHeight ${s0.innerScroll} · overflow-y ${s0.overflowY} · 필터 높이 ${s0.filterH} · 화면 ${s0.viewport}`);
+  const wantH = s0.viewport - 32;
+  check(`${tag} 높이 = 화면 − 32 · 항목 목록만 자기 스크롤(auto · contain) · 머리 맨 위`, Math.abs(s0.filterH - wantH) <= 1 && s0.menuOverflow === "auto" && s0.menuOverscroll === "contain" && s0.headOffset === 0, `높이 ${s0.filterH}(기대 ${wantH}) · ${s0.menuOverflow}/${s0.menuOverscroll} · 머리 ${s0.headOffset}`);
   check(`${tag} 처음 필터 맨 위 = 상단 영역 아래 24`, s0.filterTop - s0.topAreaBottom === 24, `${s0.filterTop} − ${s0.topAreaBottom} = ${s0.filterTop - s0.topAreaBottom}`);
-  // 필터 끝이 화면에 들어올 때까지 내린다: 필터가 길면 필터 맨 아래가 화면 아래 16 에 붙는 지점(= 필터 높이 + 원래 위치 − 화면 + 16)
-  const stickPoint = Math.max(0, s0.filterTop + s0.filterH - s0.viewport + 16);
-  await scrollTo(page, stickPoint + 40); await page.waitForTimeout(300);
+  await scrollTo(page, 1500); await page.waitForTimeout(300);
   const s1 = await state(page);
-  check(`${tag} 내리면 마지막 항목 "${s1.lastLabel}" 이 화면에 보임`, s1.lastVisible, `필터 아래 ${s1.filterBottom} · 화면 ${s1.viewport}`);
-  await page.screenshot({ path: join(outDir, `${width}x${height}-last-item.png`) });
-  const tall = s0.filterH > s0.viewport - 32;
-  await scrollTo(page, stickPoint + 1500); await page.waitForTimeout(300);
+  check(`${tag} 내리면 위 16 에 붙고 높이 그대로(음수 top 없음)`, s1.filterTop === 16 && s1.filterH === s0.filterH && s1.stickyTop === "16px", `필터 ${s1.filterTop}~${s1.filterBottom} · top ${s1.stickyTop} · 높이 ${s1.filterH}`);
+  // 사이드바 안에서만 끝까지 스크롤 → 마지막 항목 보임 · 페이지 scrollTop 그대로
+  const box = await page.locator(".bbm-page > .bbm-filter > .bbm-filter-menu").boundingBox();
+  // 제조사·모델 목록은 자기 스크롤 상자라, 그 아래 항목 줄(사이드바 아래쪽)에서 휠
+  await page.mouse.move(box.x + 40, box.y + box.height - 12);
+  for (let i = 0; i < 40; i += 1) { await page.mouse.wheel(0, 400); await page.waitForTimeout(15); }
+  await page.waitForTimeout(300);
   const s2 = await state(page);
-  check(`${tag} 더 내려도 ${tall ? "필터 맨 아래가 화면 아래 16" : "필터 맨 위가 16"}에 붙음`, tall ? s2.filterBottom === s2.viewport - 16 || (s2.footerTop !== null && s2.filterBottom <= s2.footerTop) : s2.filterTop === 16, `필터 ${s2.filterTop}~${s2.filterBottom} · 화면 ${s2.viewport} · top ${s2.stickyTop}`);
+  check(`${tag} 사이드바 안 스크롤로 마지막 항목 "${s2.lastLabel}" 보임 · 페이지 scrollTop 그대로`, s2.lastVisible && s2.scrollTop === s1.scrollTop && s2.filterTop === 16, `사이드바 scrollTop ${s2.menuScrollTop} · 페이지 ${s1.scrollTop} → ${s2.scrollTop}`);
+  await page.screenshot({ path: join(outDir, `${width}x${height}-last-item.png`) });
   await scrollTo(page, 999999); await page.waitForTimeout(300);
   const s3 = await state(page);
   check(`${tag} 맨 끝에서 필터가 푸터를 덮지 않음`, s3.footerTop === null || s3.filterBottom <= s3.footerTop, `필터 아래 ${s3.filterBottom} · 푸터 위 ${s3.footerTop}`);
   await scrollTo(page, 0); await page.waitForTimeout(300);
   const s4 = await state(page);
   check(`${tag} 다시 올리면 필터 맨 위가 원래 자리`, s4.filterTop === s0.filterTop, `${s4.filterTop} (처음 ${s0.filterTop})`);
-  // 제조사·모델 접기 → 필터가 화면보다 짧아지면 위 16
-  await page.locator(".bbm-page > .bbm-filter .bbm-filter-toggle").filter({ hasText: /^제조사 · 모델/ }).first().click(); await page.waitForTimeout(400);
+  // 펼쳐진 항목을 모두 접어도 높이·붙는 자리 그대로
+  await page.evaluate(() => { document.querySelector(".bbm-page > .bbm-filter > .bbm-filter-menu").scrollTop = 0; });
+  for (let i = 0; i < 12; i += 1) { const open = page.locator(".bbm-page > .bbm-filter .bbm-filter-item.is-open > .bbm-filter-toggle").first(); if (!(await open.count())) break; await open.click(); await page.waitForTimeout(120); }
+  await scrollTo(page, 1500); await page.waitForTimeout(300);
   const s5 = await state(page);
-  await scrollTo(page, 2000); await page.waitForTimeout(300);
-  const s6 = await state(page);
-  const shortNow = s5.filterH <= s5.viewport - 32;
-  check(`${tag} 제조사·모델 접으면(필터 ${s5.filterH}) ${shortNow ? "위 16에 붙음" : "여전히 화면보다 길어 아래에 붙음"}`, shortNow ? s6.filterTop === 16 : s6.filterBottom === s6.viewport - 16, `필터 ${s6.filterTop}~${s6.filterBottom} · 화면 ${s6.viewport} · top ${s6.stickyTop}`);
-  // 펼쳐진 항목을 모두 접어 필터가 화면보다 짧아지는 경우(위 16)
-  await scrollTo(page, 0); await page.waitForTimeout(200);
-  for (let i = 0; i < 12; i += 1) { const open = page.locator(".bbm-page > .bbm-filter .bbm-filter-item.is-open > .bbm-filter-toggle").first(); if (!(await open.count())) break; await open.click(); await page.waitForTimeout(120); }
-  const s7 = await state(page);
-  await scrollTo(page, 2000); await page.waitForTimeout(300);
-  const s8 = await state(page);
-  const shortAll = s7.filterH <= s7.viewport - 32;
-  check(`${tag} 모든 항목을 접으면(필터 ${s7.filterH}) ${shortAll ? "위 16에 붙음" : "여전히 화면보다 길어 아래에 붙음"}`, shortAll ? s8.filterTop === 16 : s8.filterBottom === s8.viewport - 16, `필터 ${s8.filterTop}~${s8.filterBottom} · 화면 ${s8.viewport} · top ${s8.stickyTop}`);
-  if (width === 1440) await page.screenshot({ path: join(outDir, `${width}x${height}-collapsed.png`) });
-  // 다시 펼치면 바로 아래 붙음으로 돌아가는지(길이 변화에 바로 맞춤)
-  await page.locator(".bbm-page > .bbm-filter .bbm-filter-toggle").filter({ hasText: /^제조사 · 모델/ }).first().click(); await page.waitForTimeout(300);
-  const s9 = await state(page);
-  const tallAgain = s9.filterH > s9.viewport - 32;
-  check(`${tag} 다시 펼치면(필터 ${s9.filterH}) 규칙이 바로 다시 맞춰짐`, tallAgain ? s9.stickyTop === `${Math.min(16, s9.viewport - s9.filterH - 16)}px` : s9.stickyTop === "16px", `top ${s9.stickyTop}`);
+  check(`${tag} 모든 항목을 접어도 높이 ${s0.filterH} · 위 16 그대로`, s5.filterH === s0.filterH && s5.filterTop === 16, `필터 ${s5.filterTop}~${s5.filterBottom} · 높이 ${s5.filterH}`);
+  if (width === 1440 && height === 900) await page.screenshot({ path: join(outDir, `${width}x${height}-collapsed.png`) });
   check(`${tag} 콘솔 오류 0`, errors.length === 0, `${errors.length}`);
-  summary.sizes[tag] = { start: s0, stuck: s2, end: s3, back: s4, collapsed: s6 };
-  await context.close();
-}
-// 필터가 화면보다 짧은 경우(모든 항목을 접어도 필터 1486 이라 1440×1700 창에서 확인): 위 16에 붙음
-{
-  const context = await browser.newContext({ viewport: { width: 1440, height: 1700 }, deviceScaleFactor: 1 });
-  const page = await context.newPage();
-  await page.goto(`${base}?qf=guazi&pc=1`, { waitUntil: "networkidle", timeout: 60000 }); await page.waitForTimeout(900);
-  for (let i = 0; i < 12; i += 1) { const open = page.locator(".bbm-page > .bbm-filter .bbm-filter-item.is-open > .bbm-filter-toggle").first(); if (!(await open.count())) break; await open.click(); await page.waitForTimeout(120); }
-  const a = await state(page);
-  await scrollTo(page, 2000); await page.waitForTimeout(300);
-  const b = await state(page);
-  check(`1440×1700 모든 항목 접음(필터 ${a.filterH} < 화면 ${a.viewport}) → 위 16에 붙음`, a.filterH <= a.viewport - 32 && b.filterTop === 16 && b.stickyTop === "16px", `필터 위 ${b.filterTop} · top ${b.stickyTop}`);
+  summary.sizes[tag] = { start: s0, stuck: s1, sidebarEnd: s2, end: s3, back: s4, collapsed: s5 };
   await context.close();
 }
 // QF-110 순서 기준: 제조사 · 모델(펼침) → 연식 → 주행거리 → 가격 → 바디타입 → 차급(접힘) → 지역 → 매매단지 …(1440 · 1280)

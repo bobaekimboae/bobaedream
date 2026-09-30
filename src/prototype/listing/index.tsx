@@ -73,7 +73,6 @@ import { bbmFilterOrder, bbmSidebarItems, type BbmFilterItem } from "../filters/
 import { BbmExpandPanel, BbmModalPanel, clearBbmItem } from "../filters/bbm-filter-panels";
 import { BbmBottomGnb, BbmCategoryMenu, BbmMakerList, BbmMobileOptions, BbmModelList, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
-import { useBottomStickySidebar } from "./bbm-sticky-sidebar";
 import { KrBrandLogo, krRailLabel, krTopTenSections, krTypeTop10 } from "./bbm-brand-logos";
 import { StableRegionRow, StableRegionSheet, stableRegionLabel, StableYearRow, stablePageTitle, STABLE_YEAR_OPTIONS, stableKeywordPills } from "./stable-top";
 import { CatalogModelImage, catalogMakerNames, catalogModelOfCar, guaziGenerationsByMakerModel, guaziModelVisualsByMaker, guaziModelsByMaker } from "./model-catalog-kr";
@@ -431,8 +430,6 @@ function MarketplaceScreen() {
   const [trimApplied, setTrimApplied] = useState(false);
   const desktop = useDesktopLayout(quickFilterStyle === "guazi" && pcLayoutStyle === "bbmuseum" ? hybridLayoutQuery : desktopLayoutQuery);
   const hybridNarrow = useMediaMatch(hybridNarrowQuery);
-  // QF-093 보완: 과쯔 PC 좌측 필터는 칸 안 스크롤 없이 아래 붙는 사이드바
-  useBottomStickySidebar(desktop && quickFilterStyle === "guazi" && pcLayoutStyle === "bbmuseum");
   // QF-093: 1024~1279 왼쪽 필터 펼침판
   const [bbmDrawerOpen, setBbmDrawerOpen] = useState(false);
   const [bbmDrawerReset, setBbmDrawerReset] = useState(0);

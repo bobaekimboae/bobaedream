@@ -1,0 +1,31 @@
+/* QF-119 과쯔 PC 좌측 필터 흔들림 수정(1280 이상, .marketplace.is-bbm.is-hybrid 만 — 초톳·동처띠·펼침판은 그대로)
+   · 위 기준 sticky: top 16(상단 메뉴는 스크롤과 함께 올라가므로 스크롤 상자 맨 위에서 16), 높이 = 화면 − 16 − 아래 16 고정
+   · 머리("필터 · 초기화 · 검색조건 유지")는 맨 위 고정, 그 아래 항목 목록만 자기 스크롤(페이지 스크롤과 분리, 끝에서 페이지로 넘기지 않음)
+   · 얇은 스크롤바: 평소 숨김, 사이드바에 마우스를 올리면 보임 */
+@media (min-width: 1280px) {
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter { display: flex; flex-direction: column; height: calc(100dvh - 32px); box-sizing: border-box; }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter > .bbm-filter-summary { flex: none; }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter > .bbm-filter-menu {
+    flex: 1 1 auto; min-height: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain;
+    scrollbar-width: thin; scrollbar-color: transparent transparent; scrollbar-gutter: stable;
+  }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter:hover > .bbm-filter-menu,
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter:focus-within > .bbm-filter-menu { scrollbar-color: #c8c8c8 transparent; }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter > .bbm-filter-menu::-webkit-scrollbar { width: 6px; }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter > .bbm-filter-menu::-webkit-scrollbar-thumb { border-radius: 3px; background: transparent; }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter:hover > .bbm-filter-menu::-webkit-scrollbar-thumb { background: #c8c8c8; }
+}
+/* 목록이 줄거나 늘 때 보던 위치 유지: 브라우저 스크롤 앵커링(보이던 카드를 따라 scrollTop 을 옮김)이 필터 반영 때마다
+   페이지를 끌어올렸다(1440 에서 832 → 630 → 428). 과쯔 PC 화면 안은 앵커 후보에서 빼서 scrollTop 을 그대로 두고,
+   목록이 짧아져 스크롤 끝을 넘을 때만 브라우저가 끝에 맞춘다 */
+@media (min-width: 1024px) {
+  .marketplace.is-bbm.is-hybrid { overflow-anchor: none; }
+}
+/* 필터 머리의 적용 개수 배지(26)가 제목 줄(22.4)보다 높아 조건을 걸 때 머리가 3.6 늘며 아래 항목이 밀렸다
+   → 머리 줄 높이를 배지 높이 26 으로 미리 확보(배지가 있을 때 모습은 그대로, 없을 때만 3.6 여유) */
+.marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter .bbm-filter-summary-top { min-height: 26px; }
+/* 제조사·모델 목록(.bbm-catalog, 자기 스크롤 580)이 1280×720 처럼 낮은 화면에서 사이드바를 거의 채워, 목록 끝에서 휠이 멈추고
+   사이드바 아래 항목까지 못 갔다 → 목록 끝에서는 사이드바 스크롤로 이어지게(사이드바가 contain 이라 페이지로는 넘어가지 않음) */
+@media (min-width: 1280px) {
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter .bbm-catalog { overscroll-behavior: auto; }
+}

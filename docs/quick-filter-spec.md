@@ -139,6 +139,14 @@
 - PC left sidebar (300) and the PC chip modal: inputs stacked full width, same slider/ticks, chips 2 columns, immediate apply as before; no mobile header/footer.
 - Summary text (chips row, filter list): chip name, direct range `3.5~8만km`, no max `N만km 이상`, no min `N만km 이하`. Check: `node scripts/mileage-check.mjs`.
 
+## PC Left Sidebar Stability (QF-119)
+
+- Guazi PC left filter (1280+, `.marketplace.is-bbm.is-hybrid`, `src/prototype/listing/qf-sidebar-stable.css`): top-anchored sticky `top: 16`, fixed height = viewport − 32; the header (`필터 · 초기화 · 검색조건 유지`, row reserved at 26) stays on top and only the item list scrolls (`overflow-y: auto`, `overscroll-behavior: contain`, thin scrollbar shown on hover). The old bottom-anchored negative `top` (`bbm-sticky-sidebar.ts`) is removed. The maker/model catalog chains its scroll into the sidebar list. The 1024–1279 drawer is unchanged.
+- Guazi PC page disables scroll anchoring (`overflow-anchor: none`): applying a filter keeps `scrollTop`; only when the list becomes shorter than the current position does the browser clamp to the end.
+- Mileage (QF-117 part) in the PC sidebar commits to the list once: handle on pointerup / keyboard keyup, inputs after 0.4s idle, Enter or blur, chips on press. Dragging never re-renders the list. The mobile sheet keeps its draft behavior.
+- Mileage height never changes while operating (sheet and sidebar): the min > max error overlays the gap under the inputs, the pressed handle grows only via `transform`, and handle focus uses `preventScroll`. Tick `0` is left-aligned from the first handle center, `10만+` right-aligned to the last handle center, others centered; all inside the slider.
+- Check: `node scripts/sidebar-stable-check.mjs` (PC 1024 · 1280 · 1440 step table + mobile 393 sheet), `npm run check:sidebar`.
+
 ## Existing Mode Notes
 
 - Keep ChoTot and Dongchedi modes visually unchanged when working on Guazi-specific changes unless the user explicitly requests a shared change.

@@ -27,7 +27,7 @@ const measureSheet = (page) => page.evaluate(() => {
   const slider = box(q(".mf-slider")); const track = box(q(".mf-track"));
   const handles = [...document.querySelectorAll(".mf-handle-dot")].map(box); const ticks = [...document.querySelectorAll(".mf-tick")].map(box);
   const chips = [...document.querySelectorAll(".mf-chip")].map(box); const reset = box(q(".mf-reset")); const confirm = box(q(".mf-confirm"));
-  const tc = ticks.map((t) => t.left + t.width / 2); const gaps = tc.slice(1).map((c, i) => c - tc[i]);
+  const tc = ticks.map((t) => t.left + t.width / 2); const mid = tc.slice(1, -1); const gaps = mid.slice(1).map((c, i) => c - mid[i]);
   // 보이는 것(손잡이 점 · 눈금 · 입력 · 칩 · 버튼)이 시트 안에 있는지 + 문서 가로 스크롤. 손잡이 누르는 영역(44)·숨은 말풍선은 제외
   const visible = [...document.querySelectorAll(".mf-handle-dot, .mf-tick, .mf-field, .mf-chip, .mf-reset, .mf-confirm, .mf-title, .mf-close")].map(box);
   const overflow = visible.some((v) => v.left < box(sheet).left - 0.5 || v.right > box(sheet).right + 0.5) || document.scrollingElement.scrollWidth > innerWidth + 0.5;
@@ -38,10 +38,10 @@ const measureSheet = (page) => page.evaluate(() => {
     closeHit: [box(close).width, box(close).height], closeRight: innerWidth - (box(close).right - 4), titleLeft: box(title).left,
     fieldW: fields.map((f) => f.width), fieldH: fields.map((f) => f.height), sepW: sep.width,
     sliderH: slider.height, inset: [track.left - slider.left, slider.right - track.right], trackW: track.width, trackH: track.height,
-    firstTickVsHandle: tc[0] - (handles[0].left + handles[0].width / 2), lastTickVsHandle: tc.at(-1) - (handles[1].left + handles[1].width / 2),
+    firstTickVsHandle: ticks[0].left - (handles[0].left + handles[0].width / 2), lastTickVsHandle: ticks.at(-1).right - (handles[1].left + handles[1].width / 2),
     tickGaps: gaps, handleSize: handles[0].width, chipW: [...new Set(chips.map((c) => Math.round(c.width * 10) / 10))], chipH: [...new Set(chips.map((c) => c.height))],
     chipRows: [...new Set(chips.map((c) => Math.round(c.top)))].length, reset: [reset.width, reset.height], confirm: [confirm.width, confirm.height], actionsH: box(q(".mf-actions")).height,
-    tickInside: ticks.every((t) => t.left >= box(sheet).left && t.right <= box(sheet).right), overflow,
+    tickInside: ticks.every((t) => t.left >= slider.left - 0.5 && t.right <= slider.right + 0.5), overflow,
   };
 });
 
@@ -58,10 +58,10 @@ for (const width of [375, 390, 393, 430]) {
   check(`${width} 헤더 64 · 제목·닫기 세로 가운데 · 닫기 누르는 영역 44 · 오른쪽 24`, m.headerH === 64 && Math.abs(m.titleCenter - m.closeCenter) <= 0.5 && m.closeHit.join() === "44,44" && Math.abs(m.closeRight - 24) <= 0.5, `헤더 ${m.headerH} · 차이 ${r1(m.titleCenter - m.closeCenter)} · 닫기 ${m.closeHit.join("×")} · 오른쪽 ${r1(m.closeRight)} · 제목 ${m.titleFont}`);
   check(`${width} 입력 ${r1(wantField)} · 구분자 12 · 높이 48`, m.fieldW.every((w) => Math.abs(w - wantField) <= 0.5) && m.sepW === 12 && m.fieldH.every((h) => h === 48), `${m.fieldW.map(r1).join(" / ")} · ${m.sepW}`);
   check(`${width} 슬라이더 줄 38 · 트랙 4 · 인셋 11 · 트랙 폭 ${width - 32 - 22}`, m.sliderH === 38 && m.trackH === 4 && m.inset.every((v) => Math.abs(v - 11) <= 0.5) && Math.abs(m.trackW - (width - 54)) <= 0.5, `줄 ${m.sliderH} · 트랙 ${r1(m.trackW)}×${m.trackH} · 인셋 ${m.inset.map(r1).join("/")}`);
-  check(`${width} 첫·끝 눈금 중심 = 양끝 손잡이 중심(0) · 눈금 간격 일정`, Math.abs(m.firstTickVsHandle) <= 0.5 && Math.abs(m.lastTickVsHandle) <= 0.5 && Math.max(...m.tickGaps) - Math.min(...m.tickGaps) <= 0.5, `첫 ${r1(m.firstTickVsHandle)} · 끝 ${r1(m.lastTickVsHandle)} · 간격 ${m.tickGaps.map(r1).join("/")}`);
+  check(`${width} 첫 눈금 왼쪽 끝 = 첫 손잡이 중심 · 끝 눈금 오른쪽 끝 = 끝 손잡이 중심(QF-119) · 가운데 눈금 간격 일정`, Math.abs(m.firstTickVsHandle) <= 0.5 && Math.abs(m.lastTickVsHandle) <= 0.5 && Math.max(...m.tickGaps) - Math.min(...m.tickGaps) <= 0.5, `첫 ${r1(m.firstTickVsHandle)} · 끝 ${r1(m.lastTickVsHandle)} · 간격 ${m.tickGaps.map(r1).join("/")}`);
   check(`${width} 칩 ${r1(wantChip)}×48 · 2줄`, m.chipW.length === 1 && Math.abs(m.chipW[0] - wantChip) <= 0.5 && m.chipH.join() === "48" && m.chipRows === 2, `${m.chipW.join()}×${m.chipH.join()} · ${m.chipRows}줄`);
   check(`${width} 버튼 92×52 · 나머지 폭×52 · 액션 바 80`, m.reset.join() === "92,52" && Math.abs(m.confirm[0] - (width - 40 - 92 - 10)) <= 0.5 && m.confirm[1] === 52 && m.actionsH === 80, `${m.reset.join("×")} · ${r1(m.confirm[0])}×${m.confirm[1]} · 바 ${m.actionsH}`);
-  check(`${width} 잘림·가로 넘침 0 · 눈금이 시트 안`, !m.overflow && m.tickInside, `넘침 ${m.overflow} · 눈금 안 ${m.tickInside}`);
+  check(`${width} 잘림·가로 넘침 0 · 눈금이 슬라이더 안`, !m.overflow && m.tickInside, `넘침 ${m.overflow} · 눈금이 슬라이더 안 ${m.tickInside}`);
   check(`${width} 콘솔 오류 0`, errors.length === 0, `${errors.length}`);
   await ctx.close();
 }

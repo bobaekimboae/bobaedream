@@ -53,18 +53,20 @@ const tickLabel = (value: number) => (value === 0 ? "0" : value === MILEAGE_MAX 
 
 type Layout = "sheet" | "sidebar";
 
-function Field({ label, value, onChange }: { label: string; value: string; onChange: (next: string) => void }) {
+function Field({ label, value, onChange, onDone }: { label: string; value: string; onChange: (next: string) => void; onDone?: () => void }) {
   return (
     <label className={`mf-field${value ? " has-value" : ""}`}>
-      <input inputMode="numeric" autoComplete="off" value={value} aria-label={label} onChange={(event) => { const d = digits(event.currentTarget.value); onChange(d ? comma(Number(d)) : ""); }} />
+      <input inputMode="numeric" autoComplete="off" value={value} aria-label={label} onChange={(event) => { const d = digits(event.currentTarget.value); onChange(d ? comma(Number(d)) : ""); }}
+        onKeyDown={onDone ? (event) => { if (event.key === "Enter") onDone(); } : undefined} onBlur={onDone ? () => onDone() : undefined} />
       <span className="mf-floating" aria-hidden="true">{label}</span>
       <span className="mf-unit" aria-hidden="true">km</span>
     </label>
   );
 }
 
-/** 듀얼 슬라이더: 트랙 좌우 인셋 11 · 손잡이 22(누르는 영역 44) · 1,000km 단위 · 교차 금지 · 오른쪽 끝 = 제한 없음 */
-function DualSlider({ min, max, onChange }: { min: number; max: number | null; onChange: (min: number, max: number | null) => void }) {
+/** 듀얼 슬라이더: 트랙 좌우 인셋 11 · 손잡이 22(누르는 영역 44) · 1,000km 단위 · 교차 금지 · 오른쪽 끝 = 제한 없음
+    onCommit(QF-119): 끌기를 놓을 때(pointerup)·키보드 조작이 끝날 때(keyup) 한 번 — PC 사이드바는 이때만 목록에 반영 */
+function DualSlider({ min, max, onChange, onCommit }: { min: number; max: number | null; onChange: (min: number, max: number | null) => void; onCommit?: () => void }) {
   const rail = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState<"min" | "max" | null>(null);
   const [shown, setShown] = useState<"min" | "max" | null>(null);
@@ -78,11 +80,14 @@ function DualSlider({ min, max, onChange }: { min: number; max: number | null; o
     const value = valueAt(event.clientX);
     const which = active ?? (Math.abs(value - min) <= Math.abs(value - maxValue) && !(min === maxValue && value > min) ? "min" : "max");
     setActive(which); setShown(which);
+    // QF-119: 기본 포커스(mousedown)는 손잡이를 화면 안으로 끌어오며 스크롤을 움직일 수 있다 → 막고 preventScroll 로 직접 포커스
+    event.preventDefault();
+    event.currentTarget.querySelector<HTMLButtonElement>(`.mf-handle.is-${which}`)?.focus({ preventScroll: true });
     event.currentTarget.setPointerCapture(event.pointerId);
     set(which, value);
   };
   const move = (event: ReactPointerEvent<HTMLDivElement>) => { if (active) set(active, valueAt(event.clientX)); };
-  const end = () => { setActive(null); setShown(null); };
+  const end = () => { if (active) onCommit?.(); setActive(null); setShown(null); };
   const key = (which: "min" | "max") => (event: ReactKeyboardEvent<HTMLButtonElement>) => {
     const current = which === "min" ? min : maxValue;
     const next = event.key === "ArrowLeft" || event.key === "ArrowDown" ? current - MILEAGE_STEP : event.key === "ArrowRight" || event.key === "ArrowUp" ? current + MILEAGE_STEP : event.key === "Home" ? 0 : event.key === "End" ? MILEAGE_MAX : null;
@@ -90,6 +95,7 @@ function DualSlider({ min, max, onChange }: { min: number; max: number | null; o
     event.preventDefault();
     set(which, snap(next));
   };
+  const keyEnd = (event: ReactKeyboardEvent<HTMLButtonElement>) => { if (["ArrowLeft", "ArrowDown", "ArrowRight", "ArrowUp", "Home", "End"].includes(event.key)) onCommit?.(); };
   const left = (value: number) => `calc(11px + (100% - 22px) * ${pct(value)})`;
   const minText = `${comma(min)}km`;
   const maxText = max === null ? "제한 없음" : `${comma(max)}km`;
@@ -103,7 +109,7 @@ function DualSlider({ min, max, onChange }: { min: number; max: number | null; o
           return (
             <button key={which} type="button" role="slider" className={`mf-handle is-${which}${active === which ? " is-active" : ""}`} style={{ left: left(value) }}
               aria-label={which === "min" ? "최소 주행거리" : "최대 주행거리"} aria-valuemin={0} aria-valuemax={MILEAGE_MAX} aria-valuenow={value} aria-valuetext={which === "min" ? minText : maxText}
-              onKeyDown={key(which)} onFocus={() => setShown(which)} onBlur={() => setShown(null)}>
+              onKeyDown={key(which)} onKeyUp={keyEnd} onFocus={() => setShown(which)} onBlur={() => setShown(null)}>
               <span className="mf-handle-dot" aria-hidden="true" />
               <output className={`mf-bubble${shown === which ? " is-visible" : ""}${pct(value) >= 0.9 ? " is-edge-right" : pct(value) <= 0.1 ? " is-edge-left" : ""}`} aria-hidden="true">{which === "min" ? minText : maxText}</output>
             </button>
@@ -111,33 +117,69 @@ function DualSlider({ min, max, onChange }: { min: number; max: number | null; o
         })}
       </div>
       <div className="mf-ticks" aria-hidden="true">
-        {MILEAGE_TICKS.map((tick) => <span key={tick} className="mf-tick" style={{ left: left(tick) }}>{tickLabel(tick)}</span>)}
+        {/* QF-119: 첫 눈금은 손잡이 중심에서 시작(왼쪽 정렬), 끝 눈금은 손잡이 중심에서 끝(오른쪽 정렬), 나머지 가운데 — 모두 슬라이더 안 */}
+        {MILEAGE_TICKS.map((tick) => <span key={tick} className={`mf-tick${tick === 0 ? " is-first" : tick === MILEAGE_MAX ? " is-last" : ""}`} style={tick === MILEAGE_MAX ? { right: "11px" } : { left: left(tick) }}>{tickLabel(tick)}</span>)}
       </div>
     </div>
   );
 }
 
-/** 주행거리 내용(입력 → 슬라이더·눈금 → 구간 칩). sheet: 입력 한 줄 · 칩 3열 / sidebar: 입력 세로 · 칩 2열 */
+const TYPE_COMMIT_MS = 400;
+
+/** 주행거리 내용(입력 → 슬라이더·눈금 → 구간 칩). sheet: 입력 한 줄 · 칩 3열 / sidebar: 입력 세로 · 칩 2열
+    QF-119 PC 사이드바(sidebar): 조작 중에는 이 부품 안에서만 값을 바꾸고 목록 반영(onChange)은 한 번만 —
+    손잡이는 놓을 때·키보드 조작 끝, 입력은 0.4초 멈춤·Enter·포커스 이동, 칩은 누를 때. 시트(sheet)는 이미 임시 값이라 그대로 바로 반영 */
 export function MileageFinalPanel({ value, onChange, layout }: { value: BbmFilterValues; onChange: (next: BbmFilterValues) => void; layout: Layout }) {
-  const range = value.ranges.mileage;
+  const deferred = layout === "sidebar";
+  const outer = value.ranges.mileage;
+  const [local, setLocal] = useState<BbmRange | undefined>(outer);
+  const localRef = useRef(local);
+  const valueRef = useRef(value);
+  valueRef.current = value;
+  const pending = useRef(false);
+  const timer = useRef<number | undefined>(undefined);
+  // 바깥 값이 바뀌면(초기화·상단 칩 ×·반영 완료) 조작 중이 아닐 때만 따라감
+  useEffect(() => { if (!pending.current) { localRef.current = outer; setLocal(outer); } }, [outer?.min, outer?.max, outer?.preset]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => () => window.clearTimeout(timer.current), []);
+  const range = deferred ? local : outer;
   const { min, max } = mileageBounds(range);
   const chip = mileageChipOf(min, max);
-  const apply = (nextMin: number, nextMax: number | null) => onChange(setBbmRange(value, "mileage", mileageRange(nextMin, nextMax)));
+  const commit = () => {
+    window.clearTimeout(timer.current);
+    if (!pending.current) return;
+    pending.current = false;
+    const next = localRef.current ?? { min: "", max: "" };
+    const now = valueRef.current.ranges.mileage;
+    if ((now?.min ?? "") === next.min && (now?.max ?? "") === next.max && now?.preset === next.preset) return;
+    onChange(setBbmRange(valueRef.current, "mileage", next));
+  };
+  const update = (next: BbmRange, when: "now" | "later" | "typing") => {
+    if (!deferred) { onChange(setBbmRange(value, "mileage", next)); return; }
+    localRef.current = next; setLocal(next); pending.current = true;
+    window.clearTimeout(timer.current);
+    if (when === "now") commit();
+    else if (when === "typing") timer.current = window.setTimeout(commit, TYPE_COMMIT_MS);
+  };
+  const apply = (nextMin: number, nextMax: number | null, when: "now" | "later" = "now") => update(mileageRange(nextMin, nextMax), when);
   // 직접 입력은 입력한 글자 그대로(최소 > 최대여도 남겨 두고 적용 버튼만 막음)
   const typed = (key: "min" | "max", text: string) => {
     const next = { min: range?.min ?? "", max: range?.max ?? "", [key]: text };
     const bounds = mileageBounds(next);
-    onChange(setBbmRange(value, "mileage", !next.min && !next.max ? { min: "", max: "" } : { ...next, preset: mileageChipOf(bounds.min, bounds.max) }));
+    update(!next.min && !next.max ? { min: "", max: "" } : { ...next, preset: mileageChipOf(bounds.min, bounds.max) }, "typing");
   };
+  const done = deferred ? commit : undefined;
   return (
     <div className={`mf-panel is-${layout}`}>
-      <div className="mf-inputs">
-        <Field label="최소 거리" value={range?.min ?? ""} onChange={(text) => typed("min", text)} />
-        <span className="mf-sep" aria-hidden="true">–</span>
-        <Field label="최대 거리" value={range?.max ?? ""} onChange={(text) => typed("max", text)} />
+      {/* QF-119: 오류 문구는 입력 아래 여백 위에 겹쳐 그려 높이를 바꾸지 않음 */}
+      <div className="mf-input-block">
+        <div className="mf-inputs">
+          <Field label="최소 거리" value={range?.min ?? ""} onChange={(text) => typed("min", text)} onDone={done} />
+          <span className="mf-sep" aria-hidden="true">–</span>
+          <Field label="최대 거리" value={range?.max ?? ""} onChange={(text) => typed("max", text)} onDone={done} />
+        </div>
+        {mileageInvalid(range) ? <p className="mf-error" role="alert">최소 주행거리가 최대 주행거리보다 높습니다.</p> : null}
       </div>
-      {mileageInvalid(range) ? <p className="mf-error" role="alert">최소 주행거리가 최대 주행거리보다 높습니다.</p> : null}
-      <DualSlider min={min} max={max} onChange={apply} />
+      <DualSlider min={min} max={max} onChange={(a, b) => apply(a, b, "later")} onCommit={deferred ? commit : undefined} />
       <div className="mf-chips" role="group" aria-label="주행거리 구간">
         {MILEAGE_CHIPS.map((item) => {
           const on = chip === item.id;
