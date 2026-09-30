@@ -79,6 +79,7 @@ export function BbmSellerTypeSheet({
   return (
     <BbmSheet
       title="판매자 유형"
+      subtitle="원하는 판매자 유형을 선택하세요."
       variant="seller"
       onClose={onClose}
       footer={(
@@ -89,7 +90,7 @@ export function BbmSellerTypeSheet({
             disabled={!selected.length}
             onClick={() => setDraft(setBbmChecks(draft, "sellerKind", []))}
           >
-            초기화
+            전체 삭제
           </button>
           <button
             type="button"
@@ -98,8 +99,9 @@ export function BbmSellerTypeSheet({
               onApply(draft);
               onClose();
             }}
+            aria-label={`${resultCount.toLocaleString("ko-KR")}대 선택하기`}
           >
-            {resultCount.toLocaleString("ko-KR")}대 보기
+            선택하기
           </button>
         </div>
       )}
