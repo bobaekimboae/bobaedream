@@ -1271,7 +1271,7 @@ function MarketplaceScreen() {
     desktop && isGuaziQuickStyle ? (() => { const chip = groupChip("mileage", "주행거리", "주행거리", rangeIsSet(bbmValue.ranges.mileage)); return chip ? { ...chip, className: "is-mileage" } : null; })() : null,
     groupChip("price", "가격", "가격", rangeIsSet(bbmValue.ranges.price)),
     groupChip("fuel", "연료", "연료", Boolean(bbmValue.checks.fuel?.length)),
-    groupChip("seller", "판매자", "판매자 구분", Boolean(bbmValue.checks.sellerKind?.length)),
+    groupChip("seller", "판매자", "판매자 유형", Boolean(bbmValue.checks.sellerKind?.length)),
   ] as Array<BbmChip | null | undefined>).filter((chip): chip is BbmChip => Boolean(chip));
   // QF-092 원본 재실측(2026-09-25): 적용 칩이 바뀌어도 칩 줄 스크롤은 그대로(칩을 누를 때만 revealBbmChip). 예전 "맨 앞 적용 칩 47px" 규칙은 우연히 맞았던 것이라 뺐다
   useEffect(() => {

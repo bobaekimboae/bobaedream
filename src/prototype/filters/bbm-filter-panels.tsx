@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { asset } from "../data";
 import { BbmCheckGrid, BbmCheckRow, BbmChoiceGrid, BbmColorChips, BbmKeywordInput, BbmPresetChips, BbmRangeInputs, BbmSelectBox, BbmSlider, BbmTabs } from "./bbm-filter-parts";
 import { bbmAdPeriods, bbmCheckOptions, bbmOptionGroups, bbmRangePresets, type BbmFilterItem } from "./bbm-filter-options";
 import { bbmOriginalCounts } from "./bbm-original-counts";
@@ -13,6 +14,46 @@ type PanelProps = { value: BbmFilterValues; onChange: (next: BbmFilterValues) =>
 
 const originalCount = (key: BbmCheckKey, option: string) => bbmOriginalCounts[key]?.[option] ?? null;
 const optionCount = (countOf: PanelProps["countOf"], key: BbmCheckKey, option: string) => countOf?.(key, option) ?? originalCount(key, option);
+
+const sellerTypeOptions = [
+  { label: "개인", icon: "icons/seller-type/private.svg", description: null },
+  { label: "딜러", icon: "icons/seller-type/dealer.svg", description: null },
+  { label: "실차주", icon: "icons/seller-type/direct-owner.svg", description: "딜러가 직접 매입해 판매하는 차량" },
+  { label: "브랜드 인증", icon: "icons/seller-type/brand-certified.svg", description: "제조사가 공식 인증·보증하는 차량" },
+  { label: "리스·렌트 제휴", icon: "icons/seller-type/lease-rent.svg", description: "리스·렌터카 제휴 차량" },
+] as const;
+
+function SellerTypeList({ value, onChange, countOf }: PanelProps) {
+  return (
+    <div className="bbmf-seller-list" role="group" aria-label="판매자 유형">
+      {sellerTypeOptions.map((option) => {
+        const count = optionCount(countOf, "sellerKind", option.label);
+        const checked = Boolean(value.checks.sellerKind?.includes(option.label));
+        const disabled = count === 0 && !checked;
+        return (
+          <button
+            key={option.label}
+            type="button"
+            role="checkbox"
+            aria-checked={checked}
+            aria-disabled={disabled || undefined}
+            disabled={disabled}
+            className={`bbmf-seller-row${option.description ? " has-description" : ""}${checked ? " is-checked" : ""}${disabled ? " is-disabled" : ""}`}
+            onClick={() => onChange(toggleBbmCheck(value, "sellerKind", option.label))}
+          >
+            <i className="bbmf-seller-check" aria-hidden="true" />
+            <span className="bbmf-seller-icon" aria-hidden="true"><img src={asset(option.icon)} alt="" draggable={false} /></span>
+            <span className="bbmf-seller-copy">
+              <strong>{option.label}</strong>
+              {option.description ? <small>{option.description}</small> : null}
+            </span>
+            {count === null || count === undefined ? null : <span className="bbmf-seller-count">{count.toLocaleString("ko-KR")}</span>}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
 // 슬라이더 눈금 끝(원본 가격 슬라이더: 0 ~ 1억)
 const sliderMax: Partial<Record<BbmRangeKey, number>> = { price: 10000, mileage: 300000, power: 600, efficiency: 20, displacement: 5000, weight: 3000, evRange: 600, length: 6000, width: 2200, height: 2200 };
 const thisYear = 2026;
@@ -163,6 +204,7 @@ export function BbmModalPanel({ item, value, onChange, countOf }: PanelProps & {
   if (item.rangeKey) {
     return <div><RangeFields rangeKey={item.rangeKey} layout="inline" value={value} onChange={onChange} /><RangeSlider rangeKey={item.rangeKey} value={value} label={item.label} /><Presets rangeKey={item.rangeKey} value={value} onChange={onChange} /></div>;
   }
+  if (item.checkKey === "sellerKind") return <SellerTypeList value={value} onChange={onChange} countOf={countOf} />;
   if (item.checkKey) return <CheckList checkKey={item.checkKey} columns={item.columns ?? 1} value={value} onChange={onChange} countOf={countOf} />;
   return null;
 }
