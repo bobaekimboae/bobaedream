@@ -160,6 +160,7 @@
 - Draft starts from the applied value; `N대 보기` applies mileage only (list, chips, left sidebar); close, backdrop and Esc discard; 초기화 clears only the mileage draft. The list stays frozen while open.
 - Accessibility: `role="dialog"`, `aria-modal`, `aria-labelledby`, focus on close (preventScroll) when opened, Tab trapped, focus returns to the mileage chip (or its applied chip). Check: `node scripts/mileage-modal-check.mjs`.
 - Slider drag keeps the active handle in a synchronous ref so the first fast pointer move is not dropped. Handles keep a constant visual size while dragging; no grab/release scale animation is used because it reads as positional bounce, especially on the right handle.
+- Pointer dragging follows the rail in 100km increments so a 393px rail does not visibly jump 3–4px per update. Keyboard arrows retain the 1,000km step for efficient accessible operation.
 
 ## Seller Type Sheet
 

@@ -9,6 +9,7 @@ import "./bbm-mileage.css";
 
 export const MILEAGE_MAX = 100000;
 export const MILEAGE_STEP = 1000;
+const MILEAGE_POINTER_STEP = 100;
 export const MILEAGE_TICKS = [0, 20000, 40000, 60000, 80000, 100000];
 export const MILEAGE_CHIPS: Array<{ id: string; min: number; max: number | null }> = [
   { id: "1만km 이하", min: 0, max: 10000 },
@@ -49,6 +50,7 @@ export function mileageSummary(range: BbmRange | undefined) {
 
 const pct = (value: number) => Math.max(0, Math.min(1, value / MILEAGE_MAX));
 const snap = (value: number) => Math.max(0, Math.min(MILEAGE_MAX, Math.round(value / MILEAGE_STEP) * MILEAGE_STEP));
+const snapPointer = (value: number) => Math.max(0, Math.min(MILEAGE_MAX, Math.round(value / MILEAGE_POINTER_STEP) * MILEAGE_POINTER_STEP));
 const tickLabel = (value: number) => (value === 0 ? "0" : value === MILEAGE_MAX ? "10만+" : `${value / 10000}만`);
 
 type Layout = "sheet" | "sidebar";
@@ -72,7 +74,9 @@ function DualSlider({ min, max, onChange, onCommit }: { min: number; max: number
   const activeRef = useRef<"min" | "max" | null>(null);
   const [shown, setShown] = useState<"min" | "max" | null>(null);
   const maxValue = max === null ? MILEAGE_MAX : Math.min(max, MILEAGE_MAX);
-  const valueAt = (clientX: number) => { const box = rail.current!.getBoundingClientRect(); const inset = 11; return snap(((clientX - box.left - inset) / (box.width - inset * 2)) * MILEAGE_MAX); };
+  // 포인터는 100km 단위로 촘촘히 따라가 시각적으로 부드럽게 움직인다.
+  // 키보드는 탐색 속도와 기존 규격을 위해 1,000km 단위를 유지한다.
+  const valueAt = (clientX: number) => { const box = rail.current!.getBoundingClientRect(); const inset = 11; return snapPointer(((clientX - box.left - inset) / (box.width - inset * 2)) * MILEAGE_MAX); };
   const set = (which: "min" | "max", value: number) => {
     if (which === "min") onChange(Math.min(value, maxValue), max);
     else { const next = Math.max(value, min); onChange(min, next >= MILEAGE_MAX ? null : next); }
