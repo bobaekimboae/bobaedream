@@ -9,6 +9,7 @@ import {
   categoryBrandRails,
   chototTestCars,
   bbmSampleCars,
+  luxuryUiTestCars,
   compactYearLabel,
   compactGenerationCardYearLabel,
   defaultBrandRailOptions,
@@ -493,7 +494,8 @@ function MarketplaceScreen() {
   // QF-100 최종: 과쯔 퀵필터(제조사·모델·세부모델 줄) 기본 = 바탕 없는 초톳식(plain). &qfcard=card 면 이전 과쯔 카드(비교용), &qfcard=plain 도 plain
   const plainQuickCards = isGuaziQuickStyle && (typeof window === "undefined" || new URLSearchParams(window.location.search).get("qfcard") !== "card");
   // QF-090: 과쯔(개발 시안형)는 필터 동작 확인용 샘플 60대, 초톳·동처띠는 기존 19대 그대로
-  const listingCars = isGuaziQuickStyle ? bbmSampleCars : chototTestCars;
+  const luxuryUiTestMode = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("scenario") === "luxury30";
+  const listingCars = luxuryUiTestMode ? luxuryUiTestCars : isGuaziQuickStyle ? bbmSampleCars : chototTestCars;
   const bbmValue = filters.bbm ?? emptyBbmFilters;
   // QF-097: 과쯔는 9개 제조사의 모델·세부 모델을 카탈로그 스냅숏으로(model-catalog-kr), 나머지 제조사·다른 모드는 기존 데이터
   const modelsByMakerMap = isGuaziQuickStyle ? guaziModelsByMaker : quickModelsByMaker;
@@ -1483,6 +1485,7 @@ function MarketplaceScreen() {
               <div className="bbm-content">
                 {isGuaziQuickStyle ? null : bbmContentHead}
                 <section className="bbm-results" aria-label="매물 목록">
+                  {luxuryUiTestMode ? <p className="bbm-ui-test-notice">UI 테스트용 가상 매물 · 실제 판매 가격·조건이 아닙니다</p> : null}
                   <nav className="bbm-toolbar" aria-label="매물 유형과 정렬">
                     <div className="bbm-seller-tabs" role="tablist" aria-label="판매자 유형">
                       {(["전체", "개인", "딜러"] as SellerType[]).map((tab) => <button key={tab} type="button" role="tab" aria-selected={sellerType === tab} className={sellerType === tab ? "is-selected" : ""} onClick={() => setFilters((current) => ({ ...current, seller: tab }))}>{tab}</button>)}
@@ -1619,6 +1622,7 @@ function MarketplaceScreen() {
             </section>
             {/* QF-106 ④ 퀵필터 자리. 과쯔 원본은 바로 영상 매물 줄로 이어지고 별도 경로·제목·추천어가 없다. */}
             <div className="bbm-m-quick-slot">{quickRail}</div>
+            {luxuryUiTestMode ? <p className="bbm-ui-test-notice">UI 테스트용 가상 매물 · 실제 판매 가격·조건이 아닙니다</p> : null}
             {!isGuaziQuickStyle ? (
               <section className="bbm-m-head" aria-label="목록 머리">
                 <BbmTopCrumbs items={bbmMobileCrumbs} />

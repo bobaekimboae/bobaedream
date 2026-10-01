@@ -69,12 +69,12 @@ export function BbmResultCard({ car, variant, liked, onToggleLike, onOpen, onCha
       <div className="bbm-card-main">
         {/* 사진이 없는 매물은 원본처럼 빈 회색 칸(car-list-result-card__image 배경 #EBEBEB) */}
         <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`}>
-          {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(car.image)} alt={`${car.title} ${car.trim}`} draggable={false} /> : null}
+          {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(car.image)} alt={`${car.title} ${car.trim}`} draggable={false} style={{ objectPosition: car.imagePosition ?? "center center" }} /> : null}
           <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span><span className="bbm-card-count">{car.photos}<img src={bbmIcon("card-photo-count")} alt="" /></span></div>
         </div>
         <div className="bbm-card-content">
           <div className="bbm-card-text">
-            <strong className="bbm-card-title"><span className="bbm-card-model">{car.title}</span>{car.trim ? <span className="bbm-card-trim">{car.trim}</span> : null}</strong>
+            <strong className="bbm-card-title"><span className="bbm-card-model">{car.title}</span>{car.trim ? <><span aria-hidden="true"> </span><span className="bbm-card-trim">{car.trim}</span></> : null}</strong>
             <span className="bbm-card-spec">{bbmCardSpec(car, variant === "pc")}</span>
             <div className="bbm-card-price-badges">
               <strong className="bbm-card-price"><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</strong>
@@ -82,7 +82,7 @@ export function BbmResultCard({ car, variant, liked, onToggleLike, onOpen, onCha
             </div>
           </div>
           <div className="bbm-card-meta">
-            <div className="bbm-card-location"><img src={bbmIcon("card-location")} alt="" aria-hidden="true" /><span className="bbm-card-location-text">{displayListPlace(car.place, car.sellerType)}</span></div>
+            <div className="bbm-card-location"><img src={bbmIcon("card-location")} alt="" aria-hidden="true" /><span className="bbm-card-location-text">{car.uiTest ? car.place : displayListPlace(car.place, car.sellerType)}</span></div>
             <div className="bbm-card-meta-row">
               <div className="bbm-card-seller">
                 <img className="bbm-card-seller-logo" src={asset(sellerAvatar(car))} alt="" draggable={false} />

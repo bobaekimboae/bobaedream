@@ -73,6 +73,7 @@
 .bbm-card-actions { display: flex; gap: 4px; }
 .bbm-card-actions button { display: grid; place-items: center; padding: 0; border: 0; background: none; color: var(--bbm-toolbar-text); cursor: pointer; }
 .bbm-card-wish-on { width: 24px; height: 24px; background: #f14069; -webkit-mask-position: center; mask-position: center; -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+.bbm-ui-test-notice { margin: 0; padding: 9px 16px; border-bottom: 1px solid #f0e2ac; background: #fff9df; color: #655214; font-size: 12px; font-weight: 500; line-height: 18px; }
 
 /* ═════════ PC(.marketplace.is-bbm) ═════════ */
 @media (min-width: 820px) {

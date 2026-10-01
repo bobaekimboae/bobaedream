@@ -1,5 +1,5 @@
 import { useEffect, useRef, type ReactNode } from "react";
-import type { Car } from "../data";
+import { parsePrice, type Car } from "../data";
 import { bbmIcon } from "./bbm-list";
 import "./bbm-list-area.css";
 
@@ -13,7 +13,7 @@ export const bbmViewOptionsPc = ["목록으로 보기", "갤러리로 보기", "
 export const bbmViewOptionsMobile = ["목록으로 보기", "피드로 보기", "갤러리로 보기", "쇼츠 영상으로 보기", "한줄 광고로 보기", "텍스트로 보기"];
 export const BBM_PAGE_SIZE = 20;
 
-const priceOf = (car: Car) => Number(car.price.replace(/[^0-9]/g, "")) || 0;
+const priceOf = (car: Car) => parsePrice(car.price) || 0;
 // "3분 전" · "2시간 전" · "어제" · "3일 전" → 분
 const postedMinutes = (car: Car) => {
   const text = car.posted;

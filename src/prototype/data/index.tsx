@@ -20,6 +20,7 @@ import {
   type SimpleIcon,
 } from "simple-icons";
 import { emptyChoTotFilters, vehicleCategoryOptions, type ChoTotFilterState } from "../../ChoTotFilterSheet";
+import { luxuryUiTestRows } from "./luxury-ui-test";
 
 export type SellerType = "전체" | "개인" | "딜러";
 type SheetType = "filter" | "quick" | "carType" | "maker" | "vehicle" | "year" | "price" | "region" | "sort" | null;
@@ -29,7 +30,7 @@ type RegionMenu = "province" | "district" | "radius" | null;
 type PriceMode = "cash" | "lease";
 type QuickFilterStyle = "chotot" | "guazi" | "dongchedi";
 export type PriceSelection = { mode: PriceMode; min: number; max: number | null };
-type ListingBadge = "브랜드인증" | "제조사보증" | "1인소유" | "가격인하" | "인증중고차";
+type ListingBadge = "브랜드인증" | "제조사보증" | "1인소유" | "가격인하" | "인증중고차" | "무사고" | "1인신조" | "정식출고" | "KB진단" | "홈배송" | "즉시출고" | "희소매물" | "풀옵션";
 
 const isDesktopPreview = () => {
   const params = new URLSearchParams(window.location.search);
@@ -49,6 +50,7 @@ type Car = {
   sellerType: Exclude<SellerType, "전체">;
   image: string;
   imageFit?: "cover" | "contain";
+  imagePosition?: string;
   title: string;
   trim: string;
   specs: string[];
@@ -62,6 +64,14 @@ type Car = {
   photos: number;
   badges?: ListingBadge[];
   sellerProfile?: string | null;
+  uiTest?: {
+    number: number;
+    fullTitle: string;
+    sourceFile: string;
+    sellerTypeLabel: string;
+    testPoint: string;
+    transmission: string;
+  };
   filter?: {
     year: number;
     seats: string;
@@ -135,6 +145,7 @@ const chototHumanSellerProfiles = [
 const chototSellerProfileAt = (index: number) => chototHumanSellerProfiles[index] ?? null;
 
 const sellerLabel = (car: Car) => {
+  if (car.uiTest) return car.dealer;
   if (car.sellerType === "개인") return "개인판매자";
   if (car.dealer && car.dealer !== sellerScenario.name) return car.dealer;
   const index = ((car.id - 1) % dealerNamePool.length + dealerNamePool.length) % dealerNamePool.length;
@@ -205,7 +216,12 @@ const pricePresets = [
   { label: "7천~1억", min: 7000, max: 10000 },
   { label: "1억 이상", min: 10000, max: null },
 ];
-const parsePrice = (value: string) => Number(value.replace(/[^\d]/g, ""));
+const parsePrice = (value: string) => {
+  const normalized = value.replaceAll(",", "");
+  const eok = Number(normalized.match(/([\d.]+)\s*억/)?.[1] ?? 0);
+  const man = Number(normalized.match(/억\s*([\d.]+)\s*만/)?.[1] ?? normalized.match(/([\d.]+)\s*만/)?.[1] ?? 0);
+  return eok ? Math.round(eok * 10000 + man) : man || Number(normalized.replace(/[^\d.]/g, ""));
+};
 const normalizeModelSearchText = (value: string) => value.replace(/[-\s]/g, "").toLowerCase();
 const matchesPrice = (car: Car, value: PriceSelection) => {
   const amount = parsePrice(car.price);
@@ -835,6 +851,60 @@ const bbmBodyExtraCars: Car[] = [
 });
 const bbmSampleCars: Car[] = [...chototTestCars, ...bbmExtraCars, ...bbmBodyExtraCars];
 
+const splitLuxuryTitle = (fullTitle: string) => {
+  const words = fullTitle.trim().split(/\s+/);
+  return { title: words.slice(0, 5).join(" "), trim: words.slice(5).join(" ") };
+};
+
+// 노션 시나리오 1~30과 같은 번호의 드라이브 이미지를 연결한 전용 UI 테스트 데이터.
+// 실제 매물이나 실제 판매 조건이 아니며, ?scenario=luxury30 에서만 노출한다.
+const luxuryUiTestCars: Car[] = luxuryUiTestRows.map((row) => {
+  const heading = splitLuxuryTitle(row.fullTitle);
+  const mileage = Number(row.mileage.replace(/[^\d]/g, ""));
+  const isPersonal = row.sellerTypeLabel === "개인 판매";
+  const body = /우르스|우루스|컬리넌/.test(row.fullTitle) ? "SUV" : row.brand === "롤스로이스" ? "세단" : "스포츠카";
+  return {
+    id: 5031 - row.number,
+    maker: row.brand,
+    sellerType: isPersonal ? "개인" : "딜러",
+    image: `cars/luxury-ui-test/${row.imageFile}`,
+    imagePosition: "center center",
+    title: heading.title,
+    trim: heading.trim,
+    specs: [`${row.year}년`, row.mileage, row.fuel, row.transmission],
+    price: row.price,
+    place: row.region,
+    views: 0,
+    dealer: row.sellerName,
+    stock: 1,
+    posted: row.posted,
+    photos: row.photos,
+    badges: row.badges as ListingBadge[],
+    sellerProfile: null,
+    uiTest: {
+      number: row.number,
+      fullTitle: row.fullTitle,
+      sourceFile: row.imageFile,
+      sellerTypeLabel: row.sellerTypeLabel,
+      testPoint: row.testPoint,
+      transmission: row.transmission,
+    },
+    filter: {
+      year: row.year,
+      seats: "전체",
+      condition: "중고",
+      mileage,
+      owners: "전체",
+      transmission: row.transmission,
+      fuel: row.fuel,
+      color: "기타",
+      origin: row.brand === "롤스로이스" ? "영국" : "이탈리아",
+      body,
+      video: false,
+    },
+  };
+});
+
 function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
   const data = car.filter;
   if (!data) return false;
@@ -949,6 +1019,7 @@ const classCars = [
 
 export {
   bbmSampleCars,
+  luxuryUiTestCars,
   isDesktopPreview,
   getInitialQuickFilterStyle,
   isForcedMobileView,
