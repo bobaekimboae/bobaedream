@@ -13,11 +13,13 @@ const headlinePositions = [
   "meta-top", "after-location", "after-seller", "price-inline", "spec-inline",
 ] as const;
 type HeadlinePosition = (typeof headlinePositions)[number];
+type HeadlineTone = "default" | "blue";
 
-const headlinePositionLinks: Array<{ value: HeadlinePosition; short: string; label: string }> = [
+const headlinePositionLinks: Array<{ value: HeadlinePosition; short: string; label: string; tone?: HeadlineTone }> = [
   { value: "top", short: "1 상단", label: "카드 상단" },
   { value: "before-model", short: "2 모델 전", label: "제조사·모델 앞" },
   { value: "after-model", short: "3 모델 후", label: "세부모델 아래" },
+  { value: "after-model", tone: "blue", short: "3B 블루", label: "세부모델 아래 · 보배드림 블루" },
   { value: "after-spec", short: "4 제원 후", label: "제원 아래" },
   { value: "after-price", short: "5 가격 후", label: "가격·배지 아래" },
   { value: "bottom", short: "6 하단", label: "카드 하단" },
@@ -39,20 +41,29 @@ function getHeadlinePosition(): HeadlinePosition {
   return headlinePositions.includes(value as HeadlinePosition) ? value as HeadlinePosition : "top";
 }
 
+function getHeadlineTone(): HeadlineTone {
+  return new URLSearchParams(window.location.search).get("titlecolor") === "blue" ? "blue" : "default";
+}
+
 export function BbmHeadlinePreviewLinks() {
   const selected = getHeadlinePosition();
-  const hrefFor = (value: HeadlinePosition) => {
+  const selectedTone = getHeadlineTone();
+  const hrefFor = (value: HeadlinePosition, tone: HeadlineTone = "default") => {
     const params = new URLSearchParams(window.location.search);
     params.set("titlepos", value);
+    if (tone === "blue") params.set("titlecolor", "blue");
+    else params.delete("titlecolor");
     return `${window.location.pathname}?${params.toString()}`;
   };
   return (
     <nav className="bbm-headline-preview" aria-label="제목 위치 17개 시안">
-      <strong>제목 위치 17개</strong>
+      <strong>제목 위치 17개 · 3B 블루</strong>
       <div className="bbm-headline-preview__links">
-        {headlinePositionLinks.map((item) => (
-          <a key={item.value} href={hrefFor(item.value)} className={selected === item.value ? "is-selected" : ""} aria-current={selected === item.value ? "page" : undefined} aria-label={`${item.short} — ${item.label}`} title={item.label}>{item.short}</a>
-        ))}
+        {headlinePositionLinks.map((item) => {
+          const itemTone = item.tone ?? "default";
+          const isSelected = selected === item.value && selectedTone === itemTone;
+          return <a key={`${item.value}-${itemTone}`} href={hrefFor(item.value, itemTone)} className={isSelected ? "is-selected" : ""} aria-current={isSelected ? "page" : undefined} aria-label={`${item.short} — ${item.label}`} title={item.label}>{item.short}</a>;
+        })}
       </div>
     </nav>
   );
@@ -114,7 +125,8 @@ export function BbmResultCard({ car, variant, liked, onToggleLike, onOpen, onCha
   const priceMatch = car.price.match(/^(월\s*)?(.+?)\s*(만원)$/);
   const title = <strong className="bbm-card-title"><span className="bbm-card-model">{car.title}</span>{car.trim ? <><span aria-hidden="true"> </span><span className="bbm-card-trim">{car.trim}</span></> : null}</strong>;
   const headlinePosition = car.uiTest ? getHeadlinePosition() : null;
-  const headline = car.uiTest ? <strong className={`bbm-card-headline is-${headlinePosition}`}>{car.uiTest.headline}</strong> : null;
+  const headlineTone = car.uiTest ? getHeadlineTone() : "default";
+  const headline = car.uiTest ? <strong className={`bbm-card-headline is-${headlinePosition}${headlinePosition === "after-model" && headlineTone === "blue" ? " is-blue" : ""}`}>{car.uiTest.headline}</strong> : null;
   const headlineAt = (position: HeadlinePosition) => headlinePosition === position ? headline : null;
   const photo = (
     <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`}>
