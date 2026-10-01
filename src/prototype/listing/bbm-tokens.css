@@ -367,11 +367,11 @@
 .bbm-bottom-gnb__item { display: flex; flex: 1; flex-direction: column; align-items: center; gap: 4px; margin-top: 11px; padding: 7px 0 10px; border: 0; background: none; color: var(--bbm-text-muted); cursor: pointer; }
 .bbm-bottom-gnb__item img { width: 24px; height: 24px; }
 .bbm-bottom-gnb__label { color: var(--bbm-text-disabled); font-size: 11px; font-weight: 500; line-height: 13px; }
-.bbm-bottom-gnb__item.is-active .bbm-bottom-gnb__label { color: var(--bbm-text); font-weight: 700; }
+.bbm-bottom-gnb__item.is-active .bbm-bottom-gnb__label { color: var(--bbm-text-strong); font-weight: 700; }
 .bbm-bottom-gnb__item.is-register { flex: 0 0 84px; margin-top: 0; padding: 0 0 4px; }
-.bbm-bottom-gnb__register-button { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; background: var(--bbm-blue); }
+.bbm-bottom-gnb__register-button { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; background: var(--bbm-text-strong); }
 .bbm-bottom-gnb__register-button img { width: 32px; height: 32px; }
-.bbm-bottom-gnb__register-label { padding: 2px 12px; border-radius: 50px; background: var(--bbm-blue); color: #fff; font-size: 11px; font-weight: 700; line-height: 13px; }
+.bbm-bottom-gnb__register-label { padding: 2px 12px; border-radius: 50px; background: var(--bbm-text-strong); color: #fff; font-size: 11px; font-weight: 700; line-height: 13px; }
 
 /* ═════════ QF-085·086·089: 선택 상태 표시(원본 2026-09-24 실측) ═════════ */
 /* 필터 칩: 조건이 걸리면 진한 채움(#222) + 흰 아이콘 + 개수. PC는 누를 수 없음 */

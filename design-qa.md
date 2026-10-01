@@ -1,49 +1,49 @@
-# Design QA — 노션 필터 아이콘 시각 균형
+# Design QA — 모바일 하단 GNB 블랙 밸런스
 
 ## Comparison target
 
-- Source visual truth: supplied Notion `필터.svg` from page `3c0ee9c4b60680ca8d20efafda36a165`.
-- Source asset: original path uses a 20×20 viewBox and is authored for a 16×16px intrinsic display.
-- Implementation: `http://127.0.0.1:5173/?qf=guazi&filtericon=notion&v=balance-2`.
-- State: light theme, no applied filters, mobile top filter rail at its initial position.
+- Source visual truth: 배포본 `bfe18cd`의 블루 홈·매물등록 하단 GNB.
+- Implementation: 로컬 Guazi 럭셔리 30 목록형 시안의 블랙 하단 GNB.
+- State: 라이트 테마, 목록형, 첫 화면 스크롤 위치.
 - CSS viewport: 384×832px, device density normalized to 1× browser capture.
-- Implementation capture: 384×832px.
 
 ## Evidence
 
-- [Full-view revised implementation](reports/filter-icon-20261002/implementation-balanced-mobile.jpg)
-- [Focused revised filter chip](reports/filter-icon-20261002/implementation-balanced-chip.jpg)
-- [Focused before/after comparison — left before, right after](reports/filter-icon-20261002/before-after-balance.jpg)
-- Focused comparison dimensions: before 112×56px + after 112×56px on one 230×56px canvas.
+- [기존 블루 전체 화면](reports/gnb-black-20261002/before-blue-mobile.jpg)
+- [수정 블랙 전체 화면](reports/gnb-black-20261002/after-black-mobile.jpg)
+- [기존 블루 하단 GNB](reports/gnb-black-20261002/before-blue-gnb.jpg)
+- [수정 블랙 하단 GNB](reports/gnb-black-20261002/after-black-gnb.jpg)
+- [하단 GNB 전후 비교 — 왼쪽 기존, 오른쪽 수정](reports/gnb-black-20261002/before-after-gnb.jpg)
 
 ## Findings
 
-- [P2 resolved] Icon was visually heavier than its label.
-  - Location: mobile `.filter-fixed` notion icon.
-  - Evidence: the source's 20×20 path was stretched to the full 20px slot, producing a 16px visible width and roughly 8px control circles beside a 14px label. In the before/after comparison the left icon dominates the word `필터`.
-  - Impact: the icon pulled the chip's optical center left and looked heavier than adjacent chip typography.
-  - Fix: preserve the supplied source path but center it on a 24×24 optical canvas. The 20px slot is unchanged; visible width becomes approximately 13.3px and the control circles approximately 6.7px.
-  - Post-fix evidence: the right side of the focused comparison aligns the icon mass with the 14px label while keeping the chip's 92×32px geometry.
+- [P2 resolved] 화면 상단의 블랙 필터 칩과 하단의 블루 활성색이 서로 다른 강조 체계를 만들었다.
+  - Location: `.bbm-bottom-gnb`의 활성 홈 아이콘, 홈 라벨, 중앙 `매물등록` 버튼과 라벨.
+  - Impact: 상단은 블랙, 하단은 블루로 시선이 분산되어 브랜드 톤이 일관되지 않았다.
+  - Fix: 활성 홈과 중앙 CTA를 모두 보배드림 블랙 `#222`로 통일했다. 비활성 메뉴는 기존 회색을 유지해 중앙 CTA 우선순위를 보존했다.
+- [P2 resolved] 활성 홈 라벨과 아이콘의 블랙 값이 미세하게 달랐다.
+  - Fix: 활성 홈 라벨도 `--bbm-text-strong`을 사용해 아이콘·CTA와 동일한 `#222`가 되도록 맞췄다.
 
 ## Required fidelity surfaces
 
-- Fonts and typography: unchanged; the `필터` label remains 14px and no wrapping or weight changed.
-- Spacing and layout rhythm: chip 92×32px, icon slot 20×20px, padding 3px 12px, and layout gap 2px are unchanged. Optical whitespace inside the icon now supplies the needed visual separation.
-- Colors and tokens: icon remains `#181C1F`; chip background and all state colors are unchanged.
-- Image quality and asset fidelity: the original vector path is retained. Only its SVG canvas gains symmetric optical padding, so no raster scaling or redraw was introduced.
-- Copy and content: no copy changed.
+- Geometry: 하단 바 74px, 매물등록 원형 버튼 44×44px, 아이콘 24×24px, 기존 5분할 구조를 유지했다.
+- Alignment: 360px에서는 CTA 중심 180px, 384px에서는 192px, 430px에서는 215px로 각 화면 중심과 일치한다.
+- Typography: 홈·매물등록 라벨 크기와 굵기는 변경하지 않았다.
+- Colors: 활성 홈 아이콘·라벨과 매물등록 원형·라벨 배경만 `#222`; 플러스는 흰색, 비활성 항목은 기존 회색 유지.
+- Content and behavior: 메뉴 순서, 터치 영역, 링크 동작, 목록 콘텐츠는 변경하지 않았다.
 
 ## Comparison history
 
-1. Initial capture: 20px slot rendered the supplied 20×20 path at a 16px visible width; P2 visual-weight mismatch recorded.
-2. Fix: changed the asset canvas to 24×24 and translated the unchanged source path by 2px on both axes.
-3. Revised capture: icon and 14px label have matching visible height and the chip remains centered; no P0/P1/P2 findings remain.
+1. 기존 배포본: 활성 홈과 중앙 CTA가 블루라 상단 블랙 필터와 이중 강조로 보였다.
+2. 수정: 두 강조 요소를 `#222`로 통일하고 비활성 회색을 유지했다.
+3. 최종 캡처: 중앙 CTA가 가장 강하고 홈은 현재 위치만 알려 주는 보조 강조로 정리됐다.
 
 ## Verification
 
-- Mobile computed geometry: passed.
-- Full-view and focused before/after comparison: passed.
-- Browser console errors and warnings: none observed.
+- 360·384·430px 중앙 정렬: passed.
+- 384×832px 전체 화면 및 하단 집중 전후 비교: passed.
+- 활성 홈 라벨·아이콘·매물등록 배경 `rgb(34, 34, 34)`: passed.
+- 브라우저 콘솔 errors/warnings: none observed.
 - `npm run check:runtime`: passed (28 protected files unchanged).
 - `npm run verify:qf`: passed.
 
@@ -53,10 +53,10 @@
 
 **Implementation Checklist**
 
-- [x] Match icon optical weight to the 14px label.
-- [x] Preserve the 20px icon slot and 92×32px chip.
-- [x] Preserve the original vector path and color.
-- [x] Confirm surrounding chips do not shift.
+- [x] 홈 활성색을 보배드림 블랙으로 변경.
+- [x] 매물등록 원형 버튼과 라벨을 보배드림 블랙으로 변경.
+- [x] 비활성 메뉴는 회색 유지.
+- [x] 360·384·430px에서 중앙 정렬 확인.
 
 **Follow-up Polish**
 
