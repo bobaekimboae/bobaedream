@@ -185,10 +185,15 @@ export function BbmSheet({ title, subtitle, onClose, footer, children, flush = f
   const titleId = useId();
   const closeRef = useRef<HTMLButtonElement | null>(null);
   const onCloseRef = useRef(onClose);
+  const historyCleanupRef = useRef<number | null>(null);
   onCloseRef.current = onClose;
   useEscape(onClose);
 
   useEffect(() => {
+    if (historyCleanupRef.current !== null) {
+      window.clearTimeout(historyCleanupRef.current);
+      historyCleanupRef.current = null;
+    }
     const previousOverflow = document.body.style.overflow;
     const previousActive = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     document.body.style.overflow = "hidden";
@@ -196,7 +201,7 @@ export function BbmSheet({ title, subtitle, onClose, footer, children, flush = f
 
     const historyMarker = `bbmf:${titleId}`;
     const previousState = window.history.state;
-    window.history.pushState({ ...previousState, __bbmfSheet: historyMarker }, "", window.location.href);
+    if (previousState?.__bbmfSheet !== historyMarker) window.history.pushState({ ...previousState, __bbmfSheet: historyMarker }, "", window.location.href);
     let closedByPopState = false;
     const onPopState = () => {
       closedByPopState = true;
@@ -208,7 +213,14 @@ export function BbmSheet({ title, subtitle, onClose, footer, children, flush = f
       window.removeEventListener("popstate", onPopState);
       document.body.style.overflow = previousOverflow;
       previousActive?.focus();
-      if (!closedByPopState && window.history.state?.__bbmfSheet === historyMarker) window.history.back();
+      // React Strict Mode replays effects in development. Defer the history cleanup so the
+      // immediate second setup can cancel it; a real close still removes the marker once.
+      if (!closedByPopState && window.history.state?.__bbmfSheet === historyMarker) {
+        historyCleanupRef.current = window.setTimeout(() => {
+          if (window.history.state?.__bbmfSheet === historyMarker) window.history.back();
+          historyCleanupRef.current = null;
+        }, 0);
+      }
     };
   }, [titleId]);
 

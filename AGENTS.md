@@ -41,6 +41,7 @@
 
 ## Documentation
 
+- Current implementation state and accepted follow-up direction live in `docs/HANDOFF.md`.
 - Legacy preview and Work Mode notes live in `docs/legacy-agent-notes.md`.
 - Quick-filter behavior and visual rules live in `docs/quick-filter-spec.md`.
 - Vehicle image and logo asset rules live in `docs/보배드림_차량이미지_로고_에셋지침_v1.md`.

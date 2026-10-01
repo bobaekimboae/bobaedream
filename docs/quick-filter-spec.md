@@ -160,6 +160,14 @@
 - Draft starts from the applied value; `N대 보기` applies mileage only (list, chips, left sidebar); close, backdrop and Esc discard; 초기화 clears only the mileage draft. The list stays frozen while open.
 - Accessibility: `role="dialog"`, `aria-modal`, `aria-labelledby`, focus on close (preventScroll) when opened, Tab trapped, focus returns to the mileage chip (or its applied chip). Check: `node scripts/mileage-modal-check.mjs`.
 
+## Seller Type Sheet
+
+- The `판매자` quick-filter chip is pinned immediately after the fixed `필터` control on PC and mobile. When applied, its dark applied chip stays in the same position instead of moving into the general applied-chip group.
+- Guazi mobile `판매자 유형` uses a single-line header with no subtitle: header 64, left padding 24, title 20/28 750, divider 1px `#E8E8E8`.
+- Close control has a 44×44 hit area at top 10/right 20, a 24×24 visible X, and closes through the shared `BbmSheet` handler. Its history marker cleanup is Strict Mode-safe, so the sheet does not close immediately after opening in development.
+- Body starts 16 below the header and has 20 side padding. Rows are 54 high without a description and 68 with one; checkbox 20×20, icon box 32×32, and column gap 12.
+- Footer is 80 high with 20 side padding, 10 gap, a 92×52 reset action, and a remaining-width 52-high confirm action. The sheet keeps draft selection until confirmation; close, backdrop, Escape, and browser back discard it.
+
 ## Existing Mode Notes
 
 - Keep ChoTot and Dongchedi modes visually unchanged when working on Guazi-specific changes unless the user explicitly requests a shared change.

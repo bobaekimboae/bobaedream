@@ -1207,7 +1207,8 @@ function MarketplaceScreen() {
   // QF-076: 제조사·모델·등급 외 필터(filters.bbm)는 선택 모양만 남기고 목록을 거르지 않는다 → "확인 N대"는 지금 목록 수
   const countWithBbm = (bbm: BbmFilterValues) => isGuaziQuickStyle ? baseListCars.filter((car) => matchesBbmFilters(car, bbm)).length : visibleCars.length;
   const setBbmFilters = (bbm: BbmFilterValues) => setFilters((current) => ({ ...current, bbm }));
-  // QF-089: 칩 순서(원본) [필터][전체차량][제조사 → 고르면 제조사 칩(요약 칩) + 모델][적용 칩들(건 순서)][연식][가격][연료][판매자].
+  // QF-089: 기본 칩 순서는 원본을 따르되, 현재 시안 작업 필터인 판매자는 [필터] 바로 오른쪽에 고정한다.
+  // 판매자 값이 걸리면 빈 판매자 칩 대신 같은 자리의 적용 칩(진한 채움 + ×)으로 바뀐다.
   // 값이 걸린 필터 칩은 줄에서 빠지고 그 자리에 적용 칩(진한 채움 + ×)이 생긴다. 요약 칩·트림 칩은 퀵필터 규격 그대로
   const chipByKey = (key: string) => quickFilterChips.find((chip) => chip.key === key);
   // QF-117: 과쯔 주행거리 칩 표기 = "3~6만km"(칩) · "3.5~8만km"(직접 범위) · "10만km 이상"(최대 없음)
@@ -1245,7 +1246,18 @@ function MarketplaceScreen() {
   };
   const groupChip = (key: string, label: string, panel: string, applied: boolean) => applied ? null : { key, label, active: false, onClick: () => openBbmChipPanel(panel) };
   type BbmChip = { key: string; label: string; active?: boolean; className?: string; onClick: () => void; onClear?: () => void };
+  const toAppliedBbmChip = (chip: (typeof bbmApplied)[number]): BbmChip => ({
+    key: `applied-${chip.id}`,
+    label: chip.label,
+    active: true,
+    className: chip.id === "range:mileage" ? "is-applied is-mileage" : "is-applied",
+    onClick: () => openBbmChipPanel(bbmPanelForId(chip.id)),
+    onClear: () => setBbmFilters(chip.clear(bbmValue)),
+  });
+  const sellerApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:sellerKind:"));
+  const otherApplied = bbmApplied.filter((chip) => !chip.id.startsWith("check:sellerKind:"));
   const bbmChips: BbmChip[] = ([
+    ...(sellerApplied.length ? sellerApplied.map(toAppliedBbmChip) : [groupChip("seller", "판매자", "판매자 유형", false)]),
     // QF-113 T3: 처음 화면의 "전체차량" → "중고차"(PC·모바일·경로 모두 "전체차량" 단계 없음)
     (() => { const chip = chipByKey("category"); return chip ? { ...chip, label: chip.label === "전체" ? (isGuaziQuickStyle ? "중고차" : "전체차량") : chip.label } : undefined; })(),
     // 원본: 제조사를 고르면 [현대 ×][모델] 이 적용 칩 앞, 고르기 전에는 적용 칩 뒤에 [제조사]
@@ -1264,14 +1276,13 @@ function MarketplaceScreen() {
     !desktop && !isGuaziQuickStyle && regionLabel !== "전국" ? { key: "region", label: regionLabel, active: true, className: "is-applied", onClick: openRegionSheet, onClear: () => setRegion(emptyRegion) } : null,
     // QF-105: 트림을 고르면 빈 "트림" 칩 대신 단계 칩 [트림 ×]
     selectedVariants.length || (selectedGeneration && guaziTrimRailOptions.length <= 1) ? null : chipByKey("variant"),
-    ...bbmApplied.map((chip) => ({ key: `applied-${chip.id}`, label: chip.label, active: true, className: chip.id === "range:mileage" ? "is-applied is-mileage" : "is-applied", onClick: () => openBbmChipPanel(bbmPanelForId(chip.id)), onClear: () => setBbmFilters(chip.clear(bbmValue)) })),
+    ...otherApplied.map(toAppliedBbmChip),
     maker ? null : { key: "maker", label: "제조사", active: false, onClick: () => openBbmChipPanel("제조사") },
     groupChip("year", "연식", "연식", rangeIsSet(bbmValue.ranges.year)),
     // QF-118: 과쯔 PC 는 좌측 필터 순서대로 연식 다음 "주행거리 ▾"(누르면 가운데 모달). 모바일은 그대로
     desktop && isGuaziQuickStyle ? (() => { const chip = groupChip("mileage", "주행거리", "주행거리", rangeIsSet(bbmValue.ranges.mileage)); return chip ? { ...chip, className: "is-mileage" } : null; })() : null,
     groupChip("price", "가격", "가격", rangeIsSet(bbmValue.ranges.price)),
     groupChip("fuel", "연료", "연료", Boolean(bbmValue.checks.fuel?.length)),
-    groupChip("seller", "판매자", "판매자 유형", Boolean(bbmValue.checks.sellerKind?.length)),
   ] as Array<BbmChip | null | undefined>).filter((chip): chip is BbmChip => Boolean(chip));
   // QF-092 원본 재실측(2026-09-25): 적용 칩이 바뀌어도 칩 줄 스크롤은 그대로(칩을 누를 때만 revealBbmChip). 예전 "맨 앞 적용 칩 47px" 규칙은 우연히 맞았던 것이라 뺐다
   useEffect(() => {

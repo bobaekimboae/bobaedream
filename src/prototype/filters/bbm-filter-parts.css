@@ -43,11 +43,11 @@
 .bbmf-sheet.is-seller .bbmf-sheet-header {
   position: relative;
   display: flex;
-  flex: 0 0 80px;
-  align-items: flex-start;
+  flex: 0 0 64px;
+  align-items: center;
   justify-content: flex-start;
-  height: 80px;
-  padding: 14px 56px 14px 20px;
+  height: 64px;
+  padding: 0 68px 0 24px;
   border-bottom: 1px solid #e8e8e8;
   box-sizing: border-box;
 }
@@ -76,21 +76,23 @@
 }
 .bbmf-sheet.is-seller .bbmf-sheet-header .bbmf-close {
   position: absolute;
-  top: 20px;
-  right: 16px;
-  width: 40px;
-  height: 40px;
+  top: 10px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
   padding: 0;
   border: 0;
+  border-radius: 10px;
   background: transparent;
 }
+.bbmf-sheet.is-seller .bbmf-sheet-header .bbmf-close:hover { background: #f4f4f4; }
 .bbmf-sheet.is-seller .bbmf-sheet-header .bbmf-close img { display: none; }
 .bbmf-sheet.is-seller .bbmf-sheet-header .bbmf-close::before,
 .bbmf-sheet.is-seller .bbmf-sheet-header .bbmf-close::after {
   content: "";
   position: absolute;
-  top: 19px;
-  left: 8px;
+  top: 21px;
+  left: 10px;
   width: 24px;
   height: 1.8px;
   border-radius: 2px;

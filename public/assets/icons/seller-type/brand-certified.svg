@@ -1,11 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" color="#222222" width="240" height="240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" color="#222222" width="240" height="240">
 <title>브랜드 인증</title>
 <g transform="translate(0.66 0.66) scale(0.945)">
-<symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="mW_Uq9WMb8SIq_97tBn7p">
 <path fill="#222222" fill-rule="evenodd" d="M12 1c4.411 0 8 3.589 8 8a7.984 7.984 0 0 1-3 6.235V22a1.001 1.001 0 0 1-1.447.894L12 21.118l-3.552 1.777A1 1 0 0 1 7 22v-6.765A7.984 7.984 0 0 1 4 9c0-4.411 3.589-8 8-8zm3 15.411a7.945 7.945 0 0 1-6 0v3.971l2.552-1.276a1 1 0 0 1 .895 0L15 20.382zM12 3C8.691 3 6 5.691 6 9s2.691 6 6 6 6-2.691 6-6-2.691-6-6-6zm-.219 2.162a.231.231 0 0 1 .441 0L13.002 8l2.767-.002c.207 0 .31.255.164.405L14.002 10l.985 2.673c.07.214-.165.397-.349.272L12.002 11l-2.627 1.94c-.184.126-.42-.057-.35-.272L10.002 10 8.071 8.402c-.147-.149-.043-.405.164-.405L11.002 8z">
 </path>
-</symbol>
-<use href="#mW_Uq9WMb8SIq_97tBn7p">
-</use>
 </g>
 </svg>
