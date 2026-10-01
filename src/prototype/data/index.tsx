@@ -144,7 +144,11 @@ const displaySpecs = (specs: string[]) => specs
   .map((spec, index) => index === 1 ? formatMileage(spec) : spec)
   .join(" · ");
 
-const displayListPlace = (place: string) => place.split(" · ")[0].trim();
+const displayListPlace = (place: string, sellerType?: SellerType) => {
+  const region = place.split(" · ")[0].trim();
+  if (sellerType === "개인" || !sellerType || region.endsWith("매매단지")) return region;
+  return `${region} 매매단지`;
+};
 const emptyPrice: PriceSelection = { mode: "cash", min: 0, max: null };
 const priceSteps = [0, 500, 1000, 2000, 3000, 5000, 7000, 10000, 15000, 20000, 30000];
 const pricePresets = [

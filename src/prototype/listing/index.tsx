@@ -251,7 +251,7 @@ function PcCarRow({ car, liked, onToggleLike, onOpen }: { car: Car; liked: boole
           {car.lease ? <span className="pc-car-lease">{car.lease}</span> : null}
           {badges.length ? <div className="badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}
         </div>
-        <p className="pc-car-location"><Icon name="location-gray.svg" />{displayListPlace(car.place)}</p>
+        <p className="pc-car-location"><Icon name="location-gray.svg" />{displayListPlace(car.place, car.sellerType)}</p>
         <div className="pc-car-seller">
           <img className="dealer-avatar" src={asset(sellerAvatar(car))} alt={`${displayedSeller} 프로필`} draggable={false} />
           <strong>{displayedSeller}</strong>
@@ -322,7 +322,7 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
           </div> : <><p className="price">{cardPricePrefix ? <span className="price-unit">{cardPricePrefix}</span> : null}<span>{cardPriceAmount}</span><span className="price-unit">{cardPriceUnit}</span></p>{car.lease ? <p className="lease">{car.lease}</p> : null}{badges.length ? <div className="badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}</>}
         </div>
         <div className="car-footer">
-          <p className="location-line"><Icon name="location-gray.svg" />{displayListPlace(car.place)}</p>
+          <p className="location-line"><Icon name="location-gray.svg" />{displayListPlace(car.place, car.sellerType)}</p>
           <div className="dealer-line">
             <img className="dealer-avatar" src={asset(sellerAvatar(car))} alt={`${displayedSeller} 프로필`} draggable={false} />
             {cardView ? <div className="dealer-copy"><strong>{displayedSeller}</strong></div> : <p><strong>{displayedSeller}</strong></p>}

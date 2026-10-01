@@ -82,7 +82,7 @@ export function BbmResultCard({ car, variant, liked, onToggleLike, onOpen, onCha
             </div>
           </div>
           <div className="bbm-card-meta">
-            <div className="bbm-card-location"><img src={bbmIcon("card-location")} alt="" aria-hidden="true" /><span className="bbm-card-location-text">{displayListPlace(car.place)}</span></div>
+            <div className="bbm-card-location"><img src={bbmIcon("card-location")} alt="" aria-hidden="true" /><span className="bbm-card-location-text">{displayListPlace(car.place, car.sellerType)}</span></div>
             <div className="bbm-card-meta-row">
               <div className="bbm-card-seller">
                 <img className="bbm-card-seller-logo" src={asset(sellerAvatar(car))} alt="" draggable={false} />

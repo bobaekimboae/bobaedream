@@ -270,7 +270,7 @@ function BbCarCard({ car, liked, onToggleLike, onOpen, onNotify }: { car: Car; l
             <p className="bbm-card-price">{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}{priceMatch ? <span>만원</span> : null}</p>
             {badges.length ? <div className="bbm-card-badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}
           </div>
-          <p className="bbm-card-location"><BbIcon name="location-pin" size={16} />{displayListPlace(car.place)}</p>
+          <p className="bbm-card-location"><BbIcon name="location-pin" size={16} />{displayListPlace(car.place, car.sellerType)}</p>
           <div className="bbm-card-meta">
             <div className="bbm-card-seller">
               <img src={asset(sellerAvatar(car))} alt="" draggable={false} />
