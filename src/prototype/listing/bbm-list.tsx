@@ -67,7 +67,7 @@ export function BbmResultCard({ car, variant, liked, onToggleLike, onOpen, onCha
   };
   return (
     <article className={`bbm-result-card is-${variant}${badges.length ? " has-badges" : " has-no-badges"}${car.uiTest ? " is-ui-test" : ""}`} role="link" tabIndex={0} aria-label={`${car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
-      {car.uiTest ? title : null}
+      {car.uiTest ? <strong className="bbm-card-headline">{car.uiTest.headline}</strong> : null}
       <div className="bbm-card-main">
         {/* 사진이 없는 매물은 원본처럼 빈 회색 칸(car-list-result-card__image 배경 #EBEBEB) */}
         <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`}>
@@ -76,7 +76,7 @@ export function BbmResultCard({ car, variant, liked, onToggleLike, onOpen, onCha
         </div>
         <div className="bbm-card-content">
           <div className="bbm-card-text">
-            {car.uiTest ? null : title}
+            {title}
             <span className="bbm-card-spec">{bbmCardSpec(car, variant === "pc")}</span>
             <div className="bbm-card-price-badges">
               <strong className="bbm-card-price"><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</strong>

@@ -67,6 +67,7 @@ type Car = {
   uiTest?: {
     number: number;
     fullTitle: string;
+    headline: string;
     sourceFile: string;
     sellerTypeLabel: string;
     testPoint: string;
@@ -891,6 +892,8 @@ const luxuryVehicleHeadings: Record<number, { title: string; trim: string }> = {
 // 실제 매물이나 실제 판매 조건이 아니며, ?scenario=luxury30 에서만 노출한다.
 const luxuryUiTestCars: Car[] = luxuryUiTestRows.map((row) => {
   const heading = luxuryVehicleHeadings[row.number];
+  const headingPrefix = `${heading.title} ${heading.trim}`;
+  const headline = row.fullTitle.startsWith(headingPrefix) ? row.fullTitle.slice(headingPrefix.length).trim() : row.fullTitle;
   const mileage = Number(row.mileage.replace(/[^\d]/g, ""));
   const isPersonal = row.sellerTypeLabel === "개인 판매";
   const body = /우르스|우루스|컬리넌/.test(row.fullTitle) ? "SUV" : row.brand === "롤스로이스" ? "세단" : "스포츠카";
@@ -915,6 +918,7 @@ const luxuryUiTestCars: Car[] = luxuryUiTestRows.map((row) => {
     uiTest: {
       number: row.number,
       fullTitle: row.fullTitle,
+      headline,
       sourceFile: row.imageFile,
       sellerTypeLabel: row.sellerTypeLabel,
       testPoint: row.testPoint,

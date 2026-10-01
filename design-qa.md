@@ -1,12 +1,12 @@
-# Design QA — 럭셔리 매물 제목 상단 임시 배치
+# Design QA — 매물 제목만 상단 임시 배치
 
 ## Comparison target
 
-- Source state: `reports/luxury-ui-test-20261002/mobile-list-384.jpg` — 기존 제목이 썸네일 오른쪽에 있던 384px 리스트.
-- Implemented list: `reports/luxury-ui-test-20261002/mobile-list-title-above-384.jpg`.
-- Implemented feed: `reports/luxury-ui-test-20261002/mobile-feed-title-above-384.jpg`.
-- Implemented PC: `reports/luxury-ui-test-20261002/pc-list-title-above-1280.jpg`.
-- Full-view comparison: `reports/luxury-ui-test-20261002/comparison-title-before-after.jpg`, 768 × 832 px.
+- Source state: `reports/luxury-ui-test-20261002/mobile-list-title-above-384.jpg` — 제조사·모델까지 썸네일 위로 이동한 잘못된 중간안.
+- Implemented list: `reports/luxury-ui-test-20261002/mobile-list-headline-above-384.jpg`.
+- Implemented feed: `reports/luxury-ui-test-20261002/mobile-feed-headline-above-384.jpg`.
+- Implemented PC: `reports/luxury-ui-test-20261002/pc-list-headline-above-1280.jpg`.
+- Full-view comparison: `reports/luxury-ui-test-20261002/comparison-headline-correction.jpg`, 768 × 832 px.
 - Focused card comparison: `reports/luxury-ui-test-20261002/comparison-title-cards.jpg`, 768 × 450 px.
 - Mobile viewport: 384 × 832 CSS px. PC viewport: 1280 × 720 CSS px.
 - Density normalization: source and implementation are both 1× CSS-pixel captures; no resampling was needed.
@@ -23,8 +23,8 @@
 ## Findings
 
 - No actionable P0, P1, or P2 issue remains.
-- Typography: every UI-test title is now two semantic lines: `제조사 모델` then `세부모델`. Advertising copy remains only in the accessible full title, not the visible heading.
-- Layout rhythm: the two-line heading is a full-width block above the thumbnail. Existing thumbnail dimensions, spec, price, badge, seller, and action geometry remain unchanged below it.
+- Typography: the description-style listing headline alone is the full-width block above the thumbnail. `제조사 모델` and `세부모델` remain two lines in the original information column beside/below the thumbnail.
+- Layout rhythm: only the new headline adds vertical space. Existing model, thumbnail, spec, price, badge, seller, and action geometry remain in their original card structure.
 - Colors/tokens: no color, border, badge, or icon token changed.
 - Image quality: existing `object-fit: cover`, crop, dimensions, and radii are unchanged in list and feed.
 - Copy/content: non-personal listings show a specific complex after the region; personal listings show only their region. All 30 location strings fit without overflow at 384px.
@@ -32,14 +32,14 @@
 
 ## Comparison history
 
-- First pass: the second line still included sales description text, making the heading unnecessarily long.
-- Fix: replaced automatic five-word splitting with an explicit 30-row `제조사 모델` / `세부모델` heading map.
-- Post-fix evidence: the full-view and focused comparisons show short two-line headings above the image; the browser DOM confirms the title precedes `.bbm-card-main`.
+- First pass: `제조사 모델` and `세부모델` were incorrectly moved above the thumbnail.
+- Fix: extracted only the description headline from each full title, placed that headline above the thumbnail, and returned the two model lines to `.bbm-card-content`.
+- Post-fix evidence: the correction comparison shows the headline above the image and `람보르기니 우르스 / SE 4.0 V8` back in the original right-hand column. Browser DOM confirms the headline precedes `.bbm-card-main` while model/trim remain inside `.bbm-card-content`.
 
 ## Focused comparison
 
 - The focused card crop was required because the change affects two-line hierarchy and the relative start position of the thumbnail.
-- It confirms that the thumbnail moved downward only by the new heading block and that price, badges, location, seller, and bottom navigation remain aligned.
+- It confirms that only the description headline sits above the thumbnail; model, trim, price, badges, location, seller, and bottom navigation retain their intended alignment.
 
 ## Verification
 
