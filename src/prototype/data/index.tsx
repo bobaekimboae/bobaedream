@@ -172,7 +172,9 @@ const dealerComplexByRegion: Record<string, string> = {
 const displayListPlace = (place: string, sellerType?: SellerType) => {
   const region = place.split(" · ")[0].trim();
   if (sellerType === "개인" || !sellerType) return region;
-  return dealerComplexByRegion[region] ?? place.trim();
+  return (dealerComplexByRegion[region] ?? place.trim())
+    .replaceAll("자동차매매단지", "단지")
+    .replaceAll("매매단지", "단지");
 };
 const emptyPrice: PriceSelection = { mode: "cash", min: 0, max: null };
 const priceSteps = [0, 500, 1000, 2000, 3000, 5000, 7000, 10000, 15000, 20000, 30000];
