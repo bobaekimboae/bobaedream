@@ -72,7 +72,7 @@ import { BbmPartsGallery } from "../filters/bbm-parts-gallery";
 import { BbmActionBar, BbmFullExcludeAction, BbmFullFilter, BbmFullItem, BbmModal, BbmSheet } from "../filters/bbm-filter-parts";
 import { bbmFilterOrder, bbmSidebarItems, type BbmFilterItem } from "../filters/bbm-filter-options";
 import { BbmBodyTypeSheet, BbmExpandPanel, BbmModalPanel, BbmSellerTypeSheet, clearBbmItem } from "../filters/bbm-filter-panels";
-import { BbmBottomGnb, BbmCategoryMenu, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
+import { BbmBottomGnb, BbmCategoryMenu, BbmHeadlinePreviewLinks, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
 import { KrBrandLogo, krRailLabel, krTopTenSections, krTypeTop10 } from "./bbm-brand-logos";
 import { StableRegionRow, StableRegionSheet, stableRegionLabel, StableYearRow, stablePageTitle, STABLE_YEAR_OPTIONS, stableKeywordPills } from "./stable-top";
@@ -1485,7 +1485,7 @@ function MarketplaceScreen() {
               <div className="bbm-content">
                 {isGuaziQuickStyle ? null : bbmContentHead}
                 <section className="bbm-results" aria-label="매물 목록">
-                  {luxuryUiTestMode ? <p className="bbm-ui-test-notice">UI 테스트용 가상 매물 · 실제 판매 가격·조건이 아닙니다</p> : null}
+                  {luxuryUiTestMode ? <><p className="bbm-ui-test-notice">UI 테스트용 가상 매물 · 실제 판매 가격·조건이 아닙니다</p><BbmHeadlinePreviewLinks /></> : null}
                   <nav className="bbm-toolbar" aria-label="매물 유형과 정렬">
                     <div className="bbm-seller-tabs" role="tablist" aria-label="판매자 유형">
                       {(["전체", "개인", "딜러"] as SellerType[]).map((tab) => <button key={tab} type="button" role="tab" aria-selected={sellerType === tab} className={sellerType === tab ? "is-selected" : ""} onClick={() => setFilters((current) => ({ ...current, seller: tab }))}>{tab}</button>)}
@@ -1622,7 +1622,7 @@ function MarketplaceScreen() {
             </section>
             {/* QF-106 ④ 퀵필터 자리. 과쯔 원본은 바로 영상 매물 줄로 이어지고 별도 경로·제목·추천어가 없다. */}
             <div className="bbm-m-quick-slot">{quickRail}</div>
-            {luxuryUiTestMode ? <p className="bbm-ui-test-notice">UI 테스트용 가상 매물 · 실제 판매 가격·조건이 아닙니다</p> : null}
+            {luxuryUiTestMode ? <><p className="bbm-ui-test-notice">UI 테스트용 가상 매물 · 실제 판매 가격·조건이 아닙니다</p><BbmHeadlinePreviewLinks /></> : null}
             {!isGuaziQuickStyle ? (
               <section className="bbm-m-head" aria-label="목록 머리">
                 <BbmTopCrumbs items={bbmMobileCrumbs} />

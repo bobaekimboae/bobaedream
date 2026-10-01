@@ -97,6 +97,18 @@
 .bbm-card-actions button { display: grid; place-items: center; padding: 0; border: 0; background: none; color: var(--bbm-toolbar-text); cursor: pointer; }
 .bbm-card-wish-on { width: 24px; height: 24px; background: #f14069; -webkit-mask-position: center; mask-position: center; -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
 .bbm-ui-test-notice { margin: 0; padding: 9px 16px; border-bottom: 1px solid #f0e2ac; background: #fff9df; color: #655214; font-size: 12px; font-weight: 500; line-height: 18px; }
+.bbm-headline-preview { padding: 12px 16px; border-bottom: 1px solid var(--bbm-line); background: #fff; }
+.bbm-headline-preview > strong { display: block; margin-bottom: 8px; color: var(--bbm-text-strong); font-size: 13px; font-weight: 700; line-height: 18px; }
+.bbm-headline-preview__links { display: flex; gap: 6px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; }
+.bbm-headline-preview__links::-webkit-scrollbar { display: none; }
+.bbm-headline-preview__links a { display: inline-flex; height: 30px; flex: none; align-items: center; padding: 0 10px; border: 1px solid #dedede; border-radius: 999px; background: #fff; color: #595959; font-size: 12px; font-weight: 500; line-height: 18px; text-decoration: none; white-space: nowrap; }
+.bbm-headline-preview__links a.is-selected { border-color: #222; background: #222; color: #fff; font-weight: 700; }
+.bbm-headline-preview__links a:focus-visible { outline: 2px solid var(--bbm-blue); outline-offset: 2px; }
+
+@media (min-width: 820px) {
+  .marketplace.is-bbm .bbm-headline-preview { padding: 12px 20px; }
+  .marketplace.is-bbm .bbm-headline-preview__links { flex-wrap: wrap; overflow: visible; }
+}
 
 /* ═════════ PC(.marketplace.is-bbm) ═════════ */
 @media (min-width: 820px) {

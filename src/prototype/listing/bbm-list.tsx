@@ -14,9 +14,48 @@ const headlinePositions = [
 ] as const;
 type HeadlinePosition = (typeof headlinePositions)[number];
 
+const headlinePositionLinks: Array<{ value: HeadlinePosition; short: string; label: string }> = [
+  { value: "top", short: "1 상단", label: "카드 상단" },
+  { value: "before-model", short: "2 모델 전", label: "제조사·모델 앞" },
+  { value: "after-model", short: "3 모델 후", label: "세부모델 아래" },
+  { value: "after-spec", short: "4 제원 후", label: "제원 아래" },
+  { value: "after-price", short: "5 가격 후", label: "가격·배지 아래" },
+  { value: "bottom", short: "6 하단", label: "카드 하단" },
+  { value: "overlay", short: "7 사진 상단", label: "썸네일 상단 오버레이" },
+  { value: "photo-top", short: "8 사진 위", label: "썸네일 위" },
+  { value: "side-label", short: "9 사진 옆", label: "사진과 정보 사이" },
+  { value: "photo-caption", short: "10 사진 아래", label: "썸네일 아래" },
+  { value: "overlay-center", short: "11 사진 중앙", label: "썸네일 중앙 오버레이" },
+  { value: "overlay-bottom", short: "12 사진 하단", label: "썸네일 하단 오버레이" },
+  { value: "meta-top", short: "13 지역 위", label: "지역 위" },
+  { value: "after-location", short: "14 지역 아래", label: "지역 아래" },
+  { value: "after-seller", short: "15 판매자 아래", label: "판매자 아래" },
+  { value: "price-inline", short: "16 가격 우측", label: "가격 오른쪽" },
+  { value: "spec-inline", short: "17 제원 우측", label: "제원 오른쪽" },
+];
+
 function getHeadlinePosition(): HeadlinePosition {
   const value = new URLSearchParams(window.location.search).get("titlepos");
   return headlinePositions.includes(value as HeadlinePosition) ? value as HeadlinePosition : "top";
+}
+
+export function BbmHeadlinePreviewLinks() {
+  const selected = getHeadlinePosition();
+  const hrefFor = (value: HeadlinePosition) => {
+    const params = new URLSearchParams(window.location.search);
+    params.set("titlepos", value);
+    return `${window.location.pathname}?${params.toString()}`;
+  };
+  return (
+    <nav className="bbm-headline-preview" aria-label="제목 위치 17개 시안">
+      <strong>제목 위치 17개</strong>
+      <div className="bbm-headline-preview__links">
+        {headlinePositionLinks.map((item) => (
+          <a key={item.value} href={hrefFor(item.value)} className={selected === item.value ? "is-selected" : ""} aria-current={selected === item.value ? "page" : undefined} aria-label={`${item.short} — ${item.label}`} title={item.label}>{item.short}</a>
+        ))}
+      </div>
+    </nav>
+  );
 }
 
 // ── 차량 유형 줄(원본 원형 아이콘 7개). 유형을 고르면 같은 자리가 퀵필터 레일(제조사 단계부터)로 바뀐다
