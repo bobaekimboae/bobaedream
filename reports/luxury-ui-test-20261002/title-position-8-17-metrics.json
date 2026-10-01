@@ -1,0 +1,312 @@
+[
+  {
+    "number": 8,
+    "position": "photo-top",
+    "label": "썸네일 상단",
+    "card": {
+      "h": 183,
+      "w": 352,
+      "x": 16,
+      "y": 357
+    },
+    "content": {
+      "h": 158,
+      "w": 204,
+      "x": 164,
+      "y": 369
+    },
+    "headline": {
+      "h": 16,
+      "w": 136,
+      "x": 16,
+      "y": 369
+    },
+    "headlineOverflow": true,
+    "photo": {
+      "h": 136,
+      "w": 136,
+      "x": 16,
+      "y": 389
+    },
+    "viewportOverflow": false
+  },
+  {
+    "number": 9,
+    "position": "side-label",
+    "label": "이미지·정보 사이",
+    "card": {
+      "h": 183,
+      "w": 352,
+      "x": 16,
+      "y": 357
+    },
+    "content": {
+      "h": 158,
+      "w": 186,
+      "x": 182,
+      "y": 369
+    },
+    "headline": {
+      "h": 136,
+      "w": 18,
+      "x": 158,
+      "y": 369
+    },
+    "headlineOverflow": true,
+    "photo": {
+      "h": 136,
+      "w": 136,
+      "x": 16,
+      "y": 369
+    },
+    "viewportOverflow": false
+  },
+  {
+    "number": 10,
+    "position": "photo-caption",
+    "label": "썸네일 하단 캡션",
+    "card": {
+      "h": 196,
+      "w": 352,
+      "x": 16,
+      "y": 357
+    },
+    "content": {
+      "h": 171,
+      "w": 204,
+      "x": 164,
+      "y": 369
+    },
+    "headline": {
+      "h": 30,
+      "w": 136,
+      "x": 16,
+      "y": 510
+    },
+    "headlineOverflow": false,
+    "photo": {
+      "h": 136,
+      "w": 136,
+      "x": 16,
+      "y": 369
+    },
+    "viewportOverflow": false
+  },
+  {
+    "number": 11,
+    "position": "overlay-center",
+    "label": "사진 중앙 오버레이",
+    "card": {
+      "h": 183,
+      "w": 352,
+      "x": 16,
+      "y": 357
+    },
+    "content": {
+      "h": 158,
+      "w": 204,
+      "x": 164,
+      "y": 369
+    },
+    "headline": {
+      "h": 23,
+      "w": 120,
+      "x": 24,
+      "y": 425
+    },
+    "headlineOverflow": true,
+    "photo": {
+      "h": 136,
+      "w": 136,
+      "x": 16,
+      "y": 369
+    },
+    "viewportOverflow": false
+  },
+  {
+    "number": 12,
+    "position": "overlay-bottom",
+    "label": "사진 하단 오버레이",
+    "card": {
+      "h": 183,
+      "w": 352,
+      "x": 16,
+      "y": 357
+    },
+    "content": {
+      "h": 158,
+      "w": 204,
+      "x": 164,
+      "y": 369
+    },
+    "headline": {
+      "h": 23,
+      "w": 120,
+      "x": 24,
+      "y": 448
+    },
+    "headlineOverflow": true,
+    "photo": {
+      "h": 136,
+      "w": 136,
+      "x": 16,
+      "y": 369
+    },
+    "viewportOverflow": false
+  },
+  {
+    "number": 13,
+    "position": "meta-top",
+    "label": "지역 위",
+    "card": {
+      "h": 203,
+      "w": 352,
+      "x": 16,
+      "y": 357
+    },
+    "content": {
+      "h": 178,
+      "w": 204,
+      "x": 164,
+      "y": 369
+    },
+    "headline": {
+      "h": 17,
+      "w": 204,
+      "x": 164,
+      "y": 485
+    },
+    "headlineOverflow": false,
+    "photo": {
+      "h": 136,
+      "w": 136,
+      "x": 16,
+      "y": 369
+    },
+    "viewportOverflow": false
+  },
+  {
+    "number": 14,
+    "position": "after-location",
+    "label": "지역 아래",
+    "card": {
+      "h": 203,
+      "w": 352,
+      "x": 16,
+      "y": 357
+    },
+    "content": {
+      "h": 178,
+      "w": 204,
+      "x": 164,
+      "y": 369
+    },
+    "headline": {
+      "h": 17,
+      "w": 204,
+      "x": 164,
+      "y": 506
+    },
+    "headlineOverflow": false,
+    "photo": {
+      "h": 136,
+      "w": 136,
+      "x": 16,
+      "y": 369
+    },
+    "viewportOverflow": false
+  },
+  {
+    "number": 15,
+    "position": "after-seller",
+    "label": "판매자 아래",
+    "card": {
+      "h": 204,
+      "w": 352,
+      "x": 16,
+      "y": 357
+    },
+    "content": {
+      "h": 179,
+      "w": 204,
+      "x": 164,
+      "y": 369
+    },
+    "headline": {
+      "h": 17,
+      "w": 204,
+      "x": 164,
+      "y": 531
+    },
+    "headlineOverflow": false,
+    "photo": {
+      "h": 136,
+      "w": 136,
+      "x": 16,
+      "y": 369
+    },
+    "viewportOverflow": false
+  },
+  {
+    "number": 16,
+    "position": "price-inline",
+    "label": "가격 우측",
+    "card": {
+      "h": 183,
+      "w": 352,
+      "x": 16,
+      "y": 357
+    },
+    "content": {
+      "h": 158,
+      "w": 204,
+      "x": 164,
+      "y": 369
+    },
+    "headline": {
+      "h": 17,
+      "w": 100,
+      "x": 268,
+      "y": 432
+    },
+    "headlineOverflow": true,
+    "photo": {
+      "h": 136,
+      "w": 136,
+      "x": 16,
+      "y": 369
+    },
+    "viewportOverflow": false
+  },
+  {
+    "number": 17,
+    "position": "spec-inline",
+    "label": "스펙 우측",
+    "card": {
+      "h": 183,
+      "w": 352,
+      "x": 16,
+      "y": 357
+    },
+    "content": {
+      "h": 158,
+      "w": 204,
+      "x": 164,
+      "y": 369
+    },
+    "headline": {
+      "h": 18,
+      "w": 88,
+      "x": 280,
+      "y": 412
+    },
+    "headlineOverflow": true,
+    "photo": {
+      "h": 136,
+      "w": 136,
+      "x": 16,
+      "y": 369
+    },
+    "viewportOverflow": false
+  }
+]

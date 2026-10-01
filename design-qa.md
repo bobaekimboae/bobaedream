@@ -1,55 +1,65 @@
-# Design QA — 매물 설명 제목 7개 위치 비교
+# Design QA — 매물 설명 제목 17개 위치 비교
 
 ## Comparison target
 
-- Source state: `reports/luxury-ui-test-20261002/mobile-list-title-above-384.jpg` — 제조사·모델까지 썸네일 위로 이동한 잘못된 중간안.
-- Implemented comparison: `reports/luxury-ui-test-20261002/title-position-7-variants-contact-sheet.png`.
-- Individual captures: `title-position-1-top.png` through `title-position-7-overlay.png` in the same directory.
-- Browser geometry audit: `reports/luxury-ui-test-20261002/title-position-7-variants-metrics.json`.
-- Mobile viewport: 384 × 832 CSS px.
-- Density normalization: source and implementation are both 1× CSS-pixel captures; no resampling was needed.
-- State: luxury30, update sort, list page 1; feed page 1; PC list page 1.
+- Source visual truth: `reports/luxury-ui-test-20261002/mobile-list-headline-above-384.jpg`.
+- Rendered comparison: `reports/luxury-ui-test-20261002/title-position-all-17-contact-sheet.png`.
+- New variants comparison: `reports/luxury-ui-test-20261002/title-position-8-17-contact-sheet.png`.
+- Individual rendered captures: `title-position-1-top.png` through `title-position-17-spec-inline.png` in the same directory.
+- Browser geometry evidence: `title-position-7-variants-metrics.json` and `title-position-8-17-metrics.json`.
+- Viewport: 384 × 832 CSS px; screenshots are 384 × 832 px at 1× density.
+- State: luxury30, update sort, list page 1, light theme.
 
-## Dataset verification
+## Position inventory
 
-- Scenario rows: 30; image files: 30; unique filenames: 30; unique image hashes: 30.
-- Scenario sequence and filename prefix both match 001–030 exactly.
-- Rendered pagination: page 1 = 20 cards, page 2 = 10 cards.
-- Browser mapping spot-check: 001 → first card, 020 → page-1 last card, 021 → page-2 first card, 030 → final card.
-- All rendered images loaded; no image 404, warning, or console error.
-
-## Seven positions
-
-- `top`: full-width above the image/content row. Highest headline visibility, but adds the most vertical emphasis.
-- `before-model`: first item in the information column. Fast visibility, but competes with the primary car name and wish action.
-- `after-model`: below manufacturer/model and detail model. Best balance; preserves car-name priority and keeps the headline close to the identity block.
-- `after-spec`: below year/mileage/fuel. Understandable sequence, but description and price become visually crowded.
-- `after-price`: below price/badges. Preserves purchase information priority, but headline reads late and weakens location spacing.
-- `bottom`: full-width below the image/content row. Clean main block, but the headline is detached from the car identity.
-- `overlay`: top of the thumbnail. Most compact card, but obscures vehicle imagery and truncates long headlines.
-
-## Recommendation
-
-- Primary recommendation: `after-model`.
-- Secondary choice when promotional copy must be dominant: `top`.
-- Avoid as a default: `before-model` and `overlay`, because they compete with the wish action or the vehicle image.
+1. Full-width card top
+2. Before manufacturer/model
+3. After detail model
+4. After vehicle specs
+5. After price/badges
+6. Full-width card bottom
+7. Thumbnail top overlay
+8. Above thumbnail
+9. Vertical label between thumbnail and information
+10. Caption below thumbnail
+11. Thumbnail center overlay
+12. Thumbnail bottom overlay
+13. Above location
+14. Below location
+15. Below seller
+16. Inline to the right of price
+17. Inline to the right of specs
 
 ## Findings
 
-- No actionable P0, P1, or P2 implementation issue remains across the seven query-controlled variants.
-- The existing information structure remains `제조사·모델` on the first line and `세부모델` on the second line in every variant.
-- Existing thumbnail, spec, price, badge, location, seller, wish action, and bottom navigation styles were not changed.
-- First-card geometry at 384px: card height ranges from 183px (`overlay`) to 211px (`top`/`bottom`); thumbnail remains exactly 136×136px in all variants.
-- The full headline fits without text overflow in six positions. `overlay` intentionally truncates to preserve the thumbnail and demonstrates its limitation as a default.
+- No P0/P1/P2 implementation defect remains. All 17 routes render independently and retain the existing car data and controls.
+- Typography: the model/trim hierarchy remains unchanged in every variant. The headline uses secondary weight and color except for image overlays, which use white text on a dark translucent surface.
+- Spacing/layout: all variants fit the 384px viewport without horizontal overflow. Card heights range from 183px to 211px; the 136×136px thumbnail remains unchanged.
+- Colors/tokens: the original white surface, text, badge, location, and seller tokens remain unchanged. New overlay backgrounds are limited to image-bound variants.
+- Image quality: source images, crop, `object-fit: cover`, 136×136px dimensions, and 8px radius are unchanged.
+- Copy/content: every variant uses the same listing headline, model, detail model, specs, price, badges, complex, and seller.
+- Positions 7, 8, 9, 11, 12, 16, and 17 intentionally truncate the long headline; the captures make that tradeoff visible rather than hiding it.
+
+## Consultant recommendation
+
+- Best default: 3, after detail model. It preserves car-name priority and keeps the headline close to vehicle identity.
+- Best alternative for stronger promotional emphasis: 1, full-width card top.
+- Best compact alternative: 10, caption below thumbnail, provided a two-line headline is acceptable.
+- Avoid as default: 9, 11, 12, 16, and 17 because they reduce image or data readability.
+
+## Focused comparison
+
+- A combined 17-up contact sheet was required because the requested decision is comparative hierarchy, not pixel matching to one source.
+- Individual 384×832 captures verify text collision, truncation, thumbnail preservation, card height, and the relationship to price/location/seller regions.
 
 ## Verification
 
 - `npm run check:runtime`: passed (28 protected files unchanged).
 - `npm run build`: passed.
 - `npm run test:sites`: passed (4/4).
-- 30-row heading map: passed.
-- Seven 384px list variants rendered and captured: passed.
-- First-card geometry and overflow audit: passed, with the documented overlay truncation.
+- 17 route variants at 384px: passed.
+- Horizontal viewport overflow: none.
+- Thumbnail size: 136×136px in all measured variants.
 - Browser console errors: none.
 
 final result: passed

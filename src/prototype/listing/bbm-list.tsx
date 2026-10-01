@@ -7,7 +7,11 @@ import "./bbm-tokens.css";
 
 export const bbmIcon = (name: string) => asset(`bbm/${name}.svg`);
 
-const headlinePositions = ["top", "before-model", "after-model", "after-spec", "after-price", "bottom", "overlay"] as const;
+const headlinePositions = [
+  "top", "before-model", "after-model", "after-spec", "after-price", "bottom", "overlay",
+  "photo-top", "side-label", "photo-caption", "overlay-center", "overlay-bottom",
+  "meta-top", "after-location", "after-seller", "price-inline", "spec-inline",
+] as const;
 type HeadlinePosition = (typeof headlinePositions)[number];
 
 function getHeadlinePosition(): HeadlinePosition {
@@ -73,34 +77,43 @@ export function BbmResultCard({ car, variant, liked, onToggleLike, onOpen, onCha
   const headlinePosition = car.uiTest ? getHeadlinePosition() : null;
   const headline = car.uiTest ? <strong className={`bbm-card-headline is-${headlinePosition}`}>{car.uiTest.headline}</strong> : null;
   const headlineAt = (position: HeadlinePosition) => headlinePosition === position ? headline : null;
+  const photo = (
+    <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`}>
+      {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} style={{ objectPosition: car.imagePosition ?? "center center" }} /> : null}
+      {headlineAt("overlay")}
+      {headlineAt("overlay-center")}
+      {headlineAt("overlay-bottom")}
+      <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span><span className="bbm-card-count">{car.photos}<img src={bbmIcon("card-photo-count")} alt="" /></span></div>
+    </div>
+  );
+  const photoNeedsCaption = headlinePosition === "photo-top" || headlinePosition === "photo-caption";
   const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (event.key === "Enter" || event.key === " ") { event.preventDefault(); onOpen(); }
   };
   return (
-    <article className={`bbm-result-card is-${variant}${badges.length ? " has-badges" : " has-no-badges"}${car.uiTest ? " is-ui-test" : ""}`} role="link" tabIndex={0} aria-label={`${car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
+    <article className={`bbm-result-card is-${variant}${badges.length ? " has-badges" : " has-no-badges"}${car.uiTest ? ` is-ui-test headline-${headlinePosition}` : ""}`} role="link" tabIndex={0} aria-label={`${car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
       {headlineAt("top")}
       <div className="bbm-card-main">
         {/* 사진이 없는 매물은 원본처럼 빈 회색 칸(car-list-result-card__image 배경 #EBEBEB) */}
-        <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`}>
-          {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} style={{ objectPosition: car.imagePosition ?? "center center" }} /> : null}
-          {headlineAt("overlay")}
-          <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span><span className="bbm-card-count">{car.photos}<img src={bbmIcon("card-photo-count")} alt="" /></span></div>
-        </div>
+        {photoNeedsCaption ? <div className="bbm-card-photo-column">{headlineAt("photo-top")}{photo}{headlineAt("photo-caption")}</div> : photo}
+        {headlineAt("side-label")}
         <div className="bbm-card-content">
           <div className="bbm-card-text">
             {headlineAt("before-model")}
             {title}
             {headlineAt("after-model")}
-            <span className="bbm-card-spec">{bbmCardSpec(car, variant === "pc")}</span>
+            {headlinePosition === "spec-inline" ? <div className="bbm-card-spec-inline-row"><span className="bbm-card-spec">{bbmCardSpec(car, variant === "pc")}</span>{headlineAt("spec-inline")}</div> : <span className="bbm-card-spec">{bbmCardSpec(car, variant === "pc")}</span>}
             {headlineAt("after-spec")}
             <div className="bbm-card-price-badges">
-              <strong className="bbm-card-price"><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</strong>
+              {headlinePosition === "price-inline" ? <div className="bbm-card-price-inline-row"><strong className="bbm-card-price"><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</strong>{headlineAt("price-inline")}</div> : <strong className="bbm-card-price"><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</strong>}
               {badges.length ? <div className="bbm-card-badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}
             </div>
             {headlineAt("after-price")}
           </div>
           <div className="bbm-card-meta">
+            {headlineAt("meta-top")}
             <div className="bbm-card-location"><img src={bbmIcon("card-location")} alt="" aria-hidden="true" /><span className="bbm-card-location-text">{car.uiTest && car.sellerType === "개인" ? car.place : displayListPlace(car.place, car.sellerType)}</span></div>
+            {headlineAt("after-location")}
             <div className="bbm-card-meta-row">
               <div className="bbm-card-seller">
                 <img className="bbm-card-seller-logo" src={asset(sellerAvatar(car))} alt="" draggable={false} />
@@ -113,6 +126,7 @@ export function BbmResultCard({ car, variant, liked, onToggleLike, onOpen, onCha
                 </button>
               </div>
             </div>
+            {headlineAt("after-seller")}
           </div>
         </div>
       </div>
