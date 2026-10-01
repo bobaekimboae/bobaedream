@@ -97,9 +97,12 @@ const debugMode = new URLSearchParams(window.location.search).get("debug") === "
 const bbmPartsMode = new URLSearchParams(window.location.search).get("bbmparts") === "1";
 
 // 노션 FilterHeader 원본을 기본안과 분리해 비교하는 전용 테스트 모드
-const bbmFilterIconName = new URLSearchParams(window.location.search).get("filtericon") === "filterheader"
+const bbmFilterIconQuery = new URLSearchParams(window.location.search).get("filtericon");
+const bbmFilterIconName = bbmFilterIconQuery === "filterheader"
   ? "chip-filter-funnel"
-  : "chip-filter-controls";
+  : bbmFilterIconQuery === "airbnb2"
+    ? "chip-filter-airbnb-2"
+    : "chip-filter-controls";
 
 let detailScreen: FlowScreen;
 let savedListingsScreen: FlowScreen;
