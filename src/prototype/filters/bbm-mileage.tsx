@@ -116,7 +116,7 @@ function DualSlider({ min, max, onChange, onCommit }: { min: number; max: number
               aria-label={which === "min" ? "최소 주행거리" : "최대 주행거리"} aria-valuemin={0} aria-valuemax={MILEAGE_MAX} aria-valuenow={value} aria-valuetext={which === "min" ? minText : maxText}
               onKeyDown={key(which)} onKeyUp={keyEnd} onFocus={() => setShown(which)} onBlur={() => setShown(null)}>
               <span className="mf-handle-dot" aria-hidden="true" />
-              <output className={`mf-bubble${shown === which ? " is-visible" : ""}${pct(value) >= 0.9 ? " is-edge-right" : pct(value) <= 0.1 ? " is-edge-left" : ""}`} aria-hidden="true">{which === "min" ? minText : maxText}</output>
+              <output className={`mf-bubble${shown === which ? " is-visible" : ""}${value >= MILEAGE_MAX ? " is-edge-right" : value <= 0 ? " is-edge-left" : ""}`} aria-hidden="true">{which === "min" ? minText : maxText}</output>
             </button>
           );
         })}
