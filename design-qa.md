@@ -1,35 +1,36 @@
-# Design QA — FilterHeader 필터 아이콘 교체
+# Design QA — 2줄 필터 아이콘 교정
 
 ## Comparison target
 
-- Source visual truth: Notion `0_0_필터 FilterHeader` 페이지의 첨부 원본 `FilterHeader.svg` (`https://app.notion.com/p/0_0_-FilterHeader-3e8ee9c4b60680bfb099f7caa82d2f3c`).
-- Source asset path: in-app Browser에서 연 원본 Notion SVG URL과 `pageAssets`가 확인한 인라인 SVG 원본.
-- Implementation screenshot path: 이 작업의 Codex `@Browser` 캡처(로컬 탭 44, 384 × 832)와 결합 비교 캡처(로컬 탭 45, 760 × 420).
-- Browser-rendered implementation: `http://127.0.0.1:5173/?qf=guazi&scenario=luxury30&titlepos=after-model`.
+- Source visual truth: 직전 승인본 `svgexport-20_24_chotot.svg`와 Git 커밋 `d34e051`의 2줄 필터 아이콘.
+- Source asset path: `git show d34e051:public/assets/bbm/chip-filter-funnel.svg`.
+- Implementation screenshot path: 이 작업의 Codex `@Browser` 로컬 렌더링 검수(탭 50).
+- Browser-rendered implementation: `http://127.0.0.1:5173/?qf=guazi&scenario=luxury30&titlepos=after-model&v=2stage`.
 - Viewport: 384 × 832 CSS px.
-- State: 럭셔리 UI 테스트 가상 매물 30대, 목록형, 라이트 테마, 필터 미적용.
-- Source asset: 24 × 24 vector (`viewBox="0 0 24 24"`). Implementation pixels: 384 × 832. CSS viewport: 384 × 832. Device pixel ratio: 1. Density normalization: SVG를 기존 필터 칩의 20 × 20 CSS px 슬롯에 렌더링.
+- State: 럭셔리 UI 테스트 가상 매물, 목록형, 라이트 테마, 필터 미적용.
+- Source asset: 24 × 24 vector, `viewBox="0 0 16 16"`. 표시 크기: 20 × 20 CSS px. Device pixel ratio: 1.
 
 ## Findings
 
 - No actionable P0/P1/P2 mismatch remains.
-- 노션 첨부 SVG의 경로·`currentColor`·24px 뷰박스를 공용 필터 자산에 그대로 적용했다.
-- 새 아이콘은 세 개의 조절 손잡이가 있는 `FilterHeader` 형태를 사용한다.
+- 사용자가 제외 요청한 3줄 조절형을 제거하고, 직전 승인된 2줄 조절형을 새 자산명 `chip-filter-controls.svg`로 적용했다.
+- 캐시된 3줄 아이콘이 다시 보이지 않도록 기존 파일명을 재사용하지 않았다.
 - 전체 화면 비교에서 필터 칩의 폭 92px, 높이 32px, 라벨과 주변 칩 간격은 기존과 같다.
-- 집중 비교에서 원본의 세 손잡이 위치, 획의 시각적 무게, 중심 정렬이 구현 화면과 일치한다.
 - 폰트·타이포그래피, 간격·레이아웃 리듬, 색상 토큰, 차량 이미지 품질, 문구는 변경하지 않았다.
 
 ## Interaction verification
 
 - SVG 로드 완료: 원본 24 × 24, 표시 20 × 20px.
-- 필터 버튼 실측: 92 × 32px, 아이콘 세로 중앙 정렬.
+- 필터 버튼 실측: 92 × 32px.
 - 필터 버튼 클릭 시 전체 필터 dialog가 열리고 닫기 버튼으로 정상 복귀한다.
 - 384px 화면에서 가로 넘침 없음.
 - 브라우저 콘솔 오류 없음.
 
 ## Comparison history
 
-- 최초 비교에서 P0/P1/P2 차이 없음. 원본 아이콘 교체 외의 시각 변경은 발생하지 않았다.
+- 이전 배포본 P1: 사용 의도와 다른 3줄 조절 아이콘.
+- 수정: 직전 승인된 2줄 필터 아이콘으로 교체하고 새 파일명으로 캐시를 분리했다.
+- 수정 후 증거: 384 × 832 브라우저 렌더링에서 `/assets/bbm/chip-filter-controls.svg`, 20 × 20px 표시, dialog 동작, 콘솔 오류 0건을 확인했다.
 
 ## Verification
 
