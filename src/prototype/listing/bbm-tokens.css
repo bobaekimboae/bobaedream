@@ -259,6 +259,24 @@
 .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-wish-on { width: 28px; height: 28px; }
 .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-actions img { filter: brightness(0) invert(1); }
 .bbm-m-list.is-gallery > .car-list-pagination { grid-column: 1 / -1; }
+/* 모바일 텍스트 보기: 사진·판매자 상세를 덜어내고 핵심 매물 정보만 한 행에 압축한다. */
+.bbm-m-list.is-text .bbm-result-card.is-mobile { min-height: 116px; padding: 14px 36px 14px 0; box-sizing: border-box; }
+.bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-main { display: block; }
+.bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-photo { display: none; }
+.bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-content { gap: 6px; }
+.bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-text { height: auto; gap: 2px; }
+.bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-title { display: block; overflow: hidden; font-size: 15px; line-height: 21px; text-overflow: ellipsis; white-space: nowrap; }
+.bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-spec { height: 20px; color: var(--bbm-tab-inactive); font-size: 13px; line-height: 20px; }
+.bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-price-badges { display: flex; height: 24px; flex-direction: row; align-items: center; gap: 8px; }
+.bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-price { height: 24px; font-size: 16px; line-height: 24px; }
+.bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-badges { height: 20px; }
+.bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-location { height: 20px; font-size: 13px; line-height: 18px; }
+.bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-meta-row { height: 0; margin: 0; }
+.bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-seller { display: none; }
+.bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-actions { position: absolute; top: 14px; right: 0; }
+.bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-actions button,
+.bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-actions img,
+.bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-wish-on { width: 24px; height: 24px; }
 /* 하단 탭바 74 */
 .bbm-bottom-gnb { position: absolute; right: 0; bottom: 0; left: 0; z-index: 30; height: 74px; padding-top: 5px; box-sizing: border-box; }
 .bbm-bottom-gnb__background { position: absolute; top: 0; left: -1px; width: 100%; height: 75px; pointer-events: none; }

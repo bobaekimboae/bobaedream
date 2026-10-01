@@ -457,7 +457,7 @@ function MarketplaceScreen() {
   const [bbmSort, setBbmSort] = useState<BbmSort>("업데이트순");
   const [bbmPage, setBbmPage] = useState(1);
   const [bbmMenu, setBbmMenu] = useState<"sort" | "view" | "m-sort" | "m-view" | null>(null);
-  const [bbmMobileView, setBbmMobileView] = useState<"목록으로 보기" | "갤러리로 보기">("목록으로 보기");
+  const [bbmMobileView, setBbmMobileView] = useState<"목록으로 보기" | "갤러리로 보기" | "텍스트로 보기">("목록으로 보기");
   // 모바일 칩 줄이 가로로 밀려 있으면 "필터" 칩을 아이콘만 + 오른쪽 구분선(원본 is-scrolled)
   const [bbmRailScrolled, setBbmRailScrolled] = useState(false);
   const pcFilterRowRef = useRef<HTMLDivElement>(null);
@@ -1243,7 +1243,7 @@ function MarketplaceScreen() {
   const chooseBbmSort = (option: string) => { setBbmSort(option as BbmSort); setBbmMenu(null); };
   const chooseBbmView = (option: string) => {
     setBbmMenu(null);
-    if (option === "목록으로 보기" || option === "갤러리로 보기") {
+    if (option === "목록으로 보기" || option === "갤러리로 보기" || option === "텍스트로 보기") {
       setBbmMobileView(option);
       return;
     }
@@ -1627,7 +1627,7 @@ function MarketplaceScreen() {
               <BbmSellerTabs tabs={["전체", "개인", "딜러"] as SellerType[]} value={sellerType} onChange={(tab) => setFilters((current) => ({ ...current, seller: tab }))} onBrand={() => setSearchToast("브랜드 매물은 정식 서비스에서 이용해 주세요.")} />
               <button type="button" className="bbm-m-view" aria-label="보기 방식 선택" onClick={() => setBbmMenu("m-view")}><img src={bbmIcon("toolbar-view-list")} alt="" aria-hidden="true" /></button>
             </nav>
-            <section className={`bbm-m-list${bbmMobileView === "갤러리로 보기" ? " is-gallery" : ""}`} aria-live="polite">
+            <section className={`bbm-m-list${bbmMobileView === "갤러리로 보기" ? " is-gallery" : bbmMobileView === "텍스트로 보기" ? " is-text" : ""}`} aria-live="polite">
               {shownCars.length ? pagedCars.map((car) => <BbmResultCard key={car.id} car={car} variant="mobile" liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅은 정식 서비스에서 이용해 주세요.")} />) : carListItems}
               {shownCars.length ? <BbmPagination page={bbmPageNow} total={bbmPageCount} windowSize={3} onChange={goBbmPage} /> : null}
             </section>
