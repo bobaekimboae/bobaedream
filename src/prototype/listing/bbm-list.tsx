@@ -86,7 +86,7 @@ export function BbmResultCard({ car, variant, liked, onToggleLike, onOpen, onCha
             <div className="bbm-card-meta-row">
               <div className="bbm-card-seller">
                 <img className="bbm-card-seller-logo" src={asset(sellerAvatar(car))} alt="" draggable={false} />
-                <div className="bbm-card-seller-text"><strong>{seller}</strong>{car.sellerType === "딜러" ? <span className="bbm-card-seller-info"><b>{car.stock}대</b> 판매중</span> : null}</div>
+                <div className="bbm-card-seller-text"><strong>{seller}</strong></div>
               </div>
               <div className="bbm-card-actions">
                 {variant === "pc" ? <button type="button" aria-label={`${seller}에게 채팅`} onClick={(event) => { event.stopPropagation(); onChat(); }}><img src={bbmIcon("card-chat")} alt="" aria-hidden="true" /></button> : null}
