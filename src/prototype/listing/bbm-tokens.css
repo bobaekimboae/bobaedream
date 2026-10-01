@@ -241,6 +241,11 @@
 .bbm-result-card.is-mobile .bbm-card-seller-text strong { color: var(--bbm-text); }
 .bbm-result-card.is-mobile .bbm-card-actions button, .bbm-result-card.is-mobile .bbm-card-actions img { width: 20px; height: 20px; }
 .bbm-result-card.is-mobile .bbm-card-wish-on { width: 20px; height: 20px; }
+/* 당근형 배치: 목록·피드의 찜은 판매자 줄이 아니라 차명 첫째 줄 오른쪽에 둔다. */
+.bbm-m-list:not(.is-gallery):not(.is-text) .bbm-result-card.is-mobile .bbm-card-content { position: relative; }
+.bbm-m-list:not(.is-gallery):not(.is-text) .bbm-result-card.is-mobile .bbm-card-model { width: 100%; padding-right: 28px; box-sizing: border-box; }
+.bbm-m-list:not(.is-gallery):not(.is-text) .bbm-result-card.is-mobile .bbm-card-actions { position: absolute; top: -6px; right: -6px; z-index: 1; }
+.bbm-m-list:not(.is-gallery):not(.is-text) .bbm-result-card.is-mobile .bbm-card-actions button { width: 32px; height: 32px; }
 /* 모바일 갤러리 보기: 초톳처럼 2열 사진 카드. 기존 카드 DOM을 재배치해 목록/갤러리 전환 시 내용과 상태를 공유한다. */
 .bbm-m-list.is-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 12px; padding-top: 12px; padding-bottom: 20px; }
 .bbm-m-list.is-gallery .bbm-result-card.is-mobile { min-width: 0; padding: 0; border-bottom: 0; }
@@ -304,6 +309,8 @@
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-actions button,
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-actions img,
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-wish-on { width: 24px; height: 24px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-model { padding-right: 32px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-actions button { width: 36px; height: 36px; }
 /* 모바일 한줄 광고 보기: 모델 / 연식(연형) / 가격(만원) / 찜의 표 형태. */
 .bbm-m-list.is-one-line { padding-top: 12px; }
 .bbm-one-line-head,
