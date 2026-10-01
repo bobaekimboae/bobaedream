@@ -163,13 +163,23 @@
 ## Seller Type Sheet
 
 - The `판매자` quick-filter chip is pinned immediately after the fixed `필터` control on PC and mobile. When applied, its dark applied chip stays in the same position instead of moving into the general applied-chip group.
-- Guazi mobile `판매자 유형` uses a single-line header with no subtitle: header 64, left padding 24, title 20/28 750, divider 1px `#E8E8E8`.
-- Close control has a 44×44 hit area at top 10/right 20, a 24×24 visible X, and closes through the shared `BbmSheet` handler. Its history marker cleanup is Strict Mode-safe, so the sheet does not close immediately after opening in development.
-- Body starts 16 below the header and has 20 side padding. Rows are 54 high without a description and 68 with one; checkbox 20×20, icon box 32×32, and column gap 12.
-- Footer is 80 high with 20 side padding, 10 gap, a 92×52 reset action, and a remaining-width 52-high confirm action. The sheet keeps draft selection until confirmation; close, backdrop, Escape, and browser back discard it.
+- Guazi `판매자 유형` uses a 24px top-radius bottom sheet, `max-height: calc(100dvh - 36px)`, and `rgba(15,18,24,.48)` backdrop. Mobile is full width; PC preview is centered at the bottom with `max-width: 480px`. Header and footer stay fixed while only the body scrolls.
+- Header is 64 high with centered `판매자 유형` at 20/28 700 and a 1px `#E8E8E8` divider. Close control has a 44×44 hit area at top 10/right 16, a 24×24 visible X at 1.8px, and closes through the shared `BbmSheet` handler. Its history marker cleanup is Strict Mode-safe, so the sheet does not close immediately after opening in development.
+- Body starts 16 below the header and has 20 side padding. Rows are 56 high without a description and 68 with one. Layout is checkbox 20×20 → 12 gap → icon slot 32×32 (visible SVG max 24×24) → 12 gap → copy → right count. Title is 16/22 600, description 13/18 400, count 13/18 500. Dividers start at the title column and use `#E8E8E8`; the last row has none.
+- Checkbox uses a 2px `#D9D9D9` border when empty and `#222` fill/border with a white 14px, 3px-round-stroke check when selected. No yellow or blue selection background is used.
+- Footer is `80px + safe area` with 20 side padding, 10 gap, a 92×52 `초기화` action, and a remaining-width 52-high `N대 보기` action with radius 12 and `#222` background. The count is recalculated from the draft filters and actual deduplicated listing results.
+- The sheet keeps draft selection until `N대 보기` is pressed. Row presses update only draft checks and the footer count; close, backdrop, Escape, and browser back discard changes. `초기화` clears only the draft, and applying it returns to the full seller result set.
 
 ## Existing Mode Notes
 
 - Keep ChoTot and Dongchedi modes visually unchanged when working on Guazi-specific changes unless the user explicitly requests a shared change.
 - The default top quick-filter row keeps the fixed gray `필터` chip, black pinned `전체` category chip with clear icon, and scrollable conditions beginning `제조사`, `연식`, `가격`.
 - The category sheet keeps `중고차` expanded by default with `전체 중고차`, `국산차`, `수입차`, and `전기차` chips; its right arrow toggles only that child row.
+
+### 바디타입 바텀시트
+
+- 바디타입은 차의 용도가 아니라 외형 기준임을 제목 아래 설명한다.
+- 항목은 좌측부터 `20px 체크박스 → 32px 아이콘 슬롯 → 라벨` 순서의 단일 열 목록으로 표시한다.
+- 순서는 세단, 해치백, 왜건, 쿠페, 컨버터블, SUV, RV, 밴(승합), 픽업트럭, 리무진, 화물트럭, 버스, 캠핑카다.
+- 화물트럭·버스·캠핑카에는 별도 페이지를 뜻하는 새 창 아이콘을 오른쪽에 표시한다.
+- 선택은 시트 안의 임시 상태로 유지하고 `N대 보기`를 눌러야 외부 필터에 적용한다. 닫기·배경·Escape·뒤로가기는 임시 변경을 버린다.

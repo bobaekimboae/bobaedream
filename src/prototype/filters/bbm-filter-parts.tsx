@@ -24,11 +24,12 @@ export function BbmAccordion({ label, open, onToggle, path, onReset, children, c
 }
 
 // ── 체크 행. size="sidebar"(체크 17, 행 간격 33.6, 수 오른쪽 끝) / "modal"(체크 20, 행 간격 36, 수 이름 오른쪽 8)
-export function BbmCheckRow({ label, count, checked, onToggle, size = "modal" }: { label: string; count?: number | null; checked: boolean; onToggle: () => void; size?: "sidebar" | "modal" | "option" }) {
+export function BbmCheckRow({ label, count, checked, onToggle, size = "modal", leadingIcon }: { label: string; count?: number | null; checked: boolean; onToggle: () => void; size?: "sidebar" | "modal" | "option"; leadingIcon?: string }) {
   const disabled = count === 0 && !checked;
   return (
-    <button type="button" role="checkbox" aria-checked={checked} aria-disabled={disabled || undefined} disabled={disabled} className={`bbmf-check is-${size}${checked ? " is-checked" : ""}${disabled ? " is-disabled" : ""}`} onClick={onToggle}>
+    <button type="button" role="checkbox" aria-checked={checked} aria-disabled={disabled || undefined} disabled={disabled} className={`bbmf-check is-${size}${leadingIcon ? " has-leading-icon" : ""}${checked ? " is-checked" : ""}${disabled ? " is-disabled" : ""}`} onClick={onToggle}>
       <i className="bbmf-check-box" style={{ "--bbmf-check-icon": `url("${icon("check")}")` } as CSSProperties} aria-hidden="true" />
+      {leadingIcon ? <span className="bbmf-check-leading-icon" aria-hidden="true"><img src={asset(leadingIcon)} alt="" draggable={false} /></span> : null}
       <span className="bbmf-check-label">{label}</span>
       {count === null || count === undefined ? null : <span className="bbmf-check-count">{formatCount(count)}</span>}
     </button>
@@ -181,7 +182,7 @@ export function BbmModal({ title, titleIcon, onClose, footer, children, wide = f
 
 // ── 모바일 바텀시트: 제목 가운데 + 닫기, 아래 [초기화] + [N대 보기]
 // modalBody: 모바일 전체 필터 안 항목 시트(원본은 PC 모달과 같은 본문 — 여백 8/20, 매물 수는 이름 옆)
-export function BbmSheet({ title, subtitle, onClose, footer, children, flush = false, modalBody = false, onBack, variant = "default" }: { onBack?: () => void; title: string; subtitle?: string; onClose: () => void; footer?: ReactNode; children: ReactNode; flush?: boolean; modalBody?: boolean; variant?: "default" | "seller" }) {
+export function BbmSheet({ title, subtitle, onClose, footer, children, flush = false, modalBody = false, onBack, variant = "default" }: { onBack?: () => void; title: string; subtitle?: string; onClose: () => void; footer?: ReactNode; children: ReactNode; flush?: boolean; modalBody?: boolean; variant?: "default" | "seller" | "body-type" }) {
   const titleId = useId();
   const closeRef = useRef<HTMLButtonElement | null>(null);
   const onCloseRef = useRef(onClose);
@@ -225,9 +226,11 @@ export function BbmSheet({ title, subtitle, onClose, footer, children, flush = f
   }, [titleId]);
 
   const seller = variant === "seller";
+  const bodyType = variant === "body-type";
+  const refined = seller || bodyType;
   return createPortal(
-    <div className={`bbmf-overlay is-sheet${seller ? " is-seller-overlay" : ""}`} onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}>
-      <section className={`bbmf-sheet${modalBody ? " is-modal-body" : ""}${seller ? " is-seller" : ""}`} role="dialog" aria-modal="true" aria-labelledby={titleId}>
+    <div className={`bbmf-overlay is-sheet${refined ? " is-seller-overlay" : ""}`} onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}>
+      <section className={`bbmf-sheet${modalBody ? " is-modal-body" : ""}${seller ? " is-seller" : ""}${bodyType ? " is-body-type" : ""}`} role="dialog" aria-modal="true" aria-labelledby={titleId}>
         {/* QF-111: onBack 이 있으면 제목 앞 "←"(누르면 이전 단계) */}
         <header className="bbmf-sheet-header"><div className="bbmf-sheet-heading">{onBack ? <h3 id={titleId}><button type="button" className="bbmf-sheet-back" aria-label={`${title} 뒤로`} onClick={onBack}>← {title}</button></h3> : <h3 id={titleId}>{title}</h3>}{subtitle ? <p>{subtitle}</p> : null}</div><CloseButton buttonRef={closeRef} onClose={onClose} /></header>
         <div className={`bbmf-sheet-body${flush ? " is-flush" : ""}`}>{children}</div>

@@ -153,7 +153,7 @@ export type BbmCarLike = {
   price?: string;
   filter?: { year: number; seats: string; mileage: number; transmission: string; fuel: string; color: string; origin: string; body: string; video: boolean };
 };
-const bodyTypeByBody: Record<string, string> = { 세단: "승용", 해치백: "승용", 왜건: "승용", SUV: "SUV", RV: "RV", 승합: "승합", 스포츠카: "쿠페", 쿠페: "쿠페", 컨버터블: "컨버터블", 화물: "화물" };
+const bodyTypeByBody: Record<string, string> = { 세단: "세단", 해치백: "해치백", 왜건: "왜건", SUV: "SUV", RV: "RV", 승합: "밴(승합)", 스포츠카: "쿠페", 쿠페: "쿠페", 컨버터블: "컨버터블", 화물: "화물트럭", 픽업트럭: "픽업트럭", 리무진: "리무진", 버스: "버스", 캠핑카: "캠핑카" };
 const fuelByFuel: Record<string, string> = { 가솔린: "가솔린", 디젤: "디젤", LPG: "LPG", 전기: "전기", 하이브리드: "가솔린 하이브리드" };
 const transmissionByValue: Record<string, string> = { 오토: "자동", 자동: "자동", CVT: "자동", 수동: "수동" };
 const colorByValue: Record<string, string> = { 흰색: "흰색", 검정: "검정색", 회색: "쥐색", 은색: "은색", 빨강: "빨간색", 노랑: "노란색", 파랑: "청색", 초록: "녹색" };
@@ -166,7 +166,7 @@ export function bbmCarChecks(car: BbmCarLike): Partial<Record<BbmCheckKey, strin
     district: car.place && car.place.split(" ").length > 1 ? [car.place.split(" ").slice(0, 2).join(" ")] : [],
   };
   if (!data) return values;
-  values.bodyType = bodyTypeByBody[data.body] ? [bodyTypeByBody[data.body]] : ["기타"];
+  values.bodyType = bodyTypeByBody[data.body] ? [bodyTypeByBody[data.body]] : [];
   values.seats = data.seats ? [data.seats.replace(" 이상", "")] : [];
   values.fuel = fuelByFuel[data.fuel] ? [fuelByFuel[data.fuel]] : ["기타"];
   values.transmission = transmissionByValue[data.transmission] ? [transmissionByValue[data.transmission]] : [];

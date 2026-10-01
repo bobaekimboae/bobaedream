@@ -70,7 +70,7 @@ import { MileageFinalSheet, mileageSummary } from "../filters/bbm-mileage";
 import { BbmPartsGallery } from "../filters/bbm-parts-gallery";
 import { BbmActionBar, BbmFullExcludeAction, BbmFullFilter, BbmFullItem, BbmModal, BbmSheet } from "../filters/bbm-filter-parts";
 import { bbmFilterOrder, bbmSidebarItems, type BbmFilterItem } from "../filters/bbm-filter-options";
-import { BbmExpandPanel, BbmModalPanel, BbmSellerTypeSheet, clearBbmItem } from "../filters/bbm-filter-panels";
+import { BbmBodyTypeSheet, BbmExpandPanel, BbmModalPanel, BbmSellerTypeSheet, clearBbmItem } from "../filters/bbm-filter-panels";
 import { BbmBottomGnb, BbmCategoryMenu, BbmMakerList, BbmMobileOptions, BbmModelList, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
 import { KrBrandLogo, krRailLabel, krTopTenSections, krTypeTop10 } from "./bbm-brand-logos";
@@ -1345,6 +1345,7 @@ function MarketplaceScreen() {
     const item = bbmSidebarItems.find((entry) => entry.label === bbmChipPanel);
     if (!item) return null;
     if (item.checkKey === "sellerKind") return <BbmSellerTypeSheet value={bbmValue} countWith={countWithBbm} countOf={bbmCountOf} onApply={setBbmFilters} onClose={close} />;
+    if (item.checkKey === "bodyType") return <BbmBodyTypeSheet value={bbmValue} countWith={countWithBbm} countOf={bbmCountOf} onApply={setBbmFilters} onClose={close} />;
     // QF-117: 과쯔 주행거리 칩 — 모바일은 전용 바텀시트, PC 모달은 확정 시안 패널(즉시 반영)
     if (isGuaziQuickStyle && item.label === "주행거리" && !onDesktop) return <MileageFinalSheet value={bbmValue} countOf={countWithBbm} onApply={setBbmFilters} onClose={close} />;
     // QF-118: 과쯔 PC 주행거리 칩 → 가운데 모달(모바일 시트와 같은 내용, 임시 값 · "N대 보기"로 적용). 닫히면 주행거리 칩(적용 칩 포함)으로 포커스 복귀
@@ -1650,7 +1651,8 @@ function MarketplaceScreen() {
         {/* QF-117: 과쯔 모바일 주행거리는 전용 바텀시트(임시 값 · 대수 실시간 · 적용해야 확정) */}
         {bbmFullOpen && bbmFullItem && bbmFullItem !== "카테고리" && bbmFullItem.label === "주행거리" && isGuaziQuickStyle ? <MileageFinalSheet value={bbmValue} countOf={countWithBbm} onApply={setBbmFilters} onClose={closeFullItem} /> : null}
         {bbmFullOpen && bbmFullItem && bbmFullItem !== "카테고리" && bbmFullItem.checkKey === "sellerKind" ? <BbmSellerTypeSheet value={bbmValue} countWith={countWithBbm} countOf={bbmCountOf} onApply={setBbmFilters} onClose={closeFullItem} /> : null}
-        {bbmFullOpen && bbmFullItem && !(bbmFullItem !== "카테고리" && (bbmFullItem.checkKey === "sellerKind" || bbmFullItem.label === "주행거리" && isGuaziQuickStyle)) ? (
+        {bbmFullOpen && bbmFullItem && bbmFullItem !== "카테고리" && bbmFullItem.checkKey === "bodyType" ? <BbmBodyTypeSheet value={bbmValue} countWith={countWithBbm} countOf={bbmCountOf} onApply={setBbmFilters} onClose={closeFullItem} /> : null}
+        {bbmFullOpen && bbmFullItem && !(bbmFullItem !== "카테고리" && (bbmFullItem.checkKey === "sellerKind" || bbmFullItem.checkKey === "bodyType" || bbmFullItem.label === "주행거리" && isGuaziQuickStyle)) ? (
           <BbmSheet title={bbmFullItem === "카테고리" ? "카테고리" : bbmFullItem.modalTitle ?? bbmFullItem.label} modalBody={bbmFullItem !== "카테고리" && bbmFullItem.mode !== "expand"} onClose={closeFullItem} footer={<BbmActionBar variant="sheet" confirmStyle="보기" count={visibleCars.length} onReset={() => { if (bbmFullItem !== "카테고리") setSheetValue(clearBbmItem(bbmFullItem, sheetValue)); }} onConfirm={() => { setBbmFilters(sheetValue); closeFullItem(); }} />}>
             {bbmFullItem === "카테고리" ? <BbmCategoryMenu onChoose={(label) => { chooseVehicleCategory(label); setBbmFullItem(null); }} />
               : bbmFullItem.mode === "expand" ? <div className="bbmf-chip-expand"><BbmExpandPanel label={bbmFullItem.label} variant={bbmFullItem.label === "가격" ? "chip" : "sidebar"} value={sheetValue} onChange={setSheetValue} countOf={bbmCountOf} /></div>

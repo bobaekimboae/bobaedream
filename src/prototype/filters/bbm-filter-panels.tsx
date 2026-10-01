@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { ExternalLinkIcon } from "@radix-ui/react-icons";
 import { asset } from "../data";
 import { BbmCheckGrid, BbmCheckRow, BbmChoiceGrid, BbmColorChips, BbmKeywordInput, BbmPresetChips, BbmRangeInputs, BbmSelectBox, BbmSheet, BbmSlider, BbmTabs } from "./bbm-filter-parts";
 import { bbmAdPeriods, bbmCheckOptions, bbmOptionGroups, bbmRangePresets, type BbmFilterItem } from "./bbm-filter-options";
@@ -22,6 +23,72 @@ const sellerTypeOptions = [
   { label: "브랜드 인증", icon: "icons/seller-type/brand-certified.svg", description: "제조사가 공식 인증·보증하는 차량" },
   { label: "리스·렌트 제휴", icon: "icons/seller-type/lease-rent.svg", description: "리스·렌터카 제휴 차량" },
 ] as const;
+
+const bodyTypeIcons: Record<string, string> = {
+  "세단": "icons/body-type/sedan.svg",
+  "해치백": "icons/body-type/hatchback.svg",
+  "왜건": "icons/body-type/wagon.svg",
+  "SUV": "icons/body-type/suv.svg",
+  "RV": "icons/body-type/rv.svg",
+  "쿠페": "icons/body-type/coupe.svg",
+  "컨버터블": "icons/body-type/convertible.svg",
+  "밴(승합)": "icons/body-type/cargo-van.svg",
+  "픽업트럭": "icons/body-type/pickup.svg",
+  "리무진": "icons/body-type/limousine.svg",
+  "화물트럭": "icons/body-type/truck.svg",
+  "버스": "icons/body-type/bus.svg",
+  "캠핑카": "icons/body-type/camper.svg",
+};
+
+const externalBodyTypes = new Set(["화물트럭", "버스", "캠핑카"]);
+
+function BodyTypeList({ value, onChange, countOf }: PanelProps) {
+  return (
+    <div className="bbmf-body-type-list" role="group" aria-label="바디타입">
+      {bbmCheckOptions.bodyType.map((label) => {
+        const checked = Boolean(value.checks.bodyType?.includes(label));
+        const count = optionCount(countOf, "bodyType", label);
+        const external = externalBodyTypes.has(label);
+        return (
+          <button
+            key={label}
+            type="button"
+            role="checkbox"
+            aria-checked={checked}
+            className={`bbmf-body-type-row${checked ? " is-checked" : ""}`}
+            onClick={() => onChange(toggleBbmCheck(value, "bodyType", label))}
+          >
+            <i className="bbmf-seller-check" aria-hidden="true" />
+            <span className="bbmf-seller-icon" aria-hidden="true"><img src={asset(bodyTypeIcons[label])} alt="" draggable={false} /></span>
+            <span className="bbmf-body-type-label">{label}</span>
+            {external ? <ExternalLinkIcon className="bbmf-body-type-external" aria-label="별도 페이지에서 보기" /> : count === null || count === undefined ? null : <span className="bbmf-seller-count">{count.toLocaleString("ko-KR")}</span>}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+export function BbmBodyTypeSheet({ value, onApply, onClose, countWith, countOf }: { value: BbmFilterValues; onApply: (next: BbmFilterValues) => void; onClose: () => void; countWith: (next: BbmFilterValues) => number; countOf?: PanelProps["countOf"] }) {
+  const [draft, setDraft] = useState<BbmFilterValues>(() => ({
+    ...value,
+    checks: { ...value.checks, bodyType: [...(value.checks.bodyType ?? [])] },
+    order: [...(value.order ?? [])],
+  }));
+  const selected = draft.checks.bodyType ?? [];
+  const resultCount = countWith(draft);
+  return (
+    <BbmSheet
+      title="바디타입"
+      subtitle="차량의 용도가 아닌 외형을 기준으로 분류하는 필터입니다."
+      variant="body-type"
+      onClose={onClose}
+      footer={<div className="bbmf-seller-actions"><button type="button" className="bbmf-seller-reset" disabled={!selected.length} onClick={() => setDraft(setBbmChecks(draft, "bodyType", []))}>초기화</button><button type="button" className="bbmf-seller-confirm" onClick={() => { onApply(draft); onClose(); }}>{resultCount.toLocaleString("ko-KR")}대 보기</button></div>}
+    >
+      <BodyTypeList value={draft} onChange={setDraft} countOf={countOf} />
+    </BbmSheet>
+  );
+}
 
 function SellerTypeList({ value, onChange, countOf }: PanelProps) {
   return (
@@ -89,7 +156,7 @@ export function BbmSellerTypeSheet({
             disabled={!selected.length}
             onClick={() => setDraft(setBbmChecks(draft, "sellerKind", []))}
           >
-            전체 삭제
+            초기화
           </button>
           <button
             type="button"
@@ -98,9 +165,9 @@ export function BbmSellerTypeSheet({
               onApply(draft);
               onClose();
             }}
-            aria-label={`${resultCount.toLocaleString("ko-KR")}대 선택하기`}
+            aria-label={`${resultCount.toLocaleString("ko-KR")}대 보기`}
           >
-            선택하기
+            {resultCount.toLocaleString("ko-KR")}대 보기
           </button>
         </div>
       )}
@@ -131,7 +198,7 @@ const seatSwatches: Record<string, string> = {
 function CheckList({ checkKey, value, onChange, countOf, size = "modal", columns = 1 }: PanelProps & { checkKey: BbmCheckKey; size?: "modal" | "sidebar"; columns?: 1 | 2 }) {
   return (
     <BbmCheckGrid columns={columns} label={checkKey}>
-      {bbmCheckOptions[checkKey].map((option) => <BbmCheckRow key={option} size={size} label={option} count={optionCount(countOf, checkKey, option)} checked={Boolean(value.checks[checkKey]?.includes(option))} onToggle={() => onChange(toggleBbmCheck(value, checkKey, option))} />)}
+      {bbmCheckOptions[checkKey].map((option) => <BbmCheckRow key={option} size={size} label={option} count={optionCount(countOf, checkKey, option)} checked={Boolean(value.checks[checkKey]?.includes(option))} onToggle={() => onChange(toggleBbmCheck(value, checkKey, option))} leadingIcon={checkKey === "bodyType" ? bodyTypeIcons[option] : undefined} />)}
     </BbmCheckGrid>
   );
 }

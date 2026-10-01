@@ -7,7 +7,7 @@ export type BbmFilterMode = "expand" | "modal";
 export type BbmFilterItem = { label: string; mode: BbmFilterMode; modalTitle?: string; checkKey?: BbmCheckKey; rangeKey?: BbmRangeKey; columns?: 1 | 2 };
 
 export const bbmCheckOptions: Record<BbmCheckKey, string[]> = {
-  bodyType: ["승용", "SUV", "RV", "쿠페", "컨버터블", "승합", "화물", "기타"],
+  bodyType: ["세단", "해치백", "왜건", "쿠페", "컨버터블", "SUV", "RV", "밴(승합)", "픽업트럭", "리무진", "화물트럭", "버스", "캠핑카"],
   carClass: ["경형", "소형", "준중형", "중형", "대형"],
   region: ["서울", "부산", "대구", "인천", "광주", "전남광주", "대전", "울산", "세종", "경기", "충북", "충남", "전남", "경북", "경남", "제주", "강원", "전북"],
   // QF-111 구·군("서울 강남구" 형식, regions-kr.json 228개) — 퀵필터 지역 줄·모바일 지역 시트에서만 고른다
