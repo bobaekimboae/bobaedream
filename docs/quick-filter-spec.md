@@ -174,6 +174,18 @@
 - Footer is `80px + safe area` with 20 side padding, 10 gap, a 92×52 `초기화` action, and a remaining-width 52-high `N대 보기` action with radius 12 and `#222` background. The count is recalculated from the draft filters and actual deduplicated listing results.
 - The sheet keeps draft selection until `N대 보기` is pressed. Row presses update only draft checks and the footer count; close, backdrop, Escape, and browser back discard changes. `초기화` clears only the draft, and applying it returns to the full seller result set.
 
+## Mobile Listing Cards
+
+- These rules apply to the Guazi Bobaedream mobile listing (`.bbm-m-list`) at the 384px CSS-width reference. List and feed typography are intentionally different; do not merge their font-size rules.
+- A vehicle title is always two semantic rows, not one title that happens to wrap: row 1 is manufacturer + model (`.bbm-card-model`), and row 2 is detailed model/trim (`.bbm-card-trim`). Each row stays on one line and ellipsizes independently. Do not add an arbitrary margin between the detailed-model row and the specification row.
+- List view: title 15/19 600, specification 13px, location 13px, seller 12px, price 16px 700, and price unit 14px. Feed view: title 16/24, specification 14px, location 14px, price 17px 700, and price unit 14px.
+- List-view top-to-top rhythm: final title row → specification 24px, specification → price 20px, price → badge 17px, badge → location 36px, and location → seller 24px. Cards without a badge collapse the badge slot and use price → location 28px. Do not restore a fixed 195px minimum card height; the card follows its actual content.
+- Feed-view rhythm: image bottom → title 15px, title → specification 24px, specification → price 23px, price → location 28px, and location → seller 19px.
+- `판매중` is not shown in the mobile seller row. Removing a filter chip or badge must also remove its reserved space; price, location, and seller content move together according to the no-badge rhythm.
+- The location line uses `지역 · 단지명` for every non-private seller and region only for `개인`. A generic `매매단지` suffix is not accepted: use a real complex name from the KB차차차 regional complex master (`지역별_매매단지`) and keep the displayed region consistent with the complex's actual location.
+- Keep the canonical complex name in source data. Only the listing label is compacted: `자동차매매단지` and `매매단지` become `단지` (`강남자동차매매단지` → `강남단지`, `판교매매단지` → `판교단지`). Proper names such as `도이치오토월드`, `서울오토갤러리`, `성수모터시티`, and `제주오토파크` remain unchanged. Detail views may show the full canonical name.
+- Complex source checked on 2026-10-02: `https://docs.google.com/spreadsheets/d/1c9uhwF-a1qspoK8PgylBxKiruodytuvy/edit` (`KB차차차_지역별_매매단지_마스터_20260826.xlsx`). Treat it as read-only reference data.
+
 ## Existing Mode Notes
 
 - Keep ChoTot and Dongchedi modes visually unchanged when working on Guazi-specific changes unless the user explicitly requests a shared change.
