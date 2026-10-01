@@ -7,4 +7,11 @@
 .marketplace.is-bbm.is-qf-guazi .bbm-hybrid-top .bbm-filter-button { justify-content: center; width: 92px; min-width: 92px; box-sizing: border-box; }
 .marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-fixed { justify-content: center; width: 92px; min-width: 92px; }
 .marketplace.is-qf-guazi .bbm-filter-button b, .marketplace.is-qf-guazi .filter-fixed .filter-fixed-count { margin-left: 4px; }
-.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm.is-scrolled .filter-fixed:not(.is-applied) > span { display: inline; }
+/* 초톳 제스처: 칩 레일을 오른쪽으로 밀면 고정 필터 버튼은 아이콘형으로 줄고,
+   레일을 맨 앞으로 되돌리면 위의 92px "아이콘 + 필터 N" 형태로 복원된다. */
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm.is-scrolled .filter-fixed {
+  width: auto;
+  min-width: 36px;
+  padding: 4px 8px;
+}
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm.is-scrolled .filter-fixed > span { display: none; }
