@@ -56,7 +56,7 @@ export function BbmSellerTabs<T extends string>({ tabs, value, onChange, onBrand
   );
 }
 
-// ── 매물 카드(원본 car-list-result-card). variant pc: 사진 160, 마력 포함 / mobile: 사진 122×120, 마력 없음
+// ── 매물 카드(원본 car-list-result-card). variant pc: 사진 160, 마력 포함 / mobile 목록형: 사진 136×136, 마력 없음
 export function BbmResultCard({ car, variant, liked, onToggleLike, onOpen, onChat }: { car: Car; variant: "pc" | "mobile"; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void }) {
   const seller = sellerLabel(car);
   const badges = bbmCardBadges(car);
