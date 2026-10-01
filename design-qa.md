@@ -1,40 +1,44 @@
-# Design QA — 3단 조절 필터 아이콘 최종안
+# Design QA — 모바일 필터칩 내부 여백
 
 ## Comparison target
 
-- Source visual truth path: `public/assets/bbm/chip-filter-funnel.svg`의 FilterHeader 3단 조절 원본.
-- Implementation screenshot path: Codex in-app Browser 로컬 렌더링 캡처(`http://127.0.0.1:5173/?qf=guazi&scenario=luxury30&titlepos=after-model&v=three-final`).
-- Viewport: 384 × 832 CSS px, device pixel ratio 1.
-- Source pixels: 24 × 24 SVG viewBox. Implementation: 20 × 20 CSS px 표시.
-- State: 럭셔리 UI 테스트 가상 매물, 목록형, 라이트 테마, 필터 미적용.
-- Density normalization: 벡터 원본을 20 × 20 CSS px 슬롯에 비율 유지해 축소했다.
+- Source visual truth: live ChoTot mobile filter row, `https://xe.chotot.com/mua-ban-oto`.
+- Implementation: `http://127.0.0.1:5173/?qf=guazi&scenario=luxury30&titlepos=after-model`.
+- Viewport: both captures at 384 × 832 CSS px.
+- Compared state: light theme, top filter row visible, one selected category chip.
 
-## Findings
+## Measured result
 
-- No actionable P0/P1/P2 mismatch remains.
-- 세 개의 조절선과 원형 핸들이 모두 20px 슬롯 안에서 선명하게 보인다.
-- 필터 칩은 기존 92 × 32px이며 텍스트와 아이콘 중심선이 유지된다.
-- URL 테스트 파라미터와 관계없이 Guazi 필터 버튼은 3단 아이콘을 사용한다.
-- 폰트·타이포그래피, 간격·레이아웃 리듬, 색상 토큰, 차량 이미지, 문구는 변경하지 않았다.
+| Surface | ChoTot reference | Bobaedream after fix | Result |
+|---|---:|---:|---|
+| Row left/right screen margin | 16 / 16px | 16 / 16px | match |
+| Chip height | 32px | 32px | match |
+| Normal chip inline padding | 12 / 12px | 12 / 12px | match |
+| Selected chip inline padding | 12 / 12px | 12 / 12px | match |
+| Fixed filter chip inline padding | 12 / 12px | 12 / 12px | match |
+| Internal icon/text or text/control gap | 2px | 2px | match |
+| Fixed filter chip width | reference is content-sized | 92px | intentionally retained |
+
+## Fidelity surfaces
+
+- Layout and spacing: the Guazi mobile row keeps its existing 16px outer margin, 32px height, and 92px fixed filter control; only the asymmetric inner spacing was corrected.
+- Typography: unchanged.
+- Color and elevation: unchanged.
+- Images and icons: the selected three-control filter SVG is unchanged and remains centered.
+- Content and responsive behavior: chip labels, ordering, selected state, and horizontal scrolling behavior are unchanged; the 384px page has no horizontal document overflow.
 
 ## Interaction verification
 
-- SVG 로드: 자연 크기 24 × 24, 표시 크기 20 × 20px.
-- 필터 버튼: 92 × 32px.
-- 필터 dialog 열기 1개, 닫기 후 0개로 정상 복귀.
-- 384px 화면에서 가로 넘침 없음.
-- 브라우저 콘솔 오류 없음.
-
-## Comparison history
-
-- 이전 선택: 2단 조절 아이콘.
-- 사용자 최종 결정에 따라 3단 FilterHeader 원본을 기본값으로 전환했다.
-- 수정 후 전체 화면과 아이콘 집중 캡처에서 크기·정렬·주변 UI 회귀가 없음을 확인했다.
+- Filter dialog opens from the fixed filter chip and closes through its close button.
+- Dialog count changes from 0 → 1 → 0.
+- Browser console errors: none.
+- Document horizontal overflow at 384px: 0px.
 
 ## Verification
 
 - `npm run verify:qf`: passed.
 - Runtime integrity: 28 protected files unchanged.
 - TypeScript and Vite production build: passed.
+- P0/P1/P2 fidelity findings: none.
 
 final result: passed
