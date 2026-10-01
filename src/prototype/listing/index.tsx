@@ -96,6 +96,11 @@ const debugMode = new URLSearchParams(window.location.search).get("debug") === "
 // QF-076 부품 비교 화면(&bbmparts=1)
 const bbmPartsMode = new URLSearchParams(window.location.search).get("bbmparts") === "1";
 
+// 노션 FilterHeader 원본을 기본안과 분리해 비교하는 전용 테스트 모드
+const bbmFilterIconName = new URLSearchParams(window.location.search).get("filtericon") === "filterheader"
+  ? "chip-filter-funnel"
+  : "chip-filter-controls";
+
 let detailScreen: FlowScreen;
 let savedListingsScreen: FlowScreen;
 
@@ -1440,7 +1445,7 @@ function MarketplaceScreen() {
                     <button type="button" className={`bbm-save-search${searchSaved ? " is-saved" : ""}`} aria-pressed={searchSaved} onClick={toggleSearchSaved}><img src={bbmIcon("search-save")} alt="" aria-hidden="true" />검색저장</button>
                   </div>
                   <div className="bbm-chips">
-                    <button type="button" className={`bbm-filter-button${bbmAppliedCount ? " is-applied" : ""}`} aria-disabled={drawerFilterChip ? undefined : "true"} aria-haspopup={drawerFilterChip ? "dialog" : undefined} onClick={drawerFilterChip ? () => setBbmDrawerOpen(true) : undefined} aria-label={bbmAppliedCount ? `필터 ${bbmAppliedCount}개 적용됨` : "필터"}><img src={bbmIcon("chip-filter-controls")} alt="" aria-hidden="true" />{bbmAppliedCount ? <b>{bbmAppliedCount}</b> : <span>필터</span>}</button>
+                    <button type="button" className={`bbm-filter-button${bbmAppliedCount ? " is-applied" : ""}`} aria-disabled={drawerFilterChip ? undefined : "true"} aria-haspopup={drawerFilterChip ? "dialog" : undefined} onClick={drawerFilterChip ? () => setBbmDrawerOpen(true) : undefined} aria-label={bbmAppliedCount ? `필터 ${bbmAppliedCount}개 적용됨` : "필터"}><img src={bbmIcon(bbmFilterIconName)} alt="" aria-hidden="true" />{bbmAppliedCount ? <b>{bbmAppliedCount}</b> : <span>필터</span>}</button>
                     {bbmChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} onClick={chip.onClick} onClear={chip.onClear} />)}
                   </div>
                   </div>
@@ -1457,7 +1462,7 @@ function MarketplaceScreen() {
         </div>
         <div className="bbm-ct-chip-row">
           <div className="bbm-chips">
-            <button type="button" className={`bbm-filter-button${bbmAppliedCount ? " is-applied" : ""}`} aria-disabled={drawerFilterChip ? undefined : "true"} aria-haspopup={drawerFilterChip ? "dialog" : undefined} onClick={drawerFilterChip ? () => setBbmDrawerOpen(true) : undefined} aria-label={bbmAppliedCount ? `필터 ${bbmAppliedCount}개 적용됨` : "필터"}><img src={bbmIcon("chip-filter-controls")} alt="" aria-hidden="true" />{/* QF-113 T2: "필터" 글자는 늘 두고 조건 수를 덧붙임(폭 고정, qf-align.css) */}<span>필터</span>{bbmAppliedCount ? <b>{bbmAppliedCount}</b> : null}</button>
+            <button type="button" className={`bbm-filter-button${bbmAppliedCount ? " is-applied" : ""}`} aria-disabled={drawerFilterChip ? undefined : "true"} aria-haspopup={drawerFilterChip ? "dialog" : undefined} onClick={drawerFilterChip ? () => setBbmDrawerOpen(true) : undefined} aria-label={bbmAppliedCount ? `필터 ${bbmAppliedCount}개 적용됨` : "필터"}><img src={bbmIcon(bbmFilterIconName)} alt="" aria-hidden="true" />{/* QF-113 T2: "필터" 글자는 늘 두고 조건 수를 덧붙임(폭 고정, qf-align.css) */}<span>필터</span>{bbmAppliedCount ? <b>{bbmAppliedCount}</b> : null}</button>
             <BbmChipScroller>
               {bbmChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} onClick={chip.onClick} onClear={chip.onClear} />)}
             </BbmChipScroller>
@@ -1615,7 +1620,7 @@ function MarketplaceScreen() {
               <button type="button" className="reset-button" onClick={() => resetFilters()}>초기화</button>
             </section>
             <section className={`filter-shell quick-style-guazi is-bbm${bbmRailScrolled ? " is-scrolled" : ""}`} aria-label="중고차 필터" data-history={shownHistory}>
-              <button className={`filter-fixed${bbmAppliedCount ? " is-applied" : ""}`} type="button" aria-label={bbmAppliedCount ? `필터 ${bbmAppliedCount}개 적용됨` : "필터"} onClick={openBbmFull}><img className="ui-icon" src={bbmIcon("chip-filter-controls")} alt="" aria-hidden="true" />{isGuaziQuickStyle ? <><span>필터</span>{bbmAppliedCount ? <b className="filter-fixed-count">{bbmAppliedCount}</b> : null}</> : bbmAppliedCount ? <b className="filter-fixed-count">{bbmAppliedCount}</b> : <span>필터</span>}</button>
+              <button className={`filter-fixed${bbmAppliedCount ? " is-applied" : ""}`} type="button" aria-label={bbmAppliedCount ? `필터 ${bbmAppliedCount}개 적용됨` : "필터"} onClick={openBbmFull}><img className="ui-icon" src={bbmIcon(bbmFilterIconName)} alt="" aria-hidden="true" />{isGuaziQuickStyle ? <><span>필터</span>{bbmAppliedCount ? <b className="filter-fixed-count">{bbmAppliedCount}</b> : null}</> : bbmAppliedCount ? <b className="filter-fixed-count">{bbmAppliedCount}</b> : <span>필터</span>}</button>
               <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
                 {bbmChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} onClick={() => { revealBbmChip(chip.label); chip.onClick(); }} onClear={chip.onClear} />)}
               </Carousel>
