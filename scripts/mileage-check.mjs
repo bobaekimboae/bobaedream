@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // QF-117 주행거리 필터(mileage-final) 점검. 모바일 375·390·393·430: 시트 수치(헤더 64 · 제목/닫기 세로 가운데 · 입력 폭 · 구분자 12 · 트랙 인셋 11 · 첫·끝 눈금 = 양끝 손잡이 중심 · 눈금 간격 · 칩 폭 · 버튼 92×52 · 가로 넘침 0)
-// 동작(393): 손잡이 드래그 1,000km 단위 · 입력·슬라이더·칩 동기화 · 10만 이상 ≠ 10만 이하 · 방향키 · 최소>최대면 적용 막힘 · 닫기로 임시 값 확정 안 됨 · 적용 대수 · 초기화가 다른 필터를 안 건드림
+// 동작(393): 손잡이 드래그 100km 단위 · 입력·슬라이더·칩 동기화 · 15만 이상 ≠ 10~15만 · 방향키 · 최소>최대면 적용 막힘 · 닫기로 임시 값 확정 안 됨 · 적용 대수 · 초기화가 다른 필터를 안 건드림
 // PC 1024(펼침판)·1280·1440: 300 사이드바 안 입력 세로 · 칩 2열 · 잘림 0 · 즉시 반영 대수
 // 사용: node scripts/mileage-check.mjs [--base=<주소>] → reports/qf-117/mileage-check.json · 캡처
 import { chromium, devices } from "@playwright/test";
@@ -77,11 +77,11 @@ for (const width of [375, 390, 393, 430]) {
     chip: [...document.querySelectorAll(".mf-chip")].filter((c) => c.getAttribute("aria-pressed") === "true").map((c) => c.textContent),
     confirm: document.querySelector(".mf-confirm")?.textContent, disabled: document.querySelector(".mf-confirm")?.disabled, open: Boolean(document.querySelector(".mf-sheet")),
   }));
-  const trackX = async (value) => page.evaluate((value) => { const t = document.querySelector(".mf-track").getBoundingClientRect(); return { x: t.left + (t.width * value) / 100000, y: t.top + 2 }; }, value);
+  const trackX = async (value) => page.evaluate((value) => { const t = document.querySelector(".mf-track").getBoundingClientRect(); return { x: t.left + (t.width * value) / 150000, y: t.top + 2 }; }, value);
   await openSheet(page);
   const b = {};
   // 최대 손잡이를 60% 로 드래그
-  const from = await trackX(100000); const to = await trackX(60400);
+  const from = await trackX(150000); const to = await trackX(60400);
   await page.mouse.move(from.x, from.y); await page.mouse.down(); await page.mouse.move(to.x, to.y, { steps: 8 }); await page.mouse.up(); await page.waitForTimeout(200);
   b.dragMax = await state();
   const from2 = await trackX(0); const to2 = await trackX(34600);
@@ -89,7 +89,8 @@ for (const width of [375, 390, 393, 430]) {
   b.dragMin = await state();
   await page.locator(".mf-chip").filter({ hasText: "3~6만km" }).tap(); await page.waitForTimeout(150); b.chip36 = await state();
   await page.locator(".mf-chip").filter({ hasText: "3~6만km" }).tap(); await page.waitForTimeout(150); b.chip36off = await state();
-  await page.locator(".mf-chip").filter({ hasText: "10만km 이상" }).tap(); await page.waitForTimeout(150); b.chip10up = await state();
+  await page.locator(".mf-chip").filter({ hasText: "15만km 이상" }).tap(); await page.waitForTimeout(150); b.chip15up = await state();
+  await page.locator(".mf-chip").filter({ hasText: "10~15만km" }).tap(); await page.waitForTimeout(150); b.chip1015 = await state();
   await page.locator(".mf-chip").filter({ hasText: "6~10만km" }).tap(); await page.waitForTimeout(150); b.chip610 = await state();
   await page.locator(".mf-chip").filter({ hasText: "6~10만km" }).tap();
   await page.locator(".mf-handle.is-min").focus(); for (let i = 0; i < 3; i += 1) await page.keyboard.press("ArrowRight"); b.keyMin = await state();
@@ -113,12 +114,12 @@ for (const width of [375, 390, 393, 430]) {
   await page.locator(".mf-confirm").tap(); await page.waitForTimeout(400);
   b.resetApplied = await page.evaluate(() => Object.fromEntries(["연료", "주행거리"].map((label) => [label, [...document.querySelectorAll(".bbmf-full-item-wrap")].find((e) => e.textContent.trim().startsWith(label))?.textContent.trim()])));
   result.behavior = { ...b, errors: errors.length };
-  check("드래그: 최대 손잡이 → 60,000(1,000 단위) · 입력 동기화", b.dragMax.handles[1][0] === 60000 && b.dragMax.max === "60,000", JSON.stringify(b.dragMax.handles));
-  check("드래그: 최소 손잡이 → 35,000 · 입력 동기화", b.dragMin.handles[0][0] === 35000 && b.dragMin.min === "35,000", JSON.stringify(b.dragMin.handles));
+  check("드래그: 최대 손잡이 → 약 60,000(100km 단위) · 입력 동기화", b.dragMax.handles[1][0] >= 59500 && b.dragMax.handles[1][0] <= 60500 && b.dragMax.max === b.dragMax.handles[1][0].toLocaleString("ko-KR"), JSON.stringify(b.dragMax.handles));
+  check("드래그: 최소 손잡이 → 약 35,000(100km 단위) · 입력 동기화", b.dragMin.handles[0][0] >= 34500 && b.dragMin.handles[0][0] <= 35500 && b.dragMin.min === b.dragMin.handles[0][0].toLocaleString("ko-KR"), JSON.stringify(b.dragMin.handles));
   check("칩 3~6만km → 입력 30,000~60,000 · 손잡이 · 선택 표시", b.chip36.min === "30,000" && b.chip36.max === "60,000" && b.chip36.handles[0][0] === 30000 && b.chip36.handles[1][0] === 60000 && b.chip36.chip.join() === "3~6만km", JSON.stringify(b.chip36));
   check("같은 칩 다시 → 해제(0 ~ 제한 없음)", !b.chip36off.min && !b.chip36off.max && b.chip36off.chip.length === 0 && b.chip36off.handles[1][1] === "제한 없음", JSON.stringify(b.chip36off));
-  check("10만km 이상 = 최대 없음(제한 없음) ≠ 6~10만km(100,000km)", b.chip10up.min === "100,000" && !b.chip10up.max && b.chip10up.handles[1][1] === "제한 없음" && b.chip610.max === "100,000" && b.chip610.handles[1][1] === "100,000km", `${b.chip10up.handles[1][1]} / ${b.chip610.handles[1][1]}`);
-  check("방향키 1,000km 단위(최소 +3 → 3,000 · 최대 ← 99,000 · End → 제한 없음)", b.keyMin.handles[0][0] === 3000 && b.keyMax.handles[1][0] === 99000 && b.keyEnd.handles[1][1] === "제한 없음", `${b.keyMin.handles[0][0]} · ${b.keyMax.handles[1][0]} · ${b.keyEnd.handles[1][1]}`);
+  check("15만km 이상 = 최대 없음(제한 없음) ≠ 10~15만km(150,000km)", b.chip15up.min === "150,000" && !b.chip15up.max && b.chip15up.handles[1][1] === "제한 없음" && b.chip1015.max === "150,000" && b.chip1015.handles[1][1] === "150,000km", `${b.chip15up.handles[1][1]} / ${b.chip1015.handles[1][1]}`);
+  check("방향키 1,000km 단위(최소 +3 → 3,000 · 최대 ← 149,000 · End → 제한 없음)", b.keyMin.handles[0][0] === 3000 && b.keyMax.handles[1][0] === 149000 && b.keyEnd.handles[1][1] === "제한 없음", `${b.keyMin.handles[0][0]} · ${b.keyMax.handles[1][0]} · ${b.keyEnd.handles[1][1]}`);
   check("최소 > 최대 → 적용 버튼 비활성", b.invalid.disabled === true && b.typed.disabled === false && b.typed.chip.join() === "1~3만km", `비활성 ${b.invalid.disabled} · 입력 1~3만 → 칩 ${b.typed.chip.join()}`);
   check("닫기 → 임시 값 확정 안 됨(다시 열면 비어 있음)", !/만km/.test(b.afterClose.list ?? "") && !b.reopen.min && !b.reopen.max, JSON.stringify({ list: b.afterClose.list, reopen: [b.reopen.min, b.reopen.max] }));
   check("적용 → 목록 표기 3~6만km · 버튼 대수 실시간", /3~6만km/.test(b.applied.list ?? "") && /^\d[\d,]*대 보기$/.test(b.applied.button ?? ""), JSON.stringify(b.applied));

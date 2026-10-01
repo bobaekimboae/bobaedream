@@ -67,11 +67,11 @@ for (const [width, height] of PC_SIZES) {
   await page.mouse.up(); await page.waitForTimeout(400);
   rows.push(await state("놓기"));
   if (!drawer) await page.screenshot({ path: join(out, `pc-${width}-${tag}-drag-2.png`), clip: { x: 0, y: 0, width, height } });
-  for (const chip of ["1만km 이하", "1~3만km", "3~6만km", "6~10만km", "10만km 이상"]) {
+  for (const chip of ["1만km 이하", "1~3만km", "3~6만km", "6~10만km", "10~15만km", "15만km 이상"]) {
     await page.locator(`${scope} .mf-chip`).filter({ hasText: chip }).click(); await page.waitForTimeout(400);
     rows.push(await state(`칩 ${chip}`));
   }
-  await page.locator(`${scope} .mf-chip`).filter({ hasText: "10만km 이상" }).click(); await page.waitForTimeout(300);
+  await page.locator(`${scope} .mf-chip`).filter({ hasText: "15만km 이상" }).click(); await page.waitForTimeout(300);
   rows.push(await state("칩 풀기(결과 늘어남)"));
   const minField = page.locator(`${scope} .mf-field input`).first();
   await minField.click(); await page.keyboard.type("35000", { delay: 60 }); await page.waitForTimeout(150);
@@ -120,7 +120,7 @@ for (const [width, height] of PC_SIZES) {
   }
   // 눈금이 슬라이더 안
   const ticks = await page.evaluate((scope) => { const sl = document.querySelector(`${scope} .mf-slider`).getBoundingClientRect(); return [...document.querySelectorAll(`${scope} .mf-tick`)].map((t) => { const b = t.getBoundingClientRect(); return [t.textContent, r(b.left - sl.left), r(sl.right - b.right)]; }); function r(v) { return Math.round(v * 10) / 10; } }, scope);
-  check(`PC ${width} 눈금이 슬라이더 안(0 왼쪽 · 10만+ 오른쪽 정렬)`, ticks.every(([, l, rr]) => l >= -0.5 && rr >= -0.5), ticks.map(([t, l, rr]) => `${t} ${l}/${rr}`).join(" · "));
+  check(`PC ${width} 눈금이 슬라이더 안(0 왼쪽 · 15만+ 오른쪽 정렬)`, ticks.every(([, l, rr]) => l >= -0.5 && rr >= -0.5), ticks.map(([t, l, rr]) => `${t} ${l}/${rr}`).join(" · "));
   await page.close();
 }
 
@@ -139,7 +139,7 @@ for (const [width, height] of PC_SIZES) {
   await page.mouse.move(hb.x + hb.width / 2, cy); await page.mouse.down(); await page.waitForTimeout(100); rows.push(await st("손잡이 누름"));
   await page.mouse.move(track.x + track.width * 0.5, cy, { steps: 6 }); await page.waitForTimeout(100); rows.push(await st("끄는 중"));
   await page.mouse.up(); await page.waitForTimeout(200); rows.push(await st("놓기"));
-  for (const chip of ["1만km 이하", "1~3만km", "3~6만km", "6~10만km", "10만km 이상"]) { await page.locator(".mf-chip").filter({ hasText: chip }).tap(); await page.waitForTimeout(200); rows.push(await st(`칩 ${chip}`)); }
+  for (const chip of ["1만km 이하", "1~3만km", "3~6만km", "6~10만km", "10~15만km", "15만km 이상"]) { await page.locator(".mf-chip").filter({ hasText: chip }).tap(); await page.waitForTimeout(200); rows.push(await st(`칩 ${chip}`)); }
   await page.locator(".mf-field input").first().fill("90,000"); await page.locator(".mf-field input").nth(1).fill("10,000"); await page.waitForTimeout(200); rows.push(await st("최소>최대 오류"));
   result.mobile = { rows, errors: errors.length };
   console.log("\n모바일 393 시트\n단계 | 시트 top | 시트 높이 | 본문 scrollHeight | 눈금 안");

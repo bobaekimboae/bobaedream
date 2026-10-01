@@ -133,8 +133,8 @@
 ## Mileage Filter Final (QF-117)
 
 - Guazi only (`mileage-final`, `src/prototype/filters/bbm-mileage.tsx` · `.css`; BbmSheet/ActionBar untouched). Value model unchanged: `ranges.mileage = { min, max, preset }` (comma strings), no max = `""` (null, "제한 없음").
-- Range 0–100,000 km, 1,000 km steps; the slider's right end = no max. Ticks 0 · 2만 · 4만 · 6만 · 8만 · 10만+ at exactly 0/20/40/60/80/100% of the track (inset 11), first/last tick centers = handle centers. Handles 22 (hit 44), no crossing, arrow keys ±1,000, bubbles show `0km` / `제한 없음` while dragging/focused.
-- Chips (5): 1만km 이하 (0–10,000) · 1~3만km · 3~6만km · 6~10만km (…100,000) · 10만km 이상 (100,000–no max). One at a time, re-tap clears, shown selected only when min/max match exactly. The old 8 chips and min/max dropdowns are gone in guazi.
+- Range 0–150,000 km; the slider's right end = no max. Ticks 0 · 2만 · 4만 · 6만 · 8만 · 10만 · 15만+ use the same inset-11 coordinate system, and the first/last tick centers match the handle centers. Handles 22 (hit 44), no crossing, arrow keys ±1,000, bubbles show `0km` / `제한 없음` while dragging/focused.
+- Chips (6): 1만km 이하 (0–10,000) · 1~3만km · 3~6만km · 6~10만km · 10~15만km · 15만km 이상 (150,000–no max). One at a time, re-tap clears, shown selected only when min/max match exactly.
 - Mobile bottom sheet: header 64 (title 20/28 750 −0.35px, close 36 visible / 44 hit, right 24), body 16 sides / 22 bottom, inputs `minmax(0,1fr) 12px minmax(0,1fr)` gap 10 (393: 164.5 · 12 · 164.5), 48 tall, 2px #E4E4E4, radius 12; chips 3 columns (393: 115×48); footer 80 with 초기화 92×52 + `N대 보기` (live draft count). Draft is separate from applied: close, backdrop and Esc discard it; min > max disables apply.
 - PC left sidebar (300): inputs stacked full width, same slider/ticks, chips 2 columns; no mobile header/footer. The PC chip opens the QF-118 modal instead.
 - Summary text (chips row, filter list): chip name, direct range `3.5~8만km`, no max `N만km 이상`, no min `N만km 이하`. Check: `node scripts/mileage-check.mjs`.
@@ -144,7 +144,7 @@
 - Guazi PC left filter (1280+, `.marketplace.is-bbm.is-hybrid`, `src/prototype/listing/qf-sidebar-stable.css`): top-anchored sticky `top: 16`, fixed height = viewport − 32; the header (`필터 · 초기화 · 검색조건 유지`, row reserved at 26) stays on top and only the item list scrolls (`overflow-y: auto`, `overscroll-behavior: contain`, thin scrollbar shown on hover). The old bottom-anchored negative `top` (`bbm-sticky-sidebar.ts`) is removed. The maker/model catalog chains its scroll into the sidebar list. The 1024–1279 drawer is unchanged.
 - Guazi PC page disables scroll anchoring (`overflow-anchor: none`): applying a filter keeps `scrollTop`; only when the list becomes shorter than the current position does the browser clamp to the end.
 - Mileage (QF-117 part) in the PC sidebar commits to the list once: handle on pointerup / keyboard keyup, inputs after 0.4s idle, Enter or blur, chips on press. Dragging never re-renders the list. The mobile sheet keeps its draft behavior.
-- Mileage height never changes while operating (sheet and sidebar): the min > max error overlays the gap under the inputs, the pressed handle grows only via `transform`, and handle focus uses `preventScroll`. Tick `0` is left-aligned from the first handle center, `10만+` right-aligned to the last handle center, others centered; all inside the slider.
+- Mileage height never changes while operating (sheet and sidebar): the min > max error overlays the gap under the inputs and handle focus uses `preventScroll`. Tick `0` is left-aligned from the first handle center, `15만+` right-aligned to the last handle center, others centered; all inside the slider.
 - Check: `node scripts/sidebar-stable-check.mjs` (PC 1024 · 1280 · 1440 step table + mobile 393 sheet), `npm run check:sidebar`.
 
 ## Pretendard Variable (QF-120)
@@ -155,7 +155,7 @@
 
 ## PC Mileage Chip Modal (QF-118)
 
-- Guazi PC (1024+) top chip row: `필터 · 중고차 · 제조사 · 연식 · 주행거리 · 가격 · 연료 · 판매자` (left filter order). The `주행거리 ▾` chip uses the same chip spec; with a value it leaves the row and the black applied chip (`1만km 이하` · `3~6만km` · `3.5~8만km` · `10만km 이상` + ×, mileage only) appears with the other applied chips and counts in `필터 N`. Mobile chip row unchanged.
+- Guazi PC (1024+) top chip row: `필터 · 중고차 · 제조사 · 연식 · 주행거리 · 가격 · 연료 · 판매자` (left filter order). The `주행거리 ▾` chip uses the same chip spec; with a value it leaves the row and the black applied chip (`1만km 이하` · `3~6만km` · `3.5~8만km` · `15만km 이상` + ×, mileage only) appears with the other applied chips and counts in `필터 N`. Mobile chip row unchanged.
 - The chip opens `MileageFinalSheet variant="modal"` (same QF-117 part and QF-119 rules): centered, width `min(480px, 100vw − 48px)`, radius 16, max height `100vh − 96px` (only the body scrolls), 50% dim, page scroll locked with scrollbar-width compensation, 0.15s fade + 8px rise (none with reduced motion). Content = mobile sheet (header 64, inputs `1fr 12px 1fr` gap 10, chips 3 columns, footer 80); at 480 the grid gives inputs 208 and chips 144.
 - Draft starts from the applied value; `N대 보기` applies mileage only (list, chips, left sidebar); close, backdrop and Esc discard; 초기화 clears only the mileage draft. The list stays frozen while open.
 - Accessibility: `role="dialog"`, `aria-modal`, `aria-labelledby`, focus on close (preventScroll) when opened, Tab trapped, focus returns to the mileage chip (or its applied chip). Check: `node scripts/mileage-modal-check.mjs`.

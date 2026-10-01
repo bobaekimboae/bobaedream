@@ -4,19 +4,20 @@ import { setBbmRange, type BbmFilterValues, type BbmRange } from "./bbm-filter-s
 import "./bbm-mileage.css";
 
 // QF-117 주행거리 필터 확정 시안(mileage-final) — 과쯔 모드만. 모바일 바텀시트 + PC 좌측 사이드바 아코디언 안.
-// 값 모델은 그대로(ranges.mileage = { min, max, preset }, 쉼표 문자열). 최대 없음 = max ""(= null, "10만+ · 제한 없음").
-// 범위 0~100,000km · 1,000km 단위. 슬라이더 오른쪽 끝 = 제한 없음. 구간 칩 5개(1만km 이하 · 1~3만km · 3~6만km · 6~10만km · 10만km 이상)
+// 값 모델은 그대로(ranges.mileage = { min, max, preset }, 쉼표 문자열). 최대 없음 = max ""(= null, "15만+ · 제한 없음").
+// 범위 0~150,000km. 슬라이더 오른쪽 끝 = 제한 없음. 구간 칩 6개(1만km 이하 · 1~3만km · 3~6만km · 6~10만km · 10~15만km · 15만km 이상)
 
-export const MILEAGE_MAX = 100000;
+export const MILEAGE_MAX = 150000;
 export const MILEAGE_STEP = 1000;
 const MILEAGE_POINTER_STEP = 100;
-export const MILEAGE_TICKS = [0, 20000, 40000, 60000, 80000, 100000];
+export const MILEAGE_TICKS = [0, 20000, 40000, 60000, 80000, 100000, 150000];
 export const MILEAGE_CHIPS: Array<{ id: string; min: number; max: number | null }> = [
   { id: "1만km 이하", min: 0, max: 10000 },
   { id: "1~3만km", min: 10000, max: 30000 },
   { id: "3~6만km", min: 30000, max: 60000 },
   { id: "6~10만km", min: 60000, max: 100000 },
-  { id: "10만km 이상", min: 100000, max: null },
+  { id: "10~15만km", min: 100000, max: 150000 },
+  { id: "15만km 이상", min: 150000, max: null },
 ];
 
 const digits = (text: string) => text.replace(/[^\d]/g, "");
@@ -36,7 +37,7 @@ export function mileageRange(min: number, max: number | null): BbmRange {
 }
 export const mileageInvalid = (range: BbmRange | undefined) => { const { min, max } = mileageBounds(range); return max !== null && min > max; };
 
-/** 요약 표기: 칩이면 "3~6만km", 직접 범위 "3.5~8만km", 최대 없음 "10만km 이상", 최소 없음 "1만km 이하" */
+/** 요약 표기: 칩이면 "3~6만km", 직접 범위 "3.5~8만km", 최대 없음 "15만km 이상", 최소 없음 "1만km 이하" */
 const man = (n: number) => `${Math.round((n / 10000) * 100) / 100}`;
 export function mileageSummary(range: BbmRange | undefined) {
   if (!range || (!range.min && !range.max)) return "";
@@ -51,7 +52,7 @@ export function mileageSummary(range: BbmRange | undefined) {
 const pct = (value: number) => Math.max(0, Math.min(1, value / MILEAGE_MAX));
 const snap = (value: number) => Math.max(0, Math.min(MILEAGE_MAX, Math.round(value / MILEAGE_STEP) * MILEAGE_STEP));
 const snapPointer = (value: number) => Math.max(0, Math.min(MILEAGE_MAX, Math.round(value / MILEAGE_POINTER_STEP) * MILEAGE_POINTER_STEP));
-const tickLabel = (value: number) => (value === 0 ? "0" : value === MILEAGE_MAX ? "10만+" : `${value / 10000}만`);
+const tickLabel = (value: number) => (value === 0 ? "0" : value === MILEAGE_MAX ? "15만+" : `${value / 10000}만`);
 
 type Layout = "sheet" | "sidebar";
 

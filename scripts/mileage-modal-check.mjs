@@ -103,7 +103,7 @@ for (const [width, height] of [[1024, 768], [1280, 800], [1440, 900]]) {
   if (width === 1440) await page.screenshot({ path: join(out, "pc-1440-modal-drag.png") });
   const dragBtn = (await modalBox(page)).confirm; const listDuring = await count(page);
   await page.mouse.up(); await page.waitForTimeout(200); hs.push((await modalBox(page)).h);
-  for (const chip of ["1만km 이하", "1~3만km", "3~6만km", "6~10만km", "10만km 이상", "3~6만km"]) { await page.locator(".mf-sheet.is-modal .mf-chip").filter({ hasText: chip }).click(); await page.waitForTimeout(120); hs.push((await modalBox(page)).h); }
+  for (const chip of ["1만km 이하", "1~3만km", "3~6만km", "6~10만km", "10~15만km", "15만km 이상", "3~6만km"]) { await page.locator(".mf-sheet.is-modal .mf-chip").filter({ hasText: chip }).click(); await page.waitForTimeout(120); hs.push((await modalBox(page)).h); }
   if (width === 1440) await page.screenshot({ path: join(out, "pc-1440-modal-chip.png") });
   const chosen = await modalBox(page);
   check(`${tag} 조작 중 모달 높이 변화 0 · 목록은 그대로 · 버튼 대수는 임시 값 기준`, Math.max(...hs) - Math.min(...hs) <= 0.5 && listDuring === cnt0 && dragBtn !== `${cnt0}대 보기`, `높이 ${[...new Set(hs.map(r1))].join("/")} · 목록 ${cnt0}→${listDuring} · 끄는 중 버튼 ${dragBtn} · 칩 ${chosen.confirm}`);
