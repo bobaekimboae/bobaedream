@@ -144,10 +144,35 @@ const displaySpecs = (specs: string[]) => specs
   .map((spec, index) => index === 1 ? formatMileage(spec) : spec)
   .join(" · ");
 
+const dealerComplexByRegion: Record<string, string> = {
+  "서울 강남구": "서울 강남구 · 강남자동차매매단지",
+  "서울 서초구": "서울 서초구 · 서울오토갤러리",
+  "서울 성동구": "서울 성동구 · 성수모터시티",
+  "서울 송파구": "서울 성동구 · 장안평자동차매매단지",
+  "경기 수원시": "경기 수원시 권선구 · 도이치오토월드",
+  "경기 성남시": "경기 성남시 수정구 · 판교매매단지",
+  "경기 고양시": "경기 고양시 일산동구 · 고양오토파크",
+  "부산 해운대구": "부산 해운대구 · 반여강변자동차매매단지",
+  "인천 남동구": "인천 남동구 · 간석자동차매매단지",
+  "인천 연수구": "인천 남동구 · 간석자동차매매단지",
+  "대구 수성구": "대구 서구 · 대구엠월드자동차매매단지",
+  "대구 달서구": "대구 달서구 · 엠갤러리",
+  "대전 유성구": "대전 유성구 · 디오토몰",
+  "광주 서구": "광주 서구 · 빛고을오토갤러리",
+  "울산 남구": "울산 북구 · 울산자동차매매단지",
+  "충남 천안시": "충남 천안시 동남구 · 천안매매단지",
+  "충남 서산시": "충남 서산시 · 서산종합단지",
+  "경북 포항시": "경북 포항시 남구 · 포항오토아울렛단지",
+  "경남 창원시": "경남 창원시 의창구 · 디오오토갤러리",
+  "제주 제주시": "제주 제주시 · 제주오토파크",
+  "강원 원주시": "강원 원주시 · 보배드림단지",
+  "전북 전주시": "전북 전주시 덕진구 · 전북자동차매매단지",
+};
+
 const displayListPlace = (place: string, sellerType?: SellerType) => {
   const region = place.split(" · ")[0].trim();
-  if (sellerType === "개인" || !sellerType || region.endsWith("매매단지")) return region;
-  return `${region} 매매단지`;
+  if (sellerType === "개인" || !sellerType) return region;
+  return dealerComplexByRegion[region] ?? place.trim();
 };
 const emptyPrice: PriceSelection = { mode: "cash", min: 0, max: null };
 const priceSteps = [0, 500, 1000, 2000, 3000, 5000, 7000, 10000, 15000, 20000, 30000];
@@ -728,7 +753,7 @@ const bbmSamplePools = {
   color: ["흰색", "검정", "회색", "은색", "흰색", "파랑", "검정", "빨강", "흰색", "은색"],
   seats: ["5인승", "5인승", "7인승 이상", "4인승", "5인승", "2인승", "6인승", "5인승"],
   transmission: ["오토", "오토", "오토", "수동", "오토", "CVT"],
-  place: ["서울 강남구", "경기 수원시 매매단지", "부산 해운대구", "인천 남동구", "대구 수성구", "대전 유성구", "광주 서구", "울산 남구", "경기 고양시", "충남 서산시 매매단지", "경북 포항시", "서울 송파구", "경남 창원시", "제주 제주시", "강원 원주시", "전북 전주시"],
+  place: ["서울 강남구", "경기 수원시", "부산 해운대구", "인천 남동구", "대구 수성구", "대전 유성구", "광주 서구", "울산 남구", "경기 고양시", "충남 서산시", "경북 포항시", "서울 송파구", "경남 창원시", "제주 제주시", "강원 원주시", "전북 전주시"],
 };
 const bbmExtraCars: Car[] = Array.from({ length: 41 }, (_, index) => {
   const base = chototTestCars[index % chototTestCars.length];
