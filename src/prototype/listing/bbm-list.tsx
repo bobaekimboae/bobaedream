@@ -7,6 +7,14 @@ import "./bbm-tokens.css";
 
 export const bbmIcon = (name: string) => asset(`bbm/${name}.svg`);
 
+const headlinePositions = ["top", "before-model", "after-model", "after-spec", "after-price", "bottom", "overlay"] as const;
+type HeadlinePosition = (typeof headlinePositions)[number];
+
+function getHeadlinePosition(): HeadlinePosition {
+  const value = new URLSearchParams(window.location.search).get("titlepos");
+  return headlinePositions.includes(value as HeadlinePosition) ? value as HeadlinePosition : "top";
+}
+
 // ── 차량 유형 줄(원본 원형 아이콘 7개). 유형을 고르면 같은 자리가 퀵필터 레일(제조사 단계부터)로 바뀐다
 export const bbmCategoryItems: Array<[label: string, icon: string]> = [
   ["중고차", "category-used"], ["트럭 · 특장", "category-truck"], ["바이크", "category-bike"], ["캠핑카", "category-camping"],
@@ -62,26 +70,34 @@ export function BbmResultCard({ car, variant, liked, onToggleLike, onOpen, onCha
   const badges = bbmCardBadges(car);
   const priceMatch = car.price.match(/^(월\s*)?(.+?)\s*(만원)$/);
   const title = <strong className="bbm-card-title"><span className="bbm-card-model">{car.title}</span>{car.trim ? <><span aria-hidden="true"> </span><span className="bbm-card-trim">{car.trim}</span></> : null}</strong>;
+  const headlinePosition = car.uiTest ? getHeadlinePosition() : null;
+  const headline = car.uiTest ? <strong className={`bbm-card-headline is-${headlinePosition}`}>{car.uiTest.headline}</strong> : null;
+  const headlineAt = (position: HeadlinePosition) => headlinePosition === position ? headline : null;
   const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (event.key === "Enter" || event.key === " ") { event.preventDefault(); onOpen(); }
   };
   return (
     <article className={`bbm-result-card is-${variant}${badges.length ? " has-badges" : " has-no-badges"}${car.uiTest ? " is-ui-test" : ""}`} role="link" tabIndex={0} aria-label={`${car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
-      {car.uiTest ? <strong className="bbm-card-headline">{car.uiTest.headline}</strong> : null}
+      {headlineAt("top")}
       <div className="bbm-card-main">
         {/* 사진이 없는 매물은 원본처럼 빈 회색 칸(car-list-result-card__image 배경 #EBEBEB) */}
         <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`}>
           {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} style={{ objectPosition: car.imagePosition ?? "center center" }} /> : null}
+          {headlineAt("overlay")}
           <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span><span className="bbm-card-count">{car.photos}<img src={bbmIcon("card-photo-count")} alt="" /></span></div>
         </div>
         <div className="bbm-card-content">
           <div className="bbm-card-text">
+            {headlineAt("before-model")}
             {title}
+            {headlineAt("after-model")}
             <span className="bbm-card-spec">{bbmCardSpec(car, variant === "pc")}</span>
+            {headlineAt("after-spec")}
             <div className="bbm-card-price-badges">
               <strong className="bbm-card-price"><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</strong>
               {badges.length ? <div className="bbm-card-badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}
             </div>
+            {headlineAt("after-price")}
           </div>
           <div className="bbm-card-meta">
             <div className="bbm-card-location"><img src={bbmIcon("card-location")} alt="" aria-hidden="true" /><span className="bbm-card-location-text">{car.uiTest && car.sellerType === "개인" ? car.place : displayListPlace(car.place, car.sellerType)}</span></div>
@@ -100,6 +116,7 @@ export function BbmResultCard({ car, variant, liked, onToggleLike, onOpen, onCha
           </div>
         </div>
       </div>
+      {headlineAt("bottom")}
     </article>
   );
 }

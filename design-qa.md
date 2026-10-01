@@ -1,14 +1,12 @@
-# Design QA — 매물 제목 상단·기존 모델 구조
+# Design QA — 매물 설명 제목 7개 위치 비교
 
 ## Comparison target
 
 - Source state: `reports/luxury-ui-test-20261002/mobile-list-title-above-384.jpg` — 제조사·모델까지 썸네일 위로 이동한 잘못된 중간안.
-- Implemented list: `reports/luxury-ui-test-20261002/mobile-list-headline-above-384.jpg`.
-- Implemented feed: `reports/luxury-ui-test-20261002/mobile-feed-headline-above-384.jpg`.
-- Implemented PC: `reports/luxury-ui-test-20261002/pc-list-headline-above-1280.jpg`.
-- Full-view comparison: `reports/luxury-ui-test-20261002/comparison-headline-correction.jpg`, 768 × 832 px.
-- Focused card comparison: `reports/luxury-ui-test-20261002/comparison-title-cards.jpg`, 768 × 450 px.
-- Mobile viewport: 384 × 832 CSS px. PC viewport: 1280 × 720 CSS px.
+- Implemented comparison: `reports/luxury-ui-test-20261002/title-position-7-variants-contact-sheet.png`.
+- Individual captures: `title-position-1-top.png` through `title-position-7-overlay.png` in the same directory.
+- Browser geometry audit: `reports/luxury-ui-test-20261002/title-position-7-variants-metrics.json`.
+- Mobile viewport: 384 × 832 CSS px.
 - Density normalization: source and implementation are both 1× CSS-pixel captures; no resampling was needed.
 - State: luxury30, update sort, list page 1; feed page 1; PC list page 1.
 
@@ -20,27 +18,29 @@
 - Browser mapping spot-check: 001 → first card, 020 → page-1 last card, 021 → page-2 first card, 030 → final card.
 - All rendered images loaded; no image 404, warning, or console error.
 
+## Seven positions
+
+- `top`: full-width above the image/content row. Highest headline visibility, but adds the most vertical emphasis.
+- `before-model`: first item in the information column. Fast visibility, but competes with the primary car name and wish action.
+- `after-model`: below manufacturer/model and detail model. Best balance; preserves car-name priority and keeps the headline close to the identity block.
+- `after-spec`: below year/mileage/fuel. Understandable sequence, but description and price become visually crowded.
+- `after-price`: below price/badges. Preserves purchase information priority, but headline reads late and weakens location spacing.
+- `bottom`: full-width below the image/content row. Clean main block, but the headline is detached from the car identity.
+- `overlay`: top of the thumbnail. Most compact card, but obscures vehicle imagery and truncates long headlines.
+
+## Recommendation
+
+- Primary recommendation: `after-model`.
+- Secondary choice when promotional copy must be dominant: `top`.
+- Avoid as a default: `before-model` and `overlay`, because they compete with the wish action or the vehicle image.
+
 ## Findings
 
-- No actionable P0, P1, or P2 issue remains.
-- Typography: the description-style listing headline alone is the full-width block above the thumbnail. The existing information structure remains `제조사·모델` on the first line and `세부모델` on the second line.
-- Layout rhythm: only the new headline adds vertical space. Existing model hierarchy, thumbnail, spec, price, badge, seller, and action geometry remain in their original card structure.
-- Colors/tokens: no color, border, badge, or icon token changed.
-- Image quality: existing `object-fit: cover`, crop, dimensions, and radii are unchanged in list and feed.
-- Copy/content: non-personal listings show a specific complex after the region; personal listings show only their region. All 30 location strings fit without overflow at 384px.
-- The first four rendered examples verified the intended alternation: 판교단지, 강남단지, no complex for personal, and 도이치오토월드.
-
-## Comparison history
-
-- First pass: `제조사 모델` and `세부모델` were incorrectly moved above the thumbnail.
-- Fix: extracted only the description headline from each full title, placed that headline above the thumbnail, and returned the two model lines to `.bbm-card-content`.
-- Post-fix evidence: the correction comparison shows the headline above the image and `람보르기니 우르스 / SE 4.0 V8` back in the original right-hand column. Browser DOM confirms the headline precedes `.bbm-card-main` while model/trim remain inside `.bbm-card-content`.
-- Final correction: the temporary combined car-name experiment was reverted; the existing model/trim two-line structure is retained.
-
-## Focused comparison
-
-- The focused card crop was required because the change affects two-line hierarchy and the relative start position of the thumbnail.
-- It confirms that only the description headline sits above the thumbnail; model, trim, price, badges, location, seller, and bottom navigation retain their intended alignment.
+- No actionable P0, P1, or P2 implementation issue remains across the seven query-controlled variants.
+- The existing information structure remains `제조사·모델` on the first line and `세부모델` on the second line in every variant.
+- Existing thumbnail, spec, price, badge, location, seller, wish action, and bottom navigation styles were not changed.
+- First-card geometry at 384px: card height ranges from 183px (`overlay`) to 211px (`top`/`bottom`); thumbnail remains exactly 136×136px in all variants.
+- The full headline fits without text overflow in six positions. `overlay` intentionally truncates to preserve the thumbnail and demonstrates its limitation as a default.
 
 ## Verification
 
@@ -48,9 +48,8 @@
 - `npm run build`: passed.
 - `npm run test:sites`: passed (4/4).
 - 30-row heading map: passed.
-- 384 px list/feed visual inspection: passed.
-- 1280 px PC visual inspection: passed.
-- 30 location overflow audit: passed.
+- Seven 384px list variants rendered and captured: passed.
+- First-card geometry and overflow audit: passed, with the documented overlay truncation.
 - Browser console errors: none.
 
 final result: passed
