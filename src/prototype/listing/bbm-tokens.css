@@ -318,29 +318,34 @@
 .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-actions button,
 .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-actions img,
 .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-wish-on { width: 24px; height: 24px; }
-/* 모바일 피드 보기: 목록형보다 한 단계 큰 글자와 별도 세로 리듬을 사용한다. */
+/* 모바일 피드 보기: 초톳처럼 첫 매물만 강조형이고, 이후 매물은 가로 목록형이다. */
 .bbm-m-list.is-feed { padding-top: 12px; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile { min-height: 0; padding: 0 0 16px; margin-bottom: 12px; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-main { flex-direction: column; gap: 15px; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-photo { width: 100%; height: auto; aspect-ratio: 1.5 / 1; border-radius: 12px; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-media-footer { height: 34px; padding: 8px 10px; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-text { height: auto; gap: 0; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-title { display: block; overflow: hidden; font-size: 16px; line-height: 24px; text-overflow: clip; white-space: normal; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-spec { height: 20px; margin-top: 0; font-size: 14px; line-height: 20px; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-price-badges { flex-direction: row; align-items: center; gap: 8px; margin-top: 3px; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-price { height: 23px; font-size: 17px; line-height: 23px; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-price-unit { font-size: 14px; line-height: 20px; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-meta,
-.bbm-m-list.is-feed .bbm-result-card.is-mobile.has-badges .bbm-card-meta,
-.bbm-m-list.is-feed .bbm-result-card.is-mobile.has-no-badges .bbm-card-meta { gap: 0; margin-top: 5px; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-location { height: 19px; font-size: 14px; line-height: 19px; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-location-text { font-size: 14px; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-meta-row { height: 24px; align-items: flex-start; margin-top: 0; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-actions button,
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-actions img,
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-wish-on { width: 24px; height: 24px; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-model { padding-right: 32px; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-actions button { width: 36px; height: 36px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured { min-height: 0; padding: 0 0 16px; margin-bottom: 12px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-main { flex-direction: column; gap: 15px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-photo { width: 100%; height: auto; aspect-ratio: 7 / 5; border-radius: 8px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-media-footer { height: 34px; padding: 8px 10px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-text { height: auto; gap: 0; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-title { display: block; overflow: hidden; font-size: 16px; line-height: 24px; text-overflow: clip; white-space: normal; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec { height: 20px; margin-top: 0; font-size: 14px; line-height: 20px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-price-badges { flex-direction: row; align-items: center; gap: 8px; margin-top: 3px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-price { height: 23px; font-size: 17px; line-height: 23px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-price-unit { font-size: 14px; line-height: 20px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-meta,
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured.has-badges .bbm-card-meta,
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured.has-no-badges .bbm-card-meta { gap: 0; margin-top: 5px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-location { height: 19px; font-size: 14px; line-height: 19px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-location-text { font-size: 14px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-meta-row { height: 24px; align-items: flex-start; margin-top: 0; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-actions button,
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-actions img,
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-wish-on { width: 24px; height: 24px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-model { padding-right: 32px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-actions button { width: 36px; height: 36px; }
+/* 초톳 피드의 후속 카드 실측값: 120px 정사각 사진, 16/20 제목. 추가 제목 행만 보배드림 시안 차이로 유지한다. */
+.bbm-m-list.is-feed .bbm-result-card.is-mobile:not(.is-feed-featured) .bbm-card-photo { width: 120px; height: 120px; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden; flex: 0 0 120px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile:not(.is-feed-featured) .bbm-card-title { font-size: 16px; line-height: 20px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile:not(.is-feed-featured) .bbm-card-location,
+.bbm-m-list.is-feed .bbm-result-card.is-mobile:not(.is-feed-featured) .bbm-card-location-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 /* 모바일 한줄 광고 보기: 모델 / 연식(연형) / 가격(만원) / 찜의 표 형태. */
 .bbm-m-list.is-one-line { padding-top: 12px; }
 .bbm-one-line-head,
