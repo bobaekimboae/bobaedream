@@ -230,6 +230,8 @@
 .bbm-result-card.is-mobile .bbm-card-price-unit { font-size: 14px; line-height: 21px; }
 .bbm-result-card.is-mobile .bbm-card-badges { height: 20px; }
 .bbm-result-card.is-mobile .bbm-card-location { height: 20px; gap: 4px; color: var(--bbm-text-muted); font-size: 14px; line-height: 20px; }
+.bbm-result-card.is-mobile.has-no-badges .bbm-card-text { height: 68px; }
+.bbm-result-card.is-mobile.has-no-badges .bbm-card-location { margin-top: 2px; }
 .bbm-result-card.is-mobile .bbm-card-meta-row { height: 20px; margin-top: 4px; }
 .bbm-result-card.is-mobile .bbm-card-seller-logo { width: 16px; height: 16px; }
 .bbm-result-card.is-mobile .bbm-card-seller-text { gap: 8px; }
@@ -288,6 +290,7 @@
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-title { font-size: 16px; line-height: 24px; }
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-price-badges { flex-direction: row; align-items: center; gap: 8px; }
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-meta { gap: 2px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.has-no-badges .bbm-card-location { margin-top: 0; }
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-meta-row { height: 24px; margin-top: 4px; }
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-actions button,
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-actions img,

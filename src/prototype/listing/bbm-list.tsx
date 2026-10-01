@@ -65,7 +65,7 @@ export function BbmResultCard({ car, variant, liked, onToggleLike, onOpen, onCha
     if (event.key === "Enter" || event.key === " ") { event.preventDefault(); onOpen(); }
   };
   return (
-    <article className={`bbm-result-card is-${variant}`} role="link" tabIndex={0} aria-label={`${car.title} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
+    <article className={`bbm-result-card is-${variant}${badges.length ? " has-badges" : " has-no-badges"}`} role="link" tabIndex={0} aria-label={`${car.title} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
       <div className="bbm-card-main">
         {/* 사진이 없는 매물은 원본처럼 빈 회색 칸(car-list-result-card__image 배경 #EBEBEB) */}
         <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`}>
