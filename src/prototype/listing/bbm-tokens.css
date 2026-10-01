@@ -215,20 +215,21 @@
 .bbm-m-toolbar .bbm-seller-tabs button.is-selected::after { content: ""; position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; background: var(--bbm-text); }
 .bbm-m-view { display: grid; width: 20px; height: 47px; place-items: center; padding: 0; border: 0; background: none; }
 .bbm-m-view img { width: 20px; height: 20px; }
-/* 카드 모바일: 12/0, 아래 선, 사진 122×120 라운드 12, 간격 24 */
+/* 카드 모바일: 초톳 목록형의 16/24·14/20·14/21 텍스트 리듬을 공통 기준으로 사용 */
 .bbm-m-list { padding: 0 16px; }
 .bbm-result-card.is-mobile { padding: 12px 0; border-bottom: 1px solid var(--bbm-line); }
-.bbm-result-card.is-mobile .bbm-card-main { gap: 24px; }
+.bbm-result-card.is-mobile .bbm-card-main { gap: 12px; }
 .bbm-result-card.is-mobile .bbm-card-photo { width: 122px; height: 120px; border-radius: 12px; }
 .bbm-result-card.is-mobile .bbm-card-media-footer { height: 31.4px; padding: 8px 9px; }
 .bbm-result-card.is-mobile .bbm-card-time { font-size: 11px; font-weight: 600; line-height: 15.4px; }
-.bbm-result-card.is-mobile .bbm-card-text { height: 104px; }
-.bbm-result-card.is-mobile .bbm-card-title { font-size: 15px; line-height: 21px; }
-.bbm-result-card.is-mobile .bbm-card-spec { height: 24px; color: var(--bbm-tab-inactive); line-height: 24px; }
+.bbm-result-card.is-mobile .bbm-card-text { height: 88px; gap: 2px; }
+.bbm-result-card.is-mobile .bbm-card-title { font-size: 16px; line-height: 24px; }
+.bbm-result-card.is-mobile .bbm-card-spec { height: 20px; color: var(--bbm-tab-inactive); font-size: 14px; line-height: 20px; }
 .bbm-result-card.is-mobile .bbm-card-price-badges { display: flex; flex-direction: column; align-items: flex-start; }
-.bbm-result-card.is-mobile .bbm-card-price { height: 24px; align-items: center; line-height: 22.4px; }
-.bbm-result-card.is-mobile .bbm-card-badges { height: 28px; }
-.bbm-result-card.is-mobile .bbm-card-location { height: 24px; gap: 2px; color: var(--bbm-text-muted); font-size: 13px; line-height: 18px; }
+.bbm-result-card.is-mobile .bbm-card-price { height: 21px; align-items: center; font-size: 14px; line-height: 21px; }
+.bbm-result-card.is-mobile .bbm-card-price-unit { font-size: 14px; line-height: 21px; }
+.bbm-result-card.is-mobile .bbm-card-badges { height: 20px; }
+.bbm-result-card.is-mobile .bbm-card-location { height: 20px; gap: 4px; color: var(--bbm-text-muted); font-size: 14px; line-height: 20px; }
 .bbm-result-card.is-mobile .bbm-card-meta-row { height: 20px; margin-top: 4px; }
 .bbm-result-card.is-mobile .bbm-card-seller-logo { width: 16px; height: 16px; }
 .bbm-result-card.is-mobile .bbm-card-seller-text { gap: 8px; }
@@ -277,16 +278,17 @@
 .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-actions button,
 .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-actions img,
 .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-wish-on { width: 24px; height: 24px; }
-/* 모바일 피드 보기: 사진을 가로 전체로 키우고 정보와 판매자 액션을 아래에 쌓는다. */
+/* 모바일 피드 보기: 초톳 피드형처럼 사진 아래 4px부터 같은 정보 위계를 이어간다. */
 .bbm-m-list.is-feed { padding-top: 12px; }
 .bbm-m-list.is-feed .bbm-result-card.is-mobile { padding: 0 0 16px; margin-bottom: 12px; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-main { flex-direction: column; gap: 10px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-main { flex-direction: column; gap: 4px; }
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-photo { width: 100%; height: auto; aspect-ratio: 1.5 / 1; border-radius: 12px; }
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-media-footer { height: 34px; padding: 8px 10px; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-text { height: auto; gap: 3px; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-title { font-size: 16px; line-height: 22px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-text { height: auto; gap: 2px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-title { font-size: 16px; line-height: 24px; }
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-price-badges { flex-direction: row; align-items: center; gap: 8px; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-meta-row { height: 28px; margin-top: 6px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-meta { gap: 2px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-meta-row { height: 24px; margin-top: 4px; }
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-actions button,
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-actions img,
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-wish-on { width: 24px; height: 24px; }
