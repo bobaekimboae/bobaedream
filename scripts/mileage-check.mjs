@@ -77,7 +77,7 @@ for (const width of [375, 390, 393, 430]) {
     chip: [...document.querySelectorAll(".mf-chip")].filter((c) => c.getAttribute("aria-pressed") === "true").map((c) => c.textContent),
     confirm: document.querySelector(".mf-confirm")?.textContent, disabled: document.querySelector(".mf-confirm")?.disabled, open: Boolean(document.querySelector(".mf-sheet")),
   }));
-  const trackX = async (value) => page.evaluate((value) => { const t = document.querySelector(".mf-track").getBoundingClientRect(); return { x: t.left + (t.width * value) / 150000, y: t.top + 2 }; }, value);
+  const trackX = async (value) => page.evaluate((value) => { const t = document.querySelector(".mf-track").getBoundingClientRect(); const ratio = value <= 100000 ? (value / 100000) * (5 / 6) : (5 / 6) + ((value - 100000) / 50000) * (1 / 6); return { x: t.left + t.width * ratio, y: t.top + 2 }; }, value);
   await openSheet(page);
   const b = {};
   // 최대 손잡이를 60% 로 드래그

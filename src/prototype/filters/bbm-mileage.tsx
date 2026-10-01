@@ -49,7 +49,16 @@ export function mileageSummary(range: BbmRange | undefined) {
   return `${man(min)}~${man(max)}만km`;
 }
 
-const pct = (value: number) => Math.max(0, Math.min(1, value / MILEAGE_MAX));
+// 눈금은 7개를 시각적으로 균등 배치한다. 앞 5칸은 2만km씩,
+// 마지막 한 칸은 10만→15만km를 나타내는 비선형 축이다.
+const pct = (value: number) => {
+  const safe = Math.max(0, Math.min(MILEAGE_MAX, value));
+  return safe <= 100000 ? (safe / 100000) * (5 / 6) : (5 / 6) + ((safe - 100000) / 50000) * (1 / 6);
+};
+const valueFromPct = (ratio: number) => {
+  const safe = Math.max(0, Math.min(1, ratio));
+  return safe <= 5 / 6 ? (safe / (5 / 6)) * 100000 : 100000 + ((safe - 5 / 6) / (1 / 6)) * 50000;
+};
 const snap = (value: number) => Math.max(0, Math.min(MILEAGE_MAX, Math.round(value / MILEAGE_STEP) * MILEAGE_STEP));
 const snapPointer = (value: number) => Math.max(0, Math.min(MILEAGE_MAX, Math.round(value / MILEAGE_POINTER_STEP) * MILEAGE_POINTER_STEP));
 const tickLabel = (value: number) => (value === 0 ? "0" : value === MILEAGE_MAX ? "15만+" : `${value / 10000}만`);
@@ -77,7 +86,7 @@ function DualSlider({ min, max, onChange, onCommit }: { min: number; max: number
   const maxValue = max === null ? MILEAGE_MAX : Math.min(max, MILEAGE_MAX);
   // 포인터는 100km 단위로 촘촘히 따라가 시각적으로 부드럽게 움직인다.
   // 키보드는 탐색 속도와 기존 규격을 위해 1,000km 단위를 유지한다.
-  const valueAt = (clientX: number) => { const box = rail.current!.getBoundingClientRect(); const inset = 11; return snapPointer(((clientX - box.left - inset) / (box.width - inset * 2)) * MILEAGE_MAX); };
+  const valueAt = (clientX: number) => { const box = rail.current!.getBoundingClientRect(); const inset = 11; return snapPointer(valueFromPct((clientX - box.left - inset) / (box.width - inset * 2))); };
   const set = (which: "min" | "max", value: number) => {
     if (which === "min") onChange(Math.min(value, maxValue), max);
     else { const next = Math.max(value, min); onChange(min, next >= MILEAGE_MAX ? null : next); }
