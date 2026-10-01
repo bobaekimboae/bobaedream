@@ -65,7 +65,7 @@
 .bbm-card-location img { width: 16px; height: 16px; flex: none; }
 .bbm-card-meta-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .bbm-card-seller { display: flex; min-width: 0; align-items: center; gap: 8px; }
-.bbm-card-seller-logo { flex: none; border-radius: 50%; background: var(--bbm-text); object-fit: cover; }
+.bbm-card-seller-logo { display: block; width: 20px; height: 20px; flex: none; overflow: hidden; border-radius: 50%; background: var(--bbm-text); object-fit: cover; object-position: center; }
 .bbm-card-seller-text { display: flex; min-width: 0; align-items: center; gap: 4px; font-size: 12px; line-height: 16.8px; }
 .bbm-card-seller-text strong { font-weight: 400; white-space: nowrap; }
 .bbm-card-seller-info { color: var(--bbm-text-weak); white-space: nowrap; }
@@ -151,7 +151,7 @@
   .marketplace.is-bbm .bbm-result-card .bbm-card-price-unit { margin-left: 2px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-location { height: 32px; padding-top: 8px; box-sizing: border-box; color: #505050; font-size: 14px; line-height: 19.6px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-meta-row { height: 48px; }
-  .marketplace.is-bbm .bbm-result-card .bbm-card-seller-logo { width: 18px; height: 18px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-seller-logo { width: 20px; height: 20px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-seller-text strong { color: var(--bbm-text-strong); }
   .marketplace.is-bbm .bbm-result-card .bbm-card-seller-text strong::after { content: "·"; margin-left: 4px; color: var(--bbm-text-weak); }
   .marketplace.is-bbm .bbm-result-card .bbm-card-actions button { width: 48px; height: 48px; padding: 12px; }
@@ -236,7 +236,7 @@
 .bbm-result-card.is-mobile .bbm-card-location { height: 18px; gap: 4px; color: var(--bbm-text-muted); font-size: 13px; line-height: 18px; }
 .bbm-result-card.is-mobile .bbm-card-location-text { font-size: 13px; }
 .bbm-result-card.is-mobile .bbm-card-meta-row { height: 20px; margin-top: 4px; }
-.bbm-result-card.is-mobile .bbm-card-seller-logo { width: 16px; height: 16px; }
+.bbm-result-card.is-mobile .bbm-card-seller-logo { width: 20px; height: 20px; }
 .bbm-result-card.is-mobile .bbm-card-seller-text { gap: 8px; }
 .bbm-result-card.is-mobile .bbm-card-seller-text strong { color: var(--bbm-text); }
 .bbm-result-card.is-mobile .bbm-card-actions button, .bbm-result-card.is-mobile .bbm-card-actions img { width: 20px; height: 20px; }

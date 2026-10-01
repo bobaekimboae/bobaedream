@@ -80,6 +80,12 @@ import { BbmChipScroller, BbmTopCrumbs, type BbmCrumb } from "./bbm-top-chotot";
 import { setPretendard } from "../fonts/pretendard";
 import { BBM_PAGE_SIZE, BbmFooter, BbmPagination, BbmPopOptions, BbmToolbarMenu, bbmSortOptions, bbmViewOptionsMobile, bbmViewOptionsPc, sortBbmCars, type BbmSort } from "./bbm-list-area";
 
+type BbmMobileView = "목록으로 보기" | "피드로 보기" | "갤러리로 보기" | "한줄 광고로 보기" | "텍스트로 보기";
+
+const initialBbmMobileView = (): BbmMobileView => new URLSearchParams(window.location.search).get("view") === "feed"
+  ? "피드로 보기"
+  : "목록으로 보기";
+
 // QF-120: 모듈을 읽는 순간(첫 렌더 전) 과쯔면 글꼴 CSS·미리 불러오기를 붙여 글꼴 요청을 앞당김
 if (getInitialQuickFilterStyle() === "guazi") setPretendard(true);
 
@@ -457,7 +463,7 @@ function MarketplaceScreen() {
   const [bbmSort, setBbmSort] = useState<BbmSort>("업데이트순");
   const [bbmPage, setBbmPage] = useState(1);
   const [bbmMenu, setBbmMenu] = useState<"sort" | "view" | "m-sort" | "m-view" | null>(null);
-  const [bbmMobileView, setBbmMobileView] = useState<"목록으로 보기" | "피드로 보기" | "갤러리로 보기" | "한줄 광고로 보기" | "텍스트로 보기">("목록으로 보기");
+  const [bbmMobileView, setBbmMobileView] = useState<BbmMobileView>(initialBbmMobileView);
   // 모바일 칩 줄이 가로로 밀려 있으면 "필터" 칩을 아이콘만 + 오른쪽 구분선(원본 is-scrolled)
   const [bbmRailScrolled, setBbmRailScrolled] = useState(false);
   const pcFilterRowRef = useRef<HTMLDivElement>(null);

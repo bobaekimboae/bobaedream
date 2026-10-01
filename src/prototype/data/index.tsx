@@ -61,6 +61,7 @@ type Car = {
   posted: string;
   photos: number;
   badges?: ListingBadge[];
+  sellerProfile?: string | null;
   filter?: {
     year: number;
     seats: string;
@@ -125,6 +126,14 @@ const dealerAvatarPool = [
 
 const privateSellerAvatar = "cars/sellers/private-seller.png";
 
+// 초톳 원본 50개 중 인물 중심 사진만 사용한다. 광고·차량·브랜드/매장 로고는 자산으로만 보존하고 프사에는 연결하지 않는다.
+const chototHumanSellerProfiles = [
+  "004", "006", "008", "010", "013", "014", "015", "017", "019", "021", "022", "023", "024",
+  "032", "035", "036", "039", "040", "041", "042", "043", "044", "045", "048", "049", "050",
+].map((number) => `cars/sellers/chotot/${number}.jpg`);
+
+const chototSellerProfileAt = (index: number) => chototHumanSellerProfiles[index] ?? null;
+
 const sellerLabel = (car: Car) => {
   if (car.sellerType === "개인") return "개인판매자";
   if (car.dealer && car.dealer !== sellerScenario.name) return car.dealer;
@@ -133,6 +142,7 @@ const sellerLabel = (car: Car) => {
 };
 
 const sellerAvatar = (car: Car) => {
+  if (car.sellerProfile !== undefined) return car.sellerProfile ?? privateSellerAvatar;
   if (car.sellerType === "개인") return privateSellerAvatar;
   const index = ((car.id - 1) % dealerAvatarPool.length + dealerAvatarPool.length) % dealerAvatarPool.length;
   return dealerAvatarPool[index];
@@ -721,6 +731,7 @@ type ChoTotCarSeed = Omit<Car, "id" | "sellerType" | "views" | "dealer" | "stock
 const makeChoTotCar = (id: number, seed: ChoTotCarSeed): Car => ({
   ...seed,
   id,
+  sellerProfile: chototSellerProfileAt(id - 1001),
   sellerType: seed.title.includes("개인") ? "개인" : seed.maker === "제네시스" || seed.maker === "현대" && seed.title.includes("아이오닉") || seed.maker === "렉서스" || seed.maker === "포르쉐" ? "개인" : "딜러",
   views: 160 + id * 17,
   dealer: seed.title.includes("개인") ? "개인판매자" : sellerScenario.name,
@@ -778,6 +789,8 @@ const bbmExtraCars: Car[] = Array.from({ length: 41 }, (_, index) => {
   return {
     ...base,
     id,
+    // 최신순 첫 화면은 21개 모두 서로 다른 인물 프사이며, 이후 사진이 없는 매물은 기본 프로필로 내려간다.
+    sellerProfile: chototSellerProfileAt(40 - index),
     sellerType: index % 4 === 1 ? "개인" : "딜러",
     dealer: index % 4 === 1 ? "개인판매자" : base.dealer,
     stock: index % 4 === 1 ? 1 : 2 + (index % 9),
@@ -803,6 +816,7 @@ const bbmBodyExtraCars: Car[] = [
   return {
     ...base,
     id: seed.id,
+    sellerProfile: null,
     maker: seed.title.split(" ")[0],
     title: seed.title,
     trim: seed.trim,
