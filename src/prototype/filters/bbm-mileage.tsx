@@ -269,6 +269,7 @@ export function MileageFinalSheet({ value, countOf, onApply, onClose, variant = 
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus({ preventScroll: true }); }
   };
   const invalid = mileageInvalid(draft.ranges.mileage);
+  const hasMileage = Boolean(draft.ranges.mileage?.min || draft.ranges.mileage?.max);
   // 모달은 주행거리 값만 적용(다른 필터는 지금 적용 값 그대로)
   const confirm = () => { onApply(modal ? setBbmRange(value, "mileage", draft.ranges.mileage ?? { min: "", max: "" }) : draft); close(); };
   return createPortal(
@@ -280,7 +281,7 @@ export function MileageFinalSheet({ value, countOf, onApply, onClose, variant = 
         </header>
         <div className="mf-body"><MileageFinalPanel value={draft} onChange={setDraft} layout="sheet" /></div>
         <div className="mf-actions">
-          <button type="button" className="mf-reset" onClick={() => setDraft(setBbmRange(draft, "mileage", { min: "", max: "" }))}>초기화</button>
+          <button type="button" className="mf-reset" disabled={!hasMileage} onClick={() => setDraft(setBbmRange(draft, "mileage", { min: "", max: "" }))}>초기화</button>
           <button type="button" className="mf-confirm" disabled={invalid} onClick={confirm}>{count.toLocaleString("ko-KR")}대 보기</button>
         </div>
       </section>

@@ -161,6 +161,7 @@
 - Accessibility: `role="dialog"`, `aria-modal`, `aria-labelledby`, focus on close (preventScroll) when opened, Tab trapped, focus returns to the mileage chip (or its applied chip). Check: `node scripts/mileage-modal-check.mjs`.
 - Slider drag keeps the active handle in a synchronous ref so the first fast pointer move is not dropped. Handles keep a constant visual size while dragging; no grab/release scale animation is used because it reads as positional bounce, especially on the right handle.
 - Pointer dragging follows the rail in 100km increments so a 393px rail does not visibly jump 3–4px per update. Keyboard arrows retain the 1,000km step for efficient accessible operation.
+- The mileage reset action follows the Airbnb-style state cue: `#B7B7B7` and disabled when the draft range is empty, `#222` and enabled as soon as any mileage value is selected; resetting returns it to gray immediately.
 - The drag value bubble changes to edge-aligned positioning only at the exact 0 and 100,000 endpoints. Intermediate values keep the same centered anchor so crossing the former edge threshold does not look like the handle jumped.
 
 ## Seller Type Sheet

@@ -12,6 +12,7 @@
 .mf-body { flex: 1; min-height: 0; overflow-x: hidden; overflow-y: auto; padding: 20px 16px 22px; }
 .mf-actions { display: flex; flex: none; gap: 10px; height: 80px; padding: 12px 20px 16px; box-sizing: border-box; background: #fff; box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.06); }
 .mf-reset { flex: 0 0 92px; width: 92px; height: 52px; padding: 0; border: 0; border-radius: 12px; background: transparent; color: #222; font-size: 16px; font-weight: 700; text-decoration: none; cursor: pointer; }
+.mf-reset:disabled { color: #b7b7b7; cursor: default; }
 .mf-confirm { flex: 1 1 auto; min-width: 0; height: 52px; padding: 0; border: 0; border-radius: 12px; background: #222; color: #fff; font-size: 16px; font-weight: 700; text-decoration: none; cursor: pointer; }
 .mf-confirm:disabled { background: #d9d9d9; color: #fff; cursor: default; }
 
