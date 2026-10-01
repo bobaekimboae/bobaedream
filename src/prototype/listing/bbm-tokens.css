@@ -288,7 +288,7 @@
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-photo { width: 100%; height: auto; aspect-ratio: 1.5 / 1; border-radius: 12px; }
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-media-footer { height: 34px; padding: 8px 10px; }
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-text { height: auto; gap: 0; }
-.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-title { display: block; overflow: hidden; font-size: 16px; line-height: 24px; text-overflow: ellipsis; white-space: nowrap; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-title { display: -webkit-box; overflow: hidden; font-size: 16px; line-height: 24px; text-overflow: clip; white-space: normal; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-spec { height: 20px; margin-top: 0; font-size: 14px; line-height: 20px; }
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-price-badges { flex-direction: row; align-items: center; gap: 8px; margin-top: 3px; }
 .bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-price { height: 23px; font-size: 17px; line-height: 23px; }
