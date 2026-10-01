@@ -1606,15 +1606,17 @@ function MarketplaceScreen() {
                 {bbmChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} onClick={() => { revealBbmChip(chip.label); chip.onClick(); }} onClear={chip.onClear} />)}
               </Carousel>
             </section>
-            {/* QF-106 ④ 퀵필터 자리(항상) · ⑤ 회색 띠 → 경로 · 제목 · 관련 검색어 */}
+            {/* QF-106 ④ 퀵필터 자리. 과쯔 원본은 바로 영상 매물 줄로 이어지고 별도 경로·제목·추천어가 없다. */}
             <div className="bbm-m-quick-slot">{quickRail}</div>
-            <section className="bbm-m-head" aria-label="목록 머리">
-              <BbmTopCrumbs items={bbmMobileCrumbs} />
-              <h1 className="bbm-m-title" data-count={shownCars.length}>{stablePageTitle(category)}</h1>
-              <div className="bbm-m-keywords" role="list">
-                {stableKeywordPills.map((pill) => <button key={pill.label} type="button" role="listitem" className="bbm-m-keyword" onClick={() => applyKeywordPill(pill.id)}>{pill.label}</button>)}
-              </div>
-            </section>
+            {!isGuaziQuickStyle ? (
+              <section className="bbm-m-head" aria-label="목록 머리">
+                <BbmTopCrumbs items={bbmMobileCrumbs} />
+                <h1 className="bbm-m-title" data-count={shownCars.length}>{stablePageTitle(category)}</h1>
+                <div className="bbm-m-keywords" role="list">
+                  {stableKeywordPills.map((pill) => <button key={pill.label} type="button" role="listitem" className="bbm-m-keyword" onClick={() => applyKeywordPill(pill.id)}>{pill.label}</button>)}
+                </div>
+              </section>
+            ) : null}
             <BbmMobileOptions videoOnly={videoOnly} onToggleVideo={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))} sortLabel={bbmSort} onSort={() => setBbmMenu("m-sort")} extra={debugMode ? quickStyleSelect : null} />
             <nav className="bbm-m-toolbar" aria-label="매물 유형과 보기">
               <BbmSellerTabs tabs={["전체", "개인", "딜러"] as SellerType[]} value={sellerType} onChange={(tab) => setFilters((current) => ({ ...current, seller: tab }))} onBrand={() => setSearchToast("브랜드 매물은 정식 서비스에서 이용해 주세요.")} />
