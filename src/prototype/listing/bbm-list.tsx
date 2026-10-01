@@ -8,7 +8,7 @@ import "./bbm-tokens.css";
 export const bbmIcon = (name: string) => asset(`bbm/${name}.svg`);
 
 type HeadlineTone = "default" | "blue";
-type HeadlinePosition = "before-model" | "after-model";
+type HeadlinePosition = "photo-top" | "after-model";
 
 const headlinePositionLinks: Array<{ short: string; label: string; tone: HeadlineTone }> = [
   { short: "3 기본", label: "세부모델 아래 · 기본색", tone: "default" },
@@ -20,7 +20,7 @@ function getHeadlineTone(): HeadlineTone {
 }
 
 function getHeadlinePosition(): HeadlinePosition {
-  return new URLSearchParams(window.location.search).get("titlepos") === "before-model" ? "before-model" : "after-model";
+  return new URLSearchParams(window.location.search).get("titlepos") === "photo-top" ? "photo-top" : "after-model";
 }
 
 export function BbmHeadlinePreviewLinks() {
@@ -116,10 +116,9 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
     <article className={`bbm-result-card is-${variant}${featured ? " is-feed-featured" : ""}${badges.length ? " has-badges" : " has-no-badges"}${car.uiTest ? ` is-ui-test headline-${headlinePosition}` : ""}`} role="link" tabIndex={0} aria-label={`${car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
       <div className="bbm-card-main">
         {/* 사진이 없는 매물은 원본처럼 빈 회색 칸(car-list-result-card__image 배경 #EBEBEB) */}
-        {photo}
+        {headlinePosition === "photo-top" ? <div className="bbm-card-photo-column">{headline}{photo}</div> : photo}
         <div className="bbm-card-content">
           <div className="bbm-card-text">
-            {headlinePosition === "before-model" ? headline : null}
             {title}
             {headlinePosition === "after-model" ? headline : null}
             <span className="bbm-card-spec">{bbmCardSpec(car, variant === "pc")}</span>

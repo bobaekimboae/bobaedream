@@ -46,7 +46,8 @@
 .bbm-result-card { position: relative; cursor: pointer; outline: 0; }
 .bbm-result-card:focus-visible { box-shadow: inset 0 0 0 2px var(--bbm-blue); }
 .bbm-card-headline { display: block; min-width: 0; overflow: hidden; color: #555; font-size: 13px; font-weight: 500; line-height: 18px; text-overflow: ellipsis; white-space: nowrap; }
-.bbm-card-headline.is-before-model { margin: 0 0 3px; }
+.bbm-card-photo-column { display: flex; width: 136px; flex: 0 0 136px; flex-direction: column; }
+.bbm-card-headline.is-photo-top { margin-bottom: 4px; color: #444; font-size: 12px; line-height: 16px; }
 .bbm-card-headline.is-after-model { margin: 3px 0 1px; }
 .bbm-card-headline.is-blue { color: var(--bbm-blue); font-weight: 600; }
 .bbm-card-main { display: flex; }

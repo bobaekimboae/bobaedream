@@ -202,7 +202,7 @@
 - Guazi mobile listing header follows the ChoTot reference: back button → flexible search field → saved-listings heart. The standalone chat icon is removed, and its former column plus gap are absorbed by the search field. The search field's internal search and save-search actions stay unchanged.
 - Guazi mobile bottom navigation uses Bobaedream black `#222` for the active home icon and for both the 44px circular `매물등록` button and its label pill. Inactive navigation icons and labels remain gray so the center action stays primary without introducing a second brand accent.
 - The Guazi mobile bottom navigation reserves a 6px breathing space below its 74px content area and adds `var(--device-safe-area-bottom, 0px)` beneath the fixed bar. Its scroll footer reserves the equivalent `var(--mobile-safe-area-height)` so the `매물등록` label and footer content never clip or hide behind the device bottom edge.
-- Luxury UI-test list links may use `titlepos=before-model` to place the listing headline on the first text line before the manufacturer/model. The visible comparison controls remain limited to the approved after-model default and blue treatments.
+- Luxury UI-test list links may use `titlepos=photo-top` to place the listing headline directly above the 136px thumbnail. The visible comparison controls remain limited to the approved after-model default and blue treatments.
 
 ### 바디타입 바텀시트
 
