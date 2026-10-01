@@ -30,7 +30,7 @@ export function bbmCardSpec(source: SampleSource, withPower = true) {
   const month = ((source.id * 5) % 12) + 1;
   // 목록은 등록연월만 간결하게 표시한다. 연형은 상세 정보에서 다룬다.
   const registered = source.id % 2 === 0 ? year - 1 : year;
-  const parts = [`${String(registered % 100).padStart(2, "0")}년 ${month}월`, mileageLabel(source), fuelLabel(source)];
+  const parts = [`${String(registered % 100).padStart(2, "0")}년${String(month).padStart(2, "0")}월`, mileageLabel(source), fuelLabel(source)];
   if (withPower) parts.push(`${horsepowerPool[source.id % horsepowerPool.length]}마력`);
   return parts.join(" · ");
 }
