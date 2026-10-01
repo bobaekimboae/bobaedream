@@ -74,7 +74,7 @@ export function BbmResultCard({ car, variant, liked, onToggleLike, onOpen, onCha
         </div>
         <div className="bbm-card-content">
           <div className="bbm-card-text">
-            <strong className="bbm-card-title">{car.title} {car.trim}</strong>
+            <strong className="bbm-card-title"><span className="bbm-card-model">{car.title}</span>{car.trim ? <span className="bbm-card-trim">{car.trim}</span> : null}</strong>
             <span className="bbm-card-spec">{bbmCardSpec(car, variant === "pc")}</span>
             <div className="bbm-card-price-badges">
               <strong className="bbm-card-price"><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</strong>
