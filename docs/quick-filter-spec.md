@@ -46,6 +46,7 @@
 
 ## Summary Chips And Top Rail
 
+- Guazi 필터 버튼 아이콘은 세 개의 조절선과 원형 핸들이 있는 24×24 SVG(`chip-filter-funnel.svg`)를 사용하고 20×20px로 표시한다. 두 줄 조절 아이콘과 깔때기 아이콘은 기본안으로 사용하지 않는다.
 - Top chip order: `[필터] [중고차/카테고리] [요약 칩] [트림] [가격] [연식] [주행] [색상]`.
 - Guazi (dev-draft baseline, QF-091·QF-089): top chips follow the bbmuseum original. Before a manufacturer: `[필터] [전체차량] [applied chips] [제조사] [연식] [가격] [연료] [판매자]`; after: `[필터] [전체차량] [요약 칩] [모델 until a model is chosen] [트림] [applied chips] [연식] [가격] [연료] [판매자]`. Group chips with a value leave the row. The summary chip keeps its 220px max width, clear, and depth-return behavior.
 - Guazi (QF-091): the category landing shows the original circular vehicle-type row instead of the depth-0 type cards. Choosing a type swaps the same slot to the quick-filter rail from the manufacturer step; clearing the category chip brings the type row back. Rail, DepthCard, and trim chip specs are unchanged.

@@ -96,13 +96,8 @@ const debugMode = new URLSearchParams(window.location.search).get("debug") === "
 // QF-076 부품 비교 화면(&bbmparts=1)
 const bbmPartsMode = new URLSearchParams(window.location.search).get("bbmparts") === "1";
 
-// 노션 FilterHeader 원본을 기본안과 분리해 비교하는 전용 테스트 모드
-const bbmFilterIconQuery = new URLSearchParams(window.location.search).get("filtericon");
-const bbmFilterIconName = bbmFilterIconQuery === "filterheader"
-  ? "chip-filter-funnel"
-  : bbmFilterIconQuery === "airbnb2"
-    ? "chip-filter-airbnb-2"
-    : "chip-filter-controls";
+// 최종 선택: 세 개의 조절선을 사용하는 FilterHeader 원본.
+const bbmFilterIconName = "chip-filter-funnel";
 
 let detailScreen: FlowScreen;
 let savedListingsScreen: FlowScreen;
