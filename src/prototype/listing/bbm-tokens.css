@@ -46,8 +46,9 @@
 .bbm-result-card { position: relative; cursor: pointer; outline: 0; }
 .bbm-result-card:focus-visible { box-shadow: inset 0 0 0 2px var(--bbm-blue); }
 .bbm-card-headline { display: block; min-width: 0; overflow: hidden; color: #555; font-size: 13px; font-weight: 500; line-height: 18px; text-overflow: ellipsis; white-space: nowrap; }
+.bbm-card-headline.is-before-model { margin: 0 0 3px; }
 .bbm-card-headline.is-after-model { margin: 3px 0 1px; }
-.bbm-card-headline.is-after-model.is-blue { color: var(--bbm-blue); font-weight: 600; }
+.bbm-card-headline.is-blue { color: var(--bbm-blue); font-weight: 600; }
 .bbm-card-main { display: flex; }
 .bbm-card-photo { position: relative; flex: none; overflow: hidden; background: var(--bbm-photo-bg); }
 .bbm-card-photo > img { display: block; width: 100%; height: 100%; object-fit: cover; }
