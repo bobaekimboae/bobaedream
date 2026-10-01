@@ -159,6 +159,7 @@
 - The chip opens `MileageFinalSheet variant="modal"` (same QF-117 part and QF-119 rules): centered, width `min(480px, 100vw − 48px)`, radius 16, max height `100vh − 96px` (only the body scrolls), 50% dim, page scroll locked with scrollbar-width compensation, 0.15s fade + 8px rise (none with reduced motion). Content = mobile sheet (header 64, inputs `1fr 12px 1fr` gap 10, chips 3 columns, footer 80); at 480 the grid gives inputs 208 and chips 144.
 - Draft starts from the applied value; `N대 보기` applies mileage only (list, chips, left sidebar); close, backdrop and Esc discard; 초기화 clears only the mileage draft. The list stays frozen while open.
 - Accessibility: `role="dialog"`, `aria-modal`, `aria-labelledby`, focus on close (preventScroll) when opened, Tab trapped, focus returns to the mileage chip (or its applied chip). Check: `node scripts/mileage-modal-check.mjs`.
+- Slider drag keeps the active handle in a synchronous ref so the first fast pointer move is not dropped. Handles keep a constant visual size while dragging; no grab/release scale animation is used because it reads as positional bounce, especially on the right handle.
 
 ## Seller Type Sheet
 

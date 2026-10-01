@@ -69,6 +69,7 @@ function Field({ label, value, onChange, onDone }: { label: string; value: strin
 function DualSlider({ min, max, onChange, onCommit }: { min: number; max: number | null; onChange: (min: number, max: number | null) => void; onCommit?: () => void }) {
   const rail = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState<"min" | "max" | null>(null);
+  const activeRef = useRef<"min" | "max" | null>(null);
   const [shown, setShown] = useState<"min" | "max" | null>(null);
   const maxValue = max === null ? MILEAGE_MAX : Math.min(max, MILEAGE_MAX);
   const valueAt = (clientX: number) => { const box = rail.current!.getBoundingClientRect(); const inset = 11; return snap(((clientX - box.left - inset) / (box.width - inset * 2)) * MILEAGE_MAX); };
@@ -79,15 +80,15 @@ function DualSlider({ min, max, onChange, onCommit }: { min: number; max: number
   const start = (event: ReactPointerEvent<HTMLDivElement>) => {
     const value = valueAt(event.clientX);
     const which = active ?? (Math.abs(value - min) <= Math.abs(value - maxValue) && !(min === maxValue && value > min) ? "min" : "max");
-    setActive(which); setShown(which);
+    activeRef.current = which; setActive(which); setShown(which);
     // QF-119: 기본 포커스(mousedown)는 손잡이를 화면 안으로 끌어오며 스크롤을 움직일 수 있다 → 막고 preventScroll 로 직접 포커스
     event.preventDefault();
     event.currentTarget.querySelector<HTMLButtonElement>(`.mf-handle.is-${which}`)?.focus({ preventScroll: true });
     event.currentTarget.setPointerCapture(event.pointerId);
     set(which, value);
   };
-  const move = (event: ReactPointerEvent<HTMLDivElement>) => { if (active) set(active, valueAt(event.clientX)); };
-  const end = () => { if (active) onCommit?.(); setActive(null); setShown(null); };
+  const move = (event: ReactPointerEvent<HTMLDivElement>) => { const which = activeRef.current; if (which) set(which, valueAt(event.clientX)); };
+  const end = () => { if (activeRef.current) onCommit?.(); activeRef.current = null; setActive(null); setShown(null); };
   const key = (which: "min" | "max") => (event: ReactKeyboardEvent<HTMLButtonElement>) => {
     const current = which === "min" ? min : maxValue;
     const next = event.key === "ArrowLeft" || event.key === "ArrowDown" ? current - MILEAGE_STEP : event.key === "ArrowRight" || event.key === "ArrowUp" ? current + MILEAGE_STEP : event.key === "Home" ? 0 : event.key === "End" ? MILEAGE_MAX : null;

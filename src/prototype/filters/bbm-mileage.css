@@ -64,14 +64,11 @@
 .mf-bubble.is-edge-right { right: 11px; left: auto; transform: translateY(3px); }
 .mf-bubble.is-edge-right.is-visible { transform: none; }
 
-/* QF-119 조작해도 높이 불변: 오류 문구는 입력 아래 여백(슬라이더 위 20) 위에 겹침 · 손잡이 강조는 transform 만 · 끝 눈금 안쪽 정렬 */
+/* QF-119 조작해도 높이 불변: 오류 문구는 입력 아래 여백(슬라이더 위 20) 위에 겹침 · 끝 눈금 안쪽 정렬 */
 .mf-input-block { position: relative; }
 .mf-input-block .mf-error { position: absolute; top: 100%; left: 0; right: 0; margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.mf-handle-dot { transition: transform 0.12s; }
-.mf-handle.is-active .mf-handle-dot { transform: scale(1.12); }
 .mf-tick.is-first { transform: none; }
 .mf-tick.is-last { transform: none; }
-@media (prefers-reduced-motion: reduce) { .mf-handle-dot { transition: none; } }
 
 /* QF-118 PC 가운데 모달(과쯔 PC 상단 "주행거리" 칩). 내용·수치는 모바일 바텀시트와 같은 부품(헤더 64 · 본문 20/16/22 · 입력 1fr·12·1fr 사이 10 ·
    칩 3열 사이 8 · 액션 바 80) — 폭 480 에서 본문 448 → 입력 (448 − 12 − 20) ÷ 2 = 208 · 칩 (448 − 16) ÷ 3 = 144 는 그리드가 계산(숫자 고정 없음) */
