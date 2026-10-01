@@ -180,9 +180,12 @@ const dealerComplexByRegion: Record<string, string> = {
   "경기 수원시": "경기 수원시 권선구 · 도이치오토월드",
   "경기 성남시": "경기 성남시 수정구 · 판교매매단지",
   "경기 고양시": "경기 고양시 일산동구 · 고양오토파크",
+  "경기 용인시": "경기 용인시 기흥구 · 오토허브",
   "부산 해운대구": "부산 해운대구 · 반여강변자동차매매단지",
+  "부산 남구": "부산 사상구 · 부산오토필드",
   "인천 남동구": "인천 남동구 · 간석자동차매매단지",
   "인천 연수구": "인천 남동구 · 간석자동차매매단지",
+  "인천 중구": "인천 서구 · 엠파크",
   "대구 수성구": "대구 서구 · 대구엠월드자동차매매단지",
   "대구 달서구": "대구 달서구 · 엠갤러리",
   "대전 유성구": "대전 유성구 · 디오토몰",
@@ -851,15 +854,43 @@ const bbmBodyExtraCars: Car[] = [
 });
 const bbmSampleCars: Car[] = [...chototTestCars, ...bbmExtraCars, ...bbmBodyExtraCars];
 
-const splitLuxuryTitle = (fullTitle: string) => {
-  const words = fullTitle.trim().split(/\s+/);
-  return { title: words.slice(0, 5).join(" "), trim: words.slice(5).join(" ") };
+const luxuryVehicleHeadings: Record<number, { title: string; trim: string }> = {
+  1: { title: "람보르기니 우르스", trim: "SE 4.0 V8" },
+  2: { title: "람보르기니 우라칸", trim: "LP610-4 Spyder" },
+  3: { title: "람보르기니 우라칸", trim: "EVO 5.2 LP640-4 Spyder" },
+  4: { title: "람보르기니 우루스", trim: "퍼포만테 4.0 V8" },
+  5: { title: "람보르기니 우르스", trim: "SE 4.0 V8" },
+  6: { title: "람보르기니 우루스", trim: "퍼포만테 4.0 V8" },
+  7: { title: "람보르기니 우루스", trim: "S 4.0 V8" },
+  8: { title: "람보르기니 우르스", trim: "SE 4.0 V8" },
+  9: { title: "람보르기니 우루스", trim: "S 4.0 V8" },
+  10: { title: "람보르기니 우루스", trim: "S 4.0 V8" },
+  11: { title: "롤스로이스 고스트", trim: "6.6 V12 EWB" },
+  12: { title: "롤스로이스 레이스", trim: "6.6 기본형" },
+  13: { title: "롤스로이스 고스트", trim: "6.6 V12 EWB" },
+  14: { title: "롤스로이스 고스트", trim: "2세대 6.75 V12 SWB" },
+  15: { title: "롤스로이스 컬리넌", trim: "6.7 V12 Black Badge" },
+  16: { title: "롤스로이스 고스트", trim: "6.6 V12 Black Badge" },
+  17: { title: "롤스로이스 고스트", trim: "2세대 6.75 V12 Black Badge" },
+  18: { title: "롤스로이스 고스트", trim: "2세대 6.75 V12 EWB" },
+  19: { title: "롤스로이스 레이스", trim: "6.6 기본형" },
+  20: { title: "롤스로이스 고스트", trim: "2세대 6.75 V12 EWB" },
+  21: { title: "페라리 488", trim: "GTB 3.9 V8" },
+  22: { title: "페라리 푸로산게", trim: "6.5 V12 기본형" },
+  23: { title: "페라리 F8", trim: "Spider 3.9 V8" },
+  24: { title: "페라리 488", trim: "스파이더 4.0 V8" },
+  25: { title: "페라리 캘리포니아", trim: "T 3.9 V8" },
+  26: { title: "페라리 포르토피노", trim: "3.9 V8" },
+  27: { title: "페라리 F8", trim: "Spider 3.9 V8" },
+  28: { title: "페라리 포르토피노", trim: "3.9 V8" },
+  29: { title: "페라리 SF90", trim: "4.0 스파이더 기본형" },
+  30: { title: "페라리 F8", trim: "Tributo 3.9 V8" },
 };
 
 // 노션 시나리오 1~30과 같은 번호의 드라이브 이미지를 연결한 전용 UI 테스트 데이터.
 // 실제 매물이나 실제 판매 조건이 아니며, ?scenario=luxury30 에서만 노출한다.
 const luxuryUiTestCars: Car[] = luxuryUiTestRows.map((row) => {
-  const heading = splitLuxuryTitle(row.fullTitle);
+  const heading = luxuryVehicleHeadings[row.number];
   const mileage = Number(row.mileage.replace(/[^\d]/g, ""));
   const isPersonal = row.sellerTypeLabel === "개인 판매";
   const body = /우르스|우루스|컬리넌/.test(row.fullTitle) ? "SUV" : row.brand === "롤스로이스" ? "세단" : "스포츠카";
