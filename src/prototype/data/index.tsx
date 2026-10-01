@@ -172,6 +172,33 @@ const luxuryDealerNameByListing: Record<number, string> = {
   30: "영종 오토컬렉션",
 };
 
+// 럭셔리 UI 테스트 딜러 담당자명. 개인 매물에는 적용하지 않으며 모든 이름은 테스트용 가상 인물이다.
+const luxuryDealerContactByListing: Record<number, string> = {
+  1: "김도윤 딜러",
+  2: "이서현 딜러",
+  4: "박지훈 딜러",
+  5: "최민서 딜러",
+  6: "정우진 딜러",
+  8: "한지수 딜러",
+  9: "서준호 딜러",
+  10: "윤서진 딜러",
+  12: "송민재 딜러",
+  13: "강하늘 딜러",
+  14: "조성민 딜러",
+  16: "임수진 딜러",
+  17: "오지훈 딜러",
+  18: "장유진 딜러",
+  20: "신도현 딜러",
+  21: "백예린 딜러",
+  22: "권태윤 딜러",
+  24: "남서윤 딜러",
+  25: "문지환 딜러",
+  26: "유가은 딜러",
+  28: "홍민규 딜러",
+  29: "배지민 딜러",
+  30: "노성훈 딜러",
+};
+
 // 23개 딜러 + 3개 개인 매물에는 서로 다른 인물 사진을, 나머지 개인 4개에는 기본 프로필을 배치한다.
 const luxuryProfileListingNumbers = [
   1, 2, 4, 5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30,
@@ -945,7 +972,9 @@ const luxuryUiTestCars: Car[] = luxuryUiTestRows.map((row) => {
     price: row.price,
     place: row.region,
     views: 0,
-    dealer: isPersonal ? "개인판매자" : luxuryDealerNameByListing[row.number],
+    dealer: isPersonal
+      ? "개인판매자"
+      : `${luxuryDealerContactByListing[row.number]} · ${luxuryDealerNameByListing[row.number]}`,
     stock: isPersonal ? 1 : 3 + ((row.number * 7) % 39),
     posted: row.posted,
     photos: row.photos,
