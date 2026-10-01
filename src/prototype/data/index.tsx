@@ -139,9 +139,16 @@ const sellerAvatar = (car: Car) => {
 };
 
 const vehicleNumberPattern = /^([가-힣]{2}\s*)?\d{2,3}\s*[가-힣]\s*\d{4}$/;
+const formatRegistrationDate = (value: string) => {
+  const yearMonth = value.trim().match(/^(\d{2}|\d{4})년\s*0?(\d{1,2})월(?:식)?$/);
+  if (yearMonth) return `${yearMonth[1].slice(-2)}년 ${Number(yearMonth[2])}월`;
+  const modelYear = value.trim().match(/^(\d{4})년식$/);
+  if (modelYear) return `${modelYear[1].slice(-2)}년식`;
+  return value;
+};
 const displaySpecs = (specs: string[]) => specs
   .filter((spec) => !vehicleNumberPattern.test(spec.trim()))
-  .map((spec, index) => index === 1 ? formatMileage(spec) : spec)
+  .map((spec, index) => index === 0 ? formatRegistrationDate(spec) : index === 1 ? formatMileage(spec) : spec)
   .join(" · ");
 
 const dealerComplexByRegion: Record<string, string> = {
