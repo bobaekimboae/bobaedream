@@ -7,62 +7,33 @@ import "./bbm-tokens.css";
 
 export const bbmIcon = (name: string) => asset(`bbm/${name}.svg`);
 
-const headlinePositions = [
-  "top", "before-model", "after-model", "after-spec", "after-price", "bottom", "overlay",
-  "photo-top", "side-label", "photo-caption", "overlay-center", "overlay-bottom",
-  "meta-top", "after-location", "after-seller", "price-inline", "spec-inline",
-] as const;
-type HeadlinePosition = (typeof headlinePositions)[number];
 type HeadlineTone = "default" | "blue";
 
-const headlinePositionLinks: Array<{ value: HeadlinePosition; short: string; label: string; tone?: HeadlineTone }> = [
-  { value: "top", short: "1 상단", label: "카드 상단" },
-  { value: "before-model", short: "2 모델 전", label: "제조사·모델 앞" },
-  { value: "after-model", short: "3 모델 후", label: "세부모델 아래" },
-  { value: "after-model", tone: "blue", short: "3B 블루", label: "세부모델 아래 · 보배드림 블루" },
-  { value: "after-spec", short: "4 제원 후", label: "제원 아래" },
-  { value: "after-price", short: "5 가격 후", label: "가격·배지 아래" },
-  { value: "bottom", short: "6 하단", label: "카드 하단" },
-  { value: "overlay", short: "7 사진 상단", label: "썸네일 상단 오버레이" },
-  { value: "photo-top", short: "8 사진 위", label: "썸네일 위" },
-  { value: "side-label", short: "9 사진 옆", label: "사진과 정보 사이" },
-  { value: "photo-caption", short: "10 사진 아래", label: "썸네일 아래" },
-  { value: "overlay-center", short: "11 사진 중앙", label: "썸네일 중앙 오버레이" },
-  { value: "overlay-bottom", short: "12 사진 하단", label: "썸네일 하단 오버레이" },
-  { value: "meta-top", short: "13 지역 위", label: "지역 위" },
-  { value: "after-location", short: "14 지역 아래", label: "지역 아래" },
-  { value: "after-seller", short: "15 판매자 아래", label: "판매자 아래" },
-  { value: "price-inline", short: "16 가격 우측", label: "가격 오른쪽" },
-  { value: "spec-inline", short: "17 제원 우측", label: "제원 오른쪽" },
+const headlinePositionLinks: Array<{ short: string; label: string; tone: HeadlineTone }> = [
+  { short: "3 기본", label: "세부모델 아래 · 기본색", tone: "default" },
+  { short: "3B 블루", label: "세부모델 아래 · 보배드림 블루", tone: "blue" },
 ];
-
-function getHeadlinePosition(): HeadlinePosition {
-  const value = new URLSearchParams(window.location.search).get("titlepos");
-  return headlinePositions.includes(value as HeadlinePosition) ? value as HeadlinePosition : "top";
-}
 
 function getHeadlineTone(): HeadlineTone {
   return new URLSearchParams(window.location.search).get("titlecolor") === "blue" ? "blue" : "default";
 }
 
 export function BbmHeadlinePreviewLinks() {
-  const selected = getHeadlinePosition();
   const selectedTone = getHeadlineTone();
-  const hrefFor = (value: HeadlinePosition, tone: HeadlineTone = "default") => {
+  const hrefFor = (tone: HeadlineTone) => {
     const params = new URLSearchParams(window.location.search);
-    params.set("titlepos", value);
+    params.set("titlepos", "after-model");
     if (tone === "blue") params.set("titlecolor", "blue");
     else params.delete("titlecolor");
     return `${window.location.pathname}?${params.toString()}`;
   };
   return (
-    <nav className="bbm-headline-preview" aria-label="제목 위치 17개 시안">
-      <strong>제목 위치 17개 · 3B 블루</strong>
+    <nav className="bbm-headline-preview" aria-label="제목 3번 색상 시안">
+      <strong>제목 3번 색상 비교</strong>
       <div className="bbm-headline-preview__links">
         {headlinePositionLinks.map((item) => {
-          const itemTone = item.tone ?? "default";
-          const isSelected = selected === item.value && selectedTone === itemTone;
-          return <a key={`${item.value}-${itemTone}`} href={hrefFor(item.value, itemTone)} className={isSelected ? "is-selected" : ""} aria-current={isSelected ? "page" : undefined} aria-label={`${item.short} — ${item.label}`} title={item.label}>{item.short}</a>;
+          const isSelected = selectedTone === item.tone;
+          return <a key={item.tone} href={hrefFor(item.tone)} className={isSelected ? "is-selected" : ""} aria-current={isSelected ? "page" : undefined} aria-label={`${item.short} — ${item.label}`} title={item.label}>{item.short}</a>;
         })}
       </div>
     </nav>
@@ -124,47 +95,34 @@ export function BbmResultCard({ car, variant, liked, onToggleLike, onOpen, onCha
   const badges = bbmCardBadges(car);
   const priceMatch = car.price.match(/^(월\s*)?(.+?)\s*(만원)$/);
   const title = <strong className="bbm-card-title"><span className="bbm-card-model">{car.title}</span>{car.trim ? <><span aria-hidden="true"> </span><span className="bbm-card-trim">{car.trim}</span></> : null}</strong>;
-  const headlinePosition = car.uiTest ? getHeadlinePosition() : null;
   const headlineTone = car.uiTest ? getHeadlineTone() : "default";
-  const headline = car.uiTest ? <strong className={`bbm-card-headline is-${headlinePosition}${headlinePosition === "after-model" && headlineTone === "blue" ? " is-blue" : ""}`}>{car.uiTest.headline}</strong> : null;
-  const headlineAt = (position: HeadlinePosition) => headlinePosition === position ? headline : null;
+  const headline = car.uiTest ? <strong className={`bbm-card-headline is-after-model${headlineTone === "blue" ? " is-blue" : ""}`}>{car.uiTest.headline}</strong> : null;
   const photo = (
     <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`}>
       {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} style={{ objectPosition: car.imagePosition ?? "center center" }} /> : null}
-      {headlineAt("overlay")}
-      {headlineAt("overlay-center")}
-      {headlineAt("overlay-bottom")}
       <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span><span className="bbm-card-count">{car.photos}<img src={bbmIcon("card-photo-count")} alt="" /></span></div>
     </div>
   );
-  const photoNeedsCaption = headlinePosition === "photo-top" || headlinePosition === "photo-caption";
   const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (event.key === "Enter" || event.key === " ") { event.preventDefault(); onOpen(); }
   };
   return (
-    <article className={`bbm-result-card is-${variant}${badges.length ? " has-badges" : " has-no-badges"}${car.uiTest ? ` is-ui-test headline-${headlinePosition}` : ""}`} role="link" tabIndex={0} aria-label={`${car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
-      {headlineAt("top")}
+    <article className={`bbm-result-card is-${variant}${badges.length ? " has-badges" : " has-no-badges"}${car.uiTest ? " is-ui-test headline-after-model" : ""}`} role="link" tabIndex={0} aria-label={`${car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
       <div className="bbm-card-main">
         {/* 사진이 없는 매물은 원본처럼 빈 회색 칸(car-list-result-card__image 배경 #EBEBEB) */}
-        {photoNeedsCaption ? <div className="bbm-card-photo-column">{headlineAt("photo-top")}{photo}{headlineAt("photo-caption")}</div> : photo}
-        {headlineAt("side-label")}
+        {photo}
         <div className="bbm-card-content">
           <div className="bbm-card-text">
-            {headlineAt("before-model")}
             {title}
-            {headlineAt("after-model")}
-            {headlinePosition === "spec-inline" ? <div className="bbm-card-spec-inline-row"><span className="bbm-card-spec">{bbmCardSpec(car, variant === "pc")}</span>{headlineAt("spec-inline")}</div> : <span className="bbm-card-spec">{bbmCardSpec(car, variant === "pc")}</span>}
-            {headlineAt("after-spec")}
+            {headline}
+            <span className="bbm-card-spec">{bbmCardSpec(car, variant === "pc")}</span>
             <div className="bbm-card-price-badges">
-              {headlinePosition === "price-inline" ? <div className="bbm-card-price-inline-row"><strong className="bbm-card-price"><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</strong>{headlineAt("price-inline")}</div> : <strong className="bbm-card-price"><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</strong>}
+              <strong className="bbm-card-price"><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</strong>
               {badges.length ? <div className="bbm-card-badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}
             </div>
-            {headlineAt("after-price")}
           </div>
           <div className="bbm-card-meta">
-            {headlineAt("meta-top")}
             <div className="bbm-card-location"><img src={bbmIcon("card-location")} alt="" aria-hidden="true" /><span className="bbm-card-location-text">{car.uiTest && car.sellerType === "개인" ? car.place : displayListPlace(car.place, car.sellerType)}</span></div>
-            {headlineAt("after-location")}
             <div className="bbm-card-meta-row">
               <div className="bbm-card-seller">
                 <img className="bbm-card-seller-logo" src={asset(sellerAvatar(car))} alt="" draggable={false} />
@@ -177,11 +135,9 @@ export function BbmResultCard({ car, variant, liked, onToggleLike, onOpen, onCha
                 </button>
               </div>
             </div>
-            {headlineAt("after-seller")}
           </div>
         </div>
       </div>
-      {headlineAt("bottom")}
     </article>
   );
 }

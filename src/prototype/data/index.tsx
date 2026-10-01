@@ -145,6 +145,42 @@ const chototHumanSellerProfiles = [
 
 const chototSellerProfileAt = (index: number) => chototHumanSellerProfiles[index] ?? null;
 
+// 럭셔리 30대 UI 테스트용 가상 판매자 시나리오. 실제 업체명이나 실제 판매 조건이 아니다.
+const luxuryDealerNameByListing: Record<number, string> = {
+  1: "판교 프레스티지모터스",
+  2: "강남 오토컬렉션",
+  4: "수원 프라임모터스",
+  5: "서초 로열모터스",
+  6: "대구 더클래스오토",
+  8: "용인 오토허브 셀렉트",
+  9: "잠실 시그니처모터스",
+  10: "고양 오토파크 럭셔리",
+  12: "분당 프리미엄오토",
+  13: "송도 모터갤러리",
+  14: "서초 오토갤러리원",
+  16: "대구 퍼스트모터스",
+  17: "수원 모터하우스",
+  18: "강남 하이엔드모터스",
+  20: "대전 디오토 셀렉트",
+  21: "강남 슈퍼카 컬렉션",
+  22: "분당 슈퍼카 셀렉트",
+  24: "수원 프리미엄모터스",
+  25: "서초 로열오토갤러리",
+  26: "송도 럭셔리카",
+  28: "부산 센텀 프레스티지",
+  29: "대구 시그니처모터스",
+  30: "영종 오토컬렉션",
+};
+
+// 23개 딜러 + 3개 개인 매물에는 서로 다른 인물 사진을, 나머지 개인 4개에는 기본 프로필을 배치한다.
+const luxuryProfileListingNumbers = [
+  1, 2, 4, 5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30,
+  3, 7, 11,
+] as const;
+const luxurySellerProfileByListing = new Map<number, string>(
+  luxuryProfileListingNumbers.map((listingNumber, index) => [listingNumber, chototHumanSellerProfiles[index]]),
+);
+
 const sellerLabel = (car: Car) => {
   if (car.uiTest) return car.dealer;
   if (car.sellerType === "개인") return "개인판매자";
@@ -909,12 +945,12 @@ const luxuryUiTestCars: Car[] = luxuryUiTestRows.map((row) => {
     price: row.price,
     place: row.region,
     views: 0,
-    dealer: row.sellerName,
-    stock: 1,
+    dealer: isPersonal ? "개인판매자" : luxuryDealerNameByListing[row.number],
+    stock: isPersonal ? 1 : 3 + ((row.number * 7) % 39),
     posted: row.posted,
     photos: row.photos,
     badges: row.badges as ListingBadge[],
-    sellerProfile: null,
+    sellerProfile: luxurySellerProfileByListing.get(row.number) ?? null,
     uiTest: {
       number: row.number,
       fullTitle: row.fullTitle,
