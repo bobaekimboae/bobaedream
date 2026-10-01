@@ -277,6 +277,33 @@
 .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-actions button,
 .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-actions img,
 .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-wish-on { width: 24px; height: 24px; }
+/* 모바일 피드 보기: 사진을 가로 전체로 키우고 정보와 판매자 액션을 아래에 쌓는다. */
+.bbm-m-list.is-feed { padding-top: 12px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile { padding: 0 0 16px; margin-bottom: 12px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-main { flex-direction: column; gap: 10px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-photo { width: 100%; height: auto; aspect-ratio: 1.5 / 1; border-radius: 12px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-media-footer { height: 34px; padding: 8px 10px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-text { height: auto; gap: 3px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-title { font-size: 16px; line-height: 22px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-price-badges { flex-direction: row; align-items: center; gap: 8px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-meta-row { height: 28px; margin-top: 6px; }
+.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-actions button,
+.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-actions img,
+.bbm-m-list.is-feed .bbm-result-card.is-mobile .bbm-card-wish-on { width: 24px; height: 24px; }
+/* 모바일 한줄 광고 보기: 모델 / 연식(연형) / 가격(만원) / 찜의 표 형태. */
+.bbm-m-list.is-one-line { padding-top: 12px; }
+.bbm-one-line-head,
+.bbm-one-line-card { display: grid; grid-template-columns: minmax(0, 1fr) 72px 72px 22px; align-items: center; column-gap: 8px; }
+.bbm-one-line-head { height: 34px; padding: 0 10px; border-radius: 6px; background: #f5f5f5; color: #777; font-size: 11px; text-align: center; }
+.bbm-one-line-head span:first-child { text-align: left; }
+.bbm-one-line-card { min-height: 46px; padding: 7px 10px; border-bottom: 1px solid var(--bbm-line); box-sizing: border-box; cursor: pointer; }
+.bbm-one-line-card > strong { overflow: hidden; color: var(--bbm-text-strong); font-size: 12px; font-weight: 600; line-height: 16px; text-overflow: ellipsis; white-space: nowrap; }
+.bbm-one-line-card > span { color: #777; font-size: 12px; line-height: 16px; text-align: center; }
+.bbm-one-line-card > b { color: var(--bbm-text-strong); font-size: 12px; line-height: 16px; text-align: right; }
+.bbm-one-line-card > button { display: grid; width: 22px; height: 22px; place-items: center; padding: 2px; border: 0; background: none; }
+.bbm-one-line-card > button img,
+.bbm-one-line-card > button .bbm-card-wish-on { width: 18px; height: 18px; opacity: .45; }
+.bbm-m-list.is-one-line > .car-list-pagination { margin-top: 12px; }
 /* 하단 탭바 74 */
 .bbm-bottom-gnb { position: absolute; right: 0; bottom: 0; left: 0; z-index: 30; height: 74px; padding-top: 5px; box-sizing: border-box; }
 .bbm-bottom-gnb__background { position: absolute; top: 0; left: -1px; width: 100%; height: 75px; pointer-events: none; }

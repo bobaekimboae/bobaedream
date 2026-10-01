@@ -71,7 +71,7 @@ import { BbmPartsGallery } from "../filters/bbm-parts-gallery";
 import { BbmActionBar, BbmFullExcludeAction, BbmFullFilter, BbmFullItem, BbmModal, BbmSheet } from "../filters/bbm-filter-parts";
 import { bbmFilterOrder, bbmSidebarItems, type BbmFilterItem } from "../filters/bbm-filter-options";
 import { BbmBodyTypeSheet, BbmExpandPanel, BbmModalPanel, BbmSellerTypeSheet, clearBbmItem } from "../filters/bbm-filter-panels";
-import { BbmBottomGnb, BbmCategoryMenu, BbmMakerList, BbmMobileOptions, BbmModelList, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
+import { BbmBottomGnb, BbmCategoryMenu, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
 import { KrBrandLogo, krRailLabel, krTopTenSections, krTypeTop10 } from "./bbm-brand-logos";
 import { StableRegionRow, StableRegionSheet, stableRegionLabel, StableYearRow, stablePageTitle, STABLE_YEAR_OPTIONS, stableKeywordPills } from "./stable-top";
@@ -457,7 +457,7 @@ function MarketplaceScreen() {
   const [bbmSort, setBbmSort] = useState<BbmSort>("업데이트순");
   const [bbmPage, setBbmPage] = useState(1);
   const [bbmMenu, setBbmMenu] = useState<"sort" | "view" | "m-sort" | "m-view" | null>(null);
-  const [bbmMobileView, setBbmMobileView] = useState<"목록으로 보기" | "갤러리로 보기" | "텍스트로 보기">("목록으로 보기");
+  const [bbmMobileView, setBbmMobileView] = useState<"목록으로 보기" | "피드로 보기" | "갤러리로 보기" | "한줄 광고로 보기" | "텍스트로 보기">("목록으로 보기");
   // 모바일 칩 줄이 가로로 밀려 있으면 "필터" 칩을 아이콘만 + 오른쪽 구분선(원본 is-scrolled)
   const [bbmRailScrolled, setBbmRailScrolled] = useState(false);
   const pcFilterRowRef = useRef<HTMLDivElement>(null);
@@ -1243,7 +1243,7 @@ function MarketplaceScreen() {
   const chooseBbmSort = (option: string) => { setBbmSort(option as BbmSort); setBbmMenu(null); };
   const chooseBbmView = (option: string) => {
     setBbmMenu(null);
-    if (option === "목록으로 보기" || option === "갤러리로 보기" || option === "텍스트로 보기") {
+    if (option === "목록으로 보기" || option === "피드로 보기" || option === "갤러리로 보기" || option === "한줄 광고로 보기" || option === "텍스트로 보기") {
       setBbmMobileView(option);
       return;
     }
@@ -1627,8 +1627,11 @@ function MarketplaceScreen() {
               <BbmSellerTabs tabs={["전체", "개인", "딜러"] as SellerType[]} value={sellerType} onChange={(tab) => setFilters((current) => ({ ...current, seller: tab }))} onBrand={() => setSearchToast("브랜드 매물은 정식 서비스에서 이용해 주세요.")} />
               <button type="button" className="bbm-m-view" aria-label="보기 방식 선택" onClick={() => setBbmMenu("m-view")}><img src={bbmIcon("toolbar-view-list")} alt="" aria-hidden="true" /></button>
             </nav>
-            <section className={`bbm-m-list${bbmMobileView === "갤러리로 보기" ? " is-gallery" : bbmMobileView === "텍스트로 보기" ? " is-text" : ""}`} aria-live="polite">
-              {shownCars.length ? pagedCars.map((car) => <BbmResultCard key={car.id} car={car} variant="mobile" liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅은 정식 서비스에서 이용해 주세요.")} />) : carListItems}
+            <section className={`bbm-m-list${bbmMobileView === "피드로 보기" ? " is-feed" : bbmMobileView === "갤러리로 보기" ? " is-gallery" : bbmMobileView === "한줄 광고로 보기" ? " is-one-line" : bbmMobileView === "텍스트로 보기" ? " is-text" : ""}`} aria-live="polite">
+              {shownCars.length && bbmMobileView === "한줄 광고로 보기" ? <div className="bbm-one-line-head"><span>모델</span><span>연식(연형)</span><span>가격(만원)</span><i /></div> : null}
+              {shownCars.length ? pagedCars.map((car) => bbmMobileView === "한줄 광고로 보기"
+                ? <BbmOneLineCard key={car.id} car={car} liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} />
+                : <BbmResultCard key={car.id} car={car} variant="mobile" liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅은 정식 서비스에서 이용해 주세요.")} />) : carListItems}
               {shownCars.length ? <BbmPagination page={bbmPageNow} total={bbmPageCount} windowSize={3} onChange={goBbmPage} /> : null}
             </section>
             <BbmFooter onNotify={setSearchToast} />

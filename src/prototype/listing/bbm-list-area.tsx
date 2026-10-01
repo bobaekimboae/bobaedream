@@ -8,7 +8,7 @@ import "./bbm-list-area.css";
 // ── 정렬: 원본 드롭다운(PC)·시트(모바일) 10개. 우리 데이터에 값이 있는 등록·가격·연식·주행거리만 실제로 정렬하고 나머지는 선택 표시만(업데이트순 순서 유지)
 export const bbmSortOptions = ["업데이트순", "등록순", "가격 낮은순", "가격 높은순", "연식 최신순", "주행거리 짧은순", "최고출력순", "연비순", "제시신고순", "가까운순"] as const;
 export type BbmSort = (typeof bbmSortOptions)[number];
-// 보기 방식: PC 드롭다운 4개, 모바일 "리스트 필터" 시트 6개. 모바일은 목록·갤러리·텍스트 보기를 실제 전환한다.
+// 보기 방식: PC 드롭다운 4개, 모바일 "리스트 필터" 시트 6개. 쇼츠를 제외한 목록·피드·갤러리·한줄 광고·텍스트 보기를 실제 전환한다.
 export const bbmViewOptionsPc = ["목록으로 보기", "갤러리로 보기", "쇼츠 영상으로 보기", "한줄 광고로 보기"];
 export const bbmViewOptionsMobile = ["목록으로 보기", "피드로 보기", "갤러리로 보기", "쇼츠 영상으로 보기", "한줄 광고로 보기", "텍스트로 보기"];
 export const BBM_PAGE_SIZE = 20;

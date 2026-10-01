@@ -102,6 +102,21 @@ export function BbmResultCard({ car, variant, liked, onToggleLike, onOpen, onCha
   );
 }
 
+export function BbmOneLineCard({ car, liked, onToggleLike, onOpen }: { car: Car; liked: boolean; onToggleLike: () => void; onOpen: () => void }) {
+  const year = car.filter?.year ? String(car.filter.year).slice(-2) : "-";
+  const price = car.price.match(/[\d,]+/)?.[0] ?? "상담";
+  return (
+    <article className="bbm-one-line-card" role="link" tabIndex={0} aria-label={`${car.title} 상세 보기`} onClick={onOpen} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); onOpen(); } }}>
+      <strong>{car.title} {car.trim}</strong>
+      <span>{year}/{year}</span>
+      <b>{price}</b>
+      <button type="button" aria-label={`${car.title} ${liked ? "찜 해제" : "찜"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>
+        {liked ? <span className="bbm-card-wish-on" style={{ WebkitMaskImage: `url("${bbmIcon("card-wish-off")}")`, maskImage: `url("${bbmIcon("card-wish-off")}")` }} aria-hidden="true" /> : <img src={bbmIcon("card-wish-off")} alt="" aria-hidden="true" />}
+      </button>
+    </article>
+  );
+}
+
 // ── 모바일 하단 탭바: 홈 · 채팅 · 매물등록(＋ 원형) · 커뮤니티 · 마이
 export function BbmBottomGnb({ onNotify }: { onNotify: (message: string) => void }) {
   const items: Array<[string, string]> = [["홈", "home"], ["채팅", "chat"], ["매물등록", "register"], ["커뮤니티", "community"], ["마이", "my"]];
