@@ -135,7 +135,7 @@
 /* 모바일: 페이지 이동은 목록 좌우 여백 밖까지(원본 폭 393), 목록과 푸터 사이 회색 24(원본 main 아래 여백), 푸터 아래는 하단 탭바 74 */
 .bbm-m-list > .car-list-pagination { margin: 0 -16px; width: auto; }
 .marketplace.is-bbm-m:has(> .app-shell__footer) { padding-bottom: 0; }
-.marketplace.is-bbm-m > .app-shell__footer { margin-top: 24px; padding-bottom: 74px; box-shadow: 0 -24px 0 #f4f4f4; }
+.marketplace.is-bbm-m > .app-shell__footer { margin-top: 24px; padding-bottom: calc(80px + var(--mobile-safe-area-height)); box-shadow: 0 -24px 0 #f4f4f4; }
 /* 모바일 칩 줄 고정(원본 car-list-content-header: sticky · top 0 · z 29). 스크롤 상자(.mobile-scroll) 안에서 붙는다 */
 .marketplace.is-bbm-m > .filter-shell.is-bbm { position: sticky; top: 0; z-index: 29; background: #fff; }
 /* 런타임 기본 p 줄높이(1.45)를 원본처럼 부모 값으로(원본 푸터 문단은 부모 140% 상속) */
