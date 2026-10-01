@@ -160,8 +160,8 @@
 
 /* ═════════ 모바일 과쯔(.marketplace.is-bbm-m) ═════════ */
 .marketplace.is-bbm-m { padding-bottom: 74px; background: #fff; }
-/* 헤더 56: 6/16/8/12, 간격 18, 검색칸 239×42 #F0F0F0 */
-.top-bar.is-bbm { gap: 18px; }
+/* 헤더 56: 초톳형처럼 채팅 액션을 빼고 검색칸이 남는 폭을 모두 사용 */
+.top-bar.is-bbm { grid-template-columns: 24px minmax(0, 1fr) 24px; gap: 18px; }
 .top-bar.is-bbm .search-field { gap: 8px; padding: 5px 8px; background: var(--bbm-chip-bg); }
 .top-bar.is-bbm .search-field input { height: 21px; font-size: 15px; font-weight: 600; line-height: 21px; }
 .top-bar.is-bbm .search-field input::placeholder { color: var(--bbm-text-muted); }

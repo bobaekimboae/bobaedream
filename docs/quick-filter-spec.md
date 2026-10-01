@@ -179,6 +179,7 @@
 - Keep ChoTot and Dongchedi modes visually unchanged when working on Guazi-specific changes unless the user explicitly requests a shared change.
 - The default top quick-filter row keeps the fixed gray `필터` chip, black pinned `전체` category chip with clear icon, and scrollable conditions beginning `제조사`, `연식`, `가격`.
 - The category sheet keeps `중고차` expanded by default with `전체 중고차`, `국산차`, `수입차`, and `전기차` chips; its right arrow toggles only that child row.
+- Guazi mobile listing header follows the ChoTot reference: back button → flexible search field → saved-listings heart. The standalone chat icon is removed, and its former column plus gap are absorbed by the search field. The search field's internal search and save-search actions stay unchanged.
 
 ### 바디타입 바텀시트
 
