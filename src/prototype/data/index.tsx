@@ -972,9 +972,7 @@ const luxuryUiTestCars: Car[] = luxuryUiTestRows.map((row) => {
     price: row.price,
     place: row.region,
     views: 0,
-    dealer: isPersonal
-      ? "개인판매자"
-      : `${luxuryDealerContactByListing[row.number]} · ${luxuryDealerNameByListing[row.number]}`,
+    dealer: isPersonal ? "개인판매자" : luxuryDealerContactByListing[row.number],
     stock: isPersonal ? 1 : 3 + ((row.number * 7) % 39),
     posted: row.posted,
     photos: row.photos,
