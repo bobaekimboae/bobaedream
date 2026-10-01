@@ -217,7 +217,7 @@
 .bbm-m-view img { width: 20px; height: 20px; }
 /* 카드 모바일 목록형: 384px 초톳 기준. 각 간격은 글자 줄 상단 기준이다. */
 .bbm-m-list { padding: 0 16px; }
-.bbm-result-card.is-mobile { min-height: 195px; padding: 12px 0; border-bottom: 1px solid var(--bbm-line); box-sizing: border-box; }
+.bbm-result-card.is-mobile { padding: 12px 0; border-bottom: 1px solid var(--bbm-line); box-sizing: border-box; }
 .bbm-result-card.is-mobile .bbm-card-main { gap: 12px; }
 .bbm-result-card.is-mobile .bbm-card-photo { width: 122px; height: 120px; border-radius: 12px; }
 .bbm-result-card.is-mobile .bbm-card-media-footer { height: 31.4px; padding: 8px 9px; }
