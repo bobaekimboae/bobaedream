@@ -120,44 +120,44 @@
 }
 
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth {
-  width: 100px;
-  height: 100px;
-  flex: 0 0 100px;
-  padding: 6px 4px;
-  border-radius: 16px;
+  width: 88px;
+  height: 90px;
+  flex: 0 0 88px;
+  padding: 5px 4px 4px;
+  border-radius: 14px;
 }
 
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth > .depth-card-label {
-  width: 92px;
+  width: 80px;
   height: 34px;
   max-height: 34px;
   margin-top: 4px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 650;
   line-height: 17px;
 }
 
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth > .depth-card-media:not(.is-brand) {
-  width: 92px;
-  height: 50px;
+  width: 80px;
+  height: 43px;
   margin-top: 0;
 }
 
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth > .depth-card-media:not(.is-brand) img {
-  width: 92px;
-  height: 50px;
+  width: 80px;
+  height: 43px;
 }
 
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth {
-  width: 80px;
-  height: 88px;
-  flex: 0 0 80px;
-  padding: 5px 4px;
-  border-radius: 16px;
+  width: 72px;
+  height: 80px;
+  flex: 0 0 72px;
+  padding: 4px;
+  border-radius: 14px;
 }
 
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth > .depth-card-label {
-  width: 72px;
+  width: 64px;
   height: 32px;
   max-height: 32px;
   margin-top: 4px;
@@ -167,12 +167,12 @@
 }
 
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth > .depth-card-media:not(.is-brand) {
-  width: 72px;
-  height: 42px;
+  width: 64px;
+  height: 36px;
   margin-top: 0;
 }
 
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth > .depth-card-media:not(.is-brand) img {
-  width: 72px;
-  height: 42px;
+  width: 64px;
+  height: 36px;
 }

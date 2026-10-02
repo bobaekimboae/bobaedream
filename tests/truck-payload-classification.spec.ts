@@ -58,8 +58,8 @@ test("이전 경형 1톤 링크는 1톤 트럭으로 호환한다", async ({ pag
 });
 
 for (const mode of [
-  { name: "mobile", viewport: { width: 390, height: 844 }, pc: false, width: 80, height: 88 },
-  { name: "PC", viewport: { width: 1280, height: 900 }, pc: true, width: 100, height: 100 },
+  { name: "mobile", viewport: { width: 390, height: 844 }, pc: false, width: 72, height: 80 },
+  { name: "PC", viewport: { width: 1280, height: 900 }, pc: true, width: 88, height: 90 },
 ]) {
   test(`${mode.name}: FINN형 카드와 Airbnb형 선택 상태를 유지한다`, async ({ page }) => {
     await page.setViewportSize(mode.viewport);
@@ -99,7 +99,7 @@ for (const mode of [
     expect(base.width).toBeCloseTo(mode.width, 0);
     expect(base.height).toBeCloseTo(mode.height, 0);
     expect(base.background).toBe("rgb(241, 241, 243)");
-    expect(base.radius).toBe("16px");
+    expect(base.radius).toBe("14px");
     expect(base.labelTop).toBeGreaterThan(base.mediaTop);
     expect(selected.background).toBe("rgb(255, 255, 255)");
     expect(selected.color).toBe("rgb(34, 34, 34)");
