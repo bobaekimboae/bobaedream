@@ -158,3 +158,20 @@ final result: passed
 - Notion 이미지가 다시 공개되면 메뉴 높이·좌우 여백·선택색을 원본과 2차 실측할 수 있다.
 
 final result: passed
+
+---
+
+# Design QA — 실제 메인 히어로 배경 경로 교정
+
+## Finding and fix
+
+- [P1 resolved] 2차 공개본에서 일반 이미지 404는 모두 해소됐지만, CSS 사용자 속성에 넣은 히어로 상대 URL이 빌드 CSS 파일의 `/assets/` 위치를 기준으로 해석돼 배경 사진이 회색으로 보였다.
+- Fix: 히어로의 그라디언트와 이미지 URL을 React 인라인 `background-image`로 지정해 문서 루트 기준 `prototypes/...` 경로로 해석되게 했다.
+
+## Verification
+
+- 일반 이미지 404: 0.
+- 메인 루트·기존 목록 분기: passed.
+- 최종 공개본 히어로 시각 확인: 재배포 후 수행.
+
+final result: passed

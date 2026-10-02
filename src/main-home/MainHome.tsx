@@ -80,7 +80,10 @@ export default function MainHome() {
           ))}
         </nav>
 
-        <section className="mh-hero" style={{ "--mh-hero": `url("${prototypeAsset(hero.image)}")` } as CSSProperties}>
+        <section
+          className="mh-hero"
+          style={{ backgroundImage: `linear-gradient(180deg, rgba(5,10,20,.2), rgba(5,10,20,.38)), url("${prototypeAsset(hero.image)}")` } as CSSProperties}
+        >
           <div className="mh-hero-copy"><h1>{hero.title}</h1><p>{hero.copy}</p></div>
         </section>
 
