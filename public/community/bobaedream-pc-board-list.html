@@ -49,22 +49,15 @@ ul,ol{list-style:none;margin:0;padding:0}
 .ticketShape:before,.ticketShape:after{content:"";position:absolute;top:7px;width:4px;height:4px;border-radius:50%;background:#fff;border:2px solid #222}
 .ticketShape:before{left:-5px}.ticketShape:after{right:-5px}
 .loginButton{width:60px;height:30px;margin-left:8px;border:1px solid rgba(0,0,0,.2);border-radius:6px;color:#444;font-size:12px;line-height:14px;font-weight:700;background:#fff}
-.loungeHero{height:250px;background:
-  linear-gradient(90deg,rgba(9,16,22,.82) 0%,rgba(9,16,22,.36) 42%,rgba(9,16,22,.78) 100%),
-  url("https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1800&q=82") center 56%/cover}
-.loungeHeroInner{width:1280px;height:250px;margin:0 auto;display:flex;align-items:flex-end;padding-bottom:62px}
-.loungeIcon{width:82px;height:82px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,#111,#3b1217 58%,#bd2136);box-shadow:0 14px 26px rgba(0,0,0,.28);color:#fff;font-size:32px;font-weight:900}
-.loungeTitleBlock{margin-left:28px;color:#fff}
-.loungeTitleBlock h1{margin:0;font-size:30px;line-height:36px;font-weight:700}
-.loungeTitleBlock p{margin:9px 0 0;font-size:13px;line-height:16px;font-weight:700}
-.loungeNav{height:64px;background:var(--dark)}
-.loungeNavInner{width:1280px;height:64px;margin:0 auto;display:flex;align-items:center;gap:8px}
-.loungeTab{height:36px;color:#fff;font-size:14px;line-height:18px;font-weight:700;padding:0 16px;border:1px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(255,255,255,.07);display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;transition:background .18s ease,color .18s ease,border-color .18s ease}
-.loungeTab:hover{background:rgba(255,255,255,.14)}
-.loungeTab.homeTab{padding-left:10px}
-.loungeTab.active{background:#fff;border-color:#fff;color:#222428;box-shadow:0 2px 8px rgba(0,0,0,.16)}
-.liveMark{display:inline-block;margin-right:6px;padding:1px 4px;border-radius:4px;background:#ff103a;color:#fff;font-size:9px;line-height:12px;font-weight:900}
-.joinButton{margin-left:auto;width:135px;height:40px;border-radius:999px;background:#111317;border:1px solid rgba(255,255,255,.18);color:#fff;font-size:13px;line-height:16px;font-weight:700}
+.loungeHero{height:88px;background:#fff}
+.loungeHeroInner{width:1280px;height:88px;margin:0 auto;display:flex;align-items:center}
+.loungeTitleBlock{color:#222}
+.loungeTitleBlock h1{margin:0;font-size:28px;line-height:36px;font-weight:800;letter-spacing:-.5px}
+.loungeNav{height:60px;background:#fff;border-top:1px solid #f1f1f1;border-bottom:1px solid #e7e7e7}
+.loungeNavInner{width:1280px;height:60px;margin:0 auto;display:flex;align-items:center;gap:8px}
+.loungeTab{height:36px;color:#444;font-size:14px;line-height:18px;font-weight:700;padding:0 17px;border:1px solid #e7e8eb;border-radius:999px;background:#f6f7f9;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;transition:background .18s ease,color .18s ease,border-color .18s ease}
+.loungeTab:hover{background:#eceef2;border-color:#dfe1e5}
+.loungeTab.active{background:#222;border-color:#222;color:#fff;box-shadow:none}
 .pageWrap{width:1280px;margin:24px auto 0}
 .topBanner{height:80px;border-radius:8px;overflow:hidden;background:
   linear-gradient(90deg,#201518 0%,#3b151a 34%,#683033 64%,#121318 100%);position:relative;color:#fff;display:flex;align-items:center;justify-content:center}
@@ -183,21 +176,22 @@ ul,ol{list-style:none;margin:0;padding:0}
 </header>
 <section class="loungeHero">
   <div class="loungeHeroInner">
-    <div class="loungeIcon" aria-hidden="true">B</div>
     <div class="loungeTitleBlock">
       <h1>보배드림 커뮤니티</h1>
-      <p>AUTO · COMMUNITY</p>
     </div>
   </div>
 </section>
 <nav class="loungeNav" aria-label="라운지 메뉴">
   <div class="loungeNavInner">
-    <a class="loungeTab homeTab" href="#"><span class="liveMark">LIVE</span>HOME</a>
-    <a class="loungeTab active" href="#">게시판</a>
-    <a class="loungeTab" href="#">DB</a>
-    <a class="loungeTab" href="#">영상</a>
-    <a class="loungeTab" href="#">차량 영상</a>
-    <button class="joinButton">+ 라운지 가입하기</button>
+    <a class="loungeTab" href="bobaedream-pc-board-list.html?view=home">홈</a>
+    <a class="loungeTab" href="bobaedream-pc-board-list.html?view=feed">피드</a>
+    <a class="loungeTab active" href="bobaedream-pc-board-list.html">게시판</a>
+    <a class="loungeTab" href="bobaedream-pc-board-list.html?board=%EC%9C%A0%EB%A8%B8">유머</a>
+    <a class="loungeTab" href="bobaedream-pc-board-list.html?board=%EC%A0%95%EC%B9%98">정치</a>
+    <a class="loungeTab" href="bobaedream-pc-board-list.html?board=%EA%B3%B5%EC%A7%80">공지</a>
+    <a class="loungeTab" href="bobaedream-pc-board-list.html?board=%EC%9E%90%EC%9C%A0">자유</a>
+    <a class="loungeTab" href="bobaedream-pc-board-list.html?board=%EC%A7%88%EB%AC%B8">질문</a>
+    <a class="loungeTab" href="bobaedream-pc-board-list.html?board=%EC%8B%9C%EC%8A%B9%EA%B8%B0">시승기</a>
   </div>
 </nav>
 <main class="pageWrap">
