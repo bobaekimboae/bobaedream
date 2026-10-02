@@ -3,9 +3,10 @@ export type TruckFormatGroup = {
   subtypes: readonly string[];
 };
 
-// 엔카 화물·특장차 형식/세부형식 원문 기준. 오탈자처럼 보이는 표기도 원문을 보존한다.
+// 엔카 화물·특장차 형식/세부형식을 바탕으로 보배드림 화면 명칭을 적용한다.
 export const truckFormatCatalog = [
-  { name: "카고(화물)트럭", subtypes: ["카고(화물)트럭", "파워게이트", "트랜스/와이드 파워게이트"] },
+  { name: "1톤트럭", subtypes: ["1톤트럭"] },
+  { name: "화물트럭", subtypes: ["화물트럭", "파워게이트", "트랜스/와이드 파워게이트"] },
   {
     name: "윙바디/탑",
     subtypes: [
@@ -44,7 +45,8 @@ export const truckSubtypesFor = (format: string | null): readonly string[] => tr
 // 트럭 형식 이미지는 상위 형식별로 검수 완료된 묶음부터 순차 등록한다.
 // 적재용량·규격은 이미지가 아니라 알약칩으로 표시하며, 제조사는 브랜드 로고를 사용한다.
 const truckFormatImages: Readonly<Record<string, string>> = {
-  "카고(화물)트럭": "truck/formats/v01/truck_format_cargo_v01.png",
+  "1톤트럭": "truck/formats/v01/truck_format_one_ton_v01.png",
+  "화물트럭": "truck/formats/v01/truck_format_cargo_v01.png",
   "윙바디/탑": "truck/formats/v01/truck_format_wingbody_top_v01.png",
   "버스": "truck/formats/v01/truck_format_bus_v01.png",
   "덤프/건설/중기": "truck/formats/v01/truck_format_dump_heavy_v01.png",
@@ -60,8 +62,11 @@ const truckFormatImages: Readonly<Record<string, string>> = {
 };
 
 const truckSubtypeImages: Readonly<Record<string, Readonly<Record<string, string>>>> = {
-  "카고(화물)트럭": {
-    "카고(화물)트럭": "truck/formats/v01/truck_subtype_cargo_v01.png",
+  "1톤트럭": {
+    "1톤트럭": "truck/formats/v01/truck_format_one_ton_v01.png",
+  },
+  "화물트럭": {
+    "화물트럭": "truck/formats/v01/truck_subtype_cargo_v01.png",
     "파워게이트": "truck/formats/v01/truck_subtype_powergate_v01.png",
     "트랜스/와이드 파워게이트": "truck/formats/v01/truck_subtype_transform_wide_powergate_v01.png",
   },
@@ -181,7 +186,9 @@ export const truckFormatImageFor = (format: string) => truckFormatImages[format]
 export const truckSubtypeImageFor = (format: string | null, subtype: string) => format ? truckSubtypeImages[format]?.[subtype] ?? null : null;
 
 export const normalizeTruckFormatSelection = (format: string | null, subtype: string | null) => {
-  const safeFormat = truckFormatCatalog.some((group) => group.name === format) ? format : null;
-  const safeSubtype = safeFormat && truckSubtypesFor(safeFormat).includes(subtype ?? "") ? subtype : null;
+  const aliasedFormat = format === "카고(화물)트럭" || format === "카고트럭" ? "화물트럭" : format;
+  const aliasedSubtype = subtype === "카고(화물)트럭" || subtype === "카고트럭" ? "화물트럭" : subtype;
+  const safeFormat = truckFormatCatalog.some((group) => group.name === aliasedFormat) ? aliasedFormat : null;
+  const safeSubtype = safeFormat && truckSubtypesFor(safeFormat).includes(aliasedSubtype ?? "") ? aliasedSubtype : null;
   return { format: safeFormat, subtype: safeSubtype };
 };

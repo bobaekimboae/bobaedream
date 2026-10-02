@@ -18,12 +18,17 @@ function BbIcon({ name, size = 20, className = "" }: { name: BbIconName; size?: 
   return <span className={`bb-icon ${className}`} style={style} aria-hidden="true" />;
 }
 
-const bbGnbItems = ["숏폼카", "중고차", "수입차", "매물등록", "중고차딜러", "커뮤니티"];
+const bbGnbItems = ["홈", "전체차량", "중고차", "수입차", "화물/특장차", "건설기계(덤프/지게차)", "캠핑카(모터홈/캐러밴)", "바이크", "부품/용품", "커뮤니티"];
 // QF-091: 헤더 아이콘·로고는 개발 시안 원본 파일(public/assets/bbm/)
 const bbHeaderIcons: Array<[string, string]> = [["search", "검색"], ["mypage", "마이페이지"], ["heart", "찜"], ["chat", "채팅"], ["notification", "알림"], ["menu", "메뉴"]];
 const bbmAsset = (name: string) => asset(`bbm/${name}.svg`);
 
-function BbHeader({ onNotify, onOpenFavorites }: { onNotify: (message: string) => void; onOpenFavorites: () => void }) {
+function BbHeader({ category, onNotify, onOpenFavorites }: { category: string; onNotify: (message: string) => void; onOpenFavorites: () => void }) {
+  const activeItem = category === "트럭 · 특장" ? "화물/특장차"
+    : category === "건설기계" ? "건설기계(덤프/지게차)"
+      : category === "캠핑카" ? "캠핑카(모터홈/캐러밴)"
+        : category === "부품 · 용품" ? "부품/용품"
+          : category === "수입차" || category === "바이크" ? category : "중고차";
   return (
     <header className="bbm-header" aria-label="보배드림">
       <div className="bbm-header-inner">
@@ -35,8 +40,7 @@ function BbHeader({ onNotify, onOpenFavorites }: { onNotify: (message: string) =
         </button>
         <div className="bbm-gnb-row">
           <nav className="bbm-gnb" aria-label="주 메뉴">
-            {bbGnbItems.map((label) => <button key={label} type="button" className={label === "중고차" ? "is-active" : ""} aria-current={label === "중고차" ? "page" : undefined} onClick={() => label === "중고차" ? undefined : onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`)}>{label}</button>)}
-            <button type="button" className="bbm-gnb-more" onClick={() => onNotify("더보기는 정식 서비스에서 이용해 주세요.")}>더보기<img src={bbmAsset("gnb-more")} alt="" aria-hidden="true" /></button>
+            {bbGnbItems.map((label) => <button key={label} type="button" className={label === activeItem ? "is-active" : ""} aria-current={label === activeItem ? "page" : undefined} onClick={() => label === activeItem ? undefined : onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`)}>{label}</button>)}
           </nav>
           <div className="bbm-header-icons">
             {bbHeaderIcons.map(([icon, label]) => <button key={icon} type="button" aria-label={label} onClick={() => icon === "heart" ? onOpenFavorites() : onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`)}><img src={bbmAsset(`header-${icon}`)} alt="" aria-hidden="true" /></button>)}

@@ -17,13 +17,14 @@
   .bbm-logo > span { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: #1b498c; }
   .bbm-logo > span img { width: 20px; height: 19px; }
   .bbm-logo > img { width: 80px; height: 23px; }
-  .bbm-gnb-row { position: absolute; top: 63px; right: 0; left: 0; display: flex; align-items: center; justify-content: space-between; height: 54px; }
-  .bbm-gnb { display: flex; align-items: stretch; gap: 28px; height: 54px; }
-  .bbm-gnb button { position: relative; display: flex; align-items: center; height: 54px; padding: 0; border: 0; background: none; color: #1a1a1a; font-size: 16px; font-weight: 600; line-height: 16px; white-space: nowrap; }
+  .bbm-gnb-row { position: absolute; top: 63px; right: 0; left: 0; display: flex; gap: 16px; align-items: center; justify-content: space-between; height: 54px; }
+  .bbm-gnb { display: flex; min-width: 0; align-items: stretch; gap: 14px; height: 54px; overflow-x: auto; scrollbar-width: none; }
+  .bbm-gnb::-webkit-scrollbar { display: none; }
+  .bbm-gnb button { position: relative; display: flex; align-items: center; height: 54px; padding: 0; border: 0; background: none; color: #1a1a1a; font-size: 14px; font-weight: 600; line-height: 16px; white-space: nowrap; }
   .bbm-gnb button.is-active { color: #1b4c8c; }
   .bbm-gnb button.is-active::after { content: ""; position: absolute; right: 0; bottom: -1px; left: 0; height: 3px; background: #1b4c8c; }
   .bbm-gnb-more { gap: 4px; }
-  .bbm-header-icons { display: flex; align-items: center; gap: 20px; }
+  .bbm-header-icons { display: flex; flex: none; align-items: center; gap: 12px; }
   .bbm-header-icons button { display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; background: none; color: #1a1a1a; }
 
   /* 2단: 필터 300 + 24 + 콘텐츠 876 */

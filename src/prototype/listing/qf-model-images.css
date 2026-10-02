@@ -14,3 +14,23 @@
 .marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-card-media:not(.is-brand) { width: 56px; height: 36px; margin-top: 0; }
 .marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-label { margin-top: 2px; font-size: 12px; font-weight: 600; line-height: 18px; }
 .marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-sub { margin-top: 0; font-size: 11px; line-height: 14px; color: #8c8c8c; }
+
+/* 트럭 형식·세부형식은 명칭이 식별 기준이므로 말줄임표를 쓰지 않고 필요한 만큼 줄바꿈한다. */
+.marketplace.is-qf-guazi.is-qf-plain .depth-card.is-truck-depth .depth-card-label {
+  display: block;
+  max-width: 100%;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  -webkit-line-clamp: unset;
+}
+
+.quick-rail-carousel { position: relative; width: 100%; min-width: 0; }
+.quick-rail-carousel > .mobile-carousel { width: 100%; }
+.quick-rail-nav { position: absolute; z-index: 6; top: 20px; display: grid; width: 38px; height: 38px; padding: 0; border: 0; background: transparent; place-items: center; cursor: pointer; }
+.quick-rail-nav.is-previous { left: 2px; }
+.quick-rail-nav.is-next { right: 2px; }
+.quick-rail-nav.is-previous img { width: 38px; height: 38px; }
+.quick-rail-nav.is-next img { width: 34px; height: 34px; }
