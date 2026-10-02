@@ -4,6 +4,7 @@
   var STORE_POSTS='bobaePcDemoPosts';
   var STORE_LOGIN='bobaePcDemoLoggedIn';
   var STORE_BOARD='bobaePcCurrentBoard';
+  var layoutMode=new URLSearchParams(location.search).get('layout')||'';
   var isList=!!document.getElementById('postRows');
   var isDetail=!!document.querySelector('.commentSection');
   var basePosts=window.bobaeScenarioPosts||window.bobaeBoardPosts||[];
@@ -112,7 +113,7 @@
     document.querySelectorAll('.menuItem').forEach(function(link){
       var board=cleanBoardName(link);
       link.dataset.board=board;
-      link.href=LIST_PAGE+'?board='+encodeURIComponent(board);
+      link.href=withLayout(LIST_PAGE+'?board='+encodeURIComponent(board));
       link.addEventListener('click', function(event){
         if(!isList) return;
         event.preventDefault();
@@ -122,7 +123,7 @@
     document.querySelectorAll('.boardShortcut').forEach(function(link){
       var label=(link.querySelector('.shortcutText')||link).textContent.trim();
       var board=shortcutToBoard(label);
-      link.href=LIST_PAGE+'?board='+encodeURIComponent(board);
+      link.href=withLayout(LIST_PAGE+'?board='+encodeURIComponent(board));
       link.addEventListener('click', function(event){
         if(!isList) return;
         event.preventDefault();
@@ -161,7 +162,7 @@
     updateMenuActive(board);
     if(isList) renderBoardRows(board);
     if(push){
-      var url=LIST_PAGE+'?board='+encodeURIComponent(board);
+      var url=withLayout(LIST_PAGE+'?board='+encodeURIComponent(board));
       history.pushState({board:board}, '', url);
     }
   }
@@ -203,6 +204,7 @@
     var targetBoard=post[9]||boardFromCategory(post[0])||board||'전체 게시글';
     var href=DETAIL_PAGE+'?board='+encodeURIComponent(targetBoard)+'&post='+encodeURIComponent(post[1]);
     if(post[8]) href+='&postId='+encodeURIComponent(post[8]);
+    href=withLayout(href);
     var reply=post[6]?'<span class="replyNum">('+post[6]+')</span>':'';
     var lock=post[0]==='사고/블박'?'<span class="locked">!</span>':'';
     return '<tr><td><div class="boardTitleCell"><span class="boardLabel">'+esc(post[0])+'</span><a class="articleTitle" href="'+href+'">'+esc(post[1])+'</a>'+reply+lock+'</div></td><td class="authorCell">'+esc(post[2])+'</td><td class="centerCell">'+esc(post[3])+'</td><td class="centerCell">'+esc(post[4])+'</td><td class="centerCell">'+esc(post[5])+'</td></tr>';
@@ -225,7 +227,7 @@
       '</section>'
     ].join('');
     panel.querySelector('.writeCancel').addEventListener('click', function(){
-      location.href=LIST_PAGE+'?board='+encodeURIComponent(current);
+      location.href=withLayout(LIST_PAGE+'?board='+encodeURIComponent(current));
     });
     panel.querySelector('.writeSubmit').addEventListener('click', function(){
       if(!isLoggedIn()){
@@ -266,7 +268,7 @@
     saved.unshift(post);
     localStorage.setItem(STORE_POSTS, JSON.stringify(saved.slice(0,40)));
     localStorage.setItem(STORE_BOARD, board);
-    location.href=DETAIL_PAGE+'?board='+encodeURIComponent(board)+'&postId='+encodeURIComponent(id);
+    location.href=withLayout(DETAIL_PAGE+'?board='+encodeURIComponent(board)+'&postId='+encodeURIComponent(id));
   }
 
   function hydrateDetailFromQuery(){
@@ -276,7 +278,7 @@
     var crumb=document.querySelector('.boardCrumb');
     if(crumb){
       crumb.textContent=board;
-      crumb.href=LIST_PAGE+'?board='+encodeURIComponent(board);
+      crumb.href=withLayout(LIST_PAGE+'?board='+encodeURIComponent(board));
     }
     var post=findPost(params.get('postId'), params.get('post'));
     if(post){
@@ -595,6 +597,11 @@
       return name!=='전체 게시글' && (boardConfig[name].categories||[]).indexOf(category)!==-1;
     });
     return found||'전체 게시글';
+  }
+
+  function withLayout(url){
+    if(!layoutMode) return url;
+    return url+(url.indexOf('?')===-1?'?':'&')+'layout='+encodeURIComponent(layoutMode);
   }
 
   function savedPosts(){

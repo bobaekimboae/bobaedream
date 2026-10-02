@@ -8,6 +8,7 @@
 <meta http-equiv="Expires" content="0">
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="../%61ssets/fonts/pretendard/pretendard-guazi.css">
+<script>if(new URLSearchParams(location.search).get('layout')==='reddit'){document.documentElement.classList.add('layout-reddit')}</script>
 <title>보배드림 커뮤니티 | 게시글 상세</title>
 <style>
 :root{
@@ -50,14 +51,14 @@ ul,ol{list-style:none;margin:0;padding:0}
 .ticketShape:before,.ticketShape:after{content:"";position:absolute;top:7px;width:4px;height:4px;border-radius:50%;background:#fff;border:2px solid #222}
 .ticketShape:before{left:-5px}.ticketShape:after{right:-5px}
 .loginButton{width:60px;height:30px;margin-left:8px;border:1px solid rgba(0,0,0,.2);border-radius:6px;color:#444;font-size:12px;line-height:14px;font-weight:700;background:#fff}
-.loungeHero{height:56px;background:#fff}
-.loungeHeroInner{width:1280px;height:56px;margin:0 auto;display:flex;align-items:center}
+.loungeHero{height:64px;background:#fff}
+.loungeHeroInner{width:1280px;height:64px;margin:0 auto;display:flex;align-items:center}
 .loungeTitleBlock{display:flex;align-items:center;color:#222}
 .loungeMenuButton{width:40px;height:40px;margin-left:-10px;margin-right:6px;border:0;border-radius:10px;background:transparent;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:0 0 40px}
 .loungeMenuButton:hover{background:#f5f6f7}
 .loungeMenuButton:focus-visible{outline:2px solid #222;outline-offset:2px}
-.loungeMenuButton img{display:block;width:20px;height:20px}
-.loungeTitleBlock h1{margin:0;font-size:16px;line-height:22px;font-weight:600;letter-spacing:-.2px}
+.loungeMenuButton img{display:block;width:24px;height:24px}
+.loungeTitleBlock h1{margin:0;font-size:16px;line-height:26px;font-weight:600;letter-spacing:-.2px}
 .loungeNav{height:60px;background:#fff;border-top:1px solid #f1f1f1;border-bottom:1px solid #e7e7e7}
 .loungeNavInner{width:1280px;height:60px;margin:0 auto;display:flex;align-items:center;gap:8px}
 .loungeTab{height:36px;color:#444;font-size:14px;line-height:18px;font-weight:700;padding:0 17px;border:1px solid #e7e8eb;border-radius:999px;background:#f6f7f9;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;transition:background .18s ease,color .18s ease,border-color .18s ease}
@@ -195,12 +196,42 @@ ul,ol{list-style:none;margin:0;padding:0}
 .rightAd:after{content:"시승·정비 후기 모음";position:absolute;left:18px;bottom:18px;color:#fff;font-size:20px;line-height:24px;font-weight:700;text-shadow:0 2px 9px rgba(0,0,0,.55)}
 .rightAd .adBadge{right:6px;top:6px}
 .footer{width:1280px;margin:78px auto 45px;color:#858894;font-size:12px;line-height:15px;text-align:center}
+.railPrimary{display:none}
+html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
+.layout-reddit .loungeHero{position:sticky;top:0;z-index:30;border-bottom:1px solid #e1e4e8}
+.layout-reddit .loungeNav{display:none}
+.layout-reddit .pageWrap{width:1280px;margin:0 auto}
+.layout-reddit .topBanner{display:none}
+.layout-reddit .layoutGrid{grid-template-columns:240px 742px 250px;column-gap:24px;margin-top:0}
+.layout-reddit .leftPanel{width:240px;min-height:calc(100vh - 64px);padding:16px 20px 40px 0;border-right:1px solid #e1e4e8;background:#fff;position:sticky;top:64px;align-self:start}
+.layout-reddit .sideCard.leftMenu{min-height:0;padding:0 20px 0 0;border-radius:0;background:transparent}
+.layout-reddit .railPrimary{display:block;margin:0 0 16px;padding-bottom:16px;border-bottom:1px solid #eceff2}
+.layout-reddit .railPrimaryItem{height:40px;padding:0 12px;border-radius:9px;display:flex;align-items:center;color:#343a40;font-size:14px;line-height:18px;font-weight:600}
+.layout-reddit .railPrimaryItem:hover{background:#f2f4f5}
+.layout-reddit .railPrimaryItem.active{background:#e9ebee;color:#111;font-weight:700}
+.layout-reddit .railPrimaryItem+.railPrimaryItem{margin-top:2px}
+.layout-reddit .writeButton{height:40px;margin-bottom:16px;border-radius:20px}
+.layout-reddit .menuSection{padding:12px 8px 15px}
+.layout-reddit .menuSection+.menuSection{padding-top:14px}
+.layout-reddit .menuItem{height:34px;margin-top:2px;padding:0 8px;border-radius:8px}
+.layout-reddit .menuItem:hover{background:#f2f4f5}
+.layout-reddit .menuItem:before{display:none}
+.layout-reddit .menuItem.active{background:#e9ebee;color:#111}
+.layout-reddit .imagePanel,.layout-reddit .guidePanel{display:none}
+.layout-reddit .centerPanel{margin-top:20px}
+.layout-reddit .rightPanel{width:250px;margin-top:20px}
+.layout-reddit .detailCard,.layout-reddit .detailButton,.layout-reddit .popularCard,.layout-reddit .hotBoards,.layout-reddit .pointQuest{border:1px solid #e1e4e8;box-shadow:none}
+.layout-reddit .footer{margin-top:56px}
 @media(max-width:1320px){
   html,body{min-width:1080px}
   .globalInner,.loungeHeroInner,.loungeNavInner,.pageWrap,.footer{width:1080px}
   .layoutGrid{grid-template-columns:210px 742px;column-gap:24px}
   .rightPanel{display:none}
   .leftMenu{padding-left:20px;padding-right:20px}
+  html.layout-reddit,html.layout-reddit body{min-width:1080px}
+  .layout-reddit .loungeHeroInner,.layout-reddit .pageWrap,.layout-reddit .footer{width:1080px}
+  .layout-reddit .layoutGrid{grid-template-columns:240px 742px;column-gap:24px}
+  .layout-reddit .rightPanel{display:none}
 }
 </style>
 </head>
@@ -234,6 +265,13 @@ ul,ol{list-style:none;margin:0;padding:0}
   <div class="layoutGrid">
     <aside class="leftPanel" aria-label="게시판 메뉴">
       <section class="sideCard leftMenu">
+        <nav class="railPrimary" aria-label="커뮤니티 주요 메뉴">
+          <a class="railPrimaryItem" href="bobaedream-pc-board-list.html?view=home">홈</a>
+          <a class="railPrimaryItem" href="bobaedream-pc-board-list.html?view=feed">피드</a>
+          <a class="railPrimaryItem active" href="bobaedream-pc-board-list.html">게시판</a>
+          <a class="railPrimaryItem" href="bobaedream-pc-board-list.html?board=%EC%9C%A0%EB%A8%B8">유머</a>
+          <a class="railPrimaryItem" href="bobaedream-pc-board-list.html?board=%EC%A0%95%EC%B9%98">정치</a>
+        </nav>
         <button class="writeButton">글쓰기</button>
         <div class="menuSection">
           <a class="menuItem active" href="bobaedream-pc-board-list.html">전체 게시글</a>
@@ -478,6 +516,13 @@ document.querySelectorAll('[data-vote]').forEach(function(button){
 document.querySelector('.bookmarkToggle').addEventListener('click', function(){
   this.classList.toggle('active');
 });
+if(document.documentElement.classList.contains('layout-reddit')){
+  document.querySelectorAll('a[href^="bobaedream-pc-board"]').forEach(function(link){
+    var url=new URL(link.getAttribute('href'),location.href);
+    url.searchParams.set('layout','reddit');
+    link.href=url.pathname.split('/').pop()+url.search+url.hash;
+  });
+}
 </script>
 <script src="bobaedream-pc-scenarios.js"></script>
 <script src="bobaedream-pc-interactions.js"></script>
