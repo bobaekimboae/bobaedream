@@ -30,6 +30,7 @@ import {
   importedBrandRailOptions,
   inventoryCars,
   heavyCars,
+  truckCars,
   isDesktopPreview,
   matchesChoTotFilters,
   matchesPrice,
@@ -83,6 +84,8 @@ import { setPretendard } from "../fonts/pretendard";
 import { BBM_PAGE_SIZE, BbmFooter, BbmPagination, BbmPopOptions, BbmToolbarMenu, bbmSortOptions, bbmViewOptionsMobile, bbmViewOptionsPc, sortBbmCars, type BbmSort } from "./bbm-list-area";
 import { bikeBrandCount, bikeModelsByMaker } from "../data/bike-filter-catalog";
 import { normalizeTruckFormatSelection, truckFormatCatalog, truckSubtypesFor } from "../data/truck-format-catalog";
+import { truckSpecGroupsFor, truckSpecOptionsFor } from "../data/truck-depth4-catalog";
+import { truckModelsByMaker } from "../truck/scenario-v01";
 import { HeavyQuickFilter } from "../heavy";
 import { emptyHeavySelection, getInitialHeavySelection, replaceHeavyParams, type HeavySelection } from "../heavy/data";
 
@@ -94,7 +97,12 @@ const initialBbmMobileView = (): BbmMobileView => new URLSearchParams(window.loc
 
 const initialTruckFormatSelection = () => {
   const params = new URLSearchParams(window.location.search);
-  return normalizeTruckFormatSelection(params.get("truckFormat"), params.get("truckSubtype"));
+  const selection = normalizeTruckFormatSelection(params.get("truckFormat"), params.get("truckSubtype"));
+  const spec = params.get("truckSpec");
+  return {
+    ...selection,
+    spec: truckSpecOptionsFor(selection.format, selection.subtype).includes(spec ?? "") ? spec : null,
+  };
 };
 
 // QF-120: 모듈을 읽는 순간(첫 렌더 전) 과쯔면 글꼴 CSS·미리 불러오기를 붙여 글꼴 요청을 앞당김
@@ -441,6 +449,7 @@ function MarketplaceScreen() {
   const [heavySelection, setHeavySelection] = useState<HeavySelection>(() => getInitialHeavySelection());
   const [selectedTruckFormat, setSelectedTruckFormat] = useState<string | null>(() => initialFilters.category === "트럭 · 특장" ? initialTruckFormatSelection().format : null);
   const [selectedTruckSubtype, setSelectedTruckSubtype] = useState<string | null>(() => initialFilters.category === "트럭 · 특장" ? initialTruckFormatSelection().subtype : null);
+  const [selectedTruckSpec, setSelectedTruckSpec] = useState<string | null>(() => initialFilters.category === "트럭 · 특장" ? initialTruckFormatSelection().spec : null);
   const [filterFocus, setFilterFocus] = useState<ChoTotFilterFocus | null>(null);
   const [quickFilterFocus, setQuickFilterFocus] = useState<ChoTotFilterFocus | null>(null);
   const [sheet, setSheet] = useState<SheetType>(null);
@@ -507,6 +516,8 @@ function MarketplaceScreen() {
   const isHeavyCategory = category === "건설기계";
   const isTruckCategory = category === "트럭 · 특장";
   const truckSubtypeOptions = truckSubtypesFor(selectedTruckFormat);
+  const truckSpecGroups = truckSpecGroupsFor(selectedTruckFormat, selectedTruckSubtype);
+  const truckSpecOptions = truckSpecGroups.flatMap((group) => group.options.map((option) => ({ group: group.label, value: option })));
   const applyHeavySelection = (next: HeavySelection) => {
     setHeavySelection(next);
     replaceHeavyParams(next);
@@ -537,25 +548,29 @@ function MarketplaceScreen() {
   const categorySearchPlaceholder = categoryIsDefault ? "중고차" : category;
   const categoryBrandRail = categoryBrandRails[category] ?? categoryBrandRails["전체"];
   // QF-097: 과쯔 카탈로그 제조사(9개)도 모델 → 세부 모델 → 트림 단계
-  const usesUxDepth = maker === "BMW" || maker === "벤츠" || Boolean(quickFilterStyle === "guazi" && maker && catalogMakerNames.has(maker));
+  const usesUxDepth = Boolean(isTruckCategory && maker) || maker === "BMW" || maker === "벤츠" || Boolean(quickFilterStyle === "guazi" && maker && catalogMakerNames.has(maker));
   const isGuaziQuickStyle = quickFilterStyle === "guazi";
   // QF-100 최종: 과쯔 퀵필터(제조사·모델·세부모델 줄) 기본 = 바탕 없는 초톳식(plain). &qfcard=card 면 이전 과쯔 카드(비교용), &qfcard=plain 도 plain
   const plainQuickCards = isGuaziQuickStyle && (typeof window === "undefined" || new URLSearchParams(window.location.search).get("qfcard") !== "card");
   // QF-090: 과쯔(개발 시안형)는 필터 동작 확인용 샘플 60대, 초톳·동처띠는 기존 19대 그대로
   const luxuryUiTestMode = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("scenario") === "luxury30";
-  const listingCars = isHeavyCategory ? heavyCars : luxuryUiTestMode ? luxuryUiTestCars : isGuaziQuickStyle ? bbmSampleCars : chototTestCars;
+  const listingCars = isHeavyCategory ? heavyCars : isTruckCategory ? truckCars : luxuryUiTestMode ? luxuryUiTestCars : isGuaziQuickStyle ? bbmSampleCars : chototTestCars;
   const bbmValue = filters.bbm ?? emptyBbmFilters;
   // QF-097: 과쯔는 9개 제조사의 모델·세부 모델을 카탈로그 스냅숏으로(model-catalog-kr), 나머지 제조사·다른 모드는 기존 데이터
-  const modelsByMakerMap = category === "바이크" ? bikeModelsByMaker : isGuaziQuickStyle ? guaziModelsByMaker : quickModelsByMaker;
+  const modelsByMakerMap = category === "바이크" ? bikeModelsByMaker : isTruckCategory ? truckModelsByMaker : isGuaziQuickStyle ? guaziModelsByMaker : quickModelsByMaker;
   const rawGenerationsByMakerModelMap = isGuaziQuickStyle ? guaziGenerationsByMakerModel : quickGenerationsByMakerModel;
   const rawModelVisualsByMakerMap = isGuaziQuickStyle ? guaziModelVisualsByMaker : quickModelVisualsByMaker;
-  const isCatalogMaker = Boolean(isGuaziQuickStyle && maker && catalogMakerNames.has(maker));
+  const isCatalogMaker = Boolean(!isTruckCategory && isGuaziQuickStyle && maker && catalogMakerNames.has(maker));
   const generationQuickOptions = maker && selectedModel ? rawGenerationsByMakerModelMap[maker]?.[selectedModel] ?? [] : [];
   const selectedGenerationOption = generationQuickOptions.find((generation) => generation.name === selectedGeneration);
   const variantQuickOptions = selectedGenerationOption?.variants ?? [];
   const directVariantQuickOptions: Array<string | QuickTrimOption> = [];
   const activeVariantQuickOptions = selectedGeneration ? variantQuickOptions : directVariantQuickOptions;
   const effectiveSelectedVariants = isGuaziQuickStyle ? debouncedSelectedVariants : selectedVariants;
+  const matchesTruckSelection = (car: Car) => !isTruckCategory || Boolean(car.truck
+    && (!selectedTruckFormat || car.truck.format === selectedTruckFormat)
+    && (!selectedTruckSubtype || car.truck.subtype === selectedTruckSubtype)
+    && (!selectedTruckSpec || car.truck.load === selectedTruckSpec));
 
   useEffect(() => {
     setSelectedGeneration(null);
@@ -580,6 +595,7 @@ function MarketplaceScreen() {
     Boolean(heavySelection.submodelCode),
     Boolean(selectedTruckFormat),
     Boolean(selectedTruckSubtype),
+    Boolean(selectedTruckSpec),
     Boolean(selectedGeneration),
     isGuaziQuickStyle ? selectedVariants.length > 0 : trimApplied && selectedVariants.length > 0,
     price.min !== 0 || price.max !== null,
@@ -605,6 +621,7 @@ function MarketplaceScreen() {
     Boolean(heavySelection.submodelCode),
     Boolean(selectedTruckFormat),
     Boolean(selectedTruckSubtype),
+    Boolean(selectedTruckSpec),
     Boolean(selectedGeneration),
     price.min !== 0 || price.max !== null,
     filters.year !== "전체",
@@ -643,9 +660,9 @@ function MarketplaceScreen() {
         && (!heavySelection.modelCode || car.heavy?.modelCode === heavySelection.modelCode)
         && (!heavySelection.submodelCode || car.heavy?.submodelCode === heavySelection.submodelCode)
       );
-      return heavyMatch && matchesChoTotFilters(car, filters) && catalogModelMatch && generationMatch && trimMatch && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || searchText.toLowerCase().includes(normalized));
+      return heavyMatch && matchesTruckSelection(car) && matchesChoTotFilters(car, filters) && catalogModelMatch && generationMatch && trimMatch && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || searchText.toLowerCase().includes(normalized));
     });
-  }, [effectiveSelectedVariants, filters, heavySelection, isCatalogMaker, isGuaziQuickStyle, isHeavyCategory, listingCars, query, region.district, regionKeyword, selectedGeneration, selectedGenerationOption, selectedVariants, trimApplied]);
+  }, [effectiveSelectedVariants, filters, heavySelection, isCatalogMaker, isGuaziQuickStyle, isHeavyCategory, isTruckCategory, listingCars, query, region.district, regionKeyword, selectedGeneration, selectedGenerationOption, selectedTruckFormat, selectedTruckSpec, selectedTruckSubtype, selectedVariants, trimApplied]);
   // QF-090: 우리 데이터가 있는 개발 시안형 항목(바디타입·연식·주행거리·가격·연료·변속기·인승·외부색상·판매자 구분·지역)으로 거른다
   const filteredWithoutPrice = useMemo(() => isGuaziQuickStyle ? baseListCars.filter((car) => matchesBbmFilters(car, filters.bbm)) : baseListCars, [baseListCars, filters.bbm, isGuaziQuickStyle]);
   // QF-097 보완(매물 수 기준 하나로): 과쯔 카탈로그 제조사의 모델·세부 모델·트림 수 = 화면 샘플 매물 수(모델·세부 모델·트림만 뺀 지금 조건).
@@ -655,9 +672,9 @@ function MarketplaceScreen() {
     const normalized = query.trim().toLowerCase();
     return listingCars.filter((car) => {
       const searchText = `${car.title} ${car.trim} ${car.maker} ${car.modelGroup ?? ""}`;
-      return matchesChoTotFilters(car, { ...filters, model: null }) && matchesBbmFilters(car, filters.bbm) && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || searchText.toLowerCase().includes(normalized));
+      return matchesTruckSelection(car) && matchesChoTotFilters(car, { ...filters, model: null }) && matchesBbmFilters(car, filters.bbm) && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || searchText.toLowerCase().includes(normalized));
     });
-  }, [filters, isGuaziQuickStyle, listingCars, query, region.district, regionKeyword]);
+  }, [filters, isGuaziQuickStyle, isTruckCategory, listingCars, query, region.district, regionKeyword, selectedTruckFormat, selectedTruckSpec, selectedTruckSubtype]);
   const { generationsByMakerModelMap, modelVisualsByMakerMap } = useMemo(() => {
     if (!isGuaziQuickStyle) return { generationsByMakerModelMap: rawGenerationsByMakerModelMap, modelVisualsByMakerMap: rawModelVisualsByMakerMap };
     const generations = { ...rawGenerationsByMakerModelMap };
@@ -706,12 +723,14 @@ function MarketplaceScreen() {
     window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
   };
 
-  const replaceTruckParams = (nextFormat: string | null, nextSubtype: string | null) => {
+  const replaceTruckParams = (nextFormat: string | null, nextSubtype: string | null, nextSpec: string | null = null) => {
     const url = new URL(window.location.href);
     if (nextFormat) url.searchParams.set("truckFormat", nextFormat);
     else url.searchParams.delete("truckFormat");
     if (nextFormat && nextSubtype) url.searchParams.set("truckSubtype", nextSubtype);
     else url.searchParams.delete("truckSubtype");
+    if (nextFormat && nextSubtype && nextSpec) url.searchParams.set("truckSpec", nextSpec);
+    else url.searchParams.delete("truckSpec");
     window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
   };
 
@@ -732,6 +751,7 @@ function MarketplaceScreen() {
     setTrimApplied(false);
     setSelectedTruckFormat(null);
     setSelectedTruckSubtype(null);
+    setSelectedTruckSpec(null);
     applyHeavySelection(emptyHeavySelection);
     replaceFilterParams(null, null, keepCategory ?? undefined);
     replaceTruckParams(null, null);
@@ -747,6 +767,7 @@ function MarketplaceScreen() {
     setCategoryLandingOpen(true);
     setSelectedTruckFormat(null);
     setSelectedTruckSubtype(null);
+    setSelectedTruckSpec(null);
     applyHeavySelection(emptyHeavySelection);
     replaceFilterParams(null, null, "전체");
     replaceTruckParams(null, null);
@@ -755,6 +776,7 @@ function MarketplaceScreen() {
   const clearTruckFormat = () => {
     setSelectedTruckFormat(null);
     setSelectedTruckSubtype(null);
+    setSelectedTruckSpec(null);
     setFilters((current) => ({ ...current, maker: null, model: null }));
     setDraftFilters((current) => ({ ...current, maker: null, model: null }));
     setSelectedGeneration(null);
@@ -766,6 +788,7 @@ function MarketplaceScreen() {
 
   const clearTruckSubtype = () => {
     setSelectedTruckSubtype(null);
+    setSelectedTruckSpec(null);
     setFilters((current) => ({ ...current, maker: null, model: null }));
     setDraftFilters((current) => ({ ...current, maker: null, model: null }));
     setSelectedGeneration(null);
@@ -775,9 +798,21 @@ function MarketplaceScreen() {
     replaceTruckParams(selectedTruckFormat, null);
   };
 
+  const clearTruckSpec = () => {
+    setSelectedTruckSpec(null);
+    setFilters((current) => ({ ...current, maker: null, model: null }));
+    setDraftFilters((current) => ({ ...current, maker: null, model: null }));
+    setSelectedGeneration(null);
+    setSelectedVariants([]);
+    setTrimApplied(false);
+    replaceFilterParams(null, null);
+    replaceTruckParams(selectedTruckFormat, selectedTruckSubtype, null);
+  };
+
   const chooseTruckFormat = (formatName: string) => {
     setSelectedTruckFormat(formatName);
     setSelectedTruckSubtype(null);
+    setSelectedTruckSpec(null);
     setFilters((current) => ({ ...current, maker: null, model: null }));
     setDraftFilters((current) => ({ ...current, maker: null, model: null }));
     setSelectedGeneration(null);
@@ -790,6 +825,7 @@ function MarketplaceScreen() {
   const chooseTruckSubtype = (subtypeName: string) => {
     if (!selectedTruckFormat || !truckSubtypeOptions.includes(subtypeName)) return;
     setSelectedTruckSubtype(subtypeName);
+    setSelectedTruckSpec(null);
     setFilters((current) => ({ ...current, maker: null, model: null }));
     setDraftFilters((current) => ({ ...current, maker: null, model: null }));
     setSelectedGeneration(null);
@@ -797,6 +833,18 @@ function MarketplaceScreen() {
     setTrimApplied(false);
     replaceFilterParams(null, null);
     replaceTruckParams(selectedTruckFormat, subtypeName);
+  };
+
+  const chooseTruckSpec = (spec: string) => {
+    if (!truckSpecOptions.some((option) => option.value === spec)) return;
+    setSelectedTruckSpec(spec);
+    setFilters((current) => ({ ...current, maker: null, model: null }));
+    setDraftFilters((current) => ({ ...current, maker: null, model: null }));
+    setSelectedGeneration(null);
+    setSelectedVariants([]);
+    setTrimApplied(false);
+    replaceFilterParams(null, null);
+    replaceTruckParams(selectedTruckFormat, selectedTruckSubtype, spec);
   };
 
   const clearMakerFilter = () => {
@@ -963,6 +1011,7 @@ function MarketplaceScreen() {
       setTrimApplied(false);
       setSelectedTruckFormat(null);
       setSelectedTruckSubtype(null);
+      setSelectedTruckSpec(null);
       applyHeavySelection(emptyHeavySelection);
       setCategoryLandingOpen(categoryName === "전체");
       replaceFilterParams(null, null, categoryName);
@@ -982,6 +1031,7 @@ function MarketplaceScreen() {
       setTrimApplied(false);
       setSelectedTruckFormat(null);
       setSelectedTruckSubtype(null);
+      setSelectedTruckSpec(null);
       setCategoryLandingOpen(categoryName === "전체");
       replaceFilterParams(null, null, categoryName);
       replaceTruckParams(null, null);
@@ -1014,7 +1064,7 @@ function MarketplaceScreen() {
   const vehicleSummaryLabel = isHeavyCategory
     ? [heavySelection.maker, heavySelection.model, heavySelection.submodel].filter(Boolean).join(" ")
     : isTruckCategory
-      ? [selectedTruckFormat, selectedTruckSubtype, maker, selectedModel ? formatModelLabel(selectedModel) : null].filter(Boolean).join(" ")
+      ? [selectedTruckFormat, selectedTruckSubtype, selectedTruckSpec, maker, selectedModel ? formatModelLabel(selectedModel) : null].filter(Boolean).join(" ")
     : [
         maker,
         selectedModel ? formatModelLabel(selectedModel) : null,
@@ -1175,11 +1225,13 @@ function MarketplaceScreen() {
   const showCategoryQuickRail = categoryLandingOpen && !maker;
   const showTruckFormatRail = Boolean(isTruckCategory && !selectedTruckFormat);
   const showTruckSubtypeRail = Boolean(isTruckCategory && selectedTruckFormat && !selectedTruckSubtype);
+  const showTruckSpecRail = Boolean(isTruckCategory && selectedTruckSubtype && truckSpecOptions.length && !selectedTruckSpec);
+  const truckSpecDepthComplete = Boolean(!truckSpecOptions.length || selectedTruckSpec);
   // QF-106: 연식 알약 줄 = 계층이 끝난 뒤(트림을 골랐거나 트림 1개 이하, 또는 세부모델이 없는 모델)
   const showYearQuickRail = Boolean(isGuaziQuickStyle && maker && selectedModel && (
     (selectedGeneration && (guaziTrimChosen || guaziTrimRailOptions.length <= 1)) || (!hasGenerationDepth && !hasDirectVariantDepth)
   ));
-  const showGuaziMakerRail = Boolean(isGuaziQuickStyle && (!isTruckCategory || Boolean(selectedTruckSubtype)) && !guaziTrimChosen && !showCategoryQuickRail && !showModelQuickRail && !showGenerationQuickRail && !showVariantQuickRail && !showVehicleHeaderRail && (categoryBrandRail.title === "제조사" || category === "바이크"));
+  const showGuaziMakerRail = Boolean(isGuaziQuickStyle && (!isTruckCategory || Boolean(selectedTruckSubtype && truckSpecDepthComplete)) && !guaziTrimChosen && !showCategoryQuickRail && !showModelQuickRail && !showGenerationQuickRail && !showVariantQuickRail && !showVehicleHeaderRail && (categoryBrandRail.title === "제조사" || category === "바이크"));
 
   // 필터 칩 줄과 퀵필터 레일은 모바일·PC가 같은 마크업을 쓰고, PC에서는 필터 헤더 패널 안으로 위치만 옮긴다.
   const filterShell = (
@@ -1204,6 +1256,12 @@ function MarketplaceScreen() {
             <span className="depth-rail-label">세부 형식:</span>
             <Carousel ariaLabel={`${selectedTruckFormat} 세부 형식`} className="brand-carousel" contentClassName="depth-rail-track is-chips">
               {truckSubtypeOptions.map((subtype) => <TrimChip key={subtype} label={subtype} onClick={() => chooseTruckSubtype(subtype)} />)}
+            </Carousel>
+          </section> :
+          showTruckSpecRail ? <section className="depth-rail is-trim-row" aria-label={`${selectedTruckSubtype} 적재용량 및 규격 빠른 선택`}>
+            <span className="depth-rail-label">적재·규격:</span>
+            <Carousel ariaLabel={`${selectedTruckSubtype} 적재용량 및 규격`} className="brand-carousel" contentClassName="depth-rail-track is-chips">
+              {truckSpecOptions.map((option) => <TrimChip key={`${option.group}-${option.value}`} label={truckSpecGroups.length > 1 ? `${option.group}: ${option.value}` : option.value} onClick={() => chooseTruckSpec(option.value)} />)}
             </Carousel>
           </section> :
           showYearQuickRail ? <StableYearRow value={bbmValue} onChange={(next) => setBbmFilters(next)} /> :
@@ -1231,7 +1289,7 @@ function MarketplaceScreen() {
                     imageFit={modelVisual?.bodyFit ?? "width"}
                     isEV={modelVisual?.isEV}
                     selected={selectedModel === model}
-                    disabled={modelVisual?.count === "0대"}
+                    disabled={Boolean(isCatalogMaker && modelVisual?.count === "0대")}
                     onClick={() => chooseModel(model)}
                   />
                 );
@@ -1242,7 +1300,7 @@ function MarketplaceScreen() {
             <Carousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName="benz-model-track">
               {modelQuickOptions.map((model) => {
                 const modelVisual = guaziVisualsForMaker?.[model];
-                return <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} disabled={modelVisual?.count === "0대"} onClick={() => chooseModel(model)}>{formatModelLabel(model)}</button>;
+                return <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} disabled={Boolean(isCatalogMaker && modelVisual?.count === "0대")} onClick={() => chooseModel(model)}>{formatModelLabel(model)}</button>;
               })}
             </Carousel>
           </section> : showGenerationQuickRail && isGuaziQuickStyle ? <section className="depth-rail no-label" aria-label={`${accessibleDepthLabel(selectedModel)} 세부모델 빠른 선택`}>
@@ -1310,7 +1368,7 @@ function MarketplaceScreen() {
             const typeList = krTypeTop10(category);
             const sections = krTopTenSections(category === "국산차" ? "domestic" : category === "수입차" ? "imported" : "all", typeList ? category : undefined);
             // 샘플 매물은 모두 승용이고 유형 구분 값이 없어, 바이크·트럭 목록의 샘플 대수는 0(승용 매물을 세지 않음)
-            const sampleCount = (_key: string) => 0;
+            const sampleCount = (key: string) => isTruckCategory ? listingCars.filter((car) => car.maker === key && matchesTruckSelection(car)).length : 0;
             const card = (item: { label: string; key: string }) => (
               <DepthCard key={item.label} className={typeList && sampleCount(item.key) === 0 ? "is-dim" : undefined} label={krRailLabel(item.label)} image={<KrBrandLogo name={item.label} kind={plainQuickCards ? "plain" : "rail"} initialFallback={Boolean(typeList)} />} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />
             );
@@ -1388,7 +1446,7 @@ function MarketplaceScreen() {
   const shownCars = bbmFrozen?.cars ?? visibleCars;
   const shownHistory = bbmFrozen ? bbmFrozen.history : bbmValue.history ?? 0;
   // QF-092: 한 페이지 20대(원본). 필터·정렬·판매자 탭·검색을 바꾸면 1페이지로
-  const bbmPageKey = JSON.stringify([filters, heavySelection, selectedTruckFormat, selectedTruckSubtype, query, region, selectedGeneration, effectiveSelectedVariants, bbmSort]);
+  const bbmPageKey = JSON.stringify([filters, heavySelection, selectedTruckFormat, selectedTruckSubtype, selectedTruckSpec, query, region, selectedGeneration, effectiveSelectedVariants, bbmSort]);
   useEffect(() => { setBbmPage(1); }, [bbmPageKey]);
   const bbmPageCount = Math.max(1, Math.ceil(shownCars.length / BBM_PAGE_SIZE));
   const bbmPageNow = Math.min(bbmPage, bbmPageCount);
@@ -1448,6 +1506,9 @@ function MarketplaceScreen() {
       selectedTruckFormat && selectedTruckSubtype
         ? { key: "truck-subtype", label: selectedTruckSubtype, active: true, className: "is-vehicle-summary is-step", onClick: clearTruckSubtype, onClear: clearTruckSubtype }
         : selectedTruckFormat ? { key: "truck-subtype", label: "세부 형식", active: false, onClick: clearTruckSubtype } : null,
+      selectedTruckSubtype && truckSpecOptions.length && selectedTruckSpec
+        ? { key: "truck-spec", label: selectedTruckSpec, active: true, className: "is-vehicle-summary is-step", onClick: clearTruckSpec, onClear: clearTruckSpec }
+        : selectedTruckSubtype && truckSpecOptions.length ? { key: "truck-spec", label: "적재·규격", active: false, onClick: clearTruckSpec } : null,
     ] : []),
     // 원본: 제조사를 고르면 [현대 ×][모델] 이 적용 칩 앞, 고르기 전에는 적용 칩 뒤에 [제조사]
     // QF-097 보완: 제조사·모델·세부 모델을 단계별 검정 적용 칩으로 [벤츠 ×][E클래스 ×][W213 ×]. 각 × 는 그 단계부터 아래만 푼다
@@ -1466,7 +1527,7 @@ function MarketplaceScreen() {
     // QF-105: 트림을 고르면 빈 "트림" 칩 대신 단계 칩 [트림 ×]
     selectedVariants.length || (selectedGeneration && guaziTrimRailOptions.length <= 1) ? null : chipByKey("variant"),
     ...otherApplied.map(toAppliedBbmChip),
-    isHeavyCategory || isTruckCategory && !selectedTruckSubtype ? null : maker ? null : { key: "maker", label: "제조사", active: false, onClick: () => openBbmChipPanel("제조사") },
+    isHeavyCategory || isTruckCategory && (!selectedTruckSubtype || !truckSpecDepthComplete) ? null : maker ? null : { key: "maker", label: "제조사", active: false, onClick: () => openBbmChipPanel("제조사") },
     groupChip("year", "연식", "연식", rangeIsSet(bbmValue.ranges.year)),
     // QF-118: 과쯔 PC 는 좌측 필터 순서대로 연식 다음 "주행거리 ▾"(누르면 가운데 모달). 모바일은 그대로
     desktop && isGuaziQuickStyle ? (() => { const chip = groupChip("mileage", "주행거리", "주행거리", rangeIsSet(bbmValue.ranges.mileage)); return chip ? { ...chip, className: "is-mileage" } : null; })() : null,
@@ -1496,17 +1557,17 @@ function MarketplaceScreen() {
   // 적용 개수(필터 칩 숫자·사이드바 배지): 제조사·모델·등급 등 기존 값 + 개발 시안형 적용 칩
   const bbmAppliedCount = selectedFilterValueCount + bbmApplied.length;
   // 제조사 목록 매물 수: 제조사·모델만 뺀 지금 조건으로 우리 데이터에서 센다(원본처럼 0대는 흐리게)
-  const bbmMakerBase = listingCars.filter((car) => matchesChoTotFilters(car, { ...filters, maker: null, model: null }) && (!isGuaziQuickStyle || matchesBbmFilters(car, filters.bbm)));
+  const bbmMakerBase = listingCars.filter((car) => matchesTruckSelection(car) && matchesChoTotFilters(car, { ...filters, maker: null, model: null }) && (!isGuaziQuickStyle || matchesBbmFilters(car, filters.bbm)));
   // QF-114: 바이크 · 트럭·특장의 제조사 목록(전체 브랜드 · 제조사 칩)은 그 유형 목록만(국산 → 수입 이름순 → 기타), 승용 목록과 섞지 않음
   const bbmTypeList = isGuaziQuickStyle ? krTypeTop10(category) : null;
   const bbmMakerSections = bbmTypeList
     ? (category === "바이크"
       ? [["브랜드", bbmTypeList.all.imported]].map(([title, labels]) => ({ title: title as string, rows: (labels as string[]).map((label) => ({ label, key: label, count: bikeBrandCount[label] ?? 0 })) }))
-      : [["국산", bbmTypeList.all.domestic], ["수입 이름순", bbmTypeList.all.imported], ["기타", bbmTypeList.all.etc]].map(([title, labels]) => ({ title: title as string, rows: (labels as string[]).map((label) => ({ label, key: label, count: 0 })) })))
+      : [["국산", bbmTypeList.all.domestic], ["수입 이름순", bbmTypeList.all.imported], ["기타", bbmTypeList.all.etc]].map(([title, labels]) => ({ title: title as string, rows: (labels as string[]).map((label) => ({ label, key: label, count: bbmMakerBase.filter((car) => car.maker === label).length })) })))
     : bbCatalog.map((section) => ({ title: section.title, rows: section.rows.map(([label, , key]) => ({ label, key: key ?? label, count: bbmMakerBase.filter((car) => car.maker === (key ?? label)).length })) }));
   const bbmSidebarMakerSections: BbMakerSection[] = bbmMakerSections.map((section) => ({ title: section.title, rows: section.rows.map((row) => [row.label, row.count, row.key] as [string, number, string?]) }));
   const bbmModelRows = (makerName: string) => (modelsByMakerMap[makerName] ?? []).map((name) => {
-    const visualCount = modelVisualsByMakerMap[makerName]?.[name]?.count;
+    const visualCount = isTruckCategory ? undefined : modelVisualsByMakerMap[makerName]?.[name]?.count;
     const key = normalizeModelSearchText(name);
     const count = visualCount ? Number(visualCount.replace(/[^0-9]/g, "")) : listingCars.filter((car) => car.maker === makerName && normalizeModelSearchText(`${car.title} ${car.trim} ${car.modelGroup ?? ""}`).includes(key)).length;
     return { name, label: formatModelLabel(name), count };
@@ -1581,7 +1642,7 @@ function MarketplaceScreen() {
   if (desktop && pcLayoutStyle === "bbmuseum") {
     // QF-067: 좌측 필터 제조사·모델·등급 = 퀵필터 제조사·모델·세대·트림과 같은 상태(하나의 원본)
     const bbmModelCount = (makerName: string, modelName: string) => {
-      const visualCount = modelVisualsByMakerMap[makerName]?.[modelName]?.count;
+      const visualCount = isTruckCategory ? undefined : modelVisualsByMakerMap[makerName]?.[modelName]?.count;
       if (visualCount) return Number(visualCount.replace(/[^0-9]/g, ""));
       const key = normalizeModelSearchText(modelName);
       return listingCars.filter((car) => car.maker === makerName && normalizeModelSearchText(`${car.title} ${car.trim} ${car.modelGroup ?? ""}`).includes(key)).length;

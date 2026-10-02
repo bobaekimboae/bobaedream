@@ -23,6 +23,7 @@ import { emptyChoTotFilters, vehicleCategoryOptions, type ChoTotFilterState } fr
 import { luxuryUiTestRows } from "./luxury-ui-test";
 import { bikeModelsByMaker, bikeTopBrands } from "./bike-filter-catalog";
 import { heavyInventory } from "../heavy/data";
+import { truckModelsByMaker, truckScenarioV01 } from "../truck/scenario-v01";
 
 export type SellerType = "전체" | "개인" | "딜러";
 type SheetType = "filter" | "quick" | "carType" | "maker" | "vehicle" | "year" | "price" | "region" | "sort" | null;
@@ -87,6 +88,14 @@ type Car = {
     quickfilterTags?: readonly string[];
     isVirtual?: boolean;
     scenarioVersion?: string;
+  };
+  truck?: {
+    format: string;
+    subtype: string;
+    load: string;
+    scenarioId: string;
+    isVirtual: boolean;
+    scenarioVersion: string;
   };
   sellerProfile?: string | null;
   uiTest?: {
@@ -753,7 +762,7 @@ const getInitialChoTotFilters = (): ChoTotFilterState => {
   const makerParam = params.get("maker") ?? "";
   const modelParam = params.get("model") ?? "";
   const category = vehicleCategoryOptions.includes(categoryParam) ? categoryParam : "전체";
-  const categoryModels = category === "바이크" ? bikeModelsByMaker : quickModelsByMaker;
+  const categoryModels = category === "바이크" ? bikeModelsByMaker : category === "트럭 · 특장" ? truckModelsByMaker : quickModelsByMaker;
   const maker = categoryModels[makerParam] ? makerParam : null;
   const model = maker && categoryModels[maker]?.includes(modelParam) ? modelParam : null;
 
@@ -813,6 +822,48 @@ const heavyCars: Car[] = heavyInventory.map((row, index) => ({
     color: "기타",
     origin: "수입",
     body: "건설기계",
+    video: false,
+  },
+}));
+
+const truckDomesticMakers = new Set(["현대", "기아", "타타대우", "KG모빌리티"]);
+const truckCars: Car[] = truckScenarioV01.map((row, index) => ({
+  id: 6000 + index,
+  maker: row.maker,
+  modelGroup: row.model,
+  sellerType: row.sellerType,
+  image: row.image,
+  imageFit: "contain",
+  title: `${row.maker} ${row.model}`,
+  trim: `${row.format} · ${row.subtype}`,
+  specs: [`${row.year}년식`, `${row.mileage.toLocaleString("ko-KR")}km`, row.load, row.region],
+  price: `${row.price10k.toLocaleString("ko-KR")} 만원`,
+  place: row.region,
+  views: 55 + index * 9,
+  dealer: row.sellerType === "개인" ? `개인 판매자 ${String(index + 1).padStart(2, "0")} (가상)` : `트럭파트너 ${row.region.split(" ")[0]}점 (가상)`,
+  stock: 1,
+  posted: `${(index % 12) + 1}시간 전`,
+  photos: 1,
+  badges: [],
+  truck: {
+    format: row.format,
+    subtype: row.subtype,
+    load: row.load,
+    scenarioId: row.id,
+    isVirtual: true,
+    scenarioVersion: "v01",
+  },
+  filter: {
+    year: row.year,
+    seats: row.seats,
+    condition: "중고",
+    mileage: row.mileage,
+    owners: "전체",
+    transmission: row.transmission,
+    fuel: row.fuel,
+    color: "기타",
+    origin: truckDomesticMakers.has(row.maker) ? "국산" : "수입",
+    body: row.format === "버스" ? "승합" : "화물",
     video: false,
   },
 }));
@@ -1091,7 +1142,9 @@ function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
     || category === "국산차" && domesticMakerNames.has(car.maker)
     || category === "수입차" && !domesticMakerNames.has(car.maker)
     || category === "전기차" && data.fuel === "전기"
-    || ["트럭 · 특장", "바이크", "캠핑카", "올드카", "건설기계", "부품 · 용품"].includes(category);
+    || category === "트럭 · 특장" && Boolean(car.truck)
+    || category === "건설기계" && Boolean(car.heavy)
+    || ["바이크", "캠핑카", "올드카", "부품 · 용품"].includes(category);
   const yearMatch = value.year === "전체"
     || value.year === "2024~2026" && data.year >= 2024
     || value.year === "2021~2023" && data.year >= 2021 && data.year <= 2023
@@ -1255,6 +1308,7 @@ export {
   getInitialChoTotFilters,
   listingBadgeOptions,
   heavyCars,
+  truckCars,
   defaultCars,
   bmwCars,
   benzCars,
