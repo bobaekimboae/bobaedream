@@ -66,6 +66,24 @@ final result: passed
 
 ---
 
+# Design QA — 실제 메인 하단 스크롤
+
+## Finding and fix
+
+- [P1 resolved] 모바일 프레임은 본문 스크롤을 잠그는데 실제 메인에는 별도의 세로 스크롤 컨테이너가 없었고, flex 기본 `stretch`가 메인 카드를 프레임 높이로 제한해 하단 콘텐츠가 잘렸다.
+- Fix: `main-home-stage`에 `overflow-y:auto`, `touch-action:pan-y`, 관성 스크롤을 적용하고 `align-items:flex-start`로 실제 콘텐츠 높이를 보존했다.
+
+## Verification
+
+- 스크롤 영역 높이: 720px.
+- 전체 콘텐츠 스크롤 높이: 1410px.
+- 직접 아래 제스처 후 스크롤 위치: 689.6px.
+- 하단 추천 매물 영역 노출: passed.
+
+final result: passed
+
+---
+
 # Design QA — 실제 메인 Pages 자산 경로 교정
 
 ## Finding and fix
