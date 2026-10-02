@@ -106,6 +106,16 @@ const initialTruckFormatSelection = () => {
   };
 };
 
+const truckQuickLabelAliases: Record<string, string> = {
+  "캠핑카/캠핑 트레일러": "캠핑카·트레일러",
+  "폐기/음식물수송": "폐기물·음식물",
+  "차량견인/운송": "견인·운송",
+  "덤프/건설/중기": "덤프·건설",
+  "캠핑트레일러": "캠핑 트레일러",
+};
+
+const truckQuickLabel = (label: string) => truckQuickLabelAliases[label] ?? label;
+
 // QF-120: 모듈을 읽는 순간(첫 렌더 전) 과쯔면 글꼴 CSS·미리 불러오기를 붙여 글꼴 요청을 앞당김
 if (getInitialQuickFilterStyle() === "guazi") setPretendard(true);
 
@@ -1249,12 +1259,12 @@ function MarketplaceScreen() {
           isHeavyCategory ? <HeavyQuickFilter value={heavySelection} onChange={applyHeavySelection} /> :
           showTruckFormatRail ? <section className="depth-rail no-label is-truck-image-row" aria-label="트럭 형식 빠른 선택">
             <QuickRailCarousel ariaLabel="트럭 형식" className="brand-carousel" contentClassName="depth-rail-track">
-              {truckFormatCatalog.map((group) => <DepthCard key={group.name} className="is-truck-depth" label={group.name} image={<img src={asset(truckFormatImageFor(group.name) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckFormat(group.name)} />)}
+              {truckFormatCatalog.map((group) => <DepthCard key={group.name} className="is-truck-depth" label={desktop ? group.name : truckQuickLabel(group.name)} ariaLabel={group.name} image={<img src={asset(truckFormatImageFor(group.name) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckFormat(group.name)} />)}
             </QuickRailCarousel>
           </section> :
           showTruckSubtypeRail ? <section className="depth-rail no-label is-truck-image-row" aria-label={`${selectedTruckFormat} 세부 형식 빠른 선택`}>
             <QuickRailCarousel ariaLabel={`${selectedTruckFormat} 세부 형식`} className="brand-carousel" contentClassName="depth-rail-track">
-              {truckSubtypeOptions.map((subtype) => <DepthCard key={subtype} className="is-truck-depth" label={subtype} image={<img src={asset(truckSubtypeImageFor(selectedTruckFormat, subtype) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckSubtype(subtype)} />)}
+              {truckSubtypeOptions.map((subtype) => <DepthCard key={subtype} className="is-truck-depth" label={desktop ? subtype : truckQuickLabel(subtype)} ariaLabel={subtype} image={<img src={asset(truckSubtypeImageFor(selectedTruckFormat, subtype) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckSubtype(subtype)} />)}
             </QuickRailCarousel>
           </section> :
           showTruckSpecRail ? <section className="depth-rail is-trim-row" aria-label={`${selectedTruckSubtype} 적재용량 및 규격 빠른 선택`}>
@@ -1744,7 +1754,7 @@ function MarketplaceScreen() {
     return (
       <>
         <MobileScroll className="app-screen">
-          <main className={`marketplace is-bbm${isGuaziQuickStyle ? " is-hybrid" : ""}${plainQuickCards ? " is-qf-plain" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}`} aria-label="중고차 리스트">
+          <main className={`marketplace is-bbm${isGuaziQuickStyle ? " is-hybrid" : ""}${plainQuickCards ? " is-qf-plain" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}`} aria-label="중고차 리스트">
             <BbHeader category={category} onNotify={setSearchToast} onOpenFavorites={() => flow.push(savedListingsScreen)} />
             {/* QF-093: 과쯔는 상단 패널(전체차량 · N대 · 검색저장 · 칩 줄 · 유형 줄/퀵필터 레일)을 본문 폭 전체로 */}
             {/* QF-106b: 경로는 상단 카드 밖(회색 바탕 위), 카드는 제목 줄부터 */}
@@ -1883,7 +1893,7 @@ function MarketplaceScreen() {
     return (
       <>
         <MobileScroll className="app-screen">
-          <main className={`marketplace is-bbm-m${plainQuickCards ? " is-qf-plain" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}`} aria-label="중고차 리스트">
+          <main className={`marketplace is-bbm-m${plainQuickCards ? " is-qf-plain" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}`} aria-label="중고차 리스트">
             <Header bbm query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} />
             <section className="region-bar is-bbm" aria-label="지역 선택">
               <button type="button" aria-label={`현재 지역 ${isGuaziQuickStyle ? stableRegionLabel(bbmValue) : regionLabel}, 지역 선택 열기`} onClick={isGuaziQuickStyle ? () => setStableRegionOpen(true) : openRegionSheet}><img className="ui-icon" src={bbmIcon("m-region-location")} alt="" aria-hidden="true" /><span className="region-text"><span className="region-label">지역:</span><strong>{isGuaziQuickStyle ? stableRegionLabel(bbmValue) : regionLabel}</strong></span><span className="region-chevron-icon" aria-hidden="true"><img src={bbmIcon("m-region-chevron")} alt="" /></span></button>

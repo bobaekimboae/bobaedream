@@ -159,6 +159,7 @@
   .marketplace.is-bbm .bbm-result-card:last-child::after { display: none; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-main { gap: 16px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-photo { width: 160px; height: 160px; border-radius: 8px; }
+  .marketplace.is-bbm.is-truck-category .bbm-result-card .bbm-card-photo { width: 160px; height: 112px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-media-footer { height: 24px; padding: 0 8px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-time { font-size: 12px; font-weight: 500; line-height: 16.8px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-content { gap: 12px; }
@@ -244,6 +245,12 @@
   aspect-ratio: 1 / 1;
   border-radius: 8px;
   overflow: hidden;
+  flex: 0 0 136px;
+}
+.marketplace.is-bbm-m.is-truck-category .bbm-m-list:not(.is-feed):not(.is-gallery):not(.is-text):not(.is-one-line) .bbm-result-card.is-mobile .bbm-card-photo {
+  width: 136px;
+  height: 96px;
+  aspect-ratio: auto;
   flex: 0 0 136px;
 }
 .bbm-m-list:not(.is-feed):not(.is-gallery):not(.is-text):not(.is-one-line) .bbm-result-card.is-mobile .bbm-card-location,

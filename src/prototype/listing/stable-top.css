@@ -40,7 +40,29 @@
 .marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) { height: 102px; }
 .marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) { height: 74px; }
 .marketplace.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-label { display: block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; -webkit-line-clamp: none; }
-.marketplace.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) .depth-card-label { display: block; height: auto; max-height: none; overflow: visible; text-overflow: clip; white-space: normal; word-break: keep-all; overflow-wrap: anywhere; -webkit-line-clamp: unset; }
+.marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) .depth-card-label {
+  display: block;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  -webkit-line-clamp: unset;
+}
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) .depth-card-label {
+  display: -webkit-box;
+  height: 36px;
+  max-height: 36px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
 .marketplace.is-bbm-m.is-qf-guazi .depth-rail .quick-rail-nav { top: 9px; }
 .marketplace.is-qf-guazi .depth-rail.is-trim-row .quick-rail-nav { top: -3px; }
 .marketplace.is-qf-guazi .depth-card-sub { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

@@ -34,3 +34,35 @@
 .quick-rail-nav.is-next { right: 2px; }
 .quick-rail-nav.is-previous img { width: 38px; height: 38px; }
 .quick-rail-nav.is-next img { width: 34px; height: 34px; }
+
+/* 트럭 모바일: 원본 228×120 비율을 보존하고 긴 이름은 고정 2줄 안에서만 표시한다. */
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth {
+  width: 72px;
+  height: 78px;
+  flex: 0 0 72px;
+}
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth > .depth-card-media:not(.is-brand) {
+  width: 56px;
+  height: 30px;
+}
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth > .depth-card-media:not(.is-brand) img {
+  width: 56px;
+  height: 30px;
+}
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth > .depth-card-label {
+  display: -webkit-box;
+  width: 64px;
+  height: 36px;
+  max-height: 36px;
+  margin-top: 4px;
+  overflow: hidden;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* 터치 화면에서는 카드 위를 가리는 화살표 대신 기본 가로 스와이프를 사용한다. */
+.marketplace.is-bbm-m .quick-rail-nav { display: none; }
