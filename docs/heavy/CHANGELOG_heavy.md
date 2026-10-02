@@ -9,3 +9,4 @@
 - 2026-10-02 / 코덱스-건설 / Notion HANDOVER_heavy_v01 / v01 / 건설기계 전용 인수인계 페이지와 Google Sheets 산출물 연결 / 미검수
 - 2026-10-02 / 코덱스-건설 / heavy_filter_spec_v02, HANDOVER_heavy_v02, 공개 시안 / v02 / 빅레몬 4단계 연동과 검증용 30대 목록 적용 / 미검수
 - 2026-10-02 / 코덱스-건설 / heavy_listing_integration_v01, HANDOVER_heavy_v03, 공개 시안 / v01·v03 / 최신 v04 시나리오와 이미지 30장을 scenario_id·image_file로 1:1 연결하고 목록·가상 판매자 정보에 반영 / 검수완료
+- 2026-10-02 / 코덱스-건설 / heavy_listing_integration_v02, HANDOVER_heavy_v04, 공개 시안 / v02·v04 / 수정 요청: v04 원천 유형으로 틀어진 형식을 빅레몬 전체 52종과 세부형식 체계로 복원 / 미검수

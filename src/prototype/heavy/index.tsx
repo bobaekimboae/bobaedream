@@ -29,7 +29,7 @@ export function HeavyQuickFilter({ value, onChange }: HeavyQuickFilterProps) {
 
   return (
     <section className="heavy-qf" aria-label={`건설기계 ${level} 빠른 선택`}>
-      <div className="heavy-qf-heading"><strong>{level}</strong><span>빅레몬 체계 · 가상 매물 v04 30대</span></div>
+      <div className="heavy-qf-heading"><strong>{level}</strong><span>빅레몬 형식 52종 · 가상 매물 v04 30대</span></div>
       {options.length ? (
         <div className="heavy-qf-track" role="list">
           {options.map((option) => (
