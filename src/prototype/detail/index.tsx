@@ -8,6 +8,7 @@ import {
   detailVehiclePlate,
   extraInfo,
   formatMileage,
+  getActiveDetailCar,
   isDesktopPreview,
   isForcedMobileView,
   optionItems,
@@ -18,6 +19,7 @@ import {
   vehicleHistoryUrl,
   vehicleInfo,
   type DetailSheet,
+  type Car,
 } from "../data";
 
 type DetailUi = {
@@ -414,8 +416,51 @@ function DesktopVehicleDetail({ onBack }: { onBack: () => void }) {
   </div>;
 }
 
+function BikeVehicleDetail({ car, onBack }: { car: Car; onBack: () => void }) {
+  const bike = car.bike!;
+  const rows = [
+    ["제조사", car.maker],
+    ["모델", car.modelGroup ?? car.title],
+    ["연식", car.filter ? `${car.filter.year}년` : "미확인"],
+    ["주행거리", car.filter ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : "미확인"],
+    ["배기량", `${bike.displacement.toLocaleString("ko-KR")}cc`],
+    ["장르", bike.genre],
+    ["면허", bike.licenseClass],
+    ["상태", bike.condition],
+  ];
+  const sellerRows = [
+    ["판매자 유형", bike.sellerType],
+    ["판매자명", car.dealer],
+    ["주소", bike.sellerAddress],
+    ["연락 방식", bike.sellerContact],
+    ["영업시간", bike.businessHours],
+  ];
+  return (
+    <main className="vehicle-detail bike-vehicle-detail" aria-label="바이크 상세">
+      <section className="detail-card" style={{ padding: 0, overflow: "hidden" }}>
+        <div style={{ position: "relative" }}>
+          <img src={asset(car.image)} alt={car.title} style={{ display: "block", width: "100%", aspectRatio: "4 / 3", objectFit: "cover" }} />
+          <button type="button" aria-label="목록으로 돌아가기" onClick={onBack} style={{ position: "absolute", top: 12, left: 12, width: 40, height: 40, border: 0, borderRadius: 20, background: "rgba(0,0,0,.55)", color: "#fff", fontSize: 22 }}>←</button>
+        </div>
+        <div style={{ padding: 20 }}>
+          <p style={{ margin: "0 0 6px", color: "#777", fontSize: 13 }}>테스트용 가상 매물 · {bike.scenarioId}</p>
+          <h1 style={{ margin: 0, fontSize: 23 }}>{car.title}</h1>
+          <p style={{ margin: "8px 0 0", color: "#555" }}>{car.trim}</p>
+          <strong style={{ display: "block", marginTop: 14, fontSize: 22 }}>{car.price}</strong>
+        </div>
+      </section>
+      <div className="detail-gray-stack">
+        <SectionCard title="바이크 정보"><InfoGrid items={rows} /></SectionCard>
+        <SectionCard title="판매자 정보"><InfoGrid items={sellerRows} /><p style={{ margin: "16px 0 0", color: "#666", lineHeight: 1.6 }}>{bike.sellerIntro}</p></SectionCard>
+        <SectionCard title="거래 정보"><InfoGrid items={[["인증", bike.certified], ["인수 방식", bike.delivery], ["시나리오 버전", bike.scenarioVersion], ["이미지 등급", bike.imageGrade]]} /><p style={{ margin: "16px 0 0", color: "#777", fontSize: 13 }}>모든 판매자 정보는 테스트용 가상 정보이며 실제 연락처와 상세 주소가 아닙니다.</p></SectionCard>
+      </div>
+    </main>
+  );
+}
+
 function VehicleDetail() {
   const flow = useFlow();
+  const activeCar = getActiveDetailCar();
   const [desktop, setDesktop] = useState(() => isDesktopPreview() && window.matchMedia("(min-width: 820px)").matches);
   useEffect(() => {
     if (isForcedMobileView()) {
@@ -428,6 +473,14 @@ function VehicleDetail() {
     return () => query.removeEventListener("change", update);
   }, []);
   const { sheet, setSheet, toast, notify } = useDetailUi();
+  if (activeCar?.bike) {
+    return (
+      <div className="detail-scene">
+        <MobileScroll className="detail-screen"><BikeVehicleDetail car={activeCar} onBack={flow.pop} /></MobileScroll>
+        {toast ? <div className="detail-toast" role="status">{toast}</div> : null}
+      </div>
+    );
+  }
   return (
     <div className="detail-scene">
       <MobileScroll className="detail-screen">
@@ -463,6 +516,16 @@ function VehicleDetail() {
 
 function DetailFooter() {
   const { setSheet, notify } = useDetailUi();
+  const activeCar = getActiveDetailCar();
+  if (activeCar?.bike) {
+    return (
+      <div className="detail-bottom-bar">
+        <button className="detail-history" type="button" onClick={() => notify("가상 매물 정보입니다")}>가상 매물</button>
+        <button className="detail-call" type="button" onClick={() => notify(activeCar.bike?.sellerContact ?? "앱 채팅 전용 (가상)")}><img src={asset("detail/call.svg")} alt="" /> 연락 방식</button>
+        <button className="detail-consult" type="button" onClick={() => notify("테스트용 앱 채팅입니다")}>채팅</button>
+      </div>
+    );
+  }
   return (
     <div className="detail-bottom-bar">
       <a className="detail-history" href={vehicleHistoryUrl(detailVehiclePlate)}>이력조회</a>

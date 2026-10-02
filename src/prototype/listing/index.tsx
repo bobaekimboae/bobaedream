@@ -9,6 +9,7 @@ import {
   categoryBrandRails,
   chototTestCars,
   bbmSampleCars,
+  bikeCars,
   luxuryUiTestCars,
   compactYearLabel,
   compactGenerationCardYearLabel,
@@ -46,6 +47,7 @@ import {
   radiusOptions,
   sellerAvatar,
   sellerLabel,
+  setActiveDetailCar,
   sheetLabels,
   showGuaziInventoryCounts,
   shuffleCars,
@@ -82,7 +84,7 @@ import { CatalogModelImage, catalogMakerNames, catalogModelOfCar, guaziGeneratio
 import { BbmChipScroller, BbmTopCrumbs, type BbmCrumb } from "./bbm-top-chotot";
 import { setPretendard } from "../fonts/pretendard";
 import { BBM_PAGE_SIZE, BbmFooter, BbmPagination, BbmPopOptions, BbmToolbarMenu, bbmSortOptions, bbmViewOptionsMobile, bbmViewOptionsPc, sortBbmCars, type BbmSort } from "./bbm-list-area";
-import { bikeBrandCount, bikeModelsByMaker } from "../data/bike-filter-catalog";
+import { bikeListingModelsByMaker, bikeListingModelVisualsByMaker } from "../bike/data";
 import { normalizeTruckFormatSelection, truckFormatCatalog, truckFormatImageFor, truckSubtypeImageFor, truckSubtypesFor } from "../data/truck-format-catalog";
 import { truckSpecGroupsFor, truckSpecOptionsFor } from "../data/truck-depth4-catalog";
 import { QuickRailCarousel } from "./quick-rail-carousel";
@@ -438,7 +440,7 @@ function SavedListingsScreen() {
         </div>
         {activeTab === "listings" && savedCars.length ? <section className="saved-car-list" aria-live="polite">
           {savedCars.map((car) => (
-            <article key={car.id} className="saved-car-row" role="link" tabIndex={0} aria-label={`${car.title} 상세 보기`} onClick={() => flow.push(detailScreen)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); flow.push(detailScreen); } }}>
+            <article key={car.id} className="saved-car-row" role="link" tabIndex={0} aria-label={`${car.title} 상세 보기`} onClick={() => { setActiveDetailCar(car); flow.push(detailScreen); }} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setActiveDetailCar(car); flow.push(detailScreen); } }}>
               <img className={`saved-car-photo${car.imageFit === "contain" ? " is-catalog" : ""}`} src={asset(car.image)} alt={`${car.title} ${car.trim}`} draggable={false} />
               <div className="saved-car-copy"><h2>{car.title}</h2><p>{car.trim} · {car.specs[0]} · {car.specs[3]}</p><strong>{car.price.replace(" ", "")}</strong></div>
               <button type="button" className="saved-like-button" aria-label={`${car.title} 저장 해제`} aria-pressed="true" onClick={(event) => { event.stopPropagation(); toggleLiked(car.id); }}><HeartFilledIcon /></button>
@@ -452,6 +454,10 @@ function SavedListingsScreen() {
 
 function MarketplaceScreen() {
   const flow = useFlow();
+  const openCarDetail = (car: Car) => {
+    setActiveDetailCar(car);
+    flow.push(detailScreen);
+  };
   const keyboard = useKeyboard();
   const { likedIds, toggleLiked } = useFavorites();
   const initialFilters = getInitialChoTotFilters();
@@ -525,6 +531,7 @@ function MarketplaceScreen() {
   const regionLabel = region.radius ? `내 주변 ${region.radius}` : [region.province, region.district].filter(Boolean).join(" ") || "전국";
   const regionKeyword = region.province === "광주" ? "광주" : region.province;
   const { maker, model: selectedModel, price, seller: sellerType, videoOnly, category } = filters;
+  const isBikeCategory = category === "바이크";
   const isHeavyCategory = category === "건설기계";
   const isTruckCategory = category === "트럭 · 특장";
   const truckSubtypeOptions = truckSubtypesFor(selectedTruckFormat);
@@ -560,19 +567,19 @@ function MarketplaceScreen() {
   const categorySearchPlaceholder = categoryIsDefault ? "중고차" : category;
   const categoryBrandRail = categoryBrandRails[category] ?? categoryBrandRails["전체"];
   // QF-097: 과쯔 카탈로그 제조사(9개)도 모델 → 세부 모델 → 트림 단계
-  const usesUxDepth = Boolean(isTruckCategory && maker) || maker === "BMW" || maker === "벤츠" || Boolean(quickFilterStyle === "guazi" && maker && catalogMakerNames.has(maker));
+  const usesUxDepth = Boolean(isTruckCategory && maker) || Boolean(!isBikeCategory && (maker === "BMW" || maker === "벤츠" || quickFilterStyle === "guazi" && maker && catalogMakerNames.has(maker)));
   const isGuaziQuickStyle = quickFilterStyle === "guazi";
   // QF-100 최종: 과쯔 퀵필터(제조사·모델·세부모델 줄) 기본 = 바탕 없는 초톳식(plain). &qfcard=card 면 이전 과쯔 카드(비교용), &qfcard=plain 도 plain
   const plainQuickCards = isGuaziQuickStyle && (typeof window === "undefined" || new URLSearchParams(window.location.search).get("qfcard") !== "card");
   // QF-090: 과쯔(개발 시안형)는 필터 동작 확인용 샘플 60대, 초톳·동처띠는 기존 19대 그대로
   const luxuryUiTestMode = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("scenario") === "luxury30";
-  const listingCars = isHeavyCategory ? heavyCars : isTruckCategory ? truckCars : luxuryUiTestMode ? luxuryUiTestCars : isGuaziQuickStyle ? bbmSampleCars : chototTestCars;
+  const listingCars = isHeavyCategory ? heavyCars : isTruckCategory ? truckCars : isBikeCategory ? bikeCars : luxuryUiTestMode ? luxuryUiTestCars : isGuaziQuickStyle ? bbmSampleCars : chototTestCars;
   const bbmValue = filters.bbm ?? emptyBbmFilters;
   // QF-097: 과쯔는 9개 제조사의 모델·세부 모델을 카탈로그 스냅숏으로(model-catalog-kr), 나머지 제조사·다른 모드는 기존 데이터
-  const modelsByMakerMap = category === "바이크" ? bikeModelsByMaker : isTruckCategory ? truckModelsByMaker : isGuaziQuickStyle ? guaziModelsByMaker : quickModelsByMaker;
+  const modelsByMakerMap = isBikeCategory ? bikeListingModelsByMaker : isTruckCategory ? truckModelsByMaker : isGuaziQuickStyle ? guaziModelsByMaker : quickModelsByMaker;
   const rawGenerationsByMakerModelMap = isGuaziQuickStyle ? guaziGenerationsByMakerModel : quickGenerationsByMakerModel;
-  const rawModelVisualsByMakerMap = isGuaziQuickStyle ? guaziModelVisualsByMaker : quickModelVisualsByMaker;
-  const isCatalogMaker = Boolean(!isTruckCategory && isGuaziQuickStyle && maker && catalogMakerNames.has(maker));
+  const rawModelVisualsByMakerMap = isBikeCategory ? bikeListingModelVisualsByMaker : isGuaziQuickStyle ? guaziModelVisualsByMaker : quickModelVisualsByMaker;
+  const isCatalogMaker = Boolean(!isBikeCategory && !isTruckCategory && isGuaziQuickStyle && maker && catalogMakerNames.has(maker));
   const generationQuickOptions = maker && selectedModel ? rawGenerationsByMakerModelMap[maker]?.[selectedModel] ?? [] : [];
   const selectedGenerationOption = generationQuickOptions.find((generation) => generation.name === selectedGeneration);
   const variantQuickOptions = selectedGenerationOption?.variants ?? [];
@@ -1377,8 +1384,9 @@ function MarketplaceScreen() {
             // QF-114: 바이크 · 트럭·특장은 유형별 상위 10(승용 브랜드 없음), 샘플 0대 칸은 흐리게(빼지 않음), 로고가 없으면 첫 글자 원형
             const typeList = krTypeTop10(category);
             const sections = krTopTenSections(category === "국산차" ? "domestic" : category === "수입차" ? "imported" : "all", typeList ? category : undefined);
-            // 샘플 매물은 모두 승용이고 유형 구분 값이 없어, 바이크·트럭 목록의 샘플 대수는 0(승용 매물을 세지 않음)
-            const sampleCount = (key: string) => isTruckCategory ? listingCars.filter((car) => car.maker === key && matchesTruckSelection(car)).length : 0;
+            const sampleCount = (key: string) => isTruckCategory
+              ? listingCars.filter((car) => car.maker === key && matchesTruckSelection(car)).length
+              : isBikeCategory ? listingCars.filter((car) => car.maker === key).length : 0;
             const card = (item: { label: string; key: string }) => (
               <DepthCard key={item.label} className={typeList && sampleCount(item.key) === 0 ? "is-dim" : undefined} label={krRailLabel(item.label)} image={<KrBrandLogo name={item.label} kind={plainQuickCards ? "plain" : "rail"} initialFallback={Boolean(typeList)} />} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />
             );
@@ -1427,8 +1435,8 @@ function MarketplaceScreen() {
             </label>
   );
   const carListItems = visibleCars.length ? visibleCars.map((car) => desktop && !pcGridView
-    ? <PcCarRow key={car.id} car={car} liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} />
-    : <CarCard key={car.id} car={car} cardView={cardView && !desktop} liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} />) : (
+    ? <PcCarRow key={car.id} car={car} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} />
+    : <CarCard key={car.id} car={car} cardView={cardView && !desktop} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} />) : (
     <div className="empty-state"><strong>조건에 맞는 차량이 없어요</strong><span>필터를 초기화하고 다시 찾아보세요.</span><button type="button" onClick={() => resetFilters()}>필터 초기화</button></div>
   );
   const pcToday = new Date();
@@ -1572,7 +1580,7 @@ function MarketplaceScreen() {
   const bbmTypeList = isGuaziQuickStyle ? krTypeTop10(category) : null;
   const bbmMakerSections = bbmTypeList
     ? (category === "바이크"
-      ? [["브랜드", bbmTypeList.all.imported]].map(([title, labels]) => ({ title: title as string, rows: (labels as string[]).map((label) => ({ label, key: label, count: bikeBrandCount[label] ?? 0 })) }))
+      ? [["브랜드", bbmTypeList.all.imported]].map(([title, labels]) => ({ title: title as string, rows: (labels as string[]).map((label) => ({ label, key: label, count: bbmMakerBase.filter((car) => car.maker === label).length })) }))
       : [["국산", bbmTypeList.all.domestic], ["수입 이름순", bbmTypeList.all.imported], ["기타", bbmTypeList.all.etc]].map(([title, labels]) => ({ title: title as string, rows: (labels as string[]).map((label) => ({ label, key: label, count: bbmMakerBase.filter((car) => car.maker === label).length })) })))
     : bbCatalog.map((section) => ({ title: section.title, rows: section.rows.map(([label, , key]) => ({ label, key: key ?? label, count: bbmMakerBase.filter((car) => car.maker === (key ?? label)).length })) }));
   const bbmSidebarMakerSections: BbMakerSection[] = bbmMakerSections.map((section) => ({ title: section.title, rows: section.rows.map((row) => [row.label, row.count, row.key] as [string, number, string?]) }));
@@ -1750,8 +1758,8 @@ function MarketplaceScreen() {
       </section>
     );
     const bbmItems = shownCars.length ? pagedCars.map((car) => pcGridView
-      ? <CarCard key={car.id} car={car} cardView={false} liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} />
-      : <BbmResultCard key={car.id} car={car} variant="pc" liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅은 정식 서비스에서 이용해 주세요.")} />) : carListItems;
+      ? <CarCard key={car.id} car={car} cardView={false} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} />
+      : <BbmResultCard key={car.id} car={car} variant="pc" liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅은 정식 서비스에서 이용해 주세요.")} />) : carListItems;
     return (
       <>
         <MobileScroll className="app-screen">
@@ -1926,8 +1934,8 @@ function MarketplaceScreen() {
             <section className={`bbm-m-list${bbmMobileView === "피드로 보기" ? " is-feed" : bbmMobileView === "갤러리로 보기" ? " is-gallery" : bbmMobileView === "한줄 광고로 보기" ? " is-one-line" : bbmMobileView === "텍스트로 보기" ? " is-text" : ""}`} aria-live="polite">
               {shownCars.length && bbmMobileView === "한줄 광고로 보기" ? <div className="bbm-one-line-head"><span>모델</span><span>연식(연형)</span><span>가격(만원)</span><i /></div> : null}
               {shownCars.length ? pagedCars.map((car, index) => bbmMobileView === "한줄 광고로 보기"
-                ? <BbmOneLineCard key={car.id} car={car} liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} />
-                : <BbmResultCard key={car.id} car={car} variant="mobile" featured={bbmMobileView === "피드로 보기" && index === 0} liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅은 정식 서비스에서 이용해 주세요.")} />) : carListItems}
+                ? <BbmOneLineCard key={car.id} car={car} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} />
+                : <BbmResultCard key={car.id} car={car} variant="mobile" featured={bbmMobileView === "피드로 보기" && index === 0} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅은 정식 서비스에서 이용해 주세요.")} />) : carListItems}
               {shownCars.length ? <BbmPagination page={bbmPageNow} total={bbmPageCount} windowSize={3} onChange={goBbmPage} /> : null}
             </section>
             <BbmFooter onNotify={setSearchToast} />
