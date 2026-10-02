@@ -24,7 +24,7 @@
 .mh-search-field input::placeholder { color:#7d838c; opacity:1; }
 .mh-search-field input::-webkit-search-cancel-button { appearance:none; }
 .mh-section { margin-top:10px; padding:23px 0 22px; background:#fff; border-top:1px solid #e2e8f0; border-bottom:1px solid #e2e8f0; }
-.mh-category-section { margin-top:0; }
+.mh-category-section { margin-top:0; border-top:0; }
 .mh-section-head { padding:0 17px; margin-bottom:18px; display:flex; align-items:flex-start; justify-content:space-between; }
 .mh-section-head h2 { margin:0; font-size:20px; line-height:28px; font-weight:700; letter-spacing:-.035em; }
 .mh-section-heading-copy p { margin:2px 0 0; color:#8a8a8a; font-size:14px; line-height:20px; font-weight:400; letter-spacing:-.025em; }
@@ -36,7 +36,6 @@
 .mh-category-item,.mh-luxury-item { flex:0 0 70px; text-align:center; }
 .mh-category-image { height:43px; display:flex; align-items:flex-end; justify-content:center; }
 .mh-category-image img { width:52px; height:38px; object-fit:contain; filter:drop-shadow(0 4px 3px rgba(15,23,42,.12)); }
-.mh-category-image img.is-flipped { transform:scaleX(-1); }
 .mh-category-item strong { display:block; margin-top:4px; font-size:14px; line-height:20px; font-weight:600; letter-spacing:-.04em; white-space:nowrap; }
 .mh-luxury-disc { width:56px; height:56px; margin:0 auto; padding:6px 3px 4px; display:flex; flex-direction:column; align-items:center; justify-content:center; border-radius:50%; background:#f7f7f7; }
 .mh-luxury-disc img { width:30px; height:27px; object-fit:contain; }
