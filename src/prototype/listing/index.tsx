@@ -65,13 +65,13 @@ import {
   type SheetType,
 } from "../data";
 import { BrandRailMark, CategoryFilterSheet, DepthCard, MakerSheet, PriceSheet, TrimChip, VehiclePickerSheet } from "../quick-filter";
-import { bbCatalog, BbCarCard, BbFilterSidebar, BbHeader, BbIcon, BbSwitch, type BbMakerSelection } from "./pc-bbmuseum";
+import { bbCatalog, BbCarCard, BbFilterSidebar, BbHeader, BbIcon, BbSwitch, type BbMakerSelection, type BbMakerSection } from "./pc-bbmuseum";
 import { bbmCarChecks, emptyBbmFilters, isBbmDataOption, matchesBbmFilters, rangeIsSet, resetBbmFilters, setBbmChecks, setBbmRange, type BbmCheckKey, type BbmFilterValues } from "../filters/bbm-filter-state";
 import { bbmAppliedChips, bbmItemValue } from "../filters/bbm-applied";
 import { MileageFinalSheet, mileageSummary } from "../filters/bbm-mileage";
 import { BbmPartsGallery } from "../filters/bbm-parts-gallery";
 import { BbmActionBar, BbmFullExcludeAction, BbmFullFilter, BbmFullItem, BbmModal, BbmSheet } from "../filters/bbm-filter-parts";
-import { bbmFilterOrder, bbmSidebarItems, type BbmFilterItem } from "../filters/bbm-filter-options";
+import { bbmFilterOrder, bbmSidebarItems, bikeFilterOrder, type BbmFilterItem } from "../filters/bbm-filter-options";
 import { BbmBodyTypeSheet, BbmExpandPanel, BbmModalPanel, BbmSellerTypeSheet, clearBbmItem } from "../filters/bbm-filter-panels";
 import { BbmBottomGnb, BbmCategoryMenu, BbmHeadlinePreviewLinks, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
@@ -81,6 +81,7 @@ import { CatalogModelImage, catalogMakerNames, catalogModelOfCar, guaziGeneratio
 import { BbmChipScroller, BbmTopCrumbs, type BbmCrumb } from "./bbm-top-chotot";
 import { setPretendard } from "../fonts/pretendard";
 import { BBM_PAGE_SIZE, BbmFooter, BbmPagination, BbmPopOptions, BbmToolbarMenu, bbmSortOptions, bbmViewOptionsMobile, bbmViewOptionsPc, sortBbmCars, type BbmSort } from "./bbm-list-area";
+import { bikeBrandCount, bikeModelsByMaker } from "../data/bike-filter-catalog";
 import { HeavyQuickFilter } from "../heavy";
 import { emptyHeavySelection, getInitialHeavySelection, replaceHeavyParams, type HeavySelection } from "../heavy/data";
 
@@ -517,7 +518,7 @@ function MarketplaceScreen() {
   const listingCars = isHeavyCategory ? heavyCars : luxuryUiTestMode ? luxuryUiTestCars : isGuaziQuickStyle ? bbmSampleCars : chototTestCars;
   const bbmValue = filters.bbm ?? emptyBbmFilters;
   // QF-097: 과쯔는 9개 제조사의 모델·세부 모델을 카탈로그 스냅숏으로(model-catalog-kr), 나머지 제조사·다른 모드는 기존 데이터
-  const modelsByMakerMap = isGuaziQuickStyle ? guaziModelsByMaker : quickModelsByMaker;
+  const modelsByMakerMap = category === "바이크" ? bikeModelsByMaker : isGuaziQuickStyle ? guaziModelsByMaker : quickModelsByMaker;
   const rawGenerationsByMakerModelMap = isGuaziQuickStyle ? guaziGenerationsByMakerModel : quickGenerationsByMakerModel;
   const rawModelVisualsByMakerMap = isGuaziQuickStyle ? guaziModelVisualsByMaker : quickModelVisualsByMaker;
   const isCatalogMaker = Boolean(isGuaziQuickStyle && maker && catalogMakerNames.has(maker));
@@ -1378,8 +1379,11 @@ function MarketplaceScreen() {
   // QF-114: 바이크 · 트럭·특장의 제조사 목록(전체 브랜드 · 제조사 칩)은 그 유형 목록만(국산 → 수입 이름순 → 기타), 승용 목록과 섞지 않음
   const bbmTypeList = isGuaziQuickStyle ? krTypeTop10(category) : null;
   const bbmMakerSections = bbmTypeList
-    ? [["국산", bbmTypeList.all.domestic], ["수입 이름순", bbmTypeList.all.imported], ["기타", bbmTypeList.all.etc]].map(([title, labels]) => ({ title: title as string, rows: (labels as string[]).map((label) => ({ label, key: label, count: 0 })) }))
+    ? (category === "바이크"
+      ? [["브랜드", bbmTypeList.all.imported]].map(([title, labels]) => ({ title: title as string, rows: (labels as string[]).map((label) => ({ label, key: label, count: bikeBrandCount[label] ?? 0 })) }))
+      : [["국산", bbmTypeList.all.domestic], ["수입 이름순", bbmTypeList.all.imported], ["기타", bbmTypeList.all.etc]].map(([title, labels]) => ({ title: title as string, rows: (labels as string[]).map((label) => ({ label, key: label, count: 0 })) })))
     : bbCatalog.map((section) => ({ title: section.title, rows: section.rows.map(([label, , key]) => ({ label, key: key ?? label, count: bbmMakerBase.filter((car) => car.maker === (key ?? label)).length })) }));
+  const bbmSidebarMakerSections: BbMakerSection[] = bbmMakerSections.map((section) => ({ title: section.title, rows: section.rows.map((row) => [row.label, row.count, row.key] as [string, number, string?]) }));
   const bbmModelRows = (makerName: string) => (modelsByMakerMap[makerName] ?? []).map((name) => {
     const visualCount = modelVisualsByMakerMap[makerName]?.[name]?.count;
     const key = normalizeModelSearchText(name);
@@ -1539,7 +1543,7 @@ function MarketplaceScreen() {
             {/* QF-106b: 경로는 상단 카드 밖(회색 바탕 위), 카드는 제목 줄부터 */}
             {isGuaziQuickStyle ? <div className="bbm-hybrid-top"><BbmTopCrumbs items={bbmCrumbs} />{bbmTopCard}</div> : null}
             <div className="bbm-page">
-              <BbFilterSidebar mileageFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? bbmFilterOrder : undefined} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} />
+              <BbFilterSidebar mileageFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? category === "바이크" ? bikeFilterOrder : bbmFilterOrder : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} />
               <div className="bbm-content">
                 {isGuaziQuickStyle ? null : bbmContentHead}
                 <section className="bbm-results" aria-label="매물 목록">
@@ -1584,7 +1588,7 @@ function MarketplaceScreen() {
         {renderBbmChipPanel(true)}
         {drawerFilterChip && bbmDrawerOpen ? (
           <BbmFilterDrawer count={visibleCars.length} onClose={() => setBbmDrawerOpen(false)} onReset={() => setBbmDrawerReset((value) => value + 1)}>
-            <BbFilterSidebar mileageFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? bbmFilterOrder : undefined} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmDrawerReset} brandLogos={isGuaziQuickStyle} />
+            <BbFilterSidebar mileageFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? category === "바이크" ? bikeFilterOrder : bbmFilterOrder : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmDrawerReset} brandLogos={isGuaziQuickStyle} />
           </BbmFilterDrawer>
         ) : null}
         {marketSheet}
@@ -1662,7 +1666,9 @@ function MarketplaceScreen() {
     const sheetValue = bbmFullDraft ?? bbmValue;
     const setSheetValue = (next: BbmFilterValues) => setBbmFullDraft(next);
     const closeFullItem = () => { setBbmFullItem(null); setBbmFullDraft(null); };
-    const fullItems = [bbmSidebarItems[0], bbmSidebarItems[1], null, ...bbmSidebarItems.slice(2)];
+    const fullItems = category === "바이크"
+      ? [null, ...bikeFilterOrder.filter((label) => label !== "제조사 · 모델").map((label) => bbmSidebarItems.find((item) => item.label === label)).filter((item): item is BbmFilterItem => Boolean(item))]
+      : [bbmSidebarItems[0], bbmSidebarItems[1], null, ...bbmSidebarItems.filter((item) => item.scope !== "bike").slice(2)];
     return (
       <>
         <MobileScroll className="app-screen">
