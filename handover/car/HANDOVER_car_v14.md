@@ -35,8 +35,11 @@
 
 ## 7) 검수 상태
 
-- 로컬 빌드 및 공개 배포 검수 예정.
+- `npm run build`: 통과.
+- `npm run test:sites`: 4건 통과.
+- GitHub Pages 공개 배포: 성공.
+- 공개 화면 계산값: GNB `border-bottom: 0px none`.
 
 ## 8) 다음에 할 일
 
-1. 공개 화면에서 GNB 하단 구분선 제거 상태를 확인한다.
+1. 후속 상단 UI 요청을 반영한다.
