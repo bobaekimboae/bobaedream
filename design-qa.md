@@ -66,6 +66,61 @@ final result: passed
 
 ---
 
+# Design QA — 트럭 이미지 위·텍스트 아래 카드 균형 v03
+
+## Comparison target
+
+- Source visual truth path: `C:/Users/bobae/Downloads/KakaoTalk_20261002_183735865.png`.
+- Prior implementation screenshot path: `docs/truck/audits/2026-10-02/truck_finn_airbnb_cards_mobile_v01.png`.
+- Latest implementation capture: Codex 인앱 브라우저 탭 20의 로컬 URL `http://127.0.0.1:5173/?qf=guazi&category=트럭%20·%20특장`.
+- Source pixels: 1080×2340px.
+- Latest CSS viewports: 모바일 390×844px, PC 1280×900px, device density 1× 기준.
+- State: 라이트 테마, 트럭 형식 단계와 카고 세부형식 단계.
+
+## Findings and fixes
+
+- [P2 resolved] v01은 명칭이 이미지 위에 있어 사용자 요청 방향과 반대였다.
+  - Fix: DOM의 `이미지 → 명칭` 순서를 그대로 사용하고 강제 재정렬을 제거했다.
+- [P2 resolved] 순서 변경 직후에는 카드 외곽 대비 차량 이미지가 작고 위·좌우 여백이 컸다.
+  - Fix: 카드 외곽 크기는 유지하면서 모바일 이미지를 80×47px, PC 이미지를 104×54px로 확대하고 안쪽 여백을 줄였다.
+
+## Full-view comparison
+
+- 참고 화면의 연회색 둥근 카드, 단일 터치 대상, 반복되는 동일 카드 리듬을 유지한다.
+- 텍스트 아래 배치는 사용자가 명시한 의도적 변경으로 참고 화면의 텍스트 위 배치와 다르다.
+- 모바일은 첫 화면에서 카드 4개와 다음 카드 일부가 보여 가로 탐색 가능성을 전달한다.
+- PC는 카드 외곽을 키우지 않아 필터 영역과 매물 목록의 기존 세로 밀도를 유지한다.
+
+## Focused region comparison
+
+- 모바일: 카드 88×96px 안에 이미지 80×47px, 간격 5px, 하단 명칭 80×34px.
+- PC: 카드 112×108px 안에 이미지 104×54px, 간격 4px, 하단 명칭 최대 104×36px.
+- 차량 이미지는 `object-position: center bottom`으로 같은 바닥선에 놓인다.
+- 긴 명칭은 하단 2줄 영역에 제한되어 이미지 크기나 카드 높이를 밀어내지 않는다.
+
+## Required fidelity surfaces
+
+- Fonts and typography: 기존 트럭 카드의 12px 모바일, 13px PC 굵기와 최대 2줄 규칙 유지.
+- Spacing and layout rhythm: 카드 외곽·곡률·행 간격 유지, 내부 이미지 비중만 확대.
+- Colors and visual tokens: 기본 `#F1F1F3`, 선택 `#FFFFFF`·`#222222` 2px 유지.
+- Image quality and asset fidelity: 기존 228×120 정규화 PNG를 비율 왜곡 없이 `contain`과 바닥 정렬로 사용.
+- Copy and content: 형식·세부형식 명칭 변경 없음.
+
+## Verification
+
+- 모바일 이미지가 명칭보다 위에 있음: passed.
+- PC 1280×900 카드 112×108px, 이미지 104×54px, 간격 4px: passed.
+- 모바일 콘솔 errors/warnings: 0건.
+- `npm run verify:qf`: passed.
+
+**Open Questions**
+
+- 공개 배포는 사용자 확인 후 진행한다.
+
+final result: passed
+
+---
+
 # Design QA — 트럭 FINN형 카드·Airbnb형 선택 상태
 
 ## Comparison target

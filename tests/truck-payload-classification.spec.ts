@@ -100,7 +100,7 @@ for (const mode of [
     expect(base.height).toBeCloseTo(mode.height, 0);
     expect(base.background).toBe("rgb(241, 241, 243)");
     expect(base.radius).toBe("18px");
-    expect(base.labelTop).toBeLessThan(base.mediaTop);
+    expect(base.labelTop).toBeGreaterThan(base.mediaTop);
     expect(selected.background).toBe("rgb(255, 255, 255)");
     expect(selected.color).toBe("rgb(34, 34, 34)");
     expect(selected.shadow).toContain("rgb(34, 34, 34)");
