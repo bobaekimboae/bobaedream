@@ -129,6 +129,7 @@
 
   function setupTopNavigation(){
     updateTopNavigation(boardFromUrl());
+    updateRailPrimary();
   }
 
   function updateTopNavigation(board){
@@ -139,6 +140,16 @@
     else if(params.get('view')==='feed') activeLabel='피드';
     document.querySelectorAll('.loungeTab').forEach(function(link){
       var selected=link.textContent.trim()===activeLabel;
+      link.classList.toggle('active',selected);
+      if(selected) link.setAttribute('aria-current','page');
+      else link.removeAttribute('aria-current');
+    });
+  }
+
+  function updateRailPrimary(){
+    document.querySelectorAll('.railPrimaryItem').forEach(function(link){
+      var label=link.textContent.trim();
+      var selected=layoutMode==='reddit'?label==='피드':link.classList.contains('active');
       link.classList.toggle('active',selected);
       if(selected) link.setAttribute('aria-current','page');
       else link.removeAttribute('aria-current');
@@ -288,11 +299,38 @@
       });
       if(title) title.textContent='“'+query+'” 검색 결과';
     }
+    if(layoutMode==='reddit'&&title&&!query) title.textContent='피드';
+    renderRedditFeed(posts,board,query);
     if(!posts.length){
       rows.innerHTML='<tr><td colspan="5" class="emptyBoardRows">'+(query?'“'+esc(query)+'” 검색 결과가 없습니다.':esc(board)+' 게시판의 새 글이 없습니다.')+'</td></tr>';
       return;
     }
     rows.innerHTML=posts.map(function(post){return renderRow(post, board)}).join('');
+  }
+
+  function renderRedditFeed(posts,board,query){
+    var feed=document.getElementById('redditFeed');
+    if(!feed) return;
+    if(!posts.length){
+      feed.innerHTML='<div class="emptyBoardRows">'+(query?'“'+esc(query)+'” 검색 결과가 없습니다.':'새 피드가 없습니다.')+'</div>';
+      return;
+    }
+    feed.innerHTML=posts.slice(0,24).map(function(post){
+      var targetBoard=post[9]||boardFromCategory(post[0])||board||'전체 게시글';
+      var href=DETAIL_PAGE+'?board='+encodeURIComponent(targetBoard)+'&post='+encodeURIComponent(post[1]);
+      if(post[8]) href+='&postId='+encodeURIComponent(post[8]);
+      href=withLayout(href);
+      var preview=post[7]||post[1]+'에 관한 회원들의 경험과 의견을 나누는 게시글입니다.';
+      var initial=(post[2]||'보').trim().slice(0,1);
+      return [
+        '<a class="redditFeedCard" href="'+href+'">',
+        '<div class="redditFeedMeta"><span class="redditFeedAvatar" aria-hidden="true">'+esc(initial)+'</span><span class="redditFeedAuthor">'+esc(post[2])+'</span><span class="redditFeedDot"></span><span>'+esc(post[3])+'</span><span class="redditFeedCategory">'+esc(post[0])+'</span></div>',
+        '<strong class="redditFeedTitle">'+esc(post[1])+'</strong>',
+        '<p class="redditFeedPreview">'+esc(preview)+'</p>',
+        '<div class="redditFeedStats"><span class="redditFeedStat">추천 '+esc(post[5]||0)+'</span><span class="redditFeedStat">댓글 '+esc(post[6]||0)+'</span><span class="redditFeedStat">조회 '+esc(post[4]||0)+'</span></div>',
+        '</a>'
+      ].join('');
+    }).join('');
   }
 
   function getPostsForBoard(board){

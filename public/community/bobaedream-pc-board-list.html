@@ -136,6 +136,20 @@ ul,ol{list-style:none;margin:0;padding:0}
 .boardTable th.authorHead{text-align:left;padding-left:10px}
 .boardTable tbody tr{height:44px;border-bottom:1px solid var(--line);background:#fff}
 .boardTable td{height:44px;padding:0;color:#000;font-size:12px;font-weight:400;vertical-align:middle}
+.redditFeed{display:none}
+.redditFeedCard{display:block;border:1px solid #e1e4e8;border-radius:12px;background:#fff;padding:18px 20px 16px;color:#222;transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+.redditFeedCard+.redditFeedCard{margin-top:10px}
+.redditFeedCard:hover{border-color:#c8cdd4;box-shadow:0 3px 14px rgba(30,38,48,.06);transform:translateY(-1px)}
+.redditFeedMeta{display:flex;align-items:center;min-width:0;color:#727985;font-size:12px;line-height:18px}
+.redditFeedAvatar{width:26px;height:26px;margin-right:9px;border-radius:50%;background:#222;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;flex:0 0 auto}
+.redditFeedAuthor{color:#30343b;font-weight:700}
+.redditFeedDot{width:3px;height:3px;margin:0 7px;border-radius:50%;background:#b7bdc6;flex:0 0 auto}
+.redditFeedCategory{margin-left:auto;padding:4px 8px;border-radius:999px;background:#f1f3f5;color:#4f5661;font-size:12px;line-height:16px;font-weight:700}
+.redditFeedTitle{display:block;margin-top:12px;color:#17191d;font-size:18px;line-height:26px;font-weight:700;letter-spacing:-.2px}
+.redditFeedPreview{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;margin-top:7px;color:#555d68;font-size:14px;line-height:22px}
+.redditFeedStats{display:flex;align-items:center;gap:16px;margin-top:14px;color:#737b87;font-size:12px;line-height:18px;font-weight:600}
+.redditFeedStat{display:inline-flex;align-items:center;gap:5px}
+.redditFeedStat:before{content:"";width:5px;height:5px;border:1.5px solid #969da8;border-radius:50%}
 .boardTitleCell{display:flex;align-items:center;height:43px}
 .boardLabel{display:block;height:21px;margin-left:5px;padding:4px 5px 3px;border-radius:6px;background:#f5f6f9;color:#697183;font-size:12px;line-height:14px;font-weight:400;white-space:nowrap}
 .articleTitle{display:block;margin-left:7px;color:#222;font-size:14px;line-height:17px;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -192,6 +206,10 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
 .layout-reddit .centerPanel{margin-top:20px}
 .layout-reddit .rightPanel{width:250px;margin-top:20px}
 .layout-reddit .boardTitleArea,.layout-reddit .boardTableCard,.layout-reddit .pagination,.layout-reddit .popularCard,.layout-reddit .hotBoards{border:1px solid #e1e4e8;box-shadow:none}
+.layout-reddit .boardTitleArea strong:after{content:""}
+.layout-reddit .cleanBot,.layout-reddit .boardTableCard,.layout-reddit .pagination{display:none}
+.layout-reddit .redditFeed{display:block;margin-top:12px}
+.layout-reddit .articleControl{margin-top:12px;border:1px solid #e1e4e8}
 .layout-reddit .footer{margin-top:56px}
 @media(max-width:1320px){
   html,body{min-width:1080px}
@@ -316,6 +334,7 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
         <span>클린봇이 악성 게시글을 감지합니다.</span>
         <button class="cleanSetting">설정</button>
       </section>
+      <section id="redditFeed" class="redditFeed" aria-label="커뮤니티 게시글 피드"></section>
       <section class="boardTableCard">
         <table class="boardTable">
           <caption>게시글 목록</caption>
