@@ -170,7 +170,7 @@ export const heavyInventory: HeavyInventoryRow[] = heavyScenarioV04.map((row) =>
   };
 });
 
-export const heavyFormOrder = [...biglemonHeavyFormOrder];
+export const heavyFormOrder: string[] = [...biglemonHeavyFormOrder];
 export const heavyDetailOptions: Record<string, string[]> = Object.fromEntries(
   heavyFormOrder.map((form) => {
     const base = biglemonHeavyDetailOptions[form] ?? ["전체"];
