@@ -30,6 +30,7 @@
 
   addInteractionStyles();
   setupLoginState();
+  setupTopNavigation();
   setupBoardNavigation();
   setupWriteButtons();
   if(isList) setupListPage();
@@ -109,6 +110,24 @@
     });
   }
 
+  function setupTopNavigation(){
+    updateTopNavigation(boardFromUrl());
+  }
+
+  function updateTopNavigation(board){
+    var params=new URLSearchParams(location.search);
+    var activeLabel='게시판';
+    if(params.get('view')==='home') activeLabel='홈';
+    else if(params.get('view')==='feed') activeLabel='피드';
+    else if(['유머','정치','공지','자유','질문','시승기'].indexOf(board)!==-1) activeLabel=board;
+    document.querySelectorAll('.loungeTab').forEach(function(link){
+      var selected=link.textContent.trim()===activeLabel;
+      link.classList.toggle('active',selected);
+      if(selected) link.setAttribute('aria-current','page');
+      else link.removeAttribute('aria-current');
+    });
+  }
+
   function setupBoardNavigation(){
     document.querySelectorAll('.menuItem').forEach(function(link){
       var board=cleanBoardName(link);
@@ -160,6 +179,7 @@
     if(!boardConfig[board]) board='전체 게시글';
     localStorage.setItem(STORE_BOARD, board);
     updateMenuActive(board);
+    updateTopNavigation(board);
     if(isList) renderBoardRows(board);
     if(push){
       var url=withLayout(LIST_PAGE+'?board='+encodeURIComponent(board));

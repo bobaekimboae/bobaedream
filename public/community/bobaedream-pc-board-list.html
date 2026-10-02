@@ -61,9 +61,10 @@ ul,ol{list-style:none;margin:0;padding:0}
 .loungeTitleBlock h1{margin:0;font-size:16px;line-height:26px;font-weight:600;letter-spacing:-.2px}
 .loungeNav{height:60px;background:#fff;border-top:1px solid #f1f1f1;border-bottom:1px solid #e7e7e7}
 .loungeNavInner{width:1280px;height:60px;margin:0 auto;display:flex;align-items:center;gap:8px}
-.loungeTab{height:36px;color:#444;font-size:14px;line-height:18px;font-weight:700;padding:0 17px;border:1px solid #e7e8eb;border-radius:999px;background:#f6f7f9;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;transition:background .18s ease,color .18s ease,border-color .18s ease}
-.loungeTab:hover{background:#eceef2;border-color:#dfe1e5}
-.loungeTab.active{background:#222;border-color:#222;color:#fff;box-shadow:none}
+.loungeTab{height:40px;color:#555;font-size:14px;line-height:18px;font-weight:600;padding:0 8px;border:3px solid transparent;border-radius:999px;background:transparent;background-clip:padding-box;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;transition:background-color .18s ease,color .18s ease}
+.loungeTab:hover{background:#f4f5f7;background-clip:padding-box;color:#222}
+.loungeTab:focus-visible{outline:2px solid #222;outline-offset:1px}
+.loungeTab.active{padding-left:14px;padding-right:14px;background:#222;background-clip:padding-box;color:#fff;font-weight:700;box-shadow:none}
 .pageWrap{width:1280px;margin:24px auto 0}
 .topBanner{height:80px;border-radius:8px;overflow:hidden;background:
   linear-gradient(90deg,#201518 0%,#3b151a 34%,#683033 64%,#121318 100%);position:relative;color:#fff;display:flex;align-items:center;justify-content:center}
