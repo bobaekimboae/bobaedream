@@ -1614,7 +1614,9 @@ function MarketplaceScreen() {
     const sheetValue = bbmFullDraft ?? bbmValue;
     const setSheetValue = (next: BbmFilterValues) => setBbmFullDraft(next);
     const closeFullItem = () => { setBbmFullItem(null); setBbmFullDraft(null); };
-    const fullItems = [bbmSidebarItems[0], bbmSidebarItems[1], null, ...bbmSidebarItems.slice(2)];
+    const fullItems = category === "바이크"
+      ? [null, ...bikeFilterOrder.filter((label) => label !== "제조사 · 모델").map((label) => bbmSidebarItems.find((item) => item.label === label)).filter((item): item is BbmFilterItem => Boolean(item))]
+      : [bbmSidebarItems[0], bbmSidebarItems[1], null, ...bbmSidebarItems.filter((item) => item.scope !== "bike").slice(2)];
     return (
       <>
         <MobileScroll className="app-screen">
