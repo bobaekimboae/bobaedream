@@ -26,8 +26,8 @@ export const emptyBbmFilters: BbmFilterValues = { checks: {}, ranges: {}, priceT
 
 // 우리 데이터로 실제로 거르는 항목(QF-090)
 // QF-111: district(구·군) 값은 "서울 강남구"처럼 시도를 포함(중구 등 이름 겹침 방지). 매물은 place 앞 두 단어로 비교
-export const BBM_DATA_CHECK_KEYS: BbmCheckKey[] = ["bodyType", "fuel", "transmission", "seats", "exteriorColor", "sellerKind", "region", "district"];
-export const BBM_DATA_RANGE_KEYS: BbmRangeKey[] = ["year", "mileage", "price"];
+export const BBM_DATA_CHECK_KEYS: BbmCheckKey[] = ["bodyType", "fuel", "transmission", "seats", "exteriorColor", "sellerKind", "region", "district", "bikeGenre", "bikeLicense", "bikeSource"];
+export const BBM_DATA_RANGE_KEYS: BbmRangeKey[] = ["year", "mileage", "price", "displacement"];
 export const isBbmDataKey = (key: string) => (BBM_DATA_CHECK_KEYS as string[]).includes(key) || (BBM_DATA_RANGE_KEYS as string[]).includes(key);
 // 항목 안에서도 우리 데이터에 있는 선택지만 거른다(판매자 구분은 딜러·개인만)
 const dataOptions: Partial<Record<BbmCheckKey, string[]>> = { sellerKind: ["딜러", "개인"] };
@@ -152,7 +152,7 @@ export type BbmCarLike = {
   photos: number;
   place?: string;
   price?: string;
-  filter?: { year: number; seats: string; mileage: number; transmission: string; fuel: string; color: string; origin: string; body: string; video: boolean };
+  filter?: { year: number; seats: string; mileage: number; transmission: string; fuel: string; color: string; origin: string; body: string; video: boolean; displacement?: number; bikeGenre?: string; bikeLicense?: string; bikeSource?: string };
 };
 const bodyTypeByBody: Record<string, string> = { 세단: "세단", 해치백: "해치백", 왜건: "왜건", SUV: "SUV", RV: "RV", 승합: "밴(승합)", 스포츠카: "쿠페", 쿠페: "쿠페", 컨버터블: "컨버터블", 화물: "화물트럭", 픽업트럭: "픽업트럭", 리무진: "리무진", 버스: "버스", 캠핑카: "캠핑카" };
 const fuelByFuel: Record<string, string> = { 가솔린: "가솔린", 디젤: "디젤", LPG: "LPG", 전기: "전기", 하이브리드: "가솔린 하이브리드" };
@@ -172,9 +172,12 @@ export function bbmCarChecks(car: BbmCarLike): Partial<Record<BbmCheckKey, strin
   values.fuel = fuelByFuel[data.fuel] ? [fuelByFuel[data.fuel]] : ["기타"];
   values.transmission = transmissionByValue[data.transmission] ? [transmissionByValue[data.transmission]] : [];
   values.exteriorColor = colorByValue[data.color] ? [colorByValue[data.color]] : ["기타"];
+  values.bikeGenre = data.bikeGenre ? [data.bikeGenre] : [];
+  values.bikeLicense = data.bikeLicense ? [data.bikeLicense] : [];
+  values.bikeSource = data.bikeSource ? [data.bikeSource] : [];
   return values;
 }
-const carRangeValue = (car: BbmCarLike, key: BbmRangeKey) => key === "year" ? car.filter?.year : key === "mileage" ? car.filter?.mileage : key === "price" ? (car.price ? Number(car.price.replace(/[^\d]/g, "")) : undefined) : undefined;
+const carRangeValue = (car: BbmCarLike, key: BbmRangeKey) => key === "year" ? car.filter?.year : key === "mileage" ? car.filter?.mileage : key === "price" ? (car.price ? Number(car.price.replace(/[^\d]/g, "")) : undefined) : key === "displacement" ? car.filter?.displacement : undefined;
 
 // 목록 매칭: 우리 데이터가 있는 항목만. 체크는 같은 항목 안 OR, 항목 사이 AND. except 는 그 항목을 빼고(선택지 옆 매물 수 계산용)
 export function matchesBbmFilters(car: BbmCarLike, value: BbmFilterValues | undefined, except?: string) {

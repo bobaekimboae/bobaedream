@@ -9,6 +9,7 @@ import {
   categoryBrandRails,
   chototTestCars,
   bbmSampleCars,
+  bikeCars,
   luxuryUiTestCars,
   compactYearLabel,
   compactGenerationCardYearLabel,
@@ -45,6 +46,7 @@ import {
   radiusOptions,
   sellerAvatar,
   sellerLabel,
+  setActiveDetailCar,
   sheetLabels,
   showGuaziInventoryCounts,
   shuffleCars,
@@ -432,6 +434,10 @@ function SavedListingsScreen() {
 
 function MarketplaceScreen() {
   const flow = useFlow();
+  const openCarDetail = (car: Car) => {
+    setActiveDetailCar(car);
+    flow.push(detailScreen);
+  };
   const keyboard = useKeyboard();
   const { likedIds, toggleLiked } = useFavorites();
   const initialFilters = getInitialChoTotFilters();
@@ -504,6 +510,7 @@ function MarketplaceScreen() {
   const regionLabel = region.radius ? `내 주변 ${region.radius}` : [region.province, region.district].filter(Boolean).join(" ") || "전국";
   const regionKeyword = region.province === "광주" ? "광주" : region.province;
   const { maker, model: selectedModel, price, seller: sellerType, videoOnly, category } = filters;
+  const isBikeCategory = category === "바이크";
   const isHeavyCategory = category === "건설기계";
   const isTruckCategory = category === "트럭 · 특장";
   const truckSubtypeOptions = truckSubtypesFor(selectedTruckFormat);
@@ -543,7 +550,7 @@ function MarketplaceScreen() {
   const plainQuickCards = isGuaziQuickStyle && (typeof window === "undefined" || new URLSearchParams(window.location.search).get("qfcard") !== "card");
   // QF-090: 과쯔(개발 시안형)는 필터 동작 확인용 샘플 60대, 초톳·동처띠는 기존 19대 그대로
   const luxuryUiTestMode = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("scenario") === "luxury30";
-  const listingCars = isHeavyCategory ? heavyCars : luxuryUiTestMode ? luxuryUiTestCars : isGuaziQuickStyle ? bbmSampleCars : chototTestCars;
+  const listingCars = isHeavyCategory ? heavyCars : isBikeCategory ? bikeCars : luxuryUiTestMode ? luxuryUiTestCars : isGuaziQuickStyle ? bbmSampleCars : chototTestCars;
   const bbmValue = filters.bbm ?? emptyBbmFilters;
   // QF-097: 과쯔는 9개 제조사의 모델·세부 모델을 카탈로그 스냅숏으로(model-catalog-kr), 나머지 제조사·다른 모드는 기존 데이터
   const modelsByMakerMap = category === "바이크" ? bikeModelsByMaker : isGuaziQuickStyle ? guaziModelsByMaker : quickModelsByMaker;
@@ -1359,8 +1366,8 @@ function MarketplaceScreen() {
             </label>
   );
   const carListItems = visibleCars.length ? visibleCars.map((car) => desktop && !pcGridView
-    ? <PcCarRow key={car.id} car={car} liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} />
-    : <CarCard key={car.id} car={car} cardView={cardView && !desktop} liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} />) : (
+    ? <PcCarRow key={car.id} car={car} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} />
+    : <CarCard key={car.id} car={car} cardView={cardView && !desktop} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} />) : (
     <div className="empty-state"><strong>조건에 맞는 차량이 없어요</strong><span>필터를 초기화하고 다시 찾아보세요.</span><button type="button" onClick={() => resetFilters()}>필터 초기화</button></div>
   );
   const pcToday = new Date();
@@ -1652,8 +1659,8 @@ function MarketplaceScreen() {
       </section>
     );
     const bbmItems = shownCars.length ? pagedCars.map((car) => pcGridView
-      ? <CarCard key={car.id} car={car} cardView={false} liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} />
-      : <BbmResultCard key={car.id} car={car} variant="pc" liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅은 정식 서비스에서 이용해 주세요.")} />) : carListItems;
+      ? <CarCard key={car.id} car={car} cardView={false} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} />
+      : <BbmResultCard key={car.id} car={car} variant="pc" liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅은 정식 서비스에서 이용해 주세요.")} />) : carListItems;
     return (
       <>
         <MobileScroll className="app-screen">
@@ -1824,8 +1831,8 @@ function MarketplaceScreen() {
             <section className={`bbm-m-list${bbmMobileView === "피드로 보기" ? " is-feed" : bbmMobileView === "갤러리로 보기" ? " is-gallery" : bbmMobileView === "한줄 광고로 보기" ? " is-one-line" : bbmMobileView === "텍스트로 보기" ? " is-text" : ""}`} aria-live="polite">
               {shownCars.length && bbmMobileView === "한줄 광고로 보기" ? <div className="bbm-one-line-head"><span>모델</span><span>연식(연형)</span><span>가격(만원)</span><i /></div> : null}
               {shownCars.length ? pagedCars.map((car, index) => bbmMobileView === "한줄 광고로 보기"
-                ? <BbmOneLineCard key={car.id} car={car} liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} />
-                : <BbmResultCard key={car.id} car={car} variant="mobile" featured={bbmMobileView === "피드로 보기" && index === 0} liked={likedIds.includes(car.id)} onOpen={() => flow.push(detailScreen)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅은 정식 서비스에서 이용해 주세요.")} />) : carListItems}
+                ? <BbmOneLineCard key={car.id} car={car} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} />
+                : <BbmResultCard key={car.id} car={car} variant="mobile" featured={bbmMobileView === "피드로 보기" && index === 0} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅은 정식 서비스에서 이용해 주세요.")} />) : carListItems}
               {shownCars.length ? <BbmPagination page={bbmPageNow} total={bbmPageCount} windowSize={3} onChange={goBbmPage} /> : null}
             </section>
             <BbmFooter onNotify={setSearchToast} />
@@ -1857,7 +1864,7 @@ function MarketplaceScreen() {
         {bbmFullOpen && bbmFullItem && bbmFullItem !== "카테고리" && bbmFullItem.checkKey === "sellerKind" ? <BbmSellerTypeSheet value={bbmValue} countWith={countWithBbm} countOf={bbmCountOf} onApply={setBbmFilters} onClose={closeFullItem} /> : null}
         {bbmFullOpen && bbmFullItem && bbmFullItem !== "카테고리" && bbmFullItem.checkKey === "bodyType" ? <BbmBodyTypeSheet value={bbmValue} countWith={countWithBbm} countOf={bbmCountOf} onApply={setBbmFilters} onClose={closeFullItem} /> : null}
         {bbmFullOpen && bbmFullItem && !(bbmFullItem !== "카테고리" && (bbmFullItem.checkKey === "sellerKind" || bbmFullItem.checkKey === "bodyType" || bbmFullItem.label === "주행거리" && isGuaziQuickStyle)) ? (
-          <BbmSheet title={bbmFullItem === "카테고리" ? "카테고리" : bbmFullItem.modalTitle ?? bbmFullItem.label} modalBody={bbmFullItem !== "카테고리" && bbmFullItem.mode !== "expand"} onClose={closeFullItem} footer={<BbmActionBar variant="sheet" confirmStyle="보기" count={visibleCars.length} onReset={() => { if (bbmFullItem !== "카테고리") setSheetValue(clearBbmItem(bbmFullItem, sheetValue)); }} onConfirm={() => { setBbmFilters(sheetValue); closeFullItem(); }} />}>
+          <BbmSheet title={bbmFullItem === "카테고리" ? "카테고리" : bbmFullItem.modalTitle ?? bbmFullItem.label} modalBody={bbmFullItem !== "카테고리" && bbmFullItem.mode !== "expand"} onClose={closeFullItem} footer={<BbmActionBar variant="sheet" confirmStyle="보기" count={countWithBbm(sheetValue)} onReset={() => { if (bbmFullItem !== "카테고리") setSheetValue(clearBbmItem(bbmFullItem, sheetValue)); }} onConfirm={() => { setBbmFilters(sheetValue); closeFullItem(); }} />}>
             {bbmFullItem === "카테고리" ? <BbmCategoryMenu onChoose={(label) => { chooseVehicleCategory(label); setBbmFullItem(null); }} />
               : bbmFullItem.mode === "expand" ? <div className="bbmf-chip-expand"><BbmExpandPanel label={bbmFullItem.label} variant={bbmFullItem.label === "가격" ? "chip" : "sidebar"} value={sheetValue} onChange={setSheetValue} countOf={bbmCountOf} /></div>
               : <BbmModalPanel item={bbmFullItem} value={sheetValue} onChange={setSheetValue} countOf={bbmCountOf} />}

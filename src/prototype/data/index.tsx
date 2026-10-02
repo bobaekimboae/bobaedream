@@ -22,6 +22,7 @@ import {
 import { emptyChoTotFilters, vehicleCategoryOptions, type ChoTotFilterState } from "../../ChoTotFilterSheet";
 import { luxuryUiTestRows } from "./luxury-ui-test";
 import { bikeModelsByMaker, bikeTopBrands } from "./bike-filter-catalog";
+import { bikeInventory } from "../bike/data";
 import { heavyInventory } from "../heavy/data";
 
 export type SellerType = "전체" | "개인" | "딜러";
@@ -88,6 +89,24 @@ type Car = {
     isVirtual?: boolean;
     scenarioVersion?: string;
   };
+  bike?: {
+    scenarioId: string;
+    imageFile: string;
+    displacement: number;
+    genre: string;
+    licenseClass: string;
+    sellerType: string;
+    condition: string;
+    certified: string;
+    delivery: string;
+    sellerAddress: string;
+    sellerContact: string;
+    sellerIntro: string;
+    businessHours: string;
+    quickfilterTags: readonly string[];
+    isVirtual: boolean;
+    scenarioVersion: string;
+  };
   sellerProfile?: string | null;
   uiTest?: {
     number: number;
@@ -110,8 +129,16 @@ type Car = {
     origin: string;
     body: string;
     video: boolean;
+    displacement?: number;
+    bikeGenre?: string;
+    bikeLicense?: string;
+    bikeSource?: string;
   };
 };
+
+let activeDetailCar: Car | null = null;
+const setActiveDetailCar = (car: Car) => { activeDetailCar = car; };
+const getActiveDetailCar = () => activeDetailCar;
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}assets/${path}`;
 
@@ -234,6 +261,7 @@ const luxurySellerProfileByListing = new Map<number, string>(
 );
 
 const sellerLabel = (car: Car) => {
+  if (car.bike?.isVirtual) return car.dealer;
   if (car.heavy?.isVirtual) return car.dealer;
   if (car.uiTest) return car.dealer;
   if (car.sellerType === "개인") return "개인판매자";
@@ -761,6 +789,62 @@ const getInitialChoTotFilters = (): ChoTotFilterState => {
 };
 const listingBadgeOptions: ListingBadge[] = ["브랜드인증", "제조사보증", "1인소유", "가격인하", "인증중고차"];
 
+const bikeCars: Car[] = bikeInventory.map((row, index) => ({
+  id: 6000 + index,
+  maker: row.maker,
+  modelGroup: row.model,
+  sellerType: row.sellerType === "개인 판매" ? "개인" : "딜러",
+  image: `bike/listings/${row.imageFile}`,
+  imageFit: "cover",
+  title: row.title,
+  trim: `${row.genre} · ${row.displacement.toLocaleString("ko-KR")}cc · ${row.transmission}`,
+  specs: [`${row.year}년식`, `${row.mileage.toLocaleString("ko-KR")}km`, `${row.displacement.toLocaleString("ko-KR")}cc`, row.fuel],
+  price: `${Math.round(row.price / 10000).toLocaleString("ko-KR")} 만원`,
+  place: row.region,
+  views: 30 + index * 9,
+  dealer: row.sellerName,
+  stock: 1,
+  posted: `${(index % 12) + 1}시간 전`,
+  photos: 1,
+  badges: row.certified === "가능" ? ["인증중고차"] : [],
+  sellerProfile: null,
+  bike: {
+    scenarioId: row.id,
+    imageFile: row.imageFile,
+    displacement: row.displacement,
+    genre: row.genre,
+    licenseClass: row.licenseClass,
+    sellerType: row.sellerType,
+    condition: row.condition,
+    certified: row.certified,
+    delivery: row.delivery,
+    sellerAddress: row.sellerAddress,
+    sellerContact: row.sellerContact,
+    sellerIntro: row.sellerIntro,
+    businessHours: row.businessHours,
+    quickfilterTags: row.quickfilterTags,
+    isVirtual: row.isVirtual,
+    scenarioVersion: row.scenarioVersion,
+  },
+  filter: {
+    year: row.year,
+    seats: "전체",
+    condition: "중고",
+    mileage: row.mileage,
+    owners: "전체",
+    transmission: row.transmission,
+    fuel: row.fuel,
+    color: "기타",
+    origin: "수입",
+    body: row.genre,
+    video: false,
+    displacement: row.displacement,
+    bikeGenre: row.genre,
+    bikeLicense: row.licenseClass,
+    bikeSource: row.sellerType,
+  },
+}));
+
 const heavyCars: Car[] = heavyInventory.map((row, index) => ({
   id: 5000 + index,
   maker: row.maker,
@@ -1201,6 +1285,8 @@ export {
   isForcedMobileView,
   forcedMobileDesignWidth,
   asset,
+  setActiveDetailCar,
+  getActiveDetailCar,
   FavoritesProvider,
   useFavorites,
   sellerScenario,
@@ -1254,6 +1340,7 @@ export {
   emptyRegion,
   getInitialChoTotFilters,
   listingBadgeOptions,
+  bikeCars,
   heavyCars,
   defaultCars,
   bmwCars,
