@@ -1,0 +1,14 @@
+scenario_ids,format,image_file,status,note
+truck-001|truck-002|truck-003|truck-004,카고(화물)트럭,truck_cargo_v01.png,검수완료,형식 대표 생성 이미지
+truck-005|truck-006|truck-007|truck-008,윙바디/탑,truck_wing_v01.png,검수완료,형식 대표 생성 이미지
+truck-009|truck-010,버스,truck_bus_v01.png,검수완료,형식 대표 생성 이미지
+truck-011|truck-012,덤프/건설/중기,truck_dump_v01.png,검수완료,형식 대표 생성 이미지
+truck-013|truck-014|truck-015,크레인 형태,truck_crane_v01.png,검수완료,형식 대표 생성 이미지
+truck-016|truck-017,탱크로리,truck_tanker_v01.png,검수완료,형식 대표 생성 이미지
+truck-018|truck-019,캠핑카/캠핑 트레일러,truck_camper_v01.png,검수완료,형식 대표 생성 이미지
+truck-020|truck-021,폐기/음식물수송,truck_waste_v01.png,검수완료,형식 대표 생성 이미지
+truck-022,활어차,truck_fish_v01.png,검수완료,형식 대표 생성 이미지
+truck-023|truck-024,차량견인/운송,truck_carrier_v01.png,검수완료,형식 대표 생성 이미지
+truck-025|truck-026,트렉터,truck_tractor_v01.png,검수완료,형식 대표 생성 이미지
+truck-027|truck-028|truck-029,트레일러,truck_trailer_v01.png,검수완료,형식 대표 생성 이미지
+truck-030,카고(화물)트럭,truck_subtype_light_class_v01.png,검수완료,경형 트럭 라보급 검증용 이미지

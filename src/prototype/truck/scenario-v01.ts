@@ -18,7 +18,7 @@ export type TruckScenarioV01Row = {
 
 // UI 동작 검증용 가상 매물이다. 실제 판매 차량·가격·주소가 아니다.
 export const truckScenarioV01: readonly TruckScenarioV01Row[] = [
-  { id: "truck-001", maker: "현대", model: "포터2", format: "카고(화물)트럭", subtype: "경형 트럭 (1톤)", year: 2023, mileage: 28400, load: "1톤", price10k: 2490, region: "경기 수원시", sellerType: "딜러", fuel: "디젤", transmission: "오토", seats: "3인승", image: "icons/body-type/truck.svg" },
+  { id: "truck-001", maker: "현대", model: "포터2", format: "카고(화물)트럭", subtype: "1톤 트럭", year: 2023, mileage: 28400, load: "1톤", price10k: 2490, region: "경기 수원시", sellerType: "딜러", fuel: "디젤", transmission: "오토", seats: "3인승", image: "icons/body-type/truck.svg" },
   { id: "truck-002", maker: "이스즈", model: "엘프", format: "카고(화물)트럭", subtype: "소형 트럭 (1.1~3.5톤)", year: 2022, mileage: 45100, load: "2.5톤", price10k: 4850, region: "인천 남동구", sellerType: "개인", fuel: "디젤", transmission: "오토", seats: "3인승", image: "icons/body-type/truck.svg" },
   { id: "truck-003", maker: "타타대우", model: "더쎈", format: "카고(화물)트럭", subtype: "중형 트럭 (4~8.5톤)", year: 2021, mileage: 67800, load: "5톤", price10k: 6850, region: "경기 화성시", sellerType: "딜러", fuel: "디젤", transmission: "오토", seats: "3인승", image: "icons/body-type/truck.svg" },
   { id: "truck-004", maker: "현대", model: "엑시언트", format: "카고(화물)트럭", subtype: "대형 트럭 (9톤 이상)", year: 2020, mileage: 92300, load: "11톤", price10k: 13990, region: "충남 천안시", sellerType: "딜러", fuel: "디젤", transmission: "수동", seats: "2인승", image: "icons/body-type/truck.svg" },
@@ -47,7 +47,7 @@ export const truckScenarioV01: readonly TruckScenarioV01Row[] = [
   { id: "truck-027", maker: "다프(DAF)", model: "XF", format: "트레일러", subtype: "컨테이너 샤시", year: 2021, mileage: 286000, load: "40FT", price10k: 14200, region: "인천 중구", sellerType: "딜러", fuel: "디젤", transmission: "오토", seats: "2인승", image: "icons/body-type/cargo-van.svg" },
   { id: "truck-028", maker: "볼보", model: "FH", format: "트레일러", subtype: "로우베드/릴리리", year: 2019, mileage: 422000, load: "25톤", price10k: 13200, region: "경남 창원시", sellerType: "딜러", fuel: "디젤", transmission: "오토", seats: "2인승", image: "icons/body-type/cargo-van.svg" },
   { id: "truck-029", maker: "이베코", model: "S-WAY", format: "트레일러", subtype: "윙트레일러", year: 2022, mileage: 197000, load: "14m", price10k: 16900, region: "경기 평택시", sellerType: "딜러", fuel: "디젤", transmission: "오토", seats: "2인승", image: "icons/body-type/cargo-van.svg" },
-  { id: "truck-030", maker: "KG모빌리티", model: "렉스턴 스포츠", format: "기타", subtype: "기타", year: 2023, mileage: 33700, load: "기타", price10k: 3380, region: "서울 성동구", sellerType: "개인", fuel: "디젤", transmission: "오토", seats: "5인승", image: "icons/body-type/truck.svg" },
+  { id: "truck-030", maker: "한국GM", model: "라보", format: "카고(화물)트럭", subtype: "경형 트럭 (1톤 미만)", year: 2014, mileage: 87300, load: "0.5톤", price10k: 690, region: "경기 부천시", sellerType: "개인", fuel: "LPG", transmission: "수동", seats: "2인승", image: "icons/body-type/truck.svg" },
 ];
 
 export const truckModelsByMaker = truckScenarioV01.reduce<Record<string, string[]>>((catalog, row) => {

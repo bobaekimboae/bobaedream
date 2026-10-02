@@ -30,5 +30,5 @@ export const truckScenarioImageV02: Readonly<Record<string, string>> = {
   "truck-027": "truck/listings/truck_trailer_v01.png",
   "truck-028": "truck/listings/truck_trailer_v01.png",
   "truck-029": "truck/listings/truck_trailer_v01.png",
-  "truck-030": "truck/listings/truck_pickup_v01.png",
+  "truck-030": "truck/formats/v01/truck_subtype_light_class_v01.png",
 };

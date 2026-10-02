@@ -7,7 +7,15 @@ export type TruckSpecGroup = {
 // 원본의 요약 자리표시자(n톤 등)는 제외하고, "기타기타"는 화면 표시용 "기타"로 정규화했다.
 export const truckSpecCatalog = {
   "카고(화물)트럭": {
-    "경형 트럭 (1톤)": [
+    "경형 트럭 (1톤 미만)": [
+      {
+        "label": "적재용량 (톤수)",
+        "options": [
+          "0.5톤"
+        ]
+      }
+    ],
+    "1톤 트럭": [
       {
         "label": "적재용량 (톤수)",
         "options": [

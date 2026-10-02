@@ -8,7 +8,8 @@ export const truckFormatCatalog = [
   {
     name: "카고(화물)트럭",
     subtypes: [
-      "경형 트럭 (1톤)",
+      "경형 트럭 (1톤 미만)",
+      "1톤 트럭",
       "소형 트럭 (1.1~3.5톤)",
       "중형 트럭 (4~8.5톤)",
       "대형 트럭 (9톤 이상)",
@@ -71,8 +72,9 @@ const truckFormatImages: Readonly<Record<string, string>> = {
 
 const truckSubtypeImages: Readonly<Record<string, Readonly<Record<string, string>>>> = {
   "카고(화물)트럭": {
-    "경형 트럭 (1톤)": "truck/formats/v01/truck_format_one_ton_v01.png",
-    "소형 트럭 (1.1~3.5톤)": "truck/formats/v01/truck_subtype_light_class_v01.png",
+    "경형 트럭 (1톤 미만)": "truck/formats/v01/truck_subtype_light_class_v01.png",
+    "1톤 트럭": "truck/formats/v01/truck_format_one_ton_v01.png",
+    "소형 트럭 (1.1~3.5톤)": "truck/formats/v01/truck_subtype_cargo_v01.png",
     "중형 트럭 (4~8.5톤)": "truck/formats/v01/truck_subtype_cargo_v01.png",
     "대형 트럭 (9톤 이상)": "truck/formats/v01/truck_subtype_large_class_v01.png",
     "파워게이트": "truck/formats/v01/truck_subtype_powergate_v01.png",
@@ -196,8 +198,12 @@ export const truckSubtypeImageFor = (format: string | null, subtype: string) => 
 export const normalizeTruckFormatSelection = (format: string | null, subtype: string | null) => {
   const legacyOneTon = format === "1톤트럭";
   const aliasedFormat = legacyOneTon || format === "화물트럭" || format === "카고트럭" ? "카고(화물)트럭" : format;
-  const aliasedSubtype = (legacyOneTon && !subtype) || subtype === "1톤트럭"
-    ? "경형 트럭 (1톤)"
+  // 이전 배포의 `경형 트럭 (1톤)`은 실제로 포터급 1톤 매물을 가리켰으므로
+  // 기존 공유 링크가 라보급 경형 매물로 바뀌지 않도록 1톤 트럭으로 호환한다.
+  const aliasedSubtype = (legacyOneTon && !subtype) || subtype === "1톤트럭" || subtype === "경형 트럭 (1톤)"
+    ? "1톤 트럭"
+    : subtype === "경형트럭" || subtype === "경형 트럭"
+      ? "경형 트럭 (1톤 미만)"
     : subtype === "카고(화물)트럭" || subtype === "카고트럭" || subtype === "화물트럭"
       ? "중형 트럭 (4~8.5톤)"
       : subtype;

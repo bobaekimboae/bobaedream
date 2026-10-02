@@ -112,6 +112,7 @@ const truckQuickLabelAliases: Record<string, string> = {
   "차량견인/운송": "견인·운송",
   "덤프/건설/중기": "덤프·건설",
   "캠핑트레일러": "캠핑 트레일러",
+  "경형 트럭 (1톤 미만)": "경형 트럭",
 };
 
 const truckQuickLabel = (label: string) => truckQuickLabelAliases[label] ?? label;
