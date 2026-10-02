@@ -22,6 +22,16 @@ try {
   const brokenImages = await images.evaluateAll((nodes) => nodes.filter((node) => !(node instanceof HTMLImageElement) || !node.complete || node.naturalWidth === 0).length);
   if (brokenImages) throw new Error(`Broken bike listing images: ${brokenImages}`);
 
+  const brandLogos = page.locator(".depth-rail.is-kr-maker .kr-brand-logo.is-bike img");
+  const brandLogoCount = await brandLogos.count();
+  if (brandLogoCount !== 10) throw new Error(`Expected 10 bike brand logos, got: ${brandLogoCount}`);
+  const brokenBrandLogos = await brandLogos.evaluateAll((nodes) => nodes.filter((node) => !(node instanceof HTMLImageElement) || !node.complete || node.naturalWidth === 0).length);
+  if (brokenBrandLogos) throw new Error(`Broken bike brand logos: ${brokenBrandLogos}`);
+  const brandLogoSources = await brandLogos.evaluateAll((nodes) => new Set(nodes.map((node) => node.getAttribute("src"))).size);
+  if (brandLogoSources !== 10) throw new Error(`Expected 10 unique bike brand logos, got: ${brandLogoSources}`);
+  const clippedBrandLabels = await page.locator(".depth-rail.is-kr-maker .depth-card-label").evaluateAll((nodes) => nodes.filter((node) => node.scrollWidth > node.clientWidth || node.scrollHeight > node.clientHeight).map((node) => node.textContent));
+  if (clippedBrandLabels.length) throw new Error(`Clipped bike brand labels: ${clippedBrandLabels.join(", ")}`);
+
   await page.locator(".filter-fixed").first().tap();
   await page.locator(".bbmf-full-item").filter({ hasText: /^장르/ }).first().tap();
   const sheet = page.locator(".bbmf-sheet").last();
@@ -51,7 +61,7 @@ try {
   if ((await detailImage.count()) !== 1) throw new Error("Bike detail image did not match scenario bike-030.");
   if (runtimeErrors.length) throw new Error(`Runtime errors: ${runtimeErrors.join(" | ")}`);
 
-  console.log(JSON.stringify({ scenario: "v07", initial: 30, pageCards: initialCards, visibleImages: imageCount, brokenImages, genre: "스포츠", filtered: filteredCards, detailScenario: "bike-030" }));
+  console.log(JSON.stringify({ scenario: "v07", initial: 30, pageCards: initialCards, visibleImages: imageCount, brokenImages, brandLogos: brandLogoCount, brokenBrandLogos, clippedBrandLabels, genre: "스포츠", filtered: filteredCards, detailScenario: "bike-030" }));
 } finally {
   await browser.close();
 }

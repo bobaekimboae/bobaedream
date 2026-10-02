@@ -4,6 +4,7 @@ import { bbCatalog } from "./pc-bbmuseum";
 import brandTop10 from "../data/brand-top10.json";
 import brandTop10Bike from "../data/brand-top10-bike.json";
 import brandTop10Truck from "../data/brand-top10-truck.json";
+import { bikeBrandLogosV01 } from "./brand-logos-bike-v01";
 import "./bbm-brand-logos.css";
 import { bikeBrandCount } from "../data/bike-filter-catalog";
 
@@ -72,6 +73,26 @@ export function KrBrandLogo({ name, kind, initialFallback = false }: { name: str
       {logo && size ? <img src={asset(`brand/kr/${logo.slug}.png`)} alt="" draggable={false} style={size} /> : null}
     </span>
   );
+}
+
+/** 바이크 카테고리 전용 로고. 승용 로고와 경로를 분리하고 같은 슬롯 크기 규칙을 쓴다. */
+export function BikeBrandLogo({ name, kind, initialFallback = false }: { name: string; kind: "rail" | "list" | "plain"; initialFallback?: boolean }) {
+  const logo = bikeBrandLogosV01[name];
+  if (!logo) return <KrBrandLogo name={name} kind={kind} initialFallback={initialFallback} />;
+  const size = kind === "plain"
+    ? krPlainLogoSize(logo.ratio)
+    : (() => { const value = kind === "rail" ? krRailLogoSize(logo.ratio) : krListLogoSize(logo.ratio); return { width: px(value.width), height: px(value.height) }; })();
+  return (
+    <span className={`kr-brand-logo is-${kind} is-bike`} data-brand={name} data-ratio={logo.ratio}>
+      <img src={asset(`brand/bike/${logo.file}`)} alt="" draggable={false} style={size} />
+    </span>
+  );
+}
+
+export function CategoryBrandLogo({ category, name, kind, initialFallback = false }: { category?: string; name: string; kind: "rail" | "list" | "plain"; initialFallback?: boolean }) {
+  return category === "바이크"
+    ? <BikeBrandLogo name={name} kind={kind} initialFallback={initialFallback} />
+    : <KrBrandLogo name={name} kind={kind} initialFallback={initialFallback} />;
 }
 
 /** 과쯔 퀵필터 제조사 줄 순서(좌측 필터와 같음): 국산 → 구분선 → 수입차 인기 → 수입차 이름순 나머지. 퀵필터는 0대·"기타 국산차·기타 수입차"를 뺀다 */

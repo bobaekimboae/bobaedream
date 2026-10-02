@@ -1,0 +1,11 @@
+category,brand_code,brand_name,original_name,file_name,source,drive_file_id,source_canvas,source_alpha_bbox,output_canvas,status
+bike,honda,혼다,Honda,bike_honda_logo_v01.png,라이트바겐,1hvtxoVOsIJd9-7NE4OAaTVftD54vR6lq,145x121,"24,24,120,102",100x82,검수완료
+bike,yamaha,야마하,Yamaha,bike_yamaha_logo_v01.png,라이트바겐,1ipl-km51Le7-d_EjIxDYhXEe0_8Qoxop,145x121,"34,23,113,101",83x82,검수완료
+bike,bmw,BMW,BMW Motorrad,bike_bmw_logo_v01.png,라이트바겐,10lH4I3pvBBRNjVv4yIG60NTPnuEytZRI,145x121,"36,25,110,99",78x78,검수완료
+bike,suzuki,스즈키,Suzuki,bike_suzuki_logo_v01.png,라이트바겐,1CvPzPWRv74nCbzOKvAdWwNxUsoMNPfTn,145x121,"41,29,107,97",70x72,검수완료
+bike,harley-davidson,할리데이비슨,Harley-Davidson,bike_harley-davidson_logo_v01.png,라이트바겐,1Ia4RrFqivKvhI6_9lHdmdPcGBOXMwOTn,145x121,"25,23,122,101",101x82,검수완료
+bike,kawasaki,가와사키,Kawasaki,bike_kawasaki_logo_v01.png,라이트바겐,1ObxsW7CC0_hgBZugy0oZI41vbCmTZK09,145x121,"39,26,111,100",76x78,검수완료
+bike,sym,SYM,SYM,bike_sym_logo_v01.png,라이트바겐,1PfH_lMPC1Zwc5ERjhpAtHwG0bDq4wQAa,145x121,"17,35,131,89",118x58,검수완료
+bike,vespa,베스파,Vespa,bike_vespa_logo_v01.png,라이트바겐,1j22iCOAABBBEfEb2lrc1jYQdSARvtSSm,145x121,"2,34,145,87",147x57,검수완료
+bike,royal-enfield,로얄엔필드,Royal Enfield,bike_royal-enfield_logo_v01.png,라이트바겐,1LfDaBE32nZJxJtv2AVEWauvjMJJyYxgW,145x121,"12,34,133,91",125x61,검수완료
+bike,ducati,두카티,Ducati,bike_ducati_logo_v01.png,라이트바겐,1sdZ3-QK7biOy3rNh-_eAQQEX-joOmRXz,145x121,"35,22,111,100",80x82,검수완료
