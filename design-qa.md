@@ -595,3 +595,52 @@ final result: blocked
 final result: passed
 
 ---
+# Design QA — 매물 리스트 차량 유형 원본 크기 동기화
+
+- source visual truth path: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/74510deb-3270-4803-8fc9-fe645b53927f/1-1000014818.jpg`
+- implementation screenshot: Codex 인앱 브라우저 캡처 `http://127.0.0.1:4177/?v=exact-vehicle-types`
+- source pixels: 591×1280px Android 캡처
+- implementation pixels/CSS size: 384×852px, devicePixelRatio 1
+- density normalization: 소스 캡처의 브라우저·기기 크롬을 제외하고 사용자가 지정한 384 CSS px 기준으로 차량 유형 영역을 대조
+- state: 차량 유형 레일 첫 위치, 자동차부터 올드카까지 노출
+
+**Full-view comparison evidence**
+
+- 캡처의 차량 유형 순서 `자동차 / 트럭 · 특장 / 바이크 / 캠핑카 / 올드카`를 메인 첫 화면에 동일하게 배치했습니다.
+- 이후 가로 스크롤 항목은 기존 매물 리스트 데이터와 동일하게 `건설기계 / 부품 · 용품`을 유지했습니다.
+
+**Focused region comparison evidence**
+
+- 원본 매물 리스트 computed style과 구현을 함께 대조했습니다.
+- 원형 슬롯 36×36px, 실제 SVG 20×20px, 라벨 12/18px 500, 항목 폭 64px, 항목 간 간격 8px로 일치합니다.
+- 회색 원형 배경 `#F0F0F0`, 텍스트 `#595959`, 원본 SVG 파일을 그대로 사용했습니다.
+
+**Findings**
+
+- P0/P1/P2 불일치 없음.
+- 캡처의 모바일 브라우저 크롬과 메인 시안의 앱 프레임 차이는 비교 대상에서 제외했습니다.
+
+**Required fidelity surfaces**
+
+- Typography: 라벨 12px/18px/500 및 공백 표기 일치.
+- Spacing: 슬롯 36px, 항목 64px, 간격 8px 일치.
+- Colors: 슬롯과 라벨 색상 일치.
+- Image quality: 매물 리스트 원본 SVG를 재사용해 래스터 확대 없음.
+- Copy: `트럭 · 특장`, `부품 · 용품` 띄어쓰기까지 원본과 일치.
+
+**Comparison history**
+
+- 이전 구현: 동일 SVG를 44px 슬롯·24px 아이콘·13px 라벨로 확대 — 사용자 캡처와 크기 불일치.
+- 수정 구현: 36px 슬롯·20px 아이콘·12px 라벨로 원본 수치 동기화 — 통과.
+
+**Implementation Checklist**
+
+- [x] 캡처와 동일한 첫 5개 유형 순서
+- [x] 원본 SVG 7종 유지
+- [x] 슬롯·아이콘·라벨·간격 실측 일치
+- [x] 384px 모바일 렌더 확인
+- [x] 콘솔 오류·경고 0건
+
+final result: passed
+
+---

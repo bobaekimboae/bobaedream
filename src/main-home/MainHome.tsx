@@ -21,12 +21,12 @@ const services: Array<{ key: ServiceKey; label: string }> = [
 
 const vehicleTypes = [
   { value: "중고차", label: "자동차", icon: "category-used.svg" },
-  { value: "트럭 · 특장", label: "트럭·특장", icon: "category-truck.svg" },
+  { value: "트럭 · 특장", label: "트럭 · 특장", icon: "category-truck.svg" },
   { value: "바이크", label: "바이크", icon: "category-bike.svg" },
   { value: "캠핑카", label: "캠핑카", icon: "category-camping.svg" },
   { value: "올드카", label: "올드카", icon: "category-old.svg" },
   { value: "건설기계", label: "건설기계", icon: "category-construction.svg" },
-  { value: "부품 · 용품", label: "부품·용품", icon: "category-equipment.svg" },
+  { value: "부품 · 용품", label: "부품 · 용품", icon: "category-equipment.svg" },
 ];
 
 const luxuryBrands = [
