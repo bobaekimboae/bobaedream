@@ -40,6 +40,7 @@
 - `reports/category-zhuanzhuan-20261002/01-reference-category.png`
 - `reports/category-zhuanzhuan-20261002/02-local-applied.png`
 - `reports/category-zhuanzhuan-20261002/03-reference-applied-comparison.png`
+- `reports/category-zhuanzhuan-20261002/04-deployed.png`
 - `reports/category-zhuanzhuan-20261002/zhuanzhuan-category-measurement.md`
 - `handover/car/HANDOVER_car_v20.md`
 
@@ -53,9 +54,10 @@
 - 이미지 10개 응답 상태 200.
 - `npm run build`: 통과.
 - `npm run test:sites`: 4건 통과.
-- GitHub Pages 공개 배포: 미배포.
+- GitHub Pages 공개 배포: 성공 (`47702c8`).
+- 공개 화면 접근성 트리에서 차량 분류 6개와 브랜드 5개 노출 확인.
 
 ## 8) 다음에 할 일
 
-1. 사용자 확인 후 공개 배포한다.
+1. 후속 차량 카테고리 요청을 반영한다.
 
