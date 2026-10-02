@@ -19,13 +19,14 @@ const services: Array<{ key: ServiceKey; label: string }> = [
   { key: "parts", label: "부품/용품" },
 ];
 
-const vehicleCategories = [
-  [prototypeAsset("category-vehicles-v3/domestic-left-v01.png"), "국산차"],
-  [prototypeAsset("category-vehicles-v3/imported-left-v01.png"), "수입차"],
-  [prototypeAsset("category-vehicles-v3/truck-left-v01.png"), "트럭"],
-  [prototypeAsset("category-vehicles-v3/bike-left-v01.png"), "바이크"],
-  [prototypeAsset("category-vehicles-v3/electric-left-v01.png"), "전기차"],
-  [prototypeAsset("category-vehicles-v3/camper-left-v01.png"), "캠핑카"],
+const vehicleTypes = [
+  { value: "중고차", label: "자동차", icon: "category-used.svg" },
+  { value: "트럭 · 특장", label: "트럭·특장", icon: "category-truck.svg" },
+  { value: "바이크", label: "바이크", icon: "category-bike.svg" },
+  { value: "캠핑카", label: "캠핑카", icon: "category-camping.svg" },
+  { value: "올드카", label: "올드카", icon: "category-old.svg" },
+  { value: "건설기계", label: "건설기계", icon: "category-construction.svg" },
+  { value: "부품 · 용품", label: "부품·용품", icon: "category-equipment.svg" },
 ];
 
 const luxuryBrands = [
@@ -76,6 +77,11 @@ export default function MainHome() {
   const openListing = () => {
     window.location.href = "./?qf=guazi&filtericon=notion";
   };
+  const openVehicleType = (value: string) => {
+    const params = new URLSearchParams({ qf: "guazi", filtericon: "notion" });
+    if (value !== "중고차") params.set("category", value);
+    window.location.href = `./?${params.toString()}`;
+  };
   const showPreparing = (message: string) => setToast(message);
 
   return (
@@ -117,12 +123,12 @@ export default function MainHome() {
 
         <section className="mh-section mh-category-section" aria-labelledby="mh-body-title">
           <div className="mh-section-head">
-            <div className="mh-section-heading-copy"><h2 id="mh-body-title">차량 카테고리</h2></div>
+            <div className="mh-section-heading-copy"><h2 id="mh-body-title">차량 유형</h2></div>
             <ArrowLink>전체보기</ArrowLink>
           </div>
           <div className="mh-category-rows">
             <div className="mh-category-rail" aria-label="차량 유형 가로 목록">
-              {vehicleCategories.map(([image, label]) => <button className="mh-category-item" type="button" key={label} onClick={openListing}><span className="mh-category-image"><img src={image} alt="" /></span><strong>{label}</strong></button>)}
+              {vehicleTypes.map(({ value, label, icon }) => <button className="mh-category-item" type="button" key={value} onClick={() => openVehicleType(value)}><span className="mh-category-image"><img src={bbmAsset(icon)} alt="" aria-hidden="true" /></span><strong>{label}</strong></button>)}
             </div>
             <div className="mh-category-rail mh-luxury-rail" aria-label="럭셔리 제조사 가로 목록">
               {luxuryBrands.map(([image, label, variant]) => <button className="mh-luxury-item" type="button" key={label} onClick={openListing}><span className="mh-luxury-disc"><img className={variant} src={image} alt="" /><strong>{label}</strong></span></button>)}
