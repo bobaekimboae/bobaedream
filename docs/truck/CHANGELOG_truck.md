@@ -38,3 +38,5 @@
 2026-10-02 / 코덱스-특장 / truck-payload-classification.spec.ts / v01 / 모바일·PC 경형 0.5톤과 1톤 결과 분리 및 이전 링크 호환 자동검수 3건 / 검수완료
 2026-10-02 / 코덱스-특장 / truck_image_manifest_v03.csv / v03 / 라보 가상 매물을 경형 트럭 이미지에 연결 / 검수완료
 2026-10-02 / 코덱스-특장 / HANDOVER_truck_v21.md / v21 / 경형·1톤 분리 구현과 배포 전 검수 상태 기록 / 미검수
+2026-10-02 / 코덱스-특장 / truck-format-catalog.ts 외 / v10 / 공개 PC·모바일에서 경형 0.5톤 라보와 1톤 포터 결과가 서로 섞이지 않음을 확인 / 검수완료
+2026-10-02 / 코덱스-특장 / HANDOVER_truck_v22.md / v22 / GitHub Pages 배포 성공 및 공개 PC·모바일 경형·1톤 최종 검수 기록 / 검수완료
