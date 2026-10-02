@@ -11,3 +11,4 @@
 - 2026-10-02 / 코덱스-건설 / heavy_listing_integration_v01, HANDOVER_heavy_v03, 공개 시안 / v01·v03 / 최신 v04 시나리오와 이미지 30장을 scenario_id·image_file로 1:1 연결하고 목록·가상 판매자 정보에 반영 / 검수완료
 - 2026-10-02 / 코덱스-건설 / heavy_listing_integration_v02, HANDOVER_heavy_v04, 공개 시안 / v02·v04 / 수정 요청: v04 원천 유형으로 틀어진 형식을 빅레몬 전체 52종과 세부형식 체계로 복원 / 미검수
 - 2026-10-02 / 코덱스-건설 / heavy_type_image_manifest_v01, HANDOVER_heavy_v05, 공개 시안 / v01·v05 / 노션 건설기계 유형 참고, 활성 6종을 노랑 계열·좌측 전면 3/4 사선 이미지로 제작 및 퀵필터 연결 / 미검수
+- 2026-10-02 / 코덱스-건설 / heavy_quickfilter_manifest_v02, heavy_slot_manifest_v02, HANDOVER_heavy_v06, 공개 시안 / v02·v02·v06 / 제조사 로고 10개→모델 이미지→세부모델·세부 형식 이미지 3뎁스, 코드 5종 연결, 초기화·0건·fallback 구현 / 미검수\n

@@ -1,18 +1,25 @@
 import { heavyScenarioV04 } from "./scenario-v04";
+import { approvedHeavyManufacturers, approvedHeavySubmodels } from "./manifest";
 
 export type HeavyInventoryRow = {
   id: string;
   imageFile: string;
   title: string;
   form: string;
+  equipmentTypeCode: string;
   maker: string;
+  manufacturerCode: string;
   model: string;
+  modelCode: string;
+  submodel: string;
+  submodelCode: string;
   year: number;
   price: number | null;
   hours: number;
   region: string;
   evaluation: string;
   detail: string;
+  detailTypeCode: string;
   sellerType: string;
   sellerName: string;
   sellerAddress: string;
@@ -25,6 +32,7 @@ export type HeavyInventoryRow = {
   isVirtual: boolean;
   sourceManifestVersion: string;
   scenarioVersion: string;
+  fallbackLevel: 0 | 1 | 2 | 3;
 };
 
 export type HeavySelection = {
@@ -32,9 +40,26 @@ export type HeavySelection = {
   detail: string | null;
   maker: string | null;
   model: string | null;
+  submodel: string | null;
+  equipmentTypeCode: string | null;
+  detailTypeCode: string | null;
+  manufacturerCode: string | null;
+  modelCode: string | null;
+  submodelCode: string | null;
 };
 
-export const emptyHeavySelection: HeavySelection = { form: null, detail: null, maker: null, model: null };
+export const emptyHeavySelection: HeavySelection = {
+  form: null,
+  detail: null,
+  maker: null,
+  model: null,
+  submodel: null,
+  equipmentTypeCode: null,
+  detailTypeCode: null,
+  manufacturerCode: null,
+  modelCode: null,
+  submodelCode: null,
+};
 
 /** 빅레몬 시트에서 확인한 전체 형식 52종. 표기와 순서를 원본과 동일하게 유지한다. */
 export const biglemonHeavyFormOrder = [
@@ -100,61 +125,112 @@ export const biglemonHeavyDetailOptions: Record<string, string[]> = {
   "임업기계": ["6t (미니) 미만", "6~9t (0.25) 급", "10~17t (0.45) 급", "18~25t (0.7) 급", "26t (1.0) 이상"],
 };
 
-type BiglemonMapping = { form: string; detail: string; basis: "확인" | "미확인" };
+export const heavyFormLabelByCode: Record<string, string> = {
+  hydraulic_excavator: "유압셔블(굴삭기)",
+  mini_excavator: "미니 유압셔블(미니굴삭기)",
+  wheel_loader: "타이어셔블(휠로더)",
+  bulldozer: "불도저",
+  carrier_dump: "캐리어덤프(크롤러덤프)",
+  foundation_machine: "기초공사 기계",
+  self_propelled_aerial_work_platform: "자주식 고소작업차",
+  used_parts: "중고 부품",
+  dump_truck: "덤프차",
+  forklift: "지게차",
+  aerial_work_platform: "고소작업차",
+  construction_attachment: "어태치먼트(건설기계)",
+  bucket: "각종 버킷",
+  hydraulic_breaker: "유압 브레이커",
+  construction_other: "건설기계 기타",
+};
+
+const heavyFormCodeByLabel = Object.fromEntries(Object.entries(heavyFormLabelByCode).map(([code, label]) => [label, code]));
+
+type BiglemonMapping = {
+  form: string;
+  equipmentTypeCode: string;
+  detail: string;
+  detailTypeCode: string;
+  basis: "확인" | "미확인";
+};
+
+const map = (form: string, equipmentTypeCode: string, detail: string, detailTypeCode: string, basis: "확인" | "미확인" = "확인"): BiglemonMapping =>
+  ({ form, equipmentTypeCode, detail, detailTypeCode, basis });
 
 const directBiglemonMapping: Record<string, BiglemonMapping> = {
-  "heavy-001": { form: "유압셔블(굴삭기)", detail: "26t (1.0) 이상", basis: "확인" },
-  "heavy-002": { form: "유압셔블(굴삭기)", detail: "26t (1.0) 이상", basis: "확인" },
-  "heavy-003": { form: "유압셔블(굴삭기)", detail: "26t (1.0) 이상", basis: "확인" },
-  "heavy-004": { form: "유압셔블(굴삭기)", detail: "26t (1.0) 이상", basis: "확인" },
-  "heavy-005": { form: "유압셔블(굴삭기)", detail: "26t (1.0) 이상", basis: "확인" },
-  "heavy-006": { form: "유압셔블(굴삭기)", detail: "26t (1.0) 이상", basis: "확인" },
-  "heavy-007": { form: "유압셔블(굴삭기)", detail: "10~17t (0.45) 급", basis: "확인" },
-  "heavy-008": { form: "유압셔블(굴삭기)", detail: "10~17t (0.45) 급", basis: "확인" },
-  "heavy-009": { form: "유압셔블(굴삭기)", detail: "6~9t (0.25) 급", basis: "확인" },
-  "heavy-010": { form: "유압셔블(굴삭기)", detail: "미확인", basis: "미확인" },
-  "heavy-011": { form: "유압셔블(굴삭기)", detail: "6~9t (0.25) 급", basis: "확인" },
-  "heavy-012": { form: "유압셔블(굴삭기)", detail: "6~9t (0.25) 급", basis: "확인" },
-  "heavy-013": { form: "미니 유압셔블(미니굴삭기)", detail: "2~3t 미만", basis: "확인" },
-  "heavy-014": { form: "미니 유압셔블(미니굴삭기)", detail: "3~4t 미만", basis: "확인" },
-  "heavy-015": { form: "미니 유압셔블(미니굴삭기)", detail: "2~3t 미만", basis: "확인" },
-  "heavy-016": { form: "유압셔블(굴삭기)", detail: "미확인", basis: "미확인" },
-  "heavy-017": { form: "유압셔블(굴삭기)", detail: "10~17t (0.45) 급", basis: "확인" },
-  "heavy-018": { form: "유압셔블(굴삭기)", detail: "10~17t (0.45) 급", basis: "확인" },
-  "heavy-019": { form: "각종 버킷", detail: "전체", basis: "확인" },
-  "heavy-020": { form: "유압 브레이커", detail: "전체", basis: "확인" },
-  "heavy-021": { form: "어태치먼트(건설기계)", detail: "전체", basis: "확인" },
-  "heavy-022": { form: "중고 부품", detail: "전체", basis: "확인" },
-  "heavy-023": { form: "덤프차", detail: "전체", basis: "확인" },
-  "heavy-024": { form: "덤프차", detail: "전체", basis: "확인" },
-  "heavy-025": { form: "덤프차", detail: "전체", basis: "확인" },
-  "heavy-026": { form: "덤프차", detail: "전체", basis: "확인" },
-  "heavy-027": { form: "덤프차", detail: "전체", basis: "확인" },
-  "heavy-028": { form: "덤프차", detail: "전체", basis: "확인" },
-  "heavy-029": { form: "덤프차", detail: "전체", basis: "확인" },
-  "heavy-030": { form: "덤프차", detail: "전체", basis: "확인" },
+  "heavy-001": map("유압셔블(굴삭기)", "hydraulic_excavator", "26t (1.0) 이상", "excavator_26t_plus"),
+  "heavy-002": map("유압셔블(굴삭기)", "hydraulic_excavator", "26t (1.0) 이상", "excavator_26t_plus"),
+  "heavy-003": map("유압셔블(굴삭기)", "hydraulic_excavator", "26t (1.0) 이상", "excavator_26t_plus"),
+  "heavy-004": map("유압셔블(굴삭기)", "hydraulic_excavator", "26t (1.0) 이상", "excavator_26t_plus"),
+  "heavy-005": map("유압셔블(굴삭기)", "hydraulic_excavator", "26t (1.0) 이상", "excavator_26t_plus"),
+  "heavy-006": map("유압셔블(굴삭기)", "hydraulic_excavator", "26t (1.0) 이상", "excavator_26t_plus"),
+  "heavy-007": map("유압셔블(굴삭기)", "hydraulic_excavator", "10~17t (0.45) 급", "excavator_10_17t"),
+  "heavy-008": map("유압셔블(굴삭기)", "hydraulic_excavator", "10~17t (0.45) 급", "excavator_10_17t"),
+  "heavy-009": map("유압셔블(굴삭기)", "hydraulic_excavator", "6~9t (0.25) 급", "excavator_6_9t"),
+  "heavy-010": map("유압셔블(굴삭기)", "hydraulic_excavator", "미확인", "unverified", "미확인"),
+  "heavy-011": map("유압셔블(굴삭기)", "hydraulic_excavator", "6~9t (0.25) 급", "excavator_6_9t"),
+  "heavy-012": map("유압셔블(굴삭기)", "hydraulic_excavator", "6~9t (0.25) 급", "excavator_6_9t"),
+  "heavy-013": map("미니 유압셔블(미니굴삭기)", "mini_excavator", "2~3t 미만", "mini_2_3t"),
+  "heavy-014": map("미니 유압셔블(미니굴삭기)", "mini_excavator", "3~4t 미만", "mini_3_4t"),
+  "heavy-015": map("미니 유압셔블(미니굴삭기)", "mini_excavator", "2~3t 미만", "mini_2_3t"),
+  "heavy-016": map("유압셔블(굴삭기)", "hydraulic_excavator", "미확인", "unverified", "미확인"),
+  "heavy-017": map("유압셔블(굴삭기)", "hydraulic_excavator", "10~17t (0.45) 급", "excavator_10_17t"),
+  "heavy-018": map("유압셔블(굴삭기)", "hydraulic_excavator", "10~17t (0.45) 급", "excavator_10_17t"),
+  "heavy-019": map("각종 버킷", "bucket", "전체", "all"),
+  "heavy-020": map("유압 브레이커", "hydraulic_breaker", "전체", "all"),
+  "heavy-021": map("어태치먼트(건설기계)", "construction_attachment", "전체", "all"),
+  "heavy-022": map("중고 부품", "used_parts", "전체", "all"),
+  "heavy-023": map("덤프차", "dump_truck", "전체", "all"),
+  "heavy-024": map("덤프차", "dump_truck", "전체", "all"),
+  "heavy-025": map("덤프차", "dump_truck", "전체", "all"),
+  "heavy-026": map("덤프차", "dump_truck", "전체", "all"),
+  "heavy-027": map("덤프차", "dump_truck", "전체", "all"),
+  "heavy-028": map("덤프차", "dump_truck", "전체", "all"),
+  "heavy-029": map("덤프차", "dump_truck", "전체", "all"),
+  "heavy-030": map("덤프차", "dump_truck", "전체", "all"),
 };
 
-const makerNameToBiglemon: Record<string, string> = {
-  "코벨코": "고베루코건기",
-  "구보다": "구보타",
+const makerNameToDisplay: Record<string, string> = {
+  코벨코: "고베루코건기",
+  구보다: "구보타",
 };
+
+const manufacturerCodeByName: Record<string, string> = {
+  미확인: "unknown",
+  볼보: "volvo",
+  현대: "hyundai",
+  디벨론: "develon",
+  코벨코: "kobelco",
+  고베루코건기: "kobelco",
+  구보다: "kubota",
+  구보타: "kubota",
+  타타대우: "tata_daewoo",
+};
+
+const quickSlotByScenario = new Map(approvedHeavySubmodels.flatMap((slot) => slot.scenarioIds.map((id) => [id, slot] as const)));
 
 export const heavyInventory: HeavyInventoryRow[] = heavyScenarioV04.map((row) => {
-  const mapping = directBiglemonMapping[row.scenario_id] ?? { form: "기타", detail: "미확인", basis: "미확인" as const };
+  const mapping = directBiglemonMapping[row.scenario_id] ?? map("기타", "other", "미확인", "unverified", "미확인");
+  const quickSlot = quickSlotByScenario.get(row.scenario_id);
+  const maker = makerNameToDisplay[row.manufacturer] ?? row.manufacturer;
   return {
     id: row.scenario_id,
     imageFile: row.image_file,
     title: row.title,
     form: mapping.form,
-    maker: makerNameToBiglemon[row.manufacturer] ?? row.manufacturer,
-    model: row.model,
+    equipmentTypeCode: mapping.equipmentTypeCode,
+    maker,
+    manufacturerCode: quickSlot?.manufacturerCode ?? manufacturerCodeByName[maker] ?? "unknown",
+    model: quickSlot?.modelLabel ?? row.model,
+    modelCode: quickSlot?.modelCode ?? `heavy_model_${row.scenario_id.replace("heavy-", "")}`,
+    submodel: quickSlot?.submodelLabel ?? row.title,
+    submodelCode: quickSlot?.submodelCode ?? `heavy_submodel_${row.scenario_id.replace("heavy-", "")}`,
     year: row.year,
     price: row.price_10k_krw * 10000,
     hours: row.operating_hours,
     region: row.region,
     evaluation: row.condition,
     detail: mapping.detail,
+    detailTypeCode: mapping.detailTypeCode,
     sellerType: row.seller_type,
     sellerName: row.seller_name,
     sellerAddress: row.seller_address,
@@ -167,6 +243,7 @@ export const heavyInventory: HeavyInventoryRow[] = heavyScenarioV04.map((row) =>
     isVirtual: row.is_virtual,
     sourceManifestVersion: row.source_manifest_version,
     scenarioVersion: row.scenario_version,
+    fallbackLevel: 0,
   };
 });
 
@@ -182,27 +259,126 @@ export const heavyDetailOptions: Record<string, string[]> = Object.fromEntries(
 export const heavyDetailsFor = (form: string | null) => form ? heavyDetailOptions[form] ?? [] : [];
 
 export const heavyRowsFor = (selection: Partial<HeavySelection>) => heavyInventory.filter((row) =>
-  (!selection.form || row.form === selection.form)
+  (!selection.equipmentTypeCode || row.equipmentTypeCode === selection.equipmentTypeCode)
+  && (!selection.detailTypeCode || selection.detailTypeCode === "all" || row.detailTypeCode === selection.detailTypeCode)
+  && (!selection.manufacturerCode || row.manufacturerCode === selection.manufacturerCode)
+  && (!selection.modelCode || row.modelCode === selection.modelCode)
+  && (!selection.submodelCode || row.submodelCode === selection.submodelCode)
+  && (!selection.form || row.form === selection.form)
   && (!selection.detail || selection.detail === "전체" || row.detail === selection.detail)
   && (!selection.maker || row.maker === selection.maker)
-  && (!selection.model || row.model === selection.model));
+  && (!selection.model || row.model === selection.model)
+  && (!selection.submodel || row.submodel === selection.submodel));
+
+export function normalizeHeavySelection(selection: HeavySelection): HeavySelection {
+  const manufacturer = approvedHeavyManufacturers.find((slot) => slot.manufacturerCode === selection.manufacturerCode || slot.name === selection.maker);
+  if (!manufacturer) {
+    return {
+      ...selection,
+      maker: null,
+      model: null,
+      submodel: null,
+      manufacturerCode: null,
+      modelCode: null,
+      submodelCode: null,
+    };
+  }
+  if (selection.equipmentTypeCode && !manufacturer.equipmentTypeCodes.includes(selection.equipmentTypeCode)) {
+    return {
+      ...selection,
+      maker: null,
+      model: null,
+      submodel: null,
+      manufacturerCode: null,
+      modelCode: null,
+      submodelCode: null,
+    };
+  }
+  const scoped = approvedHeavySubmodels.filter((slot) =>
+    slot.manufacturerCode === manufacturer.manufacturerCode
+    && (!selection.equipmentTypeCode || slot.equipmentTypeCode === selection.equipmentTypeCode)
+    && (!selection.detailTypeCode || selection.detailTypeCode === "all" || slot.detailTypeCode === selection.detailTypeCode));
+  const modelSlot = scoped.find((slot) => slot.modelCode === selection.modelCode || slot.modelLabel === selection.model);
+  if (!modelSlot) {
+    return {
+      ...selection,
+      maker: manufacturer.name,
+      manufacturerCode: manufacturer.manufacturerCode,
+      model: null,
+      submodel: null,
+      modelCode: null,
+      submodelCode: null,
+    };
+  }
+  const submodelSlot = scoped.find((slot) => slot.modelCode === modelSlot.modelCode && (slot.submodelCode === selection.submodelCode || slot.submodelLabel === selection.submodel));
+  if (!submodelSlot) {
+    return {
+      ...selection,
+      maker: manufacturer.name,
+      manufacturerCode: manufacturer.manufacturerCode,
+      model: modelSlot.modelLabel,
+      modelCode: modelSlot.modelCode,
+      submodel: null,
+      submodelCode: null,
+    };
+  }
+  return {
+    ...selection,
+    form: submodelSlot.equipmentTypeLabel,
+    detail: submodelSlot.detailTypeLabel,
+    maker: manufacturer.name,
+    model: modelSlot.modelLabel,
+    submodel: submodelSlot.submodelLabel,
+    equipmentTypeCode: submodelSlot.equipmentTypeCode,
+    detailTypeCode: submodelSlot.detailTypeCode,
+    manufacturerCode: manufacturer.manufacturerCode,
+    modelCode: modelSlot.modelCode,
+    submodelCode: submodelSlot.submodelCode,
+  };
+}
 
 export function getInitialHeavySelection(): HeavySelection {
   const params = new URLSearchParams(window.location.search);
-  const formCandidate = params.get("heavy_form");
-  const form = formCandidate && heavyFormOrder.includes(formCandidate) ? formCandidate : null;
-  const detailCandidate = params.get("heavy_detail");
-  const detail = form && detailCandidate && heavyDetailsFor(form).includes(detailCandidate) ? detailCandidate : null;
-  const makerCandidate = params.get("heavy_maker");
-  const maker = form && detail && makerCandidate && heavyRowsFor({ form, detail }).some((row) => row.maker === makerCandidate) ? makerCandidate : null;
-  const modelCandidate = params.get("heavy_model");
-  const model = form && detail && maker && modelCandidate && heavyRowsFor({ form, detail, maker }).some((row) => row.model === modelCandidate) ? modelCandidate : null;
-  return { form, detail, maker, model };
+  const legacyForm = params.get("heavy_form");
+  const form = legacyForm && heavyFormOrder.includes(legacyForm) ? legacyForm : null;
+  const equipmentTypeCode = params.get("heavy_equipment_type_code") ?? (form ? heavyFormCodeByLabel[form] ?? null : null);
+  const legacyDetail = params.get("heavy_detail");
+  const detail = form && legacyDetail && heavyDetailsFor(form).includes(legacyDetail) ? legacyDetail : null;
+  const detailTypeCode = params.get("heavy_detail_type_code") ?? (detail === "미확인" ? "unverified" : detail === "전체" ? "all" : null);
+  const legacyMaker = params.get("heavy_maker");
+  const manufacturerCode = params.get("heavy_manufacturer_code") ?? approvedHeavyManufacturers.find((slot) => slot.name === legacyMaker)?.manufacturerCode ?? null;
+  const legacyModel = params.get("heavy_model");
+  const modelCode = params.get("heavy_model_code") ?? approvedHeavySubmodels.find((slot) => slot.manufacturerCode === manufacturerCode && (slot.modelLabel === legacyModel || slot.submodelLabel === legacyModel))?.modelCode ?? null;
+  const legacySubmodel = params.get("heavy_submodel");
+  const submodelCode = params.get("heavy_submodel_code") ?? approvedHeavySubmodels.find((slot) => slot.modelCode === modelCode && (slot.submodelLabel === legacySubmodel || slot.submodelLabel === legacyModel))?.submodelCode ?? null;
+  return normalizeHeavySelection({
+    form,
+    detail,
+    maker: legacyMaker,
+    model: legacyModel,
+    submodel: legacySubmodel,
+    equipmentTypeCode,
+    detailTypeCode,
+    manufacturerCode,
+    modelCode,
+    submodelCode,
+  });
 }
 
 export function replaceHeavyParams(selection: HeavySelection) {
   const url = new URL(window.location.href);
-  const values = [["heavy_form", selection.form], ["heavy_detail", selection.detail], ["heavy_maker", selection.maker], ["heavy_model", selection.model]] as const;
+  const values = [
+    ["heavy_equipment_type_code", selection.equipmentTypeCode],
+    ["heavy_detail_type_code", selection.detailTypeCode],
+    ["heavy_manufacturer_code", selection.manufacturerCode],
+    ["heavy_model_code", selection.modelCode],
+    ["heavy_submodel_code", selection.submodelCode],
+    ["heavy_form", selection.form],
+    ["heavy_detail", selection.detail],
+    ["heavy_maker", selection.maker],
+    ["heavy_model", selection.model],
+    ["heavy_submodel", selection.submodel],
+  ] as const;
   values.forEach(([key, value]) => value ? url.searchParams.set(key, value) : url.searchParams.delete(key));
   window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
 }

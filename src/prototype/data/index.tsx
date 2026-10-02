@@ -68,6 +68,12 @@ type Car = {
   heavy?: {
     form: string;
     detail: string;
+    submodel: string;
+    equipmentTypeCode: string;
+    detailTypeCode: string;
+    manufacturerCode: string;
+    modelCode: string;
+    submodelCode: string;
     hours: number;
     evaluation: string;
     scenarioId?: string;
@@ -762,8 +768,8 @@ const heavyCars: Car[] = heavyInventory.map((row, index) => ({
   sellerType: row.sellerType === "개인 판매" ? "개인" : "딜러",
   image: `heavy/listings/${row.imageFile}`,
   imageFit: "cover",
-  title: row.maker === "미확인" ? row.title : `${row.maker} ${row.model}`,
-  trim: `${row.form} · ${row.detail}`,
+  title: row.maker === "미확인" ? row.title : `${row.maker} ${row.submodel}`,
+  trim: `${row.form} · ${row.detail} · ${row.submodel}`,
   specs: [`${row.year}년식`, `${row.hours.toLocaleString("ko-KR")}h`, row.evaluation, row.region],
   price: row.price === null ? "가격 상담" : `${Math.round(row.price / 10000).toLocaleString("ko-KR")} 만원`,
   place: row.sellerAddress,
@@ -776,6 +782,12 @@ const heavyCars: Car[] = heavyInventory.map((row, index) => ({
   heavy: {
     form: row.form,
     detail: row.detail,
+    submodel: row.submodel,
+    equipmentTypeCode: row.equipmentTypeCode,
+    detailTypeCode: row.detailTypeCode,
+    manufacturerCode: row.manufacturerCode,
+    modelCode: row.modelCode,
+    submodelCode: row.submodelCode,
     hours: row.hours,
     evaluation: row.evaluation,
     scenarioId: row.id,

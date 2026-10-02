@@ -1,61 +1,188 @@
-.heavy-qf { display: flex; min-width: 0; align-items: stretch; gap: 12px; overflow: hidden; }
-.heavy-qf-heading { display: flex; width: 112px; flex: 0 0 112px; flex-direction: column; justify-content: center; gap: 4px; color: #222; }
+.heavy-qf {
+  display: flex;
+  min-width: 0;
+  align-items: stretch;
+  gap: 12px;
+  overflow: hidden;
+  padding: 8px 0;
+}
+
+.heavy-qf-heading {
+  display: flex;
+  width: 132px;
+  flex: 0 0 132px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  color: #222;
+}
+
+.heavy-qf-heading > div:first-child { display: flex; flex-direction: column; gap: 4px; }
 .heavy-qf-heading strong { font-size: 14px; line-height: 20px; }
 .heavy-qf-heading span { color: #8c8c8c; font-size: 11px; line-height: 15px; }
-.heavy-qf-track { display: flex; min-width: 0; flex: 1; gap: 8px; overflow-x: auto; scrollbar-width: none; }
-.heavy-qf-track::-webkit-scrollbar { display: none; }
-.heavy-qf-card { display: grid; width: 92px; min-width: 92px; height: 102px; grid-template-rows: 40px 21px 16px; align-content: start; justify-items: center; gap: 2px; padding: 6px 8px 5px; border: 0; background: transparent; color: #222; cursor: pointer; text-align: center; }
-.heavy-qf-card:active { opacity: .6; }
-.heavy-qf-card:disabled { cursor: default; opacity: .35; }
-.heavy-qf-symbol { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 50%; background: #f1f4f8; color: #315780; font-size: 12px; font-weight: 800; letter-spacing: -.4px; }
-.heavy-qf-card strong { width: 76px; overflow: hidden; font-size: 13px; font-weight: 600; line-height: 21px; text-overflow: ellipsis; white-space: nowrap; }
-.heavy-qf-card small { color: #8c8c8c; font-size: 11px; line-height: 16px; }
-.heavy-qf-complete { display: grid; min-width: 260px; grid-template-columns: 44px 1fr; grid-template-rows: 24px 20px; align-content: center; column-gap: 12px; padding: 12px 16px; border: 1px solid #d9e2ee; border-radius: 12px; background: #f7f9fc; color: #222; cursor: pointer; text-align: left; }
-.heavy-qf-complete .heavy-qf-symbol { width: 44px; height: 44px; grid-row: 1 / 3; }
-.heavy-qf-complete strong { overflow: hidden; font-size: 15px; line-height: 24px; text-overflow: ellipsis; white-space: nowrap; }
-.heavy-qf-complete small { overflow: hidden; color: #6f7782; font-size: 12px; line-height: 20px; text-overflow: ellipsis; white-space: nowrap; }
 
-/* 건설기계 유형: 노션 유형 목록을 참고한 노랑 계열 3/4 사선 이미지 카드 */
-.heavy-qf-card.is-form {
-  width: 104px;
-  min-width: 104px;
+.heavy-qf-actions { display: flex; flex-wrap: wrap; gap: 4px; }
+.heavy-qf-actions button,
+.heavy-qf-zero button {
+  padding: 3px 7px;
+  border: 1px solid #d9d9d9;
+  border-radius: 999px;
+  background: #fff;
+  color: #666;
+  font: inherit;
+  font-size: 10px;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+.heavy-qf-track {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  gap: 8px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+
+.heavy-qf-track::-webkit-scrollbar { display: none; }
+
+.heavy-qf-card {
+  display: grid;
+  width: 108px;
+  min-width: 108px;
   height: 112px;
-  grid-template-rows: 58px 21px 16px;
+  grid-template-rows: 62px 21px 16px;
+  align-content: start;
+  justify-items: center;
+  gap: 2px;
   padding: 6px 7px 5px;
-  border: 1px solid #f5d264;
+  border: 1px solid #ead17a;
   border-radius: 12px;
-  background: linear-gradient(145deg, #fff9df 0%, #fff0ae 100%);
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 85%);
+  background: linear-gradient(145deg, #fffdf4 0%, #fff1b8 100%);
+  color: #2d250c;
+  cursor: pointer;
+  scroll-snap-align: start;
+  text-align: center;
 }
-.heavy-qf-card.is-form:not(:disabled):hover { border-color: #e9ae17; background: linear-gradient(145deg, #fff7cf 0%, #ffe58a 100%); }
-.heavy-qf-card.is-form .heavy-qf-symbol {
-  width: 64px;
-  height: 58px;
+
+.heavy-qf-card:hover { border-color: #dda900; background: linear-gradient(145deg, #fff9df 0%, #ffe88f 100%); }
+.heavy-qf-card:active { opacity: .68; }
+
+.heavy-qf-symbol {
+  display: grid;
+  width: 78px;
+  height: 62px;
+  place-items: center;
+  overflow: hidden;
   border-radius: 10px;
-  background: #fff7d3;
+  background: #fff;
   color: #755000;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: -.4px;
 }
-.heavy-qf-card.has-type-image .heavy-qf-symbol { overflow: hidden; }
-.heavy-qf-card.has-type-image .heavy-qf-symbol img {
+
+.heavy-qf-symbol img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 3px 3px rgb(103 68 0 / 18%));
 }
-.heavy-qf-card.is-form strong { color: #3d2c00; }
-.heavy-qf-card.is-form small { color: #8a6814; }
+
+.heavy-qf-card.is-logo .heavy-qf-symbol img { padding: 7px; }
+.heavy-qf-card.is-machine .heavy-qf-symbol img { filter: drop-shadow(0 3px 3px rgb(103 68 0 / 18%)); }
+.heavy-qf-text-mark { display: grid; width: 100%; height: 100%; place-items: center; background: #fff8db; }
+
+.heavy-qf-card strong {
+  width: 94px;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 21px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.heavy-qf-card small {
+  width: 98px;
+  overflow: hidden;
+  color: #80651b;
+  font-size: 10px;
+  line-height: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.heavy-qf-complete {
+  display: grid;
+  min-width: 310px;
+  grid-template-columns: 82px 1fr;
+  grid-template-rows: 28px 24px;
+  align-content: center;
+  column-gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid #e0bd43;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #fffdf4 0%, #fff0ad 100%);
+  color: #222;
+  cursor: pointer;
+  text-align: left;
+}
+
+.heavy-qf-complete .heavy-qf-symbol { width: 82px; height: 58px; grid-row: 1 / 3; }
+.heavy-qf-complete strong { overflow: hidden; font-size: 15px; line-height: 28px; text-overflow: ellipsis; white-space: nowrap; }
+.heavy-qf-complete small { overflow: hidden; color: #6f5b20; font-size: 11px; line-height: 24px; text-overflow: ellipsis; white-space: nowrap; }
+
+.heavy-qf-zero {
+  display: flex;
+  min-width: 310px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 14px;
+  border: 1px dashed #d6b348;
+  border-radius: 12px;
+  background: #fffaf0;
+}
+
+.heavy-qf-zero strong { color: #3d2c00; font-size: 13px; }
+.heavy-qf-zero span { color: #80651b; font-size: 11px; line-height: 16px; }
+.heavy-qf-zero button { width: fit-content; margin-top: 2px; border-color: #d6b348; color: #6d5100; }
 
 @media (max-width: 767px) {
-  .heavy-qf { gap: 8px; }
-  .heavy-qf-heading { width: 72px; flex-basis: 72px; }
+  .heavy-qf { display: block; padding: 6px 0; }
+  .heavy-qf-heading {
+    width: auto;
+    flex-basis: auto;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 12px 6px;
+  }
+  .heavy-qf-heading > div:first-child { gap: 0; }
   .heavy-qf-heading span { display: none; }
-  .heavy-qf-card { width: 72px; min-width: 72px; height: 74px; grid-template-rows: 36px 18px 14px; gap: 0; padding: 0 4px; }
-  .heavy-qf-symbol { width: 36px; height: 36px; font-size: 11px; }
-  .heavy-qf-card strong { width: 64px; font-size: 11px; line-height: 18px; }
-  .heavy-qf-card small { font-size: 10px; line-height: 14px; }
-  .heavy-qf-card.is-form { width: 82px; min-width: 82px; height: 92px; grid-template-rows: 48px 18px 14px; padding: 4px; }
-  .heavy-qf-card.is-form .heavy-qf-symbol { width: 54px; height: 48px; }
-  .heavy-qf-card.is-form strong { width: 72px; }
-  .heavy-qf-complete { min-width: 230px; padding: 8px 12px; }
+  .heavy-qf-actions { flex-wrap: nowrap; }
+  .heavy-qf-track {
+    width: 100%;
+    gap: 7px;
+    padding: 0 12px 2px;
+    scroll-padding-inline: 12px;
+  }
+  .heavy-qf-card {
+    width: 92px;
+    min-width: 92px;
+    height: 96px;
+    grid-template-rows: 50px 18px 14px;
+    gap: 1px;
+    padding: 5px 4px 4px;
+  }
+  .heavy-qf-symbol { width: 70px; height: 50px; }
+  .heavy-qf-card.is-logo .heavy-qf-symbol img { padding: 6px; }
+  .heavy-qf-card strong { width: 82px; font-size: 11px; line-height: 18px; }
+  .heavy-qf-card small { width: 84px; font-size: 10px; line-height: 14px; }
+  .heavy-qf-complete,
+  .heavy-qf-zero { min-width: 0; width: calc(100% - 24px); margin: 0 12px; }
+  .heavy-qf-complete { grid-template-columns: 72px 1fr; }
+  .heavy-qf-complete .heavy-qf-symbol { width: 72px; height: 54px; }
 }

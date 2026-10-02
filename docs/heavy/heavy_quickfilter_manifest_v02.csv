@@ -1,0 +1,15 @@
+depth,equipment_type_code,detail_type_code,manufacturer_code,manufacturer_name,model_code,model_name,submodel_code,submodel_name,image_file,status,fallback_level,expected_count,source
+1,,,develon,디벨론,,,,logos/heavy_develon_logo_v01.jpg,검수완료,0,2,Drive
+1,,,epiroc,에피록,,,,logos/heavy_epiroc_logo_v01.png,검수완료,0,0,Drive
+1,,,hitachi,히타치,,,,logos/heavy_hitachi_logo_v01.jpg,검수완료,0,0,Drive
+1,,,lgmg,LGMG,,,,logos/heavy_lgmg_logo_v01.jpg,검수완료,0,0,Drive
+1,,,haulotte,오로트,,,,logos/heavy_haulotte_logo_v01.png,검수완료,0,0,Drive
+1,,,new_holland,뉴홀랜드,,,,logos/heavy_new_holland_logo_v01.jpg,검수완료,0,0,Drive
+1,,,linde,린데,,,,logos/heavy_linde_logo_v01.jpg,검수완료,0,0,Drive
+1,,,schwing,슈빙,,,,logos/heavy_schwing_logo_v01.jpg,검수완료,0,0,Drive
+1,,,tailift,타이리프트,,,,logos/heavy_tailift_logo_v01.jpg,검수완료,0,0,Drive
+1,,,ffg,FFG,,,,logos/heavy_ffg_logo_v01.jpg,검수완료,0,0,Drive
+2,hydraulic_excavator,,develon,디벨론,develon_dx140,DX140,,,listings/heavy_listing_008_v01.jpeg,검수완료,0,1,heavy_listing_scenario_v04
+2,hydraulic_excavator,,develon,디벨론,develon_dx55w,DX55W,,,listings/heavy_listing_016_v01.jpg,검수완료,0,1,heavy_listing_scenario_v04
+3,hydraulic_excavator,excavator_10_17t,develon,디벨론,develon_dx140,DX140,develon_dx140_standard_boom,DX140 표준붐,listings/heavy_listing_008_v01.jpeg,검수완료,0,1,heavy_listing_scenario_v04
+3,hydraulic_excavator,unverified,develon,디벨론,develon_dx55w,DX55W,develon_dx55w_daejjok,DX55W 대쪽,listings/heavy_listing_016_v01.jpg,검수완료,0,1,heavy_listing_scenario_v04

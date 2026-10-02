@@ -512,9 +512,27 @@ function MarketplaceScreen() {
     replaceHeavyParams(next);
   };
   const clearHeavyForm = () => applyHeavySelection(emptyHeavySelection);
-  const clearHeavyDetail = () => applyHeavySelection({ ...heavySelection, detail: null, maker: null, model: null });
-  const clearHeavyMaker = () => applyHeavySelection({ ...heavySelection, maker: null, model: null });
-  const clearHeavyModel = () => applyHeavySelection({ ...heavySelection, model: null });
+  const clearHeavyMaker = () => applyHeavySelection(emptyHeavySelection);
+  const clearHeavyModel = () => applyHeavySelection({
+    ...heavySelection,
+    form: null,
+    detail: null,
+    model: null,
+    submodel: null,
+    equipmentTypeCode: null,
+    detailTypeCode: null,
+    modelCode: null,
+    submodelCode: null,
+  });
+  const clearHeavySubmodel = () => applyHeavySelection({
+    ...heavySelection,
+    form: null,
+    detail: null,
+    submodel: null,
+    equipmentTypeCode: null,
+    detailTypeCode: null,
+    submodelCode: null,
+  });
   const categoryIsDefault = category === "전체";
   const categorySearchPlaceholder = categoryIsDefault ? "중고차" : category;
   const categoryBrandRail = categoryBrandRails[category] ?? categoryBrandRails["전체"];
@@ -557,10 +575,9 @@ function MarketplaceScreen() {
   const activeFilterCount = [
     Boolean(maker),
     Boolean(selectedModel),
-    Boolean(heavySelection.form),
-    Boolean(heavySelection.detail),
-    Boolean(heavySelection.maker),
-    Boolean(heavySelection.model),
+    Boolean(heavySelection.manufacturerCode),
+    Boolean(heavySelection.modelCode),
+    Boolean(heavySelection.submodelCode),
     Boolean(selectedTruckFormat),
     Boolean(selectedTruckSubtype),
     Boolean(selectedGeneration),
@@ -583,10 +600,9 @@ function MarketplaceScreen() {
   const selectedFilterValueCount = [
     Boolean(maker),
     Boolean(selectedModel),
-    Boolean(heavySelection.form),
-    Boolean(heavySelection.detail),
-    Boolean(heavySelection.maker),
-    Boolean(heavySelection.model),
+    Boolean(heavySelection.manufacturerCode),
+    Boolean(heavySelection.modelCode),
+    Boolean(heavySelection.submodelCode),
     Boolean(selectedTruckFormat),
     Boolean(selectedTruckSubtype),
     Boolean(selectedGeneration),
@@ -621,10 +637,11 @@ function MarketplaceScreen() {
       // QF-097 보완: 과쯔 카탈로그 제조사는 매물이 연결된 모델 하나로만 거른다(이름 일부 겹침 방지)
       const catalogModelMatch = !isCatalogMaker || !filters.model || catalogModelOfCar(car) === filters.model;
       const heavyMatch = !isHeavyCategory || (
-        (!heavySelection.form || car.heavy?.form === heavySelection.form)
-        && (!heavySelection.detail || heavySelection.detail === "전체" || car.heavy?.detail === heavySelection.detail)
-        && (!heavySelection.maker || car.maker === heavySelection.maker)
-        && (!heavySelection.model || car.modelGroup === heavySelection.model)
+        (!heavySelection.equipmentTypeCode || car.heavy?.equipmentTypeCode === heavySelection.equipmentTypeCode)
+        && (!heavySelection.detailTypeCode || heavySelection.detailTypeCode === "all" || car.heavy?.detailTypeCode === heavySelection.detailTypeCode)
+        && (!heavySelection.manufacturerCode || car.heavy?.manufacturerCode === heavySelection.manufacturerCode)
+        && (!heavySelection.modelCode || car.heavy?.modelCode === heavySelection.modelCode)
+        && (!heavySelection.submodelCode || car.heavy?.submodelCode === heavySelection.submodelCode)
       );
       return heavyMatch && matchesChoTotFilters(car, filters) && catalogModelMatch && generationMatch && trimMatch && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || searchText.toLowerCase().includes(normalized));
     });
@@ -995,7 +1012,7 @@ function MarketplaceScreen() {
     : "주행";
   const accessibleDepthLabel = (value: string | null) => (value ? formatModelLabel(value).replaceAll("A-클래스", "A클래스") : "");
   const vehicleSummaryLabel = isHeavyCategory
-    ? [heavySelection.form, heavySelection.detail, heavySelection.maker, heavySelection.model].filter(Boolean).join(" ")
+    ? [heavySelection.maker, heavySelection.model, heavySelection.submodel].filter(Boolean).join(" ")
     : isTruckCategory
       ? [selectedTruckFormat, selectedTruckSubtype, maker, selectedModel ? formatModelLabel(selectedModel) : null].filter(Boolean).join(" ")
     : [
@@ -1411,20 +1428,17 @@ function MarketplaceScreen() {
     ...(sellerApplied.length ? sellerApplied.map(toAppliedBbmChip) : [groupChip("seller", "판매자", "판매자 유형", false)]),
     // QF-113 T3: 처음 화면의 "전체차량" → "중고차"(PC·모바일·경로 모두 "전체차량" 단계 없음)
     (() => { const chip = chipByKey("category"); return chip ? { ...chip, label: chip.label === "전체" ? (isGuaziQuickStyle ? "중고차" : "전체차량") : chip.label } : undefined; })(),
-    // 건설기계는 빅레몬 기준 형식 → 세부형식 → 제조사 → 모델 4단계
+    // 건설기계 퀵필터 3단계: 제조사 로고 → 모델 이미지 → 세부모델·세부 형식 이미지
     ...(isHeavyCategory ? [
-      heavySelection.form
-        ? { key: "heavy-form", label: heavySelection.form, active: true, className: "is-vehicle-summary is-step", onClick: clearHeavyForm, onClear: clearHeavyForm }
-        : { key: "heavy-form", label: "형식", active: false, onClick: clearHeavyForm },
-      heavySelection.form && heavySelection.detail
-        ? { key: "heavy-detail", label: heavySelection.detail, active: true, className: "is-vehicle-summary is-step", onClick: clearHeavyDetail, onClear: clearHeavyDetail }
-        : heavySelection.form ? { key: "heavy-detail", label: "세부형식", active: false, onClick: clearHeavyDetail } : null,
-      heavySelection.detail && heavySelection.maker
-        ? { key: "heavy-maker", label: heavySelection.maker, active: true, className: "is-vehicle-summary is-step", onClick: clearHeavyMaker, onClear: clearHeavyMaker }
-        : heavySelection.detail ? { key: "heavy-maker", label: "제조사", active: false, onClick: clearHeavyMaker } : null,
-      heavySelection.maker && heavySelection.model
-        ? { key: "heavy-model", label: heavySelection.model, active: true, className: "is-vehicle-summary is-step", onClick: clearHeavyModel, onClear: clearHeavyModel }
-        : heavySelection.maker ? { key: "heavy-model", label: "모델", active: false, onClick: clearHeavyModel } : null,
+      heavySelection.manufacturerCode
+        ? { key: "heavy-maker", label: heavySelection.maker ?? "제조사", active: true, className: "is-vehicle-summary is-step", onClick: clearHeavyMaker, onClear: clearHeavyMaker }
+        : { key: "heavy-maker", label: "제조사", active: false, onClick: clearHeavyMaker },
+      heavySelection.manufacturerCode && heavySelection.modelCode
+        ? { key: "heavy-model", label: heavySelection.model ?? "모델", active: true, className: "is-vehicle-summary is-step", onClick: clearHeavyModel, onClear: clearHeavyModel }
+        : heavySelection.manufacturerCode ? { key: "heavy-model", label: "모델", active: false, onClick: clearHeavyModel } : null,
+      heavySelection.modelCode && heavySelection.submodelCode
+        ? { key: "heavy-submodel", label: heavySelection.submodel ?? "세부모델", active: true, className: "is-vehicle-summary is-step", onClick: clearHeavySubmodel, onClear: clearHeavySubmodel }
+        : heavySelection.modelCode ? { key: "heavy-submodel", label: "세부모델 · 세부 형식", active: false, onClick: clearHeavySubmodel } : null,
     ] : []),
     // 트럭·특장은 엔카 기준 형식 → 세부 형식 → 제조사 순서
     ...(isTruckCategory ? [
@@ -1543,10 +1557,9 @@ function MarketplaceScreen() {
     ...(categoryIsDefault || category === "중고차"
       ? [{ label: "중고차", onClick: clearMakerFilter }]
       : [{ label: "중고차", onClick: clearCategoryFilter }, { label: category, onClick: clearMakerFilter }]),
-    ...(isHeavyCategory && heavySelection.form ? [{ label: heavySelection.form, onClick: clearHeavyDetail }] : []),
-    ...(isHeavyCategory && heavySelection.detail ? [{ label: heavySelection.detail, onClick: clearHeavyMaker }] : []),
     ...(isHeavyCategory && heavySelection.maker ? [{ label: heavySelection.maker, onClick: clearHeavyModel }] : []),
-    ...(isHeavyCategory && heavySelection.model ? [{ label: heavySelection.model }] : []),
+    ...(isHeavyCategory && heavySelection.model ? [{ label: heavySelection.model, onClick: clearHeavySubmodel }] : []),
+    ...(isHeavyCategory && heavySelection.submodel ? [{ label: heavySelection.submodel }] : []),
     ...(!isHeavyCategory && maker ? [{ label: maker, onClick: clearModelFilter }] : []),
     ...(!isHeavyCategory && maker && selectedModel ? [{ label: formatModelLabel(selectedModel), onClick: clearGenerationFilter }] : []),
     ...(!isHeavyCategory && maker && selectedModel && selectedGenerationOption ? [{ label: generationDisplayLabel(selectedGenerationOption), onClick: selectedVariants.length ? clearVariantFilter : undefined }] : []),

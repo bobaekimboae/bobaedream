@@ -1,0 +1,16 @@
+slot_type,manufacturer_code,model_code,submodel_code,file_name,status,fallback_level,fallback_rule,source_id
+logo,develon,,,heavy_develon_logo_v01.jpg,검수완료,0,없음,1oTElr3xUr0o7jfzLcQDgQ50AQPWWhUI9
+logo,epiroc,,,heavy_epiroc_logo_v01.png,검수완료,0,없음,1qwxTbmxrXUJtLk1eiDIhDXs5Ce_Kzk0b
+logo,hitachi,,,heavy_hitachi_logo_v01.jpg,검수완료,0,없음,1TLOZtdYzfXfqK_Yc98djZtKijnAlfdEZ
+logo,lgmg,,,heavy_lgmg_logo_v01.jpg,검수완료,0,없음,1vbauSkIpuZOKrbnB2Bc55lPoSO2FyNLg
+logo,haulotte,,,heavy_haulotte_logo_v01.png,검수완료,0,없음,1CeW21gNHVHcn0IbxICSboxYWw8ZyA7xv
+logo,new_holland,,,heavy_new_holland_logo_v01.jpg,검수완료,0,없음,1iGlLGq-bL4cIbU3vxVkgVi1BXFTd977y
+logo,linde,,,heavy_linde_logo_v01.jpg,검수완료,0,없음,1TpRSSkBj0vJPNaPIoKSI5xIQygrt9Fdi
+logo,schwing,,,heavy_schwing_logo_v01.jpg,검수완료,0,없음,1ZKL0pOTYyxf56ZmS5-RC9pqvL7odzAaR
+logo,tailift,,,heavy_tailift_logo_v01.jpg,검수완료,0,없음,1kC7hqZ5yoTdZwmik2kco_xvLKpnCIHFx
+logo,ffg,,,heavy_ffg_logo_v01.jpg,검수완료,0,없음,1TtZhHh8HohWRhp-iDLoGGYV74IS3yLZ3
+model,develon,develon_dx140,,heavy_listing_008_v01.jpeg,검수완료,0,모델→제조사 공통→heavy 공통,heavy-008
+model,develon,develon_dx55w,,heavy_listing_016_v01.jpg,검수완료,0,모델→제조사 공통→heavy 공통,heavy-016
+submodel,develon,develon_dx140,develon_dx140_standard_boom,heavy_listing_008_v01.jpeg,검수완료,0,세부 형식→모델→제조사 공통→heavy 공통,heavy-008
+submodel,develon,develon_dx55w,develon_dx55w_daejjok,heavy_listing_016_v01.jpg,검수완료,0,세부 형식→모델→제조사 공통→heavy 공통,heavy-016
+common,,,,heavy_type_excavator_v01.png,검수완료,3,heavy 공통 최종 대체,heavy_type_image_manifest_v01
