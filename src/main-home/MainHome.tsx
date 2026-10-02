@@ -76,8 +76,8 @@ export default function MainHome() {
         </form>
 
         <section className="mh-section mh-category-section" aria-labelledby="mh-body-title">
-          <div className="mh-section-head"><h2 id="mh-body-title">차량 카테고리</h2><ArrowLink>전체보기</ArrowLink></div>
-          <div className="mh-body-rail" aria-label="차량 카테고리 가로 목록">
+          <div className="mh-section-head"><h2 id="mh-body-title">인기 카테고리</h2><ArrowLink>전체보기</ArrowLink></div>
+          <div className="mh-body-rail" aria-label="인기 카테고리 가로 목록">
             {bodyTypes.map(([image, label]) => <button className="mh-body-type" type="button" key={label}><span><img src={prototypeAsset(`autotrader-body-types-v2/${image}`)} alt="" /></span><strong>{label}</strong></button>)}
           </div>
         </section>

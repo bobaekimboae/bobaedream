@@ -26,8 +26,8 @@
 .mh-section { margin-top:10px; padding:23px 0 22px; background:#fff; border-top:1px solid #e2e8f0; border-bottom:1px solid #e2e8f0; }
 .mh-category-section { margin-top:0; }
 .mh-section-head { padding:0 17px; margin-bottom:18px; display:flex; align-items:flex-end; justify-content:space-between; }
-.mh-section-head h2 { margin:0; font-size:20px; line-height:28px; font-weight:800; letter-spacing:-.05em; }
-.mh-more { display:inline-flex; align-items:center; gap:2px; color:#465264; font-size:13px; font-weight:850; letter-spacing:-.04em; }
+.mh-section-head h2 { margin:0; font-size:20px; line-height:28px; font-weight:700; letter-spacing:-.035em; }
+.mh-more { display:inline-flex; align-items:center; gap:2px; color:#465264; font-size:13px; font-weight:700; letter-spacing:-.03em; }
 .mh-more img { width:18px; height:18px; opacity:.78; }
 .mh-body-rail,.mh-brand-rail,.mh-offer-rail { display:flex; overflow-x:auto; padding:0 17px 2px; scrollbar-width:none; }
 .mh-body-rail { gap:12px; }
