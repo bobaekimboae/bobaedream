@@ -4,6 +4,18 @@ import "./heavy.css";
 type HeavyQuickFilterProps = { value: HeavySelection; onChange: (next: HeavySelection) => void };
 const unique = (values: string[]) => [...new Set(values)];
 const compactForm = (value: string) => value.replace(/\([^)]*\)/g, "").trim();
+const heavyTypeImageByForm: Record<string, string> = {
+  "유압셔블(굴삭기)": "heavy_type_excavator_v01.png",
+  "미니 유압셔블(미니굴삭기)": "heavy_type_mini_excavator_v01.png",
+  "캐리어덤프(크롤러덤프)": "heavy_type_dump_v01.png",
+  "덤프차": "heavy_type_dump_v01.png",
+  "어태치먼트(건설기계)": "heavy_type_attachment_v01.png",
+  "각종 버킷": "heavy_type_bucket_v01.png",
+  "유압 브레이커": "heavy_type_breaker_v01.png",
+  "신품 어태치먼트": "heavy_type_attachment_v01.png",
+};
+const heavyTypeAsset = (fileName: string) => `${import.meta.env.BASE_URL}assets/heavy/types/${fileName}`;
+
 
 export function HeavyQuickFilter({ value, onChange }: HeavyQuickFilterProps) {
   const detailOptions = heavyDetailsFor(value.form);
@@ -32,13 +44,18 @@ export function HeavyQuickFilter({ value, onChange }: HeavyQuickFilterProps) {
       <div className="heavy-qf-heading"><strong>{level}</strong><span>빅레몬 형식 52종 · 가상 매물 v04 30대</span></div>
       {options.length ? (
         <div className="heavy-qf-track" role="list">
-          {options.map((option) => (
-            <button key={option.label} type="button" className="heavy-qf-card" disabled={option.count === 0} onClick={option.action} role="listitem">
-              <span className="heavy-qf-symbol" aria-hidden="true">{level === "모델" ? option.label.slice(0, 3) : option.label.slice(0, 2)}</span>
-              <strong>{level === "형식" ? compactForm(option.label) : option.label}</strong>
-              <small>{option.count.toLocaleString("ko-KR")}대</small>
-            </button>
-          ))}
+          {options.map((option) => {
+            const typeImage = level === "형식" ? heavyTypeImageByForm[option.label] : null;
+            return (
+              <button key={option.label} type="button" className={`heavy-qf-card${level === "형식" ? " is-form" : ""}${typeImage ? " has-type-image" : ""}`} disabled={option.count === 0} onClick={option.action} role="listitem">
+                <span className="heavy-qf-symbol" aria-hidden="true">
+                  {typeImage ? <img src={heavyTypeAsset(typeImage)} alt="" draggable={false} /> : level === "모델" ? option.label.slice(0, 3) : option.label.slice(0, 2)}
+                </span>
+                <strong>{level === "형식" ? compactForm(option.label) : option.label}</strong>
+                <small>{option.count.toLocaleString("ko-KR")}대</small>
+              </button>
+            );
+          })}
         </div>
       ) : (
         <button type="button" className="heavy-qf-complete" onClick={() => onChange({ ...value, model: null })}>

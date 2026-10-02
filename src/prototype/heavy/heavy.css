@@ -14,6 +14,38 @@
 .heavy-qf-complete .heavy-qf-symbol { width: 44px; height: 44px; grid-row: 1 / 3; }
 .heavy-qf-complete strong { overflow: hidden; font-size: 15px; line-height: 24px; text-overflow: ellipsis; white-space: nowrap; }
 .heavy-qf-complete small { overflow: hidden; color: #6f7782; font-size: 12px; line-height: 20px; text-overflow: ellipsis; white-space: nowrap; }
+
+/* 건설기계 유형: 노션 유형 목록을 참고한 노랑 계열 3/4 사선 이미지 카드 */
+.heavy-qf-card.is-form {
+  width: 104px;
+  min-width: 104px;
+  height: 112px;
+  grid-template-rows: 58px 21px 16px;
+  padding: 6px 7px 5px;
+  border: 1px solid #f5d264;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #fff9df 0%, #fff0ae 100%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 85%);
+}
+.heavy-qf-card.is-form:not(:disabled):hover { border-color: #e9ae17; background: linear-gradient(145deg, #fff7cf 0%, #ffe58a 100%); }
+.heavy-qf-card.is-form .heavy-qf-symbol {
+  width: 64px;
+  height: 58px;
+  border-radius: 10px;
+  background: #fff7d3;
+  color: #755000;
+}
+.heavy-qf-card.has-type-image .heavy-qf-symbol { overflow: hidden; }
+.heavy-qf-card.has-type-image .heavy-qf-symbol img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 3px rgb(103 68 0 / 18%));
+}
+.heavy-qf-card.is-form strong { color: #3d2c00; }
+.heavy-qf-card.is-form small { color: #8a6814; }
+
 @media (max-width: 767px) {
   .heavy-qf { gap: 8px; }
   .heavy-qf-heading { width: 72px; flex-basis: 72px; }
@@ -22,5 +54,8 @@
   .heavy-qf-symbol { width: 36px; height: 36px; font-size: 11px; }
   .heavy-qf-card strong { width: 64px; font-size: 11px; line-height: 18px; }
   .heavy-qf-card small { font-size: 10px; line-height: 14px; }
+  .heavy-qf-card.is-form { width: 82px; min-width: 82px; height: 92px; grid-template-rows: 48px 18px 14px; padding: 4px; }
+  .heavy-qf-card.is-form .heavy-qf-symbol { width: 54px; height: 48px; }
+  .heavy-qf-card.is-form strong { width: 72px; }
   .heavy-qf-complete { min-width: 230px; padding: 8px 12px; }
 }
