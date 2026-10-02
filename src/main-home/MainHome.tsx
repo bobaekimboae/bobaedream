@@ -1,4 +1,4 @@
-import { useState, type CSSProperties } from "react";
+import { useState } from "react";
 import "./main-home.css";
 
 type ServiceKey = "all" | "used-car" | "community" | "truck" | "bike" | "construction" | "camping" | "parts";
@@ -17,17 +17,6 @@ const services: Array<{ key: ServiceKey; label: string }> = [
   { key: "camping", label: "캠핑카" },
   { key: "parts", label: "부품/용품" },
 ];
-
-const heroData: Record<ServiceKey, { title: string; copy: string; image: string; cta: string }> = {
-  all: { title: "자동차 생활의 모든 것", copy: "매물부터 커뮤니티까지 보배드림에서 한 번에 만나보세요.", image: "hero-types/used-car.jpg", cta: "64대 매물 보기" },
-  "used-car": { title: "좋은 차를 찾는 가장 빠른 방법", copy: "내 조건에 맞는 중고차를 바로 찾아보세요.", image: "hero-types/used-car.jpg", cta: "64대 매물 보기" },
-  community: { title: "자동차 이야기가 모이는 곳", copy: "유저들의 생생한 경험과 자동차 소식을 확인하세요.", image: "hero-types/used-car.jpg", cta: "커뮤니티 둘러보기" },
-  truck: { title: "일을 움직이는 트럭과 특장차", copy: "화물과 특장 매물을 목적에 맞게 찾아보세요.", image: "hero-types/commercial.jpg", cta: "트럭/특장 준비 중" },
-  bike: { title: "라이딩을 시작할 바이크 찾기", copy: "스쿠터부터 대형 바이크까지 원하는 조건으로 탐색하세요.", image: "hero-types/bike.jpg", cta: "바이크 준비 중" },
-  construction: { title: "현장을 위한 건설기계 찾기", copy: "용도와 작업 조건에 맞는 건설기계를 살펴보세요.", image: "hero-types/commercial.jpg", cta: "건설기계 준비 중" },
-  camping: { title: "여행을 넓히는 캠핑카", copy: "카라반부터 모터홈까지 원하는 방식으로 찾아보세요.", image: "hero-types/trailer.jpg", cta: "캠핑카 준비 중" },
-  parts: { title: "차를 위한 부품과 용품", copy: "필요한 부품과 자동차 용품을 한곳에서 찾아보세요.", image: "hero-types/used-car.jpg", cta: "부품/용품 준비 중" },
-};
 
 const bodyTypes = [
   ["suv.png", "SUV"], ["truck.png", "트럭"], ["sedan.png", "세단"], ["coupe.png", "쿠페"],
@@ -49,7 +38,6 @@ const ArrowLink = ({ children }: { children: string }) => (
 
 export default function MainHome() {
   const [activeService, setActiveService] = useState<ServiceKey>("all");
-  const hero = heroData[activeService];
   const openListing = () => {
     if (activeService === "all" || activeService === "used-car") window.location.href = "./?qf=guazi&filtericon=notion";
   };
@@ -58,7 +46,7 @@ export default function MainHome() {
     <div className="main-home-stage">
       <main className="main-home" aria-label="보배드림 중고차 메인">
         <header className="mh-topbar">
-          <a className="mh-logo" href="./" aria-label="보배드림 홈"><img src={publicAsset("bbm/header-logo.svg")} alt="보배드림" /></a>
+          <a className="mh-logo" href="./" aria-label="보배드림 홈"><span className="mh-title">보배드림</span></a>
           <div className="mh-top-icons">
             <button type="button" aria-label="즐겨찾기"><img src={prototypeAsset("icons/favorite.svg")} alt="" /></button>
             <button type="button" aria-label="전체 메뉴"><img src={prototypeAsset("icons/menu.svg")} alt="" /></button>
@@ -80,27 +68,16 @@ export default function MainHome() {
           ))}
         </nav>
 
-        <section
-          className="mh-hero"
-          style={{ backgroundImage: `linear-gradient(180deg, rgba(5,10,20,.2), rgba(5,10,20,.38)), url("${prototypeAsset(hero.image)}")` } as CSSProperties}
-        >
-          <div className="mh-hero-copy"><h1>{hero.title}</h1><p>{hero.copy}</p></div>
-        </section>
-
-        <section className="mh-search-panel" aria-label="매물 검색 패널">
-          <div className="mh-search-form">
+        <form className="mh-search-strip" role="search" onSubmit={(event) => { event.preventDefault(); openListing(); }}>
             <label className="mh-search-field">
               <img src={prototypeAsset("icons/search.svg")} alt="" aria-hidden="true" />
-              <input type="search" aria-label="중고차 검색" placeholder="차량명, 제조사, 모델 검색" />
+              <input type="search" aria-label="중고차 검색" placeholder="어떤 차량을 찾고 있나요?" />
             </label>
-            <button className="mh-cta" type="button" onClick={openListing}>{hero.cta}</button>
-            <button className="mh-advanced-link" type="button">상세 필터</button>
-          </div>
-        </section>
+        </form>
 
-        <section className="mh-section" aria-labelledby="mh-body-title">
-          <div className="mh-section-head"><h2 id="mh-body-title">바디 타입</h2><ArrowLink>전체보기</ArrowLink></div>
-          <div className="mh-body-rail" aria-label="바디 타입 가로 목록">
+        <section className="mh-section mh-category-section" aria-labelledby="mh-body-title">
+          <div className="mh-section-head"><h2 id="mh-body-title">차량 카테고리</h2><ArrowLink>전체보기</ArrowLink></div>
+          <div className="mh-body-rail" aria-label="차량 카테고리 가로 목록">
             {bodyTypes.map(([image, label]) => <button className="mh-body-type" type="button" key={label}><span><img src={prototypeAsset(`autotrader-body-types-v2/${image}`)} alt="" /></span><strong>{label}</strong></button>)}
           </div>
         </section>
