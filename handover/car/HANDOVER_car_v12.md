@@ -37,6 +37,7 @@
 - `src/main-home/main-home.css`
 - `public/prototypes/autotrader-bobaedream-main/index.html`
 - `reports/main-header-20261002/local-compact-main.png`
+- `reports/main-header-20261002/deployed-compact-main.png`
 - `handover/car/HANDOVER_car_v12.md`
 - 공개 URL: `https://bobaekimboae.github.io/bobaedream/`
 
@@ -51,10 +52,10 @@
 - 브라우저 콘솔 오류: 0건.
 - `npm run build`: 통과.
 - `npm run test:sites`: 4건 통과.
-- GitHub Pages 공개 배포: 진행 중.
+- GitHub Pages 공개 배포: 성공.
+- 공개 384×832 CSS px 재측정: 타이틀 20px, GNB 40px, 검색바 48px, 콘솔 오류 0건.
 
 ## 8) 다음에 할 일
 
-1. GitHub Pages 공개 화면에서 크기와 간격을 재확인한다.
-2. 즐겨찾기·메뉴의 실제 목적지와 상태 동작을 확정한다.
-3. 비중고차 서비스의 검색 제출 목적지를 확정한다.
+1. 즐겨찾기·메뉴의 실제 목적지와 상태 동작을 확정한다.
+2. 비중고차 서비스의 검색 제출 목적지를 확정한다.
