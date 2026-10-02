@@ -3,24 +3,24 @@
 .main-home { width:min(100vw,430px); min-height:100dvh; overflow:hidden; background:#f0f2f5; box-shadow:0 28px 80px rgba(15,23,42,.18); font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Noto Sans KR","Segoe UI",sans-serif; }
 .main-home * { box-sizing:border-box; }
 .main-home button { border:0; padding:0; color:inherit; background:none; font:inherit; }
-.mh-topbar { height:64px; padding:0 12px 0 16px; display:flex; align-items:center; justify-content:space-between; background:#fff; }
+.mh-topbar { height:56px; padding:0 12px 0 16px; display:flex; align-items:center; justify-content:space-between; background:#fff; }
 .mh-logo { height:44px; display:flex; align-items:center; color:#17191c; text-decoration:none; }
-.mh-title { font-size:20px; line-height:28px; font-weight:800; letter-spacing:-.055em; }
+.mh-title { font-size:20px; line-height:28px; font-weight:700; letter-spacing:-.04em; }
 .mh-top-icons { display:flex; gap:0; align-items:center; }
 .mh-top-icons button { width:44px; height:44px; display:grid; place-items:center; border-radius:50%!important; cursor:pointer; }
 .mh-top-icons button:active { background:#f2f3f5; }
 .mh-top-icons img { width:24px; height:24px; }
 .mh-service-menu { display:flex; gap:8px; overflow-x:auto; padding:10px 16px 12px; background:#fff; scrollbar-width:none; scroll-padding-inline:16px; }
 .mh-service-menu::-webkit-scrollbar,.mh-body-rail::-webkit-scrollbar,.mh-brand-rail::-webkit-scrollbar,.mh-offer-rail::-webkit-scrollbar { display:none; }
-.mh-service-chip { flex:0 0 auto; min-width:58px; height:40px; padding:0 16px!important; border:1px solid #b8c0ca!important; border-radius:999px!important; color:#202b38!important; background:#fff!important; font-size:14px!important; line-height:38px!important; font-weight:700!important; letter-spacing:-.035em; white-space:nowrap; box-shadow:0 1px 1px rgba(22,33,46,.04); transition:all 140ms ease; }
-.mh-service-chip.is-active { color:#fff!important; border-color:var(--mh-navy)!important; background:var(--mh-navy)!important; font-weight:800!important; box-shadow:0 5px 12px rgba(22,33,46,.18); }
+.mh-service-chip { flex:0 0 auto; min-width:53px; height:36px; padding:0 13px!important; border:1px solid transparent!important; border-radius:999px!important; color:#202124!important; background:#f5f5f5!important; font-size:15px!important; line-height:34px!important; font-weight:700!important; letter-spacing:-.035em; white-space:nowrap; box-shadow:none; transition:all 140ms ease; }
+.mh-service-chip.is-active { color:#fff!important; border-color:#252a30!important; background:#252a30!important; font-weight:700!important; box-shadow:none; }
 .mh-service-chip:active { transform:scale(.97); }
 .mh-service-chip:focus-visible,.mh-select-field:focus-visible { outline:2px solid var(--mh-blue); outline-offset:2px; }
-.mh-search-strip { padding:14px 16px 18px; background:#fff; }
-.mh-search-field { height:48px; min-width:0; padding:0 16px; display:flex; align-items:center; gap:12px; border:0; border-radius:14px; background:#f3f4f6; transition:box-shadow 140ms ease,background 140ms ease; }
+.mh-search-strip { padding:12px 16px 16px; background:#fff; }
+.mh-search-field { height:48px; min-width:0; padding:0 16px; display:flex; align-items:center; gap:10px; border:0; border-radius:12px; background:#f5f5f5; transition:box-shadow 140ms ease,background 140ms ease; }
 .mh-search-field:focus-within { background:#fff; box-shadow:0 0 0 2px rgba(49,85,183,.2); }
-.mh-search-field img { width:24px; height:24px; flex:0 0 24px; }
-.mh-search-field input { width:100%; min-width:0; border:0; outline:0; background:transparent; color:#222; font:inherit; font-size:16px; line-height:22px; font-weight:500; letter-spacing:-.035em; appearance:none; }
+.mh-search-field img { width:22px; height:22px; flex:0 0 22px; }
+.mh-search-field input { width:100%; min-width:0; border:0; outline:0; background:transparent; color:#222; font:inherit; font-size:15px; line-height:21px; font-weight:400; letter-spacing:-.025em; appearance:none; }
 .mh-search-field input::placeholder { color:#7d838c; opacity:1; }
 .mh-search-field input::-webkit-search-cancel-button { appearance:none; }
 .mh-section { margin-top:10px; padding:23px 0 22px; background:#fff; border-top:1px solid #e2e8f0; border-bottom:1px solid #e2e8f0; }
