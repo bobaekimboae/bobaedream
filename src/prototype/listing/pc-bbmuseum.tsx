@@ -3,7 +3,7 @@ import { BbmActionBar, BbmModal } from "../filters/bbm-filter-parts";
 import { BBM_MAKER_ITEM, bbmSidebarItems, type BbmFilterItem } from "../filters/bbm-filter-options";
 import { BbmExpandPanel, BbmModalPanel, clearBbmItem } from "../filters/bbm-filter-panels";
 import type { BbmCheckKey, BbmFilterValues } from "../filters/bbm-filter-state";
-import { KrBrandLogo } from "./bbm-brand-logos";
+import { CategoryBrandLogo } from "./bbm-brand-logos";
 import { bbmItemValue } from "../filters/bbm-applied";
 import { asset, displayListPlace, displaySpecs, sellerAvatar, sellerLabel, type Car } from "../data";
 import { truckFormatImageFor, truckSubtypeImageFor } from "../data/truck-format-catalog";
@@ -112,7 +112,7 @@ type BbMakerSelection = {
 };
 type BbDrillView = { stage: "maker" } | { stage: "model"; maker: string } | { stage: "grade"; maker: string; model: string };
 
-function BbMakerGradeFilter({ selection, view, setView, brandLogos = false, makerSections = bbCatalog }: { selection: BbMakerSelection; view: BbDrillView; setView: (view: BbDrillView) => void; brandLogos?: boolean; makerSections?: BbMakerSection[] }) {
+function BbMakerGradeFilter({ selection, view, setView, brandLogos = false, brandLogoCategory, makerSections = bbCatalog }: { selection: BbMakerSelection; view: BbDrillView; setView: (view: BbDrillView) => void; brandLogos?: boolean; brandLogoCategory?: string; makerSections?: BbMakerSection[] }) {
   const { maker, model, grades } = selection;
   const pathChips = [
     maker ? { key: "maker", label: bbMakerLabel(maker), onClear: selection.onClearMaker } : null,
@@ -133,7 +133,7 @@ function BbMakerGradeFilter({ selection, view, setView, brandLogos = false, make
             {section.rows.map(([name, rowCount, makerKey]) => {
               const key = makerKey ?? name;
               const selected = maker === key;
-              return <button key={`${section.title}-${name}`} type="button" className={`bbm-catalog-row${selected ? " is-selected" : ""}`} aria-pressed={selected} onClick={() => { selection.onChooseMaker(key); setView({ stage: "model", maker: key }); }}>{brandLogos ? <span className="bbm-catalog-name"><KrBrandLogo name={name} kind="list" /><span>{name}</span></span> : <span>{name}</span>}{count(rowCount)}</button>;
+              return <button key={`${section.title}-${name}`} type="button" className={`bbm-catalog-row${selected ? " is-selected" : ""}`} aria-pressed={selected} onClick={() => { selection.onChooseMaker(key); setView({ stage: "model", maker: key }); }}>{brandLogos ? <span className="bbm-catalog-name"><CategoryBrandLogo category={brandLogoCategory} name={name} kind="list" initialFallback /><span>{name}</span></span> : <span>{name}</span>}{count(rowCount)}</button>;
             })}
           </div>
         )) : view.stage === "model" ? (
@@ -248,7 +248,7 @@ export function BbTruckFormatFilter({ value, showImages = true }: { value: BbTru
 
 // resetSignal: 값이 바뀔 때마다 "초기화" 확인 창을 연다(QF-093 왼쪽 펼침판 아래 [초기화] 버튼용)
 // brandLogos: 과쯔 모드만 제조사 행 앞에 로고 24×24(QF-096). 초톳·동처띠 PC 는 그대로
-function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNotify, bbm, onBbmChange, countWithBbm, countOf, resetSignal = 0, brandLogos = false, makerSections = bbCatalog, order = bbFilterMenuOriginal, mileageFinal = false, truckFilter }: { mileageFinal?: boolean; order?: string[]; selection: BbMakerSelection; appliedCount: number; historyCount?: number; onReset: () => void; onNotify: (message: string) => void; bbm: BbmFilterValues; onBbmChange: (next: BbmFilterValues) => void; countWithBbm: (next: BbmFilterValues) => number; countOf?: (key: BbmCheckKey, option: string) => number | null; resetSignal?: number; brandLogos?: boolean; makerSections?: BbMakerSection[]; truckFilter?: BbTruckFilter }) {
+function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNotify, bbm, onBbmChange, countWithBbm, countOf, resetSignal = 0, brandLogos = false, brandLogoCategory, makerSections = bbCatalog, order = bbFilterMenuOriginal, mileageFinal = false, truckFilter }: { mileageFinal?: boolean; order?: string[]; selection: BbMakerSelection; appliedCount: number; historyCount?: number; onReset: () => void; onNotify: (message: string) => void; bbm: BbmFilterValues; onBbmChange: (next: BbmFilterValues) => void; countWithBbm: (next: BbmFilterValues) => number; countOf?: (key: BbmCheckKey, option: string) => number | null; resetSignal?: number; brandLogos?: boolean; brandLogoCategory?: string; makerSections?: BbMakerSection[]; truckFilter?: BbTruckFilter }) {
   // 모달형 항목: 사이드바 대신 412 모달을 연다. 원본 실측(2026-09-24): 모달 안 선택은 초안이고 [확인 N대]를 눌러야 조건이 걸린다(닫기 X는 버림)
   const [modalItem, setModalItem] = useState<BbmFilterItem | null>(null);
   const [draft, setDraft] = useState<BbmFilterValues>(bbm);
@@ -326,7 +326,7 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
                 <img className="bbm-filter-chevron" src={bbmAsset("filter-chevron")} alt="" aria-hidden="true" />
               </button>
               {isMaker && maker ? <button type="button" className="bbm-filter-item-reset" onClick={selection.onClearMaker}>초기화</button> : null}
-              {open ? (isMaker ? <BbMakerGradeFilter selection={selection} view={view} setView={setView} brandLogos={brandLogos} makerSections={makerSections} /> : <BbmExpandPanel label={label} value={bbm} onChange={onBbmChange} countOf={countOf} mileageFinal={mileageFinal} />) : null}
+              {open ? (isMaker ? <BbMakerGradeFilter selection={selection} view={view} setView={setView} brandLogos={brandLogos} brandLogoCategory={brandLogoCategory} makerSections={makerSections} /> : <BbmExpandPanel label={label} value={bbm} onChange={onBbmChange} countOf={countOf} mileageFinal={mileageFinal} />) : null}
             </section>
             {isMaker ? <div className="bbm-filter-action"><button type="button" className="bbmf-exclude" onClick={() => onNotify("제조사·모델 제외하기는 정식 서비스에서 이용해 주세요.")}><i className="bbmf-circle-icon is-minus" aria-hidden="true" />제조사·모델 제외하기</button></div> : null}
             </Fragment>
