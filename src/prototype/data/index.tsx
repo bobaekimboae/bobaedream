@@ -21,6 +21,7 @@ import {
 } from "simple-icons";
 import { emptyChoTotFilters, vehicleCategoryOptions, type ChoTotFilterState } from "../../ChoTotFilterSheet";
 import { luxuryUiTestRows } from "./luxury-ui-test";
+import { bikeModelsByMaker, bikeTopBrands } from "./bike-filter-catalog";
 
 export type SellerType = "전체" | "개인" | "딜러";
 type SheetType = "filter" | "quick" | "carType" | "maker" | "vehicle" | "year" | "price" | "region" | "sort" | null;
@@ -442,12 +443,7 @@ const categoryBrandRails: Record<string, CategoryBrandRail> = {
   },
   바이크: {
     title: "브랜드",
-    options: [
-      { name: "혼다", maker: "혼다", icon: siHonda },
-      { name: "야마하", maker: "야마하", icon: siYamahamotorcorporation, color: "#4b1f84" },
-      { name: "스즈키", maker: "스즈키", icon: siSuzuki, color: "#d71920" },
-      { name: "피아지오", maker: "피아지오", icon: siPiaggiogroup, color: "#00573f" },
-    ],
+    options: bikeTopBrands.map(({ name }) => ({ name, maker: name })),
   },
   "트럭 · 특장": {
     title: "제조사",
@@ -732,8 +728,9 @@ const getInitialChoTotFilters = (): ChoTotFilterState => {
   const makerParam = params.get("maker") ?? "";
   const modelParam = params.get("model") ?? "";
   const category = vehicleCategoryOptions.includes(categoryParam) ? categoryParam : "전체";
-  const maker = quickModelsByMaker[makerParam] ? makerParam : null;
-  const model = maker && quickModelsByMaker[maker]?.includes(modelParam) ? modelParam : null;
+  const categoryModels = category === "바이크" ? bikeModelsByMaker : quickModelsByMaker;
+  const maker = categoryModels[makerParam] ? makerParam : null;
+  const model = maker && categoryModels[maker]?.includes(modelParam) ? modelParam : null;
 
   return { ...emptyChoTotFilters, category, maker, model };
 };
