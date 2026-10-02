@@ -17,7 +17,7 @@
 - 완료: 6종을 동일한 512×320 투명 캔버스와 52×38px 화면 슬롯으로 통일.
 - 완료: CSS 수평 반전 제거.
 - 완료: 로컬 빌드·브라우저 검수.
-- 진행 중: GitHub Pages 공개 배포.
+- 완료: GitHub Pages 공개 배포.
 
 ## 3) 결정된 사항과 그 이유
 
@@ -36,6 +36,7 @@
 - `public/prototypes/autotrader-bobaedream-main/index.html`
 - `public/prototypes/autotrader-bobaedream-main/category-vehicles-v3/*.png`
 - `reports/category-imagegen-20261002/local-mobile.png`
+- `reports/category-imagegen-20261002/deployed-mobile.png`
 - `reports/category-imagegen-20261002/imagegen-vehicle-audit.md`
 - `handover/car/HANDOVER_car_v22.md`
 
@@ -49,9 +50,11 @@
 - 로컬 브라우저 시각 검수 완료.
 - `npm run build`: 통과.
 - `npm run test:sites`: 4건 통과.
-- GitHub Pages 공개 배포: 진행 중.
+- GitHub Pages 공개 배포: 성공 (`2be74b9`).
+- 공개 페이지와 차량 이미지 6종 HTTP 200 확인.
+- 공개 브라우저에서 상단 구분선 제거와 6종 좌향 이미지 노출 확인.
 
 ## 8) 다음에 할 일
 
-1. 공개 링크에서 이미지 6종과 상단 구분선 제거 상태를 재확인한다.
+1. 후속 차량 카테고리 요청을 반영한다.
 
