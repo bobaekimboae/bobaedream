@@ -6,7 +6,7 @@ export type TruckSpecGroup = {
 // 구글 시트의 형식별 13개 탭에서 확인한 4뎁스(적재용량·축장/규격) 값이다.
 // 원본의 요약 자리표시자(n톤 등)는 제외하고, "기타기타"는 화면 표시용 "기타"로 정규화했다.
 export const truckSpecCatalog = {
-  "1톤트럭": {
+  "화물트럭": {
     "1톤트럭": [
       {
         "label": "적재용량 (톤수)",
@@ -14,9 +14,7 @@ export const truckSpecCatalog = {
           "1톤"
         ]
       }
-    ]
-  },
-  "화물트럭": {
+    ],
     "화물트럭": [
       {
         "label": "적재용량 (톤수)",
@@ -2890,7 +2888,6 @@ export const truckSpecCatalog = {
 } as const satisfies Record<string, Record<string, readonly TruckSpecGroup[]>>;
 
 export const truckSpecSourceTabs = {
-  "1톤트럭": "보배드림 추가",
   "화물트럭": "01_카고(화물)트럭",
   "윙바디/탑": "02_윙바디탑",
   "덤프/건설/중기": "04_덤프건설중기",
