@@ -47,20 +47,25 @@ export function BbmHeadlinePreviewLinks() {
   );
 }
 
-// ── 차량 유형 줄(원본 원형 아이콘 7개). 유형을 고르면 같은 자리가 퀵필터 레일(제조사 단계부터)로 바뀐다
-export const bbmCategoryItems: Array<[value: string, icon: string, label?: string]> = [
-  ["중고차", "category-used", "자동차"], ["트럭 · 특장", "category-truck"], ["바이크", "category-bike"], ["캠핑카", "category-camping"],
-  ["올드카", "category-old"], ["건설기계", "category-construction", "건설기계(덤프/지게차)"], ["부품 · 용품", "category-equipment"],
+// ── 차량 유형 줄. 초톳 슬롯 기준의 동일 높이·바닥선 실사 컷을 쓰고, 선택 시 기존 내부 필터 값은 유지한다.
+export const bbmCategoryItems: Array<[value: string, image: string, label?: string]> = [
+  ["중고차", "category-photo/vehicle_type_car_v01.png", "자동차"],
+  ["트럭 · 특장", "category-photo/vehicle_type_cargo_truck_v01.png", "화물트럭"],
+  ["바이크", "category-photo/vehicle_type_bike_v01.png"],
+  ["캠핑카", "category-photo/vehicle_type_motorhome_v01.png", "모터홈"],
+  ["올드카", "category-photo/vehicle_type_old_car_v01.png"],
+  ["건설기계", "category-photo/vehicle_type_construction_v01.png", "건설기계(덤프/지게차)"],
+  ["부품 · 용품", "category-photo/vehicle_type_parts_v01.png"],
 ];
 
 export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string) => void }) {
   return (
     <section className="bbm-category-menu" aria-label="차량 유형">
       <ul className="bbm-category-menu__list">
-        {bbmCategoryItems.map(([value, icon, label = value]) => (
+        {bbmCategoryItems.map(([value, image, label = value]) => (
           <li key={value} className="bbm-category-menu__item">
             <button type="button" className="bbm-category-menu__button" onClick={() => onChoose(value)}>
-              <span className="bbm-category-menu__icon-box"><img src={bbmIcon(icon)} alt="" aria-hidden="true" draggable={false} /></span>
+              <span className="bbm-category-menu__icon-box is-photo"><img src={asset(image)} alt="" aria-hidden="true" draggable={false} /></span>
               <span className="bbm-category-menu__label">{label}</span>
             </button>
           </li>
