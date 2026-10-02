@@ -7,6 +7,7 @@ import brandTop10Truck from "../data/brand-top10-truck.json";
 import { bikeBrandLogosV01 } from "./brand-logos-bike-v01";
 import "./bbm-brand-logos.css";
 import { bikeBrandCount } from "../data/bike-filter-catalog";
+import { driveTop10BrandLogos } from "./brand-logos-drive10.generated";
 
 // QF-096: 과쯔 모드 제조사 로고(public/assets/brand/kr). 기준 이름 = 좌측 필터 표기(bbCatalog 라벨).
 // 퀵필터·매물 데이터의 제조사 값(maker)은 catalog key 또는 아래 대응으로 좌측 필터 이름을 찾는다. 대응이 없으면 로고 없음(추측 연결 안 함).
@@ -65,13 +66,18 @@ export function krPlainLogoSize(ratio: number) {
 
 /** 로고 칸(퀵필터 48×28 · 목록 24×24 · plain 40×40). 로고가 없으면 빈 칸(이름 시작선을 맞춘다). 이미지는 alt=""(이름이 바로 옆) */
 export function KrBrandLogo({ name, kind, initialFallback = false }: { name: string; kind: "rail" | "list" | "plain"; initialFallback?: boolean }) {
-  const logo = krBrandLogo(name);
+  const resolvedName = krBrandName(name) ?? name;
+  const useDriveTest = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("brandlogo") === "drive10";
+  const driveLogo = useDriveTest ? driveTop10BrandLogos[resolvedName] : null;
+  const defaultLogo = krBrandLogo(name);
+  const logo = driveLogo ?? defaultLogo;
+  const logoSource = driveLogo ? asset(`brand/drive10/${driveLogo.file}`) : defaultLogo ? asset(`brand/kr/${defaultLogo.slug}.png`) : null;
   // QF-114: 로고를 못 구한 브랜드(바이크·트럭)는 이름 첫 글자 원형(#F4F4F4, 600)으로 임시 표시
   if (!logo && initialFallback) return <span className={`kr-brand-logo is-${kind} is-initial`} data-brand={name}><span className="kr-brand-initial" aria-hidden="true">{krRailLabel(name).slice(0, 1)}</span></span>;
   const size = logo ? (kind === "plain" ? krPlainLogoSize(logo.ratio) : (() => { const value = kind === "rail" ? krRailLogoSize(logo.ratio) : krListLogoSize(logo.ratio); return { width: px(value.width), height: px(value.height) }; })()) : null;
   return (
-    <span className={`kr-brand-logo is-${kind}${logo ? "" : " is-empty"}`} data-brand={krBrandName(name) ?? name} data-ratio={logo?.ratio}>
-      {logo && size ? <img src={asset(`brand/kr/${logo.slug}.png`)} alt="" draggable={false} style={size} /> : null}
+    <span className={`kr-brand-logo is-${kind}${logo ? "" : " is-empty"}`} data-brand={resolvedName} data-ratio={logo?.ratio} data-logo-set={driveLogo ? "drive10" : "default"}>
+      {logoSource && size ? <img src={logoSource} alt="" draggable={false} style={size} /> : null}
     </span>
   );
 }

@@ -1,0 +1,187 @@
+{
+  "generated": "2026-10-03",
+  "sourceFolder": "https://drive.google.com/drive/folders/1HkYia3Hv3FyQkVzMZYQI7jllav2RqO3n",
+  "rule": "알파 16 이하 바깥 여백 제거. 40×40 슬롯에서 wide=40px, square/tall=33px 광학 크기. 기본 로고 자산과 분리한 테스트 세트.",
+  "brands": [
+    {
+      "name": "현대",
+      "slug": "hyundai",
+      "source": "과쯔",
+      "input": "guazi-hyundai.png",
+      "driveId": "1F_-4f8JpQt1teo_Ajsff48JSQq5dIkOC",
+      "reason": "파란 심볼이 40px 슬롯에서 가장 선명함",
+      "file": "hyundai.png",
+      "ratio": 1.921,
+      "originalSize": [
+        100,
+        100
+      ],
+      "trimmedSize": [
+        73,
+        38
+      ]
+    },
+    {
+      "name": "제네시스",
+      "slug": "genesis",
+      "source": "과쯔",
+      "input": "guazi-genesis.png",
+      "driveId": "1XUxQmEJq61zfqrvBJeRs4_KNxD6mqf2S",
+      "reason": "256px 원본·짙은 단색으로 저대비 크롬 후보보다 식별력이 좋음",
+      "file": "genesis.png",
+      "ratio": 5.026,
+      "originalSize": [
+        256,
+        256
+      ],
+      "trimmedSize": [
+        191,
+        38
+      ]
+    },
+    {
+      "name": "기아",
+      "slug": "kia",
+      "source": "K카",
+      "input": "kcar-kia.png",
+      "driveId": "1CSJKs0Uea_8sdJIpLzq46IlhfL_Zczd3",
+      "reason": "워드마크 획이 또렷하고 가로 점유율이 안정적임",
+      "file": "kia.png",
+      "ratio": 3.913,
+      "originalSize": [
+        100,
+        100
+      ],
+      "trimmedSize": [
+        90,
+        23
+      ]
+    },
+    {
+      "name": "쉐보레(국산)",
+      "slug": "chevrolet",
+      "source": "K카",
+      "input": "kcar-chevrolet.png",
+      "driveId": "1MRc0OgwFJ61Fu8dUSjfDYdgFpjxM6cl-",
+      "reason": "보타이 외곽선과 금색 면이 작은 슬롯에서도 유지됨",
+      "file": "chevrolet.png",
+      "ratio": 3.75,
+      "originalSize": [
+        100,
+        100
+      ],
+      "trimmedSize": [
+        90,
+        24
+      ]
+    },
+    {
+      "name": "르노코리아(삼성)",
+      "slug": "renault",
+      "source": "K카",
+      "input": "kcar-renault.svg",
+      "driveId": "1uVWQ9FjUsMlRgNnVyYiy32bljhwXXceY",
+      "reason": "벡터 원본이며 세로형 심볼의 중심과 획이 안정적임",
+      "file": "renault.svg",
+      "ratio": 0.764,
+      "originalSize": [
+        382,
+        500
+      ],
+      "trimmedSize": [
+        382,
+        500
+      ]
+    },
+    {
+      "name": "KG모빌리티(쌍용)",
+      "slug": "kgm",
+      "source": "K카",
+      "input": "kcar-kgm.svg",
+      "driveId": "1Z1xtPlxpQkV6vjn2g9AetIXiK7CMt7Jm",
+      "reason": "구형 쌍용 심볼 대신 현행 KGM 워드마크 사용",
+      "file": "kgm.svg",
+      "ratio": 6.065,
+      "originalSize": [
+        844.9,
+        139.3
+      ],
+      "trimmedSize": [
+        844.9,
+        139.3
+      ]
+    },
+    {
+      "name": "BMW",
+      "slug": "bmw",
+      "source": "과쯔",
+      "input": "guazi-bmw.png",
+      "driveId": "18tcOL2936T-T-RrGK_SYxWwq1aCmSY7O",
+      "reason": "원형 심볼 외곽과 내부 색 구분이 33px에서 균형적임",
+      "file": "bmw.png",
+      "ratio": 1,
+      "originalSize": [
+        100,
+        100
+      ],
+      "trimmedSize": [
+        72,
+        72
+      ]
+    },
+    {
+      "name": "벤츠",
+      "slug": "mercedes-benz",
+      "source": "과쯔",
+      "input": "guazi-benz.png",
+      "driveId": "1AzugBhRvOysYHQDZR8vHi3adl9y7FYbe",
+      "reason": "원형 외곽과 삼각별의 선 두께가 작은 슬롯에서 안정적임",
+      "file": "mercedes-benz.png",
+      "ratio": 1,
+      "originalSize": [
+        100,
+        100
+      ],
+      "trimmedSize": [
+        74,
+        74
+      ]
+    },
+    {
+      "name": "아우디",
+      "slug": "audi",
+      "source": "K카",
+      "input": "kcar-audi.png",
+      "driveId": "1SbIgmcKQ8sd2IA56t1KUNeYJZel9y1D-",
+      "reason": "가로형 4링의 실제 점유율과 대비가 가장 좋음",
+      "file": "audi.png",
+      "ratio": 2.848,
+      "originalSize": [
+        100,
+        100
+      ],
+      "trimmedSize": [
+        94,
+        33
+      ]
+    },
+    {
+      "name": "포르쉐",
+      "slug": "porsche",
+      "source": "과쯔",
+      "input": "guazi-porsche.png",
+      "driveId": "1NWIIuejGBdOfLHRkOh4bv1sHAoI5O6V1",
+      "reason": "256px 원본을 투명 여백 제거해 문양 손실을 줄임",
+      "file": "porsche.png",
+      "ratio": 0.756,
+      "originalSize": [
+        256,
+        256
+      ],
+      "trimmedSize": [
+        130,
+        172
+      ]
+    }
+  ]
+}
