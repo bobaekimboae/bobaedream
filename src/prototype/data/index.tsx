@@ -24,6 +24,7 @@ import { luxuryUiTestRows } from "./luxury-ui-test";
 import { bikeModelsByMaker, bikeTopBrands } from "./bike-filter-catalog";
 import { heavyInventory } from "../heavy/data";
 import { truckModelsByMaker, truckScenarioV01 } from "../truck/scenario-v01";
+import { truckScenarioImageV02 } from "../truck/scenario-images-v02";
 
 export type SellerType = "전체" | "개인" | "딜러";
 type SheetType = "filter" | "quick" | "carType" | "maker" | "vehicle" | "year" | "price" | "region" | "sort" | null;
@@ -854,7 +855,7 @@ const truckCars: Car[] = truckScenarioV01.map((row, index) => {
   maker: row.maker,
   modelGroup: row.model,
   sellerType: row.sellerType,
-  image: row.image,
+  image: truckScenarioImageV02[row.id] ?? row.image,
   imageFit: "contain",
   title: `${row.maker} ${row.model}`,
   trim: `${row.format} · ${row.subtype}`,
@@ -873,7 +874,7 @@ const truckCars: Car[] = truckScenarioV01.map((row, index) => {
     load: row.load,
     scenarioId: row.id,
     isVirtual: true,
-    scenarioVersion: "v01",
+    scenarioVersion: "v02",
     axle: truckAxles[index % truckAxles.length],
     inspection: index % 3 === 0 ? "진단 완료" : undefined,
     performance: index % 2 === 0 ? "성능기록부 공개" : undefined,
