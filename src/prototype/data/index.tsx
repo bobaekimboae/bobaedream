@@ -21,6 +21,7 @@ import {
 } from "simple-icons";
 import { emptyChoTotFilters, vehicleCategoryOptions, type ChoTotFilterState } from "../../ChoTotFilterSheet";
 import { luxuryUiTestRows } from "./luxury-ui-test";
+import { heavyInventory } from "../heavy/data";
 
 export type SellerType = "전체" | "개인" | "딜러";
 type SheetType = "filter" | "quick" | "carType" | "maker" | "vehicle" | "year" | "price" | "region" | "sort" | null;
@@ -63,6 +64,7 @@ type Car = {
   posted: string;
   photos: number;
   badges?: ListingBadge[];
+  heavy?: { form: string; detail: string; hours: number; evaluation: string };
   sellerProfile?: string | null;
   uiTest?: {
     number: number;
@@ -739,6 +741,40 @@ const getInitialChoTotFilters = (): ChoTotFilterState => {
 };
 const listingBadgeOptions: ListingBadge[] = ["브랜드인증", "제조사보증", "1인소유", "가격인하", "인증중고차"];
 
+const heavyCars: Car[] = heavyInventory.map((row, index) => ({
+  id: 5000 + index,
+  maker: row.maker,
+  modelGroup: row.model,
+  sellerType: "딜러",
+  image: "categories/construction.svg",
+  imageFit: "contain",
+  title: `${row.maker} ${row.model}`,
+  trim: `${row.form} · ${row.detail}`,
+  specs: [`${row.year}년식`, `${row.hours.toLocaleString("ko-KR")}h`, `평가 ${row.evaluation}`, row.region],
+  price: row.price === null ? "가격 상담" : `${Math.round(row.price / 10000).toLocaleString("ko-KR")} 만원`,
+  place: `${row.region} · 건설기계 전문매장`,
+  views: 40 + index * 7,
+  dealer: "건설기계 전문딜러",
+  stock: 1,
+  posted: `${(index % 12) + 1}시간 전`,
+  photos: 1,
+  badges: index % 3 === 0 ? ["제조사보증"] : [],
+  heavy: { form: row.form, detail: row.detail, hours: row.hours, evaluation: row.evaluation },
+  filter: {
+    year: row.year,
+    seats: "전체",
+    condition: "중고",
+    mileage: 0,
+    owners: "전체",
+    transmission: "전체",
+    fuel: "디젤",
+    color: "기타",
+    origin: "수입",
+    body: "건설기계",
+    video: false,
+  },
+}));
+
 const defaultCars: Car[] = [
   {
     id: 1, maker: "벤츠", sellerType: "딜러", image: "detail/raw-18.jpeg", title: "벤츠 CLS 450 4MATIC", trim: "AMG Line",
@@ -1176,6 +1212,7 @@ export {
   emptyRegion,
   getInitialChoTotFilters,
   listingBadgeOptions,
+  heavyCars,
   defaultCars,
   bmwCars,
   benzCars,
