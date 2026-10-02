@@ -4,7 +4,7 @@ import regionsKr from "../data/regions-kr.json";
 import type { BbmCheckKey, BbmRangeKey } from "./bbm-filter-state";
 
 export type BbmFilterMode = "expand" | "modal";
-export type BbmFilterItem = { label: string; mode: BbmFilterMode; modalTitle?: string; checkKey?: BbmCheckKey; rangeKey?: BbmRangeKey; columns?: 1 | 2; scope?: "bike" };
+export type BbmFilterItem = { label: string; displayLabel?: string; mode: BbmFilterMode; modalTitle?: string; checkKey?: BbmCheckKey; rangeKey?: BbmRangeKey; columns?: 1 | 2; scope?: "bike" | "truck" };
 
 export const bbmCheckOptions: Record<BbmCheckKey, string[]> = {
   bodyType: ["세단", "해치백", "왜건", "쿠페", "컨버터블", "SUV", "RV", "밴(승합)", "픽업트럭", "리무진", "화물트럭", "버스", "캠핑카"],
@@ -28,6 +28,16 @@ export const bbmCheckOptions: Record<BbmCheckKey, string[]> = {
   bikeGenre: ["네이키드", "스쿠터", "스포츠", "멀티퍼포즈", "크루저", "클래식", "언더본", "투어러", "오프로드", "전기", "삼륜", "ATV", "기타"],
   bikeLicense: ["전체", "1종 보통 & 원동기", "2종 보통", "2종 소형"],
   bikeSource: ["전체", "라바 인증", "라바 개인", "라바 상점", "중고나라", "경매"],
+  truckAxle: ["전축", "중축", "후축"],
+  truckInspection: ["진단 완료"],
+  truckPerformance: ["성능기록부 공개"],
+  truckSellerKind: ["개인", "딜러"],
+  truckUse: ["자가용", "영업용", "등본차량"],
+  truckColor: ["흰색", "청색", "노란색", "쥐색", "흰색투톤", "진주색", "검정색", "은색", "빨간색", "기타"],
+  truckFuel: ["가솔린", "디젤", "LPG(일반인 구입)", "가솔린+전기", "전기", "CNG", "기타"],
+  truckTransmission: ["오토", "수동", "세미오토", "기타"],
+  truckOptions: ["리프트(파워게이트)", "내비게이션", "후방 카메라", "가죽 시트", "에어백(운전석)", "타코메타", "ABS"],
+  truckCargoLength: ["단축", "중축", "특중축", "장축", "초장축", "특초장축", "초장축플러스", "극초장축", "극초장축 플러스"],
 };
 
 // 옵션(모달 제목 "차량 옵션"): 왼쪽 세로 탭 6개 + 섹션별 목록, 아래 [취소] + [선택완료]
@@ -86,11 +96,39 @@ export const bbmSidebarItems: BbmFilterItem[] = [
   { label: "장르", mode: "modal", checkKey: "bikeGenre", scope: "bike" },
   { label: "면허", mode: "modal", checkKey: "bikeLicense", scope: "bike" },
   { label: "매물출처", mode: "modal", checkKey: "bikeSource", scope: "bike" },
+  { label: "트럭 가변축", displayLabel: "가변축", mode: "modal", checkKey: "truckAxle", scope: "truck" },
+  { label: "트럭 진단", displayLabel: "트럭 진단", mode: "modal", checkKey: "truckInspection", scope: "truck" },
+  { label: "트럭 성능공개", displayLabel: "성능공개", mode: "modal", checkKey: "truckPerformance", scope: "truck" },
+  { label: "트럭 판매자구분", displayLabel: "판매자구분", mode: "modal", checkKey: "truckSellerKind", scope: "truck" },
+  { label: "트럭 용도", displayLabel: "용도", mode: "modal", checkKey: "truckUse", scope: "truck" },
+  { label: "트럭 색상", displayLabel: "색상", mode: "modal", checkKey: "truckColor", scope: "truck", columns: 2 },
+  { label: "트럭 연료", displayLabel: "연료", mode: "modal", checkKey: "truckFuel", scope: "truck" },
+  { label: "트럭 변속기", displayLabel: "변속기", mode: "modal", checkKey: "truckTransmission", scope: "truck" },
+  { label: "트럭 옵션", displayLabel: "옵션", mode: "modal", checkKey: "truckOptions", scope: "truck" },
+  { label: "트럭 적재규격", displayLabel: "적재규격", mode: "modal", checkKey: "truckCargoLength", scope: "truck" },
 ];
 
 // QF-110 과쯔 좌측 필터 순서(한 곳에서 정의 — PC 좌측 필터가 쓰고, 나중에 모바일 필터 시트도 같은 배열을 쓸 수 있게).
 // 제조사 · 모델(처음부터 펼침) → 연식 → 주행거리 → 가격 → 바디타입 → 차급(접힘) → 지역 아래는 bbmSidebarItems 순서 그대로
 export const BBM_MAKER_ITEM = "제조사 · 모델";
 const bbmFilterHead = [BBM_MAKER_ITEM, "연식", "주행거리", "가격", "바디타입", "차급"];
-export const bbmFilterOrder: string[] = [...bbmFilterHead, ...bbmSidebarItems.filter((item) => item.scope !== "bike").map((item) => item.label).filter((label) => !bbmFilterHead.includes(label))];
+export const bbmFilterOrder: string[] = [...bbmFilterHead, ...bbmSidebarItems.filter((item) => !item.scope).map((item) => item.label).filter((label) => !bbmFilterHead.includes(label))];
 export const bikeFilterOrder: string[] = [BBM_MAKER_ITEM, "연식", "가격", "장르", "배기량", "면허", "주행거리", "지역", "매물출처"];
+export const truckFilterOrder: string[] = [
+  BBM_MAKER_ITEM,
+  "트럭 가변축",
+  "연식",
+  "주행거리",
+  "가격",
+  "트럭 진단",
+  "지역",
+  "트럭 성능공개",
+  "트럭 판매자구분",
+  "트럭 용도",
+  "트럭 색상",
+  "트럭 연료",
+  "트럭 변속기",
+  "트럭 옵션",
+  "트럭 적재규격",
+  "차량번호 / 판매자",
+];

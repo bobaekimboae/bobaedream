@@ -179,7 +179,7 @@ export function BbmSellerTypeSheet({
 // 슬라이더 눈금 끝(원본 가격 슬라이더: 0 ~ 1억)
 const sliderMax: Partial<Record<BbmRangeKey, number>> = { price: 10000, mileage: 300000, power: 600, efficiency: 20, displacement: 5000, weight: 3000, evRange: 600, length: 6000, width: 2200, height: 2200 };
 const thisYear = 2026;
-const years = Array.from({ length: thisYear - 1989 }, (_, index) => `${thisYear - index}년`);
+const years = Array.from({ length: thisYear - 1979 }, (_, index) => `${thisYear - index}년`);
 const months = Array.from({ length: 12 }, (_, index) => `${index + 1}월`);
 
 // 외부색상·시트색상 동그라미 색(원본 칩 모양을 따라 새로 정한 색. 투톤은 반반)

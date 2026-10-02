@@ -96,6 +96,17 @@ type Car = {
     scenarioId: string;
     isVirtual: boolean;
     scenarioVersion: string;
+    axle?: string;
+    inspection?: string;
+    performance?: string;
+    sellerKind?: string;
+    use?: string;
+    color?: string;
+    fuel?: string;
+    transmission?: string;
+    options?: string[];
+    cargoLength?: string;
+    vehicleNumber?: string;
   };
   sellerProfile?: string | null;
   uiTest?: {
@@ -827,7 +838,18 @@ const heavyCars: Car[] = heavyInventory.map((row, index) => ({
 }));
 
 const truckDomesticMakers = new Set(["현대", "기아", "타타대우", "KG모빌리티"]);
-const truckCars: Car[] = truckScenarioV01.map((row, index) => ({
+const truckAxles = ["전축", "중축", "후축"] as const;
+const truckUses = ["자가용", "자가용", "영업용", "등본차량"] as const;
+const truckColors = ["흰색", "청색", "노란색", "쥐색", "흰색투톤", "진주색", "검정색", "은색", "빨간색", "기타"] as const;
+const truckCargoLengths = ["단축", "중축", "특중축", "장축", "초장축", "특초장축", "초장축플러스", "극초장축", "극초장축 플러스"] as const;
+const truckOptionPool = ["내비게이션", "후방 카메라", "가죽 시트", "에어백(운전석)", "타코메타", "ABS"] as const;
+const truckCars: Car[] = truckScenarioV01.map((row, index) => {
+  const color = truckColors[index % truckColors.length];
+  const fuel = row.fuel;
+  const transmission = row.transmission;
+  const options = [truckOptionPool[index % truckOptionPool.length], truckOptionPool[(index + 2) % truckOptionPool.length]] as string[];
+  if (row.subtype.includes("파워게이트") || index % 5 === 0) options.unshift("리프트(파워게이트)");
+  return ({
   id: 6000 + index,
   maker: row.maker,
   modelGroup: row.model,
@@ -852,6 +874,17 @@ const truckCars: Car[] = truckScenarioV01.map((row, index) => ({
     scenarioId: row.id,
     isVirtual: true,
     scenarioVersion: "v01",
+    axle: truckAxles[index % truckAxles.length],
+    inspection: index % 3 === 0 ? "진단 완료" : undefined,
+    performance: index % 2 === 0 ? "성능기록부 공개" : undefined,
+    sellerKind: row.sellerType,
+    use: truckUses[index % truckUses.length],
+    color,
+    fuel,
+    transmission,
+    options,
+    cargoLength: truckCargoLengths[index % truckCargoLengths.length],
+    vehicleNumber: `90가${String(1000 + index).padStart(4, "0")}`,
   },
   filter: {
     year: row.year,
@@ -861,12 +894,13 @@ const truckCars: Car[] = truckScenarioV01.map((row, index) => ({
     owners: "전체",
     transmission: row.transmission,
     fuel: row.fuel,
-    color: "기타",
+    color,
     origin: truckDomesticMakers.has(row.maker) ? "국산" : "수입",
     body: row.format === "버스" ? "승합" : "화물",
     video: false,
   },
-}));
+  });
+});
 
 const defaultCars: Car[] = [
   {

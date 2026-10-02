@@ -5,7 +5,9 @@
 export type BbmCheckKey =
   | "bodyType" | "carClass" | "region" | "district" | "complex" | "seats" | "drive" | "history" | "sellerKind" | "saleType"
   | "exteriorColor" | "seatColor" | "seatFinish" | "fuel" | "transmission" | "options" | "features"
-  | "bikeGenre" | "bikeLicense" | "bikeSource";
+  | "bikeGenre" | "bikeLicense" | "bikeSource"
+  | "truckAxle" | "truckInspection" | "truckPerformance" | "truckSellerKind" | "truckUse"
+  | "truckColor" | "truckFuel" | "truckTransmission" | "truckOptions" | "truckCargoLength";
 export type BbmRangeKey = "year" | "mileage" | "price" | "power" | "efficiency" | "displacement" | "weight" | "length" | "width" | "height" | "evRange";
 export type BbmRange = { min: string; max: string; preset?: string };
 export type BbmPriceTab = "일반" | "리스 / 렌트";
@@ -26,7 +28,10 @@ export const emptyBbmFilters: BbmFilterValues = { checks: {}, ranges: {}, priceT
 
 // 우리 데이터로 실제로 거르는 항목(QF-090)
 // QF-111: district(구·군) 값은 "서울 강남구"처럼 시도를 포함(중구 등 이름 겹침 방지). 매물은 place 앞 두 단어로 비교
-export const BBM_DATA_CHECK_KEYS: BbmCheckKey[] = ["bodyType", "fuel", "transmission", "seats", "exteriorColor", "sellerKind", "region", "district"];
+export const BBM_DATA_CHECK_KEYS: BbmCheckKey[] = [
+  "bodyType", "fuel", "transmission", "seats", "exteriorColor", "sellerKind", "region", "district",
+  "truckAxle", "truckInspection", "truckPerformance", "truckSellerKind", "truckUse", "truckColor", "truckFuel", "truckTransmission", "truckOptions", "truckCargoLength",
+];
 export const BBM_DATA_RANGE_KEYS: BbmRangeKey[] = ["year", "mileage", "price"];
 export const isBbmDataKey = (key: string) => (BBM_DATA_CHECK_KEYS as string[]).includes(key) || (BBM_DATA_RANGE_KEYS as string[]).includes(key);
 // 항목 안에서도 우리 데이터에 있는 선택지만 거른다(판매자 구분은 딜러·개인만)
@@ -92,7 +97,7 @@ export function bbmAppliedIds(value: BbmFilterValues) {
   };
   return ids.map((id, index) => ({ id, index })).sort((x, y) => rank(x.id) - rank(y.id) || x.index - y.index).map((entry) => entry.id);
 }
-const chipOrder = ["check:bikeGenre", "check:bikeLicense", "check:bikeSource", "check:bodyType", "check:carClass", "range:year", "check:region", "check:district", "check:complex", "check:seats", "check:drive", "check:history", "check:sellerKind", "check:saleType", "check:exteriorColor", "check:seatColor", "check:seatFinish", "check:fuel", "check:transmission", "check:options", "check:features", "range:mileage", "range:price", "range:power", "range:efficiency", "range:displacement", "range:weight", "range:length", "range:width", "range:height", "range:evRange"];
+const chipOrder = ["check:bikeGenre", "check:bikeLicense", "check:bikeSource", "check:bodyType", "check:carClass", "check:truckAxle", "range:year", "range:mileage", "range:price", "check:truckInspection", "check:region", "check:truckPerformance", "check:truckSellerKind", "check:truckUse", "check:truckColor", "check:truckFuel", "check:truckTransmission", "check:truckOptions", "check:truckCargoLength", "check:district", "check:complex", "check:seats", "check:drive", "check:history", "check:sellerKind", "check:saleType", "check:exteriorColor", "check:seatColor", "check:seatFinish", "check:fuel", "check:transmission", "check:options", "check:features", "range:power", "range:efficiency", "range:displacement", "range:weight", "range:length", "range:width", "range:height", "range:evRange"];
 
 // ── 범위 해석: 입력칸(최저·최대) 또는 구간 칩 → 숫자 범위
 const num = (text: string) => { const n = Number(text.replace(/[^\d.]/g, "")); return Number.isFinite(n) && text.trim() ? n : null; };
@@ -149,10 +154,24 @@ export function bbmPricePresetRange(preset: string): BbmRange {
 export type BbmCarLike = {
   title: string;
   sellerType: string;
+  dealer?: string;
   photos: number;
   place?: string;
   price?: string;
   filter?: { year: number; seats: string; mileage: number; transmission: string; fuel: string; color: string; origin: string; body: string; video: boolean };
+  truck?: {
+    axle?: string;
+    inspection?: string;
+    performance?: string;
+    sellerKind?: string;
+    use?: string;
+    color?: string;
+    fuel?: string;
+    transmission?: string;
+    options?: string[];
+    cargoLength?: string;
+    vehicleNumber?: string;
+  };
 };
 const bodyTypeByBody: Record<string, string> = { 세단: "세단", 해치백: "해치백", 왜건: "왜건", SUV: "SUV", RV: "RV", 승합: "밴(승합)", 스포츠카: "쿠페", 쿠페: "쿠페", 컨버터블: "컨버터블", 화물: "화물트럭", 픽업트럭: "픽업트럭", 리무진: "리무진", 버스: "버스", 캠핑카: "캠핑카" };
 const fuelByFuel: Record<string, string> = { 가솔린: "가솔린", 디젤: "디젤", LPG: "LPG", 전기: "전기", 하이브리드: "가솔린 하이브리드" };
@@ -165,6 +184,16 @@ export function bbmCarChecks(car: BbmCarLike): Partial<Record<BbmCheckKey, strin
     sellerKind: car.sellerType === "딜러" ? ["딜러"] : car.sellerType === "개인" ? ["개인"] : [],
     region: car.place ? [car.place.split(" ")[0]] : [],
     district: car.place && car.place.split(" ").length > 1 ? [car.place.split(" ").slice(0, 2).join(" ")] : [],
+    truckAxle: car.truck?.axle ? [car.truck.axle] : [],
+    truckInspection: car.truck?.inspection ? [car.truck.inspection] : [],
+    truckPerformance: car.truck?.performance ? [car.truck.performance] : [],
+    truckSellerKind: car.truck?.sellerKind ? [car.truck.sellerKind] : [],
+    truckUse: car.truck?.use ? [car.truck.use] : [],
+    truckColor: car.truck?.color ? [car.truck.color] : [],
+    truckFuel: car.truck?.fuel ? [car.truck.fuel] : [],
+    truckTransmission: car.truck?.transmission ? [car.truck.transmission] : [],
+    truckOptions: car.truck?.options ?? [],
+    truckCargoLength: car.truck?.cargoLength ? [car.truck.cargoLength] : [],
   };
   if (!data) return values;
   values.bodyType = bodyTypeByBody[data.body] ? [bodyTypeByBody[data.body]] : [];
@@ -195,6 +224,11 @@ export function matchesBbmFilters(car: BbmCarLike, value: BbmFilterValues | unde
     if (actual === undefined) return false;
     if (min !== null && actual < min) return false;
     if (max !== null && actual > max) return false;
+  }
+  if (except !== "keyword" && value.keyword.trim()) {
+    const keyword = value.keyword.trim().toLocaleLowerCase("ko-KR");
+    const haystack = [car.title, car.dealer, car.truck?.vehicleNumber].filter(Boolean).join(" ").toLocaleLowerCase("ko-KR");
+    if (!haystack.includes(keyword)) return false;
   }
   return true;
 }

@@ -46,6 +46,7 @@
   .bbm-switch.is-on { background: var(--blue); }
   .bbm-switch.is-on span { transform: translateX(14px); }
   .bbm-filter-item { border-bottom: 1px solid #ebebeb; }
+  .bbm-filter-group-title { padding: 11px 16px 9px; border-bottom: 1px solid #e3ebf8; background: #f2f7ff; color: #1456a0; font-size: 12px; font-weight: 700; letter-spacing: -.1px; }
   .bbm-filter-item:last-child { border-bottom: 0; }
   .bbm-filter-toggle { display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; padding: 14px 16px; border: 0; background: none; color: #222; font-size: 14px; font-weight: 600; line-height: 20px; text-align: left; }
   .bbm-filter-chevron { color: #767676; transition: transform 140ms ease; }

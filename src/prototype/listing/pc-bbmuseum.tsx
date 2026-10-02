@@ -50,7 +50,7 @@ function BbHeader({ onNotify, onOpenFavorites }: { onNotify: (message: string) =
 const bbMakerItem = BBM_MAKER_ITEM;
 // 항목 순서: 원본(초톳·동처띠 PC 등 동결 모드) = 바디타입 → 차급 → 제조사 · 모델 → 연식 …
 // QF-110 과쯔는 설정 배열 bbmFilterOrder(제조사 · 모델 맨 위, 바디타입·차급은 가격 아래)를 order 로 넘긴다. 열림 방식(펼침/412 모달)은 원본 수집 결과(bbm-filter-options.ts)
-const passengerSidebarItems = bbmSidebarItems.filter((item) => item.scope !== "bike");
+const passengerSidebarItems = bbmSidebarItems.filter((item) => !item.scope);
 const bbFilterMenuOriginal = [passengerSidebarItems[0].label, passengerSidebarItems[1].label, bbMakerItem, ...passengerSidebarItems.slice(2).map((item) => item.label)];
 const bbFilterItemByLabel = new Map(bbmSidebarItems.map((item) => [item.label, item]));
 
@@ -58,7 +58,7 @@ type CatalogRow = [label: string, count: number, maker?: string];
 type BbMakerSection = { title: string; rows: CatalogRow[] };
 type BbTruckFilterOption = { name: string; count: number };
 type BbTruckSpecGroup = { label: string; options: BbTruckFilterOption[] };
-type BbTruckFilter = {
+export type BbTruckFilter = {
   format: string | null;
   subtype: string | null;
   spec: string | null;
@@ -179,7 +179,7 @@ function BbMakerGradeFilter({ selection, view, setView, brandLogos = false, make
 
 type BbTruckView = "format" | "subtype" | "spec";
 
-function BbTruckFormatFilter({ value }: { value: BbTruckFilter }) {
+export function BbTruckFormatFilter({ value }: { value: BbTruckFilter }) {
   const stageFor = (): BbTruckView => !value.format ? "format" : !value.subtype ? "subtype" : value.specGroups.length ? "spec" : "subtype";
   const [view, setView] = useState<BbTruckView>(stageFor);
   useEffect(() => { setView(stageFor()); }, [value.format, value.subtype, value.spec, value.specGroups.length]);
@@ -279,16 +279,19 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
             {open ? <BbTruckFormatFilter value={truckFilter} /> : null}
           </section>;
         })() : null}
+        {truckFilter ? <div className="bbm-filter-group-title">트럭 전용 필터</div> : null}
         {order.map((label) => {
           const open = openItems.includes(label);
           const isMaker = label === bbMakerItem;
+          const filterItem = bbFilterItemByLabel.get(label);
+          const displayLabel = truckFilter && isMaker ? "제조사/모델/등급" : truckFilter && label === "차량번호 / 판매자" ? "차량번호/판매자 이름" : filterItem?.displayLabel ?? label;
           // QF-089: 값이 걸린 항목은 제목 보배 파랑 + 왼쪽 파랑 막대
           const applied = isMaker ? Boolean(maker) : Boolean(bbmItemValue(label, bbm));
           return (
             <Fragment key={label}>
             <section className={`bbm-filter-item${open ? " is-open" : ""}${isMaker ? " is-maker-grade" : ""}${applied ? " is-applied" : ""}`}>
-              <button type="button" className="bbm-filter-toggle" aria-expanded={bbFilterItemByLabel.get(label)?.mode === "modal" ? undefined : open} aria-haspopup={bbFilterItemByLabel.get(label)?.mode === "modal" ? "dialog" : undefined} onClick={() => { const item = bbFilterItemByLabel.get(label); if (item?.mode === "modal") openModal(item); else toggle(label); }}>
-                <span className="bbm-filter-label"><span className="bbm-filter-label-text">{label === "전기차 주행 가능 거리" ? <img className="bbm-filter-label-icon" src={bbmAsset("filter-ev-range")} alt="" aria-hidden="true" /> : null}{label}</span>{isMaker && !open && collapsedPath ? <small className="bbm-filter-path">{collapsedPath}</small> : null}</span>
+              <button type="button" className="bbm-filter-toggle" aria-expanded={filterItem?.mode === "modal" ? undefined : open} aria-haspopup={filterItem?.mode === "modal" ? "dialog" : undefined} onClick={() => { if (filterItem?.mode === "modal") openModal(filterItem); else toggle(label); }}>
+                <span className="bbm-filter-label"><span className="bbm-filter-label-text">{label === "전기차 주행 가능 거리" ? <img className="bbm-filter-label-icon" src={bbmAsset("filter-ev-range")} alt="" aria-hidden="true" /> : null}{displayLabel}</span>{isMaker && !open && collapsedPath ? <small className="bbm-filter-path">{collapsedPath}</small> : null}</span>
                 <img className="bbm-filter-chevron" src={bbmAsset("filter-chevron")} alt="" aria-hidden="true" />
               </button>
               {isMaker && maker ? <button type="button" className="bbm-filter-item-reset" onClick={selection.onClearMaker}>초기화</button> : null}
@@ -301,12 +304,12 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
       </div>
       {modalItem ? (
         <BbmModal
-          title={modalItem.modalTitle ?? modalItem.label}
+          title={modalItem.modalTitle ?? modalItem.displayLabel ?? modalItem.label}
           wide={modalItem.label === "옵션"}
           onClose={() => setModalItem(null)}
           footer={modalItem.label === "광고기간" ? undefined : modalItem.label === "옵션"
             ? <BbmActionBar count={0} resetLabel="취소" confirmLabel="선택완료" onReset={() => setModalItem(null)} onConfirm={() => { onBbmChange(draft); setModalItem(null); }} />
-            : <BbmActionBar count={countWithBbm(bbm)} onReset={() => setDraft(clearBbmItem(modalItem, draft))} onConfirm={() => { onBbmChange(draft); setModalItem(null); }} />}
+            : <BbmActionBar count={countWithBbm(draft)} onReset={() => setDraft(clearBbmItem(modalItem, draft))} onConfirm={() => { onBbmChange(draft); setModalItem(null); }} />}
         >
           {/* 광고기간은 원본처럼 아래 버튼 없이 고르면 바로 반영하고 닫는다 */}
           <BbmModalPanel item={modalItem} value={draft} countOf={countOf} onChange={modalItem.label === "광고기간" ? (next) => { onBbmChange(next); setModalItem(null); } : setDraft} />
@@ -364,4 +367,4 @@ function BbCarCard({ car, liked, onToggleLike, onOpen, onNotify }: { car: Car; l
   );
 }
 
-export { bbCatalog, bbMakerLabel, BbIcon, BbHeader, BbFilterSidebar, BbSwitch, BbCarCard, type BbMakerSelection, type BbModelRow, type BbGradeGroup, type BbMakerSection, type BbTruckFilter };
+export { bbCatalog, bbMakerLabel, BbIcon, BbHeader, BbFilterSidebar, BbSwitch, BbCarCard, type BbMakerSelection, type BbModelRow, type BbGradeGroup, type BbMakerSection };
