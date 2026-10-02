@@ -1734,8 +1734,8 @@ function MarketplaceScreen() {
           </div>
           {bbmAppliedCount ? <button type="button" className="bbm-ct-reset" onClick={() => setBbmTopReset((value) => value + 1)}>필터 초기화</button> : null}
         </div>
-        {/* QF-106 ③ 지역 칩 줄(PC만, 항상) */}
-        <StableRegionRow value={bbmValue} onChange={setBbmFilters} onNearby={() => setSearchToast("내 주변 매물은 정식 서비스에서 이용해 주세요.")} />
+        {/* 트럭·특장 PC는 좌측 트럭 전용 필터의 지역 항목만 사용하고 상단 지역 칩 줄은 노출하지 않는다. */}
+        {isTruckCategory ? null : <StableRegionRow value={bbmValue} onChange={setBbmFilters} onNearby={() => setSearchToast("내 주변 매물은 정식 서비스에서 이용해 주세요.")} />}
         <div className="bbm-quick-slot">{quickRail}</div>
       </section>
     );
