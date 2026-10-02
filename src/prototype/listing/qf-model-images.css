@@ -124,7 +124,7 @@
   height: 90px;
   flex: 0 0 88px;
   padding: 5px 4px 4px;
-  border-radius: 14px;
+  border-radius: 10px;
 }
 
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth > .depth-card-label {
@@ -153,7 +153,7 @@
   height: 80px;
   flex: 0 0 72px;
   padding: 4px;
-  border-radius: 14px;
+  border-radius: 10px;
 }
 
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth > .depth-card-label {
