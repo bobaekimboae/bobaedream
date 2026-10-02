@@ -8,8 +8,8 @@ export const truckFormatCatalog = [
   {
     name: "카고(화물)트럭",
     subtypes: [
-      "경형 트럭 (0.9톤 이하)",
-      "소형 트럭 (1~3.5톤)",
+      "경형 트럭 (1톤)",
+      "소형 트럭 (1.1~3.5톤)",
       "중형 트럭 (4~8.5톤)",
       "대형 트럭 (9톤 이상)",
       "파워게이트",
@@ -71,8 +71,8 @@ const truckFormatImages: Readonly<Record<string, string>> = {
 
 const truckSubtypeImages: Readonly<Record<string, Readonly<Record<string, string>>>> = {
   "카고(화물)트럭": {
-    "경형 트럭 (0.9톤 이하)": "truck/formats/v01/truck_subtype_light_class_v01.png",
-    "소형 트럭 (1~3.5톤)": "truck/formats/v01/truck_format_one_ton_v01.png",
+    "경형 트럭 (1톤)": "truck/formats/v01/truck_format_one_ton_v01.png",
+    "소형 트럭 (1.1~3.5톤)": "truck/formats/v01/truck_subtype_light_class_v01.png",
     "중형 트럭 (4~8.5톤)": "truck/formats/v01/truck_subtype_cargo_v01.png",
     "대형 트럭 (9톤 이상)": "truck/formats/v01/truck_subtype_large_class_v01.png",
     "파워게이트": "truck/formats/v01/truck_subtype_powergate_v01.png",
@@ -197,7 +197,7 @@ export const normalizeTruckFormatSelection = (format: string | null, subtype: st
   const legacyOneTon = format === "1톤트럭";
   const aliasedFormat = legacyOneTon || format === "화물트럭" || format === "카고트럭" ? "카고(화물)트럭" : format;
   const aliasedSubtype = (legacyOneTon && !subtype) || subtype === "1톤트럭"
-    ? "소형 트럭 (1~3.5톤)"
+    ? "경형 트럭 (1톤)"
     : subtype === "카고(화물)트럭" || subtype === "카고트럭" || subtype === "화물트럭"
       ? "중형 트럭 (4~8.5톤)"
       : subtype;

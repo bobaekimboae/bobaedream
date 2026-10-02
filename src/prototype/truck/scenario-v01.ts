@@ -18,8 +18,8 @@ export type TruckScenarioV01Row = {
 
 // UI 동작 검증용 가상 매물이다. 실제 판매 차량·가격·주소가 아니다.
 export const truckScenarioV01: readonly TruckScenarioV01Row[] = [
-  { id: "truck-001", maker: "한국GM", model: "라보", format: "카고(화물)트럭", subtype: "경형 트럭 (0.9톤 이하)", year: 2021, mileage: 28400, load: "0.8톤", price10k: 1290, region: "경기 수원시", sellerType: "딜러", fuel: "LPG", transmission: "수동", seats: "2인승", image: "icons/body-type/truck.svg" },
-  { id: "truck-002", maker: "현대", model: "포터2", format: "카고(화물)트럭", subtype: "소형 트럭 (1~3.5톤)", year: 2023, mileage: 45100, load: "1톤", price10k: 2490, region: "인천 남동구", sellerType: "개인", fuel: "디젤", transmission: "오토", seats: "3인승", image: "icons/body-type/truck.svg" },
+  { id: "truck-001", maker: "현대", model: "포터2", format: "카고(화물)트럭", subtype: "경형 트럭 (1톤)", year: 2023, mileage: 28400, load: "1톤", price10k: 2490, region: "경기 수원시", sellerType: "딜러", fuel: "디젤", transmission: "오토", seats: "3인승", image: "icons/body-type/truck.svg" },
+  { id: "truck-002", maker: "이스즈", model: "엘프", format: "카고(화물)트럭", subtype: "소형 트럭 (1.1~3.5톤)", year: 2022, mileage: 45100, load: "2.5톤", price10k: 4850, region: "인천 남동구", sellerType: "개인", fuel: "디젤", transmission: "오토", seats: "3인승", image: "icons/body-type/truck.svg" },
   { id: "truck-003", maker: "타타대우", model: "더쎈", format: "카고(화물)트럭", subtype: "중형 트럭 (4~8.5톤)", year: 2021, mileage: 67800, load: "5톤", price10k: 6850, region: "경기 화성시", sellerType: "딜러", fuel: "디젤", transmission: "오토", seats: "3인승", image: "icons/body-type/truck.svg" },
   { id: "truck-004", maker: "현대", model: "엑시언트", format: "카고(화물)트럭", subtype: "대형 트럭 (9톤 이상)", year: 2020, mileage: 92300, load: "11톤", price10k: 13990, region: "충남 천안시", sellerType: "딜러", fuel: "디젤", transmission: "수동", seats: "2인승", image: "icons/body-type/truck.svg" },
   { id: "truck-005", maker: "현대", model: "파비스", format: "윙바디/탑", subtype: "윙바디", year: 2022, mileage: 118000, load: "8.5톤", price10k: 11200, region: "경기 평택시", sellerType: "딜러", fuel: "디젤", transmission: "오토", seats: "3인승", image: "icons/body-type/cargo-van.svg" },

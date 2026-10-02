@@ -48,18 +48,18 @@ export function BbmHeadlinePreviewLinks() {
 }
 
 // ── 차량 유형 줄(원본 원형 아이콘 7개). 유형을 고르면 같은 자리가 퀵필터 레일(제조사 단계부터)로 바뀐다
-export const bbmCategoryItems: Array<[label: string, icon: string]> = [
-  ["중고차", "category-used"], ["트럭 · 특장", "category-truck"], ["바이크", "category-bike"], ["캠핑카", "category-camping"],
-  ["올드카", "category-old"], ["건설기계", "category-construction"], ["부품 · 용품", "category-equipment"],
+export const bbmCategoryItems: Array<[value: string, icon: string, label?: string]> = [
+  ["중고차", "category-used", "자동차"], ["트럭 · 특장", "category-truck"], ["바이크", "category-bike"], ["캠핑카", "category-camping"],
+  ["올드카", "category-old"], ["건설기계", "category-construction", "건설기계(덤프/지게차)"], ["부품 · 용품", "category-equipment"],
 ];
 
 export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string) => void }) {
   return (
     <section className="bbm-category-menu" aria-label="차량 유형">
       <ul className="bbm-category-menu__list">
-        {bbmCategoryItems.map(([label, icon]) => (
-          <li key={label} className="bbm-category-menu__item">
-            <button type="button" className="bbm-category-menu__button" onClick={() => onChoose(label)}>
+        {bbmCategoryItems.map(([value, icon, label = value]) => (
+          <li key={value} className="bbm-category-menu__item">
+            <button type="button" className="bbm-category-menu__button" onClick={() => onChoose(value)}>
               <span className="bbm-category-menu__icon-box"><img src={bbmIcon(icon)} alt="" aria-hidden="true" draggable={false} /></span>
               <span className="bbm-category-menu__label">{label}</span>
             </button>
