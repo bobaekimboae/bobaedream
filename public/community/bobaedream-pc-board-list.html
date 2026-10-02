@@ -59,12 +59,26 @@ ul,ol{list-style:none;margin:0;padding:0}
 .loungeMenuButton:focus-visible{outline:2px solid #222;outline-offset:2px}
 .loungeMenuButton img{display:block;width:24px;height:24px}
 .loungeTitleBlock h1{margin:0;font-size:18px;line-height:26px;font-weight:700;letter-spacing:-.25px}
+.loungeSearch{width:480px;height:40px;margin-left:48px;border-radius:27px;background:#f5f6fa;display:flex;align-items:center;overflow:hidden}
+.loungeSearchButton{width:42px;height:40px;display:flex;align-items:center;justify-content:flex-end;flex:0 0 42px;color:#8a8f9b}
+.loungeSearchButton img{display:block;width:20px;height:20px}
+.loungeSearchInput{min-width:0;height:40px;flex:1;border:0;outline:0;background:transparent;padding:0 16px 0 10px;color:#222;font-size:15px;line-height:20px;font-weight:400}
+.loungeSearchInput::placeholder{color:#9da2ad}
+.loungeSearch:focus-within{background:#fff;box-shadow:0 0 0 1.5px #222}
 .loungeNav{height:60px;background:#fff;border-top:1px solid #f1f1f1;border-bottom:1px solid #e7e7e7}
 .loungeNavInner{width:1280px;height:60px;margin:0 auto;display:flex;align-items:center;gap:8px}
 .loungeTab{height:40px;color:#555;font-size:14px;line-height:18px;font-weight:600;padding:0 8px;border:3px solid transparent;border-radius:999px;background:transparent;background-clip:padding-box;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;transition:background-color .18s ease,color .18s ease}
 .loungeTab:hover{background:#f4f5f7;background-clip:padding-box;color:#222}
 .loungeTab:focus-visible{outline:2px solid #222;outline-offset:1px}
 .loungeTab.active{padding-left:14px;padding-right:14px;background:#222;background-clip:padding-box;color:#fff;font-weight:700;box-shadow:none}
+.topicNav{height:56px;background:#fff;border-bottom:1px solid #e7e7e7}
+.topicNav.is-hidden{display:none}
+.topicNavInner{width:1280px;height:56px;margin:0 auto;display:flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none}
+.topicNavInner::-webkit-scrollbar{display:none}
+.topicTab{height:36px;padding:0 14px;border-radius:999px;color:#666;font-size:14px;line-height:18px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;flex:0 0 auto}
+.topicTab:hover{background:#f4f5f7;color:#222}
+.topicTab:focus-visible{outline:2px solid #222;outline-offset:1px}
+.topicTab.active{background:#e9ebee;color:#111;font-weight:700}
 .pageWrap{width:1280px;margin:24px auto 0}
 .topBanner{height:80px;border-radius:8px;overflow:hidden;background:
   linear-gradient(90deg,#201518 0%,#3b151a 34%,#683033 64%,#121318 100%);position:relative;color:#fff;display:flex;align-items:center;justify-content:center}
@@ -156,7 +170,7 @@ ul,ol{list-style:none;margin:0;padding:0}
 .railPrimary{display:none}
 html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
 .layout-reddit .loungeHero{position:sticky;top:0;z-index:30;border-bottom:1px solid #e1e4e8}
-.layout-reddit .loungeNav{display:none}
+.layout-reddit .loungeNav,.layout-reddit .topicNav{display:none}
 .layout-reddit .pageWrap{width:1280px;margin:0 auto}
 .layout-reddit .topBanner{display:none}
 .layout-reddit .layoutGrid{grid-template-columns:240px 742px 250px;column-gap:24px;margin-top:0}
@@ -181,7 +195,7 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
 .layout-reddit .footer{margin-top:56px}
 @media(max-width:1320px){
   html,body{min-width:1080px}
-  .globalInner,.loungeHeroInner,.loungeNavInner,.pageWrap,.footer{width:1080px}
+  .globalInner,.loungeHeroInner,.loungeNavInner,.topicNavInner,.pageWrap,.footer{width:1080px}
   .layoutGrid{grid-template-columns:210px 742px;column-gap:24px}
   .rightPanel{display:none}
   .leftMenu{padding-left:20px;padding-right:20px}
@@ -199,20 +213,23 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
       <button class="loungeMenuButton" type="button" aria-label="커뮤니티 전체 메뉴"><img src="assets/lounge-menu.svg" alt="" aria-hidden="true"></button>
       <h1>보배드림 커뮤니티</h1>
     </div>
+    <form class="loungeSearch" role="search">
+      <button class="loungeSearchButton" type="submit" aria-label="커뮤니티 검색"><img src="assets/lounge-search.svg" alt="" aria-hidden="true"></button>
+      <input class="loungeSearchInput" type="search" name="q" placeholder="커뮤니티 게시글 검색" autocomplete="off" aria-label="커뮤니티 게시글 검색">
+    </form>
   </div>
 </section>
 <nav class="loungeNav" aria-label="라운지 메뉴">
   <div class="loungeNavInner">
     <a class="loungeTab" href="bobaedream-pc-board-list.html?view=home">홈</a>
     <a class="loungeTab" href="bobaedream-pc-board-list.html?view=feed">피드</a>
-    <a class="loungeTab active" href="bobaedream-pc-board-list.html">게시판</a>
-    <a class="loungeTab" href="bobaedream-pc-board-list.html?board=%EC%9C%A0%EB%A8%B8">유머</a>
-    <a class="loungeTab" href="bobaedream-pc-board-list.html?board=%EC%A0%95%EC%B9%98">정치</a>
-    <a class="loungeTab" href="bobaedream-pc-board-list.html?board=%EA%B3%B5%EC%A7%80">공지</a>
-    <a class="loungeTab" href="bobaedream-pc-board-list.html?board=%EC%9E%90%EC%9C%A0">자유</a>
-    <a class="loungeTab" href="bobaedream-pc-board-list.html?board=%EC%A7%88%EB%AC%B8">질문</a>
-    <a class="loungeTab" href="bobaedream-pc-board-list.html?board=%EC%8B%9C%EC%8A%B9%EA%B8%B0">시승기</a>
+    <a class="loungeTab active" href="bobaedream-pc-board-list.html?section=car">자동차</a>
+    <a class="loungeTab" href="bobaedream-pc-board-list.html?section=humor">유머</a>
+    <a class="loungeTab" href="bobaedream-pc-board-list.html?section=politics">정치/시사</a>
   </div>
+</nav>
+<nav class="topicNav is-hidden" aria-label="하위 주제 게시판">
+  <div class="topicNavInner"></div>
 </nav>
 <main class="pageWrap">
   <section class="topBanner" aria-label="광고">

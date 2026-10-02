@@ -27,10 +27,27 @@
     '시승기':{categories:['시승기'],label:'시승기'},
     '출석체크':{categories:['출석'],label:'출석'}
   };
+  var sectionConfig={
+    car:{label:'자동차',allLabel:'전체',topics:{'전체':[],'국산차':['국산차','SUV'],'수입차':['수입차'],'전기차':['전기차']}},
+    humor:{label:'유머',allLabel:'전체글',topics:{'전체글':[],'유머':['유머'],'짤방':['짤방']}},
+    politics:{label:'정치/시사',allLabel:'전체글',topics:{'전체글':[],'국민의힘':['국민의힘'],'민주당':['민주당']}}
+  };
+  var sectionPosts={
+    humor:[
+      ['유머','세차장 진입 전에 꼭 확인해야 하는 뜻밖의 이유','웃음충전','방금',342,5,18],
+      ['짤방','주차 한 번에 성공했을 때 표정','주차달인','4분 전',518,8,27]
+    ],
+    politics:[
+      ['국민의힘','오늘 발표된 교통 정책 핵심 내용 정리','정책읽기','방금',286,3,14],
+      ['민주당','자동차 세제 개편 관련 논의 내용 정리','생활정치','5분 전',241,2,11]
+    ]
+  };
 
   addInteractionStyles();
   setupLoginState();
   setupTopNavigation();
+  setupTopicNavigation();
+  setupHeaderSearch();
   setupBoardNavigation();
   setupWriteButtons();
   if(isList) setupListPage();
@@ -116,15 +133,62 @@
 
   function updateTopNavigation(board){
     var params=new URLSearchParams(location.search);
-    var activeLabel='게시판';
+    var section=sectionKeyFromParams(params,board);
+    var activeLabel=section?sectionConfig[section].label:'';
     if(params.get('view')==='home') activeLabel='홈';
     else if(params.get('view')==='feed') activeLabel='피드';
-    else if(['유머','정치','공지','자유','질문','시승기'].indexOf(board)!==-1) activeLabel=board;
     document.querySelectorAll('.loungeTab').forEach(function(link){
       var selected=link.textContent.trim()===activeLabel;
       link.classList.toggle('active',selected);
       if(selected) link.setAttribute('aria-current','page');
       else link.removeAttribute('aria-current');
+    });
+  }
+
+  function setupTopicNavigation(){
+    updateTopicNavigation(boardFromUrl());
+  }
+
+  function updateTopicNavigation(board){
+    var params=new URLSearchParams(location.search);
+    var explicitSection=params.get('section');
+    var config=sectionConfig[explicitSection];
+    document.querySelectorAll('.topicNav').forEach(function(nav){
+      var inner=nav.querySelector('.topicNavInner');
+      nav.classList.toggle('is-hidden',!config);
+      if(!config||!inner){
+        if(inner) inner.innerHTML='';
+        return;
+      }
+      nav.setAttribute('aria-label',config.label+' 하위 주제 게시판');
+      var activeTopic=params.get('topic')||config.allLabel;
+      inner.innerHTML=Object.keys(config.topics).map(function(topic){
+        var selected=topic===activeTopic;
+        var href=withLayout(LIST_PAGE+'?section='+encodeURIComponent(explicitSection)+'&topic='+encodeURIComponent(topic));
+        return '<a class="topicTab'+(selected?' active':'')+'" href="'+href+'"'+(selected?' aria-current="page"':'')+'>'+esc(topic)+'</a>';
+      }).join('');
+      var active=inner.querySelector('.topicTab.active');
+      if(active) requestAnimationFrame(function(){active.scrollIntoView({block:'nearest',inline:'center'});});
+    });
+  }
+
+  function setupHeaderSearch(){
+    var params=new URLSearchParams(location.search);
+    var currentQuery=(params.get('q')||'').trim();
+    document.querySelectorAll('.loungeSearch').forEach(function(form){
+      var input=form.querySelector('.loungeSearchInput');
+      if(input) input.value=currentQuery;
+      form.addEventListener('submit',function(event){
+        event.preventDefault();
+        var query=(input&&input.value||'').trim();
+        if(!query){
+          if(input) input.focus();
+          toast('검색어를 입력해주세요.');
+          return;
+        }
+        var url=LIST_PAGE+'?q='+encodeURIComponent(query);
+        location.href=withLayout(url);
+      });
     });
   }
 
@@ -162,9 +226,14 @@
 
   function setupListPage(){
     window.addEventListener('popstate', function(){
-      setCurrentBoard(boardFromUrl()||localStorage.getItem(STORE_BOARD)||'전체 게시글', false);
+      setCurrentBoard(boardForCurrentUrl(), false);
     });
-    setCurrentBoard(boardFromUrl()||localStorage.getItem(STORE_BOARD)||'전체 게시글', false);
+    setCurrentBoard(boardForCurrentUrl(), false);
+  }
+
+  function boardForCurrentUrl(){
+    var params=new URLSearchParams(location.search);
+    return boardFromUrl()||((params.get('q')||params.get('section')||params.get('topic'))?'전체 게시글':localStorage.getItem(STORE_BOARD))||'전체 게시글';
   }
 
   function setupDetailPage(){
@@ -180,6 +249,7 @@
     localStorage.setItem(STORE_BOARD, board);
     updateMenuActive(board);
     updateTopNavigation(board);
+    updateTopicNavigation(board);
     if(isList) renderBoardRows(board);
     if(push){
       var url=withLayout(LIST_PAGE+'?board='+encodeURIComponent(board));
@@ -198,9 +268,28 @@
     if(title) title.textContent=board;
     var rows=document.getElementById('postRows');
     if(!rows) return;
-    var posts=getPostsForBoard(board);
+    var params=new URLSearchParams(location.search);
+    var section=sectionKeyFromParams(params,board)||'car';
+    var config=sectionConfig[section];
+    var posts=section==='car'?getPostsForBoard(board):(sectionPosts[section]||[]).slice();
+    var topic=params.get('topic')||'';
+    if(topic&&config&&topic!==config.allLabel){
+      var categories=config.topics[topic]||[];
+      posts=posts.filter(function(post){return categories.indexOf(post[0])!==-1;});
+      if(title) title.textContent=topic;
+    }else if(config&&params.get('section')){
+      if(title) title.textContent=config.label+' '+config.allLabel;
+    }
+    var query=(params.get('q')||'').trim();
+    if(query){
+      var normalized=query.toLocaleLowerCase('ko-KR');
+      posts=posts.filter(function(post){
+        return [post[0],post[1],post[2],post[7]||''].join(' ').toLocaleLowerCase('ko-KR').indexOf(normalized)!==-1;
+      });
+      if(title) title.textContent='“'+query+'” 검색 결과';
+    }
     if(!posts.length){
-      rows.innerHTML='<tr><td colspan="5" class="emptyBoardRows">'+esc(board)+' 게시판의 새 글이 없습니다.</td></tr>';
+      rows.innerHTML='<tr><td colspan="5" class="emptyBoardRows">'+(query?'“'+esc(query)+'” 검색 결과가 없습니다.':esc(board)+' 게시판의 새 글이 없습니다.')+'</td></tr>';
       return;
     }
     rows.innerHTML=posts.map(function(post){return renderRow(post, board)}).join('');
@@ -617,6 +706,15 @@
       return name!=='전체 게시글' && (boardConfig[name].categories||[]).indexOf(category)!==-1;
     });
     return found||'전체 게시글';
+  }
+
+  function sectionKeyFromParams(params,board){
+    var explicit=params.get('section');
+    if(sectionConfig[explicit]) return explicit;
+    if(board==='유머') return 'humor';
+    if(board==='정치'||board==='정치/시사') return 'politics';
+    if(board&&boardConfig[board]) return 'car';
+    return '';
   }
 
   function withLayout(url){
