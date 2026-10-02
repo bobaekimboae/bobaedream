@@ -66,6 +66,58 @@ final result: passed
 
 ---
 
+# Design QA — 트럭 FINN형 카드·Airbnb형 선택 상태
+
+## Comparison target
+
+- Source visual truth path: `C:/Users/bobae/Downloads/KakaoTalk_20261002_183735865.png`.
+- Implementation screenshots:
+  - `docs/truck/audits/2026-10-02/truck_finn_airbnb_cards_mobile_v01.png`
+  - `docs/truck/audits/2026-10-02/truck_airbnb_selected_mobile_v01.png`
+  - `docs/truck/audits/2026-10-02/truck_finn_airbnb_cards_pc_v01.png`
+- Source dimensions: 1080×2340px.
+- Implementation dimensions: 모바일 390×844px, PC 1280×900px.
+- State: 라이트 테마, 트럭·특장 형식 단계, 카고 세부형식 단계, 선택 상태 시뮬레이션.
+
+## Full-view comparison
+
+- 참고 화면의 핵심인 연회색 단일 카드 안의 상단 명칭·하단 이미지 구조를 트럭 형식과 세부형식에 적용했다.
+- 모바일 첫 화면에서 카드 4개가 한 행에 보이며 가로 스와이프로 추가 항목을 탐색한다.
+- PC에서는 같은 카드 언어를 유지하면서 112×108px로 확대해 2줄 명칭과 차량 이미지를 함께 식별할 수 있다.
+- 모바일 하단 고정 메뉴와 첫 카드 행은 겹치지 않는다.
+
+## Focused region comparison
+
+- 기본 카드 배경은 참고 화면과 같은 계열의 `#F1F1F3`, 곡률은 18px이다.
+- 명칭을 이미지 위로 배치하고 카드 전체를 버튼으로 유지해 터치 대상을 하나로 만들었다.
+- 선택 상태는 사용자 수정 요청에 따라 흰 배경, `#222222` 2px 외곽선, 약한 그림자로 변경했다.
+- `카고(화물)트럭`, `경형 트럭 (1톤 미만)`, `트랜스/와이드 파워게이트` 등 긴 명칭은 최대 2줄에서 식별 가능하다.
+
+## Findings and history
+
+1. 기존: 이미지와 명칭이 카드 배경 없이 떨어져 있어 항목 사이 터치 경계가 모호했다.
+2. 1차: FINN형 연회색 카드와 파란 선택 배경을 적용했다.
+3. 사용자 수정: 선택 상태를 에어비앤비 방향으로 요청했다.
+4. 최종: 기본은 FINN형 연회색 카드, 선택은 Airbnb형 흰 배경·검정 외곽선으로 분리했다.
+
+## Verification
+
+- 모바일 카드 88×96px, PC 카드 112×108px: passed.
+- 기본 배경 `rgb(241, 241, 243)`, 곡률 18px: passed.
+- 선택 배경 `rgb(255, 255, 255)`, 텍스트·외곽선 `rgb(34, 34, 34)`: passed.
+- 명칭이 이미지보다 먼저 표시됨: passed.
+- 모바일·PC 경형 0.5톤과 1톤 결과 분리: passed.
+- `npm run verify:qf`: passed.
+- `npx playwright test tests/truck-payload-classification.spec.ts`: 5 passed.
+
+**Open Questions**
+
+- 공개 배포는 사용자 확인 후 진행한다.
+
+final result: passed
+
+---
+
 # Design QA — 실제 메인 통합 검색바
 
 ## Finding and fix

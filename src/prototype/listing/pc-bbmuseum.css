@@ -76,6 +76,12 @@
   .bbm-truck-spec-chips button.is-selected { border-color: var(--blue); background: #f2f6fb; color: var(--blue); font-weight: 600; }
   .bbm-truck-spec-chips em { color: #9e9e9e; font-size: 11px; font-style: normal; font-weight: 500; }
   .bbm-truck-spec-chips button.is-selected em { color: var(--blue); }
+  .bbm-truck-option-tail { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 4px; }
+  .bbm-truck-option-tail .bb-icon { transition: transform 160ms ease; }
+  .bbm-truck-option-tail .bb-icon.is-expanded { transform: rotate(180deg); }
+  .bbm-truck-inline-payload { margin: 0 8px 8px 48px; padding: 10px 12px 12px; border-left: 2px solid #d9e5f4; border-radius: 0 8px 8px 0; background: #f7f9fc; }
+  .bbm-truck-inline-payload .bbm-catalog-title { padding: 0 0 8px; color: #4f5966; font-size: 12px; font-weight: 700; }
+  .bbm-truck-inline-payload .bbm-truck-spec-chips + .bbm-truck-spec-chips { margin-top: 8px; }
 
   /* QF-067 제조사 · 모델 · 등급 드릴다운 */
   .bbm-filter-item { position: relative; }

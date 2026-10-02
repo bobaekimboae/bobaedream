@@ -184,12 +184,18 @@ function BbMakerGradeFilter({ selection, view, setView, brandLogos = false, make
 
 type BbTruckView = "format" | "subtype" | "spec";
 
+const inlineTruckPayloadSubtypes = new Set(["경형 트럭 (1톤 미만)", "1톤 트럭"]);
+
 function BbTruckOptionLabel({ name, image }: { name: string; image: string | null }) {
   return <span className="bbm-truck-option">{image ? <span className="bbm-truck-option-image"><img src={asset(image)} alt="" draggable={false} /></span> : null}<span className="bbm-truck-option-name">{name}</span></span>;
 }
 
 export function BbTruckFormatFilter({ value, showImages = true }: { value: BbTruckFilter; showImages?: boolean }) {
-  const stageFor = (): BbTruckView => !value.format ? "format" : !value.subtype ? "subtype" : value.specGroups.length ? "spec" : "subtype";
+  const stageFor = (): BbTruckView => !value.format
+    ? "format"
+    : !value.subtype || inlineTruckPayloadSubtypes.has(value.subtype)
+      ? "subtype"
+      : value.specGroups.length ? "spec" : "subtype";
   const [view, setView] = useState<BbTruckView>(stageFor);
   useEffect(() => { setView(stageFor()); }, [value.format, value.subtype, value.spec, value.specGroups.length]);
   const count = (rowCount: number) => <em className={rowCount === 0 ? "is-zero" : ""}>{rowCount.toLocaleString("ko-KR")}</em>;
@@ -211,7 +217,23 @@ export function BbTruckFormatFilter({ value, showImages = true }: { value: BbTru
         </div> : view === "subtype" ? <div className="bbm-catalog-section is-drill">
           <button type="button" className="bbm-catalog-back" onClick={() => setView("format")}><BbIcon name="chevron-left" size={20} />{value.format}</button>
           <p className="bbm-catalog-title">세부형식</p>
-          {value.subtypes.map((option) => { const image = showImages ? truckSubtypeImageFor(value.format, option.name) : null; return <button key={option.name} type="button" className={`bbm-catalog-row${value.subtype === option.name ? " is-selected" : ""}${image ? " has-truck-image" : ""}`} aria-pressed={value.subtype === option.name} onClick={() => { value.onChooseSubtype(option.name); setView("spec"); }}><BbTruckOptionLabel name={option.name} image={image} />{count(option.count)}</button>; })}
+          {value.subtypes.map((option) => {
+            const image = showImages ? truckSubtypeImageFor(value.format, option.name) : null;
+            const inlinePayload = inlineTruckPayloadSubtypes.has(option.name);
+            const expanded = inlinePayload && value.subtype === option.name;
+            return <Fragment key={option.name}>
+              <button type="button" className={`bbm-catalog-row${value.subtype === option.name ? " is-selected" : ""}${image ? " has-truck-image" : ""}`} aria-pressed={value.subtype === option.name} aria-expanded={inlinePayload ? expanded : undefined} onClick={() => { value.onChooseSubtype(option.name); setView(inlinePayload ? "subtype" : "spec"); }}>
+                <BbTruckOptionLabel name={option.name} image={image} />
+                <span className="bbm-truck-option-tail">{count(option.count)}{inlinePayload ? <BbIcon name="chevron-down" size={16} className={expanded ? "is-expanded" : ""} /> : null}</span>
+              </button>
+              {expanded ? <div className="bbm-truck-inline-payload" aria-label={`${option.name} 적재중량`}>
+                <p className="bbm-catalog-title">적재중량</p>
+                {value.specGroups.map((group) => <div key={group.label} className="bbm-truck-spec-chips">
+                  {group.options.map((specOption) => <button key={`${group.label}-${specOption.name}`} type="button" className={value.spec === specOption.name ? "is-selected" : ""} aria-pressed={value.spec === specOption.name} onClick={() => value.onChooseSpec(specOption.name)}><span>{specOption.name}</span>{count(specOption.count)}</button>)}
+                </div>)}
+              </div> : null}
+            </Fragment>;
+          })}
         </div> : <div className="bbm-catalog-section is-drill">
           <button type="button" className="bbm-catalog-back" onClick={() => setView("subtype")}><BbIcon name="chevron-left" size={20} />{value.subtype}</button>
           {value.specGroups.map((group) => <div key={group.label} className="bbm-grade-group bbm-truck-spec-group">
