@@ -32,8 +32,8 @@
     }
 
     .topbar {
-      height: 58px;
-      padding: max(env(safe-area-inset-top), 0px) 14px 0;
+      height: 64px;
+      padding: max(env(safe-area-inset-top), 0px) 12px 0 16px;
       background: var(--panel);
       color: var(--ink);
       display: flex;
@@ -42,17 +42,18 @@
       border-bottom: 1px solid rgba(15, 23, 42, .08);
     }
 
-    .logo { display: flex; align-items: center; height: 40px; }
-    .logo img { display: block; width: 122px; height: 30px; }
+    .logo { display: flex; align-items: center; height: 44px; }
+    .logo img { display: block; width: 114px; height: 28px; }
 
     .top-icons {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 0;
     }
 
-    .top-icons button { display: grid; width: 40px; height: 40px; place-items: center; cursor: pointer; }
-    .top-icons img { width: 22px; height: 22px; }
+    .top-icons button { display: grid; width: 44px; height: 44px; border-radius: 50%; place-items: center; cursor: pointer; }
+    .top-icons button:active { background: #f2f3f5; }
+    .top-icons img { width: 24px; height: 24px; }
 
     .service-menu {
       position: relative;
@@ -431,7 +432,7 @@
     <header class="topbar">
       <a class="logo" href="../../" aria-label="보배드림 홈"><img data-img="../../|assets/bbm/header-logo.svg" alt="보배드림" /></a>
       <div class="top-icons">
-        <button type="button" aria-label="검색"><img data-img="./icons/search.svg" alt="" /></button>
+        <button type="button" aria-label="즐겨찾기"><img data-img="./icons/favorite.svg" alt="" /></button>
         <button type="button" aria-label="전체 메뉴"><img data-img="./icons/menu.svg" alt="" /></button>
       </div>
     </header>

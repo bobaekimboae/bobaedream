@@ -60,7 +60,7 @@ export default function MainHome() {
         <header className="mh-topbar">
           <a className="mh-logo" href="./" aria-label="보배드림 홈"><img src={publicAsset("bbm/header-logo.svg")} alt="보배드림" /></a>
           <div className="mh-top-icons">
-            <button type="button" aria-label="검색"><img src={prototypeAsset("icons/search.svg")} alt="" /></button>
+            <button type="button" aria-label="즐겨찾기"><img src={prototypeAsset("icons/favorite.svg")} alt="" /></button>
             <button type="button" aria-label="전체 메뉴"><img src={prototypeAsset("icons/menu.svg")} alt="" /></button>
           </div>
         </header>

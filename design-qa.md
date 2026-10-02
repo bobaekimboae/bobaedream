@@ -212,3 +212,59 @@ final result: passed
 - 최종 공개본 히어로 시각 확인: passed.
 
 final result: passed
+
+---
+
+# Design QA — 실제 메인 당근형 상단 액션
+
+## Comparison target
+
+- Source visual truth path: `reports/main-header-20261002/karrot-reference.png`.
+- Source visual truth URL: `https://drive.google.com/file/d/1xqMNn9TU1YwL18q7HpEDKSOdaQxuMKXU/view`.
+- Implementation screenshot path: Codex 인앱 브라우저 탭 99의 `http://127.0.0.1:4173/` 캡처(영구 로컬 경로 없음).
+- Source pixels: 1080×2340px, 384×832 CSS px 기준, 밀도 2.8125×.
+- Implementation pixels: 470×667px 인앱 브라우저 캡처, 가운데 430px 모바일 프레임.
+- State: 첫 화면, 라이트 테마, 스크롤 상단.
+
+## Full-view and focused evidence
+
+- 드라이브 원본과 수정본을 각각 열어 상단 타이틀, 즐겨찾기, 메뉴 영역을 확인했다.
+- 당근 기준은 64px급 상단 리듬, 24px 아이콘, 44px 터치 영역을 사용한다.
+- 수정본은 보배드림 타이틀 114×28px, 상단 64px, 우측 버튼 44×44px, 원본 SVG 24×24px로 구현했다.
+- 인앱 브라우저 보안 정책이 비교용 `data:` URL을 차단해 두 캡처를 한 화면에 배치한 최종 비교 입력은 만들지 못했다.
+
+## Required fidelity surfaces
+
+- Fonts and typography: 보배드림 로고 원본을 유지해 글꼴 대체나 왜곡이 없다.
+- Spacing and layout rhythm: 헤더 64px, 좌측 16px, 우측 12px, 액션 44px 두 개, 추가 간격 0px.
+- Colors and visual tokens: 메뉴·즐겨찾기 모두 노션 원본의 `#222` 사용.
+- Image quality and asset fidelity: 래스터나 임의 도형이 아닌 노션 SVG 원본 사용.
+- Copy and content: 우측 액션은 `즐겨찾기`, `전체 메뉴`로 접근성 이름을 지정했다.
+
+## Findings
+
+- [P2 blocked] 동일 화면 병렬 비교 증거가 없다.
+  - Location: 상단 헤더 전체.
+  - Evidence: 원본과 구현 화면은 각각 열렸지만 브라우저 보안 정책이 병렬 비교 페이지를 차단했다.
+  - Impact: 미세한 광학 정렬과 여백 차이를 최종 통과 처리할 수 없다.
+  - Fix: 허용된 동일 화면 비교 수단으로 384px 정규화 캡처를 다시 만든다.
+
+## Comparison history
+
+1. 기존 구현: 58px 헤더, 40px 터치 영역, 22px 검색·메뉴 아이콘.
+2. 수정 구현: 64px 헤더, 44px 터치 영역, 24px 즐겨찾기·메뉴 원본 아이콘.
+3. 로컬 시각 확인: 타이틀과 우측 액션 중심선, 아이콘 로딩, 첫 화면 레이아웃 유지 확인.
+
+## Implementation Checklist
+
+- [x] 당근형 상단 크기 반영.
+- [x] 노션 메뉴 아이콘 원본 적용.
+- [x] 노션 즐겨찾기 아이콘 원본 적용.
+- [x] 프로덕션 빌드.
+- [ ] 동일 화면 병렬 비교로 최종 통과.
+
+## Follow-up Polish
+
+- 즐겨찾기 선택 상태 아이콘은 실제 동작 범위가 확정될 때 추가한다.
+
+final result: blocked
