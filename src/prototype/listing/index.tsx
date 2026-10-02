@@ -80,6 +80,7 @@ import { CatalogModelImage, catalogMakerNames, catalogModelOfCar, guaziGeneratio
 import { BbmChipScroller, BbmTopCrumbs, type BbmCrumb } from "./bbm-top-chotot";
 import { setPretendard } from "../fonts/pretendard";
 import { BBM_PAGE_SIZE, BbmFooter, BbmPagination, BbmPopOptions, BbmToolbarMenu, bbmSortOptions, bbmViewOptionsMobile, bbmViewOptionsPc, sortBbmCars, type BbmSort } from "./bbm-list-area";
+import { bikeBrandCount, bikeModelsByMaker } from "../data/bike-filter-catalog";
 
 type BbmMobileView = "목록으로 보기" | "피드로 보기" | "갤러리로 보기" | "한줄 광고로 보기" | "텍스트로 보기";
 
@@ -504,7 +505,7 @@ function MarketplaceScreen() {
   const listingCars = luxuryUiTestMode ? luxuryUiTestCars : isGuaziQuickStyle ? bbmSampleCars : chototTestCars;
   const bbmValue = filters.bbm ?? emptyBbmFilters;
   // QF-097: 과쯔는 9개 제조사의 모델·세부 모델을 카탈로그 스냅숏으로(model-catalog-kr), 나머지 제조사·다른 모드는 기존 데이터
-  const modelsByMakerMap = isGuaziQuickStyle ? guaziModelsByMaker : quickModelsByMaker;
+  const modelsByMakerMap = category === "바이크" ? bikeModelsByMaker : isGuaziQuickStyle ? guaziModelsByMaker : quickModelsByMaker;
   const rawGenerationsByMakerModelMap = isGuaziQuickStyle ? guaziGenerationsByMakerModel : quickGenerationsByMakerModel;
   const rawModelVisualsByMakerMap = isGuaziQuickStyle ? guaziModelVisualsByMaker : quickModelVisualsByMaker;
   const isCatalogMaker = Boolean(isGuaziQuickStyle && maker && catalogMakerNames.has(maker));
@@ -1330,7 +1331,9 @@ function MarketplaceScreen() {
   // QF-114: 바이크 · 트럭·특장의 제조사 목록(전체 브랜드 · 제조사 칩)은 그 유형 목록만(국산 → 수입 이름순 → 기타), 승용 목록과 섞지 않음
   const bbmTypeList = isGuaziQuickStyle ? krTypeTop10(category) : null;
   const bbmMakerSections = bbmTypeList
-    ? [["국산", bbmTypeList.all.domestic], ["수입 이름순", bbmTypeList.all.imported], ["기타", bbmTypeList.all.etc]].map(([title, labels]) => ({ title: title as string, rows: (labels as string[]).map((label) => ({ label, key: label, count: 0 })) }))
+    ? (category === "바이크"
+      ? [["브랜드", bbmTypeList.all.imported]].map(([title, labels]) => ({ title: title as string, rows: (labels as string[]).map((label) => ({ label, key: label, count: bikeBrandCount[label] ?? 0 })) }))
+      : [["국산", bbmTypeList.all.domestic], ["수입 이름순", bbmTypeList.all.imported], ["기타", bbmTypeList.all.etc]].map(([title, labels]) => ({ title: title as string, rows: (labels as string[]).map((label) => ({ label, key: label, count: 0 })) })))
     : bbCatalog.map((section) => ({ title: section.title, rows: section.rows.map(([label, , key]) => ({ label, key: key ?? label, count: bbmMakerBase.filter((car) => car.maker === (key ?? label)).length })) }));
   const bbmModelRows = (makerName: string) => (modelsByMakerMap[makerName] ?? []).map((name) => {
     const visualCount = modelVisualsByMakerMap[makerName]?.[name]?.count;
