@@ -3,12 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>보배드림 AutoTrader형 모바일 메인 시안</title>
+  <title>보배드림 AutoScout형 임시 메인</title>
   <style>
     :root {
-      --at-red: #d71920;
-      --at-red-deep: #b50913;
-      --at-blue: #006dff;
+      --at-blue: #1b498c;
       --ink: #172033;
       --muted: #657083;
       --line: #dfe5ee;
@@ -43,40 +41,8 @@
       border-bottom: 1px solid rgba(15, 23, 42, .08);
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-weight: 950;
-      letter-spacing: -.045em;
-      line-height: .9;
-    }
-
-    .logo-mark {
-      width: 28px;
-      height: 28px;
-      border-radius: 7px;
-      background: var(--at-red);
-      color: #fff;
-      display: grid;
-      place-items: center;
-      font-size: 17px;
-      font-weight: 950;
-      transform: skewX(-9deg);
-    }
-
-    .logo-text {
-      display: grid;
-      gap: 1px;
-      font-size: 18px;
-    }
-
-    .logo-text small {
-      font-size: 10px;
-      letter-spacing: .09em;
-      font-weight: 800;
-      opacity: .82;
-    }
+    .logo { display: flex; align-items: center; height: 40px; }
+    .logo img { display: block; width: 122px; height: 30px; }
 
     .top-icons {
       display: flex;
@@ -84,7 +50,48 @@
       gap: 15px;
     }
 
-    .top-icons svg { width: 23px; height: 23px; stroke-width: 2.2; }
+    .top-icons button { display: grid; width: 40px; height: 40px; place-items: center; cursor: pointer; }
+    .top-icons img { width: 24px; height: 24px; }
+
+    .service-menu {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 12px 16px;
+      background: #fff;
+      border-bottom: 1px solid #eceef2;
+      scrollbar-width: none;
+      scroll-padding-inline: 16px;
+    }
+    .service-menu::-webkit-scrollbar { display: none; }
+
+    .service-chip {
+      flex: 0 0 auto;
+      height: 36px;
+      padding: 0 15px;
+      border: 1px solid #dedfe3;
+      border-radius: 999px;
+      background: #fff;
+      color: #303238;
+      font-size: 14px;
+      line-height: 34px;
+      font-weight: 650;
+      letter-spacing: -.035em;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: background 140ms ease, border-color 140ms ease, color 140ms ease;
+    }
+
+    .service-chip.active {
+      border-color: #222;
+      background: #222;
+      color: #fff;
+      font-weight: 750;
+    }
+
+    .service-chip:focus-visible { outline: 2px solid var(--at-blue); outline-offset: 2px; }
 
     .hero {
       position: relative;
@@ -141,44 +148,6 @@
       overflow: visible;
     }
 
-    .vehicle-tabs {
-      display: flex;
-      gap: 9px;
-      overflow-x: auto;
-      padding: 0 0 18px;
-      scrollbar-width: none;
-      background: #fff;
-    }
-    .vehicle-tabs::-webkit-scrollbar { display: none; }
-
-    .vehicle-tab {
-      flex: 0 0 auto;
-      height: 39px;
-      padding: 0 18px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #e1e3e7;
-      border-radius: 999px;
-      background: #f8f8f8;
-      color: #40444c;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.75), 0 1px 2px rgba(15,23,42,.05);
-      font-size: 15px;
-      line-height: 1;
-      font-weight: 650;
-      letter-spacing: -.035em;
-      text-align: center;
-      white-space: nowrap;
-    }
-
-    .vehicle-tab.active {
-      border-color: #232323;
-      background: #232323;
-      color: #fff;
-      box-shadow: none;
-      font-weight: 850;
-    }
-
     .search-form { display: grid; gap: 14px; }
 
     .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -219,7 +188,7 @@
     .cta {
       height: 50px;
       border-radius: 999px;
-      background: #0878ea;
+      background: #222;
       color: #fff;
       font-size: 17px;
       font-weight: 850;
@@ -230,7 +199,7 @@
     .advanced-link {
       justify-self: center;
       margin-top: 3px;
-      color: #1268bf;
+      color: #1b498c;
       font-size: 15px;
       font-weight: 850;
       letter-spacing: -.035em;
@@ -440,40 +409,41 @@
   </style>
 </head>
 <body>
-  <main class="phone" aria-label="보배드림 AutoTrader형 모바일 메인 시안">
+  <main class="phone" aria-label="보배드림 AutoScout형 임시 메인">
     <header class="topbar">
-      <div class="logo" aria-label="보배드림">
-        <span class="logo-mark">B</span>
-        <span class="logo-text">보배드림<small>BOBAEDREAM</small></span>
-      </div>
-      <div class="top-icons" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <a class="logo" href="../../" aria-label="보배드림 홈"><img src="../../assets/bbm/header-logo.svg" alt="보배드림" /></a>
+      <div class="top-icons">
+        <button type="button" aria-label="검색"><img src="../../assets/bbm/header-search.svg" alt="" /></button>
+        <button type="button" aria-label="전체 메뉴"><img src="../../assets/bbm/header-menu.svg" alt="" /></button>
       </div>
     </header>
 
+    <nav class="service-menu" aria-label="서비스 메뉴">
+      <button class="service-chip active" type="button" data-service="all" aria-pressed="true">전체</button>
+      <button class="service-chip" type="button" data-service="used-car" aria-pressed="false">중고차</button>
+      <button class="service-chip" type="button" data-service="community" aria-pressed="false">커뮤니티</button>
+      <button class="service-chip" type="button" data-service="truck" aria-pressed="false">트럭/특장</button>
+      <button class="service-chip" type="button" data-service="bike" aria-pressed="false">바이크</button>
+      <button class="service-chip" type="button" data-service="construction" aria-pressed="false">건설기계</button>
+      <button class="service-chip" type="button" data-service="camping" aria-pressed="false">캠핑카</button>
+      <button class="service-chip" type="button" data-service="parts" aria-pressed="false">부품/용품</button>
+    </nav>
+
     <section class="hero" data-hero>
       <div class="hero-copy">
-        <h1 data-hero-title>좋은 차를 찾는 가장 빠른 방법</h1>
-        <p data-hero-copy>보배드림에서 내 조건에 맞는 중고차를 바로 찾아보세요.</p>
+        <h1 data-hero-title>자동차 생활의 모든 것</h1>
+        <p data-hero-copy>매물부터 커뮤니티까지 보배드림에서 한 번에 만나보세요.</p>
       </div>
     </section>
 
     <section class="search-panel" aria-label="매물 검색 패널">
-      <div class="vehicle-tabs" aria-label="차량 유형 탭">
-        <button class="vehicle-tab active" type="button" data-vehicle-type="used-car">중고차</button>
-        <button class="vehicle-tab" type="button" data-vehicle-type="bike">바이크</button>
-        <button class="vehicle-tab" type="button" data-vehicle-type="trailer">트레일러</button>
-        <button class="vehicle-tab" type="button" data-vehicle-type="commercial">상용차</button>
-      </div>
       <div class="search-form">
         <div class="row-2">
           <button class="select-field" type="button"><span class="select-value">제조사 선택</span><span class="chevron" aria-hidden="true"></span></button>
           <button class="select-field muted" type="button"><span class="select-value">모델 선택</span><span class="chevron" aria-hidden="true"></span></button>
         </div>
         <button class="select-field" type="button"><span class="select-value">전국</span><span class="chevron" aria-hidden="true"></span></button>
-        <button class="cta" type="button">404,717대 매물 보기</button>
+        <button class="cta" type="button" data-list-link>64대 매물 보기</button>
         <button class="advanced-link" type="button">상세 필터</button>
       </div>
     </section>
@@ -536,29 +506,53 @@
     });
 
     const heroData = {
+      all: {
+        title: '자동차 생활의 모든 것',
+        copy: '매물부터 커뮤니티까지 보배드림에서 한 번에 만나보세요.',
+        image: './hero-types/used-car.jpg',
+        count: '64대 매물 보기'
+      },
       'used-car': {
         title: '좋은 차를 찾는 가장 빠른 방법',
         copy: '보배드림에서 내 조건에 맞는 중고차를 바로 찾아보세요.',
         image: './hero-types/used-car.jpg',
-        count: '404,717대 매물 보기'
+        count: '64대 매물 보기'
+      },
+      community: {
+        title: '자동차 이야기가 모이는 곳',
+        copy: '유저들의 생생한 경험과 자동차 소식을 확인하세요.',
+        image: './hero-types/used-car.jpg',
+        count: '커뮤니티 둘러보기'
+      },
+      truck: {
+        title: '일을 움직이는 트럭과 특장차',
+        copy: '화물과 특장 매물을 목적에 맞게 찾아보세요.',
+        image: './hero-types/commercial.jpg',
+        count: '트럭/특장 준비 중'
       },
       bike: {
         title: '라이딩을 시작할 바이크 찾기',
         copy: '스쿠터부터 대형 바이크까지 원하는 조건으로 탐색하세요.',
         image: './hero-types/bike.jpg',
-        count: '18,240대 매물 보기'
+        count: '바이크 준비 중'
       },
-      trailer: {
-        title: '캠핑과 이동을 위한 트레일러',
-        copy: '카라반, 트레일러, 캠핑 장비형 매물을 한 번에 확인하세요.',
-        image: './hero-types/trailer.jpg',
-        count: '7,820대 매물 보기'
-      },
-      commercial: {
-        title: '일을 움직이는 상용차 찾기',
-        copy: '화물, 특장, 밴, 업무용 차량을 목적에 맞게 찾아보세요.',
+      construction: {
+        title: '현장을 위한 건설기계 찾기',
+        copy: '용도와 작업 조건에 맞는 건설기계를 살펴보세요.',
         image: './hero-types/commercial.jpg',
-        count: '36,910대 매물 보기'
+        count: '건설기계 준비 중'
+      },
+      camping: {
+        title: '여행을 넓히는 캠핑카',
+        copy: '카라반부터 모터홈까지 원하는 방식으로 찾아보세요.',
+        image: './hero-types/trailer.jpg',
+        count: '캠핑카 준비 중'
+      },
+      parts: {
+        title: '차를 위한 부품과 용품',
+        copy: '필요한 부품과 자동차 용품을 한곳에서 찾아보세요.',
+        image: './hero-types/used-car.jpg',
+        count: '부품/용품 준비 중'
       }
     };
 
@@ -567,17 +561,30 @@
     const heroCopy = document.querySelector('[data-hero-copy]');
     const cta = document.querySelector('.cta');
 
-    document.querySelectorAll('[data-vehicle-type]').forEach((button) => {
+    let activeService = 'all';
+    document.querySelectorAll('[data-service]').forEach((button) => {
       button.addEventListener('click', () => {
-        const data = heroData[button.dataset.vehicleType];
+        const data = heroData[button.dataset.service];
         if (!data) return;
-        document.querySelectorAll('[data-vehicle-type]').forEach((item) => item.classList.remove('active'));
+        activeService = button.dataset.service;
+        document.querySelectorAll('[data-service]').forEach((item) => {
+          item.classList.remove('active');
+          item.setAttribute('aria-pressed', 'false');
+        });
         button.classList.add('active');
+        button.setAttribute('aria-pressed', 'true');
+        button.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         hero.style.setProperty('--hero-bg', `url("${data.image}")`);
         heroTitle.textContent = data.title;
         heroCopy.textContent = data.copy;
         cta.textContent = data.count;
       });
+    });
+
+    cta.addEventListener('click', () => {
+      if (activeService === 'all' || activeService === 'used-car') {
+        window.location.href = '../../?qf=guazi&filtericon=notion';
+      }
     });
   </script>
 

@@ -63,3 +63,36 @@
 - None required for this scope.
 
 final result: passed
+
+---
+
+# Design QA — AutoScout형 임시 메인 서비스 메뉴
+
+## Comparison target
+
+- Source visual truth: 사용자 지정 메뉴 순서와 AutoScout형 메인 방향, 기존 `public/prototypes/autotrader-bobaedream-main/index.html`의 검색 중심 모바일 메인 골격.
+- Notion reference: 페이지는 확인했으나 이미지 원본은 로그인 요구와 만료된 첨부 주소로 픽셀 단위 대조가 불가능했다. 따라서 이번 1차 시안은 사용자가 직접 적은 메뉴·구조 요구를 우선 기준으로 삼았다.
+- Implementation: `public/prototypes/autotrader-bobaedream-main/index.html`.
+- Viewport: 384×900px 모바일, 기본 데스크톱 미리보기.
+
+## Required fidelity surfaces
+
+- 메뉴 순서: 전체 / 중고차 / 커뮤니티 / 트럭/특장 / 바이크 / 건설기계 / 캠핑카 / 부품/용품.
+- 알약칩: 36px 높이, 999px 곡률, 8px 간격, 가로 스크롤, 선택 항목 `#222` 배경과 흰 글자.
+- 헤더: 기존 보배드림 로고·검색·메뉴 SVG 자산 사용.
+- 메인 구조: 서비스 메뉴 → 이미지 히어로 → 검색 카드 → 바디 타입 → 인기 제조사 → 내 차 팔기 → 추천 매물.
+- 범위 보호: 중고차만 기존 목록에 연결하고 다른 카테고리는 선택형 임시 상태로 유지.
+
+## Interaction verification
+
+- `건설기계` 선택 시 선택 칩이 중앙으로 이동하고 `aria-pressed=true`, 히어로 문구와 CTA가 건설기계 상태로 변경됨: passed.
+- `중고차` 선택 후 `64대 매물 보기` 클릭 시 `/?qf=guazi&filtericon=notion`으로 이동: passed.
+- 384px 화면에서 메뉴 가로 스크롤, 검색 카드, 4개 바디 타입 첫 행이 잘림 없이 표시됨: passed.
+- 브라우저 콘솔 errors/warnings: none observed.
+- `npm run verify:qf`: passed.
+
+## Open questions
+
+- Notion 이미지가 다시 공개되면 메뉴 높이·좌우 여백·선택색을 원본과 2차 실측할 수 있다.
+
+final result: passed
