@@ -37,6 +37,7 @@
 - `public/prototypes/autotrader-bobaedream-main/index.html`
 - `reports/main-header-20261002/chot-main-reference.png`
 - `reports/main-header-20261002/bobaedream-chot-title-match.png`
+- `reports/main-header-20261002/deployed-chot-title-match.png`
 - `reports/main-header-20261002/chot-bobae-title-comparison.png`
 - `reports/main-header-20261002/chot-title-measurement.md`
 - `handover/car/HANDOVER_car_v19.md`
@@ -53,9 +54,11 @@
 - 콘솔 오류 및 이미지 404 0건.
 - `npm run build`: 통과.
 - `npm run test:sites`: 4건 통과.
-- GitHub Pages 공개 배포: 미배포.
+- GitHub Pages 공개 배포: 성공 (`2f15e47`).
+- 공개 계산 스타일: 제목 20px/28px/700, 설명 14px/20px/400, `#8A8A8A`.
+- 공개 콘솔 오류 및 이미지 404: 0건.
 
 ## 8) 다음에 할 일
 
-1. 사용자 확인 후 공개 배포한다.
+1. 후속 메인 화면 요청을 반영한다.
 
