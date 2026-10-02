@@ -4,7 +4,8 @@
 
 export type BbmCheckKey =
   | "bodyType" | "carClass" | "region" | "district" | "complex" | "seats" | "drive" | "history" | "sellerKind" | "saleType"
-  | "exteriorColor" | "seatColor" | "seatFinish" | "fuel" | "transmission" | "options" | "features";
+  | "exteriorColor" | "seatColor" | "seatFinish" | "fuel" | "transmission" | "options" | "features"
+  | "bikeGenre" | "bikeLicense" | "bikeSource";
 export type BbmRangeKey = "year" | "mileage" | "price" | "power" | "efficiency" | "displacement" | "weight" | "length" | "width" | "height" | "evRange";
 export type BbmRange = { min: string; max: string; preset?: string };
 export type BbmPriceTab = "일반" | "리스 / 렌트";
@@ -91,7 +92,7 @@ export function bbmAppliedIds(value: BbmFilterValues) {
   };
   return ids.map((id, index) => ({ id, index })).sort((x, y) => rank(x.id) - rank(y.id) || x.index - y.index).map((entry) => entry.id);
 }
-const chipOrder = ["check:bodyType", "check:carClass", "range:year", "check:region", "check:district", "check:complex", "check:seats", "check:drive", "check:history", "check:sellerKind", "check:saleType", "check:exteriorColor", "check:seatColor", "check:seatFinish", "check:fuel", "check:transmission", "check:options", "check:features", "range:mileage", "range:price", "range:power", "range:efficiency", "range:displacement", "range:weight", "range:length", "range:width", "range:height", "range:evRange"];
+const chipOrder = ["check:bikeGenre", "check:bikeLicense", "check:bikeSource", "check:bodyType", "check:carClass", "range:year", "check:region", "check:district", "check:complex", "check:seats", "check:drive", "check:history", "check:sellerKind", "check:saleType", "check:exteriorColor", "check:seatColor", "check:seatFinish", "check:fuel", "check:transmission", "check:options", "check:features", "range:mileage", "range:price", "range:power", "range:efficiency", "range:displacement", "range:weight", "range:length", "range:width", "range:height", "range:evRange"];
 
 // ── 범위 해석: 입력칸(최저·최대) 또는 구간 칩 → 숫자 범위
 const num = (text: string) => { const n = Number(text.replace(/[^\d.]/g, "")); return Number.isFinite(n) && text.trim() ? n : null; };

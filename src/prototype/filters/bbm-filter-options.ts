@@ -4,7 +4,7 @@ import regionsKr from "../data/regions-kr.json";
 import type { BbmCheckKey, BbmRangeKey } from "./bbm-filter-state";
 
 export type BbmFilterMode = "expand" | "modal";
-export type BbmFilterItem = { label: string; mode: BbmFilterMode; modalTitle?: string; checkKey?: BbmCheckKey; rangeKey?: BbmRangeKey; columns?: 1 | 2 };
+export type BbmFilterItem = { label: string; mode: BbmFilterMode; modalTitle?: string; checkKey?: BbmCheckKey; rangeKey?: BbmRangeKey; columns?: 1 | 2; scope?: "bike" };
 
 export const bbmCheckOptions: Record<BbmCheckKey, string[]> = {
   bodyType: ["세단", "해치백", "왜건", "쿠페", "컨버터블", "SUV", "RV", "밴(승합)", "픽업트럭", "리무진", "화물트럭", "버스", "캠핑카"],
@@ -25,6 +25,9 @@ export const bbmCheckOptions: Record<BbmCheckKey, string[]> = {
   transmission: ["자동", "수동"],
   options: [],
   features: ["사진", "영상", "제조사 보증", "사고차", "병행수입"],
+  bikeGenre: ["네이키드", "스쿠터", "스포츠", "멀티퍼포즈", "크루저", "클래식", "언더본", "투어러", "오프로드", "전기", "삼륜", "ATV", "기타"],
+  bikeLicense: ["전체", "1종 보통 & 원동기", "2종 보통", "2종 소형"],
+  bikeSource: ["전체", "라바 인증", "라바 개인", "라바 상점", "중고나라", "경매"],
 };
 
 // 옵션(모달 제목 "차량 옵션"): 왼쪽 세로 탭 6개 + 섹션별 목록, 아래 [취소] + [선택완료]
@@ -80,10 +83,14 @@ export const bbmSidebarItems: BbmFilterItem[] = [
   { label: "차량 특징", mode: "modal", modalTitle: "차량특징", checkKey: "features" },
   { label: "광고기간", mode: "modal" },
   { label: "차량번호 / 판매자", mode: "expand" },
+  { label: "장르", mode: "modal", checkKey: "bikeGenre", scope: "bike" },
+  { label: "면허", mode: "modal", checkKey: "bikeLicense", scope: "bike" },
+  { label: "매물출처", mode: "modal", checkKey: "bikeSource", scope: "bike" },
 ];
 
 // QF-110 과쯔 좌측 필터 순서(한 곳에서 정의 — PC 좌측 필터가 쓰고, 나중에 모바일 필터 시트도 같은 배열을 쓸 수 있게).
 // 제조사 · 모델(처음부터 펼침) → 연식 → 주행거리 → 가격 → 바디타입 → 차급(접힘) → 지역 아래는 bbmSidebarItems 순서 그대로
 export const BBM_MAKER_ITEM = "제조사 · 모델";
 const bbmFilterHead = [BBM_MAKER_ITEM, "연식", "주행거리", "가격", "바디타입", "차급"];
-export const bbmFilterOrder: string[] = [...bbmFilterHead, ...bbmSidebarItems.map((item) => item.label).filter((label) => !bbmFilterHead.includes(label))];
+export const bbmFilterOrder: string[] = [...bbmFilterHead, ...bbmSidebarItems.filter((item) => item.scope !== "bike").map((item) => item.label).filter((label) => !bbmFilterHead.includes(label))];
+export const bikeFilterOrder: string[] = [BBM_MAKER_ITEM, "연식", "가격", "장르", "배기량", "면허", "주행거리", "지역", "매물출처"];

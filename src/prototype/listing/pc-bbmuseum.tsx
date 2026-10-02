@@ -50,10 +50,12 @@ function BbHeader({ onNotify, onOpenFavorites }: { onNotify: (message: string) =
 const bbMakerItem = BBM_MAKER_ITEM;
 // 항목 순서: 원본(초톳·동처띠 PC 등 동결 모드) = 바디타입 → 차급 → 제조사 · 모델 → 연식 …
 // QF-110 과쯔는 설정 배열 bbmFilterOrder(제조사 · 모델 맨 위, 바디타입·차급은 가격 아래)를 order 로 넘긴다. 열림 방식(펼침/412 모달)은 원본 수집 결과(bbm-filter-options.ts)
-const bbFilterMenuOriginal = [bbmSidebarItems[0].label, bbmSidebarItems[1].label, bbMakerItem, ...bbmSidebarItems.slice(2).map((item) => item.label)];
+const passengerSidebarItems = bbmSidebarItems.filter((item) => item.scope !== "bike");
+const bbFilterMenuOriginal = [passengerSidebarItems[0].label, passengerSidebarItems[1].label, bbMakerItem, ...passengerSidebarItems.slice(2).map((item) => item.label)];
 const bbFilterItemByLabel = new Map(bbmSidebarItems.map((item) => [item.label, item]));
 
 type CatalogRow = [label: string, count: number, maker?: string];
+type BbMakerSection = { title: string; rows: CatalogRow[] };
 // 원본 제조사 목록·매물 수(2026-09-24 기준). maker는 우리 시안 데이터의 제조사 이름(다르면 지정)
 const bbCatalog: Array<{ title: string; rows: CatalogRow[] }> = [
   { title: "국산차", rows: [["현대", 2697], ["제네시스", 1503], ["기아", 2352], ["쉐보레(국산)", 288, "쉐보레"], ["GM대우", 69], ["르노코리아(삼성)", 302, "르노코리아"], ["KG모빌리티(쌍용)", 390, "KG모빌리티"], ["어울림모터스", 1], ["기타 국산차", 6]] },
@@ -89,7 +91,7 @@ type BbMakerSelection = {
 };
 type BbDrillView = { stage: "maker" } | { stage: "model"; maker: string } | { stage: "grade"; maker: string; model: string };
 
-function BbMakerGradeFilter({ selection, view, setView, brandLogos = false }: { selection: BbMakerSelection; view: BbDrillView; setView: (view: BbDrillView) => void; brandLogos?: boolean }) {
+function BbMakerGradeFilter({ selection, view, setView, brandLogos = false, makerSections = bbCatalog }: { selection: BbMakerSelection; view: BbDrillView; setView: (view: BbDrillView) => void; brandLogos?: boolean; makerSections?: BbMakerSection[] }) {
   const { maker, model, grades } = selection;
   const pathChips = [
     maker ? { key: "maker", label: bbMakerLabel(maker), onClear: selection.onClearMaker } : null,
@@ -104,7 +106,7 @@ function BbMakerGradeFilter({ selection, view, setView, brandLogos = false }: { 
         {pathChips.map((chip) => <button key={chip.key} type="button" className="bbm-path-chip" aria-label={`${chip.label} 선택 해제`} onClick={chip.onClear}><span>{chip.label}</span><span className="bbm-path-chip-x" aria-hidden="true">×</span></button>)}
       </div> : null}
       <div className="bbm-catalog">
-        {view.stage === "maker" ? bbCatalog.map((section) => (
+        {view.stage === "maker" ? makerSections.map((section) => (
           <div key={section.title} className="bbm-catalog-section">
             <p className="bbm-catalog-title">{section.title}</p>
             {section.rows.map(([name, rowCount, makerKey]) => {
@@ -161,7 +163,7 @@ function BbMakerGradeFilter({ selection, view, setView, brandLogos = false }: { 
 
 // resetSignal: 값이 바뀔 때마다 "초기화" 확인 창을 연다(QF-093 왼쪽 펼침판 아래 [초기화] 버튼용)
 // brandLogos: 과쯔 모드만 제조사 행 앞에 로고 24×24(QF-096). 초톳·동처띠 PC 는 그대로
-function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNotify, bbm, onBbmChange, countWithBbm, countOf, resetSignal = 0, brandLogos = false, order = bbFilterMenuOriginal, mileageFinal = false }: { mileageFinal?: boolean; order?: string[]; selection: BbMakerSelection; appliedCount: number; historyCount?: number; onReset: () => void; onNotify: (message: string) => void; bbm: BbmFilterValues; onBbmChange: (next: BbmFilterValues) => void; countWithBbm: (next: BbmFilterValues) => number; countOf?: (key: BbmCheckKey, option: string) => number | null; resetSignal?: number; brandLogos?: boolean }) {
+function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNotify, bbm, onBbmChange, countWithBbm, countOf, resetSignal = 0, brandLogos = false, makerSections = bbCatalog, order = bbFilterMenuOriginal, mileageFinal = false }: { mileageFinal?: boolean; order?: string[]; selection: BbMakerSelection; appliedCount: number; historyCount?: number; onReset: () => void; onNotify: (message: string) => void; bbm: BbmFilterValues; onBbmChange: (next: BbmFilterValues) => void; countWithBbm: (next: BbmFilterValues) => number; countOf?: (key: BbmCheckKey, option: string) => number | null; resetSignal?: number; brandLogos?: boolean; makerSections?: BbMakerSection[] }) {
   // 모달형 항목: 사이드바 대신 412 모달을 연다. 원본 실측(2026-09-24): 모달 안 선택은 초안이고 [확인 N대]를 눌러야 조건이 걸린다(닫기 X는 버림)
   const [modalItem, setModalItem] = useState<BbmFilterItem | null>(null);
   const [draft, setDraft] = useState<BbmFilterValues>(bbm);
@@ -216,7 +218,7 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
                 <img className="bbm-filter-chevron" src={bbmAsset("filter-chevron")} alt="" aria-hidden="true" />
               </button>
               {isMaker && maker ? <button type="button" className="bbm-filter-item-reset" onClick={selection.onClearMaker}>초기화</button> : null}
-              {open ? (isMaker ? <BbMakerGradeFilter selection={selection} view={view} setView={setView} brandLogos={brandLogos} /> : <BbmExpandPanel label={label} value={bbm} onChange={onBbmChange} countOf={countOf} mileageFinal={mileageFinal} />) : null}
+              {open ? (isMaker ? <BbMakerGradeFilter selection={selection} view={view} setView={setView} brandLogos={brandLogos} makerSections={makerSections} /> : <BbmExpandPanel label={label} value={bbm} onChange={onBbmChange} countOf={countOf} mileageFinal={mileageFinal} />) : null}
             </section>
             {isMaker ? <div className="bbm-filter-action"><button type="button" className="bbmf-exclude" onClick={() => onNotify("제조사·모델 제외하기는 정식 서비스에서 이용해 주세요.")}><i className="bbmf-circle-icon is-minus" aria-hidden="true" />제조사·모델 제외하기</button></div> : null}
             </Fragment>
@@ -288,4 +290,4 @@ function BbCarCard({ car, liked, onToggleLike, onOpen, onNotify }: { car: Car; l
   );
 }
 
-export { bbCatalog, bbMakerLabel, BbIcon, BbHeader, BbFilterSidebar, BbSwitch, BbCarCard, type BbMakerSelection, type BbModelRow, type BbGradeGroup };
+export { bbCatalog, bbMakerLabel, BbIcon, BbHeader, BbFilterSidebar, BbSwitch, BbCarCard, type BbMakerSelection, type BbModelRow, type BbGradeGroup, type BbMakerSection };
