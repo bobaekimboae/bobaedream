@@ -68,7 +68,7 @@
 
 ## Images And Logos
 
-- Vehicle images and manufacturer marks follow `docs/보배드림_차량이미지_로고_에셋지침_v1.md`.
+- Vehicle images and manufacturer marks follow `docs/quick-filter-image-slot-rules_v02.md`. The older asset and layout documents describe the currently deployed implementation; where their measurement claims conflict, v02 is the measurement authority until a separate UI migration task updates code.
 - Vehicle images should be front-left three-quarter views, white or silver/light-colored, transparent, whitespace-trimmed 2:1 assets at 144×72 or larger.
 - Model and generation assets should be 192×96 when available.
 - Passenger vehicles use `bodyFit: "width"`.
