@@ -172,6 +172,6 @@ final result: passed
 
 - 일반 이미지 404: 0.
 - 메인 루트·기존 목록 분기: passed.
-- 최종 공개본 히어로 시각 확인: 재배포 후 수행.
+- 최종 공개본 히어로 시각 확인: passed.
 
 final result: passed
