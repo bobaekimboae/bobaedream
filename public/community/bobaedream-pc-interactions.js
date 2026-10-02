@@ -144,6 +144,7 @@
   function setupTopNavigation(){
     updateTopNavigation(boardFromUrl());
     updateRailPrimary();
+    setupMobileMenu();
   }
 
   function updateTopNavigation(board){
@@ -168,6 +169,27 @@
       if(selected) link.setAttribute('aria-current','page');
       else link.removeAttribute('aria-current');
     });
+  }
+
+  function setupMobileMenu(){
+    var trigger=document.querySelector('.loungeMenuButton');
+    var backdrop=document.querySelector('.mobileMenuBackdrop');
+    if(!trigger||!backdrop) return;
+    trigger.setAttribute('aria-expanded','false');
+    function setOpen(open){
+      document.body.classList.toggle('mobile-menu-open',open);
+      trigger.setAttribute('aria-expanded',open?'true':'false');
+      if(open){
+        var first=document.querySelector('.leftPanel a');
+        if(first) setTimeout(function(){first.focus();},220);
+      }else{
+        trigger.focus();
+      }
+    }
+    trigger.addEventListener('click',function(){setOpen(!document.body.classList.contains('mobile-menu-open'));});
+    backdrop.addEventListener('click',function(){setOpen(false);});
+    document.querySelectorAll('.leftPanel a').forEach(function(link){link.addEventListener('click',function(){setOpen(false);});});
+    document.addEventListener('keydown',function(event){if(event.key==='Escape'&&document.body.classList.contains('mobile-menu-open')) setOpen(false);});
   }
 
   function setupTopicNavigation(){

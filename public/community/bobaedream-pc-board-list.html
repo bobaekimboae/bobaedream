@@ -191,6 +191,7 @@ ul,ol{list-style:none;margin:0;padding:0}
 .rightAd .adBadge{right:6px;top:6px}
 .footer{width:1280px;margin:78px auto 45px;color:#858894;font-size:12px;line-height:15px;text-align:center}
 .railPrimary{display:none}
+.mobileCommunityNav,.mobileMenuBackdrop,.mobileWriteButton{display:none}
 html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
 .layout-reddit .loungeHero{position:sticky;top:0;z-index:30;border-bottom:1px solid #e1e4e8}
 .layout-reddit .loungeNav,.layout-reddit .topicNav{display:none}
@@ -231,6 +232,62 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
   .layout-reddit .layoutGrid{grid-template-columns:240px 742px;column-gap:24px}
   .layout-reddit .rightPanel{display:none}
 }
+@media(max-width:767px){
+  html,body,html.layout-reddit,html.layout-reddit body{width:100%;min-width:0;overflow-x:hidden;background:#f3f4f6}
+  body.mobile-menu-open{overflow:hidden}
+  .layout-reddit .loungeHero{height:56px;z-index:60;border-bottom:1px solid #eceef1;background:#fff}
+  .layout-reddit .loungeHeroInner{width:100%;height:56px;padding:0 12px}
+  .layout-reddit .loungeTitleBlock{min-width:0;flex:1}
+  .layout-reddit .loungeMenuButton{width:40px;height:40px;margin-left:-8px;margin-right:2px;flex:0 0 40px}
+  .layout-reddit .loungeMenuButton img{width:22px;height:22px}
+  .layout-reddit .loungeTitleBlock h1{font-size:17px;line-height:24px;letter-spacing:-.3px;white-space:nowrap}
+  .layout-reddit .loungeSearch{width:142px;height:36px;margin-left:10px;border-radius:18px;flex:0 0 142px}
+  .layout-reddit .loungeSearchButton{width:36px;height:36px;flex-basis:36px}
+  .layout-reddit .loungeSearchButton img{width:18px;height:18px}
+  .layout-reddit .loungeSearchInput{height:36px;padding:0 10px 0 7px;font-size:13px;line-height:18px}
+  .mobileCommunityNav{position:sticky;top:56px;z-index:28;height:52px;padding:7px 12px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid #eceef1;background:rgba(255,255,255,.96);backdrop-filter:blur(12px)}
+  .mobileCommunityNav::-webkit-scrollbar{display:none}
+  .mobileCommunityNavItem{height:36px;padding:0 14px;border-radius:18px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;color:#555d68;font-size:14px;line-height:18px;font-weight:600;white-space:nowrap}
+  .mobileCommunityNavItem.active{background:#222;color:#fff;font-weight:700}
+  .mobileMenuBackdrop{position:fixed;inset:56px 0 0;z-index:49;width:100%;height:auto;background:rgba(15,18,24,.48);opacity:0;pointer-events:none;transition:opacity .2s ease}
+  .mobile-menu-open .mobileMenuBackdrop{display:block;opacity:1;pointer-events:auto}
+  .layout-reddit .pageWrap{width:100%;margin:0}
+  .layout-reddit .layoutGrid{display:block;margin:0}
+  .layout-reddit .leftPanel{display:block;position:fixed;left:0;top:56px;bottom:auto;z-index:50;width:min(304px,84vw);height:calc(100dvh - 56px);min-height:0;max-height:calc(100dvh - 56px);padding:12px 16px calc(28px + env(safe-area-inset-bottom));overflow-y:auto;border-right:0;background:#fff;align-self:auto;transform:translateX(-104%);transition:transform .22s ease;box-shadow:10px 0 28px rgba(15,18,24,.12)}
+  html.layout-reddit body.mobile-menu-open .leftPanel{transform:translateX(0)}
+  .layout-reddit .sideCard.leftMenu{padding:0;background:#fff}
+  .layout-reddit .railPrimary{margin-bottom:12px;padding-bottom:12px}
+  .layout-reddit .railPrimaryItem{height:44px;font-size:15px}
+  .layout-reddit .writeButton:not(.mobileWriteButton){height:44px;margin-bottom:12px;border-radius:12px}
+  .layout-reddit .menuSection{padding:10px 6px 12px}
+  .layout-reddit .menuItem{height:40px;font-size:14px}
+  .layout-reddit .centerPanel{width:100%;margin:0}
+  .layout-reddit .boardTitleArea{height:58px;padding:18px 16px 14px;border:0;border-radius:0;background:#fff}
+  .layout-reddit .boardTitleArea strong{font-size:20px;line-height:26px}
+  .layout-reddit .articleControl{height:48px;margin:0;padding:0 16px;border:0;border-top:1px solid #f0f1f3;border-bottom:1px solid #eceef1;border-radius:0;background:#fff}
+  .layout-reddit .sortFilters{gap:20px}
+  .layout-reddit .sortButton{height:44px;margin:0;font-size:13px;line-height:18px}
+  .layout-reddit .searchBox{display:none}
+  .layout-reddit .redditFeed{margin-top:8px}
+  .redditFeedCard{padding:16px;border:0;border-top:1px solid #e8eaed;border-bottom:1px solid #e8eaed;border-radius:0;box-shadow:none}
+  .redditFeedCard+.redditFeedCard{margin-top:8px}
+  .redditFeedCard:hover{border-color:#e8eaed;box-shadow:none}
+  .redditFeedAvatar{width:28px;height:28px;margin-right:8px;font-size:12px}
+  .redditFeedMeta{font-size:12px;line-height:18px}
+  .redditFeedDot{margin:0 6px}
+  .redditFeedCategory{padding:3px 8px;font-size:11px;line-height:16px}
+  .redditFeedTitle{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;margin-top:11px;font-size:17px;line-height:24px;letter-spacing:-.25px}
+  .redditFeedPreview{-webkit-line-clamp:3;margin-top:6px;font-size:14px;line-height:21px}
+  .redditFeedMedia{margin-top:13px;border-radius:8px}
+  .redditFeedGallery{height:238px;gap:2px}
+  .redditFeedMediaBadge{right:8px;top:8px;height:24px;padding:0 8px;border-radius:12px;font-size:11px;line-height:24px}
+  .redditFeedStats{gap:14px;margin-top:12px;font-size:12px;line-height:18px}
+  .layout-reddit .footer{width:100%;margin:32px 0 88px;padding:0 24px;font-size:11px;line-height:18px}
+  .mobileWriteButton{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:24;width:94px;height:48px;border-radius:24px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(15,18,24,.24);font-size:15px}
+  .layout-reddit .writePanel{min-height:calc(100vh - 108px);padding:20px 16px 110px;border-radius:0}
+  .layout-reddit .writeHead strong{font-size:21px;line-height:28px}
+  .layout-reddit .writeBoardSelect{width:142px;margin-left:auto}
+}
 </style>
 </head>
 <body>
@@ -246,6 +303,14 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
     </form>
   </div>
 </section>
+<nav class="mobileCommunityNav" aria-label="모바일 커뮤니티 메뉴">
+  <a class="mobileCommunityNavItem" href="bobaedream-pc-board-list.html?view=home&layout=reddit">홈</a>
+  <a class="mobileCommunityNavItem active" href="bobaedream-pc-board-list.html?view=feed&layout=reddit">피드</a>
+  <a class="mobileCommunityNavItem" href="bobaedream-pc-board-list.html?layout=reddit">게시판</a>
+  <a class="mobileCommunityNavItem" href="bobaedream-pc-board-list.html?board=%EC%9C%A0%EB%A8%B8&layout=reddit">유머</a>
+  <a class="mobileCommunityNavItem" href="bobaedream-pc-board-list.html?board=%EC%A0%95%EC%B9%98&layout=reddit">정치</a>
+</nav>
+<button class="mobileMenuBackdrop" type="button" aria-label="커뮤니티 메뉴 닫기"></button>
 <nav class="loungeNav" aria-label="라운지 메뉴">
   <div class="loungeNavInner">
     <a class="loungeTab" href="bobaedream-pc-board-list.html?view=home">홈</a>
@@ -396,6 +461,7 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
     </aside>
   </div>
 </main>
+<button class="writeButton mobileWriteButton" type="button">글쓰기</button>
 <footer class="footer">
   보배드림 이용약관 · 커뮤니티 가이드 · 개인정보 처리방침 · 고객센터 · 서비스 소개 및 제휴 안내
 </footer>
@@ -461,6 +527,6 @@ if(document.documentElement.classList.contains('layout-reddit')){
   });
 }
 </script>
-<script src="bobaedream-pc-interactions.js?v=reddit-feed-v47"></script>
+<script src="bobaedream-pc-interactions.js?v=reddit-feed-v48"></script>
 </body>
 </html>
