@@ -20,12 +20,12 @@ const services: Array<{ key: ServiceKey; label: string }> = [
 ];
 
 const vehicleCategories = [
-  [categoryAsset("used-car.png"), "국산차"],
-  [prototypeAsset("autotrader-body-types-v2/suv.png"), "수입차"],
-  [categoryAsset("truck.png"), "트럭"],
-  [categoryAsset("bike.png"), "바이크"],
-  [categoryAsset("electric-car.png"), "전기차"],
-  [categoryAsset("camper.png"), "캠핑카"],
+  [categoryAsset("used-car.png"), "국산차", "is-flipped"],
+  [prototypeAsset("autotrader-body-types-v2/suv.png"), "수입차", "is-flipped"],
+  [categoryAsset("truck.png"), "트럭", ""],
+  [categoryAsset("bike.png"), "바이크", "is-flipped"],
+  [categoryAsset("electric-car.png"), "전기차", ""],
+  [categoryAsset("camper.png"), "캠핑카", "is-flipped"],
 ];
 
 const luxuryBrands = [
@@ -81,12 +81,12 @@ export default function MainHome() {
 
         <section className="mh-section mh-category-section" aria-labelledby="mh-body-title">
           <div className="mh-section-head">
-            <div className="mh-section-heading-copy"><h2 id="mh-body-title">차량 카테고리</h2><p>차량 형태별로 빠르게 찾아보세요</p></div>
+            <div className="mh-section-heading-copy"><h2 id="mh-body-title">차량 카테고리</h2></div>
             <ArrowLink>전체보기</ArrowLink>
           </div>
           <div className="mh-category-rows">
             <div className="mh-category-rail" aria-label="차량 유형 가로 목록">
-              {vehicleCategories.map(([image, label]) => <button className="mh-category-item" type="button" key={label}><span className="mh-category-image"><img src={image} alt="" /></span><strong>{label}</strong></button>)}
+              {vehicleCategories.map(([image, label, direction]) => <button className="mh-category-item" type="button" key={label}><span className="mh-category-image"><img className={direction} src={image} alt="" /></span><strong>{label}</strong></button>)}
             </div>
             <div className="mh-category-rail mh-luxury-rail" aria-label="럭셔리 제조사 가로 목록">
               {luxuryBrands.map(([image, label, variant]) => <button className="mh-luxury-item" type="button" key={label}><span className="mh-luxury-disc"><img className={variant} src={image} alt="" /><strong>{label}</strong></span></button>)}

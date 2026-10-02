@@ -227,6 +227,8 @@
       filter: drop-shadow(0 4px 3px rgba(15,23,42,.12));
     }
 
+    .category-image img.is-flipped { transform: scaleX(-1); }
+
     .category-item strong {
       display: block;
       margin-top: 4px;
@@ -376,17 +378,17 @@
 
     <section class="section category-section" aria-labelledby="body-title">
       <div class="section-head">
-        <div><h2 class="section-title" id="body-title">차량 카테고리</h2><p class="section-subtitle">차량 형태별로 빠르게 찾아보세요</p></div>
+        <div><h2 class="section-title" id="body-title">차량 카테고리</h2></div>
         <span class="more">전체보기 <img src="./icons/arrow-right.svg" alt="" aria-hidden="true" /></span>
       </div>
       <div class="category-rows">
         <div class="category-rail" aria-label="차량 유형 가로 목록">
-          <button class="category-item" type="button"><span class="category-image"><img data-img="../bobaedream-chotot-style-main/media/type-generated/used-car.png" alt="" /></span><strong>국산차</strong></button>
-          <button class="category-item" type="button"><span class="category-image"><img data-img="./autotrader-body-types-v2/suv.png" alt="" /></span><strong>수입차</strong></button>
+          <button class="category-item" type="button"><span class="category-image"><img class="is-flipped" data-img="../bobaedream-chotot-style-main/media/type-generated/used-car.png" alt="" /></span><strong>국산차</strong></button>
+          <button class="category-item" type="button"><span class="category-image"><img class="is-flipped" data-img="./autotrader-body-types-v2/suv.png" alt="" /></span><strong>수입차</strong></button>
           <button class="category-item" type="button"><span class="category-image"><img data-img="../bobaedream-chotot-style-main/media/type-generated/truck.png" alt="" /></span><strong>트럭</strong></button>
-          <button class="category-item" type="button"><span class="category-image"><img data-img="../bobaedream-chotot-style-main/media/type-generated/bike.png" alt="" /></span><strong>바이크</strong></button>
+          <button class="category-item" type="button"><span class="category-image"><img class="is-flipped" data-img="../bobaedream-chotot-style-main/media/type-generated/bike.png" alt="" /></span><strong>바이크</strong></button>
           <button class="category-item" type="button"><span class="category-image"><img data-img="../bobaedream-chotot-style-main/media/type-generated/electric-car.png" alt="" /></span><strong>전기차</strong></button>
-          <button class="category-item" type="button"><span class="category-image"><img data-img="../bobaedream-chotot-style-main/media/type-generated/camper.png" alt="" /></span><strong>캠핑카</strong></button>
+          <button class="category-item" type="button"><span class="category-image"><img class="is-flipped" data-img="../bobaedream-chotot-style-main/media/type-generated/camper.png" alt="" /></span><strong>캠핑카</strong></button>
         </div>
         <div class="category-rail" aria-label="럭셔리 제조사 가로 목록">
           <button class="luxury-item" type="button"><span class="luxury-disc"><img data-img="../../|assets/brand/kr/porsche.png" alt="" /><strong>포르쉐</strong></span></button>

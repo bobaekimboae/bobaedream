@@ -36,6 +36,7 @@
 .mh-category-item,.mh-luxury-item { flex:0 0 70px; text-align:center; }
 .mh-category-image { height:43px; display:flex; align-items:flex-end; justify-content:center; }
 .mh-category-image img { width:52px; height:38px; object-fit:contain; filter:drop-shadow(0 4px 3px rgba(15,23,42,.12)); }
+.mh-category-image img.is-flipped { transform:scaleX(-1); }
 .mh-category-item strong { display:block; margin-top:4px; font-size:14px; line-height:20px; font-weight:600; letter-spacing:-.04em; white-space:nowrap; }
 .mh-luxury-disc { width:56px; height:56px; margin:0 auto; padding:6px 3px 4px; display:flex; flex-direction:column; align-items:center; justify-content:center; border-radius:50%; background:#f7f7f7; }
 .mh-luxury-disc img { width:30px; height:27px; object-fit:contain; }
