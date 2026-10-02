@@ -504,7 +504,6 @@ function MarketplaceScreen() {
   const clearHeavyDetail = () => applyHeavySelection({ ...heavySelection, detail: null, maker: null, model: null });
   const clearHeavyMaker = () => applyHeavySelection({ ...heavySelection, maker: null, model: null });
   const clearHeavyModel = () => applyHeavySelection({ ...heavySelection, model: null });
-  const heavySelectionCount = Object.values(heavySelection).filter(Boolean).length;
   const categoryIsDefault = category === "전체";
   const categorySearchPlaceholder = categoryIsDefault ? "중고차" : category;
   const categoryBrandRail = categoryBrandRails[category] ?? categoryBrandRails["전체"];
