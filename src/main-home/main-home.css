@@ -3,7 +3,7 @@
 .main-home { width:min(100vw,430px); min-height:100dvh; overflow:hidden; background:#f0f2f5; box-shadow:0 28px 80px rgba(15,23,42,.18); font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Noto Sans KR","Segoe UI",sans-serif; }
 .main-home * { box-sizing:border-box; }
 .main-home button { border:0; padding:0; color:inherit; background:none; font:inherit; }
-.mh-topbar { height:64px; padding:0 12px 0 16px; display:flex; align-items:center; justify-content:space-between; background:#fff; border-bottom:1px solid rgba(15,23,42,.08); }
+.mh-topbar { height:64px; padding:0 12px 0 16px; display:flex; align-items:center; justify-content:space-between; background:#fff; }
 .mh-logo { height:44px; display:flex; align-items:center; color:#17191c; text-decoration:none; }
 .mh-title { font-size:20px; line-height:28px; font-weight:800; letter-spacing:-.055em; }
 .mh-top-icons { display:flex; gap:0; align-items:center; }
