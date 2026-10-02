@@ -56,6 +56,22 @@ const bbFilterItemByLabel = new Map(bbmSidebarItems.map((item) => [item.label, i
 
 type CatalogRow = [label: string, count: number, maker?: string];
 type BbMakerSection = { title: string; rows: CatalogRow[] };
+type BbTruckFilterOption = { name: string; count: number };
+type BbTruckSpecGroup = { label: string; options: BbTruckFilterOption[] };
+type BbTruckFilter = {
+  format: string | null;
+  subtype: string | null;
+  spec: string | null;
+  formats: BbTruckFilterOption[];
+  subtypes: BbTruckFilterOption[];
+  specGroups: BbTruckSpecGroup[];
+  onChooseFormat: (format: string) => void;
+  onChooseSubtype: (subtype: string) => void;
+  onChooseSpec: (spec: string) => void;
+  onClearFormat: () => void;
+  onClearSubtype: () => void;
+  onClearSpec: () => void;
+};
 // 원본 제조사 목록·매물 수(2026-09-24 기준). maker는 우리 시안 데이터의 제조사 이름(다르면 지정)
 const bbCatalog: Array<{ title: string; rows: CatalogRow[] }> = [
   { title: "국산차", rows: [["현대", 2697], ["제네시스", 1503], ["기아", 2352], ["쉐보레(국산)", 288, "쉐보레"], ["GM대우", 69], ["르노코리아(삼성)", 302, "르노코리아"], ["KG모빌리티(쌍용)", 390, "KG모빌리티"], ["어울림모터스", 1], ["기타 국산차", 6]] },
@@ -161,9 +177,47 @@ function BbMakerGradeFilter({ selection, view, setView, brandLogos = false, make
   );
 }
 
+type BbTruckView = "format" | "subtype" | "spec";
+
+function BbTruckFormatFilter({ value }: { value: BbTruckFilter }) {
+  const stageFor = (): BbTruckView => !value.format ? "format" : !value.subtype ? "subtype" : value.specGroups.length ? "spec" : "subtype";
+  const [view, setView] = useState<BbTruckView>(stageFor);
+  useEffect(() => { setView(stageFor()); }, [value.format, value.subtype, value.spec, value.specGroups.length]);
+  const count = (rowCount: number) => <em className={rowCount === 0 ? "is-zero" : ""}>{rowCount.toLocaleString("ko-KR")}</em>;
+  const pathChips = [
+    value.format ? { key: "format", label: value.format, clear: value.onClearFormat } : null,
+    value.subtype ? { key: "subtype", label: value.subtype, clear: value.onClearSubtype } : null,
+    value.spec ? { key: "spec", label: value.spec, clear: value.onClearSpec } : null,
+  ].filter((chip): chip is NonNullable<typeof chip> => Boolean(chip));
+
+  return (
+    <div className="bbm-maker-grade bbm-truck-format" aria-label="형식과 적재용량 선택">
+      {pathChips.length ? <div className="bbm-path-chips" aria-label="선택한 형식과 적재용량">
+        {pathChips.map((chip) => <button key={chip.key} type="button" className="bbm-path-chip" aria-label={`${chip.label} 선택 해제`} onClick={chip.clear}><span>{chip.label}</span><span className="bbm-path-chip-x" aria-hidden="true">×</span></button>)}
+      </div> : null}
+      <div className="bbm-catalog">
+        {view === "format" ? <div className="bbm-catalog-section">
+          <p className="bbm-catalog-title">형식</p>
+          {value.formats.map((option) => <button key={option.name} type="button" className={`bbm-catalog-row${value.format === option.name ? " is-selected" : ""}`} aria-pressed={value.format === option.name} onClick={() => { value.onChooseFormat(option.name); setView("subtype"); }}><span>{option.name}</span>{count(option.count)}</button>)}
+        </div> : view === "subtype" ? <div className="bbm-catalog-section is-drill">
+          <button type="button" className="bbm-catalog-back" onClick={() => setView("format")}><BbIcon name="chevron-left" size={20} />{value.format}</button>
+          <p className="bbm-catalog-title">세부형식</p>
+          {value.subtypes.map((option) => <button key={option.name} type="button" className={`bbm-catalog-row${value.subtype === option.name ? " is-selected" : ""}`} aria-pressed={value.subtype === option.name} onClick={() => { value.onChooseSubtype(option.name); setView("spec"); }}><span>{option.name}</span>{count(option.count)}</button>)}
+        </div> : <div className="bbm-catalog-section is-drill">
+          <button type="button" className="bbm-catalog-back" onClick={() => setView("subtype")}><BbIcon name="chevron-left" size={20} />{value.subtype}</button>
+          {value.specGroups.map((group) => <div key={group.label} className="bbm-grade-group">
+            <p className="bbm-catalog-title">{group.label}</p>
+            {group.options.map((option) => <button key={`${group.label}-${option.name}`} type="button" className={`bbm-catalog-row${value.spec === option.name ? " is-selected" : ""}`} aria-pressed={value.spec === option.name} onClick={() => value.onChooseSpec(option.name)}><span>{option.name}</span>{count(option.count)}</button>)}
+          </div>)}
+        </div>}
+      </div>
+    </div>
+  );
+}
+
 // resetSignal: 값이 바뀔 때마다 "초기화" 확인 창을 연다(QF-093 왼쪽 펼침판 아래 [초기화] 버튼용)
 // brandLogos: 과쯔 모드만 제조사 행 앞에 로고 24×24(QF-096). 초톳·동처띠 PC 는 그대로
-function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNotify, bbm, onBbmChange, countWithBbm, countOf, resetSignal = 0, brandLogos = false, makerSections = bbCatalog, order = bbFilterMenuOriginal, mileageFinal = false }: { mileageFinal?: boolean; order?: string[]; selection: BbMakerSelection; appliedCount: number; historyCount?: number; onReset: () => void; onNotify: (message: string) => void; bbm: BbmFilterValues; onBbmChange: (next: BbmFilterValues) => void; countWithBbm: (next: BbmFilterValues) => number; countOf?: (key: BbmCheckKey, option: string) => number | null; resetSignal?: number; brandLogos?: boolean; makerSections?: BbMakerSection[] }) {
+function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNotify, bbm, onBbmChange, countWithBbm, countOf, resetSignal = 0, brandLogos = false, makerSections = bbCatalog, order = bbFilterMenuOriginal, mileageFinal = false, truckFilter }: { mileageFinal?: boolean; order?: string[]; selection: BbMakerSelection; appliedCount: number; historyCount?: number; onReset: () => void; onNotify: (message: string) => void; bbm: BbmFilterValues; onBbmChange: (next: BbmFilterValues) => void; countWithBbm: (next: BbmFilterValues) => number; countOf?: (key: BbmCheckKey, option: string) => number | null; resetSignal?: number; brandLogos?: boolean; makerSections?: BbMakerSection[]; truckFilter?: BbTruckFilter }) {
   // 모달형 항목: 사이드바 대신 412 모달을 연다. 원본 실측(2026-09-24): 모달 안 선택은 초안이고 [확인 N대]를 눌러야 조건이 걸린다(닫기 X는 버림)
   const [modalItem, setModalItem] = useState<BbmFilterItem | null>(null);
   const [draft, setDraft] = useState<BbmFilterValues>(bbm);
@@ -176,7 +230,9 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
     resetSignalRef.current = resetSignal;
     setConfirmReset(true);
   }, [resetSignal]);
-  const [openItems, setOpenItems] = useState<string[]>([bbMakerItem]);
+  const truckFilterLabel = "형식/적재용량";
+  const hasTruckFilter = Boolean(truckFilter);
+  const [openItems, setOpenItems] = useState<string[]>(() => hasTruckFilter ? [truckFilterLabel] : [bbMakerItem]);
   const [keepSearch, setKeepSearch] = useState(false);
   const { maker, model } = selection;
   const [view, setView] = useState<BbDrillView>(() => maker && model ? { stage: "grade", maker, model } : maker ? { stage: "model", maker } : { stage: "maker" });
@@ -185,6 +241,11 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
     setView(maker && model ? { stage: "grade", maker, model } : maker ? { stage: "model", maker } : { stage: "maker" });
     if (maker) setOpenItems((current) => current.includes(bbMakerItem) ? current : [...current, bbMakerItem]);
   }, [maker, model]);
+  useEffect(() => {
+    setOpenItems((current) => hasTruckFilter
+      ? current.includes(truckFilterLabel) ? current : [truckFilterLabel, ...current.filter((item) => item !== bbMakerItem)]
+      : current.includes(bbMakerItem) ? current.filter((item) => item !== truckFilterLabel) : [bbMakerItem, ...current.filter((item) => item !== truckFilterLabel)]);
+  }, [hasTruckFilter]);
   const toggle = (label: string) => setOpenItems((current) => current.includes(label) ? current.filter((item) => item !== label) : [...current, label]);
   const collapsedPath = [
     maker ? bbMakerLabel(maker) : null,
@@ -205,6 +266,19 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
         </div>
       </div>
       <div className="bbm-filter-menu">
+        {truckFilter ? (() => {
+          const open = openItems.includes(truckFilterLabel);
+          const applied = Boolean(truckFilter.format || truckFilter.subtype || truckFilter.spec);
+          const path = [truckFilter.format, truckFilter.subtype, truckFilter.spec].filter(Boolean).join(" › ");
+          return <section className={`bbm-filter-item is-truck-format${open ? " is-open" : ""}${applied ? " is-applied" : ""}`}>
+            <button type="button" className="bbm-filter-toggle" aria-expanded={open} onClick={() => toggle(truckFilterLabel)}>
+              <span className="bbm-filter-label"><span className="bbm-filter-label-text">{truckFilterLabel}</span>{!open && path ? <small className="bbm-filter-path">{path}</small> : null}</span>
+              <img className="bbm-filter-chevron" src={bbmAsset("filter-chevron")} alt="" aria-hidden="true" />
+            </button>
+            {truckFilter.format ? <button type="button" className="bbm-filter-item-reset" onClick={truckFilter.onClearFormat}>초기화</button> : null}
+            {open ? <BbTruckFormatFilter value={truckFilter} /> : null}
+          </section>;
+        })() : null}
         {order.map((label) => {
           const open = openItems.includes(label);
           const isMaker = label === bbMakerItem;
@@ -290,4 +364,4 @@ function BbCarCard({ car, liked, onToggleLike, onOpen, onNotify }: { car: Car; l
   );
 }
 
-export { bbCatalog, bbMakerLabel, BbIcon, BbHeader, BbFilterSidebar, BbSwitch, BbCarCard, type BbMakerSelection, type BbModelRow, type BbGradeGroup, type BbMakerSection };
+export { bbCatalog, bbMakerLabel, BbIcon, BbHeader, BbFilterSidebar, BbSwitch, BbCarCard, type BbMakerSelection, type BbModelRow, type BbGradeGroup, type BbMakerSection, type BbTruckFilter };

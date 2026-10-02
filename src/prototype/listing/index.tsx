@@ -66,7 +66,7 @@ import {
   type SheetType,
 } from "../data";
 import { BrandRailMark, CategoryFilterSheet, DepthCard, MakerSheet, PriceSheet, TrimChip, VehiclePickerSheet } from "../quick-filter";
-import { bbCatalog, BbCarCard, BbFilterSidebar, BbHeader, BbIcon, BbSwitch, type BbMakerSelection, type BbMakerSection } from "./pc-bbmuseum";
+import { bbCatalog, BbCarCard, BbFilterSidebar, BbHeader, BbIcon, BbSwitch, type BbMakerSelection, type BbMakerSection, type BbTruckFilter } from "./pc-bbmuseum";
 import { bbmCarChecks, emptyBbmFilters, isBbmDataOption, matchesBbmFilters, rangeIsSet, resetBbmFilters, setBbmChecks, setBbmRange, type BbmCheckKey, type BbmFilterValues } from "../filters/bbm-filter-state";
 import { bbmAppliedChips, bbmItemValue } from "../filters/bbm-applied";
 import { MileageFinalSheet, mileageSummary } from "../filters/bbm-mileage";
@@ -1572,6 +1572,33 @@ function MarketplaceScreen() {
     const count = visualCount ? Number(visualCount.replace(/[^0-9]/g, "")) : listingCars.filter((car) => car.maker === makerName && normalizeModelSearchText(`${car.title} ${car.trim} ${car.modelGroup ?? ""}`).includes(key)).length;
     return { name, label: formatModelLabel(name), count };
   });
+  const truckSidebarBase = isTruckCategory ? listingCars.filter((car) => {
+    const normalized = query.trim().toLowerCase();
+    const searchText = `${car.title} ${car.trim} ${car.maker} ${car.modelGroup ?? ""}`;
+    return matchesChoTotFilters(car, { ...filters, maker: null, model: null })
+      && matchesBbmFilters(car, filters.bbm)
+      && (!regionKeyword || car.place.includes(regionKeyword))
+      && (!region.district || car.place.includes(region.district))
+      && (!normalized || searchText.toLowerCase().includes(normalized));
+  }) : [];
+  const truckSidebarCount = (predicate: (car: Car) => boolean) => truckSidebarBase.filter(predicate).length;
+  const truckSidebarFilter: BbTruckFilter | undefined = isTruckCategory ? {
+    format: selectedTruckFormat,
+    subtype: selectedTruckSubtype,
+    spec: selectedTruckSpec,
+    formats: truckFormatCatalog.map((group) => ({ name: group.name, count: truckSidebarCount((car) => car.truck?.format === group.name) })),
+    subtypes: truckSubtypeOptions.map((subtype) => ({ name: subtype, count: truckSidebarCount((car) => car.truck?.format === selectedTruckFormat && car.truck?.subtype === subtype) })),
+    specGroups: truckSpecGroups.map((group) => ({
+      label: group.label,
+      options: group.options.map((option) => ({ name: option, count: truckSidebarCount((car) => car.truck?.format === selectedTruckFormat && car.truck?.subtype === selectedTruckSubtype && car.truck?.load === option) })),
+    })),
+    onChooseFormat: chooseTruckFormat,
+    onChooseSubtype: chooseTruckSubtype,
+    onChooseSpec: chooseTruckSpec,
+    onClearFormat: clearTruckFormat,
+    onClearSubtype: clearTruckSubtype,
+    onClearSpec: clearTruckSpec,
+  } : undefined;
   // 칩 모달(PC 412) · 바텀시트(모바일). 버튼 숫자는 원본처럼 누르기 전 목록 수. 버튼 문구: PC 연식·가격 "N대 보기", 연료·판매자 "확인 N대", 모바일은 모두 "N대 보기"
   const focusMileageChip = () => {
     const chip = document.querySelector<HTMLElement>(".marketplace.is-bbm .bbm-chips .filter-chip.is-mileage");
@@ -1724,7 +1751,7 @@ function MarketplaceScreen() {
             {/* QF-106b: 경로는 상단 카드 밖(회색 바탕 위), 카드는 제목 줄부터 */}
             {isGuaziQuickStyle ? <div className="bbm-hybrid-top"><BbmTopCrumbs items={bbmCrumbs} />{bbmTopCard}</div> : null}
             <div className="bbm-page">
-              <BbFilterSidebar mileageFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? category === "바이크" ? bikeFilterOrder : bbmFilterOrder : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} />
+              <BbFilterSidebar mileageFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? category === "바이크" ? bikeFilterOrder : bbmFilterOrder : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} truckFilter={truckSidebarFilter} />
               <div className="bbm-content">
                 {isGuaziQuickStyle ? null : bbmContentHead}
                 <section className="bbm-results" aria-label="매물 목록">
@@ -1769,7 +1796,7 @@ function MarketplaceScreen() {
         {renderBbmChipPanel(true)}
         {drawerFilterChip && bbmDrawerOpen ? (
           <BbmFilterDrawer count={visibleCars.length} onClose={() => setBbmDrawerOpen(false)} onReset={() => setBbmDrawerReset((value) => value + 1)}>
-            <BbFilterSidebar mileageFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? category === "바이크" ? bikeFilterOrder : bbmFilterOrder : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmDrawerReset} brandLogos={isGuaziQuickStyle} />
+            <BbFilterSidebar mileageFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? category === "바이크" ? bikeFilterOrder : bbmFilterOrder : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmDrawerReset} brandLogos={isGuaziQuickStyle} truckFilter={truckSidebarFilter} />
           </BbmFilterDrawer>
         ) : null}
         {marketSheet}
