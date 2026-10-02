@@ -555,3 +555,43 @@ final result: passed
 - 즐겨찾기 선택 상태 아이콘은 실제 동작 범위가 확정될 때 추가한다.
 
 final result: blocked
+# Design QA — 메인 차량 유형 아이콘 연동
+
+- source visual truth: `http://127.0.0.1:4177/?qf=guazi&v=vehicle-type-source`의 매물 리스트 차량 유형 메뉴 및 사용자 제공 초톳 캡처 `1000014814.jpg`
+- implementation screenshot: Codex 인앱 브라우저 캡처 `http://127.0.0.1:4177/?v=vehicle-types`
+- viewport: 브라우저 1280×720 CSS px, 메인 앱 프레임 430px, devicePixelRatio 1.25
+- state: 메인 기본 화면, 차량 유형 레일 첫 위치
+- density normalization: 소스와 구현을 동일 브라우저·동일 DPR에서 확인
+
+**Full-view comparison evidence**
+
+- 메인 차량 카테고리의 별도 실사 컷을 제거하고 매물 리스트가 쓰는 `category-*.svg` 7종을 동일 순서로 연결했습니다.
+- 섹션 제목은 실제 정보 구조에 맞춰 `차량 유형`으로 변경했습니다.
+- 430px 앱 프레임에서 레일은 528px로 가로 스크롤되며 다음 항목 탐색이 가능합니다.
+
+**Focused region comparison evidence**
+
+- 매물 리스트 원본 아이콘은 회색 원형 슬롯과 20px 아이콘을 사용합니다. 메인에서는 같은 SVG·색상·원형 처리 방식을 유지하고, 독립 메인 섹션의 시인성을 위해 슬롯만 44px, 아이콘은 24px로 한 단계 확대했습니다.
+- 메인 실측: 아이콘 슬롯 44×44px, 아이콘 24×24px, 항목 폭 64px, 간격 8px, 라벨 13/18px 500.
+- 7개 아이콘 모두 로드 완료했으며 브라우저 콘솔 오류·경고는 0건입니다.
+
+**Findings**
+
+- P0/P1/P2 불일치 없음.
+- P3: 매물 리스트 모바일 원본보다 메인 슬롯이 8px 큽니다. 메인 첫 화면의 터치성과 시인성을 위한 의도된 확대입니다.
+
+**Comparison history**
+
+- 1차 구현: 메인 전용 실사 차량 컷 사용 — 사용자 의도와 달라 교체 요청.
+- 2차 구현: 매물 리스트 차량 유형 SVG 7종으로 교체, 제목·순서·이동 파라미터를 차량 유형 구조에 맞춤 — 통과.
+
+**Implementation Checklist**
+
+- [x] 자동차·트럭/특장·바이크·캠핑카·올드카·건설기계·부품/용품 아이콘 연결
+- [x] 가로 레일과 터치 슬롯 유지
+- [x] 트럭·특장 선택 시 해당 `category` 파라미터로 매물 리스트 이동
+- [x] 빌드·아이콘 로드·콘솔 확인
+
+final result: passed
+
+---
