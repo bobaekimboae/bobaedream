@@ -43,12 +43,12 @@
     ]
   };
   var feedMediaByPost={
-    'domestic-001':{type:'video',src:'../assets/detail/raw-20.jpeg',duration:'00:42'},
+    'domestic-001':{type:'video',src:'media/car-driving-road-v01.mp4',poster:'../assets/detail/raw-20.jpeg'},
     'import-001':{type:'image',src:'../assets/detail/raw-07.jpeg'},
     'ev-001':{type:'gallery',items:['../assets/detail/raw-18.jpeg','../assets/detail/raw-19.jpeg','../assets/detail/raw-20.jpeg']},
     'truck-001':{type:'image',src:'../assets/detail/raw-09.jpeg'},
-    'tune-001':{type:'video',src:'../assets/detail/raw-04.png',duration:'01:18'},
-    'blackbox-001':{type:'video',src:'../assets/detail/raw-05.jpeg',duration:'00:27'},
+    'tune-001':{type:'video',src:'media/car-desert-drone-v01.mp4',poster:'../assets/detail/raw-04.png'},
+    'blackbox-001':{type:'video',src:'media/car-sunset-drive-v01.mp4',poster:'../assets/detail/raw-05.jpeg'},
     'domestic-002':{type:'gallery',items:['../assets/pc-detail/9573-imgImage.png','../assets/pc-detail/9573-imgImage2.png','../assets/pc-detail/9573-imgImage4.png']},
     'import-002':{type:'image',src:'../assets/pc-detail/9573-imgImage7.png'},
     'used-002':{type:'gallery',items:['../assets/detail/raw-04.png','../assets/detail/raw-07.jpeg']},
@@ -336,13 +336,13 @@
       var preview=post[7]||post[1]+'에 관한 회원들의 경험과 의견을 나누는 게시글입니다.';
       var initial=(post[2]||'보').trim().slice(0,1);
       return [
-        '<a class="redditFeedCard" href="'+href+'">',
+        '<article class="redditFeedCard">',
         '<div class="redditFeedMeta"><span class="redditFeedAvatar" aria-hidden="true">'+esc(initial)+'</span><span class="redditFeedAuthor">'+esc(post[2])+'</span><span class="redditFeedDot"></span><span>'+esc(post[3])+'</span><span class="redditFeedCategory">'+esc(post[0])+'</span></div>',
-        '<strong class="redditFeedTitle">'+esc(post[1])+'</strong>',
+        '<a class="redditFeedTitle" href="'+href+'">'+esc(post[1])+'</a>',
         '<p class="redditFeedPreview">'+esc(preview)+'</p>',
         renderFeedMedia(post),
         '<div class="redditFeedStats"><span class="redditFeedStat">추천 '+esc(post[5]||0)+'</span><span class="redditFeedStat">댓글 '+esc(post[6]||0)+'</span><span class="redditFeedStat">조회 '+esc(post[4]||0)+'</span></div>',
-        '</a>'
+        '</article>'
       ].join('');
     }).join('');
   }
@@ -351,7 +351,7 @@
     var media=feedMediaByPost[post[8]];
     if(!media) return '';
     if(media.type==='video'){
-      return '<div class="redditFeedMedia is-video" aria-label="영상 미리보기"><img src="'+esc(media.src)+'" alt="" loading="lazy"><span class="redditFeedPlay"><img src="assets/view-icons/video.svg" alt="" aria-hidden="true"></span><span class="redditFeedDuration">'+esc(media.duration)+'</span></div>';
+      return '<div class="redditFeedMedia is-video"><video controls preload="metadata" playsinline poster="'+esc(media.poster)+'" aria-label="차량 영상"><source src="'+esc(media.src)+'" type="video/mp4">영상 재생을 지원하지 않는 브라우저입니다.</video><span class="redditFeedMediaBadge">영상</span></div>';
     }
     if(media.type==='gallery'){
       var items=media.items||[];
