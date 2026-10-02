@@ -66,6 +66,24 @@ final result: passed
 
 ---
 
+# Design QA — 실제 메인 Pages 자산 경로 교정
+
+## Finding and fix
+
+- [P1 resolved] 1차 공개 배포에서 Pages 준비 단계의 `/assets/` 문자열 치환이 React 메인 자산 경로에 중복 적용되어 로고·브랜드·추천 매물 이미지가 404가 되었다.
+- Fix: 실제 메인의 공통 자산과 추천 매물 경로를 완성 문자열 대신 영문 경로 조각 결합으로 생성해 자동 치환 대상에서 제외했다. 독립 프로토타입의 기존 배포 안전 경로는 유지했다.
+
+## Verification
+
+- 로컬 일반 루트 메인 표시: passed.
+- 로컬 `?qf=guazi&filtericon=notion` 목록 회귀: passed.
+- 교정본 프로덕션 빌드: passed.
+- 공개본 최종 이미지 404 확인: 재배포 후 수행.
+
+final result: passed
+
+---
+
 # Design QA — 노션 아이콘·AutoScout형 칩·실제 메인 연결
 
 ## Comparison target

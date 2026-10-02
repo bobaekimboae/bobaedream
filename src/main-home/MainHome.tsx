@@ -4,7 +4,8 @@ import "./main-home.css";
 type ServiceKey = "all" | "used-car" | "community" | "truck" | "bike" | "construction" | "camping" | "parts";
 
 const prototypeAsset = (path: string) => `./prototypes/autotrader-bobaedream-main/${path}`;
-const publicAsset = (path: string) => `./assets/${path}`;
+const publicAsset = (path: string) => ["assets", path].join("/");
+const passengerAsset = (path: string) => ["prototypes", "passenger-body-types", "assets", path].join("/");
 
 const services: Array<{ key: ServiceKey; label: string }> = [
   { key: "all", label: "전체" },
@@ -117,7 +118,7 @@ export default function MainHome() {
           <div className="mh-section-head"><h2 id="mh-offer-title">추천 매물</h2><ArrowLink>전체</ArrowLink></div>
           <div className="mh-offer-rail">
             {[["suv.svg", "BMW X3 xDrive20i", "5,280만원"], ["sedan.svg", "벤츠 E300 AMG", "6,150만원"], ["coupe.svg", "포르쉐 911 Carrera", "1억 6,900만원"]].map(([image, title, price]) => (
-              <article className="mh-offer-card" key={title}><div><img src={`./prototypes/passenger-body-types/assets/${image}`} alt="" /></div><p><strong>{title}</strong><span>{price}</span></p></article>
+              <article className="mh-offer-card" key={title}><div><img src={passengerAsset(image)} alt="" /></div><p><strong>{title}</strong><span>{price}</span></p></article>
             ))}
           </div>
         </section>
