@@ -3,7 +3,7 @@
 ## Comparison target
 
 - Source visual truth: Notion `0_0_필터 FilterHeader`의 첨부 파일 `FilterHeader.svg`.
-- Implementation: `public/assets/bbm/chip-filter.svg`.
+- Implementation: `public/assets/bbm/chip-filter-header.svg`; 기본 버튼이 이 파일을 직접 참조합니다.
 - State: 과쯔 모바일 기본 목록과 PC 개발 시안형 기본 목록.
 
 ## Findings

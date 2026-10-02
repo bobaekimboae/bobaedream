@@ -126,11 +126,11 @@ const debugMode = new URLSearchParams(window.location.search).get("debug") === "
 // QF-076 부품 비교 화면(&bbmparts=1)
 const bbmPartsMode = new URLSearchParams(window.location.search).get("bbmparts") === "1";
 
-// 최종 선택은 세 개의 조절선을 사용하는 FilterHeader 원본. 노션 첨부 시안은
-// `filtericon=notion`에서만 비교하고 기본 아이콘은 바꾸지 않는다.
+// 최종 선택은 노션에서 받은 세 개 조절선 FilterHeader 원본이다.
+// `filtericon=notion`은 이전 2단 비교 시안만 유지한다.
 const bbmFilterIconName = new URLSearchParams(window.location.search).get("filtericon") === "notion"
   ? "chip-filter-notion"
-  : "chip-filter-funnel";
+  : "chip-filter-header";
 
 let detailScreen: FlowScreen;
 let savedListingsScreen: FlowScreen;

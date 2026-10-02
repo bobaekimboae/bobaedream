@@ -1,4 +1,5 @@
 ﻿일시,작업ID,화면 위치,아이콘 파일,크기,노션 행 이름,노션 카테고리,상태,비고
+"2026-10-03 04:23","미지정","PC·모바일 과쯔 상단 필터 버튼","public/assets/bbm/chip-filter-header.svg","원본 24·표시 20","0_0_필터 FilterHeader","01_독일버전_승용_PC필터","기본 경로 연결완료","새 파일명으로 기본 버튼에 직접 연결해 캐시 분리"
 "2026-10-03 04:13","미지정","PC·모바일 과쯔 상단 필터 버튼","public/assets/bbm/chip-filter.svg","원본 24·표시 20","0_0_필터 FilterHeader","01_독일버전_승용_PC필터","교체완료","노션 첨부 FilterHeader.svg의 viewBox와 path 그대로 적용"
 "2026-09-24 18:51","QF-067","PC 좌측 필터 · 제조사·모델·등급 뒤로 행","public/assets/icons/bb/chevron-left.svg","20","셰브론_좌","셰브론_화살표","예정","currentColor 변환"
 "2026-09-24 18:51","QF-067","PC 좌측 필터 · 등급 체크박스 안 체크 표시","public/assets/icons/bb/check.svg","14","체크마크","아이콘 배경","예정","노션에 체크박스(네모 틀) SVG가 없어 틀은 CSS(18, 1.5px #C0C0C0, 선택 시 #1B4C8C 채움)"

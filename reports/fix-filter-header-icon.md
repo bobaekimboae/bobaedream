@@ -9,7 +9,7 @@
 | 항목 | 내용 |
 |---|---|
 | 과제 ID | 미지정(사용자 직접 지시) |
-| 브랜치 | `fix/filter-header-icon` |
+| 브랜치 | `fix/filter-header-icon` → `fix/filter-header-icon-live` |
 | 커밋 | 현재 커밋 |
 | PR | 배포 단계에서 기록 |
 | 상태 | 로컬 적용·검수 완료, 배포 대기 |
@@ -17,7 +17,9 @@
 ## 3. 한 일
 
 - 노션 페이지의 첨부 파일 `FilterHeader.svg`를 직접 내려받아 path를 확인했습니다.
-- `public/assets/bbm/chip-filter.svg`를 24×24 원본으로 교체했습니다.
+- 공개 배포본 DOM을 다시 확인해 실제 기본 버튼 경로가 별도 파일을 참조한다는 점을 찾았습니다.
+- `public/assets/bbm/chip-filter-header.svg`에 24×24 원본을 두고 실제 기본 버튼에 직접 연결했습니다.
+- 이전 브라우저 캐시와 분리되도록 새 파일명을 사용했습니다.
 - 모바일과 PC의 기존 버튼 크기·간격·동작은 건드리지 않았습니다.
 - 규칙을 `docs/quick-filter-spec.md`에 기록했습니다.
 
@@ -33,11 +35,11 @@
 
 ## 5. 검증
 
-- `npm run verify:qf`: 통과
+- `npm run verify:qf`: 재검증 통과
 - `npm run verify`: 관리자 정적 페이지 응답 검사 1건만 실패(16/17 통과). 변경 전 작업본에서도 같은 Windows 경로 문제로 재현되어 이번 아이콘 변경과 무관합니다.
-- `npm run build`: 통과
+- `npm run build`: 재검증 통과
 - `npm run test:sites`: 4/4 통과
-- Pages 산출물: `dist/client`, Storybook 없음, 번들 `index-1B3rEnnS.js`
+- 재배포 Pages 산출물: `dist/client`, Storybook 없음, 번들 `index-DVR369X9.js`, 기본 번들에 `chip-filter-header` 포함
 - 모바일·PC 콘솔 오류·경고: 로컬 검수 0
 - 모바일 필터 버튼 클릭 → dialog 열림: 통과
 
@@ -47,7 +49,7 @@
 
 ## 7. 못 한 것·다음에 할 것
 
-- 공개 배포 후 새 `v` 값과 GitHub Pages 실행 결과를 확인합니다.
+- 재배포 후 DOM `src`, 공개 SVG path, 새 `v` 값과 GitHub Pages 실행 결과를 확인합니다.
 - 기존 관리자 테스트의 Windows 정적 파일 경로 문제는 별도 작업으로 남깁니다.
 
 ## 8. 확인 주소
