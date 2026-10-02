@@ -66,6 +66,61 @@ final result: passed
 
 ---
 
+# Design QA — 트럭 축소 이미지 카드 v04
+
+## Comparison target
+
+- Source visual truth path: `C:/Users/bobae/Downloads/KakaoTalk_20261002_183735865.png`.
+- Prior comparison screenshot path: `docs/truck/audits/2026-10-02/truck_finn_airbnb_cards_mobile_v01.png`.
+- Latest implementation capture: Codex 인앱 브라우저의 로컬 모바일·PC 화면.
+- Latest local URL: `http://127.0.0.1:5173/?qf=guazi&category=트럭%20·%20특장`.
+- Source pixels: 1080×2340px.
+- Verification viewports: 모바일 390×844px, PC 1280×900px, density 1× 기준.
+- State: 라이트 테마, 트럭 형식 단계와 카고 세부형식 단계.
+
+## Findings and fixes
+
+- [P2 resolved] v03 카드가 사용자 기대보다 크게 보여 한 화면 정보 밀도가 낮았다.
+  - Fix: 모바일을 80×88px, PC를 100×100px로 줄였다.
+- [P2 resolved] 카드만 줄이면 이미지와 긴 명칭이 답답해질 가능성이 있었다.
+  - Fix: 차량 이미지는 카드 폭의 약 90%를 유지하고, 명칭은 2줄 고정 영역으로 재조정했다.
+
+## Full-view comparison
+
+- 모바일에서 카드 4개와 다음 카드 일부가 함께 보여 가로 탐색 가능성이 더 명확하다.
+- PC에서는 퀵필터 한 행에 더 많은 형식이 노출되며 전체 필터 영역 높이는 줄었다.
+- 카드 전체 터치·클릭 대상과 Airbnb형 선택 상태는 유지된다.
+
+## Focused region comparison
+
+- 모바일 카드 80×88px, 이미지 72×42px, 명칭 72×32px, 곡률 16px.
+- PC 카드 100×100px, 이미지 92×50px, 명칭 92×34px, 곡률 16px.
+- `경형 트럭 (1톤 미만)`부터 `트랜스/와이드 파워게이트`까지 7개 세부형식의 실제 표시 높이가 스크롤 높이와 일치한다.
+- 개별 카드 집중 캡처에서 차량 이미지 로딩과 이미지·명칭 간격 4px을 확인했다.
+
+## Required fidelity surfaces
+
+- Fonts and typography: 모바일 11/16px, PC 12/17px, 최대 2줄로 축소 밀도에 맞춤.
+- Spacing and layout rhythm: 카드 외곽과 내부 요소를 동일 비율로 축소해 빈 공간 편차를 줄임.
+- Colors and visual tokens: 기본·호버·선택 색상 변경 없음.
+- Image quality and asset fidelity: 228×120 원본 PNG를 비율 왜곡 없이 `contain`으로 축소 표시.
+- Copy and content: 형식·세부형식 명칭 변경 없음.
+
+## Verification
+
+- 모바일 축소 카드와 첫 화면 노출 밀도: passed.
+- PC 100×100px 카드와 세부형식 2줄 표시: passed.
+- 모바일 콘솔 errors/warnings: 0건.
+- `npm run verify:qf`: passed.
+
+**Open Questions**
+
+- 공개 배포는 사용자 확인 후 진행한다.
+
+final result: passed
+
+---
+
 # Design QA — 트럭 이미지 위·텍스트 아래 카드 균형 v03
 
 ## Comparison target
