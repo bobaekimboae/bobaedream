@@ -5,6 +5,7 @@ import brandTop10 from "../data/brand-top10.json";
 import brandTop10Bike from "../data/brand-top10-bike.json";
 import brandTop10Truck from "../data/brand-top10-truck.json";
 import "./bbm-brand-logos.css";
+import { bikeBrandCount } from "../data/bike-filter-catalog";
 
 // QF-096: 과쯔 모드 제조사 로고(public/assets/brand/kr). 기준 이름 = 좌측 필터 표기(bbCatalog 라벨).
 // 퀵필터·매물 데이터의 제조사 값(maker)은 catalog key 또는 아래 대응으로 좌측 필터 이름을 찾는다. 대응이 없으면 로고 없음(추측 연결 안 함).
@@ -92,7 +93,7 @@ export const krTypeTop10 = (category: string) => typeTop10[category] ?? null;
 export function krTopTenSections(scope: "all" | "domestic" | "imported", category?: string) {
   const type = category ? typeTop10[category] : undefined;
   const rows = bbCatalog.flatMap((section) => section.rows);
-  const toItem = (label: string) => { if (type) return { label, key: label, count: 0 }; const row = rows.find(([name]) => name === label); return { label, key: row?.[2] ?? label, count: row?.[1] ?? 0 }; };
+  const toItem = (label: string) => { if (type) return { label, key: label, count: category === "바이크" ? bikeBrandCount[label] ?? 0 : 0 }; const row = rows.find(([name]) => name === label); return { label, key: row?.[2] ?? label, count: row?.[1] ?? 0 }; };
   const source = type ?? brandTop10;
   const domestic = scope === "imported" ? [] : source.domestic.map(toItem);
   const imported = scope === "domestic" ? [] : source.imported.map(toItem);
