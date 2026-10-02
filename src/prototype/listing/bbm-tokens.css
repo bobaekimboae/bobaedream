@@ -31,6 +31,8 @@
 .bbm-category-menu__button { display: flex; width: 65px; flex-direction: column; align-items: center; padding: 0; border: 0; background: none; cursor: pointer; }
 .bbm-category-menu__icon-box { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; background: var(--bbm-icon-box); }
 .bbm-category-menu__icon-box img { width: 24px; height: 24px; }
+.bbm-category-menu__icon-box.is-photo { width: 60px; height: 40px; border-radius: 0; background: transparent; }
+.bbm-category-menu__icon-box.is-photo img { width: 60px; height: 40px; object-fit: contain; object-position: center bottom; }
 .bbm-category-menu__label { width: 60px; color: var(--bbm-text-sub); font-size: 14px; font-weight: 500; line-height: 19.6px; text-align: center; white-space: nowrap; }
 
 /* ── 공통: 체크 선택 모양 = 원본 검정(#222) 채움 + 흰 체크 */

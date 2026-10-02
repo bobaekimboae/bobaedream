@@ -99,14 +99,14 @@
 .marketplace.is-bbm-m.is-qf-guazi .depth-rail-label { padding-left: 12px; }
 .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-kr-maker .depth-rail-track { padding-left: 12px; }
 
-/* ── QF-106b 모바일 첫 화면 유형 줄 = ④ 이미지 줄 규격(82 = 위 2 + 칸 74 + 아래 6)
-   칸 64×74 · 피치 72 · 상자 36(칸 위 0) · 이름 12/18 500 #595959 상자 아래 2 · 폭 56 · 최대 2줄 · 첫 칸 x = 첫 칩 − 4. 회색 띠는 ⑤ 위 테두리가 맡는다 */
+/* ── 모바일 첫 화면 유형 줄: 초톳 실사 슬롯 기준.
+   칸 64×78 · 피치 72 · 실사 64×40 · 동일 바닥선 · 이름 12/18 500 #595959 · 최대 2줄. */
 .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu { border-bottom: 0; }
 .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__list { gap: 8px; padding: 2px 12px 6px; }
 .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__item { width: 64px; }
-.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__button { justify-content: flex-start; gap: 2px; width: 64px; height: 74px; padding: 0; box-sizing: border-box; }
-.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__icon-box { flex: none; width: 36px; height: 36px; margin: 0; }
-.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__icon-box img { width: 20px; height: 20px; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__button { justify-content: flex-start; gap: 2px; width: 64px; height: 78px; padding: 0; box-sizing: border-box; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__icon-box.is-photo { flex: none; width: 64px; height: 40px; margin: 0; border-radius: 0; background: transparent; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__icon-box.is-photo img { width: 64px; height: 40px; object-fit: contain; object-position: center bottom; }
 .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__label { display: -webkit-box; width: 56px; overflow: hidden; color: #595959; font-size: 12px; font-weight: 500; line-height: 18px; white-space: normal; word-break: keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .stable-pill.is-all { font-weight: 700; }
 
