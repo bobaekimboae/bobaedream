@@ -42,7 +42,8 @@
       ['민주당','자동차 세제 개편 관련 논의 내용 정리','생활정치','5분 전',241,2,11]
     ]
   };
-  var feedAssetRoot='..'+'/assets/';
+  var slash=String.fromCharCode(47);
+  var feedAssetRoot=(/github\.io$/i.test(location.hostname)?slash+'bobaedream':'')+slash+'assets'+slash;
   var feedMediaByPost={
     'domestic-001':{type:'video',src:'media/car-driving-road-v01.mp4',poster:feedAssetRoot+'detail/raw-20.jpeg'},
     'import-001':{type:'image',src:feedAssetRoot+'detail/raw-07.jpeg'},
