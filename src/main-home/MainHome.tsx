@@ -5,6 +5,8 @@ type ServiceKey = "all" | "used-car" | "community" | "truck" | "bike" | "constru
 
 const prototypeAsset = (path: string) => `./prototypes/autotrader-bobaedream-main/${path}`;
 const passengerAsset = (path: string) => ["prototypes", "passenger-body-types", "assets", path].join("/");
+const categoryAsset = (path: string) => ["prototypes", "bobaedream-chotot-style-main", "media", "type-generated", path].join("/");
+const brandAsset = (path: string) => ["assets", "brand", "kr", path].join("/");
 
 const services: Array<{ key: ServiceKey; label: string }> = [
   { key: "all", label: "전체" },
@@ -17,9 +19,21 @@ const services: Array<{ key: ServiceKey; label: string }> = [
   { key: "parts", label: "부품/용품" },
 ];
 
-const bodyTypes = [
-  ["suv.png", "SUV"], ["truck.png", "트럭"], ["sedan.png", "세단"], ["coupe.png", "쿠페"],
-  ["minivan.png", "미니밴"], ["hatchback.png", "해치백"], ["convertible.png", "컨버터블"], ["wagon.png", "왜건"],
+const vehicleCategories = [
+  [categoryAsset("used-car.png"), "국산차"],
+  [prototypeAsset("autotrader-body-types-v2/suv.png"), "수입차"],
+  [categoryAsset("truck.png"), "트럭"],
+  [categoryAsset("bike.png"), "바이크"],
+  [categoryAsset("electric-car.png"), "전기차"],
+  [categoryAsset("camper.png"), "캠핑카"],
+];
+
+const luxuryBrands = [
+  [brandAsset("porsche.png"), "포르쉐", ""],
+  [brandAsset("lamborghini.png"), "람보르기니", ""],
+  [brandAsset("ferrari.png"), "페라리", ""],
+  [brandAsset("bentley.png"), "벤틀리", "wide"],
+  [brandAsset("rolls-royce.png"), "롤스로이스", "tall"],
 ];
 
 const ArrowLink = ({ children }: { children: string }) => (
@@ -70,8 +84,13 @@ export default function MainHome() {
             <div className="mh-section-heading-copy"><h2 id="mh-body-title">차량 카테고리</h2><p>차량 형태별로 빠르게 찾아보세요</p></div>
             <ArrowLink>전체보기</ArrowLink>
           </div>
-          <div className="mh-body-rail" aria-label="차량 카테고리 가로 목록">
-            {bodyTypes.map(([image, label]) => <button className="mh-body-type" type="button" key={label}><span><img src={prototypeAsset(`autotrader-body-types-v2/${image}`)} alt="" /></span><strong>{label}</strong></button>)}
+          <div className="mh-category-rows">
+            <div className="mh-category-rail" aria-label="차량 유형 가로 목록">
+              {vehicleCategories.map(([image, label]) => <button className="mh-category-item" type="button" key={label}><span className="mh-category-image"><img src={image} alt="" /></span><strong>{label}</strong></button>)}
+            </div>
+            <div className="mh-category-rail mh-luxury-rail" aria-label="럭셔리 제조사 가로 목록">
+              {luxuryBrands.map(([image, label, variant]) => <button className="mh-luxury-item" type="button" key={label}><span className="mh-luxury-disc"><img className={variant} src={image} alt="" /><strong>{label}</strong></span></button>)}
+            </div>
           </div>
         </section>
 

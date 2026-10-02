@@ -185,7 +185,7 @@
 
     .more img { width: 18px; height: 18px; opacity: .78; }
 
-    .body-rail, .offer-rail {
+    .offer-rail {
       display: flex;
       overflow-x: auto;
       gap: 18px;
@@ -193,39 +193,73 @@
       scrollbar-width: none;
     }
 
-    .body-rail {
-      --body-gap: 12px;
-      gap: var(--body-gap);
+    .category-rows {
+      display: grid;
+      gap: 15px;
     }
-    .body-rail::-webkit-scrollbar, .offer-rail::-webkit-scrollbar { display: none; }
 
-    .body-type {
-      flex: 0 0 calc((100% + 17px - (var(--body-gap) * 4)) / 4);
-      max-width: calc((100% + 17px - (var(--body-gap) * 4)) / 4);
+    .category-rail {
+      display: flex;
+      overflow-x: auto;
+      padding: 0 16px 2px;
+      scrollbar-width: none;
+      scroll-padding-inline: 16px;
+    }
+
+    .category-rail::-webkit-scrollbar, .offer-rail::-webkit-scrollbar { display: none; }
+
+    .category-item, .luxury-item {
+      flex: 0 0 70px;
       text-align: center;
     }
 
-    .body-image {
-      height: 64px;
+    .category-image {
+      height: 43px;
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      margin-bottom: 7px;
     }
 
-    .body-image img {
-      width: 100%;
-      max-width: 88px;
-      height: 60px;
+    .category-image img {
+      width: 52px;
+      height: 38px;
       object-fit: contain;
-      filter: drop-shadow(0 6px 4px rgba(15,23,42,.15));
+      filter: drop-shadow(0 4px 3px rgba(15,23,42,.12));
     }
 
-    .body-type strong {
+    .category-item strong {
       display: block;
+      margin-top: 4px;
       font-size: 14px;
-      line-height: 1.1;
-      font-weight: 900;
+      line-height: 20px;
+      font-weight: 600;
+      letter-spacing: -.04em;
+      white-space: nowrap;
+    }
+
+    .luxury-disc {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto;
+      padding: 6px 3px 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #f7f7f7;
+    }
+
+    .luxury-disc img { width: 30px; height: 27px; object-fit: contain; }
+    .luxury-disc img.wide { width: 38px; height: 21px; }
+    .luxury-disc img.tall { width: 23px; height: 29px; }
+
+    .luxury-disc strong {
+      margin-top: 2px;
+      color: #6f6f6f;
+      font-size: 11px;
+      line-height: 13px;
+      font-weight: 500;
       letter-spacing: -.045em;
       white-space: nowrap;
     }
@@ -345,15 +379,22 @@
         <div><h2 class="section-title" id="body-title">차량 카테고리</h2><p class="section-subtitle">차량 형태별로 빠르게 찾아보세요</p></div>
         <span class="more">전체보기 <img src="./icons/arrow-right.svg" alt="" aria-hidden="true" /></span>
       </div>
-      <div class="body-rail" aria-label="차량 카테고리 가로 목록">
-        <button class="body-type" type="button"><span class="body-image"><img data-img="./autotrader-body-types-v2/suv.png" alt="" /></span><strong>SUV</strong></button>
-        <button class="body-type" type="button"><span class="body-image"><img data-img="./autotrader-body-types-v2/truck.png" alt="" /></span><strong>트럭</strong></button>
-        <button class="body-type" type="button"><span class="body-image"><img data-img="./autotrader-body-types-v2/sedan.png" alt="" /></span><strong>세단</strong></button>
-        <button class="body-type" type="button"><span class="body-image"><img data-img="./autotrader-body-types-v2/coupe.png" alt="" /></span><strong>쿠페</strong></button>
-        <button class="body-type" type="button"><span class="body-image"><img data-img="./autotrader-body-types-v2/minivan.png" alt="" /></span><strong>미니밴</strong></button>
-        <button class="body-type" type="button"><span class="body-image"><img data-img="./autotrader-body-types-v2/hatchback.png" alt="" /></span><strong>해치백</strong></button>
-        <button class="body-type" type="button"><span class="body-image"><img data-img="./autotrader-body-types-v2/convertible.png" alt="" /></span><strong>컨버터블</strong></button>
-        <button class="body-type" type="button"><span class="body-image"><img data-img="./autotrader-body-types-v2/wagon.png" alt="" /></span><strong>왜건</strong></button>
+      <div class="category-rows">
+        <div class="category-rail" aria-label="차량 유형 가로 목록">
+          <button class="category-item" type="button"><span class="category-image"><img data-img="../bobaedream-chotot-style-main/media/type-generated/used-car.png" alt="" /></span><strong>국산차</strong></button>
+          <button class="category-item" type="button"><span class="category-image"><img data-img="./autotrader-body-types-v2/suv.png" alt="" /></span><strong>수입차</strong></button>
+          <button class="category-item" type="button"><span class="category-image"><img data-img="../bobaedream-chotot-style-main/media/type-generated/truck.png" alt="" /></span><strong>트럭</strong></button>
+          <button class="category-item" type="button"><span class="category-image"><img data-img="../bobaedream-chotot-style-main/media/type-generated/bike.png" alt="" /></span><strong>바이크</strong></button>
+          <button class="category-item" type="button"><span class="category-image"><img data-img="../bobaedream-chotot-style-main/media/type-generated/electric-car.png" alt="" /></span><strong>전기차</strong></button>
+          <button class="category-item" type="button"><span class="category-image"><img data-img="../bobaedream-chotot-style-main/media/type-generated/camper.png" alt="" /></span><strong>캠핑카</strong></button>
+        </div>
+        <div class="category-rail" aria-label="럭셔리 제조사 가로 목록">
+          <button class="luxury-item" type="button"><span class="luxury-disc"><img data-img="../../|assets/brand/kr/porsche.png" alt="" /><strong>포르쉐</strong></span></button>
+          <button class="luxury-item" type="button"><span class="luxury-disc"><img data-img="../../|assets/brand/kr/lamborghini.png" alt="" /><strong>람보르기니</strong></span></button>
+          <button class="luxury-item" type="button"><span class="luxury-disc"><img data-img="../../|assets/brand/kr/ferrari.png" alt="" /><strong>페라리</strong></span></button>
+          <button class="luxury-item" type="button"><span class="luxury-disc"><img class="wide" data-img="../../|assets/brand/kr/bentley.png" alt="" /><strong>벤틀리</strong></span></button>
+          <button class="luxury-item" type="button"><span class="luxury-disc"><img class="tall" data-img="../../|assets/brand/kr/rolls-royce.png" alt="" /><strong>롤스로이스</strong></span></button>
+        </div>
       </div>
     </section>
 
