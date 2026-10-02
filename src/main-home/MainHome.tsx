@@ -89,11 +89,10 @@ export default function MainHome() {
 
         <section className="mh-search-panel" aria-label="매물 검색 패널">
           <div className="mh-search-form">
-            <div className="mh-row-2">
-              <button className="mh-select-field" type="button"><span>제조사 선택</span><img src={prototypeAsset("icons/chevron-down.svg")} alt="" /></button>
-              <button className="mh-select-field is-muted" type="button"><span>모델 선택</span><img src={prototypeAsset("icons/chevron-down.svg")} alt="" /></button>
-            </div>
-            <button className="mh-select-field" type="button"><span className="mh-select-leading"><img src={prototypeAsset("icons/location.svg")} alt="" /><span>전국</span></span><img src={prototypeAsset("icons/chevron-down.svg")} alt="" /></button>
+            <label className="mh-search-field">
+              <img src={prototypeAsset("icons/search.svg")} alt="" aria-hidden="true" />
+              <input type="search" aria-label="중고차 검색" placeholder="차량명, 제조사, 모델 검색" />
+            </label>
             <button className="mh-cta" type="button" onClick={openListing}>{hero.cta}</button>
             <button className="mh-advanced-link" type="button">상세 필터</button>
           </div>

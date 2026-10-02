@@ -155,57 +155,43 @@
 
     .search-form { display: grid; gap: 12px; }
 
-    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
-    .select-field {
-      position: relative;
-      height: 52px;
-      border: 1px solid #adb5bf;
-      border-radius: 5px;
-      background: #fff;
-      padding: 0 13px 0 15px;
+    .search-field {
+      height: 54px;
+      min-width: 0;
+      padding: 0 16px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      min-width: 0;
-      color: #4a4f58;
-      font-size: 17px;
-      font-weight: 500;
-      letter-spacing: -.035em;
+      gap: 11px;
+      border: 1px solid #adb5bf;
+      border-radius: 8px;
+      background: #fff;
       transition: border-color 140ms ease, box-shadow 140ms ease;
     }
 
-    .select-field:focus-visible {
-      outline: 0;
+    .search-field:focus-within {
       border-color: var(--at-blue);
       box-shadow: 0 0 0 3px rgba(49, 85, 183, .13);
     }
 
-    .select-field.muted { color: #b5bac2; border-color: #e2e5e9; }
+    .search-field img { width: 21px; height: 21px; flex: 0 0 21px; }
 
-    .select-value { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-
-    .select-leading {
-      display: inline-flex;
-      align-items: center;
+    .search-field input {
+      width: 100%;
       min-width: 0;
-      gap: 9px;
-    }
-
-    .select-leading > img {
-      width: 20px;
-      height: 20px;
-      flex: 0 0 20px;
+      border: 0;
+      outline: 0;
+      background: transparent;
       color: #222;
+      font: inherit;
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 500;
+      letter-spacing: -.035em;
+      appearance: none;
     }
 
-    .chevron {
-      display: block;
-      width: 20px;
-      height: 20px;
-      margin-left: 8px;
-      flex: 0 0 auto;
-    }
+    .search-field input::placeholder { color: #858c96; opacity: 1; }
+    .search-field input::-webkit-search-cancel-button { appearance: none; }
 
     .cta {
       height: 50px;
@@ -470,11 +456,7 @@
 
     <section class="search-panel" aria-label="매물 검색 패널">
       <div class="search-form">
-        <div class="row-2">
-          <button class="select-field" type="button"><span class="select-value">제조사 선택</span><img class="chevron" src="./icons/chevron-down.svg" alt="" aria-hidden="true" /></button>
-          <button class="select-field muted" type="button"><span class="select-value">모델 선택</span><img class="chevron" src="./icons/chevron-down.svg" alt="" aria-hidden="true" /></button>
-        </div>
-        <button class="select-field" type="button"><span class="select-leading"><img src="./icons/location.svg" alt="" aria-hidden="true" /><span class="select-value">전국</span></span><img class="chevron" src="./icons/chevron-down.svg" alt="" aria-hidden="true" /></button>
+        <label class="search-field"><img src="./icons/search.svg" alt="" aria-hidden="true" /><input type="search" aria-label="중고차 검색" placeholder="차량명, 제조사, 모델 검색" /></label>
         <button class="cta" type="button" data-list-link>64대 매물 보기</button>
         <button class="advanced-link" type="button">상세 필터</button>
       </div>

@@ -66,6 +66,25 @@ final result: passed
 
 ---
 
+# Design QA — 실제 메인 통합 검색바
+
+## Finding and fix
+
+- [P2 resolved] 제조사·모델·지역을 각각 고르는 3개 필드가 메인 첫 화면을 길게 만들고 검색 진입을 분산했다.
+- Fix: 노션 검색 아이콘과 `차량명, 제조사, 모델 검색` 문구를 가진 단일 검색바로 통합하고 지역·세부 조건은 상세 필터로 이관했다.
+
+## Verification
+
+- 통합 검색바: 1개.
+- 기존 선택 필드: 0개.
+- 검색바 높이: 54px, 곡률 8px.
+- 결과 보기·상세 필터 유지: passed.
+- 세로 스크롤 높이 1348px 및 이미지 404 0건: passed.
+
+final result: passed
+
+---
+
 # Design QA — 실제 메인 하단 스크롤
 
 ## Finding and fix
