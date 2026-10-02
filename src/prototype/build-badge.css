@@ -18,7 +18,7 @@
 .qf-debug-dot > span { position: absolute; top: -2px; right: 10px; padding: 0 3px; border-radius: 3px; background: #e5484d; color: #fff; white-space: nowrap; }
 
 /* 안내선: outline(레이아웃 변화 없음) + 연한 빨강 세로 중심선(배경) · 칸 밖으로 나간 로고·이미지는 칸 오른쪽 위 빨간 점 8px */
-html[data-qf-guides="1"] :is(.kr-brand-logo.is-rail, .kr-brand-logo.is-list, .kr-brand-logo.is-plain, .depth-card-media:not(.is-brand), .bbm-quick-slot .bbm-category-menu__icon-box, .bbm-m-quick-slot .bbm-category-menu__icon-box) {
+html[data-qf-guides="1"] :is(.kr-brand-logo.is-rail, .kr-brand-logo.is-list, .kr-brand-logo.is-plain, .depth-card-media:not(.is-brand), .bbm-truck-option-image, .bbm-quick-slot .bbm-category-menu__icon-box, .bbm-m-quick-slot .bbm-category-menu__icon-box) {
   position: relative;
   outline: 1px dashed #e5484d;
   outline-offset: -1px;

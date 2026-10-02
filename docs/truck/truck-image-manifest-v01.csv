@@ -1,0 +1,103 @@
+group_order,group_name,level,label,file_name,ui_size,official_shape_reference,shape_check,status
+1,카고(화물)트럭,format,카고(화물)트럭,truck_format_cargo_v01.png,76x40,https://trucknbus.hyundai.com/global/en/products/special-cv/cargo,평판 적재함·측면 게이트·캡오버 구조 확인,implemented
+1,카고(화물)트럭,subtype,카고(화물)트럭,truck_subtype_cargo_v01.png,76x40,https://www.hino.co.jp/dutro/lineup/?trucktype=dump_01,평보디 적재함 구조 확인,implemented
+1,카고(화물)트럭,subtype,파워게이트,truck_subtype_powergate_v01.png,76x40,https://www.hino.co.jp/ranger/vqwing/index.html,후미 리프트게이트를 세운 수납 상태 확인,implemented
+1,카고(화물)트럭,subtype,트랜스/와이드 파워게이트,truck_subtype_transform_wide_powergate_v01.png,76x40,https://www.hyundai.com/ccontents/carmng/CP00000003/mighty-202503-catalog.pdf,광폭 적재함·후미 유압 리프트 구조 확인,implemented
+2,윙바디/탑,format,윙바디/탑,truck_format_wingbody_top_v01.png,76x40,https://www.hyundai.com/kr/ko/c/products/truck/mighty,윙바디·내장탑 계열 대표 박스형 적재함 확인,implemented
+2,윙바디/탑,subtype,윙바디,truck_subtype_wingbody_v01.png,76x40,https://www.hino.co.jp/ranger/vqwing/index.html,측면 전체가 위로 열리는 윙 구조 확인,implemented
+2,윙바디/탑,subtype,윙바디 파워게이트,truck_subtype_wingbody_powergate_v01.png,76x40,https://www.hino.co.jp/ranger/vqwing/index.html,윙 적재함과 후미 리프트 조합 확인,implemented
+2,윙바디/탑,subtype,상승 윙바디,truck_subtype_rising_wingbody_v01.png,76x40,https://www.hino.co.jp/ranger/vqwing/index.html,윙 상부 상승 구조를 일반 윙과 구분,implemented
+2,윙바디/탑,subtype,저상형 윙바디,truck_subtype_low_floor_wingbody_v01.png,76x40,https://www.isuzu.co.jp/product/forward_post/variation/f_cargo.html,저상 섀시와 낮은 적재고 확인,implemented
+2,윙바디/탑,subtype,냉동윙,truck_subtype_frozen_wing_v01.png,76x40,https://www.mitsubishi-fuso.com/ja/product/canter/variation/,냉동기와 단열 윙바디 조합 확인,implemented
+2,윙바디/탑,subtype,냉장윙,truck_subtype_refrigerated_wing_v01.png,76x40,https://www.mitsubishi-fuso.com/ja/product/canter/variation/,냉장기와 윙바디 조합 확인,implemented
+2,윙바디/탑,subtype,보냉윙,truck_subtype_insulated_wing_v01.png,76x40,https://www.hino.co.jp/dutro/lineup_list/index.html,외부 냉동기 없는 단열 윙바디로 구분,implemented
+2,윙바디/탑,subtype,보온윙,truck_subtype_heated_wing_v01.png,76x40,https://www.hino.co.jp/dutro/lineup_list/index.html,단열 적재함과 보온 장비 표현 확인,implemented
+2,윙바디/탑,subtype,내장탑,truck_subtype_dry_box_v01.png,76x40,https://www.hyundai.com/kr/ko/c/products/truck/mighty,일반 높이 밀폐형 내장탑 확인,implemented
+2,윙바디/탑,subtype,상승내장탑,truck_subtype_rising_dry_box_v01.png,76x40,https://www.hyundai.com/kr/ko/c/products/truck/mighty,상부 상승 구조와 수직 지지대 확인,implemented
+2,윙바디/탑,subtype,내장탑 파워게이트,truck_subtype_dry_box_powergate_v01.png,76x40,https://www.hyundai.com/kr/ko/c/products/truck/mighty,일반 내장탑 후미 리프트 조합 확인,implemented
+2,윙바디/탑,subtype,저상형 내장탑,truck_subtype_low_floor_dry_box_v01.png,76x40,https://www.hino.co.jp/dutro/lineup_list/index.html,낮은 적재고와 저상 섀시 확인,implemented
+2,윙바디/탑,subtype,저상형 내장탑 파워게이트,truck_subtype_low_floor_dry_box_powergate_v01.png,76x40,https://www.hino.co.jp/dutro/lineup_list/index.html,저상 적재함과 후미 리프트 조합 확인,implemented
+2,윙바디/탑,subtype,익스(하이)내장탑,truck_subtype_extra_high_dry_box_v01.png,76x40,https://www.mitsubishi-fuso.com/ja/product/canter/variation/,캡보다 높은 하이탑과 전면 페어링 확인,implemented
+2,윙바디/탑,subtype,익스(하이)내장탑 파워게이트,truck_subtype_extra_high_dry_box_powergate_v01.png,76x40,https://www.mitsubishi-fuso.com/ja/product/canter/variation/,하이탑과 후미 리프트 조합 확인,implemented
+2,윙바디/탑,subtype,냉동탑,truck_subtype_frozen_box_v01.png,76x40,https://www.hyundai.com/kr/ko/c/products/truck/mighty,대형 전면 냉동기와 단열 박스 확인,implemented
+2,윙바디/탑,subtype,냉동탑 파워게이트,truck_subtype_frozen_box_powergate_v01.png,76x40,https://www.hyundai.com/kr/ko/c/products/truck/mighty,냉동기와 후미 리프트 조합 확인,implemented
+2,윙바디/탑,subtype,익스(하이)냉동탑,truck_subtype_extra_high_frozen_box_v01.png,76x40,https://www.mitsubishi-fuso.com/ja/product/canter/variation/,하이 냉동탑과 대형 냉동기 확인,implemented
+2,윙바디/탑,subtype,익스(하이)냉동탑 파워게이트,truck_subtype_extra_high_frozen_box_powergate_v01.png,76x40,https://www.mitsubishi-fuso.com/ja/product/canter/variation/,하이 냉동탑 후미 리프트 확인,implemented
+2,윙바디/탑,subtype,저상형 냉동탑,truck_subtype_low_floor_frozen_box_v01.png,76x40,https://www.hino.co.jp/dutro/lineup_list/index.html,저상 섀시와 냉동기 조합 확인,implemented
+2,윙바디/탑,subtype,냉장탑,truck_subtype_refrigerated_box_v01.png,76x40,https://www.hyundai.com/kr/ko/c/products/truck/mighty,소형 냉장기와 단열 박스 확인,implemented
+2,윙바디/탑,subtype,냉장탑 파워게이트,truck_subtype_refrigerated_box_powergate_v01.png,76x40,https://www.hyundai.com/kr/ko/c/products/truck/mighty,냉장기와 후미 리프트 조합 확인,implemented
+2,윙바디/탑,subtype,익스(하이)냉장탑,truck_subtype_extra_high_refrigerated_box_v01.png,76x40,https://www.mitsubishi-fuso.com/ja/product/canter/variation/,하이 냉장탑과 소형 냉장기 확인,implemented
+2,윙바디/탑,subtype,익스(하이)냉장탑 파워게이트,truck_subtype_extra_high_refrigerated_box_powergate_v01.png,76x40,https://www.mitsubishi-fuso.com/ja/product/canter/variation/,하이 냉장탑 후미 리프트 확인,implemented
+2,윙바디/탑,subtype,저상형 냉장탑,truck_subtype_low_floor_refrigerated_box_v01.png,76x40,https://www.hino.co.jp/dutro/lineup_list/index.html,저상 섀시와 소형 냉장기 확인,implemented
+2,윙바디/탑,subtype,저상형 냉장탑 파워게이트,truck_subtype_low_floor_refrigerated_box_powergate_v01.png,76x40,https://www.hino.co.jp/dutro/lineup_list/index.html,저상 냉장탑 후미 리프트 확인,implemented
+2,윙바디/탑,subtype,보냉탑,truck_subtype_insulated_box_v01.png,76x40,https://www.hino.co.jp/dutro/lineup_list/index.html,외부 냉동기 없는 단열 탑으로 구분,implemented
+2,윙바디/탑,subtype,냉온장탑,truck_subtype_dual_temperature_box_v01.png,76x40,https://www.hino.co.jp/dutro/lineup_list/index.html,복수 온도 구획과 공조 장치 확인,implemented
+2,윙바디/탑,subtype,다용도탑,truck_subtype_multipurpose_box_v01.png,76x40,https://www.isuzu.co.jp/product/forward_post/variation/f_cargo.html,측면 서비스 도어가 있는 다목적 보디 확인,implemented
+2,윙바디/탑,subtype,씨티/워크스루밴,truck_subtype_city_walkthrough_van_v01.png,76x40,https://www.mitsubishi-fuso.com/ja/product/canter/variation/,낮은 승하차구와 워크스루 차체 확인,implemented
+2,윙바디/탑,subtype,이동/광고/응급차,truck_subtype_mobile_ad_emergency_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,창·어닝이 있는 이동 서비스 차체 확인,implemented
+2,윙바디/탑,subtype,이동식 목욕차,truck_subtype_mobile_bath_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,출입문·환기·급배수 포트가 있는 특수 차체 확인,implemented
+2,윙바디/탑,subtype,기타,truck_subtype_other_box_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,일반 탑과 구분되는 서비스 캐비닛형 차체 확인,implemented
+3,버스,format,버스,truck_format_bus_v01.png,76x40,https://trucknbus.hyundai.com/global/en/products/bus,장축 상용 버스 비례 확인,implemented
+3,버스,subtype,버스,truck_subtype_bus_v01.png,76x40,https://trucknbus.hyundai.com/global/en/products/bus,대형 단층 버스·승객문·수하물함 확인,implemented
+3,버스,subtype,기타,truck_subtype_bus_other_v01.png,76x40,https://www.hino.co.jp/bus/,대형 버스와 구분되는 소형 셔틀버스 확인,implemented
+4,덤프/건설/중기,format,덤프/건설/중기,truck_format_dump_heavy_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,중대형 건설 특장차 대표 형상 확인,implemented
+4,덤프/건설/중기,subtype,덤프,truck_subtype_dump_v01.png,76x40,https://www.mitsubishi-fuso.com/exterior-360/supergreat/en/fv.html,8x4 섀시·강재 덤프 적재함 확인,implemented
+4,덤프/건설/중기,subtype,레미콘,truck_subtype_concrete_mixer_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,믹서 드럼·후미 슈트 확인,implemented
+4,덤프/건설/중기,subtype,지게차,truck_subtype_forklift_v01.png,76x40,https://www.toyota-forklifts.co.jp/product/,마스트·포크·카운터웨이트 확인,implemented
+4,덤프/건설/중기,subtype,굴삭기,truck_subtype_excavator_v01.png,76x40,https://www.hitachicm.com/global/en/products/excavators/,무한궤도·굴착 붐·버킷 확인,implemented
+4,덤프/건설/중기,subtype,기타,truck_subtype_heavy_other_v01.png,76x40,https://www.komatsu.jp/ja/products/construction-machinery,휠로더 버킷과 4륜 형상 확인,implemented
+5,크레인 형태,format,크레인 형태,truck_format_crane_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,트럭 장착형 붐 대표 형상 확인,implemented
+5,크레인 형태,subtype,바가지차,truck_subtype_bucket_truck_v01.png,76x40,https://www.aichi-corp.co.jp/products/,굴절 붐 끝 1인 작업 바스켓 확인,implemented
+5,크레인 형태,subtype,사다리차,truck_subtype_ladder_truck_v01.png,76x40,https://www.horyong.co.kr/,장축 레일 사다리와 운반대 확인,implemented
+5,크레인 형태,subtype,오가크레인,truck_subtype_auger_crane_v01.png,76x40,https://www.tadano.com/products/,굴착 오거와 전주 집게 형상 확인,implemented
+5,크레인 형태,subtype,집게차,truck_subtype_grapple_truck_v01.png,76x40,https://www.hiab.com/en/product-finder/loader-cranes/,너클 붐과 다지형 집게 확인,implemented
+5,크레인 형태,subtype,카고크레인,truck_subtype_cargo_crane_v01.png,76x40,https://www.tadano.com/products/,평적재함·캡 뒤 접이식 크레인 확인,implemented
+5,크레인 형태,subtype,활선차(고소작업),truck_subtype_live_line_aerial_v01.png,76x40,https://www.aichi-corp.co.jp/products/,절연 텔레스코픽 붐과 2인 바스켓 확인,implemented
+5,크레인 형태,subtype,기타,truck_subtype_mobile_crane_other_v01.png,76x40,https://www.tadano.com/products/,회전 상부체·텔레스코픽 붐·아웃트리거 확인,implemented
+6,탱크로리,format,탱크로리,truck_format_tanker_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,탱크 장착 특장차 대표 형상 확인,implemented
+6,탱크로리,subtype,LPG/LNG탱크로리,truck_subtype_lpg_lng_tanker_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,돔형 압력용기·상부 밸브·후미 보호함 확인,implemented
+6,탱크로리,subtype,버큠로리,truck_subtype_vacuum_tanker_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,원형 진공탱크·대구경 흡입호스 확인,implemented
+6,탱크로리,subtype,사료운반차,truck_subtype_feed_carrier_v01.png,76x40,https://www.hino.co.jp/ranger/lineup_list/index.html,다구획 호퍼·상부 배출 오거 확인,implemented
+6,탱크로리,subtype,살수차,truck_subtype_water_sprinkler_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,타원 물탱크·전후 살수바·노즐 확인,implemented
+6,탱크로리,subtype,유류/액상탱크로리,truck_subtype_fuel_liquid_tanker_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,다구획 타원탱크·하부 로딩밸브함 확인,implemented
+6,탱크로리,subtype,이동방제차,truck_subtype_mobile_sprayer_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,접이식 방제붐·미스트팬·펌프 확인,implemented
+6,탱크로리,subtype,소맥분/분말탱크로리,truck_subtype_powder_tanker_v01.png,76x40,https://www.isuzu.co.jp/product/giga/lineup/g_cargo/g_cargo.html,다중 콘 호퍼·공압 블로어·상부 해치 확인,implemented
+6,탱크로리,subtype,특수/케미컬(VOC,테플론)탱크로리,truck_subtype_chemical_tanker_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,밀폐 밸브함·증기회수 배관·보호가드 확인,implemented
+6,탱크로리,subtype,기타,truck_subtype_tanker_other_v01.png,76x40,https://www.hino.co.jp/ranger/lineup_list/index.html,식품용 스테인리스 탱크·위생 매니폴드 확인,implemented
+7,캠핑카/캠핑 트레일러,format,캠핑카/캠핑 트레일러,truck_format_camper_trailer_v01.png,76x40,https://www.hyundai.com/kr/ko/e/vehicles/pavise/convenience,캠핑 특장 대표 실루엣 확인,implemented
+7,캠핑카/캠핑 트레일러,subtype,캠핑카,truck_subtype_motorhome_v01.png,76x40,https://www.hyundai.com/kr/ko/e/vehicles/pavise/convenience,운전캡·오버캡 베드·생활창 일체형 확인,implemented
+7,캠핑카/캠핑 트레일러,subtype,캠핑트레일러,truck_subtype_camper_trailer_v01.png,76x40,https://www.fendt-caravan.com/,엔진캡 없는 견인식 차체·A프레임 히치 확인,implemented
+8,폐기/음식물수송,format,폐기/음식물수송,truck_format_waste_transport_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,환경·폐기물 특장 대표 형상 확인,implemented
+8,폐기/음식물수송,subtype,암롤/롤온,truck_subtype_hook_lift_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,유압 훅암·탈착식 롤오프 컨테이너 확인,implemented
+8,폐기/음식물수송,subtype,압착진개,truck_subtype_refuse_packer_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,개방형 후미 호퍼·압착 링크 확인,implemented
+8,폐기/음식물수송,subtype,압축진개,truck_subtype_compression_refuse_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,밀폐형 압축 보디·측면 리프터 확인,implemented
+8,폐기/음식물수송,subtype,진개덤프,truck_subtype_refuse_dump_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,메시 확장형 고벽 덤프 보디 확인,implemented
+8,폐기/음식물수송,subtype,음식물수거,truck_subtype_food_waste_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,밀폐 탱크·측면 리프터·배수밸브 확인,implemented
+8,폐기/음식물수송,subtype,노면청소차,truck_subtype_road_sweeper_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,측면 원형 브러시·중앙 흡입헤드 확인,implemented
+8,폐기/음식물수송,subtype,준설차,truck_subtype_sewer_dredger_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,후미 흡입붐·진공탱크·고압호스 확인,implemented
+8,폐기/음식물수송,subtype,재활용품수집차,truck_subtype_recycling_collector_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,통풍 메시 수집함·측면 적재문 확인,implemented
+8,폐기/음식물수송,subtype,워킹플로어,truck_subtype_walking_floor_v01.png,76x40,https://www.keithwalkingfloor.com/,장축 밀폐 보디·전면 이동바닥 구동부 확인,implemented
+8,폐기/음식물수송,subtype,톱밥운반차,truck_subtype_sawdust_carrier_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,고용적 적재함·타프 후프·배출포트 확인,implemented
+8,폐기/음식물수송,subtype,기타,truck_subtype_waste_other_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,측면 호퍼·빈 리프터가 있는 기타 수거차 확인,implemented
+9,활어차,format,활어차,truck_format_live_fish_v01.png,76x40,https://trucknbus.hyundai.com/global/en/products/special-cv/cargo,활어 수조 적재형 경트럭 대표 형상 확인,implemented
+9,활어차,subtype,활어차,truck_subtype_live_fish_v01.png,76x40,https://trucknbus.hyundai.com/global/en/products/special-cv/cargo,3칸 스테인리스 수조·산소통·순환배관 확인; 훅암·롤오프 없음,implemented
+10,차량견인/운송,format,차량견인/운송,truck_format_vehicle_transport_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,견인·운송 특장 대표 형상 확인,implemented
+10,차량견인/운송,subtype,셀프로더,truck_subtype_self_loader_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,슬라이드식 장축 평판·윈치·후미 램프 확인,implemented
+10,차량견인/운송,subtype,언더리프트,truck_subtype_underlift_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,텔레스코픽 언더리프트·휠 크래들 확인,implemented
+10,차량견인/운송,subtype,카케리어,truck_subtype_car_carrier_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,2단 차량 적재 프레임·접이식 램프 확인,implemented
+10,차량견인/운송,subtype,기타,truck_subtype_vehicle_transport_other_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,회수용 붐·윈치·견인 슬링 확인,implemented
+11,트렉터,format,트렉터,truck_format_tractor_v01.png,76x40,https://trucknbus.hyundai.com/global/en/products/truck/xcient,대형 캡오버 트렉터 대표 형상 확인,implemented
+11,트렉터,subtype,트렉터,truck_subtype_tractor_v01.png,76x40,https://www.hino.co.jp/profia/,트레일러 없는 6x2 견인차·노출 5륜 커플러 확인,implemented
+12,트레일러,format,트레일러,truck_format_trailer_v01.png,76x40,https://www.isuzu.co.jp/product/giga/lineup/g_cargo/g_cargo.html,세미트레일러 대표 형상 확인,implemented
+12,트레일러,subtype,LPG/LNG트레일러,truck_subtype_lpg_lng_trailer_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,돔형 압력용기·밸브 보호함·3축 확인,implemented
+12,트레일러,subtype,곡물트레일러,truck_subtype_grain_trailer_v01.png,76x40,https://www.wilsontrailer.com/grain,고벽 알루미늄 보디·다중 곡물 호퍼 확인,implemented
+12,트레일러,subtype,덤프트레일러,truck_subtype_dump_trailer_v01.png,76x40,https://www.hyundai-translead.com/,고벽 덤프 보디·전면 유압실린더 확인,implemented
+12,트레일러,subtype,로우베드/릴리리,truck_subtype_lowbed_trailer_v01.png,76x40,https://www.faymonville.com/,저상 중앙 데크·고정 구즈넥·후미 램프 확인,implemented
+12,트레일러,subtype,벌크시멘트트레일러,truck_subtype_bulk_cement_trailer_v01.png,76x40,https://www.hyundai-translead.com/,다중 콘 호퍼·공압 블로어·상부 해치 확인,implemented
+12,트레일러,subtype,윙트레일러,truck_subtype_wing_trailer_v01.png,76x40,https://www.nipponfruehauf.co.jp/products/,측면 전체 상승 윙 패널·개방 적재면 확인,implemented
+12,트레일러,subtype,유류/액상탱크트레일러,truck_subtype_fuel_liquid_trailer_v01.png,76x40,https://www.hyundai-translead.com/,다구획 타원탱크·밸브함·호스릴 확인,implemented
+12,트레일러,subtype,컨테이너 샤시,truck_subtype_container_chassis_v01.png,76x40,https://www.hyundai-translead.com/,컨테이너 없는 골격 프레임·트위스트록 확인,implemented
+12,트레일러,subtype,평판트레일러,truck_subtype_flatbed_trailer_v01.png,76x40,https://www.hyundai-translead.com/,전장 평데크·벌크헤드·3축 확인,implemented
+12,트레일러,subtype,기타,truck_subtype_trailer_other_v01.png,76x40,https://www.hyundai-translead.com/,사이드 커튼·하부 텐션 버클 확인,implemented
+13,기타,format,기타,truck_format_other_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,기타 특장 대표 형상 확인,implemented
+13,기타,subtype,기타,truck_subtype_other_v01.png,76x40,https://trucknbus.hyundai.com/global/products/special-cv/special-truck,공구함·롤업 셔터·발전기함이 있는 다목적 지원차 확인,implemented

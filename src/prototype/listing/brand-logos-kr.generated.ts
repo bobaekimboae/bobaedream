@@ -54,6 +54,7 @@ export const krBrandLogos: Record<string, { slug: string; ratio: number }> = {
   "오펠": { slug: "opel", ratio: 1.25 },
   "올즈모빌": { slug: "oldsmobile", ratio: 2.063 },
   "이베코": { slug: "iveco", ratio: 4.571 },
+  "다프(DAF)": { slug: "daf", ratio: 3.14 },
   "타타대우": { slug: "tata-daewoo", ratio: 1.533 },
   "만(MAN)": { slug: "man", ratio: 1.797 },
   "이스즈": { slug: "isuzu", ratio: 5.714 },

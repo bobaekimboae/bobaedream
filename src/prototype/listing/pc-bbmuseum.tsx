@@ -6,6 +6,7 @@ import type { BbmCheckKey, BbmFilterValues } from "../filters/bbm-filter-state";
 import { KrBrandLogo } from "./bbm-brand-logos";
 import { bbmItemValue } from "../filters/bbm-applied";
 import { asset, displayListPlace, displaySpecs, sellerAvatar, sellerLabel, type Car } from "../data";
+import { truckFormatImageFor, truckSubtypeImageFor } from "../data/truck-format-catalog";
 
 // 보배드림 개발 시안(bbmuseum) PC 매물리스트 1단계 이식(QF-048~050). 구조·수치·문구만 따르고 코드·이미지는 새로 만든다.
 
@@ -179,6 +180,10 @@ function BbMakerGradeFilter({ selection, view, setView, brandLogos = false, make
 
 type BbTruckView = "format" | "subtype" | "spec";
 
+function BbTruckOptionLabel({ name, image }: { name: string; image: string | null }) {
+  return <span className="bbm-truck-option">{image ? <span className="bbm-truck-option-image"><img src={asset(image)} alt="" draggable={false} /></span> : null}<span className="bbm-truck-option-name">{name}</span></span>;
+}
+
 export function BbTruckFormatFilter({ value }: { value: BbTruckFilter }) {
   const stageFor = (): BbTruckView => !value.format ? "format" : !value.subtype ? "subtype" : value.specGroups.length ? "spec" : "subtype";
   const [view, setView] = useState<BbTruckView>(stageFor);
@@ -198,16 +203,16 @@ export function BbTruckFormatFilter({ value }: { value: BbTruckFilter }) {
       <div className="bbm-catalog">
         {view === "format" ? <div className="bbm-catalog-section">
           <p className="bbm-catalog-title">형식</p>
-          {value.formats.map((option) => <button key={option.name} type="button" className={`bbm-catalog-row${value.format === option.name ? " is-selected" : ""}`} aria-pressed={value.format === option.name} onClick={() => { value.onChooseFormat(option.name); setView("subtype"); }}><span>{option.name}</span>{count(option.count)}</button>)}
+          {value.formats.map((option) => <button key={option.name} type="button" className={`bbm-catalog-row${value.format === option.name ? " is-selected" : ""}${truckFormatImageFor(option.name) ? " has-truck-image" : ""}`} aria-pressed={value.format === option.name} onClick={() => { value.onChooseFormat(option.name); setView("subtype"); }}><BbTruckOptionLabel name={option.name} image={truckFormatImageFor(option.name)} />{count(option.count)}</button>)}
         </div> : view === "subtype" ? <div className="bbm-catalog-section is-drill">
           <button type="button" className="bbm-catalog-back" onClick={() => setView("format")}><BbIcon name="chevron-left" size={20} />{value.format}</button>
           <p className="bbm-catalog-title">세부형식</p>
-          {value.subtypes.map((option) => <button key={option.name} type="button" className={`bbm-catalog-row${value.subtype === option.name ? " is-selected" : ""}`} aria-pressed={value.subtype === option.name} onClick={() => { value.onChooseSubtype(option.name); setView("spec"); }}><span>{option.name}</span>{count(option.count)}</button>)}
+          {value.subtypes.map((option) => { const image = truckSubtypeImageFor(value.format, option.name); return <button key={option.name} type="button" className={`bbm-catalog-row${value.subtype === option.name ? " is-selected" : ""}${image ? " has-truck-image" : ""}`} aria-pressed={value.subtype === option.name} onClick={() => { value.onChooseSubtype(option.name); setView("spec"); }}><BbTruckOptionLabel name={option.name} image={image} />{count(option.count)}</button>; })}
         </div> : <div className="bbm-catalog-section is-drill">
           <button type="button" className="bbm-catalog-back" onClick={() => setView("subtype")}><BbIcon name="chevron-left" size={20} />{value.subtype}</button>
-          {value.specGroups.map((group) => <div key={group.label} className="bbm-grade-group">
+          {value.specGroups.map((group) => <div key={group.label} className="bbm-grade-group bbm-truck-spec-group">
             <p className="bbm-catalog-title">{group.label}</p>
-            {group.options.map((option) => <button key={`${group.label}-${option.name}`} type="button" className={`bbm-catalog-row${value.spec === option.name ? " is-selected" : ""}`} aria-pressed={value.spec === option.name} onClick={() => value.onChooseSpec(option.name)}><span>{option.name}</span>{count(option.count)}</button>)}
+            <div className="bbm-truck-spec-chips">{group.options.map((option) => <button key={`${group.label}-${option.name}`} type="button" className={value.spec === option.name ? "is-selected" : ""} aria-pressed={value.spec === option.name} onClick={() => value.onChooseSpec(option.name)}><span>{option.name}</span>{count(option.count)}</button>)}</div>
           </div>)}
         </div>}
       </div>

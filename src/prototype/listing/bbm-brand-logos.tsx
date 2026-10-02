@@ -18,6 +18,7 @@ export const krBrandAliases: Record<string, string> = {
   MG로버: "로버",
   "쉐보레(GM대우)": "쉐보레(국산)",
   "시트로엥/DS": "시트로엥",
+  "KG모빌리티": "KG모빌리티(쌍용)",
 };
 
 // pc-bbmuseum.tsx 와 서로 가져오므로(좌측 필터가 이 로고를 씀) 처음 쓸 때 만든다
