@@ -83,7 +83,7 @@ import { BbmChipScroller, BbmTopCrumbs, type BbmCrumb } from "./bbm-top-chotot";
 import { setPretendard } from "../fonts/pretendard";
 import { BBM_PAGE_SIZE, BbmFooter, BbmPagination, BbmPopOptions, BbmToolbarMenu, bbmSortOptions, bbmViewOptionsMobile, bbmViewOptionsPc, sortBbmCars, type BbmSort } from "./bbm-list-area";
 import { bikeBrandCount, bikeModelsByMaker } from "../data/bike-filter-catalog";
-import { normalizeTruckFormatSelection, truckFormatCatalog, truckSubtypesFor } from "../data/truck-format-catalog";
+import { normalizeTruckFormatSelection, truckFormatCatalog, truckFormatImageFor, truckSubtypeImageFor, truckSubtypesFor } from "../data/truck-format-catalog";
 import { truckSpecGroupsFor, truckSpecOptionsFor } from "../data/truck-depth4-catalog";
 import { truckModelsByMaker } from "../truck/scenario-v01";
 import { HeavyQuickFilter } from "../heavy";
@@ -1246,16 +1246,14 @@ function MarketplaceScreen() {
           // QF-105: 트림까지 고르면 퀵필터 줄은 닫힌다(칩 [트림 ×] 로 다시 연다)
           // QF-106: ④ 퀵필터 자리는 닫지 않는다 — 계층(제조사 → 모델 → 세부모델 → 트림)이 끝나면 연식 알약 줄
           isHeavyCategory ? <HeavyQuickFilter value={heavySelection} onChange={applyHeavySelection} /> :
-          showTruckFormatRail ? <section className="depth-rail is-trim-row" aria-label="트럭 형식 빠른 선택">
-            <span className="depth-rail-label">형식:</span>
-            <Carousel ariaLabel="트럭 형식" className="brand-carousel" contentClassName="depth-rail-track is-chips">
-              {truckFormatCatalog.map((group) => <TrimChip key={group.name} label={group.name} onClick={() => chooseTruckFormat(group.name)} />)}
+          showTruckFormatRail ? <section className="depth-rail no-label is-truck-image-row" aria-label="트럭 형식 빠른 선택">
+            <Carousel ariaLabel="트럭 형식" className="brand-carousel" contentClassName="depth-rail-track">
+              {truckFormatCatalog.map((group) => <DepthCard key={group.name} className="is-truck-depth" label={group.name} image={<img src={asset(truckFormatImageFor(group.name) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckFormat(group.name)} />)}
             </Carousel>
           </section> :
-          showTruckSubtypeRail ? <section className="depth-rail is-trim-row" aria-label={`${selectedTruckFormat} 세부 형식 빠른 선택`}>
-            <span className="depth-rail-label">세부 형식:</span>
-            <Carousel ariaLabel={`${selectedTruckFormat} 세부 형식`} className="brand-carousel" contentClassName="depth-rail-track is-chips">
-              {truckSubtypeOptions.map((subtype) => <TrimChip key={subtype} label={subtype} onClick={() => chooseTruckSubtype(subtype)} />)}
+          showTruckSubtypeRail ? <section className="depth-rail no-label is-truck-image-row" aria-label={`${selectedTruckFormat} 세부 형식 빠른 선택`}>
+            <Carousel ariaLabel={`${selectedTruckFormat} 세부 형식`} className="brand-carousel" contentClassName="depth-rail-track">
+              {truckSubtypeOptions.map((subtype) => <DepthCard key={subtype} className="is-truck-depth" label={subtype} image={<img src={asset(truckSubtypeImageFor(selectedTruckFormat, subtype) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckSubtype(subtype)} />)}
             </Carousel>
           </section> :
           showTruckSpecRail ? <section className="depth-rail is-trim-row" aria-label={`${selectedTruckSubtype} 적재용량 및 규격 빠른 선택`}>
