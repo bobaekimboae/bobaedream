@@ -36,9 +36,9 @@
 /* 첫 화면 유형 줄도 이미지 줄 높이(칸 102, 위 여백 없음) */
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu__list { padding-top: 0; }
 
-/* ── 모델·세부모델 이미지 칸도 제조사 칸과 같은 높이(PC 84×102 · 모바일 64×74), 이름·보조 글자 각 1줄 말줄임 */
+/* ── 모델·세부모델 이미지 칸: PC 84×102 · 모바일 초톳 실사 슬롯 72×102, 이름·보조 글자 각 1줄 말줄임 */
 .marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) { height: 102px; }
-.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) { height: 74px; }
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) { height: 102px; }
 .marketplace.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-label { display: block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; -webkit-line-clamp: none; }
 .marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) .depth-card-label {
   display: block;

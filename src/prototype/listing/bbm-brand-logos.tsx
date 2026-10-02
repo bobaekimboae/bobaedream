@@ -54,15 +54,16 @@ export function krListLogoSize(ratio: number) {
 }
 const px = (value: number) => `${Math.round(value * 100) / 100}px`;
 
-// QF-108 plain(초톳식) 로고 상자(PC 40×40 · 모바일 36×36) 안 크기 3단계(초톳 실측 M-041 · 매뉴얼 v1.3, 비율 = 잘라낸 로고 폭÷높이), 가로·세로 가운데
-//  1.25 이하: 긴 변 = 상자의 82.5%(PC 33 · 모바일 29.7) / 1.25 초과 1.6 미만: 폭 = 91%(PC 36.4 · 모바일 32.8) / 1.6 이상: 폭 = 100%(PC 40 · 모바일 36)
+// QF-108 plain(초톳식) 로고 상자 40×40 안 크기 3단계(사용자 제공 1080×2340 캡처 4종 재실측, 2026-10-03).
+// 모바일·PC에 같은 광학 규칙을 쓴다. 비율 = 투명 여백을 제거한 로고 폭÷높이, 가로·세로 가운데.
+//  1.25 이하: 긴 변 33(82.5%) / 1.25 초과 1.6 미만: 폭 36.4(91%) / 1.6 이상: 폭 40(100%).
 export function krPlainLogoSize(ratio: number) {
   if (ratio >= 1.6) return { width: "100%", height: "auto" };
   if (ratio > 1.25) return { width: "91%", height: "auto" };
   return ratio >= 1 ? { width: "82.5%", height: "auto" } : { width: "auto", height: "82.5%" };
 }
 
-/** 로고 칸(퀵필터 48×28 · 목록 24×24 · plain 40×40/36×36). 로고가 없으면 빈 칸(이름 시작선을 맞춘다). 이미지는 alt=""(이름이 바로 옆) */
+/** 로고 칸(퀵필터 48×28 · 목록 24×24 · plain 40×40). 로고가 없으면 빈 칸(이름 시작선을 맞춘다). 이미지는 alt=""(이름이 바로 옆) */
 export function KrBrandLogo({ name, kind, initialFallback = false }: { name: string; kind: "rail" | "list" | "plain"; initialFallback?: boolean }) {
   const logo = krBrandLogo(name);
   // QF-114: 로고를 못 구한 브랜드(바이크·트럭)는 이름 첫 글자 원형(#F4F4F4, 600)으로 임시 표시

@@ -1,6 +1,7 @@
 /* QF-100 과쯔 퀵필터 "바탕 없는(초톳식)" — 과쯔 모드 기본(.marketplace.is-qf-plain). 주소에 &qfcard=card 면 이 클래스가 빠져 이전 과쯔 카드 모양(비교용).
-   초톳 브랜드 줄 실측(xe.chotot.com/mua-ban-oto, 2026-09-27): PC 칸 84×102 · 피치 92 · 로고 상자 40×40(칸 위 6) · 이름 14/21 400 #595959(상자 아래 14)
-   모바일 393 칸 64×74 · 피치 72 · 로고 상자 36×36(칸 위 0) · 이름 12/18 500 #595959(상자 아래 2). 칸 배경·테두리·모서리 없음, 선택 표시 없음 */
+   초톳 브랜드 줄 재실측(사용자 제공 1080×2340 캡처 4종, 384 CSS px / 2.8125, 2026-10-03):
+   모바일 칸 76×102 · 칸 사이 8(피치 84) · 로고 상자 40×40(칸 위 6) · 이름 14/21 400 #595959(상자 아래 14).
+   PC도 같은 40×40 로고 상자·14/21 이름을 쓰되 칸 84×102(피치 92). 칸 배경·테두리·모서리 없음, 선택 표시 없음. */
 .marketplace.is-qf-plain .depth-rail { height: auto; }
 .marketplace.is-qf-plain .depth-rail-track { height: auto; align-items: flex-start; padding-top: 0; padding-bottom: 12px; }
 .marketplace.is-qf-plain .depth-card,
@@ -25,14 +26,16 @@
 .marketplace.is-bbm.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-label { font-size: 14px; font-weight: 600; line-height: 21px; }
 .marketplace.is-bbm.is-qf-plain .depth-card-sub { margin-top: 0; color: #8c8c8c; font-size: 12px; font-weight: 400; line-height: 18px; }
 
-/* 모바일(393) */
-.marketplace.is-bbm-m.is-qf-plain .depth-card { width: 64px; flex: 0 0 64px; }
-.marketplace.is-bbm-m.is-qf-plain .depth-card:has(> .depth-card-media.is-brand) { height: 74px; }
-.marketplace.is-bbm-m.is-qf-plain .depth-card-media.is-brand { width: 36px; height: 36px; margin-top: 0; }
-.marketplace.is-bbm-m.is-qf-plain .depth-card:has(> .depth-card-media.is-brand) .depth-card-label { margin-top: 2px; font-size: 12px; font-weight: 500; line-height: 18px; }
-.marketplace.is-bbm-m.is-qf-plain .depth-card-media:not(.is-brand) { margin-top: 0; }
-.marketplace.is-bbm-m.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-label { font-size: 12px; font-weight: 600; line-height: 18px; }
-.marketplace.is-bbm-m.is-qf-plain .depth-card-sub { margin-top: 0; color: #8c8c8c; font-size: 11px; font-weight: 400; line-height: 16px; }
+/* 모바일(384 기준): 제조사 줄은 초톳 브랜드 슬롯 76×102·40×40,
+   모델·세부모델 줄은 초톳 실사 슬롯 72×102·64×40(피치 80)을 사용한다. */
+.marketplace.is-bbm-m.is-qf-plain .depth-card { width: 72px; flex: 0 0 72px; }
+.marketplace.is-bbm-m.is-qf-plain .depth-rail.is-kr-maker .depth-card { width: 76px; flex: 0 0 76px; }
+.marketplace.is-bbm-m.is-qf-plain .depth-card:has(> .depth-card-media.is-brand) { height: 102px; }
+.marketplace.is-bbm-m.is-qf-plain .depth-card-media.is-brand { width: 40px; height: 40px; margin-top: 6px; }
+.marketplace.is-bbm-m.is-qf-plain .depth-card:has(> .depth-card-media.is-brand) .depth-card-label { margin-top: 14px; font-size: 14px; font-weight: 400; line-height: 21px; }
+.marketplace.is-bbm-m.is-qf-plain .depth-card-media:not(.is-brand) { margin-top: 6px; }
+.marketplace.is-bbm-m.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-label { font-size: 14px; font-weight: 600; line-height: 21px; }
+.marketplace.is-bbm-m.is-qf-plain .depth-card-sub { margin-top: 0; color: #8c8c8c; font-size: 12px; font-weight: 400; line-height: 16px; }
 /* 모바일 첫 칸 왼쪽 선: 초톳 실측처럼 첫 칩보다 4 왼쪽(칸 안 여백 4 → 로고·이름은 칩 선과 맞음) */
 .marketplace.is-bbm-m.is-qf-plain .depth-rail.is-kr-maker .depth-rail-track { padding-left: 12px; }
 
@@ -43,9 +46,9 @@
 .marketplace.is-bbm-m.is-qf-plain .depth-rail.is-kr-maker { margin-top: 4px; }
 .marketplace.is-bbm-m.is-qf-plain .depth-rail:not(.is-kr-maker) { margin-top: 4px; }
 
-/* QF-108 제조사 줄(초톳 실측 M-041 · 매뉴얼 v1.3): 이름 글자 상자 폭 고정 PC 76 · 모바일 56, 가운데, 최대 2줄 말줄임 */
+/* QF-108 제조사 줄(초톳 2026-10-03 재실측): 이름 글자 상자 폭 고정 PC 76 · 모바일 68, 가운데, 최대 2줄 말줄임 */
 .marketplace.is-bbm.is-qf-plain .depth-card:has(> .depth-card-media.is-brand) .depth-card-label { width: 76px; text-align: center; }
-.marketplace.is-bbm-m.is-qf-plain .depth-card:has(> .depth-card-media.is-brand) .depth-card-label { width: 56px; text-align: center; }
+.marketplace.is-bbm-m.is-qf-plain .depth-card:has(> .depth-card-media.is-brand) .depth-card-label { width: 68px; text-align: center; }
 /* 바이크의 긴 제조사명은 말줄임표 없이 두 줄로 모두 보인다. */
 .marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker .depth-card:has(> .depth-card-media.is-brand) .depth-card-label {
   text-overflow: clip;
