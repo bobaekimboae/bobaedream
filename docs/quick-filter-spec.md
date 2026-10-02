@@ -46,7 +46,7 @@
 
 ## Summary Chips And Top Rail
 
-- Guazi 필터 버튼 아이콘은 세 개의 조절선과 원형 핸들이 있는 24×24 SVG(`chip-filter-funnel.svg`)를 사용하고 20×20px로 표시한다. 두 줄 조절 아이콘과 깔때기 아이콘은 기본안으로 사용하지 않는다. 노션에서 전달된 2단 원형 조절 아이콘(`chip-filter-notion.svg`)은 `filtericon=notion` 비교 시안으로만 제공하며 기본안은 유지한다. 비교 시안은 20px 슬롯 안에서 원본 경로를 24px 광학 캔버스에 가운데 배치해 실제 가시 폭을 약 13.3px로 맞춘다.
+- Guazi 필터 버튼 아이콘은 노션 `0_0_필터 FilterHeader`의 원본 SVG를 `public/assets/bbm/chip-filter.svg`에 적용한다. 24×24 viewBox 안의 세 조절선이며 위·아래 핸들은 x=8, 가운데 핸들은 x=16이다. PC와 모바일이 같은 파일을 20×20px로 표시한다. 이전 깔때기·단순 조절선·비교용 아이콘은 기본안으로 사용하지 않는다.
 - Top chip order: `[필터] [중고차/카테고리] [요약 칩] [트림] [가격] [연식] [주행] [색상]`.
 - Guazi (dev-draft baseline, QF-091·QF-089): top chips follow the bbmuseum original. Before a manufacturer: `[필터] [전체차량] [applied chips] [제조사] [연식] [가격] [연료] [판매자]`; after: `[필터] [전체차량] [요약 칩] [모델 until a model is chosen] [트림] [applied chips] [연식] [가격] [연료] [판매자]`. Group chips with a value leave the row. The summary chip keeps its 220px max width, clear, and depth-return behavior.
 - Guazi (QF-091): the category landing shows the original circular vehicle-type row instead of the depth-0 type cards. Choosing a type swaps the same slot to the quick-filter rail from the manufacturer step; clearing the category chip brings the type row back. Rail, DepthCard, and trim chip specs are unchanged.

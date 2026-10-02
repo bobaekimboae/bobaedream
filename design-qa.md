@@ -1,3 +1,30 @@
+# Design QA — FilterHeader 아이콘 교체
+
+## Comparison target
+
+- Source visual truth: Notion `0_0_필터 FilterHeader`의 첨부 파일 `FilterHeader.svg`.
+- Implementation: `public/assets/bbm/chip-filter.svg`.
+- State: 과쯔 모바일 기본 목록과 PC 개발 시안형 기본 목록.
+
+## Findings
+
+- 원본과 구현의 `viewBox="0 0 24 24"` 및 단일 path 데이터가 일치합니다.
+- 조절점은 위·아래 x=8, 가운데 x=16으로 원본과 같습니다.
+- 모바일과 PC가 같은 아이콘 파일을 사용합니다.
+- 실제 표시 크기는 PC 20×20px이며 32px 높이 필터 버튼 안에서 세로 가운데 정렬됩니다.
+- 모바일 필터 버튼을 누르면 필터 dialog가 정상적으로 열립니다.
+- 모바일·PC 콘솔 오류와 경고는 없습니다.
+
+## Verification
+
+- `npm run verify:qf`: passed.
+- 모바일 필터 dialog: passed.
+- PC 1280×720 배치: passed.
+
+final result: passed
+
+---
+
 # Design QA — 모바일 하단 GNB 블랙 밸런스
 
 ## Comparison target
