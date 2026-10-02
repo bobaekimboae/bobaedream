@@ -244,6 +244,7 @@
 
   function boardForCurrentUrl(){
     var params=new URLSearchParams(location.search);
+    if(layoutMode==='reddit'&&!boardFromUrl()) return '전체 게시글';
     return boardFromUrl()||((params.get('q')||params.get('section')||params.get('topic'))?'전체 게시글':localStorage.getItem(STORE_BOARD))||'전체 게시글';
   }
 
