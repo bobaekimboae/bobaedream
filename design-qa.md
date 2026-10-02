@@ -69,6 +69,61 @@ final result: passed
 
 ---
 
+# Design QA — 트럭 카드 곡률 축소 v06
+
+## Comparison target
+
+- Source visual truth path: `C:/Users/bobae/Downloads/KakaoTalk_20261002_183735865.png`.
+- Prior implementation: 트럭 이미지 카드 v05, 모바일·PC 모서리 곡률 14px.
+- Latest implementation capture: Codex 인앱 브라우저의 로컬 모바일·PC 화면.
+- Latest local URL: `http://127.0.0.1:5173/?qf=guazi&category=트럭%20·%20특장`.
+- Verification viewports: 모바일 390×844px, PC 1280×900px, density 1× 기준.
+- State: 라이트 테마, 트럭 형식 및 카고 세부형식 단계.
+
+## Findings and fixes
+
+- [P2 resolved] 72×80px 모바일 카드와 88×90px PC 카드에서 14px 곡률이 카드 크기 대비 둥글게 느껴졌다.
+  - Fix: 모바일·PC 모두 곡률을 10px로 낮췄다.
+- [P2 resolved] 곡률 변경 과정에서 카드·이미지·명칭 비율이 달라질 위험이 있었다.
+  - Fix: 모바일 72×80px·이미지 64×36px, PC 88×90px·이미지 80×43px 규격을 그대로 유지했다.
+
+## Full-view comparison
+
+- 기존보다 카드 모서리가 단정해져 작은 카드의 클릭 경계가 더 분명해졌다.
+- FINN형 연회색 배경과 Airbnb형 선택 외곽선은 유지된다.
+- 모바일 약 5개 노출, PC 한 행 다중 노출 밀도는 변하지 않았다.
+
+## Focused region comparison
+
+- 모바일 카드 72×80px, 이미지 64×36px, 곡률 10px.
+- PC 카드 88×90px, 이미지 80×43px, 곡률 10px.
+- 카고 세부형식 7개가 모바일·PC에서 최대 2줄로 표시된다.
+- PC 좌측 필터의 형식·세부형식 목록과 매물 결과 영역은 변경되지 않았다.
+
+## Required fidelity surfaces
+
+- Fonts and typography: 기존 모바일·PC 글자 크기, 행간, 최대 2줄 규칙 유지.
+- Spacing and layout rhythm: 카드·이미지·텍스트 영역 크기와 간격 유지.
+- Colors and visual tokens: 기본 `#F1F1F3`, 호버 `#E8EBEF`, 선택 흰 배경·`#222222` 2px 유지.
+- Image quality and asset fidelity: 차량 이미지 비율과 하단 정렬 유지.
+- Copy and content: 형식·세부형식 명칭과 가상 매물 변경 없음.
+
+## Verification
+
+- 모바일 카드 72×80px·곡률 10px: passed.
+- PC 카드 88×90px·곡률 10px: passed.
+- 모바일·PC 카고 세부형식 7개 표시: passed.
+- 모바일·PC 콘솔 errors/warnings: 0건.
+- `npm run verify:qf`: passed.
+
+**Open Questions**
+
+- 공개 배포는 사용자 확인 후 진행한다.
+
+final result: passed
+
+---
+
 # Design QA — 모바일 하단 GNB 블랙 밸런스
 
 ## Comparison target
