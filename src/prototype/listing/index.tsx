@@ -1534,6 +1534,8 @@ function MarketplaceScreen() {
     groupChip("price", "가격", "가격", rangeIsSet(bbmValue.ranges.price)),
     groupChip("fuel", "연료", "연료", Boolean(bbmValue.checks.fuel?.length)),
   ] as Array<BbmChip | null | undefined>).filter((chip): chip is BbmChip => Boolean(chip));
+  // 트럭·특장 PC 상단은 좌측 필터와 역할이 겹치는 기본/다음 단계 칩을 숨기고 실제 적용값만 요약한다.
+  const truckPcAppliedChips = bbmChips.filter((chip) => chip.active && chip.key !== "category");
   // QF-092 원본 재실측(2026-09-25): 적용 칩이 바뀌어도 칩 줄 스크롤은 그대로(칩을 누를 때만 revealBbmChip). 예전 "맨 앞 적용 칩 47px" 규칙은 우연히 맞았던 것이라 뺐다
   useEffect(() => {
     if (desktop || !isGuaziQuickStyle) return;
@@ -1719,13 +1721,20 @@ function MarketplaceScreen() {
     );
     // QF-095: 과쯔 PC 상단 카드 — 초톳 PC 상단과 같은 구조(1줄 경로 · 2줄 제목 + 검색저장 · 3줄 칩 줄 + 필터 초기화 · 4줄 유형 줄/퀵필터 레일)
     const bbmTopCard = (
-      <section className={`bbm-content-head is-chotot${showCategoryQuickRail ? " has-category-menu" : ""}`} aria-label="검색 조건">
+      <section className={`bbm-content-head is-chotot${showCategoryQuickRail && !isTruckCategory ? " has-category-menu" : ""}${isTruckCategory ? " is-truck-simple" : ""}`} aria-label="검색 조건">
         <div className="bbm-ct-title-row">
           {/* QF-106: 제목은 상단 메뉴 카테고리 이름으로 고정(대수·날짜·칩 조건 없음). 탭 제목은 그대로 */}
           <h1 className="bbm-ct-title bbm-summary" data-count={shownCars.length}>{stablePageTitle(category)}</h1>
           <button type="button" className={`bbm-save-search bbm-ct-save${searchSaved ? " is-saved" : ""}`} aria-pressed={searchSaved} onClick={toggleSearchSaved}><img src={bbmIcon("search-save")} alt="" aria-hidden="true" />검색저장</button>
         </div>
-        <div className="bbm-ct-chip-row">
+        {isTruckCategory ? (truckPcAppliedChips.length ? <div className="bbm-ct-chip-row" aria-label="적용된 검색 조건">
+          <div className="bbm-chips">
+            <BbmChipScroller>
+              {truckPcAppliedChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active className={chip.className} onClick={chip.onClick} onClear={chip.onClear} />)}
+            </BbmChipScroller>
+          </div>
+          <button type="button" className="bbm-ct-reset" onClick={() => setBbmTopReset((value) => value + 1)}>필터 초기화</button>
+        </div> : null) : <div className="bbm-ct-chip-row">
           <div className="bbm-chips">
             <button type="button" className={`bbm-filter-button${bbmAppliedCount ? " is-applied" : ""}`} aria-disabled={drawerFilterChip ? undefined : "true"} aria-haspopup={drawerFilterChip ? "dialog" : undefined} onClick={drawerFilterChip ? () => setBbmDrawerOpen(true) : undefined} aria-label={bbmAppliedCount ? `필터 ${bbmAppliedCount}개 적용됨` : "필터"}><img src={bbmIcon(bbmFilterIconName)} alt="" aria-hidden="true" />{/* QF-113 T2: "필터" 글자는 늘 두고 조건 수를 덧붙임(폭 고정, qf-align.css) */}<span>필터</span>{bbmAppliedCount ? <b>{bbmAppliedCount}</b> : null}</button>
             <BbmChipScroller>
@@ -1733,10 +1742,10 @@ function MarketplaceScreen() {
             </BbmChipScroller>
           </div>
           {bbmAppliedCount ? <button type="button" className="bbm-ct-reset" onClick={() => setBbmTopReset((value) => value + 1)}>필터 초기화</button> : null}
-        </div>
+        </div>}
         {/* 트럭·특장 PC는 좌측 트럭 전용 필터의 지역 항목만 사용하고 상단 지역 칩 줄은 노출하지 않는다. */}
         {isTruckCategory ? null : <StableRegionRow value={bbmValue} onChange={setBbmFilters} onNearby={() => setSearchToast("내 주변 매물은 정식 서비스에서 이용해 주세요.")} />}
-        <div className="bbm-quick-slot">{quickRail}</div>
+        {isTruckCategory ? null : <div className="bbm-quick-slot">{quickRail}</div>}
       </section>
     );
     const bbmItems = shownCars.length ? pagedCars.map((car) => pcGridView
