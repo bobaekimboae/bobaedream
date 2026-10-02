@@ -1,3 +1,47 @@
+# Design QA — 메인 차량 카테고리 실사 슬롯
+
+## Comparison target
+
+- Source visual truth: 사용자 제공 초톳 차량 메인 `1-1000014810.jpg`, `2-1000014812.jpg`의 투명 배경 실사 차량과 `1-1000014814.jpg`의 5열 카테고리 슬롯 리듬.
+- Implementation: `src/main-home/main-home.css`의 `.mh-category-rail`, `.mh-category-item`, `.mh-category-image`.
+- Implementation screenshot: Codex in-app Browser에서 `http://127.0.0.1:4177/`을 렌더링해 현재 작업 회차에 캡처한 모바일 메인 화면.
+- Viewport: 구현 캡처는 430px 앱 프레임, 기준 계산은 384px CSS 폭·1×. 소스는 592×1280px 기기 캡처이며 카테고리 영역의 상대 비율만 사용했습니다.
+- State: 라이트 테마, 메인 첫 화면, 차량 카테고리 레일 시작 위치.
+
+## Findings
+
+- 기존 실사 PNG 6종이 모두 투명 배경이며 앞머리가 왼쪽인 차량 컷이라 새 이미지를 생성하지 않고 재사용했습니다.
+- 슬롯은 64px, 이미지 영역은 64×40px, 슬롯 간격은 8px, 좌우 여백은 16px입니다.
+- 384px에서는 5개 슬롯이 완전히 보이고 여섯 번째 슬롯이 8px 노출되어 가로 스크롤 가능성을 알립니다.
+- 라벨은 13/18px 500, 이미지와 6px 간격으로 초톳의 낮은 정보 밀도와 맞췄습니다.
+- 국산차 버튼을 누르면 기존 `?qf=guazi&filtericon=notion` 목록으로 이동합니다.
+- 브라우저 콘솔 오류·경고는 0건입니다.
+
+## Required fidelity surfaces
+
+- Typography: 기존 14/20px 600에서 13/18px 500으로 조정해 이미지보다 라벨이 강해 보이던 문제를 해소했습니다.
+- Spacing: 슬롯 64px, 간격 8px, 이미지→라벨 6px, 레일 좌우 16px로 일정합니다.
+- Colors: 기존 메인 색상 토큰과 흰 배경을 유지했습니다.
+- Images: 기존 투명 실사 컷을 `object-fit: contain`, 하단 정렬로 표시하며 찌그러짐과 배경 상자가 없습니다.
+- Copy: 국산차·수입차·트럭·바이크·전기차·캠핑카 명칭을 유지했습니다.
+
+## Comparison history
+
+| 회차 | P0/P1/P2 발견 | 수정 | 결과 |
+|---|---|---|---|
+| 1 | 없음 | 기존 52×38px 표시를 64×40px로 확대하고 8px 슬롯 간격·스크롤 스냅 적용 | 통과 |
+
+## Verification
+
+- `npm run verify:qf`: passed.
+- 모바일 메인 브라우저 렌더: passed.
+- 국산차 카테고리 이동: passed.
+- 콘솔 오류·경고: 0.
+
+final result: passed
+
+---
+
 # Design QA — FilterHeader 아이콘 교체
 
 ## Comparison target
