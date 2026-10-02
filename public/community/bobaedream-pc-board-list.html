@@ -52,7 +52,11 @@ ul,ol{list-style:none;margin:0;padding:0}
 .loginButton{width:60px;height:30px;margin-left:8px;border:1px solid rgba(0,0,0,.2);border-radius:6px;color:#444;font-size:12px;line-height:14px;font-weight:700;background:#fff}
 .loungeHero{height:88px;background:#fff}
 .loungeHeroInner{width:1280px;height:88px;margin:0 auto;display:flex;align-items:center}
-.loungeTitleBlock{color:#222}
+.loungeTitleBlock{display:flex;align-items:center;color:#222}
+.loungeMenuButton{width:40px;height:40px;margin-left:-10px;margin-right:8px;border:0;border-radius:10px;background:transparent;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:0 0 40px}
+.loungeMenuButton:hover{background:#f5f6f7}
+.loungeMenuButton:focus-visible{outline:2px solid #222;outline-offset:2px}
+.loungeMenuButton img{display:block;width:24px;height:24px}
 .loungeTitleBlock h1{margin:0;font-size:28px;line-height:36px;font-weight:800;letter-spacing:-.5px}
 .loungeNav{height:60px;background:#fff;border-top:1px solid #f1f1f1;border-bottom:1px solid #e7e7e7}
 .loungeNavInner{width:1280px;height:60px;margin:0 auto;display:flex;align-items:center;gap:8px}
@@ -160,6 +164,7 @@ ul,ol{list-style:none;margin:0;padding:0}
 <section class="loungeHero">
   <div class="loungeHeroInner">
     <div class="loungeTitleBlock">
+      <button class="loungeMenuButton" type="button" aria-label="커뮤니티 전체 메뉴"><img src="./assets/lounge-menu.svg" alt="" aria-hidden="true"></button>
       <h1>보배드림 커뮤니티</h1>
     </div>
   </div>
