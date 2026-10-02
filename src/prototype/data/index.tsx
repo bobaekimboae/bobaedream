@@ -65,7 +65,23 @@ type Car = {
   posted: string;
   photos: number;
   badges?: ListingBadge[];
-  heavy?: { form: string; detail: string; hours: number; evaluation: string };
+  heavy?: {
+    form: string;
+    detail: string;
+    hours: number;
+    evaluation: string;
+    scenarioId?: string;
+    imageFile?: string;
+    inspection?: string;
+    delivery?: string;
+    sellerAddress?: string;
+    sellerContact?: string;
+    sellerIntro?: string;
+    businessHours?: string;
+    quickfilterTags?: readonly string[];
+    isVirtual?: boolean;
+    scenarioVersion?: string;
+  };
   sellerProfile?: string | null;
   uiTest?: {
     number: number;
@@ -212,6 +228,7 @@ const luxurySellerProfileByListing = new Map<number, string>(
 );
 
 const sellerLabel = (car: Car) => {
+  if (car.heavy?.isVirtual) return car.dealer;
   if (car.uiTest) return car.dealer;
   if (car.sellerType === "개인") return "개인판매자";
   if (car.dealer && car.dealer !== sellerScenario.name) return car.dealer;
@@ -742,21 +759,37 @@ const heavyCars: Car[] = heavyInventory.map((row, index) => ({
   id: 5000 + index,
   maker: row.maker,
   modelGroup: row.model,
-  sellerType: "딜러",
-  image: "categories/construction.svg",
-  imageFit: "contain",
-  title: `${row.maker} ${row.model}`,
+  sellerType: row.sellerType === "개인 판매" ? "개인" : "딜러",
+  image: `heavy/listings/${row.imageFile}`,
+  imageFit: "cover",
+  title: row.maker === "미확인" ? row.title : `${row.maker} ${row.model}`,
   trim: `${row.form} · ${row.detail}`,
-  specs: [`${row.year}년식`, `${row.hours.toLocaleString("ko-KR")}h`, `평가 ${row.evaluation}`, row.region],
+  specs: [`${row.year}년식`, `${row.hours.toLocaleString("ko-KR")}h`, row.evaluation, row.region],
   price: row.price === null ? "가격 상담" : `${Math.round(row.price / 10000).toLocaleString("ko-KR")} 만원`,
-  place: `${row.region} · 건설기계 전문매장`,
+  place: row.sellerAddress,
   views: 40 + index * 7,
-  dealer: "건설기계 전문딜러",
+  dealer: row.sellerName,
   stock: 1,
   posted: `${(index % 12) + 1}시간 전`,
   photos: 1,
-  badges: index % 3 === 0 ? ["제조사보증"] : [],
-  heavy: { form: row.form, detail: row.detail, hours: row.hours, evaluation: row.evaluation },
+  badges: [],
+  heavy: {
+    form: row.form,
+    detail: row.detail,
+    hours: row.hours,
+    evaluation: row.evaluation,
+    scenarioId: row.id,
+    imageFile: row.imageFile,
+    inspection: row.inspection,
+    delivery: row.delivery,
+    sellerAddress: row.sellerAddress,
+    sellerContact: row.sellerContact,
+    sellerIntro: row.sellerIntro,
+    businessHours: row.businessHours,
+    quickfilterTags: row.quickfilterTags,
+    isVirtual: row.isVirtual,
+    scenarioVersion: row.scenarioVersion,
+  },
   filter: {
     year: row.year,
     seats: "전체",
