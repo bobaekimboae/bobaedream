@@ -10,7 +10,7 @@
 .mh-top-icons button { width:44px; height:44px; display:grid; place-items:center; border-radius:50%!important; cursor:pointer; }
 .mh-top-icons button:active { background:#f2f3f5; }
 .mh-top-icons img { width:24px; height:24px; }
-.mh-service-menu { display:flex; gap:8px; overflow-x:auto; padding:10px 16px 12px; background:#fff; border-bottom:1px solid #eceef2; scrollbar-width:none; scroll-padding-inline:16px; }
+.mh-service-menu { display:flex; gap:8px; overflow-x:auto; padding:10px 16px 12px; background:#fff; scrollbar-width:none; scroll-padding-inline:16px; }
 .mh-service-menu::-webkit-scrollbar,.mh-body-rail::-webkit-scrollbar,.mh-brand-rail::-webkit-scrollbar,.mh-offer-rail::-webkit-scrollbar { display:none; }
 .mh-service-chip { flex:0 0 auto; min-width:58px; height:40px; padding:0 16px!important; border:1px solid #b8c0ca!important; border-radius:999px!important; color:#202b38!important; background:#fff!important; font-size:14px!important; line-height:38px!important; font-weight:700!important; letter-spacing:-.035em; white-space:nowrap; box-shadow:0 1px 1px rgba(22,33,46,.04); transition:all 140ms ease; }
 .mh-service-chip.is-active { color:#fff!important; border-color:var(--mh-navy)!important; background:var(--mh-navy)!important; font-weight:800!important; box-shadow:0 5px 12px rgba(22,33,46,.18); }
