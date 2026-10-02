@@ -6,7 +6,8 @@
   <title>보배드림 AutoScout형 임시 메인</title>
   <style>
     :root {
-      --at-blue: #1b498c;
+      --at-blue: #3155b7;
+      --at-navy: #16212e;
       --ink: #172033;
       --muted: #657083;
       --line: #dfe5ee;
@@ -47,11 +48,11 @@
     .top-icons {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 8px;
     }
 
     .top-icons button { display: grid; width: 40px; height: 40px; place-items: center; cursor: pointer; }
-    .top-icons img { width: 24px; height: 24px; }
+    .top-icons img { width: 22px; height: 22px; }
 
     .service-menu {
       position: relative;
@@ -59,7 +60,7 @@
       display: flex;
       gap: 8px;
       overflow-x: auto;
-      padding: 12px 16px;
+      padding: 10px 16px 12px;
       background: #fff;
       border-bottom: 1px solid #eceef2;
       scrollbar-width: none;
@@ -69,28 +70,32 @@
 
     .service-chip {
       flex: 0 0 auto;
-      height: 36px;
-      padding: 0 15px;
-      border: 1px solid #dedfe3;
+      min-width: 58px;
+      height: 40px;
+      padding: 0 16px;
+      border: 1px solid #b8c0ca;
       border-radius: 999px;
       background: #fff;
-      color: #303238;
+      color: #202b38;
       font-size: 14px;
-      line-height: 34px;
-      font-weight: 650;
+      line-height: 38px;
+      font-weight: 700;
       letter-spacing: -.035em;
       white-space: nowrap;
       cursor: pointer;
-      transition: background 140ms ease, border-color 140ms ease, color 140ms ease;
+      box-shadow: 0 1px 1px rgba(22, 33, 46, .04);
+      transition: background 140ms ease, border-color 140ms ease, color 140ms ease, transform 140ms ease;
     }
 
     .service-chip.active {
-      border-color: #222;
-      background: #222;
+      border-color: var(--at-navy);
+      background: var(--at-navy);
       color: #fff;
-      font-weight: 750;
+      font-weight: 800;
+      box-shadow: 0 5px 12px rgba(22, 33, 46, .18);
     }
 
+    .service-chip:active { transform: scale(.97); }
     .service-chip:focus-visible { outline: 2px solid var(--at-blue); outline-offset: 2px; }
 
     .hero {
@@ -141,24 +146,24 @@
       position: relative;
       z-index: 3;
       margin: -58px 13px 0;
-      padding: 18px 17px 20px;
+      padding: 18px 16px 20px;
       background: var(--panel);
-      border-radius: 22px;
+      border-radius: 18px;
       box-shadow: var(--shadow);
       overflow: visible;
     }
 
-    .search-form { display: grid; gap: 14px; }
+    .search-form { display: grid; gap: 12px; }
 
     .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
     .select-field {
       position: relative;
-      height: 55px;
-      border: 1px solid #cfd3d9;
-      border-radius: 4px;
+      height: 52px;
+      border: 1px solid #adb5bf;
+      border-radius: 5px;
       background: #fff;
-      padding: 0 15px 0 17px;
+      padding: 0 13px 0 15px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -167,21 +172,38 @@
       font-size: 17px;
       font-weight: 500;
       letter-spacing: -.035em;
+      transition: border-color 140ms ease, box-shadow 140ms ease;
     }
 
+    .select-field:focus-visible {
+      outline: 0;
+      border-color: var(--at-blue);
+      box-shadow: 0 0 0 3px rgba(49, 85, 183, .13);
+    }
 
     .select-field.muted { color: #b5bac2; border-color: #e2e5e9; }
 
     .select-value { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
+    .select-leading {
+      display: inline-flex;
+      align-items: center;
+      min-width: 0;
+      gap: 9px;
+    }
+
+    .select-leading > img {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 20px;
+      color: #222;
+    }
+
     .chevron {
-      width: 0;
-      height: 0;
-      border-left: 6px solid transparent;
-      border-right: 6px solid transparent;
-      border-top: 7px solid currentColor;
+      display: block;
+      width: 20px;
+      height: 20px;
       margin-left: 8px;
-      opacity: .95;
       flex: 0 0 auto;
     }
 
@@ -238,7 +260,17 @@
       letter-spacing: -.03em;
     }
 
-    .more { color: #5f6c7e; font-size: 13px; font-weight: 850; letter-spacing: -.04em; }
+    .more {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      color: #465264;
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: -.04em;
+    }
+
+    .more img { width: 18px; height: 18px; opacity: .78; }
 
     .body-rail, .brand-rail, .offer-rail {
       display: flex;
@@ -413,8 +445,8 @@
     <header class="topbar">
       <a class="logo" href="../../" aria-label="보배드림 홈"><img data-img="../../|assets/bbm/header-logo.svg" alt="보배드림" /></a>
       <div class="top-icons">
-        <button type="button" aria-label="검색"><img data-img="../../|assets/bbm/header-search.svg" alt="" /></button>
-        <button type="button" aria-label="전체 메뉴"><img data-img="../../|assets/bbm/header-menu.svg" alt="" /></button>
+        <button type="button" aria-label="검색"><img data-img="./icons/search.svg" alt="" /></button>
+        <button type="button" aria-label="전체 메뉴"><img data-img="./icons/menu.svg" alt="" /></button>
       </div>
     </header>
 
@@ -439,10 +471,10 @@
     <section class="search-panel" aria-label="매물 검색 패널">
       <div class="search-form">
         <div class="row-2">
-          <button class="select-field" type="button"><span class="select-value">제조사 선택</span><span class="chevron" aria-hidden="true"></span></button>
-          <button class="select-field muted" type="button"><span class="select-value">모델 선택</span><span class="chevron" aria-hidden="true"></span></button>
+          <button class="select-field" type="button"><span class="select-value">제조사 선택</span><img class="chevron" src="./icons/chevron-down.svg" alt="" aria-hidden="true" /></button>
+          <button class="select-field muted" type="button"><span class="select-value">모델 선택</span><img class="chevron" src="./icons/chevron-down.svg" alt="" aria-hidden="true" /></button>
         </div>
-        <button class="select-field" type="button"><span class="select-value">전국</span><span class="chevron" aria-hidden="true"></span></button>
+        <button class="select-field" type="button"><span class="select-leading"><img src="./icons/location.svg" alt="" aria-hidden="true" /><span class="select-value">전국</span></span><img class="chevron" src="./icons/chevron-down.svg" alt="" aria-hidden="true" /></button>
         <button class="cta" type="button" data-list-link>64대 매물 보기</button>
         <button class="advanced-link" type="button">상세 필터</button>
       </div>
@@ -451,7 +483,7 @@
     <section class="section" aria-labelledby="body-title">
       <div class="section-head">
         <div><h2 class="section-title" id="body-title">바디 타입</h2></div>
-        <span class="more">전체보기 ›</span>
+        <span class="more">전체보기 <img src="./icons/arrow-right.svg" alt="" aria-hidden="true" /></span>
       </div>
       <div class="body-rail" aria-label="바디 타입 가로 목록">
         <button class="body-type" type="button"><span class="body-image"><img data-img="./autotrader-body-types-v2/suv.png" alt="" /></span><strong>SUV</strong></button>
@@ -468,7 +500,7 @@
     <section class="section" aria-labelledby="brand-title">
       <div class="section-head">
         <div><h2 class="section-title" id="brand-title">인기 제조사</h2></div>
-        <span class="more">더보기 ›</span>
+        <span class="more">더보기 <img src="./icons/arrow-right.svg" alt="" aria-hidden="true" /></span>
       </div>
       <div class="brand-rail" aria-label="인기 제조사">
         <button class="brand-card" type="button" aria-label="현대"><span class="brand-emblem"><img data-img="./brand-emblems/hyundai.svg" alt="" /></span><span class="brand-name">현대</span></button>
@@ -490,7 +522,7 @@
     <section class="section" aria-labelledby="offer-title">
       <div class="section-head">
         <div><h2 class="section-title" id="offer-title">추천 매물</h2></div>
-        <span class="more">전체 ›</span>
+        <span class="more">전체 <img src="./icons/arrow-right.svg" alt="" aria-hidden="true" /></span>
       </div>
       <div class="offer-rail" aria-label="추천 매물">
         <article class="offer-card"><div class="offer-image"><img data-img="../passenger-body-types/|assets/suv.svg" alt="" /></div><div class="offer-copy"><strong>BMW X3 xDrive20i</strong><span>5,280만원</span></div></article>

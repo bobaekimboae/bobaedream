@@ -66,6 +66,50 @@ final result: passed
 
 ---
 
+# Design QA — 노션 아이콘·AutoScout형 칩·실제 메인 연결
+
+## Comparison target
+
+- Source assets: 사용자 지정 노션 `베트남 초톳` 데이터베이스의 검색, 메뉴, 셰브론 아래, 화살표 우, 위치 SVG 원본.
+- Source visual truth: AutoScout24 모바일 메인 384px 화면의 짙은 헤더 톤, 1px 입력 외곽선, 명확한 활성 대비와 40px 전후 터치 리듬.
+- Implementation: `src/main-home/MainHome.tsx`, `src/main-home/main-home.css`, `public/prototypes/autotrader-bobaedream-main/index.html`.
+- Viewport: 384×900px 기준 모바일 및 기본 데스크톱 미리보기.
+
+## Issues and fixes
+
+- [P1 resolved] 임시 메인이 별도 프로토타입 주소에만 존재해 실제 루트 진입에서 노출되지 않았다.
+  - Fix: 일반 루트는 `MainHome`을 표시하고, `qf`, `scenario`, `view`, `titlepos`, `filtericon`, `desktop`, `pc`, `bbmparts`, `pcl` 쿼리가 있으면 기존 매물 목록을 유지하도록 분기했다.
+- [P2 resolved] 서비스 칩이 36px 높이의 보편적인 검정 칩에 가까워 AutoScout형 깊이와 터치 리듬이 약했다.
+  - Fix: 40px 높이, 16px 좌우 패딩, 1px `#B8C0CA` 외곽선, 활성 `#16212E`, 흰 글자, 약한 그림자로 교정했다.
+- [P2 resolved] 검색·메뉴는 기존 공통 자산, 선택 화살표는 CSS 삼각형, 섹션 이동은 문자 기호라 아이콘 체계가 혼재했다.
+  - Fix: 노션 SVG 원본 5종을 검색·메뉴·위치·셰브론·섹션 화살표에 일관되게 적용했다.
+
+## Required fidelity surfaces
+
+- Geometry: 서비스 칩 40px, 최소 너비 58px, 8px 간격, 999px 곡률, 검색 선택 상자 52px.
+- Alignment: 검색 카드 2열과 전국 1열의 아이콘·텍스트·셰브론 중심선 일치.
+- Typography: 칩 14px/700, 활성 800; 히어로 30px/900; 입력 17px/500.
+- Colors: 활성 칩 `#16212E`, 비활성 외곽선 `#B8C0CA`, 주요 CTA는 기존 보배드림 블랙 `#222` 유지.
+- Assets: 노션 원본 SVG 5종을 로컬 정적 자산으로 사용하고 장식 아이콘은 빈 대체 텍스트 처리.
+
+## Interaction verification
+
+- 일반 루트에서 `.main-home` 표시, `.bbm-m-list` 미표시: passed.
+- `건설기계` 선택 시 `aria-pressed=true`, 히어로 제목과 CTA 변경, 칩 가로 스크롤 이동: passed.
+- `?qf=guazi&filtericon=notion`에서 기존 `.bbm-m-list` 표시, 메인 미표시: passed.
+- 메인 및 기존 목록 이미지 404: 0.
+- 브라우저 콘솔 errors/warnings: none observed.
+- `npm run check:runtime`: passed.
+- `npm run verify:qf`: passed.
+
+## Open questions
+
+- 다른 카테고리 실제 링크는 각 담당 코덱스 결과가 확정된 뒤 연결한다.
+
+final result: passed
+
+---
+
 # Design QA — AutoScout형 임시 메인 서비스 메뉴
 
 ## Comparison target

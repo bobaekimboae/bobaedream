@@ -4,6 +4,7 @@ import { FavoritesProvider, isForcedMobileView, forcedMobileDesignWidth } from "
 import { DetailFooter, DetailUiProvider, VehicleDetail } from "./prototype/detail";
 import { configureListingScreens, MarketplaceScreen, SavedListingsHeader, SavedListingsScreen } from "./prototype/listing";
 import { BuildBadge } from "./prototype/build-badge";
+import MainHome from "./main-home/MainHome";
 import "./prototype.css";
 
 export type { PriceSelection, SellerType } from "./prototype/data";
@@ -14,9 +15,25 @@ const detailScreen: FlowScreen = { id: "vehicle-detail", footer: () => <DetailFo
 
 configureListingScreens({ detailScreen, savedListingsScreen });
 
+const listingParams = ["qf", "scenario", "view", "titlepos", "filtericon", "desktop", "pc", "bbmparts", "pcl"];
+const shouldShowMainHome = () => {
+  const params = new URLSearchParams(window.location.search);
+  return !listingParams.some((key) => params.has(key));
+};
+
 export default function Prototype() {
+  const showMainHome = shouldShowMainHome();
+
   useEffect(() => {
     const root = document.documentElement;
+    if (showMainHome) {
+      root.removeAttribute("data-force-mobile");
+      root.removeAttribute("data-force-mobile-wide");
+      root.style.removeProperty("--force-mobile-scale");
+      root.style.removeProperty("--force-mobile-height");
+      return;
+    }
+
     const updateForcedMobileViewport = () => {
       const forced = isForcedMobileView();
       const viewportWidth = window.visualViewport?.width ?? window.innerWidth;
@@ -41,7 +58,9 @@ export default function Prototype() {
       window.removeEventListener("resize", updateForcedMobileViewport);
       window.visualViewport?.removeEventListener("resize", updateForcedMobileViewport);
     };
-  }, []);
+  }, [showMainHome]);
+
+  if (showMainHome) return <MainHome />;
 
   return <FavoritesProvider><DetailUiProvider><FlowStack initial={listScreen} /><BuildBadge /></DetailUiProvider></FavoritesProvider>;
 }
