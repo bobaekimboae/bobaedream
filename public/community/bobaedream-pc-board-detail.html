@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<link rel="icon" href="data:,">
+<title>보배드림 자동차토론 PC 상세보기</title>
+<style>
+:root{
+  --font-system:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",Helvetica,Arial,NanumGothic,"Malgun Gothic","맑은 고딕",굴림,gulim,새굴림,"noto sans",sans-serif;
+  --font-nav:NanumSquareEB,"Apple SD Gothic NEO","Helvetica Neue",Helvetica,나눔고딕,NanumGothic,"Malgun Gothic","맑은 고딕",굴림,gulim,새굴림,"noto sans",sans-serif;
+  --font-side-title:"Sandoll Nemony2","Apple SD Gothic NEO","Helvetica Neue",Helvetica,나눔고딕,NanumGothic,"Malgun Gothic","맑은 고딕",굴림,gulim,새굴림,"noto sans",sans-serif;
+  --bg:#f8f9fd;
+  --white:#fff;
+  --ink:#222;
+  --body:#333;
+  --muted:#858894;
+  --soft:#697183;
+  --line:#f5f5f5;
+  --line-strong:#e7e7e7;
+  --accent-blue:#1264c4;
+  --dark:#222428;
+  --red:#e53935;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-width:1280px;background:var(--bg);color:#000;font-family:var(--font-system);font-size:12px;font-weight:400;line-height:normal;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit}
+button,a{color:inherit}
+a{text-decoration:none}
+button{border:0;background:none;padding:0;cursor:pointer}
+ul,ol{list-style:none;margin:0;padding:0}
+.globalBar{height:60px;background:#fff}
+.globalInner{width:1280px;height:60px;margin:0 auto;display:flex;align-items:center}
+.brandGroup{display:flex;align-items:center;height:28px;font-family:var(--font-nav);font-size:17px;line-height:28px;font-weight:400}
+.brandNaver{color:#03c75a;font-weight:900;margin-right:7px}
+.brandGame{color:#202124;font-weight:900;margin-right:12px}
+.globalDivider{width:1px;height:14px;background:#d8dbe3;margin-right:12px}
+.globalLink{display:inline-block;padding:0 5px;color:#858894}
+.globalSearch{margin-left:auto;width:300px;height:38px;border-radius:20px;background:#e9ebf1;display:flex;align-items:center;padding:0 15px 0 18px;color:#9a9daa}
+.globalSearch input{width:100%;border:0;outline:0;background:transparent;color:#444;font-family:var(--font-system);font-size:14px;line-height:17px}
+.globalSearch input::placeholder{color:#a4a7b2}
+.globalSearchIcon{width:17px;height:17px;border:2px solid #8f94a1;border-radius:50%;position:relative;flex:0 0 17px}
+.globalSearchIcon:after{content:"";position:absolute;width:7px;height:2px;background:#8f94a1;right:-5px;bottom:-3px;transform:rotate(45deg);border-radius:2px}
+.ticketButton{width:40px;height:40px;margin-left:18px;display:grid;place-items:center}
+.ticketShape{width:27px;height:20px;border:2px solid #222;border-radius:4px;position:relative}
+.ticketShape:before,.ticketShape:after{content:"";position:absolute;top:7px;width:4px;height:4px;border-radius:50%;background:#fff;border:2px solid #222}
+.ticketShape:before{left:-5px}.ticketShape:after{right:-5px}
+.loginButton{width:60px;height:30px;margin-left:8px;border:1px solid rgba(0,0,0,.2);border-radius:6px;color:#444;font-size:12px;line-height:14px;font-weight:700;background:#fff}
+.loungeHero{height:250px;background:
+  linear-gradient(90deg,rgba(9,16,22,.82) 0%,rgba(9,16,22,.34) 42%,rgba(9,16,22,.78) 100%),
+  url("https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1800&q=82") center 56%/cover}
+.loungeHeroInner{width:1280px;height:250px;margin:0 auto;display:flex;align-items:flex-end;padding-bottom:62px}
+.loungeIcon{width:82px;height:82px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,#111,#3b1217 58%,#bd2136);box-shadow:0 14px 26px rgba(0,0,0,.28);color:#fff;font-size:32px;font-weight:900}
+.loungeTitleBlock{margin-left:28px;color:#fff}
+.loungeTitleBlock h1{margin:0;font-size:30px;line-height:36px;font-weight:700}
+.loungeTitleBlock p{margin:9px 0 0;font-size:13px;line-height:16px;font-weight:700}
+.loungeNav{height:50px;background:var(--dark)}
+.loungeNavInner{width:1280px;height:50px;margin:0 auto;display:flex;align-items:center}
+.loungeTab{height:50px;margin-right:30px;color:#fff;font-size:15px;line-height:19px;font-weight:700;padding:16px 0 15px;position:relative}
+.loungeTab.homeTab{width:45px}
+.loungeTab.active:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:#fff;border-radius:2px 2px 0 0}
+.liveMark{position:absolute;left:0;top:9px;display:inline-block;padding:0 2px;border-radius:2px;background:#ff103a;color:#fff;font-size:9px;line-height:10px;font-weight:900}
+.joinButton{margin-left:auto;width:135px;height:36px;border-radius:18px;background:#111317;color:#fff;font-size:13px;line-height:16px;font-weight:700}
+.pageWrap{width:1280px;margin:24px auto 0}
+.topBanner{height:82px;border-radius:8px;overflow:hidden;background:
+  linear-gradient(90deg,#21131a 0%,#3b151a 34%,#683033 64%,#121318 100%);position:relative;color:#fff;display:flex;align-items:center;justify-content:center}
+.topBanner:before{content:"";position:absolute;inset:0;background:url("https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1500&q=76") center 44%/cover;opacity:.32}
+.bannerCopy{position:relative;font-size:27px;line-height:32px;font-weight:700;color:#ffe8c2;text-shadow:0 2px 16px rgba(0,0,0,.55)}
+.adBadge{position:absolute;right:8px;top:7px;width:23px;height:16px;border-radius:3px;border:1px solid rgba(255,255,255,.65);font-size:11px;line-height:14px;text-align:center;color:#fff;background:rgba(0,0,0,.18)}
+.layoutGrid{display:grid;grid-template-columns:190px 742px 300px;column-gap:24px;margin-top:20px;align-items:start}
+.sideCard{border-radius:12px;background:#fff}
+.leftPanel{width:190px}
+.leftMenu{min-height:923px;padding:20px 24px}
+.writeButton{width:142px;height:43px;border-radius:8px;background:var(--dark);color:#fff;font-size:15px;line-height:19px;font-weight:700}
+.menuSection{padding-bottom:15px;border-bottom:1px solid #f5f5f5}
+.menuSection+.menuSection{padding-top:17px}
+.menuItem{height:20px;margin-top:10px;display:flex;align-items:center;color:#222;font-size:14px;line-height:17px;font-weight:500;white-space:nowrap}
+.menuItem.active{color:var(--accent-blue);font-weight:700}
+.menuItem:before{content:"";width:4px;height:4px;border-radius:50%;background:#d5d9e4;margin-right:8px}
+.menuItem.active:before{width:9px;height:9px;border-radius:3px;background:#e8f1ff;border:1px solid #9fc2ef}
+.menuTitle{display:block;margin:0 0 9px;color:#000;font-size:15px;line-height:18px;font-weight:700}
+.newDot{width:6px;height:6px;margin-left:4px;border-radius:50%;background:#ff2b4a}
+.imagePanel{margin-top:24px;padding:27px 24px 24px}
+.imagePanelHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:17px}
+.imagePanelHead strong{font-family:var(--font-side-title);font-size:17px;line-height:20px;font-weight:400;color:#000}
+.imagePanelHead span{font-size:13px;line-height:16px;color:#858894}
+.imageGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
+.imageGrid img{width:100%;aspect-ratio:1;border-radius:7px;object-fit:cover;background:#f1f3f5}
+.guidePanel{margin-top:24px;padding:23px 24px}
+.guideItem{height:38px;display:flex;align-items:center;font-size:14px;line-height:17px;font-weight:700;color:#222}
+.guideIcon{width:23px;height:23px;margin-right:10px;border-radius:7px;background:#f1f2f6;display:grid;place-items:center;color:#1264c4;font-size:14px}
+.centerPanel{width:742px}
+.detailNav{height:39px;display:flex;align-items:center;margin-bottom:15px}
+.detailButton{height:39px;border-radius:6px;background:#fff;color:#222;font-size:13px;line-height:16px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.detailButton.list{width:58px}
+.detailButton.prev{width:80px;margin-left:auto}
+.detailButton.next{width:80px;margin-left:11px}
+.detailButton .chev{width:7px;height:7px;border-left:1.5px solid #333;border-top:1.5px solid #333;margin-right:8px;transform:rotate(45deg)}
+.detailButton.next .chev{margin:0 0 0 8px;transform:rotate(225deg)}
+.detailCard{border-radius:12px;background:#fff;overflow:hidden}
+.articleTop{height:139px;padding:14px 24px 0}
+.boardCrumb{height:25px;margin-left:-8px;display:inline-flex;align-items:center;color:var(--accent-blue);font-size:14px;line-height:17px;font-weight:600}
+.boardCrumb:after{content:"";width:7px;height:7px;margin-left:5px;border-right:1.5px solid var(--accent-blue);border-top:1.5px solid var(--accent-blue);transform:rotate(45deg)}
+.feedTitle{display:block;margin:7px 0 13px;color:#222;font-size:22px;line-height:30px;font-weight:600;letter-spacing:0}
+.postInfo{height:49px;position:relative;border-bottom:1px solid #ededed}
+.authorAvatar{position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;background:#e9edf6;overflow:hidden}
+.authorAvatar img{width:100%;height:100%;object-fit:cover}
+.authorName{position:absolute;left:42px;top:2px;color:#000;font-size:13px;line-height:16px;font-weight:700}
+.level{margin-left:3px;color:#858894;font-size:12px;font-weight:400}
+.metaLine{position:absolute;left:42px;top:22px;color:#858894;font-size:13px;line-height:16px;font-weight:400}
+.metaLine span+span:before{content:"";display:inline-block;width:1px;height:10px;margin:0 7px;background:#dfe2ea;vertical-align:-1px}
+.postTools{position:absolute;right:0;top:2px;display:flex;align-items:center;gap:12px}
+.toolIcon{width:25px;height:25px;display:grid;place-items:center;color:#98a0af}
+.bookmarkIcon{width:14px;height:18px;border:2px solid #a4a9b5;border-top-left-radius:2px;border-top-right-radius:2px;border-bottom:0;position:relative}
+.bookmarkIcon:after{content:"";position:absolute;left:2px;right:2px;bottom:-6px;height:10px;background:#fff;border-left:2px solid #a4a9b5;border-bottom:2px solid #a4a9b5;transform:skewY(-32deg)}
+.bookmarkToggle.active .bookmarkIcon{border-color:#1264c4}
+.bookmarkToggle.active .bookmarkIcon:after{border-color:#1264c4}
+.dotsIcon{width:3px;height:3px;border-radius:50%;background:#a4a9b5;box-shadow:0 7px 0 #a4a9b5,0 14px 0 #a4a9b5}
+.articleBody{padding:24px 24px 0}
+.postText{margin:0;color:#333;font-size:15px;line-height:22px;font-weight:400;white-space:pre-line}
+.authorLatest{height:147px;margin-top:20px;border:1px solid #e8ebf1;border-radius:12px;padding:15px 16px 12px;background:#fff;box-shadow:0 6px 13px rgba(25,32,48,.03)}
+.latestHead{height:28px;display:flex;align-items:center}
+.latestAvatar{width:28px;height:28px;border-radius:50%;background:#e9edf6;margin-right:10px}
+.latestName{font-size:15px;line-height:19px;font-weight:700;color:#222}
+.latestName span{font-weight:400}
+.latestMore{margin-left:auto;color:#222;font-size:13px;line-height:16px}
+.latestRows{margin-top:11px}
+.latestRows li{height:27px;display:flex;align-items:center;min-width:0}
+.latestRows li:before{content:"";width:3px;height:3px;border-radius:50%;background:#c8ccd7;margin-right:9px;flex:0 0 auto}
+.latestTitle{font-size:14px;line-height:17px;color:#222;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.latestTime{margin-left:auto;padding-left:12px;color:#858894;font-size:13px;line-height:16px;white-space:nowrap}
+.voteArea{height:58px;margin:0 24px;border-bottom:1px solid #f0f1f4;display:flex;justify-content:flex-end;align-items:center;gap:8px}
+.votePill{height:27px;min-width:76px;border:1px solid #dfe3eb;border-radius:14px;background:#fff;color:#9aa1af;font-size:13px;line-height:15px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;padding:0 9px}
+.votePill.active{color:#8d94a2}
+.votePill .num{margin-left:6px;color:#858894;font-weight:400}
+.commentSection{padding:15px 24px 0}
+.commentHead{height:27px;display:flex;align-items:center}
+.commentCount{font-size:15px;line-height:19px;font-weight:700;color:#222}
+.refreshButton{width:22px;height:22px;margin-left:7px;border-radius:50%;border:1px solid #e2e5ec;color:#a1a7b4;font-size:12px;font-weight:700;line-height:20px;text-align:center}
+.orderButton{margin-left:auto;height:27px;display:flex;align-items:center;color:#697183;font-size:14px;line-height:17px;font-weight:600}
+.orderButton:after{content:"";width:7px;height:7px;margin-left:5px;border-right:1.5px solid #697183;border-bottom:1.5px solid #697183;transform:rotate(45deg) translateY(-2px)}
+.commentNotice{height:39px;margin-top:11px;border:1px solid #dbe9ff;border-radius:10px;background:rgba(18,100,196,.06);display:flex;align-items:center;padding:0 14px;color:#1264c4;font-size:14px;line-height:17px;font-weight:500}
+.noticeIcon{width:18px;height:18px;margin-right:10px;border-radius:6px;background:#1264c4;color:#fff;font-size:12px;line-height:18px;text-align:center;font-weight:700}
+.commentComposer{height:127px;margin-top:10px;border:1px solid #e3e6ee;border-radius:16px;background:#f5f6fa;position:relative;padding:0 16px 0 50px}
+.composerAvatar{position:absolute;left:16px;top:13px;width:28px;height:28px;border-radius:50%;background:#dfe4ee}
+.composerGuide{height:72px;display:flex;align-items:flex-start;padding-top:17px;color:#858894;font-size:14px;line-height:20px;font-weight:400}
+.composerBottom{height:38px;display:flex;align-items:center;border-top:0}
+.counter{margin-left:auto;color:#697183;font-size:12px;line-height:15px}
+.composerTool{width:28px;height:28px;margin-left:8px;border-radius:8px;border:1px solid transparent;color:#9aa1af;display:grid;place-items:center;font-size:13px;font-weight:700}
+.registerButton{width:47px;height:30px;margin-left:9px;border-radius:15px;background:#c8cfdd;color:#fff;font-size:13px;line-height:16px;font-weight:700}
+.cleanBot{height:39px;margin-top:16px;border-radius:12px;background:#fff;border:1px solid #edf0f4;box-shadow:0 2px 6px rgba(25,32,48,.03);display:flex;align-items:center;padding:0 16px;color:#1264c4;font-size:14px;line-height:17px;font-weight:700}
+.botIcon{width:22px;height:22px;margin-right:10px;border-radius:50%;background:#e8f1ff;position:relative}
+.botIcon:before{content:"";position:absolute;left:6px;top:7px;width:10px;height:7px;border-radius:6px;background:#1264c4}
+.botIcon:after{content:"";position:absolute;left:10px;top:4px;width:2px;height:5px;background:#1264c4}
+.botSetting{margin-left:auto;color:#9aa1af;font-size:0}
+.botSetting:before{content:"";display:block;width:16px;height:16px;border:2px solid #9aa1af;border-radius:50%}
+.commentList{margin-top:8px}
+.commentItem{min-height:94px;border-bottom:1px solid #f3f4f6;position:relative;padding:18px 0 14px 38px}
+.commentItem.long{min-height:207px}
+.commentAvatar{position:absolute;left:0;top:18px;width:28px;height:28px;border-radius:50%;background:#e6ebf3;overflow:hidden}
+.commentAvatar img{width:100%;height:100%;object-fit:cover}
+.commentAuthor{display:flex;align-items:center;height:18px;color:#000;font-size:13px;line-height:16px;font-weight:700}
+.commentAuthor .level{font-size:12px}
+.authorBadge{height:17px;margin-left:6px;padding:1px 5px;border-radius:4px;background:#e8f1ff;color:#1264c4;font-size:11px;line-height:15px;font-weight:700}
+.commentMore{position:absolute;right:0;top:19px;width:18px;height:22px;display:grid;place-items:center}
+.commentMore:before{content:"";width:3px;height:3px;border-radius:50%;background:#a4a9b5;box-shadow:0 6px 0 #a4a9b5,0 12px 0 #a4a9b5}
+.commentText{margin:9px 40px 0 0;color:#222;font-size:15px;line-height:22px;font-weight:400;white-space:pre-line}
+.commentMeta{height:18px;margin-top:8px;color:#697183;font-size:13px;line-height:16px;font-weight:400}
+.replyWrite{margin-left:9px;color:#555;font-weight:500}
+.commentActions{position:absolute;right:0;bottom:17px;display:flex;align-items:center;gap:6px;color:#858894}
+.smallVote{height:24px;min-width:48px;border:1px solid #dfe3eb;border-radius:12px;background:#fff;color:#9aa1af;font-size:12px;line-height:14px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;padding:0 8px}
+.smallVote .num{margin-left:5px;color:#697183;font-weight:400}
+.commentPager{height:66px;display:flex;align-items:center;justify-content:center}
+.commentPager span{width:27px;height:27px;border-radius:8px;background:#e8f1ff;color:#1264c4;font-size:13px;line-height:27px;font-weight:700;text-align:center}
+.rightPanel{width:300px}
+.popularCard{height:363px;border-radius:12px;background:#fff;padding:30px 24px 30px 21px}
+.rightCardTitle{display:block;color:#000;font-family:var(--font-side-title);font-size:17px;line-height:20px;font-weight:400}
+.rightList{margin-top:21px}
+.rightItem{height:19px;margin-top:8px}
+.rightItem:first-child{margin-top:0}
+.rightLink{height:19px;display:flex;align-items:center;min-width:0}
+.rightLink:before{content:"";width:3px;height:3px;border-radius:50%;background:#c8ccd7;margin:0 8px 0 3px;flex:0 0 auto}
+.rightText{display:block;color:#222;font-size:14px;line-height:19px;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rightReply{display:inline;margin-left:4px;color:#1264c4;font-size:13px;line-height:15px;font-weight:400;white-space:nowrap}
+.hotBoards{height:363px;margin-top:24px;border-radius:12px;background:#fff;padding:30px 24px 30px 21px}
+.pointQuest{height:233px;margin-top:24px;border-radius:12px;background:#fff;padding:26px 24px}
+.pointQuest strong{display:block;font-size:22px;line-height:27px;font-weight:900;color:#111}
+.pointItem{height:48px;margin-top:24px;display:flex;align-items:center}
+.pointLogo{width:54px;height:34px;border-radius:6px;background:#f2f4f8;margin-right:16px;display:grid;place-items:center;color:#e53935;font-weight:900}
+.pointCopy b{display:block;color:#000;font-size:16px;line-height:20px;font-weight:900}
+.pointCopy span{display:block;margin-top:4px;color:#444;font-size:13px;line-height:16px}
+.rightAd{height:226px;margin-top:24px;border-radius:3px;background:url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=620&q=80") center/cover;position:relative;overflow:hidden}
+.rightAd:after{content:"시승·정비 후기 모음";position:absolute;left:18px;bottom:18px;color:#fff;font-size:20px;line-height:24px;font-weight:700;text-shadow:0 2px 9px rgba(0,0,0,.55)}
+.rightAd .adBadge{right:6px;top:6px}
+.footer{width:1280px;margin:78px auto 45px;color:#858894;font-size:12px;line-height:15px;text-align:center}
+@media(max-width:1320px){
+  html,body{min-width:1080px}
+  .globalInner,.loungeHeroInner,.loungeNavInner,.pageWrap,.footer{width:1080px}
+  .layoutGrid{grid-template-columns:178px 742px;column-gap:24px}
+  .rightPanel{display:none}
+  .leftMenu{padding-left:20px;padding-right:20px}
+}
+</style>
+</head>
+<body>
+<header class="globalBar">
+  <div class="globalInner">
+    <div class="brandGroup" aria-label="보배드림 글로벌 메뉴">
+      <a href="../" aria-label="보배드림 메인" style="display:flex;align-items:center;text-decoration:none;color:inherit"><span class="brandNaver">BOBAE</span><span class="brandGame">DREAM</span></a>
+      <span class="globalDivider"></span>
+      <a class="globalLink" href="#">커뮤니티</a>
+      <a class="globalLink" href="../?qf=guazi&amp;filtericon=notion">중고차</a>
+      <a class="globalLink" href="#">내차팔기</a>
+      <a class="globalLink" href="#">시승기</a>
+    </div>
+    <label class="globalSearch">
+      <input type="search" placeholder="라운지, 게시글 검색">
+      <span class="globalSearchIcon" aria-hidden="true"></span>
+    </label>
+    <button class="ticketButton" aria-label="알림"><span class="ticketShape"></span></button>
+    <button class="loginButton">로그인</button>
+  </div>
+</header>
+<section class="loungeHero">
+  <div class="loungeHeroInner">
+    <div class="loungeIcon" aria-hidden="true">B</div>
+    <div class="loungeTitleBlock">
+      <h1>보배드림 자동차토론</h1>
+      <p>AUTO · COMMUNITY</p>
+    </div>
+  </div>
+</section>
+<nav class="loungeNav" aria-label="라운지 메뉴">
+  <div class="loungeNavInner">
+    <a class="loungeTab homeTab" href="#"><span class="liveMark">LIVE</span>HOME</a>
+    <a class="loungeTab active" href="bobaedream-pc-board-list.html">게시판</a>
+    <a class="loungeTab" href="#">DB</a>
+    <a class="loungeTab" href="#">영상</a>
+    <a class="loungeTab" href="#">차량 영상</a>
+    <button class="joinButton">+ 라운지 가입하기</button>
+  </div>
+</nav>
+<main class="pageWrap">
+  <section class="topBanner" aria-label="광고">
+    <div class="bannerCopy">국산·수입·전기차 오너들의 실시간 자동차 이야기</div>
+    <span class="adBadge">AD</span>
+  </section>
+  <div class="layoutGrid">
+    <aside class="leftPanel" aria-label="게시판 메뉴">
+      <section class="sideCard leftMenu">
+        <button class="writeButton">글쓰기</button>
+        <div class="menuSection">
+          <a class="menuItem active" href="bobaedream-pc-board-list.html">전체 게시글</a>
+        </div>
+        <div class="menuSection">
+          <strong class="menuTitle">커뮤니티</strong>
+          <a class="menuItem" href="#">공지</a>
+          <a class="menuItem" href="#">자유</a>
+          <a class="menuItem" href="#">질문</a>
+          <a class="menuItem" href="#">시승기</a>
+          <a class="menuItem" href="#">출석체크</a>
+        </div>
+        <div class="menuSection">
+          <strong class="menuTitle">차량 이야기</strong>
+          <a class="menuItem" href="#">국산차 오너톡<span class="newDot"></span></a>
+          <a class="menuItem" href="#">수입차 라운지</a>
+          <a class="menuItem" href="#">전기차 충전소<span class="newDot"></span></a>
+          <a class="menuItem" href="#">SUV 패밀리카</a>
+          <a class="menuItem" href="#">화물·특장</a>
+        </div>
+        <div class="menuSection">
+          <strong class="menuTitle">구매/정비</strong>
+          <a class="menuItem" href="#">중고차 문의</a>
+          <a class="menuItem" href="#">정비 상담<span class="newDot"></span></a>
+          <a class="menuItem" href="#">튜닝 인증</a>
+          <a class="menuItem" href="#">보험·사고</a>
+          <a class="menuItem" href="#">블랙박스 제보</a>
+        </div>
+      </section>
+      <section class="sideCard imagePanel">
+        <div class="imagePanelHead"><strong>이미지</strong><span>더보기</span></div>
+        <div class="imageGrid">
+          <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=180&q=70" alt="">
+          <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=180&q=70" alt="">
+          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=180&q=70" alt="">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=180&q=70" alt="">
+        </div>
+      </section>
+      <section class="sideCard guidePanel">
+        <a class="guideItem" href="#"><span class="guideIcon">?</span>라운지 이용 안내</a>
+        <a class="guideItem" href="#"><span class="guideIcon">✓</span>미션/보상 안내</a>
+      </section>
+    </aside>
+    <section class="centerPanel" aria-label="보배드림 게시글 상세">
+      <div class="detailNav" aria-label="게시글 이동">
+        <a class="detailButton list" href="bobaedream-pc-board-list.html">목록</a>
+        <a class="detailButton prev" href="#"><span class="chev" aria-hidden="true"></span>이전글</a>
+        <a class="detailButton next" href="#">다음글<span class="chev" aria-hidden="true"></span></a>
+      </div>
+      <article class="detailCard">
+        <header class="articleTop">
+          <a class="boardCrumb" href="bobaedream-pc-board-list.html">국산차 오너톡</a>
+          <strong class="feedTitle">신형 쏘렌토 하이브리드 6개월 타보고 느낀 장단점</strong>
+          <div class="postInfo">
+            <span class="authorAvatar"><img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?auto=format&fit=crop&w=80&q=70" alt=""></span>
+            <strong class="authorName">하이브리드실사용자<span class="level">LV 23</span></strong>
+            <div class="metaLine"><span>18분 전</span><span>조회수 2,184</span></div>
+            <div class="postTools" aria-label="게시글 도구">
+              <button class="toolIcon bookmarkToggle" aria-label="북마크"><span class="bookmarkIcon"></span></button>
+              <button class="toolIcon" aria-label="메뉴"><span class="dotsIcon"></span></button>
+            </div>
+          </div>
+        </header>
+        <div class="articleBody">
+          <p class="postText">출고 6개월, 누적 9,800km 기준으로 시내 연비와 2열 승차감은 만족인데 브레이크 초반 감각은 아직 적응 중입니다.</p>
+          <section class="authorLatest" aria-label="작성자의 최신 글">
+            <div class="latestHead">
+              <span class="latestAvatar"></span>
+              <strong class="latestName">하이브리드실사용자 <span>님의 최신 글</span></strong>
+              <a class="latestMore" href="#">더보기</a>
+            </div>
+            <ul class="latestRows">
+              <li><span class="latestTitle">고속도로 반자율 주행, 비 오는 날 차선 인식 후기</span><span class="latestTime">2시간 전</span></li>
+              <li><span class="latestTitle">2열 카시트 두 개 설치하면 가운데 자리 실제로 쓸만한가요</span><span class="latestTime">어제</span></li>
+              <li><span class="latestTitle">하이브리드 겨울 연비 떨어지는 구간 공유합니다</span><span class="latestTime">3일 전</span></li>
+            </ul>
+          </section>
+        </div>
+        <div class="voteArea" aria-label="게시글 반응">
+          <button class="votePill active" data-vote="buff">추천<span class="num">42</span></button>
+          <button class="votePill" data-vote="nerf">비추천<span class="num">3</span></button>
+        </div>
+        <section class="commentSection" aria-label="댓글">
+          <div class="commentHead">
+            <strong class="commentCount">댓글 10</strong>
+            <button class="refreshButton" aria-label="새로고침">↻</button>
+            <button class="orderButton">등록순</button>
+          </div>
+          <div class="commentNotice"><span class="noticeIcon">!</span>모두가 즐기는 커뮤니티가 될 수 있도록 과도한 비난 댓글은 자제 부탁드립니다.</div>
+          <div class="commentComposer" aria-label="댓글 입력">
+            <span class="composerAvatar"></span>
+            <div class="composerGuide">로그인 후 작성하실 수 있습니다.</div>
+            <div class="composerBottom">
+              <span class="counter">0/5000</span>
+              <button class="composerTool" aria-label="스티커 추가">S</button>
+              <button class="composerTool" aria-label="이모지 추가">E</button>
+              <button class="composerTool" aria-label="사진 추가">P</button>
+              <button class="composerTool" aria-label="비밀 댓글">L</button>
+              <button class="registerButton">등록</button>
+            </div>
+          </div>
+          <div class="cleanBot"><span class="botIcon"></span>클린봇이 악성 댓글을 감지합니다.<button class="botSetting" aria-label="설정"></button></div>
+          <ul class="commentList">
+            <li class="commentItem">
+              <span class="commentAvatar"></span>
+              <div class="commentAuthor">디젤은이제안녕 <span class="level">LV 12</span></div>
+              <button class="commentMore" aria-label="더보기"></button>
+              <p class="commentText">시내 14면 차 크기 생각하면 꽤 잘 나오는 편이네요. 가솔린이랑 유지비 차이 확실히 날 듯합니다.</p>
+              <div class="commentMeta">15분 전 <button class="replyWrite">답글 쓰기</button></div>
+              <div class="commentActions"><button class="smallVote">추천<span class="num">8</span></button><button class="smallVote">비추천</button></div>
+            </li>
+            <li class="commentItem">
+              <span class="commentAvatar"></span>
+              <div class="commentAuthor">카니발대기중 <span class="level">LV 6</span></div>
+              <button class="commentMore" aria-label="더보기"></button>
+              <p class="commentText">브레이크 감각은 저도 처음에 적응 좀 걸렸습니다. 회생제동 느낌이 섞여서 그런지 초반에 살짝 이질감 있어요.</p>
+              <div class="commentMeta">12분 전 <button class="replyWrite">답글 쓰기</button></div>
+              <div class="commentActions"><button class="smallVote">추천<span class="num">4</span></button><button class="smallVote">비추천</button></div>
+            </li>
+            <li class="commentItem">
+              <span class="commentAvatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=70&q=70" alt=""></span>
+              <div class="commentAuthor">전기맛입문 <span class="level">LV 19</span></div>
+              <button class="commentMore" aria-label="더보기"></button>
+              <p class="commentText">저는 EV9 보다가 예산 때문에 쏘렌토 하브로 왔는데, 충전 스트레스 없는 게 생각보다 큽니다.</p>
+              <div class="commentMeta">9분 전 <button class="replyWrite">답글 쓰기</button></div>
+              <div class="commentActions"><button class="smallVote">추천<span class="num">6</span></button><button class="smallVote">비추천<span class="num">1</span></button></div>
+            </li>
+            <li class="commentItem">
+              <span class="commentAvatar"></span>
+              <div class="commentAuthor">정비소옆집 <span class="level">LV 31</span><span class="authorBadge">작성자</span></div>
+              <button class="commentMore" aria-label="더보기"></button>
+              <p class="commentText">가격은 진짜 옵션표 열면 마음이 흔들립니다. 그래도 패밀리카 기준이면 안전 옵션은 빼기가 어렵더라고요.</p>
+              <div class="commentMeta">8분 전 <button class="replyWrite">답글 쓰기</button></div>
+              <div class="commentActions"><button class="smallVote">추천<span class="num">3</span></button><button class="smallVote">비추천</button></div>
+            </li>
+            <li class="commentItem">
+              <span class="commentAvatar"></span>
+              <div class="commentAuthor">쏘렌토계약자 <span class="level">LV 4</span></div>
+              <button class="commentMore" aria-label="더보기"></button>
+              <p class="commentText">출고 대기 얼마나 걸리셨나요? 저는 5개월째 연락 기다리는 중입니다.</p>
+              <div class="commentMeta">6분 전 <button class="replyWrite">답글 쓰기</button></div>
+              <div class="commentActions"><button class="smallVote">추천<span class="num">2</span></button><button class="smallVote">비추천</button></div>
+            </li>
+            <li class="commentItem long">
+              <span class="commentAvatar"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=70&q=70" alt=""></span>
+              <div class="commentAuthor">장거리운행러 <span class="level">LV 27</span></div>
+              <button class="commentMore" aria-label="더보기"></button>
+              <p class="commentText">고속 안정감은 타이어 영향도 꽤 있습니다. 순정 타이어로도 조용하긴 한데, 공기압 조금 높게 잡으면 뒷좌석에서 통통 튀는 느낌이 생기더라고요.
+
+저는 2열에 부모님 태우는 날이 많아서 공기압 표준보다 살짝 낮춰 타고 있습니다. 연비는 조금 손해 봐도 승차감이 훨씬 낫습니다.
+
+글쓴 분 말처럼 패밀리카로는 충분히 좋은데, 가격표 보고 계약하면 처음 예상보다 확 올라갑니다.</p>
+              <div class="commentMeta">4분 전 <button class="replyWrite">답글 쓰기</button></div>
+              <div class="commentActions"><button class="smallVote">추천<span class="num">12</span></button><button class="smallVote">비추천<span class="num">1</span></button></div>
+            </li>
+            <li class="commentItem">
+              <span class="commentAvatar"></span>
+              <div class="commentAuthor">블박찾는중 <span class="level">LV 8</span></div>
+              <button class="commentMore" aria-label="더보기"></button>
+              <p class="commentText">트렁크 단차 얘기 공감합니다. 캠핑 짐 넣을 때 은근 신경 쓰입니다.</p>
+              <div class="commentMeta">2분 전 <button class="replyWrite">답글 쓰기</button></div>
+              <div class="commentActions"><button class="smallVote">추천<span class="num">1</span></button><button class="smallVote">비추천</button></div>
+            </li>
+            <li class="commentItem">
+              <span class="commentAvatar"></span>
+              <div class="commentAuthor">패밀리카고민 <span class="level">LV 5</span></div>
+              <button class="commentMore" aria-label="더보기"></button>
+              <p class="commentText">저도 아이 둘이라 2열 승차감이 제일 궁금했는데 도움 됐습니다.</p>
+              <div class="commentMeta">1분 전 <button class="replyWrite">답글 쓰기</button></div>
+              <div class="commentActions"><button class="smallVote">추천</button><button class="smallVote">비추천</button></div>
+            </li>
+            <li class="commentItem">
+              <span class="commentAvatar"></span>
+              <div class="commentAuthor">보험료비교중 <span class="level">LV 15</span></div>
+              <button class="commentMore" aria-label="더보기"></button>
+              <p class="commentText">보험료는 생각보다 차이 안 나더군요. 옵션 가격이 더 크게 체감됩니다.</p>
+              <div class="commentMeta">방금 전 <button class="replyWrite">답글 쓰기</button></div>
+              <div class="commentActions"><button class="smallVote">추천<span class="num">1</span></button><button class="smallVote">비추천</button></div>
+            </li>
+            <li class="commentItem">
+              <span class="commentAvatar"></span>
+              <div class="commentAuthor">출고인증기다림 <span class="level">LV 3</span></div>
+              <button class="commentMore" aria-label="더보기"></button>
+              <p class="commentText">실내 사진 있는 버전도 나중에 보고 싶네요. 색상 선택 중입니다.</p>
+              <div class="commentMeta">방금 전 <button class="replyWrite">답글 쓰기</button></div>
+              <div class="commentActions"><button class="smallVote">추천</button><button class="smallVote">비추천</button></div>
+            </li>
+          </ul>
+          <div class="commentPager"><span>1</span></div>
+        </section>
+      </article>
+    </section>
+    <aside class="rightPanel" aria-label="추천 게시글">
+      <section class="popularCard">
+        <strong class="rightCardTitle">자동차토론 인기글</strong>
+        <ul class="rightList">
+          <li class="rightItem"><a class="rightLink" href="#"><span class="rightText">고속도로 2차 사고, 블박 판단 부탁드립니다</span><span class="rightReply">(18)</span></a></li>
+          <li class="rightItem"><a class="rightLink" href="#"><span class="rightText">신형 팰리세이드 실내 잡소리 잡은 후기</span><span class="rightReply">(11)</span></a></li>
+          <li class="rightItem"><a class="rightLink" href="#"><span class="rightText">전기차 충전구역 신고 기준 이렇게 바뀌나요</span><span class="rightReply">(24)</span></a></li>
+          <li class="rightItem"><a class="rightLink" href="#"><span class="rightText">중고차 성능점검표 믿어도 되는 항목 정리</span><span class="rightReply">(5)</span></a></li>
+          <li class="rightItem"><a class="rightLink" href="#"><span class="rightText">첫차 보험료 비교하다가 멘붕 왔습니다</span><span class="rightReply">(4)</span></a></li>
+          <li class="rightItem"><a class="rightLink" href="#"><span class="rightText">타이어 편마모 사진 봐주실 분 계신가요</span><span class="rightReply">(7)</span></a></li>
+          <li class="rightItem"><a class="rightLink" href="#"><span class="rightText">하이브리드 배터리 보증 조건 다시 확인하세요</span><span class="rightReply">(7)</span></a></li>
+          <li class="rightItem"><a class="rightLink" href="#"><span class="rightText">주차장 문콕 합의금 적정선 질문드립니다</span><span class="rightReply">(28)</span></a></li>
+          <li class="rightItem"><a class="rightLink" href="#"><span class="rightText">출고 인증 사진 찍기 좋은 장소 모음</span><span class="rightReply">(5)</span></a></li>
+          <li class="rightItem"><a class="rightLink" href="#"><span class="rightText">엔진오일 교환 주기, 실제 오너들 의견은</span><span class="rightReply">(27)</span></a></li>
+        </ul>
+      </section>
+      <section class="hotBoards">
+        <strong class="rightCardTitle">정비/시승 최신글</strong>
+        <ul class="rightList">
+          <li class="rightItem"><a class="rightLink" href="#"><span class="rightText">아침 냉간 시동 때 떨림이 심합니다</span><span class="rightReply">(2)</span></a></li>
+          <li class="rightItem"><a class="rightLink" href="#"><span class="rightText">아이오닉6 장거리 실전 전비 공유</span><span class="rightReply">(8)</span></a></li>
+          <li class="rightItem"><a class="rightLink" href="#"><span class="rightText">브레이크 패드 교체 견적 이 정도면 맞나요</span><span class="rightReply">(3)</span></a></li>
+          <li class="rightItem"><a class="rightLink" href="#"><span class="rightText">겨울 대비 배터리 점검 받은 후기</span><span class="rightReply">(1)</span></a></li>
+          <li class="rightItem"><a class="rightLink" href="#"><span class="rightText">신차 검수 체크리스트 다시 정리했습니다</span><span class="rightReply">(9)</span></a></li>
+          <li class="rightItem"><a class="rightLink" href="#"><span class="rightText">오토홀드 꺼짐 증상 서비스센터 다녀왔습니다</span><span class="rightReply">(6)</span></a></li>
+          <li class="rightItem"><a class="rightLink" href="#"><span class="rightText">연비 운전한다고 너무 천천히 가면 위험합니다</span><span class="rightReply">(4)</span></a></li>
+          <li class="rightItem"><a class="rightLink" href="#"><span class="rightText">딜러 서비스 품목 어디까지 받으셨나요</span><span class="rightReply">(12)</span></a></li>
+          <li class="rightItem"><a class="rightLink" href="#"><span class="rightText">블랙박스 상시 녹화 배터리 방전 질문</span><span class="rightReply">(5)</span></a></li>
+          <li class="rightItem"><a class="rightLink" href="#"><span class="rightText">스노우 타이어 예약 벌써 마감되는 곳 있네요</span><span class="rightReply">(7)</span></a></li>
+        </ul>
+      </section>
+      <section class="pointQuest">
+        <strong>pay 포인트 퀘스트</strong>
+        <div class="pointItem"><span class="pointLogo">SK</span><div class="pointCopy"><b>즉시 8,300원 받기</b><span>자동차 보험 비교하면</span></div></div>
+        <div class="pointItem"><span class="pointLogo">EV</span><div class="pointCopy"><b>즉시 1,200원 받기</b><span>충전 멤버십 가입하면</span></div></div>
+      </section>
+      <section class="rightAd" aria-label="광고"><span class="adBadge">AD</span></section>
+    </aside>
+  </div>
+</main>
+<footer class="footer">보배드림 이용약관&nbsp;&nbsp;&nbsp;커뮤니티 가이드&nbsp;&nbsp;&nbsp;개인정보 처리방침&nbsp;&nbsp;&nbsp;고객센터&nbsp;&nbsp;&nbsp;제휴 안내&nbsp;&nbsp;&nbsp;ⓒ BOBAE DREAM Mockup</footer>
+<script>
+document.querySelectorAll('[data-vote]').forEach(function(button){
+  button.addEventListener('click', function(){
+    var num=button.querySelector('.num');
+    num.textContent=String(Number(num.textContent)+1);
+    button.classList.add('active');
+  });
+});
+document.querySelector('.bookmarkToggle').addEventListener('click', function(){
+  this.classList.toggle('active');
+});
+</script>
+<script src="bobaedream-pc-scenarios.js"></script>
+<script src="bobaedream-pc-interactions.js"></script>
+</body>
+</html>

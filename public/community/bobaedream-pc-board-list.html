@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<link rel="icon" href="data:,">
+<title>보배드림 자동차토론 PC 게시판</title>
+<style>
+:root{
+  --font-system:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",Helvetica,Arial,NanumGothic,"Malgun Gothic","맑은 고딕",굴림,gulim,새굴림,"noto sans",sans-serif;
+  --font-nav:NanumSquareEB,"Apple SD Gothic NEO","Helvetica Neue",Helvetica,나눔고딕,NanumGothic,"Malgun Gothic","맑은 고딕",굴림,gulim,새굴림,"noto sans",sans-serif;
+  --font-side-title:"Sandoll Nemony2","Apple SD Gothic NEO","Helvetica Neue",Helvetica,나눔고딕,NanumGothic,"Malgun Gothic","맑은 고딕",굴림,gulim,새굴림,"noto sans",sans-serif;
+  --bg:#f8f9fd;
+  --white:#fff;
+  --ink:#222;
+  --muted:#858894;
+  --soft:#697183;
+  --line:#f5f5f5;
+  --line-strong:#e7e7e7;
+  --accent-blue:#1264c4;
+  --dark:#222428;
+  --dark-2:#17191d;
+  --red:#e53935;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-width:1280px;background:var(--bg);color:#000;font-family:var(--font-system);font-size:12px;font-weight:400;line-height:normal;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit}
+button,a{color:inherit}
+a{text-decoration:none}
+button{border:0;background:none;padding:0;cursor:pointer}
+ul,ol{list-style:none;margin:0;padding:0}
+.globalBar{height:60px;background:#fff}
+.globalInner{width:1280px;height:60px;margin:0 auto;display:flex;align-items:center}
+.brandGroup{display:flex;align-items:center;height:28px;font-family:var(--font-nav);font-size:17px;line-height:28px;font-weight:400}
+.brandNaver{color:#03c75a;font-weight:900;margin-right:7px}
+.brandGame{color:#202124;font-weight:900;margin-right:12px}
+.globalDivider{width:1px;height:14px;background:#d8dbe3;margin-right:12px}
+.globalLink{display:inline-block;padding:0 5px;color:#858894}
+.globalSearch{margin-left:auto;width:300px;height:38px;border-radius:20px;background:#f1f3f8;display:flex;align-items:center;padding:0 15px 0 18px;color:#9a9daa}
+.globalSearch input{width:100%;border:0;outline:0;background:transparent;color:#444;font-family:var(--font-system);font-size:14px;line-height:17px}
+.globalSearch input::placeholder{color:#a4a7b2}
+.globalSearchIcon{width:17px;height:17px;border:2px solid #8f94a1;border-radius:50%;position:relative;flex:0 0 17px}
+.globalSearchIcon:after{content:"";position:absolute;width:7px;height:2px;background:#8f94a1;right:-5px;bottom:-3px;transform:rotate(45deg);border-radius:2px}
+.ticketButton{width:40px;height:40px;margin-left:18px;display:grid;place-items:center}
+.ticketShape{width:27px;height:20px;border:2px solid #222;border-radius:4px;position:relative}
+.ticketShape:before,.ticketShape:after{content:"";position:absolute;top:7px;width:4px;height:4px;border-radius:50%;background:#fff;border:2px solid #222}
+.ticketShape:before{left:-5px}.ticketShape:after{right:-5px}
+.loginButton{width:60px;height:30px;margin-left:8px;border:1px solid rgba(0,0,0,.2);border-radius:6px;color:#444;font-size:12px;line-height:14px;font-weight:700;background:#fff}
+.loungeHero{height:250px;background:
+  linear-gradient(90deg,rgba(9,16,22,.82) 0%,rgba(9,16,22,.36) 42%,rgba(9,16,22,.78) 100%),
+  url("https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1800&q=82") center 56%/cover}
+.loungeHeroInner{width:1280px;height:250px;margin:0 auto;display:flex;align-items:flex-end;padding-bottom:62px}
+.loungeIcon{width:82px;height:82px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,#111,#3b1217 58%,#bd2136);box-shadow:0 14px 26px rgba(0,0,0,.28);color:#fff;font-size:32px;font-weight:900}
+.loungeTitleBlock{margin-left:28px;color:#fff}
+.loungeTitleBlock h1{margin:0;font-size:30px;line-height:36px;font-weight:700}
+.loungeTitleBlock p{margin:9px 0 0;font-size:13px;line-height:16px;font-weight:700}
+.loungeNav{height:50px;background:var(--dark)}
+.loungeNavInner{width:1280px;height:50px;margin:0 auto;display:flex;align-items:center}
+.loungeTab{height:50px;margin-right:30px;color:#fff;font-size:15px;line-height:19px;font-weight:700;padding:16px 0 15px;position:relative}
+.loungeTab.homeTab{width:45px}
+.loungeTab.active:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:#fff;border-radius:2px 2px 0 0}
+.liveMark{position:absolute;left:0;top:9px;display:inline-block;padding:0 2px;border-radius:2px;background:#ff103a;color:#fff;font-size:9px;line-height:10px;font-weight:900}
+.joinButton{margin-left:auto;width:135px;height:36px;border-radius:18px;background:#111317;color:#fff;font-size:13px;line-height:16px;font-weight:700}
+.pageWrap{width:1280px;margin:24px auto 0}
+.topBanner{height:80px;border-radius:8px;overflow:hidden;background:
+  linear-gradient(90deg,#201518 0%,#3b151a 34%,#683033 64%,#121318 100%);position:relative;color:#fff;display:flex;align-items:center;justify-content:center}
+.topBanner:before{content:"";position:absolute;inset:0;background:url("https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1500&q=76") center 44%/cover;opacity:.32}
+.bannerCopy{position:relative;font-size:27px;line-height:32px;font-weight:700;color:#ffe8c2;text-shadow:0 2px 16px rgba(0,0,0,.55)}
+.adBadge{position:absolute;right:8px;top:7px;width:23px;height:16px;border-radius:3px;border:1px solid rgba(255,255,255,.65);font-size:11px;line-height:14px;text-align:center;color:#fff;background:rgba(0,0,0,.18)}
+.layoutGrid{display:grid;grid-template-columns:190px 742px 300px;column-gap:24px;margin-top:22px;align-items:start}
+.leftPanel{width:190px}
+.sideCard{border-radius:12px;background:#fff}
+.leftMenu{min-height:923px;padding:20px 24px}
+.writeButton{width:142px;height:43px;border-radius:8px;background:var(--dark);color:#fff;font-size:15px;line-height:19px;font-weight:700}
+.menuSection{padding-bottom:15px;border-bottom:1px solid #f5f5f5}
+.menuSection+.menuSection{padding-top:17px}
+.menuItem{height:20px;margin-top:10px;display:flex;align-items:center;color:#222;font-size:14px;line-height:17px;font-weight:500;white-space:nowrap}
+.menuItem.active{color:var(--accent-blue);font-weight:700}
+.menuItem:before{content:"";width:4px;height:4px;border-radius:50%;background:#d5d9e4;margin-right:8px}
+.menuItem.active:before{width:9px;height:9px;border-radius:3px;background:#e8f1ff;border:1px solid #9fc2ef}
+.menuTitle{display:block;margin:0 0 9px;color:#000;font-size:15px;line-height:18px;font-weight:700}
+.newDot{width:6px;height:6px;margin-left:4px;border-radius:50%;background:#ff2b4a}
+.imagePanel{margin-top:24px;padding:27px 24px 24px}
+.imagePanelHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:17px}
+.imagePanelHead strong{font-family:var(--font-side-title);font-size:17px;line-height:20px;font-weight:400;color:#000}
+.imagePanelHead span{font-size:13px;line-height:16px;color:#858894}
+.imageGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
+.imageGrid img{width:100%;aspect-ratio:1;border-radius:7px;object-fit:cover;background:#f1f3f5}
+.guidePanel{margin-top:24px;padding:23px 24px}
+.guideItem{height:38px;display:flex;align-items:center;font-size:14px;line-height:17px;font-weight:700;color:#222}
+.guideIcon{width:23px;height:23px;margin-right:10px;border-radius:7px;background:#f1f2f6;display:grid;place-items:center;color:#1264c4;font-size:14px}
+.centerPanel{width:742px;margin-left:0}
+.boardTitleArea{height:72px;border-radius:12px;background:#fff;padding:26px 24px 25px}
+.boardTitleArea strong{font-size:18px;line-height:21px;font-weight:700;color:#222}
+.articleControl{height:69px;display:flex;align-items:center;padding:14px 0 15px;position:relative}
+.sortFilters{display:flex;align-items:center;height:20px}
+.sortButton{height:20px;margin-right:14px;color:#858894;font-size:14px;line-height:17px;font-weight:400}
+.sortButton.active{color:#222;font-weight:700}
+.sortButton.active:before{content:"";display:inline-block;width:10px;height:7px;margin-right:4px;border-left:2px solid #222;border-bottom:2px solid #222;transform:rotate(-45deg) translateY(-2px)}
+.searchBox{margin-left:auto;display:flex;height:40px}
+.searchSelect{width:110px;height:40px;border:0;border-radius:5px;background:#edf0f6;color:#4f5561;padding:0 35px 0 15px;font-size:13px;font-weight:400;appearance:none;background-image:linear-gradient(45deg,transparent 50%,#a2a8b5 50%),linear-gradient(135deg,#a2a8b5 50%,transparent 50%);background-position:calc(100% - 15px) 17px,calc(100% - 10px) 17px;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+.searchInputWrap{width:196px;height:40px;margin-left:6px;border-radius:5px;background:#edf0f6;display:flex;align-items:center;padding:0 13px}
+.searchInputWrap input{width:100%;border:0;background:transparent;outline:0;font-size:13px;color:#50545f}
+.searchInputWrap input::placeholder{color:#a6abb7}
+.smallSearchIcon{width:16px;height:16px;border:2px solid #a2a7b2;border-radius:50%;position:relative;flex:0 0 16px}
+.smallSearchIcon:after{content:"";position:absolute;width:6px;height:2px;right:-5px;bottom:-3px;border-radius:2px;background:#a2a7b2;transform:rotate(45deg)}
+.cleanBot{height:38px;border-radius:12px;background:#fff;border:1px solid #e8ebf1;display:flex;align-items:center;padding:0 18px;color:#525662;font-size:14px;line-height:17px;font-weight:400}
+.botIcon{width:18px;height:18px;margin-right:9px;border-radius:50%;background:#e8f1ff;position:relative}
+.botIcon:before{content:"";position:absolute;left:5px;top:5px;width:8px;height:6px;border-radius:5px;background:#1264c4}
+.botIcon:after{content:"";position:absolute;left:8px;top:2px;width:2px;height:5px;background:#1264c4}
+.cleanSetting{margin-left:auto;color:#858894;font-size:13px;line-height:16px}
+.boardTableCard{margin-top:16px;border-radius:12px;background:#fff;padding:14px 24px 26px}
+.boardTable{width:694px;border-collapse:collapse;table-layout:fixed}
+.boardTable caption{overflow:hidden;position:absolute;width:1px;height:1px;clip:rect(0 0 0 0)}
+.boardTable thead tr{height:40px;border-bottom:1px solid var(--line-strong)}
+.boardTable th{height:40px;color:#000;font-size:13px;line-height:16px;font-weight:600;text-align:center;vertical-align:middle}
+.boardTable th.titleHead{text-align:left;padding-left:10px}
+.boardTable th.authorHead{text-align:left;padding-left:10px}
+.boardTable tbody tr{height:44px;border-bottom:1px solid var(--line);background:#fff}
+.boardTable td{height:44px;padding:0;color:#000;font-size:12px;font-weight:400;vertical-align:middle}
+.boardTitleCell{display:flex;align-items:center;height:43px}
+.boardLabel{display:block;height:21px;margin-left:5px;padding:4px 5px 3px;border-radius:6px;background:#f5f6f9;color:#697183;font-size:12px;line-height:14px;font-weight:400;white-space:nowrap}
+.articleTitle{display:block;margin-left:7px;color:#222;font-size:14px;line-height:17px;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.replyNum{display:inline;margin-left:4px;color:#1264c4;font-size:13px;line-height:15px;font-weight:400;vertical-align:1px}
+.locked{display:inline-flex;width:15px;height:15px;margin-left:4px;border-radius:50%;border:1px solid #c7ccd7;color:#98a0af;align-items:center;justify-content:center;font-size:10px;line-height:12px}
+.authorCell{padding-left:10px!important;color:#697183;font-size:13px;line-height:16px;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.centerCell{text-align:center;color:#697183;font-size:13px;line-height:16px;font-weight:400}
+.pagination{height:66px;margin-top:24px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;gap:17px}
+.pageNo{min-width:12px;height:25px;color:#697183;font-size:13px;line-height:25px;text-align:center}
+.pageNo.active{width:27px;border-radius:8px;background:#f0f1f5;color:#222;font-weight:700}
+.pageNext{width:27px;height:27px;border-radius:9px;background:#f1f2f7;color:#747987;font-size:18px}
+.rightPanel{width:300px}
+.popularCard{height:363px;border-radius:12px;background:#fff;padding:30px 24px 30px 21px}
+.rightCardTitle{display:block;color:#000;font-family:var(--font-side-title);font-size:17px;line-height:20px;font-weight:400}
+.rightList{margin-top:21px}
+.rightItem{height:19px;margin-top:8px}
+.rightItem:first-child{margin-top:0}
+.rightLink{height:19px;display:flex;align-items:center;min-width:0}
+.rightLink:before{content:"";width:3px;height:3px;border-radius:50%;background:#c8ccd7;margin:0 8px 0 3px;flex:0 0 auto}
+.rightText{display:block;color:#222;font-size:14px;line-height:19px;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rightReply{display:inline;margin-left:4px;color:#1264c4;font-size:13px;line-height:15px;font-weight:400;white-space:nowrap}
+.hotBoards{margin-top:24px;border-radius:12px;background:#fff;padding:26px 24px 27px 21px}
+.boardShortcut{height:34px;margin-top:10px;display:flex;align-items:center;border-radius:8px;color:#222}
+.boardShortcut:first-of-type{margin-top:18px}
+.shortcutIcon{width:24px;height:24px;border-radius:8px;background:#f2f4f8;color:#1264c4;display:grid;place-items:center;margin-right:10px;font-size:12px;font-weight:700}
+.shortcutText{font-size:14px;line-height:17px;font-weight:700}
+.shortcutMeta{margin-left:auto;color:#858894;font-size:12px;line-height:15px}
+.rightAd{height:226px;margin-top:24px;border-radius:3px;background:url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=620&q=80") center/cover;position:relative;overflow:hidden}
+.rightAd:after{content:"시승·정비 후기 모음";position:absolute;left:18px;bottom:18px;color:#fff;font-size:20px;line-height:24px;font-weight:700;text-shadow:0 2px 9px rgba(0,0,0,.55)}
+.rightAd .adBadge{right:6px;top:6px}
+.footer{width:1280px;margin:78px auto 45px;color:#858894;font-size:12px;line-height:15px;text-align:center}
+@media(max-width:1320px){
+  html,body{min-width:1080px}
+  .globalInner,.loungeHeroInner,.loungeNavInner,.pageWrap,.footer{width:1080px}
+  .layoutGrid{grid-template-columns:178px 742px;column-gap:24px}
+  .rightPanel{display:none}
+  .leftMenu{padding-left:20px;padding-right:20px}
+}
+</style>
+</head>
+<body>
+<header class="globalBar">
+  <div class="globalInner">
+    <div class="brandGroup" aria-label="보배드림 글로벌 메뉴">
+      <a href="../" aria-label="보배드림 메인" style="display:flex;align-items:center;text-decoration:none;color:inherit"><span class="brandNaver">BOBAE</span><span class="brandGame">DREAM</span></a>
+      <span class="globalDivider"></span>
+      <a class="globalLink" href="#">커뮤니티</a>
+      <a class="globalLink" href="../?qf=guazi&amp;filtericon=notion">중고차</a>
+      <a class="globalLink" href="#">내차팔기</a>
+      <a class="globalLink" href="#">시승기</a>
+    </div>
+    <label class="globalSearch">
+      <input type="search" placeholder="라운지, 게시글 검색">
+      <span class="globalSearchIcon" aria-hidden="true"></span>
+    </label>
+    <button class="ticketButton" aria-label="알림"><span class="ticketShape"></span></button>
+    <button class="loginButton">로그인</button>
+  </div>
+</header>
+<section class="loungeHero">
+  <div class="loungeHeroInner">
+    <div class="loungeIcon" aria-hidden="true">B</div>
+    <div class="loungeTitleBlock">
+      <h1>보배드림 자동차토론</h1>
+      <p>AUTO · COMMUNITY</p>
+    </div>
+  </div>
+</section>
+<nav class="loungeNav" aria-label="라운지 메뉴">
+  <div class="loungeNavInner">
+    <a class="loungeTab homeTab" href="#"><span class="liveMark">LIVE</span>HOME</a>
+    <a class="loungeTab active" href="#">게시판</a>
+    <a class="loungeTab" href="#">DB</a>
+    <a class="loungeTab" href="#">영상</a>
+    <a class="loungeTab" href="#">차량 영상</a>
+    <button class="joinButton">+ 라운지 가입하기</button>
+  </div>
+</nav>
+<main class="pageWrap">
+  <section class="topBanner" aria-label="광고">
+    <div class="bannerCopy">국산·수입·전기차 오너들의 실시간 자동차 이야기</div>
+    <span class="adBadge">AD</span>
+  </section>
+  <div class="layoutGrid">
+    <aside class="leftPanel" aria-label="게시판 메뉴">
+      <section class="sideCard leftMenu">
+        <button class="writeButton">글쓰기</button>
+        <div class="menuSection">
+          <a class="menuItem active" href="#">전체 게시글</a>
+        </div>
+        <div class="menuSection">
+          <strong class="menuTitle">커뮤니티</strong>
+          <a class="menuItem" href="#">공지</a>
+          <a class="menuItem" href="#">자유</a>
+          <a class="menuItem" href="#">질문</a>
+          <a class="menuItem" href="#">시승기</a>
+          <a class="menuItem" href="#">출석체크</a>
+        </div>
+        <div class="menuSection">
+          <strong class="menuTitle">차량 이야기</strong>
+          <a class="menuItem" href="#">국산차 오너톡<span class="newDot"></span></a>
+          <a class="menuItem" href="#">수입차 라운지</a>
+          <a class="menuItem" href="#">전기차 충전소<span class="newDot"></span></a>
+          <a class="menuItem" href="#">SUV 패밀리카</a>
+          <a class="menuItem" href="#">화물·특장</a>
+        </div>
+        <div class="menuSection">
+          <strong class="menuTitle">구매/정비</strong>
+          <a class="menuItem" href="#">중고차 문의</a>
+          <a class="menuItem" href="#">정비 상담<span class="newDot"></span></a>
+          <a class="menuItem" href="#">튜닝 인증</a>
+          <a class="menuItem" href="#">보험·사고</a>
+          <a class="menuItem" href="#">블랙박스 제보</a>
+        </div>
+      </section>
+      <section class="sideCard imagePanel">
+        <div class="imagePanelHead"><strong>이미지</strong><span>더보기</span></div>
+        <div class="imageGrid">
+          <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=180&q=70" alt="">
+          <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=180&q=70" alt="">
+          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=180&q=70" alt="">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=180&q=70" alt="">
+        </div>
+      </section>
+      <section class="sideCard guidePanel">
+        <a class="guideItem" href="#"><span class="guideIcon">?</span>라운지 이용 안내</a>
+        <a class="guideItem" href="#"><span class="guideIcon">✓</span>미션/보상 안내</a>
+      </section>
+    </aside>
+    <section class="centerPanel" aria-label="보배드림 게시글 목록">
+      <section class="boardTitleArea">
+        <strong>전체 게시글</strong>
+      </section>
+      <section class="articleControl" aria-label="게시글 필터">
+        <div class="sortFilters">
+          <button class="sortButton">인기순</button>
+          <button class="sortButton active">최신순</button>
+          <button class="sortButton">추천순</button>
+        </div>
+        <div class="searchBox">
+          <select class="searchSelect" aria-label="검색 범위">
+            <option>제목+내용</option>
+            <option>제목</option>
+            <option>작성자</option>
+          </select>
+          <label class="searchInputWrap">
+            <input type="search" placeholder="게시글 검색">
+            <span class="smallSearchIcon" aria-hidden="true"></span>
+          </label>
+        </div>
+      </section>
+      <section class="cleanBot">
+        <span class="botIcon" aria-hidden="true"></span>
+        <span>클린봇이 악성 게시글을 감지합니다.</span>
+        <button class="cleanSetting">설정</button>
+      </section>
+      <section class="boardTableCard">
+        <table class="boardTable">
+          <caption>게시글 목록</caption>
+          <colgroup>
+            <col style="width:389px">
+            <col style="width:110px">
+            <col style="width:75px">
+            <col style="width:60px">
+            <col style="width:60px">
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="titleHead">제목</th>
+              <th class="authorHead">작성자</th>
+              <th>작성일</th>
+              <th>조회수</th>
+              <th>추천</th>
+            </tr>
+          </thead>
+          <tbody id="postRows"></tbody>
+        </table>
+      </section>
+      <nav class="pagination" aria-label="페이지">
+        <span class="pageNo active">1</span>
+        <a class="pageNo" href="#">2</a>
+        <a class="pageNo" href="#">3</a>
+        <a class="pageNo" href="#">4</a>
+        <a class="pageNo" href="#">5</a>
+        <a class="pageNo" href="#">6</a>
+        <a class="pageNo" href="#">7</a>
+        <a class="pageNo" href="#">8</a>
+        <a class="pageNo" href="#">9</a>
+        <a class="pageNo" href="#">10</a>
+        <button class="pageNext" aria-label="다음 페이지">›</button>
+      </nav>
+    </section>
+    <aside class="rightPanel" aria-label="우측 게시판">
+      <section class="popularCard">
+        <strong class="rightCardTitle">이 커뮤니티 인기글</strong>
+        <ol id="popularList" class="rightList"></ol>
+      </section>
+      <section class="hotBoards">
+        <strong class="rightCardTitle">오늘 뜨는 게시판</strong>
+        <a class="boardShortcut" href="#"><span class="shortcutIcon">EV</span><span class="shortcutText">전기차 충전소</span><span class="shortcutMeta">312</span></a>
+        <a class="boardShortcut" href="#"><span class="shortcutIcon">SUV</span><span class="shortcutText">패밀리 SUV</span><span class="shortcutMeta">184</span></a>
+        <a class="boardShortcut" href="#"><span class="shortcutIcon">DIY</span><span class="shortcutText">정비 / DIY</span><span class="shortcutMeta">96</span></a>
+        <a class="boardShortcut" href="#"><span class="shortcutIcon">BB</span><span class="shortcutText">블랙박스 제보</span><span class="shortcutMeta">71</span></a>
+      </section>
+      <section class="rightAd" aria-label="광고"><span class="adBadge">AD</span></section>
+    </aside>
+  </div>
+</main>
+<footer class="footer">
+  보배드림 이용약관 · 커뮤니티 가이드 · 개인정보 처리방침 · 고객센터 · 서비스 소개 및 제휴 안내
+</footer>
+<script src="bobaedream-pc-scenarios.js"></script>
+<script>
+const posts=window.bobaeScenarioPosts||[
+  ["전기차","아이오닉5 장거리 타보니 충전 계획이 더 중요하네요","EV롱레인지","방금",18,0,3],
+  ["국산차","쏘렌토 HEV와 싼타페 HEV 중고가 방어는 어디가 나을까요?","쏘렌토하브","1분 전",42,0,7],
+  ["사고/블박","주차장 문콕 영상 있는데 보험처리 기준이 궁금합니다","문콕싫다","2분 전",88,1,12],
+  ["수입차","BMW G30 520d 중고로 아직 괜찮을까요?","비엠입문","3분 전",73,0,5],
+  ["정비","디젤 흡기 클리닝 체감 있나요?","정비초보","4분 전",31,0,0],
+  ["튜닝","서스펜션만 바꿨는데 고속 안정감이 꽤 달라졌습니다","차고조절러","5분 전",46,2,1],
+  ["중고차","첫차로 아반떼 CN7 1.6 자연흡기 보는 중입니다","첫차고민","6분 전",57,0,9],
+  ["보험","자차 처리 후 보험료 할증 계산 이게 맞나요?","보험궁금","7분 전",29,0,2],
+  ["전기차","테슬라 모델Y 중고 배터리 보증 조건 정리해봤습니다","모델와이러","8분 전",112,4,18],
+  ["자유","오늘 고속도로에서 본 위장막 SUV 정체 아시는 분","스파이샷","9분 전",64,0,6],
+  ["시승기","그랜저 하이브리드 2주 출퇴근 연비 후기","연비기록러","10분 전",91,2,11],
+  ["블랙박스","교차로 우회전 사고 과실비율 한번 봐주세요","블박제보","11분 전",138,5,22],
+  ["국산차","K8 페이스리프트 실내 버튼 배치 적응되나요?","케이에잇","13분 전",49,0,0],
+  ["수입차","벤츠 E클래스 인증중고와 일반 매물 차이가 큰가요?","삼각별입문","15분 전",76,0,4],
+  ["정비","미션오일 교체 주기 놓치면 변속 충격 바로 오나요?","오일교체","17분 전",53,1,8],
+  ["튜닝","휠 인치업 후 승차감 손해 어느 정도 감수해야 할까요","휠고민","19분 전",37,0,3],
+  ["중고차","카니발 9인승 디젤 12만 km 패밀리카로 무리일까요","패밀리카주","21분 전",82,1,13],
+  ["자유","주말 드라이브 코스 추천 받습니다 서울 근교 기준","새차냄새","24분 전",44,0,2],
+  ["전기차","아파트 완속 충전 자리 갈등 해결 방법 있을까요","충전난민","27분 전",68,0,10],
+  ["사고/블박","상대방 무보험이면 처리 절차가 이렇게 복잡한가요","사고처리중","30분 전",95,3,16],
+  ["국산차","스포티지 LPG 실제 유지비 공유합니다","엘피지오너","34분 전",59,0,1],
+  ["수입차","포르쉐 마칸 중고 감가가 생각보다 세네요","마칸드림","38분 전",121,2,14],
+  ["정비","브레이크 패드랑 디스크 같이 교체하는 게 맞나요?","브레이크소리","42분 전",33,0,0],
+  ["자유","차량용 공기청정기 체감 있으신가요","실내관리","48분 전",22,0,0],
+  ["블랙박스","야간 번호판 식별 잘 되는 블랙박스 추천 부탁드립니다","야간주행","53분 전",75,1,6]
+];
+const popular=window.bobaePopularPosts||[
+  ["테슬라 중고 배터리 보증, 실제로 이렇게 확인했습니다",18],
+  ["주차장 문콕 영상이면 보험 접수 바로 가능한가요?",12],
+  ["쏘렌토 HEV 계약 취소하고 싼타페로 간 이유",21],
+  ["BMW G30 입문 전에 꼭 봐야 할 정비 항목",16],
+  ["전기차 충전 매너, 아파트 단톡방에서 터졌네요",9],
+  ["고속도로 위장막 SUV 사진 올립니다",6],
+  ["카니발 9인승 패밀리카 장단점 정리",13],
+  ["브레이크 소음 잡은 후기 공유합니다",4],
+  ["중고차 성능점검표에서 놓치기 쉬운 부분",15],
+  ["보험료 할증 계산, 이 경우 맞는 건가요?",8]
+];
+function esc(value){return String(value).replace(/[&<>"']/g,function(ch){return({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[ch]})}
+function row(post){
+  const reply=post[6]?'<span class="replyNum">('+post[6]+')</span>':'';
+  const lock=post[0]==='사고/블박'?'<span class="locked">!</span>':'';
+  return '<tr><td><div class="boardTitleCell"><span class="boardLabel">'+esc(post[0])+'</span><a class="articleTitle" href="bobaedream-pc-board-detail.html">'+esc(post[1])+'</a>'+reply+lock+'</div></td><td class="authorCell">'+esc(post[2])+'</td><td class="centerCell">'+esc(post[3])+'</td><td class="centerCell">'+esc(post[4])+'</td><td class="centerCell">'+esc(post[5])+'</td></tr>';
+}
+function popularRow(item){
+  return '<li class="rightItem"><a class="rightLink" href="#"><span class="rightText">'+esc(item[0])+'</span><span class="rightReply">('+item[1]+')</span></a></li>';
+}
+window.bobaeBoardPosts=posts;
+window.bobaePopularPosts=popular;
+document.getElementById('postRows').innerHTML=posts.map(row).join('');
+document.getElementById('popularList').innerHTML=popular.map(popularRow).join('');
+</script>
+<script src="bobaedream-pc-interactions.js"></script>
+</body>
+</html>

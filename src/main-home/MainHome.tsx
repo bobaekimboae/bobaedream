@@ -41,6 +41,9 @@ const ArrowLink = ({ children }: { children: string }) => (
 
 export default function MainHome() {
   const [activeService, setActiveService] = useState<ServiceKey>("all");
+  const openCommunity = () => {
+    window.location.href = "./community/index.html";
+  };
   const openListing = () => {
     if (activeService === "all" || activeService === "used-car") window.location.href = "./?qf=guazi&filtericon=notion";
   };
@@ -64,6 +67,10 @@ export default function MainHome() {
               type="button"
               aria-pressed={activeService === service.key}
               onClick={(event) => {
+                if (service.key === "community") {
+                  openCommunity();
+                  return;
+                }
                 setActiveService(service.key);
                 event.currentTarget.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
               }}

@@ -1,0 +1,19 @@
+:root{--detail-fix-version:20260820}
+.postTitle{font-size:22px!important;line-height:1.34!important;font-weight:500!important;letter-spacing:-.062em!important;margin-bottom:21px!important}
+.content{padding-top:27px!important}
+.content p{font-size:16px!important;line-height:1.72!important;font-weight:400!important;letter-spacing:-.048em!important;margin-bottom:27px!important;word-break:keep-all!important}
+.priceList{font-size:16px!important;line-height:1.72!important;font-weight:400!important;letter-spacing:-.048em!important;margin-top:-8px!important}
+.authorRow .avatar{width:38px!important;height:38px!important}
+.nick{font-size:14.2px!important;font-weight:760!important;letter-spacing:-.04em!important}
+.sub{font-size:12.8px!important;color:#92959b!important;margin-top:3px!important}
+.subscribe{height:29px!important;border-radius:9px!important;font-size:14.5px!important;padding:0 11px!important}
+.ad{height:88px!important}.adImg{width:110px!important;height:56px!important}.adCopy b{font-size:15.4px!important}.adCopy span{font-size:12.7px!important}
+.postAction{height:52px!important;margin-top:18px!important;margin-bottom:26px!important}.postAction button{font-size:15px!important}.heart{font-size:23px!important}
+.commentsTop{height:72px!important;padding-bottom:12px!important}.commentTitle{font-size:19.5px!important;font-weight:820!important}.noticeBubble{font-size:12.7px!important;padding:6px 12px!important}
+.botIcons{font-size:18px!important;padding-top:8px!important;padding-bottom:7px!important}
+.comment{grid-template-columns:38px minmax(0,1fr) 22px!important;gap:9px!important;padding:12px 0 11px!important}.comment .avatar{width:38px!important;height:38px!important}.comment.reply{grid-template-columns:30px minmax(0,1fr) 22px!important;margin-left:62px!important;padding-top:8px!important;padding-bottom:10px!important}.comment.reply .avatar{width:30px!important;height:30px!important}
+.cHead{gap:4px!important}.cNick{font-size:14px!important;font-weight:760!important;letter-spacing:-.038em!important}.rankIcon{width:16px!important;height:16px!important}.writer{height:18px!important;font-size:10.8px!important;padding:0 6px!important}.new{width:16px!important;height:16px!important;font-size:9.5px!important}
+.cBody{font-size:15px!important;line-height:1.52!important;font-weight:400!important;letter-spacing:-.043em!important;margin:6px 0 6px!important}.mention{font-weight:700!important}.cMeta{font-size:12.8px!important;gap:15px!important}.cLike{font-size:23px!important;padding-top:2px!important}
+.inputBox{height:48px!important;margin-top:17px!important;font-size:14.5px!important}.inputAvatar{width:28px!important;height:28px!important}
+.morePosts{padding-top:24px!important}.sectionTitle{font-size:19px!important}.miniPost{padding:16px 0!important}.miniTitle{font-size:16px!important;line-height:1.34!important;font-weight:430!important}.miniMeta{font-size:12.8px!important}.cardTitle{font-size:15px!important;line-height:1.34!important;font-weight:680!important}.bottomIcon{font-size:23px!important}.bottomIcon small{font-size:13.5px!important}.listBtn{font-size:15.5px!important}
+@media(max-width:370px){.postTitle{font-size:21.2px!important}.content p,.priceList{font-size:15.7px!important}.comment.reply{margin-left:52px!important}}
