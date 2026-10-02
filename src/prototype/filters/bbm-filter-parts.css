@@ -509,16 +509,6 @@
 .bbmf-overlay .bbm-truck-format .bbm-catalog-back { position: sticky; top: 0; z-index: 1; justify-content: flex-start; font-weight: 700; }
 .bbmf-overlay .bbm-truck-format .bbm-catalog-row.is-selected { color: #1b4c8c; font-weight: 700; }
 .bbmf-overlay .bbm-truck-format .bbm-catalog-row em { color: #9e9e9e; font-size: 12px; font-style: normal; }
-.bbmf-overlay .bbm-truck-format .bbm-catalog-row.has-truck-image { min-height: 52px; padding-top: 4px; padding-bottom: 4px; }
-.bbmf-overlay .bbm-truck-format .bbm-truck-option { display: flex; min-width: 0; align-items: center; gap: 8px; }
-.bbmf-overlay .bbm-truck-format .bbm-truck-option-image { display: grid; width: 64px; height: 44px; flex: 0 0 64px; place-items: center; overflow: hidden; }
-.bbmf-overlay .bbm-truck-format .bbm-truck-option-image img { display: block; width: 56px; height: 36px; object-fit: contain; object-position: center; }
-.bbmf-overlay .bbm-truck-format .bbm-truck-option-name { min-width: 0; overflow-wrap: anywhere; }
-.bbmf-overlay .bbm-truck-format .bbm-truck-spec-group { padding: 0 8px 8px; }
-.bbmf-overlay .bbm-truck-format .bbm-truck-spec-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.bbmf-overlay .bbm-truck-format .bbm-truck-spec-chips button { display: inline-flex; min-height: 32px; align-items: center; gap: 5px; padding: 0 12px; border: 1px solid #e0e0e0; border-radius: 999px; box-sizing: border-box; background: #fff; color: #505050; font: inherit; font-size: 13px; font-weight: 500; line-height: 18px; white-space: nowrap; }
-.bbmf-overlay .bbm-truck-format .bbm-truck-spec-chips button.is-selected { border-color: #1b4c8c; background: #f2f6fb; color: #1b4c8c; font-weight: 600; }
-.bbmf-overlay .bbm-truck-format .bbm-truck-spec-chips button.is-selected em { color: #1b4c8c; }
 
 /* ── QF-076 부품 비교 화면(&bbmparts=1) */
 .bbmf-gallery { min-height: 100%; padding: 24px 16px 64px; box-sizing: border-box; background: #f4f4f4; color: #1a1a1a; }

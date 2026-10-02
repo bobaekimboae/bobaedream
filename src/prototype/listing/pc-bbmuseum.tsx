@@ -184,7 +184,7 @@ function BbTruckOptionLabel({ name, image }: { name: string; image: string | nul
   return <span className="bbm-truck-option">{image ? <span className="bbm-truck-option-image"><img src={asset(image)} alt="" draggable={false} /></span> : null}<span className="bbm-truck-option-name">{name}</span></span>;
 }
 
-export function BbTruckFormatFilter({ value }: { value: BbTruckFilter }) {
+export function BbTruckFormatFilter({ value, showImages = true }: { value: BbTruckFilter; showImages?: boolean }) {
   const stageFor = (): BbTruckView => !value.format ? "format" : !value.subtype ? "subtype" : value.specGroups.length ? "spec" : "subtype";
   const [view, setView] = useState<BbTruckView>(stageFor);
   useEffect(() => { setView(stageFor()); }, [value.format, value.subtype, value.spec, value.specGroups.length]);
@@ -203,11 +203,11 @@ export function BbTruckFormatFilter({ value }: { value: BbTruckFilter }) {
       <div className="bbm-catalog">
         {view === "format" ? <div className="bbm-catalog-section">
           <p className="bbm-catalog-title">형식</p>
-          {value.formats.map((option) => <button key={option.name} type="button" className={`bbm-catalog-row${value.format === option.name ? " is-selected" : ""}${truckFormatImageFor(option.name) ? " has-truck-image" : ""}`} aria-pressed={value.format === option.name} onClick={() => { value.onChooseFormat(option.name); setView("subtype"); }}><BbTruckOptionLabel name={option.name} image={truckFormatImageFor(option.name)} />{count(option.count)}</button>)}
+          {value.formats.map((option) => { const image = showImages ? truckFormatImageFor(option.name) : null; return <button key={option.name} type="button" className={`bbm-catalog-row${value.format === option.name ? " is-selected" : ""}${image ? " has-truck-image" : ""}`} aria-pressed={value.format === option.name} onClick={() => { value.onChooseFormat(option.name); setView("subtype"); }}><BbTruckOptionLabel name={option.name} image={image} />{count(option.count)}</button>; })}
         </div> : view === "subtype" ? <div className="bbm-catalog-section is-drill">
           <button type="button" className="bbm-catalog-back" onClick={() => setView("format")}><BbIcon name="chevron-left" size={20} />{value.format}</button>
           <p className="bbm-catalog-title">세부형식</p>
-          {value.subtypes.map((option) => { const image = truckSubtypeImageFor(value.format, option.name); return <button key={option.name} type="button" className={`bbm-catalog-row${value.subtype === option.name ? " is-selected" : ""}${image ? " has-truck-image" : ""}`} aria-pressed={value.subtype === option.name} onClick={() => { value.onChooseSubtype(option.name); setView("spec"); }}><BbTruckOptionLabel name={option.name} image={image} />{count(option.count)}</button>; })}
+          {value.subtypes.map((option) => { const image = showImages ? truckSubtypeImageFor(value.format, option.name) : null; return <button key={option.name} type="button" className={`bbm-catalog-row${value.subtype === option.name ? " is-selected" : ""}${image ? " has-truck-image" : ""}`} aria-pressed={value.subtype === option.name} onClick={() => { value.onChooseSubtype(option.name); setView("spec"); }}><BbTruckOptionLabel name={option.name} image={image} />{count(option.count)}</button>; })}
         </div> : <div className="bbm-catalog-section is-drill">
           <button type="button" className="bbm-catalog-back" onClick={() => setView("subtype")}><BbIcon name="chevron-left" size={20} />{value.subtype}</button>
           {value.specGroups.map((group) => <div key={group.label} className="bbm-grade-group bbm-truck-spec-group">
