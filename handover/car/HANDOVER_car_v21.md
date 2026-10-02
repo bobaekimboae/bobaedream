@@ -34,6 +34,7 @@
 - `src/main-home/main-home.css`
 - `public/prototypes/autotrader-bobaedream-main/index.html`
 - `reports/category-zhuanzhuan-20261002/05-direction-left-no-subtitle.png`
+- `reports/category-zhuanzhuan-20261002/06-deployed-direction-left-no-subtitle.png`
 - `reports/category-zhuanzhuan-20261002/direction-size-audit.md`
 - `handover/car/HANDOVER_car_v21.md`
 
@@ -46,9 +47,10 @@
 - 로컬 브라우저 시각 검수 완료.
 - `npm run build`: 통과.
 - `npm run test:sites`: 4건 통과.
-- GitHub Pages 공개 배포: 미배포.
+- GitHub Pages 공개 배포: 성공 (`3f88601`).
+- 공개 접근성 트리에서 카테고리 설명문구 미노출과 11개 항목 노출 확인.
 
 ## 8) 다음에 할 일
 
-1. 공개 배포 후 방향과 설명 제거 상태를 재확인한다.
+1. 후속 차량 카테고리 요청을 반영한다.
 
