@@ -4,7 +4,6 @@ import "./main-home.css";
 type ServiceKey = "all" | "used-car" | "community" | "truck" | "bike" | "construction" | "camping" | "parts";
 
 const prototypeAsset = (path: string) => `./prototypes/autotrader-bobaedream-main/${path}`;
-const publicAsset = (path: string) => ["assets", path].join("/");
 const passengerAsset = (path: string) => ["prototypes", "passenger-body-types", "assets", path].join("/");
 
 const services: Array<{ key: ServiceKey; label: string }> = [
@@ -21,15 +20,6 @@ const services: Array<{ key: ServiceKey; label: string }> = [
 const bodyTypes = [
   ["suv.png", "SUV"], ["truck.png", "트럭"], ["sedan.png", "세단"], ["coupe.png", "쿠페"],
   ["minivan.png", "미니밴"], ["hatchback.png", "해치백"], ["convertible.png", "컨버터블"], ["wagon.png", "왜건"],
-];
-
-const brands = [
-  [prototypeAsset("brand-emblems/hyundai.svg"), "현대", ""],
-  [prototypeAsset("brand-emblems/kia.svg"), "기아", "wide"],
-  [publicAsset("brand/bmw.svg"), "BMW", ""],
-  [publicAsset("brand/benz.png"), "벤츠", ""],
-  [publicAsset("brand/audi.svg"), "아우디", "wide"],
-  [publicAsset("brand/porsche-symbol.png"), "포르쉐", "porsche"],
 ];
 
 const ArrowLink = ({ children }: { children: string }) => (
@@ -76,16 +66,12 @@ export default function MainHome() {
         </form>
 
         <section className="mh-section mh-category-section" aria-labelledby="mh-body-title">
-          <div className="mh-section-head"><h2 id="mh-body-title">인기 카테고리</h2><ArrowLink>전체보기</ArrowLink></div>
-          <div className="mh-body-rail" aria-label="인기 카테고리 가로 목록">
-            {bodyTypes.map(([image, label]) => <button className="mh-body-type" type="button" key={label}><span><img src={prototypeAsset(`autotrader-body-types-v2/${image}`)} alt="" /></span><strong>{label}</strong></button>)}
+          <div className="mh-section-head">
+            <div className="mh-section-heading-copy"><h2 id="mh-body-title">차량 카테고리</h2><p>차량 형태별로 빠르게 찾아보세요</p></div>
+            <ArrowLink>전체보기</ArrowLink>
           </div>
-        </section>
-
-        <section className="mh-section" aria-labelledby="mh-brand-title">
-          <div className="mh-section-head"><h2 id="mh-brand-title">인기 제조사</h2><ArrowLink>더보기</ArrowLink></div>
-          <div className="mh-brand-rail" aria-label="인기 제조사">
-            {brands.map(([image, label, variant]) => <button className="mh-brand-card" type="button" key={label}><span className={`mh-brand-emblem ${variant}`}><img src={image} alt="" /></span><strong>{label}</strong></button>)}
+          <div className="mh-body-rail" aria-label="차량 카테고리 가로 목록">
+            {bodyTypes.map(([image, label]) => <button className="mh-body-type" type="button" key={label}><span><img src={prototypeAsset(`autotrader-body-types-v2/${image}`)} alt="" /></span><strong>{label}</strong></button>)}
           </div>
         </section>
 
@@ -94,7 +80,10 @@ export default function MainHome() {
         </section>
 
         <section className="mh-section" aria-labelledby="mh-offer-title">
-          <div className="mh-section-head"><h2 id="mh-offer-title">추천 매물</h2><ArrowLink>전체</ArrowLink></div>
+          <div className="mh-section-head">
+            <div className="mh-section-heading-copy"><h2 id="mh-offer-title">추천 매물</h2><p>지금 관심 있게 볼 만한 차량이에요</p></div>
+            <ArrowLink>전체</ArrowLink>
+          </div>
           <div className="mh-offer-rail">
             {[["suv.svg", "BMW X3 xDrive20i", "5,280만원"], ["sedan.svg", "벤츠 E300 AMG", "6,150만원"], ["coupe.svg", "포르쉐 911 Carrera", "1억 6,900만원"]].map(([image, title, price]) => (
               <article className="mh-offer-card" key={title}><div><img src={passengerAsset(image)} alt="" /></div><p><strong>{title}</strong><span>{price}</span></p></article>

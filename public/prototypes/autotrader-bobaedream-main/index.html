@@ -150,7 +150,7 @@
     .section-head {
       padding: 0 17px;
       display: flex;
-      align-items: flex-end;
+      align-items: flex-start;
       justify-content: space-between;
       margin-bottom: 18px;
     }
@@ -163,16 +163,17 @@
       letter-spacing: -.035em;
     }
 
-    .section-note {
-      display: block;
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 750;
-      letter-spacing: -.03em;
+    .section-subtitle {
+      margin: 2px 0 0;
+      color: #8a8a8a;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 400;
+      letter-spacing: -.025em;
     }
 
     .more {
+      margin-top: 5px;
       display: inline-flex;
       align-items: center;
       gap: 2px;
@@ -184,7 +185,7 @@
 
     .more img { width: 18px; height: 18px; opacity: .78; }
 
-    .body-rail, .brand-rail, .offer-rail {
+    .body-rail, .offer-rail {
       display: flex;
       overflow-x: auto;
       gap: 18px;
@@ -196,7 +197,7 @@
       --body-gap: 12px;
       gap: var(--body-gap);
     }
-    .body-rail::-webkit-scrollbar, .brand-rail::-webkit-scrollbar, .offer-rail::-webkit-scrollbar { display: none; }
+    .body-rail::-webkit-scrollbar, .offer-rail::-webkit-scrollbar { display: none; }
 
     .body-type {
       flex: 0 0 calc((100% + 17px - (var(--body-gap) * 4)) / 4);
@@ -226,44 +227,6 @@
       line-height: 1.1;
       font-weight: 900;
       letter-spacing: -.045em;
-      white-space: nowrap;
-    }
-
-    .brand-card {
-      flex: 0 0 76px;
-      display: grid;
-      justify-items: center;
-      gap: 8px;
-      text-align: center;
-    }
-
-    .brand-emblem {
-      width: 62px;
-      height: 62px;
-      border: 1px solid #dde3ec;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
-      box-shadow: 0 5px 12px rgba(15,23,42,.08);
-    }
-
-    .brand-emblem img {
-      width: 38px;
-      height: 38px;
-      object-fit: contain;
-      display: block;
-    }
-
-    .brand-emblem.wide img { width: 44px; height: 28px; }
-    .brand-emblem.porsche img { width: 34px; height: 42px; }
-
-    .brand-name {
-      font-size: 13px;
-      line-height: 1;
-      font-weight: 900;
-      letter-spacing: -.045em;
-      color: #172033;
       white-space: nowrap;
     }
 
@@ -379,10 +342,10 @@
 
     <section class="section category-section" aria-labelledby="body-title">
       <div class="section-head">
-        <div><h2 class="section-title" id="body-title">인기 카테고리</h2></div>
+        <div><h2 class="section-title" id="body-title">차량 카테고리</h2><p class="section-subtitle">차량 형태별로 빠르게 찾아보세요</p></div>
         <span class="more">전체보기 <img src="./icons/arrow-right.svg" alt="" aria-hidden="true" /></span>
       </div>
-      <div class="body-rail" aria-label="인기 카테고리 가로 목록">
+      <div class="body-rail" aria-label="차량 카테고리 가로 목록">
         <button class="body-type" type="button"><span class="body-image"><img data-img="./autotrader-body-types-v2/suv.png" alt="" /></span><strong>SUV</strong></button>
         <button class="body-type" type="button"><span class="body-image"><img data-img="./autotrader-body-types-v2/truck.png" alt="" /></span><strong>트럭</strong></button>
         <button class="body-type" type="button"><span class="body-image"><img data-img="./autotrader-body-types-v2/sedan.png" alt="" /></span><strong>세단</strong></button>
@@ -391,21 +354,6 @@
         <button class="body-type" type="button"><span class="body-image"><img data-img="./autotrader-body-types-v2/hatchback.png" alt="" /></span><strong>해치백</strong></button>
         <button class="body-type" type="button"><span class="body-image"><img data-img="./autotrader-body-types-v2/convertible.png" alt="" /></span><strong>컨버터블</strong></button>
         <button class="body-type" type="button"><span class="body-image"><img data-img="./autotrader-body-types-v2/wagon.png" alt="" /></span><strong>왜건</strong></button>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="brand-title">
-      <div class="section-head">
-        <div><h2 class="section-title" id="brand-title">인기 제조사</h2></div>
-        <span class="more">더보기 <img src="./icons/arrow-right.svg" alt="" aria-hidden="true" /></span>
-      </div>
-      <div class="brand-rail" aria-label="인기 제조사">
-        <button class="brand-card" type="button" aria-label="현대"><span class="brand-emblem"><img data-img="./brand-emblems/hyundai.svg" alt="" /></span><span class="brand-name">현대</span></button>
-        <button class="brand-card" type="button" aria-label="기아"><span class="brand-emblem wide"><img data-img="./brand-emblems/kia.svg" alt="" /></span><span class="brand-name">기아</span></button>
-        <button class="brand-card" type="button" aria-label="BMW"><span class="brand-emblem"><img data-img="../../|assets/brand/bmw.svg" alt="" /></span><span class="brand-name">BMW</span></button>
-        <button class="brand-card" type="button" aria-label="벤츠"><span class="brand-emblem"><img data-img="../../|assets/brand/benz.png" alt="" /></span><span class="brand-name">벤츠</span></button>
-        <button class="brand-card" type="button" aria-label="아우디"><span class="brand-emblem wide"><img data-img="../../|assets/brand/audi.svg" alt="" /></span><span class="brand-name">아우디</span></button>
-        <button class="brand-card" type="button" aria-label="포르쉐"><span class="brand-emblem porsche"><img data-img="../../|assets/brand/porsche-symbol.png" alt="" /></span><span class="brand-name">포르쉐</span></button>
       </div>
     </section>
 
@@ -418,7 +366,7 @@
 
     <section class="section" aria-labelledby="offer-title">
       <div class="section-head">
-        <div><h2 class="section-title" id="offer-title">추천 매물</h2></div>
+        <div><h2 class="section-title" id="offer-title">추천 매물</h2><p class="section-subtitle">지금 관심 있게 볼 만한 차량이에요</p></div>
         <span class="more">전체 <img src="./icons/arrow-right.svg" alt="" aria-hidden="true" /></span>
       </div>
       <div class="offer-rail" aria-label="추천 매물">
