@@ -42,6 +42,18 @@
       ['민주당','자동차 세제 개편 관련 논의 내용 정리','생활정치','5분 전',241,2,11]
     ]
   };
+  var feedMediaByPost={
+    'domestic-001':{type:'video',src:'../assets/detail/raw-20.jpeg',duration:'00:42'},
+    'import-001':{type:'image',src:'../assets/detail/raw-07.jpeg'},
+    'ev-001':{type:'gallery',items:['../assets/detail/raw-18.jpeg','../assets/detail/raw-19.jpeg','../assets/detail/raw-20.jpeg']},
+    'truck-001':{type:'image',src:'../assets/detail/raw-09.jpeg'},
+    'tune-001':{type:'video',src:'../assets/detail/raw-04.png',duration:'01:18'},
+    'blackbox-001':{type:'video',src:'../assets/detail/raw-05.jpeg',duration:'00:27'},
+    'domestic-002':{type:'gallery',items:['../assets/pc-detail/9573-imgImage.png','../assets/pc-detail/9573-imgImage2.png','../assets/pc-detail/9573-imgImage4.png']},
+    'import-002':{type:'image',src:'../assets/pc-detail/9573-imgImage7.png'},
+    'used-002':{type:'gallery',items:['../assets/detail/raw-04.png','../assets/detail/raw-07.jpeg']},
+    'review-002':{type:'video',src:'../assets/detail/raw-19.jpeg',duration:'02:06'}
+  };
 
   addInteractionStyles();
   setupLoginState();
@@ -328,10 +340,24 @@
         '<div class="redditFeedMeta"><span class="redditFeedAvatar" aria-hidden="true">'+esc(initial)+'</span><span class="redditFeedAuthor">'+esc(post[2])+'</span><span class="redditFeedDot"></span><span>'+esc(post[3])+'</span><span class="redditFeedCategory">'+esc(post[0])+'</span></div>',
         '<strong class="redditFeedTitle">'+esc(post[1])+'</strong>',
         '<p class="redditFeedPreview">'+esc(preview)+'</p>',
+        renderFeedMedia(post),
         '<div class="redditFeedStats"><span class="redditFeedStat">추천 '+esc(post[5]||0)+'</span><span class="redditFeedStat">댓글 '+esc(post[6]||0)+'</span><span class="redditFeedStat">조회 '+esc(post[4]||0)+'</span></div>',
         '</a>'
       ].join('');
     }).join('');
+  }
+
+  function renderFeedMedia(post){
+    var media=feedMediaByPost[post[8]];
+    if(!media) return '';
+    if(media.type==='video'){
+      return '<div class="redditFeedMedia is-video" aria-label="영상 미리보기"><img src="'+esc(media.src)+'" alt="" loading="lazy"><span class="redditFeedPlay"><img src="assets/view-icons/video.svg" alt="" aria-hidden="true"></span><span class="redditFeedDuration">'+esc(media.duration)+'</span></div>';
+    }
+    if(media.type==='gallery'){
+      var items=media.items||[];
+      return '<div class="redditFeedMedia redditFeedGallery" aria-label="사진 '+items.length+'장">'+items.map(function(src){return '<img src="'+esc(src)+'" alt="" loading="lazy">';}).join('')+'<span class="redditFeedMediaBadge">사진 '+items.length+'</span></div>';
+    }
+    return '<div class="redditFeedMedia is-image" aria-label="사진"><img src="'+esc(media.src)+'" alt="" loading="lazy"></div>';
   }
 
   function getPostsForBoard(board){
