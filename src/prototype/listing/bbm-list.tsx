@@ -208,9 +208,9 @@ export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string, detail
     const activeGroup = bbmCategoryGroups.find((group) => group.value === activeValue) ?? bbmCategoryGroups[0];
     const activateGroup = (value: string) => {
       setActiveValue(value);
-      // 트럭/특장은 텍스트 하위 메뉴를 한 번 더 거치지 않고,
-      // 시나리오의 형식 이미지 → 세부 형식 이미지 흐름으로 바로 진입한다.
-      if (value === "트럭 · 특장") onChoose(value);
+      // 중고차는 누르는 즉시 브랜드 레일로, 트럭/특장은 형식 이미지 레일로 진입한다.
+      // 두 카테고리 모두 텍스트 하위 메뉴를 한 번 더 거치지 않는다.
+      if (value === "중고차" || value === "트럭 · 특장") onChoose(value);
     };
     return (
       <section className="bbm-category-menu is-hierarchical" aria-label="차량 카테고리">
