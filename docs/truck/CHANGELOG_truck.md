@@ -78,3 +78,4 @@
 2026-10-03 / 코덱스-특장 / HANDOVER_truck_v34.md / v34 / GitHub Pages 실행 37099635937 성공과 공개 모바일·PC 슬롯 치수·콘솔 오류 0건 기록 / 검수완료
 2026-10-03 / 코덱스-특장 / truck_chotot_slot_rule_v02.md, HANDOVER_truck_v35.md, qf-model-images.css, truck-chotot-slot-check.mjs / v02 / 수정 요청: 모바일·PC 이미지 행과 로고·명칭의 위아래 간격 축소 및 균형 조정 / 검수완료
 2026-10-03 / 코덱스-특장 / HANDOVER_truck_v36.md / v36 / GitHub Pages 실행 37101841637 성공과 공개 모바일·PC 위아래 간격·콘솔 오류 0건 기록 / 검수완료
+2026-10-03 / 코덱스-특장 / truck_chotot_slot_rule_v03.md, HANDOVER_truck_v37.md, qf-model-images.css, truck-chotot-slot-check.mjs / v03 / 수정 요청: 초톳 캡처·실사이트 재대조 후 유형 이미지·명칭 간격과 모바일 명칭 크기 보정 / 검수완료

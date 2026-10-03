@@ -19,8 +19,8 @@ const browser = await chromium.launch();
 const report = {};
 
 for (const mode of [
-  { name: "mobile", viewport: { width: 390, height: 844 }, pc: false, brandExpected: { cell: [76, 102], media: [40, 40] }, typeExpected: { cell: [80, 108], media: [64, 64] }, spacingExpected: { slotMarginTop: "8px", brandMediaMarginTop: "4px", brandLabelMarginTop: "8px", typeLabelMarginTop: "2px" } },
-  { name: "pc", viewport: { width: 1440, height: 1000 }, pc: true, brandExpected: { cell: [84, 102], media: [40, 40] }, typeExpected: { cell: [132, 144], media: [88, 88] }, spacingExpected: { slotMarginTop: "8px", brandMediaMarginTop: "4px", brandLabelMarginTop: "8px", typeLabelMarginTop: "4px" } },
+  { name: "mobile", viewport: { width: 390, height: 844 }, pc: false, brandExpected: { cell: [76, 102], media: [40, 40] }, typeExpected: { cell: [80, 108], media: [64, 64] }, spacingExpected: { slotMarginTop: "8px", brandMediaMarginTop: "4px", brandLabelMarginTop: "8px", typeLabelMarginTop: "7px", typeLabelFontSize: "14px" } },
+  { name: "pc", viewport: { width: 1440, height: 1000 }, pc: true, brandExpected: { cell: [84, 102], media: [40, 40] }, typeExpected: { cell: [132, 144], media: [88, 88] }, spacingExpected: { slotMarginTop: "8px", brandMediaMarginTop: "4px", brandLabelMarginTop: "8px", typeLabelMarginTop: "9px", typeLabelFontSize: "14px" } },
 ]) {
   const page = await browser.newPage({ viewport: mode.viewport, deviceScaleFactor: 1 });
   const errors = [];
@@ -69,6 +69,7 @@ for (const mode of [
       media: mediaBox ? [Math.round(mediaBox.width), Math.round(mediaBox.height)] : null,
       slotMarginTop: card.closest(".depth-rail")?.parentElement ? getComputedStyle(card.closest(".depth-rail").parentElement).marginTop : null,
       labelMarginTop: label ? getComputedStyle(label).marginTop : null,
+      labelFontSize: label ? getComputedStyle(label).fontSize : null,
       background: getComputedStyle(card).backgroundColor,
       borderRadius: getComputedStyle(card).borderRadius,
     };
@@ -99,6 +100,7 @@ for (const mode of [
       && first?.labelMarginTop === mode.spacingExpected.brandLabelMarginTop
       && typeMetrics?.slotMarginTop === mode.spacingExpected.slotMarginTop
       && typeMetrics?.labelMarginTop === mode.spacingExpected.typeLabelMarginTop
+      && typeMetrics?.labelFontSize === mode.spacingExpected.typeLabelFontSize
       && errors.length === 0,
   };
   await page.close();

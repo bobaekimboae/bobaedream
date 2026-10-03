@@ -151,7 +151,7 @@
   width: 120px;
   height: 44px;
   max-height: 44px;
-  margin-top: 4px;
+  margin-top: 9px;
   overflow: hidden;
   font-size: 14px;
   font-weight: 500;
@@ -225,11 +225,11 @@
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) > .depth-card-label {
   display: -webkit-box;
   width: 72px;
-  height: 40px;
-  max-height: 40px;
-  margin-top: 2px;
+  height: 36px;
+  max-height: 36px;
+  margin-top: 7px;
   overflow: hidden;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 18px;
   text-overflow: ellipsis;
@@ -261,7 +261,7 @@
 /* 첫 형식 줄(BbmCategoryMenu)도 같은 규격으로 맞춘다. */
 .marketplace.is-bbm.is-truck-category.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu__item { width: 132px; }
 .marketplace.is-bbm.is-truck-category.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu__button {
-  gap: 4px;
+  gap: 9px;
   width: 132px;
   height: 144px;
   padding: 0;
@@ -288,7 +288,7 @@
 }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__item { width: 80px; }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__button {
-  gap: 2px;
+  gap: 7px;
   width: 80px;
   height: 108px;
   padding: 0;
@@ -303,9 +303,9 @@
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__label {
   display: -webkit-box;
   width: 72px;
-  max-height: 40px;
+  max-height: 36px;
   overflow: hidden;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 18px;
   white-space: normal;
