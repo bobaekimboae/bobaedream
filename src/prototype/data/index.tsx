@@ -26,6 +26,7 @@ import { bikeInventory } from "../bike/data";
 import { heavyInventory } from "../heavy/data";
 import { truckModelsByMaker, truckScenarioV01 } from "../truck/scenario-v01";
 import { truckScenarioImageV02 } from "../truck/scenario-images-v02";
+import { truckSubtypeLabel } from "./truck-format-catalog";
 import {
   campingScenarioV01,
   materialHandlingScenarioV01,
@@ -961,7 +962,7 @@ const truckCars: Car[] = truckScenarioV01.map((row, index) => {
   image: truckScenarioImageV02[row.id] ?? row.image,
   imageFit: "contain",
   title: `${row.maker} ${row.model}`,
-  trim: `${row.format} · ${row.subtype}`,
+  trim: `${row.format} · ${truckSubtypeLabel(row.subtype)}`,
   specs: [`${row.year}년식`, `${row.mileage.toLocaleString("ko-KR")}km`, row.load, row.region],
   price: `${row.price10k.toLocaleString("ko-KR")} 만원`,
   place: row.region,

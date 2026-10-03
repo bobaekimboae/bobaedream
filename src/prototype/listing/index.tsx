@@ -71,7 +71,7 @@ import {
   type SheetType,
 } from "../data";
 import { BrandRailMark, CategoryFilterSheet, DepthCard, MakerSheet, PriceSheet, TrimChip, VehiclePickerSheet } from "../quick-filter";
-import { bbCatalog, BbCarCard, BbFilterSidebar, BbHeader, BbIcon, BbSwitch, BbTruckFormatFilter, type BbMakerSelection, type BbMakerSection, type BbTruckFilter } from "./pc-bbmuseum";
+import { bbCatalog, BbCarCard, BbFilterSidebar, BbHeader, BbIcon, BbSwitch, type BbMakerSelection, type BbMakerSection, type BbTruckFilter } from "./pc-bbmuseum";
 import { bbmCarChecks, emptyBbmFilters, isBbmDataOption, matchesBbmFilters, rangeIsSet, resetBbmFilters, setBbmChecks, setBbmRange, type BbmCheckKey, type BbmFilterValues } from "../filters/bbm-filter-state";
 import { bbmAppliedChips, bbmItemValue } from "../filters/bbm-applied";
 import { MileageFinalSheet, mileageSummary } from "../filters/bbm-mileage";
@@ -82,6 +82,7 @@ import { BBM_MAKER_ITEM, bbmFilterOrder, bbmSidebarItems, bikeFilterOrder, daang
 import { BbmBodyTypeSheet, BbmExpandPanel, BbmModalPanel, BbmSellerTypeSheet, clearBbmItem } from "../filters/bbm-filter-panels";
 import { BbmBottomGnb, BbmBrandMenu, BbmCategoryMenu, BbmCategoryPicker, BbmHeadlinePreviewLinks, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, bbmIcon } from "./bbm-list";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
+import { TruckTypePicker } from "../filters/truck-type-picker";
 import { CategoryBrandLogo, categoryRailLabel, krRailLabel, krTopTenSections, krTypeTop10 } from "./bbm-brand-logos";
 import { StableRegionRow, StableRegionSheet, stableRegionLabel, StableYearRow, stablePageTitle, STABLE_YEAR_OPTIONS, stableKeywordPills } from "./stable-top";
 import { CatalogModelImage, catalogMakerNames, catalogModelOfCar, guaziGenerationsByMakerModel, guaziModelVisualsByMaker, guaziModelsByMaker } from "./model-catalog-kr";
@@ -89,7 +90,7 @@ import { BbmChipScroller, BbmTopCrumbs, type BbmCrumb } from "./bbm-top-chotot";
 import { setPretendard } from "../fonts/pretendard";
 import { BBM_PAGE_SIZE, BbmFooter, BbmPagination, BbmPopOptions, BbmToolbarMenu, bbmSortOptions, bbmViewOptionsMobile, bbmViewOptionsPc, sortBbmCars, type BbmSort } from "./bbm-list-area";
 import { bikeListingModelsByMaker, bikeListingModelVisualsByMaker } from "../bike/data";
-import { normalizeTruckFormatSelection, truckFormatCatalog, truckFormatImageFor, truckSubtypeImageFor, truckSubtypesFor } from "../data/truck-format-catalog";
+import { normalizeTruckFormatSelection, truckFormatCatalog, truckFormatImageFor, truckSubtypeImageFor, truckSubtypeLabel, truckSubtypesFor, truckSubtypeValuesForSelection } from "../data/truck-format-catalog";
 import { truckSpecGroupsFor, truckSpecOptionsFor } from "../data/truck-depth4-catalog";
 import { QuickRailCarousel } from "./quick-rail-carousel";
 import { truckModelsByMaker } from "../truck/scenario-v01";
@@ -507,6 +508,7 @@ function MarketplaceScreen() {
   const [selectedTruckFormat, setSelectedTruckFormat] = useState<string | null>(() => initialFilters.category === "트럭 · 특장" ? initialTruckFormatSelection().format : null);
   const [selectedTruckSubtype, setSelectedTruckSubtype] = useState<string | null>(() => initialFilters.category === "트럭 · 특장" ? initialTruckFormatSelection().subtype : null);
   const [selectedTruckSpec, setSelectedTruckSpec] = useState<string | null>(() => initialFilters.category === "트럭 · 특장" ? initialTruckFormatSelection().spec : null);
+  const [truckTypePickerOpen, setTruckTypePickerOpen] = useState(false);
   const [filterFocus, setFilterFocus] = useState<ChoTotFilterFocus | null>(null);
   const [quickFilterFocus, setQuickFilterFocus] = useState<ChoTotFilterFocus | null>(null);
   const [sheet, setSheet] = useState<SheetType>(null);
@@ -650,9 +652,10 @@ function MarketplaceScreen() {
   const directVariantQuickOptions: Array<string | QuickTrimOption> = [];
   const activeVariantQuickOptions = selectedGeneration ? variantQuickOptions : directVariantQuickOptions;
   const effectiveSelectedVariants = isGuaziQuickStyle ? debouncedSelectedVariants : selectedVariants;
+  const selectedTruckSubtypeValues = truckSubtypeValuesForSelection(selectedTruckFormat, selectedTruckSubtype);
   const matchesTruckSelection = (car: Car) => !isTruckCategory || Boolean(car.truck
     && (!selectedTruckFormat || car.truck.format === selectedTruckFormat)
-    && (!selectedTruckSubtype || car.truck.subtype === selectedTruckSubtype)
+    && (!selectedTruckSubtype || selectedTruckSubtypeValues.includes(car.truck.subtype))
     && (!selectedTruckSpec || car.truck.load === selectedTruckSpec));
 
   useEffect(() => {
@@ -929,6 +932,19 @@ function MarketplaceScreen() {
     setTrimApplied(false);
     replaceFilterParams(null, null);
     replaceTruckParams(selectedTruckFormat, selectedTruckSubtype, spec);
+  };
+
+  const applyTruckTypeSelection = (formatName: string | null, subtypeName: string | null) => {
+    setSelectedTruckFormat(formatName);
+    setSelectedTruckSubtype(formatName ? subtypeName : null);
+    setSelectedTruckSpec(null);
+    setFilters((current) => ({ ...current, maker: null, model: null }));
+    setDraftFilters((current) => ({ ...current, maker: null, model: null }));
+    setSelectedGeneration(null);
+    setSelectedVariants([]);
+    setTrimApplied(false);
+    replaceFilterParams(null, null);
+    replaceTruckParams(formatName, formatName ? subtypeName : null, null);
   };
 
   const clearMakerFilter = () => {
@@ -1595,11 +1611,11 @@ function MarketplaceScreen() {
     // 트럭·특장은 엔카 기준 형식 → 세부 형식 → 제조사 순서
     ...(isTruckCategory ? [
       selectedTruckFormat
-        ? { key: "truck-format", label: selectedTruckFormat, active: true, className: "is-vehicle-summary is-step", onClick: clearTruckFormat, onClear: clearTruckFormat }
-        : { key: "truck-format", label: "형식", active: false, onClick: clearTruckFormat },
+        ? { key: "truck-format", label: selectedTruckFormat, active: true, className: "is-vehicle-summary is-step", onClick: () => setTruckTypePickerOpen(true), onClear: clearTruckFormat }
+        : { key: "truck-format", label: "트럭 유형", active: false, onClick: () => setTruckTypePickerOpen(true) },
       selectedTruckFormat && selectedTruckSubtype
-        ? { key: "truck-subtype", label: selectedTruckSubtype, active: true, className: "is-vehicle-summary is-step", onClick: clearTruckSubtype, onClear: clearTruckSubtype }
-        : selectedTruckFormat ? { key: "truck-subtype", label: "세부 형식", active: false, onClick: clearTruckSubtype } : null,
+        ? { key: "truck-subtype", label: truckSubtypeLabel(selectedTruckSubtype), active: true, className: "is-vehicle-summary is-step", onClick: () => setTruckTypePickerOpen(true), onClear: clearTruckSubtype }
+        : selectedTruckFormat ? { key: "truck-subtype", label: "세부 유형", active: false, onClick: () => setTruckTypePickerOpen(true) } : null,
       selectedTruckSubtype && truckSpecOptions.length && selectedTruckSpec
         ? { key: "truck-spec", label: selectedTruckSpec, active: true, className: "is-vehicle-summary is-step", onClick: clearTruckSpec, onClear: clearTruckSpec }
         : selectedTruckSubtype && truckSpecOptions.length ? { key: "truck-spec", label: "적재·규격", active: false, onClick: clearTruckSpec } : null,
@@ -1699,9 +1715,14 @@ function MarketplaceScreen() {
       label: group.label,
       options: group.options.map((option) => ({ name: option, count: truckSidebarCount((car) => car.truck?.format === selectedTruckFormat && car.truck?.subtype === selectedTruckSubtype && car.truck?.load === option) })),
     })),
+    countForSelection: (formatName, subtypeName = null) => {
+      const subtypeValues = truckSubtypeValuesForSelection(formatName, subtypeName);
+      return truckSidebarCount((car) => car.truck?.format === formatName && (!subtypeName || subtypeValues.includes(car.truck?.subtype ?? "")));
+    },
     onChooseFormat: chooseTruckFormat,
     onChooseSubtype: chooseTruckSubtype,
     onChooseSpec: chooseTruckSpec,
+    onApplySelection: applyTruckTypeSelection,
     onClearFormat: clearTruckFormat,
     onClearSubtype: clearTruckSubtype,
     onClearSpec: clearTruckSpec,
@@ -1907,6 +1928,7 @@ function MarketplaceScreen() {
         </MobileScroll>
         {searchToast ? <div className="market-toast" role="status" aria-live="polite">{searchToast}</div> : null}
         {renderBbmChipPanel(true)}
+        {truckSidebarFilter ? <TruckTypePicker desktop open={truckTypePickerOpen} onClose={() => setTruckTypePickerOpen(false)} value={truckSidebarFilter} /> : null}
         {drawerFilterChip && bbmDrawerOpen ? (
           <BbmFilterDrawer count={visibleCars.length} onClose={() => setBbmDrawerOpen(false)} onReset={() => setBbmDrawerReset((value) => value + 1)}>
             <BbFilterSidebar mileageFinal={isGuaziQuickStyle} priceFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? isTruckCategory ? truckFilterOrder : category === "바이크" ? bikeFilterOrder : bbmFilterOrder : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmDrawerReset} brandLogos={isGuaziQuickStyle} brandLogoCategory={category} truckFilter={truckSidebarFilter} />
@@ -1996,8 +2018,7 @@ function MarketplaceScreen() {
         : [bbmSidebarItems[0], bbmSidebarItems[1], null, ...bbmSidebarItems.filter((item) => !item.scope).slice(2)];
     const fullItemMap = new Map(fullItems.map((item) => [item?.label ?? BBM_MAKER_ITEM, item]));
     const { primary: primaryFullOrder, secondary: secondaryFullOrder } = splitDaangnFilterOrder([...fullItemMap.keys()]);
-    const truckFormatPath = [selectedTruckFormat, selectedTruckSubtype, selectedTruckSpec].filter(Boolean).join(" › ");
-    const truckFormatFullItem: BbmFilterItem = { label: "형식/적재용량", mode: "expand", scope: "truck" };
+    const truckFormatPath = [selectedTruckFormat, selectedTruckSubtype ? truckSubtypeLabel(selectedTruckSubtype) : null, selectedTruckSpec].filter(Boolean).join(" › ");
     const renderFullFilterItem = (label: string) => {
       const item = fullItemMap.get(label);
       if (item) return <BbmFullItem key={item.label} label={isTruckCategory && item.label === "차량번호 / 판매자" ? "차량번호/판매자 이름" : daangnFilterLabel(item.label)} icon={item.label === "전기차 주행 가능 거리" ? bbmIcon("filter-ev-range") : undefined} value={isGuaziQuickStyle && item.label === "주행거리" ? mileageSummary(fullValue.ranges.mileage) : bbmItemValue(item.label, fullValue)} onClear={() => setBbmFilters(clearBbmItem(item, bbmValue))} onOpen={() => openFullItem(item)} />;
@@ -2081,7 +2102,7 @@ function MarketplaceScreen() {
             {bbmFullMoreOpen ? <div className="bbmf-full-more-content">
               <BbmFullItem label="카테고리" onOpen={() => openFullItem("카테고리")} />
               {isTruckCategory ? <>
-                <BbmFullItem label="형식/적재용량" value={truckFormatPath} onClear={clearTruckFormat} onOpen={() => openFullItem(truckFormatFullItem)} />
+                <BbmFullItem label="트럭 유형" value={truckFormatPath} onClear={clearTruckFormat} onOpen={() => { setBbmFullOpen(false); setTruckTypePickerOpen(true); }} />
                 <div className="bbmf-full-group-title">추가 필터</div>
               </> : null}
               {secondaryFullOrder.map(renderFullFilterItem)}
@@ -2094,11 +2115,7 @@ function MarketplaceScreen() {
         {bbmFullOpen && bbmFullItem && typeof bbmFullItem === "object" && bbmFullItem.label === "가격" && isGuaziQuickStyle ? <PriceFinalSheet value={bbmValue} countOf={countWithBbm} onApply={setBbmFilters} onClose={closeFullItem} /> : null}
         {bbmFullOpen && bbmFullItem && typeof bbmFullItem === "object" && bbmFullItem.checkKey === "sellerKind" ? <BbmSellerTypeSheet value={bbmValue} countWith={countWithBbm} countOf={bbmCountOf} onApply={setBbmFilters} onClose={closeFullItem} /> : null}
         {bbmFullOpen && bbmFullItem && typeof bbmFullItem === "object" && bbmFullItem.checkKey === "bodyType" ? <BbmBodyTypeSheet value={bbmValue} countWith={countWithBbm} countOf={bbmCountOf} onApply={setBbmFilters} onClose={closeFullItem} /> : null}
-        {bbmFullOpen && bbmFullItem && typeof bbmFullItem === "object" && bbmFullItem.label === "형식/적재용량" && truckSidebarFilter ? (
-          <BbmSheet title="형식/적재용량" onClose={closeFullItem} footer={<BbmActionBar variant="sheet" confirmStyle="보기" count={visibleCars.length} onReset={clearTruckFormat} onConfirm={closeFullItem} />}>
-            <BbTruckFormatFilter value={truckSidebarFilter} showImages={false} />
-          </BbmSheet>
-        ) : null}
+        {truckSidebarFilter ? <TruckTypePicker desktop={false} open={truckTypePickerOpen} onClose={() => setTruckTypePickerOpen(false)} value={truckSidebarFilter} /> : null}
         {bbmFullOpen && bbmFullItem === "제조사 · 모델" ? (
           <BbmSheet title="제조사" onClose={closeFullItem} footer={<BbmActionBar variant="sheet" confirmStyle="보기" count={visibleCars.length} onReset={() => setBbmMakerDraft(null)} onConfirm={() => { applyMakerFilter(bbmMakerDraft); closeFullItem(); }} />}>
             <BbmBrandMenu items={previewBrandItems} selected={bbmMakerDraft} renderLogo={(name) => <CategoryBrandLogo category={category} name={name} kind="plain" />} onChoose={setBbmMakerDraft} />

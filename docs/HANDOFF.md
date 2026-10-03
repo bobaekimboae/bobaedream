@@ -128,3 +128,12 @@ npm run verify
 ```
 
 `main` 반영 후 `.github/workflows/deploy-pages.yml`이 기존 GitHub Pages를 갱신한다. 인수인계 시에는 커밋 SHA, Actions 실행 결과, 배포된 `v` 값, 번들 파일명을 함께 기록한다.
+
+## 8. 트럭 유형 필터 v39
+
+- 트럭·특장 상단 `트럭 유형` 칩은 모바일에서 바텀시트, PC에서 중앙 모달을 연다.
+- PC 좌측 `필터 더보기`의 `트럭 유형`도 같은 선택 컴포넌트와 상태를 사용한다.
+- 최종 13개 상위 유형과 전체 하위 분류의 단일 기준은 `src/prototype/data/truck-format-catalog.ts`의 `truckTypeTree`다.
+- 체크박스 선택과 하위 탐색 화살표를 분리했다. 중간 그룹 선택은 하위 매물을 모두 포함한다.
+- 가상 매물 30대의 새 분류 기준은 `src/prototype/truck/scenario-v01.ts`다.
+- 디자인 수치는 Notion 인수인계와 Google Sheets `UI 수치!A6:E24`를 따르며, 프로젝트 루트 `design-qa.md`에 모바일·PC 검수 결과가 있다.

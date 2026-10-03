@@ -8,6 +8,7 @@ import { CategoryBrandLogo } from "./bbm-brand-logos";
 import { bbmItemValue } from "../filters/bbm-applied";
 import { asset, displayListPlace, displaySpecs, sellerAvatar, sellerLabel, type Car } from "../data";
 import { truckFormatImageFor, truckSubtypeImageFor } from "../data/truck-format-catalog";
+import { TruckTypePicker } from "../filters/truck-type-picker";
 
 // 보배드림 개발 시안(bbmuseum) PC 매물리스트 1단계 이식(QF-048~050). 구조·수치·문구만 따르고 코드·이미지는 새로 만든다.
 
@@ -71,9 +72,11 @@ export type BbTruckFilter = {
   formats: BbTruckFilterOption[];
   subtypes: BbTruckFilterOption[];
   specGroups: BbTruckSpecGroup[];
+  countForSelection: (format: string, subtype?: string | null) => number;
   onChooseFormat: (format: string) => void;
   onChooseSubtype: (subtype: string) => void;
   onChooseSpec: (spec: string) => void;
+  onApplySelection: (format: string | null, subtype: string | null) => void;
   onClearFormat: () => void;
   onClearSubtype: () => void;
   onClearSpec: () => void;
@@ -253,6 +256,7 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
   // 모달형 항목: 사이드바 대신 412 모달을 연다. 원본 실측(2026-09-24): 모달 안 선택은 초안이고 [확인 N대]를 눌러야 조건이 걸린다(닫기 X는 버림)
   const [modalItem, setModalItem] = useState<BbmFilterItem | null>(null);
   const [priceOpen, setPriceOpen] = useState(false);
+  const [truckTypeOpen, setTruckTypeOpen] = useState(false);
   const [draft, setDraft] = useState<BbmFilterValues>(bbm);
   const openModal = (item: BbmFilterItem) => { setDraft(bbm); setModalItem(item); };
   // 원본: 머리 "초기화"는 확인 창(필터 초기화 / 선택한 필터를 초기화하시겠습니까? / [취소][초기화])을 거친다
@@ -311,16 +315,14 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
   };
   const renderTruckFormat = () => {
     if (!truckFilter) return null;
-    const open = openItems.includes(truckFilterLabel);
     const applied = Boolean(truckFilter.format || truckFilter.subtype || truckFilter.spec);
     const path = [truckFilter.format, truckFilter.subtype, truckFilter.spec].filter(Boolean).join(" › ");
-    return <section className={`bbm-filter-item is-truck-format${open ? " is-open" : ""}${applied ? " is-applied" : ""}`}>
-      <button type="button" className="bbm-filter-toggle" aria-expanded={open} onClick={() => toggle(truckFilterLabel)}>
-        <span className="bbm-filter-label"><span className="bbm-filter-label-text">{truckFilterLabel}</span>{!open && path ? <small className="bbm-filter-path">{path}</small> : null}</span>
+    return <section className={`bbm-filter-item is-truck-format${applied ? " is-applied" : ""}`}>
+      <button type="button" className="bbm-filter-toggle" aria-haspopup="dialog" onClick={() => setTruckTypeOpen(true)}>
+        <span className="bbm-filter-label"><span className="bbm-filter-label-text">트럭 유형</span>{path ? <small className="bbm-filter-path">{path}</small> : null}</span>
         <img className="bbm-filter-chevron" src={bbmAsset("filter-chevron")} alt="" aria-hidden="true" />
       </button>
       {truckFilter.format ? <button type="button" className="bbm-filter-item-reset" onClick={truckFilter.onClearFormat}>초기화</button> : null}
-      {open ? <BbTruckFormatFilter value={truckFilter} /> : null}
     </section>;
   };
   if (collapsible && sidebarCollapsed) {
@@ -372,6 +374,7 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
         </BbmModal>
       ) : null}
       {priceOpen ? <PriceFinalSheet variant="modal" value={bbm} countOf={countWithBbm} onApply={onBbmChange} onClose={() => setPriceOpen(false)} /> : null}
+      {truckFilter ? <TruckTypePicker desktop open={truckTypeOpen} onClose={() => setTruckTypeOpen(false)} value={truckFilter} /> : null}
       {confirmReset ? (
         <BbmModal title="필터 초기화" onClose={() => setConfirmReset(false)} footer={<BbmActionBar count={0} resetLabel="취소" confirmLabel="초기화" onReset={() => setConfirmReset(false)} onConfirm={() => { setAvailableOnly(false); setMoreFiltersOpen(false); onReset(); setConfirmReset(false); }} />}>
           <p className="bbmf-confirm-text">선택한 필터를 초기화하시겠습니까?</p>

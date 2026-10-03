@@ -80,3 +80,4 @@
 2026-10-03 / 코덱스-특장 / HANDOVER_truck_v36.md / v36 / GitHub Pages 실행 37101841637 성공과 공개 모바일·PC 위아래 간격·콘솔 오류 0건 기록 / 검수완료
 2026-10-03 / 코덱스-특장 / truck_chotot_slot_rule_v03.md, HANDOVER_truck_v37.md, qf-model-images.css, truck-chotot-slot-check.mjs / v03 / 수정 요청: 초톳 캡처·실사이트 재대조 후 유형 이미지·명칭 간격과 모바일 명칭 크기 보정 / 검수완료
 2026-10-03 / 코덱스-특장 / HANDOVER_truck_v38.md / v38 / GitHub Pages 실행 37103384692 성공과 공개 모바일·PC 슬롯 수치·콘솔 오류 0건 기록 / 검수완료
+2026-10-03 / 코덱스-특장 / truck-type-picker.tsx 외, HANDOVER_truck_v39.md / v39 / 최종 13개 트럭 유형 트리를 실제 PC 모달·모바일 바텀시트·URL·가상 매물 30대에 연결 / 미검수
