@@ -461,7 +461,10 @@
 .bbmf-sheet-body.is-flush, .bbmf-modal-body.is-flush { padding: 0; }
 /* 카테고리 바텀시트: 확정된 주행거리 필터 시트의 외형만 공유한다.
    카테고리 선택·검색·즉시 닫기 동작은 기존 그대로 유지한다. */
-.bbmf-overlay.is-sheet:has(.bbmf-sheet.is-category) { z-index: 90; }
+.bbmf-overlay.is-sheet:has(.bbmf-sheet.is-category) {
+  z-index: 90;
+  background: rgba(0, 0, 0, 0.26);
+}
 .bbmf-sheet.is-category {
   max-height: calc(100% - 24px);
   border-radius: 24px 24px 0 0;

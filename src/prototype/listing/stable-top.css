@@ -135,6 +135,7 @@
 
 /* CAT-001: 초톳 방식의 상위 아이콘 + 하위 알약칩. 긴 이름은 말줄임표 없이 가로 스크롤로 보인다. */
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical { width:100%; overflow:visible; border-bottom:0; background:#fff; }
+.marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical::after { content:""; display:block; height:1px; margin:0 16px; background:#ebebeb; }
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-menu__list { width:100%; overflow-x:auto; gap:8px; padding:2px 20px 12px; box-sizing:border-box; scrollbar-width:none; }
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-menu__list::-webkit-scrollbar { display:none; }
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-menu__item { width:76px; }
