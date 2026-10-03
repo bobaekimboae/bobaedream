@@ -149,10 +149,10 @@ function BbmCategoryIconRow({ activeValue, onActivate }: { activeValue: string; 
   return (
     <ul className="bbm-category-menu__list" role="list">
       {bbmCategoryGroups.map((group) => {
-        const isSelected = group.value === activeValue;
+        const isActiveGroup = group.value === activeValue;
         return (
           <li key={group.value} className="bbm-category-menu__item">
-            <button type="button" className={`bbm-category-menu__button${isSelected ? " is-selected" : ""}`} aria-pressed={isSelected} onClick={() => onActivate(group.value)}>
+            <button type="button" className="bbm-category-menu__button" data-active-group={isActiveGroup ? "true" : undefined} onClick={() => onActivate(group.value)}>
               <span className="bbm-category-menu__icon-box is-category-icon"><img src={asset(group.icon)} alt="" aria-hidden="true" draggable={false} /></span>
               <span className="bbm-category-menu__label">{group.label}</span>
             </button>
