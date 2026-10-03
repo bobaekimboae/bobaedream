@@ -1337,12 +1337,14 @@ function MarketplaceScreen() {
           // QF-105: 트림까지 고르면 퀵필터 줄은 닫힌다(칩 [트림 ×] 로 다시 연다)
           // QF-106: ④ 퀵필터 자리는 닫지 않는다 — 계층(제조사 → 모델 → 세부모델 → 트림)이 끝나면 연식 알약 줄
           isHeavyCategory ? <HeavyQuickFilter value={heavySelection} onChange={applyHeavySelection} /> :
-          showTruckFormatRail ? <section className="depth-rail no-label is-truck-image-row" aria-label="트럭 형식 빠른 선택">
+          showTruckFormatRail ? <section className="depth-rail has-leading-label is-truck-image-row" aria-label="트럭 형식 빠른 선택">
+            <span className="depth-rail-label">유형</span>
             <QuickRailCarousel ariaLabel="트럭 형식" className="brand-carousel" contentClassName="depth-rail-track">
               {truckFormatCatalog.map((group) => <DepthCard key={group.name} className="is-truck-depth" label={desktop ? group.name : truckQuickLabel(group.name)} ariaLabel={group.name} image={<img src={asset(truckFormatImageFor(group.name) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckFormat(group.name)} />)}
             </QuickRailCarousel>
           </section> :
-          showTruckSubtypeRail ? <section className="depth-rail no-label is-truck-image-row" aria-label={`${selectedTruckFormat} 세부 형식 빠른 선택`}>
+          showTruckSubtypeRail ? <section className="depth-rail has-leading-label is-truck-image-row" aria-label={`${selectedTruckFormat} 세부 형식 빠른 선택`}>
+            <span className="depth-rail-label">세부유형</span>
             <QuickRailCarousel ariaLabel={`${selectedTruckFormat} 세부 형식`} className="brand-carousel" contentClassName="depth-rail-track">
               {truckSubtypeOptions.map((subtype) => <DepthCard key={subtype} className="is-truck-depth" label={desktop ? subtype : truckQuickLabel(subtype)} ariaLabel={subtype} image={<img src={asset(truckSubtypeImageFor(selectedTruckFormat, subtype) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckSubtype(subtype)} />)}
             </QuickRailCarousel>
@@ -1364,8 +1366,8 @@ function MarketplaceScreen() {
                 </button>
               ))}
             </Carousel>
-          </section> : showModelQuickRail && isGuaziQuickStyle ? <section className="depth-rail no-label" aria-label={`${maker} 모델 빠른 선택`}>
-            {/* QF-113 T1: 이미지 줄(제조사·모델·세부모델)은 이름표 없음 — 첫 칸 x = 첫 칩 x(PC) / 첫 칩 − 4(모바일). 이름표는 알약 줄에만 */}
+          </section> : showModelQuickRail && isGuaziQuickStyle ? <section className="depth-rail has-leading-label" aria-label={`${maker} 모델 빠른 선택`}>
+            <span className="depth-rail-label">모델</span>
             <QuickRailCarousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName="depth-rail-track">
               {modelQuickOptions.map((model) => {
                 const modelVisual = guaziVisualsForMaker?.[model];
@@ -1392,7 +1394,8 @@ function MarketplaceScreen() {
                 return <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} disabled={Boolean(isCatalogMaker && modelVisual?.count === "0대")} onClick={() => chooseModel(model)}>{formatModelLabel(model)}</button>;
               })}
             </Carousel>
-          </section> : showGenerationQuickRail && isGuaziQuickStyle ? <section className="depth-rail no-label" aria-label={`${accessibleDepthLabel(selectedModel)} 세부모델 빠른 선택`}>
+          </section> : showGenerationQuickRail && isGuaziQuickStyle ? <section className="depth-rail has-leading-label" aria-label={`${accessibleDepthLabel(selectedModel)} 세부모델 빠른 선택`}>
+            <span className="depth-rail-label">세부모델</span>
             <QuickRailCarousel ariaLabel={`${accessibleDepthLabel(selectedModel)} 세부모델`} className="brand-carousel" contentClassName="depth-rail-track">
               {railGenerationOptions.map((generation) => {
                 // QF-097: 카탈로그 세부 모델은 자기 이미지만(없으면 점선 빈 칸)
@@ -1451,7 +1454,7 @@ function MarketplaceScreen() {
               </div>
             </div>
           </section> : showGuaziMakerRail && isGuaziQuickStyle ? (() => {
-            // QF-096: 과쯔 제조사 줄 = 승용 제조사 로고(brand/kr). 라벨 없이 첫 카드 왼쪽 선 = 첫 칩 왼쪽 선
+            // 제조사 줄은 초톳처럼 왼쪽 고정 제목 뒤에 로고 슬롯을 배치한다.
             // QF-108: 월 단위 상위 10(brand-top10.json) + 11번째 "전체 브랜드"(제조사 칩과 같은 목록 창을 연다)
             // QF-114: 바이크 · 트럭·특장은 유형별 상위 10(승용 브랜드 없음), 샘플 0대 칸은 흐리게(빼지 않음), 로고가 없으면 첫 글자 원형
             const typeList = categoryTypeBrandList;
@@ -1463,7 +1466,8 @@ function MarketplaceScreen() {
               <DepthCard key={item.label} className={typeList && sampleCount(item.key) === 0 ? "is-dim" : undefined} label={categoryRailLabel(category, item.label)} image={<CategoryBrandLogo category={category} name={item.label} kind={plainQuickCards ? "plain" : "rail"} initialFallback={Boolean(typeList)} />} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />
             );
             return (
-              <section className="depth-rail no-label is-kr-maker" aria-label={`${categoryBrandRail.title} 빠른 선택`}>
+              <section className="depth-rail has-leading-label is-kr-maker" aria-label={`${categoryBrandRail.title} 빠른 선택`}>
+                <span className="depth-rail-label">제조사</span>
                 <QuickRailCarousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName="depth-rail-track">
                   {sections.domestic.map(card)}
                   {sections.domestic.length && sections.imported.length ? <span className="kr-maker-divider" aria-hidden="true" /> : null}

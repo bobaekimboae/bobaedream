@@ -217,8 +217,16 @@ export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string, detail
     };
     return (
       <section className="bbm-category-menu is-hierarchical" aria-label="차량 카테고리">
-        <BbmCategoryIconRow activeValue={activeGroup.value} onActivate={activateGroup} />
-        {entersNextDepthDirectly(activeGroup) ? null : <BbmCategoryChildPills group={activeGroup} onChoose={onChoose} />}
+        <div className="bbm-category-labeled-row is-type-row">
+          <span className="bbm-quick-rail-title">유형</span>
+          <div className="bbm-category-labeled-content"><BbmCategoryIconRow activeValue={activeGroup.value} onActivate={activateGroup} /></div>
+        </div>
+        {entersNextDepthDirectly(activeGroup) ? null : (
+          <div className="bbm-category-labeled-row is-detail-row">
+            <span className="bbm-quick-rail-title">세부유형</span>
+            <div className="bbm-category-labeled-content"><BbmCategoryChildPills group={activeGroup} onChoose={onChoose} /></div>
+          </div>
+        )}
       </section>
     );
   }

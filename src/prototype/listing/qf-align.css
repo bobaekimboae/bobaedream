@@ -1,7 +1,28 @@
-/* QF-113 T1 과쯔 이미지 줄(제조사·모델·세부모델) 이름표 없음 — 첫 칸 x = 첫 칩 x(PC, 카드 안쪽 20) / 첫 칩 − 4(모바일 12). 이름표("트림:" "연식:" "지역:")는 알약 줄에만 */
-.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .depth-rail.no-label { grid-template-columns: minmax(0, 1fr); }
-.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .depth-rail.no-label .depth-rail-track { padding-right: 20px; padding-left: 20px; }
-.marketplace.is-bbm-m.is-qf-guazi .depth-rail.no-label .depth-rail-track { padding-left: 12px; }
+/* 초톳 방식 좌측 제목: 모든 이미지 뎁스는 같은 고정 제목 칸 뒤에서 시작한다.
+   PC 제목 칸 92px(왼쪽 20), 모바일 76px(왼쪽 16). 제목 길이가 달라도 첫 슬롯 x는 같다. */
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .depth-rail.has-leading-label { grid-template-columns: 92px minmax(0, 1fr); }
+.marketplace.is-bbm-m.is-qf-guazi .depth-rail.has-leading-label { grid-template-columns: 76px minmax(0, 1fr); }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .depth-rail.has-leading-label .depth-rail-label { padding-right: 8px; padding-left: 20px; box-sizing: border-box; }
+.marketplace.is-bbm-m.is-qf-guazi .depth-rail.has-leading-label .depth-rail-label { padding-right: 4px; padding-left: 16px; box-sizing: border-box; }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .depth-rail.has-leading-label .depth-rail-track,
+.marketplace.is-bbm.is-qf-guazi.is-qf-plain .bbm-content-head.is-chotot .depth-rail.has-leading-label .depth-rail-track { padding-right: 20px; padding-left: 0; }
+.marketplace.is-bbm-m.is-qf-guazi .depth-rail.has-leading-label .depth-rail-track,
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail.has-leading-label .depth-rail-track { padding-left: 0; }
+
+/* 첫 차량 카테고리 줄과 하위 알약 줄도 같은 제목 열을 공유한다. */
+.marketplace.is-qf-guazi .bbm-category-labeled-row { display: grid; grid-template-columns: 92px minmax(0, 1fr); align-items: center; min-width: 0; }
+.marketplace.is-qf-guazi .bbm-category-labeled-content { min-width: 0; overflow: hidden; }
+.marketplace.is-qf-guazi .bbm-quick-rail-title { display: flex; align-self: stretch; align-items: center; padding: 0 8px 0 20px; box-sizing: border-box; color: #595959; font-size: 14px; font-weight: 400; line-height: 20px; white-space: nowrap; }
+.marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-labeled-content .bbm-category-menu__list,
+.marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-labeled-content .bbm-category-child-pills { padding-left: 0; }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu.is-hierarchical .bbm-category-labeled-content .bbm-category-menu__list,
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu.is-hierarchical .bbm-category-labeled-content .bbm-category-child-pills,
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-hierarchical .bbm-category-labeled-content .bbm-category-menu__list,
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-hierarchical .bbm-category-labeled-content .bbm-category-child-pills { padding-left: 0; }
+@media (max-width: 767px) {
+  .marketplace.is-qf-guazi .bbm-category-labeled-row { grid-template-columns: 76px minmax(0, 1fr); }
+  .marketplace.is-qf-guazi .bbm-quick-rail-title { padding-right: 4px; padding-left: 16px; }
+}
 
 /* QF-113 T2 "필터" 칩: 조건이 없으면 "필터", 있으면 "필터 N"(글자 유지 + 숫자, #222). 폭은 두 자리 수까지 들어가는 값으로 고정 → 조건 수가 바뀌어도 옆 칩이 밀리지 않음 */
 .marketplace.is-bbm.is-qf-guazi .bbm-hybrid-top .bbm-filter-button { justify-content: center; width: 92px; min-width: 92px; box-sizing: border-box; }

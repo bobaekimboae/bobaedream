@@ -87,11 +87,11 @@ const measure = (page, device) => page.evaluate(([device, spec]) => {
   const regionRow = Boolean(document.querySelector(".bbm-ct-region-row"));
   const head = document.querySelector(".bbm-m-head");
   const headOk = device === "m" ? Boolean(head && head.querySelector(".bbm-ct-crumbs") && head.querySelector(".bbm-m-title") && head.getBoundingClientRect().top >= (slot?.getBoundingClientRect().bottom ?? 0) - 0.5 && parseFloat(getComputedStyle(head).borderTopWidth) === 8) : null;
-  // 모바일 ④ 첫 칸·이름표 x = 첫 칩 − 4
+  // 모바일 ④ 왼쪽 제목 다음에 첫 칸이 바로 시작하는지 확인
   const firstChip = device === "m" ? document.querySelector(".filter-shell.is-bbm .filter-fixed")?.getBoundingClientRect().left : null;
-  const labelEl = rail?.querySelector(".depth-rail-label");
-  const labelText = labelEl ? (() => { const range = document.createRange(); range.selectNodeContents(labelEl); return range.getBoundingClientRect().left; })() : null;
-  const firstInRail = rail ? (labelText ?? rail.querySelector(".depth-card, .bbm-category-menu__button")?.getBoundingClientRect().left ?? null) : null;
+  const labelEl = rail?.querySelector(".depth-rail-label, .bbm-quick-rail-title");
+  const leadingRight = labelEl?.getBoundingClientRect().right ?? null;
+  const firstInRail = rail?.querySelector(".depth-card, .bbm-category-menu__button")?.getBoundingClientRect().left ?? null;
   const chips = [...document.querySelectorAll(device === "pc" ? ".bbm-ct-chip-row .filter-chip" : ".filter-shell.is-bbm .filter-chip")].filter((el) => el.getBoundingClientRect().width).map((el) => `${el.textContent.trim()}${el.classList.contains("is-active") ? "×" : "▾"}`);
   const filterBtn = document.querySelector(device === "pc" ? ".bbm-filter-button" : ".filter-shell.is-bbm .filter-fixed");
   const filterBtnDark = filterBtn ? getComputedStyle(filterBtn).backgroundColor === "rgb(34, 34, 34)" : null;
@@ -102,8 +102,8 @@ const measure = (page, device) => page.evaluate(([device, spec]) => {
   const firstCard = imageRail?.querySelector(".depth-card"); const firstMedia = firstCard?.querySelector(".depth-card-media");
   const filterEl = document.querySelector(device === "pc" ? ".bbm-hybrid-top .bbm-filter-button" : ".filter-shell.is-bbm .filter-fixed");
   const nextChip = [...document.querySelectorAll(device === "pc" ? ".bbm-ct-chip-row .filter-chip" : ".filter-shell.is-bbm .filter-chip")].find((el) => el.getBoundingClientRect().width);
-  const align = { firstCellX: firstCard ? r(firstCard.getBoundingClientRect().left) : null, cellTop: firstCard ? r(firstCard.getBoundingClientRect().top - rail.getBoundingClientRect().top) : null, mediaBottom: firstMedia ? r(firstMedia.getBoundingClientRect().bottom - firstCard.getBoundingClientRect().top) : null, afterFilterX: nextChip ? r(nextChip.getBoundingClientRect().left) : null, filterX: filterEl ? r(filterEl.getBoundingClientRect().left) : null, filterText: filterEl?.textContent.trim() ?? null, hasLabel: Boolean(imageRail?.querySelector(".depth-rail-label")) };
-  return { align, crumbs, layers, cardH, pill, railKind, overflow, scrollbars, wrapPills, wrapNames, cellH, title, regionRow, headOk, firstChip, firstInRail, chips, filterBtnDark, scrollTop: document.querySelector(".mobile-scroll")?.scrollTop ?? 0 };
+  const align = { firstCellX: firstCard ? r(firstCard.getBoundingClientRect().left) : null, labelRight: labelEl ? r(labelEl.getBoundingClientRect().right) : null, cellTop: firstCard ? r(firstCard.getBoundingClientRect().top - rail.getBoundingClientRect().top) : null, mediaBottom: firstMedia ? r(firstMedia.getBoundingClientRect().bottom - firstCard.getBoundingClientRect().top) : null, afterFilterX: nextChip ? r(nextChip.getBoundingClientRect().left) : null, filterX: filterEl ? r(filterEl.getBoundingClientRect().left) : null, filterText: filterEl?.textContent.trim() ?? null, hasLabel: Boolean(imageRail?.querySelector(".depth-rail-label")) };
+  return { align, crumbs, layers, cardH, pill, railKind, overflow, scrollbars, wrapPills, wrapNames, cellH, title, regionRow, headOk, firstChip, leadingRight, firstInRail, chips, filterBtnDark, scrollTop: document.querySelector(".mobile-scroll")?.scrollTop ?? 0 };
 }, [device, SPEC]);
 
 const judge = (m, device, mode) => {
@@ -147,7 +147,7 @@ const judge = (m, device, mode) => {
   if (device === "m") {
     if (m.regionRow) problems.push("모바일 지역 칩 줄 있음");
     if (!m.headOk) problems.push("경로·제목이 회색 띠 아래 아님");
-    if (m.firstChip !== null && m.firstInRail !== null && Math.abs(m.firstInRail - (m.firstChip - 4)) > 0.5) problems.push(`④ 첫 칸 x ${m.firstInRail} ≠ ${m.firstChip - 4}`);
+    if (m.leadingRight !== null && m.firstInRail !== null && Math.abs(m.firstInRail - m.leadingRight) > 0.5) problems.push(`④ 첫 칸 x ${m.firstInRail} ≠ 제목 오른쪽 ${m.leadingRight}`);
   }
   return problems;
 };
@@ -217,16 +217,16 @@ for (const mode of modes) {
     const forward = steps.slice(1, 7).map((step) => device === "pc" ? step.cardH : step.layers.find((layer) => layer.id === "④")?.h);
     const changes = forward.slice(1).filter((value, i) => Math.abs(value - forward[i]) > 0.5).length;
     const flowProblems = [];
-    // QF-113 정렬 점검(처음 → 벤츠 → C클래스 → W206 → C200): ① 이미지 줄 첫 칸 x 모두 같음(PC = 첫 칩 x, 모바일 = 첫 칩 − 4) · 이름표 없음
+    // QF-113 정렬 점검(처음 → 벤츠 → C클래스 → W206 → C200): ① 이미지 줄 첫 칸 x 모두 같고 왼쪽 고정 제목 바로 다음에 시작
     // ② "필터" 다음 칩 x 가 조건 수와 상관없이 같음 ③ 이미지 줄 칸 위 끝·이미지 영역 바닥 같음
     const alignSteps = steps.slice(1, 6);
     const imageSteps = alignSteps.filter((step) => step.align.firstCellX !== null);
     const uniq = (list) => [...new Set(list.map((v) => Math.round(v * 10) / 10))];
     const firstXs = uniq(imageSteps.map((step) => step.align.firstCellX));
-    const wantX = device === "pc" ? imageSteps[0]?.align.filterX : (imageSteps[0]?.align.filterX ?? 0) - 4;
-    const align = { firstXs, wantX, afterFilterXs: uniq(alignSteps.map((step) => step.align.afterFilterX)), tops: uniq(imageSteps.map((step) => step.align.cellTop)), bottoms: uniq(imageSteps.map((step) => step.align.mediaBottom)), labels: imageSteps.filter((step) => step.align.hasLabel).map((step) => step.name), filterTexts: alignSteps.map((step) => step.align.filterText) };
+    const wantX = imageSteps[0]?.align.labelRight;
+    const align = { firstXs, wantX, afterFilterXs: uniq(alignSteps.map((step) => step.align.afterFilterX)), tops: uniq(imageSteps.map((step) => step.align.cellTop)), bottoms: uniq(imageSteps.map((step) => step.align.mediaBottom)), missingLabels: imageSteps.filter((step) => !step.align.hasLabel).map((step) => step.name), filterTexts: alignSteps.map((step) => step.align.filterText) };
     if (firstXs.length !== 1 || Math.abs(firstXs[0] - wantX) > 0.5) flowProblems.push(`① 이미지 줄 첫 칸 x ${firstXs.join("/")} (기대 ${wantX})`);
-    if (align.labels.length) flowProblems.push(`① 이미지 줄 이름표 있음(${align.labels.join(",")})`);
+    if (align.missingLabels.length) flowProblems.push(`① 이미지 줄 이름표 없음(${align.missingLabels.join(",")})`);
     if (align.afterFilterXs.length !== 1) flowProblems.push(`② "필터" 다음 칩 x ${align.afterFilterXs.join("/")}`);
     if (align.tops.length !== 1 || align.bottoms.length !== 1) flowProblems.push(`③ 이미지 줄 위 끝 ${align.tops.join("/")} · 바닥 ${align.bottoms.join("/")}`);
     if (changes !== 1) flowProblems.push(`앞으로 가는 흐름 높이 변화 ${changes}회(${forward.join("→")})`);
@@ -245,7 +245,7 @@ for (const mode of modes) {
   for (let i = 0; i < result[tags[0]].steps.length; i += 1) {
     console.log([result[tags[0]].steps[i].name, ...tags.map((tag) => { const step = result[tag].steps[i]; const h = tag.startsWith("pc") ? step.cardH : step.layers.find((layer) => layer.id === "④")?.h; return `${step.problems.length ? "X" : "O"} ${h} ${step.railKind}${step.problems.length ? ` (${step.problems.join("; ")})` : ""}`; })].join(" | "));
   }
-  for (const tag of tags) { const a = result[tag].align; console.log(`${a.firstXs.length === 1 && a.afterFilterXs.length === 1 && a.tops.length === 1 && a.bottoms.length === 1 && !a.labels.length ? "O" : "X"} ${tag} 정렬(QF-113): ① 첫 칸 x ${a.firstXs.join("/")}(기대 ${a.wantX}) ② 필터 다음 칩 x ${a.afterFilterXs.join("/")} ③ 칸 위 ${a.tops.join("/")} · 영역 바닥 ${a.bottoms.join("/")} · 필터 칩 ${a.filterTexts.join("→")}`); }
+  for (const tag of tags) { const a = result[tag].align; console.log(`${a.firstXs.length === 1 && a.afterFilterXs.length === 1 && a.tops.length === 1 && a.bottoms.length === 1 && !a.missingLabels.length ? "O" : "X"} ${tag} 정렬(QF-113): ① 제목 다음 첫 칸 x ${a.firstXs.join("/")}(기대 ${a.wantX}) ② 필터 다음 칩 x ${a.afterFilterXs.join("/")} ③ 칸 위 ${a.tops.join("/")} · 영역 바닥 ${a.bottoms.join("/")} · 필터 칩 ${a.filterTexts.join("→")}`); }
   for (const tag of tags) console.log(`${result[tag].flowProblems.length ? "X" : "O"} ${tag} 흐름: 높이 변화 ${result[tag].changes}회(${result[tag].forward.join("→")}) · 이미지 로딩 전후 차이 ${result[tag].maxShift} · 콘솔 오류 ${result[tag].errors}${result[tag].flowProblems.length ? ` — ${result[tag].flowProblems.join("; ")}` : ""}`);
 }
 await browser.close();
