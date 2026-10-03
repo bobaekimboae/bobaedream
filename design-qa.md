@@ -1,3 +1,45 @@
+# Design QA — 모바일 판매자 칩 → 카테고리 칩
+
+## Comparison target
+
+- Source visual truth path: 사용자 제공 `1-1000015016.jpg`의 모바일 전체 필터 위 카테고리 중첩 바텀시트.
+- Implementation: `src/prototype/listing/index.tsx`의 `mobileBbmChips`와 기존 `BbmCategoryMenu`·`BbmSheet`.
+- Implementation screenshot: Codex 인앱 브라우저 탭 69에서 `http://127.0.0.1:4182/?qf=guazi&brandlogo=autohome`을 렌더링해 캡처.
+- Viewport: 384×844 CSS px, density 1×.
+- State: 모바일 목록 첫 화면과 `카테고리` 칩을 눌러 중첩 시트가 열린 상태.
+
+## Findings
+
+- 모바일 필터 레일은 `필터 → 카테고리 → 중고차 → 제조사` 순서이며 `판매자` 칩은 노출되지 않는다.
+- 카테고리 칩은 실사 차량 7종이 표시되는 기존 중첩 바텀시트를 연다.
+- 전체 필터 내부의 `판매자 유형`은 유지되어 기능 손실이 없다.
+- PC가 사용하는 `bbmChips`는 변경하지 않아 PC 상단 판매자 칩을 보존했다.
+
+## Required fidelity surfaces
+
+- Fonts and typography: 기존 퀵필터와 시트 타이포그래피를 그대로 재사용해 크기·굵기 변화가 없다.
+- Spacing and layout rhythm: 기존 칩 높이·간격과 60×40px 카테고리 슬롯, 고정 하단 액션 영역을 유지한다.
+- Colors and visual tokens: 기존 흰색 시트·검정 확인 버튼·회색 딤드 토큰을 유지한다.
+- Image quality and asset fidelity: 기존 투명 실사 차량 PNG를 `object-fit: contain`으로 표시해 크롭·왜곡이 없다.
+- Copy and content: `판매자`를 `카테고리`로 교체했고 자동차·화물트럭·바이크·모터홈·올드카·건설기계·부품용품 명칭을 유지한다.
+
+## Comparison history
+
+| 회차 | P0/P1/P2 발견 | 수정 | 결과 |
+|---|---|---|---|
+| 1 | 없음 | 모바일 전용 칩 배열을 분리하고 카테고리 중첩 시트 연결 | 통과 |
+
+## Verification
+
+- `npm run verify:qf`: passed.
+- 모바일 첫 칩·판매자 칩 미노출: passed.
+- 카테고리 중첩 바텀시트: passed.
+- 브라우저 콘솔 오류: 0건.
+
+final result: passed
+
+---
+
 # Design QA — 메인 차량 카테고리 실사 슬롯
 
 ## Comparison target

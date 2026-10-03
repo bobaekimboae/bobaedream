@@ -1454,8 +1454,8 @@ function MarketplaceScreen() {
   // QF-076: 제조사·모델·등급 외 필터(filters.bbm)는 선택 모양만 남기고 목록을 거르지 않는다 → "확인 N대"는 지금 목록 수
   const countWithBbm = (bbm: BbmFilterValues) => isGuaziQuickStyle ? baseListCars.filter((car) => matchesBbmFilters(car, bbm)).length : visibleCars.length;
   const setBbmFilters = (bbm: BbmFilterValues) => setFilters((current) => ({ ...current, bbm }));
-  // QF-089: 기본 칩 순서는 원본을 따르되, 현재 시안 작업 필터인 판매자는 [필터] 바로 오른쪽에 고정한다.
-  // 판매자 값이 걸리면 빈 판매자 칩 대신 같은 자리의 적용 칩(진한 채움 + ×)으로 바뀐다.
+  // QF-089: PC 기본 칩 순서는 원본을 따르되, 판매자는 [필터] 바로 오른쪽에 고정한다.
+  // 모바일은 판매자 대신 카테고리를 첫 칩으로 노출하고, 판매자 조건은 전체 필터 안에서 유지한다.
   // 값이 걸린 필터 칩은 줄에서 빠지고 그 자리에 적용 칩(진한 채움 + ×)이 생긴다. 요약 칩·트림 칩은 퀵필터 규격 그대로
   const chipByKey = (key: string) => quickFilterChips.find((chip) => chip.key === key);
   // QF-117: 과쯔 주행거리 칩 표기 = "3~6만km"(칩) · "3.5~8만km"(직접 범위) · "10만km 이상"(최대 없음)
@@ -1559,6 +1559,19 @@ function MarketplaceScreen() {
     groupChip("price", "가격", "가격", rangeIsSet(bbmValue.ranges.price)),
     groupChip("fuel", "연료", "연료", Boolean(bbmValue.checks.fuel?.length)),
   ] as Array<BbmChip | null | undefined>).filter((chip): chip is BbmChip => Boolean(chip));
+  const mobileBbmChips: BbmChip[] = [
+    {
+      key: "category-filter",
+      label: "카테고리",
+      active: false,
+      onClick: () => {
+        setBbmFullDraft(bbmValue);
+        setBbmFullItem("카테고리");
+        setBbmFullOpen(true);
+      },
+    },
+    ...bbmChips.filter((chip) => chip.key !== "seller" && !chip.key.startsWith("applied-check:sellerKind:")),
+  ];
   // QF-092 원본 재실측(2026-09-25): 적용 칩이 바뀌어도 칩 줄 스크롤은 그대로(칩을 누를 때만 revealBbmChip). 예전 "맨 앞 적용 칩 47px" 규칙은 우연히 맞았던 것이라 뺐다
   useEffect(() => {
     if (desktop || !isGuaziQuickStyle) return;
@@ -1920,7 +1933,7 @@ function MarketplaceScreen() {
             <section className={`filter-shell quick-style-guazi is-bbm${bbmRailScrolled ? " is-scrolled" : ""}`} aria-label="중고차 필터" data-history={shownHistory}>
               <button className={`filter-fixed${bbmAppliedCount ? " is-applied" : ""}`} type="button" aria-label={bbmAppliedCount ? `필터 ${bbmAppliedCount}개 적용됨` : "필터"} onClick={openBbmFull}><img className="ui-icon" src={bbmIcon(bbmFilterIconName)} alt="" aria-hidden="true" />{isGuaziQuickStyle ? <><span>필터</span>{bbmAppliedCount ? <b className="filter-fixed-count">{bbmAppliedCount}</b> : null}</> : bbmAppliedCount ? <b className="filter-fixed-count">{bbmAppliedCount}</b> : <span>필터</span>}</button>
               <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
-                {bbmChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} onClick={() => { revealBbmChip(chip.label); chip.onClick(); }} onClear={chip.onClear} />)}
+                {mobileBbmChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} onClick={() => { revealBbmChip(chip.label); chip.onClick(); }} onClear={chip.onClear} />)}
               </Carousel>
             </section>
             {/* QF-106 ④ 퀵필터 자리. 과쯔 원본은 바로 영상 매물 줄로 이어지고 별도 경로·제목·추천어가 없다. */}
