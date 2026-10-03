@@ -10,6 +10,7 @@ import {
   chototTestCars,
   bbmSampleCars,
   bikeCars,
+  campingCars,
   luxuryUiTestCars,
   compactYearLabel,
   compactGenerationCardYearLabel,
@@ -31,6 +32,8 @@ import {
   importedBrandRailOptions,
   inventoryCars,
   heavyCars,
+  materialHandlingCars,
+  partsCars,
   truckCars,
   isDesktopPreview,
   matchesChoTotFilters,
@@ -575,7 +578,10 @@ function MarketplaceScreen() {
   const regionKeyword = region.province === "광주" ? "광주" : region.province;
   const { maker, model: selectedModel, price, seller: sellerType, videoOnly, category } = filters;
   const isBikeCategory = category === "바이크";
-  const isHeavyCategory = category === "건설기계" || category === "자재운반장비";
+  const isHeavyCategory = category === "건설기계";
+  const isMaterialHandlingCategory = category === "자재운반장비";
+  const isCampingCategory = category === "캠핑카";
+  const isPartsCategory = category === "부품 · 용품";
   const isTruckCategory = category === "트럭 · 특장";
   const autohomeLogoPreview = new URLSearchParams(window.location.search).get("brandlogo") === "autohome";
   const truckSubtypeOptions = truckSubtypesFor(selectedTruckFormat);
@@ -617,7 +623,21 @@ function MarketplaceScreen() {
   const plainQuickCards = isGuaziQuickStyle && (typeof window === "undefined" || new URLSearchParams(window.location.search).get("qfcard") !== "card");
   // QF-090: 과쯔(개발 시안형)는 필터 동작 확인용 샘플 60대, 초톳·동처띠는 기존 19대 그대로
   const luxuryUiTestMode = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("scenario") === "luxury30";
-  const listingCars = isHeavyCategory ? heavyCars : isTruckCategory ? truckCars : isBikeCategory ? bikeCars : luxuryUiTestMode ? luxuryUiTestCars : isGuaziQuickStyle ? bbmSampleCars : chototTestCars;
+  const listingCars = isHeavyCategory
+    ? heavyCars
+    : isMaterialHandlingCategory
+      ? materialHandlingCars
+      : isTruckCategory
+        ? truckCars
+        : isBikeCategory
+          ? bikeCars
+          : isCampingCategory
+            ? campingCars
+            : isPartsCategory
+              ? partsCars
+              : luxuryUiTestMode
+                ? luxuryUiTestCars
+                : isGuaziQuickStyle ? bbmSampleCars : chototTestCars;
   const bbmValue = filters.bbm ?? emptyBbmFilters;
   // QF-097: 과쯔는 9개 제조사의 모델·세부 모델을 카탈로그 스냅숏으로(model-catalog-kr), 나머지 제조사·다른 모드는 기존 데이터
   const modelsByMakerMap = isBikeCategory ? bikeListingModelsByMaker : isTruckCategory ? truckModelsByMaker : isGuaziQuickStyle ? guaziModelsByMaker : quickModelsByMaker;
@@ -716,6 +736,7 @@ function MarketplaceScreen() {
       const trimMatch = activeTrimVariants.length === 0 || activeTrimVariants.some((variant) => normalizeModelSearchText(searchText).includes(normalizeModelSearchText(variant)));
       // QF-097 보완: 과쯔 카탈로그 제조사는 매물이 연결된 모델 하나로만 거른다(이름 일부 겹침 방지)
       const catalogModelMatch = !isCatalogMaker || !filters.model || catalogModelOfCar(car) === filters.model;
+      const categoryChildMatch = !isCampingCategory || !bbmCategoryChild || car.virtualCategory?.categoryDetail === bbmCategoryChild;
       const heavyMatch = !isHeavyCategory || (
         (!heavySelection.equipmentTypeCode || car.heavy?.equipmentTypeCode === heavySelection.equipmentTypeCode)
         && (!heavySelection.detailTypeCode || heavySelection.detailTypeCode === "all" || car.heavy?.detailTypeCode === heavySelection.detailTypeCode)
@@ -723,9 +744,9 @@ function MarketplaceScreen() {
         && (!heavySelection.modelCode || car.heavy?.modelCode === heavySelection.modelCode)
         && (!heavySelection.submodelCode || car.heavy?.submodelCode === heavySelection.submodelCode)
       );
-      return heavyMatch && matchesTruckSelection(car) && matchesChoTotFilters(car, filters) && catalogModelMatch && generationMatch && trimMatch && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || searchText.toLowerCase().includes(normalized));
+      return categoryChildMatch && heavyMatch && matchesTruckSelection(car) && matchesChoTotFilters(car, filters) && catalogModelMatch && generationMatch && trimMatch && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || searchText.toLowerCase().includes(normalized));
     });
-  }, [effectiveSelectedVariants, filters, heavySelection, isCatalogMaker, isGuaziQuickStyle, isHeavyCategory, isTruckCategory, listingCars, query, region.district, regionKeyword, selectedGeneration, selectedGenerationOption, selectedTruckFormat, selectedTruckSpec, selectedTruckSubtype, selectedVariants, trimApplied]);
+  }, [bbmCategoryChild, effectiveSelectedVariants, filters, heavySelection, isCampingCategory, isCatalogMaker, isGuaziQuickStyle, isHeavyCategory, isTruckCategory, listingCars, query, region.district, regionKeyword, selectedGeneration, selectedGenerationOption, selectedTruckFormat, selectedTruckSpec, selectedTruckSubtype, selectedVariants, trimApplied]);
   // QF-090: 우리 데이터가 있는 개발 시안형 항목(바디타입·연식·주행거리·가격·연료·변속기·인승·외부색상·판매자 구분·지역)으로 거른다
   const filteredWithoutPrice = useMemo(() => isGuaziQuickStyle ? baseListCars.filter((car) => matchesBbmFilters(car, filters.bbm)) : baseListCars, [baseListCars, filters.bbm, isGuaziQuickStyle]);
   // QF-097 보완(매물 수 기준 하나로): 과쯔 카탈로그 제조사의 모델·세부 모델·트림 수 = 화면 샘플 매물 수(모델·세부 모델·트림만 뺀 지금 조건).
@@ -1300,7 +1321,8 @@ function MarketplaceScreen() {
   const showYearQuickRail = Boolean(isGuaziQuickStyle && maker && selectedModel && (
     (selectedGeneration && (guaziTrimChosen || guaziTrimRailOptions.length <= 1)) || (!hasGenerationDepth && !hasDirectVariantDepth)
   ));
-  const showGuaziMakerRail = Boolean(isGuaziQuickStyle && (!isTruckCategory || Boolean(selectedTruckSubtype && truckSpecDepthComplete)) && !guaziTrimChosen && !showCategoryQuickRail && !showModelQuickRail && !showGenerationQuickRail && !showVariantQuickRail && !showVehicleHeaderRail && (categoryBrandRail.title === "제조사" || category === "바이크"));
+  const categoryTypeBrandList = krTypeTop10(category);
+  const showGuaziMakerRail = Boolean(isGuaziQuickStyle && (!isTruckCategory || Boolean(selectedTruckSubtype && truckSpecDepthComplete)) && !guaziTrimChosen && !showCategoryQuickRail && !showModelQuickRail && !showGenerationQuickRail && !showVariantQuickRail && !showVehicleHeaderRail && (categoryBrandRail.title === "제조사" || category === "바이크" || categoryTypeBrandList));
 
   // 필터 칩 줄과 퀵필터 레일은 모바일·PC가 같은 마크업을 쓰고, PC에서는 필터 헤더 패널 안으로 위치만 옮긴다.
   const filterShell = (
@@ -1432,11 +1454,11 @@ function MarketplaceScreen() {
             // QF-096: 과쯔 제조사 줄 = 승용 제조사 로고(brand/kr). 라벨 없이 첫 카드 왼쪽 선 = 첫 칩 왼쪽 선
             // QF-108: 월 단위 상위 10(brand-top10.json) + 11번째 "전체 브랜드"(제조사 칩과 같은 목록 창을 연다)
             // QF-114: 바이크 · 트럭·특장은 유형별 상위 10(승용 브랜드 없음), 샘플 0대 칸은 흐리게(빼지 않음), 로고가 없으면 첫 글자 원형
-            const typeList = krTypeTop10(category);
+            const typeList = categoryTypeBrandList;
             const sections = krTopTenSections(category === "국산차" ? "domestic" : category === "수입차" ? "imported" : "all", typeList ? category : undefined);
             const sampleCount = (key: string) => isTruckCategory
               ? listingCars.filter((car) => car.maker === key && matchesTruckSelection(car)).length
-              : isBikeCategory ? listingCars.filter((car) => car.maker === key).length : 0;
+              : listingCars.filter((car) => car.maker === key).length;
             const card = (item: { label: string; key: string }) => (
               <DepthCard key={item.label} className={typeList && sampleCount(item.key) === 0 ? "is-dim" : undefined} label={categoryRailLabel(category, item.label)} image={<CategoryBrandLogo category={category} name={item.label} kind={plainQuickCards ? "plain" : "rail"} initialFallback={Boolean(typeList)} />} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />
             );

@@ -299,6 +299,7 @@ export function BbmSellerTabs<T extends string>({ tabs, value, onChange, onBrand
 // ── 매물 카드(원본 car-list-result-card). variant pc: 사진 160, 마력 포함 / mobile 목록형: 사진 136×136, 마력 없음
 export function BbmResultCard({ car, variant, featured = false, liked, onToggleLike, onOpen, onChat }: { car: Car; variant: "pc" | "mobile"; featured?: boolean; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void }) {
   const seller = sellerLabel(car);
+  const listPlace = car.virtualCategory?.isVirtual ? car.place : car.uiTest && car.sellerType === "개인" ? car.place : displayListPlace(car.place, car.sellerType);
   const badges = bbmCardBadges(car);
   const priceMatch = car.price.match(/^(월\s*)?(.+?)\s*(만원)$/);
   const title = <strong className="bbm-card-title"><span className="bbm-card-model">{car.title}</span>{car.trim ? <><span aria-hidden="true"> </span><span className="bbm-card-trim">{car.trim}</span></> : null}</strong>;
@@ -331,7 +332,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
             </div>
           </div>
           <div className="bbm-card-meta">
-            <div className="bbm-card-location"><img src={bbmIcon("card-location")} alt="" aria-hidden="true" /><span className="bbm-card-location-text">{car.uiTest && car.sellerType === "개인" ? car.place : displayListPlace(car.place, car.sellerType)}</span></div>
+            <div className="bbm-card-location"><img src={bbmIcon("card-location")} alt="" aria-hidden="true" /><span className="bbm-card-location-text">{listPlace}</span></div>
             <div className="bbm-card-meta-row">
               <div className="bbm-card-seller">
                 <img className="bbm-card-seller-logo" src={asset(sellerAvatar(car))} alt="" draggable={false} />

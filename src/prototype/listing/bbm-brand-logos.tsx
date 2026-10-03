@@ -4,6 +4,9 @@ import { bbCatalog } from "./pc-bbmuseum";
 import brandTop10 from "../data/brand-top10.json";
 import brandTop10Bike from "../data/brand-top10-bike.json";
 import brandTop10Truck from "../data/brand-top10-truck.json";
+import brandTop10Camping from "../data/brand-top10-camping.json";
+import brandTop10Material from "../data/brand-top10-material.json";
+import brandTop10Parts from "../data/brand-top10-parts.json";
 import { bikeBrandLogosV01 } from "./brand-logos-bike-v01";
 import "./bbm-brand-logos.css";
 import { bikeBrandCount } from "../data/bike-filter-catalog";
@@ -139,7 +142,13 @@ export function krMakerRailSections(scope: "all" | "domestic" | "imported") {
 /** QF-108 과쯔 퀵필터 제조사 줄 = 월 단위 상위 10(src/prototype/data/brand-top10.json, 국산 → 구분선 → 수입) + "전체 브랜드" 칸. 이름은 좌측 필터 표기, 값은 catalog key */
 // QF-114: 바이크 · 트럭·특장은 유형별 상위 10(brand-top10-bike.json · brand-top10-truck.json) — 승용 목록과 섞지 않는다
 type TypeTop10 = { month: string; category: string; basis: string; domestic: string[]; imported: string[]; all: { note: string; domestic: string[]; imported: string[]; etc: string[] } };
-const typeTop10: Record<string, TypeTop10> = { 바이크: brandTop10Bike, "트럭 · 특장": brandTop10Truck };
+const typeTop10: Record<string, TypeTop10> = {
+  바이크: brandTop10Bike,
+  "트럭 · 특장": brandTop10Truck,
+  캠핑카: brandTop10Camping,
+  자재운반장비: brandTop10Material,
+  "부품 · 용품": brandTop10Parts,
+};
 export const krTypeTop10 = (category: string) => typeTop10[category] ?? null;
 export function krTopTenSections(scope: "all" | "domestic" | "imported", category?: string) {
   const type = category ? typeTop10[category] : undefined;
