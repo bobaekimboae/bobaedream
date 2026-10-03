@@ -103,3 +103,4 @@
 2026-10-04 / 코덱스-특장 / truck_cargo_*_side_v09.png, truck-format-catalog.ts, cargo_subtype_side_image_v09.md / v09 / 수정 요청: 카고 하위 경형·소형·준중형·중형·준대형·대형 이미지를 톤급별 전용 측면 실루엣으로 분리, GitHub Pages 실행 37146287220 성공 및 공개 모바일·PC 콘솔 오류 0건 검증 / 검수완료
 2026-10-04 / 코덱스-특장 / truck_cargo_*_side_v11.png, truck-format-catalog.ts, cargo_subtype_side_image_v11.md / v11 / 수정 요청: 카고 하위 이미지가 어설퍼 보여 실사풍을 폐기하고 상단 퀵필터 레일용 평면 실루엣으로 재제작, GitHub Pages 실행 37147880461 성공 및 공개 모바일 콘솔 오류 0건 검증 / 검수완료
 2026-10-04 / 코덱스-특장 / HANDOVER_truck_v56.md / v56 / 담당 교체 인수: v04·v05·v08·v11 최신 배포 상태와 미결 검수 항목을 통합 정리 / 미검수
+2026-10-04 / 코덱스-특장 / truck_special_*_side_v12.png, truck-format-catalog.ts, special_vehicle_side_image_v12.md, HANDOVER_truck_v57.md / v12·v57 / 수정 요청: 특수차 4개 그룹·25개 하위 유형을 앞·뒤·상판 면이 보이지 않는 90도 정측면으로 제작해 실제 필터에 연결 / 미검수
