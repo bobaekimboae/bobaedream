@@ -10,15 +10,19 @@
 .marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail.has-leading-label .depth-rail-track { padding-left: 0; }
 
 /* 트럭·특장은 초톳 제조사 줄처럼 왼쪽 제목 슬롯 안에 현재 뎁스명을 표시한다.
-   모바일 76px·PC 92px 뒤에 8px을 두어 모든 이미지·로고 레일의 첫 슬롯 축을 통일한다. */
+   PC는 92px 제목 칸 + 8px 간격을 유지한다.
+   모바일은 384px 초톳 원본 실측값(첫 미디어 중심 x=114px, 반복 피치 84px)에 맞춰
+   제목 칸 68px 뒤에서 카드 폭별 간격을 달리해 이미지·로고의 중심축을 통일한다. */
 .marketplace.is-bbm.is-truck-category.is-qf-guazi .bbm-content-head.is-chotot .depth-rail.has-chotot-brand-slot {
   grid-template-columns: 92px minmax(0, 1fr);
   column-gap: 8px;
 }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi .depth-rail.has-chotot-brand-slot {
-  grid-template-columns: 76px minmax(0, 1fr);
-  column-gap: 8px;
+  grid-template-columns: 68px minmax(0, 1fr);
+  column-gap: 10px;
 }
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi .depth-rail.has-chotot-brand-slot.is-truck-image-row { column-gap: 2px; }
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi .depth-rail.has-chotot-brand-slot.is-kr-maker { column-gap: 8px; }
 .marketplace.is-truck-category.is-qf-guazi .depth-rail.has-chotot-brand-slot > .depth-rail-label {
   box-sizing: border-box;
   color: #595959;
