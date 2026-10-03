@@ -105,3 +105,4 @@
 2026-10-04 / 코덱스-특장 / HANDOVER_truck_v56.md / v56 / 담당 교체 인수: v04·v05·v08·v11 최신 배포 상태와 미결 검수 항목을 통합 정리 / 미검수
 2026-10-04 / 코덱스-특장 / truck_special_*_side_v12.png, truck-format-catalog.ts, special_vehicle_side_image_v12.md, HANDOVER_truck_v57.md / v12·v57 / 수정 요청: 특수차 4개 그룹·25개 하위 유형을 앞·뒤·상판 면이 보이지 않는 90도 정측면으로 제작해 실제 필터에 연결, GitHub Pages 실행 37151348357 성공 및 공개 모바일·PC 검수 / 검수완료
 2026-10-04 / 코덱스-중고차 / truck_format_*_v02.png 외 / v02 / 현대·기아·히노·이스즈 계열 상용차 체형을 참고한 좌향 완전 측면 트럭 유형 13종 제작, 모바일 64×36 슬롯 및 빌드 검수 / 검수완료
+2026-10-04 / 코덱스-중고차 / truck_format_wingbody_open_v02.png, truck_format_reefer_v02.png / v02 / 수정 요청: 윙바디는 반개방 윙으로, 냉장·냉동차는 전면 냉동기와 밀폐 단열 박스로 분리해 루트 유형 인지성 강화 / 검수완료

@@ -56,9 +56,9 @@ export const truckSubtypeValuesForSelection = (format: string | null, subtype: s
 // 적재용량·규격은 이미지가 아니라 알약칩으로 표시하며, 제조사는 브랜드 로고를 사용한다.
 const truckFormatImages: Readonly<Record<string, string>> = {
   "카고(화물)트럭": "truck/formats/v02/truck_format_cargo_v02.png",
-  "윙바디·탑차": "truck/formats/v02/truck_format_wingbody_top_v02.png",
-  "윙바디/탑": "truck/formats/v02/truck_format_wingbody_top_v02.png",
-  "냉장·냉동차": "truck/formats/v02/truck_format_wingbody_top_v02.png",
+  "윙바디·탑차": "truck/formats/v02/truck_format_wingbody_open_v02.png",
+  "윙바디/탑": "truck/formats/v02/truck_format_wingbody_open_v02.png",
+  "냉장·냉동차": "truck/formats/v02/truck_format_reefer_v02.png",
   "버스": "truck/formats/v02/truck_format_bus_v02.png",
   "덤프·믹서": "truck/formats/v02/truck_format_dump_heavy_v02.png",
   "덤프·콘크리트차": "truck/formats/v02/truck_format_dump_heavy_v02.png",
