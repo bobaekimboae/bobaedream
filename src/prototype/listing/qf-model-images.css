@@ -270,10 +270,10 @@
 /* 카고 차급: 1행 차급명 + 2행 대표 톤수. 기존 86px 슬롯 안에서 이미지 크기는 유지한다. */
 .marketplace.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-format-sub .depth-card.is-truck-depth.has-secondary > .depth-card-label {
   display: block;
-  height: 18px;
-  max-height: 18px;
+  height: 16px;
+  max-height: 16px;
   overflow: hidden;
-  line-height: 18px;
+  line-height: 16px;
   text-overflow: ellipsis;
   white-space: nowrap;
   -webkit-line-clamp: 1;
@@ -281,12 +281,12 @@
 .marketplace.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-format-sub .depth-card.is-truck-depth.has-secondary > .depth-card-sub {
   display: block;
   width: 100%;
-  margin-top: 0;
+  margin-top: -2px;
   overflow: hidden;
   color: #8c8c8c;
   font-size: 11px;
   font-weight: 500;
-  line-height: 14px;
+  line-height: 13px;
   text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -367,4 +367,18 @@
   word-break: keep-all;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+
+/* 카고 2줄 문구는 각 줄을 독립 카드처럼 벌리지 않고 한 텍스트 묶음으로 고정한다. */
+.marketplace.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-format-sub .depth-card.is-truck-depth.has-secondary:has(> .depth-card-media:not(.is-brand)) > .depth-card-label {
+  flex: 0 0 16px;
+  height: 16px;
+  max-height: 16px;
+  line-height: 16px;
+}
+.marketplace.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-format-sub .depth-card.is-truck-depth.has-secondary:has(> .depth-card-media:not(.is-brand)) > .depth-card-sub {
+  flex: 0 0 13px;
+  height: 13px;
+  margin-top: -2px;
+  line-height: 13px;
 }
