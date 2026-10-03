@@ -302,7 +302,7 @@ function FilterChip({ label, icon, active, className = "", onClick, onClear, bbm
   }
   return (
     <button className={chipClassName} type="button" aria-pressed={active} onClick={onClick}>
-      {icon ? <Icon name={icon} /> : null}<span>{label}</span>{!icon && !active ? (bbm ? <img className="ui-icon" src={bbmIcon("chip-chevron-down")} alt="" aria-hidden="true" /> : <Icon name="chevron-down.svg" />) : null}
+      {icon ? <Icon name={icon} /> : null}<span>{label}</span>{!icon && !active ? (bbm ? <img className="ui-icon" src={bbmIcon("triangle-down-chotot")} alt="" aria-hidden="true" /> : <Icon name="chevron-down.svg" />) : null}
     </button>
   );
 }
@@ -1353,8 +1353,7 @@ function MarketplaceScreen() {
           // QF-105: 트림까지 고르면 퀵필터 줄은 닫힌다(칩 [트림 ×] 로 다시 연다)
           // QF-106: ④ 퀵필터 자리는 닫지 않는다 — 계층(제조사 → 모델 → 세부모델 → 트림)이 끝나면 연식 알약 줄
           isHeavyCategory ? <HeavyQuickFilter value={heavySelection} onChange={applyHeavySelection} /> :
-          showTruckFormatRail ? <section className="depth-rail has-leading-label is-truck-image-row" aria-label="트럭 형식 빠른 선택">
-            <span className="depth-rail-label">유형</span>
+          showTruckFormatRail ? <section className="depth-rail no-label is-truck-image-row" aria-label="트럭 형식 빠른 선택">
             <QuickRailCarousel ariaLabel="트럭 형식" className="brand-carousel" contentClassName="depth-rail-track">
               {truckFormatCatalog.map((group) => <DepthCard key={group.name} className="is-truck-depth" label={desktop ? group.name : truckQuickLabel(group.name)} ariaLabel={group.name} image={<img src={asset(truckFormatImageFor(group.name) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckFormat(group.name)} />)}
             </QuickRailCarousel>
@@ -2035,7 +2034,7 @@ function MarketplaceScreen() {
           <main className={`marketplace is-bbm-m${plainQuickCards ? " is-qf-plain" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}`} aria-label="중고차 리스트">
             <Header bbm query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} />
             <section className="region-bar is-bbm" aria-label="지역 선택">
-              <button type="button" aria-label={`현재 지역 ${isGuaziQuickStyle ? stableRegionLabel(bbmValue) : regionLabel}, 지역 선택 열기`} onClick={isGuaziQuickStyle ? () => setStableRegionOpen(true) : openRegionSheet}><img className="ui-icon" src={bbmIcon("m-region-location")} alt="" aria-hidden="true" /><span className="region-text"><span className="region-label">지역:</span><strong>{isGuaziQuickStyle ? stableRegionLabel(bbmValue) : regionLabel}</strong></span><span className="region-chevron-icon" aria-hidden="true"><img src={bbmIcon("m-region-chevron")} alt="" /></span></button>
+              <button type="button" aria-label={`현재 지역 ${isGuaziQuickStyle ? stableRegionLabel(bbmValue) : regionLabel}, 지역 선택 열기`} onClick={isGuaziQuickStyle ? () => setStableRegionOpen(true) : openRegionSheet}><span className="region-text"><span className="region-label">지역:</span><strong>{isGuaziQuickStyle ? stableRegionLabel(bbmValue) : regionLabel}</strong></span><span className="region-chevron-icon" aria-hidden="true"><img src={bbmIcon("triangle-down-chotot")} alt="" /></span></button>
               <button type="button" className="reset-button" onClick={() => resetFilters()}>초기화</button>
             </section>
             <section className={`filter-shell quick-style-guazi is-bbm${bbmRailScrolled ? " is-scrolled" : ""}`} aria-label="중고차 필터" data-history={shownHistory}>
@@ -2065,13 +2064,14 @@ function MarketplaceScreen() {
               sellerValue={sellerType}
               onSellerChange={(tab) => setFilters((current) => ({ ...current, seller: current.seller === tab ? "전체" : tab }))}
               onView={() => setBbmMenu("m-view")}
+              viewMode={bbmMobileView}
               extra={debugMode ? quickStyleSelect : null}
             />
             <section className={`bbm-m-list${bbmMobileView === "피드로 보기" ? " is-feed" : bbmMobileView === "갤러리로 보기" ? " is-gallery" : bbmMobileView === "한줄 광고로 보기" ? " is-one-line" : bbmMobileView === "텍스트로 보기" ? " is-text" : ""}`} aria-live="polite">
               {shownCars.length && bbmMobileView === "한줄 광고로 보기" ? <div className="bbm-one-line-head"><span>모델</span><span>연식(연형)</span><span>가격(만원)</span><i /></div> : null}
               {shownCars.length ? pagedCars.map((car, index) => bbmMobileView === "한줄 광고로 보기"
                 ? <BbmOneLineCard key={car.id} car={car} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} />
-                : <BbmResultCard key={car.id} car={car} variant="mobile" featured={bbmMobileView === "피드로 보기" && index === 0} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅은 정식 서비스에서 이용해 주세요.")} />) : carListItems}
+                : <BbmResultCard key={car.id} car={car} variant="mobile" featured={bbmMobileView === "피드로 보기" && index === 0} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅 연결 예정")} />) : carListItems}
               {shownCars.length ? <BbmPagination page={bbmPageNow} total={bbmPageCount} windowSize={3} onChange={goBbmPage} /> : null}
             </section>
             <BbmFooter onNotify={setSearchToast} />

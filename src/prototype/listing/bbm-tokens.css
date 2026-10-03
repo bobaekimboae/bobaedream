@@ -19,6 +19,20 @@
   --bbm-photo-bg: #ebebeb;
   --bbm-blue: #1b4c8c;
   --bbm-page-bg: #f4f4f4;
+  --list-title: #222222;
+  --list-title-size: 16px;
+  --list-title-weight: 600;
+  --list-title-line: 20px;
+  --list-meta: #595959;
+  --list-meta-size: 14px;
+  --list-meta-weight: 400;
+  --list-meta-line: 20px;
+  --list-price: #e5193b;
+  --list-price-size: 16px;
+  --list-price-weight: 700;
+  --list-price-line: 24px;
+  --list-secondary: #8c8c8c;
+  --list-divider: #f4f4f4;
 }
 
 /* 원본 글꼴 Pretendard */
@@ -69,7 +83,8 @@
 .bbm-card-content { display: flex; min-width: 0; flex: 1; flex-direction: column; }
 .bbm-card-text { display: flex; min-width: 0; flex-direction: column; }
 .bbm-card-title { align-self: flex-start; max-width: 100%; overflow: hidden; color: var(--bbm-text-strong); font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
-.bbm-card-spec { overflow: hidden; font-size: 14px; font-weight: 400; text-overflow: ellipsis; white-space: nowrap; }
+.bbm-card-spec { display: flex; min-width: 0; gap: 2px; overflow: hidden; font-size: 14px; font-weight: 400; text-overflow: ellipsis; white-space: nowrap; }
+.bbm-card-spec > span { flex: none; }
 .bbm-card-price { display: inline-flex; align-items: baseline; color: var(--bbm-text-strong); font-size: 16px; font-weight: 700; white-space: nowrap; }
 .bbm-card-price-unit { font-size: 14px; font-weight: 400; line-height: 19.6px; }
 .bbm-card-badges { display: flex; align-items: center; gap: 4px; }
@@ -77,6 +92,8 @@
 .bbm-card-meta { display: flex; flex-direction: column; }
 .bbm-card-location { display: flex; align-items: center; gap: 4px; }
 .bbm-card-location img { width: 16px; height: 16px; flex: none; }
+.bbm-card-location-text { display: flex; min-width: 0; gap: 4px; }
+.bbm-card-location-secondary { color: var(--list-secondary); }
 .bbm-card-meta-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .bbm-card-seller { display: flex; min-width: 0; align-items: center; gap: 8px; }
 .bbm-card-seller-logo { display: block; width: 20px; height: 20px; flex: none; overflow: hidden; border-radius: 50%; background: var(--bbm-text); object-fit: cover; object-position: center; }
@@ -209,29 +226,30 @@
 .bbm-search-suggest__list strong { overflow:hidden; font-size:15px; font-weight:600; line-height:21px; text-overflow:ellipsis; white-space:nowrap; }
 .bbm-search-suggest__list small { color:#9e9e9e; font-size:12px; font-weight:400; line-height:18px; }
 .bbm-search-seller { width:100%; min-height:52px; padding:0 16px; border:0; border-top:1px solid #e8e8e8; background:#fff; color:#222; font:600 14px/20px inherit; text-align:left; cursor:pointer; }
-/* 지역 44: 14/16/10, 아이콘 20 회색, "지역:" 500 #9E9E9E · "전국" 600 #1A1A1A(간격 10), 셰브론 10×5 */
+/* 지역 44: 초톳 모바일 14/20 700. 보배 테마는 라벨·값·초기화를 모두 #222로 유지한다. */
 .region-bar.is-bbm { height: 44px; padding: 14px 16px 10px; box-sizing: border-box; }
-.region-bar.is-bbm > button:first-child { height: 21px; gap: 4px; }
+.region-bar.is-bbm > button:first-child { height: 20px; gap: 4px; }
 .region-bar.is-bbm .ui-icon { width: 20px; height: 20px; }
-.region-bar.is-bbm .region-text { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; line-height: 21px; }
-.region-bar.is-bbm .region-label { color: var(--bbm-text-disabled); font-weight: 500; }
-.region-bar.is-bbm strong { color: var(--bbm-text); font-size: 15px; font-weight: 600; line-height: 21px; }
+.region-bar.is-bbm .region-text { display: inline-flex; align-items: center; gap: 4px; color: var(--bbm-text-strong); font-size: 14px; font-weight: 700; line-height: 20px; }
+.region-bar.is-bbm .region-label { color: var(--bbm-text-strong); font-weight: 700; }
+.region-bar.is-bbm strong { color: var(--bbm-text-strong); font-size: 14px; font-weight: 700; line-height: 20px; }
 .region-bar.is-bbm .region-chevron-icon { display: grid; width: 20px; height: 20px; place-items: center; }
-.region-bar.is-bbm .region-chevron-icon img { width: 10px; height: 5px; }
-.region-bar.is-bbm .reset-button { height: 21px; color: var(--bbm-toolbar-text); font-size: 15px; font-weight: 600; line-height: 21px; }
+.region-bar.is-bbm .region-chevron-icon img { width: 20px; height: 20px; }
+.region-bar.is-bbm .reset-button { height: 20px; color: var(--bbm-text-strong); font-size: 14px; font-weight: 700; line-height: 20px; }
 /* 칩 줄 52: 10/16, 필터 70×32(3/14/3/8, 간격 4) + 6, 칩 간격 8, 14/14 500 */
 .filter-shell.is-bbm { height: 52px; padding: 10px 0 10px 16px; box-sizing: border-box; gap: 0; }
-.filter-shell.is-bbm .filter-fixed { flex: none; justify-content: flex-start; width: max-content; min-width: 0; box-sizing: border-box; margin-left: 0; height: 32px; margin-right: 6px; padding: 3px 14px 3px 8px; gap: 4px; border-radius: 30px; background: var(--bbm-chip-filter-bg); color: var(--bbm-text-strong); font-size: 14px; font-weight: 500; line-height: 14px; }
+.filter-shell.is-bbm .filter-fixed { flex: none; justify-content: flex-start; width: max-content; min-width: 0; box-sizing: border-box; margin-left: 0; height: 32px; margin-right: 6px; padding: 3px 14px 3px 8px; gap: 4px; border-radius: 9999px; background: var(--bbm-chip-filter-bg); color: var(--bbm-text-strong); font-size: 14px; font-weight: 500; line-height: 20px; }
 .filter-shell.is-bbm .filter-fixed .ui-icon { width: 20px; height: 20px; }
 .filter-shell.is-bbm .filter-fixed span { max-width: none; }
 .filter-shell.is-bbm { display: flex; align-items: center; }
 .filter-shell.is-bbm .filter-rail { flex: 1; min-width: 0; height: 32px; margin: 0; }
 .filter-shell.is-bbm .filter-track { gap: 8px; padding: 0 16px 0 0; }
-.filter-shell.is-bbm .filter-chip { flex: none; height: 32px; padding: 3px 6px 3px 14px; gap: 6px; border: 0; border-radius: 30px; box-sizing: border-box; background: var(--bbm-chip-filter-bg); color: var(--bbm-text); font-size: 14px; font-weight: 500; line-height: 14px; }
+.filter-shell.is-bbm .filter-chip { flex: none; height: 32px; padding: 3px 6px 3px 14px; gap: 6px; border: 0; border-radius: 9999px; box-sizing: border-box; background: var(--bbm-chip-filter-bg); color: var(--bbm-text); font-size: 14px; font-weight: 500; line-height: 20px; }
 .filter-shell.is-bbm .filter-chip .ui-icon { width: 20px; height: 20px; }
 .filter-shell.is-bbm .filter-chip.is-active { padding: 3px 5px 3px 14px; gap: 2px; background: var(--bbm-text-strong); color: #fff; }
 .filter-shell.is-bbm .filter-chip.is-active .filter-chip-label { padding: 0; color: #fff; font: inherit; }
-.filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear { display: grid; width: 26px; height: 26px; padding: 0; place-items: center; }
+.filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear { display: grid; width: 14px; height: 14px; margin-left: 4px; padding: 0; border-radius: 50%; background: #8c8c8c; place-items: center; }
+.filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear .ui-icon { width: 14px; height: 14px; }
 /* 유형 줄 100: 8/0/12/24, 간격 18, 아이콘·글자 간격 8, 아래 회색 8 */
 .marketplace.is-bbm-m .bbm-category-menu { overflow-x: auto; border-bottom: 8px solid var(--bbm-page-bg); scrollbar-width: none; }
 .marketplace.is-bbm-m .bbm-category-menu::-webkit-scrollbar { display: none; }
@@ -239,37 +257,37 @@
 .marketplace.is-bbm-m .bbm-category-menu__button { gap: 8px; }
 /* 퀵필터 레일(규격 그대로) 아래 회색 8: 레일 안쪽 여백을 줄이지 않도록 다음 줄 위에 둔다 */
 .marketplace.is-bbm-m .depth-rail + .bbm-m-options { margin-top: 8px; box-shadow: 0 -8px 0 var(--bbm-page-bg); }
-/* 모바일 목록 제어 48: 숏폼매물 · 개인 · 딜러 → 정렬 → 보기 방식. 별도 구분선은 두지 않는다. */
-.bbm-m-options { display: flex; align-items: center; height: 48px; padding: 8px 16px; overflow: hidden; border-bottom: 1px solid var(--bbm-line); box-sizing: border-box; background: #fff; }
-.bbm-m-sort { display: inline-flex; flex: none; align-items: center; gap: 4px; height: 32px; padding: 0; border: 0; background: none; color: var(--bbm-text); font: inherit; font-size: 14px; font-weight: 600; line-height: 20px; white-space: nowrap; cursor: pointer; }
+/* 모바일 목록 제어 48: 정렬 → 영상 매물 · 개인 · 딜러 → 보기 방식. */
+.bbm-m-options { display: flex; align-items: center; height: 48px; padding: 8px 16px; overflow: hidden; border-bottom: 1px solid var(--list-divider); box-sizing: border-box; background: #fff; }
+.bbm-m-sort { display: inline-flex; flex: none; align-items: center; gap: 4px; height: 32px; padding: 0; border: 0; background: none; color: var(--bbm-text-strong); font: inherit; font-size: 14px; font-weight: 500; line-height: 18px; white-space: nowrap; cursor: pointer; }
 .bbm-m-sort img { width: 18px; height: 18px; }
-.bbm-m-filter-tabs { display: flex; flex: 1 1 auto; min-width: 0; height: 32px; align-items: center; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: none; }
+.bbm-m-filter-tabs { display: flex; flex: 1 1 auto; min-width: 0; height: 32px; margin-left: 8px; align-items: center; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: none; }
 .bbm-m-filter-tabs::-webkit-scrollbar { display: none; }
-.bbm-m-filter-tab { display: inline-flex; flex: none; align-items: center; justify-content: center; gap: 6px; height: 32px; padding: 6px 8px; border: 0; border-radius: 16px; background: transparent; color: var(--bbm-tab-inactive); font: inherit; font-size: 14px; font-weight: 500; line-height: 20px; white-space: nowrap; cursor: pointer; }
+.bbm-m-filter-tab { display: inline-flex; flex: none; align-items: center; justify-content: center; gap: 6px; height: 32px; padding: 7px 4px; border: 0; border-radius: 16px; background: transparent; color: var(--list-meta); font: inherit; font-size: 12px; font-weight: 700; line-height: 18px; white-space: nowrap; cursor: pointer; }
 .bbm-m-filter-tab.is-selected { height: 28px; padding: 4px 8px; gap: 2px; border: 0; border-radius: 99px; box-sizing: border-box; background: #222; color: #fff; font-size: 12px; font-weight: 700; line-height: 18px; box-shadow: none; }
 .bbm-m-filter-clear { flex: none; width: 16px; height: 16px; }
-.bbm-m-options .bbm-m-sort { margin-left: 8px; }
+.bbm-m-options .bbm-m-sort { margin-left: 0; }
 .bbm-m-options .quick-style-select { flex: none; margin: 0 8px; }
-.bbm-m-view { display: grid; flex: none; width: 24px; height: 32px; margin-left: 4px; place-items: center; padding: 0; border: 0; background: none; }
+.bbm-m-view { display: grid; flex: none; width: 32px; height: 32px; margin-left: 4px; place-items: center; padding: 0; border: 1px solid #dadada; border-radius: 9999px; background: #fff; }
 .bbm-m-view img,
-.bbm-m-view svg { width: 24px; height: 24px; color: #222; }
+.bbm-m-view svg { width: 20px; height: 20px; color: #222; }
 /* 카드 모바일 목록형: 384px 초톳 기준. 각 간격은 글자 줄 상단 기준이다. */
 .bbm-m-list { padding: 0 16px; }
-.bbm-result-card.is-mobile { padding: 12px 0; border-bottom: 1px solid var(--bbm-line); box-sizing: border-box; }
+.bbm-result-card.is-mobile { padding: 12px 0 12px; border-bottom: 1px solid var(--list-divider); box-sizing: border-box; }
 .bbm-result-card.is-mobile .bbm-card-main { gap: 12px; }
 .bbm-m-list:not(.is-feed):not(.is-gallery):not(.is-text):not(.is-one-line) .bbm-result-card.is-mobile .bbm-card-photo {
-  width: 136px;
-  height: 136px;
+  width: 120px;
+  height: 120px;
   aspect-ratio: 1 / 1;
   border-radius: 8px;
   overflow: hidden;
-  flex: 0 0 136px;
+  flex: 0 0 120px;
 }
 .marketplace.is-bbm-m.is-truck-category .bbm-m-list:not(.is-feed):not(.is-gallery):not(.is-text):not(.is-one-line) .bbm-result-card.is-mobile .bbm-card-photo {
-  width: 136px;
-  height: 96px;
-  aspect-ratio: auto;
-  flex: 0 0 136px;
+  width: 120px;
+  height: 120px;
+  aspect-ratio: 1 / 1;
+  flex: 0 0 120px;
 }
 .bbm-m-list:not(.is-feed):not(.is-gallery):not(.is-text):not(.is-one-line) .bbm-result-card.is-mobile .bbm-card-location,
 .bbm-m-list:not(.is-feed):not(.is-gallery):not(.is-text):not(.is-one-line) .bbm-result-card.is-mobile .bbm-card-location-text {
@@ -278,32 +296,36 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.bbm-result-card.is-mobile .bbm-card-media-footer { height: 31.4px; padding: 8px 9px; }
-.bbm-result-card.is-mobile .bbm-card-time { font-size: 11px; font-weight: 600; line-height: 15.4px; }
+.bbm-result-card.is-mobile .bbm-card-media-footer { height: 24px; padding: 0 8px; background: none; text-shadow: none; }
+.bbm-result-card.is-mobile .bbm-card-time { font-size: 12px; font-weight: 400; line-height: 18px; }
+.bbm-result-card.is-mobile .bbm-card-count { font-size: 10px; font-weight: 700; line-height: 15px; }
 .bbm-result-card.is-mobile .bbm-card-text { height: auto; gap: 0; }
-.bbm-result-card.is-mobile .bbm-card-title { display: block; overflow: hidden; font-size: 15px; font-weight: 600; line-height: 19px; text-overflow: clip; white-space: normal; }
+.bbm-result-card.is-mobile .bbm-card-content { min-height: 120px; }
+.bbm-result-card.is-mobile .bbm-card-title { display: block; overflow: hidden; color: var(--list-title); font-size: var(--list-title-size); font-weight: var(--list-title-weight); line-height: var(--list-title-line); text-overflow: clip; white-space: normal; }
 .bbm-result-card.is-mobile .bbm-card-model,
 .bbm-result-card.is-mobile .bbm-card-trim { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.bbm-result-card.is-mobile .bbm-card-spec { height: 18px; margin-top: 5px; color: var(--bbm-tab-inactive); font-size: 13px; line-height: 18px; }
-.bbm-result-card.is-mobile .bbm-card-price-badges { display: flex; flex-direction: column; align-items: flex-start; margin-top: 2px; }
-.bbm-result-card.is-mobile .bbm-card-price { height: 17px; align-items: center; font-size: 16px; font-weight: 700; line-height: 17px; }
-.bbm-result-card.is-mobile .bbm-card-price-unit { font-size: 14px; line-height: 17px; }
+.bbm-result-card.is-mobile .bbm-card-spec { height: var(--list-meta-line); margin-top: 4px; color: var(--list-meta); font-size: var(--list-meta-size); font-weight: var(--list-meta-weight); line-height: var(--list-meta-line); }
+.bbm-result-card.is-mobile .bbm-card-price-badges { display: flex; height: 24px; flex-direction: row; align-items: center; gap: 4px; margin-top: 0; overflow: hidden; }
+.bbm-result-card.is-mobile .bbm-card-price { height: var(--list-price-line); align-items: center; color: var(--list-price); font-size: var(--list-price-size); font-weight: var(--list-price-weight); line-height: var(--list-price-line); }
+.bbm-result-card.is-mobile .bbm-card-price-unit { color: var(--list-price); font-size: var(--list-price-size); font-weight: var(--list-price-weight); line-height: var(--list-price-line); }
 .bbm-result-card.is-mobile .bbm-card-badges { height: 20px; }
-.bbm-result-card.is-mobile.has-badges .bbm-card-meta { margin-top: 16px; }
-.bbm-result-card.is-mobile.has-no-badges .bbm-card-meta { margin-top: 11px; }
-.bbm-result-card.is-mobile .bbm-card-location { height: 18px; gap: 4px; color: var(--bbm-text-muted); font-size: 13px; line-height: 18px; }
-.bbm-result-card.is-mobile .bbm-card-location-text { font-size: 13px; }
-.bbm-result-card.is-mobile .bbm-card-meta-row { height: 20px; margin-top: 4px; }
+.bbm-result-card.is-mobile.has-badges .bbm-card-meta,
+.bbm-result-card.is-mobile.has-no-badges .bbm-card-meta { margin-top: 8px; }
+.bbm-result-card.is-mobile .bbm-card-location { height: var(--list-meta-line); gap: 4px; color: var(--list-meta); font-size: var(--list-meta-size); font-weight: var(--list-meta-weight); line-height: var(--list-meta-line); }
+.bbm-result-card.is-mobile .bbm-card-location-text { overflow: hidden; font-size: var(--list-meta-size); text-overflow: ellipsis; white-space: nowrap; }
+.bbm-result-card.is-mobile .bbm-card-location-text > span { flex: none; }
+.bbm-result-card.is-mobile .bbm-card-meta-row { height: 48px; margin-top: 0; }
+.bbm-result-card.is-mobile .bbm-card-mobile-footer { width: 100%; height: 56px; padding-top: 8px; box-sizing: border-box; }
 .bbm-result-card.is-mobile .bbm-card-seller-logo { width: 20px; height: 20px; }
 .bbm-result-card.is-mobile .bbm-card-seller-text { gap: 8px; }
-.bbm-result-card.is-mobile .bbm-card-seller-text strong { color: var(--bbm-text); }
-.bbm-result-card.is-mobile .bbm-card-actions button, .bbm-result-card.is-mobile .bbm-card-actions img { width: 20px; height: 20px; }
-.bbm-result-card.is-mobile .bbm-card-wish-on { width: 20px; height: 20px; }
-/* 당근형 배치: 목록·피드의 찜은 판매자 줄이 아니라 차명 첫째 줄 오른쪽에 둔다. */
-.bbm-m-list:not(.is-gallery):not(.is-text) .bbm-result-card.is-mobile .bbm-card-content { position: relative; }
-.bbm-m-list:not(.is-gallery):not(.is-text) .bbm-result-card.is-mobile .bbm-card-model { width: 100%; padding-right: 28px; box-sizing: border-box; }
-.bbm-m-list:not(.is-gallery):not(.is-text) .bbm-result-card.is-mobile .bbm-card-actions { position: absolute; top: -6px; right: -6px; z-index: 1; }
-.bbm-m-list:not(.is-gallery):not(.is-text) .bbm-result-card.is-mobile .bbm-card-actions button { width: 32px; height: 32px; }
+.bbm-result-card.is-mobile .bbm-card-seller-text { font-size: 12px; line-height: 18px; }
+.bbm-result-card.is-mobile .bbm-card-seller-text strong { color: var(--bbm-text-strong); }
+.bbm-result-card.is-mobile .bbm-card-actions { align-items: center; gap: 4px; }
+.bbm-result-card.is-mobile .bbm-card-actions .bbm-card-chat { width: 36px; height: 32px; }
+.bbm-result-card.is-mobile .bbm-card-actions .bbm-card-wish { width: 32px; height: 32px; }
+.bbm-result-card.is-mobile .bbm-card-actions .bbm-card-chat img,
+.bbm-result-card.is-mobile .bbm-card-actions .bbm-card-wish img,
+.bbm-result-card.is-mobile .bbm-card-wish-on { width: 24px; height: 24px; }
 /* 모바일 갤러리 보기: 초톳처럼 2열 사진 카드. 기존 카드 DOM을 재배치해 목록/갤러리 전환 시 내용과 상태를 공유한다. */
 .bbm-m-list.is-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 12px; padding-top: 12px; padding-bottom: 20px; }
 .bbm-m-list.is-gallery .bbm-result-card.is-mobile { min-width: 0; padding: 0; border-bottom: 0; }
@@ -323,6 +345,7 @@
 .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-location { height: auto; align-items: flex-start; font-size: 13px; line-height: 18px; }
 .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-location-text { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-actions { position: absolute; top: 10px; right: 10px; z-index: 2; display: flex; }
+.bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-chat { display: none; }
 .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-actions button,
 .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-actions img,
 .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-wish-on { width: 28px; height: 28px; }
@@ -343,6 +366,7 @@
 .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-meta-row { height: 0; margin: 0; }
 .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-seller { display: none; }
 .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-actions { position: absolute; top: 14px; right: 0; }
+.bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-chat { display: none; }
 .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-actions button,
 .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-actions img,
 .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-wish-on { width: 24px; height: 24px; }
@@ -395,12 +419,12 @@
 .bbm-bottom-gnb__inner { position: relative; z-index: 1; display: flex; height: 69px; }
 .bbm-bottom-gnb__item { display: flex; flex: 1; flex-direction: column; align-items: center; gap: 4px; margin-top: 11px; padding: 7px 0 10px; border: 0; background: none; color: var(--bbm-text-muted); cursor: pointer; }
 .bbm-bottom-gnb__item img { width: 24px; height: 24px; }
-.bbm-bottom-gnb__label { color: var(--bbm-text-disabled); font-size: 11px; font-weight: 500; line-height: 13px; }
+.bbm-bottom-gnb__label { color: var(--list-secondary); font-size: 10px; font-weight: 500; line-height: 15px; }
 .bbm-bottom-gnb__item.is-active .bbm-bottom-gnb__label { color: var(--bbm-text-strong); font-weight: 700; }
 .bbm-bottom-gnb__item.is-register { flex: 0 0 84px; margin-top: 0; padding: 0 0 4px; }
 .bbm-bottom-gnb__register-button { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; background: var(--bbm-text-strong); }
 .bbm-bottom-gnb__register-button img { width: 32px; height: 32px; }
-.bbm-bottom-gnb__register-label { padding: 2px 12px; border-radius: 50px; background: var(--bbm-text-strong); color: #fff; font-size: 11px; font-weight: 700; line-height: 13px; }
+.bbm-bottom-gnb__register-label { padding: 2px 12px; border-radius: 50px; background: var(--bbm-text-strong); color: #fff; font-size: 10px; font-weight: 700; line-height: 15px; }
 
 /* ═════════ QF-085·086·089: 선택 상태 표시(원본 2026-09-24 실측) ═════════ */
 /* 필터 칩: 조건이 걸리면 진한 채움(#222) + 흰 아이콘 + 개수. PC는 누를 수 없음 */
