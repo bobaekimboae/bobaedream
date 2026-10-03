@@ -179,22 +179,29 @@
 .heavy-qf-zero button { width: fit-content; margin-top: 2px; border-color: #d6b348; color: #6d5100; }
 
 @media (max-width: 767px) {
-  .heavy-qf { display: block; padding: 6px 0; }
+  .heavy-qf {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    padding: 6px 0;
+  }
   .heavy-qf-heading {
-    width: auto;
-    flex-basis: auto;
-    flex-direction: row;
-    align-items: center;
-    padding: 0 12px 6px;
+    width: 76px;
+    flex: 0 0 76px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 12px 4px 0 12px;
   }
   .heavy-qf-heading > div:first-child { gap: 0; }
   .heavy-qf-heading span { display: none; }
-  .heavy-qf-actions { flex-wrap: nowrap; }
+  .heavy-qf-actions { display: none; }
   .heavy-qf-track {
-    width: 100%;
+    width: auto;
+    min-width: 0;
+    flex: 1;
     gap: 8px;
-    padding: 0 12px 2px;
-    scroll-padding-inline: 12px;
+    padding: 0 12px 2px 0;
+    scroll-padding-inline: 0 12px;
   }
   .heavy-qf-card {
     width: 64px;

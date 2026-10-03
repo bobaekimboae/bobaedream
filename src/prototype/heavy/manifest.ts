@@ -1,7 +1,7 @@
 export type HeavyAssetStatus = "빈 슬롯" | "제작중" | "검수완료" | "미확인";
 export type HeavyFallbackLevel = 0 | 1 | 2 | 3;
 
-export const HEAVY_QUICKFILTER_MANIFEST_VERSION = "v06";
+export const HEAVY_QUICKFILTER_MANIFEST_VERSION = "v07";
 export const HEAVY_SLOT_MANIFEST_VERSION = "v06";
 
 export type HeavyManufacturerSlot = {
@@ -15,7 +15,7 @@ export type HeavyManufacturerSlot = {
 };
 
 export const heavyManufacturerSlots: readonly HeavyManufacturerSlot[] = [
-  { manufacturerCode: "hyundai", name: "현대건설기계", originalName: "HD Hyundai Construction Equipment", logoFile: "heavy_hd_hyundai_logo_v06.png", driveFileId: "1XzTHb1EcEvY8W237tWpogbBB1grcLDH_", equipmentTypeCodes: ["hydraulic_excavator", "dump_truck"], status: "검수완료" },
+  { manufacturerCode: "hyundai", name: "HD건설기계", originalName: "HD Hyundai Construction Equipment", logoFile: "heavy_hd_hyundai_logo_v06.png", driveFileId: "1XzTHb1EcEvY8W237tWpogbBB1grcLDH_", equipmentTypeCodes: ["hydraulic_excavator", "dump_truck"], status: "검수완료" },
   { manufacturerCode: "develon", name: "디벨론", originalName: "DEVELON", logoFile: "heavy_develon_logo_v06.png", driveFileId: "1HxxZAOlI-sysJItrhsBq4QmRwWCFWolM", equipmentTypeCodes: ["hydraulic_excavator", "mini_excavator", "wheel_loader", "bulldozer", "carrier_dump"], status: "검수완료" },
   { manufacturerCode: "volvo", name: "볼보CE", originalName: "Volvo Construction Equipment", logoFile: "heavy_volvo_ce_logo_v06.png", driveFileId: "1hakrt2xWDKh6HHdzYX2q1hUM9ySB78Zk", equipmentTypeCodes: ["hydraulic_excavator"], status: "검수완료" },
   { manufacturerCode: "caterpillar", name: "캐터필러", originalName: "Caterpillar", logoFile: "heavy_caterpillar_logo_v06.png", driveFileId: "1GVoPtBLSYjky5RseKcLnCTZbHog4C0mu", equipmentTypeCodes: [], status: "검수완료" },

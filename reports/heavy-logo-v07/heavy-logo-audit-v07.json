@@ -1,0 +1,226 @@
+{
+  "pc": [
+    {
+      "code": "hyundai",
+      "label": "HD건설기계",
+      "card": "84x102",
+      "image": "40x40",
+      "natural": "120x120",
+      "labelBox": 76,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "loaded": true
+    },
+    {
+      "code": "develon",
+      "label": "디벨론",
+      "card": "84x102",
+      "image": "40x40",
+      "natural": "120x120",
+      "labelBox": 76,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "loaded": true
+    },
+    {
+      "code": "volvo",
+      "label": "볼보CE",
+      "card": "84x102",
+      "image": "40x40",
+      "natural": "120x120",
+      "labelBox": 76,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "loaded": true
+    },
+    {
+      "code": "caterpillar",
+      "label": "캐터필러",
+      "card": "84x102",
+      "image": "40x40",
+      "natural": "120x120",
+      "labelBox": 76,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "loaded": true
+    },
+    {
+      "code": "komatsu",
+      "label": "코마츠",
+      "card": "84x102",
+      "image": "40x40",
+      "natural": "120x120",
+      "labelBox": 76,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "loaded": true
+    },
+    {
+      "code": "hitachi",
+      "label": "히타치",
+      "card": "84x102",
+      "image": "40x40",
+      "natural": "120x120",
+      "labelBox": 76,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "loaded": true
+    },
+    {
+      "code": "kobelco",
+      "label": "코벨코",
+      "card": "84x102",
+      "image": "40x40",
+      "natural": "120x120",
+      "labelBox": 76,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "loaded": true
+    },
+    {
+      "code": "bobcat",
+      "label": "밥캣",
+      "card": "84x102",
+      "image": "40x40",
+      "natural": "120x120",
+      "labelBox": 76,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "loaded": true
+    },
+    {
+      "code": "kubota",
+      "label": "구보타",
+      "card": "84x102",
+      "image": "40x40",
+      "natural": "120x120",
+      "labelBox": 76,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "loaded": true
+    },
+    {
+      "code": "jcb",
+      "label": "JCB",
+      "card": "84x102",
+      "image": "40x40",
+      "natural": "120x120",
+      "labelBox": 76,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "loaded": true
+    }
+  ],
+  "mobile": [
+    {
+      "code": "hyundai",
+      "label": "HD건설기계",
+      "card": "64x74",
+      "image": "36x36",
+      "natural": "120x120",
+      "labelBox": 56,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "loaded": true
+    },
+    {
+      "code": "develon",
+      "label": "디벨론",
+      "card": "64x74",
+      "image": "36x36",
+      "natural": "120x120",
+      "labelBox": 56,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "loaded": true
+    },
+    {
+      "code": "volvo",
+      "label": "볼보CE",
+      "card": "64x74",
+      "image": "36x36",
+      "natural": "120x120",
+      "labelBox": 56,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "loaded": true
+    },
+    {
+      "code": "caterpillar",
+      "label": "캐터필러",
+      "card": "64x74",
+      "image": "36x36",
+      "natural": "120x120",
+      "labelBox": 56,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "loaded": true
+    },
+    {
+      "code": "komatsu",
+      "label": "코마츠",
+      "card": "64x74",
+      "image": "36x36",
+      "natural": "120x120",
+      "labelBox": 56,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "loaded": true
+    },
+    {
+      "code": "hitachi",
+      "label": "히타치",
+      "card": "64x74",
+      "image": "36x36",
+      "natural": "120x120",
+      "labelBox": 56,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "loaded": true
+    },
+    {
+      "code": "kobelco",
+      "label": "코벨코",
+      "card": "64x74",
+      "image": "36x36",
+      "natural": "120x120",
+      "labelBox": 56,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "loaded": true
+    },
+    {
+      "code": "bobcat",
+      "label": "밥캣",
+      "card": "64x74",
+      "image": "36x36",
+      "natural": "120x120",
+      "labelBox": 56,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "loaded": true
+    },
+    {
+      "code": "kubota",
+      "label": "구보타",
+      "card": "64x74",
+      "image": "36x36",
+      "natural": "120x120",
+      "labelBox": 56,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "loaded": true
+    },
+    {
+      "code": "jcb",
+      "label": "JCB",
+      "card": "64x74",
+      "image": "36x36",
+      "natural": "120x120",
+      "labelBox": 56,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "loaded": true
+    }
+  ]
+}
