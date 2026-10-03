@@ -33,6 +33,10 @@
 .bbm-category-menu__icon-box img { width: 24px; height: 24px; }
 .bbm-category-menu__icon-box.is-photo { width: 60px; height: 40px; border-radius: 0; background: transparent; }
 .bbm-category-menu__icon-box.is-photo img { width: 60px; height: 40px; object-fit: contain; object-position: center bottom; }
+.bbm-category-menu__icon-box.is-logo { width: 60px; height: 40px; border: 1px solid transparent; border-radius: 10px; box-sizing: border-box; background: transparent; }
+.bbm-category-menu__icon-box.is-logo .kr-brand-logo { width: 44px; height: 32px; }
+.bbm-category-menu__button.is-selected .bbm-category-menu__icon-box.is-logo { border-color: #222; background: #f7f7f7; }
+.bbm-category-menu__button.is-selected .bbm-category-menu__label { color: #222; font-weight: 700; }
 .bbm-category-menu__label { width: 60px; color: var(--bbm-text-sub); font-size: 14px; font-weight: 500; line-height: 19.6px; text-align: center; white-space: nowrap; }
 
 /* ── 공통: 체크 선택 모양 = 원본 검정(#222) 채움 + 흰 체크 */

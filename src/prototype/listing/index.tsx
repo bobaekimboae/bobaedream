@@ -76,7 +76,7 @@ import { BbmPartsGallery } from "../filters/bbm-parts-gallery";
 import { BbmActionBar, BbmFullExcludeAction, BbmFullFilter, BbmFullItem, BbmModal, BbmSheet } from "../filters/bbm-filter-parts";
 import { bbmFilterOrder, bbmSidebarItems, bikeFilterOrder, truckFilterOrder, type BbmFilterItem } from "../filters/bbm-filter-options";
 import { BbmBodyTypeSheet, BbmExpandPanel, BbmModalPanel, BbmSellerTypeSheet, clearBbmItem } from "../filters/bbm-filter-panels";
-import { BbmBottomGnb, BbmCategoryMenu, BbmHeadlinePreviewLinks, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
+import { BbmBottomGnb, BbmBrandMenu, BbmCategoryMenu, BbmHeadlinePreviewLinks, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
 import { CategoryBrandLogo, krRailLabel, krTopTenSections, krTypeTop10 } from "./bbm-brand-logos";
 import { StableRegionRow, StableRegionSheet, stableRegionLabel, StableYearRow, stablePageTitle, STABLE_YEAR_OPTIONS, stableKeywordPills } from "./stable-top";
@@ -97,6 +97,11 @@ type BbmMobileView = "목록으로 보기" | "피드로 보기" | "갤러리로 
 const initialBbmMobileView = (): BbmMobileView => new URLSearchParams(window.location.search).get("view") === "feed"
   ? "피드로 보기"
   : "목록으로 보기";
+
+const initialAutohomeMakerSheetPreview = () => {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("brandlogo") === "autohome" && params.get("preview") === "maker-sheet";
+};
 
 const initialTruckFormatSelection = () => {
   const params = new URLSearchParams(window.location.search);
@@ -495,8 +500,9 @@ function MarketplaceScreen() {
   // QF-095: 상단 칩 줄 오른쪽 끝 "필터 초기화" → 좌측 필터 "초기화"와 같은 확인 창
   const [bbmTopReset, setBbmTopReset] = useState(0);
   // QF-091: 과쯔(개발 시안형) 모바일 전체 필터 화면과 그 안의 항목 시트
-  const [bbmFullOpen, setBbmFullOpen] = useState(false);
-  const [bbmFullItem, setBbmFullItem] = useState<BbmFilterItem | "카테고리" | null>(null);
+  const [bbmFullOpen, setBbmFullOpen] = useState(() => initialAutohomeMakerSheetPreview());
+  const [bbmFullItem, setBbmFullItem] = useState<BbmFilterItem | "카테고리" | "제조사 · 모델" | null>(() => initialAutohomeMakerSheetPreview() ? "제조사 · 모델" : null);
+  const [bbmMakerDraft, setBbmMakerDraft] = useState<string | null>(() => initialAutohomeMakerSheetPreview() ? initialFilters.maker : null);
   const [bbmKeepSearch, setBbmKeepSearch] = useState(false);
   // QF-085·086: 상단 칩 모달(PC)·바텀시트(모바일). "제조사" · "모델" · 사이드바 항목 이름
   const [bbmChipPanel, setBbmChipPanel] = useState<string | null>(null);
@@ -534,6 +540,7 @@ function MarketplaceScreen() {
   const isBikeCategory = category === "바이크";
   const isHeavyCategory = category === "건설기계";
   const isTruckCategory = category === "트럭 · 특장";
+  const autohomeLogoPreview = new URLSearchParams(window.location.search).get("brandlogo") === "autohome";
   const truckSubtypeOptions = truckSubtypesFor(selectedTruckFormat);
   const truckSpecGroups = truckSpecGroupsFor(selectedTruckFormat, selectedTruckSubtype);
   const truckSpecOptions = truckSpecGroups.flatMap((group) => group.options.map((option) => ({ group: group.label, value: option })));
@@ -1887,11 +1894,13 @@ function MarketplaceScreen() {
   if (isGuaziQuickStyle) {
     const openBbmFull = () => { setBbmFullItem(null); setBbmFullOpen(true); };
     const fullValue = bbmValue;
-    const closeFull = () => { setBbmFullOpen(false); setBbmFullItem(null); setBbmFullDraft(null); };
-    const openFullItem = (item: BbmFilterItem | "카테고리") => { setBbmFullDraft(bbmValue); setBbmFullItem(item); };
+    const closeFull = () => { setBbmFullOpen(false); setBbmFullItem(null); setBbmFullDraft(null); setBbmMakerDraft(null); };
+    const openFullItem = (item: BbmFilterItem | "카테고리" | "제조사 · 모델") => { setBbmFullDraft(bbmValue); setBbmFullItem(item); };
     const sheetValue = bbmFullDraft ?? bbmValue;
     const setSheetValue = (next: BbmFilterValues) => setBbmFullDraft(next);
-    const closeFullItem = () => { setBbmFullItem(null); setBbmFullDraft(null); };
+    const closeFullItem = () => { setBbmFullItem(null); setBbmFullDraft(null); setBbmMakerDraft(null); };
+    const previewBrandSections = krTopTenSections("all", category);
+    const previewBrandItems = [...previewBrandSections.domestic, ...previewBrandSections.imported].map((item) => ({ label: krRailLabel(item.label), key: item.key, logoName: item.label }));
     const fullItems = category === "바이크"
       ? [null, ...bikeFilterOrder.filter((label) => label !== "제조사 · 모델").map((label) => bbmSidebarItems.find((item) => item.label === label)).filter((item): item is BbmFilterItem => Boolean(item))]
       : isTruckCategory
@@ -1960,22 +1969,30 @@ function MarketplaceScreen() {
             </> : null}
             {fullItems.map((item) => item ? <BbmFullItem key={item.label} label={isTruckCategory && item.label === "차량번호 / 판매자" ? "차량번호/판매자 이름" : item.displayLabel ?? item.label} icon={item.label === "전기차 주행 가능 거리" ? bbmIcon("filter-ev-range") : undefined} value={isGuaziQuickStyle && item.label === "주행거리" ? mileageSummary(fullValue.ranges.mileage) : bbmItemValue(item.label, fullValue)} onClear={() => setBbmFilters(clearBbmItem(item, bbmValue))} onOpen={() => openFullItem(item)} /> : (
               <div key="maker" className="bbmf-full-maker">
-                <BbmFullItem label={isTruckCategory ? "제조사/모델/등급" : "제조사 · 모델"} value={maker ? vehicleSummaryLabel : ""} onClear={clearMakerFilter} onOpen={() => { setBbmFullOpen(false); setSheet("vehicle"); }} />
+                <BbmFullItem label={isTruckCategory ? "제조사/모델/등급" : "제조사 · 모델"} value={maker ? vehicleSummaryLabel : ""} onClear={clearMakerFilter} onOpen={() => {
+                  if (autohomeLogoPreview && !isTruckCategory) { setBbmMakerDraft(maker); openFullItem("제조사 · 모델"); return; }
+                  setBbmFullOpen(false); setSheet("vehicle");
+                }} />
                 <BbmFullExcludeAction onClick={() => setSearchToast("제조사·모델 제외하기는 정식 서비스에서 이용해 주세요.")} />
               </div>
             ))}
           </BbmFullFilter>
         ) : null}
         {/* QF-117: 과쯔 모바일 주행거리는 전용 바텀시트(임시 값 · 대수 실시간 · 적용해야 확정) */}
-        {bbmFullOpen && bbmFullItem && bbmFullItem !== "카테고리" && bbmFullItem.label === "주행거리" && isGuaziQuickStyle ? <MileageFinalSheet value={bbmValue} countOf={countWithBbm} onApply={setBbmFilters} onClose={closeFullItem} /> : null}
-        {bbmFullOpen && bbmFullItem && bbmFullItem !== "카테고리" && bbmFullItem.checkKey === "sellerKind" ? <BbmSellerTypeSheet value={bbmValue} countWith={countWithBbm} countOf={bbmCountOf} onApply={setBbmFilters} onClose={closeFullItem} /> : null}
-        {bbmFullOpen && bbmFullItem && bbmFullItem !== "카테고리" && bbmFullItem.checkKey === "bodyType" ? <BbmBodyTypeSheet value={bbmValue} countWith={countWithBbm} countOf={bbmCountOf} onApply={setBbmFilters} onClose={closeFullItem} /> : null}
-        {bbmFullOpen && bbmFullItem && bbmFullItem !== "카테고리" && bbmFullItem.label === "형식/적재용량" && truckSidebarFilter ? (
+        {bbmFullOpen && bbmFullItem && typeof bbmFullItem === "object" && bbmFullItem.label === "주행거리" && isGuaziQuickStyle ? <MileageFinalSheet value={bbmValue} countOf={countWithBbm} onApply={setBbmFilters} onClose={closeFullItem} /> : null}
+        {bbmFullOpen && bbmFullItem && typeof bbmFullItem === "object" && bbmFullItem.checkKey === "sellerKind" ? <BbmSellerTypeSheet value={bbmValue} countWith={countWithBbm} countOf={bbmCountOf} onApply={setBbmFilters} onClose={closeFullItem} /> : null}
+        {bbmFullOpen && bbmFullItem && typeof bbmFullItem === "object" && bbmFullItem.checkKey === "bodyType" ? <BbmBodyTypeSheet value={bbmValue} countWith={countWithBbm} countOf={bbmCountOf} onApply={setBbmFilters} onClose={closeFullItem} /> : null}
+        {bbmFullOpen && bbmFullItem && typeof bbmFullItem === "object" && bbmFullItem.label === "형식/적재용량" && truckSidebarFilter ? (
           <BbmSheet title="형식/적재용량" onClose={closeFullItem} footer={<BbmActionBar variant="sheet" confirmStyle="보기" count={visibleCars.length} onReset={clearTruckFormat} onConfirm={closeFullItem} />}>
             <BbTruckFormatFilter value={truckSidebarFilter} showImages={false} />
           </BbmSheet>
         ) : null}
-        {bbmFullOpen && bbmFullItem && !(bbmFullItem !== "카테고리" && (bbmFullItem.checkKey === "sellerKind" || bbmFullItem.checkKey === "bodyType" || bbmFullItem.label === "주행거리" && isGuaziQuickStyle || bbmFullItem.label === "형식/적재용량")) ? (
+        {bbmFullOpen && bbmFullItem === "제조사 · 모델" ? (
+          <BbmSheet title="제조사" onClose={closeFullItem} footer={<BbmActionBar variant="sheet" confirmStyle="보기" count={visibleCars.length} onReset={() => setBbmMakerDraft(null)} onConfirm={() => { applyMakerFilter(bbmMakerDraft); closeFullItem(); }} />}>
+            <BbmBrandMenu items={previewBrandItems} selected={bbmMakerDraft} renderLogo={(name) => <CategoryBrandLogo category={category} name={name} kind="plain" />} onChoose={setBbmMakerDraft} />
+          </BbmSheet>
+        ) : null}
+        {bbmFullOpen && bbmFullItem && bbmFullItem !== "제조사 · 모델" && !(bbmFullItem !== "카테고리" && (bbmFullItem.checkKey === "sellerKind" || bbmFullItem.checkKey === "bodyType" || bbmFullItem.label === "주행거리" && isGuaziQuickStyle || bbmFullItem.label === "형식/적재용량")) ? (
           <BbmSheet title={bbmFullItem === "카테고리" ? "카테고리" : bbmFullItem.modalTitle ?? bbmFullItem.displayLabel ?? bbmFullItem.label} modalBody={bbmFullItem !== "카테고리" && bbmFullItem.mode !== "expand"} onClose={closeFullItem} footer={<BbmActionBar variant="sheet" confirmStyle="보기" count={bbmFullItem === "카테고리" ? visibleCars.length : countWithBbm(sheetValue)} onReset={() => { if (bbmFullItem !== "카테고리") setSheetValue(clearBbmItem(bbmFullItem, sheetValue)); }} onConfirm={() => { setBbmFilters(sheetValue); closeFullItem(); }} />}>
             {bbmFullItem === "카테고리" ? <BbmCategoryMenu onChoose={(label) => { chooseVehicleCategory(label); setBbmFullItem(null); }} />
               : bbmFullItem.mode === "expand" ? <div className="bbmf-chip-expand"><BbmExpandPanel label={bbmFullItem.label} variant={bbmFullItem.label === "가격" ? "chip" : "sidebar"} value={sheetValue} onChange={setSheetValue} countOf={bbmCountOf} /></div>

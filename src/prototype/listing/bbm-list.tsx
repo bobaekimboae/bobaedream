@@ -75,6 +75,24 @@ export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string) => voi
   );
 }
 
+// 오토홈 제조사 로고 비교 시안: 카테고리 바텀시트와 같은 1열 가로 슬롯 규격을 쓴다.
+export function BbmBrandMenu({ items, selected, renderLogo, onChoose }: { items: Array<{ label: string; key: string; logoName?: string }>; selected: string | null; renderLogo: (name: string) => ReactNode; onChoose: (key: string) => void }) {
+  return (
+    <section className="bbm-category-menu bbm-brand-menu" aria-label="제조사">
+      <ul className="bbm-category-menu__list">
+        {items.map((item) => (
+          <li key={item.key} className="bbm-category-menu__item">
+            <button type="button" className={`bbm-category-menu__button${selected === item.key ? " is-selected" : ""}`} aria-pressed={selected === item.key} onClick={() => onChoose(item.key)}>
+              <span className="bbm-category-menu__icon-box is-logo">{renderLogo(item.logoName ?? item.label)}</span>
+              <span className="bbm-category-menu__label">{item.label}</span>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
 // ── 스위치(원본 ui-switch sm: 38×20, 손잡이 16)
 export function BbmSwitch({ checked, label, onChange }: { checked: boolean; label: string; onChange: () => void }) {
   return <button type="button" role="switch" aria-checked={checked} aria-label={label} className={`bbm-switch-sm${checked ? " is-on" : ""}`} onClick={onChange}><span /></button>;
