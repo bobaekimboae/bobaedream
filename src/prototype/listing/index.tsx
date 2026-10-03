@@ -1997,7 +1997,7 @@ function MarketplaceScreen() {
         <BbmBottomGnb onNotify={setSearchToast} />
         {bbmMenu === "m-sort" ? <BbmSheet title="정렬" flush onClose={() => setBbmMenu(null)}><BbmPopOptions options={bbmSortOptions} selected={bbmSort} onSelect={chooseBbmSort} /></BbmSheet> : null}
         {bbmMenu === "m-view" ? <BbmSheet title="리스트 필터" flush onClose={() => setBbmMenu(null)}><BbmPopOptions options={bbmViewOptionsMobile} selected={bbmMobileView} onSelect={chooseBbmView} /></BbmSheet> : null}
-        {bbmCategoryOpen ? <BbmSheet variant="category" title="전체 카테고리" onClose={() => setBbmCategoryOpen(false)} footer={<div className="bbmf-category-footer"><button type="button" onClick={() => setBbmCategoryDraft("전체")}>초기화</button><button type="button" className="bbmf-category-confirm" onClick={() => { chooseVehicleCategory(bbmCategoryDraft); setBbmCategoryOpen(false); }}>선택</button></div>}>
+        {bbmCategoryOpen ? <BbmSheet variant="category" title="카테고리" onClose={() => setBbmCategoryOpen(false)} footer={<div className="bbmf-category-footer"><button type="button" onClick={() => setBbmCategoryDraft("전체")}>초기화</button><button type="button" className="bbmf-category-confirm" onClick={() => { chooseVehicleCategory(bbmCategoryDraft); setBbmCategoryOpen(false); }}>선택</button></div>}>
           <BbmCategoryPicker selected={bbmCategoryDraft} onViewAll={() => setSearchToast("전체 카테고리에서 차량 그룹을 보고 있어요.")} onChoose={setBbmCategoryDraft} />
         </BbmSheet> : null}
         {bbmFullOpen ? (
