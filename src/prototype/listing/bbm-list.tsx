@@ -209,7 +209,7 @@ export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string, detail
     return (
       <section className="bbm-category-menu is-hierarchical" aria-label="차량 카테고리">
         <BbmCategoryIconRow activeValue={activeGroup.value} onActivate={setActiveValue} />
-        <BbmCategoryChildPills group={activeGroup} onChoose={onChoose} />
+        {activeGroup.value === "중고차" ? null : <BbmCategoryChildPills group={activeGroup} onChoose={onChoose} />}
       </section>
     );
   }
