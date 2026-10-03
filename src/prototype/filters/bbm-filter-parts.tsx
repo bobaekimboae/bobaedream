@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, type CSSProperties, type ReactNode, type Ref } from "react";
+import { useEffect, useId, useRef, type CSSProperties, type KeyboardEvent, type ReactNode, type Ref, type RefObject } from "react";
 import { createPortal } from "react-dom";
 import { asset } from "../data";
 import "./bbm-filter-parts.css";
@@ -152,13 +152,84 @@ export function BbmActionBar({ onReset, onConfirm, count, confirmStyle = "확인
   );
 }
 
-// Esc 로 닫기(모달·시트·전체 화면 공용)
-function useEscape(onClose: () => void) {
+const dialogFocusableSelector = [
+  "a[href]",
+  "button:not([disabled])",
+  "input:not([disabled])",
+  "select:not([disabled])",
+  "textarea:not([disabled])",
+  '[tabindex]:not([tabindex="-1"])',
+].join(",");
+
+function useDialogFocus(dialogRef: RefObject<HTMLElement | null>, initialFocusRef: RefObject<HTMLElement | null>) {
   useEffect(() => {
-    const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") onClose(); };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [onClose]);
+    const previousOverflow = document.body.style.overflow;
+    const previousActive = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    document.body.style.overflow = "hidden";
+    const focusFrame = window.requestAnimationFrame(() => initialFocusRef.current?.focus());
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      document.body.style.overflow = previousOverflow;
+      if (previousActive?.isConnected && !dialogRef.current?.contains(previousActive)) previousActive.focus();
+    };
+  }, [dialogRef, initialFocusRef]);
+}
+
+function useHistoryDismiss(stateKey: string, marker: string, onClose: () => void) {
+  const onCloseRef = useRef(onClose);
+  const cleanupTimerRef = useRef<number | null>(null);
+  onCloseRef.current = onClose;
+  useEffect(() => {
+    if (cleanupTimerRef.current !== null) {
+      window.clearTimeout(cleanupTimerRef.current);
+      cleanupTimerRef.current = null;
+    }
+    const previousState = window.history.state;
+    if (previousState?.[stateKey] !== marker) window.history.pushState({ ...previousState, [stateKey]: marker }, "", window.location.href);
+    let closedByPopState = false;
+    const onPopState = () => {
+      if (window.history.state?.[stateKey] === marker) return;
+      closedByPopState = true;
+      onCloseRef.current();
+    };
+    window.addEventListener("popstate", onPopState);
+    return () => {
+      window.removeEventListener("popstate", onPopState);
+      // Strict Mode의 effect 재실행은 취소하고, 실제 닫기일 때만 쌓은 marker를 한 번 제거한다.
+      if (!closedByPopState && window.history.state?.[stateKey] === marker) {
+        cleanupTimerRef.current = window.setTimeout(() => {
+          if (window.history.state?.[stateKey] === marker) window.history.back();
+          cleanupTimerRef.current = null;
+        }, 0);
+      }
+    };
+  }, [marker, stateKey]);
+}
+
+function handleDialogKeyDown(event: KeyboardEvent<HTMLElement>, onClose: () => void) {
+  if (event.key === "Escape") {
+    event.preventDefault();
+    event.stopPropagation();
+    onClose();
+    return;
+  }
+  if (event.key !== "Tab") return;
+  const focusable = [...event.currentTarget.querySelectorAll<HTMLElement>(dialogFocusableSelector)]
+    .filter((element) => element.getClientRects().length > 0 && element.getAttribute("aria-hidden") !== "true");
+  if (!focusable.length) {
+    event.preventDefault();
+    event.currentTarget.focus();
+    return;
+  }
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
 }
 
 function CloseButton({ onClose, buttonRef }: { onClose: () => void; buttonRef?: Ref<HTMLButtonElement> }) {
@@ -167,11 +238,13 @@ function CloseButton({ onClose, buttonRef }: { onClose: () => void; buttonRef?: 
 
 // ── PC 가운데 모달: 폭 412, 라운드 14, 딤 rgba(0,0,0,.5), 제목 16/22.4 600 가운데 + 오른쪽 닫기 24×32
 export function BbmModal({ title, titleIcon, onClose, footer, children, wide = false, flush = false }: { title: string; titleIcon?: ReactNode; onClose: () => void; footer?: ReactNode; children: ReactNode; wide?: boolean; flush?: boolean }) {
-  useEscape(onClose);
+  const dialogRef = useRef<HTMLElement | null>(null);
+  const closeRef = useRef<HTMLButtonElement | null>(null);
+  useDialogFocus(dialogRef, closeRef);
   return createPortal(
     <div className="bbmf-overlay is-modal" onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}>
-      <section className={`bbmf-modal${wide ? " is-tall" : ""}`} role="dialog" aria-modal="true" aria-label={title}>
-        <header className="bbmf-modal-header"><h3>{titleIcon}{title}</h3><CloseButton onClose={onClose} /></header>
+      <section ref={dialogRef} className={`bbmf-modal${wide ? " is-tall" : ""}`} role="dialog" aria-modal="true" aria-label={title} onKeyDown={(event) => handleDialogKeyDown(event, onClose)}>
+        <header className="bbmf-modal-header"><h3>{titleIcon}{title}</h3><CloseButton buttonRef={closeRef} onClose={onClose} /></header>
         <div className={`bbmf-modal-body${flush ? " is-flush" : ""}`}>{children}</div>
         {footer}
       </section>
@@ -184,46 +257,10 @@ export function BbmModal({ title, titleIcon, onClose, footer, children, wide = f
 // modalBody: 모바일 전체 필터 안 항목 시트(원본은 PC 모달과 같은 본문 — 여백 8/20, 매물 수는 이름 옆)
 export function BbmSheet({ title, subtitle, onClose, footer, children, flush = false, modalBody = false, onBack, variant = "default" }: { onBack?: () => void; title: string; subtitle?: string; onClose: () => void; footer?: ReactNode; children: ReactNode; flush?: boolean; modalBody?: boolean; variant?: "default" | "seller" | "body-type" | "category" }) {
   const titleId = useId();
+  const dialogRef = useRef<HTMLElement | null>(null);
   const closeRef = useRef<HTMLButtonElement | null>(null);
-  const onCloseRef = useRef(onClose);
-  const historyCleanupRef = useRef<number | null>(null);
-  onCloseRef.current = onClose;
-  useEscape(onClose);
-
-  useEffect(() => {
-    if (historyCleanupRef.current !== null) {
-      window.clearTimeout(historyCleanupRef.current);
-      historyCleanupRef.current = null;
-    }
-    const previousOverflow = document.body.style.overflow;
-    const previousActive = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-    document.body.style.overflow = "hidden";
-    window.requestAnimationFrame(() => closeRef.current?.focus());
-
-    const historyMarker = `bbmf:${titleId}`;
-    const previousState = window.history.state;
-    if (previousState?.__bbmfSheet !== historyMarker) window.history.pushState({ ...previousState, __bbmfSheet: historyMarker }, "", window.location.href);
-    let closedByPopState = false;
-    const onPopState = () => {
-      closedByPopState = true;
-      onCloseRef.current();
-    };
-    window.addEventListener("popstate", onPopState);
-
-    return () => {
-      window.removeEventListener("popstate", onPopState);
-      document.body.style.overflow = previousOverflow;
-      previousActive?.focus();
-      // React Strict Mode replays effects in development. Defer the history cleanup so the
-      // immediate second setup can cancel it; a real close still removes the marker once.
-      if (!closedByPopState && window.history.state?.__bbmfSheet === historyMarker) {
-        historyCleanupRef.current = window.setTimeout(() => {
-          if (window.history.state?.__bbmfSheet === historyMarker) window.history.back();
-          historyCleanupRef.current = null;
-        }, 0);
-      }
-    };
-  }, [titleId]);
+  useDialogFocus(dialogRef, closeRef);
+  useHistoryDismiss("__bbmfSheet", `bbmf-sheet:${titleId}`, onClose);
 
   const seller = variant === "seller";
   const bodyType = variant === "body-type";
@@ -231,7 +268,7 @@ export function BbmSheet({ title, subtitle, onClose, footer, children, flush = f
   const refined = seller || bodyType;
   return createPortal(
     <div className={`bbmf-overlay is-sheet${refined ? " is-seller-overlay" : ""}`} onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}>
-      <section className={`bbmf-sheet${modalBody ? " is-modal-body" : ""}${seller ? " is-seller" : ""}${bodyType ? " is-body-type" : ""}${category ? " is-category" : ""}`} role="dialog" aria-modal="true" aria-labelledby={titleId}>
+      <section ref={dialogRef} className={`bbmf-sheet${modalBody ? " is-modal-body" : ""}${seller ? " is-seller" : ""}${bodyType ? " is-body-type" : ""}${category ? " is-category" : ""}`} role="dialog" aria-modal="true" aria-labelledby={titleId} onKeyDown={(event) => handleDialogKeyDown(event, onClose)}>
         {/* QF-111: onBack 이 있으면 제목 앞 "←"(누르면 이전 단계) */}
         <header className="bbmf-sheet-header"><div className="bbmf-sheet-heading">{onBack ? <h3 id={titleId}><button type="button" className="bbmf-sheet-back" aria-label={`${title} 뒤로`} onClick={onBack}>← {title}</button></h3> : <h3 id={titleId}>{title}</h3>}{subtitle ? <p>{subtitle}</p> : null}</div><CloseButton buttonRef={closeRef} onClose={onClose} /></header>
         <div className={`bbmf-sheet-body${flush ? " is-flush" : ""}`}>{children}</div>
@@ -258,10 +295,14 @@ export function BbmFullExcludeAction({ onClick }: { onClick: () => void }) {
 }
 
 export function BbmFullFilter({ onClose, keepSearch, onToggleKeep, onSaveSearch, history = 0, footer, children, variant = "default" }: { onClose: () => void; keepSearch?: boolean; onToggleKeep?: () => void; onSaveSearch?: () => void; history?: number; footer?: ReactNode; children: ReactNode; variant?: "default" | "daangn" }) {
-  useEscape(onClose);
+  const dialogId = useId();
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const closeRef = useRef<HTMLButtonElement | null>(null);
+  useDialogFocus(dialogRef, closeRef);
+  useHistoryDismiss("__bbmfFull", `bbmf-full:${dialogId}`, onClose);
   const fullFilter = (
-    <div className={`bbmf-full${variant === "daangn" ? " is-daangn" : ""}`} role="dialog" aria-modal="true" aria-label="필터">
-      <header className="bbmf-full-header"><h3>필터</h3><button type="button" className="bbmf-full-close" aria-label="닫기" onClick={onClose}><img src={asset("bbm/m-full-close.svg")} alt="" draggable={false} /></button></header>
+    <div ref={dialogRef} className={`bbmf-full${variant === "daangn" ? " is-daangn" : ""}`} role="dialog" aria-modal="true" aria-label="필터" onKeyDown={(event) => handleDialogKeyDown(event, onClose)}>
+      <header className="bbmf-full-header"><h3>필터</h3><button ref={closeRef} type="button" className="bbmf-full-close" aria-label="닫기" onClick={onClose}><img src={asset("bbm/m-full-close.svg")} alt="" draggable={false} /></button></header>
       <div className="bbmf-full-body">
         {variant === "default" ? <div className="bbmf-full-summary">
           <div className="bbmf-full-tools">

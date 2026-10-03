@@ -65,6 +65,7 @@ const ArrowLink = ({ children }: { children: string }) => (
 export default function MainHome() {
   const [activeService, setActiveService] = useState<ServiceKey>("all");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const [toast, setToast] = useState("");
   useEffect(() => {
     if (!toast) return;
@@ -74,13 +75,16 @@ export default function MainHome() {
   const openCommunity = () => {
     window.location.href = "./community/bobaedream-pc-board-list.html?layout=reddit";
   };
-  const openListing = () => {
-    window.location.href = "./?qf=guazi&filtericon=notion";
-  };
-  const openVehicleType = (value: string) => {
+  const navigateToListing = ({ query, maker, category }: { query?: string; maker?: string; category?: string } = {}) => {
     const params = new URLSearchParams({ qf: "guazi", filtericon: "notion" });
-    if (value !== "중고차") params.set("category", value);
+    if (query?.trim()) params.set("q", query.trim());
+    if (maker) params.set("maker", maker);
+    if (category && category !== "중고차") params.set("category", category);
     window.location.href = `./?${params.toString()}`;
+  };
+  const openListing = () => navigateToListing();
+  const openVehicleType = (value: string) => {
+    navigateToListing({ category: value });
   };
   const showPreparing = (message: string) => setToast(message);
 
@@ -114,10 +118,10 @@ export default function MainHome() {
           ))}
         </nav>
 
-        <form className="mh-search-strip" role="search" onSubmit={(event) => { event.preventDefault(); openListing(); }}>
+        <form className="mh-search-strip" role="search" onSubmit={(event) => { event.preventDefault(); navigateToListing({ query: searchQuery }); }}>
             <label className="mh-search-field">
               <img src={prototypeAsset("icons/search.svg")} alt="" aria-hidden="true" />
-              <input type="search" aria-label="중고차 검색" placeholder="어떤 차량을 찾고 있나요?" />
+              <input type="search" aria-label="중고차 검색" placeholder="어떤 차량을 찾고 있나요?" value={searchQuery} onChange={(event) => setSearchQuery(event.currentTarget.value)} />
             </label>
         </form>
 
@@ -131,7 +135,7 @@ export default function MainHome() {
               {vehicleTypes.map(({ value, label, icon }) => <button className="mh-category-item" type="button" key={value} onClick={() => openVehicleType(value)}><span className="mh-category-image"><img src={bbmAsset(icon)} alt="" aria-hidden="true" /></span><strong>{label}</strong></button>)}
             </div>
             <div className="mh-category-rail mh-luxury-rail" aria-label="럭셔리 제조사 가로 목록">
-              {luxuryBrands.map(([image, label, variant]) => <button className="mh-luxury-item" type="button" key={label} onClick={openListing}><span className="mh-luxury-disc"><img className={variant} src={image} alt="" /><strong>{label}</strong></span></button>)}
+              {luxuryBrands.map(([image, label, variant]) => <button className="mh-luxury-item" type="button" key={label} onClick={() => navigateToListing({ maker: label })}><span className="mh-luxury-disc"><img className={variant} src={image} alt="" /><strong>{label}</strong></span></button>)}
             </div>
           </div>
         </section>

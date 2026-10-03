@@ -3,6 +3,8 @@
 ## Shared Rules
 
 - Preserve the depth order: `차량유형 → 제조사 → 모델 → 세대 → 트림`.
+- The main-home search submits its trimmed value as `q`; a main-home brand card submits `maker`. The listing restores both from the URL so entry intent survives navigation and reload.
+- A keyword filters result cards only. It does not remove the selected maker/model/generation rail or recalculate its available hierarchy. When a keyword produces zero results, the primary recovery action clears only `q` and preserves the selected vehicle depth.
 - `제조사`, `모델`, and `세대` use the shared `DepthCard` pattern.
 - `트림` uses text-only `TrimChip` controls and keeps only the leading `전체` chip.
 - No `전체` card appears in the `제조사`, `모델`, or `세대` card rails.
@@ -65,6 +67,12 @@
 - Manufacturer options wrap when the list grows beyond one row.
 - Sheet height is capped at 80% viewport height with internal vertical scrolling.
 - Reset and apply actions stay sticky at the bottom.
+
+## Dialog And Full-filter State
+
+- Opening the mobile full-filter snapshots the applied detailed-filter values. Row clears, nested sheets, reset, and the availability switch edit that draft; only the bottom `N대 보기` action commits it.
+- Close, dim click, Escape, and browser Back discard the mobile full-filter draft and return focus to the control that opened it.
+- Shared filter modals, sheets, and the mobile full-filter move focus to their close button on open, keep Tab focus inside the active dialog, lock background scrolling, and restore focus on close.
 
 ## Images And Logos
 
