@@ -257,23 +257,28 @@ export function BbmFullExcludeAction({ onClick }: { onClick: () => void }) {
   return <div className="bbmf-full-action"><button type="button" className="bbmf-exclude" onClick={onClick}><i className="bbmf-circle-icon is-minus" aria-hidden="true" />제조사·모델 제외하기</button></div>;
 }
 
-export function BbmFullFilter({ onClose, keepSearch, onToggleKeep, onSaveSearch, history = 0, footer, children }: { onClose: () => void; keepSearch?: boolean; onToggleKeep?: () => void; onSaveSearch?: () => void; history?: number; footer?: ReactNode; children: ReactNode }) {
+export function BbmFullFilter({ onClose, keepSearch, onToggleKeep, onSaveSearch, history = 0, footer, children, variant = "default" }: { onClose: () => void; keepSearch?: boolean; onToggleKeep?: () => void; onSaveSearch?: () => void; history?: number; footer?: ReactNode; children: ReactNode; variant?: "default" | "daangn" }) {
   useEscape(onClose);
-  return createPortal(
-    <div className="bbmf-full" role="dialog" aria-modal="true" aria-label="필터">
+  const fullFilter = (
+    <div className={`bbmf-full${variant === "daangn" ? " is-daangn" : ""}`} role="dialog" aria-modal="true" aria-label="필터">
       <header className="bbmf-full-header"><h3>필터</h3><button type="button" className="bbmf-full-close" aria-label="닫기" onClick={onClose}><img src={asset("bbm/m-full-close.svg")} alt="" draggable={false} /></button></header>
       <div className="bbmf-full-body">
-        <div className="bbmf-full-summary">
+        {variant === "default" ? <div className="bbmf-full-summary">
           <div className="bbmf-full-tools">
             <label className="bbmf-full-keep"><button type="button" role="switch" aria-checked={Boolean(keepSearch)} aria-label="검색조건 유지" className={`bbmf-keep-switch${keepSearch ? " is-on" : ""}`} onClick={onToggleKeep}><span /></button><span>검색조건 유지</span></label>
             <button type="button" className="bbmf-full-history">최근검색기록 {history}</button>
           </div>
           <button type="button" className="bbmf-save-search" onClick={onSaveSearch}><i className="bbmf-circle-icon is-plus" aria-hidden="true" />검색조건 저장</button>
-        </div>
+        </div> : null}
         <div className="bbmf-full-menu">{children}</div>
       </div>
       {footer}
-    </div>,
+    </div>
+  );
+  return createPortal(
+    variant === "daangn"
+      ? <div className="bbmf-full-overlay is-daangn" onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}>{fullFilter}</div>
+      : fullFilter,
     document.body,
   );
 }

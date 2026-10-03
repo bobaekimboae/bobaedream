@@ -39,6 +39,8 @@
   .bbm-filter-summary-top strong { color: #222; font-size: 18px; font-weight: 700; line-height: 26px; }
   .bbm-filter-count { display: inline-flex; min-width: 26px; height: 26px; align-items: center; justify-content: center; padding: 0 6px; border-radius: 13px; box-sizing: border-box; background: #222; color: #fff; font-size: 12px; font-weight: 600; line-height: 18px; font-variant-numeric: tabular-nums; }
   .bbm-filter-reset { padding: 0; border: 0; background: none; color: #222; font-size: 14px; font-weight: 700; line-height: 19.6px; text-decoration: underline; white-space: nowrap; }
+  .bbm-filter-summary-actions { display: flex; align-items: center; gap: 12px; }
+  .bbm-filter-collapse { padding: 0; border: 0; background: none; color: #767676; font-size: 13px; font-weight: 600; line-height: 20px; white-space: nowrap; }
   .bbm-filter-keep { display: flex; align-items: center; gap: 8px; color: #767676; font-size: 14px; font-weight: 500; line-height: 19.6px; }
   .bbm-filter-history { padding: 0; border: 0; background: none; color: #767676; font-size: 14px; font-weight: 500; line-height: 19.6px; }
   .bbm-filter-history b { font-weight: 600; }
@@ -46,6 +48,17 @@
   .bbm-switch span { position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; border-radius: 50%; background: #fff; box-shadow: 0 1px 2px rgba(0, 0, 0, .12); transition: transform 140ms ease; }
   .bbm-switch.is-on { background: var(--blue); }
   .bbm-switch.is-on span { transform: translateX(14px); }
+  .bbm-filter-status { padding: 16px; border-top: 1px solid #ebebeb; border-bottom: 1px solid #ebebeb; }
+  .bbm-filter-status > span { display: block; margin-bottom: 12px; color: #767676; font-size: 12px; font-weight: 600; line-height: 17px; }
+  .bbm-filter-status label { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: #222; }
+  .bbm-filter-status label strong { order: -1; font-size: 14px; font-weight: 600; line-height: 20px; }
+  .bbm-filter-more-toggle { display: flex; align-items: center; justify-content: center; gap: 8px; width: calc(100% - 32px); height: 42px; margin: 12px 16px; padding: 0; border: 1px solid #dedede; border-radius: 8px; background: #fff; color: #222; font-size: 14px; font-weight: 700; }
+  .bbm-filter-more-toggle i { width: 7px; height: 7px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform 140ms ease; }
+  .bbm-filter-more-toggle[aria-expanded="true"] i { transform: translateY(2px) rotate(225deg); }
+  .bbm-filter.is-collapsed { display: grid; width: 48px; height: 48px; place-items: center; overflow: visible; border-radius: 10px; }
+  .bbm-filter-expand { display: flex; width: 48px; height: 48px; align-items: center; justify-content: center; gap: 3px; padding: 0; border: 0; border-radius: 10px; background: #fff; color: #222; writing-mode: vertical-rl; }
+  .bbm-filter-expand span { font-size: 20px; font-weight: 400; line-height: 14px; transform: rotate(180deg); }
+  .bbm-filter-expand strong { font-size: 13px; font-weight: 700; line-height: 16px; letter-spacing: 1px; }
   .bbm-filter-item { border-bottom: 1px solid #ebebeb; }
   .bbm-filter-group-title { padding: 11px 16px 9px; border-bottom: 1px solid #e3ebf8; background: #f2f7ff; color: #1456a0; font-size: 12px; font-weight: 700; letter-spacing: -.1px; }
   .bbm-filter-item:last-child { border-bottom: 0; }

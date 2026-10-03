@@ -1,66 +1,60 @@
-# Design QA — 트럭·특장 초톳형 슬롯 v03
+# Design QA — 당근형 필터 계층 v01
 
 ## 비교 기준
 
-- 기준 이미지:
-  - `reports/truck-chotot-slot-v03/source-chotot-category.png` — 초톳 카테고리 실사 이미지형
-  - `reports/truck-chotot-slot-v03/source-chotot-brand.png` — 초톳 브랜드 로고형
-- 구현 이미지:
-  - `reports/truck-chotot-slot-v03/implementation-mobile-type-row.png`
-  - `reports/truck-chotot-slot-v03/implementation-mobile-brand.png`
-  - `reports/truck-chotot-slot-v03/implementation-pc-brand.png`
-- 집중 대조:
-  - `reports/truck-chotot-slot-v03/comparison-mobile-type-v03.png`
-  - `reports/truck-chotot-slot-v03/comparison-mobile-brand-v03.png`
-- 상태:
-  - 초기 트럭 형식 행
-  - 카고(화물)트럭 → 경형 트럭 (1톤 미만) → 0.5톤 선택 후 브랜드 행
-- 구현 뷰포트: 모바일 390×844 CSS px·1x, PC 1440×1000 CSS px·1x.
-- 기준 캡처: 1080×2340 px. CSS 원본 폭은 미확인이므로 집중 대조에서 390px 폭으로 정규화했다.
-- 실사이트 확인: `https://xe.chotot.com/mua-ban-xe-tai-xe-ben` (2026-10-03). PC 트럭 목록도 무배경 로고 위·명칭 아래 구조와 한 줄 브랜드명을 사용한다.
+- source visual truth: `reports/daangn-filter-v01/source-daangn.png`
+- browser-rendered implementation: `reports/daangn-filter-v01/implementation-default.png`
+- combined comparison: `reports/daangn-filter-v01/comparison.png`
+- expanded implementation: `reports/daangn-filter-v01/implementation-expanded.png`
+- PC implementation evidence: `reports/qf-093-sidebar/1440x900-collapsed.png`
+- viewport: 모바일 390×844 CSS px, deviceScaleFactor 1; PC 1440×900 CSS px, deviceScaleFactor 1
+- source/implementation pixels: 모바일 양쪽 390×844px로 정규화
+- state: 전체 필터 기본 상태, `필터 더보기` 확장 상태, PC 좌측 필터 숨김·복원 상태
 
-## 비교 이력
+## Full-view comparison evidence
 
-### 1차 발견
+- 당근의 딤 배경, 둥근 필터 표면, 고정 제목·닫기, 스크롤 본문, 하단 초기화·적용 구조를 보배드림 모바일 필터에 적용했다.
+- 구현 시트는 y=64, 390×780이며 화면 아래 844px에 정확히 맞는다.
+- 기본 노출은 상태·브랜드·차종·연료·가격·연식·주행거리·변속기·판매 방식이며 기존 상세 조건은 기본 화면에 나타나지 않는다.
+- 당근의 주황색 대신 보배드림 파랑을 적용 버튼과 활성 상태에 유지한 것은 의도적인 브랜드 토큰 차이다.
 
-- [P2] 모바일 유형 명칭이 12px로 초톳 환산 약 14~16px보다 작았다.
-- [P2] 유형 이미지와 명칭의 가시 간격이 초톳보다 약 5~6px 좁았다.
-- 브랜드 40×40 슬롯과 로고–명칭의 최종 가시 간격은 초톳 캡처와 유사했다.
+## Focused region comparison evidence
 
-### 수정
-
-- 모바일 유형 명칭을 14/18px로 변경했다.
-- 유형 이미지–명칭 CSS 간격을 모바일 7px, PC 9px로 변경했다.
-- 브랜드 슬롯 40×40, 브랜드 로고–명칭 8px, 칩 줄–슬롯 8px은 유지했다.
-- 모바일·PC 카드 크기와 터치 영역은 유지했다.
-
-### 2차 비교
-
-- 모바일 유형 행에서 이미지와 명칭이 분리되어 식별성이 개선됐다.
-- 긴 명칭은 최대 두 줄 안에서 보이며 가로 스크롤 항목끼리 겹치지 않는다.
-- 브랜드 행의 로고 폭·중심선·명칭 정렬에는 회귀가 없다.
-- PC 형식 행은 카드 높이를 유지하면서 이미지·명칭의 위아래 균형이 개선됐다.
-- 남은 차이: 초톳은 행 왼쪽에 그룹명을 두지만 보배드림 트럭 시안은 기존 정보 구조를 유지한다. 이번 요청 범위에서는 의도적 차이로 분류한다.
+- 별도 확대 이미지 없이도 390×844 1:1 캡처에서 제목, 행 높이, 스위치, 셰브론, 더보기 버튼, 고정 푸터가 모두 판독 가능했다.
+- DOM 측정으로 시트 위치·크기·가로 넘침과 기본/확장 문구를 추가 확인했다.
 
 ## 필수 품질면
 
-- 글꼴·타이포그래피: Pretendard 유지. 유형 명칭 14px, 최대 두 줄, 가운데 정렬 통과.
-- 간격·레이아웃: 모바일 80×108/64×64/간격 7, PC 132×144/88×88/간격 9 통과.
-- 색상·토큰: 투명 배경, 테두리·곡률·그림자 없음, 명칭 `#595959` 유지.
-- 이미지 품질: 투명 PNG의 원본 비율과 하단 기준선을 유지하며 잘림·늘어남 없음.
-- 문구·콘텐츠: 트럭 형식 명칭과 엔카 뎁스 데이터는 변경하지 않았다.
+- 글꼴·타이포그래피: Pretendard Variable 유지. 제목 20/28 700, 항목 16/22 600으로 위계가 선명하다.
+- 간격·레이아웃: 20px 좌우 인셋, 56px 항목, 60px 헤더, 80px 푸터이며 가로 넘침이 없다.
+- 색상·토큰: 당근의 표면·딤 구조를 따르되 핵심 동작색은 보배드림 `#1B4C8C`을 유지한다.
+- 이미지 품질: 이번 변경에서 신규 이미지·로고 대체가 없고 기존 SVG 닫기·셰브론이 선명하게 유지된다.
+- 문구·콘텐츠: 당근의 필터 축을 `브랜드`, `차종`, `판매 방식`으로 맞췄고 기존 조건은 삭제하지 않고 더보기에 보존했다.
 
-## 동작·자동 검증
+## 동작 검증
 
-- 모바일에서 `카고(화물)트럭` 선택 후 세부형식 행 전환 확인.
-- PC와 모바일의 초기 형식 행 및 선택 후 브랜드 행 확인.
-- `node scripts/truck-chotot-slot-check.mjs`: 모바일·PC 통과, 콘솔 오류 0건.
+- 모바일 기본 상태에서 추가 필터 비노출, `필터 더보기` 후 카테고리·차급·지역·매매단지·색상 등 복원 확인.
+- PC 기본 필터 8개가 모두 접힌 상태로 노출되고, 더보기 후 기존 27개가 복원됨을 확인.
+- PC 좌측 `숨기기` 후 그리드 `48px 1128px`, 복원 후 `300px 876px` 확인.
+- 모바일·PC 콘솔 오류 0건.
+- `node scripts/audit-daangn-filter-v01.mjs --base=http://127.0.0.1:5175/`: 6/6 통과.
+- `npm run check:sidebar`: 34/34 통과.
 - `npm run verify:qf`: 통과.
-- `npm run build`: 통과.
-- `npm run test:sites`: 4/4 통과.
-- `npm run verify`: 작업 범위 밖 관리자 UI 경로 검사 1건이 기존 404로 실패(나머지 16건 통과). 트럭 코드·빌드와 무관하며 관리자 파일은 수정하지 않았다.
 
-## 결과
+## 비교 이력
 
-- P0/P1/P2 잔여 항목 없음.
-- final result: passed
+- 1차 비교에서 P0/P1/P2 차이는 발견되지 않았다.
+- 기능 검증 스크립트가 이전 QF-110의 27개 상시 노출을 기대하던 문제를 새 계층 기준으로 갱신했다. UI 수정 사항은 없었다.
+
+## Findings
+
+- 잔여 P0/P1/P2 없음.
+- P3: 당근 원본의 인라인 브랜드 선택 대신 기존 보배드림 브랜드·모델 드릴다운을 별도 화면으로 유지한다. 데이터 깊이를 보존하기 위한 의도적 차이다.
+
+## Implementation Checklist
+
+- 기본 필터 축 9개 유지.
+- 추가 조건은 `필터 더보기` 아래 유지.
+- PC 숨김·복원과 모바일 고정 푸터 회귀 검증 유지.
+
+final result: passed

@@ -14,6 +14,7 @@
    자기 칸(.bbm-page 행) 안에서만 움직여 푸터를 덮지 않는다(QF-059) */
 @media (min-width: 1280px) {
   .marketplace.is-bbm.is-hybrid .bbm-page { grid-template-columns: 300px minmax(0, 1fr); gap: 24px; }
+  .marketplace.is-bbm.is-hybrid .bbm-page:has(> .bbm-filter.is-collapsed) { grid-template-columns: 48px minmax(0, 1fr); }
   /* QF-119: 위 기준 sticky + 자기 스크롤 영역(qf-sidebar-stable.css). 예전 "아래 붙는 사이드바"(음수 top, bbm-sticky-sidebar.ts)는 없앰 */
   .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter { position: sticky; top: 16px; align-self: start; }
 }

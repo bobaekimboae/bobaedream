@@ -75,7 +75,7 @@ import { MileageFinalSheet, mileageSummary } from "../filters/bbm-mileage";
 import { PriceFinalSheet } from "../filters/bbm-price";
 import { BbmPartsGallery } from "../filters/bbm-parts-gallery";
 import { BbmActionBar, BbmFullExcludeAction, BbmFullFilter, BbmFullItem, BbmModal, BbmSheet } from "../filters/bbm-filter-parts";
-import { bbmFilterOrder, bbmSidebarItems, bikeFilterOrder, truckFilterOrder, type BbmFilterItem } from "../filters/bbm-filter-options";
+import { BBM_MAKER_ITEM, bbmFilterOrder, bbmSidebarItems, bikeFilterOrder, daangnFilterLabel, splitDaangnFilterOrder, truckFilterOrder, type BbmFilterItem } from "../filters/bbm-filter-options";
 import { BbmBodyTypeSheet, BbmExpandPanel, BbmModalPanel, BbmSellerTypeSheet, clearBbmItem } from "../filters/bbm-filter-panels";
 import { BbmBottomGnb, BbmBrandMenu, BbmCategoryMenu, BbmCategoryPicker, BbmHeadlinePreviewLinks, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
@@ -532,6 +532,8 @@ function MarketplaceScreen() {
   const [bbmTopReset, setBbmTopReset] = useState(0);
   // QF-091: 과쯔(개발 시안형) 모바일 전체 필터 화면과 그 안의 항목 시트
   const [bbmFullOpen, setBbmFullOpen] = useState(() => initialAutohomeMakerSheetPreview());
+  const [bbmFullMoreOpen, setBbmFullMoreOpen] = useState(false);
+  const [bbmAvailableOnly, setBbmAvailableOnly] = useState(false);
   const [bbmCategoryOpen, setBbmCategoryOpen] = useState(false);
   const [bbmCategoryDraft, setBbmCategoryDraft] = useState(() => initialFilters.category);
   const [bbmCategoryChild, setBbmCategoryChild] = useState<string | null>(null);
@@ -1836,7 +1838,7 @@ function MarketplaceScreen() {
             {/* QF-106b: 경로는 상단 카드 밖(회색 바탕 위), 카드는 제목 줄부터 */}
             {isGuaziQuickStyle ? <div className="bbm-hybrid-top"><BbmTopCrumbs items={bbmCrumbs} />{bbmTopCard}</div> : null}
             <div className="bbm-page">
-              <BbFilterSidebar mileageFinal={isGuaziQuickStyle} priceFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? isTruckCategory ? truckFilterOrder : category === "바이크" ? bikeFilterOrder : bbmFilterOrder : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} brandLogoCategory={category} truckFilter={truckSidebarFilter} />
+              <BbFilterSidebar collapsible mileageFinal={isGuaziQuickStyle} priceFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? isTruckCategory ? truckFilterOrder : category === "바이크" ? bikeFilterOrder : bbmFilterOrder : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} brandLogoCategory={category} truckFilter={truckSidebarFilter} />
               <div className="bbm-content">
                 {isGuaziQuickStyle ? null : bbmContentHead}
                 <section className="bbm-results" aria-label="매물 목록">
@@ -1952,9 +1954,9 @@ function MarketplaceScreen() {
 
   // QF-091: 과쯔(개발 시안형) 모바일 = 개발 시안 원본과 같은 화면(헤더·지역·칩·유형 줄·영상/정렬·목록 탭·카드·하단 탭바). 퀵필터 레일 자체는 그대로
   if (isGuaziQuickStyle) {
-    const openBbmFull = () => { setBbmFullItem(null); setBbmFullOpen(true); };
+    const openBbmFull = () => { setBbmFullItem(null); setBbmFullMoreOpen(false); setBbmFullOpen(true); };
     const fullValue = bbmValue;
-    const closeFull = () => { setBbmFullOpen(false); setBbmFullItem(null); setBbmFullDraft(null); setBbmMakerDraft(null); };
+    const closeFull = () => { setBbmFullOpen(false); setBbmFullMoreOpen(false); setBbmFullItem(null); setBbmFullDraft(null); setBbmMakerDraft(null); };
     const openFullItem = (item: BbmFilterItem | "카테고리" | "제조사 · 모델") => { setBbmFullDraft(bbmValue); setBbmFullItem(item); };
     const sheetValue = bbmFullDraft ?? bbmValue;
     const setSheetValue = (next: BbmFilterValues) => setBbmFullDraft(next);
@@ -1966,8 +1968,20 @@ function MarketplaceScreen() {
       : isTruckCategory
         ? [null, ...truckFilterOrder.filter((label) => label !== "제조사 · 모델").map((label) => bbmSidebarItems.find((item) => item.label === label)).filter((item): item is BbmFilterItem => Boolean(item))]
         : [bbmSidebarItems[0], bbmSidebarItems[1], null, ...bbmSidebarItems.filter((item) => !item.scope).slice(2)];
+    const fullItemMap = new Map(fullItems.map((item) => [item?.label ?? BBM_MAKER_ITEM, item]));
+    const { primary: primaryFullOrder, secondary: secondaryFullOrder } = splitDaangnFilterOrder([...fullItemMap.keys()]);
     const truckFormatPath = [selectedTruckFormat, selectedTruckSubtype, selectedTruckSpec].filter(Boolean).join(" › ");
     const truckFormatFullItem: BbmFilterItem = { label: "형식/적재용량", mode: "expand", scope: "truck" };
+    const renderFullFilterItem = (label: string) => {
+      const item = fullItemMap.get(label);
+      if (item) return <BbmFullItem key={item.label} label={isTruckCategory && item.label === "차량번호 / 판매자" ? "차량번호/판매자 이름" : daangnFilterLabel(item.label)} icon={item.label === "전기차 주행 가능 거리" ? bbmIcon("filter-ev-range") : undefined} value={isGuaziQuickStyle && item.label === "주행거리" ? mileageSummary(fullValue.ranges.mileage) : bbmItemValue(item.label, fullValue)} onClear={() => setBbmFilters(clearBbmItem(item, bbmValue))} onOpen={() => openFullItem(item)} />;
+      return <div key="maker" className="bbmf-full-maker">
+        <BbmFullItem label="브랜드" value={maker ? vehicleSummaryLabel : ""} onClear={clearMakerFilter} onOpen={() => {
+          if (autohomeLogoPreview && !isTruckCategory) { setBbmMakerDraft(maker); openFullItem("제조사 · 모델"); return; }
+          setBbmFullOpen(false); setSheet("vehicle");
+        }} />
+      </div>;
+    };
     return (
       <>
         <MobileScroll className="app-screen">
@@ -2018,27 +2032,29 @@ function MarketplaceScreen() {
         </BbmSheet> : null}
         {bbmFullOpen ? (
           <BbmFullFilter
+            variant="daangn"
             onClose={closeFull}
             keepSearch={bbmKeepSearch}
             onToggleKeep={() => setBbmKeepSearch((value) => !value)}
             onSaveSearch={toggleSearchSaved}
             history={shownHistory}
-            footer={<BbmActionBar variant="full" confirmStyle="보기" count={visibleCars.length} onReset={() => setBbmFilters(resetBbmFilters(bbmValue))} onConfirm={closeFull} />}
+            footer={<BbmActionBar variant="full" confirmStyle="보기" count={visibleCars.length} onReset={() => { setBbmAvailableOnly(false); setBbmFullMoreOpen(false); setBbmFilters(resetBbmFilters(bbmValue)); }} onConfirm={closeFull} />}
           >
-            <BbmFullItem label="카테고리" onOpen={() => openFullItem("카테고리")} />
-            {isTruckCategory ? <>
-              <BbmFullItem label="형식/적재용량" value={truckFormatPath} onClear={clearTruckFormat} onOpen={() => openFullItem(truckFormatFullItem)} />
-              <div className="bbmf-full-group-title">트럭 전용 필터</div>
-            </> : null}
-            {fullItems.map((item) => item ? <BbmFullItem key={item.label} label={isTruckCategory && item.label === "차량번호 / 판매자" ? "차량번호/판매자 이름" : item.displayLabel ?? item.label} icon={item.label === "전기차 주행 가능 거리" ? bbmIcon("filter-ev-range") : undefined} value={isGuaziQuickStyle && item.label === "주행거리" ? mileageSummary(fullValue.ranges.mileage) : bbmItemValue(item.label, fullValue)} onClear={() => setBbmFilters(clearBbmItem(item, bbmValue))} onOpen={() => openFullItem(item)} /> : (
-              <div key="maker" className="bbmf-full-maker">
-                <BbmFullItem label={isTruckCategory ? "제조사/모델/등급" : "제조사 · 모델"} value={maker ? vehicleSummaryLabel : ""} onClear={clearMakerFilter} onOpen={() => {
-                  if (autohomeLogoPreview && !isTruckCategory) { setBbmMakerDraft(maker); openFullItem("제조사 · 모델"); return; }
-                  setBbmFullOpen(false); setSheet("vehicle");
-                }} />
-                <BbmFullExcludeAction onClick={() => setSearchToast("제조사·모델 제외하기는 정식 서비스에서 이용해 주세요.")} />
-              </div>
-            ))}
+            <section className="bbmf-daangn-status" aria-label="상태">
+              <h4>상태</h4>
+              <label><button type="button" role="switch" aria-checked={bbmAvailableOnly} aria-label="거래 가능만 보기" className={`bbmf-daangn-switch${bbmAvailableOnly ? " is-on" : ""}`} onClick={() => setBbmAvailableOnly((value) => !value)}><span /></button><strong>거래 가능만 보기</strong></label>
+            </section>
+            {primaryFullOrder.map(renderFullFilterItem)}
+            <button type="button" className="bbmf-full-more" aria-expanded={bbmFullMoreOpen} onClick={() => setBbmFullMoreOpen((value) => !value)}><span>{bbmFullMoreOpen ? "필터 접기" : "필터 더보기"}</span><i aria-hidden="true" /></button>
+            {bbmFullMoreOpen ? <div className="bbmf-full-more-content">
+              <BbmFullItem label="카테고리" onOpen={() => openFullItem("카테고리")} />
+              {isTruckCategory ? <>
+                <BbmFullItem label="형식/적재용량" value={truckFormatPath} onClear={clearTruckFormat} onOpen={() => openFullItem(truckFormatFullItem)} />
+                <div className="bbmf-full-group-title">추가 필터</div>
+              </> : null}
+              {secondaryFullOrder.map(renderFullFilterItem)}
+              <BbmFullExcludeAction onClick={() => setSearchToast("제조사·모델 제외하기는 정식 서비스에서 이용해 주세요.")} />
+            </div> : null}
           </BbmFullFilter>
         ) : null}
         {/* QF-117: 과쯔 모바일 주행거리는 전용 바텀시트(임시 값 · 대수 실시간 · 적용해야 확정) */}

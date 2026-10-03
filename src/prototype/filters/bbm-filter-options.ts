@@ -132,3 +132,31 @@ export const truckFilterOrder: string[] = [
   "트럭 적재규격",
   "차량번호 / 판매자",
 ];
+
+// 당근 중고차 전체 필터에서 기본 노출하는 9개 축.
+// 카테고리별 order 에 실제로 존재하는 항목만 남기고, 그 밖의 항목은 "필터 더보기" 아래로 보낸다.
+const daangnCorePreference = [
+  BBM_MAKER_ITEM,
+  "바디타입",
+  "트럭 연료",
+  "연료",
+  "가격",
+  "연식",
+  "주행거리",
+  "트럭 변속기",
+  "변속기",
+  "판매방식",
+];
+
+export function splitDaangnFilterOrder(order: string[]) {
+  const primary = daangnCorePreference.filter((label) => order.includes(label));
+  const secondary = order.filter((label) => !primary.includes(label));
+  return { primary, secondary };
+}
+
+export function daangnFilterLabel(label: string) {
+  if (label === BBM_MAKER_ITEM) return "브랜드";
+  if (label === "바디타입") return "차종";
+  if (label === "판매방식") return "판매 방식";
+  return bbmSidebarItems.find((item) => item.label === label)?.displayLabel ?? label;
+}

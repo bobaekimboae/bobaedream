@@ -4,6 +4,7 @@
    · 얇은 스크롤바: 평소 숨김, 사이드바에 마우스를 올리면 보임 */
 @media (min-width: 1280px) {
   .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter { display: flex; flex-direction: column; height: calc(100dvh - 32px); box-sizing: border-box; }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-collapsed { display: grid; width: 48px; height: 48px; }
   .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter > .bbm-filter-summary { flex: none; }
   .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter > .bbm-filter-menu {
     flex: 1 1 auto; min-height: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain;

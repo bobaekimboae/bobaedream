@@ -110,6 +110,13 @@
 
 - Guazi PC left filter (and the 1024–1279 drawer) order comes from one config array `bbmFilterOrder` in `src/prototype/filters/bbm-filter-options.ts`: `제조사 · 모델` (open by default) → `연식` → `주행거리` → `가격` → `바디타입` → `차급` (closed) → `지역` → `매매단지` → … (rest unchanged). The filter header stays on top. ChoTot/Dongchedi PC keep the original order (`order` prop not passed). The mobile filter sheet is unchanged for now and can switch to the same array later. Check: `npm run check:sidebar`.
 
+## Daangn Filter Hierarchy
+
+- Guazi PC·mobile full filters use the Daangn used-car information hierarchy: status, brand, vehicle type, fuel, price, year, mileage, transmission, and sale method are the default visible filters.
+- Existing filters outside that set are preserved below one `필터 더보기` control. Category and truck `형식/적재용량` also stay in the expanded area instead of competing with the default filters.
+- Mobile uses a dimmed backdrop and a rounded bottom sheet with fixed header and action footer. Bobaedream blue remains the action color.
+- The PC fixed sidebar uses the same default/expanded split and provides `숨기기`; the collapsed 48px control restores the sidebar. The 1024–1279 drawer is not collapsible.
+
 ## Region Drill (QF-111)
 
 - Data `src/prototype/data/regions-kr.json`: 17 sido + 228 si·gun·gu (no districts for 세종); metro cities sorted 가나다, provinces 시 first then 군. District values are stored as bbm check `district` = `"서울 강남구"` (sido included); listings match the first two words of `place`.

@@ -561,6 +561,34 @@
 .bbmf-exclude { display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 12px; border: 0; border-radius: 8px; background: #f4f4f4; color: #505050; font: inherit; font-size: 13px; font-weight: 600; line-height: 18.2px; cursor: pointer; }
 .bbmf-actions.is-full { height: 77px; padding: 16px; border-top: 1px solid #ebebeb; box-sizing: border-box; }
 
+/* 당근형 모바일 전체 필터: 둥근 하단 시트 + 고정 머리/버튼, 기본 9개 필터와 더보기 계층 */
+.bbmf-full-overlay.is-daangn { position: fixed; inset: 0; z-index: 70; display: flex; align-items: flex-end; justify-content: center; background: rgba(15, 18, 24, .42); }
+.bbmf-full.is-daangn { position: relative; inset: auto; width: min(100%, 520px); height: calc(100dvh - 48px); max-height: 780px; overflow: hidden; border-radius: 20px 20px 0 0; box-shadow: 0 -10px 30px rgba(0, 0, 0, .12); }
+.bbmf-full.is-daangn .bbmf-full-header { height: 60px; padding: 0 20px; }
+.bbmf-full.is-daangn .bbmf-full-header h3 { font-size: 20px; font-weight: 700; line-height: 28px; }
+.bbmf-full.is-daangn .bbmf-full-close { width: 40px; height: 40px; margin-right: -8px; border-radius: 50%; }
+.bbmf-full.is-daangn .bbmf-full-close:hover { background: #f4f4f4; }
+.bbmf-full.is-daangn .bbmf-full-close img { width: 24px; height: 24px; }
+.bbmf-full.is-daangn .bbmf-full-menu { padding: 0 20px 20px; }
+.bbmf-full.is-daangn .bbmf-full-item { height: 56px; padding: 0; font-size: 16px; font-weight: 600; line-height: 22px; }
+.bbmf-full.is-daangn .bbmf-full-value { padding-right: 0; }
+.bbmf-daangn-status { padding: 20px 0 12px; border-bottom: 1px solid #ebebeb; }
+.bbmf-daangn-status h4 { margin: 0 0 14px; color: #767676; font-size: 13px; font-weight: 600; line-height: 18px; }
+.bbmf-daangn-status label { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 28px; color: #222; }
+.bbmf-daangn-status label strong { order: -1; font-size: 16px; font-weight: 600; line-height: 22px; }
+.bbmf-daangn-switch { position: relative; width: 42px; height: 24px; flex: none; padding: 0; border: 0; border-radius: 999px; background: #d8d8d8; cursor: pointer; transition: background 140ms ease; }
+.bbmf-daangn-switch span { position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .18); transition: transform 140ms ease; }
+.bbmf-daangn-switch.is-on { background: #1b4c8c; }
+.bbmf-daangn-switch.is-on span { transform: translateX(18px); }
+.bbmf-full-more { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 52px; margin-top: 8px; padding: 0; border: 1px solid #dedede; border-radius: 10px; background: #fff; color: #222; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; }
+.bbmf-full-more i { width: 8px; height: 8px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform 140ms ease; }
+.bbmf-full-more[aria-expanded="true"] i { transform: translateY(2px) rotate(225deg); }
+.bbmf-full-more-content { margin-top: 12px; border-top: 8px solid #f6f6f6; }
+.bbmf-full.is-daangn .bbmf-full-more-content .bbmf-full-item { padding: 0; }
+.bbmf-full.is-daangn .bbmf-full-group-title { margin: 0 -20px; padding-right: 20px; padding-left: 20px; }
+.bbmf-full.is-daangn .bbmf-full-action { padding: 16px 0; }
+.bbmf-full.is-daangn > .bbmf-actions.is-full { height: 80px; padding: 14px 20px; background: #fff; box-shadow: 0 -4px 12px rgba(0, 0, 0, .06); }
+
 /* 트럭 형식/세부형식/적재용량 드릴다운을 모바일 시트에서도 같은 컴포넌트로 사용한다. */
 .bbmf-overlay .bbm-truck-format .bbm-path-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 12px 16px 4px; }
 .bbmf-overlay .bbm-truck-format .bbm-path-chip { display: inline-flex; align-items: center; gap: 4px; max-width: 100%; height: 28px; padding: 0 8px 0 10px; border: 1px solid #1b4c8c; border-radius: 14px; box-sizing: border-box; background: #f2f6fb; color: #1b4c8c; font-size: 12px; font-weight: 600; }

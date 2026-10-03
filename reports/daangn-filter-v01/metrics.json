@@ -1,0 +1,28 @@
+{
+  "viewport": {
+    "width": 390,
+    "height": 844,
+    "deviceScaleFactor": 1
+  },
+  "defaultState": {
+    "text": "필터\n상태\n거래 가능만 보기\n브랜드\n차종\n연료\n가격\n연식\n주행거리\n변속기\n판매 방식\n필터 더보기\n초기화\n64대 보기",
+    "rect": {
+      "x": 0,
+      "y": 64,
+      "width": 390,
+      "height": 780,
+      "bottom": 844
+    },
+    "overflowX": false
+  },
+  "expandedText": "필터\n상태\n거래 가능만 보기\n브랜드\n차종\n연료\n가격\n연식\n주행거리\n변속기\n판매 방식\n필터 접기\n카테고리\n차급\n지역\n매매단지\n인승\n구동방식\n성능 · 보험\n판매자 유형\n외부색상\n시트색상\n옵션\n최고출력\n연비\n배기량\n공차중량\n크기\n전기차 주행 가능 거리\n차량 특징\n광고기간\n차량번호 / 판매자\n제조사·모델 제외하기\n초기화\n64대 보기",
+  "checks": {
+    "defaultItems": true,
+    "extrasHidden": true,
+    "extrasRestored": true,
+    "bottomSheetGeometry": true,
+    "noHorizontalOverflow": true,
+    "noConsoleErrors": true
+  },
+  "errors": []
+}

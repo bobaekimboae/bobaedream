@@ -2,7 +2,7 @@
 // QF-119: 과쯔 PC 좌측 필터 "위 기준 sticky + 자기 스크롤" 점검(1440×900 · 1280×720 · 1920×1080 · 1440×1700).
 // ① 높이 = 화면 − 32 고정, 머리(필터 · 초기화 · 검색조건 유지) 아래 항목 목록만 overflow-y auto · overscroll contain
 // ② 처음 필터 맨 위 = 상단 영역 아래 24 ③ 내리면 위 16 에 붙고 높이 그대로 ④ 맨 끝에서 푸터를 덮지 않음 ⑤ 다시 올리면 원래 자리
-// ⑥ 사이드바 안 스크롤로 마지막 항목 "차량번호 / 판매자"가 보이고 페이지 scrollTop 은 그대로 ⑦ 항목을 모두 접어도 높이·위치 그대로
+// ⑥ "필터 더보기"를 연 뒤 사이드바 안 스크롤로 마지막 항목 "차량번호 / 판매자"가 보이고 페이지 scrollTop 은 그대로 ⑦ 항목을 모두 접어도 높이·위치 그대로
 // (예전 QF-093 보완 "아래 붙는 사이드바"(음수 top)는 QF-119 에서 없앰. 캡처: reports/qf-093-sidebar/)
 // QF-110: 좌측 필터 순서(제조사 · 모델 맨 위, 바디타입·차급은 가격 아래)도 확인
 // 사용: npm run check:sidebar [-- --base=<주소>]
@@ -13,6 +13,7 @@ import { join } from "node:path";
 const base = (process.argv.find((arg) => arg.startsWith("--base=")) ?? "").slice(7) || "http://127.0.0.1:4173/bobaedream/";
 const outDir = join("reports", "qf-093-sidebar");
 mkdirSync(outDir, { recursive: true });
+mkdirSync(join("reports", "diff"), { recursive: true });
 const browser = await chromium.launch({ args: ["--disable-lcd-text"] });
 const summary = { base, measuredAt: new Date().toISOString(), sizes: {}, checks: [] };
 const check = (name, ok, detail) => { summary.checks.push({ name, ok, detail }); console.log(`${ok ? "O" : "X"} ${name} — ${detail}`); };
@@ -54,6 +55,8 @@ for (const [width, height] of [[1440, 900], [1280, 720], [1920, 1080], [1440, 17
   await scrollTo(page, 1500); await page.waitForTimeout(300);
   const s1 = await state(page);
   check(`${tag} 내리면 위 16 에 붙고 높이 그대로(음수 top 없음)`, s1.filterTop === 16 && s1.filterH === s0.filterH && s1.stickyTop === "16px", `필터 ${s1.filterTop}~${s1.filterBottom} · top ${s1.stickyTop} · 높이 ${s1.filterH}`);
+  await page.getByRole("button", { name: "필터 더보기", exact: true }).click();
+  await page.waitForTimeout(120);
   // 사이드바 안에서만 끝까지 스크롤 → 마지막 항목 보임 · 페이지 scrollTop 그대로
   const box = await page.locator(".bbm-page > .bbm-filter > .bbm-filter-menu").boundingBox();
   // 제조사·모델 목록은 자기 스크롤 상자라, 그 아래 항목 줄(사이드바 아래쪽)에서 휠
@@ -80,15 +83,17 @@ for (const [width, height] of [[1440, 900], [1280, 720], [1920, 1080], [1440, 17
   summary.sizes[tag] = { start: s0, stuck: s1, sidebarEnd: s2, end: s3, back: s4, collapsed: s5 };
   await context.close();
 }
-// QF-110 순서 기준: 제조사 · 모델(펼침) → 연식 → 주행거리 → 가격 → 바디타입 → 차급(접힘) → 지역 → 매매단지 …(1440 · 1280)
+// 당근형 기본 순서 8개 + 더보기 아래 기존 19개(총 27)
 for (const width of [1440, 1280]) {
   const page = await browser.newPage({ viewport: { width, height: 900 } });
   await page.goto(`${base}?qf=guazi&pc=1`, { waitUntil: "networkidle" }); await page.waitForTimeout(600);
-  const rows = await page.evaluate(() => [...document.querySelectorAll("aside.bbm-filter .bbm-filter-toggle")].map((t) => ({ label: t.textContent.trim(), open: t.closest(".bbm-filter-item")?.classList.contains("is-open") })));
-  const head = rows.slice(0, 8).map((r) => r.label).join(" → ");
-  const want = "제조사 · 모델 → 연식 → 주행거리 → 가격 → 바디타입 → 차급 → 지역 → 매매단지";
-  const openOk = rows[0]?.open === true && rows.find((r) => r.label === "바디타입")?.open === false && rows.find((r) => r.label === "차급")?.open === false;
-  check(`${width} 좌측 필터 순서(QF-110) · 제조사·모델 펼침 · 바디타입·차급 접힘 · 항목 27`, head === want && openOk && rows.length === 27, `${head} … (${rows.length})`);
+  const defaultRows = await page.evaluate(() => [...document.querySelectorAll("aside.bbm-filter .bbm-filter-toggle")].map((t) => ({ label: t.textContent.trim(), open: t.closest(".bbm-filter-item")?.classList.contains("is-open") })));
+  const head = defaultRows.map((r) => r.label).join(" → ");
+  const want = "브랜드 → 차종 → 연료 → 가격 → 연식 → 주행거리 → 변속기 → 판매 방식";
+  await page.getByRole("button", { name: "필터 더보기", exact: true }).click();
+  const expandedRows = await page.evaluate(() => [...document.querySelectorAll("aside.bbm-filter .bbm-filter-toggle")].map((t) => t.textContent.trim()));
+  const closedOk = defaultRows.every((row) => row.open === false);
+  check(`${width} 당근형 기본 필터 8개 · 전부 접힘 · 더보기 후 기존 27개`, head === want && closedOk && defaultRows.length === 8 && expandedRows.length === 27, `${head} · 기본 ${defaultRows.length} / 전체 ${expandedRows.length}`);
   await page.close();
 }
 writeFileSync(join("reports", "diff", "sidebar-summary.json"), JSON.stringify(summary, null, 2));
