@@ -114,6 +114,51 @@
 - comparison history: 전체 폭 구분선을 발견해 행 border를 제거하고 명칭 열에서 시작하는 1px pseudo-element로 교체했다. 중앙 제목은 기준 시안에 맞춰 좌측 정렬했다.
 
 final result: passed
+
+## 트럭 퀵필터 초톳 브랜드 슬롯 정렬 v45
+
+- source visual truth: `C:\Users\bobae\OneDrive\문서\ChatGPT\퀵필터 제작\.codex-remote-attachments\01a0d236-12ba-7a11-a24d-5851b9bf98ed\b0101475-21b7-4ccb-aad5-3c65ad4001ea\3-1000014826.jpg`
+- implementation: `http://127.0.0.1:5174/?qf=guazi&category=트럭+·+특장&v=slotqa3`
+- same-input comparison: Codex 인앱 브라우저 탭 99 `http://127.0.0.1:5174/qa-compare.html`
+- viewport: 기준·구현 각 412px 폭, 비교 캔버스 1280×720
+- source pixels: 592×1280 캡처를 412px 폭으로 정규화
+- implementation CSS size: 모바일 빈 슬롯 76px + 간격 8px, 트럭 카드 80px, 이미지 면 64×40px; PC 빈 슬롯 92px + 간격 8px
+- state: 트럭·특장 루트 유형, 카고 세부유형, 제조사, 모델 단계
+
+### Full-view comparison evidence
+
+- 초톳 제조사 줄의 첫 로고 슬롯과 보배드림 첫 트럭 이미지 슬롯을 같은 412px 폭으로 나란히 표시했다.
+- 보배드림 트럭 이미지는 좌측 제목 문구 없이 초톳의 빈 제목 칸 뒤 첫 슬롯 축에서 시작한다.
+- 필터 칩의 선택값은 유지되어 제목 제거 후에도 현재 단계와 선택 상태를 확인할 수 있다.
+
+### Focused region comparison evidence
+
+- 구현 DOM 실측: 첫 트럭 카드 x=84px, 이미지 면 x=92px·폭 64px·중심 124px.
+- 초톳 캡처의 첫 브랜드 로고 중심축과 구현 이미지 슬롯 중심축 차이는 약 2px로 허용 범위다.
+- PC 실측: 콘텐츠 시작 x=40px에서 92px 빈 슬롯 + 8px 간격 뒤 첫 카드 x=140px.
+- 트럭 루트·세부유형·제조사·모델 단계에서 `.depth-rail-label` 개수는 모두 0개다.
+
+### Required fidelity surfaces
+
+- Fonts and typography: 이미지·로고 명칭의 기존 규격은 유지했으며 제거 대상인 좌측·상단 제목만 삭제했다.
+- Spacing and layout rhythm: 초톳 제조사 슬롯의 고정 제목 칸과 8px 간격을 보이지 않는 정렬 슬롯으로 재사용했다.
+- Colors and visual tokens: 색상·배경·선택 상태 토큰은 변경하지 않았다.
+- Image quality and asset fidelity: 기존 승인 트럭 PNG와 브랜드 로고 파일을 변형하지 않고 감싸는 레이아웃만 조정했다.
+- Copy and content: 트럭 이미지·로고 레일 제목은 삭제하고, 필터 칩과 카드 명칭은 유지했다.
+
+### Findings
+
+- P0/P1/P2 없음.
+- P3: 트럭 실사 이미지의 비대칭 차체 형상 때문에 보이는 픽셀 무게중심은 슬롯 중심과 1~3px 다르게 느껴질 수 있으나 이미지 캔버스 중심은 일치한다.
+- 브라우저 경고·오류 0건.
+
+### Comparison history
+
+1. 최초 렌더에서 레일 래퍼가 첫 그리드 칸에 자동 배치되어 첫 카드 x=0인 P1 정렬 오류를 확인했다.
+2. `.quick-rail-carousel`을 두 번째 그리드 칸으로 명시해 모바일 첫 카드 x=84px, PC 첫 카드 x=140px로 수정했다.
+3. 수정 후 동일 비교 화면에서 초톳 로고 축과 대조하고 모든 트럭 뎁스의 제목 0개를 확인했다.
+
+final result: passed
 ## 트럭 유형 모바일 필터 외곽·하단 액션 v46
 
 - source visual truth: `https://bobaekimboae.github.io/bobaedream/?qf=guazi&v=57cf09a`에서 연 기본 `필터` 바텀시트.

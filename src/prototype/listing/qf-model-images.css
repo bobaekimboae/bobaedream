@@ -91,8 +91,7 @@
 /* 트럭 상위 10개 로고는 현재 가상 매물 0건이어도 원형을 유지한다. 결과 0건은 선택 후 목록에서 안내한다. */
 .marketplace.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-kr-maker .depth-card.is-dim { opacity: 1; }
 
-/* 초톳 제조사 레일: 고정 제목과 첫 로고, 로고와 로고 사이의 구분 간격을 모두 8px로 통일한다. */
-.marketplace.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.has-leading-label.is-kr-maker { column-gap: 8px; }
+/* 초톳 제조사 레일 위치를 유지하되 좌측 문구는 표시하지 않는다. */
 
 .marketplace.is-truck-category.is-qf-guazi.is-qf-plain .depth-card:active { opacity: .6; transform: none; }
 .marketplace.is-truck-category.is-qf-guazi.is-qf-plain .depth-card:focus-visible { outline: 2px solid #222; outline-offset: 2px; }
