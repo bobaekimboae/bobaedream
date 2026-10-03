@@ -217,8 +217,7 @@ export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string, detail
     };
     return (
       <section className="bbm-category-menu is-hierarchical" aria-label="차량 카테고리">
-        <div className="bbm-category-labeled-row is-type-row">
-          <span className="bbm-quick-rail-title">유형</span>
+        <div className="bbm-category-labeled-row is-type-row is-titleless">
           <div className="bbm-category-labeled-content"><BbmCategoryIconRow activeValue={activeGroup.value} onActivate={activateGroup} /></div>
         </div>
         {entersNextDepthDirectly(activeGroup) ? null : (

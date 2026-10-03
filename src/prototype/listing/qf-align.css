@@ -11,6 +11,7 @@
 
 /* 첫 차량 카테고리 줄과 하위 알약 줄도 같은 제목 열을 공유한다. */
 .marketplace.is-qf-guazi .bbm-category-labeled-row { display: grid; grid-template-columns: 92px minmax(0, 1fr); align-items: center; min-width: 0; }
+.marketplace.is-qf-guazi .bbm-category-labeled-row.is-titleless { grid-template-columns: minmax(0, 1fr); }
 .marketplace.is-qf-guazi .bbm-category-labeled-content { min-width: 0; overflow: hidden; }
 .marketplace.is-qf-guazi .bbm-quick-rail-title { display: flex; align-self: stretch; align-items: center; padding: 0 8px 0 20px; box-sizing: border-box; color: #595959; font-size: 14px; font-weight: 400; line-height: 20px; white-space: nowrap; }
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-labeled-content .bbm-category-menu__list,
