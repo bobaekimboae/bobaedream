@@ -206,16 +206,19 @@ export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string, detail
   const [activeValue, setActiveValue] = useState(bbmCategoryGroups[0].value);
   if (!imageGuideFamily) {
     const activeGroup = bbmCategoryGroups.find((group) => group.value === activeValue) ?? bbmCategoryGroups[0];
+    const entersNextDepthDirectly = (group: BbmCategoryGroup) => group.value === "중고차" || group.value === "트럭 · 특장" || group.children.length === 1;
     const activateGroup = (value: string) => {
       setActiveValue(value);
-      // 중고차는 누르는 즉시 브랜드 레일로, 트럭/특장은 형식 이미지 레일로 진입한다.
-      // 두 카테고리 모두 텍스트 하위 메뉴를 한 번 더 거치지 않는다.
-      if (value === "중고차" || value === "트럭 · 특장") onChoose(value);
+      const nextGroup = bbmCategoryGroups.find((group) => group.value === value);
+      if (!nextGroup || !entersNextDepthDirectly(nextGroup)) return;
+      const onlyChild = nextGroup.children.length === 1 ? nextGroup.children[0] : undefined;
+      // 중고차는 브랜드, 트럭/특장은 형식 이미지, 단일 "전체" 카테고리는 각 전용 퀵필터로 바로 진입한다.
+      onChoose(onlyChild?.value ?? value, onlyChild?.detail);
     };
     return (
       <section className="bbm-category-menu is-hierarchical" aria-label="차량 카테고리">
         <BbmCategoryIconRow activeValue={activeGroup.value} onActivate={activateGroup} />
-        {activeGroup.value === "중고차" ? null : <BbmCategoryChildPills group={activeGroup} onChoose={onChoose} />}
+        {entersNextDepthDirectly(activeGroup) ? null : <BbmCategoryChildPills group={activeGroup} onChoose={onChoose} />}
       </section>
     );
   }
