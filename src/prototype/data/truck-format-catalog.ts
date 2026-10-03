@@ -80,11 +80,17 @@ const truckFormatImages: Readonly<Record<string, string>> = {
 
 const truckSubtypeImages: Readonly<Record<string, Readonly<Record<string, string>>>> = {
   "카고(화물)트럭": {
-    "경형 트럭 (1톤 미만)": "truck/formats/v01/truck_subtype_light_class_v01.png",
-    "1톤 트럭": "truck/pilot/v02/truck_type_cargo_side_v02.png",
-    "소형 트럭 (1.1~3.5톤)": "truck/formats/v01/truck_subtype_cargo_v01.png",
-    "중형 트럭 (4~8.5톤)": "truck/formats/v01/truck_subtype_cargo_v01.png",
-    "대형 트럭 (9톤 이상)": "truck/formats/v01/truck_subtype_large_class_v01.png",
+    "경형": "truck/pilot/v09/truck_cargo_light_side_v09.png",
+    "소형": "truck/pilot/v09/truck_cargo_small_side_v09.png",
+    "준중형": "truck/pilot/v09/truck_cargo_semi_medium_side_v09.png",
+    "중형": "truck/pilot/v09/truck_cargo_medium_side_v09.png",
+    "준대형": "truck/pilot/v09/truck_cargo_quasi_large_side_v09.png",
+    "대형": "truck/pilot/v09/truck_cargo_large_side_v09.png",
+    "경형 트럭 (1톤 미만)": "truck/pilot/v09/truck_cargo_light_side_v09.png",
+    "1톤 트럭": "truck/pilot/v09/truck_cargo_small_side_v09.png",
+    "소형 트럭 (1.1~3.5톤)": "truck/pilot/v09/truck_cargo_semi_medium_side_v09.png",
+    "중형 트럭 (4~8.5톤)": "truck/pilot/v09/truck_cargo_medium_side_v09.png",
+    "대형 트럭 (9톤 이상)": "truck/pilot/v09/truck_cargo_large_side_v09.png",
     "파워게이트": "truck/formats/v01/truck_subtype_powergate_v01.png",
     "트랜스/와이드 파워게이트": "truck/formats/v01/truck_subtype_transform_wide_powergate_v01.png",
   },
@@ -214,7 +220,6 @@ const formatImageAliases: Readonly<Record<string, string>> = {
 };
 
 const subtypeImageAliases: Readonly<Record<string, string>> = {
-  "경형": "경형 트럭 (1톤 미만)", "소형": "1톤 트럭", "준중형": "소형 트럭 (1.1~3.5톤)", "중형": "중형 트럭 (4~8.5톤)", "준대형": "중형 트럭 (4~8.5톤)", "대형": "대형 트럭 (9톤 이상)",
   "내장탑 - 일반": "내장탑", "내장탑 - 하이탑·익스탑": "익스(하이)내장탑", "내장탑 - 저상형": "저상형 내장탑", "내장탑 - 상승형": "상승내장탑",
   "냉동탑 - 일반": "냉동탑", "냉동탑 - 하이탑·익스탑": "익스(하이)냉동탑", "냉동탑 - 저상형": "저상형 냉동탑",
   "워크스루밴": "씨티/워크스루밴", "레미콘·믹서트럭": "레미콘", "고소작업차": "바가지차", "오거크레인": "오가크레인", "활선차": "활선차(고소작업)",
