@@ -268,7 +268,7 @@
 .bbm-m-filter-clear { flex: none; width: 16px; height: 16px; }
 .bbm-m-options .bbm-m-sort { margin-left: 0; }
 .bbm-m-options .quick-style-select { flex: none; margin: 0 8px; }
-.bbm-m-view { display: grid; flex: none; width: 32px; height: 32px; margin-left: 4px; place-items: center; padding: 0; border: 1px solid #dadada; border-radius: 9999px; background: #fff; }
+.bbm-m-view { display: grid; flex: none; width: 32px; height: 32px; margin-left: 4px; place-items: center; padding: 0; border: 0; border-radius: 0; background: transparent; }
 .bbm-m-view img,
 .bbm-m-view svg { width: 20px; height: 20px; color: #222; }
 /* 카드 모바일 목록형: 384px 초톳 기준. 각 간격은 글자 줄 상단 기준이다. */

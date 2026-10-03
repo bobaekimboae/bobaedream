@@ -29,26 +29,28 @@
   .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-hierarchical .bbm-category-labeled-content .bbm-category-child-pills { padding-left: 16px; }
 }
 
-/* QF-113 T2 "필터" 칩: 조건이 없으면 "필터", 있으면 "필터 N"(글자 유지 + 숫자, #222). 폭은 두 자리 수까지 들어가는 값으로 고정 → 조건 수가 바뀌어도 옆 칩이 밀리지 않음 */
-.marketplace.is-bbm.is-qf-guazi .bbm-hybrid-top .bbm-filter-button { justify-content: center; width: 92px; min-width: 92px; box-sizing: border-box; }
+/* QF-121 초톳 앱 실측: 필터 칩도 일반 칩과 같은 자연 폭·4/12 패딩·2px 내부 간격을 쓴다. */
+.marketplace.is-bbm.is-qf-guazi .bbm-hybrid-top .bbm-filter-button { justify-content: center; width: auto; min-width: 0; box-sizing: border-box; }
 .marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-fixed {
   justify-content: center;
-  width: 92px;
-  min-width: 92px;
+  width: auto;
+  min-width: 0;
+  margin-right: 4px;
+  padding-top: 4px;
   padding-right: 12px;
+  padding-bottom: 4px;
   padding-left: 12px;
   gap: 2px;
 }
 .marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-fixed.is-applied,
 .marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-chip,
 .marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-chip.is-active {
-  padding-right: 12px;
-  padding-left: 12px;
+  padding: 4px 12px;
   gap: 2px;
 }
 .marketplace.is-qf-guazi .bbm-filter-button b, .marketplace.is-qf-guazi .filter-fixed .filter-fixed-count { margin-left: 4px; }
 /* 초톳 제스처: 칩 레일을 오른쪽으로 밀면 고정 필터 버튼은 아이콘형으로 줄고,
-   레일을 맨 앞으로 되돌리면 위의 92px "아이콘 + 필터 N" 형태로 복원된다. */
+   레일을 맨 앞으로 되돌리면 자연 폭 "아이콘 + 필터 N" 형태로 복원된다. */
 .marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm.is-scrolled .filter-fixed {
   width: auto;
   min-width: 36px;

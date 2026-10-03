@@ -301,7 +301,7 @@ export function BbmMobileOptions<T extends string>({
   viewMode: string;
   extra?: ReactNode;
 }) {
-  const viewIcon = viewMode === "갤러리로 보기" ? "view-list-chotot" : "view-grid-chotot";
+  const viewIcon = viewMode === "갤러리로 보기" ? "view-list-chotot-v02" : "view-grid-chotot";
   return (
     <nav className="bbm-m-options" aria-label="정렬, 영상 매물, 판매자 유형과 보기 방식">
       <button type="button" className="bbm-m-sort" onClick={onSort}><span>{sortLabel}</span><img src={bbmIcon("toolbar-sort-chevron")} alt="" aria-hidden="true" /></button>
@@ -334,7 +334,7 @@ export function BbmSellerTabs<T extends string>({ tabs, value, onChange, onBrand
   );
 }
 
-// ── 매물 카드(원본 car-list-result-card). variant pc: 사진 160, 마력 포함 / mobile 목록형: 사진 136×136, 마력 없음
+// ── 매물 카드(원본 car-list-result-card). variant pc: 사진 160, 마력 포함 / mobile 목록형: 초톳 기준 사진 120×120, 마력 없음
 export function BbmResultCard({ car, variant, featured = false, liked, onToggleLike, onOpen, onChat }: { car: Car; variant: "pc" | "mobile"; featured?: boolean; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void }) {
   const seller = sellerLabel(car);
   const listPlace = car.virtualCategory?.isVirtual ? car.place : car.uiTest && car.sellerType === "개인" ? car.place : displayListPlace(car.place, car.sellerType);

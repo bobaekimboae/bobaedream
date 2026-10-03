@@ -302,7 +302,7 @@ function FilterChip({ label, icon, active, className = "", onClick, onClear, bbm
   }
   return (
     <button className={chipClassName} type="button" aria-pressed={active} onClick={onClick}>
-      {icon ? <Icon name={icon} /> : null}<span>{label}</span>{!icon && !active ? (bbm ? <img className="ui-icon" src={bbmIcon("triangle-down-chotot")} alt="" aria-hidden="true" /> : <Icon name="chevron-down.svg" />) : null}
+      {icon ? <Icon name={icon} /> : null}<span>{label}</span>{!icon && !active ? (bbm ? <img className="ui-icon" src={bbmIcon("filter-toggle-chotot-v01")} alt="" aria-hidden="true" /> : <Icon name="chevron-down.svg" />) : null}
     </button>
   );
 }
@@ -1900,14 +1900,14 @@ function MarketplaceScreen() {
                           </BbmToolbarMenu>
                           <span className="bbm-toolbar-divider" aria-hidden="true" />
                           <BbmToolbarMenu open={bbmMenu === "view"} onClose={() => setBbmMenu(null)} options={bbmViewOptionsPc} selected="목록으로 보기" onSelect={chooseBbmView}>
-                            <button type="button" className="bbm-view" aria-label="보기 방식 선택" aria-haspopup="true" aria-expanded={bbmMenu === "view"} onClick={() => setBbmMenu((open) => open === "view" ? null : "view")}>목록형<img src={bbmIcon("toolbar-view-list")} alt="" aria-hidden="true" /></button>
+                            <button type="button" className="bbm-view" aria-label="보기 방식 선택" aria-haspopup="true" aria-expanded={bbmMenu === "view"} onClick={() => setBbmMenu((open) => open === "view" ? null : "view")}>목록형<img src={bbmIcon("view-list-chotot-v02")} alt="" aria-hidden="true" /></button>
                           </BbmToolbarMenu>
                         </>
                       ) : (
                         <>
                           <button type="button" className="bbm-sort" onClick={() => setSheet("sort")}>{sort === "최신순" ? "업데이트순" : sort}<img src={bbmIcon("toolbar-sort-chevron")} alt="" aria-hidden="true" /></button>
                           <span className="bbm-toolbar-divider" aria-hidden="true" />
-                          <button type="button" className="bbm-view" aria-pressed={pcGridView} onClick={() => setPcGridView((value) => !value)}>{pcGridView ? "앨범형" : "목록형"}<img src={bbmIcon("toolbar-view-list")} alt="" aria-hidden="true" /></button>
+                          <button type="button" className="bbm-view" aria-pressed={pcGridView} onClick={() => setPcGridView((value) => !value)}>{pcGridView ? "앨범형" : "목록형"}<img src={bbmIcon("view-list-chotot-v02")} alt="" aria-hidden="true" /></button>
                         </>
                       )}
                     </div>

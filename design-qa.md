@@ -115,6 +115,67 @@
 
 final result: passed
 
+---
+
+# 초톳 원본 앱 필터 칩·리스트뷰·매물 목록 v47
+
+## Source and implementation
+
+- source visual truth: 노션 `열기 닫기 화살표`, `리스트 뷰`, 초톳 원본 앱 목록/갤러리 캡처
+- source captures: `reports/chotot-list-fidelity-20261004/notion-original-list.png`, `reports/chotot-list-fidelity-20261004/notion-original-grid.png`
+- implementation: `http://127.0.0.1:4174/?qf=guazi&category=트럭+·+특장`
+- viewport: CSS 412×915, DPR 1.0
+- states: 목록형, 갤러리형, 트럭·특장, 중고차
+
+## Findings
+
+- P0/P1/P2 없음.
+- 이전 고정 필터 92px은 초톳의 콘텐츠 기반 자연 폭과 달랐고, 리스트뷰 버튼의 원형 테두리는 원본에 없었다.
+- 노션 필터 펼침·리스트뷰 SVG를 패스 수정 없이 신규 버전 파일로 보존했다.
+- 카드 썸네일 120×120, 제목 16/600/20, 메타 14/400/20, 가격 16/700/24는 이미 기준과 일치했다.
+
+## Full-view comparison evidence
+
+- CUA Pixel 7 환경에서 노션 원본 목록 캡처와 로컬 트럭·특장 목록을 시각 대조했다.
+- 목록형에서 아이콘 단독 보기 전환, 120px 정사각 썸네일, 제목·메타·가격의 위계를 확인했다.
+- 갤러리형으로 전환한 뒤 `view-list-chotot-v02.svg`가 20×20px로 표시되고 임의 테두리가 생기지 않는 것을 확인했다.
+
+## Focused region comparison evidence
+
+- 필터 칩: 32px / `#F4F4F4` / 9999px / 14·500·20 / 패딩 4×12 / 내부 2 / 칩 사이 4.
+- 목록 카드: 썸네일 120×120 / 반경 8 / 정보 간격 12 / 제목 16·600·20 / 메타 14·400·20 / 가격 16·700·24.
+- 트럭·특장과 중고차에서 같은 computed style을 재확인했다.
+- 브라우저 경고·오류 0건.
+
+## Required fidelity surfaces
+
+- Fonts and typography: Pretendard를 유지하고 초톳 수치 토큰을 공통 목록에 사용한다.
+- Spacing and layout rhythm: 칩 4px 간격, 카드 좌우 16px, 썸네일–정보 12px.
+- Colors and visual tokens: 칩 `#F4F4F4`, 본문 `#222/#595959`, 가격 `#E5193B`.
+- Image quality and asset fidelity: 노션 원본 SVG 패스 무수정, 차량 이미지 데이터 무변경.
+- Copy and content: 기존 한국어 모델+유형 두 줄 구조와 보배 색상 테마 유지.
+
+## Comparison history
+
+- 이전: 필터 92px 고정 폭·뒤 간격 6px, 조건 칩 상하 3px, 리스트뷰 원형 테두리, CSS clip-path 화살표 혼용.
+- 수정: 자연 폭·뒤 간격 4px·상하 4px, 아이콘 단독 보기 전환, 노션 SVG 단일화.
+- 수정 후: 트럭·특장 및 중고차 공통 컴포넌트 실측 일치, 콘솔 오류 0건.
+
+## Implementation Checklist
+
+- [x] 노션 원본 SVG 수집 및 무수정 보존
+- [x] 필터 칩 크기·색·패딩·간격 교정
+- [x] 목록/갤러리 전환 아이콘 확인
+- [x] 목록 썸네일·타이포그래피 전수 측정
+- [x] 트럭·특장과 중고차 교차 검증
+- [x] 브라우저 오류 확인
+
+## Follow-up Polish
+
+- 없음.
+
+final result: passed
+
 # 전체 퀵필터 좌측 제목 제거 v46
 
 - source visual truth: `https://xe.chotot.com/mua-ban-xe-tai-xe-ben`
