@@ -1,0 +1,599 @@
+/* Chợ Tốt comparison mode. Every rule is deliberately scoped to &ref=chotot. */
+.marketplace.is-bbm-m.is-chotot-list-match {
+  --chotot-ink: #222;
+  --chotot-muted: #8d8d8d;
+  --chotot-chip: #f1f1f1;
+  --chotot-divider: #f1f1f1;
+  --chotot-price: #f0325e;
+  width: 384px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .top-bar.is-bbm {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 284px) 24px;
+  gap: 8px;
+  height: 60px;
+  padding: 10px 20px 10px 16px;
+  box-sizing: border-box;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .top-bar.is-bbm .icon-button,
+.marketplace.is-bbm-m.is-chotot-list-match .top-bar.is-bbm .back-button {
+  width: 24px;
+  height: 40px;
+  padding: 8px 0;
+  box-sizing: border-box;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .top-bar.is-bbm .icon-button .ui-icon,
+.marketplace.is-bbm-m.is-chotot-list-match .top-bar.is-bbm .back-button .ui-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .top-bar.is-bbm .search-field {
+  width: 284px;
+  height: 40px;
+  padding: 0 10px 0 12px;
+  gap: 8px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  background: #f1f1f1;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .top-bar.is-bbm .search-field input {
+  height: 40px;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .top-bar.is-bbm .search-field .ui-icon:first-child,
+.marketplace.is-bbm-m.is-chotot-list-match .top-bar.is-bbm .search-save .ui-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .region-bar.is-bbm {
+  height: 48px;
+  padding: 14px 16px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .region-bar.is-bbm > button:first-child {
+  height: 20px;
+  gap: 4px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .chotot-region-pin {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .region-bar.is-bbm .region-text {
+  gap: 4px;
+  color: var(--chotot-ink);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .region-bar.is-bbm .region-label {
+  color: var(--chotot-ink);
+  font-weight: 400;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .region-bar.is-bbm strong {
+  color: #cc8f00;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .region-bar.is-bbm .region-chevron-icon,
+.marketplace.is-bbm-m.is-chotot-list-match .region-bar.is-bbm .region-chevron-icon img {
+  width: 16px;
+  height: 16px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .region-bar.is-bbm .reset-button {
+  height: 20px;
+  color: var(--chotot-ink);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .filter-shell.is-bbm {
+  height: 52px;
+  padding: 10px 0 10px 16px;
+  gap: 4px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .filter-shell.is-bbm .filter-fixed,
+.marketplace.is-bbm-m.is-chotot-list-match .filter-shell.is-bbm .filter-chip {
+  height: 32px;
+  min-width: 0;
+  margin: 0;
+  padding: 0 12px;
+  gap: 8px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--chotot-chip);
+  color: var(--chotot-ink);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .filter-shell.is-bbm .filter-fixed .ui-icon,
+.marketplace.is-bbm-m.is-chotot-list-match .filter-shell.is-bbm .filter-chip .ui-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .filter-shell.is-bbm .filter-track {
+  gap: 4px;
+  padding-right: 16px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .filter-shell.is-bbm .filter-chip.is-active {
+  padding: 0 8px 0 12px;
+  gap: 8px !important;
+  background: var(--chotot-ink);
+  color: #fff;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear .ui-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-quick-slot {
+  padding: 20px 0 6px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .depth-rail.has-chotot-label {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  align-items: start;
+  height: 124px !important;
+  min-height: 124px !important;
+  padding: 0;
+  border: 0;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .chotot-rail-title {
+  width: 72px;
+  padding: 10px 0 0 16px;
+  box-sizing: border-box;
+  color: #656565;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .depth-rail.has-chotot-label > .quick-rail-carousel {
+  grid-row: 1;
+  grid-column: 2;
+  width: 312px;
+  min-width: 0;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .depth-rail.has-chotot-label .brand-carousel {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .depth-rail.has-chotot-label .depth-rail-track {
+  gap: 0 !important;
+  padding: 0 16px 0 0 !important;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .depth-rail.has-chotot-label .depth-card {
+  width: 84px;
+  min-width: 84px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .depth-rail.has-chotot-label .depth-card-media {
+  width: 64px;
+  height: 40px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .depth-rail.has-chotot-label .depth-card img {
+  width: 64px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .depth-rail.has-chotot-label .depth-card-label {
+  display: -webkit-box;
+  min-height: 36px;
+  margin-top: 16px !important;
+  overflow: hidden;
+  color: #595959;
+  font-size: 12px;
+  font-weight: 400 !important;
+  line-height: 18px;
+  text-align: center;
+  white-space: normal;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .depth-rail + .bbm-m-options {
+  margin-top: 38px;
+  box-shadow: none;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-options {
+  height: 48px;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--chotot-divider);
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-sort {
+  position: relative;
+  gap: 4px;
+  padding-right: 17px;
+  color: var(--chotot-ink);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-sort::after {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  width: 1px;
+  height: 16px;
+  background: #e0e0e0;
+  content: "";
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-sort img {
+  width: 16px;
+  height: 16px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-filter-tabs {
+  gap: 16px;
+  margin-left: 16px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-filter-tab {
+  padding: 0;
+  color: #8c8c8c;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-view {
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-view img {
+  width: 24px;
+  height: 24px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-list:not(.is-gallery) {
+  padding: 0;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-list:not(.is-feed):not(.is-gallery):not(.is-text):not(.is-one-line) .bbm-result-card.is-mobile {
+  min-height: 174px;
+  padding: 13px 16px 20px;
+  border-bottom: 1px solid var(--chotot-divider);
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-main {
+  gap: 12px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-list:not(.is-feed):not(.is-gallery):not(.is-text):not(.is-one-line) .bbm-result-card.is-mobile .bbm-card-photo {
+  width: 120px;
+  height: 120px;
+  flex: 0 0 120px;
+  border-radius: 6px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-card-photo > img {
+  padding: 0;
+  background: #eee;
+  object-fit: cover;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-media-footer {
+  height: 28px;
+  padding: 4px 6px;
+  background: none;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 65%);
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-time,
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-count {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-count img {
+  width: 16px;
+  height: 16px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-content {
+  position: relative;
+  min-width: 0;
+  min-height: 120px;
+  margin-top: 4px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-text {
+  gap: 0;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-title {
+  display: -webkit-box;
+  max-height: 40px;
+  overflow: hidden;
+  color: var(--chotot-ink);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: normal;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-title.is-viewed {
+  color: #8d8d8d;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-model,
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-trim {
+  display: inline;
+  overflow: visible;
+  white-space: normal;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-spec {
+  height: 18px;
+  margin-top: 4px;
+  gap: 8px;
+  color: #8d8d8d;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-price-badges {
+  position: relative;
+  height: 40px;
+  margin-top: 2px;
+  align-items: flex-start;
+  gap: 4px;
+  overflow: visible;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-price,
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-price-unit {
+  height: 22px;
+  color: var(--chotot-price);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-badges span {
+  height: 20px;
+  padding: 0 4px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-badges {
+  position: static;
+  transform: translateY(17px);
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-badges span.is-market {
+  background: #d9f2e4;
+  color: #168455;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-badges span.is-owner {
+  background: #f1f1f1;
+  color: #595959;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile.has-badges .bbm-card-meta,
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile.has-no-badges .bbm-card-meta {
+  position: absolute;
+  top: 96px;
+  right: 0;
+  left: 0;
+  margin-top: 0;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-location {
+  height: 18px;
+  gap: 4px;
+  color: #9d9d9d;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-location img {
+  width: 16px;
+  height: 16px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-location-text {
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-mobile-footer {
+  position: absolute;
+  top: 25px;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  margin-top: 0;
+  padding: 0;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-seller {
+  gap: 6px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-seller-logo {
+  width: 16px;
+  height: 16px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-seller-text {
+  color: var(--chotot-ink);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-card-seller-count {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 3px;
+  color: #8c8c8c;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-card-seller-count img {
+  width: 16px;
+  height: 16px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-actions .bbm-card-wish,
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-result-card.is-mobile .bbm-card-actions .bbm-card-wish img {
+  width: 24px;
+  height: 24px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-list.is-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 168px);
+  gap: 24px 16px;
+  padding: 16px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-list.is-gallery .bbm-result-card.is-mobile {
+  width: 168px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-main {
+  gap: 8px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-photo {
+  width: 168px;
+  height: 168px;
+  aspect-ratio: 1;
+  border-radius: 6px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-title {
+  min-height: 40px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-spec {
+  height: 18px;
+  margin-top: 0;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-price {
+  height: 22px;
+  color: var(--chotot-price);
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-price-badges {
+  height: 22px;
+  margin-top: 0;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-location,
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-location-text {
+  height: auto;
+  font-size: 13px;
+  line-height: 18px;
+  white-space: normal;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-card-gallery-wish {
+  position: absolute;
+  z-index: 2;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 45%));
+  place-items: center;
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-card-gallery-wish img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+}
+
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-list.is-gallery .bbm-card-media-footer,
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-list.is-gallery .bbm-card-badges,
+.marketplace.is-bbm-m.is-chotot-list-match .bbm-m-list.is-gallery .bbm-card-mobile-footer {
+  display: none;
+}

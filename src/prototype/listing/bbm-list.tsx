@@ -4,10 +4,12 @@ import { asset, displayListPlace, sellerAvatar, sellerLabel, type Car } from "..
 import { bbmCardBadges, bbmCardSpec } from "../data/bbm-card-samples";
 import { truckFormatCatalog } from "../data/truck-format-catalog";
 import "./bbm-tokens.css";
+import "./chotot-list-match.css";
 
 // QF-091: 개발 시안(dev.bbmuseum.co.kr/car/list) 원본과 같은 목록 부품. 수치·아이콘은 원본에서 뽑은 값(bbm-tokens.css, public/assets/bbm/).
 
 export const bbmIcon = (name: string) => asset(`bbm/${name}.svg`);
+const chototTestIcon = (name: string) => asset(`chotot-test/${name}.svg`);
 
 type HeadlineTone = "default" | "blue";
 type HeadlinePosition = "top" | "photo-top" | "after-model";
@@ -289,6 +291,7 @@ export function BbmMobileOptions<T extends string>({
   onView,
   viewMode,
   extra,
+  chototRef = false,
 }: {
   videoOnly: boolean;
   onToggleVideo: () => void;
@@ -300,11 +303,12 @@ export function BbmMobileOptions<T extends string>({
   onView: () => void;
   viewMode: string;
   extra?: ReactNode;
+  chototRef?: boolean;
 }) {
   const viewIcon = viewMode === "갤러리로 보기" ? "view-list-chotot-v02" : "view-grid-chotot";
   return (
     <nav className="bbm-m-options" aria-label="정렬, 영상 매물, 판매자 유형과 보기 방식">
-      <button type="button" className="bbm-m-sort" onClick={onSort}><span>{sortLabel}</span><img src={bbmIcon("toolbar-sort-chevron")} alt="" aria-hidden="true" /></button>
+      <button type="button" className="bbm-m-sort" onClick={onSort}><span>{sortLabel}</span><img src={chototRef ? chototTestIcon("chotot-common-chevron-down") : bbmIcon("toolbar-sort-chevron")} alt="" aria-hidden="true" /></button>
       <div className="bbm-m-filter-tabs" role="group" aria-label="영상 매물과 판매자 유형">
         <button type="button" className={`bbm-m-filter-tab${videoOnly ? " is-selected" : ""}`} aria-pressed={videoOnly} onClick={onToggleVideo}>
           <span>영상 매물</span>{videoOnly ? <Cross2Icon className="bbm-m-filter-clear" aria-hidden="true" /> : null}
@@ -319,7 +323,7 @@ export function BbmMobileOptions<T extends string>({
         })}
       </div>
       {extra}
-      <button type="button" className="bbm-m-view" aria-label="보기 방식 선택" onClick={onView}><img src={bbmIcon(viewIcon)} alt="" aria-hidden="true" /></button>
+      <button type="button" className="bbm-m-view" aria-label="보기 방식 선택" onClick={onView}><img src={chototRef ? chototTestIcon(viewMode === "갤러리로 보기" ? "chotot-common-view-list" : "chotot-common-view-grid") : bbmIcon(viewIcon)} alt="" aria-hidden="true" /></button>
     </nav>
   );
 }
@@ -335,22 +339,31 @@ export function BbmSellerTabs<T extends string>({ tabs, value, onChange, onBrand
 }
 
 // ── 매물 카드(원본 car-list-result-card). variant pc: 사진 160, 마력 포함 / mobile 목록형: 초톳 기준 사진 120×120, 마력 없음
-export function BbmResultCard({ car, variant, featured = false, liked, onToggleLike, onOpen, onChat }: { car: Car; variant: "pc" | "mobile"; featured?: boolean; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void }) {
+const temporaryTruckPhotos = [
+  asset("category-photo/vehicle_type_cargo_truck_v01.png"),
+  asset("category-photo/vehicle_type_cargo_truck_v02.png"),
+  asset("category-photo/vehicle_type_cargo_truck_v03.png"),
+  "/prototypes/autotrader-bobaedream-main/hero-types/commercial.jpg",
+];
+
+export function BbmResultCard({ car, variant, featured = false, gallery = false, chototRef = false, viewed = false, testBadge, testPhotoIndex = 0, liked, onToggleLike, onOpen, onChat }: { car: Car; variant: "pc" | "mobile"; featured?: boolean; gallery?: boolean; chototRef?: boolean; viewed?: boolean; testBadge?: "green" | "gray"; testPhotoIndex?: number; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void }) {
   const seller = sellerLabel(car);
   const listPlace = car.virtualCategory?.isVirtual ? car.place : car.uiTest && car.sellerType === "개인" ? car.place : displayListPlace(car.place, car.sellerType);
-  const badges = bbmCardBadges(car);
+  const badges = chototRef && testBadge ? [testBadge === "green" ? "시세보다 저렴" : "1인 소유"] : bbmCardBadges(car);
   const specParts = bbmCardSpec(car, variant === "pc").split(" · ");
   const [locationMain, ...locationSecondaryParts] = listPlace.split(" · ");
   const locationSecondary = locationSecondaryParts.join(" · ");
   const priceMatch = car.price.match(/^(월\s*)?(.+?)\s*(만원)$/);
-  const title = <strong className="bbm-card-title"><span className="bbm-card-model">{car.title}</span>{car.trim ? <><span aria-hidden="true"> </span><span className="bbm-card-trim">{car.trim}</span></> : null}</strong>;
+  const title = <strong className={`bbm-card-title${viewed ? " is-viewed" : ""}`}><span className="bbm-card-model">{car.title}</span>{car.trim ? <><span aria-hidden="true"> </span><span className="bbm-card-trim">{car.trim}</span></> : null}</strong>;
   const headlinePosition = getHeadlinePosition();
   const headlineTone = car.uiTest ? getHeadlineTone() : "default";
   const headline = car.uiTest ? <strong className={`bbm-card-headline is-${headlinePosition}${headlineTone === "blue" ? " is-blue" : ""}`}>{car.uiTest.headline}</strong> : null;
+  const photoSrc = chototRef ? temporaryTruckPhotos[testPhotoIndex % temporaryTruckPhotos.length] : car.image ? asset(car.image) : "";
   const photo = (
     <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`}>
-      {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} style={{ objectPosition: car.imagePosition ?? "center center" }} /> : null}
-      <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span><span className="bbm-card-count">{car.photos}<img src={bbmIcon("card-photo-count")} alt="" /></span></div>
+      {photoSrc ? <img className={!chototRef && car.imageFit === "contain" ? "is-catalog" : ""} src={photoSrc} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} style={{ objectPosition: chototRef ? "center center" : car.imagePosition ?? "center center" }} /> : null}
+      {chototRef && gallery ? <button type="button" className={`bbm-card-gallery-wish${liked ? " is-liked" : ""}`} aria-label={`${car.title} ${liked ? "찜 해제" : "찜"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}><img src={chototTestIcon("chotot-common-thumbnail-favorite")} alt="" aria-hidden="true" /></button> : null}
+      <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{chototRef ? "추천 매물" : car.posted.replace(/\s/g, "")}</span><span className="bbm-card-count">{car.photos}<img src={chototRef ? chototTestIcon("chotot-list-thumbnail-image-indicator") : bbmIcon("card-photo-count")} alt="" /></span></div>
     </div>
   );
   const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
@@ -361,17 +374,18 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
       <div className="bbm-card-seller">
         <img className="bbm-card-seller-logo" src={asset(sellerAvatar(car))} alt="" draggable={false} />
         <div className="bbm-card-seller-text"><strong>{seller}</strong></div>
+        {chototRef ? <span className="bbm-card-seller-count"><img src={chototTestIcon("chotot-common-user")} alt="" aria-hidden="true" /><span>{Math.max(1, car.photos)}매물</span></span> : null}
       </div>
       <div className="bbm-card-actions">
-        <button type="button" className="bbm-card-chat" aria-label={`${seller}에게 채팅`} onClick={(event) => { event.stopPropagation(); onChat(); }}><img src={bbmIcon(variant === "mobile" ? "m-gnb-chat" : "card-chat")} alt="" aria-hidden="true" /></button>
+        {!chototRef ? <button type="button" className="bbm-card-chat" aria-label={`${seller}에게 채팅`} onClick={(event) => { event.stopPropagation(); onChat(); }}><img src={bbmIcon(variant === "mobile" ? "m-gnb-chat" : "card-chat")} alt="" aria-hidden="true" /></button> : null}
         <button type="button" className={`bbm-card-wish${liked ? " is-liked" : ""}`} aria-label={`${car.title} ${liked ? "찜 해제" : "찜"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>
-          {liked ? <span className="bbm-card-wish-on" style={{ WebkitMaskImage: `url("${bbmIcon("card-wish-off")}")`, maskImage: `url("${bbmIcon("card-wish-off")}")` }} aria-hidden="true" /> : <img src={bbmIcon("card-wish-off")} alt="" aria-hidden="true" />}
+          {chototRef ? <img src={chototTestIcon("chotot-common-favorite")} alt="" aria-hidden="true" /> : liked ? <span className="bbm-card-wish-on" style={{ WebkitMaskImage: `url("${bbmIcon("card-wish-off")}")`, maskImage: `url("${bbmIcon("card-wish-off")}")` }} aria-hidden="true" /> : <img src={bbmIcon("card-wish-off")} alt="" aria-hidden="true" />}
         </button>
       </div>
     </div>
   );
   return (
-    <article className={`bbm-result-card is-${variant}${featured ? " is-feed-featured" : ""}${badges.length ? " has-badges" : " has-no-badges"}${car.uiTest ? ` is-ui-test headline-${headlinePosition}` : ""}`} role="link" tabIndex={0} aria-label={`${car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
+    <article className={`bbm-result-card is-${variant}${featured ? " is-feed-featured" : ""}${gallery ? " is-gallery-card" : ""}${chototRef ? " is-chotot-card" : ""}${badges.length ? " has-badges" : " has-no-badges"}${car.uiTest ? ` is-ui-test headline-${headlinePosition}` : ""}`} role="link" tabIndex={0} aria-label={`${car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
       {headlinePosition === "top" ? headline : null}
       <div className="bbm-card-main">
         {/* 사진이 없는 매물은 원본처럼 빈 회색 칸(car-list-result-card__image 배경 #EBEBEB) */}
@@ -383,16 +397,17 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
             <span className="bbm-card-spec">{specParts.map((part, index) => <span key={`${part}-${index}`}>{part}</span>)}</span>
             <div className="bbm-card-price-badges">
               <strong className="bbm-card-price"><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</strong>
-              {badges.length ? <div className="bbm-card-badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}
+              {badges.length ? <div className="bbm-card-badges">{badges.map((badge) => <span className={chototRef && badge === "시세보다 저렴" ? "is-market" : chototRef && badge === "1인 소유" ? "is-owner" : ""} key={badge}>{badge}</span>)}</div> : null}
             </div>
           </div>
           <div className="bbm-card-meta">
-            <div className="bbm-card-location"><img src={bbmIcon("card-location")} alt="" aria-hidden="true" /><span className="bbm-card-location-text"><span>{locationMain}</span>{locationSecondary ? <span className="bbm-card-location-secondary">{locationSecondary}</span> : null}</span></div>
+            <div className="bbm-card-location"><img src={chototRef ? chototTestIcon("chotot-common-location-pin-gray") : bbmIcon("card-location")} alt="" aria-hidden="true" /><span className="bbm-card-location-text"><span>{locationMain}</span>{locationSecondary ? <span className="bbm-card-location-secondary">{locationSecondary}</span> : null}</span></div>
             {variant === "pc" ? sellerRow : null}
+            {variant === "mobile" && chototRef && !gallery ? sellerRow : null}
           </div>
         </div>
       </div>
-      {variant === "mobile" ? sellerRow : null}
+      {variant === "mobile" && !chototRef ? sellerRow : null}
     </article>
   );
 }
