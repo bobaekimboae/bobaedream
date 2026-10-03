@@ -1142,7 +1142,7 @@ function MarketplaceScreen() {
   const quickFilterChips: QuickFilterChip[] = ([
     {
       key: "category",
-      label: categoryIsDefault ? "전체" : category,
+      label: categoryIsDefault ? "전체차량" : category,
       active: true,
       onClick: () => openQuickFilter("category"),
       onClear: clearCategoryFilter,
@@ -1489,7 +1489,7 @@ function MarketplaceScreen() {
   );
   const pcToday = new Date();
   const pcTitleMonth = `${pcToday.getFullYear()}.${String(pcToday.getMonth() + 1).padStart(2, "0")}`;
-  const pcCurrentSelection = vehicleSummaryLabel || (categoryIsDefault ? "전체" : category);
+  const pcCurrentSelection = vehicleSummaryLabel || (categoryIsDefault ? "전체차량" : category);
   const pcActivePriceLink = pcPriceLinks.find((link) => link.min === price.min && link.max === price.max)?.label;
 
   // QF-076: 제조사·모델·등급 외 필터(filters.bbm)는 선택 모양만 남기고 목록을 거르지 않는다 → "확인 N대"는 지금 목록 수
@@ -1550,8 +1550,8 @@ function MarketplaceScreen() {
   const otherApplied = bbmApplied.filter((chip) => !chip.id.startsWith("check:sellerKind:"));
   const bbmChips: BbmChip[] = ([
     ...(sellerApplied.length ? sellerApplied.map(toAppliedBbmChip) : [groupChip("seller", "판매자", "판매자 유형", false)]),
-    // QF-113 T3: 처음 화면의 "전체차량" → "중고차"(PC·모바일·경로 모두 "전체차량" 단계 없음)
-    (() => { const chip = chipByKey("category"); return chip ? { ...chip, label: chip.label === "전체" ? (isGuaziQuickStyle ? "중고차" : "전체차량") : chip.label } : undefined; })(),
+    // 기본 중고차 목록의 실제 선택값은 상위 그룹 "중고차"가 아니라 하위 "전체차량"이다.
+    chipByKey("category"),
     // 건설기계 퀵필터 3단계: 제조사 로고 → 모델 이미지 → 세부모델·세부 형식 이미지
     ...(isHeavyCategory ? [
       heavySelection.manufacturerCode

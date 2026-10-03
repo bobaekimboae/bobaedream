@@ -82,7 +82,7 @@ export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
     label: "중고차",
     icon: categoryIcon("category_used_car_v01.svg"),
     children: [
-      { label: "전체차량", value: "중고차" },
+      { label: "전체차량", value: "전체" },
       { label: "국산차", value: "국산차" },
       { label: "수입차", value: "수입차" },
       { label: "전기차", value: "전기차" },
