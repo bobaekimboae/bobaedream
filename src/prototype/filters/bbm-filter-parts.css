@@ -508,9 +508,11 @@
 .bbm-category-picker__pills { display:flex; flex-wrap:wrap; gap:8px 4px; margin-top:8px; }
 .bbm-category-picker__pills button { min-height:32px; padding:6px 12px; border:0; border-radius:9999px; background:#f4f4f4; color:#222; font-family:inherit; font-size:14px; font-weight:500; line-height:20px; cursor:pointer; }
 .bbm-category-picker__pills button.is-selected { background:#222; color:#fff; }
-.bbmf-category-footer { display:flex; flex:none; align-items:flex-start; height:80px; padding:12px 20px 16px; box-sizing:border-box; background:#fff; box-shadow:0 -4px 12px rgba(0,0,0,.06); }
+.bbmf-category-footer { display:flex; flex:none; align-items:flex-start; gap:10px; height:80px; padding:12px 20px 16px; box-sizing:border-box; background:#fff; box-shadow:0 -4px 12px rgba(0,0,0,.06); }
 .bbmf-category-footer button { width:92px; height:52px; padding:0; border:0; border-radius:12px; background:transparent; color:#222; font-family:inherit; font-size:16px; font-weight:700; line-height:22px; cursor:pointer; }
 .bbmf-category-footer button:hover { background:#f4f4f4; }
+.bbmf-category-footer .bbmf-category-confirm { flex:1 1 auto; width:auto; min-width:0; background:#222; color:#fff; }
+.bbmf-category-footer .bbmf-category-confirm:hover { background:#111; }
 /* 모바일 시트 체크 목록: 매물 수는 오른쪽 끝(12px 500 #9E9E9E) */
 .bbmf-sheet:not(.is-modal-body) .bbmf-check .bbmf-check-label { flex: 1; }
 .bbmf-sheet:not(.is-modal-body) .bbmf-check .bbmf-check-count { font-size: 12px; line-height: 16.8px; }

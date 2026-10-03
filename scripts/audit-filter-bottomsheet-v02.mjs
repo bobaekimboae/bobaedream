@@ -49,7 +49,7 @@ try {
     const style = title ? getComputedStyle(title) : null;
     const body = q(".bbmf-sheet.is-category .bbmf-sheet-body");
     return {
-      sheet: rect(q(".bbmf-sheet.is-category")), header: rect(q(".bbmf-sheet.is-category .bbmf-sheet-header")), title: rect(title), close: rect(q(".bbmf-sheet.is-category .bbmf-close")), body: rect(body), bodyPadding: body ? getComputedStyle(body).padding : null, actions: rect(q(".bbmf-category-footer")), reset: rect(q(".bbmf-category-footer button")),
+      sheet: rect(q(".bbmf-sheet.is-category")), header: rect(q(".bbmf-sheet.is-category .bbmf-sheet-header")), title: rect(title), close: rect(q(".bbmf-sheet.is-category .bbmf-close")), body: rect(body), bodyPadding: body ? getComputedStyle(body).padding : null, actions: rect(q(".bbmf-category-footer")), reset: rect(q(".bbmf-category-footer button:not(.bbmf-category-confirm)")), confirm: rect(q(".bbmf-category-confirm")),
       radius: q(".bbmf-sheet.is-category") ? getComputedStyle(q(".bbmf-sheet.is-category")).borderTopLeftRadius : null,
       titleStyle: style ? { fontSize: style.fontSize, lineHeight: style.lineHeight, fontWeight: style.fontWeight, letterSpacing: style.letterSpacing } : null,
       overflowX: document.scrollingElement.scrollWidth > innerWidth,
@@ -66,6 +66,7 @@ try {
     bodyInsets: category.bodyPadding === "20px 16px 22px",
     actionBar80: category.actions?.height === 80,
     reset92x52: category.reset?.width === 92 && category.reset?.height === 52,
+    confirmFillsRemainderAnd52: category.confirm?.width === 251 && category.confirm?.height === 52,
     noHorizontalOverflow: !category.overflowX,
     noConsoleErrors: errors.length === 0,
   };

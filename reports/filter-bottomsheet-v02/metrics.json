@@ -123,6 +123,14 @@
       "right": 112,
       "bottom": 836
     },
+    "confirm": {
+      "x": 122,
+      "y": 784,
+      "width": 251,
+      "height": 52,
+      "right": 373,
+      "bottom": 836
+    },
     "radius": "24px",
     "titleStyle": {
       "fontSize": "20px",
@@ -141,6 +149,7 @@
     "bodyInsets": true,
     "actionBar80": true,
     "reset92x52": true,
+    "confirmFillsRemainderAnd52": true,
     "noHorizontalOverflow": true,
     "noConsoleErrors": true
   },
