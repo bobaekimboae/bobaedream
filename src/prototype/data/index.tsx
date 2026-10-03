@@ -954,6 +954,7 @@ const truckCars: Car[] = truckScenarioV01.map((row, index) => {
   const transmission = row.transmission;
   const options = [truckOptionPool[index % truckOptionPool.length], truckOptionPool[(index + 2) % truckOptionPool.length]] as string[];
   if (row.subtype.includes("파워게이트") || index % 5 === 0) options.unshift("리프트(파워게이트)");
+  const subtypeLabel = row.subtype ? truckSubtypeLabel(row.subtype) : "";
   return ({
   id: 6000 + index,
   maker: row.maker,
@@ -962,7 +963,7 @@ const truckCars: Car[] = truckScenarioV01.map((row, index) => {
   image: truckScenarioImageV02[row.id] ?? row.image,
   imageFit: "contain",
   title: `${row.maker} ${row.model}`,
-  trim: `${row.format} · ${truckSubtypeLabel(row.subtype)}`,
+  trim: [row.format, subtypeLabel].filter(Boolean).join(" · "),
   specs: [`${row.year}년식`, `${row.mileage.toLocaleString("ko-KR")}km`, row.load, row.region],
   price: `${row.price10k.toLocaleString("ko-KR")} 만원`,
   place: row.region,

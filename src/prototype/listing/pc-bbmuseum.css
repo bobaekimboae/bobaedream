@@ -76,10 +76,10 @@
   .bbm-catalog-row.is-selected { color: var(--blue); font-weight: 600; }
   .bbm-catalog-row em { color: #9e9e9e; font-size: 12px; font-style: normal; font-weight: 500; line-height: 16.8px; }
   .bbm-catalog-row em.is-zero { color: #e0e0e0; }
-  .bbm-catalog-row.has-truck-image { min-height: 60px; padding-top: 6px; padding-bottom: 6px; }
+  .bbm-catalog-row.has-truck-image { min-height: 62px; padding-top: 6px; padding-bottom: 6px; }
   .bbm-truck-option { display: flex; min-width: 0; align-items: center; gap: 8px; }
-  .bbm-truck-option-image { display: grid; width: 84px; height: 52px; flex: 0 0 84px; place-items: center; overflow: hidden; }
-  .bbm-truck-option-image img { display: block; width: 76px; height: 40px; object-fit: contain; object-position: center; }
+  .bbm-truck-option-image { display: grid; width: 88px; height: 52px; flex: 0 0 88px; place-items: center; overflow: hidden; }
+  .bbm-truck-option-image img { display: block; width: 80px; height: 50px; object-fit: contain; object-position: center; }
   .bbm-truck-option-name { min-width: 0; overflow-wrap: anywhere; }
   .bbm-truck-spec-group { padding: 0 8px 8px; }
   .bbm-truck-spec-group .bbm-catalog-title { padding-right: 0; padding-left: 0; }

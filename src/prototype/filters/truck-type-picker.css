@@ -6,7 +6,7 @@
 .truck-type-picker-row::after { position: absolute; right: 0; bottom: 0; left: 52px; height: 1px; background: #e8e8e8; content: ""; pointer-events: none; }
 .truck-type-picker-row:last-child::after { display: none; }
 .truck-type-picker-row:hover { background: #fafbfc; }
-.truck-type-picker-select { display: grid; grid-template-columns: 20px 56px minmax(0, 1fr) auto; align-items: center; gap: 12px; min-width: 0; padding: 10px 8px 10px 20px; border: 0; background: transparent; color: inherit; text-align: left; cursor: pointer; }
+.truck-type-picker-select { display: grid; grid-template-columns: 20px 64px minmax(0, 1fr) auto; align-items: center; gap: 12px; min-width: 0; padding: 10px 8px 10px 20px; border: 0; background: transparent; color: inherit; text-align: left; cursor: pointer; }
 .truck-type-picker-select:disabled { cursor: default; opacity: .4; }
 .truck-type-picker-check { position: relative; width: 20px; height: 20px; border: 1.5px solid #aab1bc; border-radius: 4px; background: #fff; }
 .truck-type-picker-row.is-selected .truck-type-picker-check,
@@ -14,8 +14,8 @@
 .truck-type-picker-row.is-selected .truck-type-picker-check { border-color: #111; background: #111; }
 .truck-type-picker-row.is-selected .truck-type-picker-check::after { position: absolute; top: 4px; left: 3px; width: 10px; height: 6px; border-bottom: 2px solid #fff; border-left: 2px solid #fff; content: ""; transform: rotate(-45deg); }
 .truck-type-picker-row.is-partial .truck-type-picker-check::after { position: absolute; top: 8px; left: 4px; width: 10px; height: 2px; border-radius: 2px; background: #fff; content: ""; }
-.truck-type-picker-image { display: grid; place-items: center; width: 56px; height: 40px; border: 1px solid #ececec; border-radius: 6px; background: #f7f7f7; overflow: hidden; }
-.truck-type-picker-image img { display: block; width: 56px; height: 40px; object-fit: contain; object-position: center bottom; }
+.truck-type-picker-image { display: grid; place-items: center; width: 64px; height: 40px; border: 1px solid #ececec; border-radius: 6px; background: #f7f7f7; overflow: hidden; }
+.truck-type-picker-image img { display: block; width: 64px; height: 40px; object-fit: contain; object-position: center bottom; }
 .truck-type-picker-label { overflow: hidden; min-width: 0; font-size: 15px; font-weight: 650; line-height: 20px; text-overflow: ellipsis; white-space: nowrap; }
 .truck-type-picker-count { color: #7a828e; font-size: 13px; font-variant-numeric: tabular-nums; }
 .truck-type-picker-drill { display: grid; place-items: center; width: 44px; border: 0; background: transparent; cursor: pointer; }
@@ -28,8 +28,8 @@
 
 .bbmf-overlay.is-sheet:has(.truck-type-picker) { justify-content: center; background: rgba(15, 18, 24, .42); }
 .bbmf-sheet:has(.truck-type-picker) { width: min(100%, 520px); height: calc(100dvh - 48px); max-height: 780px; overflow: hidden; border-radius: 20px 20px 0 0; box-shadow: 0 -10px 30px rgba(0, 0, 0, .12); }
-.bbmf-sheet:has(.truck-type-picker) .truck-type-picker-row { min-height: 64px; }
-.bbmf-sheet:has(.truck-type-picker) .truck-type-picker-select { padding-top: 12px; padding-bottom: 12px; }
+.bbmf-sheet:has(.truck-type-picker) .truck-type-picker-row { min-height: 60px; }
+.bbmf-sheet:has(.truck-type-picker) .truck-type-picker-select { padding-top: 10px; padding-bottom: 10px; }
 .bbmf-sheet:has(.truck-type-picker) .bbmf-sheet-header { display: flex; align-items: center; justify-content: flex-start; height: 60px; padding: 0 64px 0 20px; }
 .bbmf-sheet:has(.truck-type-picker) .bbmf-sheet-heading { align-items: flex-start; }
 .bbmf-sheet:has(.truck-type-picker) .bbmf-sheet-header h3 { justify-content: flex-start; margin: 0; padding: 0; font-size: 20px; line-height: 28px; font-weight: 700; text-align: left; }

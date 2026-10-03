@@ -1,0 +1,7 @@
+Professional studio product photograph of a standalone empty three-axle container chassis semi-trailer with landing gear lowered, no tractor, front three-quarter view angled about 30 degrees from pure side profile, the front pointing toward the LEFT edge of the frame, camera at cab-door height, 70mm lens look with no distortion, wheels straight ahead, all doors and hatches closed, empty with no cargo, entire truck fully visible and centered with wide empty margins on all sides, seamless pure white #FFFFFF background, one soft natural contact shadow directly beneath the tires, soft even diffused softbox lighting, no harsh reflections, white cab, black chassis and black tires, black steel frame, no logos, no badges, no emblems, no company decals, blank license plate, no people, no text, no watermark, sharp focus, high-end commercial vehicle catalog retouching, color-corrected
+
+regeneration_count=2
+source=C:\Users\bobae\.codex\generated_images\01a0efe2-68c0-7720-9cf7-93e8c94aa3f7\call_2BnFb924k8Xa2DsMz7e4JjnO.png
+
+rejected_attempt_2=C:/Users/bobae/.codex/generated_images/01a0efe2-68c0-7720-9cf7-93e8c94aa3f7/call_chQEfVXG4iPAXGlzwqCxyzcM.png (tractor attached)
+rejected_attempt_3=C:/Users/bobae/.codex/generated_images/01a0efe2-68c0-7720-9cf7-93e8c94aa3f7/call_LsvHwqZyFhtJpGwAjPvKxMZ9.png (tractor attached)
