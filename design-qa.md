@@ -305,3 +305,64 @@ final result: passed
 - 나머지 상위 유형은 승인 후 같은 측면 규칙으로 순차 제작한다.
 
 final result: passed
+
+---
+
+# 트럭 퀵필터 텍스트 슬롯 초톳 정렬 v46
+
+## Source and implementation
+
+- source visual truth: `C:\Users\bobae\OneDrive\문서\ChatGPT\퀵필터 제작\.codex-remote-attachments\01a0d236-12ba-7a11-a24d-5851b9bf98ed\b0101475-21b7-4ccb-aad5-3c65ad4001ea\3-1000014826.jpg` 및 초톳 실화면 `https://xe.chotot.com/mua-ban-xe-tai-xe-ben`
+- implementation: `http://127.0.0.1:5174/?qf=guazi&category=트럭+·+특장&v=text-slot-v46`
+- viewport: Pixel 7 기준 CSS 412×915, DPR 1.0으로 실측·렌더링
+- source pixels: 첨부 캡처 592×1280을 CSS 폭 412px로 정규화; 초톳 실화면은 CSS 412×915로 직접 측정
+- implementation pixels: CSS 412×915, DPR 1.0
+- state: 트럭·특장 첫 유형 퀵필터 줄, 미선택 상태
+
+## Findings
+
+- P0/P1/P2 없음.
+- 초톳 실측은 슬롯 64×56, 이미지 36×36, 이미지–명칭 2px, 명칭 12/500/18 `#595959`, 명칭 폭 56px, 가운데 정렬이다.
+- 보배 모바일은 실사 슬롯 80px 안에서 이미지 64×40, 명칭 폭 72px, 간격 2px, 명칭 12/500/18 `#595959`, 가운데 정렬로 같은 슬롯 공식을 유지한다.
+- 긴 한국어 명칭은 최대 두 줄로 줄바꿈하며 `text-overflow: clip`으로 말줄임표를 만들지 않는다.
+
+## Full-view comparison evidence
+
+- CUA에서 초톳 원본 캡처와 보배 변경본을 한 412px 화면에 세로로 합쳐 비교했다.
+- 초톳의 로고 아래 명칭 기준선과 보배의 실사 아래 명칭 기준선 모두 이미지 하단에서 2px 떨어져 시작한다.
+- 좌측 상단 뎁스 제목은 변경본에 다시 생기지 않았고, 첫 이미지 슬롯은 기존 빈 제목 슬롯 이후 위치를 유지한다.
+
+## Focused region comparison evidence
+
+- 초톳 DOM 실측: `card 64×56 / image 36×36 / gap 2 / label 56×18 / 12px / 500 / 18px / rgb(89,89,89) / center`.
+- 보배 빌드 후 실측: `card 80×84 / image 64×40 / gap 2 / label 72×36 / 12px / 500 / 18px / rgb(89,89,89) / center / text-overflow clip`.
+- 브라우저 경고·오류 0건.
+
+## Required fidelity surfaces
+
+- Fonts and typography: 한글 호환 Pretendard를 유지하며 초톳의 12/500/18 시각 규격을 적용했다.
+- Spacing and layout rhythm: 이미지–명칭 2px, 명칭 좌우 4px 여백, 8px 슬롯 간격을 유지했다.
+- Colors and visual tokens: 초톳 명칭색과 같은 `#595959`; 선택 시 보배 테마 `#222`는 유지한다.
+- Image quality and asset fidelity: 기존 승인된 투명 트럭 이미지는 수정하지 않고 텍스트 배치만 변경했다.
+- Copy and content: 트럭 유형명과 선택값은 변경하지 않았고, 말줄임표 없이 최대 두 줄로 표시한다.
+
+## Comparison history
+
+- 이전: 모바일 이미지–명칭 7px, PC 9px로 초톳 실측 2px보다 벌어져 이미지와 명칭의 결속이 약했다.
+- 수정: 모바일·PC 모두 2px, 12/500/18 `#595959`, 슬롯 좌우 4px 여백 공식으로 통일했다.
+- 수정 후: 모바일 실측값 일치, 전체 유형 줄에 공통 적용, 콘솔 오류 0건.
+
+## Implementation Checklist
+
+- [x] 초톳 실화면 getComputedStyle·getBoundingClientRect 측정
+- [x] 모바일 트럭 유형 텍스트 슬롯 적용
+- [x] PC 트럭 유형 텍스트 슬롯 규칙 적용
+- [x] 두 줄 줄바꿈·말줄임표 제거
+- [x] 원본·구현 한 화면 비교
+- [x] 브라우저 오류 확인
+
+## Follow-up Polish
+
+- 없음.
+
+final result: passed
