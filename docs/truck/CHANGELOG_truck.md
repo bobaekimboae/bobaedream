@@ -93,3 +93,4 @@
 2026-10-03 / 코덱스-특장 / truck_bottomsheet_media_consensus_v01.md, HANDOVER_truck_v49.md / v01·v49 / 플랫폼별 로고·모델 캡처와 세 관점 의견을 대조해 바텀시트 미디어 규격 합의 / 검수완료
 2026-10-03 / 코덱스-특장 / truck_type_*_side_v02.png, truck-type-picker.css, truck-format-catalog.ts, design-qa-truck-side-v02.md, HANDOVER_truck_v50.md / v02·v50 / 카고·윙바디·탱크로리·카고크레인 측면 이미지 시안을 실제 모바일·PC 트럭 유형 필터에 연결 / 미검수
 2026-10-03 / 코덱스-특장 / HANDOVER_truck_v51.md / v51 / GitHub Pages 실행 37124167227 성공 및 공개 모바일·PC 측면 이미지·하단 버튼·콘솔 오류 0건 검증 / 검수완료
+2026-10-03 / 코덱스-특장 / truck_trailer_*_side_v03.png, truck-format-catalog.ts, trailer_side_image_pilot_v01.md, HANDOVER_truck_v52.md / v03·v01·v52 / 기타를 제외한 트레일러 하위 유형 측면 이미지 12종 제작 및 실제 하위 유형 바텀시트 연결 / 미검수
