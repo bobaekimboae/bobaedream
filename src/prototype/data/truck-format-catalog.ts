@@ -72,8 +72,8 @@ const truckFormatImages: Readonly<Record<string, string>> = {
   "견인·운송차": "truck/pilot/v05/truck_type_transport_side_v05.png",
   "차량견인/운송": "truck/pilot/v05/truck_type_transport_side_v05.png",
   "트렉터": "truck/formats/v01/truck_format_tractor_v01.png",
-  "트랙터·트레일러": "truck/pilot/v07/truck_type_tractor_trailer_side_v07.png",
-  "트레일러": "truck/pilot/v07/truck_type_tractor_trailer_side_v07.png",
+  "트랙터·트레일러": "truck/pilot/v08/truck_type_tractor_trailer_lowbed_side_v08.png",
+  "트레일러": "truck/pilot/v08/truck_type_tractor_trailer_lowbed_side_v08.png",
   "특수차": "truck/pilot/v05/truck_type_special_side_v05.png",
   "기타": "truck/pilot/v05/truck_type_other_chassis_side_v05.png",
 };
