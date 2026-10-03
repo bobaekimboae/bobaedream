@@ -11,7 +11,7 @@
 
 - 브랜치: `codex/assets-chotot-mobile-list-v01`
 - 기준 커밋: `e2ee207`
-- PR: 생성 후 기입
+- PR: <https://github.com/bobaekimboae/bobaedream/pull/123>
 - 측정 일시: 2026-10-03 KST
 - 측정 환경: Chromium Pixel 7 기기 모드, CSS 폭 412px, DPR 2.625
 - 보배 측정 주소: `http://127.0.0.1:4173/?qf=guazi&category=트럭+·+특장`
