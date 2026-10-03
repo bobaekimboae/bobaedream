@@ -9,8 +9,8 @@
 .marketplace.is-bbm-m.is-qf-guazi .depth-rail.has-leading-label .depth-rail-track,
 .marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail.has-leading-label .depth-rail-track { padding-left: 0; }
 
-/* 트럭·특장 뎁스는 긴 분류명이 이미지 폭을 줄이지 않도록 제목을 줄 위에 둔다.
-   첫 줄은 "트럭 유형", 다음 줄부터는 직전 선택값을 제목으로 보여 주며 레일은 전체 폭을 쓴다. */
+/* 트럭·특장 첫 이미지 줄은 제목 없이 전체 폭을 쓴다.
+   다음 줄부터는 긴 분류명이 이미지 폭을 줄이지 않도록 직전 선택값을 줄 위에 둔다. */
 .marketplace.is-qf-guazi .depth-rail.has-top-label,
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .depth-rail.has-leading-label.has-top-label,
 .marketplace.is-bbm-m.is-qf-guazi .depth-rail.has-leading-label.has-top-label {
