@@ -80,7 +80,7 @@ import { BbmPartsGallery } from "../filters/bbm-parts-gallery";
 import { BbmActionBar, BbmFullExcludeAction, BbmFullFilter, BbmFullItem, BbmModal, BbmSheet } from "../filters/bbm-filter-parts";
 import { BBM_MAKER_ITEM, bbmFilterOrder, bbmSidebarItems, bikeFilterOrder, daangnFilterLabel, splitDaangnFilterOrder, truckFilterOrder, type BbmFilterItem } from "../filters/bbm-filter-options";
 import { BbmBodyTypeSheet, BbmExpandPanel, BbmModalPanel, BbmSellerTypeSheet, clearBbmItem } from "../filters/bbm-filter-panels";
-import { BbmBottomGnb, BbmBrandMenu, BbmCategoryMenu, BbmCategoryPicker, BbmHeadlinePreviewLinks, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
+import { BbmBottomGnb, BbmBrandMenu, BbmCategoryMenu, BbmCategoryPicker, BbmHeadlinePreviewLinks, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, bbmIcon } from "./bbm-list";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
 import { CategoryBrandLogo, categoryRailLabel, krRailLabel, krTopTenSections, krTypeTop10 } from "./bbm-brand-logos";
 import { StableRegionRow, StableRegionSheet, stableRegionLabel, StableYearRow, stablePageTitle, STABLE_YEAR_OPTIONS, stableKeywordPills } from "./stable-top";
@@ -2035,11 +2035,17 @@ function MarketplaceScreen() {
                 </div>
               </section>
             ) : null}
-            <BbmMobileOptions videoOnly={videoOnly} onToggleVideo={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))} sortLabel={bbmSort} onSort={() => setBbmMenu("m-sort")} extra={debugMode ? quickStyleSelect : null} />
-            <nav className="bbm-m-toolbar" aria-label="매물 유형과 보기">
-              <BbmSellerTabs tabs={["전체", "개인", "딜러"] as SellerType[]} value={sellerType} onChange={(tab) => setFilters((current) => ({ ...current, seller: tab }))} onBrand={() => setSearchToast("브랜드 매물은 정식 서비스에서 이용해 주세요.")} />
-              <button type="button" className="bbm-m-view" aria-label="보기 방식 선택" onClick={() => setBbmMenu("m-view")}><img src={bbmIcon("toolbar-view-list")} alt="" aria-hidden="true" /></button>
-            </nav>
+            <BbmMobileOptions
+              videoOnly={videoOnly}
+              onToggleVideo={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))}
+              sortLabel={bbmSort}
+              onSort={() => setBbmMenu("m-sort")}
+              sellerTabs={["개인", "딜러"] as const}
+              sellerValue={sellerType}
+              onSellerChange={(tab) => setFilters((current) => ({ ...current, seller: current.seller === tab ? "전체" : tab }))}
+              onView={() => setBbmMenu("m-view")}
+              extra={debugMode ? quickStyleSelect : null}
+            />
             <section className={`bbm-m-list${bbmMobileView === "피드로 보기" ? " is-feed" : bbmMobileView === "갤러리로 보기" ? " is-gallery" : bbmMobileView === "한줄 광고로 보기" ? " is-one-line" : bbmMobileView === "텍스트로 보기" ? " is-text" : ""}`} aria-live="polite">
               {shownCars.length && bbmMobileView === "한줄 광고로 보기" ? <div className="bbm-one-line-head"><span>모델</span><span>연식(연형)</span><span>가격(만원)</span><i /></div> : null}
               {shownCars.length ? pagedCars.map((car, index) => bbmMobileView === "한줄 광고로 보기"

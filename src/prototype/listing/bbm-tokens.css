@@ -239,21 +239,20 @@
 .marketplace.is-bbm-m .bbm-category-menu__button { gap: 8px; }
 /* 퀵필터 레일(규격 그대로) 아래 회색 8: 레일 안쪽 여백을 줄이지 않도록 다음 줄 위에 둔다 */
 .marketplace.is-bbm-m .depth-rail + .bbm-m-options { margin-top: 8px; box-shadow: 0 -8px 0 var(--bbm-page-bg); }
-/* 영상 매물 · 업데이트순 44 */
-.bbm-m-options { display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 12px 16px; box-sizing: border-box; background: #fff; }
-.bbm-m-video { padding: 0; border: 0; background: none; color: var(--bbm-tab-inactive); font: inherit; font-size: 14px; font-weight: 500; line-height: 19.6px; cursor: pointer; }
-.bbm-m-video.is-selected { color: var(--bbm-text); font-weight: 600; }
-.bbm-m-sort { display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none; color: var(--bbm-text); font: inherit; font-size: 14px; font-weight: 600; line-height: 19.6px; cursor: pointer; }
+/* 초톳 목록 제어 48: 정렬 | 영상 매물 · 개인 · 딜러 | 보기 방식. 선택 항목만 연노랑 알약칩으로 바뀐다. */
+.bbm-m-options { display: flex; align-items: center; height: 48px; padding: 8px 16px; overflow: hidden; border-bottom: 1px solid var(--bbm-line); box-sizing: border-box; background: #fff; }
+.bbm-m-sort { display: inline-flex; flex: none; align-items: center; gap: 4px; height: 32px; padding: 0; border: 0; background: none; color: var(--bbm-text); font: inherit; font-size: 14px; font-weight: 600; line-height: 20px; white-space: nowrap; cursor: pointer; }
 .bbm-m-sort img { width: 18px; height: 18px; }
-.bbm-m-options .quick-style-select { margin-left: auto; margin-right: 12px; }
-/* 목록 탭 48: 탭 12/8/16, 14/19.6 600·500, 아래 선 */
-.bbm-m-toolbar { display: flex; align-items: center; justify-content: space-between; height: 48px; padding: 0 16px; border-bottom: 1px solid var(--bbm-line); box-sizing: border-box; background: #fff; }
-.bbm-m-toolbar .bbm-seller-tabs { display: flex; align-self: stretch; }
-.bbm-m-toolbar .bbm-seller-tabs button { position: relative; height: 47px; padding: 12px 8px 16px; border: 0; background: none; color: var(--bbm-tab-inactive); font-size: 14px; font-weight: 500; line-height: 19.6px; cursor: pointer; }
-.bbm-m-toolbar .bbm-seller-tabs button.is-selected { color: var(--bbm-text); font-weight: 600; }
-.bbm-m-toolbar .bbm-seller-tabs button.is-selected::after { content: ""; position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; background: var(--bbm-text); }
-.bbm-m-view { display: grid; width: 20px; height: 47px; place-items: center; padding: 0; border: 0; background: none; }
-.bbm-m-view img { width: 20px; height: 20px; }
+.bbm-m-options-divider { flex: none; width: 1px; height: 20px; margin: 0 8px; background: #ededed; }
+.bbm-m-filter-tabs { display: flex; flex: 1 1 auto; min-width: 0; height: 32px; align-items: center; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: none; }
+.bbm-m-filter-tabs::-webkit-scrollbar { display: none; }
+.bbm-m-filter-tab { display: inline-flex; flex: none; align-items: center; justify-content: center; gap: 6px; height: 32px; padding: 6px 8px; border: 0; border-radius: 16px; background: transparent; color: var(--bbm-tab-inactive); font: inherit; font-size: 14px; font-weight: 500; line-height: 20px; white-space: nowrap; cursor: pointer; }
+.bbm-m-filter-tab.is-selected { padding-inline: 12px; background: #fff7d6; color: #c68b00; font-weight: 600; }
+.bbm-m-filter-clear { font-size: 17px; font-weight: 400; line-height: 16px; }
+.bbm-m-options .quick-style-select { flex: none; margin: 0 8px; }
+.bbm-m-view { display: grid; flex: none; width: 24px; height: 32px; margin-left: 4px; place-items: center; padding: 0; border: 0; background: none; }
+.bbm-m-view img,
+.bbm-m-view svg { width: 24px; height: 24px; color: #222; }
 /* 카드 모바일 목록형: 384px 초톳 기준. 각 간격은 글자 줄 상단 기준이다. */
 .bbm-m-list { padding: 0 16px; }
 .bbm-result-card.is-mobile { padding: 12px 0; border-bottom: 1px solid var(--bbm-line); box-sizing: border-box; }

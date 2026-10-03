@@ -194,6 +194,15 @@
 
 ## Mobile Listing Cards
 
+### 모바일 목록 제어행
+
+- 초톳 원본처럼 퀵필터 이미지·로고 레일 아래에 제어행 하나만 둔다. 별도의 `영상 매물` 행과 판매자 탭 행으로 나누지 않는다.
+- 왼쪽부터 `정렬 → 1px 구분선 → 영상 매물 → 개인 → 딜러 → 보기 방식` 순서다. `전체`와 `브랜드` 탭은 이 모바일 제어행에 표시하지 않는다.
+- 제어행은 높이 48px, 좌우 16px, 상하 8px이며 아래에 1px 구분선을 둔다. 정렬과 비선택 탭은 14/20px, 정렬 600·탭 500이다.
+- `영상 매물`, `개인`, `딜러`는 텍스트 탭이다. 선택된 항목만 높이 32px·완전 원형·`#FFF7D6` 바탕·`#C68B00` 글자와 해제 표시를 사용한다. 영상과 판매자 선택은 동시에 표시할 수 있다.
+- 정렬은 아래 방향 꺾쇠, 보기 방식은 24px 4칸 그리드 아이콘을 사용한다. 좁은 화면에서는 가운데 탭 묶음만 가로 스크롤하며 정렬과 보기 방식은 고정한다.
+- PC의 `영상 매물` 문구 + 38×22px 스위치는 유지한다.
+
 - These rules apply to the Guazi Bobaedream mobile listing (`.bbm-m-list`) at the 384px CSS-width reference. List and feed typography are intentionally different; do not merge their font-size rules.
 - A vehicle title is always two semantic rows, not one title that happens to wrap: row 1 is manufacturer + model (`.bbm-card-model`), and row 2 is detailed model/trim (`.bbm-card-trim`). Each row stays on one line and ellipsizes independently. Do not add an arbitrary margin between the detailed-model row and the specification row.
 - List view: title 15/19 600, specification 13px, location 13px, seller 12px, price 16px 700, and price unit 14px. Feed view: title 16/24, specification 14px, location 14px, price 17px 700, and price unit 14px.

@@ -1,4 +1,5 @@
 import { useState, type KeyboardEvent, type ReactNode } from "react";
+import { DashboardIcon } from "@radix-ui/react-icons";
 import { asset, displayListPlace, sellerAvatar, sellerLabel, type Car } from "../data";
 import { bbmCardBadges, bbmCardSpec } from "../data/bbm-card-samples";
 import { truckFormatCatalog } from "../data/truck-format-catalog";
@@ -277,14 +278,48 @@ export function BbmBrandMenu({ items, selected, renderLogo, onChoose }: { items:
   );
 }
 
-// ── 모바일 영상 매물 · 업데이트순 줄
-export function BbmMobileOptions({ videoOnly, onToggleVideo, sortLabel, onSort, extra }: { videoOnly: boolean; onToggleVideo: () => void; sortLabel: string; onSort: () => void; extra?: ReactNode }) {
+// ── 모바일 목록 제어 줄: 정렬 · 영상 매물 · 판매자 · 보기 방식
+export function BbmMobileOptions<T extends string>({
+  videoOnly,
+  onToggleVideo,
+  sortLabel,
+  onSort,
+  sellerTabs,
+  sellerValue,
+  onSellerChange,
+  onView,
+  extra,
+}: {
+  videoOnly: boolean;
+  onToggleVideo: () => void;
+  sortLabel: string;
+  onSort: () => void;
+  sellerTabs: readonly T[];
+  sellerValue: string;
+  onSellerChange: (tab: T) => void;
+  onView: () => void;
+  extra?: ReactNode;
+}) {
   return (
-    <section className="bbm-m-options" aria-label="영상 매물과 정렬">
-      <button type="button" className={`bbm-m-video${videoOnly ? " is-selected" : ""}`} aria-pressed={videoOnly} onClick={onToggleVideo}>영상 매물</button>
+    <nav className="bbm-m-options" aria-label="정렬, 영상 매물, 판매자 유형과 보기 방식">
+      <button type="button" className="bbm-m-sort" onClick={onSort}><span>{sortLabel}</span><img src={bbmIcon("toolbar-sort-chevron")} alt="" aria-hidden="true" /></button>
+      <span className="bbm-m-options-divider" aria-hidden="true" />
+      <div className="bbm-m-filter-tabs" role="group" aria-label="영상 매물과 판매자 유형">
+        <button type="button" className={`bbm-m-filter-tab${videoOnly ? " is-selected" : ""}`} aria-pressed={videoOnly} onClick={onToggleVideo}>
+          <span>영상 매물</span>{videoOnly ? <span className="bbm-m-filter-clear" aria-hidden="true">×</span> : null}
+        </button>
+        {sellerTabs.map((tab) => {
+          const selected = sellerValue === tab;
+          return (
+            <button key={tab} type="button" className={`bbm-m-filter-tab${selected ? " is-selected" : ""}`} aria-pressed={selected} onClick={() => onSellerChange(tab)}>
+              <span>{tab}</span>{selected ? <span className="bbm-m-filter-clear" aria-hidden="true">×</span> : null}
+            </button>
+          );
+        })}
+      </div>
       {extra}
-      <button type="button" className="bbm-m-sort" onClick={onSort}><span>{sortLabel}</span><img src={bbmIcon("m-toolbar-sort")} alt="" aria-hidden="true" /></button>
-    </section>
+      <button type="button" className="bbm-m-view" aria-label="보기 방식 선택" onClick={onView}><DashboardIcon aria-hidden="true" /></button>
+    </nav>
   );
 }
 
