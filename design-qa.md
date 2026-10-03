@@ -133,3 +133,23 @@ final result: passed
 - comparison history: v41의 명칭 열 96px 시작 구분선을 사용자 요청에 따라 아이콘 열 52px 시작으로 확장한 뒤 모바일·PC에서 재확인했다.
 
 final result: passed
+
+## 트럭 제조사 로고 간격 v44
+
+- source visual truth: `https://xe.chotot.com/mua-ban-oto`의 제조사 레일; PC 실측 셀 84×102px, 카드 피치 92px로 카드 사이 8px.
+- implementation screenshot: Codex 인앱 브라우저 탭 26 모바일 렌더, 탭 28 PC 렌더.
+- viewport: 모바일 394×852 CSS px, PC 1280×720 CSS px, deviceScaleFactor 1.
+- state: `윙바디·탑차 → 윙바디` 선택 후 제조사 레일 노출, 라이트 테마.
+- full-view comparison: 제조사 고정 제목 뒤에 로고 레일이 이어지고 모바일 가로 스크롤·PC 한 줄 구조를 유지한다.
+- focused region comparison: 제목 오른쪽–첫 로고 카드 왼쪽 8px, 로고 카드 사이 8px, 로고–명칭 8px을 모바일·PC에서 확인했다.
+- fonts and typography: 제조사 명칭 14/21px 400 규격 유지.
+- spacing and layout rhythm: 모바일 셀 76×102px·로고 40×40px, PC 셀 84×102px·로고 40×40px 유지. 제목–첫 로고 간격만 0px에서 8px로 보정.
+- colors and visual tokens: 흰 배경·무테두리·투명 로고 슬롯 유지.
+- image quality and asset fidelity: 이처·당근 기반 기존 승인 트럭 로고를 변형 없이 사용.
+- copy and content: `제조사`, 상위 10개 제조사, `전체 브랜드` 문구 유지.
+- interaction: 제조사 레일 노출, 모바일 가로 스크롤, PC 11칸 한 줄과 필터 결과 유지.
+- console: 모바일·PC 오류 0건.
+- findings: P0/P1/P2 없음.
+- comparison history: 제목과 첫 로고가 0px로 붙어 있던 상태를 확인하고, 초톳의 8px 셀 피치와 같은 8px 구분 간격으로 수정한 뒤 재측정했다.
+
+final result: passed

@@ -49,7 +49,14 @@ for (const mode of [
       borderRadius: getComputedStyle(card).borderRadius,
     };
   }));
-  const brandSlotMarginTop = await rail.evaluate((root) => root.parentElement ? getComputedStyle(root.parentElement).marginTop : null);
+  const brandSpacing = await rail.evaluate((root) => {
+    const heading = root.querySelector(".depth-rail-label")?.getBoundingClientRect();
+    const firstCard = root.querySelector(".depth-card")?.getBoundingClientRect();
+    return {
+      slotMarginTop: root.parentElement ? getComputedStyle(root.parentElement).marginTop : null,
+      headingToFirstLogo: heading && firstCard ? Math.round(firstCard.left - heading.right) : null,
+    };
+  });
   await page.screenshot({ path: join(out, `implementation-${mode.name}-brand.png`), fullPage: false });
   await rail.screenshot({ path: join(out, `implementation-${mode.name}-brand-row.png`) });
   const first = metrics[0];
@@ -80,7 +87,7 @@ for (const mode of [
     brandExpected: mode.brandExpected,
     typeExpected: mode.typeExpected,
     spacingExpected: mode.spacingExpected,
-    brandSlotMarginTop,
+    brandSpacing,
     count: metrics.length - 1,
     firstBrand: first,
     firstType: typeMetrics,
@@ -95,7 +102,8 @@ for (const mode of [
       && typeMetrics?.cell?.[1] === mode.typeExpected.cell[1]
       && typeMetrics?.media?.[0] === mode.typeExpected.media[0]
       && typeMetrics?.media?.[1] === mode.typeExpected.media[1]
-      && brandSlotMarginTop === mode.spacingExpected.slotMarginTop
+      && brandSpacing.slotMarginTop === mode.spacingExpected.slotMarginTop
+      && brandSpacing.headingToFirstLogo === 8
       && first?.mediaMarginTop === mode.spacingExpected.brandMediaMarginTop
       && first?.labelMarginTop === mode.spacingExpected.brandLabelMarginTop
       && typeMetrics?.slotMarginTop === mode.spacingExpected.slotMarginTop

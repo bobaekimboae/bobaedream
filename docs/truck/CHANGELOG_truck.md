@@ -85,3 +85,4 @@
 2026-10-03 / 코덱스-특장 / truck-type-picker.css, index.tsx, HANDOVER_truck_v41.md / v41 / 수정 요청: 구분선을 명칭 열부터 시작, 바텀시트 제목 좌측 정렬, 트럭 화면 중복 카테고리 칩 제거 / 미검수
 2026-10-03 / 코덱스-특장 / HANDOVER_truck_v42.md / v42 / GitHub Pages 실행 37119440744 성공 및 공개 모바일·PC 구분선·제목·필터칩 동작 검증 / 검수완료
 2026-10-03 / 코덱스-특장 / truck-type-picker.css, HANDOVER_truck_v43.md / v43 / 수정 요청: 트럭 유형 행 구분선을 체크박스는 제외하고 아이콘 영역까지 확장 / 미검수
+2026-10-03 / 코덱스-특장 / qf-model-images.css, truck-chotot-slot-check.mjs, HANDOVER_truck_v44.md / v44 / 수정 요청: 트럭 제조사 제목과 첫 로고 사이 간격을 초톳 슬롯 피치와 같은 8px로 통일 / 미검수
