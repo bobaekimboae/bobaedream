@@ -121,7 +121,7 @@
 /* PC: 초톳 카테고리 서브 기준 */
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail-track { gap: 8px; }
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .bbm-content-head.is-chotot .bbm-quick-slot { margin-top: 8px; }
-.marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail.is-truck-image-row) { height: 144px; }
+.marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail.is-truck-image-row) { height: 108px; }
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail.is-kr-maker) { height: 102px; }
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row,
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .brand-carousel,
@@ -195,6 +195,7 @@
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .bbm-m-quick-slot { margin-top: 8px; }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row,
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-kr-maker { padding-top: 0; }
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-titleless { padding-bottom: 8px; }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row,
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .brand-carousel,
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-rail-track { min-height: 84px; }
