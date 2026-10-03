@@ -99,9 +99,14 @@ import { emptyHeavySelection, getInitialHeavySelection, replaceHeavyParams, type
 
 type BbmMobileView = "목록으로 보기" | "피드로 보기" | "갤러리로 보기" | "한줄 광고로 보기" | "텍스트로 보기";
 
-const initialBbmMobileView = (): BbmMobileView => new URLSearchParams(window.location.search).get("view") === "feed"
-  ? "피드로 보기"
-  : "목록으로 보기";
+const initialBbmMobileView = (): BbmMobileView => {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("view") === "feed") return "피드로 보기";
+  if (params.get("ref") === "chotot" && params.get("view") === "gallery") return "갤러리로 보기";
+  return "목록으로 보기";
+};
+
+const chototTestIcon = (name: string) => asset(`chotot-test/${name}.svg`);
 
 const initialAutohomeMakerSheetPreview = () => {
   const params = new URLSearchParams(window.location.search);
@@ -240,9 +245,11 @@ function PcSidebarCard({ title, items, activeLabel, onChoose, visibleCount = 5 }
   );
 }
 
-function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearchSaved, onOpenFavorites, bbm = false }: { query: string; setQuery: (query: string) => void; searchPlaceholder: string; searchSaved: boolean; onToggleSearchSaved: () => void; onOpenFavorites: () => void; bbm?: boolean }) {
+function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearchSaved, onOpenFavorites, bbm = false, chototRef = false }: { query: string; setQuery: (query: string) => void; searchPlaceholder: string; searchSaved: boolean; onToggleSearchSaved: () => void; onOpenFavorites: () => void; bbm?: boolean; chototRef?: boolean }) {
   // QF-091: 과쯔(개발 시안형) 모바일은 원본 아이콘
-  const headerIcon = (name: string, fallback: string) => bbm ? <img className="ui-icon" src={bbmIcon(`m-header-${name}`)} alt="" aria-hidden="true" /> : <Icon name={fallback} />;
+  const headerIcon = (name: string, fallback: string) => chototRef
+    ? <img className="ui-icon" src={chototTestIcon(`chotot-common-${name === "back" ? "chevron-left" : name === "heart" ? "favorite" : name}`)} alt="" aria-hidden="true" />
+    : bbm ? <img className="ui-icon" src={bbmIcon(`m-header-${name}`)} alt="" aria-hidden="true" /> : <Icon name={fallback} />;
   const keyboard = useKeyboard();
   const [searchOpen, setSearchOpen] = useState(false);
   const normalizedQuery = query.trim().toLowerCase();
@@ -290,19 +297,19 @@ function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearc
   );
 }
 
-function FilterChip({ label, icon, active, className = "", onClick, onClear, bbm = false }: { label: string; icon?: string; active?: boolean; className?: string; onClick: () => void; onClear?: () => void; bbm?: boolean }) {
+function FilterChip({ label, icon, active, className = "", onClick, onClear, bbm = false, chototRef = false }: { label: string; icon?: string; active?: boolean; className?: string; onClick: () => void; onClear?: () => void; bbm?: boolean; chototRef?: boolean }) {
   const chipClassName = `filter-chip${active ? " is-active" : ""}${className ? ` ${className}` : ""}`;
   if (active && onClear) {
     return (
       <div className={chipClassName}>
         <button className="filter-chip-label" type="button" aria-pressed="true" onClick={onClick}><span>{label}</span></button>
-        <button className="filter-chip-clear" type="button" aria-label={`${label} 필터 해제`} onClick={onClear}>{bbm ? <img className="ui-icon" src={bbmIcon("chip-remove")} alt="" aria-hidden="true" /> : <Icon name="close.svg" />}</button>
+        <button className="filter-chip-clear" type="button" aria-label={`${label} 필터 해제`} onClick={onClear}>{chototRef ? <img className="ui-icon" src={chototTestIcon("chotot-common-close-x-white")} alt="" aria-hidden="true" /> : bbm ? <img className="ui-icon" src={bbmIcon("chip-remove")} alt="" aria-hidden="true" /> : <Icon name="close.svg" />}</button>
       </div>
     );
   }
   return (
     <button className={chipClassName} type="button" aria-pressed={active} onClick={onClick}>
-      {icon ? <Icon name={icon} /> : null}<span>{label}</span>{!icon && !active ? (bbm ? <img className="ui-icon" src={bbmIcon("filter-toggle-chotot-v01")} alt="" aria-hidden="true" /> : <Icon name="chevron-down.svg" />) : null}
+      {icon ? <Icon name={icon} /> : null}<span>{label}</span>{!icon && !active ? (chototRef ? <img className="ui-icon" src={chototTestIcon("chotot-common-chevron-down")} alt="" aria-hidden="true" /> : bbm ? <img className="ui-icon" src={bbmIcon("filter-toggle-chotot-v01")} alt="" aria-hidden="true" /> : <Icon name="chevron-down.svg" />) : null}
     </button>
   );
 }
@@ -594,6 +601,7 @@ function MarketplaceScreen() {
   const isCampingCategory = category === "캠핑카";
   const isPartsCategory = category === "부품 · 용품";
   const isTruckCategory = category === "트럭 · 특장";
+  const chototListMatch = isTruckCategory && new URLSearchParams(window.location.search).get("ref") === "chotot";
   const autohomeLogoPreview = new URLSearchParams(window.location.search).get("brandlogo") === "autohome";
   const truckSubtypeOptions = truckSubtypesFor(selectedTruckFormat);
   const truckSpecGroups = truckSpecGroupsFor(selectedTruckFormat, selectedTruckSubtype);
@@ -1360,12 +1368,14 @@ function MarketplaceScreen() {
           // QF-105: 트림까지 고르면 퀵필터 줄은 닫힌다(칩 [트림 ×] 로 다시 연다)
           // QF-106: ④ 퀵필터 자리는 닫지 않는다 — 계층(제조사 → 모델 → 세부모델 → 트림)이 끝나면 연식 알약 줄
           isHeavyCategory ? <HeavyQuickFilter value={heavySelection} onChange={applyHeavySelection} /> :
-          showTruckFormatRail ? <section className="depth-rail no-label is-truck-image-row is-format-root" aria-label="트럭 형식 빠른 선택">
+          showTruckFormatRail ? <section className={`depth-rail no-label is-truck-image-row is-format-root${chototListMatch ? " has-chotot-label" : ""}`} aria-label="트럭 형식 빠른 선택">
+            {chototListMatch ? <span className="chotot-rail-title">유형</span> : null}
             <QuickRailCarousel ariaLabel="트럭 형식" className="brand-carousel" contentClassName="depth-rail-track">
               {truckFormatCatalog.map((group) => <DepthCard key={group.name} className="is-truck-depth" label={desktop ? group.name : truckQuickLabel(group.name)} ariaLabel={group.name} image={<img src={asset(truckFormatImageFor(group.name) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckFormat(group.name)} />)}
             </QuickRailCarousel>
           </section> :
-          showTruckSubtypeRail ? <section className="depth-rail no-label is-truck-image-row is-format-sub" aria-label={`${selectedTruckFormat} 세부 형식 빠른 선택`}>
+          showTruckSubtypeRail ? <section className={`depth-rail no-label is-truck-image-row is-format-sub${chototListMatch ? " has-chotot-label" : ""}`} aria-label={`${selectedTruckFormat} 세부 형식 빠른 선택`}>
+            {chototListMatch ? <span className="chotot-rail-title">세부 유형</span> : null}
             <QuickRailCarousel ariaLabel={`${selectedTruckFormat} 세부 형식`} className="brand-carousel" contentClassName="depth-rail-track">
               {truckSubtypeOptions.map((subtype) => <DepthCard key={subtype} className="is-truck-depth" label={desktop ? subtype : truckQuickLabel(subtype)} ariaLabel={subtype} image={<img src={asset(truckSubtypeImageFor(selectedTruckFormat, subtype) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckSubtype(subtype)} />)}
             </QuickRailCarousel>
@@ -1570,6 +1580,12 @@ function MarketplaceScreen() {
     setBbmMenu(null);
     if (option === "목록으로 보기" || option === "피드로 보기" || option === "갤러리로 보기" || option === "한줄 광고로 보기" || option === "텍스트로 보기") {
       setBbmMobileView(option);
+      if (chototListMatch) {
+        const url = new URL(window.location.href);
+        if (option === "갤러리로 보기") url.searchParams.set("view", "gallery");
+        else url.searchParams.delete("view");
+        window.history.replaceState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`);
+      }
       return;
     }
     setSearchToast(`${option}는 준비 중입니다.`);
@@ -2027,16 +2043,16 @@ function MarketplaceScreen() {
     return (
       <>
         <MobileScroll className="app-screen">
-          <main className={`marketplace is-bbm-m${plainQuickCards ? " is-qf-plain" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}`} aria-label="중고차 리스트">
-            <Header bbm query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} />
+          <main className={`marketplace is-bbm-m${plainQuickCards ? " is-qf-plain" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}${chototListMatch ? " is-chotot-list-match" : ""}`} aria-label="중고차 리스트">
+            <Header bbm chototRef={chototListMatch} query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} />
             <section className="region-bar is-bbm" aria-label="지역 선택">
-              <button type="button" aria-label={`현재 지역 ${isGuaziQuickStyle ? stableRegionLabel(bbmValue) : regionLabel}, 지역 선택 열기`} onClick={isGuaziQuickStyle ? () => setStableRegionOpen(true) : openRegionSheet}><span className="region-text"><span className="region-label">지역:</span><strong>{isGuaziQuickStyle ? stableRegionLabel(bbmValue) : regionLabel}</strong></span><span className="region-chevron-icon" aria-hidden="true"><img src={bbmIcon("triangle-down-chotot")} alt="" /></span></button>
+              <button type="button" aria-label={`현재 지역 ${isGuaziQuickStyle ? stableRegionLabel(bbmValue) : regionLabel}, 지역 선택 열기`} onClick={isGuaziQuickStyle ? () => setStableRegionOpen(true) : openRegionSheet}>{chototListMatch ? <img className="chotot-region-pin" src={chototTestIcon("chotot-common-location-yellow")} alt="" aria-hidden="true" /> : null}<span className="region-text"><span className="region-label">지역:</span><strong>{isGuaziQuickStyle ? stableRegionLabel(bbmValue) : regionLabel}</strong></span><span className="region-chevron-icon" aria-hidden="true"><img src={chototListMatch ? chototTestIcon("chotot-common-triangle-down") : bbmIcon("triangle-down-chotot")} alt="" /></span></button>
               <button type="button" className="reset-button" onClick={() => resetFilters()}>초기화</button>
             </section>
             <section className={`filter-shell quick-style-guazi is-bbm${bbmRailScrolled ? " is-scrolled" : ""}`} aria-label="중고차 필터" data-history={shownHistory}>
-              <button className={`filter-fixed${bbmAppliedCount ? " is-applied" : ""}`} type="button" aria-label={bbmAppliedCount ? `필터 ${bbmAppliedCount}개 적용됨` : "필터"} onClick={openBbmFull}><img className="ui-icon" src={bbmIcon(bbmFilterIconName)} alt="" aria-hidden="true" />{isGuaziQuickStyle ? <><span>필터</span>{bbmAppliedCount ? <b className="filter-fixed-count">{bbmAppliedCount}</b> : null}</> : bbmAppliedCount ? <b className="filter-fixed-count">{bbmAppliedCount}</b> : <span>필터</span>}</button>
+              <button className={`filter-fixed${bbmAppliedCount ? " is-applied" : ""}`} type="button" aria-label={bbmAppliedCount ? `필터 ${bbmAppliedCount}개 적용됨` : "필터"} onClick={openBbmFull}><img className="ui-icon" src={chototListMatch ? chototTestIcon("chotot-common-filter") : bbmIcon(bbmFilterIconName)} alt="" aria-hidden="true" />{isGuaziQuickStyle ? <><span>필터</span>{bbmAppliedCount ? <b className="filter-fixed-count">{bbmAppliedCount}</b> : null}</> : bbmAppliedCount ? <b className="filter-fixed-count">{bbmAppliedCount}</b> : <span>필터</span>}</button>
               <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
-                {mobileBbmChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} onClick={() => { revealBbmChip(chip.label); chip.onClick(); }} onClear={chip.onClear} />)}
+                {mobileBbmChips.map((chip) => <FilterChip key={chip.key} bbm chototRef={chototListMatch} label={chip.label} active={chip.active} className={chip.className} onClick={() => { revealBbmChip(chip.label); chip.onClick(); }} onClear={chip.onClear} />)}
               </Carousel>
             </section>
             {/* QF-106 ④ 퀵필터 자리. 과쯔 원본은 바로 숏폼매물 줄로 이어지고 별도 경로·제목·추천어가 없다. */}
@@ -2059,15 +2075,16 @@ function MarketplaceScreen() {
               sellerTabs={["개인", "딜러"] as const}
               sellerValue={sellerType}
               onSellerChange={(tab) => setFilters((current) => ({ ...current, seller: current.seller === tab ? "전체" : tab }))}
-              onView={() => setBbmMenu("m-view")}
+              onView={() => chototListMatch ? chooseBbmView(bbmMobileView === "갤러리로 보기" ? "목록으로 보기" : "갤러리로 보기") : setBbmMenu("m-view")}
               viewMode={bbmMobileView}
+              chototRef={chototListMatch}
               extra={debugMode ? quickStyleSelect : null}
             />
             <section className={`bbm-m-list${bbmMobileView === "피드로 보기" ? " is-feed" : bbmMobileView === "갤러리로 보기" ? " is-gallery" : bbmMobileView === "한줄 광고로 보기" ? " is-one-line" : bbmMobileView === "텍스트로 보기" ? " is-text" : ""}`} aria-live="polite">
               {shownCars.length && bbmMobileView === "한줄 광고로 보기" ? <div className="bbm-one-line-head"><span>모델</span><span>연식(연형)</span><span>가격(만원)</span><i /></div> : null}
               {shownCars.length ? pagedCars.map((car, index) => bbmMobileView === "한줄 광고로 보기"
                 ? <BbmOneLineCard key={car.id} car={car} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} />
-                : <BbmResultCard key={car.id} car={car} variant="mobile" featured={bbmMobileView === "피드로 보기" && index === 0} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅 연결 예정")} />) : carListItems}
+                : <BbmResultCard key={car.id} car={car} variant="mobile" featured={bbmMobileView === "피드로 보기" && index === 0} gallery={bbmMobileView === "갤러리로 보기"} chototRef={chototListMatch} viewed={chototListMatch && index === 1} testBadge={chototListMatch && index === 0 ? "green" : chototListMatch && index === 1 ? "gray" : undefined} testPhotoIndex={index} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅 연결 예정")} />) : carListItems}
               {shownCars.length ? <BbmPagination page={bbmPageNow} total={bbmPageCount} windowSize={3} onChange={goBbmPage} /> : null}
             </section>
             <BbmFooter onNotify={setSearchToast} />
