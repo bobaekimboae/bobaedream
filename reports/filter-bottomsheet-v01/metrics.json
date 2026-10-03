@@ -1,0 +1,36 @@
+{
+  "sourceCategory": {
+    "viewport": [
+      390,
+      844
+    ],
+    "sheet": {
+      "y": 542,
+      "height": 302,
+      "width": 390
+    },
+    "selected": {
+      "height": 32,
+      "radius": "9999px",
+      "background": "rgb(34, 34, 34)",
+      "fontSize": "14px"
+    }
+  },
+  "implementationCategory": {
+    "viewport": [
+      390,
+      844
+    ],
+    "sheet": {
+      "y": 538,
+      "height": 306,
+      "width": 390
+    },
+    "selected": {
+      "height": 32,
+      "radius": "9999px",
+      "background": "rgb(34, 34, 34)",
+      "fontSize": "14px"
+    }
+  }
+}

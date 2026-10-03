@@ -103,6 +103,28 @@ export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string) => voi
   );
 }
 
+// QF-121: 초톳 모바일 카테고리 바텀시트처럼 그룹 제목 + 32px 알약 칩으로 선택한다.
+// 실사 퀴필터 레일과 바텀시트의 역할을 분리해, 시트에서는 중복 이미지를 나열하지 않는다.
+export function BbmCategoryPicker({ selected, onChoose, onViewAll }: { selected: string; onChoose: (label: string) => void; onViewAll: () => void }) {
+  return (
+    <section className="bbm-category-picker" aria-label="차량 카테고리 선택">
+      <button type="button" className="bbm-category-picker__all" onClick={onViewAll}>모든 카테고리 보기</button>
+      <div className="bbm-category-picker__group">
+        <div className="bbm-category-picker__heading">
+          <img src={asset("categories/used-car.svg")} alt="" aria-hidden="true" />
+          <strong>차량</strong>
+        </div>
+        <div className="bbm-category-picker__pills" role="group" aria-label="차량 카테고리">
+          <button type="button" className={selected === "전체" ? "is-selected" : ""} aria-pressed={selected === "전체"} onClick={() => onChoose("전체")}>전체 차량</button>
+          {bbmCategoryItems.map(([value, , label = value]) => (
+            <button key={value} type="button" className={selected === value ? "is-selected" : ""} aria-pressed={selected === value} onClick={() => onChoose(value)}>{value === "건설기계" ? "건설기계" : label}</button>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // 오토홈 제조사 로고 비교 시안: 카테고리 바텀시트와 같은 1열 가로 슬롯 규격을 쓴다.
 export function BbmBrandMenu({ items, selected, renderLogo, onChoose }: { items: Array<{ label: string; key: string; logoName?: string }>; selected: string | null; renderLogo: (name: string) => ReactNode; onChoose: (key: string) => void }) {
   return (

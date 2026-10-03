@@ -76,7 +76,7 @@ import { BbmPartsGallery } from "../filters/bbm-parts-gallery";
 import { BbmActionBar, BbmFullExcludeAction, BbmFullFilter, BbmFullItem, BbmModal, BbmSheet } from "../filters/bbm-filter-parts";
 import { bbmFilterOrder, bbmSidebarItems, bikeFilterOrder, truckFilterOrder, type BbmFilterItem } from "../filters/bbm-filter-options";
 import { BbmBodyTypeSheet, BbmExpandPanel, BbmModalPanel, BbmSellerTypeSheet, clearBbmItem } from "../filters/bbm-filter-panels";
-import { BbmBottomGnb, BbmBrandMenu, BbmCategoryMenu, BbmHeadlinePreviewLinks, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
+import { BbmBottomGnb, BbmBrandMenu, BbmCategoryMenu, BbmCategoryPicker, BbmHeadlinePreviewLinks, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
 import { CategoryBrandLogo, krRailLabel, krTopTenSections, krTypeTop10 } from "./bbm-brand-logos";
 import { StableRegionRow, StableRegionSheet, stableRegionLabel, StableYearRow, stablePageTitle, STABLE_YEAR_OPTIONS, stableKeywordPills } from "./stable-top";
@@ -239,19 +239,49 @@ function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearc
   // QF-091: 과쯔(개발 시안형) 모바일은 원본 아이콘
   const headerIcon = (name: string, fallback: string) => bbm ? <img className="ui-icon" src={bbmIcon(`m-header-${name}`)} alt="" aria-hidden="true" /> : <Icon name={fallback} />;
   const keyboard = useKeyboard();
+  const [searchOpen, setSearchOpen] = useState(false);
+  const normalizedQuery = query.trim().toLowerCase();
+  const searchSuggestions = useMemo(() => {
+    const categorySuggestions = searchPlaceholder.includes("특장")
+      ? ["현대 포터 1톤", "1톤 탑차", "카고 화물트럭", "윙바디", "파워게이트", "냉동탑차"]
+      : searchPlaceholder.includes("바이크")
+        ? ["혼다 PCX", "야마하 NMAX", "할리데이비슨", "스쿠터", "투어러"]
+        : ["현대 그랜저", "기아 쏘렌토", "제네시스 G80", "벤츠 E클래스", "BMW 5시리즈", "토요타 캠리"];
+    if (!normalizedQuery) return categorySuggestions.slice(0, 4);
+    const matches = categorySuggestions.filter((item) => item.toLowerCase().includes(normalizedQuery));
+    const suffixes = searchPlaceholder.includes("특장")
+      ? ["1톤", "카고", "탑차", "윙바디", "파워게이트", "냉동탑차", "특장차"]
+      : searchPlaceholder.includes("바이크")
+        ? ["스쿠터", "스포츠", "투어러", "네이키드", "125cc", "300cc", "중고"]
+        : ["E클래스", "C클래스", "S클래스", "SUV", "세단", "AMG", "4MATIC"];
+    return [...new Set([query.trim(), ...matches, ...suffixes.map((suffix) => `${query.trim()} ${suffix}`)])].slice(0, 8);
+  }, [normalizedQuery, query, searchPlaceholder]);
+
+  const closeSearch = () => { setSearchOpen(false); keyboard.hide(); };
 
   return (
-    <header className={`top-bar${bbm ? " is-bbm" : ""}`} aria-label="중고차 검색">
-      <button className="icon-button back-button" type="button" aria-label="뒤로 가기" onClick={() => window.history.back()}>{headerIcon("back", "back.svg")}</button>
+    <><header className={`top-bar${bbm ? " is-bbm" : ""}${searchOpen ? " is-search-open" : ""}`} aria-label="중고차 검색">
+      <button className="icon-button back-button" type="button" aria-label={searchOpen ? "검색 닫기" : "뒤로 가기"} onClick={() => searchOpen ? closeSearch() : window.history.back()}>{headerIcon("back", "back.svg")}</button>
       <label className="search-field">
         {headerIcon("search", "search.svg")}
-        <KeyboardInput aria-label={`${searchPlaceholder} 검색`} value={query} onChange={(event) => setQuery(event.currentTarget.value)} onBlur={() => keyboard.hide()} placeholder={searchPlaceholder} />
+        <KeyboardInput aria-label={`${searchPlaceholder} 검색`} value={query} onFocus={() => setSearchOpen(true)} onChange={(event) => { setQuery(event.currentTarget.value); setSearchOpen(true); }} onBlur={() => keyboard.hide()} placeholder={searchPlaceholder} />
+        {bbm && query ? <button type="button" className="search-clear" aria-label="검색어 지우기" onPointerDown={(event) => event.preventDefault()} onClick={() => setQuery("")}>×</button> : null}
         <span className="search-divider" />
         <button type="button" className={`search-save${searchSaved ? " is-saved" : ""}`} aria-label={searchSaved ? "저장한 검색 조건 삭제" : "검색 조건 저장"} aria-pressed={searchSaved} onPointerDown={(event) => event.preventDefault()} onClick={onToggleSearchSaved}>{searchSaved ? <BookmarkFilledIcon /> : headerIcon("bookmark", "bookmark.svg")}</button>
       </label>
       <button className="icon-button" type="button" aria-label="저장한 매물 열기" onClick={onOpenFavorites}>{headerIcon("heart", "heart.svg")}</button>
       {!bbm ? <button className="icon-button" type="button" aria-label="메시지">{headerIcon("chat", "message.svg")}</button> : null}
     </header>
+    {bbm && searchOpen ? <section className="bbm-search-suggest" aria-label="검색어 추천" aria-live="polite">
+      {!normalizedQuery ? <h2>추천 검색어</h2> : null}
+      <div className="bbm-search-suggest__list">
+        {searchSuggestions.map((suggestion, index) => <button key={`${suggestion}-${index}`} type="button" onPointerDown={(event) => event.preventDefault()} onClick={() => { setQuery(suggestion); setSearchOpen(false); keyboard.hide(); }}>
+          <MagnifyingGlassIcon aria-hidden="true" />
+          <span><strong>{suggestion}</strong><small>{normalizedQuery ? `${searchPlaceholder}에서` : index === 0 ? "최근 많이 찾은 검색어" : "추천 검색어"}</small></span>
+        </button>)}
+      </div>
+      {normalizedQuery ? <button type="button" className="bbm-search-seller" onPointerDown={(event) => event.preventDefault()} onClick={() => { setSearchOpen(false); keyboard.hide(); }}>판매자 상호 “{query.trim()}” 검색</button> : null}
+    </section> : null}</>
   );
 }
 
@@ -501,6 +531,7 @@ function MarketplaceScreen() {
   const [bbmTopReset, setBbmTopReset] = useState(0);
   // QF-091: 과쯔(개발 시안형) 모바일 전체 필터 화면과 그 안의 항목 시트
   const [bbmFullOpen, setBbmFullOpen] = useState(() => initialAutohomeMakerSheetPreview());
+  const [bbmCategoryOpen, setBbmCategoryOpen] = useState(false);
   const [bbmFullItem, setBbmFullItem] = useState<BbmFilterItem | "카테고리" | "제조사 · 모델" | null>(() => initialAutohomeMakerSheetPreview() ? "제조사 · 모델" : null);
   const [bbmMakerDraft, setBbmMakerDraft] = useState<string | null>(() => initialAutohomeMakerSheetPreview() ? initialFilters.maker : null);
   const [bbmKeepSearch, setBbmKeepSearch] = useState(false);
@@ -1565,9 +1596,7 @@ function MarketplaceScreen() {
       label: "카테고리",
       active: false,
       onClick: () => {
-        setBbmFullDraft(bbmValue);
-        setBbmFullItem("카테고리");
-        setBbmFullOpen(true);
+        setBbmCategoryOpen(true);
       },
     },
     ...bbmChips.filter((chip) => chip.key !== "seller" && !chip.key.startsWith("applied-check:sellerKind:")),
@@ -1966,6 +1995,9 @@ function MarketplaceScreen() {
         <BbmBottomGnb onNotify={setSearchToast} />
         {bbmMenu === "m-sort" ? <BbmSheet title="정렬" flush onClose={() => setBbmMenu(null)}><BbmPopOptions options={bbmSortOptions} selected={bbmSort} onSelect={chooseBbmSort} /></BbmSheet> : null}
         {bbmMenu === "m-view" ? <BbmSheet title="리스트 필터" flush onClose={() => setBbmMenu(null)}><BbmPopOptions options={bbmViewOptionsMobile} selected={bbmMobileView} onSelect={chooseBbmView} /></BbmSheet> : null}
+        {bbmCategoryOpen ? <BbmSheet variant="category" title="전체 카테고리" onClose={() => setBbmCategoryOpen(false)} footer={<div className="bbmf-category-footer"><button type="button" onClick={() => { chooseVehicleCategory("전체"); setBbmCategoryOpen(false); }}>초기화</button></div>}>
+          <BbmCategoryPicker selected={category} onViewAll={() => setSearchToast("전체 카테고리에서 차량 그룹을 보고 있어요.")} onChoose={(label) => { chooseVehicleCategory(label); setBbmCategoryOpen(false); }} />
+        </BbmSheet> : null}
         {bbmFullOpen ? (
           <BbmFullFilter
             onClose={closeFull}
