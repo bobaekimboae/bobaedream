@@ -58,12 +58,40 @@ export const bbmCategoryItems: Array<[value: string, image: string, label?: stri
   ["부품 · 용품", "category-photo/vehicle_type_parts_v01.png"],
 ];
 
+type ImageGuideFamily = "body" | "gclass" | "heavy";
+
+const imageGuideItems: Record<ImageGuideFamily, Array<[value: string, image: string, label?: string]>> = {
+  body: [
+    ["중고차", "bbm/generated/quickfilter-v01/car_body_sedan_v01.png", "세단"],
+    ["중고차", "bbm/generated/quickfilter-v01/car_body_hatchback_v01.png", "해치백"],
+    ["중고차", "bbm/generated/quickfilter-v01/car_body_suv_v01.png", "SUV"],
+    ["중고차", "bbm/generated/quickfilter-v01/car_body_coupe_v01.png", "쿠페"],
+  ],
+  gclass: [
+    ["중고차", "bbm/generated/quickfilter-v01/car_mercedes_gclass_w460_v01.png", "G-클래스 W460"],
+    ["중고차", "bbm/generated/quickfilter-v01/car_mercedes_gclass_w463_v01.png", "G-클래스 W463"],
+    ["중고차", "bbm/generated/quickfilter-v01/car_mercedes_gclass_w465_v01.png", "G-클래스 최신형"],
+  ],
+  heavy: [
+    ["건설기계", "bbm/generated/quickfilter-v01/heavy_excavator_v01.png", "굴착기"],
+    ["건설기계", "bbm/generated/quickfilter-v01/heavy_wheel_loader_v01.png", "휠로더"],
+    ["건설기계", "bbm/generated/quickfilter-v01/heavy_forklift_v02.png", "지게차"],
+  ],
+};
+
+function getImageGuideFamily(): ImageGuideFamily | null {
+  const value = new URLSearchParams(window.location.search).get("imageguide");
+  return value === "body" || value === "gclass" || value === "heavy" ? value : null;
+}
+
 export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string) => void }) {
+  const imageGuideFamily = getImageGuideFamily();
+  const items = imageGuideFamily ? imageGuideItems[imageGuideFamily] : bbmCategoryItems;
   return (
-    <section className="bbm-category-menu" aria-label="차량 유형">
+    <section className={`bbm-category-menu${imageGuideFamily ? " is-image-guide" : ""}`} aria-label={imageGuideFamily ? "AI 제작 이미지 슬롯 검수" : "차량 유형"} data-image-guide={imageGuideFamily ?? undefined}>
       <ul className="bbm-category-menu__list">
-        {bbmCategoryItems.map(([value, image, label = value]) => (
-          <li key={value} className="bbm-category-menu__item">
+        {items.map(([value, image, label = value]) => (
+          <li key={`${value}-${label}`} className="bbm-category-menu__item">
             <button type="button" className="bbm-category-menu__button" onClick={() => onChoose(value)}>
               <span className="bbm-category-menu__icon-box is-photo"><img src={asset(image)} alt="" aria-hidden="true" draggable={false} /></span>
               <span className="bbm-category-menu__label">{label}</span>

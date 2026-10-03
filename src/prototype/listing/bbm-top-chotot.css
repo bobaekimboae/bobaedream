@@ -67,6 +67,11 @@
 .marketplace.is-bbm .bbm-content-head.is-chotot .bbm-category-menu__icon-box { flex: none; width: 40px; height: 40px; margin: 6px; }
 .marketplace.is-bbm .bbm-content-head.is-chotot .bbm-category-menu__icon-box img { width: 22px; height: 22px; }
 .marketplace.is-bbm .bbm-content-head.is-chotot .bbm-category-menu__label { width: 76px; color: #595959; font-size: 14px; font-weight: 400; line-height: 21px; white-space: normal; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-category-menu.is-image-guide .bbm-category-menu__item { width: 84px; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-category-menu.is-image-guide .bbm-category-menu__button { width: 84px; height: 108px; gap: 2px; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-category-menu.is-image-guide .bbm-category-menu__icon-box.is-photo { width: 64px; height: 64px; margin: 0 10px; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-category-menu.is-image-guide .bbm-category-menu__icon-box.is-photo img { width: 64px; height: 64px; object-fit: contain; object-position: center bottom; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-category-menu.is-image-guide .bbm-category-menu__label { width: 76px; font-size: 14px; line-height: 20px; }
 
 /* 목록 툴바 "목록형" 버튼 상자 높이 = 원본 car-list-content-toolbar__view 24(원본은 툴바 55 안에서 15.5 에 놓여 드롭다운 글자 픽셀 위치가 반 칸 어긋난다 — 같게 맞춤) */
 .marketplace.is-bbm.is-hybrid .bbm-view { height: 24px; }

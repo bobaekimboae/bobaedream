@@ -38,6 +38,12 @@
 .bbm-category-menu__button.is-selected .bbm-category-menu__icon-box.is-logo { border-color: #222; background: #f7f7f7; }
 .bbm-category-menu__button.is-selected .bbm-category-menu__label { color: #222; font-weight: 700; }
 .bbm-category-menu__label { width: 60px; color: var(--bbm-text-sub); font-size: 14px; font-weight: 500; line-height: 19.6px; text-align: center; white-space: nowrap; }
+.bbm-category-menu.is-image-guide .bbm-category-menu__list { gap: 0; }
+.bbm-category-menu.is-image-guide .bbm-category-menu__item { width: 80px; }
+.bbm-category-menu.is-image-guide .bbm-category-menu__button { width: 80px; min-height: 108px; gap: 2px; }
+.bbm-category-menu.is-image-guide .bbm-category-menu__icon-box.is-photo { width: 64px; height: 64px; }
+.bbm-category-menu.is-image-guide .bbm-category-menu__icon-box.is-photo img { width: 64px; height: 64px; object-fit: contain; object-position: center bottom; }
+.bbm-category-menu.is-image-guide .bbm-category-menu__label { display: -webkit-box; width: 72px; overflow: hidden; font-size: 12px; line-height: 18px; white-space: normal; word-break: keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 
 /* ── 공통: 체크 선택 모양 = 원본 검정(#222) 채움 + 흰 체크 */
 .bbmf-check.is-checked .bbmf-check-box, .marketplace.is-bbm .bbm-grade-row.is-checked .bbm-checkbox { border-color: var(--bbm-text-strong); background: var(--bbm-text-strong); }

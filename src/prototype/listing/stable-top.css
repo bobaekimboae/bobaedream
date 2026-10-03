@@ -108,6 +108,15 @@
 .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__icon-box.is-photo { flex: none; width: 64px; height: 40px; margin: 0; border-radius: 0; background: transparent; }
 .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__icon-box.is-photo img { width: 64px; height: 40px; object-fit: contain; object-position: center bottom; }
 .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__label { display: -webkit-box; width: 56px; overflow: hidden; color: #595959; font-size: 12px; font-weight: 500; line-height: 18px; white-space: normal; word-break: keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+
+/* AI 이미지 제작 가이드 검수 모드: 초톳 자동차 카테고리의 80px 피치·64px 정사각 슬롯을 재현한다.
+   생성 원본의 캔버스 비율과 무관하게 contain으로만 축소하며, 각 자산의 바닥선은 동일하다. */
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-image-guide .bbm-category-menu__list { gap: 0; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-image-guide .bbm-category-menu__item { width: 80px; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-image-guide .bbm-category-menu__button { gap: 2px; width: 80px; height: 108px; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-image-guide .bbm-category-menu__icon-box.is-photo { width: 64px; height: 64px; margin: 0 auto; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-image-guide .bbm-category-menu__icon-box.is-photo img { width: 64px; height: 64px; object-fit: contain; object-position: center bottom; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-image-guide .bbm-category-menu__label { width: 72px; font-size: 12px; line-height: 18px; }
 .stable-pill.is-all { font-weight: 700; }
 
 /* QF-111 모바일 지역 바텀시트: 3열 격자, 알약 높이 40, 선택 #222 */
