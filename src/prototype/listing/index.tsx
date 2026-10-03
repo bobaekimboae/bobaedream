@@ -78,7 +78,7 @@ import { bbmFilterOrder, bbmSidebarItems, bikeFilterOrder, truckFilterOrder, typ
 import { BbmBodyTypeSheet, BbmExpandPanel, BbmModalPanel, BbmSellerTypeSheet, clearBbmItem } from "../filters/bbm-filter-panels";
 import { BbmBottomGnb, BbmBrandMenu, BbmCategoryMenu, BbmCategoryPicker, BbmHeadlinePreviewLinks, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, BbmSellerTabs, bbmIcon } from "./bbm-list";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
-import { CategoryBrandLogo, krRailLabel, krTopTenSections, krTypeTop10 } from "./bbm-brand-logos";
+import { CategoryBrandLogo, categoryRailLabel, krRailLabel, krTopTenSections, krTypeTop10 } from "./bbm-brand-logos";
 import { StableRegionRow, StableRegionSheet, stableRegionLabel, StableYearRow, stablePageTitle, STABLE_YEAR_OPTIONS, stableKeywordPills } from "./stable-top";
 import { CatalogModelImage, catalogMakerNames, catalogModelOfCar, guaziGenerationsByMakerModel, guaziModelVisualsByMaker, guaziModelsByMaker } from "./model-catalog-kr";
 import { BbmChipScroller, BbmTopCrumbs, type BbmCrumb } from "./bbm-top-chotot";
@@ -1427,7 +1427,7 @@ function MarketplaceScreen() {
               ? listingCars.filter((car) => car.maker === key && matchesTruckSelection(car)).length
               : isBikeCategory ? listingCars.filter((car) => car.maker === key).length : 0;
             const card = (item: { label: string; key: string }) => (
-              <DepthCard key={item.label} className={typeList && sampleCount(item.key) === 0 ? "is-dim" : undefined} label={krRailLabel(item.label)} image={<CategoryBrandLogo category={category} name={item.label} kind={plainQuickCards ? "plain" : "rail"} initialFallback={Boolean(typeList)} />} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />
+              <DepthCard key={item.label} className={typeList && sampleCount(item.key) === 0 ? "is-dim" : undefined} label={categoryRailLabel(category, item.label)} image={<CategoryBrandLogo category={category} name={item.label} kind={plainQuickCards ? "plain" : "rail"} initialFallback={Boolean(typeList)} />} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />
             );
             return (
               <section className="depth-rail no-label is-kr-maker" aria-label={`${categoryBrandRail.title} 빠른 선택`}>

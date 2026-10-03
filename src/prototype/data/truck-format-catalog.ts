@@ -55,11 +55,11 @@ export const truckSubtypesFor = (format: string | null): readonly string[] => tr
 // 트럭 형식 이미지는 상위 형식별로 검수 완료된 묶음부터 순차 등록한다.
 // 적재용량·규격은 이미지가 아니라 알약칩으로 표시하며, 제조사는 브랜드 로고를 사용한다.
 const truckFormatImages: Readonly<Record<string, string>> = {
-  "카고(화물)트럭": "truck/formats/v01/truck_format_cargo_v01.png",
-  "윙바디/탑": "truck/formats/v01/truck_format_wingbody_top_v01.png",
+  "카고(화물)트럭": "truck/pilot/v01/truck_type_cargo_studio_v01.png",
+  "윙바디/탑": "truck/pilot/v01/truck_type_wingbody_studio_v01.png",
   "버스": "truck/formats/v01/truck_format_bus_v01.png",
   "덤프/건설/중기": "truck/formats/v01/truck_format_dump_heavy_v01.png",
-  "크레인 형태": "truck/formats/v01/truck_format_crane_v01.png",
+  "크레인 형태": "truck/pilot/v01/truck_type_crane_studio_v01.png",
   "탱크로리": "truck/formats/v01/truck_format_tanker_v01.png",
   "캠핑카/캠핑 트레일러": "truck/formats/v01/truck_format_camper_trailer_v01.png",
   "폐기/음식물수송": "truck/formats/v01/truck_format_waste_transport_v01.png",
@@ -73,7 +73,7 @@ const truckFormatImages: Readonly<Record<string, string>> = {
 const truckSubtypeImages: Readonly<Record<string, Readonly<Record<string, string>>>> = {
   "카고(화물)트럭": {
     "경형 트럭 (1톤 미만)": "truck/formats/v01/truck_subtype_light_class_v01.png",
-    "1톤 트럭": "truck/formats/v01/truck_format_one_ton_v01.png",
+    "1톤 트럭": "truck/pilot/v01/truck_type_cargo_studio_v01.png",
     "소형 트럭 (1.1~3.5톤)": "truck/formats/v01/truck_subtype_cargo_v01.png",
     "중형 트럭 (4~8.5톤)": "truck/formats/v01/truck_subtype_cargo_v01.png",
     "대형 트럭 (9톤 이상)": "truck/formats/v01/truck_subtype_large_class_v01.png",
@@ -131,7 +131,7 @@ const truckSubtypeImages: Readonly<Record<string, Readonly<Record<string, string
     "사다리차": "truck/formats/v01/truck_subtype_ladder_truck_v01.png",
     "오가크레인": "truck/formats/v01/truck_subtype_auger_crane_v01.png",
     "집게차": "truck/formats/v01/truck_subtype_grapple_truck_v01.png",
-    "카고크레인": "truck/formats/v01/truck_subtype_cargo_crane_v01.png",
+    "카고크레인": "truck/pilot/v01/truck_type_crane_studio_v01.png",
     "활선차(고소작업)": "truck/formats/v01/truck_subtype_live_line_aerial_v01.png",
     "기타": "truck/formats/v01/truck_subtype_mobile_crane_other_v01.png",
   },

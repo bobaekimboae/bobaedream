@@ -1,0 +1,12 @@
+순서,제조사코드,제조사명,표시명,원본출처,파일명,상태,비고
+1,hyundai,현대,현대,당근,truck_hyundai_logo_v01.png,검수완료,국내 브랜드
+2,kia,기아,기아,당근,truck_kia_logo_v01.png,검수완료,국내 브랜드
+3,tata_daewoo,타타대우,타타대우,당근,truck_tata_daewoo_logo_v01.png,검수완료,국내 브랜드
+4,kgm,KG모빌리티,KGM,공식,truck_kgm_logo_v01.png,검수완료,제공된 이처·당근 폴더에서 원본 미확인
+5,volvo_trucks,볼보,볼보트럭,이처,truck_volvo_trucks_logo_v01.png,검수완료,수입 트럭 브랜드
+6,scania,스카니아,스카니아,이처,truck_scania_logo_v01.png,검수완료,수입 트럭 브랜드
+7,man,만(MAN),MAN,이처,truck_man_logo_v01.png,검수완료,수입 트럭 브랜드
+8,mercedes_benz,벤츠,벤츠트럭,이처,truck_mercedes_benz_logo_v01.png,검수완료,수입 트럭 브랜드
+9,iveco,이베코,이베코,이처,truck_iveco_logo_v01.png,검수완료,수입 트럭 브랜드
+10,daf,다프(DAF),DAF,이처,truck_daf_logo_v01.png,검수완료,수입 트럭 브랜드
+

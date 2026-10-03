@@ -1,0 +1,23 @@
+{
+  "version": "v01",
+  "date": "2026-10-03",
+  "category": "트럭 · 특장",
+  "layout": "초톳형 무배경 세로 슬롯",
+  "selectionRule": "국내 브랜드는 당근의 한국 판매 표기를 우선하고, 중복되는 수입 트럭 브랜드는 이처 PNG 원본을 우선한다.",
+  "sourceFolders": {
+    "yiche": "https://drive.google.com/drive/folders/1XujFiX5WFklaZrmGZ_ZfPayhayqP4hOg",
+    "carrot": "https://drive.google.com/drive/folders/1Qq9zmI7xmmkeZ8jfIJbydOwMf0AIoY9e"
+  },
+  "brands": [
+    { "name": "현대", "file": "truck_hyundai_logo_v01.png", "source": "당근", "status": "검수완료" },
+    { "name": "기아", "file": "truck_kia_logo_v01.png", "source": "당근", "status": "검수완료" },
+    { "name": "타타대우", "file": "truck_tata_daewoo_logo_v01.png", "source": "당근", "driveId": "1dZr2V78qJDMEWXQdZcPsWzx2H7ulDypf", "status": "검수완료" },
+    { "name": "KG모빌리티", "file": "truck_kgm_logo_v01.png", "source": "공식 보완", "status": "검수완료" },
+    { "name": "볼보트럭", "file": "truck_volvo_trucks_logo_v01.png", "source": "이처", "driveId": "1nHr4zJYVgAMoM5KYGQxEGQ74sqqwa7c7", "status": "검수완료" },
+    { "name": "스카니아", "file": "truck_scania_logo_v01.png", "source": "이처", "driveId": "1EWPUKO3UGz0xrCBLwKk9Uiyh5WI1TNV7", "status": "검수완료" },
+    { "name": "MAN", "file": "truck_man_logo_v01.png", "source": "이처", "driveId": "13_xlW9tl6dPeirpy92gT1AwlHG48jTVm", "status": "검수완료" },
+    { "name": "벤츠트럭", "file": "truck_mercedes_benz_logo_v01.png", "source": "이처", "driveId": "1ZRcXHYVqy8Zv3MoAO36AQBk7vxE_lLN4", "status": "검수완료" },
+    { "name": "이베코", "file": "truck_iveco_logo_v01.png", "source": "이처", "driveId": "1IuUuvgTztHeGwKyNnwrsQIDYWTEieG3x", "status": "검수완료" },
+    { "name": "DAF", "file": "truck_daf_logo_v01.png", "source": "이처", "driveId": "1-Nogcg0sTItbd9vfB9TidS2q_5yRiKRo", "status": "검수완료" }
+  ]
+}

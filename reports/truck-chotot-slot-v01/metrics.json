@@ -1,0 +1,172 @@
+{
+  "mobile": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "brandExpected": {
+      "cell": [
+        76,
+        102
+      ],
+      "media": [
+        40,
+        40
+      ]
+    },
+    "typeExpected": {
+      "cell": [
+        80,
+        108
+      ],
+      "media": [
+        64,
+        64
+      ]
+    },
+    "count": 10,
+    "firstBrand": {
+      "name": "현대",
+      "cell": [
+        76,
+        102
+      ],
+      "media": [
+        40,
+        40
+      ],
+      "image": [
+        40,
+        20
+      ],
+      "source": "당근",
+      "background": "rgba(0, 0, 0, 0)",
+      "borderRadius": "0px"
+    },
+    "firstType": {
+      "name": "카고(화물)트럭",
+      "cell": [
+        80,
+        108
+      ],
+      "media": [
+        64,
+        64
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "borderRadius": "0px"
+    },
+    "names": [
+      "현대",
+      "기아",
+      "타타대우",
+      "KGM",
+      "볼보트럭",
+      "스카니아",
+      "MAN",
+      "벤츠트럭",
+      "이베코",
+      "DAF",
+      "전체 브랜드"
+    ],
+    "sources": [
+      "당근",
+      "당근",
+      "당근",
+      "공식",
+      "이처",
+      "이처",
+      "이처",
+      "이처",
+      "이처",
+      "이처"
+    ],
+    "consoleErrors": [],
+    "passed": true
+  },
+  "pc": {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "brandExpected": {
+      "cell": [
+        84,
+        102
+      ],
+      "media": [
+        40,
+        40
+      ]
+    },
+    "typeExpected": {
+      "cell": [
+        132,
+        144
+      ],
+      "media": [
+        88,
+        88
+      ]
+    },
+    "count": 10,
+    "firstBrand": {
+      "name": "현대",
+      "cell": [
+        84,
+        102
+      ],
+      "media": [
+        40,
+        40
+      ],
+      "image": [
+        40,
+        20
+      ],
+      "source": "당근",
+      "background": "rgba(0, 0, 0, 0)",
+      "borderRadius": "0px"
+    },
+    "firstType": {
+      "name": "카고(화물)트럭",
+      "cell": [
+        132,
+        144
+      ],
+      "media": [
+        88,
+        88
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "borderRadius": "0px"
+    },
+    "names": [
+      "현대",
+      "기아",
+      "타타대우",
+      "KGM",
+      "볼보트럭",
+      "스카니아",
+      "MAN",
+      "벤츠트럭",
+      "이베코",
+      "DAF",
+      "전체 브랜드"
+    ],
+    "sources": [
+      "당근",
+      "당근",
+      "당근",
+      "공식",
+      "이처",
+      "이처",
+      "이처",
+      "이처",
+      "이처",
+      "이처"
+    ],
+    "consoleErrors": [],
+    "passed": true
+  }
+}

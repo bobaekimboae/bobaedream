@@ -9,6 +9,7 @@ import "./bbm-brand-logos.css";
 import { bikeBrandCount } from "../data/bike-filter-catalog";
 import { driveTop10BrandLogos } from "./brand-logos-drive10.generated";
 import { autohomeTop10BrandLogos } from "./brand-logos-autohome10.generated";
+import { truckBrandLogosV01, truckRailLabel } from "./truck-brand-logos-v01";
 
 // QF-096: 과쯔 모드 제조사 로고(public/assets/brand/kr). 기준 이름 = 좌측 필터 표기(bbCatalog 라벨).
 // 퀵필터·매물 데이터의 제조사 값(maker)은 catalog key 또는 아래 대응으로 좌측 필터 이름을 찾는다. 대응이 없으면 로고 없음(추측 연결 안 함).
@@ -99,10 +100,27 @@ export function BikeBrandLogo({ name, kind, initialFallback = false }: { name: s
   );
 }
 
+/** 트럭·특장 전용 로고. 이처 PNG + 당근 국내 브랜드를 한 세트로 묶고 초톳형 무배경 슬롯에 배치한다. */
+export function TruckBrandLogo({ name, kind, initialFallback = false }: { name: string; kind: "rail" | "list" | "plain"; initialFallback?: boolean }) {
+  const logo = truckBrandLogosV01[name];
+  if (!logo) return <KrBrandLogo name={name} kind={kind} initialFallback={initialFallback} />;
+  const wide = logo.ratio >= 1.6;
+  const style = kind === "plain"
+    ? { ...krPlainLogoSize(logo.ratio), objectFit: "contain" as const }
+    : kind === "list"
+      ? { width: wide ? "24px" : "20px", height: "20px", objectFit: "contain" as const }
+      : { width: wide ? "44px" : "28px", height: "28px", objectFit: "contain" as const };
+  return (
+    <span className={`kr-brand-logo is-${kind} is-truck`} data-brand={name} data-ratio={logo.ratio} data-logo-source={logo.source}>
+      <img src={asset(`truck/brands/v01/${logo.file}`)} alt="" draggable={false} style={style} />
+    </span>
+  );
+}
+
 export function CategoryBrandLogo({ category, name, kind, initialFallback = false }: { category?: string; name: string; kind: "rail" | "list" | "plain"; initialFallback?: boolean }) {
-  return category === "바이크"
-    ? <BikeBrandLogo name={name} kind={kind} initialFallback={initialFallback} />
-    : <KrBrandLogo name={name} kind={kind} initialFallback={initialFallback} />;
+  if (category === "바이크") return <BikeBrandLogo name={name} kind={kind} initialFallback={initialFallback} />;
+  if (category === "트럭 · 특장") return <TruckBrandLogo name={name} kind={kind} initialFallback={initialFallback} />;
+  return <KrBrandLogo name={name} kind={kind} initialFallback={initialFallback} />;
 }
 
 /** 과쯔 퀵필터 제조사 줄 순서(좌측 필터와 같음): 국산 → 구분선 → 수입차 인기 → 수입차 이름순 나머지. 퀵필터는 0대·"기타 국산차·기타 수입차"를 뺀다 */
@@ -137,4 +155,8 @@ export function krTopTenSections(scope: "all" | "domestic" | "imported", categor
 const krRailLabels: Record<string, string> = { "쉐보레(국산)": "쉐보레", "르노코리아(삼성)": "르노코리아", "KG모빌리티(쌍용)": "KGM", "KG모빌리티": "KGM", "만(MAN)": "MAN", "다프(DAF)": "DAF", "대림(DL)": "대림" };
 export function krRailLabel(label: string) {
   return krRailLabels[label] ?? label.replace(/\s*\(.*\)\s*$/, "");
+}
+
+export function categoryRailLabel(category: string, label: string) {
+  return category === "트럭 · 특장" ? truckRailLabel(label) : krRailLabel(label);
 }
