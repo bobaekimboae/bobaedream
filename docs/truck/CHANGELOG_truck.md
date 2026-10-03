@@ -89,3 +89,6 @@
 2026-10-03 / 코덱스-특장 / HANDOVER_truck_v45.md / v45 / GitHub Pages 실행 37120303895 성공 및 공개 유형 구분선·제조사 로고 8px 간격·콘솔 오류 0건 검증 / 검수완료
 2026-10-03 / 코덱스-특장 / truck-type-picker.tsx, truck-type-picker.css, design-qa.md, HANDOVER_truck_v46.md / v46 / 수정 요청: 기본 필터와 모바일 트럭 유형 바텀시트 외곽·헤더·하단 버튼 규격 통일 / 미검수
 2026-10-03 / 코덱스-특장 / HANDOVER_truck_v47.md / v47 / GitHub Pages 실행 37121239573 성공 및 공개 모바일 394×852·와이드 모바일 모드 하단 버튼 규격 검증 / 검수완료
+2026-10-03 / 코덱스-특장 / truck_type_image_audit_v01.md, HANDOVER_truck_v48.md / v01·v48 / 공개 모바일·PC 트럭 유형 이미지 인지성, 표시 규격, 중복 매핑 교차검수 및 개선 권고 / 검수완료
+2026-10-03 / 코덱스-특장 / truck_bottomsheet_media_consensus_v01.md, HANDOVER_truck_v49.md / v01·v49 / 플랫폼별 로고·모델 캡처와 세 관점 의견을 대조해 바텀시트 미디어 규격 합의 / 검수완료
+2026-10-03 / 코덱스-특장 / truck_type_*_side_v02.png, truck-type-picker.css, truck-format-catalog.ts, design-qa-truck-side-v02.md, HANDOVER_truck_v50.md / v02·v50 / 카고·윙바디·탱크로리·카고크레인 측면 이미지 시안을 실제 모바일·PC 트럭 유형 필터에 연결 / 미검수

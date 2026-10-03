@@ -54,12 +54,13 @@ export const truckSubtypeValuesForSelection = (format: string | null, subtype: s
 // 트럭 형식 이미지는 상위 형식별로 검수 완료된 묶음부터 순차 등록한다.
 // 적재용량·규격은 이미지가 아니라 알약칩으로 표시하며, 제조사는 브랜드 로고를 사용한다.
 const truckFormatImages: Readonly<Record<string, string>> = {
-  "카고(화물)트럭": "truck/pilot/v01/truck_type_cargo_studio_v01.png",
-  "윙바디/탑": "truck/pilot/v01/truck_type_wingbody_studio_v01.png",
+  "카고(화물)트럭": "truck/pilot/v02/truck_type_cargo_side_v02.png",
+  "윙바디/탑": "truck/pilot/v02/truck_type_wingbody_side_v02.png",
+  "냉장·냉동차": "truck/pilot/v01/truck_type_wingbody_studio_v01.png",
   "버스": "truck/formats/v01/truck_format_bus_v01.png",
   "덤프/건설/중기": "truck/formats/v01/truck_format_dump_heavy_v01.png",
-  "크레인 형태": "truck/pilot/v01/truck_type_crane_studio_v01.png",
-  "탱크로리": "truck/formats/v01/truck_format_tanker_v01.png",
+  "크레인 형태": "truck/pilot/v02/truck_type_cargo_crane_side_v02.png",
+  "탱크로리": "truck/pilot/v02/truck_type_tanker_side_v02.png",
   "캠핑카/캠핑 트레일러": "truck/formats/v01/truck_format_camper_trailer_v01.png",
   "폐기/음식물수송": "truck/formats/v01/truck_format_waste_transport_v01.png",
   "활어차": "truck/formats/v01/truck_format_live_fish_v01.png",
@@ -72,7 +73,7 @@ const truckFormatImages: Readonly<Record<string, string>> = {
 const truckSubtypeImages: Readonly<Record<string, Readonly<Record<string, string>>>> = {
   "카고(화물)트럭": {
     "경형 트럭 (1톤 미만)": "truck/formats/v01/truck_subtype_light_class_v01.png",
-    "1톤 트럭": "truck/pilot/v01/truck_type_cargo_studio_v01.png",
+    "1톤 트럭": "truck/pilot/v02/truck_type_cargo_side_v02.png",
     "소형 트럭 (1.1~3.5톤)": "truck/formats/v01/truck_subtype_cargo_v01.png",
     "중형 트럭 (4~8.5톤)": "truck/formats/v01/truck_subtype_cargo_v01.png",
     "대형 트럭 (9톤 이상)": "truck/formats/v01/truck_subtype_large_class_v01.png",
@@ -80,7 +81,7 @@ const truckSubtypeImages: Readonly<Record<string, Readonly<Record<string, string
     "트랜스/와이드 파워게이트": "truck/formats/v01/truck_subtype_transform_wide_powergate_v01.png",
   },
   "윙바디/탑": {
-    "윙바디": "truck/formats/v01/truck_subtype_wingbody_v01.png",
+    "윙바디": "truck/pilot/v02/truck_type_wingbody_side_v02.png",
     "윙바디 파워게이트": "truck/formats/v01/truck_subtype_wingbody_powergate_v01.png",
     "상승 윙바디": "truck/formats/v01/truck_subtype_rising_wingbody_v01.png",
     "저상형 윙바디": "truck/formats/v01/truck_subtype_low_floor_wingbody_v01.png",
@@ -130,7 +131,7 @@ const truckSubtypeImages: Readonly<Record<string, Readonly<Record<string, string
     "사다리차": "truck/formats/v01/truck_subtype_ladder_truck_v01.png",
     "오가크레인": "truck/formats/v01/truck_subtype_auger_crane_v01.png",
     "집게차": "truck/formats/v01/truck_subtype_grapple_truck_v01.png",
-    "카고크레인": "truck/pilot/v01/truck_type_crane_studio_v01.png",
+    "카고크레인": "truck/pilot/v02/truck_type_cargo_crane_side_v02.png",
     "활선차(고소작업)": "truck/formats/v01/truck_subtype_live_line_aerial_v01.png",
     "기타": "truck/formats/v01/truck_subtype_mobile_crane_other_v01.png",
   },
@@ -139,7 +140,7 @@ const truckSubtypeImages: Readonly<Record<string, Readonly<Record<string, string
     "버큠로리": "truck/formats/v01/truck_subtype_vacuum_tanker_v01.png",
     "사료운반차": "truck/formats/v01/truck_subtype_feed_carrier_v01.png",
     "살수차": "truck/formats/v01/truck_subtype_water_sprinkler_v01.png",
-    "유류/액상탱크로리": "truck/formats/v01/truck_subtype_fuel_liquid_tanker_v01.png",
+    "유류/액상탱크로리": "truck/pilot/v02/truck_type_tanker_side_v02.png",
     "이동방제차": "truck/formats/v01/truck_subtype_mobile_sprayer_v01.png",
     "소맥분/분말탱크로리": "truck/formats/v01/truck_subtype_powder_tanker_v01.png",
     "특수/케미컬(VOC,테플론)탱크로리": "truck/formats/v01/truck_subtype_chemical_tanker_v01.png",
