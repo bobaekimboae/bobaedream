@@ -3,7 +3,7 @@
 .truck-type-picker-back img { width: 18px; height: 18px; }
 .truck-type-picker-list { display: flex; flex-direction: column; }
 .truck-type-picker-row { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 44px; min-height: 54px; }
-.truck-type-picker-row::after { position: absolute; right: 0; bottom: 0; left: 96px; height: 1px; background: #e8e8e8; content: ""; pointer-events: none; }
+.truck-type-picker-row::after { position: absolute; right: 0; bottom: 0; left: 52px; height: 1px; background: #e8e8e8; content: ""; pointer-events: none; }
 .truck-type-picker-row:last-child::after { display: none; }
 .truck-type-picker-row:hover { background: #fafbfc; }
 .truck-type-picker-select { display: grid; grid-template-columns: 20px 32px minmax(0, 1fr) auto; align-items: center; gap: 12px; min-width: 0; padding: 7px 8px 7px 20px; border: 0; background: transparent; color: inherit; text-align: left; cursor: pointer; }

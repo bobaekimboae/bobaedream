@@ -113,3 +113,23 @@
 - comparison history: 전체 폭 구분선을 발견해 행 border를 제거하고 명칭 열에서 시작하는 1px pseudo-element로 교체했다. 중앙 제목은 기준 시안에 맞춰 좌측 정렬했다.
 
 final result: passed
+
+## 트럭 유형 필터 v43
+
+- source visual truth: 사용자 수정 요청 `아이콘까지 구분선 긋자`; v41의 핀노 행 구조에서 구분선 범위만 확장.
+- implementation screenshot: Codex 인앱 브라우저 탭 24 모바일 렌더, 탭 25 PC 렌더.
+- viewport: 모바일 394×852 CSS px, PC 1280×720 CSS px, deviceScaleFactor 1.
+- state: 트럭 유형 선택창을 연 초기 상태, 라이트 테마.
+- full-view comparison: 제목·닫기·행·고정 하단 액션·목록 밀도는 v41과 동일하며 구분선 범위만 변경됐다.
+- focused region comparison: 체크박스 `20~40px`, 아이콘 `52~84px`, 명칭 `96px`, 구분선 `52px` 시작을 계산값과 렌더 화면에서 확인했다.
+- fonts and typography: 제목 20/28px, 목록 15/20px 규격 유지.
+- spacing and layout rhythm: 행 54px, 체크박스 20px, 아이콘 32px, 열 간격 12px 유지. 구분선은 아이콘 열 시작점 52px부터 오른쪽 끝까지 표시.
+- colors and visual tokens: 구분선 `#E8E8E8`, 높이 1px, 선택 체크박스 `#111` 유지.
+- image quality and asset fidelity: 기존 승인 트럭 유형 PNG를 변형 없이 사용.
+- copy and content: 트럭 유형명·대수·하위 화살표 변경 없음.
+- interaction: 모바일 바텀시트와 PC 모달 열기, 목록 스크롤, 하단 `30대 보기` 유지 확인.
+- console: 모바일·PC 오류 0건.
+- findings: P0/P1/P2 없음.
+- comparison history: v41의 명칭 열 96px 시작 구분선을 사용자 요청에 따라 아이콘 열 52px 시작으로 확장한 뒤 모바일·PC에서 재확인했다.
+
+final result: passed
