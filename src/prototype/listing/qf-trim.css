@@ -1,40 +1,5 @@
-/* QF-105 과쯔 퀵필터(.marketplace.is-qf-guazi — plain·card 모두 같은 규칙): 트림 알약 줄 · 줄 앞 이름표. 초톳·동처띠는 이 클래스가 없어 그대로 */
-
-/* 줄 앞 이름표(모델 · 세부모델 · 트림): 14px 400 #595959, 콜론 없음, 왼쪽 = 첫 칩 왼쪽 선(PC 140 · 모바일 16), 이름표 → 첫 칸/첫 알약 12, 칸(알약) 세로 가운데 */
-.marketplace.is-qf-guazi .depth-rail-label { padding: 0 12px 0 16px; color: #595959; font-size: 14px; font-weight: 400; line-height: 21px; }
-.marketplace.is-bbm.is-qf-guazi .depth-rail-label { padding-left: 20px; }
-/* plain 모델·세부모델 줄: 칸(PC 81 · 모바일 70)이 줄 상자(96) 위에 붙어 있어, 이름표 아래 여백으로 칸 높이의 가운데에 맞춘다 */
-.marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-rail:not(.is-trim-row) .depth-rail-label { padding-bottom: 15px; }
-.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail:not(.is-trim-row) .depth-rail-label { padding-bottom: 26px; }
-
-/* 선택값 맥락: 다음 뎁스의 왼쪽에는 일반 제목 대신 직전 선택값 하나만 둔다.
-   폭은 고정하고 줄바꿈을 허용해 긴 트럭 분류도 말줄임표 없이 읽힌다. */
-.marketplace.is-qf-guazi .depth-rail-label.is-parent-context {
-  width: 76px;
-  max-width: 76px;
-  flex: 0 0 76px;
-  box-sizing: border-box;
-  color: #222;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 18px;
-  white-space: normal;
-  word-break: keep-all;
-  overflow-wrap: anywhere;
-}
-.marketplace.is-bbm-m.is-qf-guazi .depth-rail-label.is-parent-context {
-  width: 64px;
-  max-width: 64px;
-  flex-basis: 64px;
-  padding-right: 8px;
-  font-size: 12px;
-  line-height: 17px;
-}
-.marketplace.is-qf-guazi .depth-rail.is-trim-row .depth-rail-label.is-parent-context {
-  align-self: center;
-  max-height: 34px;
-  overflow: hidden;
-}
+/* QF-105 과쯔 퀵필터(.marketplace.is-qf-guazi — plain·card 모두 같은 규칙):
+   트림 알약 줄은 별도 왼쪽 이름표 없이 슬롯부터 시작한다. */
 
 /* 트림 줄 상자 = 알약 32 + 여백(모바일 위 2 · 아래 6, PC 알약 아래 → 상단 카드 끝 16). 이전 96 고정의 빈 공간을 없앤다 */
 .marketplace.is-qf-guazi .depth-rail.is-trim-row { height: auto; }

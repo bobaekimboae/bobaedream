@@ -222,8 +222,7 @@ export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string, detail
           <div className="bbm-category-labeled-content"><BbmCategoryIconRow activeValue={activeGroup.value} onActivate={activateGroup} /></div>
         </div>
         {entersNextDepthDirectly(activeGroup) ? null : (
-          <div className="bbm-category-labeled-row is-detail-row">
-            <span className="bbm-quick-rail-title">세부유형</span>
+          <div className="bbm-category-labeled-row is-detail-row is-titleless">
             <div className="bbm-category-labeled-content"><BbmCategoryChildPills group={activeGroup} onChoose={onChoose} /></div>
           </div>
         )}

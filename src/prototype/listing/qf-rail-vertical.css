@@ -5,11 +5,6 @@
 .marketplace.is-qf-guazi .depth-rail:not(.is-trim-row) .brand-carousel { height: auto; scrollbar-width: none; }
 .marketplace.is-qf-guazi .depth-rail .brand-carousel::-webkit-scrollbar { display: none; }
 .marketplace.is-qf-guazi .depth-rail:not(.is-trim-row) .depth-rail-track { height: auto; align-items: flex-start; padding-top: 0; padding-bottom: 0; }
-/* 이름표는 줄 상자(= 칸 높이)의 세로 가운데 */
-.marketplace.is-qf-guazi .depth-rail:not(.is-trim-row) .depth-rail-label,
-.marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-rail:not(.is-trim-row) .depth-rail-label,
-.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail:not(.is-trim-row) .depth-rail-label { padding-bottom: 0; }
-
 /* PC: 퀵필터 칸(유형 줄 때문에 110 고정)을 줄 높이에 맞추고, 줄이 없으면 칸을 없앤다 */
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail) { height: auto; justify-content: flex-start; }
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot:empty { display: none; }
