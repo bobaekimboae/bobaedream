@@ -1,8 +1,8 @@
 export type HeavyAssetStatus = "빈 슬롯" | "제작중" | "검수완료" | "미확인";
 export type HeavyFallbackLevel = 0 | 1 | 2 | 3;
 
-export const HEAVY_QUICKFILTER_MANIFEST_VERSION = "v02";
-export const HEAVY_SLOT_MANIFEST_VERSION = "v02";
+export const HEAVY_QUICKFILTER_MANIFEST_VERSION = "v05";
+export const HEAVY_SLOT_MANIFEST_VERSION = "v05";
 
 export type HeavyManufacturerSlot = {
   manufacturerCode: string;
@@ -15,16 +15,16 @@ export type HeavyManufacturerSlot = {
 };
 
 export const heavyManufacturerSlots: readonly HeavyManufacturerSlot[] = [
-  { manufacturerCode: "develon", name: "디벨론", originalName: "DEVELON", logoFile: "heavy_develon_logo_v01.jpg", driveFileId: "1oTElr3xUr0o7jfzLcQDgQ50AQPWWhUI9", equipmentTypeCodes: ["hydraulic_excavator", "mini_excavator", "wheel_loader", "bulldozer", "carrier_dump"], status: "검수완료" },
-  { manufacturerCode: "epiroc", name: "에피록", originalName: "Epiroc", logoFile: "heavy_epiroc_logo_v01.png", driveFileId: "1qwxTbmxrXUJtLk1eiDIhDXs5Ce_Kzk0b", equipmentTypeCodes: ["foundation_machine", "construction_other"], status: "검수완료" },
-  { manufacturerCode: "hitachi", name: "히타치", originalName: "Hitachi", logoFile: "heavy_hitachi_logo_v01.jpg", driveFileId: "1TLOZtdYzfXfqK_Yc98djZtKijnAlfdEZ", equipmentTypeCodes: ["hydraulic_excavator", "mini_excavator", "wheel_loader"], status: "검수완료" },
-  { manufacturerCode: "lgmg", name: "LGMG", originalName: "LGMG", logoFile: "heavy_lgmg_logo_v01.jpg", driveFileId: "1vbauSkIpuZOKrbnB2Bc55lPoSO2FyNLg", equipmentTypeCodes: ["self_propelled_aerial_work_platform", "aerial_work_platform"], status: "검수완료" },
-  { manufacturerCode: "haulotte", name: "오로트", originalName: "Haulotte", logoFile: "heavy_haulotte_logo_v01.png", driveFileId: "1CeW21gNHVHcn0IbxICSboxYWw8ZyA7xv", equipmentTypeCodes: ["self_propelled_aerial_work_platform", "aerial_work_platform"], status: "검수완료" },
-  { manufacturerCode: "new_holland", name: "뉴홀랜드", originalName: "New Holland", logoFile: "heavy_new_holland_logo_v01.jpg", driveFileId: "1iGlLGq-bL4cIbU3vxVkgVi1BXFTd977y", equipmentTypeCodes: ["mini_excavator", "wheel_loader", "construction_other"], status: "검수완료" },
-  { manufacturerCode: "linde", name: "린데", originalName: "Linde", logoFile: "heavy_linde_logo_v01.jpg", driveFileId: "1TpRSSkBj0vJPNaPIoKSI5xIQygrt9Fdi", equipmentTypeCodes: ["forklift"], status: "검수완료" },
-  { manufacturerCode: "schwing", name: "슈빙", originalName: "Schwing", logoFile: "heavy_schwing_logo_v01.jpg", driveFileId: "1ZKL0pOTYyxf56ZmS5-RC9pqvL7odzAaR", equipmentTypeCodes: ["construction_other"], status: "검수완료" },
-  { manufacturerCode: "tailift", name: "타이리프트", originalName: "Tailift", logoFile: "heavy_tailift_logo_v01.jpg", driveFileId: "1kC7hqZ5yoTdZwmik2kco_xvLKpnCIHFx", equipmentTypeCodes: ["forklift"], status: "검수완료" },
-  { manufacturerCode: "ffg", name: "FFG", originalName: "FFG", logoFile: "heavy_ffg_logo_v01.jpg", driveFileId: "1TtZhHh8HohWRhp-iDLoGGYV74IS3yLZ3", equipmentTypeCodes: ["forklift"], status: "검수완료" },
+  { manufacturerCode: "hyundai", name: "현대건설기계", originalName: "HD Hyundai Construction Equipment", logoFile: "heavy_hd_hyundai_logo_v05.png", driveFileId: "1XzTHb1EcEvY8W237tWpogbBB1grcLDH_", equipmentTypeCodes: ["hydraulic_excavator", "dump_truck"], status: "검수완료" },
+  { manufacturerCode: "develon", name: "디벨론", originalName: "DEVELON", logoFile: "heavy_develon_logo_v05.png", driveFileId: "1HxxZAOlI-sysJItrhsBq4QmRwWCFWolM", equipmentTypeCodes: ["hydraulic_excavator", "mini_excavator", "wheel_loader", "bulldozer", "carrier_dump"], status: "검수완료" },
+  { manufacturerCode: "volvo", name: "볼보CE", originalName: "Volvo Construction Equipment", logoFile: "heavy_volvo_ce_logo_v05.png", driveFileId: "1hakrt2xWDKh6HHdzYX2q1hUM9ySB78Zk", equipmentTypeCodes: ["hydraulic_excavator"], status: "검수완료" },
+  { manufacturerCode: "caterpillar", name: "캐터필러", originalName: "Caterpillar", logoFile: "heavy_caterpillar_logo_v05.png", driveFileId: "1GVoPtBLSYjky5RseKcLnCTZbHog4C0mu", equipmentTypeCodes: [], status: "검수완료" },
+  { manufacturerCode: "komatsu", name: "코마츠", originalName: "Komatsu", logoFile: "heavy_komatsu_logo_v05.png", driveFileId: "1IcI1R3UrWvMYLp2I8wj-ELt6SFF2M01s", equipmentTypeCodes: [], status: "검수완료" },
+  { manufacturerCode: "hitachi", name: "히타치", originalName: "Hitachi Construction Machinery", logoFile: "heavy_hitachi_cm_logo_v05.png", driveFileId: "1W0L992SYfMjHoBd847CRaA7Mi-7bejad", equipmentTypeCodes: [], status: "검수완료" },
+  { manufacturerCode: "kobelco", name: "코벨코", originalName: "Kobelco", logoFile: "heavy_kobelco_logo_v05.png", driveFileId: "1pD_kyyUjwL9dgI_T9DfaJ-IkYIAALi6f", equipmentTypeCodes: ["hydraulic_excavator", "mini_excavator"], status: "검수완료" },
+  { manufacturerCode: "bobcat", name: "밥캣", originalName: "Bobcat", logoFile: "heavy_bobcat_logo_v05.png", driveFileId: "1-hl0GqhlmwsFkUculLaMwAJ8bHCq6knz", equipmentTypeCodes: [], status: "검수완료" },
+  { manufacturerCode: "kubota", name: "구보타", originalName: "Kubota", logoFile: "heavy_kubota_logo_v05.png", driveFileId: "1OxqKNddf1wL2-TvhPoalMeF_Ir0yddW2", equipmentTypeCodes: ["mini_excavator"], status: "검수완료" },
+  { manufacturerCode: "jcb", name: "JCB", originalName: "JCB", logoFile: "heavy_jcb_logo_v05.png", driveFileId: "1r5hV1nyGemcg3BVn2FBhSLwVdk2YkOw6", equipmentTypeCodes: [], status: "검수완료" },
 ];
 
 export type HeavySubmodelSlot = {

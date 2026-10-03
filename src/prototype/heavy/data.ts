@@ -266,9 +266,9 @@ export const heavyRowsFor = (selection: Partial<HeavySelection>) => heavyInvento
   && (!selection.submodelCode || row.submodelCode === selection.submodelCode)
   && (!selection.form || row.form === selection.form)
   && (!selection.detail || selection.detail === "전체" || row.detail === selection.detail)
-  && (!selection.maker || row.maker === selection.maker)
-  && (!selection.model || row.model === selection.model)
-  && (!selection.submodel || row.submodel === selection.submodel));
+  && (!selection.maker || selection.manufacturerCode || row.maker === selection.maker)
+  && (!selection.model || selection.modelCode || row.model === selection.model)
+  && (!selection.submodel || selection.submodelCode || row.submodel === selection.submodel));
 
 export function normalizeHeavySelection(selection: HeavySelection): HeavySelection {
   const manufacturer = approvedHeavyManufacturers.find((slot) => slot.manufacturerCode === selection.manufacturerCode || slot.name === selection.maker);

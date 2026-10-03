@@ -117,7 +117,7 @@ export function HeavyQuickFilter({ value, onChange }: HeavyQuickFilterProps) {
       <div className="heavy-qf-heading">
         <div>
           <strong>{depth}</strong>
-          <span>매니페스트 코드 연결 · v04 30대</span>
+          <span>철갑망 로고 · 초톳 슬롯 v05</span>
         </div>
         <div className="heavy-qf-actions">
           {value.manufacturerCode ? <button type="button" onClick={clearCurrent}>선택 해제</button> : null}
@@ -135,10 +135,9 @@ export function HeavyQuickFilter({ value, onChange }: HeavyQuickFilterProps) {
             }).length;
             const logoCandidates: HeavyImageCandidate[] = [{ file: `logos/${slot.logoFile}`, fallbackLevel: 0, label: "제조사 로고" }];
             return (
-              <button key={slot.manufacturerCode} type="button" className="heavy-qf-card is-logo" onClick={() => chooseManufacturer(slot.manufacturerCode)} role="listitem" data-manufacturer-code={slot.manufacturerCode}>
+              <button key={slot.manufacturerCode} type="button" className="heavy-qf-card is-logo" onClick={() => chooseManufacturer(slot.manufacturerCode)} role="listitem" data-manufacturer-code={slot.manufacturerCode} aria-label={`${slot.name} ${count}대`}>
                 <span className="heavy-qf-symbol"><HeavySlotImage candidates={logoCandidates} alt={`${slot.name} 로고`} /></span>
                 <strong>{slot.name}</strong>
-                <small>{count.toLocaleString("ko-KR")}대</small>
               </button>
             );
           })}

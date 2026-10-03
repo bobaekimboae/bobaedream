@@ -50,14 +50,14 @@
 
 .heavy-qf-card {
   display: grid;
-  width: 108px;
-  min-width: 108px;
-  height: 112px;
-  grid-template-rows: 62px 21px 16px;
+  width: 84px;
+  min-width: 84px;
+  height: 102px;
+  grid-template-rows: 52px 30px 14px;
   align-content: start;
   justify-items: center;
-  gap: 2px;
-  padding: 6px 7px 5px;
+  gap: 0;
+  padding: 4px 3px 2px;
   border: 1px solid #ead17a;
   border-radius: 12px;
   background: linear-gradient(145deg, #fffdf4 0%, #fff1b8 100%);
@@ -72,8 +72,8 @@
 
 .heavy-qf-symbol {
   display: grid;
-  width: 78px;
-  height: 62px;
+  width: 52px;
+  height: 52px;
   place-items: center;
   overflow: hidden;
   border-radius: 10px;
@@ -91,22 +91,49 @@
   object-fit: contain;
 }
 
-.heavy-qf-card.is-logo .heavy-qf-symbol img { padding: 7px; }
+.heavy-qf-card.is-logo {
+  width: 84px;
+  min-width: 84px;
+  height: 102px;
+  grid-template-rows: 40px auto;
+  align-content: start;
+  padding: 6px 4px 0;
+  border: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  background: transparent;
+  color: #595959;
+}
+.heavy-qf-card.is-logo:hover { border: 0; background: transparent; }
+.heavy-qf-card.is-logo:active { opacity: .6; }
+.heavy-qf-card.is-logo .heavy-qf-symbol { width: 40px; height: 40px; border-radius: 0; background: transparent; }
+.heavy-qf-card.is-logo .heavy-qf-symbol img { width: 40px; height: 40px; padding: 0; }
+.heavy-qf-card.is-logo strong {
+  width: 76px;
+  margin-top: 14px;
+  color: #595959;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: center;
+}
 .heavy-qf-card.is-machine .heavy-qf-symbol img { filter: drop-shadow(0 3px 3px rgb(103 68 0 / 18%)); }
 .heavy-qf-text-mark { display: grid; width: 100%; height: 100%; place-items: center; background: #fff8db; }
 
 .heavy-qf-card strong {
-  width: 94px;
+  display: -webkit-box;
+  width: 76px;
   overflow: hidden;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 650;
-  line-height: 21px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 15px;
+  white-space: normal;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .heavy-qf-card small {
-  width: 98px;
+  width: 76px;
   overflow: hidden;
   color: #80651b;
   font-size: 10px;
@@ -165,22 +192,37 @@
   .heavy-qf-actions { flex-wrap: nowrap; }
   .heavy-qf-track {
     width: 100%;
-    gap: 7px;
+    gap: 8px;
     padding: 0 12px 2px;
     scroll-padding-inline: 12px;
   }
   .heavy-qf-card {
-    width: 92px;
-    min-width: 92px;
-    height: 96px;
-    grid-template-rows: 50px 18px 14px;
-    gap: 1px;
-    padding: 5px 4px 4px;
+    width: 64px;
+    min-width: 64px;
+    height: 84px;
+    grid-template-rows: 40px 28px 12px;
+    gap: 0;
+    padding: 2px;
   }
-  .heavy-qf-symbol { width: 70px; height: 50px; }
-  .heavy-qf-card.is-logo .heavy-qf-symbol img { padding: 6px; }
-  .heavy-qf-card strong { width: 82px; font-size: 11px; line-height: 18px; }
-  .heavy-qf-card small { width: 84px; font-size: 10px; line-height: 14px; }
+  .heavy-qf-symbol { width: 40px; height: 40px; }
+  .heavy-qf-card.is-logo {
+    width: 64px;
+    min-width: 64px;
+    height: 74px;
+    grid-template-rows: 36px auto;
+    padding: 0 4px;
+  }
+  .heavy-qf-card.is-logo .heavy-qf-symbol,
+  .heavy-qf-card.is-logo .heavy-qf-symbol img { width: 36px; height: 36px; }
+  .heavy-qf-card.is-logo strong {
+    width: 56px;
+    margin-top: 2px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+  }
+  .heavy-qf-card strong { width: 58px; font-size: 11px; line-height: 14px; }
+  .heavy-qf-card small { width: 58px; font-size: 10px; line-height: 12px; }
   .heavy-qf-complete,
   .heavy-qf-zero { min-width: 0; width: calc(100% - 24px); margin: 0 12px; }
   .heavy-qf-complete { grid-template-columns: 72px 1fr; }

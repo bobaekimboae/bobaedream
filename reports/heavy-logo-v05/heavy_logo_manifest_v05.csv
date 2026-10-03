@@ -1,0 +1,11 @@
+order,manufacturer_code,name_ko,source,output_file,canvas,pc_cell,pc_logo_box,mobile_cell,mobile_logo_box,status
+1,hyundai,현대건설기계,铁甲网,heavy_hd_hyundai_logo_v05.png,120x120,84x102,40x40,64x74,36x36,적용완료
+2,develon,디벨론,铁甲网,heavy_develon_logo_v05.png,120x120,84x102,40x40,64x74,36x36,적용완료
+3,volvo,볼보CE,铁甲网,heavy_volvo_ce_logo_v05.png,120x120,84x102,40x40,64x74,36x36,적용완료
+4,caterpillar,캐터필러,铁甲网,heavy_caterpillar_logo_v05.png,120x120,84x102,40x40,64x74,36x36,적용완료
+5,komatsu,코마츠,铁甲网,heavy_komatsu_logo_v05.png,120x120,84x102,40x40,64x74,36x36,적용완료
+6,hitachi,히타치,铁甲网,heavy_hitachi_cm_logo_v05.png,120x120,84x102,40x40,64x74,36x36,적용완료
+7,kobelco,코벨코,铁甲网,heavy_kobelco_logo_v05.png,120x120,84x102,40x40,64x74,36x36,적용완료
+8,bobcat,밥캣,铁甲网,heavy_bobcat_logo_v05.png,120x120,84x102,40x40,64x74,36x36,적용완료
+9,kubota,구보타,铁甲网,heavy_kubota_logo_v05.png,120x120,84x102,40x40,64x74,36x36,적용완료
+10,jcb,JCB,铁甲网,heavy_jcb_logo_v05.png,120x120,84x102,40x40,64x74,36x36,적용완료
