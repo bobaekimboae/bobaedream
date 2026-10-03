@@ -2,6 +2,7 @@ import { Fragment, useEffect, useRef, useState, type CSSProperties, type Keyboar
 import { BbmActionBar, BbmModal } from "../filters/bbm-filter-parts";
 import { BBM_MAKER_ITEM, bbmSidebarItems, type BbmFilterItem } from "../filters/bbm-filter-options";
 import { BbmExpandPanel, BbmModalPanel, clearBbmItem } from "../filters/bbm-filter-panels";
+import { PriceFinalSheet } from "../filters/bbm-price";
 import type { BbmCheckKey, BbmFilterValues } from "../filters/bbm-filter-state";
 import { CategoryBrandLogo } from "./bbm-brand-logos";
 import { bbmItemValue } from "../filters/bbm-applied";
@@ -248,9 +249,10 @@ export function BbTruckFormatFilter({ value, showImages = true }: { value: BbTru
 
 // resetSignal: 값이 바뀔 때마다 "초기화" 확인 창을 연다(QF-093 왼쪽 펼침판 아래 [초기화] 버튼용)
 // brandLogos: 과쯔 모드만 제조사 행 앞에 로고 24×24(QF-096). 초톳·동처띠 PC 는 그대로
-function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNotify, bbm, onBbmChange, countWithBbm, countOf, resetSignal = 0, brandLogos = false, brandLogoCategory, makerSections = bbCatalog, order = bbFilterMenuOriginal, mileageFinal = false, truckFilter }: { mileageFinal?: boolean; order?: string[]; selection: BbMakerSelection; appliedCount: number; historyCount?: number; onReset: () => void; onNotify: (message: string) => void; bbm: BbmFilterValues; onBbmChange: (next: BbmFilterValues) => void; countWithBbm: (next: BbmFilterValues) => number; countOf?: (key: BbmCheckKey, option: string) => number | null; resetSignal?: number; brandLogos?: boolean; brandLogoCategory?: string; makerSections?: BbMakerSection[]; truckFilter?: BbTruckFilter }) {
+function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNotify, bbm, onBbmChange, countWithBbm, countOf, resetSignal = 0, brandLogos = false, brandLogoCategory, makerSections = bbCatalog, order = bbFilterMenuOriginal, mileageFinal = false, priceFinal = false, truckFilter }: { mileageFinal?: boolean; priceFinal?: boolean; order?: string[]; selection: BbMakerSelection; appliedCount: number; historyCount?: number; onReset: () => void; onNotify: (message: string) => void; bbm: BbmFilterValues; onBbmChange: (next: BbmFilterValues) => void; countWithBbm: (next: BbmFilterValues) => number; countOf?: (key: BbmCheckKey, option: string) => number | null; resetSignal?: number; brandLogos?: boolean; brandLogoCategory?: string; makerSections?: BbMakerSection[]; truckFilter?: BbTruckFilter }) {
   // 모달형 항목: 사이드바 대신 412 모달을 연다. 원본 실측(2026-09-24): 모달 안 선택은 초안이고 [확인 N대]를 눌러야 조건이 걸린다(닫기 X는 버림)
   const [modalItem, setModalItem] = useState<BbmFilterItem | null>(null);
+  const [priceOpen, setPriceOpen] = useState(false);
   const [draft, setDraft] = useState<BbmFilterValues>(bbm);
   const openModal = (item: BbmFilterItem) => { setDraft(bbm); setModalItem(item); };
   // 원본: 머리 "초기화"는 확인 창(필터 초기화 / 선택한 필터를 초기화하시겠습니까? / [취소][초기화])을 거친다
@@ -321,7 +323,7 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
           return (
             <Fragment key={label}>
             <section className={`bbm-filter-item${open ? " is-open" : ""}${isMaker ? " is-maker-grade" : ""}${applied ? " is-applied" : ""}`}>
-              <button type="button" className="bbm-filter-toggle" aria-expanded={filterItem?.mode === "modal" ? undefined : open} aria-haspopup={filterItem?.mode === "modal" ? "dialog" : undefined} onClick={() => { if (filterItem?.mode === "modal") openModal(filterItem); else toggle(label); }}>
+              <button type="button" className="bbm-filter-toggle" aria-expanded={filterItem?.mode === "modal" || priceFinal && label === "가격" ? undefined : open} aria-haspopup={filterItem?.mode === "modal" || priceFinal && label === "가격" ? "dialog" : undefined} onClick={() => { if (priceFinal && label === "가격") setPriceOpen(true); else if (filterItem?.mode === "modal") openModal(filterItem); else toggle(label); }}>
                 <span className="bbm-filter-label"><span className="bbm-filter-label-text">{label === "전기차 주행 가능 거리" ? <img className="bbm-filter-label-icon" src={bbmAsset("filter-ev-range")} alt="" aria-hidden="true" /> : null}{displayLabel}</span>{isMaker && !open && collapsedPath ? <small className="bbm-filter-path">{collapsedPath}</small> : null}</span>
                 <img className="bbm-filter-chevron" src={bbmAsset("filter-chevron")} alt="" aria-hidden="true" />
               </button>
@@ -346,6 +348,7 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
           <BbmModalPanel item={modalItem} value={draft} countOf={countOf} onChange={modalItem.label === "광고기간" ? (next) => { onBbmChange(next); setModalItem(null); } : setDraft} />
         </BbmModal>
       ) : null}
+      {priceOpen ? <PriceFinalSheet variant="modal" value={bbm} countOf={countWithBbm} onApply={onBbmChange} onClose={() => setPriceOpen(false)} /> : null}
       {confirmReset ? (
         <BbmModal title="필터 초기화" onClose={() => setConfirmReset(false)} footer={<BbmActionBar count={0} resetLabel="취소" confirmLabel="초기화" onReset={() => setConfirmReset(false)} onConfirm={() => { onReset(); setConfirmReset(false); }} />}>
           <p className="bbmf-confirm-text">선택한 필터를 초기화하시겠습니까?</p>

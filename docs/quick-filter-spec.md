@@ -116,6 +116,14 @@
 - PC region row (always 32 tall, card height unchanged): `지역:` + 17 sido + `내 주변` → sido chosen: chip `[서울 ×]` and the same row becomes `서울:` + `서울 전체` (selected, 700) + district pills → district chosen: chip `[강남구 ×]`, row stays, one district at a time, same district or `서울 전체` clears it. `[서울 ×]` also clears its district and returns to the sido row; 세종 keeps the sido row.
 - Mobile `지역: 전국 ▾` opens a two-step bottom sheet (no chip row added): sido 3-column pills (40 tall) + `내 주변` → `← 서울` step with `서울 전체` + districts → choosing closes it, chips `[서울 ×][강남구 ×]`, bar `지역: 서울 강남구`; 세종 applies at once. `필터 N` counts sido and district separately; `필터 초기화` returns to the start. Check: `node scripts/region-flow-check.mjs`, `npm run check:stability` (region steps).
 
+## Price Filter
+
+- Guazi 가격 필터는 모바일 바텀시트와 PC 중앙 모달에서 동일한 `PriceFinalPanel`을 사용한다.
+- PC 좌측 필터의 `가격` 행도 아코디언을 펼치지 않고 같은 중앙 모달을 연다. 제조사·모델 탐색만 전용 탐색 구조를 유지한다.
+- 본문 순서는 `일반 / 리스·렌트` 탭 → 최저·최고 가격 직접 입력(만원) → 가격 구간 칩이다.
+- 입력값과 구간 칩은 임시 값이다. 닫기, 배경 클릭, Esc는 버리고 `N대 보기`만 적용한다.
+- 초기화는 가격 범위와 가격 종류만 지우며 다른 필터값을 유지한다. 최저가가 최고가보다 높으면 오류를 표시하고 적용 버튼을 비활성화한다.
+
 ## Quick Filter Alignment (QF-113)
 
 - Guazi image rails (maker, model, sub-model) have no rail label (`.depth-rail.no-label`): first cell x = first chip x on PC (140 at 1440, 60 at 1280) and first chip − 4 on mobile (12); cell top and image-area bottom match the maker rail. Labels (`트림:` `연식:` `지역:`/`서울:`) stay on pill rows only. This supersedes the `모델:` `세부모델:` labels.

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "desktop-price-modal",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "box": {
+      "x": 480,
+      "y": 200,
+      "width": 480,
+      "height": 600
+    },
+    "tabs": [
+      "일반",
+      "리스 / 렌트"
+    ],
+    "chips": [
+      "전체",
+      "1천만원",
+      "2천만원",
+      "3천만원",
+      "4천만원",
+      "5천만원",
+      "6천만원",
+      "7천만원",
+      "8천만원",
+      "9천만원 이상"
+    ],
+    "invalidBlocked": true,
+    "discarded": true,
+    "countLabel": "64대 보기",
+    "applied": [
+      "3,000만원부터 3,999만원까지"
+    ]
+  },
+  {
+    "name": "mobile-price-sheet",
+    "viewport": {
+      "width": 393,
+      "height": 852
+    },
+    "box": {
+      "x": 0,
+      "y": 252,
+      "width": 393,
+      "height": 600
+    },
+    "tabs": [
+      "일반",
+      "리스 / 렌트"
+    ],
+    "chips": [
+      "전체",
+      "1천만원",
+      "2천만원",
+      "3천만원",
+      "4천만원",
+      "5천만원",
+      "6천만원",
+      "7천만원",
+      "8천만원",
+      "9천만원 이상"
+    ],
+    "invalidBlocked": true,
+    "discarded": true,
+    "countLabel": "64대 보기",
+    "applied": [
+      "3,000만원부터 3,999만원까지"
+    ]
+  }
+]

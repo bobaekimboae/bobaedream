@@ -1,0 +1,23 @@
+/* 가격 필터: 모바일 바텀시트와 PC 중앙 모달은 주행거리 확정 프레임을 공유한다. */
+.pf-sheet .mf-body { padding-top: 16px; }
+.pf-panel { color: #222; }
+.pf-tabs { display: grid; grid-template-columns: 1fr 1fr; height: 44px; margin-bottom: 20px; border-bottom: 1px solid #e8e8e8; }
+.pf-tabs button { border: 0; border-bottom: 2px solid transparent; background: transparent; color: #777; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; }
+.pf-tabs button.is-selected { border-bottom-color: #222; color: #222; font-weight: 750; }
+.pf-input-block { position: relative; }
+.pf-inputs { display: grid; grid-template-columns: minmax(0, 1fr) 12px minmax(0, 1fr); column-gap: 10px; align-items: center; }
+.pf-sep { color: #222; font-size: 15px; font-weight: 500; line-height: 20px; text-align: center; }
+.pf-field { position: relative; display: block; min-width: 0; height: 48px; box-sizing: border-box; border: 2px solid #e4e4e4; border-radius: 12px; background: #fff; }
+.pf-field:focus-within { border-color: #222; }
+.pf-field input { width: 100%; height: 44px; box-sizing: border-box; padding: 0 54px 0 14px; border: 0; border-radius: 10px; background: transparent; color: #222; font: inherit; font-size: 15px; font-weight: 500; outline: 0; }
+.pf-field.has-value input, .pf-field:focus-within input { padding-top: 15px; }
+.pf-floating { position: absolute; top: 50%; left: 14px; color: #9a9a9a; font-size: 15px; font-weight: 500; line-height: 20px; transform: translateY(-50%); pointer-events: none; white-space: nowrap; }
+.pf-field.has-value .pf-floating, .pf-field:focus-within .pf-floating { top: 6px; color: #585858; font-size: 10px; font-weight: 700; line-height: 12px; transform: none; }
+.pf-unit { position: absolute; top: 50%; right: 12px; color: #777; font-size: 12px; font-weight: 600; line-height: 16px; transform: translateY(-50%); pointer-events: none; }
+.pf-error { position: absolute; top: 100%; left: 0; right: 0; margin: 4px 0 0; color: #e5484d; font-size: 12px; line-height: 16px; }
+.pf-guide { margin: 24px 0 12px; color: #777; font-size: 13px; line-height: 18px; }
+.pf-chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.pf-chips button { min-width: 0; height: 44px; padding: 0 8px; border: 0; border-radius: 8px; background: #f4f4f4; color: #222; font: inherit; font-size: 14px; font-weight: 650; white-space: nowrap; cursor: pointer; }
+.pf-chips button.is-selected { background: #222; color: #fff; }
+.pf-tabs button:focus-visible, .pf-field:focus-within, .pf-chips button:focus-visible { outline: 2px solid #2f6feb; outline-offset: 2px; }
+@media (max-width: 359px) { .pf-inputs { grid-template-columns: minmax(0, 1fr); row-gap: 8px; } .pf-sep { display: none; } .pf-chips { grid-template-columns: minmax(0, 1fr); } }
