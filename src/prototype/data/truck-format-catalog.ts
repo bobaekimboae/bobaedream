@@ -55,19 +55,27 @@ export const truckSubtypeValuesForSelection = (format: string | null, subtype: s
 // 적재용량·규격은 이미지가 아니라 알약칩으로 표시하며, 제조사는 브랜드 로고를 사용한다.
 const truckFormatImages: Readonly<Record<string, string>> = {
   "카고(화물)트럭": "truck/pilot/v02/truck_type_cargo_side_v02.png",
+  "윙바디·탑차": "truck/pilot/v02/truck_type_wingbody_side_v02.png",
   "윙바디/탑": "truck/pilot/v02/truck_type_wingbody_side_v02.png",
-  "냉장·냉동차": "truck/pilot/v01/truck_type_wingbody_studio_v01.png",
-  "버스": "truck/formats/v01/truck_format_bus_v01.png",
-  "덤프/건설/중기": "truck/formats/v01/truck_format_dump_heavy_v01.png",
+  "냉장·냉동차": "truck/pilot/v05/truck_type_refrigerated_side_v05.png",
+  "버스": "truck/pilot/v05/truck_type_bus_side_v05.png",
+  "덤프·콘크리트차": "truck/pilot/v05/truck_type_dump_side_v05.png",
+  "덤프/건설/중기": "truck/pilot/v05/truck_type_dump_side_v05.png",
+  "크레인·고소작업차": "truck/pilot/v02/truck_type_cargo_crane_side_v02.png",
   "크레인 형태": "truck/pilot/v02/truck_type_cargo_crane_side_v02.png",
   "탱크로리": "truck/pilot/v02/truck_type_tanker_side_v02.png",
-  "캠핑카/캠핑 트레일러": "truck/formats/v01/truck_format_camper_trailer_v01.png",
-  "폐기/음식물수송": "truck/formats/v01/truck_format_waste_transport_v01.png",
+  "캠핑카·카라반": "truck/pilot/v05/truck_type_camper_side_v05.png",
+  "캠핑카/캠핑 트레일러": "truck/pilot/v05/truck_type_camper_side_v05.png",
+  "환경·폐기물차": "truck/pilot/v05/truck_type_waste_side_v05.png",
+  "폐기/음식물수송": "truck/pilot/v05/truck_type_waste_side_v05.png",
   "활어차": "truck/formats/v01/truck_format_live_fish_v01.png",
-  "차량견인/운송": "truck/formats/v01/truck_format_vehicle_transport_v01.png",
+  "견인·운송차": "truck/pilot/v05/truck_type_transport_side_v05.png",
+  "차량견인/운송": "truck/pilot/v05/truck_type_transport_side_v05.png",
   "트렉터": "truck/formats/v01/truck_format_tractor_v01.png",
-  "트레일러": "truck/formats/v01/truck_format_trailer_v01.png",
-  "기타": "truck/formats/v01/truck_format_other_v01.png",
+  "트랙터·트레일러": "truck/pilot/v05/truck_type_tractor_trailer_side_v05.png",
+  "트레일러": "truck/pilot/v05/truck_type_tractor_trailer_side_v05.png",
+  "특수차": "truck/pilot/v05/truck_type_special_side_v05.png",
+  "기타": "truck/pilot/v05/truck_type_other_chassis_side_v05.png",
 };
 
 const truckSubtypeImages: Readonly<Record<string, Readonly<Record<string, string>>>> = {
@@ -197,13 +205,11 @@ const truckSubtypeImages: Readonly<Record<string, Readonly<Record<string, string
 
 const formatImageAliases: Readonly<Record<string, string>> = {
   "윙바디·탑차": "윙바디/탑",
-  "냉장·냉동차": "윙바디/탑",
   "덤프·콘크리트차": "덤프/건설/중기",
   "크레인·고소작업차": "크레인 형태",
   "환경·폐기물차": "폐기/음식물수송",
   "견인·운송차": "차량견인/운송",
   "트랙터·트레일러": "트레일러",
-  "특수차": "기타",
   "캠핑카·카라반": "캠핑카/캠핑 트레일러",
 };
 
