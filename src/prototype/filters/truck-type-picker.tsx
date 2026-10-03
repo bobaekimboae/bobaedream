@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { asset } from "../data";
-import { truckFormatImageFor, truckSubtypeImageFor, truckTypeTree, type TruckTypeNode } from "../data/truck-format-catalog";
+import { truckFormatImageFor, truckSubtypeImageFor, truckSubtypeSecondaryLabel, truckTypeTree, type TruckTypeNode } from "../data/truck-format-catalog";
 import type { BbTruckFilter } from "../listing/pc-bbmuseum";
 import { BbmActionBar, BbmModal, BbmSheet } from "./bbm-filter-parts";
 import "./truck-type-picker.css";
@@ -74,13 +74,14 @@ export function TruckTypePicker({ desktop, open, onClose, value }: Props) {
         const count = nodeCount(node);
         const hasChildren = Boolean(node.children?.length);
         const image = current ? truckSubtypeImageFor(nodeValue(root), next) : truckFormatImageFor(next);
+        const secondaryLabel = current ? truckSubtypeSecondaryLabel(nodeValue(root), next) : null;
         const isSelected = selected(node);
         const isPartial = !isSelected && Boolean(selectedWithin(node));
         return <div key={next} className={`truck-type-picker-row${isSelected ? " is-selected" : ""}${isPartial ? " is-partial" : ""}${count === 0 ? " is-zero" : ""}`}>
           <button type="button" className="truck-type-picker-select" role="checkbox" aria-checked={isPartial ? "mixed" : isSelected} aria-label={`${node.label}, ${count.toLocaleString("ko-KR")}대 선택`} disabled={count === 0} onClick={() => choose(node)}>
             <span className="truck-type-picker-check" aria-hidden="true" />
             <span className="truck-type-picker-image">{image ? <img src={asset(image)} alt="" aria-hidden="true" draggable={false} /> : null}</span>
-            <span className="truck-type-picker-label">{node.label}</span>
+            <span className="truck-type-picker-label">{node.label}{secondaryLabel ? <small>{secondaryLabel}</small> : null}</span>
             <span className="truck-type-picker-count">{count.toLocaleString("ko-KR")}</span>
           </button>
           {hasChildren ? <button type="button" className="truck-type-picker-drill" aria-label={`${node.label} 하위 유형 보기`} onClick={() => drill(node)}><img src={asset("icons/bb/chevron-left.svg")} alt="" aria-hidden="true" /></button> : null}

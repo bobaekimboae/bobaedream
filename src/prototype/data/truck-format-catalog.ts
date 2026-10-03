@@ -35,6 +35,21 @@ export const truckFormatCatalog: readonly TruckFormatGroup[] = truckTypeTree.map
 
 export const truckSubtypesFor = (format: string | null): readonly string[] => truckFormatCatalog.find((group) => group.name === format)?.subtypes ?? [];
 
+// 카고 차급은 명칭만으로 실제 적재 규모를 가늠하기 어려워 퀵필터와 선택 시트에
+// 대표 톤수를 두 번째 줄로 함께 표시한다. 실제 차량의 승인 톤수는 매물 정보가 기준이다.
+export const truckCargoClassTonnage: Readonly<Record<string, string>> = {
+  "경형": "1톤 미만",
+  "소형": "1톤급",
+  "준중형": "2.5~3.5톤",
+  "중형": "4~5톤",
+  "준대형": "7.5~8.5톤",
+  "대형": "11~25톤",
+};
+
+export const truckSubtypeSecondaryLabel = (format: string | null, subtype: string): string | null => (
+  format === "카고(화물)트럭" ? truckCargoClassTonnage[subtype] ?? null : null
+);
+
 const findNode = (nodes: readonly TruckTypeNode[], value: string): TruckTypeNode | null => {
   for (const node of nodes) {
     if ((node.value ?? node.label) === value) return node;

@@ -90,7 +90,7 @@ import { BbmChipScroller, BbmTopCrumbs, type BbmCrumb } from "./bbm-top-chotot";
 import { setPretendard } from "../fonts/pretendard";
 import { BBM_PAGE_SIZE, BbmFooter, BbmPagination, BbmPopOptions, BbmToolbarMenu, bbmSortOptions, bbmViewOptionsMobile, bbmViewOptionsPc, sortBbmCars, type BbmSort } from "./bbm-list-area";
 import { bikeListingModelsByMaker, bikeListingModelVisualsByMaker } from "../bike/data";
-import { normalizeTruckFormatSelection, truckFormatCatalog, truckFormatImageFor, truckSubtypeImageFor, truckSubtypeLabel, truckSubtypesFor, truckSubtypeValuesForSelection } from "../data/truck-format-catalog";
+import { normalizeTruckFormatSelection, truckFormatCatalog, truckFormatImageFor, truckSubtypeImageFor, truckSubtypeLabel, truckSubtypesFor, truckSubtypeSecondaryLabel, truckSubtypeValuesForSelection } from "../data/truck-format-catalog";
 import { truckSpecGroupsFor, truckSpecOptionsFor } from "../data/truck-depth4-catalog";
 import { QuickRailCarousel } from "./quick-rail-carousel";
 import { truckModelsByMaker } from "../truck/scenario-v01";
@@ -1367,7 +1367,10 @@ function MarketplaceScreen() {
           </section> :
           showTruckSubtypeRail ? <section className="depth-rail no-label is-truck-image-row is-format-sub" aria-label={`${selectedTruckFormat} 세부 형식 빠른 선택`}>
             <QuickRailCarousel ariaLabel={`${selectedTruckFormat} 세부 형식`} className="brand-carousel" contentClassName="depth-rail-track">
-              {truckSubtypeOptions.map((subtype) => <DepthCard key={subtype} className="is-truck-depth" label={desktop ? subtype : truckQuickLabel(subtype)} ariaLabel={subtype} image={<img src={asset(truckSubtypeImageFor(selectedTruckFormat, subtype) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckSubtype(subtype)} />)}
+              {truckSubtypeOptions.map((subtype) => {
+                const secondaryLabel = truckSubtypeSecondaryLabel(selectedTruckFormat, subtype);
+                return <DepthCard key={subtype} className={`is-truck-depth${secondaryLabel ? " has-secondary" : ""}`} label={desktop ? subtype : truckQuickLabel(subtype)} sub={secondaryLabel ?? undefined} ariaLabel={secondaryLabel ? `${subtype}, ${secondaryLabel}` : subtype} image={<img src={asset(truckSubtypeImageFor(selectedTruckFormat, subtype) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckSubtype(subtype)} />;
+              })}
             </QuickRailCarousel>
           </section> :
           showTruckSpecRail ? <section className="depth-rail is-trim-row no-label" aria-label={`${selectedTruckSubtype} 적재용량 및 규격 빠른 선택`}>
