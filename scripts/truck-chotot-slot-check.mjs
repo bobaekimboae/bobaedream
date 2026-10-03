@@ -19,8 +19,8 @@ const browser = await chromium.launch();
 const report = {};
 
 for (const mode of [
-  { name: "mobile", viewport: { width: 390, height: 844 }, pc: false, brandExpected: { cell: [76, 102], media: [40, 40] }, typeExpected: { cell: [80, 108], media: [64, 64] } },
-  { name: "pc", viewport: { width: 1440, height: 1000 }, pc: true, brandExpected: { cell: [84, 102], media: [40, 40] }, typeExpected: { cell: [132, 144], media: [88, 88] } },
+  { name: "mobile", viewport: { width: 390, height: 844 }, pc: false, brandExpected: { cell: [76, 102], media: [40, 40] }, typeExpected: { cell: [80, 108], media: [64, 64] }, spacingExpected: { slotMarginTop: "8px", brandMediaMarginTop: "4px", brandLabelMarginTop: "8px", typeLabelMarginTop: "2px" } },
+  { name: "pc", viewport: { width: 1440, height: 1000 }, pc: true, brandExpected: { cell: [84, 102], media: [40, 40] }, typeExpected: { cell: [132, 144], media: [88, 88] }, spacingExpected: { slotMarginTop: "8px", brandMediaMarginTop: "4px", brandLabelMarginTop: "8px", typeLabelMarginTop: "4px" } },
 ]) {
   const page = await browser.newPage({ viewport: mode.viewport, deviceScaleFactor: 1 });
   const errors = [];
@@ -32,6 +32,7 @@ for (const mode of [
   await rail.waitFor({ state: "visible" });
   const metrics = await rail.evaluate((root) => [...root.querySelectorAll(".depth-card")].map((card) => {
     const media = card.querySelector(".depth-card-media");
+    const label = card.querySelector(".depth-card-label");
     const image = card.querySelector("img");
     const box = card.getBoundingClientRect();
     const mediaBox = media?.getBoundingClientRect();
@@ -42,10 +43,13 @@ for (const mode of [
       media: mediaBox ? [Math.round(mediaBox.width), Math.round(mediaBox.height)] : null,
       image: imageBox ? [Math.round(imageBox.width), Math.round(imageBox.height)] : null,
       source: card.querySelector(".kr-brand-logo")?.getAttribute("data-logo-source") ?? null,
+      mediaMarginTop: media ? getComputedStyle(media).marginTop : null,
+      labelMarginTop: label ? getComputedStyle(label).marginTop : null,
       background: getComputedStyle(card).backgroundColor,
       borderRadius: getComputedStyle(card).borderRadius,
     };
   }));
+  const brandSlotMarginTop = await rail.evaluate((root) => root.parentElement ? getComputedStyle(root.parentElement).marginTop : null);
   await page.screenshot({ path: join(out, `implementation-${mode.name}-brand.png`), fullPage: false });
   await rail.screenshot({ path: join(out, `implementation-${mode.name}-brand-row.png`) });
   const first = metrics[0];
@@ -56,12 +60,15 @@ for (const mode of [
   await typeRail.waitFor({ state: "visible" });
   const typeMetrics = await typeRail.locator(".depth-card.is-truck-depth").first().evaluate((card) => {
     const media = card.querySelector(".depth-card-media");
+    const label = card.querySelector(".depth-card-label");
     const box = card.getBoundingClientRect();
     const mediaBox = media?.getBoundingClientRect();
     return {
       name: card.textContent?.trim(),
       cell: [Math.round(box.width), Math.round(box.height)],
       media: mediaBox ? [Math.round(mediaBox.width), Math.round(mediaBox.height)] : null,
+      slotMarginTop: card.closest(".depth-rail")?.parentElement ? getComputedStyle(card.closest(".depth-rail").parentElement).marginTop : null,
+      labelMarginTop: label ? getComputedStyle(label).marginTop : null,
       background: getComputedStyle(card).backgroundColor,
       borderRadius: getComputedStyle(card).borderRadius,
     };
@@ -71,6 +78,8 @@ for (const mode of [
     viewport: mode.viewport,
     brandExpected: mode.brandExpected,
     typeExpected: mode.typeExpected,
+    spacingExpected: mode.spacingExpected,
+    brandSlotMarginTop,
     count: metrics.length - 1,
     firstBrand: first,
     firstType: typeMetrics,
@@ -85,6 +94,11 @@ for (const mode of [
       && typeMetrics?.cell?.[1] === mode.typeExpected.cell[1]
       && typeMetrics?.media?.[0] === mode.typeExpected.media[0]
       && typeMetrics?.media?.[1] === mode.typeExpected.media[1]
+      && brandSlotMarginTop === mode.spacingExpected.slotMarginTop
+      && first?.mediaMarginTop === mode.spacingExpected.brandMediaMarginTop
+      && first?.labelMarginTop === mode.spacingExpected.brandLabelMarginTop
+      && typeMetrics?.slotMarginTop === mode.spacingExpected.slotMarginTop
+      && typeMetrics?.labelMarginTop === mode.spacingExpected.typeLabelMarginTop
       && errors.length === 0,
   };
   await page.close();

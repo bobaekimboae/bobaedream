@@ -76,3 +76,4 @@
 2026-10-03 / 코덱스-특장 / HANDOVER_truck_v32.md / v32 / 공개 모바일 72×80px·이미지 64×36px·곡률 10px 및 콘솔 오류 0건 기록 / 검수완료
 2026-10-03 / 코덱스-특장 / truck_chotot_slot_rule_v01.md, truck_brand_manifest_v01.csv, HANDOVER_truck_v33.md, truck_*_logo_v01.png, truck_type_*_studio_v01.png / v01 / 카드칩을 제거하고 당근·이처 결합 로고 10종과 초톳형 형식 이미지 슬롯을 모바일·PC에 적용 / 검수완료
 2026-10-03 / 코덱스-특장 / HANDOVER_truck_v34.md / v34 / GitHub Pages 실행 37099635937 성공과 공개 모바일·PC 슬롯 치수·콘솔 오류 0건 기록 / 검수완료
+2026-10-03 / 코덱스-특장 / truck_chotot_slot_rule_v02.md, HANDOVER_truck_v35.md, qf-model-images.css, truck-chotot-slot-check.mjs / v02 / 수정 요청: 모바일·PC 이미지 행과 로고·명칭의 위아래 간격 축소 및 균형 조정 / 검수완료
