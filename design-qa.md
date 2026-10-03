@@ -426,3 +426,20 @@ final result: passed
 - 없음.
 
 final result: passed
+# 트럭 퀵필터 좌측 제목·미디어 정렬 v44
+
+- source visual truth: Google Drive 초톳 1080×2340 캡처 2장, 384 CSS px·2.8125배율
+- implementation screenshot: `reports/truck-rail-spacing-v44/implementation.png`
+- viewport/state: 모바일 트럭 유형·세부유형·제조사·모델 레일
+- full-view comparison: 좌측 제목 x=16px 유지, 초톳 첫 로고 중심 113.6px와 보배 첫 미디어 중심 114px 일치
+- focused comparison: 유형·세부유형 68+2+44=114, 제조사 68+8+38=114, 모델 68+10+36=114
+- typography: 14/20 400 `#595959` 유지
+- colors/tokens: 변경 없음
+- image quality: 승인 원본 유지, 재가공 없음
+- copy/content: 뎁스별 제목 유지
+- interaction: 유형 → 세부유형 → 제조사 → 모델 전환 정상
+- console errors: 0
+- validation: `npm run check:runtime`, `npm run verify:qf` 통과
+- comparison history: 412px 오환산 폐기 → 384px로 재환산 → 첫 중심 114px로 교정 → 렌더링 재확인
+
+final result: passed
