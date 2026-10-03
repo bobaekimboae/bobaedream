@@ -115,6 +115,21 @@
 
 final result: passed
 
+# 전체 퀵필터 좌측 제목 제거 v46
+
+- source visual truth: `https://xe.chotot.com/mua-ban-xe-tai-xe-ben`
+- implementation: `http://127.0.0.1:4174/?qf=guazi&category=트럭+·+특장`
+- viewport/state: 모바일 384×850, PC 1440×900, 트럭 유형→세부유형→제조사→모델
+- full-view comparison: 초톳 현재 모바일처럼 좌측 고정 제목 칸 없이 이미지·로고 슬롯부터 노출
+- focused comparison: 모바일 첫 슬롯 x=16px, PC 콘텐츠 안 첫 슬롯 x=20px
+- category audit: 중고차·트럭/특장·바이크·캠핑카·건설기계·자재운반장비·부품/용품 좌측 제목 노드 0건
+- accessibility: 화면 제목 노드는 제거했지만 각 레일의 `aria-label` 보존
+- horizontal overflow: 없음
+- console errors: 0
+- validation: `npm run verify:qf` 통과. `check:stability --base=http://127.0.0.1:4174/ --mode=plain`의 v46 제목 없는 정렬 항목은 PC·모바일 전부 통과했으며, 기존 모바일 상단 레이어 높이 규격 항목은 별도 선행 불일치로 남음
+
+final result: passed
+
 ## 트럭 퀵필터 초톳 브랜드 슬롯 정렬 v45
 
 - source visual truth: `C:\Users\bobae\OneDrive\문서\ChatGPT\퀵필터 제작\.codex-remote-attachments\01a0d236-12ba-7a11-a24d-5851b9bf98ed\b0101475-21b7-4ccb-aad5-3c65ad4001ea\3-1000014826.jpg`

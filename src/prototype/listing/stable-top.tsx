@@ -148,8 +148,7 @@ export const stableYearSelected = (value: BbmFilterValues) => {
 export function StableYearRow({ value, onChange }: { value: BbmFilterValues; onChange: (next: BbmFilterValues) => void }) {
   const selected = stableYearSelected(value);
   return (
-    <section className="depth-rail is-trim-row is-year-row" aria-label="연식 빠른 선택">
-      <span className="depth-rail-label">연식:</span>
+    <section className="depth-rail is-trim-row is-year-row no-label" aria-label="연식 빠른 선택">
       <PillRow label="" className="stable-year-pills">
         {STABLE_YEAR_OPTIONS.map((option) => {
           const on = selected === option;

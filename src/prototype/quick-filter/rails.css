@@ -28,7 +28,7 @@
 .category-item:active .category-icon { transform: translateY(1px); }
 
 .brand-row { display: grid; grid-template-columns: 63px minmax(0, 1fr); align-items: center; height: 86px; background: #fff; }
-.brand-title { padding-left: 16px; font-size: 15px; font-weight: 600; }
+.brand-row.is-titleless { grid-template-columns: minmax(0, 1fr); }
 .brand-carousel { height: 70px; }
 .brand-track { display: flex; gap: 32px; min-width: max-content; padding: 0 16px 0 0; }
 .brand-item { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 48px; height: 70px; border-radius: 10px; color: #616161; font-size: 13px; font-weight: 500; transition: background 120ms ease, color 120ms ease; }
@@ -41,9 +41,9 @@
 .brand-item:nth-child(2) .brand-logo img { width: 37px; height: 36px; }
 .brand-full { width: 48px; height: 70px; object-fit: contain; }
 .category-brand-row { grid-template-columns: 63px minmax(0, 1fr); height: 86px; padding: 0; box-sizing: border-box; }
-.category-brand-row .brand-title { display: block; color: #616161; font-size: 15px; font-weight: 500; }
 .category-brand-row .brand-carousel { height: 70px; }
 .category-brand-row .brand-track { gap: 32px; padding: 0 16px 0 0; }
+.brand-row.is-titleless .brand-track { padding-left: 16px; }
 .category-brand-row .brand-item { width: 48px; height: 70px; gap: 4px; border-radius: 10px; background: transparent; color: #616161; font-size: 13px; line-height: normal; }
 .category-brand-row .brand-item.is-selected { background: transparent; color: var(--ink); }
 .category-brand-row .brand-logo { width: 48px; height: 48px; margin-top: 0; }
@@ -53,7 +53,6 @@
 .category-brand-row .brand-item:first-child .brand-logo img,
 .category-brand-row .brand-item:nth-child(2) .brand-logo img { width: auto; height: auto; max-width: 34px; max-height: 27px; }
 .brand-row.is-model-mode { grid-template-columns: 46px minmax(0, 1fr); height: 63px; border-top: 0; border-bottom: 0; }
-.brand-row.is-model-mode .brand-title { display: flex; align-self: stretch; align-items: center; padding: 0 0 0 16px; color: #616161; font-size: 13px; font-weight: 600; }
 .brand-row.is-model-mode .brand-carousel { height: 63px; }
 .bmw-model-track { display: flex; align-items: center; gap: 8px; min-width: max-content; padding: 10px 16px 10px 0; }
 .bmw-model-card { display: grid; grid-template-rows: 25px 18px; width: var(--measured-model-card-w); height: var(--measured-model-card-h); overflow: hidden; border: 0; border-radius: 6px; background: #f7f8fc; color: #252527; font-size: 12px; font-weight: 500; line-height: 18px; text-align: center; transition: box-shadow 140ms ease, background 140ms ease, color 140ms ease; }
@@ -61,21 +60,20 @@
 .bmw-model-card span { display: grid; place-items: start center; border-top: 0; white-space: nowrap; }
 .bmw-model-card.is-selected { background: #eef4ff; color: var(--blue); box-shadow: inset 0 0 0 1px var(--blue); }
 .brand-row.is-benz-model-mode { grid-template-columns: 55px minmax(0, 1fr); height: 54px; border-bottom: 1px solid #f3f3f3; }
-.brand-row.is-benz-model-mode .brand-title { padding-left: 16px; color: #616161; font-size: 15px; font-weight: 500; }
 .brand-row.is-benz-model-mode .brand-carousel { height: 54px; }
 .benz-model-track { display: flex; align-items: center; gap: 6px; min-width: max-content; padding: 10px 16px 10px 0; }
+.brand-row.is-titleless .benz-model-track { padding-left: 16px; }
 .benz-model-chip { height: 34px; padding: 7px 16px; border: 1px solid #e0e0e0; border-radius: 30px; background: #fff; color: #3a3a3a; font-size: 15px; font-weight: 500; line-height: 20px; white-space: nowrap; transition: border-color 140ms ease, background 140ms ease, color 140ms ease; }
 .benz-model-chip.is-selected { border-color: var(--blue); background: #f3f7fc; color: var(--blue); }
 .brand-row.is-generation-mode { grid-template-columns: 55px minmax(0, 1fr); height: 64px; border-bottom: 1px solid #f3f3f3; }
-.brand-row.is-generation-mode .brand-title { padding-left: 16px; color: #616161; font-size: 15px; font-weight: 500; }
 .brand-row.is-generation-mode .brand-carousel { height: 64px; }
 .generation-track { display: flex; align-items: center; gap: 7px; min-width: max-content; padding: 8px 16px 8px 0; }
+.brand-row.is-titleless .generation-track { padding-left: 16px; }
 .generation-chip { display: grid; align-content: center; min-width: 118px; height: 48px; gap: 1px; padding: 6px 14px; border-radius: 14px; text-align: left; }
 .generation-chip strong { color: inherit; font-size: 14px; font-weight: 700; line-height: 18px; }
 .generation-chip span { color: #8a8d93; font-size: 11px; font-weight: 500; line-height: 15px; }
 .generation-chip.is-selected span { color: inherit; opacity: .78; }
 .depth-rail { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; height: 96px; background: #fff; box-shadow: 0 1px 0 #f3f3f3; box-sizing: border-box; }
-.depth-rail-label { display: flex; align-self: stretch; align-items: center; padding: 0 8px 0 16px; color: #656d7a; font-size: 13px; font-weight: 500; white-space: nowrap; }
 .depth-rail.no-label { grid-template-columns: minmax(0, 1fr); }
 .depth-rail .brand-carousel { height: 96px; }
 .depth-rail-track { display: flex; align-items: center; box-sizing: border-box; min-width: max-content; height: 96px; gap: 8px; padding: 12px 16px 12px 0; scrollbar-width: none; }
@@ -107,13 +105,14 @@
 .trim-chip.is-selected { border-color: var(--blue); background: color-mix(in srgb, var(--blue) 8%, #fff); color: var(--blue); font-weight: 700; }
 .trim-chip:disabled { opacity: .4; cursor: default; }
 .depth-rail.is-vehicle-header { grid-template-columns: 55px minmax(0, 1fr); }
+.depth-rail.is-vehicle-header.no-label { grid-template-columns: minmax(0, 1fr); }
+.depth-rail.is-vehicle-header.no-label .depth-vehicle-header { padding-left: 16px; }
 .depth-vehicle-header { display: flex; align-items: center; gap: 10px; min-width: 0; height: 96px; padding: 12px 16px 12px 0; box-sizing: border-box; }
 .depth-vehicle-header img { width: 56px; height: 28px; flex: 0 0 56px; object-fit: contain; mix-blend-mode: multiply; }
 .depth-vehicle-header div { display: grid; gap: 2px; min-width: 0; }
 .depth-vehicle-header strong { overflow: hidden; color: #16181d; font-size: 15px; font-weight: 700; line-height: 19px; text-overflow: ellipsis; white-space: nowrap; }
 .depth-vehicle-header span { overflow: hidden; color: #656d7a; font-size: 12px; font-weight: 500; line-height: 15px; text-overflow: ellipsis; white-space: nowrap; }
 .brand-row.is-guazi-card-mode { grid-template-columns: 55px minmax(0, 1fr); align-items: center; height: 96px; border-bottom: 1px solid #f3f3f3; }
-.brand-row.is-guazi-card-mode .brand-title { display: flex; align-self: stretch; align-items: center; padding-left: 16px; color: #656d7a; font-size: 13px; font-weight: 500; }
 .brand-row.is-guazi-card-mode .brand-carousel { height: 96px; }
 .guazi-model-track { display: flex; align-items: center; gap: 8px; min-width: max-content; padding: 12px 16px 12px 0; }
 .guazi-model-card { display: flex; flex-direction: column; align-items: center; box-sizing: border-box; min-width: 80px; height: 72px; padding: 8px 6px 3px; border: 1px solid transparent; border-radius: 8px; background: #f7f8fc; color: #252527; text-align: center; transition: background 140ms ease, border-color 140ms ease, color 140ms ease, box-shadow 140ms ease; }
@@ -154,4 +153,3 @@
 .guazi-vehicle-header div { display: grid; gap: 2px; min-width: 0; }
 .guazi-vehicle-header strong { overflow: hidden; color: #16181d; font-size: 15px; font-weight: 700; line-height: 19px; text-overflow: ellipsis; white-space: nowrap; }
 .guazi-vehicle-header span { overflow: hidden; color: #656d7a; font-size: 12px; font-weight: 500; line-height: 15px; text-overflow: ellipsis; white-space: nowrap; }
-

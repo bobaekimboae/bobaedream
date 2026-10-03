@@ -101,9 +101,8 @@
 .marketplace.is-bbm-m.is-qf-guazi .bbm-m-keyword { flex: none; height: 28px; padding: 0 10px; border: 1px solid #e8e8e8; border-radius: 8px; box-sizing: border-box; background: #fff; color: #222; font: inherit; font-size: 14px; line-height: 26px; white-space: nowrap; }
 .marketplace.is-bbm-m.is-qf-guazi .bbm-m-keyword:active { opacity: 0.6; }
 
-/* 모바일 ④ 이름표 x = 첫 칩 − 4(첫 칸과 같은 선) */
-.marketplace.is-bbm-m.is-qf-guazi .depth-rail-label { padding-left: 12px; }
-.marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-kr-maker .depth-rail-track { padding-left: 12px; }
+/* 모바일 ④ 제조사 레일도 현재 초톳처럼 제목 없이 16px 슬롯 시작선을 사용한다. */
+.marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-kr-maker .depth-rail-track { padding-left: 16px; }
 
 /* ── 모바일 첫 화면 유형 줄: 초톳 실사 슬롯 기준.
    칸 64×78 · 피치 72 · 실사 64×40 · 동일 바닥선 · 이름 12/18 500 #595959 · 최대 2줄. */
