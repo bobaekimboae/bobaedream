@@ -2,8 +2,9 @@
 .truck-type-picker-back { display: flex; align-items: center; gap: 5px; width: 100%; height: 46px; padding: 0 18px; border: 0; border-bottom: 1px solid #eee; background: #fafafa; color: #555; font-size: 14px; font-weight: 600; cursor: pointer; }
 .truck-type-picker-back img { width: 18px; height: 18px; }
 .truck-type-picker-list { display: flex; flex-direction: column; }
-.truck-type-picker-row { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 44px; min-height: 54px; border-bottom: 1px solid #e8e8e8; }
-.truck-type-picker-row:last-child { border-bottom: 0; }
+.truck-type-picker-row { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 44px; min-height: 54px; }
+.truck-type-picker-row::after { position: absolute; right: 0; bottom: 0; left: 96px; height: 1px; background: #e8e8e8; content: ""; pointer-events: none; }
+.truck-type-picker-row:last-child::after { display: none; }
 .truck-type-picker-row:hover { background: #fafbfc; }
 .truck-type-picker-select { display: grid; grid-template-columns: 20px 32px minmax(0, 1fr) auto; align-items: center; gap: 12px; min-width: 0; padding: 7px 8px 7px 20px; border: 0; background: transparent; color: inherit; text-align: left; cursor: pointer; }
 .truck-type-picker-select:disabled { cursor: default; opacity: .4; }
@@ -25,8 +26,8 @@
 .bbmf-modal:has(.truck-type-picker) .bbmf-modal-header h3 { padding-top: 19px; font-size: 19px; font-weight: 750; }
 .bbmf-modal:has(.truck-type-picker) .bbmf-modal-body { min-height: 300px; }
 
-@media (max-width: 1023px) {
-  .bbmf-sheet:has(.truck-type-picker) { max-height: min(88dvh, 760px); border-radius: 22px 22px 0 0; }
-  .bbmf-sheet:has(.truck-type-picker) .bbmf-sheet-header { height: 64px; }
-  .bbmf-sheet:has(.truck-type-picker) .bbmf-sheet-header h3 { padding-top: 18px; font-size: 20px; line-height: 28px; font-weight: 750; }
-}
+.bbmf-sheet:has(.truck-type-picker) { max-height: min(88dvh, 760px); border-radius: 22px 22px 0 0; }
+.bbmf-sheet:has(.truck-type-picker) .bbmf-sheet-header { display: flex; align-items: center; justify-content: flex-start; height: 64px; padding: 0 64px 0 20px; }
+.bbmf-sheet:has(.truck-type-picker) .bbmf-sheet-heading { align-items: flex-start; }
+.bbmf-sheet:has(.truck-type-picker) .bbmf-sheet-header h3 { justify-content: flex-start; margin: 0; padding: 0; font-size: 20px; line-height: 28px; font-weight: 750; text-align: left; }
+.bbmf-sheet:has(.truck-type-picker) .bbmf-sheet-header .bbmf-close { top: 10px; right: 16px; width: 44px; height: 44px; }

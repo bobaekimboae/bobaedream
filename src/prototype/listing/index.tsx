@@ -1645,7 +1645,7 @@ function MarketplaceScreen() {
     groupChip("fuel", "연료", "연료", Boolean(bbmValue.checks.fuel?.length)),
   ] as Array<BbmChip | null | undefined>).filter((chip): chip is BbmChip => Boolean(chip));
   const mobileBbmChips: BbmChip[] = [
-    {
+    ...(!isTruckCategory ? [{
       key: "category-filter",
       label: "카테고리",
       active: false,
@@ -1654,7 +1654,7 @@ function MarketplaceScreen() {
         setBbmCategoryChildDraft(category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild);
         setBbmCategoryOpen(true);
       },
-    },
+    }] : []),
     ...bbmChips.filter((chip) => chip.key !== "seller" && !chip.key.startsWith("applied-check:sellerKind:")),
   ];
   // QF-092 원본 재실측(2026-09-25): 적용 칩이 바뀌어도 칩 줄 스크롤은 그대로(칩을 누를 때만 revealBbmChip). 예전 "맨 앞 적용 칩 47px" 규칙은 우연히 맞았던 것이라 뺐다

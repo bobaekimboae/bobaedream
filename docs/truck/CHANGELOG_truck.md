@@ -82,3 +82,4 @@
 2026-10-03 / 코덱스-특장 / HANDOVER_truck_v38.md / v38 / GitHub Pages 실행 37103384692 성공과 공개 모바일·PC 슬롯 수치·콘솔 오류 0건 기록 / 검수완료
 2026-10-03 / 코덱스-특장 / truck-type-picker.tsx 외, HANDOVER_truck_v39.md / v39 / 최종 13개 트럭 유형 트리를 실제 PC 모달·모바일 바텀시트·URL·가상 매물 30대에 연결 / 미검수
 2026-10-03 / 코덱스-특장 / HANDOVER_truck_v40.md / v40 / 핀노 행·체크박스 규칙과 에어비앤비 블랙 선택색 대조, GitHub Pages 실행 37118398971 및 공개 모바일·PC 검증 / 검수완료
+2026-10-03 / 코덱스-특장 / truck-type-picker.css, index.tsx, HANDOVER_truck_v41.md / v41 / 수정 요청: 구분선을 명칭 열부터 시작, 바텀시트 제목 좌측 정렬, 트럭 화면 중복 카테고리 칩 제거 / 미검수

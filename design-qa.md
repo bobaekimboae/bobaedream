@@ -95,4 +95,21 @@
 
 - P3: 운영 매물 API 연결 뒤 10대 미만 항목의 칩 숨김 정책을 재검증한다.
 
+## 트럭 유형 필터 v41
+
+- source visual truth: `https://bobaedream-transmission-filter-chip.bobaekim.chatgpt.site/engine`, Google Drive 핀노 캡처 폴더 `1_1BVnpfKGChcikqYvIrfI7l6e4Li4QG0`
+- implementation: `http://127.0.0.1:4173/?qf=guazi&category=트럭 · 특장`, Codex 인앱 브라우저 탭 18 렌더 캡처
+- state: 트럭 유형 바텀시트 초기 화면, 라이트 테마
+- full-view comparison: 기준 시안의 좌측 제목·우측 닫기·고정 하단 액션 구조와 구현을 대조했다.
+- focused region comparison: 핀노 목록의 구분선은 체크박스 영역을 통과하지 않고 명칭 열에서 시작한다. 구현도 체크박스 `20~40px`, 이미지 `52px`, 명칭·구분선 `96px`로 일치시켰다.
+- typography: 제목 20/28px 750, 좌측 20px. 목록 15/20px 규격 유지.
+- spacing: 행 54px, 체크박스 20px, 이미지 32px, 열 간격 12px. 구분선은 명칭 열 시작점인 96px부터 오른쪽 끝까지 표시.
+- colors: 구분선 `#E8E8E8`, 선택 체크박스 `#111`, 흰 체크 유지.
+- image quality: 기존 승인 트럭 유형 PNG를 그대로 사용해 자산 변형 없음.
+- copy: 중복 `카테고리` 칩을 트럭 화면에서 제거하고 `트럭 · 특장 → 트럭 유형 → 연식 → 가격 → 연료` 순서로 정리.
+- interaction: 모바일 트럭 유형 열기, PC 모달 열기, 스크롤과 하단 `30대 보기` 확인.
+- console: 모바일·PC 오류 0건.
+- findings: P0/P1/P2 없음.
+- comparison history: 전체 폭 구분선을 발견해 행 border를 제거하고 명칭 열에서 시작하는 1px pseudo-element로 교체했다. 중앙 제목은 기준 시안에 맞춰 좌측 정렬했다.
+
 final result: passed
