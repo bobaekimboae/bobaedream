@@ -366,3 +366,63 @@ final result: passed
 - 없음.
 
 final result: passed
+
+---
+
+# 트럭 퀵필터 왼쪽 제목 슬롯 v47
+
+## Source and implementation
+
+- source visual truth: `C:\Users\bobae\OneDrive\문서\ChatGPT\퀵필터 제작\.codex-remote-attachments\01a0d236-12ba-7a11-a24d-5851b9bf98ed\b0101475-21b7-4ccb-aad5-3c65ad4001ea\3-1000014826.jpg`
+- implementation: `http://127.0.0.1:5174/?qf=guazi&category=트럭+·+특장&v=left-slot-v47`
+- viewport: CSS 412×915, DPR 1.0
+- source pixels: 592×1280 캡처를 CSS 폭 412px로 정규화
+- implementation pixels: CSS 412×915, DPR 1.0
+- state: 트럭·특장 첫 유형 퀵필터 및 카고 선택 후 세부유형 퀵필터
+
+## Findings
+
+- P0/P1/P2 없음.
+- 초톳 제조사 줄의 왼쪽 제목처럼 보배 트럭 레일도 제목을 별도 상단 행이 아니라 같은 레일의 고정 첫 열에 표시한다.
+- 모바일 제목 슬롯은 76px, 왼쪽 패딩 16px, 제목 14/400/20 `#595959`; 제목 뒤 8px에서 첫 이미지 슬롯이 시작한다.
+- PC 제목 슬롯은 92px, 왼쪽 패딩 20px이며 같은 글자 규격과 8px 간격을 사용한다.
+
+## Full-view comparison evidence
+
+- 초톳 `Hãng xe` 왼쪽 제목이 있는 원본 레일과 보배 `트럭 유형` 레일을 한 412px 비교 화면에 세로로 배치해 확인했다.
+- 보배 제목은 상단에 따로 뜨지 않고 이미지와 같은 수직 중앙선에 놓였으며 첫 이미지의 기존 x축은 유지됐다.
+
+## Focused region comparison evidence
+
+- 보배 모바일 실측: 제목 `x=0, width=76, height=84, padding-left=16, 14/400/20, #595959`; 첫 이미지 카드 `x=84`; 제목 슬롯 뒤 간격 `8px`.
+- 카고 선택 후 같은 위치에서 제목이 `세부유형`으로 바뀌고 슬롯 폭·간격이 유지된다.
+- 브라우저 경고·오류 0건.
+
+## Required fidelity surfaces
+
+- Fonts and typography: Pretendard 14/400/20으로 초톳 왼쪽 분류 라벨의 시각 밀도에 맞췄다.
+- Spacing and layout rhythm: 모바일 76px·PC 92px 제목 열과 8px 간격을 유지했다.
+- Colors and visual tokens: 제목 `#595959`, 배경·테두리 없음.
+- Image quality and asset fidelity: 트럭 실사 이미지와 슬롯 크기는 변경하지 않았다.
+- Copy and content: 뎁스에 따라 `트럭 유형`, `세부유형`, `제조사`, `모델`, `세부모델`을 표시한다.
+
+## Comparison history
+
+- 이전: 제목 슬롯 폭은 남아 있었지만 텍스트 노드가 없어 왼쪽이 비어 있었다.
+- 수정: 빈 슬롯 안에 뎁스명을 추가하고 초톳 기준으로 글자와 패딩을 지정했다.
+- 수정 후: 루트·하위 유형 실측과 한 화면 비교에서 위치·간격이 유지되고 콘솔 오류가 없다.
+
+## Implementation Checklist
+
+- [x] 왼쪽 제목을 같은 레일 안에 배치
+- [x] 모바일 76px / PC 92px 고정 제목 슬롯
+- [x] 루트·하위 유형 전환 확인
+- [x] 제조사·모델·세부모델 뎁스 제목 추가
+- [x] 원본·구현 한 화면 비교
+- [x] 브라우저 오류 확인
+
+## Follow-up Polish
+
+- 없음.
+
+final result: passed
