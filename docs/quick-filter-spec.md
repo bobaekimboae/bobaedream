@@ -134,7 +134,7 @@
 ## Quick Filter Alignment (QF-113)
 
 - Guazi 퀵필터의 이미지 뎁스는 초톳처럼 왼쪽에 제목을 둔다: `유형`, `세부유형`, `제조사`, `모델`, `세부모델`. 단, 첫 화면의 최상위 차량 카테고리 아이콘 줄은 제목과 제목 칸을 두지 않고 왼쪽부터 바로 시작한다. 이후 제목 칸은 PC 92px(텍스트 왼쪽 20px), 모바일 76px(텍스트 왼쪽 16px)로 고정해 제목 길이와 무관하게 첫 이미지 슬롯의 x를 맞춘다. 하위 알약 줄도 같은 제목 칸을 사용한다. `트림`, `연식`, `지역` 알약 줄의 기존 제목은 유지한다.
-- `영상 매물` 문구는 유지하고 오른쪽 스위치만 공통 리스트형 토글 규격으로 통일한다. 모바일·PC 모두 38×22px 트랙, 16px 손잡이, 상하좌우 3px, 이동 16px을 사용하며 접근성 상태는 `role=switch`와 `aria-checked`로 제공한다.
+- 모바일 앱의 `영상 매물`은 초톳 앱처럼 별도 스위치 없이 문구 자체를 누르는 텍스트 필터로 사용한다. 기본은 회색 500, 선택은 검정 600이며 `aria-pressed`로 상태를 제공한다. PC는 문구 오른쪽의 38×22px 스위치(손잡이 16px·내부 여백 3px·이동 16px)를 유지한다.
 - The `필터` chip keeps its text and appends the count (`필터` → `필터 2`, #222 when any condition) with a fixed 92px width, so the next chip never shifts (PC 240 at 1440 · mobile 114).
 - Mobile Guazi follows the ChoTot chip rhythm at 384px: the rail keeps 16px screen-side margins, 4px between ordinary chips, and 32px chip height. Normal, selected, and fixed filter chips use symmetric 12px inline padding and a 2px icon/text, text/arrow, or text/clear gap. The fixed filter chip remains 92px wide, including its existing 6px separation from the scrolling chip rail.
 - The landing first chip is `중고차` (not `전체차량`) in guazi only; other modes keep `전체차량`.

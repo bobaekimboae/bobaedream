@@ -277,16 +277,11 @@ export function BbmBrandMenu({ items, selected, renderLogo, onChoose }: { items:
   );
 }
 
-// ── 영상 매물 스위치: 공통 리스트형 38×22, 손잡이 16
-export function BbmSwitch({ checked, label, onChange }: { checked: boolean; label: string; onChange: () => void }) {
-  return <button type="button" role="switch" aria-checked={checked} aria-label={label} className={`bbm-switch-sm${checked ? " is-on" : ""}`} onClick={onChange}><span /></button>;
-}
-
 // ── 모바일 영상 매물 · 업데이트순 줄
 export function BbmMobileOptions({ videoOnly, onToggleVideo, sortLabel, onSort, extra }: { videoOnly: boolean; onToggleVideo: () => void; sortLabel: string; onSort: () => void; extra?: ReactNode }) {
   return (
     <section className="bbm-m-options" aria-label="영상 매물과 정렬">
-      <div className="bbm-m-video"><span>영상 매물</span><BbmSwitch checked={videoOnly} label="영상 매물" onChange={onToggleVideo} /></div>
+      <button type="button" className={`bbm-m-video${videoOnly ? " is-selected" : ""}`} aria-pressed={videoOnly} onClick={onToggleVideo}>영상 매물</button>
       {extra}
       <button type="button" className="bbm-m-sort" onClick={onSort}><span>{sortLabel}</span><img src={bbmIcon("m-toolbar-sort")} alt="" aria-hidden="true" /></button>
     </section>
