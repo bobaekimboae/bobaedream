@@ -1896,7 +1896,7 @@ function MarketplaceScreen() {
                       <button type="button" role="tab" aria-selected={false} onClick={() => setSearchToast("브랜드 매물은 정식 서비스에서 이용해 주세요.")}>브랜드</button>
                     </div>
                     <div className="bbm-toolbar-actions">
-                      <label className="bbm-video-filter"><span>영상 매물</span><BbSwitch checked={videoOnly} label="영상 매물" onChange={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))} /></label>
+                      <label className="bbm-video-filter"><span>숏폼매물</span><BbSwitch checked={videoOnly} label="숏폼매물" onChange={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))} /></label>
                       <span className="bbm-toolbar-divider" aria-hidden="true" />
                       {isGuaziQuickStyle ? (
                         <>
@@ -1966,7 +1966,7 @@ function MarketplaceScreen() {
                       {(["전체", "개인", "딜러"] as SellerType[]).map((tab) => <button key={tab} type="button" role="tab" aria-selected={sellerType === tab} className={sellerType === tab ? "is-selected" : ""} onClick={() => setFilters((current) => ({ ...current, seller: tab }))}>{tab}</button>)}
                     </div>
                     <div className="pc-list-controls">
-                      <label className="pc-video-toggle"><span>영상 보기</span><button type="button" role="switch" aria-checked={videoOnly} className={videoOnly ? "is-on" : ""} onClick={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))}><span /></button></label>
+                      <label className="pc-video-toggle"><span>숏폼매물</span><button type="button" role="switch" aria-checked={videoOnly} className={videoOnly ? "is-on" : ""} onClick={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))}><span /></button></label>
                       <span className="pc-list-divider" aria-hidden="true" />
                       <button type="button" className="pc-sort-button" onClick={() => setSheet("sort")}>{sort}<ChevronDownIcon /></button>
                       <span className="pc-list-divider" aria-hidden="true" />
@@ -2044,7 +2044,7 @@ function MarketplaceScreen() {
                 {mobileBbmChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} onClick={() => { revealBbmChip(chip.label); chip.onClick(); }} onClear={chip.onClear} />)}
               </Carousel>
             </section>
-            {/* QF-106 ④ 퀵필터 자리. 과쯔 원본은 바로 영상 매물 줄로 이어지고 별도 경로·제목·추천어가 없다. */}
+            {/* QF-106 ④ 퀵필터 자리. 과쯔 원본은 바로 숏폼매물 줄로 이어지고 별도 경로·제목·추천어가 없다. */}
             <div className="bbm-m-quick-slot">{quickRail}</div>
             {luxuryUiTestMode ? <><p className="bbm-ui-test-notice">UI 테스트용 가상 매물 · 실제 판매 가격·조건이 아닙니다</p><BbmHeadlinePreviewLinks /></> : null}
             {!isGuaziQuickStyle ? (
@@ -2147,9 +2147,9 @@ function MarketplaceScreen() {
           </section>
           {filterShell}
           {quickRail}
-          <section className="video-toggle-row" aria-label="영상 보기와 퀵필터 사례 선택">
+          <section className="video-toggle-row" aria-label="숏폼매물과 퀵필터 사례 선택">
             <div className="video-toggle-copy">
-              <span>영상보기</span>
+              <span>숏폼매물</span>
               <button type="button" role="switch" aria-checked={videoOnly} className={videoOnly ? "is-on" : ""} onClick={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))}><span /></button>
             </div>
             <label className="quick-style-select">

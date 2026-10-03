@@ -239,15 +239,15 @@
 .marketplace.is-bbm-m .bbm-category-menu__button { gap: 8px; }
 /* 퀵필터 레일(규격 그대로) 아래 회색 8: 레일 안쪽 여백을 줄이지 않도록 다음 줄 위에 둔다 */
 .marketplace.is-bbm-m .depth-rail + .bbm-m-options { margin-top: 8px; box-shadow: 0 -8px 0 var(--bbm-page-bg); }
-/* 모바일 목록 제어 48: 영상 매물 · 개인 · 딜러 → 정렬 → 보기 방식. 별도 구분선은 두지 않는다. */
+/* 모바일 목록 제어 48: 숏폼매물 · 개인 · 딜러 → 정렬 → 보기 방식. 별도 구분선은 두지 않는다. */
 .bbm-m-options { display: flex; align-items: center; height: 48px; padding: 8px 16px; overflow: hidden; border-bottom: 1px solid var(--bbm-line); box-sizing: border-box; background: #fff; }
 .bbm-m-sort { display: inline-flex; flex: none; align-items: center; gap: 4px; height: 32px; padding: 0; border: 0; background: none; color: var(--bbm-text); font: inherit; font-size: 14px; font-weight: 600; line-height: 20px; white-space: nowrap; cursor: pointer; }
 .bbm-m-sort img { width: 18px; height: 18px; }
 .bbm-m-filter-tabs { display: flex; flex: 1 1 auto; min-width: 0; height: 32px; align-items: center; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: none; }
 .bbm-m-filter-tabs::-webkit-scrollbar { display: none; }
 .bbm-m-filter-tab { display: inline-flex; flex: none; align-items: center; justify-content: center; gap: 6px; height: 32px; padding: 6px 8px; border: 0; border-radius: 16px; background: transparent; color: var(--bbm-tab-inactive); font: inherit; font-size: 14px; font-weight: 500; line-height: 20px; white-space: nowrap; cursor: pointer; }
-.bbm-m-filter-tab.is-selected { padding-inline: 10px; border: 2px solid #222; box-sizing: border-box; background: #fff; color: #222; font-weight: 600; box-shadow: 0 2px 6px rgba(0, 0, 0, .12); }
-.bbm-m-filter-clear { font-size: 17px; font-weight: 400; line-height: 16px; }
+.bbm-m-filter-tab.is-selected { height: 28px; padding: 4px 8px; gap: 2px; border: 0; border-radius: 99px; box-sizing: border-box; background: #222; color: #fff; font-size: 12px; font-weight: 700; line-height: 18px; box-shadow: none; }
+.bbm-m-filter-clear { flex: none; width: 16px; height: 16px; }
 .bbm-m-options .bbm-m-sort { margin-left: 8px; }
 .bbm-m-options .quick-style-select { flex: none; margin: 0 8px; }
 .bbm-m-view { display: grid; flex: none; width: 24px; height: 32px; margin-left: 4px; place-items: center; padding: 0; border: 0; background: none; }

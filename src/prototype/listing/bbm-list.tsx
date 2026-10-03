@@ -1,5 +1,5 @@
 import { useState, type KeyboardEvent, type ReactNode } from "react";
-import { DashboardIcon } from "@radix-ui/react-icons";
+import { Cross2Icon, DashboardIcon } from "@radix-ui/react-icons";
 import { asset, displayListPlace, sellerAvatar, sellerLabel, type Car } from "../data";
 import { bbmCardBadges, bbmCardSpec } from "../data/bbm-card-samples";
 import { truckFormatCatalog } from "../data/truck-format-catalog";
@@ -278,7 +278,7 @@ export function BbmBrandMenu({ items, selected, renderLogo, onChoose }: { items:
   );
 }
 
-// ── 모바일 목록 제어 줄: 정렬 · 영상 매물 · 판매자 · 보기 방식
+// ── 모바일 목록 제어 줄: 숏폼매물 · 판매자 · 정렬 · 보기 방식
 export function BbmMobileOptions<T extends string>({
   videoOnly,
   onToggleVideo,
@@ -301,16 +301,16 @@ export function BbmMobileOptions<T extends string>({
   extra?: ReactNode;
 }) {
   return (
-    <nav className="bbm-m-options" aria-label="정렬, 영상 매물, 판매자 유형과 보기 방식">
-      <div className="bbm-m-filter-tabs" role="group" aria-label="영상 매물과 판매자 유형">
+    <nav className="bbm-m-options" aria-label="숏폼매물, 판매자 유형, 정렬과 보기 방식">
+      <div className="bbm-m-filter-tabs" role="group" aria-label="숏폼매물과 판매자 유형">
         <button type="button" className={`bbm-m-filter-tab${videoOnly ? " is-selected" : ""}`} aria-pressed={videoOnly} onClick={onToggleVideo}>
-          <span>영상 매물</span>{videoOnly ? <span className="bbm-m-filter-clear" aria-hidden="true">×</span> : null}
+          <span>숏폼매물</span>{videoOnly ? <Cross2Icon className="bbm-m-filter-clear" aria-hidden="true" /> : null}
         </button>
         {sellerTabs.map((tab) => {
           const selected = sellerValue === tab;
           return (
             <button key={tab} type="button" className={`bbm-m-filter-tab${selected ? " is-selected" : ""}`} aria-pressed={selected} onClick={() => onSellerChange(tab)}>
-              <span>{tab}</span>{selected ? <span className="bbm-m-filter-clear" aria-hidden="true">×</span> : null}
+              <span>{tab}</span>{selected ? <Cross2Icon className="bbm-m-filter-clear" aria-hidden="true" /> : null}
             </button>
           );
         })}

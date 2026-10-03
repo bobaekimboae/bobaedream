@@ -134,7 +134,7 @@
 ## Quick Filter Alignment (QF-113)
 
 - Guazi 퀵필터의 이미지 뎁스는 초톳처럼 왼쪽에 제목을 둔다: `유형`, `세부유형`, `제조사`, `모델`, `세부모델`. 단, 첫 화면의 최상위 차량 카테고리 아이콘 줄은 제목과 제목 칸을 두지 않고 왼쪽부터 바로 시작한다. 이후 제목 칸은 PC 92px(텍스트 왼쪽 20px), 모바일 76px(텍스트 왼쪽 16px)로 고정해 제목 길이와 무관하게 첫 이미지 슬롯의 x를 맞춘다. 하위 알약 줄도 같은 제목 칸을 사용한다. `트림`, `연식`, `지역` 알약 줄의 기존 제목은 유지한다.
-- 모바일 앱의 `영상 매물`은 초톳 앱처럼 별도 스위치 없이 문구 자체를 누르는 텍스트 필터로 사용한다. 기본은 회색 500, 선택은 검정 600이며 `aria-pressed`로 상태를 제공한다. PC는 문구 오른쪽의 38×22px 스위치(손잡이 16px·내부 여백 3px·이동 16px)를 유지한다.
+- 모바일 앱의 `숏폼매물`은 초톳 앱처럼 별도 스위치 없이 문구 자체를 누르는 텍스트 필터로 사용한다. 선택 상태는 초톳 실측 규격(높이 28px·좌우 8px·99px 라운드·12/18px 700·16px 해제 아이콘·무테두리·무그림자)을 따르고, 색상만 보배드림 Airbnb형 `#222` 배경·흰 글자로 바꾼다. PC는 문구 오른쪽의 38×22px 스위치(손잡이 16px·내부 여백 3px·이동 16px)를 유지한다.
 - The `필터` chip keeps its text and appends the count (`필터` → `필터 2`, #222 when any condition) with a fixed 92px width, so the next chip never shifts (PC 240 at 1440 · mobile 114).
 - Mobile Guazi follows the ChoTot chip rhythm at 384px: the rail keeps 16px screen-side margins, 4px between ordinary chips, and 32px chip height. Normal, selected, and fixed filter chips use symmetric 12px inline padding and a 2px icon/text, text/arrow, or text/clear gap. The fixed filter chip remains 92px wide, including its existing 6px separation from the scrolling chip rail.
 - The landing first chip is `중고차` (not `전체차량`) in guazi only; other modes keep `전체차량`.
@@ -196,12 +196,12 @@
 
 ### 모바일 목록 제어행
 
-- 초톳 원본처럼 퀵필터 이미지·로고 레일 아래에 제어행 하나만 둔다. 별도의 `영상 매물` 행과 판매자 탭 행으로 나누지 않는다.
-- 왼쪽부터 `영상 매물 → 개인 → 딜러 → 정렬 → 보기 방식` 순서다. 세로 구분선은 두지 않으며, `전체`와 `브랜드` 탭도 이 모바일 제어행에 표시하지 않는다.
+- 초톳 원본처럼 퀵필터 이미지·로고 레일 아래에 제어행 하나만 둔다. 별도의 `숏폼매물` 행과 판매자 탭 행으로 나누지 않는다.
+- 왼쪽부터 `숏폼매물 → 개인 → 딜러 → 정렬 → 보기 방식` 순서다. 세로 구분선은 두지 않으며, `전체`와 `브랜드` 탭도 이 모바일 제어행에 표시하지 않는다.
 - 제어행은 높이 48px, 좌우 16px, 상하 8px이며 아래에 1px 구분선을 둔다. 정렬과 비선택 탭은 14/20px, 정렬 600·탭 500이다.
-- `영상 매물`, `개인`, `딜러`는 텍스트 탭이다. 선택된 항목만 높이 32px·완전 원형·흰 배경·`#222` 글자·2px 외곽선·`rgba(0,0,0,.12)` 그림자와 해제 표시를 사용하는 우리 Airbnb형 상태로 바뀐다. 영상과 판매자 선택은 동시에 표시할 수 있다.
+- `숏폼매물`, `개인`, `딜러`는 텍스트 탭이다. 선택된 항목만 초톳과 같은 높이 28px·좌우 8px·99px 라운드·12/18px 700·16px 해제 아이콘·무테두리·무그림자로 바뀌며, 색상만 `#222` 배경·흰 글자를 사용한다. 숏폼과 판매자 선택은 동시에 표시할 수 있다.
 - 정렬은 아래 방향 꺾쇠, 보기 방식은 24px 4칸 그리드 아이콘을 사용한다. 좁은 화면에서는 왼쪽 선택 탭 묶음만 가로 스크롤하며 오른쪽의 정렬과 보기 방식은 고정한다.
-- PC의 `영상 매물` 문구 + 38×22px 스위치는 유지한다.
+- PC도 `숏폼매물` 문구 + 38×22px 스위치를 사용한다.
 
 - These rules apply to the Guazi Bobaedream mobile listing (`.bbm-m-list`) at the 384px CSS-width reference. List and feed typography are intentionally different; do not merge their font-size rules.
 - A vehicle title is always two semantic rows, not one title that happens to wrap: row 1 is manufacturer + model (`.bbm-card-model`), and row 2 is detailed model/trim (`.bbm-card-trim`). Each row stays on one line and ellipsizes independently. Do not add an arbitrary margin between the detailed-model row and the specification row.
