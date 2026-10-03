@@ -134,8 +134,9 @@
 .bbmf-sheet-back { padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
 
 /* CAT-001: 초톳 방식의 상위 아이콘 + 하위 알약칩. 긴 이름은 말줄임표 없이 가로 스크롤로 보인다. */
-.marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical { width:100%; overflow:hidden; border-bottom:0; background:#fff; }
-.marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-menu__list { width:max-content; overflow:visible; gap:8px; padding:2px 20px 12px; }
+.marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical { width:100%; overflow:visible; border-bottom:0; background:#fff; }
+.marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-menu__list { width:100%; overflow-x:auto; gap:8px; padding:2px 20px 12px; box-sizing:border-box; scrollbar-width:none; }
+.marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-menu__list::-webkit-scrollbar { display:none; }
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-menu__item { width:76px; }
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-menu__button { justify-content:flex-start; gap:7px; width:76px; height:92px; padding:0; }
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-menu__icon-box.is-category-icon { flex:none; width:44px; height:44px; margin:0; border:1px solid transparent; border-radius:50%; box-sizing:border-box; background:#f4f4f4; }
@@ -143,7 +144,7 @@
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-menu__button.is-selected .bbm-category-menu__icon-box.is-category-icon { border-color:#222; background:#fff; box-shadow:0 0 0 1px #222 inset; }
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-menu__label { display:block; width:76px; min-height:36px; overflow:visible; color:#595959; font-size:13px; font-weight:500; line-height:18px; text-align:center; white-space:normal; word-break:keep-all; -webkit-line-clamp:unset; }
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-menu__button.is-selected .bbm-category-menu__label { color:#222; font-weight:700; }
-.marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-child-pills { display:flex; width:auto; overflow-x:auto; flex-wrap:nowrap; gap:8px; padding:0 20px 16px; scrollbar-width:none; }
+.marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-child-pills { display:flex; width:100%; overflow-x:auto; flex-wrap:nowrap; gap:8px; padding:0 20px 16px; box-sizing:border-box; scrollbar-width:none; overscroll-behavior-x:contain; touch-action:pan-x; }
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-child-pills::-webkit-scrollbar { display:none; }
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-child-pills button { flex:none; min-height:32px; padding:6px 12px; border:0; border-radius:9999px; background:#f4f4f4; color:#222; font:inherit; font-size:14px; font-weight:500; line-height:20px; white-space:nowrap; cursor:pointer; }
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-child-pills button.is-selected { background:#222; color:#fff; }
