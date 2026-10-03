@@ -501,13 +501,22 @@
 .bbmf-sheet.is-category .bbmf-sheet-header .bbmf-close:hover { background: #f4f4f4; }
 .bbmf-sheet.is-category .bbmf-sheet-header .bbmf-close img { width: 24px; height: 24px; }
 .bbmf-sheet.is-category .bbmf-sheet-body { padding: 20px 16px 22px; }
-.bbm-category-picker__all { min-height:32px; padding:6px 12px; border:0; border-radius:9999px; background:#f4f4f4; color:#222; font-family:inherit; font-size:14px; font-weight:500; line-height:20px; cursor:pointer; }
-.bbm-category-picker__group { margin-top:12px; padding-top:12px; border-top:1px solid #ebebeb; }
-.bbm-category-picker__heading { display:flex; align-items:center; gap:10px; height:32px; color:#222; font-size:15px; }
-.bbm-category-picker__heading img { width:22px; height:22px; object-fit:contain; }
-.bbm-category-picker__pills { display:flex; flex-wrap:wrap; gap:8px 4px; margin-top:8px; }
-.bbm-category-picker__pills button { min-height:32px; padding:6px 12px; border:0; border-radius:9999px; background:#f4f4f4; color:#222; font-family:inherit; font-size:14px; font-weight:500; line-height:20px; cursor:pointer; }
-.bbm-category-picker__pills button.is-selected { background:#222; color:#fff; }
+.bbm-category-picker { min-width:0; }
+.bbm-category-picker__icons { margin:0 -16px; overflow-x:auto; scrollbar-width:none; }
+.bbm-category-picker__icons::-webkit-scrollbar { display:none; }
+.bbm-category-picker__icons .bbm-category-menu__list { width:max-content; gap:8px; padding:0 16px 18px; }
+.bbm-category-picker__icons .bbm-category-menu__item { width:72px; }
+.bbm-category-picker__icons .bbm-category-menu__button { width:72px; gap:7px; }
+.bbm-category-picker__icons .bbm-category-menu__icon-box.is-category-icon { width:48px; height:48px; border:1px solid transparent; border-radius:50%; box-sizing:border-box; background:#f4f4f4; }
+.bbm-category-picker__icons .bbm-category-menu__icon-box.is-category-icon img { width:27px; height:27px; object-fit:contain; }
+.bbm-category-picker__icons .bbm-category-menu__button.is-selected .bbm-category-menu__icon-box.is-category-icon { border-color:#222; background:#fff; box-shadow:0 0 0 1px #222 inset; }
+.bbm-category-picker__icons .bbm-category-menu__label { display:block; width:72px; min-height:40px; color:#595959; font-size:13px; font-weight:500; line-height:20px; white-space:normal; word-break:keep-all; }
+.bbm-category-picker__icons .bbm-category-menu__button.is-selected .bbm-category-menu__label { color:#222; font-weight:700; }
+.bbm-category-picker__group { padding-top:16px; border-top:1px solid #ebebeb; }
+.bbm-category-picker__title { display:block; margin-bottom:12px; color:#222; font-size:15px; font-weight:700; line-height:22px; }
+.bbm-category-child-pills { display:flex; flex-wrap:wrap; gap:8px 6px; }
+.bbm-category-child-pills button { min-height:32px; max-width:100%; padding:6px 12px; border:0; border-radius:9999px; background:#f4f4f4; color:#222; font-family:inherit; font-size:14px; font-weight:500; line-height:20px; text-align:left; white-space:normal; word-break:keep-all; cursor:pointer; }
+.bbm-category-child-pills button.is-selected { background:#222; color:#fff; }
 .bbmf-category-footer { display:flex; flex:none; align-items:flex-start; gap:10px; height:80px; padding:12px 20px 16px; box-sizing:border-box; background:#fff; box-shadow:0 -4px 12px rgba(0,0,0,.06); }
 .bbmf-category-footer button { width:92px; height:52px; padding:0; border:0; border-radius:12px; background:transparent; color:#222; font-family:inherit; font-size:16px; font-weight:700; line-height:22px; cursor:pointer; }
 .bbmf-category-footer button:hover { background:#f4f4f4; }

@@ -1265,8 +1265,8 @@ function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
     || category === "전기차" && data.fuel === "전기"
     || category === "트럭 · 특장" && Boolean(car.truck)
     || category === "바이크" && Boolean(car.bike)
-    || category === "건설기계" && Boolean(car.heavy)
-    || ["캠핑카", "올드카", "부품 · 용품"].includes(category);
+    || ["건설기계", "자재운반장비"].includes(category) && Boolean(car.heavy)
+    || ["캠핑카", "올드카", "리스/렌트차량", "럭셔리카", "슈퍼카", "브랜드 인증중고차", "매매단지별 검색", "팔린매물", "장애인차", "부품 · 용품"].includes(category);
   const yearMatch = value.year === "전체"
     || value.year === "2024~2026" && data.year >= 2024
     || value.year === "2021~2023" && data.year >= 2021 && data.year <= 2023

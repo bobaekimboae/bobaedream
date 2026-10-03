@@ -534,6 +534,8 @@ function MarketplaceScreen() {
   const [bbmFullOpen, setBbmFullOpen] = useState(() => initialAutohomeMakerSheetPreview());
   const [bbmCategoryOpen, setBbmCategoryOpen] = useState(false);
   const [bbmCategoryDraft, setBbmCategoryDraft] = useState(() => initialFilters.category);
+  const [bbmCategoryChild, setBbmCategoryChild] = useState<string | null>(null);
+  const [bbmCategoryChildDraft, setBbmCategoryChildDraft] = useState<string | null>(null);
   const [bbmFullItem, setBbmFullItem] = useState<BbmFilterItem | "카테고리" | "제조사 · 모델" | null>(() => initialAutohomeMakerSheetPreview() ? "제조사 · 모델" : null);
   const [bbmMakerDraft, setBbmMakerDraft] = useState<string | null>(() => initialAutohomeMakerSheetPreview() ? initialFilters.maker : null);
   const [bbmKeepSearch, setBbmKeepSearch] = useState(false);
@@ -571,7 +573,7 @@ function MarketplaceScreen() {
   const regionKeyword = region.province === "광주" ? "광주" : region.province;
   const { maker, model: selectedModel, price, seller: sellerType, videoOnly, category } = filters;
   const isBikeCategory = category === "바이크";
-  const isHeavyCategory = category === "건설기계";
+  const isHeavyCategory = category === "건설기계" || category === "자재운반장비";
   const isTruckCategory = category === "트럭 · 특장";
   const autohomeLogoPreview = new URLSearchParams(window.location.search).get("brandlogo") === "autohome";
   const truckSubtypeOptions = truckSubtypesFor(selectedTruckFormat);
@@ -1101,6 +1103,12 @@ function MarketplaceScreen() {
     closeSheet();
   };
 
+  const chooseHierarchyCategory = (categoryName: string, detail?: string) => {
+    chooseVehicleCategory(categoryName);
+    setBbmCategoryChild(detail ?? null);
+    if (categoryName === "트럭 · 특장" && detail) chooseTruckFormat(detail);
+  };
+
   const guaziVisualsForMaker = maker ? modelVisualsByMakerMap[maker] : undefined;
   const selectedGenerationVisual = selectedGenerationOption?.image ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.image : undefined);
   const selectedGenerationSummary = selectedGenerationOption
@@ -1323,7 +1331,7 @@ function MarketplaceScreen() {
           </section> :
           showYearQuickRail ? <StableYearRow value={bbmValue} onChange={(next) => setBbmFilters(next)} /> :
           // QF-091: 과쯔(개발 시안형)는 퀵필터 0단계 대신 원본 차량 유형 줄. 유형을 고르면 같은 자리가 제조사 레일로 바뀐다
-          showCategoryQuickRail && isGuaziQuickStyle ? <BbmCategoryMenu onChoose={chooseVehicleCategory} /> : showCategoryQuickRail ? <section className="category-row" aria-label="차량 대카테고리 선택">
+          showCategoryQuickRail && isGuaziQuickStyle ? <BbmCategoryMenu onChoose={chooseHierarchyCategory} /> : showCategoryQuickRail ? <section className="category-row" aria-label="차량 대카테고리 선택">
             <Carousel ariaLabel="차량 대카테고리" className="category-carousel" contentClassName="category-track">
               {vehicleCategories.map((categoryOption) => (
                 <button key={categoryOption.name} className="category-item" type="button" onClick={() => chooseVehicleCategory(categoryOption.name)}>
@@ -1599,6 +1607,7 @@ function MarketplaceScreen() {
       active: false,
       onClick: () => {
         setBbmCategoryDraft(category);
+        setBbmCategoryChildDraft(category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild);
         setBbmCategoryOpen(true);
       },
     },
@@ -2004,8 +2013,8 @@ function MarketplaceScreen() {
         <BbmBottomGnb onNotify={setSearchToast} />
         {bbmMenu === "m-sort" ? <BbmSheet title="정렬" flush onClose={() => setBbmMenu(null)}><BbmPopOptions options={bbmSortOptions} selected={bbmSort} onSelect={chooseBbmSort} /></BbmSheet> : null}
         {bbmMenu === "m-view" ? <BbmSheet title="리스트 필터" flush onClose={() => setBbmMenu(null)}><BbmPopOptions options={bbmViewOptionsMobile} selected={bbmMobileView} onSelect={chooseBbmView} /></BbmSheet> : null}
-        {bbmCategoryOpen ? <BbmSheet variant="category" title="카테고리" onClose={() => setBbmCategoryOpen(false)} footer={<div className="bbmf-category-footer"><button type="button" onClick={() => setBbmCategoryDraft("전체")}>초기화</button><button type="button" className="bbmf-category-confirm" onClick={() => { chooseVehicleCategory(bbmCategoryDraft); setBbmCategoryOpen(false); }}>선택</button></div>}>
-          <BbmCategoryPicker selected={bbmCategoryDraft} onViewAll={() => setSearchToast("전체 카테고리에서 차량 그룹을 보고 있어요.")} onChoose={setBbmCategoryDraft} />
+        {bbmCategoryOpen ? <BbmSheet variant="category" title="카테고리" onClose={() => setBbmCategoryOpen(false)} footer={<div className="bbmf-category-footer"><button type="button" onClick={() => { setBbmCategoryDraft("전체"); setBbmCategoryChildDraft(null); }}>초기화</button><button type="button" className="bbmf-category-confirm" onClick={() => { chooseHierarchyCategory(bbmCategoryDraft, bbmCategoryChildDraft ?? undefined); setBbmCategoryOpen(false); }}>선택</button></div>}>
+          <BbmCategoryPicker selected={bbmCategoryDraft} selectedChild={bbmCategoryChildDraft} onChoose={(label, detail) => { setBbmCategoryDraft(label); setBbmCategoryChildDraft(detail ?? null); }} />
         </BbmSheet> : null}
         {bbmFullOpen ? (
           <BbmFullFilter
@@ -2049,7 +2058,7 @@ function MarketplaceScreen() {
         ) : null}
         {bbmFullOpen && bbmFullItem && bbmFullItem !== "제조사 · 모델" && !(bbmFullItem !== "카테고리" && (bbmFullItem.checkKey === "sellerKind" || bbmFullItem.checkKey === "bodyType" || (bbmFullItem.label === "주행거리" || bbmFullItem.label === "가격") && isGuaziQuickStyle || bbmFullItem.label === "형식/적재용량")) ? (
           <BbmSheet title={bbmFullItem === "카테고리" ? "카테고리" : bbmFullItem.modalTitle ?? bbmFullItem.displayLabel ?? bbmFullItem.label} modalBody={bbmFullItem !== "카테고리" && bbmFullItem.mode !== "expand"} onClose={closeFullItem} footer={<BbmActionBar variant="sheet" confirmStyle="보기" count={bbmFullItem === "카테고리" ? visibleCars.length : countWithBbm(sheetValue)} onReset={() => { if (bbmFullItem !== "카테고리") setSheetValue(clearBbmItem(bbmFullItem, sheetValue)); }} onConfirm={() => { setBbmFilters(sheetValue); closeFullItem(); }} />}>
-            {bbmFullItem === "카테고리" ? <BbmCategoryMenu onChoose={(label) => { chooseVehicleCategory(label); setBbmFullItem(null); }} />
+            {bbmFullItem === "카테고리" ? <BbmCategoryMenu onChoose={(label, detail) => { chooseHierarchyCategory(label, detail); setBbmFullItem(null); }} />
               : bbmFullItem.mode === "expand" ? <div className="bbmf-chip-expand"><BbmExpandPanel label={bbmFullItem.label} variant={bbmFullItem.label === "가격" ? "chip" : "sidebar"} value={sheetValue} onChange={setSheetValue} countOf={bbmCountOf} /></div>
               : <BbmModalPanel item={bbmFullItem} value={sheetValue} onChange={setSheetValue} countOf={bbmCountOf} />}
           </BbmSheet>

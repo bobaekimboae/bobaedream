@@ -1,6 +1,7 @@
 import { useState, type KeyboardEvent, type ReactNode } from "react";
 import { asset, displayListPlace, sellerAvatar, sellerLabel, type Car } from "../data";
 import { bbmCardBadges, bbmCardSpec } from "../data/bbm-card-samples";
+import { truckFormatCatalog } from "../data/truck-format-catalog";
 import "./bbm-tokens.css";
 
 // QF-091: 개발 시안(dev.bbmuseum.co.kr/car/list) 원본과 같은 목록 부품. 수치·아이콘은 원본에서 뽑은 값(bbm-tokens.css, public/assets/bbm/).
@@ -58,6 +59,121 @@ export const bbmCategoryItems: Array<[value: string, image: string, label?: stri
   ["부품 · 용품", "category-photo/vehicle_type_parts_v01.png"],
 ];
 
+type BbmCategoryChild = {
+  label: string;
+  value: string;
+  detail?: string;
+};
+
+type BbmCategoryGroup = {
+  value: string;
+  label: string;
+  icon: string;
+  children: readonly BbmCategoryChild[];
+};
+
+const categoryIcon = (file: string) => `category/icons/v01/${file}`;
+
+// 노션에서 전달받은 원본 SVG 7개를 그대로 쓰고, 초톳처럼 상위는 아이콘·하위는 알약칩으로 분리한다.
+// 사용자가 명시하지 않은 하위 분류는 임의로 만들지 않고 "전체"만 둔다.
+export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
+  {
+    value: "중고차",
+    label: "중고차",
+    icon: categoryIcon("category_used_car_v01.svg"),
+    children: [
+      { label: "전체차량", value: "중고차" },
+      { label: "국산차", value: "국산차" },
+      { label: "수입차", value: "수입차" },
+      { label: "전기차", value: "전기차" },
+      { label: "리스/렌트차량", value: "리스/렌트차량" },
+      { label: "올드카", value: "올드카" },
+      { label: "럭셔리카", value: "럭셔리카" },
+      { label: "슈퍼카", value: "슈퍼카" },
+      { label: "브랜드 인증중고차", value: "브랜드 인증중고차" },
+      { label: "매매단지별 검색", value: "매매단지별 검색" },
+      { label: "팔린매물", value: "팔린매물" },
+      { label: "장애인차", value: "장애인차" },
+    ],
+  },
+  {
+    value: "트럭 · 특장",
+    label: "트럭/특장차",
+    icon: categoryIcon("category_truck_special_v01.svg"),
+    children: [
+      { label: "전체", value: "트럭 · 특장" },
+      ...truckFormatCatalog.map((group) => ({ label: group.name, value: "트럭 · 특장", detail: group.name })),
+    ],
+  },
+  {
+    value: "바이크",
+    label: "바이크",
+    icon: categoryIcon("category_bike_v01.svg"),
+    children: [{ label: "전체", value: "바이크" }],
+  },
+  {
+    value: "캠핑카",
+    label: "캠핑카",
+    icon: categoryIcon("category_camper_v01.svg"),
+    children: [
+      { label: "전체", value: "캠핑카" },
+      { label: "모터홈", value: "캠핑카", detail: "모터홈" },
+      { label: "캐러밴", value: "캠핑카", detail: "캐러밴" },
+    ],
+  },
+  {
+    value: "건설기계",
+    label: "건설기계",
+    icon: categoryIcon("category_construction_v01.svg"),
+    children: [{ label: "전체", value: "건설기계" }],
+  },
+  {
+    value: "자재운반장비",
+    label: "자재운반장비",
+    icon: categoryIcon("category_material_handling_v01.svg"),
+    children: [{ label: "전체", value: "자재운반장비" }],
+  },
+  {
+    value: "부품 · 용품",
+    label: "부품/용품",
+    icon: categoryIcon("category_parts_v01.svg"),
+    children: [{ label: "전체", value: "부품 · 용품" }],
+  },
+];
+
+function categoryGroupForSelection(selected: string) {
+  return bbmCategoryGroups.find((group) => group.value === selected || group.children.some((child) => child.value === selected)) ?? bbmCategoryGroups[0];
+}
+
+function BbmCategoryIconRow({ activeValue, onActivate }: { activeValue: string; onActivate: (value: string) => void }) {
+  return (
+    <ul className="bbm-category-menu__list" role="list">
+      {bbmCategoryGroups.map((group) => {
+        const isSelected = group.value === activeValue;
+        return (
+          <li key={group.value} className="bbm-category-menu__item">
+            <button type="button" className={`bbm-category-menu__button${isSelected ? " is-selected" : ""}`} aria-pressed={isSelected} onClick={() => onActivate(group.value)}>
+              <span className="bbm-category-menu__icon-box is-category-icon"><img src={asset(group.icon)} alt="" aria-hidden="true" draggable={false} /></span>
+              <span className="bbm-category-menu__label">{group.label}</span>
+            </button>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+function BbmCategoryChildPills({ group, selected, selectedChild, onChoose }: { group: BbmCategoryGroup; selected?: string; selectedChild?: string | null; onChoose: (value: string, detail?: string) => void }) {
+  return (
+    <div className="bbm-category-child-pills" role="group" aria-label={`${group.label} 하위 카테고리`}>
+      {group.children.map((child) => {
+        const isSelected = child.detail ? selected === child.value && selectedChild === child.detail : selected === child.value && !selectedChild;
+        return <button key={`${child.value}-${child.detail ?? child.label}`} type="button" className={isSelected ? "is-selected" : ""} aria-pressed={isSelected} onClick={() => onChoose(child.value, child.detail)}>{child.label}</button>;
+      })}
+    </div>
+  );
+}
+
 type ImageGuideFamily = "body" | "gclass" | "heavy";
 
 const imageGuideItems: Record<ImageGuideFamily, Array<[value: string, image: string, label?: string]>> = {
@@ -84,9 +200,19 @@ function getImageGuideFamily(): ImageGuideFamily | null {
   return value === "body" || value === "gclass" || value === "heavy" ? value : null;
 }
 
-export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string) => void }) {
+export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string, detail?: string) => void }) {
   const imageGuideFamily = getImageGuideFamily();
   const items = imageGuideFamily ? imageGuideItems[imageGuideFamily] : bbmCategoryItems;
+  const [activeValue, setActiveValue] = useState(bbmCategoryGroups[0].value);
+  if (!imageGuideFamily) {
+    const activeGroup = bbmCategoryGroups.find((group) => group.value === activeValue) ?? bbmCategoryGroups[0];
+    return (
+      <section className="bbm-category-menu is-hierarchical" aria-label="차량 카테고리">
+        <BbmCategoryIconRow activeValue={activeGroup.value} onActivate={setActiveValue} />
+        <BbmCategoryChildPills group={activeGroup} onChoose={onChoose} />
+      </section>
+    );
+  }
   return (
     <section className={`bbm-category-menu${imageGuideFamily ? " is-image-guide" : ""}`} aria-label={imageGuideFamily ? "AI 제작 이미지 슬롯 검수" : "차량 유형"} data-image-guide={imageGuideFamily ?? undefined}>
       <ul className="bbm-category-menu__list">
@@ -105,22 +231,14 @@ export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string) => voi
 
 // QF-121: 초톳 모바일 카테고리 바텀시트처럼 그룹 제목 + 32px 알약 칩으로 선택한다.
 // 실사 퀴필터 레일과 바텀시트의 역할을 분리해, 시트에서는 중복 이미지를 나열하지 않는다.
-export function BbmCategoryPicker({ selected, onChoose, onViewAll }: { selected: string; onChoose: (label: string) => void; onViewAll: () => void }) {
+export function BbmCategoryPicker({ selected, selectedChild, onChoose }: { selected: string; selectedChild?: string | null; onChoose: (label: string, detail?: string) => void }) {
+  const initialGroup = categoryGroupForSelection(selected);
+  const [activeValue, setActiveValue] = useState(initialGroup.value);
+  const activeGroup = bbmCategoryGroups.find((group) => group.value === activeValue) ?? initialGroup;
   return (
     <section className="bbm-category-picker" aria-label="차량 카테고리 선택">
-      <button type="button" className="bbm-category-picker__all" onClick={onViewAll}>모든 카테고리 보기</button>
-      <div className="bbm-category-picker__group">
-        <div className="bbm-category-picker__heading">
-          <img src={asset("categories/used-car.svg")} alt="" aria-hidden="true" />
-          <strong>차량</strong>
-        </div>
-        <div className="bbm-category-picker__pills" role="group" aria-label="차량 카테고리">
-          <button type="button" className={selected === "전체" ? "is-selected" : ""} aria-pressed={selected === "전체"} onClick={() => onChoose("전체")}>전체 차량</button>
-          {bbmCategoryItems.map(([value, , label = value]) => (
-            <button key={value} type="button" className={selected === value ? "is-selected" : ""} aria-pressed={selected === value} onClick={() => onChoose(value)}>{value === "건설기계" ? "건설기계" : label}</button>
-          ))}
-        </div>
-      </div>
+      <div className="bbm-category-picker__icons"><BbmCategoryIconRow activeValue={activeGroup.value} onActivate={setActiveValue} /></div>
+      <div className="bbm-category-picker__group"><strong className="bbm-category-picker__title">{activeGroup.label}</strong><BbmCategoryChildPills group={activeGroup} selected={selected} selectedChild={selectedChild} onChoose={onChoose} /></div>
     </section>
   );
 }

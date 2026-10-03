@@ -26,7 +26,11 @@ export type ChoTotFilterState = {
 
 export type ChoTotFilterFocus = "category" | "price" | "seats" | "maker" | "model" | "year" | "condition" | "mileage" | "owners" | "transmission" | "fuel" | "color" | "origin" | "body" | "video" | "seller";
 
-export const vehicleCategoryOptions = ["전체", "중고차", "국산차", "수입차", "전기차", "트럭 · 특장", "바이크", "캠핑카", "올드카", "건설기계", "부품 · 용품"];
+export const vehicleCategoryOptions = [
+  "전체", "중고차", "국산차", "수입차", "전기차", "리스/렌트차량", "올드카", "럭셔리카", "슈퍼카",
+  "브랜드 인증중고차", "매매단지별 검색", "팔린매물", "장애인차", "트럭 · 특장", "바이크", "캠핑카",
+  "건설기계", "자재운반장비", "부품 · 용품",
+];
 
 export const emptyChoTotFilters: ChoTotFilterState = {
   category: "전체",
