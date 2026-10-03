@@ -1343,8 +1343,6 @@ function MarketplaceScreen() {
     label: selectedParent || fallback,
     className: selectedParent ? "depth-rail-label is-parent-context" : "depth-rail-label",
   });
-  const truckSubtypeContext = contextualDepthLabel("세부유형", selectedTruckFormat);
-  const truckSpecContext = contextualDepthLabel("적재·규격:", selectedTruckSubtype ? truckSubtypeLabel(selectedTruckSubtype) : null);
   const makerContextParent = isTruckCategory
     ? selectedTruckSpec ?? (selectedTruckSubtype ? truckSubtypeLabel(selectedTruckSubtype) : null)
     : categoryIsDefault ? null : category;
@@ -1366,19 +1364,17 @@ function MarketplaceScreen() {
           // QF-105: 트림까지 고르면 퀵필터 줄은 닫힌다(칩 [트림 ×] 로 다시 연다)
           // QF-106: ④ 퀵필터 자리는 닫지 않는다 — 계층(제조사 → 모델 → 세부모델 → 트림)이 끝나면 연식 알약 줄
           isHeavyCategory ? <HeavyQuickFilter value={heavySelection} onChange={applyHeavySelection} /> :
-          showTruckFormatRail ? <section className="depth-rail is-truck-image-row is-titleless" aria-label="트럭 형식 빠른 선택">
+          showTruckFormatRail ? <section className="depth-rail has-chotot-brand-slot is-truck-image-row is-titleless" aria-label="트럭 형식 빠른 선택">
             <QuickRailCarousel ariaLabel="트럭 형식" className="brand-carousel" contentClassName="depth-rail-track">
               {truckFormatCatalog.map((group) => <DepthCard key={group.name} className="is-truck-depth" label={desktop ? group.name : truckQuickLabel(group.name)} ariaLabel={group.name} image={<img src={asset(truckFormatImageFor(group.name) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckFormat(group.name)} />)}
             </QuickRailCarousel>
           </section> :
-          showTruckSubtypeRail ? <section className="depth-rail has-leading-label has-top-label is-truck-image-row" aria-label={`${selectedTruckFormat} 세부 형식 빠른 선택`}>
-            <span className={truckSubtypeContext.className}>{truckSubtypeContext.label}</span>
+          showTruckSubtypeRail ? <section className="depth-rail has-chotot-brand-slot is-truck-image-row is-titleless" aria-label={`${selectedTruckFormat} 세부 형식 빠른 선택`}>
             <QuickRailCarousel ariaLabel={`${selectedTruckFormat} 세부 형식`} className="brand-carousel" contentClassName="depth-rail-track">
               {truckSubtypeOptions.map((subtype) => <DepthCard key={subtype} className="is-truck-depth" label={desktop ? subtype : truckQuickLabel(subtype)} ariaLabel={subtype} image={<img src={asset(truckSubtypeImageFor(selectedTruckFormat, subtype) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckSubtype(subtype)} />)}
             </QuickRailCarousel>
           </section> :
-          showTruckSpecRail ? <section className="depth-rail is-trim-row has-top-label" aria-label={`${selectedTruckSubtype} 적재용량 및 규격 빠른 선택`}>
-            <span className={truckSpecContext.className}>{truckSpecContext.label}</span>
+          showTruckSpecRail ? <section className="depth-rail is-trim-row no-label" aria-label={`${selectedTruckSubtype} 적재용량 및 규격 빠른 선택`}>
             <QuickRailCarousel ariaLabel={`${selectedTruckSubtype} 적재용량 및 규격`} className="brand-carousel" contentClassName="depth-rail-track is-chips">
               {truckSpecOptions.map((option) => <TrimChip key={`${option.group}-${option.value}`} label={truckSpecGroups.length > 1 ? `${option.group}: ${option.value}` : option.value} onClick={() => chooseTruckSpec(option.value)} />)}
             </QuickRailCarousel>
@@ -1394,8 +1390,8 @@ function MarketplaceScreen() {
                 </button>
               ))}
             </Carousel>
-          </section> : showModelQuickRail && isGuaziQuickStyle ? <section className={`depth-rail has-leading-label${isTruckCategory ? " has-top-label" : ""}`} aria-label={`${maker} 모델 빠른 선택`}>
-            <span className={modelContext.className}>{modelContext.label}</span>
+          </section> : showModelQuickRail && isGuaziQuickStyle ? <section className={`depth-rail ${isTruckCategory ? "has-chotot-brand-slot" : "has-leading-label"}`} aria-label={`${maker} 모델 빠른 선택`}>
+            {!isTruckCategory ? <span className={modelContext.className}>{modelContext.label}</span> : null}
             <QuickRailCarousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName="depth-rail-track">
               {modelQuickOptions.map((model) => {
                 const modelVisual = guaziVisualsForMaker?.[model];
@@ -1422,8 +1418,8 @@ function MarketplaceScreen() {
                 return <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} disabled={Boolean(isCatalogMaker && modelVisual?.count === "0대")} onClick={() => chooseModel(model)}>{formatModelLabel(model)}</button>;
               })}
             </Carousel>
-          </section> : showGenerationQuickRail && isGuaziQuickStyle ? <section className={`depth-rail has-leading-label${isTruckCategory ? " has-top-label" : ""}`} aria-label={`${accessibleDepthLabel(selectedModel)} 세부모델 빠른 선택`}>
-            <span className={generationContext.className}>{generationContext.label}</span>
+          </section> : showGenerationQuickRail && isGuaziQuickStyle ? <section className={`depth-rail ${isTruckCategory ? "has-chotot-brand-slot" : "has-leading-label"}`} aria-label={`${accessibleDepthLabel(selectedModel)} 세부모델 빠른 선택`}>
+            {!isTruckCategory ? <span className={generationContext.className}>{generationContext.label}</span> : null}
             <QuickRailCarousel ariaLabel={`${accessibleDepthLabel(selectedModel)} 세부모델`} className="brand-carousel" contentClassName="depth-rail-track">
               {railGenerationOptions.map((generation) => {
                 // QF-097: 카탈로그 세부 모델은 자기 이미지만(없으면 점선 빈 칸)
@@ -1457,9 +1453,9 @@ function MarketplaceScreen() {
                 );
               })}
             </Carousel>
-          </section> : showVariantQuickRail && isGuaziQuickStyle ? <section className={`depth-rail is-trim-row${isTruckCategory ? " has-top-label" : ""}`} aria-label={`${accessibleDepthLabel(selectedGeneration ?? selectedModel)} 트림 빠른 선택`}>
+          </section> : showVariantQuickRail && isGuaziQuickStyle ? <section className={`depth-rail is-trim-row${isTruckCategory ? " no-label" : ""}`} aria-label={`${accessibleDepthLabel(selectedGeneration ?? selectedModel)} 트림 빠른 선택`}>
             {/* QF-105: 초톳 알약 줄 — "전체" 칩·선택 표시 없음, 처음엔 모든 트림, 누르면 바로 적용 */}
-            <span className={variantContext.className}>{variantContext.label}</span>
+            {!isTruckCategory ? <span className={variantContext.className}>{variantContext.label}</span> : null}
             <QuickRailCarousel ariaLabel={`${accessibleDepthLabel(selectedGeneration ?? selectedModel)} 트림`} className="brand-carousel" contentClassName="depth-rail-track is-chips">
               {variantTrimOptions.map((variant) => (
                 <TrimChip key={variant.name} label={variant.name} disabled={variant.count === 0} onClick={() => chooseTrimPill(variant.name)} />
@@ -1494,8 +1490,8 @@ function MarketplaceScreen() {
               <DepthCard key={item.label} className={typeList && sampleCount(item.key) === 0 ? "is-dim" : undefined} label={categoryRailLabel(category, item.label)} image={<CategoryBrandLogo category={category} name={item.label} kind={plainQuickCards ? "plain" : "rail"} initialFallback={Boolean(typeList)} />} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />
             );
             return (
-              <section className={`depth-rail has-leading-label is-kr-maker${isTruckCategory ? " has-top-label" : ""}`} aria-label={`${categoryBrandRail.title} 빠른 선택`}>
-                <span className={makerContext.className}>{makerContext.label}</span>
+              <section className={`depth-rail is-kr-maker ${isTruckCategory ? "has-chotot-brand-slot" : "has-leading-label"}`} aria-label={`${categoryBrandRail.title} 빠른 선택`}>
+                {!isTruckCategory ? <span className={makerContext.className}>{makerContext.label}</span> : null}
                 <QuickRailCarousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName="depth-rail-track">
                   {sections.domestic.map(card)}
                   {sections.domestic.length && sections.imported.length ? <span className="kr-maker-divider" aria-hidden="true" /> : null}

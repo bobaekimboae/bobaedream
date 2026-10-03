@@ -9,54 +9,28 @@
 .marketplace.is-bbm-m.is-qf-guazi .depth-rail.has-leading-label .depth-rail-track,
 .marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail.has-leading-label .depth-rail-track { padding-left: 0; }
 
-/* 트럭·특장 첫 이미지 줄은 제목 없이 전체 폭을 쓴다.
-   다음 줄부터는 긴 분류명이 이미지 폭을 줄이지 않도록 직전 선택값을 줄 위에 둔다. */
-.marketplace.is-qf-guazi .depth-rail.has-top-label,
-.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .depth-rail.has-leading-label.has-top-label,
-.marketplace.is-bbm-m.is-qf-guazi .depth-rail.has-leading-label.has-top-label {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  align-items: stretch;
+/* 트럭·특장은 좌측 문구를 표시하지 않되 초톳 제조사 로고 슬롯의 빈 제목 칸을 보존한다.
+   모바일 76px·PC 92px 뒤에 8px을 두어 모든 이미지·로고 레일의 첫 슬롯 축을 통일한다. */
+.marketplace.is-bbm.is-truck-category.is-qf-guazi .bbm-content-head.is-chotot .depth-rail.has-chotot-brand-slot {
+  grid-template-columns: 92px minmax(0, 1fr);
+  column-gap: 8px;
 }
-.marketplace.is-qf-guazi .depth-rail.has-top-label .depth-rail-label,
-.marketplace.is-qf-guazi .depth-rail.has-top-label .depth-rail-label.is-parent-context {
-  display: block;
-  width: auto;
-  max-width: none;
-  height: 18px;
-  min-height: 18px;
-  padding: 0 16px;
-  color: #222;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 18px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi .depth-rail.has-chotot-brand-slot {
+  grid-template-columns: 76px minmax(0, 1fr);
+  column-gap: 8px;
 }
-.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .depth-rail.has-top-label .depth-rail-label,
-.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .depth-rail.has-leading-label.has-top-label .depth-rail-label {
-  padding: 0 20px;
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.has-chotot-brand-slot > .quick-rail-carousel {
+  grid-column: 2;
+  width: 100%;
+  min-width: 0;
 }
-.marketplace.is-qf-guazi .depth-rail.has-top-label .brand-carousel { width: 100%; margin-top: 8px; }
-.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .depth-rail.has-top-label .depth-rail-track,
-.marketplace.is-bbm.is-qf-guazi.is-qf-plain .bbm-content-head.is-chotot .depth-rail.has-top-label .depth-rail-track {
+.marketplace.is-bbm.is-truck-category.is-qf-guazi .bbm-content-head.is-chotot .depth-rail.has-chotot-brand-slot .depth-rail-track,
+.marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .bbm-content-head.is-chotot .depth-rail.has-chotot-brand-slot .depth-rail-track {
   padding-right: 20px;
-  padding-left: 16px;
+  padding-left: 0;
 }
-.marketplace.is-bbm-m.is-qf-guazi .depth-rail.has-top-label .depth-rail-track,
-.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail.has-top-label .depth-rail-track { padding-left: 12px; }
-.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .depth-rail.is-trim-row.has-top-label .depth-rail-track { padding-left: 20px; }
-.marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-trim-row.has-top-label .depth-rail-track { padding-left: 16px; }
-/* 제목 위·아래를 8px로 통일한다. 트럭 실사 슬롯은 원본 비율의 보이는 면만 잡아
-   정사각 상자 안 투명 여백이 제목과 이미지 사이 간격으로 보이지 않게 한다. */
-.marketplace.is-bbm.is-truck-category.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail.has-top-label),
-.marketplace.is-bbm-m.is-truck-category.is-qf-guazi .bbm-m-quick-slot:has(> .depth-rail.has-top-label) { margin-top: 8px; }
-.marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail.is-truck-image-row.has-top-label) { height: 134px; }
-.marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail.is-kr-maker.has-top-label) { height: 128px; }
-@media (max-width: 767px) {
-  .marketplace.is-bbm-m.is-truck-category.is-qf-guazi .depth-rail.is-truck-image-row.has-top-label { padding-bottom: 8px; }
-}
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi .depth-rail.has-chotot-brand-slot .depth-rail-track,
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.has-chotot-brand-slot .depth-rail-track { padding-left: 0; }
 
 /* 첫 차량 카테고리 줄과 하위 알약 줄도 같은 제목 열을 공유한다. */
 .marketplace.is-qf-guazi .bbm-category-labeled-row { display: grid; grid-template-columns: 92px minmax(0, 1fr); align-items: center; min-width: 0; }
