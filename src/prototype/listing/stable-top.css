@@ -35,6 +35,12 @@
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail.is-trim-row) { margin-bottom: 8px; }
 /* 첫 화면 유형 줄도 이미지 줄 높이(칸 102, 위 여백 없음) */
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu__list { padding-top: 0; }
+/* PC 차량 유형 실사: 초톳 모델 실사와 같은 76×40 투명 캔버스·하단 기준선.
+   로고용 40×40/22×22 규칙이 실사까지 축소하지 않도록 is-photo를 분리한다. */
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu__button:has(.bbm-category-menu__icon-box.is-photo) { gap: 14px; }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu__icon-box.is-photo { width: 76px; height: 40px; margin: 6px 0 0; border-radius: 0; background: transparent; }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu__icon-box.is-photo img { display: block; width: 76px; height: 40px; object-fit: contain; object-position: center bottom; transform: scaleX(-1); transform-origin: center; }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu__button:has(.bbm-category-menu__icon-box.is-photo) .bbm-category-menu__label { display: -webkit-box; width: 76px; overflow: hidden; text-align: center; white-space: normal; word-break: keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 
 /* ── 모델·세부모델 이미지 칸: PC 84×102 · 모바일 초톳 실사 슬롯 72×102, 이름·보조 글자 각 1줄 말줄임 */
 .marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) { height: 102px; }
@@ -106,7 +112,7 @@
 .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__item { width: 64px; }
 .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__button { justify-content: flex-start; gap: 2px; width: 64px; height: 78px; padding: 0; box-sizing: border-box; }
 .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__icon-box.is-photo { flex: none; width: 64px; height: 40px; margin: 0; border-radius: 0; background: transparent; }
-.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__icon-box.is-photo img { width: 64px; height: 40px; object-fit: contain; object-position: center bottom; }
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__icon-box.is-photo img { width: 64px; height: 40px; object-fit: contain; object-position: center bottom; transform: scaleX(-1); transform-origin: center; }
 .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__label { display: -webkit-box; width: 56px; overflow: hidden; color: #595959; font-size: 12px; font-weight: 500; line-height: 18px; white-space: normal; word-break: keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 
 /* AI 이미지 제작 가이드 검수 모드: 초톳 자동차 카테고리의 80px 피치·64px 정사각 슬롯을 재현한다.

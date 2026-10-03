@@ -1,0 +1,536 @@
+{
+  "base": "http://127.0.0.1:4173/bobaedream/",
+  "measuredAt": "2026-10-03T04:29:07.975Z",
+  "checks": [
+    {
+      "name": "실사 원본 7종 로드·640×400",
+      "ok": true,
+      "detail": "7/7"
+    },
+    {
+      "name": "PC 칸 84×102·피치 92",
+      "ok": true,
+      "detail": "칸 84×102 · 피치 92"
+    },
+    {
+      "name": "PC 실사 76×40·위 6·하단 정렬",
+      "ok": true,
+      "detail": "사진 76×40 · 위 6"
+    },
+    {
+      "name": "PC 이름 간격 14·14/21 400 #595959",
+      "ok": true,
+      "detail": "14 · 14px/21px 400 rgb(89, 89, 89)"
+    },
+    {
+      "name": "모바일 칸 64×78·피치 72",
+      "ok": true,
+      "detail": "칸 64×78 · 피치 72"
+    },
+    {
+      "name": "모바일 실사 64×40·하단 정렬",
+      "ok": true,
+      "detail": "사진 64×40"
+    },
+    {
+      "name": "모바일 이름 간격 2·12/18 500 #595959",
+      "ok": true,
+      "detail": "2 · 12px/18px 500 rgb(89, 89, 89)"
+    },
+    {
+      "name": "차량 실사 7종 좌향 표시",
+      "ok": true,
+      "detail": "PC matrix(-1, 0, 0, 1, 0, 0) · 모바일 matrix(-1, 0, 0, 1, 0, 0)"
+    },
+    {
+      "name": "포터 탑차 v03·포드 머스탱 v02 연결",
+      "ok": true,
+      "detail": "화물/특장 v03·올드카 v02"
+    },
+    {
+      "name": "404·콘솔 오류 0",
+      "ok": true,
+      "detail": "PC 0 · 모바일 0"
+    }
+  ],
+  "views": {
+    "pc": {
+      "items": [
+        {
+          "name": "중고차",
+          "item": [
+            84,
+            102
+          ],
+          "button": [
+            84,
+            102
+          ],
+          "photo": [
+            76,
+            40
+          ],
+          "image": [
+            76,
+            40
+          ],
+          "photoTop": 6,
+          "labelGap": 14,
+          "label": [
+            76,
+            21
+          ],
+          "labelStyle": "14px/21px 400 rgb(89, 89, 89)",
+          "transform": "matrix(-1, 0, 0, 1, 0, 0)",
+          "src": "/assets/category-photo/vehicle_type_car_v01.png",
+          "source": [
+            640,
+            400
+          ],
+          "loaded": true
+        },
+        {
+          "name": "화물/특장",
+          "item": [
+            84,
+            102
+          ],
+          "button": [
+            84,
+            102
+          ],
+          "photo": [
+            76,
+            40
+          ],
+          "image": [
+            76,
+            40
+          ],
+          "photoTop": 6,
+          "labelGap": 14,
+          "label": [
+            76,
+            21
+          ],
+          "labelStyle": "14px/21px 400 rgb(89, 89, 89)",
+          "transform": "matrix(-1, 0, 0, 1, 0, 0)",
+          "src": "/assets/category-photo/vehicle_type_cargo_truck_v03.png",
+          "source": [
+            640,
+            400
+          ],
+          "loaded": true
+        },
+        {
+          "name": "바이크",
+          "item": [
+            84,
+            102
+          ],
+          "button": [
+            84,
+            102
+          ],
+          "photo": [
+            76,
+            40
+          ],
+          "image": [
+            76,
+            40
+          ],
+          "photoTop": 6,
+          "labelGap": 14,
+          "label": [
+            76,
+            21
+          ],
+          "labelStyle": "14px/21px 400 rgb(89, 89, 89)",
+          "transform": "matrix(-1, 0, 0, 1, 0, 0)",
+          "src": "/assets/category-photo/vehicle_type_bike_v01.png",
+          "source": [
+            640,
+            400
+          ],
+          "loaded": true
+        },
+        {
+          "name": "캠핑카",
+          "item": [
+            84,
+            102
+          ],
+          "button": [
+            84,
+            102
+          ],
+          "photo": [
+            76,
+            40
+          ],
+          "image": [
+            76,
+            40
+          ],
+          "photoTop": 6,
+          "labelGap": 14,
+          "label": [
+            76,
+            21
+          ],
+          "labelStyle": "14px/21px 400 rgb(89, 89, 89)",
+          "transform": "matrix(-1, 0, 0, 1, 0, 0)",
+          "src": "/assets/category-photo/vehicle_type_motorhome_v01.png",
+          "source": [
+            640,
+            400
+          ],
+          "loaded": true
+        },
+        {
+          "name": "올드카",
+          "item": [
+            84,
+            102
+          ],
+          "button": [
+            84,
+            102
+          ],
+          "photo": [
+            76,
+            40
+          ],
+          "image": [
+            76,
+            40
+          ],
+          "photoTop": 6,
+          "labelGap": 14,
+          "label": [
+            76,
+            21
+          ],
+          "labelStyle": "14px/21px 400 rgb(89, 89, 89)",
+          "transform": "matrix(-1, 0, 0, 1, 0, 0)",
+          "src": "/assets/category-photo/vehicle_type_old_car_v02.png",
+          "source": [
+            640,
+            400
+          ],
+          "loaded": true
+        },
+        {
+          "name": "건설기계(덤프/지게차)",
+          "item": [
+            84,
+            102
+          ],
+          "button": [
+            84,
+            102
+          ],
+          "photo": [
+            76,
+            40
+          ],
+          "image": [
+            76,
+            40
+          ],
+          "photoTop": 6,
+          "labelGap": 14,
+          "label": [
+            76,
+            42
+          ],
+          "labelStyle": "14px/21px 400 rgb(89, 89, 89)",
+          "transform": "matrix(-1, 0, 0, 1, 0, 0)",
+          "src": "/assets/category-photo/vehicle_type_construction_v01.png",
+          "source": [
+            640,
+            400
+          ],
+          "loaded": true
+        },
+        {
+          "name": "부품 · 용품",
+          "item": [
+            84,
+            102
+          ],
+          "button": [
+            84,
+            102
+          ],
+          "photo": [
+            76,
+            40
+          ],
+          "image": [
+            76,
+            40
+          ],
+          "photoTop": 6,
+          "labelGap": 14,
+          "label": [
+            76,
+            21
+          ],
+          "labelStyle": "14px/21px 400 rgb(89, 89, 89)",
+          "transform": "matrix(-1, 0, 0, 1, 0, 0)",
+          "src": "/assets/category-photo/vehicle_type_parts_v01.png",
+          "source": [
+            640,
+            400
+          ],
+          "loaded": true
+        }
+      ],
+      "pitch": 92,
+      "scrollWidth": 1200,
+      "clientWidth": 1200,
+      "failures": []
+    },
+    "mobile": {
+      "items": [
+        {
+          "name": "중고차",
+          "item": [
+            64,
+            78
+          ],
+          "button": [
+            64,
+            78
+          ],
+          "photo": [
+            64,
+            40
+          ],
+          "image": [
+            64,
+            40
+          ],
+          "photoTop": 0,
+          "labelGap": 2,
+          "label": [
+            56,
+            18
+          ],
+          "labelStyle": "12px/18px 500 rgb(89, 89, 89)",
+          "transform": "matrix(-1, 0, 0, 1, 0, 0)",
+          "src": "/assets/category-photo/vehicle_type_car_v01.png",
+          "source": [
+            640,
+            400
+          ],
+          "loaded": true
+        },
+        {
+          "name": "화물/특장",
+          "item": [
+            64,
+            78
+          ],
+          "button": [
+            64,
+            78
+          ],
+          "photo": [
+            64,
+            40
+          ],
+          "image": [
+            64,
+            40
+          ],
+          "photoTop": 0,
+          "labelGap": 2,
+          "label": [
+            56,
+            18
+          ],
+          "labelStyle": "12px/18px 500 rgb(89, 89, 89)",
+          "transform": "matrix(-1, 0, 0, 1, 0, 0)",
+          "src": "/assets/category-photo/vehicle_type_cargo_truck_v03.png",
+          "source": [
+            640,
+            400
+          ],
+          "loaded": true
+        },
+        {
+          "name": "바이크",
+          "item": [
+            64,
+            78
+          ],
+          "button": [
+            64,
+            78
+          ],
+          "photo": [
+            64,
+            40
+          ],
+          "image": [
+            64,
+            40
+          ],
+          "photoTop": 0,
+          "labelGap": 2,
+          "label": [
+            56,
+            18
+          ],
+          "labelStyle": "12px/18px 500 rgb(89, 89, 89)",
+          "transform": "matrix(-1, 0, 0, 1, 0, 0)",
+          "src": "/assets/category-photo/vehicle_type_bike_v01.png",
+          "source": [
+            640,
+            400
+          ],
+          "loaded": true
+        },
+        {
+          "name": "캠핑카",
+          "item": [
+            64,
+            78
+          ],
+          "button": [
+            64,
+            78
+          ],
+          "photo": [
+            64,
+            40
+          ],
+          "image": [
+            64,
+            40
+          ],
+          "photoTop": 0,
+          "labelGap": 2,
+          "label": [
+            56,
+            18
+          ],
+          "labelStyle": "12px/18px 500 rgb(89, 89, 89)",
+          "transform": "matrix(-1, 0, 0, 1, 0, 0)",
+          "src": "/assets/category-photo/vehicle_type_motorhome_v01.png",
+          "source": [
+            640,
+            400
+          ],
+          "loaded": true
+        },
+        {
+          "name": "올드카",
+          "item": [
+            64,
+            78
+          ],
+          "button": [
+            64,
+            78
+          ],
+          "photo": [
+            64,
+            40
+          ],
+          "image": [
+            64,
+            40
+          ],
+          "photoTop": 0,
+          "labelGap": 2,
+          "label": [
+            56,
+            18
+          ],
+          "labelStyle": "12px/18px 500 rgb(89, 89, 89)",
+          "transform": "matrix(-1, 0, 0, 1, 0, 0)",
+          "src": "/assets/category-photo/vehicle_type_old_car_v02.png",
+          "source": [
+            640,
+            400
+          ],
+          "loaded": true
+        },
+        {
+          "name": "건설기계(덤프/지게차)",
+          "item": [
+            64,
+            78
+          ],
+          "button": [
+            64,
+            78
+          ],
+          "photo": [
+            64,
+            40
+          ],
+          "image": [
+            64,
+            40
+          ],
+          "photoTop": 0,
+          "labelGap": 2,
+          "label": [
+            56,
+            36
+          ],
+          "labelStyle": "12px/18px 500 rgb(89, 89, 89)",
+          "transform": "matrix(-1, 0, 0, 1, 0, 0)",
+          "src": "/assets/category-photo/vehicle_type_construction_v01.png",
+          "source": [
+            640,
+            400
+          ],
+          "loaded": true
+        },
+        {
+          "name": "부품 · 용품",
+          "item": [
+            64,
+            78
+          ],
+          "button": [
+            64,
+            78
+          ],
+          "photo": [
+            64,
+            40
+          ],
+          "image": [
+            64,
+            40
+          ],
+          "photoTop": 0,
+          "labelGap": 2,
+          "label": [
+            56,
+            18
+          ],
+          "labelStyle": "12px/18px 500 rgb(89, 89, 89)",
+          "transform": "matrix(-1, 0, 0, 1, 0, 0)",
+          "src": "/assets/category-photo/vehicle_type_parts_v01.png",
+          "source": [
+            640,
+            400
+          ],
+          "loaded": true
+        }
+      ],
+      "pitch": 72,
+      "scrollWidth": 520,
+      "clientWidth": 384,
+      "failures": []
+    }
+  }
+}

@@ -49,11 +49,11 @@ export function BbmHeadlinePreviewLinks() {
 
 // ── 차량 유형 줄. 초톳 슬롯 기준의 동일 높이·바닥선 실사 컷을 쓰고, 선택 시 기존 내부 필터 값은 유지한다.
 export const bbmCategoryItems: Array<[value: string, image: string, label?: string]> = [
-  ["중고차", "category-photo/vehicle_type_car_v01.png", "자동차"],
-  ["트럭 · 특장", "category-photo/vehicle_type_cargo_truck_v01.png", "화물트럭"],
+  ["중고차", "category-photo/vehicle_type_car_v01.png", "중고차"],
+  ["트럭 · 특장", "category-photo/vehicle_type_cargo_truck_v03.png", "화물/특장"],
   ["바이크", "category-photo/vehicle_type_bike_v01.png"],
-  ["캠핑카", "category-photo/vehicle_type_motorhome_v01.png", "모터홈"],
-  ["올드카", "category-photo/vehicle_type_old_car_v01.png"],
+  ["캠핑카", "category-photo/vehicle_type_motorhome_v01.png", "캠핑카"],
+  ["올드카", "category-photo/vehicle_type_old_car_v02.png"],
   ["건설기계", "category-photo/vehicle_type_construction_v01.png", "건설기계(덤프/지게차)"],
   ["부품 · 용품", "category-photo/vehicle_type_parts_v01.png"],
 ];
