@@ -29,6 +29,7 @@
 
 ## 링크
 
-- PR: 생성 후 노션 보고에 기록
+- PR: https://github.com/bobaekimboae/bobaedream/pull/138
+- 구현 커밋: `6682f8c`
+- 한국어 노션 보고: https://app.notion.com/p/3eeee9c4b6068136a904cba9172e4529
 - 기준 노션 DB: https://app.notion.com/p/3a9ee9c4b606802689e4dc573a2c0ad7
-
