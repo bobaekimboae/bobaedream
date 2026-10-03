@@ -459,10 +459,48 @@
 .bbmf-sheet-body { flex: 1; min-height: 0; overflow-y: auto; padding: 16px 16px 26px; }
 /* 제조사·모델 목록처럼 목록이 가장자리까지 가는 시트·모달 */
 .bbmf-sheet-body.is-flush, .bbmf-modal-body.is-flush { padding: 0; }
-.bbmf-sheet.is-category { max-height: min(72%, 610px); border-radius: 16px 16px 0 0; }
-.bbmf-sheet.is-category .bbmf-sheet-header { height: 56px; }
-.bbmf-sheet.is-category .bbmf-sheet-header .bbmf-close { right: auto; left: 10px; }
-.bbmf-sheet.is-category .bbmf-sheet-body { padding: 12px 16px 16px; }
+/* 카테고리 바텀시트: 확정된 주행거리 필터 시트의 외형만 공유한다.
+   카테고리 선택·검색·즉시 닫기 동작은 기존 그대로 유지한다. */
+.bbmf-overlay.is-sheet:has(.bbmf-sheet.is-category) { z-index: 90; }
+.bbmf-sheet.is-category {
+  max-height: calc(100% - 24px);
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.12);
+  color: #222;
+  overflow: hidden;
+}
+.bbmf-sheet.is-category .bbmf-sheet-header {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 0 24px;
+  border-bottom-color: #e8e8e8;
+}
+.bbmf-sheet.is-category .bbmf-sheet-heading { display: flex; align-items: center; }
+.bbmf-sheet.is-category .bbmf-sheet-header h3 {
+  margin: 0;
+  padding: 0;
+  color: #222;
+  font-size: 20px;
+  font-weight: 750;
+  line-height: 28px;
+  letter-spacing: -0.35px;
+  text-align: left;
+}
+.bbmf-sheet.is-category .bbmf-sheet-header .bbmf-close {
+  top: 10px;
+  right: 20px;
+  left: auto;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  place-items: center;
+  border-radius: 10px;
+}
+.bbmf-sheet.is-category .bbmf-sheet-header .bbmf-close:hover { background: #f4f4f4; }
+.bbmf-sheet.is-category .bbmf-sheet-header .bbmf-close img { width: 24px; height: 24px; }
+.bbmf-sheet.is-category .bbmf-sheet-body { padding: 20px 16px 22px; }
 .bbm-category-picker__all { min-height:32px; padding:6px 12px; border:0; border-radius:9999px; background:#f4f4f4; color:#222; font-family:inherit; font-size:14px; font-weight:500; line-height:20px; cursor:pointer; }
 .bbm-category-picker__group { margin-top:12px; padding-top:12px; border-top:1px solid #ebebeb; }
 .bbm-category-picker__heading { display:flex; align-items:center; gap:10px; height:32px; color:#222; font-size:15px; }
@@ -470,8 +508,9 @@
 .bbm-category-picker__pills { display:flex; flex-wrap:wrap; gap:8px 4px; margin-top:8px; }
 .bbm-category-picker__pills button { min-height:32px; padding:6px 12px; border:0; border-radius:9999px; background:#f4f4f4; color:#222; font-family:inherit; font-size:14px; font-weight:500; line-height:20px; cursor:pointer; }
 .bbm-category-picker__pills button.is-selected { background:#222; color:#fff; }
-.bbmf-category-footer { padding:6px 16px; border-top:1px solid #ebebeb; }
-.bbmf-category-footer button { width:100%; height:40px; border:1px solid #dadada; border-radius:8px; background:#fff; color:#222; font-family:inherit; font-size:14px; font-weight:600; line-height:20px; cursor:pointer; }
+.bbmf-category-footer { display:flex; flex:none; align-items:flex-start; height:80px; padding:12px 20px 16px; box-sizing:border-box; background:#fff; box-shadow:0 -4px 12px rgba(0,0,0,.06); }
+.bbmf-category-footer button { width:92px; height:52px; padding:0; border:0; border-radius:12px; background:transparent; color:#222; font-family:inherit; font-size:16px; font-weight:700; line-height:22px; cursor:pointer; }
+.bbmf-category-footer button:hover { background:#f4f4f4; }
 /* 모바일 시트 체크 목록: 매물 수는 오른쪽 끝(12px 500 #9E9E9E) */
 .bbmf-sheet:not(.is-modal-body) .bbmf-check .bbmf-check-label { flex: 1; }
 .bbmf-sheet:not(.is-modal-body) .bbmf-check .bbmf-check-count { font-size: 12px; line-height: 16.8px; }

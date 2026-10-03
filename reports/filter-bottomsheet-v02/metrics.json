@@ -1,0 +1,148 @@
+{
+  "reference": {
+    "sheet": {
+      "x": 0,
+      "y": 424,
+      "width": 393,
+      "height": 428,
+      "right": 393,
+      "bottom": 852
+    },
+    "header": {
+      "x": 0,
+      "y": 424,
+      "width": 393,
+      "height": 64,
+      "right": 393,
+      "bottom": 488
+    },
+    "title": {
+      "x": 24,
+      "y": 441.5,
+      "width": 67.75,
+      "height": 28,
+      "right": 91.75,
+      "bottom": 469.5
+    },
+    "close": {
+      "x": 329,
+      "y": 433.5,
+      "width": 44,
+      "height": 44,
+      "right": 373,
+      "bottom": 477.5
+    },
+    "body": {
+      "x": 0,
+      "y": 488,
+      "width": 393,
+      "height": 284,
+      "right": 393,
+      "bottom": 772
+    },
+    "bodyPadding": "20px 16px 22px",
+    "actions": {
+      "x": 0,
+      "y": 772,
+      "width": 393,
+      "height": 80,
+      "right": 393,
+      "bottom": 852
+    },
+    "reset": {
+      "x": 20,
+      "y": 784,
+      "width": 92,
+      "height": 52,
+      "right": 112,
+      "bottom": 836
+    },
+    "radius": "24px",
+    "titleStyle": {
+      "fontSize": "20px",
+      "lineHeight": "28px",
+      "fontWeight": "750",
+      "letterSpacing": "-0.35px"
+    }
+  },
+  "category": {
+    "sheet": {
+      "x": 0,
+      "y": 497,
+      "width": 393,
+      "height": 355,
+      "right": 393,
+      "bottom": 852
+    },
+    "header": {
+      "x": 0,
+      "y": 497,
+      "width": 393,
+      "height": 64,
+      "right": 393,
+      "bottom": 561
+    },
+    "title": {
+      "x": 24,
+      "y": 514.5,
+      "width": 105.8125,
+      "height": 28,
+      "right": 129.8125,
+      "bottom": 542.5
+    },
+    "close": {
+      "x": 329,
+      "y": 507,
+      "width": 44,
+      "height": 44,
+      "right": 373,
+      "bottom": 551
+    },
+    "body": {
+      "x": 0,
+      "y": 561,
+      "width": 393,
+      "height": 211,
+      "right": 393,
+      "bottom": 772
+    },
+    "bodyPadding": "20px 16px 22px",
+    "actions": {
+      "x": 0,
+      "y": 772,
+      "width": 393,
+      "height": 80,
+      "right": 393,
+      "bottom": 852
+    },
+    "reset": {
+      "x": 20,
+      "y": 784,
+      "width": 92,
+      "height": 52,
+      "right": 112,
+      "bottom": 836
+    },
+    "radius": "24px",
+    "titleStyle": {
+      "fontSize": "20px",
+      "lineHeight": "28px",
+      "fontWeight": "750",
+      "letterSpacing": "-0.35px"
+    },
+    "overflowX": false
+  },
+  "checks": {
+    "radius24": true,
+    "header64": true,
+    "titleLeft24": true,
+    "titleTypography": true,
+    "close44AndRight20": true,
+    "bodyInsets": true,
+    "actionBar80": true,
+    "reset92x52": true,
+    "noHorizontalOverflow": true,
+    "noConsoleErrors": true
+  },
+  "errors": []
+}

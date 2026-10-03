@@ -1,49 +1,37 @@
-# Design QA — filter bottom sheet and search v01
+# Design QA — category bottom sheet shell v02
 
-## Source and implementation
+## 기준과 범위
 
-- source deck: `reports/filter-bottomsheet-v01/reference.pptx`
-- source live screenshots: `reports/filter-bottomsheet-v01/source-category.png`, `reports/filter-bottomsheet-v01/source-search.png`
-- implementation screenshots: `reports/filter-bottomsheet-v01/implementation-category.png`, `reports/filter-bottomsheet-v01/implementation-search.png`
-- same-canvas comparison: `reports/filter-bottomsheet-v01/comparison.png`
-- measured values: `reports/filter-bottomsheet-v01/metrics.json`
+- 기준: 확정된 주행거리 필터 바텀시트(`MileageFinalSheet`)
+- 적용: 모바일 카테고리 바텀시트의 외형만 변경
+- 유지: 카테고리 즉시 선택·초기화·닫기 동작과 통합 검색 동작
+- 뷰포트: 393×852 CSS px, 1x
 
-## Verification context
+## 산출물
 
-- viewport: 390×844 CSS px
-- density: 1x
-- source: `https://xe.chotot.com/mua-ban-oto`
-- implementation: `http://127.0.0.1:4173/bobaedream/?qf=guazi`
-- states: category bottom sheet / focused empty search / typed search / clear button / search close
+- 기준 캡처: `reports/filter-bottomsheet-v02/reference-mileage.png`
+- 적용 캡처: `reports/filter-bottomsheet-v02/category-after.png`
+- 동일 화면 대조: `reports/filter-bottomsheet-v02/comparison.png`
+- 자동 측정값: `reports/filter-bottomsheet-v02/metrics.json`
+- 자동 점검: `scripts/audit-filter-bottomsheet-v02.mjs`
 
-## Measured comparison
+## 자동 측정
 
-| item | ChoTot | implementation | result |
+| 항목 | 주행거리 기준 | 카테고리 적용 | 결과 |
 |---|---:|---:|---|
-| bottom sheet width | 390px | 390px | passed |
-| bottom sheet height | 302px | 306px | passed (4px content-language difference) |
-| selected pill height | 32px | 32px | passed |
-| selected pill radius | 9999px | 9999px | passed |
-| selected pill fill | rgb(34,34,34) | rgb(34,34,34) | passed |
-| selected pill text | 14px | 14px | passed |
+| 상단 곡률 | 24px | 24px | passed |
+| 헤더 높이 | 64px | 64px | passed |
+| 제목 좌측 위치 | 24px | 24px | passed |
+| 제목 | 20px / 28px / 750 / -0.35px | 동일 | passed |
+| 닫기 터치영역 | 44×44px | 44×44px | passed |
+| 닫기 우측 간격 | 20px hit area | 20px hit area | passed |
+| 본문 여백 | 20px 16px 22px | 동일 | passed |
+| 하단 영역 | 80px | 80px | passed |
+| 초기화 버튼 | 92×52px | 92×52px | passed |
+| 가로 넘침 | 없음 | 없음 | passed |
+| 콘솔 오류 | 없음 | 없음 | passed |
 
-## Visual and behavior findings
-
-- listing remains visible under a 50% black dim layer while the sheet is open.
-- sheet is bottom anchored, has rounded top corners, a left close control, centered title, view-all pill, group heading, wrapping pills, and one full-width reset action.
-- active category is black; inactive categories use `#f4f4f4`.
-- focusing the search field opens suggestions immediately without navigation.
-- typed text shows a clear control, up to eight live related terms, category context, and a seller-search row.
-- the back control closes search first; selecting a suggestion closes the panel and applies the query to the list.
-- no clipping, overlap, or horizontal overflow at 390px.
-
-## Iteration history
-
-1. Initial implementation used the browser default 16px in pills and produced a 356px sheet.
-2. Set explicit 14px type, shortened only the in-sheet construction category label, and reduced footer padding.
-3. Re-measured at 306px with all key slot values matching ChoTot.
-4. Expanded typed-search suggestions to the ChoTot-like eight-row density.
-
-## Final result
+## 최종 결과
 
 passed
+
