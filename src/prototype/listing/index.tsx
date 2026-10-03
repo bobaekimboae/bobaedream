@@ -1364,13 +1364,13 @@ function MarketplaceScreen() {
           // QF-105: 트림까지 고르면 퀵필터 줄은 닫힌다(칩 [트림 ×] 로 다시 연다)
           // QF-106: ④ 퀵필터 자리는 닫지 않는다 — 계층(제조사 → 모델 → 세부모델 → 트림)이 끝나면 연식 알약 줄
           isHeavyCategory ? <HeavyQuickFilter value={heavySelection} onChange={applyHeavySelection} /> :
-          showTruckFormatRail ? <section className="depth-rail has-chotot-brand-slot is-truck-image-row" aria-label="트럭 형식 빠른 선택">
+          showTruckFormatRail ? <section className="depth-rail has-chotot-brand-slot is-truck-image-row is-format-root" aria-label="트럭 형식 빠른 선택">
             <span className="depth-rail-label">트럭 유형</span>
             <QuickRailCarousel ariaLabel="트럭 형식" className="brand-carousel" contentClassName="depth-rail-track">
               {truckFormatCatalog.map((group) => <DepthCard key={group.name} className="is-truck-depth" label={desktop ? group.name : truckQuickLabel(group.name)} ariaLabel={group.name} image={<img src={asset(truckFormatImageFor(group.name) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckFormat(group.name)} />)}
             </QuickRailCarousel>
           </section> :
-          showTruckSubtypeRail ? <section className="depth-rail has-chotot-brand-slot is-truck-image-row" aria-label={`${selectedTruckFormat} 세부 형식 빠른 선택`}>
+          showTruckSubtypeRail ? <section className="depth-rail has-chotot-brand-slot is-truck-image-row is-format-sub" aria-label={`${selectedTruckFormat} 세부 형식 빠른 선택`}>
             <span className="depth-rail-label">세부유형</span>
             <QuickRailCarousel ariaLabel={`${selectedTruckFormat} 세부 형식`} className="brand-carousel" contentClassName="depth-rail-track">
               {truckSubtypeOptions.map((subtype) => <DepthCard key={subtype} className="is-truck-depth" label={desktop ? subtype : truckQuickLabel(subtype)} ariaLabel={subtype} image={<img src={asset(truckSubtypeImageFor(selectedTruckFormat, subtype) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckSubtype(subtype)} />)}

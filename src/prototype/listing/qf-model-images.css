@@ -120,18 +120,18 @@
 /* PC: 초톳 카테고리 서브 기준 */
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail-track { gap: 8px; }
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .bbm-content-head.is-chotot .bbm-quick-slot { margin-top: 8px; }
-.marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail.is-truck-image-row) { height: 108px; }
+.marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail.is-truck-image-row) { height: 98px; }
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail.is-kr-maker) { height: 102px; }
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row,
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .brand-carousel,
-.marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-rail-track { min-height: 108px; }
+.marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-rail-track { min-height: 98px; }
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-kr-maker,
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-kr-maker .brand-carousel,
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-kr-maker .depth-rail-track { min-height: 102px; }
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) {
-  width: 140px;
-  height: 112px;
-  flex: 0 0 140px;
+  width: 96px;
+  height: 98px;
+  flex: 0 0 96px;
 }
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-card > .depth-card-media:not(.is-brand),
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-card > .depth-card-media.is-brand {
@@ -150,12 +150,12 @@
 }
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) > .depth-card-media:not(.is-brand),
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) > .depth-card-media:not(.is-brand) img {
-  width: 104px;
-  height: 62px;
+  width: 80px;
+  height: 50px;
 }
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) > .depth-card-label {
   display: -webkit-box;
-  width: 124px;
+  width: 92px;
   height: 36px;
   max-height: 36px;
   margin-top: 2px;
@@ -198,14 +198,14 @@
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-titleless { padding-bottom: 8px; }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row,
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .brand-carousel,
-.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-rail-track { min-height: 92px; }
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-rail-track { min-height: 84px; }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-kr-maker,
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-kr-maker .brand-carousel,
-.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-kr-maker .depth-rail-track { min-height: 102px; }
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-kr-maker .depth-rail-track { min-height: 88px; }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) {
-  width: 88px;
-  height: 88px;
-  flex: 0 0 88px;
+  width: 76px;
+  height: 84px;
+  flex: 0 0 76px;
 }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-card > .depth-card-media:not(.is-brand),
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-card > .depth-card-media.is-brand {
@@ -217,8 +217,8 @@
   justify-content: center;
 }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) > .depth-card-media:not(.is-brand) {
-  width: 76px;
-  height: 48px;
+  width: 64px;
+  height: 40px;
   margin-top: 0;
 }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-card > .depth-card-media:not(.is-brand) img {
@@ -228,12 +228,12 @@
   object-position: center bottom;
 }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) > .depth-card-media:not(.is-brand) img {
-  width: 76px;
-  height: 48px;
+  width: 64px;
+  height: 40px;
 }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) > .depth-card-label {
   display: -webkit-box;
-  width: 80px;
+  width: 76px;
   height: 36px;
   max-height: 36px;
   margin-top: 2px;
@@ -248,47 +248,69 @@
   -webkit-line-clamp: 2;
 }
 
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-format-sub,
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-format-sub .brand-carousel,
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-format-sub .depth-rail-track { min-height: 86px; }
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-format-sub .depth-rail-label { display: none; }
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-format-sub .depth-rail-track { gap: 5px; padding-left: 16px; padding-right: 16px; }
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-format-sub .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) {
+  width: 72px;
+  height: 86px;
+  flex: 0 0 72px;
+}
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-format-sub .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) > .depth-card-media:not(.is-brand),
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-format-sub .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) > .depth-card-media:not(.is-brand) img {
+  width: 72px;
+  height: 45px;
+}
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-format-sub .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) > .depth-card-label {
+  width: 72px;
+  margin-top: 5px;
+}
+
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-kr-maker .depth-rail-label { display: none; }
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-kr-maker .depth-rail-track { gap: 5px; padding-left: 16px; padding-right: 16px; }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-kr-maker .depth-card:has(> .depth-card-media.is-brand) {
-  width: 76px;
-  height: 102px;
-  flex: 0 0 76px;
+  width: 72px;
+  height: 88px;
+  flex: 0 0 72px;
 }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-kr-maker .depth-card > .depth-card-media.is-brand {
-  width: 40px;
-  height: 40px;
-  margin-top: 4px;
+  width: 72px;
+  height: 45px;
+  margin-top: 0;
 }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-kr-maker .depth-card > .depth-card-label {
-  width: 68px;
-  height: 42px;
-  max-height: 42px;
-  margin-top: 8px;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 21px;
+  width: 72px;
+  height: 36px;
+  max-height: 36px;
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
 }
 
 /* 첫 형식 줄(BbmCategoryMenu)도 같은 규격으로 맞춘다. */
-.marketplace.is-bbm.is-truck-category.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu__item { width: 132px; }
+.marketplace.is-bbm.is-truck-category.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu__item { width: 104px; }
 .marketplace.is-bbm.is-truck-category.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu__button {
-  gap: 9px;
-  width: 132px;
-  height: 144px;
+  gap: 7px;
+  width: 104px;
+  height: 112px;
   padding: 0;
 }
 .marketplace.is-bbm.is-truck-category.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu__icon-box.is-photo {
-  width: 88px;
-  height: 88px;
+  width: 104px;
+  height: 65px;
   margin: 0;
   background: transparent;
 }
-.marketplace.is-bbm.is-truck-category.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu__icon-box.is-photo img { width: 88px; height: 88px; object-fit: contain; object-position: center bottom; }
+.marketplace.is-bbm.is-truck-category.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu__icon-box.is-photo img { width: 104px; height: 65px; object-fit: contain; object-position: center bottom; }
 .marketplace.is-bbm.is-truck-category.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu__label {
   display: -webkit-box;
-  width: 120px;
-  max-height: 44px;
+  width: 100px;
+  max-height: 36px;
   overflow: hidden;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 20px;
   white-space: normal;
@@ -296,26 +318,26 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
-.marketplace.is-bbm-m.is-truck-category.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__item { width: 80px; }
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__item { width: 72px; }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__button {
-  gap: 7px;
-  width: 80px;
-  height: 108px;
+  gap: 5px;
+  width: 72px;
+  height: 88px;
   padding: 0;
 }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__icon-box.is-photo {
-  width: 64px;
-  height: 64px;
+  width: 72px;
+  height: 45px;
   margin: 0;
   background: transparent;
 }
-.marketplace.is-bbm-m.is-truck-category.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__icon-box.is-photo img { width: 64px; height: 64px; object-fit: contain; object-position: center bottom; }
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__icon-box.is-photo img { width: 72px; height: 45px; object-fit: contain; object-position: center bottom; }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu__label {
   display: -webkit-box;
   width: 72px;
   max-height: 36px;
   overflow: hidden;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 18px;
   white-space: normal;

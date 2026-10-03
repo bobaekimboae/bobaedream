@@ -1,0 +1,15 @@
+﻿id,display_name,q1_bottom_y,q1_result,q2_area_percent,q2_result,q3_width_percent,q3_height_percent,q3_result,q4_angle_direction,q5_logo_text,q6_halo,q7_shape,q8_source_subject_width,q8_result,q9_color,q10_64x40,q11_axle,notes
+truck_type_cargo,카고(화물)트럭,860,PASS,66.01,PASS,75.12,58.00,PASS,PASS,PASS,PASS,PASS,1457,PASS,PASS,PASS,PASS,
+truck_type_wingbody,윙바디·탑차,860,PASS,66.02,PASS,74.00,58.90,PASS,PASS,PASS,PASS,PASS,1427,PASS,PASS,PASS,PASS,
+truck_type_reefer,냉장·냉동차,860,PASS,66.01,PASS,70.06,62.20,PASS,PASS,PASS,PASS,PASS,1429,PASS,PASS,PASS,PASS,
+truck_type_dump,덤프·믹서,860,PASS,66.02,PASS,73.12,59.60,PASS,PASS,PASS,PASS,PASS,1429,PASS,PASS,PASS,PASS,
+truck_type_crane,크레인·고소작업차,860,PASS,65.99,PASS,74.19,58.70,PASS,PASS,PASS,PASS,PASS,1458,PASS,PASS,PASS,PASS,
+truck_type_tank,탱크로리,860,PASS,66.02,PASS,77.00,56.60,PASS,PASS,PASS,PASS,PASS,1474,PASS,PASS,PASS,PASS,
+truck_type_env,환경·폐기물차,860,PASS,65.98,PASS,72.44,60.10,PASS,PASS,PASS,PASS,PASS,1425,PASS,PASS,PASS,PASS,
+truck_type_tow,견인·운송차,860,PASS,65.97,PASS,81.50,53.40,PASS,PASS,PASS,PASS,PASS,1459,PASS,PASS,PASS,PASS,
+truck_type_tractor,트랙터 헤드,860,PASS,65.97,PASS,61.38,70.90,PASS,PASS,PASS,PASS,PASS,1278,PASS,PASS,PASS,PASS,
+truck_type_trailer,트레일러,860,PASS,54.58,FAIL,90.00,33.10,PASS,PASS,PASS,PASS,PASS,1477,PASS,PASS,PASS,PASS,"🔴 Q2 area failed after width cap: standalone chassis source normalized to 54.58%; regeneration attempts 2 and 3 produced tractor+trailer, rejected."
+truck_type_special,특수차,860,PASS,66.01,PASS,77.12,56.50,PASS,PASS,PASS,PASS,PASS,1434,PASS,PASS,PASS,PASS,
+truck_type_bus,버스,860,PASS,65.98,PASS,76.38,57.00,PASS,PASS,PASS,PASS,PASS,1444,PASS,PASS,PASS,PASS,
+truck_type_camper,캠핑카·카라반,860,PASS,66.00,PASS,72.12,60.40,PASS,PASS,PASS,PASS,PASS,1452,PASS,PASS,PASS,PASS,
+truck_type_etc,기타 화물차,860,PASS,65.99,PASS,68.69,63.40,PASS,PASS,PASS,PASS,PASS,1389,PASS,PASS,PASS,PASS,

@@ -40,6 +40,13 @@
   width: 100%;
   min-width: 0;
 }
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi .depth-rail.has-chotot-brand-slot.is-format-sub {
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: 0;
+}
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi .depth-rail.has-chotot-brand-slot.is-format-sub > .quick-rail-carousel {
+  grid-column: 1;
+}
 .marketplace.is-bbm.is-truck-category.is-qf-guazi .bbm-content-head.is-chotot .depth-rail.has-chotot-brand-slot .depth-rail-track,
 .marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .bbm-content-head.is-chotot .depth-rail.has-chotot-brand-slot .depth-rail-track {
   padding-right: 20px;

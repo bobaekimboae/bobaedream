@@ -17,16 +17,17 @@ export const truckTypeTree: readonly TruckTypeNode[] = [
   branch("카고(화물)트럭", [leaf("경형"), leaf("소형"), leaf("준중형"), leaf("중형"), leaf("준대형"), leaf("대형")]),
   branch("윙바디·탑차", [leaf("윙바디"), branch("내장탑", [leaf("일반", "내장탑 - 일반"), leaf("하이탑·익스탑", "내장탑 - 하이탑·익스탑"), leaf("저상형", "내장탑 - 저상형"), leaf("상승형", "내장탑 - 상승형")]), leaf("워크스루밴"), leaf("다용도탑")]),
   branch("냉장·냉동차", [branch("냉동탑", [leaf("일반", "냉동탑 - 일반"), leaf("하이탑·익스탑", "냉동탑 - 하이탑·익스탑"), leaf("저상형", "냉동탑 - 저상형")]), leaf("냉장윙"), leaf("냉장탑"), leaf("냉동윙"), leaf("냉온장탑"), branch("보냉·보온 윙·탑차", [leaf("보냉탑"), leaf("보냉윙"), leaf("보온윙")])]),
-  branch("덤프·콘크리트차", [leaf("덤프"), leaf("레미콘·믹서트럭"), leaf("콘크리트 펌프카")]),
+  branch("덤프·믹서", [leaf("덤프"), leaf("레미콘·믹서트럭"), leaf("콘크리트 펌프카")]),
   branch("크레인·고소작업차", [leaf("카고크레인"), leaf("집게차"), leaf("활선차"), leaf("고소작업차"), leaf("사다리차"), leaf("오거크레인"), leaf("셀프크레인"), leaf("기타 크레인·작업차")]),
   branch("탱크로리", [leaf("살수차"), leaf("유류 탱크로리"), leaf("사료운반차"), leaf("LPG·LNG 탱크로리"), leaf("급수차"), leaf("식품 탱크로리"), leaf("벌크 탱크로리"), leaf("분말 탱크로리"), leaf("케미컬 탱크로리"), leaf("기타 탱크로리")]),
   branch("환경·폐기물차", [leaf("암롤"), leaf("버큠로리"), leaf("음식물수거차"), leaf("압착진개차"), leaf("노면청소차"), leaf("재활용품수거차"), leaf("압축진개차"), leaf("진개덤프"), leaf("무빙플로어"), leaf("준설차"), leaf("우드칩·톱밥 운반차"), leaf("진공흡입·세정차"), leaf("기타 환경차")]),
   branch("견인·운송차", [leaf("셀프로더"), leaf("레커·구난차"), leaf("카캐리어"), leaf("세이프티로더"), leaf("기타 견인·운송차")]),
-  branch("트랙터·트레일러", [leaf("트랙터·헤드"), leaf("컨테이너 섀시"), leaf("덤프 트레일러"), leaf("유류·액상 탱크 트레일러"), leaf("평판 트레일러"), leaf("저상·로우베드 트레일러"), leaf("차량·장비운반 트레일러"), leaf("코일·철판운송 트레일러"), leaf("윙·탑 트레일러"), leaf("냉장·냉동 트레일러"), leaf("LPG·LNG 탱크 트레일러"), leaf("벌크시멘트 트레일러"), leaf("호퍼·곡물 트레일러"), leaf("기타 트레일러")]),
+  leaf("트랙터 헤드"),
+  branch("트레일러", [leaf("컨테이너 섀시"), leaf("덤프 트레일러"), leaf("유류·액상 탱크 트레일러"), leaf("평판 트레일러"), leaf("저상·로우베드 트레일러"), leaf("차량·장비운반 트레일러"), leaf("코일·철판운송 트레일러"), leaf("윙·탑 트레일러"), leaf("냉장·냉동 트레일러"), leaf("LPG·LNG 탱크 트레일러"), leaf("벌크시멘트 트레일러"), leaf("호퍼·곡물 트레일러"), leaf("기타 트레일러")]),
   branch("특수차", [branch("특수운반차", [leaf("활어차", "특수운반차 - 활어차"), leaf("동물·가축운반차", "특수운반차 - 동물·가축운반차"), leaf("보틀카·루트배송차", "특수운반차 - 보틀카·루트배송차"), leaf("기타 특수운반차", "특수운반차 - 기타")]), branch("이동서비스차", [leaf("광고·홍보·상담차", "이동서비스차 - 광고·홍보·상담차"), leaf("이동검진차", "이동서비스차 - 이동검진차"), leaf("이동식 목욕·복지차", "이동서비스차 - 이동식 목욕·복지차"), leaf("푸드트럭", "이동서비스차 - 푸드트럭"), leaf("이동급식차", "이동서비스차 - 이동급식차"), leaf("이동전시·교육차", "이동서비스차 - 이동전시·교육차"), leaf("이동공연·무대차", "이동서비스차 - 이동공연·무대차"), leaf("이동도서관", "이동서비스차 - 이동도서관"), leaf("방송·중계차", "이동서비스차 - 방송·중계차"), leaf("이동집무차", "이동서비스차 - 이동집무차")]), branch("공공·안전차", [leaf("구급·의료차", "공공·안전차 - 구급·의료차"), leaf("방역·소독차", "공공·안전차 - 방역·소독차"), leaf("소방차", "공공·안전차 - 소방차"), leaf("도로정비차", "공공·안전차 - 도로정비차"), leaf("경찰차", "공공·안전차 - 경찰차"), leaf("군용·공공특수차", "공공·안전차 - 군용·공공특수차")]), branch("지원차", [leaf("이동정비차", "지원차 - 이동정비차"), leaf("전원·발전차", "지원차 - 전원·발전차"), leaf("항공지원차", "지원차 - 항공지원차"), leaf("다목적 특수차", "지원차 - 다목적 특수차")]), leaf("기타 특수차")]),
   branch("버스", [leaf("소형버스"), leaf("준중형버스"), leaf("중형버스"), leaf("대형버스"), leaf("특수버스")]),
   branch("캠핑카·카라반", [branch("일체형 캠핑카", [leaf("캠퍼밴", "일체형 캠핑카 - 캠퍼밴"), leaf("캠핑트럭", "일체형 캠핑카 - 캠핑트럭"), leaf("캠핑버스", "일체형 캠핑카 - 캠핑버스"), leaf("기타 일체형 캠핑카", "일체형 캠핑카 - 기타")]), leaf("카라반·캠핑트레일러"), leaf("기타 캠핑차")]),
-  branch("기타", [leaf("기타 화물차"), leaf("섀시캡")]),
+  leaf("기타 화물차"),
 ];
 
 const flattenNodeValues = (nodes: readonly TruckTypeNode[]): string[] => nodes.flatMap((node) => [node.value ?? node.label, ...flattenNodeValues(node.children ?? [])]);
@@ -54,28 +55,32 @@ export const truckSubtypeValuesForSelection = (format: string | null, subtype: s
 // 트럭 형식 이미지는 상위 형식별로 검수 완료된 묶음부터 순차 등록한다.
 // 적재용량·규격은 이미지가 아니라 알약칩으로 표시하며, 제조사는 브랜드 로고를 사용한다.
 const truckFormatImages: Readonly<Record<string, string>> = {
-  "카고(화물)트럭": "truck/pilot/v02/truck_type_cargo_side_v02.png",
-  "윙바디·탑차": "truck/pilot/v02/truck_type_wingbody_side_v02.png",
-  "윙바디/탑": "truck/pilot/v02/truck_type_wingbody_side_v02.png",
-  "냉장·냉동차": "truck/pilot/v05/truck_type_refrigerated_side_v05.png",
-  "버스": "truck/pilot/v05/truck_type_bus_side_v05.png",
-  "덤프·콘크리트차": "truck/pilot/v05/truck_type_dump_side_v05.png",
-  "덤프/건설/중기": "truck/pilot/v05/truck_type_dump_side_v05.png",
-  "크레인·고소작업차": "truck/pilot/v02/truck_type_cargo_crane_side_v02.png",
-  "크레인 형태": "truck/pilot/v02/truck_type_cargo_crane_side_v02.png",
-  "탱크로리": "truck/pilot/v02/truck_type_tanker_side_v02.png",
-  "캠핑카·카라반": "truck/pilot/v05/truck_type_camper_side_v05.png",
-  "캠핑카/캠핑 트레일러": "truck/pilot/v05/truck_type_camper_side_v05.png",
-  "환경·폐기물차": "truck/pilot/v05/truck_type_waste_side_v05.png",
-  "폐기/음식물수송": "truck/pilot/v05/truck_type_waste_side_v05.png",
-  "활어차": "truck/formats/v01/truck_format_live_fish_v01.png",
-  "견인·운송차": "truck/pilot/v05/truck_type_transport_side_v05.png",
-  "차량견인/운송": "truck/pilot/v05/truck_type_transport_side_v05.png",
-  "트렉터": "truck/formats/v01/truck_format_tractor_v01.png",
-  "트랙터·트레일러": "truck/pilot/v08/truck_type_tractor_trailer_lowbed_side_v08.png",
-  "트레일러": "truck/pilot/v08/truck_type_tractor_trailer_lowbed_side_v08.png",
-  "특수차": "truck/pilot/v05/truck_type_special_side_v05.png",
-  "기타": "truck/pilot/v05/truck_type_other_chassis_side_v05.png",
+  "카고(화물)트럭": "truck/truck_qf_images_v01/web_webp/truck_type_cargo_v01_192.webp",
+  "윙바디·탑차": "truck/truck_qf_images_v01/web_webp/truck_type_wingbody_v01_192.webp",
+  "윙바디/탑": "truck/truck_qf_images_v01/web_webp/truck_type_wingbody_v01_192.webp",
+  "냉장·냉동차": "truck/truck_qf_images_v01/web_webp/truck_type_reefer_v01_192.webp",
+  "버스": "truck/truck_qf_images_v01/web_webp/truck_type_bus_v01_192.webp",
+  "덤프·믹서": "truck/truck_qf_images_v01/web_webp/truck_type_dump_v01_192.webp",
+  "덤프·콘크리트차": "truck/truck_qf_images_v01/web_webp/truck_type_dump_v01_192.webp",
+  "덤프/건설/중기": "truck/truck_qf_images_v01/web_webp/truck_type_dump_v01_192.webp",
+  "크레인·고소작업차": "truck/truck_qf_images_v01/web_webp/truck_type_crane_v01_192.webp",
+  "크레인 형태": "truck/truck_qf_images_v01/web_webp/truck_type_crane_v01_192.webp",
+  "탱크로리": "truck/truck_qf_images_v01/web_webp/truck_type_tank_v01_192.webp",
+  "캠핑카·카라반": "truck/truck_qf_images_v01/web_webp/truck_type_camper_v01_192.webp",
+  "캠핑카/캠핑 트레일러": "truck/truck_qf_images_v01/web_webp/truck_type_camper_v01_192.webp",
+  "환경·폐기물차": "truck/truck_qf_images_v01/web_webp/truck_type_env_v01_192.webp",
+  "폐기/음식물수송": "truck/truck_qf_images_v01/web_webp/truck_type_env_v01_192.webp",
+  "활어차": "truck/truck_qf_images_v01/web_webp/truck_type_special_v01_192.webp",
+  "견인·운송차": "truck/truck_qf_images_v01/web_webp/truck_type_tow_v01_192.webp",
+  "차량견인/운송": "truck/truck_qf_images_v01/web_webp/truck_type_tow_v01_192.webp",
+  "트랙터 헤드": "truck/truck_qf_images_v01/web_webp/truck_type_tractor_v01_192.webp",
+  "트랙터·헤드": "truck/truck_qf_images_v01/web_webp/truck_type_tractor_v01_192.webp",
+  "트렉터": "truck/truck_qf_images_v01/web_webp/truck_type_tractor_v01_192.webp",
+  "트랙터·트레일러": "truck/truck_qf_images_v01/web_webp/truck_type_tractor_v01_192.webp",
+  "트레일러": "truck/truck_qf_images_v01/web_webp/truck_type_trailer_v01_192.webp",
+  "특수차": "truck/truck_qf_images_v01/web_webp/truck_type_special_v01_192.webp",
+  "기타 화물차": "truck/truck_qf_images_v01/web_webp/truck_type_etc_v01_192.webp",
+  "기타": "truck/truck_qf_images_v01/web_webp/truck_type_etc_v01_192.webp",
 };
 
 const truckSubtypeImages: Readonly<Record<string, Readonly<Record<string, string>>>> = {
@@ -211,12 +216,14 @@ const truckSubtypeImages: Readonly<Record<string, Readonly<Record<string, string
 
 const formatImageAliases: Readonly<Record<string, string>> = {
   "윙바디·탑차": "윙바디/탑",
+  "덤프·믹서": "덤프/건설/중기",
   "덤프·콘크리트차": "덤프/건설/중기",
   "크레인·고소작업차": "크레인 형태",
   "환경·폐기물차": "폐기/음식물수송",
   "견인·운송차": "차량견인/운송",
-  "트랙터·트레일러": "트레일러",
+  "트랙터·트레일러": "트랙터 헤드",
   "캠핑카·카라반": "캠핑카/캠핑 트레일러",
+  "기타": "기타 화물차",
 };
 
 const subtypeImageAliases: Readonly<Record<string, string>> = {
@@ -225,7 +232,7 @@ const subtypeImageAliases: Readonly<Record<string, string>> = {
   "워크스루밴": "씨티/워크스루밴", "레미콘·믹서트럭": "레미콘", "고소작업차": "바가지차", "오거크레인": "오가크레인", "활선차": "활선차(고소작업)",
   "유류 탱크로리": "유류/액상탱크로리", "LPG·LNG 탱크로리": "LPG/LNG탱크로리", "분말 탱크로리": "소맥분/분말탱크로리", "케미컬 탱크로리": "특수/케미컬(VOC,테플론)탱크로리",
   "암롤": "암롤/롤온", "음식물수거차": "음식물수거", "압착진개차": "압착진개", "압축진개차": "압축진개", "재활용품수거차": "재활용품수집차", "무빙플로어": "워킹플로어", "우드칩·톱밥 운반차": "톱밥운반차",
-  "레커·구난차": "언더리프트", "카캐리어": "카케리어", "트랙터·헤드": "트렉터", "컨테이너 섀시": "컨테이너 샤시", "덤프 트레일러": "덤프트레일러", "평판 트레일러": "평판트레일러", "저상·로우베드 트레일러": "로우베드/릴리리", "윙·탑 트레일러": "윙트레일러", "유류·액상 탱크 트레일러": "유류/액상탱크트레일러", "LPG·LNG 탱크 트레일러": "LPG/LNG트레일러", "벌크시멘트 트레일러": "벌크시멘트트레일러", "호퍼·곡물 트레일러": "곡물트레일러",
+  "레커·구난차": "언더리프트", "카캐리어": "카케리어", "컨테이너 섀시": "컨테이너 샤시", "덤프 트레일러": "덤프트레일러", "평판 트레일러": "평판트레일러", "저상·로우베드 트레일러": "로우베드/릴리리", "윙·탑 트레일러": "윙트레일러", "유류·액상 탱크 트레일러": "유류/액상탱크트레일러", "LPG·LNG 탱크 트레일러": "LPG/LNG트레일러", "벌크시멘트 트레일러": "벌크시멘트트레일러", "호퍼·곡물 트레일러": "곡물트레일러",
   "일체형 캠핑카 - 캠퍼밴": "캠핑카", "카라반·캠핑트레일러": "캠핑트레일러", "특수운반차 - 활어차": "활어차",
 };
 
@@ -241,7 +248,7 @@ export const truckSubtypeImageFor = (format: string | null, subtype: string) => 
 export const normalizeTruckFormatSelection = (format: string | null, subtype: string | null) => {
   const legacyOneTon = format === "1톤트럭";
   const formatAliases: Readonly<Record<string, string>> = {
-    "화물트럭": "카고(화물)트럭", "카고트럭": "카고(화물)트럭", "윙바디/탑": "윙바디·탑차", "덤프/건설/중기": "덤프·콘크리트차", "크레인 형태": "크레인·고소작업차", "폐기/음식물수송": "환경·폐기물차", "차량견인/운송": "견인·운송차", "트렉터": "트랙터·트레일러", "트레일러": "트랙터·트레일러", "캠핑카/캠핑 트레일러": "캠핑카·카라반", "활어차": "특수차",
+    "화물트럭": "카고(화물)트럭", "카고트럭": "카고(화물)트럭", "윙바디/탑": "윙바디·탑차", "덤프/건설/중기": "덤프·믹서", "덤프·콘크리트차": "덤프·믹서", "크레인 형태": "크레인·고소작업차", "폐기/음식물수송": "환경·폐기물차", "차량견인/운송": "견인·운송차", "트렉터": "트랙터 헤드", "트랙터·헤드": "트랙터 헤드", "캠핑카/캠핑 트레일러": "캠핑카·카라반", "활어차": "특수차", "기타": "기타 화물차",
   };
   const legacySubtypeAliases: Readonly<Record<string, string>> = {
     "1톤 트럭": "소형", "소형 트럭 (1.1~3.5톤)": "준중형", "중형 트럭 (4~8.5톤)": "중형", "대형 트럭 (9톤 이상)": "대형", "경형 트럭 (1톤 미만)": "경형",
@@ -252,10 +259,13 @@ export const normalizeTruckFormatSelection = (format: string | null, subtype: st
     "캠핑카": "일체형 캠핑카 - 캠퍼밴", "캠핑트레일러": "카라반·캠핑트레일러",
   };
   const legacyCoolingSubtypes = new Set(["냉동윙", "냉장윙", "보냉윙", "보온윙", "냉동탑", "냉장탑", "보냉탑", "냉온장탑", "익스(하이)냉동탑", "저상형 냉동탑"]);
+  const legacyTrailerSubtypes = new Set(["컨테이너 섀시", "컨테이너 샤시", "덤프 트레일러", "덤프트레일러", "평판 트레일러", "평판트레일러", "저상·로우베드 트레일러", "로우베드/릴리리", "차량·장비운반 트레일러", "코일·철판운송 트레일러", "윙·탑 트레일러", "윙트레일러", "냉장·냉동 트레일러", "유류·액상 탱크 트레일러", "유류/액상탱크트레일러", "LPG·LNG 탱크 트레일러", "LPG/LNG트레일러", "벌크시멘트 트레일러", "벌크시멘트트레일러", "호퍼·곡물 트레일러", "곡물트레일러", "기타 트레일러"]);
   const aliasedFormat = legacyOneTon
     ? "카고(화물)트럭"
     : format === "윙바디/탑" && legacyCoolingSubtypes.has(subtype ?? "")
       ? "냉장·냉동차"
+      : format === "트랙터·트레일러" && legacyTrailerSubtypes.has(subtype ?? "")
+        ? "트레일러"
       : formatAliases[format ?? ""] ?? format;
   // 이전 배포의 `경형 트럭 (1톤)`은 실제로 포터급 1톤 매물을 가리켰으므로
   // 기존 공유 링크가 라보급 경형 매물로 바뀌지 않도록 1톤 트럭으로 호환한다.
@@ -268,8 +278,8 @@ export const normalizeTruckFormatSelection = (format: string | null, subtype: st
       : format === "활어차" && subtype === "활어차" ? "특수운반차 - 활어차"
       : format === "버스" && subtype === "버스" ? "소형버스"
       : format === "버스" && subtype === "기타" ? "대형버스"
-      : format === "트렉터" ? "트랙터·헤드"
-      : format === "트레일러" ? ({ "컨테이너 샤시": "컨테이너 섀시", "로우베드/릴리리": "저상·로우베드 트레일러", "윙트레일러": "윙·탑 트레일러", "유류/액상탱크트레일러": "유류·액상 탱크 트레일러" } as Record<string, string>)[subtype ?? ""] ?? subtype
+      : format === "트렉터" || format === "트랙터·헤드" || (format === "트랙터·트레일러" && (subtype === "트랙터·헤드" || subtype === "트렉터")) ? null
+      : format === "트레일러" || format === "트랙터·트레일러" ? ({ "컨테이너 샤시": "컨테이너 섀시", "덤프트레일러": "덤프 트레일러", "평판트레일러": "평판 트레일러", "로우베드/릴리리": "저상·로우베드 트레일러", "윙트레일러": "윙·탑 트레일러", "유류/액상탱크트레일러": "유류·액상 탱크 트레일러", "LPG/LNG트레일러": "LPG·LNG 탱크 트레일러", "벌크시멘트트레일러": "벌크시멘트 트레일러", "곡물트레일러": "호퍼·곡물 트레일러" } as Record<string, string>)[subtype ?? ""] ?? subtype
       : legacySubtypeAliases[subtype ?? ""] ?? subtype;
   const safeFormat = truckFormatCatalog.some((group) => group.name === aliasedFormat) ? aliasedFormat : null;
   const safeSubtype = safeFormat && truckSubtypesFor(safeFormat).includes(aliasedSubtype ?? "") ? aliasedSubtype : null;
