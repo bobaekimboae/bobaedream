@@ -26,8 +26,11 @@
 .bbmf-modal:has(.truck-type-picker) .bbmf-modal-header h3 { padding-top: 19px; font-size: 19px; font-weight: 750; }
 .bbmf-modal:has(.truck-type-picker) .bbmf-modal-body { min-height: 300px; }
 
-.bbmf-sheet:has(.truck-type-picker) { max-height: min(88dvh, 760px); border-radius: 22px 22px 0 0; }
-.bbmf-sheet:has(.truck-type-picker) .bbmf-sheet-header { display: flex; align-items: center; justify-content: flex-start; height: 64px; padding: 0 64px 0 20px; }
+.bbmf-overlay.is-sheet:has(.truck-type-picker) { justify-content: center; background: rgba(15, 18, 24, .42); }
+.bbmf-sheet:has(.truck-type-picker) { width: min(100%, 520px); height: calc(100dvh - 48px); max-height: 780px; overflow: hidden; border-radius: 20px 20px 0 0; box-shadow: 0 -10px 30px rgba(0, 0, 0, .12); }
+.bbmf-sheet:has(.truck-type-picker) .bbmf-sheet-header { display: flex; align-items: center; justify-content: flex-start; height: 60px; padding: 0 64px 0 20px; }
 .bbmf-sheet:has(.truck-type-picker) .bbmf-sheet-heading { align-items: flex-start; }
-.bbmf-sheet:has(.truck-type-picker) .bbmf-sheet-header h3 { justify-content: flex-start; margin: 0; padding: 0; font-size: 20px; line-height: 28px; font-weight: 750; text-align: left; }
-.bbmf-sheet:has(.truck-type-picker) .bbmf-sheet-header .bbmf-close { top: 10px; right: 16px; width: 44px; height: 44px; }
+.bbmf-sheet:has(.truck-type-picker) .bbmf-sheet-header h3 { justify-content: flex-start; margin: 0; padding: 0; font-size: 20px; line-height: 28px; font-weight: 700; text-align: left; }
+.bbmf-sheet:has(.truck-type-picker) .bbmf-sheet-header .bbmf-close { top: 10px; right: 12px; width: 40px; height: 40px; border-radius: 50%; }
+.bbmf-sheet:has(.truck-type-picker) .bbmf-sheet-header .bbmf-close:hover { background: #f4f4f4; }
+.bbmf-sheet:has(.truck-type-picker) > .bbmf-actions.is-full { height: 80px; padding: 14px 20px; border-top: 1px solid #ebebeb; background: #fff; box-shadow: 0 -4px 12px rgba(0, 0, 0, .06); }

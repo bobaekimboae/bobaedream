@@ -115,6 +115,48 @@
 
 final result: passed
 
+## 트럭 유형 모바일 필터 외곽·하단 액션 v46
+
+- source visual truth: `https://bobaekimboae.github.io/bobaedream/?qf=guazi&v=57cf09a`에서 연 기본 `필터` 바텀시트.
+- implementation: `http://127.0.0.1:4173/?qf=guazi&category=트럭 · 특장&v=local-footer`의 `트럭 유형` 바텀시트.
+- implementation screenshot: Codex 인앱 브라우저 로컬 렌더(394×852)와 기준·구현 동시 비교 캡처.
+- viewport: 모바일 394×852 CSS px, 비교용 와이드 모바일 모드 1280×720 CSS px, deviceScaleFactor 1.
+- state: 라이트 테마, 기본 필터·트럭 유형 필터가 열린 상태, 카고(화물)트럭 선택 상태 추가 검증.
+
+### Full-view comparison evidence
+
+- 기준과 구현 모두 모바일에서 화면 하단에 붙고, 폭은 `min(100%, 520px)`, 최대 높이는 780px이다.
+- 상단 모서리 20px, 60px 헤더, 좌측 제목, 우측 닫기, 흰 배경과 동일한 딤·그림자를 적용했다.
+- 394px 화면에서 시트 폭 393.6px, 높이 780px, 하단 액션 폭 393.6px로 가로 넘침이 없다.
+
+### Focused region comparison evidence
+
+- 기준과 구현 하단 액션은 높이 80px, 패딩 14px 20px, 버튼 간격 8px이다.
+- `초기화`는 112×44px, 확인 버튼은 남은 폭×44px, 라운드 8px이다.
+- 확인 버튼은 `#1B4C8C`, 글자는 흰색 16px/600이며 선택 결과에 따라 `30대 보기` → `5대 보기`로 갱신됐다.
+
+### Required fidelity surfaces
+
+- fonts and typography: 모바일 제목 20/28px 700, 액션 버튼 16px 600으로 기준과 일치.
+- spacing and layout rhythm: 헤더 60px, 액션 80px, 좌우 20px, 버튼 간격 8px, 초기화 112px로 일치.
+- colors and visual tokens: 확인 `#1B4C8C`, 초기화 흰색·`#E0E0E0`, 액션 상단 `#EBEBEB`, 딤 `rgba(15,18,24,.42)`로 일치.
+- image quality and asset fidelity: 기존 승인 트럭 유형 PNG와 닫기 아이콘을 그대로 사용했으며 새 대체 자산 없음.
+- copy and content: `초기화`, `N대 보기`, `트럭 유형` 문구 유지.
+
+### Interaction and console QA
+
+- 카고(화물)트럭 체크 후 `5대 보기`를 눌러 시트가 닫히고 URL에 `truckFormat=카고(화물)트럭`이 반영되는 것을 확인했다.
+- 모바일·PC 콘솔 오류 0건.
+- PC 중앙 모달은 기존 PC 공통 규격(520px, 남색 확인 버튼, 초기화 118px)을 유지했다.
+
+### Comparison history
+
+1. 기준 기본 필터와 트럭 시트를 측정해 트럭의 64px 헤더·76.8px 액션·118px 초기화·남색 확인 버튼 차이를 확인했다.
+2. 모바일 트럭 시트 외곽과 하단을 기준 기본 필터의 60px·80px·112px·파란 확인 버튼 규격으로 수정했다.
+3. 기준·구현을 같은 비교 입력에서 다시 확인하고 394×852 렌더·필터 적용·PC 회귀를 통과했다.
+
+final result: passed
+
 ## 트럭 유형 필터 v43
 
 - source visual truth: 사용자 수정 요청 `아이콘까지 구분선 긋자`; v41의 핀노 행 구조에서 구분선 범위만 확장.

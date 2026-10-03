@@ -88,7 +88,8 @@ export function TruckTypePicker({ desktop, open, onClose, value }: Props) {
       })}
     </div>
   </div>;
-  const footer = <BbmActionBar variant={desktop ? "modal" : "sheet"} confirmStyle="보기" count={draftCount} onReset={reset} onConfirm={apply} />;
+  // 모바일은 기본 전체 필터와 같은 하단 액션(초기화 112px + 파란 보기 버튼)을 쓴다.
+  const footer = <BbmActionBar variant={desktop ? "modal" : "full"} confirmStyle="보기" count={draftCount} onReset={reset} onConfirm={apply} />;
 
   return desktop
     ? <BbmModal title={title} onClose={onClose} footer={footer} flush>{body}</BbmModal>
