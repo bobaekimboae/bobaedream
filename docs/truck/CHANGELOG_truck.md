@@ -88,3 +88,4 @@
 2026-10-03 / 코덱스-특장 / qf-model-images.css, truck-chotot-slot-check.mjs, HANDOVER_truck_v44.md / v44 / 수정 요청: 트럭 제조사 제목과 첫 로고 사이 간격을 초톳 슬롯 피치와 같은 8px로 통일 / 미검수
 2026-10-03 / 코덱스-특장 / HANDOVER_truck_v45.md / v45 / GitHub Pages 실행 37120303895 성공 및 공개 유형 구분선·제조사 로고 8px 간격·콘솔 오류 0건 검증 / 검수완료
 2026-10-03 / 코덱스-특장 / truck-type-picker.tsx, truck-type-picker.css, design-qa.md, HANDOVER_truck_v46.md / v46 / 수정 요청: 기본 필터와 모바일 트럭 유형 바텀시트 외곽·헤더·하단 버튼 규격 통일 / 미검수
+2026-10-03 / 코덱스-특장 / HANDOVER_truck_v47.md / v47 / GitHub Pages 실행 37121239573 성공 및 공개 모바일 394×852·와이드 모바일 모드 하단 버튼 규격 검증 / 검수완료
