@@ -1,0 +1,158 @@
+{
+  "generated": "2026-10-03",
+  "sourceFolder": "https://drive.google.com/drive/folders/1j3iVajf-ReD2yL3Ho1kK5pxhxwmGbo64",
+  "warning": "비교 시안용. 르노삼성·쌍용 계열은 구형 로고가 포함되어 기본 자산으로 승격하지 않는다.",
+  "rule": "알파 16 이하 바깥 여백 제거 후 초톳형 40×40 광학 크기 규칙 적용.",
+  "brands": [
+    {
+      "name": "현대",
+      "slug": "hyundai",
+      "driveId": "1DPlEf5ZHHKnCybRXLrHi2gMtr3fElwAT",
+      "file": "hyundai.png",
+      "ratio": 1.943,
+      "originalSize": [
+        600,
+        600
+      ],
+      "trimmedSize": [
+        443,
+        228
+      ]
+    },
+    {
+      "name": "제네시스",
+      "slug": "genesis",
+      "driveId": "1b-6LNIRWfhlJpMq9lDiNAWOG44nVk9aE",
+      "file": "genesis.png",
+      "ratio": 4.924,
+      "originalSize": [
+        600,
+        600
+      ],
+      "trimmedSize": [
+        581,
+        118
+      ]
+    },
+    {
+      "name": "기아",
+      "slug": "kia",
+      "driveId": "1p-CArUqxW_9f5pl19W64GjyYPj5cecqy",
+      "file": "kia.png",
+      "ratio": 4.168,
+      "originalSize": [
+        600,
+        600
+      ],
+      "trimmedSize": [
+        496,
+        119
+      ]
+    },
+    {
+      "name": "쉐보레(국산)",
+      "slug": "chevrolet",
+      "driveId": "1OmnqPQM_BFImutCnDVmqIncPw_MwsRp5",
+      "file": "chevrolet.png",
+      "ratio": 3.552,
+      "originalSize": [
+        600,
+        600
+      ],
+      "trimmedSize": [
+        508,
+        143
+      ]
+    },
+    {
+      "name": "르노코리아(삼성)",
+      "slug": "renault",
+      "driveId": "1odloFy4ibBNp_-nMWeJG-2l5iReqsIsu",
+      "file": "renault.png",
+      "ratio": 1.74,
+      "originalSize": [
+        600,
+        600
+      ],
+      "trimmedSize": [
+        449,
+        258
+      ]
+    },
+    {
+      "name": "KG모빌리티(쌍용)",
+      "slug": "kgm",
+      "driveId": "15atfJLJ0W81CClufYq523NrpWqYmcUcc",
+      "file": "kgm.png",
+      "ratio": 1.636,
+      "originalSize": [
+        600,
+        600
+      ],
+      "trimmedSize": [
+        458,
+        280
+      ]
+    },
+    {
+      "name": "BMW",
+      "slug": "bmw",
+      "driveId": "1QPShoJfB5SqEFqqg-iBvj1lWUYRuDRXS",
+      "file": "bmw.png",
+      "ratio": 1,
+      "originalSize": [
+        600,
+        600
+      ],
+      "trimmedSize": [
+        462,
+        462
+      ]
+    },
+    {
+      "name": "벤츠",
+      "slug": "mercedes-benz",
+      "driveId": "1C46LpZ24D8RRM7f7KVLgEjV6V6KGF7CF",
+      "file": "mercedes-benz.png",
+      "ratio": 1,
+      "originalSize": [
+        600,
+        600
+      ],
+      "trimmedSize": [
+        405,
+        405
+      ]
+    },
+    {
+      "name": "아우디",
+      "slug": "audi",
+      "driveId": "1WY_yfXoZVNGUPD8JqOQgUAsW6Kh8t_Nb",
+      "file": "audi.png",
+      "ratio": 2.857,
+      "originalSize": [
+        600,
+        600
+      ],
+      "trimmedSize": [
+        500,
+        175
+      ]
+    },
+    {
+      "name": "포르쉐",
+      "slug": "porsche",
+      "driveId": "1wojkzg56aDy4809NR-JZiV0ktfvqNNMW",
+      "file": "porsche.png",
+      "ratio": 0.747,
+      "originalSize": [
+        600,
+        600
+      ],
+      "trimmedSize": [
+        333,
+        446
+      ]
+    }
+  ]
+}
