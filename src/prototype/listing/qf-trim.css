@@ -7,6 +7,35 @@
 .marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-rail:not(.is-trim-row) .depth-rail-label { padding-bottom: 15px; }
 .marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail:not(.is-trim-row) .depth-rail-label { padding-bottom: 26px; }
 
+/* 선택값 맥락: 다음 뎁스의 왼쪽에는 일반 제목 대신 직전 선택값 하나만 둔다.
+   폭은 고정하고 줄바꿈을 허용해 긴 트럭 분류도 말줄임표 없이 읽힌다. */
+.marketplace.is-qf-guazi .depth-rail-label.is-parent-context {
+  width: 76px;
+  max-width: 76px;
+  flex: 0 0 76px;
+  box-sizing: border-box;
+  color: #222;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18px;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.marketplace.is-bbm-m.is-qf-guazi .depth-rail-label.is-parent-context {
+  width: 64px;
+  max-width: 64px;
+  flex-basis: 64px;
+  padding-right: 8px;
+  font-size: 12px;
+  line-height: 17px;
+}
+.marketplace.is-qf-guazi .depth-rail.is-trim-row .depth-rail-label.is-parent-context {
+  align-self: center;
+  max-height: 34px;
+  overflow: hidden;
+}
+
 /* 트림 줄 상자 = 알약 32 + 여백(모바일 위 2 · 아래 6, PC 알약 아래 → 상단 카드 끝 16). 이전 96 고정의 빈 공간을 없앤다 */
 .marketplace.is-qf-guazi .depth-rail.is-trim-row { height: auto; }
 .marketplace.is-qf-guazi .depth-rail.is-trim-row .brand-carousel { height: 32px; }
