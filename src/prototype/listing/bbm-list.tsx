@@ -206,9 +206,15 @@ export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string, detail
   const [activeValue, setActiveValue] = useState(bbmCategoryGroups[0].value);
   if (!imageGuideFamily) {
     const activeGroup = bbmCategoryGroups.find((group) => group.value === activeValue) ?? bbmCategoryGroups[0];
+    const activateGroup = (value: string) => {
+      setActiveValue(value);
+      // 트럭/특장은 텍스트 하위 메뉴를 한 번 더 거치지 않고,
+      // 시나리오의 형식 이미지 → 세부 형식 이미지 흐름으로 바로 진입한다.
+      if (value === "트럭 · 특장") onChoose(value);
+    };
     return (
       <section className="bbm-category-menu is-hierarchical" aria-label="차량 카테고리">
-        <BbmCategoryIconRow activeValue={activeGroup.value} onActivate={setActiveValue} />
+        <BbmCategoryIconRow activeValue={activeGroup.value} onActivate={activateGroup} />
         {activeGroup.value === "중고차" ? null : <BbmCategoryChildPills group={activeGroup} onChoose={onChoose} />}
       </section>
     );
