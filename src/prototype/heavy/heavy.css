@@ -186,13 +186,20 @@
     padding: 6px 0;
   }
   .heavy-qf-heading {
-    width: 76px;
-    flex: 0 0 76px;
+    width: 80px;
+    flex: 0 0 80px;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 12px 4px 0 12px;
+    padding: 12px 4px 0 16px;
   }
   .heavy-qf-heading > div:first-child { gap: 0; }
+  .heavy-qf-heading strong {
+    color: #666;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    white-space: nowrap;
+  }
   .heavy-qf-heading span { display: none; }
   .heavy-qf-actions { display: none; }
   .heavy-qf-track {

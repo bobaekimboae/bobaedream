@@ -1,7 +1,7 @@
 export type HeavyAssetStatus = "빈 슬롯" | "제작중" | "검수완료" | "미확인";
 export type HeavyFallbackLevel = 0 | 1 | 2 | 3;
 
-export const HEAVY_QUICKFILTER_MANIFEST_VERSION = "v07";
+export const HEAVY_QUICKFILTER_MANIFEST_VERSION = "v08";
 export const HEAVY_SLOT_MANIFEST_VERSION = "v06";
 
 export type HeavyManufacturerSlot = {
