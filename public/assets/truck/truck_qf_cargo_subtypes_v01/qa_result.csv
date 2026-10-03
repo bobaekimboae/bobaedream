@@ -1,0 +1,7 @@
+﻿id,display_name,q1_bottom_y,q1_result,q2_area_percent,q2_result,q3_width_percent,q3_height_percent,q3_result,q8_source_subject_width,q8_result,notes
+truck_subtype_cargo_light,경형,860,PASS,65.98,PASS,66.88,65.10,PASS,1329,PASS,
+truck_subtype_cargo_small,소형,860,PASS,66.01,PASS,69.38,62.80,PASS,1396,PASS,
+truck_subtype_cargo_semi_medium,준중형,860,PASS,65.99,PASS,76.00,57.30,PASS,1451,PASS,
+truck_subtype_cargo_medium,중형,860,PASS,65.99,PASS,74.31,58.60,PASS,1431,PASS,
+truck_subtype_cargo_quasi_large,준대형,860,PASS,65.97,PASS,75.81,57.40,PASS,1436,PASS,
+truck_subtype_cargo_large,대형,860,PASS,66.01,PASS,74.88,58.20,PASS,1480,PASS,
