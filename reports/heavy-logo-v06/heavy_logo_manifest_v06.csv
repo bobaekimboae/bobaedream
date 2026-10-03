@@ -1,0 +1,11 @@
+﻿order,code,name,source,source_file,output_file,source_tight_px,ratio,canvas,painted_px,pc_visible_px,mobile_visible_px,background,status
+1,hyundai,현대건설기계,CompaniesLogo,heavy_hd_hyundai_logo_companieslogo_raw_v06.png,heavy_hd_hyundai_logo_v06.png,1548x1791,0.86,120x120,86x99,29x33,26x30,alpha,applied
+2,develon,디벨론,DEVELON 공식,heavy_develon_logo_official_raw_v06.png,heavy_develon_logo_v06.png,590x73,8.08,120x120,120x15,40x5,36x4,alpha,applied
+3,volvo,볼보CE,CompaniesLogo,heavy_volvo_ce_logo_companieslogo_raw_v06.png,heavy_volvo_ce_logo_v06.png,1550x1550,1.00,120x120,99x99,33x33,30x30,alpha,applied
+4,caterpillar,캐터필러,CompaniesLogo,heavy_caterpillar_logo_companieslogo_raw_v06.png,heavy_caterpillar_logo_v06.png,1521x921,1.65,120x120,120x73,40x24,36x22,alpha,applied
+5,komatsu,코마츠,CompaniesLogo,heavy_komatsu_logo_companieslogo_raw_v06.png,heavy_komatsu_logo_v06.png,1571x300,5.24,120x120,120x23,40x8,36x7,alpha,applied
+6,hitachi,히타치,CompaniesLogo,heavy_hitachi_cm_logo_companieslogo_raw_v06.png,heavy_hitachi_cm_logo_v06.png,1690x274,6.17,120x120,120x19,40x6,36x6,alpha,applied
+7,kobelco,코벨코,KOBELCO 공식,heavy_kobelco_logo_official_raster_raw_v06.png,heavy_kobelco_logo_v06.png,1200x252,4.76,120x120,120x25,40x8,36x8,alpha,applied
+8,bobcat,밥캣,Bobcat 공식,heavy_bobcat_logo_official_raster_raw_v06.png,heavy_bobcat_logo_v06.png,891x934,0.95,120x120,94x99,31x33,29x30,alpha,applied
+9,kubota,구보타,CompaniesLogo,heavy_kubota_logo_companieslogo_raw_v06.png,heavy_kubota_logo_v06.png,1535x335,4.58,120x120,120x26,40x9,36x8,alpha,applied
+10,jcb,JCB,JCB 공식,heavy_jcb_logo_official_raster_raw_v06.png,heavy_jcb_logo_v06.png,1200x463,2.59,120x120,120x46,40x15,36x14,alpha,applied

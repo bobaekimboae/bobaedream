@@ -117,7 +117,7 @@ export function HeavyQuickFilter({ value, onChange }: HeavyQuickFilterProps) {
       <div className="heavy-qf-heading">
         <div>
           <strong>{depth}</strong>
-          <span>철갑망 로고 · 초톳 슬롯 v05</span>
+          <span>제조사 원본 · 초톳 슬롯 v06</span>
         </div>
         <div className="heavy-qf-actions">
           {value.manufacturerCode ? <button type="button" onClick={clearCurrent}>선택 해제</button> : null}
