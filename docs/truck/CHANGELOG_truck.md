@@ -97,3 +97,4 @@
 2026-10-03 / 코덱스-특장 / HANDOVER_truck_v53.md / v53 / GitHub Pages 실행 37125467295 성공 및 공개 모바일·PC 트레일러 이미지 12종·콘솔 오류 0건 검증 / 검수완료
 2026-10-03 / 코덱스-특장 / truck_trailer_*_side_v04.png, truck-format-catalog.ts, trailer_side_image_pilot_v02.md, HANDOVER_truck_v54.md / v04·v02·v54 / 수정 요청: 10도 준측면을 앞·뒤 면과 상판이 보이지 않는 90도 완전 정측면으로 교정 / 미검수
 2026-10-04 / 코덱스-특장 / truck_type_*_side_v05.png, truck-format-catalog.ts, truck_root_side_image_v05.md, HANDOVER_truck_v55.md / v05·v55 / 수정 요청: 트럭 유형 루트 이미지를 바텀시트용 정측면 기준으로 통일, GitHub Pages 실행 37143516443 성공 및 공개 모바일·PC 콘솔 오류 0건 검증 / 검수완료
+2026-10-04 / 코덱스-특장 / truck_type_tractor_trailer_side_v06.png, truck-format-catalog.ts, truck_root_side_image_v05.md / v06 / 수정 요청: 트랙터·트레일러 루트 이미지를 헤드 단독 인상에서 헤드+세미트레일러 결합 실루엣으로 교체 / 미검수

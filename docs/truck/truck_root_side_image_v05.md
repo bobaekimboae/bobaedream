@@ -26,7 +26,7 @@
 | 덤프·콘크리트차 | `public/assets/truck/pilot/v05/truck_type_dump_side_v05.png` |
 | 환경·폐기물차 | `public/assets/truck/pilot/v05/truck_type_waste_side_v05.png` |
 | 견인·운송차 | `public/assets/truck/pilot/v05/truck_type_transport_side_v05.png` |
-| 트랙터·트레일러 | `public/assets/truck/pilot/v05/truck_type_tractor_trailer_side_v05.png` |
+| 트랙터·트레일러 | `public/assets/truck/pilot/v06/truck_type_tractor_trailer_side_v06.png` |
 | 버스 | `public/assets/truck/pilot/v05/truck_type_bus_side_v05.png` |
 | 캠핑카·카라반 | `public/assets/truck/pilot/v05/truck_type_camper_side_v05.png` |
 | 특수차 | `public/assets/truck/pilot/v05/truck_type_special_side_v05.png` |
@@ -44,4 +44,4 @@
 - v05 이미지는 원본 생성 파일을 `public/assets/truck/pilot/v05/masters/`에 보존했다.
 - 접촉시트: `docs/truck/qa/truck_root_side_v05_contact.png`.
 - 구형 별칭도 v05 루트 이미지로 연결해 이전 링크와 레거시 값에서 각도 혼합이 재발하지 않게 했다.
-
+- `트랙터·트레일러`는 v05가 헤드 중심으로 보여 v06에서 헤드+세미트레일러 결합 실루엣으로 교체했다.
