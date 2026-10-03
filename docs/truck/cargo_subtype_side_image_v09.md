@@ -33,4 +33,4 @@
 - 마스터 파일은 `public/assets/truck/pilot/v09/masters/`에 보존했다.
 - 접촉시트: `docs/truck/qa/cargo_subtype_side_v09_contact.png`.
 - 현재 라벨 6개를 직접 매핑해 `준대형`이 기존 중형 이미지로 우회되지 않게 했다.
-
+- v11에서 사진풍을 폐기하고 상단 퀵필터 레일용 평면 실루엣으로 재제작했다.

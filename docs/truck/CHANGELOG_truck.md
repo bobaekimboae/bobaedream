@@ -101,3 +101,4 @@
 2026-10-04 / 코덱스-특장 / truck_type_tractor_trailer_side_v07.png, truck-format-catalog.ts, truck_root_side_image_v05.md / v07 / 수정 요청: v06 트랙터·트레일러가 너무 길고 얇아 56×40 슬롯용 짧고 굵은 헤드+세미트레일러 실루엣으로 재교체, GitHub Pages 실행 37144907597 성공 및 공개 모바일 콘솔 오류 0건 검증 / 검수완료
 2026-10-04 / 코덱스-특장 / truck_type_tractor_trailer_lowbed_side_v08.png, truck-format-catalog.ts, truck_root_side_image_v05.md / v08 / 수정 요청: 트랙터·트레일러 루트 이미지를 박스 트레일러 인상에서 헤드+저상 트레일러 실루엣으로 재교체, GitHub Pages 실행 37145276174 성공 및 공개 모바일 콘솔 오류 0건 검증 / 검수완료
 2026-10-04 / 코덱스-특장 / truck_cargo_*_side_v09.png, truck-format-catalog.ts, cargo_subtype_side_image_v09.md / v09 / 수정 요청: 카고 하위 경형·소형·준중형·중형·준대형·대형 이미지를 톤급별 전용 측면 실루엣으로 분리, GitHub Pages 실행 37146287220 성공 및 공개 모바일·PC 콘솔 오류 0건 검증 / 검수완료
+2026-10-04 / 코덱스-특장 / truck_cargo_*_side_v11.png, truck-format-catalog.ts, cargo_subtype_side_image_v11.md / v11 / 수정 요청: 카고 하위 이미지가 어설퍼 보여 실사풍을 폐기하고 상단 퀵필터 레일용 평면 실루엣으로 재제작 / 미검수
