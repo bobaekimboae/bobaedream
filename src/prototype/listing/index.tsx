@@ -1875,7 +1875,7 @@ function MarketplaceScreen() {
                       <button type="button" role="tab" aria-selected={false} onClick={() => setSearchToast("브랜드 매물은 정식 서비스에서 이용해 주세요.")}>브랜드</button>
                     </div>
                     <div className="bbm-toolbar-actions">
-                      <label className="bbm-video-filter"><span>영상 매물</span><BbSwitch checked={videoOnly} label="영상 매물" onChange={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))} /></label>
+                      <button type="button" className={`bbm-video-filter${videoOnly ? " is-selected" : ""}`} aria-pressed={videoOnly} onClick={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))}>영상 매물</button>
                       <span className="bbm-toolbar-divider" aria-hidden="true" />
                       {isGuaziQuickStyle ? (
                         <>
