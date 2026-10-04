@@ -117,6 +117,27 @@ final result: passed
 
 ---
 
+# 트럭 톤수 다음 제조사 로고 레일 v59
+
+- source visual truth: `docs/truck/truck_chotot_slot_rule_v01.md`의 초톳 앱·카테고리 브랜드 슬롯 실측값
+- implementation screenshots: `reports/truck-maker-after-tonnage-v59/mobile-390.png`, `reports/truck-maker-after-tonnage-v59/pc-1280.png`
+- viewport/state: 모바일 390×844, PC 1280×900 / 카고(화물)트럭 → 준중형 → 3톤
+- focused comparison: 모바일 셀 76×102·PC 84×102, 공통 로고 상자 40×40, 간격 8, 시작선 16/20
+- interaction: 톤수 선택 전 제조사 레일 없음 → 3톤 선택 후 제조사 로고 레일 → 제조사 선택 가능
+- image quality: 트럭 로고 10개가 투명 배경·원본 비율 `contain`으로 정상 로드
+- typography: 이름 14/400/21 `#595959`, 모바일 68px·PC 76px, 최대 2줄
+- console/build errors: Playwright 회귀 검수와 `verify:qf`로 확인
+
+## Comparison history
+
+- 이전: 트럭 전용 축소 예외로 모바일 72×88·로고 72×45·간격 5px, PC 이름 간격 8px.
+- 수정: 공통 초톳 브랜드 슬롯으로 통합하고 톤수 다음 뎁스 노출을 자동화 테스트로 고정.
+- 수정 후: 모바일·PC 모두 슬롯·간격·이미지 로드와 뎁스 전환이 기준값에 일치.
+
+final result: passed
+
+---
+
 # 트럭 2뎁스 마지막 칩 곡률 v58
 
 ## Source and implementation

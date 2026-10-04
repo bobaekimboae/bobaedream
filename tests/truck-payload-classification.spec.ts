@@ -56,8 +56,8 @@ test("이전 경형 1톤 링크는 1톤 트럭으로 호환한다", async ({ pag
 });
 
 for (const mode of [
-  { name: "mobile", viewport: { width: 390, height: 844 }, pc: false, width: 76, height: 84, media: [64, 40] },
-  { name: "PC", viewport: { width: 1280, height: 900 }, pc: true, width: 96, height: 98, media: [80, 50] },
+  { name: "mobile", viewport: { width: 390, height: 844 }, pc: false, width: 76, height: 84, media: [64, 40], maker: [76, 102, 40, 68, 16] },
+  { name: "PC", viewport: { width: 1280, height: 900 }, pc: true, width: 96, height: 98, media: [80, 50], maker: [84, 102, 40, 76, 20] },
 ]) {
   test(`${mode.name}: 1뎁스 실사 카드와 2뎁스 텍스트 칩을 분리한다`, async ({ page }) => {
     await page.setViewportSize(mode.viewport);
@@ -130,6 +130,39 @@ for (const mode of [
     const payloadRail = page.getByRole("region", { name: "준중형 적재용량 및 규격 빠른 선택" });
     await expect(payloadRail).toBeVisible();
     await expect(payloadRail.getByRole("button")).toHaveText(["2.5톤", "3톤", "3.5톤"]);
+    await expect(page.getByRole("region", { name: "제조사 빠른 선택" })).toHaveCount(0);
+
+    await payloadRail.getByRole("button", { name: "3톤", exact: true }).click();
+    const makerRail = page.getByRole("region", { name: "제조사 빠른 선택" });
+    await expect(makerRail).toBeVisible();
+    await expect(payloadRail).toHaveCount(0);
+    const hyundai = makerRail.getByRole("button", { name: "현대", exact: true });
+    await expect(hyundai).toBeVisible();
+    const makerMetrics = await hyundai.evaluate((element) => {
+      const card = element as HTMLElement;
+      const media = card.querySelector<HTMLElement>(".depth-card-media.is-brand")!;
+      const label = card.querySelector<HTMLElement>(".depth-card-label")!;
+      const track = card.parentElement as HTMLElement;
+      return {
+        width: card.getBoundingClientRect().width,
+        height: card.getBoundingClientRect().height,
+        mediaWidth: media.getBoundingClientRect().width,
+        mediaHeight: media.getBoundingClientRect().height,
+        labelWidth: label.getBoundingClientRect().width,
+        gap: getComputedStyle(track).gap,
+        paddingLeft: getComputedStyle(track).paddingLeft,
+      };
+    });
+    expect(makerMetrics.width).toBeCloseTo(mode.maker[0], 0);
+    expect(makerMetrics.height).toBeCloseTo(mode.maker[1], 0);
+    expect(makerMetrics.mediaWidth).toBeCloseTo(mode.maker[2], 0);
+    expect(makerMetrics.mediaHeight).toBeCloseTo(mode.maker[2], 0);
+    expect(makerMetrics.labelWidth).toBeCloseTo(mode.maker[3], 0);
+    expect(makerMetrics.gap).toBe("8px");
+    expect(makerMetrics.paddingLeft).toBe(`${mode.maker[4]}px`);
+    const logoImages = makerRail.locator(".depth-card-media.is-brand img");
+    await expect(logoImages).toHaveCount(10);
+    expect(await logoImages.evaluateAll((images) => images.every((image) => (image as HTMLImageElement).naturalWidth > 0))).toBe(true);
   });
 }
 
