@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import { BookmarkFilledIcon, BookmarkIcon, ChevronDownIcon, ChevronRightIcon, ChevronUpIcon, DashboardIcon, HeartFilledIcon, HeartIcon, MagnifyingGlassIcon, RowsIcon } from "@radix-ui/react-icons";
 import { BottomSheet, Carousel, KeyboardInput, MobileScroll, type FlowScreen, useFlow, useKeyboard } from "../../mobile";
 import { ChoTotFilterSheet, ChoTotQuickFilterSheet, emptyChoTotFilters, type ChoTotFilterFocus, type ChoTotFilterState } from "../../ChoTotFilterSheet";
@@ -97,6 +97,7 @@ import { QuickRailCarousel } from "./quick-rail-carousel";
 import { truckModelsByMaker } from "../truck/scenario-v01";
 import { HeavyQuickFilter } from "../heavy";
 import { emptyHeavySelection, getInitialHeavySelection, replaceHeavyParams, type HeavySelection } from "../heavy/data";
+import { CatalogLogo, CatalogSearchResults, CatalogVehicleImage, CatalogVehiclePickerSheet, useVehicleCatalog, type VehicleSearchRecord } from "../vehicle-catalog";
 
 type BbmMobileView = "목록으로 보기" | "피드로 보기" | "갤러리로 보기" | "한줄 광고로 보기" | "텍스트로 보기";
 
@@ -199,8 +200,9 @@ const pcPriceLinks = [
 ];
 const pcBodyLinks = ["세단", "SUV", "해치백", "스포츠카", "승합"];
 
-function PcHeader({ query, setQuery, searchPlaceholder, regionLabel, onOpenRegion, onOpenFavorites, onNotify }: { query: string; setQuery: (query: string) => void; searchPlaceholder: string; regionLabel: string; onOpenRegion: () => void; onOpenFavorites: () => void; onNotify: (message: string) => void }) {
+function PcHeader({ query, setQuery, searchPlaceholder, regionLabel, onOpenRegion, onOpenFavorites, onNotify, catalogRecords, onCatalogFocus, onCatalogChoose }: { query: string; setQuery: (query: string) => void; searchPlaceholder: string; regionLabel: string; onOpenRegion: () => void; onOpenFavorites: () => void; onNotify: (message: string) => void; catalogRecords?: VehicleSearchRecord[] | null; onCatalogFocus?: () => void; onCatalogChoose?: (record: VehicleSearchRecord) => void }) {
   const keyboard = useKeyboard();
+  const [searchOpen, setSearchOpen] = useState(false);
   return (
     <header className="pc-list-header" aria-label="보배드림 중고차 검색">
       <div className="pc-list-header-inner">
@@ -210,8 +212,9 @@ function PcHeader({ query, setQuery, searchPlaceholder, regionLabel, onOpenRegio
           <button type="button" className="pc-region-pill" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={onOpenRegion}><Icon name="location-blue.svg" /><span>{regionLabel}</span><ChevronDownIcon /></button>
         </div>
         <label className="pc-search">
-          <KeyboardInput aria-label={`${searchPlaceholder} 검색`} value={query} onChange={(event) => setQuery(event.currentTarget.value)} onBlur={() => keyboard.hide()} placeholder={`${searchPlaceholder} 모델명, 트림으로 검색`} />
+          <KeyboardInput aria-label={`${searchPlaceholder} 검색`} value={query} onFocus={() => { setSearchOpen(true); onCatalogFocus?.(); }} onChange={(event) => { setQuery(event.currentTarget.value); setSearchOpen(true); onCatalogFocus?.(); }} onBlur={() => keyboard.hide()} placeholder={`${searchPlaceholder} 모델명, 트림으로 검색`} />
           <button type="button" className="pc-search-button" aria-label="검색" onPointerDown={(event) => event.preventDefault()} onClick={() => keyboard.hide()}><MagnifyingGlassIcon /></button>
+          {searchOpen && query.trim() && onCatalogChoose ? <CatalogSearchResults records={catalogRecords ?? null} query={query} onChoose={(record) => { setSearchOpen(false); keyboard.hide(); onCatalogChoose(record); }} /> : null}
         </label>
         <div className="pc-list-header-right">
           <button type="button" className="pc-header-icon" aria-label="저장한 매물 열기" onClick={onOpenFavorites}><img src={pcAsset("9546-img1IconHeartSize24.svg")} alt="" draggable={false} /></button>
@@ -224,6 +227,17 @@ function PcHeader({ query, setQuery, searchPlaceholder, regionLabel, onOpenRegio
       </div>
     </header>
   );
+}
+
+function BbmCatalogHeaderSearch({ query, setQuery, searchPlaceholder, catalogRecords, onCatalogFocus, onCatalogChoose }: { query: string; setQuery: (query: string) => void; searchPlaceholder: string; catalogRecords?: VehicleSearchRecord[] | null; onCatalogFocus?: () => void; onCatalogChoose?: (record: VehicleSearchRecord) => void }) {
+  const keyboard = useKeyboard();
+  const [searchOpen, setSearchOpen] = useState(false);
+  return <label className="bbm-catalog-search">
+    <MagnifyingGlassIcon aria-hidden="true" />
+    <KeyboardInput aria-label={`${searchPlaceholder} 검색`} value={query} placeholder={`${searchPlaceholder} 모델명, 트림으로 검색`} onFocus={() => { setSearchOpen(true); onCatalogFocus?.(); }} onChange={(event) => { setQuery(event.currentTarget.value); setSearchOpen(true); onCatalogFocus?.(); }} onBlur={() => keyboard.hide()} />
+    {query ? <button type="button" className="bbm-catalog-search-clear" aria-label="검색어 지우기" onPointerDown={(event) => event.preventDefault()} onClick={() => setQuery("")}>×</button> : null}
+    {searchOpen && query.trim() && onCatalogChoose ? <CatalogSearchResults records={catalogRecords ?? null} query={query} onChoose={(record) => { setSearchOpen(false); keyboard.hide(); onCatalogChoose(record); }} /> : null}
+  </label>;
 }
 
 function PcSidebarCard({ title, items, activeLabel, onChoose, visibleCount = 5 }: { title: string; items: string[]; activeLabel?: string; onChoose: (label: string) => void; visibleCount?: number }) {
@@ -241,7 +255,7 @@ function PcSidebarCard({ title, items, activeLabel, onChoose, visibleCount = 5 }
   );
 }
 
-function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearchSaved, onOpenFavorites, bbm = false }: { query: string; setQuery: (query: string) => void; searchPlaceholder: string; searchSaved: boolean; onToggleSearchSaved: () => void; onOpenFavorites: () => void; bbm?: boolean }) {
+function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearchSaved, onOpenFavorites, bbm = false, catalogRecords, onCatalogFocus, onCatalogChoose }: { query: string; setQuery: (query: string) => void; searchPlaceholder: string; searchSaved: boolean; onToggleSearchSaved: () => void; onOpenFavorites: () => void; bbm?: boolean; catalogRecords?: VehicleSearchRecord[] | null; onCatalogFocus?: () => void; onCatalogChoose?: (record: VehicleSearchRecord) => void }) {
   // QF-091: 과쯔(개발 시안형) 모바일은 원본 아이콘
   const headerIcon = (name: string, fallback: string) => bbm ? <img className="ui-icon" src={bbmIcon(`m-header-${name}`)} alt="" aria-hidden="true" /> : <Icon name={fallback} />;
   const keyboard = useKeyboard();
@@ -270,7 +284,7 @@ function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearc
       <button className="icon-button back-button" type="button" aria-label={searchOpen ? "검색 닫기" : "뒤로 가기"} onClick={() => searchOpen ? closeSearch() : window.history.back()}>{headerIcon("back", "back.svg")}</button>
       <label className="search-field">
         {headerIcon("search", "search.svg")}
-        <KeyboardInput aria-label={`${searchPlaceholder} 검색`} value={query} onFocus={() => setSearchOpen(true)} onChange={(event) => { setQuery(event.currentTarget.value); setSearchOpen(true); }} onBlur={() => keyboard.hide()} placeholder={searchPlaceholder} />
+        <KeyboardInput aria-label={`${searchPlaceholder} 검색`} value={query} onFocus={() => { setSearchOpen(true); onCatalogFocus?.(); }} onChange={(event) => { setQuery(event.currentTarget.value); setSearchOpen(true); onCatalogFocus?.(); }} onBlur={() => keyboard.hide()} placeholder={searchPlaceholder} />
         {bbm && query ? <button type="button" className="search-clear" aria-label="검색어 지우기" onPointerDown={(event) => event.preventDefault()} onClick={() => setQuery("")}>×</button> : null}
         <span className="search-divider" />
         <button type="button" className={`search-save${searchSaved ? " is-saved" : ""}`} aria-label={searchSaved ? "저장한 검색 조건 삭제" : "검색 조건 저장"} aria-pressed={searchSaved} onPointerDown={(event) => event.preventDefault()} onClick={onToggleSearchSaved}>{searchSaved ? <BookmarkFilledIcon /> : headerIcon("bookmark", "bookmark.svg")}</button>
@@ -279,6 +293,8 @@ function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearc
       {!bbm ? <button className="icon-button" type="button" aria-label="메시지">{headerIcon("chat", "message.svg")}</button> : null}
     </header>
     {bbm && searchOpen ? <section className="bbm-search-suggest" aria-label="검색어 추천" aria-live="polite">
+      {normalizedQuery && onCatalogChoose ? <CatalogSearchResults records={catalogRecords ?? null} query={query} onChoose={(record) => { setSearchOpen(false); keyboard.hide(); onCatalogChoose(record); }} /> : null}
+      {!normalizedQuery || !onCatalogChoose ? <>
       {!normalizedQuery ? <h2>추천 검색어</h2> : null}
       <div className="bbm-search-suggest__list">
         {searchSuggestions.map((suggestion, index) => <button key={`${suggestion}-${index}`} type="button" onPointerDown={(event) => event.preventDefault()} onClick={() => { setQuery(suggestion); setSearchOpen(false); keyboard.hide(); }}>
@@ -287,23 +303,24 @@ function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearc
         </button>)}
       </div>
       {normalizedQuery ? <button type="button" className="bbm-search-seller" onPointerDown={(event) => event.preventDefault()} onClick={() => { setSearchOpen(false); keyboard.hide(); }}>판매자 상호 “{query.trim()}” 검색</button> : null}
+      </> : null}
     </section> : null}</>
   );
 }
 
-function FilterChip({ label, icon, active, className = "", onClick, onClear, bbm = false }: { label: string; icon?: string; active?: boolean; className?: string; onClick: () => void; onClear?: () => void; bbm?: boolean }) {
+function FilterChip({ label, icon, active, className = "", onClick, onClear, bbm = false, prefix }: { label: string; icon?: string; active?: boolean; className?: string; onClick: () => void; onClear?: () => void; bbm?: boolean; prefix?: ReactNode }) {
   const chipClassName = `filter-chip${active ? " is-active" : ""}${className ? ` ${className}` : ""}`;
   if (active && onClear) {
     return (
       <div className={chipClassName}>
-        <button className="filter-chip-label" type="button" aria-pressed="true" onClick={onClick}><span>{label}</span></button>
+        <button className="filter-chip-label" type="button" aria-pressed="true" onClick={onClick}>{prefix}<span>{label}</span></button>
         <button className="filter-chip-clear" type="button" aria-label={`${label} 필터 해제`} onClick={onClear}>{bbm ? <img className="ui-icon" src={bbmIcon("chip-remove")} alt="" aria-hidden="true" /> : <Icon name="close.svg" />}</button>
       </div>
     );
   }
   return (
     <button className={chipClassName} type="button" aria-pressed={active} onClick={onClick}>
-      {icon ? <Icon name={icon} /> : null}<span>{label}</span>{!icon && !active ? (bbm ? <img className="ui-icon" src={bbmIcon("filter-toggle-chotot-v01")} alt="" aria-hidden="true" /> : <Icon name="chevron-down.svg" />) : null}
+      {icon ? <Icon name={icon} /> : null}{prefix}<span>{label}</span>{!icon && !active ? (bbm ? <img className="ui-icon" src={bbmIcon("filter-toggle-chotot-v01")} alt="" aria-hidden="true" /> : <Icon name="chevron-down.svg" />) : null}
     </button>
   );
 }
@@ -527,6 +544,7 @@ function MarketplaceScreen() {
   useLayoutEffect(() => { setPretendard(quickFilterStyle === "guazi"); }, [quickFilterStyle]);
   const [selectedGeneration, setSelectedGeneration] = useState<string | null>(null);
   const [selectedVariants, setSelectedVariants] = useState<string[]>([]);
+  const [catalogSelectionRecord, setCatalogSelectionRecord] = useState<VehicleSearchRecord | null>(null);
   const [debouncedSelectedVariants, setDebouncedSelectedVariants] = useState<string[]>([]);
   const [trimApplied, setTrimApplied] = useState(false);
   const desktop = useDesktopLayout(quickFilterStyle === "guazi" && pcLayoutStyle === "bbmuseum" ? hybridLayoutQuery : desktopLayoutQuery);
@@ -595,6 +613,8 @@ function MarketplaceScreen() {
   const isCampingCategory = category === "캠핑카";
   const isPartsCategory = category === "부품 · 용품";
   const isTruckCategory = category === "트럭 · 특장";
+  const supportsVehicleCatalog = isBikeCategory || ["전체", "중고차", "국산차", "수입차", "전기차"].includes(category);
+  const vehicleCatalog = useVehicleCatalog(isBikeCategory ? "bike" : "car", maker);
   const autohomeLogoPreview = new URLSearchParams(window.location.search).get("brandlogo") === "autohome";
   const truckSubtypeOptions = truckSubtypesFor(selectedTruckFormat);
   const truckSpecGroups = truckSpecGroupsFor(selectedTruckFormat, selectedTruckSubtype);
@@ -629,7 +649,7 @@ function MarketplaceScreen() {
   const categorySearchPlaceholder = categoryIsDefault ? "중고차" : category;
   const categoryBrandRail = categoryBrandRails[category] ?? categoryBrandRails["전체"];
   // QF-097: 과쯔 카탈로그 제조사(9개)도 모델 → 세부 모델 → 트림 단계
-  const usesUxDepth = Boolean(isTruckCategory && maker) || Boolean(!isBikeCategory && (maker === "BMW" || maker === "벤츠" || quickFilterStyle === "guazi" && maker && catalogMakerNames.has(maker)));
+  const usesUxDepth = Boolean(isTruckCategory && maker) || Boolean(supportsVehicleCatalog && maker && vehicleCatalog.index?.manufacturers.some((item) => item.name === maker));
   const isGuaziQuickStyle = quickFilterStyle === "guazi";
   // QF-100 최종: 과쯔 퀵필터(제조사·모델·세부모델 줄) 기본 = 바탕 없는 초톳식(plain). &qfcard=card 면 이전 과쯔 카드(비교용), &qfcard=plain 도 plain
   const plainQuickCards = isGuaziQuickStyle && (typeof window === "undefined" || new URLSearchParams(window.location.search).get("qfcard") !== "card");
@@ -654,9 +674,9 @@ function MarketplaceScreen() {
   // QF-097: 과쯔는 9개 제조사의 모델·세부 모델을 카탈로그 스냅숏으로(model-catalog-kr), 나머지 제조사·다른 모드는 기존 데이터
   // 바이크는 30대 가상 매물에 나온 모델만 쓰지 않고 전체 카탈로그를 쓴다.
   // 빠른 선택은 현재 매물이 있는 모델만, 전체 모델 시트는 0대 모델도 함께 보여준다.
-  const modelsByMakerMap = isBikeCategory ? bikeModelsByMaker : isTruckCategory ? truckModelsByMaker : isGuaziQuickStyle ? guaziModelsByMaker : quickModelsByMaker;
-  const rawGenerationsByMakerModelMap = isGuaziQuickStyle ? guaziGenerationsByMakerModel : quickGenerationsByMakerModel;
-  const rawModelVisualsByMakerMap = isBikeCategory ? bikeListingModelVisualsByMaker : isGuaziQuickStyle ? guaziModelVisualsByMaker : quickModelVisualsByMaker;
+  const modelsByMakerMap = supportsVehicleCatalog && vehicleCatalog.index ? vehicleCatalog.modelsByMaker : isBikeCategory ? bikeModelsByMaker : isTruckCategory ? truckModelsByMaker : isGuaziQuickStyle ? guaziModelsByMaker : quickModelsByMaker;
+  const rawGenerationsByMakerModelMap = supportsVehicleCatalog && vehicleCatalog.index ? vehicleCatalog.generationsByMakerModel : isGuaziQuickStyle ? guaziGenerationsByMakerModel : quickGenerationsByMakerModel;
+  const rawModelVisualsByMakerMap = supportsVehicleCatalog && vehicleCatalog.index ? vehicleCatalog.modelVisualsByMaker : isBikeCategory ? bikeListingModelVisualsByMaker : isGuaziQuickStyle ? guaziModelVisualsByMaker : quickModelVisualsByMaker;
   const isCatalogMaker = Boolean(!isBikeCategory && !isTruckCategory && isGuaziQuickStyle && maker && catalogMakerNames.has(maker));
   const generationQuickOptions = maker && selectedModel ? rawGenerationsByMakerModelMap[maker]?.[selectedModel] ?? [] : [];
   const selectedGenerationOption = generationQuickOptions.find((generation) => generation.name === selectedGeneration);
@@ -671,10 +691,11 @@ function MarketplaceScreen() {
     && (!selectedTruckSpec || car.truck.load === selectedTruckSpec));
 
   useEffect(() => {
+    if (catalogSelectionRecord && catalogSelectionRecord.path[0] === maker && catalogSelectionRecord.path[1] === selectedModel) return;
     setSelectedGeneration(null);
     setSelectedVariants([]);
     setTrimApplied(false);
-  }, [maker, selectedModel]);
+  }, [catalogSelectionRecord, maker, selectedModel]);
 
   useEffect(() => {
     if (!isGuaziQuickStyle) {
@@ -773,7 +794,7 @@ function MarketplaceScreen() {
     });
   }, [filters, isGuaziQuickStyle, isTruckCategory, listingCars, region.district, regionKeyword, selectedTruckFormat, selectedTruckSpec, selectedTruckSubtype]);
   const { generationsByMakerModelMap, modelVisualsByMakerMap } = useMemo(() => {
-    if (!isGuaziQuickStyle) return { generationsByMakerModelMap: rawGenerationsByMakerModelMap, modelVisualsByMakerMap: rawModelVisualsByMakerMap };
+    if (!isGuaziQuickStyle || supportsVehicleCatalog && vehicleCatalog.index) return { generationsByMakerModelMap: rawGenerationsByMakerModelMap, modelVisualsByMakerMap: rawModelVisualsByMakerMap };
     const generations = { ...rawGenerationsByMakerModelMap };
     const visuals = { ...rawModelVisualsByMakerMap };
     for (const makerName of catalogMakerNames) {
@@ -798,9 +819,10 @@ function MarketplaceScreen() {
       visuals[makerName] = makerVisuals;
     }
     return { generationsByMakerModelMap: generations, modelVisualsByMakerMap: visuals };
-  }, [depthBaseCars, isGuaziQuickStyle, modelsByMakerMap, rawGenerationsByMakerModelMap, rawModelVisualsByMakerMap]);
+  }, [depthBaseCars, isGuaziQuickStyle, modelsByMakerMap, rawGenerationsByMakerModelMap, rawModelVisualsByMakerMap, supportsVehicleCatalog, vehicleCatalog.index]);
   // 퀵필터 줄(과쯔 카탈로그 제조사): 샘플 매물 1대 이상인 모델·세부 모델만
   const modelQuickOptions = maker ? (modelsByMakerMap[maker] ?? []).filter((name) => {
+    if (supportsVehicleCatalog && vehicleCatalog.index) return true;
     if (isBikeCategory) {
       const key = normalizeModelSearchText(name);
       return Boolean(bikeListingModelsByMaker[maker]?.some((listingName) => normalizeModelSearchText(listingName) === key));
@@ -970,6 +992,7 @@ function MarketplaceScreen() {
     setSelectedGeneration(null);
     setSelectedVariants([]);
     setTrimApplied(false);
+    setCatalogSelectionRecord(null);
     setCategoryLandingOpen(category === "전체");
     replaceFilterParams(null, null);
   };
@@ -980,6 +1003,7 @@ function MarketplaceScreen() {
     setSelectedGeneration(null);
     setSelectedVariants([]);
     setTrimApplied(false);
+    setCatalogSelectionRecord(null);
     replaceFilterParams(maker, null);
   };
 
@@ -987,11 +1011,13 @@ function MarketplaceScreen() {
     setSelectedGeneration(null);
     setSelectedVariants([]);
     setTrimApplied(false);
+    setCatalogSelectionRecord(null);
   };
 
   const clearVariantFilter = () => {
     setSelectedVariants([]);
     setTrimApplied(false);
+    setCatalogSelectionRecord(null);
   };
 
   const returnToModelDepth = () => {
@@ -1079,6 +1105,24 @@ function MarketplaceScreen() {
     setCategoryLandingOpen(!nextMaker && category === "전체");
     replaceFilterParams(nextMaker, safeModel);
     closeSheet();
+  };
+
+  const chooseCatalogRecord = (record: VehicleSearchRecord) => {
+    const nextMaker = record.path[0] ?? null;
+    const nextModel = record.path[1] ?? null;
+    const nextGeneration = record.path[2] ?? null;
+    const selectedLeaf = record.path.length >= 5 ? record.path.at(-1) ?? null : null;
+    const nextFilters = { ...filters, maker: nextMaker, model: nextModel };
+    setFilters(nextFilters);
+    setDraftFilters(nextFilters);
+    setSelectedGeneration(nextGeneration);
+    setSelectedVariants(selectedLeaf ? [selectedLeaf] : []);
+    setTrimApplied(false);
+    setCatalogSelectionRecord(record);
+    setCategoryLandingOpen(false);
+    setQuery("");
+    replaceFilterParams(nextMaker, nextModel);
+    setSheet("vehicle");
   };
 
   const chooseModel = (modelName: string) => {
@@ -1283,7 +1327,7 @@ function MarketplaceScreen() {
   ] as Array<QuickFilterChip | null>).filter((chip): chip is QuickFilterChip => Boolean(chip));
   const marketSheet = (
       <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && closeSheet()} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" || sheet === "maker" || sheet === "vehicle" || sheet === "price" || sheet === "filter" || sheet === "quick" || sheet === "carType" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "filter" || sheet === "maker" || sheet === "quick" ? 0.96 : sheet === "vehicle" ? 0.8 : sheet === "carType" ? 0.8 : sheet === "region" ? 0.53 : sheet === "price" ? 0.62 : 0.48}>
-        {sheet === "filter" ? <ChoTotFilterSheet value={draftFilters} focus={filterFocus} onChange={setDraftFilters} onClose={() => { setFilterFocus(null); closeSheet(); }} onReset={() => resetFilters({ closeActiveSheet: false })} onConfirm={() => { setFilters(draftFilters); setFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "carType" ? <CategoryFilterSheet selected={category} onChoose={chooseCategoryFilter} onClose={closeSheet} /> : sheet === "quick" && quickFilterFocus ? <ChoTotQuickFilterSheet focus={quickFilterFocus} value={draftFilters} onChange={setDraftFilters} onClose={() => { setQuickFilterFocus(null); closeSheet(); }} onConfirm={() => { setFilters(draftFilters); setQuickFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "vehicle" ? <VehiclePickerSheet maker={maker} model={selectedModel} generation={selectedGeneration} makerOptions={categoryBrandRail.options} onApply={applyVehicleSummarySelection} modelsByMaker={modelsByMakerMap} generationsByMakerModel={generationsByMakerModelMap} modelVisualsByMaker={modelVisualsByMakerMap} renderMakerLogo={isGuaziQuickStyle ? (option) => <CategoryBrandLogo category={category} name={option.maker ?? option.name} kind="list" /> : undefined} /> : sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} resultCount={filteredWithoutPrice.length} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftFilters.price} onChange={(nextPrice) => setDraftFilters((current) => ({ ...current, price: nextPrice }))} onClose={closeSheet} onReset={() => setDraftFilters((current) => ({ ...current, price: emptyPrice }))} onConfirm={() => { setFilters((current) => ({ ...current, price: draftFilters.price })); closeSheet(); }} resultCount={draftFilterCount} /> : <div className="sheet-options">
+        {sheet === "filter" ? <ChoTotFilterSheet value={draftFilters} focus={filterFocus} onChange={setDraftFilters} onClose={() => { setFilterFocus(null); closeSheet(); }} onReset={() => resetFilters({ closeActiveSheet: false })} onConfirm={() => { setFilters(draftFilters); setFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "carType" ? <CategoryFilterSheet selected={category} onChoose={chooseCategoryFilter} onClose={closeSheet} /> : sheet === "quick" && quickFilterFocus ? <ChoTotQuickFilterSheet focus={quickFilterFocus} value={draftFilters} onChange={setDraftFilters} onClose={() => { setQuickFilterFocus(null); closeSheet(); }} onConfirm={() => { setFilters(draftFilters); setQuickFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "vehicle" ? supportsVehicleCatalog && vehicleCatalog.index ? <CatalogVehiclePickerSheet catalog={vehicleCatalog} maker={maker} model={selectedModel} generation={selectedGeneration} initialRecord={catalogSelectionRecord} onChoose={chooseCatalogRecord} onReset={clearMakerFilter} /> : <VehiclePickerSheet maker={maker} model={selectedModel} generation={selectedGeneration} makerOptions={categoryBrandRail.options} onApply={applyVehicleSummarySelection} modelsByMaker={modelsByMakerMap} generationsByMakerModel={generationsByMakerModelMap} modelVisualsByMaker={modelVisualsByMakerMap} renderMakerLogo={isGuaziQuickStyle ? (option) => <CategoryBrandLogo category={category} name={option.maker ?? option.name} kind="list" /> : undefined} /> : sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} resultCount={filteredWithoutPrice.length} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftFilters.price} onChange={(nextPrice) => setDraftFilters((current) => ({ ...current, price: nextPrice }))} onClose={closeSheet} onReset={() => setDraftFilters((current) => ({ ...current, price: emptyPrice }))} onConfirm={() => { setFilters((current) => ({ ...current, price: draftFilters.price })); closeSheet(); }} resultCount={draftFilterCount} /> : <div className="sheet-options">
           {sheet === "sort" ? ["최신순", "낮은 가격순", "높은 가격순"].map((label) => <button key={label} type="button" className={sort === label ? "is-selected" : ""} onClick={() => { setSort(label); setSheet(null); }}>{label}</button>) : ["전체", "추천 조건", "인기 조건"].map((label) => <button key={label} type="button" onClick={() => setSheet(null)}>{label}</button>)}
         </div>}
       </BottomSheet>
@@ -1409,7 +1453,7 @@ function MarketplaceScreen() {
                     key={model}
                     label={formatModelLabel(model)}
                     sub={bodyTypeLabel(modelVisual?.bodyType)}
-                    image={isCatalogMaker ? <CatalogModelImage src={modelVisual?.image || undefined} /> : modelVisual?.image ? <img src={modelVisual.image} alt="" aria-hidden="true" draggable={false} /> : undefined}
+                    image={supportsVehicleCatalog && vehicleCatalog.index ? <CatalogVehicleImage path={modelVisual?.image} name={model} compact /> : isCatalogMaker ? <CatalogModelImage src={modelVisual?.image || undefined} /> : modelVisual?.image ? <img src={modelVisual.image} alt="" aria-hidden="true" draggable={false} /> : undefined}
                     imageFit={modelVisual?.bodyFit ?? "width"}
                     isEV={modelVisual?.isEV}
                     selected={selectedModel === model}
@@ -1439,7 +1483,7 @@ function MarketplaceScreen() {
                     key={generation.name}
                     label={generationCardLabel(generation)}
                     sub={generation.cardSub ?? compactGenerationCardYearLabel(generation.years)}
-                    image={isCatalogMaker ? <CatalogModelImage src={generationImage} /> : generationImage ? <img src={generationImage} alt="" aria-hidden="true" draggable={false} /> : undefined}
+                    image={supportsVehicleCatalog && vehicleCatalog.index ? <CatalogVehicleImage path={generationImage} name={generation.name} compact /> : isCatalogMaker ? <CatalogModelImage src={generationImage} /> : generationImage ? <img src={generationImage} alt="" aria-hidden="true" draggable={false} /> : undefined}
                     imageFit={generationImageFit}
                     isEV={generation.isEV ?? selectedModelVisual?.isEV}
                     selected={selectedGeneration === generation.name}
@@ -1490,16 +1534,17 @@ function MarketplaceScreen() {
             const sampleCount = (key: string) => isTruckCategory
               ? listingCars.filter((car) => car.maker === key && matchesTruckSelection(car)).length
               : listingCars.filter((car) => car.maker === key).length;
-            const card = (item: { label: string; key: string }) => (
-              <DepthCard key={item.label} className={typeList && sampleCount(item.key) === 0 ? "is-dim" : undefined} label={categoryRailLabel(category, item.label)} image={<CategoryBrandLogo category={category} name={item.label} kind={plainQuickCards ? "plain" : "rail"} initialFallback={Boolean(typeList)} />} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />
-            );
+            const card = (item: { label: string; key: string }) => {
+              const catalogMake = vehicleCatalog.index?.manufacturers.find((entry) => entry.name === item.key || entry.name === item.label);
+              return <DepthCard key={item.label} className={typeList && sampleCount(item.key) === 0 ? "is-dim" : undefined} label={categoryRailLabel(category, item.label)} image={catalogMake ? <CatalogLogo path={catalogMake.logoPath} name={catalogMake.name} kind="rail" /> : <CategoryBrandLogo category={category} name={item.label} kind={plainQuickCards ? "plain" : "rail"} initialFallback={Boolean(typeList)} />} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />;
+            };
             return (
               <section className="depth-rail is-kr-maker no-label" aria-label={`${categoryBrandRail.title} 빠른 선택`}>
                 <QuickRailCarousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName="depth-rail-track">
                   {sections.domestic.map(card)}
                   {sections.domestic.length && sections.imported.length ? <span className="kr-maker-divider" aria-hidden="true" /> : null}
                   {sections.imported.map(card)}
-                  <DepthCard key="전체 브랜드" label="전체 브랜드" image={<span className="kr-all-brands" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="3" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /></svg></span>} mediaKind="brand" onClick={() => setBbmChipPanel("제조사")} />
+                  <DepthCard key="전체 브랜드" label="전체 브랜드" image={<span className="kr-all-brands" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="3" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /></svg></span>} mediaKind="brand" onClick={() => supportsVehicleCatalog ? setSheet("vehicle") : setBbmChipPanel("제조사")} />
                 </QuickRailCarousel>
               </section>
             );
@@ -1590,7 +1635,7 @@ function MarketplaceScreen() {
     setSearchToast(`${option}는 준비 중입니다.`);
   };
   const groupChip = (key: string, label: string, panel: string, applied: boolean) => applied ? null : { key, label, active: false, onClick: () => openBbmChipPanel(panel) };
-  type BbmChip = { key: string; label: string; active?: boolean; className?: string; onClick: () => void; onClear?: () => void };
+  type BbmChip = { key: string; label: string; active?: boolean; className?: string; prefix?: ReactNode; onClick: () => void; onClear?: () => void };
   const toAppliedBbmChip = (chip: (typeof bbmApplied)[number]): BbmChip => ({
     key: `applied-${chip.id}`,
     label: chip.label,
@@ -1633,12 +1678,12 @@ function MarketplaceScreen() {
     // QF-097 보완: 제조사·모델·세부 모델을 단계별 검정 적용 칩으로 [벤츠 ×][E클래스 ×][W213 ×]. 각 × 는 그 단계부터 아래만 푼다
     // (세부 모델 × → 세부 모델 줄, 모델 × → 모델 줄(제조사 유지), 제조사 × → 제조사 줄). 칩을 누르면 차종 시트. 경로·제목은 그대로 이어 쓴다
     ...(maker ? [
-      { key: "step-maker", label: maker, active: true, className: "is-vehicle-summary is-step", onClick: () => setSheet("vehicle"), onClear: clearMakerFilter },
+      { key: "step-maker", label: maker, active: true, className: "is-vehicle-summary is-step", prefix: supportsVehicleCatalog ? <CatalogLogo path={vehicleCatalog.index?.manufacturers.find((item) => item.name === maker)?.logoPath} name={maker} kind="chip" /> : undefined, onClick: () => setSheet("vehicle"), onClear: clearMakerFilter },
       selectedModel ? { key: "step-model", label: formatModelLabel(selectedModel), active: true, className: "is-vehicle-summary is-step", onClick: () => setSheet("vehicle"), onClear: clearModelFilter } : null,
       selectedModel && selectedGenerationOption ? { key: "step-generation", label: generationDisplayLabel(selectedGenerationOption), active: true, className: "is-vehicle-summary is-step", onClick: () => setSheet("vehicle"), onClear: clearGenerationFilter } : null,
       selectedModel && selectedGenerationOption && selectedVariants.length ? { key: "step-trim", label: selectedTrimChipLabel, active: true, className: "is-vehicle-summary is-step", onClick: () => setSheet("vehicle"), onClear: clearVariantFilter } : null,
     ] : []),
-    maker && !selectedModel ? { key: "model", label: "모델", active: false, onClick: () => openBbmChipPanel("모델") } : null,
+    maker && !selectedModel ? { key: "model", label: "모델", active: false, onClick: () => supportsVehicleCatalog ? setSheet("vehicle") : openBbmChipPanel("모델") } : null,
     // QF-106: 안 고른 단계 칩 = 다음 단계 이름(모델 ▾ → 세부모델 ▾ → 트림 ▾ → 연식 ▾)
     maker && selectedModel && !selectedGeneration && hasGenerationDepth ? { key: "sub-model", label: "세부모델", active: false, onClick: () => setSheet("vehicle") } : null,
     // 모바일 지역(② 드롭다운)으로 고른 지역 = 검정 적용 칩
@@ -1646,7 +1691,7 @@ function MarketplaceScreen() {
     // QF-105: 트림을 고르면 빈 "트림" 칩 대신 단계 칩 [트림 ×]
     selectedVariants.length || (selectedGeneration && guaziTrimRailOptions.length <= 1) ? null : chipByKey("variant"),
     ...otherApplied.map(toAppliedBbmChip),
-    isHeavyCategory || isTruckCategory && (!selectedTruckSubtype || !truckSpecDepthComplete) ? null : maker ? null : { key: "maker", label: "제조사", active: false, onClick: () => openBbmChipPanel("제조사") },
+    isHeavyCategory || isTruckCategory && (!selectedTruckSubtype || !truckSpecDepthComplete) ? null : maker ? null : { key: "maker", label: "제조사", active: false, onClick: () => supportsVehicleCatalog ? setSheet("vehicle") : openBbmChipPanel("제조사") },
     groupChip("year", "연식", "연식", rangeIsSet(bbmValue.ranges.year)),
     // QF-118: 과쯔 PC 는 좌측 필터 순서대로 연식 다음 "주행거리 ▾"(누르면 가운데 모달). 모바일은 그대로
     desktop && isGuaziQuickStyle ? (() => { const chip = groupChip("mileage", "주행거리", "주행거리", rangeIsSet(bbmValue.ranges.mileage)); return chip ? { ...chip, className: "is-mileage" } : null; })() : null,
@@ -1859,7 +1904,7 @@ function MarketplaceScreen() {
                   </div>
                   <div className="bbm-chips">
                     <button type="button" className={`bbm-filter-button${bbmAppliedCount ? " is-applied" : ""}`} aria-disabled={drawerFilterChip ? undefined : "true"} aria-haspopup={drawerFilterChip ? "dialog" : undefined} onClick={drawerFilterChip ? () => setBbmDrawerOpen(true) : undefined} aria-label={bbmAppliedCount ? `필터 ${bbmAppliedCount}개 적용됨` : "필터"}><img src={bbmIcon(bbmFilterIconName)} alt="" aria-hidden="true" />{bbmAppliedCount ? <b>{bbmAppliedCount}</b> : <span>필터</span>}</button>
-                    {bbmChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} onClick={chip.onClick} onClear={chip.onClear} />)}
+                    {bbmChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} prefix={chip.prefix} onClick={chip.onClick} onClear={chip.onClear} />)}
                   </div>
                   </div>
                   <div className="bbm-quick-slot">{quickRail}</div>
@@ -1877,7 +1922,7 @@ function MarketplaceScreen() {
           <div className="bbm-chips">
             <button type="button" className={`bbm-filter-button${bbmAppliedCount ? " is-applied" : ""}`} aria-disabled={drawerFilterChip ? undefined : "true"} aria-haspopup={drawerFilterChip ? "dialog" : undefined} onClick={drawerFilterChip ? () => setBbmDrawerOpen(true) : undefined} aria-label={bbmAppliedCount ? `필터 ${bbmAppliedCount}개 적용됨` : "필터"}><img src={bbmIcon(bbmFilterIconName)} alt="" aria-hidden="true" />{/* QF-113 T2: "필터" 글자는 늘 두고 조건 수를 덧붙임(폭 고정, qf-align.css) */}<span>필터</span>{bbmAppliedCount ? <b>{bbmAppliedCount}</b> : null}</button>
             <BbmChipScroller>
-              {bbmChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} onClick={chip.onClick} onClear={chip.onClear} />)}
+              {bbmChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} prefix={chip.prefix} onClick={chip.onClick} onClear={chip.onClear} />)}
             </BbmChipScroller>
           </div>
           {bbmAppliedCount ? <button type="button" className="bbm-ct-reset" onClick={() => setBbmTopReset((value) => value + 1)}>필터 초기화</button> : null}
@@ -1894,7 +1939,7 @@ function MarketplaceScreen() {
       <>
         <MobileScroll className="app-screen">
           <main className={`marketplace is-bbm${isGuaziQuickStyle ? " is-hybrid" : ""}${plainQuickCards ? " is-qf-plain" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}`} aria-label="중고차 리스트">
-            <BbHeader category={category} onNotify={setSearchToast} onOpenFavorites={() => flow.push(savedListingsScreen)} />
+            <BbHeader category={category} onNotify={setSearchToast} onOpenFavorites={() => flow.push(savedListingsScreen)} searchSlot={supportsVehicleCatalog ? <BbmCatalogHeaderSearch query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} catalogRecords={vehicleCatalog.records} onCatalogFocus={() => { void vehicleCatalog.ensureSearch(); }} onCatalogChoose={chooseCatalogRecord} /> : undefined} />
             {/* QF-093: 과쯔는 상단 패널(전체차량 · N대 · 검색저장 · 칩 줄 · 유형 줄/퀵필터 레일)을 본문 폭 전체로 */}
             {/* QF-106b: 경로는 상단 카드 밖(회색 바탕 위), 카드는 제목 줄부터 */}
             {isGuaziQuickStyle ? <div className="bbm-hybrid-top"><BbmTopCrumbs items={bbmCrumbs} />{bbmTopCard}</div> : null}
@@ -1958,7 +2003,7 @@ function MarketplaceScreen() {
       <>
         <MobileScroll className="app-screen">
           <main className="marketplace is-pc" aria-label="중고차 리스트">
-            <PcHeader query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} regionLabel={regionLabel} onOpenRegion={openRegionSheet} onOpenFavorites={() => flow.push(savedListingsScreen)} onNotify={setSearchToast} />
+            <PcHeader query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} regionLabel={regionLabel} onOpenRegion={openRegionSheet} onOpenFavorites={() => flow.push(savedListingsScreen)} onNotify={setSearchToast} catalogRecords={supportsVehicleCatalog ? vehicleCatalog.records : undefined} onCatalogFocus={supportsVehicleCatalog ? () => { void vehicleCatalog.ensureSearch(); } : undefined} onCatalogChoose={supportsVehicleCatalog ? chooseCatalogRecord : undefined} />
             <div className="pc-page">
               <section className="pc-filter-panel" aria-label="검색 조건">
                 <nav className="pc-breadcrumb" aria-label="현재 위치"><span>보배드림 중고차</span><span>중고차</span><span>{regionLabel}</span><strong>{pcCurrentSelection}</strong></nav>
@@ -2048,7 +2093,7 @@ function MarketplaceScreen() {
       <>
         <MobileScroll className="app-screen">
           <main className={`marketplace is-bbm-m${plainQuickCards ? " is-qf-plain" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}`} aria-label="중고차 리스트">
-            <Header bbm query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} />
+            <Header bbm query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} catalogRecords={supportsVehicleCatalog ? vehicleCatalog.records : undefined} onCatalogFocus={supportsVehicleCatalog ? () => { void vehicleCatalog.ensureSearch(); } : undefined} onCatalogChoose={supportsVehicleCatalog ? chooseCatalogRecord : undefined} />
             <section className="region-bar is-bbm" aria-label="지역 선택">
               <button type="button" aria-label={`현재 지역 ${isGuaziQuickStyle ? stableRegionLabel(bbmValue) : regionLabel}, 지역 선택 열기`} onClick={isGuaziQuickStyle ? () => setStableRegionOpen(true) : openRegionSheet}><span className="region-text"><span className="region-label">지역:</span><strong>{isGuaziQuickStyle ? stableRegionLabel(bbmValue) : regionLabel}</strong></span><span className="region-chevron-icon" aria-hidden="true"><img src={bbmIcon("triangle-down-chotot")} alt="" /></span></button>
               <button type="button" className="reset-button" onClick={() => resetFilters()}>초기화</button>
@@ -2156,7 +2201,7 @@ function MarketplaceScreen() {
     <>
       <MobileScroll className="app-screen">
         <main className="marketplace" aria-label="중고차 리스트">
-          <Header query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} />
+          <Header query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} catalogRecords={supportsVehicleCatalog ? vehicleCatalog.records : undefined} onCatalogFocus={supportsVehicleCatalog ? () => { void vehicleCatalog.ensureSearch(); } : undefined} onCatalogChoose={supportsVehicleCatalog ? chooseCatalogRecord : undefined} />
           <section className="region-bar" aria-label="지역 선택">
             <button type="button" aria-label={`현재 지역 ${regionLabel}, 지역 선택 열기`} onClick={openRegionSheet}><Icon name="location-blue.svg" /><span className="region-label">지역:</span><strong>{regionLabel}</strong><span className="region-chevron-icon" aria-hidden="true"><Icon name="region-chevron.svg" /></span></button>
             <button type="button" className="reset-button" onClick={() => resetFilters()}>초기화</button>

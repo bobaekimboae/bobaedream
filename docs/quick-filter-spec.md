@@ -242,6 +242,17 @@
 
 ## Existing Mode Notes
 
+## 차량 기준표 정적 검색·이미지
+
+- 승용 제조사·모델그룹·세대는 `public/data/vehicle-catalog/cars-index-v1.json`을 첫 화면에서 불러오고, 연료·구동·등급·세부등급 검색 색인은 검색창을 처음 누를 때만 `cars-search-v1.json`에서 불러온다.
+- 바텀시트 하위 단계는 `cars/{makeId}.json` 제조사별 파일을 선택 시점에만 불러온다. 바이크도 `bikes-index-v1.json`, `bikes-search-v1.json`, `bikes/{makeId}.json`으로 같은 규칙을 쓴다.
+- 공개 JSON은 표시용 경로·이름·세대코드·연월·판매상태·정렬 순위만 허용한다. 엔카 코드·엔카 이미지 경로·매물 수·가격·라이트바겐 ID·외부 URL은 금지한다.
+- 지리와 바이크 `숨김 제안` 제조사는 공개 색인에서 제외한다.
+- 검색은 띄어쓰기·하이픈·대소문자를 무시하고 영문 시리즈 표기, 초성, 브랜드 별칭, 세대코드를 지원한다. 결과 순서는 완전 일치 → 앞부분 일치 → 포함, 동일 이름은 최신 세대 우선이다.
+- 검색 결과는 로고·세대 이미지 또는 회색 실루엣·전체 경로·연식을 표시한다. 선택하면 제조사/모델그룹/세대/최종 등급 칩을 세팅하고 같은 위치로 차량 바텀시트를 연다.
+- 제조사 로고는 `public/assets/vehicle-catalog/logos/logo_{영문}.png` 256×256 투명 PNG를 사용한다. 원본이 없거나 사용자가 직접 등록하기로 한 KGM은 임의 대체하지 않고 자리표시로 둔다.
+- 세대 이미지는 작업표 파일명과 일치하는 `gen_images` 파일만 WebP 600×400으로 변환한다. 모델그룹은 최신 세대 이미지를 대표로 쓰고, 이미지가 없으면 회색 실루엣을 쓴다.
+
 - Keep ChoTot and Dongchedi modes visually unchanged when working on Guazi-specific changes unless the user explicitly requests a shared change.
 - The default top quick-filter row keeps the fixed gray `필터` chip, black pinned `전체` category chip with clear icon, and scrollable conditions beginning `제조사`, `연식`, `가격`.
 - The category sheet keeps `중고차` expanded by default with `전체 중고차`, `국산차`, `수입차`, and `전기차` chips; its right arrow toggles only that child row.
