@@ -2,27 +2,9 @@
   display: flex;
   min-width: 0;
   align-items: stretch;
-  gap: 12px;
   overflow: hidden;
   padding: 8px 0;
 }
-
-.heavy-qf-heading {
-  display: flex;
-  width: 132px;
-  flex: 0 0 132px;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 8px;
-  color: #222;
-}
-
-.heavy-qf-heading > div:first-child { display: flex; flex-direction: column; gap: 4px; }
-.heavy-qf-heading strong { font-size: 14px; line-height: 20px; }
-.heavy-qf-heading span { color: #8c8c8c; font-size: 11px; line-height: 15px; }
-
-.heavy-qf-actions { display: flex; flex-wrap: wrap; gap: 4px; }
-.heavy-qf-actions button,
 .heavy-qf-zero button {
   padding: 3px 7px;
   border: 1px solid #d9d9d9;
@@ -41,6 +23,7 @@
   flex: 1;
   gap: 8px;
   overflow-x: auto;
+  padding: 0 16px 0 20px;
   overscroll-behavior-inline: contain;
   scroll-snap-type: x proximity;
   scrollbar-width: none;
@@ -164,7 +147,7 @@
   align-items: center;
   gap: 8px;
   overflow-x: auto;
-  padding: 6px 16px 6px 0;
+  padding: 6px 16px 6px 20px;
   scrollbar-width: none;
 }
 .heavy-qf-detail-track::-webkit-scrollbar { display: none; }
@@ -250,30 +233,13 @@
     gap: 0;
     padding: 6px 0;
   }
-  .heavy-qf-heading {
-    width: 80px;
-    flex: 0 0 80px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 12px 4px 0 16px;
-  }
-  .heavy-qf-heading > div:first-child { gap: 0; }
-  .heavy-qf-heading strong {
-    color: #666;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-    white-space: nowrap;
-  }
-  .heavy-qf-heading span { display: none; }
-  .heavy-qf-actions { display: none; }
   .heavy-qf-track {
     width: auto;
     min-width: 0;
     flex: 1;
     gap: 8px;
-    padding: 0 12px 2px 0;
-    scroll-padding-inline: 0 12px;
+    padding: 0 12px 2px 16px;
+    scroll-padding-inline: 16px 12px;
   }
   .heavy-qf-card {
     width: 64px;
@@ -319,7 +285,7 @@
     font-weight: 400;
     line-height: 20px;
   }
-  .heavy-qf-detail-track { padding: 6px 16px 6px 0; }
+  .heavy-qf-detail-track { padding: 6px 12px 6px 16px; }
   .heavy-qf-card strong { width: 58px; font-size: 11px; line-height: 14px; }
   .heavy-qf-card small { width: 58px; font-size: 10px; line-height: 12px; }
   .heavy-qf-complete,

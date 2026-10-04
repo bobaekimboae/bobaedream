@@ -174,17 +174,6 @@ export function HeavyQuickFilter({ value, onChange }: HeavyQuickFilterProps) {
 
   return (
     <section className="heavy-qf" aria-label={`건설기계 ${depth} 빠른 선택`}>
-      <div className="heavy-qf-heading">
-        <div>
-          <strong>{depth}</strong>
-          <span>{depth === "유형" ? "1뎁스 · 초톳 실사 슬롯" : "단계별 빠른 선택"}</span>
-        </div>
-        <div className="heavy-qf-actions">
-          {value.equipmentTypeCode ? <button type="button" onClick={clearCurrent}>이전 단계</button> : null}
-          <button type="button" onClick={() => onChange(emptyHeavySelection)}>전체 초기화</button>
-        </div>
-      </div>
-
       {!value.equipmentTypeCode ? (
         <div className="heavy-qf-track is-type-track" role="list" aria-label="건설기계 유형 8개">
           {heavyTypeQuickFilters.map((type) => {
