@@ -65,6 +65,10 @@
 .brand-row.is-titleless .benz-model-track { padding-left: 16px; }
 .benz-model-chip { height: 34px; padding: 7px 16px; border: 1px solid #e0e0e0; border-radius: 30px; background: #fff; color: #3a3a3a; font-size: 15px; font-weight: 500; line-height: 20px; white-space: nowrap; transition: border-color 140ms ease, background 140ms ease, color 140ms ease; }
 .benz-model-chip.is-selected { border-color: var(--blue); background: #f3f7fc; color: var(--blue); }
+.brand-row.is-bike-model-text { background: #fff; }
+.brand-row.is-bike-model-text .benz-model-chip { border-color: #d7dce2; background: #fff; color: #222; }
+.brand-row.is-bike-model-text .benz-model-chip.is-selected { border-color: #222; background: #222; color: #fff; }
+.brand-row.is-bike-model-text .benz-model-chip.is-all-models { border-style: dashed; color: #4f5660; font-weight: 650; }
 .brand-row.is-generation-mode { grid-template-columns: 55px minmax(0, 1fr); height: 64px; border-bottom: 1px solid #f3f3f3; }
 .brand-row.is-generation-mode .brand-carousel { height: 64px; }
 .generation-track { display: flex; align-items: center; gap: 7px; min-width: max-content; padding: 8px 16px 8px 0; }

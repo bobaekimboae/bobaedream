@@ -90,6 +90,7 @@ import { BbmChipScroller, BbmTopCrumbs, type BbmCrumb } from "./bbm-top-chotot";
 import { setPretendard } from "../fonts/pretendard";
 import { BBM_PAGE_SIZE, BbmFooter, BbmPagination, BbmPopOptions, BbmToolbarMenu, bbmSortOptions, bbmViewOptionsMobile, bbmViewOptionsPc, sortBbmCars, type BbmSort } from "./bbm-list-area";
 import { bikeListingModelsByMaker, bikeListingModelVisualsByMaker } from "../bike/data";
+import { bikeModelsByMaker } from "../data/bike-filter-catalog";
 import { normalizeTruckFormatSelection, truckFormatCatalog, truckFormatImageFor, truckSubtypeImageFor, truckSubtypeLabel, truckSubtypesFor, truckSubtypeSecondaryLabel, truckSubtypeValuesForSelection } from "../data/truck-format-catalog";
 import { truckSpecGroupsFor, truckSpecOptionsFor } from "../data/truck-depth4-catalog";
 import { QuickRailCarousel } from "./quick-rail-carousel";
@@ -651,7 +652,9 @@ function MarketplaceScreen() {
                 : isGuaziQuickStyle ? bbmSampleCars : chototTestCars;
   const bbmValue = filters.bbm ?? emptyBbmFilters;
   // QF-097: 과쯔는 9개 제조사의 모델·세부 모델을 카탈로그 스냅숏으로(model-catalog-kr), 나머지 제조사·다른 모드는 기존 데이터
-  const modelsByMakerMap = isBikeCategory ? bikeListingModelsByMaker : isTruckCategory ? truckModelsByMaker : isGuaziQuickStyle ? guaziModelsByMaker : quickModelsByMaker;
+  // 바이크는 30대 가상 매물에 나온 모델만 쓰지 않고 전체 카탈로그를 쓴다.
+  // 빠른 선택은 현재 매물이 있는 모델만, 전체 모델 시트는 0대 모델도 함께 보여준다.
+  const modelsByMakerMap = isBikeCategory ? bikeModelsByMaker : isTruckCategory ? truckModelsByMaker : isGuaziQuickStyle ? guaziModelsByMaker : quickModelsByMaker;
   const rawGenerationsByMakerModelMap = isGuaziQuickStyle ? guaziGenerationsByMakerModel : quickGenerationsByMakerModel;
   const rawModelVisualsByMakerMap = isBikeCategory ? bikeListingModelVisualsByMaker : isGuaziQuickStyle ? guaziModelVisualsByMaker : quickModelVisualsByMaker;
   const isCatalogMaker = Boolean(!isBikeCategory && !isTruckCategory && isGuaziQuickStyle && maker && catalogMakerNames.has(maker));
@@ -797,7 +800,13 @@ function MarketplaceScreen() {
     return { generationsByMakerModelMap: generations, modelVisualsByMakerMap: visuals };
   }, [depthBaseCars, isGuaziQuickStyle, modelsByMakerMap, rawGenerationsByMakerModelMap, rawModelVisualsByMakerMap]);
   // 퀵필터 줄(과쯔 카탈로그 제조사): 샘플 매물 1대 이상인 모델·세부 모델만
-  const modelQuickOptions = maker ? (modelsByMakerMap[maker] ?? []).filter((name) => !isCatalogMaker || modelVisualsByMakerMap[maker]?.[name]?.count !== "0대") : [];
+  const modelQuickOptions = maker ? (modelsByMakerMap[maker] ?? []).filter((name) => {
+    if (isBikeCategory) {
+      const key = normalizeModelSearchText(name);
+      return Boolean(bikeListingModelsByMaker[maker]?.some((listingName) => normalizeModelSearchText(listingName) === key));
+    }
+    return !isCatalogMaker || modelVisualsByMakerMap[maker]?.[name]?.count !== "0대";
+  }) : [];
   const railGenerationOptions = maker && selectedModel ? (generationsByMakerModelMap[maker]?.[selectedModel] ?? []).filter((generation) => !isCatalogMaker || (generation.count ?? 0) > 0) : [];
   // 선택지 옆 매물 수: 그 항목만 뺀 나머지 조건을 모두 반영(원본과 같은 방식). 데이터 없는 항목은 null → 원본 숫자 글자
   const bbmCountOf = (key: BbmCheckKey, option: string) => isBbmDataOption(key, option)
@@ -1391,7 +1400,7 @@ function MarketplaceScreen() {
                 </button>
               ))}
             </Carousel>
-          </section> : showModelQuickRail && isGuaziQuickStyle ? <section className="depth-rail no-label" aria-label={`${maker} 모델 빠른 선택`}>
+          </section> : showModelQuickRail && isGuaziQuickStyle && !isBikeCategory ? <section className="depth-rail no-label" aria-label={`${maker} 모델 빠른 선택`}>
             <QuickRailCarousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName="depth-rail-track">
               {modelQuickOptions.map((model) => {
                 const modelVisual = guaziVisualsForMaker?.[model];
@@ -1410,12 +1419,13 @@ function MarketplaceScreen() {
                 );
               })}
             </QuickRailCarousel>
-          </section> : showModelQuickRail ? <section className="brand-row is-benz-model-mode is-titleless" aria-label={`${maker} 모델 빠른 선택`}>
+          </section> : showModelQuickRail ? <section className={`brand-row is-benz-model-mode is-titleless${isBikeCategory ? " is-bike-model-text" : ""}`} aria-label={`${maker} 모델 빠른 선택`}>
             <Carousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName="benz-model-track">
               {modelQuickOptions.map((model) => {
                 const modelVisual = guaziVisualsForMaker?.[model];
                 return <button key={model} className={`benz-model-chip${selectedModel === model ? " is-selected" : ""}`} type="button" aria-pressed={selectedModel === model} disabled={Boolean(isCatalogMaker && modelVisual?.count === "0대")} onClick={() => chooseModel(model)}>{formatModelLabel(model)}</button>;
               })}
+              {isBikeCategory && maker ? <button type="button" className="benz-model-chip is-all-models" onClick={() => openBbmChipPanel("모델")}>전체 {modelsByMakerMap[maker]?.length.toLocaleString("ko-KR")}개</button> : null}
             </Carousel>
           </section> : showGenerationQuickRail && isGuaziQuickStyle ? <section className="depth-rail no-label" aria-label={`${accessibleDepthLabel(selectedModel)} 세부모델 빠른 선택`}>
             <QuickRailCarousel ariaLabel={`${accessibleDepthLabel(selectedModel)} 세부모델`} className="brand-carousel" contentClassName="depth-rail-track">
@@ -1689,6 +1699,11 @@ function MarketplaceScreen() {
     : bbCatalog.map((section) => ({ title: section.title, rows: section.rows.map(([label, , key]) => ({ label, key: key ?? label, count: bbmMakerBase.filter((car) => car.maker === (key ?? label)).length })) }));
   const bbmSidebarMakerSections: BbMakerSection[] = bbmMakerSections.map((section) => ({ title: section.title, rows: section.rows.map((row) => [row.label, row.count, row.key] as [string, number, string?]) }));
   const bbmModelRows = (makerName: string) => (modelsByMakerMap[makerName] ?? []).map((name) => {
+    if (isBikeCategory) {
+      const key = normalizeModelSearchText(name);
+      const count = listingCars.filter((car) => car.maker === makerName && normalizeModelSearchText(car.modelGroup ?? "") === key).length;
+      return { name, label: formatModelLabel(name), count };
+    }
     const visualCount = isTruckCategory ? undefined : modelVisualsByMakerMap[makerName]?.[name]?.count;
     const key = normalizeModelSearchText(name);
     const count = visualCount ? Number(visualCount.replace(/[^0-9]/g, "")) : listingCars.filter((car) => car.maker === makerName && normalizeModelSearchText(`${car.title} ${car.trim} ${car.modelGroup ?? ""}`).includes(key)).length;

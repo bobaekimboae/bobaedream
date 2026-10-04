@@ -36,6 +36,31 @@
 .bbmf-check-grid.is-col-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .bbmf-check-grid:has(.is-sidebar) { row-gap: 14px; }
 
+/* 바이크 1뎁스: FINN식 가로 이미지 카드. 2뎁스 모델은 별도 텍스트 목록으로 유지한다. */
+.bbmf-bike-genre-wrap { margin: 0 -20px; }
+.bbmf-bike-genre-guide { margin: 0; padding: 8px 20px 12px; color: #717784; font-size: 13px; line-height: 18px; }
+.bbmf-bike-genre-list { display: grid; grid-auto-flow: column; grid-auto-columns: 72px; gap: 8px; width: 100%; padding: 0 20px 12px; box-sizing: border-box; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x proximity; scrollbar-width: none; }
+.bbmf-bike-genre-list::-webkit-scrollbar { display: none; }
+.bbmf-bike-genre-row { position: relative; display: grid; grid-template-rows: 40px minmax(0, 1fr); align-items: center; justify-items: center; width: 72px; height: 80px; padding: 4px 4px 5px; border: 0; border-radius: 10px; box-sizing: border-box; background: #f1f1f3; color: #222; font: inherit; text-align: center; cursor: pointer; scroll-snap-align: start; transition: background 140ms ease, box-shadow 140ms ease, opacity 140ms ease; }
+.bbmf-bike-genre-row:hover { background: #e8ebef; }
+.bbmf-bike-genre-row.is-checked { background: #fff; box-shadow: inset 0 0 0 2px #222, 0 2px 8px rgba(0, 0, 0, .12); }
+.bbmf-bike-genre-row.is-disabled { cursor: default; opacity: .38; }
+.bbmf-bike-genre-check { position: absolute; top: 5px; right: 5px; display: none; width: 16px; height: 16px; border-radius: 50%; box-sizing: border-box; background: #222; }
+.bbmf-bike-genre-row.is-checked .bbmf-bike-genre-check { display: block; }
+.bbmf-bike-genre-row.is-checked .bbmf-bike-genre-check::after { content: ""; position: absolute; top: 4px; left: 3px; width: 8px; height: 4px; border-bottom: 1.7px solid #fff; border-left: 1.7px solid #fff; transform: rotate(-45deg); }
+.bbmf-bike-genre-image { display: grid; place-items: end center; width: 64px; height: 36px; overflow: hidden; }
+.bbmf-bike-genre-image.is-pending { position: relative; }
+.bbmf-bike-genre-image.is-pending::after { content: ""; width: 34px; height: 16px; border-bottom: 2px solid #c9cdd3; border-radius: 50%; opacity: .7; }
+.bbmf-bike-genre-image img { display: block; width: 64px; height: 36px; object-fit: contain; object-position: center bottom; }
+.bbmf-bike-genre-label { display: -webkit-box; overflow: hidden; align-self: center; min-width: 0; max-width: 64px; font-size: 11px; font-weight: 650; line-height: 15px; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow-wrap: anywhere; }
+.bbmf-bike-genre-count { position: absolute; right: 5px; bottom: 3px; color: #717784; font-size: 9px; font-weight: 500; line-height: 11px; font-variant-numeric: tabular-nums; }
+.bbmf-modal .bbmf-bike-genre-wrap { margin-right: -20px; margin-left: -20px; }
+.bbmf-modal .bbmf-bike-genre-list { grid-auto-columns: 88px; padding-right: 20px; padding-left: 20px; }
+.bbmf-modal .bbmf-bike-genre-row { width: 88px; height: 90px; grid-template-rows: 48px minmax(0, 1fr); }
+.bbmf-modal .bbmf-bike-genre-image { width: 80px; height: 43px; }
+.bbmf-modal .bbmf-bike-genre-image img { width: 80px; height: 43px; }
+.bbmf-modal .bbmf-bike-genre-label { max-width: 80px; }
+
 /* ── 판매자 유형: 바디타입 리스트형 공통 규칙 + FINN.no 좌측 아이콘 구조 */
 .bbmf-overlay.is-sheet.is-seller-overlay {
   align-items: flex-end;

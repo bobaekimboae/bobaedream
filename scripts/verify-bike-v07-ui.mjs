@@ -33,10 +33,11 @@ try {
   if (clippedBrandLabels.length) throw new Error(`Clipped bike brand labels: ${clippedBrandLabels.join(", ")}`);
 
   await page.locator(".filter-fixed").first().tap();
+  await page.locator(".bbmf-full-more").tap();
   await page.locator(".bbmf-full-item").filter({ hasText: /^장르/ }).first().tap();
   const sheet = page.locator(".bbmf-sheet").last();
   await sheet.waitFor({ state: "visible" });
-  await sheet.locator(".bbmf-check").filter({ hasText: /^스포츠/ }).first().tap();
+  await sheet.locator(".bbmf-bike-genre-row").filter({ hasText: /^스포츠/ }).first().tap();
   const sheetConfirm = sheet.locator(".bbmf-confirm");
   const sheetConfirmText = await sheetConfirm.textContent();
   if (!sheetConfirmText?.includes("10대 보기")) throw new Error(`Expected sheet confirm for 10 listings, got: ${sheetConfirmText}`);
