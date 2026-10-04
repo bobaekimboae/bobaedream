@@ -117,6 +117,64 @@ final result: passed
 
 ---
 
+# 트럭 2뎁스 좌측 형식 변경 칩 v57
+
+## Source and implementation
+
+- source visual truth: Google Drive Car300 캡처 폴더 `1BrE3oRxiFtVFS6mMwjU-2igwFs88pQKp`의 현행 캡처 4장
+- implementation: `http://127.0.0.1:4182/?qf=guazi&category=트럭+·+특장&truckFormat=카고(화물)트럭`
+- viewports: 모바일 390×844, PC 1280×900
+- state: 트럭·특장 → 카고(화물)트럭 선택 후 2뎁스 차급 칩 레일
+
+## Findings
+
+- P1 해결: 이전 v56에는 Car300의 `更换车系`에 해당하는 좌측 첫 카드가 빠져 있었다.
+- 캡처의 첫 카드는 일반 회색 옵션이 아니라 흰색 배경·회색 외곽선의 변경 동작 카드이며, 레일과 함께 스크롤된다.
+- 보배드림에서는 같은 역할을 `형식 변경`으로 번역하고 현재 형식 선택을 해제해 1뎁스로 복귀시킨다.
+
+## Full-view comparison evidence
+
+- 모바일 전체 화면에서 `형식 변경`이 차급 카드 앞에 같은 52px 높이로 배치되고 첫 매물 영역을 밀어내지 않는 것을 확인했다.
+- PC 전체 화면에서도 필터 카드 내부의 칩 레일 첫 위치를 유지하며 일반 차급 옵션과 시각적으로 구분된다.
+
+## Focused region comparison evidence
+
+- 모바일·PC 공통 실측: 제목 칩 64×52px, 흰색 배경, 1px 회색 테두리, 12px 곡률.
+- 일반 차급 칩 실측: 최소 88×52px, `#F3F3F5`, 12px 곡률.
+- `형식 변경` 선택 후 `truckFormat` 쿼리가 제거되고 `트럭 형식 빠른 선택` 레일이 다시 노출된다.
+- 브라우저 경고·오류 0건.
+
+## Required fidelity surfaces
+
+- Fonts and typography: Pretendard 14/500/19, 2줄 가운데 정렬.
+- Spacing and layout rhythm: 레일 좌우 16px, 칩 사이 8px, 옵션과 같은 52px 높이.
+- Colors and visual tokens: 동작 카드는 `#FFF`·`#D9D9DD`, 일반 옵션은 `#F3F3F5`.
+- Image quality and asset fidelity: 1뎁스 실사 이미지는 변경하지 않았다.
+- Copy and content: `형식 변경`은 동작을 직접 설명하며 카고 차급·톤수 문구는 그대로 유지한다.
+
+## Comparison history
+
+- 이전: 2뎁스가 `경형`부터 바로 시작해 상위 형식으로 돌아갈 레일 내 동작이 없었다.
+- 수정: Car300처럼 첫 위치에 별도 외곽선 동작 카드를 추가했다.
+- 수정 후: 모바일·PC 치수와 1뎁스 복귀 동작, 콘솔 상태를 재확인했다.
+
+## Implementation Checklist
+
+- [x] Car300 캡처 4장 재확인
+- [x] 좌측 첫 동작 카드 추가
+- [x] 일반 옵션과 시각적 구분
+- [x] 형식 해제·1뎁스 복귀 연결
+- [x] 모바일·PC 전체 화면 검수
+- [x] Playwright 테스트·빌드·콘솔 확인
+
+## Follow-up Polish
+
+- 없음.
+
+final result: passed
+
+---
+
 # 트럭 2뎁스 카드형 칩 레일 v56
 
 ## Source and implementation

@@ -105,9 +105,9 @@ function TrimChip({ label, selected, disabled, onClick }: { label: string; selec
   );
 }
 
-function DepthTextChip({ label, sub, onClick }: { label: string; sub?: string; onClick: () => void }) {
+function DepthTextChip({ label, sub, title, onClick }: { label: string; sub?: string; title?: boolean; onClick: () => void }) {
   return (
-    <button type="button" className="depth-text-chip" aria-label={sub ? `${label}, ${sub}` : label} onClick={onClick}>
+    <button type="button" className={`depth-text-chip${title ? " is-title" : ""}`} aria-label={(sub ? `${label}, ${sub}` : label).replace("\n", " ")} onClick={onClick}>
       <strong>{label}</strong>
       {sub ? <small>{sub}</small> : null}
     </button>

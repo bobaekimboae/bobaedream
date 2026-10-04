@@ -96,6 +96,16 @@ for (const mode of [
     await card.click();
     const secondDepth = page.getByRole("region", { name: "카고(화물)트럭 세부 형식 빠른 선택" });
     await expect(secondDepth).toBeVisible();
+    const titleChip = secondDepth.getByRole("button", { name: "형식 변경", exact: true });
+    const titleMetrics = await titleChip.evaluate((element) => {
+      const rect = element.getBoundingClientRect();
+      const style = getComputedStyle(element);
+      return { width: rect.width, height: rect.height, background: style.backgroundColor, border: style.borderTopWidth };
+    });
+    expect(titleMetrics.width).toBeCloseTo(64, 0);
+    expect(titleMetrics.height).toBeCloseTo(52, 0);
+    expect(titleMetrics.background).toBe("rgb(255, 255, 255)");
+    expect(titleMetrics.border).toBe("1px");
     const band = secondDepth.getByRole("button", { name: "준중형, 2.5~3.5톤", exact: true });
     const bandMetrics = await band.evaluate((element) => {
       const rect = element.getBoundingClientRect();
@@ -113,3 +123,10 @@ for (const mode of [
     await expect(payloadRail.getByRole("button")).toHaveText(["2.5톤", "3톤", "3.5톤"]);
   });
 }
+
+test("좌측 형식 변경 칩은 1뎁스로 돌아간다", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`/?${new URLSearchParams({ qf: "guazi", category, truckFormat: format }).toString()}`);
+  await page.getByRole("button", { name: "형식 변경", exact: true }).click();
+  await expect(page.getByRole("region", { name: "트럭 형식 빠른 선택" })).toBeVisible();
+});

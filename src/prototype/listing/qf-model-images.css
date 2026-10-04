@@ -437,6 +437,25 @@
   line-height: 16px;
   white-space: nowrap;
 }
+.marketplace.is-truck-category.is-qf-guazi .depth-text-chip.is-title {
+  width: 64px;
+  min-width: 64px;
+  max-width: 64px;
+  align-items: center;
+  padding-right: 8px;
+  padding-left: 8px;
+  border-color: #d9d9dd;
+  background: #fff;
+  text-align: center;
+}
+.marketplace.is-truck-category.is-qf-guazi .depth-text-chip.is-title strong {
+  font-weight: 500;
+  white-space: pre-line;
+}
+.marketplace.is-truck-category.is-qf-guazi .depth-text-chip.is-title:hover {
+  border-color: #bdbdc3;
+  background: #fff;
+}
 .marketplace.is-truck-category.is-qf-guazi .depth-text-chip:not(:has(small)) strong {
   display: -webkit-box;
   overflow: hidden;

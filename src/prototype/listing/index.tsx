@@ -1367,6 +1367,7 @@ function MarketplaceScreen() {
           </section> :
           showTruckSubtypeRail ? <section className="depth-rail no-label is-truck-depth-chip-row" aria-label={`${selectedTruckFormat} 세부 형식 빠른 선택`}>
             <QuickRailCarousel ariaLabel={`${selectedTruckFormat} 세부 형식`} className="brand-carousel" contentClassName="depth-rail-track">
+              <DepthTextChip label={"형식\n변경"} title onClick={clearTruckFormat} />
               {truckSubtypeOptions.map((subtype) => {
                 const secondaryLabel = truckSubtypeSecondaryLabel(selectedTruckFormat, subtype);
                 return <DepthTextChip key={subtype} label={desktop ? subtype : truckQuickLabel(subtype)} sub={secondaryLabel ?? undefined} onClick={() => chooseTruckSubtype(subtype)} />;
