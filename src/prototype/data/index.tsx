@@ -27,6 +27,7 @@ import { heavyInventory } from "../heavy/data";
 import { truckModelsByMaker, truckScenarioV01 } from "../truck/scenario-v01";
 import { truckScenarioImageV02 } from "../truck/scenario-images-v02";
 import { truckSubtypeLabel } from "./truck-format-catalog";
+import { auditedUsedCarSeeds } from "./audited-used-cars";
 import {
   campingScenarioV01,
   materialHandlingScenarioV01,
@@ -76,6 +77,12 @@ type Car = {
   posted: string;
   photos: number;
   badges?: ListingBadge[];
+  sample?: boolean;
+  parts?: {
+    condition: string;
+    compatibleModels: string;
+    quantity: number;
+  };
   bike?: {
     scenarioId: string;
     imageFile: string;
@@ -138,7 +145,7 @@ type Car = {
     vehicleNumber?: string;
   };
   virtualCategory?: {
-    category: "캠핑카" | "자재운반장비" | "부품 · 용품";
+    category: "캠핑카" | "자재운반장비" | "부품·용품";
     subtype: string;
     categoryDetail?: "모터홈" | "캐러밴";
     scenarioId: string;
@@ -413,23 +420,23 @@ type VehicleBodyFit = "width" | "height";
 type BodyType = "세단" | "SUV" | "해치백" | "쿠페" | "컨버터블" | "왜건" | "MPV" | "밴" | "픽업";
 const vehicleCategories: ReadonlyArray<{ name: string; icon: string; bodyFit: VehicleBodyFit }> = [
   { name: "중고차", icon: "categories/used-car.svg", bodyFit: "width" },
-  { name: "트럭 · 특장", icon: "categories/truck.svg", bodyFit: "height" },
+  { name: "트럭·특장", icon: "categories/truck.svg", bodyFit: "height" },
   { name: "바이크", icon: "categories/bike.svg", bodyFit: "height" },
   { name: "캠핑카", icon: "categories/camping.svg", bodyFit: "height" },
-  { name: "올드카", icon: "categories/old-car.svg", bodyFit: "width" },
   { name: "건설기계", icon: "categories/construction.svg", bodyFit: "height" },
-  { name: "부품 · 용품", icon: "categories/parts.svg", bodyFit: "height" },
+  { name: "자재운반장비", icon: "categories/construction.svg", bodyFit: "height" },
+  { name: "부품·용품", icon: "categories/parts.svg", bodyFit: "height" },
 ] as const;
-const guaziVehicleTypeCategories = vehicleCategories.filter((category) => ["중고차", "트럭 · 특장", "바이크", "캠핑카", "올드카"].includes(category.name));
+const guaziVehicleTypeCategories = vehicleCategories;
 
 const categorySheetItems: ReadonlyArray<{ name: string; icon?: string }> = [
   { name: "중고차", icon: "categories/used-car.svg" },
-  { name: "트럭 · 특장", icon: "categories/truck.svg" },
+  { name: "트럭·특장", icon: "categories/truck.svg" },
   { name: "바이크", icon: "categories/bike.svg" },
   { name: "캠핑카", icon: "categories/camping.svg" },
-  { name: "올드카", icon: "categories/old-car.svg" },
   { name: "건설기계", icon: "categories/construction.svg" },
-  { name: "부품 · 용품", icon: "categories/parts.svg" },
+  { name: "자재운반장비", icon: "categories/construction.svg" },
+  { name: "부품·용품", icon: "categories/parts.svg" },
 ];
 
 const usedCarCategoryOptions = ["전체", "국산차", "수입차", "전기차"] as const;
@@ -537,7 +544,7 @@ const categoryBrandRails: Record<string, CategoryBrandRail> = {
     title: "브랜드",
     options: bikeTopBrands.map(({ name }) => ({ name, maker: name })),
   },
-  "트럭 · 특장": {
+  "트럭·특장": {
     title: "제조사",
     options: [
       { name: "현대", maker: "현대", logo: dongchediBrandLogo("hyundai") },
@@ -551,7 +558,7 @@ const categoryBrandRails: Record<string, CategoryBrandRail> = {
   올드카: { title: "제조사", options: defaultBrandRailOptions.slice(0, 5) },
   건설기계: { title: "제조사", options: [{ name: "현대", maker: "현대", logo: dongchediBrandLogo("hyundai") }, { name: "볼보", maker: "볼보", logo: dongchediBrandLogo("volvo") }] },
   자재운반장비: { title: "브랜드", options: virtualCategoryBrands.자재운반장비.map((name) => ({ name, maker: name })) },
-  "부품 · 용품": { title: "브랜드", options: virtualCategoryBrands["부품 · 용품"].map((name) => ({ name, maker: name })) },
+  "부품·용품": { title: "브랜드", options: virtualCategoryBrands["부품·용품"].map((name) => ({ name, maker: name })) },
 };
 
 const mercedesModelCard = (name: string) => asset(`cars/mercedes/models/card/${name}.png`);
@@ -815,19 +822,55 @@ const districtsByProvince: Record<string, string[]> = {
 };
 const radiusOptions = ["5km", "10km", "20km", "50km"];
 const emptyRegion: RegionSelection = { province: "", district: "", radius: "" };
+const categoryAliases: Record<string, string> = {
+  전체차량: "전체",
+  "트럭 · 특장": "트럭·특장",
+  "트럭/특장차": "트럭·특장",
+  "화물/특장차": "트럭·특장",
+  "부품 · 용품": "부품·용품",
+  "부품/용품": "부품·용품",
+};
 const getInitialChoTotFilters = (): ChoTotFilterState => {
   const params = new URLSearchParams(window.location.search);
-  const categoryParam = params.get("category") ?? "";
+  const rawCategoryParam = params.get("category") ?? "전체차량";
+  const categoryParam = categoryAliases[rawCategoryParam] ?? rawCategoryParam;
   const makerParam = params.get("maker") ?? "";
   const modelParam = params.get("model") ?? "";
   const category = vehicleCategoryOptions.includes(categoryParam) ? categoryParam : "전체";
-  const categoryModels = category === "바이크" ? bikeModelsByMaker : category === "트럭 · 특장" ? truckModelsByMaker : quickModelsByMaker;
+  const categoryModels = category === "바이크" ? bikeModelsByMaker : category === "트럭·특장" ? truckModelsByMaker : quickModelsByMaker;
   const maker = categoryModels[makerParam] ? makerParam : null;
   const model = maker && categoryModels[maker]?.includes(modelParam) ? modelParam : null;
+
+  const canonicalUrlCategory = category === "전체" ? "전체차량" : category;
+  if (rawCategoryParam !== canonicalUrlCategory) {
+    const url = new URL(window.location.href);
+    url.searchParams.set("category", canonicalUrlCategory);
+    window.history.replaceState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`);
+  }
 
   return { ...emptyChoTotFilters, category, maker, model };
 };
 const listingBadgeOptions: ListingBadge[] = ["브랜드인증", "제조사보증", "1인소유", "가격인하", "인증중고차"];
+
+const sampleComplexes = [
+  ["서울 강서구", "강서오토플렉스"],
+  ["경기 수원시 권선구", "도이치오토월드"],
+  ["인천 서구", "엠파크타워자동차매매단지"],
+  ["부산 기장군", "오토필드"],
+  ["대구 서구", "대구엠월드자동차매매단지"],
+  ["광주 서구", "빛고을오토갤러리"],
+  ["대전 유성구", "디오토몰"],
+  ["경남 김해시", "김해모터스밸리"],
+] as const;
+const samplePlaceAt = (index: number, sellerType: "개인" | "딜러") => {
+  const [regionName, complexName] = sampleComplexes[index % sampleComplexes.length];
+  return sellerType === "개인" ? regionName : `${regionName} · ${complexName}`;
+};
+const stripSampleDisclosure = (value: string) => value
+  .replaceAll(" (가상)", "")
+  .replaceAll("(가상)", "")
+  .replaceAll("가상 주소", "")
+  .replaceAll("가상시 테스트구", "");
 
 const bikeCars: Car[] = bikeInventory.map((row, index) => ({
   id: 7000 + index,
@@ -840,13 +883,14 @@ const bikeCars: Car[] = bikeInventory.map((row, index) => ({
   trim: `${row.genre} · ${row.displacement.toLocaleString("ko-KR")}cc · ${row.transmission}`,
   specs: [`${row.year}년식`, `${row.mileage.toLocaleString("ko-KR")}km`, `${row.displacement.toLocaleString("ko-KR")}cc`, row.fuel],
   price: `${Math.round(row.price / 10000).toLocaleString("ko-KR")} 만원`,
-  place: row.region,
+  place: samplePlaceAt(index, row.sellerType === "개인 판매" ? "개인" : "딜러"),
   views: 30 + index * 9,
-  dealer: row.sellerName,
+  dealer: stripSampleDisclosure(row.sellerName),
   stock: 1,
   posted: `${(index % 12) + 1}시간 전`,
   photos: 1,
-  badges: row.certified === "가능" ? ["인증중고차"] : [],
+  badges: row.sellerType !== "개인 판매" && row.certified === "가능" ? ["인증중고차"] : [],
+  sample: true,
   sellerProfile: null,
   bike: {
     scenarioId: row.id,
@@ -858,10 +902,10 @@ const bikeCars: Car[] = bikeInventory.map((row, index) => ({
     condition: row.condition,
     certified: row.certified,
     delivery: row.delivery,
-    sellerAddress: row.sellerAddress,
-    sellerContact: row.sellerContact,
-    sellerIntro: row.sellerIntro,
-    businessHours: row.businessHours,
+    sellerAddress: samplePlaceAt(index, row.sellerType === "개인 판매" ? "개인" : "딜러"),
+    sellerContact: stripSampleDisclosure(row.sellerContact),
+    sellerIntro: stripSampleDisclosure(row.sellerIntro),
+    businessHours: stripSampleDisclosure(row.businessHours),
     quickfilterTags: row.quickfilterTags,
     isVirtual: row.isVirtual,
     scenarioVersion: row.scenarioVersion,
@@ -897,13 +941,14 @@ const heavyCars: Car[] = heavyInventory.map((row, index) => ({
   trim: `${row.form} · ${row.detail} · ${row.submodel}`,
   specs: [`${row.year}년식`, `${row.hours.toLocaleString("ko-KR")}h`, row.evaluation, row.region],
   price: row.price === null ? "가격 상담" : `${Math.round(row.price / 10000).toLocaleString("ko-KR")} 만원`,
-  place: row.sellerAddress,
+  place: samplePlaceAt(index, row.sellerType === "개인 판매" ? "개인" : "딜러"),
   views: 40 + index * 7,
-  dealer: row.sellerName,
+  dealer: row.sellerType === "개인 판매" ? "개인판매자" : `${row.maker === "미확인" ? "건설기계" : row.maker} 중기상사`,
   stock: 1,
   posted: `${(index % 12) + 1}시간 전`,
   photos: 1,
   badges: [],
+  sample: true,
   heavy: {
     form: row.form,
     detail: row.detail,
@@ -919,10 +964,10 @@ const heavyCars: Car[] = heavyInventory.map((row, index) => ({
     imageFile: row.imageFile,
     inspection: row.inspection,
     delivery: row.delivery,
-    sellerAddress: row.sellerAddress,
-    sellerContact: row.sellerContact,
-    sellerIntro: row.sellerIntro,
-    businessHours: row.businessHours,
+    sellerAddress: samplePlaceAt(index, row.sellerType === "개인 판매" ? "개인" : "딜러"),
+    sellerContact: stripSampleDisclosure(row.sellerContact),
+    sellerIntro: stripSampleDisclosure(row.sellerIntro),
+    businessHours: stripSampleDisclosure(row.businessHours),
     quickfilterTags: row.quickfilterTags,
     isVirtual: row.isVirtual,
     scenarioVersion: row.scenarioVersion,
@@ -966,13 +1011,14 @@ const truckCars: Car[] = truckScenarioV01.map((row, index) => {
   trim: [row.format, subtypeLabel].filter(Boolean).join(" · "),
   specs: [`${row.year}년식`, `${row.mileage.toLocaleString("ko-KR")}km`, row.load, row.region],
   price: `${row.price10k.toLocaleString("ko-KR")} 만원`,
-  place: row.region,
+  place: samplePlaceAt(index, row.sellerType),
   views: 55 + index * 9,
-  dealer: row.sellerType === "개인" ? `개인 판매자 ${String(index + 1).padStart(2, "0")} (가상)` : `트럭파트너 ${row.region.split(" ")[0]}점 (가상)`,
+  dealer: row.sellerType === "개인" ? "개인판매자" : `트럭파트너 ${row.region.split(" ")[0]}점`,
   stock: 1,
   posted: `${(index % 12) + 1}시간 전`,
   photos: 1,
   badges: [],
+  sample: true,
   truck: {
     format: row.format,
     subtype: row.subtype,
@@ -1010,9 +1056,9 @@ const truckCars: Car[] = truckScenarioV01.map((row, index) => {
 
 const virtualDomesticBrands = new Set(["현대", "기아", "르노코리아", "제일모빌", "현대머티리얼핸들링", "두산밥캣", "한국타이어", "금호타이어", "넥센타이어", "현대모비스"]);
 const toVirtualCategoryCars = (rows: readonly VirtualCategoryListingRow[], idBase: number): Car[] => rows.map((row, index) => {
-  const isParts = row.category === "부품 · 용품";
+  const isParts = row.category === "부품·용품";
   const isMaterial = row.category === "자재운반장비";
-  const usage = isParts ? "미사용·중고 혼합" : isMaterial ? `${Math.round(row.mileage / 10).toLocaleString("ko-KR")}h` : `${row.mileage.toLocaleString("ko-KR")}km`;
+  const usage = isMaterial ? `${Math.round(row.mileage / 10).toLocaleString("ko-KR")}h` : `${row.mileage.toLocaleString("ko-KR")}km`;
   return {
     id: idBase + index,
     maker: row.maker,
@@ -1021,8 +1067,10 @@ const toVirtualCategoryCars = (rows: readonly VirtualCategoryListingRow[], idBas
     image: row.image,
     imageFit: "contain",
     title: `${row.maker} ${row.model}`,
-    trim: `${row.subtype} · UI 검증용 가상 매물`,
-    specs: [`${row.year}년식`, usage, row.fuel, row.transmission],
+    trim: row.subtype,
+    specs: isParts
+      ? [row.condition ?? "중고 A급", `호환 ${row.compatibleModels ?? "차종 확인 필요"}`, `수량 ${row.quantity ?? 1}개`]
+      : [`${row.year}년식`, usage, row.fuel, row.transmission],
     price: `${row.price10k.toLocaleString("ko-KR")} 만원`,
     place: row.sellerAddress,
     views: 20 + index * 11,
@@ -1031,6 +1079,12 @@ const toVirtualCategoryCars = (rows: readonly VirtualCategoryListingRow[], idBas
     posted: `${index % 12 + 1}시간 전`,
     photos: 1,
     badges: [],
+    sample: true,
+    parts: isParts ? {
+      condition: row.condition ?? "중고 A급",
+      compatibleModels: row.compatibleModels ?? "차종 확인 필요",
+      quantity: row.quantity ?? 1,
+    } : undefined,
     sellerProfile: null,
     virtualCategory: {
       category: row.category,
@@ -1059,6 +1113,41 @@ const toVirtualCategoryCars = (rows: readonly VirtualCategoryListingRow[], idBas
 const campingCars = toVirtualCategoryCars(campingScenarioV01, 8_000);
 const materialHandlingCars = toVirtualCategoryCars(materialHandlingScenarioV01, 9_000);
 const partsCars = toVirtualCategoryCars(partsScenarioV01, 10_000);
+
+const auditedUsedCars: Car[] = auditedUsedCarSeeds.map((seed, index) => ({
+  id: seed.id,
+  maker: seed.maker,
+  modelGroup: seed.modelGroup,
+  sellerType: seed.sellerType,
+  image: seed.image,
+  imageFit: "contain",
+  title: seed.title,
+  trim: seed.trim,
+  specs: [`${seed.year}년식`, `${seed.mileage.toLocaleString("ko-KR")}km`, seed.fuel, seed.transmission],
+  price: `${seed.price10k.toLocaleString("ko-KR")} 만원`,
+  place: seed.place,
+  views: 90 + index * 13,
+  dealer: seed.dealer,
+  stock: seed.sellerType === "개인" ? 1 : 2 + index % 9,
+  posted: `${seed.postedMinutes}분 전`,
+  photos: 10 + index % 18,
+  badges: seed.badges as ListingBadge[],
+  sellerProfile: seed.sellerType === "개인" ? privateSellerAvatar : dealerAvatarPool[index % dealerAvatarPool.length],
+  sample: true,
+  filter: {
+    year: seed.year,
+    seats: "전체",
+    condition: "중고",
+    mileage: seed.mileage,
+    owners: index % 3 === 0 ? "1인" : "전체",
+    transmission: seed.transmission,
+    fuel: seed.fuel,
+    color: ["흰색", "검정", "회색", "은색"][index % 4],
+    origin: seed.origin,
+    body: seed.body,
+    video: index % 4 === 0,
+  },
+}));
 
 const defaultCars: Car[] = [
   {
@@ -1237,7 +1326,7 @@ const bbmBodyExtraCars: Car[] = [
     filter: { ...base.filter!, year: seed.year, mileage: seed.mileage, fuel: seed.fuel, body: seed.body, seats: seed.seats, transmission: seed.body === "화물" ? "수동" : "오토", video: false },
   };
 });
-const bbmSampleCars: Car[] = [...chototTestCars, ...bbmExtraCars, ...bbmBodyExtraCars];
+const bbmSampleCars: Car[] = auditedUsedCars;
 
 const luxuryVehicleHeadings: Record<number, { title: string; trim: string }> = {
   1: { title: "람보르기니 우르스", trim: "SE 4.0 V8" },
@@ -1334,12 +1423,12 @@ function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
     || category === "국산차" && domesticMakerNames.has(car.maker)
     || category === "수입차" && !domesticMakerNames.has(car.maker)
     || category === "전기차" && data.fuel === "전기"
-    || category === "트럭 · 특장" && Boolean(car.truck)
+    || category === "트럭·특장" && Boolean(car.truck)
     || category === "바이크" && Boolean(car.bike)
     || category === "건설기계" && Boolean(car.heavy)
     || category === "자재운반장비" && car.virtualCategory?.category === "자재운반장비"
     || category === "캠핑카" && car.virtualCategory?.category === "캠핑카"
-    || category === "부품 · 용품" && car.virtualCategory?.category === "부품 · 용품"
+    || category === "부품·용품" && car.virtualCategory?.category === "부품·용품"
     || ["올드카", "리스/렌트차량", "럭셔리카", "슈퍼카", "브랜드 인증중고차", "매매단지별 검색", "팔린매물", "장애인차"].includes(category);
   const yearMatch = value.year === "전체"
     || value.year === "2024~2026" && data.year >= 2024

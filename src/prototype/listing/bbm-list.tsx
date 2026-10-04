@@ -52,12 +52,12 @@ export function BbmHeadlinePreviewLinks() {
 // ── 차량 유형 줄. 초톳 슬롯 기준의 동일 높이·바닥선 실사 컷을 쓰고, 선택 시 기존 내부 필터 값은 유지한다.
 export const bbmCategoryItems: Array<[value: string, image: string, label?: string]> = [
   ["중고차", "category-photo/vehicle_type_car_v01.png", "중고차"],
-  ["트럭 · 특장", "category-photo/vehicle_type_cargo_truck_v03.png", "화물/특장"],
+  ["트럭·특장", "category-photo/vehicle_type_cargo_truck_v03.png", "트럭·특장"],
   ["바이크", "category-photo/vehicle_type_bike_v01.png"],
   ["캠핑카", "category-photo/vehicle_type_motorhome_v01.png", "캠핑카"],
-  ["올드카", "category-photo/vehicle_type_old_car_v02.png"],
-  ["건설기계", "category-photo/vehicle_type_construction_v01.png", "건설기계(덤프/지게차)"],
-  ["부품 · 용품", "category-photo/vehicle_type_parts_v01.png"],
+  ["건설기계", "category-photo/vehicle_type_construction_v01.png", "건설기계"],
+  ["자재운반장비", "bbm/generated/quickfilter-v01/heavy_forklift_v02.png"],
+  ["부품·용품", "category-photo/vehicle_type_parts_v01.png"],
 ];
 
 type BbmCategoryChild = {
@@ -98,12 +98,12 @@ export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
     ],
   },
   {
-    value: "트럭 · 특장",
-    label: "트럭/특장차",
+    value: "트럭·특장",
+    label: "트럭·특장",
     icon: categoryIcon("category_truck_special_v01.svg"),
     children: [
-      { label: "전체", value: "트럭 · 특장" },
-      ...truckFormatCatalog.map((group) => ({ label: group.name, value: "트럭 · 특장", detail: group.name })),
+      { label: "전체", value: "트럭·특장" },
+      ...truckFormatCatalog.filter((group) => group.name !== "캠핑카·카라반").map((group) => ({ label: group.name, value: "트럭·특장", detail: group.name })),
     ],
   },
   {
@@ -135,10 +135,10 @@ export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
     children: [{ label: "전체", value: "자재운반장비" }],
   },
   {
-    value: "부품 · 용품",
-    label: "부품/용품",
+    value: "부품·용품",
+    label: "부품·용품",
     icon: categoryIcon("category_parts_v01.svg"),
-    children: [{ label: "전체", value: "부품 · 용품" }],
+    children: [{ label: "전체", value: "부품·용품" }],
   },
 ];
 
@@ -192,7 +192,7 @@ const imageGuideItems: Record<ImageGuideFamily, Array<[value: string, image: str
   heavy: [
     ["건설기계", "bbm/generated/quickfilter-v01/heavy_excavator_v01.png", "굴착기"],
     ["건설기계", "bbm/generated/quickfilter-v01/heavy_wheel_loader_v01.png", "휠로더"],
-    ["건설기계", "bbm/generated/quickfilter-v01/heavy_forklift_v02.png", "지게차"],
+    ["건설기계", "heavy/types/v03/web/heavy_bulldozer_side_v03.png", "불도저"],
   ],
 };
 
@@ -207,7 +207,7 @@ export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string, detail
   const [activeValue, setActiveValue] = useState(bbmCategoryGroups[0].value);
   if (!imageGuideFamily) {
     const activeGroup = bbmCategoryGroups.find((group) => group.value === activeValue) ?? bbmCategoryGroups[0];
-    const entersNextDepthDirectly = (group: BbmCategoryGroup) => group.value === "중고차" || group.value === "트럭 · 특장" || group.children.length === 1;
+    const entersNextDepthDirectly = (group: BbmCategoryGroup) => group.value === "중고차" || group.value === "트럭·특장" || group.children.length === 1;
     const activateGroup = (value: string) => {
       setActiveValue(value);
       const nextGroup = bbmCategoryGroups.find((group) => group.value === value);
@@ -371,7 +371,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
     </div>
   );
   return (
-    <article className={`bbm-result-card is-${variant}${featured ? " is-feed-featured" : ""}${badges.length ? " has-badges" : " has-no-badges"}${car.uiTest ? ` is-ui-test headline-${headlinePosition}` : ""}`} role="link" tabIndex={0} aria-label={`${car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
+    <article data-listing-id={car.id} className={`bbm-result-card is-${variant}${featured ? " is-feed-featured" : ""}${badges.length ? " has-badges" : " has-no-badges"}${car.uiTest ? ` is-ui-test headline-${headlinePosition}` : ""}`} role="link" tabIndex={0} aria-label={`${car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
       {headlinePosition === "top" ? headline : null}
       <div className="bbm-card-main">
         {/* 사진이 없는 매물은 원본처럼 빈 회색 칸(car-list-result-card__image 배경 #EBEBEB) */}
@@ -401,7 +401,7 @@ export function BbmOneLineCard({ car, liked, onToggleLike, onOpen }: { car: Car;
   const year = car.filter?.year ? String(car.filter.year).slice(-2) : "-";
   const price = car.price.match(/[\d,]+/)?.[0] ?? "상담";
   return (
-    <article className="bbm-one-line-card" role="link" tabIndex={0} aria-label={`${car.title} 상세 보기`} onClick={onOpen} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); onOpen(); } }}>
+    <article data-listing-id={car.id} className="bbm-one-line-card" role="link" tabIndex={0} aria-label={`${car.title} 상세 보기`} onClick={onOpen} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); onOpen(); } }}>
       <strong>{car.title} {car.trim}</strong>
       <span>{year}/{year}</span>
       <b>{price}</b>

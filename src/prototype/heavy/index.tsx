@@ -80,6 +80,7 @@ const modelGroupsFor = (value: HeavySelection) => {
 };
 
 export function HeavyQuickFilter({ value, onChange }: HeavyQuickFilterProps) {
+  const [showAllTypes, setShowAllTypes] = useState(false);
   const manufacturer = approvedHeavyManufacturers.find((slot) => slot.manufacturerCode === value.manufacturerCode);
   const detailOptions = heavyDetailsFor(value.form);
   const modelGroups = modelGroupsFor(value);
@@ -190,13 +191,18 @@ export function HeavyQuickFilter({ value, onChange }: HeavyQuickFilterProps) {
   };
 
   const resultCount = heavyRowsFor(value).length;
+  const eligibleTypeQuickFilters = heavyTypeQuickFilters
+    .filter((type) => !["forklift", "dump_truck", "concrete_mixer_truck"].includes(type.code))
+    .map((type) => ({ ...type, count: heavyRowsFor({ equipmentTypeCode: type.code }).length }))
+    .filter((type) => type.count > 0);
+  const visibleTypeQuickFilters = showAllTypes ? eligibleTypeQuickFilters : eligibleTypeQuickFilters.slice(0, 10);
 
   return (
     <section className="heavy-qf" aria-label={`건설기계 ${depth} 빠른 선택`}>
       {!value.equipmentTypeCode ? (
-        <div className="heavy-qf-track is-type-track" role="list" aria-label="건설기계 법정 유형 27개">
-          {heavyTypeQuickFilters.map((type) => {
-            const count = heavyRowsFor({ equipmentTypeCode: type.code }).length;
+        <div className="heavy-qf-track is-type-track" role="list" aria-label="건설기계 주요 유형">
+          {visibleTypeQuickFilters.map((type) => {
+            const count = type.count;
             const imageCandidates: HeavyImageCandidate[] = [{ file: type.imageFile, fallbackLevel: 0, label: "건설기계 유형 이미지" }];
             return (
               <button key={type.code} type="button" className="heavy-qf-card is-type" onClick={() => chooseEquipmentType(type.code)} role="listitem" data-equipment-type-code={type.code} aria-label={`${type.label} ${count}대`}>
@@ -205,6 +211,12 @@ export function HeavyQuickFilter({ value, onChange }: HeavyQuickFilterProps) {
               </button>
             );
           })}
+          {eligibleTypeQuickFilters.length > 10 ? (
+            <button type="button" className="heavy-qf-card is-type is-more" onClick={() => setShowAllTypes((current) => !current)} role="listitem" aria-expanded={showAllTypes}>
+              <span className="heavy-qf-symbol" aria-hidden="true">{showAllTypes ? "−" : "+"}</span>
+              <strong>{showAllTypes ? "접기" : "전체보기"}</strong>
+            </button>
+          ) : null}
         </div>
       ) : !value.detailTypeCode && detailOptions.length > 1 ? (
         <div className="heavy-qf-detail-track" role="list" aria-label={`${value.form ?? ""} 세부 유형`}>
@@ -263,7 +275,7 @@ export function HeavyQuickFilter({ value, onChange }: HeavyQuickFilterProps) {
       ) : (
         <div className="heavy-qf-zero" role="status">
           <strong>조건에 맞는 모델이 없습니다.</strong>
-          <span>v04 가상 매물 30대 기준 0건입니다. 다른 제조사를 선택해 주세요.</span>
+          <span>다른 제조사를 선택해 주세요.</span>
           <button type="button" onClick={clearCurrent}>제조사 선택 해제</button>
         </div>
       )}

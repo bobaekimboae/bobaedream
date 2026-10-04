@@ -122,8 +122,8 @@ export function TruckBrandLogo({ name, kind, initialFallback = false }: { name: 
 
 export function CategoryBrandLogo({ category, name, kind, initialFallback = false }: { category?: string; name: string; kind: "rail" | "list" | "plain"; initialFallback?: boolean }) {
   if (category === "바이크") return <BikeBrandLogo name={name} kind={kind} initialFallback={initialFallback} />;
-  if (category === "트럭 · 특장") return <TruckBrandLogo name={name} kind={kind} initialFallback={initialFallback} />;
-  return <KrBrandLogo name={name} kind={kind} initialFallback={initialFallback} />;
+  if (category === "트럭·특장") return <TruckBrandLogo name={name} kind={kind} initialFallback={initialFallback} />;
+  return <KrBrandLogo name={name} kind={kind} initialFallback={category === "자재운반장비" || category === "부품·용품" ? false : initialFallback} />;
 }
 
 /** 과쯔 퀵필터 제조사 줄 순서(좌측 필터와 같음): 국산 → 구분선 → 수입차 인기 → 수입차 이름순 나머지. 퀵필터는 0대·"기타 국산차·기타 수입차"를 뺀다 */
@@ -144,10 +144,10 @@ export function krMakerRailSections(scope: "all" | "domestic" | "imported") {
 type TypeTop10 = { month: string; category: string; basis: string; domestic: string[]; imported: string[]; all: { note: string; domestic: string[]; imported: string[]; etc: string[] } };
 const typeTop10: Record<string, TypeTop10> = {
   바이크: brandTop10Bike,
-  "트럭 · 특장": brandTop10Truck,
+  "트럭·특장": brandTop10Truck,
   캠핑카: brandTop10Camping,
   자재운반장비: brandTop10Material,
-  "부품 · 용품": brandTop10Parts,
+  "부품·용품": brandTop10Parts,
 };
 export const krTypeTop10 = (category: string) => typeTop10[category] ?? null;
 export function krTopTenSections(scope: "all" | "domestic" | "imported", category?: string) {
@@ -167,5 +167,5 @@ export function krRailLabel(label: string) {
 }
 
 export function categoryRailLabel(category: string, label: string) {
-  return category === "트럭 · 특장" ? truckRailLabel(label) : krRailLabel(label);
+  return category === "트럭·특장" ? truckRailLabel(label) : krRailLabel(label);
 }

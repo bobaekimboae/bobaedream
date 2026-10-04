@@ -1,6 +1,6 @@
 // QF-091: 개발 시안 카드의 등록연월·주행거리·연료·마력과 인증중고차·1년보증 배지를 채운다.
 // 우리 매물 데이터에 없는 값(월·년형·마력·배지)을 매물 id 로 정해지는 샘플 값으로 채운다. 실제 매물 정보가 아니다.
-type SampleSource = { id: number; specs: string[]; filter?: { year: number; mileage: number; fuel: string }; badges?: string[]; uiTest?: unknown; virtualCategory?: unknown };
+type SampleSource = { id: number; sellerType?: "개인" | "딜러"; specs: string[]; filter?: { year: number; mileage: number; fuel: string }; badges?: string[]; uiTest?: unknown; virtualCategory?: unknown; heavy?: { hours: number }; parts?: { condition: string; compatibleModels: string; quantity: number } };
 
 const horsepowerPool = [190, 204, 245, 258, 150, 170, 305, 367, 122, 184, 225, 272];
 const badgePool: string[][] = [["인증중고차", "1년보증"], ["인증중고차", "1년보증"], [], ["1년보증"], ["인증중고차"], []];
@@ -26,7 +26,12 @@ const fuelLabel = (source: SampleSource) => {
 };
 
 export function bbmCardSpec(source: SampleSource, withPower = true) {
-  if (source.uiTest || source.virtualCategory) return source.specs.join(" · ");
+  if (source.parts) return `${source.parts.condition} · 호환 ${source.parts.compatibleModels} · 수량 ${source.parts.quantity}개`;
+  if (source.heavy) {
+    const year = yearFromSpecs(source);
+    return `${year}년식 · ${source.heavy.hours.toLocaleString("ko-KR")}h · ${source.specs.slice(2).join(" · ")}`;
+  }
+  if (source.uiTest || source.virtualCategory) return source.specs.filter(Boolean).join(" · ");
   const year = yearFromSpecs(source);
   const month = ((source.id * 5) % 12) + 1;
   // 목록은 등록연월만 간결하게 표시한다. 연형은 상세 정보에서 다룬다.
@@ -37,6 +42,6 @@ export function bbmCardSpec(source: SampleSource, withPower = true) {
 }
 
 export function bbmCardBadges(source: SampleSource) {
-  if (source.virtualCategory) return source.badges ?? [];
-  return source.badges?.length ? source.badges : badgePool[source.id % badgePool.length];
+  const badges = source.virtualCategory ? source.badges ?? [] : source.badges?.length ? source.badges : badgePool[source.id % badgePool.length];
+  return source.sellerType === "개인" ? badges.filter((badge) => badge !== "인증중고차") : badges;
 }

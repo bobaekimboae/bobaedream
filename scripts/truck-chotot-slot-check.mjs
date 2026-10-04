@@ -9,7 +9,7 @@ mkdirSync(out, { recursive: true });
 
 const params = new URLSearchParams({
   qf: "guazi",
-  category: "트럭 · 특장",
+  category: "트럭·특장",
   truckFormat: "카고(화물)트럭",
   truckSubtype: "경형 트럭 (1톤 미만)",
   truckSpec: "0.5톤",
@@ -60,7 +60,7 @@ for (const mode of [
   await page.screenshot({ path: join(out, `implementation-${mode.name}-brand.png`), fullPage: false });
   await rail.screenshot({ path: join(out, `implementation-${mode.name}-brand-row.png`) });
   const first = metrics[0];
-  const typeQuery = new URLSearchParams({ qf: "guazi", category: "트럭 · 특장" });
+  const typeQuery = new URLSearchParams({ qf: "guazi", category: "트럭·특장" });
   if (mode.pc) typeQuery.set("pc", "1");
   await page.goto(`${base}/?${typeQuery}`, { waitUntil: "networkidle" });
   const typeRail = page.locator(".depth-rail.is-truck-image-row");

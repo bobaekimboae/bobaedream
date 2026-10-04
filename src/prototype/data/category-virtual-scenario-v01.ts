@@ -1,4 +1,4 @@
-export type VirtualCategoryCode = "캠핑카" | "자재운반장비" | "부품 · 용품";
+export type VirtualCategoryCode = "캠핑카" | "자재운반장비" | "부품·용품";
 
 export type VirtualCategoryListingRow = {
   id: string;
@@ -19,17 +19,31 @@ export type VirtualCategoryListingRow = {
   image: string;
   isVirtual: true;
   scenarioVersion: "v01";
+  condition?: string;
+  compatibleModels?: string;
+  quantity?: number;
 };
 
 type BrandSeed = { maker: string; models: readonly [string, string, string]; subtypes: readonly [string, string, string] };
 
-const regions = ["서울 강서구", "경기 수원시", "인천 남동구", "경기 화성시", "대전 유성구", "대구 달서구", "부산 강서구", "광주 광산구", "충남 천안시", "경남 김해시"];
+const actualPlaces = [
+  ["서울 강서구", "강서오토플렉스"],
+  ["경기 수원시 권선구", "도이치오토월드"],
+  ["인천 남동구", "간석"],
+  ["경기 용인시 기흥구", "오토허브"],
+  ["대전 유성구", "디오토몰"],
+  ["대구 달서구", "남부단지"],
+  ["부산 강서구", "오토필드"],
+  ["광주 광산구", "하남단지"],
+  ["충남 천안시 동남구", "천안매매단지"],
+  ["경남 김해시", "김해모터스밸리"],
+] as const;
 const virtualPeople = ["김도윤", "이서준", "박하린", "최지호", "정민서", "윤재현", "한서아", "오민준", "강지우", "임도현"];
 
 function buildScenario(category: VirtualCategoryCode, prefix: string, seeds: readonly BrandSeed[], images: readonly string[], basePrice: number) {
   return seeds.flatMap((seed, brandIndex) => seed.models.map((model, modelIndex) => {
     const index = brandIndex * 3 + modelIndex;
-    const region = regions[index % regions.length];
+    const [region, complex] = actualPlaces[index % actualPlaces.length];
     const sellerType = index % 4 === 0 ? "개인" as const : "딜러" as const;
     const categoryDetail: VirtualCategoryListingRow["categoryDetail"] = category === "캠핑카" ? (seed.subtypes[modelIndex] === "캐러밴" ? "캐러밴" : "모터홈") : undefined;
     return {
@@ -40,17 +54,20 @@ function buildScenario(category: VirtualCategoryCode, prefix: string, seeds: rea
       subtype: seed.subtypes[modelIndex],
       categoryDetail,
       year: 2018 + index % 9,
-      mileage: category === "부품 · 용품" ? 0 : 4_800 + index * 2_750,
-      fuel: category === "자재운반장비" ? ["디젤", "전기", "LPG"][index % 3] : category === "캠핑카" ? ["디젤", "가솔린", "전기"][index % 3] : "해당 없음",
-      transmission: category === "부품 · 용품" ? "해당 없음" : "오토",
-      price10k: basePrice + brandIndex * 630 + modelIndex * 280,
+      mileage: category === "부품·용품" ? 0 : 4_800 + index * 2_750,
+      fuel: category === "자재운반장비" ? ["디젤", "전기", "LPG"][index % 3] : category === "캠핑카" ? ["디젤", "가솔린", "전기"][index % 3] : "",
+      transmission: category === "부품·용품" ? "" : "오토",
+      price10k: category === "부품·용품" ? basePrice + brandIndex * 12 + modelIndex * 5 : basePrice + brandIndex * 630 + modelIndex * 280,
       region,
       sellerType,
-      sellerName: sellerType === "개인" ? `${virtualPeople[index % virtualPeople.length]} 개인판매자 (가상)` : `${seed.maker} ${category.replace(" · ", "/")}센터 (가상)`,
-      sellerAddress: `${region} · 가상 매물 전시장`,
+      sellerName: sellerType === "개인" ? `${virtualPeople[index % virtualPeople.length]} 개인판매자` : `${seed.maker} 전문상사`,
+      sellerAddress: sellerType === "개인" ? region : `${region} · ${complex}`,
       image: images[index % images.length],
       isVirtual: true as const,
       scenarioVersion: "v01" as const,
+      condition: category === "부품·용품" ? (index % 3 === 0 ? "미사용" : "중고 A급") : undefined,
+      compatibleModels: category === "부품·용품" ? ["현대·기아 승용", "수입 승용", "SUV·RV", "차종 확인 필요"][index % 4] : undefined,
+      quantity: category === "부품·용품" ? 1 + index % 4 : undefined,
     };
   }));
 }
@@ -105,7 +122,7 @@ export const materialHandlingScenarioV01 = buildScenario("자재운반장비", "
   "truck/formats/v01/truck_subtype_forklift_v01.png",
 ], 1_450);
 
-export const partsScenarioV01 = buildScenario("부품 · 용품", "parts", partsSeeds, [
+export const partsScenarioV01 = buildScenario("부품·용품", "parts", partsSeeds, [
   "category-photo/vehicle_type_parts_v01.png",
   "categories/parts.svg",
 ], 18);
@@ -113,5 +130,5 @@ export const partsScenarioV01 = buildScenario("부품 · 용품", "parts", parts
 export const virtualCategoryBrands: Record<VirtualCategoryCode, string[]> = {
   캠핑카: campingSeeds.map((seed) => seed.maker),
   자재운반장비: materialSeeds.map((seed) => seed.maker),
-  "부품 · 용품": partsSeeds.map((seed) => seed.maker),
+  "부품·용품": partsSeeds.map((seed) => seed.maker),
 };

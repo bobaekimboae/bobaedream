@@ -1325,7 +1325,7 @@ export const iconLibraries = [
     source: "보배드림 차량 아이콘",
     icons: [
       { name: "ic_vehicle_used_car_24", korean: "중고차", size: "24px", usage: "차량 카테고리" },
-      { name: "ic_vehicle_truck_24", korean: "트럭 · 특장", size: "24px", usage: "차량 카테고리" },
+      { name: "ic_vehicle_truck_24", korean: "트럭·특장", size: "24px", usage: "차량 카테고리" },
       { name: "ic_vehicle_bike_24", korean: "바이크", size: "24px", usage: "차량 카테고리" },
       { name: "ic_vehicle_camping_24", korean: "캠핑카", size: "24px", usage: "차량 카테고리" },
       { name: "ic_vehicle_oem_bmw_24", korean: "BMW", size: "24px", usage: "제조사 선택" },

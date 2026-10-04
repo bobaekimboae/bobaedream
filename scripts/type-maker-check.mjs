@@ -9,7 +9,7 @@ import { join } from "node:path";
 
 const base = (process.argv.find((a) => a.startsWith("--base=")) ?? "").slice(7) || "http://127.0.0.1:4173/bobaedream/";
 const out = join("reports", "qf-114"); mkdirSync(out, { recursive: true });
-const lists = { 바이크: JSON.parse(readFileSync("src/prototype/data/brand-top10-bike.json", "utf8")), "트럭 · 특장": JSON.parse(readFileSync("src/prototype/data/brand-top10-truck.json", "utf8")) };
+const lists = { 바이크: JSON.parse(readFileSync("src/prototype/data/brand-top10-bike.json", "utf8")), "트럭·특장": JSON.parse(readFileSync("src/prototype/data/brand-top10-truck.json", "utf8")) };
 const passenger = ["제네시스", "쉐보레", "르노코리아", "아우디", "포르쉐", "BMW"];
 const railLabel = (label) => ({ "KG모빌리티": "KGM", "만(MAN)": "MAN", "다프(DAF)": "DAF", "대림(DL)": "대림" }[label] ?? label);
 const browser = await chromium.launch({ args: ["--disable-lcd-text"] });

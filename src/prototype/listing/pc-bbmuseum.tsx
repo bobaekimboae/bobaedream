@@ -20,17 +20,15 @@ function BbIcon({ name, size = 20, className = "" }: { name: BbIconName; size?: 
   return <span className={`bb-icon ${className}`} style={style} aria-hidden="true" />;
 }
 
-const bbGnbItems = ["홈", "전체차량", "중고차", "수입차", "화물/특장차", "건설기계(덤프/지게차)", "캠핑카(모터홈/캐러밴)", "바이크", "부품/용품", "커뮤니티"];
+const bbGnbItems = ["홈", "전체차량", "중고차", "트럭·특장", "바이크", "캠핑카", "건설기계", "자재운반장비", "부품·용품", "커뮤니티"];
 // QF-091: 헤더 아이콘·로고는 개발 시안 원본 파일(public/assets/bbm/)
 const bbHeaderIcons: Array<[string, string]> = [["search", "검색"], ["mypage", "마이페이지"], ["heart", "찜"], ["chat", "채팅"], ["notification", "알림"], ["menu", "메뉴"]];
 const bbmAsset = (name: string) => asset(`bbm/${name}.svg`);
 
 function BbHeader({ category, onNotify, onOpenFavorites }: { category: string; onNotify: (message: string) => void; onOpenFavorites: () => void }) {
-  const activeItem = category === "트럭 · 특장" ? "화물/특장차"
-    : category === "건설기계" ? "건설기계(덤프/지게차)"
-      : category === "캠핑카" ? "캠핑카(모터홈/캐러밴)"
-        : category === "부품 · 용품" ? "부품/용품"
-          : category === "수입차" || category === "바이크" ? category : "중고차";
+  const activeItem = category === "전체" ? "전체차량"
+    : bbGnbItems.includes(category) ? category
+      : "중고차";
   return (
     <header className="bbm-header" aria-label="보배드림">
       <div className="bbm-header-inner">

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./main-home.css";
 
-type ServiceKey = "all" | "used-car" | "community" | "truck" | "bike" | "construction" | "camping" | "parts";
+type ServiceKey = "all" | "used-car" | "community" | "truck" | "bike" | "construction" | "camping" | "material" | "parts";
 
 const prototypeAsset = (path: string) => `./prototypes/autotrader-bobaedream-main/${path}`;
 const brandAsset = (path: string) => ["assets", "brand", "kr", path].join("/");
@@ -9,25 +9,37 @@ const bbmAsset = (path: string) => ["assets", "bbm", path].join("/");
 const luxuryListingAsset = (path: string) => ["assets", "cars", "luxury-ui-test", path].join("/");
 
 const services: Array<{ key: ServiceKey; label: string }> = [
-  { key: "all", label: "전체" },
+  { key: "all", label: "전체차량" },
   { key: "used-car", label: "중고차" },
   { key: "community", label: "커뮤니티" },
-  { key: "truck", label: "트럭/특장" },
+  { key: "truck", label: "트럭·특장" },
   { key: "bike", label: "바이크" },
   { key: "construction", label: "건설기계" },
   { key: "camping", label: "캠핑카" },
-  { key: "parts", label: "부품/용품" },
+  { key: "material", label: "자재운반장비" },
+  { key: "parts", label: "부품·용품" },
 ];
 
 const vehicleTypes = [
-  { value: "중고차", label: "자동차", icon: "category-used.svg" },
-  { value: "트럭 · 특장", label: "트럭 · 특장", icon: "category-truck.svg" },
+  { value: "중고차", label: "중고차", icon: "category-used.svg" },
+  { value: "트럭·특장", label: "트럭·특장", icon: "category-truck.svg" },
   { value: "바이크", label: "바이크", icon: "category-bike.svg" },
   { value: "캠핑카", label: "캠핑카", icon: "category-camping.svg" },
-  { value: "올드카", label: "올드카", icon: "category-old.svg" },
   { value: "건설기계", label: "건설기계", icon: "category-construction.svg" },
-  { value: "부품 · 용품", label: "부품 · 용품", icon: "category-equipment.svg" },
+  { value: "자재운반장비", label: "자재운반장비", icon: "category-equipment.svg" },
+  { value: "부품·용품", label: "부품·용품", icon: "category-equipment.svg" },
 ];
+
+const serviceCategory: Partial<Record<ServiceKey, string>> = {
+  all: "전체차량",
+  "used-car": "중고차",
+  truck: "트럭·특장",
+  bike: "바이크",
+  construction: "건설기계",
+  camping: "캠핑카",
+  material: "자재운반장비",
+  parts: "부품·용품",
+};
 
 const luxuryBrands = [
   [brandAsset("porsche.png"), "포르쉐", ""],
@@ -79,7 +91,7 @@ export default function MainHome() {
     const params = new URLSearchParams({ qf: "guazi", filtericon: "notion" });
     if (query?.trim()) params.set("q", query.trim());
     if (maker) params.set("maker", maker);
-    if (category && category !== "중고차") params.set("category", category);
+    params.set("category", category ?? "전체차량");
     window.location.href = `./?${params.toString()}`;
   };
   const openListing = () => navigateToListing();
@@ -113,6 +125,7 @@ export default function MainHome() {
                 }
                 setActiveService(service.key);
                 event.currentTarget.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+                navigateToListing({ category: serviceCategory[service.key] });
               }}
             >{service.label}</button>
           ))}
@@ -169,12 +182,14 @@ export default function MainHome() {
           <aside className="mh-menu-panel" role="dialog" aria-modal="true" aria-labelledby="mh-menu-title">
             <header><h2 id="mh-menu-title">전체 메뉴</h2><button type="button" aria-label="닫기" onClick={() => setMenuOpen(false)}><img src={bbmAsset("m-full-close.svg")} alt="" /></button></header>
             <nav aria-label="전체 서비스">
-              <button type="button" onClick={openListing}><strong>중고차</strong><span>국산·수입 중고차 찾기</span></button>
+              <button type="button" onClick={() => navigateToListing({ category: "중고차" })}><strong>중고차</strong><span>국산·수입 중고차 찾기</span></button>
               <button type="button" onClick={openCommunity}><strong>커뮤니티</strong><span>자동차 이야기와 실시간 피드</span></button>
-              <button type="button" onClick={() => showPreparing("트럭·특장 메인 시안을 준비 중입니다.")}><strong>트럭·특장</strong><span>화물차와 특장차 매물</span></button>
-              <button type="button" onClick={() => showPreparing("바이크 메인 시안을 준비 중입니다.")}><strong>바이크</strong><span>모터사이클 매물</span></button>
-              <button type="button" onClick={() => showPreparing("건설기계 메인 시안을 준비 중입니다.")}><strong>건설기계</strong><span>중장비 매물</span></button>
-              <button type="button" onClick={() => showPreparing("부품·용품 메인 시안을 준비 중입니다.")}><strong>부품·용품</strong><span>자동차 관련 용품</span></button>
+              <button type="button" onClick={() => navigateToListing({ category: "트럭·특장" })}><strong>트럭·특장</strong><span>화물차와 특장차 매물</span></button>
+              <button type="button" onClick={() => navigateToListing({ category: "바이크" })}><strong>바이크</strong><span>모터사이클 매물</span></button>
+              <button type="button" onClick={() => navigateToListing({ category: "캠핑카" })}><strong>캠핑카</strong><span>모터홈과 캐러밴 매물</span></button>
+              <button type="button" onClick={() => navigateToListing({ category: "건설기계" })}><strong>건설기계</strong><span>굴착기·로더 등 중장비 매물</span></button>
+              <button type="button" onClick={() => navigateToListing({ category: "자재운반장비" })}><strong>자재운반장비</strong><span>지게차와 창고 장비 매물</span></button>
+              <button type="button" onClick={() => navigateToListing({ category: "부품·용품" })}><strong>부품·용품</strong><span>자동차 관련 용품</span></button>
             </nav>
           </aside>
         </div> : null}

@@ -443,7 +443,7 @@ function BikeVehicleDetail({ car, onBack }: { car: Car; onBack: () => void }) {
           <button type="button" aria-label="목록으로 돌아가기" onClick={onBack} style={{ position: "absolute", top: 12, left: 12, width: 40, height: 40, border: 0, borderRadius: 20, background: "rgba(0,0,0,.55)", color: "#fff", fontSize: 22 }}>←</button>
         </div>
         <div style={{ padding: 20 }}>
-          <p style={{ margin: "0 0 6px", color: "#777", fontSize: 13 }}>테스트용 가상 매물 · {bike.scenarioId}</p>
+          <p style={{ margin: "0 0 6px", color: "#777", fontSize: 13 }}>매물 번호 · {bike.scenarioId}</p>
           <h1 style={{ margin: 0, fontSize: 23 }}>{car.title}</h1>
           <p style={{ margin: "8px 0 0", color: "#555" }}>{car.trim}</p>
           <strong style={{ display: "block", marginTop: 14, fontSize: 22 }}>{car.price}</strong>
@@ -520,8 +520,8 @@ function DetailFooter() {
   if (activeCar?.bike) {
     return (
       <div className="detail-bottom-bar">
-        <button className="detail-history" type="button" onClick={() => notify("가상 매물 정보입니다")}>가상 매물</button>
-        <button className="detail-call" type="button" onClick={() => notify(activeCar.bike?.sellerContact ?? "앱 채팅 전용 (가상)")}><img src={asset("detail/call.svg")} alt="" /> 연락 방식</button>
+        <button className="detail-history" type="button" onClick={() => notify("차량 정보 이력을 준비하고 있습니다")}>차량 이력</button>
+        <button className="detail-call" type="button" onClick={() => notify((activeCar.bike?.sellerContact ?? "앱 채팅 전용").replaceAll(" (가상)", ""))}><img src={asset("detail/call.svg")} alt="" /> 연락 방식</button>
         <button className="detail-consult" type="button" onClick={() => notify("테스트용 앱 채팅입니다")}>채팅</button>
       </div>
     );

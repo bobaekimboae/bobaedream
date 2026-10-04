@@ -9,9 +9,10 @@ import "./qf-align.css";
 // QF-106 상단 구조 안정성 매뉴얼 v1.1(docs/stable-top-manual.md) — 과쯔 모드 PC 상단 카드 ③ 지역 칩 줄 · ④ 연식 알약 줄 · 제목 고정 · 모바일 ⑤ 관련 검색어
 
 /** 제목 = 상단 메뉴(유형)로 들어온 카테고리 이름만. 대수·날짜·칩 조건은 넣지 않는다 */
-// QF-113 T6: 유형 줄에서 고른 유형이면 제목 = 유형 이름("트럭 · 특장" · "바이크" · "캠핑카" · "올드카" · "건설기계" · "부품 · 용품"), 중고차면 "중고차"
-const STABLE_TYPE_TITLES = ["트럭 · 특장", "바이크", "캠핑카", "올드카", "건설기계", "부품 · 용품"];
+// QF-113 T6: 유형 줄에서 고른 유형이면 제목 = 유형 이름("트럭·특장" · "바이크" · "캠핑카" · "올드카" · "건설기계" · "부품·용품"), 중고차면 "중고차"
+const STABLE_TYPE_TITLES = ["전체차량", "트럭·특장", "바이크", "캠핑카", "올드카", "건설기계", "자재운반장비", "부품·용품"];
 export function stablePageTitle(category: string) {
+  if (category === "전체") return "전체차량";
   if (category === "국산차") return "국산 중고차";
   if (category === "수입차") return "수입 중고차";
   if (STABLE_TYPE_TITLES.includes(category)) return category;
@@ -51,7 +52,9 @@ function PillRow({ label, className, children }: { label: string; className?: st
 // ③ 지역 칩 줄(PC만, 항상, 높이 32 고정). QF-111 시도 → 구·군 단계(src/prototype/data/regions-kr.json):
 //  처음 "지역:" + 시도 17 + "내 주변" → 시도 누름: 칩 [서울 ×], 같은 자리가 "서울:" + "서울 전체"(선택, 700) + 구·군 알약 줄
 //  구·군 누름: 칩 [강남구 ×], 줄 유지, 다른 구·군은 바뀜(하나만), 같은 구·군·"서울 전체"는 해제. 세종처럼 구·군이 없는 시도는 시도 줄 유지
-export const STABLE_REGION_OPTIONS = regionsKr.sido;
+/** 초톳형 빠른 지역 줄은 감사 명세의 5개 주요 시도만 노출하고, 전체 지역은 시트에서 제공한다. */
+export const STABLE_REGION_OPTIONS = ["서울", "경기", "인천", "부산", "대구"];
+export const ALL_REGION_OPTIONS = regionsKr.sido;
 const districtsOf = (sido: string | null) => (sido ? (regionsKr.districts as Record<string, string[]>)[sido] ?? [] : []);
 export const stableRegionState = (value: BbmFilterValues) => {
   const sido = value.checks.region?.[0] ?? null;
@@ -126,7 +129,7 @@ export function StableRegionSheet({ value, onChange, onClose, onNearby }: { valu
   return (
     <BbmSheet title="지역" onClose={onClose}>
       <div className="stable-region-grid">
-        {STABLE_REGION_OPTIONS.map((name) => {
+        {ALL_REGION_OPTIONS.map((name) => {
           const on = current.sido === name;
           return <button key={name} type="button" className={`stable-region-cell${on ? " is-selected" : ""}`} aria-pressed={on} onClick={() => pickSido(name)}>{name}</button>;
         })}

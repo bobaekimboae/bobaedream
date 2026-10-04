@@ -150,12 +150,12 @@
 - The `필터` chip keeps its text and appends the count (`필터` → `필터 2`, #222 when any condition) with a fixed 92px width, so the next chip never shifts (PC 240 at 1440 · mobile 114).
 - Mobile Guazi follows the ChoTot chip rhythm at 384px: the rail keeps 16px screen-side margins, 4px between ordinary chips, and 32px chip height. Normal, selected, and fixed filter chips use symmetric 12px inline padding and a 2px icon/text, text/arrow, or text/clear gap. The fixed filter chip remains 92px wide, including its existing 6px separation from the scrolling chip rail.
 - The landing first chip is `중고차` (not `전체차량`) in guazi only; other modes keep `전체차량`.
-- Title after choosing a type from the type row = the type name (`트럭 · 특장` · `바이크` · `캠핑카` · `올드카` · `건설기계` · `부품 · 용품`); 중고차 stays `중고차`.
+- Title after choosing a type from the type row = the type name (`트럭·특장` · `바이크` · `캠핑카` · `올드카` · `건설기계` · `부품·용품`); 중고차 stays `중고차`.
 - `npm run check:stability` checks ① same first-cell x on every image rail, ② same x for the chip after `필터`, ③ same image-rail top and bottom lines (처음 → 벤츠 → C클래스 → W206 → C200).
 
 ## Bike · Truck Maker Rails (QF-114)
 
-- For `바이크` and `트럭 · 특장` the guazi maker rail uses its own top 10 (`src/prototype/data/brand-top10-bike.json` · `brand-top10-truck.json`, month noted): bike 대림(DL) · KR모터스 │ 혼다 · 야마하 · 스즈키 · 가와사키 · BMW · 할리데이비슨 · 두카티 · 베스파; truck 현대 · 기아 · 타타대우 · KG모빌리티 │ 볼보 · 스카니아 · 만(MAN) · 벤츠 · 이베코 · 다프(DAF). No passenger brands. Same cell size, logo box, 3-step logo sizes, name width, left `제조사` title, divider and 11th `전체 브랜드` as the passenger rail.
+- For `바이크` and `트럭·특장` the guazi maker rail uses its own top 10 (`src/prototype/data/brand-top10-bike.json` · `brand-top10-truck.json`, month noted): bike 대림(DL) · KR모터스 │ 혼다 · 야마하 · 스즈키 · 가와사키 · BMW · 할리데이비슨 · 두카티 · 베스파; truck 현대 · 기아 · 타타대우 · KG모빌리티 │ 볼보 · 스카니아 · 만(MAN) · 벤츠 · 이베코 · 다프(DAF). No passenger brands. Same cell size, logo box, 3-step logo sizes, name width, left `제조사` title, divider and 11th `전체 브랜드` as the passenger rail.
 - Brands with 0 sample listings stay in the rail and are dimmed (opacity 0.4); the 2026-09 guazi sample has no bike/truck listings, so all are dimmed. Brands without a logo file show a first-letter circle (#F4F4F4, 600).
 - `전체 브랜드` and the `제조사 ▾` chip open that type's full list only (국산 → 수입 이름순 → 기타), 0-count rows greyed but selectable.
 - Logos: 타타대우 · 만(MAN) from Daangn company images (`scripts/brand-logos-kr.mjs`); 대림 · KR모터스 · 야마하 · 가와사키 · 할리데이비슨 · 두카티 · 베스파 · 다프 have no source yet. Check: `node scripts/type-maker-check.mjs`.
@@ -282,7 +282,7 @@
 
 # 트럭·특장 엔카 형식 뎁스
 
-- 적용 카테고리: `트럭 · 특장`
+- 적용 카테고리: `트럭·특장`
 - 선택 순서: 차량 유형 → 형식(2뎁스) → 세부 형식(3뎁스) → 적재용량·축장/규격(4뎁스, 자료가 있는 형식) → 제조사 → 모델
 - 형식은 13개, 세부 형식은 총 89개이며 `src/prototype/data/truck-format-catalog.ts`를 단일 기준으로 사용한다.
 - 4뎁스는 Google Sheet의 형식별 탭 13개를 직접 대조한 `src/prototype/data/truck-depth4-catalog.ts`를 사용한다. 11개 형식·85개 세부 형식에 1,944개 값이 연결되어 있다.
@@ -305,8 +305,8 @@
 - 체크형 항목은 시트/모달의 임시 값으로 고르고 `확인 N대` 또는 `N대 보기`를 눌러 확정한다. 버튼의 대수는 가상 트럭 30대에서 임시 선택을 반영해 즉시 다시 센다.
 - 트럭 가상 매물 30대에는 가변축, 진단, 성능공개, 판매자구분, 용도, 색상, 연료, 변속기, 옵션, 적재규격, 차량번호 값을 일관되게 부여한다. 이 값은 UI 검증용 가상 정보이며 실제 매물 정보가 아니다.
 - 차량번호/판매자 이름 검색은 가상 차량번호·차량명·판매자명을 함께 부분 일치로 검색한다.
-- 트럭·특장 PC 상단 카드에서는 지역 칩 줄을 노출하지 않는다. 지역 선택은 PC 좌측 `트럭 전용 필터 > 지역`에서 제공하며 모바일 지역 UI는 유지한다.
-- 트럭·특장 PC 상단의 기본 필터 칩과 형식·세부 형식·적재 규격·브랜드 빠른 선택 줄은 유지한다. PC에서 제거하는 것은 지역 칩 줄뿐이며 좌측 `트럭 전용 필터 > 지역`과 모바일 지역 UI도 유지한다.
+- 트럭·특장도 다른 카테고리와 같은 지역 빠른 칩 줄을 필터 칩 바로 아래에 표시한다. 전체 지역 선택은 기존 상세 지역 UI에서 유지한다.
+- 트럭·특장 PC 상단의 기본 필터 칩과 형식·세부 형식·적재 규격·브랜드 빠른 선택 줄을 유지한다.
 - 2026-10-04 초톳 모바일 웹 직접 실측(Pixel 7 폭 412): 제조사 슬롯 64×56, 이미지 36×36, 이미지–명칭 간격 2px, 명칭 폭 56px(슬롯 좌우 4px), 명칭 12/500/18 `#595959`, 가운데 정렬이다. 트럭 형식·세부형식·유형도 이 텍스트 슬롯 규칙을 적용한다. 보배 실사 슬롯은 모바일 80px 폭에서 명칭 폭 72px, PC 132px 폭에서 명칭 폭 124px로 좌우 4px 여백을 유지하며, 이미지 아래 2px에서 12/500/18 `#595959` 명칭을 최대 두 줄로 줄바꿈한다. 말줄임표는 표시하지 않는다.
 - 2026-10-04 트럭 매물 목록의 제조사 뎁스는 `형식 → 차급 → 톤수·규격` 선택이 끝난 뒤 같은 퀵필터 자리에 노출한다. 이 화면은 초톳 앱·카테고리 레일형 규격을 사용해 모바일 셀 76×102·PC 셀 84×102, 공통 로고 상자 40×40, 셀 간격 8px, 첫 시작 모바일 16px·PC 20px로 고정한다. 초톳 모바일웹 64×56 압축형은 다른 표면의 변형으로 구분한다.
 
@@ -343,10 +343,22 @@
 ## 유형별 가상 매물과 브랜드
 
 - 전용 데이터가 없던 `캠핑카`, `자재운반장비`, `부품/용품`은 승용 샘플을 재사용하지 않는다.
-- 세 유형은 `category-virtual-scenario-v01.ts`의 전용 가상 매물을 각각 30개씩 사용한다. 판매자명·주소·가격·연식은 UI 검증용 가상 정보이며 실제 매물로 해석하지 않는다.
+- 세 유형은 `category-virtual-scenario-v01.ts`의 전용 샘플 매물을 각각 30개씩 사용한다. 샘플 여부는 데이터 필드로만 관리하고 화면 문구에는 노출하지 않는다.
 - 각 유형의 브랜드 빠른 선택은 전용 브랜드 10개와 `전체 브랜드` 한 칸으로 구성한다. 실제 인기 순위가 아니라 가상 매물 v01의 검증용 구성임을 브랜드 매니페스트에 명시한다.
 - 캠핑카: 현대 · 기아 · 르노코리아 · 제일모빌 · 코치맨 · 벤츠 · 포드 · 피아트 · 아드리아 · 하이머.
 - 자재운반장비: 현대머티리얼핸들링 · 두산밥캣 · 토요타L&F · 미쓰비시로지스넥스트 · 코마츠 · 클라크 · 헬리 · 항차 · 융하인리히 · 린데.
 - 부품/용품: 한국타이어 · 금호타이어 · 넥센타이어 · 현대모비스 · 미쉐린 · 브리지스톤 · BBS · OZ레이싱 · 브렘보 · 보쉬.
 - 브랜드 하나를 선택하면 해당 브랜드의 검증용 매물 3개로 좁혀진다. 목록은 첫 페이지 20개·둘째 페이지 10개다.
-- 전용 실사 이미지가 아직 없는 항목은 유형별 기존 승인 이미지 슬롯을 임시로 재사용하며, `UI 검증용 가상 매물` 문구를 상세 모델 줄에 표시한다.
+- 전용 실사 이미지가 아직 없는 항목은 유형별 기존 승인 이미지 슬롯을 임시로 재사용한다.
+
+## 2026-10-05 카테고리·검색 감사 반영
+
+- 표준 카테고리 이름은 `중고차 / 트럭·특장 / 바이크 / 캠핑카 / 건설기계 / 자재운반장비 / 부품·용품`이다. URL의 `전체차량`은 모든 유형을 섞고 `중고차`는 승용만 표시한다.
+- 구형 `트럭 · 특장`, `트럭/특장차`, `화물/특장차`, `부품 · 용품`, `부품/용품` URL은 표준 이름으로 정규화한다.
+- 필터 칩은 `[필터] [카테고리] [가격] ... [판매자]` 순서를 카테고리별로 고정한다. 카테고리 칩 해제는 전체차량으로, 전체차량 칩 해제는 필터 초기화로 동작한다.
+- 필터 칩 아래에는 모든 카테고리에서 `서울 · 경기 · 인천 · 부산 · 대구 · 내 주변` 빠른 지역 줄을 표시한다.
+- 전체차량 퀵필터는 7개 하위 카테고리 아이콘을, 하위 카테고리는 제조사 로고 또는 유형 이미지를 표시한다. 0건 항목은 숨긴다.
+- 캠핑카·카라반은 캠핑카 전용 분류, 지게차는 자재운반장비 전용 분류다. 덤프·믹서는 트럭·특장에 두고 건설기계 퀵필터에는 노출하지 않는다.
+- 검색은 현재 카테고리를 유지하고 `q`만 추가한다. 검색어가 있으면 관련순, 없으면 업데이트순이며 ID 기준으로 중복을 제거한다.
+- 승용 샘플은 2026-10-04 엔카 세대·등급 기준표와 실제 단지 DB로 생성한다. 연식·연료·가격·주행거리·사진·단지·인증 배지를 생성 단계에서 검증한다.
+- 부품·용품은 상태·호환 차종·수량을, 건설기계·자재운반장비는 주행거리 대신 가동시간을 표시한다. 샘플 여부는 데이터 필드로만 둔다.

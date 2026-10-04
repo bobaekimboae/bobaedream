@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 
-const category = "트럭 · 특장";
+const category = "트럭·특장";
 const format = "카고(화물)트럭";
 
 const truckUrl = (subtype: string, spec: string, pc = false) => {
