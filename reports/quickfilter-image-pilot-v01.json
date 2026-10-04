@@ -1,0 +1,68 @@
+{
+  "manifest": "C:\\Users\\bobae\\codex-work\\bobaedream\\docs\\image\\quickfilter_image_pilot_manifest_v01.csv",
+  "total": 5,
+  "passed": 5,
+  "failed": 0,
+  "results": [
+    {
+      "type_code": "bulldozer",
+      "file": "public/assets/heavy/pilot/production-manual-v01/heavy_bulldozer_side_v01.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        39,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "excavator",
+      "file": "public/assets/heavy/pilot/production-manual-v01/heavy_excavator_side_v01.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        41,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "loader",
+      "file": "public/assets/heavy/pilot/production-manual-v01/heavy_loader_side_v01.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        44,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "forklift",
+      "file": "public/assets/heavy/pilot/production-manual-v01/heavy_forklift_side_v01.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        60,
+        38,
+        453,
+        262
+      ]
+    },
+    {
+      "type_code": "scraper",
+      "file": "public/assets/heavy/pilot/production-manual-v01/heavy_scraper_side_v01.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        124,
+        480,
+        262
+      ]
+    }
+  ]
+}

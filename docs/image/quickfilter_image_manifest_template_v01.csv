@@ -1,0 +1,3 @@
+order,batch_id,category_code,type_code,name_ko,name_original,scale_class,palette,subject_description,mechanical_features,style_anchor,source_reference,source_file,output_file,canvas_width,canvas_height,target_width,target_height,anchor_x,baseline_y,alpha_threshold,direction,version,master_status,manual_orientation_qa,manual_structure_qa,manual_small_slot_qa,notes
+1,batch_01,heavy,example,예시,Example,medium,safety yellow and charcoal,example heavy equipment,all defining parts visible,heavy_anchor_v01,official manufacturer reference,public/assets/quickfilter/heavy/example/master/heavy_example_side_master_v01.png,public/assets/quickfilter/heavy/example/web/heavy_example_side_v01.png,512,320,448,224,256,262,12,left,v01,master_approved,PASS,PASS,PASS,
+

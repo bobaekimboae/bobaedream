@@ -1,0 +1,176 @@
+{
+  "manifest": "C:\\Users\\bobae\\codex-work\\bobaedream\\docs\\truck\\truck_type_production_manifest_v03.csv",
+  "total": 14,
+  "passed": 14,
+  "failed": 0,
+  "results": [
+    {
+      "type_code": "cargo",
+      "file": "public/assets/truck/formats/v03/truck_format_cargo_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        82,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "wingbody",
+      "file": "public/assets/truck/formats/v03/truck_format_wingbody_open_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        47,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "reefer",
+      "file": "public/assets/truck/formats/v03/truck_format_reefer_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        75,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "dump_mixer",
+      "file": "public/assets/truck/formats/v03/truck_format_dump_mixer_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        81,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "crane",
+      "file": "public/assets/truck/formats/v03/truck_format_crane_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        68,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "tanker",
+      "file": "public/assets/truck/formats/v03/truck_format_tanker_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        104,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "waste",
+      "file": "public/assets/truck/formats/v03/truck_format_waste_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        73,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "transport",
+      "file": "public/assets/truck/formats/v03/truck_format_transport_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        89,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "tractor",
+      "file": "public/assets/truck/formats/v03/truck_format_tractor_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        33,
+        38,
+        479,
+        262
+      ]
+    },
+    {
+      "type_code": "trailer",
+      "file": "public/assets/truck/formats/v03/truck_format_trailer_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        145,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "special",
+      "file": "public/assets/truck/formats/v03/truck_format_special_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        58,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "bus",
+      "file": "public/assets/truck/formats/v03/truck_format_bus_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        123,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "motorhome",
+      "file": "public/assets/truck/formats/v03/truck_format_motorhome_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        48,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "other",
+      "file": "public/assets/truck/formats/v03/truck_format_other_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        79,
+        480,
+        262
+      ]
+    }
+  ]
+}

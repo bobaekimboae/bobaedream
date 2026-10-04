@@ -1,0 +1,6 @@
+order,type_code,type_name,side_master,side_web,angle_master,angle_web,canvas,slot,status
+1,bulldozer,불도저,heavy_bulldozer_side_master_v01.png,heavy_bulldozer_side_v01.png,heavy_bulldozer_angle_master_v01.png,heavy_bulldozer_angle_v01.png,512x320,64x40,검수완료
+2,excavator,굴착기,heavy_excavator_side_master_v01.png,heavy_excavator_side_v01.png,heavy_excavator_angle_master_v01.png,heavy_excavator_angle_v01.png,512x320,64x40,검수완료
+3,loader,로더,heavy_loader_side_master_v01.png,heavy_loader_side_v01.png,heavy_loader_angle_master_v01.png,heavy_loader_angle_v01.png,512x320,64x40,검수완료
+4,forklift,지게차,heavy_forklift_side_master_v01.png,heavy_forklift_side_v01.png,heavy_forklift_angle_master_v01.png,heavy_forklift_angle_v01.png,512x320,64x40,검수완료
+5,scraper,스크레이퍼,heavy_scraper_side_master_v01.png,heavy_scraper_side_v01.png,heavy_scraper_angle_master_v01.png,heavy_scraper_angle_v01.png,512x320,64x40,검수완료

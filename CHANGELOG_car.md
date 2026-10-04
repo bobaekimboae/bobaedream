@@ -6,3 +6,4 @@
 | 2026-10-02 | 코덱스-중고차 | `HANDOVER_car_v02.md` | v02 | 기존 Notion v01을 보존하고 메인 UI 벤치마크·GNB 판단·모바일·PC 권장 규격을 추가 | 미검수 |
 | 2026-10-03 | 코덱스-중고차 | `car_image_slot_audit_v01.md`, `car_image_measurements_v01.csv` | v01 | 초톳 카테고리 메인 누끼와 매물리스트 실사 슬롯을 모바일 앱·모바일 웹·PC 웹에서 픽셀 측정하고 보배드림 공통 규칙 제안 | 미검수 |
 | 2026-10-03 | 코덱스-중고차 | `HANDOVER_car_v03.md`, `bobaedream_ai_vehicle_image_rules_v01.xlsx` | v03/v01 | AI 차량·모델 이미지 제작 규칙 확정, 샘플 10종 생성, 384px 리스트·바텀시트 적용 및 구글시트·드라이브 전달 | 자체 검수 완료·상호 검수 대기 |
+| 2026-10-04 | 코덱스-중고차 | `quickfilter_image_production_manual_v01.md`, `quick-filter-image-slot-rules_v03.md`, 정규화·검수 스크립트 | v01/v03 | 퀵필터 분류 이미지를 좌향 90° 정측면으로 통일하고 승인 마스터 동결·매니페스트·결정론적 정규화·자동 QA를 포함한 99% 반복 생산 체계 작성 | 자체 검수 완료·상호 검수 대기 |

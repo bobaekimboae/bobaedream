@@ -1,0 +1,43 @@
+Use case: product-mockup
+Asset type: Bobaedream quick-filter classification image
+
+Primary request:
+Create one photorealistic studio catalog cutout of {subject_name}.
+
+Subject definition:
+- Category: {category_name}
+- Exact structure: {mechanical_features}
+- Body color and material: {palette}
+- Scale class: {scale_class}
+
+Camera and geometry — LOCKED, DO NOT CHANGE:
+- exact 90-degree side profile
+- front of the subject points to the left
+- camera is perpendicular to the subject centerline
+- camera height is aligned with the wheel, track, or operating-base center
+- orthographic catalog appearance with minimal perspective distortion
+- do not show a prominent front face, rear face, roof plane, or three-quarter angle
+- show the complete subject, including every wheel or track, front and rear ends, mirrors, roof equipment, boom, bed, attachment, or implement that defines the type
+
+Lighting and finish — LOCKED, DO NOT CHANGE:
+- premium official-manufacturer catalog photography quality
+- neutral 5500K studio lighting
+- large softbox from upper-left and a very soft frontal fill
+- realistic materials and mechanically plausible construction
+- restrained natural contrast, no HDR, no dramatic reflections
+- only a very subtle neutral-gray contact shadow directly below the subject, visually 8 to 12 percent opacity
+
+Background and output — LOCKED, DO NOT CHANGE:
+- genuinely transparent background with preserved alpha
+- clean antialiased edges, no white halo
+- generous transparent padding around the complete silhouette
+- no text, no logo, no trademark, no badge, no license plate, no watermark
+- no person, road, building, landscape, floor line, smoke, dust, or unrelated object
+- one subject only
+
+Intended output:
+This is a small UI classification asset that must remain immediately recognizable at 64 by 40 CSS pixels. Preserve the silhouette and category-defining parts over decorative detail.
+
+Avoid:
+three-quarter view; front view; rear view; top view; wide-angle perspective; cropped wheels; cropped attachments; missing axles; mechanically impossible parts; exaggerated stance; colored background; opaque white background; floating subject; heavy shadow; extra objects.
+

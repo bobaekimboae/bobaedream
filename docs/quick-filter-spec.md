@@ -76,8 +76,8 @@
 
 ## Images And Logos
 
-- Vehicle images and manufacturer marks follow `docs/quick-filter-image-slot-rules_v02.md`. The older asset and layout documents describe the currently deployed implementation; where their measurement claims conflict, v02 is the measurement authority until a separate UI migration task updates code.
-- Vehicle images should be front-left three-quarter views, white or silver/light-colored, transparent, whitespace-trimmed 2:1 assets at 144×72 or larger.
+- Vehicle images and manufacturer marks follow `docs/quick-filter-image-slot-rules_v03.md` and `docs/image/quickfilter_image_production_manual_v01.md`. The older asset and layout documents describe the currently deployed implementation; where their image-direction or production claims conflict, v03 is the authority.
+- Classification quick-filter images use an exact 90-degree left-facing side profile on a transparent 8:5 master canvas. Three-quarter views are reserved for promotional/main-category surfaces and must not be mixed into classification rails.
 - Model and generation assets should be 192×96 when available.
 - Passenger vehicles use `bodyFit: "width"`.
 - Trucks, special vehicles, buses, campers, vans, and motorcycles use `bodyFit: "height"` without changing the active slot size.

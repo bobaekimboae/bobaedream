@@ -1,0 +1,332 @@
+{
+  "manifest": "C:\\Users\\bobae\\codex-work\\bobaedream\\docs\\heavy\\heavy_type_production_manifest_v03.csv",
+  "total": 27,
+  "passed": 27,
+  "failed": 0,
+  "results": [
+    {
+      "type_code": "bulldozer",
+      "file": "public/assets/heavy/types/v03/web/heavy_bulldozer_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        39,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "excavator",
+      "file": "public/assets/heavy/types/v03/web/heavy_excavator_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        41,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "loader",
+      "file": "public/assets/heavy/types/v03/web/heavy_loader_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        44,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "forklift",
+      "file": "public/assets/heavy/types/v03/web/heavy_forklift_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        60,
+        38,
+        453,
+        262
+      ]
+    },
+    {
+      "type_code": "scraper",
+      "file": "public/assets/heavy/types/v03/web/heavy_scraper_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        124,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "dump_truck",
+      "file": "public/assets/heavy/types/v03/web/heavy_dump_truck_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        54,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "crane",
+      "file": "public/assets/heavy/types/v03/web/heavy_crane_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        69,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "motor_grader",
+      "file": "public/assets/heavy/types/v03/web/heavy_motor_grader_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        33,
+        87,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "roller",
+      "file": "public/assets/heavy/types/v03/web/heavy_roller_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        44,
+        38,
+        467,
+        262
+      ]
+    },
+    {
+      "type_code": "soil_stabilizer",
+      "file": "public/assets/heavy/types/v03/web/heavy_soil_stabilizer_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        76,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "concrete_batching_plant",
+      "file": "public/assets/heavy/types/v03/web/heavy_concrete_batching_plant_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        126,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "concrete_finisher",
+      "file": "public/assets/heavy/types/v03/web/heavy_concrete_finisher_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        68,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "concrete_spreader",
+      "file": "public/assets/heavy/types/v03/web/heavy_concrete_spreader_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        136,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "concrete_mixer_truck",
+      "file": "public/assets/heavy/types/v03/web/heavy_concrete_mixer_truck_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        66,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "concrete_pump",
+      "file": "public/assets/heavy/types/v03/web/heavy_concrete_pump_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        102,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "asphalt_mixing_plant",
+      "file": "public/assets/heavy/types/v03/web/heavy_asphalt_mixing_plant_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        139,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "asphalt_finisher",
+      "file": "public/assets/heavy/types/v03/web/heavy_asphalt_finisher_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        64,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "asphalt_distributor",
+      "file": "public/assets/heavy/types/v03/web/heavy_asphalt_distributor_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        113,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "aggregate_spreader",
+      "file": "public/assets/heavy/types/v03/web/heavy_aggregate_spreader_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        82,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "crusher",
+      "file": "public/assets/heavy/types/v03/web/heavy_crusher_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        139,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "air_compressor",
+      "file": "public/assets/heavy/types/v03/web/heavy_air_compressor_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        50,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "drilling_rig",
+      "file": "public/assets/heavy/types/v03/web/heavy_drilling_rig_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        71,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "pile_driver",
+      "file": "public/assets/heavy/types/v03/web/heavy_pile_driver_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        52,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "gravel_collector",
+      "file": "public/assets/heavy/types/v03/web/heavy_gravel_collector_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        123,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "dredger",
+      "file": "public/assets/heavy/types/v03/web/heavy_dredger_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        64,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "special_equipment",
+      "file": "public/assets/heavy/types/v03/web/heavy_special_equipment_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        78,
+        480,
+        262
+      ]
+    },
+    {
+      "type_code": "tower_crane",
+      "file": "public/assets/heavy/types/v03/web/heavy_tower_crane_side_v03.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        78,
+        38,
+        434,
+        262
+      ]
+    }
+  ]
+}
