@@ -163,6 +163,8 @@ for (const mode of [
     const logoImages = makerRail.locator(".depth-card-media.is-brand img");
     await expect(logoImages).toHaveCount(10);
     expect(await logoImages.evaluateAll((images) => images.every((image) => (image as HTMLImageElement).naturalWidth > 0))).toBe(true);
+    await expect(makerRail.getByRole("button", { name: "이스즈", exact: true })).toBeVisible();
+    await expect(makerRail.getByRole("button", { name: "DAF", exact: true })).toHaveCount(0);
   });
 }
 

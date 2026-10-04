@@ -138,6 +138,38 @@ final result: passed
 
 ---
 
+# 트럭 제조사 마지막 로고 이스즈 교체 v60
+
+- source visual truth: 사용자 제공 Google Drive 링크와 `public/assets/brand/kr/isuzu.png`
+- implementation target: 트럭·특장 / 카고(화물)트럭 / 준중형 / 3톤 / 제조사 로고 레일
+- viewport: 모바일 390×844, PC 1280×900
+- state: 톤수 선택 완료 후 제조사 빠른 선택
+
+## Findings
+
+- P0/P1/P2 없음.
+- 마지막 `DAF` 슬롯이 `이스즈`로 교체되고 앞선 9개 제조사 순서는 유지된다.
+- ISUZU 투명 원본은 40×40 로고 상자 안에서 원본 비율을 유지한다.
+- 모바일 76×102·PC 84×102 셀, 8px 간격과 이름 타이포그래피는 변경되지 않는다.
+
+## Required fidelity surfaces
+
+- Fonts and typography: 기존 14/400/21 `#595959` 유지.
+- Spacing and layout rhythm: 모바일 16px·PC 20px 시작선, 8px 반복 간격 유지.
+- Colors and visual tokens: ISUZU 고유 적색 원본 유지, 배경·테두리 없음.
+- Image quality and asset fidelity: 투명 PNG 원본, 비율 왜곡 없음.
+- Copy and content: `DAF` 제거, `이스즈` 노출.
+
+## Comparison history
+
+- 이전: 마지막 항목 DAF.
+- 수정: 마지막 항목을 이스즈로 교체하고 기존 ISUZU 로고 원본 연결.
+- 수정 후: 모바일·PC에서 이스즈 노출, DAF 미노출, 로고 이미지 10개 정상 로드.
+
+final result: passed
+
+---
+
 # 트럭 2뎁스 마지막 칩 곡률 v58
 
 ## Source and implementation
