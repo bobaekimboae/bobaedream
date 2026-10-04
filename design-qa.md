@@ -117,6 +117,63 @@ final result: passed
 
 ---
 
+# 트럭 2뎁스 마지막 칩 곡률 v58
+
+## Source and implementation
+
+- source visual truth: Google Drive Car300 `02-1 Screenshot_2026-09-24-07-14-53-111_com.car300.activity.jpg`
+- source file ID: `1hh0zm8DQBg4XOcnG3JAsZ54ALLbYA_7H`
+- implementation: `http://127.0.0.1:4182/?qf=guazi&category=트럭+·+특장&truckFormat=카고(화물)트럭`
+- viewports: 모바일 390×844, PC 1280×900
+- state: 트럭·특장 → 카고(화물)트럭 → 2뎁스 칩 레일 시작·끝
+
+## Findings
+
+- P2 해결: 보배 칩 곡률 12px가 Car300 카드군보다 둥글어 마지막 칩에서 차이가 더 도드라졌다.
+- Car300은 첫 변경 카드, 일반 옵션, 마지막 옵션에 같은 약 8px 계열 곡률을 사용한다.
+- 전체 텍스트 칩을 8px로 통일하고 모바일 16px·PC 20px 레일 끝 여백은 유지한다.
+
+## Full-view comparison evidence
+
+- Car300 02-1 전체 화면과 보배 390px 구현 화면에서 변경 카드가 첫 위치에 있고 일반 옵션이 한 줄 가로 레일로 이어지는 구조를 비교했다.
+- 보배 마지막 `대형` 칩까지 스크롤해 오른쪽 모서리와 레일 끝 여백이 별개로 유지되는 것을 확인했다.
+
+## Focused region comparison evidence
+
+- 원본 확대: 첫 `更换车系` 카드와 마지막 보이는 연식 카드가 같은 곡률군으로 보인다.
+- 구현 실측: 첫 `형식 변경`, 중간 `준중형`, 마지막 `대형` 모두 `border-radius: 8px`.
+- 레일 끝 패딩: 모바일 16px, PC 20px.
+
+## Required fidelity surfaces
+
+- Fonts and typography: 기존 Pretendard 14/19와 2줄 계층 유지.
+- Spacing and layout rhythm: 52px 높이, 8px 칩 간격, 모바일 16px·PC 20px 끝 여백 유지.
+- Colors and visual tokens: 흰 변경 카드·회색 옵션 카드 색상 변경 없음.
+- Image quality and asset fidelity: 이미지 자산 변경 없음.
+- Copy and content: 차급명·톤수·`형식 변경` 문구 변경 없음.
+
+## Comparison history
+
+- 이전: 첫·중간·마지막 칩 모두 12px 곡률.
+- 수정: 전체 2뎁스 텍스트 칩을 8px로 교정.
+- 수정 후: 첫·중간·마지막 칩 곡률과 레일 끝 패딩을 자동 검수하고 모바일·PC 렌더링을 재확인.
+
+## Implementation Checklist
+
+- [x] Car300 02-1 확대 확인
+- [x] 공통 곡률 8px 적용
+- [x] 마지막 칩 전용 회귀 테스트 추가
+- [x] 모바일·PC 끝 패딩 확인
+- [x] 빌드·콘솔 확인
+
+## Follow-up Polish
+
+- 없음.
+
+final result: passed
+
+---
+
 # 트럭 2뎁스 좌측 형식 변경 칩 v57
 
 ## Source and implementation

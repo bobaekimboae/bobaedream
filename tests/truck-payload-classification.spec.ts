@@ -100,12 +100,13 @@ for (const mode of [
     const titleMetrics = await titleChip.evaluate((element) => {
       const rect = element.getBoundingClientRect();
       const style = getComputedStyle(element);
-      return { width: rect.width, height: rect.height, background: style.backgroundColor, border: style.borderTopWidth };
+      return { width: rect.width, height: rect.height, background: style.backgroundColor, border: style.borderTopWidth, radius: style.borderRadius };
     });
     expect(titleMetrics.width).toBeCloseTo(64, 0);
     expect(titleMetrics.height).toBeCloseTo(52, 0);
     expect(titleMetrics.background).toBe("rgb(255, 255, 255)");
     expect(titleMetrics.border).toBe("1px");
+    expect(titleMetrics.radius).toBe("8px");
     const band = secondDepth.getByRole("button", { name: "준중형, 2.5~3.5톤", exact: true });
     const bandMetrics = await band.evaluate((element) => {
       const rect = element.getBoundingClientRect();
@@ -115,7 +116,15 @@ for (const mode of [
     expect(bandMetrics.width).toBeCloseTo(88, 0);
     expect(bandMetrics.height).toBeCloseTo(52, 0);
     expect(bandMetrics.background).toBe("rgb(243, 243, 245)");
-    expect(bandMetrics.radius).toBe("12px");
+    expect(bandMetrics.radius).toBe("8px");
+    const lastBand = secondDepth.getByRole("button", { name: "대형, 11톤 이상", exact: true });
+    const lastBandMetrics = await lastBand.evaluate((element) => {
+      const style = getComputedStyle(element);
+      const trackStyle = getComputedStyle(element.parentElement!);
+      return { radius: style.borderRadius, trackPaddingRight: trackStyle.paddingRight };
+    });
+    expect(lastBandMetrics.radius).toBe("8px");
+    expect(lastBandMetrics.trackPaddingRight).toBe(mode.pc ? "20px" : "16px");
 
     await band.click();
     const payloadRail = page.getByRole("region", { name: "준중형 적재용량 및 규격 빠른 선택" });
