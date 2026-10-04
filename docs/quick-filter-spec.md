@@ -77,6 +77,10 @@
 ## Images And Logos
 
 - Vehicle images and manufacturer marks follow `docs/quick-filter-image-slot-rules_v03.md` and `docs/image/quickfilter_image_production_manual_v01.md`. The older asset and layout documents describe the currently deployed implementation; where their image-direction or production claims conflict, v03 is the authority.
+- 차량군별 색상·재질·조명 제작값은 `docs/image/autoscout24_chotot_vehicle_image_manual_v01.md`와 기계 판독용 `docs/image/vehicle_category_color_manifest_v01.csv`를 따른다. 카테고리 식별은 `실루엣 → 주요 구조 → 제한된 식별색` 순서이며, 색만 바꾼 동일 형상은 승인하지 않는다.
+- 공통 재질색은 차체 백색 `#F4F5F6`, 차체 음영 `#D9DDE1`, 구조 그래파이트 `#24292F`, 타이어 `#101214`, 유리 `#71818A`, 금속 `#B7BDC2`를 뼈대로 한다. 카테고리별 면적 비율은 매니페스트 값의 ±5% 안에 두며, 이미지마다 포인트색을 임의로 추가하지 않는다.
+- 접지 그림자는 중립 `#12181C`, 마스터 접지선 아래 2px, 불투명도 8~16%(상한 20%)로 이미지에 직접 포함한다. 카테고리별 폭·높이·블러는 색상 매니페스트 값을 따르며 CSS `box-shadow`나 `drop-shadow()`로 다시 만들지 않는다.
+- 분류형 퀵필터는 초톳 슬롯의 좌향 90도 정측면을 사용한다. 메인 홍보형 카테고리 이미지는 필요할 때만 3/4 구도를 허용하되 같은 카테고리 팔레트·재질·광원은 유지한다. 모든 승인본은 sRGB·투명 RGBA여야 한다.
 - Classification quick-filter images use an exact 90-degree left-facing side profile on a transparent 8:5 master canvas. Three-quarter views are reserved for promotional/main-category surfaces and must not be mixed into classification rails.
 - Model and generation assets should be 192×96 when available.
 - Passenger vehicles use `bodyFit: "width"`.

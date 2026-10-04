@@ -1,0 +1,17 @@
+group,type,source_file,canvas_width,canvas_height,bbox_left,bbox_top,bbox_right,bbox_bottom,subject_width,subject_height,width_percent,height_percent,baseline_y,direction,background,source_url
+bike,adventure,adventure_1x_bike.png,120,73,11,5,109,61,98,56,81.7,76.7,61,left,transparent,https://www.autoscout24.de/assets/as24-home/images/bodyTypes/eu/bikes/adventure_1x_bike.png
+bike,chopper,chopper_1x_bike.png,120,73,10,9,113,61,103,52,85.8,71.2,61,left,transparent,https://www.autoscout24.de/assets/as24-home/images/bodyTypes/eu/bikes/chopper_1x_bike.png
+bike,enduro,enduro_1x_bike.png,120,73,12,2,109,61,97,59,80.8,80.8,61,left,transparent,https://www.autoscout24.de/assets/as24-home/images/bodyTypes/eu/bikes/enduro_1x_bike.png
+bike,naked,naked_1x_bike.png,120,73,11,5,109,62,98,57,81.7,78.1,62,left,transparent,https://www.autoscout24.de/assets/as24-home/images/bodyTypes/eu/bikes/naked_1x_bike.png
+bike,quad,quad_1x_bike.png,120,73,13,7,106,61,93,54,77.5,74.0,61,left,transparent,https://www.autoscout24.de/assets/as24-home/images/bodyTypes/eu/bikes/quad_1x_bike.png
+bike,scooter,scooter_1x_bike.png,120,73,10,3,110,62,100,59,83.3,80.8,62,left,transparent,https://www.autoscout24.de/assets/as24-home/images/bodyTypes/eu/bikes/scooter_1x_bike.png
+bike,sport,sport_1x_bike.png,120,73,11,13,109,62,98,49,81.7,67.1,62,left,transparent,https://www.autoscout24.de/assets/as24-home/images/bodyTypes/eu/bikes/sport_1x_bike.png
+bike,touring,touring_1x_bike.png,120,73,9,11,109,61,100,50,83.3,68.5,61,left,transparent,https://www.autoscout24.de/assets/as24-home/images/bodyTypes/eu/bikes/touring_1x_bike.png
+truck,box,box_1x_truck.png,120,73,2,14,118,58,116,44,96.7,60.3,58,left,transparent,https://www.autoscout24.de/assets/as24-home/images/bodyTypes/eu/trucks/box_1x_truck.png
+truck,flatbed_tarpaulin,flatbed-tarpaulin_1x_truck.png,120,73,1,9,119,59,118,50,98.3,68.5,59,left,transparent,https://www.autoscout24.de/assets/as24-home/images/bodyTypes/eu/trucks/flatbed-tarpaulin_1x_truck.png
+truck,flatbed,flatbed_1x_truck.png,120,73,2,18,120,58,118,40,98.3,54.8,58,left,transparent,https://www.autoscout24.de/assets/as24-home/images/bodyTypes/eu/trucks/flatbed_1x_truck.png
+truck,panel_van,panel-van_1x_truck.png,120,73,5,19,110,58,105,39,87.5,53.4,58,left,transparent,https://www.autoscout24.de/assets/as24-home/images/bodyTypes/eu/trucks/panel-van_1x_truck.png
+truck,refrigerated,refrigerated_1x_truck.png,120,73,1,9,118,59,117,50,97.5,68.5,59,left,transparent,https://www.autoscout24.de/assets/as24-home/images/bodyTypes/eu/trucks/refrigerated_1x_truck.png
+truck,station_wagon,station-wagon_1x_truck.png,120,73,6,16,116,58,110,42,91.7,57.5,58,left,transparent,https://www.autoscout24.de/assets/as24-home/images/bodyTypes/eu/trucks/station-wagon_1x_truck.png
+truck,three_sided_tipper,three-sided-tipper_1x_truck.png,120,73,1,0,118,59,117,59,97.5,80.8,59,left,transparent,https://www.autoscout24.de/assets/as24-home/images/bodyTypes/eu/trucks/three-sided-tipper_1x_truck.png
+truck,van_high_roof,van-high-roof_1x_truck.png,120,73,5,12,116,58,111,46,92.5,63.0,58,left,transparent,https://www.autoscout24.de/assets/as24-home/images/bodyTypes/eu/trucks/van-high-roof_1x_truck.png
