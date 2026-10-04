@@ -39,11 +39,11 @@ export const truckSubtypesFor = (format: string | null): readonly string[] => tr
 // 대표 톤수를 두 번째 줄로 함께 표시한다. 실제 차량의 승인 톤수는 매물 정보가 기준이다.
 export const truckCargoClassTonnage: Readonly<Record<string, string>> = {
   "경형": "1톤 미만",
-  "소형": "1톤급",
+  "소형": "1~2톤",
   "준중형": "2.5~3.5톤",
-  "중형": "4~5톤",
-  "준대형": "7.5~8.5톤",
-  "대형": "11~25톤",
+  "중형": "4~6.5톤",
+  "준대형": "7~10.8톤",
+  "대형": "11톤 이상",
 };
 
 export const truckSubtypeSecondaryLabel = (format: string | null, subtype: string): string | null => (

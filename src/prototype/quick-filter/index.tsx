@@ -105,6 +105,15 @@ function TrimChip({ label, selected, disabled, onClick }: { label: string; selec
   );
 }
 
+function DepthTextChip({ label, sub, onClick }: { label: string; sub?: string; onClick: () => void }) {
+  return (
+    <button type="button" className="depth-text-chip" aria-label={sub ? `${label}, ${sub}` : label} onClick={onClick}>
+      <strong>{label}</strong>
+      {sub ? <small>{sub}</small> : null}
+    </button>
+  );
+}
+
 function MakerSheet({ selected, onChoose, onClose }: { selected: string | null; onChoose: (maker: string | null) => void; onClose: () => void }) {
   const keyboard = useKeyboard();
   const [query, setQuery] = useState("");
@@ -280,6 +289,7 @@ export {
   BrandRailMark,
   ElectricSparkIcon,
   DepthCard,
+  DepthTextChip,
   TrimChip,
   MakerSheet,
   PriceSheet,

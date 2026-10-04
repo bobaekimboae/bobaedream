@@ -2921,9 +2921,29 @@ export const truckSpecSourceTabs = {
 
 export const truckSpecGroupsFor = (format: string | null, subtype: string | null): readonly TruckSpecGroup[] => {
   if (!format || !subtype) return [];
+  if (format === "카고(화물)트럭") {
+    const catalog = (truckSpecCatalog as Record<string, Record<string, readonly TruckSpecGroup[]>>)[format];
+    const legacyOptions = [
+      ...(catalog["경형 트럭 (1톤 미만)"]?.[0]?.options ?? []),
+      ...(catalog["1톤 트럭"]?.[0]?.options ?? []),
+      ...(catalog["소형 트럭 (1.1~3.5톤)"]?.[0]?.options ?? []),
+      ...(catalog["중형 트럭 (4~8.5톤)"]?.[0]?.options ?? []),
+      ...(catalog["대형 트럭 (9톤 이상)"]?.[0]?.options ?? []),
+    ];
+    const tonnage = (value: string) => Number.parseFloat(value.replace("톤", ""));
+    const inBand: Readonly<Record<string, (value: number) => boolean>> = {
+      "경형": (value) => value < 1,
+      "소형": (value) => value >= 1 && value <= 2,
+      "준중형": (value) => value > 2 && value <= 3.5,
+      "중형": (value) => value >= 4 && value <= 6.5,
+      "준대형": (value) => value >= 7 && value < 11,
+      "대형": (value) => value >= 11,
+    };
+    const predicate = inBand[subtype];
+    if (predicate) return [{ label: "적재용량 (톤수)", options: [...new Set(legacyOptions)].filter((value) => predicate(tonnage(value))) }];
+  }
   return (truckSpecCatalog as Record<string, Record<string, readonly TruckSpecGroup[]>>)[format]?.[subtype] ?? [];
 };
 
 export const truckSpecOptionsFor = (format: string | null, subtype: string | null): readonly string[] =>
   truckSpecGroupsFor(format, subtype).flatMap((group) => group.options);
-

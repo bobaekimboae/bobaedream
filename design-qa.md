@@ -117,6 +117,62 @@ final result: passed
 
 ---
 
+# 트럭 2뎁스 카드형 칩 레일 v56
+
+## Source and implementation
+
+- source visual truth: Google Drive의 Car300 계층 선택 캡처(상위 선택값은 적용 칩으로 압축하고 현재 하위 선택지는 2줄 카드 칩으로 표시).
+- implementation: `http://127.0.0.1:4182/?qf=guazi&category=트럭+·+특장&truckFormat=카고(화물)트럭`
+- viewport: 모바일 390×844 CSS px, PC 1280×900 CSS px, deviceScaleFactor 1.
+- state: 카고 2뎁스 초기 상태, 준중형 선택 뒤 정확한 적재중량 상태, 윙바디·탑차 긴 명칭 상태.
+- combined comparison input: 같은 검수 세션에서 Car300 2줄 계층 카드 캡처와 구현 모바일·PC 캡처를 함께 대조했다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- 반복 이미지가 2뎁스 판단에 추가 정보를 주지 않고 세로 공간을 사용하므로 제거했다.
+- 기존 새 6개 차급과 구형 톤수 데이터 키가 달라 제조사로 바로 넘어가던 P1 흐름 오류를 발견해 범위 매핑으로 교정했다.
+- 카고 서비스 차급은 법정 차종 명칭이 아니라 빠른 탐색 그룹이며 실제 승인 적재중량은 다음 단계에서 고른다.
+
+## Full-view comparison evidence
+
+- 모바일은 68px 레일 안에 높이 52px 칩과 좌우 16px 여백을 배치해 기존 86px 이미지 레일보다 18px 줄였다.
+- PC는 68px 레일, 좌우 20px 여백을 사용하며 6개 차급이 한 줄에 모두 보인다.
+- 목록 시작점과 상단 필터 칩은 유지되어 레이아웃 점프나 겹침이 없다.
+
+## Focused region comparison evidence
+
+- 카드 칩: 최소 88×52px, 반경 12px, 배경 `#F3F3F5`, 간격 8px.
+- 1행: 14/19px 600 `#222`; 2행: 12/16px 500 `#777`.
+- 카고 6개: `경형/1톤 미만`, `소형/1~2톤`, `준중형/2.5~3.5톤`, `중형/4~6.5톤`, `준대형/7~10.8톤`, `대형/11톤 이상`.
+- 준중형 선택 후 정확한 톤수 칩은 `2.5톤 · 3톤 · 3.5톤`으로 노출된다.
+- 윙바디·탑차의 가장 긴 `내장탑 - 하이탑·익스탑`은 148×52px 안에서 2줄로 표시된다.
+
+## Required fidelity surfaces
+
+- Fonts and typography: 기존 Pretendard와 `#222/#777` 위계를 유지한다.
+- Spacing and layout rhythm: 칩 52px, 간격 8px, 모바일 16px·PC 20px 좌우 여백.
+- Colors and visual tokens: 중립 회색 카드와 검정 포커스 링을 사용하고 새 브랜드 색은 추가하지 않는다.
+- Image quality and asset fidelity: 2뎁스에서만 이미지를 제거하며 1뎁스 트럭 실사 이미지와 제조사 로고는 그대로 유지한다.
+- Copy and content: 서비스 차급과 적재 범위를 한 묶음으로 읽게 하고 정확한 톤수는 다음 단계에 둔다.
+
+## Interaction and console QA
+
+- 모바일·PC 모두 `카고 → 준중형 → 2.5/3/3.5톤` 흐름을 확인했다.
+- 1뎁스 실사 카드와 2뎁스 텍스트 칩 분리, 구형 URL 호환, 경형·소형 매물 분리를 자동 테스트 5건으로 확인했다.
+- `npm run verify:qf` 통과, 브라우저 경고·오류 0건.
+
+## Comparison history
+
+1. 기존 72px 이미지 카드와 차급·톤수 문구를 확인했다.
+2. 이미지를 제거하고 52px 2줄 카드형 칩으로 교체했다.
+3. 새 차급에서 정확한 톤수 단계가 생략되는 데이터 키 불일치를 교정했다.
+4. 390px 모바일·1280px PC·긴 세부 형식·다음 단계·콘솔을 재검수했다.
+
+final result: passed
+
+---
+
 # 초톳 원본 앱 필터 칩·리스트뷰·매물 목록 v47
 
 ## Source and implementation

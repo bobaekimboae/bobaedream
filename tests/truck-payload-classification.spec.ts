@@ -36,16 +36,14 @@ for (const mode of [
     await page.setViewportSize(mode.viewport);
 
     await page.goto(truckUrl("경형 트럭 (1톤 미만)", "0.5톤", mode.pc));
-    await expect(activeChip(page, "경형 트럭 (1톤 미만)")).toHaveAttribute("aria-pressed", "true");
+    await expect(activeChip(page, "경형")).toHaveAttribute("aria-pressed", "true");
     await expect(activeChip(page, "0.5톤")).toHaveAttribute("aria-pressed", "true");
-    if (mode.pc) await expect(page.getByLabel("경형 트럭 (1톤 미만) 적재중량")).toBeVisible();
-    await expectOnlyListing(page, /한국GM 라보 .*경형 트럭/, /현대 포터2/);
+    await expectOnlyListing(page, /한국GM 라보 .*경형/, /현대 포터2/);
 
     await page.goto(truckUrl("1톤 트럭", "1톤", mode.pc));
-    await expect(activeChip(page, "1톤 트럭")).toHaveAttribute("aria-pressed", "true");
+    await expect(activeChip(page, "소형")).toHaveAttribute("aria-pressed", "true");
     await expect(activeChip(page, "1톤")).toHaveAttribute("aria-pressed", "true");
-    if (mode.pc) await expect(page.getByLabel("1톤 트럭 적재중량")).toBeVisible();
-    await expectOnlyListing(page, /현대 포터2 .*1톤 트럭/, /한국GM 라보/);
+    await expectOnlyListing(page, /현대 포터2 .*소형/, /한국GM 라보/);
   });
 }
 
@@ -53,15 +51,15 @@ test("이전 경형 1톤 링크는 1톤 트럭으로 호환한다", async ({ pag
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(truckUrl("경형 트럭 (1톤)", "1톤"));
 
-  await expect(activeChip(page, "1톤 트럭")).toHaveAttribute("aria-pressed", "true");
-  await expectOnlyListing(page, /현대 포터2 .*1톤 트럭/, /한국GM 라보/);
+  await expect(activeChip(page, "소형")).toHaveAttribute("aria-pressed", "true");
+  await expectOnlyListing(page, /현대 포터2 .*소형/, /한국GM 라보/);
 });
 
 for (const mode of [
-  { name: "mobile", viewport: { width: 390, height: 844 }, pc: false, width: 72, height: 80 },
-  { name: "PC", viewport: { width: 1280, height: 900 }, pc: true, width: 88, height: 90 },
+  { name: "mobile", viewport: { width: 390, height: 844 }, pc: false, width: 76, height: 84, media: [64, 40] },
+  { name: "PC", viewport: { width: 1280, height: 900 }, pc: true, width: 96, height: 98, media: [80, 50] },
 ]) {
-  test(`${mode.name}: FINN형 카드와 Airbnb형 선택 상태를 유지한다`, async ({ page }) => {
+  test(`${mode.name}: 1뎁스 실사 카드와 2뎁스 텍스트 칩을 분리한다`, async ({ page }) => {
     await page.setViewportSize(mode.viewport);
     const params = new URLSearchParams({ qf: "guazi", category });
     if (mode.pc) params.set("pc", "1");
@@ -82,27 +80,36 @@ for (const mode of [
         radius: baseStyle.borderRadius,
         labelTop: label.getBoundingClientRect().top,
         mediaTop: media.getBoundingClientRect().top,
-      };
-    });
-
-    await card.evaluate((element) => element.classList.add("is-selected"));
-    await page.waitForTimeout(180);
-    const selected = await card.evaluate((element) => {
-      const selectedStyle = getComputedStyle(element);
-      return {
-        background: selectedStyle.backgroundColor,
-        color: selectedStyle.color,
-        shadow: selectedStyle.boxShadow,
+        mediaWidth: media.getBoundingClientRect().width,
+        mediaHeight: media.getBoundingClientRect().height,
       };
     });
 
     expect(base.width).toBeCloseTo(mode.width, 0);
     expect(base.height).toBeCloseTo(mode.height, 0);
-    expect(base.background).toBe("rgb(241, 241, 243)");
-    expect(base.radius).toBe("10px");
+    expect(base.background).toBe("rgba(0, 0, 0, 0)");
+    expect(base.radius).toBe("0px");
     expect(base.labelTop).toBeGreaterThan(base.mediaTop);
-    expect(selected.background).toBe("rgb(255, 255, 255)");
-    expect(selected.color).toBe("rgb(34, 34, 34)");
-    expect(selected.shadow).toContain("rgb(34, 34, 34)");
+    expect(base.mediaWidth).toBeCloseTo(mode.media[0], 0);
+    expect(base.mediaHeight).toBeCloseTo(mode.media[1], 0);
+
+    await card.click();
+    const secondDepth = page.getByRole("region", { name: "카고(화물)트럭 세부 형식 빠른 선택" });
+    await expect(secondDepth).toBeVisible();
+    const band = secondDepth.getByRole("button", { name: "준중형, 2.5~3.5톤", exact: true });
+    const bandMetrics = await band.evaluate((element) => {
+      const rect = element.getBoundingClientRect();
+      const style = getComputedStyle(element);
+      return { width: rect.width, height: rect.height, background: style.backgroundColor, radius: style.borderRadius };
+    });
+    expect(bandMetrics.width).toBeCloseTo(88, 0);
+    expect(bandMetrics.height).toBeCloseTo(52, 0);
+    expect(bandMetrics.background).toBe("rgb(243, 243, 245)");
+    expect(bandMetrics.radius).toBe("12px");
+
+    await band.click();
+    const payloadRail = page.getByRole("region", { name: "준중형 적재용량 및 규격 빠른 선택" });
+    await expect(payloadRail).toBeVisible();
+    await expect(payloadRail.getByRole("button")).toHaveText(["2.5톤", "3톤", "3.5톤"]);
   });
 }

@@ -382,3 +382,77 @@
   margin-top: -2px;
   line-height: 13px;
 }
+
+/* QF-121 트럭 2뎁스: 사진을 반복하지 않고 차급·세부 형식을 읽는 2줄 카드형 칩 레일.
+   Car300 계층 칩의 정보 밀도를 참고하되 보배드림의 중립 회색·Pretendard 체계를 유지한다. */
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row,
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row .brand-carousel,
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row .depth-rail-track {
+  min-height: 68px;
+}
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row .depth-rail-track {
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+}
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row .depth-rail-track {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+.marketplace.is-truck-category.is-qf-guazi .depth-text-chip {
+  display: flex;
+  width: auto;
+  min-width: 88px;
+  max-width: 148px;
+  height: 52px;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1px;
+  padding: 6px 14px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: #f3f3f5;
+  color: #222;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.marketplace.is-truck-category.is-qf-guazi .depth-text-chip strong {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 19px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.marketplace.is-truck-category.is-qf-guazi .depth-text-chip small {
+  display: block;
+  color: #777;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  white-space: nowrap;
+}
+.marketplace.is-truck-category.is-qf-guazi .depth-text-chip:not(:has(small)) strong {
+  display: -webkit-box;
+  overflow: hidden;
+  white-space: normal;
+  word-break: keep-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.marketplace.is-truck-category.is-qf-guazi .depth-text-chip:hover {
+  border-color: #d9d9dd;
+  background: #eeeef1;
+}
+.marketplace.is-truck-category.is-qf-guazi .depth-text-chip:active {
+  background: #e7e7ea;
+}
+.marketplace.is-truck-category.is-qf-guazi .depth-text-chip:focus-visible {
+  outline: 2px solid #222;
+  outline-offset: 2px;
+}
