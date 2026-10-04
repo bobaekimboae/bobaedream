@@ -20,8 +20,8 @@ type HeavyQuickFilterProps = { value: HeavySelection; onChange: (next: HeavySele
 const heavyAsset = (fileName: string) => `${import.meta.env.BASE_URL}assets/heavy/${fileName}`;
 
 const heavyTypeQuickFilters = [
-  { code: "bulldozer", label: "불도저", imageFile: "types/v03/web/heavy_bulldozer_side_v03.png" },
   { code: "hydraulic_excavator", label: "굴착기", imageFile: "types/v03/web/heavy_excavator_side_v03.png" },
+  { code: "bulldozer", label: "불도저", imageFile: "types/v03/web/heavy_bulldozer_side_v03.png" },
   { code: "wheel_loader", label: "로더", imageFile: "types/v03/web/heavy_loader_side_v03.png" },
   { code: "forklift", label: "지게차", imageFile: "types/v03/web/heavy_forklift_side_v03.png" },
   { code: "scraper", label: "스크레이퍼", imageFile: "types/v03/web/heavy_scraper_side_v03.png" },

@@ -14,3 +14,4 @@
 - 2026-10-02 / 코덱스-건설 / heavy_quickfilter_manifest_v02, heavy_slot_manifest_v02, HANDOVER_heavy_v06, 공개 시안 / v02·v02·v06 / 제조사 로고 10개→모델 이미지→세부모델·세부 형식 이미지 3뎁스, 코드 5종 연결, 초기화·0건·fallback 구현 / 미검수\n
 - 2026-10-04 / 코덱스-중고차 / heavy_angle_comparison_v01, HANDOVER_heavy_v07, 비교 시안 / v01·v07 / 수정 요청: 건설기계 대표 5종을 좌향 90° 정측면과 좌향 3/4 각도로 제작하고 AutoTrader.ca 실측 품질 기준으로 64×40 슬롯 A/B 비교 / 검수완료
 - 2026-10-04 / 코덱스-중고차 / heavy_type_production_manifest_v03, heavy_type_production_v03, HANDOVER_heavy_v08 / v03·v03·v08 / 수정 요청: 초톳 슬롯 UX를 최상위 기준으로 법정 건설기계 27종을 좌향 정측면으로 제작·정규화하고 실제 1뎁스 퀵필터에 연결 / 검수완료
+- 2026-10-04 / 코덱스-중고차 / heavy/index.tsx, heavy_type_production_v03 / v03 / 수정 요청: 건설기계 퀵필터에서 굴착기를 첫 번째 탐색 항목으로 이동 / 미검수
