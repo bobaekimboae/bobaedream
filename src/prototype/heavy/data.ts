@@ -130,6 +130,10 @@ export const heavyFormLabelByCode: Record<string, string> = {
   mini_excavator: "미니 유압셔블(미니굴삭기)",
   wheel_loader: "타이어셔블(휠로더)",
   bulldozer: "불도저",
+  vibratory_roller: "롤러(다짐기)",
+  motor_grader: "그레이더",
+  crawler_crane: "크레인",
+  mining_dump_truck: "덤프차",
   carrier_dump: "캐리어덤프(크롤러덤프)",
   foundation_machine: "기초공사 기계",
   self_propelled_aerial_work_platform: "자주식 고소작업차",
@@ -258,6 +262,27 @@ export const heavyDetailOptions: Record<string, string[]> = Object.fromEntries(
 
 export const heavyDetailsFor = (form: string | null) => form ? heavyDetailOptions[form] ?? [] : [];
 
+const explicitHeavyDetailCodes: Record<string, string> = {
+  "유압셔블(굴삭기)::6~9t (0.25) 급": "excavator_6_9t",
+  "유압셔블(굴삭기)::10~17t (0.45) 급": "excavator_10_17t",
+  "유압셔블(굴삭기)::18~25t (0.7) 급": "excavator_18_25t",
+  "유압셔블(굴삭기)::26t (1.0) 이상": "excavator_26t_plus",
+  "미니 유압셔블(미니굴삭기)::2t 미만": "mini_under_2t",
+  "미니 유압셔블(미니굴삭기)::2~3t 미만": "mini_2_3t",
+  "미니 유압셔블(미니굴삭기)::3~4t 미만": "mini_3_4t",
+  "미니 유압셔블(미니굴삭기)::4~6t 미만": "mini_4_6t",
+};
+
+export const heavyDetailCodeFor = (form: string, detail: string) => {
+  if (detail === "전체") return "all";
+  if (detail === "미확인") return "unverified";
+  const explicit = explicitHeavyDetailCodes[`${form}::${detail}`];
+  if (explicit) return explicit;
+  const index = heavyDetailsFor(form).indexOf(detail);
+  const formCode = heavyFormCodeByLabel[form] ?? "heavy";
+  return `${formCode}_detail_${Math.max(index, 0) + 1}`;
+};
+
 export const heavyRowsFor = (selection: Partial<HeavySelection>) => heavyInventory.filter((row) =>
   (!selection.equipmentTypeCode || row.equipmentTypeCode === selection.equipmentTypeCode)
   && (!selection.detailTypeCode || selection.detailTypeCode === "all" || row.detailTypeCode === selection.detailTypeCode)
@@ -283,7 +308,7 @@ export function normalizeHeavySelection(selection: HeavySelection): HeavySelecti
       submodelCode: null,
     };
   }
-  if (selection.equipmentTypeCode && !manufacturer.equipmentTypeCodes.includes(selection.equipmentTypeCode)) {
+  if (selection.equipmentTypeCode && manufacturer.equipmentTypeCodes.length > 0 && !manufacturer.equipmentTypeCodes.includes(selection.equipmentTypeCode)) {
     return {
       ...selection,
       maker: null,

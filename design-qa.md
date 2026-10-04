@@ -741,5 +741,42 @@ final result: passed
 - console errors: 0
 - validation: `npm run check:runtime`, `npm run verify:qf` 통과
 - comparison history: 412px 오환산 폐기 → 384px로 재환산 → 첫 중심 114px로 교정 → 렌더링 재확인
+## 건설기계 유형 1뎁스 시안 v02
 
+- source visual truth: 초톳 실사형 카테고리 슬롯 규칙과 `heavy_type_yellow_pilot_v02_ko_contact.png`
+- implementation: `http://127.0.0.1:4183/?qf=guazi&category=건설기계`
+- viewport: 모바일 384×850 CSS px
+- state: 건설기계 카테고리, 유형 미선택 상태
+
+### Measured implementation
+
+- 유형 셀: 76×102px
+- 이미지 가시 슬롯: 64×40px
+- 셀 간격: 8px
+- 이미지: `object-fit: contain`, `object-position: center bottom`
+- 라벨: 14/20px, 최대 2줄
+- 카드 배경·테두리: 없음
+- 원본: 투명 1024×640, 노란 본체·차콜 부품, 좌측 전면 3/4, 동일 하단 기준선
+
+### Interaction and console QA
+
+- 초기 화면에서 `유형`이 건설기계의 첫 번째 뎁스로 노출된다.
+- 굴삭기 선택 시 세부 유형 텍스트 칩 레일로 전환한다.
+- 세부 유형 선택 시 제조사 로고 레일로 전환한다.
+- 상위 유형을 바꾸면 세부 유형·제조사·모델·세부모델이 초기화된다.
+- 브라우저 콘솔 경고·오류 및 이미지 404는 0건이다.
+
+### Required fidelity surfaces
+
+- typography: 초톳형 14px 라벨, 20px 행간, 최대 2줄.
+- spacing and layout: 이미지와 라벨 사이 14px, 셀 간 8px, 동일 하단 기준선.
+- colors and tokens: 흰 배경 위 노란 본체와 차콜 기계 부품.
+- image quality: 1024×640 투명 원본을 축소 사용하며 강제 확대·왜곡·잘림 없음.
+- copy and content: 국내 사용자가 바로 이해하는 한국어 유형명.
+
+### Findings
+
+- P0/P1/P2 없음.
+- P3: 현재 8종은 슬롯 규칙 검증용 v02 세트다. 전체 유형 확장 시 동일 캔버스·기준선·가시영역을 유지한다.
+- P3: 일부 유형 0건은 가상 매물 데이터 부족이며 슬롯 UI 결함은 아니다.
 final result: passed

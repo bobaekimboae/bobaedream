@@ -6,11 +6,29 @@ import {
   type HeavyImageCandidate,
   type HeavySubmodelSlot,
 } from "./manifest";
-import { emptyHeavySelection, heavyRowsFor, type HeavySelection } from "./data";
+import {
+  emptyHeavySelection,
+  heavyDetailCodeFor,
+  heavyDetailsFor,
+  heavyFormLabelByCode,
+  heavyRowsFor,
+  type HeavySelection,
+} from "./data";
 import "./heavy.css";
 
 type HeavyQuickFilterProps = { value: HeavySelection; onChange: (next: HeavySelection) => void };
 const heavyAsset = (fileName: string) => `${import.meta.env.BASE_URL}assets/heavy/${fileName}`;
+
+const heavyTypeQuickFilters = [
+  { code: "hydraulic_excavator", label: "굴삭기", imageFile: "types/heavy_type_excavator_v02.png" },
+  { code: "wheel_loader", label: "휠로더", imageFile: "types/heavy_type_wheel_loader_v02.png" },
+  { code: "bulldozer", label: "불도저", imageFile: "types/heavy_type_bulldozer_v02.png" },
+  { code: "forklift", label: "지게차", imageFile: "types/heavy_type_forklift_v02.png" },
+  { code: "motor_grader", label: "모터그레이더", imageFile: "types/heavy_type_motor_grader_v02.png" },
+  { code: "vibratory_roller", label: "진동롤러", imageFile: "types/heavy_type_vibratory_roller_v02.png" },
+  { code: "crawler_crane", label: "크롤러크레인", imageFile: "types/heavy_type_crawler_crane_v02.png" },
+  { code: "mining_dump_truck", label: "광산용 덤프트럭", imageFile: "types/heavy_type_mining_dump_v02.png" },
+] as const;
 
 function HeavySlotImage({ candidates, alt }: { candidates: readonly HeavyImageCandidate[]; alt: string }) {
   const [index, setIndex] = useState(0);
@@ -44,6 +62,7 @@ const modelGroupsFor = (value: HeavySelection) => {
 
 export function HeavyQuickFilter({ value, onChange }: HeavyQuickFilterProps) {
   const manufacturer = approvedHeavyManufacturers.find((slot) => slot.manufacturerCode === value.manufacturerCode);
+  const detailOptions = heavyDetailsFor(value.form);
   const modelGroups = modelGroupsFor(value);
   const submodels = approvedHeavySubmodels.filter((slot) =>
     slot.manufacturerCode === value.manufacturerCode
@@ -52,13 +71,46 @@ export function HeavyQuickFilter({ value, onChange }: HeavyQuickFilterProps) {
     && (!value.detailTypeCode || value.detailTypeCode === "all" || slot.detailTypeCode === value.detailTypeCode));
   const selectedSubmodel = approvedHeavySubmodels.find((slot) => slot.submodelCode === value.submodelCode);
 
-  const depth = !value.manufacturerCode
-    ? "제조사"
-    : !value.modelCode
-      ? "모델"
-      : !value.submodelCode
-        ? "세부모델 · 세부 형식"
-        : "선택 완료";
+  const depth = !value.equipmentTypeCode
+    ? "유형"
+    : !value.detailTypeCode && detailOptions.length > 1
+      ? "세부 유형"
+      : !value.manufacturerCode
+        ? "제조사"
+        : !value.modelCode
+          ? "모델"
+          : !value.submodelCode
+            ? "세부모델"
+            : "선택 완료";
+
+  const chooseEquipmentType = (equipmentTypeCode: string) => {
+    const form = heavyFormLabelByCode[equipmentTypeCode] ?? null;
+    if (!form) return;
+    const options = heavyDetailsFor(form);
+    const autoDetail = options.length <= 1 ? options[0] ?? "전체" : null;
+    onChange({
+      ...emptyHeavySelection,
+      form,
+      detail: autoDetail,
+      equipmentTypeCode,
+      detailTypeCode: autoDetail ? heavyDetailCodeFor(form, autoDetail) : null,
+    });
+  };
+
+  const chooseDetail = (detail: string) => {
+    if (!value.form || !value.equipmentTypeCode) return;
+    onChange({
+      ...value,
+      detail,
+      detailTypeCode: heavyDetailCodeFor(value.form, detail),
+      maker: null,
+      model: null,
+      submodel: null,
+      manufacturerCode: null,
+      modelCode: null,
+      submodelCode: null,
+    });
+  };
 
   const chooseManufacturer = (manufacturerCode: string) => {
     const slot = approvedHeavyManufacturers.find((item) => item.manufacturerCode === manufacturerCode);
@@ -107,7 +159,15 @@ export function HeavyQuickFilter({ value, onChange }: HeavyQuickFilterProps) {
       onChange({ ...value, model: null, submodel: null, modelCode: null, submodelCode: null });
       return;
     }
-    onChange({ ...value, maker: null, model: null, submodel: null, manufacturerCode: null, modelCode: null, submodelCode: null });
+    if (value.manufacturerCode) {
+      onChange({ ...value, maker: null, model: null, submodel: null, manufacturerCode: null, modelCode: null, submodelCode: null });
+      return;
+    }
+    if (value.detailTypeCode) {
+      onChange({ ...value, detail: null, detailTypeCode: null });
+      return;
+    }
+    onChange(emptyHeavySelection);
   };
 
   const resultCount = heavyRowsFor(value).length;
@@ -117,15 +177,39 @@ export function HeavyQuickFilter({ value, onChange }: HeavyQuickFilterProps) {
       <div className="heavy-qf-heading">
         <div>
           <strong>{depth}</strong>
-          <span>제조사 원본 · 초톳 슬롯 v06</span>
+          <span>{depth === "유형" ? "1뎁스 · 초톳 실사 슬롯" : "단계별 빠른 선택"}</span>
         </div>
         <div className="heavy-qf-actions">
-          {value.manufacturerCode ? <button type="button" onClick={clearCurrent}>선택 해제</button> : null}
+          {value.equipmentTypeCode ? <button type="button" onClick={clearCurrent}>이전 단계</button> : null}
           <button type="button" onClick={() => onChange(emptyHeavySelection)}>전체 초기화</button>
         </div>
       </div>
 
-      {!value.manufacturerCode ? (
+      {!value.equipmentTypeCode ? (
+        <div className="heavy-qf-track is-type-track" role="list" aria-label="건설기계 유형 8개">
+          {heavyTypeQuickFilters.map((type) => {
+            const count = heavyRowsFor({ equipmentTypeCode: type.code }).length;
+            const imageCandidates: HeavyImageCandidate[] = [{ file: type.imageFile, fallbackLevel: 0, label: "건설기계 유형 이미지" }];
+            return (
+              <button key={type.code} type="button" className="heavy-qf-card is-type" onClick={() => chooseEquipmentType(type.code)} role="listitem" data-equipment-type-code={type.code} aria-label={`${type.label} ${count}대`}>
+                <span className="heavy-qf-symbol"><HeavySlotImage candidates={imageCandidates} alt={`${type.label} 유형`} /></span>
+                <strong>{type.label}</strong>
+              </button>
+            );
+          })}
+        </div>
+      ) : !value.detailTypeCode && detailOptions.length > 1 ? (
+        <div className="heavy-qf-detail-track" role="list" aria-label={`${value.form ?? ""} 세부 유형`}>
+          {detailOptions.map((detail) => {
+            const count = heavyRowsFor({ equipmentTypeCode: value.equipmentTypeCode, detail: detail === "전체" ? null : detail }).length;
+            return (
+              <button key={detail} type="button" className="heavy-qf-detail-chip" onClick={() => chooseDetail(detail)} role="listitem" aria-label={`${detail} ${count}대`}>
+                {detail}
+              </button>
+            );
+          })}
+        </div>
+      ) : !value.manufacturerCode ? (
         <div className="heavy-qf-track" role="list" aria-label="제조사 로고 10개">
           {approvedHeavyManufacturers.map((slot) => {
             const count = heavyRowsFor({

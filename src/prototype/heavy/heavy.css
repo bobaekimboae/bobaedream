@@ -117,8 +117,73 @@
   line-height: 21px;
   text-align: center;
 }
+.heavy-qf-card.is-type {
+  width: 84px;
+  min-width: 84px;
+  height: 102px;
+  grid-template-rows: 40px auto;
+  align-content: start;
+  padding: 6px 4px 0;
+  border: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  background: transparent;
+  color: #595959;
+}
+.heavy-qf-card.is-type:hover { border: 0; background: transparent; }
+.heavy-qf-card.is-type:active { opacity: .6; }
+.heavy-qf-card.is-type .heavy-qf-symbol {
+  width: 76px;
+  height: 40px;
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+}
+.heavy-qf-card.is-type .heavy-qf-symbol img {
+  width: 76px;
+  height: 40px;
+  object-fit: contain;
+  object-position: center bottom;
+}
+.heavy-qf-card.is-type strong {
+  width: 76px;
+  margin-top: 14px;
+  color: #595959;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+}
 .heavy-qf-card.is-machine .heavy-qf-symbol img { filter: drop-shadow(0 3px 3px rgb(103 68 0 / 18%)); }
 .heavy-qf-text-mark { display: grid; width: 100%; height: 100%; place-items: center; background: #fff8db; }
+
+.heavy-qf-detail-track {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 6px 16px 6px 0;
+  scrollbar-width: none;
+}
+.heavy-qf-detail-track::-webkit-scrollbar { display: none; }
+.heavy-qf-detail-chip {
+  min-height: 32px;
+  flex: 0 0 auto;
+  padding: 5px 14px;
+  border: 1px solid #dadada;
+  border-radius: 999px;
+  background: #fff;
+  color: #222;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.heavy-qf-detail-chip:active { opacity: .6; }
 
 .heavy-qf-card strong {
   display: -webkit-box;
@@ -235,6 +300,26 @@
     font-weight: 500;
     line-height: 18px;
   }
+  .heavy-qf-card.is-type {
+    width: 76px;
+    min-width: 76px;
+    height: 102px;
+    grid-template-rows: 40px auto;
+    padding: 6px 4px 0;
+  }
+  .heavy-qf-card.is-type .heavy-qf-symbol,
+  .heavy-qf-card.is-type .heavy-qf-symbol img {
+    width: 64px;
+    height: 40px;
+  }
+  .heavy-qf-card.is-type strong {
+    width: 68px;
+    margin-top: 14px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+  .heavy-qf-detail-track { padding: 6px 16px 6px 0; }
   .heavy-qf-card strong { width: 58px; font-size: 11px; line-height: 14px; }
   .heavy-qf-card small { width: 58px; font-size: 10px; line-height: 12px; }
   .heavy-qf-complete,
