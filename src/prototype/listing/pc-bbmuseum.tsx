@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
+import { Fragment, useEffect, useRef, useState, type CSSProperties, type KeyboardEvent, type ReactNode } from "react";
 import { BbmActionBar, BbmModal } from "../filters/bbm-filter-parts";
 import { BBM_MAKER_ITEM, bbmSidebarItems, daangnFilterLabel, splitDaangnFilterOrder, type BbmFilterItem } from "../filters/bbm-filter-options";
 import { BbmExpandPanel, BbmModalPanel, clearBbmItem } from "../filters/bbm-filter-panels";
@@ -25,7 +25,7 @@ const bbGnbItems = ["홈", "전체차량", "중고차", "수입차", "화물/특
 const bbHeaderIcons: Array<[string, string]> = [["search", "검색"], ["mypage", "마이페이지"], ["heart", "찜"], ["chat", "채팅"], ["notification", "알림"], ["menu", "메뉴"]];
 const bbmAsset = (name: string) => asset(`bbm/${name}.svg`);
 
-function BbHeader({ category, onNotify, onOpenFavorites }: { category: string; onNotify: (message: string) => void; onOpenFavorites: () => void }) {
+function BbHeader({ category, onNotify, onOpenFavorites, searchSlot }: { category: string; onNotify: (message: string) => void; onOpenFavorites: () => void; searchSlot?: ReactNode }) {
   const activeItem = category === "트럭 · 특장" ? "화물/특장차"
     : category === "건설기계" ? "건설기계(덤프/지게차)"
       : category === "캠핑카" ? "캠핑카(모터홈/캐러밴)"
@@ -44,6 +44,7 @@ function BbHeader({ category, onNotify, onOpenFavorites }: { category: string; o
           <nav className="bbm-gnb" aria-label="주 메뉴">
             {bbGnbItems.map((label) => <button key={label} type="button" className={label === activeItem ? "is-active" : ""} aria-current={label === activeItem ? "page" : undefined} onClick={() => label === activeItem ? undefined : onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`)}>{label}</button>)}
           </nav>
+          {searchSlot ? <div className="bbm-header-search-slot">{searchSlot}</div> : null}
           <div className="bbm-header-icons">
             {bbHeaderIcons.map(([icon, label]) => <button key={icon} type="button" aria-label={label} onClick={() => icon === "heart" ? onOpenFavorites() : onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`)}><img src={bbmAsset(`header-${icon}`)} alt="" aria-hidden="true" /></button>)}
           </div>

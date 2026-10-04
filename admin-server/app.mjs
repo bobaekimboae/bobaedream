@@ -1,10 +1,11 @@
 import { createReadStream, existsSync, statSync } from "node:fs";
 import { extname, join, normalize, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { assertPermission } from "./catalog.mjs";
 import { AdminDatabase } from "./database.mjs";
 import { AdminService } from "./service.mjs";
 
-const ROOT = resolve(new URL("..", import.meta.url).pathname);
+const ROOT = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const PUBLIC_ROOT = join(ROOT, "public", "category-admin");
 
 export function createAdminApp({ database = new AdminDatabase() } = {}) {
