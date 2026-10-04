@@ -116,14 +116,14 @@
 .heavy-qf-card.is-type:hover { border: 0; background: transparent; }
 .heavy-qf-card.is-type:active { opacity: .6; }
 .heavy-qf-card.is-type .heavy-qf-symbol {
-  width: 76px;
+  width: 64px;
   height: 40px;
   overflow: visible;
   border-radius: 0;
   background: transparent;
 }
 .heavy-qf-card.is-type .heavy-qf-symbol img {
-  width: 76px;
+  width: 64px;
   height: 40px;
   object-fit: contain;
   object-position: center bottom;
