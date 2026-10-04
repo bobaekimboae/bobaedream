@@ -109,3 +109,4 @@
 2026-10-04 / 코덱스-중고차 / truck_type_production_manifest_v03.csv, truck/formats/v03/*.png / v03 / 공용 생산 매뉴얼에 맞춰 트럭 상위 유형 14종을 512×320 좌향 정측면·공통 기준선으로 재정규화하고 실제 유형 레일에 연결, 자동 QA 14/14 통과 / 자체 검수완료·상호 검수대기
 2026-10-04 / 코덱스-중고차 / truck_cargo_*_side_v13.png·webp, truck-format-catalog.ts, cargo_class_side_image_v13.md, HANDOVER_truck_v58.md / v13·v58 / 카고 하위 경형·소형·준중형·중형·준대형·대형을 좌향 90도 정측면 실사형과 투명 배경으로 제작·연결, 모바일 390×844·HTTP 200·콘솔 오류 0건·빌드 확인 / 검수완료
 2026-10-04 / 코덱스-중고차 / truck_cargo_*_side_v14.png·webp, truck-format-catalog.ts, cargo_class_side_image_v14.md, HANDOVER_truck_v59.md / v14·v59 / 수정 요청: 경형부터 대형까지 차량 폭과 높이가 함께 단계적으로 증가하도록 이미지 생성·정규화하고 실제 퀵필터에 연결 / 미검수
+2026-10-04 / 코덱스-중고차 / truck_transport_side_image_v04.md, truck_format_transport_side_v04.png, truck-format-catalog.ts / v04 / 수정 요청: 견인·운송차 식별을 강화하기 위해 2단 카캐리어를 주황색 휠리프트 견인차와 피견인 승용차 실루엣으로 교체 / 미검수

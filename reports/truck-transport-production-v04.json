@@ -1,0 +1,20 @@
+{
+  "manifest": "C:\\Users\\bobae\\codex-work\\bobaedream\\docs\\truck\\truck_transport_production_manifest_v04.csv",
+  "total": 1,
+  "passed": 1,
+  "failed": 0,
+  "results": [
+    {
+      "type_code": "transport",
+      "file": "public/assets/truck/formats/v04/web/truck_format_transport_side_v04.png",
+      "status": "PASS",
+      "errors": [],
+      "bbox": [
+        32,
+        136,
+        480,
+        262
+      ]
+    }
+  ]
+}
