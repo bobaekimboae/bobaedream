@@ -100,12 +100,12 @@ const truckFormatImages: Readonly<Record<string, string>> = {
 
 const truckSubtypeImages: Readonly<Record<string, Readonly<Record<string, string>>>> = {
   "카고(화물)트럭": {
-    "경형": "truck/pilot/v13/truck_cargo_light_side_v13.webp",
-    "소형": "truck/pilot/v13/truck_cargo_small_side_v13.webp",
-    "준중형": "truck/pilot/v13/truck_cargo_semi_medium_side_v13.webp",
-    "중형": "truck/pilot/v13/truck_cargo_medium_side_v13.webp",
-    "준대형": "truck/pilot/v13/truck_cargo_quasi_large_side_v13.webp",
-    "대형": "truck/pilot/v13/truck_cargo_large_side_v13.webp",
+    "경형": "truck/pilot/v14/truck_cargo_light_side_v14.webp",
+    "소형": "truck/pilot/v14/truck_cargo_small_side_v14.webp",
+    "준중형": "truck/pilot/v14/truck_cargo_semi_medium_side_v14.webp",
+    "중형": "truck/pilot/v14/truck_cargo_medium_side_v14.webp",
+    "준대형": "truck/pilot/v14/truck_cargo_quasi_large_side_v14.webp",
+    "대형": "truck/pilot/v14/truck_cargo_large_side_v14.webp",
     "경형 트럭 (1톤 미만)": "truck/pilot/v13/truck_cargo_light_side_v13.webp",
     "1톤 트럭": "truck/pilot/v13/truck_cargo_small_side_v13.webp",
     "소형 트럭 (1.1~3.5톤)": "truck/pilot/v13/truck_cargo_semi_medium_side_v13.webp",

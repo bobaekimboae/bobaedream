@@ -107,3 +107,4 @@
 2026-10-04 / 코덱스-중고차 / truck_format_*_v02.png 외 / v02 / 현대·기아·히노·이스즈 계열 상용차 체형을 참고한 좌향 완전 측면 트럭 유형 13종 제작, 모바일 64×36 슬롯 및 빌드 검수 / 검수완료
 2026-10-04 / 코덱스-중고차 / truck_format_wingbody_open_v02.png, truck_format_reefer_v02.png / v02 / 수정 요청: 윙바디는 반개방 윙으로, 냉장·냉동차는 전면 냉동기와 밀폐 단열 박스로 분리해 루트 유형 인지성 강화 / 검수완료
 2026-10-04 / 코덱스-중고차 / truck_cargo_*_side_v13.png·webp, truck-format-catalog.ts, cargo_class_side_image_v13.md, HANDOVER_truck_v58.md / v13·v58 / 카고 하위 경형·소형·준중형·중형·준대형·대형을 좌향 90도 정측면 실사형과 투명 배경으로 제작·연결, 모바일 390×844·HTTP 200·콘솔 오류 0건·빌드 확인 / 검수완료
+2026-10-04 / 코덱스-중고차 / truck_cargo_*_side_v14.png·webp, truck-format-catalog.ts, cargo_class_side_image_v14.md, HANDOVER_truck_v59.md / v14·v59 / 수정 요청: 경형부터 대형까지 차량 폭과 높이가 함께 단계적으로 증가하도록 이미지 생성·정규화하고 실제 퀵필터에 연결 / 미검수

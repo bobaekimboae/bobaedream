@@ -1,0 +1,7 @@
+﻿key,label,weight,axle_rule,png,webp,width,height,baseline,alpha_min,alpha_max
+light,경형,1톤 미만,2축 소형,public/assets/truck/pilot/v14/truck_cargo_light_side_v14.png,public/assets/truck/pilot/v14/truck_cargo_light_side_v14.webp,164,65,114,0,255
+small,소형,1톤급,2축,public/assets/truck/pilot/v14/truck_cargo_small_side_v14.png,public/assets/truck/pilot/v14/truck_cargo_small_side_v14.webp,176,72,114,0,255
+semi_medium,준중형,2.5~3.5톤,2축,public/assets/truck/pilot/v14/truck_cargo_semi_medium_side_v14.png,public/assets/truck/pilot/v14/truck_cargo_semi_medium_side_v14.webp,187,76,114,0,255
+medium,중형,4~5톤,2축,public/assets/truck/pilot/v14/truck_cargo_medium_side_v14.png,public/assets/truck/pilot/v14/truck_cargo_medium_side_v14.webp,196,80,114,0,255
+quasi_large,준대형,7.5~8.5톤,3축,public/assets/truck/pilot/v14/truck_cargo_quasi_large_side_v14.png,public/assets/truck/pilot/v14/truck_cargo_quasi_large_side_v14.webp,207,81,114,0,255
+large,대형,11~25톤,4축,public/assets/truck/pilot/v14/truck_cargo_large_side_v14.png,public/assets/truck/pilot/v14/truck_cargo_large_side_v14.webp,217,83,114,0,255
