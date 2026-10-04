@@ -156,6 +156,15 @@
 - `전체 브랜드` and the `제조사 ▾` chip open that type's full list only (국산 → 수입 이름순 → 기타), 0-count rows greyed but selectable.
 - Logos: 타타대우 · 만(MAN) from Daangn company images (`scripts/brand-logos-kr.mjs`); 대림 · KR모터스 · 야마하 · 가와사키 · 할리데이비슨 · 두카티 · 베스파 · 다프 have no source yet. Check: `node scripts/type-maker-check.mjs`.
 
+### 바이크 장르 이미지 파일럿 v02
+
+- 모바일 전체 필터의 `장르` 바텀시트와 PC `장르` 모달은 같은 이미지 행을 사용한다. 행 높이는 모바일 64px·PC 60px이고, 이미지 표면은 56×40px(`#F7F7F7`, `1px #ECECEC`, 반경 6px), `contain`·`center bottom`이다.
+- v02 연결 범위는 `네이키드 · 스쿠터 · 스포츠 · 멀티퍼포즈` 4개다. 생성 이미지의 어드벤처 유형은 현재 필터의 `멀티퍼포즈` 값에 연결한다.
+- 이미지는 90도 완전 정측면, 앞바퀴 왼쪽·뒷바퀴 오른쪽, 투명 배경, 중립 스튜디오 조명, 약한 접지 그림자, 로고·문구·번호판 없음으로 통일한다.
+- AutoTrader Canada `Browse by type`의 Street·Touring·Cruiser·SuperSport 이미지를 품질 비교 기준으로 삼는다. 흰색·은색 저채도 차체, 검은 기계부, 작은 슬롯에서 선명한 외곽과 부품 분리, 유형 간 동일한 광원·색조가 최소 통과 조건이다. 원본 파일은 복제하지 않고 시각 규칙만 대조한다.
+- 슬롯 배포 파일은 180×120 투명 PNG를 사용한다. 표시 시 원본 비율을 유지하며 56×40px 표면에서 늘리거나 찌그러뜨리지 않는다.
+- v02에서 이미지가 아직 없는 장르는 같은 크기의 점선 빈 슬롯을 유지한다. 확인하지 않은 유형 이미지를 다른 장르에 임의 재사용하지 않는다.
+
 ## Mileage Filter Final (QF-117)
 
 - Guazi only (`mileage-final`, `src/prototype/filters/bbm-mileage.tsx` · `.css`; BbmSheet/ActionBar untouched). Value model unchanged: `ranges.mileage = { min, max, preset }` (comma strings), no max = `""` (null, "제한 없음").

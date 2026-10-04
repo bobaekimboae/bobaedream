@@ -42,6 +42,45 @@ const bodyTypeIcons: Record<string, string> = {
 
 const externalBodyTypes = new Set(["화물트럭", "버스", "캠핑카"]);
 
+const bikeGenreImages: Partial<Record<string, string>> = {
+  "네이키드": "bike/pilot/v02/bike_type_naked_side_slot_v02.png",
+  "스쿠터": "bike/pilot/v02/bike_type_scooter_side_slot_v02.png",
+  "스포츠": "bike/pilot/v02/bike_type_supersport_side_slot_v02.png",
+  "멀티퍼포즈": "bike/pilot/v02/bike_type_adventure_side_slot_v02.png",
+};
+
+function BikeGenreList({ value, onChange, countOf }: PanelProps) {
+  return (
+    <div className="bbmf-bike-genre-list" role="group" aria-label="바이크 장르">
+      {bbmCheckOptions.bikeGenre.map((label) => {
+        const checked = Boolean(value.checks.bikeGenre?.includes(label));
+        const count = optionCount(countOf, "bikeGenre", label);
+        const disabled = count === 0 && !checked;
+        const image = bikeGenreImages[label];
+        return (
+          <button
+            key={label}
+            type="button"
+            role="checkbox"
+            aria-checked={checked}
+            aria-disabled={disabled || undefined}
+            disabled={disabled}
+            className={`bbmf-bike-genre-row${checked ? " is-checked" : ""}${disabled ? " is-disabled" : ""}`}
+            onClick={() => onChange(toggleBbmCheck(value, "bikeGenre", label))}
+          >
+            <i className="bbmf-bike-genre-check" aria-hidden="true" />
+            <span className={`bbmf-bike-genre-image${image ? " has-image" : " is-pending"}`} aria-hidden="true">
+              {image ? <img src={asset(image)} alt="" draggable={false} /> : null}
+            </span>
+            <span className="bbmf-bike-genre-label">{label}</span>
+            {count === null || count === undefined ? null : <span className="bbmf-bike-genre-count">{count.toLocaleString("ko-KR")}</span>}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
 function BodyTypeList({ value, onChange, countOf }: PanelProps) {
   return (
     <div className="bbmf-body-type-list" role="group" aria-label="바디타입">
@@ -295,6 +334,7 @@ export function BbmModalPanel({ item, value, onChange, countOf }: PanelProps & {
   if (item.label === "변속기") {
     return <BbmChoiceGrid options={bbmCheckOptions.transmission} selected={value.checks.transmission ?? []} onToggle={(option) => onChange(toggleBbmCheck(value, "transmission", option))} />;
   }
+  if (item.checkKey === "bikeGenre") return <BikeGenreList value={value} onChange={onChange} countOf={countOf} />;
   if (item.label === "광고기간") {
     return <BbmChoiceGrid size="lg" firstFull options={bbmAdPeriods} selected={[value.adPeriod]} onToggle={(option) => onChange(setBbmAdPeriod(value, option))} />;
   }

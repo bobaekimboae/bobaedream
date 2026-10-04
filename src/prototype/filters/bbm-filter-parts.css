@@ -36,6 +36,23 @@
 .bbmf-check-grid.is-col-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .bbmf-check-grid:has(.is-sidebar) { row-gap: 14px; }
 
+/* 바이크 장르: 트럭 유형과 같은 56×40 인지 슬롯. v02는 AutoTrader 대조 보정 4종, 나머지는 빈 슬롯으로 유지한다. */
+.bbmf-bike-genre-list { display: flex; flex-direction: column; width: 100%; }
+.bbmf-bike-genre-row { position: relative; display: grid; grid-template-columns: 20px 56px minmax(0, 1fr) auto; align-items: center; gap: 12px; width: 100%; min-height: 60px; padding: 10px 0; border: 0; box-sizing: border-box; background: transparent; color: #222; font: inherit; text-align: left; cursor: pointer; }
+.bbmf-bike-genre-row::after { content: ""; position: absolute; right: 0; bottom: 0; left: 88px; height: 1px; background: #e8e8e8; }
+.bbmf-bike-genre-row:last-child::after { display: none; }
+.bbmf-bike-genre-row:hover { background: #fafbfc; }
+.bbmf-bike-genre-row.is-disabled { cursor: default; opacity: .4; }
+.bbmf-bike-genre-check { position: relative; width: 20px; height: 20px; border: 1.5px solid #aab1bc; border-radius: 4px; box-sizing: border-box; background: #fff; }
+.bbmf-bike-genre-row.is-checked .bbmf-bike-genre-check { border-color: #222; background: #222; }
+.bbmf-bike-genre-row.is-checked .bbmf-bike-genre-check::after { content: ""; position: absolute; top: 4px; left: 3px; width: 10px; height: 6px; border-bottom: 2px solid #fff; border-left: 2px solid #fff; transform: rotate(-45deg); }
+.bbmf-bike-genre-image { display: grid; place-items: center; width: 56px; height: 40px; border: 1px solid #ececec; border-radius: 6px; box-sizing: border-box; overflow: hidden; background: #f7f7f7; }
+.bbmf-bike-genre-image.is-pending { border-style: dashed; background: #fafafa; }
+.bbmf-bike-genre-image img { display: block; width: 56px; height: 40px; object-fit: contain; object-position: center bottom; }
+.bbmf-bike-genre-label { overflow: hidden; min-width: 0; font-size: 15px; font-weight: 650; line-height: 20px; text-overflow: ellipsis; white-space: nowrap; }
+.bbmf-bike-genre-count { color: #7a828e; font-size: 13px; font-weight: 500; line-height: 18px; font-variant-numeric: tabular-nums; }
+.bbmf-sheet .bbmf-bike-genre-row { min-height: 64px; padding-top: 12px; padding-bottom: 12px; }
+
 /* ── 판매자 유형: 바디타입 리스트형 공통 규칙 + FINN.no 좌측 아이콘 구조 */
 .bbmf-overlay.is-sheet.is-seller-overlay {
   align-items: flex-end;
