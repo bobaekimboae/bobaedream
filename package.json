@@ -37,6 +37,9 @@
     "check:stability": "node scripts/stability-check.mjs",
     "check:model-images": "node scripts/model-images-check.mjs",
     "check:category-photos": "node scripts/audit-category-photo-v02.mjs"
+    ,"catalog:data": "node scripts/build-vehicle-catalog-static.mjs"
+    ,"catalog:verify": "node scripts/verify-vehicle-catalog-static.mjs && node scripts/verify-vehicle-catalog-search.mjs"
+    ,"catalog:verify:ui": "node scripts/verify-vehicle-catalog-ui.mjs"
   },
   "dependencies": {
     "@fontsource/roboto": "5.2.10",

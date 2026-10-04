@@ -1,0 +1,21 @@
+{
+  "logos": {
+    "sourceManufacturers": 63,
+    "generatedPng": 59,
+    "placeholders": 3,
+    "userManaged": [
+      "KG모빌리티(쌍용)"
+    ],
+    "officialOverrides": 1,
+    "fallbackOverrides": [],
+    "mapPath": "reports/vehicle-catalog/logo_map.csv"
+  },
+  "generationImages": {
+    "jobs": 1256,
+    "sourceFiles": 0,
+    "convertedWebp": 0,
+    "matchedSourceFiles": [],
+    "unmatchedSourceFiles": [],
+    "unmatchedPath": "reports/vehicle-catalog/unmatched-generation-images.csv"
+  }
+}
