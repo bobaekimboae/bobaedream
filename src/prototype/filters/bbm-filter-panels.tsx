@@ -51,32 +51,35 @@ const bikeGenreImages: Partial<Record<string, string>> = {
 
 function BikeGenreList({ value, onChange, countOf }: PanelProps) {
   return (
-    <div className="bbmf-bike-genre-list" role="group" aria-label="바이크 장르">
-      {bbmCheckOptions.bikeGenre.map((label) => {
-        const checked = Boolean(value.checks.bikeGenre?.includes(label));
-        const count = optionCount(countOf, "bikeGenre", label);
-        const disabled = count === 0 && !checked;
-        const image = bikeGenreImages[label];
-        return (
-          <button
-            key={label}
-            type="button"
-            role="checkbox"
-            aria-checked={checked}
-            aria-disabled={disabled || undefined}
-            disabled={disabled}
-            className={`bbmf-bike-genre-row${checked ? " is-checked" : ""}${disabled ? " is-disabled" : ""}`}
-            onClick={() => onChange(toggleBbmCheck(value, "bikeGenre", label))}
-          >
-            <i className="bbmf-bike-genre-check" aria-hidden="true" />
-            <span className={`bbmf-bike-genre-image${image ? " has-image" : " is-pending"}`} aria-hidden="true">
-              {image ? <img src={asset(image)} alt="" draggable={false} /> : null}
-            </span>
-            <span className="bbmf-bike-genre-label">{label}</span>
-            {count === null || count === undefined ? null : <span className="bbmf-bike-genre-count">{count.toLocaleString("ko-KR")}</span>}
-          </button>
-        );
-      })}
+    <div className="bbmf-bike-genre-wrap">
+      <p className="bbmf-bike-genre-guide">유형을 이미지로 확인하고 복수 선택할 수 있습니다.</p>
+      <div className="bbmf-bike-genre-list" role="group" aria-label="바이크 장르">
+        {bbmCheckOptions.bikeGenre.map((label) => {
+          const checked = Boolean(value.checks.bikeGenre?.includes(label));
+          const count = optionCount(countOf, "bikeGenre", label);
+          const disabled = count === 0 && !checked;
+          const image = bikeGenreImages[label];
+          return (
+            <button
+              key={label}
+              type="button"
+              role="checkbox"
+              aria-checked={checked}
+              aria-disabled={disabled || undefined}
+              disabled={disabled}
+              className={`bbmf-bike-genre-row${checked ? " is-checked" : ""}${disabled ? " is-disabled" : ""}`}
+              onClick={() => onChange(toggleBbmCheck(value, "bikeGenre", label))}
+            >
+              <span className={`bbmf-bike-genre-image${image ? " has-image" : " is-pending"}`} aria-hidden="true">
+                {image ? <img src={asset(image)} alt="" draggable={false} /> : null}
+              </span>
+              <span className="bbmf-bike-genre-label">{label}</span>
+              {count === null || count === undefined ? null : <span className="bbmf-bike-genre-count">{count.toLocaleString("ko-KR")}</span>}
+              <i className="bbmf-bike-genre-check" aria-hidden="true" />
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }

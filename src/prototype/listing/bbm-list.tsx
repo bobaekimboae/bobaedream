@@ -466,16 +466,23 @@ export function BbmMakerList({ sections, selected, renderLogo, onChoose, allowEm
 
 // ── "모델" 칩 모달·시트: 그 제조사의 모델 목록. 고르면 퀵필터 모델 선택과 같은 동작
 export function BbmModelList({ rows, selected, onChoose }: { rows: Array<{ name: string; label: string; count: number | null }>; selected?: string | null; onChoose: (name: string) => void }) {
+  const [query, setQuery] = useState("");
+  const keyword = query.trim().toLocaleLowerCase("ko-KR");
+  const visibleRows = rows.filter((row) => !keyword || `${row.label} ${row.name}`.toLocaleLowerCase("ko-KR").includes(keyword));
+  const availableCount = rows.filter((row) => (row.count ?? 0) > 0).length;
   if (!rows.length) return <p className="bbm-maker-empty">모델 정보 없음</p>;
   return (
-    <div className="bbm-maker-list">
-      {rows.map((row) => (
+    <div className="bbm-maker-list is-model-list">
+      <div className="bbm-maker-search-wrap"><label className="bbm-maker-search"><img src={bbmIcon("m-header-search")} alt="" aria-hidden="true" /><input value={query} placeholder="모델 검색" aria-label="모델 검색" onChange={(event) => setQuery(event.target.value)} /></label></div>
+      <p className="bbm-model-summary">전체 {rows.length.toLocaleString("ko-KR")}개 · 현재 매물 {availableCount.toLocaleString("ko-KR")}개 모델</p>
+      {visibleRows.map((row) => (
         <button key={row.name} type="button" className={`bbm-maker-row is-model${selected === row.name ? " is-selected" : ""}${row.count === 0 ? " is-empty" : ""}`} disabled={row.count === 0} onClick={() => onChoose(row.name)}>
+          <i className="bbm-model-check" aria-hidden="true" />
           <span className="bbm-maker-name">{row.label}</span>
           {row.count === null ? null : <span className="bbm-maker-count">{row.count.toLocaleString("ko-KR")}</span>}
-          <i className="bbm-maker-chevron" aria-hidden="true" />
         </button>
       ))}
+      {!visibleRows.length ? <p className="bbm-maker-empty">검색 결과가 없습니다.</p> : null}
     </div>
   );
 }

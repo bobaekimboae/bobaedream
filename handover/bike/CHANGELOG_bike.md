@@ -10,3 +10,4 @@
 2026-10-04 / 코덱스-바이크 / bike_type_*_side_master_v01.png·bike_type_*_side_slot_v01.png·bike_type_side_image_pilot_v01.md·HANDOVER_bike_v04.md / v01·v04 / 스쿠터·네이키드·슈퍼스포츠·어드벤처 90도 완전 정측면 이미지 4종과 56×40px 슬롯용 배포본 제작 / 미검수
 2026-10-04 / 코덱스-바이크 / bbm-filter-panels.tsx·bbm-filter-parts.css·quick-filter-spec.md·HANDOVER_bike_v05.md / v05 / 모바일 장르 바텀시트와 PC 장르 모달에 바이크 유형 이미지 4종 연결 / 미검수
 2026-10-04 / 코덱스-바이크 / bike_type_*_side_master_v02.png·bike_type_*_side_slot_v02.png·bike_type_side_image_pilot_v02.md·HANDOVER_bike_v06.md / v02·v06 / AutoTrader Canada 품질 대조 후 저채도 스튜디오 보정본 4종 제작·연결 / 미검수
+2026-10-04 / 코덱스-바이크 / bike_finn_filter_ux_v01.md·HANDOVER_bike_v07.md / v01·v07 / FINN형 장르 이미지 카드와 텍스트 2뎁스 적용, 혼다 전체 245개·현재 매물 7개 모델 분리 / 검수완료

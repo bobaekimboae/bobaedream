@@ -489,6 +489,11 @@
 .bbm-maker-chevron { position: relative; width: 20px; height: 20px; flex: none; }
 .bbm-maker-chevron::after { content: ""; position: absolute; top: 6px; left: 5px; width: 7px; height: 7px; border-top: 1.5px solid #9e9e9e; border-right: 1.5px solid #9e9e9e; transform: rotate(45deg); }
 .bbm-maker-row.is-model { padding-left: 8px; }
+.bbm-model-summary { margin: 0; padding: 4px 8px 10px; color: var(--bbm-text-muted); font-size: 13px; font-weight: 500; line-height: 18px; }
+.bbm-model-check { position: relative; width: 20px; height: 20px; flex: none; border: 1.5px solid #9aa1aa; border-radius: 4px; box-sizing: border-box; background: #fff; }
+.bbm-maker-row.is-model.is-selected .bbm-model-check { border-color: #222; background: #222; }
+.bbm-maker-row.is-model.is-selected .bbm-model-check::after { content: ""; position: absolute; top: 4px; left: 3px; width: 10px; height: 6px; border-bottom: 2px solid #fff; border-left: 2px solid #fff; transform: rotate(-45deg); }
+.bbm-maker-row.is-model.is-empty .bbm-model-check { border-color: #d9dce0; background: #f5f5f5; }
 .bbm-maker-empty { margin: 0; padding: 16px; color: var(--bbm-text-disabled); font-size: 14px; }
 /* 필터 초기화 확인 창 본문 */
 .bbmf-confirm-text { margin: 0; padding: 0; color: var(--bbm-text); font-size: 16px; font-weight: 400; line-height: 22.4px; }
