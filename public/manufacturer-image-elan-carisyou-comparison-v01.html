@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>기아 엘란 · 카이즈유 기준 시안 v01</title>
+  <style>
+    :root {
+      font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #202124;
+      background: #f3f4f6;
+      font-synthesis: none;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    .page { width: min(100%, 1040px); margin: 0 auto; padding: 24px 20px 48px; }
+    header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; margin-bottom: 18px; }
+    h1 { margin: 0; font-size: clamp(22px, 3vw, 32px); line-height: 1.3; letter-spacing: -.5px; }
+    header p { max-width: 690px; margin: 7px 0 0; color: #70757d; font-size: 14px; line-height: 21px; }
+    .status { flex: 0 0 auto; padding: 7px 11px; border-radius: 999px; background: #fff1d7; color: #735217; font-size: 12px; font-weight: 700; }
+    .compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .card { overflow: hidden; border: 1px solid #e1e3e7; border-radius: 18px; background: #fff; box-shadow: 0 8px 28px rgb(25 31 42 / 6%); }
+    .card-head { display: flex; align-items: center; justify-content: space-between; min-height: 58px; padding: 0 18px; border-bottom: 1px solid #eceef1; }
+    .card-head strong { font-size: 16px; }
+    .card-head span { color: #8a8f96; font-size: 12px; }
+    .visual { display: grid; min-height: 360px; padding: 24px; place-items: center; background: linear-gradient(180deg, #fafafa, #f5f6f7); }
+    .visual img { display: block; width: 100%; max-height: 300px; object-fit: contain; }
+    .generated .visual {
+      background-image: linear-gradient(45deg, #f1f2f4 25%, transparent 25%), linear-gradient(-45deg, #f1f2f4 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f1f2f4 75%), linear-gradient(-45deg, transparent 75%, #f1f2f4 75%);
+      background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+      background-size: 16px 16px;
+      background-color: #fff;
+    }
+    .generated .visual img { width: 82%; }
+    .meta { padding: 15px 18px 18px; color: #656b73; font-size: 13px; line-height: 20px; }
+    .slot-preview { margin-top: 18px; padding: 18px; border: 1px solid #e1e3e7; border-radius: 18px; background: #fff; }
+    .slot-preview h2, .audit h2 { margin: 0 0 12px; font-size: 17px; }
+    .slot-row { display: flex; gap: 12px; overflow-x: auto; padding: 6px 0 2px; scrollbar-width: none; }
+    .slot-row::-webkit-scrollbar { display: none; }
+    .slot { flex: 0 0 104px; text-align: center; }
+    .slot-image { display: grid; width: 104px; height: 78px; place-items: center; border-radius: 12px; background: #f6f7f8; }
+    .slot-image img { width: 92px; max-height: 62px; object-fit: contain; }
+    .slot strong { display: block; margin-top: 8px; font-size: 14px; line-height: 20px; }
+    .slot span { display: block; margin-top: 1px; color: #8a8f96; font-size: 12px; line-height: 17px; }
+    .audit { margin-top: 18px; padding: 18px; border: 1px solid #e1e3e7; border-radius: 18px; background: #fff; }
+    .audit-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 18px; }
+    .check { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 8px; align-items: start; min-height: 44px; color: #4f555c; font-size: 13px; line-height: 19px; }
+    .check b { display: grid; width: 20px; height: 20px; place-items: center; border-radius: 50%; background: #eaf6ed; color: #17753a; font-size: 12px; }
+    .check.warn b { background: #fff1d7; color: #8b5b00; }
+    .source { margin-top: 14px; color: #8a8f96; font-size: 12px; line-height: 18px; }
+    .source a { color: #2466c3; }
+    @media (max-width: 720px) {
+      .page { padding: 18px 14px 36px; }
+      header { display: block; }
+      .status { display: inline-block; margin-top: 12px; }
+      .compare { grid-template-columns: 1fr; }
+      .visual { min-height: 280px; padding: 18px; }
+      .visual img { max-height: 240px; }
+      .generated .visual img { width: 88%; }
+      .audit-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div>
+        <h1>1996 기아 엘란 · 카이즈유 기준 시안</h1>
+        <p>카이즈유에 등록된 1996 엘란 대표 이미지를 형상 기준으로 삼아 저해상도와 거친 누끼만 정리했습니다. 차종 재해석 없이 같은 색상·같은 방향·같은 시대 사양을 유지한 세대 선택 슬롯 후보입니다.</p>
+      </div>
+      <span class="status">후보 v02 · 승인 전</span>
+    </header>
+
+    <section class="compare" aria-label="카이즈유 엘란 원본과 보배드림 생성 이미지 비교">
+      <article class="card">
+        <div class="card-head"><strong>카이즈유 원본</strong><span>318×230 JPG</span></div>
+        <div class="visual"><img src="assets/cars/kia/heritage-pilot-v01/references/carisyou-kia-elan-1996-color-0-v01.jpg" alt="카이즈유 1996 기아 엘란 노란색 대표 이미지" /></div>
+        <div class="meta">노란색 순정 엘란, 좌향 전면 3/4, 닫힌 팝업램프, 작은 순정 휠과 짧고 낮은 로드스터 비례를 기준으로 고정했습니다.</div>
+      </article>
+
+      <article class="card generated">
+        <div class="card-head"><strong>보배드림 고해상도 후보</strong><span>1774×887 RGBA</span></div>
+        <div class="visual"><img src="assets/cars/kia/heritage-pilot-v01/car_kia_elan_1996_angle_master_v02.png" alt="카이즈유 엘란을 기준으로 제작한 보배드림 투명 배경 후보" /></div>
+        <div class="meta">카이즈유 원본의 색·방향·차체 특징을 유지하고 투명 배경, 선명한 외곽선, 약한 접지 그림자를 적용했습니다.</div>
+      </article>
+    </section>
+
+    <section class="slot-preview" aria-label="모바일 세대 선택 슬롯 미리보기">
+      <h2>모바일 세대 선택 슬롯</h2>
+      <div class="slot-row">
+        <div class="slot"><div class="slot-image"><img src="assets/cars/kia/heritage-pilot-v01/car_kia_elan_1996_angle_master_v02.png" alt="" /></div><strong>엘란</strong><span>1996~1999</span></div>
+        <div class="slot"><div class="slot-image"><img src="assets/cars/kia/heritage-pilot-v01/car_kia_elan_1996_angle_master_v02.png" alt="" /></div><strong>엘란</strong><span>DOHC 1.8</span></div>
+        <div class="slot"><div class="slot-image"><img src="assets/cars/kia/heritage-pilot-v01/car_kia_elan_1996_angle_master_v02.png" alt="" /></div><strong>컨버터블</strong><span>2인승</span></div>
+      </div>
+    </section>
+
+    <section class="audit">
+      <h2>1차 구조 대조</h2>
+      <div class="audit-grid">
+        <div class="check"><b>✓</b><span>낮고 짧은 2인승 로드스터 비례와 좌향 전면 3/4 방향을 유지했습니다.</span></div>
+        <div class="check"><b>✓</b><span>닫힌 팝업램프, 얇은 전면등, 범퍼 흡기구, 안테나와 검정 윈드실드 프레임을 보존했습니다.</span></div>
+        <div class="check"><b>✓</b><span>노란색 순정 차체와 소구경 순정형 휠로 카이즈유 대표 이미지의 인상을 유지했습니다.</span></div>
+        <div class="check"><b>✓</b><span>투명 배경과 약한 접지 그림자로 초톳형 이미지 슬롯에서도 배경 충돌 없이 표시됩니다.</span></div>
+        <div class="check warn"><b>!</b><span>생성본의 앞바퀴와 차체가 원본보다 커 보이므로 실제 승인 전 축소 슬롯에서 시각 점유율을 한 번 더 확인해야 합니다.</span></div>
+        <div class="check warn"><b>!</b><span>AI 생성본은 카이즈유 원본을 대체하는 사료가 아닙니다. 형상 기준은 계속 원본 이미지와 기아 헤리티지 자료가 우선입니다.</span></div>
+      </div>
+      <div class="source">형상 기준: <a href="https://www.carisyou.com/car/1327/Spec" target="_blank" rel="noreferrer">카이즈유 1996 기아 엘란</a>. 사양 교차 확인: <a href="https://heritage.kia.com/kr/vehicles/elan" target="_blank" rel="noreferrer">기아 헤리티지 엘란</a>. 제작 지침: <code>generation_image_reference_protocol_v05.md</code>.</div>
+    </section>
+  </main>
+</body>
+</html>
