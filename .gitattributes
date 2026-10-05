@@ -6,3 +6,5 @@
 *.webp binary
 *.woff binary
 *.woff2 binary
+data/bike-catalog-1005/bike_models_v2_1005.csv -text -eol
+data/bike-catalog-1005/bike_logo_manifest_1005.csv -text -eol
