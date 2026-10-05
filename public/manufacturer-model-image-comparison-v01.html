@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>제조사·모델 이미지 각도 비교</title>
+  <style>
+    :root {
+      font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #1f2329;
+      background: #eef0f3;
+      font-synthesis: none;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-width: 320px; }
+    button, input { font: inherit; }
+    button { color: inherit; }
+    .phone {
+      width: min(100%, 480px);
+      min-height: 100dvh;
+      margin: 0 auto;
+      background: #fff;
+      box-shadow: 0 0 34px rgb(24 34 48 / 10%);
+    }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 4;
+      display: grid;
+      grid-template-columns: 44px 1fr 44px;
+      align-items: center;
+      min-height: 60px;
+      padding: 0 12px;
+      background: rgb(255 255 255 / 96%);
+      border-bottom: 1px solid #eceef1;
+      backdrop-filter: blur(12px);
+    }
+    .icon-button {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      place-items: center;
+      border: 0;
+      background: transparent;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .topbar h1 { margin: 0; text-align: center; font-size: 18px; line-height: 26px; font-weight: 700; }
+    .intro { padding: 18px 20px 14px; }
+    .intro strong { display: block; font-size: 20px; line-height: 28px; letter-spacing: -.3px; }
+    .intro p { margin: 6px 0 0; color: #737981; font-size: 13px; line-height: 19px; }
+    .view-switch {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      margin: 0 20px 10px;
+      padding: 4px;
+      border-radius: 13px;
+      background: #f2f3f5;
+    }
+    .view-switch button {
+      min-height: 40px;
+      padding: 0 4px;
+      border: 0;
+      border-radius: 10px;
+      background: transparent;
+      color: #777d85;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .view-switch button[aria-selected="true"] { background: #222; color: #fff; box-shadow: 0 2px 7px rgb(21 25 31 / 16%); }
+    .rule-note {
+      display: flex;
+      align-items: center;
+      min-height: 36px;
+      margin: 0 20px 16px;
+      padding: 8px 12px;
+      border: 1px solid #e8eaed;
+      border-radius: 10px;
+      background: #fafafa;
+      color: #60666e;
+      font-size: 12px;
+      line-height: 18px;
+    }
+    .steps { display: flex; gap: 6px; padding: 0 20px 15px; overflow: auto; scrollbar-width: none; }
+    .steps::-webkit-scrollbar { display: none; }
+    .step {
+      flex: 0 0 auto;
+      min-height: 36px;
+      padding: 0 14px;
+      border: 1px solid #e1e3e6;
+      border-radius: 999px;
+      background: #fff;
+      color: #777d85;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .step.is-current { border-color: #222; background: #222; color: #fff; }
+    .step.is-done { border-color: #d7d9dd; color: #222; }
+    .search-wrap { padding: 0 20px 12px; }
+    .search {
+      display: flex;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 14px;
+      gap: 10px;
+      border-radius: 12px;
+      background: #f5f6f7;
+      color: #858b92;
+      font-size: 15px;
+    }
+    .section-head { display: flex; align-items: center; justify-content: space-between; padding: 11px 20px 8px; }
+    .section-head h2 { margin: 0; font-size: 15px; line-height: 22px; font-weight: 700; }
+    .section-head span { color: #8b9097; font-size: 12px; }
+    .list { border-top: 1px solid #f0f1f3; }
+    .row {
+      position: relative;
+      display: grid;
+      grid-template-columns: var(--slot) minmax(0, 1fr) 28px;
+      align-items: center;
+      min-height: var(--row);
+      width: 100%;
+      padding: 7px 20px;
+      column-gap: 16px;
+      border: 0;
+      border-bottom: 1px solid #eff0f2;
+      background: #fff;
+      text-align: left;
+      cursor: pointer;
+    }
+    .row:hover, .row:focus-visible { background: #fafafa; outline: none; }
+    .row.is-selected { background: #f7f7f7; }
+    .maker-row { --slot: 40px; --row: 56px; column-gap: 12px; }
+    .model-row { --slot: 80px; --row: 72px; }
+    .generation-row { --slot: 88px; --row: 84px; }
+    .media-slot { display: grid; width: var(--slot); place-items: center; overflow: visible; }
+    .maker-row .media-slot { height: 40px; border: 1px solid #eceef1; border-radius: 10px; background: #fff; }
+    .maker-row img { width: 28px; height: 28px; object-fit: contain; }
+    .vehicle-image { width: 100%; object-fit: contain; filter: drop-shadow(0 5px 5px rgb(29 35 45 / 15%)); }
+    .model-row .vehicle-image { height: 48px; }
+    .generation-row .vehicle-image { height: 52px; }
+    .text strong { display: block; overflow: hidden; color: #222; font-size: 15px; line-height: 21px; font-weight: 650; text-overflow: ellipsis; white-space: nowrap; }
+    .text small { display: block; margin-top: 3px; color: #858b92; font-size: 12px; line-height: 17px; }
+    .chevron { color: #a3a7ad; font-size: 24px; text-align: right; }
+    .check { display: none; width: 20px; height: 20px; place-items: center; border-radius: 50%; background: #222; color: #fff; font-size: 13px; }
+    .row.is-selected .chevron { display: none; }
+    .row.is-selected .check { display: grid; }
+    .footer-space { height: max(24px, env(safe-area-inset-bottom)); }
+    .reference {
+      margin: 18px 20px 0;
+      padding: 14px;
+      border-radius: 12px;
+      background: #fff8e8;
+      color: #5c5140;
+      font-size: 12px;
+      line-height: 18px;
+    }
+    @media (max-width: 359px) {
+      .intro, .search-wrap { padding-left: 16px; padding-right: 16px; }
+      .view-switch, .rule-note { margin-left: 16px; margin-right: 16px; }
+      .steps { padding-left: 16px; padding-right: 16px; }
+      .row { padding-left: 16px; padding-right: 16px; column-gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="phone">
+    <header class="topbar">
+      <button class="icon-button" id="back" aria-label="이전 단계">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m15 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <h1>제조사·모델 선택</h1>
+      <button class="icon-button" aria-label="닫기">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </header>
+
+    <section class="intro">
+      <strong>이미지 각도 비교 시안</strong>
+      <p>모델과 세대 선택 단계에서 측면·3/4 각도의 식별성과 슬롯 균형을 비교합니다.</p>
+    </section>
+
+    <div class="view-switch" role="tablist" aria-label="이미지 각도 시안">
+      <button type="button" data-view="hybrid" role="tab">혼합안</button>
+      <button type="button" data-view="side" role="tab">측면 통일</button>
+      <button type="button" data-view="angle" role="tab">각도 통일</button>
+    </div>
+    <div class="rule-note" id="ruleNote"></div>
+
+    <nav class="steps" aria-label="선택 단계">
+      <button class="step" data-stage="maker">1 제조사</button>
+      <button class="step" data-stage="model">2 모델</button>
+      <button class="step" data-stage="generation">3 세대</button>
+    </nav>
+
+    <div class="search-wrap">
+      <div class="search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m16.5 16.5 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span id="searchText">제조사 검색</span>
+      </div>
+    </div>
+
+    <div class="section-head"><h2 id="sectionTitle">제조사</h2><span id="sectionHint">로고 40×40</span></div>
+    <section class="list" id="list" aria-live="polite"></section>
+    <div class="reference">오토스카우트 원본은 각도·실루엣 참고에만 사용했습니다. 이 시안의 차량 이미지는 동일 슬롯 검증을 위해 별도로 제작한 테스트 자산입니다.</div>
+    <div class="footer-space"></div>
+  </main>
+
+  <script>
+    const base = './assets/cars/mercedes/e-class/compare-v01/';
+    const params = new URLSearchParams(location.search);
+    let view = ['hybrid', 'side', 'angle'].includes(params.get('view')) ? params.get('view') : 'hybrid';
+    let stage = ['maker', 'model', 'generation'].includes(params.get('stage')) ? params.get('stage') : 'generation';
+
+    const generations = [
+      { code: 'W214', years: '2023년~현재', side: 'eclass_w214_side_v01.png', angle: 'eclass_w214_angle_v01.png' },
+      { code: 'W213', years: '2016~2023년', side: 'eclass_w213_side_v01.png', angle: 'eclass_w213_angle_v01.png' },
+      { code: 'W212', years: '2009~2016년', side: 'eclass_w212_side_v01.png', angle: 'eclass_w212_angle_v01.png' }
+    ];
+    const rules = {
+      hybrid: '추천 비교안 · 모델은 측면으로 차체 비율을, 세대는 3/4 각도로 전면부 차이를 보여줍니다.',
+      side: '측면 통일안 · 모든 단계의 실루엣과 슬롯 높이가 가장 안정적으로 맞습니다.',
+      angle: '각도 통일안 · 그릴·램프 식별은 좋지만 차종마다 점유 폭 편차가 생길 수 있습니다.'
+    };
+
+    function currentAngle(targetStage) {
+      if (view === 'hybrid') return targetStage === 'model' ? 'side' : 'angle';
+      return view;
+    }
+    function vehicle(src, alt) {
+      return `<span class="media-slot"><img class="vehicle-image" src="${base + src}" alt="${alt}" /></span>`;
+    }
+    function row(cls, media, title, sub, target, selected = false) {
+      return `<button class="row ${cls}${selected ? ' is-selected' : ''}" type="button" data-target="${target}">${media}<span class="text"><strong>${title}</strong>${sub ? `<small>${sub}</small>` : ''}</span><span class="chevron">›</span><span class="check">✓</span></button>`;
+    }
+    function renderMaker() {
+      const logo = '<span class="media-slot"><img src="./assets/brand/kr/mercedes-benz.png" alt="메르세데스-벤츠 로고" /></span>';
+      const ghost = '<span class="media-slot" aria-hidden="true" style="color:#666;font-weight:800;font-size:11px">LOGO</span>';
+      return row('maker-row', logo, '메르세데스-벤츠', 'Mercedes-Benz', 'model', true)
+        + row('maker-row', ghost, 'BMW', 'BMW', 'model')
+        + row('maker-row', ghost, '아우디', 'Audi', 'model')
+        + row('maker-row', ghost, '볼보', 'Volvo', 'model');
+    }
+    function renderModel() {
+      const angle = currentAngle('model');
+      const g = generations[0];
+      return row('model-row', vehicle(g[angle], `E-클래스 ${angle === 'side' ? '측면' : '3/4 각도'}`), 'E-클래스', '준대형 세단', 'generation', true)
+        + row('model-row', vehicle(g[angle], `C-클래스 이미지 샘플`), 'C-클래스', '중형 세단', 'generation')
+        + row('model-row', vehicle(g[angle], `S-클래스 이미지 샘플`), 'S-클래스', '대형 세단', 'generation');
+    }
+    function renderGeneration() {
+      const angle = currentAngle('generation');
+      return generations.map((g, index) => row('generation-row', vehicle(g[angle], `${g.code} ${angle === 'side' ? '측면' : '3/4 각도'}`), `E-클래스 ${g.code}`, g.years, 'done', index === 0)).join('');
+    }
+    function render() {
+      document.querySelectorAll('[data-view]').forEach((button) => button.setAttribute('aria-selected', button.dataset.view === view));
+      document.querySelectorAll('[data-stage]').forEach((button) => {
+        const order = { maker: 0, model: 1, generation: 2 };
+        button.classList.toggle('is-current', button.dataset.stage === stage);
+        button.classList.toggle('is-done', order[button.dataset.stage] < order[stage]);
+      });
+      const config = {
+        maker: ['제조사', '로고 40×40 · 간격 12', '제조사 검색', renderMaker],
+        model: ['모델', '이미지 80×48 · 행 72', '모델 검색', renderModel],
+        generation: ['세대별 모델', '이미지 88×52 · 행 84', '세대 검색', renderGeneration]
+      }[stage];
+      document.getElementById('ruleNote').textContent = rules[view];
+      document.getElementById('sectionTitle').textContent = config[0];
+      document.getElementById('sectionHint').textContent = config[1];
+      document.getElementById('searchText').textContent = config[2];
+      document.getElementById('list').innerHTML = config[3]();
+      params.set('view', view); params.set('stage', stage);
+      history.replaceState(null, '', `${location.pathname}?${params}`);
+    }
+    document.addEventListener('click', (event) => {
+      const viewButton = event.target.closest('[data-view]');
+      const stageButton = event.target.closest('[data-stage]');
+      const rowButton = event.target.closest('[data-target]');
+      if (viewButton) view = viewButton.dataset.view;
+      if (stageButton) stage = stageButton.dataset.stage;
+      if (rowButton && rowButton.dataset.target !== 'done') stage = rowButton.dataset.target;
+      if (viewButton || stageButton || rowButton) render();
+    });
+    document.getElementById('back').addEventListener('click', () => {
+      stage = stage === 'generation' ? 'model' : 'maker'; render();
+    });
+    render();
+  </script>
+</body>
+</html>
