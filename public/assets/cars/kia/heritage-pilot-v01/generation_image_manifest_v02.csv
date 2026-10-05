@@ -1,0 +1,3 @@
+manufacturer,model,generation,year_range,body_style,view,primary_source,secondary_source,reference_status,qa_structure,qa_slot,approval_status,asset
+기아,록스타,초기형,1990~1993,2도어 하드톱 SUV,전면 좌측 3/4,아시아자동차 당시 광고,VerCity 1990 실차,부분 검증,1차 통과,미검수,후보,car_kia_rocsta_firstgen_angle_master_v01.png
+기아,엘란,단일 세대,1996~1999,2인승 로드스터,전면 좌측 3/4,카이즈유 1996 엘란,기아 헤리티지 엘란,2자 검증,1차 통과,모바일 시안 통과,후보,car_kia_elan_1996_angle_master_v02.png
