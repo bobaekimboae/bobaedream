@@ -155,10 +155,6 @@ button { -webkit-tap-highlight-color: transparent; }
 .filter-value { min-width: 0; color: #666d76; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 .sheet-footer { border-top: 1px solid #e8e8e8; background: #fff; padding: 8px 16px calc(14px + env(safe-area-inset-bottom)); box-shadow: 0 -6px 18px rgba(28,36,50,.05); }
-.selection-strip { min-height: 28px; display: flex; gap: 6px; overflow-x: auto; align-items: center; scrollbar-width: none; }
-.selection-strip:empty { min-height: 0; }
-.selection-chip { flex: 0 0 auto; height: 28px; display: inline-flex; align-items: center; gap: 5px; padding: 0 9px 0 10px; border: 0; border-radius: 999px; background: var(--chip-bg-neutral); color: #222; font-size: 12px; line-height: 16px; font-weight: 400; cursor: pointer; }
-.selection-chip b { color: #7c828a; font-size: 14px; line-height: 1; font-weight: 400; }
 .footer-actions { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 10px; margin-top: 8px; }
 .reset-button, .apply-button { height: 52px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; }
 .reset-button {
