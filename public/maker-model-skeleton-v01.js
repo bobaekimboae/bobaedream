@@ -152,7 +152,7 @@ function renderModel() {
     const label = BODY_TYPES.find((type) => type.value === state.modelTab)?.label || state.modelTab;
     content = bodyRows.length ? `<div class="section-heading-row"><h3>${escapeHtml(label)} 모델</h3><span>${bodyRows.length}개</span></div><ul class="model-list">${bodyRows.map(modelRow).join("")}</ul>` : `<p class="empty-copy">${escapeHtml(label)}로 확인된 모델이 없습니다.</p>`;
   }
-  return `<div class="path-copy"><span>${escapeHtml(state.maker.displayName)}</span><span>›</span><strong>모델</strong>${testBadge()}</div>${searchField("모델명·세대코드 검색")}${bodyTypeRail(allModels)}${content || '<p class="empty-copy">검색 결과가 없습니다.</p>'}`;
+  return `${searchField("모델명·세대코드 검색")}${bodyTypeRail(allModels)}${content || '<p class="empty-copy">검색 결과가 없습니다.</p>'}`;
 }
 
 function formatYm(value) {
