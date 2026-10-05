@@ -155,8 +155,19 @@ CREATE TABLE IF NOT EXISTS manufacturers (
   manufacturer_key TEXT NOT NULL,
   name_ko TEXT NOT NULL,
   name_en TEXT,
+  source_system TEXT,
+  source_code TEXT,
+  source_name TEXT,
+  origin_type TEXT,
+  country_name TEXT,
   country_code TEXT,
+  is_popular INTEGER NOT NULL DEFAULT 0,
+  is_visible INTEGER NOT NULL DEFAULT 1,
   sort_order INTEGER NOT NULL DEFAULT 0,
+  listing_count_snapshot INTEGER,
+  listing_count_snapshot_at TEXT,
+  review_status TEXT NOT NULL DEFAULT 'CONFIRMED',
+  review_reason TEXT,
   status TEXT NOT NULL,
   created_at TEXT NOT NULL,
   updated_at TEXT NOT NULL,
@@ -170,12 +181,59 @@ CREATE TABLE IF NOT EXISTS models (
   name_ko TEXT NOT NULL,
   name_en TEXT,
   parent_model_id TEXT REFERENCES models(id),
+  model_level TEXT,
+  source_system TEXT,
+  source_code TEXT,
+  source_name TEXT,
+  generation_code TEXT,
+  release_ym TEXT,
+  end_ym TEXT,
+  sales_status TEXT,
+  encar_image_path TEXT,
+  body_type TEXT,
   sort_order INTEGER NOT NULL DEFAULT 0,
+  price_min_10k_krw INTEGER,
+  price_max_10k_krw INTEGER,
+  listing_count_snapshot INTEGER,
+  listing_count_snapshot_at TEXT,
+  is_visible INTEGER NOT NULL DEFAULT 1,
+  review_status TEXT NOT NULL DEFAULT 'CONFIRMED',
+  review_reason TEXT,
   status TEXT NOT NULL,
   created_at TEXT NOT NULL,
   updated_at TEXT NOT NULL,
   UNIQUE(manufacturer_id, model_key)
 );
+
+CREATE TABLE IF NOT EXISTS model_trims (
+  id TEXT PRIMARY KEY,
+  generation_model_id TEXT NOT NULL REFERENCES models(id),
+  parent_trim_id TEXT REFERENCES model_trims(id),
+  trim_key TEXT NOT NULL,
+  trim_level TEXT NOT NULL,
+  name_ko TEXT NOT NULL,
+  source_system TEXT NOT NULL,
+  source_code TEXT,
+  source_name TEXT NOT NULL,
+  value_type TEXT,
+  fuel TEXT,
+  drive TEXT,
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  price_min_10k_krw INTEGER,
+  price_max_10k_krw INTEGER,
+  listing_count_snapshot INTEGER,
+  listing_count_snapshot_at TEXT,
+  is_visible INTEGER NOT NULL DEFAULT 1,
+  review_status TEXT NOT NULL DEFAULT 'CONFIRMED',
+  review_reason TEXT,
+  status TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  updated_at TEXT NOT NULL,
+  UNIQUE(generation_model_id, trim_key)
+);
+
+CREATE INDEX IF NOT EXISTS idx_model_trims_parent
+ON model_trims(generation_model_id, parent_trim_id, trim_level, sort_order);
 
 CREATE TABLE IF NOT EXISTS legacy_field_mappings (
   id TEXT PRIMARY KEY,
@@ -254,6 +312,13 @@ CREATE TABLE IF NOT EXISTS outbox_events (
 );
 `;
 
+function ensureColumns(database, table, definitions) {
+  const columns = new Set(database.prepare(`PRAGMA table_info(${table})`).all().map((column) => column.name));
+  for (const [name, definition] of Object.entries(definitions)) {
+    if (!columns.has(name)) database.exec(`ALTER TABLE ${table} ADD COLUMN ${name} ${definition}`);
+  }
+}
+
 export class AdminDatabase {
   constructor(filePath = process.env.ADMIN_DB_PATH || "./data/category-admin.sqlite") {
     this.filePath = filePath;
@@ -264,6 +329,19 @@ export class AdminDatabase {
     if (!readModelColumns.has("placement_keys_json")) {
       this.db.exec("ALTER TABLE listing_read_models ADD COLUMN placement_keys_json TEXT NOT NULL DEFAULT '[]'");
     }
+    ensureColumns(this.db, "manufacturers", {
+      source_system: "TEXT", source_code: "TEXT", source_name: "TEXT", origin_type: "TEXT", country_name: "TEXT",
+      is_popular: "INTEGER NOT NULL DEFAULT 0", is_visible: "INTEGER NOT NULL DEFAULT 1",
+      listing_count_snapshot: "INTEGER", listing_count_snapshot_at: "TEXT",
+      review_status: "TEXT NOT NULL DEFAULT 'CONFIRMED'", review_reason: "TEXT",
+    });
+    ensureColumns(this.db, "models", {
+      model_level: "TEXT", source_system: "TEXT", source_code: "TEXT", source_name: "TEXT",
+      generation_code: "TEXT", release_ym: "TEXT", end_ym: "TEXT", sales_status: "TEXT", encar_image_path: "TEXT", body_type: "TEXT",
+      price_min_10k_krw: "INTEGER", price_max_10k_krw: "INTEGER",
+      listing_count_snapshot: "INTEGER", listing_count_snapshot_at: "TEXT", is_visible: "INTEGER NOT NULL DEFAULT 1",
+      review_status: "TEXT NOT NULL DEFAULT 'CONFIRMED'", review_reason: "TEXT",
+    });
   }
 
   close() {
@@ -354,6 +432,7 @@ export class AdminDatabase {
         DELETE FROM schema_items;
         DELETE FROM schemas;
         DELETE FROM legacy_field_mappings;
+        DELETE FROM model_trims;
         DELETE FROM models;
         DELETE FROM manufacturers;
         DELETE FROM variable_items;

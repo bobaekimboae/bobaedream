@@ -5,6 +5,14 @@ info:
 servers:
   - url: http://127.0.0.1:8788
 paths:
+  /api/admin/model-trims:
+    get:
+      summary: 세부모델 기준 연료·구동·등급·세부등급 조회
+      parameters:
+        - { name: generation_model_id, in: query, required: false, schema: { type: string } }
+      responses:
+        "200": { description: Model trim fixture rows }
+        "403": { description: Admin read permission required }
   /api/admin/variable-matrix:
     get:
       summary: 차량유형별 가변 화면 매트릭스

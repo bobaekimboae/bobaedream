@@ -49,5 +49,6 @@ publish_order:
   - schema_items
   - manufacturers
   - models
+  - model_trims
   - legacy_field_mappings
 verification_command: npm run test:admin

@@ -43,6 +43,15 @@ test("admin UI and health endpoint are executable", async () => {
     const page = await fetch(baseUrl + "/category-admin/");
     assert.equal(page.status, 200);
     assert.match(await page.text(), /보배드림 카테고리 운영/);
+
+  });
+});
+
+test("model trim fixture endpoint is available to administrators", async () => {
+  await withApp(async ({ baseUrl }) => {
+    const trims = await request(baseUrl, "/api/admin/model-trims");
+    assert.equal(trims.response.status, 200);
+    assert.deepEqual(trims.json, []);
   });
 });
 
