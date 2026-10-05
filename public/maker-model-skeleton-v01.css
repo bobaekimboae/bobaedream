@@ -104,7 +104,7 @@ button { -webkit-tap-highlight-color: transparent; }
 
 .body-type-rail { position: sticky; top: 62px; z-index: 1; display: flex; gap: 8px; overflow-x: auto; padding: 10px 16px 12px; scroll-padding-inline: 16px; border-bottom: 1px solid #e8e8e8; background: rgba(255,255,255,.98); scrollbar-width: none; scroll-snap-type: x proximity; }
 .body-type-rail::-webkit-scrollbar { display: none; }
-.body-type-rail button { flex: 0 0 auto; height: 36px; display: inline-flex; align-items: center; justify-content: center; padding: 0 15px; border: 0; border-radius: 6px; background: var(--chip-bg-neutral); color: #222; font-size: 14px; line-height: 18px; font-weight: 400; cursor: pointer; scroll-snap-align: start; white-space: nowrap; }
+.body-type-rail button { flex: 0 0 auto; min-width: 48px; height: 32px; display: inline-flex; align-items: center; justify-content: center; padding: 0 12px; border: 0; border-radius: 6px; background: var(--chip-bg-neutral); color: #222; font-size: 14px; line-height: 20px; font-weight: 400; cursor: pointer; scroll-snap-align: start; white-space: nowrap; }
 .body-type-rail button[aria-pressed="true"] { background: #222; color: #fff; font-weight: 700; }
 .body-type-rail span { white-space: nowrap; }
 
