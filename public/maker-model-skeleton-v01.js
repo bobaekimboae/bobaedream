@@ -53,7 +53,8 @@ const initialLogo = ["s", "m", "l", "xl"].includes(requestedLogo) ? requestedLog
 
 const state = {
   screen: 1, logo: initialLogo, catalog: null, makers: [], maker: null, model: null, generation: null,
-  generationImages: {}, selectedLeaves: new Map(), modelTab: "all", query: "", status: "loading", error: "",
+  generationImages: {}, selectedLeaves: new Map(), expandedFuelKey: null, expandedGradeKey: null,
+  modelTab: "all", query: "", status: "loading", error: "",
 };
 
 const body = document.querySelector("#sheet-body");
@@ -208,26 +209,58 @@ function checkedState(leaves) {
   return checked === 0 ? "false" : checked === leaves.length ? "true" : "mixed";
 }
 
-function checkRow({ key, label, count, level, leaves, kind }) {
-  return `<li><button class="option-row grade-row level-${level}" role="checkbox" aria-checked="${checkedState(leaves)}" type="button" data-check-kind="${kind}" data-check-key="${escapeHtml(key)}"><span class="fake-checkbox">${icon("/assets/maker-model/icons/chotot-check.svg")}</span><span class="grade-name">${escapeHtml(label)}</span><span class="option-count">${formatCount(count)}</span></button></li>`;
+function checkRow({ key, label, count, level, leaves, kind, fuelDriveKey = "", gradeKey = "" }) {
+  return `<li><button class="option-row grade-row level-${level}" role="checkbox" aria-checked="${checkedState(leaves)}" type="button" data-check-kind="${kind}" data-check-key="${escapeHtml(key)}" data-fuel-drive-key="${escapeHtml(fuelDriveKey)}" data-grade-key="${escapeHtml(gradeKey)}"><span class="fake-checkbox">${icon("/assets/maker-model/icons/chotot-check.svg")}</span><span class="grade-name">${escapeHtml(label)}</span><span class="option-count">${formatCount(count)}</span></button></li>`;
 }
 
 function renderGrade() {
   if (!state.generation || state.generation.key === "all") return '<div class="empty-copy"><strong>모델 전체가 선택되었습니다.</strong><br />연료·구동과 등급을 고르려면 세부모델 한 개를 선택해 주세요.</div>';
-  const groups = visible(state.generation.fuelDrives).map((fuelDrive) => {
-    const fdRow = checkRow({ key: fuelDrive.key, label: fuelDrive.displayName, count: fuelDrive.listingCount, level: 0, leaves: leafNodesForFuelDrive(fuelDrive), kind: "fuel" });
+  const fuelDrives = visible(state.generation.fuelDrives);
+  const groups = fuelDrives.map((fuelDrive) => {
+    const isFuelExpanded = state.expandedFuelKey === fuelDrive.key;
+    const fdRow = checkRow({
+      key: fuelDrive.key,
+      label: fuelDrive.displayName,
+      count: fuelDrive.listingCount,
+      level: 0,
+      leaves: leafNodesForFuelDrive(fuelDrive),
+      kind: "fuel",
+      fuelDriveKey: fuelDrive.key,
+    });
+    if (!isFuelExpanded) return fdRow;
+
     const grades = visible(fuelDrive.grades).map((grade) => {
-      const gradeRow = checkRow({ key: grade.key, label: grade.displayName, count: grade.listingCount, level: 1, leaves: leafNodesForGrade(grade, fuelDrive), kind: "grade" });
-      const subgradeRows = visible(grade.subgrades).map((subgrade) => checkRow({ key: subgrade.key, label: subgrade.displayName, count: subgrade.listingCount, level: 2, leaves: [{ key: subgrade.key }], kind: "leaf" })).join("");
-      return `${gradeRow}${subgradeRows}`;
+      const subgrades = visible(grade.subgrades);
+      const gradeRow = checkRow({
+        key: grade.key,
+        label: grade.displayName,
+        count: grade.listingCount,
+        level: 1,
+        leaves: leafNodesForGrade(grade, fuelDrive),
+        kind: "grade",
+        fuelDriveKey: fuelDrive.key,
+        gradeKey: grade.key,
+      });
+      if (state.expandedGradeKey !== grade.key || !subgrades.length) return gradeRow;
+      const subgradeRows = subgrades.map((subgrade) => checkRow({
+        key: subgrade.key,
+        label: subgrade.displayName,
+        count: subgrade.listingCount,
+        level: 2,
+        leaves: [{ key: subgrade.key }],
+        kind: "leaf",
+        fuelDriveKey: fuelDrive.key,
+        gradeKey: grade.key,
+      })).join("");
+      return `${gradeRow}<li class="grade-group-title level-2">세부등급</li>${subgradeRows}`;
     }).join("");
-    return `<li class="grade-group-title">연료·구동</li>${fdRow}${grades}`;
+    return `${fdRow}<li class="grade-group-title level-1">등급</li>${grades}`;
   }).join("");
-  return `<div class="path-copy"><span>${escapeHtml(state.maker.displayName)}</span><span>›</span><span>${escapeHtml(state.model.displayName)}</span><span>›</span><span>${escapeHtml(state.generation.displayName)}</span><span>›</span><strong>등급</strong>${testBadge()}</div><ul class="grade-list">${groups || '<li class="empty-copy">연료·구동 데이터가 없습니다.</li>'}</ul>`;
+  return `<div class="path-copy"><span>${escapeHtml(state.maker.displayName)}</span><span>›</span><span>${escapeHtml(state.model.displayName)}</span><span>›</span><span>${escapeHtml(state.generation.displayName)}</span><span>›</span><strong>연료·구동</strong>${testBadge()}</div><ul class="grade-list">${groups ? `<li class="grade-group-title level-0">연료·구동</li>${groups}` : '<li class="empty-copy">연료·구동 데이터가 없습니다.</li>'}</ul>`;
 }
 
 function renderOverview() {
-  const rows = [["제조사", state.maker?.displayName || "선택"], ["모델", state.model?.displayName || "선택"], ["세부모델", state.generation?.displayName || "선택"], ["등급", state.selectedLeaves.size ? `${state.selectedLeaves.size}개 선택` : "선택"]];
+  const rows = [["제조사", state.maker?.displayName || "선택"], ["모델", state.model?.displayName || "선택"], ["세부모델", state.generation?.displayName || "선택"], ["연료·구동", state.selectedLeaves.size ? `${state.selectedLeaves.size}개 선택` : "선택"]];
   return `<div class="filter-overview">${rows.map(([label, value], index) => `<button class="filter-row" type="button" data-screen-target="${index + 1}"><strong>${label}</strong><span class="filter-value">${escapeHtml(value)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button>`).join("")}</div>`;
 }
 
@@ -262,7 +295,7 @@ function bindSearch() {
 }
 
 function render() {
-  const titles = ["필터", "제조사", "모델", "세부모델", "등급"];
+  const titles = ["필터", "제조사", "모델", "세부모델", "연료·구동"];
   title.textContent = titles[state.screen];
   if (state.status === "loading") body.innerHTML = '<div class="loading-copy">검수 완료된 제조사·모델 DB를 불러오는 중입니다.</div>';
   else if (state.status === "error") body.innerHTML = `<div class="data-error" role="alert"><strong>DB 연결을 중단했습니다.</strong><span>${escapeHtml(state.error)}</span></div>`;
@@ -288,6 +321,14 @@ function findCheckLeaves(kind, key) {
   return [];
 }
 
+function findFuelDrive(key) {
+  return visible(state.generation?.fuelDrives).find((fuelDrive) => fuelDrive.key === key);
+}
+
+function findGrade(fuelDrive, key) {
+  return visible(fuelDrive?.grades).find((grade) => grade.key === key);
+}
+
 document.addEventListener("click", (event) => {
   const screenButton = event.target.closest("[data-screen], [data-screen-target]");
   if (screenButton) return setScreen(screenButton.dataset.screen ?? screenButton.dataset.screenTarget);
@@ -296,27 +337,49 @@ document.addEventListener("click", (event) => {
   const removeButton = event.target.closest("[data-remove-selection]");
   if (removeButton) {
     const key = removeButton.dataset.removeSelection;
-    if (key === "maker") { state.maker = null; state.model = null; state.generation = null; state.selectedLeaves.clear(); }
-    else if (key === "model") { state.model = null; state.generation = null; state.selectedLeaves.clear(); }
-    else if (key === "generation") { state.generation = null; state.selectedLeaves.clear(); }
+    if (key === "maker") { state.maker = null; state.model = null; state.generation = null; state.selectedLeaves.clear(); state.expandedFuelKey = null; state.expandedGradeKey = null; }
+    else if (key === "model") { state.model = null; state.generation = null; state.selectedLeaves.clear(); state.expandedFuelKey = null; state.expandedGradeKey = null; }
+    else if (key === "generation") { state.generation = null; state.selectedLeaves.clear(); state.expandedFuelKey = null; state.expandedGradeKey = null; }
     else if (key.startsWith("leaf:")) state.selectedLeaves.delete(key.slice(5));
     return render();
   }
   const makerButton = event.target.closest("[data-select-maker]");
-  if (makerButton) { state.maker = state.makers.find((maker) => maker.key === makerButton.dataset.selectMaker); state.model = null; state.generation = null; state.selectedLeaves.clear(); state.modelTab = "all"; return setScreen(2); }
+  if (makerButton) { state.maker = state.makers.find((maker) => maker.key === makerButton.dataset.selectMaker); state.model = null; state.generation = null; state.selectedLeaves.clear(); state.expandedFuelKey = null; state.expandedGradeKey = null; state.modelTab = "all"; return setScreen(2); }
   const modelButton = event.target.closest("[data-select-model]");
-  if (modelButton) { state.model = visible(state.maker?.modelGroups).find((model) => model.key === modelButton.dataset.selectModel); state.generation = null; state.selectedLeaves.clear(); return setScreen(3); }
+  if (modelButton) { state.model = visible(state.maker?.modelGroups).find((model) => model.key === modelButton.dataset.selectModel); state.generation = null; state.selectedLeaves.clear(); state.expandedFuelKey = null; state.expandedGradeKey = null; return setScreen(3); }
   const generationButton = event.target.closest("[data-select-generation]");
-  if (generationButton) { state.generation = generationButton.dataset.selectGeneration === "all" ? { key: "all", displayName: `${state.model.displayName} 전체`, listingCount: state.model.listingCount } : visible(state.model?.generations).find((generation) => generation.key === generationButton.dataset.selectGeneration); state.selectedLeaves.clear(); return setScreen(4); }
+  if (generationButton) { state.generation = generationButton.dataset.selectGeneration === "all" ? { key: "all", displayName: `${state.model.displayName} 전체`, listingCount: state.model.listingCount } : visible(state.model?.generations).find((generation) => generation.key === generationButton.dataset.selectGeneration); state.selectedLeaves.clear(); state.expandedFuelKey = null; state.expandedGradeKey = null; return setScreen(4); }
   const checkButton = event.target.closest("[data-check-kind]");
-  if (checkButton) { const leaves = findCheckLeaves(checkButton.dataset.checkKind, checkButton.dataset.checkKey); const allChecked = leaves.every((leaf) => state.selectedLeaves.has(leaf.key)); leaves.forEach((leaf) => allChecked ? state.selectedLeaves.delete(leaf.key) : state.selectedLeaves.set(leaf.key, leaf)); return render(); }
+  if (checkButton) {
+    const kind = checkButton.dataset.checkKind;
+    if (kind === "fuel") {
+      state.expandedFuelKey = checkButton.dataset.fuelDriveKey;
+      state.expandedGradeKey = null;
+    } else if (kind === "grade") {
+      state.expandedFuelKey = checkButton.dataset.fuelDriveKey;
+      state.expandedGradeKey = checkButton.dataset.gradeKey;
+    }
+    const leaves = findCheckLeaves(kind, checkButton.dataset.checkKey);
+    const fuelDrive = findFuelDrive(checkButton.dataset.fuelDriveKey);
+    const grade = findGrade(fuelDrive, checkButton.dataset.gradeKey);
+    const parentLeaves = kind === "grade" ? leafNodesForFuelDrive(fuelDrive) : kind === "leaf" ? leafNodesForGrade(grade, fuelDrive) : [];
+    const parentWasFullySelected = parentLeaves.length > leaves.length && parentLeaves.every((leaf) => state.selectedLeaves.has(leaf.key));
+    if (parentWasFullySelected) {
+      parentLeaves.forEach((leaf) => state.selectedLeaves.delete(leaf.key));
+      leaves.forEach((leaf) => state.selectedLeaves.set(leaf.key, leaf));
+      return render();
+    }
+    const allChecked = leaves.every((leaf) => state.selectedLeaves.has(leaf.key));
+    leaves.forEach((leaf) => allChecked ? state.selectedLeaves.delete(leaf.key) : state.selectedLeaves.set(leaf.key, leaf));
+    return render();
+  }
   const modelFilterButton = event.target.closest("[data-model-filter]");
   if (modelFilterButton) { state.modelTab = modelFilterButton.dataset.modelFilter; render(); body.scrollTop = 0; return; }
 });
 
 document.querySelector("#back-button").addEventListener("click", () => setScreen(state.screen - 1));
 document.querySelector("#close-button").addEventListener("click", () => setScreen(0));
-document.querySelector("#reset-button").addEventListener("click", () => { state.maker = null; state.model = null; state.generation = null; state.selectedLeaves.clear(); state.query = ""; state.modelTab = "all"; setScreen(1); });
+document.querySelector("#reset-button").addEventListener("click", () => { state.maker = null; state.model = null; state.generation = null; state.selectedLeaves.clear(); state.expandedFuelKey = null; state.expandedGradeKey = null; state.query = ""; state.modelTab = "all"; setScreen(1); });
 
 async function loadCatalog() {
   try {
