@@ -1,4 +1,6 @@
 const CATALOG_URL = "./data/encar-car-depth-1005/catalog.json";
+const GENERATION_IMAGES_URL = "./data/encar-car-depth-1005/generation-images.json";
+const GENERATION_IMAGE_BASE = "./assets/maker-model/generations/grandeur/";
 const EXPECTED_COUNTS = { manufacturers: 63, modelGroups: 663, generations: 1256, fuelDrives: 2158, grades: 5976, subgrades: 3297 };
 
 const BODY_TYPES = [
@@ -41,7 +43,7 @@ const initialLogo = ["s", "m", "l", "xl"].includes(requestedLogo) ? requestedLog
 
 const state = {
   screen: 1, logo: initialLogo, catalog: null, makers: [], maker: null, model: null, generation: null,
-  selectedLeaves: new Map(), modelTab: "name", bodyType: "세단", query: "", status: "loading", error: "",
+  generationImages: {}, selectedLeaves: new Map(), modelTab: "name", bodyType: "세단", query: "", status: "loading", error: "",
 };
 
 const body = document.querySelector("#sheet-body");
@@ -101,15 +103,23 @@ function bodyIconPath(bodyType) {
   return `./assets/icons/body-type/${match?.icon || "other.svg"}`;
 }
 
+function generationImage(generation, label) {
+  const fileName = generation ? state.generationImages[generation.key] : "";
+  if (!fileName) return "";
+  return `<img class="generated-vehicle-image" src="${GENERATION_IMAGE_BASE}${escapeHtml(fileName)}" alt="${escapeHtml(label)} 세대 이미지" />`;
+}
+
 function modelSilhouette(model, className = "vehicle-image") {
   const newestGeneration = visible(model.generations)[0];
-  const fileName = newestGeneration ? `gen_${newestGeneration.key}.png` : "gen_pending.png";
-  return `<span class="vehicle-silhouette ${className}" data-image-key="${escapeHtml(fileName)}" title="최신 세대 이미지 자리: ${escapeHtml(fileName)}" aria-hidden="true">${icon(bodyIconPath(model.bodyType))}</span>`;
+  const fileName = newestGeneration ? state.generationImages[newestGeneration.key] : "";
+  const image = generationImage(newestGeneration, model.displayName);
+  return `<span class="vehicle-silhouette ${className}${image ? " has-generated-image" : ""}" data-image-key="${escapeHtml(fileName || "gen_pending.png")}" aria-hidden="true">${image || icon(bodyIconPath(model.bodyType))}</span>`;
 }
 
 function generationSilhouette(generation, model) {
-  const fileName = `gen_${generation.key}.png`;
-  return `<span class="vehicle-silhouette vehicle-image generation-placeholder" data-image-key="${escapeHtml(fileName)}" title="이미지 자리: ${escapeHtml(fileName)}" aria-hidden="true">${icon(bodyIconPath(model?.bodyType))}</span>`;
+  const fileName = state.generationImages[generation.key] || `gen_${generation.key}.png`;
+  const image = generationImage(generation, generation.displayName);
+  return `<span class="vehicle-silhouette vehicle-image generation-placeholder${image ? " has-generated-image" : ""}" data-image-key="${escapeHtml(fileName)}" aria-hidden="true">${image || icon(bodyIconPath(model?.bodyType))}</span>`;
 }
 
 function searchField(placeholder) {
@@ -135,7 +145,7 @@ function modelRow(model) {
 
 function bodyTypeRail(models) {
   const counts = new Map(BODY_TYPES.map((type) => [type.value, models.filter((model) => model.bodyType === type.value).length]));
-  return `<div class="body-type-rail" aria-label="바디타입 선택">${BODY_TYPES.map((type) => `<button type="button" data-body-type="${escapeHtml(type.value)}" aria-pressed="${state.bodyType === type.value}" aria-disabled="${!counts.get(type.value)}" title="${counts.get(type.value) || 0}개 모델">${icon(`./assets/icons/body-type/${type.icon}`)}<span>${escapeHtml(type.label)}</span></button>`).join("")}</div>`;
+  return `<div class="body-type-rail" aria-label="바디타입 선택">${BODY_TYPES.map((type) => `<button type="button" data-body-type="${escapeHtml(type.value)}" aria-pressed="${state.bodyType === type.value}" aria-disabled="${!counts.get(type.value)}" title="${counts.get(type.value) || 0}개 모델"><span>${escapeHtml(type.label)}</span></button>`).join("")}</div>`;
 }
 
 function renderModel() {
@@ -311,11 +321,16 @@ document.querySelector("#reset-button").addEventListener("click", () => { state.
 
 async function loadCatalog() {
   try {
-    const response = await fetch(CATALOG_URL, { cache: "no-store" });
-    if (!response.ok) throw new Error(`catalog.json HTTP ${response.status}`);
-    const catalog = await response.json();
+    const [catalogResponse, imageResponse] = await Promise.all([
+      fetch(CATALOG_URL, { cache: "no-store" }),
+      fetch(GENERATION_IMAGES_URL, { cache: "no-store" }),
+    ]);
+    if (!catalogResponse.ok) throw new Error(`catalog.json HTTP ${catalogResponse.status}`);
+    if (!imageResponse.ok) throw new Error(`generation-images.json HTTP ${imageResponse.status}`);
+    const [catalog, generationImages] = await Promise.all([catalogResponse.json(), imageResponse.json()]);
     validateCatalog(catalog);
     state.catalog = catalog;
+    state.generationImages = generationImages;
     state.makers = visible(catalog.manufacturers);
     state.status = "ready";
   } catch (error) {
