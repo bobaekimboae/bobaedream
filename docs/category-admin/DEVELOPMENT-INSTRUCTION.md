@@ -223,6 +223,7 @@ POST /api/admin/schemas/{id}/actions/publish
 POST /api/admin/schemas/{id}/actions/rollback
 GET|POST /api/admin/manufacturers
 GET|POST /api/admin/models
+GET /api/admin/model-trims?generation_model_id={generation_model_id}
 ```
 
 기존 관리자 연동:

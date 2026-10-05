@@ -189,6 +189,11 @@ async function routeApi(req, res, url, service) {
     }
   }
 
+  if (path === "/api/admin/model-trims" && req.method === "GET") {
+    requirePermission("read");
+    return json(res, 200, service.listModelTrims(url.searchParams.get("generation_model_id")));
+  }
+
   if (req.method === "GET" && path === "/api/admin/legacy-field-mappings") {
     requirePermission("read");
     return json(res, 200, service.listLegacyMappings());

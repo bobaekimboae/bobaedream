@@ -115,6 +115,52 @@
 
 final result: passed
 
+## 제조사 다음 모델 · 과쯔형 바디타입 레일 v01
+
+- source visual truth: Google Drive `과쯔 1 전체.jpg` (`1080×2400`, CSS 기준 약 `360×800`, 3x), `과쯔 2.jpg`, `과쯔 영상.mp4` — `https://drive.google.com/drive/folders/1ODOYnMUtofr1FMkHh4jkMcdfFKLgepxf`
+- implementation screenshots: `C:\Users\bobae\codex-work\maker-model-skeleton-1005\reports\screenshots\maker-model-guazi-rail-all-384.png`, `C:\Users\bobae\codex-work\maker-model-skeleton-1005\reports\screenshots\maker-model-guazi-rail-sedan-384.png`
+- combined comparison evidence: `C:\Users\bobae\codex-work\maker-model-skeleton-1005\reports\screenshots\guazi-vs-bobae-model-rail.png`
+- viewport: 구현 `384×820` CSS px, deviceScaleFactor 1. 추가 반응형 검수 `360×820`, `412×820`.
+- density normalization: 과쯔 원본은 1080px 폭을 360px CSS 폭으로 축소해 구조·밀도를 판단하고, 보배드림은 384px CSS 원본 크기로 비교했다.
+- state: 현대 모델 `전체`, 현대 모델 `세단` 선택.
+
+### Full-view comparison evidence
+
+- 과쯔의 핵심 구조인 `전체 + 바디타입 직접 선택` 단일 가로 레일을 검색창 바로 아래에 배치했다.
+- `전체`에서만 인기 모델 5개를 먼저 표시하고, 구분면 아래에 `전체 모델 / 바디타입별`과 전체 목록을 배치했다. 전체 목록은 과쯔처럼 `세단·해치백·SUV…` 중앙 구분 타이틀과 양쪽 선으로 나눴다.
+- `세단` 선택 시 인기 모델을 제거하고 목록 상단에 `세단` 중앙 구분 타이틀을 다시 표시해 현재 범위를 즉시 알 수 있게 했다.
+- 과쯔의 녹색 선택색·회색 카드 배경은 복제하지 않고 보배드림 공통 검정 선택색과 흰색 리스트 규칙으로 의도적으로 치환했다.
+
+### Focused region comparison evidence
+
+- 칩: 높이 36px, 가로 패딩 15px, 간격 8px, 좌측 여백 16px, 한 줄 가로 스크롤.
+- 선택 상태: `#222` 배경·흰색 14/18px·700, 미선택은 `#F3F4F5`·14/18px·400.
+- 모델 행: 기존 74×46px 이미지 슬롯, 16/22px 모델명, 우측 매물 수와 화살표 정렬을 유지했다.
+- 360·384·412px 모두 문서 가로 넘침 0이며 레일만 정상 가로 스크롤한다. 첫 칩 x=16px.
+
+### Required fidelity surfaces
+
+- fonts and typography: 기존 Pretendard 및 400·700 위계 유지. 과쯔보다 한국어 모델명이 선명하고 구간 제목의 위계가 높다.
+- spacing and layout rhythm: 검색 → 칩 레일 → 구간 제목 → 모델 행의 리듬을 유지하고, 바디타입 선택 단계를 두 줄에서 한 줄로 축소했다.
+- colors and tokens: 과쯔 구조만 참고하고 보배드림 `#222`, `#F3F4F5`, `#E8E8E8` 토큰을 유지했다.
+- image quality: 제공된 세대 이미지와 단일 대체 아이콘을 기존 74×46px 슬롯 안에서 그대로 사용한다.
+- copy and content: `전체`, `세단`, `해치백`, `웨건`, `쿠페`, `SUV`, `RV/MPV(밴)`을 DB 값과 연결했다. 0건 유형은 숨김 처리한다.
+
+### Interaction and console QA
+
+- `전체` 선택 시 인기 모델 → 전체 모델 바디타입별 구분 목록이 표시된다.
+- 가나다·영문 초성 칩은 노출하지 않고 목록 자체만 이름순으로 유지한다.
+- 바디타입 선택 시 목록이 즉시 교체되고 스크롤이 상단으로 복귀한다.
+- 검색 중에는 인기 모델 구간을 숨기고 검색 결과만 유지한다.
+- 콘솔 오류 0건, 360·384·412px 문서 오버플로 0건.
+
+### Findings
+
+- P0/P1/P2 없음.
+- P3: 현재 바디타입 데이터는 현대 40개 모델만 연결돼 있다. 다른 제조사는 데이터가 들어오기 전까지 `전체`만 표시된다.
+
+final result: passed
+
 ---
 
 # 트럭 톤수 다음 제조사 로고 레일 v59

@@ -1,0 +1,65 @@
+﻿엔카코드,제조사(엔카 원문),영문명,파일명,출처,등급,원본크기,상태,비고
+001,현대,Hyundai,001_Hyundai.png,오토홈,A,600x600,OK,
+007,제네시스,Genesis,007_Genesis.png,오토홈,A,600x600,OK,
+002,기아,Kia,002_Kia.png,오토홈,A,600x600,OK,
+003,쉐보레(GM대우),ChevroletGMDaewoo,003_ChevroletGMDaewoo.png,헤이딜러,A,400x400,교체,🟡 교체: 금색 입체 보타이(차량 엠블럼) → 평면 외곽선 보타이(현재 브랜드 로고)
+005,르노코리아(삼성),Renault-KoreaSamsung,005_Renault_KoreaSamsung.png,헤이딜러,A,600x600,OK,
+004,KG모빌리티(쌍용),KG_Mobility_Ssangyong,004_KG_Mobility_Ssangyong.png,헤이딜러,A,600x600,OK,
+006,기타 제조사,Others,,,,,로고 불필요(기타),
+012,BMW,BMW,012_BMW.png,오토홈,A,600x600,OK,
+090,BYD,BYD,090_BYD.png,K카,A,930x179,OK,"원본이 SVG → PNG(600px) 변환, .svg도 같이 넣음"
+056,GMC,GMC,056_GMC.png,오토홈,A,600x600,OK,
+033,닛산,Nissan,033_Nissan.png,오토홈,A,600x600,OK,
+051,다이하쯔,Daihatsu,051_Daihatsu.png,헤이딜러,A,400x400,OK,
+034,닷지,Dodge,034_Dodge.png,당근,A,360x240,교체,🔴 교체: 램 헤드(구) → DODGE 워드마크+스트라이프
+031,도요타,Toyota,031_Toyota.png,오토홈,A,600x600,OK,
+088,동풍소콘,DFSK,088_DFSK.png,오토홈,A,600x600,확인,🟡 동풍(Dongfeng) 엠블럼 사용. 국내 동풍소콘 표기와 같은지 확인
+049,람보르기니,Lamborghini,049_Lamborghini.png,오토홈,A,600x600,OK,
+020,랜드로버,Land Rover,020_Land_Rover.png,오토홈,A,600x600,OK,
+035,렉서스,Lexus,035_Lexus.png,오토홈,A,600x600,OK,
+069,로터스,Lotus,069_Lotus.png,오토홈,A,600x600,OK,
+047,롤스로이스,Rolls-Royce,047_Rolls_Royce.png,오토홈,A,600x600,OK,
+078,르노,Renault,078_Renault.png,K카,A,382x500,OK,"원본이 SVG → PNG(600px) 변환, .svg도 같이 넣음"
+044,링컨,Lincoln,044_Lincoln.png,오토홈,A,600x600,OK,
+053,마세라티,Maserati,053_Maserati.png,오토홈,A,600x600,OK,
+080,마이바흐,Maybach,080_Maybach.png,오토홈,A,600x600,OK,
+029,마쯔다,Mazda,029_Mazda.png,헤이딜러,A,400x400,OK,
+084,맥라렌,Mclaren,084_Mclaren.png,오토홈,A,600x600,OK,
+054,미니,Mini,054_Mini.png,오토홈,A,600x600,OK,
+030,미쯔비시,Mitsubishi,030_Mitsubishi.png,헤이딜러,A,400x400,OK,
+059,미쯔오까,Mitsuoka,059_Mitsuoka.png,헤이딜러,A,400x400,OK,
+013,벤츠,Mercedes-Benz,013_Mercedes_Benz.png,오토홈,A,600x600,OK,
+050,벤틀리,Bentley,050_Bentley.png,오토홈,A,600x600,OK,
+017,볼보,Volvo,017_Volvo.png,시나오토,A,600x600,OK,
+086,북기은상,Baic Yinxiang,086_Baic_Yinxiang.png,헤이딜러,A,400x400,확인,🟡 북기은상 로고 맞는지 확인
+016,사브,Saab,016_Saab.png,헤이딜러,A,400x400,교체,🔴 교체: SAAB Technologies(다른 회사) → 사브 자동차 그리핀 원형
+082,사이언,Scion,082_Scion.png,오토홈,A,600x600,OK,
+092,신위안,Xin yuan,092_Xin_yuan.png,오토홈,,,OK,
+038,쉐보레,Chevrolet,038_Chevrolet.png,헤이딜러,A,400x400,교체,🟡 교체: 금색 입체 보타이(차량 엠블럼) → 평면 외곽선 보타이(현재 브랜드 로고)
+081,스마트,Smart,081_Smart.png,오토홈,A,600x600,OK,
+052,스바루,Subaru,052_Subaru.png,오토홈,A,600x600,OK,
+037,스즈키,Suzuki,037_Suzuki.png,오토홈,A,600x600,OK,
+022,시트로엥/DS,Citroen-DS,022_Citroen_DS.png,당근,A,360x240,교체,🟡 교체: 3D 쉐브론(구) → 평면 쉐브론 (2022 타원형 신로고 후보 없음)
+011,아우디,Audi,011_Audi.png,오토홈,A,600x600,OK,
+040,알파 로메오,Alfa Romeo,040_Alfa_Romeo.png,오토홈,A,600x600,OK,
+070,애스턴마틴,Astonmartin,070_Astonmartin.png,헤이딜러,A,400x400,OK,
+057,어큐라,Acura,057_Acura.png,오토홈,A,600x600,OK,
+093,이네오스,Ineos,093_Ineos.png,시나오토,A,360x360,OK,
+058,인피니티,Infiniti,058_Infiniti.png,오토홈,A,600x600,OK,
+019,재규어,Jaguar,019_Jaguar.png,오토홈,A,600x600,확인,🟡 리퍼(도약 재규어) 유지. 2024 리브랜딩 워드마크 후보 없음
+094,지리,Geely,094_Geely.png,오토홈,,,OK,
+083,지프,Jeep,083_Jeep.png,오토홈,A,600x600,OK,
+043,캐딜락,Cadillac,043_Cadillac.png,오토홈,A,600x600,OK,
+023,크라이슬러,Chrysler,023_Chrysler.png,오토홈,A,600x600,OK,
+087,테슬라,Tesla,087_Tesla.png,오토홈,A,600x600,OK,
+041,페라리,Ferrari,041_Ferrari.png,오토홈,A,600x600,OK,
+024,포드,Ford,024_Ford.png,오토홈,A,600x600,OK,
+015,포르쉐,Porsche,015_Porsche.png,오토홈,A,600x600,OK,
+014,폭스바겐,Volkswagen,014_Volkswagen.png,오토홈,A,600x600,OK,
+089,폴스타,Polestar,089_Polestar.png,오토홈,A,600x600,OK,
+021,푸조,Peugeot,021_Peugeot.png,오토홈,A,600x600,OK,
+018,피아트,Fiat,018_Fiat.png,당근,A,360x240,교체,🟡 교체: 3D 배지(구) → 평면 FIAT 워드마크
+048,험머,Hummer,048_Hummer.png,헤이딜러,A,400x400,OK,
+027,혼다,Honda,027_Honda.png,오토홈,A,600x600,OK,
+999,기타 수입차,etc,,,,,로고 불필요(기타),
+022b,DS(시트로엥/DS 보조),DS,022b_DS.png,오토홈,A,600x600,OK,
