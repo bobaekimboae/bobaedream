@@ -18,6 +18,16 @@ const expected = {
   danawaPcodes: 135,
   reviewRequiredModels: 278,
 };
+const expectedDisplacementBands = {
+  "751cc 이상": 1_117,
+  "401~750cc": 403,
+  "251~400cc": 229,
+  "126~250cc": 237,
+  "51~125cc": 645,
+  "50cc 이하": 141,
+  "전기": 92,
+  "없음": 46,
+};
 
 function flattenCatalog() {
   const manufacturers = catalog.manufacturers;
@@ -48,12 +58,13 @@ test("바이크 공통 원천과 공개 catalog는 확정 건수를 보존한다
   assert.equal(models.length, 2_910);
 });
 
-test("원본 4개 파일의 SHA-256과 출처 메타데이터를 고정한다", () => {
+test("원본 5개 파일의 SHA-256과 출처 메타데이터를 고정한다", () => {
   const hashes = Object.fromEntries(source.meta.sourceFiles.map((item) => [item.name, item.sha256]));
-  for (const fileName of ["bike_catalog_1005.json", "bike_makers_v2_1005.csv", "bike_models_v2_1005.csv", "bike_maker_order_rw_names_1005.csv"]) {
+  for (const fileName of ["bike_catalog_1005.json", "bike_makers_v2_1005.csv", "bike_models_v2_1005.csv", "bike_maker_order_rw_names_1005.csv", "bike_logo_manifest_1005.csv"]) {
     const actual = createHash("sha256").update(readFileSync(`data/bike-catalog-1005/${fileName}`)).digest("hex");
     assert.equal(hashes[fileName], actual, fileName);
   }
+  assert.equal(hashes["bike_models_v2_1005.csv"], "023c44ac55fa53a324521b5535f2a8501d946029972e06eca154b2b2f9d91af1");
   assert.equal(source.meta.vehicleScope, "BIKE");
   assert.equal(source.meta.sourceSystem, "BB_BIKE");
   assert.deepEqual(source.meta.sources, [
@@ -61,6 +72,36 @@ test("원본 4개 파일의 SHA-256과 출처 메타데이터를 고정한다", 
     { name: "네이버 바이크", period: "2012~2021" },
     { name: "다나와", snapshotDate: "2026-10-05" },
   ]);
+});
+
+test("구바이크 배기량 구간과 대표 모델을 최신 CSV 기준으로 보존한다", () => {
+  const { models } = flattenCatalog();
+  const actual = Object.fromEntries(Object.keys(expectedDisplacementBands).map((band) => [
+    band,
+    models.filter((item) => (item.displacementBand ?? "없음") === band).length,
+  ]));
+  assert.deepEqual(actual, expectedDisplacementBands);
+  assert.deepEqual(catalog.meta.displacementBandCounts, expectedDisplacementBands);
+
+  const expectedSamples = new Map([
+    ["CBR 500 R", "401~750cc"],
+    ["CBR 600 RR", "401~750cc"],
+    ["CBR 1000 RR", "751cc 이상"],
+  ]);
+  for (const [name, band] of expectedSamples) {
+    assert.equal(models.find((item) => item.sourceName === name)?.displacementBand, band, name);
+  }
+});
+
+test("공개 제조사에 BKM 코드와 로고 파일 연결 키를 제공한다", () => {
+  assert.ok(catalog.manufacturers.every((item) => /^BKM\d{3}$/.test(item.code)));
+  assert.equal(catalog.manufacturers.filter((item) => item.logoFile).length, 55);
+  assert.ok(catalog.manufacturers.filter((item) => item.logoFile).every((item) => (
+    item.logoFile?.startsWith(`${item.code}_`) && item.logoFile.endsWith(".png")
+  )));
+  assert.equal(catalog.manufacturers.filter((item) => item.isVisible && !item.logoFile).length, 10);
+  assert.ok(catalog.manufacturers.filter((item) => !item.isVisible).every((item) => item.logoFile === null));
+  assert.equal(catalog.manufacturers.find((item) => item.code === "BKM003").logoFile, "BKM003_BMW_Motorrad.png");
 });
 
 test("공개 catalog에는 원천 추적 필드를 노출하지 않는다", () => {

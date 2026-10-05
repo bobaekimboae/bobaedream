@@ -21,6 +21,18 @@ const EXPECTED_COUNTS = Object.freeze({
   danawaPcodes: 135,
 });
 
+const EXPECTED_DATABASE_COUNTS = Object.freeze({
+  manufacturers: 86,
+  visibleManufacturers: 65,
+  hiddenManufacturers: 21,
+  searchVisibleManufacturers: 62,
+  modelGroups: 973,
+  actualModelGroups: 920,
+  implicitModelGroups: 53,
+  models: 2_910,
+  modelSpecs: 2_910,
+});
+
 function assertSource(source) {
   const actual = {
     manufacturers: source.manufacturers?.length ?? -1,
@@ -47,28 +59,55 @@ export function loadBikeCatalogSource(sourcePath = DEFAULT_BIKE_SOURCE_PATH) {
 export function countBikeCatalogRows(database) {
   const row = database.db.prepare(`
     SELECT
-      (SELECT COUNT(*) FROM bike_manufacturers WHERE source_system = 'BB_BIKE') AS manufacturers,
-      (SELECT COUNT(*) FROM bike_manufacturers WHERE source_system = 'BB_BIKE' AND is_visible = 1) AS visibleManufacturers,
-      (SELECT COUNT(*) FROM bike_manufacturers WHERE source_system = 'BB_BIKE' AND is_visible = 0) AS hiddenManufacturers,
-      (SELECT COUNT(*) FROM bike_manufacturers WHERE source_system = 'BB_BIKE' AND is_search_visible = 1) AS searchVisibleManufacturers,
-      (SELECT COUNT(*) FROM bike_model_groups WHERE source_system = 'BB_BIKE') AS modelGroups,
-      (SELECT COUNT(*) FROM bike_model_groups WHERE source_system = 'BB_BIKE' AND is_implicit = 0) AS actualModelGroups,
-      (SELECT COUNT(*) FROM bike_model_groups WHERE source_system = 'BB_BIKE' AND is_implicit = 1) AS implicitModelGroups,
-      (SELECT COUNT(*) FROM bike_models WHERE source_system = 'BB_BIKE') AS models
+      (SELECT COUNT(*) FROM manufacturers WHERE scope_key = 'BIKE' AND source_system = 'BB_BIKE') AS manufacturers,
+      (SELECT COUNT(*) FROM manufacturers WHERE scope_key = 'BIKE' AND source_system = 'BB_BIKE' AND is_visible = 1) AS visibleManufacturers,
+      (SELECT COUNT(*) FROM manufacturers WHERE scope_key = 'BIKE' AND source_system = 'BB_BIKE' AND is_visible = 0) AS hiddenManufacturers,
+      (SELECT COUNT(*) FROM manufacturers WHERE scope_key = 'BIKE' AND source_system = 'BB_BIKE' AND is_search_visible = 1) AS searchVisibleManufacturers,
+      (SELECT COUNT(*) FROM models m JOIN manufacturers mf ON mf.id = m.manufacturer_id
+        WHERE mf.scope_key = 'BIKE' AND m.source_system = 'BB_BIKE' AND m.model_level = 'MODEL_GROUP') AS modelGroups,
+      (SELECT COUNT(*) FROM models m JOIN manufacturers mf ON mf.id = m.manufacturer_id
+        WHERE mf.scope_key = 'BIKE' AND m.source_system = 'BB_BIKE' AND m.model_level = 'MODEL_GROUP' AND m.is_implicit = 0) AS actualModelGroups,
+      (SELECT COUNT(*) FROM models m JOIN manufacturers mf ON mf.id = m.manufacturer_id
+        WHERE mf.scope_key = 'BIKE' AND m.source_system = 'BB_BIKE' AND m.model_level = 'MODEL_GROUP' AND m.is_implicit = 1) AS implicitModelGroups,
+      (SELECT COUNT(*) FROM models m JOIN manufacturers mf ON mf.id = m.manufacturer_id
+        WHERE mf.scope_key = 'BIKE' AND m.source_system = 'BB_BIKE' AND m.model_level = 'MODEL') AS models,
+      (SELECT COUNT(*) FROM bike_model_specs s JOIN models m ON m.id = s.model_id
+        JOIN manufacturers mf ON mf.id = m.manufacturer_id WHERE mf.scope_key = 'BIKE') AS modelSpecs
   `).get();
   return Object.fromEntries(Object.entries(row).map(([key, value]) => [key, Number(value)]));
 }
 
-function findOne(database, table, sourceCode) {
-  const rows = database.db.prepare(`SELECT * FROM ${table} WHERE source_system = 'BB_BIKE' AND source_code = ?`).all(sourceCode);
-  if (rows.length > 1) throw new Error(`${table} source_code 중복: ${sourceCode}`);
+function exactlyOne(rows, description) {
+  if (rows.length > 1) throw new Error(`${description} 중복`);
   return rows[0] ?? null;
+}
+
+function findManufacturer(database, sourceCode) {
+  return exactlyOne(
+    database.db.prepare(`
+      SELECT * FROM manufacturers
+      WHERE scope_key = 'BIKE' AND source_system = 'BB_BIKE' AND source_code = ?
+    `).all(sourceCode),
+    `manufacturers source_code=${sourceCode}`,
+  );
+}
+
+function findModel(database, sourceCode, modelLevel) {
+  return exactlyOne(
+    database.db.prepare(`
+      SELECT m.* FROM models m
+      JOIN manufacturers mf ON mf.id = m.manufacturer_id
+      WHERE mf.scope_key = 'BIKE' AND m.source_system = 'BB_BIKE'
+        AND m.source_code = ? AND m.model_level = ?
+    `).all(sourceCode, modelLevel),
+    `models source_code=${sourceCode} level=${modelLevel}`,
+  );
 }
 
 export function seedBikeCatalog(database, { sourcePath = DEFAULT_BIKE_SOURCE_PATH } = {}) {
   const source = loadBikeCatalogSource(sourcePath);
-  const inserted = { manufacturers: 0, modelGroups: 0, models: 0 };
-  const reused = { manufacturers: 0, modelGroups: 0, models: 0 };
+  const inserted = { manufacturers: 0, modelGroups: 0, models: 0, modelSpecs: 0 };
+  const reused = { manufacturers: 0, modelGroups: 0, models: 0, modelSpecs: 0 };
   const timestamp = new Date().toISOString();
   const snapshotAt = `${source.meta.listingCountSnapshotDate}T00:00:00+09:00`;
   const manufacturerIds = new Map();
@@ -77,17 +116,19 @@ export function seedBikeCatalog(database, { sourcePath = DEFAULT_BIKE_SOURCE_PAT
   database.transaction(() => {
     for (const item of source.manufacturers) {
       const patch = {
+        scope_key: "BIKE",
+        manufacturer_key: item.key,
+        name_ko: item.displayName,
+        name_en: item.englishName,
+        source_system: item.sourceSystem,
+        source_code: item.sourceCode,
         source_name: item.sourceName,
-        display_name: item.displayName,
-        english_name: item.englishName,
-        country_name: item.countryName,
         origin_type: item.origin,
-        is_chinese: item.isChinese ? 1 : 0,
+        country_name: item.countryName,
         is_popular: item.isPopular ? 1 : 0,
         is_visible: item.isVisible ? 1 : 0,
         is_search_visible: item.isSearchVisible ? 1 : 0,
         aliases_json: JSON.stringify(item.aliases),
-        uses_groups: item.usesGroups ? 1 : 0,
         sort_order: item.sortOrder,
         listing_count_snapshot: item.listingCount,
         listing_count_snapshot_at: snapshotAt,
@@ -96,13 +137,11 @@ export function seedBikeCatalog(database, { sourcePath = DEFAULT_BIKE_SOURCE_PAT
         status: item.isVisible ? "ACTIVE" : "HIDDEN",
         updated_at: timestamp,
       };
-      const existing = findOne(database, "bike_manufacturers", item.sourceCode);
+      const existing = findManufacturer(database, item.sourceCode);
       const row = existing
-        ? database.update("bike_manufacturers", existing.id, patch)
-        : database.insert("bike_manufacturers", {
+        ? database.update("manufacturers", existing.id, patch)
+        : database.insert("manufacturers", {
           id: item.key,
-          source_system: item.sourceSystem,
-          source_code: item.sourceCode,
           ...patch,
           created_at: timestamp,
         });
@@ -115,25 +154,28 @@ export function seedBikeCatalog(database, { sourcePath = DEFAULT_BIKE_SOURCE_PAT
       if (!manufacturerId) throw new Error(`바이크 모델그룹 부모 제조사 누락: ${item.sourceCode}`);
       const patch = {
         manufacturer_id: manufacturerId,
+        model_key: item.key,
+        name_ko: item.displayName,
+        parent_model_id: null,
+        model_level: "MODEL_GROUP",
+        source_system: item.sourceSystem,
+        source_code: item.sourceCode,
         source_name: item.sourceName,
-        display_name: item.displayName,
         is_implicit: item.isImplicit ? 1 : 0,
-        is_visible: item.isVisible ? 1 : 0,
         sort_order: item.sortOrder,
         listing_count_snapshot: item.listingCount,
         listing_count_snapshot_at: snapshotAt,
+        is_visible: item.isVisible ? 1 : 0,
         review_status: item.reviewStatus,
         review_reason: item.reviewReason,
         status: item.isVisible ? "ACTIVE" : "HIDDEN",
         updated_at: timestamp,
       };
-      const existing = findOne(database, "bike_model_groups", item.sourceCode);
+      const existing = findModel(database, item.sourceCode, "MODEL_GROUP");
       const row = existing
-        ? database.update("bike_model_groups", existing.id, patch)
-        : database.insert("bike_model_groups", {
+        ? database.update("models", existing.id, patch)
+        : database.insert("models", {
           id: item.key,
-          source_system: item.sourceSystem,
-          source_code: item.sourceCode,
           ...patch,
           created_at: timestamp,
         });
@@ -147,9 +189,36 @@ export function seedBikeCatalog(database, { sourcePath = DEFAULT_BIKE_SOURCE_PAT
       if (!manufacturerId || !modelGroupId) throw new Error(`바이크 모델 부모 누락: ${item.sourceCode}`);
       const patch = {
         manufacturer_id: manufacturerId,
-        model_group_id: modelGroupId,
+        model_key: item.key,
+        name_ko: item.displayName,
+        parent_model_id: modelGroupId,
+        model_level: "MODEL",
+        source_system: item.sourceSystem,
+        source_code: item.sourceCode,
         source_name: item.sourceName,
-        display_name: item.displayName,
+        is_implicit: 0,
+        release_ym: item.yearMin ? String(item.yearMin) : null,
+        end_ym: item.yearMax ? String(item.yearMax) : null,
+        sort_order: item.sortOrder,
+        listing_count_snapshot: item.listingCount,
+        listing_count_snapshot_at: snapshotAt,
+        is_visible: item.isVisible ? 1 : 0,
+        review_status: item.reviewStatus,
+        review_reason: item.reviewReason,
+        status: item.isVisible ? "ACTIVE" : "HIDDEN",
+        updated_at: timestamp,
+      };
+      const existing = findModel(database, item.sourceCode, "MODEL");
+      const row = existing
+        ? database.update("models", existing.id, patch)
+        : database.insert("models", {
+          id: item.key,
+          ...patch,
+          created_at: timestamp,
+        });
+      existing ? reused.models += 1 : inserted.models += 1;
+
+      const specPatch = {
         genre: item.genre,
         displacement_cc: item.displacementCc,
         displacement_band: item.displacementBand,
@@ -157,38 +226,41 @@ export function seedBikeCatalog(database, { sourcePath = DEFAULT_BIKE_SOURCE_PAT
         year_min: item.yearMin,
         year_max: item.yearMax,
         image_path: item.imagePath,
-        is_visible: item.isVisible ? 1 : 0,
-        sort_order: item.sortOrder,
-        listing_count_snapshot: item.listingCount,
-        listing_count_snapshot_at: snapshotAt,
-        review_status: item.reviewStatus,
-        review_reason: item.reviewReason,
-        status: item.isVisible ? "ACTIVE" : "HIDDEN",
         updated_at: timestamp,
       };
-      const existing = findOne(database, "bike_models", item.sourceCode);
-      if (existing) {
-        database.update("bike_models", existing.id, patch);
-        reused.models += 1;
+      const existingSpec = database.db.prepare("SELECT * FROM bike_model_specs WHERE model_id = ?").get(row.id);
+      if (existingSpec) {
+        database.db.prepare(`
+          UPDATE bike_model_specs
+          SET genre = ?, displacement_cc = ?, displacement_band = ?, fuel = ?,
+            year_min = ?, year_max = ?, image_path = ?, updated_at = ?
+          WHERE model_id = ?
+        `).run(
+          specPatch.genre,
+          specPatch.displacement_cc,
+          specPatch.displacement_band,
+          specPatch.fuel,
+          specPatch.year_min,
+          specPatch.year_max,
+          specPatch.image_path,
+          specPatch.updated_at,
+          row.id,
+        );
+        reused.modelSpecs += 1;
       } else {
-        database.insert("bike_models", {
-          id: item.key,
-          source_system: item.sourceSystem,
-          source_code: item.sourceCode,
-          ...patch,
+        database.insert("bike_model_specs", {
+          model_id: row.id,
+          ...specPatch,
           created_at: timestamp,
         });
-        inserted.models += 1;
+        inserted.modelSpecs += 1;
       }
     }
   });
 
   const coverage = countBikeCatalogRows(database);
-  const expectedDatabaseCounts = Object.fromEntries(
-    Object.entries(EXPECTED_COUNTS).filter(([key]) => key !== "danawaPcodes"),
-  );
-  if (JSON.stringify(coverage) !== JSON.stringify(expectedDatabaseCounts)) {
-    throw new Error(`바이크 SQLite 시드 건수 불일치: expected=${JSON.stringify(expectedDatabaseCounts)} actual=${JSON.stringify(coverage)}`);
+  if (JSON.stringify(coverage) !== JSON.stringify(EXPECTED_DATABASE_COUNTS)) {
+    throw new Error(`바이크 SQLite 시드 건수 불일치: expected=${JSON.stringify(EXPECTED_DATABASE_COUNTS)} actual=${JSON.stringify(coverage)}`);
   }
   return { source: EXPECTED_COUNTS, inserted, reused, coverage };
 }

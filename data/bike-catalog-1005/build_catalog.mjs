@@ -60,6 +60,8 @@ const catalog = {
     filters: source.meta.filters,
     manufacturerOrderPolicy: source.meta.manufacturerOrderPolicy,
     manufacturerVisibilityPolicy: source.meta.manufacturerVisibilityPolicy,
+    confirmedDecisions: source.meta.confirmedDecisions,
+    displacementBandCounts: source.meta.displacementBandCounts,
     counts: {
       ...source.meta.counts,
       danawaPcodeCount: source.meta.counts.danawaPcodes,
@@ -70,6 +72,8 @@ const catalog = {
   },
   manufacturers: sortRows(source.manufacturers).map((make) => ({
     ...common(make),
+    code: make.sourceCode,
+    logoFile: make.logoFile,
     englishName: make.englishName,
     countryName: make.countryName,
     origin: make.origin,

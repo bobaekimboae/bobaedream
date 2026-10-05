@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""바이크 제조사·모델 원본 3개를 공통 정규화 JSON으로 만든다."""
+"""바이크 제조사·모델·표시순서·로고 원본을 공통 정규화 JSON으로 만든다."""
 
 from __future__ import annotations
 
@@ -7,6 +7,7 @@ import csv
 import hashlib
 import json
 import uuid
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
@@ -23,11 +24,22 @@ EXPECTED = {
     "danawaPcodes": 135,
     "reviewRequiredModels": 278,
 }
+EXPECTED_DISPLACEMENT_BANDS = {
+    "751cc 이상": 1_117,
+    "401~750cc": 403,
+    "251~400cc": 229,
+    "126~250cc": 237,
+    "51~125cc": 645,
+    "50cc 이하": 141,
+    "전기": 92,
+    "없음": 46,
+}
 SOURCE_FILES = (
     "bike_catalog_1005.json",
     "bike_makers_v2_1005.csv",
     "bike_models_v2_1005.csv",
     "bike_maker_order_rw_names_1005.csv",
+    "bike_logo_manifest_1005.csv",
 )
 NAMESPACE = uuid.UUID("43b3228e-b813-54c3-9c77-5e32ffb1ff42")
 
@@ -115,10 +127,14 @@ def build(source_dir: Path) -> dict[str, Any]:
     maker_rows = read_csv(source_dir / SOURCE_FILES[1])
     model_rows = read_csv(source_dir / SOURCE_FILES[2])
     order_rows = read_csv(source_dir / SOURCE_FILES[3])
+    logo_rows = read_csv(source_dir / SOURCE_FILES[4])
     maker_by_code = {row["code"]: row for row in maker_rows}
     model_by_code = {row["code"]: row for row in model_rows}
+    logo_by_code = {row["코드"]: row for row in logo_rows}
     if len(maker_by_code) != len(maker_rows) or len(model_by_code) != len(model_rows):
         raise ValueError("원본 코드가 중복되었습니다.")
+    if len(logo_rows) != 65 or len(logo_by_code) != len(logo_rows):
+        raise ValueError(f"로고 매니페스트 구조 불일치: rows={len(logo_rows)}, unique={len(logo_by_code)}")
 
     excluded_makers = [row for row in maker_rows if "제외" in row["visible"]]
     if [row["name"] for row in excluded_makers] != ["다임러", "닷지"]:
@@ -209,6 +225,7 @@ def build(source_dir: Path) -> dict[str, Any]:
             "reviewStatus": "CONFIRMED",
             "reviewReason": None,
             "aliases": aliases,
+            "logoFile": logo_by_code.get(source_code, {}).get("파일명") or None,
             "sourceNote": nullable_text(row["note"]),
             "reitwagenId": nullable_text(row["reitwagen_id"]),
         })
@@ -257,7 +274,7 @@ def build(source_dir: Path) -> dict[str, Any]:
                     "displayName": model_row["name"].strip(),
                     "genre": nullable_text(raw_model["genre"]),
                     "displacementCc": raw_model["cc"],
-                    "displacementBand": nullable_text(raw_model["cc_band"]),
+                    "displacementBand": nullable_text(model_row["cc_band"]),
                     "fuel": nullable_text(raw_model["fuel"]),
                     "yearMin": raw_model["year_min"],
                     "yearMax": raw_model["year_max"],
@@ -276,6 +293,12 @@ def build(source_dir: Path) -> dict[str, Any]:
                 })
 
     other = next(row for row in manufacturers if row["sourceCode"] == "BKM086")
+    visible_codes = {row["sourceCode"] for row in manufacturers if row["isVisible"]}
+    if set(logo_by_code) != visible_codes:
+        raise ValueError(
+            "로고 매니페스트 제조사 불일치: "
+            f"missing={sorted(visible_codes - set(logo_by_code))}, extra={sorted(set(logo_by_code) - visible_codes)}"
+        )
     visible_without_other = [row for row in manufacturers if row["isVisible"] and row is not other]
     popular = sorted(
         visible_without_other,
@@ -312,6 +335,12 @@ def build(source_dir: Path) -> dict[str, Any]:
         raise ValueError(f"목표 건수 불일치: expected={EXPECTED}, actual={actual}")
     if len({pcode for row in models for pcode in row["danawaPcodes"]}) != EXPECTED["danawaPcodes"]:
         raise ValueError("다나와 pcode가 중복되었습니다.")
+    displacement_band_counts = Counter(row["displacementBand"] or "없음" for row in models)
+    if dict(displacement_band_counts) != EXPECTED_DISPLACEMENT_BANDS:
+        raise ValueError(
+            "배기량 구간 건수 불일치: "
+            f"expected={EXPECTED_DISPLACEMENT_BANDS}, actual={dict(displacement_band_counts)}"
+        )
 
     return {
         "meta": {
@@ -337,14 +366,19 @@ def build(source_dir: Path) -> dict[str, Any]:
                 "registration": "isVisible",
                 "search": "isSearchVisible (listingCount > 0)",
             },
-            "pendingDecisions": [
+            "confirmedDecisions": [
                 {
-                    "sourceCode": "BKM029",
+                    "code": "BKM029",
                     "topic": "대림/디앤에이모터스 분리",
-                    "current": "디앤에이모터스(대림) 단일 제조사, aliases에 대림·디앤에이모터스",
-                }
+                    "decision": "디앤에이모터스(대림) 단일 제조사, aliases에 대림·디앤에이모터스",
+                },
+                {
+                    "topic": "SQLite 차량 기준표 구조",
+                    "decision": "manufacturers/models 공통 테이블 + scope_key(CAR/BIKE), 바이크 전용 필드는 bike_model_specs",
+                },
             ],
             "counts": EXPECTED,
+            "displacementBandCounts": EXPECTED_DISPLACEMENT_BANDS,
             "exclusions": [
                 {"sourceCode": row["code"], "sourceName": row["name"], "reason": row["note"]}
                 for row in excluded_makers
