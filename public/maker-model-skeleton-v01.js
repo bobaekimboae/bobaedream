@@ -36,7 +36,7 @@ const ENCAR_LOGO_FILES = {
 };
 
 const requestedLogo = new URLSearchParams(location.search).get("logo");
-const initialLogo = ["s", "m", "l", "xl"].includes(requestedLogo) ? requestedLogo : "l";
+const initialLogo = ["s", "m", "l", "xl"].includes(requestedLogo) ? requestedLogo : "s";
 
 const state = {
   screen: 1, logo: initialLogo, catalog: null, makers: [], maker: null, model: null, generation: null,
