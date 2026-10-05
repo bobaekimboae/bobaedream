@@ -210,7 +210,8 @@
   </main>
 
   <script>
-    const base = './assets/cars/mercedes/e-class/compare-v01/';
+    const projectRoot = location.hostname === 'bobaekimboae.github.io' ? '/bobaedream/' : '/';
+    const base = `${projectRoot}assets/cars/mercedes/e-class/compare-v01/`;
     const params = new URLSearchParams(location.search);
     let view = ['hybrid', 'side', 'angle'].includes(params.get('view')) ? params.get('view') : 'hybrid';
     let stage = ['maker', 'model', 'generation'].includes(params.get('stage')) ? params.get('stage') : 'generation';
@@ -237,7 +238,7 @@
       return `<button class="row ${cls}${selected ? ' is-selected' : ''}" type="button" data-target="${target}">${media}<span class="text"><strong>${title}</strong>${sub ? `<small>${sub}</small>` : ''}</span><span class="chevron">›</span><span class="check">✓</span></button>`;
     }
     function renderMaker() {
-      const logo = '<span class="media-slot"><img src="./assets/brand/kr/mercedes-benz.png" alt="메르세데스-벤츠 로고" /></span>';
+      const logo = `<span class="media-slot"><img src="${projectRoot}assets/brand/kr/mercedes-benz.png" alt="메르세데스-벤츠 로고" /></span>`;
       const ghost = '<span class="media-slot" aria-hidden="true" style="color:#666;font-weight:800;font-size:11px">LOGO</span>';
       return row('maker-row', logo, '메르세데스-벤츠', 'Mercedes-Benz', 'model', true)
         + row('maker-row', ghost, 'BMW', 'BMW', 'model')
