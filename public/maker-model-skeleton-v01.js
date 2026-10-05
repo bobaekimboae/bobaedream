@@ -5,16 +5,28 @@ const EXPECTED_COUNTS = { manufacturers: 63, modelGroups: 663, generations: 1256
 const IMPORT_POPULAR_ORDER = ["BMW", "벤츠", "아우디", "포르쉐", "미니", "랜드로버"];
 
 const BODY_TYPES = [
-  { value: "세단", label: "세단", icon: "sedan.svg" },
-  { value: "리무진", label: "리무진", icon: "limousine.svg" },
-  { value: "해치백", label: "해치백", icon: "hatchback.svg" },
-  { value: "왜건", label: "웨건", icon: "wagon.svg" },
-  { value: "쿠페", label: "쿠페", icon: "coupe.svg" },
-  { value: "컨버터블", label: "컨버터블", icon: "convertible.svg" },
-  { value: "SUV", label: "SUV", icon: "suv.svg" },
-  { value: "RV/승합", label: "RV/MPV(밴)", icon: "rv.svg" },
-  { value: "픽업트럭", label: "픽업트럭", icon: "pickup.svg" },
+  { value: "세단", label: "세단" },
+  { value: "해치백", label: "해치백" },
+  { value: "왜건", label: "왜건" },
+  { value: "쿠페", label: "쿠페" },
+  { value: "컨버터블", label: "컨버터블" },
+  { value: "SUV", label: "SUV" },
+  { value: "RV", label: "RV" },
+  { value: "밴(승합)", label: "밴(승합)" },
+  { value: "픽업트럭", label: "픽업트럭" },
+  { value: "기타", label: "기타" },
 ];
+
+const VAN_MODEL_PATTERN = /(ST1|스타렉스|스타리아|쏠라티|봉고|포터|승합|\bvan\b|밴)/i;
+
+function modelBodyType(model) {
+  const raw = String(model?.bodyType || "").trim();
+  if (raw === "웨건") return "왜건";
+  if (["RV/승합", "RV/MPV", "MPV"].includes(raw)) return VAN_MODEL_PATTERN.test(model.displayName || "") ? "밴(승합)" : "RV";
+  if (["밴", "승합", "밴(승합)"].includes(raw)) return "밴(승합)";
+  if (raw === "리무진") return "세단";
+  return BODY_TYPES.some((type) => type.value === raw) ? raw : "기타";
+}
 
 const ENCAR_LOGO_FILES = {
   Hyundai: "001_Hyundai.png", Genesis: "007_Genesis.png", Kia: "002_Kia.png", ChevroletGMDaewoo: "003_ChevroletGMDaewoo.png",
@@ -128,7 +140,7 @@ function modelRow(model) {
 }
 
 function bodyTypeRail(models) {
-  const counts = new Map(BODY_TYPES.map((type) => [type.value, models.filter((model) => model.bodyType === type.value).length]));
+  const counts = new Map(BODY_TYPES.map((type) => [type.value, models.filter((model) => modelBodyType(model) === type.value).length]));
   const availableTypes = BODY_TYPES.filter((type) => counts.get(type.value));
   if (state.modelTab !== "all" && !availableTypes.some((type) => type.value === state.modelTab)) state.modelTab = "all";
   const allChip = `<button type="button" data-model-filter="all" aria-pressed="${state.modelTab === "all"}"><span>전체</span></button>`;
@@ -150,13 +162,13 @@ function renderModel() {
   let content;
   if (state.modelTab === "all") {
     const popularSection = query ? "" : `<h3 class="section-title model-section-title">인기 모델</h3><ul class="model-list popular-model-list">${popular}</ul>`;
-    const availableGroups = BODY_TYPES.map((type) => ({ type, models: filtered.filter((model) => model.bodyType === type.value) })).filter((group) => group.models.length);
+    const availableGroups = BODY_TYPES.map((type) => ({ type, models: filtered.filter((model) => modelBodyType(model) === type.value) })).filter((group) => group.models.length);
     const groupedModels = availableGroups.length
       ? availableGroups.map(({ type, models }) => `${bodyTypeGroupTitle(type.label)}<ul class="model-list">${models.map(modelRow).join("")}</ul>`).join("")
       : `<ul class="model-list">${filtered.map(modelRow).join("")}</ul>`;
     content = `${popularSection}<div class="section-heading-row with-rule"><h3>전체 모델</h3><span>${availableGroups.length ? "바디타입별" : "이름순"}</span></div>${groupedModels}`;
   } else {
-    const bodyRows = filtered.filter((model) => model.bodyType === state.modelTab);
+    const bodyRows = filtered.filter((model) => modelBodyType(model) === state.modelTab);
     const label = BODY_TYPES.find((type) => type.value === state.modelTab)?.label || state.modelTab;
     content = bodyRows.length ? `${bodyTypeGroupTitle(label)}<ul class="model-list">${bodyRows.map(modelRow).join("")}</ul>` : `<p class="empty-copy">${escapeHtml(label)}로 확인된 모델이 없습니다.</p>`;
   }
