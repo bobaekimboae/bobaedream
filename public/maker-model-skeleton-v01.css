@@ -48,15 +48,14 @@ button { -webkit-tap-highlight-color: transparent; }
 .phone-stage { position: sticky; top: 16px; display: grid; place-items: center; align-self: start; }
 .phone { width: 384px; height: min(820px, calc(100dvh - 32px)); min-height: 680px; overflow: hidden; border: 8px solid #0b0b0c; border-radius: 38px; background: #fff; box-shadow: 0 28px 70px rgba(23, 29, 38, .22); }
 .sheet { height: 100%; display: grid; grid-template-rows: 64px minmax(0, 1fr) auto; background: #fff; }
-.sheet-header { position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 4px; padding: 0 8px; border-bottom: 1px solid #e8e8e8; }
-.sheet-header.is-root { grid-template-columns: minmax(0, 1fr) 44px; gap: 0; padding: 0 16px 0 20px; }
-.sheet-header h2 { margin: 0; text-align: left; font-size: 20px; line-height: 26px; font-weight: 700; letter-spacing: -.02em; }
-.icon-button { width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: 12px; background: transparent; cursor: pointer; }
+.sheet-header { position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 4px; padding: 0 20px; border-bottom: 1px solid #e8e8e8; }
+.sheet-header.is-root { grid-template-columns: minmax(0, 1fr) 44px; gap: 0; padding: 0 20px 0 24px; }
+.sheet-header h2 { margin: 0; text-align: left; font-size: 20px; line-height: 28px; font-weight: 750; letter-spacing: -.35px; }
+.icon-button { width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: 10px; background: transparent; cursor: pointer; }
 .icon-button[hidden] { display: none; }
 .icon-button:hover { background: #f5f5f5; }
 .icon-button:focus-visible { outline: 2px solid #222; outline-offset: 1px; }
-.icon-button img { width: 24px; height: 24px; }
-#close-button img { width: 28px; height: 28px; }
+.icon-button img, .icon-button svg { width: 24px; height: 24px; }
 .sheet-body { min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding-bottom: 12px; scrollbar-width: thin; }
 .search-wrap { position: sticky; top: 0; z-index: 2; padding: 10px 16px 8px; background: rgba(255,255,255,.96); }
 .search-field { position: relative; }
@@ -169,7 +168,7 @@ button { -webkit-tap-highlight-color: transparent; }
   border-top: 0;
   background: #fff;
   padding: 12px 20px calc(16px + env(safe-area-inset-bottom));
-  box-shadow: 0 -6px 18px rgba(28,36,50,.06);
+  box-shadow: 0 -4px 12px rgba(0,0,0,.06);
 }
 .footer-actions { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 10px; }
 .reset-button, .apply-button { height: 52px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; }
@@ -177,7 +176,7 @@ button { -webkit-tap-highlight-color: transparent; }
   width: 92px;
   min-width: 92px;
   border: 0;
-  border-radius: 0;
+  border-radius: 12px;
   background: transparent;
   color: #222;
   font-size: 16px;
@@ -185,8 +184,8 @@ button { -webkit-tap-highlight-color: transparent; }
   text-decoration: none;
 }
 .reset-button:disabled { color: #b7b7b7; cursor: default; }
-.reset-button:not(:disabled):hover { background: #f7f7f7; border-radius: 8px; }
-.reset-button:focus-visible { outline: 2px solid #222; outline-offset: -2px; border-radius: 8px; }
+.reset-button:not(:disabled):hover { background: #f7f7f7; border-radius: 12px; }
+.reset-button:focus-visible { outline: 2px solid #222; outline-offset: -2px; border-radius: 12px; }
 .apply-button { border: 0; background: #222; color: #fff; }
 .apply-button small { display: inline-block; margin-left: 4px; color: #c6c9ce; font-size: 10px; font-weight: 400; vertical-align: 1px; }
 
