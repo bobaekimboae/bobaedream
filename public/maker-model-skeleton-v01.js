@@ -56,7 +56,7 @@ const formatCount = (value = 0) => Number(value || 0).toLocaleString("ko-KR");
 const escapeHtml = (value) => String(value ?? "").replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character]));
 const visible = (items = []) => items.filter((item) => item?.isVisible !== false).sort((a, b) => (a.sortOrder ?? 9999) - (b.sortOrder ?? 9999));
 const icon = (path, className = "") => `<img class="${className}" src="${path}" alt="" aria-hidden="true" />`;
-const testBadge = () => '<span class="test-badge">매물 수 테스트</span>';
+const testBadge = () => "";
 
 function catalogCounts(catalog) {
   const counts = { manufacturers: catalog.manufacturers.length, modelGroups: 0, generations: 0, fuelDrives: 0, grades: 0, subgrades: 0 };
@@ -82,7 +82,7 @@ function validateCatalog(catalog) {
 
 function makerLogo(maker) {
   const fileName = ["Others", "etc"].includes(maker.englishName) ? "etc_maker_icon.png" : ENCAR_LOGO_FILES[maker.englishName] || "etc_maker_icon.png";
-  return `<span class="maker-logo"><img src="/assets/maker-model/logos/encar-1005/${escapeHtml(fileName)}" alt="" /></span>`;
+  return `<span class="maker-logo"><img src="/assets/maker-model/logos/encar-1005-normalized/${escapeHtml(fileName)}" alt="" /></span>`;
 }
 
 function modelInitial(name) {
@@ -98,10 +98,7 @@ function modelInitial(name) {
   return "기타";
 }
 
-function bodyIconPath(bodyType) {
-  const match = BODY_TYPES.find((item) => item.value === bodyType);
-  return `/assets/icons/body-type/${match?.icon || "other.svg"}`;
-}
+const vehiclePlaceholder = () => `<span class="vehicle-placeholder-icon" aria-hidden="true"></span>`;
 
 function generationImage(generation, label) {
   const fileName = generation ? state.generationImages[generation.key] : "";
@@ -113,13 +110,13 @@ function modelSilhouette(model, className = "vehicle-image") {
   const newestGeneration = visible(model.generations)[0];
   const fileName = newestGeneration ? state.generationImages[newestGeneration.key] : "";
   const image = generationImage(newestGeneration, model.displayName);
-  return `<span class="vehicle-silhouette ${className}${image ? " has-generated-image" : ""}" data-image-key="${escapeHtml(fileName || "gen_pending.png")}" aria-hidden="true">${image || icon(bodyIconPath(model.bodyType))}</span>`;
+  return `<span class="vehicle-silhouette ${className}${image ? " has-generated-image" : " is-placeholder"}" data-image-key="${escapeHtml(fileName || "gen_pending.png")}" aria-hidden="true">${image || vehiclePlaceholder()}</span>`;
 }
 
 function generationSilhouette(generation, model) {
   const fileName = state.generationImages[generation.key] || `gen_${generation.key}.png`;
   const image = generationImage(generation, generation.displayName);
-  return `<span class="vehicle-silhouette vehicle-image generation-placeholder${image ? " has-generated-image" : ""}" data-image-key="${escapeHtml(fileName)}" aria-hidden="true">${image || icon(bodyIconPath(model?.bodyType))}</span>`;
+  return `<span class="vehicle-silhouette vehicle-image generation-placeholder${image ? " has-generated-image" : " is-placeholder"}" data-image-key="${escapeHtml(fileName)}" aria-hidden="true">${image || vehiclePlaceholder()}</span>`;
 }
 
 function searchField(placeholder) {
@@ -145,7 +142,9 @@ function modelRow(model) {
 
 function bodyTypeRail(models) {
   const counts = new Map(BODY_TYPES.map((type) => [type.value, models.filter((model) => model.bodyType === type.value).length]));
-  return `<div class="body-type-rail" aria-label="바디타입 선택">${BODY_TYPES.map((type) => `<button type="button" data-body-type="${escapeHtml(type.value)}" aria-pressed="${state.bodyType === type.value}" aria-disabled="${!counts.get(type.value)}" title="${counts.get(type.value) || 0}개 모델"><span>${escapeHtml(type.label)}</span></button>`).join("")}</div>`;
+  const availableTypes = BODY_TYPES.filter((type) => counts.get(type.value));
+  if (!availableTypes.some((type) => type.value === state.bodyType)) state.bodyType = availableTypes[0]?.value || "";
+  return `<div class="body-type-rail" aria-label="바디타입 선택">${availableTypes.map((type) => `<button type="button" data-body-type="${escapeHtml(type.value)}" aria-pressed="${state.bodyType === type.value}" title="${counts.get(type.value)}개 모델"><span>${escapeHtml(type.label)}</span></button>`).join("")}</div>`;
 }
 
 function renderModel() {
@@ -154,7 +153,7 @@ function renderModel() {
   const query = state.query.trim().toLocaleLowerCase("ko-KR");
   const filtered = allModels.filter((model) => `${model.displayName} ${model.englishName || ""} ${model.generations.map((generation) => `${generation.displayName} ${generation.generationCode || ""}`).join(" ")}`.toLocaleLowerCase("ko-KR").includes(query));
   const popularModels = [...allModels].sort((a, b) => b.listingCount - a.listingCount).slice(0, 5);
-  const popular = popularModels.map((model) => `<button class="popular-card" type="button" data-select-model="${escapeHtml(model.key)}">${modelSilhouette(model, "")}<span>${escapeHtml(model.displayName)}</span></button>`).join("");
+  const popular = popularModels.map(modelRow).join("");
   let rows;
   if (state.modelTab === "body") {
     if (state.maker.displayName !== "현대") rows = '<p class="empty-copy">바디타입 분류는 현대부터 검수 중입니다.</p>';
@@ -168,7 +167,7 @@ function renderModel() {
     const initials = INITIAL_ORDER.filter((initial) => initialSet.has(initial));
     rows = `<div class="index-rail" aria-label="초성 이동">${initials.map((letter) => `<button type="button" data-index="${escapeHtml(letter)}">${escapeHtml(letter)}</button>`).join("")}</div><ul class="model-list">${filtered.map(modelRow).join("")}</ul>`;
   }
-  return `<div class="path-copy"><span>${escapeHtml(state.maker.displayName)}</span><span>›</span><strong>모델</strong>${testBadge()}</div>${searchField("모델명·세대코드 검색")}<h3 class="section-title">인기 모델</h3><div class="popular-rail">${popular}</div><div class="tab-bar"><button type="button" data-model-tab="name" class="${state.modelTab === "name" ? "is-active" : ""}">이름순</button><button type="button" data-model-tab="body" class="${state.modelTab === "body" ? "is-active" : ""}">바디타입</button></div>${rows || '<p class="empty-copy">검색 결과가 없습니다.</p>'}`;
+  return `<div class="path-copy"><span>${escapeHtml(state.maker.displayName)}</span><span>›</span><strong>모델</strong>${testBadge()}</div>${searchField("모델명·세대코드 검색")}<h3 class="section-title">인기 모델</h3><ul class="model-list popular-model-list">${popular}</ul><h3 class="section-title with-rule all-model-title">전체 모델</h3><div class="tab-bar"><button type="button" data-model-tab="name" class="${state.modelTab === "name" ? "is-active" : ""}">이름순</button><button type="button" data-model-tab="body" class="${state.modelTab === "body" ? "is-active" : ""}">바디타입</button></div>${rows || '<p class="empty-copy">검색 결과가 없습니다.</p>'}`;
 }
 
 function formatYm(value) {
@@ -244,7 +243,7 @@ function currentListingCount() {
 
 function updateSelections() {
   selectionStrip.innerHTML = selectionValues().map((value) => `<button type="button" class="selection-chip" data-remove-selection="${escapeHtml(value.key)}" aria-label="${escapeHtml(value.label)} 선택 해제"><span>${escapeHtml(value.label)}</span><b aria-hidden="true">×</b></button>`).join("");
-  document.querySelector("#apply-button").innerHTML = `${formatCount(currentListingCount())}대 보기 <small>테스트</small>`;
+  document.querySelector("#apply-button").textContent = `${formatCount(currentListingCount())}대 보기`;
 }
 
 function bindSearch() {
