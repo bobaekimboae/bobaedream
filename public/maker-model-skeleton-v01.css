@@ -96,6 +96,13 @@ button { -webkit-tap-highlight-color: transparent; }
 .tab-bar button { position: relative; border: 0; background: transparent; color: #777; font-size: 14px; cursor: pointer; }
 .tab-bar button.is-active { color: #222; font-weight: 700; }
 .tab-bar button.is-active::after { content: ""; position: absolute; left: 18px; right: 18px; bottom: -1px; height: 2px; background: #222; }
+.body-type-rail { display: grid; grid-auto-flow: column; grid-auto-columns: 76px; gap: 4px; overflow-x: auto; padding: 10px 16px 12px; border-bottom: 1px solid #e8e8e8; scrollbar-width: none; scroll-snap-type: x proximity; }
+.body-type-rail::-webkit-scrollbar { display: none; }
+.body-type-rail button { position: relative; min-height: 68px; display: grid; grid-template-rows: 36px auto; place-items: center; gap: 5px; padding: 6px 4px 7px; border: 0; border-radius: 10px; background: #fff; color: #666d76; cursor: pointer; scroll-snap-align: start; }
+.body-type-rail button[aria-pressed="true"] { background: #f2f3f4; color: #222; font-weight: 700; }
+.body-type-rail button[aria-pressed="true"]::after { content: ""; position: absolute; right: 18px; bottom: 3px; left: 18px; height: 2px; border-radius: 999px; background: #222; }
+.body-type-rail img { width: 32px; height: 32px; object-fit: contain; transform: scaleX(-1); }
+.body-type-rail span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; line-height: 17px; }
 .index-rail { display: flex; gap: 5px; overflow-x: auto; padding: 9px 16px 7px; scrollbar-width: none; }
 .index-rail button { flex: 0 0 28px; height: 28px; border: 0; border-radius: 50%; background: #f3f4f5; color: #626872; font-size: 12px; font-weight: 700; cursor: pointer; }
 

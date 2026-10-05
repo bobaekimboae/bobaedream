@@ -40,6 +40,18 @@ const models = [
   { name: "마이바흐", count: 688, image: images.sedan, body: "세단" },
 ];
 
+const bodyTypes = [
+  { name: "세단", icon: "./assets/icons/body-type/sedan.svg" },
+  { name: "리무진", icon: "./assets/icons/body-type/limousine.svg" },
+  { name: "해치백", icon: "./assets/icons/body-type/hatchback.svg" },
+  { name: "웨건", icon: "./assets/icons/body-type/wagon.svg" },
+  { name: "쿠페", icon: "./assets/icons/body-type/coupe.svg" },
+  { name: "컨버터블", icon: "./assets/icons/body-type/convertible.svg" },
+  { name: "SUV", icon: "./assets/icons/body-type/suv.svg" },
+  { name: "RV/MPV(밴)", icon: "./assets/icons/body-type/rv.svg" },
+  { name: "픽업트럭", icon: "./assets/icons/body-type/pickup.svg" },
+];
+
 const generations = [
   { name: "G클래스 W465", year: "24년~현재", count: 118, image: images.current },
   { name: "G클래스 W463", year: "18~24년", count: 721, image: images.previous },
@@ -61,6 +73,7 @@ const state = {
   generation: null,
   grades: new Set(),
   modelTab: "name",
+  bodyType: "세단",
   query: "",
 };
 
@@ -115,17 +128,21 @@ function modelRow(model) {
   </button></li>`;
 }
 
+function bodyTypeRail() {
+  return `<div class="body-type-rail" aria-label="바디타입 선택">${bodyTypes.map((bodyType) => `<button type="button" data-body-type="${escapeHtml(bodyType.name)}" aria-pressed="${state.bodyType === bodyType.name}">
+    ${icon(bodyType.icon)}<span>${escapeHtml(bodyType.name)}</span>
+  </button>`).join("")}</div>`;
+}
+
 function renderModel() {
   const query = state.query.trim().toLocaleLowerCase("ko-KR");
   const filtered = models.filter((model) => model.name.toLocaleLowerCase("ko-KR").includes(query));
   const popular = models.slice(0, 5).map((model) => `<button class="popular-card" type="button" data-select-model="${escapeHtml(model.name)}">
     ${icon(model.image)}<span>${escapeHtml(model.name)}</span>
   </button>`).join("");
+  const bodyRows = filtered.filter((model) => model.body === state.bodyType);
   const rows = state.modelTab === "body"
-    ? ["세단", "SUV", "해치백"].map((bodyType) => {
-        const bodyRows = filtered.filter((model) => model.body === bodyType);
-        return bodyRows.length ? `<h3 class="section-title">${bodyType}</h3><ul class="model-list">${bodyRows.map(modelRow).join("")}</ul>` : "";
-      }).join("")
+    ? `${bodyTypeRail()}${bodyRows.length ? `<h3 class="section-title">${escapeHtml(state.bodyType)}</h3><ul class="model-list">${bodyRows.map(modelRow).join("")}</ul>` : `<p class="empty-copy">${escapeHtml(state.bodyType)} 매물은 데이터 연결 후 표시됩니다.</p>`}`
     : `<div class="index-rail" aria-label="초성 이동">${["A","C","E","G","M","S"].map((letter) => `<button type="button" data-index="${letter}">${letter}</button>`).join("")}</div><ul class="model-list">${filtered.map(modelRow).join("")}</ul>`;
   return `<div class="path-copy"><span>${escapeHtml(state.maker?.name || "벤츠")}</span><span>›</span><strong>모델</strong></div>
     ${searchField("모델명·세대코드 검색")}
@@ -256,7 +273,14 @@ document.addEventListener("click", (event) => {
   }
 
   const tabButton = event.target.closest("[data-model-tab]");
-  if (tabButton) { state.modelTab = tabButton.dataset.modelTab; return render(); }
+  if (tabButton) {
+    state.modelTab = tabButton.dataset.modelTab;
+    if (state.modelTab === "body" && state.model?.body) state.bodyType = state.model.body;
+    return render();
+  }
+
+  const bodyTypeButton = event.target.closest("[data-body-type]");
+  if (bodyTypeButton) { state.bodyType = bodyTypeButton.dataset.bodyType; return render(); }
 
   const indexButton = event.target.closest("[data-index]");
   if (indexButton) {
