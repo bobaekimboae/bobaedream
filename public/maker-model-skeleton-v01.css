@@ -67,9 +67,6 @@ button { -webkit-tap-highlight-color: transparent; }
 .section-title { margin: 0; padding: 16px 16px 8px; color: #4f5660; font-size: 14px; line-height: 18px; font-weight: 700; }
 .test-badge { display: inline-flex; height: 20px; align-items: center; margin-left: 8px; padding: 0 7px; border-radius: 999px; background: #f1f2f4; color: #777d86; font-size: 10px; line-height: 20px; font-weight: 400; vertical-align: middle; }
 .section-title.with-rule { border-top: 8px solid #f5f6f7; }
-.path-copy { min-height: 40px; display: flex; align-items: center; gap: 5px; padding: 10px 16px 0; color: #777d86; font-size: 14px; line-height: 18px; font-weight: 400; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.path-copy strong { color: #222; font-weight: 700; }
-
 .maker-list, .model-list, .generation-list, .grade-list { margin: 0; padding: 0 16px; list-style: none; }
 .option-row { position: relative; width: 100%; display: grid; align-items: center; padding: 0; border: 0; background: #fff; color: #222; text-align: left; cursor: pointer; }
 .option-row::after { content: ""; position: absolute; right: 0; bottom: 0; left: var(--divider-left, 0); height: 1px; background: #e8e8e8; pointer-events: none; }
