@@ -211,16 +211,29 @@
 
   <script>
     const projectRoot = location.hostname === 'bobaekimboae.github.io' ? '/bobaedream/' : '/';
-    const base = `${projectRoot}assets/cars/mercedes/e-class/compare-v01/`;
     const params = new URLSearchParams(location.search);
     let view = ['hybrid', 'side', 'angle'].includes(params.get('view')) ? params.get('view') : 'hybrid';
     let stage = ['maker', 'model', 'generation'].includes(params.get('stage')) ? params.get('stage') : 'generation';
+    let selectedModel = ['eclass', 'gclass'].includes(params.get('vehicle')) ? params.get('vehicle') : 'eclass';
 
-    const generations = [
-      { code: 'W214', years: '2023년~현재', side: 'eclass_w214_side_v01.png', angle: 'eclass_w214_angle_v01.png' },
-      { code: 'W213', years: '2016~2023년', side: 'eclass_w213_side_v01.png', angle: 'eclass_w213_angle_v01.png' },
-      { code: 'W212', years: '2009~2016년', side: 'eclass_w212_side_v01.png', angle: 'eclass_w212_angle_v01.png' }
-    ];
+    const catalogs = {
+      eclass: {
+        name: 'E-클래스', description: '준대형 세단', base: `${projectRoot}assets/cars/mercedes/e-class/compare-v01/`,
+        generations: [
+          { code: 'W214', detail: '2023년~현재', side: 'eclass_w214_side_v01.png', angle: 'eclass_w214_angle_v01.png' },
+          { code: 'W213', detail: '2016~2023년', side: 'eclass_w213_side_v01.png', angle: 'eclass_w213_angle_v01.png' },
+          { code: 'W212', detail: '2009~2016년', side: 'eclass_w212_side_v01.png', angle: 'eclass_w212_angle_v01.png' }
+        ]
+      },
+      gclass: {
+        name: 'G-클래스', description: '정통 오프로더', base: `${projectRoot}assets/cars/mercedes/g-class/compare-v01/`,
+        generations: [
+          { code: '465', detail: '최신 세대', side: 'gclass_465_side_v01.png', angle: 'gclass_465_angle_v01.png' },
+          { code: '463', detail: '럭셔리 1세대 계열', side: 'gclass_463_side_v01.png', angle: 'gclass_463_angle_v01.png' },
+          { code: '460/461', detail: '클래식·프로페셔널 계열', side: 'gclass_460-461_side_v01.png', angle: 'gclass_460-461_angle_v01.png' }
+        ]
+      }
+    };
     const rules = {
       hybrid: '추천 비교안 · 모델은 측면으로 차체 비율을, 세대는 3/4 각도로 전면부 차이를 보여줍니다.',
       side: '측면 통일안 · 모든 단계의 실루엣과 슬롯 높이가 가장 안정적으로 맞습니다.',
@@ -231,11 +244,11 @@
       if (view === 'hybrid') return targetStage === 'model' ? 'side' : 'angle';
       return view;
     }
-    function vehicle(src, alt) {
+    function vehicle(src, alt, base) {
       return `<span class="media-slot"><img class="vehicle-image" src="${base + src}" alt="${alt}" /></span>`;
     }
-    function row(cls, media, title, sub, target, selected = false) {
-      return `<button class="row ${cls}${selected ? ' is-selected' : ''}" type="button" data-target="${target}">${media}<span class="text"><strong>${title}</strong>${sub ? `<small>${sub}</small>` : ''}</span><span class="chevron">›</span><span class="check">✓</span></button>`;
+    function row(cls, media, title, sub, target, selected = false, attrs = '') {
+      return `<button class="row ${cls}${selected ? ' is-selected' : ''}" type="button" data-target="${target}" ${attrs}>${media}<span class="text"><strong>${title}</strong>${sub ? `<small>${sub}</small>` : ''}</span><span class="chevron">›</span><span class="check">✓</span></button>`;
     }
     function renderMaker() {
       const logo = `<span class="media-slot"><img src="${projectRoot}assets/brand/kr/mercedes-benz.png" alt="메르세데스-벤츠 로고" /></span>`;
@@ -247,14 +260,15 @@
     }
     function renderModel() {
       const angle = currentAngle('model');
-      const g = generations[0];
-      return row('model-row', vehicle(g[angle], `E-클래스 ${angle === 'side' ? '측면' : '3/4 각도'}`), 'E-클래스', '준대형 세단', 'generation', true)
-        + row('model-row', vehicle(g[angle], `C-클래스 이미지 샘플`), 'C-클래스', '중형 세단', 'generation')
-        + row('model-row', vehicle(g[angle], `S-클래스 이미지 샘플`), 'S-클래스', '대형 세단', 'generation');
+      return Object.entries(catalogs).map(([key, catalog]) => {
+        const latest = catalog.generations[0];
+        return row('model-row', vehicle(latest[angle], `${catalog.name} ${angle === 'side' ? '측면' : '3/4 각도'}`, catalog.base), catalog.name, catalog.description, 'generation', key === selectedModel, `data-model="${key}"`);
+      }).join('');
     }
     function renderGeneration() {
       const angle = currentAngle('generation');
-      return generations.map((g, index) => row('generation-row', vehicle(g[angle], `${g.code} ${angle === 'side' ? '측면' : '3/4 각도'}`), `E-클래스 ${g.code}`, g.years, 'done', index === 0)).join('');
+      const catalog = catalogs[selectedModel];
+      return catalog.generations.map((g, index) => row('generation-row', vehicle(g[angle], `${catalog.name} ${g.code} ${angle === 'side' ? '측면' : '3/4 각도'}`, catalog.base), `${catalog.name} ${g.code}`, g.detail, 'done', index === 0)).join('');
     }
     function render() {
       document.querySelectorAll('[data-view]').forEach((button) => button.setAttribute('aria-selected', button.dataset.view === view));
@@ -266,14 +280,14 @@
       const config = {
         maker: ['제조사', '로고 40×40 · 간격 12', '제조사 검색', renderMaker],
         model: ['모델', '이미지 80×48 · 행 72', '모델 검색', renderModel],
-        generation: ['세대별 모델', '이미지 88×52 · 행 84', '세대 검색', renderGeneration]
+        generation: [`${catalogs[selectedModel].name} 세대별 모델`, '이미지 88×52 · 행 84', '세대 검색', renderGeneration]
       }[stage];
       document.getElementById('ruleNote').textContent = rules[view];
       document.getElementById('sectionTitle').textContent = config[0];
       document.getElementById('sectionHint').textContent = config[1];
       document.getElementById('searchText').textContent = config[2];
       document.getElementById('list').innerHTML = config[3]();
-      params.set('view', view); params.set('stage', stage);
+      params.set('view', view); params.set('stage', stage); params.set('vehicle', selectedModel);
       history.replaceState(null, '', `${location.pathname}?${params}`);
     }
     document.addEventListener('click', (event) => {
@@ -282,6 +296,7 @@
       const rowButton = event.target.closest('[data-target]');
       if (viewButton) view = viewButton.dataset.view;
       if (stageButton) stage = stageButton.dataset.stage;
+      if (rowButton?.dataset.model) selectedModel = rowButton.dataset.model;
       if (rowButton && rowButton.dataset.target !== 'done') stage = rowButton.dataset.target;
       if (viewButton || stageButton || rowButton) render();
     });
