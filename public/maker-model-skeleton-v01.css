@@ -127,9 +127,22 @@ button { -webkit-tap-highlight-color: transparent; }
 .selection-strip { min-height: 28px; display: flex; gap: 6px; overflow-x: auto; align-items: center; scrollbar-width: none; }
 .selection-strip:empty { min-height: 0; }
 .selection-chip { flex: 0 0 auto; height: 28px; display: inline-flex; align-items: center; gap: 5px; padding: 0 10px; border-radius: 999px; background: #f2f3f4; color: #333; font-size: 12px; font-weight: 600; }
-.footer-actions { display: grid; grid-template-columns: 96px 1fr; gap: 10px; margin-top: 8px; }
+.footer-actions { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 10px; margin-top: 8px; }
 .reset-button, .apply-button { height: 52px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; }
-.reset-button { border: 1px solid #dddfe2; background: #fff; color: #222; }
+.reset-button {
+  min-width: 84px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #222;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.reset-button:hover { background: #f7f7f7; border-radius: 8px; }
+.reset-button:focus-visible { outline: 2px solid #222; outline-offset: -2px; border-radius: 8px; }
 .apply-button { border: 0; background: #222; color: #fff; }
 
 .empty-copy { padding: 48px 24px; color: #7d838d; text-align: center; font-size: 14px; line-height: 1.6; }
