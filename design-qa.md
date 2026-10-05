@@ -115,6 +115,30 @@
 
 final result: passed
 
+## 제조사·모델 모달 헤더 아이콘 v1006
+
+- source visual truth: 노션 `chotot-pc-detail-close-window_(창닫기).svg`와 Google Drive 차란차 제조사·모델 뎁스 캡처 1~4.
+- implementation: `http://127.0.0.1:4193/maker-model-skeleton-v01.html?v=header-icons-1006`
+- viewport: 384×820 CSS px.
+- state: 제조사 화면과 현대 모델 화면.
+
+### Comparison evidence
+
+- 차란차처럼 좌우 버튼이 같은 터치 슬롯과 같은 세로 중심선을 사용한다.
+- 이전 버튼 44×44px·아이콘 24×24px, 닫기 버튼 44×44px·아이콘 28×28px으로 광학 크기를 보정했다.
+- 두 버튼 중심은 각각 x=30px, x=354px로 화면 중앙 x=192px에서 정확히 대칭이다.
+- 헤더 높이 64px, 버튼 중심 y=31.6px, 제목 기준 중심 y=31.6px로 수직 정렬이 일치한다.
+- 제목은 기존 핀노 규칙인 좌측 정렬 20/26px·700과 시작 x=56px을 유지했다.
+- 버튼 기본 배경·테두리는 없고 44px 최소 터치 영역, hover·focus 상태가 유지된다.
+
+### Findings
+
+- P0/P1/P2 없음.
+- 384px 제조사·모델 화면에서 잘림과 가로 넘침이 없고 콘솔 오류·경고는 0건이다.
+- `npm run verify:qf` 통과.
+
+final result: passed
+
 ---
 
 ## 제조사·모델 한 줄 선택 요약·로고 균형 (2026-10-06)
