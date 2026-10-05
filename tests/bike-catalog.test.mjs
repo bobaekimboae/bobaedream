@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import test from "node:test";
 
 const source = JSON.parse(readFileSync("data/bike-catalog-1005/bike-catalog.normalized.json", "utf8"));
@@ -41,6 +42,42 @@ function findPath(makeName, groupName, modelName) {
   const group = make?.modelGroups.find((item) => item.sourceName === groupName || (groupName === "(그룹 없음)" && item.isImplicit));
   const model = group?.models.find((item) => item.sourceName === modelName);
   return { make, group, model };
+}
+
+function parseCsv(text) {
+  const rows = [];
+  let row = [];
+  let value = "";
+  let quoted = false;
+  const normalized = text.replace(/^\uFEFF/, "");
+  for (let index = 0; index < normalized.length; index += 1) {
+    const character = normalized[index];
+    if (character === '"') {
+      if (quoted && normalized[index + 1] === '"') {
+        value += '"';
+        index += 1;
+      } else {
+        quoted = !quoted;
+      }
+    } else if (character === "," && !quoted) {
+      row.push(value);
+      value = "";
+    } else if ((character === "\n" || character === "\r") && !quoted) {
+      if (character === "\r" && normalized[index + 1] === "\n") index += 1;
+      row.push(value);
+      if (row.some((cell) => cell !== "")) rows.push(row);
+      row = [];
+      value = "";
+    } else {
+      value += character;
+    }
+  }
+  if (value || row.length) {
+    row.push(value);
+    rows.push(row);
+  }
+  const [headers, ...records] = rows;
+  return records.map((record) => Object.fromEntries(headers.map((header, index) => [header, record[index] ?? ""])));
 }
 
 test("바이크 공통 원천과 공개 catalog는 확정 건수를 보존한다", () => {
@@ -94,14 +131,55 @@ test("구바이크 배기량 구간과 대표 모델을 최신 CSV 기준으로 
 });
 
 test("공개 제조사에 BKM 코드와 로고 파일 연결 키를 제공한다", () => {
+  assert.equal(catalog.meta.logoBasePath, "/assets/maker-model/logos/bike/");
   assert.ok(catalog.manufacturers.every((item) => /^BKM\d{3}$/.test(item.code)));
-  assert.equal(catalog.manufacturers.filter((item) => item.logoFile).length, 55);
-  assert.ok(catalog.manufacturers.filter((item) => item.logoFile).every((item) => (
+  const withLogo = catalog.manufacturers.filter((item) => item.logoFile);
+  assert.equal(withLogo.length, 55);
+  assert.ok(withLogo.every((item) => (
     item.logoFile?.startsWith(`${item.code}_`) && item.logoFile.endsWith(".png")
   )));
-  assert.equal(catalog.manufacturers.filter((item) => item.isVisible && !item.logoFile).length, 10);
+  for (const item of withLogo) {
+    const logoPath = join("public", catalog.meta.logoBasePath.replace(/^\/+/, ""), item.logoFile);
+    assert.equal(existsSync(logoPath), true, item.logoFile);
+    const logo = readFileSync(logoPath);
+    assert.equal(logo.subarray(1, 4).toString(), "PNG", item.logoFile);
+    assert.deepEqual([logo.readUInt32BE(16), logo.readUInt32BE(20)], [600, 600], item.logoFile);
+  }
+  const missingLogoCodes = catalog.manufacturers
+    .filter((item) => item.isVisible && !item.logoFile)
+    .map((item) => item.code)
+    .sort();
+  assert.deepEqual(missingLogoCodes, ["BKM018", "BKM038", "BKM044", "BKM057", "BKM058", "BKM061", "BKM062", "BKM066", "BKM069", "BKM072"]);
   assert.ok(catalog.manufacturers.filter((item) => !item.isVisible).every((item) => item.logoFile === null));
   assert.equal(catalog.manufacturers.find((item) => item.code === "BKM003").logoFile, "BKM003_BMW_Motorrad.png");
+});
+
+test("배기량은 CSV 원값과 공개 catalog 2,910개가 모두 일치한다", () => {
+  const rows = parseCsv(readFileSync("data/bike-catalog-1005/bike_models_v2_1005.csv", "utf8"));
+  const { models } = flattenCatalog();
+  const modelByKey = new Map(models.map((item) => [item.key, item]));
+  const keyByCode = new Map(source.models.map((item) => [item.sourceCode, item.key]));
+  assert.equal(rows.length, 2_910);
+  for (const row of rows) {
+    const expectedCc = row.cc === "" ? null : Number(row.cc);
+    assert.equal(modelByKey.get(keyByCode.get(row.code))?.displacementCc, expectedCc, `${row.code} ${row.name}`);
+  }
+  assert.equal(rows.filter((row) => row.cc.includes(".")).length, 156);
+  assert.equal(rows.find((row) => row.code === "BKM001-0194")?.cc, "449.4");
+});
+
+test("중국 브랜드와 중국 생산 브랜드 표시를 CSV 19개와 일치시킨다", () => {
+  const rows = parseCsv(readFileSync("data/bike-catalog-1005/bike_makers_v2_1005.csv", "utf8"))
+    .filter((row) => row.chinese);
+  assert.equal(rows.length, 19);
+  for (const row of rows) {
+    const make = catalog.manufacturers.find((item) => item.code === row.code);
+    assert.ok(make, row.code);
+    assert.equal(make.isChinese, row.chinese === "중국", `${row.code} isChinese`);
+    assert.equal(make.madeInChina, row.chinese.startsWith("중국 생산("), `${row.code} madeInChina`);
+  }
+  assert.equal(catalog.manufacturers.find((item) => item.code === "BKM013")?.isVisible, false);
+  assert.equal(catalog.manufacturers.find((item) => item.code === "BKM025")?.isVisible, false);
 });
 
 test("공개 catalog에는 원천 추적 필드를 노출하지 않는다", () => {

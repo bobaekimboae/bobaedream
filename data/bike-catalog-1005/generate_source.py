@@ -57,8 +57,26 @@ def integer(value: Any) -> int | None:
     return int(raw) if raw else None
 
 
+def number(value: Any) -> int | float | None:
+    raw = text(value)
+    if not raw:
+        return None
+    return float(raw) if "." in raw else int(raw)
+
+
 def boolean(value: Any) -> bool:
     return value is True or text(value).upper() in {"Y", "YES", "TRUE", "1", "✅ 노출", "✅ 노출(맨 뒤)"}
+
+
+def chinese_flags(value: Any) -> tuple[bool, bool]:
+    raw = text(value)
+    if not raw:
+        return False, False
+    if raw == "중국":
+        return True, False
+    if raw.startswith("중국 생산("):
+        return False, True
+    raise ValueError(f"중국 브랜드 구분 값 오류: {raw}")
 
 
 def token(*parts: str) -> str:
@@ -205,6 +223,7 @@ def build(source_dir: Path) -> dict[str, Any]:
             alias_candidates.append(row["name"])
         aliases = [alias for alias in unique_texts(alias_candidates) if alias != display_name]
         sort_names[source_code] = korean_sort_name(display_rows, display_name)
+        is_chinese, made_in_china = chinese_flags(row["chinese"])
         manufacturers.append({
             "key": key,
             "uuid": stable_uuid(key),
@@ -215,7 +234,8 @@ def build(source_dir: Path) -> dict[str, Any]:
             "englishName": nullable_text(row["name_en"]),
             "countryName": nullable_text(row["country"]),
             "origin": origin,
-            "isChinese": boolean(row["chinese"]),
+            "isChinese": is_chinese,
+            "madeInChina": made_in_china,
             "isPopular": False,
             "isVisible": is_visible,
             "isSearchVisible": is_visible and listing_count is not None and listing_count > 0,
@@ -273,7 +293,7 @@ def build(source_dir: Path) -> dict[str, Any]:
                     "sourceName": model_row["name"],
                     "displayName": model_row["name"].strip(),
                     "genre": nullable_text(raw_model["genre"]),
-                    "displacementCc": raw_model["cc"],
+                    "displacementCc": number(model_row["cc"]),
                     "displacementBand": nullable_text(model_row["cc_band"]),
                     "fuel": nullable_text(raw_model["fuel"]),
                     "yearMin": raw_model["year_min"],
@@ -361,6 +381,7 @@ def build(source_dir: Path) -> dict[str, Any]:
                 for filename in SOURCE_FILES
             ],
             "filters": ["year", "genre", "displacementBand", "fuel"],
+            "logoBasePath": "/assets/maker-model/logos/bike/",
             "manufacturerOrderPolicy": "listingCount 상위 12개 매물순, 나머지 가나다, 기타 맨 뒤",
             "manufacturerVisibilityPolicy": {
                 "registration": "isVisible",

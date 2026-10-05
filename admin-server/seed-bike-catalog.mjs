@@ -125,6 +125,8 @@ export function seedBikeCatalog(database, { sourcePath = DEFAULT_BIKE_SOURCE_PAT
         source_name: item.sourceName,
         origin_type: item.origin,
         country_name: item.countryName,
+        is_chinese: item.isChinese ? 1 : 0,
+        made_in_china: item.madeInChina ? 1 : 0,
         is_popular: item.isPopular ? 1 : 0,
         is_visible: item.isVisible ? 1 : 0,
         is_search_visible: item.isSearchVisible ? 1 : 0,

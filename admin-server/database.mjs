@@ -161,6 +161,8 @@ CREATE TABLE IF NOT EXISTS manufacturers (
   origin_type TEXT,
   country_name TEXT,
   country_code TEXT,
+  is_chinese INTEGER NOT NULL DEFAULT 0,
+  made_in_china INTEGER NOT NULL DEFAULT 0,
   is_popular INTEGER NOT NULL DEFAULT 0,
   is_visible INTEGER NOT NULL DEFAULT 1,
   is_search_visible INTEGER NOT NULL DEFAULT 1,
@@ -423,6 +425,7 @@ export class AdminDatabase {
     }
     ensureColumns(this.db, "manufacturers", {
       source_system: "TEXT", source_code: "TEXT", source_name: "TEXT", origin_type: "TEXT", country_name: "TEXT",
+      is_chinese: "INTEGER NOT NULL DEFAULT 0", made_in_china: "INTEGER NOT NULL DEFAULT 0",
       is_popular: "INTEGER NOT NULL DEFAULT 0", is_visible: "INTEGER NOT NULL DEFAULT 1",
       is_search_visible: "INTEGER NOT NULL DEFAULT 1", aliases_json: "TEXT NOT NULL DEFAULT '[]'",
       listing_count_snapshot: "INTEGER", listing_count_snapshot_at: "TEXT",

@@ -34,6 +34,10 @@ npm run admin:seed:bike-catalog
 
 대림/디앤에이모터스는 사용자 확정에 따라 `BKM029 디앤에이모터스(대림)` 하나로 유지한다. 매물 수는 182+48=230이며 `대림`, `디앤에이모터스`를 별칭으로 둔다. 공개 제조사에는 `code`와 `logoFile`을 제공하며 숨김 제조사의 `logoFile`은 `null`이다.
 
+로고 기본 경로는 `catalog.meta.logoBasePath=/assets/maker-model/logos/bike/`이다. `logoFile`이 있는 55개 제조사의 PNG는 이 경로에 저장하고, 미확보 10개 제조사는 `logoFile=null`을 유지한다. 화면은 미확보 제조사를 회색 원(28dp)과 이니셜로 표시한다.
+
+`chinese` 원문이 `중국`이면 `isChinese=true`, `중국 생산(…)`이면 `madeInChina=true`로 분리한다. 배기량 `displacementCc`는 `bike_models_v2_1005.csv`의 `cc` 값을 직접 사용하며 SQLite에는 `REAL`로 보존한다.
+
 ## 배기량 구간
 
 `bike_models_v2_1005.csv`의 구바이크 기준 `cc_band`를 그대로 사용한다.
