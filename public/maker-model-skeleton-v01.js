@@ -35,16 +35,12 @@ const ENCAR_LOGO_FILES = {
   Fiat: "018_Fiat.png", Hummer: "048_Hummer.png", Honda: "027_Honda.png",
 };
 
-const KOREAN_INITIALS = ["ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ", "ㅅ", "ㅆ", "ㅇ", "ㅈ", "ㅉ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"];
-const DISPLAY_KOREAN_INITIALS = ["ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"];
-const INITIAL_ORDER = ["0-9", ..."ABCDEFGHIJKLMNOPQRSTUVWXYZ", ...DISPLAY_KOREAN_INITIALS];
-
 const requestedLogo = new URLSearchParams(location.search).get("logo");
 const initialLogo = ["s", "m", "l", "xl"].includes(requestedLogo) ? requestedLogo : "l";
 
 const state = {
   screen: 1, logo: initialLogo, catalog: null, makers: [], maker: null, model: null, generation: null,
-  generationImages: {}, selectedLeaves: new Map(), modelTab: "name", bodyType: "세단", query: "", status: "loading", error: "",
+  generationImages: {}, selectedLeaves: new Map(), modelTab: "all", query: "", status: "loading", error: "",
 };
 
 const body = document.querySelector("#sheet-body");
@@ -84,19 +80,6 @@ function validateCatalog(catalog) {
 function makerLogo(maker) {
   const fileName = ["Others", "etc"].includes(maker.englishName) ? "etc_maker_icon.png" : ENCAR_LOGO_FILES[maker.englishName] || "etc_maker_icon.png";
   return `<span class="maker-logo"><img src="/assets/maker-model/logos/encar-1005-normalized/${escapeHtml(fileName)}" alt="" /></span>`;
-}
-
-function modelInitial(name) {
-  const first = String(name || "").trim().charAt(0);
-  if (/\d/.test(first)) return "0-9";
-  if (/[A-Za-z]/.test(first)) return first.toUpperCase();
-  const code = first.charCodeAt(0);
-  if (code >= 0xac00 && code <= 0xd7a3) {
-    const initial = KOREAN_INITIALS[Math.floor((code - 0xac00) / 588)];
-    if (["ㄲ", "ㄸ", "ㅃ", "ㅆ", "ㅉ"].includes(initial)) return ({ "ㄲ": "ㄱ", "ㄸ": "ㄷ", "ㅃ": "ㅂ", "ㅆ": "ㅅ", "ㅉ": "ㅈ" })[initial];
-    return initial;
-  }
-  return "기타";
 }
 
 const vehiclePlaceholder = () => `<span class="vehicle-placeholder-icon" aria-hidden="true"></span>`;
@@ -141,14 +124,16 @@ function renderMaker() {
 
 function modelRow(model) {
   const reviewMark = model.reviewStatus === "REVIEW_REQUIRED" ? '<span class="review-mark" title="바디타입 검토 필요">🟡</span>' : "";
-  return `<li><button class="option-row model-row" type="button" data-select-model="${escapeHtml(model.key)}" data-initial="${escapeHtml(modelInitial(model.displayName))}">${modelSilhouette(model)}<span class="model-copy"><strong>${escapeHtml(model.displayName)}${reviewMark}</strong></span><span class="option-count">${formatCount(model.listingCount)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
+  return `<li><button class="option-row model-row" type="button" data-select-model="${escapeHtml(model.key)}">${modelSilhouette(model)}<span class="model-copy"><strong>${escapeHtml(model.displayName)}${reviewMark}</strong></span><span class="option-count">${formatCount(model.listingCount)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
 }
 
 function bodyTypeRail(models) {
   const counts = new Map(BODY_TYPES.map((type) => [type.value, models.filter((model) => model.bodyType === type.value).length]));
   const availableTypes = BODY_TYPES.filter((type) => counts.get(type.value));
-  if (!availableTypes.some((type) => type.value === state.bodyType)) state.bodyType = availableTypes[0]?.value || "";
-  return `<div class="body-type-rail" aria-label="바디타입 선택">${availableTypes.map((type) => `<button type="button" data-body-type="${escapeHtml(type.value)}" aria-pressed="${state.bodyType === type.value}" title="${counts.get(type.value)}개 모델"><span>${escapeHtml(type.label)}</span></button>`).join("")}</div>`;
+  if (state.modelTab !== "all" && !availableTypes.some((type) => type.value === state.modelTab)) state.modelTab = "all";
+  const allChip = `<button type="button" data-model-filter="all" aria-pressed="${state.modelTab === "all"}"><span>전체</span></button>`;
+  const typeChips = availableTypes.map((type) => `<button type="button" data-model-filter="${escapeHtml(type.value)}" aria-pressed="${state.modelTab === type.value}" title="${counts.get(type.value)}개 모델"><span>${escapeHtml(type.label)}</span></button>`).join("");
+  return `<div class="body-type-rail" aria-label="모델 바디타입 선택">${allChip}${typeChips}</div>`;
 }
 
 function renderModel() {
@@ -158,20 +143,16 @@ function renderModel() {
   const filtered = allModels.filter((model) => `${model.displayName} ${model.englishName || ""} ${model.generations.map((generation) => `${generation.displayName} ${generation.generationCode || ""}`).join(" ")}`.toLocaleLowerCase("ko-KR").includes(query));
   const popularModels = [...allModels].sort((a, b) => b.listingCount - a.listingCount).slice(0, 5);
   const popular = popularModels.map(modelRow).join("");
-  let rows;
-  if (state.modelTab === "body") {
-    if (state.maker.displayName !== "현대") rows = '<p class="empty-copy">바디타입 분류는 현대부터 검수 중입니다.</p>';
-    else {
-      const bodyRows = filtered.filter((model) => model.bodyType === state.bodyType);
-      const label = BODY_TYPES.find((type) => type.value === state.bodyType)?.label || state.bodyType;
-      rows = `${bodyTypeRail(allModels)}${bodyRows.length ? `<h3 class="section-title">${escapeHtml(label)}${testBadge()}</h3><ul class="model-list">${bodyRows.map(modelRow).join("")}</ul>` : `<p class="empty-copy">${escapeHtml(label)}로 확인된 현대 모델이 없습니다.</p>`}`;
-    }
+  let content;
+  if (state.modelTab === "all") {
+    const popularSection = query ? "" : `<h3 class="section-title model-section-title">인기 모델</h3><ul class="model-list popular-model-list">${popular}</ul>`;
+    content = `${popularSection}<div class="section-heading-row with-rule"><h3>전체 모델</h3><span>이름순</span></div><ul class="model-list">${filtered.map(modelRow).join("")}</ul>`;
   } else {
-    const initialSet = new Set(filtered.map((model) => modelInitial(model.displayName)));
-    const initials = INITIAL_ORDER.filter((initial) => initialSet.has(initial));
-    rows = `<div class="index-rail" aria-label="초성 이동">${initials.map((letter) => `<button type="button" data-index="${escapeHtml(letter)}">${escapeHtml(letter)}</button>`).join("")}</div><ul class="model-list">${filtered.map(modelRow).join("")}</ul>`;
+    const bodyRows = filtered.filter((model) => model.bodyType === state.modelTab);
+    const label = BODY_TYPES.find((type) => type.value === state.modelTab)?.label || state.modelTab;
+    content = bodyRows.length ? `<div class="section-heading-row"><h3>${escapeHtml(label)} 모델</h3><span>${bodyRows.length}개</span></div><ul class="model-list">${bodyRows.map(modelRow).join("")}</ul>` : `<p class="empty-copy">${escapeHtml(label)}로 확인된 모델이 없습니다.</p>`;
   }
-  return `<div class="path-copy"><span>${escapeHtml(state.maker.displayName)}</span><span>›</span><strong>모델</strong>${testBadge()}</div>${searchField("모델명·세대코드 검색")}<h3 class="section-title">인기 모델</h3><ul class="model-list popular-model-list">${popular}</ul><h3 class="section-title with-rule all-model-title">전체 모델</h3><div class="tab-bar"><button type="button" data-model-tab="name" class="${state.modelTab === "name" ? "is-active" : ""}">이름순</button><button type="button" data-model-tab="body" class="${state.modelTab === "body" ? "is-active" : ""}">바디타입</button></div>${rows || '<p class="empty-copy">검색 결과가 없습니다.</p>'}`;
+  return `<div class="path-copy"><span>${escapeHtml(state.maker.displayName)}</span><span>›</span><strong>모델</strong>${testBadge()}</div>${searchField("모델명·세대코드 검색")}${bodyTypeRail(allModels)}${content || '<p class="empty-copy">검색 결과가 없습니다.</p>'}`;
 }
 
 function formatYm(value) {
@@ -303,24 +284,20 @@ document.addEventListener("click", (event) => {
     return render();
   }
   const makerButton = event.target.closest("[data-select-maker]");
-  if (makerButton) { state.maker = state.makers.find((maker) => maker.key === makerButton.dataset.selectMaker); state.model = null; state.generation = null; state.selectedLeaves.clear(); state.modelTab = "name"; return setScreen(2); }
+  if (makerButton) { state.maker = state.makers.find((maker) => maker.key === makerButton.dataset.selectMaker); state.model = null; state.generation = null; state.selectedLeaves.clear(); state.modelTab = "all"; return setScreen(2); }
   const modelButton = event.target.closest("[data-select-model]");
   if (modelButton) { state.model = visible(state.maker?.modelGroups).find((model) => model.key === modelButton.dataset.selectModel); state.generation = null; state.selectedLeaves.clear(); return setScreen(3); }
   const generationButton = event.target.closest("[data-select-generation]");
   if (generationButton) { state.generation = generationButton.dataset.selectGeneration === "all" ? { key: "all", displayName: `${state.model.displayName} 전체`, listingCount: state.model.listingCount } : visible(state.model?.generations).find((generation) => generation.key === generationButton.dataset.selectGeneration); state.selectedLeaves.clear(); return setScreen(4); }
   const checkButton = event.target.closest("[data-check-kind]");
   if (checkButton) { const leaves = findCheckLeaves(checkButton.dataset.checkKind, checkButton.dataset.checkKey); const allChecked = leaves.every((leaf) => state.selectedLeaves.has(leaf.key)); leaves.forEach((leaf) => allChecked ? state.selectedLeaves.delete(leaf.key) : state.selectedLeaves.set(leaf.key, leaf)); return render(); }
-  const tabButton = event.target.closest("[data-model-tab]");
-  if (tabButton) { state.modelTab = tabButton.dataset.modelTab; return render(); }
-  const bodyTypeButton = event.target.closest("[data-body-type]");
-  if (bodyTypeButton) { state.bodyType = bodyTypeButton.dataset.bodyType; return render(); }
-  const indexButton = event.target.closest("[data-index]");
-  if (indexButton) { const prefix = indexButton.dataset.index; const target = [...document.querySelectorAll(".model-row")].find((node) => node.dataset.initial === prefix); target?.closest("li")?.scrollIntoView({ block: "start" }); }
+  const modelFilterButton = event.target.closest("[data-model-filter]");
+  if (modelFilterButton) { state.modelTab = modelFilterButton.dataset.modelFilter; render(); body.scrollTop = 0; return; }
 });
 
 document.querySelector("#back-button").addEventListener("click", () => setScreen(state.screen - 1));
 document.querySelector("#close-button").addEventListener("click", () => setScreen(0));
-document.querySelector("#reset-button").addEventListener("click", () => { state.maker = null; state.model = null; state.generation = null; state.selectedLeaves.clear(); state.query = ""; state.modelTab = "name"; setScreen(1); });
+document.querySelector("#reset-button").addEventListener("click", () => { state.maker = null; state.model = null; state.generation = null; state.selectedLeaves.clear(); state.query = ""; state.modelTab = "all"; setScreen(1); });
 
 async function loadCatalog() {
   try {
