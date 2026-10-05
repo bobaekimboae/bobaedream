@@ -193,7 +193,7 @@ function generationRow(generation) {
 function renderGeneration() {
   if (!state.model) return '<p class="empty-copy">모델을 먼저 선택해 주세요.</p>';
   const generations = visible(state.model.generations);
-  return `<div class="path-copy"><span>${escapeHtml(state.maker.displayName)}</span><span>›</span><span>${escapeHtml(state.model.displayName)}</span><span>›</span><strong>세부모델</strong>${testBadge()}</div><div class="all-row"><button type="button" data-select-generation="all"><span>${escapeHtml(state.model.displayName)} 전체</span><span class="option-count">${formatCount(state.model.listingCount)}</span></button></div><h3 class="section-title">최신순</h3><ul class="generation-list">${generations.map(generationRow).join("")}</ul>`;
+  return `<div class="all-row"><button type="button" data-select-generation="all"><span>${escapeHtml(state.model.displayName)} 전체</span><span class="option-count">${formatCount(state.model.listingCount)}</span></button></div><h3 class="section-title">최신순</h3><ul class="generation-list">${generations.map(generationRow).join("")}</ul>`;
 }
 
 function leafNodesForGrade(grade, fuelDrive) {
@@ -256,7 +256,7 @@ function renderGrade() {
     }).join("");
     return `${fdRow}<li class="grade-group-title level-1">등급</li>${grades}`;
   }).join("");
-  return `<div class="path-copy"><span>${escapeHtml(state.maker.displayName)}</span><span>›</span><span>${escapeHtml(state.model.displayName)}</span><span>›</span><span>${escapeHtml(state.generation.displayName)}</span><span>›</span><strong>연료·구동</strong>${testBadge()}</div><ul class="grade-list">${groups ? `<li class="grade-group-title level-0">연료·구동</li>${groups}` : '<li class="empty-copy">연료·구동 데이터가 없습니다.</li>'}</ul>`;
+  return `<ul class="grade-list">${groups ? `<li class="grade-group-title level-0">연료·구동</li>${groups}` : '<li class="empty-copy">연료·구동 데이터가 없습니다.</li>'}</ul>`;
 }
 
 function renderOverview() {
