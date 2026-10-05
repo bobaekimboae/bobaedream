@@ -18,5 +18,10 @@
   "model_car_encar_generation_8ead087e7724e95ff2a4": "hyundai/gen_hyundai_santafe_mx5.png",
   "model_car_encar_generation_f00e9efa8fe9b360a26f": "hyundai/gen_hyundai_avante_cn7.png",
   "model_car_encar_generation_1b97ade0841c5b35943f": "hyundai/gen_hyundai_sonata_dn8.png",
-  "model_car_encar_generation_512c2747147daa8d927d": "hyundai/gen_hyundai_palisade_lx3.png"
+  "model_car_encar_generation_512c2747147daa8d927d": "hyundai/gen_hyundai_palisade_lx3.png",
+  "model_car_encar_generation_1c1c06829bfb166fec99": "hyundai/gen_hyundai_tucson_nx4.png",
+  "model_car_encar_generation_cd690d55f50b2893fcdb": "hyundai/gen_hyundai_starex_2017.png",
+  "model_car_encar_generation_0760e5b6b848e04a3454": "hyundai/gen_hyundai_staria_2025.png",
+  "model_car_encar_generation_924cf29312db5bcf80b0": "hyundai/gen_hyundai_casper_ax1.png",
+  "model_car_encar_generation_fc802a917835ec254b0e": "hyundai/gen_hyundai_kona_sx2.png"
 }
