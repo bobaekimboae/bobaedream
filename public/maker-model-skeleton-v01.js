@@ -80,7 +80,7 @@ function icon(path, className = "") {
 
 function searchField(placeholder) {
   return `<div class="search-wrap"><label class="search-field">
-    ${icon("./assets/ui/search.svg")}
+    ${icon("./assets/maker-model/icons/chotot-search-gray.svg")}
     <input id="screen-search" type="search" value="${escapeHtml(state.query)}" placeholder="${placeholder}" aria-label="${placeholder}" autocomplete="off" />
   </label></div>`;
 }
@@ -90,7 +90,7 @@ function makerRow(maker) {
     <span class="maker-logo"><img src="${maker.logo}" alt="" /></span>
     <span class="maker-name">${escapeHtml(maker.name)}</span>
     <span class="option-count">${formatCount(maker.count)}</span>
-    ${icon("./assets/ui/category-chevron-right.svg", "chevron")}
+    ${icon("./assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}
   </button></li>`;
 }
 
@@ -111,7 +111,7 @@ function modelRow(model) {
     ${icon(model.image, "vehicle-image")}
     <span class="model-copy"><strong>${escapeHtml(model.name)}</strong></span>
     <span class="option-count">${formatCount(model.count)}</span>
-    ${icon("./assets/ui/category-chevron-right.svg", "chevron")}
+    ${icon("./assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}
   </button></li>`;
 }
 
@@ -139,7 +139,7 @@ function generationRow(generation) {
     ${icon(generation.image, "vehicle-image")}
     <span class="generation-copy"><strong>${escapeHtml(generation.name)}</strong><span>${escapeHtml(generation.year)}</span></span>
     <span class="option-count">${formatCount(generation.count)}</span>
-    ${icon("./assets/ui/category-chevron-right.svg", "chevron")}
+    ${icon("./assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}
   </button></li>`;
 }
 
@@ -153,7 +153,7 @@ function renderGrade() {
   const groups = gradeGroups.map((group) => `<li class="grade-group-title">${escapeHtml(group.name)}</li>${group.rows.map(([name, count]) => {
     const checked = state.grades.has(name);
     return `<li><button class="option-row grade-row is-child" role="checkbox" aria-checked="${checked}" type="button" data-grade="${escapeHtml(name)}">
-      <span class="fake-checkbox">${icon("./design-system/icons/ic_interface_checkmark_24.svg")}</span>
+      <span class="fake-checkbox">${icon("./assets/maker-model/icons/chotot-check.svg")}</span>
       <span class="grade-name">${escapeHtml(name)}</span><span class="option-count">${formatCount(count)}</span>
     </button></li>`;
   }).join("")}`).join("");
@@ -168,7 +168,7 @@ function renderOverview() {
     ["세부모델", state.generation?.name || "선택"],
     ["등급", state.grades.size ? `${state.grades.size}개 선택` : "선택"],
   ];
-  return `<div class="filter-overview">${rows.map(([label, value], index) => `<button class="filter-row" type="button" data-screen-target="${index + 1}"><strong>${label}</strong><span class="filter-value">${escapeHtml(value)}</span>${icon("./assets/ui/category-chevron-right.svg", "chevron")}</button>`).join("")}</div>`;
+  return `<div class="filter-overview">${rows.map(([label, value], index) => `<button class="filter-row" type="button" data-screen-target="${index + 1}"><strong>${label}</strong><span class="filter-value">${escapeHtml(value)}</span>${icon("./assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button>`).join("")}</div>`;
 }
 
 function selectionValues() {
