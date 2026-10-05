@@ -68,6 +68,14 @@
 - Sheet height is capped at 80% viewport height with internal vertical scrolling.
 - Reset and apply actions stay sticky at the bottom.
 
+### 제조사·모델 선택 시안 선택 요약·로고 규칙 (2026-10-06)
+
+- 모델·세부모델·연료·구동 화면은 브레드크럼이나 테두리 박스 대신 헤더 바로 아래 48px 한 줄 선택 요약을 사용한다: `제조사 · 모델 · 세부모델`.
+- 요약값은 14/20px·700, 좌측 16px이며 한 줄 말줄임을 허용한다. 각 값을 누르면 해당 선택 단계로 돌아가고, 오른쪽 40×40px X는 제조사 이하 전체 선택을 해제한다.
+- 제조사 목록 로고 슬롯은 40×40px, 이름과 간격은 12px, 행 높이는 56px으로 고정한다. 제조사명 시작점은 화면 왼쪽 68px이다.
+- 로고의 투명 여백을 제외한 가시 영역을 형태별로 보정한다. 원형·정사각 심볼은 약 26×26px, 세로형 심볼은 최대 약 20×27px, 가로형 워드마크는 최대 폭 36px을 기준으로 한다. 원본 비율은 유지한다.
+- 선택 요약 행에는 제조사 로고를 반복하지 않는다.
+
 ## Dialog And Full-filter State
 
 - Opening the mobile full-filter snapshots the applied detailed-filter values. Row clears, nested sheets, reset, and the availability switch edit that draft; only the bottom `N대 보기` action commits it.
