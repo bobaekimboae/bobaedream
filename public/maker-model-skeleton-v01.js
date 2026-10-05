@@ -48,8 +48,20 @@ const ENCAR_LOGO_FILES = {
   Fiat: "018_Fiat.png", Hummer: "048_Hummer.png", Honda: "027_Honda.png",
 };
 
+const ROUND_LOGO_FILES = new Set([
+  "012_BMW.png", "013_Mercedes_Benz.png", "014_Volkswagen.png", "016_Saab.png", "017_Volvo.png",
+  "029_Mazda.png", "030_Mitsubishi.png", "033_Nissan.png", "037_Suzuki.png", "040_Alfa_Romeo.png",
+  "049_Lamborghini.png", "051_Daihatsu.png", "057_Acura.png", "059_Mitsuoka.png", "069_Lotus.png",
+  "082_Scion.png", "087_Tesla.png", "088_DFSK.png", "089_Polestar.png", "etc_maker_icon.png",
+]);
+
+const VERTICAL_LOGO_FILES = new Set([
+  "005_Renault_KoreaSamsung.png", "015_Porsche.png", "021_Peugeot.png", "041_Ferrari.png",
+  "044_Lincoln.png", "047_Rolls_Royce.png", "053_Maserati.png", "078_Renault.png",
+]);
+
 const requestedLogo = new URLSearchParams(location.search).get("logo");
-const initialLogo = ["s", "m", "l", "xl"].includes(requestedLogo) ? requestedLogo : "s";
+const initialLogo = ["s", "m", "l", "xl"].includes(requestedLogo) ? requestedLogo : "m";
 
 const state = {
   screen: 1, logo: initialLogo, catalog: null, makers: [], maker: null, model: null, generation: null,
@@ -93,7 +105,8 @@ function validateCatalog(catalog) {
 
 function makerLogo(maker) {
   const fileName = ["Others", "etc"].includes(maker.englishName) ? "etc_maker_icon.png" : ENCAR_LOGO_FILES[maker.englishName] || "etc_maker_icon.png";
-  return `<span class="maker-logo"><img src="/assets/maker-model/logos/encar-1005-normalized/${escapeHtml(fileName)}" alt="" /></span>`;
+  const shapeClass = ROUND_LOGO_FILES.has(fileName) ? " is-round" : VERTICAL_LOGO_FILES.has(fileName) ? " is-vertical" : " is-wide";
+  return `<span class="maker-logo"><img class="maker-logo-image${shapeClass}" src="/assets/maker-model/logos/encar-1005-normalized/${escapeHtml(fileName)}" alt="" /></span>`;
 }
 
 const vehiclePlaceholder = () => `<span class="vehicle-placeholder-icon" aria-hidden="true"></span>`;
@@ -119,6 +132,21 @@ function generationSilhouette(generation, model) {
 
 function searchField(placeholder) {
   return `<div class="search-wrap"><label class="search-field">${icon("/assets/maker-model/icons/chotot-search-gray.svg")}<input id="screen-search" type="search" value="${escapeHtml(state.query)}" placeholder="${placeholder}" aria-label="${placeholder}" autocomplete="off" /></label></div>`;
+}
+
+function selectedPathItems() {
+  const items = [];
+  if (state.screen >= 2 && state.maker) items.push({ label: state.maker.displayName, screen: 1 });
+  if (state.screen >= 3 && state.model) items.push({ label: state.model.displayName, screen: 2 });
+  if (state.screen >= 4 && state.generation) items.push({ label: state.generation.displayName, screen: 3 });
+  return items;
+}
+
+function renderSelectionSummary() {
+  const items = selectedPathItems();
+  if (!items.length) return "";
+  const values = items.map((item, index) => `${index ? '<span class="selection-summary-separator" aria-hidden="true">·</span>' : ""}<button type="button" data-summary-screen="${item.screen}">${escapeHtml(item.label)}</button>`).join("");
+  return `<div class="selection-summary" aria-label="현재 선택 경로"><div class="selection-summary-values">${values}</div><button class="selection-summary-clear" type="button" data-clear-summary aria-label="제조사·모델 선택 전체 해제">${icon("/assets/maker-model/icons/chotot-close.svg")}</button></div>`;
 }
 
 function makerRow(maker) {
@@ -172,7 +200,7 @@ function renderModel() {
     const label = BODY_TYPES.find((type) => type.value === state.modelTab)?.label || state.modelTab;
     content = bodyRows.length ? `${bodyTypeGroupTitle(label)}<ul class="model-list">${bodyRows.map(modelRow).join("")}</ul>` : `<p class="empty-copy">${escapeHtml(label)} 모델이 없습니다.</p>`;
   }
-  return `${searchField("모델명·세대코드 검색")}${bodyTypeRail(allModels)}${content || '<p class="empty-copy">검색 결과가 없습니다.</p>'}`;
+  return `${renderSelectionSummary()}${searchField("모델명·세대코드 검색")}${bodyTypeRail(allModels)}${content || '<p class="empty-copy">검색 결과가 없습니다.</p>'}`;
 }
 
 function formatYm(value) {
@@ -193,7 +221,7 @@ function generationRow(generation) {
 function renderGeneration() {
   if (!state.model) return '<p class="empty-copy">모델을 먼저 선택해 주세요.</p>';
   const generations = visible(state.model.generations);
-  return `<div class="all-row"><button type="button" data-select-generation="all"><span>${escapeHtml(state.model.displayName)} 전체</span><span class="option-count">${formatCount(state.model.listingCount)}</span></button></div><h3 class="section-title">최신순</h3><ul class="generation-list">${generations.map(generationRow).join("")}</ul>`;
+  return `${renderSelectionSummary()}<div class="all-row"><button type="button" data-select-generation="all"><span>${escapeHtml(state.model.displayName)} 전체</span><span class="option-count">${formatCount(state.model.listingCount)}</span></button></div><h3 class="section-title">최신순</h3><ul class="generation-list">${generations.map(generationRow).join("")}</ul>`;
 }
 
 function leafNodesForGrade(grade, fuelDrive) {
@@ -256,7 +284,7 @@ function renderGrade() {
     }).join("");
     return `${fdRow}<li class="grade-group-title level-1">등급</li>${grades}`;
   }).join("");
-  return `<ul class="grade-list">${groups ? `<li class="grade-group-title level-0">연료·구동</li>${groups}` : '<li class="empty-copy">연료·구동 데이터가 없습니다.</li>'}</ul>`;
+  return `${renderSelectionSummary()}<ul class="grade-list">${groups ? `<li class="grade-group-title level-0">연료·구동</li>${groups}` : '<li class="empty-copy">연료·구동 데이터가 없습니다.</li>'}</ul>`;
 }
 
 function renderOverview() {
@@ -330,6 +358,19 @@ function findGrade(fuelDrive, key) {
 }
 
 document.addEventListener("click", (event) => {
+  const summaryClearButton = event.target.closest("[data-clear-summary]");
+  if (summaryClearButton) {
+    state.maker = null;
+    state.model = null;
+    state.generation = null;
+    state.selectedLeaves.clear();
+    state.expandedFuelKey = null;
+    state.expandedGradeKey = null;
+    state.modelTab = "all";
+    return setScreen(1);
+  }
+  const summaryStepButton = event.target.closest("[data-summary-screen]");
+  if (summaryStepButton) return setScreen(summaryStepButton.dataset.summaryScreen);
   const screenButton = event.target.closest("[data-screen], [data-screen-target]");
   if (screenButton) return setScreen(screenButton.dataset.screen ?? screenButton.dataset.screenTarget);
   const logoButton = event.target.closest("[data-logo]");

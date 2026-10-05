@@ -115,6 +115,56 @@
 
 final result: passed
 
+---
+
+## 제조사·모델 한 줄 선택 요약·로고 균형 (2026-10-06)
+
+- source visual truth: Google Drive `차란차 뎁스별` 폴더의 `2.png`(제조사), `3.png`(모델), `4.png`(세부모델), `7.png`(등급 트리) — https://drive.google.com/drive/folders/1fyw1SBLuptiYbR6a8oZWfQ5oiVoNOL9B
+- implementation: `http://127.0.0.1:4193/maker-model-skeleton-v01.html?v=summary-logo-1006`
+- implementation screenshot evidence: Codex 인앱 브라우저 Tab 71에서 384×820 CSS viewport로 캡처한 제조사·모델·세부모델·연료·구동 화면
+- source pixels: Drive 원본 모바일 PNG. 기기 프레임과 화면 밀도는 파일별로 달라 CSS 픽셀 수치의 직접 복제 대상이 아님
+- implementation pixels: 384×820 CSS px, 브라우저 viewport override, 화면 배율 1
+- density normalization: 레이아웃 수치는 384 CSS px 기준으로 비교하고 차란차의 화면 구조·위계만 참조했다. 보배드림의 Pretendard·검정 선택 토큰·좌측 제목 정렬은 의도적으로 유지했다.
+- state: 제조사 기본 화면, 현대 선택 모델 화면, 그랜저 선택 세부모델 화면, 더 뉴 그랜저 IG 선택 연료·구동 화면
+
+### Full-view comparison evidence
+
+- 제조사: 차란차와 동일하게 로고·이름·대수를 한 행에 두되, 보배드림은 기존 오른쪽 이동 화살표와 텍스트 시작 구분선을 유지했다. 40×40 슬롯 안에서 원형 로고는 약 26px, 가로형은 최대 36px로 보정되어 BMW·벤츠와 기아·제네시스의 시각 무게가 안정적이다.
+- 모델 이후: 차란차의 다중 선택 행을 그대로 쌓지 않고, 확정안대로 `현대 · 그랜저 · 세대`를 48px 한 줄 요약으로 통합했다. 외곽 박스와 로고는 사용하지 않았다.
+- 384px에서 한 줄 요약, 본문, 하단 액션은 가로 넘침 없이 보인다. X는 40×40 터치 영역이고 전체 선택을 제거한 뒤 제조사 화면으로 정상 복귀한다.
+
+### Focused region comparison evidence
+
+- 로고 영역: 현대·제네시스·기아·BMW·벤츠를 확대 비교했다. 슬롯은 모두 40×40, 이름 간격 12px, 행 56px이다. 원형과 세로형만 투명 캔버스 배율을 조정했고 원본 종횡비는 유지했다.
+- 선택 요약 영역: 모델 화면 `현대`, 세부모델 화면 `현대 · 그랜저`, 연료·구동 화면 `현대 · 그랜저 · 더 뉴 그랜저 IG`를 확인했다. 마지막 값은 남은 폭에서 말줄임되며 X는 고정 노출된다.
+
+### Findings
+
+- actionable P0/P1/P2 없음.
+- [P3] 하단 선택 칩과 상단 선택 요약은 정보가 일부 중복된다. 이번 확정안은 하단 칩 유지였으므로 의도된 상태로 분류한다.
+
+### Comparison history
+
+1. 첫 모델 화면에서 선택값 버튼이 브라우저 기본 가운데 정렬처럼 보이는 P2를 발견했다.
+2. `.selection-summary-values button`에 `text-align: left`를 적용했다.
+3. 384×820에서 다시 캡처해 `현대`, `현대 · 그랜저`, 3단계 경로가 모두 왼쪽 흐름으로 이어지는 것을 확인했다.
+
+### Interaction and console checks
+
+- 현대 선택 → 모델 화면 이동: 통과
+- 그랜저 선택 → 세부모델 화면 이동: 통과
+- 세대 선택 → 연료·구동 화면 이동: 통과
+- 선택 요약의 각 단계 → 해당 선택 화면 이동: 통과
+- 선택 요약 X → 제조사 화면 복귀 및 전체 해제: 통과
+- 브라우저 콘솔 error: 0건
+- `npm run verify:qf`: 통과
+
+### Follow-up polish
+
+- 실제 서비스 적용 시 하단 선택 칩을 유지할지, 상단 한 줄 요약만 남길지는 한 번의 사용성 비교 대상으로 남긴다.
+
+final result: passed
+
 ## 제조사 헤더 · 바디타입 사각 칩 v02
 
 - source visual truth: 과쯔 모델 화면 비교 보드 `C:\Users\bobae\codex-work\maker-model-skeleton-1005\reports\screenshots\guazi-vs-bobae-model-rail.png`, 핀노 자동차 검색 `https://www.finn.no/mobility/search/car`, 초톳 브랜드 실측 `reports/qf-100/chotot-measure.md`.
