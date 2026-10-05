@@ -31,7 +31,7 @@ function modelBodyType(model) {
 
 const ENCAR_LOGO_FILES = {
   Hyundai: "001_Hyundai.png", Genesis: "007_Genesis.png", Kia: "002_Kia.png", ChevroletGMDaewoo: "003_ChevroletGMDaewoo.png",
-  "Renault-KoreaSamsung": "005_Renault_KoreaSamsung.png", KG_Mobility_Ssangyong: "004_KG_Mobility_Ssangyong.png",
+  "Renault-KoreaSamsung": "078_Renault.png", KG_Mobility_Ssangyong: "004_KG_Mobility_Ssangyong.png",
   BMW: "012_BMW.png", BYD: "090_BYD.png", GMC: "056_GMC.png", Nissan: "033_Nissan.png", Daihatsu: "051_Daihatsu.png",
   Dodge: "034_Dodge.png", Toyota: "031_Toyota.png", DFSK: "088_DFSK.png", Lamborghini: "049_Lamborghini.png",
   "Land Rover": "020_Land_Rover.png", Lexus: "035_Lexus.png", Lotus: "069_Lotus.png", "Rolls-Royce": "047_Rolls_Royce.png",
