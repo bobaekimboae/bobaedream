@@ -50,6 +50,10 @@ def integer(value: Any) -> int | None:
     return int(float(value))
 
 
+def nullable_text(value: Any) -> str | None:
+    return text(value) or None
+
+
 def money(value: Any) -> int | None:
     return integer(value)
 
@@ -121,6 +125,37 @@ def exact_map(rows: list[dict[str, Any]], columns: tuple[str, ...], description:
     return result
 
 
+def orders_with_blanks_last(
+    rows: list[dict[str, Any]],
+    parent_columns: tuple[str, ...],
+    name_column: str,
+) -> dict[tuple[str, ...], int]:
+    """원본 정렬값은 보존하고 빈 값만 같은 부모의 마지막 순번으로 배정한다."""
+    parent_max: dict[tuple[str, ...], int] = defaultdict(int)
+    for row in rows:
+        name = text(row[name_column])
+        if not name:
+            continue
+        parent = tuple(text(row[column]) for column in parent_columns)
+        order = integer(row["엔카 정렬순서"])
+        if order is not None:
+            parent_max[parent] = max(parent_max[parent], order)
+
+    result: dict[tuple[str, ...], int] = {}
+    blank_counts: dict[tuple[str, ...], int] = defaultdict(int)
+    for row in rows:
+        name = text(row[name_column])
+        if not name:
+            continue
+        parent = tuple(text(row[column]) for column in parent_columns)
+        order = integer(row["엔카 정렬순서"])
+        if order is None:
+            blank_counts[parent] += 1
+            order = parent_max[parent] + blank_counts[parent]
+        result[(*parent, name)] = order
+    return result
+
+
 def load_body_types(path: Path) -> dict[str, dict[str, str]]:
     with path.open(encoding="utf-8-sig", newline="") as handle:
         rows = list(csv.DictReader(handle))
@@ -146,6 +181,17 @@ def build(source_dir: Path, body_type_csv: Path) -> dict[str, Any]:
     fuel_meta = exact_map(fuel_meta_rows, ("제조사", "모델그룹", "세부모델", "연료·구동(엔카 원문)"), "연료·구동")
     grade_meta = exact_map(grade_meta_rows, ("제조사", "모델그룹", "세부모델", "연료·구동", "등급(엔카 원문)"), "등급")
     body_types = load_body_types(body_type_csv)
+
+    generation_order = orders_with_blanks_last(
+        list(generation_meta.values()),
+        ("제조사", "모델그룹"),
+        "세부모델(엔카 원문)",
+    )
+    grade_order = orders_with_blanks_last(
+        grade_meta_rows,
+        ("제조사", "모델그룹", "세부모델", "연료·구동"),
+        "등급(엔카 원문)",
+    )
 
     fuel_order: dict[tuple[str, str, str, str], int] = {}
     fuel_parent_counts: dict[tuple[str, str, str], int] = defaultdict(int)
@@ -201,7 +247,7 @@ def build(source_dir: Path, body_type_csv: Path) -> dict[str, Any]:
             "key": key,
             "uuid": stable_uuid(key),
             "sourceSystem": "ENCAR",
-            "sourceCode": text(meta["엔카 코드"]),
+            "sourceCode": nullable_text(meta["엔카 코드"]),
             "sourceName": source_text(meta["제조사(엔카 원문)"]),
             "displayName": name,
             "englishName": text(meta["영문명"]) or None,
@@ -234,7 +280,7 @@ def build(source_dir: Path, body_type_csv: Path) -> dict[str, Any]:
             "uuid": stable_uuid(key),
             "makeKey": manufacturer_ids[make_name],
             "sourceSystem": "ENCAR",
-            "sourceCode": text(meta["엔카 코드"]),
+            "sourceCode": nullable_text(meta["엔카 코드"]),
             "sourceName": source_text(meta["모델그룹(엔카 원문)"]),
             "displayName": name,
             "englishName": text(meta["영문명"]) or None,
@@ -264,7 +310,7 @@ def build(source_dir: Path, body_type_csv: Path) -> dict[str, Any]:
             "makeKey": manufacturer_ids[make_name],
             "parentModelKey": model_group_ids[(make_name, group_name)],
             "sourceSystem": "ENCAR",
-            "sourceCode": text(meta["엔카 코드"]),
+            "sourceCode": nullable_text(meta["엔카 코드"]),
             "sourceName": source_text(meta["세부모델(엔카 원문)"]),
             "displayName": name,
             "level": "GENERATION",
@@ -274,7 +320,7 @@ def build(source_dir: Path, body_type_csv: Path) -> dict[str, Any]:
             "salesStatus": text(meta["판매상태"]) or None,
             "encarImagePath": text(meta["엔카 이미지 경로"]) or None,
             "isVisible": make_name != "지리",
-            "sortOrder": integer(meta["엔카 정렬순서"]) or 0,
+            "sortOrder": generation_order[path],
             "priceMin10kKrw": money(meta["시세 최저(만원)"]),
             "priceMax10kKrw": money(meta["시세 최고(만원)"]),
             "listingCount": unique_listing_count(source_rows, "모델 매물", " › ".join(path)),
@@ -297,7 +343,7 @@ def build(source_dir: Path, body_type_csv: Path) -> dict[str, Any]:
             "generationKey": generation_ids[(make_name, group_name, generation_name)],
             "parentTrimKey": None,
             "sourceSystem": "ENCAR",
-            "sourceCode": text(meta["엔카 코드"]) or None,
+            "sourceCode": nullable_text(meta["엔카 코드"]),
             "sourceName": source_text(meta["연료·구동(엔카 원문)"]),
             "displayName": name,
             "level": "FUEL_DRIVE",
@@ -326,12 +372,12 @@ def build(source_dir: Path, body_type_csv: Path) -> dict[str, Any]:
             "generationKey": generation_ids[(make_name, group_name, generation_name)],
             "parentTrimKey": fuel_ids[(make_name, group_name, generation_name, fuel_name)],
             "sourceSystem": "ENCAR",
-            "sourceCode": text(meta["엔카 코드"]) or None,
+            "sourceCode": nullable_text(meta["엔카 코드"]),
             "sourceName": source_text(meta["등급(엔카 원문)"]),
             "displayName": name,
             "level": "GRADE",
             "isVisible": make_name != "지리",
-            "sortOrder": integer(meta["엔카 정렬순서"]) or 0,
+            "sortOrder": grade_order[path],
             "priceMin10kKrw": money(meta["시세 최저(만원)"]),
             "priceMax10kKrw": money(meta["시세 최고(만원)"]),
             "listingCount": unique_listing_count(source_rows, "등급 매물", " › ".join(path)),

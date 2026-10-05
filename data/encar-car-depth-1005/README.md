@@ -23,6 +23,7 @@ python data/encar-car-depth-1005/generate_source.py `
 생성기는 목표 건수와 부모 경로를 먼저 검증한다. 수동 교정은 생성 결과인 `encar-car-depth.normalized.json`에서만 하고, 파생 결과물을 직접 고치지 않는다.
 
 엔카 원문은 `sourceName`에 공백까지 그대로 보존하고, 시안 표시는 공백을 정리한 `displayName`을 사용한다.
+빈 엔카 코드는 `null`로 저장한다. 원본 정렬순서가 빈 선택 노드는 같은 부모 단계의 기존 순번 뒤에 원본 행 순서대로 배정한다.
 
 ## 파생 결과물 생성
 

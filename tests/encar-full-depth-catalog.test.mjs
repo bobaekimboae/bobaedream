@@ -85,6 +85,29 @@ test("엔카 원문 가장자리 공백은 sourceName에 보존하고 화면 이
   assert.equal(ducato.sourceName, " 두카토");
 });
 
+test("빈 엔카 코드는 null이고 빈 정렬값 7개는 부모 단계의 마지막 순서로 배정한다", () => {
+  for (const collection of ["manufacturers", "modelGroups", "generations", "fuelDrives", "grades", "subgrades"]) {
+    assert.ok(source[collection].every((row) => row.sourceCode !== ""), collection);
+  }
+
+  const vwId4 = findPath(["폭스바겐", "ID.4", "ID.4", "전기 2WD", "프로"]);
+  const vwId5 = findPath(["폭스바겐", "ID.5", "ID.5", "전기 2WD", "프로"]);
+  assert.equal(vwId4.generation.sortOrder, 1);
+  assert.equal(vwId4.grade.sortOrder, 1);
+  assert.equal(vwId5.generation.sortOrder, 1);
+  assert.equal(vwId5.grade.sortOrder, 1);
+
+  const renaultGrades = ["RE", "SE", "SE 플러스"].map((gradeName) => (
+    findPath(["르노코리아(삼성)", "SM3", "SM3 Z.E.", "전기", gradeName]).grade
+  ));
+  assert.deepEqual(renaultGrades.map((row) => row.sortOrder), [1, 2, 3]);
+
+  const nullCodeGenerations = source.generations.filter((row) => row.sourceCode === null);
+  const nullCodeGrades = source.grades.filter((row) => row.sourceCode === null);
+  assert.equal(nullCodeGenerations.length, 2);
+  assert.equal(nullCodeGrades.length, 5);
+});
+
 test("클로드 마스터 지정 샘플 5개 경로가 원문 그대로 존재한다", () => {
   const paths = [
     ["현대", "그랜저", "그랜저 (GN7)", "가솔린 2WD", "2.5 가솔린 2WD", "프리미엄"],
