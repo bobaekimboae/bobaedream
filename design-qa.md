@@ -115,6 +115,46 @@
 
 final result: passed
 
+## 제조사 헤더 · 바디타입 사각 칩 v02
+
+- source visual truth: 과쯔 모델 화면 비교 보드 `C:\Users\bobae\codex-work\maker-model-skeleton-1005\reports\screenshots\guazi-vs-bobae-model-rail.png`, 핀노 자동차 검색 `https://www.finn.no/mobility/search/car`, 초톳 브랜드 실측 `reports/qf-100/chotot-measure.md`.
+- implementation screenshot: `C:\Users\bobae\codex-work\maker-model-skeleton-1005\reports\screenshots\maker-model-guazi-rail-all-384.png`.
+- viewport: 구현 384×820 CSS px, deviceScaleFactor 1. 반응형 360×820·412×820 추가 확인.
+- state: 현대 모델 `전체`, 사각 바디타입 칩.
+
+### Full-view comparison evidence
+
+- 제조사·모델 화면 헤더는 핀노 계열의 좌측 타이틀 위계를 유지했다. 헤더 64px, 제목 20/26px·700, 뒤로가기 40×40px 터치 영역, 제목 시작 x=56px, 하단 1px 구분선이다.
+- 초톳은 중앙 타이틀을 사용하지만 제목 크기와 헤더 밀도는 현재 시안과 유사하다. 기존 사용자 결정인 핀노형 좌측 정렬을 우선해 중앙 정렬로 되돌리지 않았다.
+- 바디타입 칩은 과쯔의 사각형 선택 구조에 맞춰 높이 36px·곡률 6px로 바꿨다. 선택·미선택 색과 타이포그래피는 보배드림 토큰을 유지했다.
+- 바디타입 구분 타이틀은 과쯔처럼 `#F5F6F7` 연회색 바탕과 `#DFE2E6` 양쪽 선을 사용해 흰색 모델 행과 분리했다.
+
+### Focused region comparison evidence
+
+- 칩: 높이 36px, 좌우 15px, 간격 8px, 좌측 여백 16px, radius 6px. 선택 `#222/#fff/700`, 미선택 `#F3F4F5/#555C65/400`.
+- 제조사 로고: 40×40px 고정 슬롯, 기본 명칭 간격 14px, 행 높이 56px. 실제 그림은 원형 엠블럼 약 22×22px, 가로형 최대 36×24px 범위로 정규화한다.
+- 360·384·412px에서 문서 가로 넘침 0, 칩 레일만 가로 스크롤하며 첫 칩 x=16px이다.
+
+### Required fidelity surfaces
+
+- fonts and typography: Pretendard, 화면 제목 20/26·700, 칩 14/18·400/700 규칙 유지.
+- spacing and layout rhythm: 헤더→검색→칩→인기 모델 순서와 16px 기준선을 유지. 알약형을 사각형으로 바꾸고 구분 타이틀 배경까지 분리했다.
+- colors and tokens: 보배드림 `#222`, `#F3F4F5`, `#E8E8E8` 유지.
+- image quality: 로고와 차량 이미지는 기존 정규화 자산을 유지하며 CSS 확대·왜곡 없음.
+- copy and content: 제조사·모델·바디타입 문구 변경 없음.
+
+### Interaction and console QA
+
+- 전체·세단 전환, 가로 스크롤, 목록 필터링 정상.
+- 콘솔 오류 0건, 360·384·412px 문서 오버플로 0건.
+
+### Findings
+
+- P0/P1/P2 없음.
+- P3: 초톳보다 곡률을 2~4px 크게 유지해 보배드림의 터치 칩 일관성을 보존했다.
+
+final result: passed
+
 ## 제조사 다음 모델 · 과쯔형 바디타입 레일 v01
 
 - source visual truth: Google Drive `과쯔 1 전체.jpg` (`1080×2400`, CSS 기준 약 `360×800`, 3x), `과쯔 2.jpg`, `과쯔 영상.mp4` — `https://drive.google.com/drive/folders/1ODOYnMUtofr1FMkHh4jkMcdfFKLgepxf`
