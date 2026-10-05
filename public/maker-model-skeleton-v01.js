@@ -16,6 +16,7 @@ const BODY_TYPES = [
   { value: "픽업트럭", label: "픽업트럭" },
   { value: "기타", label: "기타" },
 ];
+const ALWAYS_VISIBLE_BODY_TYPES = new Set(["픽업트럭"]);
 
 const VAN_MODEL_PATTERN = /(ST1|스타렉스|스타리아|쏠라티|봉고|포터|승합|\bvan\b|밴)/i;
 
@@ -141,7 +142,7 @@ function modelRow(model) {
 
 function bodyTypeRail(models) {
   const counts = new Map(BODY_TYPES.map((type) => [type.value, models.filter((model) => modelBodyType(model) === type.value).length]));
-  const availableTypes = BODY_TYPES.filter((type) => counts.get(type.value));
+  const availableTypes = BODY_TYPES.filter((type) => counts.get(type.value) || ALWAYS_VISIBLE_BODY_TYPES.has(type.value));
   if (state.modelTab !== "all" && !availableTypes.some((type) => type.value === state.modelTab)) state.modelTab = "all";
   const allChip = `<button type="button" data-model-filter="all" aria-pressed="${state.modelTab === "all"}"><span>전체</span></button>`;
   const typeChips = availableTypes.map((type) => `<button type="button" data-model-filter="${escapeHtml(type.value)}" aria-pressed="${state.modelTab === type.value}" title="${counts.get(type.value)}개 모델"><span>${escapeHtml(type.label)}</span></button>`).join("");
@@ -156,21 +157,19 @@ function renderModel() {
   if (!state.maker) return '<p class="empty-copy">제조사를 먼저 선택해 주세요.</p>';
   const allModels = visible(state.maker.modelGroups);
   const query = state.query.trim().toLocaleLowerCase("ko-KR");
-  const filtered = allModels.filter((model) => `${model.displayName} ${model.englishName || ""} ${model.generations.map((generation) => `${generation.displayName} ${generation.generationCode || ""}`).join(" ")}`.toLocaleLowerCase("ko-KR").includes(query));
+  const filtered = allModels
+    .filter((model) => `${model.displayName} ${model.englishName || ""} ${model.generations.map((generation) => `${generation.displayName} ${generation.generationCode || ""}`).join(" ")}`.toLocaleLowerCase("ko-KR").includes(query))
+    .sort((a, b) => a.displayName.localeCompare(b.displayName, "ko-KR", { numeric: true, sensitivity: "base" }));
   const popularModels = [...allModels].sort((a, b) => b.listingCount - a.listingCount).slice(0, 5);
   const popular = popularModels.map(modelRow).join("");
   let content;
   if (state.modelTab === "all") {
     const popularSection = query ? "" : `<h3 class="section-title model-section-title">인기 모델</h3><ul class="model-list popular-model-list">${popular}</ul>`;
-    const availableGroups = BODY_TYPES.map((type) => ({ type, models: filtered.filter((model) => modelBodyType(model) === type.value) })).filter((group) => group.models.length);
-    const groupedModels = availableGroups.length
-      ? availableGroups.map(({ type, models }) => `${bodyTypeGroupTitle(type.label)}<ul class="model-list">${models.map(modelRow).join("")}</ul>`).join("")
-      : `<ul class="model-list">${filtered.map(modelRow).join("")}</ul>`;
-    content = `${popularSection}<div class="section-heading-row with-rule"><h3>전체 모델</h3><span>${availableGroups.length ? "바디타입별" : "이름순"}</span></div>${groupedModels}`;
+    content = `${popularSection}<div class="section-heading-row with-rule"><h3>전체 모델</h3><span>이름순</span></div><ul class="model-list">${filtered.map(modelRow).join("")}</ul>`;
   } else {
     const bodyRows = filtered.filter((model) => modelBodyType(model) === state.modelTab);
     const label = BODY_TYPES.find((type) => type.value === state.modelTab)?.label || state.modelTab;
-    content = bodyRows.length ? `${bodyTypeGroupTitle(label)}<ul class="model-list">${bodyRows.map(modelRow).join("")}</ul>` : `<p class="empty-copy">${escapeHtml(label)}로 확인된 모델이 없습니다.</p>`;
+    content = bodyRows.length ? `${bodyTypeGroupTitle(label)}<ul class="model-list">${bodyRows.map(modelRow).join("")}</ul>` : `<p class="empty-copy">${escapeHtml(label)} 모델이 없습니다.</p>`;
   }
   return `${searchField("모델명·세대코드 검색")}${bodyTypeRail(allModels)}${content || '<p class="empty-copy">검색 결과가 없습니다.</p>'}`;
 }
