@@ -97,6 +97,9 @@ button { -webkit-tap-highlight-color: transparent; }
 .section-heading-row.with-rule { margin-top: 8px; border-top: 8px solid #f5f6f7; }
 .section-heading-row h3 { margin: 0; color: #4f5660; font-size: 14px; line-height: 18px; font-weight: 700; }
 .section-heading-row span { color: #8b9098; font-size: 12px; line-height: 16px; font-weight: 400; }
+.body-type-group-title { min-height: 36px; display: grid; grid-template-columns: minmax(16px, 1fr) auto minmax(16px, 1fr); align-items: center; gap: 12px; padding: 8px 16px 4px; color: #858b94; font-size: 12px; line-height: 16px; font-weight: 400; }
+.body-type-group-title::before, .body-type-group-title::after { content: ""; height: 1px; background: #eceef0; }
+.body-type-group-title span { white-space: nowrap; }
 
 .body-type-rail { position: sticky; top: 62px; z-index: 1; display: flex; gap: 8px; overflow-x: auto; padding: 10px 16px 12px; scroll-padding-inline: 16px; border-bottom: 1px solid #e8e8e8; background: rgba(255,255,255,.98); scrollbar-width: none; scroll-snap-type: x proximity; }
 .body-type-rail::-webkit-scrollbar { display: none; }

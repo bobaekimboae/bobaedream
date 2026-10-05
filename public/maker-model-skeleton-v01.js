@@ -136,6 +136,10 @@ function bodyTypeRail(models) {
   return `<div class="body-type-rail" aria-label="모델 바디타입 선택">${allChip}${typeChips}</div>`;
 }
 
+function bodyTypeGroupTitle(label) {
+  return `<div class="body-type-group-title"><span>${escapeHtml(label)}</span></div>`;
+}
+
 function renderModel() {
   if (!state.maker) return '<p class="empty-copy">제조사를 먼저 선택해 주세요.</p>';
   const allModels = visible(state.maker.modelGroups);
@@ -146,11 +150,15 @@ function renderModel() {
   let content;
   if (state.modelTab === "all") {
     const popularSection = query ? "" : `<h3 class="section-title model-section-title">인기 모델</h3><ul class="model-list popular-model-list">${popular}</ul>`;
-    content = `${popularSection}<div class="section-heading-row with-rule"><h3>전체 모델</h3><span>이름순</span></div><ul class="model-list">${filtered.map(modelRow).join("")}</ul>`;
+    const availableGroups = BODY_TYPES.map((type) => ({ type, models: filtered.filter((model) => model.bodyType === type.value) })).filter((group) => group.models.length);
+    const groupedModels = availableGroups.length
+      ? availableGroups.map(({ type, models }) => `${bodyTypeGroupTitle(type.label)}<ul class="model-list">${models.map(modelRow).join("")}</ul>`).join("")
+      : `<ul class="model-list">${filtered.map(modelRow).join("")}</ul>`;
+    content = `${popularSection}<div class="section-heading-row with-rule"><h3>전체 모델</h3><span>${availableGroups.length ? "바디타입별" : "이름순"}</span></div>${groupedModels}`;
   } else {
     const bodyRows = filtered.filter((model) => model.bodyType === state.modelTab);
     const label = BODY_TYPES.find((type) => type.value === state.modelTab)?.label || state.modelTab;
-    content = bodyRows.length ? `<div class="section-heading-row"><h3>${escapeHtml(label)} 모델</h3><span>${bodyRows.length}개</span></div><ul class="model-list">${bodyRows.map(modelRow).join("")}</ul>` : `<p class="empty-copy">${escapeHtml(label)}로 확인된 모델이 없습니다.</p>`;
+    content = bodyRows.length ? `${bodyTypeGroupTitle(label)}<ul class="model-list">${bodyRows.map(modelRow).join("")}</ul>` : `<p class="empty-copy">${escapeHtml(label)}로 확인된 모델이 없습니다.</p>`;
   }
   return `${searchField("모델명·세대코드 검색")}${bodyTypeRail(allModels)}${content || '<p class="empty-copy">검색 결과가 없습니다.</p>'}`;
 }
