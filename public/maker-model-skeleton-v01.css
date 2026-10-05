@@ -48,7 +48,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .phone-stage { position: sticky; top: 16px; display: grid; place-items: center; align-self: start; }
 .phone { width: 384px; height: min(820px, calc(100dvh - 32px)); min-height: 680px; overflow: hidden; border: 8px solid #0b0b0c; border-radius: 38px; background: #fff; box-shadow: 0 28px 70px rgba(23, 29, 38, .22); }
 .sheet { height: 100%; display: grid; grid-template-rows: 64px minmax(0, 1fr) auto; background: #fff; }
-.sheet-header { position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 4px; padding: 0 20px; border-bottom: 1px solid #e8e8e8; }
+.sheet-header { position: relative; display: grid; grid-template-columns: 40px minmax(0, 1fr) 44px; align-items: center; gap: 0; padding: 0 16px; border-bottom: 1px solid #e8e8e8; }
 .sheet-header.is-root { grid-template-columns: minmax(0, 1fr) 44px; gap: 0; padding: 0 20px 0 24px; }
 .sheet-header h2 { min-width: 0; margin: 0; overflow: hidden; text-align: left; font-size: 20px; line-height: 28px; font-weight: 750; letter-spacing: -.35px; text-overflow: ellipsis; white-space: nowrap; }
 .icon-button { width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: 10px; background: transparent; cursor: pointer; }
@@ -87,7 +87,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .chevron { width: 24px; height: 24px; opacity: .58; }
 
 .selection-summary { background: #fff; border-bottom: 8px solid #f5f6f7; }
-.selection-summary-row { min-height: 44px; display: grid; grid-template-columns: minmax(0, 1fr) 40px; align-items: center; margin-left: 16px; border-bottom: 1px solid #e8e8e8; }
+.selection-summary-row { min-height: 44px; display: grid; grid-template-columns: minmax(0, 1fr) 40px; align-items: center; margin: 0 8px 0 16px; border-bottom: 1px solid #e8e8e8; }
 .selection-summary-row:last-child { border-bottom: 0; }
 .selection-summary-row.has-detail { min-height: 56px; }
 .selection-summary-label { min-width: 0; align-self: stretch; display: flex; flex-direction: column; justify-content: center; gap: 1px; overflow: hidden; padding: 0; border: 0; background: transparent; color: #222; text-align: left; cursor: pointer; }
