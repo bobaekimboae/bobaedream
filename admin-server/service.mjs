@@ -599,6 +599,13 @@ export class AdminService {
     return rows.map(normalizeDbRow);
   }
 
+  listModelTrims(generationModelId = null) {
+    const rows = generationModelId
+      ? this.database.db.prepare("SELECT * FROM model_trims WHERE generation_model_id = ? ORDER BY trim_level, parent_trim_id, sort_order, name_ko").all(generationModelId)
+      : this.database.db.prepare("SELECT * FROM model_trims ORDER BY generation_model_id, trim_level, parent_trim_id, sort_order, name_ko").all();
+    return rows.map(normalizeDbRow);
+  }
+
   createModel(payload, context) {
     const timestamp = now();
     const row = {
