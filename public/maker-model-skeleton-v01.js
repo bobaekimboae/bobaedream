@@ -1,6 +1,6 @@
 const CATALOG_URL = "./data/encar-car-depth-1005/catalog.json";
 const GENERATION_IMAGES_URL = "./data/encar-car-depth-1005/generation-images.json";
-const GENERATION_IMAGE_BASE = "./assets/maker-model/generations/grandeur/";
+const GENERATION_IMAGE_BASE = "/assets/maker-model/generations/grandeur/";
 const EXPECTED_COUNTS = { manufacturers: 63, modelGroups: 663, generations: 1256, fuelDrives: 2158, grades: 5976, subgrades: 3297 };
 
 const BODY_TYPES = [
@@ -82,7 +82,7 @@ function validateCatalog(catalog) {
 
 function makerLogo(maker) {
   const fileName = ["Others", "etc"].includes(maker.englishName) ? "etc_maker_icon.png" : ENCAR_LOGO_FILES[maker.englishName] || "etc_maker_icon.png";
-  return `<span class="maker-logo"><img src="./assets/maker-model/logos/encar-1005/${escapeHtml(fileName)}" alt="" /></span>`;
+  return `<span class="maker-logo"><img src="/assets/maker-model/logos/encar-1005/${escapeHtml(fileName)}" alt="" /></span>`;
 }
 
 function modelInitial(name) {
@@ -100,7 +100,7 @@ function modelInitial(name) {
 
 function bodyIconPath(bodyType) {
   const match = BODY_TYPES.find((item) => item.value === bodyType);
-  return `./assets/icons/body-type/${match?.icon || "other.svg"}`;
+  return `/assets/icons/body-type/${match?.icon || "other.svg"}`;
 }
 
 function generationImage(generation, label) {
@@ -123,11 +123,11 @@ function generationSilhouette(generation, model) {
 }
 
 function searchField(placeholder) {
-  return `<div class="search-wrap"><label class="search-field">${icon("./assets/maker-model/icons/chotot-search-gray.svg")}<input id="screen-search" type="search" value="${escapeHtml(state.query)}" placeholder="${placeholder}" aria-label="${placeholder}" autocomplete="off" /></label></div>`;
+  return `<div class="search-wrap"><label class="search-field">${icon("/assets/maker-model/icons/chotot-search-gray.svg")}<input id="screen-search" type="search" value="${escapeHtml(state.query)}" placeholder="${placeholder}" aria-label="${placeholder}" autocomplete="off" /></label></div>`;
 }
 
 function makerRow(maker) {
-  return `<li><button class="option-row maker-row" type="button" data-select-maker="${escapeHtml(maker.key)}">${makerLogo(maker)}<span class="maker-name">${escapeHtml(maker.displayName)}</span><span class="option-count">${formatCount(maker.listingCount)}</span>${icon("./assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
+  return `<li><button class="option-row maker-row" type="button" data-select-maker="${escapeHtml(maker.key)}">${makerLogo(maker)}<span class="maker-name">${escapeHtml(maker.displayName)}</span><span class="option-count">${formatCount(maker.listingCount)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
 }
 
 function renderMaker() {
@@ -140,7 +140,7 @@ function renderMaker() {
 
 function modelRow(model) {
   const reviewMark = model.reviewStatus === "REVIEW_REQUIRED" ? '<span class="review-mark" title="바디타입 검토 필요">🟡</span>' : "";
-  return `<li><button class="option-row model-row" type="button" data-select-model="${escapeHtml(model.key)}" data-initial="${escapeHtml(modelInitial(model.displayName))}">${modelSilhouette(model)}<span class="model-copy"><strong>${escapeHtml(model.displayName)}${reviewMark}</strong></span><span class="option-count">${formatCount(model.listingCount)}</span>${icon("./assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
+  return `<li><button class="option-row model-row" type="button" data-select-model="${escapeHtml(model.key)}" data-initial="${escapeHtml(modelInitial(model.displayName))}">${modelSilhouette(model)}<span class="model-copy"><strong>${escapeHtml(model.displayName)}${reviewMark}</strong></span><span class="option-count">${formatCount(model.listingCount)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
 }
 
 function bodyTypeRail(models) {
@@ -183,7 +183,7 @@ function generationPeriod(generation) {
 }
 
 function generationRow(generation) {
-  return `<li><button class="option-row generation-row" type="button" data-select-generation="${escapeHtml(generation.key)}">${generationSilhouette(generation, state.model)}<span class="generation-copy"><strong>${escapeHtml(generation.displayName)}</strong><span>${escapeHtml(generationPeriod(generation))}</span></span><span class="option-count">${formatCount(generation.listingCount)}</span>${icon("./assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
+  return `<li><button class="option-row generation-row" type="button" data-select-generation="${escapeHtml(generation.key)}">${generationSilhouette(generation, state.model)}<span class="generation-copy"><strong>${escapeHtml(generation.displayName)}</strong><span>${escapeHtml(generationPeriod(generation))}</span></span><span class="option-count">${formatCount(generation.listingCount)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
 }
 
 function renderGeneration() {
@@ -206,7 +206,7 @@ function checkedState(leaves) {
 }
 
 function checkRow({ key, label, count, level, leaves, kind }) {
-  return `<li><button class="option-row grade-row level-${level}" role="checkbox" aria-checked="${checkedState(leaves)}" type="button" data-check-kind="${kind}" data-check-key="${escapeHtml(key)}"><span class="fake-checkbox">${icon("./assets/maker-model/icons/chotot-check.svg")}</span><span class="grade-name">${escapeHtml(label)}</span><span class="option-count">${formatCount(count)}</span></button></li>`;
+  return `<li><button class="option-row grade-row level-${level}" role="checkbox" aria-checked="${checkedState(leaves)}" type="button" data-check-kind="${kind}" data-check-key="${escapeHtml(key)}"><span class="fake-checkbox">${icon("/assets/maker-model/icons/chotot-check.svg")}</span><span class="grade-name">${escapeHtml(label)}</span><span class="option-count">${formatCount(count)}</span></button></li>`;
 }
 
 function renderGrade() {
@@ -225,7 +225,7 @@ function renderGrade() {
 
 function renderOverview() {
   const rows = [["제조사", state.maker?.displayName || "선택"], ["모델", state.model?.displayName || "선택"], ["세부모델", state.generation?.displayName || "선택"], ["등급", state.selectedLeaves.size ? `${state.selectedLeaves.size}개 선택` : "선택"]];
-  return `<div class="filter-overview">${rows.map(([label, value], index) => `<button class="filter-row" type="button" data-screen-target="${index + 1}"><strong>${label}</strong><span class="filter-value">${escapeHtml(value)}</span>${icon("./assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button>`).join("")}</div>`;
+  return `<div class="filter-overview">${rows.map(([label, value], index) => `<button class="filter-row" type="button" data-screen-target="${index + 1}"><strong>${label}</strong><span class="filter-value">${escapeHtml(value)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button>`).join("")}</div>`;
 }
 
 function selectionValues() {
