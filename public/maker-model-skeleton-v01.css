@@ -122,7 +122,7 @@ button { -webkit-tap-highlight-color: transparent; }
   object-position: center bottom;
   opacity: 1;
   filter: none;
-  transform: none;
+  transform: translateY(-5px);
 }
 .generation-placeholder { position: relative; }
 .review-mark { display: inline-block; margin-left: 5px; font-size: 10px; vertical-align: 1px; }
