@@ -2,6 +2,7 @@ const CATALOG_URL = "./data/encar-car-depth-1005/catalog.json";
 const GENERATION_IMAGES_URL = "./data/encar-car-depth-1005/generation-images.json";
 const GENERATION_IMAGE_BASE = "/assets/maker-model/generations/grandeur/";
 const EXPECTED_COUNTS = { manufacturers: 63, modelGroups: 663, generations: 1256, fuelDrives: 2158, grades: 5976, subgrades: 3297 };
+const IMPORT_POPULAR_ORDER = ["BMW", "벤츠", "아우디", "포르쉐", "미니", "랜드로버"];
 
 const BODY_TYPES = [
   { value: "세단", label: "세단", icon: "sedan.svg" },
@@ -130,7 +131,10 @@ function makerRow(maker) {
 function renderMaker() {
   const query = state.query.trim().toLocaleLowerCase("ko-KR");
   const filtered = state.makers.filter((maker) => `${maker.displayName} ${maker.englishName || ""}`.toLocaleLowerCase("ko-KR").includes(query));
-  const groups = [["국산", filtered.filter((maker) => maker.origin === "국산")], ["수입 인기", filtered.filter((maker) => maker.origin === "수입" && maker.isPopular)], ["수입 이름순", filtered.filter((maker) => maker.origin === "수입" && !maker.isPopular)]];
+  const domestic = filtered.filter((maker) => maker.origin === "국산");
+  const imported = filtered.filter((maker) => maker.origin === "수입");
+  const popularImported = IMPORT_POPULAR_ORDER.map((name) => imported.find((maker) => maker.displayName === name)).filter(Boolean);
+  const groups = [["국산차", domestic], ["수입차 인기제조사", popularImported], ["수입차 이름순", imported]];
   const content = groups.map(([group, rows], index) => rows.length ? `<h3 class="section-title ${index ? "with-rule" : ""}">${group}${testBadge()}</h3><ul class="maker-list">${rows.map(makerRow).join("")}</ul>` : "").join("");
   return `${searchField("제조사 검색")}${content || '<p class="empty-copy">검색 결과가 없습니다.</p>'}`;
 }
