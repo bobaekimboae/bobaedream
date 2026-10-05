@@ -31,23 +31,33 @@
           <span class="control-label">로고</span>
           <div class="segmented" id="logo-controls">
             <button type="button" data-logo="s">s</button>
-            <button type="button" data-logo="m">m</button>
-            <button type="button" data-logo="l" class="is-active">l</button>
+            <button type="button" data-logo="m" class="is-active">m</button>
+            <button type="button" data-logo="l">l</button>
             <button type="button" data-logo="xl">xl</button>
           </div>
         </div>
 
-        <dl class="token-table">
-          <div><dt>로고 기본</dt><dd>40×40 슬롯 · 이처 광학 보정 · 간격 12</dd></div>
-          <div><dt>모델</dt><dd>74×46 이미지 · 간격 18 · 행 56</dd></div>
-          <div><dt>세부모델</dt><dd>74×46 이미지 · 간격 18 · 행 56</dd></div>
-          <div><dt>등급</dt><dd>20 체크박스 · 행 48 · 들여쓰기 16</dd></div>
-        </dl>
+        <div class="control-group" aria-label="규격 비교">
+          <span class="control-label">규격</span>
+          <div class="segmented" id="spec-controls">
+            <button type="button" data-spec="new" class="is-active">권장값</button>
+            <button type="button" data-spec="old">기존값(74×46, 간격 18)</button>
+          </div>
+        </div>
+
+        <div class="control-group" aria-label="치수 슬롯 표시">
+          <span class="control-label">슬롯</span>
+          <div class="segmented">
+            <button type="button" id="slot-toggle" aria-pressed="false">치수 슬롯 표시</button>
+          </div>
+        </div>
+
+        <dl class="token-table" id="token-table"></dl>
 
       </section>
 
       <section class="phone-stage" aria-label="제조사·모델 선택 화면 미리보기">
-        <div class="phone" data-logo-size="s">
+        <div class="phone" data-logo-size="m" data-spec-mode="new" data-slots="off">
           <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
             <header class="sheet-header">
               <button class="icon-button" id="back-button" type="button" aria-label="이전 화면">
@@ -63,6 +73,7 @@
 
             <footer class="sheet-footer">
               <div class="selection-strip" id="selection-strip" aria-label="선택된 조건"></div>
+              <p class="placeholder-note">샘플 매물수·차량 이미지는 자리표시자입니다.</p>
               <div class="footer-actions">
                 <button class="reset-button" id="reset-button" type="button">초기화</button>
                 <button class="apply-button" id="apply-button" type="button">198,208대 보기</button>
