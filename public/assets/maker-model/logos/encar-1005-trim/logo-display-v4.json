@@ -1,0 +1,380 @@
+{
+  "001_Hyundai.png": {
+    "sourceWidth": 443,
+    "sourceHeight": 228,
+    "displayWidth": 36.2,
+    "displayHeight": 18.7
+  },
+  "002_Kia.png": {
+    "sourceWidth": 496,
+    "sourceHeight": 119,
+    "displayWidth": 38.0,
+    "displayHeight": 9.1
+  },
+  "003_ChevroletGMDaewoo.png": {
+    "sourceWidth": 344,
+    "sourceHeight": 113,
+    "displayWidth": 38.0,
+    "displayHeight": 12.5
+  },
+  "004_KG_Mobility_Ssangyong.png": {
+    "sourceWidth": 466,
+    "sourceHeight": 74,
+    "displayWidth": 38.0,
+    "displayHeight": 6.0
+  },
+  "005_Renault_KoreaSamsung.png": {
+    "sourceWidth": 312,
+    "sourceHeight": 410,
+    "displayWidth": 19.8,
+    "displayHeight": 26.0
+  },
+  "007_Genesis.png": {
+    "sourceWidth": 581,
+    "sourceHeight": 118,
+    "displayWidth": 38.0,
+    "displayHeight": 7.7
+  },
+  "011_Audi.png": {
+    "sourceWidth": 500,
+    "sourceHeight": 175,
+    "displayWidth": 38.0,
+    "displayHeight": 13.3
+  },
+  "012_BMW.png": {
+    "sourceWidth": 462,
+    "sourceHeight": 462,
+    "displayWidth": 26.0,
+    "displayHeight": 26.0
+  },
+  "013_Mercedes_Benz.png": {
+    "sourceWidth": 405,
+    "sourceHeight": 405,
+    "displayWidth": 26.0,
+    "displayHeight": 26.0
+  },
+  "014_Volkswagen.png": {
+    "sourceWidth": 462,
+    "sourceHeight": 462,
+    "displayWidth": 26.0,
+    "displayHeight": 26.0
+  },
+  "015_Porsche.png": {
+    "sourceWidth": 333,
+    "sourceHeight": 446,
+    "displayWidth": 19.4,
+    "displayHeight": 26.0
+  },
+  "016_Saab.png": {
+    "sourceWidth": 278,
+    "sourceHeight": 278,
+    "displayWidth": 26.0,
+    "displayHeight": 26.0
+  },
+  "017_Volvo.png": {
+    "sourceWidth": 468,
+    "sourceHeight": 468,
+    "displayWidth": 26.0,
+    "displayHeight": 26.0
+  },
+  "018_Fiat.png": {
+    "sourceWidth": 273,
+    "sourceHeight": 168,
+    "displayWidth": 33.1,
+    "displayHeight": 20.4
+  },
+  "019_Jaguar.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 224,
+    "displayWidth": 38.0,
+    "displayHeight": 15.2
+  },
+  "020_Land_Rover.png": {
+    "sourceWidth": 507,
+    "sourceHeight": 266,
+    "displayWidth": 35.9,
+    "displayHeight": 18.8
+  },
+  "021_Peugeot.png": {
+    "sourceWidth": 377,
+    "sourceHeight": 415,
+    "displayWidth": 23.6,
+    "displayHeight": 26.0
+  },
+  "022_Citroen_DS.png": {
+    "sourceWidth": 167,
+    "sourceHeight": 147,
+    "displayWidth": 27.7,
+    "displayHeight": 24.4
+  },
+  "022b_DS.png": {
+    "sourceWidth": 359,
+    "sourceHeight": 436,
+    "displayWidth": 21.4,
+    "displayHeight": 26.0
+  },
+  "023_Chrysler.png": {
+    "sourceWidth": 583,
+    "sourceHeight": 51,
+    "displayWidth": 38.0,
+    "displayHeight": 3.3
+  },
+  "024_Ford.png": {
+    "sourceWidth": 526,
+    "sourceHeight": 199,
+    "displayWidth": 38.0,
+    "displayHeight": 14.4
+  },
+  "027_Honda.png": {
+    "sourceWidth": 460,
+    "sourceHeight": 374,
+    "displayWidth": 28.8,
+    "displayHeight": 23.4
+  },
+  "029_Mazda.png": {
+    "sourceWidth": 292,
+    "sourceHeight": 230,
+    "displayWidth": 29.3,
+    "displayHeight": 23.1
+  },
+  "030_Mitsubishi.png": {
+    "sourceWidth": 300,
+    "sourceHeight": 251,
+    "displayWidth": 28.4,
+    "displayHeight": 23.8
+  },
+  "031_Toyota.png": {
+    "sourceWidth": 430,
+    "sourceHeight": 279,
+    "displayWidth": 32.3,
+    "displayHeight": 20.9
+  },
+  "033_Nissan.png": {
+    "sourceWidth": 502,
+    "sourceHeight": 419,
+    "displayWidth": 28.5,
+    "displayHeight": 23.8
+  },
+  "034_Dodge.png": {
+    "sourceWidth": 350,
+    "sourceHeight": 50,
+    "displayWidth": 38.0,
+    "displayHeight": 5.4
+  },
+  "035_Lexus.png": {
+    "sourceWidth": 448,
+    "sourceHeight": 318,
+    "displayWidth": 30.9,
+    "displayHeight": 21.9
+  },
+  "037_Suzuki.png": {
+    "sourceWidth": 401,
+    "sourceHeight": 401,
+    "displayWidth": 26.0,
+    "displayHeight": 26.0
+  },
+  "038_Chevrolet.png": {
+    "sourceWidth": 344,
+    "sourceHeight": 113,
+    "displayWidth": 38.0,
+    "displayHeight": 12.5
+  },
+  "040_Alfa_Romeo.png": {
+    "sourceWidth": 462,
+    "sourceHeight": 463,
+    "displayWidth": 25.9,
+    "displayHeight": 26.0
+  },
+  "041_Ferrari.png": {
+    "sourceWidth": 367,
+    "sourceHeight": 528,
+    "displayWidth": 18.1,
+    "displayHeight": 26.0
+  },
+  "043_Cadillac.png": {
+    "sourceWidth": 498,
+    "sourceHeight": 189,
+    "displayWidth": 38.0,
+    "displayHeight": 14.4
+  },
+  "044_Lincoln.png": {
+    "sourceWidth": 140,
+    "sourceHeight": 458,
+    "displayWidth": 7.9,
+    "displayHeight": 26.0
+  },
+  "047_Rolls_Royce.png": {
+    "sourceWidth": 236,
+    "sourceHeight": 412,
+    "displayWidth": 14.9,
+    "displayHeight": 26.0
+  },
+  "048_Hummer.png": {
+    "sourceWidth": 336,
+    "sourceHeight": 29,
+    "displayWidth": 38.0,
+    "displayHeight": 3.3
+  },
+  "049_Lamborghini.png": {
+    "sourceWidth": 389,
+    "sourceHeight": 438,
+    "displayWidth": 23.1,
+    "displayHeight": 26.0
+  },
+  "050_Bentley.png": {
+    "sourceWidth": 596,
+    "sourceHeight": 193,
+    "displayWidth": 38.0,
+    "displayHeight": 12.3
+  },
+  "051_Daihatsu.png": {
+    "sourceWidth": 330,
+    "sourceHeight": 270,
+    "displayWidth": 28.7,
+    "displayHeight": 23.5
+  },
+  "052_Subaru.png": {
+    "sourceWidth": 476,
+    "sourceHeight": 259,
+    "displayWidth": 35.2,
+    "displayHeight": 19.2
+  },
+  "053_Maserati.png": {
+    "sourceWidth": 330,
+    "sourceHeight": 464,
+    "displayWidth": 18.5,
+    "displayHeight": 26.0
+  },
+  "054_Mini.png": {
+    "sourceWidth": 511,
+    "sourceHeight": 227,
+    "displayWidth": 38.0,
+    "displayHeight": 16.9
+  },
+  "056_GMC.png": {
+    "sourceWidth": 462,
+    "sourceHeight": 105,
+    "displayWidth": 38.0,
+    "displayHeight": 8.6
+  },
+  "057_Acura.png": {
+    "sourceWidth": 438,
+    "sourceHeight": 433,
+    "displayWidth": 26.1,
+    "displayHeight": 25.9
+  },
+  "058_Infiniti.png": {
+    "sourceWidth": 444,
+    "sourceHeight": 231,
+    "displayWidth": 36.0,
+    "displayHeight": 18.8
+  },
+  "059_Mitsuoka.png": {
+    "sourceWidth": 290,
+    "sourceHeight": 311,
+    "displayWidth": 24.2,
+    "displayHeight": 26.0
+  },
+  "069_Lotus.png": {
+    "sourceWidth": 450,
+    "sourceHeight": 449,
+    "displayWidth": 26.0,
+    "displayHeight": 26.0
+  },
+  "070_Astonmartin.png": {
+    "sourceWidth": 343,
+    "sourceHeight": 77,
+    "displayWidth": 38.0,
+    "displayHeight": 8.5
+  },
+  "078_Renault.png": {
+    "sourceWidth": 600,
+    "sourceHeight": 785,
+    "displayWidth": 19.9,
+    "displayHeight": 26.0
+  },
+  "080_Maybach.png": {
+    "sourceWidth": 458,
+    "sourceHeight": 343,
+    "displayWidth": 30.0,
+    "displayHeight": 22.5
+  },
+  "081_Smart.png": {
+    "sourceWidth": 394,
+    "sourceHeight": 370,
+    "displayWidth": 26.8,
+    "displayHeight": 25.2
+  },
+  "082_Scion.png": {
+    "sourceWidth": 414,
+    "sourceHeight": 280,
+    "displayWidth": 31.6,
+    "displayHeight": 21.4
+  },
+  "083_Jeep.png": {
+    "sourceWidth": 446,
+    "sourceHeight": 181,
+    "displayWidth": 38.0,
+    "displayHeight": 15.4
+  },
+  "084_Mclaren.png": {
+    "sourceWidth": 457,
+    "sourceHeight": 47,
+    "displayWidth": 38.0,
+    "displayHeight": 3.9
+  },
+  "086_Baic_Yinxiang.png": {
+    "sourceWidth": 319,
+    "sourceHeight": 203,
+    "displayWidth": 32.6,
+    "displayHeight": 20.7
+  },
+  "087_Tesla.png": {
+    "sourceWidth": 393,
+    "sourceHeight": 392,
+    "displayWidth": 26.0,
+    "displayHeight": 26.0
+  },
+  "088_DFSK.png": {
+    "sourceWidth": 445,
+    "sourceHeight": 446,
+    "displayWidth": 25.9,
+    "displayHeight": 26.0
+  },
+  "089_Polestar.png": {
+    "sourceWidth": 457,
+    "sourceHeight": 464,
+    "displayWidth": 25.6,
+    "displayHeight": 26.0
+  },
+  "090_BYD.png": {
+    "sourceWidth": 600,
+    "sourceHeight": 116,
+    "displayWidth": 38.0,
+    "displayHeight": 7.3
+  },
+  "092_Xin_yuan.png": {
+    "sourceWidth": 390,
+    "sourceHeight": 244,
+    "displayWidth": 32.9,
+    "displayHeight": 20.6
+  },
+  "093_Ineos.png": {
+    "sourceWidth": 299,
+    "sourceHeight": 295,
+    "displayWidth": 26.2,
+    "displayHeight": 25.8
+  },
+  "094_Geely.png": {
+    "sourceWidth": 525,
+    "sourceHeight": 157,
+    "displayWidth": 38.0,
+    "displayHeight": 11.4
+  },
+  "etc_maker_icon.png": {
+    "sourceWidth": 508,
+    "sourceHeight": 508,
+    "displayWidth": 26.0,
+    "displayHeight": 26.0
+  }
+}

@@ -1,6 +1,8 @@
 const CATALOG_URL = "./data/encar-car-depth-1005/catalog.json";
 const GENERATION_IMAGES_URL = "./data/encar-car-depth-1005/generation-images.json";
 const GENERATION_IMAGE_BASE = "/assets/maker-model/generations/";
+const MAKER_LOGO_BASE = "/assets/maker-model/logos/encar-1005-trim/";
+const MAKER_LOGO_METRICS_URL = `${MAKER_LOGO_BASE}logo-display-v4.json`;
 const EXPECTED_COUNTS = { manufacturers: 63, modelGroups: 663, generations: 1256, fuelDrives: 2158, grades: 5976, subgrades: 3297 };
 const IMPORT_POPULAR_ORDER = ["BMW", "벤츠", "아우디", "포르쉐", "미니", "랜드로버"];
 
@@ -31,7 +33,7 @@ function modelBodyType(model) {
 
 const ENCAR_LOGO_FILES = {
   Hyundai: "001_Hyundai.png", Genesis: "007_Genesis.png", Kia: "002_Kia.png", ChevroletGMDaewoo: "003_ChevroletGMDaewoo.png",
-  "Renault-KoreaSamsung": "005_Renault_KoreaSamsung.png", KG_Mobility_Ssangyong: "004_KG_Mobility_Ssangyong.png",
+  "Renault-KoreaSamsung": "078_Renault.png", KG_Mobility_Ssangyong: "004_KG_Mobility_Ssangyong.png",
   BMW: "012_BMW.png", BYD: "090_BYD.png", GMC: "056_GMC.png", Nissan: "033_Nissan.png", Daihatsu: "051_Daihatsu.png",
   Dodge: "034_Dodge.png", Toyota: "031_Toyota.png", DFSK: "088_DFSK.png", Lamborghini: "049_Lamborghini.png",
   "Land Rover": "020_Land_Rover.png", Lexus: "035_Lexus.png", Lotus: "069_Lotus.png", "Rolls-Royce": "047_Rolls_Royce.png",
@@ -48,23 +50,9 @@ const ENCAR_LOGO_FILES = {
   Fiat: "018_Fiat.png", Hummer: "048_Hummer.png", Honda: "027_Honda.png",
 };
 
-const ROUND_LOGO_FILES = new Set([
-  "012_BMW.png", "013_Mercedes_Benz.png", "014_Volkswagen.png", "016_Saab.png", "017_Volvo.png",
-  "029_Mazda.png", "030_Mitsubishi.png", "033_Nissan.png", "037_Suzuki.png", "040_Alfa_Romeo.png",
-  "049_Lamborghini.png", "051_Daihatsu.png", "057_Acura.png", "059_Mitsuoka.png", "069_Lotus.png",
-  "082_Scion.png", "087_Tesla.png", "088_DFSK.png", "089_Polestar.png", "etc_maker_icon.png",
-]);
-
-const VERTICAL_LOGO_FILES = new Set([
-  "005_Renault_KoreaSamsung.png", "015_Porsche.png", "021_Peugeot.png", "041_Ferrari.png",
-  "044_Lincoln.png", "047_Rolls_Royce.png", "053_Maserati.png", "078_Renault.png",
-]);
-
-const requestedLogo = new URLSearchParams(location.search).get("logo");
-const initialLogo = ["s", "m", "l", "xl"].includes(requestedLogo) ? requestedLogo : "m";
-
 const state = {
-  screen: 1, logo: initialLogo, catalog: null, makers: [], maker: null, model: null, generation: null,
+  screen: 1, catalog: null, makers: [], maker: null, model: null, generation: null,
+  logoMetrics: {},
   generationImages: {}, selectedFuelDrives: new Map(), selectedGrades: new Map(), selectedLeaves: new Map(), expandedFuelKey: null, expandedGradeKey: null,
   modelTab: "all", query: "", status: "loading", error: "",
 };
@@ -73,8 +61,6 @@ const body = document.querySelector("#sheet-body");
 const title = document.querySelector("#sheet-title");
 const header = document.querySelector(".sheet-header");
 const backButton = document.querySelector("#back-button");
-const phone = document.querySelector(".phone");
-phone.dataset.logoSize = initialLogo;
 
 const formatCount = (value = 0) => Number(value || 0).toLocaleString("ko-KR");
 const escapeHtml = (value) => String(value ?? "").replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character]));
@@ -106,8 +92,9 @@ function validateCatalog(catalog) {
 
 function makerLogo(maker) {
   const fileName = ["Others", "etc"].includes(maker.englishName) ? "etc_maker_icon.png" : ENCAR_LOGO_FILES[maker.englishName] || "etc_maker_icon.png";
-  const shapeClass = ROUND_LOGO_FILES.has(fileName) ? " is-round" : VERTICAL_LOGO_FILES.has(fileName) ? " is-vertical" : " is-wide";
-  return `<span class="maker-logo"><img class="maker-logo-image${shapeClass}" src="/assets/maker-model/logos/encar-1005-normalized/${escapeHtml(fileName)}" alt="" /></span>`;
+  const metric = state.logoMetrics[fileName] || { displayWidth: 26, displayHeight: 26 };
+  const sizeStyle = `width:${Number(metric.displayWidth)}px;height:${Number(metric.displayHeight)}px`;
+  return `<span class="maker-logo"><img class="maker-logo-image" data-logo-file="${escapeHtml(fileName)}" style="${sizeStyle}" src="${MAKER_LOGO_BASE}${escapeHtml(fileName)}" alt="" /></span>`;
 }
 
 const vehiclePlaceholder = () => `<span class="vehicle-placeholder-icon" aria-hidden="true"></span>`;
@@ -161,7 +148,7 @@ function renderMaker() {
   const imported = filtered.filter((maker) => maker.origin === "수입");
   const popularImported = IMPORT_POPULAR_ORDER.map((name) => imported.find((maker) => maker.displayName === name)).filter(Boolean);
   const groups = [["국산차", domestic], ["수입차 인기제조사", popularImported], ["수입차 이름순", imported]];
-  const content = groups.map(([group, rows], index) => rows.length ? `<h3 class="section-title ${index ? "with-rule" : ""}">${group}${testBadge()}</h3><ul class="maker-list">${rows.map(makerRow).join("")}</ul>` : "").join("");
+  const content = groups.map(([group, rows], index) => rows.length ? `<h3 class="section-title maker-section-title ${index ? "with-rule" : ""}">${group}${testBadge()}</h3><ul class="maker-list">${rows.map(makerRow).join("")}</ul>` : "").join("");
   return `${searchField("제조사 검색")}${content || '<p class="empty-copy">검색 결과가 없습니다.</p>'}`;
 }
 
@@ -351,7 +338,6 @@ function render() {
   header.classList.toggle("is-root", isRootScreen);
   backButton.hidden = isRootScreen;
   document.querySelectorAll("#screen-controls button").forEach((button) => button.classList.toggle("is-active", Number(button.dataset.screen) === state.screen));
-  document.querySelectorAll("#logo-controls button").forEach((button) => button.classList.toggle("is-active", button.dataset.logo === state.logo));
   updateSelections();
   bindSearch();
 }
@@ -390,8 +376,6 @@ document.addEventListener("click", (event) => {
   if (summaryStepButton) return setScreen(summaryStepButton.dataset.summaryScreen);
   const screenButton = event.target.closest("[data-screen], [data-screen-target]");
   if (screenButton) return setScreen(screenButton.dataset.screen ?? screenButton.dataset.screenTarget);
-  const logoButton = event.target.closest("[data-logo]");
-  if (logoButton) { state.logo = logoButton.dataset.logo; phone.dataset.logoSize = state.logo; document.querySelectorAll("#logo-controls button").forEach((button) => button.classList.toggle("is-active", button === logoButton)); return; }
   const makerButton = event.target.closest("[data-select-maker]");
   if (makerButton) { state.maker = state.makers.find((maker) => maker.key === makerButton.dataset.selectMaker); state.model = null; state.generation = null; clearNestedSelections(); state.modelTab = "all"; return setScreen(2); }
   const modelButton = event.target.closest("[data-select-model]");
@@ -441,16 +425,19 @@ document.querySelector("#reset-button").addEventListener("click", () => { state.
 
 async function loadCatalog() {
   try {
-    const [catalogResponse, imageResponse] = await Promise.all([
+    const [catalogResponse, imageResponse, logoMetricsResponse] = await Promise.all([
       fetch(CATALOG_URL, { cache: "no-store" }),
       fetch(GENERATION_IMAGES_URL, { cache: "no-store" }),
+      fetch(MAKER_LOGO_METRICS_URL, { cache: "no-store" }),
     ]);
     if (!catalogResponse.ok) throw new Error(`catalog.json HTTP ${catalogResponse.status}`);
     if (!imageResponse.ok) throw new Error(`generation-images.json HTTP ${imageResponse.status}`);
-    const [catalog, generationImages] = await Promise.all([catalogResponse.json(), imageResponse.json()]);
+    if (!logoMetricsResponse.ok) throw new Error(`logo-display-v4.json HTTP ${logoMetricsResponse.status}`);
+    const [catalog, generationImages, logoMetrics] = await Promise.all([catalogResponse.json(), imageResponse.json(), logoMetricsResponse.json()]);
     validateCatalog(catalog);
     state.catalog = catalog;
     state.generationImages = generationImages;
+    state.logoMetrics = logoMetrics;
     state.makers = visible(catalog.manufacturers);
     state.status = "ready";
   } catch (error) {
