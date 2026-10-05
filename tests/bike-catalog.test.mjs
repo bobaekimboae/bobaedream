@@ -10,6 +10,7 @@ const expected = {
   manufacturers: 86,
   visibleManufacturers: 65,
   hiddenManufacturers: 21,
+  searchVisibleManufacturers: 62,
   modelGroups: 973,
   actualModelGroups: 920,
   implicitModelGroups: 53,
@@ -40,15 +41,16 @@ test("바이크 공통 원천과 공개 catalog는 확정 건수를 보존한다
   assert.equal(manufacturers.length, 86);
   assert.equal(manufacturers.filter((item) => item.isVisible).length, 65);
   assert.equal(manufacturers.filter((item) => !item.isVisible).length, 21);
+  assert.equal(manufacturers.filter((item) => item.isSearchVisible).length, 62);
   assert.equal(groups.length, 973);
   assert.equal(groups.filter((item) => item.isImplicit).length, 53);
   assert.equal(groups.filter((item) => !item.isImplicit).length, 920);
   assert.equal(models.length, 2_910);
 });
 
-test("원본 3개 파일의 SHA-256과 출처 메타데이터를 고정한다", () => {
+test("원본 4개 파일의 SHA-256과 출처 메타데이터를 고정한다", () => {
   const hashes = Object.fromEntries(source.meta.sourceFiles.map((item) => [item.name, item.sha256]));
-  for (const fileName of ["bike_catalog_1005.json", "bike_makers_v2_1005.csv", "bike_models_v2_1005.csv"]) {
+  for (const fileName of ["bike_catalog_1005.json", "bike_makers_v2_1005.csv", "bike_models_v2_1005.csv", "bike_maker_order_rw_names_1005.csv"]) {
     const actual = createHash("sha256").update(readFileSync(`data/bike-catalog-1005/${fileName}`)).digest("hex");
     assert.equal(hashes[fileName], actual, fileName);
   }
@@ -89,10 +91,44 @@ test("숨김 제조사의 하위 노드는 모두 숨김이며 검수 사유는 
   assert.ok(review.every((item) => item.reviewReason && (item.reviewReason.includes("유사 후보") || item.reviewReason.includes("다나와만"))));
 });
 
-test("제조사 정렬과 클로드 마스터 지정 5개 경로를 검증한다", () => {
-  const expectedFirstTen = ["혼다", "야마하", "BMW", "스즈키", "할리데이비슨", "가와사키", "SYM", "베스파", "로얄엔필드", "두카티"];
-  assert.deepEqual(catalog.manufacturers.slice(0, 10).map((item) => item.sourceName), expectedFirstTen);
-  assert.equal(catalog.manufacturers.at(-1).sourceName, "기타 제조사");
+test("제조사는 인기 12개 매물순, 나머지 가나다, 기타 맨 뒤로 정렬한다", () => {
+  const expectedPopular = ["혼다", "야마하", "BMW", "스즈키", "할리데이비슨", "가와사키", "SYM", "베스파", "로얄엔필드", "두카티", "KR모터스", "디앤에이모터스(대림)"];
+  assert.deepEqual(catalog.manufacturers.slice(0, 12).map((item) => item.displayName), expectedPopular);
+  assert.ok(catalog.manufacturers.slice(0, 12).every((item) => item.isPopular));
+  assert.ok(catalog.manufacturers.slice(12).every((item) => !item.isPopular));
+  assert.equal(catalog.manufacturers.at(-1).displayName, "기타");
+
+  const dna = catalog.manufacturers.find((item) => item.sourceName === "디앤에이모터스(대림)");
+  assert.equal(dna.listingCount, 230);
+  assert.deepEqual(dna.aliases, ["대림", "디앤에이모터스"]);
+  assert.equal(catalog.manufacturers.filter((item) => item.sourceName === "디앤에이모터스(대림)").length, 1);
+
+  const kr = catalog.manufacturers.find((item) => item.sourceName === "KR모터스(효성)");
+  assert.equal(kr.displayName, "KR모터스");
+  assert.deepEqual(kr.aliases, ["S&T모터스", "효성", "KR모터스(효성)"]);
+  assert.equal(kr.origin, "국산");
+
+  for (const codeName of ["바이드코리아", "카요", "폴라리스"]) {
+    const make = catalog.manufacturers.find((item) => item.displayName === codeName);
+    assert.equal(make.listingCount, 0);
+    assert.equal(make.isVisible, true);
+    assert.equal(make.isSearchVisible, false);
+  }
+  assert.equal(catalog.manufacturers.find((item) => item.displayName === "바이드코리아").origin, "수입");
+  assert.equal(catalog.manufacturers.find((item) => item.displayName === "폴라리스").origin, "수입");
+  assert.deepEqual(
+    [...new Set(catalog.manufacturers.map((item) => item.origin))].sort(),
+    ["국산", "수입"],
+  );
+  assert.deepEqual(
+    [...new Set(source.manufacturers.map((item) => item.origin))].sort(),
+    ["국산", "수입"],
+  );
+
+  assert.deepEqual(catalog.meta.manufacturerVisibilityPolicy, {
+    registration: "isVisible",
+    search: "isSearchVisible (listingCount > 0)",
+  });
 
   const paths = [
     ["혼다", "PCX", "PCX 125"],

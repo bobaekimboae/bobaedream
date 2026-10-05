@@ -163,6 +163,8 @@ CREATE TABLE IF NOT EXISTS manufacturers (
   country_code TEXT,
   is_popular INTEGER NOT NULL DEFAULT 0,
   is_visible INTEGER NOT NULL DEFAULT 1,
+  is_search_visible INTEGER NOT NULL DEFAULT 1,
+  aliases_json TEXT NOT NULL DEFAULT '[]',
   sort_order INTEGER NOT NULL DEFAULT 0,
   listing_count_snapshot INTEGER,
   listing_count_snapshot_at TEXT,
@@ -417,6 +419,10 @@ export class AdminDatabase {
       price_min_10k_krw: "INTEGER", price_max_10k_krw: "INTEGER",
       listing_count_snapshot: "INTEGER", listing_count_snapshot_at: "TEXT", is_visible: "INTEGER NOT NULL DEFAULT 1",
       review_status: "TEXT NOT NULL DEFAULT 'CONFIRMED'", review_reason: "TEXT",
+    });
+    ensureColumns(this.db, "bike_manufacturers", {
+      is_search_visible: "INTEGER NOT NULL DEFAULT 1",
+      aliases_json: "TEXT NOT NULL DEFAULT '[]'",
     });
   }
 

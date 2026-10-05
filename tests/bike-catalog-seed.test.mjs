@@ -8,6 +8,7 @@ const expectedDatabaseCounts = {
   manufacturers: 86,
   visibleManufacturers: 65,
   hiddenManufacturers: 21,
+  searchVisibleManufacturers: 62,
   modelGroups: 973,
   actualModelGroups: 920,
   implicitModelGroups: 53,
@@ -30,6 +31,13 @@ test("바이크 fixture는 별도 테이블에 정확한 건수로 두 번 멱�
     assert.equal(pcx.displacement_band, "51~125cc");
     assert.equal(pcx.year_min, 2009);
     assert.equal(pcx.year_max, 2026);
+
+    const kr = service.listBikeManufacturers().find((item) => item.source_code === "BKM015");
+    assert.equal(kr.display_name, "KR모터스");
+    assert.deepEqual(kr.aliases_json, ["S&T모터스", "효성", "KR모터스(효성)"]);
+    const kayo = service.listBikeManufacturers().find((item) => item.source_code === "BKM070");
+    assert.equal(kayo.is_visible, true);
+    assert.equal(kayo.is_search_visible, false);
 
     const traceColumns = database.db.prepare("PRAGMA table_info(bike_models)").all().map((item) => item.name);
     assert.equal(traceColumns.includes("reitwagen_id"), false);

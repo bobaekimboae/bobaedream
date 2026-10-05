@@ -15,6 +15,7 @@ EXPECTED = {
     "manufacturers": 86,
     "visibleManufacturers": 65,
     "hiddenManufacturers": 21,
+    "searchVisibleManufacturers": 62,
     "modelGroups": 973,
     "actualModelGroups": 920,
     "implicitModelGroups": 53,
@@ -22,7 +23,12 @@ EXPECTED = {
     "danawaPcodes": 135,
     "reviewRequiredModels": 278,
 }
-SOURCE_FILES = ("bike_catalog_1005.json", "bike_makers_v2_1005.csv", "bike_models_v2_1005.csv")
+SOURCE_FILES = (
+    "bike_catalog_1005.json",
+    "bike_makers_v2_1005.csv",
+    "bike_models_v2_1005.csv",
+    "bike_maker_order_rw_names_1005.csv",
+)
 NAMESPACE = uuid.UUID("43b3228e-b813-54c3-9c77-5e32ffb1ff42")
 
 
@@ -82,6 +88,24 @@ def model_review(row: dict[str, str]) -> tuple[str, str | None]:
     return "REVIEW_REQUIRED", " / ".join(reasons)
 
 
+def unique_texts(values: list[str]) -> list[str]:
+    result: list[str] = []
+    for value in values:
+        normalized = text(value)
+        if normalized and normalized not in result:
+            result.append(normalized)
+    return result
+
+
+def korean_sort_name(rows: list[dict[str, str]], display_name: str) -> str:
+    for row in rows:
+        prefix = "한글 읽기 정렬:"
+        note = text(row["비고"])
+        if note.startswith(prefix):
+            return note.removeprefix(prefix).strip()
+    return display_name
+
+
 def build(source_dir: Path) -> dict[str, Any]:
     for filename in SOURCE_FILES:
         if not (source_dir / filename).is_file():
@@ -90,6 +114,7 @@ def build(source_dir: Path) -> dict[str, Any]:
     raw_catalog = json.loads((source_dir / SOURCE_FILES[0]).read_text(encoding="utf-8"))
     maker_rows = read_csv(source_dir / SOURCE_FILES[1])
     model_rows = read_csv(source_dir / SOURCE_FILES[2])
+    order_rows = read_csv(source_dir / SOURCE_FILES[3])
     maker_by_code = {row["code"]: row for row in maker_rows}
     model_by_code = {row["code"]: row for row in model_rows}
     if len(maker_by_code) != len(maker_rows) or len(model_by_code) != len(model_rows):
@@ -99,11 +124,22 @@ def build(source_dir: Path) -> dict[str, Any]:
     if [row["name"] for row in excluded_makers] != ["다임러", "닷지"]:
         raise ValueError(f"제외 제조사 불일치: {[row['name'] for row in excluded_makers]}")
 
+    order_rows_by_code: dict[str, list[dict[str, str]]] = {}
+    for row in order_rows:
+        order_rows_by_code.setdefault(row["v2 코드"], []).append(row)
+    duplicate_order_codes = {code for code, rows in order_rows_by_code.items() if len(rows) > 1}
+    if len(order_rows) != 66 or len(order_rows_by_code) != 65 or duplicate_order_codes != {"BKM029"}:
+        raise ValueError(
+            "라이트바겐 표시명 원본 구조 불일치: "
+            f"rows={len(order_rows)}, unique={len(order_rows_by_code)}, duplicates={sorted(duplicate_order_codes)}"
+        )
+
     manufacturers: list[dict[str, Any]] = []
     model_groups: list[dict[str, Any]] = []
     models: list[dict[str, Any]] = []
     maker_keys: dict[str, str] = {}
     group_keys: dict[str, str] = {}
+    sort_names: dict[str, str] = {}
 
     for raw_make in raw_catalog["makers"]:
         source_code = raw_make["code"]
@@ -113,25 +149,66 @@ def build(source_dir: Path) -> dict[str, Any]:
         key = f"make_bike_{token(raw_make['name'], source_code)}"
         maker_keys[source_code] = key
         is_visible = bool(raw_make["visible"])
+        display_rows = order_rows_by_code.get(source_code, [])
+        if is_visible and not display_rows:
+            raise ValueError(f"노출 제조사의 라이트바겐 표시명 누락: {source_code}")
+        if not is_visible and display_rows:
+            raise ValueError(f"숨김 제조사가 표시명 목록에 포함됨: {source_code}")
+
+        if source_code == "BKM029":
+            display_name = row["name"].strip()
+        elif display_rows:
+            display_name = display_rows[0]["화면 이름(라이트바겐 표기)"].strip()
+        else:
+            display_name = row["name"].strip()
+        listing_count = (
+            sum(integer(display_row["매물(5/27)"]) or 0 for display_row in display_rows)
+            if display_rows
+            else integer(row["listing_count_test"])
+        )
+        origin = nullable_text(row["origin"])
+        if display_rows:
+            display_origins = {
+                "국산" if display_row["구역"].startswith("국산") else "수입"
+                for display_row in display_rows
+            }
+            if len(display_origins) != 1:
+                raise ValueError(f"제조사 원산지 구역 불일치: {source_code}")
+            origin = display_origins.pop()
+        if origin not in {"국산", "수입", "기타"}:
+            raise ValueError(f"제조사 원산지 값 오류: {source_code}={origin}")
+        alias_candidates = [part.strip() for part in row["aliases"].split(",") if part.strip()]
+        if source_code == "BKM015":
+            alias_candidates.extend(part.strip() for part in display_rows[0]["비고"].split(",") if part.strip())
+        alias_candidates.extend(
+            display_row["화면 이름(라이트바겐 표기)"]
+            for display_row in display_rows
+            if display_row["화면 이름(라이트바겐 표기)"] not in {display_name, row["name"]}
+        )
+        if display_name != row["name"]:
+            alias_candidates.append(row["name"])
+        aliases = [alias for alias in unique_texts(alias_candidates) if alias != display_name]
+        sort_names[source_code] = korean_sort_name(display_rows, display_name)
         manufacturers.append({
             "key": key,
             "uuid": stable_uuid(key),
             "sourceSystem": "BB_BIKE",
             "sourceCode": source_code,
             "sourceName": row["name"],
-            "displayName": row["name"].strip(),
+            "displayName": display_name,
             "englishName": nullable_text(row["name_en"]),
             "countryName": nullable_text(row["country"]),
-            "origin": nullable_text(row["origin"]),
+            "origin": origin,
             "isChinese": boolean(row["chinese"]),
-            "isPopular": boolean(row["popular"]),
+            "isPopular": False,
             "isVisible": is_visible,
+            "isSearchVisible": is_visible and listing_count is not None and listing_count > 0,
             "usesGroups": bool(raw_make["uses_groups"]),
-            "sortOrder": int(raw_make["sort"]),
-            "listingCount": integer(row["listing_count_test"]),
+            "sortOrder": 0,
+            "listingCount": listing_count,
             "reviewStatus": "CONFIRMED",
             "reviewReason": None,
-            "aliases": [part.strip() for part in row["aliases"].split(",") if part.strip()],
+            "aliases": aliases,
             "sourceNote": nullable_text(row["note"]),
             "reitwagenId": nullable_text(row["reitwagen_id"]),
         })
@@ -198,10 +275,32 @@ def build(source_dir: Path) -> dict[str, Any]:
                     "danawaPcodes": pcodes,
                 })
 
+    other = next(row for row in manufacturers if row["sourceCode"] == "BKM086")
+    visible_without_other = [row for row in manufacturers if row["isVisible"] and row is not other]
+    popular = sorted(
+        visible_without_other,
+        key=lambda row: (-(row["listingCount"] or 0), sort_names[row["sourceCode"]]),
+    )[:12]
+    popular_codes = {row["sourceCode"] for row in popular}
+    remainder = sorted(
+        [row for row in visible_without_other if row["sourceCode"] not in popular_codes],
+        key=lambda row: sort_names[row["sourceCode"]],
+    )
+    hidden = sorted(
+        [row for row in manufacturers if not row["isVisible"]],
+        key=lambda row: row["displayName"],
+    )
+    ordered_manufacturers = popular + remainder + hidden + [other]
+    for sort_order, manufacturer in enumerate(ordered_manufacturers, start=1):
+        manufacturer["sortOrder"] = sort_order
+        manufacturer["isPopular"] = manufacturer["sourceCode"] in popular_codes
+    manufacturers = ordered_manufacturers
+
     actual = {
         "manufacturers": len(manufacturers),
         "visibleManufacturers": sum(row["isVisible"] for row in manufacturers),
         "hiddenManufacturers": sum(not row["isVisible"] for row in manufacturers),
+        "searchVisibleManufacturers": sum(row["isSearchVisible"] for row in manufacturers),
         "modelGroups": len(model_groups),
         "actualModelGroups": sum(not row["isImplicit"] for row in model_groups),
         "implicitModelGroups": sum(row["isImplicit"] for row in model_groups),
@@ -233,6 +332,18 @@ def build(source_dir: Path) -> dict[str, Any]:
                 for filename in SOURCE_FILES
             ],
             "filters": ["year", "genre", "displacementBand", "fuel"],
+            "manufacturerOrderPolicy": "listingCount 상위 12개 매물순, 나머지 가나다, 기타 맨 뒤",
+            "manufacturerVisibilityPolicy": {
+                "registration": "isVisible",
+                "search": "isSearchVisible (listingCount > 0)",
+            },
+            "pendingDecisions": [
+                {
+                    "sourceCode": "BKM029",
+                    "topic": "대림/디앤에이모터스 분리",
+                    "current": "디앤에이모터스(대림) 단일 제조사, aliases에 대림·디앤에이모터스",
+                }
+            ],
             "counts": EXPECTED,
             "exclusions": [
                 {"sourceCode": row["code"], "sourceName": row["name"], "reason": row["note"]}
