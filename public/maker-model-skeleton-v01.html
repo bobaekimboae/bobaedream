@@ -10,11 +10,11 @@
   <body>
     <main class="prototype-shell">
       <section class="brief-panel" aria-labelledby="brief-title">
-        <p class="eyebrow">제조사·모델 검색 · 화면 뼈대 v01</p>
-        <h1 id="brief-title">엔카 DB 연결 전 UI 구조 검증</h1>
+        <p class="eyebrow">제조사·모델 검색 · 실제 DB 연결 v01</p>
+        <h1 id="brief-title">엔카 6뎁스 DB 기반 화면 검증</h1>
         <p class="brief-copy">
-          제공 지시문의 5단계 흐름과 크기 토큰만 구현했습니다. 현재 화면 데이터는 동작 확인용 표본이며,
-          바이크 필터 코덱스의 시안용 내보내기 경로가 확정되면 교체합니다.
+          PR #144의 검수 완료 데이터를 직접 읽습니다. 제조사부터 세부등급까지 정렬·숨김·인기·바디타입·매물 수를
+          원본 필드로 표시하며, 매물 수는 2026-10-04 엔카 테스트 스냅샷입니다.
         </p>
 
         <div class="control-group" aria-label="화면 단계 선택">
@@ -47,8 +47,8 @@
 
         <div class="status-card" role="status">
           <strong>데이터 연결 상태</strong>
-          <span>PR #139 원본 건수 63 / 663 / 1,256 확인</span>
-          <span>시안용 API·내보내기 경로: 대기</span>
+          <span>PR #144 · public/data/encar-car-depth-1005/catalog.json</span>
+          <span>63 / 663 / 1,256 / 2,158 / 5,976 / 3,297 일치</span>
         </div>
       </section>
 
