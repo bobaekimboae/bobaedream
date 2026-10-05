@@ -65,13 +65,12 @@ const initialLogo = ["s", "m", "l", "xl"].includes(requestedLogo) ? requestedLog
 
 const state = {
   screen: 1, logo: initialLogo, catalog: null, makers: [], maker: null, model: null, generation: null,
-  generationImages: {}, selectedLeaves: new Map(), expandedFuelKey: null, expandedGradeKey: null,
+  generationImages: {}, selectedFuelDrives: new Map(), selectedGrades: new Map(), selectedLeaves: new Map(), expandedFuelKey: null, expandedGradeKey: null,
   modelTab: "all", query: "", status: "loading", error: "",
 };
 
 const body = document.querySelector("#sheet-body");
 const title = document.querySelector("#sheet-title");
-const selectionStrip = document.querySelector("#selection-strip");
 const phone = document.querySelector(".phone");
 phone.dataset.logoSize = initialLogo;
 
@@ -136,17 +135,17 @@ function searchField(placeholder) {
 
 function selectedPathItems() {
   const items = [];
-  if (state.screen >= 2 && state.maker) items.push({ label: state.maker.displayName, screen: 1 });
-  if (state.screen >= 3 && state.model) items.push({ label: state.model.displayName, screen: 2 });
-  if (state.screen >= 4 && state.generation) items.push({ label: state.generation.displayName, screen: 3 });
+  if (state.screen >= 2 && state.maker) items.push({ key: "maker", label: state.maker.displayName, screen: 1 });
+  if (state.screen >= 3 && state.model) items.push({ key: "model", label: state.model.displayName, screen: 2 });
+  if (state.screen >= 4 && state.generation) items.push({ key: "generation", label: state.generation.displayName, detail: generationPeriod(state.generation), screen: 3 });
   return items;
 }
 
 function renderSelectionSummary() {
   const items = selectedPathItems();
   if (!items.length) return "";
-  const values = items.map((item, index) => `${index ? '<span class="selection-summary-separator" aria-hidden="true">·</span>' : ""}<button type="button" data-summary-screen="${item.screen}">${escapeHtml(item.label)}</button>`).join("");
-  return `<div class="selection-summary" aria-label="현재 선택 경로"><div class="selection-summary-values">${values}</div><button class="selection-summary-clear" type="button" data-clear-summary aria-label="제조사·모델 선택 전체 해제">${icon("/assets/maker-model/icons/chotot-close.svg")}</button></div>`;
+  const rows = items.map((item) => `<div class="selection-summary-row${item.detail ? " has-detail" : ""}"><button class="selection-summary-label" type="button" data-summary-screen="${item.screen}"><span>${escapeHtml(item.label)}</span>${item.detail ? `<small>${escapeHtml(item.detail)}</small>` : ""}</button><button class="selection-summary-clear" type="button" data-clear-depth="${item.key}" aria-label="${escapeHtml(item.label)} 선택 해제">${icon("/assets/maker-model/icons/chotot-close.svg")}</button></div>`).join("");
+  return `<div class="selection-summary" aria-label="현재 선택 경로">${rows}</div>`;
 }
 
 function makerRow(maker) {
@@ -221,7 +220,7 @@ function generationRow(generation) {
 function renderGeneration() {
   if (!state.model) return '<p class="empty-copy">모델을 먼저 선택해 주세요.</p>';
   const generations = visible(state.model.generations);
-  return `${renderSelectionSummary()}<div class="all-row"><button type="button" data-select-generation="all"><span>${escapeHtml(state.model.displayName)} 전체</span><span class="option-count">${formatCount(state.model.listingCount)}</span></button></div><h3 class="section-title">최신순</h3><ul class="generation-list">${generations.map(generationRow).join("")}</ul>`;
+  return `${renderSelectionSummary()}<h3 class="section-title">세대 · 최신순</h3><ul class="generation-list">${generations.map(generationRow).join("")}</ul>`;
 }
 
 function leafNodesForGrade(grade, fuelDrive) {
@@ -232,13 +231,14 @@ function leafNodesForGrade(grade, fuelDrive) {
 
 function leafNodesForFuelDrive(fuelDrive) { return visible(fuelDrive.grades).flatMap((grade) => leafNodesForGrade(grade, fuelDrive)); }
 
-function checkedState(leaves) {
-  const checked = leaves.filter((leaf) => state.selectedLeaves.has(leaf.key)).length;
-  return checked === 0 ? "false" : checked === leaves.length ? "true" : "mixed";
+function checkedState(kind, key) {
+  if (kind === "fuel") return state.selectedFuelDrives.has(key) ? "true" : "false";
+  if (kind === "grade") return state.selectedGrades.has(key) ? "true" : "false";
+  return state.selectedLeaves.has(key) ? "true" : "false";
 }
 
-function checkRow({ key, label, count, level, leaves, kind, fuelDriveKey = "", gradeKey = "" }) {
-  return `<li><button class="option-row grade-row level-${level}" role="checkbox" aria-checked="${checkedState(leaves)}" type="button" data-check-kind="${kind}" data-check-key="${escapeHtml(key)}" data-fuel-drive-key="${escapeHtml(fuelDriveKey)}" data-grade-key="${escapeHtml(gradeKey)}"><span class="fake-checkbox">${icon("/assets/maker-model/icons/chotot-check.svg")}</span><span class="grade-name">${escapeHtml(label)}</span><span class="option-count">${formatCount(count)}</span></button></li>`;
+function checkRow({ key, label, count, level, kind, fuelDriveKey = "", gradeKey = "" }) {
+  return `<li><button class="option-row grade-row level-${level}" role="checkbox" aria-checked="${checkedState(kind, key)}" type="button" data-check-kind="${kind}" data-check-key="${escapeHtml(key)}" data-fuel-drive-key="${escapeHtml(fuelDriveKey)}" data-grade-key="${escapeHtml(gradeKey)}"><span class="fake-checkbox">${icon("/assets/maker-model/icons/chotot-check.svg")}</span><span class="grade-name">${escapeHtml(label)}</span><span class="option-count">${formatCount(count)}</span></button></li>`;
 }
 
 function renderGrade() {
@@ -251,7 +251,6 @@ function renderGrade() {
       label: fuelDrive.displayName,
       count: fuelDrive.listingCount,
       level: 0,
-      leaves: leafNodesForFuelDrive(fuelDrive),
       kind: "fuel",
       fuelDriveKey: fuelDrive.key,
     });
@@ -264,7 +263,6 @@ function renderGrade() {
         label: grade.displayName,
         count: grade.listingCount,
         level: 1,
-        leaves: leafNodesForGrade(grade, fuelDrive),
         kind: "grade",
         fuelDriveKey: fuelDrive.key,
         gradeKey: grade.key,
@@ -275,7 +273,6 @@ function renderGrade() {
         label: subgrade.displayName,
         count: subgrade.listingCount,
         level: 2,
-        leaves: [{ key: subgrade.key }],
         kind: "leaf",
         fuelDriveKey: fuelDrive.key,
         gradeKey: grade.key,
@@ -284,31 +281,49 @@ function renderGrade() {
     }).join("");
     return `${fdRow}<li class="grade-group-title level-1">등급</li>${grades}`;
   }).join("");
-  return `${renderSelectionSummary()}<ul class="grade-list">${groups ? `<li class="grade-group-title level-0">연료·구동</li>${groups}` : '<li class="empty-copy">연료·구동 데이터가 없습니다.</li>'}</ul>`;
+  return `${renderSelectionSummary()}<ul class="grade-list">${groups ? `<li class="grade-group-title level-0">연료 · 배기량</li>${groups}` : '<li class="empty-copy">연료·구동 데이터가 없습니다.</li>'}</ul>`;
 }
 
 function renderOverview() {
-  const rows = [["제조사", state.maker?.displayName || "선택"], ["모델", state.model?.displayName || "선택"], ["세부모델", state.generation?.displayName || "선택"], ["연료·구동", state.selectedLeaves.size ? `${state.selectedLeaves.size}개 선택` : "선택"]];
+  const nestedSelectionCount = state.selectedFuelDrives.size + state.selectedGrades.size + state.selectedLeaves.size;
+  const rows = [["제조사", state.maker?.displayName || "선택"], ["모델", state.model?.displayName || "선택"], ["세부모델", state.generation?.displayName || "선택"], ["연료·구동", nestedSelectionCount ? `${nestedSelectionCount}개 선택` : "선택"]];
   return `<div class="filter-overview">${rows.map(([label, value], index) => `<button class="filter-row" type="button" data-screen-target="${index + 1}"><strong>${label}</strong><span class="filter-value">${escapeHtml(value)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button>`).join("")}</div>`;
 }
 
-function selectionValues() {
-  const values = [];
-  if (state.maker) values.push({ key: "maker", label: state.maker.displayName });
-  if (state.model) values.push({ key: "model", label: state.model.displayName });
-  if (state.generation && state.generation.key !== "all") values.push({ key: "generation", label: state.generation.displayName });
-  for (const leaf of state.selectedLeaves.values()) values.push({ key: `leaf:${leaf.key}`, label: leaf.label });
-  return values;
+function selectedResultItems() {
+  if (!state.generation) return [];
+  const result = [];
+  for (const fuelDrive of visible(state.generation.fuelDrives)) {
+    const fuelLeaves = [];
+    const fuelGrades = [];
+    for (const grade of visible(fuelDrive.grades)) {
+      const gradeLeaves = leafNodesForGrade(grade, fuelDrive).filter((leaf) => state.selectedLeaves.has(leaf.key));
+      if (gradeLeaves.length) fuelLeaves.push(...gradeLeaves);
+      else if (state.selectedGrades.has(grade.key)) fuelGrades.push({ key: grade.key, label: grade.displayName, count: grade.listingCount });
+    }
+    if (fuelLeaves.length) result.push(...fuelLeaves);
+    else if (fuelGrades.length) result.push(...fuelGrades);
+    else if (state.selectedFuelDrives.has(fuelDrive.key)) result.push({ key: fuelDrive.key, label: fuelDrive.displayName, count: fuelDrive.listingCount });
+  }
+  return result;
 }
 
 function currentListingCount() {
-  if (state.selectedLeaves.size) return [...state.selectedLeaves.values()].reduce((sum, leaf) => sum + Number(leaf.count || 0), 0);
+  const selectedItems = selectedResultItems();
+  if (selectedItems.length) return selectedItems.reduce((sum, item) => sum + Number(item.count || 0), 0);
   return state.generation?.listingCount ?? state.model?.listingCount ?? state.maker?.listingCount ?? state.makers.reduce((sum, maker) => sum + maker.listingCount, 0);
 }
 
 function updateSelections() {
-  selectionStrip.innerHTML = selectionValues().map((value) => `<button type="button" class="selection-chip" data-remove-selection="${escapeHtml(value.key)}" aria-label="${escapeHtml(value.label)} 선택 해제"><span>${escapeHtml(value.label)}</span><b aria-hidden="true">×</b></button>`).join("");
   document.querySelector("#apply-button").textContent = `${formatCount(currentListingCount())}대 보기`;
+}
+
+function clearNestedSelections() {
+  state.selectedFuelDrives.clear();
+  state.selectedGrades.clear();
+  state.selectedLeaves.clear();
+  state.expandedFuelKey = null;
+  state.expandedGradeKey = null;
 }
 
 function bindSearch() {
@@ -358,16 +373,12 @@ function findGrade(fuelDrive, key) {
 }
 
 document.addEventListener("click", (event) => {
-  const summaryClearButton = event.target.closest("[data-clear-summary]");
-  if (summaryClearButton) {
-    state.maker = null;
-    state.model = null;
-    state.generation = null;
-    state.selectedLeaves.clear();
-    state.expandedFuelKey = null;
-    state.expandedGradeKey = null;
-    state.modelTab = "all";
-    return setScreen(1);
+  const clearDepthButton = event.target.closest("[data-clear-depth]");
+  if (clearDepthButton) {
+    const depth = clearDepthButton.dataset.clearDepth;
+    if (depth === "maker") { state.maker = null; state.model = null; state.generation = null; state.modelTab = "all"; clearNestedSelections(); return setScreen(1); }
+    if (depth === "model") { state.model = null; state.generation = null; clearNestedSelections(); return setScreen(2); }
+    if (depth === "generation") { state.generation = null; clearNestedSelections(); return setScreen(3); }
   }
   const summaryStepButton = event.target.closest("[data-summary-screen]");
   if (summaryStepButton) return setScreen(summaryStepButton.dataset.summaryScreen);
@@ -375,47 +386,43 @@ document.addEventListener("click", (event) => {
   if (screenButton) return setScreen(screenButton.dataset.screen ?? screenButton.dataset.screenTarget);
   const logoButton = event.target.closest("[data-logo]");
   if (logoButton) { state.logo = logoButton.dataset.logo; phone.dataset.logoSize = state.logo; document.querySelectorAll("#logo-controls button").forEach((button) => button.classList.toggle("is-active", button === logoButton)); return; }
-  const removeButton = event.target.closest("[data-remove-selection]");
-  if (removeButton) {
-    const key = removeButton.dataset.removeSelection;
-    if (key === "maker") { state.maker = null; state.model = null; state.generation = null; state.selectedLeaves.clear(); state.expandedFuelKey = null; state.expandedGradeKey = null; }
-    else if (key === "model") { state.model = null; state.generation = null; state.selectedLeaves.clear(); state.expandedFuelKey = null; state.expandedGradeKey = null; }
-    else if (key === "generation") { state.generation = null; state.selectedLeaves.clear(); state.expandedFuelKey = null; state.expandedGradeKey = null; }
-    else if (key.startsWith("leaf:")) state.selectedLeaves.delete(key.slice(5));
-    return render();
-  }
   const makerButton = event.target.closest("[data-select-maker]");
-  if (makerButton) { state.maker = state.makers.find((maker) => maker.key === makerButton.dataset.selectMaker); state.model = null; state.generation = null; state.selectedLeaves.clear(); state.expandedFuelKey = null; state.expandedGradeKey = null; state.modelTab = "all"; return setScreen(2); }
+  if (makerButton) { state.maker = state.makers.find((maker) => maker.key === makerButton.dataset.selectMaker); state.model = null; state.generation = null; clearNestedSelections(); state.modelTab = "all"; return setScreen(2); }
   const modelButton = event.target.closest("[data-select-model]");
-  if (modelButton) { state.model = visible(state.maker?.modelGroups).find((model) => model.key === modelButton.dataset.selectModel); state.generation = null; state.selectedLeaves.clear(); state.expandedFuelKey = null; state.expandedGradeKey = null; return setScreen(3); }
+  if (modelButton) { state.model = visible(state.maker?.modelGroups).find((model) => model.key === modelButton.dataset.selectModel); state.generation = null; clearNestedSelections(); return setScreen(3); }
   const generationButton = event.target.closest("[data-select-generation]");
-  if (generationButton) { state.generation = generationButton.dataset.selectGeneration === "all" ? { key: "all", displayName: `${state.model.displayName} 전체`, listingCount: state.model.listingCount } : visible(state.model?.generations).find((generation) => generation.key === generationButton.dataset.selectGeneration); state.selectedLeaves.clear(); state.expandedFuelKey = null; state.expandedGradeKey = null; return setScreen(4); }
+  if (generationButton) { state.generation = visible(state.model?.generations).find((generation) => generation.key === generationButton.dataset.selectGeneration); clearNestedSelections(); return setScreen(4); }
   const checkButton = event.target.closest("[data-check-kind]");
   if (checkButton) {
     const kind = checkButton.dataset.checkKind;
-    const leaves = findCheckLeaves(kind, checkButton.dataset.checkKey);
+    const key = checkButton.dataset.checkKey;
     const fuelDrive = findFuelDrive(checkButton.dataset.fuelDriveKey);
     const grade = findGrade(fuelDrive, checkButton.dataset.gradeKey);
-    const parentLeaves = kind === "grade" ? leafNodesForFuelDrive(fuelDrive) : kind === "leaf" ? leafNodesForGrade(grade, fuelDrive) : [];
-    const parentWasFullySelected = parentLeaves.length > leaves.length && parentLeaves.every((leaf) => state.selectedLeaves.has(leaf.key));
-    if (parentWasFullySelected) {
-      if (kind === "grade") {
-        state.expandedFuelKey = checkButton.dataset.fuelDriveKey;
-        state.expandedGradeKey = checkButton.dataset.gradeKey;
-      }
-      parentLeaves.forEach((leaf) => state.selectedLeaves.delete(leaf.key));
-      leaves.forEach((leaf) => state.selectedLeaves.set(leaf.key, leaf));
-      return render();
-    }
-    const allChecked = leaves.every((leaf) => state.selectedLeaves.has(leaf.key));
     if (kind === "fuel") {
-      state.expandedFuelKey = allChecked ? null : checkButton.dataset.fuelDriveKey;
-      state.expandedGradeKey = null;
+      const wasExpanded = state.expandedFuelKey === key;
+      const wasSelected = state.selectedFuelDrives.has(key);
+      if (wasSelected) {
+        state.selectedFuelDrives.delete(key);
+        visible(fuelDrive?.grades).forEach((item) => {
+          state.selectedGrades.delete(item.key);
+          leafNodesForGrade(item, fuelDrive).forEach((leaf) => state.selectedLeaves.delete(leaf.key));
+        });
+      } else state.selectedFuelDrives.set(key, { key, label: fuelDrive.displayName, count: fuelDrive.listingCount });
+      state.expandedFuelKey = key;
+      if (!wasExpanded) state.expandedGradeKey = null;
     } else if (kind === "grade") {
       state.expandedFuelKey = checkButton.dataset.fuelDriveKey;
-      state.expandedGradeKey = allChecked ? null : checkButton.dataset.gradeKey;
+      const wasSelected = state.selectedGrades.has(key);
+      if (wasSelected) {
+        state.selectedGrades.delete(key);
+        leafNodesForGrade(grade, fuelDrive).forEach((leaf) => state.selectedLeaves.delete(leaf.key));
+      } else state.selectedGrades.set(key, { key, label: grade.displayName, count: grade.listingCount });
+      state.expandedGradeKey = key;
+    } else {
+      const leaf = leafNodesForGrade(grade, fuelDrive).find((item) => item.key === key);
+      if (state.selectedLeaves.has(key)) state.selectedLeaves.delete(key);
+      else if (leaf) state.selectedLeaves.set(key, leaf);
     }
-    leaves.forEach((leaf) => allChecked ? state.selectedLeaves.delete(leaf.key) : state.selectedLeaves.set(leaf.key, leaf));
     return render();
   }
   const modelFilterButton = event.target.closest("[data-model-filter]");
@@ -424,7 +431,7 @@ document.addEventListener("click", (event) => {
 
 document.querySelector("#back-button").addEventListener("click", () => setScreen(state.screen - 1));
 document.querySelector("#close-button").addEventListener("click", () => setScreen(0));
-document.querySelector("#reset-button").addEventListener("click", () => { state.maker = null; state.model = null; state.generation = null; state.selectedLeaves.clear(); state.expandedFuelKey = null; state.expandedGradeKey = null; state.query = ""; state.modelTab = "all"; setScreen(1); });
+document.querySelector("#reset-button").addEventListener("click", () => { state.maker = null; state.model = null; state.generation = null; clearNestedSelections(); state.query = ""; state.modelTab = "all"; setScreen(1); });
 
 async function loadCatalog() {
   try {
