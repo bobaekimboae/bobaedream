@@ -606,6 +606,57 @@ export class AdminService {
     return rows.map(normalizeDbRow);
   }
 
+  listBikeManufacturers() {
+    return this.database.db.prepare(
+      `SELECT *, name_ko AS display_name
+       FROM manufacturers
+       WHERE scope_key = 'BIKE' AND source_system = 'BB_BIKE'
+       ORDER BY sort_order, name_ko`,
+    ).all().map(normalizeDbRow);
+  }
+
+  listBikeModelGroups(manufacturerId = null) {
+    const rows = manufacturerId
+      ? this.database.db.prepare(`
+          SELECT m.*, m.name_ko AS display_name
+          FROM models m JOIN manufacturers mf ON mf.id = m.manufacturer_id
+          WHERE mf.scope_key = 'BIKE' AND m.model_level = 'MODEL_GROUP' AND m.manufacturer_id = ?
+          ORDER BY m.sort_order, m.name_ko
+        `).all(manufacturerId)
+      : this.database.db.prepare(`
+          SELECT m.*, m.name_ko AS display_name
+          FROM models m JOIN manufacturers mf ON mf.id = m.manufacturer_id
+          WHERE mf.scope_key = 'BIKE' AND m.model_level = 'MODEL_GROUP'
+          ORDER BY m.manufacturer_id, m.sort_order, m.name_ko
+        `).all();
+    return rows.map(normalizeDbRow);
+  }
+
+  listBikeModels(modelGroupId = null) {
+    const rows = modelGroupId
+      ? this.database.db.prepare(`
+          SELECT m.*, m.name_ko AS display_name, m.parent_model_id AS model_group_id,
+            s.genre, s.displacement_cc, s.displacement_band, s.fuel,
+            s.year_min, s.year_max, s.image_path
+          FROM models m
+          JOIN manufacturers mf ON mf.id = m.manufacturer_id
+          JOIN bike_model_specs s ON s.model_id = m.id
+          WHERE mf.scope_key = 'BIKE' AND m.model_level = 'MODEL' AND m.parent_model_id = ?
+          ORDER BY m.sort_order, m.name_ko
+        `).all(modelGroupId)
+      : this.database.db.prepare(`
+          SELECT m.*, m.name_ko AS display_name, m.parent_model_id AS model_group_id,
+            s.genre, s.displacement_cc, s.displacement_band, s.fuel,
+            s.year_min, s.year_max, s.image_path
+          FROM models m
+          JOIN manufacturers mf ON mf.id = m.manufacturer_id
+          JOIN bike_model_specs s ON s.model_id = m.id
+          WHERE mf.scope_key = 'BIKE' AND m.model_level = 'MODEL'
+          ORDER BY m.parent_model_id, m.sort_order, m.name_ko
+        `).all();
+    return rows.map(normalizeDbRow);
+  }
+
   createModel(payload, context) {
     const timestamp = now();
     const row = {

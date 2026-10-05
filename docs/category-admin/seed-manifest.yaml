@@ -52,3 +52,11 @@ publish_order:
   - model_trims
   - legacy_field_mappings
 verification_command: npm run test:admin
+catalog_fixtures:
+  encar_car:
+    source: data/encar-car-depth-1005/encar-car-depth.normalized.json
+    tables: [manufacturers, models, model_trims]
+  bike:
+    source: data/bike-catalog-1005/bike-catalog.normalized.json
+    tables: [bike_manufacturers, bike_model_groups, bike_models]
+    note: 차량 기준표 통합 결정 전까지 별도 fixture 테이블 사용

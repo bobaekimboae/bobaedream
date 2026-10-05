@@ -5,6 +5,28 @@ info:
 servers:
   - url: http://127.0.0.1:8788
 paths:
+  /api/admin/bike-manufacturers:
+    get:
+      summary: 바이크 제조사 fixture 조회
+      responses:
+        "200": { description: Bike manufacturer fixture rows }
+        "403": { description: Admin read permission required }
+  /api/admin/bike-model-groups:
+    get:
+      summary: 바이크 제조사별 모델그룹 fixture 조회
+      parameters:
+        - { name: manufacturer_id, in: query, required: false, schema: { type: string } }
+      responses:
+        "200": { description: Bike model group fixture rows }
+        "403": { description: Admin read permission required }
+  /api/admin/bike-models:
+    get:
+      summary: 바이크 모델그룹별 모델 fixture 조회
+      parameters:
+        - { name: model_group_id, in: query, required: false, schema: { type: string } }
+      responses:
+        "200": { description: Bike model fixture rows }
+        "403": { description: Admin read permission required }
   /api/admin/model-trims:
     get:
       summary: 세부모델 기준 연료·구동·등급·세부등급 조회

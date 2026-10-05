@@ -55,6 +55,16 @@ test("model trim fixture endpoint is available to administrators", async () => {
   });
 });
 
+test("bike catalog fixture endpoints are available to administrators", async () => {
+  await withApp(async ({ baseUrl }) => {
+    for (const path of ["/api/admin/bike-manufacturers", "/api/admin/bike-model-groups", "/api/admin/bike-models"]) {
+      const result = await request(baseUrl, path);
+      assert.equal(result.response.status, 200, path);
+      assert.deepEqual(result.json, [], path);
+    }
+  });
+});
+
 test("registry namespaces keep vehicle types, overlays, assets, sellers and BM separate", async () => {
   await withApp(async ({ baseUrl }) => {
     const result = await request(baseUrl, "/api/admin/registry");
