@@ -153,8 +153,7 @@ function renderMaker() {
 }
 
 function modelRow(model) {
-  const reviewMark = model.reviewStatus === "REVIEW_REQUIRED" ? '<span class="review-mark" title="바디타입 검토 필요">🟡</span>' : "";
-  return `<li><button class="option-row model-row" type="button" data-select-model="${escapeHtml(model.key)}">${modelSilhouette(model)}<span class="model-copy"><strong>${escapeHtml(model.displayName)}${reviewMark}</strong></span><span class="option-count">${formatCount(model.listingCount)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
+  return `<li><button class="option-row model-row" type="button" data-select-model="${escapeHtml(model.key)}">${modelSilhouette(model)}<span class="model-copy"><strong>${escapeHtml(model.displayName)}</strong></span><span class="option-count">${formatCount(model.listingCount)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
 }
 
 function bodyTypeRail(models) {
@@ -226,8 +225,10 @@ function checkedState(kind, key) {
   return state.selectedLeaves.has(key) ? "true" : "false";
 }
 
-function checkRow({ key, label, count, level, kind, fuelDriveKey = "", gradeKey = "" }) {
-  return `<li><button class="option-row grade-row level-${level}" role="checkbox" aria-checked="${checkedState(kind, key)}" type="button" data-check-kind="${kind}" data-check-key="${escapeHtml(key)}" data-fuel-drive-key="${escapeHtml(fuelDriveKey)}" data-grade-key="${escapeHtml(gradeKey)}"><span class="fake-checkbox">${icon("/assets/maker-model/icons/chotot-check.svg")}</span><span class="grade-name">${escapeHtml(label)}</span><span class="option-count">${formatCount(count)}</span></button></li>`;
+function checkRow({ key, label, count, level, kind, fuelDriveKey = "", gradeKey = "", expanded = null }) {
+  const depthName = ["연료·배기량", "등급", "세부등급"][level] || "선택 항목";
+  const expandedAttribute = expanded === null ? "" : ` aria-expanded="${expanded}"`;
+  return `<li><button class="option-row grade-row level-${level}" role="checkbox" aria-checked="${checkedState(kind, key)}"${expandedAttribute} aria-label="${depthName} ${escapeHtml(label)}, ${formatCount(count)}대" type="button" data-check-kind="${kind}" data-check-key="${escapeHtml(key)}" data-fuel-drive-key="${escapeHtml(fuelDriveKey)}" data-grade-key="${escapeHtml(gradeKey)}"><span class="fake-checkbox">${icon("/assets/maker-model/icons/chotot-check.svg")}</span><span class="grade-name">${escapeHtml(label)}</span><span class="option-count">${formatCount(count)}</span></button></li>`;
 }
 
 function renderGrade() {
@@ -242,6 +243,7 @@ function renderGrade() {
       level: 0,
       kind: "fuel",
       fuelDriveKey: fuelDrive.key,
+      expanded: isFuelExpanded,
     });
     if (!isFuelExpanded) return fdRow;
 
@@ -255,6 +257,7 @@ function renderGrade() {
         kind: "grade",
         fuelDriveKey: fuelDrive.key,
         gradeKey: grade.key,
+        expanded: subgrades.length ? state.expandedGradeKey === grade.key : null,
       });
       if (state.expandedGradeKey !== grade.key || !subgrades.length) return gradeRow;
       const subgradeRows = subgrades.map((subgrade) => checkRow({
@@ -266,11 +269,11 @@ function renderGrade() {
         fuelDriveKey: fuelDrive.key,
         gradeKey: grade.key,
       })).join("");
-      return `${gradeRow}<li class="grade-group-title level-2">세부등급</li>${subgradeRows}`;
+      return `${gradeRow}${subgradeRows}`;
     }).join("");
-    return `${fdRow}<li class="grade-group-title level-1">등급</li>${grades}`;
+    return `${fdRow}${grades}`;
   }).join("");
-  return `${renderSelectionSummary()}<ul class="grade-list">${groups ? `<li class="grade-group-title level-0">연료 · 배기량</li>${groups}` : '<li class="empty-copy">연료·구동 데이터가 없습니다.</li>'}</ul>`;
+  return `${renderSelectionSummary()}<ul class="grade-list" aria-label="${escapeHtml(state.generation.displayName)} 등급 선택">${groups || '<li class="empty-copy">등급 데이터가 없습니다.</li>'}</ul>`;
 }
 
 function renderOverview() {
@@ -330,8 +333,8 @@ function bindSearch() {
 
 function render() {
   const titles = ["필터", "제조사", "모델", "세부모델", "연료·구동"];
-  title.textContent = titles[state.screen];
-  if (state.status === "loading") body.innerHTML = '<div class="loading-copy">검수 완료된 제조사·모델 DB를 불러오는 중입니다.</div>';
+  title.textContent = state.screen === 4 && state.generation ? state.generation.displayName : titles[state.screen];
+  if (state.status === "loading") body.innerHTML = '<div class="loading-copy">제조사·모델 정보를 불러오는 중입니다.</div>';
   else if (state.status === "error") body.innerHTML = `<div class="data-error" role="alert"><strong>DB 연결을 중단했습니다.</strong><span>${escapeHtml(state.error)}</span></div>`;
   else body.innerHTML = [renderOverview, renderMaker, renderModel, renderGeneration, renderGrade][state.screen]();
   const isRootScreen = state.screen <= 1;
