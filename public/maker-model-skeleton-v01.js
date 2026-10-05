@@ -1,6 +1,6 @@
 const CATALOG_URL = "./data/encar-car-depth-1005/catalog.json";
 const GENERATION_IMAGES_URL = "./data/encar-car-depth-1005/generation-images.json";
-const GENERATION_IMAGE_BASE = "/assets/maker-model/generations/grandeur/";
+const GENERATION_IMAGE_BASE = "/assets/maker-model/generations/";
 const EXPECTED_COUNTS = { manufacturers: 63, modelGroups: 663, generations: 1256, fuelDrives: 2158, grades: 5976, subgrades: 3297 };
 const IMPORT_POPULAR_ORDER = ["BMW", "벤츠", "아우디", "포르쉐", "미니", "랜드로버"];
 
