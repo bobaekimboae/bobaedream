@@ -110,3 +110,5 @@
 2026-10-04 / 코덱스-중고차 / truck_cargo_*_side_v13.png·webp, truck-format-catalog.ts, cargo_class_side_image_v13.md, HANDOVER_truck_v58.md / v13·v58 / 카고 하위 경형·소형·준중형·중형·준대형·대형을 좌향 90도 정측면 실사형과 투명 배경으로 제작·연결, 모바일 390×844·HTTP 200·콘솔 오류 0건·빌드 확인 / 검수완료
 2026-10-04 / 코덱스-중고차 / truck_cargo_*_side_v14.png·webp, truck-format-catalog.ts, cargo_class_side_image_v14.md, HANDOVER_truck_v59.md / v14·v59 / 수정 요청: 경형부터 대형까지 차량 폭과 높이가 함께 단계적으로 증가하도록 이미지 생성·정규화하고 실제 퀵필터에 연결 / 미검수
 2026-10-04 / 코덱스-중고차 / truck_transport_side_image_v04.md, truck_format_transport_side_v04.png, truck-format-catalog.ts / v04 / 수정 요청: 견인·운송차 식별을 강화하기 위해 2단 카캐리어를 주황색 휠리프트 견인차와 피견인 승용차 실루엣으로 교체 / 미검수
+2026-10-04 / 코덱스-중고차 / truck_autoscout24_accent_manifest_v01.csv, truck_format_*_autoscout24_v01.png, truck-format-catalog.ts / v01 / AutoScout24 정측면 슬롯과 일본 상용차 적재함 포인트 방식을 결합해 윙바디·냉장냉동·덤프·탱크로리·견인운송 5종을 실제 퀵필터에 연결 / 자체 검수완료·상호 검수대기
+2026-10-04 / 코덱스-중고차 / truck_dump_autoscout24_manifest_v02.csv, truck_format_dump_autoscout24_v02.png, truck-format-catalog.ts / v02 / 수정 요청: 건설기계 노랑과 도로용 덤프가 혼동되지 않도록 덤프 적재함을 한국형 스틸 블루그레이로 교체하고 건설기계만 산업용 노랑 유지 / 자체 검수완료·상호 검수대기

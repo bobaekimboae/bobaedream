@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>보배드림 제조사·모델 선택 뼈대 v01</title>
+    <link rel="stylesheet" href="./assets/fonts/pretendard/pretendard-guazi.css" />
+    <link rel="stylesheet" href="./maker-model-skeleton-v01.css" />
+  </head>
+  <body>
+    <main class="prototype-shell">
+      <section class="brief-panel" aria-labelledby="brief-title">
+        <p class="eyebrow">제조사·모델 검색 · 실제 DB 연결 v01</p>
+        <h1 id="brief-title">엔카 6뎁스 DB 기반 화면 검증</h1>
+        <p class="brief-copy">
+          PR #144의 검수 완료 데이터를 직접 읽습니다. 제조사부터 세부등급까지 정렬·숨김·인기·바디타입·매물 수를
+          원본 필드로 표시하며, 매물 수는 2026-10-04 엔카 테스트 스냅샷입니다.
+        </p>
+
+        <div class="control-group" aria-label="화면 단계 선택">
+          <span class="control-label">화면</span>
+          <div class="segmented" id="screen-controls">
+            <button type="button" data-screen="0">0 필터</button>
+            <button type="button" data-screen="1" class="is-active">1 제조사</button>
+            <button type="button" data-screen="2">2 모델</button>
+            <button type="button" data-screen="3">3 세부모델</button>
+            <button type="button" data-screen="4">4 등급</button>
+          </div>
+        </div>
+
+        <div class="control-group" aria-label="로고 프리셋 선택">
+          <span class="control-label">로고</span>
+          <div class="segmented" id="logo-controls">
+            <button type="button" data-logo="s">s</button>
+            <button type="button" data-logo="m">m</button>
+            <button type="button" data-logo="l" class="is-active">l</button>
+            <button type="button" data-logo="xl">xl</button>
+          </div>
+        </div>
+
+        <dl class="token-table">
+          <div><dt>로고 기본</dt><dd>40×40 슬롯 · 38×32 표시 · 간격 16</dd></div>
+          <div><dt>모델</dt><dd>74×46 이미지 · 간격 18 · 행 50</dd></div>
+          <div><dt>세부모델</dt><dd>74×46 이미지 · 간격 18 · 행 56</dd></div>
+          <div><dt>등급</dt><dd>20 체크박스 · 행 48 · 들여쓰기 16</dd></div>
+        </dl>
+
+        <div class="status-card" role="status">
+          <strong>데이터 연결 상태</strong>
+          <span>PR #144 · public/data/encar-car-depth-1005/catalog.json</span>
+          <span>63 / 663 / 1,256 / 2,158 / 5,976 / 3,297 일치</span>
+        </div>
+      </section>
+
+      <section class="phone-stage" aria-label="제조사·모델 선택 화면 미리보기">
+        <div class="phone" data-logo-size="l">
+          <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+            <header class="sheet-header">
+              <button class="icon-button" id="back-button" type="button" aria-label="이전 화면">
+                <img src="./assets/maker-model/icons/chotot-chevron-left.svg" alt="" />
+              </button>
+              <h2 id="sheet-title">제조사</h2>
+              <button class="icon-button" id="close-button" type="button" aria-label="닫기">
+                <img src="./assets/maker-model/icons/chotot-close.svg" alt="" />
+              </button>
+            </header>
+
+            <div class="sheet-body" id="sheet-body"></div>
+
+            <footer class="sheet-footer">
+              <div class="selection-strip" id="selection-strip" aria-label="선택된 조건"></div>
+              <div class="footer-actions">
+                <button class="reset-button" id="reset-button" type="button">초기화</button>
+                <button class="apply-button" id="apply-button" type="button">198,208대 보기</button>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./maker-model-skeleton-v01.js" defer></script>
+  </body>
+</html>

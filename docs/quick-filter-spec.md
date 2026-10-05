@@ -77,6 +77,10 @@
 ## Images And Logos
 
 - Vehicle images and manufacturer marks follow `docs/quick-filter-image-slot-rules_v03.md` and `docs/image/quickfilter_image_production_manual_v01.md`. The older asset and layout documents describe the currently deployed implementation; where their image-direction or production claims conflict, v03 is the authority.
+- 차량군별 색상·재질·조명 제작값은 `docs/image/autoscout24_chotot_vehicle_image_manual_v01.md`와 기계 판독용 `docs/image/vehicle_category_color_manifest_v01.csv`를 따른다. 카테고리 식별은 `실루엣 → 주요 구조 → 제한된 식별색` 순서이며, 색만 바꾼 동일 형상은 승인하지 않는다.
+- 공통 재질색은 차체 백색 `#F4F5F6`, 차체 음영 `#D9DDE1`, 구조 그래파이트 `#24292F`, 타이어 `#101214`, 유리 `#71818A`, 금속 `#B7BDC2`를 뼈대로 한다. 카테고리별 면적 비율은 매니페스트 값의 ±5% 안에 두며, 이미지마다 포인트색을 임의로 추가하지 않는다.
+- 접지 그림자는 중립 `#12181C`, 마스터 접지선 아래 2px, 불투명도 8~16%(상한 20%)로 이미지에 직접 포함한다. 카테고리별 폭·높이·블러는 색상 매니페스트 값을 따르며 CSS `box-shadow`나 `drop-shadow()`로 다시 만들지 않는다.
+- 분류형 퀵필터는 초톳 슬롯의 좌향 90도 정측면을 사용한다. 메인 홍보형 카테고리 이미지는 필요할 때만 3/4 구도를 허용하되 같은 카테고리 팔레트·재질·광원은 유지한다. 모든 승인본은 sRGB·투명 RGBA여야 한다.
 - Classification quick-filter images use an exact 90-degree left-facing side profile on a transparent 8:5 master canvas. Three-quarter views are reserved for promotional/main-category surfaces and must not be mixed into classification rails.
 - Model and generation assets should be 192×96 when available.
 - Passenger vehicles use `bodyFit: "width"`.
@@ -238,6 +242,17 @@
 
 ## Existing Mode Notes
 
+## 차량 기준표 정적 검색·이미지
+
+- 승용 제조사·모델그룹·세대는 `public/data/vehicle-catalog/cars-index-v1.json`을 첫 화면에서 불러오고, 연료·구동·등급·세부등급 검색 색인은 검색창을 처음 누를 때만 `cars-search-v1.json`에서 불러온다.
+- 바텀시트 하위 단계는 `cars/{makeId}.json` 제조사별 파일을 선택 시점에만 불러온다. 바이크도 `bikes-index-v1.json`, `bikes-search-v1.json`, `bikes/{makeId}.json`으로 같은 규칙을 쓴다.
+- 공개 JSON은 표시용 경로·이름·세대코드·연월·판매상태·정렬 순위만 허용한다. 엔카 코드·엔카 이미지 경로·매물 수·가격·라이트바겐 ID·외부 URL은 금지한다.
+- 지리와 바이크 `숨김 제안` 제조사는 공개 색인에서 제외한다.
+- 검색은 띄어쓰기·하이픈·대소문자를 무시하고 영문 시리즈 표기, 초성, 브랜드 별칭, 세대코드를 지원한다. 결과 순서는 완전 일치 → 앞부분 일치 → 포함, 동일 이름은 최신 세대 우선이다.
+- 검색 결과는 로고·세대 이미지 또는 회색 실루엣·전체 경로·연식을 표시한다. 선택하면 제조사/모델그룹/세대/최종 등급 칩을 세팅하고 같은 위치로 차량 바텀시트를 연다.
+- 제조사 로고는 `public/assets/vehicle-catalog/logos/logo_{영문}.png` 256×256 투명 PNG를 사용한다. 원본이 없거나 사용자가 직접 등록하기로 한 KGM은 임의 대체하지 않고 자리표시로 둔다.
+- 세대 이미지는 작업표 파일명과 일치하는 `gen_images` 파일만 WebP 600×400으로 변환한다. 모델그룹은 최신 세대 이미지를 대표로 쓰고, 이미지가 없으면 회색 실루엣을 쓴다.
+
 - Keep ChoTot and Dongchedi modes visually unchanged when working on Guazi-specific changes unless the user explicitly requests a shared change.
 - The default top quick-filter row keeps the fixed gray `필터` chip, black pinned `전체` category chip with clear icon, and scrollable conditions beginning `제조사`, `연식`, `가격`.
 - The category sheet keeps `중고차` expanded by default with `전체 중고차`, `국산차`, `수입차`, and `전기차` chips; its right arrow toggles only that child row.
@@ -322,6 +337,8 @@
 - 행은 `체크박스 → 유형 이미지 → 명칭 → 대수 → 하위 화살표` 순서다. 하위 화살표는 자식이 있는 항목에만 표시한다.
 - 헤더 64px, 모바일 제목 20/28px, 본문 좌우 20px, 체크박스 20px, 열 간격 12px, 하단 액션 80px·버튼 52px을 기준으로 한다.
 - 트럭 유형 이미지 인지성 시안은 모바일 행 64px·PC 행 60px, 공통 이미지 표면 56×40px(`#F7F7F7`, `1px #ECECEC`, 반경 6px), `contain`·`center bottom`을 사용한다. 카고·윙바디·탱크로리·카고크레인은 앞머리가 왼쪽인 측면형 v02 샘플을 우선 연결하며 나머지 유형은 기존 이미지를 유지한다.
+- 유형 이미지는 AutoScout24의 카탈로그형 정측면·균일 조명·고정 여백을 기본으로 하고, 한국·일본 상용차의 실제 차체 비례를 유지한다. 트럭은 흰색 캡을 공통 뼈대로 두고 용도를 결정하는 적재함·장비부에만 포인트 색을 준다: 윙바디 딥레드, 냉장·냉동 글래시어 블루, 도로용 덤프 스틸 블루그레이, 탱크로리 알루미늄 실버+블루 밴드, 견인 장비 오렌지. 산업용 노랑은 건설기계에만 사용한다. 로고·문자·번호판은 넣지 않으며, 90도 좌향 정측면·투명 배경·공통 기준선을 지킨다.
+- 건설기계는 무채색 전체 도색을 사용하지 않는다. 작업 장비와 상부 구조는 산업용 노랑, 하부·트랙·타이어·조인트는 차콜, 유리와 금속은 자연 재질색으로 표현해 작은 슬롯에서도 유형을 식별할 수 있게 한다.
 - 선택은 임시 상태이며 `N대 보기`에서 확정한다. 닫기·배경·Escape·뒤로가기는 임시 값을 버린다.
 - 중간 그룹을 선택하면 모든 하위 말단 값을 포함한다. 0대 항목은 정의를 유지하되 비활성 처리한다.
 - URL은 기존 `truckFormat`, `truckSubtype`, `truckSpec`을 유지한다. 유형 변경 시 하위 적재 규격·제조사·모델을 초기화한다.
