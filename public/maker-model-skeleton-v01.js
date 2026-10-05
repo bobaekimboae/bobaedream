@@ -73,7 +73,6 @@ const state = {
 
 const body = document.querySelector("#sheet-body");
 const title = document.querySelector("#sheet-title");
-const selectionStrip = document.querySelector("#selection-strip");
 const phone = document.querySelector(".phone");
 phone.dataset.logoSize = initialLogo;
 phone.dataset.specMode = initialSpec;
@@ -298,7 +297,6 @@ function currentListingCount() {
 }
 
 function updateSelections() {
-  selectionStrip.innerHTML = selectionValues().map((value) => `<button type="button" class="selection-chip" data-remove-selection="${escapeHtml(value.key)}" aria-label="${escapeHtml(value.label)} 선택 해제"><span>${escapeHtml(value.label)}</span><b aria-hidden="true">×</b></button>`).join("");
   document.querySelector("#apply-button").textContent = `${formatCount(currentListingCount())}대 보기`;
   const selectionCount = selectionValues().length;
   const resetButton = document.querySelector("#reset-button");
@@ -358,15 +356,6 @@ document.addEventListener("click", (event) => {
   const specButton = event.target.closest("#spec-controls [data-spec]");
   if (specButton) { state.spec = specButton.dataset.spec; phone.dataset.specMode = state.spec; return render(); }
   if (event.target.closest("#slot-toggle")) { state.slots = !state.slots; phone.dataset.slots = state.slots ? "on" : "off"; return render(); }
-  const removeButton = event.target.closest("[data-remove-selection]");
-  if (removeButton) {
-    const key = removeButton.dataset.removeSelection;
-    if (key === "maker") { state.maker = null; state.model = null; state.generation = null; state.selectedLeaves.clear(); }
-    else if (key === "model") { state.model = null; state.generation = null; state.selectedLeaves.clear(); }
-    else if (key === "generation") { state.generation = null; state.selectedLeaves.clear(); }
-    else if (key.startsWith("leaf:")) state.selectedLeaves.delete(key.slice(5));
-    return render();
-  }
   const makerButton = event.target.closest("[data-select-maker]");
   if (makerButton) { state.maker = state.makers.find((maker) => maker.key === makerButton.dataset.selectMaker); state.model = null; state.generation = null; state.selectedLeaves.clear(); state.modelTab = "all"; return setScreen(2); }
   const modelButton = event.target.closest("[data-select-model]");
