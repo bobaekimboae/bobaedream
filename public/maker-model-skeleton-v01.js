@@ -352,24 +352,28 @@ document.addEventListener("click", (event) => {
   const checkButton = event.target.closest("[data-check-kind]");
   if (checkButton) {
     const kind = checkButton.dataset.checkKind;
-    if (kind === "fuel") {
-      state.expandedFuelKey = checkButton.dataset.fuelDriveKey;
-      state.expandedGradeKey = null;
-    } else if (kind === "grade") {
-      state.expandedFuelKey = checkButton.dataset.fuelDriveKey;
-      state.expandedGradeKey = checkButton.dataset.gradeKey;
-    }
     const leaves = findCheckLeaves(kind, checkButton.dataset.checkKey);
     const fuelDrive = findFuelDrive(checkButton.dataset.fuelDriveKey);
     const grade = findGrade(fuelDrive, checkButton.dataset.gradeKey);
     const parentLeaves = kind === "grade" ? leafNodesForFuelDrive(fuelDrive) : kind === "leaf" ? leafNodesForGrade(grade, fuelDrive) : [];
     const parentWasFullySelected = parentLeaves.length > leaves.length && parentLeaves.every((leaf) => state.selectedLeaves.has(leaf.key));
     if (parentWasFullySelected) {
+      if (kind === "grade") {
+        state.expandedFuelKey = checkButton.dataset.fuelDriveKey;
+        state.expandedGradeKey = checkButton.dataset.gradeKey;
+      }
       parentLeaves.forEach((leaf) => state.selectedLeaves.delete(leaf.key));
       leaves.forEach((leaf) => state.selectedLeaves.set(leaf.key, leaf));
       return render();
     }
     const allChecked = leaves.every((leaf) => state.selectedLeaves.has(leaf.key));
+    if (kind === "fuel") {
+      state.expandedFuelKey = allChecked ? null : checkButton.dataset.fuelDriveKey;
+      state.expandedGradeKey = null;
+    } else if (kind === "grade") {
+      state.expandedFuelKey = checkButton.dataset.fuelDriveKey;
+      state.expandedGradeKey = allChecked ? null : checkButton.dataset.gradeKey;
+    }
     leaves.forEach((leaf) => allChecked ? state.selectedLeaves.delete(leaf.key) : state.selectedLeaves.set(leaf.key, leaf));
     return render();
   }
