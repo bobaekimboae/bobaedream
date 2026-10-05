@@ -53,7 +53,7 @@ const ENCAR_LOGO_FILES = {
 const state = {
   screen: 1, catalog: null, makers: [], maker: null, model: null, generation: null,
   logoMetrics: {},
-  generationImages: {}, selectedFuelDrives: new Map(), selectedGrades: new Map(), selectedLeaves: new Map(), expandedFuelKey: null, expandedGradeKey: null,
+  generationImages: {}, selectedFuelDrives: new Map(), selectedGrades: new Map(), selectedLeaves: new Map(),
   modelTab: "all", query: "", status: "loading", error: "",
 };
 
@@ -235,7 +235,9 @@ function renderGrade() {
   if (!state.generation || state.generation.key === "all") return '<div class="empty-copy"><strong>모델 전체가 선택되었습니다.</strong><br />연료·구동과 등급을 고르려면 세부모델 한 개를 선택해 주세요.</div>';
   const fuelDrives = visible(state.generation.fuelDrives);
   const groups = fuelDrives.map((fuelDrive) => {
-    const isFuelExpanded = state.expandedFuelKey === fuelDrive.key;
+    // 엔카 공식 동작: 상위 체크 상태가 곧 하위 목록의 열림 상태다.
+    // 복수 연료·배기량을 선택하면 각 하위 등급 목록을 동시에 연다.
+    const isFuelExpanded = state.selectedFuelDrives.has(fuelDrive.key);
     const fdRow = checkRow({
       key: fuelDrive.key,
       label: fuelDrive.displayName,
@@ -257,9 +259,9 @@ function renderGrade() {
         kind: "grade",
         fuelDriveKey: fuelDrive.key,
         gradeKey: grade.key,
-        expanded: subgrades.length ? state.expandedGradeKey === grade.key : null,
+        expanded: subgrades.length ? state.selectedGrades.has(grade.key) : null,
       });
-      if (state.expandedGradeKey !== grade.key || !subgrades.length) return gradeRow;
+      if (!state.selectedGrades.has(grade.key) || !subgrades.length) return gradeRow;
       const subgradeRows = subgrades.map((subgrade) => checkRow({
         key: subgrade.key,
         label: subgrade.displayName,
@@ -316,8 +318,6 @@ function clearNestedSelections() {
   state.selectedFuelDrives.clear();
   state.selectedGrades.clear();
   state.selectedLeaves.clear();
-  state.expandedFuelKey = null;
-  state.expandedGradeKey = null;
 }
 
 function bindSearch() {
@@ -392,7 +392,6 @@ document.addEventListener("click", (event) => {
     const fuelDrive = findFuelDrive(checkButton.dataset.fuelDriveKey);
     const grade = findGrade(fuelDrive, checkButton.dataset.gradeKey);
     if (kind === "fuel") {
-      const wasExpanded = state.expandedFuelKey === key;
       const wasSelected = state.selectedFuelDrives.has(key);
       if (wasSelected) {
         state.selectedFuelDrives.delete(key);
@@ -401,16 +400,12 @@ document.addEventListener("click", (event) => {
           leafNodesForGrade(item, fuelDrive).forEach((leaf) => state.selectedLeaves.delete(leaf.key));
         });
       } else state.selectedFuelDrives.set(key, { key, label: fuelDrive.displayName, count: fuelDrive.listingCount });
-      state.expandedFuelKey = key;
-      if (!wasExpanded) state.expandedGradeKey = null;
     } else if (kind === "grade") {
-      state.expandedFuelKey = checkButton.dataset.fuelDriveKey;
       const wasSelected = state.selectedGrades.has(key);
       if (wasSelected) {
         state.selectedGrades.delete(key);
         leafNodesForGrade(grade, fuelDrive).forEach((leaf) => state.selectedLeaves.delete(leaf.key));
       } else state.selectedGrades.set(key, { key, label: grade.displayName, count: grade.listingCount });
-      state.expandedGradeKey = key;
     } else {
       const leaf = leafNodesForGrade(grade, fuelDrive).find((item) => item.key === key);
       if (state.selectedLeaves.has(key)) state.selectedLeaves.delete(key);
