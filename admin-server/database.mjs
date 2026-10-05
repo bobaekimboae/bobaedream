@@ -235,6 +235,82 @@ CREATE TABLE IF NOT EXISTS model_trims (
 CREATE INDEX IF NOT EXISTS idx_model_trims_parent
 ON model_trims(generation_model_id, parent_trim_id, trim_level, sort_order);
 
+CREATE TABLE IF NOT EXISTS bike_manufacturers (
+  id TEXT PRIMARY KEY,
+  source_system TEXT NOT NULL,
+  source_code TEXT NOT NULL UNIQUE,
+  source_name TEXT NOT NULL,
+  display_name TEXT NOT NULL,
+  english_name TEXT,
+  country_name TEXT,
+  origin_type TEXT,
+  is_chinese INTEGER NOT NULL DEFAULT 0,
+  is_popular INTEGER NOT NULL DEFAULT 0,
+  is_visible INTEGER NOT NULL DEFAULT 1,
+  uses_groups INTEGER NOT NULL DEFAULT 1,
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  listing_count_snapshot INTEGER,
+  listing_count_snapshot_at TEXT,
+  review_status TEXT NOT NULL DEFAULT 'CONFIRMED',
+  review_reason TEXT,
+  status TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  updated_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS bike_model_groups (
+  id TEXT PRIMARY KEY,
+  manufacturer_id TEXT NOT NULL REFERENCES bike_manufacturers(id),
+  source_system TEXT NOT NULL,
+  source_code TEXT NOT NULL,
+  source_name TEXT NOT NULL,
+  display_name TEXT NOT NULL,
+  is_implicit INTEGER NOT NULL DEFAULT 0,
+  is_visible INTEGER NOT NULL DEFAULT 1,
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  listing_count_snapshot INTEGER,
+  listing_count_snapshot_at TEXT,
+  review_status TEXT NOT NULL DEFAULT 'CONFIRMED',
+  review_reason TEXT,
+  status TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  updated_at TEXT NOT NULL,
+  UNIQUE(manufacturer_id, source_code)
+);
+
+CREATE INDEX IF NOT EXISTS idx_bike_model_groups_parent
+ON bike_model_groups(manufacturer_id, sort_order, display_name);
+
+CREATE TABLE IF NOT EXISTS bike_models (
+  id TEXT PRIMARY KEY,
+  manufacturer_id TEXT NOT NULL REFERENCES bike_manufacturers(id),
+  model_group_id TEXT NOT NULL REFERENCES bike_model_groups(id),
+  source_system TEXT NOT NULL,
+  source_code TEXT NOT NULL,
+  source_name TEXT NOT NULL,
+  display_name TEXT NOT NULL,
+  genre TEXT,
+  displacement_cc REAL,
+  displacement_band TEXT,
+  fuel TEXT,
+  year_min INTEGER,
+  year_max INTEGER,
+  image_path TEXT,
+  is_visible INTEGER NOT NULL DEFAULT 1,
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  listing_count_snapshot INTEGER,
+  listing_count_snapshot_at TEXT,
+  review_status TEXT NOT NULL DEFAULT 'CONFIRMED',
+  review_reason TEXT,
+  status TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  updated_at TEXT NOT NULL,
+  UNIQUE(manufacturer_id, source_code)
+);
+
+CREATE INDEX IF NOT EXISTS idx_bike_models_parent
+ON bike_models(model_group_id, sort_order, display_name);
+
 CREATE TABLE IF NOT EXISTS legacy_field_mappings (
   id TEXT PRIMARY KEY,
   source_system TEXT NOT NULL,
@@ -432,6 +508,9 @@ export class AdminDatabase {
         DELETE FROM schema_items;
         DELETE FROM schemas;
         DELETE FROM legacy_field_mappings;
+        DELETE FROM bike_models;
+        DELETE FROM bike_model_groups;
+        DELETE FROM bike_manufacturers;
         DELETE FROM model_trims;
         DELETE FROM models;
         DELETE FROM manufacturers;

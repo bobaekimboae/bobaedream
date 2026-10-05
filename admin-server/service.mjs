@@ -606,6 +606,26 @@ export class AdminService {
     return rows.map(normalizeDbRow);
   }
 
+  listBikeManufacturers() {
+    return this.database.db.prepare(
+      "SELECT * FROM bike_manufacturers ORDER BY sort_order, display_name",
+    ).all().map(normalizeDbRow);
+  }
+
+  listBikeModelGroups(manufacturerId = null) {
+    const rows = manufacturerId
+      ? this.database.db.prepare("SELECT * FROM bike_model_groups WHERE manufacturer_id = ? ORDER BY sort_order, display_name").all(manufacturerId)
+      : this.database.db.prepare("SELECT * FROM bike_model_groups ORDER BY manufacturer_id, sort_order, display_name").all();
+    return rows.map(normalizeDbRow);
+  }
+
+  listBikeModels(modelGroupId = null) {
+    const rows = modelGroupId
+      ? this.database.db.prepare("SELECT * FROM bike_models WHERE model_group_id = ? ORDER BY sort_order, display_name").all(modelGroupId)
+      : this.database.db.prepare("SELECT * FROM bike_models ORDER BY model_group_id, sort_order, display_name").all();
+    return rows.map(normalizeDbRow);
+  }
+
   createModel(payload, context) {
     const timestamp = now();
     const row = {

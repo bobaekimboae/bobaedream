@@ -193,6 +193,21 @@ async function routeApi(req, res, url, service) {
     return json(res, 200, service.listModelTrims(url.searchParams.get("generation_model_id")));
   }
 
+  if (path === "/api/admin/bike-manufacturers" && req.method === "GET") {
+    requirePermission("read");
+    return json(res, 200, service.listBikeManufacturers());
+  }
+
+  if (path === "/api/admin/bike-model-groups" && req.method === "GET") {
+    requirePermission("read");
+    return json(res, 200, service.listBikeModelGroups(url.searchParams.get("manufacturer_id")));
+  }
+
+  if (path === "/api/admin/bike-models" && req.method === "GET") {
+    requirePermission("read");
+    return json(res, 200, service.listBikeModels(url.searchParams.get("model_group_id")));
+  }
+
   if (req.method === "GET" && path === "/api/admin/legacy-field-mappings") {
     requirePermission("read");
     return json(res, 200, service.listLegacyMappings());
