@@ -49,11 +49,14 @@ button { -webkit-tap-highlight-color: transparent; }
 .phone { width: 384px; height: min(820px, calc(100dvh - 32px)); min-height: 680px; overflow: hidden; border: 8px solid #0b0b0c; border-radius: 38px; background: #fff; box-shadow: 0 28px 70px rgba(23, 29, 38, .22); }
 .sheet { height: 100%; display: grid; grid-template-rows: 64px minmax(0, 1fr) auto; background: #fff; }
 .sheet-header { position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 4px; padding: 0 8px; border-bottom: 1px solid #e8e8e8; }
+.sheet-header.is-root { grid-template-columns: minmax(0, 1fr) 44px; gap: 0; padding: 0 16px 0 20px; }
 .sheet-header h2 { margin: 0; text-align: left; font-size: 20px; line-height: 26px; font-weight: 700; letter-spacing: -.02em; }
 .icon-button { width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: 12px; background: transparent; cursor: pointer; }
+.icon-button[hidden] { display: none; }
 .icon-button:hover { background: #f5f5f5; }
 .icon-button:focus-visible { outline: 2px solid #222; outline-offset: 1px; }
 .icon-button img { width: 24px; height: 24px; }
+#close-button img { width: 28px; height: 28px; }
 .sheet-body { min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding-bottom: 12px; scrollbar-width: thin; }
 .search-wrap { position: sticky; top: 0; z-index: 2; padding: 10px 16px 8px; background: rgba(255,255,255,.96); }
 .search-field { position: relative; }
@@ -153,7 +156,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .grade-row { --divider-left: 32px; min-height: 48px; grid-template-columns: 20px 12px minmax(0,1fr) auto; }
 .grade-row.level-0 .grade-name { font-weight: 700; }
 .grade-row.level-1 { --divider-left: 48px; margin-left: 16px; padding-left: 16px; border-left: 1px solid #dfe2e6; width: calc(100% - 16px); }
-.grade-row.level-2 { --divider-left: 68px; margin-left: 36px; padding-left: 16px; border-left: 1px solid #dfe2e6; width: calc(100% - 36px); color: #555c65; }
+.grade-row.level-2 { --divider-left: 48px; margin-left: 36px; padding-left: 16px; border-left: 1px solid #dfe2e6; width: calc(100% - 36px); color: #555c65; }
 .fake-checkbox { width: 20px; height: 20px; display: grid; place-items: center; border: 2px solid #d9d9d9; border-radius: 4px; background: #fff; }
 .fake-checkbox img { display: none; width: 14px; height: 14px; filter: brightness(0) invert(1); }
 .grade-row[aria-checked="true"] .fake-checkbox, .grade-row[aria-checked="mixed"] .fake-checkbox { border-color: #222; background: #222; }
@@ -166,22 +169,28 @@ button { -webkit-tap-highlight-color: transparent; }
 .filter-row strong { font-size: 15px; }
 .filter-value { min-width: 0; color: #666d76; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-.sheet-footer { border-top: 1px solid #e8e8e8; background: #fff; padding: 8px 16px calc(14px + env(safe-area-inset-bottom)); box-shadow: 0 -6px 18px rgba(28,36,50,.05); }
-.footer-actions { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 10px; }
+.sheet-footer {
+  height: calc(80px + env(safe-area-inset-bottom));
+  border-top: 0;
+  background: #fff;
+  padding: 12px 20px calc(16px + env(safe-area-inset-bottom));
+  box-shadow: 0 -6px 18px rgba(28,36,50,.06);
+}
+.footer-actions { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 10px; }
 .reset-button, .apply-button { height: 52px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; }
 .reset-button {
-  min-width: 84px;
+  width: 92px;
+  min-width: 92px;
   border: 0;
   border-radius: 0;
   background: transparent;
   color: #222;
   font-size: 16px;
   font-weight: 700;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
+  text-decoration: none;
 }
-.reset-button:hover { background: #f7f7f7; border-radius: 8px; }
+.reset-button:disabled { color: #b7b7b7; cursor: default; }
+.reset-button:not(:disabled):hover { background: #f7f7f7; border-radius: 8px; }
 .reset-button:focus-visible { outline: 2px solid #222; outline-offset: -2px; border-radius: 8px; }
 .apply-button { border: 0; background: #222; color: #fff; }
 .apply-button small { display: inline-block; margin-left: 4px; color: #c6c9ce; font-size: 10px; font-weight: 400; vertical-align: 1px; }

@@ -71,6 +71,8 @@ const state = {
 
 const body = document.querySelector("#sheet-body");
 const title = document.querySelector("#sheet-title");
+const header = document.querySelector(".sheet-header");
+const backButton = document.querySelector("#back-button");
 const phone = document.querySelector(".phone");
 phone.dataset.logoSize = initialLogo;
 
@@ -316,6 +318,8 @@ function currentListingCount() {
 
 function updateSelections() {
   document.querySelector("#apply-button").textContent = `${formatCount(currentListingCount())}대 보기`;
+  const hasSelection = Boolean(state.maker || state.model || state.generation || selectedResultItems().length);
+  document.querySelector("#reset-button").disabled = !hasSelection;
 }
 
 function clearNestedSelections() {
@@ -343,7 +347,9 @@ function render() {
   if (state.status === "loading") body.innerHTML = '<div class="loading-copy">검수 완료된 제조사·모델 DB를 불러오는 중입니다.</div>';
   else if (state.status === "error") body.innerHTML = `<div class="data-error" role="alert"><strong>DB 연결을 중단했습니다.</strong><span>${escapeHtml(state.error)}</span></div>`;
   else body.innerHTML = [renderOverview, renderMaker, renderModel, renderGeneration, renderGrade][state.screen]();
-  document.querySelector("#back-button").style.visibility = state.screen === 0 ? "hidden" : "visible";
+  const isRootScreen = state.screen <= 1;
+  header.classList.toggle("is-root", isRootScreen);
+  backButton.hidden = isRootScreen;
   document.querySelectorAll("#screen-controls button").forEach((button) => button.classList.toggle("is-active", Number(button.dataset.screen) === state.screen));
   document.querySelectorAll("#logo-controls button").forEach((button) => button.classList.toggle("is-active", button.dataset.logo === state.logo));
   updateSelections();
@@ -429,7 +435,7 @@ document.addEventListener("click", (event) => {
   if (modelFilterButton) { state.modelTab = modelFilterButton.dataset.modelFilter; render(); body.scrollTop = 0; return; }
 });
 
-document.querySelector("#back-button").addEventListener("click", () => setScreen(state.screen - 1));
+backButton.addEventListener("click", () => setScreen(state.screen - 1));
 document.querySelector("#close-button").addEventListener("click", () => setScreen(0));
 document.querySelector("#reset-button").addEventListener("click", () => { state.maker = null; state.model = null; state.generation = null; clearNestedSelections(); state.query = ""; state.modelTab = "all"; setScreen(1); });
 
