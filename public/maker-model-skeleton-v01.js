@@ -13,18 +13,28 @@ const BODY_TYPES = [
   { value: "픽업트럭", label: "픽업트럭", icon: "pickup.svg" },
 ];
 
-const LOGO_SLUGS = {
-  Hyundai: "hyundai", Genesis: "genesis", Kia: "kia", ChevroletGMDaewoo: "chevrolet", "Renault-KoreaSamsung": "renault",
-  KG_Mobility_Ssangyong: "kgm", Others: "eoullim", BMW: "bmw", BYD: "byd", GMC: "gmc", Nissan: "nissan",
-  Daihatsu: "daihatsu", Dodge: "dodge", Toyota: "toyota", DFSK: "dfsk", Lamborghini: "lamborghini", "Land Rover": "land-rover",
-  Lexus: "lexus", Lotus: "lotus", "Rolls-Royce": "rolls-royce", Renault: "renault", Lincoln: "lincoln", Maserati: "maserati",
-  Maybach: "maybach", Mazda: "mazda", Mclaren: "mclaren", Mini: "mini", Mitsubishi: "mitsubishi", Mitsuoka: "mitsuoka",
-  "Mercedes-Benz": "mercedes-benz", Bentley: "bentley", Volvo: "volvo", "Baic Yinxiang": "baic-yinxiang", Saab: "saab",
-  Chevrolet: "chevrolet", Smart: "smart", Subaru: "subaru", Suzuki: "suzuki", "Citroen-DS": "citroen", Audi: "audi",
-  "Alfa Romeo": "alfa-romeo", Astonmartin: "aston-martin", Infiniti: "infiniti", Jaguar: "jaguar", Jeep: "jeep",
-  Cadillac: "cadillac", Chrysler: "chrysler", Tesla: "tesla", Ferrari: "ferrari", Ford: "ford", Porsche: "porsche",
-  Volkswagen: "volkswagen", Polestar: "polestar", Peugeot: "peugeot", Fiat: "fiat", Hummer: "hummer", Honda: "honda",
+const ENCAR_LOGO_FILES = {
+  Hyundai: "001_Hyundai.png", Genesis: "007_Genesis.png", Kia: "002_Kia.png", ChevroletGMDaewoo: "003_ChevroletGMDaewoo.png",
+  "Renault-KoreaSamsung": "005_Renault_KoreaSamsung.png", KG_Mobility_Ssangyong: "004_KG_Mobility_Ssangyong.png",
+  BMW: "012_BMW.png", BYD: "090_BYD.png", GMC: "056_GMC.png", Nissan: "033_Nissan.png", Daihatsu: "051_Daihatsu.png",
+  Dodge: "034_Dodge.png", Toyota: "031_Toyota.png", DFSK: "088_DFSK.png", Lamborghini: "049_Lamborghini.png",
+  "Land Rover": "020_Land_Rover.png", Lexus: "035_Lexus.png", Lotus: "069_Lotus.png", "Rolls-Royce": "047_Rolls_Royce.png",
+  Renault: "078_Renault.png", Lincoln: "044_Lincoln.png", Maserati: "053_Maserati.png", Maybach: "080_Maybach.png",
+  Mazda: "029_Mazda.png", Mclaren: "084_Mclaren.png", Mini: "054_Mini.png", Mitsubishi: "030_Mitsubishi.png",
+  Mitsuoka: "059_Mitsuoka.png", "Mercedes-Benz": "013_Mercedes_Benz.png", Bentley: "050_Bentley.png", Volvo: "017_Volvo.png",
+  "Baic Yinxiang": "086_Baic_Yinxiang.png", Saab: "016_Saab.png", Scion: "082_Scion.png", "Xin yuan": "092_Xin_yuan.png",
+  Chevrolet: "038_Chevrolet.png", Smart: "081_Smart.png", Subaru: "052_Subaru.png", Suzuki: "037_Suzuki.png",
+  "Citroen-DS": "022_Citroen_DS.png", Audi: "011_Audi.png", "Alfa Romeo": "040_Alfa_Romeo.png",
+  Astonmartin: "070_Astonmartin.png", Acura: "057_Acura.png", Ineos: "093_Ineos.png", Infiniti: "058_Infiniti.png",
+  Jaguar: "019_Jaguar.png", Geely: "094_Geely.png", Jeep: "083_Jeep.png", Cadillac: "043_Cadillac.png",
+  Chrysler: "023_Chrysler.png", Tesla: "087_Tesla.png", Ferrari: "041_Ferrari.png", Ford: "024_Ford.png",
+  Porsche: "015_Porsche.png", Volkswagen: "014_Volkswagen.png", Polestar: "089_Polestar.png", Peugeot: "021_Peugeot.png",
+  Fiat: "018_Fiat.png", Hummer: "048_Hummer.png", Honda: "027_Honda.png",
 };
+
+const KOREAN_INITIALS = ["ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ", "ㅅ", "ㅆ", "ㅇ", "ㅈ", "ㅉ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"];
+const DISPLAY_KOREAN_INITIALS = ["ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"];
+const INITIAL_ORDER = ["0-9", ..."ABCDEFGHIJKLMNOPQRSTUVWXYZ", ...DISPLAY_KOREAN_INITIALS];
 
 const requestedLogo = new URLSearchParams(location.search).get("logo");
 const initialLogo = ["s", "m", "l", "xl"].includes(requestedLogo) ? requestedLogo : "l";
@@ -69,9 +79,21 @@ function validateCatalog(catalog) {
 }
 
 function makerLogo(maker) {
-  const slug = LOGO_SLUGS[maker.englishName];
-  if (slug) return `<span class="maker-logo"><img src="./assets/brand/kr/${slug}.png" alt="" /></span>`;
-  return `<span class="maker-logo maker-logo-fallback" aria-hidden="true">${escapeHtml(maker.displayName.slice(0, 1))}</span>`;
+  const fileName = ["Others", "etc"].includes(maker.englishName) ? "etc_maker_icon.png" : ENCAR_LOGO_FILES[maker.englishName] || "etc_maker_icon.png";
+  return `<span class="maker-logo"><img src="./assets/maker-model/logos/encar-1005/${escapeHtml(fileName)}" alt="" /></span>`;
+}
+
+function modelInitial(name) {
+  const first = String(name || "").trim().charAt(0);
+  if (/\d/.test(first)) return "0-9";
+  if (/[A-Za-z]/.test(first)) return first.toUpperCase();
+  const code = first.charCodeAt(0);
+  if (code >= 0xac00 && code <= 0xd7a3) {
+    const initial = KOREAN_INITIALS[Math.floor((code - 0xac00) / 588)];
+    if (["ㄲ", "ㄸ", "ㅃ", "ㅆ", "ㅉ"].includes(initial)) return ({ "ㄲ": "ㄱ", "ㄸ": "ㄷ", "ㅃ": "ㅂ", "ㅆ": "ㅅ", "ㅉ": "ㅈ" })[initial];
+    return initial;
+  }
+  return "기타";
 }
 
 function bodyIconPath(bodyType) {
@@ -108,7 +130,7 @@ function renderMaker() {
 
 function modelRow(model) {
   const reviewMark = model.reviewStatus === "REVIEW_REQUIRED" ? '<span class="review-mark" title="바디타입 검토 필요">🟡</span>' : "";
-  return `<li><button class="option-row model-row" type="button" data-select-model="${escapeHtml(model.key)}">${modelSilhouette(model)}<span class="model-copy"><strong>${escapeHtml(model.displayName)}${reviewMark}</strong></span><span class="option-count">${formatCount(model.listingCount)}</span>${icon("./assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
+  return `<li><button class="option-row model-row" type="button" data-select-model="${escapeHtml(model.key)}" data-initial="${escapeHtml(modelInitial(model.displayName))}">${modelSilhouette(model)}<span class="model-copy"><strong>${escapeHtml(model.displayName)}${reviewMark}</strong></span><span class="option-count">${formatCount(model.listingCount)}</span>${icon("./assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
 }
 
 function bodyTypeRail(models) {
@@ -132,7 +154,8 @@ function renderModel() {
       rows = `${bodyTypeRail(allModels)}${bodyRows.length ? `<h3 class="section-title">${escapeHtml(label)}${testBadge()}</h3><ul class="model-list">${bodyRows.map(modelRow).join("")}</ul>` : `<p class="empty-copy">${escapeHtml(label)}로 확인된 현대 모델이 없습니다.</p>`}`;
     }
   } else {
-    const initials = [...new Set(filtered.map((model) => (/^[A-Za-z]/.test(model.displayName) ? model.displayName[0].toUpperCase() : "가나다")))];
+    const initialSet = new Set(filtered.map((model) => modelInitial(model.displayName)));
+    const initials = INITIAL_ORDER.filter((initial) => initialSet.has(initial));
     rows = `<div class="index-rail" aria-label="초성 이동">${initials.map((letter) => `<button type="button" data-index="${escapeHtml(letter)}">${escapeHtml(letter)}</button>`).join("")}</div><ul class="model-list">${filtered.map(modelRow).join("")}</ul>`;
   }
   return `<div class="path-copy"><span>${escapeHtml(state.maker.displayName)}</span><span>›</span><strong>모델</strong>${testBadge()}</div>${searchField("모델명·세대코드 검색")}<h3 class="section-title">인기 모델</h3><div class="popular-rail">${popular}</div><div class="tab-bar"><button type="button" data-model-tab="name" class="${state.modelTab === "name" ? "is-active" : ""}">이름순</button><button type="button" data-model-tab="body" class="${state.modelTab === "body" ? "is-active" : ""}">바디타입</button></div>${rows || '<p class="empty-copy">검색 결과가 없습니다.</p>'}`;
@@ -279,7 +302,7 @@ document.addEventListener("click", (event) => {
   const bodyTypeButton = event.target.closest("[data-body-type]");
   if (bodyTypeButton) { state.bodyType = bodyTypeButton.dataset.bodyType; return render(); }
   const indexButton = event.target.closest("[data-index]");
-  if (indexButton) { const prefix = indexButton.dataset.index; const target = [...document.querySelectorAll(".model-copy strong")].find((node) => prefix === "가나다" ? !/^[A-Za-z]/.test(node.textContent) : node.textContent.startsWith(prefix)); target?.closest("li")?.scrollIntoView({ block: "start" }); }
+  if (indexButton) { const prefix = indexButton.dataset.index; const target = [...document.querySelectorAll(".model-row")].find((node) => node.dataset.initial === prefix); target?.closest("li")?.scrollIntoView({ block: "start" }); }
 });
 
 document.querySelector("#back-button").addEventListener("click", () => setScreen(state.screen - 1));
