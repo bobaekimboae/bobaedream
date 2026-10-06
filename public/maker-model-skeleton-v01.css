@@ -140,6 +140,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .generation-placeholder { position: relative; }
 .model-copy, .generation-copy { grid-column: 3; min-width: 0; }
 .model-copy strong, .generation-copy strong { display: block; overflow: hidden; color: #222; font-size: 16px; line-height: 22px; font-weight: 500; text-overflow: ellipsis; white-space: nowrap; }
+.model-copy small { display: block; margin-top: 2px; overflow: hidden; color: #868b93; font-size: 12px; line-height: 16px; font-weight: 400; text-overflow: ellipsis; white-space: nowrap; }
 .generation-copy span { display: block; margin-top: 2px; color: #868b93; font-size: 13px; line-height: 18px; font-weight: 400; }
 .model-row .option-count, .generation-row .option-count { grid-column: 4; }
 
