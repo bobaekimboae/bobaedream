@@ -207,7 +207,15 @@ function VehicleSummary() {
   const { liked, setLiked } = useDetailUi();
   const car = getActiveDetailCar();
   if (!car) return null;
-  const summarySpecs = [car.filter?.body ?? "-", car.filter ? `${car.filter.year}년 6월` : car.specs[0], car.filter ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : car.specs[1], car.filter?.fuel ?? car.specs[3]].filter(Boolean);
+  const registration = (() => {
+    const matched = (car.specs[0] ?? "").match(/(\d{2}|\d{4})년\s*(\d{1,2})월/);
+    if (!matched) return null;
+    const shortYear = Number(matched[1]);
+    const year = matched[1].length === 4 ? shortYear : shortYear >= 70 ? 1900 + shortYear : 2000 + shortYear;
+    return `${year}년 ${Number(matched[2])}월`;
+  })();
+  const summaryFuel = car.specs.find((spec, index) => index > 0 && /가솔린|디젤|LPG|전기|하이브리드|CNG|수소/.test(spec));
+  const summarySpecs = [car.filter?.body ?? "-", registration, car.filter ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : car.specs[1], summaryFuel].filter((spec): spec is string => Boolean(spec));
   const priceMatch = car.price.replace(/\s+/g, "").match(/^(.+?)(만원|원)$/);
   return (
     <section className="vehicle-summary">

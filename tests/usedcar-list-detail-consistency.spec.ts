@@ -7,11 +7,21 @@ const compact = (value: string | null) => (value ?? "").replace(/\s+/g, "").trim
 async function cardSnapshot(card: Locator) {
   const ariaLabel = await card.getAttribute("aria-label");
   const image = card.locator(".bbm-card-photo > img");
+  const specParts = (await card.locator(".bbm-card-spec").innerText()).split(" · ");
+  const registrationMatch = specParts[0]?.match(/(\d{2}|\d{4})년\s*(\d{1,2})월/);
+  const registration = registrationMatch ? (() => {
+    const shortYear = Number(registrationMatch[1]);
+    const year = registrationMatch[1].length === 4 ? shortYear : shortYear >= 70 ? 1900 + shortYear : 2000 + shortYear;
+    return `${year}년 ${Number(registrationMatch[2])}월`;
+  })() : null;
+  const fuel = specParts.find((spec) => /가솔린|디젤|LPG|전기|하이브리드|CNG|수소/.test(spec)) ?? null;
   return {
     title: (ariaLabel ?? "").replace(/ 상세 보기$/, ""),
     price: compact(await card.locator(".bbm-card-price").textContent()),
     image: await image.count() ? await image.getAttribute("src") : null,
     seller: await card.locator(".bbm-card-seller-text strong").innerText(),
+    registration,
+    fuel,
   };
 }
 
@@ -22,9 +32,13 @@ async function expectDetailMatches(page: Page, expected: Awaited<ReturnType<type
   expect(await detailImage.getAttribute("src")).toBe(expected.image);
   const seller = await page.locator(".seller-profile h2").first().evaluate((element) => element.childNodes[0]?.textContent?.trim() ?? "");
   expect(seller).toBe(expected.seller);
+  const summarySpecs = await page.locator(".vehicle-spec-row > span").allTextContents();
+  if (expected.registration) expect(summarySpecs).toContain(expected.registration);
+  else expect(summarySpecs.some((spec) => /\d{4}년\s*\d{1,2}월/.test(spec))).toBe(false);
+  if (expected.fuel) expect(summarySpecs).toContain(expected.fuel);
 }
 
-test("mobile list cards keep title, price, image and seller through detail reload", async ({ browser }) => {
+test("mobile list cards keep title, price, image, seller, registration and fuel through detail reload", async ({ browser }) => {
   test.setTimeout(180_000);
   const context = await browser.newContext({ viewport: { width: 384, height: 900 }, deviceScaleFactor: 2, hasTouch: true, isMobile: true });
   const page = await context.newPage();

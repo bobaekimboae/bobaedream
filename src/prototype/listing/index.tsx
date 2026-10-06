@@ -71,6 +71,7 @@ import {
   type SheetType,
 } from "../data";
 import { BrandRailMark, CategoryFilterSheet, DepthCard, DepthTextChip, MakerSheet, PriceSheet, TrimChip, VehiclePickerSheet } from "../quick-filter";
+import { bbmCardSpec } from "../data/bbm-card-samples";
 import { bbCatalog, BbCarCard, BbFilterSidebar, BbHeader, BbIcon, BbSwitch, type BbMakerSelection, type BbMakerSection, type BbTruckFilter } from "./pc-bbmuseum";
 import { bbmCarChecks, emptyBbmFilters, isBbmDataOption, matchesBbmFilters, rangeIsSet, resetBbmFilters, setBbmChecks, setBbmRange, type BbmCheckKey, type BbmFilterValues } from "../filters/bbm-filter-state";
 import { bbmAppliedChips, bbmItemValue } from "../filters/bbm-applied";
@@ -513,9 +514,19 @@ function SavedListingsScreen() {
 function MarketplaceScreen() {
   const flow = useFlow();
   const openCarDetail = (car: Car) => {
+    const [registration, mileage, fuel] = bbmCardSpec(car, false).split(" · ");
+    const detailCar: Car = {
+      ...car,
+      specs: [
+        registration?.replace(/\([^)]*년형\)/, "") ?? car.specs[0],
+        mileage ?? car.specs[1],
+        fuel ?? car.specs[2],
+        car.specs[3] ?? "",
+      ],
+    };
     urlDetailOpenedRef.current = true;
-    setActiveDetailCar(car);
-    window.sessionStorage.setItem(`bbm-detail-${car.id}`, JSON.stringify(car));
+    setActiveDetailCar(detailCar);
+    window.sessionStorage.setItem(`bbm-detail-${car.id}`, JSON.stringify(detailCar));
     const url = new URL(window.location.href);
     url.searchParams.set("detail", String(car.id));
     window.history.pushState({ ...(window.history.state ?? {}), bbmDetailFromList: true, listingId: car.id }, "", `${url.pathname}${url.search}${url.hash}`);
