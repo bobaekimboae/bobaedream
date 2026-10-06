@@ -6,6 +6,31 @@
 .login-required-dialog > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
 .login-required-dialog button { height: 40px; border: 0; border-radius: 8px; background: #f1f1f1; color: #222; font: 600 14px/20px Pretendard, sans-serif; cursor: pointer; }
 .login-required-dialog button:last-child { background: #1b4c8c; color: #fff; }
+@media (min-width: 768px) {
+  .marketplace.is-bbm.is-qf-guazi.is-usedcar-parity .bbm-hybrid-top > .bbm-ct-crumbs { height: 17px; }
+  .marketplace.is-bbm.is-qf-guazi.is-usedcar-parity .bbm-hybrid-top > .bbm-ct-crumbs strong { font-weight: 400; line-height: 16.8px; }
+  .marketplace.is-bbm.is-qf-guazi.is-usedcar-parity .bbm-content-head.is-chotot { padding: 0; }
+  .marketplace.is-bbm.is-qf-guazi.is-usedcar-parity .usedcar-pc-filter-panel { width: 100%; height: 118px; padding: 16px 20px 8px; border-radius: 12px 12px 0 0; box-sizing: border-box; background: #fff; }
+  .marketplace.is-bbm.is-qf-guazi.is-usedcar-parity .usedcar-pc-filter-panel .bbm-ct-title-row { height: 34px; margin: 0; }
+  .marketplace.is-bbm.is-qf-guazi.is-usedcar-parity .usedcar-pc-filter-panel .bbm-ct-chip-row { height: 52px; margin: 8px 0 0; padding: 10px 0; }
+  .marketplace.is-bbm.is-qf-guazi.is-usedcar-parity .usedcar-pc-filter-panel .bbm-filter-button { border-radius: 30px; font-weight: 600; line-height: 19.6px; }
+  .marketplace.is-bbm.is-qf-guazi.is-usedcar-parity .bbm-content-head.is-chotot .bbm-quick-slot { height: 95px; margin: 0; }
+  .marketplace.is-usedcar-parity .bbm-content-head.is-chotot .bbm-category-menu,
+  .marketplace.is-usedcar-parity .bbm-content-head.is-chotot .bbm-category-menu__list { height: 95px; }
+  .marketplace.is-usedcar-parity .bbm-content-head.is-chotot .bbm-category-menu__list { padding: 0 20px; }
+  .marketplace.is-usedcar-parity .bbm-content-head.is-chotot .bbm-category-menu__label { color: #595959; font-size: 14px; font-weight: 500; line-height: 19.6px; }
+  .marketplace.is-usedcar-parity .bbm-filter-title strong { color: #222; font-size: 18px; font-weight: 700; line-height: 27.9px; }
+  .marketplace.is-usedcar-parity .bbm-filter-reset { font-weight: 600; }
+  .marketplace.is-usedcar-parity .bbm-page > .bbm-filter > .bbm-filter-menu { scrollbar-gutter: auto; }
+  .marketplace.is-usedcar-parity .bbm-filter-item.is-maker-grade { width: 300px; }
+  .marketplace.is-usedcar-parity .bbm-filter-item.is-maker-grade > .bbm-filter-toggle { width: 300px; height: 57px; min-height: 57px; padding: 16px; font-size: 16px; line-height: 24px; }
+  .marketplace.is-usedcar-parity .bbm-filter-item.is-maker-grade .bbm-catalog { width: 284px; height: 580px; max-height: 580px; margin: 0 8px; padding: 0; }
+  .marketplace.is-usedcar-parity .bbm-filter-item.is-maker-grade .bbm-catalog-section { padding: 0; }
+  .marketplace.is-usedcar-parity .bbm-filter-item.is-maker-grade .bbm-catalog-title { height: 42px; padding: 12px 0; box-sizing: border-box; }
+  .marketplace.is-usedcar-parity .bbm-filter-item.is-maker-grade .bbm-catalog-row { height: 36px; min-height: 36px; padding: 8px; }
+  .marketplace.is-usedcar-parity .bbm-toolbar { background: #fff; }
+  .marketplace.is-usedcar-parity .bbm-video-filter { height: 55px; }
+}
 @media (max-width: 767px) {
   .marketplace.is-bbm-m.is-qf-guazi .top-bar.is-bbm {
     grid-template-columns: 24px minmax(0, 230px) 24px 24px;

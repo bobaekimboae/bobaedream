@@ -1,6 +1,8 @@
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { CalendarIcon, ChevronDownIcon, ColorWheelIcon, CubeIcon, DashboardIcon, EyeOpenIcon, GearIcon, HeartFilledIcon, HeartIcon, LightningBoltIcon, LockClosedIcon, MobileIcon, PinLeftIcon, QuestionMarkCircledIcon, StopwatchIcon } from "@radix-ui/react-icons";
 import { BottomSheet, Carousel, MobileScroll, useFlow } from "../../mobile";
+import { BbHeader } from "../listing/pc-bbmuseum";
+import { UsedCarPcDetailLayout } from "./pc/usedcar-detail-layout";
 import {
   asset,
   classCars,
@@ -389,11 +391,11 @@ function CarRail({ title, cars: railCars }: { title: string; cars: RailCar[] }) 
 
 const pcAsset = (name: string) => asset(`pc-detail/${name}`);
 
-function DesktopGallery({ car, onBack }: { car: Car; onBack: () => void }) {
+function DesktopGallery({ car }: { car: Car }) {
   const { setSheet, notify } = useDetailUi();
   const [selected, setSelected] = useState(0);
   const thumbs = useRef<HTMLDivElement>(null);
-  const photos = [asset(car.image), ...Array.from({ length: 7 }, (_, i) => pcAsset(`9573-imgImage${i + 1}.png`))];
+  const photos = [asset(car.image), ...Array.from({ length: 4 }, (_, i) => pcAsset(`9573-imgImage${i + 1}.png`))];
   const choose = (index: number) => setSelected((index + photos.length) % photos.length);
   useEffect(() => {
     const rail = thumbs.current?.querySelector<HTMLElement>(".pc-thumbnails");
@@ -407,17 +409,15 @@ function DesktopGallery({ car, onBack }: { car: Car; onBack: () => void }) {
   return <section className="pc-gallery" aria-label="차량 사진">
     <div className="pc-hero" onKeyDown={(event) => { if (event.key === "ArrowRight") choose(selected + 1); if (event.key === "ArrowLeft") choose(selected - 1); }} tabIndex={0}>
       <img className="pc-hero-photo" src={photos[selected]} alt={`${car.title} 차량 사진 ${selected + 1}`} draggable={false} />
-      <div className="pc-hero-tools"><button aria-label="목록으로 돌아가기" onClick={onBack}><img src={asset("detail/back.svg")} alt="" /></button><div><button aria-label="공유하기" onClick={share}><img src={pcAsset("9550-imgSvgexport211.svg")} alt="" /></button><button aria-label="더보기" onClick={() => setSheet("more")}><img src={pcAsset("9550-imgSvgexport241.svg")} alt="" /></button></div></div>
-      {selected === 0 && <span className="pc-play" aria-hidden="true"><img src={pcAsset("9550-imgMaskGroup.svg")} alt="" /><img src={pcAsset("9550-imgFill7.svg")} alt="" /></span>}
+      <div className="pc-hero-tools"><span /><div><button aria-label="공유하기" onClick={share}><img src={pcAsset("9550-imgSvgexport211.svg")} alt="" /></button><button aria-label="더보기" onClick={() => setSheet("more")}><img src={pcAsset("9550-imgSvgexport241.svg")} alt="" /></button></div></div>
       <button className="pc-photo-prev" aria-label="이전 사진" onClick={() => choose(selected - 1)}><img src={pcAsset("9573-imgFrame1000006284.svg")} alt="" /></button>
       <button className="pc-photo-next" aria-label="다음 사진" onClick={() => choose(selected + 1)}><img src={pcAsset("9573-imgFrame1000006284.svg")} alt="" /></button>
       <span className="pc-photo-counter" aria-live="polite">{selected + 1}/{photos.length}</span>
     </div>
     <div className="pc-thumbnail-region" ref={thumbs}>
       <Carousel ariaLabel="차량 사진 썸네일" className="pc-thumbnails" contentClassName="pc-thumbnail-track">
-        {photos.map((src, i) => <button key={i} data-photo={i} aria-label={`사진 ${i + 1} 보기`} aria-pressed={i === selected} onClick={() => choose(i)}><img src={src} alt="" draggable={false} />{i === 0 && <span className="pc-thumb-play" aria-hidden="true"><img src={pcAsset("9550-imgMaskGroup.svg")} alt="" /><img src={pcAsset("9550-imgFill7.svg")} alt="" /></span>}</button>)}
+        {photos.map((src, i) => <button key={i} data-photo={i} aria-label={`사진 ${i + 1} 보기`} aria-pressed={i === selected} onClick={() => choose(i)}><img src={src} alt="" draggable={false} /></button>)}
       </Carousel>
-      <button className="pc-rail-next" aria-label="다음 썸네일" onClick={() => choose(selected + 1)}><img src={pcAsset("9573-imgFrame1000006284.svg")} alt="" /></button>
     </div>
   </section>;
 }
@@ -436,17 +436,38 @@ function DesktopVehicleInfo({ car }: { car: Car }) {
   </SectionCard>;
 }
 
+function pcRegistrationLabel(car: Car) {
+  const source = car.specs[0] ?? "";
+  const matched = source.match(/(\d{2,4})년\s*(\d{1,2})월/);
+  if (!matched) return "";
+  const year = matched[1].length === 2 ? `20${matched[1]}` : matched[1];
+  return `${year}년 ${Number(matched[2])}월`;
+}
+
+function DesktopOverview({ car }: { car: Car }) {
+  const { liked, setLiked } = useDetailUi();
+  const specs = [pcRegistrationLabel(car), car.filter ? formatMileage(`${car.filter.mileage.toLocaleString("ko-KR")} km`) : car.specs[1], car.filter?.fuel ?? car.specs[3]].filter(Boolean);
+  return <section className="detail-card pc-overview" aria-label="매물 요약">
+    <div className="pc-overview-copy">
+      <h1>{car.title} {car.trim}</h1>
+      <p>{car.uiTest?.headline ?? "성능점검 완료 · 안심번호 상담 가능"}</p>
+      <div className="pc-overview-specs">{specs.map((value) => <span key={value}>{value}</span>)}</div>
+    </div>
+    <div className="pc-overview-stats">
+      <button type="button" aria-label="매물 저장" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}<span>찜 {liked ? 1 : 0}</span></button>
+      <span><EyeOpenIcon />조회 {car.views ?? 128}</span>
+    </div>
+  </section>;
+}
+
 function DesktopSummary({ car, jump }: { car: Car; jump: (id: string) => void }) {
-  const { liked, setLiked, setSheet, notify } = useDetailUi();
+  const { setSheet, notify } = useDetailUi();
   const [costOpen, setCostOpen] = useState(false);
   return <aside className="pc-sidebar">
     <section className="detail-card pc-summary">
-      <div className="pc-title-row"><h1>{car.title} {car.trim}</h1><button aria-label="매물 저장" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <img src={pcAsset("9877-imgIcon.svg")} alt="" />}<span>{liked ? 1 : 0}</span></button></div>
-      <p className="pc-specs">TEST-0000 · {car.filter ? `${String(car.filter.year).slice(-2)}년 07월` : car.specs[0]} · {car.filter ? formatMileage(`${car.filter.mileage.toLocaleString("ko-KR")} km`) : car.specs[1]} · {car.filter?.fuel ?? car.specs[3]}</p>
-      <div className="pc-badges"><span>인증중고차</span><span>1년 보증</span></div>
       <div className="pc-price-row"><strong>{car.price.replace(/\s+/g, "")}</strong><button onClick={() => setSheet("priceHistory")}>가격 변동</button><button className="pc-insurance" onClick={() => notify("보험료는 보험사 상담을 통해 확인해 주세요.")}>보험료 계산</button></div>
-      <p className="pc-summary-note">{car.uiTest?.headline ?? "성능점검 완료 · 안심번호 상담 가능"}</p>
       <div className="pc-summary-links"><button onClick={() => jump("pc-history")}><b>보험이력</b><span>0건 <img src={pcAsset("9877-imgIcon1.svg")} alt="" /></span></button><button onClick={() => jump("pc-inspection")}><b>성능점검</b><span>보기 <img src={pcAsset("9877-imgIcon1.svg")} alt="" /></span></button></div>
+      <div className="pc-cost-summary" aria-label="예상 구매 비용"><dl><div><dt>차량가</dt><dd>{car.price.replace(/\s+/g, "")}</dd></div><div><dt>이전 등록비(예상)</dt><dd>335만원</dd></div><div><dt>매도비</dt><dd>44만원</dd></div></dl><div><span>예상 총 비용</span><strong>3,529만원</strong></div></div>
       <div className="pc-calculators"><button onClick={() => setCostOpen(!costOpen)} aria-expanded={costOpen}>비용계산기</button><button onClick={() => jump("pc-related")}>동급매물</button><button onClick={() => notify("판매 완료된 매물 정보가 없습니다.")}>팔린매물</button></div>
       {costOpen && <div className="pc-cost-modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setCostOpen(false); }}><section className="pc-cost-modal" role="dialog" aria-modal="true" aria-label="비용계산기"><header><h2>비용계산기</h2><button type="button" autoFocus aria-label="비용계산기 닫기" onClick={() => setCostOpen(false)}>×</button></header><div className="pc-cost-tabs" role="tablist"><button className="is-selected">현금 구매</button><button>할부</button><button>리스</button></div><div className="pc-cost"><strong>차량 구매 비용</strong><p>차량가 {car.price}</p><p>이전 등록비와 보험료는 별도입니다.</p></div></section></div>}
     </section>
@@ -461,12 +482,7 @@ function DesktopSummary({ car, jump }: { car: Car; jump: (id: string) => void })
 
 function DesktopHeader({ onBack }: { onBack: () => void }) {
   const { notify } = useDetailUi();
-  return <header className="pc-header">
-    <div className="pc-header-inner"><div className="pc-account">{["로그인", "회원가입", "고객센터"].map(label => <button key={label} onClick={() => notify(`${label}는 정식 서비스에서 이용해 주세요.`)}>{label}</button>)}</div>
-      <button className="pc-logo" aria-label="보배드림 목록" onClick={onBack}><span><img src={pcAsset("9546-imgGroup.svg")} alt="" /></span><img src={pcAsset("9546-imgLogo.svg")} alt="보배드림" /></button>
-      <div className="pc-navigation"><nav aria-label="주 메뉴">{["내차사기", "내차팔기", "딜러", "부품·용품", "커뮤니티", "컨텐츠", "더보기"].map(label => <button className={label === "커뮤니티" ? "active" : ""} key={label} onClick={() => label === "내차사기" ? onBack() : notify(`${label}는 정식 서비스에서 이용해 주세요.`)}>{label}{label === "더보기" && <img src={pcAsset("9546-imgIcon.svg")} alt="" />}</button>)}</nav><div className="pc-nav-icons">{[["검색", "img1IconSearchSize24"], ["마이페이지", "img1IconUserSmileSize24"], ["저장한 매물", "img1IconHeartSize24"], ["알림", "img1IconNoticeSize24"], ["전체 메뉴", "imgGroup1000005392"]].map(([label, icon]) => <button key={label} aria-label={label} onClick={() => label === "검색" ? onBack() : notify(`${label}를 확인하려면 목록으로 돌아가 주세요.`)}><img src={pcAsset(`9546-${icon}.svg`)} alt="" /></button>)}</div></div>
-    </div>
-  </header>;
+  return <BbHeader usedCarParity category="중고차" onLogoClick={onBack} onNotify={notify} onOpenFavorites={() => notify("찜 목록은 목록 화면에서 확인해 주세요.")} />;
 }
 
 function DesktopVehicleDetail({ car, onBack }: { car: Car; onBack: () => void }) {
@@ -485,20 +501,17 @@ function DesktopVehicleDetail({ car, onBack }: { car: Car; onBack: () => void })
     const scroll = content.current?.closest<HTMLElement>(".mobile-scroll-content")?.parentElement;
     if (target && scroll) scroll.scrollTo({ top: target.getBoundingClientRect().top - scroll.getBoundingClientRect().top + scroll.scrollTop - 16, behavior: "smooth" });
   };
-  return <div className="pc-detail" ref={content}>
-    <DesktopHeader onBack={onBack} />
-    <nav className={`pc-section-nav${sectionNavVisible ? " is-visible" : ""}`} aria-label="상세 섹션 이동" aria-hidden={!sectionNavVisible}>
-      <div>{[["차량 정보", "pc-info"], ["차량 옵션", "pc-options"], ["보험 이력", "pc-history"], ["성능 점검", "pc-inspection"], ["동급매물", "pc-related"]].map(([label, id]) => <button key={id} type="button" onClick={() => jump(id)}>{label}</button>)}</div>
-    </nav>
-    <main className="pc-detail-container" aria-label="중고차 PC 상세">
-      <div className="pc-detail-columns"><div className="pc-detail-left"><DesktopGallery car={car} onBack={onBack} /><DescriptionCard desktop /><div id="pc-info"><DesktopVehicleInfo car={car} /></div><div id="pc-options"><OptionsCard desktop /></div><div id="pc-history"><HistoryCard /></div><div id="pc-inspection"><InspectionCard /></div><WarrantyCard /></div><DesktopSummary car={car} jump={jump} /></div>
-      <CarRail title="한강모터스 박성수의 다른 매물" cars={relatedCars} />
-      <div id="pc-related"><CarRail title="동급매물" cars={classCars} /></div>
-      <p className="safety-copy">안전한 거래와 허위매물 근절을 위해 안심번호(050) 이용 시 통화 내용이 보배드림에 안전하게 보관됩니다.<br />보배드림은 등록 시스템만 제공하며, 판매자가 직접 등록한 차량에 대한 모든 책임은 판매자에게 있습니다.</p>
-      <button className="pc-return" onClick={onBack}>목록으로 돌아가기</button>
-    </main>
-    <footer className="pc-footer"><div><section><h3>(주) 보배네트워크 사업자 정보</h3><p>대표이사: 김보배　|　사업자등록번호: 117-81-64543</p><p>주소: (07995) 서울 양천구 목동동로 233-1 드림타워 11, 12층</p><p>통신판매업신고번호: 제2013-서울양천-0465호　|　개인정보관리책임자: 이은호</p><p>팩스: 02-6499-2329　|　메일: bobaedream@bobaedream.co.kr</p><p>Copyright ⓒ (주)보배네트워크</p></section><section><h3>고객센터</h3><strong>02-784-2329</strong><p>평일　09:00 ~ 18:00</p><p>점심시간　11:30 ~ 12:30</p></section></div><p>회사소개　　제휴/광고문의　　이용약관　　제휴/신고센터　　고객센터　　청소년보호정책　　개인정보취급방침　　원격지원</p><div className="pc-footer-social">{["imgGroup", "imgPrimeFacebook", "imgMdiYoutube", "imgFrame1000005307"].map(icon => <img key={icon} src={pcAsset(`10204-${icon}.svg`)} alt="" />)}</div></footer>
-  </div>;
+  return <UsedCarPcDetailLayout
+    rootRef={content}
+    header={<DesktopHeader onBack={onBack} />}
+    sectionNav={<nav className={`pc-section-nav${sectionNavVisible ? " is-visible" : ""}`} aria-label="상세 섹션 이동" aria-hidden={!sectionNavVisible}><div>{[["차량 정보", "pc-info"], ["차량 옵션", "pc-options"], ["보험 이력", "pc-history"], ["성능 점검", "pc-inspection"], ["동급매물", "pc-related"]].map(([label, id]) => <button key={id} type="button" onClick={() => jump(id)}>{label}</button>)}</div></nav>}
+    gallery={<DesktopGallery car={car} />}
+    overview={<DesktopOverview car={car} />}
+    leftBody={<><div id="pc-info"><DesktopVehicleInfo car={car} /></div><div id="pc-options"><OptionsCard desktop /></div><div id="pc-history"><HistoryCard /></div><div id="pc-inspection"><InspectionCard /></div><WarrantyCard /><DescriptionCard desktop /></>}
+    sidebar={<DesktopSummary car={car} jump={jump} />}
+    belowColumns={<><CarRail title="한강모터스 박성수의 다른 매물" cars={relatedCars} /><div id="pc-related"><CarRail title="동급매물" cars={classCars} /></div><p className="safety-copy">안전한 거래와 허위매물 근절을 위해 안심번호(050) 이용 시 통화 내용이 보배드림에 안전하게 보관됩니다.<br />보배드림은 등록 시스템만 제공하며, 판매자가 직접 등록한 차량에 대한 모든 책임은 판매자에게 있습니다.</p><button className="pc-return" onClick={onBack}>목록으로 돌아가기</button></>}
+    footer={<footer className="pc-footer"><div><section><h3>(주) 보배네트워크 사업자 정보</h3><p>대표이사: 김보배　|　사업자등록번호: 117-81-64543</p><p>주소: (07995) 서울 양천구 목동동로 233-1 드림타워 11, 12층</p><p>통신판매업신고번호: 제2013-서울양천-0465호　|　개인정보관리책임자: 이은호</p><p>팩스: 02-6499-2329　|　메일: bobaedream@bobaedream.co.kr</p><p>Copyright ⓒ (주)보배네트워크</p></section><section><h3>고객센터</h3><strong>02-784-2329</strong><p>평일　09:00 ~ 18:00</p><p>점심시간　11:30 ~ 12:30</p></section></div><p>회사소개　　제휴/광고문의　　이용약관　　제휴/신고센터　　고객센터　　청소년보호정책　　개인정보취급방침　　원격지원</p><div className="pc-footer-social">{["imgGroup", "imgPrimeFacebook", "imgMdiYoutube", "imgFrame1000005307"].map(icon => <img key={icon} src={pcAsset(`10204-${icon}.svg`)} alt="" />)}</div></footer>}
+  />;
 }
 
 function DetailStickyHeader({ car, visible, onBack }: { car: Car; visible: boolean; onBack: () => void }) {

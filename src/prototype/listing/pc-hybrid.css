@@ -10,6 +10,29 @@
   .marketplace.is-bbm.is-hybrid .bbm-page { width: min(1200px, calc(100% - 48px)); margin-top: 24px; }
   .marketplace.is-bbm.is-hybrid .bbm-results { margin-top: 0; }
 }
+
+/* JOB-3 [변경 6] — 실개발 1280 중고차 목록 전용. 모바일 규칙과 공유하지 않는다. */
+@media (min-width: 768px) {
+  .marketplace.is-usedcar-parity .bbm-header-inner,
+  .marketplace.is-usedcar-parity .bbm-hybrid-top,
+  .marketplace.is-usedcar-parity .bbm-page { width: min(1200px, calc(100% - 48px)); }
+  .marketplace.is-usedcar-parity .bbm-gnb { gap: 28px; }
+  .marketplace.is-usedcar-parity .bbm-header-icons { margin-left: auto; }
+  .marketplace.is-bbm.is-hybrid.is-usedcar-parity > .bbm-hybrid-top { margin-top: 24px; }
+  .marketplace.is-bbm.is-hybrid.is-usedcar-parity > .bbm-page { margin-top: 12px; }
+  .marketplace.is-usedcar-parity .bbm-content-head.is-chotot { min-height: 118px; padding: 16px 20px; }
+  .marketplace.is-usedcar-parity .bbm-content-head.is-chotot.has-category-menu { height: 213px; min-height: 213px; overflow: hidden; }
+  .marketplace.is-usedcar-parity .bbm-content-head.is-chotot .bbm-ct-title-row { margin-top: 0; }
+  .marketplace.is-usedcar-parity .bbm-content-head.is-chotot .bbm-ct-chip-row { margin-top: 6px; }
+  .marketplace.is-usedcar-parity .bbm-content-head.is-chotot .bbm-quick-slot { height: 95px; }
+  .marketplace.is-usedcar-parity .bbm-content-head.is-chotot .bbm-category-menu,
+  .marketplace.is-usedcar-parity .bbm-content-head.is-chotot .bbm-category-menu__list { height: 95px; padding-top: 0; }
+  .marketplace.is-usedcar-parity .bbm-filter-summary { height: 92px; min-height: 92px; }
+  .marketplace.is-usedcar-parity .bbm-filter-status { display: none; }
+  .marketplace.is-usedcar-parity .bbm-filter-menu { padding-right: 0; }
+  .marketplace.is-usedcar-parity .bbm-filter-item.is-maker-grade > .bbm-filter-toggle { min-height: 57px; }
+  .marketplace.is-usedcar-parity .bbm-filter-item.is-maker-grade .bbm-catalog { width: calc(100% - 16px); margin: 0 8px; }
+}
 /* 1280 이상: 좌측 필터 300 + 24 + 목록. 좌측 필터는 스크롤 상자(.mobile-scroll) 안에서 위 16 에 붙는 sticky, 높이 = 화면 − 32 고정·안에서 따로 스크롤(QF-119).
    자기 칸(.bbm-page 행) 안에서만 움직여 푸터를 덮지 않는다(QF-059) */
 @media (min-width: 1024px) {

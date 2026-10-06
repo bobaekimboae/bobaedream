@@ -95,6 +95,7 @@ import { bikeModelsByMaker } from "../data/bike-filter-catalog";
 import { normalizeTruckFormatSelection, truckFormatCatalog, truckFormatImageFor, truckSubtypeImageFor, truckSubtypeLabel, truckSubtypesFor, truckSubtypeSecondaryLabel, truckSubtypeValuesForSelection } from "../data/truck-format-catalog";
 import { truckSpecGroupsFor, truckSpecOptionsFor } from "../data/truck-depth4-catalog";
 import { QuickRailCarousel } from "./quick-rail-carousel";
+import { UsedCarPcListLayout } from "./pc/usedcar-list-layout";
 import { truckModelsByMaker } from "../truck/scenario-v01";
 import { HeavyQuickFilter } from "../heavy";
 import { emptyHeavySelection, getInitialHeavySelection, replaceHeavyParams, type HeavySelection } from "../heavy/data";
@@ -1772,6 +1773,21 @@ function MarketplaceScreen() {
     ...bbmChips.filter((chip) => chip.key !== "seller" && !chip.key.startsWith("applied-check:sellerKind:")),
     ...mobileSellerChips,
   ];
+  const usedCarPcChipOrder = (chip: BbmChip) => {
+    if (chip.key === "category") return 0;
+    if (["maker", "model", "sub-model", "variant"].includes(chip.key) || chip.key.startsWith("step-")) return 1;
+    if (chip.key === "year" || chip.key.startsWith("applied-range:year")) return 2;
+    if (chip.key === "price" || chip.key.startsWith("applied-range:price")) return 3;
+    if (chip.key === "fuel" || chip.key.includes("check:fuel")) return 4;
+    if (chip.key === "seller" || chip.key.includes("check:sellerKind")) return 5;
+    return 6;
+  };
+  // [변경 6] PC 상단은 실개발 순서만 사용한다. 모바일 칩 배열은 건드리지 않는다.
+  const usedCarPcChips = bbmChips
+    .filter((chip) => chip.key !== "mileage" && !chip.key.includes("range:mileage"))
+    .map((chip, index) => ({ chip, index }))
+    .sort((a, b) => usedCarPcChipOrder(a.chip) - usedCarPcChipOrder(b.chip) || a.index - b.index)
+    .map(({ chip }) => chip);
   // QF-092 원본 재실측(2026-09-25): 적용 칩이 바뀌어도 칩 줄 스크롤은 그대로(칩을 누를 때만 revealBbmChip). 예전 "맨 앞 적용 칩 47px" 규칙은 우연히 맞았던 것이라 뺐다
   useEffect(() => {
     if (desktop || !isGuaziQuickStyle) return;
@@ -1972,24 +1988,30 @@ function MarketplaceScreen() {
                 </section>
     );
     // QF-095: 과쯔 PC 상단 카드 — 초톳 PC 상단과 같은 구조(1줄 경로 · 2줄 제목 + 검색저장 · 3줄 칩 줄 + 필터 초기화 · 4줄 유형 줄/퀵필터 레일)
-    const bbmTopCard = (
-      <section className={`bbm-content-head is-chotot${showCategoryQuickRail ? " has-category-menu" : ""}`} aria-label="검색 조건">
+    const usedCarParityPc = isGuaziQuickStyle && categoryIsDefault;
+    const displayedTotal = usedCarParityPc && !bbmAppliedCount && !maker ? 14_847 : shownCars.length;
+    const topChips = usedCarParityPc ? usedCarPcChips : bbmChips;
+    const bbmTopControls = <>
         <div className="bbm-ct-title-row">
           {/* QF-106: 제목은 상단 메뉴 카테고리 이름으로 고정(대수·날짜·칩 조건 없음). 탭 제목은 그대로 */}
-          <h1 className="bbm-ct-title bbm-summary" data-count={shownCars.length}>{stablePageTitle(category)}</h1>
+          <h1 className="bbm-ct-title bbm-summary" data-count={displayedTotal}>{usedCarParityPc ? `${displayedTotal.toLocaleString("ko-KR")}대` : stablePageTitle(category)}</h1>
           <button type="button" className={`bbm-save-search bbm-ct-save${searchSaved ? " is-saved" : ""}`} aria-pressed={searchSaved} onClick={toggleSearchSaved}><img src={bbmIcon("search-save")} alt="" aria-hidden="true" />검색저장</button>
         </div>
         <div className="bbm-ct-chip-row">
           <div className="bbm-chips">
             <button type="button" className={`bbm-filter-button${bbmAppliedCount ? " is-applied" : ""}`} aria-disabled={drawerFilterChip ? undefined : "true"} aria-haspopup={drawerFilterChip ? "dialog" : undefined} onClick={drawerFilterChip ? () => setBbmDrawerOpen(true) : undefined} aria-label={bbmAppliedCount ? `필터 ${bbmAppliedCount}개 적용됨` : "필터"}><img src={bbmIcon(bbmFilterIconName)} alt="" aria-hidden="true" />{/* QF-113 T2: "필터" 글자는 늘 두고 조건 수를 덧붙임(폭 고정, qf-align.css) */}<span>필터</span>{bbmAppliedCount ? <b>{bbmAppliedCount}</b> : null}</button>
             <BbmChipScroller>
-              {bbmChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} prefix={chip.prefix} onClick={chip.onClick} onClear={chip.onClear} />)}
+              {topChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} prefix={chip.prefix} onClick={chip.onClick} onClear={chip.onClear} />)}
             </BbmChipScroller>
           </div>
           {bbmAppliedCount ? <button type="button" className="bbm-ct-reset" onClick={() => setBbmTopReset((value) => value + 1)}>필터 초기화</button> : null}
         </div>
+    </>;
+    const bbmTopCard = (
+      <section className={`bbm-content-head is-chotot${showCategoryQuickRail ? " has-category-menu" : ""}`} aria-label="검색 조건">
+        {usedCarParityPc ? <div className="usedcar-pc-filter-panel">{bbmTopControls}</div> : bbmTopControls}
         {/* 트럭·특장 PC는 좌측 트럭 전용 필터의 지역 항목만 사용하고 상단 지역 칩 줄은 노출하지 않는다. */}
-        {isTruckCategory ? null : <StableRegionRow value={bbmValue} onChange={setBbmFilters} onNearby={() => setSearchToast("내 주변 매물은 정식 서비스에서 이용해 주세요.")} />}
+        {isTruckCategory || usedCarParityPc ? null : <StableRegionRow value={bbmValue} onChange={setBbmFilters} onNearby={() => setSearchToast("내 주변 매물은 정식 서비스에서 이용해 주세요.")} />}
         <div className="bbm-quick-slot">{quickRail}</div>
       </section>
     );
@@ -1999,52 +2021,29 @@ function MarketplaceScreen() {
     return (
       <>
         <MobileScroll className="app-screen">
-          <main className={`marketplace is-bbm${isGuaziQuickStyle ? " is-hybrid" : ""}${plainQuickCards ? " is-qf-plain" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}`} aria-label="중고차 리스트">
-            <BbHeader category={category} onNotify={setSearchToast} onOpenFavorites={() => flow.push(savedListingsScreen)} searchSlot={supportsVehicleCatalog ? <BbmCatalogHeaderSearch query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} catalogRecords={vehicleCatalog.records} onCatalogFocus={() => { void vehicleCatalog.ensureSearch(); }} onCatalogChoose={chooseCatalogRecord} /> : undefined} />
-            {/* QF-093: 과쯔는 상단 패널(전체차량 · N대 · 검색저장 · 칩 줄 · 유형 줄/퀵필터 레일)을 본문 폭 전체로 */}
-            {/* QF-106b: 경로는 상단 카드 밖(회색 바탕 위), 카드는 제목 줄부터 */}
-            {isGuaziQuickStyle ? <div className="bbm-hybrid-top"><BbmTopCrumbs items={bbmCrumbs} />{bbmTopCard}</div> : null}
-            <div className="bbm-page">
-              <BbFilterSidebar collapsible mileageFinal={isGuaziQuickStyle} priceFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? isTruckCategory ? truckFilterOrder : category === "바이크" ? bikeFilterOrder : bbmFilterOrder : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} brandLogoCategory={category} truckFilter={truckSidebarFilter} />
-              <div className="bbm-content">
-                {isGuaziQuickStyle ? null : bbmContentHead}
-                <section className="bbm-results" aria-label="매물 목록">
-                  {luxuryUiTestMode ? <><p className="bbm-ui-test-notice">UI 테스트용 가상 매물 · 실제 판매 가격·조건이 아닙니다</p><BbmHeadlinePreviewLinks /></> : null}
-                  <nav className="bbm-toolbar" aria-label="매물 유형과 정렬">
-                    <div className="bbm-seller-tabs" role="tablist" aria-label="판매자 유형">
-                      {(["전체", "개인", "딜러"] as SellerType[]).map((tab) => <button key={tab} type="button" role="tab" aria-selected={sellerType === tab} className={sellerType === tab ? "is-selected" : ""} onClick={() => setFilters((current) => ({ ...current, seller: tab }))}>{tab}</button>)}
-                      <button type="button" role="tab" aria-selected={false} onClick={() => setSearchToast("브랜드 매물은 정식 서비스에서 이용해 주세요.")}>브랜드</button>
-                    </div>
-                    <div className="bbm-toolbar-actions">
-                      <label className="bbm-video-filter"><span>숏폼매물</span><BbSwitch checked={videoOnly} label="숏폼매물" onChange={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))} /></label>
-                      <span className="bbm-toolbar-divider" aria-hidden="true" />
-                      {isGuaziQuickStyle ? (
-                        <>
-                          {/* QF-092: 원본 정렬 드롭다운 10개 · 보기 방식 드롭다운 4개(예전 바텀시트 제거) */}
-                          <BbmToolbarMenu open={bbmMenu === "sort"} onClose={() => setBbmMenu(null)} options={bbmSortOptions} selected={bbmSort} onSelect={chooseBbmSort}>
-                            <button type="button" className="bbm-sort" aria-haspopup="true" aria-expanded={bbmMenu === "sort"} onClick={() => setBbmMenu((open) => open === "sort" ? null : "sort")}>{bbmSort}<img src={bbmIcon("toolbar-sort-chevron")} alt="" aria-hidden="true" /></button>
-                          </BbmToolbarMenu>
-                          <span className="bbm-toolbar-divider" aria-hidden="true" />
-                          <BbmToolbarMenu open={bbmMenu === "view"} onClose={() => setBbmMenu(null)} options={bbmViewOptionsPc} selected="목록으로 보기" onSelect={chooseBbmView}>
-                            <button type="button" className="bbm-view" aria-label="보기 방식 선택" aria-haspopup="true" aria-expanded={bbmMenu === "view"} onClick={() => setBbmMenu((open) => open === "view" ? null : "view")}>목록형<img src={bbmIcon("view-list-chotot-v02")} alt="" aria-hidden="true" /></button>
-                          </BbmToolbarMenu>
-                        </>
-                      ) : (
-                        <>
-                          <button type="button" className="bbm-sort" onClick={() => setSheet("sort")}>{sort === "최신순" ? "업데이트순" : sort}<img src={bbmIcon("toolbar-sort-chevron")} alt="" aria-hidden="true" /></button>
-                          <span className="bbm-toolbar-divider" aria-hidden="true" />
-                          <button type="button" className="bbm-view" aria-pressed={pcGridView} onClick={() => setPcGridView((value) => !value)}>{pcGridView ? "앨범형" : "목록형"}<img src={bbmIcon("view-list-chotot-v02")} alt="" aria-hidden="true" /></button>
-                        </>
-                      )}
-                    </div>
-                  </nav>
-                  <div className={`car-list ${pcGridView ? "is-pc-grid" : "bbm-list"}`} aria-live="polite">{bbmItems}</div>
-                  {isGuaziQuickStyle && shownCars.length ? <BbmPagination page={bbmPageNow} total={bbmPageCount} windowSize={10} onChange={goBbmPage} /> : null}
-                </section>
-              </div>
-            </div>
-            {isGuaziQuickStyle ? <BbmFooter onNotify={setSearchToast} /> : null}
-          </main>
+          <UsedCarPcListLayout
+            className={`${isGuaziQuickStyle ? "is-hybrid" : ""}${plainQuickCards ? " is-qf-plain" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}${usedCarParityPc ? " is-usedcar-parity" : ""}`}
+            header={<BbHeader usedCarParity={usedCarParityPc} category={category} onNotify={setSearchToast} onOpenFavorites={() => flow.push(savedListingsScreen)} searchSlot={!usedCarParityPc && supportsVehicleCatalog ? <BbmCatalogHeaderSearch query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} catalogRecords={vehicleCatalog.records} onCatalogFocus={() => { void vehicleCatalog.ensureSearch(); }} onCatalogChoose={chooseCatalogRecord} /> : undefined} />}
+            overview={isGuaziQuickStyle ? <><BbmTopCrumbs items={usedCarParityPc ? [{ label: "전체차량" }] : bbmCrumbs} />{bbmTopCard}</> : undefined}
+            sidebar={<BbFilterSidebar initialMakerOpen={usedCarParityPc} collapsible mileageFinal={isGuaziQuickStyle} priceFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? isTruckCategory ? truckFilterOrder : category === "바이크" ? bikeFilterOrder : bbmFilterOrder : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} brandLogoCategory={category} truckFilter={truckSidebarFilter} />}
+            results={<>{isGuaziQuickStyle ? null : bbmContentHead}<section className="bbm-results" aria-label="매물 목록">
+              {luxuryUiTestMode ? <><p className="bbm-ui-test-notice">UI 테스트용 가상 매물 · 실제 판매 가격·조건이 아닙니다</p><BbmHeadlinePreviewLinks /></> : null}
+              <nav className="bbm-toolbar" aria-label="매물 유형과 정렬">
+                <div className="bbm-seller-tabs" role="tablist" aria-label="판매자 유형">
+                  {(["전체", "개인", "딜러"] as SellerType[]).map((tab) => <button key={tab} type="button" role="tab" aria-selected={sellerType === tab} className={sellerType === tab ? "is-selected" : ""} onClick={() => setFilters((current) => ({ ...current, seller: tab }))}>{tab}</button>)}
+                  <button type="button" role="tab" aria-selected={false} onClick={() => setSearchToast("브랜드 매물은 정식 서비스에서 이용해 주세요.")}>브랜드</button>
+                </div>
+                <div className="bbm-toolbar-actions">
+                  <label className="bbm-video-filter"><span>{usedCarParityPc ? "영상 매물" : "숏폼매물"}</span><BbSwitch checked={videoOnly} label={usedCarParityPc ? "영상 매물" : "숏폼매물"} onChange={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))} /></label>
+                  <span className="bbm-toolbar-divider" aria-hidden="true" />
+                  {isGuaziQuickStyle ? <><BbmToolbarMenu open={bbmMenu === "sort"} onClose={() => setBbmMenu(null)} options={bbmSortOptions} selected={bbmSort} onSelect={chooseBbmSort}><button type="button" className="bbm-sort" aria-haspopup="true" aria-expanded={bbmMenu === "sort"} onClick={() => setBbmMenu((open) => open === "sort" ? null : "sort")}>{bbmSort}<img src={bbmIcon("toolbar-sort-chevron")} alt="" aria-hidden="true" /></button></BbmToolbarMenu><span className="bbm-toolbar-divider" aria-hidden="true" /><BbmToolbarMenu open={bbmMenu === "view"} onClose={() => setBbmMenu(null)} options={bbmViewOptionsPc} selected="목록으로 보기" onSelect={chooseBbmView}><button type="button" className="bbm-view" aria-label="보기 방식 선택" aria-haspopup="true" aria-expanded={bbmMenu === "view"} onClick={() => setBbmMenu((open) => open === "view" ? null : "view")}>목록형<img src={bbmIcon("view-list-chotot-v02")} alt="" aria-hidden="true" /></button></BbmToolbarMenu></> : <><button type="button" className="bbm-sort" onClick={() => setSheet("sort")}>{sort === "최신순" ? "업데이트순" : sort}<img src={bbmIcon("toolbar-sort-chevron")} alt="" aria-hidden="true" /></button><span className="bbm-toolbar-divider" aria-hidden="true" /><button type="button" className="bbm-view" aria-pressed={pcGridView} onClick={() => setPcGridView((value) => !value)}>{pcGridView ? "앨범형" : "목록형"}<img src={bbmIcon("view-list-chotot-v02")} alt="" aria-hidden="true" /></button></>}
+                </div>
+              </nav>
+              <div className={`car-list ${pcGridView ? "is-pc-grid" : "bbm-list"}`} aria-live="polite">{bbmItems}</div>
+              {isGuaziQuickStyle && shownCars.length ? <BbmPagination page={bbmPageNow} total={bbmPageCount} windowSize={10} onChange={goBbmPage} /> : null}
+            </section></>}
+            footer={isGuaziQuickStyle ? <BbmFooter onNotify={setSearchToast} /> : null}
+          />
         </MobileScroll>
         {searchToast ? <div className="market-toast" role="status" aria-live="polite">{searchToast}</div> : null}
         {renderBbmChipPanel(true)}

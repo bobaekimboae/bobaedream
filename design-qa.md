@@ -107,3 +107,75 @@
 - `npm run verify:qf`: 통과
 - 보호 모바일 런타임 28개: 무변경
 - `npm run test:sites`: 4개 중 3개 통과. 이번 변경과 무관한 기존 category-admin 패키징 문구 기대값(`차량유형 가변 매트릭스`) 불일치 1건이 남아 있으며 범위 밖 파일은 수정하지 않았다.
+
+---
+
+# JOB-3 [변경 6] 디자인 QA
+
+- source visual truth: `C:\Users\bobae\Downloads\Claude outputs\usedcar_list_detail_1007\pc1280\pc1280_list_dev_vs_pr_814b2b1.png`, `C:\Users\bobae\Downloads\Claude outputs\usedcar_list_detail_1007\pc1280\pc1280_detail_dev_vs_pr_814b2b1.png`, 실개발 `https://dev.bbmuseum.co.kr/car/list`
+- implementation: `http://127.0.0.1:5173/?qf=guazi&pc=1`
+- implementation screenshots: `reports/job3-change6/captures/PC-L01_list_1280.png`, `PC-L01_list_1024.png`, `PC-L01_list_768.png`, `PC-D01_detail_1280.png`, `PC-D01_detail_1024.png`, `D01_mobile_replacement.png`
+- normalized side-by-side evidence: `reports/job3-change6/qa-list-side-by-side.png`, `reports/job3-change6/qa-detail-side-by-side.png`
+- viewport/density: PC 1280×1000, 1024×1000, 768×1000 at deviceScaleFactor 1; mobile 384×900 at deviceScaleFactor 2
+- normalization: source와 구현 모두 같은 CSS viewport의 상단 1280×1000 영역을 1:1 픽셀로 잘라 좌우 결합했다. 브라우저 크롬과 외부 프레임은 제외했다.
+- state: 중고차 전체 목록 기본 상태, 첫 매물 상세 기본 상태
+
+## Full-view comparison evidence
+
+- 목록: GNB, 1200px 본문, 242px 상단 개요, 300/24/876 그리드, 56px 툴바, 202px 카드 리듬이 실개발과 일치한다.
+- 상세: 1160px 본문, 720/12/412 열, 720×520 갤러리, 176px 요약, 우측 가격·예상비용·판매자 카드 순서가 실개발과 일치한다.
+- 자동 실측: `reports/job3-change6/compare_pc_1280.json` — 목록 30개 + 상세 22개, 전체 52개 일치, 다름 0개.
+
+## Focused comparison evidence
+
+- 목록 상단: 경로·매물 수·검색저장·칩·차종 줄의 좌표/높이/글꼴을 개별 대조했다.
+- 좌측 필터: 요약 92px, 제조사 머리 57px, 카탈로그 284×580, 제조사 행 36px을 개별 대조했다.
+- 상세 갤러리: 대표 이미지 720×412, 썸네일 줄 720×96, 썸네일 96×96, 5개만 노출되는지 확인했다.
+- 상세 요약/우측 패널: 제목 24/33.6/600, 통계 14/19.6, 가격 24/33.6/600, 버튼·카드 radius/padding을 개별 대조했다.
+
+## Required fidelity surfaces
+
+- fonts/typography: Pretendard, 크기·굵기·행간 52개 자동 대조 통과. 동적 매물명 길이 차이는 콘텐츠 차이로 분류했다.
+- spacing/layout rhythm: 1280 기준 핵심 좌표·폭·높이·간격 일치. 1024에서는 두 열을 유지하고, 768에서는 PC 헤더/상단/목록형을 유지하되 좌측 필터를 숨겨 가로 겹침을 방지한다.
+- colors/tokens: 흰 카드, #f1f1f1 배경, #222 본문, #1b4c8c 브랜드 파랑, #f14069 가격 색을 실개발 값으로 유지했다.
+- image quality/assets: 저장소의 실제 매물 이미지와 기존 SVG 아이콘만 사용했다. CSS/임의 SVG 대체는 없다. 콘텐츠가 다른 매물이므로 차량 피사체 자체는 비교 대상에서 제외했다.
+- copy/content: GNB, 전체차량, 검색저장, 필터 칩, 영상 매물, 보험이력/성능점검/예상 총 비용/판매자 버튼 문구를 기준과 맞췄다.
+- interactions/accessibility: 제조사 드릴인, 판매자 탭, 영상 토글, 정렬/보기, 사진 썸네일, 찜, 보험·성능·비용·판매자 버튼을 의미 있는 button/label로 유지했다. 모바일 카드 23건 상세 진입·새로고침·복귀 검증을 통과했다.
+
+## Comparison history
+
+### Pass 1 — blocked
+
+- [P2] 1024px 상세에서 전역 `.pc-sidebar` 규칙 충돌로 우측 패널이 숨겨졌다.
+- [P2] 차량 설명이 요약 바로 뒤에 있어 실개발의 차량 정보 우선 순서와 달랐다.
+- [P2] 대표 이미지가 contain으로 표시되어 검은 여백이 생기고, 실개발에 없는 PC 뒤로가기 버튼이 갤러리에 남았다.
+
+### Fixes
+
+- `.pc-detail .pc-sidebar`를 PC 구간에서 명시적으로 표시해 목록 CSS 충돌을 제거했다.
+- 왼쪽 본문을 차량 정보 → 옵션 → 보험 이력 → 성능 점검 → 보증 → 차량 설명 순으로 재배치했다.
+- 대표 이미지를 cover로 변경하고 PC 갤러리의 뒤로가기 버튼을 제거했다. 재캡처에서 1280/1024 배치를 확인했다.
+
+### Pass 2 — passed
+
+- 재캡처: `reports/job3-change6/captures/PC-D01_detail_1280.png`, `PC-D01_detail_1024.png`
+- 자동 대조: PC 52/52 일치, 다름 0.
+- 모바일: 제공된 `cmp_rows.json` 기준 결과와 동일해 신규 차이 0; 보호 런타임 28개 무결성 통과.
+- console: 캡처 및 대조 실행 중 페이지 오류 없음.
+
+## Findings
+
+- P0/P1/P2 남은 항목 없음.
+- P3: 실개발과 시안의 첫 매물 데이터·차량 사진이 달라 텍스트 폭과 피사체가 다르다. 레이아웃 검수 범위에서는 허용하며 데이터 동일화 작업은 하지 않았다.
+
+## Implementation checklist
+
+- [x] 모바일/PC 마크업 분리
+- [x] P-1~P-8 반영
+- [x] PC 1280 자동 대조 52/52
+- [x] PC 1280·1024·768 / 상세 1280·1024 / D01 캡처
+- [x] 모바일 23개 카드-상세 데이터 일치
+- [x] 빌드 통과
+- [ ] 병합·배포 (사용자 승인 전 금지)
+
+final result: passed

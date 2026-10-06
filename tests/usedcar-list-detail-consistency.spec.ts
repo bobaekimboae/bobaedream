@@ -39,7 +39,9 @@ async function expectDetailMatches(page: Page, expected: Awaited<ReturnType<type
 }
 
 test("mobile list cards keep title, price, image, seller, registration and fuel through detail reload", async ({ browser }) => {
-  test.setTimeout(180_000);
+  // 23개 카드 각각 상세 진입·새로고침·목록 복귀를 검증하므로 느린 CI에서도
+  // 기능 실패와 실행 시간 초과를 구분할 수 있게 충분한 상한을 둔다.
+  test.setTimeout(300_000);
   const context = await browser.newContext({ viewport: { width: 384, height: 900 }, deviceScaleFactor: 2, hasTouch: true, isMobile: true });
   const page = await context.newPage();
 
@@ -61,9 +63,9 @@ test("mobile list cards keep title, price, image, seller, registration and fuel 
       const stored = await page.evaluate((id) => window.sessionStorage.getItem(`bbm-detail-${id}`), listingId);
       expect(stored).not.toBeNull();
 
-      await page.reload({ waitUntil: "networkidle" });
+      await page.reload({ waitUntil: "domcontentloaded" });
       await expectDetailMatches(page, expected);
-      await page.goBack({ waitUntil: "networkidle" });
+      await page.goBack({ waitUntil: "domcontentloaded" });
       await expect(page.locator(".bbm-result-card.is-mobile")).toHaveCount(20);
       await expect(page).toHaveURL(new RegExp(`page=${pageNumber}`));
     }

@@ -1,0 +1,197 @@
+[
+  {
+    "name": "헤더",
+    "devSelector": "header.car-list-mobile-page-header",
+    "oursSelector": "header.top-bar",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "name": "검색창",
+    "devSelector": ".car-list-mobile-page-header__search",
+    "oursSelector": ".top-bar .search-field",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "name": "지역 줄",
+    "devSelector": ".car-list-mobile-region-tools",
+    "oursSelector": ".region-bar",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "name": "지역 값",
+    "devSelector": ".car-list-mobile-region-tools__value",
+    "oursSelector": ".region-bar strong",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "name": "초기화",
+    "devSelector": ".car-list-mobile-region-tools__reset",
+    "oursSelector": ".region-bar .reset-button",
+    "status": "다름",
+    "differences": [
+      "h 21→32"
+    ]
+  },
+  {
+    "name": "칩 줄",
+    "devSelector": ".car-list-mobile-filter__tabs",
+    "oursSelector": ".filter-shell",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "name": "필터 칩",
+    "devSelector": ".car-list-mobile-filter__button--static",
+    "oursSelector": ".filter-fixed",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "name": "선택 칩",
+    "devSelector": ".car-list-mobile-filter__button--selected",
+    "oursSelector": ".filter-chip.is-active",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "name": "카테고리 줄",
+    "devSelector": ".car-list-category-menu__list",
+    "oursSelector": ".bbm-category-menu__list",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "name": "카테고리 원",
+    "devSelector": ".car-list-category-menu__icon-box",
+    "oursSelector": ".bbm-category-menu__icon-box",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "name": "카테고리 라벨",
+    "devSelector": ".car-list-category-menu__label",
+    "oursSelector": ".bbm-category-menu__label",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "name": "정렬 줄",
+    "devSelector": ".car-list-content-toolbar",
+    "oursSelector": ".bbm-m-options",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "name": "정렬 글자",
+    "devSelector": ".car-list-content-toolbar__sort span",
+    "oursSelector": ".bbm-m-sort span",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "name": "판매자 탭",
+    "devSelector": ".car-list-content-toolbar__seller-tab",
+    "oursSelector": ".bbm-m-filter-tab",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "name": "카드",
+    "devSelector": ".car-list-result-card",
+    "oursSelector": ".bbm-result-card",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "name": "사진",
+    "devSelector": ".car-list-result-card__image",
+    "oursSelector": ".bbm-card-photo",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "name": "사진 시간",
+    "devSelector": ".car-list-result-card__media-footer-time",
+    "oursSelector": ".bbm-card-time",
+    "status": "다름",
+    "differences": [
+      "w 33→31"
+    ]
+  },
+  {
+    "name": "제목",
+    "devSelector": ".car-list-result-card__title",
+    "oursSelector": ".bbm-card-title",
+    "status": "다름",
+    "differences": [
+      "w 206→214"
+    ]
+  },
+  {
+    "name": "사양",
+    "devSelector": ".car-list-card-spec--mobile",
+    "oursSelector": ".bbm-card-spec",
+    "status": "다름",
+    "differences": [
+      "w 206→214"
+    ]
+  },
+  {
+    "name": "가격 숫자",
+    "devSelector": ".car-list-result-card__price span",
+    "oursSelector": ".bbm-card-price span",
+    "status": "다름",
+    "differences": [
+      "w 46→41"
+    ]
+  },
+  {
+    "name": "만원",
+    "devSelector": ".car-list-result-card__price-unit",
+    "oursSelector": ".bbm-card-price-unit",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "name": "배지",
+    "devSelector": ".car-list-result-card__badge",
+    "oursSelector": ".bbm-card-badges span",
+    "status": "다름",
+    "differences": [
+      "pad 10px 4px→0px 4px",
+      "gap 10px→normal"
+    ]
+  },
+  {
+    "name": "위치",
+    "devSelector": ".car-list-card-location__address-text",
+    "oursSelector": ".bbm-card-location-text span",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "name": "판매자명",
+    "devSelector": ".car-list-result-card__seller-name--mobile",
+    "oursSelector": ".bbm-card-seller-text strong",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "name": "하단 라벨",
+    "devSelector": ".mobile-bottom-gnb__label",
+    "oursSelector": ".bbm-bottom-gnb__label",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "name": "등록 원",
+    "devSelector": ".mobile-bottom-gnb__register-button",
+    "oursSelector": ".bbm-bottom-gnb__register-button",
+    "status": "일치",
+    "differences": []
+  }
+]

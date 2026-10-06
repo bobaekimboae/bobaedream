@@ -1,0 +1,418 @@
+[
+  {
+    "screen": "목록",
+    "name": "헤더",
+    "devSelector": ".app-shell__header",
+    "oursSelector": ".bbm-header",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "목록 본문",
+    "devSelector": ".car-list-renewal",
+    "oursSelector": ".bbm-page",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "상단 개요",
+    "devSelector": ".car-list-overview",
+    "oursSelector": ".bbm-hybrid-top",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "경로",
+    "devSelector": ".car-list-catalog-breadcrumb",
+    "oursSelector": ".bbm-hybrid-top > .bbm-ct-crumbs strong",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "검색 조건",
+    "devSelector": ".car-list-content-filter",
+    "oursSelector": ".usedcar-pc-filter-panel",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "매물 수",
+    "devSelector": ".car-list-quick-filter-summary",
+    "oursSelector": ".bbm-ct-title-row",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "필터 칩 줄",
+    "devSelector": ".car-list-mobile-filter__tabs",
+    "oursSelector": ".bbm-ct-chip-row",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "필터 칩",
+    "devSelector": ".car-list-mobile-filter__button--filter .car-list-mobile-filter__button",
+    "oursSelector": ".bbm-filter-button",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "차종 줄",
+    "devSelector": ".car-list-category-menu",
+    "oursSelector": ".bbm-category-menu",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "차종 라벨",
+    "devSelector": ".car-list-category-menu__label",
+    "oursSelector": ".bbm-category-menu__label",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "좌측 필터",
+    "devSelector": ".car-list-filter",
+    "oursSelector": ".bbm-filter",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "필터 요약",
+    "devSelector": ".car-list-filter-summary",
+    "oursSelector": ".bbm-filter-summary",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "필터 제목",
+    "devSelector": ".car-list-filter-summary__title",
+    "oursSelector": ".bbm-filter-title strong",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "초기화",
+    "devSelector": ".car-list-filter-summary__reset",
+    "oursSelector": ".bbm-filter-reset",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "제조사 항목",
+    "devSelector": ".car-list-filter-menu__item",
+    "oursSelector": ".bbm-filter-item.is-maker-grade",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "제조사 머리",
+    "devSelector": ".car-list-filter-menu__header",
+    "oursSelector": ".bbm-filter-item.is-maker-grade > .bbm-filter-toggle",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "제조사 카탈로그",
+    "devSelector": ".car-list-filter-catalog",
+    "oursSelector": ".bbm-filter-item.is-maker-grade .bbm-catalog",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "제조사 구역명",
+    "devSelector": ".car-list-filter-catalog__section-title",
+    "oursSelector": ".bbm-catalog-title",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "제조사 행",
+    "devSelector": ".car-list-filter-catalog__row",
+    "oursSelector": ".bbm-catalog-row",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "목록 본체",
+    "devSelector": ".car-list-main",
+    "oursSelector": ".bbm-content",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "목록 툴바",
+    "devSelector": ".car-list-content-toolbar",
+    "oursSelector": ".bbm-toolbar",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "판매자 탭",
+    "devSelector": ".car-list-content-toolbar__seller-tab",
+    "oursSelector": ".bbm-seller-tabs button",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "영상 매물",
+    "devSelector": ".car-list-content-toolbar__video-filter",
+    "oursSelector": ".bbm-video-filter",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "보기 방식",
+    "devSelector": ".car-list-content-toolbar__view",
+    "oursSelector": ".bbm-view",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "매물 카드",
+    "devSelector": ".car-list-result-card",
+    "oursSelector": ".bbm-result-card",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "카드 안쪽",
+    "devSelector": ".car-list-result-card__main",
+    "oursSelector": ".bbm-card-main",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "카드 사진",
+    "devSelector": ".car-list-result-card__image",
+    "oursSelector": ".bbm-card-photo",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "카드 제목",
+    "devSelector": ".car-list-result-card__title",
+    "oursSelector": ".bbm-card-title",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "카드 사양",
+    "devSelector": ".car-list-result-card__spec",
+    "oursSelector": ".bbm-card-spec",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "카드 가격",
+    "devSelector": ".car-list-result-card__price",
+    "oursSelector": ".bbm-card-price",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "상세 본문",
+    "devSelector": ".car-detail-page",
+    "oursSelector": ".pc-detail-columns",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "상세 열",
+    "devSelector": ".car-detail-content-layout__columns",
+    "oursSelector": ".pc-detail-columns",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "상세 왼쪽",
+    "devSelector": ".car-detail-content-layout__main",
+    "oursSelector": ".pc-detail-left",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "갤러리",
+    "devSelector": ".car-detail-gallery",
+    "oursSelector": ".pc-gallery",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "대표 사진",
+    "devSelector": ".car-detail-gallery__main",
+    "oursSelector": ".pc-hero",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "대표 이미지",
+    "devSelector": ".car-detail-gallery__image",
+    "oursSelector": ".pc-hero-photo",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "사진 상단 버튼",
+    "devSelector": ".car-detail-gallery__top-action",
+    "oursSelector": ".pc-hero-tools button",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "썸네일 줄",
+    "devSelector": ".car-detail-gallery__thumbs",
+    "oursSelector": ".pc-thumbnail-region",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "썸네일",
+    "devSelector": ".car-detail-gallery__thumb",
+    "oursSelector": ".pc-thumbnail-track button",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "요약 카드",
+    "devSelector": ".car-detail-section",
+    "oursSelector": ".pc-overview",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "요약 제목",
+    "devSelector": ".car-detail-overview__title",
+    "oursSelector": ".pc-overview-copy h1",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "요약 설명",
+    "devSelector": ".car-detail-overview__lead",
+    "oursSelector": ".pc-overview-copy > p",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "요약 사양",
+    "devSelector": ".car-detail-overview__spec",
+    "oursSelector": ".pc-overview-specs",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "요약 통계",
+    "devSelector": ".car-detail-overview__stats",
+    "oursSelector": ".pc-overview-stats",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "오른쪽 패널",
+    "devSelector": ".car-detail-content-layout__aside",
+    "oursSelector": ".pc-sidebar",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "가격 카드",
+    "devSelector": ".car-detail-floating-card__price-panel",
+    "oursSelector": ".pc-summary",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "가격",
+    "devSelector": ".car-detail-floating-card__price",
+    "oursSelector": ".pc-price-row strong",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "보험이력 행",
+    "devSelector": ".car-detail-floating-card__quick-link",
+    "oursSelector": ".pc-summary-links button",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "비용 버튼",
+    "devSelector": ".car-detail-floating-card__actions button",
+    "oursSelector": ".pc-calculators button",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "판매자 카드",
+    "devSelector": ".car-detail-floating-card__seller-panel",
+    "oursSelector": ".pc-seller",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "판매자 이름",
+    "devSelector": ".car-detail-floating-card__seller-name-row strong",
+    "oursSelector": ".pc-seller h2",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "상담 버튼",
+    "devSelector": ".car-detail-floating-card__chat",
+    "oursSelector": ".pc-seller-contact button",
+    "status": "일치",
+    "differences": []
+  }
+]
