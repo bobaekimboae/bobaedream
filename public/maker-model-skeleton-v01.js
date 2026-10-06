@@ -405,18 +405,49 @@ const GENERATION_CODE_OVERRIDES = {
   model_car_encar_generation_0630bdb80d3e4271ce9f: "970",
 };
 
+// 세대 순번은 출처로 확인된 항목만 기록한다. 목록 순서로 추정하지 않는다.
+const GENERATION_ORDINAL_OVERRIDES = {
+  model_car_encar_generation_ca648e350756aa1c9f6f: 7,
+  model_car_encar_generation_91d143f99465fd0f44ee: 7,
+  model_car_encar_generation_7c558d06e6f5a8056534: 7,
+  model_car_encar_generation_b8b22be2230d3f6ade04: 7,
+  model_car_encar_generation_5657480176e3261075f6: 6,
+  model_car_encar_generation_fb5b1ae9116f008905da: 6,
+  model_car_encar_generation_45702659bb9357986b2d: 6,
+  model_car_encar_generation_b48bd0338939e0df7f59: 6,
+  model_car_encar_generation_58102eb677a649c32407: 5,
+  model_car_encar_generation_6ef2162199a8d699dc4d: 5,
+  model_car_encar_generation_eaf68fdddab138b3ba2a: 4,
+  model_car_encar_generation_cbf354eefcb53bf0e300: 4,
+  model_car_encar_generation_d0556b6b29684c633cf4: 4,
+  model_car_encar_generation_bca0dabf97272ea2ffa1: 3,
+  model_car_encar_generation_7a00d15cac0a1af360cc: 2,
+  model_car_encar_generation_5a4f993a767539977803: 1,
+  model_car_encar_generation_e06148ca53c12585c342: 8,
+  model_car_encar_generation_897e2a702c97f9278aef: 2,
+  model_car_encar_generation_f08ced93b3dd7ac7b4cc: 1,
+  model_car_encar_generation_99aa402a2d34dd86b720: 3,
+  model_car_encar_generation_9c0b096872efe2d5fc15: 2,
+  model_car_encar_generation_744d4c71eea876d289f6: 1,
+  model_car_encar_generation_db98505b5d1e4c8f60a9: 1,
+  model_car_encar_generation_d10b41ee0a266be78b95: 3,
+  model_car_encar_generation_895506cf210a1902e864: 2,
+  model_car_encar_generation_0630bdb80d3e4271ce9f: 1,
+};
+
 function generationCode(generation) {
   if (!generation) return "";
   if (generation.generationCode) return generation.generationCode;
   if (GENERATION_CODE_OVERRIDES[generation.key]) return GENERATION_CODE_OVERRIDES[generation.key];
-  const parenthetical = generation.displayName.match(/\(([^)]+)\)/);
-  return parenthetical ? parenthetical[1] : "";
+  return "";
 }
 
 function generationRow(generation) {
   const code = generationCode(generation);
-  const meta = `${code ? `${code} · ` : ""}${generationPeriod(generation)}`;
-  return `<li><button class="option-row generation-row" type="button" data-select-generation="${escapeHtml(generation.key)}">${generationSilhouette(generation, state.model)}<span class="generation-copy"><strong>${escapeHtml(generation.displayName)}</strong><span>${escapeHtml(meta)}</span></span><span class="option-count">${formatCount(generation.listingCount)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
+  const ordinal = Number(generation.generationNumber || GENERATION_ORDINAL_OVERRIDES[generation.key] || 0);
+  const identity = [ordinal ? `${ordinal}세대` : "", code].filter(Boolean).join(" · ");
+  const identityLine = identity ? `<span class="generation-identity">${escapeHtml(identity)}</span>` : "";
+  return `<li><button class="option-row generation-row" type="button" data-select-generation="${escapeHtml(generation.key)}">${generationSilhouette(generation, state.model)}<span class="generation-copy"><strong>${escapeHtml(generation.displayName)}</strong>${identityLine}<span class="generation-period">${escapeHtml(generationPeriod(generation))}</span></span><span class="option-count">${formatCount(generation.listingCount)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
 }
 
 function renderGeneration() {
