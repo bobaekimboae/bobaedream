@@ -1,0 +1,99 @@
+{
+  "version": "2026-10-07-v01",
+  "makerKey": "make_car_encar_e925b0b17fe8e8416179",
+  "makerName": "BMW",
+  "policy": "엔카 원본명과 sourceName은 보존한다. 완전변경 차체 코드의 실제 계보를 기준으로 세대 차수를 표시하며 페이스리프트는 차수를 올리지 않는다. 엔카가 여러 완전변경 세대를 한 행에 합친 경우 단일 숫자를 추정하지 않고 범위와 대표 코드를 함께 표시한다. 2시리즈처럼 쿠페·그란쿠페·액티브 투어러 계보가 병존하면 세부 계보별 차수를 byKey로 기록한다.",
+  "sources": {
+    "adac": "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/bmw/?filter=NONE",
+    "mobile": "https://www.mobile.de/auto/bmw/serie/",
+    "autoscout24": "https://www.autoscout24.de/auto/bmw/"
+  },
+  "models": {
+    "model_car_encar_group_62aca626ae0ff29702b7": { "displayName": "1시리즈", "byCode": { "E82": 1, "F20": 2, "F40": 3, "F70": 4 } },
+    "model_car_encar_group_945fe6b1370e896aa56d": {
+      "displayName": "2시리즈",
+      "byKey": {
+        "model_car_encar_generation_bcf66ff5802f457e2fe8": { "number": 2, "code": "G42" },
+        "model_car_encar_generation_4b00c08a3964e6d2857a": { "number": 1, "code": "F22" },
+        "model_car_encar_generation_d226acb7f3713859bf37": { "number": 2, "code": "F74" },
+        "model_car_encar_generation_de6bdc04ea7503f9a611": { "number": 1, "code": "F44" },
+        "model_car_encar_generation_5f67bd660032e997dce7": { "number": 2, "code": "U06" },
+        "model_car_encar_generation_5e6f0fe7e8126eaa8978": { "number": 1, "code": "F45" }
+      }
+    },
+    "model_car_encar_group_88d6d6308b4e17067fb9": {
+      "displayName": "3시리즈",
+      "byCode": { "E90": 5, "F30": 6, "G20": 7 },
+      "byKey": { "model_car_encar_generation_8fa9c84709ace97de0f1": { "range": "1~4", "code": "E21·E30·E36·E46", "reason": "엔카 통합 항목" } }
+    },
+    "model_car_encar_group_8521d2e0ead56c437147": { "displayName": "4시리즈", "byCode": { "F32": 1, "G22": 2 } },
+    "model_car_encar_group_a6fc18ec49d333853cd5": {
+      "displayName": "5시리즈",
+      "byCode": { "E60": 5, "F10": 6, "G30": 7, "G60": 8 },
+      "byKey": { "model_car_encar_generation_84e9d6655893686f0f13": { "range": "1~4", "code": "E12·E28·E34·E39", "reason": "엔카 통합 항목" } }
+    },
+    "model_car_encar_group_1ca3789d277b417cae5f": { "displayName": "6시리즈", "byCode": { "E63": 2, "F12": 3 } },
+    "model_car_encar_group_976d6a55ab911ea63eb8": {
+      "displayName": "7시리즈",
+      "byCode": { "E65": 4, "F01": 5, "G11": 6, "G70": 7 },
+      "byKey": { "model_car_encar_generation_105862fe4dc958bb5a21": { "range": "1~3", "code": "E23·E32·E38", "reason": "엔카 통합 항목" } }
+    },
+    "model_car_encar_group_75e4dcab01341577e85f": { "displayName": "8시리즈", "byCode": { "G15": 2 } },
+    "model_car_encar_group_30c16d541e38f19e2ed7": {
+      "displayName": "그란투리스모 (GT)",
+      "byKey": {
+        "model_car_encar_generation_189fb13338285e5ab0a1": { "number": 1, "code": "G32" },
+        "model_car_encar_generation_8a033431b3c6b680ed57": { "number": 1, "code": "F07" },
+        "model_car_encar_generation_c31c9c5f4608f481b301": { "number": 1, "code": "F34" }
+      }
+    },
+    "model_car_encar_group_48f935a0a1f8c2f478eb": { "displayName": "1M", "byCode": { "E82": 1 } },
+    "model_car_encar_group_7b5b3c4fe0f34590cbe6": { "displayName": "M2", "byCode": { "F87": 1, "G87": 2 } },
+    "model_car_encar_group_cc102b12f3cd13f6f188": { "displayName": "M3", "byCode": { "E36": 2, "E46": 3, "E90": 4, "F80": 5, "G80": 6 } },
+    "model_car_encar_group_0870b04700982e0c8273": { "displayName": "M4", "byCode": { "F82": 1, "G82": 2 } },
+    "model_car_encar_group_a3e6a6639788641020d1": { "displayName": "M5", "byCode": { "E34": 2, "E39": 3, "E60": 4, "F10": 5, "F90": 6, "G90": 7 } },
+    "model_car_encar_group_b6aa8af0022f9e78a747": { "displayName": "M6", "byCode": { "E63": 2, "F12": 3 } },
+    "model_car_encar_group_a4c4071ec5ada923e1cf": { "displayName": "M8", "byCode": { "G15": 1 } },
+    "model_car_encar_group_5f7f0bbeb206044587a8": { "displayName": "X1", "byCode": { "E84": 1, "F48": 2, "U11": 3 } },
+    "model_car_encar_group_5e6dead41645f743de7b": { "displayName": "X2", "byCode": { "F39": 1, "U10": 2 } },
+    "model_car_encar_group_211eef4637bebb2708f7": { "displayName": "X3", "byCode": { "E83": 1, "F25": 2, "G01": 3, "G45": 4 } },
+    "model_car_encar_group_ccf77392d3bf147bd2af": { "displayName": "X4", "byCode": { "F26": 1, "G02": 2 } },
+    "model_car_encar_group_e62b1d4844f0ac67ad73": { "displayName": "X5", "byCode": { "E53": 1, "E70": 2, "F15": 3, "G05": 4 } },
+    "model_car_encar_group_8a7855976887067cfa04": { "displayName": "X6", "byCode": { "E71": 1, "F16": 2, "G06": 3 } },
+    "model_car_encar_group_0c86bddff0e9c250784f": { "displayName": "X7", "byCode": { "G07": 1 } },
+    "model_car_encar_group_810847b34c6d8689bd5c": { "displayName": "X3M", "byKey": { "model_car_encar_generation_d6e6ba6c7fa4ae5cd50e": { "number": 1, "code": "F97" } } },
+    "model_car_encar_group_e0f7d8b638ce62cb4f94": { "displayName": "X4M", "byKey": { "model_car_encar_generation_9e2d0d31ac37ce5a12a7": { "number": 1, "code": "F98" } } },
+    "model_car_encar_group_abeb7286e678a6047dfd": {
+      "displayName": "X5M",
+      "byKey": {
+        "model_car_encar_generation_8e10a10a2f620dbc13ea": { "number": 2, "code": "F85" },
+        "model_car_encar_generation_569d3e690e8e953d02ae": { "number": 3, "code": "F95" }
+      }
+    },
+    "model_car_encar_group_20aea4cf95895aeee1f7": {
+      "displayName": "X6M",
+      "byKey": {
+        "model_car_encar_generation_b7ca99ec4d37cc72fbe6": { "number": 1, "code": "E71" },
+        "model_car_encar_generation_568b8089e81c9b1e8e85": { "number": 2, "code": "F86" },
+        "model_car_encar_generation_0f28b1b61e07fc6bc2e6": { "number": 3, "code": "F96" }
+      }
+    },
+    "model_car_encar_group_7df137425dfbf4df7ebd": { "displayName": "XM", "byCode": { "G09": 1 } },
+    "model_car_encar_group_b91e7b44ce15dd695088": { "displayName": "Z3", "byKey": { "model_car_encar_generation_a1f1263c61d24d70ec74": { "number": 1, "code": "E36/7·E36/8" } } },
+    "model_car_encar_group_4faaf75f8f9e97b92c40": { "displayName": "Z4", "byCode": { "E85": 1, "E89": 2, "G29": 3 } },
+    "model_car_encar_group_31185dd4f56fc563e8f4": { "displayName": "M 쿠페/로드스터", "byKey": { "model_car_encar_generation_26cdbfe3a348b684db4b": { "number": 2, "code": "E85·E86" } } },
+    "model_car_encar_group_ffad6520c614eeee91e8": { "displayName": "i3", "byKey": { "model_car_encar_generation_c8665b6b95b3b6bf98af": { "number": 1, "code": "I01" } } },
+    "model_car_encar_group_371cb034a89406377bf7": { "displayName": "i4", "byKey": { "model_car_encar_generation_0666f47dc48c010f406d": { "number": 1, "code": "G26" } } },
+    "model_car_encar_group_f3f7755abcd1c7e2adc6": { "displayName": "i5", "byCode": { "G60": 1 } },
+    "model_car_encar_group_e963e5c244b284cc8fe1": { "displayName": "i7", "byCode": { "G70": 1 } },
+    "model_car_encar_group_fdc269b1fbfb25c4493c": { "displayName": "i8", "byKey": { "model_car_encar_generation_89eae0ac1810db19be96": { "number": 1, "code": "I12·I15" } } },
+    "model_car_encar_group_22270c1704440f6e9f1f": { "displayName": "iX1", "byCode": { "U11": 1 } },
+    "model_car_encar_group_794b834f5c7f5f514b36": { "displayName": "iX2", "byCode": { "U10": 1 } },
+    "model_car_encar_group_c88cbcf289c0bb8dadf6": {
+      "displayName": "iX3",
+      "byCode": { "NA5": 2 },
+      "byKey": { "model_car_encar_generation_5be69b1df001fd5cfa80": { "number": 1, "code": "G08" } }
+    },
+    "model_car_encar_group_9b359c74c0cd1a23f719": { "displayName": "iX", "byKey": { "model_car_encar_generation_e51970596b7b1abde1a1": { "number": 1, "code": "I20" } } }
+  }
+}

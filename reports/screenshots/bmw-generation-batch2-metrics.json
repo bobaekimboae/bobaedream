@@ -1,0 +1,409 @@
+{
+  "maker": "BMW",
+  "modelCount": 40,
+  "generationCount": 93,
+  "resolvedIdentityCount": 93,
+  "imageCount": 43,
+  "placeholderCount": 50,
+  "imageAudit": [
+    {
+      "key": "model_car_encar_generation_019fd0f45dd6c6affdce",
+      "relativePath": "bmw/gen_model_car_encar_generation_019fd0f45dd6c6affdce.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 433485
+    },
+    {
+      "key": "model_car_encar_generation_02190963131656b82bc6",
+      "relativePath": "bmw/gen_model_car_encar_generation_02190963131656b82bc6.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 397963
+    },
+    {
+      "key": "model_car_encar_generation_0666f47dc48c010f406d",
+      "relativePath": "bmw/gen_model_car_encar_generation_0666f47dc48c010f406d.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 429989
+    },
+    {
+      "key": "model_car_encar_generation_0a1b5a9d25195a99bf4a",
+      "relativePath": "bmw/gen_model_car_encar_generation_0a1b5a9d25195a99bf4a.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 465433
+    },
+    {
+      "key": "model_car_encar_generation_12844d68aa26d8cad0eb",
+      "relativePath": "bmw/gen_model_car_encar_generation_12844d68aa26d8cad0eb.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 516231
+    },
+    {
+      "key": "model_car_encar_generation_15a604d196c7343d9b84",
+      "relativePath": "bmw/gen_model_car_encar_generation_15a604d196c7343d9b84.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 543106
+    },
+    {
+      "key": "model_car_encar_generation_189fb13338285e5ab0a1",
+      "relativePath": "bmw/gen_model_car_encar_generation_189fb13338285e5ab0a1.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 410564
+    },
+    {
+      "key": "model_car_encar_generation_1a0cdba6f74633ed2226",
+      "relativePath": "bmw/gen_model_car_encar_generation_1a0cdba6f74633ed2226.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 481491
+    },
+    {
+      "key": "model_car_encar_generation_23ed3453b425b53f0e86",
+      "relativePath": "bmw/gen_model_car_encar_generation_23ed3453b425b53f0e86.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 410011
+    },
+    {
+      "key": "model_car_encar_generation_291c0746ef03caf9ff90",
+      "relativePath": "bmw/gen_model_car_encar_generation_291c0746ef03caf9ff90.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 398596
+    },
+    {
+      "key": "model_car_encar_generation_32aa2e09b30e0c2a79fc",
+      "relativePath": "bmw/gen_model_car_encar_generation_32aa2e09b30e0c2a79fc.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 477569
+    },
+    {
+      "key": "model_car_encar_generation_3800b2fcbc80dd2867be",
+      "relativePath": "bmw/gen_model_car_encar_generation_3800b2fcbc80dd2867be.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 478376
+    },
+    {
+      "key": "model_car_encar_generation_387bea5f492997ed5cbd",
+      "relativePath": "bmw/gen_model_car_encar_generation_387bea5f492997ed5cbd.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 429126
+    },
+    {
+      "key": "model_car_encar_generation_39d73d1fa0989390d1d5",
+      "relativePath": "bmw/gen_model_car_encar_generation_39d73d1fa0989390d1d5.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 401793
+    },
+    {
+      "key": "model_car_encar_generation_43e52f722bcad8920854",
+      "relativePath": "bmw/gen_model_car_encar_generation_43e52f722bcad8920854.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 415495
+    },
+    {
+      "key": "model_car_encar_generation_50ddf8e9511d11a305c8",
+      "relativePath": "bmw/gen_model_car_encar_generation_50ddf8e9511d11a305c8.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 404303
+    },
+    {
+      "key": "model_car_encar_generation_593d66c63f64b73fa08a",
+      "relativePath": "bmw/gen_model_car_encar_generation_593d66c63f64b73fa08a.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 518329
+    },
+    {
+      "key": "model_car_encar_generation_5abf51b55517fee1cd99",
+      "relativePath": "bmw/gen_model_car_encar_generation_5abf51b55517fee1cd99.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 382564
+    },
+    {
+      "key": "model_car_encar_generation_5be69b1df001fd5cfa80",
+      "relativePath": "bmw/gen_model_car_encar_generation_5be69b1df001fd5cfa80.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 475361
+    },
+    {
+      "key": "model_car_encar_generation_5e6f0fe7e8126eaa8978",
+      "relativePath": "bmw/gen_model_car_encar_generation_5e6f0fe7e8126eaa8978.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 503971
+    },
+    {
+      "key": "model_car_encar_generation_5f67bd660032e997dce7",
+      "relativePath": "bmw/gen_model_car_encar_generation_5f67bd660032e997dce7.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 498306
+    },
+    {
+      "key": "model_car_encar_generation_65287aa2aaa7c576fe7f",
+      "relativePath": "bmw/gen_model_car_encar_generation_65287aa2aaa7c576fe7f.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 485976
+    },
+    {
+      "key": "model_car_encar_generation_684b14c8482cb2e1c17c",
+      "relativePath": "bmw/gen_model_car_encar_generation_684b14c8482cb2e1c17c.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 424412
+    },
+    {
+      "key": "model_car_encar_generation_74c4a3df893b5f08b2bf",
+      "relativePath": "bmw/gen_model_car_encar_generation_74c4a3df893b5f08b2bf.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 478697
+    },
+    {
+      "key": "model_car_encar_generation_7fe49ff64fba1226d76c",
+      "relativePath": "bmw/gen_model_car_encar_generation_7fe49ff64fba1226d76c.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 434390
+    },
+    {
+      "key": "model_car_encar_generation_86437a4489b6dd81e11e",
+      "relativePath": "bmw/gen_model_car_encar_generation_86437a4489b6dd81e11e.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 436268
+    },
+    {
+      "key": "model_car_encar_generation_8a033431b3c6b680ed57",
+      "relativePath": "bmw/gen_model_car_encar_generation_8a033431b3c6b680ed57.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 410947
+    },
+    {
+      "key": "model_car_encar_generation_8f8eb649f575e862b78f",
+      "relativePath": "bmw/gen_model_car_encar_generation_8f8eb649f575e862b78f.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 473676
+    },
+    {
+      "key": "model_car_encar_generation_97c3246ba667e3a73af9",
+      "relativePath": "bmw/gen_model_car_encar_generation_97c3246ba667e3a73af9.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 498781
+    },
+    {
+      "key": "model_car_encar_generation_9fd1825f7405c0a83db4",
+      "relativePath": "bmw/gen_model_car_encar_generation_9fd1825f7405c0a83db4.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 488848
+    },
+    {
+      "key": "model_car_encar_generation_a0d600e96be0e6aa1390",
+      "relativePath": "bmw/gen_model_car_encar_generation_a0d600e96be0e6aa1390.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 443628
+    },
+    {
+      "key": "model_car_encar_generation_a52191939e0aa211a7ac",
+      "relativePath": "bmw/gen_model_car_encar_generation_a52191939e0aa211a7ac.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 494492
+    },
+    {
+      "key": "model_car_encar_generation_a6741782810cd72c4cbe",
+      "relativePath": "bmw/gen_model_car_encar_generation_a6741782810cd72c4cbe.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 496760
+    },
+    {
+      "key": "model_car_encar_generation_b97d4eae11fe5fe58c20",
+      "relativePath": "bmw/gen_model_car_encar_generation_b97d4eae11fe5fe58c20.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 408748
+    },
+    {
+      "key": "model_car_encar_generation_bd5d93f2233362c95c96",
+      "relativePath": "bmw/gen_model_car_encar_generation_bd5d93f2233362c95c96.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 453805
+    },
+    {
+      "key": "model_car_encar_generation_c31c9c5f4608f481b301",
+      "relativePath": "bmw/gen_model_car_encar_generation_c31c9c5f4608f481b301.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 427295
+    },
+    {
+      "key": "model_car_encar_generation_c81ba28ba52ced1f1935",
+      "relativePath": "bmw/gen_model_car_encar_generation_c81ba28ba52ced1f1935.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 392833
+    },
+    {
+      "key": "model_car_encar_generation_ce2c4a30e6ecb75c295e",
+      "relativePath": "bmw/gen_model_car_encar_generation_ce2c4a30e6ecb75c295e.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 443164
+    },
+    {
+      "key": "model_car_encar_generation_d994310541e3e5dfbba8",
+      "relativePath": "bmw/gen_model_car_encar_generation_d994310541e3e5dfbba8.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 456542
+    },
+    {
+      "key": "model_car_encar_generation_de6bdc04ea7503f9a611",
+      "relativePath": "bmw/gen_model_car_encar_generation_de6bdc04ea7503f9a611.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 453215
+    },
+    {
+      "key": "model_car_encar_generation_e3233ad8a05876917854",
+      "relativePath": "bmw/gen_model_car_encar_generation_e3233ad8a05876917854.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 458930
+    },
+    {
+      "key": "model_car_encar_generation_e51970596b7b1abde1a1",
+      "relativePath": "bmw/gen_model_car_encar_generation_e51970596b7b1abde1a1.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 467492
+    },
+    {
+      "key": "model_car_encar_generation_fd2db3ce9ee2a1598195",
+      "relativePath": "bmw/gen_model_car_encar_generation_fd2db3ce9ee2a1598195.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 419313
+    }
+  ],
+  "viewports": [
+    {
+      "width": 360,
+      "rows": [
+        {
+          "label": "5시리즈 (G60)8세대 (G60)23.10 ~ 현재1,478",
+          "imageLoaded": true,
+          "rowWidth": 328
+        },
+        {
+          "label": "5시리즈 (G30)7세대 (G30)17.01 ~ 23.092,233",
+          "imageLoaded": true,
+          "rowWidth": 328
+        },
+        {
+          "label": "5시리즈 (F10)6세대 (F10)10.01 ~ 16.12599",
+          "imageLoaded": true,
+          "rowWidth": 328
+        },
+        {
+          "label": "5시리즈 (E60)5세대 (E60)03.01 ~ 10.1219",
+          "imageLoaded": null,
+          "rowWidth": 328
+        },
+        {
+          "label": "5시리즈1~4세대 (E12·E28·E34·E39)72.01 ~ 03.129",
+          "imageLoaded": null,
+          "rowWidth": 328
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "width": 390,
+      "rows": [
+        {
+          "label": "5시리즈 (G60)8세대 (G60)23.10 ~ 현재1,478",
+          "imageLoaded": true,
+          "rowWidth": 358
+        },
+        {
+          "label": "5시리즈 (G30)7세대 (G30)17.01 ~ 23.092,233",
+          "imageLoaded": true,
+          "rowWidth": 358
+        },
+        {
+          "label": "5시리즈 (F10)6세대 (F10)10.01 ~ 16.12599",
+          "imageLoaded": true,
+          "rowWidth": 358
+        },
+        {
+          "label": "5시리즈 (E60)5세대 (E60)03.01 ~ 10.1219",
+          "imageLoaded": null,
+          "rowWidth": 358
+        },
+        {
+          "label": "5시리즈1~4세대 (E12·E28·E34·E39)72.01 ~ 03.129",
+          "imageLoaded": null,
+          "rowWidth": 358
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "width": 430,
+      "rows": [
+        {
+          "label": "5시리즈 (G60)8세대 (G60)23.10 ~ 현재1,478",
+          "imageLoaded": true,
+          "rowWidth": 398
+        },
+        {
+          "label": "5시리즈 (G30)7세대 (G30)17.01 ~ 23.092,233",
+          "imageLoaded": true,
+          "rowWidth": 398
+        },
+        {
+          "label": "5시리즈 (F10)6세대 (F10)10.01 ~ 16.12599",
+          "imageLoaded": true,
+          "rowWidth": 398
+        },
+        {
+          "label": "5시리즈 (E60)5세대 (E60)03.01 ~ 10.1219",
+          "imageLoaded": null,
+          "rowWidth": 398
+        },
+        {
+          "label": "5시리즈1~4세대 (E12·E28·E34·E39)72.01 ~ 03.129",
+          "imageLoaded": null,
+          "rowWidth": 398
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    }
+  ]
+}
