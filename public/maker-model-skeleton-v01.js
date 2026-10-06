@@ -337,8 +337,7 @@ function renderBikeChildren() {
 
 function modelRow(model) {
   const generations = visible(model.generations);
-  const latestCode = generations.length ? generationCode(generations[0]) : "";
-  const generationMeta = `세대 ${generations.length}개${latestCode ? ` · 최신 코드 ${latestCode}` : ""}`;
+  const generationMeta = `세대 ${generations.length}개`;
   return `<li><button class="option-row model-row" type="button" data-select-model="${escapeHtml(model.key)}">${modelSilhouette(model)}<span class="model-copy"><strong>${escapeHtml(model.displayName)}</strong><small>${escapeHtml(generationMeta)}</small></span><span class="option-count">${formatCount(model.listingCount)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
 }
 
