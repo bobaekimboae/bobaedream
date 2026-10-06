@@ -115,6 +115,56 @@
 
 final result: passed
 
+---
+
+# 제조사·모델 모델 목록 오토스카우트형 행 v1006
+
+- source visual truth: 사용자 제공 `모델 목록 행: 오토스카우트식 모델 이미지 간격 적용` 수치 명세(2026-10-06)
+- implementation: `http://127.0.0.1:5173/maker-model-skeleton-v01.html?v=autoscout-model-row-1006`
+- implementation screenshot: `reports/maker-model-autoscout-row-1006/model-row-360.png`
+- viewport: 360×800 CSS px, deviceScaleFactor 1
+- state: 현대 선택 후 모델 화면, 전체 바디타입, 인기 모델 5개 노출
+
+## Full-view comparison evidence
+
+- 핀노형 18px 뒤로가기 아이콘과 기존 바디타입 칩 줄을 그대로 유지했다.
+- 인기 모델 행은 72px 리듬으로 5개가 이어지고 이미지·모델명·매물수·꺾쇠의 열 정렬이 모든 행에서 같다.
+- 가로 넘침과 하단 버튼 잘림이 없고 모델을 누르면 세부모델 화면으로 정상 이동한다.
+
+## Focused region comparison evidence
+
+- 이미지 슬롯: x=16, 84×56, `object-fit: contain`, 배경·테두리·곡률 없음.
+- 모델명: x=116, 16/22px, 500, `#222`, 한 줄 말줄임.
+- 매물수: x=116, 12/16px, 400, `#8B95A1`, 모델명과 4px 간격, `매물 10,146대` 형식.
+- 꺾쇠: x=330, 16×16, 우측 여백 14px, `#B0B8C1` 자산.
+- 구분선: x=116부터 오른쪽 콘텐츠 끝까지, 1px `#DEDEE3`; 마지막 행은 숨김.
+- 행: x=16, 폭 328, 높이 72px.
+
+## Required fidelity surfaces
+
+- Fonts and typography: 모델명 16/22·500, 매물수 12/16·400으로 두 줄 위계가 명확하고 말줄임 규칙이 유지된다.
+- Spacing and layout rhythm: 16px 좌측 여백, 84px 이미지, 16px 간격, x116 텍스트 시작, 텍스트–꺾쇠 24px, 행 72px로 실측 일치한다.
+- Colors and visual tokens: 모델명 `#222`, 매물수 `#8B95A1`, 실루엣 `#D5DAE1`, 구분선 `#DEDEE3`, 꺾쇠 `#B0B8C1`을 사용한다.
+- Image quality and asset fidelity: 기존 투명 차량 PNG를 84×56 안에 contain으로 표시해 크롭·왜곡·배경 표면이 없다. 이미지가 없으면 기존 정면 실루엣 자산을 같은 슬롯에 표시한다.
+- Copy and content: 오른쪽 숫자를 제거하고 `매물 N대`를 모델명 아래에 표시했다. 바디타입 칩과 화면 타이틀 문구는 변경하지 않았다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- 360px에서 사용자 명세와 DOM 실측값이 모두 일치하고 콘솔 오류 0건이다.
+
+## Comparison history
+
+1. 기존 74×46 이미지·56px 행·오른쪽 매물수 배치를 확인했다.
+2. 84×56 이미지·72px 행·B3형 두 줄 텍스트·16px 회색 꺾쇠로 수정했다.
+3. 360×800 캡처와 DOM 실측으로 이미지·텍스트·구분선·행 높이를 재확인했다.
+
+## Follow-up polish
+
+- 없음.
+
+final result: passed
+
 ## 제조사·모델 모달 헤더 아이콘 v1006
 
 - source visual truth: 노션 `chotot-pc-detail-close-window_(창닫기).svg`와 Google Drive 차란차 제조사·모델 뎁스 캡처 1~4.

@@ -153,7 +153,7 @@ function renderMaker() {
 }
 
 function modelRow(model) {
-  return `<li><button class="option-row model-row" type="button" data-select-model="${escapeHtml(model.key)}">${modelSilhouette(model)}<span class="model-copy"><strong>${escapeHtml(model.displayName)}</strong></span><span class="option-count">${formatCount(model.listingCount)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
+  return `<li><button class="option-row model-row" type="button" data-select-model="${escapeHtml(model.key)}">${modelSilhouette(model)}<span class="model-copy"><strong>${escapeHtml(model.displayName)}</strong><span class="model-listing-count">매물 ${formatCount(model.listingCount)}대</span></span>${icon("/assets/maker-model/icons/chotot-chevron-right-muted.svg", "chevron")}</button></li>`;
 }
 
 function bodyTypeRail(models) {
