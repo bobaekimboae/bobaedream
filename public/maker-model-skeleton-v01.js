@@ -9,8 +9,8 @@ const GENERATION_IMAGE_MAP_URLS = [
   "./data/encar-car-depth-1005/generation-images/lamborghini.json",
   "./data/encar-car-depth-1005/generation-images/porsche.json",
 ];
-const PROJECT_BASE = window.location.pathname.startsWith("/bobaedream/") ? "/bobaedream" : "";
-const GENERATION_IMAGE_BASE = `${PROJECT_BASE}/assets/maker-model/generations/`;
+const PAGE_DIRECTORY = window.location.pathname.slice(0, window.location.pathname.lastIndexOf("/") + 1);
+const GENERATION_IMAGE_BASE = `${PAGE_DIRECTORY}assets/maker-model/generations/`;
 const MAKER_LOGO_BASE = "/assets/maker-model/logos/encar-1005-trim/";
 const MAKER_LOGO_METRICS_URL = `${MAKER_LOGO_BASE}logo-display-v4.json`;
 const BIKE_LOGO_BASE = "/assets/bike/logos/autohome-trim/";
