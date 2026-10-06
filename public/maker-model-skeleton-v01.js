@@ -14,12 +14,12 @@ const IMPORT_POPULAR_ORDER = ["BMW", "벤츠", "아우디", "포르쉐", "미니
 
 const BIKE_GENRES = ["스쿠터", "네이키드", "스포츠", "크루저", "투어러", "멀티퍼퍼스", "클래식", "오프로드", "언더본·비즈니스", "삼륜", "ATV", "기타"];
 const BIKE_GROUP_IMAGES = {
-  "BKM001-G001": "honda/BKM001-G001-autoscout-v04.png",
-  "BKM001-G002": "honda/BKM001-G002-autoscout-v04.png",
-  "BKM001-G003": "honda/BKM001-G003-autoscout-v04.png",
-  "BKM001-G004": "honda/BKM001-G004-autoscout-v04.png",
-  "BKM001-G005": "honda/BKM001-G005-autoscout-v04.png",
-  "BKM005-G001": "harley-davidson/BKM005-G001-autoscout-v04.png",
+  "BKM001-G001": "honda/BKM001-G001-autoscout-side-v05.png",
+  "BKM001-G002": "honda/BKM001-G002-autoscout-side-v05.png",
+  "BKM001-G003": "honda/BKM001-G003-autoscout-side-v05.png",
+  "BKM001-G004": "honda/BKM001-G004-autoscout-side-v05.png",
+  "BKM001-G005": "honda/BKM001-G005-autoscout-side-v05.png",
+  "BKM005-G001": "harley-davidson/BKM005-G001-autoscout-side-v05.png",
 };
 
 const BODY_TYPES = [
