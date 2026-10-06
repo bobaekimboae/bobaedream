@@ -304,7 +304,9 @@ function bikeGenreRail(items, isGroup) {
   const available = BIKE_GENRES.filter((genre) => items.some((item) => isGroup ? item.genres.includes(genre) : item.genre === genre));
   if (!available.length) return "";
   if (state.bikeGenre && !available.includes(state.bikeGenre)) state.bikeGenre = null;
-  return `<div class="body-type-rail bike-genre-rail" aria-label="바이크 장르 선택">${available.map((genre) => `<button type="button" data-bike-genre="${escapeHtml(genre)}" aria-pressed="${state.bikeGenre === genre}"><span>${escapeHtml(genre)}</span></button>`).join("")}</div>`;
+  const allChip = `<button type="button" data-bike-genre="all" aria-pressed="${state.bikeGenre === null}"><span>전체</span></button>`;
+  const genreChips = available.map((genre) => `<button type="button" data-bike-genre="${escapeHtml(genre)}" aria-pressed="${state.bikeGenre === genre}"><span>${escapeHtml(genre)}</span></button>`).join("");
+  return `<div class="body-type-rail bike-genre-rail" aria-label="바이크 장르 선택">${allChip}${genreChips}</div>`;
 }
 
 function renderBikeModel() {
@@ -655,7 +657,7 @@ document.addEventListener("click", (event) => {
   const modelFilterButton = event.target.closest("[data-model-filter]");
   if (modelFilterButton) { state.modelTab = modelFilterButton.dataset.modelFilter; render(); body.scrollTop = 0; return; }
   const bikeGenreButton = event.target.closest("[data-bike-genre]");
-  if (bikeGenreButton) { state.bikeGenre = state.bikeGenre === bikeGenreButton.dataset.bikeGenre ? null : bikeGenreButton.dataset.bikeGenre; render(); body.scrollTop = 0; }
+  if (bikeGenreButton) { state.bikeGenre = bikeGenreButton.dataset.bikeGenre === "all" ? null : bikeGenreButton.dataset.bikeGenre; render(); body.scrollTop = 0; }
 });
 
 backButton.addEventListener("click", () => setScreen(state.screen - 1));
