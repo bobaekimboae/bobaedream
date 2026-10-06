@@ -1,0 +1,93 @@
+{
+  "version": "2026-10-07-v01",
+  "makerKey": "make_car_encar_60fb8148acae49ffaca7",
+  "makerName": "벤츠",
+  "policy": "엔카 원본명은 보존하고 완전변경 차체 코드의 계보를 기준으로 세대 차수를 표시한다. 페이스리프트는 차수를 올리지 않으며, 엔카가 여러 세대를 한 행에 묶은 경우 단일 숫자를 만들지 않고 범위로 표시한다.",
+  "sources": {
+    "adac": "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/",
+    "mobile": "https://www.mobile.de/auto/mercedes/serie/",
+    "autoscout24": "https://www.autoscout24.de/auto/mercedes-benz/"
+  },
+  "models": {
+    "model_car_encar_group_42d52a7824a86b96c2db": { "displayName": "A-클래스", "byCode": { "W168": 1, "W169": 2, "W176": 3, "W177": 4 } },
+    "model_car_encar_group_f268f7193fe6376a3e07": { "displayName": "B-클래스", "byCode": { "W245": 1, "W246": 2, "W247": 3 } },
+    "model_car_encar_group_b8bfb1002f64d0481967": {
+      "displayName": "C-클래스",
+      "byCode": { "W202": 1, "W203": 2, "W204": 3, "W205": 4, "W206": 5 },
+      "byKey": { "model_car_encar_generation_be89b6a69554c35449bc": { "range": "1~2", "code": "W202·W203", "reason": "엔카 통합 항목" } }
+    },
+    "model_car_encar_group_63f1a5162e6a2d25c4a4": { "displayName": "CL-클래스", "byCode": { "C140": 1, "C215": 2, "C216": 3 } },
+    "model_car_encar_group_f323248e394c4c53021d": { "displayName": "CLA-클래스", "byCode": { "C117": 1, "C118": 2 } },
+    "model_car_encar_group_e07b5416da291d2e6037": { "displayName": "CLE-클래스", "byCode": { "C236": 1 } },
+    "model_car_encar_group_11152aa52d9cdbad3923": { "displayName": "CLK-클래스", "byCode": { "C208": 1, "C209": 2 } },
+    "model_car_encar_group_1c2b2e8ebdb6ab9a6559": { "displayName": "CLS-클래스", "byCode": { "W219": 1, "W218": 2, "C257": 3 } },
+    "model_car_encar_group_b7bdf7d8da8e4c32b502": { "displayName": "E-클래스", "byCode": { "W124": 1, "W210": 2, "W211": 3, "W212": 4, "W213": 5, "W214": 6 } },
+    "model_car_encar_group_d0a18b279d46c86261ac": { "displayName": "EQA", "byCode": { "H243": 1 } },
+    "model_car_encar_group_1ebec21fa5811b9b4cf7": { "displayName": "EQB", "byCode": { "X243": 1 } },
+    "model_car_encar_group_0626d4a2a9638e57a58e": { "displayName": "EQC", "byCode": { "N293": 1 } },
+    "model_car_encar_group_bfccc2a08c6f84938aad": { "displayName": "EQE", "byCode": { "V295": 1, "X294": 1 } },
+    "model_car_encar_group_97dd848b6f3ebc054296": { "displayName": "EQS", "byCode": { "V297": 1, "X296": 1 } },
+    "model_car_encar_group_d83118bcb668525e0005": {
+      "displayName": "G-클래스",
+      "byCode": { "W460": 1, "W463": 2, "W463b": 3, "W465": 4 },
+      "byKey": { "model_car_encar_generation_4aae420c879fa84a9dbf": { "number": 3, "code": "W463b" } }
+    },
+    "model_car_encar_group_27cf178e89874dc18f37": { "displayName": "GL-클래스", "byCode": { "X164": 1, "X166": 2 } },
+    "model_car_encar_group_d30bd85b0530d640ece8": { "displayName": "GLA-클래스", "byCode": { "X156": 1, "H247": 2 } },
+    "model_car_encar_group_222824c3fc346e984802": { "displayName": "GLB-클래스", "byCode": { "X247": 1 } },
+    "model_car_encar_group_e1e406d37015d2139df2": { "displayName": "GLC-클래스", "byCode": { "X253": 1, "X254": 2 } },
+    "model_car_encar_group_6e0afc2efceceba14215": { "displayName": "GLE-클래스", "byCode": { "W166": 1, "W167": 2 } },
+    "model_car_encar_group_2a5a17c661752decad62": { "displayName": "GLK-클래스", "byCode": { "X204": 1 } },
+    "model_car_encar_group_1c7a066d13a02959b338": { "displayName": "GLS-클래스", "byCode": { "X166": 1, "X167": 2 } },
+    "model_car_encar_group_8e197c289e14563c3b87": { "displayName": "M-클래스", "byCode": { "W163": 1, "W164": 2, "W166": 3 } },
+    "model_car_encar_group_bc1b9fc5242c5236848a": {
+      "displayName": "R-클래스",
+      "byCode": { "W251": 1 },
+      "byKey": { "model_car_encar_generation_99ec3654be21c3ee33e5": { "number": 1, "code": "W251" } }
+    },
+    "model_car_encar_group_9193982e3553733a3720": {
+      "displayName": "S-클래스",
+      "byCode": { "W116": 1, "W126": 2, "W140": 3, "W220": 4, "W221": 5, "W222": 6, "W223": 7 },
+      "byKey": { "model_car_encar_generation_10895a8e1f3620c368b1": { "range": "3~4", "code": "W140·W220", "reason": "엔카 통합 항목" } }
+    },
+    "model_car_encar_group_463dcf8783d6e8608624": {
+      "displayName": "SL-클래스",
+      "byCode": { "R107": 4, "R129": 5, "R230": 6, "R231": 7, "R232": 8 },
+      "byKey": {
+        "model_car_encar_generation_40ba533ada35a0d9be96": { "range": "6~7", "code": "R230·R231", "reason": "엔카 통합 항목" },
+        "model_car_encar_generation_f6ba716ba88fc0095ea2": { "range": "1~6", "code": "W198·W121·W113·R107·R129·R230", "reason": "엔카 통합 항목" }
+      }
+    },
+    "model_car_encar_group_512e1f33d9ed89fa2289": { "displayName": "SLC-클래스", "byCode": { "R172": 3 } },
+    "model_car_encar_group_c9db7535ddaf1c2b5201": {
+      "displayName": "SLK-클래스",
+      "byCode": { "R170": 1, "R171": 2, "R172": 3 },
+      "byKey": {
+        "model_car_encar_generation_7d62c0f423b22d8bd678": { "range": "2~3", "code": "R171·R172", "reason": "엔카 통합 항목" },
+        "model_car_encar_generation_432515c9a19fa1924ed0": { "number": 1, "code": "R170" }
+      }
+    },
+    "model_car_encar_group_8629c561429b2ebb36c5": {
+      "displayName": "SLS AMG",
+      "byKey": { "model_car_encar_generation_206fa65a757368da6610": { "number": 1, "code": "C197·R197" } }
+    },
+    "model_car_encar_group_650f485624f9c19f8e07": {
+      "displayName": "AMG GT",
+      "byCode": { "C190": 1, "C192": 2 },
+      "byKey": { "model_car_encar_generation_342e99ad6ed18fcc3110": { "number": 1, "code": "C190" } }
+    },
+    "model_car_encar_group_4e711df83ac6b9b129d3": {
+      "displayName": "SEL/SEC",
+      "byKey": { "model_car_encar_generation_c37ff2cf727437cdcb7a": { "range": "1~3", "code": "W116·W126·W140", "reason": "엔카 통합 항목" } }
+    },
+    "model_car_encar_group_aed8f10fa3f1bd4bb7d7": {
+      "displayName": "V-클래스",
+      "byCode": { "W638": 1, "W447": 2 },
+      "byKey": { "model_car_encar_generation_77db39e8720d8bf09b6a": { "range": "1~2", "code": "W638·W447", "reason": "엔카 통합 항목" } }
+    },
+    "model_car_encar_group_e9a7b2c0ce8f1a63ecbc": {
+      "displayName": "스프린터",
+      "byKey": { "model_car_encar_generation_4443b1a3fdd4a57ee37a": { "range": "1~3", "code": "W901–905·W906·W907/910", "reason": "엔카 통합 항목" } }
+    }
+  }
+}

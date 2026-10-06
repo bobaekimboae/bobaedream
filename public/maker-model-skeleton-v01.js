@@ -10,6 +10,7 @@ const GENERATION_IMAGE_MAP_URLS = [
   "./data/encar-car-depth-1005/generation-images/porsche.json",
 ];
 const GENERATION_SUPPLEMENT_URL = "./data/encar-car-depth-1005/generation-supplements/mercedes-benz.json";
+const GENERATION_DISPLAY_IDENTITY_URL = "./data/encar-car-depth-1005/generation-display-identities/mercedes-benz.json";
 const PAGE_DIRECTORY = window.location.pathname.slice(0, window.location.pathname.lastIndexOf("/") + 1);
 const GENERATION_IMAGE_BASE = `${PAGE_DIRECTORY}assets/maker-model/generations/`;
 const MAKER_LOGO_BASE = "/assets/maker-model/logos/encar-1005-trim/";
@@ -93,7 +94,7 @@ const state = {
   screen: 1, catalog: null, makers: [], maker: null, model: null, generation: null,
   bikeGroup: null, bikeModel: null, bikeGenre: null,
   logoMetrics: {},
-  generationImages: {}, generationSupplements: {}, selectedFuelDrives: new Map(), selectedGrades: new Map(), selectedLeaves: new Map(),
+  generationImages: {}, generationSupplements: {}, generationDisplayIdentities: {}, selectedFuelDrives: new Map(), selectedGrades: new Map(), selectedLeaves: new Map(),
   modelTab: "all", query: "", status: "loading", error: "",
 };
 
@@ -158,6 +159,32 @@ function validateGenerationSupplements(catalog, supplements) {
       generationKeys.add(generation.key);
     });
   });
+}
+
+function generationDisplayIdentity(generation, model) {
+  const modelIdentity = state.generationDisplayIdentities[model?.key];
+  if (!modelIdentity) return null;
+  const keyed = modelIdentity.byKey?.[generation.key];
+  if (keyed) return keyed;
+  const code = generationCode(generation);
+  const number = modelIdentity.byCode?.[code];
+  return number ? { number, code } : null;
+}
+
+function validateGenerationDisplayIdentities(catalog, identities) {
+  const maker = catalog.manufacturers.find((item) => item.key === identities.makerKey);
+  if (!maker) throw new Error(`세대 차수 제조사 불일치: ${identities.makerKey}`);
+  const unresolved = [];
+  maker.modelGroups.forEach((model) => {
+    visible(model.generations).forEach((generation) => {
+      const modelIdentity = identities.models?.[model.key];
+      const keyed = modelIdentity?.byKey?.[generation.key];
+      const code = generation.generationCode || "";
+      const number = code ? modelIdentity?.byCode?.[code] : 0;
+      if (!keyed && !number) unresolved.push(`${model.displayName}/${generation.displayName}`);
+    });
+  });
+  if (unresolved.length) throw new Error(`세대 차수 미확인: ${unresolved.join(", ")}`);
 }
 
 function validateBikeCatalog(catalog) {
@@ -473,14 +500,18 @@ function generationCode(generation) {
 
 function generationRow(generation) {
   const code = generationCode(generation);
-  const ordinal = Number(generation.generationNumber || GENERATION_ORDINAL_OVERRIDES[generation.key] || 0);
-  const identity = [ordinal ? `${ordinal}세대` : "", code].filter(Boolean).join(" · ");
+  const mappedIdentity = generationDisplayIdentity(generation, state.model);
+  const ordinal = Number(mappedIdentity?.number || generation.generationNumber || GENERATION_ORDINAL_OVERRIDES[generation.key] || 0);
+  const displayCode = mappedIdentity?.code || code;
+  const identity = mappedIdentity?.range
+    ? `${mappedIdentity.range}세대${displayCode ? ` (${displayCode})` : ""}`
+    : `${ordinal ? `${ordinal}세대` : ""}${displayCode ? `${ordinal ? " " : ""}(${displayCode})` : ""}`;
   const identityLine = identity ? `<span class="generation-identity">${escapeHtml(identity)}</span>` : "";
   return `<li><button class="option-row generation-row" type="button" data-select-generation="${escapeHtml(generation.key)}">${generationSilhouette(generation, state.model)}<span class="generation-copy"><strong>${escapeHtml(generation.displayName)}</strong>${identityLine}<span class="generation-period">${escapeHtml(generationPeriod(generation))}</span></span><span class="option-count">${formatCount(generation.listingCount)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
 }
 
 function supplementalGenerationRow(generation) {
-  const identity = [generation.generationNumber ? `${generation.generationNumber}세대` : "", generation.generationCode || ""].filter(Boolean).join(" · ");
+  const identity = `${generation.generationNumber ? `${generation.generationNumber}세대` : ""}${generation.generationCode ? `${generation.generationNumber ? " " : ""}(${generation.generationCode})` : ""}`;
   return `<li><div class="option-row generation-row supplemental-generation-row" aria-label="${escapeHtml(generation.displayName)} 세대 정보, 매물 연동 전">${generationSilhouette(generation, state.model)}<span class="generation-copy"><strong>${escapeHtml(generation.displayName)}</strong>${identity ? `<span class="generation-identity">${escapeHtml(identity)}</span>` : ""}<span class="generation-period">${escapeHtml(supplementalGenerationPeriod(generation))}</span></span><span class="supplemental-status">매물 연동 전</span></div></li>`;
 }
 
@@ -799,28 +830,33 @@ async function loadCatalog() {
       render();
       return;
     }
-    const [catalogResponse, imageResponses, logoMetricsResponse, supplementResponse] = await Promise.all([
+    const [catalogResponse, imageResponses, logoMetricsResponse, supplementResponse, displayIdentityResponse] = await Promise.all([
       fetch(CATALOG_URL, { cache: "no-store" }),
       Promise.all(GENERATION_IMAGE_MAP_URLS.map((url) => fetch(url, { cache: "no-store" }))),
       fetch(MAKER_LOGO_METRICS_URL, { cache: "no-store" }),
       fetch(GENERATION_SUPPLEMENT_URL, { cache: "no-store" }),
+      fetch(GENERATION_DISPLAY_IDENTITY_URL, { cache: "no-store" }),
     ]);
     if (!catalogResponse.ok) throw new Error(`catalog.json HTTP ${catalogResponse.status}`);
     const failedImageResponse = imageResponses.find((response) => !response.ok);
     if (failedImageResponse) throw new Error(`generation image map HTTP ${failedImageResponse.status}`);
     if (!logoMetricsResponse.ok) throw new Error(`logo-display-v4.json HTTP ${logoMetricsResponse.status}`);
     if (!supplementResponse.ok) throw new Error(`generation supplement HTTP ${supplementResponse.status}`);
-    const [catalog, generationImageMaps, logoMetrics, generationSupplements] = await Promise.all([
+    if (!displayIdentityResponse.ok) throw new Error(`generation identity HTTP ${displayIdentityResponse.status}`);
+    const [catalog, generationImageMaps, logoMetrics, generationSupplements, generationDisplayIdentities] = await Promise.all([
       catalogResponse.json(),
       Promise.all(imageResponses.map((response) => response.json())),
       logoMetricsResponse.json(),
       supplementResponse.json(),
+      displayIdentityResponse.json(),
     ]);
     validateCatalog(catalog);
     validateGenerationSupplements(catalog, generationSupplements);
+    validateGenerationDisplayIdentities(catalog, generationDisplayIdentities);
     state.catalog = catalog;
     state.generationImages = Object.assign({}, ...generationImageMaps);
     state.generationSupplements = generationSupplements.models || {};
+    state.generationDisplayIdentities = generationDisplayIdentities.models || {};
     state.logoMetrics = logoMetrics;
     state.makers = visible(catalog.manufacturers);
     state.status = "ready";
