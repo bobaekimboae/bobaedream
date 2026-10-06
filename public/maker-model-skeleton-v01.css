@@ -209,7 +209,7 @@ html.is-bike-catalog .bike-model-row::after { background: #dedee3; }
 html.is-bike-catalog .bike-model-row .model-copy { grid-column: 3; }
 html.is-bike-catalog .bike-model-row .chevron { grid-column: 4; width: 16px; height: 16px; opacity: .46; }
 html.is-bike-catalog .bike-image { width: 84px; height: 56px; display: grid; place-items: center; }
-html.is-bike-catalog .generated-bike-image { width: 76px; height: 48px; display: block; object-fit: contain; object-position: center; }
+html.is-bike-catalog .generated-bike-image { width: 68px; height: 44px; display: block; object-fit: contain; object-position: center; }
 html.is-bike-catalog .bike-placeholder-icon {
   width: 67px;
   height: 42px;
