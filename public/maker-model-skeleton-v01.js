@@ -10,7 +10,10 @@ const GENERATION_IMAGE_MAP_URLS = [
   "./data/encar-car-depth-1005/generation-images/porsche.json",
 ];
 const GENERATION_SUPPLEMENT_URL = "./data/encar-car-depth-1005/generation-supplements/mercedes-benz.json";
-const GENERATION_DISPLAY_IDENTITY_URL = "./data/encar-car-depth-1005/generation-display-identities/mercedes-benz.json";
+const GENERATION_DISPLAY_IDENTITY_URLS = [
+  "./data/encar-car-depth-1005/generation-display-identities/mercedes-benz.json",
+  "./data/encar-car-depth-1005/generation-display-identities/bmw.json",
+];
 const PAGE_DIRECTORY = window.location.pathname.slice(0, window.location.pathname.lastIndexOf("/") + 1);
 const GENERATION_IMAGE_BASE = `${PAGE_DIRECTORY}assets/maker-model/generations/`;
 const MAKER_LOGO_BASE = "/assets/maker-model/logos/encar-1005-trim/";
@@ -830,33 +833,34 @@ async function loadCatalog() {
       render();
       return;
     }
-    const [catalogResponse, imageResponses, logoMetricsResponse, supplementResponse, displayIdentityResponse] = await Promise.all([
+    const [catalogResponse, imageResponses, logoMetricsResponse, supplementResponse, displayIdentityResponses] = await Promise.all([
       fetch(CATALOG_URL, { cache: "no-store" }),
       Promise.all(GENERATION_IMAGE_MAP_URLS.map((url) => fetch(url, { cache: "no-store" }))),
       fetch(MAKER_LOGO_METRICS_URL, { cache: "no-store" }),
       fetch(GENERATION_SUPPLEMENT_URL, { cache: "no-store" }),
-      fetch(GENERATION_DISPLAY_IDENTITY_URL, { cache: "no-store" }),
+      Promise.all(GENERATION_DISPLAY_IDENTITY_URLS.map((url) => fetch(url, { cache: "no-store" }))),
     ]);
     if (!catalogResponse.ok) throw new Error(`catalog.json HTTP ${catalogResponse.status}`);
     const failedImageResponse = imageResponses.find((response) => !response.ok);
     if (failedImageResponse) throw new Error(`generation image map HTTP ${failedImageResponse.status}`);
     if (!logoMetricsResponse.ok) throw new Error(`logo-display-v4.json HTTP ${logoMetricsResponse.status}`);
     if (!supplementResponse.ok) throw new Error(`generation supplement HTTP ${supplementResponse.status}`);
-    if (!displayIdentityResponse.ok) throw new Error(`generation identity HTTP ${displayIdentityResponse.status}`);
-    const [catalog, generationImageMaps, logoMetrics, generationSupplements, generationDisplayIdentities] = await Promise.all([
+    const failedDisplayIdentityResponse = displayIdentityResponses.find((response) => !response.ok);
+    if (failedDisplayIdentityResponse) throw new Error(`generation identity HTTP ${failedDisplayIdentityResponse.status}`);
+    const [catalog, generationImageMaps, logoMetrics, generationSupplements, generationDisplayIdentityMaps] = await Promise.all([
       catalogResponse.json(),
       Promise.all(imageResponses.map((response) => response.json())),
       logoMetricsResponse.json(),
       supplementResponse.json(),
-      displayIdentityResponse.json(),
+      Promise.all(displayIdentityResponses.map((response) => response.json())),
     ]);
     validateCatalog(catalog);
     validateGenerationSupplements(catalog, generationSupplements);
-    validateGenerationDisplayIdentities(catalog, generationDisplayIdentities);
+    generationDisplayIdentityMaps.forEach((identities) => validateGenerationDisplayIdentities(catalog, identities));
     state.catalog = catalog;
     state.generationImages = Object.assign({}, ...generationImageMaps);
     state.generationSupplements = generationSupplements.models || {};
-    state.generationDisplayIdentities = generationDisplayIdentities.models || {};
+    state.generationDisplayIdentities = Object.assign({}, ...generationDisplayIdentityMaps.map((identities) => identities.models || {}));
     state.logoMetrics = logoMetrics;
     state.makers = visible(catalog.manufacturers);
     state.status = "ready";
