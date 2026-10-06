@@ -21,6 +21,20 @@ const BIKE_GROUP_IMAGES = {
   "BKM001-G005": "honda/BKM001-G005-autoscout-neutral-v06.png",
   "BKM005-G001": "harley-davidson/BKM005-G001-autoscout-neutral-v06.png",
 };
+const BIKE_GENRE_IMAGES = {
+  "스쿠터": "honda/BKM001-G001-autoscout-neutral-v06.png",
+  "네이키드": "honda/BKM001-G004-autoscout-neutral-v06.png",
+  "스포츠": "honda/BKM001-G003-autoscout-neutral-v06.png",
+  "크루저": "harley-davidson/BKM005-G001-autoscout-neutral-v06.png",
+  "투어러": "genre/tourer-autoscout-neutral-v01.png",
+  "멀티퍼퍼스": "genre/multipurpose-autoscout-neutral-v01.png",
+  "클래식": "genre/classic-autoscout-neutral-v01.png",
+  "오프로드": "genre/offroad-autoscout-neutral-v01.png",
+  "언더본·비즈니스": "honda/BKM001-G002-autoscout-neutral-v06.png",
+  "삼륜": "genre/trike-autoscout-neutral-v01.png",
+  "ATV": "genre/atv-autoscout-neutral-v01.png",
+  "기타": "honda/BKM001-G004-autoscout-neutral-v06.png",
+};
 
 const BODY_TYPES = [
   { value: "세단", label: "세단" },
@@ -275,7 +289,8 @@ function bikePlaceholder() {
 }
 
 function bikeGroupImage(item) {
-  const fileName = BIKE_GROUP_IMAGES[item.key];
+  const primaryGenre = item.genres?.[0] || item.genre || "기타";
+  const fileName = BIKE_GROUP_IMAGES[item.key] || BIKE_GENRE_IMAGES[primaryGenre] || BIKE_GENRE_IMAGES["기타"];
   return `<span class="vehicle-silhouette bike-image${fileName ? " has-generated-image" : " is-placeholder"}" aria-hidden="true">${fileName ? `<img class="generated-bike-image" src="${BIKE_MODEL_IMAGE_BASE}${escapeHtml(fileName)}" alt="" />` : bikePlaceholder()}</span>`;
 }
 
