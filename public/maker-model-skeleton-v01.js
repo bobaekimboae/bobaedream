@@ -337,8 +337,7 @@ function renderBikeChildren() {
 
 function modelRow(model) {
   const generations = visible(model.generations);
-  const latestCode = generations.length ? generationCode(generations[0]) : "";
-  const generationMeta = `세대 ${generations.length}개${latestCode ? ` · 최신 코드 ${latestCode}` : ""}`;
+  const generationMeta = `세대 ${generations.length}개`;
   return `<li><button class="option-row model-row" type="button" data-select-model="${escapeHtml(model.key)}">${modelSilhouette(model)}<span class="model-copy"><strong>${escapeHtml(model.displayName)}</strong><small>${escapeHtml(generationMeta)}</small></span><span class="option-count">${formatCount(model.listingCount)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
 }
 
@@ -380,12 +379,12 @@ function renderModel() {
 function formatYm(value) {
   if (!value) return "미확인";
   const digits = String(value).replace(/\D/g, "");
-  return digits.length >= 6 ? `${digits.slice(2, 4)}년${digits.slice(4, 6)}월` : String(value);
+  return digits.length >= 6 ? `${digits.slice(2, 4)}.${digits.slice(4, 6)}` : String(value);
 }
 
 function generationPeriod(generation) {
   const end = generation.salesStatus === "판매중" ? "현재" : generation.endYm ? formatYm(generation.endYm) : "미확인";
-  return `${formatYm(generation.releaseYm)}~${end}`;
+  return `${formatYm(generation.releaseYm)} ~ ${end}`;
 }
 
 const GENERATION_CODE_OVERRIDES = {
@@ -416,7 +415,7 @@ function generationCode(generation) {
 
 function generationRow(generation) {
   const code = generationCode(generation);
-  const meta = `${code ? `코드 ${code} · ` : ""}출시 ${generationPeriod(generation)}`;
+  const meta = `${code ? `${code} · ` : ""}${generationPeriod(generation)}`;
   return `<li><button class="option-row generation-row" type="button" data-select-generation="${escapeHtml(generation.key)}">${generationSilhouette(generation, state.model)}<span class="generation-copy"><strong>${escapeHtml(generation.displayName)}</strong><span>${escapeHtml(meta)}</span></span><span class="option-count">${formatCount(generation.listingCount)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
 }
 
