@@ -7,6 +7,7 @@ const GENERATION_IMAGE_MAP_URLS = [
   "./data/encar-car-depth-1005/generation-images/bmw.json",
   "./data/encar-car-depth-1005/generation-images/ferrari.json",
   "./data/encar-car-depth-1005/generation-images/lamborghini.json",
+  "./data/encar-car-depth-1005/generation-images/porsche.json",
 ];
 const GENERATION_IMAGE_BASE = "/assets/maker-model/generations/";
 const MAKER_LOGO_BASE = "/assets/maker-model/logos/encar-1005-trim/";
@@ -334,7 +335,10 @@ function renderBikeChildren() {
 }
 
 function modelRow(model) {
-  return `<li><button class="option-row model-row" type="button" data-select-model="${escapeHtml(model.key)}">${modelSilhouette(model)}<span class="model-copy"><strong>${escapeHtml(model.displayName)}</strong></span><span class="option-count">${formatCount(model.listingCount)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
+  const generations = visible(model.generations);
+  const latestCode = generations.length ? generationCode(generations[0]) : "";
+  const generationMeta = `세대 ${generations.length}개${latestCode ? ` · 최신 코드 ${latestCode}` : ""}`;
+  return `<li><button class="option-row model-row" type="button" data-select-model="${escapeHtml(model.key)}">${modelSilhouette(model)}<span class="model-copy"><strong>${escapeHtml(model.displayName)}</strong><small>${escapeHtml(generationMeta)}</small></span><span class="option-count">${formatCount(model.listingCount)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
 }
 
 function bodyTypeRail(models) {
@@ -383,8 +387,36 @@ function generationPeriod(generation) {
   return `${formatYm(generation.releaseYm)}~${end}`;
 }
 
+const GENERATION_CODE_OVERRIDES = {
+  model_car_encar_generation_a8ff5d9c6d414888d47f: "982",
+  model_car_encar_generation_2cd2e97f4187119d009b: "982",
+  model_car_encar_generation_e06148ca53c12585c342: "992",
+  model_car_encar_generation_64608b3b87eecf2bf4d5: "964·993·996·997·991",
+  model_car_encar_generation_897e2a702c97f9278aef: "XAB",
+  model_car_encar_generation_f08ced93b3dd7ac7b4cc: "95B",
+  model_car_encar_generation_f5f6ae48977f91b0c64a: "986·987·981",
+  model_car_encar_generation_9f61cceda0eef5adceed: "987C·981C",
+  model_car_encar_generation_99aa402a2d34dd86b720: "PO536",
+  model_car_encar_generation_9c0b096872efe2d5fc15: "92A",
+  model_car_encar_generation_744d4c71eea876d289f6: "9PA",
+  model_car_encar_generation_db98505b5d1e4c8f60a9: "J1",
+  model_car_encar_generation_d10b41ee0a266be78b95: "976",
+  model_car_encar_generation_895506cf210a1902e864: "971",
+  model_car_encar_generation_0630bdb80d3e4271ce9f: "970",
+};
+
+function generationCode(generation) {
+  if (!generation) return "";
+  if (generation.generationCode) return generation.generationCode;
+  if (GENERATION_CODE_OVERRIDES[generation.key]) return GENERATION_CODE_OVERRIDES[generation.key];
+  const parenthetical = generation.displayName.match(/\(([^)]+)\)/);
+  return parenthetical ? parenthetical[1] : "";
+}
+
 function generationRow(generation) {
-  return `<li><button class="option-row generation-row" type="button" data-select-generation="${escapeHtml(generation.key)}">${generationSilhouette(generation, state.model)}<span class="generation-copy"><strong>${escapeHtml(generation.displayName)}</strong><span>${escapeHtml(generationPeriod(generation))}</span></span><span class="option-count">${formatCount(generation.listingCount)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
+  const code = generationCode(generation);
+  const meta = `${code ? `코드 ${code} · ` : ""}출시 ${generationPeriod(generation)}`;
+  return `<li><button class="option-row generation-row" type="button" data-select-generation="${escapeHtml(generation.key)}">${generationSilhouette(generation, state.model)}<span class="generation-copy"><strong>${escapeHtml(generation.displayName)}</strong><span>${escapeHtml(meta)}</span></span><span class="option-count">${formatCount(generation.listingCount)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
 }
 
 function renderGeneration() {
