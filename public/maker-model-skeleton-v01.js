@@ -1,7 +1,13 @@
 const PAGE_PARAMS = new URLSearchParams(window.location.search);
 const IS_BIKE = PAGE_PARAMS.get("catalog") === "bike" || PAGE_PARAMS.get("type") === "bike";
 const CATALOG_URL = IS_BIKE ? "./data/bike-catalog-1005/catalog.json" : "./data/encar-car-depth-1005/catalog.json";
-const GENERATION_IMAGES_URL = "./data/encar-car-depth-1005/generation-images.json";
+const GENERATION_IMAGE_MAP_URLS = [
+  "./data/encar-car-depth-1005/generation-images.json",
+  "./data/encar-car-depth-1005/generation-images/mercedes-benz.json",
+  "./data/encar-car-depth-1005/generation-images/bmw.json",
+  "./data/encar-car-depth-1005/generation-images/ferrari.json",
+  "./data/encar-car-depth-1005/generation-images/lamborghini.json",
+];
 const GENERATION_IMAGE_BASE = "/assets/maker-model/generations/";
 const MAKER_LOGO_BASE = "/assets/maker-model/logos/encar-1005-trim/";
 const MAKER_LOGO_METRICS_URL = `${MAKER_LOGO_BASE}logo-display-v4.json`;
@@ -682,18 +688,23 @@ async function loadCatalog() {
       render();
       return;
     }
-    const [catalogResponse, imageResponse, logoMetricsResponse] = await Promise.all([
+    const [catalogResponse, imageResponses, logoMetricsResponse] = await Promise.all([
       fetch(CATALOG_URL, { cache: "no-store" }),
-      fetch(GENERATION_IMAGES_URL, { cache: "no-store" }),
+      Promise.all(GENERATION_IMAGE_MAP_URLS.map((url) => fetch(url, { cache: "no-store" }))),
       fetch(MAKER_LOGO_METRICS_URL, { cache: "no-store" }),
     ]);
     if (!catalogResponse.ok) throw new Error(`catalog.json HTTP ${catalogResponse.status}`);
-    if (!imageResponse.ok) throw new Error(`generation-images.json HTTP ${imageResponse.status}`);
+    const failedImageResponse = imageResponses.find((response) => !response.ok);
+    if (failedImageResponse) throw new Error(`generation image map HTTP ${failedImageResponse.status}`);
     if (!logoMetricsResponse.ok) throw new Error(`logo-display-v4.json HTTP ${logoMetricsResponse.status}`);
-    const [catalog, generationImages, logoMetrics] = await Promise.all([catalogResponse.json(), imageResponse.json(), logoMetricsResponse.json()]);
+    const [catalog, generationImageMaps, logoMetrics] = await Promise.all([
+      catalogResponse.json(),
+      Promise.all(imageResponses.map((response) => response.json())),
+      logoMetricsResponse.json(),
+    ]);
     validateCatalog(catalog);
     state.catalog = catalog;
-    state.generationImages = generationImages;
+    state.generationImages = Object.assign({}, ...generationImageMaps);
     state.logoMetrics = logoMetrics;
     state.makers = visible(catalog.manufacturers);
     state.status = "ready";
