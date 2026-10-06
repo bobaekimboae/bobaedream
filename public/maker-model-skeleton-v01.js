@@ -9,6 +9,7 @@ const GENERATION_IMAGE_MAP_URLS = [
   "./data/encar-car-depth-1005/generation-images/lamborghini.json",
   "./data/encar-car-depth-1005/generation-images/porsche.json",
 ];
+const GENERATION_SUPPLEMENT_URL = "./data/encar-car-depth-1005/generation-supplements/mercedes-benz.json";
 const PAGE_DIRECTORY = window.location.pathname.slice(0, window.location.pathname.lastIndexOf("/") + 1);
 const GENERATION_IMAGE_BASE = `${PAGE_DIRECTORY}assets/maker-model/generations/`;
 const MAKER_LOGO_BASE = "/assets/maker-model/logos/encar-1005-trim/";
@@ -92,7 +93,7 @@ const state = {
   screen: 1, catalog: null, makers: [], maker: null, model: null, generation: null,
   bikeGroup: null, bikeModel: null, bikeGenre: null,
   logoMetrics: {},
-  generationImages: {}, selectedFuelDrives: new Map(), selectedGrades: new Map(), selectedLeaves: new Map(),
+  generationImages: {}, generationSupplements: {}, selectedFuelDrives: new Map(), selectedGrades: new Map(), selectedLeaves: new Map(),
   modelTab: "all", query: "", status: "loading", error: "",
 };
 
@@ -142,6 +143,21 @@ function validateCatalog(catalog) {
   const meta = catalog.meta?.counts || {};
   const mismatch = Object.keys(EXPECTED_COUNTS).filter((key) => actual[key] !== EXPECTED_COUNTS[key] || meta[key] !== EXPECTED_COUNTS[key]);
   if (mismatch.length) throw new Error(`DB 건수 불일치: ${mismatch.map((key) => `${key} ${actual[key]}/${meta[key]}/${EXPECTED_COUNTS[key]}`).join(", ")}`);
+}
+
+function validateGenerationSupplements(catalog, supplements) {
+  const maker = catalog.manufacturers.find((item) => item.key === supplements.makerKey);
+  if (!maker) throw new Error(`세대 보강 제조사 불일치: ${supplements.makerKey}`);
+  const modelKeys = new Set(maker.modelGroups.map((model) => model.key));
+  const generationKeys = new Set();
+  Object.entries(supplements.models || {}).forEach(([modelKey, model]) => {
+    if (!modelKeys.has(modelKey)) throw new Error(`세대 보강 모델 불일치: ${modelKey}`);
+    (model.generations || []).forEach((generation) => {
+      if (generationKeys.has(generation.key)) throw new Error(`세대 보강 키 중복: ${generation.key}`);
+      if (!generation.generationCode || !generation.releaseYear || !Array.isArray(generation.sources) || generation.sources.length < 2) throw new Error(`세대 보강 근거 부족: ${generation.key}`);
+      generationKeys.add(generation.key);
+    });
+  });
 }
 
 function validateBikeCatalog(catalog) {
@@ -337,7 +353,12 @@ function renderBikeChildren() {
 
 function modelRow(model) {
   const generations = visible(model.generations);
-  const generationMeta = `세대 ${generations.length}개`;
+  const referenceGenerations = supplementalGenerations(model);
+  const generationCodes = new Set([
+    ...generations.map((generation) => generationCode(generation) || generation.displayName.match(/\b[A-Z]\d{2,3}[a-z]?\b/i)?.[0]).filter(Boolean),
+    ...referenceGenerations.map((generation) => generation.generationCode).filter(Boolean),
+  ]);
+  const generationMeta = `세대 ${referenceGenerations.length ? generationCodes.size : generations.length}개`;
   return `<li><button class="option-row model-row" type="button" data-select-model="${escapeHtml(model.key)}">${modelSilhouette(model)}<span class="model-copy"><strong>${escapeHtml(model.displayName)}</strong></span><span class="model-stats"><span class="option-count">${formatCount(model.listingCount)}</span><small>${escapeHtml(generationMeta)}</small></span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
 }
 
@@ -360,7 +381,7 @@ function renderModel() {
   const allModels = visible(state.maker.modelGroups);
   const query = state.query.trim().toLocaleLowerCase("ko-KR");
   const filtered = allModels
-    .filter((model) => `${model.displayName} ${model.englishName || ""} ${model.generations.map((generation) => `${generation.displayName} ${generation.generationCode || ""}`).join(" ")}`.toLocaleLowerCase("ko-KR").includes(query))
+    .filter((model) => `${model.displayName} ${model.englishName || ""} ${model.generations.map((generation) => `${generation.displayName} ${generation.generationCode || ""}`).join(" ")} ${supplementalGenerations(model).map((generation) => `${generation.displayName} ${generation.generationCode || ""}`).join(" ")}`.toLocaleLowerCase("ko-KR").includes(query))
     .sort((a, b) => a.displayName.localeCompare(b.displayName, "ko-KR", { numeric: true, sensitivity: "base" }));
   const popularModels = [...allModels].sort((a, b) => b.listingCount - a.listingCount).slice(0, 5);
   const popular = popularModels.map(modelRow).join("");
@@ -385,6 +406,14 @@ function formatYm(value) {
 function generationPeriod(generation) {
   const end = generation.salesStatus === "판매중" ? "현재" : generation.endYm ? formatYm(generation.endYm) : "미확인";
   return `${formatYm(generation.releaseYm)} ~ ${end}`;
+}
+
+function supplementalGenerations(model) {
+  return [...(state.generationSupplements[model?.key]?.generations || [])].sort((a, b) => (a.sortOrder ?? 9999) - (b.sortOrder ?? 9999));
+}
+
+function supplementalGenerationPeriod(generation) {
+  return `${generation.releaseYear || "미확인"} ~ ${generation.endYear || "현재"}`;
 }
 
 const GENERATION_CODE_OVERRIDES = {
@@ -450,11 +479,19 @@ function generationRow(generation) {
   return `<li><button class="option-row generation-row" type="button" data-select-generation="${escapeHtml(generation.key)}">${generationSilhouette(generation, state.model)}<span class="generation-copy"><strong>${escapeHtml(generation.displayName)}</strong>${identityLine}<span class="generation-period">${escapeHtml(generationPeriod(generation))}</span></span><span class="option-count">${formatCount(generation.listingCount)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
 }
 
+function supplementalGenerationRow(generation) {
+  const identity = [generation.generationNumber ? `${generation.generationNumber}세대` : "", generation.generationCode || ""].filter(Boolean).join(" · ");
+  return `<li><div class="option-row generation-row supplemental-generation-row" aria-label="${escapeHtml(generation.displayName)} 세대 정보, 매물 연동 전">${generationSilhouette(generation, state.model)}<span class="generation-copy"><strong>${escapeHtml(generation.displayName)}</strong>${identity ? `<span class="generation-identity">${escapeHtml(identity)}</span>` : ""}<span class="generation-period">${escapeHtml(supplementalGenerationPeriod(generation))}</span></span><span class="supplemental-status">매물 연동 전</span></div></li>`;
+}
+
 function renderGeneration() {
   if (IS_BIKE) return renderBikeChildren();
   if (!state.model) return '<p class="empty-copy">모델을 먼저 선택해 주세요.</p>';
   const generations = visible(state.model.generations);
-  return `${renderSelectionSummary()}<h3 class="section-title">세대 · 최신순</h3><ul class="generation-list">${generations.map(generationRow).join("")}</ul>`;
+  const supplements = supplementalGenerations(state.model);
+  const referenceSection = supplements.length ? `<h3 class="section-title">세대 정보 · 유럽 카탈로그</h3><p class="supplemental-note">AutoScout24 · mobile.de · ADAC 교차 확인 · 매물 DB 연결 전</p><ul class="generation-list supplemental-generation-list">${supplements.map(supplementalGenerationRow).join("")}</ul>` : "";
+  const encarTitle = supplements.length ? "엔카 매물 세대" : "세대 · 최신순";
+  return `${renderSelectionSummary()}${referenceSection}<h3 class="section-title${supplements.length ? " with-rule" : ""}">${encarTitle}</h3><ul class="generation-list">${generations.map(generationRow).join("")}</ul>`;
 }
 
 function leafNodesForGrade(grade, fuelDrive) {
@@ -627,7 +664,18 @@ function render() {
   bindSearch();
 }
 
-function setScreen(screen) { state.screen = Math.min(IS_BIKE ? 3 : 4, Math.max(0, Number(screen))); state.query = ""; render(); body.scrollTop = 0; }
+function setScreen(screen) {
+  state.screen = Math.min(IS_BIKE ? 3 : 4, Math.max(0, Number(screen)));
+  state.query = "";
+  render();
+  const previousScrollBehavior = body.style.scrollBehavior;
+  body.style.scrollBehavior = "auto";
+  body.scrollTop = 0;
+  requestAnimationFrame(() => {
+    body.scrollTop = 0;
+    body.style.scrollBehavior = previousScrollBehavior;
+  });
+}
 
 function findCheckLeaves(kind, key) {
   if (!state.generation || state.generation.key === "all") return [];
@@ -751,23 +799,28 @@ async function loadCatalog() {
       render();
       return;
     }
-    const [catalogResponse, imageResponses, logoMetricsResponse] = await Promise.all([
+    const [catalogResponse, imageResponses, logoMetricsResponse, supplementResponse] = await Promise.all([
       fetch(CATALOG_URL, { cache: "no-store" }),
       Promise.all(GENERATION_IMAGE_MAP_URLS.map((url) => fetch(url, { cache: "no-store" }))),
       fetch(MAKER_LOGO_METRICS_URL, { cache: "no-store" }),
+      fetch(GENERATION_SUPPLEMENT_URL, { cache: "no-store" }),
     ]);
     if (!catalogResponse.ok) throw new Error(`catalog.json HTTP ${catalogResponse.status}`);
     const failedImageResponse = imageResponses.find((response) => !response.ok);
     if (failedImageResponse) throw new Error(`generation image map HTTP ${failedImageResponse.status}`);
     if (!logoMetricsResponse.ok) throw new Error(`logo-display-v4.json HTTP ${logoMetricsResponse.status}`);
-    const [catalog, generationImageMaps, logoMetrics] = await Promise.all([
+    if (!supplementResponse.ok) throw new Error(`generation supplement HTTP ${supplementResponse.status}`);
+    const [catalog, generationImageMaps, logoMetrics, generationSupplements] = await Promise.all([
       catalogResponse.json(),
       Promise.all(imageResponses.map((response) => response.json())),
       logoMetricsResponse.json(),
+      supplementResponse.json(),
     ]);
     validateCatalog(catalog);
+    validateGenerationSupplements(catalog, generationSupplements);
     state.catalog = catalog;
     state.generationImages = Object.assign({}, ...generationImageMaps);
+    state.generationSupplements = generationSupplements.models || {};
     state.logoMetrics = logoMetrics;
     state.makers = visible(catalog.manufacturers);
     state.status = "ready";

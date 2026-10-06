@@ -59,7 +59,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .icon-button img, .icon-button svg { width: 24px; height: 24px; }
 #back-button { justify-self: center; }
 #back-button img { width: 18px; height: 18px; }
-.sheet-body { min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding-bottom: 12px; scrollbar-width: thin; }
+.sheet-body { min-height: 0; overflow-y: auto; overflow-anchor: none; overscroll-behavior: contain; padding-bottom: 12px; scrollbar-width: thin; }
 .search-wrap { position: sticky; top: 0; z-index: 2; padding: 10px 16px 8px; background: rgba(255,255,255,.96); }
 .search-field { position: relative; }
 .search-field img { position: absolute; left: 14px; top: 50%; width: 20px; height: 20px; transform: translateY(-50%); }
@@ -128,6 +128,10 @@ button { -webkit-tap-highlight-color: transparent; }
   align-self: start;
   margin-top: 11px;
 }
+.supplemental-note { margin: -2px 16px 8px; color: #8b9098; font-size: 12px; line-height: 18px; font-weight: 400; }
+.supplemental-generation-row { cursor: default; }
+.supplemental-generation-row .vehicle-image { color: #d5dae1; }
+.supplemental-status { grid-column: 4 / 6; justify-self: end; color: #8b9098; font-size: 12px; line-height: 16px; font-weight: 400; white-space: nowrap; }
 .vehicle-image { object-fit: contain; object-position: center bottom; transform: scaleX(-1); }
 .vehicle-silhouette { display: grid; place-items: center; overflow: hidden; color: #c8ccd1; }
 .vehicle-silhouette.vehicle-image { transform: none; }
