@@ -1,10 +1,26 @@
-const CATALOG_URL = "./data/encar-car-depth-1005/catalog.json";
+const PAGE_PARAMS = new URLSearchParams(window.location.search);
+const IS_BIKE = PAGE_PARAMS.get("catalog") === "bike" || PAGE_PARAMS.get("type") === "bike";
+const CATALOG_URL = IS_BIKE ? "./data/bike-catalog-1005/catalog.json" : "./data/encar-car-depth-1005/catalog.json";
 const GENERATION_IMAGES_URL = "./data/encar-car-depth-1005/generation-images.json";
 const GENERATION_IMAGE_BASE = "/assets/maker-model/generations/";
 const MAKER_LOGO_BASE = "/assets/maker-model/logos/encar-1005-trim/";
 const MAKER_LOGO_METRICS_URL = `${MAKER_LOGO_BASE}logo-display-v4.json`;
+const BIKE_LOGO_BASE = "/assets/bike/logos/autohome-trim/";
+const BIKE_LOGO_METRICS_URL = `${BIKE_LOGO_BASE}logo-display-bike.json`;
+const BIKE_MODEL_IMAGE_BASE = "/assets/bike/models/";
 const EXPECTED_COUNTS = { manufacturers: 63, modelGroups: 663, generations: 1256, fuelDrives: 2158, grades: 5976, subgrades: 3297 };
+const EXPECTED_BIKE_COUNTS = { makers: 86, visibleMakers: 65, hiddenMakers: 21, modelGroups: 920, models: 2910 };
 const IMPORT_POPULAR_ORDER = ["BMW", "벤츠", "아우디", "포르쉐", "미니", "랜드로버"];
+
+const BIKE_GENRES = ["스쿠터", "네이키드", "스포츠", "크루저", "투어러", "멀티퍼퍼스", "클래식", "오프로드", "언더본·비즈니스", "삼륜", "ATV", "기타"];
+const BIKE_GROUP_IMAGES = {
+  "BKM001-G001": "honda/BKM001-G001-white-v02.png",
+  "BKM001-G002": "honda/BKM001-G002-white-v02.png",
+  "BKM001-G003": "honda/BKM001-G003-white-v02.png",
+  "BKM001-G004": "honda/BKM001-G004-white-v02.png",
+  "BKM001-G005": "honda/BKM001-G005-white-v02.png",
+  "BKM005-G001": "harley-davidson/BKM005-G001.png",
+};
 
 const BODY_TYPES = [
   { value: "세단", label: "세단" },
@@ -52,10 +68,26 @@ const ENCAR_LOGO_FILES = {
 
 const state = {
   screen: 1, catalog: null, makers: [], maker: null, model: null, generation: null,
+  bikeGroup: null, bikeModel: null, bikeGenre: null,
   logoMetrics: {},
   generationImages: {}, selectedFuelDrives: new Map(), selectedGrades: new Map(), selectedLeaves: new Map(),
   modelTab: "all", query: "", status: "loading", error: "",
 };
+
+document.documentElement.classList.toggle("is-bike-catalog", IS_BIKE);
+document.title = IS_BIKE ? "보배드림 바이크 제조사·모델 선택" : document.title;
+if (IS_BIKE) {
+  document.querySelector(".eyebrow").textContent = "보배드림 바이크 검색";
+  document.querySelector("#brief-title").textContent = "바이크 제조사·모델 선택";
+  document.querySelector(".brief-copy").textContent = "제조사부터 모델그룹·모델까지 같은 바텀시트 안에서 빠르게 선택합니다.";
+  const screenButtons = document.querySelectorAll("#screen-controls button");
+  if (screenButtons[2]) screenButtons[2].textContent = "2 모델그룹";
+  if (screenButtons[3]) screenButtons[3].textContent = "3 모델";
+  const tokenValues = document.querySelectorAll(".token-table dd");
+  if (tokenValues[1]) tokenValues[1].textContent = "84×56 이미지 · 간격 16 · 행 72";
+  if (tokenValues[2]) tokenValues[2].textContent = "84×56 실루엣 · 간격 16 · 행 72";
+  if (tokenValues[3]) tokenValues[3].textContent = "장르 칩 · 제조사별 가변 노출";
+}
 
 const body = document.querySelector("#sheet-body");
 const title = document.querySelector("#sheet-title");
@@ -90,7 +122,80 @@ function validateCatalog(catalog) {
   if (mismatch.length) throw new Error(`DB 건수 불일치: ${mismatch.map((key) => `${key} ${actual[key]}/${meta[key]}/${EXPECTED_COUNTS[key]}`).join(", ")}`);
 }
 
+function validateBikeCatalog(catalog) {
+  const makers = catalog.makers || [];
+  const visibleMakers = makers.filter((maker) => maker.visible);
+  const modelGroups = makers.filter((maker) => maker.uses_groups).reduce((sum, maker) => sum + maker.groups.length, 0);
+  const models = makers.reduce((sum, maker) => sum + maker.groups.reduce((groupSum, group) => groupSum + group.models.length, 0), 0);
+  const actual = { makers: makers.length, visibleMakers: visibleMakers.length, hiddenMakers: makers.length - visibleMakers.length, modelGroups, models };
+  const mismatch = Object.keys(EXPECTED_BIKE_COUNTS).filter((key) => actual[key] !== EXPECTED_BIKE_COUNTS[key]);
+  if (mismatch.length) throw new Error(`DB 건수 불일치: ${mismatch.map((key) => `${key} ${actual[key]}/${EXPECTED_BIKE_COUNTS[key]}`).join(", ")}`);
+}
+
+function bikeLogoFile(maker) {
+  const english = maker.name_en || "Others";
+  const slug = english.replace(/[^a-z0-9]+/gi, " ").trim().replace(/\s+/g, "_");
+  return `${maker.code}_${slug}.png`;
+}
+
+function adaptBikeCatalog(catalog) {
+  validateBikeCatalog(catalog);
+  return catalog.makers.filter((maker) => maker.visible).sort((a, b) => a.sort - b.sort).map((maker) => {
+    const groups = maker.groups.filter((group) => maker.uses_groups && !group.implicit).sort((a, b) => a.sort - b.sort).map((group) => ({
+      key: group.code,
+      displayName: group.name,
+      sortOrder: group.sort,
+      isVisible: true,
+      listingCount: null,
+      genres: [...new Set(group.models.map((model) => model.genre || "기타"))],
+      bikeModels: group.models.filter((model) => model.status !== "hidden").sort((a, b) => a.sort - b.sort).map((model) => ({
+        key: model.code,
+        displayName: model.name,
+        sortOrder: model.sort,
+        isVisible: true,
+        genre: model.genre || "기타",
+        ccBand: model.cc_band,
+        fuel: model.fuel,
+        yearMin: model.year_min,
+        yearMax: model.year_max,
+      })),
+    }));
+    const directModels = maker.groups.flatMap((group) => group.models).filter((model) => model.status !== "hidden").sort((a, b) => a.sort - b.sort).map((model) => ({
+      key: model.code,
+      displayName: model.name,
+      sortOrder: model.sort,
+      isVisible: true,
+      genre: model.genre || "기타",
+      ccBand: model.cc_band,
+      fuel: model.fuel,
+      yearMin: model.year_min,
+      yearMax: model.year_max,
+    }));
+    return {
+      key: maker.code,
+      code: maker.code,
+      displayName: maker.name,
+      englishName: maker.name_en,
+      isVisible: true,
+      sortOrder: maker.sort,
+      listingCount: maker.listing_count_test,
+      popular: maker.popular,
+      usesGroups: maker.uses_groups,
+      modelGroups: groups,
+      bikeModels: directModels,
+      logoFile: bikeLogoFile(maker),
+    };
+  });
+}
+
 function makerLogo(maker) {
+  if (IS_BIKE) {
+    const fileName = maker.logoFile;
+    const metric = state.logoMetrics[fileName];
+    if (!metric) return `<span class="maker-logo maker-logo-fallback" aria-hidden="true">${escapeHtml((maker.displayName || "?").slice(0, 1))}</span>`;
+    const sizeStyle = `width:${Number(metric.displayWidth)}px;height:${Number(metric.displayHeight)}px`;
+    return `<span class="maker-logo"><img class="maker-logo-image" data-logo-file="${escapeHtml(fileName)}" style="${sizeStyle}" src="${BIKE_LOGO_BASE}${escapeHtml(fileName)}" alt="" /></span>`;
+  }
   const fileName = ["Others", "etc"].includes(maker.englishName) ? "etc_maker_icon.png" : ENCAR_LOGO_FILES[maker.englishName] || "etc_maker_icon.png";
   const metric = state.logoMetrics[fileName] || { displayWidth: 26, displayHeight: 26 };
   const sizeStyle = `width:${Number(metric.displayWidth)}px;height:${Number(metric.displayHeight)}px`;
@@ -124,6 +229,11 @@ function searchField(placeholder) {
 
 function selectedPathItems() {
   const items = [];
+  if (IS_BIKE) {
+    if (state.screen >= 2 && state.maker) items.push({ key: "maker", label: state.maker.displayName, screen: 1 });
+    if (state.screen >= 3 && state.bikeGroup) items.push({ key: "bikeGroup", label: state.bikeGroup.displayName, screen: 2 });
+    return items;
+  }
   if (state.screen >= 2 && state.maker) items.push({ key: "maker", label: state.maker.displayName, screen: 1 });
   if (state.screen >= 3 && state.model) items.push({ key: "model", label: state.model.displayName, screen: 2 });
   if (state.screen >= 4 && state.generation) items.push({ key: "generation", label: state.generation.displayName, detail: generationPeriod(state.generation), screen: 3 });
@@ -144,12 +254,60 @@ function makerRow(maker) {
 function renderMaker() {
   const query = state.query.trim().toLocaleLowerCase("ko-KR");
   const filtered = state.makers.filter((maker) => `${maker.displayName} ${maker.englishName || ""}`.toLocaleLowerCase("ko-KR").includes(query));
+  if (IS_BIKE) {
+    const popular = filtered.filter((maker) => maker.popular).slice(0, 10);
+    const otherMaker = filtered.filter((maker) => maker.key === "BKM086");
+    const remainder = filtered.filter((maker) => !maker.popular && maker.key !== "BKM086");
+    const groups = [["인기 제조사 10곳", popular], ["전체 제조사", remainder], ["기타", otherMaker]];
+    const content = groups.map(([group, rows], index) => rows.length ? `<h3 class="section-title maker-section-title ${index ? "with-rule" : ""}">${group}</h3><ul class="maker-list">${rows.map(makerRow).join("")}</ul>` : "").join("");
+    return `${searchField("바이크 제조사 검색")}${content || '<p class="empty-copy">검색 결과가 없습니다.</p>'}`;
+  }
   const domestic = filtered.filter((maker) => maker.origin === "국산");
   const imported = filtered.filter((maker) => maker.origin === "수입");
   const popularImported = IMPORT_POPULAR_ORDER.map((name) => imported.find((maker) => maker.displayName === name)).filter(Boolean);
   const groups = [["국산차", domestic], ["수입차 인기제조사", popularImported], ["수입차 이름순", imported]];
   const content = groups.map(([group, rows], index) => rows.length ? `<h3 class="section-title maker-section-title ${index ? "with-rule" : ""}">${group}${testBadge()}</h3><ul class="maker-list">${rows.map(makerRow).join("")}</ul>` : "").join("");
   return `${searchField("제조사 검색")}${content || '<p class="empty-copy">검색 결과가 없습니다.</p>'}`;
+}
+
+function bikePlaceholder() {
+  return `<span class="bike-placeholder-icon" aria-hidden="true"></span>`;
+}
+
+function bikeGroupImage(item) {
+  const fileName = BIKE_GROUP_IMAGES[item.key];
+  return `<span class="vehicle-silhouette bike-image${fileName ? " has-generated-image" : " is-placeholder"}" aria-hidden="true">${fileName ? `<img class="generated-bike-image" src="${BIKE_MODEL_IMAGE_BASE}${escapeHtml(fileName)}" alt="" />` : bikePlaceholder()}</span>`;
+}
+
+function bikeRow(item, isGroup) {
+  const dataName = isGroup ? "data-select-bike-group" : "data-select-bike-model";
+  const meta = !isGroup && [item.ccBand, item.fuel].filter(Boolean).join(" · ");
+  return `<li><button class="option-row model-row bike-model-row" type="button" ${dataName}="${escapeHtml(item.key)}">${bikeGroupImage(item)}<span class="model-copy"><strong>${escapeHtml(item.displayName)}</strong>${meta ? `<small>${escapeHtml(meta)}</small>` : ""}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
+}
+
+function bikeGenreRail(items, isGroup) {
+  const available = BIKE_GENRES.filter((genre) => items.some((item) => isGroup ? item.genres.includes(genre) : item.genre === genre));
+  if (!available.length) return "";
+  if (state.bikeGenre && !available.includes(state.bikeGenre)) state.bikeGenre = null;
+  return `<div class="body-type-rail bike-genre-rail" aria-label="바이크 장르 선택">${available.map((genre) => `<button type="button" data-bike-genre="${escapeHtml(genre)}" aria-pressed="${state.bikeGenre === genre}"><span>${escapeHtml(genre)}</span></button>`).join("")}</div>`;
+}
+
+function renderBikeModel() {
+  if (!state.maker) return '<p class="empty-copy">제조사를 먼저 선택해 주세요.</p>';
+  const isGroup = state.maker.usesGroups;
+  const source = isGroup ? state.maker.modelGroups : state.maker.bikeModels;
+  const query = state.query.trim().toLocaleLowerCase("ko-KR");
+  const filtered = source.filter((item) => item.displayName.toLocaleLowerCase("ko-KR").includes(query));
+  const genreFiltered = state.bikeGenre ? filtered.filter((item) => isGroup ? item.genres.includes(state.bikeGenre) : item.genre === state.bikeGenre) : filtered;
+  const rows = genreFiltered.map((item) => bikeRow(item, isGroup)).join("");
+  return `${renderSelectionSummary()}${searchField(isGroup ? "모델그룹 검색" : "모델 검색")}${bikeGenreRail(source, isGroup)}<ul class="model-list bike-model-list">${rows}</ul>${rows ? "" : '<p class="empty-copy">검색 결과가 없습니다.</p>'}`;
+}
+
+function renderBikeChildren() {
+  if (!state.bikeGroup) return '<p class="empty-copy">모델그룹을 먼저 선택해 주세요.</p>';
+  const query = state.query.trim().toLocaleLowerCase("ko-KR");
+  const models = state.bikeGroup.bikeModels.filter((item) => item.displayName.toLocaleLowerCase("ko-KR").includes(query));
+  return `${renderSelectionSummary()}${searchField("모델 검색")}<ul class="model-list bike-model-list">${models.map((model) => bikeRow(model, false)).join("")}</ul>`;
 }
 
 function modelRow(model) {
@@ -170,6 +328,7 @@ function bodyTypeGroupTitle(label) {
 }
 
 function renderModel() {
+  if (IS_BIKE) return renderBikeModel();
   if (!state.maker) return '<p class="empty-copy">제조사를 먼저 선택해 주세요.</p>';
   const allModels = visible(state.maker.modelGroups);
   const query = state.query.trim().toLocaleLowerCase("ko-KR");
@@ -206,6 +365,7 @@ function generationRow(generation) {
 }
 
 function renderGeneration() {
+  if (IS_BIKE) return renderBikeChildren();
   if (!state.model) return '<p class="empty-copy">모델을 먼저 선택해 주세요.</p>';
   const generations = visible(state.model.generations);
   return `${renderSelectionSummary()}<h3 class="section-title">세대 · 최신순</h3><ul class="generation-list">${generations.map(generationRow).join("")}</ul>`;
@@ -279,6 +439,14 @@ function renderGrade() {
 }
 
 function renderOverview() {
+  if (IS_BIKE) {
+    const rows = [
+      { label: "제조사", value: state.maker?.displayName || "선택", screen: 1, clearDepth: state.maker ? "maker" : "" },
+      { label: "모델그룹", value: state.bikeGroup?.displayName || (state.maker?.usesGroups === false ? "해당 없음" : "선택"), screen: 2, clearDepth: state.bikeGroup ? "bikeGroup" : "" },
+      { label: "모델", value: state.bikeModel?.displayName || "선택", screen: state.maker?.usesGroups ? 3 : 2, clearDepth: state.bikeModel ? "bikeModel" : "" },
+    ];
+    return `<div class="filter-overview">${rows.map((row) => `<div class="filter-row"><strong>${escapeHtml(row.label)}</strong><div class="filter-value-group"><button class="filter-value-button" type="button" data-screen-target="${row.screen}"><span class="filter-value">${escapeHtml(row.value)}</span></button>${row.clearDepth ? `<button class="filter-clear" type="button" data-clear-depth="${row.clearDepth}" aria-label="${escapeHtml(row.value)} 선택 해제">${icon("/assets/maker-model/icons/chotot-close.svg")}</button>` : ""}</div><button class="filter-nav" type="button" data-screen-target="${row.screen}" aria-label="${escapeHtml(row.label)} 다시 선택">${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></div>`).join("")}</div>`;
+  }
   const selectedGrades = selectedResultItems();
   const rows = [
     { label: "제조사", value: state.maker?.displayName || "선택", screen: 1, clearDepth: state.maker ? "maker" : "" },
@@ -330,6 +498,7 @@ function selectedResultItems() {
 }
 
 function currentListingCount() {
+  if (IS_BIKE) return state.maker?.listingCount ?? state.makers.reduce((sum, maker) => sum + Number(maker.listingCount || 0), 0);
   const selectedItems = selectedResultItems();
   if (selectedItems.length) return selectedItems.reduce((sum, item) => sum + Number(item.count || 0), 0);
   return state.generation?.listingCount ?? state.model?.listingCount ?? state.maker?.listingCount ?? state.makers.reduce((sum, maker) => sum + maker.listingCount, 0);
@@ -359,8 +528,8 @@ function bindSearch() {
 }
 
 function render() {
-  const titles = ["필터", "제조사", "모델", "세부모델", "연료·구동"];
-  title.textContent = state.screen === 4 && state.generation ? state.generation.displayName : titles[state.screen];
+  const titles = IS_BIKE ? ["필터", "제조사", "모델", "모델", ""] : ["필터", "제조사", "모델", "세부모델", "연료·구동"];
+  title.textContent = IS_BIKE && state.screen === 3 && state.bikeGroup ? state.bikeGroup.displayName : state.screen === 4 && state.generation ? state.generation.displayName : titles[state.screen];
   if (state.status === "loading") body.innerHTML = '<div class="loading-copy">제조사·모델 정보를 불러오는 중입니다.</div>';
   else if (state.status === "error") body.innerHTML = `<div class="data-error" role="alert"><strong>DB 연결을 중단했습니다.</strong><span>${escapeHtml(state.error)}</span></div>`;
   else body.innerHTML = [renderOverview, renderMaker, renderModel, renderGeneration, renderGrade][state.screen]();
@@ -372,7 +541,7 @@ function render() {
   bindSearch();
 }
 
-function setScreen(screen) { state.screen = Math.min(4, Math.max(0, Number(screen))); state.query = ""; render(); body.scrollTop = 0; }
+function setScreen(screen) { state.screen = Math.min(IS_BIKE ? 3 : 4, Math.max(0, Number(screen))); state.query = ""; render(); body.scrollTop = 0; }
 
 function findCheckLeaves(kind, key) {
   if (!state.generation || state.generation.key === "all") return [];
@@ -416,7 +585,9 @@ document.addEventListener("click", (event) => {
   const clearDepthButton = event.target.closest("[data-clear-depth]");
   if (clearDepthButton) {
     const depth = clearDepthButton.dataset.clearDepth;
-    if (depth === "maker") { state.maker = null; state.model = null; state.generation = null; state.modelTab = "all"; clearNestedSelections(); return setScreen(1); }
+    if (depth === "maker") { state.maker = null; state.model = null; state.generation = null; state.bikeGroup = null; state.bikeModel = null; state.bikeGenre = null; state.modelTab = "all"; clearNestedSelections(); return setScreen(1); }
+    if (depth === "bikeGroup") { state.bikeGroup = null; state.bikeModel = null; return setScreen(2); }
+    if (depth === "bikeModel") { state.bikeModel = null; return setScreen(state.maker?.usesGroups ? 3 : 2); }
     if (depth === "model") { state.model = null; state.generation = null; clearNestedSelections(); return setScreen(2); }
     if (depth === "generation") { state.generation = null; clearNestedSelections(); return setScreen(3); }
   }
@@ -425,7 +596,15 @@ document.addEventListener("click", (event) => {
   const screenButton = event.target.closest("[data-screen], [data-screen-target]");
   if (screenButton) return setScreen(screenButton.dataset.screen ?? screenButton.dataset.screenTarget);
   const makerButton = event.target.closest("[data-select-maker]");
-  if (makerButton) { state.maker = state.makers.find((maker) => maker.key === makerButton.dataset.selectMaker); state.model = null; state.generation = null; clearNestedSelections(); state.modelTab = "all"; return setScreen(2); }
+  if (makerButton) { state.maker = state.makers.find((maker) => maker.key === makerButton.dataset.selectMaker); state.model = null; state.generation = null; state.bikeGroup = null; state.bikeModel = null; state.bikeGenre = null; clearNestedSelections(); state.modelTab = "all"; return setScreen(2); }
+  const bikeGroupButton = event.target.closest("[data-select-bike-group]");
+  if (bikeGroupButton) { state.bikeGroup = state.maker?.modelGroups.find((group) => group.key === bikeGroupButton.dataset.selectBikeGroup); state.bikeModel = null; return setScreen(3); }
+  const bikeModelButton = event.target.closest("[data-select-bike-model]");
+  if (bikeModelButton) {
+    const source = state.bikeGroup?.bikeModels || state.maker?.bikeModels || [];
+    state.bikeModel = source.find((model) => model.key === bikeModelButton.dataset.selectBikeModel);
+    return render();
+  }
   const modelButton = event.target.closest("[data-select-model]");
   if (modelButton) { state.model = visible(state.maker?.modelGroups).find((model) => model.key === modelButton.dataset.selectModel); state.generation = null; clearNestedSelections(); return setScreen(3); }
   const generationButton = event.target.closest("[data-select-generation]");
@@ -460,15 +639,32 @@ document.addEventListener("click", (event) => {
   }
   const modelFilterButton = event.target.closest("[data-model-filter]");
   if (modelFilterButton) { state.modelTab = modelFilterButton.dataset.modelFilter; render(); body.scrollTop = 0; return; }
+  const bikeGenreButton = event.target.closest("[data-bike-genre]");
+  if (bikeGenreButton) { state.bikeGenre = state.bikeGenre === bikeGenreButton.dataset.bikeGenre ? null : bikeGenreButton.dataset.bikeGenre; render(); body.scrollTop = 0; }
 });
 
 backButton.addEventListener("click", () => setScreen(state.screen - 1));
 document.querySelector("#close-button").addEventListener("click", () => setScreen(0));
 document.querySelector("#apply-button").addEventListener("click", () => setScreen(0));
-document.querySelector("#reset-button").addEventListener("click", () => { state.maker = null; state.model = null; state.generation = null; clearNestedSelections(); state.query = ""; state.modelTab = "all"; setScreen(1); });
+document.querySelector("#reset-button").addEventListener("click", () => { state.maker = null; state.model = null; state.generation = null; state.bikeGroup = null; state.bikeModel = null; state.bikeGenre = null; clearNestedSelections(); state.query = ""; state.modelTab = "all"; setScreen(1); });
 
 async function loadCatalog() {
   try {
+    if (IS_BIKE) {
+      const [catalogResponse, logoMetricsResponse] = await Promise.all([
+        fetch(CATALOG_URL, { cache: "no-store" }),
+        fetch(BIKE_LOGO_METRICS_URL, { cache: "no-store" }),
+      ]);
+      if (!catalogResponse.ok) throw new Error(`catalog.json HTTP ${catalogResponse.status}`);
+      if (!logoMetricsResponse.ok) throw new Error(`logo-display-bike.json HTTP ${logoMetricsResponse.status}`);
+      const [catalog, logoMetrics] = await Promise.all([catalogResponse.json(), logoMetricsResponse.json()]);
+      state.catalog = catalog;
+      state.logoMetrics = logoMetrics;
+      state.makers = adaptBikeCatalog(catalog);
+      state.status = "ready";
+      render();
+      return;
+    }
     const [catalogResponse, imageResponse, logoMetricsResponse] = await Promise.all([
       fetch(CATALOG_URL, { cache: "no-store" }),
       fetch(GENERATION_IMAGES_URL, { cache: "no-store" }),

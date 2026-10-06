@@ -85,6 +85,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .maker-row::after { display: none; }
 .maker-logo { width: 38px; height: 26px; display: grid; place-items: center; overflow: visible; }
 .maker-logo-image { display: block; max-width: 38px; max-height: 26px; object-fit: contain; }
+.maker-logo-fallback { width: 28px; height: 28px; justify-self: center; border-radius: 999px; background: #eef0f3; color: #7f8791; font-size: 12px; line-height: 28px; font-weight: 700; text-align: center; }
 .maker-name { grid-column: 3; min-width: 0; overflow: hidden; color: #222; font-size: 16px; line-height: 22px; font-weight: 400; text-overflow: ellipsis; white-space: nowrap; }
 .option-count { color: #767d87; font-size: 14px; line-height: 18px; font-weight: 400; font-variant-numeric: tabular-nums; }
 .chevron { width: 24px; height: 24px; opacity: .58; }
@@ -199,6 +200,29 @@ button { -webkit-tap-highlight-color: transparent; }
 .empty-copy { padding: 48px 24px; color: #7d838d; text-align: center; font-size: 14px; line-height: 1.6; }
 .loading-copy { padding: 72px 28px; color: #6f757e; text-align: center; font-size: 14px; line-height: 1.6; }
 .data-error { display: grid; gap: 10px; margin: 24px 16px; padding: 16px; border: 1px solid #f3b6b6; border-radius: 12px; background: #fff2f2; color: #8d2525; font-size: 13px; line-height: 1.5; }
+
+html.is-bike-catalog .bike-model-row {
+  --divider-left: 100px;
+  grid-template-columns: 84px 16px minmax(0, 1fr) 16px;
+  min-height: 72px;
+}
+html.is-bike-catalog .bike-model-row::after { background: #dedee3; }
+html.is-bike-catalog .bike-model-row .model-copy { grid-column: 3; }
+html.is-bike-catalog .bike-model-row .chevron { grid-column: 4; width: 16px; height: 16px; opacity: .46; }
+html.is-bike-catalog .bike-image { width: 84px; height: 56px; display: grid; place-items: center; }
+html.is-bike-catalog .generated-bike-image { width: 84px; height: 56px; display: block; object-fit: contain; object-position: center; }
+html.is-bike-catalog .bike-placeholder-icon {
+  width: 67px;
+  height: 42px;
+  display: block;
+  background: #d5dae1;
+  -webkit-mask: url('/assets/categories/bike.svg') center / contain no-repeat;
+  mask: url('/assets/categories/bike.svg') center / contain no-repeat;
+}
+html.is-bike-catalog .bike-model-row .model-copy { display: flex; min-width: 0; flex-direction: column; justify-content: center; }
+html.is-bike-catalog .bike-model-row .model-copy strong { font-size: 16px; line-height: 22px; font-weight: 500; }
+html.is-bike-catalog .bike-model-row .model-copy small { margin-top: 4px; overflow: hidden; color: #8b95a1; font-size: 12px; line-height: 16px; font-weight: 400; text-overflow: ellipsis; white-space: nowrap; }
+html.is-bike-catalog #screen-controls [data-screen="4"] { display: none; }
 
 @media (max-width: 900px) {
   body { background: #fff; }

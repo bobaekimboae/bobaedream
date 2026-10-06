@@ -1,0 +1,332 @@
+{
+  "BKM001_Honda.png": {
+    "sourceWidth": 92,
+    "sourceHeight": 74,
+    "displayWidth": 29.0,
+    "displayHeight": 23.3
+  },
+  "BKM002_Yamaha.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 115,
+    "displayWidth": 38,
+    "displayHeight": 7.8
+  },
+  "BKM003_BMW_Motorrad.png": {
+    "sourceWidth": 100,
+    "sourceHeight": 22,
+    "displayWidth": 38,
+    "displayHeight": 8.4
+  },
+  "BKM004_Suzuki.png": {
+    "sourceWidth": 100,
+    "sourceHeight": 20,
+    "displayWidth": 38,
+    "displayHeight": 7.6
+  },
+  "BKM005_Harley_Davidson.png": {
+    "sourceWidth": 90,
+    "sourceHeight": 70,
+    "displayWidth": 29.5,
+    "displayHeight": 22.9
+  },
+  "BKM006_Kawasaki.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 89,
+    "displayWidth": 38,
+    "displayHeight": 6.0
+  },
+  "BKM007_SYM.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 249,
+    "displayWidth": 38,
+    "displayHeight": 16.9
+  },
+  "BKM008_Vespa.png": {
+    "sourceWidth": 74,
+    "sourceHeight": 25,
+    "displayWidth": 38,
+    "displayHeight": 12.8
+  },
+  "BKM009_Royal_Enfield.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 75,
+    "displayWidth": 38,
+    "displayHeight": 5.1
+  },
+  "BKM010_Ducati.png": {
+    "sourceWidth": 94,
+    "sourceHeight": 100,
+    "displayWidth": 24.4,
+    "displayHeight": 26
+  },
+  "BKM011_AJS.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 549,
+    "displayWidth": 26.3,
+    "displayHeight": 25.7
+  },
+  "BKM012_CFMOTO.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 111,
+    "displayWidth": 38,
+    "displayHeight": 7.5
+  },
+  "BKM015_KR_Motors.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 78,
+    "displayWidth": 38,
+    "displayHeight": 5.3
+  },
+  "BKM016_KTM.png": {
+    "sourceWidth": 100,
+    "sourceHeight": 90,
+    "displayWidth": 27.4,
+    "displayHeight": 24.7
+  },
+  "BKM019_MV_Agusta.png": {
+    "sourceWidth": 100,
+    "sourceHeight": 66,
+    "displayWidth": 32.0,
+    "displayHeight": 21.1
+  },
+  "BKM020_QJMOTOR.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 168,
+    "displayWidth": 38,
+    "displayHeight": 11.4
+  },
+  "BKM021_SSR_Motorsports.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 173,
+    "displayWidth": 38,
+    "displayHeight": 11.7
+  },
+  "BKM024_UM_Motorcycles.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 147,
+    "displayWidth": 38,
+    "displayHeight": 10.0
+  },
+  "BKM026_Gogoro.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 156,
+    "displayWidth": 38,
+    "displayHeight": 10.6
+  },
+  "BKM027_NIU.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 176,
+    "displayWidth": 38,
+    "displayHeight": 11.9
+  },
+  "BKM028_Daedong_Mobility.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 419,
+    "displayWidth": 30.1,
+    "displayHeight": 22.5
+  },
+  "BKM029_DNA_Motors.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 199,
+    "displayWidth": 38,
+    "displayHeight": 13.5
+  },
+  "BKM030_Lambretta.png": {
+    "sourceWidth": 90,
+    "sourceHeight": 14,
+    "displayWidth": 38,
+    "displayHeight": 5.9
+  },
+  "BKM031_Royal_Alloy.png": {
+    "sourceWidth": 431,
+    "sourceHeight": 560,
+    "displayWidth": 20.0,
+    "displayHeight": 26
+  },
+  "BKM035_Moto_Guzzi.png": {
+    "sourceWidth": 80,
+    "sourceHeight": 22,
+    "displayWidth": 38,
+    "displayHeight": 10.4
+  },
+  "BKM037_FB_Mondial.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 354,
+    "displayWidth": 32.7,
+    "displayHeight": 20.7
+  },
+  "BKM039_Benelli.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 126,
+    "displayWidth": 38,
+    "displayHeight": 8.5
+  },
+  "BKM042_Benda.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 136,
+    "displayWidth": 38,
+    "displayHeight": 9.2
+  },
+  "BKM043_VOGE.png": {
+    "sourceWidth": 501,
+    "sourceHeight": 560,
+    "displayWidth": 23.3,
+    "displayHeight": 26
+  },
+  "BKM046_Brixton.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 363,
+    "displayWidth": 32.3,
+    "displayHeight": 20.9
+  },
+  "BKM047_Blueshark.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 100,
+    "displayWidth": 38,
+    "displayHeight": 6.8
+  },
+  "BKM049_Victory.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 299,
+    "displayWidth": 35.6,
+    "displayHeight": 19.0
+  },
+  "BKM050_Victoria_Motorrad.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 208,
+    "displayWidth": 38,
+    "displayHeight": 14.1
+  },
+  "BKM051_Super_Soco.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 117,
+    "displayWidth": 38,
+    "displayHeight": 7.9
+  },
+  "BKM052_Scomadi.png": {
+    "sourceWidth": 445,
+    "sourceHeight": 560,
+    "displayWidth": 20.7,
+    "displayHeight": 26
+  },
+  "BKM055_Aprilia.png": {
+    "sourceWidth": 100,
+    "sourceHeight": 36,
+    "displayWidth": 38,
+    "displayHeight": 13.7
+  },
+  "BKM056_EBR_Erik_Buell.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 421,
+    "displayWidth": 30.0,
+    "displayHeight": 22.5
+  },
+  "BKM059_Ural.png": {
+    "sourceWidth": 68,
+    "sourceHeight": 68,
+    "displayWidth": 26.0,
+    "displayHeight": 26.0
+  },
+  "BKM063_Italjet.png": {
+    "sourceWidth": 68,
+    "sourceHeight": 23,
+    "displayWidth": 38,
+    "displayHeight": 12.9
+  },
+  "BKM064_Indian_Motorcycle.png": {
+    "sourceWidth": 100,
+    "sourceHeight": 36,
+    "displayWidth": 38,
+    "displayHeight": 13.7
+  },
+  "BKM067_Zontes.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 237,
+    "displayWidth": 38,
+    "displayHeight": 16.1
+  },
+  "BKM068_Gilera.png": {
+    "sourceWidth": 381,
+    "sourceHeight": 560,
+    "displayWidth": 17.7,
+    "displayHeight": 26
+  },
+  "BKM070_Kayo.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 222,
+    "displayWidth": 38,
+    "displayHeight": 15.1
+  },
+  "BKM071_Can_Am.png": {
+    "sourceWidth": 68,
+    "sourceHeight": 68,
+    "displayWidth": 26.0,
+    "displayHeight": 26.0
+  },
+  "BKM073_Coopop.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 96,
+    "displayWidth": 38,
+    "displayHeight": 6.5
+  },
+  "BKM074_Keeway.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 102,
+    "displayWidth": 38,
+    "displayHeight": 6.9
+  },
+  "BKM076_KYMCO.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 88,
+    "displayWidth": 38,
+    "displayHeight": 6.0
+  },
+  "BKM078_Triumph.png": {
+    "sourceWidth": 100,
+    "sourceHeight": 21,
+    "displayWidth": 38,
+    "displayHeight": 8.0
+  },
+  "BKM079_Polaris.png": {
+    "sourceWidth": 100,
+    "sourceHeight": 11,
+    "displayWidth": 38,
+    "displayHeight": 4.2
+  },
+  "BKM080_Peugeot_Motocycles.png": {
+    "sourceWidth": 77,
+    "sourceHeight": 84,
+    "displayWidth": 23.8,
+    "displayHeight": 26
+  },
+  "BKM082_Piaggio.png": {
+    "sourceWidth": 98,
+    "sourceHeight": 34,
+    "displayWidth": 38,
+    "displayHeight": 13.2
+  },
+  "BKM083_Haojue.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 560,
+    "displayWidth": 26.0,
+    "displayHeight": 26.0
+  },
+  "BKM084_Hansom_Motors.png": {
+    "sourceWidth": 560,
+    "sourceHeight": 68,
+    "displayWidth": 38,
+    "displayHeight": 4.6
+  },
+  "BKM085_Husqvarna.png": {
+    "sourceWidth": 55,
+    "sourceHeight": 68,
+    "displayWidth": 21.0,
+    "displayHeight": 26
+  },
+  "BKM086_Others.png": {
+    "sourceWidth": 508,
+    "sourceHeight": 508,
+    "displayWidth": 26.0,
+    "displayHeight": 26.0
+  }
+}

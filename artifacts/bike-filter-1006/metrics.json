@@ -1,0 +1,24 @@
+{
+  "maker": {
+    "rowHeight": 48,
+    "logoWidth": 38,
+    "logoHeight": 26,
+    "nameX": 66
+  },
+  "model": {
+    "rowHeight": 72,
+    "imageX": 16,
+    "imageWidth": 84,
+    "imageHeight": 56,
+    "nameX": 116,
+    "nameSize": "16px",
+    "nameWeight": "500",
+    "dividerLeft": "100px",
+    "dividerColor": "rgb(222, 222, 227)",
+    "viewportWidth": 360,
+    "documentWidth": 360,
+    "horizontalOverflow": false
+  },
+  "consoleErrors": [],
+  "pageErrors": []
+}
