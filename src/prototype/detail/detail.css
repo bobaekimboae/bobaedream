@@ -358,9 +358,13 @@
 .pc-overview-copy > p { margin: 8px 0 20px; color: #616161; font-size: 14px; line-height: 19.6px; }
 .pc-overview-specs { display: flex; align-items: center; color: #595959; font-size: 16px; font-weight: 400; line-height: 22.4px; }
 .pc-overview-specs span + span::before { content: "·"; margin: 0 8px; color: #bfbfbf; }
-.pc-overview-stats { display: flex; flex: none; align-items: center; gap: 16px; padding-top: 4px; color: #8c8c8c; font-size: 14px; line-height: 19.6px; }
-.pc-overview-stats button, .pc-overview-stats > span { display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none; color: inherit; font: inherit; }
-.pc-overview-stats svg { width: 18px; height: 18px; }
+.pc-overview-meta { display: flex; width: 135px; min-height: 144px; flex: none; flex-direction: column; align-items: stretch; }
+.pc-overview-like { display: grid; place-items: center; width: 32px; height: 32px; margin-left: auto; padding: 0; border: 1px solid #eee; border-radius: 50%; background: #fff; color: #8c8c8c; }
+.pc-overview-like[aria-pressed="true"] { color: #f14069; }
+.pc-overview-like svg { width: 20px; height: 20px; }
+.pc-overview-stats { display: flex; align-items: center; justify-content: flex-end; gap: 8px; margin-top: auto; color: #8c8c8c; font-size: 14px; line-height: 19.6px; white-space: nowrap; }
+.pc-overview-stats > span { display: inline-flex; align-items: center; gap: 3px; }
+.pc-overview-stats svg { width: 16px; height: 16px; }
 .pc-info dl { margin: 0; }
 .pc-info dl > div { display: grid; grid-template-columns: 216px 1fr; align-items: center; min-height: 45px; border-bottom: 1px solid #f1f1f1; font-size: 16px; }
 .pc-info dt { display: flex; align-items: center; gap: 8px; }

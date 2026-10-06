@@ -6,6 +6,9 @@ const OURS_LIST = process.argv[2] ?? "http://127.0.0.1:5173/?qf=guazi&pc=1";
 
 const L = [
   ["헤더", ".app-shell__header", ".bbm-header", ["h", "bg"]],
+  ["헤더 로고", ".app-header-logo", ".bbm-logo", ["x", "y", "w", "h"]],
+  ["GNB", ".app-gnb", ".bbm-gnb", ["x", "y", "w", "h", "gap"]],
+  ["GNB 첫 메뉴", ".app-gnb__item", ".bbm-gnb button", ["x", "y", "w", "h", "fs", "fw"]],
   ["목록 본문", ".car-list-renewal", ".bbm-page", ["x", "w"]],
   ["상단 개요", ".car-list-overview", ".bbm-hybrid-top", ["x", "y", "w", "h"]],
   ["경로", ".car-list-catalog-breadcrumb", ".bbm-hybrid-top > .bbm-ct-crumbs strong", ["x", "y", "h", "fs", "lh", "fw"]],
@@ -38,6 +41,9 @@ const L = [
 ];
 
 const D = [
+  ["상세 헤더 로고", ".app-header-logo", ".bbm-header.is-detail .bbm-logo", ["x", "y", "w", "h"]],
+  ["상세 GNB", ".app-gnb", ".bbm-header.is-detail .bbm-gnb", ["x", "y", "w", "h", "gap"]],
+  ["상세 GNB 첫 메뉴", ".app-gnb__item", ".bbm-header.is-detail .bbm-gnb button", ["x", "y", "w", "h", "fs", "fw"]],
   ["상세 본문", ".car-detail-page", ".pc-detail-columns", ["y", "w"]],
   ["상세 열", ".car-detail-content-layout__columns", ".pc-detail-columns", ["y", "w", "gap"]],
   ["상세 왼쪽", ".car-detail-content-layout__main", ".pc-detail-left", ["y", "w"]],
@@ -74,8 +80,13 @@ async function grab(browser, side, pairs, detail = false) {
   const page = await browser.newPage({ viewport: { width: 1280, height: 1000 }, deviceScaleFactor: 1 });
   await page.goto(side === "dev" ? DEV_LIST : OURS_LIST, { waitUntil: "networkidle", timeout: 60_000 });
   if (detail) {
-    await page.locator(side === "dev" ? ".car-list-result-card" : ".bbm-result-card").first().click();
-    await page.waitForTimeout(800);
+    const card = page.locator(side === "dev" ? ".car-list-result-card" : ".bbm-result-card").first();
+    await card.waitFor({ state: "visible", timeout: 30_000 });
+    // React/Vue 하이드레이션이 끝나기 전에 클릭하면 상세 라우팅이 빠지는 경우가 있다.
+    await page.waitForTimeout(1_200);
+    await card.click();
+    await page.locator(side === "dev" ? ".car-detail-page" : ".pc-detail-container").waitFor({ state: "visible", timeout: 30_000 });
+    await page.waitForTimeout(500);
   } else await page.waitForTimeout(500);
   const values = [];
   for (const pair of pairs) values.push(await page.evaluate(read, pair[side === "dev" ? 1 : 2]));

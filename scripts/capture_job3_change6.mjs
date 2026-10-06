@@ -11,11 +11,13 @@ for (const width of [1280, 1024, 768]) {
   await page.goto(`${base}?qf=guazi&pc=1`, { waitUntil: "networkidle", timeout: 60_000 });
   await page.waitForTimeout(500);
   await page.screenshot({ path: `${out}/PC-L01_list_${width}.png`, fullPage: true });
+  if (width === 1280) await page.screenshot({ path: `${out}/PC-GNB_list_1280.png`, clip: { x: 0, y: 0, width: 1280, height: 128 } });
   if (width !== 768) {
     await page.locator(".bbm-result-card").first().click();
     await page.waitForTimeout(500);
     await page.mouse.move(0, 0);
     await page.screenshot({ path: `${out}/PC-D01_detail_${width}.png`, fullPage: true });
+    if (width === 1280) await page.screenshot({ path: `${out}/PC-GNB_detail_1280.png`, clip: { x: 0, y: 0, width: 1280, height: 128 } });
   }
   await page.close();
 }
@@ -27,4 +29,4 @@ await mobile.waitForTimeout(500);
 await mobile.screenshot({ path: `${out}/D01_mobile_replacement.png`, fullPage: true });
 await mobile.close();
 await browser.close();
-console.log(`캡처 완료: ${out} (목록 1280·1024·768 / 상세 1280·1024 / D01 모바일)`);
+console.log(`캡처 완료: ${out} (목록 1280·1024·768 / 상세 1280·1024 / GNB 목록·상세 확대 / D01 모바일)`);

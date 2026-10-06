@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useRef, useState, type ReactNode 
 import { CalendarIcon, ChevronDownIcon, ColorWheelIcon, CubeIcon, DashboardIcon, EyeOpenIcon, GearIcon, HeartFilledIcon, HeartIcon, LightningBoltIcon, LockClosedIcon, MobileIcon, PinLeftIcon, QuestionMarkCircledIcon, StopwatchIcon } from "@radix-ui/react-icons";
 import { BottomSheet, Carousel, MobileScroll, useFlow } from "../../mobile";
 import { BbHeader } from "../listing/pc-bbmuseum";
+import { bbmCardSpec } from "../data/bbm-card-samples";
 import { UsedCarPcDetailLayout } from "./pc/usedcar-detail-layout";
 import {
   asset,
@@ -412,7 +413,6 @@ function DesktopGallery({ car }: { car: Car }) {
       <div className="pc-hero-tools"><span /><div><button aria-label="공유하기" onClick={share}><img src={pcAsset("9550-imgSvgexport211.svg")} alt="" /></button><button aria-label="더보기" onClick={() => setSheet("more")}><img src={pcAsset("9550-imgSvgexport241.svg")} alt="" /></button></div></div>
       <button className="pc-photo-prev" aria-label="이전 사진" onClick={() => choose(selected - 1)}><img src={pcAsset("9573-imgFrame1000006284.svg")} alt="" /></button>
       <button className="pc-photo-next" aria-label="다음 사진" onClick={() => choose(selected + 1)}><img src={pcAsset("9573-imgFrame1000006284.svg")} alt="" /></button>
-      <span className="pc-photo-counter" aria-live="polite">{selected + 1}/{photos.length}</span>
     </div>
     <div className="pc-thumbnail-region" ref={thumbs}>
       <Carousel ariaLabel="차량 사진 썸네일" className="pc-thumbnails" contentClassName="pc-thumbnail-track">
@@ -425,10 +425,11 @@ function DesktopGallery({ car }: { car: Car }) {
 function DesktopVehicleInfo({ car }: { car: Car }) {
   const [expanded, setExpanded] = useState(false);
   const rows = [
+    ["최초등록", pcRegistrationCompactLabel(car), "imgPropertyStatus1"],
     ["주행거리", car.filter ? formatMileage(`${car.filter.mileage.toLocaleString("ko-KR")}km`) : car.specs[1], "imgPropertyStatus1"], ["연료", car.filter?.fuel ?? car.specs[3], "imgImage213"],
-    ["변속기", car.filter?.transmission ?? "자동", "imgImage214"], ["배기량", car.filter?.displacement ? `${car.filter.displacement.toLocaleString("ko-KR")} cc` : "미확인", "imgImage215"],
-    ["색상", car.filter?.color ?? "미확인", "imgImage216"], ["지역", car.place, "imgImage217"],
-    ["사고이력", "없음", "imgImage218"],
+    ["변속기", car.filter?.transmission ?? "자동", "imgImage214"], ["배기량", pcDisplacementLabel(car), "imgImage215"],
+    ["차종", car.filter?.body ?? "승용", "imgImage216"], ["색상", car.filter?.color ?? "미확인", "imgImage216"], ["지역", car.place, "imgImage217"],
+    ["압류/저당", "없음 / 없음", "imgImage218"], ["수입구분", car.filter?.origin === "국산" ? "국산" : "정식수입", "imgImage218"], ["사고이력", "없음", "imgImage218"],
   ];
   return <SectionCard title="차량 정보" className="pc-info">
     <dl>{rows.map(([label, value, icon]) => <div key={label}><dt><img src={pcAsset(`9626-${icon}.png`)} alt="" />{label}</dt><dd>{value}</dd></div>)}{expanded && extraInfo.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
@@ -436,12 +437,33 @@ function DesktopVehicleInfo({ car }: { car: Car }) {
   </SectionCard>;
 }
 
-function pcRegistrationLabel(car: Car) {
-  const source = car.specs[0] ?? "";
+function pcRegistrationParts(car: Car) {
+  const generated = bbmCardSpec(car, false).split(" · ")[0] ?? "";
+  const source = [car.specs[0] ?? "", generated].find((value) => /(\d{2,4})년\s*(\d{1,2})월/.test(value)) ?? "";
   const matched = source.match(/(\d{2,4})년\s*(\d{1,2})월/);
-  if (!matched) return "";
+  if (!matched) return null;
   const year = matched[1].length === 2 ? `20${matched[1]}` : matched[1];
-  return `${year}년 ${Number(matched[2])}월`;
+  return { year: Number(year), month: Number(matched[2]) };
+}
+
+function pcRegistrationLabel(car: Car) {
+  const registration = pcRegistrationParts(car);
+  return registration ? `${registration.year}년 ${registration.month}월` : "";
+}
+
+function pcRegistrationCompactLabel(car: Car) {
+  const registration = pcRegistrationParts(car);
+  if (!registration) return "정보 없음";
+  const modelYear = car.filter?.year ? String(car.filter.year).slice(-2) : String(registration.year).slice(-2);
+  return `${String(registration.year).slice(-2)}.${String(registration.month).padStart(2, "0")} (${modelYear}년형)`;
+}
+
+function pcDisplacementLabel(car: Car) {
+  if (car.filter?.displacement !== undefined) return `${car.filter.displacement.toLocaleString("ko-KR")} cc`;
+  if (car.filter?.fuel === "전기") return "전기";
+  const engine = `${car.title} ${car.trim}`.match(/\b([1-9](?:\.\d))\s*(?:T|D|L|터보)?\b/i);
+  const displacement = engine ? Math.round(Number(engine[1]) * 1000) : 1998;
+  return `${displacement.toLocaleString("ko-KR")} cc`;
 }
 
 function DesktopOverview({ car }: { car: Car }) {
@@ -453,9 +475,13 @@ function DesktopOverview({ car }: { car: Car }) {
       <p>{car.uiTest?.headline ?? "성능점검 완료 · 안심번호 상담 가능"}</p>
       <div className="pc-overview-specs">{specs.map((value) => <span key={value}>{value}</span>)}</div>
     </div>
-    <div className="pc-overview-stats">
-      <button type="button" aria-label="매물 저장" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}<span>찜 {liked ? 1 : 0}</span></button>
-      <span><EyeOpenIcon />조회 {car.views ?? 128}</span>
+    <div className="pc-overview-meta">
+      <button className="pc-overview-like" type="button" aria-label="매물 저장" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}</button>
+      <div className="pc-overview-stats">
+        <span><HeartIcon />{liked ? 1 : 0}</span>
+        <span><EyeOpenIcon />{car.views ?? 128}</span>
+        <span>4주 전</span>
+      </div>
     </div>
   </section>;
 }
@@ -465,7 +491,7 @@ function DesktopSummary({ car, jump }: { car: Car; jump: (id: string) => void })
   const [costOpen, setCostOpen] = useState(false);
   return <aside className="pc-sidebar">
     <section className="detail-card pc-summary">
-      <div className="pc-price-row"><strong>{car.price.replace(/\s+/g, "")}</strong><button onClick={() => setSheet("priceHistory")}>가격 변동</button><button className="pc-insurance" onClick={() => notify("보험료는 보험사 상담을 통해 확인해 주세요.")}>보험료 계산</button></div>
+      <div className="pc-price-row"><strong>{car.price.replace(/\s+/g, "")}</strong><button className="pc-insurance" onClick={() => notify("보험료는 보험사 상담을 통해 확인해 주세요.")}>보험료 계산</button></div>
       <div className="pc-summary-links"><button onClick={() => jump("pc-history")}><b>보험이력</b><span>0건 <img src={pcAsset("9877-imgIcon1.svg")} alt="" /></span></button><button onClick={() => jump("pc-inspection")}><b>성능점검</b><span>보기 <img src={pcAsset("9877-imgIcon1.svg")} alt="" /></span></button></div>
       <div className="pc-cost-summary" aria-label="예상 구매 비용"><dl><div><dt>차량가</dt><dd>{car.price.replace(/\s+/g, "")}</dd></div><div><dt>이전 등록비(예상)</dt><dd>335만원</dd></div><div><dt>매도비</dt><dd>44만원</dd></div></dl><div><span>예상 총 비용</span><strong>3,529만원</strong></div></div>
       <div className="pc-calculators"><button onClick={() => setCostOpen(!costOpen)} aria-expanded={costOpen}>비용계산기</button><button onClick={() => jump("pc-related")}>동급매물</button><button onClick={() => notify("판매 완료된 매물 정보가 없습니다.")}>팔린매물</button></div>
@@ -482,7 +508,7 @@ function DesktopSummary({ car, jump }: { car: Car; jump: (id: string) => void })
 
 function DesktopHeader({ onBack }: { onBack: () => void }) {
   const { notify } = useDetailUi();
-  return <BbHeader usedCarParity category="중고차" onLogoClick={onBack} onNotify={notify} onOpenFavorites={() => notify("찜 목록은 목록 화면에서 확인해 주세요.")} />;
+  return <BbHeader usedCarParity detail category="중고차" onLogoClick={onBack} onNotify={notify} onOpenFavorites={() => notify("찜 목록은 목록 화면에서 확인해 주세요.")} />;
 }
 
 function DesktopVehicleDetail({ car, onBack }: { car: Car; onBack: () => void }) {

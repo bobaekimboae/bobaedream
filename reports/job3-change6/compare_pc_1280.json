@@ -9,6 +9,30 @@
   },
   {
     "screen": "목록",
+    "name": "헤더 로고",
+    "devSelector": ".app-header-logo",
+    "oursSelector": ".bbm-logo",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "GNB",
+    "devSelector": ".app-gnb",
+    "oursSelector": ".bbm-gnb",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
+    "name": "GNB 첫 메뉴",
+    "devSelector": ".app-gnb__item",
+    "oursSelector": ".bbm-gnb button",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "목록",
     "name": "목록 본문",
     "devSelector": ".car-list-renewal",
     "oursSelector": ".bbm-page",
@@ -236,6 +260,30 @@
     "name": "카드 가격",
     "devSelector": ".car-list-result-card__price",
     "oursSelector": ".bbm-card-price",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "상세 헤더 로고",
+    "devSelector": ".app-header-logo",
+    "oursSelector": ".bbm-header.is-detail .bbm-logo",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "상세 GNB",
+    "devSelector": ".app-gnb",
+    "oursSelector": ".bbm-header.is-detail .bbm-gnb",
+    "status": "일치",
+    "differences": []
+  },
+  {
+    "screen": "상세",
+    "name": "상세 GNB 첫 메뉴",
+    "devSelector": ".app-gnb__item",
+    "oursSelector": ".bbm-header.is-detail .bbm-gnb button",
     "status": "일치",
     "differences": []
   },

@@ -112,10 +112,10 @@
 
 # JOB-3 [변경 6] 디자인 QA
 
-- source visual truth: `C:\Users\bobae\Downloads\Claude outputs\usedcar_list_detail_1007\pc1280\pc1280_list_dev_vs_pr_814b2b1.png`, `C:\Users\bobae\Downloads\Claude outputs\usedcar_list_detail_1007\pc1280\pc1280_detail_dev_vs_pr_814b2b1.png`, 실개발 `https://dev.bbmuseum.co.kr/car/list`
+- source visual truth: 실개발 `https://dev.bbmuseum.co.kr/car/list`, `https://dev.bbmuseum.co.kr/car/detail/xbrduo3ydt`, `reports/job3-change6/reference/DEV-L01_list_1280.png`, `DEV-D01_detail_1280.png`, `DEV-GNB_list_1280.png`, `DEV-GNB_detail_1280.png`
 - implementation: `http://127.0.0.1:5173/?qf=guazi&pc=1`
-- implementation screenshots: `reports/job3-change6/captures/PC-L01_list_1280.png`, `PC-L01_list_1024.png`, `PC-L01_list_768.png`, `PC-D01_detail_1280.png`, `PC-D01_detail_1024.png`, `D01_mobile_replacement.png`
-- normalized side-by-side evidence: `reports/job3-change6/qa-list-side-by-side.png`, `reports/job3-change6/qa-detail-side-by-side.png`
+- implementation screenshots: `reports/job3-change6/captures/PC-L01_list_1280.png`, `PC-L01_list_1024.png`, `PC-L01_list_768.png`, `PC-D01_detail_1280.png`, `PC-D01_detail_1024.png`, `PC-GNB_list_1280.png`, `PC-GNB_detail_1280.png`, `D01_mobile_replacement.png`
+- normalized side-by-side evidence: `reports/job3-change6/qa-list-side-by-side.png`, `qa-detail-side-by-side.png`, `qa-gnb-list-side-by-side.png`, `qa-gnb-detail-side-by-side.png`
 - viewport/density: PC 1280×1000, 1024×1000, 768×1000 at deviceScaleFactor 1; mobile 384×900 at deviceScaleFactor 2
 - normalization: source와 구현 모두 같은 CSS viewport의 상단 1280×1000 영역을 1:1 픽셀로 잘라 좌우 결합했다. 브라우저 크롬과 외부 프레임은 제외했다.
 - state: 중고차 전체 목록 기본 상태, 첫 매물 상세 기본 상태
@@ -124,18 +124,19 @@
 
 - 목록: GNB, 1200px 본문, 242px 상단 개요, 300/24/876 그리드, 56px 툴바, 202px 카드 리듬이 실개발과 일치한다.
 - 상세: 1160px 본문, 720/12/412 열, 720×520 갤러리, 176px 요약, 우측 가격·예상비용·판매자 카드 순서가 실개발과 일치한다.
-- 자동 실측: `reports/job3-change6/compare_pc_1280.json` — 목록 30개 + 상세 22개, 전체 52개 일치, 다름 0개.
+- 자동 실측: `reports/job3-change6/compare_pc_1280.json` — 목록 33개 + 상세 25개, 전체 58개 일치, 다름 0개.
 
 ## Focused comparison evidence
 
 - 목록 상단: 경로·매물 수·검색저장·칩·차종 줄의 좌표/높이/글꼴을 개별 대조했다.
+- GNB 확대: 목록·상세 각각 로고 x56·114×28, 메뉴 x56·폭536·16px/600·간격28, 더보기 화살표, 상세 활성 밑줄 제거를 별도 비교판으로 확인했다.
 - 좌측 필터: 요약 92px, 제조사 머리 57px, 카탈로그 284×580, 제조사 행 36px을 개별 대조했다.
 - 상세 갤러리: 대표 이미지 720×412, 썸네일 줄 720×96, 썸네일 96×96, 5개만 노출되는지 확인했다.
 - 상세 요약/우측 패널: 제목 24/33.6/600, 통계 14/19.6, 가격 24/33.6/600, 버튼·카드 radius/padding을 개별 대조했다.
 
 ## Required fidelity surfaces
 
-- fonts/typography: Pretendard, 크기·굵기·행간 52개 자동 대조 통과. 동적 매물명 길이 차이는 콘텐츠 차이로 분류했다.
+- fonts/typography: Pretendard, 크기·굵기·행간 58개 자동 대조 통과. GNB 메뉴 16px/600을 목록·상세에서 확인했다. 동적 매물명 길이 차이는 콘텐츠 차이로 분류했다.
 - spacing/layout rhythm: 1280 기준 핵심 좌표·폭·높이·간격 일치. 1024에서는 두 열을 유지하고, 768에서는 PC 헤더/상단/목록형을 유지하되 좌측 필터를 숨겨 가로 겹침을 방지한다.
 - colors/tokens: 흰 카드, #f1f1f1 배경, #222 본문, #1b4c8c 브랜드 파랑, #f14069 가격 색을 실개발 값으로 유지했다.
 - image quality/assets: 저장소의 실제 매물 이미지와 기존 SVG 아이콘만 사용했다. CSS/임의 SVG 대체는 없다. 콘텐츠가 다른 매물이므로 차량 피사체 자체는 비교 대상에서 제외했다.
@@ -156,11 +157,27 @@
 - 왼쪽 본문을 차량 정보 → 옵션 → 보험 이력 → 성능 점검 → 보증 → 차량 설명 순으로 재배치했다.
 - 대표 이미지를 cover로 변경하고 PC 갤러리의 뒤로가기 버튼을 제거했다. 재캡처에서 1280/1024 배치를 확인했다.
 
-### Pass 2 — passed
+### Pass 2 — blocked
+
+- [P1] PC 상세 차량 정보에 최초등록·차종·압류/저당·수입구분이 없고 배기량이 `미확인`으로 표시됐다.
+- [P2] GNB 글자 크기·굵기·간격, 더보기 화살표, 상세 활성 밑줄이 실개발과 달랐다.
+- [P2] 좌측 제조사 필터에 로고와 `숨기기`가 남았고 제목이 `제조사 · 모델 · 등급`이었다.
+- [P2] PC 상세에 사진 수·가격 변동·제목 옆 찜/조회가 남아 실개발 정보 구조와 달랐다.
+- [P2] PC 비교기의 Python/MJS 측정 기준이 분리되어 실제 GNB 차이를 놓쳤다.
+
+### Fixes 2
+
+- PC 상세에 카드와 같은 등록 연월·연료를 사용하고 차량 정보 필드를 실개발 순서로 보강했다. 배기량은 실제 값 또는 안전한 대체값만 표시한다.
+- 목록·상세 GNB를 x56, 폭536, 메뉴 16px/600, 간격28로 맞추고 더보기 화살표를 실제 자산으로 연결했다. 상세에서는 중고차 활성 밑줄을 제거했다.
+- 좌측 필터를 `제조사 · 모델`, 이름+대수 구조로 바꾸고 로고·숨기기를 제거했다.
+- 상세의 `1/5`, `가격 변동`, 제목 옆 찜·조회를 제거하고 하트 버튼과 하트 수·조회수·`4주 전`을 실개발 위치로 옮겼다.
+- Python 비교기는 MJS 비교기를 단일 진입점으로 호출하도록 통일하고, 상세 진입 전후 대기와 GNB 글자/좌표/폭 측정을 추가했다.
+
+### Pass 3 — passed
 
 - 재캡처: `reports/job3-change6/captures/PC-D01_detail_1280.png`, `PC-D01_detail_1024.png`
-- 자동 대조: PC 52/52 일치, 다름 0.
-- 모바일: 제공된 `cmp_rows.json` 기준 결과와 동일해 신규 차이 0; 보호 런타임 28개 무결성 통과.
+- 자동 대조: PC 58/58 일치, 다름 0.
+- 모바일: 제공된 `cmp_rows.json`과 26개 항목의 판정·차이값이 동일해 신규 차이 0; 카드→상세 23건 데이터 일치; 보호 런타임 28개 무결성 통과.
 - console: 캡처 및 대조 실행 중 페이지 오류 없음.
 
 ## Findings
@@ -172,8 +189,8 @@
 
 - [x] 모바일/PC 마크업 분리
 - [x] P-1~P-8 반영
-- [x] PC 1280 자동 대조 52/52
-- [x] PC 1280·1024·768 / 상세 1280·1024 / D01 캡처
+- [x] PC 1280 자동 대조 58/58
+- [x] PC 1280·1024·768 / 상세 1280·1024 / GNB 확대 / D01 캡처
 - [x] 모바일 23개 카드-상세 데이터 일치
 - [x] 빌드 통과
 - [ ] 병합·배포 (사용자 승인 전 금지)

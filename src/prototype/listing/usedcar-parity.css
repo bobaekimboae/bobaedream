@@ -7,6 +7,18 @@
 .login-required-dialog button { height: 40px; border: 0; border-radius: 8px; background: #f1f1f1; color: #222; font: 600 14px/20px Pretendard, sans-serif; cursor: pointer; }
 .login-required-dialog button:last-child { background: #1b4c8c; color: #fff; }
 @media (min-width: 768px) {
+  /* R-3: 목록·상세가 실개발의 같은 1200px GNB 규격을 사용한다. */
+  .bbm-header.is-usedcar-parity-header .bbm-header-inner { width: min(1200px, calc(100% - 48px)); }
+  .bbm-header.is-usedcar-parity-header .bbm-header-top-item { display: inline-flex; align-items: center; gap: 8px; }
+  .bbm-header.is-usedcar-parity-header .bbm-header-top-item img { width: 1px; height: 8px; }
+  .bbm-header.is-usedcar-parity-header .bbm-logo { left: 16px; gap: 0; }
+  .bbm-header.is-usedcar-parity-header .bbm-logo > img { width: 114px; height: 28px; }
+  .bbm-header.is-usedcar-parity-header .bbm-gnb-row { right: 16px; left: 16px; }
+  .bbm-header.is-usedcar-parity-header .bbm-gnb { gap: 28px; }
+  .bbm-header.is-usedcar-parity-header .bbm-gnb button { font-size: 16px; font-weight: 600; line-height: 16px; }
+  .bbm-header.is-usedcar-parity-header .bbm-gnb-more { gap: 4px; }
+  .bbm-header.is-usedcar-parity-header .bbm-gnb-more img { width: 18px; height: 18px; }
+  .bbm-header.is-usedcar-parity-header .bbm-header-icons { gap: 20px; margin-left: auto; }
   .marketplace.is-bbm.is-qf-guazi.is-usedcar-parity .bbm-hybrid-top > .bbm-ct-crumbs { height: 17px; }
   .marketplace.is-bbm.is-qf-guazi.is-usedcar-parity .bbm-hybrid-top > .bbm-ct-crumbs strong { font-weight: 400; line-height: 16.8px; }
   .marketplace.is-bbm.is-qf-guazi.is-usedcar-parity .bbm-content-head.is-chotot { padding: 0; }
