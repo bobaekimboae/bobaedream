@@ -279,9 +279,36 @@ function renderGrade() {
 }
 
 function renderOverview() {
-  const nestedSelectionCount = state.selectedFuelDrives.size + state.selectedGrades.size + state.selectedLeaves.size;
-  const rows = [["제조사", state.maker?.displayName || "선택"], ["모델", state.model?.displayName || "선택"], ["세부모델", state.generation?.displayName || "선택"], ["연료·구동", nestedSelectionCount ? `${nestedSelectionCount}개 선택` : "선택"]];
-  return `<div class="filter-overview">${rows.map(([label, value], index) => `<button class="filter-row" type="button" data-screen-target="${index + 1}"><strong>${label}</strong><span class="filter-value">${escapeHtml(value)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button>`).join("")}</div>`;
+  const selectedGrades = selectedResultItems();
+  const rows = [
+    { label: "제조사", value: state.maker?.displayName || "선택", screen: 1, clearDepth: state.maker ? "maker" : "" },
+    { label: "모델", value: state.model?.displayName || "선택", screen: 2, clearDepth: state.model ? "model" : "" },
+    {
+      label: "세부모델",
+      value: state.generation?.displayName || "선택",
+      detail: state.generation ? generationPeriod(state.generation) : "",
+      screen: 3,
+      clearDepth: state.generation ? "generation" : "",
+    },
+  ];
+  if (selectedGrades.length) {
+    selectedGrades.forEach((item, index) => rows.push({
+      label: index === 0 ? "등급" : "",
+      value: item.label,
+      screen: 4,
+      selection: item,
+    }));
+  } else rows.push({ label: "등급", value: "선택", screen: 4 });
+
+  return `<div class="filter-overview">${rows.map((row) => {
+    const detail = row.detail ? `<small>${escapeHtml(row.detail)}</small>` : "";
+    const clear = row.clearDepth
+      ? `<button class="filter-clear" type="button" data-clear-depth="${row.clearDepth}" aria-label="${escapeHtml(row.value)} 선택 해제">${icon("/assets/maker-model/icons/chotot-close.svg")}</button>`
+      : row.selection
+        ? `<button class="filter-clear" type="button" data-clear-selection-kind="${escapeHtml(row.selection.kind)}" data-clear-selection-key="${escapeHtml(row.selection.key)}" data-fuel-drive-key="${escapeHtml(row.selection.fuelDriveKey || "")}" data-grade-key="${escapeHtml(row.selection.gradeKey || "")}" aria-label="${escapeHtml(row.value)} 선택 해제">${icon("/assets/maker-model/icons/chotot-close.svg")}</button>`
+        : "";
+    return `<div class="filter-row"><strong${row.label ? "" : ' aria-hidden="true"'}>${escapeHtml(row.label)}</strong><div class="filter-value-group"><button class="filter-value-button" type="button" data-screen-target="${row.screen}"><span class="filter-value">${escapeHtml(row.value)}</span>${detail}</button>${clear}</div><button class="filter-nav" type="button" data-screen-target="${row.screen}" aria-label="${escapeHtml(row.label || "등급")} 다시 선택">${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></div>`;
+  }).join("")}</div>`;
 }
 
 function selectedResultItems() {
@@ -292,12 +319,12 @@ function selectedResultItems() {
     const fuelGrades = [];
     for (const grade of visible(fuelDrive.grades)) {
       const gradeLeaves = leafNodesForGrade(grade, fuelDrive).filter((leaf) => state.selectedLeaves.has(leaf.key));
-      if (gradeLeaves.length) fuelLeaves.push(...gradeLeaves);
-      else if (state.selectedGrades.has(grade.key)) fuelGrades.push({ key: grade.key, label: grade.displayName, count: grade.listingCount });
+      if (gradeLeaves.length) fuelLeaves.push(...gradeLeaves.map((leaf) => ({ ...leaf, kind: "leaf" })));
+      else if (state.selectedGrades.has(grade.key)) fuelGrades.push({ key: grade.key, label: grade.displayName, count: grade.listingCount, kind: "grade", fuelDriveKey: fuelDrive.key, gradeKey: grade.key });
     }
     if (fuelLeaves.length) result.push(...fuelLeaves);
     else if (fuelGrades.length) result.push(...fuelGrades);
-    else if (state.selectedFuelDrives.has(fuelDrive.key)) result.push({ key: fuelDrive.key, label: fuelDrive.displayName, count: fuelDrive.listingCount });
+    else if (state.selectedFuelDrives.has(fuelDrive.key)) result.push({ key: fuelDrive.key, label: fuelDrive.displayName, count: fuelDrive.listingCount, kind: "fuel", fuelDriveKey: fuelDrive.key });
   }
   return result;
 }
@@ -368,6 +395,24 @@ function findGrade(fuelDrive, key) {
 }
 
 document.addEventListener("click", (event) => {
+  const clearSelectionButton = event.target.closest("[data-clear-selection-kind]");
+  if (clearSelectionButton) {
+    const kind = clearSelectionButton.dataset.clearSelectionKind;
+    const key = clearSelectionButton.dataset.clearSelectionKey;
+    const fuelDrive = findFuelDrive(clearSelectionButton.dataset.fuelDriveKey);
+    const grade = findGrade(fuelDrive, clearSelectionButton.dataset.gradeKey);
+    if (kind === "fuel") {
+      state.selectedFuelDrives.delete(key);
+      visible(fuelDrive?.grades).forEach((item) => {
+        state.selectedGrades.delete(item.key);
+        leafNodesForGrade(item, fuelDrive).forEach((leaf) => state.selectedLeaves.delete(leaf.key));
+      });
+    } else if (kind === "grade") {
+      state.selectedGrades.delete(key);
+      leafNodesForGrade(grade, fuelDrive).forEach((leaf) => state.selectedLeaves.delete(leaf.key));
+    } else state.selectedLeaves.delete(key);
+    return render();
+  }
   const clearDepthButton = event.target.closest("[data-clear-depth]");
   if (clearDepthButton) {
     const depth = clearDepthButton.dataset.clearDepth;
@@ -419,6 +464,7 @@ document.addEventListener("click", (event) => {
 
 backButton.addEventListener("click", () => setScreen(state.screen - 1));
 document.querySelector("#close-button").addEventListener("click", () => setScreen(0));
+document.querySelector("#apply-button").addEventListener("click", () => setScreen(0));
 document.querySelector("#reset-button").addEventListener("click", () => { state.maker = null; state.model = null; state.generation = null; clearNestedSelections(); state.query = ""; state.modelTab = "all"; setScreen(1); });
 
 async function loadCatalog() {

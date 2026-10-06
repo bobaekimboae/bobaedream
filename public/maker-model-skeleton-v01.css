@@ -48,7 +48,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .phone-stage { position: sticky; top: 16px; display: grid; place-items: center; align-self: start; }
 .phone { width: 384px; height: min(820px, calc(100dvh - 32px)); min-height: 680px; overflow: hidden; border: 8px solid #0b0b0c; border-radius: 38px; background: #fff; box-shadow: 0 28px 70px rgba(23, 29, 38, .22); }
 .sheet { height: 100%; display: grid; grid-template-rows: 64px minmax(0, 1fr) auto; background: #fff; }
-.sheet-header { position: relative; display: grid; grid-template-columns: 40px minmax(0, 1fr) 44px; align-items: center; gap: 0; padding: 0 16px; border-bottom: 1px solid #e8e8e8; }
+.sheet-header { position: relative; display: grid; grid-template-columns: 36px minmax(0, 1fr) 44px; align-items: center; gap: 0; padding: 0 16px; border-bottom: 1px solid #e8e8e8; }
 .sheet-header.is-root { grid-template-columns: minmax(0, 1fr) 44px; gap: 0; padding: 0 20px 0 24px; }
 .sheet-header h2 { min-width: 0; margin: 0; overflow: hidden; text-align: left; font-size: 20px; line-height: 28px; font-weight: 750; letter-spacing: -.35px; text-overflow: ellipsis; white-space: nowrap; }
 .icon-button { width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: 10px; background: transparent; cursor: pointer; }
@@ -155,9 +155,17 @@ button { -webkit-tap-highlight-color: transparent; }
 .grade-name { grid-column: 3; font-size: 16px; line-height: 22px; font-weight: 400; }
 
 .filter-overview { padding: 8px 16px 96px; }
-.filter-row { width: 100%; min-height: 60px; display: grid; grid-template-columns: 110px minmax(0,1fr) 24px; align-items: center; padding: 0; border: 0; border-bottom: 1px solid #e8e8e8; background: transparent; color: #222; text-align: left; cursor: pointer; }
-.filter-row strong { font-size: 15px; }
-.filter-value { min-width: 0; color: #666d76; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.filter-row { width: 100%; min-height: 60px; display: grid; grid-template-columns: 92px minmax(0,1fr) 24px; align-items: center; border-bottom: 1px solid #e8e8e8; color: #222; }
+.filter-row > strong { min-width: 0; font-size: 15px; line-height: 22px; font-weight: 700; }
+.filter-value-group { min-width: 0; display: flex; align-items: center; gap: 6px; }
+.filter-value-button { min-width: 0; display: flex; align-items: baseline; gap: 5px; overflow: hidden; padding: 0; border: 0; background: transparent; color: #222; text-align: left; cursor: pointer; }
+.filter-value { min-width: 0; overflow: hidden; color: #444a52; font-size: 14px; line-height: 20px; font-weight: 400; text-overflow: ellipsis; white-space: nowrap; }
+.filter-value-button small { flex: 0 0 auto; color: #989da4; font-size: 12px; line-height: 16px; font-weight: 400; white-space: nowrap; }
+.filter-clear { flex: 0 0 18px; width: 18px; height: 18px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 999px; background: #d9dadd; color: #fff; cursor: pointer; }
+.filter-clear img { width: 12px; height: 12px; filter: brightness(0) invert(1); }
+.filter-nav { width: 24px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.filter-nav .chevron { width: 20px; height: 20px; }
+.filter-value-button:focus-visible, .filter-clear:focus-visible, .filter-nav:focus-visible { outline: 2px solid #222; outline-offset: 1px; }
 
 .sheet-footer {
   height: calc(80px + env(safe-area-inset-bottom));
