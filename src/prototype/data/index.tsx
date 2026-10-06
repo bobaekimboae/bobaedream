@@ -175,14 +175,22 @@ type Car = {
 };
 
 let activeDetailCar: Car | null = null;
-const setActiveDetailCar = (car: Car) => { activeDetailCar = car; };
+const setActiveDetailCar = (car: Car) => {
+  activeDetailCar = car;
+  if (typeof window === "undefined") return;
+  try { window.sessionStorage.setItem(`bbm-detail-${car.id}`, JSON.stringify(car)); } catch { /* session storage is optional in embedded previews */ }
+};
 const getActiveDetailCar = () => {
   if (typeof window !== "undefined") {
     const detailId = Number(new URLSearchParams(window.location.search).get("detail"));
     if (detailId) {
+      if (activeDetailCar?.id === detailId) return activeDetailCar;
       try {
         const stored = window.sessionStorage.getItem(`bbm-detail-${detailId}`);
-        if (stored) return JSON.parse(stored) as Car;
+        if (stored) {
+          activeDetailCar = JSON.parse(stored) as Car;
+          return activeDetailCar;
+        }
       } catch { /* session storage is optional in embedded previews */ }
     }
   }

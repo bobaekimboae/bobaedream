@@ -15,6 +15,7 @@
     padding: 6px 16px 8px 12px;
   }
   .marketplace.is-bbm-m.is-qf-guazi .top-bar.is-bbm .search-field { height: 42px; }
+  .marketplace.is-bbm-m.is-qf-guazi .top-bar.is-bbm .search-field { gap: normal; border-radius: 100px; }
   .marketplace.is-bbm-m.is-qf-guazi .region-bar.is-bbm {
     height: 44px;
     min-height: 44px;
@@ -30,8 +31,37 @@
     min-height: 52px;
     margin-top: 0;
     padding: 10px 16px;
+    background: transparent;
   }
   .marketplace.is-bbm-m.is-qf-guazi > .filter-shell.is-bbm .filter-track { gap: 8px; }
+  .marketplace.is-bbm-m.is-qf-guazi > .filter-shell.is-bbm .filter-fixed {
+    height: 32px;
+    margin-right: 6px;
+    padding: 3px 14px 3px 8px;
+    gap: 4px;
+    border-radius: 30px;
+    color: #222;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi > .filter-shell.is-bbm .filter-chip {
+    height: 32px;
+    padding: 3px 6px 3px 14px;
+    gap: 6px;
+    border-radius: 30px;
+    color: #1a1a1a;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi > .filter-shell.is-bbm .filter-chip.is-active {
+    min-width: 95px;
+    padding: 3px 5px 3px 14px;
+    gap: 2px;
+    background: #222;
+    color: #fff;
+  }
   .marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear {
     width: 26px;
     height: 26px;
@@ -40,17 +70,45 @@
     background: transparent;
   }
   .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot { margin-top: 0; }
-  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-hierarchical .bbm-category-menu__list {
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-hierarchical .bbm-category-labeled-content .bbm-category-menu__list {
+    width: max-content;
     height: 92px;
     gap: 18px;
     padding: 8px 0 12px 24px;
+    background: transparent;
   }
   .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-hierarchical .bbm-category-menu__item,
   .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-hierarchical .bbm-category-menu__button { width: 60px; }
   .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-hierarchical .bbm-category-menu__button { height: 72px; gap: 8px; }
-  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-hierarchical .bbm-category-menu__icon-box.is-category-icon { width: 44px; height: 44px; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-hierarchical .bbm-category-menu__icon-box.is-category-icon { width: 44px; height: 44px; background: #f0f0f0; }
   .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-hierarchical .bbm-category-menu__label { width: 60px; min-height: 20px; font-size: 14px; line-height: 19.6px; }
-  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-filter-tab.is-selected { background: #edf4fb; color: #1b4c8c; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-options {
+    height: 48px;
+    padding: 0 16px;
+    border-top: 8px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-sort {
+    gap: 4px;
+    color: #1a1a1a;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16.8px;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-sort img { width: 26px; height: 26px; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-filter-tabs { height: 28px; padding: 5px 8px; gap: 4px; box-sizing: content-box; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-filter-tab {
+    height: 28px;
+    padding: 8px;
+    border-radius: 30px;
+    color: #767676;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 12px;
+    gap: normal;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-filter-tab.is-selected { padding: 8px; background: #222; color: #fff; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-view { width: 28px; height: 28px; }
   .marketplace.is-bbm-m.is-qf-guazi .bbm-m-list:not(.is-feed):not(.is-gallery):not(.is-text):not(.is-one-line) .bbm-result-card.is-mobile {
     height: 177px;
     padding: 12px 0;
@@ -105,6 +163,7 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 24px;
+    gap: 3px;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
@@ -131,6 +190,16 @@
     line-height: 19.6px;
   }
   .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-badges { height: 20px; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-badges span {
+    height: 20px;
+    padding: 0 4px;
+    border-radius: 4px;
+    background: #ebebeb;
+    color: #505050;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 11px;
+  }
   .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-meta,
   .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile.has-badges .bbm-card-meta,
   .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile.has-no-badges .bbm-card-meta {
@@ -145,6 +214,7 @@
     font-weight: 400;
     line-height: 18px;
   }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-location-text { font-size: 13px; line-height: 18px; }
   .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-location-secondary { display: none; }
   .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-meta-row {
     height: 24px;
@@ -152,9 +222,17 @@
   }
   .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-seller { gap: 4px; }
   .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-seller-logo { width: 16px; height: 16px; }
-  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-seller-text { color: #1a1a1a; font-size: 12px; line-height: 16.8px; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-seller-text { gap: 8px; color: #1a1a1a; font-size: 12px; line-height: 16.8px; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-seller-text strong { color: #1a1a1a; font-weight: 400; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-seller-info { color: #8c8c8c; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-seller-info b { color: #1a1a1a; font-weight: 400; }
   .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-chat { display: none; }
   .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-actions .bbm-card-wish,
   .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-actions .bbm-card-wish img,
   .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-wish-on { width: 20px; height: 20px; padding: 0; }
+  .marketplace.is-bbm-m.is-qf-guazi .reset-button { min-height: 32px; line-height: 21px; }
+  .bbm-bottom-gnb__label { font-size: 11px; font-weight: 500; line-height: normal; }
+  .bbm-bottom-gnb__item.is-active .bbm-bottom-gnb__label { color: #1a1a1a; font-weight: 700; }
+  .bbm-bottom-gnb__register-button { width: 44px; height: 44px; flex: 0 0 44px; background: #1b4c8c; }
+  .bbm-bottom-gnb__register-label { padding: 2px 12px; border-radius: 50px; background: #1b4c8c; font-size: 11px; font-weight: 700; }
 }

@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
-import { ChevronDownIcon, HeartFilledIcon, HeartIcon, LockClosedIcon, MobileIcon, QuestionMarkCircledIcon } from "@radix-ui/react-icons";
+import { CalendarIcon, ChevronDownIcon, ColorWheelIcon, CubeIcon, DashboardIcon, EyeOpenIcon, GearIcon, HeartFilledIcon, HeartIcon, LightningBoltIcon, LockClosedIcon, MobileIcon, PinLeftIcon, QuestionMarkCircledIcon, StopwatchIcon } from "@radix-ui/react-icons";
 import { BottomSheet, Carousel, MobileScroll, useFlow } from "../../mobile";
 import {
   asset,
@@ -13,6 +13,7 @@ import {
   optionItems,
   priceHistoryRows,
   relatedCars,
+  sellerLabel,
   useFavorites,
   vehicleHistoryUrl,
   vehicleInfo,
@@ -70,22 +71,33 @@ function InfoGrid({ items }: { items: string[][] }) {
 function VehicleInfoCard() {
   const [expanded, setExpanded] = useState(false);
   const car = getActiveDetailCar();
+  const modelYear = car?.filter?.year;
+  const registration = car ? (() => {
+    const source = car.specs[0] ?? "";
+    const matched = source.match(/(\d{2,4})년\s*(\d{1,2})월/);
+    const year = matched ? matched[1].slice(-2) : modelYear ? String(modelYear).slice(-2) : "";
+    const month = matched ? matched[2].padStart(2, "0") : "06";
+    if (!year) return source || "-";
+    return `${year}.${month}${modelYear ? ` (${String(modelYear).slice(-2)}년형)` : ""}`;
+  })() : "-";
+  const transmission = car?.filter?.transmission ? (/수동|manual/i.test(car.filter.transmission) ? "수동" : "자동") : "-";
   const primary = car ? [
-    ["최초등록", car.filter ? `${car.filter.year}년 07월` : car.specs[0]],
-    ["주행거리", car.filter ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : car.specs[1]],
-    ["연료", car.filter?.fuel ?? car.specs[3]],
-    ["변속기", car.filter?.transmission ?? "자동"],
-    ["배기량", car.filter?.displacement ? `${car.filter.displacement.toLocaleString("ko-KR")}cc` : "미확인"],
-    ["차종", car.filter?.body ?? "승용"],
-    ["색상", car.filter?.color ?? "미확인"],
-    ["지역", car.place],
+    ["최초등록", registration],
+    ["주행거리", car.filter ? `${car.filter.mileage.toLocaleString("ko-KR")} km` : car.specs[1] || "-"],
+    ["연료", car.filter?.fuel ?? car.specs[3] ?? "-"],
+    ["변속기", transmission],
+    ["배기량", car.filter?.displacement ? `${car.filter.displacement.toLocaleString("ko-KR")} cc` : "-"],
+    ["차종", car.filter?.body ?? "-"],
+    ["색상", car.filter?.color ?? "-"],
+    ["지역", car.place || "-"],
   ] : vehicleInfo;
   const items = expanded ? [...primary, ...extraInfo] : primary;
+  const icons = [<CalendarIcon />, <StopwatchIcon />, <LightningBoltIcon />, <GearIcon />, <DashboardIcon />, <CubeIcon />, <ColorWheelIcon />, <PinLeftIcon />];
 
   return (
     <SectionCard title="차량 정보" className="vehicle-info-card">
       <dl className="vehicle-info-rows">
-        {items.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+        {items.map(([label, value], index) => <div key={label}><dt><span className="vehicle-info-icon" aria-hidden="true">{icons[index] ?? <CubeIcon />}</span>{label}</dt><dd>{value}</dd></div>)}
       </dl>
       <button className="vehicle-info-toggle" type="button" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>
         {expanded ? "접기" : "더보기"}
@@ -163,7 +175,6 @@ function DetailHero({ car, onBack }: { car: Car; onBack: () => void }) {
         <Carousel ariaLabel="차량 사진" className="detail-media-carousel" contentClassName="detail-media-track">
           {photos.map((photo, index) => <img key={`${photo}-${index}`} src={photo} alt={`${car.title} 차량 사진 ${index + 1}`} draggable={false} tabIndex={0} role="button" onClick={() => setGalleryOpen(true)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setGalleryOpen(true); } }} />)}
         </Carousel>
-        {photoIndex === 1 ? <span className="detail-video-play" aria-hidden="true"><span /></span> : null}
         <button ref={photoLabelRef} type="button" className="detail-photo-label" onClick={() => setGalleryOpen(true)}>사진 {photos.length}</button>
         <div className="detail-photo-count" aria-live="polite">{photoIndex}/{photos.length}</div>
         <div className="detail-hero-actions">
@@ -180,7 +191,6 @@ function DetailHero({ car, onBack }: { car: Car; onBack: () => void }) {
           {photos.map((photo, index) => (
             <button key={`thumbnail-${photo}-${index}`} className={`detail-thumbnail${photoIndex === index + 1 ? " is-selected" : ""}`} type="button" data-thumbnail-index={index} aria-label={`사진 ${index + 1} 보기`} aria-pressed={photoIndex === index + 1} onClick={() => selectPhoto(index)}>
               <img src={photo} alt="" aria-hidden="true" draggable={false} />
-              {index === 0 ? <img className="detail-thumbnail-play" src={asset("detail/thumbnail-play.png")} alt="" aria-hidden="true" draggable={false} /> : null}
             </button>
           ))}
         </Carousel>
@@ -194,23 +204,23 @@ function DetailHero({ car, onBack }: { car: Car; onBack: () => void }) {
 }
 
 function VehicleSummary() {
-  const { liked, setLiked, setSheet } = useDetailUi();
+  const { liked, setLiked } = useDetailUi();
   const car = getActiveDetailCar();
   if (!car) return null;
-  const summarySpecs = [car.filter ? `${car.filter.year}년` : car.specs[0], car.filter ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : car.specs[1], car.filter?.fuel ?? car.specs[3]].filter(Boolean);
+  const summarySpecs = [car.filter?.body ?? "-", car.filter ? `${car.filter.year}년 6월` : car.specs[0], car.filter ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : car.specs[1], car.filter?.fuel ?? car.specs[3]].filter(Boolean);
+  const priceMatch = car.price.replace(/\s+/g, "").match(/^(.+?)(만원|원)$/);
   return (
     <section className="vehicle-summary">
-      <div className="vehicle-title-row"><h1>{car.title} {car.trim}</h1><button type="button" aria-label="매물 저장" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}<span>{liked ? "저장됨" : "저장"}</span></button></div>
+      <div className="vehicle-title-row"><h1>{car.title} {car.trim}</h1><button type="button" aria-label="매물 저장" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}</button></div>
       <p className="vehicle-subtitle">{car.uiTest?.headline ?? "성능점검 완료 · 안심번호 상담 가능"}</p>
       <div className="vehicle-spec-row" aria-label="차량 핵심 정보">
         {summarySpecs.map((spec) => <span key={spec}>{spec}</span>)}
       </div>
       <div className="detail-price-row">
-        <strong>{car.price.replace(/\s+/g, "")}</strong>
-        <button type="button" onClick={() => setSheet("priceHistory")}>가격 변동</button>
+        <strong>{priceMatch?.[1] ?? car.price.replace(/\s+/g, "")}</strong>{priceMatch ? <b>{priceMatch[2]}</b> : null}
         <span className="detail-posted">({car.posted} 게시됨)</span>
       </div>
-      <div className="vehicle-stats"><span>찜 {liked ? 1 : 0}</span><span>조회 {car.views.toLocaleString("ko-KR")}</span></div>
+      <div className="vehicle-stats"><span><HeartIcon />{liked ? 1 : 0}</span><span><EyeOpenIcon />{car.views.toLocaleString("ko-KR")}</span></div>
     </section>
   );
 }
@@ -324,7 +334,7 @@ function SellerCard() {
   return (
     <section className="detail-card seller-card">
       <div className="detail-section-heading"><h2>판매자 정보</h2></div>
-      <div className="seller-profile"><img src={asset(car.sellerProfile ?? "cars/dealer.png")} alt="" /><div><h2>{car.dealer} <span>{car.sellerType}</span></h2><p><b>{car.stock}대</b> 판매중 · <b>10대</b> 판매완료</p><p>● {car.place}</p></div></div>
+      <div className="seller-profile"><img src={asset(car.sellerProfile ?? "cars/dealer.png")} alt="" /><div><h2>{sellerLabel(car)} <span>{car.sellerType}</span></h2><p><b>{car.stock}대</b> 판매중 · <b>10대</b> 판매완료</p><p>● {car.place}</p></div></div>
       <dl className="detail-rows"><div><dt>종사원번호</dt><dd>TEST-0000 <u>상사/조합정보</u></dd></div><div><dt>매매유형</dt><dd>{car.sellerType === "개인" ? "개인 직거래" : "매매알선(가상 매물)"}</dd></div></dl>
     </section>
   );
@@ -631,7 +641,7 @@ function DetailFooter() {
     );
   }
   return (
-    <div className="detail-bottom-bar">
+    <div className="detail-bottom-bar is-car-parity">
       <button className={`detail-bottom-like${liked ? " is-liked" : ""}`} type="button" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}<span>찜하기</span></button>
       <button className="detail-consult" type="button" onClick={() => { document.querySelector<HTMLElement>(".seller-card")?.scrollIntoView({ behavior: "smooth", block: "start" }); notify("판매자 정보로 이동했습니다."); }}>상담</button>
       <a className="detail-call" href="tel:05000000000"><img src={asset("detail/call.svg")} alt="" /> 전화하기</a>
