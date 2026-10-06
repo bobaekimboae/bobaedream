@@ -9,12 +9,10 @@ import {
   extraInfo,
   formatMileage,
   getActiveDetailCar,
-  isDesktopPreview,
   isForcedMobileView,
   optionItems,
   priceHistoryRows,
   relatedCars,
-  sellerScenario,
   useFavorites,
   vehicleHistoryUrl,
   vehicleInfo,
@@ -40,7 +38,12 @@ function useDetailUi() {
 }
 
 function DetailUiProvider({ children }: { children: ReactNode }) {
-  const [liked, setLiked] = useState(false);
+  const { likedIds, toggleLiked } = useFavorites();
+  const activeId = getActiveDetailCar()?.id;
+  const liked = activeId !== undefined && likedIds.includes(activeId);
+  const setLiked = (next: boolean) => {
+    if (activeId !== undefined && next !== liked) toggleLiked(activeId);
+  };
   const [sheet, setSheet] = useState<DetailSheet>(null);
   const [toast, setToast] = useState("");
   const notify = (message: string) => {
@@ -66,7 +69,18 @@ function InfoGrid({ items }: { items: string[][] }) {
 
 function VehicleInfoCard() {
   const [expanded, setExpanded] = useState(false);
-  const items = expanded ? [...vehicleInfo, ...extraInfo] : vehicleInfo;
+  const car = getActiveDetailCar();
+  const primary = car ? [
+    ["최초등록", car.filter ? `${car.filter.year}년 07월` : car.specs[0]],
+    ["주행거리", car.filter ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : car.specs[1]],
+    ["연료", car.filter?.fuel ?? car.specs[3]],
+    ["변속기", car.filter?.transmission ?? "자동"],
+    ["배기량", car.filter?.displacement ? `${car.filter.displacement.toLocaleString("ko-KR")}cc` : "미확인"],
+    ["차종", car.filter?.body ?? "승용"],
+    ["색상", car.filter?.color ?? "미확인"],
+    ["지역", car.place],
+  ] : vehicleInfo;
+  const items = expanded ? [...primary, ...extraInfo] : primary;
 
   return (
     <SectionCard title="차량 정보" className="vehicle-info-card">
@@ -81,10 +95,15 @@ function VehicleInfoCard() {
   );
 }
 
-function DetailHero({ onBack }: { onBack: () => void }) {
+function DetailHero({ car, onBack }: { car: Car; onBack: () => void }) {
   const { setSheet, notify } = useDetailUi();
   const [photoIndex, setPhotoIndex] = useState(1);
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
+  const galleryRef = useRef<HTMLDivElement>(null);
+  const photoLabelRef = useRef<HTMLButtonElement>(null);
+  const photos = [asset(car.image), ...detailPhotos.slice(1, 5)];
 
   const selectPhoto = (index: number) => {
     const carousel = heroRef.current?.querySelector<HTMLElement>(".detail-media-carousel");
@@ -101,12 +120,29 @@ function DetailHero({ onBack }: { onBack: () => void }) {
     if (!carousel || !firstPhoto) return;
     const updatePhotoIndex = () => {
       const photoWidth = firstPhoto.getBoundingClientRect().width || carousel.clientWidth;
-      setPhotoIndex(Math.min(detailPhotos.length, Math.max(1, Math.round(carousel.scrollLeft / photoWidth) + 1)));
+      setPhotoIndex(Math.min(photos.length, Math.max(1, Math.round(carousel.scrollLeft / photoWidth) + 1)));
     };
     carousel.addEventListener("scroll", updatePhotoIndex, { passive: true });
     updatePhotoIndex();
     return () => carousel.removeEventListener("scroll", updatePhotoIndex);
-  }, []);
+  }, [photos.length]);
+
+  useEffect(() => {
+    if (!galleryOpen) return;
+    const close = (event: globalThis.KeyboardEvent) => {
+      if (event.key === "Escape") { event.preventDefault(); setGalleryOpen(false); return; }
+      if (event.key !== "Tab") return;
+      const focusables = Array.from(galleryRef.current?.querySelectorAll<HTMLElement>("button, [tabindex]:not([tabindex='-1'])") ?? []);
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    };
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", close);
+    return () => { document.body.style.overflow = ""; document.removeEventListener("keydown", close); photoLabelRef.current?.focus(); };
+  }, [galleryOpen]);
 
   useEffect(() => {
     const carousel = heroRef.current?.querySelector<HTMLElement>(".detail-thumbnail-carousel");
@@ -125,21 +161,23 @@ function DetailHero({ onBack }: { onBack: () => void }) {
     <section ref={heroRef} className="detail-hero" aria-label="차량 사진">
       <div className="detail-hero-main">
         <Carousel ariaLabel="차량 사진" className="detail-media-carousel" contentClassName="detail-media-track">
-          {detailPhotos.map((photo, index) => <img key={`${photo}-${index}`} src={photo} alt={`벤틀리 차량 사진 ${index + 1}`} draggable={false} />)}
+          {photos.map((photo, index) => <img key={`${photo}-${index}`} src={photo} alt={`${car.title} 차량 사진 ${index + 1}`} draggable={false} tabIndex={0} role="button" onClick={() => setGalleryOpen(true)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setGalleryOpen(true); } }} />)}
         </Carousel>
         {photoIndex === 1 ? <span className="detail-video-play" aria-hidden="true"><span /></span> : null}
-        <div className="detail-photo-count" aria-live="polite">{photoIndex}/{detailPhotos.length}</div>
+        <button ref={photoLabelRef} type="button" className="detail-photo-label" onClick={() => setGalleryOpen(true)}>사진 {photos.length}</button>
+        <div className="detail-photo-count" aria-live="polite">{photoIndex}/{photos.length}</div>
         <div className="detail-hero-actions">
           <button type="button" aria-label="목록으로 돌아가기" onClick={onBack}><img src={asset("detail/back.svg")} alt="" /></button>
           <div>
-            <button type="button" aria-label="공유하기" onClick={() => notify("공유 링크를 복사했어요")}><img src={asset("detail/share.svg")} alt="" /></button>
-            <button type="button" aria-label="더보기" onClick={() => setSheet("more")}><img src={asset("detail/more.svg")} alt="" /></button>
+            <button type="button" aria-label="공유하기" onClick={async () => { try { await navigator.clipboard.writeText(window.location.href); notify("링크가 복사되었습니다."); } catch { notify("주소창의 링크를 복사해 주세요."); } }}><img src={asset("detail/share.svg")} alt="" /></button>
+            <button type="button" aria-label="더보기" aria-expanded={moreOpen} onClick={() => setMoreOpen(!moreOpen)}><img src={asset("detail/more.svg")} alt="" /></button>
           </div>
         </div>
+        {moreOpen ? <div className="detail-more-menu" role="menu"><button type="button" role="menuitem" onClick={() => { notify("신고하기를 선택했습니다."); setMoreOpen(false); }}>신고하기</button><button type="button" role="menuitem" onClick={() => { setSheet("contact"); setMoreOpen(false); }}>문의하기</button></div> : null}
       </div>
       <div className="detail-thumbnail-region">
         <Carousel ariaLabel="차량 사진 썸네일" className="detail-thumbnail-carousel" contentClassName="detail-thumbnail-track">
-          {detailPhotos.map((photo, index) => (
+          {photos.map((photo, index) => (
             <button key={`thumbnail-${photo}-${index}`} className={`detail-thumbnail${photoIndex === index + 1 ? " is-selected" : ""}`} type="button" data-thumbnail-index={index} aria-label={`사진 ${index + 1} 보기`} aria-pressed={photoIndex === index + 1} onClick={() => selectPhoto(index)}>
               <img src={photo} alt="" aria-hidden="true" draggable={false} />
               {index === 0 ? <img className="detail-thumbnail-play" src={asset("detail/thumbnail-play.png")} alt="" aria-hidden="true" draggable={false} /> : null}
@@ -147,35 +185,47 @@ function DetailHero({ onBack }: { onBack: () => void }) {
           ))}
         </Carousel>
       </div>
+      {galleryOpen ? <div ref={galleryRef} className="detail-full-gallery" role="dialog" aria-modal="true" aria-label={`${car.title} 사진 전체 보기`}>
+        <header><h2>{car.title}</h2><button type="button" autoFocus aria-label="사진 전체 보기 닫기" onClick={() => setGalleryOpen(false)}>×</button></header>
+        <div>{photos.map((photo, index) => <img key={`full-${photo}-${index}`} src={photo} alt={`${car.title} 차량 사진 ${index + 1}`} />)}</div>
+      </div> : null}
     </section>
   );
 }
 
 function VehicleSummary() {
-  const { liked, setLiked, setSheet, notify } = useDetailUi();
-  const summarySpecs = ["2019", formatMileage("42,920 km"), "가솔린", detailVehiclePlate, "1인소유"];
+  const { liked, setLiked, setSheet } = useDetailUi();
+  const car = getActiveDetailCar();
+  if (!car) return null;
+  const summarySpecs = [car.filter ? `${car.filter.year}년` : car.specs[0], car.filter ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : car.specs[1], car.filter?.fuel ?? car.specs[3]].filter(Boolean);
   return (
     <section className="vehicle-summary">
-      <div className="vehicle-title-row"><h1>2019 벤틀리 컨티넨탈 GT 3세대 6.0 퍼스트 에디션</h1><button type="button" aria-label="매물 저장" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}<span>{liked ? "저장됨" : "저장"}</span></button></div>
+      <div className="vehicle-title-row"><h1>{car.title} {car.trim}</h1><button type="button" aria-label="매물 저장" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}<span>{liked ? "저장됨" : "저장"}</span></button></div>
+      <p className="vehicle-subtitle">{car.uiTest?.headline ?? "성능점검 완료 · 안심번호 상담 가능"}</p>
       <div className="vehicle-spec-row" aria-label="차량 핵심 정보">
         {summarySpecs.map((spec) => <span key={spec}>{spec}</span>)}
       </div>
       <div className="detail-price-row">
-        <strong>1억 4,500만원</strong>
+        <strong>{car.price.replace(/\s+/g, "")}</strong>
         <button type="button" onClick={() => setSheet("priceHistory")}>가격 변동</button>
+        <span className="detail-posted">({car.posted} 게시됨)</span>
       </div>
-      <p className="vehicle-finance">할부 예상 월 153만원부터</p>
-      <p className="vehicle-phone-note">판매자가 안심번호로 연락을 받아요</p>
-      <div className="detail-contact-row" aria-label="판매자 연락">
-        <a href="tel:05062469261">안심번호</a>
-        <button type="button" onClick={() => notify("카카오 상담을 준비했어요")}>카카오</button>
-        <button type="button" onClick={() => setSheet("contact")}>채팅</button>
-      </div>
-      <div className="vehicle-location-row">
-        <p>서울 서초구 양재동</p>
-        <span>등록 2개월 전</span>
-      </div>
+      <div className="vehicle-stats"><span>찜 {liked ? 1 : 0}</span><span>조회 {car.views.toLocaleString("ko-KR")}</span></div>
     </section>
+  );
+}
+
+function HistoryInfoCard() {
+  const [expanded, setExpanded] = useState(false);
+  return (
+    <SectionCard title="이력정보">
+      <dl className="detail-rows">
+        <div><dt>소유자 변경</dt><dd>1회</dd></div>
+        <div><dt>번호판 변경</dt><dd>없음</dd></div>
+        {expanded ? <><div><dt>용도 이력</dt><dd>없음</dd></div><div><dt>침수·도난</dt><dd>없음</dd></div></> : null}
+      </dl>
+      <button className="outline-wide-button" type="button" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>{expanded ? "이력정보 접기" : "이력정보 4건 모두 보기"}</button>
+    </SectionCard>
   );
 }
 
@@ -227,36 +277,35 @@ function PriceHistorySheet({ onClose }: { onClose: () => void }) {
 }
 
 function OptionsCard({ desktop = false }: { desktop?: boolean }) {
-  const [expanded, setExpanded] = useState(false);
+  const { setSheet } = useDetailUi();
   return (
-    <SectionCard title="차량 옵션" action={<button className="text-action" type="button" onClick={() => setExpanded(!expanded)}>옵션설명</button>}>
+    <SectionCard title="차량 옵션" action={<button className="text-action" type="button" onClick={() => setSheet("optionGuide")}>옵션설명</button>}>
       <div className="option-grid">{optionItems.map(({ label, icon }, index) => <div key={label}><img src={desktop ? pcAsset(`9653-img${index + 1}.png`) : asset(`detail/${icon}`)} alt="" draggable={false} /><span>{label}</span></div>)}</div>
-      <button className="outline-wide-button" type="button" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>옵션 32개 모두 보기</button>
+      <button className="outline-wide-button" type="button" onClick={() => setSheet("options")}>옵션 27개 모두 보기</button>
       <div className="selected-options"><h3>선택 옵션</h3><dl><div><dt>빌트인 캠 패키지 <img src={asset("detail/option-info.svg")} alt="옵션 정보" /></dt><dd>70만원</dd></div><div><dt>헤드업 디스플레이 <img src={asset("detail/option-info.svg")} alt="옵션 정보" /></dt><dd>130만원</dd></div></dl></div>
     </SectionCard>
   );
 }
 
 function HistoryCard() {
-  const [expanded, setExpanded] = useState(false);
+  const { setSheet } = useDetailUi();
   return (
     <SectionCard title="보험 이력" action={<a className="history-link" href={vehicleHistoryUrl(detailVehiclePlate)}>통합 이력조회</a>}>
       <div className="insurance-summary"><div>내 차 피해<strong>0건</strong></div><div>상대 차 피해<strong>0건</strong></div><div>특수사항<strong>없음</strong></div></div>
       <h3 className="subheading">차량 이력 상세</h3>
-      <dl className="detail-rows"><div><dt>특수 용도 이력</dt><dd>없음</dd></div><div><dt>용도 및 차종</dt><dd>자가용 승용</dd></div>{expanded ? <><div><dt>소유자 변경</dt><dd>1회</dd></div><div><dt>번호판 변경</dt><dd>없음</dd></div></> : null}</dl>
-      <button className="outline-wide-button" type="button" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>{expanded ? "보험 이력 접기" : "보험 이력 전체 보기"}</button>
+      <dl className="detail-rows"><div><dt>특수 용도 이력</dt><dd>없음</dd></div><div><dt>용도 및 차종</dt><dd>자가용 승용</dd></div></dl>
+      <button className="outline-wide-button" type="button" onClick={() => setSheet("history")}>보험 이력 전체 보기</button>
       <a className="history-cta" href={vehicleHistoryUrl(detailVehiclePlate)}>차량번호 {detailVehiclePlate} 이력조회</a>
     </SectionCard>
   );
 }
 
 function InspectionCard() {
-  const [expanded, setExpanded] = useState(false);
+  const { setSheet } = useDetailUi();
   return (
     <SectionCard title="성능 점검" action={<span className="muted-label">제시번호 : 262621002567</span>}>
       <dl className="detail-info-grid compact"><div><dt>사고이력 <QuestionMarkCircledIcon /></dt><dd>없음</dd></div><div><dt>단순수리 <QuestionMarkCircledIcon /></dt><dd>없음</dd></div></dl>
-      {expanded ? <p className="inspection-note">성능·상태 점검기록부 기준으로 주요 골격 손상과 침수 이력이 없습니다.</p> : null}
-      <button className="outline-wide-button" type="button" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>{expanded ? "성능 점검 접기" : "성능 점검 전체 보기"}</button>
+      <button className="outline-wide-button" type="button" onClick={() => setSheet("inspection")}>성능 점검 전체 보기</button>
     </SectionCard>
   );
 }
@@ -270,20 +319,25 @@ function WarrantyCard() {
 }
 
 function SellerCard() {
+  const car = getActiveDetailCar();
+  if (!car) return null;
   return (
     <section className="detail-card seller-card">
-      <div className="seller-profile"><img src={asset("detail/raw-10.jpeg")} alt={sellerScenario.name} /><div><h2>{sellerScenario.name}</h2><p>● {sellerScenario.location}</p></div></div>
-      <dl className="detail-rows"><div><dt>종사원번호</dt><dd>{sellerScenario.staffNumber} <u>상사/조합정보</u></dd></div><div><dt>매매유형</dt><dd>매매알선(소속 상사 매물)</dd></div></dl>
+      <div className="detail-section-heading"><h2>판매자 정보</h2></div>
+      <div className="seller-profile"><img src={asset(car.sellerProfile ?? "cars/dealer.png")} alt="" /><div><h2>{car.dealer} <span>{car.sellerType}</span></h2><p><b>{car.stock}대</b> 판매중 · <b>10대</b> 판매완료</p><p>● {car.place}</p></div></div>
+      <dl className="detail-rows"><div><dt>종사원번호</dt><dd>TEST-0000 <u>상사/조합정보</u></dd></div><div><dt>매매유형</dt><dd>{car.sellerType === "개인" ? "개인 직거래" : "매매알선(가상 매물)"}</dd></div></dl>
     </section>
   );
 }
 
 function SaleCard() {
   const { notify } = useDetailUi();
+  const car = getActiveDetailCar();
+  const price = car?.price.replace(/\s+/g, "") ?? "가격상담";
   return (
     <SectionCard title="판매 정보">
-      <div className="cost-box"><dl><div><dt>차량가</dt><dd>1억5,980만원</dd></div><div><dt>이전 등록비(예상)</dt><dd>314만원</dd></div><div><dt>매도비</dt><dd>33만원</dd></div></dl><div className="cost-total"><span>예상 총 비용</span><strong>1억 6,328만원</strong></div></div>
-      <div className="sale-actions"><button type="button" onClick={() => notify("비용 계산기를 열었어요")}>비용계산기</button><button type="button" onClick={() => notify("동급매물로 이동했어요")}>동급매물</button><button type="button" onClick={() => notify("할부매물을 확인해요")}>할부매물</button></div>
+      <div className="cost-box"><dl><div><dt>차량가</dt><dd>{price}</dd></div><div><dt>이전 등록비(예상)</dt><dd>335만원</dd></div><div><dt>매도비</dt><dd>44만원</dd></div></dl><div className="cost-total"><span>예상 총 비용</span><strong>{price}</strong></div></div>
+      <div className="sale-actions"><button type="button" onClick={() => notify("비용 계산기를 열었어요")}>비용계산기</button><button type="button" onClick={() => notify("동급매물로 이동했어요")}>동급매물</button><button type="button" onClick={() => notify("팔린 매물을 확인해요")}>팔린매물</button></div>
       <button className="report-button" type="button" onClick={() => notify("신고 접수 화면을 준비했어요")}><LockClosedIcon /> 신고하기</button>
     </SectionCard>
   );
@@ -291,13 +345,14 @@ function SaleCard() {
 
 function DescriptionCard({ desktop = false }: { desktop?: boolean }) {
   const [expanded, setExpanded] = useState(false);
+  const car = getActiveDetailCar();
   return (
-    <SectionCard title={desktop ? "차량 설명" : "상세 설명"}>
+    <SectionCard title="차량 설명">
       <div className={`description-copy${expanded ? " is-expanded" : ""}`}>
-        <p>2022년 5월식 벤틀리 컨티넨탈 GT 4.0 모델을 판매합니다.<br />벤틀리가 V8엔진으로 구동되는 3세대 컨티넨탈 GT를 선보였다. 쿠페와 컨버터블 형태로 출시될 이 모델은 올해 말부터 미국에서 판매될 예정이며, 이어 2020년 상반기에는 유럽 및 다른 국가에서도 판매될 예정이다.</p>
-        <p>파워트레인은 기존의 6.0리터 W12엔진 대신 4.0리터 V8 가솔린 트윈터보 엔진이 장착됐다. 최대출력 550마력, 최고토크 78.5kg·m의 파워를 발휘합니다.</p>
+        <p>{car?.filter?.year ?? 2025}년식 {car?.title} {car?.trim} 모델을 판매합니다.<br />실개발 화면 동일화 검증을 위한 가상 매물입니다. 차량 상태와 가격은 실제 판매 정보가 아니며 판매자 연락처도 가상 번호를 사용합니다.</p>
+        <p>성능점검과 보험이력, 주요 옵션을 확인한 뒤 판매자에게 상담을 요청할 수 있습니다.</p>
       </div>
-      <div className="contact-chip">연락처: 050-6246-9261 <a href="tel:05062469261">연락하기</a></div>
+      <div className="contact-chip">연락처: 050-0000-0000 <a href="tel:05000000000">연락하기</a></div>
       <button className="more-copy-button" type="button" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>{expanded ? "접기" : "더보기"} <ChevronDownIcon /></button>
     </SectionCard>
   );
@@ -316,11 +371,11 @@ function CarRail({ title, cars: railCars }: { title: string; cars: RailCar[] }) 
 
 const pcAsset = (name: string) => asset(`pc-detail/${name}`);
 
-function DesktopGallery({ onBack }: { onBack: () => void }) {
+function DesktopGallery({ car, onBack }: { car: Car; onBack: () => void }) {
   const { setSheet, notify } = useDetailUi();
   const [selected, setSelected] = useState(0);
   const thumbs = useRef<HTMLDivElement>(null);
-  const photos = Array.from({ length: 24 }, (_, i) => pcAsset(`9573-imgImage${i % 8 || ""}.png`));
+  const photos = [asset(car.image), ...Array.from({ length: 7 }, (_, i) => pcAsset(`9573-imgImage${i + 1}.png`))];
   const choose = (index: number) => setSelected((index + photos.length) % photos.length);
   useEffect(() => {
     const rail = thumbs.current?.querySelector<HTMLElement>(".pc-thumbnails");
@@ -333,12 +388,12 @@ function DesktopGallery({ onBack }: { onBack: () => void }) {
   };
   return <section className="pc-gallery" aria-label="차량 사진">
     <div className="pc-hero" onKeyDown={(event) => { if (event.key === "ArrowRight") choose(selected + 1); if (event.key === "ArrowLeft") choose(selected - 1); }} tabIndex={0}>
-      <img className="pc-hero-photo" src={selected === 0 ? pcAsset("9550-imgFrame1000006297.png") : photos[selected]} alt={`벤틀리 차량 사진 ${selected + 1}`} draggable={false} />
+      <img className="pc-hero-photo" src={photos[selected]} alt={`${car.title} 차량 사진 ${selected + 1}`} draggable={false} />
       <div className="pc-hero-tools"><button aria-label="목록으로 돌아가기" onClick={onBack}><img src={asset("detail/back.svg")} alt="" /></button><div><button aria-label="공유하기" onClick={share}><img src={pcAsset("9550-imgSvgexport211.svg")} alt="" /></button><button aria-label="더보기" onClick={() => setSheet("more")}><img src={pcAsset("9550-imgSvgexport241.svg")} alt="" /></button></div></div>
       {selected === 0 && <span className="pc-play" aria-hidden="true"><img src={pcAsset("9550-imgMaskGroup.svg")} alt="" /><img src={pcAsset("9550-imgFill7.svg")} alt="" /></span>}
       <button className="pc-photo-prev" aria-label="이전 사진" onClick={() => choose(selected - 1)}><img src={pcAsset("9573-imgFrame1000006284.svg")} alt="" /></button>
       <button className="pc-photo-next" aria-label="다음 사진" onClick={() => choose(selected + 1)}><img src={pcAsset("9573-imgFrame1000006284.svg")} alt="" /></button>
-      <span className="pc-photo-counter" aria-live="polite">{selected + 1}/24</span>
+      <span className="pc-photo-counter" aria-live="polite">{selected + 1}/{photos.length}</span>
     </div>
     <div className="pc-thumbnail-region" ref={thumbs}>
       <Carousel ariaLabel="차량 사진 썸네일" className="pc-thumbnails" contentClassName="pc-thumbnail-track">
@@ -349,12 +404,12 @@ function DesktopGallery({ onBack }: { onBack: () => void }) {
   </section>;
 }
 
-function DesktopVehicleInfo() {
+function DesktopVehicleInfo({ car }: { car: Car }) {
   const [expanded, setExpanded] = useState(false);
   const rows = [
-    ["주행거리", formatMileage("42,000km"), "imgPropertyStatus1"], ["연료", "가솔린", "imgImage213"],
-    ["변속기", "자동 8단", "imgImage214"], ["배기량", "2,497 cc", "imgImage215"],
-    ["색상", "검정색 (외장) · 흰색 (시트)", "imgImage216"], ["지역", "서울 서초구", "imgImage217"],
+    ["주행거리", car.filter ? formatMileage(`${car.filter.mileage.toLocaleString("ko-KR")}km`) : car.specs[1], "imgPropertyStatus1"], ["연료", car.filter?.fuel ?? car.specs[3], "imgImage213"],
+    ["변속기", car.filter?.transmission ?? "자동", "imgImage214"], ["배기량", car.filter?.displacement ? `${car.filter.displacement.toLocaleString("ko-KR")} cc` : "미확인", "imgImage215"],
+    ["색상", car.filter?.color ?? "미확인", "imgImage216"], ["지역", car.place, "imgImage217"],
     ["사고이력", "없음", "imgImage218"],
   ];
   return <SectionCard title="차량 정보" className="pc-info">
@@ -363,24 +418,24 @@ function DesktopVehicleInfo() {
   </SectionCard>;
 }
 
-function DesktopSummary({ jump }: { jump: (id: string) => void }) {
+function DesktopSummary({ car, jump }: { car: Car; jump: (id: string) => void }) {
   const { liked, setLiked, setSheet, notify } = useDetailUi();
   const [costOpen, setCostOpen] = useState(false);
   return <aside className="pc-sidebar">
     <section className="detail-card pc-summary">
-      <div className="pc-title-row"><h1>벤틀리 컨티넨탈 GT 3세대 6.0 퍼스트 에디션</h1><button aria-label="매물 저장" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <img src={pcAsset("9877-imgIcon.svg")} alt="" />}<span>{liked ? 1 : 0}</span></button></div>
-      <p className="pc-specs">172무2323 · 19년 02월 · {formatMileage("17,000 km")} · 가솔린</p>
+      <div className="pc-title-row"><h1>{car.title} {car.trim}</h1><button aria-label="매물 저장" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <img src={pcAsset("9877-imgIcon.svg")} alt="" />}<span>{liked ? 1 : 0}</span></button></div>
+      <p className="pc-specs">TEST-0000 · {car.filter ? `${String(car.filter.year).slice(-2)}년 07월` : car.specs[0]} · {car.filter ? formatMileage(`${car.filter.mileage.toLocaleString("ko-KR")} km`) : car.specs[1]} · {car.filter?.fuel ?? car.specs[3]}</p>
       <div className="pc-badges"><span>인증중고차</span><span>1년 보증</span></div>
-      <div className="pc-price-row"><strong>1억 4,500만원</strong><button onClick={() => setSheet("priceHistory")}>가격 변동</button><button className="pc-insurance" onClick={() => notify("보험료는 보험사 상담을 통해 확인해 주세요.")}>보험료 계산</button></div>
-      <p className="pc-summary-note">6인승 독립시트로 뒷좌석의 편안함을 최우선으로 느껴보세요.</p>
+      <div className="pc-price-row"><strong>{car.price.replace(/\s+/g, "")}</strong><button onClick={() => setSheet("priceHistory")}>가격 변동</button><button className="pc-insurance" onClick={() => notify("보험료는 보험사 상담을 통해 확인해 주세요.")}>보험료 계산</button></div>
+      <p className="pc-summary-note">{car.uiTest?.headline ?? "성능점검 완료 · 안심번호 상담 가능"}</p>
       <div className="pc-summary-links"><button onClick={() => jump("pc-history")}><b>보험이력</b><span>0건 <img src={pcAsset("9877-imgIcon1.svg")} alt="" /></span></button><button onClick={() => jump("pc-inspection")}><b>성능점검</b><span>보기 <img src={pcAsset("9877-imgIcon1.svg")} alt="" /></span></button></div>
       <div className="pc-calculators"><button onClick={() => setCostOpen(!costOpen)} aria-expanded={costOpen}>비용계산기</button><button onClick={() => jump("pc-related")}>동급매물</button><button onClick={() => notify("판매 완료된 매물 정보가 없습니다.")}>팔린매물</button></div>
-      {costOpen && <div className="pc-cost"><strong>차량 구매 비용</strong><p>차량가 1억 4,500만원</p><p>이전 등록비와 보험료는 별도입니다.</p></div>}
+      {costOpen && <div className="pc-cost-modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setCostOpen(false); }}><section className="pc-cost-modal" role="dialog" aria-modal="true" aria-label="비용계산기"><header><h2>비용계산기</h2><button type="button" autoFocus aria-label="비용계산기 닫기" onClick={() => setCostOpen(false)}>×</button></header><div className="pc-cost-tabs" role="tablist"><button className="is-selected">현금 구매</button><button>할부</button><button>리스</button></div><div className="pc-cost"><strong>차량 구매 비용</strong><p>차량가 {car.price}</p><p>이전 등록비와 보험료는 별도입니다.</p></div></section></div>}
     </section>
     <section className="detail-card pc-seller">
-      <div className="seller-profile"><img src={pcAsset("9877-imgFrame1000006239.png")} alt="한강모터스 박성수" /><div><h2>한강모터스 박성수 <span>딜러</span></h2><p><b>5대</b> 판매중 · <b>10대</b> 판매완료</p><p>● 서울 서초구 오토갤러리</p></div></div>
-      <dl><div><dt>종사원번호</dt><dd>SE25-00585 <button onClick={() => notify("한강모터스 · 서울 서초구 오토갤러리 · SE25-00585")}>상사/조합정보</button></dd></div><div><dt>매매유형</dt><dd>매매알선(소속 상사 매물)</dd></div></dl>
-      <div className="pc-seller-contact"><button onClick={() => setSheet("contact")}>채팅</button><a href="tel:05062469261"><img src={pcAsset("9877-imgSvgexport251.svg")} alt="" />050-6246-9261</a></div>
+      <div className="seller-profile"><img src={asset(car.sellerProfile ?? "cars/dealer.png")} alt="" /><div><h2>{car.dealer} <span>{car.sellerType}</span></h2><p><b>{car.stock}대</b> 판매중 · <b>10대</b> 판매완료</p><p>● {car.place}</p></div></div>
+      <dl><div><dt>종사원번호</dt><dd>TEST-0000 <button onClick={() => notify(`${car.dealer} · ${car.place} · TEST-0000`)}>상사/조합정보</button></dd></div><div><dt>매매유형</dt><dd>{car.sellerType === "개인" ? "개인 직거래" : "매매알선(가상 매물)"}</dd></div></dl>
+      <div className="pc-seller-contact"><button onClick={() => setSheet("contact")}>채팅</button><a href="tel:05000000000"><img src={pcAsset("9877-imgSvgexport251.svg")} alt="" />050-0000-0000</a></div>
       <button className="pc-report" onClick={() => setSheet("more")}>신고하기</button>
     </section>
   </aside>;
@@ -396,17 +451,29 @@ function DesktopHeader({ onBack }: { onBack: () => void }) {
   </header>;
 }
 
-function DesktopVehicleDetail({ onBack }: { onBack: () => void }) {
+function DesktopVehicleDetail({ car, onBack }: { car: Car; onBack: () => void }) {
   const content = useRef<HTMLDivElement>(null);
+  const [sectionNavVisible, setSectionNavVisible] = useState(false);
+  useEffect(() => {
+    const scroller = content.current?.closest<HTMLElement>(".mobile-scroll-content")?.parentElement;
+    if (!scroller) return;
+    const update = () => setSectionNavVisible(scroller.scrollTop > 360);
+    scroller.addEventListener("scroll", update, { passive: true });
+    update();
+    return () => scroller.removeEventListener("scroll", update);
+  }, []);
   const jump = (id: string) => {
     const target = content.current?.querySelector<HTMLElement>(`#${id}`);
-    const scroll = content.current?.closest(".detail-screen");
+    const scroll = content.current?.closest<HTMLElement>(".mobile-scroll-content")?.parentElement;
     if (target && scroll) scroll.scrollTo({ top: target.getBoundingClientRect().top - scroll.getBoundingClientRect().top + scroll.scrollTop - 16, behavior: "smooth" });
   };
   return <div className="pc-detail" ref={content}>
     <DesktopHeader onBack={onBack} />
+    <nav className={`pc-section-nav${sectionNavVisible ? " is-visible" : ""}`} aria-label="상세 섹션 이동" aria-hidden={!sectionNavVisible}>
+      <div>{[["차량 정보", "pc-info"], ["차량 옵션", "pc-options"], ["보험 이력", "pc-history"], ["성능 점검", "pc-inspection"], ["동급매물", "pc-related"]].map(([label, id]) => <button key={id} type="button" onClick={() => jump(id)}>{label}</button>)}</div>
+    </nav>
     <main className="pc-detail-container" aria-label="중고차 PC 상세">
-      <div className="pc-detail-columns"><div className="pc-detail-left"><DesktopGallery onBack={onBack} /><DescriptionCard desktop /><DesktopVehicleInfo /><OptionsCard desktop /><div id="pc-history"><HistoryCard /></div><div id="pc-inspection"><InspectionCard /></div><WarrantyCard /></div><DesktopSummary jump={jump} /></div>
+      <div className="pc-detail-columns"><div className="pc-detail-left"><DesktopGallery car={car} onBack={onBack} /><DescriptionCard desktop /><div id="pc-info"><DesktopVehicleInfo car={car} /></div><div id="pc-options"><OptionsCard desktop /></div><div id="pc-history"><HistoryCard /></div><div id="pc-inspection"><InspectionCard /></div><WarrantyCard /></div><DesktopSummary car={car} jump={jump} /></div>
       <CarRail title="한강모터스 박성수의 다른 매물" cars={relatedCars} />
       <div id="pc-related"><CarRail title="동급매물" cars={classCars} /></div>
       <p className="safety-copy">안전한 거래와 허위매물 근절을 위해 안심번호(050) 이용 시 통화 내용이 보배드림에 안전하게 보관됩니다.<br />보배드림은 등록 시스템만 제공하며, 판매자가 직접 등록한 차량에 대한 모든 책임은 판매자에게 있습니다.</p>
@@ -414,6 +481,23 @@ function DesktopVehicleDetail({ onBack }: { onBack: () => void }) {
     </main>
     <footer className="pc-footer"><div><section><h3>(주) 보배네트워크 사업자 정보</h3><p>대표이사: 김보배　|　사업자등록번호: 117-81-64543</p><p>주소: (07995) 서울 양천구 목동동로 233-1 드림타워 11, 12층</p><p>통신판매업신고번호: 제2013-서울양천-0465호　|　개인정보관리책임자: 이은호</p><p>팩스: 02-6499-2329　|　메일: bobaedream@bobaedream.co.kr</p><p>Copyright ⓒ (주)보배네트워크</p></section><section><h3>고객센터</h3><strong>02-784-2329</strong><p>평일　09:00 ~ 18:00</p><p>점심시간　11:30 ~ 12:30</p></section></div><p>회사소개　　제휴/광고문의　　이용약관　　제휴/신고센터　　고객센터　　청소년보호정책　　개인정보취급방침　　원격지원</p><div className="pc-footer-social">{["imgGroup", "imgPrimeFacebook", "imgMdiYoutube", "imgFrame1000005307"].map(icon => <img key={icon} src={pcAsset(`10204-${icon}.svg`)} alt="" />)}</div></footer>
   </div>;
+}
+
+function DetailStickyHeader({ car, visible, onBack }: { car: Car; visible: boolean; onBack: () => void }) {
+  const { setSheet, notify } = useDetailUi();
+  const copyLink = async () => {
+    try { await navigator.clipboard.writeText(window.location.href); notify("링크가 복사되었습니다."); }
+    catch { notify("주소창의 링크를 복사해 주세요."); }
+  };
+  return (
+    <header className={`detail-sticky-header${visible ? " is-visible" : ""}`} aria-hidden={!visible}>
+      <button type="button" aria-label="목록으로 돌아가기" onClick={onBack}><img src={asset("detail/back.svg")} alt="" /></button>
+      <img className="detail-sticky-thumb" src={asset(car.image)} alt="" />
+      <div><strong>{car.title} {car.trim}</strong><span>{car.price.replace(/\s+/g, "")}</span></div>
+      <button type="button" aria-label="공유하기" onClick={copyLink}><img src={asset("detail/share.svg")} alt="" /></button>
+      <button type="button" aria-label="더보기" onClick={() => setSheet("more")}><img src={asset("detail/more.svg")} alt="" /></button>
+    </header>
+  );
 }
 
 function BikeVehicleDetail({ car, onBack }: { car: Car; onBack: () => void }) {
@@ -461,22 +545,41 @@ function BikeVehicleDetail({ car, onBack }: { car: Car; onBack: () => void }) {
 function VehicleDetail() {
   const flow = useFlow();
   const activeCar = getActiveDetailCar();
-  const [desktop, setDesktop] = useState(() => isDesktopPreview() && window.matchMedia("(min-width: 820px)").matches);
+  const [desktop, setDesktop] = useState(() => window.matchMedia("(min-width: 768px)").matches && !isForcedMobileView());
+  const [stickyHeaderVisible, setStickyHeaderVisible] = useState(false);
   useEffect(() => {
     if (isForcedMobileView()) {
       setDesktop(false);
       return;
     }
-    const query = window.matchMedia("(min-width: 820px)");
+    const query = window.matchMedia("(min-width: 768px)");
     const update = () => setDesktop(query.matches);
     query.addEventListener("change", update);
     return () => query.removeEventListener("change", update);
   }, []);
   const { sheet, setSheet, toast, notify } = useDetailUi();
+  const closeDetail = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.delete("detail");
+    window.history.replaceState({ ...window.history.state, bbmDetailFromList: false }, "", `${url.pathname}${url.search}${url.hash}`);
+    window.dispatchEvent(new PopStateEvent("popstate", { state: window.history.state }));
+  };
+  useEffect(() => {
+    if (desktop || activeCar?.bike) return;
+    const scroller = document.querySelector<HTMLElement>('[data-testid="flow-current"] .detail-screen > .mobile-scroll')
+      ?? document.querySelector<HTMLElement>(".detail-screen > .mobile-scroll");
+    if (!scroller) return;
+    const update = () => setStickyHeaderVisible(scroller.scrollTop >= 305);
+    scroller.addEventListener("scroll", update, { passive: true });
+    update();
+    return () => scroller.removeEventListener("scroll", update);
+  }, [desktop, activeCar?.bike]);
+  if (!activeCar) return null;
+  const sheetTitle = sheet === "priceHistory" ? "가격 변동 내역" : sheet === "more" ? "매물 더보기" : sheet === "options" ? "전체 옵션" : sheet === "optionGuide" ? "옵션설명" : sheet === "history" || sheet === "inspection" ? "성능·상태점검기록부" : "판매자 상담";
   if (activeCar?.bike) {
     return (
       <div className="detail-scene">
-        <MobileScroll className="detail-screen"><BikeVehicleDetail car={activeCar} onBack={flow.pop} /></MobileScroll>
+        <MobileScroll className="detail-screen"><BikeVehicleDetail car={activeCar} onBack={closeDetail} /></MobileScroll>
         {toast ? <div className="detail-toast" role="status">{toast}</div> : null}
       </div>
     );
@@ -484,30 +587,31 @@ function VehicleDetail() {
   return (
     <div className="detail-scene">
       <MobileScroll className="detail-screen">
-        {desktop ? <DesktopVehicleDetail onBack={flow.pop} /> : <>
+        {desktop ? <DesktopVehicleDetail car={activeCar} onBack={closeDetail} /> : <>
         <main className="vehicle-detail" aria-label="중고차 상세">
-          <DetailHero onBack={flow.pop} />
+          <DetailHero car={activeCar} onBack={closeDetail} />
           <VehicleSummary />
           <div className="detail-gray-stack">
-            <SellerCard />
             <VehicleInfoCard />
             <OptionsCard />
             <HistoryCard />
             <InspectionCard />
-            <WarrantyCard />
+            <HistoryInfoCard />
+            <SellerCard />
             <SaleCard />
             <DescriptionCard />
           </div>
-          <CarRail title={`${sellerScenario.name}의 다른 매물`} cars={relatedCars} />
+          <CarRail title={`${activeCar.dealer}의 다른 매물`} cars={relatedCars} />
           <CarRail title="동급매물" cars={classCars} />
           <p className="safety-copy">안전한 거래와 허위매물 근절을 위해 안심번호(050) 이용 시 통화 내용이 보배드림에 안전하게 보관됩니다.<br />보배드림은 등록 시스템만 제공하며, 판매자가 직접 등록한 차량에 대한 모든 책임은 판매자에게 있습니다. <button type="button" onClick={() => notify("신고하기를 선택했어요")}>신고하기</button></p>
         </main>
         </>}
       </MobileScroll>
+      {!desktop ? <DetailStickyHeader car={activeCar} visible={stickyHeaderVisible} onBack={closeDetail} /> : null}
       {toast ? <div className="detail-toast" role="status">{toast}</div> : null}
-      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && setSheet(null)} title={sheet === "priceHistory" ? "가격 변동 내역" : sheet === "more" ? "매물 더보기" : "판매자 상담"} description={sheet === "priceHistory" ? undefined : sheet === "more" ? "원하는 작업을 선택하세요." : `${sellerScenario.name}에게 문의할 수 있어요.`} snap={sheet === "priceHistory" ? 0.75 : 0.42}>
-        {sheet === "priceHistory" ? <PriceHistorySheet onClose={() => setSheet(null)} /> : <div className="detail-sheet-actions">
-          {sheet === "more" ? <><button type="button" onClick={() => { notify("매물 신고를 선택했어요"); setSheet(null); }}>허위매물 신고</button><button type="button" onClick={() => { notify("판매자를 차단했어요"); setSheet(null); }}>판매자 차단</button><button type="button" onClick={() => setSheet(null)}>취소</button></> : <><a href={sellerScenario.phoneHref}><MobileIcon /> {sellerScenario.phoneLabel} 전화하기</a><button type="button" onClick={() => { notify("상담 요청을 보냈어요"); setSheet(null); }}>문자로 상담 요청</button><button type="button" onClick={() => setSheet(null)}>닫기</button></>}
+      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && setSheet(null)} title={sheetTitle} description={sheet === "more" ? "원하는 작업을 선택하세요." : sheet === "contact" ? `${activeCar.dealer}에게 문의할 수 있어요.` : undefined} snap={sheet === "priceHistory" || sheet === "options" || sheet === "optionGuide" || sheet === "history" || sheet === "inspection" ? 0.82 : 0.42}>
+        {sheet === "priceHistory" ? <PriceHistorySheet onClose={() => setSheet(null)} /> : sheet === "options" ? <div className="detail-record-modal"><label><input type="checkbox" /> 선택 옵션만 보기</label><div className="option-grid">{optionItems.map(({ label, icon }) => <div key={label}><img src={asset(`detail/${icon}`)} alt="" /><span>{label}</span></div>)}</div></div> : sheet === "optionGuide" ? <div className="detail-record-modal"><div className="detail-record-tabs" role="tablist"><button className="is-selected">승용차</button><button>화물차</button><button>오토바이</button><button>버스</button></div><p>각 옵션 아이콘과 명칭은 차량 등록 정보에 따라 달라질 수 있습니다.</p></div> : sheet === "history" || sheet === "inspection" ? <div className="detail-record-modal"><div className="detail-record-tabs" role="tablist"><button className={sheet === "inspection" ? "is-selected" : ""} onClick={() => setSheet("inspection")}>성능점검</button><button className={sheet === "history" ? "is-selected" : ""} onClick={() => setSheet("history")}>보험이력</button></div><h3>{sheet === "inspection" ? "성능·상태 점검 결과" : "보험 사고 이력"}</h3><dl className="detail-rows"><div><dt>사고이력</dt><dd>없음</dd></div><div><dt>침수·도난</dt><dd>없음</dd></div><div><dt>소유자 변경</dt><dd>1회</dd></div></dl></div> : <div className="detail-sheet-actions">
+          {sheet === "more" ? <><button type="button" onClick={() => { notify("매물 신고를 선택했어요"); setSheet(null); }}>신고하기</button><button type="button" onClick={() => { setSheet("contact"); }}>문의하기</button><button type="button" onClick={() => setSheet(null)}>취소</button></> : <><a href="tel:05000000000"><MobileIcon /> 050-0000-0000 전화하기</a><button type="button" onClick={() => { notify("상담 요청을 보냈어요"); setSheet(null); }}>문자로 상담 요청</button><button type="button" onClick={() => setSheet(null)}>닫기</button></>}
         </div>}
       </BottomSheet>
     </div>
@@ -515,7 +619,7 @@ function VehicleDetail() {
 }
 
 function DetailFooter() {
-  const { setSheet, notify } = useDetailUi();
+  const { liked, setLiked, notify } = useDetailUi();
   const activeCar = getActiveDetailCar();
   if (activeCar?.bike) {
     return (
@@ -528,10 +632,9 @@ function DetailFooter() {
   }
   return (
     <div className="detail-bottom-bar">
-      <a className="detail-history" href={vehicleHistoryUrl(detailVehiclePlate)}>이력조회</a>
-      <a className="detail-call" href="tel:05062469261"><img src={asset("detail/call.svg")} alt="" /> 전화</a>
-      <button className="detail-zalo" type="button" onClick={() => notify("카카오 상담을 준비했어요")}>카카오</button>
-      <button className="detail-consult" type="button" onClick={() => setSheet("contact")}>채팅</button>
+      <button className={`detail-bottom-like${liked ? " is-liked" : ""}`} type="button" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}<span>찜하기</span></button>
+      <button className="detail-consult" type="button" onClick={() => { document.querySelector<HTMLElement>(".seller-card")?.scrollIntoView({ behavior: "smooth", block: "start" }); notify("판매자 정보로 이동했습니다."); }}>상담</button>
+      <a className="detail-call" href="tel:05000000000"><img src={asset("detail/call.svg")} alt="" /> 전화하기</a>
     </div>
   );
 }

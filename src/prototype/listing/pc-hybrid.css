@@ -4,7 +4,7 @@
    · 1024~1279: 좌측 필터 숨김, 상단 영역·목록은 화면 폭 − 양옆 24, 상단 "필터" 칩으로 왼쪽 펼침판(bbm-filter-drawer.tsx)
    · 1023 이하: 모바일 화면(index.tsx hybridLayoutQuery)
    카드·필터 안쪽·모달·푸터·목록 툴바·칩 모양과 퀵필터 레일 규격은 바꾸지 않는다(폭·위치만). */
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .marketplace.is-bbm.is-hybrid .bbm-hybrid-top { width: min(1200px, calc(100% - 48px)); margin: 24px auto 0; }
   /* 상단 영역과 아래 두 칸 사이 24 = 예전 상단 패널과 목록 툴바 사이 간격(.bbm-results margin-top 24)을 그대로 옮김 */
   .marketplace.is-bbm.is-hybrid .bbm-page { width: min(1200px, calc(100% - 48px)); margin-top: 24px; }
@@ -12,14 +12,14 @@
 }
 /* 1280 이상: 좌측 필터 300 + 24 + 목록. 좌측 필터는 스크롤 상자(.mobile-scroll) 안에서 위 16 에 붙는 sticky, 높이 = 화면 − 32 고정·안에서 따로 스크롤(QF-119).
    자기 칸(.bbm-page 행) 안에서만 움직여 푸터를 덮지 않는다(QF-059) */
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .marketplace.is-bbm.is-hybrid .bbm-page { grid-template-columns: 300px minmax(0, 1fr); gap: 24px; }
   .marketplace.is-bbm.is-hybrid .bbm-page:has(> .bbm-filter.is-collapsed) { grid-template-columns: 48px minmax(0, 1fr); }
   /* QF-119: 위 기준 sticky + 자기 스크롤 영역(qf-sidebar-stable.css). 예전 "아래 붙는 사이드바"(음수 top, bbm-sticky-sidebar.ts)는 없앰 */
   .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter { position: sticky; top: 16px; align-self: start; }
 }
 /* 1024~1279: 좌측 필터 숨김, 목록이 본문 폭 전체. 이 폭에서만 상단 "필터" 칩을 누를 수 있다 */
-@media (min-width: 1024px) and (max-width: 1279px) {
+@media (min-width: 768px) and (max-width: 1023px) {
   .marketplace.is-bbm.is-hybrid .bbm-page { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter { display: none; }
   /* 헤더 좌우 여백도 본문과 같은 24 — 로고 왼쪽 선 = 상단 영역 왼쪽 선(원본 헤더는 좌우 16, 1280 이상은 1200 가운데라 그대로) */

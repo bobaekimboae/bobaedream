@@ -98,13 +98,19 @@ export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
     ],
   },
   {
-    value: "트럭 · 특장",
-    label: "트럭/특장차",
+    value: "트럭",
+    label: "트럭",
     icon: categoryIcon("category_truck_special_v01.svg"),
     children: [
-      { label: "전체", value: "트럭 · 특장" },
+      { label: "전체", value: "트럭 · 특장", detail: "트럭" },
       ...truckFormatCatalog.map((group) => ({ label: group.name, value: "트럭 · 특장", detail: group.name })),
     ],
+  },
+  {
+    value: "특장",
+    label: "특장",
+    icon: categoryIcon("category_truck_special_v01.svg"),
+    children: [{ label: "전체", value: "트럭 · 특장", detail: "특장" }],
   },
   {
     value: "바이크",
@@ -123,22 +129,28 @@ export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
     ],
   },
   {
+    value: "올드카",
+    label: "올드카",
+    icon: categoryIcon("category_used_car_v01.svg"),
+    children: [{ label: "전체", value: "중고차", detail: "올드카" }],
+  },
+  {
     value: "건설기계",
     label: "건설기계",
     icon: categoryIcon("category_construction_v01.svg"),
     children: [{ label: "전체", value: "건설기계" }],
   },
   {
-    value: "자재운반장비",
-    label: "자재운반장비",
-    icon: categoryIcon("category_material_handling_v01.svg"),
-    children: [{ label: "전체", value: "자재운반장비" }],
+    value: "부품",
+    label: "부품",
+    icon: categoryIcon("category_parts_v01.svg"),
+    children: [{ label: "전체", value: "부품 · 용품", detail: "부품" }],
   },
   {
-    value: "부품 · 용품",
-    label: "부품/용품",
+    value: "용품",
+    label: "용품",
     icon: categoryIcon("category_parts_v01.svg"),
-    children: [{ label: "전체", value: "부품 · 용품" }],
+    children: [{ label: "전체", value: "부품 · 용품", detail: "용품" }],
   },
 ];
 
@@ -288,6 +300,7 @@ export function BbmMobileOptions<T extends string>({
   onSellerChange,
   onView,
   viewMode,
+  onBrand,
   extra,
 }: {
   videoOnly: boolean;
@@ -299,8 +312,10 @@ export function BbmMobileOptions<T extends string>({
   onSellerChange: (tab: T) => void;
   onView: () => void;
   viewMode: string;
+  onBrand?: () => void;
   extra?: ReactNode;
 }) {
+  const [brandSelected, setBrandSelected] = useState(false);
   const viewIcon = viewMode === "갤러리로 보기" ? "view-list-chotot-v02" : "view-grid-chotot";
   return (
     <nav className="bbm-m-options" aria-label="정렬, 영상 매물, 판매자 유형과 보기 방식">
@@ -317,6 +332,7 @@ export function BbmMobileOptions<T extends string>({
             </button>
           );
         })}
+        <button type="button" className={`bbm-m-filter-tab${brandSelected ? " is-selected" : ""}`} aria-pressed={brandSelected} onClick={() => { setBrandSelected((value) => !value); onBrand?.(); }}><span>브랜드</span>{brandSelected ? <Cross2Icon className="bbm-m-filter-clear" aria-hidden="true" /> : null}</button>
       </div>
       {extra}
       <button type="button" className="bbm-m-view" aria-label="보기 방식 선택" onClick={onView}><img src={bbmIcon(viewIcon)} alt="" aria-hidden="true" /></button>
@@ -349,7 +365,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   const headline = car.uiTest ? <strong className={`bbm-card-headline is-${headlinePosition}${headlineTone === "blue" ? " is-blue" : ""}`}>{car.uiTest.headline}</strong> : null;
   const photo = (
     <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`}>
-      {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} style={{ objectPosition: car.imagePosition ?? "center center" }} /> : null}
+      {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(car.image)} alt="" aria-hidden="true" draggable={false} style={{ objectPosition: car.imagePosition ?? "center center" }} onError={(event) => { event.currentTarget.style.visibility = "hidden"; }} /> : null}
       <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span><span className="bbm-card-count">{car.photos}<img src={bbmIcon("card-photo-count")} alt="" /></span></div>
     </div>
   );
@@ -388,11 +404,10 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
           </div>
           <div className="bbm-card-meta">
             <div className="bbm-card-location"><img src={bbmIcon("card-location")} alt="" aria-hidden="true" /><span className="bbm-card-location-text"><span>{locationMain}</span>{locationSecondary ? <span className="bbm-card-location-secondary">{locationSecondary}</span> : null}</span></div>
-            {variant === "pc" ? sellerRow : null}
+            {sellerRow}
           </div>
         </div>
       </div>
-      {variant === "mobile" ? sellerRow : null}
     </article>
   );
 }

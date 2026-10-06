@@ -2,7 +2,7 @@
    원본(dev.bbmuseum.co.kr/car/list, 1440×900) 실측값을 따른다. 퀵필터 레일 스타일은 건드리지 않는다. */
 .bb-icon { display: inline-block; flex: none; width: var(--bb-size, 20px); height: var(--bb-size, 20px); background-color: currentColor; -webkit-mask: var(--bb-icon) center / contain no-repeat; mask: var(--bb-icon) center / contain no-repeat; }
 
-@media (min-width: 820px) {
+@media (min-width: 768px) {
   .marketplace.is-bbm { min-height: 100%; padding: 0 0 48px; background: #f4f4f4; color: #1a1a1a; }
   .marketplace.is-bbm button { font-family: inherit; cursor: pointer; }
 
@@ -165,9 +165,9 @@
 }
 
 /* 원본 반응형: 1200 이하는 헤더 좌우 16, 본문 좌우 24(300 + 24 + 나머지). 1119 이하는 사이드바 240·간격 16·좌우 16 (원본 1024 실측: 16 + 240 + 16 + 736 + 16) */
-@media (min-width: 820px) {
+@media (min-width: 768px) {
   .bbm-header-inner { width: min(1200px, calc(100% - 32px)); }
 }
-@media (min-width: 820px) and (max-width: 1119px) {
+@media (min-width: 768px) and (max-width: 1119px) {
   .bbm-page { grid-template-columns: 240px minmax(0, 1fr); gap: 16px; width: calc(100% - 32px); }
 }

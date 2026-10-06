@@ -1,0 +1,160 @@
+/* JOB-3: dev.bbmuseum 중고차 목록의 767px 이하 기본 목록형 규격. */
+.login-required-backdrop { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 24px; background: rgba(0,0,0,.48); }
+.login-required-dialog { width: min(320px, 100%); padding: 24px 20px 20px; border-radius: 12px; box-sizing: border-box; background: #fff; color: #222; text-align: center; box-shadow: 0 12px 36px rgba(0,0,0,.2); }
+.login-required-dialog h2 { margin: 0; font-size: 18px; font-weight: 600; line-height: 25.2px; }
+.login-required-dialog p { margin: 8px 0 20px; color: #616161; font-size: 14px; line-height: 19.6px; }
+.login-required-dialog > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.login-required-dialog button { height: 40px; border: 0; border-radius: 8px; background: #f1f1f1; color: #222; font: 600 14px/20px Pretendard, sans-serif; cursor: pointer; }
+.login-required-dialog button:last-child { background: #1b4c8c; color: #fff; }
+@media (max-width: 767px) {
+  .marketplace.is-bbm-m.is-qf-guazi .top-bar.is-bbm {
+    grid-template-columns: 24px minmax(0, 230px) 24px 24px;
+    gap: 18px;
+    height: 56px;
+    min-height: 56px;
+    padding: 6px 16px 8px 12px;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .top-bar.is-bbm .search-field { height: 42px; }
+  .marketplace.is-bbm-m.is-qf-guazi .region-bar.is-bbm {
+    height: 44px;
+    min-height: 44px;
+    margin-top: 0;
+    padding: 14px 16px 10px;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .region-bar.is-bbm .region-text { color: #9e9e9e; font-size: 15px; font-weight: 500; line-height: 21px; }
+  .marketplace.is-bbm-m.is-qf-guazi .region-bar.is-bbm .region-label { color: #9e9e9e; font-weight: 500; }
+  .marketplace.is-bbm-m.is-qf-guazi .region-bar.is-bbm strong { color: #1b4c8c; font-size: 15px; font-weight: 600; line-height: 21px; }
+  .marketplace.is-bbm-m.is-qf-guazi .region-bar.is-bbm .reset-button { color: #3a3a3a; font-size: 15px; font-weight: 600; line-height: 21px; }
+  .marketplace.is-bbm-m.is-qf-guazi > .filter-shell.is-bbm {
+    height: 52px;
+    min-height: 52px;
+    margin-top: 0;
+    padding: 10px 16px;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi > .filter-shell.is-bbm .filter-track { gap: 8px; }
+  .marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear {
+    width: 26px;
+    height: 26px;
+    margin: -3px -3px -3px 1px;
+    border-radius: 50%;
+    background: transparent;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot { margin-top: 0; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-hierarchical .bbm-category-menu__list {
+    height: 92px;
+    gap: 18px;
+    padding: 8px 0 12px 24px;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-hierarchical .bbm-category-menu__item,
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-hierarchical .bbm-category-menu__button { width: 60px; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-hierarchical .bbm-category-menu__button { height: 72px; gap: 8px; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-hierarchical .bbm-category-menu__icon-box.is-category-icon { width: 44px; height: 44px; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-hierarchical .bbm-category-menu__label { width: 60px; min-height: 20px; font-size: 14px; line-height: 19.6px; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-filter-tab.is-selected { background: #edf4fb; color: #1b4c8c; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-list:not(.is-feed):not(.is-gallery):not(.is-text):not(.is-one-line) .bbm-result-card.is-mobile {
+    height: 177px;
+    padding: 12px 0;
+    overflow: hidden;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-list:not(.is-feed):not(.is-gallery):not(.is-text):not(.is-one-line) .bbm-result-card.is-mobile .bbm-card-main {
+    height: 152px;
+    gap: 16px;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-list:not(.is-feed):not(.is-gallery):not(.is-text):not(.is-one-line) .bbm-result-card.is-mobile .bbm-card-photo {
+    width: 122px;
+    height: 120px;
+    flex: 0 0 122px;
+    border-radius: 12px;
+    background: #ebebeb;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-media-footer {
+    height: 31px;
+    padding: 8px 9px;
+    box-sizing: border-box;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-time,
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-count {
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 15.4px;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-content {
+    min-width: 0;
+    min-height: 0;
+    height: 152px;
+    gap: 0;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-title,
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-model,
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-trim {
+    display: inline;
+    overflow: hidden;
+    color: #222;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 21px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-spec {
+    height: 24px;
+    margin: 0;
+    overflow: hidden;
+    color: #616161;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-price-badges {
+    display: flex;
+    height: 44px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    overflow: hidden;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-price {
+    height: 22px;
+    color: #222;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22.4px;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-price-unit {
+    margin-left: 2px;
+    color: #222;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-badges { height: 20px; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-meta,
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile.has-badges .bbm-card-meta,
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile.has-no-badges .bbm-card-meta {
+    min-height: 42px;
+    margin-top: 0;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-location {
+    height: 18px;
+    gap: 2px;
+    color: #767676;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-location-secondary { display: none; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-meta-row {
+    height: 24px;
+    margin: 0;
+  }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-seller { gap: 4px; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-seller-logo { width: 16px; height: 16px; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-seller-text { color: #1a1a1a; font-size: 12px; line-height: 16.8px; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-chat { display: none; }
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-actions .bbm-card-wish,
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-actions .bbm-card-wish img,
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-result-card.is-mobile .bbm-card-wish-on { width: 20px; height: 20px; padding: 0; }
+}

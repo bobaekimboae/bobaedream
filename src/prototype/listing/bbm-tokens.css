@@ -113,13 +113,13 @@
 .bbm-headline-preview__links a.is-selected { border-color: #222; background: #222; color: #fff; font-weight: 700; }
 .bbm-headline-preview__links a:focus-visible { outline: 2px solid var(--bbm-blue); outline-offset: 2px; }
 
-@media (min-width: 820px) {
+@media (min-width: 768px) {
   .marketplace.is-bbm .bbm-headline-preview { padding: 12px 20px; }
   .marketplace.is-bbm .bbm-headline-preview__links { flex-wrap: wrap; overflow: visible; }
 }
 
 /* ═════════ PC(.marketplace.is-bbm) ═════════ */
-@media (min-width: 820px) {
+@media (min-width: 768px) {
   /* 헤더: 유틸 링크 12/16.8 600 #767676 + 1×8 구분선, 로고 113.9×28, 아이콘 24(간격 20) */
   .marketplace.is-bbm .bbm-header-top { gap: 8px; }
   .marketplace.is-bbm .bbm-header-top-item { display: inline-flex; align-items: center; gap: 8px; }

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import {
   siCadillac,
   siChevrolet,
@@ -37,7 +37,7 @@ import {
 
 export type SellerType = "전체" | "개인" | "딜러";
 type SheetType = "filter" | "quick" | "carType" | "maker" | "vehicle" | "year" | "price" | "region" | "sort" | null;
-type DetailSheet = "contact" | "more" | "priceHistory" | null;
+type DetailSheet = "contact" | "more" | "priceHistory" | "options" | "optionGuide" | "history" | "inspection" | null;
 type RegionSelection = { province: string; district: string; radius: string };
 type RegionMenu = "province" | "district" | "radius" | null;
 type PriceMode = "cash" | "lease";
@@ -47,7 +47,7 @@ type ListingBadge = "브랜드인증" | "제조사보증" | "1인소유" | "가�
 
 const isDesktopPreview = () => {
   const params = new URLSearchParams(window.location.search);
-  return params.get("desktop") === "1" || params.get("pc") === "1";
+  return params.get("desktop") === "1" || params.get("pc") === "1" || params.get("qf") === "guazi";
 };
 const getInitialQuickFilterStyle = (): QuickFilterStyle => {
   const qf = new URLSearchParams(window.location.search).get("qf");
@@ -176,7 +176,18 @@ type Car = {
 
 let activeDetailCar: Car | null = null;
 const setActiveDetailCar = (car: Car) => { activeDetailCar = car; };
-const getActiveDetailCar = () => activeDetailCar;
+const getActiveDetailCar = () => {
+  if (typeof window !== "undefined") {
+    const detailId = Number(new URLSearchParams(window.location.search).get("detail"));
+    if (detailId) {
+      try {
+        const stored = window.sessionStorage.getItem(`bbm-detail-${detailId}`);
+        if (stored) return JSON.parse(stored) as Car;
+      } catch { /* session storage is optional in embedded previews */ }
+    }
+  }
+  return activeDetailCar;
+};
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}assets/${path}`;
 
@@ -185,8 +196,48 @@ const FavoritesContext = createContext<FavoritesUi | null>(null);
 
 function FavoritesProvider({ children }: { children: ReactNode }) {
   const [likedIds, setLikedIds] = useState<number[]>([]);
-  const toggleLiked = (id: number) => setLikedIds((current) => current.includes(id) ? current.filter((likedId) => likedId !== id) : [...current, id]);
-  return <FavoritesContext.Provider value={{ likedIds, toggleLiked }}>{children}</FavoritesContext.Provider>;
+  const [loginPromptId, setLoginPromptId] = useState<number | null>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const returnFocusRef = useRef<HTMLElement | null>(null);
+  const isLoggedIn = () => new URLSearchParams(window.location.search).get("login") === "1";
+  const applyToggle = (id: number) => setLikedIds((current) => current.includes(id) ? current.filter((likedId) => likedId !== id) : [...current, id]);
+  const closePrompt = () => {
+    setLoginPromptId(null);
+    window.setTimeout(() => returnFocusRef.current?.focus(), 0);
+  };
+  const toggleLiked = (id: number) => {
+    if (isLoggedIn()) { applyToggle(id); return; }
+    returnFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    setLoginPromptId(id);
+  };
+  useEffect(() => {
+    if (loginPromptId === null) return;
+    document.body.style.overflow = "hidden";
+    const dialog = dialogRef.current;
+    const focusables = () => Array.from(dialog?.querySelectorAll<HTMLElement>("button, a[href], input, [tabindex]:not([tabindex='-1'])") ?? []);
+    const onKeyDown = (event: globalThis.KeyboardEvent) => {
+      if (event.key === "Escape") { event.preventDefault(); closePrompt(); return; }
+      if (event.key !== "Tab") return;
+      const items = focusables();
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    window.setTimeout(() => focusables()[0]?.focus(), 0);
+    return () => { document.body.style.overflow = ""; document.removeEventListener("keydown", onKeyDown); };
+  }, [loginPromptId]);
+  const login = () => {
+    if (loginPromptId === null) return;
+    const url = new URL(window.location.href);
+    url.searchParams.set("login", "1");
+    window.history.replaceState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`);
+    applyToggle(loginPromptId);
+    closePrompt();
+  };
+  return <FavoritesContext.Provider value={{ likedIds, toggleLiked }}>{children}{loginPromptId !== null ? <div className="login-required-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) closePrompt(); }}><div ref={dialogRef} className="login-required-dialog" role="dialog" aria-modal="true" aria-labelledby="login-required-title" aria-describedby="login-required-description"><h2 id="login-required-title">로그인이 필요합니다</h2><p id="login-required-description">찜 기능은 로그인 후 이용할 수 있습니다.</p><div><button type="button" onClick={closePrompt}>취소</button><button type="button" onClick={login}>로그인</button></div></div></div> : null}</FavoritesContext.Provider>;
 }
 
 function useFavorites() {
