@@ -201,7 +201,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .data-error { display: grid; gap: 10px; margin: 24px 16px; padding: 16px; border: 1px solid #f3b6b6; border-radius: 12px; background: #fff2f2; color: #8d2525; font-size: 13px; line-height: 1.5; }
 
 html.is-bike-catalog .bike-model-row {
-  --divider-left: 100px;
+  --divider-left: 0;
   grid-template-columns: 84px 16px minmax(0, 1fr) 16px;
   min-height: 72px;
 }
