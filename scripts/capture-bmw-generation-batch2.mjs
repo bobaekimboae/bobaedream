@@ -52,6 +52,8 @@ try {
     await page.getByRole("button", { name: /BMW 17,426/ }).first().click();
     await page.getByRole("button", { name: /^5시리즈/ }).first().click();
     await page.locator(".generation-list .option-row").first().waitFor();
+    await page.waitForFunction(() => [...document.querySelectorAll(".generation-list .generated-vehicle-image")]
+      .every((image) => image.complete && image.naturalWidth > 0), null, { timeout: 15_000 });
     const rows = await page.locator(".generation-list .option-row").evaluateAll((elements) => elements.map((element) => {
       const image = element.querySelector(".generated-vehicle-image");
       return {
