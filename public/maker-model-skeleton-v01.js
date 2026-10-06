@@ -14,26 +14,26 @@ const IMPORT_POPULAR_ORDER = ["BMW", "벤츠", "아우디", "포르쉐", "미니
 
 const BIKE_GENRES = ["스쿠터", "네이키드", "스포츠", "크루저", "투어러", "멀티퍼퍼스", "클래식", "오프로드", "언더본·비즈니스", "삼륜", "ATV", "기타"];
 const BIKE_GROUP_IMAGES = {
-  "BKM001-G001": "honda/BKM001-G001-autoscout-exact-v07.png",
-  "BKM001-G002": "honda/BKM001-G002-autoscout-exact-v07.png",
-  "BKM001-G003": "honda/BKM001-G003-autoscout-exact-v07.png",
-  "BKM001-G004": "honda/BKM001-G004-autoscout-exact-v07.png",
-  "BKM001-G005": "honda/BKM001-G005-autoscout-exact-v07.png",
+  "BKM001-G001": "honda/BKM001-G001-goobike-verified-v08.png",
+  "BKM001-G002": "honda/BKM001-G002-goobike-verified-v08.png",
+  "BKM001-G003": "honda/BKM001-G003-goobike-verified-v08.png",
+  "BKM001-G004": "honda/BKM001-G004-goobike-verified-v08.png",
+  "BKM001-G005": "honda/BKM001-G005-goobike-verified-v08.png",
   "BKM005-G001": "harley-davidson/BKM005-G001-autoscout-exact-v07.png",
 };
 const BIKE_GENRE_IMAGES = {
-  "스쿠터": "honda/BKM001-G001-autoscout-exact-v07.png",
-  "네이키드": "honda/BKM001-G004-autoscout-exact-v07.png",
-  "스포츠": "honda/BKM001-G003-autoscout-exact-v07.png",
+  "스쿠터": "honda/BKM001-G001-goobike-verified-v08.png",
+  "네이키드": "honda/BKM001-G004-goobike-verified-v08.png",
+  "스포츠": "honda/BKM001-G003-goobike-verified-v08.png",
   "크루저": "harley-davidson/BKM005-G001-autoscout-exact-v07.png",
   "투어러": "genre/tourer-autoscout-exact-v02.png",
   "멀티퍼퍼스": "genre/multipurpose-autoscout-exact-v02.png",
   "클래식": "genre/classic-autoscout-exact-v02.png",
   "오프로드": "genre/offroad-autoscout-exact-v02.png",
-  "언더본·비즈니스": "honda/BKM001-G002-autoscout-exact-v07.png",
+  "언더본·비즈니스": "honda/BKM001-G002-goobike-verified-v08.png",
   "삼륜": "genre/trike-autoscout-exact-v02.png",
   "ATV": "genre/atv-autoscout-exact-v02.png",
-  "기타": "honda/BKM001-G004-autoscout-exact-v07.png",
+  "기타": "honda/BKM001-G004-goobike-verified-v08.png",
 };
 
 const BODY_TYPES = [
