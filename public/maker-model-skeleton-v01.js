@@ -416,7 +416,7 @@ function generationCode(generation) {
 
 function generationRow(generation) {
   const code = generationCode(generation);
-  const meta = `${code ? `코드 ${code} · ` : ""}출시 ${generationPeriod(generation)}`;
+  const meta = `${code ? `코드 ${code} · ` : ""}${generationPeriod(generation)}`;
   return `<li><button class="option-row generation-row" type="button" data-select-generation="${escapeHtml(generation.key)}">${generationSilhouette(generation, state.model)}<span class="generation-copy"><strong>${escapeHtml(generation.displayName)}</strong><span>${escapeHtml(meta)}</span></span><span class="option-count">${formatCount(generation.listingCount)}</span>${icon("/assets/maker-model/icons/chotot-chevron-right.svg", "chevron")}</button></li>`;
 }
 
