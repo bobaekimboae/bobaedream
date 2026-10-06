@@ -1,6 +1,6 @@
 :root {
   color-scheme: light;
-  font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #222;
   background: #eef0f3;
   --chip-bg-neutral: #f4f4f4;
@@ -50,7 +50,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .sheet { height: 100%; display: grid; grid-template-rows: 64px minmax(0, 1fr) auto; background: #fff; }
 .sheet-header { position: relative; display: grid; grid-template-columns: 18px minmax(0, 1fr) 44px; align-items: center; gap: 0; padding: 0 16px; border-bottom: 1px solid #e8e8e8; }
 .sheet-header.is-root { grid-template-columns: minmax(0, 1fr) 44px; gap: 0; padding: 0 20px 0 24px; }
-.sheet-header h2 { min-width: 0; margin: 0; overflow: hidden; text-align: left; font-size: 20px; line-height: 28px; font-weight: 750; letter-spacing: -.35px; text-overflow: ellipsis; white-space: nowrap; }
+.sheet-header h2 { min-width: 0; margin: 0; overflow: hidden; text-align: left; font-size: 20px; line-height: 28px; font-weight: 700; letter-spacing: -.35px; text-overflow: ellipsis; white-space: nowrap; }
 .sheet-header:not(.is-root) h2 { margin-left: 16px; }
 .icon-button { width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: 10px; background: transparent; cursor: pointer; }
 .icon-button[hidden] { display: none; }
@@ -70,7 +70,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .section-title { margin: 0; padding: 16px 16px 8px; color: #4f5660; font-size: 14px; line-height: 18px; font-weight: 700; }
 .test-badge { display: inline-flex; height: 20px; align-items: center; margin-left: 8px; padding: 0 7px; border-radius: 999px; background: #f1f2f4; color: #777d86; font-size: 10px; line-height: 20px; font-weight: 400; vertical-align: middle; }
 .section-title.with-rule { border-top: 8px solid #f5f6f7; }
-.maker-section-title { padding: 14px 16px 6px; color: #767d87; font-size: 13px; line-height: 18px; font-weight: 400; }
+.maker-section-title { padding: 14px 16px 6px; color: #4f5660; font-size: 14px; line-height: 18px; font-weight: 700; }
 .maker-list, .model-list, .generation-list, .grade-list { margin: 0; padding: 0 16px; list-style: none; }
 .option-row { position: relative; width: 100%; display: grid; align-items: center; padding: 0; border: 0; background: #fff; color: #222; text-align: left; cursor: pointer; }
 .option-row::after { content: ""; position: absolute; right: 0; bottom: 0; left: var(--divider-left, 0); height: 1px; background: #e8e8e8; pointer-events: none; }
@@ -219,7 +219,7 @@ html.is-bike-catalog .bike-placeholder-icon {
   mask: url('/assets/categories/bike.svg') center / contain no-repeat;
 }
 html.is-bike-catalog .bike-model-row .model-copy { display: flex; min-width: 0; flex-direction: column; justify-content: center; }
-html.is-bike-catalog .bike-model-row .model-copy strong { font-size: 16px; line-height: 22px; font-weight: 500; }
+html.is-bike-catalog .bike-model-row .model-copy strong { font-size: 16px; line-height: 22px; font-weight: 400; }
 html.is-bike-catalog .bike-model-row .model-copy small { margin-top: 4px; overflow: hidden; color: #8b95a1; font-size: 12px; line-height: 16px; font-weight: 400; text-overflow: ellipsis; white-space: nowrap; }
 html.is-bike-catalog #screen-controls [data-screen="4"] { display: none; }
 
