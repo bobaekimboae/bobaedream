@@ -1,0 +1,73 @@
+{
+  "version": "2026-10-07-v01",
+  "makerKey": "make_car_encar_60fb8148acae49ffaca7",
+  "makerName": "벤츠",
+  "policy": "AutoScout24, mobile.de, ADAC 중 둘 이상의 자료에서 코드와 생산 시기가 일치한 완전 변경 세대만 수록한다. 엔카 매물 수와 등급은 임의 분배하지 않는다.",
+  "models": {
+    "model_car_encar_group_42d52a7824a86b96c2db": {
+      "displayName": "A-클래스",
+      "generations": [
+        { "key": "reference_mercedes_a_w169", "displayName": "A-클래스 W169", "generationCode": "W169", "generationNumber": 2, "releaseYear": 2004, "endYear": 2012, "sortOrder": 3, "referenceOnly": true, "sources": ["https://www.mobile.de/auto/mercedes/a-klasse/2004/fuenftuerer/modell/", "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/a-klasse/?filter=NONE"] },
+        { "key": "reference_mercedes_a_w168", "displayName": "A-클래스 W168", "generationCode": "W168", "generationNumber": 1, "releaseYear": 1997, "endYear": 2004, "sortOrder": 4, "referenceOnly": true, "sources": ["https://www.mobile.de/auto/mercedes/a-klasse/1997/fuenftuerer/modell/", "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/a-klasse/?filter=NONE"] }
+      ]
+    },
+    "model_car_encar_group_f268f7193fe6376a3e07": {
+      "displayName": "B-클래스",
+      "generations": [
+        { "key": "reference_mercedes_b_w247", "displayName": "B-클래스 W247", "generationCode": "W247", "generationNumber": 3, "releaseYear": 2019, "endYear": null, "sortOrder": 0, "referenceOnly": true, "sources": ["https://www.mobile.de/auto/mercedes/b-klasse/w247/modell/", "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/b-klasse/?filter=NONE"] }
+      ]
+    },
+    "model_car_encar_group_b8bfb1002f64d0481967": {
+      "displayName": "C-클래스",
+      "generations": [
+        { "key": "reference_mercedes_c_w203", "displayName": "C-클래스 W203", "generationCode": "W203", "generationNumber": 2, "releaseYear": 2000, "endYear": 2007, "sortOrder": 4, "referenceOnly": true, "sources": ["https://www.autoscout24.de/auto/mercedes-benz/mercedes-baureihen/mercedes-w203/", "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/c-klasse/?filter=NONE"] },
+        { "key": "reference_mercedes_c_w202", "displayName": "C-클래스 W202", "generationCode": "W202", "generationNumber": 1, "releaseYear": 1993, "endYear": 2000, "sortOrder": 5, "referenceOnly": true, "sources": ["https://www.autoscout24.de/auto/mercedes-benz/mercedes-baureihen/mercedes-w202/", "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/c-klasse/?filter=NONE"] }
+      ]
+    },
+    "model_car_encar_group_11152aa52d9cdbad3923": {
+      "displayName": "CLK-클래스",
+      "generations": [
+        { "key": "reference_mercedes_clk_c208", "displayName": "CLK-클래스 C208", "generationCode": "C208", "generationNumber": 1, "releaseYear": 1997, "endYear": 2003, "sortOrder": 1, "referenceOnly": true, "sources": ["https://www.autoscout24.de/auto/mercedes-benz/mercedes-benz-208/", "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/clk-klasse/208/350792/"] }
+      ]
+    },
+    "model_car_encar_group_bc1b9fc5242c5236848a": {
+      "displayName": "R-클래스",
+      "generations": [
+        { "key": "reference_mercedes_r_w251", "displayName": "R-클래스 W251", "generationCode": "W251", "generationNumber": 1, "releaseYear": 2005, "endYear": 2012, "sortOrder": 0, "referenceOnly": true, "sources": ["https://www.mobile.de/auto/mercedes/r-klasse/2005/fuenftuerer/modell/", "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/r-klasse/251-facelift/210370/"] }
+      ]
+    },
+    "model_car_encar_group_9193982e3553733a3720": {
+      "displayName": "S-클래스",
+      "generations": [
+        { "key": "reference_mercedes_s_w220", "displayName": "S-클래스 W220", "generationCode": "W220", "generationNumber": 4, "releaseYear": 1998, "endYear": 2005, "sortOrder": 4, "referenceOnly": true, "sources": ["https://www.mobile.de/auto/mercedes/s-klasse/serie/", "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/s-klasse/?filter=NONE"] },
+        { "key": "reference_mercedes_s_w140", "displayName": "S-클래스 W140", "generationCode": "W140", "generationNumber": 3, "releaseYear": 1991, "endYear": 1998, "sortOrder": 5, "referenceOnly": true, "sources": ["https://www.mobile.de/auto/mercedes/s-klasse/serie/", "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/s-klasse/?filter=NONE"] },
+        { "key": "reference_mercedes_s_w126", "displayName": "S-클래스 W126", "generationCode": "W126", "generationNumber": 2, "releaseYear": 1979, "endYear": 1991, "sortOrder": 6, "referenceOnly": true, "sources": ["https://www.mobile.de/auto/mercedes/s-klasse/serie/", "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/s-klasse/?filter=NONE"] },
+        { "key": "reference_mercedes_s_w116", "displayName": "S-클래스 W116", "generationCode": "W116", "generationNumber": 1, "releaseYear": 1972, "endYear": 1980, "sortOrder": 7, "referenceOnly": true, "sources": ["https://www.mobile.de/auto/mercedes/s-klasse/serie/", "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/s-klasse/?filter=NONE"] }
+      ]
+    },
+    "model_car_encar_group_463dcf8783d6e8608624": {
+      "displayName": "SL-클래스",
+      "generations": [
+        { "key": "reference_mercedes_sl_r231", "displayName": "SL-클래스 R231", "generationCode": "R231", "generationNumber": 7, "releaseYear": 2011, "endYear": 2020, "sortOrder": 1, "referenceOnly": true, "sources": ["https://www.mobile.de/auto/mercedes/sl/2011/cabriolet/modell/", "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/sl-klasse/?filter=NONE"] },
+        { "key": "reference_mercedes_sl_r230", "displayName": "SL-클래스 R230", "generationCode": "R230", "generationNumber": 6, "releaseYear": 2001, "endYear": 2011, "sortOrder": 2, "referenceOnly": true, "sources": ["https://www.mobile.de/auto/mercedes/sl/2001/cabriolet/modell/", "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/sl-klasse/?filter=NONE"] },
+        { "key": "reference_mercedes_sl_r129", "displayName": "SL-클래스 R129", "generationCode": "R129", "generationNumber": 5, "releaseYear": 1989, "endYear": 2001, "sortOrder": 3, "referenceOnly": true, "sources": ["https://www.mobile.de/auto/mercedes/sl/1989/roadster/modell/", "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/sl-klasse/?filter=NONE"] },
+        { "key": "reference_mercedes_sl_r107", "displayName": "SL-클래스 R107", "generationCode": "R107", "generationNumber": 4, "releaseYear": 1971, "endYear": 1989, "sortOrder": 4, "referenceOnly": true, "sources": ["https://www.mobile.de/magazin/artikel/mercedes-sl-r107-historie-51960", "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/sl-klasse/?filter=NONE"] }
+      ]
+    },
+    "model_car_encar_group_c9db7535ddaf1c2b5201": {
+      "displayName": "SLK-클래스",
+      "generations": [
+        { "key": "reference_mercedes_slk_r172", "displayName": "SLK-클래스 R172", "generationCode": "R172", "generationNumber": 3, "releaseYear": 2011, "endYear": 2016, "sortOrder": 0, "referenceOnly": true, "sources": ["https://www.mobile.de/auto/mercedes/slk/serie/", "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/slk-klasse/"] },
+        { "key": "reference_mercedes_slk_r171", "displayName": "SLK-클래스 R171", "generationCode": "R171", "generationNumber": 2, "releaseYear": 2004, "endYear": 2011, "sortOrder": 1, "referenceOnly": true, "sources": ["https://www.mobile.de/auto/mercedes/slk/serie/", "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/slk-klasse/"] },
+        { "key": "reference_mercedes_slk_r170", "displayName": "SLK-클래스 R170", "generationCode": "R170", "generationNumber": 1, "releaseYear": 1996, "endYear": 2004, "sortOrder": 2, "referenceOnly": true, "sources": ["https://www.mobile.de/auto/mercedes/slk/serie/", "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/slk-klasse/"] }
+      ]
+    },
+    "model_car_encar_group_aed8f10fa3f1bd4bb7d7": {
+      "displayName": "V-클래스",
+      "generations": [
+        { "key": "reference_mercedes_v_w447", "displayName": "V-클래스 W447", "generationCode": "W447", "generationNumber": 2, "releaseYear": 2014, "endYear": null, "sortOrder": 0, "referenceOnly": true, "sources": ["https://www.mobile.de/auto/mercedes/v-klasse/serie/", "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/v-klasse/?filter=NONE"] },
+        { "key": "reference_mercedes_v_w638", "displayName": "V-클래스 W638", "generationCode": "W638", "generationNumber": 1, "releaseYear": 1996, "endYear": 2003, "sortOrder": 1, "referenceOnly": true, "sources": ["https://www.mobile.de/auto/mercedes/v-klasse/serie/", "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/mercedes-benz/v-klasse/?filter=NONE"] }
+      ]
+    }
+  }
+}
