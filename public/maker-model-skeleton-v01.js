@@ -5,6 +5,7 @@ const GENERATION_IMAGE_MAP_URLS = [
   "./data/encar-car-depth-1005/generation-images.json",
   "./data/encar-car-depth-1005/generation-images/mercedes-benz.json",
   "./data/encar-car-depth-1005/generation-images/bmw.json",
+  "./data/encar-car-depth-1005/generation-images/audi.json",
   "./data/encar-car-depth-1005/generation-images/ferrari.json",
   "./data/encar-car-depth-1005/generation-images/lamborghini.json",
   "./data/encar-car-depth-1005/generation-images/porsche.json",
