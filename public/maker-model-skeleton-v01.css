@@ -119,8 +119,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .body-type-rail button[aria-pressed="true"] { background: #222; color: #fff; font-weight: 700; }
 .body-type-rail span { white-space: nowrap; }
 
-.model-row { --divider-left: 100px; height: 72px; grid-template-columns: 84px 16px minmax(0,1fr) 22px 16px; }
-.model-row::after { right: -16px; background: #dedee3; }
+.model-row { --divider-left: 0; grid-template-columns: 74px 18px minmax(0,1fr) auto 24px; min-height: 56px; }
 .generation-row { --divider-left: 0; grid-template-columns: 74px 18px minmax(0,1fr) auto 24px; min-height: 68px; }
 .vehicle-image { width: 74px; height: 46px; object-fit: contain; object-position: center bottom; transform: scaleX(-1); }
 .vehicle-silhouette { display: grid; place-items: center; overflow: hidden; color: #c8ccd1; }
@@ -139,16 +138,10 @@ button { -webkit-tap-highlight-color: transparent; }
 .generation-placeholder { position: relative; }
 .model-copy, .generation-copy { grid-column: 3; min-width: 0; }
 .model-copy strong, .generation-copy strong { display: block; font-size: 16px; line-height: 22px; font-weight: 400; }
-.model-row .vehicle-image { width: 84px; height: 56px; border: 0; border-radius: 0; background: transparent; object-fit: contain; object-position: center; }
-.model-row .vehicle-silhouette { color: #d5dae1; }
-.model-row .generated-vehicle-image { width: 84px; height: 56px; object-fit: contain; object-position: center; }
-.model-copy { align-self: center; display: flex; flex-direction: column; justify-content: center; }
-.model-copy strong { overflow: hidden; color: #222; font-size: 16px; line-height: 22px; font-weight: 500; text-overflow: ellipsis; white-space: nowrap; }
-.model-listing-count { display: block; margin-top: 4px; color: #8b95a1; font-size: 12px; line-height: 16px; font-weight: 400; font-variant-numeric: tabular-nums; }
-.model-row > .chevron { grid-column: 5; width: 16px; height: 16px; justify-self: end; opacity: 1; transform: translateX(2px); }
+.model-copy strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .generation-copy strong { display: -webkit-box; overflow: hidden; white-space: normal; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .generation-copy span { display: block; margin-top: 1px; color: #868b93; font-size: 12px; line-height: 16px; }
-.generation-row .option-count { grid-column: 4; }
+.model-row .option-count, .generation-row .option-count { grid-column: 4; }
 
 .all-row { height: 56px; display: flex; align-items: center; justify-content: space-between; margin: 0 16px; border-bottom: 1px solid #e8e8e8; font-size: 16px; line-height: 22px; font-weight: 400; }
 .all-row button { width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between; border: 0; background: #fff; color: #222; cursor: pointer; }
