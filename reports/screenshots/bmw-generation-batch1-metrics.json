@@ -1,0 +1,37 @@
+{
+  "viewport": 360,
+  "rows": [
+    {
+      "label": "5시리즈 (G60)(G60)23.10 ~ 현재1,478",
+      "rowHeight": 84,
+      "imageWidth": 84,
+      "imageHeight": 52.5
+    },
+    {
+      "label": "5시리즈 (G30)(G30)17.01 ~ 23.092,233",
+      "rowHeight": 84,
+      "imageWidth": 84,
+      "imageHeight": 52.5
+    },
+    {
+      "label": "5시리즈 (F10)(F10)10.01 ~ 16.12599",
+      "rowHeight": 84,
+      "imageWidth": 84,
+      "imageHeight": 52.5
+    },
+    {
+      "label": "5시리즈 (E60)(E60)03.01 ~ 10.1219",
+      "rowHeight": 84,
+      "imageWidth": null,
+      "imageHeight": null
+    },
+    {
+      "label": "5시리즈72.01 ~ 03.129",
+      "rowHeight": 84,
+      "imageWidth": null,
+      "imageHeight": null
+    }
+  ],
+  "consoleErrors": [],
+  "pageErrors": []
+}
