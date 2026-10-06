@@ -1,0 +1,175 @@
+{
+  "maker": "아우디",
+  "modelCount": 38,
+  "generationCount": 66,
+  "imageCount": 12,
+  "imageAudit": [
+    {
+      "key": "model_car_encar_generation_b5bc962802fb58979cdd",
+      "relativePath": "audi/gen_model_car_encar_generation_b5bc962802fb58979cdd.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 390818
+    },
+    {
+      "key": "model_car_encar_generation_911a56a6e1cdb72c1d5e",
+      "relativePath": "audi/gen_model_car_encar_generation_911a56a6e1cdb72c1d5e.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 369686
+    },
+    {
+      "key": "model_car_encar_generation_828f45a98ad956ec1462",
+      "relativePath": "audi/gen_model_car_encar_generation_828f45a98ad956ec1462.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 448148
+    },
+    {
+      "key": "model_car_encar_generation_ef7bd4737cc06a4051ed",
+      "relativePath": "audi/gen_model_car_encar_generation_ef7bd4737cc06a4051ed.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 459276
+    },
+    {
+      "key": "model_car_encar_generation_7406b6756f916ccfa95d",
+      "relativePath": "audi/gen_model_car_encar_generation_7406b6756f916ccfa95d.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 453360
+    },
+    {
+      "key": "model_car_encar_generation_b34fadfa33701823d18f",
+      "relativePath": "audi/gen_model_car_encar_generation_b34fadfa33701823d18f.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 381842
+    },
+    {
+      "key": "model_car_encar_generation_2080a91ac28337a278fc",
+      "relativePath": "audi/gen_model_car_encar_generation_2080a91ac28337a278fc.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 464836
+    },
+    {
+      "key": "model_car_encar_generation_d9687b963328910e23ad",
+      "relativePath": "audi/gen_model_car_encar_generation_d9687b963328910e23ad.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 398651
+    },
+    {
+      "key": "model_car_encar_generation_4107168dbc8ddde1aeae",
+      "relativePath": "audi/gen_model_car_encar_generation_4107168dbc8ddde1aeae.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 390615
+    },
+    {
+      "key": "model_car_encar_generation_6bb2eca8f358f9b04bc4",
+      "relativePath": "audi/gen_model_car_encar_generation_6bb2eca8f358f9b04bc4.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 369385
+    },
+    {
+      "key": "model_car_encar_generation_155f784289fd8fa44d06",
+      "relativePath": "audi/gen_model_car_encar_generation_155f784289fd8fa44d06.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 439610
+    },
+    {
+      "key": "model_car_encar_generation_35aaade177d0d4fd78cf",
+      "relativePath": "audi/gen_model_car_encar_generation_35aaade177d0d4fd78cf.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 385560
+    }
+  ],
+  "viewports": [
+    {
+      "width": 360,
+      "rows": [
+        {
+          "label": "A6 (C9)(C9)26.04 ~ 현재61",
+          "imageLoaded": null,
+          "rowWidth": 328
+        },
+        {
+          "label": "A6 (C8)(C8)19.01 ~ 26.04806",
+          "imageLoaded": true,
+          "rowWidth": 328
+        },
+        {
+          "label": "뉴 A604.10 ~ 18.12362",
+          "imageLoaded": true,
+          "rowWidth": 328
+        },
+        {
+          "label": "A694.01 ~ 04.121",
+          "imageLoaded": null,
+          "rowWidth": 328
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "width": 390,
+      "rows": [
+        {
+          "label": "A6 (C9)(C9)26.04 ~ 현재61",
+          "imageLoaded": null,
+          "rowWidth": 358
+        },
+        {
+          "label": "A6 (C8)(C8)19.01 ~ 26.04806",
+          "imageLoaded": true,
+          "rowWidth": 358
+        },
+        {
+          "label": "뉴 A604.10 ~ 18.12362",
+          "imageLoaded": true,
+          "rowWidth": 358
+        },
+        {
+          "label": "A694.01 ~ 04.121",
+          "imageLoaded": null,
+          "rowWidth": 358
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "width": 430,
+      "rows": [
+        {
+          "label": "A6 (C9)(C9)26.04 ~ 현재61",
+          "imageLoaded": null,
+          "rowWidth": 398
+        },
+        {
+          "label": "A6 (C8)(C8)19.01 ~ 26.04806",
+          "imageLoaded": true,
+          "rowWidth": 398
+        },
+        {
+          "label": "뉴 A604.10 ~ 18.12362",
+          "imageLoaded": true,
+          "rowWidth": 398
+        },
+        {
+          "label": "A694.01 ~ 04.121",
+          "imageLoaded": null,
+          "rowWidth": 398
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    }
+  ]
+}
