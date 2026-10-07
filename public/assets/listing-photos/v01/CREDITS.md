@@ -11,5 +11,6 @@
 | lamborghini_urus_phev_3003.jpg | 람보르기니 우루스 PHEV 4.0 V8 SE (샘플 id 3003) | 사용자 제공(2026-10-07 대화 첨부) |
 | volvo_fe_wingbody.jpg | 볼보 FE 윙바디 11톤 (truck-031) | 사용자 제공(2026-10-07 대화 첨부) |
 | harley_forty_eight_2020.jpg | 할리데이비슨 포티에잇48 2020 (bike-031) | 사용자 제공(2026-10-07 대화 첨부) |
+| ferrari_gtc4lusso_t_3004.jpg | 페라리 GTC4 루쏘 T 3.9 V8 (샘플 id 3004) | 사용자 제공(2026-10-07 대화 첨부) |
 
 긴 변 800px 이하로 줄여 저장. UI 시안 샘플 매물 표시용.
