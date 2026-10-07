@@ -115,7 +115,7 @@
 - Guazi PC·mobile top structure follows `docs/stable-top-manual.md` (v1.1 in QF-106; v1.3 document, v1.2 layout applied in QF-106b) (layer tables, gaps, cell sizes, state table). `npm run check:stability` values must match that document; it replaces `check:rail-vertical` (QF-103 rules kept: rail box = cell height, no overflow, hidden scrollbars).
 - Title is fixed by the entry category: `중고차` / `국산 중고차` / `수입 중고차` (no counts, dates, or chosen conditions). `<title>` is unchanged.
 - PC (QF-106b, manual v1.2): layer 0 crumbs sit outside the card on the gray page (header → 16, 18 tall, same left edge as the card, crumbs → card 12). Card: 16 → ① title row 32 → 18 → ② chip row 32 → 18 → ③ region pill row 32 (always; `지역:` + regions + `내 주변`; single select, re-click clears) → 16 → ④ quick slot (always) → card end 16 (image row) / 24 (pill row). Only two card heights (plain 282 / pill 220; card look 252 / 220).
-- Mobile: ① search 40 (top 10) → 8 → ② `[위치 아이콘] 전국 ▾` 32 (no `지역:` text; icon = ChoTot `svgexport-20` `public/assets/bbm/header-location-chotot-v01.svg`, 16×16 #C0C0C0, 4 gap) (no region pill row; chosen region shows as `[서울 ×]` chip) → 10 → ③ chips 32 gap 4 → 14 → ④ slot (2 + cell + 6; first cell/label x = first chip − 4) → ⑤ 8px gray band, crumbs, title, related keyword pills 28.
+- Mobile: ① search 40 (top 10) → 8 → ② `[위치 아이콘] 전국 ▾` 32 (no `지역:` text; icon = ChoTot `svgexport-20` `public/assets/bbm/header-location-chotot-v01.svg`, 16×16 #C0C0C0; icon → `전국` visible gap 8.53 = ChoTot (box gap 4 + 1.5); `전국` → ▾ visible 8.89 vs ChoTot 8.54, button gap 3) (no region pill row; chosen region shows as `[서울 ×]` chip) → 10 → ③ chips 32 gap 4 → 14 → ④ slot (2 + cell + 6; first cell/label x = first chip − 4) → ⑤ 8px gray band, crumbs, title, related keyword pills 28.
 - First-screen category photos (QF-106b/QF-117b): the category type row keeps one transparent 640×400 source canvas and a shared bottom baseline. PC uses cells 84×102 at pitch 92, photo box 76×40 at top 6 (`contain`, `center bottom`), and name 14/21 400 #595959 width 76 with 14px image gap. Mobile uses the ④ image-row size (86 = 2 + 78 + 6; cells 64×78 pitch 72, photo box 64×40, name 12/18 500 #595959 width 56, first cell x = first chip − 4). Category photos are presented facing left with a non-destructive horizontal display transform; the v01 source pixels remain unchanged. Visual tone follows the AutoScout24 body-type assets: white/silver low-saturation body, neutral catalog light, transparent background, no heavy cast shadow; Bobaedream keeps the 3/4 vehicle angle. Different vehicle proportions are not stretched to a common body width or height.
 - Pixel comparison (QF-106b): `diff:bbm` and `diff:bbm:flow` compare against the saved QF-106b baseline in `reports/baseline/` (3% limit). `--origin` compares with dev.bbmuseum directly; `--save-baseline` re-saves the baseline and archives the origin side in `reports/baseline-archive/`.
 - ④ never closes: maker → model → sub-model → trim pills (skipped when none) → year pills (`2026`…`2019`·`이전`, re-click clears, row stays). Labels `모델:` `세부모델:` `트림:` `연식:`. Guazi region/trim/year pills: 32 tall, 1px `#DADADA`, 14/20 500, selected `#222` (overrides the Trim Chips border/weight above for guazi). Manufacturer cells are PC 84×102 / mobile 76×102. Model/sub-model cells are PC 84×102 / mobile 72×102 with one-line name and sub text. `필터 초기화` returns to state 1 keeping the entry category.
@@ -132,6 +132,15 @@
 - Guazi maker rail (plain and card) = 왼쪽 `제조사` 제목 + monthly top 10 from `src/prototype/data/brand-top10.json` (domestic 6 → 1×44 divider → imported 4: 현대 · 제네시스 · 기아 · 쉐보레 · 르노코리아 · KGM │ BMW · 벤츠 · 아우디 · 포르쉐) + an 11th `전체 브랜드` cell (same cell size, circle PC 40 · mobile 36 #F4F4F4 with a grid icon, name 600 #222). It opens the same maker list as the `제조사 ▾` chip (PC modal · mobile bottom sheet: 국산차 → 수입차 인기 → 수입차 이름순, logo 24 + name + count, 0 greyed); choosing closes it and shows that maker's model rail (makers without model data stay on the maker rail).
 - Maker name text box width is fixed (PC 76 · mobile 68), centered, max 2 lines.
 - Plain logo size inside the shared 40×40 box by ratio r: r ≤ 1.25 long side 82.5% (33); 1.25 < r < 1.6 width 91% (36.4); r ≥ 1.6 width 100% (40). Mobile and PC use the same optical rule. ChoTot comparison: `node scripts/brand-rail-compare.mjs` (scale 4, painted bounds).
+
+### 초톳 제조사 로고 슬롯 재실측 (2026-10-07, 다음 작업에서 적용)
+
+- 근거: 사용자 제공 초톳 앱 캡처 1080×2340, 384 CSS 환산(÷2.8125). `Hãng xe` 레일의 Toyota · Hyundai · Kia (Ford는 화면 끝에서 잘려 제외).
+- 반복 피치 84.3px. 로고는 모두 같은 세로 중심(칩 줄 아래 끝 + 32.2px)에 가운데 정렬하고, 아래쪽 맞춤이 아니다.
+- 보이는 로고 크기(투명 여백 제외): Toyota 36.6×25.2(비율 r 1.45 → 폭 91%) · Hyundai 40.2×21.3(r 1.88 → 폭 100%) · Kia 24.5×6.0(r 4.06 → 폭 약 61%).
+- 따라서 40×40 상자 안 비율 3단계(r ≤ 1.25 긴 변 82.5% · 1.25 < r < 1.6 폭 91% · r ≥ 1.6 폭 100%)는 그대로 맞고, r ≥ 4의 아주 납작한 글자형은 폭 약 24.5px(61%)로 줄여 무게를 맞춘다.
+- 로고 세로 중심 → 이름 글자 윗선 31.5px, 칩 줄 아래 끝 → 이름 글자 윗선 63.7px.
+- 현재 우리 레일(2026-10-07 측정): 256×256 정사각 PNG를 28×28로 그려 보이는 로고가 폭 약 21px · 높이 4.6~11px로 초톳보다 작다. 로고 중심은 칩 줄 아래 +42, 이름 윗선은 +79.9px이다. 다음 작업에서 투명 여백을 잘라낸 원본으로 바꾸고 위 규칙으로 맞춘다.
 
 ## PC Left Filter Order (QF-110)
 
@@ -237,7 +246,7 @@
 - 제어행은 높이 48px, 좌우 16px, 상하 8px이며 아래에 1px 구분선을 둔다. 정렬과 비선택 탭은 14/20px, 정렬 600·탭 500이다.
 - `숏폼중고차`, `개인`, `딜러`는 텍스트 탭이다. 선택된 항목만 초톳과 같은 높이 28px·좌우 8px·99px 라운드·12/18px 700·16px 해제 아이콘·무테두리·무그림자로 바뀌며, 색상만 `#222` 배경·흰 글자를 사용한다. 숏폼과 판매자 선택은 동시에 표시할 수 있다.
 - 정렬은 아래 방향 꺾쇠, 보기 방식은 24px 4칸 그리드 아이콘을 사용한다. 좁은 화면에서는 왼쪽 선택 탭 묶음만 가로 스크롤하며 오른쪽의 정렬과 보기 방식은 고정한다.
-- PC도 `숏폼매물` 문구 + 38×22px 스위치를 사용한다.
+- PC도 같은 문구 `숏폼중고차` + 38×22px 스위치를 사용한다(초톳·동처띠 구 PC `is-pc`는 동결이라 `숏폼매물` 유지).
 
 - These rules apply to the Guazi Bobaedream mobile listing (`.bbm-m-list`) at the 384px CSS-width reference. List and feed typography are intentionally different; do not merge their font-size rules.
 - A vehicle title is always two semantic rows, not one title that happens to wrap: row 1 is manufacturer + model (`.bbm-card-model`), and row 2 is detailed model/trim (`.bbm-card-trim`). Each row stays on one line and ellipsizes independently. Do not add an arbitrary margin between the detailed-model row and the specification row.

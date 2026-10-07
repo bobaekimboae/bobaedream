@@ -1955,7 +1955,7 @@ function MarketplaceScreen() {
                       <button type="button" role="tab" aria-selected={false} onClick={() => setSearchToast("브랜드 매물은 정식 서비스에서 이용해 주세요.")}>브랜드</button>
                     </div>
                     <div className="bbm-toolbar-actions">
-                      <label className="bbm-video-filter"><span>숏폼매물</span><BbSwitch checked={videoOnly} label="숏폼매물" onChange={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))} /></label>
+                      <label className="bbm-video-filter"><span>숏폼중고차</span><BbSwitch checked={videoOnly} label="숏폼중고차" onChange={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))} /></label>
                       <span className="bbm-toolbar-divider" aria-hidden="true" />
                       {isGuaziQuickStyle ? (
                         <>
