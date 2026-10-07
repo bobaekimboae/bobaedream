@@ -137,3 +137,11 @@ npm run verify
 - 체크박스 선택과 하위 탐색 화살표를 분리했다. 중간 그룹 선택은 하위 매물을 모두 포함한다.
 - 가상 매물 30대의 새 분류 기준은 `src/prototype/truck/scenario-v01.ts`다.
 - 디자인 수치는 Notion 인수인계와 Google Sheets `UI 수치!A6:E24`를 따르며, 프로젝트 루트 `design-qa.md`에 모바일·PC 검수 결과가 있다.
+
+## 9. 매물 등록 화면(JOB-7)
+
+- `?register`로 연다(`?register=form`은 1단계를 건너뛰고 폼부터). 기준은 dev `https://dev.bbmuseum.co.kr/car/register` → `/car/register/form`(2026-10-07 실측)이다.
+- 코드: `src/prototype/register/`(`index.tsx` 화면·팝업, `ui.tsx` 입력 부품, `data.ts` 선택지·목업, `header-html.ts` PC 헤더·운영정책 원문, `inspection-pc-html.ts` PC 점검기록부 원문). 자산은 `public/assets/register/`.
+- 모양은 dev 원본 CSS 중 등록 화면이 쓰는 규칙만 뽑아 `.bbm-register` 아래로 묶은 `register.css`가 그린다. 클래스 이름은 dev와 같게 유지한다. 팝업은 dev처럼 화면 루트 바로 아래(포털)에 붙인다.
+- 차량번호 조회는 실제 API를 부르지 않는다. `14러0927`만 BMW 3시리즈 F30 320d xDrive 목업으로 채운다. 사진·파일·등록·임시저장은 요청을 보내지 않고 안내만 띄운다.
+- 등록 화면에서만 전역 `body { overflow: hidden }`과 모바일 런타임 감싸개의 높이 고정을 풀어 dev처럼 문서 스크롤을 쓴다(`html.bbm-register-page`).

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { FlowStack, type FlowScreen } from "./mobile";
 import { FavoritesProvider, isForcedMobileView, forcedMobileDesignWidth } from "./prototype/data";
 import { DetailFooter, DetailUiProvider, VehicleDetail } from "./prototype/detail";
@@ -6,6 +6,9 @@ import { configureListingScreens, MarketplaceScreen, SavedListingsHeader, SavedL
 import { BuildBadge } from "./prototype/build-badge";
 import MainHome from "./main-home/MainHome";
 import "./prototype.css";
+
+// JOB-7: ?register 매물 등록 화면(dev /car/register 동일). 원본 CSS가 커서 따로 나눠 불러온다
+const RegisterPage = lazy(() => import("./prototype/register"));
 
 export type { PriceSelection, SellerType } from "./prototype/data";
 
@@ -20,9 +23,11 @@ const shouldShowMainHome = () => {
   const params = new URLSearchParams(window.location.search);
   return !listingParams.some((key) => params.has(key));
 };
+const shouldShowRegister = () => new URLSearchParams(window.location.search).has("register");
 
 export default function Prototype() {
-  const showMainHome = shouldShowMainHome();
+  const showRegister = shouldShowRegister();
+  const showMainHome = showRegister || shouldShowMainHome();
 
   useEffect(() => {
     const root = document.documentElement;
@@ -60,6 +65,7 @@ export default function Prototype() {
     };
   }, [showMainHome]);
 
+  if (showRegister) return <Suspense fallback={null}><RegisterPage /><BuildBadge /></Suspense>;
   if (showMainHome) return <MainHome />;
 
   return <FavoritesProvider><DetailUiProvider><FlowStack initial={listScreen} /><BuildBadge /></DetailUiProvider></FavoritesProvider>;
