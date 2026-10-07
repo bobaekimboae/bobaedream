@@ -245,7 +245,7 @@
 - The first specification follows the compact Charancha registration-month notation instead of Encar-style slash notation: month known = `24년08월` (two-digit month, no space, no `식`), month unknown = `24년식`. Keep the source value unchanged and normalize only the listing display. Do not use `24/08식` or `24년 8월`.
 - The unselected listing-card favorite icon uses the ChoTot reference SVG at 24px with `#8C8C8C`; the selected state keeps the same silhouette and changes only its fill color.
 - In mobile list and feed views, place the favorite action at the right edge of the first vehicle-title row, following the Karrot card pattern. Reserve space only on the model row so the trim row keeps its full width. Gallery keeps the favorite over the photo, and text view keeps its compact top-right placement.
-- Seller profile photos in list and feed views are always 20×20px circles with `object-fit: cover` and centered cropping. The ChoTot source pack is retained in full, but vehicle-only photos, brand/dealer logos, and advertising creatives must never be assigned as seller profiles. Use distinct approved portraits per visible listing and fall back to the existing default profile icon when no approved photo is assigned.
+- Seller profile photos in mobile list and feed views are 16×16px circles (JOB-8, ChoTot app remeasure: avatar 16, avatar→name visible gap ≈6.6, location center → seller center 24, seller center → card divider 28; PC keeps 20×20) with `object-fit: cover` and centered cropping. The ChoTot source pack is retained in full, but vehicle-only photos, brand/dealer logos, and advertising creatives must never be assigned as seller profiles. Use distinct approved portraits per visible listing and fall back to the existing default profile icon when no approved photo is assigned.
 - QA can open feed view directly with `?qf=guazi&view=feed`; the default `?qf=guazi` remains list view.
 - Feed view follows the measured ChoTot hierarchy at 384px: only the first result is a full-width featured card; every following result returns to the horizontal image-left/content-right card. The featured image uses an approximately 7:5 frame with an 8px radius, while following feed thumbnails are 120×120px. The Bobaedream UI-test headline between trim and specs is the only intentional information row added to that hierarchy.
 - List-view top-to-top rhythm: final title row → specification 24px, specification → price 20px, price → badge 17px, badge → location 36px, and location → seller 24px. Cards without a badge collapse the badge slot and use price → location 28px. Do not restore a fixed 195px minimum card height; the card follows its actual content.
@@ -342,7 +342,7 @@
 - 고정 필터 칩도 숫자 고정 폭을 두지 않고 문구에 따른 자연 폭을 쓴다. 한국어 `필터`와 베트남어 `Lọc`의 글자 폭 차이는 정상이다.
 - 펼침 아이콘은 `public/assets/bbm/filter-toggle-chotot-v01.svg`의 노션 원본 패스를 수정하지 않고 20×20px 슬롯에 표시한다. CSS clip-path나 별도 재그리기는 금지한다.
 - 모바일 보기 전환은 32×32px 터치영역을 유지하되 배경·테두리·원형 외곽선을 표시하지 않는다. 갤러리 화면의 목록형 복귀 아이콘은 `view-list-chotot-v02.svg` 원본을 20×20px로 표시한다.
-- 모바일 목록형 썸네일은 120×120px, 반경 8px, 정보와 12px 간격이다. 제목 16/600/20 `#222`, 메타·위치 14/400/20 `#595959`, 가격 16/700/24 `#E5193B`, 판매자 12/400/18, 아바타 20px, 구분선 1px `#F4F4F4`, 좌우 여백 16px을 모든 카테고리의 공통 목록 컴포넌트에 적용한다.
+- 모바일 목록형 썸네일은 120×120px, 반경 8px, 정보와 12px 간격이다. 제목 16/600/20 `#222`, 메타·위치 14/400/20 `#595959`, 가격 16/700/24 `#E5193B`, 판매자 12/400/18, 아바타 16px(JOB-8 초톳 재실측), 구분선 1px `#EBEBEB`(JOB-8 dev 동일), 좌우 여백 16px을 모든 카테고리의 공통 목록 컴포넌트에 적용한다.
 
 ### 트럭 유형 모달·바텀시트 v39
 
