@@ -38,3 +38,9 @@
 
 ## ⑧ 확인 링크
 - 로컬: 모바일 `?qf=guazi`, PC `?qf=guazi&pc=1` (빌드 `claude/happy-wozniak-mwlnne` @ 이 보고서 커밋)
+
+## 추가: 배포본 등록 화면(`?register`) 404 수정
+- 증상: PR #211 배포 후 `?register`가 열리지 않았습니다. 등록 화면 조각 파일을 `/bobaedream/assets/`가 아닌 도메인 루트 `/assets/`에서 찾아 404가 났습니다.
+- 원인: 배포 단계가 빌드 결과의 `/assets/` 글자를 `/bobaedream/assets/`로 바꾸는데, Vite가 나눠 불러오는(lazy) 조각 주소는 조각조각 만들어 이 변환에서 빠집니다.
+- 수정: 등록 화면을 나눠 불러오지 않고 본 번들에 함께 묶었습니다(`src/Prototype.tsx`). 보호 파일(`vite.config.ts`)과 배포 워크플로는 건드리지 않았습니다.
+- 확인: 배포와 같은 경로 변환을 로컬에서 재현해 `/bobaedream/?register`가 열리는 것을 확인했습니다(오류 0). 목록 화면은 그대로이고, 등록 화면 CSS는 `.bbm-register` 범위라 다른 화면에 영향이 없습니다. 애니메이션 이름 충돌도 0건입니다. `npm run verify` 통과.
