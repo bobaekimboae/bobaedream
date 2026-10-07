@@ -1,6 +1,6 @@
 /* PC 매물리스트 (QF-042~045): ?pc=1 이고 폭 820 이상일 때만 .marketplace.is-pc 가 붙는다.
    초톳 PC 구조·수치를 참고하되 강조색은 보배드림 파랑(var(--blue)). 퀵필터 레일 스타일은 건드리지 않는다. */
-@media (min-width: 820px) {
+@media (min-width: 768px) {
   .marketplace.is-pc { min-height: 100%; padding: 0 0 48px; background: #f4f4f4; color: #222; font-size: 14px; line-height: 21px; }
   .marketplace.is-pc button { font-family: inherit; }
 
@@ -110,13 +110,13 @@
 }
 
 /* 1248 미만(본문 1200 + 좌우 24 부족): 사이드바를 숨기고 목록을 본문 폭 전체로 */
-@media (min-width: 820px) and (max-width: 1247px) {
+@media (min-width: 768px) and (max-width: 1247px) {
   .pc-columns { grid-template-columns: minmax(0, 1fr); }
   .pc-sidebar { display: none; }
 }
 
 /* 1180 미만: 헤더의 고객센터·로그인 버튼을 숨겨 검색창 폭을 확보 */
-@media (min-width: 820px) and (max-width: 1179px) {
+@media (min-width: 768px) and (max-width: 1179px) {
   .pc-header-pill.is-support, .pc-header-pill.is-login { display: none; }
 }
 

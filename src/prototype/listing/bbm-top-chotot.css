@@ -2,7 +2,7 @@
    개발팀·디자이너 합의가 필요한 배치 변경 — 원본과 다른 값은 reports/change-log.csv CH-0053~ 에 속성별로.
    카드 x·폭은 QF-093 규칙 그대로(1280 이상 1200 가운데, 1024~1279 화면 폭 − 양옆 24), 헤더 아래 16, 카드와 아래 두 칸 사이 24.
    줄 순서와 간격(초톳 실측): 위 16 · 경로 21 · 8 · 제목 줄 32 · 8 · 칩 줄 52(위아래 10) · 유형 줄 110(위 8 + 칸 102) · 아래 16 = 263 */
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .marketplace.is-bbm.is-hybrid > .bbm-hybrid-top { margin-top: 16px; }
 }
 .marketplace.is-bbm.is-hybrid .bbm-content-head.is-chotot { display: flex; flex-direction: column; gap: 0; padding: 16px 20px; border-radius: 12px; box-sizing: border-box; background: #fff; color: #222; }

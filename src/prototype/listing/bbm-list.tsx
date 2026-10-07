@@ -99,7 +99,7 @@ export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
   },
   {
     value: "트럭 · 특장",
-    label: "트럭/특장차",
+    label: "트럭 · 특장",
     icon: categoryIcon("category_truck_special_v01.svg"),
     children: [
       { label: "전체", value: "트럭 · 특장" },
@@ -123,22 +123,26 @@ export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
     ],
   },
   {
+    value: "올드카",
+    label: "올드카",
+    icon: categoryIcon("category_used_car_v01.svg"),
+    children: [{ label: "전체", value: "중고차", detail: "올드카" }],
+  },
+  {
     value: "건설기계",
     label: "건설기계",
     icon: categoryIcon("category_construction_v01.svg"),
     children: [{ label: "전체", value: "건설기계" }],
   },
   {
-    value: "자재운반장비",
-    label: "자재운반장비",
-    icon: categoryIcon("category_material_handling_v01.svg"),
-    children: [{ label: "전체", value: "자재운반장비" }],
-  },
-  {
     value: "부품 · 용품",
-    label: "부품/용품",
+    label: "부품 · 용품",
     icon: categoryIcon("category_parts_v01.svg"),
-    children: [{ label: "전체", value: "부품 · 용품" }],
+    children: [
+      { label: "전체", value: "부품 · 용품" },
+      { label: "부품", value: "부품 · 용품", detail: "부품" },
+      { label: "용품", value: "부품 · 용품", detail: "용품" },
+    ],
   },
 ];
 
@@ -288,6 +292,7 @@ export function BbmMobileOptions<T extends string>({
   onSellerChange,
   onView,
   viewMode,
+  onBrand,
   extra,
 }: {
   videoOnly: boolean;
@@ -299,15 +304,17 @@ export function BbmMobileOptions<T extends string>({
   onSellerChange: (tab: T) => void;
   onView: () => void;
   viewMode: string;
+  onBrand?: () => void;
   extra?: ReactNode;
 }) {
+  const [brandSelected, setBrandSelected] = useState(false);
   const viewIcon = viewMode === "갤러리로 보기" ? "view-list-chotot-v02" : "view-grid-chotot";
   return (
     <nav className="bbm-m-options" aria-label="정렬, 영상 매물, 판매자 유형과 보기 방식">
       <button type="button" className="bbm-m-sort" onClick={onSort}><span>{sortLabel}</span><img src={bbmIcon("toolbar-sort-chevron")} alt="" aria-hidden="true" /></button>
       <div className="bbm-m-filter-tabs" role="group" aria-label="영상 매물과 판매자 유형">
         <button type="button" className={`bbm-m-filter-tab${videoOnly ? " is-selected" : ""}`} aria-pressed={videoOnly} onClick={onToggleVideo}>
-          <span>영상 매물</span>{videoOnly ? <Cross2Icon className="bbm-m-filter-clear" aria-hidden="true" /> : null}
+          <span>영상</span>{videoOnly ? <Cross2Icon className="bbm-m-filter-clear" aria-hidden="true" /> : null}
         </button>
         {sellerTabs.map((tab) => {
           const selected = sellerValue === tab;
@@ -317,6 +324,7 @@ export function BbmMobileOptions<T extends string>({
             </button>
           );
         })}
+        <button type="button" className={`bbm-m-filter-tab${brandSelected ? " is-selected" : ""}`} aria-pressed={brandSelected} onClick={() => { setBrandSelected((value) => !value); onBrand?.(); }}><span>브랜드</span>{brandSelected ? <Cross2Icon className="bbm-m-filter-clear" aria-hidden="true" /> : null}</button>
       </div>
       {extra}
       <button type="button" className="bbm-m-view" aria-label="보기 방식 선택" onClick={onView}><img src={bbmIcon(viewIcon)} alt="" aria-hidden="true" /></button>
@@ -340,7 +348,10 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   const listPlace = car.virtualCategory?.isVirtual ? car.place : car.uiTest && car.sellerType === "개인" ? car.place : displayListPlace(car.place, car.sellerType);
   const badges = bbmCardBadges(car);
   const specParts = bbmCardSpec(car, variant === "pc").split(" · ");
-  const [locationMain, ...locationSecondaryParts] = listPlace.split(" · ");
+  if (car.filter?.year && specParts[0] && !specParts[0].includes("년형")) specParts[0] = `${specParts[0]}(${String(car.filter.year).slice(-2)}년형)`;
+  const specText = specParts.join(" · ");
+  const [rawLocationMain, ...locationSecondaryParts] = listPlace.split(" · ");
+  const locationMain = rawLocationMain.split(/\s+/).slice(0, 2).join(" ");
   const locationSecondary = locationSecondaryParts.join(" · ");
   const priceMatch = car.price.match(/^(월\s*)?(.+?)\s*(만원)$/);
   const title = <strong className="bbm-card-title"><span className="bbm-card-model">{car.title}</span>{car.trim ? <><span aria-hidden="true"> </span><span className="bbm-card-trim">{car.trim}</span></> : null}</strong>;
@@ -349,7 +360,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   const headline = car.uiTest ? <strong className={`bbm-card-headline is-${headlinePosition}${headlineTone === "blue" ? " is-blue" : ""}`}>{car.uiTest.headline}</strong> : null;
   const photo = (
     <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`}>
-      {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} style={{ objectPosition: car.imagePosition ?? "center center" }} /> : null}
+      {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(car.image)} alt="" aria-hidden="true" draggable={false} style={{ objectPosition: car.imagePosition ?? "center center" }} onError={(event) => { event.currentTarget.style.visibility = "hidden"; }} /> : null}
       <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span><span className="bbm-card-count">{car.photos}<img src={bbmIcon("card-photo-count")} alt="" /></span></div>
     </div>
   );
@@ -360,7 +371,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
     <div className={`bbm-card-meta-row${variant === "mobile" ? " bbm-card-mobile-footer" : ""}`}>
       <div className="bbm-card-seller">
         <img className="bbm-card-seller-logo" src={asset(sellerAvatar(car))} alt="" draggable={false} />
-        <div className="bbm-card-seller-text"><strong>{seller}</strong></div>
+        <div className="bbm-card-seller-text"><strong>{seller}</strong><span className="bbm-card-seller-info"><b>{car.stock.toLocaleString("ko-KR")}대</b> 판매중</span></div>
       </div>
       <div className="bbm-card-actions">
         <button type="button" className="bbm-card-chat" aria-label={`${seller}에게 채팅`} onClick={(event) => { event.stopPropagation(); onChat(); }}><img src={bbmIcon(variant === "mobile" ? "m-gnb-chat" : "card-chat")} alt="" aria-hidden="true" /></button>
@@ -380,7 +391,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
           <div className="bbm-card-text">
             {title}
             {headlinePosition === "after-model" ? headline : null}
-            <span className="bbm-card-spec">{specParts.map((part, index) => <span key={`${part}-${index}`}>{part}</span>)}</span>
+            <span className="bbm-card-spec">{specText}</span>
             <div className="bbm-card-price-badges">
               <strong className="bbm-card-price"><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</strong>
               {badges.length ? <div className="bbm-card-badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}
@@ -388,11 +399,10 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
           </div>
           <div className="bbm-card-meta">
             <div className="bbm-card-location"><img src={bbmIcon("card-location")} alt="" aria-hidden="true" /><span className="bbm-card-location-text"><span>{locationMain}</span>{locationSecondary ? <span className="bbm-card-location-secondary">{locationSecondary}</span> : null}</span></div>
-            {variant === "pc" ? sellerRow : null}
+            {sellerRow}
           </div>
         </div>
       </div>
-      {variant === "mobile" ? sellerRow : null}
     </article>
   );
 }

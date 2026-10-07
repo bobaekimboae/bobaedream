@@ -21,28 +21,33 @@ function BbIcon({ name, size = 20, className = "" }: { name: BbIconName; size?: 
 }
 
 const bbGnbItems = ["홈", "전체차량", "중고차", "수입차", "화물/특장차", "건설기계(덤프/지게차)", "캠핑카(모터홈/캐러밴)", "바이크", "부품/용품", "커뮤니티"];
+const usedCarParityGnbItems = ["숏폼카", "중고차", "수입차", "매물등록", "중고차딜러", "커뮤니티", "더보기"];
 // QF-091: 헤더 아이콘·로고는 개발 시안 원본 파일(public/assets/bbm/)
 const bbHeaderIcons: Array<[string, string]> = [["search", "검색"], ["mypage", "마이페이지"], ["heart", "찜"], ["chat", "채팅"], ["notification", "알림"], ["menu", "메뉴"]];
 const bbmAsset = (name: string) => asset(`bbm/${name}.svg`);
 
-function BbHeader({ category, onNotify, onOpenFavorites, searchSlot }: { category: string; onNotify: (message: string) => void; onOpenFavorites: () => void; searchSlot?: ReactNode }) {
+function BbHeader({ category, onNotify, onOpenFavorites, searchSlot, usedCarParity = false, detail = false, onLogoClick }: { category: string; onNotify: (message: string) => void; onOpenFavorites: () => void; searchSlot?: ReactNode; usedCarParity?: boolean; detail?: boolean; onLogoClick?: () => void }) {
   const activeItem = category === "트럭 · 특장" ? "화물/특장차"
     : category === "건설기계" ? "건설기계(덤프/지게차)"
       : category === "캠핑카" ? "캠핑카(모터홈/캐러밴)"
         : category === "부품 · 용품" ? "부품/용품"
           : category === "수입차" || category === "바이크" ? category : "중고차";
+  const gnbItems = usedCarParity ? usedCarParityGnbItems : bbGnbItems;
   return (
-    <header className="bbm-header" aria-label="보배드림">
+    <header className={`bbm-header${usedCarParity ? " is-usedcar-parity-header" : ""}${detail ? " is-detail" : ""}`} aria-label="보배드림">
       <div className="bbm-header-inner">
         <div className="bbm-header-top">
           {["로그인", "회원가입", "고객센터"].map((label, index) => <span key={label} className="bbm-header-top-item">{index ? <img src={bbmAsset("header-top-divider")} alt="" aria-hidden="true" /> : null}<button type="button" onClick={() => onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`)}>{label}</button></span>)}
         </div>
-        <button type="button" className="bbm-logo" aria-label="보배드림 처음으로" onClick={() => document.querySelector(".app-screen")?.scrollTo({ top: 0 })}>
+        <button type="button" className="bbm-logo" aria-label="보배드림 처음으로" onClick={onLogoClick ?? (() => document.querySelector(".app-screen")?.scrollTo({ top: 0 }))}>
           <img src={bbmAsset("header-logo")} alt="보배드림" draggable={false} />
         </button>
         <div className="bbm-gnb-row">
           <nav className="bbm-gnb" aria-label="주 메뉴">
-            {bbGnbItems.map((label) => <button key={label} type="button" className={label === activeItem ? "is-active" : ""} aria-current={label === activeItem ? "page" : undefined} onClick={() => label === activeItem ? undefined : onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`)}>{label}</button>)}
+            {gnbItems.map((label) => {
+              const active = !detail && label === activeItem;
+              return <button key={label} type="button" className={`${active ? "is-active" : ""}${label === "더보기" ? " bbm-gnb-more" : ""}`.trim()} aria-current={active ? "page" : undefined} onClick={() => active ? undefined : onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`)}>{label === "더보기" ? <><span>{label}</span><img src={bbmAsset("gnb-more")} alt="" aria-hidden="true" /></> : label}</button>;
+            })}
           </nav>
           {searchSlot ? <div className="bbm-header-search-slot">{searchSlot}</div> : null}
           <div className="bbm-header-icons">
@@ -253,7 +258,7 @@ export function BbTruckFormatFilter({ value, showImages = true }: { value: BbTru
 
 // resetSignal: 값이 바뀔 때마다 "초기화" 확인 창을 연다(QF-093 왼쪽 펼침판 아래 [초기화] 버튼용)
 // brandLogos: 과쯔 모드만 제조사 행 앞에 로고 24×24(QF-096). 초톳·동처띠 PC 는 그대로
-function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNotify, bbm, onBbmChange, countWithBbm, countOf, resetSignal = 0, brandLogos = false, brandLogoCategory, makerSections = bbCatalog, order = bbFilterMenuOriginal, mileageFinal = false, priceFinal = false, truckFilter, collapsible = false }: { mileageFinal?: boolean; priceFinal?: boolean; order?: string[]; selection: BbMakerSelection; appliedCount: number; historyCount?: number; onReset: () => void; onNotify: (message: string) => void; bbm: BbmFilterValues; onBbmChange: (next: BbmFilterValues) => void; countWithBbm: (next: BbmFilterValues) => number; countOf?: (key: BbmCheckKey, option: string) => number | null; resetSignal?: number; brandLogos?: boolean; brandLogoCategory?: string; makerSections?: BbMakerSection[]; truckFilter?: BbTruckFilter; collapsible?: boolean }) {
+function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNotify, bbm, onBbmChange, countWithBbm, countOf, resetSignal = 0, brandLogos = false, brandLogoCategory, makerSections = bbCatalog, order = bbFilterMenuOriginal, mileageFinal = false, priceFinal = false, truckFilter, collapsible = false, initialMakerOpen = false, usedCarParity = false }: { mileageFinal?: boolean; priceFinal?: boolean; order?: string[]; selection: BbMakerSelection; appliedCount: number; historyCount?: number; onReset: () => void; onNotify: (message: string) => void; bbm: BbmFilterValues; onBbmChange: (next: BbmFilterValues) => void; countWithBbm: (next: BbmFilterValues) => number; countOf?: (key: BbmCheckKey, option: string) => number | null; resetSignal?: number; brandLogos?: boolean; brandLogoCategory?: string; makerSections?: BbMakerSection[]; truckFilter?: BbTruckFilter; collapsible?: boolean; initialMakerOpen?: boolean; usedCarParity?: boolean }) {
   // 모달형 항목: 사이드바 대신 412 모달을 연다. 원본 실측(2026-09-24): 모달 안 선택은 초안이고 [확인 N대]를 눌러야 조건이 걸린다(닫기 X는 버림)
   const [modalItem, setModalItem] = useState<BbmFilterItem | null>(null);
   const [priceOpen, setPriceOpen] = useState(false);
@@ -273,7 +278,7 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
   }, [resetSignal]);
   const truckFilterLabel = "형식/적재용량";
   const hasTruckFilter = Boolean(truckFilter);
-  const [openItems, setOpenItems] = useState<string[]>([]);
+  const [openItems, setOpenItems] = useState<string[]>(() => initialMakerOpen ? [bbMakerItem] : []);
   const [keepSearch, setKeepSearch] = useState(false);
   const { maker, model } = selection;
   const [view, setView] = useState<BbDrillView>(() => maker && model ? { stage: "grade", maker, model } : maker ? { stage: "model", maker } : { stage: "maker" });
@@ -295,7 +300,9 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
     const open = openItems.includes(label);
     const isMaker = label === bbMakerItem;
     const filterItem = bbFilterItemByLabel.get(label);
-    const displayLabel = truckFilter && isMaker
+    const displayLabel = usedCarParity && isMaker
+      ? "제조사 · 모델"
+      : truckFilter && isMaker
       ? "브랜드"
       : truckFilter && label === "차량번호 / 판매자"
         ? "차량번호/판매자 이름"
@@ -339,7 +346,7 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
           <div className="bbm-filter-title"><strong>필터</strong>{appliedCount > 0 ? <span className="bbm-filter-count" aria-label={`적용된 필터 ${appliedCount}개`}>{appliedCount}</span> : null}</div>
           <div className="bbm-filter-summary-actions">
             <button type="button" className="bbm-filter-reset" onClick={() => setConfirmReset(true)}>초기화</button>
-            {collapsible ? <button type="button" className="bbm-filter-collapse" onClick={() => setSidebarCollapsed(true)}>숨기기</button> : null}
+            {collapsible && !usedCarParity ? <button type="button" className="bbm-filter-collapse" onClick={() => setSidebarCollapsed(true)}>숨기기</button> : null}
           </div>
         </div>
         <div className="bbm-filter-summary-tools">

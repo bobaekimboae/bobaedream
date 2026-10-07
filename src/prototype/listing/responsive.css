@@ -1,4 +1,4 @@
-@media (min-width: 820px) {
+@media (min-width: 768px) {
   body { background: #ffffff; }
   #root .mobile-web-stage { max-width: none !important; margin: 0; box-shadow: none; }
   .marketplace { padding-inline: 24px; }
