@@ -258,6 +258,8 @@
 - 부품/용품 카드(2026-10-07): 제목 `제조사 모델 분류`(분류 낱말이 모델명에 있으면 생략), 스펙 줄 `규격 · 수량 · 적용 차종 · 상태`(예: `245/45R18 · 4개 · 그랜저 GN7 · 중고 80%`), 가격은 부품 가격대(`partsCardDetailsV01`, 3~420만원). 연식·연료·변속기·「해당 없음」은 넣지 않는다.
 - 부품/용품 필터(2026-10-07): 상단 칩은 연식·주행거리·연료 대신 `분류 · 상태 · 적용 차종 · 가격`. 좌측 필터·모바일 전체 필터 순서는 `partsFilterOrder`(브랜드 → 분류 → 상태 → 적용 차종 → 가격 → 지역). 가격 구간은 `partsPricePresets`(`~5만원 · 5~20만원 · 20~50만원 · 50~100만원 · 100~300만원 · 300만원~`)이고 리스·렌트 탭은 숨긴다. 상태는 `새 상품 · 미사용 · 중고`(중고 NN%는 중고로), 적용 차종의 `범용 5x112` 등은 `범용`으로 묶는다.
 - 캠핑카 카드(엔카 캠핑카 목록 규칙, 2026-10-07): 1행 `제조사 모델`, 2행 형태(`클래스 C 모터홈` · `캐러밴` · `팝업 캠퍼`), 스펙 줄 `등록연월 · 주행 · 연료`, 엔진 없는 캐러밴은 `등록연월 · 견인형`. 끝에 취침 인원(`취침 5인`, `campingBerthsV01`)을 붙인다. 모든 카테고리 매물 제목에 `UI 검증용 가상 매물`을 넣지 않는다.
+- 트레일러 카드(2026-10-07): 엔진이 없어 스펙 줄은 `적재량 · 길이 · 축`(예: `적재 27톤 · 14m · 3축`, `trailerSpecsV01`), 2행은 세부형식만.
+- 실매물처럼 등록연월·주행을 정확히 보여줄 매물은 `Car.cardSpec`(예: `24년11월 · 3,685km · 가솔린`)을 그대로 쓴다.
 - 트럭·특장 카드(엔카 화물·특장 등급명 규칙): 1행 `제조사 모델`, 2행 `톤수 + 세부형식`(예: `8.5톤 윙바디`, `1톤 카고`), 스펙 줄 `등록연월 · 주행 · 연료`(샘플 마력 없음). 주행 9,500km 이상은 만 단위(`1만km`).
 - The first specification follows the compact Charancha registration-month notation instead of Encar-style slash notation: month known = `24년08월` (two-digit month, no space, no `식`), month unknown = `24년식`. Keep the source value unchanged and normalize only the listing display. Do not use `24/08식` or `24년 8월`.
 - The unselected listing-card favorite icon uses the ChoTot reference SVG at 24px with `#8C8C8C`; the selected state keeps the same silhouette and changes only its fill color.
