@@ -221,7 +221,7 @@
         "model_car_encar_generation_ca648e350756aa1c9f6f",
         "model_car_encar_generation_91d143f99465fd0f44ee"
       ],
-      "status": "pending"
+      "status": "generated"
     },
     {
       "assetId": "hyundai_asset_4e94f7b02e60b078c78e",
@@ -721,7 +721,7 @@
       "sourceGenerationKeys": [
         "model_car_encar_generation_8ead087e7724e95ff2a4"
       ],
-      "status": "pending"
+      "status": "generated"
     },
     {
       "assetId": "hyundai_asset_e724305c74843607bd9b",
@@ -834,7 +834,7 @@
         "model_car_encar_generation_1b97ade0841c5b35943f",
         "model_car_encar_generation_b8ff807244b22b7cad35"
       ],
-      "status": "pending"
+      "status": "generated"
     },
     {
       "assetId": "hyundai_asset_44572fa1abb375a42141",
@@ -1061,7 +1061,7 @@
       "sourceGenerationKeys": [
         "model_car_encar_generation_f00e9efa8fe9b360a26f"
       ],
-      "status": "pending"
+      "status": "generated"
     },
     {
       "assetId": "hyundai_asset_bd487fb198f3e69f2e8e",
@@ -1901,7 +1901,7 @@
       "sourceGenerationKeys": [
         "model_car_encar_generation_512c2747147daa8d927d"
       ],
-      "status": "pending"
+      "status": "generated"
     },
     {
       "assetId": "hyundai_asset_c41c8aec142888bb8120",
