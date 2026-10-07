@@ -311,6 +311,8 @@
 .bbm-result-card.is-mobile .bbm-card-title { display: block; overflow: hidden; color: var(--list-title); font-size: var(--list-title-size); font-weight: var(--list-title-weight); line-height: var(--list-title-line); text-overflow: clip; white-space: normal; }
 .bbm-result-card.is-mobile .bbm-card-model,
 .bbm-result-card.is-mobile .bbm-card-trim { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* 중고차 외 카테고리: 차명을 붙인 한 제목, 두 줄까지 줄바꿈 후 말줄임 */
+.bbm-result-card .bbm-card-model.is-joined { display: -webkit-box; overflow: hidden; white-space: normal; word-break: keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .bbm-result-card.is-mobile .bbm-card-spec { height: var(--list-meta-line); margin-top: 4px; color: var(--list-meta); font-size: var(--list-meta-size); font-weight: var(--list-meta-weight); line-height: var(--list-meta-line); }
 .bbm-result-card.is-mobile .bbm-card-price-badges { display: flex; height: 24px; flex-direction: row; align-items: center; gap: 4px; margin-top: 0; overflow: hidden; }
 .bbm-result-card.is-mobile .bbm-card-price { height: var(--list-price-line); align-items: center; color: var(--list-price); font-size: var(--list-price-size); font-weight: var(--list-price-weight); line-height: var(--list-price-line); }

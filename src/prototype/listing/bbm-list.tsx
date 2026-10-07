@@ -344,7 +344,11 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   const [locationMain, ...locationSecondaryParts] = listPlace.split(" · ");
   const locationSecondary = locationSecondaryParts.join(" · ");
   const priceMatch = car.price.match(/^(월\s*)?(.+?)\s*(만원)$/);
-  const title = <strong className="bbm-card-title"><span className="bbm-card-model">{car.title}</span>{car.trim ? <><span aria-hidden="true"> </span><span className="bbm-card-trim">{car.trim}</span></> : null}</strong>;
+  // 중고차(승용)만 「제조사 모델 / 세부모델」 두 줄. 트럭·바이크·건설기계·캠핑카·자재운반·부품은 차명을 붙여 한 제목으로(최대 2줄, 2026-10-07 사용자 지시)
+  const joinedTitle = Boolean(car.truck || car.bike || car.heavy || car.virtualCategory);
+  const title = joinedTitle
+    ? <strong className="bbm-card-title"><span className="bbm-card-model is-joined">{car.trim ? `${car.title} ${car.trim}` : car.title}</span></strong>
+    : <strong className="bbm-card-title"><span className="bbm-card-model">{car.title}</span>{car.trim ? <><span aria-hidden="true"> </span><span className="bbm-card-trim">{car.trim}</span></> : null}</strong>;
   const headlinePosition = getHeadlinePosition();
   const headlineTone = car.uiTest ? getHeadlineTone() : "default";
   const headline = car.uiTest ? <strong className={`bbm-card-headline is-${headlinePosition}${headlineTone === "blue" ? " is-blue" : ""}`}>{car.uiTest.headline}</strong> : null;
