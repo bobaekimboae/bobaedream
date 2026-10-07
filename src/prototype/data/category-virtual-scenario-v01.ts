@@ -41,7 +41,8 @@ function buildScenario(category: VirtualCategoryCode, prefix: string, seeds: rea
       categoryDetail,
       year: 2018 + index % 9,
       mileage: category === "부품 · 용품" ? 0 : 4_800 + index * 2_750,
-      fuel: category === "자재운반장비" ? ["디젤", "전기", "LPG"][index % 3] : category === "캠핑카" ? ["디젤", "가솔린", "전기"][index % 3] : "해당 없음",
+      // 전동 지게차·팔레트트럭은 전기
+      fuel: category === "자재운반장비" ? (/전동/.test(seed.subtypes[modelIndex]) ? "전기" : ["디젤", "전기", "LPG"][index % 3]) : category === "캠핑카" ? ["디젤", "가솔린", "전기"][index % 3] : "해당 없음",
       transmission: category === "부품 · 용품" ? "해당 없음" : "오토",
       price10k: basePrice + brandIndex * 630 + modelIndex * 280,
       region,
@@ -69,7 +70,8 @@ const campingSeeds: readonly BrandSeed[] = [
 ];
 
 const materialSeeds: readonly BrandSeed[] = [
-  { maker: "현대머티리얼핸들링", models: ["25D-9", "30D-9", "50D-9"], subtypes: ["디젤 지게차", "디젤 지게차", "대형 지게차"] },
+  // 첫 모델은 사용자 제공 사진(25B-9F 전동 지게차)에 맞춤(2026-10-07)
+  { maker: "현대머티리얼핸들링", models: ["25B-9F", "30D-9", "50D-9"], subtypes: ["전동 지게차", "디젤 지게차", "대형 지게차"] },
   { maker: "두산밥캣", models: ["D25S", "B25X-7", "D30S"], subtypes: ["디젤 지게차", "전동 지게차", "디젤 지게차"] },
   { maker: "토요타L&F", models: ["8FD25", "8FB25", "8FBR15"], subtypes: ["디젤 지게차", "전동 지게차", "리치 지게차"] },
   { maker: "미쓰비시로지스넥스트", models: ["FD25N", "FB25N", "RB14N"], subtypes: ["디젤 지게차", "전동 지게차", "리치 지게차"] },
@@ -182,4 +184,9 @@ export const campingBerthsV01: Record<string, number> = {
   "B-클래스": 4,
   "ML-T": 3,
   "엑시스": 5,
+};
+
+// 실사 썸네일(모델명 → 사진). 없으면 유형 대표 이미지
+export const virtualListingPhotosV01: Record<string, string> = {
+  "25B-9F": "listing-photos/v01/hyundai_forklift_25b9f.jpg",
 };
