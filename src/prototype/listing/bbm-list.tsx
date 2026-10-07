@@ -2,6 +2,7 @@ import { useState, type KeyboardEvent, type ReactNode } from "react";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { asset, displayListPlace, sellerAvatar, sellerLabel, type Car } from "../data";
 import { bbmCardBadges, bbmCardSpec } from "../data/bbm-card-samples";
+import { listingThumbTrimmed } from "./listing-thumbs.generated";
 import { truckFormatCatalog } from "../data/truck-format-catalog";
 import "./bbm-tokens.css";
 
@@ -354,7 +355,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   const headline = car.uiTest ? <strong className={`bbm-card-headline is-${headlinePosition}${headlineTone === "blue" ? " is-blue" : ""}`}>{car.uiTest.headline}</strong> : null;
   const photo = (
     <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`}>
-      {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} style={{ objectPosition: car.imagePosition ?? "center center" }} /> : null}
+      {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(car.imageFit === "contain" && listingThumbTrimmed.has(car.image) ? `listing-thumbs/${car.image.replace(/\.(png|webp)$/, ".png")}` : car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} style={car.imageFit === "contain" ? undefined : { objectPosition: car.imagePosition ?? "center center" }} /> : null}
       <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span></div>
     </div>
   );
