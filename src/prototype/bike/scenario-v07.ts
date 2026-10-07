@@ -1171,5 +1171,43 @@ export const bikeScenarioV07 = [
     "image_grade": "B",
     "image_note": "주행 장면과 모션 블러로 정적 카드 식별성이 낮음",
     "image_action": "보완 권장"
+  },
+  {
+    "scenario_id": "bike-031",
+    "image_file": "../../listing-photos/v01/harley_forty_eight_2020.jpg",
+    "title": "할리데이비슨 포티에잇48",
+    "brand": "할리데이비슨",
+    "model": "포티에잇",
+    "year": 2020,
+    "mileage_km": 12980,
+    "displacement_cc": 1202,
+    "genre": "크루저",
+    "license_class": "2종 소형",
+    "fuel": "가솔린",
+    "transmission": "수동",
+    "region": "부산 사상구",
+    "price_krw": 14800000,
+    "seller_type": "개인 판매",
+    "condition": "상",
+    "certified": "해당 없음",
+    "delivery": "직접 인수",
+    "quickfilter_tags": [
+      "할리데이비슨",
+      "크루저",
+      "1202cc",
+      "부산",
+      "개인 판매"
+    ],
+    "is_virtual": true,
+    "source_manifest_version": "v01",
+    "scenario_version": "v07",
+    "seller_name": "개인 판매자",
+    "seller_address": "부산광역시 사상구",
+    "seller_contact": "앱 채팅 전용",
+    "seller_intro": "2026-10-07 사용자 지시 추가 매물(사진 사용자 제공)",
+    "business_hours": "협의",
+    "image_grade": "A",
+    "image_note": "사용자 제공 정측면 사진",
+    "image_action": "유지"
   }
 ] as const satisfies readonly BikeScenarioV07Row[];
