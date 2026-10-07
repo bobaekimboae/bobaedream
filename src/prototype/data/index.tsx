@@ -839,7 +839,8 @@ const bikeCars: Car[] = bikeInventory.map((row, index) => ({
   image: `bike/listings/${row.imageFile}`,
   imageFit: "cover",
   title: row.title,
-  trim: `${row.genre} · ${row.displacement.toLocaleString("ko-KR")}cc · ${row.transmission}`,
+  // 장르·배기량은 스펙 줄(장르 · 연식 · 주행 · 배기량)에 나오므로 2행은 변속기 · 연료
+  trim: `${row.transmission} · ${row.fuel}`,
   specs: [`${row.year}년식`, `${row.mileage.toLocaleString("ko-KR")}km`, `${row.displacement.toLocaleString("ko-KR")}cc`, row.fuel],
   price: `${Math.round(row.price / 10000).toLocaleString("ko-KR")} 만원`,
   place: row.region,
