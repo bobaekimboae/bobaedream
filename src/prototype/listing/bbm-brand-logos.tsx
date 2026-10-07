@@ -13,6 +13,7 @@ import { bikeBrandCount } from "../data/bike-filter-catalog";
 import { driveTop10BrandLogos } from "./brand-logos-drive10.generated";
 import { autohomeTop10BrandLogos } from "./brand-logos-autohome10.generated";
 import { truckBrandLogosV01, truckRailLabel } from "./truck-brand-logos-v01";
+import { railBrandLogosV01 } from "./brand-logos-rail-v01";
 
 // QF-096: 과쯔 모드 제조사 로고(public/assets/brand/kr). 기준 이름 = 좌측 필터 표기(bbCatalog 라벨).
 // 퀵필터·매물 데이터의 제조사 값(maker)은 catalog key 또는 아래 대응으로 좌측 필터 이름을 찾는다. 대응이 없으면 로고 없음(추측 연결 안 함).
@@ -85,6 +86,24 @@ export function KrBrandLogo({ name, kind, initialFallback = false }: { name: str
   return (
     <span className={`kr-brand-logo is-${kind}${logo ? "" : " is-empty"}`} data-brand={resolvedName} data-ratio={logo?.ratio} data-logo-set={autohomeLogo ? "autohome10" : driveLogo ? "drive10" : "default"}>
       {logoSource && size ? <img src={logoSource} alt="" draggable={false} style={size} /> : null}
+    </span>
+  );
+}
+
+// 초톳 「Hãng xe」 레일 재실측(2026-10-07, 1080×2340 → 384): 40×40 상자, 가로·세로 가운데.
+// Toyota r 1.45 → 폭 91% · Hyundai r 1.88 → 폭 100% · Kia r 4.06 → 폭 약 61%(24.5). 아주 납작한 글자형(r ≥ 4)만 줄여 무게를 맞춘다.
+export function chototRailLogoSize(ratio: number) {
+  if (ratio >= 4) return { width: "61%", height: "auto" };
+  return krPlainLogoSize(ratio);
+}
+
+/** 과쯔 승용 제조사 레일 로고(오토홈 원본 trim, rail-v01). 파일이 없는 브랜드는 null → 기존 로고를 쓴다. */
+export function railBrandLogo(name: string) {
+  const logo = railBrandLogosV01[name] ?? railBrandLogosV01[krBrandName(name) ?? ""];
+  if (!logo) return null;
+  return (
+    <span className="kr-brand-logo is-plain is-rail-v01" data-brand={name} data-ratio={logo.ratio} data-logo-set="rail-v01">
+      <img src={asset(`brand/rail-v01/${logo.file}`)} alt="" draggable={false} style={chototRailLogoSize(logo.ratio)} />
     </span>
   );
 }
