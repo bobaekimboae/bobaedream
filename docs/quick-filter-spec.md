@@ -271,7 +271,7 @@
 - List-view top-to-top rhythm: final title row → specification 24px, specification → price 20px, price → badge 17px, badge → location 36px, and location → seller 24px. Cards without a badge collapse the badge slot and use price → location 28px. Do not restore a fixed 195px minimum card height; the card follows its actual content.
 - 과쯔 승용 샘플 매물 사진(2026-10-07): 실매물 사진 출처가 확정되기 전까지 같은 제조사·모델의 `public/assets/models/kr/{makerId}/{value}.png`(당근·보배드림 모델 이미지, CREDITS 있음)를 `imageFit: "contain"`으로 표시한다. 이 이미지가 없는 차종(제네시스 G80·아우디 A6·랜드로버·렉서스 ES300h·페라리 296·롤스로이스 팬텀)은 다른 차 사진 대신 빈 사진 칸을 쓴다. 엔카 캡처(`maker-model/generations`)는 쓰지 않는다.
 - 목록 카드의 차량 그림 썸네일(`imageFit: "contain"`, 2026-10-07): 투명 여백을 잘라낸 사본 `public/assets/listing-thumbs/`(`listingThumbTrimmed`, 원본 그대로)을 연회색 `#F3F4F6` 바탕, 안쪽 여백 위 16 · 좌우 10 · 아래 20, `contain` + `center bottom`으로 그려 실사 사진과 크기 균형을 맞춘다. 시간 표시는 `#8C8C8C`.
-- 실사 사진 썸네일도 칸을 꽉 채우지 않는다(2026-10-07): 목록형 카드에서는 같은 `#F3F4F6` 바탕에 `contain` + 가운데 정렬로 사진 전체를 보여 그림 썸네일과 차 크기를 맞춘다. 피드 첫 큰 카드와 갤러리 보기는 기존처럼 `cover`.
+- 실사 사진 썸네일도 칸을 꽉 채우지 않는다(2026-10-07): 목록형 카드에서는 같은 `#F3F4F6` 바탕에 `contain` + 가운데 정렬, 안쪽 여백 위 18 · 좌우 12 · 아래 24로 사진을 칸보다 작게 넣어 그림 썸네일과 차 크기를 맞춘다. 시간 표시는 `#8C8C8C`. 피드 첫 큰 카드와 갤러리 보기는 기존처럼 `cover`.
 - Feed-view rhythm: image bottom → title 15px, title → specification 24px, specification → price 23px, price → location 28px, and location → seller 19px.
 - `판매중` is not shown in the mobile seller row. Removing a filter chip or badge must also remove its reserved space; price, location, and seller content move together according to the no-badge rhythm.
 - The location line uses `지역 · 단지명` for every non-private seller and region only for `개인`. A generic `매매단지` suffix is not accepted: use a real complex name from the KB차차차 regional complex master (`지역별_매매단지`) and keep the displayed region consistent with the complex's actual location.
@@ -343,6 +343,7 @@
 - 트럭·특장 이미지·로고 퀵필터도 다른 카테고리와 동일하게 좌측 제목 슬롯을 사용하지 않는다. 형식·세부 형식·제조사·모델·세부모델은 PC 20px, 모바일 16px에서 바로 시작한다. 모바일 제조사 로고 반복 피치는 초톳과 같은 84px이고, 트럭 이미지 카드는 이미지 볼륨과 비겹침을 위해 기존 카드 폭·간격을 유지한다. 실사 이미지는 투명 원본의 가로 비율을 유지한 채 보이는 면을 모바일 76×48px, PC 88×55px로 잡는다.
 - 목록은 승용 샘플을 재사용하지 않고 `truck/scenario-v01.ts`의 가상 트럭 30대만 사용한다.
 - 형식·세부 형식·적재용량·규격·제조사·모델 선택은 같은 가상 매물 필드를 기준으로 목록과 제조사 대수를 함께 갱신한다.
+- 사용자 지시 트럭 매물 `truck-031` 볼보 FE 윙바디 11톤 오토(24년04월 · 56,067km · 디젤 · 12,500만원, 사진 사용자 제공). 등급명·카드 스펙 줄은 `truckListingOverridesV01`로 지시값 고정.
 - v01 매물 이미지는 자료팀 이미지 수신 전까지 트럭·버스·캠핑카·덤프 기존 아이콘을 임시 썸네일로 사용한다.
 - PC 좌측 필터에서는 엔카 매핑의 `좌측 필터 패널 최상단` 위치에 `형식/적재용량` 계층형 항목을 둔다.
 - PC 좌측 항목은 `형식 → 세부형식 → 적재용량·축장/규격` 단일 선택 트리로 동작하며, 상단 퀵필터와 같은 상태·URL·결과 목록을 사용한다.

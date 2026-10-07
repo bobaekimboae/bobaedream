@@ -9,5 +9,6 @@
 | hyundai_forest_camper.jpg | 현대 포레스트 캠핑카 | 사용자 제공(2026-10-07 대화 첨부) |
 | hyundai_forklift_25b9f.jpg | 현대머티리얼핸들링 25B-9F 전동 지게차 | 사용자 제공(2026-10-07 대화 첨부) |
 | lamborghini_urus_phev_3003.jpg | 람보르기니 우루스 PHEV 4.0 V8 SE (샘플 id 3003) | 사용자 제공(2026-10-07 대화 첨부) |
+| volvo_fe_wingbody.jpg | 볼보 FE 윙바디 11톤 (truck-031) | 사용자 제공(2026-10-07 대화 첨부) |
 
 긴 변 800px 이하로 줄여 저장. UI 시안 샘플 매물 표시용.
