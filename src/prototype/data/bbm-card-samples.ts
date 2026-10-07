@@ -1,6 +1,6 @@
 // QF-091: 개발 시안 카드의 등록연월·주행거리·연료·마력과 인증중고차·1년보증 배지를 채운다.
 // 우리 매물 데이터에 없는 값(월·년형·마력·배지)을 매물 id 로 정해지는 샘플 값으로 채운다. 실제 매물 정보가 아니다.
-type SampleSource = { id: number; specs: string[]; filter?: { year: number; mileage: number; fuel: string }; badges?: string[]; uiTest?: unknown; virtualCategory?: { category?: string; categoryDetail?: string; berths?: number }; bike?: { genre: string; displacement: number }; truck?: unknown; heavy?: { hours?: number } };
+type SampleSource = { id: number; specs: string[]; filter?: { year: number; mileage: number; fuel: string }; badges?: string[]; uiTest?: unknown; virtualCategory?: { category?: string; categoryDetail?: string; berths?: number }; bike?: { genre: string; displacement: number }; truck?: { trailer?: { load: string; length: string; axles: string } }; heavy?: { hours?: number }; cardSpec?: string[] };
 
 const horsepowerPool = [190, 204, 245, 258, 150, 170, 305, 367, 122, 184, 225, 272];
 const badgePool: string[][] = [["인증중고차", "1년보증"], ["인증중고차", "1년보증"], [], ["1년보증"], ["인증중고차"], []];
@@ -27,6 +27,10 @@ const fuelLabel = (source: SampleSource) => {
 };
 
 export function bbmCardSpec(source: SampleSource, withPower = true) {
+  // 지시값을 그대로 보여줄 매물(등록연월·주행 정확값)
+  if (source.cardSpec?.length) return source.cardSpec.join(" · ");
+  // 트레일러: 적재량 · 길이 · 축(엔진 없음)
+  if (source.truck?.trailer) return [source.truck.trailer.load, source.truck.trailer.length, source.truck.trailer.axles].join(" · ");
   // 캠핑카(엔카 캠핑카 목록 규칙): 등록연월 · 주행 · 연료. 엔진 없는 캐러밴은 등록연월 · 견인형
   if (source.virtualCategory?.category === "캠핑카") {
     const year = yearFromSpecs(source);

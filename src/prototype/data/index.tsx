@@ -59,6 +59,8 @@ const isForcedMobileView = () => !isDesktopPreview();
 const forcedMobileDesignWidth = 430;
 
 type Car = {
+  /** 카드 스펙 줄을 그대로 쓸 값(실매물처럼 등록연월·주행을 정확히 보여줄 때). 없으면 bbmCardSpec 이 만든다 */
+  cardSpec?: string[];
   /** 전체차량 섞음 목록에서만 쓰는 업데이트순 순위(클수록 위). 없으면 id 로 정렬 */
   updateRank?: number;
   id: number;
@@ -139,6 +141,8 @@ type Car = {
     transmission?: string;
     options?: string[];
     cargoLength?: string;
+    /** 트레일러(엔진 없음): 적재량 · 적재함 길이 · 축 */
+    trailer?: { load: string; length: string; axles: string };
     vehicleNumber?: string;
   };
   virtualCategory?: {
@@ -958,6 +962,12 @@ const truckUses = ["자가용", "자가용", "영업용", "등본차량"] as con
 const truckColors = ["흰색", "청색", "노란색", "쥐색", "흰색투톤", "진주색", "검정색", "은색", "빨간색", "기타"] as const;
 const truckCargoLengths = ["단축", "중축", "특중축", "장축", "초장축", "특초장축", "초장축플러스", "극초장축", "극초장축 플러스"] as const;
 const truckOptionPool = ["내비게이션", "후방 카메라", "가죽 시트", "에어백(운전석)", "타코메타", "ABS"] as const;
+const trailerSpecsV01: Record<string, { load: string; length: string; axles: string }> = {
+  "truck-027": { load: "적재 30톤", length: "12.2m(40FT)", axles: "3축" },
+  "truck-028": { load: "적재 25톤", length: "12m", axles: "4축" },
+  "truck-029": { load: "적재 27톤", length: "14m", axles: "3축" },
+};
+
 const truckCars: Car[] = truckScenarioV01.map((row, index) => {
   const color = truckColors[index % truckColors.length];
   const fuel = row.fuel;
@@ -965,6 +975,8 @@ const truckCars: Car[] = truckScenarioV01.map((row, index) => {
   const options = [truckOptionPool[index % truckOptionPool.length], truckOptionPool[(index + 2) % truckOptionPool.length]] as string[];
   if (row.subtype.includes("파워게이트") || index % 5 === 0) options.unshift("리프트(파워게이트)");
   const subtypeLabel = row.subtype ? truckSubtypeLabel(row.subtype) : "";
+  // 트레일러는 엔진이 없어 주행·연료 대신 적재량 · 길이 · 축(2026-10-07 사용자 지시, UI 검증용 가상 값)
+  const trailer = row.format === "트레일러" ? trailerSpecsV01[row.id] : undefined;
   return ({
   id: 6000 + index,
   maker: row.maker,
@@ -974,7 +986,7 @@ const truckCars: Car[] = truckScenarioV01.map((row, index) => {
   imageFit: "contain",
   title: `${row.maker} ${row.model}`,
   // 엔카 화물·특장 등급명처럼 「톤수 + 세부형식」(예: 8.5톤 윙바디, 1톤 카고). 카고는 세부형식이 크기 구분이라 「카고」
-  trim: [row.load, row.format.startsWith("카고") || !subtypeLabel ? row.format.replace(/\(.*\)|트럭/g, "").trim() : subtypeLabel].filter(Boolean).join(" "),
+  trim: trailer ? subtypeLabel : [row.load, row.format.startsWith("카고") || !subtypeLabel ? row.format.replace(/\(.*\)|트럭/g, "").trim() : subtypeLabel].filter(Boolean).join(" "),
   specs: [`${row.year}년식`, `${row.mileage.toLocaleString("ko-KR")}km`, row.load, row.region],
   price: `${row.price10k.toLocaleString("ko-KR")} 만원`,
   place: row.region,
@@ -1001,6 +1013,7 @@ const truckCars: Car[] = truckScenarioV01.map((row, index) => {
     transmission,
     options,
     cargoLength: truckCargoLengths[index % truckCargoLengths.length],
+    trailer,
     vehicleNumber: `90가${String(1000 + index).padStart(4, "0")}`,
   },
   filter: {
@@ -1257,7 +1270,13 @@ const bbmBodyExtraCars: Car[] = [
     filter: { ...base.filter!, year: seed.year, mileage: seed.mileage, fuel: seed.fuel, body: seed.body, seats: seed.seats, transmission: seed.body === "화물" ? "수동" : "오토", video: false },
   };
 });
-const bbmSampleCars: Car[] = [...chototTestCars, ...bbmExtraCars, ...bbmBodyExtraCars];
+// 2026-10-07 사용자 지시 추가 매물 3대(등록연월·주행·연료·지역·가격은 지시값 그대로, 카드 스펙 줄은 cardSpec 으로 고정, 사진은 사용자 제공)
+const bbmLuxuryAddCars: Car[] = [
+  makeChoTotCar(3001, { maker: "페라리", modelGroup: "푸로산게", image: "listing-photos/v01/ferrari_purosangue_3001.jpg", imageFit: "cover", title: "페라리 푸로산게", trim: "6.5 V12", specs: ["2024년식", "3,685km", "가솔린", ""], cardSpec: ["24년11월", "3,685km", "가솔린"], price: "68,500 만원", place: "경기", filter: { year: 2024, seats: "4인승", condition: "중고", mileage: 3685, owners: "1인", transmission: "오토", fuel: "가솔린", color: "파랑", origin: "수입", body: "SUV", video: false } }),
+  makeChoTotCar(3002, { maker: "롤스로이스", modelGroup: "컬리넌", image: "listing-photos/v01/rollsroyce_cullinan_3002.jpg", imageFit: "cover", title: "롤스로이스 컬리넌", trim: "6.7 V12", specs: ["2024년식", "14,562km", "가솔린", ""], cardSpec: ["24년12월", "14,562km", "가솔린"], price: "60,000 만원", place: "부산", filter: { year: 2024, seats: "5인승", condition: "중고", mileage: 14562, owners: "1인", transmission: "오토", fuel: "가솔린", color: "초록", origin: "수입", body: "SUV", video: false } }),
+  makeChoTotCar(3003, { maker: "람보르기니", modelGroup: "우루스", image: "listing-photos/v01/lamborghini_urus_phev_3003.jpg", imageFit: "cover", title: "람보르기니 우루스 PHEV", trim: "4.0 V8 SE", specs: ["2025년식", "5,679km", "가솔린+전기", ""], cardSpec: ["25년11월", "5,679km", "가솔린+전기"], price: "42,500 만원", place: "경기", filter: { year: 2025, seats: "5인승", condition: "중고", mileage: 5679, owners: "1인", transmission: "오토", fuel: "하이브리드", color: "회색", origin: "수입", body: "SUV", video: false } }),
+];
+const bbmSampleCars: Car[] = [...chototTestCars, ...bbmExtraCars, ...bbmBodyExtraCars, ...bbmLuxuryAddCars];
 
 const luxuryVehicleHeadings: Record<number, { title: string; trim: string }> = {
   1: { title: "람보르기니 우르스", trim: "SE 4.0 V8" },
