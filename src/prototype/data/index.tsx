@@ -1026,7 +1026,8 @@ const toVirtualCategoryCars = (rows: readonly VirtualCategoryListingRow[], idBas
     image: row.image,
     imageFit: "contain",
     title: `${row.maker} ${row.model}`,
-    trim: `${row.subtype} · UI 검증용 가상 매물`,
+    // 캠핑카는 엔카 캠핑카 목록처럼 2행 = 형태(클래스 C 모터홈 · 캐러밴 · 팝업 캠퍼). 다른 가상 카테고리는 검증 문구 유지
+    trim: row.category === "캠핑카" ? (/캐러밴|캠퍼|모터홈/.test(row.subtype) ? row.subtype : `${row.subtype} 모터홈`) : `${row.subtype} · UI 검증용 가상 매물`,
     specs: [`${row.year}년식`, usage, row.fuel, row.transmission],
     price: `${row.price10k.toLocaleString("ko-KR")} 만원`,
     place: row.sellerAddress,

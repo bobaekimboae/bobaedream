@@ -254,6 +254,7 @@
 - List view: title 15/19 600, specification 13px, location 14px #8C8C8C (whole line), seller 14px #222 (ChoTot remeasure: location and seller are the same size; Pretendard Hangul ≈0.87em so 14px matches ChoTot ink height ≈12.4), price 16px 700 #222, and price unit 400 #222 (no red; Hyundai-certified style, the unit only drops weight). Feed view: title 16/24, specification 14px, location 14px, price 17px 700, and price unit 14px.
 - 바이크 카드(2026-10-07): 제목은 `제조사 모델` 한 줄(2행 없음), 스펙 줄은 `장르 · 연식 · 주행 · 배기량`(예: `네이키드 · 2023 · 2만km · 2,300cc`).
 - 건설기계 카드: 제목은 `제조사 모델` 한 줄(2행 없음, 제조사 미확인 매물은 원래 매물명), 스펙 줄은 `등록연월 · 사용시간(h) · 연료`.
+- 캠핑카 카드(엔카 캠핑카 목록 규칙, 2026-10-07): 1행 `제조사 모델`, 2행 형태(`클래스 C 모터홈` · `캐러밴` · `팝업 캠퍼`), 스펙 줄 `등록연월 · 주행 · 연료`, 엔진 없는 캐러밴은 `등록연월 · 견인형`. 캠핑카는 2행에 `UI 검증용 가상 매물`을 넣지 않는다(자재운반장비·부품은 유지).
 - 트럭·특장 카드(엔카 화물·특장 등급명 규칙): 1행 `제조사 모델`, 2행 `톤수 + 세부형식`(예: `8.5톤 윙바디`, `1톤 카고`), 스펙 줄 `등록연월 · 주행 · 연료`(샘플 마력 없음). 주행 9,500km 이상은 만 단위(`1만km`).
 - The first specification follows the compact Charancha registration-month notation instead of Encar-style slash notation: month known = `24년08월` (two-digit month, no space, no `식`), month unknown = `24년식`. Keep the source value unchanged and normalize only the listing display. Do not use `24/08식` or `24년 8월`.
 - The unselected listing-card favorite icon uses the ChoTot reference SVG at 24px with `#8C8C8C`; the selected state keeps the same silhouette and changes only its fill color.
