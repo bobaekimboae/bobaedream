@@ -401,7 +401,7 @@ function BbCarCard({ car, liked, onToggleLike, onOpen, onNotify }: { car: Car; l
       <div className="bbm-card-main">
         <div className="bbm-card-image">
           <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(car.image)} alt={`${car.title} ${car.trim}`} draggable={false} />
-          <div className="bbm-card-media-footer" aria-hidden="true"><span>{car.posted}</span><span className="bbm-card-count">{car.photos}<BbIcon name="photo-count" size={12} /></span></div>
+          <div className="bbm-card-media-footer" aria-hidden="true"><span>{car.posted}</span></div>
         </div>
         <div className="bbm-card-content">
           <h2 className="bbm-card-title">{car.title} {car.trim}</h2>

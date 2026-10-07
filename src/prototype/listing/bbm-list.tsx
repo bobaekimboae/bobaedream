@@ -350,7 +350,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   const photo = (
     <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`}>
       {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} style={{ objectPosition: car.imagePosition ?? "center center" }} /> : null}
-      <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span><span className="bbm-card-count">{car.photos}<img src={bbmIcon("card-photo-count")} alt="" /></span></div>
+      <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span></div>
     </div>
   );
   const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
