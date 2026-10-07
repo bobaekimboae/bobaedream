@@ -236,6 +236,8 @@
 /* 과쯔 모바일 헤더: "지역:" 글자 대신 초톳 원본 위치 아이콘(svgexport-20, 16px·#C0C0C0) + 전국 */
 .marketplace.is-qf-guazi .region-bar.is-bbm .region-location-icon { display: block; flex: 0 0 auto; width: 16px; height: 16px; }
 .marketplace.is-qf-guazi .region-bar.is-bbm .region-location-icon + strong { margin-left: 0; }
+/* 「전국」 글자 끝 → 화살표 보이는 간격 8.2px(초톳 1080 캡처 실측 8.54, 384 환산. 4px이면 9.25). 화살표 20px 칸 안 여백 포함 칸 간격 3px(화살표 그림이 정수 픽셀에 붙어 3.3px은 움직이지 않음) */
+.marketplace.is-qf-guazi .region-bar.is-bbm > button:first-child { gap: 3px; }
 .region-bar.is-bbm strong { color: var(--bbm-text-strong); font-size: 14px; font-weight: 700; line-height: 20px; }
 .region-bar.is-bbm .region-chevron-icon { display: grid; width: 20px; height: 20px; place-items: center; }
 .region-bar.is-bbm .region-chevron-icon img { width: 20px; height: 20px; }
