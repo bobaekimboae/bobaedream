@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react
 import { BbmFooter } from "../listing/bbm-list-area";
 import "../listing/bbm-list-area.css";
 import "./register.css";
-import { registerHeaderHtml, registerPolicyHtml } from "./header-html";
+import { registerHeaderHtml, registerPhotoGuideHtml, registerPolicyHtml } from "./header-html";
 import { inspectionPcHtml } from "./inspection-pc-html";
 import {
   countOptions,
@@ -148,7 +148,7 @@ function RegisterForm({ onBack, notify }: { onBack: () => void; notify: (message
   const [optionTab, setOptionTab] = useState(optionGroups[0].title);
   const [photos, setPhotos] = useState<Array<string | null>>(() => photoSlots.map(() => null));
   const [photoDraft, setPhotoDraft] = useState<Array<string | null>>(photos);
-  const [guideOpen, setGuideOpen] = useState(true);
+  const [photoGuideOpen, setPhotoGuideOpen] = useState(false);
   const [saleCategory, setSaleCategory] = useState("normal");
   const [lease, setLease] = useState<SaleExtra>(emptySaleExtra("operating"));
   const [rent, setRent] = useState<SaleExtra>(emptySaleExtra("succession"));
@@ -162,6 +162,8 @@ function RegisterForm({ onBack, notify }: { onBack: () => void; notify: (message
   const [descBody, setDescBody] = useState("");
   const [inspection, setInspection] = useState({ number: "", accident: "no", repair: "no" });
   const [inspectionDraft, setInspectionDraft] = useState(inspection);
+
+  const photoGuideHtml = useMemo(() => registerPhotoGuideHtml.split("%ASSET%").join(asset("")), []);
 
   const errors = {
     color: color ? "" : "색상을 선택해주세요.",
@@ -604,16 +606,14 @@ function RegisterForm({ onBack, notify }: { onBack: () => void; notify: (message
           </div>
         )}>
         <div className="register-photo-modal">
-          <button type="button" className={cx("ui-btn ui-btn--outline ui-btn--md ui-btn--mobile-sm ui-btn--align-center ui-btn--bordered register-photo-modal__guide-button", !guideOpen && "is-collapsed")} onClick={() => setGuideOpen(!guideOpen)}>
+          <button type="button" className="ui-btn ui-btn--outline ui-btn--md ui-btn--mobile-sm ui-btn--align-center ui-btn--bordered register-photo-modal__guide-button" onClick={() => setPhotoGuideOpen(true)}>
             <span className="ui-btn__label ui-btn__label--with-icon">차량 촬영 가이드<span className="ui-btn__icon-right ui-btn__icon-right--chevron" /></span>
           </button>
-          {guideOpen ? (
-            <ul className="register-photo-modal__guide">
-              <li>권장 비율은 4:3 입니다.</li>
-              <li>사진을 터치해 편집하거나, 길게 눌러 위치를 교환할 수 있습니다.</li>
-              <li>홍보성 문구가 포함된 사진은 광고와 함께 삭제될 수 있습니다.</li>
-            </ul>
-          ) : null}
+          <ul className="register-photo-modal__guide">
+            <li>권장 비율은 4:3 입니다.</li>
+            <li>사진을 터치해 편집하거나, 길게 눌러 위치를 교환할 수 있습니다.</li>
+            <li>홍보성 문구가 포함된 사진은 광고와 함께 삭제될 수 있습니다.</li>
+          </ul>
           <div className="register-photo-modal__list">
             {photoSlots.map((label, index) => (
               <label key={index} className={cx("register-photo-modal__item", photoDraft[index] && "has-photo")}>
@@ -630,6 +630,11 @@ function RegisterForm({ onBack, notify }: { onBack: () => void; notify: (message
             ))}
           </div>
         </div>
+      </Pop>
+
+      <Pop open={photoGuideOpen} id="rd_p_photo_guide" title="사진 촬영 가이드" onClose={() => setPhotoGuideOpen(false)} rawBody
+        footer={<div className="pop-ft"><button type="button" className="ui-btn ui-btn--primary ui-btn--xl ui-btn--mobile-md ui-btn--align-center ui-btn--full pop-ft__ui-button pop-ft__ui-button--confirm" onClick={() => setPhotoGuideOpen(false)}><span className="ui-btn__label">확인 완료</span></button></div>}>
+        <div className="pop-body register-photo-guide-modal-body" dangerouslySetInnerHTML={{ __html: photoGuideHtml }} />
       </Pop>
 
       <Pop open={pop === "region"} id="rd_p_region" title="거래 지역" className="register-vehicle-full-modal" bodyClassName="register-region-modal" onClose={close}
