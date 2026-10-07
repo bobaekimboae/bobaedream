@@ -241,7 +241,7 @@
 
 - These rules apply to the Guazi Bobaedream mobile listing (`.bbm-m-list`) at the 384px CSS-width reference. List and feed typography are intentionally different; do not merge their font-size rules.
 - A vehicle title is always two semantic rows, not one title that happens to wrap: row 1 is manufacturer + model (`.bbm-card-model`), and row 2 is detailed model/trim (`.bbm-card-trim`). Each row stays on one line and ellipsizes independently. Do not add an arbitrary margin between the detailed-model row and the specification row.
-- List view: title 15/19 600, specification 13px, location 13px, seller 12px, price 16px 700, and price unit 14px. Feed view: title 16/24, specification 14px, location 14px, price 17px 700, and price unit 14px.
+- List view: title 15/19 600, specification 13px, location 13px, seller 12px, price 16px 700 #222, and price unit 400 #222 (no red; Hyundai-certified style, the unit only drops weight). Feed view: title 16/24, specification 14px, location 14px, price 17px 700, and price unit 14px.
 - The first specification follows the compact Charancha registration-month notation instead of Encar-style slash notation: month known = `24년08월` (two-digit month, no space, no `식`), month unknown = `24년식`. Keep the source value unchanged and normalize only the listing display. Do not use `24/08식` or `24년 8월`.
 - The unselected listing-card favorite icon uses the ChoTot reference SVG at 24px with `#8C8C8C`; the selected state keeps the same silhouette and changes only its fill color.
 - In mobile list and feed views, place the favorite action at the right edge of the first vehicle-title row, following the Karrot card pattern. Reserve space only on the model row so the trim row keeps its full width. Gallery keeps the favorite over the photo, and text view keeps its compact top-right placement.
@@ -342,7 +342,7 @@
 - 고정 필터 칩도 숫자 고정 폭을 두지 않고 문구에 따른 자연 폭을 쓴다. 한국어 `필터`와 베트남어 `Lọc`의 글자 폭 차이는 정상이다.
 - 펼침 아이콘은 `public/assets/bbm/filter-toggle-chotot-v01.svg`의 노션 원본 패스를 수정하지 않고 20×20px 슬롯에 표시한다. CSS clip-path나 별도 재그리기는 금지한다.
 - 모바일 보기 전환은 32×32px 터치영역을 유지하되 배경·테두리·원형 외곽선을 표시하지 않는다. 갤러리 화면의 목록형 복귀 아이콘은 `view-list-chotot-v02.svg` 원본을 20×20px로 표시한다.
-- 모바일 목록형 썸네일은 120×120px, 반경 8px, 정보와 12px 간격이다. 제목 16/600/20 `#222`, 메타·위치 14/400/20 `#595959`, 가격 16/700/24 `#E5193B`, 판매자 12/400/18, 아바타 16px(JOB-8 초톳 재실측), 구분선 1px `#EBEBEB`(JOB-8 dev 동일), 좌우 여백 16px을 모든 카테고리의 공통 목록 컴포넌트에 적용한다.
+- 모바일 목록형 썸네일은 120×120px, 반경 8px, 정보와 12px 간격이다. 제목 16/600/20 `#222`, 메타·위치 14/400/20 `#595959`, 가격 숫자 16/700/24 `#222` · 「만원」 16/400 `#222`(현대 인증중고차 방식, 빨강 사용 안 함), 판매자 12/400/18, 아바타 16px(JOB-8 초톳 재실측), 구분선 1px `#EBEBEB`(JOB-8 dev 동일), 좌우 여백 16px을 모든 카테고리의 공통 목록 컴포넌트에 적용한다.
 
 ### 트럭 유형 모달·바텀시트 v39
 
