@@ -215,8 +215,8 @@
       "generationCode": "GN7",
       "releaseYm": "2026-07",
       "endYm": null,
-      "colorName": "바이오필릭 블루 펄",
-      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "colorName": "아티스널 버건디 펄",
+      "colorEvidence": "카이즈유 2027 뉴 그랜저 대표컷 https://www.carisyou.com/car/7924 · 다나와 F/L 외장색 목록 교차확인",
       "sourceGenerationKeys": [
         "model_car_encar_generation_ca648e350756aa1c9f6f",
         "model_car_encar_generation_91d143f99465fd0f44ee"
@@ -716,8 +716,8 @@
       "generationCode": "MX5",
       "releaseYm": "2023-08",
       "endYm": null,
-      "colorName": "테라코타 오렌지",
-      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "colorName": "얼씨 브라스 메탈릭 매트",
+      "colorEvidence": "카이즈유 싼타페 MX5 대표컷 https://www.carisyou.com/car/7143",
       "sourceGenerationKeys": [
         "model_car_encar_generation_8ead087e7724e95ff2a4"
       ],
@@ -828,8 +828,8 @@
       "generationCode": "DN8",
       "releaseYm": "2023-05",
       "endYm": null,
-      "colorName": "트랜스미션 블루 펄",
-      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "colorName": "에어로 실버 매트",
+      "colorEvidence": "카이즈유 2023 뉴 쏘나타 대표컷 https://www.carisyou.com/car/7070",
       "sourceGenerationKeys": [
         "model_car_encar_generation_1b97ade0841c5b35943f",
         "model_car_encar_generation_b8ff807244b22b7cad35"
@@ -1056,8 +1056,8 @@
       "generationCode": "CN8",
       "releaseYm": "2026-08",
       "endYm": null,
-      "colorName": "메타 블루 펄",
-      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "colorName": "에코트로닉 그레이 펄",
+      "colorEvidence": "카이즈유 뉴 아반떼 CN7 대표컷 https://www.carisyou.com/car/7577 · 다나와 색상 목록 교차확인",
       "sourceGenerationKeys": [
         "model_car_encar_generation_f00e9efa8fe9b360a26f"
       ],
@@ -1539,8 +1539,8 @@
       "generationCode": "BK",
       "releaseYm": "2011-11",
       "endYm": "2016-07",
-      "colorName": "슈퍼 레드",
-      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "colorName": "블루 시프트",
+      "colorEvidence": "Mobile.de 동세대 제네시스 쿠페 매물 색상 톤 우선 · 카이즈유·다나와 외형 교차확인",
       "sourceGenerationKeys": [
         "model_car_encar_generation_9b77005017160d06537f"
       ],
@@ -1571,8 +1571,8 @@
       "generationCode": "AX1",
       "releaseYm": "2024-10",
       "endYm": null,
-      "colorName": "톰보이 카키",
-      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "colorName": "시에나 오렌지 메탈릭",
+      "colorEvidence": "Mobile.de 동일 국내 사양 미확인으로 카이즈유 대표색 적용 · 다나와 외장색 교차확인",
       "sourceGenerationKeys": [
         "model_car_encar_generation_924cf29312db5bcf80b0"
       ],
@@ -1587,8 +1587,8 @@
       "generationCode": "AX1",
       "releaseYm": "2024-09",
       "endYm": null,
-      "colorName": "톰보이 카키",
-      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "colorName": "버터크림 옐로우 펄",
+      "colorEvidence": "Mobile.de 동일 캐스퍼 일렉트릭 국내 사양 미확인으로 카이즈유 대표색 적용 · 다나와 외장색 교차확인",
       "sourceGenerationKeys": [
         "model_car_encar_generation_104b23d29f8e159bdb51"
       ],
@@ -1603,8 +1603,8 @@
       "generationCode": "AX1",
       "releaseYm": "2021-09",
       "endYm": "2024-10",
-      "colorName": "톰보이 카키",
-      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "colorName": "티탄 그레이 메탈릭",
+      "colorEvidence": "Mobile.de 동일 국내 사양 미확인으로 카이즈유 대표색 적용 · 다나와 외장색 교차확인",
       "sourceGenerationKeys": [
         "model_car_encar_generation_95a0e120f20c5878ef3d"
       ],
@@ -1896,8 +1896,8 @@
       "generationCode": "LX3",
       "releaseYm": "2025-01",
       "endYm": null,
-      "colorName": "에코트로닉 그레이 펄",
-      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "colorName": "로버스트 에메랄드 펄",
+      "colorEvidence": "카이즈유 팰리세이드 LX3 대표컷 https://www.carisyou.com/car/7487 · 다나와 색상 목록 교차확인",
       "sourceGenerationKeys": [
         "model_car_encar_generation_512c2747147daa8d927d"
       ],
