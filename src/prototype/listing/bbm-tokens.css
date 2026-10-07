@@ -83,8 +83,8 @@
 .bbm-card-content { display: flex; min-width: 0; flex: 1; flex-direction: column; }
 .bbm-card-text { display: flex; min-width: 0; flex-direction: column; }
 .bbm-card-title { align-self: flex-start; max-width: 100%; overflow: hidden; color: var(--bbm-text-strong); font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
-.bbm-card-spec { display: flex; min-width: 0; gap: 2px; overflow: hidden; font-size: 14px; font-weight: 400; text-overflow: ellipsis; white-space: nowrap; }
-.bbm-card-spec > span { flex: none; }
+/* JOB-8: dev처럼 " · " 텍스트 한 줄. 블록이라야 text-overflow 말줄임이 걸린다 */
+.bbm-card-spec { display: block; min-width: 0; overflow: hidden; font-size: 14px; font-weight: 400; text-overflow: ellipsis; white-space: nowrap; }
 .bbm-card-price { display: inline-flex; align-items: baseline; color: var(--bbm-text-strong); font-size: 16px; font-weight: 700; white-space: nowrap; }
 .bbm-card-price-unit { font-size: 14px; font-weight: 400; line-height: 19.6px; }
 .bbm-card-badges { display: flex; align-items: center; gap: 4px; }
@@ -181,7 +181,7 @@
   /* 카드 PC: 16/20, 사진 160 라운드 8, 간격 16, 제목 16/22.4 600, 사양 14/19.6 #595959(높이 24) */
   .marketplace.is-bbm .bbm-result-card { padding: 16px 20px; }
   .marketplace.is-bbm .bbm-result-card::after { content: ""; position: absolute; right: 20px; bottom: 0; left: 20px; height: 1px; background: var(--bbm-line); }
-  .marketplace.is-bbm .bbm-result-card:last-child::after { display: none; }
+  /* JOB-8: dev는 마지막 카드 아래에도 같은 선을 긋는다(마지막 카드 숨김 규칙 삭제) */
   .marketplace.is-bbm .bbm-result-card .bbm-card-main { gap: 16px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-photo { width: 160px; height: 160px; border-radius: 8px; }
   .marketplace.is-bbm.is-truck-category .bbm-result-card .bbm-card-photo { width: 160px; height: 112px; }
@@ -273,7 +273,8 @@
 .bbm-m-view svg { width: 20px; height: 20px; color: #222; }
 /* 카드 모바일 목록형: 384px 초톳 기준. 각 간격은 글자 줄 상단 기준이다. */
 .bbm-m-list { padding: 0 16px; }
-.bbm-result-card.is-mobile { padding: 12px 0 12px; border-bottom: 1px solid var(--list-divider); box-sizing: border-box; }
+/* JOB-8: 카드 구분선은 dev와 같은 #EBEBEB(--list-divider는 다른 곳도 쓰므로 그대로 둔다) */
+.bbm-result-card.is-mobile { padding: 12px 0 12px; border-bottom: 1px solid #ebebeb; box-sizing: border-box; }
 .bbm-result-card.is-mobile .bbm-card-main { gap: 12px; }
 .bbm-m-list:not(.is-feed):not(.is-gallery):not(.is-text):not(.is-one-line) .bbm-result-card.is-mobile .bbm-card-photo {
   width: 120px;
