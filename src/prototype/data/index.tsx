@@ -975,6 +975,12 @@ const truckUses = ["자가용", "자가용", "영업용", "등본차량"] as con
 const truckColors = ["흰색", "청색", "노란색", "쥐색", "흰색투톤", "진주색", "검정색", "은색", "빨간색", "기타"] as const;
 const truckCargoLengths = ["단축", "중축", "특중축", "장축", "초장축", "특초장축", "초장축플러스", "극초장축", "극초장축 플러스"] as const;
 const truckOptionPool = ["내비게이션", "후방 카메라", "가죽 시트", "에어백(운전석)", "타코메타", "ABS"] as const;
+// 트럭 실사 썸네일(사용자 제공, 2026-10-07). 없으면 유형 대표 이미지
+const truckListingPhotosV01: Record<string, string> = {
+  "truck-001": "listing-photos/v01/hyundai_porter2_cargo.jpg",
+  "truck-002": "listing-photos/v01/isuzu_elf.jpg",
+};
+
 const trailerSpecsV01: Record<string, { load: string; length: string; axles: string }> = {
   "truck-027": { load: "적재 30톤", length: "12.2m(40FT)", axles: "3축" },
   "truck-028": { load: "적재 25톤", length: "12m", axles: "4축" },
@@ -995,8 +1001,8 @@ const truckCars: Car[] = truckScenarioV01.map((row, index) => {
   maker: row.maker,
   modelGroup: row.model,
   sellerType: row.sellerType,
-  image: truckScenarioImageV02[row.id] ?? row.image,
-  imageFit: "contain",
+  image: truckListingPhotosV01[row.id] ?? truckScenarioImageV02[row.id] ?? row.image,
+  imageFit: truckListingPhotosV01[row.id] ? "cover" : "contain",
   title: `${row.maker} ${row.model}`,
   // 엔카 화물·특장 등급명처럼 「톤수 + 세부형식」(예: 8.5톤 윙바디, 1톤 카고). 카고는 세부형식이 크기 구분이라 「카고」
   trim: trailer ? subtypeLabel : [row.load, row.format.startsWith("카고") || !subtypeLabel ? row.format.replace(/\(.*\)|트럭/g, "").trim() : subtypeLabel].filter(Boolean).join(" "),
@@ -1261,7 +1267,7 @@ const bbmExtraCars: Car[] = Array.from({ length: 41 }, (_, index) => {
 const bbmBodyExtraCars: Car[] = [
   { base: 1002, id: 901, title: "기아 카니발 4세대", trim: "9인승 노블레스", body: "RV", year: 2021, mileage: 62000, price: 3290, fuel: "디젤", seats: "9인승", place: "경기 수원시", sellerType: "딜러" as const },
   { base: 1002, id: 902, title: "기아 카니발 하이리무진", trim: "7인승 시그니처", body: "RV", year: 2023, mileage: 21000, price: 4890, fuel: "가솔린", seats: "7인승 이상", place: "서울 송파구", sellerType: "개인" as const },
-  { base: 1001, id: 903, title: "현대 포터2", trim: "초장축 슈퍼캡 CRDi", body: "화물", year: 2020, mileage: 118000, price: 1480, fuel: "디젤", seats: "3인승", place: "인천 남동구", sellerType: "딜러" as const, image: "models/kr/49/548.png" },
+  { base: 1001, id: 903, title: "현대 포터2", trim: "초장축 슈퍼캡 CRDi", body: "화물", year: 2020, mileage: 118000, price: 1480, fuel: "디젤", seats: "3인승", place: "인천 남동구", sellerType: "딜러" as const, image: "listing-photos/v01/hyundai_porter2_cargo.jpg" },
   { base: 1001, id: 904, title: "기아 봉고3", trim: "1톤 킹캡 초장축", body: "화물", year: 2019, mileage: 142000, price: 1290, fuel: "디젤", seats: "3인승", place: "대구 달서구", sellerType: "개인" as const, image: "models/kr/3/1738.png" },
 ].map((seed) => {
   const base = chototTestCars.find((car) => car.id === seed.base) ?? chototTestCars[0];
@@ -1273,7 +1279,7 @@ const bbmBodyExtraCars: Car[] = [
     title: seed.title,
     trim: seed.trim,
     image: seed.image ?? base.image,
-    imageFit: seed.image ? "contain" as const : base.imageFit,
+    imageFit: seed.image ? (seed.image.startsWith("listing-photos/") ? "cover" as const : "contain" as const) : base.imageFit,
     sellerType: seed.sellerType,
     dealer: seed.sellerType === "개인" ? "개인판매자" : base.dealer,
     stock: seed.sellerType === "개인" ? 1 : 4,

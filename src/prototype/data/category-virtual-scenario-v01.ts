@@ -189,4 +189,5 @@ export const campingBerthsV01: Record<string, number> = {
 // 실사 썸네일(모델명 → 사진). 없으면 유형 대표 이미지
 export const virtualListingPhotosV01: Record<string, string> = {
   "25B-9F": "listing-photos/v01/hyundai_forklift_25b9f.jpg",
+  포레스트: "listing-photos/v01/hyundai_forest_camper.jpg",
 };
