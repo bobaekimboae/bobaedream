@@ -6,6 +6,7 @@ export type BbmCheckKey =
   | "bodyType" | "carClass" | "region" | "district" | "complex" | "seats" | "drive" | "history" | "sellerKind" | "saleType"
   | "exteriorColor" | "seatColor" | "seatFinish" | "fuel" | "transmission" | "options" | "features"
   | "bikeGenre" | "bikeLicense" | "bikeSource"
+  | "partsSubtype" | "partsCondition" | "partsFit"
   | "truckAxle" | "truckInspection" | "truckPerformance" | "truckSellerKind" | "truckUse"
   | "truckColor" | "truckFuel" | "truckTransmission" | "truckOptions" | "truckCargoLength";
 export type BbmRangeKey = "year" | "mileage" | "price" | "power" | "efficiency" | "displacement" | "weight" | "length" | "width" | "height" | "evRange";
@@ -31,6 +32,7 @@ export const emptyBbmFilters: BbmFilterValues = { checks: {}, ranges: {}, priceT
 export const BBM_DATA_CHECK_KEYS: BbmCheckKey[] = [
   "bodyType", "fuel", "transmission", "seats", "exteriorColor", "sellerKind", "region", "district",
   "bikeGenre", "bikeLicense", "bikeSource",
+  "partsSubtype", "partsCondition", "partsFit",
   "truckAxle", "truckInspection", "truckPerformance", "truckSellerKind", "truckUse", "truckColor", "truckFuel", "truckTransmission", "truckOptions", "truckCargoLength",
 ];
 export const BBM_DATA_RANGE_KEYS: BbmRangeKey[] = ["year", "mileage", "price", "displacement"];
@@ -98,7 +100,7 @@ export function bbmAppliedIds(value: BbmFilterValues) {
   };
   return ids.map((id, index) => ({ id, index })).sort((x, y) => rank(x.id) - rank(y.id) || x.index - y.index).map((entry) => entry.id);
 }
-const chipOrder = ["check:bikeGenre", "check:bikeLicense", "check:bikeSource", "check:bodyType", "check:carClass", "check:truckAxle", "range:year", "range:mileage", "range:price", "check:truckInspection", "check:region", "check:truckPerformance", "check:truckSellerKind", "check:truckUse", "check:truckColor", "check:truckFuel", "check:truckTransmission", "check:truckOptions", "check:truckCargoLength", "check:district", "check:complex", "check:seats", "check:drive", "check:history", "check:sellerKind", "check:saleType", "check:exteriorColor", "check:seatColor", "check:seatFinish", "check:fuel", "check:transmission", "check:options", "check:features", "range:power", "range:efficiency", "range:displacement", "range:weight", "range:length", "range:width", "range:height", "range:evRange"];
+const chipOrder = ["check:partsSubtype", "check:partsCondition", "check:partsFit", "check:bikeGenre", "check:bikeLicense", "check:bikeSource", "check:bodyType", "check:carClass", "check:truckAxle", "range:year", "range:mileage", "range:price", "check:truckInspection", "check:region", "check:truckPerformance", "check:truckSellerKind", "check:truckUse", "check:truckColor", "check:truckFuel", "check:truckTransmission", "check:truckOptions", "check:truckCargoLength", "check:district", "check:complex", "check:seats", "check:drive", "check:history", "check:sellerKind", "check:saleType", "check:exteriorColor", "check:seatColor", "check:seatFinish", "check:fuel", "check:transmission", "check:options", "check:features", "range:power", "range:efficiency", "range:displacement", "range:weight", "range:length", "range:width", "range:height", "range:evRange"];
 
 // ── 범위 해석: 입력칸(최저·최대) 또는 구간 칩 → 숫자 범위
 const num = (text: string) => { const n = Number(text.replace(/[^\d.]/g, "")); return Number.isFinite(n) && text.trim() ? n : null; };
@@ -108,7 +110,14 @@ export function bbmPresetBounds(key: BbmRangeKey, preset: string): { min: number
     if (preset === "전체") return { min: null, max: null };
     if (preset === "9천만원~") return { min: 9000, max: null };
     const m = preset.match(/^(\d)천만원$/);
-    return m ? { min: Number(m[1]) * 1000, max: Number(m[1]) * 1000 + 999 } : { min: null, max: null };
+    if (m) return { min: Number(m[1]) * 1000, max: Number(m[1]) * 1000 + 999 };
+    // 부품·용품 가격 구간(만원): "~5만원" · "5~20만원" · "300만원~"
+    const upTo = preset.match(/^~(\d+)만원$/);
+    if (upTo) return { min: null, max: Number(upTo[1]) };
+    const between = preset.match(/^(\d+)~(\d+)만원$/);
+    if (between) return { min: Number(between[1]), max: Number(between[2]) };
+    const from = preset.match(/^(\d+)만원~$/);
+    return from ? { min: Number(from[1]), max: null } : { min: null, max: null };
   }
   if (key === "year") {
     if (preset === "6년~") return { min: null, max: thisYear - 6 };
@@ -159,7 +168,7 @@ export type BbmCarLike = {
   photos: number;
   place?: string;
   price?: string;
-  filter?: { year: number; seats: string; mileage: number; transmission: string; fuel: string; color: string; origin: string; body: string; video: boolean; displacement?: number; bikeGenre?: string; bikeLicense?: string; bikeSource?: string };
+  filter?: { year: number; seats: string; mileage: number; transmission: string; fuel: string; color: string; origin: string; body: string; video: boolean; displacement?: number; bikeGenre?: string; bikeLicense?: string; partsSubtype?: string; partsCondition?: string; partsFit?: string; bikeSource?: string };
   truck?: {
     axle?: string;
     inspection?: string;
@@ -205,6 +214,9 @@ export function bbmCarChecks(car: BbmCarLike): Partial<Record<BbmCheckKey, strin
   values.bikeGenre = data.bikeGenre ? [data.bikeGenre] : [];
   values.bikeLicense = data.bikeLicense ? [data.bikeLicense] : [];
   values.bikeSource = data.bikeSource ? [data.bikeSource] : [];
+  values.partsSubtype = data.partsSubtype ? [data.partsSubtype] : [];
+  values.partsCondition = data.partsCondition ? [data.partsCondition] : [];
+  values.partsFit = data.partsFit ? [data.partsFit] : [];
   return values;
 }
 const carRangeValue = (car: BbmCarLike, key: BbmRangeKey) => key === "year" ? car.filter?.year : key === "mileage" ? car.filter?.mileage : key === "price" ? (car.price ? Number(car.price.replace(/[^\d]/g, "")) : undefined) : key === "displacement" ? car.filter?.displacement : undefined;

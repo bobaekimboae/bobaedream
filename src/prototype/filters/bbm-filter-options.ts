@@ -4,7 +4,7 @@ import regionsKr from "../data/regions-kr.json";
 import type { BbmCheckKey, BbmRangeKey } from "./bbm-filter-state";
 
 export type BbmFilterMode = "expand" | "modal";
-export type BbmFilterItem = { label: string; displayLabel?: string; mode: BbmFilterMode; modalTitle?: string; checkKey?: BbmCheckKey; rangeKey?: BbmRangeKey; columns?: 1 | 2; scope?: "bike" | "truck" };
+export type BbmFilterItem = { label: string; displayLabel?: string; mode: BbmFilterMode; modalTitle?: string; checkKey?: BbmCheckKey; rangeKey?: BbmRangeKey; columns?: 1 | 2; scope?: "bike" | "truck" | "parts" };
 
 export const bbmCheckOptions: Record<BbmCheckKey, string[]> = {
   bodyType: ["세단", "해치백", "왜건", "쿠페", "컨버터블", "SUV", "RV", "밴(승합)", "픽업트럭", "리무진", "화물트럭", "버스", "캠핑카"],
@@ -28,6 +28,9 @@ export const bbmCheckOptions: Record<BbmCheckKey, string[]> = {
   bikeGenre: ["네이키드", "스쿠터", "스포츠", "멀티퍼포즈", "크루저", "클래식", "언더본", "투어러", "오프로드", "전기", "삼륜", "ATV", "기타"],
   bikeLicense: ["원동기 이상", "2종 소형"],
   bikeSource: ["전문 판매업체", "인증 판매업체", "개인 판매"],
+  partsSubtype: ["승용 타이어", "SUV 타이어", "전기차 타이어", "퍼포먼스 타이어", "사계절 타이어", "알로이 휠", "단조 휠", "경량 휠", "랠리 휠", "브레이크 키트", "브레이크 디스크", "브레이크 패드", "배터리", "와이퍼", "점화 부품", "램프", "전자 용품", "외장 용품"],
+  partsCondition: ["새 상품", "미사용", "중고"],
+  partsFit: ["범용", "그랜저 GN7", "쏘나타 DN8", "아반떼 CN7", "싼타페 MX5", "투싼 NX4", "팰리세이드", "제네시스 G80", "아이오닉 5", "쏘렌토 MQ4", "K5 DL3", "K8", "스팅어", "렉스턴 스포츠", "BMW 3시리즈", "BMW 5시리즈", "벤츠 C클래스", "벤츠 E클래스"],
   truckAxle: ["전축", "중축", "후축"],
   truckInspection: ["진단 완료"],
   truckPerformance: ["성능기록부 공개"],
@@ -96,6 +99,9 @@ export const bbmSidebarItems: BbmFilterItem[] = [
   { label: "장르", mode: "modal", checkKey: "bikeGenre", scope: "bike" },
   { label: "면허", mode: "modal", checkKey: "bikeLicense", scope: "bike" },
   { label: "매물출처", mode: "modal", checkKey: "bikeSource", scope: "bike" },
+  { label: "부품 분류", displayLabel: "분류", mode: "modal", checkKey: "partsSubtype", scope: "parts" },
+  { label: "부품 상태", displayLabel: "상태", mode: "modal", checkKey: "partsCondition", scope: "parts" },
+  { label: "적용 차종", mode: "modal", checkKey: "partsFit", scope: "parts", columns: 2 },
   { label: "트럭 가변축", displayLabel: "가변축", mode: "modal", checkKey: "truckAxle", scope: "truck" },
   { label: "트럭 진단", displayLabel: "트럭 진단", mode: "modal", checkKey: "truckInspection", scope: "truck" },
   { label: "트럭 성능공개", displayLabel: "성능공개", mode: "modal", checkKey: "truckPerformance", scope: "truck" },
@@ -113,6 +119,10 @@ export const bbmSidebarItems: BbmFilterItem[] = [
 export const BBM_MAKER_ITEM = "제조사 · 모델";
 const bbmFilterHead = [BBM_MAKER_ITEM, "연식", "주행거리", "가격", "바디타입", "차급"];
 export const bbmFilterOrder: string[] = [...bbmFilterHead, ...bbmSidebarItems.filter((item) => !item.scope).map((item) => item.label).filter((label) => !bbmFilterHead.includes(label))];
+// 부품·용품(2026-10-07): 브랜드 → 분류 → 상태 → 적용 차종 → 가격 → 지역
+export const partsFilterOrder: string[] = [BBM_MAKER_ITEM, "부품 분류", "부품 상태", "적용 차종", "가격", "지역"];
+// 부품·용품 가격 구간(만원). 승용 구간(천만원 단위) 대신 쓴다
+export const partsPricePresets: string[] = ["전체", "~5만원", "5~20만원", "20~50만원", "50~100만원", "100~300만원", "300만원~"];
 export const bikeFilterOrder: string[] = [BBM_MAKER_ITEM, "연식", "가격", "장르", "배기량", "면허", "주행거리", "지역", "매물출처"];
 export const truckFilterOrder: string[] = [
   BBM_MAKER_ITEM,
@@ -146,6 +156,9 @@ const daangnCorePreference = [
   "트럭 변속기",
   "변속기",
   "판매방식",
+  "부품 분류",
+  "부품 상태",
+  "적용 차종",
 ];
 
 export function splitDaangnFilterOrder(order: string[]) {
