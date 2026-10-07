@@ -1,0 +1,553 @@
+{
+  "maker": "아우디",
+  "modelCount": 38,
+  "generationCount": 66,
+  "imageCount": 66,
+  "imageAudit": [
+    {
+      "key": "model_car_encar_generation_3d5f652a3df668f8503e",
+      "relativePath": "audi/gen_model_car_encar_generation_3d5f652a3df668f8503e.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 461140
+    },
+    {
+      "key": "model_car_encar_generation_02d016e518b02b163b06",
+      "relativePath": "audi/gen_model_car_encar_generation_02d016e518b02b163b06.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 456472
+    },
+    {
+      "key": "model_car_encar_generation_12bf0d2bf269d0507ff2",
+      "relativePath": "audi/gen_model_car_encar_generation_12bf0d2bf269d0507ff2.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 412906
+    },
+    {
+      "key": "model_car_encar_generation_4107168dbc8ddde1aeae",
+      "relativePath": "audi/gen_model_car_encar_generation_4107168dbc8ddde1aeae.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 390615
+    },
+    {
+      "key": "model_car_encar_generation_2f0734e3732d80e06855",
+      "relativePath": "audi/gen_model_car_encar_generation_2f0734e3732d80e06855.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 364592
+    },
+    {
+      "key": "model_car_encar_generation_9b078984f6b1dbfeffdf",
+      "relativePath": "audi/gen_model_car_encar_generation_9b078984f6b1dbfeffdf.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 445890
+    },
+    {
+      "key": "model_car_encar_generation_f7bf31d56fdacb6b24f1",
+      "relativePath": "audi/gen_model_car_encar_generation_f7bf31d56fdacb6b24f1.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 400187
+    },
+    {
+      "key": "model_car_encar_generation_b34fadfa33701823d18f",
+      "relativePath": "audi/gen_model_car_encar_generation_b34fadfa33701823d18f.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 381842
+    },
+    {
+      "key": "model_car_encar_generation_f8ac2f582a6653ff094b",
+      "relativePath": "audi/gen_model_car_encar_generation_f8ac2f582a6653ff094b.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 378387
+    },
+    {
+      "key": "model_car_encar_generation_fb78ac703fbb166b1a10",
+      "relativePath": "audi/gen_model_car_encar_generation_fb78ac703fbb166b1a10.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 369281
+    },
+    {
+      "key": "model_car_encar_generation_b5bc962802fb58979cdd",
+      "relativePath": "audi/gen_model_car_encar_generation_b5bc962802fb58979cdd.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 390818
+    },
+    {
+      "key": "model_car_encar_generation_911a56a6e1cdb72c1d5e",
+      "relativePath": "audi/gen_model_car_encar_generation_911a56a6e1cdb72c1d5e.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 369686
+    },
+    {
+      "key": "model_car_encar_generation_52b72ec4e4cd28382c91",
+      "relativePath": "audi/gen_model_car_encar_generation_52b72ec4e4cd28382c91.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 399984
+    },
+    {
+      "key": "model_car_encar_generation_6bb2eca8f358f9b04bc4",
+      "relativePath": "audi/gen_model_car_encar_generation_6bb2eca8f358f9b04bc4.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 369385
+    },
+    {
+      "key": "model_car_encar_generation_35aaade177d0d4fd78cf",
+      "relativePath": "audi/gen_model_car_encar_generation_35aaade177d0d4fd78cf.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 385560
+    },
+    {
+      "key": "model_car_encar_generation_d9687b963328910e23ad",
+      "relativePath": "audi/gen_model_car_encar_generation_d9687b963328910e23ad.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 398651
+    },
+    {
+      "key": "model_car_encar_generation_d9c03fa6de49ef312667",
+      "relativePath": "audi/gen_model_car_encar_generation_d9c03fa6de49ef312667.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 398434
+    },
+    {
+      "key": "model_car_encar_generation_30ed85aec17f0f5342e5",
+      "relativePath": "audi/gen_model_car_encar_generation_30ed85aec17f0f5342e5.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 454101
+    },
+    {
+      "key": "model_car_encar_generation_875f5e6e9de3676ac79f",
+      "relativePath": "audi/gen_model_car_encar_generation_875f5e6e9de3676ac79f.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 452664
+    },
+    {
+      "key": "model_car_encar_generation_2080a91ac28337a278fc",
+      "relativePath": "audi/gen_model_car_encar_generation_2080a91ac28337a278fc.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 464836
+    },
+    {
+      "key": "model_car_encar_generation_971ea7afbb0318ed077c",
+      "relativePath": "audi/gen_model_car_encar_generation_971ea7afbb0318ed077c.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 482556
+    },
+    {
+      "key": "model_car_encar_generation_c489210b878a4f456c07",
+      "relativePath": "audi/gen_model_car_encar_generation_c489210b878a4f456c07.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 459640
+    },
+    {
+      "key": "model_car_encar_generation_ef7bd4737cc06a4051ed",
+      "relativePath": "audi/gen_model_car_encar_generation_ef7bd4737cc06a4051ed.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 459276
+    },
+    {
+      "key": "model_car_encar_generation_f6a9e9744ab8030acc25",
+      "relativePath": "audi/gen_model_car_encar_generation_f6a9e9744ab8030acc25.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 454301
+    },
+    {
+      "key": "model_car_encar_generation_828f45a98ad956ec1462",
+      "relativePath": "audi/gen_model_car_encar_generation_828f45a98ad956ec1462.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 448148
+    },
+    {
+      "key": "model_car_encar_generation_83144e56897281c30752",
+      "relativePath": "audi/gen_model_car_encar_generation_83144e56897281c30752.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 457758
+    },
+    {
+      "key": "model_car_encar_generation_7406b6756f916ccfa95d",
+      "relativePath": "audi/gen_model_car_encar_generation_7406b6756f916ccfa95d.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 453360
+    },
+    {
+      "key": "model_car_encar_generation_74b6d80a3d3958c67812",
+      "relativePath": "audi/gen_model_car_encar_generation_74b6d80a3d3958c67812.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 412132
+    },
+    {
+      "key": "model_car_encar_generation_33683480fbfb6b31018a",
+      "relativePath": "audi/gen_model_car_encar_generation_33683480fbfb6b31018a.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 386302
+    },
+    {
+      "key": "model_car_encar_generation_1fc8115ea34d942fb8cc",
+      "relativePath": "audi/gen_model_car_encar_generation_1fc8115ea34d942fb8cc.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 424063
+    },
+    {
+      "key": "model_car_encar_generation_c9d4386dd20828d2ee49",
+      "relativePath": "audi/gen_model_car_encar_generation_c9d4386dd20828d2ee49.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 437963
+    },
+    {
+      "key": "model_car_encar_generation_14c480490b649a90877c",
+      "relativePath": "audi/gen_model_car_encar_generation_14c480490b649a90877c.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 396463
+    },
+    {
+      "key": "model_car_encar_generation_acbfb531925b51f7a9b3",
+      "relativePath": "audi/gen_model_car_encar_generation_acbfb531925b51f7a9b3.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 424979
+    },
+    {
+      "key": "model_car_encar_generation_fe7982a290b305e769bf",
+      "relativePath": "audi/gen_model_car_encar_generation_fe7982a290b305e769bf.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 385763
+    },
+    {
+      "key": "model_car_encar_generation_787b653931e32bceef53",
+      "relativePath": "audi/gen_model_car_encar_generation_787b653931e32bceef53.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 420687
+    },
+    {
+      "key": "model_car_encar_generation_0f1bb8be6735f429e56f",
+      "relativePath": "audi/gen_model_car_encar_generation_0f1bb8be6735f429e56f.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 404582
+    },
+    {
+      "key": "model_car_encar_generation_64552e28b716e0e8a81d",
+      "relativePath": "audi/gen_model_car_encar_generation_64552e28b716e0e8a81d.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 390580
+    },
+    {
+      "key": "model_car_encar_generation_17ac877c1e8483d37a73",
+      "relativePath": "audi/gen_model_car_encar_generation_17ac877c1e8483d37a73.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 449758
+    },
+    {
+      "key": "model_car_encar_generation_43df1fef153a8db4c41a",
+      "relativePath": "audi/gen_model_car_encar_generation_43df1fef153a8db4c41a.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 428509
+    },
+    {
+      "key": "model_car_encar_generation_a72262eaebc6923018ab",
+      "relativePath": "audi/gen_model_car_encar_generation_a72262eaebc6923018ab.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 423933
+    },
+    {
+      "key": "model_car_encar_generation_e02f6693203a6e51710e",
+      "relativePath": "audi/gen_model_car_encar_generation_e02f6693203a6e51710e.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 423285
+    },
+    {
+      "key": "model_car_encar_generation_b5523a851ffdd3aafb4f",
+      "relativePath": "audi/gen_model_car_encar_generation_b5523a851ffdd3aafb4f.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 367568
+    },
+    {
+      "key": "model_car_encar_generation_f678876da58d1ff0fcdc",
+      "relativePath": "audi/gen_model_car_encar_generation_f678876da58d1ff0fcdc.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 415760
+    },
+    {
+      "key": "model_car_encar_generation_38b763a9a4eeff341d09",
+      "relativePath": "audi/gen_model_car_encar_generation_38b763a9a4eeff341d09.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 373296
+    },
+    {
+      "key": "model_car_encar_generation_5b045e33b80f5a83eae3",
+      "relativePath": "audi/gen_model_car_encar_generation_5b045e33b80f5a83eae3.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 433162
+    },
+    {
+      "key": "model_car_encar_generation_4c416037c488f251fe64",
+      "relativePath": "audi/gen_model_car_encar_generation_4c416037c488f251fe64.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 408865
+    },
+    {
+      "key": "model_car_encar_generation_d6f592c39c19910b6a58",
+      "relativePath": "audi/gen_model_car_encar_generation_d6f592c39c19910b6a58.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 394655
+    },
+    {
+      "key": "model_car_encar_generation_cd7b41d052d8a63fb6ba",
+      "relativePath": "audi/gen_model_car_encar_generation_cd7b41d052d8a63fb6ba.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 399837
+    },
+    {
+      "key": "model_car_encar_generation_3b5a920b690ccb92aaa6",
+      "relativePath": "audi/gen_model_car_encar_generation_3b5a920b690ccb92aaa6.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 399335
+    },
+    {
+      "key": "model_car_encar_generation_1d56f14569d9ba290e37",
+      "relativePath": "audi/gen_model_car_encar_generation_1d56f14569d9ba290e37.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 494338
+    },
+    {
+      "key": "model_car_encar_generation_c8e5df0946a1a4958f88",
+      "relativePath": "audi/gen_model_car_encar_generation_c8e5df0946a1a4958f88.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 516746
+    },
+    {
+      "key": "model_car_encar_generation_8de576dd8ed9a540c427",
+      "relativePath": "audi/gen_model_car_encar_generation_8de576dd8ed9a540c427.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 486669
+    },
+    {
+      "key": "model_car_encar_generation_12f3574a85e281576136",
+      "relativePath": "audi/gen_model_car_encar_generation_12f3574a85e281576136.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 467034
+    },
+    {
+      "key": "model_car_encar_generation_02f2d064854bfe115c76",
+      "relativePath": "audi/gen_model_car_encar_generation_02f2d064854bfe115c76.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 424695
+    },
+    {
+      "key": "model_car_encar_generation_2531748964e9191f9a75",
+      "relativePath": "audi/gen_model_car_encar_generation_2531748964e9191f9a75.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 448524
+    },
+    {
+      "key": "model_car_encar_generation_92fee21b2149b999a3d9",
+      "relativePath": "audi/gen_model_car_encar_generation_92fee21b2149b999a3d9.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 447694
+    },
+    {
+      "key": "model_car_encar_generation_38f17ce03a78e4d9a8ba",
+      "relativePath": "audi/gen_model_car_encar_generation_38f17ce03a78e4d9a8ba.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 403308
+    },
+    {
+      "key": "model_car_encar_generation_9230d64ed97dae15537f",
+      "relativePath": "audi/gen_model_car_encar_generation_9230d64ed97dae15537f.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 399033
+    },
+    {
+      "key": "model_car_encar_generation_5b193d65c9ee0ea8b950",
+      "relativePath": "audi/gen_model_car_encar_generation_5b193d65c9ee0ea8b950.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 407228
+    },
+    {
+      "key": "model_car_encar_generation_155f784289fd8fa44d06",
+      "relativePath": "audi/gen_model_car_encar_generation_155f784289fd8fa44d06.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 439610
+    },
+    {
+      "key": "model_car_encar_generation_6916bd5d5ec430a3b9d5",
+      "relativePath": "audi/gen_model_car_encar_generation_6916bd5d5ec430a3b9d5.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 390652
+    },
+    {
+      "key": "model_car_encar_generation_908a346e82eb2f21b8a3",
+      "relativePath": "audi/gen_model_car_encar_generation_908a346e82eb2f21b8a3.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 379212
+    },
+    {
+      "key": "model_car_encar_generation_bcb6a6092d852c3be0ab",
+      "relativePath": "audi/gen_model_car_encar_generation_bcb6a6092d852c3be0ab.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 451715
+    },
+    {
+      "key": "model_car_encar_generation_57529f313c26aca9e82c",
+      "relativePath": "audi/gen_model_car_encar_generation_57529f313c26aca9e82c.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 467637
+    },
+    {
+      "key": "model_car_encar_generation_c4a5e5c6abbcea30e229",
+      "relativePath": "audi/gen_model_car_encar_generation_c4a5e5c6abbcea30e229.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 438885
+    },
+    {
+      "key": "model_car_encar_generation_3313d8a9c2cd552c36d3",
+      "relativePath": "audi/gen_model_car_encar_generation_3313d8a9c2cd552c36d3.png",
+      "width": 960,
+      "height": 600,
+      "bytes": 469615
+    }
+  ],
+  "viewports": [
+    {
+      "width": 360,
+      "rows": [
+        {
+          "label": "A6 (C9)6세대 (C9)26.04 ~ 현재61",
+          "imageLoaded": true,
+          "rowWidth": 328
+        },
+        {
+          "label": "A6 (C8)5세대 (C8)19.01 ~ 26.04806",
+          "imageLoaded": true,
+          "rowWidth": 328
+        },
+        {
+          "label": "뉴 A63~4세대 (C6·C7)04.10 ~ 18.12362",
+          "imageLoaded": true,
+          "rowWidth": 328
+        },
+        {
+          "label": "A61~2세대 (C4·C5)94.01 ~ 04.121",
+          "imageLoaded": true,
+          "rowWidth": 328
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "width": 390,
+      "rows": [
+        {
+          "label": "A6 (C9)6세대 (C9)26.04 ~ 현재61",
+          "imageLoaded": true,
+          "rowWidth": 358
+        },
+        {
+          "label": "A6 (C8)5세대 (C8)19.01 ~ 26.04806",
+          "imageLoaded": true,
+          "rowWidth": 358
+        },
+        {
+          "label": "뉴 A63~4세대 (C6·C7)04.10 ~ 18.12362",
+          "imageLoaded": true,
+          "rowWidth": 358
+        },
+        {
+          "label": "A61~2세대 (C4·C5)94.01 ~ 04.121",
+          "imageLoaded": true,
+          "rowWidth": 358
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "width": 430,
+      "rows": [
+        {
+          "label": "A6 (C9)6세대 (C9)26.04 ~ 현재61",
+          "imageLoaded": true,
+          "rowWidth": 398
+        },
+        {
+          "label": "A6 (C8)5세대 (C8)19.01 ~ 26.04806",
+          "imageLoaded": true,
+          "rowWidth": 398
+        },
+        {
+          "label": "뉴 A63~4세대 (C6·C7)04.10 ~ 18.12362",
+          "imageLoaded": true,
+          "rowWidth": 398
+        },
+        {
+          "label": "A61~2세대 (C4·C5)94.01 ~ 04.121",
+          "imageLoaded": true,
+          "rowWidth": 398
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": []
+    }
+  ]
+}
