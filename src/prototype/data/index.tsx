@@ -839,8 +839,8 @@ const bikeCars: Car[] = bikeInventory.map((row, index) => ({
   image: `bike/listings/${row.imageFile}`,
   imageFit: "cover",
   title: row.title,
-  // 장르·배기량은 스펙 줄(장르 · 연식 · 주행 · 배기량)에 나오므로 2행은 변속기 · 연료
-  trim: `${row.transmission} · ${row.fuel}`,
+  // 바이크 제목은 제조사 · 모델만(2026-10-07 사용자 지시). 장르·배기량은 스펙 줄에 있다
+  trim: "",
   specs: [`${row.year}년식`, `${row.mileage.toLocaleString("ko-KR")}km`, `${row.displacement.toLocaleString("ko-KR")}cc`, row.fuel],
   price: `${Math.round(row.price / 10000).toLocaleString("ko-KR")} 만원`,
   place: row.region,
@@ -897,7 +897,8 @@ const heavyCars: Car[] = heavyInventory.map((row, index) => ({
   image: `heavy/listings/${row.imageFile}`,
   imageFit: "cover",
   title: row.maker === "미확인" ? row.title : `${row.maker} ${row.submodel}`,
-  trim: `${row.form} · ${row.detail} · ${row.submodel}`,
+  // 건설기계 제목은 제조사 · 모델만(2026-10-07 사용자 지시)
+  trim: "",
   specs: [`${row.year}년식`, `${row.hours.toLocaleString("ko-KR")}h`, row.evaluation, row.region],
   price: row.price === null ? "가격 상담" : `${Math.round(row.price / 10000).toLocaleString("ko-KR")} 만원`,
   place: row.sellerAddress,
@@ -966,7 +967,8 @@ const truckCars: Car[] = truckScenarioV01.map((row, index) => {
   image: truckScenarioImageV02[row.id] ?? row.image,
   imageFit: "contain",
   title: `${row.maker} ${row.model}`,
-  trim: [row.format, subtypeLabel].filter(Boolean).join(" · "),
+  // 엔카 화물·특장 등급명처럼 「톤수 + 세부형식」(예: 8.5톤 윙바디, 1톤 카고). 카고는 세부형식이 크기 구분이라 「카고」
+  trim: [row.load, row.format.startsWith("카고") || !subtypeLabel ? row.format.replace(/\(.*\)|트럭/g, "").trim() : subtypeLabel].filter(Boolean).join(" "),
   specs: [`${row.year}년식`, `${row.mileage.toLocaleString("ko-KR")}km`, row.load, row.region],
   price: `${row.price10k.toLocaleString("ko-KR")} 만원`,
   place: row.region,
