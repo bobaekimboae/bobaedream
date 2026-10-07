@@ -853,8 +853,13 @@ const virtualPersonNames = ["김민준", "이서연", "박지훈", "최유진", 
 const virtualSellerName = (raw: string, id: number) => /개인/.test(raw) ? privatePersonName(id) : `${virtualPersonNames[id % virtualPersonNames.length]} 딜러`;
 const virtualPlace = (address: string) => address.replace(/\s*·\s*가상 매물 전시장$/, "");
 
+// 사용자 지시 매물(2026-10-07): 샘플 배지 없이 지시값 스펙 줄 고정
+const bikeListingOverridesV01: Record<string, { cardSpec: string[] }> = {
+  "bike-031": { cardSpec: ["크루저", "2020", "1만km", "1,202cc"] },
+};
 const bikeCars: Car[] = bikeInventory.map((row, index) => ({
   id: 7000 + index,
+  ...(bikeListingOverridesV01[row.id] ?? {}),
   maker: row.maker,
   modelGroup: row.model,
   sellerType: row.sellerType === "개인 판매" ? "개인" : "딜러",
