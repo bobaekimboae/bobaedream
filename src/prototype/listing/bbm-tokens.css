@@ -327,7 +327,11 @@
 .bbm-result-card.is-mobile .bbm-card-seller-logo { width: 16px; height: 16px; }
 .bbm-result-card.is-mobile .bbm-card-seller { gap: 6px; }
 .bbm-result-card.is-mobile .bbm-card-seller-text { gap: 8px; }
-.bbm-result-card.is-mobile .bbm-card-seller-text { font-size: 12px; line-height: 18px; }
+/* 초톳 앱 실측: 지역 줄 전체 #8C8C8C, 판매자 이름 #222, 두 줄 같은 크기(대문자 8.89·잉크 높이 약 12.4).
+   프리텐다드 한글은 글자 크기의 0.87이라 14px(한글 약 12.2)로 맞춘다 */
+.bbm-result-card.is-mobile .bbm-card-seller-text { font-size: 14px; line-height: 20px; }
+.bbm-result-card.is-mobile .bbm-card-location,
+.bbm-result-card.is-mobile .bbm-card-location-secondary { color: #8c8c8c; }
 .bbm-result-card.is-mobile .bbm-card-seller-text strong { color: var(--bbm-text-strong); }
 .bbm-result-card.is-mobile .bbm-card-actions { align-items: center; gap: 4px; }
 .bbm-result-card.is-mobile .bbm-card-actions .bbm-card-chat { width: 36px; height: 32px; }
