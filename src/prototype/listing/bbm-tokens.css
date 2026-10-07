@@ -322,7 +322,9 @@
 .bbm-m-list:not(.is-gallery):not(.is-text):not(.is-one-line) .bbm-result-card.is-mobile:not(.is-feed-featured) .bbm-card-mobile-footer { height: 20px; margin-top: 4px; padding-top: 0; }
 /* 피드 첫 큰 카드는 세로형이라 기존 위치 유지(판매자 줄이 글 칸 안으로 들어오며 1px 위로 올라가는 것 보정) */
 .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-meta-row.bbm-card-mobile-footer { margin-top: 1px; }
-.bbm-result-card.is-mobile .bbm-card-seller-logo { width: 20px; height: 20px; }
+/* JOB-8: 초톳 앱 실측(1080×2340 → 384) 판매자 프로필 16×16, 프로필–이름 보이는 간격 약 6.6 */
+.bbm-result-card.is-mobile .bbm-card-seller-logo { width: 16px; height: 16px; }
+.bbm-result-card.is-mobile .bbm-card-seller { gap: 6px; }
 .bbm-result-card.is-mobile .bbm-card-seller-text { gap: 8px; }
 .bbm-result-card.is-mobile .bbm-card-seller-text { font-size: 12px; line-height: 18px; }
 .bbm-result-card.is-mobile .bbm-card-seller-text strong { color: var(--bbm-text-strong); }
