@@ -979,6 +979,11 @@ const truckOptionPool = ["내비게이션", "후방 카메라", "가죽 시트",
 const truckListingPhotosV01: Record<string, string> = {
   "truck-001": "listing-photos/v01/hyundai_porter2_cargo.jpg",
   "truck-002": "listing-photos/v01/isuzu_elf.jpg",
+  "truck-031": "listing-photos/v01/volvo_fe_wingbody.jpg",
+};
+// 사용자 지시 매물(2026-10-07): 등급명·카드 스펙 줄을 지시값 그대로 고정
+const truckListingOverridesV01: Record<string, { trim: string; cardSpec: string[] }> = {
+  "truck-031": { trim: "윙바디 11톤 오토", cardSpec: ["24년04월", "56,067km", "디젤"] },
 };
 
 const trailerSpecsV01: Record<string, { load: string; length: string; axles: string }> = {
@@ -1005,7 +1010,8 @@ const truckCars: Car[] = truckScenarioV01.map((row, index) => {
   imageFit: truckListingPhotosV01[row.id] ? "cover" : "contain",
   title: `${row.maker} ${row.model}`,
   // 엔카 화물·특장 등급명처럼 「톤수 + 세부형식」(예: 8.5톤 윙바디, 1톤 카고). 카고는 세부형식이 크기 구분이라 「카고」
-  trim: trailer ? subtypeLabel : [row.load, row.format.startsWith("카고") || !subtypeLabel ? row.format.replace(/\(.*\)|트럭/g, "").trim() : subtypeLabel].filter(Boolean).join(" "),
+  ...(truckListingOverridesV01[row.id] ? { cardSpec: truckListingOverridesV01[row.id].cardSpec } : {}),
+  trim: truckListingOverridesV01[row.id]?.trim ?? (trailer ? subtypeLabel : [row.load, row.format.startsWith("카고") || !subtypeLabel ? row.format.replace(/\(.*\)|트럭/g, "").trim() : subtypeLabel].filter(Boolean).join(" ")),
   specs: [`${row.year}년식`, `${row.mileage.toLocaleString("ko-KR")}km`, row.load, row.region],
   price: `${row.price10k.toLocaleString("ko-KR")} 만원`,
   place: row.region,
