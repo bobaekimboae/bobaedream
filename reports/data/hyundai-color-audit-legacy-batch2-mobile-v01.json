@@ -1,0 +1,147 @@
+{
+  "version": "2026-10-07-mobile-v01",
+  "scope": "현대 구형·미완성 후속 10장",
+  "colorPriority": [
+    "mobile.de 동일 세대 대표 노출색",
+    "카이즈유 해당 세대 대표색",
+    "다나와 자동차백과 공식색"
+  ],
+  "renderAdjustment": {
+    "lighting": "고명도 스튜디오 조명",
+    "exposureTarget": "+0.7EV 상당",
+    "method": "투명 그림자는 유지하고 차체 불투명 픽셀의 중간톤을 리프트",
+    "reason": "74px UI 슬롯에서 검정·짙은 색의 캐릭터 라인 분리"
+  },
+  "assets": [
+    {
+      "assetId": "hyundai_asset_51b008a7ef5431a67fe0",
+      "model": "아반떼",
+      "generationName": "뉴 아반떼 XD",
+      "colorName": "은회색 메탈릭",
+      "colorSource": "카이즈유",
+      "colorSourceUrl": "https://www.carisyou.com/car/2565/Spec/37529",
+      "fallbackReason": "mobile.de에 뉴 아반떼 XD 동일 세대 카탈로그 대표 이미지가 없음",
+      "exteriorCrossCheck": [
+        "https://www.carisyou.com/magazine/NEWCARINTRO/9715",
+        "KCM 1_5_79.png"
+      ]
+    },
+    {
+      "assetId": "hyundai_asset_5186fb41388842f5cbcd",
+      "model": "아반떼",
+      "generationName": "아반떼 XD",
+      "colorName": "은회색 메탈릭",
+      "colorSource": "카이즈유",
+      "colorSourceUrl": "https://www.carisyou.com/magazine/NEWCARINTRO/1358",
+      "fallbackReason": "mobile.de에는 중고 매물만 있고 동일 세대 카탈로그 대표 이미지가 없음",
+      "exteriorCrossCheck": [
+        "https://www.carisyou.com/magazine/NEWCARINTRO/1358",
+        "KCM 1_5_78.png"
+      ]
+    },
+    {
+      "assetId": "hyundai_asset_278963705197783d1fdb",
+      "model": "아반떼",
+      "generationName": "올 뉴 아반떼",
+      "colorName": "은회색 메탈릭",
+      "colorSource": "카이즈유",
+      "colorSourceUrl": "https://www.carisyou.com/car/",
+      "fallbackReason": "mobile.de에 한국 내수 올 뉴 아반떼 J2 동일 세대 카탈로그가 없음",
+      "exteriorCrossCheck": [
+        "KCM 1_5_80.png",
+        "https://auto.danawa.com/newcar/?Work=brand&Brand=303"
+      ]
+    },
+    {
+      "assetId": "hyundai_asset_13683db05a8359c756e3",
+      "model": "에쿠스",
+      "generationName": "에쿠스(신형) VI",
+      "colorName": "팬텀 블랙",
+      "colorSource": "카이즈유",
+      "colorSourceUrl": "https://www.carisyou.com/car/",
+      "fallbackReason": "mobile.de에 한국 내수 에쿠스 VI 동일 세대 카탈로그 대표 이미지가 없음",
+      "exteriorCrossCheck": [
+        "KCM 1_5_10.png",
+        "https://auto.danawa.com/newcar/?Work=brand&Brand=303"
+      ]
+    },
+    {
+      "assetId": "hyundai_asset_22257ab1ac17e9dc323b",
+      "model": "에쿠스",
+      "generationName": "에쿠스 LZ",
+      "colorName": "팬텀 블랙",
+      "colorSource": "카이즈유",
+      "colorSourceUrl": "https://www.carisyou.com/car/",
+      "fallbackReason": "mobile.de에 한국 내수 에쿠스 LZ 동일 세대 카탈로그가 없음",
+      "exteriorCrossCheck": [
+        "KCM 1_5_68.png",
+        "https://auto.danawa.com/newcar/?Work=brand&Brand=303"
+      ]
+    },
+    {
+      "assetId": "hyundai_asset_da8e9214b8d2ddbdde5b",
+      "model": "엑셀",
+      "generationName": "엑셀 X2",
+      "colorName": "아이보리 화이트",
+      "colorSource": "카이즈유",
+      "colorSourceUrl": "https://www.carisyou.com/car/",
+      "fallbackReason": "mobile.de에 한국 내수 엑셀 X2 동일 세대 카탈로그가 없음",
+      "exteriorCrossCheck": [
+        "KCM 1_5_1007.png",
+        "https://auto.danawa.com/newcar/?Work=brand&Brand=303"
+      ]
+    },
+    {
+      "assetId": "hyundai_asset_a720e9cb615c65d58003",
+      "model": "엘란트라",
+      "generationName": "뉴엘란트라 J1",
+      "colorName": "아이보리 화이트",
+      "colorSource": "카이즈유",
+      "colorSourceUrl": "https://www.carisyou.com/car/",
+      "fallbackReason": "mobile.de에 한국 내수 뉴엘란트라 J1 동일 세대 카탈로그가 없음",
+      "exteriorCrossCheck": [
+        "KCM 1_5_1008.png",
+        "https://auto.danawa.com/newcar/?Work=brand&Brand=303"
+      ]
+    },
+    {
+      "assetId": "hyundai_asset_44dc825b8e4692cd493d",
+      "model": "제네시스",
+      "generationName": "제네시스 BH",
+      "colorName": "팬텀 블랙",
+      "colorSource": "카이즈유",
+      "colorSourceUrl": "https://www.carisyou.com/car/",
+      "fallbackReason": "mobile.de 현대 제네시스 세단 카탈로그는 2014 DH부터이며 2008 BH 동일 세대 대표 이미지가 없음",
+      "exteriorCrossCheck": [
+        "https://www.mobile.de/auto/hyundai/genesis/serie/",
+        "KCM 1_5_9.png"
+      ]
+    },
+    {
+      "assetId": "hyundai_asset_0c3b354676f62a975001",
+      "model": "제네시스 쿠페",
+      "generationName": "제네시스 쿠페 BK",
+      "colorName": "메탈릭 실버",
+      "colorSource": "mobile.de",
+      "colorSourceUrl": "https://www.mobile.de/auto/hyundai/genesis/2010/coupe/modell/",
+      "fallbackReason": null,
+      "exteriorCrossCheck": [
+        "https://www.carisyou.com/car/3809/Spec/44762",
+        "KCM 1_5_6.png"
+      ]
+    },
+    {
+      "assetId": "hyundai_asset_72152be6a1be3a71e876",
+      "model": "클릭",
+      "generationName": "뉴 클릭 TB",
+      "colorName": "밀키 화이트",
+      "colorSource": "카이즈유",
+      "colorSourceUrl": "https://www.carisyou.com/car/",
+      "fallbackReason": "mobile.de에 한국 내수 뉴 클릭 TB 동일 세대 카탈로그 대표 이미지가 없음",
+      "exteriorCrossCheck": [
+        "KCM 1_5_1.png",
+        "https://auto.danawa.com/newcar/?Work=brand&Brand=303"
+      ]
+    }
+  ]
+}

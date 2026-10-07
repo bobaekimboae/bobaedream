@@ -1,0 +1,12 @@
+[
+  {"assetId":"hyundai_asset_b399a169d89d83b7f6a7","generationName":"싼타페 SM","finalColor":"블랙 메탈릭","sourcePriority":1,"sourceUrl":"https://suchen.mobile.de/auto/hyundai-santa-fe-2005.html","note":"동일 SM 말기 연식 Mobile.de 최빈색"},
+  {"assetId":"hyundai_asset_c5c0c3d9f23976e45840","generationName":"YF 쏘나타","finalColor":"블루 오션","sourcePriority":2,"sourceUrl":"https://www.carisyou.com/car/3861/Spec/45831","fallbackReason":"Mobile.de에서 유럽 동일 YF 세대 대표색을 판별할 수 없음"},
+  {"assetId":"hyundai_asset_cdcca975b3fed87f8ae6","generationName":"NF 쏘나타 트랜스폼","finalColor":"블랙 다이아몬드","sourcePriority":1,"sourceUrl":"https://suchen.mobile.de/auto/hyundai-sonata-2009.html","note":"동일 NF 후기형 연식 Mobile.de 색상은 블랙만 확인"},
+  {"assetId":"hyundai_asset_9d04196e365469dff543","generationName":"NF 쏘나타","finalColor":"노블 화이트","sourcePriority":2,"sourceUrl":"https://www.carisyou.com/car/2822","fallbackReason":"Mobile.de 2007 Sonata 결과 0건"},
+  {"assetId":"hyundai_asset_1ec7d896dac091a8b6ec","generationName":"뉴 EF 쏘나타","finalColor":"딥 메탈릭 그린","sourcePriority":1,"sourceUrl":"https://suchen.mobile.de/auto/hyundai-sonata-2004.html","note":"동일 EF 후기형 연식 Mobile.de 최빈색"},
+  {"assetId":"hyundai_asset_75a22f1ca153ffc1084e","generationName":"EF 쏘나타","finalColor":"은회색 메탈릭","sourcePriority":2,"sourceUrl":"https://www.carisyou.com/car/975","fallbackReason":"Mobile.de가 1998~2001 Sonata의 세대별 대표색을 분리하지 않음"},
+  {"assetId":"hyundai_asset_e847f2cd5f875050b95e","generationName":"쏘나타 III","finalColor":"은회색 메탈릭","sourcePriority":2,"sourceUrl":"https://www.carisyou.com/car/","fallbackReason":"국내 Y3 후기형과 일치하는 Mobile.de 대표컷 없음"},
+  {"assetId":"hyundai_asset_c1b54a850f0f90109f9e","generationName":"쏘나타 II","finalColor":"은회색 메탈릭","sourcePriority":2,"sourceUrl":"https://www.carisyou.com/car/","fallbackReason":"국내 Y3 전기형과 일치하는 Mobile.de 대표컷 없음"},
+  {"assetId":"hyundai_asset_aba1bc60c6cf7322d5b1","generationName":"아반떼 하이브리드 HD","finalColor":"스톤 블랙","sourcePriority":2,"sourceUrl":"https://www.carisyou.com/car/3983/Spec","fallbackReason":"Mobile.de 동일 국내 LPI 하이브리드 세대 없음"},
+  {"assetId":"hyundai_asset_531d516223aabdd9812a","generationName":"아반떼 HD","finalColor":"스톤 블랙","sourcePriority":2,"sourceUrl":"https://www.carisyou.com/car/2946","fallbackReason":"Mobile.de 2007 Elantra 결과 0건"}
+]

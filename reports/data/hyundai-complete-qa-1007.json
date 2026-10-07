@@ -1,0 +1,40 @@
+{
+  "generationMappings": 138,
+  "uniqueAssets": 121,
+  "badAssets": [],
+  "viewports": [
+    {
+      "width": 360,
+      "layout": {
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "title": "모델",
+        "visibleImages": 95
+      },
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "width": 384,
+      "layout": {
+        "clientWidth": 384,
+        "scrollWidth": 384,
+        "title": "모델",
+        "visibleImages": 95
+      },
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "width": 412,
+      "layout": {
+        "clientWidth": 412,
+        "scrollWidth": 412,
+        "title": "모델",
+        "visibleImages": 95
+      },
+      "consoleErrors": [],
+      "failedRequests": []
+    }
+  ]
+}
