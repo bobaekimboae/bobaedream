@@ -1,0 +1,834 @@
+{
+  "version": "2026-10-07-v01",
+  "maker": "make_car_encar_d1b2f212631585870640",
+  "models": {
+    "generation_car_hyundai_v2_00f11f16efb4d549a658": {
+      "modelKey": "model_car_hyundai_v2_0b2908cfd82f100fd54f",
+      "sourceModelKey": "model_car_encar_group_1807fc3b376f32bcf24a",
+      "sourceGenerationKey": "model_car_encar_generation_93f429458d7f22835875",
+      "sourceName": "i30 (PD)"
+    },
+    "generation_car_hyundai_v2_15d3183b8d286dd0496e": {
+      "modelKey": "model_car_hyundai_v2_0b2908cfd82f100fd54f",
+      "sourceModelKey": "model_car_encar_group_1807fc3b376f32bcf24a",
+      "sourceGenerationKey": "model_car_encar_generation_a2d5a8cd1dedcb03f968",
+      "sourceName": "더 뉴 i30"
+    },
+    "generation_car_hyundai_v2_19cdf4c499a91ad1841b": {
+      "modelKey": "model_car_hyundai_v2_0b2908cfd82f100fd54f",
+      "sourceModelKey": "model_car_encar_group_1807fc3b376f32bcf24a",
+      "sourceGenerationKey": "model_car_encar_generation_09bf95da7adda3c27c1f",
+      "sourceName": "i30(신형)"
+    },
+    "generation_car_hyundai_v2_425888ff3cf5e0195f9c": {
+      "modelKey": "model_car_hyundai_v2_0b2908cfd82f100fd54f",
+      "sourceModelKey": "model_car_encar_group_1807fc3b376f32bcf24a",
+      "sourceGenerationKey": "model_car_encar_generation_08e4c4c1a15271abe68d",
+      "sourceName": "i30 cw"
+    },
+    "generation_car_hyundai_v2_d60949ffd85e393af657": {
+      "modelKey": "model_car_hyundai_v2_0b2908cfd82f100fd54f",
+      "sourceModelKey": "model_car_encar_group_1807fc3b376f32bcf24a",
+      "sourceGenerationKey": "model_car_encar_generation_a510c0e423a430e4b3e3",
+      "sourceName": "i30"
+    },
+    "generation_car_hyundai_v2_241a22ed4a2e467bfed4": {
+      "modelKey": "model_car_hyundai_v2_4cb9b390e7181018709e",
+      "sourceModelKey": "model_car_encar_group_7d558e2e8c6b44db1104",
+      "sourceGenerationKey": "model_car_encar_generation_aa3f2f47b5d93694217f",
+      "sourceName": "더 뉴 i40"
+    },
+    "generation_car_hyundai_v2_5882f68e1b0b960dafe1": {
+      "modelKey": "model_car_hyundai_v2_4cb9b390e7181018709e",
+      "sourceModelKey": "model_car_encar_group_7d558e2e8c6b44db1104",
+      "sourceGenerationKey": "model_car_encar_generation_adc241350912aaf114be",
+      "sourceName": "더 뉴 i40 살룬"
+    },
+    "generation_car_hyundai_v2_b33aecb4a18130d9665e": {
+      "modelKey": "model_car_hyundai_v2_4cb9b390e7181018709e",
+      "sourceModelKey": "model_car_encar_group_7d558e2e8c6b44db1104",
+      "sourceGenerationKey": "model_car_encar_generation_fdc871c943feee4a9e3c",
+      "sourceName": "i40 살룬"
+    },
+    "generation_car_hyundai_v2_b11eb8e19c53b6f4f1c6": {
+      "modelKey": "model_car_hyundai_v2_4cb9b390e7181018709e",
+      "sourceModelKey": "model_car_encar_group_7d558e2e8c6b44db1104",
+      "sourceGenerationKey": "model_car_encar_generation_208f08ea2abdb050749a",
+      "sourceName": "i40"
+    },
+    "generation_car_hyundai_v2_41ae4f66b9d0f8357169": {
+      "modelKey": "model_car_hyundai_v2_81485ec7bbb3c07e5c29",
+      "sourceModelKey": "model_car_encar_group_67f1d8e703ee59ba0362",
+      "sourceGenerationKey": "model_car_encar_generation_81a6f4cbc450fbfa6957",
+      "sourceName": "ST1"
+    },
+    "generation_car_hyundai_v2_5c09d517ed64d385a840": {
+      "modelKey": "model_car_hyundai_v2_6cbd1e9683953bdab0bb",
+      "sourceModelKey": "model_car_encar_group_a6feb99d1e59ba222248",
+      "sourceGenerationKey": "model_car_encar_generation_a6fd932d0858e00db457",
+      "sourceName": "갤로퍼 2"
+    },
+    "generation_car_hyundai_v2_893c26e0b968064e9ada": {
+      "modelKey": "model_car_hyundai_v2_6cbd1e9683953bdab0bb",
+      "sourceModelKey": "model_car_encar_group_a6feb99d1e59ba222248",
+      "sourceGenerationKey": "model_car_encar_generation_01a0d5d15707005796cb",
+      "sourceName": "갤로퍼"
+    },
+    "generation_car_hyundai_v2_91d564d5f7e68b5f9958": {
+      "modelKey": "model_car_hyundai_v2_3b8e8cd52bb3cb2eae96",
+      "sourceModelKey": "model_car_encar_group_c4a7fac1ba0a4af86be0",
+      "sourceGenerationKey": "model_car_encar_generation_ca648e350756aa1c9f6f",
+      "sourceName": "더 뉴 그랜저 (GN7)"
+    },
+    "generation_car_hyundai_v2_bc5af3cf78db97b6ae23": {
+      "modelKey": "model_car_hyundai_v2_3b8e8cd52bb3cb2eae96",
+      "sourceModelKey": "model_car_encar_group_c4a7fac1ba0a4af86be0",
+      "sourceGenerationKey": "model_car_encar_generation_91d143f99465fd0f44ee",
+      "sourceName": "더 뉴 그랜저 하이브리드 (GN7)"
+    },
+    "generation_car_hyundai_v2_0cecf41542bcebd050d7": {
+      "modelKey": "model_car_hyundai_v2_3b8e8cd52bb3cb2eae96",
+      "sourceModelKey": "model_car_encar_group_c4a7fac1ba0a4af86be0",
+      "sourceGenerationKey": "model_car_encar_generation_7c558d06e6f5a8056534",
+      "sourceName": "그랜저 (GN7)"
+    },
+    "generation_car_hyundai_v2_93b7b4f441f0adc4e9d4": {
+      "modelKey": "model_car_hyundai_v2_3b8e8cd52bb3cb2eae96",
+      "sourceModelKey": "model_car_encar_group_c4a7fac1ba0a4af86be0",
+      "sourceGenerationKey": "model_car_encar_generation_b8b22be2230d3f6ade04",
+      "sourceName": "그랜저 하이브리드 (GN7)"
+    },
+    "generation_car_hyundai_v2_12dab2b0d803f558d6ff": {
+      "modelKey": "model_car_hyundai_v2_3b8e8cd52bb3cb2eae96",
+      "sourceModelKey": "model_car_encar_group_c4a7fac1ba0a4af86be0",
+      "sourceGenerationKey": "model_car_encar_generation_5657480176e3261075f6",
+      "sourceName": "더 뉴 그랜저 IG"
+    },
+    "generation_car_hyundai_v2_ab4316d4241081ded0f6": {
+      "modelKey": "model_car_hyundai_v2_3b8e8cd52bb3cb2eae96",
+      "sourceModelKey": "model_car_encar_group_c4a7fac1ba0a4af86be0",
+      "sourceGenerationKey": "model_car_encar_generation_fb5b1ae9116f008905da",
+      "sourceName": "더 뉴 그랜저 IG 하이브리드"
+    },
+    "generation_car_hyundai_v2_e706482380dcd64eb5a8": {
+      "modelKey": "model_car_hyundai_v2_3b8e8cd52bb3cb2eae96",
+      "sourceModelKey": "model_car_encar_group_c4a7fac1ba0a4af86be0",
+      "sourceGenerationKey": "model_car_encar_generation_b48bd0338939e0df7f59",
+      "sourceName": "그랜저 IG 하이브리드"
+    },
+    "generation_car_hyundai_v2_462378d73936be9dbd55": {
+      "modelKey": "model_car_hyundai_v2_3b8e8cd52bb3cb2eae96",
+      "sourceModelKey": "model_car_encar_group_c4a7fac1ba0a4af86be0",
+      "sourceGenerationKey": "model_car_encar_generation_45702659bb9357986b2d",
+      "sourceName": "그랜저 IG"
+    },
+    "generation_car_hyundai_v2_d9d0d69314f2301889e0": {
+      "modelKey": "model_car_hyundai_v2_3b8e8cd52bb3cb2eae96",
+      "sourceModelKey": "model_car_encar_group_c4a7fac1ba0a4af86be0",
+      "sourceGenerationKey": "model_car_encar_generation_6ef2162199a8d699dc4d",
+      "sourceName": "그랜저 HG 하이브리드"
+    },
+    "generation_car_hyundai_v2_c213e47ae8c1f0c95615": {
+      "modelKey": "model_car_hyundai_v2_3b8e8cd52bb3cb2eae96",
+      "sourceModelKey": "model_car_encar_group_c4a7fac1ba0a4af86be0",
+      "sourceGenerationKey": "model_car_encar_generation_58102eb677a649c32407",
+      "sourceName": "그랜저 HG"
+    },
+    "generation_car_hyundai_v2_e343ebf567a16af4777d": {
+      "modelKey": "model_car_hyundai_v2_3b8e8cd52bb3cb2eae96",
+      "sourceModelKey": "model_car_encar_group_c4a7fac1ba0a4af86be0",
+      "sourceGenerationKey": "model_car_encar_generation_eaf68fdddab138b3ba2a",
+      "sourceName": "더 럭셔리 그랜저"
+    },
+    "generation_car_hyundai_v2_563861fcf0488d3631f8": {
+      "modelKey": "model_car_hyundai_v2_3b8e8cd52bb3cb2eae96",
+      "sourceModelKey": "model_car_encar_group_c4a7fac1ba0a4af86be0",
+      "sourceGenerationKey": "model_car_encar_generation_cbf354eefcb53bf0e300",
+      "sourceName": "그랜저 뉴 럭셔리"
+    },
+    "generation_car_hyundai_v2_76f1afb56970eb8f97fa": {
+      "modelKey": "model_car_hyundai_v2_3b8e8cd52bb3cb2eae96",
+      "sourceModelKey": "model_car_encar_group_c4a7fac1ba0a4af86be0",
+      "sourceGenerationKey": "model_car_encar_generation_d0556b6b29684c633cf4",
+      "sourceName": "그랜저 TG"
+    },
+    "generation_car_hyundai_v2_a42f8f36a7e698855fea": {
+      "modelKey": "model_car_hyundai_v2_3b8e8cd52bb3cb2eae96",
+      "sourceModelKey": "model_car_encar_group_c4a7fac1ba0a4af86be0",
+      "sourceGenerationKey": "model_car_encar_generation_bca0dabf97272ea2ffa1",
+      "sourceName": "뉴 그랜저 XG"
+    },
+    "generation_car_hyundai_v2_e9106bd7f45906594cb4": {
+      "modelKey": "model_car_hyundai_v2_3b8e8cd52bb3cb2eae96",
+      "sourceModelKey": "model_car_encar_group_c4a7fac1ba0a4af86be0",
+      "sourceGenerationKey": "model_car_encar_generation_7a00d15cac0a1af360cc",
+      "sourceName": "뉴 그랜저"
+    },
+    "generation_car_hyundai_v2_9afc9e4d759332d6d314": {
+      "modelKey": "model_car_hyundai_v2_3b8e8cd52bb3cb2eae96",
+      "sourceModelKey": "model_car_encar_group_c4a7fac1ba0a4af86be0",
+      "sourceGenerationKey": "model_car_encar_generation_5a4f993a767539977803",
+      "sourceName": "그랜저"
+    },
+    "generation_car_hyundai_v2_eeac43640710f55049d5": {
+      "modelKey": "model_car_hyundai_v2_d39638bc0eef845388f0",
+      "sourceModelKey": "model_car_encar_group_55658487f289ef767b12",
+      "sourceGenerationKey": "model_car_encar_generation_da7fcbcd60e1f2a1561a",
+      "sourceName": "넥쏘 (NH2)"
+    },
+    "generation_car_hyundai_v2_4288f68591cc450efc9a": {
+      "modelKey": "model_car_hyundai_v2_d39638bc0eef845388f0",
+      "sourceModelKey": "model_car_encar_group_55658487f289ef767b12",
+      "sourceGenerationKey": "model_car_encar_generation_81d58b0ddddc94c13cf2",
+      "sourceName": "넥쏘"
+    },
+    "generation_car_hyundai_v2_cc011295f4621eb0aa45": {
+      "modelKey": "model_car_hyundai_v2_5861e8b7218a66fe8376",
+      "sourceModelKey": "model_car_encar_group_7589ba80e33eaab2c984",
+      "sourceGenerationKey": "model_car_encar_generation_b306a1dafd092f9cd921",
+      "sourceName": "다이너스티"
+    },
+    "generation_car_hyundai_v2_ed5dc718e79a1960b8d4": {
+      "modelKey": "model_car_hyundai_v2_683078eeff7baab005e3",
+      "sourceModelKey": "model_car_encar_group_497db543605f16d648d5",
+      "sourceGenerationKey": "model_car_encar_generation_28423061f4bfcb339e34",
+      "sourceName": "마르샤"
+    },
+    "generation_car_hyundai_v2_84e644c8ca56eb11dffd": {
+      "modelKey": "model_car_hyundai_v2_16dddb9e1ee2bc006b92",
+      "sourceModelKey": "model_car_encar_group_146e572a89c312b16200",
+      "sourceGenerationKey": "model_car_encar_generation_0fe0d9b24dfd178eb355",
+      "sourceName": "더 뉴 맥스크루즈"
+    },
+    "generation_car_hyundai_v2_2d0b92c62913f65b7f66": {
+      "modelKey": "model_car_hyundai_v2_16dddb9e1ee2bc006b92",
+      "sourceModelKey": "model_car_encar_group_146e572a89c312b16200",
+      "sourceGenerationKey": "model_car_encar_generation_1f7a2887f5de2f077e07",
+      "sourceName": "맥스크루즈"
+    },
+    "generation_car_hyundai_v2_447086667859f119bd38": {
+      "modelKey": "model_car_hyundai_v2_24708d4306795271c046",
+      "sourceModelKey": "model_car_encar_group_fd57ffd0c57f17cc15bd",
+      "sourceGenerationKey": "model_car_encar_generation_6a65b1a2eed23f10e8a0",
+      "sourceName": "베뉴"
+    },
+    "generation_car_hyundai_v2_0e66ad1d8942da14680b": {
+      "modelKey": "model_car_hyundai_v2_cded11964f21f6c72b7f",
+      "sourceModelKey": "model_car_encar_group_01a4f36a8b80997e87ce",
+      "sourceGenerationKey": "model_car_encar_generation_57674ef77ae48226634a",
+      "sourceName": "베라크루즈"
+    },
+    "generation_car_hyundai_v2_164c863a6a65702152fb": {
+      "modelKey": "model_car_hyundai_v2_89775584a0a4d1584465",
+      "sourceModelKey": "model_car_encar_group_7607d41cf27b01d15942",
+      "sourceGenerationKey": "model_car_encar_generation_e5cebdd7c366bafd312a",
+      "sourceName": "베르나 트랜스폼"
+    },
+    "generation_car_hyundai_v2_4797f4c6147d95d0f9f0": {
+      "modelKey": "model_car_hyundai_v2_89775584a0a4d1584465",
+      "sourceModelKey": "model_car_encar_group_7607d41cf27b01d15942",
+      "sourceGenerationKey": "model_car_encar_generation_d2ee43d039f167672260",
+      "sourceName": "베르나(신형)"
+    },
+    "generation_car_hyundai_v2_2dc28be46eb32929a64d": {
+      "modelKey": "model_car_hyundai_v2_89775584a0a4d1584465",
+      "sourceModelKey": "model_car_encar_group_7607d41cf27b01d15942",
+      "sourceGenerationKey": "model_car_encar_generation_7a30bf256851c466843d",
+      "sourceName": "베르나"
+    },
+    "generation_car_hyundai_v2_7d354c339b1207917c7c": {
+      "modelKey": "model_car_hyundai_v2_a8cbf0650d0267f9911d",
+      "sourceModelKey": "model_car_encar_group_5521650afa65c4b3d74c",
+      "sourceGenerationKey": "model_car_encar_generation_c6cbf0362aa8650ab06c",
+      "sourceName": "벨로스터 (JS)"
+    },
+    "generation_car_hyundai_v2_e881167261936120cc42": {
+      "modelKey": "model_car_hyundai_v2_a8cbf0650d0267f9911d",
+      "sourceModelKey": "model_car_encar_group_5521650afa65c4b3d74c",
+      "sourceGenerationKey": "model_car_encar_generation_c96a7f3728ca4ab89f61",
+      "sourceName": "더 뉴 벨로스터"
+    },
+    "generation_car_hyundai_v2_bc70d8e2e081cdc41cf2": {
+      "modelKey": "model_car_hyundai_v2_a8cbf0650d0267f9911d",
+      "sourceModelKey": "model_car_encar_group_5521650afa65c4b3d74c",
+      "sourceGenerationKey": "model_car_encar_generation_cb8ca7dcfb923ea50c26",
+      "sourceName": "벨로스터"
+    },
+    "generation_car_hyundai_v2_46b6c235b3876b0b7084": {
+      "modelKey": "model_car_hyundai_v2_ea3d00d1c475659e0f51",
+      "sourceModelKey": "model_car_encar_group_856b2c008d78e0160ec3",
+      "sourceGenerationKey": "model_car_encar_generation_cd690d55f50b2893fcdb",
+      "sourceName": "더 뉴 그랜드 스타렉스"
+    },
+    "generation_car_hyundai_v2_43078c9b725944a65092": {
+      "modelKey": "model_car_hyundai_v2_ea3d00d1c475659e0f51",
+      "sourceModelKey": "model_car_encar_group_856b2c008d78e0160ec3",
+      "sourceGenerationKey": "model_car_encar_generation_270ca4c28f84655f25d3",
+      "sourceName": "그랜드 스타렉스"
+    },
+    "generation_car_hyundai_v2_e5814bf2373924f18616": {
+      "modelKey": "model_car_hyundai_v2_ea3d00d1c475659e0f51",
+      "sourceModelKey": "model_car_encar_group_856b2c008d78e0160ec3",
+      "sourceGenerationKey": "model_car_encar_generation_00a1f5275db31b960046",
+      "sourceName": "스타렉스 점보"
+    },
+    "generation_car_hyundai_v2_9fb2fb8e8cd3d61b29a6": {
+      "modelKey": "model_car_hyundai_v2_ea3d00d1c475659e0f51",
+      "sourceModelKey": "model_car_encar_group_856b2c008d78e0160ec3",
+      "sourceGenerationKey": "model_car_encar_generation_64c3f0a442a8e9958497",
+      "sourceName": "스타렉스"
+    },
+    "generation_car_hyundai_v2_c3e4bbe376c9f54c86d1": {
+      "modelKey": "model_car_hyundai_v2_49024d1a756d088040a6",
+      "sourceModelKey": "model_car_encar_group_b1c439e26c2dcdd9cc29",
+      "sourceGenerationKey": "model_car_encar_generation_0760e5b6b848e04a3454",
+      "sourceName": "더 뉴 스타리아"
+    },
+    "generation_car_hyundai_v2_300349c04abbe849417a": {
+      "modelKey": "model_car_hyundai_v2_49024d1a756d088040a6",
+      "sourceModelKey": "model_car_encar_group_b1c439e26c2dcdd9cc29",
+      "sourceGenerationKey": "model_car_encar_generation_85f617f128262b1f9e1f",
+      "sourceName": "스타리아"
+    },
+    "generation_car_hyundai_v2_008fa1f6769b459ffcf9": {
+      "modelKey": "model_car_hyundai_v2_ee78c4cadc79d265d0bd",
+      "sourceModelKey": "model_car_encar_group_f1177cdea57c12107083",
+      "sourceGenerationKey": "model_car_encar_generation_8ead087e7724e95ff2a4",
+      "sourceName": "싼타페 (MX5)"
+    },
+    "generation_car_hyundai_v2_704a54ae783479d96c64": {
+      "modelKey": "model_car_hyundai_v2_ee78c4cadc79d265d0bd",
+      "sourceModelKey": "model_car_encar_group_f1177cdea57c12107083",
+      "sourceGenerationKey": "model_car_encar_generation_82135f4b9fe52283529d",
+      "sourceName": "더 뉴 싼타페"
+    },
+    "generation_car_hyundai_v2_0ebf503a9ef353408fbf": {
+      "modelKey": "model_car_hyundai_v2_ee78c4cadc79d265d0bd",
+      "sourceModelKey": "model_car_encar_group_f1177cdea57c12107083",
+      "sourceGenerationKey": "model_car_encar_generation_b5f5d7500841e98374b5",
+      "sourceName": "싼타페 TM"
+    },
+    "generation_car_hyundai_v2_fed893706c64696368dd": {
+      "modelKey": "model_car_hyundai_v2_ee78c4cadc79d265d0bd",
+      "sourceModelKey": "model_car_encar_group_f1177cdea57c12107083",
+      "sourceGenerationKey": "model_car_encar_generation_559d6f2b76e911cef625",
+      "sourceName": "싼타페 더 프라임"
+    },
+    "generation_car_hyundai_v2_14d94b22de209cfb5bcc": {
+      "modelKey": "model_car_hyundai_v2_ee78c4cadc79d265d0bd",
+      "sourceModelKey": "model_car_encar_group_f1177cdea57c12107083",
+      "sourceGenerationKey": "model_car_encar_generation_5d593f9434e267621b15",
+      "sourceName": "싼타페 DM"
+    },
+    "generation_car_hyundai_v2_b2b524284abbdc42a172": {
+      "modelKey": "model_car_hyundai_v2_ee78c4cadc79d265d0bd",
+      "sourceModelKey": "model_car_encar_group_f1177cdea57c12107083",
+      "sourceGenerationKey": "model_car_encar_generation_a9b857596d657cffed56",
+      "sourceName": "싼타페 CM"
+    },
+    "generation_car_hyundai_v2_488777a3904c8be6f9a7": {
+      "modelKey": "model_car_hyundai_v2_ee78c4cadc79d265d0bd",
+      "sourceModelKey": "model_car_encar_group_f1177cdea57c12107083",
+      "sourceGenerationKey": "model_car_encar_generation_0630db83fcbdb1d02475",
+      "sourceName": "싼타페"
+    },
+    "generation_car_hyundai_v2_1971ced3396f8762965f": {
+      "modelKey": "model_car_hyundai_v2_4eb206194cf1c3668b86",
+      "sourceModelKey": "model_car_encar_group_5064a5460c3c66b1f7ff",
+      "sourceGenerationKey": "model_car_encar_generation_1b97ade0841c5b35943f",
+      "sourceName": "쏘나타 디 엣지(DN8)"
+    },
+    "generation_car_hyundai_v2_675af1d7f45ea0a5cb61": {
+      "modelKey": "model_car_hyundai_v2_4eb206194cf1c3668b86",
+      "sourceModelKey": "model_car_encar_group_5064a5460c3c66b1f7ff",
+      "sourceGenerationKey": "model_car_encar_generation_b8ff807244b22b7cad35",
+      "sourceName": "쏘나타 디 엣지 하이브리드(DN8)"
+    },
+    "generation_car_hyundai_v2_8cbfcbff47f4799f322c": {
+      "modelKey": "model_car_hyundai_v2_4eb206194cf1c3668b86",
+      "sourceModelKey": "model_car_encar_group_5064a5460c3c66b1f7ff",
+      "sourceGenerationKey": "model_car_encar_generation_753587c5639f99d6e138",
+      "sourceName": "쏘나타 하이브리드 (DN8)"
+    },
+    "generation_car_hyundai_v2_546774a2451ee00a3b44": {
+      "modelKey": "model_car_hyundai_v2_4eb206194cf1c3668b86",
+      "sourceModelKey": "model_car_encar_group_5064a5460c3c66b1f7ff",
+      "sourceGenerationKey": "model_car_encar_generation_0d734a3fe14cfe9125f6",
+      "sourceName": "쏘나타 (DN8)"
+    },
+    "generation_car_hyundai_v2_96291865dfef1aceb257": {
+      "modelKey": "model_car_hyundai_v2_4eb206194cf1c3668b86",
+      "sourceModelKey": "model_car_encar_group_5064a5460c3c66b1f7ff",
+      "sourceGenerationKey": "model_car_encar_generation_9b039201b0721eaca384",
+      "sourceName": "쏘나타 뉴 라이즈 하이브리드"
+    },
+    "generation_car_hyundai_v2_b41dcd9e62a1bb2ea50f": {
+      "modelKey": "model_car_hyundai_v2_4eb206194cf1c3668b86",
+      "sourceModelKey": "model_car_encar_group_5064a5460c3c66b1f7ff",
+      "sourceGenerationKey": "model_car_encar_generation_cc376eaa4271da4cb777",
+      "sourceName": "쏘나타 뉴 라이즈"
+    },
+    "generation_car_hyundai_v2_2023fc2037923719476c": {
+      "modelKey": "model_car_hyundai_v2_4eb206194cf1c3668b86",
+      "sourceModelKey": "model_car_encar_group_5064a5460c3c66b1f7ff",
+      "sourceGenerationKey": "model_car_encar_generation_273c5b9943d673fb7953",
+      "sourceName": "LF 쏘나타 하이브리드"
+    },
+    "generation_car_hyundai_v2_01d26df5a6f0a213ff88": {
+      "modelKey": "model_car_hyundai_v2_4eb206194cf1c3668b86",
+      "sourceModelKey": "model_car_encar_group_5064a5460c3c66b1f7ff",
+      "sourceGenerationKey": "model_car_encar_generation_b9b02638b76bb1424561",
+      "sourceName": "LF 쏘나타"
+    },
+    "generation_car_hyundai_v2_bded7f36e191970ef66c": {
+      "modelKey": "model_car_hyundai_v2_4eb206194cf1c3668b86",
+      "sourceModelKey": "model_car_encar_group_5064a5460c3c66b1f7ff",
+      "sourceGenerationKey": "model_car_encar_generation_dac789c67555ce70b408",
+      "sourceName": "쏘나타 더 브릴리언트"
+    },
+    "generation_car_hyundai_v2_4c2fe4c986896713ec32": {
+      "modelKey": "model_car_hyundai_v2_4eb206194cf1c3668b86",
+      "sourceModelKey": "model_car_encar_group_5064a5460c3c66b1f7ff",
+      "sourceGenerationKey": "model_car_encar_generation_ee6565fca4b1c4d9e3b6",
+      "sourceName": "쏘나타 하이브리드"
+    },
+    "generation_car_hyundai_v2_2ae5b93bb517e972a746": {
+      "modelKey": "model_car_hyundai_v2_4eb206194cf1c3668b86",
+      "sourceModelKey": "model_car_encar_group_5064a5460c3c66b1f7ff",
+      "sourceGenerationKey": "model_car_encar_generation_f2a7ba7feb3ad9682ef5",
+      "sourceName": "YF 쏘나타"
+    },
+    "generation_car_hyundai_v2_54c46e74164a68a68d82": {
+      "modelKey": "model_car_hyundai_v2_4eb206194cf1c3668b86",
+      "sourceModelKey": "model_car_encar_group_5064a5460c3c66b1f7ff",
+      "sourceGenerationKey": "model_car_encar_generation_017ad5b403700991141b",
+      "sourceName": "NF 쏘나타 트랜스폼"
+    },
+    "generation_car_hyundai_v2_1a33f5758549d6acddff": {
+      "modelKey": "model_car_hyundai_v2_4eb206194cf1c3668b86",
+      "sourceModelKey": "model_car_encar_group_5064a5460c3c66b1f7ff",
+      "sourceGenerationKey": "model_car_encar_generation_2c2dded7cd4d373dcf5c",
+      "sourceName": "NF 쏘나타"
+    },
+    "generation_car_hyundai_v2_7ce9312ab04739d1a233": {
+      "modelKey": "model_car_hyundai_v2_4eb206194cf1c3668b86",
+      "sourceModelKey": "model_car_encar_group_5064a5460c3c66b1f7ff",
+      "sourceGenerationKey": "model_car_encar_generation_07a8a70d9aeafea04327",
+      "sourceName": "뉴 EF 쏘나타"
+    },
+    "generation_car_hyundai_v2_405f66a67201adadec02": {
+      "modelKey": "model_car_hyundai_v2_4eb206194cf1c3668b86",
+      "sourceModelKey": "model_car_encar_group_5064a5460c3c66b1f7ff",
+      "sourceGenerationKey": "model_car_encar_generation_6d5a306696705b756340",
+      "sourceName": "EF 쏘나타"
+    },
+    "generation_car_hyundai_v2_d9f8504bbc6111baf6cc": {
+      "modelKey": "model_car_hyundai_v2_4eb206194cf1c3668b86",
+      "sourceModelKey": "model_car_encar_group_5064a5460c3c66b1f7ff",
+      "sourceGenerationKey": "model_car_encar_generation_0b99824077b0c58956d3",
+      "sourceName": "쏘나타 III"
+    },
+    "generation_car_hyundai_v2_e652b940cb4e5734650b": {
+      "modelKey": "model_car_hyundai_v2_4eb206194cf1c3668b86",
+      "sourceModelKey": "model_car_encar_group_5064a5460c3c66b1f7ff",
+      "sourceGenerationKey": "model_car_encar_generation_0970cca59cb6c14ba4c8",
+      "sourceName": "쏘나타 II"
+    },
+    "generation_car_hyundai_v2_c8f66609f54b41204e01": {
+      "modelKey": "model_car_hyundai_v2_c6dc3946008fff8166df",
+      "sourceModelKey": "model_car_encar_group_f29ee4d0eec5ab52330c",
+      "sourceGenerationKey": "model_car_encar_generation_8288776b8b926cb0e170",
+      "sourceName": "쏠라티"
+    },
+    "generation_car_hyundai_v2_9e12c422e6fa173f83e4": {
+      "modelKey": "model_car_hyundai_v2_a9d64c4720c09b521fbc",
+      "sourceModelKey": "model_car_encar_group_bbb6e107d074cbf53d26",
+      "sourceGenerationKey": "model_car_encar_generation_f00e9efa8fe9b360a26f",
+      "sourceName": "아반떼 (CN8)"
+    },
+    "generation_car_hyundai_v2_b1727fbdfb4f3409ee9f": {
+      "modelKey": "model_car_hyundai_v2_a9d64c4720c09b521fbc",
+      "sourceModelKey": "model_car_encar_group_bbb6e107d074cbf53d26",
+      "sourceGenerationKey": "model_car_encar_generation_a3d18590d1aa7a1aae4d",
+      "sourceName": "더 뉴 아반떼 (CN7)"
+    },
+    "generation_car_hyundai_v2_8e03424f3317613c7be4": {
+      "modelKey": "model_car_hyundai_v2_a9d64c4720c09b521fbc",
+      "sourceModelKey": "model_car_encar_group_bbb6e107d074cbf53d26",
+      "sourceGenerationKey": "model_car_encar_generation_5a9166c36cc6b6991c06",
+      "sourceName": "더 뉴 아반떼 하이브리드 (CN7)"
+    },
+    "generation_car_hyundai_v2_477b318b2a347347efb1": {
+      "modelKey": "model_car_hyundai_v2_a9d64c4720c09b521fbc",
+      "sourceModelKey": "model_car_encar_group_bbb6e107d074cbf53d26",
+      "sourceGenerationKey": "model_car_encar_generation_797eafb0eaee255131a7",
+      "sourceName": "아반떼 하이브리드 (CN7)"
+    },
+    "generation_car_hyundai_v2_c75c4262f5d47289870c": {
+      "modelKey": "model_car_hyundai_v2_a9d64c4720c09b521fbc",
+      "sourceModelKey": "model_car_encar_group_bbb6e107d074cbf53d26",
+      "sourceGenerationKey": "model_car_encar_generation_0c32cd60905bc94819fb",
+      "sourceName": "아반떼 (CN7)"
+    },
+    "generation_car_hyundai_v2_d635a36cc307332973bc": {
+      "modelKey": "model_car_hyundai_v2_a9d64c4720c09b521fbc",
+      "sourceModelKey": "model_car_encar_group_bbb6e107d074cbf53d26",
+      "sourceGenerationKey": "model_car_encar_generation_ed52529a8e86fa502830",
+      "sourceName": "더 뉴 아반떼 AD"
+    },
+    "generation_car_hyundai_v2_b9fd430c3e2ea0597b3e": {
+      "modelKey": "model_car_hyundai_v2_a9d64c4720c09b521fbc",
+      "sourceModelKey": "model_car_encar_group_bbb6e107d074cbf53d26",
+      "sourceGenerationKey": "model_car_encar_generation_bca4467318185ee5ade8",
+      "sourceName": "아반떼 AD"
+    },
+    "generation_car_hyundai_v2_eda63ebb64e0e605021e": {
+      "modelKey": "model_car_hyundai_v2_a9d64c4720c09b521fbc",
+      "sourceModelKey": "model_car_encar_group_bbb6e107d074cbf53d26",
+      "sourceGenerationKey": "model_car_encar_generation_3bfe06fc228654c313c9",
+      "sourceName": "더 뉴 아반떼"
+    },
+    "generation_car_hyundai_v2_2e2554162dfbd1ca0fef": {
+      "modelKey": "model_car_hyundai_v2_a9d64c4720c09b521fbc",
+      "sourceModelKey": "model_car_encar_group_bbb6e107d074cbf53d26",
+      "sourceGenerationKey": "model_car_encar_generation_184df560174ac1875c5c",
+      "sourceName": "아반떼 쿠페"
+    },
+    "generation_car_hyundai_v2_151170ea0ccaef1d292b": {
+      "modelKey": "model_car_hyundai_v2_a9d64c4720c09b521fbc",
+      "sourceModelKey": "model_car_encar_group_bbb6e107d074cbf53d26",
+      "sourceGenerationKey": "model_car_encar_generation_423a5c4d7cbde2c52207",
+      "sourceName": "아반떼 MD"
+    },
+    "generation_car_hyundai_v2_b89819e1e77b5ed4fba7": {
+      "modelKey": "model_car_hyundai_v2_a9d64c4720c09b521fbc",
+      "sourceModelKey": "model_car_encar_group_bbb6e107d074cbf53d26",
+      "sourceGenerationKey": "model_car_encar_generation_7acf2434b7009b14085b",
+      "sourceName": "아반떼 하이브리드"
+    },
+    "generation_car_hyundai_v2_f77f63f5afda1b7e39f5": {
+      "modelKey": "model_car_hyundai_v2_a9d64c4720c09b521fbc",
+      "sourceModelKey": "model_car_encar_group_bbb6e107d074cbf53d26",
+      "sourceGenerationKey": "model_car_encar_generation_2870a8354e1f81c03a62",
+      "sourceName": "아반떼 HD"
+    },
+    "generation_car_hyundai_v2_dc642c937ac419d84feb": {
+      "modelKey": "model_car_hyundai_v2_a9d64c4720c09b521fbc",
+      "sourceModelKey": "model_car_encar_group_bbb6e107d074cbf53d26",
+      "sourceGenerationKey": "model_car_encar_generation_aa02d29c63accb72fb74",
+      "sourceName": "뉴 아반떼 XD"
+    },
+    "generation_car_hyundai_v2_dab6e69fa1d06b7adca3": {
+      "modelKey": "model_car_hyundai_v2_a9d64c4720c09b521fbc",
+      "sourceModelKey": "model_car_encar_group_bbb6e107d074cbf53d26",
+      "sourceGenerationKey": "model_car_encar_generation_30d0e2ad1ad475414ee5",
+      "sourceName": "아반떼 XD"
+    },
+    "generation_car_hyundai_v2_4693703ca9d75e8731f0": {
+      "modelKey": "model_car_hyundai_v2_a9d64c4720c09b521fbc",
+      "sourceModelKey": "model_car_encar_group_bbb6e107d074cbf53d26",
+      "sourceGenerationKey": "model_car_encar_generation_77f65288e9148a2c6087",
+      "sourceName": "올 뉴 아반떼"
+    },
+    "generation_car_hyundai_v2_4312bc4860e8877975ff": {
+      "modelKey": "model_car_hyundai_v2_a9d64c4720c09b521fbc",
+      "sourceModelKey": "model_car_encar_group_bbb6e107d074cbf53d26",
+      "sourceGenerationKey": "model_car_encar_generation_dec7a7b027ce343a1503",
+      "sourceName": "아반떼"
+    },
+    "generation_car_hyundai_v2_382dadd7f10f53ad8037": {
+      "modelKey": "model_car_hyundai_v2_9565256ca2b307dda024",
+      "sourceModelKey": "model_car_encar_group_b1d8bbd4ea74b393ce9a",
+      "sourceGenerationKey": "model_car_encar_generation_c388ff67493b02ff7ed5",
+      "sourceName": "아슬란"
+    },
+    "generation_car_hyundai_v2_633d71367039688a0b0e": {
+      "modelKey": "model_car_hyundai_v2_1eaab1abfd2e52015121",
+      "sourceModelKey": "model_car_encar_group_4bcbc4cffecd7f44cd3e",
+      "sourceGenerationKey": "model_car_encar_generation_c17ccf2745b2625ae8eb",
+      "sourceName": "더 뉴 아이오닉 일렉트릭"
+    },
+    "generation_car_hyundai_v2_411b3382d91d45df8fc1": {
+      "modelKey": "model_car_hyundai_v2_1eaab1abfd2e52015121",
+      "sourceModelKey": "model_car_encar_group_4bcbc4cffecd7f44cd3e",
+      "sourceGenerationKey": "model_car_encar_generation_81c8bd79018ae210789b",
+      "sourceName": "더 뉴 아이오닉 하이브리드"
+    },
+    "generation_car_hyundai_v2_62bb036f5215716e85e4": {
+      "modelKey": "model_car_hyundai_v2_1eaab1abfd2e52015121",
+      "sourceModelKey": "model_car_encar_group_4bcbc4cffecd7f44cd3e",
+      "sourceGenerationKey": "model_car_encar_generation_16697afc6a8d1032b443",
+      "sourceName": "아이오닉 일렉트릭"
+    },
+    "generation_car_hyundai_v2_b0ec888abe70d3bf0fd6": {
+      "modelKey": "model_car_hyundai_v2_1eaab1abfd2e52015121",
+      "sourceModelKey": "model_car_encar_group_4bcbc4cffecd7f44cd3e",
+      "sourceGenerationKey": "model_car_encar_generation_41d68d838db68f65a25e",
+      "sourceName": "아이오닉 하이브리드"
+    },
+    "generation_car_hyundai_v2_0e3151a824c67b9c1e23": {
+      "modelKey": "model_car_hyundai_v2_4ad6b0b616fc90de621c",
+      "sourceModelKey": "model_car_encar_group_b099dcf89ca66046969a",
+      "sourceGenerationKey": "model_car_encar_generation_d2ad8429ec8bb414eb83",
+      "sourceName": "더 뉴 아이오닉5"
+    },
+    "generation_car_hyundai_v2_9ff03526e8ab00669d22": {
+      "modelKey": "model_car_hyundai_v2_4ad6b0b616fc90de621c",
+      "sourceModelKey": "model_car_encar_group_b099dcf89ca66046969a",
+      "sourceGenerationKey": "model_car_encar_generation_e06660ae82f0ddce2ad7",
+      "sourceName": "아이오닉5"
+    },
+    "generation_car_hyundai_v2_a4a6889fbe35ad107def": {
+      "modelKey": "model_car_hyundai_v2_6d8c3c0108a690403704",
+      "sourceModelKey": "model_car_encar_group_a98126db2957672b40f7",
+      "sourceGenerationKey": "model_car_encar_generation_131e5a0206affcd513b1",
+      "sourceName": "더 뉴 아이오닉6"
+    },
+    "generation_car_hyundai_v2_aafd1849290ba547d530": {
+      "modelKey": "model_car_hyundai_v2_6d8c3c0108a690403704",
+      "sourceModelKey": "model_car_encar_group_a98126db2957672b40f7",
+      "sourceGenerationKey": "model_car_encar_generation_6fd3b48da39492b1ab4f",
+      "sourceName": "아이오닉6"
+    },
+    "generation_car_hyundai_v2_8f24206945fe64414098": {
+      "modelKey": "model_car_hyundai_v2_039bdcd5646b3e904991",
+      "sourceModelKey": "model_car_encar_group_9bde7602973c89b1edd2",
+      "sourceGenerationKey": "model_car_encar_generation_4370ac940c1e4d930610",
+      "sourceName": "아이오닉9"
+    },
+    "generation_car_hyundai_v2_a111b3ecc2e499d2bfd5": {
+      "modelKey": "model_car_hyundai_v2_0cf6b3c94877f36c5ec0",
+      "sourceModelKey": "model_car_encar_group_324b577dc3f425160926",
+      "sourceGenerationKey": "model_car_encar_generation_30b7b3e6cfaaf3b1baa3",
+      "sourceName": "에쿠스(신형)"
+    },
+    "generation_car_hyundai_v2_906b6772f5d1f591a86e": {
+      "modelKey": "model_car_hyundai_v2_0cf6b3c94877f36c5ec0",
+      "sourceModelKey": "model_car_encar_group_324b577dc3f425160926",
+      "sourceGenerationKey": "model_car_encar_generation_d04a0482cab048b4be9f",
+      "sourceName": "에쿠스"
+    },
+    "generation_car_hyundai_v2_c4a5b7a867eab21c0e83": {
+      "modelKey": "model_car_hyundai_v2_2796deb45078f595e882",
+      "sourceModelKey": "model_car_encar_group_a21225cbfcb36f50acde",
+      "sourceGenerationKey": "model_car_encar_generation_95343829705d94d552ec",
+      "sourceName": "엑센트(신형)"
+    },
+    "generation_car_hyundai_v2_3fefb9b1623acfd65ca8": {
+      "modelKey": "model_car_hyundai_v2_8a254fd737779cf74d48",
+      "sourceModelKey": "model_car_encar_group_18885489c41cf96a4f83",
+      "sourceGenerationKey": "model_car_encar_generation_57fc0360cc0875e64525",
+      "sourceName": "엑셀"
+    },
+    "generation_car_hyundai_v2_e53d779a08c8123e9471": {
+      "modelKey": "model_car_hyundai_v2_217dfa3e2bcfac2ff39d",
+      "sourceModelKey": "model_car_encar_group_4c8fbf9178accb9fad8a",
+      "sourceGenerationKey": "model_car_encar_generation_59f7e9b3000ad8716837",
+      "sourceName": "뉴엘란트라"
+    },
+    "generation_car_hyundai_v2_3538679fbe702a3aa8c2": {
+      "modelKey": "model_car_hyundai_v2_8d9f54ffb118b79d37af",
+      "sourceModelKey": "model_car_encar_group_b44e2770bdd8c51819a2",
+      "sourceGenerationKey": "model_car_encar_generation_2b73ef27d24b297bbe12",
+      "sourceName": "제네시스 DH"
+    },
+    "generation_car_hyundai_v2_03e2fe958d74c2fab231": {
+      "modelKey": "model_car_hyundai_v2_8d9f54ffb118b79d37af",
+      "sourceModelKey": "model_car_encar_group_b44e2770bdd8c51819a2",
+      "sourceGenerationKey": "model_car_encar_generation_935ad6ad445dd2237f45",
+      "sourceName": "제네시스"
+    },
+    "generation_car_hyundai_v2_fd8662886c3932bbdb16": {
+      "modelKey": "model_car_hyundai_v2_f1cf1031bc70b20bc682",
+      "sourceModelKey": "model_car_encar_group_b44e2770bdd8c51819a2",
+      "sourceGenerationKey": "model_car_encar_generation_9b77005017160d06537f",
+      "sourceName": "더 뉴 제네시스 쿠페"
+    },
+    "generation_car_hyundai_v2_7323b13c605397b265f7": {
+      "modelKey": "model_car_hyundai_v2_f1cf1031bc70b20bc682",
+      "sourceModelKey": "model_car_encar_group_b44e2770bdd8c51819a2",
+      "sourceGenerationKey": "model_car_encar_generation_7b1108f1ba00d51b7e5e",
+      "sourceName": "제네시스 쿠페"
+    },
+    "generation_car_hyundai_v2_54df8920ccddd808ed82": {
+      "modelKey": "model_car_hyundai_v2_0de0d8b205d324242d54",
+      "sourceModelKey": "model_car_encar_group_4b2b5302a08610a8d1e0",
+      "sourceGenerationKey": "model_car_encar_generation_924cf29312db5bcf80b0",
+      "sourceName": "더 뉴 캐스퍼"
+    },
+    "generation_car_hyundai_v2_2635616edfe6448d4b9d": {
+      "modelKey": "model_car_hyundai_v2_0de0d8b205d324242d54",
+      "sourceModelKey": "model_car_encar_group_4b2b5302a08610a8d1e0",
+      "sourceGenerationKey": "model_car_encar_generation_104b23d29f8e159bdb51",
+      "sourceName": "캐스퍼 일렉트릭"
+    },
+    "generation_car_hyundai_v2_6cd5c2dae94a1f5faab4": {
+      "modelKey": "model_car_hyundai_v2_0de0d8b205d324242d54",
+      "sourceModelKey": "model_car_encar_group_4b2b5302a08610a8d1e0",
+      "sourceGenerationKey": "model_car_encar_generation_95a0e120f20c5878ef3d",
+      "sourceName": "캐스퍼"
+    },
+    "generation_car_hyundai_v2_95e8f5fd9f5c82406289": {
+      "modelKey": "model_car_hyundai_v2_3c25964e237b5225f206",
+      "sourceModelKey": "model_car_encar_group_e3396f1b02a819920379",
+      "sourceGenerationKey": "model_car_encar_generation_84a1973cf6f04f8b356b",
+      "sourceName": "코나 일렉트릭 (SX2)"
+    },
+    "generation_car_hyundai_v2_a35725f53335086724f9": {
+      "modelKey": "model_car_hyundai_v2_3c25964e237b5225f206",
+      "sourceModelKey": "model_car_encar_group_e3396f1b02a819920379",
+      "sourceGenerationKey": "model_car_encar_generation_fc802a917835ec254b0e",
+      "sourceName": "코나 (SX2)"
+    },
+    "generation_car_hyundai_v2_580090b64c36de9258a6": {
+      "modelKey": "model_car_hyundai_v2_3c25964e237b5225f206",
+      "sourceModelKey": "model_car_encar_group_e3396f1b02a819920379",
+      "sourceGenerationKey": "model_car_encar_generation_31dce38f7f57bc68a427",
+      "sourceName": "코나 하이브리드 (SX2)"
+    },
+    "generation_car_hyundai_v2_dc3b9fbb3106005aca62": {
+      "modelKey": "model_car_hyundai_v2_3c25964e237b5225f206",
+      "sourceModelKey": "model_car_encar_group_e3396f1b02a819920379",
+      "sourceGenerationKey": "model_car_encar_generation_6e9d21939eb5ee0b8d22",
+      "sourceName": "더 뉴 코나"
+    },
+    "generation_car_hyundai_v2_aeedb94c91c04ce3a563": {
+      "modelKey": "model_car_hyundai_v2_3c25964e237b5225f206",
+      "sourceModelKey": "model_car_encar_group_e3396f1b02a819920379",
+      "sourceGenerationKey": "model_car_encar_generation_03f446976202d19e372a",
+      "sourceName": "더 뉴 코나 하이브리드"
+    },
+    "generation_car_hyundai_v2_7931b4630c225c4a1b48": {
+      "modelKey": "model_car_hyundai_v2_3c25964e237b5225f206",
+      "sourceModelKey": "model_car_encar_group_e3396f1b02a819920379",
+      "sourceGenerationKey": "model_car_encar_generation_6aa939b6d15f414d5375",
+      "sourceName": "코나 하이브리드"
+    },
+    "generation_car_hyundai_v2_5dbed1de4592d2e6164d": {
+      "modelKey": "model_car_hyundai_v2_3c25964e237b5225f206",
+      "sourceModelKey": "model_car_encar_group_e3396f1b02a819920379",
+      "sourceGenerationKey": "model_car_encar_generation_3e25171efc14f9eeefbc",
+      "sourceName": "코나 일렉트릭"
+    },
+    "generation_car_hyundai_v2_181edf6b66a9042a87f3": {
+      "modelKey": "model_car_hyundai_v2_3c25964e237b5225f206",
+      "sourceModelKey": "model_car_encar_group_e3396f1b02a819920379",
+      "sourceGenerationKey": "model_car_encar_generation_5b80799bf357b97ad474",
+      "sourceName": "코나"
+    },
+    "generation_car_hyundai_v2_2390b1c282c7566c711f": {
+      "modelKey": "model_car_hyundai_v2_6e3b1fc9f98151d4a4de",
+      "sourceModelKey": "model_car_encar_group_8ed467723b0548a11c72",
+      "sourceGenerationKey": "model_car_encar_generation_986e5aaaef227bad39b6",
+      "sourceName": "뉴 클릭"
+    },
+    "generation_car_hyundai_v2_9f0815032aaffc7d2ef6": {
+      "modelKey": "model_car_hyundai_v2_b97346e9da1184a6c5a1",
+      "sourceModelKey": "model_car_encar_group_2b191ca0e34ba621e652",
+      "sourceGenerationKey": "model_car_encar_generation_27aa2deb38edb3384002",
+      "sourceName": "테라칸"
+    },
+    "generation_car_hyundai_v2_79f269b42bdf07b47b77": {
+      "modelKey": "model_car_hyundai_v2_6a96be4d1567653247eb",
+      "sourceModelKey": "model_car_encar_group_d7ea5f8ac5d6f7cfb7fd",
+      "sourceGenerationKey": "model_car_encar_generation_1fa5824ce63c16b75395",
+      "sourceName": "투스카니(신형)"
+    },
+    "generation_car_hyundai_v2_41945b8bbc18911ea470": {
+      "modelKey": "model_car_hyundai_v2_6a96be4d1567653247eb",
+      "sourceModelKey": "model_car_encar_group_d7ea5f8ac5d6f7cfb7fd",
+      "sourceGenerationKey": "model_car_encar_generation_9bc110e7f2b5d467728d",
+      "sourceName": "투스카니"
+    },
+    "generation_car_hyundai_v2_ddb559d23c308e1c42bc": {
+      "modelKey": "model_car_hyundai_v2_b197d09bf7459835e697",
+      "sourceModelKey": "model_car_encar_group_2159216ff4862e4a3e5f",
+      "sourceGenerationKey": "model_car_encar_generation_1c1c06829bfb166fec99",
+      "sourceName": "더 뉴 투싼 (NX4)"
+    },
+    "generation_car_hyundai_v2_def9ce20d94cf4595d1c": {
+      "modelKey": "model_car_hyundai_v2_b197d09bf7459835e697",
+      "sourceModelKey": "model_car_encar_group_2159216ff4862e4a3e5f",
+      "sourceGenerationKey": "model_car_encar_generation_3a691d6ac55ae5aab2b2",
+      "sourceName": "더 뉴 투싼 하이브리드 (NX4)"
+    },
+    "generation_car_hyundai_v2_528cfba93e9dc922f751": {
+      "modelKey": "model_car_hyundai_v2_b197d09bf7459835e697",
+      "sourceModelKey": "model_car_encar_group_2159216ff4862e4a3e5f",
+      "sourceGenerationKey": "model_car_encar_generation_43b88eab6121458b4b93",
+      "sourceName": "투싼 (NX4)"
+    },
+    "generation_car_hyundai_v2_af52e4c7c9a462a8a9a2": {
+      "modelKey": "model_car_hyundai_v2_b197d09bf7459835e697",
+      "sourceModelKey": "model_car_encar_group_2159216ff4862e4a3e5f",
+      "sourceGenerationKey": "model_car_encar_generation_04d71c8cc9bb16028ab5",
+      "sourceName": "투싼 하이브리드 (NX4)"
+    },
+    "generation_car_hyundai_v2_7b1edbf52b7caccae3f6": {
+      "modelKey": "model_car_hyundai_v2_b197d09bf7459835e697",
+      "sourceModelKey": "model_car_encar_group_2159216ff4862e4a3e5f",
+      "sourceGenerationKey": "model_car_encar_generation_816cdd934dde66f4baa6",
+      "sourceName": "올 뉴 투싼"
+    },
+    "generation_car_hyundai_v2_a8afbe274d1ad9b15542": {
+      "modelKey": "model_car_hyundai_v2_b197d09bf7459835e697",
+      "sourceModelKey": "model_car_encar_group_2159216ff4862e4a3e5f",
+      "sourceGenerationKey": "model_car_encar_generation_27dafd700037d45596ac",
+      "sourceName": "뉴 투싼 ix"
+    },
+    "generation_car_hyundai_v2_1daa5276e51bab207350": {
+      "modelKey": "model_car_hyundai_v2_b197d09bf7459835e697",
+      "sourceModelKey": "model_car_encar_group_2159216ff4862e4a3e5f",
+      "sourceGenerationKey": "model_car_encar_generation_3d3a0472ccce05d560ef",
+      "sourceName": "투싼 ix"
+    },
+    "generation_car_hyundai_v2_bbde87eaef60b616b5b2": {
+      "modelKey": "model_car_hyundai_v2_b197d09bf7459835e697",
+      "sourceModelKey": "model_car_encar_group_2159216ff4862e4a3e5f",
+      "sourceGenerationKey": "model_car_encar_generation_83113b7448665b71a00d",
+      "sourceName": "투싼"
+    },
+    "generation_car_hyundai_v2_68528489ad87b15c3b87": {
+      "modelKey": "model_car_hyundai_v2_b4a5209ed098a6679ddc",
+      "sourceModelKey": "model_car_encar_group_4ac640310bacbf7e62dc",
+      "sourceGenerationKey": "model_car_encar_generation_d16a006f9717fdd58261",
+      "sourceName": "트라제 XG"
+    },
+    "generation_car_hyundai_v2_f7a6da23612418d187dd": {
+      "modelKey": "model_car_hyundai_v2_24dbbdaea55052fb61a5",
+      "sourceModelKey": "model_car_encar_group_3b4045fbdd468992aef6",
+      "sourceGenerationKey": "model_car_encar_generation_4e91208ba1efd5961679",
+      "sourceName": "티뷰론"
+    },
+    "generation_car_hyundai_v2_f304222a8dafc13cbcda": {
+      "modelKey": "model_car_hyundai_v2_d2d712bc6b4a66e7cdc3",
+      "sourceModelKey": "model_car_encar_group_f26c219c377d97cbb455",
+      "sourceGenerationKey": "model_car_encar_generation_512c2747147daa8d927d",
+      "sourceName": "팰리세이드 (LX3)"
+    },
+    "generation_car_hyundai_v2_a0d2c79016ce9df4bcdf": {
+      "modelKey": "model_car_hyundai_v2_d2d712bc6b4a66e7cdc3",
+      "sourceModelKey": "model_car_encar_group_f26c219c377d97cbb455",
+      "sourceGenerationKey": "model_car_encar_generation_63857ce9bbbc290fef89",
+      "sourceName": "더 뉴 팰리세이드"
+    },
+    "generation_car_hyundai_v2_7f8176aa3f360b8df7e3": {
+      "modelKey": "model_car_hyundai_v2_d2d712bc6b4a66e7cdc3",
+      "sourceModelKey": "model_car_encar_group_f26c219c377d97cbb455",
+      "sourceGenerationKey": "model_car_encar_generation_86320b957d28f835678f",
+      "sourceName": "팰리세이드"
+    },
+    "generation_car_hyundai_v2_67ad7b6732f35c4c2391": {
+      "modelKey": "model_car_hyundai_v2_fa61f0aa5f71d829d600",
+      "sourceModelKey": "model_car_encar_group_7e7e0c28bcdb136dfd71",
+      "sourceGenerationKey": "model_car_encar_generation_06700153a32082b6badf",
+      "sourceName": "포니투"
+    },
+    "generation_car_hyundai_v2_974fe72ee679f2dd048b": {
+      "modelKey": "model_car_hyundai_v2_3a9abadc3eea1a29ad0a",
+      "sourceModelKey": "model_car_encar_group_7d3821ce285d269b7913",
+      "sourceGenerationKey": "model_car_encar_generation_2177fbbb4d584383a58f",
+      "sourceName": "프레스토"
+    }
+  }
+}
