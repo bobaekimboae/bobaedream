@@ -1587,7 +1587,6 @@
 .bbm-register, .bbm-register *, .bbm-register ::before, .bbm-register ::after { box-sizing: border-box; }
 .bbm-register * { margin: 0; padding: 0; }
 .bbm-register { min-height: 100vh; text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
-.bbm-register :is(ul, ol) { list-style: none; }
 .bbm-register:has(.car-register-form-page) .app-shell__content { background: rgb(247, 247, 247); }
 .bbm-register .bbm-register-toast { position: fixed; left: 50%; bottom: 96px; transform: translateX(-50%); z-index: 6000; max-width: calc(100vw - 32px); padding: 10px 16px; border-radius: 8px; background: rgba(17, 17, 17, .88); color: #fff; font-size: 14px; line-height: 20px; white-space: pre-line; pointer-events: none; }
 .bbm-register .bbm-register-photo-preview { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
