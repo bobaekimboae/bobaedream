@@ -103,7 +103,7 @@ export function railBrandLogo(name: string) {
   if (!logo) return null;
   return (
     <span className="kr-brand-logo is-plain is-rail-v01" data-brand={name} data-ratio={logo.ratio} data-logo-set="rail-v01">
-      <img src={asset(`brand/rail-v01/${logo.file}`)} alt="" draggable={false} style={chototRailLogoSize(logo.ratio)} />
+      <img src={asset(`brand/rail-v01/${logo.file}`)} alt="" draggable={false} style={logo.width ? { width: logo.width, height: "auto" } : chototRailLogoSize(logo.ratio)} />
     </span>
   );
 }
