@@ -1,0 +1,1971 @@
+{
+  "version": "2026-10-07-v01",
+  "rules": {
+    "master": "1920×1200 transparent PNG",
+    "delivery": "960×600 transparent PNG",
+    "angle": "AutoScout24-style left-facing front three-quarter",
+    "width": "88~90%",
+    "floorGap": "6%",
+    "shadow": "compact contact shadow",
+    "references": [
+      "https://www.hyundai.com/kr/ko/brand/heritage/model",
+      "https://auto.danawa.com/auto/?Work=brand&Brand=303",
+      "https://www.carisyou.com/car/"
+    ]
+  },
+  "assets": [
+    {
+      "assetId": "hyundai_asset_0e07b93d436d52364bfe",
+      "fileName": "hyundai_asset_0e07b93d436d52364bfe.png",
+      "model": "i30",
+      "generationName": "i30 (PD)",
+      "generationNumber": 3,
+      "generationCode": "PD",
+      "releaseYm": "2016-09",
+      "endYm": "2020-12",
+      "colorName": "파이어리 레드",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_93f429458d7f22835875"
+      ],
+      "status": "generated"
+    },
+    {
+      "assetId": "hyundai_asset_bbf4a088ae349c06eb8a",
+      "fileName": "hyundai_asset_bbf4a088ae349c06eb8a.png",
+      "model": "i30",
+      "generationName": "더 뉴 i30",
+      "generationNumber": 2,
+      "generationCode": "GD",
+      "releaseYm": "2015-01",
+      "endYm": "2016-11",
+      "colorName": "아쿠아 블루",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_a2d5a8cd1dedcb03f968"
+      ],
+      "status": "generated"
+    },
+    {
+      "assetId": "hyundai_asset_3367b2159f76b5b8522f",
+      "fileName": "hyundai_asset_3367b2159f76b5b8522f.png",
+      "model": "i30",
+      "generationName": "i30(신형)",
+      "generationNumber": 2,
+      "generationCode": "GD",
+      "releaseYm": "2011-10",
+      "endYm": "2015-03",
+      "colorName": "아쿠아 블루",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_09bf95da7adda3c27c1f"
+      ],
+      "status": "generated"
+    },
+    {
+      "assetId": "hyundai_asset_bc1987c71a7f827143e9",
+      "fileName": "hyundai_asset_bc1987c71a7f827143e9.png",
+      "model": "i30",
+      "generationName": "i30 cw",
+      "generationNumber": 1,
+      "generationCode": "FD",
+      "releaseYm": "2008-11",
+      "endYm": "2011-12",
+      "colorName": "스틸 그레이",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_08e4c4c1a15271abe68d"
+      ],
+      "status": "generated"
+    },
+    {
+      "assetId": "hyundai_asset_49745c113d6ab4e83eb6",
+      "fileName": "hyundai_asset_49745c113d6ab4e83eb6.png",
+      "model": "i30",
+      "generationName": "i30",
+      "generationNumber": 1,
+      "generationCode": "FD",
+      "releaseYm": "2007-07",
+      "endYm": "2011-12",
+      "colorName": "스틸 그레이",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_a510c0e423a430e4b3e3"
+      ],
+      "status": "generated"
+    },
+    {
+      "assetId": "hyundai_asset_090f45a624284eeaf315",
+      "fileName": "hyundai_asset_090f45a624284eeaf315.png",
+      "model": "i40",
+      "generationName": "더 뉴 i40",
+      "generationNumber": 1,
+      "generationCode": "VF",
+      "releaseYm": "2015-02",
+      "endYm": "2019-07",
+      "colorName": "오션 뷰",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_aa3f2f47b5d93694217f"
+      ],
+      "status": "generated"
+    },
+    {
+      "assetId": "hyundai_asset_c39ea92b612945b8e5fd",
+      "fileName": "hyundai_asset_c39ea92b612945b8e5fd.png",
+      "model": "i40",
+      "generationName": "더 뉴 i40 살룬",
+      "generationNumber": 1,
+      "generationCode": "VF",
+      "releaseYm": "2015-02",
+      "endYm": "2019-07",
+      "colorName": "오션 뷰",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_adc241350912aaf114be"
+      ],
+      "status": "generated"
+    },
+    {
+      "assetId": "hyundai_asset_beef2652d09e9006bb34",
+      "fileName": "hyundai_asset_beef2652d09e9006bb34.png",
+      "model": "i40",
+      "generationName": "i40 살룬",
+      "generationNumber": 1,
+      "generationCode": "VF",
+      "releaseYm": "2012-01",
+      "endYm": "2015-03",
+      "colorName": "티타늄 실버",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_fdc871c943feee4a9e3c"
+      ],
+      "status": "generated"
+    },
+    {
+      "assetId": "hyundai_asset_08953cfb4c489ef89b14",
+      "fileName": "hyundai_asset_08953cfb4c489ef89b14.png",
+      "model": "i40",
+      "generationName": "i40",
+      "generationNumber": 1,
+      "generationCode": "VF",
+      "releaseYm": "2011-09",
+      "endYm": "2015-03",
+      "colorName": "티타늄 실버",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_208f08ea2abdb050749a"
+      ],
+      "status": "generated"
+    },
+    {
+      "assetId": "hyundai_asset_087008e9f7ebe775d677",
+      "fileName": "hyundai_asset_087008e9f7ebe775d677.png",
+      "model": "ST1",
+      "generationName": "ST1",
+      "generationNumber": 1,
+      "generationCode": "ST1",
+      "releaseYm": "2024-04",
+      "endYm": null,
+      "colorName": "크리미 화이트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_81a6f4cbc450fbfa6957"
+      ],
+      "status": "generated"
+    },
+    {
+      "assetId": "hyundai_asset_eeae53b9d7369f25e0cf",
+      "fileName": "hyundai_asset_eeae53b9d7369f25e0cf.png",
+      "model": "갤로퍼",
+      "generationName": "갤로퍼 2",
+      "generationNumber": 2,
+      "generationCode": "M2",
+      "releaseYm": "1997-01",
+      "endYm": "2003-12",
+      "colorName": "티타늄 그레이 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_a6fd932d0858e00db457"
+      ],
+      "status": "generated"
+    },
+    {
+      "assetId": "hyundai_asset_bb6d913ff02132342f57",
+      "fileName": "hyundai_asset_bb6d913ff02132342f57.png",
+      "model": "갤로퍼",
+      "generationName": "갤로퍼",
+      "generationNumber": 1,
+      "generationCode": "M",
+      "releaseYm": "1991-09",
+      "endYm": "1997-03",
+      "colorName": "티타늄 그레이 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_01a0d5d15707005796cb"
+      ],
+      "status": "generated"
+    },
+    {
+      "assetId": "hyundai_asset_450279d62f24bc4b1ddf",
+      "fileName": "hyundai_asset_450279d62f24bc4b1ddf.png",
+      "model": "그랜저",
+      "generationName": "더 뉴 그랜저 (GN7)",
+      "generationNumber": 7,
+      "generationCode": "GN7",
+      "releaseYm": "2026-07",
+      "endYm": null,
+      "colorName": "바이오필릭 블루 펄",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_ca648e350756aa1c9f6f",
+        "model_car_encar_generation_91d143f99465fd0f44ee"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_4e94f7b02e60b078c78e",
+      "fileName": "hyundai_asset_4e94f7b02e60b078c78e.png",
+      "model": "그랜저",
+      "generationName": "그랜저 (GN7)",
+      "generationNumber": 7,
+      "generationCode": "GN7",
+      "releaseYm": "2022-11",
+      "endYm": "2026-07",
+      "colorName": "세레니티 화이트 펄",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_7c558d06e6f5a8056534",
+        "model_car_encar_generation_b8b22be2230d3f6ade04"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_5d73bea7642d9e26f3aa",
+      "fileName": "hyundai_asset_5d73bea7642d9e26f3aa.png",
+      "model": "그랜저",
+      "generationName": "더 뉴 그랜저 IG",
+      "generationNumber": 6,
+      "generationCode": "IG",
+      "releaseYm": "2019-11",
+      "endYm": "2022-11",
+      "colorName": "옥스퍼드 블루",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_5657480176e3261075f6",
+        "model_car_encar_generation_fb5b1ae9116f008905da"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_a24c7e3163c51c79c8a2",
+      "fileName": "hyundai_asset_a24c7e3163c51c79c8a2.png",
+      "model": "그랜저",
+      "generationName": "그랜저 IG 하이브리드",
+      "generationNumber": 6,
+      "generationCode": "IG",
+      "releaseYm": "2017-03",
+      "endYm": "2019-12",
+      "colorName": "녹턴 그레이 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_b48bd0338939e0df7f59",
+        "model_car_encar_generation_45702659bb9357986b2d"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_5aeb70d18375b7c3dbb6",
+      "fileName": "hyundai_asset_5aeb70d18375b7c3dbb6.png",
+      "model": "그랜저",
+      "generationName": "그랜저 HG 하이브리드",
+      "generationNumber": 5,
+      "generationCode": "HG",
+      "releaseYm": "2013-12",
+      "endYm": "2017-03",
+      "colorName": "하이퍼 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_6ef2162199a8d699dc4d",
+        "model_car_encar_generation_58102eb677a649c32407"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_329c18e0a6c5737f9126",
+      "fileName": "hyundai_asset_329c18e0a6c5737f9126.png",
+      "model": "그랜저",
+      "generationName": "더 럭셔리 그랜저",
+      "generationNumber": 4,
+      "generationCode": "TG",
+      "releaseYm": "2009-12",
+      "endYm": "2011-03",
+      "colorName": "블랙 다이아몬드",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_eaf68fdddab138b3ba2a"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_6e1eecb57520b50af395",
+      "fileName": "hyundai_asset_6e1eecb57520b50af395.png",
+      "model": "그랜저",
+      "generationName": "그랜저 뉴 럭셔리",
+      "generationNumber": 4,
+      "generationCode": "TG",
+      "releaseYm": "2008-02",
+      "endYm": "2009-12",
+      "colorName": "블랙 다이아몬드",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_cbf354eefcb53bf0e300"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_d72e1272905442c49d9e",
+      "fileName": "hyundai_asset_d72e1272905442c49d9e.png",
+      "model": "그랜저",
+      "generationName": "그랜저 TG",
+      "generationNumber": 4,
+      "generationCode": "TG",
+      "releaseYm": "2005-05",
+      "endYm": "2008-04",
+      "colorName": "블랙 다이아몬드",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_d0556b6b29684c633cf4"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_9bc1f8f9555f534c4758",
+      "fileName": "hyundai_asset_9bc1f8f9555f534c4758.png",
+      "model": "그랜저",
+      "generationName": "뉴 그랜저 XG",
+      "generationNumber": 3,
+      "generationCode": "XG",
+      "releaseYm": "2002-03",
+      "endYm": "2005-10",
+      "colorName": "다이아몬드 화이트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_bca0dabf97272ea2ffa1"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_091630406b64722dff9a",
+      "fileName": "hyundai_asset_091630406b64722dff9a.png",
+      "model": "그랜저",
+      "generationName": "뉴 그랜저",
+      "generationNumber": 2,
+      "generationCode": "LX",
+      "releaseYm": "1992-09",
+      "endYm": "1998-11",
+      "colorName": "검정 단색",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_7a00d15cac0a1af360cc"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_47d246a55a6107b65bce",
+      "fileName": "hyundai_asset_47d246a55a6107b65bce.png",
+      "model": "그랜저",
+      "generationName": "그랜저",
+      "generationNumber": 1,
+      "generationCode": "L",
+      "releaseYm": "1986-07",
+      "endYm": "1992-11",
+      "colorName": "검정 단색",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_5a4f993a767539977803"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_49cb52b25a1fc436897a",
+      "fileName": "hyundai_asset_49cb52b25a1fc436897a.png",
+      "model": "넥쏘",
+      "generationName": "넥쏘 (NH2)",
+      "generationNumber": 2,
+      "generationCode": "NH2",
+      "releaseYm": "2025-06",
+      "endYm": null,
+      "colorName": "고요 코퍼 펄",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_da7fcbcd60e1f2a1561a"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_80b36b4f023dc22dbf58",
+      "fileName": "hyundai_asset_80b36b4f023dc22dbf58.png",
+      "model": "넥쏘",
+      "generationName": "넥쏘",
+      "generationNumber": 1,
+      "generationCode": "FE",
+      "releaseYm": "2018-03",
+      "endYm": null,
+      "colorName": "더스크 블루 매트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_81d58b0ddddc94c13cf2"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_7358100b8da8c7ac166c",
+      "fileName": "hyundai_asset_7358100b8da8c7ac166c.png",
+      "model": "다이너스티",
+      "generationName": "다이너스티",
+      "generationNumber": 1,
+      "generationCode": "LX",
+      "releaseYm": "1996-05",
+      "endYm": "2005-09",
+      "colorName": "팬텀 블랙",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_b306a1dafd092f9cd921"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_f960867851127c53cf31",
+      "fileName": "hyundai_asset_f960867851127c53cf31.png",
+      "model": "마르샤",
+      "generationName": "마르샤",
+      "generationNumber": 1,
+      "generationCode": "H",
+      "releaseYm": "1995-02",
+      "endYm": "1998-12",
+      "colorName": "밀키 화이트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_28423061f4bfcb339e34"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_cbab6426f72759682abd",
+      "fileName": "hyundai_asset_cbab6426f72759682abd.png",
+      "model": "맥스크루즈",
+      "generationName": "더 뉴 맥스크루즈",
+      "generationNumber": 1,
+      "generationCode": "NC",
+      "releaseYm": "2015-09",
+      "endYm": "2019-02",
+      "colorName": "티타늄 그레이 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_0fe0d9b24dfd178eb355"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_586caf3546ba028acddb",
+      "fileName": "hyundai_asset_586caf3546ba028acddb.png",
+      "model": "맥스크루즈",
+      "generationName": "맥스크루즈",
+      "generationNumber": 1,
+      "generationCode": "NC",
+      "releaseYm": "2013-03",
+      "endYm": "2015-10",
+      "colorName": "티타늄 그레이 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_1f7a2887f5de2f077e07"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_02f91f4af8a5c9dec40c",
+      "fileName": "hyundai_asset_02f91f4af8a5c9dec40c.png",
+      "model": "베뉴",
+      "generationName": "베뉴",
+      "generationNumber": 1,
+      "generationCode": "QX",
+      "releaseYm": "2019-07",
+      "endYm": null,
+      "colorName": "데님 블루 펄",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_6a65b1a2eed23f10e8a0"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_fc70f11bc9d08b690c92",
+      "fileName": "hyundai_asset_fc70f11bc9d08b690c92.png",
+      "model": "베라크루즈",
+      "generationName": "베라크루즈",
+      "generationNumber": 1,
+      "generationCode": "EN",
+      "releaseYm": "2006-10",
+      "endYm": "2015-11",
+      "colorName": "티타늄 그레이 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_57674ef77ae48226634a"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_dc0fe721e69a4d23d157",
+      "fileName": "hyundai_asset_dc0fe721e69a4d23d157.png",
+      "model": "베르나",
+      "generationName": "베르나 트랜스폼",
+      "generationNumber": 2,
+      "generationCode": "MC",
+      "releaseYm": "2009-07",
+      "endYm": "2010-12",
+      "colorName": "밀키 화이트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_e5cebdd7c366bafd312a"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_a6343be855119887c52b",
+      "fileName": "hyundai_asset_a6343be855119887c52b.png",
+      "model": "베르나",
+      "generationName": "베르나(신형)",
+      "generationNumber": 2,
+      "generationCode": "MC",
+      "releaseYm": "2005-10",
+      "endYm": "2009-08",
+      "colorName": "밀키 화이트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_d2ee43d039f167672260"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_be1553e1fe6dbfdbc148",
+      "fileName": "hyundai_asset_be1553e1fe6dbfdbc148.png",
+      "model": "베르나",
+      "generationName": "베르나",
+      "generationNumber": 1,
+      "generationCode": "LC",
+      "releaseYm": "1999-06",
+      "endYm": "2002-09",
+      "colorName": "밀키 화이트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_7a30bf256851c466843d"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_424c4db3c6a73b27f60c",
+      "fileName": "hyundai_asset_424c4db3c6a73b27f60c.png",
+      "model": "벨로스터",
+      "generationName": "벨로스터 (JS)",
+      "generationNumber": 2,
+      "generationCode": "JS",
+      "releaseYm": "2018-02",
+      "endYm": "2022-06",
+      "colorName": "썬더 볼트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_c6cbf0362aa8650ab06c"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_b855bfb9254c1ba43983",
+      "fileName": "hyundai_asset_b855bfb9254c1ba43983.png",
+      "model": "벨로스터",
+      "generationName": "더 뉴 벨로스터",
+      "generationNumber": 1,
+      "generationCode": "FS",
+      "releaseYm": "2015-01",
+      "endYm": "2018-04",
+      "colorName": "비타민 C",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_c96a7f3728ca4ab89f61"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_976469fafe6b2670746d",
+      "fileName": "hyundai_asset_976469fafe6b2670746d.png",
+      "model": "벨로스터",
+      "generationName": "벨로스터",
+      "generationNumber": 1,
+      "generationCode": "FS",
+      "releaseYm": "2011-03",
+      "endYm": "2014-12",
+      "colorName": "비타민 C",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_cb8ca7dcfb923ea50c26"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_1a244fca44d75e5830c2",
+      "fileName": "hyundai_asset_1a244fca44d75e5830c2.png",
+      "model": "스타렉스",
+      "generationName": "더 뉴 그랜드 스타렉스",
+      "generationNumber": 2,
+      "generationCode": "TQ",
+      "releaseYm": "2017-12",
+      "endYm": "2021-05",
+      "colorName": "크리미 화이트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_cd690d55f50b2893fcdb"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_e5f62abdc0bac283f5cf",
+      "fileName": "hyundai_asset_e5f62abdc0bac283f5cf.png",
+      "model": "스타렉스",
+      "generationName": "그랜드 스타렉스",
+      "generationNumber": 2,
+      "generationCode": "TQ",
+      "releaseYm": "2007-06",
+      "endYm": "2017-12",
+      "colorName": "크리미 화이트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_270ca4c28f84655f25d3"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_ecd7591603da5ee097f8",
+      "fileName": "hyundai_asset_ecd7591603da5ee097f8.png",
+      "model": "스타렉스",
+      "generationName": "스타렉스 점보",
+      "generationNumber": 1,
+      "generationCode": "A1",
+      "releaseYm": "1997-03",
+      "endYm": "2007-07",
+      "colorName": "크리미 화이트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_00a1f5275db31b960046"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_28fcaab1431934158469",
+      "fileName": "hyundai_asset_28fcaab1431934158469.png",
+      "model": "스타렉스",
+      "generationName": "스타렉스",
+      "generationNumber": 1,
+      "generationCode": "A1",
+      "releaseYm": "1997-03",
+      "endYm": "2007-07",
+      "colorName": "크리미 화이트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_64c3f0a442a8e9958497"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_e6c99aebacd7d26ba15a",
+      "fileName": "hyundai_asset_e6c99aebacd7d26ba15a.png",
+      "model": "스타리아",
+      "generationName": "더 뉴 스타리아",
+      "generationNumber": 1,
+      "generationCode": "US4",
+      "releaseYm": "2025-12",
+      "endYm": null,
+      "colorName": "크리미 화이트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_0760e5b6b848e04a3454"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_5ebe4b23ada5e2cd85ba",
+      "fileName": "hyundai_asset_5ebe4b23ada5e2cd85ba.png",
+      "model": "스타리아",
+      "generationName": "스타리아",
+      "generationNumber": 1,
+      "generationCode": "US4",
+      "releaseYm": "2021-04",
+      "endYm": "2025-12",
+      "colorName": "크리미 화이트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_85f617f128262b1f9e1f"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_827ad464967d312eabda",
+      "fileName": "hyundai_asset_827ad464967d312eabda.png",
+      "model": "싼타페",
+      "generationName": "싼타페 (MX5)",
+      "generationNumber": 5,
+      "generationCode": "MX5",
+      "releaseYm": "2023-08",
+      "endYm": null,
+      "colorName": "테라코타 오렌지",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_8ead087e7724e95ff2a4"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_e724305c74843607bd9b",
+      "fileName": "hyundai_asset_e724305c74843607bd9b.png",
+      "model": "싼타페",
+      "generationName": "더 뉴 싼타페",
+      "generationNumber": 4,
+      "generationCode": "TM",
+      "releaseYm": "2020-06",
+      "endYm": "2023-07",
+      "colorName": "라바 오렌지",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_82135f4b9fe52283529d"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_113029b1355449b9599d",
+      "fileName": "hyundai_asset_113029b1355449b9599d.png",
+      "model": "싼타페",
+      "generationName": "싼타페 TM",
+      "generationNumber": 4,
+      "generationCode": "TM",
+      "releaseYm": "2018-02",
+      "endYm": "2020-08",
+      "colorName": "라바 오렌지",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_b5f5d7500841e98374b5"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_72be6898377de3613afe",
+      "fileName": "hyundai_asset_72be6898377de3613afe.png",
+      "model": "싼타페",
+      "generationName": "싼타페 더 프라임",
+      "generationNumber": 3,
+      "generationCode": "DM",
+      "releaseYm": "2015-06",
+      "endYm": "2018-04",
+      "colorName": "아라비안 모카",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_559d6f2b76e911cef625"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_7289a758c285dfde4d8d",
+      "fileName": "hyundai_asset_7289a758c285dfde4d8d.png",
+      "model": "싼타페",
+      "generationName": "싼타페 DM",
+      "generationNumber": 3,
+      "generationCode": "DM",
+      "releaseYm": "2012-05",
+      "endYm": "2015-08",
+      "colorName": "아라비안 모카",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_5d593f9434e267621b15"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_e29d7994d6c35ac1b61d",
+      "fileName": "hyundai_asset_e29d7994d6c35ac1b61d.png",
+      "model": "싼타페",
+      "generationName": "싼타페 CM",
+      "generationNumber": 2,
+      "generationCode": "CM",
+      "releaseYm": "2005-11",
+      "endYm": "2012-06",
+      "colorName": "슬릭 실버",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_a9b857596d657cffed56"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_b399a169d89d83b7f6a7",
+      "fileName": "hyundai_asset_b399a169d89d83b7f6a7.png",
+      "model": "싼타페",
+      "generationName": "싼타페",
+      "generationNumber": 1,
+      "generationCode": "SM",
+      "releaseYm": "2000-06",
+      "endYm": "2005-12",
+      "colorName": "슬릭 실버",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_0630db83fcbdb1d02475"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_14e1ca8c345a5bee4686",
+      "fileName": "hyundai_asset_14e1ca8c345a5bee4686.png",
+      "model": "쏘나타",
+      "generationName": "쏘나타 디 엣지(DN8)",
+      "generationNumber": 8,
+      "generationCode": "DN8",
+      "releaseYm": "2023-05",
+      "endYm": null,
+      "colorName": "트랜스미션 블루 펄",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_1b97ade0841c5b35943f",
+        "model_car_encar_generation_b8ff807244b22b7cad35"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_44572fa1abb375a42141",
+      "fileName": "hyundai_asset_44572fa1abb375a42141.png",
+      "model": "쏘나타",
+      "generationName": "쏘나타 하이브리드 (DN8)",
+      "generationNumber": 8,
+      "generationCode": "DN8",
+      "releaseYm": "2019-07",
+      "endYm": "2023-04",
+      "colorName": "녹턴 그레이 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_753587c5639f99d6e138",
+        "model_car_encar_generation_0d734a3fe14cfe9125f6"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_06a59ecff1ef2f6d3d8c",
+      "fileName": "hyundai_asset_06a59ecff1ef2f6d3d8c.png",
+      "model": "쏘나타",
+      "generationName": "쏘나타 뉴 라이즈 하이브리드",
+      "generationNumber": 7,
+      "generationCode": "LF",
+      "releaseYm": "2017-05",
+      "endYm": "2019-05",
+      "colorName": "코스트 블루",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_9b039201b0721eaca384",
+        "model_car_encar_generation_cc376eaa4271da4cb777"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_d171ee1847e7a2ffef6d",
+      "fileName": "hyundai_asset_d171ee1847e7a2ffef6d.png",
+      "model": "쏘나타",
+      "generationName": "LF 쏘나타 하이브리드",
+      "generationNumber": 7,
+      "generationCode": "LF",
+      "releaseYm": "2014-12",
+      "endYm": "2017-08",
+      "colorName": "코스트 블루",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_273c5b9943d673fb7953",
+        "model_car_encar_generation_b9b02638b76bb1424561"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_10f85dbe240709524467",
+      "fileName": "hyundai_asset_10f85dbe240709524467.png",
+      "model": "쏘나타",
+      "generationName": "쏘나타 더 브릴리언트",
+      "generationNumber": 6,
+      "generationCode": "YF",
+      "releaseYm": "2012-07",
+      "endYm": "2014-05",
+      "colorName": "블루 오션",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_dac789c67555ce70b408"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_0068cde0d7ab80a73717",
+      "fileName": "hyundai_asset_0068cde0d7ab80a73717.png",
+      "model": "쏘나타",
+      "generationName": "쏘나타 하이브리드",
+      "generationNumber": 6,
+      "generationCode": "YF",
+      "releaseYm": "2011-05",
+      "endYm": "2014-12",
+      "colorName": "블루 오션",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_ee6565fca4b1c4d9e3b6"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_c5c0c3d9f23976e45840",
+      "fileName": "hyundai_asset_c5c0c3d9f23976e45840.png",
+      "model": "쏘나타",
+      "generationName": "YF 쏘나타",
+      "generationNumber": 6,
+      "generationCode": "YF",
+      "releaseYm": "2009-09",
+      "endYm": "2012-08",
+      "colorName": "블루 오션",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_f2a7ba7feb3ad9682ef5"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_cdcca975b3fed87f8ae6",
+      "fileName": "hyundai_asset_cdcca975b3fed87f8ae6.png",
+      "model": "쏘나타",
+      "generationName": "NF 쏘나타 트랜스폼",
+      "generationNumber": 5,
+      "generationCode": "NF",
+      "releaseYm": "2007-11",
+      "endYm": "2013-05",
+      "colorName": "노블 화이트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_017ad5b403700991141b"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_9d04196e365469dff543",
+      "fileName": "hyundai_asset_9d04196e365469dff543.png",
+      "model": "쏘나타",
+      "generationName": "NF 쏘나타",
+      "generationNumber": 5,
+      "generationCode": "NF",
+      "releaseYm": "2004-09",
+      "endYm": "2007-12",
+      "colorName": "노블 화이트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_2c2dded7cd4d373dcf5c"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_1ec7d896dac091a8b6ec",
+      "fileName": "hyundai_asset_1ec7d896dac091a8b6ec.png",
+      "model": "쏘나타",
+      "generationName": "뉴 EF 쏘나타",
+      "generationNumber": 4,
+      "generationCode": "EF",
+      "releaseYm": "2001-01",
+      "endYm": "2006-03",
+      "colorName": "은회색 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_07a8a70d9aeafea04327"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_75a22f1ca153ffc1084e",
+      "fileName": "hyundai_asset_75a22f1ca153ffc1084e.png",
+      "model": "쏘나타",
+      "generationName": "EF 쏘나타",
+      "generationNumber": 4,
+      "generationCode": "EF",
+      "releaseYm": "1998-03",
+      "endYm": "2001-03",
+      "colorName": "은회색 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_6d5a306696705b756340"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_e847f2cd5f875050b95e",
+      "fileName": "hyundai_asset_e847f2cd5f875050b95e.png",
+      "model": "쏘나타",
+      "generationName": "쏘나타 III",
+      "generationNumber": 3,
+      "generationCode": "Y3",
+      "releaseYm": "1996-02",
+      "endYm": "1998-05",
+      "colorName": "은회색 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_0b99824077b0c58956d3"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_c1b54a850f0f90109f9e",
+      "fileName": "hyundai_asset_c1b54a850f0f90109f9e.png",
+      "model": "쏘나타",
+      "generationName": "쏘나타 II",
+      "generationNumber": 3,
+      "generationCode": "Y3",
+      "releaseYm": "1993-05",
+      "endYm": "1996-04",
+      "colorName": "은회색 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_0970cca59cb6c14ba4c8"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_4026a1f1218a1d173950",
+      "fileName": "hyundai_asset_4026a1f1218a1d173950.png",
+      "model": "쏠라티",
+      "generationName": "쏠라티",
+      "generationNumber": 1,
+      "generationCode": "H350",
+      "releaseYm": "2015-10",
+      "endYm": null,
+      "colorName": "크리미 화이트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_8288776b8b926cb0e170"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_fb30ddac0a8ab229821b",
+      "fileName": "hyundai_asset_fb30ddac0a8ab229821b.png",
+      "model": "아반떼",
+      "generationName": "아반떼 (CN8)",
+      "generationNumber": 8,
+      "generationCode": "CN8",
+      "releaseYm": "2026-08",
+      "endYm": null,
+      "colorName": "메타 블루 펄",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_f00e9efa8fe9b360a26f"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_bd487fb198f3e69f2e8e",
+      "fileName": "hyundai_asset_bd487fb198f3e69f2e8e.png",
+      "model": "아반떼",
+      "generationName": "더 뉴 아반떼 (CN7)",
+      "generationNumber": 7,
+      "generationCode": "CN7",
+      "releaseYm": "2023-03",
+      "endYm": "2026-08",
+      "colorName": "아마존 그레이 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_a3d18590d1aa7a1aae4d",
+        "model_car_encar_generation_5a9166c36cc6b6991c06"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_186cb089630f84500096",
+      "fileName": "hyundai_asset_186cb089630f84500096.png",
+      "model": "아반떼",
+      "generationName": "아반떼 하이브리드 (CN7)",
+      "generationNumber": 7,
+      "generationCode": "CN7",
+      "releaseYm": "2020-08",
+      "endYm": "2023-03",
+      "colorName": "아마존 그레이 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_797eafb0eaee255131a7",
+        "model_car_encar_generation_0c32cd60905bc94819fb"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_2f69656197f1d4d2ac27",
+      "fileName": "hyundai_asset_2f69656197f1d4d2ac27.png",
+      "model": "아반떼",
+      "generationName": "더 뉴 아반떼 AD",
+      "generationNumber": 6,
+      "generationCode": "AD",
+      "releaseYm": "2018-09",
+      "endYm": "2020-06",
+      "colorName": "마리나 블루",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_ed52529a8e86fa502830"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_eecda035e6c5daf26416",
+      "fileName": "hyundai_asset_eecda035e6c5daf26416.png",
+      "model": "아반떼",
+      "generationName": "아반떼 AD",
+      "generationNumber": 6,
+      "generationCode": "AD",
+      "releaseYm": "2015-09",
+      "endYm": "2018-11",
+      "colorName": "마리나 블루",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_bca4467318185ee5ade8"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_c81dce1cbf8b7cf4dec1",
+      "fileName": "hyundai_asset_c81dce1cbf8b7cf4dec1.png",
+      "model": "아반떼",
+      "generationName": "더 뉴 아반떼",
+      "generationNumber": 5,
+      "generationCode": "MD",
+      "releaseYm": "2013-08",
+      "endYm": "2015-11",
+      "colorName": "하이퍼 실버",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_3bfe06fc228654c313c9"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_f5cbfbeea9d8e0a2372b",
+      "fileName": "hyundai_asset_f5cbfbeea9d8e0a2372b.png",
+      "model": "아반떼",
+      "generationName": "아반떼 쿠페",
+      "generationNumber": 5,
+      "generationCode": "MD",
+      "releaseYm": "2013-04",
+      "endYm": "2015-06",
+      "colorName": "하이퍼 실버",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_184df560174ac1875c5c"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_b11387dd601ff0fe6bac",
+      "fileName": "hyundai_asset_b11387dd601ff0fe6bac.png",
+      "model": "아반떼",
+      "generationName": "아반떼 MD",
+      "generationNumber": 5,
+      "generationCode": "MD",
+      "releaseYm": "2010-08",
+      "endYm": "2013-10",
+      "colorName": "하이퍼 실버",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_423a5c4d7cbde2c52207"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_aba1bc60c6cf7322d5b1",
+      "fileName": "hyundai_asset_aba1bc60c6cf7322d5b1.png",
+      "model": "아반떼",
+      "generationName": "아반떼 하이브리드",
+      "generationNumber": 4,
+      "generationCode": "HD",
+      "releaseYm": "2009-07",
+      "endYm": "2013-12",
+      "colorName": "스톤 블랙",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_7acf2434b7009b14085b",
+        "model_car_encar_generation_dec7a7b027ce343a1503"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_531d516223aabdd9812a",
+      "fileName": "hyundai_asset_531d516223aabdd9812a.png",
+      "model": "아반떼",
+      "generationName": "아반떼 HD",
+      "generationNumber": 4,
+      "generationCode": "HD",
+      "releaseYm": "2006-06",
+      "endYm": "2010-10",
+      "colorName": "스톤 블랙",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_2870a8354e1f81c03a62"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_51b008a7ef5431a67fe0",
+      "fileName": "hyundai_asset_51b008a7ef5431a67fe0.png",
+      "model": "아반떼",
+      "generationName": "뉴 아반떼 XD",
+      "generationNumber": 3,
+      "generationCode": "XD",
+      "releaseYm": "2003-05",
+      "endYm": "2006-06",
+      "colorName": "은회색 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_aa02d29c63accb72fb74"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_5186fb41388842f5cbcd",
+      "fileName": "hyundai_asset_5186fb41388842f5cbcd.png",
+      "model": "아반떼",
+      "generationName": "아반떼 XD",
+      "generationNumber": 3,
+      "generationCode": "XD",
+      "releaseYm": "2000-04",
+      "endYm": "2003-07",
+      "colorName": "은회색 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_30d0e2ad1ad475414ee5"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_278963705197783d1fdb",
+      "fileName": "hyundai_asset_278963705197783d1fdb.png",
+      "model": "아반떼",
+      "generationName": "올 뉴 아반떼",
+      "generationNumber": 2,
+      "generationCode": "J2",
+      "releaseYm": "1998-03",
+      "endYm": "2000-06",
+      "colorName": "은회색 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_77f65288e9148a2c6087"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_6703dd95fa68d9ea2430",
+      "fileName": "hyundai_asset_6703dd95fa68d9ea2430.png",
+      "model": "아슬란",
+      "generationName": "아슬란",
+      "generationNumber": 1,
+      "generationCode": "AG",
+      "releaseYm": "2014-10",
+      "endYm": "2018-03",
+      "colorName": "폴리시드 메탈",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_c388ff67493b02ff7ed5"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_8a70d1443db5991a5f4e",
+      "fileName": "hyundai_asset_8a70d1443db5991a5f4e.png",
+      "model": "아이오닉",
+      "generationName": "더 뉴 아이오닉 일렉트릭",
+      "generationNumber": 1,
+      "generationCode": "AE",
+      "releaseYm": "2019-05",
+      "endYm": "2021-01",
+      "colorName": "마리나 블루",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_c17ccf2745b2625ae8eb"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_b21a558a318525c80144",
+      "fileName": "hyundai_asset_b21a558a318525c80144.png",
+      "model": "아이오닉",
+      "generationName": "더 뉴 아이오닉 하이브리드",
+      "generationNumber": 1,
+      "generationCode": "AE",
+      "releaseYm": "2019-01",
+      "endYm": "2021-01",
+      "colorName": "마리나 블루",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_81c8bd79018ae210789b"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_7f26a5401a712dcf3437",
+      "fileName": "hyundai_asset_7f26a5401a712dcf3437.png",
+      "model": "아이오닉",
+      "generationName": "아이오닉 일렉트릭",
+      "generationNumber": 1,
+      "generationCode": "AE",
+      "releaseYm": "2016-06",
+      "endYm": "2019-05",
+      "colorName": "마리나 블루",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_16697afc6a8d1032b443"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_b92d73ab680a69f43ae6",
+      "fileName": "hyundai_asset_b92d73ab680a69f43ae6.png",
+      "model": "아이오닉",
+      "generationName": "아이오닉 하이브리드",
+      "generationNumber": 1,
+      "generationCode": "AE",
+      "releaseYm": "2016-01",
+      "endYm": "2019-03",
+      "colorName": "마리나 블루",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_41d68d838db68f65a25e"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_7e9aa174162ef01d69b1",
+      "fileName": "hyundai_asset_7e9aa174162ef01d69b1.png",
+      "model": "아이오닉5",
+      "generationName": "더 뉴 아이오닉5",
+      "generationNumber": 1,
+      "generationCode": "NE",
+      "releaseYm": "2024-03",
+      "endYm": null,
+      "colorName": "디지털 틸 그린 펄",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_d2ad8429ec8bb414eb83"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_d8cfbdc64ea987852305",
+      "fileName": "hyundai_asset_d8cfbdc64ea987852305.png",
+      "model": "아이오닉5",
+      "generationName": "아이오닉5",
+      "generationNumber": 1,
+      "generationCode": "NE",
+      "releaseYm": "2021-04",
+      "endYm": null,
+      "colorName": "디지털 틸 그린 펄",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_e06660ae82f0ddce2ad7"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_b870c24507e23030461f",
+      "fileName": "hyundai_asset_b870c24507e23030461f.png",
+      "model": "아이오닉6",
+      "generationName": "더 뉴 아이오닉6",
+      "generationNumber": 1,
+      "generationCode": "CE",
+      "releaseYm": "2025-07",
+      "endYm": null,
+      "colorName": "그래비티 골드 매트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_131e5a0206affcd513b1"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_2c77c8d97062d89d64e6",
+      "fileName": "hyundai_asset_2c77c8d97062d89d64e6.png",
+      "model": "아이오닉6",
+      "generationName": "아이오닉6",
+      "generationNumber": 1,
+      "generationCode": "CE",
+      "releaseYm": "2022-09",
+      "endYm": "2025-07",
+      "colorName": "그래비티 골드 매트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_6fd3b48da39492b1ab4f"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_5efa66e02a3a07e90e89",
+      "fileName": "hyundai_asset_5efa66e02a3a07e90e89.png",
+      "model": "아이오닉9",
+      "generationName": "아이오닉9",
+      "generationNumber": 1,
+      "generationCode": "ME",
+      "releaseYm": "2025-02",
+      "endYm": null,
+      "colorName": "셀라돈 그레이 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_4370ac940c1e4d930610"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_13683db05a8359c756e3",
+      "fileName": "hyundai_asset_13683db05a8359c756e3.png",
+      "model": "에쿠스",
+      "generationName": "에쿠스(신형)",
+      "generationNumber": 2,
+      "generationCode": "VI",
+      "releaseYm": "2009-03",
+      "endYm": "2015-12",
+      "colorName": "팬텀 블랙",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_30b7b3e6cfaaf3b1baa3"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_22257ab1ac17e9dc323b",
+      "fileName": "hyundai_asset_22257ab1ac17e9dc323b.png",
+      "model": "에쿠스",
+      "generationName": "에쿠스",
+      "generationNumber": 1,
+      "generationCode": "LZ",
+      "releaseYm": "1999-04",
+      "endYm": "2009-04",
+      "colorName": "팬텀 블랙",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_d04a0482cab048b4be9f"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_11c76d089758b98c624b",
+      "fileName": "hyundai_asset_11c76d089758b98c624b.png",
+      "model": "엑센트",
+      "generationName": "엑센트(신형)",
+      "generationNumber": 4,
+      "generationCode": "RB",
+      "releaseYm": "2010-11",
+      "endYm": "2019-12",
+      "colorName": "쉬머링 실버 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_95343829705d94d552ec"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_da8e9214b8d2ddbdde5b",
+      "fileName": "hyundai_asset_da8e9214b8d2ddbdde5b.png",
+      "model": "엑셀",
+      "generationName": "엑셀",
+      "generationNumber": 2,
+      "generationCode": "X2",
+      "releaseYm": "1989-04",
+      "endYm": "1994-09",
+      "colorName": "아이보리 화이트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_57fc0360cc0875e64525"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_a720e9cb615c65d58003",
+      "fileName": "hyundai_asset_a720e9cb615c65d58003.png",
+      "model": "엘란트라",
+      "generationName": "뉴엘란트라",
+      "generationNumber": 1,
+      "generationCode": "J1",
+      "releaseYm": "1993-04",
+      "endYm": "1995-05",
+      "colorName": "아이보리 화이트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_59f7e9b3000ad8716837"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_a53f4400f2104f8ef548",
+      "fileName": "hyundai_asset_a53f4400f2104f8ef548.png",
+      "model": "제네시스",
+      "generationName": "제네시스 DH",
+      "generationNumber": 2,
+      "generationCode": "DH",
+      "releaseYm": "2013-12",
+      "endYm": "2016-09",
+      "colorName": "폴리시드 메탈",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_2b73ef27d24b297bbe12"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_44dc825b8e4692cd493d",
+      "fileName": "hyundai_asset_44dc825b8e4692cd493d.png",
+      "model": "제네시스",
+      "generationName": "제네시스",
+      "generationNumber": 1,
+      "generationCode": "BH",
+      "releaseYm": "2008-01",
+      "endYm": "2013-12",
+      "colorName": "팬텀 블랙",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_935ad6ad445dd2237f45"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_2269dc7c696fccc310b5",
+      "fileName": "hyundai_asset_2269dc7c696fccc310b5.png",
+      "model": "제네시스 쿠페",
+      "generationName": "더 뉴 제네시스 쿠페",
+      "generationNumber": 1,
+      "generationCode": "BK",
+      "releaseYm": "2011-11",
+      "endYm": "2016-07",
+      "colorName": "슈퍼 레드",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_9b77005017160d06537f"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_0c3b354676f62a975001",
+      "fileName": "hyundai_asset_0c3b354676f62a975001.png",
+      "model": "제네시스 쿠페",
+      "generationName": "제네시스 쿠페",
+      "generationNumber": 1,
+      "generationCode": "BK",
+      "releaseYm": "2008-10",
+      "endYm": "2011-12",
+      "colorName": "슈퍼 레드",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_7b1108f1ba00d51b7e5e"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_c6f835dd4a1bdccef7e4",
+      "fileName": "hyundai_asset_c6f835dd4a1bdccef7e4.png",
+      "model": "캐스퍼",
+      "generationName": "더 뉴 캐스퍼",
+      "generationNumber": 1,
+      "generationCode": "AX1",
+      "releaseYm": "2024-10",
+      "endYm": null,
+      "colorName": "톰보이 카키",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_924cf29312db5bcf80b0"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_91eed8ea975d13562a0f",
+      "fileName": "hyundai_asset_91eed8ea975d13562a0f.png",
+      "model": "캐스퍼",
+      "generationName": "캐스퍼 일렉트릭",
+      "generationNumber": 1,
+      "generationCode": "AX1",
+      "releaseYm": "2024-09",
+      "endYm": null,
+      "colorName": "톰보이 카키",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_104b23d29f8e159bdb51"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_666891680b4626e2837e",
+      "fileName": "hyundai_asset_666891680b4626e2837e.png",
+      "model": "캐스퍼",
+      "generationName": "캐스퍼",
+      "generationNumber": 1,
+      "generationCode": "AX1",
+      "releaseYm": "2021-09",
+      "endYm": "2024-10",
+      "colorName": "톰보이 카키",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_95a0e120f20c5878ef3d"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_4ecef15668c1a2ea3306",
+      "fileName": "hyundai_asset_4ecef15668c1a2ea3306.png",
+      "model": "코나",
+      "generationName": "코나 일렉트릭 (SX2)",
+      "generationNumber": 2,
+      "generationCode": "SX2",
+      "releaseYm": "2023-04",
+      "endYm": null,
+      "colorName": "미라지 그린",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_84a1973cf6f04f8b356b"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_028dfb774a0fcb36ff0d",
+      "fileName": "hyundai_asset_028dfb774a0fcb36ff0d.png",
+      "model": "코나",
+      "generationName": "코나 (SX2)",
+      "generationNumber": 2,
+      "generationCode": "SX2",
+      "releaseYm": "2023-01",
+      "endYm": null,
+      "colorName": "미라지 그린",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_fc802a917835ec254b0e",
+        "model_car_encar_generation_31dce38f7f57bc68a427"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_aaa2f6fbbabb512e1f7e",
+      "fileName": "hyundai_asset_aaa2f6fbbabb512e1f7e.png",
+      "model": "코나",
+      "generationName": "더 뉴 코나",
+      "generationNumber": 1,
+      "generationCode": "OS",
+      "releaseYm": "2020-10",
+      "endYm": "2023-01",
+      "colorName": "서피 블루",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_6e9d21939eb5ee0b8d22",
+        "model_car_encar_generation_03f446976202d19e372a"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_9757b7986f41749fda27",
+      "fileName": "hyundai_asset_9757b7986f41749fda27.png",
+      "model": "코나",
+      "generationName": "코나 하이브리드",
+      "generationNumber": 1,
+      "generationCode": "OS",
+      "releaseYm": "2019-08",
+      "endYm": "2020-12",
+      "colorName": "서피 블루",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_6aa939b6d15f414d5375",
+        "model_car_encar_generation_5b80799bf357b97ad474"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_dfcfa74cff1ada4be653",
+      "fileName": "hyundai_asset_dfcfa74cff1ada4be653.png",
+      "model": "코나",
+      "generationName": "코나 일렉트릭",
+      "generationNumber": 1,
+      "generationCode": "OS",
+      "releaseYm": "2018-04",
+      "endYm": "2023-04",
+      "colorName": "서피 블루",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_3e25171efc14f9eeefbc"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_72152be6a1be3a71e876",
+      "fileName": "hyundai_asset_72152be6a1be3a71e876.png",
+      "model": "클릭",
+      "generationName": "뉴 클릭",
+      "generationNumber": 1,
+      "generationCode": "TB",
+      "releaseYm": "2005-07",
+      "endYm": "2010-12",
+      "colorName": "밀키 화이트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_986e5aaaef227bad39b6"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_cb23f7152162470b8ab5",
+      "fileName": "hyundai_asset_cb23f7152162470b8ab5.png",
+      "model": "테라칸",
+      "generationName": "테라칸",
+      "generationNumber": 1,
+      "generationCode": "HP",
+      "releaseYm": "2001-02",
+      "endYm": "2007-05",
+      "colorName": "티타늄 그레이 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_27aa2deb38edb3384002"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_7c228cbae5aa2a1f64bf",
+      "fileName": "hyundai_asset_7c228cbae5aa2a1f64bf.png",
+      "model": "투스카니",
+      "generationName": "투스카니(신형)",
+      "generationNumber": 1,
+      "generationCode": "GK",
+      "releaseYm": "2006-10",
+      "endYm": "2008-12",
+      "colorName": "트로피컬 레드",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_1fa5824ce63c16b75395"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_31a87ad27cf74e5c610f",
+      "fileName": "hyundai_asset_31a87ad27cf74e5c610f.png",
+      "model": "투스카니",
+      "generationName": "투스카니",
+      "generationNumber": 1,
+      "generationCode": "GK",
+      "releaseYm": "2001-09",
+      "endYm": "2006-12",
+      "colorName": "트로피컬 레드",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_9bc110e7f2b5d467728d"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_ec3ddb4b51d7312c0650",
+      "fileName": "hyundai_asset_ec3ddb4b51d7312c0650.png",
+      "model": "투싼",
+      "generationName": "더 뉴 투싼 (NX4)",
+      "generationNumber": 4,
+      "generationCode": "NX4",
+      "releaseYm": "2023-11",
+      "endYm": null,
+      "colorName": "쉬머링 실버 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_1c1c06829bfb166fec99",
+        "model_car_encar_generation_3a691d6ac55ae5aab2b2"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_a2f9a878e328bfcee978",
+      "fileName": "hyundai_asset_a2f9a878e328bfcee978.png",
+      "model": "투싼",
+      "generationName": "투싼 (NX4)",
+      "generationNumber": 4,
+      "generationCode": "NX4",
+      "releaseYm": "2020-10",
+      "endYm": "2023-11",
+      "colorName": "쉬머링 실버 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_43b88eab6121458b4b93",
+        "model_car_encar_generation_04d71c8cc9bb16028ab5"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_c80c8fef358de74666ce",
+      "fileName": "hyundai_asset_c80c8fef358de74666ce.png",
+      "model": "투싼",
+      "generationName": "올 뉴 투싼",
+      "generationNumber": 3,
+      "generationCode": "TL",
+      "releaseYm": "2015-03",
+      "endYm": "2020-11",
+      "colorName": "아라 블루",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_816cdd934dde66f4baa6"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_e830ca0cf10943467fed",
+      "fileName": "hyundai_asset_e830ca0cf10943467fed.png",
+      "model": "투싼",
+      "generationName": "뉴 투싼 ix",
+      "generationNumber": 2,
+      "generationCode": "LM",
+      "releaseYm": "2013-05",
+      "endYm": "2015-05",
+      "colorName": "실키 브론즈",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_27dafd700037d45596ac"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_691bafc74401895e167d",
+      "fileName": "hyundai_asset_691bafc74401895e167d.png",
+      "model": "투싼",
+      "generationName": "투싼 ix",
+      "generationNumber": 2,
+      "generationCode": "LM",
+      "releaseYm": "2009-09",
+      "endYm": "2013-07",
+      "colorName": "실키 브론즈",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_3d3a0472ccce05d560ef"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_93b9b57ad93ada5fa22f",
+      "fileName": "hyundai_asset_93b9b57ad93ada5fa22f.png",
+      "model": "투싼",
+      "generationName": "투싼",
+      "generationNumber": 1,
+      "generationCode": "JM",
+      "releaseYm": "2004-03",
+      "endYm": "2009-10",
+      "colorName": "노틸러스 블루",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_83113b7448665b71a00d"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_665279d83a8c57f8a63e",
+      "fileName": "hyundai_asset_665279d83a8c57f8a63e.png",
+      "model": "트라제 XG",
+      "generationName": "트라제 XG",
+      "generationNumber": 1,
+      "generationCode": "FO",
+      "releaseYm": "1999-10",
+      "endYm": "2007-07",
+      "colorName": "쉬머링 실버 메탈릭",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_d16a006f9717fdd58261"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_0faf6738c2a6ed2dd8a2",
+      "fileName": "hyundai_asset_0faf6738c2a6ed2dd8a2.png",
+      "model": "티뷰론",
+      "generationName": "티뷰론",
+      "generationNumber": 1,
+      "generationCode": "RD",
+      "releaseYm": "1996-04",
+      "endYm": "2001-11",
+      "colorName": "트로피컬 레드",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_4e91208ba1efd5961679"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_b8c0ca0bf6eb3a1f2b2a",
+      "fileName": "hyundai_asset_b8c0ca0bf6eb3a1f2b2a.png",
+      "model": "팰리세이드",
+      "generationName": "팰리세이드 (LX3)",
+      "generationNumber": 2,
+      "generationCode": "LX3",
+      "releaseYm": "2025-01",
+      "endYm": null,
+      "colorName": "에코트로닉 그레이 펄",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_512c2747147daa8d927d"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_c41c8aec142888bb8120",
+      "fileName": "hyundai_asset_c41c8aec142888bb8120.png",
+      "model": "팰리세이드",
+      "generationName": "더 뉴 팰리세이드",
+      "generationNumber": 1,
+      "generationCode": "LX2",
+      "releaseYm": "2022-05",
+      "endYm": "2025-01",
+      "colorName": "문라이트 클라우드",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_63857ce9bbbc290fef89"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_bf1c21485d61227e5b4f",
+      "fileName": "hyundai_asset_bf1c21485d61227e5b4f.png",
+      "model": "팰리세이드",
+      "generationName": "팰리세이드",
+      "generationNumber": 1,
+      "generationCode": "LX2",
+      "releaseYm": "2018-12",
+      "endYm": "2022-04",
+      "colorName": "문라이트 클라우드",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_86320b957d28f835678f"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_7c9b00a8e1e5e1021091",
+      "fileName": "hyundai_asset_7c9b00a8e1e5e1021091.png",
+      "model": "포니",
+      "generationName": "포니투",
+      "generationNumber": 1,
+      "generationCode": "110",
+      "releaseYm": "1982-01",
+      "endYm": "1990-03",
+      "colorName": "아이보리 화이트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_06700153a32082b6badf"
+      ],
+      "status": "pending"
+    },
+    {
+      "assetId": "hyundai_asset_f417f470a391fa6e670d",
+      "fileName": "hyundai_asset_f417f470a391fa6e670d.png",
+      "model": "프레스토",
+      "generationName": "프레스토",
+      "generationNumber": 1,
+      "generationCode": "X1",
+      "releaseYm": "1985-07",
+      "endYm": "1986-11",
+      "colorName": "아이보리 화이트",
+      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_2177fbbb4d584383a58f"
+      ],
+      "status": "pending"
+    }
+  ]
+}
