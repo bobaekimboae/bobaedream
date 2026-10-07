@@ -33,6 +33,7 @@ import {
   partsScenarioV01,
   virtualCategoryBrands,
   type VirtualCategoryListingRow,
+  partsCardDetailsV01,
 } from "./category-virtual-scenario-v01";
 
 export type SellerType = "전체" | "개인" | "딜러";
@@ -1017,6 +1018,7 @@ const virtualDomesticBrands = new Set(["현대", "기아", "르노코리아", "�
 const toVirtualCategoryCars = (rows: readonly VirtualCategoryListingRow[], idBase: number): Car[] => rows.map((row, index) => {
   const isParts = row.category === "부품 · 용품";
   const isMaterial = row.category === "자재운반장비";
+  const partsDetail = isParts ? partsCardDetailsV01[row.model] : undefined;
   const usage = isParts ? "미사용·중고 혼합" : isMaterial ? `${Math.round(row.mileage / 10).toLocaleString("ko-KR")}h` : `${row.mileage.toLocaleString("ko-KR")}km`;
   return {
     id: idBase + index,
@@ -1027,9 +1029,11 @@ const toVirtualCategoryCars = (rows: readonly VirtualCategoryListingRow[], idBas
     imageFit: "contain",
     title: `${row.maker} ${row.model}`,
     // 캠핑카는 엔카 캠핑카 목록처럼 2행 = 형태(클래스 C 모터홈 · 캐러밴 · 팝업 캠퍼). 제목에 「UI 검증용 가상 매물」은 넣지 않는다(2026-10-07 사용자 지시)
-    trim: row.category === "캠핑카" ? (/캐러밴|캠퍼|모터홈/.test(row.subtype) ? row.subtype : `${row.subtype} 모터홈`) : row.subtype,
-    specs: [`${row.year}년식`, usage, row.fuel, row.transmission],
-    price: `${row.price10k.toLocaleString("ko-KR")} 만원`,
+    // 부품·용품은 분류 낱말이 모델명에 이미 있으면(AGM 배터리 + 배터리) 붙이지 않는다
+    trim: row.category === "캠핑카" ? (/캐러밴|캠퍼|모터홈/.test(row.subtype) ? row.subtype : `${row.subtype} 모터홈`) : isParts && row.subtype.split(" ").some((word) => row.model.includes(word)) ? "" : row.subtype,
+    // 부품·용품은 차량 스펙(연식·연료·변속기) 대신 규격 · 수량 · 적용 차종 · 상태, 가격은 부품 가격대
+    specs: isParts && partsDetail ? [partsDetail.spec, partsDetail.quantity, partsDetail.fit, partsDetail.condition] : [`${row.year}년식`, usage, row.fuel, row.transmission],
+    price: `${(isParts && partsDetail ? partsDetail.price10k : row.price10k).toLocaleString("ko-KR")} 만원`,
     place: row.sellerAddress,
     views: 20 + index * 11,
     dealer: row.sellerName,
