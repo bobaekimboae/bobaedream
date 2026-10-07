@@ -81,13 +81,6 @@
    좌우 10 · 위 16 · 아래 20 안에서 contain + 아래 가운데 정렬 → 승용·트럭·지게차가 실사 사진과 비슷한 크기로 보인다 */
 .bbm-card-photo > img.is-catalog { padding: 16px 10px 20px; box-sizing: border-box; background: #f3f4f6; object-fit: contain; object-position: center bottom; }
 .bbm-card-photo:has(> img.is-catalog) .bbm-card-time { color: #8c8c8c; text-shadow: none; }
-/* 실사 사진도 칸을 꽉 채우지 않고 사진 전체를 보여 준다(2026-10-07 「사진이 아직도 꽉 차잖아」).
-   목록형 썸네일만: 같은 연회색 바탕 + contain → 그림 썸네일과 차 크기 균형. 피드 첫 큰 카드·갤러리는 그대로 꽉 채움 */
-/* 2026-10-07 「우르스보면 썸네일 안에 사진이 꽉 차잖아」: 그림 썸네일처럼 안쪽 여백을 두어 사진을 칸보다 작게 */
-.bbm-result-card:not(.is-feed-featured) .bbm-card-photo > img:not(.is-catalog) { box-sizing: border-box; padding: 18px 12px 24px; background: #f3f4f6; object-fit: contain; object-position: center center !important; }
-.bbm-m-list.is-gallery .bbm-result-card .bbm-card-photo > img:not(.is-catalog) { padding: 0; object-fit: cover; }
-.bbm-result-card:not(.is-feed-featured) .bbm-card-photo:has(> img:not(.is-catalog)) { background: #f3f4f6; }
-.bbm-m-list:not(.is-gallery) .bbm-result-card:not(.is-feed-featured) .bbm-card-photo:has(> img:not(.is-catalog)) .bbm-card-time { color: #8c8c8c; text-shadow: none; }
 .bbm-card-media-footer { position: absolute; right: 0; bottom: 0; left: 0; display: flex; align-items: center; justify-content: space-between; box-sizing: border-box; background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)); color: #fff; }
 .bbm-card-count { display: inline-flex; align-items: center; gap: 2px; font-size: 11px; font-weight: 600; line-height: 12px; }
 .bbm-card-count img { width: 12px; height: 12px; }
