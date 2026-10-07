@@ -35,6 +35,7 @@ import {
   type VirtualCategoryListingRow,
   partsCardDetailsV01,
   campingBerthsV01,
+  virtualListingPhotosV01,
 } from "./category-virtual-scenario-v01";
 
 export type SellerType = "전체" | "개인" | "딜러";
@@ -149,6 +150,7 @@ type Car = {
     category: "캠핑카" | "자재운반장비" | "부품 · 용품";
     subtype: string;
     berths?: number;
+    beds?: number;
     categoryDetail?: "모터홈" | "캐러밴";
     scenarioId: string;
     isVirtual: true;
@@ -1054,8 +1056,8 @@ const toVirtualCategoryCars = (rows: readonly VirtualCategoryListingRow[], idBas
     maker: row.maker,
     modelGroup: row.model,
     sellerType: row.sellerType,
-    image: row.image,
-    imageFit: "contain",
+    image: virtualListingPhotosV01[row.model] ?? row.image,
+    imageFit: virtualListingPhotosV01[row.model] ? "cover" : "contain",
     title: `${row.maker} ${row.model}`,
     // 캠핑카는 엔카 캠핑카 목록처럼 2행 = 형태(클래스 C 모터홈 · 캐러밴 · 팝업 캠퍼). 제목에 「UI 검증용 가상 매물」은 넣지 않는다(2026-10-07 사용자 지시)
     // 부품·용품은 분류 낱말이 모델명에 이미 있으면(AGM 배터리 + 배터리) 붙이지 않는다
@@ -1076,6 +1078,8 @@ const toVirtualCategoryCars = (rows: readonly VirtualCategoryListingRow[], idBas
       subtype: row.subtype,
       categoryDetail: row.categoryDetail,
       berths: row.category === "캠핑카" ? campingBerthsV01[row.model] : undefined,
+      // 침대 수(2026-10-07 「취침 4인을 침대 3」): 취침 인원 ÷ 2 올림 + 1 (2→2 · 3→3 · 4→3 · 5→4 · 6→4)
+      beds: row.category === "캠핑카" && campingBerthsV01[row.model] ? Math.ceil(campingBerthsV01[row.model] / 2) + 1 : undefined,
       scenarioId: row.id,
       isVirtual: true,
       scenarioVersion: "v01",

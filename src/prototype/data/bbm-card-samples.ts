@@ -1,6 +1,6 @@
 // QF-091: 개발 시안 카드의 등록연월·주행거리·연료·마력과 인증중고차·1년보증 배지를 채운다.
 // 우리 매물 데이터에 없는 값(월·년형·마력·배지)을 매물 id 로 정해지는 샘플 값으로 채운다. 실제 매물 정보가 아니다.
-type SampleSource = { id: number; specs: string[]; filter?: { year: number; mileage: number; fuel: string }; badges?: string[]; uiTest?: unknown; virtualCategory?: { category?: string; categoryDetail?: string; berths?: number }; bike?: { genre: string; displacement: number }; truck?: { trailer?: { load: string; length: string; axles: string } }; heavy?: { hours?: number }; cardSpec?: string[] };
+type SampleSource = { id: number; specs: string[]; filter?: { year: number; mileage: number; fuel: string }; badges?: string[]; uiTest?: unknown; virtualCategory?: { category?: string; categoryDetail?: string; berths?: number; beds?: number }; bike?: { genre: string; displacement: number }; truck?: { trailer?: { load: string; length: string; axles: string } }; heavy?: { hours?: number }; cardSpec?: string[] };
 
 const horsepowerPool = [190, 204, 245, 258, 150, 170, 305, 367, 122, 184, 225, 272];
 const badgePool: string[][] = [["인증중고차", "1년보증"], ["인증중고차", "1년보증"], [], ["1년보증"], ["인증중고차"], []];
@@ -38,8 +38,8 @@ export function bbmCardSpec(source: SampleSource, withPower = true) {
     // 올해 연식은 이번 달을 넘지 않게(미래 등록월 방지)
     const month = Math.min(((source.id * 5) % 12) + 1, year >= now.getFullYear() ? now.getMonth() + 1 : 12);
     const registered = `${String(year % 100).padStart(2, "0")}년${String(month).padStart(2, "0")}월`;
-    // 취침 인원(침대 수)을 끝에 붙인다: 취침 5인
-    const berths = source.virtualCategory.berths ? [`취침 ${source.virtualCategory.berths}인`] : [];
+    // 침대 수를 끝에 붙인다: 침대 3(2026-10-07 사용자 지시, 「취침 N인」 대신)
+    const berths = source.virtualCategory.beds ? [`침대 ${source.virtualCategory.beds}`] : [];
     return (source.virtualCategory.categoryDetail === "캐러밴" ? [registered, "견인형", ...berths] : [registered, mileageLabel(source), fuelLabel(source), ...berths]).join(" · ");
   }
   if (source.uiTest || source.virtualCategory) return source.specs.join(" · ");
