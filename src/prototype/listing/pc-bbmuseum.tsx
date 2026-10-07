@@ -418,7 +418,6 @@ function BbCarCard({ car, liked, onToggleLike, onOpen, onNotify }: { car: Car; l
               {car.sellerType === "딜러" ? <span className="bbm-card-seller-info"><b>{car.stock}대</b> 판매중</span> : null}
             </div>
             <div className="bbm-card-actions">
-              <button type="button" aria-label={`${seller}에게 채팅`} onClick={(event) => { event.stopPropagation(); onNotify("채팅은 정식 서비스에서 이용해 주세요."); }}><BbIcon name="chat" size={24} /></button>
               <button type="button" className={liked ? "is-liked" : ""} aria-label={`${car.title} ${liked ? "찜 해제" : "찜"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}><BbIcon name={liked ? "heart-filled" : "heart"} size={24} /></button>
             </div>
           </div>
