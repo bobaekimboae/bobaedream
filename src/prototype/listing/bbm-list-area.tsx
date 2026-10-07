@@ -28,7 +28,7 @@ const yearOf = (car: Car) => car.filter?.year ?? 0;
 const mileageOf = (car: Car) => car.filter?.mileage ?? Number.MAX_SAFE_INTEGER;
 
 export function sortBbmCars(cars: Car[], sort: BbmSort) {
-  const byUpdate = (a: Car, b: Car) => b.id - a.id;
+  const byUpdate = (a: Car, b: Car) => (b.updateRank ?? b.id) - (a.updateRank ?? a.id);
   const compare: Partial<Record<BbmSort, (a: Car, b: Car) => number>> = {
     등록순: (a, b) => postedMinutes(a) - postedMinutes(b) || byUpdate(a, b),
     "가격 낮은순": (a, b) => priceOf(a) - priceOf(b) || byUpdate(a, b),
