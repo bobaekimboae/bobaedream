@@ -28,7 +28,7 @@ for (const [key, relativePath] of Object.entries(imageMap)) {
   if (!png || width !== 960 || height !== 600) throw new Error(`이미지 규격 오류: ${relativePath} (${width}x${height})`);
   imageAudit.push({ key, relativePath, width, height, bytes: buffer.length });
 }
-if (imageAudit.length !== 12) throw new Error(`1차 이미지 수 오류: ${imageAudit.length}/12`);
+if (imageAudit.length !== generationKeys.size) throw new Error(`아우디 이미지 수 오류: ${imageAudit.length}/${generationKeys.size}`);
 
 const browser = await chromium.launch({ headless: true });
 const viewports = [];
@@ -41,7 +41,7 @@ try {
       if (message.type() === "error") consoleErrors.push(message.text());
     });
     page.on("pageerror", (error) => pageErrors.push(error.message));
-    await page.goto(`${base}/maker-model-skeleton-v01.html?v=audi-batch1-${width}`, { waitUntil: "networkidle" });
+    await page.goto(`${base}/maker-model-skeleton-v01.html?v=audi-complete-${width}`, { waitUntil: "networkidle" });
     await page.getByRole("button", { name: /아우디 4,297/ }).first().click();
     await page.getByRole("button", { name: /^A6/ }).first().click();
     await page.locator(".generation-list .option-row").first().waitFor();
@@ -58,7 +58,7 @@ try {
     if (rows.some((row) => row.imageLoaded === false)) throw new Error(`${width}px: 이미지 로딩 실패`);
     if (consoleErrors.length || pageErrors.length) throw new Error(`${width}px: 콘솔 ${consoleErrors.length}, 페이지 ${pageErrors.length}`);
     await page.screenshot({
-      path: path.join(output, `audi-a6-generation-batch1-${width}-v01.png`),
+      path: path.join(output, `audi-a6-generation-complete-${width}-v01.png`),
       fullPage: true,
     });
     viewports.push({ width, rows, consoleErrors, pageErrors });
@@ -76,7 +76,7 @@ const result = {
   imageAudit,
   viewports,
 };
-await fs.writeFile(path.join(output, "audi-generation-batch1-metrics.json"), `${JSON.stringify(result, null, 2)}\n`);
+await fs.writeFile(path.join(output, "audi-generation-complete-metrics.json"), `${JSON.stringify(result, null, 2)}\n`);
 console.log(JSON.stringify({
   models: result.modelCount,
   generations: result.generationCount,

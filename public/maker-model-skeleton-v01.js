@@ -14,6 +14,7 @@ const GENERATION_SUPPLEMENT_URL = "./data/encar-car-depth-1005/generation-supple
 const GENERATION_DISPLAY_IDENTITY_URLS = [
   "./data/encar-car-depth-1005/generation-display-identities/mercedes-benz.json",
   "./data/encar-car-depth-1005/generation-display-identities/bmw.json",
+  "./data/encar-car-depth-1005/generation-display-identities/audi.json",
 ];
 const PAGE_DIRECTORY = window.location.pathname.slice(0, window.location.pathname.lastIndexOf("/") + 1);
 const GENERATION_IMAGE_BASE = `${PAGE_DIRECTORY}assets/maker-model/generations/`;
