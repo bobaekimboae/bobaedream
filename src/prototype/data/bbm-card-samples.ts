@@ -67,6 +67,8 @@ export function bbmCardSpec(source: SampleSource, withPower = true) {
 }
 
 export function bbmCardBadges(source: SampleSource) {
+  // 지시값으로 넣은 매물(cardSpec)은 샘플 배지를 붙이지 않는다(2026-10-07 사용자 지시 「배지 빼고」)
+  if (source.cardSpec?.length) return source.badges ?? [];
   if (source.virtualCategory) return source.badges ?? [];
   return source.badges?.length ? source.badges : badgePool[source.id % badgePool.length];
 }
