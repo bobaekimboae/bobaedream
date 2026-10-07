@@ -57,6 +57,8 @@ const isForcedMobileView = () => !isDesktopPreview();
 const forcedMobileDesignWidth = 430;
 
 type Car = {
+  /** 전체차량 섞음 목록에서만 쓰는 업데이트순 순위(클수록 위). 없으면 id 로 정렬 */
+  updateRank?: number;
   id: number;
   maker: string;
   modelGroup?: string;

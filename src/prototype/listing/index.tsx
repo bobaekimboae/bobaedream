@@ -136,6 +136,14 @@ if (getInitialQuickFilterStyle() === "guazi") setPretendard(true);
 
 // QF-091: 적용 사이트 선택(시안 전환 도구)은 &debug=1 일 때만
 const debugMode = new URLSearchParams(window.location.search).get("debug") === "1";
+// 과쯔 「전체차량」: 승용·트럭·바이크·캠핑카·건설기계·자재운반장비·부품 매물을 한 목록에 섞는다.
+// 유형마다 자기 업데이트순(승용 id 큰 순, 나머지 데이터 순서)을 지키며 목록 전체에 고르게 퍼지도록 (순번+0.5)/개수 위치로 섞고 updateRank 로 고정한다.
+const allVehicleMixedCars: Car[] = (() => {
+  const groups = [sortBbmCars(bbmSampleCars, "업데이트순"), truckCars, bikeCars, campingCars, heavyCars, materialHandlingCars, partsCars];
+  const placed = groups.flatMap((group, groupIndex) => group.map((car, index) => ({ car, key: (index + 0.5) / group.length, groupIndex })));
+  placed.sort((first, second) => first.key - second.key || first.groupIndex - second.groupIndex);
+  return placed.map(({ car }, index) => ({ ...car, updateRank: placed.length - index }));
+})();
 
 // QF-076 부품 비교 화면(&bbmparts=1)
 const bbmPartsMode = new URLSearchParams(window.location.search).get("bbmparts") === "1";
@@ -669,7 +677,7 @@ function MarketplaceScreen() {
               ? partsCars
               : luxuryUiTestMode
                 ? luxuryUiTestCars
-                : isGuaziQuickStyle ? bbmSampleCars : chototTestCars;
+                : isGuaziQuickStyle ? (category === "전체" ? allVehicleMixedCars : bbmSampleCars) : chototTestCars;
   const bbmValue = filters.bbm ?? emptyBbmFilters;
   // QF-097: 과쯔는 9개 제조사의 모델·세부 모델을 카탈로그 스냅숏으로(model-catalog-kr), 나머지 제조사·다른 모드는 기존 데이터
   // 바이크는 30대 가상 매물에 나온 모델만 쓰지 않고 전체 카탈로그를 쓴다.
