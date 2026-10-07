@@ -78,7 +78,7 @@ import { MileageFinalSheet, mileageSummary } from "../filters/bbm-mileage";
 import { PriceFinalSheet } from "../filters/bbm-price";
 import { BbmPartsGallery } from "../filters/bbm-parts-gallery";
 import { BbmActionBar, BbmFullExcludeAction, BbmFullFilter, BbmFullItem, BbmModal, BbmSheet } from "../filters/bbm-filter-parts";
-import { BBM_MAKER_ITEM, bbmFilterOrder, bbmSidebarItems, bikeFilterOrder, daangnFilterLabel, splitDaangnFilterOrder, truckFilterOrder, type BbmFilterItem } from "../filters/bbm-filter-options";
+import { BBM_MAKER_ITEM, bbmFilterOrder, bbmSidebarItems, bikeFilterOrder, daangnFilterLabel, partsFilterOrder, partsPricePresets, splitDaangnFilterOrder, truckFilterOrder, type BbmFilterItem } from "../filters/bbm-filter-options";
 import { BbmBodyTypeSheet, BbmExpandPanel, BbmModalPanel, BbmSellerTypeSheet, clearBbmItem } from "../filters/bbm-filter-panels";
 import { BbmBottomGnb, BbmBrandMenu, BbmCategoryMenu, BbmCategoryPicker, BbmHeadlinePreviewLinks, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, bbmIcon } from "./bbm-list";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
@@ -1700,11 +1700,17 @@ function MarketplaceScreen() {
     selectedVariants.length || (selectedGeneration && guaziTrimRailOptions.length <= 1) ? null : chipByKey("variant"),
     ...otherApplied.map(toAppliedBbmChip),
     isHeavyCategory || isTruckCategory && (!selectedTruckSubtype || !truckSpecDepthComplete) ? null : maker ? null : { key: "maker", label: "제조사", active: false, onClick: () => supportsVehicleCatalog ? setSheet("vehicle") : openBbmChipPanel("제조사") },
-    groupChip("year", "연식", "연식", rangeIsSet(bbmValue.ranges.year)),
+    // 부품·용품: 연식·주행거리·연료 대신 분류 · 상태 · 적용 차종(2026-10-07)
+    ...(isPartsCategory ? [
+      groupChip("parts-subtype", "분류", "부품 분류", Boolean(bbmValue.checks.partsSubtype?.length)),
+      groupChip("parts-condition", "상태", "부품 상태", Boolean(bbmValue.checks.partsCondition?.length)),
+      groupChip("parts-fit", "적용 차종", "적용 차종", Boolean(bbmValue.checks.partsFit?.length)),
+    ] : []),
+    isPartsCategory ? null : groupChip("year", "연식", "연식", rangeIsSet(bbmValue.ranges.year)),
     // QF-118: 과쯔 PC 는 좌측 필터 순서대로 연식 다음 "주행거리 ▾"(누르면 가운데 모달). 모바일은 그대로
-    desktop && isGuaziQuickStyle ? (() => { const chip = groupChip("mileage", "주행거리", "주행거리", rangeIsSet(bbmValue.ranges.mileage)); return chip ? { ...chip, className: "is-mileage" } : null; })() : null,
+    desktop && isGuaziQuickStyle && !isPartsCategory ? (() => { const chip = groupChip("mileage", "주행거리", "주행거리", rangeIsSet(bbmValue.ranges.mileage)); return chip ? { ...chip, className: "is-mileage" } : null; })() : null,
     (() => { const chip = groupChip("price", "가격", "가격", rangeIsSet(bbmValue.ranges.price)); return chip ? { ...chip, className: "is-price" } : null; })(),
-    groupChip("fuel", "연료", "연료", Boolean(bbmValue.checks.fuel?.length)),
+    isPartsCategory ? null : groupChip("fuel", "연료", "연료", Boolean(bbmValue.checks.fuel?.length)),
   ] as Array<BbmChip | null | undefined>).filter((chip): chip is BbmChip => Boolean(chip));
   const mobileBbmChips: BbmChip[] = [
     ...(!isTruckCategory ? [{
@@ -1830,7 +1836,7 @@ function MarketplaceScreen() {
     // QF-118: 과쯔 PC 주행거리 칩 → 가운데 모달(모바일 시트와 같은 내용, 임시 값 · "N대 보기"로 적용). 닫히면 주행거리 칩(적용 칩 포함)으로 포커스 복귀
     if (isGuaziQuickStyle && item.label === "주행거리" && onDesktop) return <MileageFinalSheet variant="modal" value={bbmValue} countOf={countWithBbm} onApply={setBbmFilters} onClose={close} returnFocus={focusMileageChip} />;
     // 가격도 주행거리와 동일하게 모바일 바텀시트·PC 중앙 모달이 한 본문을 공유하며, 결과 버튼을 눌러야 적용한다.
-    if (isGuaziQuickStyle && item.label === "가격") return <PriceFinalSheet variant={onDesktop ? "modal" : "sheet"} value={bbmValue} countOf={countWithBbm} onApply={setBbmFilters} onClose={close} returnFocus={onDesktop ? focusPriceChip : undefined} />;
+    if (isGuaziQuickStyle && item.label === "가격") return <PriceFinalSheet variant={onDesktop ? "modal" : "sheet"} value={bbmValue} countOf={countWithBbm} onApply={setBbmFilters} onClose={close} returnFocus={onDesktop ? focusPriceChip : undefined} presets={isPartsCategory ? partsPricePresets : undefined} hideTabs={isPartsCategory} />;
     // 원본 실측(2026-09-24): PC 칩으로 연 모달 버튼은 항목 종류를 따른다 — 펼침형(바디타입·연식·가격) "N대 보기", 모달형(연료·인승·판매자) "확인 N대"
     const confirmStyle = !onDesktop || item.mode === "expand" ? "보기" : "확인";
     const footer = item.label === "광고기간" ? undefined : <BbmActionBar variant={onDesktop ? "modal" : "sheet"} confirmStyle={confirmStyle} count={shownCars.length} onReset={() => setPanelValue(clearBbmItem(item, panelValue))} onConfirm={apply} />;
@@ -1952,7 +1958,7 @@ function MarketplaceScreen() {
             {/* QF-106b: 경로는 상단 카드 밖(회색 바탕 위), 카드는 제목 줄부터 */}
             {isGuaziQuickStyle ? <div className="bbm-hybrid-top"><BbmTopCrumbs items={bbmCrumbs} />{bbmTopCard}</div> : null}
             <div className="bbm-page">
-              <BbFilterSidebar collapsible mileageFinal={isGuaziQuickStyle} priceFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? isTruckCategory ? truckFilterOrder : category === "바이크" ? bikeFilterOrder : bbmFilterOrder : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} brandLogoCategory={category} truckFilter={truckSidebarFilter} />
+              <BbFilterSidebar collapsible mileageFinal={isGuaziQuickStyle} priceFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? isTruckCategory ? truckFilterOrder : category === "바이크" ? bikeFilterOrder : isPartsCategory ? partsFilterOrder : bbmFilterOrder : undefined} pricePresets={isPartsCategory ? partsPricePresets : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} brandLogoCategory={category} truckFilter={truckSidebarFilter} />
               <div className="bbm-content">
                 {isGuaziQuickStyle ? null : bbmContentHead}
                 <section className="bbm-results" aria-label="매물 목록">
@@ -1998,7 +2004,7 @@ function MarketplaceScreen() {
         {truckSidebarFilter ? <TruckTypePicker desktop open={truckTypePickerOpen} onClose={() => setTruckTypePickerOpen(false)} value={truckSidebarFilter} /> : null}
         {drawerFilterChip && bbmDrawerOpen ? (
           <BbmFilterDrawer count={visibleCars.length} onClose={() => setBbmDrawerOpen(false)} onReset={() => setBbmDrawerReset((value) => value + 1)}>
-            <BbFilterSidebar mileageFinal={isGuaziQuickStyle} priceFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? isTruckCategory ? truckFilterOrder : category === "바이크" ? bikeFilterOrder : bbmFilterOrder : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmDrawerReset} brandLogos={isGuaziQuickStyle} brandLogoCategory={category} truckFilter={truckSidebarFilter} />
+            <BbFilterSidebar mileageFinal={isGuaziQuickStyle} priceFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? isTruckCategory ? truckFilterOrder : category === "바이크" ? bikeFilterOrder : isPartsCategory ? partsFilterOrder : bbmFilterOrder : undefined} pricePresets={isPartsCategory ? partsPricePresets : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmDrawerReset} brandLogos={isGuaziQuickStyle} brandLogoCategory={category} truckFilter={truckSidebarFilter} />
           </BbmFilterDrawer>
         ) : null}
         {marketSheet}
@@ -2083,6 +2089,8 @@ function MarketplaceScreen() {
       ? [null, ...bikeFilterOrder.filter((label) => label !== "제조사 · 모델").map((label) => bbmSidebarItems.find((item) => item.label === label)).filter((item): item is BbmFilterItem => Boolean(item))]
       : isTruckCategory
         ? [null, ...truckFilterOrder.filter((label) => label !== "제조사 · 모델").map((label) => bbmSidebarItems.find((item) => item.label === label)).filter((item): item is BbmFilterItem => Boolean(item))]
+        : isPartsCategory
+          ? [null, ...partsFilterOrder.filter((label) => label !== "제조사 · 모델").map((label) => bbmSidebarItems.find((item) => item.label === label)).filter((item): item is BbmFilterItem => Boolean(item))]
         : [bbmSidebarItems[0], bbmSidebarItems[1], null, ...bbmSidebarItems.filter((item) => !item.scope).slice(2)];
     const fullItemMap = new Map(fullItems.map((item) => [item?.label ?? BBM_MAKER_ITEM, item]));
     const { primary: primaryFullOrder, secondary: secondaryFullOrder } = splitDaangnFilterOrder([...fullItemMap.keys()]);
@@ -2181,7 +2189,7 @@ function MarketplaceScreen() {
         ) : null}
         {/* QF-117: 과쯔 모바일 주행거리는 전용 바텀시트(임시 값 · 대수 실시간 · 적용해야 확정) */}
         {bbmFullOpen && bbmFullItem && typeof bbmFullItem === "object" && bbmFullItem.label === "주행거리" && isGuaziQuickStyle ? <MileageFinalSheet value={fullValue} countOf={countWithBbm} onApply={setSheetValue} onClose={closeFullItem} /> : null}
-        {bbmFullOpen && bbmFullItem && typeof bbmFullItem === "object" && bbmFullItem.label === "가격" && isGuaziQuickStyle ? <PriceFinalSheet value={fullValue} countOf={countWithBbm} onApply={setSheetValue} onClose={closeFullItem} /> : null}
+        {bbmFullOpen && bbmFullItem && typeof bbmFullItem === "object" && bbmFullItem.label === "가격" && isGuaziQuickStyle ? <PriceFinalSheet value={fullValue} countOf={countWithBbm} onApply={setSheetValue} onClose={closeFullItem} presets={isPartsCategory ? partsPricePresets : undefined} hideTabs={isPartsCategory} /> : null}
         {bbmFullOpen && bbmFullItem && typeof bbmFullItem === "object" && bbmFullItem.checkKey === "sellerKind" ? <BbmSellerTypeSheet value={fullValue} countWith={countWithBbm} countOf={bbmCountOf} onApply={setSheetValue} onClose={closeFullItem} /> : null}
         {bbmFullOpen && bbmFullItem && typeof bbmFullItem === "object" && bbmFullItem.checkKey === "bodyType" ? <BbmBodyTypeSheet value={fullValue} countWith={countWithBbm} countOf={bbmCountOf} onApply={setSheetValue} onClose={closeFullItem} /> : null}
         {truckSidebarFilter ? <TruckTypePicker desktop={false} open={truckTypePickerOpen} onClose={() => setTruckTypePickerOpen(false)} value={truckSidebarFilter} /> : null}

@@ -25,7 +25,8 @@ function PriceField({ label, value, onChange }: { label: string; value: string; 
 }
 
 /** 가격 본문은 모바일 바텀시트와 PC 중앙 모달이 완전히 같은 컴포넌트를 공유한다. */
-export function PriceFinalPanel({ value, onChange }: { value: BbmFilterValues; onChange: (next: BbmFilterValues) => void }) {
+// presets: 카테고리별 가격 구간(부품·용품은 만원 단위). 없으면 승용 구간. hideTabs: 리스·렌트가 없는 카테고리
+export function PriceFinalPanel({ value, onChange, presets = PRICE_PRESETS, hideTabs = false }: { value: BbmFilterValues; onChange: (next: BbmFilterValues) => void; presets?: string[]; hideTabs?: boolean }) {
   const range = value.ranges.price ?? { min: "", max: "" };
   const pickPreset = (preset: string) => {
     if (preset === "전체" || range.preset === preset) return onChange(setBbmRange(value, "price", { min: "", max: "" }));
@@ -33,16 +34,16 @@ export function PriceFinalPanel({ value, onChange }: { value: BbmFilterValues; o
   };
   const type = (key: "min" | "max", text: string) => onChange(setBbmRange(value, "price", { min: range.min, max: range.max, [key]: text }));
   return <div className="pf-panel">
-    <div className="pf-tabs" role="tablist" aria-label="가격 종류">
+    {hideTabs ? null : <div className="pf-tabs" role="tablist" aria-label="가격 종류">
       {PRICE_TABS.map((tab) => <button key={tab} type="button" role="tab" aria-selected={value.priceTab === tab} className={value.priceTab === tab ? "is-selected" : ""} onClick={() => onChange({ ...value, priceTab: tab })}>{tab}</button>)}
-    </div>
+    </div>}
     <div className="pf-input-block">
       <div className="pf-inputs"><PriceField label="최저 가격" value={range.min} onChange={(text) => type("min", text)} /><span className="pf-sep" aria-hidden="true">–</span><PriceField label="최고 가격" value={range.max} onChange={(text) => type("max", text)} /></div>
       {priceInvalid(value) ? <p className="pf-error" role="alert">최저 가격이 최고 가격보다 높습니다.</p> : null}
     </div>
     <p className="pf-guide">원하는 가격을 직접 입력하거나 구간을 선택하세요.</p>
     <div className="pf-chips" role="group" aria-label="가격 구간">
-      {PRICE_PRESETS.map((preset) => { const selected = preset === "전체" ? !range.min && !range.max : range.preset === preset; return <button key={preset} type="button" className={selected ? "is-selected" : ""} aria-pressed={selected} onClick={() => pickPreset(preset)}>{preset === "9천만원~" ? "9천만원 이상" : preset}</button>; })}
+      {presets.map((preset) => { const selected = preset === "전체" ? !range.min && !range.max : range.preset === preset; return <button key={preset} type="button" className={selected ? "is-selected" : ""} aria-pressed={selected} onClick={() => pickPreset(preset)}>{preset === "9천만원~" ? "9천만원 이상" : preset}</button>; })}
     </div>
   </div>;
 }
@@ -63,7 +64,7 @@ function useScrollLock(enabled: boolean) {
 }
 
 /** 닫기·배경·Esc는 임시값을 버리고, 아래 결과 버튼만 가격을 적용한다. */
-export function PriceFinalSheet({ value, countOf, onApply, onClose, variant = "sheet", returnFocus }: { value: BbmFilterValues; countOf: (next: BbmFilterValues) => number; onApply: (next: BbmFilterValues) => void; onClose: () => void; variant?: "sheet" | "modal"; returnFocus?: () => HTMLElement | null }) {
+export function PriceFinalSheet({ value, countOf, onApply, onClose, variant = "sheet", returnFocus, presets, hideTabs }: { presets?: string[]; hideTabs?: boolean;  value: BbmFilterValues; countOf: (next: BbmFilterValues) => number; onApply: (next: BbmFilterValues) => void; onClose: () => void; variant?: "sheet" | "modal"; returnFocus?: () => HTMLElement | null }) {
   const modal = variant === "modal";
   const [draft, setDraft] = useState(value);
   const [count, setCount] = useState(() => countOf(value));
@@ -93,7 +94,7 @@ export function PriceFinalSheet({ value, countOf, onApply, onClose, variant = "s
   return createPortal(<div className={`bbmf-overlay mf-overlay ${modal ? "mf-modal-overlay" : "is-sheet"}`} onClick={(event) => { if (event.target === event.currentTarget) close(); }}>
     <section ref={dialog} className={`mf-sheet pf-sheet${modal ? " is-modal" : ""}`} role="dialog" aria-modal="true" aria-labelledby={titleId} onKeyDown={trap}>
       <header className="mf-header"><h3 className="mf-title" id={titleId}>가격</h3><button type="button" className="mf-close" aria-label="닫기" onClick={close}><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg></button></header>
-      <div className="mf-body"><PriceFinalPanel value={draft} onChange={setDraft} /></div>
+      <div className="mf-body"><PriceFinalPanel value={draft} onChange={setDraft} presets={presets} hideTabs={hideTabs} /></div>
       <div className="mf-actions"><button type="button" className="mf-reset" disabled={!hasPrice} onClick={() => setDraft(clearPrice(draft))}>초기화</button><button type="button" className="mf-confirm" disabled={invalid} onClick={confirm}>{count.toLocaleString("ko-KR")}대 보기</button></div>
     </section>
   </div>, document.body);

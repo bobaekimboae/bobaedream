@@ -34,6 +34,7 @@ import {
   virtualCategoryBrands,
   type VirtualCategoryListingRow,
   partsCardDetailsV01,
+  campingBerthsV01,
 } from "./category-virtual-scenario-v01";
 
 export type SellerType = "전체" | "개인" | "딜러";
@@ -143,6 +144,7 @@ type Car = {
   virtualCategory?: {
     category: "캠핑카" | "자재운반장비" | "부품 · 용품";
     subtype: string;
+    berths?: number;
     categoryDetail?: "모터홈" | "캐러밴";
     scenarioId: string;
     isVirtual: true;
@@ -174,6 +176,9 @@ type Car = {
     bikeGenre?: string;
     bikeLicense?: string;
     bikeSource?: string;
+    partsSubtype?: string;
+    partsCondition?: string;
+    partsFit?: string;
   };
 };
 
@@ -1046,6 +1051,7 @@ const toVirtualCategoryCars = (rows: readonly VirtualCategoryListingRow[], idBas
       category: row.category,
       subtype: row.subtype,
       categoryDetail: row.categoryDetail,
+      berths: row.category === "캠핑카" ? campingBerthsV01[row.model] : undefined,
       scenarioId: row.id,
       isVirtual: true,
       scenarioVersion: "v01",
@@ -1062,6 +1068,10 @@ const toVirtualCategoryCars = (rows: readonly VirtualCategoryListingRow[], idBas
       origin: virtualDomesticBrands.has(row.maker) ? "국산" : "수입",
       body: row.category,
       video: false,
+      // 부품·용품 필터 값: 분류 · 상태(중고 80% → 중고) · 적용 차종(범용 5x112 → 범용)
+      partsSubtype: isParts ? row.subtype : undefined,
+      partsCondition: partsDetail ? partsDetail.condition.replace(/\s*\d+%$/, "") : undefined,
+      partsFit: partsDetail ? (partsDetail.fit.startsWith("범용") ? "범용" : partsDetail.fit) : undefined,
     },
   };
 });
