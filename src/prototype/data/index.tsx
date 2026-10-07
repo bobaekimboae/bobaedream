@@ -34,6 +34,7 @@ import {
   virtualCategoryBrands,
   type VirtualCategoryListingRow,
   partsCardDetailsV01,
+  campingBerthsV01,
 } from "./category-virtual-scenario-v01";
 
 export type SellerType = "전체" | "개인" | "딜러";
@@ -143,6 +144,7 @@ type Car = {
   virtualCategory?: {
     category: "캠핑카" | "자재운반장비" | "부품 · 용품";
     subtype: string;
+    berths?: number;
     categoryDetail?: "모터홈" | "캐러밴";
     scenarioId: string;
     isVirtual: true;
@@ -1046,6 +1048,7 @@ const toVirtualCategoryCars = (rows: readonly VirtualCategoryListingRow[], idBas
       category: row.category,
       subtype: row.subtype,
       categoryDetail: row.categoryDetail,
+      berths: row.category === "캠핑카" ? campingBerthsV01[row.model] : undefined,
       scenarioId: row.id,
       isVirtual: true,
       scenarioVersion: "v01",
