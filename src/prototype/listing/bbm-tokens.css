@@ -27,7 +27,8 @@
   --list-meta-size: 14px;
   --list-meta-weight: 400;
   --list-meta-line: 20px;
-  --list-price: #e5193b;
+  /* 현대 인증중고차처럼 가격 숫자는 검정 굵게, 만원은 같은 색·같은 크기에 굵기만 낮춘다 */
+  --list-price: #222222;
   --list-price-size: 16px;
   --list-price-weight: 700;
   --list-price-line: 24px;
@@ -308,7 +309,7 @@
 .bbm-result-card.is-mobile .bbm-card-spec { height: var(--list-meta-line); margin-top: 4px; color: var(--list-meta); font-size: var(--list-meta-size); font-weight: var(--list-meta-weight); line-height: var(--list-meta-line); }
 .bbm-result-card.is-mobile .bbm-card-price-badges { display: flex; height: 24px; flex-direction: row; align-items: center; gap: 4px; margin-top: 0; overflow: hidden; }
 .bbm-result-card.is-mobile .bbm-card-price { height: var(--list-price-line); align-items: center; color: var(--list-price); font-size: var(--list-price-size); font-weight: var(--list-price-weight); line-height: var(--list-price-line); }
-.bbm-result-card.is-mobile .bbm-card-price-unit { color: var(--list-price); font-size: var(--list-price-size); font-weight: var(--list-price-weight); line-height: var(--list-price-line); }
+.bbm-result-card.is-mobile .bbm-card-price-unit { color: var(--list-price); font-size: var(--list-price-size); font-weight: 400; line-height: var(--list-price-line); }
 .bbm-result-card.is-mobile .bbm-card-badges { height: 20px; }
 .bbm-result-card.is-mobile.has-badges .bbm-card-meta,
 .bbm-result-card.is-mobile.has-no-badges .bbm-card-meta { margin-top: 8px; }
@@ -326,7 +327,11 @@
 .bbm-result-card.is-mobile .bbm-card-seller-logo { width: 16px; height: 16px; }
 .bbm-result-card.is-mobile .bbm-card-seller { gap: 6px; }
 .bbm-result-card.is-mobile .bbm-card-seller-text { gap: 8px; }
-.bbm-result-card.is-mobile .bbm-card-seller-text { font-size: 12px; line-height: 18px; }
+/* 초톳 앱 실측: 지역 줄 전체 #8C8C8C, 판매자 이름 #222, 두 줄 같은 크기(대문자 8.89·잉크 높이 약 12.4).
+   프리텐다드 한글은 글자 크기의 0.87이라 14px(한글 약 12.2)로 맞춘다 */
+.bbm-result-card.is-mobile .bbm-card-seller-text { font-size: 14px; line-height: 20px; }
+.bbm-result-card.is-mobile .bbm-card-location,
+.bbm-result-card.is-mobile .bbm-card-location-secondary { color: #8c8c8c; }
 .bbm-result-card.is-mobile .bbm-card-seller-text strong { color: var(--bbm-text-strong); }
 .bbm-result-card.is-mobile .bbm-card-actions { align-items: center; gap: 4px; }
 .bbm-result-card.is-mobile .bbm-card-actions .bbm-card-chat { width: 36px; height: 32px; }
@@ -345,7 +350,7 @@
 .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-title { display: -webkit-box; min-height: 42px; overflow: hidden; font-size: 15px; line-height: 21px; text-overflow: clip; white-space: normal; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-spec { height: 20px; font-size: 13px; line-height: 20px; }
 .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-price-badges { display: block; }
-.bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-price { height: 24px; color: #f2385a; font-size: 18px; line-height: 24px; }
+.bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-price { height: 24px; color: var(--list-price); font-size: 18px; line-height: 24px; }
 .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-price-unit { font-size: 13px; }
 .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-badges,
 .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-seller { display: none; }
