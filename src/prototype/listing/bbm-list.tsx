@@ -303,11 +303,11 @@ export function BbmMobileOptions<T extends string>({
 }) {
   const viewIcon = viewMode === "갤러리로 보기" ? "view-list-chotot-v02" : "view-grid-chotot";
   return (
-    <nav className="bbm-m-options" aria-label="정렬, 영상 매물, 판매자 유형과 보기 방식">
+    <nav className="bbm-m-options" aria-label="정렬, 숏폼중고차, 판매자 유형과 보기 방식">
       <button type="button" className="bbm-m-sort" onClick={onSort}><span>{sortLabel}</span><img src={bbmIcon("toolbar-sort-chevron")} alt="" aria-hidden="true" /></button>
-      <div className="bbm-m-filter-tabs" role="group" aria-label="영상 매물과 판매자 유형">
+      <div className="bbm-m-filter-tabs" role="group" aria-label="숏폼중고차와 판매자 유형">
         <button type="button" className={`bbm-m-filter-tab${videoOnly ? " is-selected" : ""}`} aria-pressed={videoOnly} onClick={onToggleVideo}>
-          <span>영상 매물</span>{videoOnly ? <Cross2Icon className="bbm-m-filter-clear" aria-hidden="true" /> : null}
+          <span>숏폼중고차</span>{videoOnly ? <Cross2Icon className="bbm-m-filter-clear" aria-hidden="true" /> : null}
         </button>
         {sellerTabs.map((tab) => {
           const selected = sellerValue === tab;
