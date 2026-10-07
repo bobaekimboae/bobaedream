@@ -841,6 +841,12 @@ const getInitialChoTotFilters = (): ChoTotFilterState => {
 };
 const listingBadgeOptions: ListingBadge[] = ["브랜드인증", "제조사보증", "1인소유", "가격인하", "인증중고차"];
 
+// 2026-10-07 사용자 지시: 카드의 판매자·지역에 「(가상)」 「가상 매물 전시장」 대신 실제처럼 보이는 가상 이름.
+// 딜러 = 가상 인물 이름 + 「딜러」(승용 카드와 같은 형식), 개인 = 「개인판매자」. 원본 시나리오 값은 그대로 둔다
+const virtualPersonNames = ["김민준", "이서연", "박지훈", "최유진", "정하늘", "강도현", "윤서진", "장민서", "임준호", "한예린", "오태윤", "서지아", "신동하", "권나윤", "황재원", "안수빈", "송민재", "류하은", "전시우", "홍다인"];
+const virtualSellerName = (raw: string, id: number) => /개인/.test(raw) ? "개인판매자" : `${virtualPersonNames[id % virtualPersonNames.length]} 딜러`;
+const virtualPlace = (address: string) => address.replace(/\s*·\s*가상 매물 전시장$/, "");
+
 const bikeCars: Car[] = bikeInventory.map((row, index) => ({
   id: 7000 + index,
   maker: row.maker,
@@ -855,7 +861,7 @@ const bikeCars: Car[] = bikeInventory.map((row, index) => ({
   price: `${Math.round(row.price / 10000).toLocaleString("ko-KR")} 만원`,
   place: row.region,
   views: 30 + index * 9,
-  dealer: row.sellerName,
+  dealer: virtualSellerName(row.sellerName, 7000 + index),
   stock: 1,
   posted: `${(index % 12) + 1}시간 전`,
   photos: 1,
@@ -911,9 +917,10 @@ const heavyCars: Car[] = heavyInventory.map((row, index) => ({
   trim: "",
   specs: [`${row.year}년식`, `${row.hours.toLocaleString("ko-KR")}h`, row.evaluation, row.region],
   price: row.price === null ? "가격 상담" : `${Math.round(row.price / 10000).toLocaleString("ko-KR")} 만원`,
-  place: row.sellerAddress,
+  // 「경기도 가상시 테스트구 …(가상 주소)」 대신 지역만
+  place: row.region,
   views: 40 + index * 7,
-  dealer: row.sellerName,
+  dealer: virtualSellerName(row.sellerName, 5000 + index),
   stock: 1,
   posted: `${(index % 12) + 1}시간 전`,
   photos: 1,
@@ -991,7 +998,7 @@ const truckCars: Car[] = truckScenarioV01.map((row, index) => {
   price: `${row.price10k.toLocaleString("ko-KR")} 만원`,
   place: row.region,
   views: 55 + index * 9,
-  dealer: row.sellerType === "개인" ? `개인 판매자 ${String(index + 1).padStart(2, "0")} (가상)` : `트럭파트너 ${row.region.split(" ")[0]}점 (가상)`,
+  dealer: virtualSellerName(row.sellerType, 6000 + index),
   stock: 1,
   posted: `${(index % 12) + 1}시간 전`,
   photos: 1,
@@ -1052,9 +1059,9 @@ const toVirtualCategoryCars = (rows: readonly VirtualCategoryListingRow[], idBas
     // 부품·용품은 차량 스펙(연식·연료·변속기) 대신 규격 · 수량 · 적용 차종 · 상태, 가격은 부품 가격대
     specs: isParts && partsDetail ? [partsDetail.spec, partsDetail.quantity, partsDetail.fit, partsDetail.condition] : [`${row.year}년식`, usage, row.fuel, row.transmission],
     price: `${(isParts && partsDetail ? partsDetail.price10k : row.price10k).toLocaleString("ko-KR")} 만원`,
-    place: row.sellerAddress,
+    place: virtualPlace(row.sellerAddress),
     views: 20 + index * 11,
-    dealer: row.sellerName,
+    dealer: virtualSellerName(row.sellerName, idBase + index),
     stock: row.sellerType === "개인" ? 1 : 2 + index % 7,
     posted: `${index % 12 + 1}시간 전`,
     photos: 1,
