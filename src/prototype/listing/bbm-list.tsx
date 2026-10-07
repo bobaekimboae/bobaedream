@@ -388,11 +388,11 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
           </div>
           <div className="bbm-card-meta">
             <div className="bbm-card-location"><img src={bbmIcon("card-location")} alt="" aria-hidden="true" /><span className="bbm-card-location-text"><span>{locationMain}</span>{locationSecondary ? <span className="bbm-card-location-secondary">{locationSecondary}</span> : null}</span></div>
-            {variant === "pc" ? sellerRow : null}
+            {/* JOB-8: 모바일도 초톳처럼 판매자 줄을 지역 바로 아래(오른쪽 글 칸 안)에 둔다 */}
+            {sellerRow}
           </div>
         </div>
       </div>
-      {variant === "mobile" ? sellerRow : null}
     </article>
   );
 }

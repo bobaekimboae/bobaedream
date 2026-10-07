@@ -317,6 +317,11 @@
 .bbm-result-card.is-mobile .bbm-card-location-text > span { flex: none; }
 .bbm-result-card.is-mobile .bbm-card-meta-row { height: 48px; margin-top: 0; }
 .bbm-result-card.is-mobile .bbm-card-mobile-footer { width: 100%; height: 56px; padding-top: 8px; box-sizing: border-box; }
+/* JOB-8: 가로형 카드(목록·피드 일반)는 초톳 실측대로 지역 줄 중심 → 판매자 줄 중심 24px, 판매자 줄 중심 → 카드 아래 구분선 28px */
+.bbm-m-list:not(.is-gallery):not(.is-text):not(.is-one-line) .bbm-result-card.is-mobile:not(.is-feed-featured) { padding-bottom: 18px; }
+.bbm-m-list:not(.is-gallery):not(.is-text):not(.is-one-line) .bbm-result-card.is-mobile:not(.is-feed-featured) .bbm-card-mobile-footer { height: 20px; margin-top: 4px; padding-top: 0; }
+/* 피드 첫 큰 카드는 세로형이라 기존 위치 유지(판매자 줄이 글 칸 안으로 들어오며 1px 위로 올라가는 것 보정) */
+.bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-meta-row.bbm-card-mobile-footer { margin-top: 1px; }
 .bbm-result-card.is-mobile .bbm-card-seller-logo { width: 20px; height: 20px; }
 .bbm-result-card.is-mobile .bbm-card-seller-text { gap: 8px; }
 .bbm-result-card.is-mobile .bbm-card-seller-text { font-size: 12px; line-height: 18px; }
