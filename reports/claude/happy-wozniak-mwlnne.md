@@ -23,7 +23,7 @@
 | 썸네일 사진 수 표시(1280) | 카드 20장 모두 표시 | 0 |
 | 등록 시간 표시 | 왼쪽 아래 | 그대로 |
 
-![모바일 384](claude/thumb-384.png) ![PC 1280](claude/thumb-1280.png)
+![모바일 384](thumb-384.png) ![PC 1280](thumb-1280.png)
 
 ## ⑤ 검증
 - `npm run verify:qf` 통과
