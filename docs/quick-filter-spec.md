@@ -115,7 +115,7 @@
 - Guazi PC·mobile top structure follows `docs/stable-top-manual.md` (v1.1 in QF-106; v1.3 document, v1.2 layout applied in QF-106b) (layer tables, gaps, cell sizes, state table). `npm run check:stability` values must match that document; it replaces `check:rail-vertical` (QF-103 rules kept: rail box = cell height, no overflow, hidden scrollbars).
 - Title is fixed by the entry category: `중고차` / `국산 중고차` / `수입 중고차` (no counts, dates, or chosen conditions). `<title>` is unchanged.
 - PC (QF-106b, manual v1.2): layer 0 crumbs sit outside the card on the gray page (header → 16, 18 tall, same left edge as the card, crumbs → card 12). Card: 16 → ① title row 32 → 18 → ② chip row 32 → 18 → ③ region pill row 32 (always; `지역:` + regions + `내 주변`; single select, re-click clears) → 16 → ④ quick slot (always) → card end 16 (image row) / 24 (pill row). Only two card heights (plain 282 / pill 220; card look 252 / 220).
-- Mobile: ① search 40 (top 10) → 8 → ② `지역: 전국 ▾` 32 (no region pill row; chosen region shows as `[서울 ×]` chip) → 10 → ③ chips 32 gap 4 → 14 → ④ slot (2 + cell + 6; first cell/label x = first chip − 4) → ⑤ 8px gray band, crumbs, title, related keyword pills 28.
+- Mobile: ① search 40 (top 10) → 8 → ② `[위치 아이콘] 전국 ▾` 32 (no `지역:` text; icon = ChoTot `svgexport-20` `public/assets/bbm/header-location-chotot-v01.svg`, 16×16 #C0C0C0, 4 gap) (no region pill row; chosen region shows as `[서울 ×]` chip) → 10 → ③ chips 32 gap 4 → 14 → ④ slot (2 + cell + 6; first cell/label x = first chip − 4) → ⑤ 8px gray band, crumbs, title, related keyword pills 28.
 - First-screen category photos (QF-106b/QF-117b): the category type row keeps one transparent 640×400 source canvas and a shared bottom baseline. PC uses cells 84×102 at pitch 92, photo box 76×40 at top 6 (`contain`, `center bottom`), and name 14/21 400 #595959 width 76 with 14px image gap. Mobile uses the ④ image-row size (86 = 2 + 78 + 6; cells 64×78 pitch 72, photo box 64×40, name 12/18 500 #595959 width 56, first cell x = first chip − 4). Category photos are presented facing left with a non-destructive horizontal display transform; the v01 source pixels remain unchanged. Visual tone follows the AutoScout24 body-type assets: white/silver low-saturation body, neutral catalog light, transparent background, no heavy cast shadow; Bobaedream keeps the 3/4 vehicle angle. Different vehicle proportions are not stretched to a common body width or height.
 - Pixel comparison (QF-106b): `diff:bbm` and `diff:bbm:flow` compare against the saved QF-106b baseline in `reports/baseline/` (3% limit). `--origin` compares with dev.bbmuseum directly; `--save-baseline` re-saves the baseline and archives the origin side in `reports/baseline-archive/`.
 - ④ never closes: maker → model → sub-model → trim pills (skipped when none) → year pills (`2026`…`2019`·`이전`, re-click clears, row stays). Labels `모델:` `세부모델:` `트림:` `연식:`. Guazi region/trim/year pills: 32 tall, 1px `#DADADA`, 14/20 500, selected `#222` (overrides the Trim Chips border/weight above for guazi). Manufacturer cells are PC 84×102 / mobile 76×102. Model/sub-model cells are PC 84×102 / mobile 72×102 with one-line name and sub text. `필터 초기화` returns to state 1 keeping the entry category.
@@ -161,7 +161,7 @@
 ## Quick Filter Alignment (QF-113)
 
 - Guazi 퀵필터의 모든 카테고리와 뎁스는 현재 초톳처럼 별도 좌측 제목 칸을 두지 않는다. 유형·세부유형·제조사·모델·세부모델·트림·연식·차종 요약 및 하위 알약 줄은 이미지·로고·알약 슬롯부터 시작한다. 첫 슬롯 시작선은 PC 20px, 모바일 16px로 통일하며 화면 문맥은 선택 칩과 각 레일의 접근성 `aria-label`로 유지한다.
-- 모바일 앱의 `숏폼매물`은 초톳 앱처럼 별도 스위치 없이 문구 자체를 누르는 텍스트 필터로 사용한다. 선택 상태는 초톳 실측 규격(높이 28px·좌우 8px·99px 라운드·12/18px 700·16px 해제 아이콘·무테두리·무그림자)을 따르고, 색상만 보배드림 Airbnb형 `#222` 배경·흰 글자로 바꾼다. PC는 문구 오른쪽의 38×22px 스위치(손잡이 16px·내부 여백 3px·이동 16px)를 유지한다.
+- 모바일 앱의 `숏폼중고차`(이전 `영상 매물`·`숏폼매물`)는 초톳 앱처럼 별도 스위치 없이 문구 자체를 누르는 텍스트 필터로 사용한다. 선택 상태는 초톳 실측 규격(높이 28px·좌우 8px·99px 라운드·12/18px 700·16px 해제 아이콘·무테두리·무그림자)을 따르고, 색상만 보배드림 Airbnb형 `#222` 배경·흰 글자로 바꾼다. PC는 문구 오른쪽의 38×22px 스위치(손잡이 16px·내부 여백 3px·이동 16px)를 유지한다.
 - The `필터` chip keeps its text and appends the count (`필터` → `필터 2`, #222 when any condition) with a fixed 92px width, so the next chip never shifts (PC 240 at 1440 · mobile 114).
 - Mobile Guazi follows the ChoTot chip rhythm at 384px: the rail keeps 16px screen-side margins, 4px between ordinary chips, and 32px chip height. Normal, selected, and fixed filter chips use symmetric 12px inline padding and a 2px icon/text, text/arrow, or text/clear gap. The fixed filter chip remains 92px wide, including its existing 6px separation from the scrolling chip rail.
 - The landing first chip is `중고차` (not `전체차량`) in guazi only; other modes keep `전체차량`.
@@ -233,9 +233,9 @@
 ### 모바일 목록 제어행
 
 - 초톳 원본처럼 퀵필터 이미지·로고 레일 아래에 제어행 하나만 둔다. 별도의 `숏폼매물` 행과 판매자 탭 행으로 나누지 않는다.
-- 왼쪽부터 `숏폼매물 → 개인 → 딜러 → 정렬 → 보기 방식` 순서다. 세로 구분선은 두지 않으며, `전체`와 `브랜드` 탭도 이 모바일 제어행에 표시하지 않는다.
+- 왼쪽부터 `숏폼중고차 → 개인 → 딜러 → 정렬 → 보기 방식` 순서다. 세로 구분선은 두지 않으며, `전체`와 `브랜드` 탭도 이 모바일 제어행에 표시하지 않는다.
 - 제어행은 높이 48px, 좌우 16px, 상하 8px이며 아래에 1px 구분선을 둔다. 정렬과 비선택 탭은 14/20px, 정렬 600·탭 500이다.
-- `숏폼매물`, `개인`, `딜러`는 텍스트 탭이다. 선택된 항목만 초톳과 같은 높이 28px·좌우 8px·99px 라운드·12/18px 700·16px 해제 아이콘·무테두리·무그림자로 바뀌며, 색상만 `#222` 배경·흰 글자를 사용한다. 숏폼과 판매자 선택은 동시에 표시할 수 있다.
+- `숏폼중고차`, `개인`, `딜러`는 텍스트 탭이다. 선택된 항목만 초톳과 같은 높이 28px·좌우 8px·99px 라운드·12/18px 700·16px 해제 아이콘·무테두리·무그림자로 바뀌며, 색상만 `#222` 배경·흰 글자를 사용한다. 숏폼과 판매자 선택은 동시에 표시할 수 있다.
 - 정렬은 아래 방향 꺾쇠, 보기 방식은 24px 4칸 그리드 아이콘을 사용한다. 좁은 화면에서는 왼쪽 선택 탭 묶음만 가로 스크롤하며 오른쪽의 정렬과 보기 방식은 고정한다.
 - PC도 `숏폼매물` 문구 + 38×22px 스위치를 사용한다.
 
