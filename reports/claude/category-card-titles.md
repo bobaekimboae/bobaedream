@@ -25,7 +25,7 @@
 
 | 바이크 | 건설기계 | 트럭 |
 |---|---|---|
-| ![](category-card-titles/바이크.png) | ![](category-card-titles/건설기계.png) | ![](category-card-titles/트럭특장.png) |
+| ![](category-card-titles/bike.png) | ![](category-card-titles/heavy.png) | ![](category-card-titles/truck.png) |
 
 ## ⑤ 검증
 - `npm run verify` 통과(테스트 29+4, 실패 0)
