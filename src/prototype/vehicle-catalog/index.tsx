@@ -19,7 +19,7 @@ export type CatalogMakeFile = CarMakeFile | BikeMakeFile;
 
 const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.baseURI).pathname;
 const catalogBase = `${publicBase}data/vehicle-catalog`;
-export const publicCatalogAsset = (path?: string | null) => path ? (/^(?:https?:)?\/\//.test(path) ? path : `${publicBase}${path.replace(/^\//, "")}`) : null;
+export const publicCatalogAsset = (path?: string | null) => path ? (/^(?:https?:)?\/\//.test(path) || path.startsWith("/") ? path : `${publicBase}${path}`) : null;
 const yearsLabel = (start?: string | null, end?: string | null) => start ? `${start.slice(0, 4)}~${end?.slice(0, 4) ?? "현재"}` : "연식 정보 없음";
 
 async function fetchJson<T>(path: string): Promise<T> {
