@@ -250,7 +250,7 @@
 - PC도 같은 문구 `숏폼중고차` + 38×22px 스위치를 사용한다(초톳·동처띠 구 PC `is-pc`는 동결이라 `숏폼매물` 유지).
 
 - These rules apply to the Guazi Bobaedream mobile listing (`.bbm-m-list`) at the 384px CSS-width reference. List and feed typography are intentionally different; do not merge their font-size rules.
-- 중고차(승용) 외 카테고리(트럭·바이크·건설기계·캠핑카·자재운반장비·부품/용품)는 2026-10-07 사용자 지시로 차명을 붙여 한 제목(`현대 포터2 1톤 카고`)으로 보여주고, 길면 두 줄까지 줄바꿈 후 말줄임한다(`.bbm-card-model.is-joined`). 아래 두 줄 규칙은 중고차(승용)에만 적용한다.
+- 모든 카테고리(중고차 포함, 2026-10-08 「중고차도 차명 끊지 말고 연결」)는 차명을 붙여 한 제목(`벤츠 C클래스 C 200 6세대 W206 Avantgarde`, `현대 포터2 1톤 카고`)으로 보여주고, 길면 두 줄까지 줄바꿈 후 말줄임한다(`.bbm-card-model.is-joined`). 아래의 「두 의미 줄」 규칙은 폐지.
 - A vehicle title is always two semantic rows, not one title that happens to wrap: row 1 is manufacturer + model (`.bbm-card-model`), and row 2 is detailed model/trim (`.bbm-card-trim`). Each row stays on one line and ellipsizes independently. Do not add an arbitrary margin between the detailed-model row and the specification row.
 - List view: title 15/19 600, specification 13px, location 14px #8C8C8C (whole line), seller 14px #222 (ChoTot remeasure: location and seller are the same size; Pretendard Hangul ≈0.87em so 14px matches ChoTot ink height ≈12.4), price 16px 700 #222, and price unit 400 #222 (no red; Hyundai-certified style, the unit only drops weight). Feed view: title 16/24, specification 14px, location 14px, price 17px 700, and price unit 14px.
 - 바이크 카드(2026-10-07): 제목은 `제조사 모델` 한 줄(2행 없음), 스펙 줄은 `장르 · 연식 · 주행 · 배기량`(예: `네이키드 · 2023년식 · 2만km · 2,300cc`, 2026-10-08부터 연식은 `2023년식`).
