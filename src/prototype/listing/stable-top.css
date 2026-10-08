@@ -46,6 +46,30 @@
 .marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) { height: 102px; }
 .marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) { height: 102px; }
 .marketplace.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-label { display: block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; -webkit-line-clamp: none; }
+/* 럭셔리카 모델 레일: 초톳 384px 원본 실측값. 64×40 슬롯은 유지하고 이름만 14/18 정규 굵기·최대 2줄로 연다. */
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail.is-luxury-model-row .depth-rail-track { gap: 8px; }
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail.is-luxury-model-row .depth-card:has(> .depth-card-media:not(.is-brand)) {
+  width: 76px;
+  height: 92px;
+  flex: 0 0 76px;
+}
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail.is-luxury-model-row .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-label {
+  display: -webkit-box;
+  min-height: 36px;
+  max-height: 36px;
+  margin-top: 8px;
+  overflow: hidden;
+  color: #595959;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-overflow: clip;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
 .marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) .depth-card-label {
   display: block;
   height: auto;
