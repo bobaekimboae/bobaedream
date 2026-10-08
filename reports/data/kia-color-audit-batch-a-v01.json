@@ -1,0 +1,1335 @@
+{
+  "version": "2026-10-08-v01",
+  "batch": "kia-color-audit-batch-a-v01",
+  "generator": "built-in image_gen (one call per asset)",
+  "rules": {
+    "master": "1920x1200 transparent RGBA PNG",
+    "delivery": "960x600 transparent RGBA PNG",
+    "orientation": "left-facing front three-quarter",
+    "targetWidth": "89%",
+    "floorGap": "6%",
+    "colorPriority": [
+      "mobile.de",
+      "carisyou.com",
+      "auto.danawa.com"
+    ]
+  },
+  "entries": [
+    {
+      "priority": 11,
+      "model": "K8",
+      "generation": "K8",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_8722e2e44970820c428d.png",
+      "colorName": "Deep Forest Green",
+      "colorSource": "mobile.de",
+      "sourceUrl": "https://suchen.mobile.de/fahrzeuge/search.html?dam=false&isSearchRequest=true&makeModelVariant1.makeId=13200&makeModelVariant1.modelDescription=Kia%20K8%20K8",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          351,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          51,
+          174,
+          908,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 12,
+      "model": "모하비",
+      "generation": "모하비 더 마스터",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_6a5760d76342a273958c.png",
+      "colorName": "Snow White Pearl",
+      "colorSource": "carisyou.com",
+      "sourceUrl": "https://www.carisyou.com/magazine/NEWCARINTRO/75430",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          229,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          53,
+          114,
+          907,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 13,
+      "model": "레이",
+      "generation": "레이",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_7cf191fe26004452f1cf.png",
+      "colorName": "Milky Beige",
+      "colorSource": "carisyou.com",
+      "sourceUrl": "https://www.carisyou.com/magazine/NEWCARINTRO/55279",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          127,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          54,
+          63,
+          907,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 14,
+      "model": "모닝",
+      "generation": "올 뉴 모닝",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_b31e12d795ac855ad18a.png",
+      "colorName": "Signal Red",
+      "colorSource": "carisyou.com",
+      "sourceUrl": "https://www.carisyou.com/car/4077/Spec/46500",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          171,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          51,
+          84,
+          908,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 15,
+      "model": "쏘렌토",
+      "generation": "더 뉴 쏘렌토",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_b17d2fe13eeb7b94566c.png",
+      "colorName": "Rich Espresso",
+      "colorSource": "mobile.de",
+      "sourceUrl": "https://suchen.mobile.de/fahrzeuge/search.html?dam=false&isSearchRequest=true&makeModelVariant1.makeId=13200&makeModelVariant1.modelDescription=Kia%20%EC%8F%98%EB%A0%8C%ED%86%A0%20%EB%8D%94%20%EB%89%B4%20%EC%8F%98%EB%A0%8C%ED%86%A0",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          271,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          52,
+          135,
+          908,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 16,
+      "model": "쏘렌토",
+      "generation": "더 뉴 쏘렌토 4세대",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_652e2d559fd785b51d48.png",
+      "colorName": "Mineral Blue",
+      "colorSource": "mobile.de",
+      "sourceUrl": "https://suchen.mobile.de/fahrzeuge/search.html?dam=false&isSearchRequest=true&makeModelVariant1.makeId=13200&makeModelVariant1.modelDescription=Kia%20%EC%8F%98%EB%A0%8C%ED%86%A0%20%EB%8D%94%20%EB%89%B4%20%EC%8F%98%EB%A0%8C%ED%86%A0%204%EC%84%B8%EB%8C%80",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          289,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          51,
+          143,
+          908,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 17,
+      "model": "레이",
+      "generation": "더 뉴 기아 레이",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_78014e26608c1f791c84.png",
+      "colorName": "Clear White",
+      "colorSource": "carisyou.com",
+      "sourceUrl": "https://www.carisyou.com/search/?q=%EB%8D%94%20%EB%89%B4%20%EA%B8%B0%EC%95%84%20%EB%A0%88%EC%9D%B4",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          109,
+          36,
+          1811,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          53,
+          17,
+          905,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 18,
+      "model": "모닝",
+      "generation": "올 뉴 모닝 (JA)",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_5439087562b0771230fe.png",
+      "colorName": "Aurora Black Pearl",
+      "colorSource": "carisyou.com",
+      "sourceUrl": "https://www.carisyou.com/search/?q=%EC%98%AC%20%EB%89%B4%20%EB%AA%A8%EB%8B%9D%20%28JA%29",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          164,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          51,
+          81,
+          907,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 19,
+      "model": "K3",
+      "generation": "더 뉴 K3 2세대",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_d740bbe26829e202c0cc.png",
+      "colorName": "Steel Gray",
+      "colorSource": "mobile.de",
+      "sourceUrl": "https://suchen.mobile.de/fahrzeuge/search.html?dam=false&isSearchRequest=true&makeModelVariant1.makeId=13200&makeModelVariant1.modelDescription=Kia%20K3%20%EB%8D%94%20%EB%89%B4%20K3%202%EC%84%B8%EB%8C%80",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          362,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          52,
+          181,
+          908,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 20,
+      "model": "K7",
+      "generation": "K7 프리미어",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_39d2a6722ad8d956ee4d.png",
+      "colorName": "Gravity Blue",
+      "colorSource": "carisyou.com",
+      "sourceUrl": "https://www.carisyou.com/search/?q=K7%20%ED%94%84%EB%A6%AC%EB%AF%B8%EC%96%B4",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          364,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          52,
+          182,
+          907,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 21,
+      "model": "스포티지",
+      "generation": "스포티지 4세대",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_0e9b2ce831e0b48e6380.png",
+      "colorName": "Mercury Blue",
+      "colorSource": "mobile.de",
+      "sourceUrl": "https://suchen.mobile.de/fahrzeuge/search.html?dam=false&isSearchRequest=true&makeModelVariant1.makeId=13200&makeModelVariant1.modelDescription=Kia%20%EC%8A%A4%ED%8F%AC%ED%8B%B0%EC%A7%80%20%EC%8A%A4%ED%8F%AC%ED%8B%B0%EC%A7%80%204%EC%84%B8%EB%8C%80",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          278,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          52,
+          138,
+          907,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 22,
+      "model": "셀토스",
+      "generation": "셀토스",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_677e1931b0bb461c860b.png",
+      "colorName": "Starbright Yellow / Black Roof",
+      "colorSource": "mobile.de",
+      "sourceUrl": "https://suchen.mobile.de/fahrzeuge/search.html?dam=false&isSearchRequest=true&makeModelVariant1.makeId=13200&makeModelVariant1.modelDescription=Kia%20%EC%85%80%ED%86%A0%EC%8A%A4%20%EC%85%80%ED%86%A0%EC%8A%A4",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          227,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          52,
+          112,
+          908,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 23,
+      "model": "K5",
+      "generation": "더 뉴 K5 3세대",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_424d46a4a2e2e7086ee7.png",
+      "colorName": "Wolf Gray",
+      "colorSource": "mobile.de",
+      "sourceUrl": "https://suchen.mobile.de/fahrzeuge/search.html?dam=false&isSearchRequest=true&makeModelVariant1.makeId=13200&makeModelVariant1.modelDescription=Kia%20K5%20%EB%8D%94%20%EB%89%B4%20K5%203%EC%84%B8%EB%8C%80",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          402,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          51,
+          201,
+          908,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 24,
+      "model": "K3",
+      "generation": "올 뉴 K3",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_a29a3d9b82fec28cbc04.png",
+      "colorName": "Runway Red",
+      "colorSource": "mobile.de",
+      "sourceUrl": "https://suchen.mobile.de/fahrzeuge/search.html?dam=false&isSearchRequest=true&makeModelVariant1.makeId=13200&makeModelVariant1.modelDescription=Kia%20K3%20%EC%98%AC%20%EB%89%B4%20K3",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          342,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          52,
+          170,
+          907,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 25,
+      "model": "모닝",
+      "generation": "모닝 어반 (JA)",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_b74c4a4b52eb9509cf76.png",
+      "colorName": "Honeybee Yellow",
+      "colorSource": "carisyou.com",
+      "sourceUrl": "https://www.carisyou.com/search/?q=%EB%AA%A8%EB%8B%9D%20%EC%96%B4%EB%B0%98%20%28JA%29",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          127,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          52,
+          62,
+          907,
+          563
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 26,
+      "model": "셀토스",
+      "generation": "더 뉴 셀토스",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_186b92571831d58aecca.png",
+      "colorName": "Pluton Blue",
+      "colorSource": "mobile.de",
+      "sourceUrl": "https://suchen.mobile.de/fahrzeuge/search.html?dam=false&isSearchRequest=true&makeModelVariant1.makeId=13200&makeModelVariant1.modelDescription=Kia%20%EC%85%80%ED%86%A0%EC%8A%A4%20%EB%8D%94%20%EB%89%B4%20%EC%85%80%ED%86%A0%EC%8A%A4",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          227,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          51,
+          112,
+          907,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 27,
+      "model": "스포티지",
+      "generation": "스포티지 더 볼드",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_2d99c65a6cff200a0545.png",
+      "colorName": "Sparkling Silver",
+      "colorSource": "mobile.de",
+      "sourceUrl": "https://suchen.mobile.de/fahrzeuge/search.html?dam=false&isSearchRequest=true&makeModelVariant1.makeId=13200&makeModelVariant1.modelDescription=Kia%20%EC%8A%A4%ED%8F%AC%ED%8B%B0%EC%A7%80%20%EC%8A%A4%ED%8F%AC%ED%8B%B0%EC%A7%80%20%EB%8D%94%20%EB%B3%BC%EB%93%9C",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          243,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          51,
+          120,
+          908,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 28,
+      "model": "EV6",
+      "generation": "EV6",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_9f29fb11030412da39e6.png",
+      "colorName": "Yacht Blue",
+      "colorSource": "mobile.de",
+      "sourceUrl": "https://suchen.mobile.de/fahrzeuge/search.html?dam=false&isSearchRequest=true&makeModelVariant1.makeId=13200&makeModelVariant1.modelDescription=Kia%20EV6%20EV6",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          328,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          52,
+          163,
+          907,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 29,
+      "model": "K9",
+      "generation": "더 K9",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_d0ead70e55b5bdab2f7d.png",
+      "colorName": "Aurora Black Pearl",
+      "colorSource": "carisyou.com",
+      "sourceUrl": "https://www.carisyou.com/search/?q=%EB%8D%94%20K9",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          415,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          52,
+          206,
+          907,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 30,
+      "model": "K5",
+      "generation": "K5 2세대",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_b9ee89576df7345ee766.png",
+      "colorName": "Snow White Pearl",
+      "colorSource": "mobile.de",
+      "sourceUrl": "https://suchen.mobile.de/fahrzeuge/search.html?dam=false&isSearchRequest=true&makeModelVariant1.makeId=13200&makeModelVariant1.modelDescription=Kia%20K5%20K5%202%EC%84%B8%EB%8C%80",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          333,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          52,
+          166,
+          908,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 31,
+      "model": "모닝",
+      "generation": "더 뉴 모닝",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_80a24e1000762ceda7ec.png",
+      "colorName": "Signal Red",
+      "colorSource": "carisyou.com",
+      "sourceUrl": "https://www.carisyou.com/search/?q=%EB%8D%94%20%EB%89%B4%20%EB%AA%A8%EB%8B%9D",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          116,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          52,
+          57,
+          906,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 32,
+      "model": "K3",
+      "generation": "K3",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_000e4efa48c77c2992e8.png",
+      "colorName": "Planet Blue",
+      "colorSource": "mobile.de",
+      "sourceUrl": "https://suchen.mobile.de/fahrzeuge/search.html?dam=false&isSearchRequest=true&makeModelVariant1.makeId=13200&makeModelVariant1.modelDescription=Kia%20K3%20K3",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          255,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          51,
+          127,
+          908,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 33,
+      "model": "모하비",
+      "generation": "더 뉴 모하비",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_31e9d0d69d0b9d494ea1.png",
+      "colorName": "Platinum Graphite",
+      "colorSource": "carisyou.com",
+      "sourceUrl": "https://www.carisyou.com/search/?q=%EB%8D%94%20%EB%89%B4%20%EB%AA%A8%ED%95%98%EB%B9%84",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          199,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          52,
+          98,
+          907,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 34,
+      "model": "K9",
+      "generation": "더 뉴 K9 2세대",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_3e4a7cb1064fe4edf702.png",
+      "colorName": "Panthera Metal",
+      "colorSource": "carisyou.com",
+      "sourceUrl": "https://www.carisyou.com/search/?q=%EB%8D%94%20%EB%89%B4%20K9%202%EC%84%B8%EB%8C%80",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          417,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          51,
+          208,
+          908,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 35,
+      "model": "스팅어",
+      "generation": "스팅어",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_490933a216f4899475a6.png",
+      "colorName": "HiChroma Red",
+      "colorSource": "mobile.de",
+      "sourceUrl": "https://suchen.mobile.de/fahrzeuge/search.html?dam=false&isSearchRequest=true&makeModelVariant1.makeId=13200&makeModelVariant1.modelDescription=Kia%20%EC%8A%A4%ED%8C%85%EC%96%B4%20%EC%8A%A4%ED%8C%85%EC%96%B4",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          393,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          52,
+          196,
+          909,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 36,
+      "model": "K5",
+      "generation": "더 뉴 K5 2세대",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_114eac944f640f3b66b6.png",
+      "colorName": "Gravity Blue",
+      "colorSource": "mobile.de",
+      "sourceUrl": "https://suchen.mobile.de/fahrzeuge/search.html?dam=false&isSearchRequest=true&makeModelVariant1.makeId=13200&makeModelVariant1.modelDescription=Kia%20K5%20%EB%8D%94%20%EB%89%B4%20K5%202%EC%84%B8%EB%8C%80",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          391,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          52,
+          194,
+          907,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 37,
+      "model": "스포티지",
+      "generation": "더 뉴 스포티지 R",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_9399f9bb1bd6a8cb31d8.png",
+      "colorName": "Sand Track",
+      "colorSource": "mobile.de",
+      "sourceUrl": "https://suchen.mobile.de/fahrzeuge/search.html?dam=false&isSearchRequest=true&makeModelVariant1.makeId=13200&makeModelVariant1.modelDescription=Kia%20%EC%8A%A4%ED%8F%AC%ED%8B%B0%EC%A7%80%20%EB%8D%94%20%EB%89%B4%20%EC%8A%A4%ED%8F%AC%ED%8B%B0%EC%A7%80%20R",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          263,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          52,
+          130,
+          908,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    },
+    {
+      "priority": 38,
+      "model": "니로",
+      "generation": "디 올 뉴 니로",
+      "file": "public/assets/maker-model/generations/kia-v1/kia_asset_8384dee1ab003358c2f4.png",
+      "colorName": "Cityscape Green / Dark C-pillar",
+      "colorSource": "mobile.de",
+      "sourceUrl": "https://suchen.mobile.de/fahrzeuge/search.html?dam=false&isSearchRequest=true&makeModelVariant1.makeId=13200&makeModelVariant1.modelDescription=Kia%20%EB%8B%88%EB%A1%9C%20%EB%94%94%20%EC%98%AC%20%EB%89%B4%20%EB%8B%88%EB%A1%9C",
+      "master": {
+        "size": [
+          1920,
+          1200
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          105,
+          336,
+          1814,
+          1128
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      },
+      "delivery": {
+        "size": [
+          960,
+          600
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          51,
+          166,
+          907,
+          564
+        ],
+        "hasTransparentPixels": true,
+        "hasVisiblePixels": true
+      }
+    }
+  ]
+}
