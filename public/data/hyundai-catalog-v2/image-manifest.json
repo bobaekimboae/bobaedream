@@ -1475,12 +1475,12 @@
       "generationCode": "X2",
       "releaseYm": "1989-04",
       "endYm": "1994-09",
-      "colorName": "아이보리 화이트",
-      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "colorName": "실버 블루 (공식 명칭 미확인)",
+      "colorEvidence": "현대자동차 모델 히스토리 공식 엑셀 아카이브 이미지 · https://www.hyundai.com/worldwide/ko/footer/corporate/vehicle-history",
       "sourceGenerationKeys": [
         "model_car_encar_generation_57fc0360cc0875e64525"
       ],
-      "status": "pending"
+      "status": "generated-official-archive"
     },
     {
       "assetId": "hyundai_asset_a720e9cb615c65d58003",
@@ -1491,12 +1491,12 @@
       "generationCode": "J1",
       "releaseYm": "1993-04",
       "endYm": "1995-05",
-      "colorName": "아이보리 화이트",
-      "colorEvidence": "다나와·카이즈유 해당 연형 공식 외장색 교차확인 대상",
+      "colorName": "웜 토프 메탈릭 (공식 명칭 미확인)",
+      "colorEvidence": "코리아카마켓 엘란트라 1990.10~1995.03 외형 이미지 · https://www.koreacarmarket.com/mobile/market/search.html?cho=1",
       "sourceGenerationKeys": [
         "model_car_encar_generation_59f7e9b3000ad8716837"
       ],
-      "status": "pending"
+      "status": "generated-kcm-crosscheck"
     },
     {
       "assetId": "hyundai_asset_a53f4400f2104f8ef548",
