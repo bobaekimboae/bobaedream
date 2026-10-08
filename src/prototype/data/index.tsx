@@ -27,6 +27,7 @@ import { heavyInventory } from "../heavy/data";
 import { truckModelsByMaker, truckScenarioV01 } from "../truck/scenario-v01";
 import { truckScenarioImageV02 } from "../truck/scenario-images-v02";
 import { truckSubtypeLabel } from "./truck-format-catalog";
+import { luxuryDealers, luxuryListingRows } from "./luxury-category-v01";
 import {
   campingScenarioV01,
   materialHandlingScenarioV01,
@@ -163,6 +164,8 @@ type Car = {
     scenarioVersion: "v01";
   };
   sellerProfile?: string | null;
+  /** 럭셔리카 카테고리 가상 매물 v01(차량 › 중고차 › 럭셔리카). 위치는 place의 단지를 그대로 쓴다 */
+  luxuryCategory?: { number: number; vehicleNumber: string; model: string; generation: string; filled: boolean };
   uiTest?: {
     number: number;
     fullTitle: string;
@@ -327,6 +330,7 @@ const sellerLabel = (car: Car) => {
   if (car.heavy?.isVirtual) return car.dealer;
   if (car.virtualCategory?.isVirtual) return car.dealer;
   if (car.uiTest) return car.dealer;
+  if (car.luxuryCategory) return car.dealer;
   if (car.sellerType === "개인") return privatePersonName(car.id);
   if (car.dealer && car.dealer !== sellerScenario.name) return car.dealer;
   const index = ((car.id - 1) % dealerNamePool.length + dealerNamePool.length) % dealerNamePool.length;
@@ -1453,6 +1457,51 @@ const luxuryUiTestCars: Car[] = luxuryUiTestRows.map((row) => {
   };
 });
 
+// 럭셔리카 카테고리 v01: 구글 시트 「가상 매물 시나리오 › 럭셔리카」 32대(사진 29장) + 가상 딜러 12명.
+// 카드 메타 = 제조사+모델(+세대·트림) / 등록연월 · 주행 · 연료 / 시도 구군 · 매매단지 / 판매자명
+const luxuryDealerById = new Map(luxuryDealers.map((dealer) => [dealer.id, dealer]));
+// 사진이 아직 없는 매물(드라이브 미등록)은 목록 끝으로 보낸다. 나머지는 시트 순서 그대로
+const luxuryRowsPhotoFirst = [...luxuryListingRows.filter((row) => row.image), ...luxuryListingRows.filter((row) => !row.image)];
+const luxuryCategoryCars: Car[] = luxuryRowsPhotoFirst.map((row, index) => {
+  const dealer = luxuryDealerById.get(row.dealerId)!;
+  const title = [row.maker, row.model, row.generation].filter(Boolean).join(" ");
+  return {
+    id: 12_000 + row.number,
+    updateRank: luxuryRowsPhotoFirst.length - index,
+    maker: row.maker,
+    modelGroup: row.model,
+    sellerType: "딜러",
+    image: row.image ?? "",
+    imagePosition: "center center",
+    title,
+    trim: row.trim,
+    specs: [`${row.year}년식`, `${row.mileage.toLocaleString("ko-KR")}km`, row.fuel],
+    cardSpec: [row.registered, `${row.mileage.toLocaleString("ko-KR")}km`, row.fuel],
+    price: `${row.price.toLocaleString("ko-KR")} 만원`,
+    place: dealer.place,
+    views: 0,
+    dealer: dealer.name,
+    stock: luxuryListingRows.filter((other) => other.dealerId === row.dealerId).length,
+    posted: row.posted,
+    photos: row.image ? 1 : 0,
+    sellerProfile: dealer.avatar,
+    luxuryCategory: { number: row.number, vehicleNumber: row.vehicleNumber, model: row.model, generation: row.generation, filled: Boolean(row.filled) },
+    filter: {
+      year: row.year,
+      seats: "전체",
+      condition: "중고",
+      mileage: row.mileage,
+      owners: "전체",
+      transmission: "오토",
+      fuel: row.fuel,
+      color: "기타",
+      origin: row.origin,
+      body: row.body,
+      video: false,
+    },
+  };
+});
+
 function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
   const data = car.filter;
   if (!data) return false;
@@ -1575,6 +1624,7 @@ export {
   placeSidoGugun,
   bbmSampleCars,
   luxuryUiTestCars,
+  luxuryCategoryCars,
   isDesktopPreview,
   getInitialQuickFilterStyle,
   isForcedMobileView,

@@ -354,7 +354,10 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   // 중고차(승용)는 「시도 구군 · 단지」, 그 밖의 카테고리(트럭·바이크·건설기계·캠핑카 등)는 「시도 구군」까지만(2026-10-08)
   const isPassenger = !(car.truck || car.bike || car.heavy || car.virtualCategory);
   // 중고차는 개인·딜러 모두 「시도 구군 · 단지」(2026-10-08 「중고차 매물은 지역에 단지 붙이고」)
-  const listPlace = !isPassenger ? placeSidoGugun(car.place.split(" · ")[0]) : displayListPlace(car.place, "딜러");
+  // 럭셔리카 가상 매물은 데이터에 정한 단지를 그대로(지역별 기본 단지로 바꾸지 않음), 표기 축약 규칙만 적용
+  const listPlace = car.luxuryCategory
+    ? [placeSidoGugun(car.place.split(" · ")[0]), ...car.place.split(" · ").slice(1)].join(" · ").replaceAll("자동차매매단지", "단지").replaceAll("매매단지", "단지")
+    : !isPassenger ? placeSidoGugun(car.place.split(" · ")[0]) : displayListPlace(car.place, "딜러");
   const badges = bbmCardBadges(car);
   // dev 원본처럼 스펙 항목을 " · "(공백+가운데점+공백) 텍스트로 잇는다(JOB-8). 한 줄 넘치면 말줄임
   const specText = bbmCardSpec(car, variant === "pc");

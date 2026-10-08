@@ -12,6 +12,7 @@ import {
   bikeCars,
   campingCars,
   luxuryUiTestCars,
+  luxuryCategoryCars,
   compactYearLabel,
   compactGenerationCardYearLabel,
   defaultBrandRailOptions,
@@ -627,6 +628,8 @@ function MarketplaceScreen() {
   const isMaterialHandlingCategory = category === "자재운반장비";
   const isCampingCategory = category === "캠핑카";
   const isPartsCategory = category === "부품 · 용품";
+  // 럭셔리카(차량 › 중고차 › 럭셔리카): 과쯔에서는 전용 가상 매물 32대(luxury-category-v01)
+  const isLuxuryCategory = category === "럭셔리카";
   const isTruckCategory = category === "트럭 · 특장";
   const supportsVehicleCatalog = isBikeCategory || ["전체", "중고차", "국산차", "수입차", "전기차"].includes(category);
   const vehicleCatalog = useVehicleCatalog(isBikeCategory ? "bike" : "car", maker);
@@ -684,6 +687,8 @@ function MarketplaceScreen() {
               ? partsCars
               : luxuryUiTestMode
                 ? luxuryUiTestCars
+                : isGuaziQuickStyle && isLuxuryCategory
+                  ? luxuryCategoryCars
                 : isGuaziQuickStyle ? (category === "전체" ? allVehicleMixedCars : bbmSampleCars) : chototTestCars;
   const bbmValue = filters.bbm ?? emptyBbmFilters;
   // QF-097: 과쯔는 9개 제조사의 모델·세부 모델을 카탈로그 스냅숏으로(model-catalog-kr), 나머지 제조사·다른 모드는 기존 데이터
