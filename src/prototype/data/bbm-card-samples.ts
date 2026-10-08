@@ -38,8 +38,8 @@ export function bbmCardSpec(source: SampleSource, withPower = true) {
     // 올해 연식은 이번 달을 넘지 않게(미래 등록월 방지)
     const month = Math.min(((source.id * 5) % 12) + 1, year >= now.getFullYear() ? now.getMonth() + 1 : 12);
     const registered = `${String(year % 100).padStart(2, "0")}년${String(month).padStart(2, "0")}월`;
-    // 침대 수를 끝에 붙인다: 침대 3(2026-10-07 사용자 지시, 「취침 N인」 대신)
-    const berths = source.virtualCategory.beds ? [`침대 ${source.virtualCategory.beds}`] : [];
+    // 취침 인원을 끝에 붙인다: 취침 4인(2026-10-08 사용자 지시, 해외 표기 Sleeps 4 · 4 berth · 4 Schlafplätze와 같은 인원 기준)
+    const berths = source.virtualCategory.berths ? [`취침 ${source.virtualCategory.berths}인`] : [];
     return (source.virtualCategory.categoryDetail === "캐러밴" ? [registered, "견인형", ...berths] : [registered, mileageLabel(source), fuelLabel(source), ...berths]).join(" · ");
   }
   if (source.uiTest || source.virtualCategory) return source.specs.join(" · ");
