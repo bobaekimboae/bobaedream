@@ -32,9 +32,10 @@ const truckKindShort: Record<string, string> = {
   "카고(화물)트럭": "카고트럭", "윙바디·탑차": "윙바디", "냉장·냉동차": "냉동차", "탱크로리": "탱크로리", "버스": "버스",
   "캠핑카·카라반": "캠핑카", "환경·폐기물차": "청소차", "특수차": "특수차", "견인·운송차": "견인차", "트랙터 헤드": "트랙터", "트레일러": "트레일러",
 };
+// 특장차(크레인·고소작업·믹서·탱크로리·청소차·특수차·견인차)는 유형명이 길어 붙이지 않는다(2026-10-08 「특장은 유형 빼자」). 일반 트럭·버스·캠핑카·트랙터·트레일러만
 const truckKindLabel = (format?: string, subtype = "") =>
-  format === "덤프·믹서" ? (/믹서/.test(subtype) ? "믹서트럭" : "덤프트럭")
-  : format === "크레인·고소작업차" ? (/크레인/.test(subtype) ? "크레인" : /사다리/.test(subtype) ? "사다리차" : "고소작업차")
+  format === "덤프·믹서" ? (/믹서/.test(subtype) ? "" : "덤프트럭")
+  : ["크레인·고소작업차", "탱크로리", "환경·폐기물차", "특수차", "견인·운송차"].includes(format ?? "") ? ""
   : truckKindShort[format ?? ""] ?? format ?? "";
 
 export function bbmCardSpec(source: SampleSource, withPower = true) {
@@ -66,15 +67,15 @@ export function bbmCardSpec(source: SampleSource, withPower = true) {
     const month = ((source.id * 5) % 12) + 1;
     return [`${String(year % 100).padStart(2, "0")}년${String(month).padStart(2, "0")}월`, `${(source.heavy.hours ?? 0).toLocaleString("ko-KR")}시간`, fuelLabel(source)].join(" · ");
   }
-  // 트럭(엔카 화물·특장 목록 규칙): 연식 · 주행 · 연료 + 적재용량 · 마력 · 차축 구성(2026-10-08, 목록에서는 둘째 줄)
+  // 트럭(엔카 화물·특장 목록 규칙): 연식 · 주행 · 연료 + 마력 · 적재용량 · 차축 구성(2026-10-08, 목록에서는 둘째 줄)
   if (source.truck) {
     const year = yearFromSpecs(source);
     const month = ((source.id * 5) % 12) + 1;
     const load = source.truck.load ?? "";
-    // 적재는 kg(1톤 → 적재 1,000kg), 순서 적재 · 마력 · 차축(2026-10-08 사용자 지시)
+    // 적재는 kg(1톤 → 적재 1,000kg), 순서 마력 · 적재 · 차축(2026-10-08 사용자 지시)
     const tons = load.match(/^([\d.]+)톤$/);
     const loadLabel = tons ? `적재 ${Math.round(Number(tons[1]) * 1000).toLocaleString("ko-KR")}kg` : load && load !== "기타" && load.replace("×", "x") !== source.truck.drive ? load : "";
-    const power = [loadLabel, source.truck.horsepower ? `${source.truck.horsepower}마력` : "", source.truck.drive ?? ""].filter(Boolean);
+    const power = [source.truck.horsepower ? `${source.truck.horsepower}마력` : "", loadLabel, source.truck.drive ?? ""].filter(Boolean);
     return [truckKindLabel(source.truck.format, source.truck.subtype), `${String(year % 100).padStart(2, "0")}년${String(month).padStart(2, "0")}월`, mileageLabel(source), fuelLabel(source), ...power].filter(Boolean).join(" · ");
   }
   // 바이크 연식은 「20년식」(연월 모를 때 표기, 2026-10-08 「바이크도 년식」)

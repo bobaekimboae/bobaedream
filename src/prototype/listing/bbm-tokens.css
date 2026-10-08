@@ -192,6 +192,7 @@
   .marketplace.is-bbm .bbm-result-card .bbm-card-text { gap: 4px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-title { font-size: 16px; line-height: 22.4px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-spec { height: 24px; color: var(--bbm-text-sub); line-height: 19.6px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-spec:has(+ .bbm-card-spec.is-capacity) { height: 20px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-price-badges { display: flex; align-items: center; gap: 8px; height: 24px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-price { line-height: 17.6px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-price-unit { margin-left: 2px; }
@@ -314,6 +315,8 @@
 /* 중고차 외 카테고리: 차명을 붙인 한 제목, 두 줄까지 줄바꿈 후 말줄임 */
 .bbm-result-card .bbm-card-model.is-joined { display: -webkit-box; overflow: hidden; white-space: normal; word-break: keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .bbm-result-card.is-mobile .bbm-card-spec { height: var(--list-meta-line); margin-top: 4px; color: var(--list-meta); font-size: var(--list-meta-size); font-weight: var(--list-meta-weight); line-height: var(--list-meta-line); }
+/* 메타 둘째 줄(캠핑카 승차·취침, 트럭 마력·적재·차축)은 첫 줄에 바로 붙인다: 위 4px 간격 없이 줄 높이만(2026-10-08 「간격 위아래 벌어졌으니 정리」) */
+.bbm-result-card.is-mobile .bbm-card-spec.is-capacity { margin-top: 0; }
 .bbm-result-card.is-mobile .bbm-card-price-badges { display: flex; height: 24px; flex-direction: row; align-items: center; gap: 4px; margin-top: 0; overflow: hidden; }
 .bbm-result-card.is-mobile .bbm-card-price { height: var(--list-price-line); align-items: center; color: var(--list-price); font-size: var(--list-price-size); font-weight: var(--list-price-weight); line-height: var(--list-price-line); }
 .bbm-result-card.is-mobile .bbm-card-price-unit { color: var(--list-price); font-size: var(--list-price-size); font-weight: 400; line-height: var(--list-price-line); }

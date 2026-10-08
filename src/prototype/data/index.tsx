@@ -999,10 +999,10 @@ const truckListingPhotosV01: Record<string, string> = {
 };
 // 사용자 지시 매물(2026-10-07): 등급명·카드 스펙 줄을 지시값 그대로 고정
 const truckListingOverridesV01: Record<string, { trim: string; cardSpec: string[] }> = {
-  "truck-031": { trim: "윙바디 11톤 오토", cardSpec: ["윙바디", "24년04월", "56,067km", "디젤", "적재 11,000kg", "350마력", "6x2"] },
+  "truck-031": { trim: "윙바디 11톤 오토", cardSpec: ["윙바디", "24년04월", "56,067km", "디젤", "350마력", "적재 11,000kg", "6x2"] },
 };
 
-// 트럭 카드 둘째 줄(2026-10-08 사용자 지시, Truck1 표기 참고): 적재용량(kg) · 마력 · 차축 구성.
+// 트럭 카드 둘째 줄(2026-10-08 사용자 지시, Truck1 표기 참고): 마력 · 적재용량(kg) · 차축 구성.
 // 모델·톤수별 대표 제원으로 정한 UI 검증용 가상 값(실매물 정보 아님). 엔진 없는 트레일러는 제외
 const truckPowerSpecsV01: Record<string, { horsepower: number; drive: string }> = {
   "truck-001": { horsepower: 133, drive: "4x2" },
