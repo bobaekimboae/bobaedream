@@ -31,7 +31,7 @@ export function bbmCardSpec(source: SampleSource, withPower = true) {
   // 주행거리는 정확값(56,067km)도 축약(6만km · 4천km)한다(2026-10-08 「주행거리는 축약해라」)
   if (source.cardSpec?.length) return source.cardSpec.map((part) => /^[\d,]+km$/.test(part) ? mileageLabel({ ...source, filter: { year: 0, fuel: "", mileage: Number(part.replace(/[^\d]/g, "")) } }) : part).join(" · ");
   // 트레일러: 적재량 · 길이 · 축(엔진 없음)
-  if (source.truck?.trailer) return [`${String(yearFromSpecs(source) % 100).padStart(2, "0")}년${String(((source.id * 5) % 12) + 1).padStart(2, "0")}월`, source.truck.trailer.load.replace(/^적재 ([\d.]+)톤$/, (_, t: string) => `적재 ${Math.round(Number(t) * 1000).toLocaleString("ko-KR")}kg`), source.truck.trailer.length, source.truck.trailer.axles].join(" · ");
+  if (source.truck?.trailer) return [`${String(yearFromSpecs(source) % 100).padStart(2, "0")}년${String(((source.id * 5) % 12) + 1).padStart(2, "0")}월`, source.truck.trailer.load, source.truck.trailer.length, source.truck.trailer.axles].join(" · ");
   // 캠핑카: 바이크 장르처럼 구분을 맨 앞에(모터홈 · 카라반 · 트레일러, 2026-10-08) + 등록연월 · 주행 · 연료. 엔진 없는 카라반·트레일러는 등록연월 · 취침(「견인형」은 2026-10-08 뺌)
   if (source.virtualCategory?.category === "캠핑카") {
     const year = yearFromSpecs(source);
@@ -61,9 +61,9 @@ export function bbmCardSpec(source: SampleSource, withPower = true) {
     const year = yearFromSpecs(source);
     const month = ((source.id * 5) % 12) + 1;
     const load = source.truck.load ?? "";
-    // 적재는 kg(1톤 → 적재 1,000kg), 순서 마력 · 적재 · 차축(2026-10-08 사용자 지시)
+    // 적재는 톤으로 축약(적재 1톤 · 적재 2.5톤), 순서 마력 · 적재 · 차축(2026-10-08 사용자 지시)
     const tons = load.match(/^([\d.]+)톤$/);
-    const loadLabel = tons ? `적재 ${Math.round(Number(tons[1]) * 1000).toLocaleString("ko-KR")}kg` : load && load !== "기타" && load.replace("×", "x") !== source.truck.drive ? load : "";
+    const loadLabel = tons ? `적재 ${tons[1]}톤` : load && load !== "기타" && load.replace("×", "x") !== source.truck.drive ? load : "";
     const power = [source.truck.horsepower ? `${source.truck.horsepower}마력` : "", loadLabel, source.truck.drive ?? ""].filter(Boolean);
     return [`${String(year % 100).padStart(2, "0")}년${String(month).padStart(2, "0")}월`, mileageLabel(source), fuelLabel(source), ...power].filter(Boolean).join(" · ");
   }
