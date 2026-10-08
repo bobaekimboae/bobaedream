@@ -346,7 +346,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   // dev 원본처럼 스펙 항목을 " · "(공백+가운데점+공백) 텍스트로 잇는다(JOB-8). 한 줄 넘치면 말줄임
   const specText = bbmCardSpec(car, variant === "pc");
   // 캠핑카 모터홈은 「승차 N인 · 취침 N인」(카라반·트레일러는 한 줄에 들어가 나누지 않음, 2026-10-08), 트럭은 「적재 · 마력 · 차축」이 한 줄에 다 안 들어가 둘째 줄로 내린다(2026-10-08)
-  const seatSplit = car.virtualCategory?.category === "캠핑카" ? specText.search(/ · 승차 /) : car.truck ? specText.search(/ · (적재 [\d,]+kg|\d+인승|[\d.]+(㎘|㎥|m) · |\d+마력)/) : -1;
+  const seatSplit = car.virtualCategory?.category === "캠핑카" ? specText.search(/ · 승차 /) : car.truck ? specText.search(/ · (적재 [\d.]+톤|\d+인승|[\d.]+(㎘|㎥|m) · |\d+마력)/) : -1;
   const specMain = seatSplit > 0 ? specText.slice(0, seatSplit) : specText;
   const specCapacity = seatSplit > 0 ? specText.slice(seatSplit + 3) : "";
   const [locationMain, ...locationSecondaryParts] = listPlace.split(" · ");
