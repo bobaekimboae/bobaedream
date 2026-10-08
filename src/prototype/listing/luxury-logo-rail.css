@@ -1,5 +1,59 @@
-/* 럭셔리카 브랜드 로고 퀵필터(2026-10-08): 칸·간격·이름은 초톳 제조사 줄 그대로, 로고 슬롯만 44×28(@3x 132×84 그대로, contain · 가운데).
-   40×40 상자와 같은 세로 중심(위 6 + 20)을 유지해 칸 높이 102와 이름 위치는 바뀌지 않는다. */
-.marketplace.is-qf-plain .depth-rail.is-lux-logo .depth-card-media.is-brand { width: 44px; height: 28px; margin-top: 12px; }
-.marketplace.is-qf-plain .depth-rail.is-lux-logo .depth-card:has(> .depth-card-media.is-brand) .depth-card-label { margin-top: 20px; }
-.marketplace.is-qf-plain .depth-rail.is-lux-logo .lux-qf-logo { display: block; width: 44px; height: 28px; object-fit: contain; object-position: center; }
+/* 럭셔리카 브랜드 퀵필터: 초톳 제조사 레일의 40×40 슬롯·간격·이름 위치를 그대로 쓴다.
+   원본 44×28 캔버스는 보존하고, 투명 여백을 포함한 이미지 배율만 형태별로 보정해
+   실제 보이는 로고가 원형·방패형 약 32px, 가로형 최대 40px 안에 들어오게 한다. */
+.marketplace.is-qf-plain .depth-rail.is-lux-logo .depth-card-media.is-brand {
+  width: 40px;
+  height: 40px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.marketplace.is-qf-plain .depth-rail.is-lux-logo .depth-card:has(> .depth-card-media.is-brand) .depth-card-label {
+  margin-top: 14px;
+}
+
+.marketplace.is-qf-plain .depth-rail.is-lux-logo .lux-qf-logo {
+  --lux-logo-scale: 1;
+  display: block;
+  width: 44px;
+  height: 28px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  object-position: center;
+  transform: scale(var(--lux-logo-scale));
+  transform-origin: center;
+}
+
+/* 세로형·원형 엠블럼: 초톳의 40px 슬롯 안에서 보이는 긴 변을 약 32px로 통일. */
+.marketplace.is-qf-plain .depth-rail.is-lux-logo :is(
+  .lux-qf-logo--ferrari,
+  .lux-qf-logo--lamborghini,
+  .lux-qf-logo--rollsroyce,
+  .lux-qf-logo--porsche,
+  .lux-qf-logo--benz,
+  .lux-qf-logo--bmw,
+  .lux-qf-logo--maserati,
+  .lux-qf-logo--tesla,
+  .lux-qf-logo--koenigsegg
+) {
+  --lux-logo-scale: 1.143;
+}
+
+/* 가로형 워드마크·윙 엠블럼: 보이는 폭을 40px 이하로 제한. */
+.marketplace.is-qf-plain .depth-rail.is-lux-logo :is(
+  .lux-qf-logo--bentley,
+  .lux-qf-logo--astonmartin,
+  .lux-qf-logo--audi,
+  .lux-qf-logo--gmc
+) {
+  --lux-logo-scale: 0.909;
+}
+
+/* 면적이 큰 가로형은 한 단계 더 줄여 원형 로고와 광학 무게를 맞춘다. */
+.marketplace.is-qf-plain .depth-rail.is-lux-logo :is(
+  .lux-qf-logo--mclaren,
+  .lux-qf-logo--cadillac,
+  .lux-qf-logo--bugatti
+) {
+  --lux-logo-scale: 0.864;
+}
