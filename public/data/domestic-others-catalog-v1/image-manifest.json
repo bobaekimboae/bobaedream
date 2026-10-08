@@ -1,0 +1,87 @@
+{
+  "version": "2026-10-08-v02",
+  "manufacturerKey": "make_car_encar_733cf183f6fd5ba7998e",
+  "manufacturerName": "기타 제조사",
+  "sourceModels": 2,
+  "sourceGenerations": 2,
+  "uniqueAssets": 2,
+  "rules": {
+    "master": "1920×1200 transparent PNG",
+    "delivery": "960×600 transparent PNG",
+    "angle": "AutoScout24-style left-facing front three-quarter",
+    "width": "88~90%",
+    "floorGap": "6%",
+    "lighting": "high-key studio, approximately +0.7EV midtone lift",
+    "shadow": "compact contact shadow",
+    "colorPriority": [
+      "mobile.de",
+      "carisyou.com",
+      "auto.danawa.com"
+    ]
+  },
+  "assets": [
+    {
+      "assetId": "domestic_asset_86cb59545c7737f1f651",
+      "fileName": "domestic_asset_86cb59545c7737f1f651.png",
+      "manufacturer": "기타 제조사",
+      "model": "기타 승용차",
+      "generationName": "기타",
+      "visualName": "기타",
+      "releaseYm": "1980-01",
+      "endYm": null,
+      "listingCount": 42,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "뉴트럴 실버",
+      "colorEvidence": "기타 승용차 공통 시각화",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_7554bfd5f2bc1293220a"
+      ],
+      "status": "completed",
+      "priority": 1,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "domestic_asset_9e173504f7efca4ae73f",
+      "fileName": "domestic_asset_9e173504f7efca4ae73f.png",
+      "manufacturer": "기타 제조사",
+      "model": "어울림모터스",
+      "generationName": "어울림모터스-스피라",
+      "visualName": "어울림모터스-스피라",
+      "releaseYm": "2010-08",
+      "endYm": null,
+      "listingCount": 1,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "오렌지 메탈릭",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_043f8c3858312fb90016"
+      ],
+      "status": "completed",
+      "priority": 2,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    }
+  ],
+  "completedAssets": 2
+}

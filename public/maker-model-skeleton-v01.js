@@ -16,6 +16,7 @@ const GENERATION_IMAGE_MAP_URLS = [
   "./data/chevrolet-gm-catalog-v1/generation-images-available.json",
   "./data/kg-mobility-catalog-v1/generation-images-available.json",
   "./data/renault-korea-catalog-v1/generation-images-available.json",
+  "./data/domestic-others-catalog-v1/generation-images-available.json",
 ];
 const GENERATION_SUPPLEMENT_URL = "./data/encar-car-depth-1005/generation-supplements/mercedes-benz.json";
 const GENERATION_DISPLAY_IDENTITY_URLS = [

@@ -1,0 +1,32 @@
+{
+  "manufacturer": "기타 제조사",
+  "total": 2,
+  "completed": 2,
+  "failures": 0,
+  "rows": [
+    {
+      "assetId": "domestic_asset_86cb59545c7737f1f651",
+      "fileName": "domestic_asset_86cb59545c7737f1f651.png",
+      "exists": true,
+      "width": 960,
+      "height": 600,
+      "format": "png",
+      "channels": 4,
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "status": "completed"
+    },
+    {
+      "assetId": "domestic_asset_9e173504f7efca4ae73f",
+      "fileName": "domestic_asset_9e173504f7efca4ae73f.png",
+      "exists": true,
+      "width": 960,
+      "height": 600,
+      "format": "png",
+      "channels": 4,
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "status": "completed"
+    }
+  ]
+}
