@@ -1556,13 +1556,13 @@ function MarketplaceScreen() {
               ? listingCars.filter((car) => car.maker === key && matchesTruckSelection(car)).length
               : listingCars.filter((car) => car.maker === key).length;
             if (isLuxuryCategory && plainQuickCards) {
-              // 럭셔리카 로고 3종 시안: 확정 16개 순서 · 44×28 슬롯, 로고 소스만 ?luxlogo=autohome|daangn|dongchedi
+              // 럭셔리카 로고 3종 시안: 확정 16개 순서 · 초톳 40×40 슬롯, 로고 소스만 ?luxlogo=autohome|daangn|dongchedi
               const logoSource = luxuryLogoSource();
               return (
                 <section className="depth-rail is-kr-maker is-lux-logo no-label" aria-label="럭셔리카 브랜드 빠른 선택" data-luxlogo={logoSource}>
                   <QuickRailCarousel ariaLabel="럭셔리카 브랜드" className="brand-carousel" contentClassName="depth-rail-track">
                     {luxuryLogoBrands.map((brand, index) => (
-                      <DepthCard key={brand.maker} className={sampleCount(brand.maker) === 0 ? "is-dim" : undefined} label={brand.maker} image={<img className="lux-qf-logo" src={asset(luxuryLogoPath(logoSource, index))} alt="" draggable={false} />} mediaKind="brand" selected={maker === brand.maker} onClick={() => applyMakerFilter(brand.maker)} />
+                      <DepthCard key={brand.maker} className={sampleCount(brand.maker) === 0 ? "is-dim" : undefined} label={brand.maker} image={<img className={`lux-qf-logo lux-qf-logo--${brand.slug}`} src={asset(luxuryLogoPath(logoSource, index))} alt="" draggable={false} />} mediaKind="brand" selected={maker === brand.maker} onClick={() => applyMakerFilter(brand.maker)} />
                     ))}
                   </QuickRailCarousel>
                 </section>
