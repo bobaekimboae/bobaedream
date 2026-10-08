@@ -27,7 +27,12 @@ const fuelLabel = (source: SampleSource) => {
   return fuel;
 };
 
+// 목록 카드 스펙 줄에는 「N년식」 글자를 넣지 않는다(2026-10-08 「년식 빼자 텍스트」 · 「전체차량 리스트에서도 빼라」)
 export function bbmCardSpec(source: SampleSource, withPower = true) {
+  return cardSpecText(source, withPower).split(" · ").filter((part) => !/^\d{2,4}년식$/.test(part.trim())).join(" · ");
+}
+
+function cardSpecText(source: SampleSource, withPower: boolean) {
   // 지시값을 그대로 보여줄 매물(등록연월·주행 정확값)
   // 주행거리는 정확값(56,067km)도 축약(6만km · 4천km)한다(2026-10-08 「주행거리는 축약해라」)
   if (source.cardSpec?.length) return source.cardSpec.map((part) => /^[\d,]+km$/.test(part) ? mileageLabel({ ...source, filter: { year: 0, fuel: "", mileage: Number(part.replace(/[^\d]/g, "")) } }) : part).join(" · ");
