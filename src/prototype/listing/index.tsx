@@ -139,7 +139,11 @@ const debugMode = new URLSearchParams(window.location.search).get("debug") === "
 // 과쯔 「전체차량」: 승용·트럭·바이크·캠핑카·건설기계·자재운반장비·부품 매물을 한 목록에 섞는다.
 // 유형마다 자기 업데이트순(승용 id 큰 순, 나머지 데이터 순서)을 지키며 목록 전체에 고르게 퍼지도록 (순번+0.5)/개수 위치로 섞고 updateRank 로 고정한다.
 const allVehicleMixedCars: Car[] = (() => {
-  const groups = [sortBbmCars(bbmSampleCars, "업데이트순"), truckCars, bikeCars, campingCars, heavyCars, materialHandlingCars, partsCars];
+  // 2026-10-08 사용자 지시 「한국타이어 볼보 윙바디로 바꿔」: 전체 목록에서 부품 첫 매물(한국타이어 벤투스) 자리에 볼보 FE 윙바디(truck-031)를 둔다. 부품·트럭 개별 목록은 그대로
+  const volvo = truckCars.find((car) => car.truck?.scenarioId === "truck-031");
+  const mixedTrucks = volvo ? truckCars.filter((car) => car !== volvo) : truckCars;
+  const mixedParts = volvo ? [volvo, ...partsCars.slice(1)] : partsCars;
+  const groups = [sortBbmCars(bbmSampleCars, "업데이트순"), mixedTrucks, bikeCars, campingCars, heavyCars, materialHandlingCars, mixedParts];
   const placed = groups.flatMap((group, groupIndex) => group.map((car, index) => ({ car, key: (index + 0.5) / group.length, groupIndex })));
   placed.sort((first, second) => first.key - second.key || first.groupIndex - second.groupIndex);
   return placed.map(({ car }, index) => ({ ...car, updateRank: placed.length - index }));
