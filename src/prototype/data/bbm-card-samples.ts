@@ -1,6 +1,6 @@
 // QF-091: 개발 시안 카드의 등록연월·주행거리·연료·마력과 인증중고차·1년보증 배지를 채운다.
 // 우리 매물 데이터에 없는 값(월·년형·마력·배지)을 매물 id 로 정해지는 샘플 값으로 채운다. 실제 매물 정보가 아니다.
-type SampleSource = { id: number; specs: string[]; filter?: { year: number; mileage: number; fuel: string }; badges?: string[]; uiTest?: unknown; virtualCategory?: { category?: string; categoryDetail?: string; berths?: number; beds?: number; seats?: number }; bike?: { genre: string; displacement: number }; truck?: { trailer?: { load: string; length: string; axles: string }; format?: string; subtype?: string; load?: string; horsepower?: number; drive?: string }; heavy?: { hours?: number }; cardSpec?: string[] };
+type SampleSource = { id: number; specs: string[]; filter?: { year: number; mileage: number; fuel: string }; badges?: string[]; uiTest?: unknown; virtualCategory?: { category?: string; categoryDetail?: string; berths?: number; beds?: number; seats?: number }; bike?: { genre: string; displacement: number }; truck?: { trailer?: { load: string; length: string; axles: string }; load?: string; horsepower?: number; drive?: string }; heavy?: { hours?: number }; cardSpec?: string[] };
 
 const horsepowerPool = [190, 204, 245, 258, 150, 170, 305, 367, 122, 184, 225, 272];
 const badgePool: string[][] = [["인증중고차", "1년보증"], ["인증중고차", "1년보증"], [], ["1년보증"], ["인증중고차"], []];
@@ -26,25 +26,13 @@ const fuelLabel = (source: SampleSource) => {
   return fuel === "하이브리드" ? "가솔린 하이브리드" : fuel;
 };
 
-// 트럭 유형을 스펙 줄 맨 앞에(바이크 장르·캠핑카 구분처럼, 2026-10-08 사용자 지시): 카고(화물)트럭 → 카고트럭
-// 384px 한 줄에 들어가게 짧은 유형명으로(크레인·고소작업차 → 크레인/고소작업차 등)
-const truckKindShort: Record<string, string> = {
-  "카고(화물)트럭": "카고트럭", "윙바디·탑차": "윙바디", "냉장·냉동차": "냉동차", "탱크로리": "탱크로리", "버스": "버스",
-  "캠핑카·카라반": "캠핑카", "환경·폐기물차": "청소차", "특수차": "특수차", "견인·운송차": "견인차", "트랙터 헤드": "트랙터", "트레일러": "트레일러",
-};
-// 특장차(크레인·고소작업·믹서·탱크로리·청소차·특수차·견인차)는 유형명이 길어 붙이지 않는다(2026-10-08 「특장은 유형 빼자」). 일반 트럭·버스·캠핑카·트랙터·트레일러만
-const truckKindLabel = (format?: string, subtype = "") =>
-  format === "덤프·믹서" ? (/믹서/.test(subtype) ? "" : "덤프트럭")
-  : ["크레인·고소작업차", "탱크로리", "환경·폐기물차", "특수차", "견인·운송차"].includes(format ?? "") ? ""
-  : truckKindShort[format ?? ""] ?? format ?? "";
-
 export function bbmCardSpec(source: SampleSource, withPower = true) {
   // 지시값을 그대로 보여줄 매물(등록연월·주행 정확값)
   // 주행거리는 정확값(56,067km)도 축약(6만km · 4천km)한다(2026-10-08 「주행거리는 축약해라」)
   if (source.cardSpec?.length) return source.cardSpec.map((part) => /^[\d,]+km$/.test(part) ? mileageLabel({ ...source, filter: { year: 0, fuel: "", mileage: Number(part.replace(/[^\d]/g, "")) } }) : part).join(" · ");
   // 트레일러: 적재량 · 길이 · 축(엔진 없음)
-  if (source.truck?.trailer) return [truckKindLabel(source.truck.format, source.truck.subtype), `${String(yearFromSpecs(source) % 100).padStart(2, "0")}년${String(((source.id * 5) % 12) + 1).padStart(2, "0")}월`, source.truck.trailer.load.replace(/^적재 ([\d.]+)톤$/, (_, t: string) => `적재 ${Math.round(Number(t) * 1000).toLocaleString("ko-KR")}kg`), source.truck.trailer.length, source.truck.trailer.axles].join(" · ");
-  // 캠핑카: 바이크 장르처럼 구분을 맨 앞에(모터홈 · 카라반 · 트레일러, 2026-10-08) + 등록연월 · 주행 · 연료. 엔진 없는 카라반·트레일러는 등록연월 · 견인형
+  if (source.truck?.trailer) return [`${String(yearFromSpecs(source) % 100).padStart(2, "0")}년${String(((source.id * 5) % 12) + 1).padStart(2, "0")}월`, source.truck.trailer.load.replace(/^적재 ([\d.]+)톤$/, (_, t: string) => `적재 ${Math.round(Number(t) * 1000).toLocaleString("ko-KR")}kg`), source.truck.trailer.length, source.truck.trailer.axles].join(" · ");
+  // 캠핑카: 바이크 장르처럼 구분을 맨 앞에(모터홈 · 카라반 · 트레일러, 2026-10-08) + 등록연월 · 주행 · 연료. 엔진 없는 카라반·트레일러는 등록연월 · 취침(「견인형」은 2026-10-08 뺌)
   if (source.virtualCategory?.category === "캠핑카") {
     const year = yearFromSpecs(source);
     const now = new Date();
@@ -58,7 +46,7 @@ export function bbmCardSpec(source: SampleSource, withPower = true) {
       ...(source.virtualCategory.berths ? [`취침 ${source.virtualCategory.berths}명`] : []),
     ];
     const kind = source.virtualCategory.categoryDetail ?? "모터홈";
-    return (kind !== "모터홈" ? [kind, registered, "견인형", ...berths] : [kind, registered, mileageLabel(source), fuelLabel(source), ...berths]).join(" · ");
+    return (kind !== "모터홈" ? [kind, registered, ...berths] : [kind, registered, mileageLabel(source), fuelLabel(source), ...berths]).join(" · ");
   }
   if (source.uiTest || source.virtualCategory) return source.specs.join(" · ");
   // 바이크(2026-10-07 사용자 지시): 장르 · 연식 · 주행 · 배기량 (예: 네이키드 · 2023 · 2만km · 2,300cc)
@@ -77,7 +65,7 @@ export function bbmCardSpec(source: SampleSource, withPower = true) {
     const tons = load.match(/^([\d.]+)톤$/);
     const loadLabel = tons ? `적재 ${Math.round(Number(tons[1]) * 1000).toLocaleString("ko-KR")}kg` : load && load !== "기타" && load.replace("×", "x") !== source.truck.drive ? load : "";
     const power = [source.truck.horsepower ? `${source.truck.horsepower}마력` : "", loadLabel, source.truck.drive ?? ""].filter(Boolean);
-    return [truckKindLabel(source.truck.format, source.truck.subtype), `${String(year % 100).padStart(2, "0")}년${String(month).padStart(2, "0")}월`, mileageLabel(source), fuelLabel(source), ...power].filter(Boolean).join(" · ");
+    return [`${String(year % 100).padStart(2, "0")}년${String(month).padStart(2, "0")}월`, mileageLabel(source), fuelLabel(source), ...power].filter(Boolean).join(" · ");
   }
   // 바이크 연식은 「20년식」(연월 모를 때 표기, 2026-10-08 「바이크도 년식」)
   if (source.bike) return [source.bike.genre, `${String(yearFromSpecs(source) % 100).padStart(2, "0")}년식`, mileageLabel(source), `${source.bike.displacement.toLocaleString("ko-KR")}cc`].join(" · ");
