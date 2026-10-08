@@ -872,7 +872,7 @@ const virtualPlace = (address: string) => address.replace(/\s*·\s*가상 매물
 
 // 사용자 지시 매물(2026-10-07): 샘플 배지 없이 지시값 스펙 줄 고정
 const bikeListingOverridesV01: Record<string, { cardSpec: string[] }> = {
-  "bike-001": { cardSpec: ["크루저", "1만km", "1,202cc"] },
+  "bike-001": { cardSpec: ["크루저", "2020", "1만km", "1,202cc"] },
 };
 // 2026-10-08: 바이크 시트 매물(v08)은 게시일 최신순(같은 날은 시트 순서), 사용자 지시 매물 bike-001은 맨 위. updateRank로 업데이트순을 고정한다
 const bikeInventoryOrdered = [...bikeInventory].sort((a, b) => (a.postedDays ?? -1) - (b.postedDays ?? -1));

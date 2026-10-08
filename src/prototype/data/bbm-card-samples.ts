@@ -27,9 +27,12 @@ const fuelLabel = (source: SampleSource) => {
   return fuel;
 };
 
-// 목록 카드 스펙 줄에는 「N년식」 글자를 넣지 않는다(2026-10-08 「년식 빼자 텍스트」 · 「전체차량 리스트에서도 빼라」)
+// 목록 카드 스펙 줄의 연식은 「년식」 글자 없이 숫자만(2017년식 → 2017, 2026-10-08 「2002 숫자만 표기하자」)
 export function bbmCardSpec(source: SampleSource, withPower = true) {
-  return cardSpecText(source, withPower).split(" · ").filter((part) => !/^\d{2,4}년식$/.test(part.trim())).join(" · ");
+  return cardSpecText(source, withPower).split(" · ").map((part) => {
+    const year = part.trim().match(/^(\d{2}|\d{4})년식$/);
+    return year ? (year[1].length === 2 ? `20${year[1]}` : year[1]) : part;
+  }).join(" · ");
 }
 
 function cardSpecText(source: SampleSource, withPower: boolean) {
@@ -76,8 +79,8 @@ function cardSpecText(source: SampleSource, withPower: boolean) {
     const power = [source.truck.horsepower ? `${source.truck.horsepower}마력` : "", inTitle(loadLabel) ? "" : loadLabel, inTitle(source.truck.drive ?? "") ? "" : source.truck.drive ?? ""].filter(Boolean);
     return [`${String(year % 100).padStart(2, "0")}년${String(month).padStart(2, "0")}월`, mileageLabel(source), fuelLabel(source), ...power].filter(Boolean).join(" · ");
   }
-  // 바이크 스펙 줄은 장르 · 주행 · 배기량(2026-10-08 「년식 빼자 텍스트」)
-  if (source.bike) return [source.bike.genre, mileageLabel(source), `${source.bike.displacement.toLocaleString("ko-KR")}cc`].join(" · ");
+  // 바이크 스펙 줄은 장르 · 연식(숫자만) · 주행 · 배기량(2026-10-08 「2002 숫자만 표기하자」)
+  if (source.bike) return [source.bike.genre, String(yearFromSpecs(source)), mileageLabel(source), `${source.bike.displacement.toLocaleString("ko-KR")}cc`].join(" · ");
   const year = yearFromSpecs(source);
   const month = ((source.id * 5) % 12) + 1;
   // 목록은 등록연월만 간결하게 표시한다. 연형은 상세 정보에서 다룬다.
