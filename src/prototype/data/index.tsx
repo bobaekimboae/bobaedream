@@ -165,7 +165,7 @@ type Car = {
   };
   sellerProfile?: string | null;
   /** 럭셔리카 카테고리 가상 매물 v01(차량 › 중고차 › 럭셔리카). 위치는 place의 단지를 그대로 쓴다 */
-  luxuryCategory?: { number: number; vehicleNumber: string; model: string; generation: string; filled: boolean };
+  luxuryCategory?: { number: number; vehicleNumber: string; model: string; generation: string; filled: boolean; certified: boolean };
   uiTest?: {
     number: number;
     fullTitle: string;
@@ -1480,12 +1480,12 @@ const luxuryCategoryCars: Car[] = luxuryRowsPhotoFirst.map((row, index) => {
     price: `${row.price.toLocaleString("ko-KR")} 만원`,
     place: dealer.place,
     views: 0,
-    dealer: dealer.name,
+    dealer: dealer.certified ? dealer.name.replace(/ 딜러$/, " 인증딜러") : dealer.name,
     stock: luxuryListingRows.filter((other) => other.dealerId === row.dealerId).length,
     posted: row.posted,
     photos: row.image ? 1 : 0,
     sellerProfile: dealer.avatar,
-    luxuryCategory: { number: row.number, vehicleNumber: row.vehicleNumber, model: row.model, generation: row.generation, filled: Boolean(row.filled) },
+    luxuryCategory: { number: row.number, vehicleNumber: row.vehicleNumber, model: row.model, generation: row.generation, filled: Boolean(row.filled), certified: Boolean(dealer.certified) },
     filter: {
       year: row.year,
       seats: "전체",

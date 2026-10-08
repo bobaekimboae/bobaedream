@@ -3,6 +3,7 @@
 // 구글 드라이브 매물 사진(파일명 = 차량번호). 사진은 차량번호 대신 순번 파일명(lux-NN)으로 저장했다.
 // 가격 · 매매단지 · 딜러 · 프로필 · 등록시각은 UI 검증용 가상 값이다(실제 매물·실제 판매 조건 아님).
 // 매매단지는 전국 16곳에 나눴다(2026-10-08 사용자 지시 「서울오토갤러리 등 전국으로 여러 개」). 그래서 시트의 지역(sheetRegion)과 화면 지역이 다를 수 있다.
+// 인증딜러 5명(d01 · d02 · d04 · d05 · d07, 2026-10-08 사용자 지시 「이은호 인증딜러」): 이름 뒤 「인증딜러」 + 초톳 물결 체크 배지.
 // 딜러는 실제 시장처럼 전문 차종을 둔다(2026-10-08 「진짜 매물정보처럼 체계적으로」): 서울오토갤러리 페라리 · 강남 롤스로이스/벤틀리 · 오토플렉스 맥라렌 ·
 // 도이치오토월드 G-클래스 · SKV1 람보르기니 우루스 · 오토허브 포르쉐/아우디 · 엠파크 마이바흐 · 디오토몰·제주 테슬라 · 부산 시트 지역 매물 ·
 // 대구 벤츠 S/벤틀리 · 광주 마세라티/애스턴마틴 · 울산 미국 대형 SUV/픽업 · 경남 BMW M · 청주 페라리 GTC4.
@@ -15,6 +16,8 @@ export type LuxuryDealer = {
   /** 시도 구군 · 매매단지(KB차차차 매매단지 마스터 2026-08-26에 있는 실제 단지명) */
   place: string;
   avatar: string;
+  /** 인증딜러(초톳 물결 체크 배지 + 「이름 인증딜러」) */
+  certified?: true;
 };
 
 export type LuxuryListingRow = {
@@ -45,13 +48,13 @@ export type LuxuryListingRow = {
 };
 
 export const luxuryDealers: readonly LuxuryDealer[] = [
-  { id: "d01", name: "정태윤 딜러", place: "서울 서초구 · 서울오토갤러리", avatar: "cars/sellers/luxury-v01/dealer-01.png" },
-  { id: "d02", name: "한서준 딜러", place: "서울 강남구 · 강남자동차매매단지", avatar: "cars/sellers/luxury-v01/dealer-02.png" },
+  { id: "d01", name: "이은호 딜러", place: "서울 서초구 · 서울오토갤러리", avatar: "cars/sellers/luxury-v01/dealer-01.png", certified: true },
+  { id: "d02", name: "한서준 딜러", place: "서울 강남구 · 강남자동차매매단지", avatar: "cars/sellers/luxury-v01/dealer-02.png", certified: true },
   { id: "d03", name: "김나연 딜러", place: "서울 강서구 · 오토플렉스", avatar: "cars/sellers/luxury-v01/dealer-03.png" },
-  { id: "d04", name: "오재혁 딜러", place: "경기 수원시 권선구 · 도이치오토월드", avatar: "cars/sellers/luxury-v01/dealer-04.png" },
-  { id: "d05", name: "이도현 딜러", place: "경기 수원시 권선구 · SKV1모터스매매단지", avatar: "cars/sellers/luxury-v01/dealer-05.png" },
+  { id: "d04", name: "오재혁 딜러", place: "경기 수원시 권선구 · 도이치오토월드", avatar: "cars/sellers/luxury-v01/dealer-04.png", certified: true },
+  { id: "d05", name: "이도현 딜러", place: "경기 수원시 권선구 · SKV1모터스매매단지", avatar: "cars/sellers/luxury-v01/dealer-05.png", certified: true },
   { id: "d06", name: "윤하린 딜러", place: "경기 용인시 기흥구 · 오토허브", avatar: "cars/sellers/luxury-v01/dealer-06.png" },
-  { id: "d07", name: "박시우 딜러", place: "인천 서구 · 엠파크타워자동차매매단지", avatar: "cars/sellers/luxury-v01/dealer-07.png" },
+  { id: "d07", name: "박시우 딜러", place: "인천 서구 · 엠파크타워자동차매매단지", avatar: "cars/sellers/luxury-v01/dealer-07.png", certified: true },
   { id: "d08", name: "최은재 딜러", place: "대전 유성구 · 디오토몰", avatar: "cars/sellers/luxury-v01/dealer-08.png" },
   { id: "d09", name: "강민혁 딜러", place: "부산 기장군 · 오토필드", avatar: "cars/sellers/luxury-v01/dealer-09.png" },
   { id: "d10", name: "문지아 딜러", place: "부산 해운대구 · 원파크", avatar: "cars/sellers/luxury-v01/dealer-10.png" },
