@@ -302,7 +302,7 @@ export function BbmMobileOptions<T extends string>({
   viewMode: string;
   extra?: ReactNode;
 }) {
-  const viewIcon = viewMode === "갤러리로 보기" ? "view-list-chotot-v02" : "view-grid-chotot";
+  const viewIcon = viewMode === "갤러리로 보기" ? "view-list-chotot-v02" : "view-grid-chotot-v02";
   return (
     <nav className="bbm-m-options" aria-label="정렬, 숏폼중고차, 판매자 유형과 보기 방식">
       <button type="button" className="bbm-m-sort" onClick={onSort}><span>{sortLabel}</span><img src={bbmIcon("toolbar-sort-chevron")} alt="" aria-hidden="true" /></button>
