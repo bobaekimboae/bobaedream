@@ -1457,7 +1457,7 @@ const luxuryUiTestCars: Car[] = luxuryUiTestRows.map((row) => {
   };
 });
 
-// 럭셔리카 카테고리 v01: 구글 시트 「가상 매물 시나리오 › 럭셔리카」 32대(사진 29장) + 가상 딜러 12명.
+// 럭셔리카 카테고리 v01: 구글 시트 「가상 매물 시나리오 › 럭셔리카」 중 사진 있는 29대 + 가상 딜러 16명.
 // 카드 메타 = 제조사+모델(+세대·트림) / 등록연월 · 주행 · 연료 / 시도 구군 · 매매단지 / 판매자명
 const luxuryDealerById = new Map(luxuryDealers.map((dealer) => [dealer.id, dealer]));
 // 사진이 아직 없는 매물(드라이브 미등록)은 목록 끝으로 보낸다. 나머지는 시트 순서 그대로
