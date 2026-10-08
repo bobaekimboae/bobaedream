@@ -1,6 +1,6 @@
 // QF-091: 개발 시안 카드의 등록연월·주행거리·연료·마력과 인증중고차·1년보증 배지를 채운다.
 // 우리 매물 데이터에 없는 값(월·년형·마력·배지)을 매물 id 로 정해지는 샘플 값으로 채운다. 실제 매물 정보가 아니다.
-type SampleSource = { id: number; specs: string[]; filter?: { year: number; mileage: number; fuel: string }; badges?: string[]; uiTest?: unknown; virtualCategory?: { category?: string; categoryDetail?: string; berths?: number; beds?: number; seats?: number }; bike?: { genre: string; displacement: number }; truck?: { trailer?: { load: string; length: string; axles: string }; load?: string; horsepower?: number; drive?: string }; heavy?: { hours?: number }; cardSpec?: string[] };
+type SampleSource = { id: number; title?: string; trim?: string; specs: string[]; filter?: { year: number; mileage: number; fuel: string }; badges?: string[]; uiTest?: unknown; virtualCategory?: { category?: string; categoryDetail?: string; berths?: number; beds?: number; seats?: number }; bike?: { genre: string; displacement: number }; truck?: { trailer?: { load: string; length: string; axles: string }; load?: string; horsepower?: number; drive?: string }; heavy?: { hours?: number }; cardSpec?: string[] };
 
 const horsepowerPool = [190, 204, 245, 258, 150, 170, 305, 367, 122, 184, 225, 272];
 const badgePool: string[][] = [["인증중고차", "1년보증"], ["인증중고차", "1년보증"], [], ["1년보증"], ["인증중고차"], []];
@@ -23,7 +23,8 @@ const mileageLabel = (source: SampleSource) => {
 
 const fuelLabel = (source: SampleSource) => {
   const fuel = source.filter?.fuel ?? source.specs.find((spec) => /가솔린|디젤|LPG|전기|하이브리드/.test(spec)) ?? "가솔린";
-  return fuel === "하이브리드" ? "가솔린 하이브리드" : fuel;
+  // 「가솔린 하이브리드」 → 「하이브리드」로 축약(2026-10-08)
+  return fuel;
 };
 
 export function bbmCardSpec(source: SampleSource, withPower = true) {
@@ -64,7 +65,10 @@ export function bbmCardSpec(source: SampleSource, withPower = true) {
     // 적재는 톤으로 축약(적재 1톤 · 적재 2.5톤), 순서 마력 · 적재 · 차축(2026-10-08 사용자 지시)
     const tons = load.match(/^([\d.]+)톤$/);
     const loadLabel = tons ? `적재 ${tons[1]}톤` : load && load !== "기타" && load.replace("×", "x") !== source.truck.drive ? load : "";
-    const power = [source.truck.horsepower ? `${source.truck.horsepower}마력` : "", loadLabel, source.truck.drive ?? ""].filter(Boolean);
+    // 제목(차명 + 등급)에 이미 있는 톤수·용량·차축은 둘째 줄에서 뺀다(2026-10-08 「축약」)
+    const titleText = `${source.title ?? ""} ${source.trim ?? ""}`.replace(/×/g, "x");
+    const inTitle = (part: string) => Boolean(part) && titleText.includes(part.replace(/^적재 /, "").replace(/×/g, "x"));
+    const power = [source.truck.horsepower ? `${source.truck.horsepower}마력` : "", inTitle(loadLabel) ? "" : loadLabel, inTitle(source.truck.drive ?? "") ? "" : source.truck.drive ?? ""].filter(Boolean);
     return [`${String(year % 100).padStart(2, "0")}년${String(month).padStart(2, "0")}월`, mileageLabel(source), fuelLabel(source), ...power].filter(Boolean).join(" · ");
   }
   // 바이크 연식은 「2020년식」(2026-10-08 「22년식 아닌 2022년식」)
