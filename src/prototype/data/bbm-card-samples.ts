@@ -52,10 +52,10 @@ export function bbmCardSpec(source: SampleSource, withPower = true) {
     const month = Math.min(((source.id * 5) % 12) + 1, year >= now.getFullYear() ? now.getMonth() + 1 : 12);
     const registered = `${String(year % 100).padStart(2, "0")}년${String(month).padStart(2, "0")}월`;
     // 취침 인원을 끝에 붙인다: 취침 4인(2026-10-08 사용자 지시, 해외 표기 Sleeps 4 · 4 berth · 4 Schlafplätze와 같은 인원 기준)
-    // 모터홈은 「승차 6인 · 취침 3인」, 카라반·트레일러는 승차 없이 「취침 4인」(2026-10-08 사용자 지시)
+    // 모터홈은 「승차 6명 · 취침 3명」, 카라반·트레일러는 승차 없이 「취침 4명」(2026-10-08 사용자 지시)
     const berths = [
-      ...(source.virtualCategory.seats && source.virtualCategory.categoryDetail === "모터홈" ? [`승차 ${source.virtualCategory.seats}인`] : []),
-      ...(source.virtualCategory.berths ? [`취침 ${source.virtualCategory.berths}인`] : []),
+      ...(source.virtualCategory.seats && source.virtualCategory.categoryDetail === "모터홈" ? [`승차 ${source.virtualCategory.seats}명`] : []),
+      ...(source.virtualCategory.berths ? [`취침 ${source.virtualCategory.berths}명`] : []),
     ];
     const kind = source.virtualCategory.categoryDetail ?? "모터홈";
     return (kind !== "모터홈" ? [kind, registered, "견인형", ...berths] : [kind, registered, mileageLabel(source), fuelLabel(source), ...berths]).join(" · ");
