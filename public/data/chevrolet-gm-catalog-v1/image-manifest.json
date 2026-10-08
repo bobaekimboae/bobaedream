@@ -1,0 +1,1854 @@
+{
+  "version": "2026-10-08-v02",
+  "manufacturerKey": "make_car_encar_2bc0bd6e0045751a46f8",
+  "manufacturerName": "쉐보레(GM대우)",
+  "sourceModels": 33,
+  "sourceGenerations": 59,
+  "uniqueAssets": 59,
+  "rules": {
+    "master": "1920×1200 transparent PNG",
+    "delivery": "960×600 transparent PNG",
+    "angle": "AutoScout24-style left-facing front three-quarter",
+    "width": "88~90%",
+    "floorGap": "6%",
+    "lighting": "high-key studio, approximately +0.7EV midtone lift",
+    "shadow": "compact contact shadow",
+    "colorPriority": [
+      "mobile.de",
+      "carisyou.com",
+      "auto.danawa.com"
+    ]
+  },
+  "assets": [
+    {
+      "assetId": "chevrolet_asset_da3df7477119b1810230",
+      "fileName": "chevrolet_asset_da3df7477119b1810230.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "스파크",
+      "generationName": "더 넥스트 스파크",
+      "visualName": "더 넥스트 스파크",
+      "releaseYm": "2015-07",
+      "endYm": "2018-07",
+      "listingCount": 844,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "카리브 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_45a8d672a75acfb1f4f7"
+      ],
+      "status": "completed",
+      "priority": 1,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_f66a3cd07ef5d33590fd",
+      "fileName": "chevrolet_asset_f66a3cd07ef5d33590fd.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "트레일블레이저",
+      "generationName": "트레일블레이저",
+      "visualName": "트레일블레이저",
+      "releaseYm": "2020-01",
+      "endYm": "2023-06",
+      "listingCount": 713,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "제우스 브론즈",
+      "colorEvidence": "https://news.chevrolet.co.kr/ko/chevrolet/newsroom.detail.html/Pages/news/kr/ko/2022/june/0608_Chevrolet-launches-new-brand-campaign.html",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_6c3bd468d6fa46829179"
+      ],
+      "status": "completed",
+      "priority": 2,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_d340bd9ba41914d8cc55",
+      "fileName": "chevrolet_asset_d340bd9ba41914d8cc55.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "스파크",
+      "generationName": "더 뉴 스파크",
+      "visualName": "더 뉴 스파크",
+      "releaseYm": "2018-05",
+      "endYm": "2023-05",
+      "listingCount": 683,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "스플래시 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_e3876811f25e933210ca"
+      ],
+      "status": "completed",
+      "priority": 3,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_af392c74b3a0f6226db8",
+      "fileName": "chevrolet_asset_af392c74b3a0f6226db8.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "스파크",
+      "generationName": "스파크",
+      "visualName": "스파크",
+      "releaseYm": "2011-03",
+      "endYm": "2015-08",
+      "listingCount": 661,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "허니 멜로 옐로우",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_ff10a200e65d3fb9ec98"
+      ],
+      "status": "completed",
+      "priority": 4,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_eafc44fcb35c705738c0",
+      "fileName": "chevrolet_asset_eafc44fcb35c705738c0.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "말리부",
+      "generationName": "올 뉴 말리부",
+      "visualName": "올 뉴 말리부",
+      "releaseYm": "2016-05",
+      "endYm": "2018-12",
+      "listingCount": 616,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "블루 아이즈",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_5190a31f321cdf280800"
+      ],
+      "status": "completed",
+      "priority": 5,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_4fae63c4842a0c9d38ca",
+      "fileName": "chevrolet_asset_4fae63c4842a0c9d38ca.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "트랙스",
+      "generationName": "더 뉴 트랙스",
+      "visualName": "더 뉴 트랙스",
+      "releaseYm": "2016-10",
+      "endYm": "2022-11",
+      "listingCount": 583,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "풀 미 오버 레드",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_cf72fef5a61645f8d22a"
+      ],
+      "status": "completed",
+      "priority": 6,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_2ddfe0a81006a947bed5",
+      "fileName": "chevrolet_asset_2ddfe0a81006a947bed5.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "올란도",
+      "generationName": "올란도",
+      "visualName": "올란도",
+      "releaseYm": "2011-02",
+      "endYm": "2018-09",
+      "listingCount": 523,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "스위치블레이드 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_e430542629bdfaf8c54d"
+      ],
+      "status": "completed",
+      "priority": 7,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_d84b1e6c4bd8261f637d",
+      "fileName": "chevrolet_asset_d84b1e6c4bd8261f637d.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "트랙스",
+      "generationName": "트랙스 크로스오버",
+      "visualName": "트랙스 크로스오버",
+      "releaseYm": "2023-03",
+      "endYm": null,
+      "listingCount": 449,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "밀라노 레드",
+      "colorEvidence": "https://media.gm.com/Pages/news/kr/en/2023/march/0322_Redefining_Crossover_Officially_Launches.html",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_bd5c091dccc2fb812717"
+      ],
+      "status": "completed",
+      "priority": 8,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_c1c18fff50daa43c61ce",
+      "fileName": "chevrolet_asset_c1c18fff50daa43c61ce.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "말리부",
+      "generationName": "더 뉴 말리부",
+      "visualName": "더 뉴 말리부",
+      "releaseYm": "2018-11",
+      "endYm": "2023-04",
+      "listingCount": 263,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "다크문 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_59824b5005ba1114ef04"
+      ],
+      "status": "completed",
+      "priority": 9,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_5387f96b82cd3fca3cbb",
+      "fileName": "chevrolet_asset_5387f96b82cd3fca3cbb.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "캡티바",
+      "generationName": "캡티바",
+      "visualName": "캡티바",
+      "releaseYm": "2011-04",
+      "endYm": "2018-11",
+      "listingCount": 221,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "스노우플레이크 화이트 펄",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_05b46ffec9a4a8f109da"
+      ],
+      "status": "completed",
+      "priority": 10,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_f524c874821065462852",
+      "fileName": "chevrolet_asset_f524c874821065462852.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "말리부",
+      "generationName": "말리부",
+      "visualName": "말리부",
+      "releaseYm": "2011-11",
+      "endYm": "2016-07",
+      "listingCount": 210,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "오션 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_0dc691873155e4fbee3c"
+      ],
+      "status": "completed",
+      "priority": 11,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_f889099e2e4ca60532bc",
+      "fileName": "chevrolet_asset_f889099e2e4ca60532bc.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "트래버스",
+      "generationName": "트래버스",
+      "visualName": "트래버스",
+      "releaseYm": "2019-09",
+      "endYm": null,
+      "listingCount": 202,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "아가타 레드",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_28d412dcc8d3cbb73b6d"
+      ],
+      "status": "completed",
+      "priority": 12,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_5e5802566948a4ae21a8",
+      "fileName": "chevrolet_asset_5e5802566948a4ae21a8.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "트랙스",
+      "generationName": "트랙스",
+      "visualName": "트랙스",
+      "releaseYm": "2013-02",
+      "endYm": "2016-12",
+      "listingCount": 198,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "오렌지 락",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_f63e03fb6b727343d711"
+      ],
+      "status": "completed",
+      "priority": 13,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_5200fc1cab49899ff0ac",
+      "fileName": "chevrolet_asset_5200fc1cab49899ff0ac.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "크루즈",
+      "generationName": "어메이징 뉴 크루즈",
+      "visualName": "어메이징 뉴 크루즈",
+      "releaseYm": "2015-01",
+      "endYm": "2017-03",
+      "listingCount": 188,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "딥 에스프레소 브라운",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_d36dde5f1023462078d8"
+      ],
+      "status": "completed",
+      "priority": 14,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_f7ad67d924f35dcf2549",
+      "fileName": "chevrolet_asset_f7ad67d924f35dcf2549.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "트레일블레이저",
+      "generationName": "더 뉴 트레일블레이저",
+      "visualName": "더 뉴 트레일블레이저",
+      "releaseYm": "2023-07",
+      "endYm": null,
+      "listingCount": 169,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "캑티 그린",
+      "colorEvidence": "https://news.chevrolet.co.kr/ko/chevrolet/newsroom.detail.html/Pages/news/kr/ko/2023/july/0719_The_New_Trailblazer.html",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_51bdecf84f94675368b7"
+      ],
+      "status": "completed",
+      "priority": 15,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_c5729c6cb404c915ed8c",
+      "fileName": "chevrolet_asset_c5729c6cb404c915ed8c.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "임팔라",
+      "generationName": "임팔라",
+      "visualName": "임팔라",
+      "releaseYm": "2015-09",
+      "endYm": "2020-01",
+      "listingCount": 167,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "블루 벨벳",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_4114035006da7dac863b"
+      ],
+      "status": "completed",
+      "priority": 16,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_de9ff1390978b0ba4db1",
+      "fileName": "chevrolet_asset_de9ff1390978b0ba4db1.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "콜로라도",
+      "generationName": "리얼 뉴 콜로라도",
+      "visualName": "리얼 뉴 콜로라도",
+      "releaseYm": "2020-09",
+      "endYm": "2024-07",
+      "listingCount": 163,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "체리 팝 레드",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_08e8884e79271da8ea3c"
+      ],
+      "status": "completed",
+      "priority": 17,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_976682563b2ddbae6b41",
+      "fileName": "chevrolet_asset_976682563b2ddbae6b41.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "크루즈",
+      "generationName": "크루즈",
+      "visualName": "크루즈",
+      "releaseYm": "2011-03",
+      "endYm": "2014-12",
+      "listingCount": 141,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "벨벳 레드",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_b60a269c1af632d8aa76"
+      ],
+      "status": "completed",
+      "priority": 18,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_f217e74af8586780bb89",
+      "fileName": "chevrolet_asset_f217e74af8586780bb89.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "라보",
+      "generationName": "뉴 라보",
+      "visualName": "뉴 라보",
+      "releaseYm": "2008-04",
+      "endYm": "2021-05",
+      "listingCount": 93,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "화이트",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_34112ae56d32603aaa3e"
+      ],
+      "status": "completed",
+      "priority": 19,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_59b13f019b9c8d99a5f4",
+      "fileName": "chevrolet_asset_59b13f019b9c8d99a5f4.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "크루즈",
+      "generationName": "올 뉴 크루즈",
+      "visualName": "올 뉴 크루즈",
+      "releaseYm": "2017-02",
+      "endYm": "2018-09",
+      "listingCount": 89,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "풀 미 오버 레드",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_3b6260c4128c072938a1"
+      ],
+      "status": "completed",
+      "priority": 20,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_045720b0e853c100d1e7",
+      "fileName": "chevrolet_asset_045720b0e853c100d1e7.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "알페온",
+      "generationName": "알페온",
+      "visualName": "알페온",
+      "releaseYm": "2010-09",
+      "endYm": "2015-10",
+      "listingCount": 88,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "새틴 스틸 그레이",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_b6e0536d18346ce0e12d"
+      ],
+      "status": "completed",
+      "priority": 21,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_68d0184a9c22d9f9327b",
+      "fileName": "chevrolet_asset_68d0184a9c22d9f9327b.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "볼트 EV",
+      "generationName": "볼트 EV",
+      "visualName": "볼트 EV",
+      "releaseYm": "2017-04",
+      "endYm": "2021-07",
+      "listingCount": 85,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "키네틱 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_62d3bd4f967918c0ac6d"
+      ],
+      "status": "completed",
+      "priority": 22,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_9c15e3aab799d62f7a3a",
+      "fileName": "chevrolet_asset_9c15e3aab799d62f7a3a.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "콜로라도",
+      "generationName": "콜로라도",
+      "visualName": "콜로라도",
+      "releaseYm": "2019-08",
+      "endYm": "2020-11",
+      "listingCount": 76,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "다크 섀도우 그레이",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_fbe037ed87983f694c82"
+      ],
+      "status": "completed",
+      "priority": 23,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_a879dfffbf827d7267aa",
+      "fileName": "chevrolet_asset_a879dfffbf827d7267aa.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "마티즈",
+      "generationName": "마티즈 크리에이티브",
+      "visualName": "마티즈 크리에이티브",
+      "releaseYm": "2009-08",
+      "endYm": "2011-05",
+      "listingCount": 66,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미스티 레이크 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_fd10bacc3d6033419014"
+      ],
+      "status": "completed",
+      "priority": 24,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_e15acca2008138df3bf3",
+      "fileName": "chevrolet_asset_e15acca2008138df3bf3.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "다마스",
+      "generationName": "뉴 다마스",
+      "visualName": "뉴 다마스",
+      "releaseYm": "2008-04",
+      "endYm": "2021-06",
+      "listingCount": 65,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "화이트",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_8dc0c39d307b4030fcd7"
+      ],
+      "status": "completed",
+      "priority": 25,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_94c90523cbe40c231598",
+      "fileName": "chevrolet_asset_94c90523cbe40c231598.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "아베오",
+      "generationName": "아베오 세단",
+      "visualName": "아베오 세단",
+      "releaseYm": "2011-07",
+      "endYm": "2016-11",
+      "listingCount": 46,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "모로칸 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_9518e4e1306e1f6bfad4"
+      ],
+      "status": "completed",
+      "priority": 26,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_e7266d10e27156780b06",
+      "fileName": "chevrolet_asset_e7266d10e27156780b06.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "이쿼녹스",
+      "generationName": "더 넥스트 이쿼녹스",
+      "visualName": "더 넥스트 이쿼녹스",
+      "releaseYm": "2022-06",
+      "endYm": "2024-03",
+      "listingCount": 43,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "체리 팝 레드",
+      "colorEvidence": "https://news.chevrolet.co.kr/ko/chevrolet/newsroom.detail.html/Pages/news/kr/ko/2022/june/0608_Chevrolet-launches-new-brand-campaign.html",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_59249be00486273ed45f"
+      ],
+      "status": "completed",
+      "priority": 27,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_c38e87e1601eb270f472",
+      "fileName": "chevrolet_asset_c38e87e1601eb270f472.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "카마로",
+      "generationName": "올 뉴 카마로",
+      "visualName": "올 뉴 카마로",
+      "releaseYm": "2016-07",
+      "endYm": "2018-12",
+      "listingCount": 43,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "브라이트 옐로우",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_c1c41b831786c909f114"
+      ],
+      "status": "completed",
+      "priority": 28,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_29801c0fc3f905cf414b",
+      "fileName": "chevrolet_asset_29801c0fc3f905cf414b.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "아베오",
+      "generationName": "아베오 해치백",
+      "visualName": "아베오 해치백",
+      "releaseYm": "2011-02",
+      "endYm": "2016-11",
+      "listingCount": 37,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "보라카이 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_cce384028d5f55bb4fd6"
+      ],
+      "status": "completed",
+      "priority": 29,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_29851700915fb732838d",
+      "fileName": "chevrolet_asset_29851700915fb732838d.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "이쿼녹스",
+      "generationName": "이쿼녹스",
+      "visualName": "이쿼녹스",
+      "releaseYm": "2018-06",
+      "endYm": "2020-12",
+      "listingCount": 31,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "새틴 스틸 그레이",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_b69260ca226a415361ff"
+      ],
+      "status": "completed",
+      "priority": 30,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_274077e6841e1a1dac2c",
+      "fileName": "chevrolet_asset_274077e6841e1a1dac2c.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "카마로",
+      "generationName": "더 뉴 카마로",
+      "visualName": "더 뉴 카마로",
+      "releaseYm": "2018-12",
+      "endYm": "2022-05",
+      "listingCount": 26,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "오렌지 크러시",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_8cf7ccbc372a6f55223a"
+      ],
+      "status": "completed",
+      "priority": 31,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_6e34cf85624b37d0cc51",
+      "fileName": "chevrolet_asset_6e34cf85624b37d0cc51.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "볼트 EV",
+      "generationName": "뉴 볼트 EV",
+      "visualName": "뉴 볼트 EV",
+      "releaseYm": "2021-08",
+      "endYm": "2023-12",
+      "listingCount": 25,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "아이스 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_8d23ba0f892bd50ce8b2"
+      ],
+      "status": "completed",
+      "priority": 32,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_8b7086b751876a45ae9e",
+      "fileName": "chevrolet_asset_8b7086b751876a45ae9e.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "아베오",
+      "generationName": "더 뉴 아베오 세단",
+      "visualName": "더 뉴 아베오 세단",
+      "releaseYm": "2016-10",
+      "endYm": "2019-03",
+      "listingCount": 23,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "풀 미 오버 레드",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_c08d33d934159f548ca3"
+      ],
+      "status": "completed",
+      "priority": 33,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_d5f44f23d55c3a6b2a7c",
+      "fileName": "chevrolet_asset_d5f44f23d55c3a6b2a7c.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "볼트 EUV",
+      "generationName": "볼트 EUV",
+      "visualName": "볼트 EUV",
+      "releaseYm": "2021-08",
+      "endYm": "2023-12",
+      "listingCount": 18,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "오아시스 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_3d1baca15423eb9889a6"
+      ],
+      "status": "completed",
+      "priority": 34,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_946420240d5cd8fff5bb",
+      "fileName": "chevrolet_asset_946420240d5cd8fff5bb.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "라세티",
+      "generationName": "라세티 프리미어",
+      "visualName": "라세티 프리미어",
+      "releaseYm": "2008-11",
+      "endYm": "2011-05",
+      "listingCount": 16,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "스털링 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_cb548dcfd3fd08cfe06b"
+      ],
+      "status": "completed",
+      "priority": 35,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_bbbe86ebde7335e234e1",
+      "fileName": "chevrolet_asset_bbbe86ebde7335e234e1.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "크루즈",
+      "generationName": "어메이징 뉴 크루즈5",
+      "visualName": "어메이징 뉴 크루즈5",
+      "releaseYm": "2015-01",
+      "endYm": "2017-03",
+      "listingCount": 15,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "블루 레이",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_292c6c8f4cc664f8aa4f"
+      ],
+      "status": "completed",
+      "priority": 36,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_1b41607a4261f29818f5",
+      "fileName": "chevrolet_asset_1b41607a4261f29818f5.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "아베오",
+      "generationName": "더 뉴 아베오 해치백",
+      "visualName": "더 뉴 아베오 해치백",
+      "releaseYm": "2016-10",
+      "endYm": "2019-03",
+      "listingCount": 14,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "오렌지 락",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_9b6e6f540f240d1ff467"
+      ],
+      "status": "completed",
+      "priority": 37,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_c71477671315db0a8f6b",
+      "fileName": "chevrolet_asset_c71477671315db0a8f6b.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "타호",
+      "generationName": "타호",
+      "visualName": "타호",
+      "releaseYm": "2022-03",
+      "endYm": null,
+      "listingCount": 13,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "엠파이어 베이지",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_5d2bd292e3b3052c3fdd"
+      ],
+      "status": "completed",
+      "priority": 38,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_b44c47ccda27da7fd4d9",
+      "fileName": "chevrolet_asset_b44c47ccda27da7fd4d9.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "G2X",
+      "generationName": "G2X",
+      "visualName": "G2X",
+      "releaseYm": "2007-09",
+      "endYm": "2008-12",
+      "listingCount": 12,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "선버스트 옐로우",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_e627196ed08c2d8749e9"
+      ],
+      "status": "completed",
+      "priority": 39,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_76632e2c75132667aed2",
+      "fileName": "chevrolet_asset_76632e2c75132667aed2.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "콜로라도",
+      "generationName": "올 뉴 콜로라도",
+      "visualName": "올 뉴 콜로라도",
+      "releaseYm": "2024-07",
+      "endYm": null,
+      "listingCount": 10,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "샌드 듄",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_9abc066339c52e0ea3ee"
+      ],
+      "status": "completed",
+      "priority": 40,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_ff57330028e891f2fba4",
+      "fileName": "chevrolet_asset_ff57330028e891f2fba4.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "티코",
+      "generationName": "티코",
+      "visualName": "티코",
+      "releaseYm": "1991-05",
+      "endYm": "2001-05",
+      "listingCount": 6,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "레드",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_fd6eca2dc1f2c362dc8e"
+      ],
+      "status": "completed",
+      "priority": 41,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_fba5230fe0607908330b",
+      "fileName": "chevrolet_asset_fba5230fe0607908330b.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "크루즈",
+      "generationName": "크루즈5",
+      "visualName": "크루즈5",
+      "releaseYm": "2011-06",
+      "endYm": "2014-12",
+      "listingCount": 5,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "아틱 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_2f2f51ebba2e766ea146"
+      ],
+      "status": "completed",
+      "priority": 42,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_aa8e299611c3946af2a1",
+      "fileName": "chevrolet_asset_aa8e299611c3946af2a1.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "젠트라",
+      "generationName": "젠트라 X",
+      "visualName": "젠트라 X",
+      "releaseYm": "2007-10",
+      "endYm": "2011-05",
+      "listingCount": 4,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "라임 그린",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_93f629b14a11af243542"
+      ],
+      "status": "completed",
+      "priority": 43,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_d6f8ef0f3c8015df4124",
+      "fileName": "chevrolet_asset_d6f8ef0f3c8015df4124.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "라보",
+      "generationName": "라보",
+      "visualName": "라보",
+      "releaseYm": "1991-11",
+      "endYm": "2006-12",
+      "listingCount": 3,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "화이트",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_c6645f25200f8b2f5b6f"
+      ],
+      "status": "completed",
+      "priority": 44,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_fa3d7203a739c75bfc45",
+      "fileName": "chevrolet_asset_fa3d7203a739c75bfc45.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "마티즈",
+      "generationName": "All New 마티즈",
+      "visualName": "All New 마티즈",
+      "releaseYm": "2005-03",
+      "endYm": "2009-10",
+      "listingCount": 3,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "민트 그린",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_1243e301f1f630af6470"
+      ],
+      "status": "completed",
+      "priority": 45,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_b8c9949c810d84aaa68d",
+      "fileName": "chevrolet_asset_b8c9949c810d84aaa68d.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "볼트(Volt)",
+      "generationName": "볼트(Volt)",
+      "visualName": "볼트(Volt)",
+      "releaseYm": "2016-01",
+      "endYm": "2019-03",
+      "listingCount": 3,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "시트론 그린",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_8656444a5bbd76f8aa42"
+      ],
+      "status": "completed",
+      "priority": 46,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_07e9d2f8421fad682cd0",
+      "fileName": "chevrolet_asset_07e9d2f8421fad682cd0.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "에스페로",
+      "generationName": "에스페로",
+      "visualName": "에스페로",
+      "releaseYm": "1990-09",
+      "endYm": "1997-04",
+      "listingCount": 3,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "라이트 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_7b2520db48b97a1eadd7"
+      ],
+      "status": "completed",
+      "priority": 47,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_cf56bd670e37baad320b",
+      "fileName": "chevrolet_asset_cf56bd670e37baad320b.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "윈스톰",
+      "generationName": "윈스톰",
+      "visualName": "윈스톰",
+      "releaseYm": "2006-07",
+      "endYm": "2010-12",
+      "listingCount": 3,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_2557982487c254fec330"
+      ],
+      "status": "completed",
+      "priority": 48,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_d08ce0b415a1d7ddf3c7",
+      "fileName": "chevrolet_asset_d08ce0b415a1d7ddf3c7.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "카마로",
+      "generationName": "카마로",
+      "visualName": "카마로",
+      "releaseYm": "2011-03",
+      "endYm": "2015-12",
+      "listingCount": 3,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "랠리 옐로우",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_0019cc8b65f8b1b92f90"
+      ],
+      "status": "completed",
+      "priority": 49,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_296625e6845afa66b59d",
+      "fileName": "chevrolet_asset_296625e6845afa66b59d.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "라세티",
+      "generationName": "라세티",
+      "visualName": "라세티",
+      "releaseYm": "2002-11",
+      "endYm": "2009-09",
+      "listingCount": 2,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "라이트 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_6ad78addf9af5d59ad40"
+      ],
+      "status": "completed",
+      "priority": 50,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_f90d1268fab387fb4605",
+      "fileName": "chevrolet_asset_f90d1268fab387fb4605.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "베리타스",
+      "generationName": "베리타스",
+      "visualName": "베리타스",
+      "releaseYm": "2008-09",
+      "endYm": "2010-11",
+      "listingCount": 2,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "라이트 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_0153ebad36290f99b3f1"
+      ],
+      "status": "completed",
+      "priority": 51,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_cb68767d48628c224f92",
+      "fileName": "chevrolet_asset_cb68767d48628c224f92.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "스테이츠맨",
+      "generationName": "스테이츠맨",
+      "visualName": "스테이츠맨",
+      "releaseYm": "2005-04",
+      "endYm": "2007-05",
+      "listingCount": 2,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_6362f4585426b0635a37"
+      ],
+      "status": "completed",
+      "priority": 52,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_1fa7cf9f8dd631fa4c0f",
+      "fileName": "chevrolet_asset_1fa7cf9f8dd631fa4c0f.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "아카디아",
+      "generationName": "아카디아",
+      "visualName": "아카디아",
+      "releaseYm": "1994-02",
+      "endYm": "1999-03",
+      "listingCount": 2,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_c657490ca5bd24972e08"
+      ],
+      "status": "completed",
+      "priority": 53,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_ea8228388d5f5d312020",
+      "fileName": "chevrolet_asset_ea8228388d5f5d312020.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "프린스",
+      "generationName": "프린스",
+      "visualName": "프린스",
+      "releaseYm": "1991-06",
+      "endYm": "1996-03",
+      "listingCount": 2,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "라이트 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_e22df790a781fc40bb50"
+      ],
+      "status": "completed",
+      "priority": 54,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_544f8e16dce3333d9cec",
+      "fileName": "chevrolet_asset_544f8e16dce3333d9cec.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "마티즈",
+      "generationName": "마티즈 클래식",
+      "visualName": "마티즈 클래식",
+      "releaseYm": "2009-08",
+      "endYm": "2011-03",
+      "listingCount": 1,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "레드",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_45e0a625bfc1e7e87540"
+      ],
+      "status": "completed",
+      "priority": 55,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_e8ed5c8d1d40a7d64e11",
+      "fileName": "chevrolet_asset_e8ed5c8d1d40a7d64e11.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "매그너스",
+      "generationName": "매그너스",
+      "visualName": "매그너스",
+      "releaseYm": "1999-12",
+      "endYm": "2006-03",
+      "listingCount": 1,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "플래티넘 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_ec75a38e44a86761f45b"
+      ],
+      "status": "completed",
+      "priority": 56,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_3bb39c9a9439dac93350",
+      "fileName": "chevrolet_asset_3bb39c9a9439dac93350.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "스파크",
+      "generationName": "스파크 EV",
+      "visualName": "스파크 EV",
+      "releaseYm": "2013-08",
+      "endYm": "2016-10",
+      "listingCount": 1,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "일렉트릭 블루/화이트",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_a4063657e7d6939b9f7a"
+      ],
+      "status": "completed",
+      "priority": 57,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_b80eaa1481f655403225",
+      "fileName": "chevrolet_asset_b80eaa1481f655403225.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "젠트라",
+      "generationName": "젠트라",
+      "visualName": "젠트라",
+      "releaseYm": "2005-09",
+      "endYm": "2011-05",
+      "listingCount": 1,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "라이트 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_2474b8abb04cc7b95459"
+      ],
+      "status": "completed",
+      "priority": 58,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "chevrolet_asset_2a0c05db5c156ea8f8db",
+      "fileName": "chevrolet_asset_2a0c05db5c156ea8f8db.png",
+      "manufacturer": "쉐보레(GM대우)",
+      "model": "콜벳",
+      "generationName": "콜벳",
+      "visualName": "콜벳",
+      "releaseYm": "2012-05",
+      "endYm": "2013-12",
+      "listingCount": 1,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "토치 레드",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_4e17408b22b69860629a"
+      ],
+      "status": "completed",
+      "priority": 59,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    }
+  ],
+  "completedAssets": 59
+}
