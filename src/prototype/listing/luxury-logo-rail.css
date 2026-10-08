@@ -1,0 +1,5 @@
+/* 럭셔리카 브랜드 로고 퀵필터(2026-10-08): 칸·간격·이름은 초톳 제조사 줄 그대로, 로고 슬롯만 44×28(@3x 132×84 그대로, contain · 가운데).
+   40×40 상자와 같은 세로 중심(위 6 + 20)을 유지해 칸 높이 102와 이름 위치는 바뀌지 않는다. */
+.marketplace.is-qf-plain .depth-rail.is-lux-logo .depth-card-media.is-brand { width: 44px; height: 28px; margin-top: 12px; }
+.marketplace.is-qf-plain .depth-rail.is-lux-logo .depth-card:has(> .depth-card-media.is-brand) .depth-card-label { margin-top: 20px; }
+.marketplace.is-qf-plain .depth-rail.is-lux-logo .lux-qf-logo { display: block; width: 44px; height: 28px; object-fit: contain; object-position: center; }
