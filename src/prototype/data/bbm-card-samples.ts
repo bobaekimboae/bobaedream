@@ -1,6 +1,6 @@
 // QF-091: 개발 시안 카드의 등록연월·주행거리·연료·마력과 인증중고차·1년보증 배지를 채운다.
 // 우리 매물 데이터에 없는 값(월·년형·마력·배지)을 매물 id 로 정해지는 샘플 값으로 채운다. 실제 매물 정보가 아니다.
-type SampleSource = { id: number; specs: string[]; filter?: { year: number; mileage: number; fuel: string }; badges?: string[]; uiTest?: unknown; virtualCategory?: { category?: string; categoryDetail?: string; berths?: number; beds?: number; seats?: number }; bike?: { genre: string; displacement: number }; truck?: { trailer?: { load: string; length: string; axles: string }; load?: string; horsepower?: number; drive?: string }; heavy?: { hours?: number }; cardSpec?: string[] };
+type SampleSource = { id: number; specs: string[]; filter?: { year: number; mileage: number; fuel: string }; badges?: string[]; uiTest?: unknown; virtualCategory?: { category?: string; categoryDetail?: string; berths?: number; beds?: number; seats?: number }; bike?: { genre: string; displacement: number }; truck?: { trailer?: { load: string; length: string; axles: string }; format?: string; subtype?: string; load?: string; horsepower?: number; drive?: string }; heavy?: { hours?: number }; cardSpec?: string[] };
 
 const horsepowerPool = [190, 204, 245, 258, 150, 170, 305, 367, 122, 184, 225, 272];
 const badgePool: string[][] = [["인증중고차", "1년보증"], ["인증중고차", "1년보증"], [], ["1년보증"], ["인증중고차"], []];
@@ -26,11 +26,22 @@ const fuelLabel = (source: SampleSource) => {
   return fuel === "하이브리드" ? "가솔린 하이브리드" : fuel;
 };
 
+// 트럭 유형을 스펙 줄 맨 앞에(바이크 장르·캠핑카 구분처럼, 2026-10-08 사용자 지시): 카고(화물)트럭 → 카고트럭
+// 384px 한 줄에 들어가게 짧은 유형명으로(크레인·고소작업차 → 크레인/고소작업차 등)
+const truckKindShort: Record<string, string> = {
+  "카고(화물)트럭": "카고트럭", "윙바디·탑차": "윙바디", "냉장·냉동차": "냉동차", "탱크로리": "탱크로리", "버스": "버스",
+  "캠핑카·카라반": "캠핑카", "환경·폐기물차": "청소차", "특수차": "특수차", "견인·운송차": "견인차", "트랙터 헤드": "트랙터", "트레일러": "트레일러",
+};
+const truckKindLabel = (format?: string, subtype = "") =>
+  format === "덤프·믹서" ? (/믹서/.test(subtype) ? "믹서트럭" : "덤프트럭")
+  : format === "크레인·고소작업차" ? (/크레인/.test(subtype) ? "크레인" : /사다리/.test(subtype) ? "사다리차" : "고소작업차")
+  : truckKindShort[format ?? ""] ?? format ?? "";
+
 export function bbmCardSpec(source: SampleSource, withPower = true) {
   // 지시값을 그대로 보여줄 매물(등록연월·주행 정확값)
   if (source.cardSpec?.length) return source.cardSpec.join(" · ");
   // 트레일러: 적재량 · 길이 · 축(엔진 없음)
-  if (source.truck?.trailer) return [source.truck.trailer.load.replace(/^적재 ([\d.]+)톤$/, (_, t: string) => `적재 ${Math.round(Number(t) * 1000).toLocaleString("ko-KR")}kg`), source.truck.trailer.length, source.truck.trailer.axles].join(" · ");
+  if (source.truck?.trailer) return [truckKindLabel(source.truck.format, source.truck.subtype), `${String(yearFromSpecs(source) % 100).padStart(2, "0")}년${String(((source.id * 5) % 12) + 1).padStart(2, "0")}월`, source.truck.trailer.load.replace(/^적재 ([\d.]+)톤$/, (_, t: string) => `적재 ${Math.round(Number(t) * 1000).toLocaleString("ko-KR")}kg`), source.truck.trailer.length, source.truck.trailer.axles].join(" · ");
   // 캠핑카: 바이크 장르처럼 구분을 맨 앞에(모터홈 · 카라반 · 트레일러, 2026-10-08) + 등록연월 · 주행 · 연료. 엔진 없는 카라반·트레일러는 등록연월 · 견인형
   if (source.virtualCategory?.category === "캠핑카") {
     const year = yearFromSpecs(source);
@@ -64,7 +75,7 @@ export function bbmCardSpec(source: SampleSource, withPower = true) {
     const tons = load.match(/^([\d.]+)톤$/);
     const loadLabel = tons ? `적재 ${Math.round(Number(tons[1]) * 1000).toLocaleString("ko-KR")}kg` : load && load !== "기타" && load.replace("×", "x") !== source.truck.drive ? load : "";
     const power = [loadLabel, source.truck.horsepower ? `${source.truck.horsepower}마력` : "", source.truck.drive ?? ""].filter(Boolean);
-    return [`${String(year % 100).padStart(2, "0")}년${String(month).padStart(2, "0")}월`, mileageLabel(source), fuelLabel(source), ...power].join(" · ");
+    return [truckKindLabel(source.truck.format, source.truck.subtype), `${String(year % 100).padStart(2, "0")}년${String(month).padStart(2, "0")}월`, mileageLabel(source), fuelLabel(source), ...power].filter(Boolean).join(" · ");
   }
   if (source.bike) return [source.bike.genre, String(yearFromSpecs(source)), mileageLabel(source), `${source.bike.displacement.toLocaleString("ko-KR")}cc`].join(" · ");
   const year = yearFromSpecs(source);
