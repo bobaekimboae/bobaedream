@@ -874,7 +874,10 @@ const virtualPlace = (address: string) => address.replace(/\s*·\s*가상 매물
 const bikeListingOverridesV01: Record<string, { cardSpec: string[] }> = {
   "bike-001": { cardSpec: ["크루저", "2020년식", "1만km", "1,202cc"] },
 };
-const bikeCars: Car[] = bikeInventory.map((row, index) => ({
+// 2026-10-08: 바이크 시트 매물(v08)은 게시일 최신순(같은 날은 시트 순서), 사용자 지시 매물 bike-001은 맨 위. updateRank로 업데이트순을 고정한다
+const bikeInventoryOrdered = [...bikeInventory].sort((a, b) => (a.postedDays ?? -1) - (b.postedDays ?? -1));
+const bikeCars: Car[] = bikeInventoryOrdered.map((row, index) => ({
+  updateRank: bikeInventoryOrdered.length - index,
   id: 7000 + index,
   ...(bikeListingOverridesV01[row.id] ?? {}),
   maker: row.maker,
@@ -891,7 +894,8 @@ const bikeCars: Car[] = bikeInventory.map((row, index) => ({
   views: 30 + index * 9,
   dealer: virtualSellerName(row.sellerName, 7000 + index),
   stock: 1,
-  posted: `${(index % 12) + 1}시간 전`,
+  // v08 시트 매물은 상세페이지 게시일 기준(오늘 게시 = N시간 전, 그 외 N일 전)
+  posted: row.postedDays === undefined || row.postedDays === 0 ? `${(index % 12) + 1}시간 전` : `${row.postedDays}일 전`,
   photos: 1,
   badges: row.certified === "가능" ? ["인증중고차"] : [],
   sellerProfile: null,
