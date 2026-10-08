@@ -253,7 +253,7 @@
 - 중고차(승용) 외 카테고리(트럭·바이크·건설기계·캠핑카·자재운반장비·부품/용품)는 2026-10-07 사용자 지시로 차명을 붙여 한 제목(`현대 포터2 1톤 카고`)으로 보여주고, 길면 두 줄까지 줄바꿈 후 말줄임한다(`.bbm-card-model.is-joined`). 아래 두 줄 규칙은 중고차(승용)에만 적용한다.
 - A vehicle title is always two semantic rows, not one title that happens to wrap: row 1 is manufacturer + model (`.bbm-card-model`), and row 2 is detailed model/trim (`.bbm-card-trim`). Each row stays on one line and ellipsizes independently. Do not add an arbitrary margin between the detailed-model row and the specification row.
 - List view: title 15/19 600, specification 13px, location 14px #8C8C8C (whole line), seller 14px #222 (ChoTot remeasure: location and seller are the same size; Pretendard Hangul ≈0.87em so 14px matches ChoTot ink height ≈12.4), price 16px 700 #222, and price unit 400 #222 (no red; Hyundai-certified style, the unit only drops weight). Feed view: title 16/24, specification 14px, location 14px, price 17px 700, and price unit 14px.
-- 바이크 카드(2026-10-07): 제목은 `제조사 모델` 한 줄(2행 없음), 스펙 줄은 `장르 · 연식 · 주행 · 배기량`(예: `네이키드 · 23년식 · 2만km · 2,300cc`, 2026-10-08부터 연식은 `23년식`).
+- 바이크 카드(2026-10-07): 제목은 `제조사 모델` 한 줄(2행 없음), 스펙 줄은 `장르 · 연식 · 주행 · 배기량`(예: `네이키드 · 2023년식 · 2만km · 2,300cc`, 2026-10-08부터 연식은 `2023년식`).
 - 건설기계 카드: 제목은 `제조사 모델` 한 줄(2행 없음, 제조사 미확인 매물은 원래 매물명), 스펙 줄은 `등록연월 · 사용시간 · 연료`(`1,800시간`, 2026-10-08 「h → 시간」; 자재운반장비도 `480시간`).
 - 부품/용품 카드(2026-10-07): 제목 `제조사 모델 분류`(분류 낱말이 모델명에 있으면 생략), 스펙 줄 `규격 · 수량 · 적용 차종 · 상태`(예: `245/45R18 · 4개 · 그랜저 GN7 · 중고 80%`), 가격은 부품 가격대(`partsCardDetailsV01`, 3~420만원). 연식·연료·변속기·「해당 없음」은 넣지 않는다.
 - 부품/용품 필터(2026-10-07): 상단 칩은 연식·주행거리·연료 대신 `분류 · 상태 · 적용 차종 · 가격`. 좌측 필터·모바일 전체 필터 순서는 `partsFilterOrder`(브랜드 → 분류 → 상태 → 적용 차종 → 가격 → 지역). 가격 구간은 `partsPricePresets`(`~5만원 · 5~20만원 · 20~50만원 · 50~100만원 · 100~300만원 · 300만원~`)이고 리스·렌트 탭은 숨긴다. 상태는 `새 상품 · 미사용 · 중고`(중고 NN%는 중고로), 적용 차종의 `범용 5x112` 등은 `범용`으로 묶는다.
@@ -273,7 +273,7 @@
 - 목록 썸네일은 2026-10-07 크기 조정(그림 썸네일 연회색 바탕·여백 자른 사본, 실사 사진 contain)을 모두 원복했다(「강제로 조정하니 이상하다」). 그림 썸네일은 흰 바탕 6px 여백 contain, 실사 사진은 cover.
 - Feed-view rhythm: image bottom → title 15px, title → specification 24px, specification → price 23px, price → location 28px, and location → seller 19px.
 - `판매중` is not shown in the mobile seller row. Removing a filter chip or badge must also remove its reserved space; price, location, and seller content move together according to the no-badge rhythm.
-- 위치 줄(2026-10-08): 중고차(승용) 딜러는 `시도 구군 · 단지`(예: `경기 수원시 · 도이치오토월드`), 중고차 개인과 그 밖의 모든 카테고리(트럭·바이크·건설기계·캠핑카 등)는 `시도 구군`까지만(`placeSidoGugun`, 3단계 `경기 수원시 권선구`는 `경기 수원시`로).
+- 위치 줄(2026-10-08): 중고차(승용)는 개인·딜러 모두 `시도 구군 · 단지`(예: `경기 수원시 · 도이치오토월드`, 「중고차 매물은 지역에 단지 붙이고」), 그 밖의 모든 카테고리(트럭·바이크·건설기계·캠핑카 등)는 `시도 구군`까지만(`placeSidoGugun`, 3단계 `경기 수원시 권선구`는 `경기 수원시`로).
 - The location line uses `지역 · 단지명` for every non-private seller and region only for `개인`. A generic `매매단지` suffix is not accepted: use a real complex name from the KB차차차 regional complex master (`지역별_매매단지`) and keep the displayed region consistent with the complex's actual location.
 - Keep the canonical complex name in source data. Only the listing label is compacted: `자동차매매단지` and `매매단지` become `단지` (`강남자동차매매단지` → `강남단지`, `판교매매단지` → `판교단지`). Proper names such as `도이치오토월드`, `서울오토갤러리`, `성수모터시티`, and `제주오토파크` remain unchanged. Detail views may show the full canonical name.
 - Complex source checked on 2026-10-02: `https://docs.google.com/spreadsheets/d/1c9uhwF-a1qspoK8PgylBxKiruodytuvy/edit` (`KB차차차_지역별_매매단지_마스터_20260826.xlsx`). Treat it as read-only reference data.
@@ -346,7 +346,7 @@
 - 사용자 지시 건설기계 매물 `heavy-001`(「380」 자리를 교체) 볼보 EW60E 휠굴삭기(2017년식 · 880시간 · A+ · 경북 · 5,650만원, 사진 사용자 제공). 카드 스펙 줄 `2017년식 · 880시간 · 디젤` 고정, 판매자는 가상 이름(실제 판매자 이름·연락처 미사용).
 - 사용자 지시 캠핑카 매물 `camping-001`(현대 쏠라티 캠퍼 자리를 교체) 하비 프리미엄 495UL(18년형 · 유럽식 견인형 카라반 · 4인용, 사진 사용자 제공). 카드 스펙 줄은 `virtualCardSpecV01`로 `카라반 · 18년형 · 취침 4명` 고정, 가격·지역·판매자는 자리 값 유지.
 - 사용자 지시 승용 매물 3004 페라리 GTC4 루쏘 T 3.9 V8(17년10월(18년형) · 31,135km · 가솔린 · 경기 · 18,990만원, 사진 사용자 제공). 모델 값은 카탈로그와 같은 `GTC4 루쏘`.
-- 사용자 지시 바이크 매물 `bike-001`(혼다 레블 500 자리를 교체) 할리데이비슨 포티에잇48(20년식 · 12,980km · 1,202cc · 크루저 · 부산 사상구 · 개인 · 1,480만원, 사진 사용자 제공). 모델 값은 필터 목록과 같은 `포티에잇`.
+- 사용자 지시 바이크 매물 `bike-001`(혼다 레블 500 자리를 교체) 할리데이비슨 포티에잇48(2020년식 · 12,980km · 1,202cc · 크루저 · 부산 사상구 · 개인 · 1,480만원, 사진 사용자 제공). 모델 값은 필터 목록과 같은 `포티에잇`.
 - 사용자 지시 트럭 매물 `truck-032` 명성정공 로베드 3축 에어샥 트레일러(15년09월 · 개인 직거래, 사진 사용자 제공). 전체 목록에서 자재운반장비 둘째 매물(30D-9 디젤 지게차) 자리에 둔다. 카드 `15년09월 · 3축 · 에어샥`, 가격(1,730만원)·지역(경기 수원시)은 정보가 없어 자리 값. 차량번호는 넣지 않는다.
 - 사용자 지시 트럭 매물 `truck-031` 볼보 FE 윙바디 11톤 오토(24년04월 · 56,067km · 디젤 · 12,500만원, 사진 사용자 제공). 등급명·카드 스펙 줄은 `truckListingOverridesV01`로 지시값 고정.
 - v01 매물 이미지는 자료팀 이미지 수신 전까지 트럭·버스·캠핑카·덤프 기존 아이콘을 임시 썸네일로 사용한다.
