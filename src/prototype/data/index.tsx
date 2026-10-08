@@ -154,7 +154,7 @@ type Car = {
     berths?: number;
     beds?: number;
     seats?: number;
-    categoryDetail?: "모터홈" | "캐러밴";
+    categoryDetail?: "모터홈" | "카라반" | "트레일러";
     scenarioId: string;
     isVirtual: true;
     scenarioVersion: "v01";
@@ -1085,9 +1085,9 @@ const toVirtualCategoryCars = (rows: readonly VirtualCategoryListingRow[], idBas
     imageFit: virtualListingPhotosV01[row.model] ? "cover" : "contain",
     ...(virtualCardSpecV01[row.id] ? { cardSpec: virtualCardSpecV01[row.id] } : {}),
     title: `${row.maker} ${row.model}`,
-    // 캠핑카는 엔카 캠핑카 목록처럼 2행 = 형태(클래스 C 모터홈 · 캐러밴 · 팝업 캠퍼). 제목에 「UI 검증용 가상 매물」은 넣지 않는다(2026-10-07 사용자 지시)
+    // 캠핑카 제목은 제조사 · 모델 + 세부 형태(클래스 C · 캠퍼밴 · 팝업 캠퍼). 구분(모터홈·카라반·트레일러)은 스펙 줄 맨 앞(2026-10-08). 제목에 「UI 검증용 가상 매물」은 넣지 않는다(2026-10-07 사용자 지시)
     // 부품·용품은 분류 낱말이 모델명에 이미 있으면(AGM 배터리 + 배터리) 붙이지 않는다
-    trim: row.category === "캠핑카" ? (/캐러밴|캠퍼|모터홈/.test(row.subtype) ? row.subtype : `${row.subtype} 모터홈`) : isParts && row.subtype.split(" ").some((word) => row.model.includes(word)) ? "" : row.subtype,
+    trim: row.category === "캠핑카" ? (["모터홈", "카라반", "트레일러"].includes(row.subtype) ? "" : row.subtype) : isParts && row.subtype.split(" ").some((word) => row.model.includes(word)) ? "" : row.subtype,
     // 부품·용품은 차량 스펙(연식·연료·변속기) 대신 규격 · 수량 · 적용 차종 · 상태, 가격은 부품 가격대
     specs: isParts && partsDetail ? [partsDetail.spec, partsDetail.quantity, partsDetail.fit, partsDetail.condition] : [`${row.year}년식`, usage, row.fuel, row.transmission],
     price: `${(isParts && partsDetail ? partsDetail.price10k : row.price10k).toLocaleString("ko-KR")} 만원`,
@@ -1107,14 +1107,14 @@ const toVirtualCategoryCars = (rows: readonly VirtualCategoryListingRow[], idBas
       // 침대 수(2026-10-07 「취침 4인을 침대 3」): 취침 인원 ÷ 2 올림 + 1 (2→2 · 3→3 · 4→3 · 5→4 · 6→4)
       beds: row.category === "캠핑카" && campingBerthsV01[row.model] ? Math.ceil(campingBerthsV01[row.model] / 2) + 1 : undefined,
       // 승차 정원(모터홈만). 카드에 「승차 6인 · 취침 3인」
-      seats: row.category === "캠핑카" && row.categoryDetail !== "캐러밴" ? campingSeatsV01[row.model] : undefined,
+      seats: row.category === "캠핑카" && row.categoryDetail === "모터홈" ? campingSeatsV01[row.model] : undefined,
       scenarioId: row.id,
       isVirtual: true,
       scenarioVersion: "v01",
     },
     filter: {
       year: row.year,
-      seats: row.category === "캠핑카" && row.categoryDetail !== "캐러밴" && campingSeatsV01[row.model] ? `${campingSeatsV01[row.model]}인승` : row.category === "캠핑카" ? "4인승" : "전체",
+      seats: row.category === "캠핑카" && row.categoryDetail === "모터홈" && campingSeatsV01[row.model] ? `${campingSeatsV01[row.model]}인승` : row.category === "캠핑카" ? "4인승" : "전체",
       condition: "중고",
       mileage: row.mileage,
       owners: "전체",

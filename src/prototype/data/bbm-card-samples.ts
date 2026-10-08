@@ -31,7 +31,7 @@ export function bbmCardSpec(source: SampleSource, withPower = true) {
   if (source.cardSpec?.length) return source.cardSpec.join(" · ");
   // 트레일러: 적재량 · 길이 · 축(엔진 없음)
   if (source.truck?.trailer) return [source.truck.trailer.load, source.truck.trailer.length, source.truck.trailer.axles].join(" · ");
-  // 캠핑카(엔카 캠핑카 목록 규칙): 등록연월 · 주행 · 연료. 엔진 없는 캐러밴은 등록연월 · 견인형
+  // 캠핑카: 바이크 장르처럼 구분을 맨 앞에(모터홈 · 카라반 · 트레일러, 2026-10-08) + 등록연월 · 주행 · 연료. 엔진 없는 카라반·트레일러는 등록연월 · 견인형
   if (source.virtualCategory?.category === "캠핑카") {
     const year = yearFromSpecs(source);
     const now = new Date();
@@ -39,12 +39,13 @@ export function bbmCardSpec(source: SampleSource, withPower = true) {
     const month = Math.min(((source.id * 5) % 12) + 1, year >= now.getFullYear() ? now.getMonth() + 1 : 12);
     const registered = `${String(year % 100).padStart(2, "0")}년${String(month).padStart(2, "0")}월`;
     // 취침 인원을 끝에 붙인다: 취침 4인(2026-10-08 사용자 지시, 해외 표기 Sleeps 4 · 4 berth · 4 Schlafplätze와 같은 인원 기준)
-    // 모터홈은 「승차 6인 · 취침 3인」, 캐러밴은 승차 없이 「취침 4인」(2026-10-08 사용자 지시)
+    // 모터홈은 「승차 6인 · 취침 3인」, 카라반·트레일러는 승차 없이 「취침 4인」(2026-10-08 사용자 지시)
     const berths = [
-      ...(source.virtualCategory.seats && source.virtualCategory.categoryDetail !== "캐러밴" ? [`승차 ${source.virtualCategory.seats}인`] : []),
+      ...(source.virtualCategory.seats && source.virtualCategory.categoryDetail === "모터홈" ? [`승차 ${source.virtualCategory.seats}인`] : []),
       ...(source.virtualCategory.berths ? [`취침 ${source.virtualCategory.berths}인`] : []),
     ];
-    return (source.virtualCategory.categoryDetail === "캐러밴" ? [registered, "견인형", ...berths] : [registered, mileageLabel(source), fuelLabel(source), ...berths]).join(" · ");
+    const kind = source.virtualCategory.categoryDetail ?? "모터홈";
+    return (kind !== "모터홈" ? [kind, registered, "견인형", ...berths] : [kind, registered, mileageLabel(source), fuelLabel(source), ...berths]).join(" · ");
   }
   if (source.uiTest || source.virtualCategory) return source.specs.join(" · ");
   // 바이크(2026-10-07 사용자 지시): 장르 · 연식 · 주행 · 배기량 (예: 네이키드 · 2023 · 2만km · 2,300cc)

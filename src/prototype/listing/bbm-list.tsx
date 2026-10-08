@@ -119,7 +119,8 @@ export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
     children: [
       { label: "전체", value: "캠핑카" },
       { label: "모터홈", value: "캠핑카", detail: "모터홈" },
-      { label: "캐러밴", value: "캠핑카", detail: "캐러밴" },
+      { label: "카라반", value: "캠핑카", detail: "카라반" },
+      { label: "트레일러", value: "캠핑카", detail: "트레일러" },
     ],
   },
   {
@@ -341,8 +342,8 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   const badges = bbmCardBadges(car);
   // dev 원본처럼 스펙 항목을 " · "(공백+가운데점+공백) 텍스트로 잇는다(JOB-8). 한 줄 넘치면 말줄임
   const specText = bbmCardSpec(car, variant === "pc");
-  // 캠핑카 모터홈은 「승차 N인 · 취침 N인」이 한 줄에 다 안 들어가 둘째 줄로 내린다(2026-10-08)
-  const seatSplit = specText.indexOf(" · 승차 ");
+  // 캠핑카는 「승차 N인 · 취침 N인」(카라반·트레일러는 「취침 N인」)이 한 줄에 다 안 들어가 둘째 줄로 내린다(2026-10-08)
+  const seatSplit = car.virtualCategory?.category === "캠핑카" ? specText.search(/ · (승차|취침) /) : -1;
   const specMain = seatSplit > 0 ? specText.slice(0, seatSplit) : specText;
   const specCapacity = seatSplit > 0 ? specText.slice(seatSplit + 3) : "";
   const [locationMain, ...locationSecondaryParts] = listPlace.split(" · ");
