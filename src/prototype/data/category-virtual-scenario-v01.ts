@@ -100,7 +100,10 @@ export const campingScenarioV01 = buildScenario("캠핑카", "camping", campingS
   "category-photo/vehicle_type_motorhome_v01.png",
   "truck/listings/truck_camper_v01.png",
   "truck/formats/v01/truck_subtype_motorhome_v01.png",
-], 3_900);
+], 3_900).map((row) => row.id === "camping-001"
+  // 2026-10-08 사용자 지시 「캠핑카 교체」: 첫 캠핑카(현대 쏠라티 캠퍼) 자리를 하비 프리미엄 495UL(18년형 · 4인용 유럽식 견인형 카라반, 사용자 사진)로. 가격·지역·판매자는 자리 값 유지
+  ? { ...row, maker: "하비", model: "프리미엄 495UL", subtype: "캐러밴", categoryDetail: "캐러밴" as const, year: 2018 }
+  : row);
 
 export const materialHandlingScenarioV01 = buildScenario("자재운반장비", "material", materialSeeds, [
   "bbm/generated/quickfilter-v01/heavy_forklift_v02.png",
@@ -154,6 +157,7 @@ export const partsCardDetailsV01: Record<string, { spec: string; quantity: strin
 
 // 캠핑카 취침 인원(침대 수, UI 검증용 가상 값, 2026-10-07)
 export const campingBerthsV01: Record<string, number> = {
+  "프리미엄 495UL": 4,
   "쏠라티 캠퍼": 4,
   "포레스트": 4,
   "스타리아 라운지 캠퍼": 4,
@@ -187,7 +191,13 @@ export const campingBerthsV01: Record<string, number> = {
 };
 
 // 실사 썸네일(모델명 → 사진). 없으면 유형 대표 이미지
+// 사용자 지시 매물의 카드 스펙 줄(지시값 그대로, 샘플 배지 없음)
+export const virtualCardSpecV01: Record<string, string[]> = {
+  "camping-001": ["18년형", "견인형", "침대 3"],
+};
+
 export const virtualListingPhotosV01: Record<string, string> = {
   "25B-9F": "listing-photos/v01/hyundai_forklift_25b9f.jpg",
   포레스트: "listing-photos/v01/hyundai_forest_camper.jpg",
+  "프리미엄 495UL": "listing-photos/v01/hobby_premium_495ul_2018.jpg",
 };
