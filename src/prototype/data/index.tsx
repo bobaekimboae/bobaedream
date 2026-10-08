@@ -165,6 +165,8 @@ type Car = {
   };
   sellerProfile?: string | null;
   /** 럭셔리카 카테고리 가상 매물 v01(차량 › 중고차 › 럭셔리카). 위치는 place의 단지를 그대로 쓴다 */
+  /** 정사각형 목록 썸네일용 사본(차 폭 90% · 바닥선 85% 정규화). 없으면 image를 가운데 자르기 */
+  listThumb?: string;
   luxuryCategory?: { number: number; vehicleNumber: string; model: string; generation: string; filled: boolean; certified: boolean };
   uiTest?: {
     number: number;
@@ -1472,6 +1474,7 @@ const luxuryCategoryCars: Car[] = luxuryRowsPhotoFirst.map((row, index) => {
     modelGroup: row.model,
     sellerType: "딜러",
     image: row.image ?? "",
+    listThumb: row.image ? row.image.replace("luxury-category-v01/", "luxury-category-v01/thumb/") : undefined,
     imagePosition: "center center",
     title,
     trim: row.trim,
