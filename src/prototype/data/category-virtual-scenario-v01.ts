@@ -6,7 +6,7 @@ export type VirtualCategoryListingRow = {
   maker: string;
   model: string;
   subtype: string;
-  categoryDetail?: "모터홈" | "캐러밴";
+  categoryDetail?: "모터홈" | "카라반" | "트레일러";
   year: number;
   mileage: number;
   fuel: string;
@@ -31,7 +31,7 @@ function buildScenario(category: VirtualCategoryCode, prefix: string, seeds: rea
     const index = brandIndex * 3 + modelIndex;
     const region = regions[index % regions.length];
     const sellerType = index % 4 === 0 ? "개인" as const : "딜러" as const;
-    const categoryDetail: VirtualCategoryListingRow["categoryDetail"] = category === "캠핑카" ? (seed.subtypes[modelIndex] === "캐러밴" ? "캐러밴" : "모터홈") : undefined;
+    const categoryDetail: VirtualCategoryListingRow["categoryDetail"] = category === "캠핑카" ? (seed.subtypes[modelIndex] === "카라반" ? "카라반" : seed.subtypes[modelIndex] === "트레일러" ? "트레일러" : "모터홈") : undefined;
     return {
       id: `${prefix}-${String(index + 1).padStart(3, "0")}`,
       category,
@@ -61,11 +61,11 @@ const campingSeeds: readonly BrandSeed[] = [
   { maker: "기아", models: ["봉고3 캠퍼", "레이 캠퍼", "카니발 팝업 캠퍼"], subtypes: ["클래스 C", "미니 캠퍼", "팝업 캠퍼"] },
   { maker: "르노코리아", models: ["마스터 캠퍼", "마스터 L 캠퍼", "마스터 팝업"], subtypes: ["클래스 B", "클래스 B", "팝업 캠퍼"] },
   { maker: "제일모빌", models: ["에이스 650", "드림 560", "아쿠아 790"], subtypes: ["클래스 C", "클래스 C", "클래스 A"] },
-  { maker: "코치맨", models: ["루소", "아카디아", "레이저"], subtypes: ["캐러밴", "캐러밴", "캐러밴"] },
+  { maker: "코치맨", models: ["루소", "아카디아", "레이저"], subtypes: ["카라반", "카라반", "카라반"] },
   { maker: "벤츠", models: ["스프린터 519", "스프린터 417", "스프린터 투어러"], subtypes: ["클래스 B", "클래스 B", "모터홈"] },
   { maker: "포드", models: ["트랜짓 캠퍼", "트랜짓 커스텀", "E-트랜짓 캠퍼"], subtypes: ["클래스 B", "캠퍼밴", "전기 캠퍼"] },
   { maker: "피아트", models: ["두카토 540", "두카토 600", "두카토 700"], subtypes: ["클래스 B", "클래스 C", "클래스 A"] },
-  { maker: "아드리아", models: ["아비바", "아도라", "알테아"], subtypes: ["캐러밴", "캐러밴", "캐러밴"] },
+  { maker: "아드리아", models: ["아비바", "아도라", "알테아"], subtypes: ["카라반", "카라반", "카라반"] },
   { maker: "하이머", models: ["B-클래스", "ML-T", "엑시스"], subtypes: ["클래스 A", "클래스 C", "클래스 A"] },
 ];
 
@@ -102,7 +102,7 @@ export const campingScenarioV01 = buildScenario("캠핑카", "camping", campingS
   "truck/formats/v01/truck_subtype_motorhome_v01.png",
 ], 3_900).map((row) => row.id === "camping-001"
   // 2026-10-08 사용자 지시 「캠핑카 교체」: 첫 캠핑카(현대 쏠라티 캠퍼) 자리를 하비 프리미엄 495UL(18년형 · 4인용 유럽식 견인형 카라반, 사용자 사진)로. 가격·지역·판매자는 자리 값 유지
-  ? { ...row, maker: "하비", model: "프리미엄 495UL", subtype: "캐러밴", categoryDetail: "캐러밴" as const, year: 2018 }
+  ? { ...row, maker: "하비", model: "프리미엄 495UL", subtype: "카라반", categoryDetail: "카라반" as const, year: 2018 }
   : row);
 
 export const materialHandlingScenarioV01 = buildScenario("자재운반장비", "material", materialSeeds, [
@@ -190,7 +190,7 @@ export const campingBerthsV01: Record<string, number> = {
   "엑시스": 5,
 };
 
-// 캠핑카 승차 정원(모터홈만, UI 검증용 가상 값, 2026-10-08 「승차 6인 · 취침 3인」). 엔진 없는 캐러밴은 승차 정원이 없다
+// 캠핑카 승차 정원(모터홈만, UI 검증용 가상 값, 2026-10-08 「승차 6인 · 취침 3인」). 엔진 없는 카라반·트레일러는 승차 정원이 없다
 export const campingSeatsV01: Record<string, number> = {
   "포레스트": 6,
   "스타리아 라운지 캠퍼": 5,
@@ -220,7 +220,7 @@ export const campingSeatsV01: Record<string, number> = {
 // 실사 썸네일(모델명 → 사진). 없으면 유형 대표 이미지
 // 사용자 지시 매물의 카드 스펙 줄(지시값 그대로, 샘플 배지 없음)
 export const virtualCardSpecV01: Record<string, string[]> = {
-  "camping-001": ["18년형", "견인형", "취침 4인"],
+  "camping-001": ["카라반", "18년형", "견인형", "취침 4인"],
 };
 
 export const virtualListingPhotosV01: Record<string, string> = {
