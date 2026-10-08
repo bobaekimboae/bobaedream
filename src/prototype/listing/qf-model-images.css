@@ -3,6 +3,7 @@
    PC: 칸 84×102(안쪽 좌우 4) · 이미지 영역 76×40(칸 위 6, 바닥 = 칸 위 46 = 제조사 줄 로고 상자 바닥) · 이름 칸 위 60 14/21 600 #222 폭 76 · 보조 글자 칸 위 81 12/16 #8C8C8C
    모바일: 칸 72×102(피치 80) · 이미지 영역 64×40(칸 위 6) · 이름 칸 위 60 14/21 600 · 보조 글자 12/16. 이미지 없는 칸: 같은 영역 1px 점선 #DADADA 모서리 6 */
 .marketplace.is-qf-guazi.is-qf-plain .depth-card-media:not(.is-brand) { display: flex; align-items: flex-end; justify-content: center; }
+.marketplace.is-qf-guazi.is-qf-plain .depth-card-media:not(.is-brand) > .catalog-vehicle-image { width: 100%; height: 100%; }
 .marketplace.is-qf-guazi.is-qf-plain .depth-card-media:not(.is-brand) img { display: block; width: 100%; height: 100%; max-width: none; max-height: none; object-fit: contain; object-position: center bottom; mix-blend-mode: normal; }
 .marketplace.is-qf-guazi.is-qf-plain .depth-card-media:not(.is-brand) .kr-model-empty { width: 100%; height: 100%; border: 1px dashed #dadada; border-radius: 6px; }
 .marketplace.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-label { width: 100%; color: #222; }
