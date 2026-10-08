@@ -165,7 +165,7 @@ type Car = {
   };
   sellerProfile?: string | null;
   /** 럭셔리카 카테고리 가상 매물 v01(차량 › 중고차 › 럭셔리카). 위치는 place의 단지를 그대로 쓴다 */
-  luxuryCategory?: { number: number; vehicleNumber: string; model: string; generation: string; filled: boolean };
+  luxuryCategory?: { number: number; vehicleNumber: string; model: string; generation: string; filled: boolean; certified: boolean };
   uiTest?: {
     number: number;
     fullTitle: string;
@@ -1457,7 +1457,7 @@ const luxuryUiTestCars: Car[] = luxuryUiTestRows.map((row) => {
   };
 });
 
-// 럭셔리카 카테고리 v01: 구글 시트 「가상 매물 시나리오 › 럭셔리카」 32대(사진 29장) + 가상 딜러 12명.
+// 럭셔리카 카테고리 v01: 구글 시트 「가상 매물 시나리오 › 럭셔리카」 중 사진 있는 29대 + 가상 딜러 16명.
 // 카드 메타 = 제조사+모델(+세대·트림) / 등록연월 · 주행 · 연료 / 시도 구군 · 매매단지 / 판매자명
 const luxuryDealerById = new Map(luxuryDealers.map((dealer) => [dealer.id, dealer]));
 // 사진이 아직 없는 매물(드라이브 미등록)은 목록 끝으로 보낸다. 나머지는 시트 순서 그대로
@@ -1480,12 +1480,12 @@ const luxuryCategoryCars: Car[] = luxuryRowsPhotoFirst.map((row, index) => {
     price: `${row.price.toLocaleString("ko-KR")} 만원`,
     place: dealer.place,
     views: 0,
-    dealer: dealer.name,
+    dealer: dealer.certified ? dealer.name.replace(/ 딜러$/, " 인증딜러") : dealer.name,
     stock: luxuryListingRows.filter((other) => other.dealerId === row.dealerId).length,
     posted: row.posted,
     photos: row.image ? 1 : 0,
     sellerProfile: dealer.avatar,
-    luxuryCategory: { number: row.number, vehicleNumber: row.vehicleNumber, model: row.model, generation: row.generation, filled: Boolean(row.filled) },
+    luxuryCategory: { number: row.number, vehicleNumber: row.vehicleNumber, model: row.model, generation: row.generation, filled: Boolean(row.filled), certified: Boolean(dealer.certified) },
     filter: {
       year: row.year,
       seats: "전체",

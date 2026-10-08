@@ -100,6 +100,8 @@
 .bbm-card-seller-logo { display: block; width: 20px; height: 20px; flex: none; overflow: hidden; border-radius: 50%; background: var(--bbm-text); object-fit: cover; object-position: center; }
 .bbm-card-seller-text { display: flex; min-width: 0; overflow: hidden; align-items: center; gap: 4px; font-size: 12px; line-height: 16.8px; }
 .bbm-card-seller-text strong { min-width: 0; overflow: hidden; font-weight: 400; text-overflow: ellipsis; white-space: nowrap; }
+/* 인증딜러 물결 체크 배지(초톳 원본 SVG #306BD9), 이름 바로 뒤 16px */
+.bbm-card-seller-text .bbm-card-verified { display: inline-block; width: 16px; height: 16px; margin-left: 2px; vertical-align: -3px; }
 .bbm-card-seller-info { color: var(--bbm-text-weak); white-space: nowrap; }
 .bbm-card-seller-info b { color: var(--bbm-text); font-weight: 400; }
 .bbm-card-actions { display: flex; gap: 4px; }

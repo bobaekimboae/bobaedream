@@ -386,7 +386,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
     <div className={`bbm-card-meta-row${variant === "mobile" ? " bbm-card-mobile-footer" : ""}`}>
       <div className="bbm-card-seller">
         <img className="bbm-card-seller-logo" src={asset(sellerAvatar(car))} alt="" draggable={false} />
-        <div className="bbm-card-seller-text"><strong>{seller}</strong></div>
+        <div className="bbm-card-seller-text"><strong>{seller}{car.luxuryCategory?.certified ? <img className="bbm-card-verified" src={asset("bbm/verified-dealer-wavy-chotot-v01.svg")} alt="인증딜러" draggable={false} /> : null}</strong></div>
       </div>
       <div className="bbm-card-actions">
         <button type="button" className={`bbm-card-wish${liked ? " is-liked" : ""}`} aria-label={`${car.title} ${liked ? "찜 해제" : "찜"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>

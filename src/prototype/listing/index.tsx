@@ -628,7 +628,7 @@ function MarketplaceScreen() {
   const isMaterialHandlingCategory = category === "자재운반장비";
   const isCampingCategory = category === "캠핑카";
   const isPartsCategory = category === "부품 · 용품";
-  // 럭셔리카(차량 › 중고차 › 럭셔리카): 과쯔에서는 전용 가상 매물 32대(luxury-category-v01)
+  // 럭셔리카(차량 › 중고차 › 럭셔리카): 과쯔에서는 전용 가상 매물 29대(luxury-category-v01)
   const isLuxuryCategory = category === "럭셔리카";
   const isTruckCategory = category === "트럭 · 특장";
   const supportsVehicleCatalog = isBikeCategory || ["전체", "중고차", "국산차", "수입차", "전기차"].includes(category);
