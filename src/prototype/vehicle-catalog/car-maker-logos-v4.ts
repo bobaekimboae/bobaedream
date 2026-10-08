@@ -1,0 +1,76 @@
+export type CarMakerLogoV4 = {
+  file: string;
+  width: number;
+  height: number;
+};
+
+const logo = (file: string, width: number, height: number): CarMakerLogoV4 => ({ file, width, height });
+
+// 제조사 선택 화면 공용 규격 v4.
+// 투명 여백을 제거한 원본을 면적 기준으로 보정한 38×26 최대 글리프 값이다.
+export const carMakerLogosV4: Record<string, CarMakerLogoV4> = {
+  "현대": logo("001_Hyundai.png", 36.2, 18.7),
+  "제네시스": logo("007_Genesis.png", 38, 7.7),
+  "기아": logo("002_Kia.png", 38, 9.1),
+  "쉐보레(GM대우)": logo("003_ChevroletGMDaewoo.png", 38, 12.5),
+  "르노코리아(삼성)": logo("078_Renault.png", 19.9, 26),
+  "KG모빌리티(쌍용)": logo("004_KG_Mobility_Ssangyong.png", 38, 6),
+  "기타 제조사": logo("etc_maker_icon.png", 26, 26),
+  BMW: logo("012_BMW.png", 26, 26),
+  BYD: logo("090_BYD.png", 38, 7.3),
+  GMC: logo("056_GMC.png", 38, 8.6),
+  "닛산": logo("033_Nissan.png", 28.5, 23.8),
+  "다이하쯔": logo("051_Daihatsu.png", 28.7, 23.5),
+  "닷지": logo("034_Dodge.png", 38, 5.4),
+  "도요타": logo("031_Toyota.png", 32.3, 20.9),
+  "동풍소콘": logo("088_DFSK.png", 25.9, 26),
+  "람보르기니": logo("049_Lamborghini.png", 23.1, 26),
+  "랜드로버": logo("020_Land_Rover.png", 35.9, 18.8),
+  "렉서스": logo("035_Lexus.png", 30.9, 21.9),
+  "로터스": logo("069_Lotus.png", 26, 26),
+  "롤스로이스": logo("047_Rolls_Royce.png", 14.9, 26),
+  "르노": logo("078_Renault.png", 19.9, 26),
+  "링컨": logo("044_Lincoln.png", 7.9, 26),
+  "마세라티": logo("053_Maserati.png", 18.5, 26),
+  "마이바흐": logo("080_Maybach.png", 30, 22.5),
+  "마쯔다": logo("029_Mazda.png", 29.3, 23.1),
+  "맥라렌": logo("084_Mclaren.png", 38, 3.9),
+  "미니": logo("054_Mini.png", 38, 16.9),
+  "미쯔비시": logo("030_Mitsubishi.png", 28.4, 23.8),
+  "미쯔오까": logo("059_Mitsuoka.png", 24.2, 26),
+  "벤츠": logo("013_Mercedes_Benz.png", 26, 26),
+  "벤틀리": logo("050_Bentley.png", 38, 12.3),
+  "볼보": logo("017_Volvo.png", 26, 26),
+  "북기은상": logo("086_Baic_Yinxiang.png", 32.6, 20.7),
+  "사브": logo("016_Saab.png", 26, 26),
+  "사이언": logo("082_Scion.png", 31.6, 21.4),
+  "신위안": logo("092_Xin_yuan.png", 32.9, 20.6),
+  "쉐보레": logo("038_Chevrolet.png", 38, 12.5),
+  "스마트": logo("081_Smart.png", 26.8, 25.2),
+  "스바루": logo("052_Subaru.png", 35.2, 19.2),
+  "스즈키": logo("037_Suzuki.png", 26, 26),
+  "시트로엥/DS": logo("022_Citroen_DS.png", 27.7, 24.4),
+  "아우디": logo("011_Audi.png", 38, 13.3),
+  "알파 로메오": logo("040_Alfa_Romeo.png", 25.9, 26),
+  "애스턴마틴": logo("070_Astonmartin.png", 38, 8.5),
+  "어큐라": logo("057_Acura.png", 26.1, 25.9),
+  "이네오스": logo("093_Ineos.png", 26.2, 25.8),
+  "인피니티": logo("058_Infiniti.png", 36, 18.8),
+  "재규어": logo("019_Jaguar.png", 38, 15.2),
+  "지프": logo("083_Jeep.png", 38, 15.4),
+  "캐딜락": logo("043_Cadillac.png", 38, 14.4),
+  "크라이슬러": logo("023_Chrysler.png", 38, 3.3),
+  "테슬라": logo("087_Tesla.png", 26, 26),
+  "페라리": logo("041_Ferrari.png", 18.1, 26),
+  "포드": logo("024_Ford.png", 38, 14.4),
+  "포르쉐": logo("015_Porsche.png", 19.4, 26),
+  "폭스바겐": logo("014_Volkswagen.png", 26, 26),
+  "폴스타": logo("089_Polestar.png", 25.6, 26),
+  "푸조": logo("021_Peugeot.png", 23.6, 26),
+  "피아트": logo("018_Fiat.png", 33.1, 20.4),
+  "험머": logo("048_Hummer.png", 38, 3.3),
+  "혼다": logo("027_Honda.png", 28.8, 23.4),
+  "기타 수입차": logo("etc_maker_icon.png", 26, 26),
+};
+
+export const carMakerLogoAsset = (name: string) => carMakerLogosV4[name] ?? null;
