@@ -381,10 +381,13 @@ const dealerComplexByRegion: Record<string, string> = {
   "전북 전주시": "전북 전주시 덕진구 · 전북자동차매매단지",
 };
 
+// 지역은 시도 · 구군 두 단계까지(경기 수원시 권선구 → 경기 수원시), 중고차 딜러만 뒤에 단지명(2026-10-08 「중고차는 단지까지, 일반은 시도 구군까지」)
+const placeSidoGugun = (region: string) => region.trim().split(/\s+/).slice(0, 2).join(" ");
 const displayListPlace = (place: string, sellerType?: SellerType) => {
   const region = place.split(" · ")[0].trim();
-  if (sellerType === "개인" || !sellerType) return region;
-  return (dealerComplexByRegion[region] ?? place.trim())
+  if (sellerType === "개인" || !sellerType) return placeSidoGugun(region);
+  const [complexRegion, ...complex] = (dealerComplexByRegion[region] ?? place.trim()).split(" · ");
+  return [placeSidoGugun(complexRegion), ...complex].join(" · ")
     .replaceAll("자동차매매단지", "단지")
     .replaceAll("매매단지", "단지");
 };
@@ -999,7 +1002,7 @@ const truckListingPhotosV01: Record<string, string> = {
 };
 // 사용자 지시 매물(2026-10-07): 등급명·카드 스펙 줄을 지시값 그대로 고정
 const truckListingOverridesV01: Record<string, { trim: string; cardSpec: string[] }> = {
-  "truck-031": { trim: "윙바디 11톤 오토", cardSpec: ["윙바디", "24년04월", "56,067km", "디젤", "350마력", "적재 11,000kg", "6x2"] },
+  "truck-031": { trim: "윙바디 11톤 오토", cardSpec: ["24년04월", "56,067km", "디젤", "350마력", "적재 11,000kg", "6x2"] },
 };
 
 // 트럭 카드 둘째 줄(2026-10-08 사용자 지시, Truck1 표기 참고): 마력 · 적재용량(kg) · 차축 구성.
@@ -1564,6 +1567,7 @@ const classCars = [
 
 
 export {
+  placeSidoGugun,
   bbmSampleCars,
   luxuryUiTestCars,
   isDesktopPreview,
