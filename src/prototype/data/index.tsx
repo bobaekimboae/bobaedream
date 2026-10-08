@@ -917,8 +917,13 @@ const bikeCars: Car[] = bikeInventory.map((row, index) => ({
   },
 }));
 
+// 사용자 지시 매물(2026-10-08): 지시값 스펙 줄 고정
+const heavyListingOverridesV01: Record<string, { cardSpec: string[] }> = {
+  "heavy-001": { cardSpec: ["2017년식", "880시간", "디젤"] },
+};
 const heavyCars: Car[] = heavyInventory.map((row, index) => ({
   id: 5000 + index,
+  ...(heavyListingOverridesV01[row.id] ?? {}),
   maker: row.maker,
   modelGroup: row.model,
   sellerType: row.sellerType === "개인 판매" ? "개인" : "딜러",
@@ -927,7 +932,7 @@ const heavyCars: Car[] = heavyInventory.map((row, index) => ({
   title: row.maker === "미확인" ? row.title : `${row.maker} ${row.submodel}`,
   // 건설기계 제목은 제조사 · 모델만(2026-10-07 사용자 지시)
   trim: "",
-  specs: [`${row.year}년식`, `${row.hours.toLocaleString("ko-KR")}h`, row.evaluation, row.region],
+  specs: [`${row.year}년식`, `${row.hours.toLocaleString("ko-KR")}시간`, row.evaluation, row.region],
   price: row.price === null ? "가격 상담" : `${Math.round(row.price / 10000).toLocaleString("ko-KR")} 만원`,
   // 「경기도 가상시 테스트구 …(가상 주소)」 대신 지역만
   place: row.region,
@@ -1068,7 +1073,7 @@ const toVirtualCategoryCars = (rows: readonly VirtualCategoryListingRow[], idBas
   const isParts = row.category === "부품 · 용품";
   const isMaterial = row.category === "자재운반장비";
   const partsDetail = isParts ? partsCardDetailsV01[row.model] : undefined;
-  const usage = isParts ? "미사용·중고 혼합" : isMaterial ? `${Math.round(row.mileage / 10).toLocaleString("ko-KR")}h` : `${row.mileage.toLocaleString("ko-KR")}km`;
+  const usage = isParts ? "미사용·중고 혼합" : isMaterial ? `${Math.round(row.mileage / 10).toLocaleString("ko-KR")}시간` : `${row.mileage.toLocaleString("ko-KR")}km`;
   return {
     id: idBase + index,
     maker: row.maker,
