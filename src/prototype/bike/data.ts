@@ -1,4 +1,5 @@
 import { bikeScenarioV07 } from "./scenario-v07";
+import { bikeScenarioV08 } from "./scenario-v08";
 
 export type BikeInventoryRow = {
   id: string;
@@ -31,9 +32,18 @@ export type BikeInventoryRow = {
   imageGrade: string;
   imageNote: string;
   imageAction: string;
+  /** v08 시트 매물만: 서류 상태 · 판매자 기재 상태 · 튜닝 · 정비 요약 · 게시 후 지난 일수 */
+  documents?: string;
+  conditionSummary?: string;
+  tuningSummary?: string;
+  maintenanceSummary?: string;
+  postedDays?: number;
 };
 
-export const bikeInventory: BikeInventoryRow[] = bikeScenarioV07.map((row) => ({
+// 2026-10-08: 바이크 목록 = 사용자 지시 매물 bike-001(할리 포티에잇) + 시트 v08 50대. v07의 나머지 가상 29대는 목록에서 뺀다
+const bikeScenario = [bikeScenarioV07[0], ...bikeScenarioV08];
+
+export const bikeInventory: BikeInventoryRow[] = bikeScenario.map((row) => ({
   id: row.scenario_id,
   imageFile: row.image_file,
   title: row.title,
@@ -64,6 +74,7 @@ export const bikeInventory: BikeInventoryRow[] = bikeScenarioV07.map((row) => ({
   imageGrade: row.image_grade,
   imageNote: row.image_note,
   imageAction: row.image_action,
+  ...("sheet_row" in row ? { documents: row.documents, conditionSummary: row.condition_summary, tuningSummary: row.tuning_summary, maintenanceSummary: row.maintenance_summary, postedDays: row.posted_days } : {}),
 }));
 
 export const bikeListingModelsByMaker = bikeInventory.reduce<Record<string, string[]>>((result, row) => {

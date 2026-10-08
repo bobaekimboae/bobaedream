@@ -1,6 +1,6 @@
 // QF-091: 개발 시안 카드의 등록연월·주행거리·연료·마력과 인증중고차·1년보증 배지를 채운다.
 // 우리 매물 데이터에 없는 값(월·년형·마력·배지)을 매물 id 로 정해지는 샘플 값으로 채운다. 실제 매물 정보가 아니다.
-type SampleSource = { id: number; title?: string; trim?: string; specs: string[]; filter?: { year: number; mileage: number; fuel: string }; badges?: string[]; uiTest?: unknown; virtualCategory?: { category?: string; categoryDetail?: string; berths?: number; beds?: number; seats?: number }; bike?: { genre: string; displacement: number }; truck?: { trailer?: { load: string; length: string; axles: string }; load?: string; horsepower?: number; drive?: string }; heavy?: { hours?: number }; cardSpec?: string[] };
+type SampleSource = { id: number; title?: string; trim?: string; specs: string[]; filter?: { year: number; mileage: number; fuel: string }; badges?: string[]; uiTest?: unknown; virtualCategory?: { category?: string; categoryDetail?: string; berths?: number; beds?: number; seats?: number }; bike?: { genre: string; displacement: number; scenarioVersion?: string }; truck?: { trailer?: { load: string; length: string; axles: string }; load?: string; horsepower?: number; drive?: string }; heavy?: { hours?: number }; cardSpec?: string[] };
 
 const horsepowerPool = [190, 204, 245, 258, 150, 170, 305, 367, 122, 184, 225, 272];
 const badgePool: string[][] = [["인증중고차", "1년보증"], ["인증중고차", "1년보증"], [], ["1년보증"], ["인증중고차"], []];
@@ -86,5 +86,7 @@ export function bbmCardBadges(source: SampleSource) {
   // 지시값으로 넣은 매물(cardSpec)은 샘플 배지를 붙이지 않는다(2026-10-07 사용자 지시 「배지 빼고」)
   if (source.cardSpec?.length) return source.badges ?? [];
   if (source.virtualCategory) return source.badges ?? [];
+  // 바이크 시트 매물(v08)은 실제 매물 유형만(라이트바겐 인증중고 = 「인증중고차」), 샘플 배지를 붙이지 않는다
+  if (source.bike?.scenarioVersion === "v08") return source.badges ?? [];
   return source.badges?.length ? source.badges : badgePool[source.id % badgePool.length];
 }
