@@ -90,11 +90,14 @@ export function KrBrandLogo({ name, kind, initialFallback = false }: { name: str
   );
 }
 
-// 초톳 「Hãng xe」 레일 재실측(2026-10-07, 1080×2340 → 384): 40×40 상자, 가로·세로 가운데.
-// Toyota r 1.45 → 폭 91% · Hyundai r 1.88 → 폭 100% · Kia r 4.06 → 폭 약 61%(24.5). 아주 납작한 글자형(r ≥ 4)만 줄여 무게를 맞춘다.
+// 초톳 40×40 슬롯은 유지하고, 제조사 선택 화면 v4와 같은 광학 면적 규칙을 쓴다.
+// sqrt(폭×높이)=26, 최대 38×26. 원형 배지는 26×26, 가로형은 최대 폭 38로 균형을 맞춘다.
 export function chototRailLogoSize(ratio: number) {
-  if (ratio >= 4) return { width: "61%", height: "auto" };
-  return krPlainLogoSize(ratio);
+  let width = 26 * Math.sqrt(ratio);
+  let height = 26 / Math.sqrt(ratio);
+  if (width > 38) { width = 38; height = width / ratio; }
+  if (height > 26) { height = 26; width = height * ratio; }
+  return { width: px(width), height: px(height) };
 }
 
 /** 과쯔 승용 제조사 레일 로고(오토홈 원본 trim, rail-v01). 파일이 없는 브랜드는 null → 기존 로고를 쓴다. */
@@ -103,7 +106,7 @@ export function railBrandLogo(name: string) {
   if (!logo) return null;
   return (
     <span className="kr-brand-logo is-plain is-rail-v01" data-brand={name} data-ratio={logo.ratio} data-logo-set="rail-v01">
-      <img src={asset(`brand/rail-v01/${logo.file}`)} alt="" draggable={false} style={logo.width ? { width: logo.width, height: "auto" } : chototRailLogoSize(logo.ratio)} />
+      <img src={asset(`brand/rail-v01/${logo.file}`)} alt="" draggable={false} style={chototRailLogoSize(logo.ratio)} />
     </span>
   );
 }

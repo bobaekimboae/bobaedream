@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { ChevronLeftIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import type { QuickGenerationOption, QuickModelVisual } from "../data";
 import { searchVehicleCatalog, type VehicleSearchRecord } from "./search.mjs";
+import { carMakerLogoAsset } from "./car-maker-logos-v4";
 import "./vehicle-catalog.css";
 
 export type CatalogScope = "car" | "bike";
@@ -26,6 +27,13 @@ const ferrariSilverAsset = (path: string) => {
     .replace("/ferrari-models/angle/", "/ferrari-models/angle-silver/")
     .replace(/_angle_v01\.png$/, "_angle_silver_v01.png");
   return `${silverPath}?v=ferrari-silver-v01`;
+};
+const publicCatalogOriginalAsset = (path?: string | null) => {
+  if (!path) return null;
+  const originalPath = path
+    .replace("/ferrari-models/angle-silver/", "/ferrari-models/angle/")
+    .replace(/_angle_silver_v01\.png(?:\?[^#]*)?$/, "_angle_v01.png");
+  return /^(?:https?:)?\/\//.test(originalPath) || originalPath.startsWith("/") ? originalPath : `${publicBase}${originalPath}`;
 };
 export const publicCatalogAsset = (path?: string | null) => {
   if (!path) return null;
@@ -120,13 +128,30 @@ export function useVehicleCatalog(scope: CatalogScope, selectedMake?: string | n
 }
 
 export function CatalogLogo({ path, name, kind = "list" }: { path?: string | null; name: string; kind?: "rail" | "list" | "chip" }) {
-  const source = publicCatalogAsset(path);
-  return <span className={`catalog-logo is-${kind}${source ? "" : " is-placeholder"}`} data-testid={`catalog-logo-${name}`}>{source ? <img src={source} alt="" draggable={false} /> : <span aria-hidden="true">{name.slice(0, 1)}</span>}</span>;
+  const approved = carMakerLogoAsset(name);
+  const source = approved ? `${publicBase}assets/maker-model/logos/encar-1005-trim/${approved.file}` : publicCatalogAsset(path);
+  const scale = kind === "rail" ? 1 : 24 / 38;
+  const style = approved ? { width: `${approved.width * scale}px`, height: `${approved.height * scale}px` } : undefined;
+  return <span className={`catalog-logo is-${kind}${source ? "" : " is-placeholder"}`} data-testid={`catalog-logo-${name}`} data-logo-standard={approved ? "v4" : "legacy"}>{source ? <img src={source} alt="" draggable={false} style={style} /> : <span aria-hidden="true">{name.slice(0, 1)}</span>}</span>;
 }
 
 export function CatalogVehicleImage({ path, name, compact = false }: { path?: string | null; name: string; compact?: boolean }) {
   const source = publicCatalogAsset(path);
-  return <span className={`catalog-vehicle-image${compact ? " is-compact" : ""}${source ? "" : " is-placeholder"}`}>{source ? <img src={source} alt={`${name} 차량`} loading="lazy" draggable={false} /> : <span aria-label={`${name} 이미지 없음`}><i /></span>}</span>;
+  const fallbackSource = publicCatalogOriginalAsset(path);
+  return <span className={`catalog-vehicle-image${compact ? " is-compact" : ""}${source ? "" : " is-placeholder"}`}>{source ? <img src={source} alt={`${name} 차량`} loading="lazy" draggable={false} onError={(event) => {
+    const image = event.currentTarget;
+    const stage = image.dataset.fallbackStage;
+    if (fallbackSource && !stage && image.src !== new URL(fallbackSource, document.baseURI).href) {
+      image.dataset.fallbackStage = "switching";
+      requestAnimationFrame(() => {
+        image.dataset.fallbackStage = "fallback";
+        image.src = fallbackSource;
+      });
+      return;
+    }
+    if (stage === "switching") return;
+    image.hidden = true;
+  }} /> : <span aria-label={`${name} 이미지 없음`}><i /></span>}</span>;
 }
 
 export function CatalogSearchResults({ records, query, onChoose }: { records: VehicleSearchRecord[] | null; query: string; onChoose: (record: VehicleSearchRecord) => void }) {
