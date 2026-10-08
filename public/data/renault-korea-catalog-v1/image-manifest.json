@@ -1,0 +1,1079 @@
+{
+  "version": "2026-10-08-v02",
+  "manufacturerKey": "make_car_encar_7603bf72ae09fe1b521a",
+  "manufacturerName": "르노코리아(삼성)",
+  "sourceModels": 17,
+  "sourceGenerations": 34,
+  "uniqueAssets": 34,
+  "rules": {
+    "master": "1920×1200 transparent PNG",
+    "delivery": "960×600 transparent PNG",
+    "angle": "AutoScout24-style left-facing front three-quarter",
+    "width": "88~90%",
+    "floorGap": "6%",
+    "lighting": "high-key studio, approximately +0.7EV midtone lift",
+    "shadow": "compact contact shadow",
+    "colorPriority": [
+      "mobile.de",
+      "carisyou.com",
+      "auto.danawa.com"
+    ]
+  },
+  "assets": [
+    {
+      "assetId": "renault_asset_9b9defa16b092ecb2047",
+      "fileName": "renault_asset_9b9defa16b092ecb2047.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "QM6",
+      "generationName": "더 뉴 QM6",
+      "visualName": "더 뉴 QM6",
+      "releaseYm": "2019-06",
+      "endYm": null,
+      "listingCount": 1147,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "클라우드 펄",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_ff58cb3ee58cbaa42e56"
+      ],
+      "status": "completed",
+      "priority": 1,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_e6f6818211c7233322be",
+      "fileName": "renault_asset_e6f6818211c7233322be.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "SM6",
+      "generationName": "SM6",
+      "visualName": "SM6",
+      "releaseYm": "2016-02",
+      "endYm": "2020-09",
+      "listingCount": 1087,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "아메시스트 블랙",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_7a7b312361ff633c20cc"
+      ],
+      "status": "completed",
+      "priority": 2,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_ecb0c208ac3e0dcc6cd9",
+      "fileName": "renault_asset_ecb0c208ac3e0dcc6cd9.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "XM3",
+      "generationName": "XM3",
+      "visualName": "XM3",
+      "releaseYm": "2020-03",
+      "endYm": "2024-04",
+      "listingCount": 857,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "소닉 레드",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_4a415d50289294e115ac"
+      ],
+      "status": "completed",
+      "priority": 3,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_c2df3d00cdf3a6426122",
+      "fileName": "renault_asset_c2df3d00cdf3a6426122.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "QM6",
+      "generationName": "QM6",
+      "visualName": "QM6",
+      "releaseYm": "2016-09",
+      "endYm": "2019-08",
+      "listingCount": 707,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미네랄 베이지",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_c946fb5174ca5a95aef3"
+      ],
+      "status": "completed",
+      "priority": 4,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_44b2460ce289f715a7ce",
+      "fileName": "renault_asset_44b2460ce289f715a7ce.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "QM3",
+      "generationName": "QM3",
+      "visualName": "QM3",
+      "releaseYm": "2013-12",
+      "endYm": "2017-09",
+      "listingCount": 304,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "소닉 블루·아이보리 루프",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_e06fb5166fe44687c69d"
+      ],
+      "status": "completed",
+      "priority": 5,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_b658c906a077d87a80cc",
+      "fileName": "renault_asset_b658c906a077d87a80cc.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "그랑 콜레오스",
+      "generationName": "그랑 콜레오스",
+      "visualName": "그랑 콜레오스",
+      "releaseYm": "2024-07",
+      "endYm": null,
+      "listingCount": 240,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "어반 그레이",
+      "colorEvidence": "https://www.renault.co.kr/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_39c832246593a1126cf6"
+      ],
+      "status": "completed",
+      "priority": 6,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_0513afd73fb82d7328f4",
+      "fileName": "renault_asset_0513afd73fb82d7328f4.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "SM7",
+      "generationName": "SM7 노바",
+      "visualName": "SM7 노바",
+      "releaseYm": "2014-08",
+      "endYm": "2019-12",
+      "listingCount": 221,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "펄 화이트",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_efa73f492847f05b5ca6"
+      ],
+      "status": "completed",
+      "priority": 7,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_7d44862c4d4213f0e786",
+      "fileName": "renault_asset_7d44862c4d4213f0e786.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "SM3",
+      "generationName": "SM3 네오",
+      "visualName": "SM3 네오",
+      "releaseYm": "2014-04",
+      "endYm": "2019-12",
+      "listingCount": 219,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "소닉 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_c8a1c62f96c42ec2917e"
+      ],
+      "status": "completed",
+      "priority": 8,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_c73dd69033a709cb41ef",
+      "fileName": "renault_asset_c73dd69033a709cb41ef.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "SM3",
+      "generationName": "뉴SM3",
+      "visualName": "뉴SM3",
+      "releaseYm": "2009-07",
+      "endYm": "2014-06",
+      "listingCount": 208,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "울트라소닉 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_2ecccbc59d237ea9dbc2"
+      ],
+      "status": "completed",
+      "priority": 9,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_6a2d4795670602abd943",
+      "fileName": "renault_asset_6a2d4795670602abd943.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "SM5",
+      "generationName": "SM5 노바",
+      "visualName": "SM5 노바",
+      "releaseYm": "2015-01",
+      "endYm": "2019-12",
+      "listingCount": 207,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "클라우드 펄",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_e98a54e7d2385234b040"
+      ],
+      "status": "completed",
+      "priority": 10,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_6638256f0490a350fc82",
+      "fileName": "renault_asset_6638256f0490a350fc82.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "SM5",
+      "generationName": "뉴SM5 플래티넘",
+      "visualName": "뉴SM5 플래티넘",
+      "releaseYm": "2012-11",
+      "endYm": "2015-03",
+      "listingCount": 176,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "펄 화이트",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_748e53bc7bae5653544b"
+      ],
+      "status": "completed",
+      "priority": 11,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_5f789e1f6bd5d9321667",
+      "fileName": "renault_asset_5f789e1f6bd5d9321667.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "마스터",
+      "generationName": "마스터",
+      "visualName": "마스터",
+      "releaseYm": "2018-10",
+      "endYm": null,
+      "listingCount": 168,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미네랄 화이트",
+      "colorEvidence": "https://www.renault.co.kr/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_895fb3cf8fdfd3bed6bd"
+      ],
+      "status": "completed",
+      "priority": 12,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_cde1f84d27a15c8b33e4",
+      "fileName": "renault_asset_cde1f84d27a15c8b33e4.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "SM6",
+      "generationName": "더 뉴 SM6",
+      "visualName": "더 뉴 SM6",
+      "releaseYm": "2020-07",
+      "endYm": null,
+      "listingCount": 163,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "보르도 레드",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_55fd184b0148c7358e96"
+      ],
+      "status": "completed",
+      "priority": 13,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_abfd15445f5fe23f6243",
+      "fileName": "renault_asset_abfd15445f5fe23f6243.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "아르카나",
+      "generationName": "아르카나",
+      "visualName": "아르카나",
+      "releaseYm": "2024-04",
+      "endYm": null,
+      "listingCount": 126,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "잔지바르 블루",
+      "colorEvidence": "https://www.renault.co.kr/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_c66003f86262cf88b759"
+      ],
+      "status": "completed",
+      "priority": 14,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_885fa892fa7ef3b00574",
+      "fileName": "renault_asset_885fa892fa7ef3b00574.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "QM3",
+      "generationName": "뉴QM3",
+      "visualName": "뉴QM3",
+      "releaseYm": "2017-08",
+      "endYm": "2019-12",
+      "listingCount": 109,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "아타카마 오렌지·블랙 루프",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_3ac5d1d6fe2a75bd03bf"
+      ],
+      "status": "completed",
+      "priority": 15,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_9536d1aedc2b78cdf1ee",
+      "fileName": "renault_asset_9536d1aedc2b78cdf1ee.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "SM5",
+      "generationName": "뉴SM5(신형)",
+      "visualName": "뉴SM5(신형)",
+      "releaseYm": "2010-01",
+      "endYm": "2012-12",
+      "listingCount": 77,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "플래티넘 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_ab53b492ead4a38124e5"
+      ],
+      "status": "completed",
+      "priority": 16,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_f50cc730246f1cd3d33d",
+      "fileName": "renault_asset_f50cc730246f1cd3d33d.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "필랑트",
+      "generationName": "필랑트",
+      "visualName": "필랑트",
+      "releaseYm": "2026-01",
+      "endYm": null,
+      "listingCount": 69,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "녹턴 블루",
+      "colorEvidence": "https://www.renault.co.kr/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_87b712f64ff672f9879c"
+      ],
+      "status": "completed",
+      "priority": 17,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_b9bc5230d4ee9e57109d",
+      "fileName": "renault_asset_b9bc5230d4ee9e57109d.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "SM7",
+      "generationName": "All New SM7",
+      "visualName": "All New SM7",
+      "releaseYm": "2011-07",
+      "endYm": "2014-10",
+      "listingCount": 69,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "울트라 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_483a9c4179d5f595e316"
+      ],
+      "status": "completed",
+      "priority": 18,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_e902e3879e9ec9cbd1a3",
+      "fileName": "renault_asset_e902e3879e9ec9cbd1a3.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "클리오",
+      "generationName": "클리오",
+      "visualName": "클리오",
+      "releaseYm": "2018-05",
+      "endYm": "2019-12",
+      "listingCount": 63,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "플레임 레드",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_ebeefd9f1f72b701e915"
+      ],
+      "status": "completed",
+      "priority": 19,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_38051257ab425870c434",
+      "fileName": "renault_asset_38051257ab425870c434.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "QM5",
+      "generationName": "QM5 네오",
+      "visualName": "QM5 네오",
+      "releaseYm": "2014-01",
+      "endYm": "2016-11",
+      "listingCount": 58,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "클라우드 펄",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_f4206a66028104000ac7"
+      ],
+      "status": "completed",
+      "priority": 20,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_033c2b6611b4cef84497",
+      "fileName": "renault_asset_033c2b6611b4cef84497.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "QM5",
+      "generationName": "뉴QM5",
+      "visualName": "뉴QM5",
+      "releaseYm": "2011-06",
+      "endYm": "2014-03",
+      "listingCount": 48,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "플래티넘 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_dc2c8cc81b716fc45a91"
+      ],
+      "status": "completed",
+      "priority": 21,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_87de797ecda7578ccc51",
+      "fileName": "renault_asset_87de797ecda7578ccc51.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "트위지",
+      "generationName": "트위지",
+      "visualName": "트위지",
+      "releaseYm": "2017-06",
+      "endYm": "2022-12",
+      "listingCount": 47,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "캐리비안 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_18a8179031eb88d4baba"
+      ],
+      "status": "completed",
+      "priority": 22,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_6f4ad60b924da27630c1",
+      "fileName": "renault_asset_6f4ad60b924da27630c1.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "SM3",
+      "generationName": "SM3 Z.E.",
+      "visualName": "SM3 Z.E.",
+      "releaseYm": "2013-10",
+      "endYm": "2020-12",
+      "listingCount": 45,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "글래시어 화이트·블루 포인트",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_36e145a991602cc1d901"
+      ],
+      "status": "completed",
+      "priority": 23,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_94a9fcb676f3563a5d3e",
+      "fileName": "renault_asset_94a9fcb676f3563a5d3e.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "SM7",
+      "generationName": "SM7 New Art",
+      "visualName": "SM7 New Art",
+      "releaseYm": "2008-01",
+      "endYm": "2011-10",
+      "listingCount": 41,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "블랙 사파이어",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_d44769b56440736902dc"
+      ],
+      "status": "completed",
+      "priority": 24,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_96cfd2bceec087be428d",
+      "fileName": "renault_asset_96cfd2bceec087be428d.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "캡처",
+      "generationName": "캡처",
+      "visualName": "캡처",
+      "releaseYm": "2020-05",
+      "endYm": "2021-03",
+      "listingCount": 37,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "아타카마 오렌지·다이아몬드 블랙 루프",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_d1e09f2d16667b5aa8a1"
+      ],
+      "status": "completed",
+      "priority": 25,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_88a5b432508cb7c4105c",
+      "fileName": "renault_asset_88a5b432508cb7c4105c.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "SM5",
+      "generationName": "SM5 뉴 임프레션",
+      "visualName": "SM5 뉴 임프레션",
+      "releaseYm": "2007-07",
+      "endYm": "2010-10",
+      "listingCount": 31,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "플래티넘 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_24ba3e749a9c32bf0887"
+      ],
+      "status": "completed",
+      "priority": 26,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_a44da0181a219bf7a1b2",
+      "fileName": "renault_asset_a44da0181a219bf7a1b2.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "조에",
+      "generationName": "조에",
+      "visualName": "조에",
+      "releaseYm": "2020-08",
+      "endYm": "2022-07",
+      "listingCount": 23,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "셀라돈 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_4b33fa19899f14613da8"
+      ],
+      "status": "completed",
+      "priority": 27,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_918a91baf993ee06a0c4",
+      "fileName": "renault_asset_918a91baf993ee06a0c4.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "SM5",
+      "generationName": "SM5",
+      "visualName": "SM5",
+      "releaseYm": "1998-03",
+      "endYm": "2005-03",
+      "listingCount": 23,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "딥 애틀랜틱 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_08606ac6f17db4ef30e9"
+      ],
+      "status": "completed",
+      "priority": 28,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_bf200c70babbd9a07496",
+      "fileName": "renault_asset_bf200c70babbd9a07496.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "QM5",
+      "generationName": "QM5",
+      "visualName": "QM5",
+      "releaseYm": "2007-12",
+      "endYm": "2011-08",
+      "listingCount": 12,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "카이엔 레드",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_70ab50b6c44402b2208e"
+      ],
+      "status": "completed",
+      "priority": 29,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_c5f955bdd731b9df4049",
+      "fileName": "renault_asset_c5f955bdd731b9df4049.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "SM5",
+      "generationName": "뉴SM5",
+      "visualName": "뉴SM5",
+      "releaseYm": "2005-01",
+      "endYm": "2007-09",
+      "listingCount": 11,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "플래티넘 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_e296930ad41790c86081"
+      ],
+      "status": "completed",
+      "priority": 30,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_8bda94f26e8ddc437b91",
+      "fileName": "renault_asset_8bda94f26e8ddc437b91.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "세닉",
+      "generationName": "세닉",
+      "visualName": "세닉",
+      "releaseYm": "2025-08",
+      "endYm": null,
+      "listingCount": 10,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "쉬스트 그레이·블랙 루프",
+      "colorEvidence": "https://www.renault.co.kr/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_78ecfede00f61eae1379"
+      ],
+      "status": "completed",
+      "priority": 31,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_129d0064a059fbe3bc9b",
+      "fileName": "renault_asset_129d0064a059fbe3bc9b.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "SM3",
+      "generationName": "SM3 뉴 제너레이션",
+      "visualName": "SM3 뉴 제너레이션",
+      "releaseYm": "2005-08",
+      "endYm": "2011-05",
+      "listingCount": 7,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "플래티넘 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_d8f78a02d09b4ca70b51"
+      ],
+      "status": "completed",
+      "priority": 32,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_9a80bf412c17124f09b5",
+      "fileName": "renault_asset_9a80bf412c17124f09b5.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "SM3",
+      "generationName": "SM3",
+      "visualName": "SM3",
+      "releaseYm": "2002-09",
+      "endYm": "2005-10",
+      "listingCount": 1,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "펄 화이트",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_9da91c3767ac5aac324d"
+      ],
+      "status": "completed",
+      "priority": 33,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "renault_asset_2ac35800e52b542b7b18",
+      "fileName": "renault_asset_2ac35800e52b542b7b18.png",
+      "manufacturer": "르노코리아(삼성)",
+      "model": "SM7",
+      "generationName": "SM7",
+      "visualName": "SM7",
+      "releaseYm": "2004-12",
+      "endYm": "2008-03",
+      "listingCount": 1,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미스틱 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_3b098f2edd1f5bc961e6"
+      ],
+      "status": "completed",
+      "priority": 34,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    }
+  ],
+  "completedAssets": 34
+}
