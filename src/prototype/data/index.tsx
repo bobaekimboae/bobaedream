@@ -35,6 +35,7 @@ import {
   type VirtualCategoryListingRow,
   partsCardDetailsV01,
   campingBerthsV01,
+  campingSeatsV01,
   virtualListingPhotosV01,
   virtualCardSpecV01,
 } from "./category-virtual-scenario-v01";
@@ -152,6 +153,7 @@ type Car = {
     subtype: string;
     berths?: number;
     beds?: number;
+    seats?: number;
     categoryDetail?: "모터홈" | "캐러밴";
     scenarioId: string;
     isVirtual: true;
@@ -1104,13 +1106,15 @@ const toVirtualCategoryCars = (rows: readonly VirtualCategoryListingRow[], idBas
       berths: row.category === "캠핑카" ? campingBerthsV01[row.model] : undefined,
       // 침대 수(2026-10-07 「취침 4인을 침대 3」): 취침 인원 ÷ 2 올림 + 1 (2→2 · 3→3 · 4→3 · 5→4 · 6→4)
       beds: row.category === "캠핑카" && campingBerthsV01[row.model] ? Math.ceil(campingBerthsV01[row.model] / 2) + 1 : undefined,
+      // 승차 정원(모터홈만). 카드에 「승차 6인 · 취침 3인」
+      seats: row.category === "캠핑카" && row.categoryDetail !== "캐러밴" ? campingSeatsV01[row.model] : undefined,
       scenarioId: row.id,
       isVirtual: true,
       scenarioVersion: "v01",
     },
     filter: {
       year: row.year,
-      seats: row.category === "캠핑카" ? "4인승" : "전체",
+      seats: row.category === "캠핑카" && row.categoryDetail !== "캐러밴" && campingSeatsV01[row.model] ? `${campingSeatsV01[row.model]}인승` : row.category === "캠핑카" ? "4인승" : "전체",
       condition: "중고",
       mileage: row.mileage,
       owners: "전체",

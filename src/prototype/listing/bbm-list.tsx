@@ -341,6 +341,10 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   const badges = bbmCardBadges(car);
   // dev 원본처럼 스펙 항목을 " · "(공백+가운데점+공백) 텍스트로 잇는다(JOB-8). 한 줄 넘치면 말줄임
   const specText = bbmCardSpec(car, variant === "pc");
+  // 캠핑카 모터홈은 「승차 N인 · 취침 N인」이 한 줄에 다 안 들어가 둘째 줄로 내린다(2026-10-08)
+  const seatSplit = specText.indexOf(" · 승차 ");
+  const specMain = seatSplit > 0 ? specText.slice(0, seatSplit) : specText;
+  const specCapacity = seatSplit > 0 ? specText.slice(seatSplit + 3) : "";
   const [locationMain, ...locationSecondaryParts] = listPlace.split(" · ");
   const locationSecondary = locationSecondaryParts.join(" · ");
   const priceMatch = car.price.match(/^(월\s*)?(.+?)\s*(만원)$/);
@@ -384,7 +388,8 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
           <div className="bbm-card-text">
             {title}
             {headlinePosition === "after-model" ? headline : null}
-            <span className="bbm-card-spec">{specText}</span>
+            <span className="bbm-card-spec">{specMain}</span>
+            {specCapacity ? <span className="bbm-card-spec is-capacity">{specCapacity}</span> : null}
             <div className="bbm-card-price-badges">
               <strong className="bbm-card-price"><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</strong>
               {badges.length ? <div className="bbm-card-badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}
