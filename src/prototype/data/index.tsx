@@ -353,27 +353,29 @@ const displaySpecs = (specs: string[]) => specs
   .map((spec, index) => index === 0 ? formatRegistrationDate(spec) : index === 1 ? formatMileage(spec) : spec)
   .join(" · ");
 
+// 지역(시도 구군) → 매매단지. KB차차차 지역별 매매단지 마스터(2026-08-26, kb-danji-master-20260826.json)에 있는 실제 단지만 쓴다.
+// 같은 구군의 단지(매물 1대 이상)를 우선, 구군에 단지가 없으면 같은 시도의 기존 단지를 유지(2026-10-08 「매매단지 학습」)
 const dealerComplexByRegion: Record<string, string> = {
   "서울 강남구": "서울 강남구 · 강남자동차매매단지",
   "서울 서초구": "서울 서초구 · 서울오토갤러리",
-  "서울 성동구": "서울 성동구 · 성수모터시티",
+  "서울 성동구": "서울 성동구 · 장안모터프라자단지", // 서울 성동구 · 성수모터시티 → KB 마스터 기준 교체
   "서울 송파구": "서울 성동구 · 장안평자동차매매단지",
   "경기 수원시": "경기 수원시 권선구 · 도이치오토월드",
-  "경기 성남시": "경기 성남시 수정구 · 판교매매단지",
+  "경기 성남시": "경기 성남시 수정구 · 고려매매단지", // 경기 성남시 수정구 · 판교매매단지 → KB 마스터 기준 교체
   "경기 고양시": "경기 고양시 일산동구 · 고양오토파크",
   "경기 용인시": "경기 용인시 기흥구 · 오토허브",
   "부산 해운대구": "부산 해운대구 · 반여강변자동차매매단지",
-  "부산 남구": "부산 사상구 · 부산오토필드",
+  "부산 남구": "부산 남구 · 남부자동차매매단지", // 부산 사상구 · 부산오토필드 → KB 마스터 기준 교체
   "인천 남동구": "인천 남동구 · 간석자동차매매단지",
   "인천 연수구": "인천 남동구 · 간석자동차매매단지",
-  "인천 중구": "인천 서구 · 엠파크",
+  "인천 중구": "인천 중구 · 인천교자동차매매단지", // 인천 서구 · 엠파크 → KB 마스터 기준 교체
   "대구 수성구": "대구 서구 · 대구엠월드자동차매매단지",
-  "대구 달서구": "대구 달서구 · 엠갤러리",
+  "대구 달서구": "대구 달서구 · 남부매매단지", // 대구 달서구 · 엠갤러리 → KB 마스터 기준 교체
   "대전 유성구": "대전 유성구 · 디오토몰",
   "광주 서구": "광주 서구 · 빛고을오토갤러리",
   "울산 남구": "울산 북구 · 울산자동차매매단지",
   "충남 천안시": "충남 천안시 동남구 · 천안매매단지",
-  "충남 서산시": "충남 서산시 · 서산종합단지",
+  "충남 서산시": "충남 서산시 · 서산중부매매단지", // 충남 서산시 · 서산종합단지 → KB 마스터 기준 교체
   "경북 포항시": "경북 포항시 남구 · 포항오토아울렛단지",
   "경남 창원시": "경남 창원시 의창구 · 디오오토갤러리",
   "제주 제주시": "제주 제주시 · 제주오토파크",
@@ -386,7 +388,7 @@ const placeSidoGugun = (region: string) => region.trim().split(/\s+/).slice(0, 2
 const displayListPlace = (place: string, sellerType?: SellerType) => {
   const region = place.split(" · ")[0].trim();
   if (sellerType === "개인" || !sellerType) return placeSidoGugun(region);
-  const [complexRegion, ...complex] = (dealerComplexByRegion[region] ?? place.trim()).split(" · ");
+  const [complexRegion, ...complex] = (dealerComplexByRegion[region] ?? dealerComplexByRegion[placeSidoGugun(region)] ?? place.trim()).split(" · ");
   return [placeSidoGugun(complexRegion), ...complex].join(" · ")
     .replaceAll("자동차매매단지", "단지")
     .replaceAll("매매단지", "단지");
