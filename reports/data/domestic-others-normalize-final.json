@@ -1,0 +1,24 @@
+[
+  {
+    "assetId": "domestic_asset_86cb59545c7737f1f651",
+    "fileName": "domestic_asset_86cb59545c7737f1f651.png",
+    "width": 854,
+    "height": 390,
+    "widthPct": 88.96,
+    "floorGapPct": 6,
+    "centerPct": 50,
+    "colorName": "뉴트럴 실버",
+    "colorEvidence": "기타 승용차 공통 시각화"
+  },
+  {
+    "assetId": "domestic_asset_9e173504f7efca4ae73f",
+    "fileName": "domestic_asset_9e173504f7efca4ae73f.png",
+    "width": 854,
+    "height": 339,
+    "widthPct": 88.96,
+    "floorGapPct": 6,
+    "centerPct": 50,
+    "colorName": "오렌지 메탈릭",
+    "colorEvidence": "https://www.carisyou.com/car/"
+  }
+]
