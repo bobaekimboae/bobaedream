@@ -375,7 +375,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   const headline = car.uiTest ? <strong className={`bbm-card-headline is-${headlinePosition}${headlineTone === "blue" ? " is-blue" : ""}`}>{car.uiTest.headline}</strong> : null;
   const photo = (
     <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`}>
-      {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} style={{ objectPosition: car.imagePosition ?? "center center" }} /> : null}
+      {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(!featured && car.listThumb ? car.listThumb : car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} style={{ objectPosition: car.imagePosition ?? "center center" }} /> : null}
       <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span></div>
     </div>
   );
