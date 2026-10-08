@@ -30,7 +30,7 @@ export function bbmCardSpec(source: SampleSource, withPower = true) {
   // 지시값을 그대로 보여줄 매물(등록연월·주행 정확값)
   if (source.cardSpec?.length) return source.cardSpec.join(" · ");
   // 트레일러: 적재량 · 길이 · 축(엔진 없음)
-  if (source.truck?.trailer) return [source.truck.trailer.load, source.truck.trailer.length, source.truck.trailer.axles].join(" · ");
+  if (source.truck?.trailer) return [source.truck.trailer.load.replace(/^적재 ([\d.]+)톤$/, (_, t: string) => `적재 ${Math.round(Number(t) * 1000).toLocaleString("ko-KR")}kg`), source.truck.trailer.length, source.truck.trailer.axles].join(" · ");
   // 캠핑카: 바이크 장르처럼 구분을 맨 앞에(모터홈 · 카라반 · 트레일러, 2026-10-08) + 등록연월 · 주행 · 연료. 엔진 없는 카라반·트레일러는 등록연월 · 견인형
   if (source.virtualCategory?.category === "캠핑카") {
     const year = yearFromSpecs(source);
@@ -55,13 +55,15 @@ export function bbmCardSpec(source: SampleSource, withPower = true) {
     const month = ((source.id * 5) % 12) + 1;
     return [`${String(year % 100).padStart(2, "0")}년${String(month).padStart(2, "0")}월`, `${(source.heavy.hours ?? 0).toLocaleString("ko-KR")}시간`, fuelLabel(source)].join(" · ");
   }
-  // 트럭(엔카 화물·특장 목록 규칙): 연식 · 주행 · 연료 + 마력 · 적재용량 · 차축 구성(2026-10-08, 목록에서는 마력부터 둘째 줄)
+  // 트럭(엔카 화물·특장 목록 규칙): 연식 · 주행 · 연료 + 적재용량 · 마력 · 차축 구성(2026-10-08, 목록에서는 둘째 줄)
   if (source.truck) {
     const year = yearFromSpecs(source);
     const month = ((source.id * 5) % 12) + 1;
     const load = source.truck.load ?? "";
-    const loadLabel = /톤$/.test(load) ? `적재 ${load}` : load && load !== "기타" && load.replace("×", "x") !== source.truck.drive ? load : "";
-    const power = [source.truck.horsepower ? `${source.truck.horsepower}마력` : "", loadLabel, source.truck.drive ?? ""].filter(Boolean);
+    // 적재는 kg(1톤 → 적재 1,000kg), 순서 적재 · 마력 · 차축(2026-10-08 사용자 지시)
+    const tons = load.match(/^([\d.]+)톤$/);
+    const loadLabel = tons ? `적재 ${Math.round(Number(tons[1]) * 1000).toLocaleString("ko-KR")}kg` : load && load !== "기타" && load.replace("×", "x") !== source.truck.drive ? load : "";
+    const power = [loadLabel, source.truck.horsepower ? `${source.truck.horsepower}마력` : "", source.truck.drive ?? ""].filter(Boolean);
     return [`${String(year % 100).padStart(2, "0")}년${String(month).padStart(2, "0")}월`, mileageLabel(source), fuelLabel(source), ...power].join(" · ");
   }
   if (source.bike) return [source.bike.genre, String(yearFromSpecs(source)), mileageLabel(source), `${source.bike.displacement.toLocaleString("ko-KR")}cc`].join(" · ");
