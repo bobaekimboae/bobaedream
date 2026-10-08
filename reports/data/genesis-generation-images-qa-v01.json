@@ -1,0 +1,57 @@
+{
+  "version": "2026-10-08-v01",
+  "manufacturer": "제네시스",
+  "branch": "codex/genesis-generation-images-1008",
+  "sourceModels": 7,
+  "sourceGenerations": 14,
+  "uniqueAssets": 14,
+  "mapping": {
+    "expected": 14,
+    "available": 14,
+    "missing": 0
+  },
+  "imageQa": {
+    "checked": 14,
+    "canvas": "960×600",
+    "channels": "RGBA",
+    "transparentBackground": true,
+    "vehicleWidthPx": 854,
+    "vehicleWidthPct": 88.96,
+    "floorGapPct": 6,
+    "centerPct": 50,
+    "failures": 0
+  },
+  "responsiveQa": [
+    {
+      "width": 360,
+      "documentOverflow": 0,
+      "bodyOverflow": 0,
+      "brokenImages": 0,
+      "requestErrors": 0
+    },
+    {
+      "width": 384,
+      "documentOverflow": 0,
+      "bodyOverflow": 0,
+      "brokenImages": 0,
+      "requestErrors": 0
+    },
+    {
+      "width": 412,
+      "documentOverflow": 0,
+      "bodyOverflow": 0,
+      "brokenImages": 0,
+      "requestErrors": 0
+    }
+  ],
+  "build": {
+    "command": "npm run verify:qf",
+    "result": "pass"
+  },
+  "generationTool": "Codex built-in image generation",
+  "referencePriority": [
+    "Genesis official newsroom/archive",
+    "carisyou.com",
+    "auto.danawa.com"
+  ]
+}
