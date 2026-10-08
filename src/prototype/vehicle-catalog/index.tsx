@@ -19,7 +19,18 @@ export type CatalogMakeFile = CarMakeFile | BikeMakeFile;
 
 const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.baseURI).pathname;
 const catalogBase = `${publicBase}data/vehicle-catalog`;
-export const publicCatalogAsset = (path?: string | null) => path ? (/^(?:https?:)?\/\//.test(path) || path.startsWith("/") ? path : `${publicBase}${path}`) : null;
+const ferrariSilverAsset = (path: string) => {
+  if (typeof window === "undefined" || new URLSearchParams(window.location.search).get("ferrariStyle") !== "silver") return path;
+  if (!path.includes("assets/quickfilter/car/ferrari-models/angle/ferrari_")) return path;
+  return path
+    .replace("/ferrari-models/angle/", "/ferrari-models/angle-silver/")
+    .replace(/_angle_v01\.png$/, "_angle_silver_v01.png");
+};
+export const publicCatalogAsset = (path?: string | null) => {
+  if (!path) return null;
+  const variantPath = ferrariSilverAsset(path);
+  return /^(?:https?:)?\/\//.test(variantPath) || variantPath.startsWith("/") ? variantPath : `${publicBase}${variantPath}`;
+};
 const yearsLabel = (start?: string | null, end?: string | null) => start ? `${start.slice(0, 4)}~${end?.slice(0, 4) ?? "현재"}` : "연식 정보 없음";
 
 async function fetchJson<T>(path: string): Promise<T> {
