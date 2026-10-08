@@ -44,11 +44,11 @@ export function bbmCardSpec(source: SampleSource, withPower = true) {
   }
   if (source.uiTest || source.virtualCategory) return source.specs.join(" · ");
   // 바이크(2026-10-07 사용자 지시): 장르 · 연식 · 주행 · 배기량 (예: 네이키드 · 2023 · 2만km · 2,300cc)
-  // 건설기계: 주행거리(km) 대신 사용시간(h)
+  // 건설기계: 주행거리(km) 대신 사용시간(「h」 대신 「시간」, 2026-10-08 사용자 지시)
   if (source.heavy) {
     const year = yearFromSpecs(source);
     const month = ((source.id * 5) % 12) + 1;
-    return [`${String(year % 100).padStart(2, "0")}년${String(month).padStart(2, "0")}월`, `${(source.heavy.hours ?? 0).toLocaleString("ko-KR")}h`, fuelLabel(source)].join(" · ");
+    return [`${String(year % 100).padStart(2, "0")}년${String(month).padStart(2, "0")}월`, `${(source.heavy.hours ?? 0).toLocaleString("ko-KR")}시간`, fuelLabel(source)].join(" · ");
   }
   // 트럭(엔카 화물·특장 목록 규칙): 연식 · 주행 · 연료. 샘플 마력은 넣지 않는다
   if (source.truck) {

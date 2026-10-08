@@ -180,7 +180,8 @@ const map = (form: string, equipmentTypeCode: string, detail: string, detailType
   ({ form, equipmentTypeCode, detail, detailTypeCode, basis });
 
 const directBiglemonMapping: Record<string, BiglemonMapping> = {
-  "heavy-001": map("유압셔블(굴삭기)", "hydraulic_excavator", "26t (1.0) 이상", "excavator_26t_plus"),
+  // 2026-10-08 사용자 지시: 「380」 자리를 볼보 EW60E(타이어식 5.5~6톤)로 교체
+  "heavy-001": map("유압셔블(굴삭기)", "hydraulic_excavator", "6~9t (0.25) 급", "excavator_6_9t"),
   "heavy-002": map("유압셔블(굴삭기)", "hydraulic_excavator", "26t (1.0) 이상", "excavator_26t_plus"),
   "heavy-003": map("유압셔블(굴삭기)", "hydraulic_excavator", "26t (1.0) 이상", "excavator_26t_plus"),
   "heavy-004": map("유압셔블(굴삭기)", "hydraulic_excavator", "26t (1.0) 이상", "excavator_26t_plus"),
