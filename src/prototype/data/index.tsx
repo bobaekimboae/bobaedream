@@ -36,6 +36,7 @@ import {
   partsCardDetailsV01,
   campingBerthsV01,
   virtualListingPhotosV01,
+  virtualCardSpecV01,
 } from "./category-virtual-scenario-v01";
 
 export type SellerType = "전체" | "개인" | "딜러";
@@ -1075,6 +1076,7 @@ const toVirtualCategoryCars = (rows: readonly VirtualCategoryListingRow[], idBas
     sellerType: row.sellerType,
     image: virtualListingPhotosV01[row.model] ?? row.image,
     imageFit: virtualListingPhotosV01[row.model] ? "cover" : "contain",
+    ...(virtualCardSpecV01[row.id] ? { cardSpec: virtualCardSpecV01[row.id] } : {}),
     title: `${row.maker} ${row.model}`,
     // 캠핑카는 엔카 캠핑카 목록처럼 2행 = 형태(클래스 C 모터홈 · 캐러밴 · 팝업 캠퍼). 제목에 「UI 검증용 가상 매물」은 넣지 않는다(2026-10-07 사용자 지시)
     // 부품·용품은 분류 낱말이 모델명에 이미 있으면(AGM 배터리 + 배터리) 붙이지 않는다
