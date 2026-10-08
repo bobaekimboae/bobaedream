@@ -20,18 +20,21 @@ export const luxuryLogoBrands = [
   { maker: "코닉세그", slug: "koenigsegg" },
 ] as const;
 
-export type LuxuryLogoSource = "autohome" | "daangn" | "dongchedi";
-const sources: LuxuryLogoSource[] = ["autohome", "daangn", "dongchedi"];
+export type LuxuryLogoSource = "autohome2" | "autohome" | "daangn" | "dongchedi";
+const sources: LuxuryLogoSource[] = ["autohome2", "autohome", "daangn", "dongchedi"];
 
-/** 1번 오토홈(기본) · 2번 당근 · 3번 동처띠 */
+/** 기본 = autohome2(오토홈 + 맥라렌 엠블럼, 2026-10-08 확정) · 비교용 1번 오토홈 · 2번 당근 · 3번 동처띠 */
 export function luxuryLogoSource(): LuxuryLogoSource {
-  if (typeof window === "undefined") return "autohome";
+  if (typeof window === "undefined") return "autohome2";
   const value = new URLSearchParams(window.location.search).get("luxlogo");
-  return sources.includes(value as LuxuryLogoSource) ? (value as LuxuryLogoSource) : "autohome";
+  return sources.includes(value as LuxuryLogoSource) ? (value as LuxuryLogoSource) : "autohome2";
 }
 
-/** public/assets/brand/luxury-qf-v01/{source}/qf_{source}_{NN}_{slug}_44x28@3x.png (132×84 투명 PNG, 드라이브 원본 복사본) */
+/** autohome2 폴더는 드라이브 원본 파일명(qf_autohome_…)을 그대로 쓴다 */
+const filePrefix: Record<LuxuryLogoSource, string> = { autohome2: "autohome", autohome: "autohome", daangn: "daangn", dongchedi: "dongchedi" };
+
+/** public/assets/brand/luxury-qf-v01/{source}/qf_{prefix}_{NN}_{slug}_44x28@3x.png (132×84 투명 PNG, 드라이브 원본 복사본) */
 export function luxuryLogoPath(source: LuxuryLogoSource, index: number) {
   const brand = luxuryLogoBrands[index];
-  return `brand/luxury-qf-v01/${source}/qf_${source}_${String(index + 1).padStart(2, "0")}_${brand.slug}_44x28@3x.png`;
+  return `brand/luxury-qf-v01/${source}/qf_${filePrefix[source]}_${String(index + 1).padStart(2, "0")}_${brand.slug}_44x28@3x.png`;
 }
