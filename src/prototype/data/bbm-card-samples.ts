@@ -77,7 +77,8 @@ export function bbmCardSpec(source: SampleSource, withPower = true) {
     const power = [loadLabel, source.truck.horsepower ? `${source.truck.horsepower}마력` : "", source.truck.drive ?? ""].filter(Boolean);
     return [truckKindLabel(source.truck.format, source.truck.subtype), `${String(year % 100).padStart(2, "0")}년${String(month).padStart(2, "0")}월`, mileageLabel(source), fuelLabel(source), ...power].filter(Boolean).join(" · ");
   }
-  if (source.bike) return [source.bike.genre, String(yearFromSpecs(source)), mileageLabel(source), `${source.bike.displacement.toLocaleString("ko-KR")}cc`].join(" · ");
+  // 바이크 연식은 「20년식」(연월 모를 때 표기, 2026-10-08 「바이크도 년식」)
+  if (source.bike) return [source.bike.genre, `${String(yearFromSpecs(source) % 100).padStart(2, "0")}년식`, mileageLabel(source), `${source.bike.displacement.toLocaleString("ko-KR")}cc`].join(" · ");
   const year = yearFromSpecs(source);
   const month = ((source.id * 5) % 12) + 1;
   // 목록은 등록연월만 간결하게 표시한다. 연형은 상세 정보에서 다룬다.

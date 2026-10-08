@@ -861,7 +861,7 @@ const virtualPlace = (address: string) => address.replace(/\s*·\s*가상 매물
 
 // 사용자 지시 매물(2026-10-07): 샘플 배지 없이 지시값 스펙 줄 고정
 const bikeListingOverridesV01: Record<string, { cardSpec: string[] }> = {
-  "bike-001": { cardSpec: ["크루저", "2020", "1만km", "1,202cc"] },
+  "bike-001": { cardSpec: ["크루저", "20년식", "1만km", "1,202cc"] },
 };
 const bikeCars: Car[] = bikeInventory.map((row, index) => ({
   id: 7000 + index,
