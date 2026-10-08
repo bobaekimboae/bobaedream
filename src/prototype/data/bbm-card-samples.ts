@@ -40,7 +40,8 @@ const truckKindLabel = (format?: string, subtype = "") =>
 
 export function bbmCardSpec(source: SampleSource, withPower = true) {
   // 지시값을 그대로 보여줄 매물(등록연월·주행 정확값)
-  if (source.cardSpec?.length) return source.cardSpec.join(" · ");
+  // 주행거리는 정확값(56,067km)도 축약(6만km · 4천km)한다(2026-10-08 「주행거리는 축약해라」)
+  if (source.cardSpec?.length) return source.cardSpec.map((part) => /^[\d,]+km$/.test(part) ? mileageLabel({ ...source, filter: { year: 0, fuel: "", mileage: Number(part.replace(/[^\d]/g, "")) } }) : part).join(" · ");
   // 트레일러: 적재량 · 길이 · 축(엔진 없음)
   if (source.truck?.trailer) return [truckKindLabel(source.truck.format, source.truck.subtype), `${String(yearFromSpecs(source) % 100).padStart(2, "0")}년${String(((source.id * 5) % 12) + 1).padStart(2, "0")}월`, source.truck.trailer.load.replace(/^적재 ([\d.]+)톤$/, (_, t: string) => `적재 ${Math.round(Number(t) * 1000).toLocaleString("ko-KR")}kg`), source.truck.trailer.length, source.truck.trailer.axles].join(" · ");
   // 캠핑카: 바이크 장르처럼 구분을 맨 앞에(모터홈 · 카라반 · 트레일러, 2026-10-08) + 등록연월 · 주행 · 연료. 엔진 없는 카라반·트레일러는 등록연월 · 견인형
