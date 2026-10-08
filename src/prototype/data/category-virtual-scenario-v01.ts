@@ -193,7 +193,7 @@ export const campingBerthsV01: Record<string, number> = {
 // 실사 썸네일(모델명 → 사진). 없으면 유형 대표 이미지
 // 사용자 지시 매물의 카드 스펙 줄(지시값 그대로, 샘플 배지 없음)
 export const virtualCardSpecV01: Record<string, string[]> = {
-  "camping-001": ["18년형", "견인형", "침대 3"],
+  "camping-001": ["18년형", "견인형", "취침 4인"],
 };
 
 export const virtualListingPhotosV01: Record<string, string> = {
