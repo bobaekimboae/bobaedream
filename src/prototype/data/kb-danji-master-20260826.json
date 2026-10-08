@@ -1,0 +1,2065 @@
+{
+ "source": "KB차차차_지역별_매매단지_마스터_20260826 (Google Sheet 1UniCT7RKA0p7qau23Tl9ALLFsS0zRQnTD4fli9BCEPU, 탭 지역별_매매단지)",
+ "asOf": "2026-08-26",
+ "note": "개별단지·개인/직거래(UI 합성) 행 제외, 이름이 있는 매매단지 343곳. 읽기 전용 참조 데이터",
+ "complexes": [
+  {
+   "sido": "서울",
+   "gugun": "강서구",
+   "name": "가양오토갤러리",
+   "listings": 416
+  },
+  {
+   "sido": "서울",
+   "gugun": "강남구",
+   "name": "강남자동차매매단지",
+   "listings": 1421
+  },
+  {
+   "sido": "서울",
+   "gugun": "노원구",
+   "name": "강북자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "서울",
+   "gugun": "강서구",
+   "name": "등촌자동차매매단지",
+   "listings": 152
+  },
+  {
+   "sido": "서울",
+   "gugun": "강서구",
+   "name": "서서울모터리움",
+   "listings": 1833
+  },
+  {
+   "sido": "서울",
+   "gugun": "서초구",
+   "name": "서울오토갤러리",
+   "listings": 244
+  },
+  {
+   "sido": "서울",
+   "gugun": "성동구",
+   "name": "성수모터시티",
+   "listings": 0
+  },
+  {
+   "sido": "서울",
+   "gugun": "양천구",
+   "name": "신월동자동차매매단지(서부)",
+   "listings": 875
+  },
+  {
+   "sido": "서울",
+   "gugun": "영등포구",
+   "name": "영등포자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "서울",
+   "gugun": "강서구",
+   "name": "오토플렉스",
+   "listings": 2479
+  },
+  {
+   "sido": "서울",
+   "gugun": "성동구",
+   "name": "장안모터프라자단지",
+   "listings": 631
+  },
+  {
+   "sido": "서울",
+   "gugun": "성동구",
+   "name": "장안평자동차매매단지",
+   "listings": 331
+  },
+  {
+   "sido": "서울",
+   "gugun": "영등포구",
+   "name": "청우오토프라자(양평단지)",
+   "listings": 0
+  },
+  {
+   "sido": "서울",
+   "gugun": "성동구",
+   "name": "카서울닷컴",
+   "listings": 272
+  },
+  {
+   "sido": "서울",
+   "gugun": "강서구",
+   "name": "한길타운자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "서울",
+   "gugun": "강서구",
+   "name": "한성자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "인천",
+   "gugun": "서구",
+   "name": "가좌자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "인천",
+   "gugun": "남동구",
+   "name": "간석자동차매매단지",
+   "listings": 1453
+  },
+  {
+   "sido": "인천",
+   "gugun": "부평구",
+   "name": "신부평자동차매매단지",
+   "listings": 98
+  },
+  {
+   "sido": "인천",
+   "gugun": "서구",
+   "name": "엠파크랜드자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "인천",
+   "gugun": "서구",
+   "name": "엠파크타워자동차매매단지",
+   "listings": 4559
+  },
+  {
+   "sido": "인천",
+   "gugun": "서구",
+   "name": "엠파크허브자동차매매단지",
+   "listings": 3402
+  },
+  {
+   "sido": "인천",
+   "gugun": "남구",
+   "name": "오토드림 매매단지",
+   "listings": 883
+  },
+  {
+   "sido": "인천",
+   "gugun": "중구",
+   "name": "인천교자동차매매단지",
+   "listings": 141
+  },
+  {
+   "sido": "인천",
+   "gugun": "부평구",
+   "name": "일신자동차매매단지",
+   "listings": 458
+  },
+  {
+   "sido": "인천",
+   "gugun": "계양구",
+   "name": "작전자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "인천",
+   "gugun": "남구",
+   "name": "제물포자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "인천",
+   "gugun": "남구",
+   "name": "주안자동차매매단지",
+   "listings": 1198
+  },
+  {
+   "sido": "대전",
+   "gugun": "서구",
+   "name": "관저단지",
+   "listings": 0
+  },
+  {
+   "sido": "대전",
+   "gugun": "서구",
+   "name": "금성매매단지",
+   "listings": 87
+  },
+  {
+   "sido": "대전",
+   "gugun": "서구",
+   "name": "대전단지",
+   "listings": 120
+  },
+  {
+   "sido": "대전",
+   "gugun": "유성구",
+   "name": "디오토몰",
+   "listings": 3236
+  },
+  {
+   "sido": "대전",
+   "gugun": "서구",
+   "name": "만년단지",
+   "listings": 7
+  },
+  {
+   "sido": "대전",
+   "gugun": "동구",
+   "name": "산내단지",
+   "listings": 0
+  },
+  {
+   "sido": "대전",
+   "gugun": "서구",
+   "name": "신진단지",
+   "listings": 18
+  },
+  {
+   "sido": "대전",
+   "gugun": "유성구",
+   "name": "오토월드매매단지",
+   "listings": 2627
+  },
+  {
+   "sido": "대전",
+   "gugun": "서구",
+   "name": "월평단지",
+   "listings": 348
+  },
+  {
+   "sido": "대전",
+   "gugun": "대덕구",
+   "name": "중부종합시장",
+   "listings": 1361
+  },
+  {
+   "sido": "대전",
+   "gugun": "서구",
+   "name": "학원단지",
+   "listings": 0
+  },
+  {
+   "sido": "대구",
+   "gugun": "북구",
+   "name": "강북매매단지(대구)",
+   "listings": 0
+  },
+  {
+   "sido": "대구",
+   "gugun": "동구",
+   "name": "경산월드컵매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "대구",
+   "gugun": "달서구",
+   "name": "남부매매단지",
+   "listings": 481
+  },
+  {
+   "sido": "대구",
+   "gugun": "달서구",
+   "name": "대구경매장단지",
+   "listings": 97
+  },
+  {
+   "sido": "대구",
+   "gugun": "서구",
+   "name": "대구엠월드자동차매매단지",
+   "listings": 2001
+  },
+  {
+   "sido": "대구",
+   "gugun": "서구",
+   "name": "대구오토갤러리",
+   "listings": 0
+  },
+  {
+   "sido": "대구",
+   "gugun": "동구",
+   "name": "동부자동차종합시장",
+   "listings": 59
+  },
+  {
+   "sido": "대구",
+   "gugun": "동구",
+   "name": "동촌매매단지",
+   "listings": 89
+  },
+  {
+   "sido": "대구",
+   "gugun": "동구",
+   "name": "반야월매매2단지",
+   "listings": 6
+  },
+  {
+   "sido": "대구",
+   "gugun": "동구",
+   "name": "반야월매매단지",
+   "listings": 67
+  },
+  {
+   "sido": "대구",
+   "gugun": "북구",
+   "name": "북부매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "대구",
+   "gugun": "북구",
+   "name": "삼공단자동차매매단지",
+   "listings": 48
+  },
+  {
+   "sido": "대구",
+   "gugun": "동구",
+   "name": "신동촌매매단지",
+   "listings": 20
+  },
+  {
+   "sido": "대구",
+   "gugun": "동구",
+   "name": "신라1매매단지",
+   "listings": 118
+  },
+  {
+   "sido": "대구",
+   "gugun": "동구",
+   "name": "신라2매매단지",
+   "listings": 146
+  },
+  {
+   "sido": "대구",
+   "gugun": "달서구",
+   "name": "엠겔러리",
+   "listings": 112
+  },
+  {
+   "sido": "대구",
+   "gugun": "동구",
+   "name": "엠스퀘어",
+   "listings": 86
+  },
+  {
+   "sido": "대구",
+   "gugun": "동구",
+   "name": "오토밸리매매단지",
+   "listings": 146
+  },
+  {
+   "sido": "대구",
+   "gugun": "북구",
+   "name": "오토월드",
+   "listings": 43
+  },
+  {
+   "sido": "대구",
+   "gugun": "동구",
+   "name": "용계오토밸리",
+   "listings": 63
+  },
+  {
+   "sido": "대구",
+   "gugun": "동구",
+   "name": "카프랜드단지",
+   "listings": 34
+  },
+  {
+   "sido": "대구",
+   "gugun": "동구",
+   "name": "팡팡자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "대구",
+   "gugun": "동구",
+   "name": "KB차차차 동대구단지",
+   "listings": 276
+  },
+  {
+   "sido": "광주",
+   "gugun": "서구",
+   "name": "빛고을오토갤러리",
+   "listings": 1506
+  },
+  {
+   "sido": "광주",
+   "gugun": "광산구",
+   "name": "수완자동차매매1단지",
+   "listings": 12
+  },
+  {
+   "sido": "광주",
+   "gugun": "광산구",
+   "name": "수완자동차매매2단지",
+   "listings": 0
+  },
+  {
+   "sido": "광주",
+   "gugun": "서구",
+   "name": "엠플러스",
+   "listings": 3431
+  },
+  {
+   "sido": "광주",
+   "gugun": "서구",
+   "name": "오토파크자동차매매단지",
+   "listings": 469
+  },
+  {
+   "sido": "광주",
+   "gugun": "북구",
+   "name": "전방자동차매매단지",
+   "listings": 8
+  },
+  {
+   "sido": "광주",
+   "gugun": "서구",
+   "name": "풍암자동차매매1단지",
+   "listings": 517
+  },
+  {
+   "sido": "광주",
+   "gugun": "서구",
+   "name": "풍암자동차매매2단지",
+   "listings": 1503
+  },
+  {
+   "sido": "광주",
+   "gugun": "서구",
+   "name": "풍암자동차매매3단지",
+   "listings": 2168
+  },
+  {
+   "sido": "광주",
+   "gugun": "광산구",
+   "name": "하남자동차매매단지",
+   "listings": 272
+  },
+  {
+   "sido": "부산",
+   "gugun": "금정구",
+   "name": "금사자동차매매단지",
+   "listings": 164
+  },
+  {
+   "sido": "부산",
+   "gugun": "남구",
+   "name": "남부산매매단지",
+   "listings": 289
+  },
+  {
+   "sido": "부산",
+   "gugun": "남구",
+   "name": "남부산오토파크",
+   "listings": 0
+  },
+  {
+   "sido": "부산",
+   "gugun": "남구",
+   "name": "남부자동차매매단지",
+   "listings": 567
+  },
+  {
+   "sido": "부산",
+   "gugun": "강서구",
+   "name": "녹산중고차사업장",
+   "listings": 0
+  },
+  {
+   "sido": "부산",
+   "gugun": "연제구",
+   "name": "대산자동차매매단지",
+   "listings": 303
+  },
+  {
+   "sido": "부산",
+   "gugun": "동래구",
+   "name": "동래자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "부산",
+   "gugun": "해운대구",
+   "name": "반여강변자동차매매단지",
+   "listings": 54
+  },
+  {
+   "sido": "부산",
+   "gugun": "남구",
+   "name": "부산감만자동차매매단지",
+   "listings": 326
+  },
+  {
+   "sido": "부산",
+   "gugun": "연제구",
+   "name": "부산오토마트자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "부산",
+   "gugun": "사상구",
+   "name": "부산자동차매매단지",
+   "listings": 410
+  },
+  {
+   "sido": "부산",
+   "gugun": "사상구",
+   "name": "북부산단지",
+   "listings": 399
+  },
+  {
+   "sido": "부산",
+   "gugun": "연제구",
+   "name": "사직오토랜드",
+   "listings": 424
+  },
+  {
+   "sido": "부산",
+   "gugun": "연제구",
+   "name": "새연산자동차매매단지",
+   "listings": 225
+  },
+  {
+   "sido": "부산",
+   "gugun": "사하구",
+   "name": "서부산자동차매매단지",
+   "listings": 344
+  },
+  {
+   "sido": "부산",
+   "gugun": "사상구",
+   "name": "신사상자동차매매단지",
+   "listings": 974
+  },
+  {
+   "sido": "부산",
+   "gugun": "사하구",
+   "name": "신평자동차매매단지",
+   "listings": 1080
+  },
+  {
+   "sido": "부산",
+   "gugun": "연제구",
+   "name": "연제자동차매매단지",
+   "listings": 672
+  },
+  {
+   "sido": "부산",
+   "gugun": "금정구",
+   "name": "오토셀렉션",
+   "listings": 0
+  },
+  {
+   "sido": "부산",
+   "gugun": "기장군",
+   "name": "오토필드",
+   "listings": 2671
+  },
+  {
+   "sido": "부산",
+   "gugun": "부산진구",
+   "name": "우창자동차백화점단지",
+   "listings": 0
+  },
+  {
+   "sido": "부산",
+   "gugun": "해운대구",
+   "name": "원파크",
+   "listings": 507
+  },
+  {
+   "sido": "부산",
+   "gugun": "사상구",
+   "name": "일공공일중고차아울렛",
+   "listings": 860
+  },
+  {
+   "sido": "부산",
+   "gugun": "사상구",
+   "name": "태평양자동차매매단지",
+   "listings": 641
+  },
+  {
+   "sido": "부산",
+   "gugun": "사하구",
+   "name": "KB차차차부산",
+   "listings": 113
+  },
+  {
+   "sido": "부산",
+   "gugun": "사하구",
+   "name": "KC오토월드",
+   "listings": 0
+  },
+  {
+   "sido": "울산",
+   "gugun": "북구",
+   "name": "국민차매매단지(울산점)",
+   "listings": 1597
+  },
+  {
+   "sido": "울산",
+   "gugun": "북구",
+   "name": "북구자동차매매단지",
+   "listings": 1
+  },
+  {
+   "sido": "울산",
+   "gugun": "북구",
+   "name": "울산자동차매매단지",
+   "listings": 973
+  },
+  {
+   "sido": "울산",
+   "gugun": "북구",
+   "name": "자동차마을",
+   "listings": 350
+  },
+  {
+   "sido": "경기",
+   "gugun": "고양시 일산동구",
+   "name": "21세기중고차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "파주시",
+   "name": "경기단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "안산시 단원구",
+   "name": "경기자동차매매단지",
+   "listings": 1270
+  },
+  {
+   "sido": "경기",
+   "gugun": "용인시 기흥구",
+   "name": "경매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "수원시 권선구",
+   "name": "경매자동차매매단지",
+   "listings": 176
+  },
+  {
+   "sido": "경기",
+   "gugun": "광명시",
+   "name": "경매장매매단지",
+   "listings": 153
+  },
+  {
+   "sido": "경기",
+   "gugun": "이천시",
+   "name": "고려매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "성남시 수정구",
+   "name": "고려매매단지",
+   "listings": 1
+  },
+  {
+   "sido": "경기",
+   "gugun": "고양시 일산동구",
+   "name": "고양오토파크",
+   "listings": 82
+  },
+  {
+   "sido": "경기",
+   "gugun": "광명시",
+   "name": "광명자동차매매단지",
+   "listings": 716
+  },
+  {
+   "sido": "경기",
+   "gugun": "광주시",
+   "name": "광주매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "김포시",
+   "name": "국민차(공항점)",
+   "listings": 1729
+  },
+  {
+   "sido": "경기",
+   "gugun": "부천시 오정구",
+   "name": "국민차매매단지(부천점)",
+   "listings": 1913
+  },
+  {
+   "sido": "경기",
+   "gugun": "파주시",
+   "name": "금촌단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "김포시",
+   "name": "금파매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "용인시 처인구",
+   "name": "남동자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "수원시 권선구",
+   "name": "남수원자동차매매단지",
+   "listings": 274
+  },
+  {
+   "sido": "경기",
+   "gugun": "안산시 단원구",
+   "name": "뉴오토팰리스",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "평택시",
+   "name": "뉴월드자동차매매단지",
+   "listings": 108
+  },
+  {
+   "sido": "경기",
+   "gugun": "고양시 덕양구",
+   "name": "능곡매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "광명시",
+   "name": "다카자동차쇼핑몰",
+   "listings": 493
+  },
+  {
+   "sido": "경기",
+   "gugun": "수원시 권선구",
+   "name": "도이치오토월드",
+   "listings": 22064
+  },
+  {
+   "sido": "경기",
+   "gugun": "평택시",
+   "name": "도일자동차매매단지",
+   "listings": 10
+  },
+  {
+   "sido": "경기",
+   "gugun": "",
+   "name": "동두천-송내매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "안양시 동안구",
+   "name": "동안양자동차매매단지",
+   "listings": 160
+  },
+  {
+   "sido": "경기",
+   "gugun": "시흥시",
+   "name": "라성자동차매매단지",
+   "listings": 1343
+  },
+  {
+   "sido": "경기",
+   "gugun": "김포시",
+   "name": "마송자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "안산시 단원구",
+   "name": "마트자동차매매단지",
+   "listings": 1967
+  },
+  {
+   "sido": "경기",
+   "gugun": "고양시 일산서구",
+   "name": "모또자동차매매단지",
+   "listings": 203
+  },
+  {
+   "sido": "경기",
+   "gugun": "용인시 기흥구",
+   "name": "모빌월드매매단지",
+   "listings": 416
+  },
+  {
+   "sido": "경기",
+   "gugun": "화성시",
+   "name": "발안단지",
+   "listings": 11
+  },
+  {
+   "sido": "경기",
+   "gugun": "부천시 오정구",
+   "name": "부천오토파크",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "고양시 일산동구",
+   "name": "북부매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "수원시 장안구",
+   "name": "북수원오토파크",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "수원시 장안구",
+   "name": "북수원자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "수원시 장안구",
+   "name": "북수원종합매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "평택시",
+   "name": "삼성자동차매매단지",
+   "listings": 60
+  },
+  {
+   "sido": "경기",
+   "gugun": "부천시 오정구",
+   "name": "서부오토팰리스",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "수원시 권선구",
+   "name": "서부자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "수원시 권선구",
+   "name": "서수원자동차매매단지",
+   "listings": 441
+  },
+  {
+   "sido": "경기",
+   "gugun": "이천시",
+   "name": "서이천매매단지",
+   "listings": 16
+  },
+  {
+   "sido": "경기",
+   "gugun": "고양시 일산동구",
+   "name": "성석매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "여주시",
+   "name": "세종자동차매매단지",
+   "listings": 13
+  },
+  {
+   "sido": "경기",
+   "gugun": "포천시",
+   "name": "솔모루자동차매매단지",
+   "listings": 26
+  },
+  {
+   "sido": "경기",
+   "gugun": "수원시 권선구",
+   "name": "수원단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "수원시 권선구",
+   "name": "수원모터파크",
+   "listings": 1184
+  },
+  {
+   "sido": "경기",
+   "gugun": "수원시 권선구",
+   "name": "수원오토컬렉션",
+   "listings": 6605
+  },
+  {
+   "sido": "경기",
+   "gugun": "수원시 권선구",
+   "name": "수원오토컬렉션2",
+   "listings": 197
+  },
+  {
+   "sido": "경기",
+   "gugun": "동두천시",
+   "name": "신동두천매매단지",
+   "listings": 23
+  },
+  {
+   "sido": "경기",
+   "gugun": "수원시 권선구",
+   "name": "신중앙자동차매매단지",
+   "listings": 51
+  },
+  {
+   "sido": "경기",
+   "gugun": "안양시 만안구",
+   "name": "안양오토갤러리",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "안양시 만안구",
+   "name": "안양자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "양주시",
+   "name": "양주오토랜드",
+   "listings": 21
+  },
+  {
+   "sido": "경기",
+   "gugun": "수원시 영통구",
+   "name": "영통자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "오산시",
+   "name": "오산매매단지",
+   "listings": 51
+  },
+  {
+   "sido": "경기",
+   "gugun": "안산시 단원구",
+   "name": "오토돔",
+   "listings": 3794
+  },
+  {
+   "sido": "경기",
+   "gugun": "평택시",
+   "name": "오토캐슬매매단지",
+   "listings": 870
+  },
+  {
+   "sido": "경기",
+   "gugun": "부천시 원미구",
+   "name": "오토프라자",
+   "listings": 217
+  },
+  {
+   "sido": "경기",
+   "gugun": "용인시 기흥구",
+   "name": "오토허브",
+   "listings": 2968
+  },
+  {
+   "sido": "경기",
+   "gugun": "용인시 기흥구",
+   "name": "용인오토갤러리",
+   "listings": 288
+  },
+  {
+   "sido": "경기",
+   "gugun": "의정부시",
+   "name": "우리자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "의왕시",
+   "name": "의왕자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "의정부시",
+   "name": "의정부 오토갤러리",
+   "listings": 421
+  },
+  {
+   "sido": "경기",
+   "gugun": "의정부시",
+   "name": "의정부시 북부자동차매매단지",
+   "listings": 574
+  },
+  {
+   "sido": "경기",
+   "gugun": "이천시",
+   "name": "이천중고자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "고양시 일산서구",
+   "name": "일산종합매매단지",
+   "listings": 16
+  },
+  {
+   "sido": "경기",
+   "gugun": "고양시 일산동구",
+   "name": "일산카맥스",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "수원시 장안구",
+   "name": "제이모터스단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "수원시 장안구",
+   "name": "제일북수원매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "용인시 처인구",
+   "name": "종합매매단지",
+   "listings": 62
+  },
+  {
+   "sido": "경기",
+   "gugun": "용인시 기흥구",
+   "name": "죽전자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "수원시 권선구",
+   "name": "중앙자동차매매단지",
+   "listings": 1975
+  },
+  {
+   "sido": "경기",
+   "gugun": "의정부시",
+   "name": "중앙자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "양주시",
+   "name": "타이거오토몰",
+   "listings": 251
+  },
+  {
+   "sido": "경기",
+   "gugun": "파주시",
+   "name": "파주시티매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "성남시 수정구",
+   "name": "판교매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "안양시 동안구",
+   "name": "평촌자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "평택시",
+   "name": "평택항화물차매매단지",
+   "listings": 77
+  },
+  {
+   "sido": "경기",
+   "gugun": "포천시",
+   "name": "포천경기매매단지",
+   "listings": 200
+  },
+  {
+   "sido": "경기",
+   "gugun": "고양시 일산동구",
+   "name": "풍동오토갤러리",
+   "listings": 99
+  },
+  {
+   "sido": "경기",
+   "gugun": "용인시 기흥구",
+   "name": "한맥매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "고양시 일산서구",
+   "name": "한성매매단지",
+   "listings": 91
+  },
+  {
+   "sido": "경기",
+   "gugun": "이천시",
+   "name": "현대매매단지",
+   "listings": 18
+  },
+  {
+   "sido": "경기",
+   "gugun": "의정부시",
+   "name": "회룡자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경기",
+   "gugun": "부천시 원미구",
+   "name": "DY카랜드",
+   "listings": 2500
+  },
+  {
+   "sido": "경기",
+   "gugun": "수원시 권선구",
+   "name": "SKV1모터스매매단지",
+   "listings": 14968
+  },
+  {
+   "sido": "강원",
+   "gugun": "춘천시",
+   "name": "강원카마트단지",
+   "listings": 0
+  },
+  {
+   "sido": "강원",
+   "gugun": "원주시",
+   "name": "관설매매단지",
+   "listings": 67
+  },
+  {
+   "sido": "강원",
+   "gugun": "춘천시",
+   "name": "근화자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "강원",
+   "gugun": "춘천시",
+   "name": "남춘천단지",
+   "listings": 0
+  },
+  {
+   "sido": "강원",
+   "gugun": "원주시",
+   "name": "뉴원주자동차매매단지",
+   "listings": 91
+  },
+  {
+   "sido": "강원",
+   "gugun": "원주시",
+   "name": "만종자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "강원",
+   "gugun": "원주시",
+   "name": "문막매매단지",
+   "listings": 53
+  },
+  {
+   "sido": "강원",
+   "gugun": "원주시",
+   "name": "보배드림단지",
+   "listings": 156
+  },
+  {
+   "sido": "강원",
+   "gugun": "속초시",
+   "name": "속초매매단지",
+   "listings": 4
+  },
+  {
+   "sido": "강원",
+   "gugun": "원주시",
+   "name": "시청매매단지",
+   "listings": 133
+  },
+  {
+   "sido": "강원",
+   "gugun": "원주시",
+   "name": "애플매매단지",
+   "listings": 12
+  },
+  {
+   "sido": "강원",
+   "gugun": "원주시",
+   "name": "영수매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "강원",
+   "gugun": "원주시",
+   "name": "원주자동차매매단지",
+   "listings": 317
+  },
+  {
+   "sido": "강원",
+   "gugun": "원주시",
+   "name": "중앙매매단지",
+   "listings": 111
+  },
+  {
+   "sido": "강원",
+   "gugun": "춘천시",
+   "name": "춘천퇴계단지",
+   "listings": 264
+  },
+  {
+   "sido": "강원",
+   "gugun": "태백시",
+   "name": "태백자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "강원",
+   "gugun": "원주시",
+   "name": "태평양매매단지",
+   "listings": 418
+  },
+  {
+   "sido": "강원",
+   "gugun": "원주시",
+   "name": "현충로매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "강원",
+   "gugun": "춘천시",
+   "name": "후평단지",
+   "listings": 0
+  },
+  {
+   "sido": "경남",
+   "gugun": "거제시",
+   "name": "거제자동차매매단지",
+   "listings": 19
+  },
+  {
+   "sido": "경남",
+   "gugun": "김해시",
+   "name": "김해모터스밸리",
+   "listings": 286
+  },
+  {
+   "sido": "경남",
+   "gugun": "김해시",
+   "name": "김해오토갤러리",
+   "listings": 6
+  },
+  {
+   "sido": "경남",
+   "gugun": "김해시",
+   "name": "김해자동차매매단지",
+   "listings": 204
+  },
+  {
+   "sido": "경남",
+   "gugun": "창원시 의창구",
+   "name": "디오오토갤러리",
+   "listings": 735
+  },
+  {
+   "sido": "경남",
+   "gugun": "창원시 마산회원구",
+   "name": "마산모터스밸리",
+   "listings": 36
+  },
+  {
+   "sido": "경남",
+   "gugun": "김해시",
+   "name": "미다스오토모빌",
+   "listings": 0
+  },
+  {
+   "sido": "경남",
+   "gugun": "사천시",
+   "name": "사천경남매매단지",
+   "listings": 133
+  },
+  {
+   "sido": "경남",
+   "gugun": "사천시",
+   "name": "사천서경매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경남",
+   "gugun": "거제시",
+   "name": "새거제매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경남",
+   "gugun": "양산시",
+   "name": "양산오토타운",
+   "listings": 131
+  },
+  {
+   "sido": "경남",
+   "gugun": "진주시",
+   "name": "오토-원자동차유통센터",
+   "listings": 68
+  },
+  {
+   "sido": "경남",
+   "gugun": "창원시 마산회원구",
+   "name": "월드매매단지",
+   "listings": 4
+  },
+  {
+   "sido": "경남",
+   "gugun": "진주시",
+   "name": "자동차1번지매매단지",
+   "listings": 242
+  },
+  {
+   "sido": "경남",
+   "gugun": "사천시",
+   "name": "진사매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경남",
+   "gugun": "김해시",
+   "name": "진영자동차매매단지",
+   "listings": 199
+  },
+  {
+   "sido": "경남",
+   "gugun": "진주시",
+   "name": "진주자동차매매단지",
+   "listings": 98
+  },
+  {
+   "sido": "경남",
+   "gugun": "창원시 의창구",
+   "name": "창원자동차매매전시장(천차만차)",
+   "listings": 840
+  },
+  {
+   "sido": "경남",
+   "gugun": "창원시 성산구",
+   "name": "하이엔드클래스",
+   "listings": 0
+  },
+  {
+   "sido": "경남",
+   "gugun": "창원시 마산회원구",
+   "name": "KC월드카프라자",
+   "listings": 2086
+  },
+  {
+   "sido": "경남",
+   "gugun": "창원시 성산구",
+   "name": "M모터스프라자",
+   "listings": 741
+  },
+  {
+   "sido": "경남",
+   "gugun": "창원시 마산합포구",
+   "name": "S-Motors",
+   "listings": 73
+  },
+  {
+   "sido": "경북",
+   "gugun": "경주시",
+   "name": "강동자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경북",
+   "gugun": "경주시",
+   "name": "경주자동차매매단지",
+   "listings": 61
+  },
+  {
+   "sido": "경북",
+   "gugun": "구미시",
+   "name": "글로벌자동차매매단지",
+   "listings": 9
+  },
+  {
+   "sido": "경북",
+   "gugun": "구미시",
+   "name": "금오중고차매매단지",
+   "listings": 202
+  },
+  {
+   "sido": "경북",
+   "gugun": "구미시",
+   "name": "남구미자동차매매단지",
+   "listings": 93
+  },
+  {
+   "sido": "경북",
+   "gugun": "포항시 남구",
+   "name": "대잠자동차매매단지",
+   "listings": 84
+  },
+  {
+   "sido": "경북",
+   "gugun": "구미시",
+   "name": "봉곡단지",
+   "listings": 4
+  },
+  {
+   "sido": "경북",
+   "gugun": "포항시 북구",
+   "name": "북구자동차매매단지",
+   "listings": 27
+  },
+  {
+   "sido": "경북",
+   "gugun": "상주시",
+   "name": "상주자동차매매단지",
+   "listings": 105
+  },
+  {
+   "sido": "경북",
+   "gugun": "구미시",
+   "name": "세원자동차매매단지",
+   "listings": 211
+  },
+  {
+   "sido": "경북",
+   "gugun": "경주시",
+   "name": "신경주자동차매매단지",
+   "listings": 40
+  },
+  {
+   "sido": "경북",
+   "gugun": "포항시 남구",
+   "name": "연일자동차중고매매센타",
+   "listings": 0
+  },
+  {
+   "sido": "경북",
+   "gugun": "칠곡군",
+   "name": "영남대형단지",
+   "listings": 0
+  },
+  {
+   "sido": "경북",
+   "gugun": "영주시",
+   "name": "영주자동차백화점단지",
+   "listings": 5
+  },
+  {
+   "sido": "경북",
+   "gugun": "구미시",
+   "name": "오태자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경북",
+   "gugun": "포항시 북구",
+   "name": "우현자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경북",
+   "gugun": "포항시 남구",
+   "name": "인덕오토랜드",
+   "listings": 0
+  },
+  {
+   "sido": "경북",
+   "gugun": "구미시",
+   "name": "인동자동차매매단지",
+   "listings": 12
+  },
+  {
+   "sido": "경북",
+   "gugun": "안동시",
+   "name": "중고자동차유통단지",
+   "listings": 291
+  },
+  {
+   "sido": "경북",
+   "gugun": "포항시 남구",
+   "name": "포항오토아울렛단지",
+   "listings": 120
+  },
+  {
+   "sido": "경북",
+   "gugun": "포항시 북구",
+   "name": "포항자동차1번지",
+   "listings": 247
+  },
+  {
+   "sido": "경북",
+   "gugun": "포항시 남구",
+   "name": "포항터미널매매단지",
+   "listings": 73
+  },
+  {
+   "sido": "경북",
+   "gugun": "영주시",
+   "name": "활주로자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "경북",
+   "gugun": "포항시 북구",
+   "name": "흥해자동차매매단지",
+   "listings": 32
+  },
+  {
+   "sido": "전남",
+   "gugun": "순천시",
+   "name": "강변매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "전남",
+   "gugun": "목포시",
+   "name": "남경단지",
+   "listings": 0
+  },
+  {
+   "sido": "전남",
+   "gugun": "목포시",
+   "name": "대양산단매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "전남",
+   "gugun": "여수시",
+   "name": "덕양매매단지",
+   "listings": 65
+  },
+  {
+   "sido": "전남",
+   "gugun": "광양시",
+   "name": "동광양종합매매단지",
+   "listings": 103
+  },
+  {
+   "sido": "전남",
+   "gugun": "목포시",
+   "name": "목포옥암자동차매매단지",
+   "listings": 242
+  },
+  {
+   "sido": "전남",
+   "gugun": "목포시",
+   "name": "목포자동차매매단지",
+   "listings": 102
+  },
+  {
+   "sido": "전남",
+   "gugun": "목포시",
+   "name": "목포합동자동차매매단지",
+   "listings": 130
+  },
+  {
+   "sido": "전남",
+   "gugun": "순천시",
+   "name": "북부자동차매매단지",
+   "listings": 12
+  },
+  {
+   "sido": "전남",
+   "gugun": "순천시",
+   "name": "순천연향자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "전남",
+   "gugun": "순천시",
+   "name": "순천자동차매매단지",
+   "listings": 227
+  },
+  {
+   "sido": "전남",
+   "gugun": "순천시",
+   "name": "순천자동차아울렛매매단지",
+   "listings": 541
+  },
+  {
+   "sido": "전남",
+   "gugun": "순천시",
+   "name": "승평자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "전남",
+   "gugun": "여수시",
+   "name": "신기매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "전남",
+   "gugun": "순천시",
+   "name": "신대자동차매매단지",
+   "listings": 113
+  },
+  {
+   "sido": "전남",
+   "gugun": "여수시",
+   "name": "엑스포매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "전남",
+   "gugun": "여수시",
+   "name": "영신자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "전남",
+   "gugun": "순천시",
+   "name": "용당오토월드",
+   "listings": 528
+  },
+  {
+   "sido": "전남",
+   "gugun": "순천시",
+   "name": "으뜸대형단지",
+   "listings": 91
+  },
+  {
+   "sido": "전남",
+   "gugun": "순천시",
+   "name": "이수단지",
+   "listings": 49
+  },
+  {
+   "sido": "전남",
+   "gugun": "여수시",
+   "name": "청솔단지",
+   "listings": 0
+  },
+  {
+   "sido": "전남",
+   "gugun": "순천시",
+   "name": "쿠피오토갤러리",
+   "listings": 77
+  },
+  {
+   "sido": "전남",
+   "gugun": "여수시",
+   "name": "한국단지",
+   "listings": 34
+  },
+  {
+   "sido": "전남",
+   "gugun": "순천시",
+   "name": "IC매매단지",
+   "listings": 174
+  },
+  {
+   "sido": "전북",
+   "gugun": "군산시",
+   "name": "군산자동차매매단지",
+   "listings": 42
+  },
+  {
+   "sido": "전북",
+   "gugun": "남원시",
+   "name": "남원자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "전북",
+   "gugun": "전주시 덕진구",
+   "name": "반석자동차매매단지",
+   "listings": 131
+  },
+  {
+   "sido": "전북",
+   "gugun": "남원시",
+   "name": "새남원자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "전북",
+   "gugun": "전주시 덕진구",
+   "name": "신진자동차매매단지",
+   "listings": 22
+  },
+  {
+   "sido": "전북",
+   "gugun": "전주시 덕진구",
+   "name": "우리오토월드매매단지",
+   "listings": 312
+  },
+  {
+   "sido": "전북",
+   "gugun": "전주시 덕진구",
+   "name": "월드컵자동차매매단지",
+   "listings": 1247
+  },
+  {
+   "sido": "전북",
+   "gugun": "익산시",
+   "name": "익산오토월드단지",
+   "listings": 86
+  },
+  {
+   "sido": "전북",
+   "gugun": "전주시 덕진구",
+   "name": "장동자동차매매단지",
+   "listings": 1929
+  },
+  {
+   "sido": "전북",
+   "gugun": "전주시 덕진구",
+   "name": "전북자동차매매단지",
+   "listings": 176
+  },
+  {
+   "sido": "전북",
+   "gugun": "정읍시",
+   "name": "정읍자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "전북",
+   "gugun": "군산시",
+   "name": "카마트자동차매매단지",
+   "listings": 121
+  },
+  {
+   "sido": "전북",
+   "gugun": "익산시",
+   "name": "팔봉오토파크",
+   "listings": 335
+  },
+  {
+   "sido": "전북",
+   "gugun": "전주시 덕진구",
+   "name": "한일자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "전북",
+   "gugun": "익산시",
+   "name": "합동자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "전북",
+   "gugun": "전주시 완산구",
+   "name": "효자자동차매매단지",
+   "listings": 64
+  },
+  {
+   "sido": "충남",
+   "gugun": "공주시",
+   "name": "공주자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "충남",
+   "gugun": "홍성군",
+   "name": "금마매매단지",
+   "listings": 25
+  },
+  {
+   "sido": "충남",
+   "gugun": "천안시 동남구",
+   "name": "남천안매매단지",
+   "listings": 86
+  },
+  {
+   "sido": "충남",
+   "gugun": "홍성군",
+   "name": "내포매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "충남",
+   "gugun": "논산시",
+   "name": "논산자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "충남",
+   "gugun": "서천군",
+   "name": "논산종합단지",
+   "listings": 43
+  },
+  {
+   "sido": "충남",
+   "gugun": "천안시 동남구",
+   "name": "동천안매매단지",
+   "listings": 11
+  },
+  {
+   "sido": "충남",
+   "gugun": "아산시",
+   "name": "득산자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "충남",
+   "gugun": "천안시 서북구",
+   "name": "번영매매단지",
+   "listings": 24
+  },
+  {
+   "sido": "충남",
+   "gugun": "천안시 서북구",
+   "name": "북천안자동차매매단지",
+   "listings": 44
+  },
+  {
+   "sido": "충남",
+   "gugun": "천안시 서북구",
+   "name": "새성환매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "충남",
+   "gugun": "서산시",
+   "name": "서부자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "충남",
+   "gugun": "서산시",
+   "name": "서산종합단지",
+   "listings": 0
+  },
+  {
+   "sido": "충남",
+   "gugun": "서산시",
+   "name": "서산중부매매단지",
+   "listings": 23
+  },
+  {
+   "sido": "충남",
+   "gugun": "당진시",
+   "name": "신당진매매단지",
+   "listings": 17
+  },
+  {
+   "sido": "충남",
+   "gugun": "아산시",
+   "name": "아산자동차매매단지",
+   "listings": 42
+  },
+  {
+   "sido": "충남",
+   "gugun": "예산군",
+   "name": "예산종합단지",
+   "listings": 12
+  },
+  {
+   "sido": "충남",
+   "gugun": "천안시 서북구",
+   "name": "오토메카인천안",
+   "listings": 556
+  },
+  {
+   "sido": "충남",
+   "gugun": "천안시 동남구",
+   "name": "유량자동차매매단지",
+   "listings": 446
+  },
+  {
+   "sido": "충남",
+   "gugun": "당진시",
+   "name": "제일자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "충남",
+   "gugun": "천안시 동남구",
+   "name": "천안매매단지",
+   "listings": 761
+  },
+  {
+   "sido": "충남",
+   "gugun": "천안시 서북구",
+   "name": "천안중부매매단지",
+   "listings": 713
+  },
+  {
+   "sido": "충남",
+   "gugun": "아산시",
+   "name": "초원자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "충남",
+   "gugun": "천안시 동남구",
+   "name": "충남자동차매매단지",
+   "listings": 14
+  },
+  {
+   "sido": "충남",
+   "gugun": "아산시",
+   "name": "충무자동차매매단지",
+   "listings": 11
+  },
+  {
+   "sido": "충남",
+   "gugun": "아산시",
+   "name": "충청자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "충남",
+   "gugun": "서산시",
+   "name": "한솔자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "충남",
+   "gugun": "아산시",
+   "name": "C-오토몰",
+   "listings": 221
+  },
+  {
+   "sido": "충북",
+   "gugun": "청주시 상당구",
+   "name": "공항자동차매매단지",
+   "listings": 14
+  },
+  {
+   "sido": "충북",
+   "gugun": "청주시 흥덕구",
+   "name": "깨끗한자동차매매단지",
+   "listings": 47
+  },
+  {
+   "sido": "충북",
+   "gugun": "청주시 서원구",
+   "name": "미평자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "충북",
+   "gugun": "청주시 흥덕구",
+   "name": "서청주자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "충북",
+   "gugun": "청주시 청원구",
+   "name": "엑스포자동차매매단지",
+   "listings": 435
+  },
+  {
+   "sido": "충북",
+   "gugun": "청주시 청원구",
+   "name": "중부자동차매매단지",
+   "listings": 66
+  },
+  {
+   "sido": "충북",
+   "gugun": "청주시 청원구",
+   "name": "청주오토월드",
+   "listings": 857
+  },
+  {
+   "sido": "충북",
+   "gugun": "청주시 청원구",
+   "name": "청주자동차매매단지",
+   "listings": 503
+  },
+  {
+   "sido": "충북",
+   "gugun": "청주시 상당구",
+   "name": "M-City 단지",
+   "listings": 414
+  },
+  {
+   "sido": "제주",
+   "gugun": "제주시",
+   "name": "밀레니엄단지",
+   "listings": 58
+  },
+  {
+   "sido": "제주",
+   "gugun": "서귀포시",
+   "name": "베스트자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "제주",
+   "gugun": "제주시",
+   "name": "사라봉자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "제주",
+   "gugun": "제주시",
+   "name": "신제주자동차매매단지",
+   "listings": 2
+  },
+  {
+   "sido": "제주",
+   "gugun": "제주시",
+   "name": "오토벨리자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "제주",
+   "gugun": "제주시",
+   "name": "오토월드자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "제주",
+   "gugun": "서귀포시",
+   "name": "월드타운단지",
+   "listings": 0
+  },
+  {
+   "sido": "제주",
+   "gugun": "제주시",
+   "name": "자동차마을자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "제주",
+   "gugun": "제주시",
+   "name": "자동차세상자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "제주",
+   "gugun": "제주시",
+   "name": "제주오토파크",
+   "listings": 482
+  },
+  {
+   "sido": "제주",
+   "gugun": "제주시",
+   "name": "조인자동차매매단지",
+   "listings": 0
+  },
+  {
+   "sido": "제주",
+   "gugun": "서귀포시",
+   "name": "종합타운단지",
+   "listings": 0
+  },
+  {
+   "sido": "제주",
+   "gugun": "제주시",
+   "name": "화북시장단지",
+   "listings": 0
+  }
+ ]
+}

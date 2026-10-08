@@ -277,6 +277,7 @@
 - 위치 줄(2026-10-08): 중고차(승용)는 개인·딜러 모두 `시도 구군 · 단지`(예: `경기 수원시 · 도이치오토월드`, 「중고차 매물은 지역에 단지 붙이고」), 그 밖의 모든 카테고리(트럭·바이크·건설기계·캠핑카 등)는 `시도 구군`까지만(`placeSidoGugun`, 3단계 `경기 수원시 권선구`는 `경기 수원시`로).
 - The location line uses `지역 · 단지명` for every non-private seller and region only for `개인`. A generic `매매단지` suffix is not accepted: use a real complex name from the KB차차차 regional complex master (`지역별_매매단지`) and keep the displayed region consistent with the complex's actual location.
 - Keep the canonical complex name in source data. Only the listing label is compacted: `자동차매매단지` and `매매단지` become `단지` (`강남자동차매매단지` → `강남단지`, `판교매매단지` → `판교단지`). Proper names such as `도이치오토월드`, `서울오토갤러리`, `성수모터시티`, and `제주오토파크` remain unchanged. Detail views may show the full canonical name.
+- 매매단지 기준(2026-10-08 「매매단지 학습」): KB차차차 지역별 매매단지 마스터 2026-08-26(Google Sheet `1UniCT7RKA0p7qau23Tl9ALLFsS0zRQnTD4fli9BCEPU`, 탭 `지역별_매매단지`, 613행 = 17개 시도 · 이름 있는 단지 343 · 구군별 「개별단지」 253 · 시도별 「개인/직거래」 17). 이름 있는 단지만 `src/prototype/data/kb-danji-master-20260826.json`(시도·구군·단지명·매물수)으로 저장하고, 카드 위치의 단지(`dealerComplexByRegion`)는 이 목록에 있는 실제 단지만 쓴다: 같은 구군에서 매물 1대 이상인 단지 우선, 구군에 단지가 없으면 같은 시도의 단지. 매물이 가장 많은 곳은 경기 수원시 권선구(도이치오토월드 22,064 · SKV1모터스 14,968), 시도 합계 1위는 경기(75,982). 위치가 `서울 강남구 도곡동`처럼 3단계여도 시도 구군으로 찾는다.
 - Complex source checked on 2026-10-02: `https://docs.google.com/spreadsheets/d/1c9uhwF-a1qspoK8PgylBxKiruodytuvy/edit` (`KB차차차_지역별_매매단지_마스터_20260826.xlsx`). Treat it as read-only reference data.
 
 ## Existing Mode Notes
