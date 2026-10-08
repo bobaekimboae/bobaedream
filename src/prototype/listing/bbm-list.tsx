@@ -335,6 +335,19 @@ export function BbmSellerTabs<T extends string>({ tabs, value, onChange, onBrand
   );
 }
 
+// 카드 제목 축약(2026-10-08): 긴 제조사명은 줄이고(만(MAN) → MAN 등, 필터 목록은 정식 이름 그대로),
+// 등급 앞부분이 제목과 겹치면(A클래스 + A-클래스 W177) 빼고, 「6세대 W206」처럼 세대 번호와 코드가 겹치면 코드만 남긴다
+const titleMakerShort: Record<string, string> = { "만(MAN)": "MAN", "다프(DAF)": "DAF", 미쓰비시로지스넥스트: "미쓰비시", 현대머티리얼핸들링: "현대" };
+const squash = (text: string) => text.replace(/[-\s]/g, "");
+function cardTitleText(car: Car) {
+  const maker = Object.keys(titleMakerShort).find((name) => car.title.startsWith(`${name} `));
+  const title = maker ? `${titleMakerShort[maker]}${car.title.slice(maker.length)}` : car.title;
+  // 제목에 이미 있는 영문·숫자 낱말(3자 이상, 하이픈·띄어쓰기 무시)은 등급에서 뺀다: A-클래스, C220d (「클래스 A」의 「클래스」 같은 한글 낱말은 유지)
+  const words = (car.trim ?? "").split(" ").filter((word) => word && !(squash(word).length >= 3 && /[A-Za-z0-9]/.test(word) && squash(title).includes(squash(word))));
+  const trim = words.join(" ").replace(/\d+세대 (?=[A-Z]\d)/, "");
+  return trim ? `${title} ${trim}` : title;
+}
+
 // ── 매물 카드(원본 car-list-result-card). variant pc: 사진 160, 마력 포함 / mobile 목록형: 초톳 기준 사진 120×120, 마력 없음
 export function BbmResultCard({ car, variant, featured = false, liked, onToggleLike, onOpen, onChat }: { car: Car; variant: "pc" | "mobile"; featured?: boolean; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void }) {
   const seller = sellerLabel(car);
@@ -353,7 +366,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   const locationSecondary = locationSecondaryParts.join(" · ");
   const priceMatch = car.price.match(/^(월\s*)?(.+?)\s*(만원)$/);
   // 모든 카테고리가 차명을 붙여 한 제목으로(최대 2줄). 중고차도 「제조사 모델 세부모델」을 끊지 않고 잇는다(2026-10-08 「중고차도 차명 끊지 말고 연결」)
-  const title = <strong className="bbm-card-title"><span className="bbm-card-model is-joined">{car.trim ? `${car.title} ${car.trim}` : car.title}</span></strong>;
+  const title = <strong className="bbm-card-title"><span className="bbm-card-model is-joined">{cardTitleText(car)}</span></strong>;
   const headlinePosition = getHeadlinePosition();
   const headlineTone = car.uiTest ? getHeadlineTone() : "default";
   const headline = car.uiTest ? <strong className={`bbm-card-headline is-${headlinePosition}${headlineTone === "blue" ? " is-blue" : ""}`}>{car.uiTest.headline}</strong> : null;

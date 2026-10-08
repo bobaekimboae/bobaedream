@@ -1003,9 +1003,9 @@ const truckListingPhotosV01: Record<string, string> = {
 };
 // 사용자 지시 매물(2026-10-07): 등급명·카드 스펙 줄을 지시값 그대로 고정
 const truckListingOverridesV01: Record<string, { trim: string; cardSpec: string[] }> = {
-  "truck-031": { trim: "윙바디 11톤 오토", cardSpec: ["24년04월", "56,067km", "디젤", "350마력", "적재 11톤", "6x2"] },
+  "truck-031": { trim: "윙바디 11톤 오토", cardSpec: ["24년04월", "56,067km", "디젤", "350마력", "6x2"] },
   // 2026-10-08 사용자 지시: 디젤 지게차 자리에 명성정공 로베드 3축 에어샥 트레일러(2015년 09월, 개인 직거래). 가격·지역은 정보가 없어 자리 값 유지
-  "truck-032": { trim: "3축 에어샥", cardSpec: ["15년09월", "3축", "에어샥"] },
+  "truck-032": { trim: "3축 에어샥", cardSpec: ["15년09월"] },
 };
 
 // 트럭 카드 둘째 줄(2026-10-08 사용자 지시, Truck1 표기 참고): 마력 · 적재용량(kg) · 차축 구성.
@@ -1042,7 +1042,7 @@ const truckPowerSpecsV01: Record<string, { horsepower: number; drive: string }> 
 };
 
 const trailerSpecsV01: Record<string, { load: string; length: string; axles: string }> = {
-  "truck-027": { load: "적재 30톤", length: "12.2m(40FT)", axles: "3축" },
+  "truck-027": { load: "적재 30톤", length: "40FT", axles: "3축" },
   "truck-028": { load: "적재 25톤", length: "12m", axles: "4축" },
   "truck-029": { load: "적재 27톤", length: "14m", axles: "3축" },
 };
@@ -1131,9 +1131,9 @@ const toVirtualCategoryCars = (rows: readonly VirtualCategoryListingRow[], idBas
     title: `${row.maker} ${row.model}`,
     // 캠핑카 제목은 제조사 · 모델 + 세부 형태(클래스 C · 캠퍼밴 · 팝업 캠퍼). 구분(모터홈·카라반·트레일러)은 스펙 줄 맨 앞(2026-10-08). 제목에 「UI 검증용 가상 매물」은 넣지 않는다(2026-10-07 사용자 지시)
     // 부품·용품은 분류 낱말이 모델명에 이미 있으면(AGM 배터리 + 배터리) 붙이지 않는다
-    trim: row.category === "캠핑카" ? (["모터홈", "카라반", "트레일러"].includes(row.subtype) ? "" : row.subtype) : isParts && row.subtype.split(" ").some((word) => row.model.includes(word)) ? "" : row.subtype,
+    trim: row.category === "캠핑카" ? (["모터홈", "카라반", "트레일러"].includes(row.subtype) || row.model.endsWith(row.subtype.split(" ").at(-1) ?? "") ? "" : row.subtype) : isParts && (row.subtype.endsWith("용품") || row.subtype.split(" ").some((word) => row.model.includes(word))) ? "" : row.subtype,
     // 부품·용품은 차량 스펙(연식·연료·변속기) 대신 규격 · 수량 · 적용 차종 · 상태, 가격은 부품 가격대
-    specs: isParts && partsDetail ? [partsDetail.spec, partsDetail.quantity, partsDetail.fit, partsDetail.condition] : [`${row.year}년식`, usage, row.fuel, row.transmission],
+    specs: isParts && partsDetail ? [partsDetail.spec, partsDetail.quantity, partsDetail.fit, partsDetail.condition] : [`${row.year}년식`, usage, row.fuel, ...(isMaterial ? [] : [row.transmission])],
     price: `${(isParts && partsDetail ? partsDetail.price10k : row.price10k).toLocaleString("ko-KR")} 만원`,
     place: virtualPlace(row.sellerAddress),
     views: 20 + index * 11,
@@ -1361,8 +1361,8 @@ const bbmBodyExtraCars: Car[] = [
 const bbmLuxuryAddCars: Car[] = [
   makeChoTotCar(3001, { maker: "페라리", modelGroup: "푸로산게", image: "listing-photos/v01/ferrari_purosangue_3001.jpg", imageFit: "cover", title: "페라리 푸로산게", trim: "6.5 V12", specs: ["2024년식", "3,685km", "가솔린", ""], cardSpec: ["24년11월", "3,685km", "가솔린"], price: "68,500 만원", place: "경기 수원시", filter: { year: 2024, seats: "4인승", condition: "중고", mileage: 3685, owners: "1인", transmission: "오토", fuel: "가솔린", color: "파랑", origin: "수입", body: "SUV", video: false } }),
   makeChoTotCar(3002, { maker: "롤스로이스", modelGroup: "컬리넌", image: "listing-photos/v01/rollsroyce_cullinan_3002.jpg", imageFit: "cover", title: "롤스로이스 컬리넌", trim: "6.7 V12", specs: ["2024년식", "14,562km", "가솔린", ""], cardSpec: ["24년12월", "14,562km", "가솔린"], price: "60,000 만원", place: "부산 해운대구", filter: { year: 2024, seats: "5인승", condition: "중고", mileage: 14562, owners: "1인", transmission: "오토", fuel: "가솔린", color: "초록", origin: "수입", body: "SUV", video: false } }),
-  makeChoTotCar(3003, { maker: "람보르기니", modelGroup: "우루스", image: "listing-photos/v01/lamborghini_urus_phev_3003.jpg", imageFit: "cover", title: "람보르기니 우루스 PHEV", trim: "4.0 V8 SE", specs: ["2025년식", "5,679km", "가솔린+전기", ""], cardSpec: ["25년11월", "5,679km", "가솔린+전기"], price: "42,500 만원", place: "경기 수원시", filter: { year: 2025, seats: "5인승", condition: "중고", mileage: 5679, owners: "1인", transmission: "오토", fuel: "하이브리드", color: "회색", origin: "수입", body: "SUV", video: false } }),
-  makeChoTotCar(3004, { maker: "페라리", modelGroup: "GTC4 루쏘", image: "listing-photos/v01/ferrari_gtc4lusso_t_3004.jpg", imageFit: "cover", title: "페라리 GTC4 루쏘 T", trim: "3.9 V8", specs: ["2017년식", "31,135km", "가솔린", ""], cardSpec: ["17년10월(18년형)", "31,135km", "가솔린"], price: "18,990 만원", place: "경기 수원시", filter: { year: 2017, seats: "4인승", condition: "중고", mileage: 31135, owners: "전체", transmission: "오토", fuel: "가솔린", color: "빨강", origin: "수입", body: "쿠페", video: false } }),
+  makeChoTotCar(3003, { maker: "람보르기니", modelGroup: "우루스", image: "listing-photos/v01/lamborghini_urus_phev_3003.jpg", imageFit: "cover", title: "람보르기니 우루스 PHEV", trim: "4.0 V8 SE", specs: ["2025년식", "5,679km", "가솔린+전기", ""], cardSpec: ["25년11월", "5,679km", "하이브리드"], price: "42,500 만원", place: "경기 수원시", filter: { year: 2025, seats: "5인승", condition: "중고", mileage: 5679, owners: "1인", transmission: "오토", fuel: "하이브리드", color: "회색", origin: "수입", body: "SUV", video: false } }),
+  makeChoTotCar(3004, { maker: "페라리", modelGroup: "GTC4 루쏘", image: "listing-photos/v01/ferrari_gtc4lusso_t_3004.jpg", imageFit: "cover", title: "페라리 GTC4 루쏘 T", trim: "3.9 V8", specs: ["2017년식", "31,135km", "가솔린", ""], cardSpec: ["17년10월", "31,135km", "가솔린"], price: "18,990 만원", place: "경기 수원시", filter: { year: 2017, seats: "4인승", condition: "중고", mileage: 31135, owners: "전체", transmission: "오토", fuel: "가솔린", color: "빨강", origin: "수입", body: "쿠페", video: false } }),
 ];
 const bbmSampleCars: Car[] = [...chototTestCars, ...bbmExtraCars, ...bbmBodyExtraCars, ...bbmLuxuryAddCars];
 
