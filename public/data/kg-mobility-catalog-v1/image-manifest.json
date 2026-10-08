@@ -1,0 +1,1482 @@
+{
+  "version": "2026-10-08-v02",
+  "manufacturerKey": "make_car_encar_27c0efa36ed444a05c03",
+  "manufacturerName": "KG모빌리티(쌍용)",
+  "sourceModels": 8,
+  "sourceGenerations": 47,
+  "uniqueAssets": 47,
+  "rules": {
+    "master": "1920×1200 transparent PNG",
+    "delivery": "960×600 transparent PNG",
+    "angle": "AutoScout24-style left-facing front three-quarter",
+    "width": "88~90%",
+    "floorGap": "6%",
+    "lighting": "high-key studio, approximately +0.7EV midtone lift",
+    "shadow": "compact contact shadow",
+    "colorPriority": [
+      "mobile.de",
+      "carisyou.com",
+      "auto.danawa.com"
+    ]
+  },
+  "assets": [
+    {
+      "assetId": "kgm_asset_65262314cce4053bbfbf",
+      "fileName": "kgm_asset_65262314cce4053bbfbf.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "렉스턴",
+      "generationName": "렉스턴 스포츠",
+      "visualName": "렉스턴 스포츠",
+      "releaseYm": "2018-01",
+      "endYm": "2021-06",
+      "listingCount": 836,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "아틀란틱 블루",
+      "colorEvidence": "https://www.kg-mobility.com/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_85aed791824b19141e51"
+      ],
+      "status": "completed",
+      "priority": 1,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_9b0209bfc817f9c5b928",
+      "fileName": "kgm_asset_9b0209bfc817f9c5b928.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "렉스턴",
+      "generationName": "더 뉴 렉스턴 스포츠 칸",
+      "visualName": "더 뉴 렉스턴 스포츠 칸",
+      "releaseYm": "2021-04",
+      "endYm": "2025-03",
+      "listingCount": 672,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "아마존 그린",
+      "colorEvidence": "https://www.kg-mobility.com/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_fac1ceeee33e64732dc8"
+      ],
+      "status": "completed",
+      "priority": 2,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_dd94c4cf0aea53b4374c",
+      "fileName": "kgm_asset_dd94c4cf0aea53b4374c.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "티볼리",
+      "generationName": "티볼리",
+      "visualName": "티볼리",
+      "releaseYm": "2015-01",
+      "endYm": "2017-09",
+      "listingCount": 637,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "댄디 블루/화이트",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_763ee90bcc8a9c9579aa"
+      ],
+      "status": "completed",
+      "priority": 3,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_82c4220abdbf2311972a",
+      "fileName": "kgm_asset_82c4220abdbf2311972a.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "토레스",
+      "generationName": "토레스",
+      "visualName": "토레스",
+      "releaseYm": "2022-07",
+      "endYm": "2024-05",
+      "listingCount": 609,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "포레스트 그린",
+      "colorEvidence": "https://www.kg-mobility.com/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_fd30be38ee6d0d007a9b"
+      ],
+      "status": "completed",
+      "priority": 4,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_c74257902c2c7f10f5d2",
+      "fileName": "kgm_asset_c74257902c2c7f10f5d2.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "티볼리",
+      "generationName": "베리 뉴 티볼리",
+      "visualName": "베리 뉴 티볼리",
+      "releaseYm": "2019-06",
+      "endYm": "2023-05",
+      "listingCount": 608,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "오렌지 팝/블랙",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_7bc6714af83f3d2e7b61"
+      ],
+      "status": "completed",
+      "priority": 5,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_9fae663c12860bcc9806",
+      "fileName": "kgm_asset_9fae663c12860bcc9806.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "렉스턴",
+      "generationName": "더 뉴 렉스턴 스포츠",
+      "visualName": "더 뉴 렉스턴 스포츠",
+      "releaseYm": "2021-04",
+      "endYm": "2025-03",
+      "listingCount": 506,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "그랜드 화이트",
+      "colorEvidence": "https://www.kg-mobility.com/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_b7fe2bdf4aae184609aa"
+      ],
+      "status": "completed",
+      "priority": 6,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_1f4a159a8caac2e8bf80",
+      "fileName": "kgm_asset_1f4a159a8caac2e8bf80.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "렉스턴",
+      "generationName": "올 뉴 렉스턴",
+      "visualName": "올 뉴 렉스턴",
+      "releaseYm": "2020-11",
+      "endYm": "2023-04",
+      "listingCount": 505,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "엘리멘탈 그레이",
+      "colorEvidence": "https://www.kg-mobility.com/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_966bf168dd547f46a692"
+      ],
+      "status": "completed",
+      "priority": 7,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_0fca8dfbbc0a3ccebc14",
+      "fileName": "kgm_asset_0fca8dfbbc0a3ccebc14.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "티볼리",
+      "generationName": "티볼리 에어",
+      "visualName": "티볼리 에어",
+      "releaseYm": "2016-03",
+      "endYm": "2023-05",
+      "listingCount": 501,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "사일런트 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_25494595e0d82eb3a18e"
+      ],
+      "status": "completed",
+      "priority": 8,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_f43a57e04263b04afe28",
+      "fileName": "kgm_asset_f43a57e04263b04afe28.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "렉스턴",
+      "generationName": "G4 렉스턴",
+      "visualName": "G4 렉스턴",
+      "releaseYm": "2017-04",
+      "endYm": "2020-12",
+      "listingCount": 491,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "아틀란틱 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_a3723f7f268ef22c23c5"
+      ],
+      "status": "completed",
+      "priority": 9,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_cdd0e6ac6ffb72d181e9",
+      "fileName": "kgm_asset_cdd0e6ac6ffb72d181e9.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "코란도",
+      "generationName": "코란도 스포츠",
+      "visualName": "코란도 스포츠",
+      "releaseYm": "2012-01",
+      "endYm": "2016-11",
+      "listingCount": 488,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "그랜드 화이트",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_ffb83dd419a2c580c015"
+      ],
+      "status": "completed",
+      "priority": 10,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_11b10f19e23cf0b8db77",
+      "fileName": "kgm_asset_11b10f19e23cf0b8db77.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "코란도",
+      "generationName": "뷰티풀 코란도",
+      "visualName": "뷰티풀 코란도",
+      "releaseYm": "2019-02",
+      "endYm": null,
+      "listingCount": 464,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "오렌지 팝",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_a28c5aa9e526fd0166a2"
+      ],
+      "status": "completed",
+      "priority": 11,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_09c2cf23860068d0ffaa",
+      "fileName": "kgm_asset_09c2cf23860068d0ffaa.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "렉스턴",
+      "generationName": "렉스턴 스포츠 칸",
+      "visualName": "렉스턴 스포츠 칸",
+      "releaseYm": "2019-01",
+      "endYm": "2021-06",
+      "listingCount": 422,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "그랜드 화이트",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_2cf40037c90796a7855d"
+      ],
+      "status": "completed",
+      "priority": 12,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_bbbcccd22123c7d1e5e2",
+      "fileName": "kgm_asset_bbbcccd22123c7d1e5e2.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "티볼리",
+      "generationName": "티볼리 아머",
+      "visualName": "티볼리 아머",
+      "releaseYm": "2017-07",
+      "endYm": "2019-08",
+      "listingCount": 385,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "테크노 그레이/블랙",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_59e15cf5f0920ee7940b"
+      ],
+      "status": "completed",
+      "priority": 13,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_325a893f5d4140c1a5f0",
+      "fileName": "kgm_asset_325a893f5d4140c1a5f0.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "코란도",
+      "generationName": "코란도 투리스모",
+      "visualName": "코란도 투리스모",
+      "releaseYm": "2013-02",
+      "endYm": "2019-09",
+      "listingCount": 346,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "사일런트 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_5f852523372aed017254"
+      ],
+      "status": "completed",
+      "priority": 14,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_88f92b851fcca851d05d",
+      "fileName": "kgm_asset_88f92b851fcca851d05d.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "코란도",
+      "generationName": "뉴코란도 C",
+      "visualName": "뉴코란도 C",
+      "releaseYm": "2013-08",
+      "endYm": "2017-03",
+      "listingCount": 262,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "패션 레드",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_9d3ca677246c3cdc6b89"
+      ],
+      "status": "completed",
+      "priority": 15,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_da7cecea38430666db53",
+      "fileName": "kgm_asset_da7cecea38430666db53.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "코란도",
+      "generationName": "더 뉴 코란도 스포츠",
+      "visualName": "더 뉴 코란도 스포츠",
+      "releaseYm": "2016-07",
+      "endYm": "2018-03",
+      "listingCount": 261,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "마리아나 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_63cc8a22a3f5e114660e"
+      ],
+      "status": "completed",
+      "priority": 16,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_5e7d2430006acaee7b21",
+      "fileName": "kgm_asset_5e7d2430006acaee7b21.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "렉스턴",
+      "generationName": "렉스턴 W",
+      "visualName": "렉스턴 W",
+      "releaseYm": "2012-06",
+      "endYm": "2017-07",
+      "listingCount": 165,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "로열 브라운",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_b4d69a12b830f0ffbb6a"
+      ],
+      "status": "completed",
+      "priority": 17,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_7520aa7a5130139347c5",
+      "fileName": "kgm_asset_7520aa7a5130139347c5.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "토레스",
+      "generationName": "더 뉴 토레스",
+      "visualName": "더 뉴 토레스",
+      "releaseYm": "2024-05",
+      "endYm": "2026-07",
+      "listingCount": 107,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "아이언 메탈",
+      "colorEvidence": "https://www.kg-mobility.com/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_34bba0f673228545db50"
+      ],
+      "status": "completed",
+      "priority": 18,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_18743bb6ed92b3c8e870",
+      "fileName": "kgm_asset_18743bb6ed92b3c8e870.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "코란도",
+      "generationName": "뉴 스타일 코란도 C",
+      "visualName": "뉴 스타일 코란도 C",
+      "releaseYm": "2017-01",
+      "endYm": "2018-04",
+      "listingCount": 91,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "그랜드 화이트",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_53f637aaff51c826be05"
+      ],
+      "status": "completed",
+      "priority": 19,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_8abde5a6178009a34dc9",
+      "fileName": "kgm_asset_8abde5a6178009a34dc9.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "액티언",
+      "generationName": "액티언 2세대",
+      "visualName": "액티언 2세대",
+      "releaseYm": "2024-09",
+      "endYm": null,
+      "listingCount": 77,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "로열 코퍼",
+      "colorEvidence": "https://www.kg-mobility.com/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_09bf93df359b3dee5f98"
+      ],
+      "status": "completed",
+      "priority": 20,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_e4117c734c45c4f1abd9",
+      "fileName": "kgm_asset_e4117c734c45c4f1abd9.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "티볼리",
+      "generationName": "더 뉴 티볼리",
+      "visualName": "더 뉴 티볼리",
+      "releaseYm": "2023-06",
+      "endYm": null,
+      "listingCount": 74,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "아이언 메탈",
+      "colorEvidence": "https://www.kg-mobility.com/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_ec2d646df9013b2972fe"
+      ],
+      "status": "completed",
+      "priority": 21,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_aa2cad23200d5cb3ae49",
+      "fileName": "kgm_asset_aa2cad23200d5cb3ae49.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "렉스턴",
+      "generationName": "렉스턴 뉴 아레나",
+      "visualName": "렉스턴 뉴 아레나",
+      "releaseYm": "2023-05",
+      "endYm": null,
+      "listingCount": 63,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "마블 그레이",
+      "colorEvidence": "https://www.kg-mobility.com/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_bc2bfa144cdc7a9eb01b"
+      ],
+      "status": "completed",
+      "priority": 22,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_207e4f6fb72a7a35ae9e",
+      "fileName": "kgm_asset_207e4f6fb72a7a35ae9e.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "토레스",
+      "generationName": "토레스 EVX",
+      "visualName": "토레스 EVX",
+      "releaseYm": "2023-09",
+      "endYm": null,
+      "listingCount": 59,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "라떼 그레이지",
+      "colorEvidence": "https://www.kg-mobility.com/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_538cf81f4d809744c035"
+      ],
+      "status": "completed",
+      "priority": 23,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_93d8bdd1b105835dcf0c",
+      "fileName": "kgm_asset_93d8bdd1b105835dcf0c.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "체어맨",
+      "generationName": "뉴체어맨 W",
+      "visualName": "뉴체어맨 W",
+      "releaseYm": "2011-07",
+      "endYm": "2017-12",
+      "listingCount": 50,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "다이아몬드 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_9e91d348a5310462c891"
+      ],
+      "status": "completed",
+      "priority": 24,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_f9ea8f898b2a66954d59",
+      "fileName": "kgm_asset_f9ea8f898b2a66954d59.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "코란도",
+      "generationName": "코란도 C",
+      "visualName": "코란도 C",
+      "releaseYm": "2011-03",
+      "endYm": "2013-10",
+      "listingCount": 48,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "크리스탈 화이트",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_2b0807cda56dc823aaa9"
+      ],
+      "status": "completed",
+      "priority": 25,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_884d54b07aadd8d9670b",
+      "fileName": "kgm_asset_884d54b07aadd8d9670b.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "무쏘",
+      "generationName": "무쏘 (Q300)",
+      "visualName": "무쏘 (Q300)",
+      "releaseYm": "2026-01",
+      "endYm": null,
+      "listingCount": 47,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "아이언 메탈",
+      "colorEvidence": "https://www.kg-mobility.com/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_2b64a651904ddbe02d70"
+      ],
+      "status": "completed",
+      "priority": 26,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_96c4863e24bb4ad92a85",
+      "fileName": "kgm_asset_96c4863e24bb4ad92a85.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "렉스턴",
+      "generationName": "슈퍼 렉스턴",
+      "visualName": "슈퍼 렉스턴",
+      "releaseYm": "2008-07",
+      "endYm": "2012-08",
+      "listingCount": 39,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "파인 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_0bffec94118871725862"
+      ],
+      "status": "completed",
+      "priority": 27,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_e9bd688ed38b78040a67",
+      "fileName": "kgm_asset_e9bd688ed38b78040a67.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "무쏘",
+      "generationName": "무쏘 EV (O100)",
+      "visualName": "무쏘 EV (O100)",
+      "releaseYm": "2025-02",
+      "endYm": null,
+      "listingCount": 18,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "라떼 그레이지",
+      "colorEvidence": "https://www.kg-mobility.com/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_f3b278ece5c7513a1ae7"
+      ],
+      "status": "completed",
+      "priority": 28,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_d9ec53cb8fb744d64e4b",
+      "fileName": "kgm_asset_d9ec53cb8fb744d64e4b.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "티볼리",
+      "generationName": "더 뉴 티볼리 에어",
+      "visualName": "더 뉴 티볼리 에어",
+      "releaseYm": "2023-06",
+      "endYm": null,
+      "listingCount": 14,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "아이언 메탈",
+      "colorEvidence": "https://www.kg-mobility.com/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_08fbc0800c8ea2091544"
+      ],
+      "status": "completed",
+      "priority": 29,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_0868b0d31a9864131c5c",
+      "fileName": "kgm_asset_0868b0d31a9864131c5c.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "무쏘",
+      "generationName": "무쏘 스포츠 (Q260)",
+      "visualName": "무쏘 스포츠 (Q260)",
+      "releaseYm": "2025-03",
+      "endYm": "2026-01",
+      "listingCount": 7,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "포레스트 그린",
+      "colorEvidence": "https://www.kg-mobility.com/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_2f22efcec55e30de4971"
+      ],
+      "status": "completed",
+      "priority": 30,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_e6afa4a227ce994da532",
+      "fileName": "kgm_asset_e6afa4a227ce994da532.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "무쏘",
+      "generationName": "무쏘 스포츠 칸 (Q261)",
+      "visualName": "무쏘 스포츠 칸 (Q261)",
+      "releaseYm": "2025-03",
+      "endYm": "2026-01",
+      "listingCount": 7,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "그랜드 화이트",
+      "colorEvidence": "https://www.kg-mobility.com/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_7bd2fa2597cfea3539df"
+      ],
+      "status": "completed",
+      "priority": 31,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_15badbe1852b07a73b28",
+      "fileName": "kgm_asset_15badbe1852b07a73b28.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "체어맨",
+      "generationName": "뉴체어맨",
+      "visualName": "뉴체어맨",
+      "releaseYm": "2003-10",
+      "endYm": "2008-03",
+      "listingCount": 7,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "다이아몬드 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_136cb0362ba86c8d4251"
+      ],
+      "status": "completed",
+      "priority": 32,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_a4e9320fd64f97d057dd",
+      "fileName": "kgm_asset_a4e9320fd64f97d057dd.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "체어맨",
+      "generationName": "체어맨 H 뉴 클래식",
+      "visualName": "체어맨 H 뉴 클래식",
+      "releaseYm": "2011-05",
+      "endYm": "2014-12",
+      "listingCount": 7,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "다이아몬드 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_fc9f0d32ba87d0dd1d51"
+      ],
+      "status": "completed",
+      "priority": 33,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_8e25b4fd7c930410ec9f",
+      "fileName": "kgm_asset_8e25b4fd7c930410ec9f.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "체어맨",
+      "generationName": "체어맨 W",
+      "visualName": "체어맨 W",
+      "releaseYm": "2008-03",
+      "endYm": "2011-09",
+      "listingCount": 7,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "파인 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_a84827ac510463bb2059"
+      ],
+      "status": "completed",
+      "priority": 34,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_8357a2108fc9eb3c7863",
+      "fileName": "kgm_asset_8357a2108fc9eb3c7863.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "토레스",
+      "generationName": "뉴 토레스",
+      "visualName": "뉴 토레스",
+      "releaseYm": "2026-07",
+      "endYm": null,
+      "listingCount": 7,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "그랜드 화이트",
+      "colorEvidence": "https://www.kg-mobility.com/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_30e3423558cb45327a67"
+      ],
+      "status": "completed",
+      "priority": 35,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_b7b9a1ae3f800479f50d",
+      "fileName": "kgm_asset_b7b9a1ae3f800479f50d.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "렉스턴",
+      "generationName": "렉스턴 II",
+      "visualName": "렉스턴 II",
+      "releaseYm": "2006-04",
+      "endYm": "2008-09",
+      "listingCount": 6,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "파인 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_5dc28cda097e0072929f"
+      ],
+      "status": "completed",
+      "priority": 36,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_677767978f4c13d402a2",
+      "fileName": "kgm_asset_677767978f4c13d402a2.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "무쏘",
+      "generationName": "뉴무쏘",
+      "visualName": "뉴무쏘",
+      "releaseYm": "1998-07",
+      "endYm": "2004-07",
+      "listingCount": 5,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "모스 그린",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_4f3cd9225616e46df187"
+      ],
+      "status": "completed",
+      "priority": 37,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_bb9316b4d6a608eb8271",
+      "fileName": "kgm_asset_bb9316b4d6a608eb8271.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "액티언",
+      "generationName": "액티언 스포츠",
+      "visualName": "액티언 스포츠",
+      "releaseYm": "2006-04",
+      "endYm": "2011-12",
+      "listingCount": 5,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "패션 레드",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_f9b800250de4e17a05b1"
+      ],
+      "status": "completed",
+      "priority": 38,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_c65ff859101ba73d2336",
+      "fileName": "kgm_asset_c65ff859101ba73d2336.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "카이런",
+      "generationName": "뉴카이런",
+      "visualName": "뉴카이런",
+      "releaseYm": "2007-04",
+      "endYm": "2011-12",
+      "listingCount": 5,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "파인 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_013d1362fd60ad79122b"
+      ],
+      "status": "completed",
+      "priority": 39,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_000071c9a6b9e0ab1486",
+      "fileName": "kgm_asset_000071c9a6b9e0ab1486.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "체어맨",
+      "generationName": "체어맨",
+      "visualName": "체어맨",
+      "releaseYm": "1997-10",
+      "endYm": "2003-12",
+      "listingCount": 3,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "다이아몬드 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_f9029b79d01ec5e940b3"
+      ],
+      "status": "completed",
+      "priority": 40,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_ee9e87caccaea522474f",
+      "fileName": "kgm_asset_ee9e87caccaea522474f.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "체어맨",
+      "generationName": "체어맨 H",
+      "visualName": "체어맨 H",
+      "releaseYm": "2008-01",
+      "endYm": "2011-07",
+      "listingCount": 3,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "파인 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_6965f0a9e2203203bad4"
+      ],
+      "status": "completed",
+      "priority": 41,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_5ca9995100e0a782cd39",
+      "fileName": "kgm_asset_5ca9995100e0a782cd39.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "코란도",
+      "generationName": "뉴코란도",
+      "visualName": "뉴코란도",
+      "releaseYm": "1996-07",
+      "endYm": "2005-12",
+      "listingCount": 3,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "포레스트 그린",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_7e24b357eca2333239d2"
+      ],
+      "status": "completed",
+      "priority": 42,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_d84ae6bac0be5ca28b5e",
+      "fileName": "kgm_asset_d84ae6bac0be5ca28b5e.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "액티언",
+      "generationName": "액티언",
+      "visualName": "액티언",
+      "releaseYm": "2005-10",
+      "endYm": "2011-04",
+      "listingCount": 2,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "오렌지",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_358e17fc6f5768a15ad3"
+      ],
+      "status": "completed",
+      "priority": 43,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_46785ab8a405ede694ba",
+      "fileName": "kgm_asset_46785ab8a405ede694ba.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "코란도",
+      "generationName": "코란도 EV (이모션)",
+      "visualName": "코란도 EV (이모션)",
+      "releaseYm": "2022-02",
+      "endYm": null,
+      "listingCount": 2,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "댄디 블루",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_6f300c4e0c1ff198a295"
+      ],
+      "status": "completed",
+      "priority": 44,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_2e618273e0af665f493b",
+      "fileName": "kgm_asset_2e618273e0af665f493b.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "무쏘",
+      "generationName": "무쏘",
+      "visualName": "무쏘",
+      "releaseYm": "1993-08",
+      "endYm": "1998-09",
+      "listingCount": 1,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "모스 그린",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_9d1e88d303b01d0b8e69"
+      ],
+      "status": "completed",
+      "priority": 45,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_ad0f59523940beea9721",
+      "fileName": "kgm_asset_ad0f59523940beea9721.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "무쏘",
+      "generationName": "무쏘 스포츠",
+      "visualName": "무쏘 스포츠",
+      "releaseYm": "2002-09",
+      "endYm": "2006-03",
+      "listingCount": 1,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "파인 실버",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_68740490dad3efa5ea80"
+      ],
+      "status": "completed",
+      "priority": 46,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "kgm_asset_2cf0ababac69fae5aab9",
+      "fileName": "kgm_asset_2cf0ababac69fae5aab9.png",
+      "manufacturer": "KG모빌리티(쌍용)",
+      "model": "코란도",
+      "generationName": "코란도 훼미리",
+      "visualName": "코란도 훼미리",
+      "releaseYm": "1988-12",
+      "endYm": "1996-08",
+      "listingCount": 1,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "베이지/브라운 투톤",
+      "colorEvidence": "https://www.carisyou.com/car/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_697d6393402eadd877db"
+      ],
+      "status": "completed",
+      "priority": 47,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    }
+  ],
+  "completedAssets": 47
+}
