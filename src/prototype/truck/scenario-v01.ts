@@ -49,6 +49,7 @@ export const truckScenarioV01: readonly TruckScenarioV01Row[] = [
   { id: "truck-029", maker: "이베코", model: "S-WAY", format: "트레일러", subtype: "윙·탑 트레일러", year: 2022, mileage: 197000, load: "14m", price10k: 16900, region: "경기 평택시", sellerType: "딜러", fuel: "디젤", transmission: "오토", seats: "2인승", image: "icons/body-type/cargo-van.svg" },
   { id: "truck-030", maker: "한국GM", model: "라보", format: "카고(화물)트럭", subtype: "경형", year: 2014, mileage: 87300, load: "0.5톤", price10k: 690, region: "경기 부천시", sellerType: "개인", fuel: "LPG", transmission: "수동", seats: "2인승", image: "icons/body-type/truck.svg" },
   { id: "truck-031", maker: "볼보", model: "FE", format: "윙바디·탑차", subtype: "윙바디", year: 2024, mileage: 56067, load: "11톤", price10k: 12500, region: "경기 화성시", sellerType: "딜러", fuel: "디젤", transmission: "오토", seats: "2인승", image: "icons/body-type/truck.svg" },
+  { id: "truck-032", maker: "명성정공", model: "로베드", format: "트레일러", subtype: "저상·로우베드 트레일러", year: 2015, mileage: 0, load: "", price10k: 1730, region: "경기 수원시", sellerType: "개인", fuel: "디젤", transmission: "수동", seats: "1인승", image: "icons/body-type/cargo-van.svg" },
 ];
 
 export const truckModelsByMaker = truckScenarioV01.reduce<Record<string, string[]>>((catalog, row) => {

@@ -141,9 +141,12 @@ const debugMode = new URLSearchParams(window.location.search).get("debug") === "
 const allVehicleMixedCars: Car[] = (() => {
   // 2026-10-08 사용자 지시 「한국타이어 볼보 윙바디로 바꿔」: 전체 목록에서 부품 첫 매물(한국타이어 벤투스) 자리에 볼보 FE 윙바디(truck-031)를 둔다. 부품·트럭 개별 목록은 그대로
   const volvo = truckCars.find((car) => car.truck?.scenarioId === "truck-031");
-  const mixedTrucks = volvo ? truckCars.filter((car) => car !== volvo) : truckCars;
+  // 2026-10-08 「디젤 지게차 트레일러로 교체」: 자재운반장비 둘째 매물(30D-9 디젤 지게차) 자리에 명성정공 로베드 트레일러(truck-032)
+  const lowbed = truckCars.find((car) => car.truck?.scenarioId === "truck-032");
+  const mixedTrucks = truckCars.filter((car) => car !== volvo && car !== lowbed);
+  const mixedMaterial = lowbed ? materialHandlingCars.map((car, index) => (index === 1 ? lowbed : car)) : materialHandlingCars;
   const mixedParts = volvo ? [volvo, ...partsCars.slice(1)] : partsCars;
-  const groups = [sortBbmCars(bbmSampleCars, "업데이트순"), mixedTrucks, bikeCars, campingCars, heavyCars, materialHandlingCars, mixedParts];
+  const groups = [sortBbmCars(bbmSampleCars, "업데이트순"), mixedTrucks, bikeCars, campingCars, heavyCars, mixedMaterial, mixedParts];
   const placed = groups.flatMap((group, groupIndex) => group.map((car, index) => ({ car, key: (index + 0.5) / group.length, groupIndex })));
   placed.sort((first, second) => first.key - second.key || first.groupIndex - second.groupIndex);
   return placed.map(({ car }, index) => ({ ...car, updateRank: placed.length - index }));
