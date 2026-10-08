@@ -22,9 +22,10 @@ const catalogBase = `${publicBase}data/vehicle-catalog`;
 const ferrariSilverAsset = (path: string) => {
   if (typeof window === "undefined" || new URLSearchParams(window.location.search).get("ferrariStyle") !== "silver") return path;
   if (!path.includes("assets/quickfilter/car/ferrari-models/angle/ferrari_")) return path;
-  return path
+  const silverPath = path
     .replace("/ferrari-models/angle/", "/ferrari-models/angle-silver/")
     .replace(/_angle_v01\.png$/, "_angle_silver_v01.png");
+  return `${silverPath}?v=ferrari-silver-v01`;
 };
 export const publicCatalogAsset = (path?: string | null) => {
   if (!path) return null;
