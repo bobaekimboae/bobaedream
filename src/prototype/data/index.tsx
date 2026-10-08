@@ -146,6 +146,9 @@ type Car = {
     cargoLength?: string;
     /** 트레일러(엔진 없음): 적재량 · 적재함 길이 · 축 */
     trailer?: { load: string; length: string; axles: string };
+    /** 마력 · 차축 구성(4x2 · 6x2 · 8x4), 가상 값 */
+    horsepower?: number;
+    drive?: string;
     vehicleNumber?: string;
   };
   virtualCategory?: {
@@ -996,7 +999,40 @@ const truckListingPhotosV01: Record<string, string> = {
 };
 // 사용자 지시 매물(2026-10-07): 등급명·카드 스펙 줄을 지시값 그대로 고정
 const truckListingOverridesV01: Record<string, { trim: string; cardSpec: string[] }> = {
-  "truck-031": { trim: "윙바디 11톤 오토", cardSpec: ["24년04월", "56,067km", "디젤"] },
+  "truck-031": { trim: "윙바디 11톤 오토", cardSpec: ["24년04월", "56,067km", "디젤", "350마력", "적재 11톤", "6x2"] },
+};
+
+// 트럭 카드 둘째 줄(2026-10-08 사용자 지시, Truck1 표기 참고): 마력 · 적재용량 · 차축 구성.
+// 모델·톤수별 대표 제원으로 정한 UI 검증용 가상 값(실매물 정보 아님). 엔진 없는 트레일러는 제외
+const truckPowerSpecsV01: Record<string, { horsepower: number; drive: string }> = {
+  "truck-001": { horsepower: 133, drive: "4x2" },
+  "truck-002": { horsepower: 150, drive: "4x2" },
+  "truck-003": { horsepower: 240, drive: "4x2" },
+  "truck-004": { horsepower: 460, drive: "6x2" },
+  "truck-005": { horsepower: 300, drive: "4x2" },
+  "truck-006": { horsepower: 280, drive: "4x2" },
+  "truck-007": { horsepower: 299, drive: "4x2" },
+  "truck-008": { horsepower: 250, drive: "4x2" },
+  "truck-009": { horsepower: 170, drive: "4x2" },
+  "truck-010": { horsepower: 410, drive: "4x2" },
+  "truck-011": { horsepower: 520, drive: "8x4" },
+  "truck-012": { horsepower: 380, drive: "6x4" },
+  "truck-013": { horsepower: 170, drive: "4x2" },
+  "truck-014": { horsepower: 240, drive: "4x2" },
+  "truck-015": { horsepower: 450, drive: "8x4" },
+  "truck-016": { horsepower: 460, drive: "6x2" },
+  "truck-017": { horsepower: 300, drive: "4x2" },
+  "truck-018": { horsepower: 170, drive: "4x2" },
+  "truck-019": { horsepower: 190, drive: "4x2" },
+  "truck-020": { horsepower: 170, drive: "4x2" },
+  "truck-021": { horsepower: 240, drive: "4x2" },
+  "truck-022": { horsepower: 133, drive: "4x2" },
+  "truck-023": { horsepower: 170, drive: "4x2" },
+  "truck-024": { horsepower: 460, drive: "6x2" },
+  "truck-025": { horsepower: 540, drive: "6x2" },
+  "truck-026": { horsepower: 540, drive: "6x2" },
+  "truck-030": { horsepower: 41, drive: "4x2" },
+  "truck-031": { horsepower: 350, drive: "6x2" },
 };
 
 const trailerSpecsV01: Record<string, { load: string; length: string; axles: string }> = {
@@ -1052,6 +1088,8 @@ const truckCars: Car[] = truckScenarioV01.map((row, index) => {
     options,
     cargoLength: truckCargoLengths[index % truckCargoLengths.length],
     trailer,
+    horsepower: truckPowerSpecsV01[row.id]?.horsepower,
+    drive: truckPowerSpecsV01[row.id]?.drive,
     vehicleNumber: `90가${String(1000 + index).padStart(4, "0")}`,
   },
   filter: {
