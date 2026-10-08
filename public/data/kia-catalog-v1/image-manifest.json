@@ -1,0 +1,2657 @@
+{
+  "version": "2026-10-07-v01",
+  "manufacturerKey": "make_car_encar_3eb658a325f0bc9ce52a",
+  "sourceModels": 40,
+  "sourceGenerations": 126,
+  "uniqueAssets": 114,
+  "rules": {
+    "master": "1920×1200 transparent PNG",
+    "delivery": "960×600 transparent PNG",
+    "angle": "AutoScout24-style left-facing front three-quarter",
+    "width": "88~90%",
+    "floorGap": "6%",
+    "lighting": "high-key studio, approximately +0.7EV midtone lift",
+    "shadow": "compact contact shadow",
+    "colorPriority": [
+      "mobile.de",
+      "carisyou.com",
+      "auto.danawa.com"
+    ]
+  },
+  "assets": [
+    {
+      "assetId": "kia_asset_898f263623541afe952a",
+      "fileName": "kia_asset_898f263623541afe952a.png",
+      "manufacturer": "기아",
+      "model": "카니발",
+      "generationName": "카니발 4세대",
+      "visualName": "카니발 4세대",
+      "releaseYm": "2020-08",
+      "endYm": "2023-11",
+      "listingCount": 3724,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_1151bc2c3c98c606b300"
+      ],
+      "status": "pending",
+      "priority": 1
+    },
+    {
+      "assetId": "kia_asset_01eb8421fc3ec94174e6",
+      "fileName": "kia_asset_01eb8421fc3ec94174e6.png",
+      "manufacturer": "기아",
+      "model": "레이",
+      "generationName": "더 뉴 레이",
+      "visualName": "더 뉴 레이",
+      "releaseYm": "2017-12",
+      "endYm": "2022-09",
+      "listingCount": 2238,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_3931348ec782e25dd570"
+      ],
+      "status": "pending",
+      "priority": 2
+    },
+    {
+      "assetId": "kia_asset_77fae5eed919190cf790",
+      "fileName": "kia_asset_77fae5eed919190cf790.png",
+      "manufacturer": "기아",
+      "model": "카니발",
+      "generationName": "올 뉴 카니발",
+      "visualName": "올 뉴 카니발",
+      "releaseYm": "2014-06",
+      "endYm": "2018-05",
+      "listingCount": 2097,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_d7062325c5082efdeab1"
+      ],
+      "status": "pending",
+      "priority": 3
+    },
+    {
+      "assetId": "kia_asset_18470713a0f6fa4f3f84",
+      "fileName": "kia_asset_18470713a0f6fa4f3f84.png",
+      "manufacturer": "기아",
+      "model": "K5",
+      "generationName": "K5 3세대",
+      "visualName": "K5 3세대",
+      "releaseYm": "2019-12",
+      "endYm": "2023-10",
+      "listingCount": 2023,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_7ca2be1dec9487492f35",
+        "model_car_encar_generation_4373d6e20db31e454fd1"
+      ],
+      "status": "pending",
+      "priority": 4
+    },
+    {
+      "assetId": "kia_asset_77c90b28d96d11eee239",
+      "fileName": "kia_asset_77c90b28d96d11eee239.png",
+      "manufacturer": "기아",
+      "model": "쏘렌토",
+      "generationName": "쏘렌토 4세대",
+      "visualName": "쏘렌토 4세대",
+      "releaseYm": "2020-03",
+      "endYm": "2023-07",
+      "listingCount": 1970,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_7ff75aab01be8460fb78"
+      ],
+      "status": "pending",
+      "priority": 5
+    },
+    {
+      "assetId": "kia_asset_f3ff399f9b8b8a1abcf2",
+      "fileName": "kia_asset_f3ff399f9b8b8a1abcf2.png",
+      "manufacturer": "기아",
+      "model": "카니발",
+      "generationName": "더 뉴 카니발",
+      "visualName": "더 뉴 카니발",
+      "releaseYm": "2018-03",
+      "endYm": "2020-10",
+      "listingCount": 1823,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_427fdf79b14f67347e44"
+      ],
+      "status": "pending",
+      "priority": 6
+    },
+    {
+      "assetId": "kia_asset_eabbeb9c726d32d4675f",
+      "fileName": "kia_asset_eabbeb9c726d32d4675f.png",
+      "manufacturer": "기아",
+      "model": "K7",
+      "generationName": "올 뉴 K7",
+      "visualName": "올 뉴 K7",
+      "releaseYm": "2016-01",
+      "endYm": "2019-08",
+      "listingCount": 1508,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_31a8aa383ef4fd1f8e43",
+        "model_car_encar_generation_6353f84ad19e117c0538"
+      ],
+      "status": "pending",
+      "priority": 7
+    },
+    {
+      "assetId": "kia_asset_29f6a906ed8040fb14be",
+      "fileName": "kia_asset_29f6a906ed8040fb14be.png",
+      "manufacturer": "기아",
+      "model": "스포티지",
+      "generationName": "스포티지 5세대",
+      "visualName": "스포티지 5세대",
+      "releaseYm": "2021-07",
+      "endYm": null,
+      "listingCount": 1361,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_01579cc217e1263070a3",
+        "model_car_encar_generation_9e3c84c40aa08460c0c2"
+      ],
+      "status": "pending",
+      "priority": 8
+    },
+    {
+      "assetId": "kia_asset_7dc10b6ed85163cce826",
+      "fileName": "kia_asset_7dc10b6ed85163cce826.png",
+      "manufacturer": "기아",
+      "model": "쏘렌토",
+      "generationName": "올 뉴 쏘렌토",
+      "visualName": "올 뉴 쏘렌토",
+      "releaseYm": "2014-09",
+      "endYm": "2017-09",
+      "listingCount": 1338,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_51c5831fefa10a3ad68d"
+      ],
+      "status": "pending",
+      "priority": 9
+    },
+    {
+      "assetId": "kia_asset_ade7148e5295b30673a4",
+      "fileName": "kia_asset_ade7148e5295b30673a4.png",
+      "manufacturer": "기아",
+      "model": "카니발",
+      "generationName": "더 뉴 카니발 4세대",
+      "visualName": "더 뉴 카니발 4세대",
+      "releaseYm": "2023-11",
+      "endYm": null,
+      "listingCount": 1307,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_00ebb79c2154432c9507"
+      ],
+      "status": "pending",
+      "priority": 10
+    },
+    {
+      "assetId": "kia_asset_8722e2e44970820c428d",
+      "fileName": "kia_asset_8722e2e44970820c428d.png",
+      "manufacturer": "기아",
+      "model": "K8",
+      "generationName": "K8",
+      "visualName": "K8",
+      "releaseYm": "2021-04",
+      "endYm": "2024-08",
+      "listingCount": 1237,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_1759e0642381326441b7",
+        "model_car_encar_generation_eb793e23bc3507a11da6"
+      ],
+      "status": "pending",
+      "priority": 11
+    },
+    {
+      "assetId": "kia_asset_6a5760d76342a273958c",
+      "fileName": "kia_asset_6a5760d76342a273958c.png",
+      "manufacturer": "기아",
+      "model": "모하비",
+      "generationName": "모하비 더 마스터",
+      "visualName": "모하비 더 마스터",
+      "releaseYm": "2019-09",
+      "endYm": null,
+      "listingCount": 1191,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_12164535dd00d49fee7b"
+      ],
+      "status": "pending",
+      "priority": 12
+    },
+    {
+      "assetId": "kia_asset_7cf191fe26004452f1cf",
+      "fileName": "kia_asset_7cf191fe26004452f1cf.png",
+      "manufacturer": "기아",
+      "model": "레이",
+      "generationName": "레이",
+      "visualName": "레이",
+      "releaseYm": "2011-11",
+      "endYm": "2017-12",
+      "listingCount": 1177,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_93a52ca63d3d3bc396b1"
+      ],
+      "status": "pending",
+      "priority": 13
+    },
+    {
+      "assetId": "kia_asset_b31e12d795ac855ad18a",
+      "fileName": "kia_asset_b31e12d795ac855ad18a.png",
+      "manufacturer": "기아",
+      "model": "모닝",
+      "generationName": "올 뉴 모닝",
+      "visualName": "올 뉴 모닝",
+      "releaseYm": "2011-01",
+      "endYm": "2015-03",
+      "listingCount": 1091,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_01fc42f13b657a57d9c6"
+      ],
+      "status": "pending",
+      "priority": 14
+    },
+    {
+      "assetId": "kia_asset_b17d2fe13eeb7b94566c",
+      "fileName": "kia_asset_b17d2fe13eeb7b94566c.png",
+      "manufacturer": "기아",
+      "model": "쏘렌토",
+      "generationName": "더 뉴 쏘렌토",
+      "visualName": "더 뉴 쏘렌토",
+      "releaseYm": "2017-07",
+      "endYm": "2020-06",
+      "listingCount": 1085,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_0c322c4530c8727511ab"
+      ],
+      "status": "pending",
+      "priority": 15
+    },
+    {
+      "assetId": "kia_asset_652e2d559fd785b51d48",
+      "fileName": "kia_asset_652e2d559fd785b51d48.png",
+      "manufacturer": "기아",
+      "model": "쏘렌토",
+      "generationName": "더 뉴 쏘렌토 4세대",
+      "visualName": "더 뉴 쏘렌토 4세대",
+      "releaseYm": "2023-08",
+      "endYm": null,
+      "listingCount": 1077,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_9e4cbfa9f6b563953896"
+      ],
+      "status": "pending",
+      "priority": 16
+    },
+    {
+      "assetId": "kia_asset_78014e26608c1f791c84",
+      "fileName": "kia_asset_78014e26608c1f791c84.png",
+      "manufacturer": "기아",
+      "model": "레이",
+      "generationName": "더 뉴 기아 레이",
+      "visualName": "더 뉴 기아 레이",
+      "releaseYm": "2022-09",
+      "endYm": null,
+      "listingCount": 1065,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_816046e3fb6913a49240"
+      ],
+      "status": "pending",
+      "priority": 17
+    },
+    {
+      "assetId": "kia_asset_5439087562b0771230fe",
+      "fileName": "kia_asset_5439087562b0771230fe.png",
+      "manufacturer": "기아",
+      "model": "모닝",
+      "generationName": "올 뉴 모닝 (JA)",
+      "visualName": "올 뉴 모닝 (JA)",
+      "releaseYm": "2017-01",
+      "endYm": "2020-07",
+      "listingCount": 902,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_57b88a74372e4f902ebc"
+      ],
+      "status": "pending",
+      "priority": 18
+    },
+    {
+      "assetId": "kia_asset_d740bbe26829e202c0cc",
+      "fileName": "kia_asset_d740bbe26829e202c0cc.png",
+      "manufacturer": "기아",
+      "model": "K3",
+      "generationName": "더 뉴 K3 2세대",
+      "visualName": "더 뉴 K3 2세대",
+      "releaseYm": "2021-04",
+      "endYm": null,
+      "listingCount": 892,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_1e222cd0483696b63235"
+      ],
+      "status": "pending",
+      "priority": 19
+    },
+    {
+      "assetId": "kia_asset_39d2a6722ad8d956ee4d",
+      "fileName": "kia_asset_39d2a6722ad8d956ee4d.png",
+      "manufacturer": "기아",
+      "model": "K7",
+      "generationName": "K7 프리미어",
+      "visualName": "K7 프리미어",
+      "releaseYm": "2019-06",
+      "endYm": "2021-06",
+      "listingCount": 890,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_b816a0df8cd777ad0f73",
+        "model_car_encar_generation_e371443d003ccb852148"
+      ],
+      "status": "pending",
+      "priority": 20
+    },
+    {
+      "assetId": "kia_asset_0e9b2ce831e0b48e6380",
+      "fileName": "kia_asset_0e9b2ce831e0b48e6380.png",
+      "manufacturer": "기아",
+      "model": "스포티지",
+      "generationName": "스포티지 4세대",
+      "visualName": "스포티지 4세대",
+      "releaseYm": "2015-09",
+      "endYm": "2018-09",
+      "listingCount": 880,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_e4407bff160dd4ec661c"
+      ],
+      "status": "pending",
+      "priority": 21
+    },
+    {
+      "assetId": "kia_asset_677e1931b0bb461c860b",
+      "fileName": "kia_asset_677e1931b0bb461c860b.png",
+      "manufacturer": "기아",
+      "model": "셀토스",
+      "generationName": "셀토스",
+      "visualName": "셀토스",
+      "releaseYm": "2019-07",
+      "endYm": "2022-07",
+      "listingCount": 877,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_1f8047b8a0c498c14a26"
+      ],
+      "status": "pending",
+      "priority": 22
+    },
+    {
+      "assetId": "kia_asset_424d46a4a2e2e7086ee7",
+      "fileName": "kia_asset_424d46a4a2e2e7086ee7.png",
+      "manufacturer": "기아",
+      "model": "K5",
+      "generationName": "더 뉴 K5 3세대",
+      "visualName": "더 뉴 K5 3세대",
+      "releaseYm": "2023-11",
+      "endYm": null,
+      "listingCount": 794,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_bf86f63ff4e120b4a50a",
+        "model_car_encar_generation_61b47190a8469856a378"
+      ],
+      "status": "pending",
+      "priority": 23
+    },
+    {
+      "assetId": "kia_asset_a29a3d9b82fec28cbc04",
+      "fileName": "kia_asset_a29a3d9b82fec28cbc04.png",
+      "manufacturer": "기아",
+      "model": "K3",
+      "generationName": "올 뉴 K3",
+      "visualName": "올 뉴 K3",
+      "releaseYm": "2018-02",
+      "endYm": "2021-04",
+      "listingCount": 739,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_9ea2f0cc02586e9fb5ff"
+      ],
+      "status": "pending",
+      "priority": 24
+    },
+    {
+      "assetId": "kia_asset_b74c4a4b52eb9509cf76",
+      "fileName": "kia_asset_b74c4a4b52eb9509cf76.png",
+      "manufacturer": "기아",
+      "model": "모닝",
+      "generationName": "모닝 어반 (JA)",
+      "visualName": "모닝 어반 (JA)",
+      "releaseYm": "2020-05",
+      "endYm": "2023-07",
+      "listingCount": 725,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_9c34a4a82ca1243f0313"
+      ],
+      "status": "pending",
+      "priority": 25
+    },
+    {
+      "assetId": "kia_asset_186b92571831d58aecca",
+      "fileName": "kia_asset_186b92571831d58aecca.png",
+      "manufacturer": "기아",
+      "model": "셀토스",
+      "generationName": "더 뉴 셀토스",
+      "visualName": "더 뉴 셀토스",
+      "releaseYm": "2022-07",
+      "endYm": "2026-02",
+      "listingCount": 644,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_03e0b2acbdb46463d8de"
+      ],
+      "status": "pending",
+      "priority": 26
+    },
+    {
+      "assetId": "kia_asset_2d99c65a6cff200a0545",
+      "fileName": "kia_asset_2d99c65a6cff200a0545.png",
+      "manufacturer": "기아",
+      "model": "스포티지",
+      "generationName": "스포티지 더 볼드",
+      "visualName": "스포티지 더 볼드",
+      "releaseYm": "2018-07",
+      "endYm": "2021-06",
+      "listingCount": 644,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_0199d73eb1b706564d2a"
+      ],
+      "status": "pending",
+      "priority": 27
+    },
+    {
+      "assetId": "kia_asset_9f29fb11030412da39e6",
+      "fileName": "kia_asset_9f29fb11030412da39e6.png",
+      "manufacturer": "기아",
+      "model": "EV6",
+      "generationName": "EV6",
+      "visualName": "EV6",
+      "releaseYm": "2021-08",
+      "endYm": "2024-05",
+      "listingCount": 630,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_0cef596983209a812c8c"
+      ],
+      "status": "pending",
+      "priority": 28
+    },
+    {
+      "assetId": "kia_asset_d0ead70e55b5bdab2f7d",
+      "fileName": "kia_asset_d0ead70e55b5bdab2f7d.png",
+      "manufacturer": "기아",
+      "model": "K9",
+      "generationName": "더 K9",
+      "visualName": "더 K9",
+      "releaseYm": "2018-04",
+      "endYm": "2021-05",
+      "listingCount": 612,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_250bcf1cabf37ec6da2a"
+      ],
+      "status": "pending",
+      "priority": 29
+    },
+    {
+      "assetId": "kia_asset_b9ee89576df7345ee766",
+      "fileName": "kia_asset_b9ee89576df7345ee766.png",
+      "manufacturer": "기아",
+      "model": "K5",
+      "generationName": "K5 2세대",
+      "visualName": "K5 2세대",
+      "releaseYm": "2015-07",
+      "endYm": "2018-03",
+      "listingCount": 599,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_2a8210f1910f018f2ff0",
+        "model_car_encar_generation_1ad887b15a1ac939a00b"
+      ],
+      "status": "pending",
+      "priority": 30
+    },
+    {
+      "assetId": "kia_asset_80a24e1000762ceda7ec",
+      "fileName": "kia_asset_80a24e1000762ceda7ec.png",
+      "manufacturer": "기아",
+      "model": "모닝",
+      "generationName": "더 뉴 모닝",
+      "visualName": "더 뉴 모닝",
+      "releaseYm": "2015-01",
+      "endYm": "2017-03",
+      "listingCount": 595,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_1ddd7fcab0293f724eb2"
+      ],
+      "status": "pending",
+      "priority": 31
+    },
+    {
+      "assetId": "kia_asset_000e4efa48c77c2992e8",
+      "fileName": "kia_asset_000e4efa48c77c2992e8.png",
+      "manufacturer": "기아",
+      "model": "K3",
+      "generationName": "K3",
+      "visualName": "K3",
+      "releaseYm": "2012-09",
+      "endYm": "2015-12",
+      "listingCount": 589,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_aad4038f5dbe0651bbbf"
+      ],
+      "status": "pending",
+      "priority": 32
+    },
+    {
+      "assetId": "kia_asset_31e9d0d69d0b9d494ea1",
+      "fileName": "kia_asset_31e9d0d69d0b9d494ea1.png",
+      "manufacturer": "기아",
+      "model": "모하비",
+      "generationName": "더 뉴 모하비",
+      "visualName": "더 뉴 모하비",
+      "releaseYm": "2016-02",
+      "endYm": "2019-11",
+      "listingCount": 535,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_1363536d2ff065af3ece"
+      ],
+      "status": "pending",
+      "priority": 33
+    },
+    {
+      "assetId": "kia_asset_3e4a7cb1064fe4edf702",
+      "fileName": "kia_asset_3e4a7cb1064fe4edf702.png",
+      "manufacturer": "기아",
+      "model": "K9",
+      "generationName": "더 뉴 K9 2세대",
+      "visualName": "더 뉴 K9 2세대",
+      "releaseYm": "2021-06",
+      "endYm": null,
+      "listingCount": 429,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_16136cf898b5d17aedfc"
+      ],
+      "status": "pending",
+      "priority": 34
+    },
+    {
+      "assetId": "kia_asset_490933a216f4899475a6",
+      "fileName": "kia_asset_490933a216f4899475a6.png",
+      "manufacturer": "기아",
+      "model": "스팅어",
+      "generationName": "스팅어",
+      "visualName": "스팅어",
+      "releaseYm": "2017-05",
+      "endYm": "2020-10",
+      "listingCount": 415,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_e29d6061bc2cd544c140"
+      ],
+      "status": "pending",
+      "priority": 35
+    },
+    {
+      "assetId": "kia_asset_114eac944f640f3b66b6",
+      "fileName": "kia_asset_114eac944f640f3b66b6.png",
+      "manufacturer": "기아",
+      "model": "K5",
+      "generationName": "더 뉴 K5 2세대",
+      "visualName": "더 뉴 K5 2세대",
+      "releaseYm": "2018-01",
+      "endYm": "2019-12",
+      "listingCount": 405,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_c24c3772c0a26bfded2b",
+        "model_car_encar_generation_4855aea76d230ca56c39"
+      ],
+      "status": "pending",
+      "priority": 36
+    },
+    {
+      "assetId": "kia_asset_9399f9bb1bd6a8cb31d8",
+      "fileName": "kia_asset_9399f9bb1bd6a8cb31d8.png",
+      "manufacturer": "기아",
+      "model": "스포티지",
+      "generationName": "더 뉴 스포티지 R",
+      "visualName": "더 뉴 스포티지 R",
+      "releaseYm": "2013-07",
+      "endYm": "2015-11",
+      "listingCount": 393,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_3ed29e1b6b0503f87a84"
+      ],
+      "status": "pending",
+      "priority": 37
+    },
+    {
+      "assetId": "kia_asset_8384dee1ab003358c2f4",
+      "fileName": "kia_asset_8384dee1ab003358c2f4.png",
+      "manufacturer": "기아",
+      "model": "니로",
+      "generationName": "디 올 뉴 니로",
+      "visualName": "디 올 뉴 니로",
+      "releaseYm": "2022-01",
+      "endYm": "2026-06",
+      "listingCount": 376,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_d3fef1594cc5b1dda140"
+      ],
+      "status": "pending",
+      "priority": 38
+    },
+    {
+      "assetId": "kia_asset_cc92473245a60802b857",
+      "fileName": "kia_asset_cc92473245a60802b857.png",
+      "manufacturer": "기아",
+      "model": "스포티지",
+      "generationName": "더 뉴 스포티지 5세대",
+      "visualName": "더 뉴 스포티지 5세대",
+      "releaseYm": "2024-11",
+      "endYm": null,
+      "listingCount": 373,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_31206821bcc13b0ae955",
+        "model_car_encar_generation_da37516f7ab55950d7d5"
+      ],
+      "status": "pending",
+      "priority": 39
+    },
+    {
+      "assetId": "kia_asset_12d459d3af09fba7f5f6",
+      "fileName": "kia_asset_12d459d3af09fba7f5f6.png",
+      "manufacturer": "기아",
+      "model": "K5",
+      "generationName": "K5",
+      "visualName": "K5",
+      "releaseYm": "2010-04",
+      "endYm": "2013-07",
+      "listingCount": 363,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_2a5028d276e2943a1304",
+        "model_car_encar_generation_4cdf6a05b1f88246f433"
+      ],
+      "status": "pending",
+      "priority": 40
+    },
+    {
+      "assetId": "kia_asset_7f7c4d1a8f4d9e231de0",
+      "fileName": "kia_asset_7f7c4d1a8f4d9e231de0.png",
+      "manufacturer": "기아",
+      "model": "모하비",
+      "generationName": "모하비",
+      "visualName": "모하비",
+      "releaseYm": "2007-12",
+      "endYm": "2016-03",
+      "listingCount": 362,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_356edf18a1ae3273d81f"
+      ],
+      "status": "pending",
+      "priority": 41
+    },
+    {
+      "assetId": "kia_asset_9af184979ed5a1504a55",
+      "fileName": "kia_asset_9af184979ed5a1504a55.png",
+      "manufacturer": "기아",
+      "model": "K3",
+      "generationName": "더 뉴 K3",
+      "visualName": "더 뉴 K3",
+      "releaseYm": "2015-11",
+      "endYm": "2018-04",
+      "listingCount": 358,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_d389a12becbd01735e23"
+      ],
+      "status": "pending",
+      "priority": 42
+    },
+    {
+      "assetId": "kia_asset_d898958f164336bc0337",
+      "fileName": "kia_asset_d898958f164336bc0337.png",
+      "manufacturer": "기아",
+      "model": "K7",
+      "generationName": "더 뉴 K7",
+      "visualName": "더 뉴 K7",
+      "releaseYm": "2012-11",
+      "endYm": "2016-03",
+      "listingCount": 332,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_d7d7b450d420786f2032"
+      ],
+      "status": "pending",
+      "priority": 43
+    },
+    {
+      "assetId": "kia_asset_46f8004eaf6cd449c85c",
+      "fileName": "kia_asset_46f8004eaf6cd449c85c.png",
+      "manufacturer": "기아",
+      "model": "K8",
+      "generationName": "더 뉴 K8",
+      "visualName": "더 뉴 K8",
+      "releaseYm": "2024-08",
+      "endYm": null,
+      "listingCount": 319,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_eb9eb03e362aef46d5d8",
+        "model_car_encar_generation_62dfde20206abf8ec5db"
+      ],
+      "status": "pending",
+      "priority": 44
+    },
+    {
+      "assetId": "kia_asset_a0afe201bb67db590941",
+      "fileName": "kia_asset_a0afe201bb67db590941.png",
+      "manufacturer": "기아",
+      "model": "스포티지",
+      "generationName": "스포티지 R",
+      "visualName": "스포티지 R",
+      "releaseYm": "2010-04",
+      "endYm": "2013-09",
+      "listingCount": 313,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_d9311d8d99fbb1a020db"
+      ],
+      "status": "pending",
+      "priority": 45
+    },
+    {
+      "assetId": "kia_asset_6a1cb4fefdb67da63a8f",
+      "fileName": "kia_asset_6a1cb4fefdb67da63a8f.png",
+      "manufacturer": "기아",
+      "model": "스토닉",
+      "generationName": "스토닉",
+      "visualName": "스토닉",
+      "releaseYm": "2017-07",
+      "endYm": "2020-09",
+      "listingCount": 308,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_182b2a0eb8cff579a114"
+      ],
+      "status": "pending",
+      "priority": 46
+    },
+    {
+      "assetId": "kia_asset_6088579ce41a3f348790",
+      "fileName": "kia_asset_6088579ce41a3f348790.png",
+      "manufacturer": "기아",
+      "model": "카니발",
+      "generationName": "카니발 R",
+      "visualName": "카니발 R",
+      "releaseYm": "2010-02",
+      "endYm": "2014-08",
+      "listingCount": 302,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_bd3663cdced986f7c720"
+      ],
+      "status": "pending",
+      "priority": 47
+    },
+    {
+      "assetId": "kia_asset_6fcd9391624d00a83c5a",
+      "fileName": "kia_asset_6fcd9391624d00a83c5a.png",
+      "manufacturer": "기아",
+      "model": "모닝",
+      "generationName": "더 뉴 모닝 (JA)",
+      "visualName": "더 뉴 모닝 (JA)",
+      "releaseYm": "2023-07",
+      "endYm": null,
+      "listingCount": 300,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_e3574d6d27351d268a8b"
+      ],
+      "status": "pending",
+      "priority": 48
+    },
+    {
+      "assetId": "kia_asset_bd3ca7b611c22d7aba23",
+      "fileName": "kia_asset_bd3ca7b611c22d7aba23.png",
+      "manufacturer": "기아",
+      "model": "니로",
+      "generationName": "니로",
+      "visualName": "니로",
+      "releaseYm": "2016-03",
+      "endYm": "2019-05",
+      "listingCount": 294,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_23c829f5d25929443e86"
+      ],
+      "status": "pending",
+      "priority": 49
+    },
+    {
+      "assetId": "kia_asset_94bc22e43a41e3b468af",
+      "fileName": "kia_asset_94bc22e43a41e3b468af.png",
+      "manufacturer": "기아",
+      "model": "K5",
+      "generationName": "더 뉴 K5",
+      "visualName": "더 뉴 K5",
+      "releaseYm": "2013-06",
+      "endYm": "2015-09",
+      "listingCount": 286,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_64cdc369e70ce7d05bc7"
+      ],
+      "status": "pending",
+      "priority": 50
+    },
+    {
+      "assetId": "kia_asset_8dd47f800e3abb06154c",
+      "fileName": "kia_asset_8dd47f800e3abb06154c.png",
+      "manufacturer": "기아",
+      "model": "레이",
+      "generationName": "더 뉴 기아 레이 EV",
+      "visualName": "더 뉴 기아 레이 EV",
+      "releaseYm": "2023-09",
+      "endYm": null,
+      "listingCount": 269,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_f6c994cb4894b02cae58"
+      ],
+      "status": "pending",
+      "priority": 51
+    },
+    {
+      "assetId": "kia_asset_6047818741545909582c",
+      "fileName": "kia_asset_6047818741545909582c.png",
+      "manufacturer": "기아",
+      "model": "니로",
+      "generationName": "디 올 뉴 니로 EV",
+      "visualName": "디 올 뉴 니로 EV",
+      "releaseYm": "2022-05",
+      "endYm": null,
+      "listingCount": 241,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_beb1a043d5ac438486e1"
+      ],
+      "status": "pending",
+      "priority": 52
+    },
+    {
+      "assetId": "kia_asset_b7914000a24631b5faf6",
+      "fileName": "kia_asset_b7914000a24631b5faf6.png",
+      "manufacturer": "기아",
+      "model": "쏘렌토",
+      "generationName": "뉴 쏘렌토 R",
+      "visualName": "뉴 쏘렌토 R",
+      "releaseYm": "2012-07",
+      "endYm": "2014-10",
+      "listingCount": 241,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_b8c02bb234363fe634e5"
+      ],
+      "status": "pending",
+      "priority": 53
+    },
+    {
+      "assetId": "kia_asset_6d45be07d44d5316188b",
+      "fileName": "kia_asset_6d45be07d44d5316188b.png",
+      "manufacturer": "기아",
+      "model": "쏘렌토",
+      "generationName": "쏘렌토 R",
+      "visualName": "쏘렌토 R",
+      "releaseYm": "2009-05",
+      "endYm": "2012-08",
+      "listingCount": 231,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_02102c2cce96418ded00"
+      ],
+      "status": "pending",
+      "priority": 54
+    },
+    {
+      "assetId": "kia_asset_515194a49f20601cf083",
+      "fileName": "kia_asset_515194a49f20601cf083.png",
+      "manufacturer": "기아",
+      "model": "스팅어",
+      "generationName": "스팅어 마이스터",
+      "visualName": "스팅어 마이스터",
+      "releaseYm": "2020-08",
+      "endYm": "2023-06",
+      "listingCount": 207,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_2be1ca224ad6ac114257"
+      ],
+      "status": "pending",
+      "priority": 55
+    },
+    {
+      "assetId": "kia_asset_d7f8e1c76f2a5dba52a8",
+      "fileName": "kia_asset_d7f8e1c76f2a5dba52a8.png",
+      "manufacturer": "기아",
+      "model": "니로",
+      "generationName": "니로 플러스",
+      "visualName": "니로 플러스",
+      "releaseYm": "2022-05",
+      "endYm": null,
+      "listingCount": 197,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_d339e5c53c1104355cb2"
+      ],
+      "status": "pending",
+      "priority": 56
+    },
+    {
+      "assetId": "kia_asset_561a35d623b73a71b4e3",
+      "fileName": "kia_asset_561a35d623b73a71b4e3.png",
+      "manufacturer": "기아",
+      "model": "니로",
+      "generationName": "더 뉴 니로",
+      "visualName": "더 뉴 니로",
+      "releaseYm": "2019-03",
+      "endYm": "2022-01",
+      "listingCount": 196,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_d26004a3e392fe727607"
+      ],
+      "status": "pending",
+      "priority": 57
+    },
+    {
+      "assetId": "kia_asset_bffb207ea9ea0347215c",
+      "fileName": "kia_asset_bffb207ea9ea0347215c.png",
+      "manufacturer": "기아",
+      "model": "타스만",
+      "generationName": "타스만",
+      "visualName": "타스만",
+      "releaseYm": "2025-02",
+      "endYm": null,
+      "listingCount": 193,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_41b4ea7b372c6a6cdd41"
+      ],
+      "status": "pending",
+      "priority": 58
+    },
+    {
+      "assetId": "kia_asset_d27e82807af07580c7a4",
+      "fileName": "kia_asset_d27e82807af07580c7a4.png",
+      "manufacturer": "기아",
+      "model": "EV3",
+      "generationName": "EV3",
+      "visualName": "EV3",
+      "releaseYm": "2024-07",
+      "endYm": null,
+      "listingCount": 191,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_0bdea39acb2b8bc13060"
+      ],
+      "status": "pending",
+      "priority": 59
+    },
+    {
+      "assetId": "kia_asset_a03c51f5f3490687fbfc",
+      "fileName": "kia_asset_a03c51f5f3490687fbfc.png",
+      "manufacturer": "기아",
+      "model": "EV9",
+      "generationName": "EV9",
+      "visualName": "EV9",
+      "releaseYm": "2023-05",
+      "endYm": null,
+      "listingCount": 143,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_0c8f9830dc522216dfda"
+      ],
+      "status": "pending",
+      "priority": 60
+    },
+    {
+      "assetId": "kia_asset_0efa43e6fdbf197ef861",
+      "fileName": "kia_asset_0efa43e6fdbf197ef861.png",
+      "manufacturer": "기아",
+      "model": "K9",
+      "generationName": "K9",
+      "visualName": "K9",
+      "releaseYm": "2012-05",
+      "endYm": "2014-12",
+      "listingCount": 126,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_7383ab96d65480e5d383"
+      ],
+      "status": "pending",
+      "priority": 61
+    },
+    {
+      "assetId": "kia_asset_86688d4b44baf25fc4c5",
+      "fileName": "kia_asset_86688d4b44baf25fc4c5.png",
+      "manufacturer": "기아",
+      "model": "K9",
+      "generationName": "더 뉴 K9",
+      "visualName": "더 뉴 K9",
+      "releaseYm": "2014-11",
+      "endYm": "2018-06",
+      "listingCount": 124,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_6d69138f7b358f595ce5"
+      ],
+      "status": "pending",
+      "priority": 62
+    },
+    {
+      "assetId": "kia_asset_082a619ce2373992950e",
+      "fileName": "kia_asset_082a619ce2373992950e.png",
+      "manufacturer": "기아",
+      "model": "니로",
+      "generationName": "니로 EV",
+      "visualName": "니로 EV",
+      "releaseYm": "2018-07",
+      "endYm": "2022-05",
+      "listingCount": 123,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_544dd17521559c2ba018"
+      ],
+      "status": "pending",
+      "priority": 63
+    },
+    {
+      "assetId": "kia_asset_d8164642febd3b7e3556",
+      "fileName": "kia_asset_d8164642febd3b7e3556.png",
+      "manufacturer": "기아",
+      "model": "모닝",
+      "generationName": "뉴모닝",
+      "visualName": "뉴모닝",
+      "releaseYm": "2008-01",
+      "endYm": "2011-03",
+      "listingCount": 121,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_fc09e7a5b81ccb78e4ea"
+      ],
+      "status": "pending",
+      "priority": 64
+    },
+    {
+      "assetId": "kia_asset_463bda1495b6b85c18d3",
+      "fileName": "kia_asset_463bda1495b6b85c18d3.png",
+      "manufacturer": "기아",
+      "model": "프라이드",
+      "generationName": "올 뉴 프라이드",
+      "visualName": "올 뉴 프라이드",
+      "releaseYm": "2011-10",
+      "endYm": "2015-03",
+      "listingCount": 114,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_c253945532e8c06aabb8"
+      ],
+      "status": "pending",
+      "priority": 65
+    },
+    {
+      "assetId": "kia_asset_30bcc386cabe4547c659",
+      "fileName": "kia_asset_30bcc386cabe4547c659.png",
+      "manufacturer": "기아",
+      "model": "셀토스",
+      "generationName": "셀토스 2세대",
+      "visualName": "셀토스 2세대",
+      "releaseYm": "2026-01",
+      "endYm": null,
+      "listingCount": 90,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_191774e2c7a5533206cd"
+      ],
+      "status": "pending",
+      "priority": 66
+    },
+    {
+      "assetId": "kia_asset_66ed0514ed809c7c46cf",
+      "fileName": "kia_asset_66ed0514ed809c7c46cf.png",
+      "manufacturer": "기아",
+      "model": "쏘울",
+      "generationName": "쏘울",
+      "visualName": "쏘울",
+      "releaseYm": "2008-09",
+      "endYm": "2013-12",
+      "listingCount": 78,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_471f10b59ae99c8e10f5"
+      ],
+      "status": "pending",
+      "priority": 67
+    },
+    {
+      "assetId": "kia_asset_9a2bf3e1a0ffa3dc91ed",
+      "fileName": "kia_asset_9a2bf3e1a0ffa3dc91ed.png",
+      "manufacturer": "기아",
+      "model": "카렌스",
+      "generationName": "올 뉴 카렌스",
+      "visualName": "올 뉴 카렌스",
+      "releaseYm": "2013-04",
+      "endYm": "2016-09",
+      "listingCount": 75,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_1d6afcfa79fd7a2a73ab"
+      ],
+      "status": "pending",
+      "priority": 68
+    },
+    {
+      "assetId": "kia_asset_291ace606402bd5b12ee",
+      "fileName": "kia_asset_291ace606402bd5b12ee.png",
+      "manufacturer": "기아",
+      "model": "K7",
+      "generationName": "더 프레스티지 K7",
+      "visualName": "더 프레스티지 K7",
+      "releaseYm": "2011-02",
+      "endYm": "2012-12",
+      "listingCount": 74,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_6005c48ed9bcbc4e5591"
+      ],
+      "status": "pending",
+      "priority": 69
+    },
+    {
+      "assetId": "kia_asset_f6c04b91fdd31d8662b1",
+      "fileName": "kia_asset_f6c04b91fdd31d8662b1.png",
+      "manufacturer": "기아",
+      "model": "쏘울",
+      "generationName": "올 뉴 쏘울",
+      "visualName": "올 뉴 쏘울",
+      "releaseYm": "2013-10",
+      "endYm": "2016-10",
+      "listingCount": 72,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_ed24613a4f038b17cc9e"
+      ],
+      "status": "pending",
+      "priority": 70
+    },
+    {
+      "assetId": "kia_asset_7149e31ef690d10fc083",
+      "fileName": "kia_asset_7149e31ef690d10fc083.png",
+      "manufacturer": "기아",
+      "model": "쏘울",
+      "generationName": "쏘울 부스터",
+      "visualName": "쏘울 부스터",
+      "releaseYm": "2019-01",
+      "endYm": "2021-01",
+      "listingCount": 70,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_8bf18834da38bbda058c"
+      ],
+      "status": "pending",
+      "priority": 71
+    },
+    {
+      "assetId": "kia_asset_fa6b4a0868cd3f72116e",
+      "fileName": "kia_asset_fa6b4a0868cd3f72116e.png",
+      "manufacturer": "기아",
+      "model": "프라이드",
+      "generationName": "더 뉴 프라이드",
+      "visualName": "더 뉴 프라이드",
+      "releaseYm": "2015-01",
+      "endYm": "2017-09",
+      "listingCount": 63,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_098071f5ce295cde35f0"
+      ],
+      "status": "pending",
+      "priority": 72
+    },
+    {
+      "assetId": "kia_asset_03697fff446256e6be84",
+      "fileName": "kia_asset_03697fff446256e6be84.png",
+      "manufacturer": "기아",
+      "model": "K7",
+      "generationName": "K7 하이브리드",
+      "visualName": "K7",
+      "releaseYm": "2013-12",
+      "endYm": "2016-12",
+      "listingCount": 62,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_4c3f204adb0d6e842ad3",
+        "model_car_encar_generation_a3ac71775b2b4c78349b"
+      ],
+      "status": "pending",
+      "priority": 73
+    },
+    {
+      "assetId": "kia_asset_e253eaf4e2ac7929885d",
+      "fileName": "kia_asset_e253eaf4e2ac7929885d.png",
+      "manufacturer": "기아",
+      "model": "카렌스",
+      "generationName": "뉴카렌스",
+      "visualName": "뉴카렌스",
+      "releaseYm": "2006-05",
+      "endYm": "2013-05",
+      "listingCount": 55,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_d6f25aecdee1a7a35548"
+      ],
+      "status": "pending",
+      "priority": 74
+    },
+    {
+      "assetId": "kia_asset_8544f7b1ec2cd6f2f7ef",
+      "fileName": "kia_asset_8544f7b1ec2cd6f2f7ef.png",
+      "manufacturer": "기아",
+      "model": "포르테",
+      "generationName": "포르테",
+      "visualName": "포르테",
+      "releaseYm": "2008-08",
+      "endYm": "2013-10",
+      "listingCount": 50,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_6d6b41d8fc9797c744f9"
+      ],
+      "status": "pending",
+      "priority": 75
+    },
+    {
+      "assetId": "kia_asset_326e53e4fba781b36ad7",
+      "fileName": "kia_asset_326e53e4fba781b36ad7.png",
+      "manufacturer": "기아",
+      "model": "EV6",
+      "generationName": "더 뉴 EV6",
+      "visualName": "더 뉴 EV6",
+      "releaseYm": "2024-05",
+      "endYm": null,
+      "listingCount": 50,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_fa445ccb2d0d6c5063b5"
+      ],
+      "status": "pending",
+      "priority": 76
+    },
+    {
+      "assetId": "kia_asset_2e523ff52c1b596302ef",
+      "fileName": "kia_asset_2e523ff52c1b596302ef.png",
+      "manufacturer": "기아",
+      "model": "EV5",
+      "generationName": "EV5",
+      "visualName": "EV5",
+      "releaseYm": "2025-09",
+      "endYm": null,
+      "listingCount": 48,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_8232da4f24cf20d2ce84"
+      ],
+      "status": "pending",
+      "priority": 77
+    },
+    {
+      "assetId": "kia_asset_c647ce87b917e8067308",
+      "fileName": "kia_asset_c647ce87b917e8067308.png",
+      "manufacturer": "기아",
+      "model": "포르테",
+      "generationName": "포르테 쿱",
+      "visualName": "포르테 쿱",
+      "releaseYm": "2009-06",
+      "endYm": "2013-10",
+      "listingCount": 41,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_1350508cd5901f32b8a8"
+      ],
+      "status": "pending",
+      "priority": 78
+    },
+    {
+      "assetId": "kia_asset_48efb497eb64954ff5a5",
+      "fileName": "kia_asset_48efb497eb64954ff5a5.png",
+      "manufacturer": "기아",
+      "model": "EV4",
+      "generationName": "EV4",
+      "visualName": "EV4",
+      "releaseYm": "2025-03",
+      "endYm": null,
+      "listingCount": 41,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_92c9dfaaef5648b1e27f"
+      ],
+      "status": "pending",
+      "priority": 79
+    },
+    {
+      "assetId": "kia_asset_71f7329c7a73ca74fc3f",
+      "fileName": "kia_asset_71f7329c7a73ca74fc3f.png",
+      "manufacturer": "기아",
+      "model": "오피러스",
+      "generationName": "오피러스 프리미엄",
+      "visualName": "오피러스 프리미엄",
+      "releaseYm": "2009-05",
+      "endYm": "2011-12",
+      "listingCount": 33,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_87fe28c7ccee6c1fde2e"
+      ],
+      "status": "pending",
+      "priority": 80
+    },
+    {
+      "assetId": "kia_asset_193aa7ba6e55e17deac7",
+      "fileName": "kia_asset_193aa7ba6e55e17deac7.png",
+      "manufacturer": "기아",
+      "model": "쏘울",
+      "generationName": "쏘울 EV",
+      "visualName": "쏘울 EV",
+      "releaseYm": "2014-04",
+      "endYm": "2019-05",
+      "listingCount": 30,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_7855fc8c189afb2d990d"
+      ],
+      "status": "pending",
+      "priority": 81
+    },
+    {
+      "assetId": "kia_asset_27044ea71b6f7e7f0a11",
+      "fileName": "kia_asset_27044ea71b6f7e7f0a11.png",
+      "manufacturer": "기아",
+      "model": "PV5",
+      "generationName": "PV5",
+      "visualName": "PV5",
+      "releaseYm": "2025-06",
+      "endYm": null,
+      "listingCount": 25,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_f06f6f6be927684c1582"
+      ],
+      "status": "pending",
+      "priority": 82
+    },
+    {
+      "assetId": "kia_asset_55624a20baf9384ccd9c",
+      "fileName": "kia_asset_55624a20baf9384ccd9c.png",
+      "manufacturer": "기아",
+      "model": "카렌스",
+      "generationName": "더 뉴 카렌스",
+      "visualName": "더 뉴 카렌스",
+      "releaseYm": "2016-07",
+      "endYm": "2018-10",
+      "listingCount": 21,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_d5464ac880202f169db5"
+      ],
+      "status": "pending",
+      "priority": 83
+    },
+    {
+      "assetId": "kia_asset_640fb8d568b26d68c23a",
+      "fileName": "kia_asset_640fb8d568b26d68c23a.png",
+      "manufacturer": "기아",
+      "model": "니로",
+      "generationName": "더 뉴 니로 2세대",
+      "visualName": "더 뉴 니로 2세대",
+      "releaseYm": "2026-06",
+      "endYm": null,
+      "listingCount": 16,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_3c0b8186d338f876f54d"
+      ],
+      "status": "pending",
+      "priority": 84
+    },
+    {
+      "assetId": "kia_asset_7ff50a839a8ddeb0acc0",
+      "fileName": "kia_asset_7ff50a839a8ddeb0acc0.png",
+      "manufacturer": "기아",
+      "model": "카니발",
+      "generationName": "그랜드 카니발",
+      "visualName": "그랜드 카니발",
+      "releaseYm": "2005-07",
+      "endYm": "2010-03",
+      "listingCount": 16,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_a377e8ac8ee66e5709d5"
+      ],
+      "status": "pending",
+      "priority": 85
+    },
+    {
+      "assetId": "kia_asset_d0fa1fbbc04341f6d51c",
+      "fileName": "kia_asset_d0fa1fbbc04341f6d51c.png",
+      "manufacturer": "기아",
+      "model": "쏘울",
+      "generationName": "더 뉴 쏘울",
+      "visualName": "더 뉴 쏘울",
+      "releaseYm": "2016-08",
+      "endYm": "2019-03",
+      "listingCount": 14,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_af4f4ca15ec18d7b9c5b"
+      ],
+      "status": "pending",
+      "priority": 86
+    },
+    {
+      "assetId": "kia_asset_f89aef4b8c4a68f57b3a",
+      "fileName": "kia_asset_f89aef4b8c4a68f57b3a.png",
+      "manufacturer": "기아",
+      "model": "로체",
+      "generationName": "로체 이노베이션",
+      "visualName": "로체 이노베이션",
+      "releaseYm": "2008-06",
+      "endYm": "2010-06",
+      "listingCount": 13,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_3fbe2845e266e31ec1ee"
+      ],
+      "status": "pending",
+      "priority": 87
+    },
+    {
+      "assetId": "kia_asset_45c3a9007fd772150bab",
+      "fileName": "kia_asset_45c3a9007fd772150bab.png",
+      "manufacturer": "기아",
+      "model": "프라이드",
+      "generationName": "프라이드",
+      "visualName": "프라이드",
+      "releaseYm": "1987-03",
+      "endYm": "2000-03",
+      "listingCount": 13,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_5fc5086b8e399cfc46f9"
+      ],
+      "status": "pending",
+      "priority": 88
+    },
+    {
+      "assetId": "kia_asset_43005a688b6f8595de43",
+      "fileName": "kia_asset_43005a688b6f8595de43.png",
+      "manufacturer": "기아",
+      "model": "쏘울",
+      "generationName": "쏘울 부스터 EV",
+      "visualName": "쏘울 부스터 EV",
+      "releaseYm": "2019-03",
+      "endYm": "2021-01",
+      "listingCount": 11,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_49bab2c958824e57a409"
+      ],
+      "status": "pending",
+      "priority": 89
+    },
+    {
+      "assetId": "kia_asset_1445d6c4e5ae272aa03c",
+      "fileName": "kia_asset_1445d6c4e5ae272aa03c.png",
+      "manufacturer": "기아",
+      "model": "프라이드",
+      "generationName": "프라이드(신형)",
+      "visualName": "프라이드(신형)",
+      "releaseYm": "2005-04",
+      "endYm": "2011-10",
+      "listingCount": 11,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_ae2b2958cc43ef31e28f"
+      ],
+      "status": "pending",
+      "priority": 90
+    },
+    {
+      "assetId": "kia_asset_cbd29ea913bdf1200053",
+      "fileName": "kia_asset_cbd29ea913bdf1200053.png",
+      "manufacturer": "기아",
+      "model": "K3",
+      "generationName": "K3 쿱",
+      "visualName": "K3 쿱",
+      "releaseYm": "2013-08",
+      "endYm": "2016-05",
+      "listingCount": 11,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_15ca8e8ce8e5c3242641"
+      ],
+      "status": "pending",
+      "priority": 91
+    },
+    {
+      "assetId": "kia_asset_ee4f8cc6e44b784b37d3",
+      "fileName": "kia_asset_ee4f8cc6e44b784b37d3.png",
+      "manufacturer": "기아",
+      "model": "스포티지",
+      "generationName": "New 스포티지",
+      "visualName": "New 스포티지",
+      "releaseYm": "2004-08",
+      "endYm": "2010-05",
+      "listingCount": 10,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_65cd8d612ab054acd638"
+      ],
+      "status": "pending",
+      "priority": 92
+    },
+    {
+      "assetId": "kia_asset_5ac9b24620858b2b9550",
+      "fileName": "kia_asset_5ac9b24620858b2b9550.png",
+      "manufacturer": "기아",
+      "model": "오피러스",
+      "generationName": "뉴오피러스",
+      "visualName": "뉴오피러스",
+      "releaseYm": "2006-06",
+      "endYm": "2009-07",
+      "listingCount": 8,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_1a9b03dfe0ce8ae03d91"
+      ],
+      "status": "pending",
+      "priority": 93
+    },
+    {
+      "assetId": "kia_asset_4458605619938d774664",
+      "fileName": "kia_asset_4458605619938d774664.png",
+      "manufacturer": "기아",
+      "model": "모닝",
+      "generationName": "모닝",
+      "visualName": "모닝",
+      "releaseYm": "2004-02",
+      "endYm": "2008-03",
+      "listingCount": 4,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_3a6e97cae942c8c40348"
+      ],
+      "status": "pending",
+      "priority": 94
+    },
+    {
+      "assetId": "kia_asset_f813687fdf14f84f7c14",
+      "fileName": "kia_asset_f813687fdf14f84f7c14.png",
+      "manufacturer": "기아",
+      "model": "엘란",
+      "generationName": "엘란",
+      "visualName": "엘란",
+      "releaseYm": "1996-07",
+      "endYm": "2000-03",
+      "listingCount": 4,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_3cc864115948c9f05ef4"
+      ],
+      "status": "pending",
+      "priority": 95
+    },
+    {
+      "assetId": "kia_asset_8e4231ab804cda4c1aad",
+      "fileName": "kia_asset_8e4231ab804cda4c1aad.png",
+      "manufacturer": "기아",
+      "model": "캐피탈",
+      "generationName": "캐피탈",
+      "visualName": "캐피탈",
+      "releaseYm": "1989-03",
+      "endYm": "1996-12",
+      "listingCount": 4,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_b630382913d47f8d37d0"
+      ],
+      "status": "pending",
+      "priority": 96
+    },
+    {
+      "assetId": "kia_asset_9bd755e6bff50ff63e42",
+      "fileName": "kia_asset_9bd755e6bff50ff63e42.png",
+      "manufacturer": "기아",
+      "model": "K3",
+      "generationName": "K3 유로",
+      "visualName": "K3 유로",
+      "releaseYm": "2013-09",
+      "endYm": "2016-05",
+      "listingCount": 4,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_bda981a7e9ae9eda86a4"
+      ],
+      "status": "pending",
+      "priority": 97
+    },
+    {
+      "assetId": "kia_asset_27e0a700d12fdc8b5b7a",
+      "fileName": "kia_asset_27e0a700d12fdc8b5b7a.png",
+      "manufacturer": "기아",
+      "model": "로체",
+      "generationName": "로체",
+      "visualName": "로체",
+      "releaseYm": "2005-11",
+      "endYm": "2007-06",
+      "listingCount": 3,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_401db67e518fee4ddc70"
+      ],
+      "status": "pending",
+      "priority": 98
+    },
+    {
+      "assetId": "kia_asset_cedc53b7dcbf8007f825",
+      "fileName": "kia_asset_cedc53b7dcbf8007f825.png",
+      "manufacturer": "기아",
+      "model": "봉고III 미니버스",
+      "generationName": "봉고III 미니버스",
+      "visualName": "봉고III 미니버스",
+      "releaseYm": "2004-02",
+      "endYm": "2005-08",
+      "listingCount": 3,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_f563b3bc23213257811d"
+      ],
+      "status": "pending",
+      "priority": 99
+    },
+    {
+      "assetId": "kia_asset_5509b710aa54fd94f3c2",
+      "fileName": "kia_asset_5509b710aa54fd94f3c2.png",
+      "manufacturer": "기아",
+      "model": "카니발",
+      "generationName": "뉴카니발",
+      "visualName": "뉴카니발",
+      "releaseYm": "2006-02",
+      "endYm": "2010-03",
+      "listingCount": 3,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_e3ff5c35aa5017b60fad"
+      ],
+      "status": "pending",
+      "priority": 100
+    },
+    {
+      "assetId": "kia_asset_b0df8ff9110f16585246",
+      "fileName": "kia_asset_b0df8ff9110f16585246.png",
+      "manufacturer": "기아",
+      "model": "K3",
+      "generationName": "더 뉴 K3 쿱",
+      "visualName": "더 뉴 K3 쿱",
+      "releaseYm": "2016-03",
+      "endYm": "2017-05",
+      "listingCount": 3,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_4b9d8f6d71ada0c4a908"
+      ],
+      "status": "pending",
+      "priority": 101
+    },
+    {
+      "assetId": "kia_asset_01f607ce137ca35288b4",
+      "fileName": "kia_asset_01f607ce137ca35288b4.png",
+      "manufacturer": "기아",
+      "model": "로체",
+      "generationName": "로체 어드밴스",
+      "visualName": "로체 어드밴스",
+      "releaseYm": "2007-05",
+      "endYm": "2008-08",
+      "listingCount": 2,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_cd2d9c2813f6d8a5a462"
+      ],
+      "status": "pending",
+      "priority": 102
+    },
+    {
+      "assetId": "kia_asset_1dfe3836137b46e40e95",
+      "fileName": "kia_asset_1dfe3836137b46e40e95.png",
+      "manufacturer": "기아",
+      "model": "아벨라",
+      "generationName": "아벨라",
+      "visualName": "아벨라",
+      "releaseYm": "1994-03",
+      "endYm": "2000-04",
+      "listingCount": 2,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_51ec21000c65b2bceca0"
+      ],
+      "status": "pending",
+      "priority": 103
+    },
+    {
+      "assetId": "kia_asset_aacd8d2f7de404ac70ea",
+      "fileName": "kia_asset_aacd8d2f7de404ac70ea.png",
+      "manufacturer": "기아",
+      "model": "포르테",
+      "generationName": "포르테 해치백",
+      "visualName": "포르테 해치백",
+      "releaseYm": "2010-10",
+      "endYm": "2013-06",
+      "listingCount": 2,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_859adf0b4e66c4b306ca"
+      ],
+      "status": "pending",
+      "priority": 104
+    },
+    {
+      "assetId": "kia_asset_798122610c1e2c173339",
+      "fileName": "kia_asset_798122610c1e2c173339.png",
+      "manufacturer": "기아",
+      "model": "프레지오",
+      "generationName": "프레지오",
+      "visualName": "프레지오",
+      "releaseYm": "1995-11",
+      "endYm": "2004-04",
+      "listingCount": 2,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_3a4929595478c8e3a152"
+      ],
+      "status": "pending",
+      "priority": 105
+    },
+    {
+      "assetId": "kia_asset_6e216938ba9db66f1a1b",
+      "fileName": "kia_asset_6e216938ba9db66f1a1b.png",
+      "manufacturer": "기아",
+      "model": "록스타",
+      "generationName": "록스타",
+      "visualName": "록스타",
+      "releaseYm": "1990-02",
+      "endYm": "1993-04",
+      "listingCount": 1,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_fed5ac4a48632d171dc4"
+      ],
+      "status": "pending",
+      "priority": 106
+    },
+    {
+      "assetId": "kia_asset_6e848e94250e0cf02c0e",
+      "fileName": "kia_asset_6e848e94250e0cf02c0e.png",
+      "manufacturer": "기아",
+      "model": "리갈",
+      "generationName": "리갈",
+      "visualName": "리갈",
+      "releaseYm": "2002-05",
+      "endYm": "2005-12",
+      "listingCount": 1,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_e092ee24548dc6474706"
+      ],
+      "status": "pending",
+      "priority": 107
+    },
+    {
+      "assetId": "kia_asset_f4ddf94651752eccefdf",
+      "fileName": "kia_asset_f4ddf94651752eccefdf.png",
+      "manufacturer": "기아",
+      "model": "비스토",
+      "generationName": "비스토",
+      "visualName": "비스토",
+      "releaseYm": "1999-04",
+      "endYm": "2004-04",
+      "listingCount": 1,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_cbbc8deb069511ccbd16"
+      ],
+      "status": "pending",
+      "priority": 108
+    },
+    {
+      "assetId": "kia_asset_362348610ca108f13d60",
+      "fileName": "kia_asset_362348610ca108f13d60.png",
+      "manufacturer": "기아",
+      "model": "스펙트라",
+      "generationName": "스펙트라",
+      "visualName": "스펙트라",
+      "releaseYm": "2000-05",
+      "endYm": "2004-05",
+      "listingCount": 1,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_10db9886e3ea585a6b68"
+      ],
+      "status": "pending",
+      "priority": 109
+    },
+    {
+      "assetId": "kia_asset_8acf7e8d0fd106bbf05d",
+      "fileName": "kia_asset_8acf7e8d0fd106bbf05d.png",
+      "manufacturer": "기아",
+      "model": "엔터프라이즈",
+      "generationName": "엔터프라이즈",
+      "visualName": "엔터프라이즈",
+      "releaseYm": "1997-03",
+      "endYm": "2002-12",
+      "listingCount": 1,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_191dfcef82450107aa63"
+      ],
+      "status": "pending",
+      "priority": 110
+    },
+    {
+      "assetId": "kia_asset_05b0351940483b970710",
+      "fileName": "kia_asset_05b0351940483b970710.png",
+      "manufacturer": "기아",
+      "model": "오피러스",
+      "generationName": "오피러스",
+      "visualName": "오피러스",
+      "releaseYm": "2003-03",
+      "endYm": "2006-07",
+      "listingCount": 1,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_28c44b134671bac72e0a"
+      ],
+      "status": "pending",
+      "priority": 111
+    },
+    {
+      "assetId": "kia_asset_201da59370f717860b50",
+      "fileName": "kia_asset_201da59370f717860b50.png",
+      "manufacturer": "기아",
+      "model": "카니발",
+      "generationName": "카니발 II",
+      "visualName": "카니발 II",
+      "releaseYm": "2001-02",
+      "endYm": "2005-12",
+      "listingCount": 1,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_a203250f322e86295f14"
+      ],
+      "status": "pending",
+      "priority": 112
+    },
+    {
+      "assetId": "kia_asset_cd872bbc28c0e5617f4f",
+      "fileName": "kia_asset_cd872bbc28c0e5617f4f.png",
+      "manufacturer": "기아",
+      "model": "타우너",
+      "generationName": "타우너",
+      "visualName": "타우너",
+      "releaseYm": "1992-05",
+      "endYm": "2002-12",
+      "listingCount": 1,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_9cfc732a050b6366c7e6"
+      ],
+      "status": "pending",
+      "priority": 113
+    },
+    {
+      "assetId": "kia_asset_32f49769dc7f51221697",
+      "fileName": "kia_asset_32f49769dc7f51221697.png",
+      "manufacturer": "기아",
+      "model": "포텐샤",
+      "generationName": "포텐샤",
+      "visualName": "포텐샤",
+      "releaseYm": "1992-04",
+      "endYm": "1997-09",
+      "listingCount": 1,
+      "colorSourcePriority": [
+        "mobile.de",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "미확인",
+      "colorEvidence": "미확인",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_dc681ab7fc65f8ac8360"
+      ],
+      "status": "pending",
+      "priority": 114
+    }
+  ]
+}
