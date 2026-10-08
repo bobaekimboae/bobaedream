@@ -12,6 +12,7 @@ const GENERATION_IMAGE_MAP_URLS = [
   "./data/encar-car-depth-1005/generation-images/porsche.json",
   "./data/hyundai-catalog-v2/generation-images-available.json",
   "./data/kia-catalog-v1/generation-images-available.json",
+  "./data/genesis-catalog-v1/generation-images-available.json",
 ];
 const GENERATION_SUPPLEMENT_URL = "./data/encar-car-depth-1005/generation-supplements/mercedes-benz.json";
 const GENERATION_DISPLAY_IDENTITY_URLS = [

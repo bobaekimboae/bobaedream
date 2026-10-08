@@ -1,0 +1,458 @@
+{
+  "version": "2026-10-07-v01",
+  "manufacturerKey": "make_car_encar_a47b82172f7f62b41be9",
+  "manufacturerName": "제네시스",
+  "sourceModels": 7,
+  "sourceGenerations": 14,
+  "uniqueAssets": 14,
+  "rules": {
+    "master": "1920×1200 transparent PNG",
+    "delivery": "960×600 transparent PNG",
+    "angle": "AutoScout24-style left-facing front three-quarter",
+    "width": "88~90%",
+    "floorGap": "6%",
+    "lighting": "high-key studio, approximately +0.7EV midtone lift",
+    "shadow": "compact contact shadow",
+    "colorPriority": [
+      "Genesis official newsroom/archive",
+      "carisyou.com",
+      "auto.danawa.com"
+    ]
+  },
+  "assets": [
+    {
+      "assetId": "genesis_asset_27060b87da68432beb1a",
+      "fileName": "genesis_asset_27060b87da68432beb1a.png",
+      "manufacturer": "제네시스",
+      "model": "G80",
+      "generationName": "G80 (RG3)",
+      "visualName": "G80 (RG3)",
+      "releaseYm": "2020-03",
+      "endYm": null,
+      "listingCount": 2722,
+      "colorSourcePriority": [
+        "Genesis official newsroom/archive",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "우유니 화이트",
+      "colorEvidence": "https://newsroom.genesis.com/ko-ko/%EC%A0%9C%EB%84%A4%EC%8B%9C%EC%8A%A4-%E3%80%8EThe-All-new-G80-%E3%80%8F%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%B5%9C%EC%B4%88-%EA%B3%B5%EA%B0%9C/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_2e85f227296cc6650da3"
+      ],
+      "status": "completed",
+      "priority": 1,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "genesis_asset_f427ba8401d15d7a4eec",
+      "fileName": "genesis_asset_f427ba8401d15d7a4eec.png",
+      "manufacturer": "제네시스",
+      "model": "GV80",
+      "generationName": "GV80",
+      "visualName": "GV80",
+      "releaseYm": "2020-01",
+      "endYm": null,
+      "listingCount": 2513,
+      "colorSourcePriority": [
+        "Genesis official newsroom/archive",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "카디프 그린",
+      "colorEvidence": "https://newsroom.genesis.com/genesis-luxury-flagship-suv-gv80-debuts-in-seoul/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_ad6567e3dd5560f7f9f0"
+      ],
+      "status": "completed",
+      "priority": 2,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "genesis_asset_58d21c7b143c1d8f2ae7",
+      "fileName": "genesis_asset_58d21c7b143c1d8f2ae7.png",
+      "manufacturer": "제네시스",
+      "model": "G80",
+      "generationName": "G80",
+      "visualName": "G80",
+      "releaseYm": "2016-07",
+      "endYm": "2020-04",
+      "listingCount": 1609,
+      "colorSourcePriority": [
+        "Genesis official newsroom/archive",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "플래티넘 실버",
+      "colorEvidence": "https://www.genesis.com/kr/ko/support/download-center/genesis-models.html",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_98ae25259b4dba785512"
+      ],
+      "status": "completed",
+      "priority": 3,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "genesis_asset_c72fc1f6d9ccbe1464ce",
+      "fileName": "genesis_asset_c72fc1f6d9ccbe1464ce.png",
+      "manufacturer": "제네시스",
+      "model": "GV70",
+      "generationName": "GV70",
+      "visualName": "GV70",
+      "releaseYm": "2021-01",
+      "endYm": null,
+      "listingCount": 1343,
+      "colorSourcePriority": [
+        "Genesis official newsroom/archive",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "마우나 레드",
+      "colorEvidence": "https://newsroom.genesis.com/genesis-previews-second-suv-the-gv70/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_13cfa7822fcdc563c06c"
+      ],
+      "status": "completed",
+      "priority": 4,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "genesis_asset_070d0c556217234ef5a4",
+      "fileName": "genesis_asset_070d0c556217234ef5a4.png",
+      "manufacturer": "제네시스",
+      "model": "G90",
+      "generationName": "G90 (RS4)",
+      "visualName": "G90 (RS4)",
+      "releaseYm": "2021-12",
+      "endYm": null,
+      "listingCount": 908,
+      "colorSourcePriority": [
+        "Genesis official newsroom/archive",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "우유니 화이트",
+      "colorEvidence": "https://newsroom.genesis.com/genesis-unveils-new-flagship-luxury-sedan-the-g90/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_e9f631ed4ad20bf74833"
+      ],
+      "status": "completed",
+      "priority": 5,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "genesis_asset_b97dd5f680bdf1d7e304",
+      "fileName": "genesis_asset_b97dd5f680bdf1d7e304.png",
+      "manufacturer": "제네시스",
+      "model": "G70",
+      "generationName": "G70",
+      "visualName": "G70",
+      "releaseYm": "2017-09",
+      "endYm": "2020-12",
+      "listingCount": 878,
+      "colorSourcePriority": [
+        "Genesis official newsroom/archive",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "라피스 블루",
+      "colorEvidence": "https://newsroom.genesis.com/genesis-g70-resets-expectations-of-customer-focused-performance-and-luxury/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_47647b1a059b051b9178"
+      ],
+      "status": "completed",
+      "priority": 6,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "genesis_asset_16fb6594a7c575b6074a",
+      "fileName": "genesis_asset_16fb6594a7c575b6074a.png",
+      "manufacturer": "제네시스",
+      "model": "EQ900",
+      "generationName": "EQ900",
+      "visualName": "EQ900",
+      "releaseYm": "2015-12",
+      "endYm": "2018-12",
+      "listingCount": 803,
+      "colorSourcePriority": [
+        "Genesis official newsroom/archive",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "마블 화이트",
+      "colorEvidence": "https://newsroom.genesis.com/genesis-brand-launches-its-first-model-g90/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_4a01580fdfaa48edf564"
+      ],
+      "status": "completed",
+      "priority": 7,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "genesis_asset_0744d62f90ebae5900e3",
+      "fileName": "genesis_asset_0744d62f90ebae5900e3.png",
+      "manufacturer": "제네시스",
+      "model": "G90",
+      "generationName": "G90",
+      "visualName": "G90",
+      "releaseYm": "2018-11",
+      "endYm": "2021-11",
+      "listingCount": 744,
+      "colorSourcePriority": [
+        "Genesis official newsroom/archive",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "골드 코스트 실버",
+      "colorEvidence": "https://newsroom.genesis.com/genesis-introduces-redesigned-g90-flagship-sedan/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_631c5519f9a8f14ef326"
+      ],
+      "status": "completed",
+      "priority": 8,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "genesis_asset_2567f3859ae99c980456",
+      "fileName": "genesis_asset_2567f3859ae99c980456.png",
+      "manufacturer": "제네시스",
+      "model": "G70",
+      "generationName": "더 뉴 G70",
+      "visualName": "더 뉴 G70",
+      "releaseYm": "2020-10",
+      "endYm": null,
+      "listingCount": 288,
+      "colorSourcePriority": [
+        "Genesis official newsroom/archive",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "태즈먼 블루",
+      "colorEvidence": "https://newsroom.genesis.com/the-new-genesis-g70-debuts-completes-athletic-elegance-design-alignment-and-luxury-feature-update/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_017d9350211067effbf2"
+      ],
+      "status": "completed",
+      "priority": 9,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "genesis_asset_4b52e8d37e9293fbb1fa",
+      "fileName": "genesis_asset_4b52e8d37e9293fbb1fa.png",
+      "manufacturer": "제네시스",
+      "model": "GV80",
+      "generationName": "GV80 쿠페",
+      "visualName": "GV80 쿠페",
+      "releaseYm": "2023-10",
+      "endYm": null,
+      "listingCount": 142,
+      "colorSourcePriority": [
+        "Genesis official newsroom/archive",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "베링 블루",
+      "colorEvidence": "https://newsroom.genesis.com/genesis-unveils-newly-designed-gv80-and-gv80-coupe/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_9966cf2ef42f38355c3e"
+      ],
+      "status": "completed",
+      "priority": 10,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "genesis_asset_0beafd7a173f726afd26",
+      "fileName": "genesis_asset_0beafd7a173f726afd26.png",
+      "manufacturer": "제네시스",
+      "model": "G80",
+      "generationName": "일렉트리파이드 G80 (RG3)",
+      "visualName": "일렉트리파이드 G80 (RG3)",
+      "releaseYm": "2021-07",
+      "endYm": null,
+      "listingCount": 110,
+      "colorSourcePriority": [
+        "Genesis official newsroom/archive",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "마티라 블루",
+      "colorEvidence": "https://newsroom.genesis.com/genesis-premieres-the-first-electric-vehicle-at-auto-shanghai-2021/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_000ae189e99494edc5a0"
+      ],
+      "status": "completed",
+      "priority": 11,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "genesis_asset_331d56cf216453837ca8",
+      "fileName": "genesis_asset_331d56cf216453837ca8.png",
+      "manufacturer": "제네시스",
+      "model": "GV60",
+      "generationName": "GV60",
+      "visualName": "GV60",
+      "releaseYm": "2021-10",
+      "endYm": null,
+      "listingCount": 101,
+      "colorSourcePriority": [
+        "Genesis official newsroom/archive",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "상파울루 라임",
+      "colorEvidence": "https://newsroom.genesis.com/genesis-premieres-the-gv60-a-luxury-ev-that-connects-a-vehicle-to-a-driver/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_1a41dd36d755c0a68ebd"
+      ],
+      "status": "completed",
+      "priority": 12,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "genesis_asset_a458f55789dee46ec172",
+      "fileName": "genesis_asset_a458f55789dee46ec172.png",
+      "manufacturer": "제네시스",
+      "model": "GV70",
+      "generationName": "일렉트리파이드 GV70",
+      "visualName": "일렉트리파이드 GV70",
+      "releaseYm": "2022-02",
+      "endYm": null,
+      "listingCount": 69,
+      "colorSourcePriority": [
+        "Genesis official newsroom/archive",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "아타카마 코퍼 매트",
+      "colorEvidence": "https://newsroom.genesis.com/genesis-premieres-the-electric-model-of-gv70-at-auto-guangzhou-2021/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_6e088b0bd96e5c063377"
+      ],
+      "status": "completed",
+      "priority": 13,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    },
+    {
+      "assetId": "genesis_asset_13fefdd25418c1060969",
+      "fileName": "genesis_asset_13fefdd25418c1060969.png",
+      "manufacturer": "제네시스",
+      "model": "G70",
+      "generationName": "더 뉴 G70 슈팅브레이크",
+      "visualName": "더 뉴 G70 슈팅브레이크",
+      "releaseYm": "2022-06",
+      "endYm": null,
+      "listingCount": 47,
+      "colorSourcePriority": [
+        "Genesis official newsroom/archive",
+        "carisyou.com",
+        "auto.danawa.com"
+      ],
+      "colorName": "캐번디시 레드",
+      "colorEvidence": "https://newsroom.genesis.com/genesis-previews-the-g70-shooting-brake-for-the-european-market/",
+      "sourceGenerationKeys": [
+        "model_car_encar_generation_0a7f0c65d476f1206d40"
+      ],
+      "status": "completed",
+      "priority": 14,
+      "generator": "Codex built-in image generation",
+      "qa": {
+        "widthPx": 854,
+        "widthPct": 88.96,
+        "floorGapPct": 6,
+        "centerPct": 50,
+        "canvas": "960×600 RGBA"
+      }
+    }
+  ]
+}
