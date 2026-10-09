@@ -418,3 +418,9 @@
 .is-field-mila .bike-reg-input-row > span:last-child { justify-content: flex-start; }
 .is-field-mila .bike-reg-input-row input { color: var(--mila-ink); font-size: 16px; font-weight: 500; text-align: left; }
 .is-field-mila .bike-reg-detail > .bike-reg-error.is-row { margin-top: -18px; }
+
+/* 옵션 시트(10/9): 묶음 제목 14/700 #6A6A6A, 체크 줄 48 + 구분선 #EBEBEB(마지막 줄 없음) */
+.bike-reg-options section + section { margin-top: 20px; }
+.bike-reg-options h3 { margin: 0 0 4px; color: var(--ab-sub); font-size: 14px; line-height: 20px; font-weight: 700; }
+.bike-reg-options .bike-reg-check { min-height: 48px; border-bottom: 1px solid var(--ab-divider); }
+.bike-reg-options .bike-reg-check:last-child { border-bottom: 0; }
