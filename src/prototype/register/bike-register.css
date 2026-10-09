@@ -11,7 +11,12 @@
   --text: #17191c;
   --muted: #777d85;
   --line: #e7e8ea;
+  height: 100dvh;
   min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
   color: var(--text);
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: #f2f3f5;
