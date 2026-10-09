@@ -8,6 +8,81 @@
 .marketplace.is-qf-guazi.is-qf-plain .depth-card-media:not(.is-brand) .kr-model-empty { width: 100%; height: 100%; border: 1px dashed #dadada; border-radius: 6px; }
 .marketplace.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-label { width: 100%; color: #222; }
 
+/* 2026-10-09 비교 시안: 초톳 모바일의 이미지+텍스트 가로 알약칩을 BMW 바이크 모델에 적용한다.
+   원본 1080px 캡처를 3배율로 환산: 높이 41.3→42, 시작 15→16, 간격 11.3→12. */
+.marketplace.is-bike-category.is-qf-guazi .model-image-pill-rail,
+.marketplace.is-bike-category.is-qf-guazi .model-image-pill-rail .brand-carousel,
+.marketplace.is-bike-category.is-qf-guazi .model-image-pill-rail .model-image-pill-track {
+  min-height: 54px;
+}
+
+.marketplace.is-bike-category.is-qf-guazi .model-image-pill-track {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 16px;
+}
+
+.marketplace.is-bike-category.is-qf-guazi .model-image-pill {
+  display: inline-flex;
+  box-sizing: border-box;
+  height: 42px;
+  min-width: max-content;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px 0 10px;
+  border: 1px solid #d1d1d1;
+  border-radius: 21px;
+  background: #fff;
+  color: #222;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.marketplace.is-bike-category.is-qf-guazi .model-image-pill.is-selected {
+  border: 1.5px solid #222;
+}
+
+.marketplace.is-bike-category.is-qf-guazi .model-image-pill__media {
+  display: flex;
+  width: 48px;
+  height: 30px;
+  flex: 0 0 48px;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.marketplace.is-bike-category.is-qf-guazi .model-image-pill__media img {
+  display: block;
+  width: 48px;
+  height: 30px;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.marketplace.is-bike-category.is-qf-guazi .model-image-pill__label {
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.marketplace.is-bike-category.is-qf-guazi .model-image-pill.is-selected .model-image-pill__label {
+  font-weight: 700;
+}
+
+.marketplace.is-bike-category.is-qf-guazi .model-image-pill:active {
+  opacity: .6;
+}
+
+.marketplace.is-bike-category.is-qf-guazi .model-image-pill:focus-visible {
+  outline: 2px solid #222;
+  outline-offset: 2px;
+}
+
 .marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-card-media:not(.is-brand) { width: 76px; height: 40px; margin-top: 6px; }
 .marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-label { margin-top: 14px; font-size: 14px; font-weight: 600; line-height: 21px; }
 .marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-sub { margin-top: 0; font-size: 12px; line-height: 16px; color: #8c8c8c; }
