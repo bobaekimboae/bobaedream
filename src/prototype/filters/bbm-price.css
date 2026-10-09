@@ -1,4 +1,5 @@
-/* 가격 필터: 초톳 모바일웹(384)·PC(1440) 가격 필터 DOM 실측값(2026-10-09). 노랑 #FFD400 → #222, 옅은 노랑 #FFE884 → #8C8C8C */
+/* 가격 필터: 초톳 모바일웹(384)·PC(1440) 가격 필터 DOM 실측 크기(2026-10-09) + 에어비앤비 블랙·그레이 색(전체 필터와 같은 토큰) */
+.pc-overlay, .cf-overlay { --ab-ink: #222222; --ab-sub: #6a6a6a; --ab-mute: #b0b0b0; --ab-line: #dddddd; --ab-divider: #ebebeb; --ab-soft: #f7f7f7; }
 .pc-overlay { position: fixed; inset: 0; z-index: 90; }
 .pc-overlay.is-sheet { display: flex; align-items: flex-end; justify-content: center; background: rgba(0, 0, 0, 0.26); }
 .pc-overlay.is-popover { background: transparent; }
@@ -15,42 +16,42 @@
 .pc-slider-row { display: flex; align-items: center; gap: 12px; height: 48px; }
 .pc-slider-end { flex: none; color: #222; font-size: 14px; font-weight: 400; line-height: 20px; white-space: nowrap; }
 .pc-slider { position: relative; flex: 1; min-width: 0; height: 20px; }
-.pc-track { position: relative; top: 8px; height: 4px; overflow: hidden; border-radius: 4px; background: #e8e8e8; }
+.pc-track { position: relative; top: 8px; height: 4px; overflow: hidden; border-radius: 4px; background: var(--ab-line); }
 .pc-progress { position: absolute; top: 0; bottom: 0; border-radius: 4px; background: #222; }
-.pc-slider:hover .pc-track { background: #dadada; }
-.pc-slider:hover .pc-progress { background: #8c8c8c; }
+.pc-slider:hover .pc-track { background: var(--ab-mute); }
+.pc-slider:hover .pc-progress { background: var(--ab-sub); }
 .pc-ranges { position: absolute; inset: 8px 0 auto; height: 4px; }
 .pc-range { position: absolute; inset: 0; width: 100%; height: 4px; margin: 0; background: none; pointer-events: none; -webkit-appearance: none; appearance: none; }
 .pc-range:focus { outline: none; }
 /* 손잡이: 20×20 원, 흰 바탕, 3px 테두리 */
 .pc-range::-webkit-slider-thumb { width: 20px; height: 20px; box-sizing: border-box; border: 3px solid #222; border-radius: 100%; background: #fff; pointer-events: auto; cursor: pointer; -webkit-appearance: none; appearance: none; }
 .pc-range::-moz-range-thumb { width: 20px; height: 20px; box-sizing: border-box; border: 3px solid #222; border-radius: 100%; background: #fff; pointer-events: auto; cursor: pointer; }
-.pc-slider:hover .pc-range::-webkit-slider-thumb { border-color: #8c8c8c; }
-.pc-slider:hover .pc-range::-moz-range-thumb { border-color: #8c8c8c; }
+.pc-slider:hover .pc-range::-webkit-slider-thumb { border-color: var(--ab-sub); }
+.pc-slider:hover .pc-range::-moz-range-thumb { border-color: var(--ab-sub); }
 .pc-range:focus-visible::-webkit-slider-thumb { border-color: #222; box-shadow: 0 0 0 3px rgba(34, 34, 34, 0.2); }
 .pc-range.is-max { z-index: 1; }
 
 /* 입력 두 칸: 높이 48, 테두리 2 #DADADA, 모서리 12, 사이 「 - 」 좌우 12 */
 .pc-inputs { display: flex; align-items: center; height: 48px; }
 .pc-sep { flex: none; margin: 0 12px; color: #222; font-size: 14px; line-height: 20px; }
-.pc-box { position: relative; display: block; flex: 1; min-width: 0; height: 48px; border: 2px solid #dadada; border-radius: 12px; background: #fff; cursor: text; }
+.pc-box { position: relative; display: block; flex: 1; min-width: 0; height: 48px; border: 2px solid var(--ab-mute); border-radius: 12px; background: #fff; cursor: text; }
 .pc-box:focus-within { border-color: #222; }
 .pc-box.is-error { border-color: #f0325e; }
 .pc-box input { width: 100%; height: 44px; padding: 14px 52px 0 12px; border: 0; border-radius: 10px; outline: 0; background: transparent; color: #222; font: inherit; font-size: 16px; font-weight: 400; line-height: 20px; font-variant-numeric: tabular-nums; }
-.pc-label { position: absolute; top: 13px; left: 12px; color: #595959; font-size: 14px; font-weight: 400; line-height: 20px; white-space: nowrap; transform-origin: 0 0; transition: transform 0.15s, color 0.15s; pointer-events: none; }
+.pc-label { position: absolute; top: 13px; left: 12px; color: var(--ab-sub); font-size: 14px; font-weight: 400; line-height: 20px; white-space: nowrap; transform-origin: 0 0; transition: transform 0.15s, color 0.15s; pointer-events: none; }
 .pc-box.has-value .pc-label, .pc-box:focus-within .pc-label { color: #222; font-weight: 700; transform: translateY(-7.143px) scale(0.7143); }
 .pc-box.is-error .pc-label { color: #f0325e; }
-.pc-unit { position: absolute; top: 16px; right: 12px; color: #8c8c8c; font-size: 14px; line-height: 20px; pointer-events: none; }
+.pc-unit { position: absolute; top: 16px; right: 12px; color: var(--ab-sub); font-size: 14px; line-height: 20px; pointer-events: none; }
 
 /* 오류: 10/16 #E5193B, 입력칸 아래 */
 .pc-error { margin: 4px 0 0; color: #e5193b; font-size: 10px; line-height: 16px; }
 
 /* 아래 버튼: 위 구분선 1 #E8E8E8, 위아래 10 · 좌우 12, 간격 8, 높이 40(PC 32), 모서리 8, 16/700 */
-.pc-actions { display: flex; gap: 8px; margin-top: 12px; padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid #e8e8e8; }
+.pc-actions { display: flex; gap: 8px; margin-top: 12px; padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--ab-divider); }
 .pc-overlay.is-popover .pc-actions { padding-bottom: 10px; }
 .pc-button { flex: 1; height: 40px; border-radius: 8px; font: inherit; font-size: 16px; font-weight: 700; line-height: 24px; cursor: pointer; }
 .pc-overlay.is-popover .pc-button { height: 32px; font-size: 14px; line-height: 20px; }
-.pc-button.is-outline { border: 1px solid #dadada; color: #222; background: #fff; }
+.pc-button.is-outline { border: 1px solid var(--ab-ink); color: var(--ab-ink); background: #fff; }
 .pc-button.is-primary { border: 1px solid #222; color: #fff; background: #222; }
-.pc-button.is-primary:disabled { border-color: #c0c0c0; color: #fff; background: #c0c0c0; cursor: default; }
+.pc-button.is-primary:disabled { border-color: var(--ab-line); color: #fff; background: var(--ab-line); cursor: default; }
 .pc-button:focus-visible { outline: 2px solid #222; outline-offset: 2px; }
