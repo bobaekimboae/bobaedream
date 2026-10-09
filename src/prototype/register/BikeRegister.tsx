@@ -5,7 +5,7 @@ const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : 
 const asset = (path: string) => `${publicBase}${path}`;
 const icons = {
   back: asset("assets/maker-model/icons/finn-back-arrow-18.svg"),
-  close: asset("assets/maker-model/icons/chotot-close.svg"),
+  close: asset("assets/ui/notion-close.svg"),
   search: asset("assets/maker-model/icons/chotot-search-gray.svg"),
   chevron: asset("assets/maker-model/icons/chotot-chevron-right.svg"),
   check: asset("assets/maker-model/icons/chotot-check.svg"),
