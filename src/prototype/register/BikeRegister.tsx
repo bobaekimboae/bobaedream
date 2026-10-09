@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import "./bike-register.css";
 
-const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.baseURI).pathname;
+const asset = (path: string) => `${publicBase}${path}`;
 const icons = {
   back: asset("assets/maker-model/icons/finn-back-arrow-18.svg"),
   close: asset("assets/maker-model/icons/chotot-close.svg"),
@@ -88,7 +89,7 @@ export default function BikeRegister() {
     document.documentElement.classList.add("bbm-bike-register-page");
     document.title = "바이크 매물 등록 - 보배드림";
     window.scrollTo(0, 0);
-    fetch(`${import.meta.env.BASE_URL}data/bike-catalog-1005/catalog.json`)
+    fetch(asset("data/bike-catalog-1005/catalog.json"))
       .then((response) => response.json())
       .then((data) => setMakers((data.makers as BikeMaker[])
         .filter((item) => item.visible !== false)
