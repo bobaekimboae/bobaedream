@@ -843,14 +843,18 @@ function MarketplaceScreen() {
     return { generationsByMakerModelMap: generations, modelVisualsByMakerMap: visuals };
   }, [depthBaseCars, isGuaziQuickStyle, modelsByMakerMap, rawGenerationsByMakerModelMap, rawModelVisualsByMakerMap, supportsVehicleCatalog, vehicleCatalog.index]);
   // 퀵필터 줄(과쯔 카탈로그 제조사): 샘플 매물 1대 이상인 모델·세부 모델만
-  const modelQuickOptions = maker ? (modelsByMakerMap[maker] ?? []).filter((name) => {
+  const modelQuickOptions = maker ? (isBikeCategory && maker === "BMW"
+    ? (bikeModelsByMaker.BMW ?? []).filter((name) => Boolean(bikeListingModelVisualsByMaker.BMW?.[name]?.image)).slice(0, 10)
+    : (modelsByMakerMap[maker] ?? []).filter((name) => {
     if (supportsVehicleCatalog && vehicleCatalog.index) return true;
     if (isBikeCategory) {
       const key = normalizeModelSearchText(name);
-      return Boolean(bikeListingModelsByMaker[maker]?.some((listingName) => normalizeModelSearchText(listingName) === key));
+      const hasListing = bikeListingModelsByMaker[maker]?.some((listingName) => normalizeModelSearchText(listingName) === key);
+      const hasGeneratedQuickImage = Boolean(rawModelVisualsByMakerMap[maker]?.[name]?.image?.includes("/assets/bike/models/"));
+      return Boolean(hasListing || hasGeneratedQuickImage);
     }
     return !isCatalogMaker || modelVisualsByMakerMap[maker]?.[name]?.count !== "0대";
-  }) : [];
+  })) : [];
   const railGenerationOptions = maker && selectedModel ? (generationsByMakerModelMap[maker]?.[selectedModel] ?? []).filter((generation) => !isCatalogMaker || (generation.count ?? 0) > 0) : [];
   // 선택지 옆 매물 수: 그 항목만 뺀 나머지 조건을 모두 반영(원본과 같은 방식). 데이터 없는 항목은 null → 원본 숫자 글자
   const bbmCountOf = (key: BbmCheckKey, option: string) => isBbmDataOption(key, option)
@@ -1231,7 +1235,7 @@ function MarketplaceScreen() {
     if (categoryName === "트럭 · 특장" && detail) chooseTruckFormat(detail);
   };
 
-  const guaziVisualsForMaker = maker ? modelVisualsByMakerMap[maker] : undefined;
+  const guaziVisualsForMaker = maker ? (isBikeCategory && maker === "BMW" ? bikeListingModelVisualsByMaker.BMW : modelVisualsByMakerMap[maker]) : undefined;
   const selectedGenerationVisual = selectedGenerationOption?.image ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.image : undefined);
   const selectedGenerationSummary = selectedGenerationOption
     ? (showGuaziInventoryCounts
@@ -1466,7 +1470,7 @@ function MarketplaceScreen() {
                 </button>
               ))}
             </Carousel>
-          </section> : showModelQuickRail && isGuaziQuickStyle && !isBikeCategory ? <section className={`depth-rail no-label${isLuxuryCategory ? " is-luxury-model-row" : ""}`} aria-label={`${maker} 모델 빠른 선택`}>
+          </section> : showModelQuickRail && isGuaziQuickStyle && (!isBikeCategory || maker === "BMW") ? <section className={`depth-rail no-label${isLuxuryCategory ? " is-luxury-model-row" : ""}${isBikeCategory ? " is-bike-model-row" : ""}`} aria-label={`${maker} 모델 빠른 선택`}>
             <QuickRailCarousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName="depth-rail-track">
               {modelQuickOptions.map((model) => {
                 const modelVisual = guaziVisualsForMaker?.[model];
