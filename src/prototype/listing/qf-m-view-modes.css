@@ -161,3 +161,6 @@
 /* 2026-10-10 「피드와 목록 색상·간격을 목록으로 맞추자」: 사양 줄 색 #595959(목록과 같음), 지역 글자 중심 → 판매자 중심 24(목록 24, 피드는 25였음). 프사 아래 → 구분선 16은 유지 */
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec { color: #595959; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-meta-row { margin-top: -8px; }
+/* 2026-10-10 위치 아이콘 크로스체크(초톳 캡처 2장 일치): 그려진 크기 10.7×13.5, 왼쪽 18.5~29.2, 글자 시작 36.6~37.0. 우리 13px 상자는 8.5×11.0이라 15.6px 상자로 키움(글자 윗선과 아이콘 윗선 일치) */
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-location { gap: 5px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-location img { width: 15.6px; height: 15.6px; margin-left: 0; }
