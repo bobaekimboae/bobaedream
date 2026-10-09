@@ -65,6 +65,8 @@ const forcedMobileDesignWidth = 430;
 type Car = {
   /** 카드 스펙 줄을 그대로 쓸 값(실매물처럼 등록연월·주행을 정확히 보여줄 때). 없으면 bbmCardSpec 이 만든다 */
   cardSpec?: string[];
+  /** 판매자가 입력한 광고 설명. 있으면 목록 카드에서 제원 줄 대신 한 줄로 표시한다 */
+  adDescription?: string;
   /** 전체차량 섞음 목록에서만 쓰는 업데이트순 순위(클수록 위). 없으면 id 로 정렬 */
   updateRank?: number;
   id: number;
@@ -871,8 +873,12 @@ const virtualSellerName = (raw: string, id: number) => /개인/.test(raw) ? priv
 const virtualPlace = (address: string) => address.replace(/\s*·\s*가상 매물 전시장$/, "");
 
 // 사용자 지시 매물(2026-10-07): 샘플 배지 없이 지시값 스펙 줄 고정
-const bikeListingOverridesV01: Record<string, { cardSpec: string[] }> = {
+const bikeListingOverridesV01: Record<string, { cardSpec?: string[]; title?: string; adDescription?: string }> = {
   "bike-001": { cardSpec: ["크루저", "2020", "1만km", "1,202cc"] },
+  "bike-v08-19": {
+    title: "BMW S 1000 RR M팩 커스텀",
+    adDescription: "정품 M팩 카울 · 윈드스크린 · 프레임 슬라이더",
+  },
 };
 // 2026-10-08: 바이크 시트 매물(v08)은 게시일 최신순(같은 날은 시트 순서), 사용자 지시 매물 bike-001은 맨 위. updateRank로 업데이트순을 고정한다
 const bikeInventoryOrdered = [...bikeInventory].sort((a, b) => (a.postedDays ?? -1) - (b.postedDays ?? -1));
@@ -885,7 +891,7 @@ const bikeCars: Car[] = bikeInventoryOrdered.map((row, index) => ({
   sellerType: row.sellerType === "개인 판매" ? "개인" : "딜러",
   image: `bike/listings/${row.imageFile}`,
   imageFit: "cover",
-  title: row.title,
+  title: bikeListingOverridesV01[row.id]?.title ?? row.title,
   // 바이크 제목은 제조사 · 모델만(2026-10-07 사용자 지시). 장르·배기량은 스펙 줄에 있다
   trim: "",
   specs: [`${row.year}년식`, `${row.mileage.toLocaleString("ko-KR")}km`, `${row.displacement.toLocaleString("ko-KR")}cc`, row.fuel],
