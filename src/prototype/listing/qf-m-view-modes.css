@@ -199,3 +199,7 @@
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec:has(.bbm-card-spec-icon) { gap: 0 10px; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec-item { display: inline-flex; flex: none; align-items: center; gap: 3px; }
 .bbm-card-spec-icon { flex: none; display: block; width: 16px; height: 16px; background: currentColor; -webkit-mask: var(--spec-icon) center / contain no-repeat; mask: var(--spec-icon) center / contain no-repeat; }
+/* 아이콘 없는 줄(아이콘 없는 비교 버전 &specicon=off, 아이콘이 없는 카테고리)은 한 줄 유지, 넘치면 마지막 항목만 말줄임 */
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec:not(:has(.bbm-card-spec-icon)) { flex-wrap: nowrap; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec:not(:has(.bbm-card-spec-icon)) .bbm-card-spec-item:nth-last-child(2) { flex: 0 1 auto; min-width: 0; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec:not(:has(.bbm-card-spec-icon)) .bbm-card-spec-item:nth-last-child(2) .bbm-card-spec-text { overflow: hidden; text-overflow: ellipsis; }
