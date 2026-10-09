@@ -94,8 +94,9 @@ function DetailInput({ label, value, unit, required, error, pencil, onChange }: 
 }
 
 // 초톳 입력칸: 테두리 상자 안 작은 라벨 + 값, 비면 빨간 테두리 + 아래 안내
-function BoxField({ label, error, className, children }: { label: string; error?: string; className?: string; children: ReactNode }) {
-  return <div className={`bike-reg-field${className ? ` ${className}` : ""}${error ? " is-error" : ""}`}>
+// 초톳 필터 입력칸(Input Field) 방식: 비어 있으면 라벨이 칸 안 가운데, 값이 있거나 누르면 위로 작게 올라간다(2026-10-09)
+function BoxField({ label, error, className, filled, children }: { label: string; error?: string; className?: string; filled?: boolean; children: ReactNode }) {
+  return <div className={`bike-reg-field${className ? ` ${className}` : ""}${filled ? " has-value" : ""}${error ? " is-error" : ""}`}>
     <label className="bike-reg-field__box"><span className="bike-reg-field__label">{label}<em>*</em></span>{children}</label>
     {error ? <p className="bike-reg-error">{error}</p> : null}
   </div>;
@@ -256,7 +257,10 @@ export default function BikeRegister() {
     district: { title: "구/군 선택", options: (regionDistricts[addrDraft.sido] ?? []) as string[], selected: addrDraft.district },
   } as const;
 
-  const choose = (value: string) => {
+  const choose = (picked: string) => {
+    // 초톳 필터 라디오: 이미 고른 항목을 다시 누르면 선택을 해제한다(시·도, 구·군은 제외)
+    const current = picker ? (pickerMap as Record<string, { selected: string }>)[picker]?.selected : "";
+    const value = picker !== "sido" && picker !== "district" && current === picked ? "" : picked;
     if (picker === "sido") setAddrDraft((current) => ({ ...current, sido: value, district: current.sido === value ? current.district : "" }));
     if (picker === "district") setAddrDraft((current) => ({ ...current, district: value }));
     if (picker === "maker") { setMaker(value); setModel(""); }
@@ -339,23 +343,23 @@ export default function BikeRegister() {
           </div>
           <p className={`bike-reg-media-hint${errors.photos ? " is-error" : ""}`}>{errors.photos ? "사진을 1장 이상 올려 주세요" : `길게 눌러 사진 순서를 바꿀 수 있어요 · ${photos.length}/${maxPhotos}`}</p>
 
-          <BoxField label="매물 설명" className="is-textarea" error={errors.description}>
+          <BoxField label="매물 설명" className="is-textarea" filled={Boolean(description)} error={errors.description}>
             <textarea maxLength={1500} value={description} placeholder="바이크의 상태와 특징을 자세히 알려주세요." onChange={(event) => setDescription(event.currentTarget.value)} />
           </BoxField>
           <p className="bike-reg-counter is-description">{description.length}/1500자</p>
-          <BoxField label="매물 제목" error={errors.title}>
+          <BoxField label="매물 제목" filled={Boolean(title)} error={errors.title}>
             <input maxLength={titleMax} value={title} placeholder="예: 혼다 PCX 125 무사고" onChange={(event) => setTitle(event.currentTarget.value)} />
             {title ? <button type="button" className="bike-reg-field__clear" aria-label="제목 지우기" onClick={(event) => { event.preventDefault(); setTitle(""); }}><img src={icons.clear} alt="" /></button> : null}
           </BoxField>
           <p className="bike-reg-counter">{title.length}/{titleMax}자</p>
-          <BoxField label="판매가격" error={errors.price}>
+          <BoxField label="판매가격" filled={Boolean(price)} error={errors.price}>
             <input inputMode="numeric" value={withComma(price)} placeholder="가격 입력" onChange={(event) => setPrice(digits(event.currentTarget.value).slice(0, 7))} />
             <b className="bike-reg-field__unit">만원</b>
           </BoxField>
-          <div className={`bike-reg-field is-select${errors.address ? " is-error" : ""}`}>
+          <div className={`bike-reg-field is-select${sido ? " has-value" : ""}${errors.address ? " is-error" : ""}`}>
             <button type="button" className="bike-reg-field__box" onClick={openAddress}>
               <span className="bike-reg-field__label">거래지역<em>*</em></span>
-              <span className={`bike-reg-field__value${sido ? "" : " is-empty"}`}>{sido ? [sido, district, detailAddress].filter(Boolean).join(" ") : "지역 선택"}</span>
+              <span className={`bike-reg-field__value${sido ? "" : " is-empty"}`}>{sido ? [sido, district, detailAddress].filter(Boolean).join(" ") : ""}</span>
               <img className="bike-reg-field__caret" src={icons.caret} alt="" />
             </button>
             {errors.address ? <p className="bike-reg-error">{errors.address}</p> : null}
@@ -395,8 +399,8 @@ export default function BikeRegister() {
     </div>
     {sheet === "address" ? <BottomSheet title="거래 지역" onClose={() => setSheet(null)} footer={<button type="button" className="is-primary is-wide" onClick={applyAddress}>완료</button>}>
       <div className="bike-reg-address">
-        <div className="bike-reg-field is-select"><button type="button" className="bike-reg-field__box" onClick={() => setPicker("sido")}><span className="bike-reg-field__label">시/도<em>*</em></span><span className={`bike-reg-field__value${addrDraft.sido ? "" : " is-empty"}`}>{addrDraft.sido || "선택"}</span><img className="bike-reg-field__caret" src={icons.caret} alt="" /></button></div>
-        <div className="bike-reg-field is-select"><button type="button" className="bike-reg-field__box" disabled={!addrNeedsDistrict} onClick={() => setPicker("district")}><span className="bike-reg-field__label">구/군{addrNeedsDistrict ? <em>*</em> : null}</span><span className={`bike-reg-field__value${addrDraft.district ? "" : " is-empty"}`}>{addrDraft.district || (addrDraft.sido && !addrNeedsDistrict ? "구/군 없음" : "선택")}</span><img className="bike-reg-field__caret" src={icons.caret} alt="" /></button></div>
+        <div className={`bike-reg-field is-select${addrDraft.sido ? " has-value" : ""}`}><button type="button" className="bike-reg-field__box" onClick={() => setPicker("sido")}><span className="bike-reg-field__label">시/도<em>*</em></span><span className={`bike-reg-field__value${addrDraft.sido ? "" : " is-empty"}`}>{addrDraft.sido}</span><img className="bike-reg-field__caret" src={icons.caret} alt="" /></button></div>
+        <div className={`bike-reg-field is-select${addrDraft.district || (addrDraft.sido && !addrNeedsDistrict) ? " has-value" : ""}`}><button type="button" className="bike-reg-field__box" disabled={!addrNeedsDistrict} onClick={() => setPicker("district")}><span className="bike-reg-field__label">구/군{addrNeedsDistrict ? <em>*</em> : null}</span><span className={`bike-reg-field__value${addrDraft.district ? "" : " is-empty"}`}>{addrDraft.district || (addrDraft.sido && !addrNeedsDistrict ? "구/군 없음" : "")}</span><img className="bike-reg-field__caret" src={icons.caret} alt="" /></button></div>
         <div className="bike-reg-field is-plain"><label className="bike-reg-field__box"><input value={addrDraft.detail} maxLength={40} placeholder="상세 주소(선택)" onChange={(event) => { const detail = event.currentTarget.value; setAddrDraft((current) => ({ ...current, detail })); }} />{addrDraft.detail ? <button type="button" className="bike-reg-field__clear" aria-label="상세 주소 지우기" onClick={(event) => { event.preventDefault(); setAddrDraft((current) => ({ ...current, detail: "" })); }}><img src={icons.clear} alt="" /></button> : null}</label></div>
         <div className="bike-reg-address__preview"><img src={icons.pin} alt="" /><p><strong>매물에 표시될 주소</strong>{addrPreview || "시/도와 구/군을 선택해 주세요"}</p></div>
       </div>
