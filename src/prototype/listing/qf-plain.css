@@ -17,6 +17,14 @@
 .kr-brand-logo.is-plain img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; mix-blend-mode: normal; }
 .marketplace.is-qf-plain .depth-card:has(> .depth-card-media.is-brand) .depth-card-label { color: #595959; }
 
+/* 바이크 빠른 선택은 오토홈 인기 브랜드 행처럼 엠블럼 자체를 크게 보인다.
+   카드 피치·이름·전체 제조사 목록은 유지하고 로고 영역만 52×40, 광학 크기만 1.25배로 확대한다. */
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker .depth-card-media.is-brand { width: 52px; height: 40px; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker .kr-brand-logo.is-bike img {
+  transform: scale(1.25);
+  transform-origin: center;
+}
+
 /* PC(1440·1280) */
 .marketplace.is-bbm.is-qf-plain .depth-card { width: 84px; flex: 0 0 84px; }
 .marketplace.is-bbm.is-qf-plain .depth-card:has(> .depth-card-media.is-brand) { height: 102px; }
