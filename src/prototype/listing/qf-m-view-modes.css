@@ -194,3 +194,10 @@
 .bbm-feed-dots i.is-edge { width: 4px; height: 4px; }
 .bbm-feed-count { opacity: 0; transition: opacity 0.2s; }
 .bbm-feed-count.is-visible { opacity: 1; }
+/* 2026-10-10 「중고차 피드에 메타정보 아이콘」: 노션 원본 아이콘(연식·주행·연료·마력·축 수)을 항목 앞에 16px로 둔다. 색은 사양 글자색(#595959)을 따르고 항목 사이는 14px(아이콘이 구분을 맡아 가운데 점은 아이콘 줄에서 뺌) */
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec { display: flex; flex-wrap: nowrap; gap: 0; overflow: hidden; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec:has(.bbm-card-spec-icon) .bbm-card-spec-item + .bbm-card-spec-item { margin-left: 14px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec-item { display: inline-flex; flex: none; align-items: center; gap: 4px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec-item:nth-last-child(2) { flex: 0 1 auto; min-width: 0; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec-item:nth-last-child(2) .bbm-card-spec-text { overflow: hidden; text-overflow: ellipsis; }
+.bbm-card-spec-icon { flex: none; display: block; width: 16px; height: 16px; background: currentColor; -webkit-mask: var(--spec-icon) center / contain no-repeat; mask: var(--spec-icon) center / contain no-repeat; }
