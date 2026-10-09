@@ -673,8 +673,11 @@ function MarketplaceScreen() {
   // QF-097: 과쯔 카탈로그 제조사(9개)도 모델 → 세부 모델 → 트림 단계
   const usesUxDepth = Boolean(isTruckCategory && maker) || Boolean(supportsVehicleCatalog && maker && vehicleCatalog.index?.manufacturers.some((item) => item.name === maker));
   const isGuaziQuickStyle = quickFilterStyle === "guazi";
+  const quickCardMode = typeof window === "undefined" ? null : new URLSearchParams(window.location.search).get("qfcard");
+  // 과쯔 카드칩 비교 시안: 기존 plain/card 모드는 그대로 두고 모델 뎁스만 가변폭 카드 레일로 비교한다.
+  const guaziCardChipPreview = isGuaziQuickStyle && quickCardMode === "guazi-card";
   // QF-100 최종: 과쯔 퀵필터(제조사·모델·세부모델 줄) 기본 = 바탕 없는 초톳식(plain). &qfcard=card 면 이전 과쯔 카드(비교용), &qfcard=plain 도 plain
-  const plainQuickCards = isGuaziQuickStyle && (typeof window === "undefined" || new URLSearchParams(window.location.search).get("qfcard") !== "card");
+  const plainQuickCards = isGuaziQuickStyle && quickCardMode !== "card" && quickCardMode !== "guazi-card";
   // 2026-10-09 초톳 가로형 이미지 알약칩 비교 시안. 기본 모델 레일은 유지한다.
   const horizontalBikeModelPills = isGuaziQuickStyle
     && isBikeCategory
@@ -1513,13 +1516,22 @@ function MarketplaceScreen() {
                 );
               })}
             </QuickRailCarousel>
-          </section> : showModelQuickRail && isGuaziQuickStyle && (!isBikeCategory || maker === "BMW") ? <section className={`depth-rail no-label${isLuxuryCategory ? " is-luxury-model-row" : ""}${isBikeCategory ? " is-bike-model-row" : ""}`} aria-label={`${maker} 모델 빠른 선택`}>
-            <QuickRailCarousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName="depth-rail-track">
+          </section> : showModelQuickRail && isGuaziQuickStyle && (!isBikeCategory || maker === "BMW") ? <section className={`depth-rail no-label${isLuxuryCategory ? " is-luxury-model-row" : ""}${isBikeCategory ? " is-bike-model-row" : ""}${guaziCardChipPreview ? " is-guazi-card-chip-row" : ""}`} aria-label={`${maker} 모델 빠른 선택`}>
+            <QuickRailCarousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName={`depth-rail-track${guaziCardChipPreview ? " is-guazi-card-chip-track" : ""}`}>
+              {guaziCardChipPreview ? <DepthCard
+                className="is-guazi-card-chip is-all"
+                label="전체"
+                ariaLabel={`${maker} 전체 모델`}
+                image={<DashboardIcon aria-hidden="true" />}
+                selected={!selectedModel}
+                onClick={clearModelFilter}
+              /> : null}
               {modelQuickOptions.map((model) => {
                 const modelVisual = guaziVisualsForMaker?.[model];
                 return (
                   <DepthCard
                     key={model}
+                    className={guaziCardChipPreview ? "is-guazi-card-chip" : undefined}
                     label={formatModelLabel(model)}
                     sub={bodyTypeLabel(modelVisual?.bodyType)}
                     image={supportsVehicleCatalog && vehicleCatalog.index ? <CatalogVehicleImage path={modelVisual?.image} name={model} compact /> : isCatalogMaker ? <CatalogModelImage src={modelVisual?.image || undefined} /> : modelVisual?.image ? <img src={modelVisual.image} alt="" aria-hidden="true" draggable={false} /> : undefined}
@@ -1531,6 +1543,9 @@ function MarketplaceScreen() {
                   />
                 );
               })}
+              {guaziCardChipPreview ? <button type="button" className="guazi-card-chip-more" onClick={() => setSheet("vehicle")} aria-label={`${maker} 전체 모델 선택 화면 열기`}>
+                <span>전체 모델</span><ChevronRightIcon aria-hidden="true" />
+              </button> : null}
             </QuickRailCarousel>
           </section> : showModelQuickRail ? <section className={`brand-row is-benz-model-mode is-titleless${isBikeCategory ? " is-bike-model-text" : ""}`} aria-label={`${maker} 모델 빠른 선택`}>
             <Carousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName="benz-model-track">
@@ -2064,7 +2079,7 @@ function MarketplaceScreen() {
     return (
       <>
         <MobileScroll className="app-screen">
-          <main className={`marketplace is-bbm${isGuaziQuickStyle ? " is-hybrid" : ""}${plainQuickCards ? " is-qf-plain" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}`} aria-label="중고차 리스트">
+          <main className={`marketplace is-bbm${isGuaziQuickStyle ? " is-hybrid" : ""}${plainQuickCards ? " is-qf-plain" : ""}${guaziCardChipPreview ? " is-qf-guazi-card-chip" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}`} aria-label="중고차 리스트">
             <BbHeader category={category} onNotify={setSearchToast} onOpenFavorites={() => flow.push(savedListingsScreen)} searchSlot={supportsVehicleCatalog ? <BbmCatalogHeaderSearch query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} catalogRecords={vehicleCatalog.records} onCatalogFocus={() => { void vehicleCatalog.ensureSearch(); }} onCatalogChoose={chooseCatalogRecord} /> : undefined} />
             {/* QF-093: 과쯔는 상단 패널(전체차량 · N대 · 검색저장 · 칩 줄 · 유형 줄/퀵필터 레일)을 본문 폭 전체로 */}
             {/* QF-106b: 경로는 상단 카드 밖(회색 바탕 위), 카드는 제목 줄부터 */}
@@ -2222,7 +2237,7 @@ function MarketplaceScreen() {
     return (
       <>
         <MobileScroll className="app-screen">
-          <main className={`marketplace is-bbm-m${plainQuickCards ? " is-qf-plain" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}`} aria-label="중고차 리스트">
+          <main className={`marketplace is-bbm-m${plainQuickCards ? " is-qf-plain" : ""}${guaziCardChipPreview ? " is-qf-guazi-card-chip" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}`} aria-label="중고차 리스트">
             {luxuryHead ? <>
               <LuxuryThemeHero variant={luxuryHead} header={bbmMobileHeader} listingCount={luxuryCategoryCars.length} dealerCount={new Set(luxuryCategoryCars.map((car) => car.dealer)).size} onNotify={setSearchToast} />
               <div className="lux-hero-sheet"><div className="bbm-m-quick-slot">{quickRail}</div></div>
