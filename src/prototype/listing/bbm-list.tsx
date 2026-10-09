@@ -350,7 +350,7 @@ function cardTitleText(car: Car) {
 }
 
 // ── 매물 카드(원본 car-list-result-card). variant pc: 사진 160, 마력 포함 / mobile 목록형: 초톳 기준 사진 120×120, 마력 없음
-export function BbmResultCard({ car, variant, featured = false, liked, onToggleLike, onOpen, onChat }: { car: Car; variant: "pc" | "mobile"; featured?: boolean; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void }) {
+export function BbmResultCard({ car, variant, featured = false, liked, onToggleLike, onOpen, onChat, onCall }: { car: Car; variant: "pc" | "mobile"; featured?: boolean; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void; onCall?: () => void }) {
   const seller = sellerLabel(car);
   // 목록 썸네일은 정규화 사본(럭셔리카와 같은 규칙)을 쓰고, 피드 대표 사진·그림(contain)은 원본 그대로
   const listPhoto = featured || car.imageFit === "contain" ? undefined : car.listThumb ?? normalizedListThumb(car.image);
@@ -392,6 +392,11 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
         <div className="bbm-card-seller-text"><strong>{seller}{car.luxuryCategory?.certified ? <img className="bbm-card-verified" src={asset("bbm/verified-dealer-wavy-chotot-v01.svg")} alt="인증딜러" draggable={false} /> : null}</strong></div>
       </div>
       <div className="bbm-card-actions">
+        {/* 피드 보기 전용(테스트 서버 car-list-feed-card__seller-action): 전화 · 채팅 · 찜 20, 간격 24. 다른 보기에서는 CSS로 숨김 */}
+        {featured ? <>
+          <button type="button" className="bbm-card-feed-action" aria-label="전화하기" onClick={(event) => { event.stopPropagation(); onCall?.(); }}><img src={bbmIcon("card-phone")} alt="" aria-hidden="true" /></button>
+          <button type="button" className="bbm-card-feed-action" aria-label="채팅" onClick={(event) => { event.stopPropagation(); onChat(); }}><img src={bbmIcon("card-chat")} alt="" aria-hidden="true" /></button>
+        </> : null}
         <button type="button" className={`bbm-card-wish${liked ? " is-liked" : ""}`} aria-label={`${car.title} ${liked ? "찜 해제" : "찜"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>
           {liked ? <span className="bbm-card-wish-on" style={{ WebkitMaskImage: `url("${bbmIcon("card-wish-off")}")`, maskImage: `url("${bbmIcon("card-wish-off")}")` }} aria-hidden="true" /> : <img src={bbmIcon("card-wish-off")} alt="" aria-hidden="true" />}
         </button>
