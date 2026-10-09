@@ -152,3 +152,6 @@
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller-sales { line-height: 16px; }
 /* 초톳 판매자 이름은 보통 굵기(400) #222 */
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller-text strong { font-weight: 400; }
+/* 2026-10-10 초톳 피드 캡처(1080×2340 → 384) 재실측: 지역 글자 중심 → 프사 중심 24.4, 프사 아래 → 구분선 16.0, 구분선 → 다음 사진 12.1 */
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-meta-row { margin-top: -7px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured { padding-bottom: 14px; }
