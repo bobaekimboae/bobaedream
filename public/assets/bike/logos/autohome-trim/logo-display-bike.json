@@ -6,10 +6,10 @@
     "displayHeight": 23.3
   },
   "BKM002_Yamaha.png": {
-    "sourceWidth": 560,
-    "sourceHeight": 115,
+    "sourceWidth": 99,
+    "sourceHeight": 22,
     "displayWidth": 38,
-    "displayHeight": 7.8
+    "displayHeight": 8.4
   },
   "BKM003_BMW_Motorrad.png": {
     "sourceWidth": 100,
@@ -30,16 +30,16 @@
     "displayHeight": 22.9
   },
   "BKM006_Kawasaki.png": {
-    "sourceWidth": 560,
-    "sourceHeight": 89,
-    "displayWidth": 38,
-    "displayHeight": 6.0
+    "sourceWidth": 86,
+    "sourceHeight": 43,
+    "displayWidth": 36.8,
+    "displayHeight": 18.4
   },
   "BKM007_SYM.png": {
-    "sourceWidth": 560,
-    "sourceHeight": 249,
-    "displayWidth": 38,
-    "displayHeight": 16.9
+    "sourceWidth": 82,
+    "sourceHeight": 83,
+    "displayWidth": 25.7,
+    "displayHeight": 26
   },
   "BKM008_Vespa.png": {
     "sourceWidth": 74,
@@ -66,16 +66,16 @@
     "displayHeight": 25.7
   },
   "BKM012_CFMOTO.png": {
-    "sourceWidth": 560,
-    "sourceHeight": 111,
+    "sourceWidth": 100,
+    "sourceHeight": 21,
     "displayWidth": 38,
-    "displayHeight": 7.5
+    "displayHeight": 8.0
   },
   "BKM015_KR_Motors.png": {
-    "sourceWidth": 560,
-    "sourceHeight": 78,
+    "sourceWidth": 88,
+    "sourceHeight": 34,
     "displayWidth": 38,
-    "displayHeight": 5.3
+    "displayHeight": 14.7
   },
   "BKM016_KTM.png": {
     "sourceWidth": 100,
@@ -90,10 +90,10 @@
     "displayHeight": 21.1
   },
   "BKM020_QJMOTOR.png": {
-    "sourceWidth": 560,
-    "sourceHeight": 168,
+    "sourceWidth": 100,
+    "sourceHeight": 9,
     "displayWidth": 38,
-    "displayHeight": 11.4
+    "displayHeight": 3.4
   },
   "BKM021_SSR_Motorsports.png": {
     "sourceWidth": 560,
@@ -114,10 +114,10 @@
     "displayHeight": 10.6
   },
   "BKM027_NIU.png": {
-    "sourceWidth": 560,
-    "sourceHeight": 176,
+    "sourceWidth": 100,
+    "sourceHeight": 31,
     "displayWidth": 38,
-    "displayHeight": 11.9
+    "displayHeight": 11.8
   },
   "BKM028_Daedong_Mobility.png": {
     "sourceWidth": 560,
@@ -138,9 +138,9 @@
     "displayHeight": 5.9
   },
   "BKM031_Royal_Alloy.png": {
-    "sourceWidth": 431,
-    "sourceHeight": 560,
-    "displayWidth": 20.0,
+    "sourceWidth": 61,
+    "sourceHeight": 78,
+    "displayWidth": 20.3,
     "displayHeight": 26
   },
   "BKM035_Moto_Guzzi.png": {
@@ -156,20 +156,20 @@
     "displayHeight": 20.7
   },
   "BKM039_Benelli.png": {
-    "sourceWidth": 560,
-    "sourceHeight": 126,
-    "displayWidth": 38,
-    "displayHeight": 8.5
+    "sourceWidth": 68,
+    "sourceHeight": 68,
+    "displayWidth": 26.0,
+    "displayHeight": 26.0
   },
   "BKM042_Benda.png": {
-    "sourceWidth": 560,
-    "sourceHeight": 136,
-    "displayWidth": 38,
-    "displayHeight": 9.2
+    "sourceWidth": 76,
+    "sourceHeight": 85,
+    "displayWidth": 23.2,
+    "displayHeight": 26
   },
   "BKM043_VOGE.png": {
-    "sourceWidth": 501,
-    "sourceHeight": 560,
+    "sourceWidth": 60,
+    "sourceHeight": 67,
     "displayWidth": 23.3,
     "displayHeight": 26
   },
@@ -198,10 +198,10 @@
     "displayHeight": 14.1
   },
   "BKM051_Super_Soco.png": {
-    "sourceWidth": 560,
-    "sourceHeight": 117,
+    "sourceWidth": 100,
+    "sourceHeight": 21,
     "displayWidth": 38,
-    "displayHeight": 7.9
+    "displayHeight": 8.0
   },
   "BKM052_Scomadi.png": {
     "sourceWidth": 445,
@@ -240,10 +240,10 @@
     "displayHeight": 13.7
   },
   "BKM067_Zontes.png": {
-    "sourceWidth": 560,
-    "sourceHeight": 237,
+    "sourceWidth": 96,
+    "sourceHeight": 40,
     "displayWidth": 38,
-    "displayHeight": 16.1
+    "displayHeight": 15.8
   },
   "BKM068_Gilera.png": {
     "sourceWidth": 381,
@@ -276,10 +276,10 @@
     "displayHeight": 6.9
   },
   "BKM076_KYMCO.png": {
-    "sourceWidth": 560,
-    "sourceHeight": 88,
-    "displayWidth": 38,
-    "displayHeight": 6.0
+    "sourceWidth": 86,
+    "sourceHeight": 62,
+    "displayWidth": 30.6,
+    "displayHeight": 22.1
   },
   "BKM078_Triumph.png": {
     "sourceWidth": 100,
@@ -306,8 +306,8 @@
     "displayHeight": 13.2
   },
   "BKM083_Haojue.png": {
-    "sourceWidth": 560,
-    "sourceHeight": 560,
+    "sourceWidth": 68,
+    "sourceHeight": 68,
     "displayWidth": 26.0,
     "displayHeight": 26.0
   },

@@ -1,0 +1,415 @@
+{
+  "url": "http://127.0.0.1:4197/?qf=guazi&category=%EB%B0%94%EC%9D%B4%ED%81%AC",
+  "viewports": {
+    "mobile": [
+      {
+        "label": "혼다",
+        "logoSet": "autohome-bike",
+        "logoSource": "autohome",
+        "src": "/assets/bike/logos/autohome-trim/BKM001_Honda.png",
+        "naturalWidth": 92,
+        "naturalHeight": 74,
+        "slot": {
+          "width": 40,
+          "height": 40
+        },
+        "image": {
+          "width": 28.984375,
+          "height": 23.3125
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "label": "야마하",
+        "logoSet": "autohome-bike",
+        "logoSource": "autohome",
+        "src": "/assets/bike/logos/autohome-trim/BKM002_Yamaha.png",
+        "naturalWidth": 99,
+        "naturalHeight": 22,
+        "slot": {
+          "width": 40,
+          "height": 40
+        },
+        "image": {
+          "width": 38,
+          "height": 8.4375
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "label": "BMW",
+        "logoSet": "autohome-bike",
+        "logoSource": "autohome",
+        "src": "/assets/bike/logos/autohome-trim/BKM003_BMW_Motorrad.png",
+        "naturalWidth": 100,
+        "naturalHeight": 22,
+        "slot": {
+          "width": 40,
+          "height": 40
+        },
+        "image": {
+          "width": 38,
+          "height": 8.359375
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "label": "스즈키",
+        "logoSet": "autohome-bike",
+        "logoSource": "autohome",
+        "src": "/assets/bike/logos/autohome-trim/BKM004_Suzuki.png",
+        "naturalWidth": 100,
+        "naturalHeight": 20,
+        "slot": {
+          "width": 40,
+          "height": 40
+        },
+        "image": {
+          "width": 38,
+          "height": 7.59375
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "label": "할리데이비슨",
+        "logoSet": "autohome-bike",
+        "logoSource": "autohome",
+        "src": "/assets/bike/logos/autohome-trim/BKM005_Harley_Davidson.png",
+        "naturalWidth": 90,
+        "naturalHeight": 70,
+        "slot": {
+          "width": 40,
+          "height": 40
+        },
+        "image": {
+          "width": 29.46875,
+          "height": 22.921875
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "label": "가와사키",
+        "logoSet": "autohome-bike",
+        "logoSource": "autohome",
+        "src": "/assets/bike/logos/autohome-trim/BKM006_Kawasaki.png",
+        "naturalWidth": 86,
+        "naturalHeight": 43,
+        "slot": {
+          "width": 40,
+          "height": 40
+        },
+        "image": {
+          "width": 36.765625,
+          "height": 18.375
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "label": "SYM",
+        "logoSet": "autohome-bike",
+        "logoSource": "autohome",
+        "src": "/assets/bike/logos/autohome-trim/BKM007_SYM.png",
+        "naturalWidth": 82,
+        "naturalHeight": 83,
+        "slot": {
+          "width": 40,
+          "height": 40
+        },
+        "image": {
+          "width": 25.6875,
+          "height": 26
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "label": "베스파",
+        "logoSet": "autohome-bike",
+        "logoSource": "autohome",
+        "src": "/assets/bike/logos/autohome-trim/BKM008_Vespa.png",
+        "naturalWidth": 74,
+        "naturalHeight": 25,
+        "slot": {
+          "width": 40,
+          "height": 40
+        },
+        "image": {
+          "width": 38,
+          "height": 12.828125
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "label": "로얄엔필드",
+        "logoSet": "autohome-bike",
+        "logoSource": "official",
+        "src": "/assets/bike/logos/autohome-trim/BKM009_Royal_Enfield.png",
+        "naturalWidth": 560,
+        "naturalHeight": 75,
+        "slot": {
+          "width": 40,
+          "height": 40
+        },
+        "image": {
+          "width": 38,
+          "height": 5.078125
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "label": "두카티",
+        "logoSet": "autohome-bike",
+        "logoSource": "autohome",
+        "src": "/assets/bike/logos/autohome-trim/BKM010_Ducati.png",
+        "naturalWidth": 94,
+        "naturalHeight": 100,
+        "slot": {
+          "width": 40,
+          "height": 40
+        },
+        "image": {
+          "width": 24.4375,
+          "height": 26
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "pc": [
+      {
+        "label": "혼다",
+        "logoSet": "autohome-bike",
+        "logoSource": "autohome",
+        "src": "/assets/bike/logos/autohome-trim/BKM001_Honda.png",
+        "naturalWidth": 92,
+        "naturalHeight": 74,
+        "slot": {
+          "width": 133.9534912109375,
+          "height": 133.95343017578125
+        },
+        "image": {
+          "width": 97.06394958496094,
+          "height": 78.06976318359375
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "label": "야마하",
+        "logoSet": "autohome-bike",
+        "logoSource": "autohome",
+        "src": "/assets/bike/logos/autohome-trim/BKM002_Yamaha.png",
+        "naturalWidth": 99,
+        "naturalHeight": 22,
+        "slot": {
+          "width": 133.9534912109375,
+          "height": 133.95343017578125
+        },
+        "image": {
+          "width": 127.25582885742188,
+          "height": 28.25579833984375
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "label": "BMW",
+        "logoSet": "autohome-bike",
+        "logoSource": "autohome",
+        "src": "/assets/bike/logos/autohome-trim/BKM003_BMW_Motorrad.png",
+        "naturalWidth": 100,
+        "naturalHeight": 22,
+        "slot": {
+          "width": 133.9534912109375,
+          "height": 133.95343017578125
+        },
+        "image": {
+          "width": 127.25579833984375,
+          "height": 27.99420166015625
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "label": "스즈키",
+        "logoSet": "autohome-bike",
+        "logoSource": "autohome",
+        "src": "/assets/bike/logos/autohome-trim/BKM004_Suzuki.png",
+        "naturalWidth": 100,
+        "naturalHeight": 20,
+        "slot": {
+          "width": 133.95355224609375,
+          "height": 133.95343017578125
+        },
+        "image": {
+          "width": 127.25579833984375,
+          "height": 25.43023681640625
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "label": "할리데이비슨",
+        "logoSet": "autohome-bike",
+        "logoSource": "autohome",
+        "src": "/assets/bike/logos/autohome-trim/BKM005_Harley_Davidson.png",
+        "naturalWidth": 90,
+        "naturalHeight": 70,
+        "slot": {
+          "width": 133.9534912109375,
+          "height": 133.95343017578125
+        },
+        "image": {
+          "width": 98.68603515625,
+          "height": 76.7615966796875
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "label": "가와사키",
+        "logoSet": "autohome-bike",
+        "logoSource": "autohome",
+        "src": "/assets/bike/logos/autohome-trim/BKM006_Kawasaki.png",
+        "naturalWidth": 86,
+        "naturalHeight": 43,
+        "slot": {
+          "width": 133.9534912109375,
+          "height": 133.95343017578125
+        },
+        "image": {
+          "width": 123.1220703125,
+          "height": 61.53485107421875
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "label": "SYM",
+        "logoSet": "autohome-bike",
+        "logoSource": "autohome",
+        "src": "/assets/bike/logos/autohome-trim/BKM007_SYM.png",
+        "naturalWidth": 82,
+        "naturalHeight": 83,
+        "slot": {
+          "width": 133.953369140625,
+          "height": 133.95343017578125
+        },
+        "image": {
+          "width": 86.023193359375,
+          "height": 87.06976318359375
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "label": "베스파",
+        "logoSet": "autohome-bike",
+        "logoSource": "autohome",
+        "src": "/assets/bike/logos/autohome-trim/BKM008_Vespa.png",
+        "naturalWidth": 74,
+        "naturalHeight": 25,
+        "slot": {
+          "width": 133.953369140625,
+          "height": 133.95343017578125
+        },
+        "image": {
+          "width": 127.255859375,
+          "height": 42.95928955078125
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "label": "로얄엔필드",
+        "logoSet": "autohome-bike",
+        "logoSource": "official",
+        "src": "/assets/bike/logos/autohome-trim/BKM009_Royal_Enfield.png",
+        "naturalWidth": 560,
+        "naturalHeight": 75,
+        "slot": {
+          "width": 133.953369140625,
+          "height": 133.95343017578125
+        },
+        "image": {
+          "width": 127.255859375,
+          "height": 17.00579833984375
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "label": "두카티",
+        "logoSet": "autohome-bike",
+        "logoSource": "autohome",
+        "src": "/assets/bike/logos/autohome-trim/BKM010_Ducati.png",
+        "naturalWidth": 94,
+        "naturalHeight": 100,
+        "slot": {
+          "width": 133.95361328125,
+          "height": 133.95343017578125
+        },
+        "image": {
+          "width": 81.83740234375,
+          "height": 87.06976318359375
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    ]
+  },
+  "errors": [],
+  "makerSheet": {
+    "total": 54,
+    "bikePaths": 54,
+    "broken": 0
+  }
+}
