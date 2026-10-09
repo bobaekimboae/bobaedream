@@ -455,7 +455,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   const listPlace = car.luxuryCategory
     ? [placeSidoGugun(car.place.split(" · ")[0]), ...car.place.split(" · ").slice(1)].join(" · ").replaceAll("자동차매매단지", "단지").replaceAll("매매단지", "단지")
     : car.truck && car.place.includes(" · ")
-      ? [placeSidoGugun(car.place.split(" · ")[0]), ...car.place.split(" · ").slice(1)].join(" · ")
+      ? [placeSidoGugun(car.place.split(" · ")[0]), ...car.place.split(" · ").slice(1)].join(" · ").replaceAll("자동차매매단지", "단지").replaceAll("매매단지", "단지")
       : !isPassenger ? placeSidoGugun(car.place.split(" · ")[0]) : displayListPlace(car.place, "딜러");
   const badges = bbmCardBadges(car);
   // dev 원본처럼 스펙 항목을 " · "(공백+가운데점+공백) 텍스트로 잇는다(JOB-8). 한 줄 넘치면 말줄임
