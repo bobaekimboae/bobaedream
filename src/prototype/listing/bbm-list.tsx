@@ -1,6 +1,6 @@
 import { useState, type KeyboardEvent, type ReactNode } from "react";
 import { Cross2Icon } from "@radix-ui/react-icons";
-import { asset, displayListPlace, placeSidoGugun, sellerAvatar, sellerLabel, type Car } from "../data";
+import { asset, displayListPlace, placeSidoGugun, sellerAvatar, sellerLabel, sellerRealPhoto, type Car } from "../data";
 import { bbmCardBadges, bbmCardSpec } from "../data/bbm-card-samples";
 import { truckFormatCatalog } from "../data/truck-format-catalog";
 import { normalizedListThumb } from "./list-thumbs";
@@ -389,7 +389,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   const sellerRow = (
     <div className={`bbm-card-meta-row${variant === "mobile" ? " bbm-card-mobile-footer" : ""}`}>
       <div className="bbm-card-seller">
-        <img className="bbm-card-seller-logo" src={asset(sellerAvatar(car))} alt="" draggable={false} />
+        <img className="bbm-card-seller-logo" src={asset(featured ? sellerRealPhoto(car) : sellerAvatar(car))} alt="" draggable={false} />
         <div className="bbm-card-seller-text"><strong>{seller}{car.luxuryCategory?.certified ? <img className="bbm-card-verified" src={asset("bbm/verified-dealer-wavy-chotot-v01.svg")} alt="인증딜러" draggable={false} /> : null}</strong>
           {/* 피드 전용: 초톳 「1 đã bán 52 đang bán」처럼 판매완료 · 판매중 대수(딜러만). 판매완료 대수는 UI 검증용 가상 값 */}
           {featured && car.sellerType !== "개인" ? <span className="bbm-card-seller-sales"><span>{(car.id * 7) % 40 + 1}대 판매완료</span><span>{Math.max(car.stock, 1)}대 판매중</span></span> : null}

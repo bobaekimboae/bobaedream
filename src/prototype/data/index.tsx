@@ -348,6 +348,11 @@ const sellerAvatar = (car: Car) => {
   return dealerAvatarPool[index];
 };
 
+// 피드 보기 전용: 승인된 초톳 인물 사진(위 허용 목록)을 매물마다 다르게 돌려 쓴다(2026-10-10 「프사 실제 프사로」). 이미 초톳 사진이 정해진 매물은 그대로
+const sellerRealPhoto = (car: Car) => car.sellerProfile?.includes("sellers/chotot/")
+  ? car.sellerProfile
+  : chototHumanSellerProfiles[((car.id % chototHumanSellerProfiles.length) + chototHumanSellerProfiles.length) % chototHumanSellerProfiles.length];
+
 const vehicleNumberPattern = /^([가-힣]{2}\s*)?\d{2,3}\s*[가-힣]\s*\d{4}$/;
 const formatRegistrationDate = (value: string) => {
   const yearMonth = value.trim().match(/^(\d{2}|\d{4})년\s*0?(\d{1,2})월(?:식)?$/);
@@ -1650,6 +1655,7 @@ export {
   sellerScenario,
   sellerLabel,
   sellerAvatar,
+  sellerRealPhoto,
   displaySpecs,
   displayListPlace,
   emptyPrice,
