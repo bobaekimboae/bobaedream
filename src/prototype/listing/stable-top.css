@@ -128,6 +128,12 @@
 /* 모바일 ④ 제조사 레일도 현재 초톳처럼 제목 없이 16px 슬롯 시작선을 사용한다. */
 .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-kr-maker .depth-rail-track { padding-left: 16px; }
 
+/* 초톳 앱: 첫 카드는 x12, 카드 안 4px 여백으로 로고·이름은 필터 칩 x16과 정렬한다. */
+.marketplace.is-bbm-m.is-bike-category.is-qf-guazi.is-qf-plain
+  .depth-rail.is-kr-maker .depth-rail-track {
+  padding-left: 12px;
+}
+
 /* ── 모바일 첫 화면 유형 줄: 초톳 실사 슬롯 기준.
    칸 64×78 · 피치 72 · 실사 64×40 · 동일 바닥선 · 이름 12/18 500 #595959 · 최대 2줄. */
 .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu { border-bottom: 0; }
