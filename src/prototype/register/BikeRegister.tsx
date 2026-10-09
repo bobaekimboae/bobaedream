@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import regionsKr from "../data/regions-kr.json";
+import { bbmCheckOptions } from "../filters/bbm-filter-options";
 import "./bike-register.css";
 
 // 1차 수정(2026-10-09 노션 「시안 수정 사항」 클로드 코드 1~15): 초톳 앱 등록 화면 크기(1080÷2.8125) + 노란색 → #222 계열.
@@ -35,9 +36,9 @@ type BikeMaker = {
   groups?: BikeGroup[];
   models?: BikeModel[];
 };
-type PickerName = "maker" | "model" | "year" | "type" | "ccBand" | "warranty" | "sido" | "district" | "motor" | "range" | "charge" | null;
+type PickerName = "maker" | "model" | "year" | "type" | "fuel" | "transmission" | "color" | "ccBand" | "warranty" | "sido" | "district" | "motor" | "range" | "charge" | null;
 // 2차 수정(10/9 초톳 화면 녹화): 주소 = 「Địa chỉ」 바텀시트(시도·구군·상세 주소·표시 미리보기·완료), 뒤로 = 「Lưu tin nháp?」 확인 시트
-type SheetName = "address" | "draft" | "gallery" | "photoRules" | "docInfo" | null;
+type SheetName = "address" | "draft" | "gallery" | "photoRules" | "docInfo" | "options" | null;
 // 3차 수정(10/9 초톳 등록 풀버전 녹화): 사진 고르기 화면 · 사진 규칙 · 서류 사진 칸 · 전기 바이크 전용 칸 · 보증 기간
 
 // 연식: 최신 → 과거, 맨 아래 「1979년 이전」(시안 작업 마스터 D3)
@@ -46,6 +47,19 @@ const bikeTypeOptions = ["스쿠터", "네이키드", "스포츠", "크루저", 
 // 배기량 구간 = 바이크 기준표 cc_bands(GooBike 구간). 「전기」를 고르면 전기 바이크 전용 칸을 보여준다
 const ccBandOptions = ["50cc 이하", "51~125cc", "126~250cc", "251~400cc", "401~750cc", "751cc 이상", "전기"];
 const electricBand = "전기";
+// 10/9 「연료 · 변속기 · 배기량 · 색상 · 옵션 추가」
+// 연료: 바이크 기준(전기를 고르면 배기량 구간도 「전기」로 맞춘다)
+const fuelOptions = ["가솔린", "전기", "하이브리드", "기타"];
+// 변속기: 바이크 가상 매물 시트 v08에 실제로 쓰인 값
+const transmissionOptions = ["수동", "자동(CVT)", "자동(DCT)", "전자제어 수동(E-Clutch)"];
+// 색상: 목록 필터 「외부색상」 값을 그대로 쓴다(읽기만)
+const colorOptions = bbmCheckOptions.exteriorColor;
+// 옵션: 확정 목록이 없어 바이크 주요 사양으로 둔 가안(임시). 여러 개 고른다
+const bikeOptionGroups: Array<[string, string[]]> = [
+  ["안전·주행", ["ABS", "트랙션 컨트롤(TCS)", "크루즈 컨트롤", "퀵시프터", "주행 모드", "LED 헤드라이트"]],
+  ["편의", ["스마트키", "TFT 계기판", "블루투스·내비 연동", "USB 충전", "열선 그립", "열선 시트", "전동 스크린"]],
+  ["수납·보호", ["사이드 케이스", "탑 케이스", "엔진 가드", "블랙박스"]],
+];
 const motorOptions = ["2,000W 미만", "2,000~2,999W", "3,000~3,999W", "4,000~5,000W", "5,000W 초과"];
 const rangeOptions = ["100km 미만", "100~199km", "200~299km", "300~399km", "400~500km", "500km 초과"];
 const chargeOptions = ["1시간 미만", "1~3시간", "4~6시간", "6시간 초과"];
@@ -166,6 +180,11 @@ export default function BikeRegister() {
   const [type, setType] = useState("");
   const [mileage, setMileage] = useState("");
   const [ccBand, setCcBand] = useState("");
+  const [fuel, setFuel] = useState("");
+  const [transmission, setTransmission] = useState("");
+  const [color, setColor] = useState("");
+  const [options, setOptions] = useState<string[]>([]);
+  const [optionDraft, setOptionDraft] = useState<string[]>([]);
   const [warranty, setWarranty] = useState("");
   const [docPhotos, setDocPhotos] = useState<string[]>([]);
   const [docShow, setDocShow] = useState(false);
@@ -247,7 +266,10 @@ export default function BikeRegister() {
     maker: { title: "제조사 선택", options: makers.map((item) => item.name), selected: maker, searchable: true },
     model: { title: "모델 선택", options: modelChoices, selected: model, searchable: true },
     year: { title: "연식 선택", options: yearOptions, selected: year, searchable: true },
+    fuel: { title: "연료 선택", options: fuelOptions, selected: fuel },
+    transmission: { title: "변속기 선택", options: transmissionOptions, selected: transmission },
     ccBand: { title: "배기량 선택", options: ccBandOptions, selected: ccBand },
+    color: { title: "색상 선택", options: colorOptions, selected: color },
     type: { title: "바이크 유형 선택", options: bikeTypeOptions, selected: type },
     warranty: { title: "보증 선택", options: warrantyOptions, selected: warranty },
     motor: { title: "모터 출력 선택", options: motorOptions, selected: motor },
@@ -271,7 +293,19 @@ export default function BikeRegister() {
       if (info?.genre && !type) setType(info.genre);
       if (info?.cc_band && !ccBand) setCcBand(info.cc_band);
     }
-    if (picker === "ccBand") setCcBand(value);
+    if (picker === "ccBand") {
+      setCcBand(value);
+      // 배기량 「전기」 ↔ 연료 「전기」를 서로 맞춘다
+      if (value === electricBand) setFuel(electricBand);
+      else if (fuel === electricBand) setFuel("");
+    }
+    if (picker === "fuel") {
+      setFuel(value);
+      if (value === electricBand) setCcBand(electricBand);
+      else if (ccBand === electricBand) setCcBand("");
+    }
+    if (picker === "transmission") setTransmission(value);
+    if (picker === "color") setColor(value);
     if (picker === "year") setYear(value);
     if (picker === "type") setType(value);
     if (picker === "warranty") setWarranty(value);
@@ -383,7 +417,11 @@ export default function BikeRegister() {
           <SelectRow label="연식" value={year} required error={errors.year} onClick={() => setPicker("year")} />
           <SelectRow label="바이크 유형" value={type} required error={errors.type} onClick={() => setPicker("type")} />
           <DetailInput label="주행거리" value={mileage} unit="km" required pencil error={errors.mileage} onChange={setMileage} />
+          <SelectRow label="연료" value={fuel} onClick={() => setPicker("fuel")} />
+          <SelectRow label="변속기" value={transmission} onClick={() => setPicker("transmission")} />
           <SelectRow label="배기량" value={ccBand} onClick={() => setPicker("ccBand")} />
+          <SelectRow label="색상" value={color} onClick={() => setPicker("color")} />
+          <SelectRow label="옵션" value={options.length ? (options.length > 2 ? `${options.slice(0, 2).join(", ")} 외 ${options.length - 2}개` : options.join(", ")) : ""} onClick={() => { setOptionDraft(options); setSheet("options"); }} />
           {isElectric ? <>
             <SelectRow label="모터 출력" value={motor} onClick={() => setPicker("motor")} />
             <div className="bike-reg-condition"><span>배터리 포함</span><Pills value={battery} options={["없음", "있음"]} onChange={setBattery} /></div>
@@ -424,6 +462,15 @@ export default function BikeRegister() {
         </div>
       </footer>
     </section> : null}
+    {/* 옵션: 여러 개 고르기. 시트 안에서는 임시 선택, 「N개 선택 완료」를 눌러야 반영(닫기·배경·Esc는 버림) */}
+    {sheet === "options" ? <BottomSheet title="옵션" onClose={() => setSheet(null)} footer={<><button type="button" className="is-outline" disabled={!optionDraft.length} onClick={() => setOptionDraft([])}>초기화</button><button type="button" className="is-primary" onClick={() => { setOptions(optionDraft); setSheet(null); }}>{optionDraft.length ? `${optionDraft.length}개 선택 완료` : "선택 완료"}</button></>}>
+      <div className="bike-reg-options">
+        {bikeOptionGroups.map(([group, items]) => <section key={group}>
+          <h3>{group}</h3>
+          {items.map((item) => <label key={item} className="bike-reg-check"><span>{item}</span><input type="checkbox" checked={optionDraft.includes(item)} onChange={() => setOptionDraft((current) => current.includes(item) ? current.filter((value) => value !== item) : [...current, item])} /><i aria-hidden="true" /></label>)}
+        </section>)}
+      </div>
+    </BottomSheet> : null}
     {sheet === "photoRules" ? <BottomSheet title="사진 등록 규칙" onClose={() => setSheet(null)} footer={<button type="button" className="is-primary" onClick={() => setSheet(null)}>확인</button>}>
       <div className="bike-reg-rules">
         <h3><span className="is-ok" aria-hidden="true">✓</span>권장</h3>
