@@ -408,8 +408,8 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
           <div className="bbm-card-text">
             {title}
             {headlinePosition === "after-model" ? headline : null}
-            <span className="bbm-card-spec">{specMain}</span>
-            {specCapacity ? <span className="bbm-card-spec is-capacity">{specCapacity}</span> : null}
+            <span className={`bbm-card-spec${car.adDescription ? " is-ad-description" : ""}`}>{car.adDescription ?? specMain}</span>
+            {!car.adDescription && specCapacity ? <span className="bbm-card-spec is-capacity">{specCapacity}</span> : null}
             <div className="bbm-card-price-badges">
               <strong className="bbm-card-price"><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</strong>
               {badges.length ? <div className="bbm-card-badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}
