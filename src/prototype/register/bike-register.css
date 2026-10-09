@@ -297,3 +297,83 @@
 .bike-reg-media__progress { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; background: rgba(0,0,0,.45); }
 .bike-reg-address__preview img { flex: none; width: 20px; height: 20px; margin-top: 1px; }
 /* 임시: 체크박스·라디오 원본 SVG가 초톳 180개 묶음에 없어 CSS 테두리로 그림(체크 표시는 초톳 check-mark.svg) */
+
+/* ── 초톳 필터 UI/UX 적용 + 에어비앤비 블랙·그레이 색 (2026-10-09 사용자 지시 「매물등록에 필터 UI·UX 적용」)
+   근거: xe.chotot.com 가격 필터 · 「Lọc Nâng Cao」 모바일웹 384 / PC 1440 DOM·CSS 실측(크기), 색은 에어비앤비 블랙·그레이 토큰.
+   토큰: 글자·선택 #222 · 보조 #6A6A6A · 빈 선택칸·입력 테두리 #B0B0B0 · 버튼 외곽·트랙 #DDDDDD · 구분선 #EBEBEB · 연한 바탕 #F7F7F7 · 오류 #F0325E(테두리) / #E5193B(글자) */
+.bike-reg-page, .bike-reg-picker, .bike-reg-sheet, .bike-reg-gallery { --ab-ink: #222222; --ab-sub: #6a6a6a; --ab-mute: #b0b0b0; --ab-line: #dddddd; --ab-divider: #ebebeb; --ab-soft: #f7f7f7; --ab-error: #f0325e; --ab-error-text: #e5193b; }
+
+/* 입력칸(초톳 Input Field): 높이 48, 테두리 2 #B0B0B0, 모서리 12, 포커스 #222, 오류 빨강.
+   라벨: 비어 있으면 칸 안 14/400 #6A6A6A, 값이 있거나 포커스면 위로 10px(0.7143배) 700 #222. 값 16/400. 단위 14 #6A6A6A */
+.bike-reg-field__box { min-height: 48px; padding: 0 12px; border-color: var(--ab-mute); }
+.bike-reg-field__box:focus-within { border-color: var(--ab-ink); }
+.bike-reg-field.is-error .bike-reg-field__box { border-color: var(--ab-error); }
+.bike-reg-field__label { position: absolute; top: 12px; left: 12px; right: 44px; overflow: hidden; color: var(--ab-sub); font-size: 14px; font-weight: 400; line-height: 20px; text-overflow: ellipsis; white-space: nowrap; transform-origin: 0 0; transition: transform 0.15s, color 0.15s; pointer-events: none; }
+.bike-reg-field.has-value .bike-reg-field__label, .bike-reg-field__box:focus-within .bike-reg-field__label { color: var(--ab-ink); font-weight: 700; transform: translateY(-7.143px) scale(0.7143); }
+.bike-reg-field.is-error .bike-reg-field__label { color: var(--ab-error); }
+.bike-reg-field__label em { color: inherit; }
+.bike-reg-field__box input, .bike-reg-field__box .bike-reg-field__value { align-self: stretch; height: 44px; padding-top: 14px; font-size: 16px; line-height: 20px; font-variant-numeric: tabular-nums; }
+.bike-reg-field__value { display: flex; align-items: center; }
+.bike-reg-field__value.is-empty { color: transparent; }
+.bike-reg-field:not(.is-plain) .bike-reg-field__box input::placeholder, .bike-reg-field:not(.is-plain) .bike-reg-field__box textarea::placeholder { color: transparent; }
+.bike-reg-field:not(.is-plain) .bike-reg-field__box :focus::placeholder { color: var(--ab-mute); }
+.bike-reg-field.is-plain .bike-reg-field__box input { padding-top: 0; }
+.bike-reg-field.is-plain .bike-reg-field__box input::placeholder { color: var(--ab-sub); }
+.bike-reg-field__unit { align-self: flex-start; margin-top: 12px; color: var(--ab-sub); font-size: 14px; }
+.bike-reg-field.is-textarea .bike-reg-field__box { padding-top: 0; }
+.bike-reg-field.is-textarea textarea { height: calc(100% - 28px); margin-top: 26px; font-size: 16px; line-height: 22px; }
+.bike-reg-error { padding-left: 0; color: var(--ab-error-text); font-size: 10px; line-height: 16px; }
+.bike-reg-counter { color: var(--ab-sub); }
+.bike-reg-media-hint { color: var(--ab-sub); }
+.bike-reg-media-hint.is-error { color: var(--ab-error-text); }
+
+/* 알약(판매자·상태·배터리): 높이 32 그대로, 기본 #F7F7F7 · 선택 #222 */
+.bike-reg-pills button { background: var(--ab-soft); }
+.bike-reg-pills button.is-active { background: var(--ab-ink); }
+
+/* 상세 줄: 구분선 #EBEBEB, 빈 값 #6A6A6A */
+.bike-reg-row, .bike-reg-condition, .bike-reg-input-row { border-bottom-color: var(--ab-divider); }
+.bike-reg-row__value.is-empty { color: var(--ab-sub); }
+.bike-reg-input-row input::placeholder { color: var(--ab-mute); }
+
+/* 서류 체크박스(초톳 필터 체크박스): 20, 모서리 4, 빈칸 2px #B0B0B0, 선택 #222 */
+.bike-reg-check i { border-color: var(--ab-mute); }
+
+/* 아래 버튼: 「미리보기」 #222 1px 외곽선, 「매물 등록」 #222 */
+.bike-reg-actions { box-shadow: none; border-top: 1px solid var(--ab-divider); }
+.bike-reg-actions button:first-child { border-color: var(--ab-ink); }
+
+/* 선택창(초톳 필터 선택 목록): 머리 48 + 1px #EBEBEB, 제목 16/600, 닫기 40 원형 왼쪽 4.
+   검색칸 높이 40 · 모서리 24 · #F7F7F7. 줄 44(위아래 10), 글자 14/400/24, 텍스트 x24, 마우스 올림 #F7F7F7 모서리 4.
+   라디오 20, 빈칸 테두리 2 #B0B0B0, 선택 #222 채움 + 흰 체크. 다시 누르면 해제 */
+.bike-reg-picker > header { grid-template-columns: 48px 1fr 48px; border-bottom-color: var(--ab-divider); }
+.bike-reg-picker > header h2 { font-size: 16px; font-weight: 600; line-height: 24px; }
+.bike-reg-picker > header button { justify-self: start; width: 40px; height: 40px; margin-left: 4px; border-radius: 100%; }
+.bike-reg-picker__search { height: 40px; margin: 12px 16px 8px; padding: 0 14px; border-radius: 24px; background: var(--ab-soft); color: var(--ab-sub); }
+.bike-reg-picker__search input { font-size: 16px; }
+.bike-reg-picker__search input::placeholder { color: var(--ab-sub); }
+.bike-reg-picker__list { padding: 4px 16px calc(14px + env(safe-area-inset-bottom)); }
+.bike-reg-picker:has(.bike-reg-picker__search) .bike-reg-picker__list { top: 108px; }
+.bike-reg-picker__list > button { grid-template-columns: 1fr 20px; min-height: 44px; padding: 10px 4px 10px 8px; border-radius: 4px; color: var(--ab-ink); font-size: 14px; font-weight: 400; line-height: 24px; }
+.bike-reg-picker__list > button:hover { background: var(--ab-soft); }
+.bike-reg-picker__list > button i { width: 20px; height: 20px; border: 2px solid var(--ab-mute); }
+.bike-reg-picker__list > button.is-selected i { border-color: var(--ab-ink); background: var(--ab-ink); }
+.bike-reg-picker__list > button i img { width: 14px; height: 14px; }
+.bike-reg-picker__list > p { color: var(--ab-sub); }
+
+/* 바텀시트(거래 지역·임시저장·사진 규칙·서류 안내): 머리 48, 제목 16/600, 아래 위 1px #EBEBEB · 안쪽 16, 버튼 40 */
+.bike-reg-sheet__dim { background: rgba(34, 34, 34, 0.3); }
+.bike-reg-sheet__panel { border-radius: 20px 20px 0 0; }
+.bike-reg-sheet__panel > header { grid-template-columns: 48px 1fr 48px; border-bottom-color: var(--ab-divider); }
+.bike-reg-sheet__panel > header h2 { font-size: 16px; font-weight: 600; letter-spacing: 0; }
+.bike-reg-sheet__panel > header button { justify-self: start; width: 40px; height: 40px; margin-left: 4px; border-radius: 100%; }
+.bike-reg-sheet__panel > footer { padding: 16px 16px calc(16px + env(safe-area-inset-bottom)); border-top-color: var(--ab-divider); }
+.bike-reg-sheet__panel > footer .is-outline { border-color: var(--ab-ink); }
+.bike-reg-address__preview { background: var(--ab-soft); }
+.bike-reg-address__preview strong { color: var(--ab-ink); }
+
+/* 사진 고르기: 고른 표시 #222, 「다음」 꺼짐 #DDDDDD */
+.bike-reg-gallery__tip { background: var(--ab-soft); }
+.bike-reg-gallery__next:disabled { background: var(--ab-line); }
+/* 입력칸 포커스는 상자 테두리(#222)로만 보여준다 — 공용 포커스 파란 테두리 끔 */
+.bike-reg-field__box input, .bike-reg-field__box textarea, .bike-reg-field__box input:focus-visible, .bike-reg-field__box textarea:focus-visible { outline: 0 !important; box-shadow: none !important; border: 0 !important; background: transparent !important; }
