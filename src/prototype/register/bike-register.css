@@ -231,3 +231,59 @@
   .bike-reg-sheet__panel { width: min(430px, calc(100vw - 48px)); max-height: calc(100vh - 96px); border-radius: 16px; overflow: hidden; }
 }
 .bike-reg-sheet .bike-reg-field__box input { border: 0 !important; outline: 0 !important; box-shadow: none !important; background: transparent !important; }
+
+/* 3차 수정(초톳 등록 풀버전 녹화): 서류 사진 상자 · 사진 고르기 화면 · 규칙 시트 */
+.bike-reg-doc { display: grid; gap: 12px; margin: 12px 0; padding: 16px; border-radius: 12px; background: #f7f7f7; }
+.bike-reg-doc__head { display: flex; align-items: center; justify-content: space-between; font-size: 15px; line-height: 22px; font-weight: 500; }
+.bike-reg-doc__head button { display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; background: none; }
+.bike-reg-doc__head img { width: 20px; height: 20px; }
+.bike-reg-doc__photos { display: flex; gap: 8px; }
+.bike-reg-doc__add, .bike-reg-doc__thumb { position: relative; flex: none; width: 60px; height: 60px; border-radius: 8px; }
+.bike-reg-doc__add { display: grid; place-items: center; padding: 0; border: 0; background: #fff; }
+.bike-reg-doc__add img { width: 28px; height: 28px; filter: grayscale(1) brightness(.35); }
+.bike-reg-doc__thumb { overflow: hidden; background: #fff; }
+.bike-reg-doc__thumb > img { width: 100%; height: 100%; object-fit: cover; }
+.bike-reg-doc__thumb button { position: absolute; top: 2px; right: 2px; width: 18px; height: 18px; padding: 0; border: 0; background: none; }
+.bike-reg-doc__thumb button img { width: 18px; height: 18px; }
+.bike-reg-check { position: relative; display: flex; align-items: center; justify-content: space-between; color: #222; font-size: 15px; line-height: 22px; cursor: pointer; }
+.bike-reg-check input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.bike-reg-check i { width: 20px; height: 20px; border: 2px solid #d9d9d9; border-radius: 4px; background: #fff; }
+.bike-reg-check input:checked + i { border-color: #222; background: #222 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat; }
+.bike-reg-check input:focus-visible + i { outline: 2px solid #222; outline-offset: 2px; }
+
+.bike-reg-gallery { position: fixed; inset: 0; z-index: 75; display: flex; flex-direction: column; width: min(100%,430px); margin: 0 auto; color: #222; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fff; }
+.bike-reg-gallery * { box-sizing: border-box; }
+.bike-reg-gallery > header { display: grid; flex: none; grid-template-columns: 56px 1fr 56px; align-items: center; height: 48px; }
+.bike-reg-gallery > header button { display: grid; place-items: center; justify-self: center; width: 44px; height: 44px; padding: 0; border: 0; background: none; cursor: pointer; }
+.bike-reg-gallery > header button img { width: 24px; height: 24px; }
+.bike-reg-gallery > header h2 { display: flex; align-items: center; justify-content: center; gap: 4px; margin: 0; font-size: 17px; line-height: 24px; font-weight: 700; }
+.bike-reg-gallery > header h2 img { width: 20px; height: 20px; }
+.bike-reg-gallery__grid { display: grid; flex: 1; grid-template-columns: repeat(3, 1fr); grid-auto-rows: min-content; gap: 2px; min-height: 0; overflow-y: auto; }
+.bike-reg-gallery__grid > button { position: relative; aspect-ratio: 1; padding: 0; border: 0; background: #f4f4f4; cursor: pointer; }
+.bike-reg-gallery__camera { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #595959; font: inherit; font-size: 15px; font-weight: 600; background: #e8e8e8 !important; }
+.bike-reg-gallery__camera svg { width: 40px; height: 40px; }
+.bike-reg-gallery__item img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.bike-reg-gallery__item i { position: absolute; top: 6px; right: 6px; display: grid; place-items: center; width: 22px; height: 22px; border: 1.5px solid #fff; border-radius: 50%; color: #fff; font-size: 12px; font-style: normal; font-weight: 700; background: rgba(0,0,0,.2); }
+.bike-reg-gallery__item.is-selected i { border-color: #222; background: #222; }
+.bike-reg-gallery__item.is-selected img { opacity: .75; }
+.bike-reg-gallery > footer { flex: none; border-radius: 16px 16px 0 0; box-shadow: rgba(0,0,0,.08) 0 -2px 8px; background: #fff; }
+.bike-reg-gallery__tip { margin: 0; padding: 10px 16px; border-radius: 16px 16px 0 0; color: #222; font-size: 14px; line-height: 20px; font-weight: 500; background: #f4f4f4; }
+.bike-reg-gallery__bar { display: flex; align-items: center; gap: 12px; padding: 12px 16px calc(16px + env(safe-area-inset-bottom)); }
+.bike-reg-gallery__picked { display: flex; flex: 1; gap: 8px; min-width: 0; min-height: 56px; overflow-x: auto; align-items: center; scrollbar-width: none; }
+.bike-reg-gallery__picked span { position: relative; flex: none; width: 56px; height: 56px; overflow: hidden; border-radius: 8px; }
+.bike-reg-gallery__picked span > img { width: 100%; height: 100%; object-fit: cover; }
+.bike-reg-gallery__picked button { position: absolute; top: 2px; right: 2px; width: 18px; height: 18px; padding: 0; border: 0; background: none; cursor: pointer; }
+.bike-reg-gallery__picked button img { width: 18px; height: 18px; }
+.bike-reg-gallery__picked small { color: #8c8c8c; font-size: 13px; }
+.bike-reg-gallery__next { flex: none; height: 40px; padding: 0 20px; border: 0; border-radius: 999px; color: #fff; font: inherit; font-size: 16px; font-weight: 700; background: #222; cursor: pointer; }
+.bike-reg-gallery__next:disabled { background: #b7b7b7; cursor: default; }
+
+.bike-reg-rules h3 { display: flex; align-items: center; gap: 6px; margin: 16px 0 4px; font-size: 17px; line-height: 24px; font-weight: 700; }
+.bike-reg-rules h3:first-child { margin-top: 0; }
+.bike-reg-rules h3 span { display: grid; place-items: center; width: 20px; height: 20px; border-radius: 4px; color: #fff; font-size: 13px; font-weight: 700; }
+.bike-reg-rules h3 .is-ok { background: #222; }
+.bike-reg-rules h3 .is-no { border-radius: 50%; background: #f0325e; }
+.bike-reg-rules p { margin: 0; font-size: 15px; line-height: 22px; }
+.bike-reg-rules ul { margin: 8px 0 0; padding-left: 18px; font-size: 15px; line-height: 22px; }
+.bike-reg-rules__photos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+.bike-reg-rules__photos img { width: 100%; aspect-ratio: 16 / 9; border-radius: 4px; object-fit: cover; }

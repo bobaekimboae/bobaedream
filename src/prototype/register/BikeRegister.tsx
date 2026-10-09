@@ -32,15 +32,20 @@ type BikeMaker = {
   groups?: BikeGroup[];
   models?: BikeModel[];
 };
-type PickerName = "maker" | "model" | "year" | "type" | "origin" | "warranty" | "documents" | "sido" | "district" | null;
+type PickerName = "maker" | "model" | "year" | "type" | "origin" | "warranty" | "sido" | "district" | "motor" | "range" | "charge" | null;
 // 2차 수정(10/9 초톳 화면 녹화): 주소 = 「Địa chỉ」 바텀시트(시도·구군·상세 주소·표시 미리보기·완료), 뒤로 = 「Lưu tin nháp?」 확인 시트
-type SheetName = "address" | "draft" | null;
+type SheetName = "address" | "draft" | "gallery" | "photoRules" | "docInfo" | null;
+// 3차 수정(10/9 초톳 등록 풀버전 녹화): 사진 고르기 화면 · 사진 규칙 · 서류 사진 칸 · 전기 바이크 전용 칸 · 보증 기간
 
 const yearOptions = Array.from({ length: 47 }, (_, index) => `${2026 - index}년`);
-const bikeTypeOptions = ["스쿠터", "네이키드", "스포츠", "크루저", "투어러", "멀티퍼퍼스", "클래식", "오프로드", "언더본·비즈니스", "삼륜", "ATV", "기타"];
+const bikeTypeOptions = ["스쿠터", "네이키드", "스포츠", "크루저", "투어러", "멀티퍼퍼스", "클래식", "오프로드", "언더본·비즈니스", "삼륜", "ATV", "전기 바이크", "기타"];
+const electricType = "전기 바이크";
+const motorOptions = ["2,000W 미만", "2,000~2,999W", "3,000~3,999W", "4,000~5,000W", "5,000W 초과"];
+const rangeOptions = ["100km 미만", "100~199km", "200~299km", "300~399km", "400~500km", "500km 초과"];
+const chargeOptions = ["1시간 미만", "1~3시간", "4~6시간", "6시간 초과"];
+const galleryCount = 23;
 const originOptions = ["국산", "일본", "유럽", "미국", "중국", "대만", "기타"];
-const warrantyOptions = ["제조사 보증", "판매자 보증", "보증 없음"];
-const documentOptions = ["서류 있음", "서류 일부 있음", "서류 없음"];
+const warrantyOptions = ["1~6개월", "7~11개월", "1년", "2년", "3년", "3년 초과"];
 // 시안 작업 마스터 확정 사항 8: 국산 KR모터스 · 디앤에이모터스를 맨 앞에
 const pinnedMakers = ["KR모터스(효성)", "디앤에이모터스(대림)"];
 const maxPhotos = 10;
@@ -137,7 +142,13 @@ export default function BikeRegister() {
   const [cc, setCc] = useState("");
   const [origin, setOrigin] = useState("");
   const [warranty, setWarranty] = useState("");
-  const [documents, setDocuments] = useState("");
+  const [docPhotos, setDocPhotos] = useState<string[]>([]);
+  const [docShow, setDocShow] = useState(false);
+  const [motor, setMotor] = useState("");
+  const [battery, setBattery] = useState("");
+  const [range, setRange] = useState("");
+  const [charge, setCharge] = useState("");
+  const [gallerySelection, setGallerySelection] = useState<string[]>([]);
   const [detailAddress, setDetailAddress] = useState("");
   const [sheet, setSheet] = useState<SheetName>(null);
   const [addrDraft, setAddrDraft] = useState({ sido: "", district: "", detail: "" });
@@ -195,7 +206,9 @@ export default function BikeRegister() {
     type: { title: "바이크 유형 선택", options: bikeTypeOptions, selected: type },
     origin: { title: "원산지 선택", options: originOptions, selected: origin },
     warranty: { title: "보증 선택", options: warrantyOptions, selected: warranty },
-    documents: { title: "서류 상태 선택", options: documentOptions, selected: documents },
+    motor: { title: "모터 출력 선택", options: motorOptions, selected: motor },
+    range: { title: "1회 충전 주행거리 선택", options: rangeOptions, selected: range },
+    charge: { title: "충전 시간 선택", options: chargeOptions, selected: charge },
     sido: { title: "시/도 선택", options: regionsKr.sido as string[], selected: addrDraft.sido },
     district: { title: "구/군 선택", options: (regionDistricts[addrDraft.sido] ?? []) as string[], selected: addrDraft.district },
   } as const;
@@ -209,17 +222,27 @@ export default function BikeRegister() {
     if (picker === "type") setType(value);
     if (picker === "origin") setOrigin(value);
     if (picker === "warranty") setWarranty(value);
-    if (picker === "documents") setDocuments(value);
+    if (picker === "motor") setMotor(value);
+    if (picker === "range") setRange(value);
+    if (picker === "charge") setCharge(value);
     setPicker(null);
   };
 
   const openModel = () => maker ? setPicker("model") : setToast("제조사를 먼저 선택해주세요.");
   const aiCopy = () => setDescription("관리 상태가 좋고 주행이 부드러운 바이크입니다. 외관과 소모품 상태를 확인했으며, 자세한 내용은 문의 시 안내드리겠습니다.");
+  // 시안: 실제 파일을 올리지 않고, 초톳 「Tất cả」 사진 고르기 화면 모양으로 바이크 예시 사진(v08)을 고른다
   const addPhoto = () => {
     if (photos.length >= maxPhotos) { setToast(`사진은 ${maxPhotos}장까지 올릴 수 있어요.`); return; }
-    // 시안: 실제 파일을 올리지 않고 바이크 예시 사진을 붙인다
-    setPhotos((current) => [...current, samplePhoto(photoCounter.current++)]);
+    setGallerySelection([]); setSheet("gallery");
   };
+  const toggleGallery = (photo: string) => setGallerySelection((current) => {
+    if (current.includes(photo)) return current.filter((item) => item !== photo);
+    if (photos.length + current.length >= maxPhotos) { setToast(`사진은 ${maxPhotos}장까지 올릴 수 있어요.`); return current; }
+    return [...current, photo];
+  });
+  const applyGallery = () => { setPhotos((current) => [...current, ...gallerySelection]); setSheet(null); };
+  const addDocPhoto = () => setDocPhotos((current) => current.length >= 2 ? (setToast("서류 사진은 2장까지 올릴 수 있어요."), current) : [...current, samplePhoto(40 + photoCounter.current++)]);
+  const isElectric = type === electricType;
   const openAddress = () => { setAddrDraft({ sido, district, detail: detailAddress }); setSheet("address"); };
   const addrNeedsDistrict = Boolean((regionDistricts[addrDraft.sido] ?? []).length);
   const addrReady = Boolean(addrDraft.sido) && (!addrNeedsDistrict || Boolean(addrDraft.district));
@@ -244,7 +267,7 @@ export default function BikeRegister() {
       <header className="bike-reg-header"><button type="button" aria-label="뒤로가기" onClick={() => setSheet("draft")}><img src={icons.back} alt="" /></button><h1>바이크 매물 등록</h1><button type="button" onClick={() => setToast("시안에서는 임시저장을 지원하지 않습니다.")}>임시저장</button></header>
       <main className="bike-reg-main">
         <section className="bike-reg-card">
-          <div className="bike-reg-section-title"><h2>사진/영상<em>*</em></h2><button type="button" aria-label="사진 안내" onClick={() => setToast("첫 번째 사진이 대표 이미지로 표시됩니다.")}><img src={icons.info} alt="" /></button></div>
+          <div className="bike-reg-section-title"><h2>사진/영상<em>*</em></h2><button type="button" aria-label="사진 안내" onClick={() => setSheet("photoRules")}><img src={icons.info} alt="" /></button></div>
           <div className={`bike-reg-media${errors.photos ? " is-error" : ""}`}>
             <button type="button" className="bike-reg-media__add" aria-label="사진/영상 추가" onClick={addPhoto}><img src={icons.upload} alt="" /></button>
             {photos.map((photo, index) => <div key={`${photo}-${index}`} className="bike-reg-media__thumb">
@@ -282,15 +305,28 @@ export default function BikeRegister() {
         <section className="bike-reg-card bike-reg-detail">
           <h2><img src={icons.detail} alt="" />상세 정보</h2>
           <SelectRow label="카테고리" value="바이크" required />
-          <SelectRow label="서류 상태" value={documents} info onClick={() => setPicker("documents")} />
+          <div className="bike-reg-doc">
+            <div className="bike-reg-doc__head"><span>이륜차 사용신고필증</span><button type="button" aria-label="서류 안내" onClick={() => setSheet("docInfo")}><img src={icons.info} alt="" /></button></div>
+            <div className="bike-reg-doc__photos">
+              <button type="button" className="bike-reg-doc__add" aria-label="서류 사진 추가" onClick={addDocPhoto}><img src={chotot("image.svg")} alt="" /></button>
+              {docPhotos.map((photo, index) => <div key={`${photo}-${index}`} className="bike-reg-doc__thumb"><img src={photo} alt={`서류 사진 ${index + 1}`} /><button type="button" aria-label={`서류 사진 ${index + 1} 삭제`} onClick={() => setDocPhotos((current) => current.filter((_, i) => i !== index))}><img src={icons.photoDelete} alt="" /></button></div>)}
+            </div>
+            <label className="bike-reg-check"><span>매물에 서류 사진 표시</span><input type="checkbox" checked={docShow} onChange={(event) => setDocShow(event.currentTarget.checked)} /><i aria-hidden="true" /></label>
+          </div>
           <div className={`bike-reg-condition${errors.condition ? " is-error" : ""}`}><span>차량 상태<em>*</em></span><Pills value={condition} options={["중고", "신차"]} onChange={setCondition} /></div>
           <SelectRow label="제조사" value={maker} required error={errors.maker} onClick={() => setPicker("maker")} />
           <SelectRow label="모델" value={model} required error={errors.model} onClick={openModel} />
           <SelectRow label="연식" value={year} required error={errors.year} onClick={() => setPicker("year")} />
           <SelectRow label="바이크 유형" value={type} required error={errors.type} onClick={() => setPicker("type")} />
           <DetailInput label="주행거리" value={mileage} unit="km" required pencil error={errors.mileage} onChange={setMileage} />
-          <DetailInput label="배기량" value={cc} unit="cc" onChange={setCc} />
+          {isElectric ? null : <DetailInput label="배기량" value={cc} unit="cc" onChange={setCc} />}
           <SelectRow label="원산지" value={origin} onClick={() => setPicker("origin")} />
+          {isElectric ? <>
+            <SelectRow label="모터 출력" value={motor} onClick={() => setPicker("motor")} />
+            <div className="bike-reg-condition"><span>배터리 포함</span><Pills value={battery} options={["없음", "있음"]} onChange={setBattery} /></div>
+            <SelectRow label="1회 충전 주행거리" value={range} onClick={() => setPicker("range")} />
+            <SelectRow label="충전 시간" value={charge} onClick={() => setPicker("charge")} />
+          </> : null}
           <SelectRow label="보증" value={warranty} onClick={() => setPicker("warranty")} />
         </section>
       </main>
@@ -306,6 +342,43 @@ export default function BikeRegister() {
     </BottomSheet> : null}
     {sheet === "draft" ? <BottomSheet title="임시저장할까요?" onClose={() => setSheet(null)} footer={<><button type="button" className="is-outline" onClick={() => { setSheet(null); history.back(); }}>저장 안 함</button><button type="button" className="is-primary" onClick={() => { setSheet(null); setToast("시안에서는 임시저장을 지원하지 않습니다."); }}>임시저장</button></>}>
       <p className="bike-reg-sheet__text">작성 중인 매물을 저장해 두고 나중에 이어서 등록해요.</p>
+    </BottomSheet> : null}
+    {sheet === "gallery" ? <section className="bike-reg-gallery" role="dialog" aria-modal="true" aria-label="사진 고르기">
+      <header><button type="button" aria-label="닫기" onClick={() => setSheet(null)}><img src={icons.close} alt="" /></button><h2>전체 사진<img src={icons.caret} alt="" /></h2><span /></header>
+      <div className="bike-reg-gallery__grid">
+        <button type="button" className="bike-reg-gallery__camera" onClick={() => setToast("시안에서는 카메라를 열지 않습니다.")}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 5.5 9.8 3.8c.2-.2.4-.3.7-.3h3c.3 0 .5.1.7.3l1.3 1.7H19a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7.5a2 2 0 0 1 2-2h3.5Z" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" /><circle cx="12" cy="12.5" r="3.6" fill="none" stroke="currentColor" strokeWidth="1.6" /></svg>카메라</button>
+        {Array.from({ length: galleryCount }, (_, index) => samplePhoto(index)).map((photo) => {
+          const order = gallerySelection.indexOf(photo);
+          return <button type="button" key={photo} className={`bike-reg-gallery__item${order >= 0 ? " is-selected" : ""}`} aria-pressed={order >= 0} onClick={() => toggleGallery(photo)}><img src={photo} alt="" /><i>{order >= 0 ? order + 1 : null}</i></button>;
+        })}
+      </div>
+      <footer>
+        <p className="bike-reg-gallery__tip">팁: 왼쪽 옆모습이 잘 보이는 사진을 대표 사진으로 올려 주세요.</p>
+        <div className="bike-reg-gallery__bar">
+          <div className="bike-reg-gallery__picked">{gallerySelection.length ? gallerySelection.map((photo) => <span key={photo}><img src={photo} alt="" /><button type="button" aria-label="선택 해제" onClick={() => toggleGallery(photo)}><img src={icons.photoDelete} alt="" /></button></span>) : <small>사진을 골라 주세요 · 최대 {maxPhotos - photos.length}장</small>}</div>
+          <button type="button" className="bike-reg-gallery__next" disabled={!gallerySelection.length} onClick={applyGallery}>다음{gallerySelection.length ? ` ${gallerySelection.length}` : ""}</button>
+        </div>
+      </footer>
+    </section> : null}
+    {sheet === "photoRules" ? <BottomSheet title="사진 등록 규칙" onClose={() => setSheet(null)} footer={<button type="button" className="is-primary" onClick={() => setSheet(null)}>확인</button>}>
+      <div className="bike-reg-rules">
+        <h3><span className="is-ok" aria-hidden="true">✓</span>권장</h3>
+        <p>판매하는 바이크를 직접 찍은 사진이 보는 사람에게 믿음을 줘요.</p>
+        <div className="bike-reg-rules__photos"><img src={samplePhoto(0)} alt="좋은 예 1" /><img src={samplePhoto(1)} alt="좋은 예 2" /></div>
+        <h3><span className="is-no" aria-hidden="true">−</span>올릴 수 없어요</h3>
+        <p>다른 매물이나 예전 매물에 쓴 사진을 그대로 쓴 사진</p>
+        <h3><span className="is-no" aria-hidden="true">−</span>올릴 수 없어요</h3>
+        <p>링크, 전화번호, 글자, 업체 이름, 꾸밈 테두리가 들어간 사진</p>
+        <h3><span className="is-no" aria-hidden="true">−</span>올릴 수 없어요</h3>
+        <p>한 장에 5MB가 넘는 사진</p>
+      </div>
+    </BottomSheet> : null}
+    {sheet === "docInfo" ? <BottomSheet title="서류 사진 안내" onClose={() => setSheet(null)} footer={<button type="button" className="is-primary" onClick={() => setSheet(null)}>확인</button>}>
+      <div className="bike-reg-rules">
+        <h3>서류 사진 올리는 방법</h3>
+        <p>이륜차 사용신고필증 앞면을 올려 주세요.</p>
+        <ul><li>번호판과 소유자 이름·주민등록번호는 가려 주세요.</li><li>서류 사진을 매물에 보여줄지는 직접 고를 수 있어요.</li><li>서류가 없으면 비워 두어도 등록할 수 있어요.</li></ul>
+      </div>
     </BottomSheet> : null}
     {picker ? <FullPicker {...pickerMap[picker]} onClose={() => setPicker(null)} onSelect={choose} /> : null}
     {toast ? <div className="bike-reg-toast" role="status">{toast}</div> : null}
