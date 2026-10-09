@@ -357,8 +357,9 @@ const vehicleNumberPattern = /^([가-힣]{2}\s*)?\d{2,3}\s*[가-힣]\s*\d{4}$/;
 const formatRegistrationDate = (value: string) => {
   const yearMonth = value.trim().match(/^(\d{2}|\d{4})년\s*0?(\d{1,2})월(?:식)?$/);
   if (yearMonth) return `${yearMonth[1].slice(-2)}년 ${Number(yearMonth[2])}월`;
-  const modelYear = value.trim().match(/^(\d{4})년식$/);
-  if (modelYear) return `${modelYear[1].slice(-2)}년식`;
+  // 연식만 있으면 숫자 4자리(2025)로 통일(2026-10-10), 년월 동시 표기는 위에서 그대로 처리
+  const modelYear = value.trim().match(/^(\d{2}|\d{4})년[식형]$/);
+  if (modelYear) return modelYear[1].length === 2 ? `20${modelYear[1]}` : modelYear[1];
   return value;
 };
 const displaySpecs = (specs: string[]) => specs
