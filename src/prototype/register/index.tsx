@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react
 import { BbmFooter } from "../listing/bbm-list-area";
 import "../listing/bbm-list-area.css";
 import "./register.css";
+import BikeRegister from "./BikeRegister";
 import { registerHeaderHtml, registerPhotoGuideHtml, registerPolicyHtml } from "./header-html";
 import { inspectionPcHtml } from "./inspection-pc-html";
 import {
@@ -825,7 +826,7 @@ function OptionSlot({ draft, setDraft, tab, setTab }: { draft: Set<string>; setD
   );
 }
 
-export default function RegisterPage() {
+function CarRegisterPage() {
   const [step, setStep] = useState<"lookup" | "form">(() => new URLSearchParams(window.location.search).get("register") === "form" ? "form" : "lookup");
   const { toast, notify } = useToast();
   useEffect(() => {
@@ -850,4 +851,10 @@ export default function RegisterPage() {
       <Toast text={toast} />
     </div>
   );
+}
+
+export default function RegisterPage() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("register") === "bike" || params.get("category") === "바이크") return <BikeRegister />;
+  return <CarRegisterPage />;
 }
