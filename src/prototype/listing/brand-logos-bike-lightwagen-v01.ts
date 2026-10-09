@@ -9,4 +9,7 @@ export const bikeBrandLogosLightwagenV01: Record<string, { file: string; ratio: 
   "베스파": { file: "BKM008_Vespa.png", ratio: 143 / 53, source: "lightwagen" },
   "로얄엔필드": { file: "BKM009_Royal_Enfield.png", ratio: 121 / 57, source: "lightwagen" },
   "두카티": { file: "BKM010_Ducati.png", ratio: 76 / 78, source: "lightwagen" },
+  "KTM": { file: "BKM016_KTM.png", ratio: 133 / 54, source: "lightwagen" },
+  "트라이엄프": { file: "BKM078_Triumph.png", ratio: 78 / 75, source: "lightwagen" },
+  "피아지오": { file: "BKM082_Piaggio.png", ratio: 81 / 93, source: "lightwagen" },
 };

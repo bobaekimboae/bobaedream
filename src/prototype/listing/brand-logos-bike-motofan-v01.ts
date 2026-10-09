@@ -31,10 +31,12 @@ export function selectedBikeBrandLogo(name: string): SelectedBikeLogo | null {
   const requestedSet = typeof window !== "undefined"
     ? new URLSearchParams(window.location.search).get("bikelogo")
     : null;
-  const lightwagen = requestedSet === "lightwagen" ? bikeBrandLogosLightwagenV01[name] : null;
-  if (lightwagen) return { logo: lightwagen, directory: "lightwagen-trim", set: "lightwagen-bike" };
   const motofan = requestedSet === "motofan" ? bikeBrandLogosMotofanV01[name] : null;
   if (motofan) return { logo: motofan, directory: "motofan-trim", set: "motofan-bike" };
+  const lightwagen = requestedSet !== "autohome" && requestedSet !== "motofan"
+    ? bikeBrandLogosLightwagenV01[name]
+    : null;
+  if (lightwagen) return { logo: lightwagen, directory: "lightwagen-trim", set: "lightwagen-bike" };
   const fallback = bikeBrandLogosV01[name];
   if (!fallback) return null;
   return {
