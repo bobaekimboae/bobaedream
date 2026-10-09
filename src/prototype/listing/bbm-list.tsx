@@ -4,6 +4,7 @@ import { asset, displayListPlace, placeSidoGugun, sellerAvatar, sellerLabel, sel
 import { bbmCardBadges, bbmCardSpec } from "../data/bbm-card-samples";
 import { truckFormatCatalog } from "../data/truck-format-catalog";
 import { normalizedListThumb } from "./list-thumbs";
+import { truckPlaceV09 } from "../truck/scenario-v09";
 import "./bbm-tokens.css";
 
 // QF-091: 개발 시안(dev.bbmuseum.co.kr/car/list) 원본과 같은 목록 부품. 수치·아이콘은 원본에서 뽑은 값(bbm-tokens.css, public/assets/bbm/).
@@ -456,7 +457,10 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
     ? [placeSidoGugun(car.place.split(" · ")[0]), ...car.place.split(" · ").slice(1)].join(" · ").replaceAll("자동차매매단지", "단지").replaceAll("매매단지", "단지")
     : car.truck && car.place.includes(" · ")
       ? [placeSidoGugun(car.place.split(" · ")[0]), ...car.place.split(" · ").slice(1)].join(" · ").replaceAll("자동차매매단지", "단지").replaceAll("매매단지", "단지")
-      : !isPassenger ? placeSidoGugun(car.place.split(" · ")[0]) : displayListPlace(car.place, "딜러");
+      : !isPassenger
+        // 바이크·건설기계·캠핑카·자재운반장비·부품 딜러도 KB 마스터의 실제 단지를 붙인다(2026-10-10 「지역 매매단지 다 추가」). 개인은 지역만
+        ? truckPlaceV09(placeSidoGugun(car.place.split(" · ")[0]), car.sellerType === "개인" ? "개인" : "딜러", car.id).split(" · ").map((part, index) => index ? part.replaceAll("자동차매매단지", "단지").replaceAll("매매단지", "단지") : part).join(" · ")
+        : displayListPlace(car.place, "딜러");
   const badges = bbmCardBadges(car);
   // dev 원본처럼 스펙 항목을 " · "(공백+가운데점+공백) 텍스트로 잇는다(JOB-8). 한 줄 넘치면 말줄임
   const specText = bbmCardSpec(car, variant === "pc");
