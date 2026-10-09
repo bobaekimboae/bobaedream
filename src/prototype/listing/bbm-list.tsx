@@ -374,7 +374,9 @@ const specIconOf = (item: string): keyof typeof specIconFiles | null => {
 // 아이콘이 하나라도 있는 줄은 아이콘이 항목 구분을 맡고 가운데 점을 쓰지 않는다(없는 줄은 가운데 점 유지)
 function renderFeedSpec(text: string) {
   const items = text.split(" · ");
-  const iconOf = (item: string) => specIconOf(item);
+  // 비교용: 주소 끝 &specicon=off 이면 아이콘 없이 가운데 점 사양 줄(2026-10-10 「아이콘 없는버전」)
+  const iconsOff = new URLSearchParams(window.location.search).get("specicon") === "off";
+  const iconOf = (item: string) => iconsOff ? null : specIconOf(item);
   const hasIcon = items.some((item) => iconOf(item));
   return items.map((item, index) => {
     const icon = iconOf(item);
