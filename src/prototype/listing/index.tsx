@@ -679,6 +679,11 @@ function MarketplaceScreen() {
     && maker === "BMW"
     && typeof window !== "undefined"
     && new URLSearchParams(window.location.search).get("qfmodelpill") === "chotot";
+  const textOnlyBikeModelPills = isGuaziQuickStyle
+    && isBikeCategory
+    && maker === "BMW"
+    && typeof window !== "undefined"
+    && new URLSearchParams(window.location.search).get("qfmodelpill") === "text";
   const horizontalBikeBrandPills = isGuaziQuickStyle
     && isBikeCategory
     && typeof window !== "undefined"
@@ -1480,6 +1485,17 @@ function MarketplaceScreen() {
                 </button>
               ))}
             </Carousel>
+          </section> : showModelQuickRail && textOnlyBikeModelPills ? <section className="depth-rail is-trim-row no-label" aria-label="BMW 모델 텍스트 알약칩 빠른 선택">
+            <QuickRailCarousel ariaLabel="BMW 모델" className="brand-carousel" contentClassName="depth-rail-track is-chips">
+              {modelQuickOptions.map((model) => (
+                <TrimChip
+                  key={model}
+                  label={formatModelLabel(model)}
+                  selected={selectedModel === model}
+                  onClick={() => chooseModel(model)}
+                />
+              ))}
+            </QuickRailCarousel>
           </section> : showModelQuickRail && horizontalBikeModelPills ? <section className="model-image-pill-rail" aria-label="BMW 모델 이미지 알약칩 빠른 선택">
             <QuickRailCarousel ariaLabel="BMW 모델" className="brand-carousel" contentClassName="model-image-pill-track">
               {modelQuickOptions.map((model) => {
