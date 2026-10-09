@@ -24,7 +24,7 @@ import { luxuryUiTestRows } from "./luxury-ui-test";
 import { bikeModelsByMaker, bikeTopBrands } from "./bike-filter-catalog";
 import { bikeInventory } from "../bike/data";
 import { heavyInventory } from "../heavy/data";
-import { truckListingRowsV09, truckModelsByMaker } from "../truck/scenario-v09";
+import { truckListingRowsV09, truckModelsByMaker, truckPlaceV09 } from "../truck/scenario-v09";
 import { truckScenarioImageV02 } from "../truck/scenario-images-v02";
 import { truckSubtypeLabel } from "./truck-format-catalog";
 import { luxuryDealers, luxuryListingRows } from "./luxury-category-v01";
@@ -1097,7 +1097,8 @@ const truckCars: Car[] = truckListingRowsV09.map((row, index) => {
   trim: truckListingOverridesV01[row.id]?.trim ?? row.trim ?? (trailer ? subtypeLabel : [row.load, row.format.startsWith("카고") || !subtypeLabel ? row.format.replace(/\(.*\)|트럭/g, "").trim() : subtypeLabel].filter(Boolean).join(" ")),
   specs: [`${row.year}년식`, `${row.mileage.toLocaleString("ko-KR")}km`, row.load, row.region],
   price: `${row.price10k.toLocaleString("ko-KR")} 만원`,
-  place: row.region,
+  place: truckPlaceV09(row.region, row.sellerType, index),
+  listThumb: row.sheetRow ? row.image.replace("listings/v09/", "listings/v09/thumb/") : undefined,
   views: 55 + index * 9,
   dealer: virtualSellerName(row.sellerType, 6000 + index),
   stock: 1,
