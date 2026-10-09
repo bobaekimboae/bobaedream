@@ -1,4 +1,4 @@
-import { useState, type KeyboardEvent, type ReactNode } from "react";
+import { useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { asset, displayListPlace, placeSidoGugun, sellerAvatar, sellerLabel, sellerRealPhoto, type Car } from "../data";
 import { bbmCardBadges, bbmCardSpec } from "../data/bbm-card-samples";
@@ -350,7 +350,31 @@ function cardTitleText(car: Car) {
 }
 
 // ── 매물 카드(원본 car-list-result-card). variant pc: 사진 160, 마력 포함 / mobile 목록형: 초톳 기준 사진 120×120, 마력 없음
-export function BbmResultCard({ car, variant, featured = false, liked, onToggleLike, onOpen, onChat, onCall }: { car: Car; variant: "pc" | "mobile"; featured?: boolean; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void; onCall?: () => void }) {
+// 피드 보기 사진 넘기기(레딧식): 가로 스와이프(scroll-snap) + 아래 가운데 점 알약(현재 점 흰색, 가장자리 점은 작게)
+function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string; fit: "cover" | "contain" }) {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [index, setIndex] = useState(0);
+  const onScroll = () => {
+    const track = trackRef.current;
+    if (!track || !track.clientWidth) return;
+    setIndex(Math.max(0, Math.min(photos.length - 1, Math.round(track.scrollLeft / track.clientWidth))));
+  };
+  // 점은 최대 7개까지만 보이고, 현재 점 둘레로 창을 옮긴다(레딧과 같은 방식)
+  const start = Math.max(0, Math.min(index - 3, photos.length - 7));
+  const dots = photos.map((_, i) => i).slice(start, start + 7);
+  return (
+    <>
+      <div className="bbm-feed-carousel" ref={trackRef} onScroll={onScroll} onClick={(event) => { if (trackRef.current && trackRef.current.scrollLeft % trackRef.current.clientWidth) event.stopPropagation(); }}>
+        {photos.map((src, i) => <img key={src + i} className={fit === "contain" ? "is-catalog" : ""} src={asset(src)} alt={i === 0 ? alt : `${alt} 사진 ${i + 1}`} draggable={false} loading={i === 0 ? "eager" : "lazy"} />)}
+      </div>
+      <div className="bbm-feed-dots" aria-hidden="true">
+        {dots.map((i) => <i key={i} className={i === index ? "is-on" : Math.abs(i - index) >= 3 ? "is-edge" : ""} />)}
+      </div>
+    </>
+  );
+}
+
+export function BbmResultCard({ car, variant, featured = false, liked, onToggleLike, onOpen, onChat, onCall, feedPhotos }: { car: Car; variant: "pc" | "mobile"; featured?: boolean; feedPhotos?: string[]; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void; onCall?: () => void }) {
   const seller = sellerLabel(car);
   // 목록 썸네일은 정규화 사본(럭셔리카와 같은 규칙)을 쓰고, 피드 대표 사진·그림(contain)은 원본 그대로
   const listPhoto = featured || car.imageFit === "contain" ? undefined : car.listThumb ?? normalizedListThumb(car.image);
@@ -377,7 +401,14 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   const headlinePosition = getHeadlinePosition();
   const headlineTone = car.uiTest ? getHeadlineTone() : "default";
   const headline = car.uiTest ? <strong className={`bbm-card-headline is-${headlinePosition}${headlineTone === "blue" ? " is-blue" : ""}`}>{car.uiTest.headline}</strong> : null;
-  const photo = (
+  const alt = car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim();
+  const timeFooter = <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span></div>;
+  const photo = featured && car.image && feedPhotos && feedPhotos.length > 1 ? (
+    <div className="bbm-card-photo is-carousel">
+      <FeedPhotoCarousel photos={feedPhotos} alt={alt} fit={car.imageFit === "contain" ? "contain" : "cover"} />
+      {timeFooter}
+    </div>
+  ) : (
     <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`}>
       {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(listPhoto ?? car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} style={{ objectPosition: listPhoto ? "center center" : car.imagePosition ?? "center center" }} /> : null}
       <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span></div>
