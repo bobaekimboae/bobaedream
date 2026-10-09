@@ -350,7 +350,7 @@ function cardTitleText(car: Car) {
 }
 
 // ── 매물 카드(원본 car-list-result-card). variant pc: 사진 160, 마력 포함 / mobile 목록형: 초톳 기준 사진 120×120, 마력 없음
-// 피드 보기 사진 넘기기(레딧식): 가로 스와이프(scroll-snap) + 아래 가운데 점 알약(현재 점 흰색, 가장자리 점은 작게)
+// 피드 보기 사진 넘기기(레딧식): 가로 스와이프(scroll-snap) + 아래 가운데 점 알약(현재 점 흰색, 가장자리 점은 작게) + 오른쪽 위 「현재/전체」 개수
 function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string; fit: "cover" | "contain" }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
@@ -367,6 +367,7 @@ function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string
       <div className="bbm-feed-carousel" ref={trackRef} onScroll={onScroll} onClick={(event) => { if (trackRef.current && trackRef.current.scrollLeft % trackRef.current.clientWidth) event.stopPropagation(); }}>
         {photos.map((src, i) => <img key={src + i} className={fit === "contain" ? "is-catalog" : ""} src={asset(src)} alt={i === 0 ? alt : `${alt} 사진 ${i + 1}`} draggable={false} loading={i === 0 ? "eager" : "lazy"} />)}
       </div>
+      <span className="bbm-feed-count" aria-label={`사진 ${photos.length}장 중 ${index + 1}번째`}>{index + 1}/{photos.length}</span>
       <div className="bbm-feed-dots" aria-hidden="true">
         {dots.map((i) => <i key={i} className={i === index ? "is-on" : Math.abs(i - index) >= 3 ? "is-edge" : ""} />)}
       </div>

@@ -175,3 +175,5 @@
 .bbm-feed-dots i.is-edge { width: 4px; height: 4px; }
 .bbm-feed-dots i.is-on { background: #fff; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-feed-featured .bbm-card-photo.is-carousel .bbm-card-media-footer { z-index: 2; pointer-events: none; }
+/* 2026-10-10 「레딧처럼 상단 우측에 사진개수」: 사진 오른쪽 위 8px 안쪽에 어두운 반투명 알약 「2/5」(12/16 600 흰색, 높이 24, 좌우 8) */
+.bbm-feed-count { position: absolute; top: 8px; right: 8px; z-index: 2; height: 24px; padding: 0 8px; border-radius: 12px; color: #fff; font-size: 12px; font-weight: 600; line-height: 24px; font-variant-numeric: tabular-nums; background: rgba(0, 0, 0, 0.6); pointer-events: none; }
