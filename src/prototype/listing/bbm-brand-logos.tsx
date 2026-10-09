@@ -7,7 +7,7 @@ import brandTop10Truck from "../data/brand-top10-truck.json";
 import brandTop10Camping from "../data/brand-top10-camping.json";
 import brandTop10Material from "../data/brand-top10-material.json";
 import brandTop10Parts from "../data/brand-top10-parts.json";
-import { bikeBrandLogosV01 } from "./brand-logos-bike-v01";
+import { selectedBikeBrandLogo } from "./brand-logos-bike-motofan-v01";
 import "./bbm-brand-logos.css";
 import { bikeBrandCount } from "../data/bike-filter-catalog";
 import { driveTop10BrandLogos } from "./brand-logos-drive10.generated";
@@ -113,14 +113,15 @@ export function railBrandLogo(name: string) {
 
 /** 바이크 카테고리 전용 로고. 승용 로고와 경로를 분리하고 같은 슬롯 크기 규칙을 쓴다. */
 export function BikeBrandLogo({ name, kind, initialFallback = false }: { name: string; kind: "rail" | "list" | "plain"; initialFallback?: boolean }) {
-  const logo = bikeBrandLogosV01[name];
-  if (!logo) return <KrBrandLogo name={name} kind={kind} initialFallback={initialFallback} />;
+  const selected = selectedBikeBrandLogo(name);
+  if (!selected) return <KrBrandLogo name={name} kind={kind} initialFallback={initialFallback} />;
+  const { logo } = selected;
   const size = kind === "list"
     ? (() => { const value = krListLogoSize(logo.ratio); return { width: px(value.width), height: px(value.height) }; })()
     : chototRailLogoSize(logo.ratio);
   return (
-    <span className={`kr-brand-logo is-${kind} is-bike`} data-brand={name} data-ratio={logo.ratio} data-logo-set="autohome-bike" data-logo-source={logo.source}>
-      <img src={asset(`bike/logos/autohome-trim/${logo.file}`)} alt="" draggable={false} style={size} />
+    <span className={`kr-brand-logo is-${kind} is-bike`} data-brand={name} data-ratio={logo.ratio} data-logo-set={selected.set} data-logo-source={logo.source}>
+      <img src={asset(`bike/logos/${selected.directory}/${logo.file}`)} alt="" draggable={false} style={size} />
     </span>
   );
 }

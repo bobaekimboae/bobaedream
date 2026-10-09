@@ -3,7 +3,7 @@ import { ChevronLeftIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import type { QuickGenerationOption, QuickModelVisual } from "../data";
 import { searchVehicleCatalog, type VehicleSearchRecord } from "./search.mjs";
 import { carMakerLogoAsset } from "./car-maker-logos-v4";
-import { bikeBrandLogosV01 } from "../listing/brand-logos-bike-v01";
+import { selectedBikeBrandLogo } from "../listing/brand-logos-bike-motofan-v01";
 import "./vehicle-catalog.css";
 
 export type CatalogScope = "car" | "bike";
@@ -129,10 +129,11 @@ export function useVehicleCatalog(scope: CatalogScope, selectedMake?: string | n
 }
 
 export function CatalogLogo({ path, name, kind = "list", scope = "car" }: { path?: string | null; name: string; kind?: "rail" | "list" | "chip"; scope?: CatalogScope }) {
-  const bikeLogo = scope === "bike" ? bikeBrandLogosV01[name] : null;
+  const selectedBikeLogo = scope === "bike" ? selectedBikeBrandLogo(name) : null;
+  const bikeLogo = selectedBikeLogo?.logo ?? null;
   const approved = scope === "car" ? carMakerLogoAsset(name) : null;
   const source = bikeLogo
-    ? `${publicBase}assets/bike/logos/autohome-trim/${bikeLogo.file}`
+    ? `${publicBase}assets/bike/logos/${selectedBikeLogo?.directory}/${bikeLogo.file}`
     : approved
       ? `${publicBase}assets/maker-model/logos/encar-1005-trim/${approved.file}`
       : publicCatalogAsset(path);
@@ -145,7 +146,7 @@ export function CatalogLogo({ path, name, kind = "list", scope = "car" }: { path
     return { width: `${width * scale}px`, height: `${height * scale}px` };
   })() : null;
   const style = bikeSize ?? (approved ? { width: `${approved.width * scale}px`, height: `${approved.height * scale}px` } : undefined);
-  return <span className={`catalog-logo is-${kind}${source ? "" : " is-placeholder"}`} data-testid={`catalog-logo-${name}`} data-logo-standard={bikeLogo ? "autohome-bike" : approved ? "v4" : "legacy"}>{source ? <img src={source} alt="" draggable={false} style={style} /> : <span aria-hidden="true">{name.slice(0, 1)}</span>}</span>;
+  return <span className={`catalog-logo is-${kind}${source ? "" : " is-placeholder"}`} data-testid={`catalog-logo-${name}`} data-logo-standard={selectedBikeLogo?.set ?? (approved ? "v4" : "legacy")}>{source ? <img src={source} alt="" draggable={false} style={style} /> : <span aria-hidden="true">{name.slice(0, 1)}</span>}</span>;
 }
 
 export function CatalogVehicleImage({ path, name, compact = false }: { path?: string | null; name: string; compact?: boolean }) {
