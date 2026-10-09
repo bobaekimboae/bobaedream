@@ -16,7 +16,8 @@ const icons = {
   check: chotot("check-mark.svg"),
   pin: chotot("location-pin.svg"),
   info: chotot("info.svg"),
-  upload: chotot("upload-media.png"),
+  // 사진 추가 칸 아이콘: 노션 틱톡 아이콘 DB 「업로드할 사진 선택」 원본 SVG(사용자 지정 10/9). 파일 수정 없이 그대로 사용
+  upload: asset("assets/register/tiktok/upload-photo-select.svg"),
   photoDelete: chotot("image-upload-delete.svg"),
   caret: chotot("caret-down.svg"),
   clear: chotot("clear-text.svg"),
