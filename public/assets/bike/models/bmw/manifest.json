@@ -1,0 +1,117 @@
+{
+  "version": "v01",
+  "style": "AutoScout24 neutral catalog tone; strict left-facing side profile",
+  "canvas": "960x600 transparent PNG",
+  "models": [
+    {
+      "code": "BKM003-0001",
+      "name": "S 1000 RR",
+      "source": "exec-14988595-e7fd-40c6-a995-b3406ae068f6.png",
+      "file": "BMW-8451-s1000rr-autoscout-side-v01.png",
+      "widthPercent": 89.9,
+      "bottomGapPercent": 6.0,
+      "centerOffsetPercent": -0.05,
+      "canvasWidth": 960,
+      "canvasHeight": 600
+    },
+    {
+      "code": "BKM003-0002",
+      "name": "G 310 R",
+      "source": "exec-b58073b3-e84d-419b-a971-6d12dd3441ac.png",
+      "file": "BMW-8371-g310r-autoscout-side-v01.png",
+      "widthPercent": 87.92,
+      "bottomGapPercent": 6.0,
+      "centerOffsetPercent": 0.0,
+      "canvasWidth": 960,
+      "canvasHeight": 600
+    },
+    {
+      "code": "BKM003-0003",
+      "name": "S 1000 R",
+      "source": "exec-9698cc97-c28a-4e79-9b13-9e0635615a95.png",
+      "file": "BMW-8450-s1000r-autoscout-side-v01.png",
+      "widthPercent": 90.0,
+      "bottomGapPercent": 6.0,
+      "centerOffsetPercent": 0.0,
+      "canvasWidth": 960,
+      "canvasHeight": 600
+    },
+    {
+      "code": "BKM003-0004",
+      "name": "G 310 GS",
+      "source": "exec-8463e489-db82-4f93-9aea-a6086a0aca2d.png",
+      "file": "BMW-8370-g310gs-autoscout-side-v01.png",
+      "widthPercent": 89.17,
+      "bottomGapPercent": 6.0,
+      "centerOffsetPercent": 0.0,
+      "canvasWidth": 960,
+      "canvasHeight": 600
+    },
+    {
+      "code": "BKM003-0005",
+      "name": "R nine T",
+      "source": "exec-4ecf8070-3fbd-4845-82ef-3eb7971780a7.png",
+      "file": "BMW-13033-rninet-autoscout-side-v01.png",
+      "widthPercent": 90.0,
+      "bottomGapPercent": 6.0,
+      "centerOffsetPercent": 0.0,
+      "canvasWidth": 960,
+      "canvasHeight": 600
+    },
+    {
+      "code": "BKM003-0006",
+      "name": "C 400 GT",
+      "source": "exec-a89f8013-55c4-4f86-aeac-3dea21c58933.png",
+      "file": "BMW-8347-c400gt-autoscout-side-v01.png",
+      "widthPercent": 90.0,
+      "bottomGapPercent": 6.0,
+      "centerOffsetPercent": 0.0,
+      "canvasWidth": 960,
+      "canvasHeight": 600
+    },
+    {
+      "code": "BKM003-0007",
+      "name": "F 900 XR",
+      "source": "exec-8b748e37-b625-42bf-a9ae-59d2082a9cb4.png",
+      "file": "BMW-8369-f900xr-autoscout-side-v01.png",
+      "widthPercent": 88.65,
+      "bottomGapPercent": 6.0,
+      "centerOffsetPercent": -0.05,
+      "canvasWidth": 960,
+      "canvasHeight": 600
+    },
+    {
+      "code": "BKM003-0008",
+      "name": "F 900 R",
+      "source": "exec-a977f673-b8f4-43e3-9147-152622ba4a3b.png",
+      "file": "BMW-10886-f900r-autoscout-side-v01.png",
+      "widthPercent": 89.48,
+      "bottomGapPercent": 6.0,
+      "centerOffsetPercent": -0.05,
+      "canvasWidth": 960,
+      "canvasHeight": 600
+    },
+    {
+      "code": "BKM003-0009",
+      "name": "R 18",
+      "source": "exec-d21eed65-11a3-4713-8c9f-d4d8696c3b09.png",
+      "file": "BMW-8433-r18-autoscout-side-v01.png",
+      "widthPercent": 89.9,
+      "bottomGapPercent": 6.0,
+      "centerOffsetPercent": -0.05,
+      "canvasWidth": 960,
+      "canvasHeight": 600
+    },
+    {
+      "code": "BKM003-0010",
+      "name": "S 1000 XR",
+      "source": "exec-095d3048-5c88-4e34-8f10-5a0f5941f090.png",
+      "file": "BMW-8452-s1000xr-autoscout-side-v01.png",
+      "widthPercent": 88.12,
+      "bottomGapPercent": 6.0,
+      "centerOffsetPercent": 0.0,
+      "canvasWidth": 960,
+      "canvasHeight": 600
+    }
+  ]
+}
