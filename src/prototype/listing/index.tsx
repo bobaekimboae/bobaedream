@@ -1571,7 +1571,14 @@ function MarketplaceScreen() {
             }
             const card = (item: { label: string; key: string }) => {
               const catalogMake = vehicleCatalog.index?.manufacturers.find((entry) => entry.name === item.key || entry.name === item.label);
-              return <DepthCard key={item.label} className={typeList && sampleCount(item.key) === 0 ? "is-dim" : undefined} label={categoryRailLabel(category, item.label)} image={!typeList && plainQuickCards && railBrandLogo(item.key) ? railBrandLogo(item.key) : catalogMake ? <CatalogLogo path={catalogMake.logoPath} name={catalogMake.name} kind="rail" /> : <CategoryBrandLogo category={category} name={item.label} kind={plainQuickCards ? "plain" : "rail"} initialFallback={Boolean(typeList)} />} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />;
+              const image = category === "바이크"
+                ? <CategoryBrandLogo category={category} name={item.label} kind={plainQuickCards ? "plain" : "rail"} initialFallback />
+                : !typeList && plainQuickCards && railBrandLogo(item.key)
+                  ? railBrandLogo(item.key)
+                  : catalogMake
+                    ? <CatalogLogo path={catalogMake.logoPath} name={catalogMake.name} kind="rail" />
+                    : <CategoryBrandLogo category={category} name={item.label} kind={plainQuickCards ? "plain" : "rail"} initialFallback={Boolean(typeList)} />;
+              return <DepthCard key={item.label} className={typeList && sampleCount(item.key) === 0 ? "is-dim" : undefined} label={categoryRailLabel(category, item.label)} image={image} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />;
             };
             return (
               <section className="depth-rail is-kr-maker no-label" aria-label={`${categoryBrandRail.title} 빠른 선택`}>

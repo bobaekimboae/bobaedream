@@ -115,12 +115,12 @@ export function railBrandLogo(name: string) {
 export function BikeBrandLogo({ name, kind, initialFallback = false }: { name: string; kind: "rail" | "list" | "plain"; initialFallback?: boolean }) {
   const logo = bikeBrandLogosV01[name];
   if (!logo) return <KrBrandLogo name={name} kind={kind} initialFallback={initialFallback} />;
-  const size = kind === "plain"
-    ? krPlainLogoSize(logo.ratio)
-    : (() => { const value = kind === "rail" ? krRailLogoSize(logo.ratio) : krListLogoSize(logo.ratio); return { width: px(value.width), height: px(value.height) }; })();
+  const size = kind === "list"
+    ? (() => { const value = krListLogoSize(logo.ratio); return { width: px(value.width), height: px(value.height) }; })()
+    : chototRailLogoSize(logo.ratio);
   return (
-    <span className={`kr-brand-logo is-${kind} is-bike`} data-brand={name} data-ratio={logo.ratio}>
-      <img src={asset(`brand/bike/${logo.file}`)} alt="" draggable={false} style={size} />
+    <span className={`kr-brand-logo is-${kind} is-bike`} data-brand={name} data-ratio={logo.ratio} data-logo-set="autohome-bike" data-logo-source={logo.source}>
+      <img src={asset(`bike/logos/autohome-trim/${logo.file}`)} alt="" draggable={false} style={size} />
     </span>
   );
 }
