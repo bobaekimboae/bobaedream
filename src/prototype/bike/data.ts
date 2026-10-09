@@ -84,7 +84,9 @@ export const bikeListingModelsByMaker = bikeInventory.reduce<Record<string, stri
   return result;
 }, {});
 
-export const bikeListingModelVisualsByMaker = bikeInventory.reduce<Record<string, Record<string, { image: string; bodyFit: "height"; count: string; bodyType?: undefined; isEV: false }>>>((result, row) => {
+type BikeModelVisual = { image: string; bodyFit: "width" | "height"; count: string; bodyType?: undefined; isEV: false };
+
+const bikeInventoryModelVisualsByMaker = bikeInventory.reduce<Record<string, Record<string, BikeModelVisual>>>((result, row) => {
   const maker = result[row.maker] ?? {};
   const current = maker[row.model];
   const count = current ? Number(current.count.replace(/[^0-9]/g, "")) + 1 : 1;
@@ -97,3 +99,24 @@ export const bikeListingModelVisualsByMaker = bikeInventory.reduce<Record<string
   result[row.maker] = maker;
   return result;
 }, {});
+
+const bmwGeneratedModelVisuals: Record<string, BikeModelVisual> = {
+  "S 1000 RR": { image: `${import.meta.env.BASE_URL}assets/bike/models/bmw/BMW-8451-s1000rr-autoscout-side-v01.png`, bodyFit: "width", count: bikeInventoryModelVisualsByMaker.BMW?.["S 1000 RR"]?.count ?? "0대", isEV: false },
+  "G 310 R": { image: `${import.meta.env.BASE_URL}assets/bike/models/bmw/BMW-8371-g310r-autoscout-side-v01.png`, bodyFit: "width", count: bikeInventoryModelVisualsByMaker.BMW?.["G 310 R"]?.count ?? "0대", isEV: false },
+  "S 1000 R": { image: `${import.meta.env.BASE_URL}assets/bike/models/bmw/BMW-8450-s1000r-autoscout-side-v01.png`, bodyFit: "width", count: bikeInventoryModelVisualsByMaker.BMW?.["S 1000 R"]?.count ?? "0대", isEV: false },
+  "G 310 GS": { image: `${import.meta.env.BASE_URL}assets/bike/models/bmw/BMW-8370-g310gs-autoscout-side-v01.png`, bodyFit: "width", count: bikeInventoryModelVisualsByMaker.BMW?.["G 310 GS"]?.count ?? "0대", isEV: false },
+  "R nine T": { image: `${import.meta.env.BASE_URL}assets/bike/models/bmw/BMW-13033-rninet-autoscout-side-v01.png`, bodyFit: "width", count: bikeInventoryModelVisualsByMaker.BMW?.["R nine T"]?.count ?? "0대", isEV: false },
+  "C 400 GT": { image: `${import.meta.env.BASE_URL}assets/bike/models/bmw/BMW-8347-c400gt-autoscout-side-v01.png`, bodyFit: "width", count: bikeInventoryModelVisualsByMaker.BMW?.["C 400 GT"]?.count ?? "0대", isEV: false },
+  "F 900 XR": { image: `${import.meta.env.BASE_URL}assets/bike/models/bmw/BMW-8369-f900xr-autoscout-side-v01.png`, bodyFit: "width", count: bikeInventoryModelVisualsByMaker.BMW?.["F 900 XR"]?.count ?? "0대", isEV: false },
+  "F 900 R": { image: `${import.meta.env.BASE_URL}assets/bike/models/bmw/BMW-10886-f900r-autoscout-side-v01.png`, bodyFit: "width", count: bikeInventoryModelVisualsByMaker.BMW?.["F 900 R"]?.count ?? "0대", isEV: false },
+  "R 18": { image: `${import.meta.env.BASE_URL}assets/bike/models/bmw/BMW-8433-r18-autoscout-side-v01.png`, bodyFit: "width", count: bikeInventoryModelVisualsByMaker.BMW?.["R 18"]?.count ?? "0대", isEV: false },
+  "S 1000 XR": { image: `${import.meta.env.BASE_URL}assets/bike/models/bmw/BMW-8452-s1000xr-autoscout-side-v01.png`, bodyFit: "width", count: bikeInventoryModelVisualsByMaker.BMW?.["S 1000 XR"]?.count ?? "0대", isEV: false },
+};
+
+export const bikeListingModelVisualsByMaker: Record<string, Record<string, BikeModelVisual>> = {
+  ...bikeInventoryModelVisualsByMaker,
+  BMW: {
+    ...(bikeInventoryModelVisualsByMaker.BMW ?? {}),
+    ...bmwGeneratedModelVisuals,
+  },
+};
