@@ -99,7 +99,7 @@ import { bikeModelsByMaker } from "../data/bike-filter-catalog";
 import { normalizeTruckFormatSelection, truckFormatCatalog, truckFormatImageFor, truckSubtypeImageFor, truckSubtypeLabel, truckSubtypesFor, truckSubtypeSecondaryLabel, truckSubtypeValuesForSelection } from "../data/truck-format-catalog";
 import { truckSpecGroupsFor, truckSpecOptionsFor } from "../data/truck-depth4-catalog";
 import { QuickRailCarousel } from "./quick-rail-carousel";
-import { truckModelsByMaker } from "../truck/scenario-v01";
+import { truckModelsByMaker } from "../truck/scenario-v09";
 import { HeavyQuickFilter } from "../heavy";
 import { emptyHeavySelection, getInitialHeavySelection, replaceHeavyParams, type HeavySelection } from "../heavy/data";
 import { CatalogLogo, CatalogSearchResults, CatalogVehicleImage, CatalogVehiclePickerSheet, useVehicleCatalog, type VehicleSearchRecord } from "../vehicle-catalog";

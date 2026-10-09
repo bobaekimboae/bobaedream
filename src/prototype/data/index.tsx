@@ -24,7 +24,7 @@ import { luxuryUiTestRows } from "./luxury-ui-test";
 import { bikeModelsByMaker, bikeTopBrands } from "./bike-filter-catalog";
 import { bikeInventory } from "../bike/data";
 import { heavyInventory } from "../heavy/data";
-import { truckModelsByMaker, truckScenarioV01 } from "../truck/scenario-v01";
+import { truckListingRowsV09, truckModelsByMaker } from "../truck/scenario-v09";
 import { truckScenarioImageV02 } from "../truck/scenario-images-v02";
 import { truckSubtypeLabel } from "./truck-format-catalog";
 import { luxuryDealers, luxuryListingRows } from "./luxury-category-v01";
@@ -1071,12 +1071,16 @@ const trailerSpecsV01: Record<string, { load: string; length: string; axles: str
   "truck-029": { load: "적재 27톤", length: "14m", axles: "3축" },
 };
 
-const truckCars: Car[] = truckScenarioV01.map((row, index) => {
-  const color = truckColors[index % truckColors.length];
+// 게시 후 지난 일수 → 「N시간 전 · N일 전 · N개월 전 · N년 전」(트럭 v09 시트 매물)
+const truckPostedLabel = (days: number, index: number) => (
+  days <= 0 ? `${(index % 12) + 1}시간 전` : days <= 30 ? `${days}일 전` : days < 365 ? `${Math.floor(days / 30)}개월 전` : `${Math.floor(days / 365)}년 전`
+);
+const truckCars: Car[] = truckListingRowsV09.map((row, index) => {
+  const color = row.color ?? truckColors[index % truckColors.length];
   const fuel = row.fuel;
   const transmission = row.transmission;
-  const options = [truckOptionPool[index % truckOptionPool.length], truckOptionPool[(index + 2) % truckOptionPool.length]] as string[];
-  if (row.subtype.includes("파워게이트") || index % 5 === 0) options.unshift("리프트(파워게이트)");
+  const options = row.options ?? [truckOptionPool[index % truckOptionPool.length], truckOptionPool[(index + 2) % truckOptionPool.length]] as string[];
+  if (!row.options && (row.subtype.includes("파워게이트") || index % 5 === 0)) options.unshift("리프트(파워게이트)");
   const subtypeLabel = row.subtype ? truckSubtypeLabel(row.subtype) : "";
   // 트레일러는 엔진이 없어 주행·연료 대신 적재량 · 길이 · 축(2026-10-07 사용자 지시, UI 검증용 가상 값)
   const trailer = row.format === "트레일러" ? trailerSpecsV01[row.id] : undefined;
@@ -1085,19 +1089,21 @@ const truckCars: Car[] = truckScenarioV01.map((row, index) => {
   maker: row.maker,
   modelGroup: row.model,
   sellerType: row.sellerType,
-  image: truckListingPhotosV01[row.id] ?? truckScenarioImageV02[row.id] ?? row.image,
-  imageFit: truckListingPhotosV01[row.id] ? "cover" : "contain",
-  title: `${row.maker} ${row.model}`,
+  image: truckListingPhotosV01[row.id] ?? (row.sheetRow ? row.image : truckScenarioImageV02[row.id] ?? row.image),
+  imageFit: truckListingPhotosV01[row.id] || row.sheetRow ? "cover" : "contain",
+  title: row.model === "기타" ? row.maker : `${row.maker} ${row.model}`,
   // 엔카 화물·특장 등급명처럼 「톤수 + 세부형식」(예: 8.5톤 윙바디, 1톤 카고). 카고는 세부형식이 크기 구분이라 「카고」
-  ...(truckListingOverridesV01[row.id] ? { cardSpec: truckListingOverridesV01[row.id].cardSpec } : {}),
-  trim: truckListingOverridesV01[row.id]?.trim ?? (trailer ? subtypeLabel : [row.load, row.format.startsWith("카고") || !subtypeLabel ? row.format.replace(/\(.*\)|트럭/g, "").trim() : subtypeLabel].filter(Boolean).join(" ")),
+  ...(truckListingOverridesV01[row.id] || row.cardSpec ? { cardSpec: truckListingOverridesV01[row.id]?.cardSpec ?? row.cardSpec } : {}),
+  trim: truckListingOverridesV01[row.id]?.trim ?? row.trim ?? (trailer ? subtypeLabel : [row.load, row.format.startsWith("카고") || !subtypeLabel ? row.format.replace(/\(.*\)|트럭/g, "").trim() : subtypeLabel].filter(Boolean).join(" ")),
   specs: [`${row.year}년식`, `${row.mileage.toLocaleString("ko-KR")}km`, row.load, row.region],
   price: `${row.price10k.toLocaleString("ko-KR")} 만원`,
   place: row.region,
   views: 55 + index * 9,
   dealer: virtualSellerName(row.sellerType, 6000 + index),
   stock: 1,
-  posted: `${(index % 12) + 1}시간 전`,
+  posted: row.postedDays === undefined ? `${(index % 12) + 1}시간 전` : truckPostedLabel(row.postedDays, index),
+  // 업데이트순: 사용자 지시 매물 → 시트 게시일 최신순(데이터 순서)
+  updateRank: truckListingRowsV09.length - index,
   photos: 1,
   badges: [],
   truck: {
@@ -1107,19 +1113,19 @@ const truckCars: Car[] = truckScenarioV01.map((row, index) => {
     scenarioId: row.id,
     isVirtual: true,
     scenarioVersion: "v02",
-    axle: truckAxles[index % truckAxles.length],
-    inspection: index % 3 === 0 ? "진단 완료" : undefined,
-    performance: index % 2 === 0 ? "성능기록부 공개" : undefined,
+    axle: row.axle ?? truckAxles[index % truckAxles.length],
+    inspection: row.sheetRow ? row.inspection : index % 3 === 0 ? "진단 완료" : undefined,
+    performance: row.sheetRow ? undefined : index % 2 === 0 ? "성능기록부 공개" : undefined,
     sellerKind: row.sellerType,
-    use: truckUses[index % truckUses.length],
+    use: row.use ?? truckUses[index % truckUses.length],
     color,
     fuel,
     transmission,
     options,
-    cargoLength: truckCargoLengths[index % truckCargoLengths.length],
+    cargoLength: row.cargoLength ?? truckCargoLengths[index % truckCargoLengths.length],
     trailer,
-    horsepower: truckPowerSpecsV01[row.id]?.horsepower,
-    drive: truckPowerSpecsV01[row.id]?.drive,
+    horsepower: row.horsepower ?? truckPowerSpecsV01[row.id]?.horsepower,
+    drive: row.drive ?? truckPowerSpecsV01[row.id]?.drive,
     vehicleNumber: `90가${String(1000 + index).padStart(4, "0")}`,
   },
   filter: {
