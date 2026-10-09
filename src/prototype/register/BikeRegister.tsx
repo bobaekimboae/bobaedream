@@ -34,7 +34,7 @@ type BikeMaker = {
   groups?: BikeGroup[];
   models?: BikeModel[];
 };
-type PickerName = "maker" | "model" | "year" | "type" | "ccBand" | "origin" | "warranty" | "sido" | "district" | "motor" | "range" | "charge" | null;
+type PickerName = "maker" | "model" | "year" | "type" | "ccBand" | "warranty" | "sido" | "district" | "motor" | "range" | "charge" | null;
 // 2차 수정(10/9 초톳 화면 녹화): 주소 = 「Địa chỉ」 바텀시트(시도·구군·상세 주소·표시 미리보기·완료), 뒤로 = 「Lưu tin nháp?」 확인 시트
 type SheetName = "address" | "draft" | "gallery" | "photoRules" | "docInfo" | null;
 // 3차 수정(10/9 초톳 등록 풀버전 녹화): 사진 고르기 화면 · 사진 규칙 · 서류 사진 칸 · 전기 바이크 전용 칸 · 보증 기간
@@ -49,7 +49,6 @@ const motorOptions = ["2,000W 미만", "2,000~2,999W", "3,000~3,999W", "4,000~5,
 const rangeOptions = ["100km 미만", "100~199km", "200~299km", "300~399km", "400~500km", "500km 초과"];
 const chargeOptions = ["1시간 미만", "1~3시간", "4~6시간", "6시간 초과"];
 const galleryCount = 23;
-const originOptions = ["국산", "일본", "유럽", "미국", "중국", "대만", "기타"];
 const warrantyOptions = ["1~6개월", "7~11개월", "1년", "2년", "3년", "3년 초과"];
 // 시안 작업 마스터 확정 사항 8: 국산 KR모터스 · 디앤에이모터스를 맨 앞에
 const pinnedMakers = ["KR모터스(효성)", "디앤에이모터스(대림)"];
@@ -164,7 +163,6 @@ export default function BikeRegister() {
   const [type, setType] = useState("");
   const [mileage, setMileage] = useState("");
   const [ccBand, setCcBand] = useState("");
-  const [origin, setOrigin] = useState("");
   const [warranty, setWarranty] = useState("");
   const [docPhotos, setDocPhotos] = useState<string[]>([]);
   const [docShow, setDocShow] = useState(false);
@@ -248,7 +246,6 @@ export default function BikeRegister() {
     year: { title: "연식 선택", options: yearOptions, selected: year, searchable: true },
     ccBand: { title: "배기량 선택", options: ccBandOptions, selected: ccBand },
     type: { title: "바이크 유형 선택", options: bikeTypeOptions, selected: type },
-    origin: { title: "원산지 선택", options: originOptions, selected: origin },
     warranty: { title: "보증 선택", options: warrantyOptions, selected: warranty },
     motor: { title: "모터 출력 선택", options: motorOptions, selected: motor },
     range: { title: "1회 충전 주행거리 선택", options: rangeOptions, selected: range },
@@ -274,7 +271,6 @@ export default function BikeRegister() {
     if (picker === "ccBand") setCcBand(value);
     if (picker === "year") setYear(value);
     if (picker === "type") setType(value);
-    if (picker === "origin") setOrigin(value);
     if (picker === "warranty") setWarranty(value);
     if (picker === "motor") setMotor(value);
     if (picker === "range") setRange(value);
@@ -385,7 +381,6 @@ export default function BikeRegister() {
           <SelectRow label="바이크 유형" value={type} required error={errors.type} onClick={() => setPicker("type")} />
           <DetailInput label="주행거리" value={mileage} unit="km" required pencil error={errors.mileage} onChange={setMileage} />
           <SelectRow label="배기량" value={ccBand} onClick={() => setPicker("ccBand")} />
-          <SelectRow label="원산지" value={origin} onClick={() => setPicker("origin")} />
           {isElectric ? <>
             <SelectRow label="모터 출력" value={motor} onClick={() => setPicker("motor")} />
             <div className="bike-reg-condition"><span>배터리 포함</span><Pills value={battery} options={["없음", "있음"]} onChange={setBattery} /></div>
