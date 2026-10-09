@@ -158,3 +158,6 @@
 /* 2026-10-10 초톳 두 줄 판매자 캡처 크로스체크: 프사 24 · x16 동일, 프사 오른쪽 → 이름 글자 9.2, 판매 대수 줄은 이름보다 약 3.6 들여 씀 */
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller { gap: 9px; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller-sales { padding-left: 3px; }
+/* 2026-10-10 「피드와 목록 색상·간격을 목록으로 맞추자」: 사양 줄 색 #595959(목록과 같음), 지역 글자 중심 → 판매자 중심 24(목록 24, 피드는 25였음). 프사 아래 → 구분선 16은 유지 */
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec { color: #595959; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-meta-row { margin-top: -8px; }
