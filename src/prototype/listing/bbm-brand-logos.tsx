@@ -173,13 +173,18 @@ const typeTop10: Record<string, TypeTop10> = {
   "부품 · 용품": brandTop10Parts,
 };
 export const krTypeTop10 = (category: string) => typeTop10[category] ?? null;
+const bikePremiumFirstPreview = ["BMW", "할리데이비슨", "두카티", "혼다", "야마하", "스즈키", "가와사키", "트라이엄프", "KTM", "피아지오"];
 export function krTopTenSections(scope: "all" | "domestic" | "imported", category?: string) {
   const type = category ? typeTop10[category] : undefined;
   const rows = bbCatalog.flatMap((section) => section.rows);
   const toItem = (label: string) => { if (type) return { label, key: label, count: category === "바이크" ? bikeBrandCount[label] ?? 0 : 0 }; const row = rows.find(([name]) => name === label); return { label, key: row?.[2] ?? label, count: row?.[1] ?? 0 }; };
   const source = type ?? brandTop10;
   const domestic = scope === "imported" ? [] : source.domestic.map(toItem);
-  const imported = scope === "domestic" ? [] : source.imported.map(toItem);
+  const isPremiumFirstBikePreview = category === "바이크"
+    && typeof window !== "undefined"
+    && new URLSearchParams(window.location.search).get("bikeorder") === "premium-first";
+  const importedLabels = isPremiumFirstBikePreview ? bikePremiumFirstPreview : source.imported;
+  const imported = scope === "domestic" ? [] : importedLabels.map(toItem);
   return { domestic, imported, month: source.month };
 }
 
