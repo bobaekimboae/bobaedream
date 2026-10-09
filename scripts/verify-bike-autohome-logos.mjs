@@ -13,7 +13,9 @@ for (const viewport of [{ name: "mobile", width: 384, height: 900 }, { name: "pc
   const page = await browser.newPage({ viewport });
   page.on("console", (message) => { if (message.type() === "error") report.errors.push(`${viewport.name}: ${message.text()}`); });
   page.on("pageerror", (error) => report.errors.push(`${viewport.name}: ${error.message}`));
-  await page.goto(baseUrl, { waitUntil: "networkidle" });
+  const viewportUrl = new URL(baseUrl);
+  if (viewport.name === "pc") viewportUrl.searchParams.set("pc", "1");
+  await page.goto(viewportUrl.toString(), { waitUntil: "networkidle" });
   const rail = page.locator(".depth-rail.is-kr-maker").first();
   await rail.waitFor({ state: "visible" });
   const items = await rail.locator(".depth-card").evaluateAll((cards) => cards.slice(0, 10).map((card) => {
@@ -66,7 +68,8 @@ for (const item of mobile) {
   if (!item.src?.includes("/bike/logos/autohome-trim/")) failures.push(`${item.label}: 잘못된 경로 ${item.src}`);
   if (!item.naturalWidth || !item.naturalHeight) failures.push(`${item.label}: 이미지 로드 실패`);
   if (Math.abs(item.centerOffset?.x ?? 99) > 0.5 || Math.abs(item.centerOffset?.y ?? 99) > 0.5) failures.push(`${item.label}: 중심 오차`);
-  if ((item.image?.width ?? 99) > 38.1 || (item.image?.height ?? 99) > 26.1) failures.push(`${item.label}: 슬롯 초과`);
+  if ((item.slot?.width ?? 0) !== 52 || (item.slot?.height ?? 0) !== 40) failures.push(`${item.label}: 퀵필터 슬롯 52×40 아님`);
+  if ((item.image?.width ?? 99) > 47.6 || (item.image?.height ?? 99) > 32.6) failures.push(`${item.label}: 확대 규격 초과`);
 }
 failures.push(...report.errors);
 if (report.makerSheet.total < 10) failures.push(`제조사 시트 로고가 ${report.makerSheet.total}개뿐임`);
