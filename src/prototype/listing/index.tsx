@@ -1518,14 +1518,6 @@ function MarketplaceScreen() {
             </QuickRailCarousel>
           </section> : showModelQuickRail && isGuaziQuickStyle && (!isBikeCategory || maker === "BMW") ? <section className={`depth-rail no-label${isLuxuryCategory ? " is-luxury-model-row" : ""}${isBikeCategory ? " is-bike-model-row" : ""}${guaziCardChipPreview ? " is-guazi-card-chip-row" : ""}`} aria-label={`${maker} 모델 빠른 선택`}>
             <QuickRailCarousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName={`depth-rail-track${guaziCardChipPreview ? " is-guazi-card-chip-track" : ""}`}>
-              {guaziCardChipPreview ? <DepthCard
-                className="is-guazi-card-chip is-all"
-                label="전체"
-                ariaLabel={`${maker} 전체 모델`}
-                image={<DashboardIcon aria-hidden="true" />}
-                selected={!selectedModel}
-                onClick={clearModelFilter}
-              /> : null}
               {modelQuickOptions.map((model) => {
                 const modelVisual = guaziVisualsForMaker?.[model];
                 // The unified vehicle catalog intentionally leaves model-group images empty.
