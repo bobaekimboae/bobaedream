@@ -424,3 +424,36 @@
 .bike-reg-options h3 { margin: 0 0 4px; color: var(--ab-sub); font-size: 14px; line-height: 20px; font-weight: 700; }
 .bike-reg-options .bike-reg-check { min-height: 48px; border-bottom: 1px solid var(--ab-divider); }
 .bike-reg-options .bike-reg-check:last-child { border-bottom: 0; }
+
+/* ── 2차 수정(10/9 노션 9 · 마스터 지시) ──────────────────────────
+   입력칸 테두리: 지시값 1px #D9D9D9(초톳 풀버전 영상 실측은 약 2.1px #E7E7E7 → 아래 변수 두 줄로 바꿀 수 있음).
+   포커스 #222 2px(영상 실측 약 2.1px #202020) — 두께 차이 1px은 안쪽 그림자로 더해 칸 크기가 흔들리지 않게 한다.
+   오류 빨강은 #F0325E 하나로 통일(노션 2차 평가 🔴1). */
+.bike-reg-page, .bike-reg-picker, .bike-reg-sheet, .bike-reg-gallery { --field-border-w: 1px; --field-border-color: #d9d9d9; --ab-error-text: #f0325e; }
+.bike-reg-page:not(.is-field-mila) .bike-reg-field__box, .bike-reg-sheet .bike-reg-field__box { padding: 0 16px; border: var(--field-border-w) solid var(--field-border-color); }
+.bike-reg-page:not(.is-field-mila) .bike-reg-field__box:focus-within, .bike-reg-sheet .bike-reg-field__box:focus-within { border-color: var(--ab-ink); box-shadow: inset 0 0 0 calc(2px - var(--field-border-w)) var(--ab-ink); }
+.bike-reg-page:not(.is-field-mila) .bike-reg-field.is-error .bike-reg-field__box, .bike-reg-sheet .bike-reg-field.is-error .bike-reg-field__box { border-color: var(--ab-error); box-shadow: inset 0 0 0 calc(2px - var(--field-border-w)) var(--ab-error); }
+.bike-reg-sheet .bike-reg-field.is-plain .bike-reg-field__box { padding-right: 44px; }
+.bike-reg-page:not(.is-field-mila) .bike-reg-field.is-select .bike-reg-field__box, .bike-reg-sheet .bike-reg-field.is-select .bike-reg-field__box { padding-right: 44px; }
+
+/* 라벨: 비어 있으면 칸 안 14/400 #6A6A6A(가운데), 값이 있거나 포커스면 칸 안쪽 위 12/16 700 #222, 값은 그 아래 16/20.
+   초톳 영상(값이 있는 상태) 실측: 라벨 왼쪽 = 칸 왼쪽 + 17, 라벨 잉크 윗선 = 칸 위 + 10, 굵은 작은 글자. 빈 칸 상태는 영상에 없어 미확인 */
+.bike-reg-page:not(.is-field-mila) .bike-reg-field__label, .bike-reg-sheet .bike-reg-field__label { top: 13px; left: 16px; transition: top 0.15s, font-size 0.15s, line-height 0.15s, color 0.15s; transform: none; }
+.bike-reg-page:not(.is-field-mila) .bike-reg-field.has-value .bike-reg-field__label, .bike-reg-page:not(.is-field-mila) .bike-reg-field__box:focus-within .bike-reg-field__label,
+.bike-reg-sheet .bike-reg-field.has-value .bike-reg-field__label, .bike-reg-sheet .bike-reg-field__box:focus-within .bike-reg-field__label { top: 6px; font-size: 12px; line-height: 16px; transform: none; }
+.bike-reg-page:not(.is-field-mila) .bike-reg-field__box input, .bike-reg-page:not(.is-field-mila) .bike-reg-field__box .bike-reg-field__value,
+.bike-reg-sheet .bike-reg-field__box input, .bike-reg-sheet .bike-reg-field__box .bike-reg-field__value { height: 46px; padding-top: 20px; }
+.bike-reg-page:not(.is-field-mila) .bike-reg-field.is-plain .bike-reg-field__box input, .bike-reg-sheet .bike-reg-field.is-plain .bike-reg-field__box input { padding-top: 0; }
+.bike-reg-page:not(.is-field-mila) .bike-reg-field__unit { margin-top: 13px; }
+.bike-reg-page:not(.is-field-mila) .bike-reg-field.is-textarea textarea { height: calc(100% - 32px); margin-top: 24px; }
+
+/* 글자수: 초톳 영상은 칸 밖 바로 아래 왼쪽(「180/1500 ký tự」). 칸 안쪽 왼쪽 아래 지시와 달라 영상대로 둔다(보고서 참고) */
+.bike-reg-counter { padding-left: 16px; }
+
+/* 주행거리: 입력 전 「0」 예시 글자 없이 빈 칸 + 「km」 + 연필(줄 아무 곳이나 누르면 입력) */
+
+/* 사진 추가 칸 크기: 초톳 업로드 전 첫 화면 크기 미확인 → 변수 한 줄로 바꿀 수 있게 */
+.bike-reg-page { --photo-tile-w: 88px; --photo-tile-h: 80px; }
+.bike-reg-media__add, .bike-reg-media__thumb { width: var(--photo-tile-w); height: var(--photo-tile-h); }
+/* 칸 아래 오류 문구도 글자수·라벨과 같은 왼쪽 선(16)에 맞춘다 */
+.bike-reg-field > .bike-reg-error { padding-left: 16px; }
