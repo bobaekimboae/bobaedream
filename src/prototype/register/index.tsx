@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react
 import { BbmFooter } from "../listing/bbm-list-area";
 import "../listing/bbm-list-area.css";
 import "./register.css";
+import BikeRegisterPage from "./bike";
 import { registerHeaderHtml, registerPhotoGuideHtml, registerPolicyHtml } from "./header-html";
 import { inspectionPcHtml } from "./inspection-pc-html";
 import {
@@ -825,7 +826,7 @@ function OptionSlot({ draft, setDraft, tab, setTab }: { draft: Set<string>; setD
   );
 }
 
-export default function RegisterPage() {
+function CarRegisterPage() {
   const [step, setStep] = useState<"lookup" | "form">(() => new URLSearchParams(window.location.search).get("register") === "form" ? "form" : "lookup");
   const { toast, notify } = useToast();
   useEffect(() => {
@@ -850,4 +851,9 @@ export default function RegisterPage() {
       <Toast text={toast} />
     </div>
   );
+}
+
+// ?register=bike : 바이크 매물 등록 시안(초톳 앱 등록 화면 뼈대). 그 밖의 값은 기존 중고차 등록.
+export default function RegisterPage() {
+  return new URLSearchParams(window.location.search).get("register") === "bike" ? <BikeRegisterPage /> : <CarRegisterPage />;
 }
