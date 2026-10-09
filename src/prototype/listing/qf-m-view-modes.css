@@ -1,0 +1,78 @@
+/* 개발 시안 모바일 보기 방식 — 갤러리 · 한줄 광고 · 텍스트(테스트 서버 dev.bbmuseum.co.kr/car/list 390 실측, 2026-10-09).
+   목록형은 초톳 실측(퀵필터 규격 「Mobile Listing Cards」)을 그대로 두고, 피드는 결정 대기라 바꾸지 않는다. */
+
+/* 텍스트 보기에서만 판매자를 사양 줄 끝에 붙인다(서버 「… · 박성수 딜러」). 다른 보기에서는 숨김 */
+.bbm-card-spec-seller { display: none; }
+
+/* ── 갤러리: 2열 · 칸 사이 10 · 카드 사이 24. 사진 정사각 반경 12, 시간 11/15.4 600(왼쪽 12 · 아래 8),
+   하트 40 버튼(오른쪽 위 4). 글 칸 좌우 6, 사진 → 제목 6, 제목 16/22.4 400 한 줄, 사양 12/14.4 #8C8C8C,
+   가격 16/22.4 700(만원 14 400), 배지 20(12 · #EBEBEB · #505050 · 반경 4), 지역 12/16.8 #8C8C8C(위아래 4). 줄 간격 약 4 */
+.marketplace .bbm-m-list.is-gallery { gap: 24px 10px; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-main { gap: 6px; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-photo { aspect-ratio: 1 / 1; border-radius: 12px; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-media-footer { height: 30px; padding: 8px 12px; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-time { font-size: 11px; font-weight: 600; line-height: 15.4px; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-content { gap: 4px; padding: 0 6px; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-text { gap: 4px; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-title { display: block; min-height: 0; overflow: hidden; font-size: 16px; font-weight: 400; line-height: 22.4px; text-overflow: ellipsis; white-space: nowrap; -webkit-line-clamp: unset; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-title .bbm-card-model { font-weight: 400; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-spec { height: 14.4px; overflow: hidden; color: #8c8c8c; font-size: 12px; line-height: 14.4px; text-overflow: ellipsis; white-space: nowrap; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-spec.is-capacity { display: none; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-price-badges { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-price { height: 22.4px; font-size: 16px; font-weight: 700; line-height: 22.4px; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-price-unit { font-size: 14px; font-weight: 400; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-badges { display: flex; flex-wrap: wrap; gap: 4px; height: auto; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-badges span { height: 20px; padding: 0 6px; border-radius: 4px; color: #505050; font-size: 12px; line-height: 20px; background: #ebebeb; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-location { height: auto; padding: 4px 0; align-items: center; gap: 2px; color: #8c8c8c; font-size: 12px; line-height: 16.8px; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-location img { width: 14px; height: 14px; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-location-text { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-actions { top: 4px; right: 4px; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-actions button { display: grid; place-items: center; width: 40px; height: 40px; padding: 0; }
+
+/* ── 한줄 광고: 머리줄 34 · 반경 8 · #F4F4F4 · 12/16.8 #767676(가격 600), 열 모델(나머지) · 연식 78 · 가격 78 · 찜 28,
+   줄 47 + 1px #EBEBEB, 모델 13/18.2 600 #1A1A1A 왼쪽, 연식 13/18.2 #767676 가운데, 가격 13/18.2 600 #1A1A1A 가운데, 찜 24 */
+.marketplace .bbm-m-list.is-one-line .bbm-one-line-head,
+.marketplace .bbm-m-list.is-one-line .bbm-one-line-card { grid-template-columns: minmax(0, 1fr) 78px 78px 28px; column-gap: 0; }
+.marketplace .bbm-m-list.is-one-line .bbm-one-line-head { height: 34px; padding: 0; border-radius: 8px; color: #767676; font-size: 12px; line-height: 16.8px; text-align: left; background: #f4f4f4; }
+.marketplace .bbm-m-list.is-one-line .bbm-one-line-head span { padding: 0 4px; text-align: left; }
+.marketplace .bbm-m-list.is-one-line .bbm-one-line-head span:nth-child(3) { font-weight: 600; }
+.marketplace .bbm-m-list.is-one-line .bbm-one-line-card { min-height: 47px; padding: 0; }
+.marketplace .bbm-m-list.is-one-line .bbm-one-line-card > * { padding: 0 4px; }
+.marketplace .bbm-m-list.is-one-line .bbm-one-line-card > strong { color: #1a1a1a; font-size: 13px; font-weight: 600; line-height: 18.2px; }
+.marketplace .bbm-m-list.is-one-line .bbm-one-line-card > span { color: #767676; font-size: 13px; line-height: 18.2px; text-align: center; }
+.marketplace .bbm-m-list.is-one-line .bbm-one-line-card > b { color: #1a1a1a; font-size: 13px; font-weight: 600; line-height: 18.2px; text-align: center; }
+.marketplace .bbm-m-list.is-one-line .bbm-one-line-card > button { width: 24px; height: 24px; margin: 0 auto; padding: 3px; }
+
+/* ── 텍스트: 흰 카드 반경 18 · 그림자 0 4px 18px rgba(0,0,0,.08) · 안쪽 18/14 · 카드 사이 10, 목록 위 8 아래 24.
+   제목 14/19.6 600 #1A1A1A(최대 2줄, 오른쪽 하트 32 자리), 사양 13/18.2 #767676 + 판매자, 가격 16/22.4 600 같은 줄 오른쪽.
+   사진·배지·지역은 숨김 */
+.marketplace .bbm-m-list.is-text { display: grid; gap: 10px; padding: 8px 16px 24px; }
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile { min-height: 0; padding: 18px 14px; border: 0; border-radius: 18px; background: #fff; box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08); }
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile::after { display: none; }
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-content { gap: 0; }
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-text { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 12px; row-gap: 14px; height: auto; }
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-title { grid-column: 1 / -1; display: -webkit-box; padding-right: 40px; overflow: hidden; color: #1a1a1a; font-size: 14px; font-weight: 600; line-height: 19.6px; white-space: normal; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-spec { grid-column: 1; height: auto; overflow: hidden; color: #767676; font-size: 13px; line-height: 18.2px; text-overflow: ellipsis; white-space: nowrap; }
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-spec.is-capacity { display: none; }
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-spec-seller { display: inline; }
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-price-badges { grid-column: 2; grid-row: 2; display: block; height: auto; }
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-price { height: auto; color: #1a1a1a; font-size: 16px; font-weight: 600; line-height: 22.4px; }
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-price-unit { font-size: 16px; font-weight: 600; }
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-badges,
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-location { display: none; }
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-actions { top: 12px; right: 10px; }
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-actions button { display: grid; place-items: center; width: 32px; height: 32px; padding: 0; }
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-actions img,
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-wish-on { width: 24px; height: 24px; }
+
+/* 보정: 갤러리 제목은 차명 칸(줄 묶음 2줄)을 한 줄로 풀고, 지역 두 부분 사이에 「 · 」 */
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-title .bbm-card-model { display: inline; white-space: nowrap; -webkit-line-clamp: unset; }
+.marketplace .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-location-secondary::before { content: " · "; }
+/* 보정: 텍스트 카드는 지역·판매자 묶음 자리를 남기지 않는다(하트만 오른쪽 위에 띄움) */
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-main { min-height: 0; }
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-meta { height: 0; min-height: 0; margin: 0; padding: 0; gap: 0; }
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-meta-row { height: 0; margin: 0; padding: 0; }
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-content { min-height: 0; }
+.marketplace .bbm-m-list.is-text .bbm-result-card.is-mobile .bbm-card-spec { margin-top: 0; }
+/* 보정: 한줄 광고 모델은 서버처럼 두 줄까지 줄바꿈(말줄임은 두 줄 넘을 때만) */
+.marketplace .bbm-m-list.is-one-line .bbm-one-line-card > strong { display: -webkit-box; white-space: normal; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }

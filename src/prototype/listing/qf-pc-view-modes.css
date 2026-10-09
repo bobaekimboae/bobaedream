@@ -1,0 +1,57 @@
+/* 개발 시안 PC 보기 방식 — 갤러리형 · 한줄 광고(테스트 서버 dev.bbmuseum.co.kr/car/list 1440 실측, 2026-10-09)
+   목록형은 기존 카드 그대로. 피드·텍스트 보기는 PC 메뉴에 없다(모바일 전용). */
+
+/* ── 갤러리형: 4열, 간격 16, 바깥 여백 20. 사진 정사각 반경 12 · 아래 시간 띠 30(8/12),
+   사진 오른쪽 위 4에 흰 하트 40. 글 칸 좌우 8, 사진 → 제목 10, 제목 16/22.88 400 #222 두 줄,
+   사양 14/19.6 #8C8C8C 한 줄, 가격 16/22.4 700, 배지 20(12px · #EBEBEB · #505050 · 반경 4), 지역 12/16.8 #8C8C8C. 줄 간격 4 */
+.marketplace.is-bbm .car-list.bbm-list.is-gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; padding: 0 20px 24px; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card { min-width: 0; padding: 0; border-radius: 12px; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card::after { display: none; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-main { display: flex; flex-direction: column; gap: 10px; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-photo { width: 100%; height: auto; aspect-ratio: 1 / 1; border-radius: 12px; }
+.marketplace.is-bbm.is-truck-category .bbm-list.is-gallery .bbm-result-card .bbm-card-photo { width: 100%; height: auto; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-media-footer { height: 30px; padding: 8px 12px; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-content { gap: 4px; padding: 0 8px; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-text { height: auto; gap: 4px; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-title { display: -webkit-box; overflow: hidden; font-size: 16px; font-weight: 400; line-height: 22.88px; white-space: normal; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-spec { display: block; height: 19.6px; overflow: hidden; color: #8c8c8c; font-size: 14px; line-height: 19.6px; text-overflow: ellipsis; white-space: nowrap; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-spec.is-capacity { display: none; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-price-badges { display: flex; height: auto; flex-direction: column; align-items: flex-start; gap: 4px; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-price { font-size: 16px; font-weight: 700; line-height: 22.4px; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-badges { display: flex; flex-wrap: wrap; gap: 4px; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-badges span { height: 20px; padding: 0 6px; border-radius: 4px; color: #505050; font-size: 12px; line-height: 20px; background: #ebebeb; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-meta { gap: 0; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-location { height: auto; gap: 2px; color: #8c8c8c; font-size: 12px; line-height: 16.8px; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-location img { width: 14px; height: 14px; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-location-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* 판매자 줄은 숨기고 하트만 사진 오른쪽 위로 */
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-meta-row { height: 0; margin: 0; padding: 0; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-seller { display: none; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-actions { position: absolute; top: 4px; right: 4px; z-index: 2; display: flex; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-actions button { display: grid; place-items: center; width: 40px; height: 40px; padding: 0; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-actions img,
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-wish-on { width: 28px; height: 28px; }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-actions img { filter: brightness(0) invert(1) drop-shadow(0 0 2px rgba(0, 0, 0, 0.25)); }
+.marketplace.is-bbm .bbm-list.is-gallery .bbm-result-card .bbm-card-headline { display: none; }
+
+/* ── 한줄 광고(car-list-text-view): 표 위 12, 머리줄 #F4F4F4 반경 8 위아래 8 · 12/16.8 #767676(가격 600),
+   줄 56 + 아래 1px #EBEBEB, 칸 좌우 4, 모델 14/19.6 600 #1A1A1A 왼쪽 정렬(최대 2줄), 나머지 14/19.6 #616161 가운데,
+   가격 16/22.4 600 #1A1A1A, 색 점 16 원 + 1px #EBEBEB, 찜 26(아이콘 18×20 #E0E0E0), 선택 24 사각 */
+.marketplace.is-bbm .car-list.bbm-list.is-text-view { padding: 12px 24px 24px; }
+.bbm-text-view { --tv-cols: 30px minmax(170px, 1fr) 56px 102px 108px 98px 72px 72px 84px 36px; display: grid; min-width: 0; }
+.bbm-text-view__head, .bbm-text-view__row { display: grid; grid-template-columns: var(--tv-cols); align-items: center; }
+.bbm-text-view__head { padding: 8px 0; border-radius: 8px; color: #767676; font-size: 12px; line-height: 16.8px; background: #f4f4f4; }
+.bbm-text-view__head .bbm-text-view__cell { color: #767676; font-size: 12px; line-height: 16.8px; text-align: center; }
+.bbm-text-view__head .bbm-text-view__cell.is-price { font-weight: 600; }
+.bbm-text-view__row { min-height: 56px; border-bottom: 1px solid #ebebeb; cursor: pointer; outline: 0; }
+.bbm-text-view__row:focus-visible { box-shadow: inset 0 0 0 2px var(--bbm-blue, #1b4c8c); }
+.bbm-text-view__cell { min-width: 0; padding: 0 4px; color: #616161; font-size: 14px; line-height: 19.6px; text-align: center; overflow-wrap: anywhere; }
+.bbm-text-view__row .bbm-text-view__cell.is-model { display: -webkit-box; overflow: hidden; color: #1a1a1a; font-weight: 600; text-align: left; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.bbm-text-view__row .bbm-text-view__cell.is-price { color: #1a1a1a; font-size: 16px; font-weight: 600; line-height: 22.4px; }
+.bbm-text-view__cell.is-check, .bbm-text-view__cell.is-wish { display: grid; place-items: center; }
+.bbm-text-view__check { width: 24px; height: 24px; padding: 0; border: 1.5px solid #d0d0d0; border-radius: 4px; background: #fff; cursor: pointer; }
+.bbm-text-view__check.is-checked { border-color: #222; background: #222 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 16px no-repeat; }
+.bbm-text-view__color { display: inline-block; width: 16px; height: 16px; border: 1px solid #ebebeb; border-radius: 50%; vertical-align: middle; }
+.bbm-text-view__wish { display: grid; place-items: center; width: 26px; height: 26px; padding: 4px; border: 0; background: none; cursor: pointer; }
+.bbm-text-view__wish span { display: block; width: 18px; height: 20px; background: #e0e0e0; -webkit-mask: no-repeat center / contain; mask: no-repeat center / contain; }
+.bbm-text-view__wish.is-liked span { background: #f0325e; }

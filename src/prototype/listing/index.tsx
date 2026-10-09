@@ -81,7 +81,9 @@ import { BbmPartsGallery } from "../filters/bbm-parts-gallery";
 import { BbmActionBar, BbmFullExcludeAction, BbmFullFilter, BbmFullItem, BbmModal, BbmSheet } from "../filters/bbm-filter-parts";
 import { BBM_MAKER_ITEM, bbmFilterOrder, bbmSidebarItems, bikeFilterOrder, daangnFilterLabel, partsFilterOrder, partsPricePresets, splitDaangnFilterOrder, truckFilterOrder, type BbmFilterItem } from "../filters/bbm-filter-options";
 import { BbmBodyTypeSheet, BbmExpandPanel, BbmModalPanel, BbmSellerTypeSheet, clearBbmItem } from "../filters/bbm-filter-panels";
-import { BbmBottomGnb, BbmBrandMenu, BbmCategoryMenu, BbmCategoryPicker, BbmHeadlinePreviewLinks, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, bbmIcon } from "./bbm-list";
+import { BbmBottomGnb, BbmBrandMenu, BbmCategoryMenu, BbmCategoryPicker, BbmHeadlinePreviewLinks, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, BbmTextViewTable, bbmIcon } from "./bbm-list";
+import "./qf-pc-view-modes.css";
+import "./qf-m-view-modes.css";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
 import { TruckTypePicker } from "../filters/truck-type-picker";
 import { CategoryBrandLogo, categoryRailLabel, krRailLabel, krTopTenSections, krTypeTop10, railBrandLogo } from "./bbm-brand-logos";
@@ -104,9 +106,9 @@ import { CatalogLogo, CatalogSearchResults, CatalogVehicleImage, CatalogVehicleP
 
 type BbmMobileView = "목록으로 보기" | "피드로 보기" | "갤러리로 보기" | "한줄 광고로 보기" | "텍스트로 보기";
 
-const initialBbmMobileView = (): BbmMobileView => new URLSearchParams(window.location.search).get("view") === "feed"
-  ? "피드로 보기"
-  : "목록으로 보기";
+// 보기 방식 주소 값(검수 링크용): &view=list · feed · gallery · oneline · text. PC는 목록·갤러리·한줄 광고만 쓴다
+const bbmViewParam: Record<string, BbmMobileView> = { list: "목록으로 보기", feed: "피드로 보기", gallery: "갤러리로 보기", oneline: "한줄 광고로 보기", text: "텍스트로 보기" };
+const initialBbmMobileView = (): BbmMobileView => bbmViewParam[new URLSearchParams(window.location.search).get("view") ?? ""] ?? "목록으로 보기";
 
 const initialAutohomeMakerSheetPreview = () => {
   const params = new URLSearchParams(window.location.search);
@@ -2051,7 +2053,12 @@ function MarketplaceScreen() {
         <div className="bbm-quick-slot">{quickRail}</div>
       </section>
     );
-    const bbmItems = shownCars.length ? pagedCars.map((car) => pcGridView
+    // 개발 시안 PC 보기 방식(테스트 서버 dev.bbmuseum 실측 10/9): 목록형 · 갤러리형(4열) · 한줄 광고(표). 피드·텍스트는 PC 메뉴에 없어 목록으로 보여준다
+    const bbmPcView = isGuaziQuickStyle && (bbmMobileView === "갤러리로 보기" || bbmMobileView === "한줄 광고로 보기") ? bbmMobileView : "목록으로 보기";
+    const bbmPcViewLabel = bbmPcView === "갤러리로 보기" ? "갤러리형" : bbmPcView === "한줄 광고로 보기" ? "한줄 광고로 보기" : "목록형";
+    const bbmItems = shownCars.length && bbmPcView === "한줄 광고로 보기"
+      ? <BbmTextViewTable cars={pagedCars} likedIds={likedIds} onOpen={openCarDetail} onToggleLike={(car) => toggleLiked(car.id)} />
+      : shownCars.length ? pagedCars.map((car) => pcGridView
       ? <CarCard key={car.id} car={car} cardView={false} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} />
       : <BbmResultCard key={car.id} car={car} variant="pc" liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅은 정식 서비스에서 이용해 주세요.")} />) : carListItems;
     return (
@@ -2083,8 +2090,8 @@ function MarketplaceScreen() {
                             <button type="button" className="bbm-sort" aria-haspopup="true" aria-expanded={bbmMenu === "sort"} onClick={() => setBbmMenu((open) => open === "sort" ? null : "sort")}>{bbmSort}<img src={bbmIcon("toolbar-sort-chevron")} alt="" aria-hidden="true" /></button>
                           </BbmToolbarMenu>
                           <span className="bbm-toolbar-divider" aria-hidden="true" />
-                          <BbmToolbarMenu open={bbmMenu === "view"} onClose={() => setBbmMenu(null)} options={bbmViewOptionsPc} selected="목록으로 보기" onSelect={chooseBbmView}>
-                            <button type="button" className="bbm-view" aria-label="보기 방식 선택" aria-haspopup="true" aria-expanded={bbmMenu === "view"} onClick={() => setBbmMenu((open) => open === "view" ? null : "view")}>목록형<img src={bbmIcon("view-list-chotot-v02")} alt="" aria-hidden="true" /></button>
+                          <BbmToolbarMenu open={bbmMenu === "view"} onClose={() => setBbmMenu(null)} options={bbmViewOptionsPc} selected={bbmPcView} onSelect={chooseBbmView}>
+                            <button type="button" className="bbm-view" aria-label="보기 방식 선택" aria-haspopup="true" aria-expanded={bbmMenu === "view"} onClick={() => setBbmMenu((open) => open === "view" ? null : "view")}>{bbmPcViewLabel}<img src={bbmIcon(bbmPcView === "갤러리로 보기" ? "view-grid-chotot-v02" : "view-list-chotot-v02")} alt="" aria-hidden="true" /></button>
                           </BbmToolbarMenu>
                         </>
                       ) : (
@@ -2096,7 +2103,7 @@ function MarketplaceScreen() {
                       )}
                     </div>
                   </nav>
-                  <div className={`car-list ${pcGridView ? "is-pc-grid" : "bbm-list"}`} aria-live="polite">{bbmItems}</div>
+                  <div className={`car-list ${pcGridView ? "is-pc-grid" : "bbm-list"}${bbmPcView === "갤러리로 보기" ? " is-gallery" : bbmPcView === "한줄 광고로 보기" ? " is-text-view" : ""}`} aria-live="polite">{bbmItems}</div>
                   {isGuaziQuickStyle && shownCars.length ? <BbmPagination page={bbmPageNow} total={bbmPageCount} windowSize={10} onChange={goBbmPage} /> : null}
                 </section>
               </div>

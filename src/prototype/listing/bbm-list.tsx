@@ -408,7 +408,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
           <div className="bbm-card-text">
             {title}
             {headlinePosition === "after-model" ? headline : null}
-            <span className={`bbm-card-spec${car.adDescription ? " is-ad-description" : ""}`}>{car.adDescription ?? specMain}</span>
+            <span className={`bbm-card-spec${car.adDescription ? " is-ad-description" : ""}`}>{car.adDescription ?? specMain}{car.adDescription ? null : <span className="bbm-card-spec-seller"> · {seller}</span>}</span>
             {!car.adDescription && specCapacity ? <span className="bbm-card-spec is-capacity">{specCapacity}</span> : null}
             <div className="bbm-card-price-badges">
               <strong className="bbm-card-price"><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</strong>
@@ -427,17 +427,79 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
 }
 
 export function BbmOneLineCard({ car, liked, onToggleLike, onOpen }: { car: Car; liked: boolean; onToggleLike: () => void; onOpen: () => void }) {
-  const year = car.filter?.year ? String(car.filter.year).slice(-2) : "-";
+  // 연식은 테스트 서버처럼 「15/07(16)」(등록 월을 모르면 「18/00(18)」), 제목은 카드와 같은 차명
+  const year = textViewYear(car, bbmCardSpec(car, true));
   const price = car.price.match(/[\d,]+/)?.[0] ?? "상담";
   return (
     <article className="bbm-one-line-card" role="link" tabIndex={0} aria-label={`${car.title} 상세 보기`} onClick={onOpen} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); onOpen(); } }}>
-      <strong>{car.title} {car.trim}</strong>
-      <span>{year}/{year}</span>
+      <strong>{cardTitleText(car)}</strong>
+      <span>{year}</span>
       <b>{price}</b>
       <button type="button" aria-label={`${car.title} ${liked ? "찜 해제" : "찜"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>
         {liked ? <span className="bbm-card-wish-on" style={{ WebkitMaskImage: `url("${bbmIcon("card-wish-off")}")`, maskImage: `url("${bbmIcon("card-wish-off")}")` }} aria-hidden="true" /> : <img src={bbmIcon("card-wish-off")} alt="" aria-hidden="true" />}
       </button>
     </article>
+  );
+}
+
+// ── PC 한줄 광고로 보기(테스트 서버 dev.bbmuseum car-list-text-view 실측 10/9): 머리줄 #F4F4F4 반경 8 · 줄 56 · 구분선 #EBEBEB
+// 열: 선택 30 · 모델 170 · 색상 56 · 연식(연형) 102 · 연료 108 · 주행거리 98 · 지역 72 · 판매자 72 · 가격(만원) 84 · 찜 36
+const textViewColors: Record<string, string> = { 흰색: "#FFFFFF", 진주색: "#F4F1E8", 검정색: "#000000", 검정투톤: "#1A1A1A", 은색: "#C9CDD2", 명은색: "#D8DBDF", 은회색: "#A9AEB4", 쥐색: "#6E7277", 회색: "#8C8C8C", 청색: "#1F4E99", 하늘색: "#8EC5EC", 빨간색: "#D7263D", 자주색: "#7A2B5E", 분홍색: "#F2A7BB", 주황색: "#F28C28", 노란색: "#F5C518", 갈색: "#7B5134", 갈대색: "#B9A27A", 연금색: "#D8C27E", 녹색: "#2E7D32", 담녹색: "#7FA37C", 연두색: "#A6CE39", 청옥색: "#2A9D8F", 은하색: "#9DA3AF" };
+const textViewYear = (car: Car, spec: string) => {
+  const yy = car.filter?.year ? String(car.filter.year).slice(-2) : "";
+  const month = spec.match(/(\d{2})년(\d{2})월/);
+  if (month) return `${month[1]}/${month[2]}(${yy || month[1]})`;
+  const only = spec.match(/(\d{2})년식|(?:^|\s)(\d{4})(?:\s|$)/);
+  const y = only?.[1] ?? only?.[2]?.slice(-2) ?? yy;
+  return y ? `${y}/00(${yy || y})` : "-";
+};
+export function BbmTextViewTable({ cars, likedIds, onOpen, onToggleLike }: { cars: Car[]; likedIds: number[]; onOpen: (car: Car) => void; onToggleLike: (car: Car) => void }) {
+  const [checked, setChecked] = useState<number[]>([]);
+  return (
+    <div className="bbm-text-view" role="table" aria-label="한줄 광고 목록">
+      <div className="bbm-text-view__head" role="row">
+        <span className="bbm-text-view__cell is-check" role="columnheader" aria-label="선택" />
+        <span className="bbm-text-view__cell is-model" role="columnheader">모델</span>
+        <span className="bbm-text-view__cell" role="columnheader">색상</span>
+        <span className="bbm-text-view__cell" role="columnheader">연식(연형)</span>
+        <span className="bbm-text-view__cell" role="columnheader">연료</span>
+        <span className="bbm-text-view__cell" role="columnheader">주행거리</span>
+        <span className="bbm-text-view__cell" role="columnheader">지역</span>
+        <span className="bbm-text-view__cell" role="columnheader">판매자</span>
+        <span className="bbm-text-view__cell is-price" role="columnheader">가격(만원)</span>
+        <span className="bbm-text-view__cell is-wish" role="columnheader" aria-label="찜" />
+      </div>
+      {cars.map((car) => {
+        const spec = bbmCardSpec(car, true);
+        const parts = spec.split(" · ");
+        const mileage = parts.find((part) => /\d(만|천)?km$|\d시간$/.test(part)) ?? "-";
+        const fuel = car.filter?.fuel ?? parts.find((part) => /가솔린|디젤|전기|하이브리드|LPG|수소/.test(part)) ?? "-";
+        const color = car.filter?.color;
+        const price = car.price.match(/[\d,]+/)?.[0] ?? "상담";
+        const liked = likedIds.includes(car.id);
+        const isChecked = checked.includes(car.id);
+        return (
+          <div key={car.id} className="bbm-text-view__row" role="row" tabIndex={0} aria-label={`${cardTitleText(car)} 상세 보기`} onClick={() => onOpen(car)} onKeyDown={(event) => { if (event.key === "Enter") { event.preventDefault(); onOpen(car); } }}>
+            <span className="bbm-text-view__cell is-check" role="cell">
+              <button type="button" className={`bbm-text-view__check${isChecked ? " is-checked" : ""}`} aria-label={`${car.title} 선택`} aria-pressed={isChecked} onClick={(event) => { event.stopPropagation(); setChecked((current) => current.includes(car.id) ? current.filter((id) => id !== car.id) : [...current, car.id]); }} />
+            </span>
+            <span className="bbm-text-view__cell is-model" role="cell">{cardTitleText(car)}</span>
+            <span className="bbm-text-view__cell" role="cell">{color ? <i className="bbm-text-view__color" style={{ background: textViewColors[color] ?? "transparent" }} title={color} aria-label={color} /> : "-"}</span>
+            <span className="bbm-text-view__cell" role="cell">{textViewYear(car, spec)}</span>
+            <span className="bbm-text-view__cell" role="cell">{fuel.replace("가솔린 하이브리드", "하이브리드")}</span>
+            <span className="bbm-text-view__cell" role="cell">{mileage}</span>
+            <span className="bbm-text-view__cell" role="cell">{car.place.split(" ")[0] || "-"}</span>
+            <span className="bbm-text-view__cell" role="cell">{sellerLabel(car)}</span>
+            <span className="bbm-text-view__cell is-price" role="cell">{price}</span>
+            <span className="bbm-text-view__cell is-wish" role="cell">
+              <button type="button" className={`bbm-text-view__wish${liked ? " is-liked" : ""}`} aria-label={`${car.title} ${liked ? "찜 해제" : "찜"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(car); }}>
+                <span style={{ WebkitMaskImage: `url("${bbmIcon("card-wish-off")}")`, maskImage: `url("${bbmIcon("card-wish-off")}")` }} aria-hidden="true" />
+              </button>
+            </span>
+          </div>
+        );
+      })}
+    </div>
   );
 }
 
