@@ -374,8 +374,8 @@ const specIconOf = (item: string): keyof typeof specIconFiles | null => {
 // 아이콘이 하나라도 있는 줄은 아이콘이 항목 구분을 맡고 가운데 점을 쓰지 않는다(없는 줄은 가운데 점 유지)
 function renderFeedSpec(text: string) {
   const items = text.split(" · ");
-  // 비교용: 주소 끝 &specicon=off 이면 아이콘 없이 가운데 점 사양 줄(2026-10-10 「아이콘 없는버전」)
-  const iconsOff = new URLSearchParams(window.location.search).get("specicon") === "off";
+  // 2026-10-10 「아이콘 빼자, 복잡하다」: 기본은 아이콘 없는 가운데 점 사양 줄. 주소 끝 &specicon=on 이면 아이콘(비교용)
+  const iconsOff = new URLSearchParams(window.location.search).get("specicon") !== "on";
   const iconOf = (item: string) => iconsOff ? null : specIconOf(item);
   const hasIcon = items.some((item) => iconOf(item));
   return items.map((item, index) => {
@@ -460,7 +460,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   const specText = bbmCardSpec(car, variant === "pc");
   // 캠핑카 모터홈은 「승차 N인 · 취침 N인」(카라반·트레일러는 한 줄에 들어가 나누지 않음, 2026-10-08), 트럭은 「적재 · 마력 · 차축」이 한 줄에 다 안 들어가 둘째 줄로 내린다(2026-10-08)
   // 피드는 목록과 달리 메타정보를 한 줄로(2026-10-10 「피드에서는 목록과 틀리게 메타정보 한줄로」), 넘치면 말줄임
-  const seatSplit = featured ? -1 : car.virtualCategory?.category === "캠핑카" ? specText.search(/ · 승차 /) : car.truck ? specText.search(/ · (적재 [\d.]+톤|\d+인승|[\d.]+(㎘|㎥|m) · |\d+마력)/) : -1;
+  const seatSplit = featured ? -1 : car.virtualCategory?.category === "캠핑카" ? specText.search(/ · 승차 /) : car.truck && !car.truck.trailer ? specText.search(/ · (적재 [\d.]+톤|\d+인승|[\d.]+(㎘|㎥|m) · |\d+마력)/) : -1;
   const specMain = seatSplit > 0 ? specText.slice(0, seatSplit) : specText;
   const specCapacity = seatSplit > 0 ? specText.slice(seatSplit + 3) : "";
   const [locationMain, ...locationSecondaryParts] = listPlace.split(" · ");
