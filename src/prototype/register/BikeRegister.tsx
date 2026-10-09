@@ -20,8 +20,7 @@ const icons = {
   photoDelete: chotot("image-upload-delete.svg"),
   caret: chotot("caret-down.svg"),
   clear: chotot("clear-text.svg"),
-  // 상세 정보 제목 아이콘: 노션 오토스카우트24 아이콘 DB 원본(icons-sprite-c3315a3d-symbol-167, 사용자 지정 10/9). 파일 수정 없이 그대로 사용
-  detail: asset("assets/register/autoscout24/icons-sprite-c3315a3d-symbol-167.svg"),
+  detail: chotot("detail-info.svg"),
 };
 
 type BikeModel = { code: string; name: string; genre?: string; cc_band?: string };
