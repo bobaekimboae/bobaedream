@@ -8,8 +8,9 @@
 }
 
 .bike-reg-page {
-  --text: #17191c;
-  --muted: #777d85;
+  font-variant-numeric: tabular-nums;
+  --text: #222222;
+  --muted: #595959;
   --line: #e7e8ea;
   height: 100dvh;
   min-height: 100dvh;
@@ -18,7 +19,7 @@
   overscroll-behavior-y: contain;
   -webkit-overflow-scrolling: touch;
   color: var(--text);
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Reddit Sans", "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: #f2f3f5;
 }
 
@@ -50,13 +51,14 @@
 .bike-reg-section-title { display: flex; align-items: center; justify-content: space-between; margin-bottom: -2px; }
 .bike-reg-section-title > button { display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; background: none; }
 .bike-reg-section-title img { width: 20px; height: 20px; }
-.bike-reg-card h2 { margin: 0; font-size: 15px; line-height: 22px; font-weight: 500; }
+/* 마스터 PC DOM: 섹션 제목 16/700/24, 라벨 14, 카운터 10/15, 보조글자 #595959 (모바일 384 값 미확인) */
+.bike-reg-card h2 { margin: 0; font-size: 16px; line-height: 24px; font-weight: 700; }
 .bike-reg-page em { margin-left: 2px; color: #f0325e; font-style: normal; }
 
 /* 사진: 추가 칸 88×80, 썸네일 같은 크기, 간격 8. 노란 칸 → #F4F4F4 + 검정 아이콘 */
 .bike-reg-media { display: flex; gap: 8px; margin: 0 -16px; padding: 0 16px; overflow-x: auto; scrollbar-width: none; }
 .bike-reg-media::-webkit-scrollbar { display: none; }
-.bike-reg-media__add, .bike-reg-media__thumb { position: relative; flex: none; width: 88px; height: 80px; border-radius: 8px; }
+.bike-reg-media__add, .bike-reg-media__thumb { position: relative; flex: none; width: 88px; height: 80px; border-radius: 12px; }
 .bike-reg-media__add { display: grid; place-items: center; padding: 0; border: 1.6px solid #f4f4f4; background: #f4f4f4; }
 .bike-reg-media__add img { width: 40px; height: 40px; filter: grayscale(1) brightness(.35) contrast(1.4); }
 .bike-reg-media.is-error .bike-reg-media__add { border-color: #f0325e; }
@@ -65,7 +67,7 @@
 .bike-reg-media__delete { position: absolute; top: 4px; right: 4px; width: 20px; height: 20px; padding: 0; border: 0; background: none; }
 .bike-reg-media__delete img { display: block; width: 20px; height: 20px; }
 .bike-reg-media__cover { position: absolute; right: 0; bottom: 0; left: 0; display: grid; place-items: center; height: 16px; color: #fff; font-size: 11px; line-height: 16px; font-weight: 600; background: #222; }
-.bike-reg-media-hint { margin: -4px 0 0; color: #8c8c8c; font-size: 12px; line-height: 18px; }
+.bike-reg-media-hint { margin: -4px 0 0; color: #595959; font-size: 12px; line-height: 18px; }
 .bike-reg-media-hint.is-error { color: #f0325e; }
 
 /* 입력칸: 높이 52, 테두리 2 #E8E8E8, 반경 12, 포커스 #222, 오류 #F0325E */
@@ -73,7 +75,7 @@
 .bike-reg-field__box { position: relative; display: flex; flex-wrap: wrap; align-items: center; column-gap: 8px; width: 100%; min-height: 52px; padding: 6px 12px; border: 2px solid #e8e8e8; border-radius: 12px; text-align: left; background: #fff; }
 .bike-reg-field__box:focus-within { border-color: #222; }
 .bike-reg-field.is-error .bike-reg-field__box { border-color: #f0325e; }
-.bike-reg-field__label { flex: 0 0 100%; color: #222; font-size: 12px; line-height: 16px; font-weight: 600; }
+.bike-reg-field__label { flex: 0 0 100%; color: #222; font-size: 14px; line-height: 20px; font-weight: 600; }
 .bike-reg-field__box input, .bike-reg-field__box textarea { flex: 1; min-width: 0; padding: 0; border: 0; outline: 0; color: #222; font-size: 15px; line-height: 20px; background: transparent; }
 .bike-reg-field__box input::placeholder, .bike-reg-field__box textarea::placeholder { color: #b7b7b7; }
 .bike-reg-field__unit { flex: none; color: #222; font-size: 15px; line-height: 20px; font-weight: 400; white-space: nowrap; }
@@ -87,9 +89,6 @@
 .bike-reg-field.is-textarea textarea { align-self: stretch; height: calc(100% - 24px); margin-top: 4px; resize: none; font-size: 14px; }
 .bike-reg-error { margin: 0; padding-left: 4px; color: #f0325e; font-size: 12px; line-height: 16px; }
 .bike-reg-error.is-row { margin: -1px 0 4px; padding-left: 0; }
-.bike-reg-under { display: flex; align-items: center; justify-content: space-between; margin-top: -6px; }
-.bike-reg-under small { color: #595959; font-size: 12px; line-height: 16px; }
-.bike-reg-ai { height: 28px; padding: 0 11px; border: 0; border-radius: 14px; color: #222; font-size: 12px; line-height: 16px; font-weight: 600; background: #f4f4f4; }
 
 /* 알약: 높이 32, 선택 #222 흰 글자, 기본 #F4F4F4 */
 .bike-reg-pills { display: inline-flex; gap: 8px; }
@@ -97,7 +96,7 @@
 .bike-reg-pills button.is-active { color: #fff; background: #222; }
 .bike-reg-inline, .bike-reg-condition { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .bike-reg-inline { min-height: 32px; }
-.bike-reg-inline > span { font-size: 15px; line-height: 22px; font-weight: 500; }
+.bike-reg-inline > span { font-size: 16px; line-height: 24px; font-weight: 700; }
 .bike-reg-inline.is-error > span, .bike-reg-condition.is-error > span { color: #f0325e; }
 
 /* 상세 정보: 제목 아이콘 24 + 17/700, 행 52 + 구분선 1 #F4F4F4, 라벨 15/600 */
@@ -122,7 +121,7 @@
 
 .bike-reg-row:disabled { opacity: 1; cursor: default; }
 .bike-reg-detail > :last-child { border-bottom: 0; }
-.bike-reg-row__label { display: flex; align-items: center; gap: 4px; color: #222; font-size: 15px; line-height: 22px; font-weight: 600; }
+.bike-reg-row__label { display: flex; align-items: center; gap: 4px; color: #222; font-size: 14px; line-height: 20px; font-weight: 600; }
 .bike-reg-row__label img { width: 16px; height: 16px; }
 .bike-reg-row__value { overflow: hidden; color: #222; font-size: 15px; line-height: 22px; text-align: right; text-overflow: ellipsis; white-space: nowrap; }
 .bike-reg-row__value.is-empty { color: #8c8c8c; }
@@ -130,10 +129,10 @@
 .bike-reg-row__chevron { width: 20px; height: 20px; }
 
 .bike-reg-condition { min-height: 52px; border-bottom: 1px solid #f4f4f4; }
-.bike-reg-condition > span { font-size: 15px; line-height: 22px; font-weight: 600; }
+.bike-reg-condition > span { font-size: 14px; line-height: 20px; font-weight: 600; }
 .bike-reg-input-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; border-bottom: 1px solid #f4f4f4; cursor: text; }
 .bike-reg-input-row.is-error { border-bottom-color: #f0325e; }
-.bike-reg-input-row > span:first-child { flex: none; color: #222; font-size: 15px; line-height: 22px; font-weight: 600; }
+.bike-reg-input-row > span:first-child { flex: none; color: #222; font-size: 14px; line-height: 20px; font-weight: 600; }
 .bike-reg-input-row > span:last-child { display: flex; flex: 1; align-items: center; justify-content: flex-end; gap: 6px; min-width: 0; color: #595959; }
 .bike-reg-input-row input { width: 100%; min-width: 0; padding: 0; border: 0; outline: 0; color: #222; font-size: 15px; line-height: 22px; text-align: right; background: transparent; }
 .bike-reg-input-row input::placeholder { color: #b7b7b7; }
@@ -169,7 +168,7 @@
   margin: 0 auto;
   overflow: hidden;
   color: #17191c;
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Reddit Sans", "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: #fff;
 }
 
@@ -197,14 +196,15 @@
 @media (min-width:431px) {
   .bike-reg-page { padding: 20px 0; }
   .bike-reg-shell { min-height: calc(100dvh - 40px); border-radius: 18px; overflow: hidden; }
-  .bike-reg-actions { bottom: 20px; border-radius: 0 0 18px 18px; }
+  .bike-reg-actions { bottom: 0; border-radius: 0; }
   .bike-reg-picker { top: 20px; bottom: 20px; border-radius: 18px; box-shadow: 0 12px 40px rgba(17,24,32,.18); }
 }
 .bike-reg-row__label em { margin-left: -2px; }
 
 /* 2차 수정: 주소·임시저장 바텀시트(초톳 「Địa chỉ」 · 「Lưu tin nháp?」 녹화 실측: 헤더 48, 입력칸 52 간격 16, 안내 상자 #F3F4FB, 버튼 40) */
-.bike-reg-counter { margin: -8px 0 0; padding-left: 4px; color: #8c8c8c; font-size: 12px; line-height: 16px; }
-.bike-reg-sheet { position: fixed; inset: 0; z-index: 70; display: flex; align-items: flex-end; justify-content: center; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #222; }
+.bike-reg-counter { margin: -8px 0 0; padding-left: 4px; color: #595959; font-size: 10px; line-height: 15px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bike-reg-counter.is-description { text-align: right; }
+.bike-reg-sheet { position: fixed; inset: 0; z-index: 70; display: flex; align-items: flex-end; justify-content: center; font-family: "Reddit Sans", "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #222; }
 .bike-reg-sheet * { box-sizing: border-box; }
 .bike-reg-sheet__dim { position: absolute; inset: 0; background: rgba(0,0,0,.4); }
 .bike-reg-sheet__panel { position: relative; display: flex; flex-direction: column; width: min(100%,430px); max-height: calc(100dvh - 36px); border-radius: 16px 16px 0 0; background: #fff; }
@@ -251,7 +251,7 @@
 .bike-reg-check input:checked + i { border-color: #222; background: #222 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat; }
 .bike-reg-check input:focus-visible + i { outline: 2px solid #222; outline-offset: 2px; }
 
-.bike-reg-gallery { position: fixed; inset: 0; z-index: 75; display: flex; flex-direction: column; width: min(100%,430px); margin: 0 auto; color: #222; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fff; }
+.bike-reg-gallery { position: fixed; inset: 0; z-index: 75; display: flex; flex-direction: column; width: min(100%,430px); margin: 0 auto; color: #222; font-family: "Reddit Sans", "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fff; }
 .bike-reg-gallery * { box-sizing: border-box; }
 .bike-reg-gallery > header { display: grid; flex: none; grid-template-columns: 56px 1fr 56px; align-items: center; height: 48px; }
 .bike-reg-gallery > header button { display: grid; place-items: center; justify-self: center; width: 44px; height: 44px; padding: 0; border: 0; background: none; cursor: pointer; }

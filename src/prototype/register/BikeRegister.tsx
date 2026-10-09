@@ -7,11 +7,13 @@ const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : 
 const asset = (path: string) => `${publicBase}${path}`;
 const chotot = (name: string) => asset(`assets/register/chotot-v01/${name}`);
 const icons = {
+  // 임시: 초톳 헤더 ← 화살표 원본이 180개 묶음에 없음(보배드림 m-header-back.svg로 대신함)
   back: asset("assets/bbm/m-header-back.svg"),
-  close: asset("assets/ui/notion-close.svg"),
-  search: asset("assets/maker-model/icons/chotot-search-gray.svg"),
+  close: chotot("close-window.svg"),
+  search: chotot("search-gray.svg"),
   chevron: chotot("chevron-right.svg"),
-  check: asset("assets/maker-model/icons/chotot-check.svg"),
+  check: chotot("check-mark.svg"),
+  pin: chotot("location-pin.svg"),
   info: chotot("info.svg"),
   upload: chotot("upload-media.png"),
   photoDelete: chotot("image-upload-delete.svg"),
@@ -157,6 +159,14 @@ export default function BikeRegister() {
 
   useEffect(() => {
     document.documentElement.classList.add("bbm-bike-register-page");
+    // 마스터 PC DOM 측정 글꼴 Reddit Sans(라틴·숫자). 한글은 Pretendard로 이어진다.
+    if (!document.getElementById("bike-reg-reddit-sans")) {
+      const link = document.createElement("link");
+      link.id = "bike-reg-reddit-sans";
+      link.rel = "stylesheet";
+      link.href = "https://fonts.googleapis.com/css2?family=Reddit+Sans:wght@400;500;600;700&display=swap";
+      document.head.appendChild(link);
+    }
     document.title = "바이크 매물 등록 - 보배드림";
     window.scrollTo(0, 0);
     fetch(asset("data/bike-catalog-1005/catalog.json"))
@@ -164,6 +174,10 @@ export default function BikeRegister() {
       .then((data) => setMakers((data.makers as BikeMaker[])
         .filter((item) => item.visible !== false)
         .sort((a, b) => {
+          // 「기타 제조사」는 맨 아래, KR모터스·디앤에이모터스는 맨 위, 나머지는 기준표 sort(라이트바겐 기준) 순서
+          const ea = a.name === "기타 제조사" ? 1 : 0;
+          const eb = b.name === "기타 제조사" ? 1 : 0;
+          if (ea !== eb) return ea - eb;
           const pa = pinnedMakers.indexOf(a.name);
           const pb = pinnedMakers.indexOf(b.name);
           if (pa !== -1 || pb !== -1) return (pa === -1 ? 99 : pa) - (pb === -1 ? 99 : pb);
@@ -229,7 +243,6 @@ export default function BikeRegister() {
   };
 
   const openModel = () => maker ? setPicker("model") : setToast("제조사를 먼저 선택해주세요.");
-  const aiCopy = () => setDescription("관리 상태가 좋고 주행이 부드러운 바이크입니다. 외관과 소모품 상태를 확인했으며, 자세한 내용은 문의 시 안내드리겠습니다.");
   // 시안: 실제 파일을 올리지 않고, 초톳 「Tất cả」 사진 고르기 화면 모양으로 바이크 예시 사진(v08)을 고른다
   const addPhoto = () => {
     if (photos.length >= maxPhotos) { setToast(`사진은 ${maxPhotos}장까지 올릴 수 있어요.`); return; }
@@ -281,7 +294,7 @@ export default function BikeRegister() {
           <BoxField label="매물 설명" className="is-textarea" error={errors.description}>
             <textarea maxLength={1500} value={description} placeholder="바이크의 상태와 특징을 자세히 알려주세요." onChange={(event) => setDescription(event.currentTarget.value)} />
           </BoxField>
-          <div className="bike-reg-under"><button type="button" className="bike-reg-ai" onClick={aiCopy}>AI 설명 추천</button><small>{description.length}/1500자</small></div>
+          <p className="bike-reg-counter is-description">{description.length}/1500자</p>
           <BoxField label="매물 제목" error={errors.title}>
             <input maxLength={titleMax} value={title} placeholder="예: 혼다 PCX 125 무사고" onChange={(event) => setTitle(event.currentTarget.value)} />
             {title ? <button type="button" className="bike-reg-field__clear" aria-label="제목 지우기" onClick={(event) => { event.preventDefault(); setTitle(""); }}><img src={icons.clear} alt="" /></button> : null}
