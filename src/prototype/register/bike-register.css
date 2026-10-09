@@ -23,175 +23,143 @@
 }
 
 .bike-reg-page * { box-sizing: border-box; }
-.bike-reg-page button,
-.bike-reg-page input,
-.bike-reg-page textarea { font: inherit; }
-.bike-reg-shell { width: min(100%, 430px); min-height: 100dvh; margin: 0 auto; background: #fff; }
+:where(.bike-reg-page) :where(button, input, textarea) { font: inherit; }
+:where(.bike-reg-page) button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+/* 1차 수정: 초톳 앱처럼 회색 #F7F7F7 바탕 위 흰 카드(좌우 8 · 반경 12 · 안쪽 16 · 카드 사이 19) */
+.bike-reg-shell { width: min(100%, 430px); min-height: 100dvh; margin: 0 auto; background: #f7f7f7; }
 
 .bike-reg-header {
   position: sticky;
   top: 0;
   z-index: 20;
   display: grid;
-  grid-template-columns: 64px 1fr 64px;
+  grid-template-columns: 76px 1fr 76px;
   align-items: center;
-  height: 50px;
-  padding: 0 10px;
-  border-bottom: 1px solid #f0f1f2;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(12px);
+  height: 60px;
+  padding: 0 16px 0 2px;
+  background: #f7f7f7;
 }
 
-.bike-reg-header h1 { margin: 0; font-size: 17px; line-height: 24px; font-weight: 700; text-align: center; }
-.bike-reg-header button { min-width: 44px; height: 44px; padding: 0; border: 0; background: none; }
+.bike-reg-header h1 { margin: 0; font-size: 17px; line-height: 24px; font-weight: 700; text-align: center; white-space: nowrap; }
+.bike-reg-header button { min-width: 44px; height: 44px; padding: 0; border: 0; background: none; color: #222; }
 .bike-reg-header button:first-child { display: grid; place-items: center; justify-self: start; }
-.bike-reg-header button:first-child img { width: 22px; height: 22px; }
-.bike-reg-header button:last-child { justify-self: end; font-size: 13px; font-weight: 600; white-space: nowrap; }
-.bike-reg-main { padding-bottom: 84px; }
-.bike-reg-section { padding: 16px; }
-.bike-reg-section-title { display: flex; align-items: center; justify-content: space-between; }
-.bike-reg-section-title > img { width: 16px; height: 16px; }
-.bike-reg-section h2,
-.bike-reg-detail > h2 { margin: 0; font-size: 15px; line-height: 21px; font-weight: 700; }
-.bike-reg-page em { margin-left: 2px; color: #e64343; font-style: normal; }
-.bike-reg-media { padding-top: 14px; }
+.bike-reg-header button:first-child img { width: 24px; height: 24px; }
+.bike-reg-header button:last-child { justify-self: end; font-size: 15px; line-height: 22px; font-weight: 500; white-space: nowrap; }
+.bike-reg-main { display: grid; gap: 19px; padding: 2px 8px 104px; }
+.bike-reg-card { display: grid; gap: 12px; min-width: 0; padding: 16px; border-radius: 12px; background: #fff; }
+.bike-reg-section-title { display: flex; align-items: center; justify-content: space-between; margin-bottom: -2px; }
+.bike-reg-section-title > button { display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; background: none; }
+.bike-reg-section-title img { width: 20px; height: 20px; }
+.bike-reg-card h2 { margin: 0; font-size: 15px; line-height: 22px; font-weight: 500; }
+.bike-reg-page em { margin-left: 2px; color: #f0325e; font-style: normal; }
 
-.bike-reg-upload {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 94px;
-  margin-top: 10px;
-  border: 0;
-  border-radius: 10px;
-  color: #c79c00;
-  background: #fff7d2;
-}
+/* 사진: 추가 칸 88×80, 썸네일 같은 크기, 간격 8. 노란 칸 → #F4F4F4 + 검정 아이콘 */
+.bike-reg-media { display: flex; gap: 8px; margin: 0 -16px; padding: 0 16px; overflow-x: auto; scrollbar-width: none; }
+.bike-reg-media::-webkit-scrollbar { display: none; }
+.bike-reg-media__add, .bike-reg-media__thumb { position: relative; flex: none; width: 88px; height: 80px; border-radius: 8px; }
+.bike-reg-media__add { display: grid; place-items: center; padding: 0; border: 1.6px solid #f4f4f4; background: #f4f4f4; }
+.bike-reg-media__add img { width: 40px; height: 40px; filter: grayscale(1) brightness(.35) contrast(1.4); }
+.bike-reg-media.is-error .bike-reg-media__add { border-color: #f0325e; }
+.bike-reg-media__thumb { overflow: hidden; background: #f4f4f4; }
+.bike-reg-media__image { display: block; width: 100%; height: 100%; object-fit: cover; }
+.bike-reg-media__delete { position: absolute; top: 4px; right: 4px; width: 20px; height: 20px; padding: 0; border: 0; background: none; }
+.bike-reg-media__delete img { display: block; width: 20px; height: 20px; }
+.bike-reg-media__cover { position: absolute; right: 0; bottom: 0; left: 0; display: grid; place-items: center; height: 16px; color: #fff; font-size: 11px; line-height: 16px; font-weight: 600; background: #222; }
+.bike-reg-media-hint { margin: -4px 0 0; color: #8c8c8c; font-size: 12px; line-height: 18px; }
+.bike-reg-media-hint.is-error { color: #f0325e; }
 
-.bike-reg-upload > img {
-  width: 36px;
-  height: 36px;
-  filter: invert(62%) sepia(98%) saturate(928%) hue-rotate(5deg) brightness(92%) contrast(101%);
-}
-.bike-reg-upload strong { margin-top: 6px; color: #292b2f; font-size: 14px; }
-.bike-reg-upload small { margin-top: 2px; color: #84898f; font-size: 11px; }
-.bike-reg-media > p { margin: 7px 0 0; color: var(--muted); font-size: 12px; line-height: 17px; }
-.bike-reg-copy { padding-top: 7px; }
-.bike-reg-description { position: relative; display: block; }
-.bike-reg-description > span { position: absolute; top: 12px; left: 13px; z-index: 1; font-size: 12px; font-weight: 600; }
+/* 입력칸: 높이 52, 테두리 2 #E8E8E8, 반경 12, 포커스 #222, 오류 #F0325E */
+.bike-reg-field { display: grid; gap: 4px; min-width: 0; }
+.bike-reg-field__box { position: relative; display: flex; flex-wrap: wrap; align-items: center; column-gap: 8px; width: 100%; min-height: 52px; padding: 6px 12px; border: 2px solid #e8e8e8; border-radius: 12px; text-align: left; background: #fff; }
+.bike-reg-field__box:focus-within { border-color: #222; }
+.bike-reg-field.is-error .bike-reg-field__box { border-color: #f0325e; }
+.bike-reg-field__label { flex: 0 0 100%; color: #222; font-size: 12px; line-height: 16px; font-weight: 600; }
+.bike-reg-field__box input, .bike-reg-field__box textarea { flex: 1; min-width: 0; padding: 0; border: 0; outline: 0; color: #222; font-size: 15px; line-height: 20px; background: transparent; }
+.bike-reg-field__box input::placeholder, .bike-reg-field__box textarea::placeholder { color: #b7b7b7; }
+.bike-reg-field__unit { flex: none; color: #222; font-size: 15px; line-height: 20px; font-weight: 400; white-space: nowrap; }
+.bike-reg-field__clear { position: absolute; top: 50%; right: 10px; display: grid; place-items: center; width: 28px; height: 28px; padding: 0; border: 0; transform: translateY(-50%); background: none; }
+.bike-reg-field__clear img { width: 20px; height: 20px; }
+.bike-reg-field.is-select .bike-reg-field__box { padding-right: 40px; }
+.bike-reg-field__value { flex: 1; min-width: 0; overflow: hidden; color: #222; font-size: 15px; line-height: 20px; text-overflow: ellipsis; white-space: nowrap; }
+.bike-reg-field__value.is-empty { color: #b7b7b7; }
+.bike-reg-field__caret { position: absolute; top: 50%; right: 12px; width: 20px; height: 20px; transform: translateY(-50%); }
+.bike-reg-field.is-textarea .bike-reg-field__box { align-content: flex-start; height: 274px; padding-top: 8px; }
+.bike-reg-field.is-textarea textarea { align-self: stretch; height: calc(100% - 24px); margin-top: 4px; resize: none; font-size: 14px; }
+.bike-reg-error { margin: 0; padding-left: 4px; color: #f0325e; font-size: 12px; line-height: 16px; }
+.bike-reg-error.is-row { margin: -1px 0 4px; padding-left: 0; }
+.bike-reg-under { display: flex; align-items: center; justify-content: space-between; margin-top: -6px; }
+.bike-reg-under small { color: #595959; font-size: 12px; line-height: 16px; }
+.bike-reg-ai { height: 28px; padding: 0 11px; border: 0; border-radius: 14px; color: #222; font-size: 12px; line-height: 16px; font-weight: 600; background: #f4f4f4; }
 
-.bike-reg-description textarea {
-  display: block;
-  width: 100%;
-  min-height: 174px;
-  padding: 38px 13px 30px;
-  resize: vertical;
-  border: 1px solid #dfe1e4;
-  border-radius: 9px;
-  outline: 0;
-  color: #292b2f;
-  font-size: 14px;
-  line-height: 20px;
-}
+/* 알약: 높이 32, 선택 #222 흰 글자, 기본 #F4F4F4 */
+.bike-reg-pills { display: inline-flex; gap: 8px; }
+.bike-reg-pills button { height: 32px; padding: 0 16px; border: 0; border-radius: 999px; color: #222; font-size: 14px; line-height: 20px; font-weight: 500; background: #f4f4f4; }
+.bike-reg-pills button.is-active { color: #fff; background: #222; }
+.bike-reg-inline, .bike-reg-condition { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.bike-reg-inline { min-height: 32px; }
+.bike-reg-inline > span { font-size: 15px; line-height: 22px; font-weight: 500; }
+.bike-reg-inline.is-error > span, .bike-reg-condition.is-error > span { color: #f0325e; }
 
-.bike-reg-description textarea:focus { border-color: #50555c; }
-.bike-reg-description > small { position: absolute; right: 12px; bottom: 9px; color: #9499a0; font-size: 11px; }
-.bike-reg-ai { height: 28px; margin-top: 8px; padding: 0 11px; border: 0; border-radius: 14px; color: #31353a; font-size: 12px; font-weight: 600; background: #f0f1f2; }
-
-.bike-reg-title,
-.bike-reg-input-row {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 64px;
-  margin-top: 10px;
-  padding: 8px 13px;
-  border: 1px solid #dfe1e4;
-  border-radius: 9px;
-}
-
-.bike-reg-title > span,
-.bike-reg-input-row > span:first-child { color: #5f646b; font-size: 12px; line-height: 16px; font-weight: 600; }
-.bike-reg-title input,
-.bike-reg-input-row input { width: 100%; height: 26px; margin-top: 2px; padding: 0; border: 0; outline: 0; color: #22252a; font-size: 15px; background: transparent; }
-.bike-reg-title input::placeholder,
-.bike-reg-input-row input::placeholder { color: #a6abb2; }
-
-.bike-reg-title > button {
-  position: absolute;
-  right: 9px;
-  bottom: 9px;
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  padding: 0;
-  border: 0;
-  border-radius: 50%;
-  background: #eceeef;
-}
-
-.bike-reg-title > button img { width: 18px; height: 18px; }
-.bike-reg-input-row > span:last-child { display: flex; align-items: center; gap: 8px; }
-.bike-reg-input-row b { font-size: 14px; }
-.bike-reg-divider { height: 8px; background: #f4f5f6; }
-.bike-reg-seller h2 { margin-bottom: 11px; }
-
-.bike-reg-segment { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; padding: 3px; border-radius: 8px; background: #f2f3f4; }
-.bike-reg-segment button { height: 38px; padding: 0 12px; border: 0; border-radius: 6px; color: #777d85; font-size: 14px; background: transparent; }
-.bike-reg-segment button.is-active { color: #17191c; font-weight: 700; background: #fff; box-shadow: 0 1px 4px rgba(17,24,32,.1); }
-.bike-reg-detail { padding: 18px 16px 8px; }
-.bike-reg-detail > h2 { margin-bottom: 7px; }
+/* 상세 정보: 제목 아이콘 24 + 17/700, 행 52 + 구분선 1 #F4F4F4, 라벨 15/600 */
+.bike-reg-detail { gap: 0; padding-top: 12px; padding-bottom: 8px; }
+.bike-reg-detail > h2 { display: flex; align-items: center; gap: 8px; height: 36px; margin: 0 0 4px; font-size: 17px; line-height: 24px; font-weight: 700; }
+.bike-reg-detail > h2 img { width: 24px; height: 24px; }
 
 .bike-reg-row {
   display: grid;
-  grid-template-columns: minmax(92px,auto) minmax(0,1fr) 18px;
+  grid-template-columns: auto minmax(0,1fr) 20px;
+  column-gap: 8px;
   align-items: center;
   width: 100%;
-  min-height: 58px;
+  min-height: 52px;
   padding: 0;
   border: 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid #f4f4f4;
+  color: #222;
   text-align: left;
   background: #fff;
 }
 
-.bike-reg-row:disabled { opacity: 1; }
-.bike-reg-row__label { display: flex; align-items: center; gap: 4px; color: #42464c; font-size: 14px; font-weight: 600; }
-.bike-reg-row__label img { width: 15px; height: 15px; }
-.bike-reg-row__value { overflow: hidden; padding-right: 8px; color: #1d2024; font-size: 14px; text-align: right; text-overflow: ellipsis; white-space: nowrap; }
-.bike-reg-row__value.is-empty { color: #9da2a8; }
-.bike-reg-row__chevron { width: 18px; height: 18px; opacity: .45; }
+.bike-reg-row:disabled { opacity: 1; cursor: default; }
+.bike-reg-detail > :last-child { border-bottom: 0; }
+.bike-reg-row__label { display: flex; align-items: center; gap: 4px; color: #222; font-size: 15px; line-height: 22px; font-weight: 600; }
+.bike-reg-row__label img { width: 16px; height: 16px; }
+.bike-reg-row__value { overflow: hidden; color: #222; font-size: 15px; line-height: 22px; text-align: right; text-overflow: ellipsis; white-space: nowrap; }
+.bike-reg-row__value.is-empty { color: #8c8c8c; }
+.bike-reg-row__value.is-error { color: #f0325e; }
+.bike-reg-row__chevron { width: 20px; height: 20px; }
 
-.bike-reg-condition { display: grid; grid-template-columns: 92px 1fr; align-items: center; min-height: 70px; border-bottom: 1px solid var(--line); }
-.bike-reg-condition > span { font-size: 14px; font-weight: 600; }
-.bike-reg-condition .bike-reg-segment button { height: 36px; }
-.bike-reg-detail .bike-reg-input-row { display: grid; grid-template-columns: 92px 1fr; width: 100%; min-height: 58px; margin: 0; padding: 0; border-width: 0 0 1px; border-radius: 0; }
-.bike-reg-detail .bike-reg-input-row > span:first-child { color: #42464c; font-size: 14px; font-weight: 600; }
-.bike-reg-detail .bike-reg-input-row input { text-align: right; }
+.bike-reg-condition { min-height: 52px; border-bottom: 1px solid #f4f4f4; }
+.bike-reg-condition > span { font-size: 15px; line-height: 22px; font-weight: 600; }
+.bike-reg-input-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; border-bottom: 1px solid #f4f4f4; cursor: text; }
+.bike-reg-input-row.is-error { border-bottom-color: #f0325e; }
+.bike-reg-input-row > span:first-child { flex: none; color: #222; font-size: 15px; line-height: 22px; font-weight: 600; }
+.bike-reg-input-row > span:last-child { display: flex; flex: 1; align-items: center; justify-content: flex-end; gap: 6px; min-width: 0; color: #595959; }
+.bike-reg-input-row input { width: 100%; min-width: 0; padding: 0; border: 0; outline: 0; color: #222; font-size: 15px; line-height: 22px; text-align: right; background: transparent; }
+.bike-reg-input-row input::placeholder { color: #b7b7b7; }
+.bike-reg-input-row b { flex: none; color: #222; font-size: 15px; font-weight: 400; white-space: nowrap; }
+.bike-reg-pencil { flex: none; width: 20px; height: 20px; color: #595959; }
 
+/* 하단 버튼: 높이 40 · 반경 8 · 좌우 16 · 간격 8 · 같은 폭, 등록 #222 */
 .bike-reg-actions {
   position: fixed;
   left: 50%;
   bottom: 0;
   z-index: 30;
   display: grid;
-  grid-template-columns: 1fr 1.45fr;
-  gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
   width: min(100%,430px);
-  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
   transform: translateX(-50%);
-  border-top: 1px solid #eceef0;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(12px);
+  background: #fff;
+  box-shadow: rgba(0,0,0,.05) 0 -2px 4px;
 }
 
-.bike-reg-actions button { height: 48px; border-radius: 8px; font-size: 15px; font-weight: 700; }
-.bike-reg-actions button:first-child { border: 1px solid #d9dce0; background: #fff; }
-.bike-reg-actions button:last-child { border: 1px solid #111820; color: #fff; background: #111820; }
+.bike-reg-actions button { height: 40px; border-radius: 8px; font-size: 16px; line-height: 24px; font-weight: 700; }
+.bike-reg-actions button:first-child { border: 1px solid #dddddd; color: #222; background: #fff; }
+.bike-reg-actions button:last-child { border: 1px solid #222; color: #fff; background: #222; }
+.bike-reg-page button:focus-visible { outline: 2px solid #222; outline-offset: 2px; }
 
 .bike-reg-picker {
   position: fixed;
@@ -219,7 +187,8 @@
 .bike-reg-picker__list > button { display: grid; grid-template-columns: 1fr 24px; align-items: center; width: 100%; min-height: 48px; padding: 0 16px; border: 0; color: #25282d; font-size: 14px; text-align: left; background: #fff; }
 .bike-reg-picker__list > button i { display: grid; place-items: center; width: 20px; height: 20px; border: 1px solid #d9dce0; border-radius: 50%; font-style: normal; }
 .bike-reg-picker__list > button.is-selected { font-weight: 700; }
-.bike-reg-picker__list > button.is-selected i { border-color: #ffd400; background: #ffd400; }
+.bike-reg-picker__list > button.is-selected i { border-color: #222; background: #222; }
+.bike-reg-picker__list > button.is-selected i img { filter: brightness(0) invert(1); }
 .bike-reg-picker__list > button i img { width: 17px; height: 17px; }
 .bike-reg-picker__list > p { margin: 50px 0 0; color: #8f949a; font-size: 14px; text-align: center; }
 .bike-reg-toast { position: fixed; left: 50%; bottom: 82px; z-index: 120; max-width: min(340px,calc(100% - 32px)); padding: 11px 16px; transform: translateX(-50%); border-radius: 8px; color: #fff; font-size: 13px; text-align: center; background: rgba(17,24,32,.9); box-shadow: 0 6px 18px rgba(0,0,0,.18); }
@@ -230,3 +199,4 @@
   .bike-reg-actions { bottom: 20px; border-radius: 0 0 18px 18px; }
   .bike-reg-picker { top: 20px; bottom: 20px; border-radius: 18px; box-shadow: 0 12px 40px rgba(17,24,32,.18); }
 }
+.bike-reg-row__label em { margin-left: -2px; }
