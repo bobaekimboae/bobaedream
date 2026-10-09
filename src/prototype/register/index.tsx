@@ -26,7 +26,7 @@ import {
   formYearOptions,
   type RegisterColor,
 } from "./data";
-import { Checkbox, ChoiceGroup, FloatInput, FloatSelect, Pop, SelectBox, toRegisterLayer, UnderlineAmount, ValidationMessage } from "./ui";
+import { Checkbox, ChoiceGroup, ConfirmModal, FloatInput, FloatSelect, Pop, SelectBox, toRegisterLayer, UnderlineAmount, ValidationMessage } from "./ui";
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}assets/${path}`;
 const cx = (...names: Array<string | false | null | undefined>) => names.filter(Boolean).join(" ");
@@ -73,11 +73,17 @@ function LookupStep({ onNext, notify }: { onNext: () => void; notify: (message: 
   const [imported, setImported] = useState(false);
   const [agree, setAgree] = useState(false);
   const [policyOpen, setPolicyOpen] = useState(false);
-  const ready = plate.trim() !== "" && agree;
-  const submit = () => {
-    if (!ready) return;
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  // dev와 같이 차량번호만 있으면 「다음」이 켜지고, 동의 전에 누르면 「허위매물 운영정책에 동의하시겠습니까?」 확인창을 띄운다(2026-10-09 dev 크로스체크)
+  const ready = plate.trim() !== "";
+  const lookup = () => {
     if (plate.replace(/\s/g, "") !== mockLookup.plate) { notify(`목업 조회는 ${mockLookup.plate}만 지원합니다.`); return; }
     onNext();
+  };
+  const submit = () => {
+    if (!ready) return;
+    if (!agree) { setConfirmOpen(true); return; }
+    lookup();
   };
   return (
     <section className="app-content-panel car-register-page">
@@ -116,6 +122,7 @@ function LookupStep({ onNext, notify }: { onNext: () => void; notify: (message: 
           </footer>
         </section>
       </main>
+      <ConfirmModal open={confirmOpen} title="허위매물 운영정책에 동의하시겠습니까?" cancelLabel="아니요" confirmLabel="동의" onCancel={() => setConfirmOpen(false)} onConfirm={() => { setConfirmOpen(false); setAgree(true); lookup(); }} />
       <Pop open={policyOpen} title="허위매물 운영정책" onClose={() => setPolicyOpen(false)} rawBody>
         <div className="s1-policy-modal pop-body" dangerouslySetInnerHTML={{ __html: registerPolicyHtml }} />
       </Pop>
