@@ -42,8 +42,8 @@ function bbmCardSpecRaw(source: SampleSource, withPower = true) {
   // 주행거리는 정확값(56,067km)도 축약(6만km · 4천km)한다(2026-10-08 「주행거리는 축약해라」)
   if (source.cardSpec?.length) return source.cardSpec.map((part) => /^[\d,]+km$/.test(part) ? mileageLabel({ ...source, filter: { year: 0, fuel: "", mileage: Number(part.replace(/[^\d]/g, "")) } }) : part).join(" · ");
   // 트레일러: 적재량 · 길이 · 축(엔진 없음)
-  // 트레일러: 등록연월 바로 뒤에 축수(2026-10-10 「트레일러는 연식 뒤에 3축」), 목록형은 「연월 · 축수」 / 「적재 · 길이」 두 줄, 피드형은 한 줄
-  if (source.truck?.trailer) return [`${String(yearFromSpecs(source) % 100).padStart(2, "0")}년${String(((source.id * 5) % 12) + 1).padStart(2, "0")}월`, source.truck.trailer.axles, source.truck.trailer.load, source.truck.trailer.length].join(" · ");
+  // 트레일러: 등록연월 · 적재 · 축수 · 길이(2026-10-10 「트레일러는 적재도 추가, 축 앞에」), 목록형·피드형 모두 한 줄
+  if (source.truck?.trailer) return [`${String(yearFromSpecs(source) % 100).padStart(2, "0")}년${String(((source.id * 5) % 12) + 1).padStart(2, "0")}월`, source.truck.trailer.load, source.truck.trailer.axles, source.truck.trailer.length].join(" · ");
   // 캠핑카: 바이크 장르처럼 구분을 맨 앞에(모터홈 · 카라반 · 트레일러, 2026-10-08) + 등록연월 · 주행 · 연료. 엔진 없는 카라반·트레일러는 등록연월 · 취침(「견인형」은 2026-10-08 뺌)
   if (source.virtualCategory?.category === "캠핑카") {
     const year = yearFromSpecs(source);
@@ -76,10 +76,10 @@ function bbmCardSpecRaw(source: SampleSource, withPower = true) {
     // 적재는 톤으로 축약(적재 1톤 · 적재 2.5톤), 순서 마력 · 적재 · 차축(2026-10-08 사용자 지시)
     const tons = load.match(/^([\d.]+)톤$/);
     const loadLabel = tons ? `적재 ${tons[1]}톤` : load && load !== "기타" && load.replace("×", "x") !== source.truck.drive ? load : "";
-    // 제목(차명 + 등급)에 이미 있는 톤수·용량·차축은 둘째 줄에서 뺀다(2026-10-08 「축약」)
+    // 제목(차명 + 등급)에 이미 있는 차축은 뺀다(2026-10-08 「축약」). 적재는 제목에 톤수가 있어도 항상 넣는다(2026-10-10 「트럭들도 적재 기존처럼 추가」)
     const titleText = `${source.title ?? ""} ${source.trim ?? ""}`.replace(/×/g, "x");
     const inTitle = (part: string) => Boolean(part) && titleText.includes(part.replace(/^적재 /, "").replace(/×/g, "x"));
-    const power = [source.truck.horsepower ? `${source.truck.horsepower}마력` : "", inTitle(loadLabel) ? "" : loadLabel, inTitle(source.truck.drive ?? "") ? "" : source.truck.drive ?? ""].filter(Boolean);
+    const power = [source.truck.horsepower ? `${source.truck.horsepower}마력` : "", loadLabel, inTitle(source.truck.drive ?? "") ? "" : source.truck.drive ?? ""].filter(Boolean);
     return [`${String(year % 100).padStart(2, "0")}년${String(month).padStart(2, "0")}월`, mileageLabel(source), fuelLabel(source), ...power].filter(Boolean).join(" · ");
   }
   // 바이크 스펙 줄은 장르 · 연식(숫자만) · 주행 · 배기량(2026-10-08 「2002 숫자만 표기하자」)
