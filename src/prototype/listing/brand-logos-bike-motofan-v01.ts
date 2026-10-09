@@ -1,9 +1,10 @@
 import { bikeBrandLogosV01 } from "./brand-logos-bike-v01";
+import { bikeBrandLogosLightwagenV01 } from "./brand-logos-bike-lightwagen-v01";
 
 type BikeLogo = {
   file: string;
   ratio: number;
-  source: "motofan" | "autohome" | "official";
+  source: "motofan" | "lightwagen" | "autohome" | "official";
 };
 
 // Google Drive `모토팬` 180×180 원본에서 외곽 흰 배경을 제거한 비교 세트.
@@ -22,14 +23,16 @@ export const bikeBrandLogosMotofanV01: Record<string, BikeLogo> = {
 
 export type SelectedBikeLogo = {
   logo: BikeLogo;
-  directory: "motofan-trim" | "autohome-trim";
-  set: "motofan-bike" | "autohome-bike" | "motofan-bike-fallback";
+  directory: "lightwagen-trim" | "motofan-trim" | "autohome-trim";
+  set: "lightwagen-bike" | "motofan-bike" | "autohome-bike" | "motofan-bike-fallback";
 };
 
 export function selectedBikeBrandLogo(name: string): SelectedBikeLogo | null {
   const requestedSet = typeof window !== "undefined"
     ? new URLSearchParams(window.location.search).get("bikelogo")
     : null;
+  const lightwagen = requestedSet === "lightwagen" ? bikeBrandLogosLightwagenV01[name] : null;
+  if (lightwagen) return { logo: lightwagen, directory: "lightwagen-trim", set: "lightwagen-bike" };
   const motofan = requestedSet === "motofan" ? bikeBrandLogosMotofanV01[name] : null;
   if (motofan) return { logo: motofan, directory: "motofan-trim", set: "motofan-bike" };
   const fallback = bikeBrandLogosV01[name];
