@@ -1,4 +1,4 @@
-import { useRef, useState, type KeyboardEvent, type ReactNode } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { asset, displayListPlace, placeSidoGugun, sellerAvatar, sellerLabel, sellerRealPhoto, type Car } from "../data";
 import { bbmCardBadges, bbmCardSpec } from "../data/bbm-card-samples";
@@ -352,26 +352,46 @@ function cardTitleText(car: Car) {
 // ── 매물 카드(원본 car-list-result-card). variant pc: 사진 160, 마력 포함 / mobile 목록형: 초톳 기준 사진 120×120, 마력 없음
 // 피드 보기 사진 넘기기(레딧식): 가로 스와이프(scroll-snap) + 아래 가운데 점 알약(현재 점 흰색, 가장자리 점은 작게) + 오른쪽 위 「현재/전체」 개수
 function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string; fit: "cover" | "contain" }) {
+  const wrapRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const frameRef = useRef(0);
   const [index, setIndex] = useState(0);
+  // 스크롤 버벅임 완화(2026-10-10): 첫 사진만 먼저 그리고, 나머지 사진은 카드가 화면 근처에 온 뒤에야 붙인다(처음부터 수십 장을 한꺼번에 디코딩하지 않음)
+  const [armed, setArmed] = useState(false);
+  useEffect(() => {
+    const node = wrapRef.current;
+    if (!node || armed) return;
+    if (typeof IntersectionObserver === "undefined") { setArmed(true); return; }
+    const observer = new IntersectionObserver((entries) => { if (entries.some((entry) => entry.isIntersecting)) { setArmed(true); observer.disconnect(); } }, { rootMargin: "120px 0px" });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [armed]);
+  useEffect(() => () => cancelAnimationFrame(frameRef.current), []);
+  // 스크롤 이벤트마다 계산하지 않고 한 프레임에 한 번만 현재 장 번호를 갱신한다
   const onScroll = () => {
-    const track = trackRef.current;
-    if (!track || !track.clientWidth) return;
-    setIndex(Math.max(0, Math.min(photos.length - 1, Math.round(track.scrollLeft / track.clientWidth))));
+    if (frameRef.current) return;
+    frameRef.current = requestAnimationFrame(() => {
+      frameRef.current = 0;
+      const track = trackRef.current;
+      if (!track || !track.clientWidth) return;
+      setIndex(Math.max(0, Math.min(photos.length - 1, Math.round(track.scrollLeft / track.clientWidth))));
+    });
   };
   // 점은 최대 7개까지만 보이고, 현재 점 둘레로 창을 옮긴다(레딧과 같은 방식)
   const start = Math.max(0, Math.min(index - 3, photos.length - 7));
   const dots = photos.map((_, i) => i).slice(start, start + 7);
   return (
-    <>
+    <div className="bbm-feed-carousel-wrap" ref={wrapRef}>
       <div className="bbm-feed-carousel" ref={trackRef} onScroll={onScroll} onClick={(event) => { if (trackRef.current && trackRef.current.scrollLeft % trackRef.current.clientWidth) event.stopPropagation(); }}>
-        {photos.map((src, i) => <img key={src + i} className={fit === "contain" ? "is-catalog" : ""} src={asset(src)} alt={i === 0 ? alt : `${alt} 사진 ${i + 1}`} draggable={false} loading={i === 0 ? "eager" : "lazy"} />)}
+        {photos.map((src, i) => armed || i === 0
+          ? <img key={src + i} className={fit === "contain" ? "is-catalog" : ""} src={asset(src)} alt={i === 0 ? alt : `${alt} 사진 ${i + 1}`} draggable={false} decoding="async" />
+          : <span key={src + i} className="bbm-feed-slide-empty" aria-hidden="true" />)}
       </div>
       <span className="bbm-feed-count" aria-label={`사진 ${photos.length}장 중 ${index + 1}번째`}>{index + 1}/{photos.length}</span>
       <div className="bbm-feed-dots" aria-hidden="true">
         {dots.map((i) => <i key={i} className={i === index ? "is-on" : Math.abs(i - index) >= 3 ? "is-edge" : ""} />)}
       </div>
-    </>
+    </div>
   );
 }
 
