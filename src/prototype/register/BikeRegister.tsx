@@ -33,6 +33,8 @@ type BikeMaker = {
   models?: BikeModel[];
 };
 type PickerName = "maker" | "model" | "year" | "type" | "origin" | "warranty" | "documents" | "sido" | "district" | null;
+// 2차 수정(10/9 초톳 화면 녹화): 주소 = 「Địa chỉ」 바텀시트(시도·구군·상세 주소·표시 미리보기·완료), 뒤로 = 「Lưu tin nháp?」 확인 시트
+type SheetName = "address" | "draft" | null;
 
 const yearOptions = Array.from({ length: 47 }, (_, index) => `${2026 - index}년`);
 const bikeTypeOptions = ["스쿠터", "네이키드", "스포츠", "크루저", "투어러", "멀티퍼퍼스", "클래식", "오프로드", "언더본·비즈니스", "삼륜", "ATV", "기타"];
@@ -42,6 +44,9 @@ const documentOptions = ["서류 있음", "서류 일부 있음", "서류 없음
 // 시안 작업 마스터 확정 사항 8: 국산 KR모터스 · 디앤에이모터스를 맨 앞에
 const pinnedMakers = ["KR모터스(효성)", "디앤에이모터스(대림)"];
 const maxPhotos = 10;
+const titleMax = 50;
+const priceMin = 10;
+const priceMax = 99999;
 const regionDistricts = regionsKr.districts as Record<string, string[]>;
 const samplePhoto = (index: number) => asset(`assets/bike/listings/v08/bike-v08-${String((index % 50) + 1).padStart(2, "0")}.webp`);
 const digits = (value: string) => value.replace(/[^\d]/g, "").replace(/^0+(?=\d)/, "");
@@ -96,6 +101,22 @@ function FullPicker({ title, options, selected, searchable, onBack, onClose, onS
   </section>;
 }
 
+function BottomSheet({ title, onClose, footer, children }: { title: string; onClose: () => void; footer: ReactNode; children: ReactNode }) {
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") onClose(); };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [onClose]);
+  return <div className="bike-reg-sheet" role="dialog" aria-modal="true" aria-label={title}>
+    <div className="bike-reg-sheet__dim" onClick={onClose} />
+    <section className="bike-reg-sheet__panel">
+      <header><button type="button" aria-label="닫기" onClick={onClose}><img src={icons.close} alt="" /></button><h2>{title}</h2><span /></header>
+      <div className="bike-reg-sheet__body">{children}</div>
+      <footer>{footer}</footer>
+    </section>
+  </div>;
+}
+
 export default function BikeRegister() {
   const [makers, setMakers] = useState<BikeMaker[]>([]);
   const [picker, setPicker] = useState<PickerName>(null);
@@ -106,7 +127,6 @@ export default function BikeRegister() {
   const [price, setPrice] = useState("");
   const [sido, setSido] = useState("");
   const [district, setDistrict] = useState("");
-  const [draftSido, setDraftSido] = useState("");
   const [seller, setSeller] = useState("");
   const [condition, setCondition] = useState("");
   const [maker, setMaker] = useState("");
@@ -118,6 +138,9 @@ export default function BikeRegister() {
   const [origin, setOrigin] = useState("");
   const [warranty, setWarranty] = useState("");
   const [documents, setDocuments] = useState("");
+  const [detailAddress, setDetailAddress] = useState("");
+  const [sheet, setSheet] = useState<SheetName>(null);
+  const [addrDraft, setAddrDraft] = useState({ sido: "", district: "", detail: "" });
   const [submitted, setSubmitted] = useState(false);
   const photoCounter = useRef(0);
 
@@ -154,7 +177,7 @@ export default function BikeRegister() {
     photos: submitted && photos.length === 0,
     description: submitted && !description.trim() ? "매물 설명을 입력해 주세요" : "",
     title: submitted && !title.trim() ? "제목을 입력해 주세요" : "",
-    price: submitted && !price ? "판매 가격을 입력해 주세요" : "",
+    price: submitted && !price ? "판매 가격을 입력해 주세요" : price && (Number(price) < priceMin || Number(price) > priceMax) ? `${priceMin}만원 ~ ${priceMax.toLocaleString("ko-KR")}만원 사이로 입력해 주세요` : "",
     address: submitted && !sido ? "거래 지역을 선택해 주세요" : "",
     seller: submitted && !seller,
     condition: submitted && !condition,
@@ -173,16 +196,13 @@ export default function BikeRegister() {
     origin: { title: "원산지 선택", options: originOptions, selected: origin },
     warranty: { title: "보증 선택", options: warrantyOptions, selected: warranty },
     documents: { title: "서류 상태 선택", options: documentOptions, selected: documents },
-    sido: { title: "거래 지역", options: regionsKr.sido as string[], selected: sido },
-    district: { title: draftSido, options: [`${draftSido} 전체`, ...(regionDistricts[draftSido] ?? [])] as string[], selected: sido === draftSido ? district || `${draftSido} 전체` : "" },
+    sido: { title: "시/도 선택", options: regionsKr.sido as string[], selected: addrDraft.sido },
+    district: { title: "구/군 선택", options: (regionDistricts[addrDraft.sido] ?? []) as string[], selected: addrDraft.district },
   } as const;
 
   const choose = (value: string) => {
-    if (picker === "sido") {
-      if (!(regionDistricts[value] ?? []).length) { setSido(value); setDistrict(""); setPicker(null); return; }
-      setDraftSido(value); setPicker("district"); return;
-    }
-    if (picker === "district") { setSido(draftSido); setDistrict(value === `${draftSido} 전체` ? "" : value); }
+    if (picker === "sido") setAddrDraft((current) => ({ ...current, sido: value, district: current.sido === value ? current.district : "" }));
+    if (picker === "district") setAddrDraft((current) => ({ ...current, district: value }));
     if (picker === "maker") { setMaker(value); setModel(""); }
     if (picker === "model") setModel(value);
     if (picker === "year") setYear(value);
@@ -200,10 +220,18 @@ export default function BikeRegister() {
     // 시안: 실제 파일을 올리지 않고 바이크 예시 사진을 붙인다
     setPhotos((current) => [...current, samplePhoto(photoCounter.current++)]);
   };
+  const openAddress = () => { setAddrDraft({ sido, district, detail: detailAddress }); setSheet("address"); };
+  const addrNeedsDistrict = Boolean((regionDistricts[addrDraft.sido] ?? []).length);
+  const addrReady = Boolean(addrDraft.sido) && (!addrNeedsDistrict || Boolean(addrDraft.district));
+  const addrPreview = [addrDraft.sido, addrDraft.district, addrDraft.detail.trim()].filter(Boolean).join(" ");
+  const applyAddress = () => {
+    if (!addrReady) { setToast(addrDraft.sido ? "구/군을 선택해 주세요." : "시/도를 선택해 주세요."); return; }
+    setSido(addrDraft.sido); setDistrict(addrDraft.district); setDetailAddress(addrDraft.detail.trim()); setSheet(null);
+  };
   const submit = () => {
     setSubmitted(true);
     const required = [photos.length > 0, description.trim(), title.trim(), price, sido, seller, condition, maker, model, year, type, mileage];
-    if (required.some((item) => !item)) {
+    if (required.some((item) => !item) || errors.price) {
       setToast("필수 항목을 입력해 주세요.");
       window.setTimeout(() => document.querySelector(".bike-reg-page .is-error")?.scrollIntoView({ block: "center", behavior: "smooth" }), 0);
       return;
@@ -213,7 +241,7 @@ export default function BikeRegister() {
 
   return <div className="bike-reg-page">
     <div className="bike-reg-shell">
-      <header className="bike-reg-header"><button type="button" aria-label="뒤로가기" onClick={() => history.back()}><img src={icons.back} alt="" /></button><h1>바이크 매물 등록</h1><button type="button" onClick={() => setToast("시안에서는 임시저장을 지원하지 않습니다.")}>임시저장</button></header>
+      <header className="bike-reg-header"><button type="button" aria-label="뒤로가기" onClick={() => setSheet("draft")}><img src={icons.back} alt="" /></button><h1>바이크 매물 등록</h1><button type="button" onClick={() => setToast("시안에서는 임시저장을 지원하지 않습니다.")}>임시저장</button></header>
       <main className="bike-reg-main">
         <section className="bike-reg-card">
           <div className="bike-reg-section-title"><h2>사진/영상<em>*</em></h2><button type="button" aria-label="사진 안내" onClick={() => setToast("첫 번째 사진이 대표 이미지로 표시됩니다.")}><img src={icons.info} alt="" /></button></div>
@@ -232,17 +260,18 @@ export default function BikeRegister() {
           </BoxField>
           <div className="bike-reg-under"><button type="button" className="bike-reg-ai" onClick={aiCopy}>AI 설명 추천</button><small>{description.length}/1500자</small></div>
           <BoxField label="매물 제목" error={errors.title}>
-            <input maxLength={40} value={title} placeholder="예: 혼다 PCX 125 무사고" onChange={(event) => setTitle(event.currentTarget.value)} />
+            <input maxLength={titleMax} value={title} placeholder="예: 혼다 PCX 125 무사고" onChange={(event) => setTitle(event.currentTarget.value)} />
             {title ? <button type="button" className="bike-reg-field__clear" aria-label="제목 지우기" onClick={(event) => { event.preventDefault(); setTitle(""); }}><img src={icons.clear} alt="" /></button> : null}
           </BoxField>
+          <p className="bike-reg-counter">{title.length}/{titleMax}자</p>
           <BoxField label="판매가격" error={errors.price}>
             <input inputMode="numeric" value={withComma(price)} placeholder="가격 입력" onChange={(event) => setPrice(digits(event.currentTarget.value).slice(0, 7))} />
             <b className="bike-reg-field__unit">만원</b>
           </BoxField>
           <div className={`bike-reg-field is-select${errors.address ? " is-error" : ""}`}>
-            <button type="button" className="bike-reg-field__box" onClick={() => setPicker("sido")}>
+            <button type="button" className="bike-reg-field__box" onClick={openAddress}>
               <span className="bike-reg-field__label">거래지역<em>*</em></span>
-              <span className={`bike-reg-field__value${sido ? "" : " is-empty"}`}>{sido ? `${sido}${district ? ` ${district}` : ""}` : "지역 선택"}</span>
+              <span className={`bike-reg-field__value${sido ? "" : " is-empty"}`}>{sido ? [sido, district, detailAddress].filter(Boolean).join(" ") : "지역 선택"}</span>
               <img className="bike-reg-field__caret" src={icons.caret} alt="" />
             </button>
             {errors.address ? <p className="bike-reg-error">{errors.address}</p> : null}
@@ -267,7 +296,18 @@ export default function BikeRegister() {
       </main>
       <footer className="bike-reg-actions"><button type="button" onClick={() => setToast("시안에서는 미리보기를 지원하지 않습니다.")}>미리보기</button><button type="button" onClick={submit}>매물 등록</button></footer>
     </div>
-    {picker ? <FullPicker {...pickerMap[picker]} onBack={picker === "district" ? () => setPicker("sido") : undefined} onClose={() => setPicker(null)} onSelect={choose} /> : null}
+    {sheet === "address" ? <BottomSheet title="거래 지역" onClose={() => setSheet(null)} footer={<button type="button" className="is-primary is-wide" onClick={applyAddress}>완료</button>}>
+      <div className="bike-reg-address">
+        <div className="bike-reg-field is-select"><button type="button" className="bike-reg-field__box" onClick={() => setPicker("sido")}><span className="bike-reg-field__label">시/도<em>*</em></span><span className={`bike-reg-field__value${addrDraft.sido ? "" : " is-empty"}`}>{addrDraft.sido || "선택"}</span><img className="bike-reg-field__caret" src={icons.caret} alt="" /></button></div>
+        <div className="bike-reg-field is-select"><button type="button" className="bike-reg-field__box" disabled={!addrNeedsDistrict} onClick={() => setPicker("district")}><span className="bike-reg-field__label">구/군{addrNeedsDistrict ? <em>*</em> : null}</span><span className={`bike-reg-field__value${addrDraft.district ? "" : " is-empty"}`}>{addrDraft.district || (addrDraft.sido && !addrNeedsDistrict ? "구/군 없음" : "선택")}</span><img className="bike-reg-field__caret" src={icons.caret} alt="" /></button></div>
+        <div className="bike-reg-field is-plain"><label className="bike-reg-field__box"><input value={addrDraft.detail} maxLength={40} placeholder="상세 주소(선택)" onChange={(event) => { const detail = event.currentTarget.value; setAddrDraft((current) => ({ ...current, detail })); }} />{addrDraft.detail ? <button type="button" className="bike-reg-field__clear" aria-label="상세 주소 지우기" onClick={(event) => { event.preventDefault(); setAddrDraft((current) => ({ ...current, detail: "" })); }}><img src={icons.clear} alt="" /></button> : null}</label></div>
+        <div className="bike-reg-address__preview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a7 7 0 0 0-7 7c0 5.1 6 11.4 6.3 11.7a1 1 0 0 0 1.4 0C13 20.9 19 14.6 19 9.5a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z" fill="#2E6FE8" /></svg><p><strong>매물에 표시될 주소</strong>{addrPreview || "시/도와 구/군을 선택해 주세요"}</p></div>
+      </div>
+    </BottomSheet> : null}
+    {sheet === "draft" ? <BottomSheet title="임시저장할까요?" onClose={() => setSheet(null)} footer={<><button type="button" className="is-outline" onClick={() => { setSheet(null); history.back(); }}>저장 안 함</button><button type="button" className="is-primary" onClick={() => { setSheet(null); setToast("시안에서는 임시저장을 지원하지 않습니다."); }}>임시저장</button></>}>
+      <p className="bike-reg-sheet__text">작성 중인 매물을 저장해 두고 나중에 이어서 등록해요.</p>
+    </BottomSheet> : null}
+    {picker ? <FullPicker {...pickerMap[picker]} onClose={() => setPicker(null)} onSelect={choose} /> : null}
     {toast ? <div className="bike-reg-toast" role="status">{toast}</div> : null}
   </div>;
 }
