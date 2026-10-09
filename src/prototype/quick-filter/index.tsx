@@ -97,9 +97,9 @@ function DepthCard({ label, ariaLabel, sub, image, imageFit = "width", selected,
   );
 }
 
-function ModelImagePill({ label, image, selected, disabled, onClick }: { label: string; image?: ReactNode; selected?: boolean; disabled?: boolean; onClick: () => void }) {
+function ModelImagePill({ label, image, selected, disabled, variant = "model", className, onClick }: { label: string; image?: ReactNode; selected?: boolean; disabled?: boolean; variant?: "model" | "brand"; className?: string; onClick: () => void }) {
   return (
-    <button type="button" className={`model-image-pill${selected ? " is-selected" : ""}`} disabled={disabled} aria-pressed={Boolean(selected)} onClick={onClick}>
+    <button type="button" className={`model-image-pill is-${variant}${selected ? " is-selected" : ""}${className ? ` ${className}` : ""}`} disabled={disabled} aria-pressed={Boolean(selected)} onClick={onClick}>
       <span className="model-image-pill__media">{image}</span>
       <strong className="model-image-pill__label">{label}</strong>
     </button>

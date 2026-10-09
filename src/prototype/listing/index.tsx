@@ -679,6 +679,10 @@ function MarketplaceScreen() {
     && maker === "BMW"
     && typeof window !== "undefined"
     && new URLSearchParams(window.location.search).get("qfmodelpill") === "chotot";
+  const horizontalBikeBrandPills = isGuaziQuickStyle
+    && isBikeCategory
+    && typeof window !== "undefined"
+    && new URLSearchParams(window.location.search).get("qfbrandpill") === "chotot";
   // QF-090: 과쯔(개발 시안형)는 필터 동작 확인용 샘플 60대, 초톳·동처띠는 기존 19대 그대로
   const luxuryUiTestMode = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("scenario") === "luxury30";
   const listingCars = isHeavyCategory
@@ -1581,6 +1585,32 @@ function MarketplaceScreen() {
             const sampleCount = (key: string) => isTruckCategory
               ? listingCars.filter((car) => car.maker === key && matchesTruckSelection(car)).length
               : listingCars.filter((car) => car.maker === key).length;
+            if (horizontalBikeBrandPills) {
+              const bikeBrands = [...sections.domestic, ...sections.imported];
+              return (
+                <section className="model-image-pill-rail is-brand-pill-rail" aria-label="바이크 브랜드 로고 알약칩 빠른 선택">
+                  <QuickRailCarousel ariaLabel="바이크 브랜드" className="brand-carousel" contentClassName="model-image-pill-track">
+                    {bikeBrands.map((item) => (
+                      <ModelImagePill
+                        key={item.label}
+                        label={categoryRailLabel(category, item.label)}
+                        image={<CategoryBrandLogo category={category} name={item.label} kind="rail" initialFallback />}
+                        variant="brand"
+                        className={sampleCount(item.key) === 0 ? "is-dim" : undefined}
+                        selected={maker === item.key}
+                        onClick={() => applyMakerFilter(item.key)}
+                      />
+                    ))}
+                    <ModelImagePill
+                      label="전체 브랜드"
+                      image={<span className="kr-all-brands" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="3" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /></svg></span>}
+                      variant="brand"
+                      onClick={() => setBbmChipPanel("제조사")}
+                    />
+                  </QuickRailCarousel>
+                </section>
+              );
+            }
             if (isLuxuryCategory && plainQuickCards) {
               // 럭셔리카 로고 3종 시안: 확정 16개 순서 · 초톳 40×40 슬롯, 로고 소스만 ?luxlogo=autohome|daangn|dongchedi
               const logoSource = luxuryLogoSource();

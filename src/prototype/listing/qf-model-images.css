@@ -61,6 +61,29 @@
   object-position: center bottom;
 }
 
+.marketplace.is-bike-category.is-qf-guazi .model-image-pill.is-brand .model-image-pill__media,
+.marketplace.is-bike-category.is-qf-guazi .model-image-pill.is-brand .kr-brand-logo.is-rail {
+  width: 48px;
+  height: 30px;
+}
+
+.marketplace.is-bike-category.is-qf-guazi .model-image-pill.is-brand .kr-all-brands {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  color: #222;
+  place-items: center;
+}
+
+.marketplace.is-bike-category.is-qf-guazi .model-image-pill.is-brand .kr-all-brands svg {
+  width: 20px;
+  height: 20px;
+}
+
+.marketplace.is-bike-category.is-qf-guazi .model-image-pill.is-dim {
+  opacity: .4;
+}
+
 .marketplace.is-bike-category.is-qf-guazi .model-image-pill__label {
   overflow: hidden;
   font-size: 14px;
