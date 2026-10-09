@@ -71,7 +71,7 @@ import {
   type SellerType,
   type SheetType,
 } from "../data";
-import { BrandRailMark, CategoryFilterSheet, DepthCard, DepthTextChip, MakerSheet, PriceSheet, TrimChip, VehiclePickerSheet } from "../quick-filter";
+import { BrandRailMark, CategoryFilterSheet, DepthCard, DepthTextChip, MakerSheet, ModelImagePill, PriceSheet, TrimChip, VehiclePickerSheet } from "../quick-filter";
 import { bbCatalog, BbCarCard, BbFilterSidebar, BbHeader, BbIcon, BbSwitch, type BbMakerSelection, type BbMakerSection, type BbTruckFilter } from "./pc-bbmuseum";
 import { bbmCarChecks, emptyBbmFilters, isBbmDataOption, matchesBbmFilters, rangeIsSet, resetBbmFilters, setBbmChecks, setBbmRange, type BbmCheckKey, type BbmFilterValues } from "../filters/bbm-filter-state";
 import { bbmAppliedChips, bbmItemValue } from "../filters/bbm-applied";
@@ -673,6 +673,12 @@ function MarketplaceScreen() {
   const isGuaziQuickStyle = quickFilterStyle === "guazi";
   // QF-100 최종: 과쯔 퀵필터(제조사·모델·세부모델 줄) 기본 = 바탕 없는 초톳식(plain). &qfcard=card 면 이전 과쯔 카드(비교용), &qfcard=plain 도 plain
   const plainQuickCards = isGuaziQuickStyle && (typeof window === "undefined" || new URLSearchParams(window.location.search).get("qfcard") !== "card");
+  // 2026-10-09 초톳 가로형 이미지 알약칩 비교 시안. 기본 모델 레일은 유지한다.
+  const horizontalBikeModelPills = isGuaziQuickStyle
+    && isBikeCategory
+    && maker === "BMW"
+    && typeof window !== "undefined"
+    && new URLSearchParams(window.location.search).get("qfmodelpill") === "chotot";
   // QF-090: 과쯔(개발 시안형)는 필터 동작 확인용 샘플 60대, 초톳·동처띠는 기존 19대 그대로
   const luxuryUiTestMode = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("scenario") === "luxury30";
   const listingCars = isHeavyCategory
@@ -1470,6 +1476,21 @@ function MarketplaceScreen() {
                 </button>
               ))}
             </Carousel>
+          </section> : showModelQuickRail && horizontalBikeModelPills ? <section className="model-image-pill-rail" aria-label="BMW 모델 이미지 알약칩 빠른 선택">
+            <QuickRailCarousel ariaLabel="BMW 모델" className="brand-carousel" contentClassName="model-image-pill-track">
+              {modelQuickOptions.map((model) => {
+                const modelVisual = guaziVisualsForMaker?.[model];
+                return (
+                  <ModelImagePill
+                    key={model}
+                    label={formatModelLabel(model)}
+                    image={modelVisual?.image ? <img src={modelVisual.image} alt="" aria-hidden="true" draggable={false} /> : undefined}
+                    selected={selectedModel === model}
+                    onClick={() => chooseModel(model)}
+                  />
+                );
+              })}
+            </QuickRailCarousel>
           </section> : showModelQuickRail && isGuaziQuickStyle && (!isBikeCategory || maker === "BMW") ? <section className={`depth-rail no-label${isLuxuryCategory ? " is-luxury-model-row" : ""}${isBikeCategory ? " is-bike-model-row" : ""}`} aria-label={`${maker} 모델 빠른 선택`}>
             <QuickRailCarousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName="depth-rail-track">
               {modelQuickOptions.map((model) => {

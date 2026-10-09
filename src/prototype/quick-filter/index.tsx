@@ -97,6 +97,15 @@ function DepthCard({ label, ariaLabel, sub, image, imageFit = "width", selected,
   );
 }
 
+function ModelImagePill({ label, image, selected, disabled, onClick }: { label: string; image?: ReactNode; selected?: boolean; disabled?: boolean; onClick: () => void }) {
+  return (
+    <button type="button" className={`model-image-pill${selected ? " is-selected" : ""}`} disabled={disabled} aria-pressed={Boolean(selected)} onClick={onClick}>
+      <span className="model-image-pill__media">{image}</span>
+      <strong className="model-image-pill__label">{label}</strong>
+    </button>
+  );
+}
+
 function TrimChip({ label, selected, disabled, onClick }: { label: string; selected?: boolean; disabled?: boolean; onClick: () => void }) {
   return (
     <button type="button" className={`trim-chip${selected ? " is-selected" : ""}`} disabled={disabled} aria-pressed={Boolean(selected)} onClick={onClick}>
@@ -289,6 +298,7 @@ export {
   BrandRailMark,
   ElectricSparkIcon,
   DepthCard,
+  ModelImagePill,
   DepthTextChip,
   TrimChip,
   MakerSheet,
