@@ -249,8 +249,8 @@ export default function BikeRegister() {
 
   const errors = {
     photos: submitted && photos.length === 0,
-    description: submitted && !description.trim() ? "매물 설명을 입력해 주세요" : "",
-    title: submitted && !title.trim() ? "제목을 입력해 주세요" : "",
+    description: submitted && !description.trim() ? "광고 설명을 입력해 주세요" : "",
+    title: submitted && !title.trim() ? "광고 제목을 입력해 주세요" : "",
     price: submitted && !price ? "판매 가격을 입력해 주세요" : price && (Number(price) < priceMin || Number(price) > priceMax) ? `${priceMin}만원 ~ ${priceMax.toLocaleString("ko-KR")}만원 사이로 입력해 주세요` : "",
     address: submitted && !sido ? "거래 지역을 선택해 주세요" : "",
     seller: submitted && !seller,
@@ -376,12 +376,12 @@ export default function BikeRegister() {
           </div>
           <p className={`bike-reg-media-hint${errors.photos ? " is-error" : ""}`}>{errors.photos ? "사진을 1장 이상 올려 주세요" : `길게 눌러 사진 순서를 바꿀 수 있어요 · ${photos.length}/${maxPhotos}`}</p>
 
-          <BoxField label="매물 제목" filled={Boolean(title)} error={errors.title}>
+          <BoxField label="광고 제목" filled={Boolean(title)} error={errors.title}>
             <input maxLength={titleMax} value={title} placeholder="예: 혼다 PCX 125 무사고" onChange={(event) => setTitle(event.currentTarget.value)} />
-            {title ? <button type="button" className="bike-reg-field__clear" aria-label="제목 지우기" onClick={(event) => { event.preventDefault(); setTitle(""); }}><img src={icons.clear} alt="" /></button> : null}
+            {title ? <button type="button" className="bike-reg-field__clear" aria-label="광고 제목 지우기" onClick={(event) => { event.preventDefault(); setTitle(""); }}><img src={icons.clear} alt="" /></button> : null}
           </BoxField>
           <p className="bike-reg-counter">{title.length}/{titleMax}자</p>
-          <BoxField label="매물 설명" className="is-textarea" filled={Boolean(description)} error={errors.description}>
+          <BoxField label="광고 설명" className="is-textarea" filled={Boolean(description)} error={errors.description}>
             <textarea maxLength={1500} value={description} placeholder="바이크의 상태와 특징을 자세히 알려주세요." onChange={(event) => setDescription(event.currentTarget.value)} />
           </BoxField>
           <p className="bike-reg-counter is-description">{description.length}/1500자</p>
