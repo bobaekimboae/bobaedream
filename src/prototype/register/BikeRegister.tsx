@@ -376,15 +376,15 @@ export default function BikeRegister() {
           </div>
           <p className={`bike-reg-media-hint${errors.photos ? " is-error" : ""}`}>{errors.photos ? "사진을 1장 이상 올려 주세요" : `길게 눌러 사진 순서를 바꿀 수 있어요 · ${photos.length}/${maxPhotos}`}</p>
 
-          <BoxField label="매물 설명" className="is-textarea" filled={Boolean(description)} error={errors.description}>
-            <textarea maxLength={1500} value={description} placeholder="바이크의 상태와 특징을 자세히 알려주세요." onChange={(event) => setDescription(event.currentTarget.value)} />
-          </BoxField>
-          <p className="bike-reg-counter is-description">{description.length}/1500자</p>
           <BoxField label="매물 제목" filled={Boolean(title)} error={errors.title}>
             <input maxLength={titleMax} value={title} placeholder="예: 혼다 PCX 125 무사고" onChange={(event) => setTitle(event.currentTarget.value)} />
             {title ? <button type="button" className="bike-reg-field__clear" aria-label="제목 지우기" onClick={(event) => { event.preventDefault(); setTitle(""); }}><img src={icons.clear} alt="" /></button> : null}
           </BoxField>
           <p className="bike-reg-counter">{title.length}/{titleMax}자</p>
+          <BoxField label="매물 설명" className="is-textarea" filled={Boolean(description)} error={errors.description}>
+            <textarea maxLength={1500} value={description} placeholder="바이크의 상태와 특징을 자세히 알려주세요." onChange={(event) => setDescription(event.currentTarget.value)} />
+          </BoxField>
+          <p className="bike-reg-counter is-description">{description.length}/1500자</p>
           <BoxField label="판매가격" filled={Boolean(price)} error={errors.price}>
             <input inputMode="numeric" value={withComma(price)} placeholder="가격 입력" onChange={(event) => setPrice(digits(event.currentTarget.value).slice(0, 7))} />
             <b className="bike-reg-field__unit">만원</b>
