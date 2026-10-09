@@ -147,12 +147,19 @@
 
 - Guazi PC left filter (and the 1024–1279 drawer) order comes from one config array `bbmFilterOrder` in `src/prototype/filters/bbm-filter-options.ts`: `제조사 · 모델` (open by default) → `연식` → `주행거리` → `가격` → `바디타입` → `차급` (closed) → `지역` → `매매단지` → … (rest unchanged). The filter header stays on top. ChoTot/Dongchedi PC keep the original order (`order` prop not passed). The mobile filter sheet is unchanged for now and can switch to the same array later. Check: `npm run check:sidebar`.
 
-## Daangn Filter Hierarchy
+## Full Filter (초톳 「Lọc Nâng Cao」, 2026-10-09)
 
-- Guazi PC·mobile full filters use the Daangn used-car information hierarchy: status, brand, vehicle type, fuel, price, year, mileage, transmission, and sale method are the default visible filters.
-- Existing filters outside that set are preserved below one `필터 더보기` control. Category and truck `형식/적재용량` also stay in the expanded area instead of competing with the default filters.
-- Mobile uses a dimmed backdrop and a rounded bottom sheet with fixed header and action footer. Bobaedream blue remains the action color.
-- The PC fixed sidebar uses the same default/expanded split and provides `숨기기`; the collapsed 48px control restores the sidebar. The 1024–1279 drawer is not collapsible.
+- 과쯔 모바일 `필터`와 PC `필터` 칩은 같은 초톳식 전체 필터를 연다(`src/prototype/filters/chotot-full-filter.tsx` · `.css`, 목록 연결 `renderChototFull`). 이전 당근식 목록(항목을 누르면 다시 시트가 열림)은 쓰지 않는다. xe.chotot.com 모바일웹 384 · PC 1440 DOM·CSS 실측값을 따른다.
+- 틀: 모바일은 위 12를 남긴 시트(위 모서리 20), PC는 가운데 폭 480 · 위 31 · 높이 min(878, 100vh−31) · 모서리 20 · 그림자 0 0 8 30%. 배경 #222 30%.
+- 머리: 높이 48 + 아래 1px #E8E8E8, 가운데 제목 `필터` 16/600/24, 왼쪽 4·위 4에 40 원형 닫기(초톳 close-window.svg).
+- 섹션: 위아래 8, 제목 줄 40(16/500/24 #222) + 오른쪽 20 접기 화살표(초톳 toggle-arrow.svg, 펼치면 180°). 누르면 접고 편다. PC만 섹션 사이 1px #E8E8E8. 우리 항목이 많아 기본 항목(당근 기본 9개) 밖 섹션은 처음에 접어 둔다.
+- 순서: 가격 → 제조사 → (제조사를 고르면 바로 아래 생기는) 모델 → 우리 필터 순서(`bbmFilterOrder` · 바이크 · 트럭 · 부품) → `숏폼중고차`(영상 있는 매물만) · `거래 상태`(거래 가능만 보기) 스위치. 트럭은 가격 다음에 `트럭 유형` 링크 줄.
+- 단일 선택(제조사·모델·최고출력·연비·배기량 등 구간·광고기간) = 라디오: 줄 높이 44(위아래 10 · 좌우 4), 14/400/24, 라디오 20(빈칸 테두리 2 #DADADA, 선택 #222 채움 + 흰 체크), 다시 누르면 해제. 여러 선택(체크 항목) = 체크박스: 같은 줄 + 모서리 4 체크박스, 줄 아래 안쪽 그림자 1px #F4F4F4. 줄 마우스 올림 #F4F4F4.
+- 목록이 6개 넘으면 5개 + `더 보기 ▾`(높이 40, 14/600 #8C8C8C, 초톳 caret-down). 고른 항목은 접혀 있어도 보인다.
+- 가격 = 가격 필터 본문(슬라이더 + 입력, Price Filter 규칙). 연식 · 주행거리 = 입력 두 칸(가격 칸과 같은 상자, `최소 연식 - 최대 연식` 년 · `최소/최대 주행거리` km, 최소 > 최대면 빨간 테두리 + 안내). 차량번호/판매자 = 넓은 입력 한 칸.
+- 스위치 줄: 높이 52, 14/400/20, 스위치 52×32(끔 #E8E8E8 · 켬 #222), 손잡이 28 흰색 그림자 0 2 4 30%.
+- 아래: 위 1px #E8E8E8, 안쪽 16(PC 16 20), 간격 8. `초기화` 글자 버튼 16/700, `N대 보기` 남은 폭 #222 · 높이 40 · 모서리 8. 대수는 시트 안 임시 선택(제조사·모델·영상 포함)으로 바로 다시 센다.
+- 열 때 지금 값을 임시로 복사하고, `N대 보기`만 확정한다. 닫기·배경·Esc는 버린다. `초기화`는 임시 값만 비운다(시트는 열린 채).
 
 ## Region Drill (QF-111)
 

@@ -24,7 +24,9 @@ const clampPos = (value: number) => Math.max(0, Math.min(STEPS, value));
 const posOf = (value: number | null, scale: Scale, fallback: number) => value === null ? fallback : clampPos(Math.round(value / scale.step));
 
 /** 본문(슬라이더 + 입력 두 칸 + 오류 문구). 모바일 바텀시트와 PC 팝오버가 같이 쓴다. */
-export function PriceFinalPanel({ value, onChange, scale = CAR_SCALE }: { value: BbmFilterValues; onChange: (next: BbmFilterValues) => void; scale?: Scale; presets?: string[]; hideTabs?: boolean }) {
+const scaleOf = (presets?: string[]) => presets && presets.some((preset) => preset.includes("만원") && !preset.includes("천")) ? PARTS_SCALE : CAR_SCALE;
+export function PriceFinalPanel({ value, onChange, scale: scaleProp, presets }: { value: BbmFilterValues; onChange: (next: BbmFilterValues) => void; scale?: Scale; presets?: string[]; hideTabs?: boolean }) {
+  const scale = scaleProp ?? scaleOf(presets);
   const range = value.ranges.price ?? { min: "", max: "" };
   const min = toNumber(range.min);
   const max = toNumber(range.max);
@@ -87,7 +89,7 @@ function useScrollLock(enabled: boolean) {
  */
 export function PriceFinalSheet({ value, onApply, onClose, variant = "sheet", returnFocus, presets }: { presets?: string[]; hideTabs?: boolean; value: BbmFilterValues; countOf?: (next: BbmFilterValues) => number; onApply: (next: BbmFilterValues) => void; onClose: () => void; variant?: "sheet" | "modal"; returnFocus?: () => HTMLElement | null }) {
   const popover = variant === "modal";
-  const scale = presets && presets.some((preset) => preset.includes("만원") && !preset.includes("천")) ? PARTS_SCALE : CAR_SCALE;
+  const scale = scaleOf(presets);
   const [draft, setDraft] = useState(value);
   const [anchor, setAnchor] = useState<DOMRect | null>(null);
   const dialog = useRef<HTMLElement>(null);
