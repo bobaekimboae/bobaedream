@@ -116,3 +116,4 @@
 "2026-10-10 03:30","미지정","fix/bike-register-upload-icon-revert-1009","이 줄이 포함된 커밋","#328","완료","PR #327 사진 추가 아이콘 교체 원복(초톳 upload-media.png로 되돌림)","public/assets/register/tiktok/* 삭제 · BikeRegister.tsx · bike-register.css · reports/pr-327.md","없음","없음","verify:qf 통과"
 "2026-10-10 03:45","미지정","feat/bike-register-title-first-1009","f107419","#329","완료","바이크 매물 등록 매물 제목을 설명 위로 이동","src/prototype/register/BikeRegister.tsx · reports/pr-329* · reports/pr-327.md","없음","없음","verify:qf 통과 · 콘솔 오류 없음"
 "2026-10-10 04:00","미지정","feat/bike-register-ad-labels-1009","65c784d","#330","푸시","바이크 매물 등록 매물 제목·설명 문구를 광고 제목·광고 설명으로 교체","src/prototype/register/BikeRegister.tsx · reports/pr-330* · reports/pr-329.md","없음","없음","verify:qf 통과 · 콘솔 오류 없음"
+"2026-10-10 04:10","미지정","feat/bike-register-ad-labels-1009","이 줄이 포함된 커밋","#330","푸시","광고 제목을 광고 설명 아래 원래 자리로 되돌림(PR #329 순서 원복)","src/prototype/register/BikeRegister.tsx · reports/pr-330*","없음","없음","verify:qf 통과 · 콘솔 오류 없음"
