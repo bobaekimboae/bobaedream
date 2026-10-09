@@ -1528,15 +1528,21 @@ function MarketplaceScreen() {
               /> : null}
               {modelQuickOptions.map((model) => {
                 const modelVisual = guaziVisualsForMaker?.[model];
+                // The unified vehicle catalog intentionally leaves model-group images empty.
+                // Keep that behavior everywhere else, but let the Guazi card-chip comparison
+                // reuse the already-approved model catalogue images so the image-led cards can
+                // be evaluated as designed.
+                const legacyCardVisual = guaziCardChipPreview && maker ? guaziModelVisualsByMaker[maker]?.[model] : undefined;
+                const cardVisual = modelVisual?.image ? modelVisual : legacyCardVisual ?? modelVisual;
                 return (
                   <DepthCard
                     key={model}
                     className={guaziCardChipPreview ? "is-guazi-card-chip" : undefined}
                     label={formatModelLabel(model)}
-                    sub={bodyTypeLabel(modelVisual?.bodyType)}
-                    image={supportsVehicleCatalog && vehicleCatalog.index ? <CatalogVehicleImage path={modelVisual?.image} name={model} compact /> : isCatalogMaker ? <CatalogModelImage src={modelVisual?.image || undefined} /> : modelVisual?.image ? <img src={modelVisual.image} alt="" aria-hidden="true" draggable={false} /> : undefined}
-                    imageFit={modelVisual?.bodyFit ?? "width"}
-                    isEV={modelVisual?.isEV}
+                    sub={bodyTypeLabel(cardVisual?.bodyType)}
+                    image={supportsVehicleCatalog && vehicleCatalog.index ? <CatalogVehicleImage path={cardVisual?.image} name={model} compact /> : isCatalogMaker ? <CatalogModelImage src={cardVisual?.image || undefined} /> : cardVisual?.image ? <img src={cardVisual.image} alt="" aria-hidden="true" draggable={false} /> : undefined}
+                    imageFit={cardVisual?.bodyFit ?? "width"}
+                    isEV={cardVisual?.isEV}
                     selected={selectedModel === model}
                     disabled={Boolean(isCatalogMaker && modelVisual?.count === "0대")}
                     onClick={() => chooseModel(model)}
