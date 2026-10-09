@@ -66,7 +66,18 @@ export function FloatInput({ label, value, required, readOnly, disabled, numeric
     />
   );
   const field = (
-    <span className={root} data-register-validation={validation} onClick={!disabled && onOpen ? onOpen : undefined}>
+    <span
+      className={root}
+      data-register-validation={validation}
+      // 빈 입력칸은 글자 줄이 높이 0으로 접혀 있어, 칸 아무 곳이나 눌러도 입력창에 커서가 가게 한다(2026-10-09 「차량번호 입력 안먹히는데」)
+      onClick={(event) => {
+        if (disabled) return;
+        if (onOpen) { onOpen(); return; }
+        if (readOnly) return;
+        const control = event.currentTarget.querySelector<HTMLInputElement>(".ui-floating-label-input__control");
+        if (control && document.activeElement !== control) control.focus();
+      }}
+    >
       <span className="ui-floating-label-input__field">
         <span className="ui-floating-label-input__body">
           <label className="ui-floating-label-input__label" htmlFor={id}>
