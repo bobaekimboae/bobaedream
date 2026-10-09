@@ -83,3 +83,35 @@ export const truckModelsByMaker = truckListingRowsV09.reduce<Record<string, stri
   if (!models.includes(row.model)) catalog[row.maker] = [...models, row.model];
   return catalog;
 }, {});
+
+/** 트럭 가상 매매단지(2026-10-10 「지역 매매단지 가상으로 만들어서 다 추가」): 17개 시도마다 구군 · 단지 이름을 가상으로 만들었다.
+ *  KB차차차 마스터에 있는 실제 단지가 아니다(상용차 전용 단지는 마스터에 없음). 딜러 매물만 「시도 구군 · 단지」, 개인 직거래는 지역만 쓴다. */
+export const truckDanjiV09: Readonly<Record<string, readonly { gugun: string; name: string }[]>> = {
+  "서울": [{ gugun: "강서구", name: "서울트럭단지" }, { gugun: "성동구", name: "성동상용차단지" }],
+  "경기": [{ gugun: "평택시", name: "평택트럭단지" }, { gugun: "화성시", name: "화성상용차단지" }, { gugun: "안산시", name: "안산트럭단지" }, { gugun: "김포시", name: "김포화물단지" }],
+  "인천": [{ gugun: "서구", name: "인천트럭단지" }, { gugun: "남동구", name: "남동상용차단지" }],
+  "대전": [{ gugun: "대덕구", name: "대전트럭단지" }, { gugun: "유성구", name: "유성상용차단지" }],
+  "세종": [{ gugun: "", name: "세종트럭단지" }],
+  "충남": [{ gugun: "천안시", name: "천안트럭단지" }, { gugun: "아산시", name: "아산상용차단지" }],
+  "충북": [{ gugun: "청주시", name: "청주트럭단지" }, { gugun: "진천군", name: "진천상용차단지" }],
+  "강원": [{ gugun: "원주시", name: "원주트럭단지" }, { gugun: "춘천시", name: "춘천상용차단지" }],
+  "전북": [{ gugun: "전주시", name: "전주트럭단지" }, { gugun: "군산시", name: "군산상용차단지" }],
+  "전남": [{ gugun: "순천시", name: "순천트럭단지" }, { gugun: "여수시", name: "여수상용차단지" }],
+  "광주": [{ gugun: "광산구", name: "광주트럭단지" }, { gugun: "북구", name: "북구상용차단지" }],
+  "경북": [{ gugun: "구미시", name: "구미트럭단지" }, { gugun: "포항시", name: "포항상용차단지" }],
+  "경남": [{ gugun: "김해시", name: "김해트럭단지" }, { gugun: "창원시", name: "창원상용차단지" }],
+  "대구": [{ gugun: "달성군", name: "대구트럭단지" }, { gugun: "서구", name: "서대구상용차단지" }],
+  "울산": [{ gugun: "울주군", name: "울산트럭단지" }, { gugun: "북구", name: "북구상용차단지" }],
+  "부산": [{ gugun: "강서구", name: "부산트럭단지" }, { gugun: "사상구", name: "사상상용차단지" }],
+  "제주": [{ gugun: "제주시", name: "제주트럭단지" }, { gugun: "서귀포시", name: "서귀포상용차단지" }],
+};
+
+/** 딜러 매물의 위치(`시도 구군 · 단지`). 시트 지역에 구군이 있으면 같은 구군 단지를 우선, 없으면 시도 안에서 돌려 쓴다. 개인은 지역 그대로 */
+export const truckPlaceV09 = (region: string, sellerType: "개인" | "딜러", index: number) => {
+  if (sellerType === "개인") return region;
+  const [sido, gugun] = region.split(" ");
+  const list = truckDanjiV09[sido];
+  if (!list) return region;
+  const danji = list.find((item) => item.gugun === gugun) ?? list[index % list.length];
+  return [[sido, danji.gugun].filter(Boolean).join(" "), danji.name].join(" · ");
+};
