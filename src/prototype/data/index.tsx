@@ -1029,7 +1029,7 @@ const truckListingPhotosV01: Record<string, string> = {
 const truckListingOverridesV01: Record<string, { trim: string; cardSpec: string[] }> = {
   "truck-031": { trim: "윙바디 11톤 오토", cardSpec: ["24년04월", "56,067km", "디젤", "350마력", "6x2"] },
   // 2026-10-08 사용자 지시: 디젤 지게차 자리에 명성정공 로베드 3축 에어샥 트레일러(2015년 09월, 개인 직거래). 가격·지역은 정보가 없어 자리 값 유지
-  "truck-032": { trim: "3축 에어샥", cardSpec: ["15년09월"] },
+  "truck-032": { trim: "3축 에어샥", cardSpec: ["15년09월", "3축"] },
 };
 
 // 트럭 카드 둘째 줄(2026-10-08 사용자 지시, Truck1 표기 참고): 마력 · 적재용량(kg) · 차축 구성.
