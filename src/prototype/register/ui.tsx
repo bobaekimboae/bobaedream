@@ -228,6 +228,29 @@ export function Pop({ open, title, className, bodyClassName, onClose, footer, ch
   );
 }
 
+// dev 확인창(.confirm-modal): 제목 + 아니요 · 확인 두 버튼. 배경을 누르거나 Esc를 누르면 아니요와 같다
+export function ConfirmModal({ open, title, cancelLabel, confirmLabel, onCancel, onConfirm }: { open: boolean; title: string; cancelLabel: string; confirmLabel: string; onCancel: () => void; onConfirm: () => void }) {
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") onCancel(); };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open, onCancel]);
+  if (!open) return null;
+  return toRegisterLayer(
+    <div className="confirm-modal is-open">
+      <div className="confirm-modal__backdrop" onClick={onCancel} />
+      <div className="confirm-modal__panel" role="dialog" aria-modal="true" aria-label={title}>
+        <div className="confirm-modal__main"><h3 className="confirm-modal__title">{title}</h3></div>
+        <div className="confirm-modal__footer">
+          <button type="button" className="ui-btn ui-btn--outline ui-btn--lg ui-btn--align-center ui-btn--pill ui-btn--bordered" onClick={onCancel}><span className="ui-btn__label">{cancelLabel}</span></button>
+          <button type="button" className="ui-btn ui-btn--primary ui-btn--lg ui-btn--align-center ui-btn--pill" onClick={onConfirm}><span className="ui-btn__label">{confirmLabel}</span></button>
+        </div>
+      </div>
+    </div>,
+  );
+}
+
 // dev는 팝업을 body 바로 아래에 둔다(폼 페이지 범위 규칙이 팝업에 닿지 않음). 시안은 원본 CSS를 .bbm-register 아래로 묶었으므로 그 루트 바로 아래로 옮긴다
 export function toRegisterLayer(node: ReactNode) {
   const root = typeof document === "undefined" ? null : document.querySelector(".bbm-register");

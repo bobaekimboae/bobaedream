@@ -1601,3 +1601,16 @@ html.bbm-register-page, html.bbm-register-page body, html.bbm-register-page #roo
 html.bbm-register-page body { overflow: visible; background: #fff; }
 html.bbm-register-page.is-modal-scroll-locked body { overflow: hidden; }
 html.bbm-register-page .mobile-web-stage, html.bbm-register-page .mobile-web-screen, html.bbm-register-page .mobile-app-viewport { position: static; inset: auto; width: 100%; max-width: none; height: auto; min-height: 100%; overflow: visible; margin: 0; }
+
+/* 2026-10-09 dev 크로스체크: 「다음」을 동의 전에 누르면 뜨는 확인창(dev .confirm-modal 규칙 그대로) */
+.bbm-register .ui-btn--pill {border-radius: 100px;}
+.bbm-register .confirm-modal {inset: 0px; overscroll-behavior: contain; position: fixed; z-index: 4000;}
+.bbm-register .confirm-modal__backdrop {background: var(--ui-color-overlay); inset: 0px; position: absolute;}
+.bbm-register .confirm-modal__panel {background: var(--ui-color-surface); border-radius: 12px; display: flex; flex-direction: column; left: 50%; max-height: calc(100dvh - 48px); max-width: 380px; min-height: 212px; overflow: auto; position: absolute; top: 50%; transform: translate(-50%, -50%); width: calc(100% - 40px);}
+.bbm-register .confirm-modal__main {align-items: center; display: flex; flex-direction: column; gap: 8px; justify-content: center; min-height: 128px; padding: 40px 20px 24px;}
+.bbm-register .confirm-modal__title {color: var(--ui-color-title); font-family: Pretendard, sans-serif; font-size: 20px; font-style: normal; font-weight: 600; letter-spacing: 0px; line-height: 140%; margin: 0px; text-align: center;}
+.bbm-register .confirm-modal__footer {display: flex; flex-shrink: 0; gap: 8px; min-height: 84px; padding: 0px 20px 32px;}
+.bbm-register .confirm-modal__footer .ui-btn {border-radius: 8px; border-width: 1px; flex: 1 1 0px; font-size: var(--text-body-lg-size); height: 52px; min-height: 44px; min-width: 0px; padding-left: 20px; padding-right: 20px; white-space: nowrap; width: auto;}
+.bbm-register .confirm-modal__footer .ui-btn--outline.ui-btn--bordered {color: var(--ui-button-default-text);}
+/* dev 입력칸은 커서만 보이고 브라우저 포커스 테두리가 없다. 모바일 런타임의 공통 포커스 테두리(!important)를 이 화면 입력창에서만 끈다 */
+.mobile-web-screen .bbm-register .ui-floating-label-input__control:focus-visible, .bbm-register .ui-floating-label-input__control:focus-visible {outline: 0 !important; outline-offset: 0 !important;}
