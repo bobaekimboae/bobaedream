@@ -83,6 +83,7 @@ import { BBM_MAKER_ITEM, bbmFilterOrder, bbmSidebarItems, bikeFilterOrder, daang
 import { BbmBodyTypeSheet, BbmExpandPanel, BbmModalPanel, BbmSellerTypeSheet, clearBbmItem } from "../filters/bbm-filter-panels";
 import { BbmBottomGnb, BbmBrandMenu, BbmCategoryMenu, BbmCategoryPicker, BbmHeadlinePreviewLinks, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, BbmTextViewTable, bbmIcon } from "./bbm-list";
 import "./qf-pc-view-modes.css";
+import "./qf-m-view-modes.css";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
 import { TruckTypePicker } from "../filters/truck-type-picker";
 import { CategoryBrandLogo, categoryRailLabel, krRailLabel, krTopTenSections, krTypeTop10, railBrandLogo } from "./bbm-brand-logos";
