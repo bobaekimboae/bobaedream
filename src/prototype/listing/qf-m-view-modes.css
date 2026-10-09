@@ -187,3 +187,10 @@
 .bbm-feed-carousel-wrap > .bbm-feed-carousel { overflow-y: hidden; touch-action: pan-x pan-y; contain: layout paint; }
 .marketplace .bbm-m-list.is-feed .bbm-feed-carousel img { scroll-snap-stop: normal; }
 .bbm-feed-slide-empty { flex: 0 0 100%; scroll-snap-align: start; background: #f2f2f2; }
+/* 2026-10-10 「인디게이터 에어비앤비 수준으로 키우고, 레딧은 숫자가 자동으로 없어진다」: 에어비앤비 캡처 실측 — 점 6.0, 피치 11.0(간격 5), 가장자리로 갈수록 5·4, 알약 배경 없음, 사진 아래에서 약 12 위. 개수 알약은 넘길 때만 보이고 1.5초 뒤 사라진다 */
+.bbm-feed-dots { bottom: 12px; gap: 5px; height: 6px; }
+.bbm-feed-dots i { width: 6px; height: 6px; }
+.bbm-feed-dots i.is-near { width: 5px; height: 5px; }
+.bbm-feed-dots i.is-edge { width: 4px; height: 4px; }
+.bbm-feed-count { opacity: 0; transition: opacity 0.2s; }
+.bbm-feed-count.is-visible { opacity: 1; }
