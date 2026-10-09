@@ -163,12 +163,48 @@ const bmwGuaziQuickOrder = [
 const bmwGuaziQuickRank = new Map<string, number>(bmwGuaziQuickOrder.map((name, index) => [name, index]));
 
 // 과쯔 카드칩 측면 비교 시안. 기존 3/4 이미지는 그대로 보존하고
-// &qfangle=side 일 때만 첫 화면 대표 4종을 완전 측면 이미지로 바꾼다.
+// &qfangle=side 일 때 BMW 전체 모델을 완전 측면 이미지로 바꾼다.
 const bmwGuaziSideVisuals: Record<string, QuickModelVisual> = {
   "5시리즈": { image: asset("cars/bmw/card-side/5-series-side.png"), bodyType: "세단", bodyFit: "width" },
   "X5": { image: asset("cars/bmw/card-side/x5-side.png"), bodyType: "SUV", bodyFit: "width" },
   "3시리즈": { image: asset("cars/bmw/card-side/3-series-side.png"), bodyType: "세단", bodyFit: "width" },
   "X3": { image: asset("cars/bmw/card-side/x3-side.png"), bodyType: "SUV", bodyFit: "width" },
+  "7시리즈": { image: asset("cars/bmw/card-side/7-series-side.png"), bodyType: "세단", bodyFit: "width" },
+  "X1": { image: asset("cars/bmw/card-side/x1-side.png"), bodyType: "SUV", bodyFit: "width" },
+  "1시리즈": { image: asset("cars/bmw/card-side/1-series-side.png"), bodyType: "해치백", bodyFit: "width" },
+  "Z4": { image: asset("cars/bmw/card-side/z4-side.png"), bodyType: "컨버터블", bodyFit: "width" },
+  "i5": { image: asset("cars/bmw/card-side/i5-side.png"), bodyType: "세단", bodyFit: "width" },
+  "iX": { image: asset("cars/bmw/card-side/ix-side.png"), bodyType: "SUV", bodyFit: "width" },
+  "2시리즈": { image: asset("cars/bmw/card-side/2-series-side.png"), bodyType: "쿠페", bodyFit: "width" },
+  "X6": { image: asset("cars/bmw/card-side/x6-side.png"), bodyType: "SUV", bodyFit: "width" },
+  "4시리즈": { image: asset("cars/bmw/card-side/4-series-side.png"), bodyType: "쿠페", bodyFit: "width" },
+  "X7": { image: asset("cars/bmw/card-side/x7-side.png"), bodyType: "SUV", bodyFit: "width" },
+  "M3": { image: asset("cars/bmw/card-side/m3-side.png"), bodyType: "세단", bodyFit: "width" },
+  "i4": { image: asset("cars/bmw/card-side/i4-side.png"), bodyType: "쿠페", bodyFit: "width" },
+  "8시리즈": { image: asset("cars/bmw/card-side/8-series-side.png"), bodyType: "쿠페", bodyFit: "width" },
+  "X2": { image: asset("cars/bmw/card-side/x2-side.png"), bodyType: "SUV", bodyFit: "width" },
+  "M5": { image: asset("cars/bmw/card-side/m5-side.png"), bodyType: "세단", bodyFit: "width" },
+  "i7": { image: asset("cars/bmw/card-side/i7-side.png"), bodyType: "세단", bodyFit: "width" },
+  "6시리즈": { image: asset("cars/bmw/card-side/6-series-side.png"), bodyType: "쿠페", bodyFit: "width" },
+  "M2": { image: asset("cars/bmw/card-side/m2-side.png"), bodyType: "쿠페", bodyFit: "width" },
+  "M4": { image: asset("cars/bmw/card-side/m4-side.png"), bodyType: "쿠페", bodyFit: "width" },
+  "XM": { image: asset("cars/bmw/card-side/xm-side.png"), bodyType: "SUV", bodyFit: "width" },
+  "Z3": { image: asset("cars/bmw/card-side/z3-side.png"), bodyType: "컨버터블", bodyFit: "width" },
+  "iX1": { image: asset("cars/bmw/card-side/ix1-side.png"), bodyType: "SUV", bodyFit: "width" },
+  "그란투리스모 (GT)": { image: asset("cars/bmw/card-side/gt-side.png"), bodyType: "해치백", bodyFit: "width" },
+  "M8": { image: asset("cars/bmw/card-side/m8-side.png"), bodyType: "쿠페", bodyFit: "width" },
+  "i8": { image: asset("cars/bmw/card-side/i8-side.png"), bodyType: "쿠페", bodyFit: "width" },
+  "iX3": { image: asset("cars/bmw/card-side/ix3-side.png"), bodyType: "SUV", bodyFit: "width" },
+  "1M": { image: asset("cars/bmw/card-side/1m-side.png"), bodyType: "쿠페", bodyFit: "width" },
+  "M6": { image: asset("cars/bmw/card-side/m6-side.png"), bodyType: "쿠페", bodyFit: "width" },
+  "X3M": { image: asset("cars/bmw/card-side/x3m-side.png"), bodyType: "SUV", bodyFit: "width" },
+  "X4M": { image: asset("cars/bmw/card-side/x4m-side.png"), bodyType: "SUV", bodyFit: "width" },
+  "X5M": { image: asset("cars/bmw/card-side/x5m-side.png"), bodyType: "SUV", bodyFit: "width" },
+  "X6M": { image: asset("cars/bmw/card-side/x6m-side.png"), bodyType: "SUV", bodyFit: "width" },
+  "i3": { image: asset("cars/bmw/card-side/i3-side.png"), bodyType: "해치백", bodyFit: "width" },
+  "iX2": { image: asset("cars/bmw/card-side/ix2-side.png"), bodyType: "SUV", bodyFit: "width" },
+  "M 쿠페/로드스터": { image: asset("cars/bmw/card-side/m-coupe-roadster-side.png"), bodyType: "쿠페", bodyFit: "width" },
+  "X4": { image: asset("cars/bmw/card-side/x4-side.png"), bodyType: "SUV", bodyFit: "width" },
 };
 
 // 보기 방식 주소 값(검수 링크용): &view=list · feed · gallery · oneline · text. PC는 목록·갤러리·한줄 광고만 쓴다
