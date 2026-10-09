@@ -350,6 +350,34 @@ function cardTitleText(car: Car) {
 }
 
 // ── 매물 카드(원본 car-list-result-card). variant pc: 사진 160, 마력 포함 / mobile 목록형: 초톳 기준 사진 120×120, 마력 없음
+// 피드 사양 줄 아이콘(노션 「N_독일_오토스카우트 24」 02_승용_매물리스트 · 차량 필터 원본, 2026-10-10 「메타정보에 아이콘 배치」)
+const specIconFiles = { year: "year-calendar", mileage: "mileage-odometer", fuel: "fuel-gaspump", power: "power-speedometer", axle: "axle" } as const;
+const specIconOf = (item: string): keyof typeof specIconFiles | null => {
+  if (/^\d{2}년\d{2}월(\(\d{2}년형\))?$/.test(item) || /^(19|20)\d{2}$/.test(item)) return "year";
+  if (/km$/.test(item)) return "mileage";
+  if (/^(가솔린|디젤|LPG|CNG|전기|하이브리드|플러그인|수소)/.test(item)) return "fuel";
+  if (/마력$/.test(item)) return "power";
+  if (/^\d축$/.test(item)) return "axle";
+  return null;
+};
+// 아이콘이 하나라도 있는 줄은 아이콘이 항목 구분을 맡고 가운데 점을 쓰지 않는다(없는 줄은 가운데 점 유지)
+function renderFeedSpec(text: string) {
+  const items = text.split(" · ");
+  // 항목이 6개 이상인 긴 줄(모터홈 `승차 · 취침`까지)은 아이콘을 붙이면 한 줄에 안 들어가 아이콘 없이 가운데 점으로 둔다
+  const iconOf = (item: string) => items.length <= 5 ? specIconOf(item) : null;
+  const hasIcon = items.some((item) => iconOf(item));
+  return items.map((item, index) => {
+    const icon = iconOf(item);
+    return (
+      <span key={index} className="bbm-card-spec-item">
+        {index && !hasIcon ? <span className="bbm-card-spec-dot"> · </span> : null}
+        {icon ? <i className="bbm-card-spec-icon" aria-hidden="true" style={{ ["--spec-icon" as string]: `url(${asset(`bbm/meta-icons/${specIconFiles[icon]}.svg`)})` }} /> : null}
+        <span className="bbm-card-spec-text">{item}</span>
+      </span>
+    );
+  });
+}
+
 // 피드 보기 사진 넘기기(레딧식): 가로 스와이프(scroll-snap) + 아래 가운데 점 알약(현재 점 흰색, 가장자리 점은 작게) + 오른쪽 위 「현재/전체」 개수
 function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string; fit: "cover" | "contain" }) {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -478,7 +506,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
           <div className="bbm-card-text">
             {title}
             {headlinePosition === "after-model" ? headline : null}
-            <span className={`bbm-card-spec${car.adDescription ? " is-ad-description" : ""}`}>{car.adDescription ?? (featured ? specMain.split(" · ").map((item, index) => <span key={index} className="bbm-card-spec-item">{index ? <span className="bbm-card-spec-dot"> · </span> : null}{item}</span>) : specMain)}{car.adDescription ? null : <span className="bbm-card-spec-seller"> · {seller}</span>}</span>
+            <span className={`bbm-card-spec${car.adDescription ? " is-ad-description" : ""}`}>{car.adDescription ?? (featured ? renderFeedSpec(specMain) : specMain)}{car.adDescription ? null : <span className="bbm-card-spec-seller"> · {seller}</span>}</span>
             {!car.adDescription && specCapacity ? <span className="bbm-card-spec is-capacity">{specCapacity}</span> : null}
             <div className="bbm-card-price-badges">
               <strong className="bbm-card-price"><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</strong>
