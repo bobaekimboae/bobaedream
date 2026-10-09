@@ -335,6 +335,8 @@ const sellerLabel = (car: Car) => {
   if (car.virtualCategory?.isVirtual) return car.dealer;
   if (car.uiTest) return car.dealer;
   if (car.luxuryCategory) return car.dealer;
+  // 트럭 개인 직거래는 이름 없이 「개인판매자」(2026-10-10 사용자 지시)
+  if (car.truck && car.sellerType === "개인") return "개인판매자";
   if (car.sellerType === "개인") return privatePersonName(car.id);
   if (car.dealer && car.dealer !== sellerScenario.name) return car.dealer;
   const index = ((car.id - 1) % dealerNamePool.length + dealerNamePool.length) % dealerNamePool.length;
