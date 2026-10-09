@@ -112,3 +112,43 @@
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-actions button { width: 20px; height: 20px; padding: 0; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-actions img,
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-wish-on { width: 20px; height: 20px; }
+
+/* ── 피드 글자·판매자 줄 = 초톳(2026-10-10 「이미지 안 디자인은 건드리지 말고 초톳 기준으로 동일하게, 가격은 목록형 검정」).
+   근거: 사용자 제공 초톳 피드 캡처 1080×2340 → 384 CSS(÷2.8125). 사진 칸(비율·반경·시간 띠)은 위 테스트 서버 값 그대로.
+   사진 → 제목 글자 윗선 15.6, 제목 17/24 700 #222(두 줄), 사양 15 #8C8C8C 항목 사이 간격 14(점 없음),
+   가격 17 700 #222(초톳은 빨강 → 목록형처럼 검정, 「만원」 400), 지역 15 #8C8C8C + 위치 아이콘,
+   판매자: 프로필 24 · 이름 14 700 #222 · 아래 「N대 판매완료 N대 판매중」 13 #8C8C8C, 오른쪽 전화 · 채팅 · 찜 20(간격 20, #222),
+   카드 아래 구분선 1px #E8E8E8 */
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured { border-bottom-color: #e8e8e8; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-main { gap: 12px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-title { display: -webkit-box; overflow: hidden; color: #222; font-size: 17px; font-weight: 700; line-height: 24px; white-space: normal; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-title .bbm-card-model { font-weight: 700; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec { display: flex; flex-wrap: nowrap; gap: 0 14px; height: 22px; margin-top: 2px; overflow: hidden; color: #8c8c8c; font-size: 15px; line-height: 22px; white-space: nowrap; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec-item { flex: none; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec-dot { display: none; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-price-badges { margin-top: 2px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-price { height: 24px; color: #222; font-size: 17px; font-weight: 700; line-height: 24px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-price-unit { font-size: 17px; font-weight: 400; line-height: 24px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-meta { gap: 4px; margin-top: 10px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-location { height: 20px; gap: 6px; color: #8c8c8c; font-size: 15px; line-height: 20px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-location img { width: 13px; height: 13px; margin-left: 2px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-location-text { font-size: 15px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-meta-row { height: 40px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller { gap: 8px; min-width: 0; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller-logo { width: 24px; height: 24px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller-text { display: grid; min-width: 0; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller-text strong { overflow: hidden; color: #222; font-size: 14px; font-weight: 700; line-height: 18px; text-overflow: ellipsis; white-space: nowrap; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller-sales { display: flex; gap: 8px; color: #8c8c8c; font-size: 13px; line-height: 18px; white-space: nowrap; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-actions { gap: 20px; padding-right: 6px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-actions img { filter: brightness(0) saturate(100%) invert(10%); }
+/* 픽셀 대조 보정(초톳 캡처와 같은 배율로 찍어 글자 윗선 맞춤) */
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-price-badges { margin-top: -3px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-meta { gap: 0; margin-top: 7px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-meta-row { height: 36px; margin-top: -3px; align-items: center; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured { padding-bottom: 15px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-meta-row { margin-top: -5px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller-text { gap: 0; row-gap: 0; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller-text strong { line-height: 16px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller-sales { line-height: 16px; }
+/* 초톳 판매자 이름은 보통 굵기(400) #222 */
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller-text strong { font-weight: 400; }
