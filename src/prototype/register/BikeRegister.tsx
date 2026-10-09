@@ -35,7 +35,7 @@ type BikeMaker = {
   groups?: BikeGroup[];
   models?: BikeModel[];
 };
-type PickerName = "maker" | "model" | "year" | "type" | "fuel" | "transmission" | "color" | "ccBand" | "warranty" | "sido" | "district" | "motor" | "range" | "charge" | null;
+type PickerName = "maker" | "model" | "year" | "type" | "origin" | "fuel" | "transmission" | "color" | "ccBand" | "warranty" | "sido" | "district" | "motor" | "range" | "charge" | null;
 // 2차 수정(10/9 초톳 화면 녹화): 주소 = 「Địa chỉ」 바텀시트(시도·구군·상세 주소·표시 미리보기·완료), 뒤로 = 「Lưu tin nháp?」 확인 시트
 type SheetName = "address" | "draft" | "gallery" | "photoRules" | "docInfo" | "options" | null;
 // 3차 수정(10/9 초톳 등록 풀버전 녹화): 사진 고르기 화면 · 사진 규칙 · 서류 사진 칸 · 전기 바이크 전용 칸 · 보증 기간
@@ -44,7 +44,12 @@ type SheetName = "address" | "draft" | "gallery" | "photoRules" | "docInfo" | "o
 const yearOptions = [...Array.from({ length: 47 }, (_, index) => `${2026 - index}년`), "1979년 이전"];
 const bikeTypeOptions = ["스쿠터", "네이키드", "스포츠", "크루저", "투어러", "멀티퍼퍼스", "클래식", "오프로드", "언더본·비즈니스", "삼륜", "ATV", "기타"];
 // 배기량 구간 = 바이크 기준표 cc_bands(GooBike 구간). 「전기」를 고르면 전기 바이크 전용 칸을 보여준다
-const ccBandOptions = ["50cc 이하", "51~125cc", "126~250cc", "251~400cc", "401~750cc", "751cc 이상", "전기"];
+// 2차(10/9 노션 9-5): 「전기」는 배기량 구간에서 빼고 연료 후보로 넘긴다. 구간 값은 그대로
+const ccBandOptions = ["50cc 이하", "51~125cc", "126~250cc", "251~400cc", "401~750cc", "751cc 이상"];
+// 원산지(2차 지시로 선택 항목에 다시 넣음, 초톳 Xuất xứ)
+const originOptions = ["국산", "일본", "유럽", "미국", "중국", "대만", "기타"];
+// 연료·변속기·색상·옵션: 초톳 바이크 항목에 없어 2차 후보로 미룸. 코드는 두고 이 값으로 끈다
+const showExtraSpecs = false;
 const electricBand = "전기";
 // 10/9 「연료 · 변속기 · 배기량 · 색상 · 옵션 추가」
 // 연료: 바이크 기준(전기를 고르면 배기량 구간도 「전기」로 맞춘다)
@@ -99,7 +104,7 @@ function DetailInput({ label, value, unit, required, error, pencil, onChange }: 
   return <>
     <label className={`bike-reg-input-row${error ? " is-error" : ""}`}>
       <span>{label}{required ? <em>*</em> : null}</span>
-      <span><input value={withComma(value)} inputMode="numeric" placeholder="0" onChange={(event) => onChange(digits(event.currentTarget.value).slice(0, 7))} /><b>{unit}</b>
+      <span><input value={withComma(value)} inputMode="numeric" aria-label={label} onChange={(event) => onChange(digits(event.currentTarget.value).slice(0, 7))} /><b>{unit}</b>
         {/* 임시: 초톳 선 연필 아이콘 원본이 180개 묶음에 없음 */}
         {pencil ? <svg className="bike-reg-pencil" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L18.5 9.5a2.1 2.1 0 0 0-3-3L5 17v3Z" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" /><path d="m14 8 2 2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg> : null}
       </span>
@@ -179,6 +184,7 @@ export default function BikeRegister() {
   const [type, setType] = useState("");
   const [mileage, setMileage] = useState("");
   const [ccBand, setCcBand] = useState("");
+  const [origin, setOrigin] = useState("");
   const [fuel, setFuel] = useState("");
   const [transmission, setTransmission] = useState("");
   const [color, setColor] = useState("");
@@ -228,6 +234,9 @@ export default function BikeRegister() {
     return () => document.documentElement.classList.remove("bbm-bike-register-page");
   }, []);
 
+  // 시트·선택창을 열면 떠 있던 토스트를 바로 닫는다(노션 2차 평가: 토스트가 시트를 덮음)
+  useEffect(() => { if (sheet || picker) setToast(""); }, [sheet, picker]);
+
   useEffect(() => {
     if (!toast) return;
     const timer = window.setTimeout(() => setToast(""), 2200);
@@ -248,8 +257,8 @@ export default function BikeRegister() {
 
   const errors = {
     photos: submitted && photos.length === 0,
-    description: submitted && !description.trim() ? "광고 설명을 입력해 주세요" : "",
-    title: submitted && !title.trim() ? "광고 제목을 입력해 주세요" : "",
+    description: submitted && !description.trim() ? "매물 설명을 입력해 주세요" : "",
+    title: submitted && !title.trim() ? "매물 제목을 입력해 주세요" : "",
     price: submitted && !price ? "판매 가격을 입력해 주세요" : price && (Number(price) < priceMin || Number(price) > priceMax) ? `${priceMin}만원 ~ ${priceMax.toLocaleString("ko-KR")}만원 사이로 입력해 주세요` : "",
     address: submitted && !sido ? "거래 지역을 선택해 주세요" : "",
     seller: submitted && !seller,
@@ -267,6 +276,7 @@ export default function BikeRegister() {
     year: { title: "연식 선택", options: yearOptions, selected: year, searchable: true },
     fuel: { title: "연료 선택", options: fuelOptions, selected: fuel },
     transmission: { title: "변속기 선택", options: transmissionOptions, selected: transmission },
+    origin: { title: "원산지 선택", options: originOptions, selected: origin },
     ccBand: { title: "배기량 선택", options: ccBandOptions, selected: ccBand },
     color: { title: "색상 선택", options: colorOptions, selected: color },
     type: { title: "바이크 유형 선택", options: bikeTypeOptions, selected: type },
@@ -290,7 +300,9 @@ export default function BikeRegister() {
       // 모델을 고르면 기준표의 장르·배기량 구간으로 빈 칸을 채운다
       const info = modelInfo(value);
       if (info?.genre && !type) setType(info.genre);
-      if (info?.cc_band && !ccBand) setCcBand(info.cc_band);
+      // 기준표 구간이 「전기」면 배기량 대신 연료로 보낸다(배기량 구간에서 전기를 뺐기 때문)
+      if (info?.cc_band === electricBand) { if (!fuel) setFuel(electricBand); }
+      else if (info?.cc_band && !ccBand) setCcBand(info.cc_band);
     }
     if (picker === "ccBand") {
       setCcBand(value);
@@ -303,6 +315,7 @@ export default function BikeRegister() {
       if (value === electricBand) setCcBand(electricBand);
       else if (ccBand === electricBand) setCcBand("");
     }
+    if (picker === "origin") setOrigin(value);
     if (picker === "transmission") setTransmission(value);
     if (picker === "color") setColor(value);
     if (picker === "year") setYear(value);
@@ -338,7 +351,8 @@ export default function BikeRegister() {
     });
   };
   const addDocPhoto = () => setDocPhotos((current) => current.length >= 2 ? (setToast("서류 사진은 2장까지 올릴 수 있어요."), current) : [...current, samplePhoto(40 + photoCounter.current++)]);
-  const isElectric = ccBand === electricBand;
+  // 전기 바이크 칸은 연료 「전기」일 때만(연료 행이 꺼져 있는 동안은 나오지 않음)
+  const isElectric = fuel === electricBand;
   const openAddress = () => { setAddrDraft({ sido, district, detail: detailAddress }); setSheet("address"); };
   const addrNeedsDistrict = Boolean((regionDistricts[addrDraft.sido] ?? []).length);
   const addrReady = Boolean(addrDraft.sido) && (!addrNeedsDistrict || Boolean(addrDraft.district));
@@ -375,13 +389,13 @@ export default function BikeRegister() {
           </div>
           <p className={`bike-reg-media-hint${errors.photos ? " is-error" : ""}`}>{errors.photos ? "사진을 1장 이상 올려 주세요" : `길게 눌러 사진 순서를 바꿀 수 있어요 · ${photos.length}/${maxPhotos}`}</p>
 
-          <BoxField label="광고 설명" className="is-textarea" filled={Boolean(description)} error={errors.description}>
+          <BoxField label="매물 설명" className="is-textarea" filled={Boolean(description)} error={errors.description}>
             <textarea maxLength={1500} value={description} placeholder="바이크의 상태와 특징을 자세히 알려주세요." onChange={(event) => setDescription(event.currentTarget.value)} />
           </BoxField>
           <p className="bike-reg-counter is-description">{description.length}/1500자</p>
-          <BoxField label="광고 제목" filled={Boolean(title)} error={errors.title}>
+          <BoxField label="매물 제목" filled={Boolean(title)} error={errors.title}>
             <input maxLength={titleMax} value={title} placeholder="예: 혼다 PCX 125 무사고" onChange={(event) => setTitle(event.currentTarget.value)} />
-            {title ? <button type="button" className="bike-reg-field__clear" aria-label="광고 제목 지우기" onClick={(event) => { event.preventDefault(); setTitle(""); }}><img src={icons.clear} alt="" /></button> : null}
+            {title ? <button type="button" className="bike-reg-field__clear" aria-label="매물 제목 지우기" onClick={(event) => { event.preventDefault(); setTitle(""); }}><img src={icons.clear} alt="" /></button> : null}
           </BoxField>
           <p className="bike-reg-counter">{title.length}/{titleMax}자</p>
           <BoxField label="판매가격" filled={Boolean(price)} error={errors.price}>
@@ -416,11 +430,16 @@ export default function BikeRegister() {
           <SelectRow label="연식" value={year} required error={errors.year} onClick={() => setPicker("year")} />
           <SelectRow label="바이크 유형" value={type} required error={errors.type} onClick={() => setPicker("type")} />
           <DetailInput label="주행거리" value={mileage} unit="km" required pencil error={errors.mileage} onChange={setMileage} />
-          <SelectRow label="연료" value={fuel} onClick={() => setPicker("fuel")} />
-          <SelectRow label="변속기" value={transmission} onClick={() => setPicker("transmission")} />
+          <SelectRow label="원산지" value={origin} onClick={() => setPicker("origin")} />
+          {showExtraSpecs ? <>
+            <SelectRow label="연료" value={fuel} onClick={() => setPicker("fuel")} />
+            <SelectRow label="변속기" value={transmission} onClick={() => setPicker("transmission")} />
+          </> : null}
           <SelectRow label="배기량" value={ccBand} onClick={() => setPicker("ccBand")} />
-          <SelectRow label="색상" value={color} onClick={() => setPicker("color")} />
-          <SelectRow label="옵션" value={options.length ? (options.length > 2 ? `${options.slice(0, 2).join(", ")} 외 ${options.length - 2}개` : options.join(", ")) : ""} onClick={() => { setOptionDraft(options); setSheet("options"); }} />
+          {showExtraSpecs ? <>
+            <SelectRow label="색상" value={color} onClick={() => setPicker("color")} />
+            <SelectRow label="옵션" value={options.length ? (options.length > 2 ? `${options.slice(0, 2).join(", ")} 외 ${options.length - 2}개` : options.join(", ")) : ""} onClick={() => { setOptionDraft(options); setSheet("options"); }} />
+          </> : null}
           {isElectric ? <>
             <SelectRow label="모터 출력" value={motor} onClick={() => setPicker("motor")} />
             <div className="bike-reg-condition"><span>배터리 포함</span><Pills value={battery} options={["없음", "있음"]} onChange={setBattery} /></div>
