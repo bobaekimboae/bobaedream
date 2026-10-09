@@ -356,6 +356,14 @@ function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string
   const trackRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef(0);
   const [index, setIndex] = useState(0);
+  // 레딧처럼 사진 개수는 넘길 때만 잠깐 보이고 1.5초 뒤 저절로 사라진다(2026-10-10)
+  const [countVisible, setCountVisible] = useState(false);
+  const countTimer = useRef(0);
+  const flashCount = () => {
+    setCountVisible(true);
+    window.clearTimeout(countTimer.current);
+    countTimer.current = window.setTimeout(() => setCountVisible(false), 1500);
+  };
   // 스크롤 버벅임 완화(2026-10-10): 첫 사진만 먼저 그리고, 나머지 사진은 카드가 화면 근처에 온 뒤에야 붙인다(처음부터 수십 장을 한꺼번에 디코딩하지 않음)
   const [armed, setArmed] = useState(false);
   useEffect(() => {
@@ -366,9 +374,10 @@ function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string
     observer.observe(node);
     return () => observer.disconnect();
   }, [armed]);
-  useEffect(() => () => cancelAnimationFrame(frameRef.current), []);
+  useEffect(() => () => { cancelAnimationFrame(frameRef.current); window.clearTimeout(countTimer.current); }, []);
   // 스크롤 이벤트마다 계산하지 않고 한 프레임에 한 번만 현재 장 번호를 갱신한다
   const onScroll = () => {
+    if (trackRef.current && trackRef.current.scrollLeft > 1) flashCount();
     if (frameRef.current) return;
     frameRef.current = requestAnimationFrame(() => {
       frameRef.current = 0;
@@ -387,9 +396,9 @@ function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string
           ? <img key={src + i} className={fit === "contain" ? "is-catalog" : ""} src={asset(src)} alt={i === 0 ? alt : `${alt} 사진 ${i + 1}`} draggable={false} decoding="async" />
           : <span key={src + i} className="bbm-feed-slide-empty" aria-hidden="true" />)}
       </div>
-      <span className="bbm-feed-count" aria-label={`사진 ${photos.length}장 중 ${index + 1}번째`}>{index + 1}/{photos.length}</span>
+      <span className={`bbm-feed-count${countVisible ? " is-visible" : ""}`} aria-label={`사진 ${photos.length}장 중 ${index + 1}번째`}>{index + 1}/{photos.length}</span>
       <div className="bbm-feed-dots" aria-hidden="true">
-        {dots.map((i) => <i key={i} className={i === index ? "is-on" : Math.abs(i - index) >= 3 ? "is-edge" : ""} />)}
+        {dots.map((i) => <i key={i} className={i === index ? "is-on" : Math.abs(i - index) >= 4 ? "is-edge" : Math.abs(i - index) === 3 ? "is-near" : ""} />)}
       </div>
     </div>
   );
