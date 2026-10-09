@@ -173,6 +173,23 @@ const bmwGuaziSideVisuals: Record<string, QuickModelVisual> = {
 
 // 보기 방식 주소 값(검수 링크용): &view=list · feed · gallery · oneline · text. PC는 목록·갤러리·한줄 광고만 쓴다
 const bbmViewParam: Record<string, BbmMobileView> = { list: "목록으로 보기", feed: "피드로 보기", gallery: "갤러리로 보기", oneline: "한줄 광고로 보기", text: "텍스트로 보기" };
+// 피드 사진 넘기기 시안(2026-10-10 「레딧처럼 사진 이동」): 매물마다 사진이 1장뿐이라 같은 목록의 다음 매물 사진을 임시 슬라이드로 붙인다(3~6장). &feedphotos=single 이면 1장 그대로
+const feedPhotosFor = (cars: Car[], index: number): string[] | undefined => {
+  if (new URLSearchParams(window.location.search).get("feedphotos") === "single") return undefined;
+  const car = cars[index];
+  if (!car?.image) return undefined;
+  const count = 3 + (car.id % 4);
+  const photos = [car.image];
+  // 같은 제조사 매물 사진을 먼저, 모자라면 같은 목록의 다음 매물 사진으로 채운다
+  const candidates = cars.filter((other) => other.id !== car.id && other.image && other.imageFit === car.imageFit);
+  const sameMaker = candidates.filter((other) => other.maker === car.maker);
+  const rest = candidates.filter((other) => other.maker !== car.maker);
+  for (const other of [...sameMaker, ...rest]) {
+    if (photos.length >= count) break;
+    if (!photos.includes(other.image)) photos.push(other.image);
+  }
+  return photos.length > 1 ? photos : undefined;
+};
 const initialBbmMobileView = (): BbmMobileView => bbmViewParam[new URLSearchParams(window.location.search).get("view") ?? ""] ?? "목록으로 보기";
 
 const initialAutohomeMakerSheetPreview = () => {
@@ -2362,7 +2379,7 @@ function MarketplaceScreen() {
               {shownCars.length && bbmMobileView === "한줄 광고로 보기" ? <div className="bbm-one-line-head"><span>모델</span><span>연식(연형)</span><span>가격(만원)</span><i /></div> : null}
               {shownCars.length ? pagedCars.map((car, index) => bbmMobileView === "한줄 광고로 보기"
                 ? <BbmOneLineCard key={car.id} car={car} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} />
-                : <BbmResultCard key={car.id} car={car} variant="mobile" featured={bbmMobileView === "피드로 보기"} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅 연결 예정")} onCall={() => setSearchToast("전화는 정식 서비스에서 이용해 주세요.")} />) : carListItems}
+                : <BbmResultCard key={car.id} car={car} variant="mobile" featured={bbmMobileView === "피드로 보기"} feedPhotos={bbmMobileView === "피드로 보기" ? feedPhotosFor(pagedCars, index) : undefined} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅 연결 예정")} onCall={() => setSearchToast("전화는 정식 서비스에서 이용해 주세요.")} />) : carListItems}
               {shownCars.length ? <BbmPagination page={bbmPageNow} total={bbmPageCount} windowSize={3} onChange={goBbmPage} /> : null}
             </section>
             <BbmFooter onNotify={setSearchToast} />
