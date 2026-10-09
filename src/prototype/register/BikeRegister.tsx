@@ -58,6 +58,8 @@ const titleMax = 50;
 const priceMin = 10;
 const priceMax = 99999;
 const regionDistricts = regionsKr.districts as Record<string, string[]>;
+// 비교용 시안(10/9): `&field=mila` = 밀라눈시오스 입력칸(높이 56 · 테두리 1 · 모서리 7 · 테두리에 걸친 이름표). 없으면 지금 초톳 기준 칸 그대로
+const fieldMila = new URLSearchParams(window.location.search).get("field") === "mila";
 const samplePhoto = (index: number) => asset(`assets/bike/listings/v08/bike-v08-${String((index % 50) + 1).padStart(2, "0")}.webp`);
 const digits = (value: string) => value.replace(/[^\d]/g, "").replace(/^0+(?=\d)/, "");
 const withComma = (value: string) => value ? Number(value).toLocaleString("ko-KR") : "";
@@ -66,14 +68,14 @@ function Pills({ value, options, onChange, error }: { value: string; options: st
   return <div className={`bike-reg-pills${error ? " is-error" : ""}`}>{options.map((option) => <button type="button" key={option} className={value === option ? "is-active" : ""} aria-pressed={value === option} onClick={() => onChange(option)}>{option}</button>)}</div>;
 }
 
-function SelectRow({ label, value, required, info, error, placeholder = "선택", onClick }: { label: string; value?: string; required?: boolean; info?: boolean; error?: boolean; placeholder?: string; onClick?: () => void }) {
+function SelectRow({ label, value, required, info, error, muted, placeholder = "선택", onClick }: { label: string; value?: string; required?: boolean; info?: boolean; error?: boolean; muted?: boolean; placeholder?: string; onClick?: () => void }) {
   // 카테고리처럼 고정값인 줄은 눌리지 않는 div(시안 작업 마스터 B6)
   if (!onClick) return <div className="bike-reg-row is-fixed">
     <span className="bike-reg-row__label">{label}{required ? <em>*</em> : null}</span>
     <span className="bike-reg-row__value">{value}</span>
     <span />
   </div>;
-  return <button type="button" className="bike-reg-row" onClick={onClick}>
+  return <button type="button" className={`bike-reg-row${muted ? " is-muted" : ""}`} onClick={onClick}>
     <span className="bike-reg-row__label">{label}{required ? <em>*</em> : null}{info ? <img src={icons.info} alt="" /> : null}</span>
     <span className={`bike-reg-row__value${value ? "" : error ? " is-error" : " is-empty"}`}>{value || (error ? "선택해 주세요" : placeholder)}</span>
     <img className="bike-reg-row__chevron" src={icons.chevron} alt="" />
@@ -323,7 +325,7 @@ export default function BikeRegister() {
     setToast("시안에서는 실제 등록을 진행하지 않습니다.");
   };
 
-  return <div className="bike-reg-page">
+  return <div className={`bike-reg-page${fieldMila ? " is-field-mila" : ""}`}>
     <div className="bike-reg-shell">
       <header className="bike-reg-header"><button type="button" aria-label="뒤로가기" onClick={() => setSheet("draft")}><img src={icons.back} alt="" /></button><h1>바이크 매물 등록</h1><button type="button" onClick={() => setToast("시안에서는 임시저장을 지원하지 않습니다.")}>임시저장</button></header>
       <main className="bike-reg-main">
@@ -377,7 +379,7 @@ export default function BikeRegister() {
           </div>
           <div className={`bike-reg-condition${errors.condition ? " is-error" : ""}`}><span>상태<em>*</em></span><Pills value={condition} options={["중고", "신차"]} onChange={setCondition} /></div>
           <SelectRow label="제조사" value={maker} required error={errors.maker} onClick={() => setPicker("maker")} />
-          <SelectRow label="모델" value={model} required error={errors.model} placeholder={maker ? "선택" : "제조사 선택 후 선택 가능"} onClick={openModel} />
+          <SelectRow label="모델" value={model} required error={errors.model} muted={!maker} placeholder={maker ? "선택" : "제조사 선택 후 선택 가능"} onClick={openModel} />
           <SelectRow label="연식" value={year} required error={errors.year} onClick={() => setPicker("year")} />
           <SelectRow label="바이크 유형" value={type} required error={errors.type} onClick={() => setPicker("type")} />
           <DetailInput label="주행거리" value={mileage} unit="km" required pencil error={errors.mileage} onChange={setMileage} />
