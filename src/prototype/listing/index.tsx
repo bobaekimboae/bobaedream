@@ -106,6 +106,52 @@ import { CatalogLogo, CatalogSearchResults, CatalogVehicleImage, CatalogVehicleP
 
 type BbmMobileView = "목록으로 보기" | "피드로 보기" | "갤러리로 보기" | "한줄 광고로 보기" | "텍스트로 보기";
 
+// BMW 공식 라인업의 대표 차체 분류를 카드칩 보조 정보로 사용한다.
+// 한 모델군에 여러 차체가 있는 경우 국내 대표 형태를 우선하고,
+// 실제 이름부터 두 형태가 함께인 M 쿠페/로드스터만 복수 표기한다.
+const bmwModelBodyTypes: Record<string, string> = {
+  "1시리즈": "해치백",
+  "2시리즈": "쿠페",
+  "3시리즈": "세단",
+  "4시리즈": "쿠페",
+  "5시리즈": "세단",
+  "6시리즈": "쿠페",
+  "7시리즈": "세단",
+  "8시리즈": "쿠페",
+  "그란투리스모 (GT)": "해치백",
+  "1M": "쿠페",
+  "M2": "쿠페",
+  "M3": "세단",
+  "M4": "쿠페",
+  "M5": "세단",
+  "M6": "쿠페",
+  "M8": "쿠페",
+  "X1": "SUV",
+  "X2": "SUV",
+  "X3": "SUV",
+  "X4": "SUV",
+  "X5": "SUV",
+  "X6": "SUV",
+  "X7": "SUV",
+  "X3M": "SUV",
+  "X4M": "SUV",
+  "X5M": "SUV",
+  "X6M": "SUV",
+  "XM": "SUV",
+  "Z3": "컨버터블",
+  "Z4": "컨버터블",
+  "M 쿠페/로드스터": "쿠페·컨버터블",
+  "i3": "해치백",
+  "i4": "쿠페",
+  "i5": "세단",
+  "i7": "세단",
+  "i8": "쿠페",
+  "iX1": "SUV",
+  "iX2": "SUV",
+  "iX3": "SUV",
+  "iX": "SUV",
+};
+
 // 보기 방식 주소 값(검수 링크용): &view=list · feed · gallery · oneline · text. PC는 목록·갤러리·한줄 광고만 쓴다
 const bbmViewParam: Record<string, BbmMobileView> = { list: "목록으로 보기", feed: "피드로 보기", gallery: "갤러리로 보기", oneline: "한줄 광고로 보기", text: "텍스트로 보기" };
 const initialBbmMobileView = (): BbmMobileView => bbmViewParam[new URLSearchParams(window.location.search).get("view") ?? ""] ?? "목록으로 보기";
@@ -1531,7 +1577,7 @@ function MarketplaceScreen() {
                     key={model}
                     className={guaziCardChipPreview ? "is-guazi-card-chip" : undefined}
                     label={formatModelLabel(model)}
-                    sub={bodyTypeLabel(cardVisual?.bodyType)}
+                    sub={guaziCardChipPreview && maker === "BMW" ? bmwModelBodyTypes[model] : bodyTypeLabel(cardVisual?.bodyType)}
                     image={supportsVehicleCatalog && vehicleCatalog.index ? <CatalogVehicleImage path={cardVisual?.image} name={model} compact /> : isCatalogMaker ? <CatalogModelImage src={cardVisual?.image || undefined} /> : cardVisual?.image ? <img src={cardVisual.image} alt="" aria-hidden="true" draggable={false} /> : undefined}
                     imageFit={cardVisual?.bodyFit ?? "width"}
                     isEV={cardVisual?.isEV}
