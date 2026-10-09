@@ -114,6 +114,11 @@
 .marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-label { margin-top: 14px; font-size: 14px; font-weight: 600; line-height: 21px; }
 .marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-sub { margin-top: 0; font-size: 12px; line-height: 16px; color: #8c8c8c; }
 
+/* 바이크 모델 세로 비교형: 이미지보다 글자가 먼저 튀지 않도록 초톳 본문 굵기(400)로 맞춘다. */
+.marketplace.is-bike-category.is-qf-guazi.is-qf-plain .depth-rail.is-bike-model-row .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-label {
+  font-weight: 400;
+}
+
 /* 트럭 형식·세부형식은 명칭이 식별 기준이므로 말줄임표를 쓰지 않고 필요한 만큼 줄바꿈한다. */
 .marketplace.is-qf-guazi.is-qf-plain .depth-card.is-truck-depth .depth-card-label {
   display: block;
