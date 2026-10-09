@@ -1,0 +1,56 @@
+{
+  "BKM001_Honda.png": {
+    "sourceWidth": 102,
+    "sourceHeight": 83,
+    "displayWidth": 28.8,
+    "displayHeight": 23.5
+  },
+  "BKM002_Yamaha.png": {
+    "sourceWidth": 104,
+    "sourceHeight": 127,
+    "displayWidth": 21.3,
+    "displayHeight": 26
+  },
+  "BKM003_BMW_Motorrad.png": {
+    "sourceWidth": 110,
+    "sourceHeight": 109,
+    "displayWidth": 26.1,
+    "displayHeight": 25.9
+  },
+  "BKM004_Suzuki.png": {
+    "sourceWidth": 118,
+    "sourceHeight": 120,
+    "displayWidth": 25.6,
+    "displayHeight": 26
+  },
+  "BKM005_Harley_Davidson.png": {
+    "sourceWidth": 110,
+    "sourceHeight": 88,
+    "displayWidth": 29.1,
+    "displayHeight": 23.3
+  },
+  "BKM006_Kawasaki.png": {
+    "sourceWidth": 108,
+    "sourceHeight": 108,
+    "displayWidth": 26.0,
+    "displayHeight": 26.0
+  },
+  "BKM007_SYM.png": {
+    "sourceWidth": 108,
+    "sourceHeight": 107,
+    "displayWidth": 26.1,
+    "displayHeight": 25.9
+  },
+  "BKM008_Vespa.png": {
+    "sourceWidth": 136,
+    "sourceHeight": 47,
+    "displayWidth": 38,
+    "displayHeight": 13.1
+  },
+  "BKM010_Ducati.png": {
+    "sourceWidth": 102,
+    "sourceHeight": 109,
+    "displayWidth": 24.3,
+    "displayHeight": 26
+  }
+}
