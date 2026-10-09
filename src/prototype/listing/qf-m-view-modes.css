@@ -123,8 +123,8 @@
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-main { gap: 12px; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-title { display: -webkit-box; overflow: hidden; color: #222; font-size: 17px; font-weight: 700; line-height: 24px; white-space: normal; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-title .bbm-card-model { font-weight: 700; }
-.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec { display: flex; flex-wrap: nowrap; gap: 0; height: 22px; margin-top: 2px; overflow: hidden; color: #8c8c8c; font-size: 15px; line-height: 22px; white-space: nowrap; }
-.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec-item { flex: none; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec { display: block; height: 22px; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; color: #8c8c8c; font-size: 15px; line-height: 22px; white-space: nowrap; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec-item { display: inline; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec-dot { white-space: pre; } /* 2026-10-10 「메타정보 가운데 점」: 항목 사이 「 · 」 */
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-price-badges { margin-top: 2px; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-price { height: 24px; color: #222; font-size: 17px; font-weight: 700; line-height: 24px; }
