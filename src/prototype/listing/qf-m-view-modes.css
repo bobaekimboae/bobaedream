@@ -177,3 +177,8 @@
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-feed-featured .bbm-card-photo.is-carousel .bbm-card-media-footer { z-index: 2; pointer-events: none; }
 /* 2026-10-10 「레딧처럼 상단 우측에 사진개수」: 사진 오른쪽 위 8px 안쪽에 어두운 반투명 알약 「2/5」(12/16 600 흰색, 높이 24, 좌우 8) */
 .bbm-feed-count { position: absolute; top: 8px; right: 8px; z-index: 2; height: 24px; padding: 0 8px; border-radius: 12px; color: #fff; font-size: 12px; font-weight: 600; line-height: 24px; font-variant-numeric: tabular-nums; background: rgba(0, 0, 0, 0.6); pointer-events: none; }
+/* 2026-10-10 「블록켓처럼 인디게이터 작게(이미지가 묻힌다)」: 블록켓 캡처 실측 — 점 3.9px, 피치 약 8, 사진 아래에서 약 8.2 위, 알약 배경 없음. 우리는 흰 점 + 옅은 그림자로 밝은 사진에서도 보이게 하고 현재 점만 불투명 */
+.bbm-feed-dots { bottom: 8px; gap: 4px; height: 4px; padding: 0; border-radius: 0; background: none; }
+.bbm-feed-dots i { width: 4px; height: 4px; background: rgba(255, 255, 255, 0.6); box-shadow: 0 0 3px rgba(0, 0, 0, 0.5); }
+.bbm-feed-dots i.is-edge { width: 3px; height: 3px; }
+.bbm-feed-dots i.is-on { background: #fff; }
