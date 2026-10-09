@@ -2286,7 +2286,7 @@ function MarketplaceScreen() {
               {shownCars.length && bbmMobileView === "한줄 광고로 보기" ? <div className="bbm-one-line-head"><span>모델</span><span>연식(연형)</span><span>가격(만원)</span><i /></div> : null}
               {shownCars.length ? pagedCars.map((car, index) => bbmMobileView === "한줄 광고로 보기"
                 ? <BbmOneLineCard key={car.id} car={car} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} />
-                : <BbmResultCard key={car.id} car={car} variant="mobile" featured={bbmMobileView === "피드로 보기" && index === 0} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅 연결 예정")} />) : carListItems}
+                : <BbmResultCard key={car.id} car={car} variant="mobile" featured={bbmMobileView === "피드로 보기"} liked={likedIds.includes(car.id)} onOpen={() => openCarDetail(car)} onToggleLike={() => toggleLiked(car.id)} onChat={() => setSearchToast("채팅 연결 예정")} onCall={() => setSearchToast("전화는 정식 서비스에서 이용해 주세요.")} />) : carListItems}
               {shownCars.length ? <BbmPagination page={bbmPageNow} total={bbmPageCount} windowSize={3} onChange={goBbmPage} /> : null}
             </section>
             <BbmFooter onNotify={setSearchToast} />
