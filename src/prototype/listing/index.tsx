@@ -152,6 +152,16 @@ const bmwModelBodyTypes: Record<string, string> = {
   "iX": "SUV",
 };
 
+// 과쯔 원본처럼 첫 화면에서 서로 다른 차체가 바로 구분되도록
+// 숫자명 DB 순서 대신 세단·SUV·해치백·로드스터를 교차 배치한다.
+const bmwGuaziQuickOrder = [
+  "5시리즈", "X5", "3시리즈", "X3", "7시리즈", "X1", "1시리즈", "Z4", "i5", "iX",
+  "2시리즈", "X6", "4시리즈", "X7", "M3", "i4", "8시리즈", "X2", "M5", "i7",
+  "6시리즈", "M2", "M4", "XM", "Z3", "iX1", "그란투리스모 (GT)", "M8", "i8", "iX3",
+  "1M", "M6", "X3M", "X4M", "X5M", "X6M", "i3", "iX2", "M 쿠페/로드스터",
+] as const;
+const bmwGuaziQuickRank = new Map<string, number>(bmwGuaziQuickOrder.map((name, index) => [name, index]));
+
 // 보기 방식 주소 값(검수 링크용): &view=list · feed · gallery · oneline · text. PC는 목록·갤러리·한줄 광고만 쓴다
 const bbmViewParam: Record<string, BbmMobileView> = { list: "목록으로 보기", feed: "피드로 보기", gallery: "갤러리로 보기", oneline: "한줄 광고로 보기", text: "텍스트로 보기" };
 const initialBbmMobileView = (): BbmMobileView => bbmViewParam[new URLSearchParams(window.location.search).get("view") ?? ""] ?? "목록으로 보기";
@@ -921,6 +931,9 @@ function MarketplaceScreen() {
     }
     return !isCatalogMaker || modelVisualsByMakerMap[maker]?.[name]?.count !== "0대";
   })) : [];
+  const cardChipModelQuickOptions = guaziCardChipPreview && maker === "BMW"
+    ? [...modelQuickOptions].sort((first, second) => (bmwGuaziQuickRank.get(first) ?? 999) - (bmwGuaziQuickRank.get(second) ?? 999))
+    : modelQuickOptions;
   const railGenerationOptions = maker && selectedModel ? (generationsByMakerModelMap[maker]?.[selectedModel] ?? []).filter((generation) => !isCatalogMaker || (generation.count ?? 0) > 0) : [];
   // 선택지 옆 매물 수: 그 항목만 뺀 나머지 조건을 모두 반영(원본과 같은 방식). 데이터 없는 항목은 null → 원본 숫자 글자
   const bbmCountOf = (key: BbmCheckKey, option: string) => isBbmDataOption(key, option)
@@ -1564,14 +1577,23 @@ function MarketplaceScreen() {
             </QuickRailCarousel>
           </section> : showModelQuickRail && isGuaziQuickStyle && (!isBikeCategory || maker === "BMW") ? <section className={`depth-rail no-label${isLuxuryCategory ? " is-luxury-model-row" : ""}${isBikeCategory ? " is-bike-model-row" : ""}${guaziCardChipPreview ? " is-guazi-card-chip-row" : ""}`} aria-label={`${maker} 모델 빠른 선택`}>
             <QuickRailCarousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName={`depth-rail-track${guaziCardChipPreview ? " is-guazi-card-chip-track" : ""}`}>
-              {modelQuickOptions.map((model) => {
+              {cardChipModelQuickOptions.map((model) => {
                 const modelVisual = guaziVisualsForMaker?.[model];
                 // The unified vehicle catalog intentionally leaves model-group images empty.
                 // Keep that behavior everywhere else, but let the Guazi card-chip comparison
                 // reuse the already-approved model catalogue images so the image-led cards can
                 // be evaluated as designed.
-                const legacyCardVisual = guaziCardChipPreview && maker ? guaziModelVisualsByMaker[maker]?.[model] : undefined;
-                const cardVisual = modelVisual?.image ? modelVisual : legacyCardVisual ?? modelVisual;
+                const dedicatedCardVisual = guaziCardChipPreview && maker ? quickModelVisualsByMaker[maker]?.[model] : undefined;
+                const catalogCardVisual = guaziCardChipPreview && maker ? guaziModelVisualsByMaker[maker]?.[model] : undefined;
+                // 전용 카드 이미지가 있는 모델은 색과 실루엣 차이가 더 잘 보이는
+                // 해당 자산을 우선하고, 나머지만 카탈로그 최신 세대 이미지로 보완한다.
+                const cardVisual = dedicatedCardVisual?.image
+                  ? dedicatedCardVisual
+                  : modelVisual?.image
+                    ? modelVisual
+                    : catalogCardVisual?.image
+                      ? catalogCardVisual
+                      : modelVisual;
                 return (
                   <DepthCard
                     key={model}

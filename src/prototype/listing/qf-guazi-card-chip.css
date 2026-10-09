@@ -14,17 +14,17 @@
   align-items: center;
   gap: 8px;
   height: 92px;
-  padding: 12px 16px;
+  padding: 7px 16px;
 }
 
 .marketplace.is-qf-guazi-card-chip .depth-card.is-guazi-card-chip {
-  width: auto;
-  min-width: 74px;
-  max-width: 112px;
-  height: 68px;
-  flex: 0 0 auto;
+  width: 84px;
+  min-width: 84px;
+  max-width: 84px;
+  height: 78px;
+  flex: 0 0 84px;
   justify-content: flex-start;
-  padding: 3px 8px;
+  padding: 4px 6px 3px;
   border-width: 1px;
   border-radius: 6px;
   background: #f6f7fb;
@@ -36,46 +36,46 @@
 }
 
 .marketplace.is-qf-guazi-card-chip .depth-card.is-guazi-card-chip .depth-card-media {
-  width: 60px;
-  height: 26px;
+  width: 68px;
+  height: 32px;
   place-items: end center;
 }
 
 .marketplace.is-qf-guazi-card-chip .depth-card.is-guazi-card-chip .depth-card-media img {
-  max-width: 60px;
-  max-height: 26px;
+  max-width: 68px;
+  max-height: 32px;
 }
 
 .marketplace.is-qf-guazi-card-chip .depth-card.is-guazi-card-chip .depth-card-media > .catalog-vehicle-image {
-  width: 60px;
-  height: 26px;
+  width: 68px;
+  height: 32px;
 }
 
 .marketplace.is-qf-guazi-card-chip .depth-card.is-guazi-card-chip .depth-card-media.is-fit-width img {
-  width: 60px;
-  max-height: 26px;
+  width: 68px;
+  max-height: 32px;
 }
 
 .marketplace.is-qf-guazi-card-chip .depth-card.is-guazi-card-chip .depth-card-media.is-fit-height img {
-  height: 26px;
-  max-width: 60px;
+  height: 32px;
+  max-width: 68px;
 }
 
 .marketplace.is-qf-guazi-card-chip .depth-card.is-guazi-card-chip .depth-card-label {
   height: 16px;
   flex: 0 0 16px;
-  max-width: 96px;
-  margin-top: 2px;
+  max-width: 72px;
+  margin-top: 5px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 16px;
 }
 
 .marketplace.is-qf-guazi-card-chip .depth-card.is-guazi-card-chip .depth-card-sub {
   height: 14px;
   flex: 0 0 14px;
-  max-width: 96px;
-  margin-top: 0;
+  max-width: 72px;
+  margin-top: 1px;
   color: #8b95a1;
   font-size: 12px;
   font-weight: 400;
@@ -95,7 +95,7 @@
 }
 
 .marketplace.is-qf-guazi-card-chip .depth-card.is-guazi-card-chip.is-all {
-  min-width: 74px;
+  min-width: 84px;
   justify-content: center;
 }
 
@@ -117,7 +117,7 @@
 .marketplace.is-qf-guazi-card-chip .guazi-card-chip-more {
   display: inline-flex;
   min-width: 96px;
-  height: 68px;
+  height: 78px;
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
@@ -147,7 +147,7 @@
 
 @media (min-width: 768px) {
   .marketplace.is-qf-guazi-card-chip .depth-card.is-guazi-card-chip {
-    min-width: 78px;
-    max-width: 120px;
+    min-width: 84px;
+    max-width: 84px;
   }
 }
