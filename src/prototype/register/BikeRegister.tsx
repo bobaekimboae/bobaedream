@@ -22,7 +22,7 @@ const icons = {
   detail: chotot("detail-info.svg"),
 };
 
-type BikeModel = { code: string; name: string };
+type BikeModel = { code: string; name: string; genre?: string; cc_band?: string };
 type BikeGroup = { code: string; name: string; models?: BikeModel[] };
 type BikeMaker = {
   code: string;
@@ -34,14 +34,17 @@ type BikeMaker = {
   groups?: BikeGroup[];
   models?: BikeModel[];
 };
-type PickerName = "maker" | "model" | "year" | "type" | "origin" | "warranty" | "sido" | "district" | "motor" | "range" | "charge" | null;
+type PickerName = "maker" | "model" | "year" | "type" | "ccBand" | "origin" | "warranty" | "sido" | "district" | "motor" | "range" | "charge" | null;
 // 2차 수정(10/9 초톳 화면 녹화): 주소 = 「Địa chỉ」 바텀시트(시도·구군·상세 주소·표시 미리보기·완료), 뒤로 = 「Lưu tin nháp?」 확인 시트
 type SheetName = "address" | "draft" | "gallery" | "photoRules" | "docInfo" | null;
 // 3차 수정(10/9 초톳 등록 풀버전 녹화): 사진 고르기 화면 · 사진 규칙 · 서류 사진 칸 · 전기 바이크 전용 칸 · 보증 기간
 
-const yearOptions = Array.from({ length: 47 }, (_, index) => `${2026 - index}년`);
-const bikeTypeOptions = ["스쿠터", "네이키드", "스포츠", "크루저", "투어러", "멀티퍼퍼스", "클래식", "오프로드", "언더본·비즈니스", "삼륜", "ATV", "전기 바이크", "기타"];
-const electricType = "전기 바이크";
+// 연식: 최신 → 과거, 맨 아래 「1979년 이전」(시안 작업 마스터 D3)
+const yearOptions = [...Array.from({ length: 47 }, (_, index) => `${2026 - index}년`), "1979년 이전"];
+const bikeTypeOptions = ["스쿠터", "네이키드", "스포츠", "크루저", "투어러", "멀티퍼퍼스", "클래식", "오프로드", "언더본·비즈니스", "삼륜", "ATV", "기타"];
+// 배기량 구간 = 바이크 기준표 cc_bands(GooBike 구간). 「전기」를 고르면 전기 바이크 전용 칸을 보여준다
+const ccBandOptions = ["50cc 이하", "51~125cc", "126~250cc", "251~400cc", "401~750cc", "751cc 이상", "전기"];
+const electricBand = "전기";
 const motorOptions = ["2,000W 미만", "2,000~2,999W", "3,000~3,999W", "4,000~5,000W", "5,000W 초과"];
 const rangeOptions = ["100km 미만", "100~199km", "200~299km", "300~399km", "400~500km", "500km 초과"];
 const chargeOptions = ["1시간 미만", "1~3시간", "4~6시간", "6시간 초과"];
@@ -63,11 +66,17 @@ function Pills({ value, options, onChange, error }: { value: string; options: st
   return <div className={`bike-reg-pills${error ? " is-error" : ""}`}>{options.map((option) => <button type="button" key={option} className={value === option ? "is-active" : ""} aria-pressed={value === option} onClick={() => onChange(option)}>{option}</button>)}</div>;
 }
 
-function SelectRow({ label, value, required, info, error, onClick }: { label: string; value?: string; required?: boolean; info?: boolean; error?: boolean; onClick?: () => void }) {
-  return <button type="button" className="bike-reg-row" disabled={!onClick} onClick={onClick}>
+function SelectRow({ label, value, required, info, error, placeholder = "선택", onClick }: { label: string; value?: string; required?: boolean; info?: boolean; error?: boolean; placeholder?: string; onClick?: () => void }) {
+  // 카테고리처럼 고정값인 줄은 눌리지 않는 div(시안 작업 마스터 B6)
+  if (!onClick) return <div className="bike-reg-row is-fixed">
+    <span className="bike-reg-row__label">{label}{required ? <em>*</em> : null}</span>
+    <span className="bike-reg-row__value">{value}</span>
+    <span />
+  </div>;
+  return <button type="button" className="bike-reg-row" onClick={onClick}>
     <span className="bike-reg-row__label">{label}{required ? <em>*</em> : null}{info ? <img src={icons.info} alt="" /> : null}</span>
-    <span className={`bike-reg-row__value${value ? "" : error ? " is-error" : " is-empty"}`}>{value || "선택"}</span>
-    {onClick ? <img className="bike-reg-row__chevron" src={icons.chevron} alt="" /> : <span />}
+    <span className={`bike-reg-row__value${value ? "" : error ? " is-error" : " is-empty"}`}>{value || (error ? "선택해 주세요" : placeholder)}</span>
+    <img className="bike-reg-row__chevron" src={icons.chevron} alt="" />
   </button>;
 }
 
@@ -76,6 +85,7 @@ function DetailInput({ label, value, unit, required, error, pencil, onChange }: 
     <label className={`bike-reg-input-row${error ? " is-error" : ""}`}>
       <span>{label}{required ? <em>*</em> : null}</span>
       <span><input value={withComma(value)} inputMode="numeric" placeholder="0" onChange={(event) => onChange(digits(event.currentTarget.value).slice(0, 7))} /><b>{unit}</b>
+        {/* 임시: 초톳 선 연필 아이콘 원본이 180개 묶음에 없음 */}
         {pencil ? <svg className="bike-reg-pencil" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L18.5 9.5a2.1 2.1 0 0 0-3-3L5 17v3Z" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" /><path d="m14 8 2 2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg> : null}
       </span>
     </label>
@@ -93,6 +103,11 @@ function BoxField({ label, error, className, children }: { label: string; error?
 
 function FullPicker({ title, options, selected, searchable, onBack, onClose, onSelect }: { title: string; options: string[]; selected: string; searchable?: boolean; onBack?: () => void; onClose: () => void; onSelect: (value: string) => void }) {
   const [query, setQuery] = useState("");
+  // 닫히면 연 줄로 포커스를 돌려준다(코덱스 검수 4)
+  useEffect(() => {
+    const opener = document.activeElement as HTMLElement | null;
+    return () => { opener?.focus?.({ preventScroll: true }); };
+  }, []);
   const visible = useMemo(() => options.filter((option) => option.toLocaleLowerCase().replace(/\s/g, "").includes(query.trim().toLocaleLowerCase().replace(/\s/g, ""))), [options, query]);
   return <section className="bike-reg-picker" role="dialog" aria-modal="true" aria-label={title}>
     <header>
@@ -100,9 +115,15 @@ function FullPicker({ title, options, selected, searchable, onBack, onClose, onS
       <h2>{title}</h2>
       {onBack ? <button type="button" aria-label="닫기" onClick={onClose}><img src={icons.close} alt="" /></button> : <span />}
     </header>
-    {searchable ? <label className="bike-reg-picker__search"><img src={icons.search} alt="" /><input value={query} placeholder="검색" onChange={(event) => setQuery(event.currentTarget.value)} />{query ? <button type="button" aria-label="검색어 지우기" onClick={() => setQuery("")}><img src={icons.close} alt="" /></button> : null}</label> : null}
-    <div className="bike-reg-picker__list">
-      {visible.map((option) => <button type="button" key={option} className={selected === option ? "is-selected" : ""} onClick={() => onSelect(option)}><span>{option}</span><i>{selected === option ? <img src={icons.check} alt="" /> : null}</i></button>)}
+    {searchable ? <label className="bike-reg-picker__search"><img src={icons.search} alt="" /><input value={query} placeholder="검색" aria-label={`${title.replace(" 선택", "")} 검색`} onChange={(event) => setQuery(event.currentTarget.value)} />{query ? <button type="button" aria-label="검색어 지우기" onClick={() => setQuery("")}><img src={icons.close} alt="" /></button> : null}</label> : null}
+    <div className="bike-reg-picker__list" role="radiogroup" aria-label={title} onKeyDown={(event) => {
+      if (event.key !== "ArrowDown" && event.key !== "ArrowUp") return;
+      const items = [...event.currentTarget.querySelectorAll<HTMLButtonElement>("button[role=radio]")];
+      const index = items.indexOf(document.activeElement as HTMLButtonElement);
+      items[Math.max(0, Math.min(items.length - 1, index + (event.key === "ArrowDown" ? 1 : -1)))]?.focus();
+      event.preventDefault();
+    }}>
+      {visible.map((option) => <button type="button" role="radio" aria-checked={selected === option} key={option} className={selected === option ? "is-selected" : ""} onClick={() => onSelect(option)}><span>{option}</span><i>{selected === option ? <img src={icons.check} alt="" /> : null}</i></button>)}
       {!visible.length ? <p>검색 결과가 없습니다.</p> : null}
     </div>
   </section>;
@@ -141,7 +162,7 @@ export default function BikeRegister() {
   const [year, setYear] = useState("");
   const [type, setType] = useState("");
   const [mileage, setMileage] = useState("");
-  const [cc, setCc] = useState("");
+  const [ccBand, setCcBand] = useState("");
   const [origin, setOrigin] = useState("");
   const [warranty, setWarranty] = useState("");
   const [docPhotos, setDocPhotos] = useState<string[]>([]);
@@ -197,6 +218,13 @@ export default function BikeRegister() {
   const modelOptions = useMemo(() => selectedMaker?.uses_groups === false
     ? (selectedMaker.models ?? selectedMaker.groups?.flatMap((group) => group.models ?? []) ?? []).map((item) => item.name)
     : (selectedMaker?.groups ?? []).map((item) => item.name), [selectedMaker]);
+  // 모델 목록 끝에 「기타 모델」(코덱스 검수 2)
+  const modelChoices = useMemo(() => modelOptions.length ? [...modelOptions, "기타 모델"] : modelOptions, [modelOptions]);
+  const modelInfo = (name: string) => {
+    const group = selectedMaker?.groups?.find((item) => item.name === name);
+    const list = group?.models ?? selectedMaker?.models?.filter((item) => item.name === name) ?? [];
+    return list[0];
+  };
 
   const errors = {
     photos: submitted && photos.length === 0,
@@ -215,8 +243,9 @@ export default function BikeRegister() {
 
   const pickerMap = {
     maker: { title: "제조사 선택", options: makers.map((item) => item.name), selected: maker, searchable: true },
-    model: { title: "모델 선택", options: modelOptions, selected: model, searchable: true },
-    year: { title: "연식 선택", options: yearOptions, selected: year },
+    model: { title: "모델 선택", options: modelChoices, selected: model, searchable: true },
+    year: { title: "연식 선택", options: yearOptions, selected: year, searchable: true },
+    ccBand: { title: "배기량 선택", options: ccBandOptions, selected: ccBand },
     type: { title: "바이크 유형 선택", options: bikeTypeOptions, selected: type },
     origin: { title: "원산지 선택", options: originOptions, selected: origin },
     warranty: { title: "보증 선택", options: warrantyOptions, selected: warranty },
@@ -231,7 +260,14 @@ export default function BikeRegister() {
     if (picker === "sido") setAddrDraft((current) => ({ ...current, sido: value, district: current.sido === value ? current.district : "" }));
     if (picker === "district") setAddrDraft((current) => ({ ...current, district: value }));
     if (picker === "maker") { setMaker(value); setModel(""); }
-    if (picker === "model") setModel(value);
+    if (picker === "model") {
+      setModel(value);
+      // 모델을 고르면 기준표의 장르·배기량 구간으로 빈 칸을 채운다
+      const info = modelInfo(value);
+      if (info?.genre && !type) setType(info.genre);
+      if (info?.cc_band && !ccBand) setCcBand(info.cc_band);
+    }
+    if (picker === "ccBand") setCcBand(value);
     if (picker === "year") setYear(value);
     if (picker === "type") setType(value);
     if (picker === "origin") setOrigin(value);
@@ -242,7 +278,8 @@ export default function BikeRegister() {
     setPicker(null);
   };
 
-  const openModel = () => maker ? setPicker("model") : setToast("제조사를 먼저 선택해주세요.");
+  // 제조사 전에는 모델 줄에 안내를 계속 보여주고, 누르면 제조사 선택창으로 보낸다(코덱스 검수 1)
+  const openModel = () => setPicker(maker ? "model" : "maker");
   // 시안: 실제 파일을 올리지 않고, 초톳 「Tất cả」 사진 고르기 화면 모양으로 바이크 예시 사진(v08)을 고른다
   const addPhoto = () => {
     if (photos.length >= maxPhotos) { setToast(`사진은 ${maxPhotos}장까지 올릴 수 있어요.`); return; }
@@ -253,9 +290,19 @@ export default function BikeRegister() {
     if (photos.length + current.length >= maxPhotos) { setToast(`사진은 ${maxPhotos}장까지 올릴 수 있어요.`); return current; }
     return [...current, photo];
   });
-  const applyGallery = () => { setPhotos((current) => [...current, ...gallerySelection]); setSheet(null); };
+  // 업로드 % 표시: 실제 업로드 없이 화면만 0→100%로 보여준다
+  const [uploading, setUploading] = useState<Record<string, number>>({});
+  const applyGallery = () => {
+    const added = gallerySelection;
+    setPhotos((current) => [...current, ...added]);
+    setSheet(null);
+    setUploading((current) => ({ ...current, ...Object.fromEntries(added.map((photo) => [photo, 0])) }));
+    added.forEach((photo, order) => {
+      [25, 60, 99, 100].forEach((value, step) => window.setTimeout(() => setUploading((current) => ({ ...current, [photo]: value })), 250 * (step + 1) + order * 200));
+    });
+  };
   const addDocPhoto = () => setDocPhotos((current) => current.length >= 2 ? (setToast("서류 사진은 2장까지 올릴 수 있어요."), current) : [...current, samplePhoto(40 + photoCounter.current++)]);
-  const isElectric = type === electricType;
+  const isElectric = ccBand === electricBand;
   const openAddress = () => { setAddrDraft({ sido, district, detail: detailAddress }); setSheet("address"); };
   const addrNeedsDistrict = Boolean((regionDistricts[addrDraft.sido] ?? []).length);
   const addrReady = Boolean(addrDraft.sido) && (!addrNeedsDistrict || Boolean(addrDraft.district));
@@ -286,7 +333,8 @@ export default function BikeRegister() {
             {photos.map((photo, index) => <div key={`${photo}-${index}`} className="bike-reg-media__thumb">
               <img className="bike-reg-media__image" src={photo} alt={`사진 ${index + 1}`} />
               <button type="button" className="bike-reg-media__delete" aria-label={`사진 ${index + 1} 삭제`} onClick={() => setPhotos((current) => current.filter((_, i) => i !== index))}><img src={icons.photoDelete} alt="" /></button>
-              {index === 0 ? <span className="bike-reg-media__cover">대표 사진</span> : null}
+              {index === 0 ? <span className="bike-reg-media__cover">대표</span> : null}
+              {(uploading[photo] ?? 100) < 100 ? <span className="bike-reg-media__progress">{uploading[photo]}%</span> : null}
             </div>)}
           </div>
           <p className={`bike-reg-media-hint${errors.photos ? " is-error" : ""}`}>{errors.photos ? "사진을 1장 이상 올려 주세요" : `길게 눌러 사진 순서를 바꿀 수 있어요 · ${photos.length}/${maxPhotos}`}</p>
@@ -326,13 +374,13 @@ export default function BikeRegister() {
             </div>
             <label className="bike-reg-check"><span>매물에 서류 사진 표시</span><input type="checkbox" checked={docShow} onChange={(event) => setDocShow(event.currentTarget.checked)} /><i aria-hidden="true" /></label>
           </div>
-          <div className={`bike-reg-condition${errors.condition ? " is-error" : ""}`}><span>차량 상태<em>*</em></span><Pills value={condition} options={["중고", "신차"]} onChange={setCondition} /></div>
+          <div className={`bike-reg-condition${errors.condition ? " is-error" : ""}`}><span>상태<em>*</em></span><Pills value={condition} options={["중고", "신차"]} onChange={setCondition} /></div>
           <SelectRow label="제조사" value={maker} required error={errors.maker} onClick={() => setPicker("maker")} />
-          <SelectRow label="모델" value={model} required error={errors.model} onClick={openModel} />
+          <SelectRow label="모델" value={model} required error={errors.model} placeholder={maker ? "선택" : "제조사 선택 후 선택 가능"} onClick={openModel} />
           <SelectRow label="연식" value={year} required error={errors.year} onClick={() => setPicker("year")} />
           <SelectRow label="바이크 유형" value={type} required error={errors.type} onClick={() => setPicker("type")} />
           <DetailInput label="주행거리" value={mileage} unit="km" required pencil error={errors.mileage} onChange={setMileage} />
-          {isElectric ? null : <DetailInput label="배기량" value={cc} unit="cc" onChange={setCc} />}
+          <SelectRow label="배기량" value={ccBand} onClick={() => setPicker("ccBand")} />
           <SelectRow label="원산지" value={origin} onClick={() => setPicker("origin")} />
           {isElectric ? <>
             <SelectRow label="모터 출력" value={motor} onClick={() => setPicker("motor")} />
@@ -350,7 +398,7 @@ export default function BikeRegister() {
         <div className="bike-reg-field is-select"><button type="button" className="bike-reg-field__box" onClick={() => setPicker("sido")}><span className="bike-reg-field__label">시/도<em>*</em></span><span className={`bike-reg-field__value${addrDraft.sido ? "" : " is-empty"}`}>{addrDraft.sido || "선택"}</span><img className="bike-reg-field__caret" src={icons.caret} alt="" /></button></div>
         <div className="bike-reg-field is-select"><button type="button" className="bike-reg-field__box" disabled={!addrNeedsDistrict} onClick={() => setPicker("district")}><span className="bike-reg-field__label">구/군{addrNeedsDistrict ? <em>*</em> : null}</span><span className={`bike-reg-field__value${addrDraft.district ? "" : " is-empty"}`}>{addrDraft.district || (addrDraft.sido && !addrNeedsDistrict ? "구/군 없음" : "선택")}</span><img className="bike-reg-field__caret" src={icons.caret} alt="" /></button></div>
         <div className="bike-reg-field is-plain"><label className="bike-reg-field__box"><input value={addrDraft.detail} maxLength={40} placeholder="상세 주소(선택)" onChange={(event) => { const detail = event.currentTarget.value; setAddrDraft((current) => ({ ...current, detail })); }} />{addrDraft.detail ? <button type="button" className="bike-reg-field__clear" aria-label="상세 주소 지우기" onClick={(event) => { event.preventDefault(); setAddrDraft((current) => ({ ...current, detail: "" })); }}><img src={icons.clear} alt="" /></button> : null}</label></div>
-        <div className="bike-reg-address__preview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a7 7 0 0 0-7 7c0 5.1 6 11.4 6.3 11.7a1 1 0 0 0 1.4 0C13 20.9 19 14.6 19 9.5a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z" fill="#2E6FE8" /></svg><p><strong>매물에 표시될 주소</strong>{addrPreview || "시/도와 구/군을 선택해 주세요"}</p></div>
+        <div className="bike-reg-address__preview"><img src={icons.pin} alt="" /><p><strong>매물에 표시될 주소</strong>{addrPreview || "시/도와 구/군을 선택해 주세요"}</p></div>
       </div>
     </BottomSheet> : null}
     {sheet === "draft" ? <BottomSheet title="임시저장할까요?" onClose={() => setSheet(null)} footer={<><button type="button" className="is-outline" onClick={() => { setSheet(null); history.back(); }}>저장 안 함</button><button type="button" className="is-primary" onClick={() => { setSheet(null); setToast("시안에서는 임시저장을 지원하지 않습니다."); }}>임시저장</button></>}>
@@ -359,6 +407,7 @@ export default function BikeRegister() {
     {sheet === "gallery" ? <section className="bike-reg-gallery" role="dialog" aria-modal="true" aria-label="사진 고르기">
       <header><button type="button" aria-label="닫기" onClick={() => setSheet(null)}><img src={icons.close} alt="" /></button><h2>전체 사진<img src={icons.caret} alt="" /></h2><span /></header>
       <div className="bike-reg-gallery__grid">
+        {/* 임시: 초톳 카메라 아이콘 원본이 180개 묶음에 없음 */}
         <button type="button" className="bike-reg-gallery__camera" onClick={() => setToast("시안에서는 카메라를 열지 않습니다.")}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 5.5 9.8 3.8c.2-.2.4-.3.7-.3h3c.3 0 .5.1.7.3l1.3 1.7H19a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7.5a2 2 0 0 1 2-2h3.5Z" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" /><circle cx="12" cy="12.5" r="3.6" fill="none" stroke="currentColor" strokeWidth="1.6" /></svg>카메라</button>
         {Array.from({ length: galleryCount }, (_, index) => samplePhoto(index)).map((photo) => {
           const order = gallerySelection.indexOf(photo);

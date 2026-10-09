@@ -1,3 +1,6 @@
+/* PC 최대 폭(480 / 600 결정 대기) — 이 한 줄만 바꾸면 카드·하단 바·선택창·시트가 함께 바뀐다 */
+.bbm-bike-register-page { --register-max-w: 480px; }
+
 .bbm-bike-register-page,
 .bbm-bike-register-page body,
 .bbm-bike-register-page #root {
@@ -27,7 +30,7 @@
 :where(.bike-reg-page) :where(button, input, textarea) { font: inherit; }
 :where(.bike-reg-page) button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 /* 1차 수정: 초톳 앱처럼 회색 #F7F7F7 바탕 위 흰 카드(좌우 8 · 반경 12 · 안쪽 16 · 카드 사이 19) */
-.bike-reg-shell { width: min(100%, 430px); min-height: 100dvh; margin: 0 auto; background: #f7f7f7; }
+.bike-reg-shell { width: min(100%, var(--register-max-w, 480px)); min-height: 100dvh; margin: 0 auto; background: #f7f7f7; }
 
 .bike-reg-header {
   position: sticky;
@@ -148,7 +151,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
-  width: min(100%,430px);
+  width: min(100%, var(--register-max-w, 480px));
   padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
   transform: translateX(-50%);
   background: #fff;
@@ -164,7 +167,7 @@
   position: fixed;
   inset: 0;
   z-index: 80;
-  width: min(100%,430px);
+  width: min(100%, var(--register-max-w, 480px));
   margin: 0 auto;
   overflow: hidden;
   color: #17191c;
@@ -193,7 +196,7 @@
 .bike-reg-picker__list > p { margin: 50px 0 0; color: #8f949a; font-size: 14px; text-align: center; }
 .bike-reg-toast { position: fixed; left: 50%; bottom: 82px; z-index: 120; max-width: min(340px,calc(100% - 32px)); padding: 11px 16px; transform: translateX(-50%); border-radius: 8px; color: #fff; font-size: 13px; text-align: center; background: rgba(17,24,32,.9); box-shadow: 0 6px 18px rgba(0,0,0,.18); }
 
-@media (min-width:431px) {
+@media (min-width:481px) {
   .bike-reg-page { padding: 20px 0; }
   .bike-reg-shell { min-height: calc(100dvh - 40px); border-radius: 18px; overflow: hidden; }
   .bike-reg-actions { bottom: 0; border-radius: 0; }
@@ -207,7 +210,7 @@
 .bike-reg-sheet { position: fixed; inset: 0; z-index: 70; display: flex; align-items: flex-end; justify-content: center; font-family: "Reddit Sans", "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #222; }
 .bike-reg-sheet * { box-sizing: border-box; }
 .bike-reg-sheet__dim { position: absolute; inset: 0; background: rgba(0,0,0,.4); }
-.bike-reg-sheet__panel { position: relative; display: flex; flex-direction: column; width: min(100%,430px); max-height: calc(100dvh - 36px); border-radius: 16px 16px 0 0; background: #fff; }
+.bike-reg-sheet__panel { position: relative; display: flex; flex-direction: column; width: min(100%, var(--register-max-w, 480px)); max-height: calc(100dvh - 36px); border-radius: 16px 16px 0 0; background: #fff; }
 .bike-reg-sheet__panel > header { display: grid; flex: none; grid-template-columns: 56px 1fr 56px; align-items: center; height: 48px; border-bottom: 1px solid #e8e8e8; }
 .bike-reg-sheet__panel > header h2 { margin: 0; font-size: 17px; line-height: 24px; font-weight: 700; text-align: center; }
 .bike-reg-sheet__panel > header button { display: grid; place-items: center; justify-self: center; width: 44px; height: 44px; padding: 0; border: 0; background: none; cursor: pointer; }
@@ -226,9 +229,9 @@
 .bike-reg-address__preview svg { flex: none; width: 20px; height: 20px; margin-top: 1px; }
 .bike-reg-address__preview p { margin: 0; color: #222; font-size: 15px; line-height: 22px; }
 .bike-reg-address__preview strong { display: block; font-weight: 700; }
-@media (min-width:431px) {
+@media (min-width:481px) {
   .bike-reg-sheet { align-items: center; }
-  .bike-reg-sheet__panel { width: min(430px, calc(100vw - 48px)); max-height: calc(100vh - 96px); border-radius: 16px; overflow: hidden; }
+  .bike-reg-sheet__panel { width: min(var(--register-max-w, 480px), calc(100vw - 48px)); max-height: calc(100vh - 96px); border-radius: 16px; overflow: hidden; }
 }
 .bike-reg-sheet .bike-reg-field__box input { border: 0 !important; outline: 0 !important; box-shadow: none !important; background: transparent !important; }
 
@@ -251,7 +254,7 @@
 .bike-reg-check input:checked + i { border-color: #222; background: #222 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat; }
 .bike-reg-check input:focus-visible + i { outline: 2px solid #222; outline-offset: 2px; }
 
-.bike-reg-gallery { position: fixed; inset: 0; z-index: 75; display: flex; flex-direction: column; width: min(100%,430px); margin: 0 auto; color: #222; font-family: "Reddit Sans", "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fff; }
+.bike-reg-gallery { position: fixed; inset: 0; z-index: 75; display: flex; flex-direction: column; width: min(100%, var(--register-max-w, 480px)); margin: 0 auto; color: #222; font-family: "Reddit Sans", "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fff; }
 .bike-reg-gallery * { box-sizing: border-box; }
 .bike-reg-gallery > header { display: grid; flex: none; grid-template-columns: 56px 1fr 56px; align-items: center; height: 48px; }
 .bike-reg-gallery > header button { display: grid; place-items: center; justify-self: center; width: 44px; height: 44px; padding: 0; border: 0; background: none; cursor: pointer; }
@@ -287,3 +290,10 @@
 .bike-reg-rules ul { margin: 8px 0 0; padding-left: 18px; font-size: 15px; line-height: 22px; }
 .bike-reg-rules__photos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
 .bike-reg-rules__photos img { width: 100%; aspect-ratio: 16 / 9; border-radius: 4px; object-fit: cover; }
+
+/* 2차(마스터 지시 10/9) */
+.bike-reg-counter.is-description { text-align: left; }
+.bike-reg-row.is-fixed { cursor: default; }
+.bike-reg-media__progress { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; background: rgba(0,0,0,.45); }
+.bike-reg-address__preview img { flex: none; width: 20px; height: 20px; margin-top: 1px; }
+/* 임시: 체크박스·라디오 원본 SVG가 초톳 180개 묶음에 없어 CSS 테두리로 그림(체크 표시는 초톳 check-mark.svg) */
