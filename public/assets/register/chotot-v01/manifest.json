@@ -1,0 +1,30 @@
+{
+  "source": "노션 「베트남 초톳」 아이콘 DB (collection://626ee9c4-b606-825a-b8a1-87f73001550e) 원본 파일 그대로 복사, 2026-10-09. 수정 금지.",
+  "icons": [
+    { "file": "chevron-left.svg", "notion": "셰브론_좌", "notionFile": "chotot-common-chevron-left_(셰브론_좌).svg", "use": "헤더 뒤로(초톳 캡처는 ← 화살표라 확인 필요)" },
+    { "file": "upload-media.png", "notion": "업로드 미디어_upload-media", "notionFile": "chotot-listing-register-upload-media_(업로드 미디어_upload-media).png", "use": "사진/영상 추가 칸(노란 타일)" },
+    { "file": "upload2.png", "notion": "업로드_2_upload2", "notionFile": "chotot-listing-register-upload2_(업로드_2_upload2).png", "use": "사진 추가(대체안)" },
+    { "file": "image-upload-delete.svg", "notion": "이미지 업로드_이미지 삭제", "notionFile": "chotot-listing-register-image-upload-delete_(이미지 업로드_이미지 삭제).svg", "use": "올린 사진 썸네일 삭제(검은 원 X)" },
+    { "file": "image.svg", "notion": "이미지 업로드 색상 변경용 / 이미지", "notionFile": "chotot-listing-register-image-upload-color-change_(이미지 업로드 색상 변경용).svg", "use": "서류(등록증) 사진 추가 아이콘 — 색만 바꿔 쓰는 용도" },
+    { "file": "video-play.svg", "notion": "비디오 재생", "notionFile": "chotot-common-video-play_(비디오 재생).svg", "use": "올린 영상 썸네일 표시" },
+    { "file": "info.svg", "notion": "인포", "notionFile": "chotot-listing-register-info_(인포).svg", "use": "사진·서류 안내(i)" },
+    { "file": "clear-text.svg", "notion": "텍스트 지우기 아이콘 / 필드 삭제 아이콘", "notionFile": "chotot-listing-register-clear-text-delete-field-icon_(텍스트 지우기 아이콘 - 필드 삭제 아이콘).svg", "use": "입력칸 지우기(회색 원 X)" },
+    { "file": "caret-down.svg", "notion": "아래 화살표/캐럿 아이콘", "notionFile": "chotot-listing-register-caret-down_(아래 화살표-캐럿 아이콘).svg", "use": "주소 선택 칸 ▼" },
+    { "file": "dropdown.svg", "notion": "드롭 다운", "notionFile": "chotot-listing-register-dropdown_(드롭 다운).svg", "use": "펼침 ∨(대체안)" },
+    { "file": "detail-info.svg", "notion": "상세 정보", "notionFile": "chotot-listing-register-detail-info_(상세 정보).svg", "use": "「상세 정보」 구간 제목 앞" },
+    { "file": "chevron-right.svg", "notion": "셰브론_우", "notionFile": "chotot-common-chevron-right_(셰브론_우).svg", "use": "선택 행 오른쪽 ›" },
+    { "file": "chevron-right-gray.svg", "notion": "셰브론_우_회색", "notionFile": "chotot-common-chevron-right-gray_(셰브론_우_회색).svg", "use": "비활성 선택 행 ›" },
+    { "file": "edit.svg", "notion": "프로필 정보 수정_edit", "notionFile": "chotot-profile-info-edit_(프로필 정보 수정_edit).svg", "use": "주행거리 칸 연필(초톳 캡처는 선 연필이라 모양 다름 — 원본 필요)" },
+    { "file": "close-window.svg", "notion": "창 닫기", "notionFile": "chotot-listing-register-close-window_(창 닫기).svg", "use": "바텀시트·카테고리 창 닫기" },
+    { "file": "close-x.svg", "notion": "닫기_X", "notionFile": "chotot-common-close-x_(닫기_X).svg", "use": "닫기(대체안)" },
+    { "file": "check-mark.svg", "notion": "체크 마크 / 체크 마크 (1)", "notionFile": "chotot-listing-register-check-mark_(체크 마크).svg", "use": "시트 선택 항목 ✓" },
+    { "file": "search.svg", "notion": "검색", "notionFile": "chotot-listing-register-search_(검색).svg", "use": "제조사·모델 시트 검색" },
+    { "file": "search-gray.svg", "notion": "검색_그레이", "notionFile": "chotot-listing-register-search-gray_(검색_그레이).svg", "use": "검색칸 안 돋보기" }
+  ],
+  "missing": [
+    "헤더 뒤로 ← 화살표(초톳 등록 화면은 셰브론이 아니라 화살표)",
+    "주행거리 칸 선 연필 아이콘",
+    "체크박스(빈 네모·체크) — CSS로 그릴지 원본 아이콘이 있는지 확인 필요"
+  ],
+  "notUsed": ["AI(사진으로 자동 카테고리 지정) — 보배드림은 이 단계 없이 등록 폼으로 바로 진입"]
+}
