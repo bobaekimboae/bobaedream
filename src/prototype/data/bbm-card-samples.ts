@@ -27,7 +27,17 @@ const fuelLabel = (source: SampleSource) => {
   return fuel;
 };
 
+// 연식만 있는 항목(24년식 · 18년형 · 2017년식)은 숫자 4자리로 통일하고, 년월 동시 표기(24년08월 · 17년10월(18년형))는 그대로 둔다(2026-10-10 「년월 동시 표기 말고는 연식은 숫자 2025 방식으로」)
+const yearOnlyToNumber = (text: string) => text.split(" · ").map((part) => {
+  const match = part.match(/^(\d{2}|\d{4})년[식형]$/);
+  return match ? (match[1].length === 2 ? `20${match[1]}` : match[1]) : part;
+}).join(" · ");
+
 export function bbmCardSpec(source: SampleSource, withPower = true) {
+  return yearOnlyToNumber(bbmCardSpecRaw(source, withPower));
+}
+
+function bbmCardSpecRaw(source: SampleSource, withPower = true) {
   // 지시값을 그대로 보여줄 매물(등록연월·주행 정확값)
   // 주행거리는 정확값(56,067km)도 축약(6만km · 4천km)한다(2026-10-08 「주행거리는 축약해라」)
   if (source.cardSpec?.length) return source.cardSpec.map((part) => /^[\d,]+km$/.test(part) ? mileageLabel({ ...source, filter: { year: 0, fuel: "", mileage: Number(part.replace(/[^\d]/g, "")) } }) : part).join(" · ");
