@@ -286,7 +286,7 @@ function BbmCategoryRows({ selected, selectedChild, onChoose }: { selected: stri
           const isOpen = expandable && open.includes(group.value);
           const isSelected = group.value === selectedGroup.value;
           return (
-            <li key={group.value} className={`bbm-category-row${isOpen ? " is-open" : ""}${isSelected ? " is-selected" : ""}`}>
+            <li key={group.value} className={`bbm-category-row${isOpen ? " is-open" : ""}${isSelected ? " is-selected" : ""}${expandable ? " is-expandable" : ""}`}>
               <div className="bbm-category-row__head">
                 <button type="button" className="bbm-category-row__name" aria-pressed={isSelected} onClick={() => onChoose(group.value)}>
                   <span className="bbm-category-row__icon"><img src={asset(group.icon)} alt="" aria-hidden="true" draggable={false} /></span>
