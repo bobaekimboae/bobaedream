@@ -30,6 +30,7 @@ import { truckSubtypeLabel } from "./truck-format-catalog";
 import { luxuryDealers, luxuryListingRows } from "./luxury-category-v01";
 import { seoulAutoGalleryRows } from "./seoul-autogallery-v01";
 import { deutschAutoworldRows } from "./deutsch-autoworld-v01";
+import { sajikRows } from "./sajik-v01";
 import {
   campingScenarioV01,
   materialHandlingScenarioV01,
@@ -174,7 +175,7 @@ type Car = {
   /** 서울오토갤러리 카테고리 실데이터(실제 상사명 · 딜러명, 2026-10-10 사용자 지시) */
   seoulAutoGallery?: { company: string; dealer: string; priceKind: "공개" | "추정" };
   /** 도이치오토월드 카테고리 실데이터(같은 표시 규칙: 실제 상사명·딜러명, 사진 5장) */
-  deutschAutoworld?: { company: string; dealer: string };
+  realDealer?: { company: string; dealer: string };
   /** 피드 사진 넘기기에 쓰는 실제 다중 사진(있으면 임시 슬라이드 대신 사용) */
   photoList?: string[];
   luxuryCategory?: { number: number; vehicleNumber: string; model: string; generation: string; filled: boolean; certified: boolean };
@@ -344,7 +345,7 @@ const sellerLabel = (car: Car) => {
   if (car.heavy?.isVirtual) return car.dealer;
   if (car.virtualCategory?.isVirtual) return car.dealer;
   if (car.uiTest) return car.dealer;
-  if (car.luxuryCategory || car.seoulAutoGallery || car.deutschAutoworld) return car.dealer;
+  if (car.luxuryCategory || car.seoulAutoGallery || car.realDealer) return car.dealer;
   if (car.dealer && car.dealer !== sellerScenario.name) return car.dealer;
   const index = ((car.id - 1) % dealerNamePool.length + dealerNamePool.length) % dealerNamePool.length;
   return dealerNamePool[index];
@@ -358,7 +359,7 @@ const sellerAvatar = (car: Car) => {
 };
 
 // 피드 보기 전용: 승인된 초톳 인물 사진(위 허용 목록)을 매물마다 다르게 돌려 쓴다(2026-10-10 「프사 실제 프사로」). 이미 초톳 사진이 정해진 매물은 그대로
-const sellerRealPhoto = (car: Car) => car.seoulAutoGallery || car.deutschAutoworld ? sellerAvatar(car) : car.sellerProfile?.includes("sellers/chotot/")
+const sellerRealPhoto = (car: Car) => car.seoulAutoGallery || car.realDealer ? sellerAvatar(car) : car.sellerProfile?.includes("sellers/chotot/")
   ? car.sellerProfile
   : chototHumanSellerProfiles[((car.id % chototHumanSellerProfiles.length) + chototHumanSellerProfiles.length) % chototHumanSellerProfiles.length];
 
@@ -1415,7 +1416,38 @@ const bbmLuxuryAddCars: Car[] = [
   makeChoTotCar(3003, { maker: "람보르기니", modelGroup: "우루스", image: "listing-photos/v01/lamborghini_urus_phev_3003.jpg", imageFit: "cover", title: "람보르기니 우루스 PHEV", trim: "4.0 V8 SE", specs: ["2025년식", "5,679km", "가솔린+전기", ""], cardSpec: ["25년11월", "5,679km", "하이브리드"], price: "42,500 만원", place: "경기 수원시", filter: { year: 2025, seats: "5인승", condition: "중고", mileage: 5679, owners: "1인", transmission: "오토", fuel: "하이브리드", color: "회색", origin: "수입", body: "SUV", video: false } }),
   makeChoTotCar(3004, { maker: "페라리", modelGroup: "GTC4 루쏘", image: "listing-photos/v01/ferrari_gtc4lusso_t_3004.jpg", imageFit: "cover", title: "페라리 GTC4 루쏘 T", trim: "3.9 V8", specs: ["2017년식", "31,135km", "가솔린", ""], cardSpec: ["17년10월", "31,135km", "가솔린"], price: "18,990 만원", place: "경기 수원시", filter: { year: 2017, seats: "4인승", condition: "중고", mileage: 31135, owners: "전체", transmission: "오토", fuel: "가솔린", color: "빨강", origin: "수입", body: "쿠페", video: false } }),
 ];
-const bbmSampleCars: Car[] = [...chototTestCars, ...bbmExtraCars, ...bbmBodyExtraCars, ...bbmLuxuryAddCars];
+// 사직오토랜드 실데이터 4대(2026-10-10 「사직은 중고차에 넣어라」): 별도 카테고리 없이 중고차 목록(과 전체차량)에 들어간다
+const sajikCars: Car[] = sajikRows.map((row, index) => {
+  const nn = String(row.number).padStart(2, "0");
+  const photos = [1, 2, 3, 4, 5].map((n) => `cars/sajik-v01/saj-${nn}-${n}.webp`);
+  const km = (value: number) => value >= 9500 ? `${String(Math.round(value / 1000) / 10)}만km` : `${value.toLocaleString("ko-KR")}km`;
+  return {
+    id: 15_000 + row.number,
+    updateRank: 2990 - index,
+    maker: row.maker,
+    modelGroup: row.model,
+    sellerType: "딜러",
+    image: photos[0],
+    photoList: photos,
+    listThumb: `cars/sajik-v01/thumb/saj-${nn}.webp`,
+    imagePosition: "center center",
+    title: [row.maker, row.model, row.generation].filter(Boolean).join(" "),
+    trim: row.trim,
+    specs: [`${row.year}년식`, km(row.mileage), row.fuel],
+    cardSpec: [String(row.year), km(row.mileage), row.fuel],
+    price: `${row.price.toLocaleString("ko-KR")} 만원`,
+    place: "부산 연제구 · 사직오토랜드",
+    views: 0,
+    dealer: `${row.dealer} ${row.company.replace(/\(주\)|주식회사/g, "").trim()}`,
+    stock: row.stock,
+    posted: row.posted,
+    photos: photos.length,
+    sellerProfile: null,
+    realDealer: { company: row.company, dealer: row.dealer },
+    filter: { year: row.year, seats: "전체", condition: "중고", mileage: row.mileage, owners: "전체", transmission: "오토", fuel: row.fuel, color: "기타", origin: row.origin, body: row.body, video: false },
+  };
+});
+const bbmSampleCars: Car[] = [...chototTestCars, ...bbmExtraCars, ...bbmBodyExtraCars, ...bbmLuxuryAddCars, ...sajikCars];
 
 const luxuryVehicleHeadings: Record<number, { title: string; trim: string }> = {
   1: { title: "람보르기니 우르스", trim: "SE 4.0 V8" },
@@ -1606,7 +1638,7 @@ const deutschAutoworldCars: Car[] = deutschAutoworldRows.map((row, index) => {
     posted: row.posted,
     photos: photos.length,
     sellerProfile: null,
-    deutschAutoworld: { company: row.company, dealer: row.dealer },
+    realDealer: { company: row.company, dealer: row.dealer },
     filter: { year: row.year, seats: "전체", condition: "중고", mileage: row.mileage, owners: "전체", transmission: "오토", fuel: row.fuel, color: "기타", origin: row.origin, body: row.body, video: false },
   };
 });
