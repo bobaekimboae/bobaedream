@@ -169,3 +169,4 @@
 "2026-10-11 07:40","미지정","feat/qf-all-vehicles-pills-1010","-","-","병합·배포","카테고리 시트 전체차량 아래에 모든 카테고리 알약","listing/bbm-list.tsx · docs/quick-filter-spec.md","-","-","verify:qf 통과"
 "2026-10-11 08:10","미지정","feat/qf-category-bottom-1010","-","-","병합·배포","카테고리 시트 하단에 전체 카테고리 알약 항상 표시","listing/bbm-list.tsx · filters/bbm-filter-parts.css · docs/quick-filter-spec.md","-","-","verify:qf 통과"
 "2026-10-11 08:40","미지정","feat/qf-category-all-top-1010","-","-","병합·배포","카테고리 시트 전체 카테고리를 위로","listing/bbm-list.tsx · filters/bbm-filter-parts.css · docs/quick-filter-spec.md","-","-","verify:qf 통과"
+"2026-10-11 09:30","미지정","fix/qf-category-crosscheck-1010","-","-","병합·배포","초톳 크로스체크: 전체차량 제목·검색창·빵부스러기 정리, 시트 선택 표시 정리","listing/stable-top.tsx · listing/index.tsx · listing/bbm-list.tsx · docs/quick-filter-spec.md","시트 아이콘 줄과 전체 카테고리 알약 중복","하나로 줄일지 결정","verify:qf 통과"

@@ -12,6 +12,8 @@ import "./qf-align.css";
 // QF-113 T6: 유형 줄에서 고른 유형이면 제목 = 유형 이름("트럭 · 특장" · "바이크" · "캠핑카" · "올드카" · "건설기계" · "부품 · 용품"), 중고차면 "중고차"
 const STABLE_TYPE_TITLES = ["트럭 · 특장", "바이크", "캠핑카", "올드카", "건설기계", "부품 · 용품"];
 export function stablePageTitle(category: string) {
+  // 전체차량(값 「전체」)은 중고차가 아니다(2026-10-10 초톳 크로스체크: 초톳도 「Xe cộ」와 「Ô tô」 제목이 다르다)
+  if (category === "전체") return "전체차량";
   if (category === "국산차") return "국산 중고차";
   if (category === "수입차") return "수입 중고차";
   if (STABLE_TYPE_TITLES.includes(category)) return category;
