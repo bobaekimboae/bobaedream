@@ -27,7 +27,7 @@ export function SeoulAutoGalleryDealerRail() {
             aria-label={`${dealer.name} 딜러 매물 ${dealer.listingCount}대 보기`}
           >
             <img
-              src={asset(`dealer-illustrations/seoul-auto-gallery/v01/color/${dealer.image}`)}
+              src={asset(`dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`)}
               alt=""
               aria-hidden="true"
               draggable={false}
