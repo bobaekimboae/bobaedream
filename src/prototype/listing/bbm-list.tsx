@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent, type ReactNode, type SyntheticEvent } from "react";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { asset, displayListPlace, placeSidoGugun, sellerAvatar, sellerLabel, sellerRealPhoto, type Car } from "../data";
 import { bbmCardBadges, bbmCardSpec } from "../data/bbm-card-samples";
@@ -394,6 +394,15 @@ function renderFeedSpec(text: string) {
 }
 
 // 피드 보기 사진 넘기기(레딧식): 가로 스와이프(scroll-snap) + 아래 가운데 점 알약(현재 점 흰색, 가장자리 점은 작게) + 오른쪽 위 「현재/전체」 개수
+// Drive 공개 링크(내부 테스트용)는 동시에 많이 부르면 가끔 막히므로 실패한 사진은 1~2번 다시 부른다
+const retryExternalPhoto = (event: SyntheticEvent<HTMLImageElement>) => {
+  const img = event.currentTarget;
+  const tries = Number(img.dataset.retry ?? "0");
+  if (!/^https?:/.test(img.src) || img.src.startsWith(window.location.origin) || tries >= 2) return;
+  img.dataset.retry = String(tries + 1);
+  const base = img.src.split("#")[0];
+  window.setTimeout(() => { img.src = `${base}${base.includes("?") ? "&" : "?"}r=${tries + 1}`; }, 700 * (tries + 1));
+};
 function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string; fit: "cover" | "contain" }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -436,7 +445,7 @@ function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string
     <div className="bbm-feed-carousel-wrap" ref={wrapRef}>
       <div className="bbm-feed-carousel" ref={trackRef} onScroll={onScroll} onClick={(event) => { if (trackRef.current && trackRef.current.scrollLeft % trackRef.current.clientWidth) event.stopPropagation(); }}>
         {photos.map((src, i) => armed || i === 0
-          ? <img key={src + i} className={fit === "contain" ? "is-catalog" : ""} src={asset(src)} alt={i === 0 ? alt : `${alt} 사진 ${i + 1}`} draggable={false} decoding="async" />
+          ? <img key={src + i} className={fit === "contain" ? "is-catalog" : ""} src={asset(src)} alt={i === 0 ? alt : `${alt} 사진 ${i + 1}`} draggable={false} decoding="async" onError={retryExternalPhoto} />
           : <span key={src + i} className="bbm-feed-slide-empty" aria-hidden="true" />)}
       </div>
       <span className={`bbm-feed-count${countVisible ? " is-visible" : ""}`} aria-label={`사진 ${photos.length}장 중 ${index + 1}번째`}>{index + 1}/{photos.length}</span>
