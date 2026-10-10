@@ -106,6 +106,50 @@
   outline-offset: 2px;
 }
 
+/* 바이크 유형 1뎁스: 초톳 슬롯 + AutoScout24 전신 이미지. */
+.marketplace.is-bike-category.is-qf-guazi.is-qf-plain .depth-rail.is-bike-type-row .depth-card {
+  height: 102px;
+}
+
+.marketplace.is-bbm.is-bike-category.is-qf-guazi.is-qf-plain .depth-rail.is-bike-type-row .depth-card {
+  width: 84px;
+  flex-basis: 84px;
+}
+
+.marketplace.is-bbm-m.is-bike-category.is-qf-guazi.is-qf-plain .depth-rail.is-bike-type-row .depth-card {
+  width: 76px;
+  flex-basis: 76px;
+}
+
+.marketplace.is-bike-category.is-qf-guazi.is-qf-plain .depth-rail.is-bike-type-row .depth-card-media:not(.is-brand) {
+  width: calc(100% - 8px);
+  height: 40px;
+  margin-top: 6px;
+}
+
+.marketplace.is-bike-category.is-qf-guazi.is-qf-plain .depth-rail.is-bike-type-row .depth-card-media:not(.is-brand) img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.marketplace.is-bike-category.is-qf-guazi.is-qf-plain .depth-rail.is-bike-type-row .depth-card-label {
+  display: -webkit-box;
+  width: 100%;
+  margin-top: 2px;
+  overflow: hidden;
+  color: #595959;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: center;
+  white-space: normal;
+  word-break: keep-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
 .marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-card-media:not(.is-brand) { width: 76px; height: 40px; margin-top: 6px; }
 .marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-label { margin-top: 14px; font-size: 14px; font-weight: 600; line-height: 21px; }
 .marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-card:has(> .depth-card-media:not(.is-brand)) .depth-card-sub { margin-top: 0; font-size: 12px; line-height: 16px; color: #8c8c8c; }

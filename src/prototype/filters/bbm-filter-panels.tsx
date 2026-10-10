@@ -43,10 +43,19 @@ const bodyTypeIcons: Record<string, string> = {
 const externalBodyTypes = new Set(["화물트럭", "버스", "캠핑카"]);
 
 const bikeGenreImages: Partial<Record<string, string>> = {
-  "네이키드": "bike/pilot/v02/bike_type_naked_side_slot_v02.png",
-  "스쿠터": "bike/pilot/v02/bike_type_scooter_side_slot_v02.png",
-  "스포츠": "bike/pilot/v02/bike_type_supersport_side_slot_v02.png",
-  "멀티퍼포즈": "bike/pilot/v02/bike_type_adventure_side_slot_v02.png",
+  "네이키드": "bike/types/autoscout-v01/naked.png",
+  "스쿠터": "bike/types/autoscout-v01/scooter.png",
+  "스포츠": "bike/types/autoscout-v01/sport.png",
+  "멀티퍼포즈": "bike/types/autoscout-v01/multipurpose.png",
+  "크루저": "bike/types/autoscout-v01/cruiser.png",
+  "클래식": "bike/types/autoscout-v01/classic.png",
+  "언더본": "bike/types/autoscout-v01/underbone.png",
+  "투어러": "bike/types/autoscout-v01/tourer.png",
+  "오프로드": "bike/types/autoscout-v01/offroad.png",
+  "전기": "bike/types/autoscout-v01/electric.png",
+  "삼륜": "bike/types/autoscout-v01/trike.png",
+  "ATV": "bike/types/autoscout-v01/atv.png",
+  "기타": "bike/types/autoscout-v01/other.png",
 };
 
 function BikeGenreList({ value, onChange, countOf }: PanelProps) {

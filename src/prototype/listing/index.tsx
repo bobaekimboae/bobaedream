@@ -109,6 +109,24 @@ import { CatalogLogo, CatalogSearchResults, CatalogVehicleImage, CatalogVehicleP
 
 type BbmMobileView = "목록으로 보기" | "피드로 보기" | "갤러리로 보기" | "한줄 광고로 보기" | "텍스트로 보기";
 
+// 바이크는 제조사보다 유형을 먼저 고른다. 슬롯은 초톳 76/84×102,
+// 이미지는 AutoScout24 카탈로그 톤의 좌향 전신 컷으로 통일한다.
+const bikeTypeQuickOptions = [
+  { label: "네이키드", image: "bike/types/autoscout-v01/naked.png" },
+  { label: "스쿠터", image: "bike/types/autoscout-v01/scooter.png" },
+  { label: "스포츠", image: "bike/types/autoscout-v01/sport.png" },
+  { label: "멀티퍼포즈", image: "bike/types/autoscout-v01/multipurpose.png" },
+  { label: "크루저", image: "bike/types/autoscout-v01/cruiser.png" },
+  { label: "클래식", image: "bike/types/autoscout-v01/classic.png" },
+  { label: "언더본", image: "bike/types/autoscout-v01/underbone.png" },
+  { label: "투어러", image: "bike/types/autoscout-v01/tourer.png" },
+  { label: "오프로드", image: "bike/types/autoscout-v01/offroad.png" },
+  { label: "전기", image: "bike/types/autoscout-v01/electric.png" },
+  { label: "삼륜", image: "bike/types/autoscout-v01/trike.png" },
+  { label: "ATV", image: "bike/types/autoscout-v01/atv.png" },
+  { label: "기타", image: "bike/types/autoscout-v01/other.png" },
+] as const;
+
 // BMW 공식 라인업의 대표 차체 분류를 카드칩 보조 정보로 사용한다.
 // 한 모델군에 여러 차체가 있는 경우 국내 대표 형태를 우선하고,
 // 실제 이름부터 두 형태가 함께인 M 쿠페/로드스터만 복수 표기한다.
@@ -1606,6 +1624,8 @@ function MarketplaceScreen() {
   const showVariantQuickRail = Boolean(usesUxDepth && ((selectedGeneration && (isGuaziQuickStyle ? guaziTrimRailOptions.length > 1 && !guaziTrimChosen : variantQuickOptions.length)) || hasDirectVariantDepth) && (isGuaziQuickStyle || !trimApplied));
   const showVehicleHeaderRail = Boolean(!isGuaziQuickStyle && usesUxDepth && selectedGeneration && trimApplied);
   const showCategoryQuickRail = categoryLandingOpen && !maker;
+  const selectedBikeType = isBikeCategory ? bbmValue.checks.bikeGenre?.[0] : undefined;
+  const showBikeTypeQuickRail = Boolean(isGuaziQuickStyle && isBikeCategory && !maker && !selectedBikeType);
   const showTruckFormatRail = Boolean(isTruckCategory && !selectedTruckFormat);
   const showTruckSubtypeRail = Boolean(isTruckCategory && selectedTruckFormat && !selectedTruckSubtype);
   const showTruckSpecRail = Boolean(isTruckCategory && selectedTruckSubtype && truckSpecOptions.length && !selectedTruckSpec);
@@ -1616,7 +1636,7 @@ function MarketplaceScreen() {
   ));
   const categoryTypeBrandList = krTypeTop10(category);
   // 트럭은 형식 → 차급 → 적재중량(톤수)을 확정한 다음 단계에서만 제조사 로고를 노출한다.
-  const showGuaziMakerRail = Boolean(isGuaziQuickStyle && (!isTruckCategory || Boolean(selectedTruckSubtype && truckSpecDepthComplete)) && !guaziTrimChosen && !showCategoryQuickRail && !showModelQuickRail && !showGenerationQuickRail && !showVariantQuickRail && !showVehicleHeaderRail && (categoryBrandRail.title === "제조사" || category === "바이크" || categoryTypeBrandList));
+  const showGuaziMakerRail = Boolean(isGuaziQuickStyle && (!isTruckCategory || Boolean(selectedTruckSubtype && truckSpecDepthComplete)) && !guaziTrimChosen && !showCategoryQuickRail && !showBikeTypeQuickRail && !showModelQuickRail && !showGenerationQuickRail && !showVariantQuickRail && !showVehicleHeaderRail && (categoryBrandRail.title === "제조사" || category === "바이크" || categoryTypeBrandList));
   // 필터 칩 줄과 퀵필터 레일은 모바일·PC가 같은 마크업을 쓰고, PC에서는 필터 헤더 패널 안으로 위치만 옮긴다.
   const filterShell = (
           <section className={`filter-shell quick-style-${quickFilterStyle}${activeFilterCount ? " has-active-filters" : ""}`} aria-label="중고차 필터">
@@ -1630,6 +1650,19 @@ function MarketplaceScreen() {
           // QF-105: 트림까지 고르면 퀵필터 줄은 닫힌다(칩 [트림 ×] 로 다시 연다)
           // QF-106: ④ 퀵필터 자리는 닫지 않는다 — 계층(제조사 → 모델 → 세부모델 → 트림)이 끝나면 연식 알약 줄
           isHeavyCategory ? <HeavyQuickFilter value={heavySelection} onChange={applyHeavySelection} /> :
+          showBikeTypeQuickRail ? <section className="depth-rail no-label is-bike-type-row" aria-label="바이크 유형 빠른 선택">
+            <QuickRailCarousel ariaLabel="바이크 유형" className="brand-carousel" contentClassName="depth-rail-track">
+              {bikeTypeQuickOptions.map((option) => (
+                <DepthCard
+                  key={option.label}
+                  className="is-bike-type-depth"
+                  label={option.label}
+                  image={<img src={asset(option.image)} alt="" aria-hidden="true" draggable={false} />}
+                  onClick={() => setBbmFilters(setBbmChecks(bbmValue, "bikeGenre", [option.label]))}
+                />
+              ))}
+            </QuickRailCarousel>
+          </section> :
           showTruckFormatRail ? <section className="depth-rail no-label is-truck-image-row is-format-root" aria-label="트럭 형식 빠른 선택">
             <QuickRailCarousel ariaLabel="트럭 형식" className="brand-carousel" contentClassName="depth-rail-track">
               {truckFormatCatalog.map((group) => <DepthCard key={group.name} className="is-truck-depth" label={desktop ? group.name : truckQuickLabel(group.name)} ariaLabel={group.name} image={<img src={asset(truckFormatImageFor(group.name) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckFormat(group.name)} />)}
