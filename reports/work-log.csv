@@ -164,3 +164,4 @@
 "2026-10-11 04:10","미지정","feat/qf-deutsch-drive-1010","-","-","병합·배포","도이치오토월드 Drive 사진 5장 연결 장치(내부 테스트용, 26대 추가)","scripts/deutsch-drive-links.py · data/index.tsx · data/deutsch-autoworld-drive-v01.json · listing/bbm-list.tsx · docs/quick-filter-spec.md","원본 흐림 처리 전","업로드 진행 시 스크립트 재실행","verify:qf 통과"
 "2026-10-11 04:40","미지정","fix/qf-m-sticky-filter-1010","-","-","병합·배포","모바일 칩 줄 고정 위치 다듬기, 사직 사진 경로 수정","listing/index.tsx · listing/bbm-list-area.css · assets/cars/deutsch-autoworld-v01 · docs/quick-filter-spec.md","-","-","verify:qf 통과"
 "2026-10-11 05:10","미지정","fix/qf-m-toolbar-line-1010","-","-","병합·배포","모바일 업데이트순 줄 위 구분선 제거","listing/stable-top.css · docs/quick-filter-spec.md","-","-","verify:qf 통과"
+"2026-10-11 06:00","미지정","fix/qf-sag-dealer-title-1010","-","-","병합·배포","서울오토갤러리 딜러 레일 제목을 수입차 전문 딜러로","listing/seoul-auto-gallery-dealer-rail.tsx · docs/quick-filter-spec.md","-","-","verify:qf 통과"
