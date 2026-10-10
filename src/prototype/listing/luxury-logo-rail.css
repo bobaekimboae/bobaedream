@@ -32,43 +32,58 @@
 .marketplace.is-qf-plain .depth-rail.is-lux-logo :is(
   .lux-qf-logo--ferrari,
   .lux-qf-logo--lamborghini,
-  .lux-qf-logo--rollsroyce,
   .lux-qf-logo--porsche,
   .lux-qf-logo--benz,
   .lux-qf-logo--bmw,
   .lux-qf-logo--maserati,
-  .lux-qf-logo--tesla,
   .lux-qf-logo--koenigsegg
 ) {
   --lux-logo-scale: 1.143;
 }
 
-/* 가로형 워드마크·윙 엠블럼: 보이는 폭을 40px 이하로 제한. */
+/* 세로로 길거나 여백이 적은 엠블럼은 기본군보다 한 단계 낮춰 광학 무게를 맞춘다. */
 .marketplace.is-qf-plain .depth-rail.is-lux-logo :is(
-  .lux-qf-logo--astonmartin,
-  .lux-qf-logo--audi,
-  .lux-qf-logo--gmc
+  .lux-qf-logo--rollsroyce,
+  .lux-qf-logo--tesla
 ) {
+  --lux-logo-scale: 1.071;
+}
+
+/* 가로형 아우디 워드마크: 보이는 폭을 40px 이하로 제한. */
+.marketplace.is-qf-plain .depth-rail.is-lux-logo .lux-qf-logo--audi {
   --lux-logo-scale: 0.909;
 }
 
-/* 벤틀리는 날개가 길고 중앙 B가 작아 40px 제한 시 식별성이 떨어진다.
-   슬롯 중심·피치는 유지하고 글리프만 48px로 광학 보정한다. */
+/* 날개형·저상형 로고는 40px 제한 시 중앙 심벌이나 워드마크 식별성이 떨어진다.
+   40×40 슬롯 중심과 76px 카드 피치는 유지하고 글리프만 약 48px로 광학 보정한다. */
 .marketplace.is-qf-plain .depth-rail.is-lux-logo
-  .depth-card:has(.lux-qf-logo--bentley)
+  .depth-card:has(:is(
+    .lux-qf-logo--bentley,
+    .lux-qf-logo--astonmartin,
+    .lux-qf-logo--gmc
+  ))
   .depth-card-media.is-brand {
   overflow: visible;
 }
 
-.marketplace.is-qf-plain .depth-rail.is-lux-logo .lux-qf-logo--bentley {
+.marketplace.is-qf-plain .depth-rail.is-lux-logo :is(
+  .lux-qf-logo--bentley,
+  .lux-qf-logo--astonmartin,
+  .lux-qf-logo--gmc
+) {
   --lux-logo-scale: 1.091;
 }
 
-/* 면적이 큰 가로형은 한 단계 더 줄여 원형 로고와 광학 무게를 맞춘다. */
-.marketplace.is-qf-plain .depth-rail.is-lux-logo :is(
-  .lux-qf-logo--mclaren,
-  .lux-qf-logo--cadillac,
-  .lux-qf-logo--bugatti
-) {
+/* 면적이 큰 캐딜락 문장은 원형 로고와 광학 무게를 맞춘다. */
+.marketplace.is-qf-plain .depth-rail.is-lux-logo .lux-qf-logo--cadillac {
   --lux-logo-scale: 0.864;
+}
+
+/* 넓은 실루엣 안의 글리프 밀도에 맞춘 개별 광학 보정. */
+.marketplace.is-qf-plain .depth-rail.is-lux-logo .lux-qf-logo--mclaren {
+  --lux-logo-scale: 0.773;
+}
+
+.marketplace.is-qf-plain .depth-rail.is-lux-logo .lux-qf-logo--bugatti {
+  --lux-logo-scale: 0.818;
 }
