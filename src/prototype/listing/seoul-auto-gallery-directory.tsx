@@ -45,8 +45,8 @@ export function SeoulAutoGalleryTabs({ value, onChange }: { value: SeoulAutoGall
           className={value === item.value ? "is-selected" : undefined}
           onClick={() => onChange(item.value)}
         >
-          {item.count === undefined ? null : <b>{item.count.toLocaleString("ko-KR")}</b>}
           <span>{item.label}</span>
+          {item.count === undefined ? null : <b>{item.count.toLocaleString("ko-KR")}</b>}
         </button>
       ))}
     </nav>
