@@ -45,12 +45,23 @@
 
 /* 가로형 워드마크·윙 엠블럼: 보이는 폭을 40px 이하로 제한. */
 .marketplace.is-qf-plain .depth-rail.is-lux-logo :is(
-  .lux-qf-logo--bentley,
   .lux-qf-logo--astonmartin,
   .lux-qf-logo--audi,
   .lux-qf-logo--gmc
 ) {
   --lux-logo-scale: 0.909;
+}
+
+/* 벤틀리는 날개가 길고 중앙 B가 작아 40px 제한 시 식별성이 떨어진다.
+   슬롯 중심·피치는 유지하고 글리프만 48px로 광학 보정한다. */
+.marketplace.is-qf-plain .depth-rail.is-lux-logo
+  .depth-card:has(.lux-qf-logo--bentley)
+  .depth-card-media.is-brand {
+  overflow: visible;
+}
+
+.marketplace.is-qf-plain .depth-rail.is-lux-logo .lux-qf-logo--bentley {
+  --lux-logo-scale: 1.091;
 }
 
 /* 면적이 큰 가로형은 한 단계 더 줄여 원형 로고와 광학 무게를 맞춘다. */
