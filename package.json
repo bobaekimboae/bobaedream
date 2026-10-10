@@ -14,6 +14,8 @@
     "check:runtime": "node scripts/check-mobile-runtime.mjs",
     "update:runtime-lock": "node scripts/update-mobile-runtime-lock.mjs",
     "test:runtime": "playwright test",
+    "shortform:render-server": "node scripts/shortform-render-server.mjs",
+    "check:shortform": "node scripts/shortform-browser-check.mjs",
     "test:sites": "node --test tests/sites-worker.test.mjs",
     "verify:qf": "npm run check:runtime && node scripts/build-info.mjs && tsc && vite build",
     "measure:qf": "node scripts/qf-measure.mjs",
