@@ -203,3 +203,9 @@
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec:not(:has(.bbm-card-spec-icon)) { flex-wrap: nowrap; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec:not(:has(.bbm-card-spec-icon)) .bbm-card-spec-item:nth-last-child(2) { flex: 0 1 auto; min-width: 0; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec:not(:has(.bbm-card-spec-icon)) .bbm-card-spec-item:nth-last-child(2) .bbm-card-spec-text { overflow: hidden; text-overflow: ellipsis; }
+/* 2026-10-10 「피드에서 가격이 메타정보에 붙어 답답, 지역·판매자도 답답」: 초톳 캡처와 같은 배율로 줄 사이를 재측정(글자 기준선 간격 · 글자 잉크 사이 간격).
+   메타 → 가격 기준선 우리 21.0 / 초톳 19.9, 가격 글자 아래 → 지역 글자 위 우리 12.8 / 초톳 15.0(한글은 글자 높이가 꽉 차서 같은 간격이어도 더 붙어 보임).
+   → 메타 → 가격 +2, 가격 → 지역 +2, 지역 → 판매자 +2(판매자 줄 위치는 지역과 함께 내려가고, 프사 아래 → 구분선 16은 그대로) */
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-price-badges { margin-top: -1px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-meta { margin-top: 9px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-meta-row { margin-top: -6px; }
