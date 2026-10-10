@@ -207,6 +207,17 @@ const bmwGuaziSideVisuals: Record<string, QuickModelVisual> = {
   "X4": { image: asset("cars/bmw/card-side/x4-side.png"), bodyType: "SUV", bodyFit: "width" },
 };
 
+// 완전 측면 자산은 비교용으로 보존하고, &qfangle=three-quarter 에서는
+// 같은 슬롯·색상·바닥선을 유지한 좌측 전방 3/4 자산을 사용한다.
+const bmwGuaziThreeQuarterVisuals = Object.fromEntries(
+  Object.entries(bmwGuaziSideVisuals).map(([name, visual]) => [name, {
+    ...visual,
+    image: visual.image
+      ? visual.image.replace("/card-side/", "/card-three-quarter/").replace("-side.png", "-three-quarter.png")
+      : visual.image,
+  }]),
+) as Record<string, QuickModelVisual>;
+
 // 보기 방식 주소 값(검수 링크용): &view=list · feed · gallery · oneline · text. PC는 목록·갤러리·한줄 광고만 쓴다
 const bbmViewParam: Record<string, BbmMobileView> = { list: "목록으로 보기", feed: "피드로 보기", gallery: "갤러리로 보기", oneline: "한줄 광고로 보기", text: "텍스트로 보기" };
 // 피드 사진 넘기기 시안(2026-10-10 「레딧처럼 사진 이동」): 매물마다 사진이 1장뿐이라 같은 목록의 다음 매물 사진을 임시 슬라이드로 붙인다(3~6장). &feedphotos=single 이면 1장 그대로
@@ -798,6 +809,10 @@ function MarketplaceScreen() {
     && maker === "BMW"
     && typeof window !== "undefined"
     && new URLSearchParams(window.location.search).get("qfangle") === "side";
+  const guaziCardThreeQuarterPreview = guaziCardChipPreview
+    && maker === "BMW"
+    && typeof window !== "undefined"
+    && new URLSearchParams(window.location.search).get("qfangle") === "three-quarter";
   // QF-100 최종: 과쯔 퀵필터(제조사·모델·세부모델 줄) 기본 = 바탕 없는 초톳식(plain). &qfcard=card 면 이전 과쯔 카드(비교용), &qfcard=plain 도 plain
   const plainQuickCards = isGuaziQuickStyle && quickCardMode !== "card" && quickCardMode !== "guazi-card";
   // 2026-10-09 초톳 가로형 이미지 알약칩 비교 시안. 기본 모델 레일은 유지한다.
@@ -1651,11 +1666,15 @@ function MarketplaceScreen() {
                 // be evaluated as designed.
                 const dedicatedCardVisual = guaziCardChipPreview && maker ? quickModelVisualsByMaker[maker]?.[model] : undefined;
                 const catalogCardVisual = guaziCardChipPreview && maker ? guaziModelVisualsByMaker[maker]?.[model] : undefined;
-                const sideCardVisual = guaziCardSidePreview ? bmwGuaziSideVisuals[model] : undefined;
+                const angleCardVisual = guaziCardThreeQuarterPreview
+                  ? bmwGuaziThreeQuarterVisuals[model]
+                  : guaziCardSidePreview
+                    ? bmwGuaziSideVisuals[model]
+                    : undefined;
                 // 전용 카드 이미지가 있는 모델은 색과 실루엣 차이가 더 잘 보이는
                 // 해당 자산을 우선하고, 나머지만 카탈로그 최신 세대 이미지로 보완한다.
-                const cardVisual = sideCardVisual?.image
-                  ? sideCardVisual
+                const cardVisual = angleCardVisual?.image
+                  ? angleCardVisual
                   : dedicatedCardVisual?.image
                   ? dedicatedCardVisual
                   : modelVisual?.image
