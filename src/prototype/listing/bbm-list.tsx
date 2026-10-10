@@ -445,7 +445,7 @@ function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string
   );
 }
 
-export function BbmResultCard({ car, variant, featured = false, liked, onToggleLike, onOpen, onChat, onCall, feedPhotos }: { car: Car; variant: "pc" | "mobile"; featured?: boolean; feedPhotos?: string[]; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void; onCall?: () => void }) {
+export function BbmResultCard({ car, variant, featured = false, liked, onToggleLike, onOpen, onChat, onCall, feedPhotos, eagerPhoto = true }: { car: Car; eagerPhoto?: boolean; variant: "pc" | "mobile"; featured?: boolean; feedPhotos?: string[]; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void; onCall?: () => void }) {
   const seller = sellerLabel(car);
   // 목록 썸네일은 정규화 사본(럭셔리카와 같은 규칙)을 쓰고, 피드 대표 사진·그림(contain)은 원본 그대로
   const listPhoto = featured || car.imageFit === "contain" ? undefined : car.listThumb ?? normalizedListThumb(car.image);
@@ -489,7 +489,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
     </div>
   ) : (
     <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`}>
-      {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(listPhoto ?? car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} style={{ objectPosition: listPhoto ? "center center" : car.imagePosition ?? "center center" }} /> : null}
+      {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(listPhoto ?? car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} loading={eagerPhoto ? "eager" : "lazy"} decoding="async" style={{ objectPosition: listPhoto ? "center center" : car.imagePosition ?? "center center" }} /> : null}
       <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span></div>
     </div>
   );
