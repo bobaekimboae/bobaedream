@@ -1,0 +1,119 @@
+.sag-directory-tabs {
+  display: grid;
+  height: 48px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px solid #ededed;
+  background: #fff;
+}
+
+.sag-directory-tabs button {
+  position: relative;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #8b95a1;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sag-directory-tabs button::after {
+  position: absolute;
+  right: 16px;
+  bottom: 0;
+  left: 16px;
+  height: 2px;
+  background: transparent;
+  content: "";
+}
+
+.sag-directory-tabs button.is-selected {
+  color: #222;
+  font-weight: 700;
+}
+
+.sag-directory-tabs button.is-selected::after { background: #222; }
+.sag-directory-tabs button:active { opacity: 0.6; }
+.sag-directory-tabs button:focus-visible { outline: 2px solid #222; outline-offset: -3px; }
+
+.sag-company-directory {
+  border-top: 8px solid var(--bbm-page-bg, #f4f4f4);
+  background: #fff;
+}
+
+.sag-company-directory h2 {
+  margin: 0;
+  padding: 14px 16px 10px;
+  color: #222;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+.sag-company-list { padding-bottom: 8px; }
+
+.sag-company-row {
+  display: grid;
+  width: 100%;
+  min-height: 64px;
+  grid-template-columns: minmax(0, 1fr) auto 20px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px 8px 16px;
+  border: 0;
+  background: #fff;
+  color: #222;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sag-company-row > span { min-width: 0; }
+
+.sag-company-row strong,
+.sag-company-row small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.sag-company-row strong { font-size: 15px; font-weight: 500; line-height: 21px; }
+.sag-company-row small { margin-top: 3px; color: #8b95a1; font-size: 12px; font-weight: 400; line-height: 16px; }
+.sag-company-row b { color: #6b7280; font-size: 13px; font-weight: 400; line-height: 18px; white-space: nowrap; }
+.sag-company-row svg { width: 18px; height: 18px; color: #b0b8c1; }
+
+.sag-company-row:not(:last-child) > span {
+  position: relative;
+}
+
+.sag-company-row:not(:last-child) > span::after {
+  position: absolute;
+  right: -58px;
+  bottom: -12px;
+  left: 0;
+  height: 1px;
+  background: #ededed;
+  content: "";
+}
+
+.sag-company-row:active { background: #f7f8fa; }
+
+.sag-tab-panel > .sag-dealer-rail { border-top-width: 8px; }
+
+/* 서울오토갤러리 전용: 로고·이름은 유지하고 카드 아래 빈 공간만 줄인다. */
+.marketplace.is-seoul-auto-gallery.is-bbm-m.is-qf-plain .bbm-m-quick-slot .depth-rail.is-lux-logo {
+  padding-bottom: 6px;
+}
+
+.marketplace.is-seoul-auto-gallery.is-bbm-m.is-qf-plain .bbm-m-quick-slot .depth-rail.is-lux-logo .depth-card:has(> .depth-card-media.is-brand) {
+  height: 80px;
+}
+
+.marketplace.is-seoul-auto-gallery.is-bbm-m.is-qf-plain .bbm-m-quick-slot .depth-rail.is-lux-logo .depth-card:has(> .depth-card-media.is-brand) .depth-card-label {
+  margin-top: 6px;
+}
+
+@media (min-width: 768px) {
+  .sag-directory-tabs { padding: 0 4px; }
+  .sag-company-directory h2 { padding-right: 20px; padding-left: 20px; }
+  .sag-company-row { padding-right: 16px; padding-left: 20px; }
+}

@@ -1,51 +1,56 @@
-# Design QA — 서울오토갤러리 카테고리 헤더
+# 서울오토갤러리 탐색 탭 시안 QA
 
-- source visual truth path: `C:\Users\bobae\Documents\Codex\bobaedream-genesis-1008\reports\seoul-auto-gallery-youtube-reference.png`
-- implementation screenshot path: `C:\Users\bobae\Documents\Codex\bobaedream-genesis-1008\reports\seoul-auto-gallery-header-mobile-v01.png`
-- focused implementation path: `C:\Users\bobae\Documents\Codex\bobaedream-genesis-1008\reports\seoul-auto-gallery-header-region-v01.png`
-- combined comparison path: `C:\Users\bobae\Documents\Codex\bobaedream-genesis-1008\reports\seoul-auto-gallery-header-qa-side-by-side.png`
-- scroll-state evidence: `C:\Users\bobae\Documents\Codex\bobaedream-genesis-1008\reports\seoul-auto-gallery-header-scroll-v02.png`
-- desktop evidence: `C:\Users\bobae\Documents\Codex\bobaedream-genesis-1008\reports\seoul-auto-gallery-header-desktop-v01.png`
-- viewport: mobile 390×844 CSS px, desktop 1440×1000 CSS px
-- source pixels: 415×900; source banner crop 380×104, normalized to 358×98
-- implementation pixels: full mobile 390×844, focused banner 358×98
-- density normalization: deviceScaleFactor 1; source banner crop and implementation banner normalized to equal 358×98 pixels
-- state: 서울오토갤러리 카테고리 첫 화면, 필터 미선택, 모바일 피드
-
-## Full-view comparison evidence
-
-The implementation preserves the existing search, region, filter-chip, logo rail, dealer rail, and listing hierarchy. The new header is inserted between the search header and region/filter controls, so it does not replace or obscure any existing interaction.
-
-## Focused region comparison evidence
-
-The combined image compares the YouTube mobile channel banner crop on the left with the implemented 서울오토갤러리 banner on the right at the same 358×98 pixels. Both use the same 3.65:1 proportion and 8px rounded visual treatment. The implementation intentionally substitutes Seoul Auto Gallery content while preserving the compact channel-banner density.
-
-## Required fidelity surfaces
-
-- Fonts and typography: title 18/23·700, subtitle 12/17·400; no wrapping or truncation at 390px.
-- Spacing and layout rhythm: x=16, width=358, height=98, 16px side margins, 8px radius; filter begins below the header without overlap.
-- Colors and visual tokens: deep navy photographic background, white title, 84% white subtitle, restrained left-to-right legibility overlay.
-- Image quality and asset fidelity: 2084×755 photographic master remains sharp at 358×98 and 1200×132; official SAG source mark is used as the basis for the transparent symbol asset.
-- Copy and content: `서울오토갤러리` / `수입차 전문 매매단지` matches the approved shortened copy.
-
-## Interaction and runtime checks
-
-- The `.mobile-scroll` container reaches `scrollTop=260`; banner bounding box moves to `y=-198`, confirming it scrolls away naturally.
-- Persistent bottom navigation remains visible.
-- Browser console and page errors: 0.
-- `npm run check:runtime`: passed.
-- `npm run verify:qf`: passed.
+- source visual truth: `reports/seoul-auto-gallery-dealer-suits-deployed.png`
+- implementation: `reports/seoul-auto-gallery-tabs-v01-vehicles.png`
+- interaction states: `reports/seoul-auto-gallery-tabs-v01-companies.png`, `reports/seoul-auto-gallery-tabs-v01-dealers.png`
+- side-by-side evidence: `reports/seoul-auto-gallery-tabs-v01-compare.png`
+- viewport: 390 × 844 CSS px
+- source pixels: 390 × 844
+- implementation pixels: 390 × 844
+- deviceScaleFactor: 1
+- density normalization: none required
+- state: 서울오토갤러리 첫 화면, 필터 미선택, 판매 차량 기본 탭
 
 ## Findings
 
-No actionable P0, P1, or P2 mismatch remains.
+- P0/P1/P2 findings: none.
+- Fonts and typography: 기존 Pretendard 위계와 동일하며 탭은 16/22, 선택 700, 미선택 400으로 분리된다.
+- Spacing and layout rhythm: 지역 행을 48px 탭으로 교체했고, 브랜드 카드 높이를 102px에서 80px로 줄여 이름 아래 불필요한 여백을 제거했다.
+- Colors and tokens: 선택 #222, 미선택 #8B95A1, 구분선 #EDEDED로 기존 필터 토큰과 맞는다.
+- Image quality: 헤더, 브랜드 로고, 딜러 정장 프로필 원본 자산을 그대로 사용하며 대체 그래픽은 없다.
+- Copy and content: 판매 차량 · 입점 상사 · 전문 딜러의 역할이 명확하며 상사·딜러 화면에서 중복 필터와 목록을 숨긴다.
+- Accessibility: role=tablist/tab과 aria-selected 상태가 탭 전환에 맞게 바뀐다.
+
+## Focused region evidence
+
+상단 헤더부터 첫 매물까지 같은 390px 크롭으로 비교했다. 탭, 브랜드 레일, 목록 시작점이 모두 한 화면에 보여 별도 확대 크롭은 필요하지 않았다.
+
+## Interaction verification
+
+- 판매 차량: 필터, 브랜드 레일, 매물 목록 표시
+- 입점 상사: 상사명, 소속 딜러 수, 매물 수 표시
+- 전문 딜러: 정장 프로필, 이름, 매물 수 표시
+- 선택 밑줄과 aria-selected가 세 탭 모두 정상 전환
+- 브라우저 console errors/warnings: 0
 
 ## Comparison history
 
-- Pass 1: source and implementation were normalized to 358×98. No P0/P1/P2 issue was found, so no visual-fix iteration was required.
+- Initial finding: 기존 화면은 지역 정보가 불필요하고 브랜드 이름 아래 21px의 빈 공간과 딜러 레일 중복 노출로 상단이 길었다.
+- Fix: 지역 행을 3개 기능 탭으로 교체하고 탭별 콘텐츠를 분리했다. 브랜드 카드의 로고-명칭 간격을 14px에서 6px로, 카드 높이를 102px에서 80px로 줄였다.
+- Post-fix evidence: `reports/seoul-auto-gallery-tabs-v01-compare.png`; 첫 매물이 더 일찍 시작하고 탐색 목적이 명확해졌다.
+
+## Implementation checklist
+
+- [x] 지역·초기화 행 제거
+- [x] 3개 탭 및 선택 상태 구현
+- [x] 판매 차량 기본 상태
+- [x] 입점 상사 실제 데이터 요약
+- [x] 전문 딜러 정장 프로필 연결
+- [x] 브랜드 레일 하단 여백 축소
+- [x] 390px 렌더링 및 상호작용 확인
 
 ## Follow-up polish
 
-- P3: If a future official high-resolution transparent SAG symbol becomes available, it can replace the current derived transparent symbol without changing layout metrics.
+- P3: 실제 상사 상세 화면이 연결되면 상사 행의 꺾쇠를 상세 화면으로 연결한다.
 
 final result: passed
