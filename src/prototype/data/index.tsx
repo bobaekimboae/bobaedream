@@ -1568,7 +1568,7 @@ const seoulAutoGalleryCars: Car[] = seoulAutoGalleryRows.map((row, index) => {
     price: `${row.price.toLocaleString("ko-KR")} 만원`,
     place: "서울 서초구 · 서울오토갤러리",
     views: 0,
-    dealer: `${row.company} ${row.dealer}`,
+    dealer: `${row.dealer} ${row.company}`,
     stock: sameDealer,
     posted: row.posted,
     photos: photos.length,
