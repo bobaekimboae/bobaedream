@@ -83,7 +83,7 @@ import { BbmPartsGallery } from "../filters/bbm-parts-gallery";
 import { BbmActionBar, BbmFullExcludeAction, BbmFullFilter, BbmFullItem, BbmModal, BbmSheet } from "../filters/bbm-filter-parts";
 import { BBM_MAKER_ITEM, bbmFilterOrder, bbmSidebarItems, bikeFilterOrder, daangnFilterLabel, partsFilterOrder, partsPricePresets, splitDaangnFilterOrder, truckFilterOrder, type BbmFilterItem } from "../filters/bbm-filter-options";
 import { BbmBodyTypeSheet, BbmExpandPanel, BbmModalPanel, BbmSellerTypeSheet, clearBbmItem } from "../filters/bbm-filter-panels";
-import { BbmBottomGnb, BbmBrandMenu, BbmCategoryMenu, BbmCategoryPicker, BbmHeadlinePreviewLinks, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, BbmTextViewTable, bbmIcon } from "./bbm-list";
+import { bbmCategoryGroups, BbmBottomGnb, BbmBrandMenu, BbmCategoryMenu, BbmCategoryPicker, BbmHeadlinePreviewLinks, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, BbmTextViewTable, bbmIcon } from "./bbm-list";
 import "./qf-pc-view-modes.css";
 import "./qf-m-view-modes.css";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
@@ -840,7 +840,8 @@ function MarketplaceScreen() {
     submodelCode: null,
   });
   const categoryIsDefault = category === "전체";
-  const categorySearchPlaceholder = categoryIsDefault ? "중고차" : category;
+  const usedCarChildValues = (bbmCategoryGroups.find((group) => group.value === "중고차")?.children ?? []).map((child) => child.value).filter((value) => value !== "중고차");
+  const categorySearchPlaceholder = categoryIsDefault ? "전체차량" : category;
   const categoryBrandRail = categoryBrandRails[category] ?? categoryBrandRails["전체"];
   // QF-097: 과쯔 카탈로그 제조사(9개)도 모델 → 세부 모델 → 트림 단계
   const usesUxDepth = Boolean(isTruckCategory && maker) || Boolean(supportsVehicleCatalog && maker && vehicleCatalog.index?.manufacturers.some((item) => item.name === maker));
@@ -2196,9 +2197,15 @@ function MarketplaceScreen() {
   const bbmCrumbs: BbmCrumb[] = [
     { label: "보배드림", onClick: () => setSearchToast("보배드림 홈은 정식 서비스에서 이용해 주세요.") },
     // QF-109: 유형이 "중고차"(기본)면 "전체차량" 단계를 빼고 둘째 칸 "중고차"가 그 단계(누르면 제조사 풀기). 다른 유형은 셋째 칸에 유형 이름
-    ...(categoryIsDefault || category === "중고차"
-      ? [{ label: "중고차", onClick: clearMakerFilter }]
-      : [{ label: "중고차", onClick: clearCategoryFilter }, { label: category, onClick: clearMakerFilter }]),
+    // 초톳 크로스체크(2026-10-10): 초톳 빵부스러기는 `사이트 / 카테고리` 한 칸(「Chợ Tốt Xe / Xe cộ」 · 「Chợ Tốt Xe / Ô tô」)이다.
+    // 전체차량 = 「전체차량」, 중고차 = 「중고차」, 중고차 하위(국산차 · 수입차 · 럭셔리카 …) = 「중고차 / 하위」, 트럭 · 바이크 등 다른 유형은 중고차 아래가 아니라 이름 한 칸
+    ...(categoryIsDefault
+      ? [{ label: "전체차량", onClick: clearMakerFilter }]
+      : category === "중고차"
+        ? [{ label: "중고차", onClick: clearMakerFilter }]
+        : usedCarChildValues.includes(category)
+          ? [{ label: "중고차", onClick: clearCategoryFilter }, { label: category, onClick: clearMakerFilter }]
+          : [{ label: category, onClick: clearMakerFilter }]),
     ...(isHeavyCategory && heavySelection.maker ? [{ label: heavySelection.maker, onClick: clearHeavyModel }] : []),
     ...(isHeavyCategory && heavySelection.model ? [{ label: heavySelection.model, onClick: clearHeavySubmodel }] : []),
     ...(isHeavyCategory && heavySelection.submodel ? [{ label: heavySelection.submodel }] : []),
