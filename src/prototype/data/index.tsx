@@ -28,6 +28,7 @@ import { truckListingRowsV09, truckModelsByMaker, truckPlaceV09 } from "../truck
 import { truckScenarioImageV02 } from "../truck/scenario-images-v02";
 import { truckSubtypeLabel } from "./truck-format-catalog";
 import { luxuryDealers, luxuryListingRows } from "./luxury-category-v01";
+import { seoulAutoGalleryRows } from "./seoul-autogallery-v01";
 import {
   campingScenarioV01,
   materialHandlingScenarioV01,
@@ -169,6 +170,10 @@ type Car = {
   /** 럭셔리카 카테고리 가상 매물 v01(차량 › 중고차 › 럭셔리카). 위치는 place의 단지를 그대로 쓴다 */
   /** 정사각형 목록 썸네일용 사본(차 폭 90% · 바닥선 85% 정규화). 없으면 image를 가운데 자르기 */
   listThumb?: string;
+  /** 서울오토갤러리 카테고리 실데이터(실제 상사명 · 딜러명, 2026-10-10 사용자 지시) */
+  seoulAutoGallery?: { company: string; dealer: string; priceKind: "공개" | "추정" };
+  /** 피드 사진 넘기기에 쓰는 실제 다중 사진(있으면 임시 슬라이드 대신 사용) */
+  photoList?: string[];
   luxuryCategory?: { number: number; vehicleNumber: string; model: string; generation: string; filled: boolean; certified: boolean };
   uiTest?: {
     number: number;
@@ -336,7 +341,7 @@ const sellerLabel = (car: Car) => {
   if (car.heavy?.isVirtual) return car.dealer;
   if (car.virtualCategory?.isVirtual) return car.dealer;
   if (car.uiTest) return car.dealer;
-  if (car.luxuryCategory) return car.dealer;
+  if (car.luxuryCategory || car.seoulAutoGallery) return car.dealer;
   if (car.dealer && car.dealer !== sellerScenario.name) return car.dealer;
   const index = ((car.id - 1) % dealerNamePool.length + dealerNamePool.length) % dealerNamePool.length;
   return dealerNamePool[index];
@@ -350,7 +355,7 @@ const sellerAvatar = (car: Car) => {
 };
 
 // 피드 보기 전용: 승인된 초톳 인물 사진(위 허용 목록)을 매물마다 다르게 돌려 쓴다(2026-10-10 「프사 실제 프사로」). 이미 초톳 사진이 정해진 매물은 그대로
-const sellerRealPhoto = (car: Car) => car.sellerProfile?.includes("sellers/chotot/")
+const sellerRealPhoto = (car: Car) => car.seoulAutoGallery ? sellerAvatar(car) : car.sellerProfile?.includes("sellers/chotot/")
   ? car.sellerProfile
   : chototHumanSellerProfiles[((car.id % chototHumanSellerProfiles.length) + chototHumanSellerProfiles.length) % chototHumanSellerProfiles.length];
 
@@ -1540,11 +1545,38 @@ const luxuryCategoryCars: Car[] = luxuryRowsPhotoFirst.map((row, index) => {
   };
 });
 
-// 서울오토갤러리 카테고리(차량 › 중고차 › 서울오토갤러리, 2026-10-10 「서울오토갤러리 매매단지에 등록된 매물을 보여주는 카테고리」): 승용·럭셔리카 가상 매물 중 매매단지가 서울오토갤러리인 딜러 매물
-const seoulAutoGalleryCars: Car[] = [...new Map([...bbmSampleCars, ...luxuryCategoryCars].map((car) => [car.id, car])).values()].filter((car) => (
-  car.sellerType !== "개인" && !car.truck && !car.bike && !car.heavy && !car.virtualCategory
-  && (car.luxuryCategory ? car.place : displayListPlace(car.place, "딜러")).includes("서울오토갤러리")
-));
+// 서울오토갤러리 카테고리(차량 › 중고차 › 서울오토갤러리, 2026-10-10): 시트 「서울오토갤러리」 실데이터(사진 5장 · 실제 상사명 · 실제 딜러명). 위치는 서울 서초구 · 서울오토갤러리
+const seoulAutoGalleryMileageText = (km: number) => km >= 9500 ? `${String(Math.round(km / 1000) / 10)}만km` : `${km.toLocaleString("ko-KR")}km`;
+const seoulAutoGalleryCars: Car[] = seoulAutoGalleryRows.map((row, index) => {
+  const nn = String(row.number).padStart(2, "0");
+  const photos = [1, 2, 3, 4, 5].map((n) => `cars/seoul-autogallery-v01/sag-${nn}-${n}.webp`);
+  const sameDealer = seoulAutoGalleryRows.filter((other) => other.company === row.company && other.dealer === row.dealer).length;
+  return {
+    id: 13_000 + row.number,
+    updateRank: seoulAutoGalleryRows.length - index,
+    maker: row.maker,
+    modelGroup: row.model,
+    sellerType: "딜러",
+    image: photos[0],
+    photoList: photos,
+    listThumb: `cars/seoul-autogallery-v01/thumb/sag-${nn}.webp`,
+    imagePosition: "center center",
+    title: [row.maker, row.model, row.generation].filter(Boolean).join(" "),
+    trim: row.trim,
+    specs: [`${row.year}년식`, seoulAutoGalleryMileageText(row.mileage), row.fuel],
+    cardSpec: [String(row.year), seoulAutoGalleryMileageText(row.mileage), row.fuel],
+    price: `${row.price.toLocaleString("ko-KR")} 만원`,
+    place: "서울 서초구 · 서울오토갤러리",
+    views: 0,
+    dealer: `${row.company} ${row.dealer}`,
+    stock: sameDealer,
+    posted: row.posted,
+    photos: photos.length,
+    sellerProfile: null,
+    seoulAutoGallery: { company: row.company, dealer: row.dealer, priceKind: row.priceKind },
+    filter: { year: row.year, seats: "전체", condition: "중고", mileage: row.mileage, owners: "전체", transmission: "오토", fuel: row.fuel, color: "기타", origin: row.origin, body: row.body, video: false },
+  };
+});
 
 function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
   const data = car.filter;

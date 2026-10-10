@@ -454,7 +454,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   const isPassenger = !(car.truck || car.bike || car.heavy || car.virtualCategory);
   // 중고차는 개인·딜러 모두 「시도 구군 · 단지」(2026-10-08 「중고차 매물은 지역에 단지 붙이고」)
   // 럭셔리카 가상 매물은 데이터에 정한 단지를 그대로(지역별 기본 단지로 바꾸지 않음), 표기 축약 규칙만 적용
-  const listPlace = car.luxuryCategory
+  const listPlace = car.luxuryCategory || car.seoulAutoGallery
     ? [placeSidoGugun(car.place.split(" · ")[0]), ...car.place.split(" · ").slice(1)].join(" · ").replaceAll("자동차매매단지", "단지").replaceAll("매매단지", "단지")
     : car.bike ? placeSidoGugun(car.place.split(" · ")[0])
     : car.truck && car.place.includes(" · ")
