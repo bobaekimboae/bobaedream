@@ -317,7 +317,7 @@ const bbmPartsMode = new URLSearchParams(window.location.search).get("bbmparts")
 
 // 최종 선택은 노션에서 받은 세 개 조절선 FilterHeader 원본이다.
 // `filtericon=notion`은 이전 2단 비교 시안만 유지한다.
-// 확정(2026-10-10): 기본은 노션 원본 `chip-filter-chotot-24-s`(수정 없음). 다시 그린 얇은 버전은 「디자인을 훼손했어」로 취소. 이전 세 조절선은 `filtericon=header`. 시안(2026-10-10 「이 아이콘으로 시안」): `filtericon=chotot24`(노션 필터 24px 원본, 잉크 15) · `chotot24s`(작게 13.3) · `chotot24l`(크게 17).
+// 2026-10-10 「필터_16/16 (1)」 노션 원본(리싱마크트, 수정 없음)을 기본으로. 이전 시안은 `filtericon=chotot24s` 등. 이전 세 조절선은 `filtericon=header`. 시안(2026-10-10 「이 아이콘으로 시안」): `filtericon=chotot24`(노션 필터 24px 원본, 잉크 15) · `chotot24s`(작게 13.3) · `chotot24l`(크게 17).
 const bbmFilterIconParam = new URLSearchParams(window.location.search).get("filtericon");
 const bbmFilterIconName = bbmFilterIconParam === "notion"
   ? "chip-filter-notion"
@@ -325,7 +325,7 @@ const bbmFilterIconName = bbmFilterIconParam === "notion"
   : bbmFilterIconParam === "chotot24s" ? "chip-filter-chotot-24-s"
   : bbmFilterIconParam === "chotot24l" ? "chip-filter-chotot-24-l"
   : bbmFilterIconParam === "header" ? "chip-filter-header"
-  : "chip-filter-chotot-24-s";
+  : "chip-filter-leasing-24";
 
 let detailScreen: FlowScreen;
 let savedListingsScreen: FlowScreen;

@@ -176,3 +176,4 @@
 "2026-10-11 12:40","미지정","feat/qf-filter-icon-default-1010","-","-","병합·배포","필터 아이콘 기본값을 노션 24px 작은 버전(시안 2)으로 확정","listing/index.tsx · docs/quick-filter-spec.md","이전 아이콘은 &filtericon=header로만","-","verify:qf 통과"
 "2026-10-11 13:20","미지정","feat/qf-filter-icon-slim-1010","-","-","병합·배포","필터 아이콘 얇게(선 1.4, 고리 손잡이)","listing/index.tsx · public/assets/bbm/chip-filter-slim-24.svg · docs/quick-filter-spec.md","굵은 시안은 &filtericon=bold","-","verify:qf 통과"
 "2026-10-11 13:50","미지정","fix/qf-filter-icon-restore-1010","-","-","병합·배포","얇게 다시 그린 필터 아이콘 취소, 노션 원본(시안 2) 복원","listing/index.tsx · docs/quick-filter-spec.md","원본 훼손 취소","-","verify:qf 통과"
+"2026-10-11 14:30","미지정","feat/qf-filter-icon-leasing-1010","-","-","병합·배포","필터 아이콘을 노션 「필터_16/16 (1)」 원본으로 교체","listing/index.tsx · listing/qf-align.css · public/assets/bbm/chip-filter-leasing-24.svg · docs/quick-filter-spec.md","원본 패스 수정 없음","선 두께 실측 안 함","verify:qf 통과"
