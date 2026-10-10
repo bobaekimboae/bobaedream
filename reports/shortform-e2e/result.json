@@ -20,6 +20,16 @@
     "detail": ""
   },
   {
+    "name": "모자이크 네모 그리기",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "번호판 가리기 적용(모자이크 픽셀 변경)",
+    "ok": true,
+    "detail": "변경 픽셀 54421, 배지 블러 1"
+  },
+  {
     "name": "통합 미리보기 진행(장면 전환)",
     "ok": true,
     "detail": "장면 2, 시간 00:03"
@@ -27,7 +37,7 @@
   {
     "name": "음악 재생(WebAudio 신호)",
     "ok": true,
-    "detail": "AudioContext running, 파형 레벨 0.246"
+    "detail": "AudioContext running, 파형 레벨 0.253"
   },
   {
     "name": "음성 호출(speechSynthesis)",
@@ -53,6 +63,36 @@
     "name": "WebM에 음악 트랙 포함",
     "ok": true,
     "detail": "opus"
+  },
+  {
+    "name": "브라우저 MP4 생성·다운로드",
+    "ok": true,
+    "detail": "vp9+opus 1080×1920 30/1 15.02s 브라우저 MP4 · 규격 외 코덱"
+  },
+  {
+    "name": "브라우저 MP4 1080×1920·30fps·15초",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "브라우저 MP4 코덱 표시 정확(규격 여부)",
+    "ok": true,
+    "detail": "spec=false vp9/opus"
+  },
+  {
+    "name": "브라우저 MP4 음악 소리 있음",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "브라우저 MP4 디코딩 오류 없음",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "브라우저 MP4 결과 재생",
+    "ok": true,
+    "detail": "currentTime 1.16079"
   },
   {
     "name": "렌더 서버 연결 표시",
@@ -98,6 +138,16 @@
     "name": "결과 MP4 브라우저 재생",
     "ok": false,
     "detail": "이 Chromium 빌드는 H.264 디코더가 없어 재생 불가(일반 Chrome·Safari·Edge는 재생). ffmpeg 디코딩으로 대체 확인"
+  },
+  {
+    "name": "영상 길이 20초 선택",
+    "ok": true,
+    "detail": "총 20초, 장면 6개(사진 5 + CTA)"
+  },
+  {
+    "name": "서버 MP4 20초·30fps·1080×1920",
+    "ok": true,
+    "detail": "20.00s"
   },
   {
     "name": "페이지 오류 없음",
