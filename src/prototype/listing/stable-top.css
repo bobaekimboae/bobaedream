@@ -189,3 +189,7 @@
   .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-hierarchical .bbm-category-menu__label { width:68px; min-height:34px; font-size:12px; line-height:17px; }
   .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .bbm-category-menu.is-hierarchical .bbm-category-child-pills { padding:0 12px 12px; }
 }
+
+/* 모바일 퀵필터 줄 아래 구분선 제거(2026-10-10 「업데이트순 위 구분선도 없애라, 초톳은 없다」): 깊이 줄(.depth-rail)의 아래 1px box-shadow(#F3F3F3)가 정렬 줄 위에 선으로 보였다. 초톳에는 없다 */
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .depth-rail,
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .depth-rail.is-kr-maker { box-shadow: none; }
