@@ -6,8 +6,8 @@ export type SeoulAutoGallerySection = "vehicles" | "companies" | "dealers" | "ab
 
 const tabItems: Array<{ value: SeoulAutoGallerySection; label: string }> = [
   { value: "vehicles", label: "판매 차량" },
-  { value: "companies", label: "입점 상사" },
-  { value: "dealers", label: "소속 딜러" },
+  { value: "companies", label: "상사" },
+  { value: "dealers", label: "딜러" },
   { value: "about", label: "소개" },
 ];
 
@@ -49,7 +49,7 @@ export function SeoulAutoGalleryTabs({ value, onChange }: { value: SeoulAutoGall
 export function SeoulAutoGalleryCompanyDirectory() {
   return (
     <section className="sag-company-directory" aria-labelledby="sag-company-directory-title">
-      <h2 id="sag-company-directory-title">입점 상사</h2>
+      <h2 id="sag-company-directory-title">상사</h2>
       <div className="sag-company-list">
         {companies.map((company) => (
           <button key={company.name} type="button" className="sag-company-row">
@@ -76,8 +76,8 @@ export function SeoulAutoGalleryAbout({ onBrowse }: { onBrowse: () => void }) {
       </div>
       <dl className="sag-about__facts">
         <div><dt>판매 차량</dt><dd>검증된 수입차 매물</dd></div>
-        <div><dt>입점 상사</dt><dd>단지 내 상사별 매물</dd></div>
-        <div><dt>소속 딜러</dt><dd>딜러별 보유 매물</dd></div>
+        <div><dt>상사</dt><dd>단지 내 상사별 매물</dd></div>
+        <div><dt>딜러</dt><dd>딜러별 보유 매물</dd></div>
       </dl>
       <button type="button" className="sag-about__browse" onClick={onBrowse}>판매 차량 보기</button>
     </section>

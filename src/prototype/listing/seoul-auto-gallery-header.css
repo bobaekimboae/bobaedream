@@ -33,6 +33,20 @@
     linear-gradient(0deg, rgb(0 0 0 / 16%), transparent 60%);
 }
 
+.sag-category-hero--deutsch {
+  background: #101820;
+}
+
+.sag-category-hero--deutsch .sag-category-hero__building {
+  object-position: center;
+}
+
+.sag-category-hero--deutsch .sag-category-hero__shade {
+  background:
+    linear-gradient(90deg, rgb(8 18 31 / 92%) 0%, rgb(12 28 46 / 72%) 38%, rgb(14 31 51 / 18%) 68%, transparent 100%),
+    linear-gradient(0deg, rgb(0 0 0 / 22%), transparent 64%);
+}
+
 .sag-category-hero__content {
   display: flex;
   height: 100%;

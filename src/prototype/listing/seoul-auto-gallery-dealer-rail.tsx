@@ -15,7 +15,7 @@ const dealerInventoryUrl = (shopNo: string, empNo: string) =>
 export function SeoulAutoGalleryDealerRail() {
   return (
     <section className="sag-dealer-rail" aria-labelledby="sag-dealer-rail-title">
-      <h2 id="sag-dealer-rail-title">소속 딜러</h2>
+      <h2 id="sag-dealer-rail-title">딜러</h2>
       <div className="sag-dealer-track">
         {dealers.map((dealer) => (
           <a
