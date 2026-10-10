@@ -649,3 +649,6 @@
 .bbmf-gallery-card .bbmf-actions { padding: 16px 0 0; }
 .bbmf-gallery-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
 .bbmf-gallery-buttons button { height: 36px; padding: 0 14px; border: 1px solid #e0e0e0; border-radius: 8px; background: #fff; color: #1a1a1a; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+
+/* 카테고리 시트 시안 a: 아이콘 줄 없음 → 첫 그룹은 위 구분선 없이 시작 */
+.bbm-category-picker.is-proposal-a .bbm-category-picker__group.is-first { padding-top:4px; border-top:0; }
