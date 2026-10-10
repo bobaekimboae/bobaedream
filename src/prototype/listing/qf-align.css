@@ -69,3 +69,6 @@
 .marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-chip.is-active { padding: 4px 8.85px 4px 12px; gap: 9.15px; }
 .marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear { width: 18.4px; height: 18.4px; }
 .marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear .ui-icon { width: 18.4px; height: 18.4px; }
+
+/* 노션 「필터_16/16 (1)」(viewBox 24, 원본 수정 없음)은 24px 상자에 그려야 디자인 크기(선 약 1.3)가 된다 */
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-fixed > img.ui-icon[src*="chip-filter-leasing-24"] { width: 24px; height: 24px; margin: -2px; }
