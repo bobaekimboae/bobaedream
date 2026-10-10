@@ -17,13 +17,41 @@
 .kr-brand-logo.is-plain img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; mix-blend-mode: normal; }
 .marketplace.is-qf-plain .depth-card:has(> .depth-card-media.is-brand) .depth-card-label { color: #595959; }
 
-/* 바이크 빠른 선택은 오토홈 인기 브랜드 행처럼 엠블럼 자체를 크게 보인다.
-   카드 피치·이름·전체 제조사 목록은 유지하고 로고 영역만 52×40, 광학 크기만 1.25배로 확대한다. */
+/* 바이크 빠른 선택은 카드 피치·이름·52×40 로고 영역을 유지하고,
+   원본의 실제 잉크 면적·형태 밀도에 따라 브랜드별로 광학 보정한다.
+   얇은 선형·가로형은 길이를 확보하고, 면적이 큰 방패·원형은 한 단계 낮춘다. */
 .marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker .depth-card-media.is-brand { width: 52px; height: 40px; }
 .marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker .kr-brand-logo.is-bike img {
-  transform: scale(1.25);
+  transform: scale(var(--bike-logo-optical-scale, 1.15));
   transform-origin: center;
 }
+
+/* 기본 세트: 라이트바겐 엠블럼. 초톳 슬롯에서 보이는 무게를 약 28~34px로 통일한다. */
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="lightwagen-bike"][data-brand="BMW"] { --bike-logo-optical-scale: 1.12; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="lightwagen-bike"][data-brand="할리데이비슨"] { --bike-logo-optical-scale: 1.15; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="lightwagen-bike"][data-brand="두카티"] { --bike-logo-optical-scale: 1.03; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="lightwagen-bike"][data-brand="혼다"] { --bike-logo-optical-scale: 1.16; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="lightwagen-bike"][data-brand="야마하"] { --bike-logo-optical-scale: 1.06; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="lightwagen-bike"][data-brand="가와사키"] { --bike-logo-optical-scale: 1.08; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="lightwagen-bike"][data-brand="스즈키"] { --bike-logo-optical-scale: 1.05; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="lightwagen-bike"][data-brand="트라이엄프"] { --bike-logo-optical-scale: 1.05; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="lightwagen-bike"][data-brand="KTM"] { --bike-logo-optical-scale: .9; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="lightwagen-bike"][data-brand="피아지오"] { --bike-logo-optical-scale: 1.05; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="lightwagen-bike"][data-brand="SYM"] { --bike-logo-optical-scale: .95; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="lightwagen-bike"][data-brand="베스파"] { --bike-logo-optical-scale: 1.4; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="lightwagen-bike"][data-brand="로얄엔필드"] { --bike-logo-optical-scale: 1.1; }
+
+/* 오토홈 비교 세트도 동일한 기준으로 보정한다. 가로 워드마크는 카드 안 최대 약 59px까지 허용한다. */
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="autohome-bike"][data-brand="BMW"] { --bike-logo-optical-scale: 1.55; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="autohome-bike"][data-brand="할리데이비슨"] { --bike-logo-optical-scale: 1; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="autohome-bike"][data-brand="두카티"] { --bike-logo-optical-scale: 1.1; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="autohome-bike"][data-brand="혼다"] { --bike-logo-optical-scale: 1.16; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="autohome-bike"][data-brand="야마하"] { --bike-logo-optical-scale: 1.55; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="autohome-bike"][data-brand="가와사키"] { --bike-logo-optical-scale: .81; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="autohome-bike"][data-brand="스즈키"] { --bike-logo-optical-scale: 1.55; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="autohome-bike"][data-brand="트라이엄프"] { --bike-logo-optical-scale: 1.55; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="autohome-bike"][data-brand="KTM"] { --bike-logo-optical-scale: .78; }
+.marketplace.is-bike-category.is-qf-plain .depth-rail.is-kr-maker [data-logo-set="autohome-bike"][data-brand="피아지오"] { --bike-logo-optical-scale: 1.55; }
 
 /* PC(1440·1280) */
 .marketplace.is-bbm.is-qf-plain .depth-card { width: 84px; flex: 0 0 84px; }
