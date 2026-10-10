@@ -92,6 +92,7 @@ export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
       { label: "리스/렌트차량", value: "리스/렌트차량" },
       { label: "올드카", value: "올드카" },
       { label: "럭셔리카", value: "럭셔리카" },
+      { label: "서울오토갤러리", value: "서울오토갤러리" },
       { label: "슈퍼카", value: "슈퍼카" },
       { label: "브랜드 인증중고차", value: "브랜드 인증중고차" },
       { label: "매매단지별 검색", value: "매매단지별 검색" },

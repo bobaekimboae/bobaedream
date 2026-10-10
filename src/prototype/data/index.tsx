@@ -1540,6 +1540,12 @@ const luxuryCategoryCars: Car[] = luxuryRowsPhotoFirst.map((row, index) => {
   };
 });
 
+// 서울오토갤러리 카테고리(차량 › 중고차 › 서울오토갤러리, 2026-10-10 「서울오토갤러리 매매단지에 등록된 매물을 보여주는 카테고리」): 승용·럭셔리카 가상 매물 중 매매단지가 서울오토갤러리인 딜러 매물
+const seoulAutoGalleryCars: Car[] = [...new Map([...bbmSampleCars, ...luxuryCategoryCars].map((car) => [car.id, car])).values()].filter((car) => (
+  car.sellerType !== "개인" && !car.truck && !car.bike && !car.heavy && !car.virtualCategory
+  && (car.luxuryCategory ? car.place : displayListPlace(car.place, "딜러")).includes("서울오토갤러리")
+));
+
 function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
   const data = car.filter;
   if (!data) return false;
@@ -1556,7 +1562,7 @@ function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
     || category === "자재운반장비" && car.virtualCategory?.category === "자재운반장비"
     || category === "캠핑카" && car.virtualCategory?.category === "캠핑카"
     || category === "부품 · 용품" && car.virtualCategory?.category === "부품 · 용품"
-    || ["올드카", "리스/렌트차량", "럭셔리카", "슈퍼카", "브랜드 인증중고차", "매매단지별 검색", "팔린매물", "장애인차"].includes(category);
+    || ["올드카", "리스/렌트차량", "럭셔리카", "서울오토갤러리", "슈퍼카", "브랜드 인증중고차", "매매단지별 검색", "팔린매물", "장애인차"].includes(category);
   const yearMatch = value.year === "전체"
     || value.year === "2024~2026" && data.year >= 2024
     || value.year === "2021~2023" && data.year >= 2021 && data.year <= 2023
@@ -1663,6 +1669,7 @@ export {
   bbmSampleCars,
   luxuryUiTestCars,
   luxuryCategoryCars,
+  seoulAutoGalleryCars,
   isDesktopPreview,
   getInitialQuickFilterStyle,
   isForcedMobileView,
