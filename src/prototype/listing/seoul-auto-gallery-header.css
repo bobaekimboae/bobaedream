@@ -48,7 +48,11 @@
   height: 46px;
   flex: 0 0 34px;
   object-fit: contain;
-  filter: drop-shadow(0 1px 1px rgb(0 0 0 / 22%));
+  filter:
+    brightness(1.28)
+    saturate(1.12)
+    drop-shadow(0 0 1px rgb(255 255 255 / 38%))
+    drop-shadow(0 1px 1px rgb(0 0 0 / 24%));
 }
 
 .sag-category-hero__copy {
