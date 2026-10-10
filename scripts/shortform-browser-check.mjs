@@ -70,6 +70,18 @@ try {
   await page.locator("#sceneList .sub").nth(1).fill("전 차량 무사고 확인");
   check("장면 자막 편집", (await page.locator("#sceneList .sub").nth(1).inputValue()) === "전 차량 무사고 확인");
 
+  // 번호판 가리기(수동 모자이크): ▦ → 끌어서 네모 → 적용
+  await page.locator('.thumb[data-i="0"] button[data-act="blur"]').click();
+  await page.waitForSelector("#blurModal.on");
+  const box = await page.locator("#blurCv").boundingBox();
+  await page.mouse.move(box.x + box.width * 0.3, box.y + box.height * 0.65);
+  await page.mouse.down(); await page.mouse.move(box.x + box.width * 0.7, box.y + box.height * 0.82, { steps: 8 }); await page.mouse.up();
+  check("모자이크 네모 그리기", (await page.locator("#blurRects button").count()) === 1);
+  await page.screenshot({ path: join(out, "00-blur-editor.png") });
+  await page.click("#blurDone");
+  const blurInfo = await page.evaluate(() => { const it = window.__sf.items()[0]; const w = it.orig.width, h = it.orig.height; const rd = (im) => { const c = document.createElement("canvas"); c.width = w; c.height = h; const g = c.getContext("2d"); g.drawImage(im, 0, 0); return g.getImageData(Math.round(w * .3), Math.round(h * .65), Math.round(w * .4), Math.round(h * .17)).data; }; const a = rd(it.orig), b = rd(it.image); let diff = 0; for (let i = 0; i < a.length; i += 4) if (Math.abs(a[i] - b[i]) + Math.abs(a[i + 1] - b[i + 1]) > 12) diff++; const out = rd(it.image).length; return { blurs: it.blurs.length, diff, same: it.image === it.orig, badge: document.querySelector('.thumb[data-i="0"] .bb')?.textContent }; });
+  check("번호판 가리기 적용(모자이크 픽셀 변경)", blurInfo.blurs === 1 && !blurInfo.same && blurInfo.diff > 100 && blurInfo.badge?.includes("블러"), `변경 픽셀 ${blurInfo.diff}, 배지 ${blurInfo.badge}`);
+
   // 3) 통합 미리보기: 화면 진행 + 자막 변경 + 음성 호출 + 음악 소리
   await page.selectOption("#bgmStyle", "bright");
   await page.click("#play");
@@ -97,13 +109,29 @@ try {
   check("WebM에 음악 트랙 포함", Boolean(wa), wa ? `${wa.codec_name}` : "오디오 없음");
   await page.screenshot({ path: join(out, "03-webm-result.png") });
 
+  // 4-2) 브라우저 MP4(WebCodecs): 이 환경이 H.264/AAC를 못 하면 VP9/Opus MP4(규격 외)로 표시되어야 함
+  await page.click("#renderMp4");
+  await page.waitForFunction(() => /MP4/.test(document.querySelector("#resultBadge").textContent) && window.__sf.mp4, null, { timeout: 120000 });
+  const bm = await page.evaluate(() => ({ ...window.__sf.mp4, badge: document.querySelector("#resultBadge").textContent, info: document.querySelector("#resultInfo").textContent }));
+  const [dlb] = await Promise.all([page.waitForEvent("download"), page.click("#resultDl")]);
+  const bmPath = join(out, dlb.suggestedFilename()); await dlb.saveAs(bmPath);
+  const pb = probe(bmPath), bv = pb.streams.find((x) => x.codec_type === "video"), ba = pb.streams.find((x) => x.codec_type === "audio");
+  check("브라우저 MP4 생성·다운로드", bmPath.endsWith(".mp4") && bv && ba, `${bv?.codec_name}+${ba?.codec_name} ${bv?.width}×${bv?.height} ${bv?.r_frame_rate} ${Number(pb.format.duration).toFixed(2)}s ${bm.badge}`);
+  check("브라우저 MP4 1080×1920·30fps·15초", bv.width === 1080 && bv.height === 1920 && bv.r_frame_rate === "30/1" && Math.abs(Number(pb.format.duration) - 15) < 0.25);
+  check("브라우저 MP4 코덱 표시 정확(규격 여부)", bm.spec ? (bv.codec_name === "h264" && ba.codec_name === "aac") : (!bm.badge.includes("서비스 규격")), `spec=${bm.spec} ${bv.codec_name}/${ba.codec_name}`);
+  check("브라우저 MP4 음악 소리 있음", (spawnSync("ffmpeg", ["-v", "info", "-i", bmPath, "-af", "volumedetect", "-vn", "-f", "null", "-"], { encoding: "utf8" }).stderr.match(/mean_volume: (-?[\d.]+) dB/) || [0, -91])[1] > -60);
+  const dec2 = spawnSync("ffmpeg", ["-v", "error", "-i", bmPath, "-f", "null", "-"], { encoding: "utf8" });
+  check("브라우저 MP4 디코딩 오류 없음", dec2.status === 0 && !dec2.stderr.trim(), dec2.stderr.trim().slice(0, 100));
+  const bmPlay = await page.evaluate(async () => { const v = document.querySelector("#resultVideo"); v.muted = true; try { await v.play(); await new Promise((r) => setTimeout(r, 1200)); return v.currentTime; } catch (e) { return String(e); } });
+  check("브라우저 MP4 결과 재생", typeof bmPlay === "number" && bmPlay > 0.5, `currentTime ${bmPlay}`);
+
   // 5) 서버 렌더링(FFmpeg MP4)
   await page.fill("#srvUrl", "http://127.0.0.1:8799");
   await page.dispatchEvent("#srvUrl", "change");
   await page.waitForFunction(() => document.querySelector("#srvState").textContent.includes("연결됨"), null, { timeout: 8000 });
   check("렌더 서버 연결 표시", true, await page.textContent("#srvState"));
   await page.click("#srvRender");
-  await page.waitForFunction(() => document.querySelector("#resultBadge").textContent.includes("MP4"), null, { timeout: 180000 });
+  await page.waitForFunction(() => document.querySelector("#resultBadge").textContent.includes("서비스 규격") && !document.querySelector("#srvRender").disabled, null, { timeout: 180000 });
   const mp4 = await page.evaluate(async () => { const v = document.querySelector("#resultVideo"); return { can: v.canPlayType('video/mp4; codecs="avc1.640028, mp4a.40.2"'), info: document.querySelector("#resultInfo").textContent }; });
   const [dl2] = await Promise.all([page.waitForEvent("download"), page.click("#resultDl")]);
   const mp4Path = join(out, dl2.suggestedFilename());
@@ -125,6 +153,18 @@ try {
   } else {
     check("결과 MP4 브라우저 재생", false, "이 Chromium 빌드는 H.264 디코더가 없어 재생 불가(일반 Chrome·Safari·Edge는 재생). ffmpeg 디코딩으로 대체 확인");
   }
+  // 6) 영상 길이 20초 → 서버 MP4 길이 확인
+  await page.selectOption("#len", "20");
+  const len20 = await page.evaluate(() => ({ total: window.__sf.total(), scenes: document.querySelectorAll("#sceneList .scene").length }));
+  check("영상 길이 20초 선택", len20.total === 20 && len20.scenes === 6, `총 ${len20.total}초, 장면 ${len20.scenes}개(사진 5 + CTA)`);
+  await page.fill("#cta", "전화 문의 환영");
+  await page.click("#srvRender");
+  await page.waitForFunction(() => /20s\.mp4/.test(document.querySelector("#resultDl").download) && !document.querySelector("#srvRender").disabled, null, { timeout: 180000 });
+  const [dl3] = await Promise.all([page.waitForEvent("download"), page.click("#resultDl")]);
+  const p20 = join(out, "len20-" + dl3.suggestedFilename()); await dl3.saveAs(p20);
+  const q20 = probe(p20), v20 = q20.streams.find((x) => x.codec_type === "video");
+  check("서버 MP4 20초·30fps·1080×1920", Math.abs(Number(q20.format.duration) - 20) < 0.25 && v20.r_frame_rate === "30/1" && v20.width === 1080, `${Number(q20.format.duration).toFixed(2)}s`);
+  await ffframe(p20, join(out, "06-mp4-20s-last.png"), 19);
   await ffframe(mp4Path, join(out, "04-mp4-frame-2s.png"), 2);
   await page.screenshot({ path: join(out, "05-mp4-result.png") });
   check("페이지 오류 없음", errors.filter((e) => !/Failed to load resource/.test(e)).length === 0, errors.slice(0, 2).join(" | "));
