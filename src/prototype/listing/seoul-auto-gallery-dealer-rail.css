@@ -1,0 +1,102 @@
+.sag-dealer-rail {
+  min-width: 0;
+  padding: 14px 0 10px;
+  border-top: 8px solid var(--bbm-page-bg, #f4f4f4);
+  background: #fff;
+}
+
+.sag-dealer-rail h2 {
+  margin: 0 16px 10px;
+  color: #222;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+.sag-dealer-track {
+  display: flex;
+  gap: 8px;
+  min-width: 0;
+  padding: 0 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sag-dealer-track::-webkit-scrollbar { display: none; }
+
+.sag-dealer-card {
+  display: flex;
+  width: 76px;
+  height: 102px;
+  flex: 0 0 76px;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  color: #222;
+  text-align: center;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sag-dealer-card img {
+  display: block;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.sag-dealer-card strong {
+  display: block;
+  max-width: 76px;
+  margin-top: 8px;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sag-dealer-card span {
+  display: block;
+  margin-top: 1px;
+  color: #8b95a1;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.sag-dealer-card:focus-visible {
+  border-radius: 8px;
+  outline: 2px solid #222;
+  outline-offset: 2px;
+}
+
+.sag-dealer-card:active { opacity: 0.65; }
+
+.marketplace.is-bbm .bbm-content-head.is-chotot > .sag-dealer-rail {
+  margin: 16px -20px -16px;
+  border-radius: 0 0 12px 12px;
+}
+
+.marketplace.is-bbm .bbm-content-head:not(.is-chotot) > .sag-dealer-rail {
+  margin: 8px -20px -8px;
+}
+
+.marketplace.is-pc .pc-filter-panel > .sag-dealer-rail {
+  margin: 12px -20px -16px;
+}
+
+@media (min-width: 768px) {
+  .sag-dealer-rail { padding-top: 16px; padding-bottom: 12px; }
+  .sag-dealer-rail h2 { margin-right: 20px; margin-left: 20px; }
+  .sag-dealer-track { gap: 8px; padding-right: 20px; padding-left: 20px; }
+  .sag-dealer-card { width: 84px; flex-basis: 84px; }
+  .sag-dealer-card strong { max-width: 84px; }
+}
+

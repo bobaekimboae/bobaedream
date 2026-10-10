@@ -103,6 +103,7 @@ import { truckSpecGroupsFor, truckSpecOptionsFor } from "../data/truck-depth4-ca
 import { QuickRailCarousel } from "./quick-rail-carousel";
 import { truckModelsByMaker } from "../truck/scenario-v09";
 import { HeavyQuickFilter } from "../heavy";
+import { SeoulAutoGalleryDealerRail } from "./seoul-auto-gallery-dealer-rail";
 import { emptyHeavySelection, getInitialHeavySelection, replaceHeavyParams, type HeavySelection } from "../heavy/data";
 import { CatalogLogo, CatalogSearchResults, CatalogVehicleImage, CatalogVehiclePickerSheet, useVehicleCatalog, type VehicleSearchRecord } from "../vehicle-catalog";
 
@@ -1870,6 +1871,9 @@ function MarketplaceScreen() {
             </Carousel>
           </section>
   );
+  const seoulAutoGalleryDealerRail = isGuaziQuickStyle && category === "서울오토갤러리" && !maker
+    ? <SeoulAutoGalleryDealerRail />
+    : null;
   const quickStyleSelect = (
             <label className="quick-style-select">
               <span>적용 사이트</span>
@@ -2212,6 +2216,7 @@ function MarketplaceScreen() {
                   </div>
                   </div>
                   <div className="bbm-quick-slot">{quickRail}</div>
+                  {seoulAutoGalleryDealerRail}
                 </section>
     );
     // QF-095: 과쯔 PC 상단 카드 — 초톳 PC 상단과 같은 구조(1줄 경로 · 2줄 제목 + 검색저장 · 3줄 칩 줄 + 필터 초기화 · 4줄 유형 줄/퀵필터 레일)
@@ -2234,6 +2239,7 @@ function MarketplaceScreen() {
         {/* 트럭·특장 PC는 좌측 트럭 전용 필터의 지역 항목만 사용하고 상단 지역 칩 줄은 노출하지 않는다. */}
         {isTruckCategory ? null : <StableRegionRow value={bbmValue} onChange={setBbmFilters} onNearby={() => setSearchToast("내 주변 매물은 정식 서비스에서 이용해 주세요.")} />}
         <div className="bbm-quick-slot">{quickRail}</div>
+        {seoulAutoGalleryDealerRail}
       </section>
     );
     // 개발 시안 PC 보기 방식(테스트 서버 dev.bbmuseum 실측 10/9): 목록형 · 갤러리형(4열) · 한줄 광고(표). 피드·텍스트는 PC 메뉴에 없어 목록으로 보여준다
@@ -2326,6 +2332,7 @@ function MarketplaceScreen() {
                   <button type="button" className="pc-filter-reset" onClick={() => resetFilters()}>초기화</button>
                 </div>
                 <div className="pc-quick-slot">{quickRail}</div>
+                {seoulAutoGalleryDealerRail}
               </section>
               <div className="pc-columns">
                 <section className="pc-list-panel" aria-label="매물 목록">
@@ -2422,6 +2429,7 @@ function MarketplaceScreen() {
             </section>
             {/* QF-106 ④ 퀵필터 자리. 과쯔 원본은 바로 숏폼매물 줄로 이어지고 별도 경로·제목·추천어가 없다. */}
             {luxuryHead ? null : <div className="bbm-m-quick-slot">{quickRail}</div>}
+            {luxuryHead ? null : seoulAutoGalleryDealerRail}
             {luxuryUiTestMode ? <><p className="bbm-ui-test-notice">UI 테스트용 가상 매물 · 실제 판매 가격·조건이 아닙니다</p><BbmHeadlinePreviewLinks /></> : null}
             {!isGuaziQuickStyle ? (
               <section className="bbm-m-head" aria-label="목록 머리">
