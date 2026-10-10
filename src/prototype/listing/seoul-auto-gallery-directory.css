@@ -145,19 +145,6 @@
 .sag-about__browse:active { opacity: 0.76; }
 .sag-about__browse:focus-visible { outline: 2px solid #222; outline-offset: 2px; }
 
-/* 서울오토갤러리 전용: 로고·이름은 유지하고 카드 아래 빈 공간만 줄인다. */
-.marketplace.is-seoul-auto-gallery.is-bbm-m.is-qf-plain .bbm-m-quick-slot .depth-rail.is-lux-logo {
-  padding-bottom: 6px;
-}
-
-.marketplace.is-seoul-auto-gallery.is-bbm-m.is-qf-plain .bbm-m-quick-slot .depth-rail.is-lux-logo .depth-card:has(> .depth-card-media.is-brand) {
-  height: 80px;
-}
-
-.marketplace.is-seoul-auto-gallery.is-bbm-m.is-qf-plain .bbm-m-quick-slot .depth-rail.is-lux-logo .depth-card:has(> .depth-card-media.is-brand) .depth-card-label {
-  margin-top: 6px;
-}
-
 @media (min-width: 768px) {
   .sag-directory-tabs { padding: 0 20px; }
   .sag-company-directory h2 { padding-right: 20px; padding-left: 20px; }
