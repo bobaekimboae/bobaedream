@@ -2334,7 +2334,7 @@ function MarketplaceScreen() {
                       <button type="button" role="tab" aria-selected={false} onClick={() => setSearchToast("브랜드 매물은 정식 서비스에서 이용해 주세요.")}>브랜드</button>
                     </div>
                     <div className="bbm-toolbar-actions">
-                      <label className="bbm-video-filter"><span>숏폼중고차</span><BbSwitch checked={videoOnly} label="숏폼중고차" onChange={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))} /></label>
+                      <label className="bbm-video-filter"><span>숏폼카</span><BbSwitch checked={videoOnly} label="숏폼카" onChange={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))} /></label>
                       <span className="bbm-toolbar-divider" aria-hidden="true" />
                       {isGuaziQuickStyle ? (
                         <>
@@ -2512,9 +2512,18 @@ function MarketplaceScreen() {
               onToggleVideo={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))}
               sortLabel={bbmSort}
               onSort={() => setBbmMenu("m-sort")}
-              sellerTabs={["개인", "딜러"] as const}
-              sellerValue={sellerType}
-              onSellerChange={(tab) => setFilters((current) => ({ ...current, seller: current.seller === tab ? "전체" : tab }))}
+              sellerTabs={isSeoulAutoGalleryLanding ? (["국산차", "수입차", "럭셔리카", "슈퍼카", "클래식카"] as const) : (["개인", "딜러"] as const)}
+              sellerValue={isSeoulAutoGalleryLanding ? "" : sellerType}
+              onSellerChange={(tab) => {
+                if (isSeoulAutoGalleryLanding) {
+                  chooseVehicleCategory(tab === "클래식카" ? "올드카" : tab);
+                  return;
+                }
+                const sellerTab = tab as "개인" | "딜러";
+                setFilters((current) => ({ ...current, seller: current.seller === sellerTab ? "전체" : sellerTab }));
+              }}
+              groupLabel={isSeoulAutoGalleryLanding ? "숏폼카와 차량 카테고리" : undefined}
+              navigationLabel={isSeoulAutoGalleryLanding ? "정렬, 숏폼카, 차량 카테고리와 보기 방식" : undefined}
               onView={() => setBbmMenu("m-view")}
               viewMode={bbmMobileView}
               extra={debugMode ? quickStyleSelect : null}
