@@ -85,7 +85,17 @@ export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
     value: "전체",
     label: "전체차량",
     icon: categoryIcon("category_all_vehicles_v01.svg"),
-    children: [{ label: "전체차량", value: "전체" }],
+    // 아래 알약에는 모든 카테고리를 보여준다(2026-10-10 「밑에 중고차 등 카테고리 보이게」): 전체차량 하나만 보이면 비어 보였다
+    children: [
+      { label: "전체차량", value: "전체" },
+      { label: "중고차", value: "중고차" },
+      { label: "트럭/특장차", value: "트럭 · 특장" },
+      { label: "바이크", value: "바이크" },
+      { label: "캠핑카", value: "캠핑카" },
+      { label: "건설기계", value: "건설기계" },
+      { label: "자재운반장비", value: "자재운반장비" },
+      { label: "부품/용품", value: "부품 · 용품" },
+    ],
   },
   {
     value: "중고차",
@@ -156,7 +166,10 @@ export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
 ];
 
 function categoryGroupForSelection(selected: string) {
-  return bbmCategoryGroups.find((group) => group.value === selected || group.children.some((child) => child.value === selected)) ?? bbmCategoryGroups[0];
+  // 자기 값이 같은 그룹을 먼저 찾는다(전체차량 그룹의 알약에는 다른 카테고리 값도 들어 있다)
+  return bbmCategoryGroups.find((group) => group.value === selected)
+    ?? bbmCategoryGroups.find((group) => group.value !== "전체" && group.children.some((child) => child.value === selected))
+    ?? bbmCategoryGroups[0];
 }
 
 // 첫 화면 유형 줄은 이미 전체차량 상태라 「전체차량」을 빼고(includeAll 아님), 카테고리 시트에서만 맨 앞에 보인다
