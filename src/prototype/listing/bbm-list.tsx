@@ -455,6 +455,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   // 럭셔리카 가상 매물은 데이터에 정한 단지를 그대로(지역별 기본 단지로 바꾸지 않음), 표기 축약 규칙만 적용
   const listPlace = car.luxuryCategory
     ? [placeSidoGugun(car.place.split(" · ")[0]), ...car.place.split(" · ").slice(1)].join(" · ").replaceAll("자동차매매단지", "단지").replaceAll("매매단지", "단지")
+    : car.bike ? placeSidoGugun(car.place.split(" · ")[0])
     : car.truck && car.place.includes(" · ")
       ? [placeSidoGugun(car.place.split(" · ")[0]), ...car.place.split(" · ").slice(1)].join(" · ").replaceAll("자동차매매단지", "단지").replaceAll("매매단지", "단지")
       : !isPassenger
