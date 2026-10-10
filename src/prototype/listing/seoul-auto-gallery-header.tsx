@@ -15,7 +15,7 @@ export function SeoulAutoGalleryHeader() {
       <div className="sag-category-hero__content">
         <img
           className="sag-category-hero__mark"
-            src={asset("seoul-auto-gallery/header/sag-mark-banner-v02.png")}
+          src={asset("seoul-auto-gallery/header/sag-mark-banner-v02.png")}
           alt=""
           aria-hidden="true"
           draggable={false}
