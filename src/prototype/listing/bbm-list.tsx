@@ -93,6 +93,7 @@ export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
       { label: "올드카", value: "올드카" },
       { label: "럭셔리카", value: "럭셔리카" },
       { label: "서울오토갤러리", value: "서울오토갤러리" },
+      { label: "도이치오토월드", value: "도이치오토월드" },
       { label: "슈퍼카", value: "슈퍼카" },
       { label: "브랜드 인증중고차", value: "브랜드 인증중고차" },
       { label: "매매단지별 검색", value: "매매단지별 검색" },
@@ -454,7 +455,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   const isPassenger = !(car.truck || car.bike || car.heavy || car.virtualCategory);
   // 중고차는 개인·딜러 모두 「시도 구군 · 단지」(2026-10-08 「중고차 매물은 지역에 단지 붙이고」)
   // 럭셔리카 가상 매물은 데이터에 정한 단지를 그대로(지역별 기본 단지로 바꾸지 않음), 표기 축약 규칙만 적용
-  const listPlace = car.luxuryCategory || car.seoulAutoGallery
+  const listPlace = car.luxuryCategory || car.seoulAutoGallery || car.deutschAutoworld
     ? [placeSidoGugun(car.place.split(" · ")[0]), ...car.place.split(" · ").slice(1)].join(" · ").replaceAll("자동차매매단지", "단지").replaceAll("매매단지", "단지")
     : car.bike ? placeSidoGugun(car.place.split(" · ")[0])
     : car.truck && car.place.includes(" · ")
@@ -504,7 +505,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
         <img className="bbm-card-seller-logo" src={asset(featured ? sellerRealPhoto(car) : sellerAvatar(car))} alt="" draggable={false} />
         <div className="bbm-card-seller-text"><strong>{seller}{car.luxuryCategory?.certified ? <img className="bbm-card-verified" src={asset("bbm/verified-dealer-wavy-chotot-v01.svg")} alt="인증딜러" draggable={false} /> : null}</strong>
           {/* 피드 전용: 초톳 「1 đã bán 52 đang bán」처럼 판매완료 · 판매중 대수(딜러만). 판매완료 대수는 UI 검증용 가상 값 */}
-          {featured && car.sellerType !== "개인" ? <span className="bbm-card-seller-sales">{car.seoulAutoGallery ? null : <span>{(car.id * 7) % 40 + 1}대 판매완료</span>}<span>{Math.max(car.stock, 1)}대 판매중</span></span> : null}
+          {featured && car.sellerType !== "개인" ? <span className="bbm-card-seller-sales">{car.seoulAutoGallery || car.deutschAutoworld ? null : <span>{(car.id * 7) % 40 + 1}대 판매완료</span>}<span>{Math.max(car.stock, 1)}대 판매중</span></span> : null}
         </div>
       </div>
       <div className="bbm-card-actions">

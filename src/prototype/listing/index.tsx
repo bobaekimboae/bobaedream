@@ -37,6 +37,7 @@ import {
   partsCars,
   truckCars,
   seoulAutoGalleryCars,
+  deutschAutoworldCars,
   isDesktopPreview,
   matchesChoTotFilters,
   matchesPrice,
@@ -770,7 +771,7 @@ function MarketplaceScreen() {
   // 각 카테고리의 매물 데이터는 그대로 유지한다.
   const usesLuxuryBrandRail = isLuxuryCategory || category === "수입차" || category === "서울오토갤러리";
   const isTruckCategory = category === "트럭 · 특장";
-  const supportsVehicleCatalog = isBikeCategory || ["전체", "중고차", "국산차", "수입차", "전기차", "럭셔리카", "서울오토갤러리"].includes(category);
+  const supportsVehicleCatalog = isBikeCategory || ["전체", "중고차", "국산차", "수입차", "전기차", "럭셔리카", "서울오토갤러리", "도이치오토월드"].includes(category);
   const vehicleCatalog = useVehicleCatalog(isBikeCategory ? "bike" : "car", maker);
   const autohomeLogoPreview = new URLSearchParams(window.location.search).get("brandlogo") === "autohome";
   const truckSubtypeOptions = truckSubtypesFor(selectedTruckFormat);
@@ -858,6 +859,8 @@ function MarketplaceScreen() {
                   ? luxuryCategoryCars
                 : isGuaziQuickStyle && category === "서울오토갤러리"
                   ? seoulAutoGalleryCars
+                : isGuaziQuickStyle && category === "도이치오토월드"
+                  ? deutschAutoworldCars
                 : isGuaziQuickStyle ? (category === "전체" ? allVehicleMixedCars : bbmSampleCars) : chototTestCars;
   const bbmValue = filters.bbm ?? emptyBbmFilters;
   // QF-097: 과쯔는 9개 제조사의 모델·세부 모델을 카탈로그 스냅숏으로(model-catalog-kr), 나머지 제조사·다른 모드는 기존 데이터
