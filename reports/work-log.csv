@@ -167,3 +167,4 @@
 "2026-10-11 06:00","미지정","fix/qf-sag-dealer-title-1010","-","-","병합·배포","서울오토갤러리 딜러 레일 제목을 수입차 전문 딜러로","listing/seoul-auto-gallery-dealer-rail.tsx · docs/quick-filter-spec.md","-","-","verify:qf 통과"
 "2026-10-11 07:10","미지정","feat/qf-all-vehicles-category-1010","-","-","병합·배포","카테고리 시트에 전체차량 추가, 전체중고차는 중고차에 한함","listing/bbm-list.tsx · assets/category/icons/v01/category_all_vehicles_v01.svg · docs/quick-filter-spec.md","-","-","verify:qf 통과"
 "2026-10-11 07:40","미지정","feat/qf-all-vehicles-pills-1010","-","-","병합·배포","카테고리 시트 전체차량 아래에 모든 카테고리 알약","listing/bbm-list.tsx · docs/quick-filter-spec.md","-","-","verify:qf 통과"
+"2026-10-11 08:10","미지정","feat/qf-category-bottom-1010","-","-","병합·배포","카테고리 시트 하단에 전체 카테고리 알약 항상 표시","listing/bbm-list.tsx · filters/bbm-filter-parts.css · docs/quick-filter-spec.md","-","-","verify:qf 통과"

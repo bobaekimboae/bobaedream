@@ -541,6 +541,7 @@
 .bbm-category-picker__icons .bbm-category-menu__label { display:block; width:72px; min-height:40px; color:#595959; font-size:13px; font-weight:500; line-height:20px; white-space:normal; word-break:keep-all; }
 .bbm-category-picker__icons .bbm-category-menu__button.is-selected .bbm-category-menu__label { color:#222; font-weight:700; }
 .bbm-category-picker__group { padding-top:16px; border-top:1px solid #ebebeb; }
+.bbm-category-picker__group.is-all-categories { margin-top:20px; }
 .bbm-category-picker__title { display:block; margin-bottom:12px; color:#222; font-size:15px; font-weight:700; line-height:22px; }
 .bbm-category-child-pills { display:flex; flex-wrap:wrap; gap:8px 6px; }
 .bbm-category-child-pills button { min-height:32px; max-width:100%; padding:6px 12px; border:0; border-radius:9999px; background:#f4f4f4; color:#222; font-family:inherit; font-size:14px; font-weight:500; line-height:20px; text-align:left; white-space:normal; word-break:keep-all; cursor:pointer; }
