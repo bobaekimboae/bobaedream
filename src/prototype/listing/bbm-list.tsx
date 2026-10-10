@@ -282,6 +282,10 @@ export function BbmCategoryPicker({ selected, selectedChild, onChoose }: { selec
     <section className="bbm-category-picker" aria-label="차량 카테고리 선택">
       <div className="bbm-category-picker__icons"><BbmCategoryIconRow includeAll activeValue={activeGroup.value} onActivate={setActiveValue} /></div>
       <div className="bbm-category-picker__group"><strong className="bbm-category-picker__title">{activeGroup.label}</strong><BbmCategoryChildPills group={activeGroup} selected={selected} selectedChild={selectedChild} onChoose={onChoose} /></div>
+      {/* 하단 전체 카테고리(2026-10-10 「중고차도 밑에 보이게, 바텀으로 하단 카테고리들 보이게」): 어느 그룹을 펼쳐도 모든 카테고리 알약을 맨 아래에 보여준다. 전체차량 그룹은 위 알약이 같은 목록이라 생략 */}
+      {activeGroup.value === "전체" ? null : (
+        <div className="bbm-category-picker__group is-all-categories"><strong className="bbm-category-picker__title">전체 카테고리</strong><BbmCategoryChildPills group={bbmCategoryGroups[0]} selected={selected} selectedChild={selectedChild} onChoose={onChoose} /></div>
+      )}
     </section>
   );
 }
