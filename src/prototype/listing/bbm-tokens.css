@@ -253,11 +253,12 @@
 .filter-shell.is-bbm { display: flex; align-items: center; }
 .filter-shell.is-bbm .filter-rail { flex: 1; min-width: 0; height: 32px; margin: 0; }
 .filter-shell.is-bbm .filter-track { gap: 8px; padding: 0 16px 0 0; }
-.filter-shell.is-bbm .filter-chip { flex: none; height: 32px; padding: 3px 6px 3px 14px; gap: 6px; border: 0; border-radius: 9999px; box-sizing: border-box; background: var(--bbm-chip-filter-bg); color: var(--bbm-text); font-size: 14px; font-weight: 500; line-height: 20px; }
+.filter-shell.is-bbm .filter-chip { flex: none; height: 32px; padding: 3px 8px 3px 14px; gap: 8px; border: 0; border-radius: 9999px; box-sizing: border-box; background: var(--bbm-chip-filter-bg); color: var(--bbm-text); font-size: 14px; font-weight: 500; line-height: 20px; }
 .filter-shell.is-bbm .filter-chip .ui-icon { width: 20px; height: 20px; }
-.filter-shell.is-bbm .filter-chip.is-active { padding: 3px 5px 3px 14px; gap: 2px; background: var(--bbm-text-strong); color: #fff; }
+.filter-shell.is-bbm .filter-chip:not(.is-active) > .ui-icon { width: 18px; height: 18px; }
+.filter-shell.is-bbm .filter-chip.is-active { padding: 3px 9px 3px 14px; gap: 8px; background: var(--bbm-text-strong); color: #fff; }
 .filter-shell.is-bbm .filter-chip.is-active .filter-chip-label { padding: 0; color: #fff; font: inherit; }
-.filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear { display: grid; width: 14px; height: 14px; margin-left: 4px; padding: 0; border-radius: 50%; background: #8c8c8c; place-items: center; }
+.filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear { display: grid; width: 14px; height: 14px; margin-left: 0; padding: 0; border-radius: 0; background: transparent; place-items: center; }
 .filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear .ui-icon { width: 14px; height: 14px; }
 /* 유형 줄 100: 8/0/12/24, 간격 18, 아이콘·글자 간격 8, 아래 회색 8 */
 .marketplace.is-bbm-m .bbm-category-menu { overflow-x: auto; border-bottom: 8px solid var(--bbm-page-bg); scrollbar-width: none; }
