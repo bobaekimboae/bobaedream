@@ -30,8 +30,6 @@
 
 /* 세로형·원형 엠블럼: 초톳의 40px 슬롯 안에서 보이는 긴 변을 약 32px로 통일. */
 .marketplace.is-qf-plain .depth-rail.is-lux-logo :is(
-  .lux-qf-logo--ferrari,
-  .lux-qf-logo--lamborghini,
   .lux-qf-logo--porsche,
   .lux-qf-logo--benz,
   .lux-qf-logo--bmw,
@@ -39,6 +37,15 @@
   .lux-qf-logo--koenigsegg
 ) {
   --lux-logo-scale: 1.143;
+}
+
+/* 말은 획이 가늘고 황소는 면적이 넓어 같은 높이에서도 무게가 다르게 보인다. */
+.marketplace.is-qf-plain .depth-rail.is-lux-logo .lux-qf-logo--ferrari {
+  --lux-logo-scale: 1.2;
+}
+
+.marketplace.is-qf-plain .depth-rail.is-lux-logo .lux-qf-logo--lamborghini {
+  --lux-logo-scale: 1.107;
 }
 
 /* 세로로 길거나 여백이 적은 엠블럼은 기본군보다 한 단계 낮춰 광학 무게를 맞춘다. */
