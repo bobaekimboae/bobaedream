@@ -29,8 +29,7 @@ import { truckScenarioImageV02 } from "../truck/scenario-images-v02";
 import { truckSubtypeLabel } from "./truck-format-catalog";
 import { luxuryDealers, luxuryListingRows } from "./luxury-category-v01";
 import { seoulAutoGalleryRows } from "./seoul-autogallery-v01";
-import { deutschAutoworldRows } from "./deutsch-autoworld-v01";
-import { sajikRows } from "./sajik-v01";
+import deutschAutoworldRowsJson from "./deutsch-autoworld-all-v01.json";
 import {
   campingScenarioV01,
   materialHandlingScenarioV01,
@@ -1416,38 +1415,59 @@ const bbmLuxuryAddCars: Car[] = [
   makeChoTotCar(3003, { maker: "람보르기니", modelGroup: "우루스", image: "listing-photos/v01/lamborghini_urus_phev_3003.jpg", imageFit: "cover", title: "람보르기니 우루스 PHEV", trim: "4.0 V8 SE", specs: ["2025년식", "5,679km", "가솔린+전기", ""], cardSpec: ["25년11월", "5,679km", "하이브리드"], price: "42,500 만원", place: "경기 수원시", filter: { year: 2025, seats: "5인승", condition: "중고", mileage: 5679, owners: "1인", transmission: "오토", fuel: "하이브리드", color: "회색", origin: "수입", body: "SUV", video: false } }),
   makeChoTotCar(3004, { maker: "페라리", modelGroup: "GTC4 루쏘", image: "listing-photos/v01/ferrari_gtc4lusso_t_3004.jpg", imageFit: "cover", title: "페라리 GTC4 루쏘 T", trim: "3.9 V8", specs: ["2017년식", "31,135km", "가솔린", ""], cardSpec: ["17년10월", "31,135km", "가솔린"], price: "18,990 만원", place: "경기 수원시", filter: { year: 2017, seats: "4인승", condition: "중고", mileage: 31135, owners: "전체", transmission: "오토", fuel: "가솔린", color: "빨강", origin: "수입", body: "쿠페", video: false } }),
 ];
-// 사직오토랜드 실데이터 4대(2026-10-10 「사직은 중고차에 넣어라」): 별도 카테고리 없이 중고차 목록(과 전체차량)에 들어간다
-const sajikCars: Car[] = sajikRows.map((row, index) => {
-  const nn = String(row.number).padStart(2, "0");
-  const photos = [1, 2, 3, 4, 5].map((n) => `cars/sajik-v01/saj-${nn}-${n}.webp`);
-  const km = (value: number) => value >= 9500 ? `${String(Math.round(value / 1000) / 10)}만km` : `${value.toLocaleString("ko-KR")}km`;
+// 도이치오토월드 1차본 실데이터 4,673대(2026-10-10, 시트 「도이치오토월드」): 상사명 · 딜러명 전 차량, 목록 사진은 압축본 1장(사진 5장은 Drive 업로드가 끝난 43대만).
+// 매매단지가 도이치오토월드인 4,298대는 `도이치오토월드` 카테고리, 부산 사직오토랜드 등 나머지 375대는 중고차 목록에 넣는다(「사직은 중고차에 넣어라」).
+// 행 = [번호, 제조사, 모델, 세대, 등급, 연식, 주행, 연료, 가격(만원), 상사명, 딜러명, 매매단지코드, 판매중 대수, 사진묶음, 등록일시]
+type DeutschRow = [number, string, string, string, string, number, number, string, number, string, string, number, number, string, string];
+const deutschPlaces = ["경기 수원시 · 도이치오토월드", "부산 연제구 · 사직오토랜드", "부산 남구 · 감만동 중고차매매단지", "경기 수원시 · 수원 오토컬렉션 I"];
+const deutschMileageText = (km: number) => km >= 9500 ? `${String(Math.round(km / 1000) / 10)}만km` : `${km.toLocaleString("ko-KR")}km`;
+// 모델명으로 대략의 바디타입을 정한다(시트에 바디타입 열이 없다). 정확한 값이 오면 교체
+const deutschBodyType = (model: string) => /^(X\d|iX|GL[ABCEKS]|G클래스|EQ[ABCEST]|Q\d|카이엔|마칸|레인지로버|디스커버리|디펜더|XC|랭글러|체로키|레니게이드|컴패스|컴퍼스|글래디에이터|컨트리맨|티구안|투아렉|파일럿|CR-V|RX|NX|UX|익스플로러|에비에이터|네비게이터|모델 [YX]|XM|이보크|르반떼|XT|에스컬레이드|프리랜더|올 뉴 디펜더|ID\.4|팰리세이드|RAV4|하이랜더|캠리 SUV|모델 Y)/.test(model) ? "SUV"
+  : /^(1시리즈|A1|A3|쿠퍼|클럽맨|A클래스|골프|폴로|i3|2시리즈 액티브)/.test(model) ? "해치백"
+  : /(쿠페|그란쿠페|CLS|CLA|AMG GT|^911|^718|Z4|^M[2-8]$|^[468]시리즈$|TT|F-타입|SL$|SLC|카브리올레|8시리즈|4시리즈)/.test(model) ? "쿠페"
+  : /(투어링|V60|V90|아반트|왜건)/.test(model) ? "왜건"
+  : "세단";
+const deutschNowMs = Date.parse("2026-10-10T15:00:00+09:00");
+const deutschPostedText = (registered: string) => {
+  const minutes = Math.max(1, Math.round((deutschNowMs - Date.parse(`${registered.slice(0, 19)}+09:00`)) / 60000));
+  return minutes < 60 ? `${minutes}분 전` : minutes < 1440 ? `${Math.floor(minutes / 60)}시간 전` : `${Math.floor(minutes / 1440)}일 전`;
+};
+const deutschRowsByRecent = [...(deutschAutoworldRowsJson as unknown as DeutschRow[])].sort((a, b) => b[14].localeCompare(a[14]));
+const deutschCars: Car[] = deutschRowsByRecent.map((row, order) => {
+  const [n, maker, model, generation, trim, year, km, fuel, price, company, dealer, danji, stock, photoSet, registered] = row;
+  const idx = String(n).padStart(4, "0");
+  const photos = photoSet ? [1, 2, 3, 4, 5].map((k) => `cars/deutsch-autoworld-v01/${photoSet}-${k}.webp`) : undefined;
   return {
-    id: 15_000 + row.number,
-    updateRank: 2990 - index,
-    maker: row.maker,
-    modelGroup: row.model,
+    id: 100_000 + n,
+    // 도이치오토월드 카테고리 안에서는 등록일 최신순. 중고차에 섞이는 사직 등은 지시 매물 3001~3004 바로 뒤(2990부터)에 둔다
+    updateRank: danji === 0 ? 100_000 - order : 2990 - order,
+    maker,
+    modelGroup: model,
     sellerType: "딜러",
-    image: photos[0],
+    image: photos ? photos[0] : `cars/deutsch-autoworld-v01/p/${idx}.webp`,
     photoList: photos,
-    listThumb: `cars/sajik-v01/thumb/saj-${nn}.webp`,
+    listThumb: photoSet ? `cars/deutsch-autoworld-v01/thumb/${photoSet}.webp` : `cars/deutsch-autoworld-v01/t/${idx}.webp`,
     imagePosition: "center center",
-    title: [row.maker, row.model, row.generation].filter(Boolean).join(" "),
-    trim: row.trim,
-    specs: [`${row.year}년식`, km(row.mileage), row.fuel],
-    cardSpec: [String(row.year), km(row.mileage), row.fuel],
-    price: `${row.price.toLocaleString("ko-KR")} 만원`,
-    place: "부산 연제구 · 사직오토랜드",
+    title: [maker, model, generation].filter(Boolean).join(" "),
+    trim,
+    specs: [`${year}년식`, deutschMileageText(km), fuel],
+    cardSpec: [String(year), deutschMileageText(km), fuel],
+    price: `${price.toLocaleString("ko-KR")} 만원`,
+    place: deutschPlaces[danji],
     views: 0,
-    dealer: `${row.dealer} ${row.company.replace(/\(주\)|주식회사/g, "").trim()}`,
-    stock: row.stock,
-    posted: row.posted,
-    photos: photos.length,
+    dealer: `${dealer} ${company.replace(/\(주\)|주식회사/g, "").trim()}`,
+    stock,
+    posted: deutschPostedText(registered),
+    photos: photos ? photos.length : 1,
     sellerProfile: null,
-    realDealer: { company: row.company, dealer: row.dealer },
-    filter: { year: row.year, seats: "전체", condition: "중고", mileage: row.mileage, owners: "전체", transmission: "오토", fuel: row.fuel, color: "기타", origin: row.origin, body: row.body, video: false },
+    realDealer: { company, dealer },
+    filter: { year, seats: "전체", condition: "중고", mileage: km, owners: "전체", transmission: "오토", fuel, color: "기타", origin: ["벤츠", "BMW", "아우디", "포르쉐", "미니", "폭스바겐"].includes(maker) ? "독일" : "수입", body: deutschBodyType(model), video: false },
   };
 });
-const bbmSampleCars: Car[] = [...chototTestCars, ...bbmExtraCars, ...bbmBodyExtraCars, ...bbmLuxuryAddCars, ...sajikCars];
+const deutschAutoworldCars = deutschCars.filter((car) => car.place === deutschPlaces[0]);
+const deutschOtherComplexCars = deutschCars.filter((car) => car.place !== deutschPlaces[0]);
+
+const bbmSampleCars: Car[] = [...chototTestCars, ...bbmExtraCars, ...bbmBodyExtraCars, ...bbmLuxuryAddCars, ...deutschOtherComplexCars];
 
 const luxuryVehicleHeadings: Record<number, { title: string; trim: string }> = {
   1: { title: "람보르기니 우르스", trim: "SE 4.0 V8" },
@@ -1608,37 +1628,6 @@ const seoulAutoGalleryCars: Car[] = seoulAutoGalleryRows.map((row, index) => {
     photos: photos.length,
     sellerProfile: null,
     seoulAutoGallery: { company: row.company, dealer: row.dealer, priceKind: row.priceKind },
-    filter: { year: row.year, seats: "전체", condition: "중고", mileage: row.mileage, owners: "전체", transmission: "오토", fuel: row.fuel, color: "기타", origin: row.origin, body: row.body, video: false },
-  };
-});
-
-// 도이치오토월드 카테고리(차량 › 중고차 › 도이치오토월드, 2026-10-10): 시트 「도이치오토월드」 실데이터 39대(사진 5장 · 실제 상사명 · 딜러명). 위치는 경기 수원시 · 도이치오토월드
-const deutschAutoworldCars: Car[] = deutschAutoworldRows.map((row, index) => {
-  const nn = String(row.number).padStart(2, "0");
-  const photos = [1, 2, 3, 4, 5].map((n) => `cars/deutsch-autoworld-v01/dau-${nn}-${n}.webp`);
-  return {
-    id: 14_000 + row.number,
-    updateRank: deutschAutoworldRows.length - index,
-    maker: row.maker,
-    modelGroup: row.model,
-    sellerType: "딜러",
-    image: photos[0],
-    photoList: photos,
-    listThumb: `cars/deutsch-autoworld-v01/thumb/dau-${nn}.webp`,
-    imagePosition: "center center",
-    title: [row.maker, row.model, row.generation].filter(Boolean).join(" "),
-    trim: row.trim,
-    specs: [`${row.year}년식`, seoulAutoGalleryMileageText(row.mileage), row.fuel],
-    cardSpec: [String(row.year), seoulAutoGalleryMileageText(row.mileage), row.fuel],
-    price: `${row.price.toLocaleString("ko-KR")} 만원`,
-    place: "경기 수원시 · 도이치오토월드",
-    views: 0,
-    dealer: `${row.dealer} ${row.company.replace(/\(주\)|주식회사/g, "").trim()}`,
-    stock: row.stock,
-    posted: row.posted,
-    photos: photos.length,
-    sellerProfile: null,
-    realDealer: { company: row.company, dealer: row.dealer },
     filter: { year: row.year, seats: "전체", condition: "중고", mileage: row.mileage, owners: "전체", transmission: "오토", fuel: row.fuel, color: "기타", origin: row.origin, body: row.body, video: false },
   };
 });
