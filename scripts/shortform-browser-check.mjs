@@ -47,6 +47,10 @@ try {
   await gen.close();
 
   await page.goto("http://localhost:4567/shortform/");
+  const vis = await page.evaluate(() => { const v = (q) => { const e = document.querySelector(q); return !!e && e.checkVisibility({ contentVisibilityAuto: true }); }; return { main: v("#renderMp4"), tpls: v("#tpls"), photos: v("#drop"), info: v("#model"), len: v("#len"), srv: v("#srvRender"), scene: v("#sceneList"), tts: v("#ttsOn"), btns: [...document.querySelectorAll("button")].filter((b) => b.checkVisibility({ contentVisibilityAuto: true }) && !b.closest(".tpls")).length }; });
+  check("첫 화면 단순화(사진·템플릿·정보·큰 버튼만, 고급·장면목록 접힘)", vis.main && vis.tpls && vis.photos && vis.info && !vis.len && !vis.srv && !vis.scene && !vis.tts, `보이는 버튼 ${vis.btns}개`);
+  await page.screenshot({ path: join(out, "00-first-screen.png"), fullPage: false });
+  await page.evaluate(() => document.querySelectorAll("details.fold").forEach((d) => { d.open = true; }));
   await page.fill("#model", "BMW X3 xDrive20d"); await page.fill("#price", "1,490만원"); await page.fill("#year", "2016년"); await page.fill("#mileage", "165,536km");
   await page.fill("#points", "네비게이션\n블랙 시트\n전자식 기어\n오토 공조");
 
