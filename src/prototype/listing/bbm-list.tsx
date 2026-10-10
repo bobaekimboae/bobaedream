@@ -80,12 +80,20 @@ const categoryIcon = (file: string) => `category/icons/v01/${file}`;
 // 노션에서 전달받은 원본 SVG 7개를 그대로 쓰고, 초톳처럼 상위는 아이콘·하위는 알약칩으로 분리한다.
 // 사용자가 명시하지 않은 하위 분류는 임의로 만들지 않고 "전체"만 둔다.
 export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
+  // 전체차량(2026-10-10 「중고차 좌측에 전체 차량 추가, 전체차량은 모든 차량 카테고리 포함」): 노션 오토스카우트 「여러 차종·바디타입」 원본 SVG. 값 「전체」 = 모든 카테고리 섞음 목록
+  {
+    value: "전체",
+    label: "전체차량",
+    icon: categoryIcon("category_all_vehicles_v01.svg"),
+    children: [{ label: "전체차량", value: "전체" }],
+  },
   {
     value: "중고차",
     label: "중고차",
     icon: categoryIcon("category_used_car_v01.svg"),
     children: [
-      { label: "전체차량", value: "전체" },
+      // 전체중고차 = 중고차에 한함(승용 중고차 목록). 이전에는 「전체차량」(값 「전체」)이 여기 있어 중고차의 전체로 읽혔다
+      { label: "전체중고차", value: "중고차" },
       { label: "국산차", value: "국산차" },
       { label: "수입차", value: "수입차" },
       { label: "전기차", value: "전기차" },
@@ -151,10 +159,11 @@ function categoryGroupForSelection(selected: string) {
   return bbmCategoryGroups.find((group) => group.value === selected || group.children.some((child) => child.value === selected)) ?? bbmCategoryGroups[0];
 }
 
-function BbmCategoryIconRow({ activeValue, onActivate }: { activeValue: string; onActivate: (value: string) => void }) {
+// 첫 화면 유형 줄은 이미 전체차량 상태라 「전체차량」을 빼고(includeAll 아님), 카테고리 시트에서만 맨 앞에 보인다
+function BbmCategoryIconRow({ activeValue, onActivate, includeAll = false }: { activeValue: string; onActivate: (value: string) => void; includeAll?: boolean }) {
   return (
     <ul className="bbm-category-menu__list" role="list">
-      {bbmCategoryGroups.map((group) => {
+      {bbmCategoryGroups.filter((group) => includeAll || group.value !== "전체").map((group) => {
         const isActiveGroup = group.value === activeValue;
         return (
           <li key={group.value} className="bbm-category-menu__item">
@@ -209,9 +218,9 @@ function getImageGuideFamily(): ImageGuideFamily | null {
 export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string, detail?: string) => void }) {
   const imageGuideFamily = getImageGuideFamily();
   const items = imageGuideFamily ? imageGuideItems[imageGuideFamily] : bbmCategoryItems;
-  const [activeValue, setActiveValue] = useState(bbmCategoryGroups[0].value);
+  const [activeValue, setActiveValue] = useState("중고차");
   if (!imageGuideFamily) {
-    const activeGroup = bbmCategoryGroups.find((group) => group.value === activeValue) ?? bbmCategoryGroups[0];
+    const activeGroup = bbmCategoryGroups.find((group) => group.value === activeValue) ?? bbmCategoryGroups[1];
     const entersNextDepthDirectly = (group: BbmCategoryGroup) => group.value === "중고차" || group.value === "트럭 · 특장" || group.children.length === 1;
     const activateGroup = (value: string) => {
       setActiveValue(value);
@@ -258,7 +267,7 @@ export function BbmCategoryPicker({ selected, selectedChild, onChoose }: { selec
   const activeGroup = bbmCategoryGroups.find((group) => group.value === activeValue) ?? initialGroup;
   return (
     <section className="bbm-category-picker" aria-label="차량 카테고리 선택">
-      <div className="bbm-category-picker__icons"><BbmCategoryIconRow activeValue={activeGroup.value} onActivate={setActiveValue} /></div>
+      <div className="bbm-category-picker__icons"><BbmCategoryIconRow includeAll activeValue={activeGroup.value} onActivate={setActiveValue} /></div>
       <div className="bbm-category-picker__group"><strong className="bbm-category-picker__title">{activeGroup.label}</strong><BbmCategoryChildPills group={activeGroup} selected={selected} selectedChild={selectedChild} onChoose={onChoose} /></div>
     </section>
   );
