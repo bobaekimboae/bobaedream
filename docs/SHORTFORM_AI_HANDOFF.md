@@ -1,6 +1,6 @@
 # 보배 AI 숏폼 영상 제작기 인수인계
 
-최종 정리: 2026-10-10 (KST, v4) · 소스: `public/shortform/index.html` (단일 파일, 배포 주소 `/shortform/`)
+최종 정리: 2026-10-10 (KST, v5) · 소스: `public/shortform/index.html` (단일 파일, 배포 주소 `/shortform/`)
 
 > 이 문서는 새로 만들었다(작업 지시에 「docs/SHORTFORM_AI_HANDOFF.md를 읽어라」가 있었지만 저장소 어느 브랜치에도 없었다). 이전 인수인계 내용이 따로 있으면 여기에 합쳐 달라.
 
@@ -25,6 +25,7 @@
 | 9:16 미리보기 CapCut / TikTok / Full Fit, Canvas 장면 구성, 장면별 자막 편집 | **실제 동작(브라우저)** | 기존 기능 유지 |
 | 통합 미리보기(화면+자막+음성+음악) | **임시(브라우저)** | 음성은 `speechSynthesis` — OS 한국어 음성이 있어야 들림 |
 | 음악 | **임시(브라우저)** | WebAudio 합성음 2종 또는 내 음악 파일. 저장 WebM에 포함됨 |
+| 템플릿 5종(기본 판매형·프리미엄 블랙·특가 이벤트·신차급 컨디션·패밀리 SUV: 색 포인트·배지·길이·변환 방식·음악·CTA) + 「샘플 사진·정보 채우기」 | **실제 동작(브라우저)** | 샘플은 `public/assets/cars/seoul-autogallery-v01/`의 예시 사진 5장+예시 문구(실제 판매 정보 아님). 템플릿 정의는 `index.html`의 `TEMPLATES` 배열 |
 | 번호판·얼굴 수동 모자이크(▦: 끌어서 네모), 영상 길이 15/20/30초, CTA 문구 편집 | **실제 동작(브라우저)** | 모자이크는 미리보기·WebM·MP4·서버 렌더링 모두에 반영(자동 인식은 미구현) |
 | 브라우저 MP4 생성(WebCodecs + `vendor/mp4-muxer.js`, 프레임 정확 30fps, 음악 오프라인 믹스) | **실제 동작(브라우저)** — 코덱은 브라우저에 따라 다름 | Chrome·Edge·Safari: H.264+AAC(서비스 규격)로 만들도록 구현, **이 저장소 테스트 환경에는 H.264/AAC 인코더가 없어 그 경로는 미검증**. 인코더가 없으면 VP9+Opus MP4(「규격 외」 표시)로 대체, 그것도 없으면 WebM 폴백 |
 | 영상 생성 → 결과 재생 → 다운로드(WebM) | **임시(브라우저)** | 규격 아님(VP9/Opus). **음성은 저장 영상에 안 들어감**(브라우저가 TTS 소리를 녹음하게 두지 않음) |
@@ -48,7 +49,7 @@
 
 ## 5. 검증
 
-- `npm run check:shortform` — 실제 Chromium으로 사진 등록·순서 변경·번호판 모자이크·미리보기·음악·WebM 생성·브라우저 MP4 생성·재생·다운로드·서버 MP4(15초·20초) 생성·ffprobe 규격 검증(31항목). 결과는 `reports/shortform-e2e/result.json`.
+- `npm run check:shortform` — 실제 Chromium으로 사진 등록·순서 변경·번호판 모자이크·미리보기·음악·WebM 생성·브라우저 MP4 생성·재생·다운로드·서버 MP4(15초·20초) 생성·ffprobe 규격 검증(35항목). 결과는 `reports/shortform-e2e/result.json`.
 - 헤드리스 환경의 한계: ① OS 음성 엔진이 없어 TTS **소리**는 확인 불가(호출·문장만 확인), ② Playwright Chromium은 H.264를 디코딩하지 못해 MP4의 **브라우저 재생**은 확인 불가(ffmpeg 디코딩으로 대체). 실기기(Chrome·Safari)에서 확인해야 한다.
 
 ## 6. 다음에 할 일 (우선순위)

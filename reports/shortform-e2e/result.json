@@ -37,7 +37,7 @@
   {
     "name": "음악 재생(WebAudio 신호)",
     "ok": true,
-    "detail": "AudioContext running, 파형 레벨 0.253"
+    "detail": "AudioContext running, 파형 레벨 0.218"
   },
   {
     "name": "음성 호출(speechSynthesis)",
@@ -52,7 +52,7 @@
   {
     "name": "결과 영상 재생(WebM)",
     "ok": true,
-    "detail": "currentTime 1.16s, 1080×1920, 브라우저 임시 WebM"
+    "detail": "currentTime 1.13s, 1080×1920, 브라우저 임시 WebM"
   },
   {
     "name": "WebM 다운로드",
@@ -92,7 +92,7 @@
   {
     "name": "브라우저 MP4 결과 재생",
     "ok": true,
-    "detail": "currentTime 1.16079"
+    "detail": "currentTime 1.164494"
   },
   {
     "name": "렌더 서버 연결 표시",
@@ -148,6 +148,26 @@
     "name": "서버 MP4 20초·30fps·1080×1920",
     "ok": true,
     "detail": "20.00s"
+  },
+  {
+    "name": "템플릿 5종 표시",
+    "ok": true,
+    "detail": "기본 판매형 · 프리미엄 블랙 · 특가 이벤트 · 신차급 컨디션 · 패밀리 SUV"
+  },
+  {
+    "name": "템플릿 적용(프리미엄 블랙: 20초·Full Fit·차분한 음악·CTA·골드)",
+    "ok": true,
+    "detail": "{\"len\":20,\"mode\":\"fit\",\"cta\":\"프라이빗 상담 예약\",\"bgm\":\"calm\",\"accent\":\"#e3c07a\"}"
+  },
+  {
+    "name": "샘플 채우기(사진 5장·정보)",
+    "ok": true,
+    "detail": "벤츠 GLA 45 AMG 4매틱, sag-08-1.webp"
+  },
+  {
+    "name": "템플릿 스타일이 화면에 반영(특가 배지·주황 가격)",
+    "ok": true,
+    "detail": "배지 픽셀 2460, 가격 색 픽셀 1335"
   },
   {
     "name": "페이지 오류 없음",
