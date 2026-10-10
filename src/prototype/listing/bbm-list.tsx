@@ -280,10 +280,10 @@ export function BbmCategoryPicker({ selected, selectedChild, onChoose }: { selec
   const activeGroup = bbmCategoryGroups.find((group) => group.value === activeValue) ?? initialGroup;
   // 시안(2026-10-10 「시안 만들어봐」, 미리보기 전용): ?catsheet=a 초톳식 평면 · b 아이콘 줄 + 펼친 그룹만. 없으면 기존 화면.
   const proposal = new URLSearchParams(window.location.search).get("catsheet");
-  if (proposal === "a") {
-    // 초톳식: 아이콘 줄 없이 「차량」 알약 한 줄(전체차량이 맨 끝, 초톳 Tất cả xe cộ) → 고른 그룹의 하위 알약. 선택 표시는 하나뿐.
+  if (proposal !== "b" && proposal !== "old") {
+    // 초톳식(기본, 2026-10-11 「카테고리 정리, 초톳 방식이 맞다」): 아이콘 줄 없이 「차량」 알약 한 줄(전체차량이 맨 앞) → 고른 그룹의 하위 알약. 선택 표시는 하나뿐.
     const selectedGroup = categoryGroupForSelection(selected);
-    const ordered = [...bbmCategoryGroups.filter((group) => group.value !== "전체"), bbmCategoryGroups[0]];
+    const ordered = bbmCategoryGroups; // 초톳 순서: 전체 차량이 맨 앞(2026-10-11 초톳 앱 캡처 Tất cả xe cộ 첫 알약)
     const subGroup = selectedGroup.value !== "전체" && selectedGroup.children.length > 1 ? selectedGroup : null;
     return (
       <section className="bbm-category-picker is-proposal-a" aria-label="차량 카테고리 선택">
