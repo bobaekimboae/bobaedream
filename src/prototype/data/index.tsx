@@ -148,7 +148,7 @@ type Car = {
     options?: string[];
     cargoLength?: string;
     /** 트레일러(엔진 없음): 적재량 · 적재함 길이 · 축 */
-    trailer?: { load: string; length: string; axles: string };
+    trailer?: { load: string; length: string; axles: string; reg?: string };
     /** 마력 · 차축 구성(4x2 · 6x2 · 8x4), 가상 값 */
     horsepower?: number;
     drive?: string;
@@ -1084,22 +1084,22 @@ const truckCars: Car[] = truckListingRowsV09.map((row, index) => {
   if (!row.options && (row.subtype.includes("파워게이트") || index % 5 === 0)) options.unshift("리프트(파워게이트)");
   const subtypeLabel = row.subtype ? truckSubtypeLabel(row.subtype) : "";
   // 트레일러는 엔진이 없어 주행·연료 대신 적재량 · 길이 · 축(2026-10-07 사용자 지시, UI 검증용 가상 값)
-  const trailer = row.format === "트레일러" ? trailerSpecsV01[row.id] : undefined;
+  const trailer = row.trailer ?? (row.format === "트레일러" ? trailerSpecsV01[row.id] : undefined);
   return ({
   id: 6000 + index,
   maker: row.maker,
   modelGroup: row.model,
   sellerType: row.sellerType,
   image: truckListingPhotosV01[row.id] ?? (row.sheetRow ? row.image : truckScenarioImageV02[row.id] ?? row.image),
-  imageFit: truckListingPhotosV01[row.id] || row.sheetRow ? "cover" : "contain",
-  title: row.model === "기타" ? row.maker : `${row.maker} ${row.model}`,
+  imageFit: truckListingPhotosV01[row.id] || row.sheetRow && !row.noPhoto ? "cover" : "contain",
+  title: row.title ?? (row.model === "기타" ? row.maker : `${row.maker} ${row.model}`),
   // 엔카 화물·특장 등급명처럼 「톤수 + 세부형식」(예: 8.5톤 윙바디, 1톤 카고). 카고는 세부형식이 크기 구분이라 「카고」
   ...(truckListingOverridesV01[row.id] || row.cardSpec ? { cardSpec: truckListingOverridesV01[row.id]?.cardSpec ?? row.cardSpec } : {}),
   trim: truckListingOverridesV01[row.id]?.trim ?? row.trim ?? (trailer ? subtypeLabel : [row.load, row.format.startsWith("카고") || !subtypeLabel ? row.format.replace(/\(.*\)|트럭/g, "").trim() : subtypeLabel].filter(Boolean).join(" ")),
   specs: [`${row.year}년식`, `${row.mileage.toLocaleString("ko-KR")}km`, row.load, row.region],
   price: `${row.price10k.toLocaleString("ko-KR")} 만원`,
   place: truckPlaceV09(row.region, row.sellerType, index),
-  listThumb: row.sheetRow ? row.image.replace("listings/v09/", "listings/v09/thumb/") : undefined,
+  listThumb: row.sheetRow && !row.noPhoto ? row.image.replace(/listings\/(v\d+)\//, "listings/$1/thumb/") : undefined,
   views: 55 + index * 9,
   dealer: virtualSellerName(row.sellerType, 6000 + index),
   stock: 1,

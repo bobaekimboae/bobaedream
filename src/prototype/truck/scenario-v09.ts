@@ -1,4 +1,5 @@
 import kbDanjiMaster from "../data/kb-danji-master-20260826.json";
+import { truckSheetRowsV10 } from "./scenario-v10";
 import { truckScenarioV01, type TruckScenarioV01Row } from "./scenario-v01";
 
 /** 트럭·특장 매물 v09(2026-10-10): 사용자 구글 시트 「가상 매물 시나리오 › 트럭」 50행(아이트럭·마이트럭·직트럭 수집본)을 옮긴 값.
@@ -18,6 +19,10 @@ export type TruckScenarioV09Row = TruckScenarioV01Row & {
   use?: string;
   inspection?: string;
   options?: string[];
+  /** v10: 카드 제목(제조사가 없는 매물은 매물명) · 엔진 없는 트레일러 사양 */
+  title?: string;
+  noPhoto?: boolean;
+  trailer?: { load: string; length: string; axles: string; reg?: string };
 };
 
 const truckSheetRowsV09: readonly TruckScenarioV09Row[] = [
@@ -77,6 +82,7 @@ const instructedIds = ["truck-031", "truck-032"];
 export const truckListingRowsV09: readonly TruckScenarioV09Row[] = [
   ...instructedIds.flatMap((id) => truckScenarioV01.filter((row) => row.id === id)),
   ...truckSheetRowsV09,
+  ...truckSheetRowsV10,
 ];
 
 export const truckModelsByMaker = truckListingRowsV09.reduce<Record<string, string[]>>((catalog, row) => {
