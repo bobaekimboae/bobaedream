@@ -164,6 +164,19 @@ try {
   const p20 = join(out, "len20-" + dl3.suggestedFilename()); await dl3.saveAs(p20);
   const q20 = probe(p20), v20 = q20.streams.find((x) => x.codec_type === "video");
   check("서버 MP4 20초·30fps·1080×1920", Math.abs(Number(q20.format.duration) - 20) < 0.25 && v20.r_frame_rate === "30/1" && v20.width === 1080, `${Number(q20.format.duration).toFixed(2)}s`);
+  // 7) 템플릿 5종 + 샘플 채우기
+  const tplNames = await page.locator(".tpl b").allTextContents();
+  check("템플릿 5종 표시", tplNames.length === 5, tplNames.join(" · "));
+  await page.click('.tpl[data-id="black"]');
+  const tb = await page.evaluate(() => ({ len: window.__sf.total(), mode: document.querySelector(".mode.active").dataset.mode, cta: document.querySelector("#cta").value, bgm: document.querySelector("#bgmStyle").value, accent: window.__sf.theme.accent }));
+  check("템플릿 적용(프리미엄 블랙: 20초·Full Fit·차분한 음악·CTA·골드)", tb.len === 20 && tb.mode === "fit" && tb.bgm === "calm" && tb.cta === "프라이빗 상담 예약" && tb.accent === "#e3c07a", JSON.stringify(tb));
+  await page.click('.tpl[data-id="sale"]');
+  await page.click("#tplSample");
+  await page.waitForFunction(() => document.querySelectorAll(".thumb").length === 5 && document.querySelector("#model").value.includes("GLA"), null, { timeout: 15000 });
+  const sm = await page.evaluate(() => { window.__sf.draw(window.__sf.total() - 1); const c = document.querySelector("#cv"), g = c.getContext("2d"), d = g.getImageData(40, 780, 300, 40).data; let hot = 0; for (let i = 0; i < d.length; i += 4) if (d[i] > 200 && d[i + 1] > 90 && d[i + 1] < 160 && d[i + 2] < 120) hot++; const h = g.getImageData(420, 34, 92, 32).data; let red = 0; for (let i = 0; i < h.length; i += 4) if (h[i] > 200 && h[i + 1] < 140) red++; window.__sf.draw(0); const h0 = g.getImageData(420, 34, 92, 32).data; let badge = 0; for (let i = 0; i < h0.length; i += 4) if (h0[i] > 200 && h0[i + 1] > 90 && h0[i + 1] < 160 && h0[i + 2] < 120) badge++; return { n: document.querySelectorAll(".thumb").length, model: document.querySelector("#model").value, len: window.__sf.total(), hot, badge, img: document.querySelector(".thumb img").src.split("/").pop() }; });
+  check("샘플 채우기(사진 5장·정보)", sm.n === 5 && sm.model.includes("GLA 45") && sm.img.startsWith("sag-08"), `${sm.model}, ${sm.img}`);
+  check("템플릿 스타일이 화면에 반영(특가 배지·주황 가격)", sm.badge > 500 && sm.hot > 200, `배지 픽셀 ${sm.badge}, 가격 색 픽셀 ${sm.hot}`);
+  await page.screenshot({ path: join(out, "07-template-sale-sample.png") });
   await ffframe(p20, join(out, "06-mp4-20s-last.png"), 19);
   await ffframe(mp4Path, join(out, "04-mp4-frame-2s.png"), 2);
   await page.screenshot({ path: join(out, "05-mp4-result.png") });
