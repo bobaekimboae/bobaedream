@@ -1,7 +1,7 @@
 /* 럭셔리카 브랜드 퀵필터: 초톳 제조사 레일의 40×40 슬롯·간격·이름 위치를 그대로 쓴다.
    원본 44×28 캔버스는 보존하고, 투명 여백을 포함한 이미지 배율만 형태별로 보정해
    실제 보이는 로고가 원형·방패형 약 32px, 가로형 최대 40px 안에 들어오게 한다. */
-.marketplace.is-qf-guazi:not(.is-qf-plain) .depth-rail.is-lux-logo {
+.marketplace.is-qf-guazi .depth-rail.is-lux-logo {
   box-shadow: none;
 }
 
