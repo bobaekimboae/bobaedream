@@ -684,3 +684,33 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
+
+/* 모바일은 기존 트럭 전용 76×84 규칙보다 한 단계 높은 특이도로 덮어써서
+   현재 바이크 유형 실측값(76×102 / 60×40 / 14·21·600)과 정확히 맞춘다. */
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row,
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row .brand-carousel,
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row .depth-rail-track {
+  height: 102px;
+  min-height: 102px;
+}
+
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) {
+  width: 76px;
+  height: 102px;
+  flex-basis: 76px;
+}
+
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) > .depth-card-media:not(.is-brand) {
+  width: 60px;
+  height: 40px;
+  margin-top: 6px;
+}
+
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) > .depth-card-label {
+  width: 68px;
+  max-height: 42px;
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+}
