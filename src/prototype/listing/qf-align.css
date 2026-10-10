@@ -71,7 +71,7 @@
 .marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear .ui-icon { width: 18.4px; height: 18.4px; }
 
 /* 노션 「필터_16/16 (1)」(viewBox 24, 원본 수정 없음)은 24px 상자에 그려야 디자인 크기(선 약 1.3)가 된다 */
-.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-fixed > img.ui-icon[src*="chip-filter-leasing-24"] { width: 24px; height: 24px; margin: -2px; }
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-fixed > img.ui-icon[src*="chip-filter-leasing-24"] { width: 16.3px; height: 16.3px; margin: 1.85px; }
 
 /* PC 필터 버튼도 노션 「필터_16/16 (1)」(viewBox 24)을 24px 상자로 그린다(칩 폭 유지 margin -2px). 서울오토갤러리 등 모든 PC 카테고리 공통 */
-.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-filter-button img[src*="chip-filter-leasing-24"], .marketplace.is-bbm .bbm-filter-button img[src*="chip-filter-leasing-24"] { width: 24px; height: 24px; margin: -2px; }
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-filter-button img[src*="chip-filter-leasing-24"], .marketplace.is-bbm .bbm-filter-button img[src*="chip-filter-leasing-24"] { width: 16.3px; height: 16.3px; margin: 1.85px; }
