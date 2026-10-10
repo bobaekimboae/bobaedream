@@ -272,6 +272,39 @@ export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string, detail
   );
 }
 
+// 초톳 카테고리 시트(2026-10-11 「전체차량 · 중고차 ㅡ 하위 알약 · 트럭특장 우측 터치하면 하위 알약」): 한 줄에 카테고리 하나.
+// 이름을 누르면 그 카테고리를 고르고, 하위가 있는 줄은 오른쪽 화살표를 누르면 그 아래에 하위 알약이 펼쳐진다(여러 줄 동시에 펼침 가능).
+function BbmCategoryRows({ selected, selectedChild, onChoose }: { selected: string; selectedChild?: string | null; onChoose: (label: string, detail?: string) => void }) {
+  const selectedGroup = categoryGroupForSelection(selected);
+  const [open, setOpen] = useState<string[]>(() => (selectedGroup.value !== "전체" && selectedGroup.children.length > 1 ? [selectedGroup.value] : []));
+  const toggle = (value: string) => setOpen((current) => (current.includes(value) ? current.filter((item) => item !== value) : [...current, value]));
+  return (
+    <section className="bbm-category-picker is-rows" aria-label="차량 카테고리 선택">
+      <ul className="bbm-category-rows">
+        {bbmCategoryGroups.map((group) => {
+          const expandable = group.value !== "전체" && group.children.length > 1;
+          const isOpen = expandable && open.includes(group.value);
+          const isSelected = group.value === selectedGroup.value;
+          return (
+            <li key={group.value} className={`bbm-category-row${isOpen ? " is-open" : ""}${isSelected ? " is-selected" : ""}`}>
+              <div className="bbm-category-row__head">
+                <button type="button" className="bbm-category-row__name" aria-pressed={isSelected} onClick={() => onChoose(group.value)}>
+                  <span className="bbm-category-row__icon"><img src={asset(group.icon)} alt="" aria-hidden="true" draggable={false} /></span>
+                  <span>{group.label}</span>
+                </button>
+                {expandable ? (
+                  <button type="button" className="bbm-category-row__toggle" aria-expanded={isOpen} aria-label={`${group.label} 하위 카테고리 ${isOpen ? "접기" : "펼치기"}`} onClick={() => toggle(group.value)}><i aria-hidden="true" /></button>
+                ) : null}
+              </div>
+              {isOpen ? <BbmCategoryChildPills group={group} selected={selected} selectedChild={selectedChild} onChoose={onChoose} /> : null}
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+}
+
 // QF-121: 초톳 모바일 카테고리 바텀시트처럼 그룹 제목 + 32px 알약 칩으로 선택한다.
 // 실사 퀴필터 레일과 바텀시트의 역할을 분리해, 시트에서는 중복 이미지를 나열하지 않는다.
 export function BbmCategoryPicker({ selected, selectedChild, onChoose }: { selected: string; selectedChild?: string | null; onChoose: (label: string, detail?: string) => void }) {
@@ -280,7 +313,10 @@ export function BbmCategoryPicker({ selected, selectedChild, onChoose }: { selec
   const activeGroup = bbmCategoryGroups.find((group) => group.value === activeValue) ?? initialGroup;
   // 시안(2026-10-10 「시안 만들어봐」, 미리보기 전용): ?catsheet=a 초톳식 평면 · b 아이콘 줄 + 펼친 그룹만. 없으면 기존 화면.
   const proposal = new URLSearchParams(window.location.search).get("catsheet");
-  if (proposal !== "b" && proposal !== "old") {
+  if (proposal !== "b" && proposal !== "old" && proposal !== "flat") {
+    return <BbmCategoryRows selected={selected} selectedChild={selectedChild} onChoose={onChoose} />;
+  }
+  if (proposal === "flat") {
     // 초톳식(기본, 2026-10-11 「카테고리 정리, 초톳 방식이 맞다」): 아이콘 줄 없이 「차량」 알약 한 줄(전체차량이 맨 앞) → 고른 그룹의 하위 알약. 선택 표시는 하나뿐.
     const selectedGroup = categoryGroupForSelection(selected);
     const ordered = bbmCategoryGroups; // 초톳 순서: 전체 차량이 맨 앞(2026-10-11 초톳 앱 캡처 Tất cả xe cộ 첫 알약)
