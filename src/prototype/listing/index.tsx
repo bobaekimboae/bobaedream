@@ -766,6 +766,9 @@ function MarketplaceScreen() {
   const isPartsCategory = category === "부품 · 용품";
   // 럭셔리카(차량 › 중고차 › 럭셔리카): 과쯔에서는 전용 가상 매물 29대(luxury-category-v01)
   const isLuxuryCategory = category === "럭셔리카";
+  // 서울오토갤러리는 럭셔리카와 같은 16개 브랜드·로고 슬롯을 사용한다.
+  // 매물 데이터는 서울오토갤러리 전용 목록을 그대로 유지한다.
+  const usesLuxuryBrandRail = isLuxuryCategory || category === "서울오토갤러리";
   const isTruckCategory = category === "트럭 · 특장";
   const supportsVehicleCatalog = isBikeCategory || ["전체", "중고차", "국산차", "수입차", "전기차", "럭셔리카", "서울오토갤러리"].includes(category);
   const vehicleCatalog = useVehicleCatalog(isBikeCategory ? "bike" : "car", maker);
@@ -1803,12 +1806,12 @@ function MarketplaceScreen() {
                 </section>
               );
             }
-            if (isLuxuryCategory && plainQuickCards) {
+            if (usesLuxuryBrandRail && plainQuickCards) {
               // 럭셔리카 로고 3종 시안: 확정 16개 순서 · 초톳 40×40 슬롯, 로고 소스만 ?luxlogo=autohome|daangn|dongchedi
               const logoSource = luxuryLogoSource();
               return (
-                <section className="depth-rail is-kr-maker is-lux-logo no-label" aria-label="럭셔리카 브랜드 빠른 선택" data-luxlogo={logoSource}>
-                  <QuickRailCarousel ariaLabel="럭셔리카 브랜드" className="brand-carousel" contentClassName="depth-rail-track">
+                <section className="depth-rail is-kr-maker is-lux-logo no-label" aria-label={`${category} 브랜드 빠른 선택`} data-luxlogo={logoSource}>
+                  <QuickRailCarousel ariaLabel={`${category} 브랜드`} className="brand-carousel" contentClassName="depth-rail-track">
                     {luxuryLogoBrands.map((brand, index) => (
                       <DepthCard key={brand.maker} className={sampleCount(brand.maker) === 0 ? "is-dim" : undefined} label={brand.maker} image={<img className={`lux-qf-logo lux-qf-logo--${brand.slug}`} src={asset(luxuryLogoPath(logoSource, index))} alt="" draggable={false} />} mediaKind="brand" selected={maker === brand.maker} onClick={() => applyMakerFilter(brand.maker)} />
                     ))}
