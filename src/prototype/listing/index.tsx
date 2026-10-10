@@ -226,6 +226,8 @@ const feedPhotosFor = (cars: Car[], index: number): string[] | undefined => {
   if (new URLSearchParams(window.location.search).get("feedphotos") === "single") return undefined;
   const car = cars[index];
   if (!car?.image) return undefined;
+  // 실제 다중 사진이 있는 매물(서울오토갤러리)은 임시 슬라이드 대신 그 사진을 쓴다
+  if (car.photoList && car.photoList.length > 1) return car.photoList;
   const count = 3 + (car.id % 4);
   const photos = [car.image];
   // 같은 제조사 매물 사진을 먼저, 모자라면 같은 목록의 다음 매물 사진으로 채운다
