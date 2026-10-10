@@ -1,5 +1,6 @@
 import { bikeScenarioV07 } from "./scenario-v07";
 import { bikeScenarioV08 } from "./scenario-v08";
+import { bikeScenarioV11 } from "./scenario-v11";
 
 export type BikeInventoryRow = {
   id: string;
@@ -40,8 +41,8 @@ export type BikeInventoryRow = {
   postedDays?: number;
 };
 
-// 2026-10-08: 바이크 목록 = 사용자 지시 매물 bike-001(할리 포티에잇) + 시트 v08 50대. v07의 나머지 가상 29대는 목록에서 뺀다
-const bikeScenario = [bikeScenarioV07[0], ...bikeScenarioV08];
+// 2026-10-10: + 시트 v11 500대. 2026-10-08: 바이크 목록 = 사용자 지시 매물 bike-001(할리 포티에잇) + 시트 v08 50대. v07의 나머지 가상 29대는 목록에서 뺀다
+const bikeScenario = [bikeScenarioV07[0], ...bikeScenarioV08, ...bikeScenarioV11];
 
 export const bikeInventory: BikeInventoryRow[] = bikeScenario.map((row) => ({
   id: row.scenario_id,

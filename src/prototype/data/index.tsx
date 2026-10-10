@@ -898,6 +898,8 @@ const bikeCars: Car[] = bikeInventoryOrdered.map((row, index) => ({
   sellerType: row.sellerType === "개인 판매" ? "개인" : "딜러",
   image: `bike/listings/${row.imageFile}`,
   imageFit: "cover",
+  // v11 시트 매물은 목록 썸네일 정규화 사본(차 폭 90% · 바닥선 85%)을 쓴다
+  ...(row.imageFile.startsWith("v11/") ? { listThumb: `bike/listings/${row.imageFile.replace("v11/", "v11/thumb/")}` } : {}),
   title: bikeListingOverridesV01[row.id]?.title ?? row.title,
   // 바이크 제목은 제조사 · 모델만(2026-10-07 사용자 지시). 장르·배기량은 스펙 줄에 있다
   trim: "",
