@@ -79,7 +79,7 @@
     <p class="note">딜러명과 보유대수는 공개 데이터 기준입니다. 인물 그림은 UI 검토용 가상 일러스트이며 실제 딜러의 얼굴을 재현한 것이 아닙니다.</p>
   </main>
   <script>
-    const root = './assets/dealer-illustrations/seoul-auto-gallery/v01/';
+    const root = '/assets/dealer-illustrations/seoul-auto-gallery/v01/';
     fetch(`${root}dealers.json`)
       .then((response) => response.json())
       .then(({ dealers }) => {
