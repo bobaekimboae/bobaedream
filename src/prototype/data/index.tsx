@@ -1550,7 +1550,6 @@ const seoulAutoGalleryMileageText = (km: number) => km >= 9500 ? `${String(Math.
 const seoulAutoGalleryCars: Car[] = seoulAutoGalleryRows.map((row, index) => {
   const nn = String(row.number).padStart(2, "0");
   const photos = [1, 2, 3, 4, 5].map((n) => `cars/seoul-autogallery-v01/sag-${nn}-${n}.webp`);
-  const sameDealer = seoulAutoGalleryRows.filter((other) => other.company === row.company && other.dealer === row.dealer).length;
   return {
     id: 13_000 + row.number,
     updateRank: seoulAutoGalleryRows.length - index,
@@ -1569,7 +1568,7 @@ const seoulAutoGalleryCars: Car[] = seoulAutoGalleryRows.map((row, index) => {
     place: "서울 서초구 · 서울오토갤러리",
     views: 0,
     dealer: `${row.dealer} ${row.company.replace(/\(주\)|주식회사/g, "").trim()}`,
-    stock: sameDealer,
+    stock: row.stock,
     posted: row.posted,
     photos: photos.length,
     sellerProfile: null,
