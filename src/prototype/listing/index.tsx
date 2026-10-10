@@ -819,8 +819,10 @@ function MarketplaceScreen() {
     && maker === "BMW"
     && typeof window !== "undefined"
     && new URLSearchParams(window.location.search).get("qfangle") === "three-quarter";
-  // QF-100 최종: 과쯔 퀵필터(제조사·모델·세부모델 줄) 기본 = 바탕 없는 초톳식(plain). &qfcard=card 면 이전 과쯔 카드(비교용), &qfcard=plain 도 plain
-  const plainQuickCards = isGuaziQuickStyle && quickCardMode !== "card" && quickCardMode !== "guazi-card";
+  // 브랜드 최종안: 럭셔리 16개 브랜드 레일은 사각칩 비교 파라미터가 있어도 무배경형을 유지한다.
+  // 제조사를 선택한 뒤의 모델 비교 시안에는 기존 qfcard 동작을 그대로 남긴다.
+  const forcePlainLuxuryBrandRail = usesLuxuryBrandRail && !maker;
+  const plainQuickCards = isGuaziQuickStyle && (forcePlainLuxuryBrandRail || (quickCardMode !== "card" && quickCardMode !== "guazi-card"));
   // 2026-10-09 초톳 가로형 이미지 알약칩 비교 시안. 기본 모델 레일은 유지한다.
   const horizontalBikeModelPills = isGuaziQuickStyle
     && isBikeCategory
