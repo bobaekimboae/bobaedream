@@ -624,9 +624,9 @@
   outline-offset: 2px;
 }
 
-/* 트럭 유형 1뎁스 QF-122: 바이크 유형과 같은 초톳 슬롯 리듬을 사용한다.
-   차체가 긴 트럭은 60×40 contain 안에서 폭을 광학 보정하고, 카드·라벨 위치는
-   바이크와 동일한 76/84×102 및 14/21·600으로 고정한다. */
+/* 트럭 유형 1뎁스 QF-122: 초톳의 2줄 유형 슬롯 리듬을 사용한다.
+   PC는 기존 84×102 레일을 유지하고, 모바일은 QF-106b 실측값인
+   64×78 셀·64×40 이미지·56px 라벨·12/18·500으로 고정한다. */
 .marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-type-row,
 .marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-type-row .brand-carousel,
 .marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-type-row .depth-rail-track {
@@ -685,32 +685,35 @@
   -webkit-line-clamp: 2;
 }
 
-/* 모바일은 기존 트럭 전용 76×84 규칙보다 한 단계 높은 특이도로 덮어써서
-   현재 바이크 유형 실측값(76×102 / 60×40 / 14·21·600)과 정확히 맞춘다. */
+/* 모바일 초톳 2줄 유형 슬롯: 86 = 위 2 + 셀 78 + 아래 6. */
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row,
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row .brand-carousel,
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row .depth-rail-track {
-  height: 102px;
-  min-height: 102px;
+  height: 86px;
+  min-height: 86px;
+}
+
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail.is-truck-image-row.is-truck-type-row) {
+  height: 86px;
 }
 
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) {
-  width: 76px;
-  height: 102px;
-  flex-basis: 76px;
+  width: 64px;
+  height: 78px;
+  flex-basis: 64px;
 }
 
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) > .depth-card-media:not(.is-brand) {
-  width: 60px;
+  width: 64px;
   height: 40px;
-  margin-top: 6px;
+  margin-top: 0;
 }
 
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) > .depth-card-label {
-  width: 68px;
-  max-height: 42px;
-  margin-top: 14px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 21px;
+  width: 56px;
+  max-height: 36px;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
 }
