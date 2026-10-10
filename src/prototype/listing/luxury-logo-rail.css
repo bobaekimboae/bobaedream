@@ -28,13 +28,12 @@
   transform-origin: center;
 }
 
-/* 세로형·원형 엠블럼: 초톳의 40px 슬롯 안에서 보이는 긴 변을 약 32px로 통일. */
+/* 오토홈 투명 PNG의 실제 잉크 경계·알파 면적을 기준으로 광학 보정한다.
+   얇은 선형은 길이를 확보하고, 면적이 큰 문장·방패형은 한 단계 낮춘다. */
 .marketplace.is-qf-plain .depth-rail.is-lux-logo :is(
-  .lux-qf-logo--porsche,
   .lux-qf-logo--benz,
   .lux-qf-logo--bmw,
-  .lux-qf-logo--maserati,
-  .lux-qf-logo--koenigsegg
+  .lux-qf-logo--maserati
 ) {
   --lux-logo-scale: 1.143;
 }
@@ -48,12 +47,17 @@
   --lux-logo-scale: 1.107;
 }
 
-/* 세로로 길거나 여백이 적은 엠블럼은 기본군보다 한 단계 낮춰 광학 무게를 맞춘다. */
+/* 면적 밀도가 큰 세로형·방패형은 높이를 약 27px로 맞춘다. */
 .marketplace.is-qf-plain .depth-rail.is-lux-logo :is(
   .lux-qf-logo--rollsroyce,
-  .lux-qf-logo--tesla
+  .lux-qf-logo--porsche,
+  .lux-qf-logo--koenigsegg
 ) {
-  --lux-logo-scale: 1.071;
+  --lux-logo-scale: 0.95;
+}
+
+.marketplace.is-qf-plain .depth-rail.is-lux-logo .lux-qf-logo--tesla {
+  --lux-logo-scale: 1;
 }
 
 /* 가로형 아우디 워드마크: 보이는 폭을 40px 이하로 제한. */
@@ -83,14 +87,14 @@
 
 /* 면적이 큰 캐딜락 문장은 원형 로고와 광학 무게를 맞춘다. */
 .marketplace.is-qf-plain .depth-rail.is-lux-logo .lux-qf-logo--cadillac {
-  --lux-logo-scale: 0.864;
+  --lux-logo-scale: 0.8;
 }
 
 /* 넓은 실루엣 안의 글리프 밀도에 맞춘 개별 광학 보정. */
 .marketplace.is-qf-plain .depth-rail.is-lux-logo .lux-qf-logo--mclaren {
-  --lux-logo-scale: 0.773;
+  --lux-logo-scale: 0.73;
 }
 
 .marketplace.is-qf-plain .depth-rail.is-lux-logo .lux-qf-logo--bugatti {
-  --lux-logo-scale: 0.818;
+  --lux-logo-scale: 0.75;
 }
