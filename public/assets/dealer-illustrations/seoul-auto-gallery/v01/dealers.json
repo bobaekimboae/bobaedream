@@ -1,0 +1,54 @@
+{
+  "asOf": "2026-10-10",
+  "slot": {
+    "width": 76,
+    "height": 102,
+    "portraitWidth": 48,
+    "portraitHeight": 48,
+    "nameTypography": "14px/18px 500",
+    "countTypography": "12px/16px 400"
+  },
+  "notice": "Dealer names and listing counts are public Seoul Auto Gallery data. Portraits are fictional UI illustrations and are not likenesses of the named dealers.",
+  "dealers": [
+    {
+      "name": "강홍구",
+      "listingCount": 23,
+      "shopNo": "450555",
+      "empNo": "1",
+      "colorImage": "color/dealer-01.png",
+      "monoImage": "mono/dealer-01.png"
+    },
+    {
+      "name": "서용석",
+      "listingCount": 23,
+      "shopNo": "450441",
+      "empNo": "1",
+      "colorImage": "color/dealer-03.png",
+      "monoImage": "mono/dealer-03.png"
+    },
+    {
+      "name": "주한솔",
+      "listingCount": 21,
+      "shopNo": "450560",
+      "empNo": "1",
+      "colorImage": "color/dealer-05.png",
+      "monoImage": "mono/dealer-05.png"
+    },
+    {
+      "name": "박진희",
+      "listingCount": 5,
+      "shopNo": "450563",
+      "empNo": "1",
+      "colorImage": "color/dealer-02.png",
+      "monoImage": "mono/dealer-02.png"
+    },
+    {
+      "name": "방지윤",
+      "listingCount": 2,
+      "shopNo": "450560",
+      "empNo": "4",
+      "colorImage": "color/dealer-04.png",
+      "monoImage": "mono/dealer-04.png"
+    }
+  ]
+}
