@@ -18,7 +18,7 @@
 - Spacing and layout rhythm: 지역 행을 48px 탭으로 교체했고, 브랜드 카드 높이를 102px에서 80px로 줄여 이름 아래 불필요한 여백을 제거했다.
 - Colors and tokens: 선택 #222, 미선택 #8B95A1, 구분선 #EDEDED로 기존 필터 토큰과 맞는다.
 - Image quality: 헤더, 브랜드 로고, 딜러 정장 프로필 원본 자산을 그대로 사용하며 대체 그래픽은 없다.
-- Copy and content: 판매 차량 · 입점 상사 · 전문 딜러의 역할이 명확하며 상사·딜러 화면에서 중복 필터와 목록을 숨긴다.
+- Copy and content: 판매 차량 · 입점 상사 · 소속 딜러의 역할이 명확하며 상사·딜러 화면에서 중복 필터와 목록을 숨긴다.
 - Accessibility: role=tablist/tab과 aria-selected 상태가 탭 전환에 맞게 바뀐다.
 
 ## Focused region evidence
@@ -29,7 +29,7 @@
 
 - 판매 차량: 필터, 브랜드 레일, 매물 목록 표시
 - 입점 상사: 상사명, 소속 딜러 수, 매물 수 표시
-- 전문 딜러: 정장 프로필, 이름, 매물 수 표시
+- 소속 딜러: 정장 프로필, 이름, 매물 수 표시
 - 선택 밑줄과 aria-selected가 세 탭 모두 정상 전환
 - 브라우저 console errors/warnings: 0
 

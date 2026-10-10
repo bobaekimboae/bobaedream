@@ -7,7 +7,7 @@ export type SeoulAutoGallerySection = "vehicles" | "companies" | "dealers";
 const tabItems: Array<{ value: SeoulAutoGallerySection; label: string }> = [
   { value: "vehicles", label: "판매 차량" },
   { value: "companies", label: "입점 상사" },
-  { value: "dealers", label: "전문 딜러" },
+  { value: "dealers", label: "소속 딜러" },
 ];
 
 const companies = (() => {
