@@ -87,7 +87,7 @@ $('#play').onclick=()=>{if(!items.length){toast('사진을 먼저 추가해줘')
 
 /* ---------- 템플릿 ---------- */
 const BASE_TH={accent:'#62b6ff',btn:'rgba(36,132,255,.94)',chip:'rgba(96,166,244,.42)',panel:'rgba(2,8,15,.72)',panelLine:'rgba(60,105,157,.35)',badge:'',badgeInk:'#fff'};let th={...BASE_TH};
-const SAG=n=>[1,2,3,4,5].map(k=>`../assets/cars/seoul-autogallery-v01/sag-${String(n).padStart(2,'0')}-${k}.webp`);
+const SAG=n=>[1,2,3,4,5].map(k=>['..','assets','cars','seoul-autogallery-v01',`sag-${String(n).padStart(2,'0')}-${k}.webp`].join('/'));
 const TEMPLATES=[
  {id:'basic',name:'기본 판매형',desc:'파랑 포인트 · 15초 · 밝은 음악',color:'#2f8dff',theme:{},len:15,mode:'capcut',bgm:'bright',vol:.35,cta:'지금 문의하기',sample:{n:1,model:'BMW M3 컴페티션',price:'9,595만원',year:'2023년',mileage:'22,000km',points:'M3 xDrive 컴페티션\n퍼포먼스 풀옵션\n카본 외장 패키지\n실내 상태 최상'}},
  {id:'black',name:'프리미엄 블랙',desc:'골드 포인트 · 20초 · 차분한 음악 · 차량 전체 보존',color:'#d4af6a',theme:{accent:'#e3c07a',btn:'rgba(190,150,70,.96)',chip:'rgba(227,192,122,.55)',panelLine:'rgba(227,192,122,.38)',badgeInk:'#1a1306'},len:20,mode:'fit',bgm:'calm',vol:.3,cta:'프라이빗 상담 예약',sample:{n:2,model:'포르쉐 타이칸',price:'12,690만원',year:'2023년',mileage:'30,000km',points:'전기 스포츠 세단\n에어 서스펜션\n프리미엄 실내\n정기 점검 완료'}},
