@@ -57,3 +57,15 @@
   padding: 4px 8px;
 }
 .marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm.is-scrolled .filter-fixed > span { display: none; }
+
+/* 초톳 크로스체크(2026-10-10 「초톳처럼 수정」, 1080×2340 캡처 ÷2.8125 잉크 실측): 모바일 과쯔 칩 안 아이콘 균형.
+   필터 칩 = 검정 #222 바탕 + 흰 아이콘 · 아이콘 → 글자 약 12(초톳 11.4), 일반 칩 바탕 #F1F1F1,
+   꺽쇠 잉크 9.2×5.3(상자 14.5) · 글자와 13.5 · 오른쪽 끝 11.7, X 잉크 7.5×7.5(상자 18.4) · 글자와 14.6 · 오른쪽 끝 13.2, 칩 사이 4. */
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-fixed:not(.is-applied) { background: #222; color: #fff; gap: 7.7px; }
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-fixed:not(.is-applied) .ui-icon { filter: brightness(0) invert(1); }
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm.is-scrolled .filter-fixed:not(.is-applied) { gap: 0; }
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-chip:not(.is-active) { background: #f1f1f1; padding: 4px 9.7px 4px 12px; gap: 9.8px; }
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-chip:not(.is-active) > .ui-icon { width: 14.5px; height: 14.5px; }
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-chip.is-active { padding: 4px 8.85px 4px 12px; gap: 9.15px; }
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear { width: 18.4px; height: 18.4px; }
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear .ui-icon { width: 18.4px; height: 18.4px; }

@@ -4,16 +4,10 @@ import "./seoul-auto-gallery-directory.css";
 
 export type SeoulAutoGallerySection = "vehicles" | "companies" | "dealers" | "about";
 
-const directoryStats = {
-  vehicles: seoulAutoGalleryRows.length,
-  companies: new Set(seoulAutoGalleryRows.map((row) => row.company)).size,
-  dealers: new Set(seoulAutoGalleryRows.map((row) => `${row.company}|${row.dealer}`)).size,
-};
-
-const tabItems: Array<{ value: SeoulAutoGallerySection; label: string; count?: number }> = [
-  { value: "vehicles", label: "판매 차량", count: directoryStats.vehicles },
-  { value: "companies", label: "입점 상사", count: directoryStats.companies },
-  { value: "dealers", label: "소속 딜러", count: directoryStats.dealers },
+const tabItems: Array<{ value: SeoulAutoGallerySection; label: string }> = [
+  { value: "vehicles", label: "판매 차량" },
+  { value: "companies", label: "입점 상사" },
+  { value: "dealers", label: "소속 딜러" },
   { value: "about", label: "소개" },
 ];
 
@@ -46,7 +40,6 @@ export function SeoulAutoGalleryTabs({ value, onChange }: { value: SeoulAutoGall
           onClick={() => onChange(item.value)}
         >
           <span>{item.label}</span>
-          {item.count === undefined ? null : <b>{item.count.toLocaleString("ko-KR")}</b>}
         </button>
       ))}
     </nav>

@@ -1,59 +1,38 @@
-# 서울오토갤러리 탐색 탭 시안 QA
+# 초톳 필터 칩 정합 QA
 
-- source visual truth: `reports/seoul-auto-gallery-dealer-suits-deployed.png`
-- implementation: `reports/seoul-auto-gallery-tabs-v01-vehicles.png`
-- interaction states: `reports/seoul-auto-gallery-tabs-v01-companies.png`, `reports/seoul-auto-gallery-tabs-v01-dealers.png`
-- side-by-side evidence: `reports/seoul-auto-gallery-tabs-v01-compare.png`
-- viewport: 390 × 844 CSS px
-- source pixels: 390 × 844
-- implementation pixels: 390 × 844
-- deviceScaleFactor: 1
-- density normalization: none required
-- state: 서울오토갤러리 첫 화면, 필터 미선택, 판매 차량 기본 탭
+- source visual truth: `C:/Users/bobae/Downloads/KakaoTalk_20261010_202521671.png`
+- implementation: Codex in-app Browser 탭 38의 2026-10-10 20:31 KST 브라우저 렌더 캡처
+- route: `http://127.0.0.1:4208/?qf=guazi&view=feed&category=서울오토갤러리`
+- viewport: 485 × 670 CSS px
+- source pixels: 1080 × 2340 (`@2x` 계열 모바일 캡처)
+- density normalization: 필터 칩 높이 32px를 기준으로 비례 대조
+- state: 서울오토갤러리 선택 칩 활성, 카테고리·제조사 칩 비활성
 
 ## Findings
 
-- P0/P1/P2 findings: none.
-- Fonts and typography: 기존 Pretendard 위계와 동일하며 탭은 16/22, 선택 700, 미선택 400으로 분리된다.
-- Spacing and layout rhythm: 지역 행을 48px 탭으로 교체했고, 브랜드 카드 높이를 102px에서 80px로 줄여 이름 아래 불필요한 여백을 제거했다.
-- Colors and tokens: 선택 #222, 미선택 #8B95A1, 구분선 #EDEDED로 기존 필터 토큰과 맞는다.
-- Image quality: 헤더, 브랜드 로고, 딜러 정장 프로필 원본 자산을 그대로 사용하며 대체 그래픽은 없다.
-- Copy and content: 판매 차량 · 입점 상사 · 소속 딜러 · 소개의 역할이 명확하며 탐색 화면에서 중복 필터와 목록을 숨긴다.
-- Accessibility: role=tablist/tab과 aria-selected 상태가 탭 전환에 맞게 바뀐다.
+- P0/P1/P2 findings: none after the second comparison.
+- Fonts and typography: 필터 칩은 기존 14/20·500을 유지해 초톳 원본의 밀도와 일치한다.
+- Spacing and layout rhythm: 칩 높이 32px, 칩 사이 8px, 텍스트와 X/꺾쇠 사이 8px로 맞췄다.
+- Colors and visual tokens: 선택 칩은 #222 계열과 흰색 X, 비선택 칩은 연회색 바탕과 진회색 꺾쇠를 유지한다.
+- Image quality and asset fidelity: 기존 `chip-remove.svg`와 `filter-toggle-chotot-v01.svg` 원본 자산을 사용한다. CSS 도형이나 문자 대체는 없다.
+- Copy and content: 서울오토갤러리·카테고리·제조사 문구와 기능은 변경하지 않았다.
+- Interaction: 선택 칩 X는 기존 해제 동작을 유지하며, 비선택 칩 꺾쇠는 기존 필터 바텀시트를 연다.
 
 ## Focused region evidence
 
-상단 헤더부터 첫 매물까지 같은 390px 크롭으로 비교했다. 탭, 브랜드 레일, 목록 시작점이 모두 한 화면에 보여 별도 확대 크롭은 필요하지 않았다.
-
-## Interaction verification
-
-- 판매 차량: 필터, 브랜드 레일, 매물 목록 표시
-- 입점 상사: 상사명, 소속 딜러 수, 매물 수 표시
-- 소속 딜러: 정장 프로필, 이름, 매물 수 표시
-- 소개: 단지 설명과 세 탐색 경로 요약, 판매 차량 복귀 버튼 표시
-- 판매 차량 제어 줄: 숏폼중고차 오른쪽을 국산차 · 수입차 · 럭셔리카 · 슈퍼카 · 클래식카 가로 레일로 교체
-- 탭 정보량: 판매 차량 23 · 입점 상사 10 · 소속 딜러 14의 개수를 시엔위처럼 라벨 오른쪽 위 상첨자 위치에 표시하며, 숏폼 명칭은 숏폼카로 축약
-- 선택 밑줄과 aria-selected가 세 탭 모두 정상 전환
-- 브라우저 console errors/warnings: 0
+원본의 필터 줄과 로컬 시안의 필터 줄을 확대 대조했다. 전체 화면보다 X 배경, 칩 사이 간격, 꺾쇠 잉크 크기가 중요한 영역이라 필터 줄을 중심으로 판정했다.
 
 ## Comparison history
 
-- Initial finding: 기존 화면은 지역 정보가 불필요하고 브랜드 이름 아래 21px의 빈 공간과 딜러 레일 중복 노출로 상단이 길었다.
-- Fix: 지역 행을 3개 기능 탭으로 교체하고 탭별 콘텐츠를 분리했다. 브랜드 카드의 로고-명칭 간격을 14px에서 6px로, 카드 높이를 102px에서 80px로 줄였다.
-- Post-fix evidence: `reports/seoul-auto-gallery-tabs-v01-compare.png`; 첫 매물이 더 일찍 시작하고 탐색 목적이 명확해졌다.
+- Initial finding: 선택 칩의 X 뒤에 회색 원형 배경이 있었고, 칩 사이 간격은 4px로 원본보다 좁았다. 비선택 칩 꺾쇠도 20px 박스로 다소 무거웠다.
+- Fix: X의 원형 배경과 추가 왼쪽 마진을 제거했다. 칩 사이·내부 간격을 8px로 통일하고 꺾쇠 박스를 18px로 조정했다.
+- Post-fix evidence: Codex in-app Browser에서 새로고침 후 선택 칩은 흰색 X만 표시되고, 카테고리·제조사 꺾쇠와 칩 간격이 초톳 원본과 같은 리듬으로 정리됨을 확인했다.
 
-## Implementation checklist
+## Verification
 
-- [x] 지역·초기화 행 제거
-- [x] 3개 탭 및 선택 상태 구현
-- [x] 판매 차량 기본 상태
-- [x] 입점 상사 실제 데이터 요약
-- [x] 전문 딜러 정장 프로필 연결
-- [x] 브랜드 레일 하단 여백 축소
-- [x] 390px 렌더링 및 상호작용 확인
-
-## Follow-up polish
-
-- P3: 실제 상사 상세 화면이 연결되면 상사 행의 꺾쇠를 상세 화면으로 연결한다.
+- `npm run verify:qf`: passed
+- 필터 X 해제 버튼 접근성 이름 유지
+- 브라우저 렌더 확인 완료
+- 기존 데이터·헤더·브랜드 레일·매물 목록 변경 없음
 
 final result: passed
