@@ -1,4 +1,5 @@
 import kbDanjiMaster from "../data/kb-danji-master-20260826.json";
+import regionsKr from "../data/regions-kr.json";
 import { truckSheetRowsV10 } from "./scenario-v10";
 import { truckScenarioV01, type TruckScenarioV01Row } from "./scenario-v01";
 
@@ -95,8 +96,12 @@ export const truckModelsByMaker = truckListingRowsV09.reduce<Record<string, stri
  *  시트 지역에 구군이 있으면 같은 구군 단지(매물 많은 순), 없으면 같은 시도의 매물 많은 상위 3곳을 돌려 쓴다. 마스터에 단지가 없는 세종과 개인 직거래는 지역만 쓴다 */
 const danjiMaster = (kbDanjiMaster as { complexes: { sido: string; gugun: string; name: string; listings: number }[] }).complexes;
 export const truckPlaceV09 = (region: string, sellerType: "개인" | "딜러", index: number) => {
-  if (sellerType === "개인") return region;
   const [sido, gugun] = region.split(" ");
+  // 개인도 「시도 구군」까지(2026-10-10 「개인판매자 지역 시도 구군까지」): 시트에 구군이 없으면 그 시도의 구·군을 돌려 쓴다(세종은 구·군이 없어 시도만)
+  if (sellerType === "개인") {
+    const districts = (regionsKr.districts as Record<string, string[]>)[sido] ?? [];
+    return gugun || !districts.length ? region : `${sido} ${districts[index % districts.length]}`;
+  }
   const inSido = danjiMaster.filter((item) => item.sido === sido).sort((a, b) => b.listings - a.listings);
   const sameGugun = gugun ? inSido.filter((item) => item.gugun.startsWith(gugun.slice(0, 2))) : [];
   const top = inSido.slice(0, 3);
