@@ -278,6 +278,35 @@ export function BbmCategoryPicker({ selected, selectedChild, onChoose }: { selec
   const initialGroup = categoryGroupForSelection(selected);
   const [activeValue, setActiveValue] = useState(initialGroup.value);
   const activeGroup = bbmCategoryGroups.find((group) => group.value === activeValue) ?? initialGroup;
+  // 시안(2026-10-10 「시안 만들어봐」, 미리보기 전용): ?catsheet=a 초톳식 평면 · b 아이콘 줄 + 펼친 그룹만. 없으면 기존 화면.
+  const proposal = new URLSearchParams(window.location.search).get("catsheet");
+  if (proposal === "a") {
+    // 초톳식: 아이콘 줄 없이 「차량」 알약 한 줄(전체차량이 맨 끝, 초톳 Tất cả xe cộ) → 고른 그룹의 하위 알약. 선택 표시는 하나뿐.
+    const selectedGroup = categoryGroupForSelection(selected);
+    const ordered = [...bbmCategoryGroups.filter((group) => group.value !== "전체"), bbmCategoryGroups[0]];
+    const subGroup = selectedGroup.value !== "전체" && selectedGroup.children.length > 1 ? selectedGroup : null;
+    return (
+      <section className="bbm-category-picker is-proposal-a" aria-label="차량 카테고리 선택">
+        <div className="bbm-category-picker__group is-first"><strong className="bbm-category-picker__title">차량</strong>
+          <div className="bbm-category-child-pills" role="group" aria-label="차량 카테고리">
+            {ordered.map((group) => {
+              const isSelected = group.value === selectedGroup.value;
+              return <button key={group.value} type="button" className={isSelected ? "is-selected" : ""} aria-pressed={isSelected} onClick={() => { setActiveValue(group.value); onChoose(group.value); }}>{group.label}</button>;
+            })}
+          </div>
+        </div>
+        {subGroup ? <div className="bbm-category-picker__group"><strong className="bbm-category-picker__title">{subGroup.label}</strong><BbmCategoryChildPills group={subGroup} selected={selected} selectedChild={selectedChild} onChoose={onChoose} /></div> : null}
+      </section>
+    );
+  }
+  if (proposal === "b") {
+    return (
+      <section className="bbm-category-picker is-proposal-b" aria-label="차량 카테고리 선택">
+        <div className="bbm-category-picker__icons"><BbmCategoryIconRow includeAll activeValue={activeGroup.value} onActivate={(value) => { setActiveValue(value); const g = bbmCategoryGroups.find((group) => group.value === value); if (g && g.children.length === 1) onChoose(g.children[0].value, g.children[0].detail); }} /></div>
+        <div className="bbm-category-picker__group"><strong className="bbm-category-picker__title">{activeGroup.label}</strong><BbmCategoryChildPills group={activeGroup} selected={selected} selectedChild={selectedChild} onChoose={onChoose} /></div>
+      </section>
+    );
+  }
   return (
     <section className="bbm-category-picker" aria-label="차량 카테고리 선택">
       <div className="bbm-category-picker__icons"><BbmCategoryIconRow includeAll activeValue={activeGroup.value} onActivate={setActiveValue} /></div>
