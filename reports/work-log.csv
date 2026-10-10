@@ -165,3 +165,4 @@
 "2026-10-11 04:40","미지정","fix/qf-m-sticky-filter-1010","-","-","병합·배포","모바일 칩 줄 고정 위치 다듬기, 사직 사진 경로 수정","listing/index.tsx · listing/bbm-list-area.css · assets/cars/deutsch-autoworld-v01 · docs/quick-filter-spec.md","-","-","verify:qf 통과"
 "2026-10-11 05:10","미지정","fix/qf-m-toolbar-line-1010","-","-","병합·배포","모바일 업데이트순 줄 위 구분선 제거","listing/stable-top.css · docs/quick-filter-spec.md","-","-","verify:qf 통과"
 "2026-10-11 06:00","미지정","fix/qf-sag-dealer-title-1010","-","-","병합·배포","서울오토갤러리 딜러 레일 제목을 수입차 전문 딜러로","listing/seoul-auto-gallery-dealer-rail.tsx · docs/quick-filter-spec.md","-","-","verify:qf 통과"
+"2026-10-11 07:10","미지정","feat/qf-all-vehicles-category-1010","-","-","병합·배포","카테고리 시트에 전체차량 추가, 전체중고차는 중고차에 한함","listing/bbm-list.tsx · assets/category/icons/v01/category_all_vehicles_v01.svg · docs/quick-filter-spec.md","-","-","verify:qf 통과"
