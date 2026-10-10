@@ -209,3 +209,7 @@
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-price-badges { margin-top: -1px; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-meta { margin-top: 9px; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-meta-row { margin-top: -6px; }
+/* 2026-10-10 「모바일에서 매물을 아래로 내릴 때 스크롤이 매끄럽지 못하다」: 화면 밖 카드는 그리기·배치를 건너뛰고(content-visibility), 크기는 처음 본 값을 기억(auto)한다.
+   목록형 카드는 151·171(평균 약 164), 피드형 카드는 373(실측). 사진은 처음 4장만 바로, 나머지는 지연(loading="lazy") · 비동기 해독(decoding="async")으로 불러 한꺼번에 해독하지 않는다 */
+.marketplace .bbm-m-list .bbm-result-card.is-mobile { content-visibility: auto; contain-intrinsic-size: auto 164px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured { contain-intrinsic-size: auto 373px; }
