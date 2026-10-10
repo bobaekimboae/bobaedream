@@ -157,3 +157,4 @@
 "2026-10-10 23:10","미지정","feat/qf-seoul-autogallery-real-1010","-","#375","병합·배포","서울오토갤러리 실데이터 23대(사진 5장·실제 상사명·딜러명)","src/prototype/data/seoul-autogallery-v01.ts · data/index.tsx · listing/index.tsx · docs/quick-filter-spec.md · reports/pr-375*","713대는 사진 없음","사진 확보 후 추가","verify:qf 통과"
 "2026-10-10 23:40","미지정","feat/qf-seoul-autogallery-order-1010","-","-","병합·배포","서울오토갤러리 판매자 줄을 딜러명 상사명 순서로","src/prototype/data/index.tsx · docs/quick-filter-spec.md","-","-","verify:qf 통과"
 "2026-10-10 23:55","미지정","feat/qf-seoul-autogallery-nojoo-1010","-","-","병합·배포","서울오토갤러리 목록 상사명에서 (주) 제거","src/prototype/data/index.tsx · docs/quick-filter-spec.md","-","-","verify:qf 통과"
+"2026-10-11 00:20","미지정","feat/qf-seoul-autogallery-stock-1010","-","-","병합·배포","서울오토갤러리 판매중 실제 대수, 가상 판매완료 제거","data/seoul-autogallery-v01.ts · data/index.tsx · listing/bbm-list.tsx · docs/quick-filter-spec.md","판매완료 값 없음","시트에 값 오면 추가","verify:qf 통과"
