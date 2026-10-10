@@ -1,0 +1,107 @@
+[
+  {
+    "name": "사진 등록",
+    "ok": true,
+    "detail": "5장"
+  },
+  {
+    "name": "순서 변경(◀ 버튼)",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "순서 변경(끌어서 이동)",
+    "ok": true,
+    "detail": "0번 → 3번 자리"
+  },
+  {
+    "name": "장면 자막 편집",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "통합 미리보기 진행(장면 전환)",
+    "ok": true,
+    "detail": "장면 2, 시간 00:03"
+  },
+  {
+    "name": "음악 재생(WebAudio 신호)",
+    "ok": true,
+    "detail": "AudioContext running, 파형 레벨 0.246"
+  },
+  {
+    "name": "음성 호출(speechSynthesis)",
+    "ok": true,
+    "detail": "호출 2회, 첫 문장 \"2016년, BMW X3 xDrive20d, 165,536km, 1,490만원. 네비게이션\""
+  },
+  {
+    "name": "음성 실제 발화(OS 음성 엔진)",
+    "ok": false,
+    "detail": "한국어 포함 음성 0개 — 헤드리스에는 음성 엔진이 없어 소리는 확인 불가"
+  },
+  {
+    "name": "결과 영상 재생(WebM)",
+    "ok": true,
+    "detail": "currentTime 1.16s, 1080×1920, 브라우저 임시 WebM"
+  },
+  {
+    "name": "WebM 다운로드",
+    "ok": true,
+    "detail": "BMW_X3_xDrive20d_15s.webm · vp9 1080×1920"
+  },
+  {
+    "name": "WebM에 음악 트랙 포함",
+    "ok": true,
+    "detail": "opus"
+  },
+  {
+    "name": "렌더 서버 연결 표시",
+    "ok": true,
+    "detail": "서버 연결됨 · FFmpeg · TTS 미연결"
+  },
+  {
+    "name": "MP4 다운로드",
+    "ok": true,
+    "detail": "BMW_X3_xDrive20d_15s.mp4"
+  },
+  {
+    "name": "MP4 규격 9:16 1080×1920",
+    "ok": true,
+    "detail": "1080×1920"
+  },
+  {
+    "name": "MP4 30fps",
+    "ok": true,
+    "detail": "30/1"
+  },
+  {
+    "name": "MP4 H.264",
+    "ok": true,
+    "detail": "h264 High"
+  },
+  {
+    "name": "MP4 AAC 음성 트랙",
+    "ok": true,
+    "detail": "aac 48000Hz"
+  },
+  {
+    "name": "MP4 컨테이너·길이",
+    "ok": true,
+    "detail": "mov,mp4,m4a,3gp,3g2,mj2, 15.00s"
+  },
+  {
+    "name": "MP4 끝까지 디코딩 오류 없음",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "결과 MP4 브라우저 재생",
+    "ok": false,
+    "detail": "이 Chromium 빌드는 H.264 디코더가 없어 재생 불가(일반 Chrome·Safari·Edge는 재생). ffmpeg 디코딩으로 대체 확인"
+  },
+  {
+    "name": "페이지 오류 없음",
+    "ok": true,
+    "detail": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  }
+]
