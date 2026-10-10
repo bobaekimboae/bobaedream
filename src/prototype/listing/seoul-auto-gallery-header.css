@@ -1,0 +1,112 @@
+.sag-category-hero {
+  position: relative;
+  width: calc(100% - 32px);
+  aspect-ratio: 179 / 49;
+  min-height: 88px;
+  max-height: 98px;
+  margin: 12px 16px 10px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #071a3a;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 12%);
+  isolation: isolate;
+}
+
+.sag-category-hero__building,
+.sag-category-hero__shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.sag-category-hero__building {
+  z-index: -2;
+  object-fit: cover;
+  object-position: center;
+}
+
+.sag-category-hero__shade {
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgb(2 13 35 / 94%) 0%, rgb(3 20 50 / 84%) 38%, rgb(4 24 55 / 20%) 68%, transparent 100%),
+    linear-gradient(0deg, rgb(0 0 0 / 16%), transparent 60%);
+}
+
+.sag-category-hero__content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+  padding: 12px 16px;
+}
+
+.sag-category-hero__mark {
+  display: block;
+  width: 34px;
+  height: 46px;
+  flex: 0 0 34px;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 1px rgb(0 0 0 / 22%));
+}
+
+.sag-category-hero__copy {
+  min-width: 0;
+  color: #fff;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 34%);
+}
+
+.sag-category-hero__copy h1,
+.sag-category-hero__copy p {
+  margin: 0;
+}
+
+.sag-category-hero__copy h1 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: -0.45px;
+}
+
+.sag-category-hero__copy p {
+  margin-top: 2px;
+  color: rgb(255 255 255 / 84%);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: -0.2px;
+}
+
+@media (min-width: 768px) {
+  .sag-category-hero {
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    max-height: 132px;
+    margin: 0 0 16px;
+    border-radius: 10px;
+  }
+
+  .sag-category-hero__content {
+    gap: 14px;
+    padding: 18px 24px;
+  }
+
+  .sag-category-hero__mark {
+    width: 42px;
+    height: 58px;
+    flex-basis: 42px;
+  }
+
+  .sag-category-hero__copy h1 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .sag-category-hero__copy p {
+    margin-top: 3px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

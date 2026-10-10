@@ -1,117 +1,51 @@
-# Design QA — 바이크 제조사·모델 필터
+# Design QA — 서울오토갤러리 카테고리 헤더
 
-## 비교 기준
+- source visual truth path: `C:\Users\bobae\Documents\Codex\bobaedream-genesis-1008\reports\seoul-auto-gallery-youtube-reference.png`
+- implementation screenshot path: `C:\Users\bobae\Documents\Codex\bobaedream-genesis-1008\reports\seoul-auto-gallery-header-mobile-v01.png`
+- focused implementation path: `C:\Users\bobae\Documents\Codex\bobaedream-genesis-1008\reports\seoul-auto-gallery-header-region-v01.png`
+- combined comparison path: `C:\Users\bobae\Documents\Codex\bobaedream-genesis-1008\reports\seoul-auto-gallery-header-qa-side-by-side.png`
+- scroll-state evidence: `C:\Users\bobae\Documents\Codex\bobaedream-genesis-1008\reports\seoul-auto-gallery-header-scroll-v02.png`
+- desktop evidence: `C:\Users\bobae\Documents\Codex\bobaedream-genesis-1008\reports\seoul-auto-gallery-header-desktop-v01.png`
+- viewport: mobile 390×844 CSS px, desktop 1440×1000 CSS px
+- source pixels: 415×900; source banner crop 380×104, normalized to 358×98
+- implementation pixels: full mobile 390×844, focused banner 358×98
+- density normalization: deviceScaleFactor 1; source banner crop and implementation banner normalized to equal 358×98 pixels
+- state: 서울오토갤러리 카테고리 첫 화면, 필터 미선택, 모바일 피드
 
-- Source visual: `artifacts/bike-filter-1006/00-source-car-makers-360.png`, `artifacts/bike-filter-1006/00-source-car-models-360.png`
-- Source intent: 중고차 제조사·모델 바텀시트 부품을 그대로 재사용하고 데이터·장르·모델그룹 구조만 바이크에 맞게 교체
-- Implementation: `artifacts/bike-filter-1006/01-makers-360.png`, `02-honda-groups-360.png`, `03-honda-pcx-models-360.png`, `04-direct-maker-models-360.png`
-- 비교 뷰포트: 360×800 CSS px, DPR 1
-- 중요 영역: 제조사 48px 행, 모델 72px 행, 로고 38×26, 모델 이미지 84×56, 텍스트 시작 x66/x116, 장르 칩, 그룹 생략 동작
+## Full-view comparison evidence
 
-## 실측 비교
+The implementation preserves the existing search, region, filter-chip, logo rail, dealer rail, and listing hierarchy. The new header is inserted between the search header and region/filter controls, so it does not replace or obscure any existing interaction.
 
-| 항목 | 자동차 기준 | 바이크 구현 | 결과 |
-| --- | ---: | ---: | --- |
-| 제조사 행 높이 | 48 | 48 | 일치 |
-| 로고 슬롯 | 38×26 | 38×26 | 일치 |
-| 제조사명 시작 | x66 | x66 | 일치 |
-| 제조사 구분선 | 1px / #E8E8E8 / 마지막 행 제외 | 1px / #E8E8E8 / 마지막 행 제외 | 일치 |
-| 모델 행 높이 | 72 | 72 | 일치 |
-| 모델 이미지 슬롯 | 84×56 | 84×56 | 일치 |
-| 모델명 시작 | x116 | x116 | 일치 |
-| 모델명 | 16px / 500 | 16px / 500 | 일치 |
-| 구분선 | x116 / #DEDEE3 | x116 / #DEDEE3 | 일치 |
-| 가로 넘침 | 없음 | 없음(360/360) | 통과 |
+## Focused region comparison evidence
 
-## 발견 사항과 수정 이력
+The combined image compares the YouTube mobile channel banner crop on the left with the implemented 서울오토갤러리 banner on the right at the same 358×98 pixels. Both use the same 3.65:1 proportion and 8px rounded visual treatment. The implementation intentionally substitutes Seoul Auto Gallery content while preserving the compact channel-banner density.
 
-1. P1 — 생성된 혼다 PNG의 투명/배경 처리 때문에 브라우저에서 차체 일부가 사라져 보였다.
-   - 수정: 기존 원본은 보존하고 불투명 흰색 카탈로그 배경의 `*-white-v02.png` 5장을 추가해 연결했다.
-   - 재확인: 5개 파일 모두 로드되고 콘솔·페이지 오류 0건.
-2. P3 — 흰색 차체(PCX·포르자)는 84×56 흰 목록에서 대비가 약하다.
-   - 상태: 필터 레이아웃 검증용 샘플로 허용. 사용자가 이미지 추가 제작을 다음 단계로 미뤘으므로 색상 교정은 이미지 제작 단계로 분리한다.
-3. P3 — 오토홈 원본이 100×100인 로고는 3배율에서 일부가 흐릴 수 있다.
-   - 상태: `public/assets/bike/logos/autohome-trim/manifest.csv`에 `저해상도`로 기록해 교체 후보를 추적한다.
-4. P2 — 제조사 행 구분선이 꺼져 있어 기존 바텀시트보다 목록의 행 경계가 약했다.
-   - 수정: 공통 `option-row` 구분선 규칙을 제조사 행에도 적용했다. 콘텐츠 좌우 영역 안에서 1px `#E8E8E8`로 표시하고 각 섹션의 마지막 행은 제외했다.
-5. P3 — 혼다 흰색 샘플과 할리 검정 배경 샘플이 같은 목록에서 촬영 규칙이 달랐다.
-   - 수정: 혼다 5종과 할리 1종을 좌향 앞 3/4, 16:10 마스터, 흰 배경, 최대 시각 폭 88~90%, 최대 시각 높이 90~92%, 바닥선 92~94%, 짧은 접지 그림자로 통일했다. 모델 외형은 오토홈·공식 이미지, 배치와 조명은 오토스카우트24 규칙을 따른다.
-   - 재확인: 84×56 실제 슬롯에서 6장 로드, 가로 넘침·콘솔 오류 0건.
-6. P2 — 바이크를 앞 3/4로 표시하면 작은 슬롯에서 전면부가 강조되고 휠베이스·차체 유형 비교가 어려웠다.
-   - 수정: 오토스카우트24 모바일웹의 슬롯·조명 규칙을 유지하면서 바이크 6종은 좌향 완전 측면으로 교체했다. 960×600 캔버스에서 폭 90%, 중심 50%, 타이어 바닥선 94%로 정규화했다.
+## Required fidelity surfaces
 
-## 동작 검수
+- Fonts and typography: title 18/23·700, subtitle 12/17·400; no wrapping or truncation at 390px.
+- Spacing and layout rhythm: x=16, width=358, height=98, 16px side margins, 8px radius; filter begins below the header without overlap.
+- Colors and visual tokens: deep navy photographic background, white title, 84% white subtitle, restrained left-to-right legibility overlay.
+- Image quality and asset fidelity: 2084×755 photographic master remains sharp at 358×98 and 1200×132; official SAG source mark is used as the basis for the transparent symbol asset.
+- Copy and content: `서울오토갤러리` / `수입차 전문 매매단지` matches the approved shortened copy.
 
-- 제조사 86 / 노출 65 / 숨김 21 확인
-- 명시 모델그룹 920 / 모델 2,910 확인
-- 혼다: 제조사 → 모델그룹 → PCX 모델 정상 이동
-- AJS: `uses_groups=false`로 모델그룹 단계 생략 정상
-- 제조사별 존재 장르만 노출, `전체` 장르 칩 미노출
-- 화면 너비 360px에서 수평 오버플로 없음
-- 콘솔 오류 0건, 페이지 오류 0건
+## Interaction and runtime checks
 
-## 최종 결과
+- The `.mobile-scroll` container reaches `scrollTop=260`; banner bounding box moves to `y=-198`, confirming it scrolls away naturally.
+- Persistent bottom navigation remains visible.
+- Browser console and page errors: 0.
+- `npm run check:runtime`: passed.
+- `npm run verify:qf`: passed.
 
-**passed** — 필터 구조·데이터·컴포넌트 규격·핵심 상호작용은 기준과 일치한다. 혼다 흰색 샘플 이미지 대비는 후속 이미지 제작 범위의 P3 항목으로 남긴다.
+## Findings
 
----
+No actionable P0, P1, or P2 mismatch remains.
 
-# Design QA — 바이크 매물등록
+## Comparison history
 
-## 기준 자료
+- Pass 1: source and implementation were normalized to 358×98. No P0/P1/P2 issue was found, so no visual-fix iteration was required.
 
-- 원본 첫 화면: `C:\Users\bobae\OneDrive\문서\ChatGPT\퀵필터 제작\chotot-register-entry-2026-10-09.jpg`
-- 원본 제조사 선택: `C:\Users\bobae\OneDrive\문서\ChatGPT\퀵필터 제작\chotot-maker-list-2026-10-09.png`
-- 원본 입력 화면: `C:\Users\bobae\OneDrive\문서\ChatGPT\퀵필터 제작\poco-chotot-bottom-2026-10-09.png`
-- 구현 캡처: Codex IAB tab 10, `http://127.0.0.1:4205/?register=bike&category=%EB%B0%94%EC%9D%B4%ED%81%AC`
-- 원본 캡처 크기: 267×613px
-- 구현 검수 뷰포트: 267×613px, 360×800px, 430×900px
+## Follow-up polish
 
-## 상태별 비교
+- P3: If a future official high-resolution transparent SAG symbol becomes available, it can replace the current derived transparent symbol without changing layout metrics.
 
-| 상태 | 원본 핵심 | 구현 결과 | 판정 |
-|---|---|---|---|
-| 첫 화면 | 중앙 타이틀, 사진·영상 슬롯, 큰 설명 입력, 하단 2버튼 | 동일한 정보 순서와 밀도, 보배드림 문구·검정 CTA 적용 | 통과 |
-| 제조사 선택 | 전체 화면, 중앙 제목, 회색 검색창, 단일선택 라디오 | 가나다순 제조사, 검색, 선택·해제, 초톳 아이콘 적용 | 통과 |
-| 모델 선택 | 제조사 선택 뒤 다음 뎁스 | 실제 바이크 DB 기반 제조사별 모델그룹 노출 | 통과 |
-| 상세 입력 | 상태·제조사·모델·연식·유형·주행거리·배기량 | 동일한 세로 행 구조와 고정 하단 액션 | 통과 |
-| 반응형 | 좁은 모바일 한 열 | 가로 넘침 0, 430px 이하 한 열 유지 | 통과 |
-
-## 구현 실측 — 360×800
-
-- 헤더: 360×50px
-- 타이틀: 17/24px, 700
-- 사진·영상 슬롯: x16, 328×94px
-- 매물 설명: x16, 328×174px
-- 상세 행: x16, 폭 328px, 높이 58px
-- 하단 액션: 360×68.8px
-- 등록 버튼: 높이 48px
-- 수평 오버플로: 0px
-
-## 인터랙션 검수
-
-- 제조사 `혼다` 선택 → 모델 목록이 PCX·슈퍼커브·CBR·CB 순으로 연결됨
-- PCX → 2024년 → 스쿠터 선택 정상
-- AI 설명 추천, 제목·가격·지역·주행거리·배기량 입력 정상
-- 사진 추가·미리보기·매물 등록은 시안용 안내만 표시하며 실제 저장·업로드 요청 없음
-- 콘솔 오류 0건
-
-## 아이콘
-
-- 뒤로가기: `finn-back-arrow-18.svg`
-- 닫기·검색·꺾쇠·체크: 프로젝트에 확보된 초톳 아이콘 에셋
-- 카메라: 기존 프로젝트 카메라 에셋을 초톳 노란 톤으로 표시
-- 노션 아이콘 페이지는 로그인 화면으로 열려 직접 다운로드하지 않았으며, 저장소에 이미 확보된 동일 계열 로컬 에셋을 사용함
-
-## 변경 이력
-
-1. 초톳 캡처 기준 모바일 뼈대 구현
-2. 바이크 실제 DB 제조사·모델 연결
-3. 제조사 목록을 등록 화면에 맞게 가나다순으로 정렬
-4. 267px 최소폭 오버플로 제거
-5. 검색창 자동 포커스 제거 및 초톳 아이콘으로 통일
-6. 267·360·430px 반응형, 선택 흐름, 콘솔 재검수
-
-## 최종 결과
-
-passed
+final result: passed
