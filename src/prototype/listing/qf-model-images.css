@@ -627,45 +627,45 @@
 /* 트럭 유형 1뎁스 QF-122: 바이크 유형과 같은 초톳 슬롯 리듬을 사용한다.
    차체가 긴 트럭은 60×40 contain 안에서 폭을 광학 보정하고, 카드·라벨 위치는
    바이크와 동일한 76/84×102 및 14/21·600으로 고정한다. */
-.marketplace.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-type-row,
-.marketplace.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-type-row .brand-carousel,
-.marketplace.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-type-row .depth-rail-track {
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-type-row,
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-type-row .brand-carousel,
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-type-row .depth-rail-track {
   height: 102px;
   min-height: 102px;
 }
 
-.marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail.is-truck-type-row) {
+.marketplace.is-bbm.is-truck-category.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail.is-truck-type-row) {
   height: 102px;
 }
 
-.marketplace.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-type-row .depth-card.is-truck-depth {
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-type-row .depth-card.is-truck-depth {
   height: 102px;
 }
 
-.marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-type-row .depth-card.is-truck-depth {
+.marketplace.is-bbm.is-truck-category.is-qf-guazi .depth-rail.is-truck-type-row .depth-card.is-truck-depth {
   width: 84px;
   flex-basis: 84px;
 }
 
-.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-type-row .depth-card.is-truck-depth {
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi .depth-rail.is-truck-type-row .depth-card.is-truck-depth {
   width: 76px;
   flex-basis: 76px;
 }
 
-.marketplace.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-type-row .depth-card.is-truck-depth > .depth-card-media:not(.is-brand) {
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-type-row .depth-card.is-truck-depth > .depth-card-media:not(.is-brand) {
   width: calc(100% - 8px);
   height: 40px;
   margin-top: 6px;
 }
 
-.marketplace.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-type-row .depth-card.is-truck-depth > .depth-card-media:not(.is-brand) img {
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-type-row .depth-card.is-truck-depth > .depth-card-media:not(.is-brand) img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: center bottom;
 }
 
-.marketplace.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-type-row .depth-card.is-truck-depth > .depth-card-label {
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-type-row .depth-card.is-truck-depth > .depth-card-label {
   display: -webkit-box;
   width: 100%;
   height: auto;
