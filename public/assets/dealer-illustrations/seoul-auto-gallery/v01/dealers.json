@@ -8,7 +8,7 @@
     "nameTypography": "14px/18px 500",
     "countTypography": "12px/16px 400"
   },
-  "notice": "Dealer names and listing counts are public Seoul Auto Gallery data. Portraits are fictional UI illustrations and are not likenesses of the named dealers.",
+  "notice": "Dealer names, listing counts, and profile references are public Seoul Auto Gallery data. Color portraits are newly generated UI illustrations based on each dealer's public business profile photo.",
   "dealers": [
     {
       "name": "강홍구",
