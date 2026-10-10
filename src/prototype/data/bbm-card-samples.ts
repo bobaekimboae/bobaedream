@@ -1,6 +1,6 @@
 // QF-091: 개발 시안 카드의 등록연월·주행거리·연료·마력과 인증중고차·1년보증 배지를 채운다.
 // 우리 매물 데이터에 없는 값(월·년형·마력·배지)을 매물 id 로 정해지는 샘플 값으로 채운다. 실제 매물 정보가 아니다.
-type SampleSource = { id: number; title?: string; trim?: string; specs: string[]; filter?: { year: number; mileage: number; fuel: string }; badges?: string[]; uiTest?: unknown; virtualCategory?: { category?: string; categoryDetail?: string; berths?: number; beds?: number; seats?: number }; bike?: { genre: string; displacement: number; scenarioVersion?: string }; truck?: { trailer?: { load: string; length: string; axles: string }; load?: string; horsepower?: number; drive?: string }; heavy?: { hours?: number }; cardSpec?: string[] };
+type SampleSource = { id: number; title?: string; trim?: string; specs: string[]; filter?: { year: number; mileage: number; fuel: string }; badges?: string[]; uiTest?: unknown; virtualCategory?: { category?: string; categoryDetail?: string; berths?: number; beds?: number; seats?: number }; bike?: { genre: string; displacement: number; scenarioVersion?: string }; truck?: { trailer?: { load: string; length: string; axles: string; reg?: string }; load?: string; horsepower?: number; drive?: string }; heavy?: { hours?: number }; cardSpec?: string[] };
 
 const horsepowerPool = [190, 204, 245, 258, 150, 170, 305, 367, 122, 184, 225, 272];
 const badgePool: string[][] = [["인증중고차", "1년보증"], ["인증중고차", "1년보증"], [], ["1년보증"], ["인증중고차"], []];
@@ -43,7 +43,7 @@ function bbmCardSpecRaw(source: SampleSource, withPower = true) {
   if (source.cardSpec?.length) return source.cardSpec.map((part) => /^[\d,]+km$/.test(part) ? mileageLabel({ ...source, filter: { year: 0, fuel: "", mileage: Number(part.replace(/[^\d]/g, "")) } }) : part).join(" · ");
   // 트레일러: 적재량 · 길이 · 축(엔진 없음)
   // 트레일러: 등록연월 · 적재 · 축수 · 길이(2026-10-10 「트레일러는 적재도 추가, 축 앞에」), 목록형·피드형 모두 한 줄
-  if (source.truck?.trailer) return [`${String(yearFromSpecs(source) % 100).padStart(2, "0")}년${String(((source.id * 5) % 12) + 1).padStart(2, "0")}월`, source.truck.trailer.load, source.truck.trailer.axles, source.truck.trailer.length].join(" · ");
+  if (source.truck?.trailer) return [source.truck.trailer.reg ?? `${String(yearFromSpecs(source) % 100).padStart(2, "0")}년${String(((source.id * 5) % 12) + 1).padStart(2, "0")}월`, source.truck.trailer.load, source.truck.trailer.axles, source.truck.trailer.length].filter(Boolean).join(" · ");
   // 캠핑카: 바이크 장르처럼 구분을 맨 앞에(모터홈 · 카라반 · 트레일러, 2026-10-08) + 등록연월 · 주행 · 연료. 엔진 없는 카라반·트레일러는 등록연월 · 취침(「견인형」은 2026-10-08 뺌)
   if (source.virtualCategory?.category === "캠핑카") {
     const year = yearFromSpecs(source);
@@ -97,6 +97,8 @@ export function bbmCardBadges(source: SampleSource) {
   // 지시값으로 넣은 매물(cardSpec)은 샘플 배지를 붙이지 않는다(2026-10-07 사용자 지시 「배지 빼고」)
   if (source.cardSpec?.length) return source.badges ?? [];
   if (source.virtualCategory) return source.badges ?? [];
+  // 트럭 트레일러 시트 매물(v10)은 샘플 배지를 붙이지 않는다
+  if (source.truck?.trailer) return source.badges ?? [];
   // 바이크 시트 매물(v08)은 실제 매물 유형만(라이트바겐 인증중고 = 「인증중고차」), 샘플 배지를 붙이지 않는다
   if (source.bike?.scenarioVersion === "v08") return source.badges ?? [];
   return source.badges?.length ? source.badges : badgePool[source.id % badgePool.length];
