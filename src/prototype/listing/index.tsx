@@ -1782,7 +1782,7 @@ function MarketplaceScreen() {
             // QF-108: 월 단위 상위 10(brand-top10.json) + 11번째 "전체 브랜드"(제조사 칩과 같은 목록 창을 연다)
             // QF-114: 바이크 · 트럭·특장은 유형별 상위 10(승용 브랜드 없음), 샘플 0대 칸은 흐리게(빼지 않음), 로고가 없으면 첫 글자 원형
             const typeList = categoryTypeBrandList;
-            const sections = krTopTenSections(category === "국산차" ? "domestic" : category === "수입차" ? "imported" : "all", typeList ? category : undefined);
+            const sections = krTopTenSections(category === "국산차" ? "domestic" : category === "수입차" || category === "도이치오토월드" ? "imported" : "all", typeList ? category : undefined);
             const sampleCount = (key: string) => isTruckCategory
               ? listingCars.filter((car) => car.maker === key && matchesTruckSelection(car)).length
               : listingCars.filter((car) => car.maker === key).length;
