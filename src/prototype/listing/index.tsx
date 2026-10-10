@@ -1881,7 +1881,7 @@ function MarketplaceScreen() {
                 <section className="depth-rail is-kr-maker is-lux-logo no-label" aria-label={`${category} 브랜드 빠른 선택`} data-luxlogo={logoSource}>
                   <QuickRailCarousel ariaLabel={`${category} 브랜드`} className="brand-carousel" contentClassName="depth-rail-track">
                     {luxuryLogoBrands.map((brand, index) => (
-                      <DepthCard key={brand.maker} className={category !== "서울오토갤러리" && sampleCount(brand.maker) === 0 ? "is-dim" : undefined} label={brand.maker} image={<img className={`lux-qf-logo lux-qf-logo--${brand.slug}`} src={asset(luxuryLogoPath(logoSource, index))} alt="" draggable={false} />} mediaKind="brand" selected={maker === brand.maker} onClick={() => applyMakerFilter(brand.maker)} />
+                      <DepthCard key={brand.maker} label={brand.maker} image={<img className={`lux-qf-logo lux-qf-logo--${brand.slug}`} src={asset(luxuryLogoPath(logoSource, index))} alt="" draggable={false} />} mediaKind="brand" selected={maker === brand.maker} onClick={() => applyMakerFilter(brand.maker)} />
                     ))}
                   </QuickRailCarousel>
                 </section>
