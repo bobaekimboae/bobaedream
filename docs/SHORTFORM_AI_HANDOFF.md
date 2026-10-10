@@ -1,6 +1,6 @@
 # 보배 AI 숏폼 영상 제작기 인수인계
 
-최종 정리: 2026-10-10 (KST, v5) · 소스: `public/shortform/index.html` (단일 파일, 배포 주소 `/shortform/`)
+최종 정리: 2026-10-10 (KST, v6) · 소스: `public/shortform/index.html` (단일 파일, 배포 주소 `/shortform/`)
 
 > 이 문서는 새로 만들었다(작업 지시에 「docs/SHORTFORM_AI_HANDOFF.md를 읽어라」가 있었지만 저장소 어느 브랜치에도 없었다). 이전 인수인계 내용이 따로 있으면 여기에 합쳐 달라.
 
@@ -12,6 +12,10 @@
 | `scripts/shortform-render-server.mjs` | FFmpeg 서버 렌더러(서비스용 MP4) |
 | `scripts/shortform-browser-check.mjs` | 실제 브라우저 종단 점검(`npm run check:shortform`) |
 | `public/shortform-upload/`, `public/shortform-uploader/` | **다른 제품**(촬영 업로더). 별도 요청 없이 수정하지 않는다 |
+
+## 1-2. 화면 구성 원칙 (v6 단순화)
+
+첫 화면에는 **사진 올리기 → 템플릿 → 차량 정보 → 「영상 만들기」 한 개**만 보인다. 변환 방식·길이·음악·음성·마지막 문구·서버 주소는 「고급 설정」, 장면 자막 편집은 「장면 · 자막 편집」, 구현 상태는 「기능 상태」에 접어 둔다(`details.fold`). 「영상 만들기」는 브라우저 MP4를 만들고, 브라우저에 MP4 인코더가 없으면 자동으로 WebM 폴백으로 만든다. 서버 렌더링·WebM 버튼은 「고급 설정」 안에 있다. 새 기능은 첫 화면에 버튼을 늘리지 말고 접힌 곳에 둔다.
 
 ## 2. 최종 출력 목표 (서비스용)
 
@@ -49,7 +53,7 @@
 
 ## 5. 검증
 
-- `npm run check:shortform` — 실제 Chromium으로 사진 등록·순서 변경·번호판 모자이크·미리보기·음악·WebM 생성·브라우저 MP4 생성·재생·다운로드·서버 MP4(15초·20초) 생성·ffprobe 규격 검증(35항목). 결과는 `reports/shortform-e2e/result.json`.
+- `npm run check:shortform` — 실제 Chromium으로 사진 등록·순서 변경·번호판 모자이크·미리보기·음악·WebM 생성·브라우저 MP4 생성·재생·다운로드·서버 MP4(15초·20초) 생성·ffprobe 규격 검증(36항목). 결과는 `reports/shortform-e2e/result.json`.
 - 헤드리스 환경의 한계: ① OS 음성 엔진이 없어 TTS **소리**는 확인 불가(호출·문장만 확인), ② Playwright Chromium은 H.264를 디코딩하지 못해 MP4의 **브라우저 재생**은 확인 불가(ffmpeg 디코딩으로 대체). 실기기(Chrome·Safari)에서 확인해야 한다.
 
 ## 6. 다음에 할 일 (우선순위)

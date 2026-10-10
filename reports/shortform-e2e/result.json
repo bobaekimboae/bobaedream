@@ -1,5 +1,10 @@
 [
   {
+    "name": "첫 화면 단순화(사진·템플릿·정보·큰 버튼만, 고급·장면목록 접힘)",
+    "ok": true,
+    "detail": "보이는 버튼 5개"
+  },
+  {
     "name": "사진 등록",
     "ok": true,
     "detail": "5장"
@@ -37,7 +42,7 @@
   {
     "name": "음악 재생(WebAudio 신호)",
     "ok": true,
-    "detail": "AudioContext running, 파형 레벨 0.218"
+    "detail": "AudioContext running, 파형 레벨 0.225"
   },
   {
     "name": "음성 호출(speechSynthesis)",
@@ -52,7 +57,7 @@
   {
     "name": "결과 영상 재생(WebM)",
     "ok": true,
-    "detail": "currentTime 1.13s, 1080×1920, 브라우저 임시 WebM"
+    "detail": "currentTime 1.16s, 1080×1920, 브라우저 임시 WebM"
   },
   {
     "name": "WebM 다운로드",
@@ -92,7 +97,7 @@
   {
     "name": "브라우저 MP4 결과 재생",
     "ok": true,
-    "detail": "currentTime 1.164494"
+    "detail": "currentTime 1.163738"
   },
   {
     "name": "렌더 서버 연결 표시",
