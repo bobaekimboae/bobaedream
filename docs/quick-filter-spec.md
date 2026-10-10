@@ -91,6 +91,10 @@
 
 ## Images And Logos
 
+- 바이크 카테고리(2026-10-10)는 제조사보다 먼저 유형 13종(`네이키드 · 스쿠터 · 스포츠 · 멀티퍼포즈 · 크루저 · 클래식 · 언더본 · 투어러 · 오프로드 · 전기 · 삼륜 · ATV · 기타`)을 이미지 퀵필터로 노출한다. 하나를 고르면 같은 자리에서 제조사 레일로 진행하고, 상단 적용 칩의 X로 유형을 해제하면 유형 레일로 돌아온다.
+- 바이크 유형 레일은 초톳 슬롯을 그대로 사용한다: 모바일 셀 76×102px·이미지 68×40px·첫 시작 16px·간격 8px, PC 셀 84×102px·이미지 76×40px·첫 시작 20px·간격 8px. 라벨은 12/18px·500·`#595959`, 가운데 정렬, 최대 2줄이다.
+- 유형 대표 이미지는 `public/assets/bike/types/autoscout-v01/`의 960×600 투명 PNG를 사용한다. 차량 전체와 두 바퀴가 보여야 하며 앞머리는 왼쪽, 바닥선·수평 중심·접지 그림자를 통일한다. 차체는 AutoScout24식 밝은 무채색을 기본으로 하고 유형 식별에 필요한 기능색만 소면적으로 허용한다.
+
 - Vehicle images and manufacturer marks follow `docs/quick-filter-image-slot-rules_v03.md` and `docs/image/quickfilter_image_production_manual_v01.md`. The older asset and layout documents describe the currently deployed implementation; where their image-direction or production claims conflict, v03 is the authority.
 - 차량군별 색상·재질·조명 제작값은 `docs/image/autoscout24_chotot_vehicle_image_manual_v01.md`와 기계 판독용 `docs/image/vehicle_category_color_manifest_v01.csv`를 따른다. 카테고리 식별은 `실루엣 → 주요 구조 → 제한된 식별색` 순서이며, 색만 바꾼 동일 형상은 승인하지 않는다.
 - 공통 재질색은 차체 백색 `#F4F5F6`, 차체 음영 `#D9DDE1`, 구조 그래파이트 `#24292F`, 타이어 `#101214`, 유리 `#71818A`, 금속 `#B7BDC2`를 뼈대로 한다. 카테고리별 면적 비율은 매니페스트 값의 ±5% 안에 두며, 이미지마다 포인트색을 임의로 추가하지 않는다.
