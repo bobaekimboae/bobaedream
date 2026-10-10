@@ -137,7 +137,9 @@
 .marketplace.is-bbm-m:has(> .app-shell__footer) { padding-bottom: 0; }
 .marketplace.is-bbm-m > .app-shell__footer { margin-top: 24px; padding-bottom: calc(80px + var(--mobile-safe-area-height)); box-shadow: 0 -24px 0 #f4f4f4; }
 /* 모바일 칩 줄 고정(원본 car-list-content-header: sticky · top 0 · z 29). 스크롤 상자(.mobile-scroll) 안에서 붙는다 */
-.marketplace.is-bbm-m > .filter-shell.is-bbm { position: sticky; top: 0; z-index: 29; background: #fff; }
+.marketplace.is-bbm-m > .filter-shell.is-bbm { position: sticky; top: 10px; z-index: 29; background: #fff; }
+/* 칩 줄이 위에 붙은 동안(.is-stuck): 위 10(화면 맨 위와 칩 사이) · 아래 8 흰 여백 + 1px #EBEBEB 구분선. 레이아웃을 바꾸지 않으려고 box-shadow 로만 그린다(2026-10-10) */
+.marketplace.is-bbm-m > .filter-shell.is-bbm.is-stuck { box-shadow: 0 -10px 0 0 #fff, 0 8px 0 0 #fff, 0 9px 0 0 #ebebeb; }
 /* 런타임 기본 p 줄높이(1.45)를 원본처럼 부모 값으로(원본 푸터 문단은 부모 140% 상속) */
 .app-footer-mobile__biz-content p { color: inherit; font-size: inherit; line-height: inherit; }
 /* 모바일 정렬·보기 시트: 원본 실측 본문 여백 위 8 · 좌우 20 · 아래 20(시트 머리 아래 첫 버튼 64) */

@@ -735,6 +735,22 @@ function MarketplaceScreen() {
   const [bbmMobileView, setBbmMobileView] = useState<BbmMobileView>(initialBbmMobileView);
   // 모바일 칩 줄이 가로로 밀려 있으면 "필터" 칩을 아이콘만 + 오른쪽 구분선(원본 is-scrolled)
   const [bbmRailScrolled, setBbmRailScrolled] = useState(false);
+  // 모바일 칩 줄 고정 막대(2026-10-10 「하단 내리면 필터 스티치 어설프다 고정위치」): 칩 줄이 위에 붙으면 위 10 · 아래 8 여백과 아래 구분선을 준다(레이아웃은 그대로, box-shadow 만)
+  useEffect(() => {
+    const scroller = document.querySelector<HTMLElement>(".mobile-scroll");
+    const shell = document.querySelector<HTMLElement>(".marketplace.is-bbm-m > .filter-shell.is-bbm");
+    if (!scroller || !shell) return;
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const stuck = shell.getBoundingClientRect().top <= scroller.getBoundingClientRect().top + 10.5 && scroller.scrollTop > 0;
+      shell.classList.toggle("is-stuck", stuck);
+    };
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
+    scroller.addEventListener("scroll", onScroll, { passive: true });
+    update();
+    return () => { scroller.removeEventListener("scroll", onScroll); cancelAnimationFrame(frame); shell.classList.remove("is-stuck"); };
+  });
   const pcFilterRowRef = useRef<HTMLDivElement>(null);
   const [pcFilterCanScroll, setPcFilterCanScroll] = useState(false);
 
