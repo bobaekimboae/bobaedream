@@ -1,6 +1,6 @@
 import "./luxury-logo-rail.css";
 
-/** 럭셔리카 브랜드 로고 퀵필터 3종 시안(2026-10-08). 순서·이름은 확정값, 파일 번호 01~16 = 순서. 로고 소스만 `?luxlogo=`로 바꾼다. */
+/** 럭셔리카 브랜드 로고 퀵필터 비교 시안. 순서·이름은 확정값, 파일 번호 01~16 = 순서. 로고 소스만 `?luxlogo=`로 바꾼다. */
 export const luxuryLogoBrands = [
   { maker: "페라리", slug: "ferrari" },
   { maker: "람보르기니", slug: "lamborghini" },
@@ -20,18 +20,18 @@ export const luxuryLogoBrands = [
   { maker: "코닉세그", slug: "koenigsegg" },
 ] as const;
 
-export type LuxuryLogoSource = "autohome2" | "autohome" | "daangn" | "dongchedi";
-const sources: LuxuryLogoSource[] = ["autohome2", "autohome", "daangn", "dongchedi"];
+export type LuxuryLogoSource = "guazi" | "autohome2" | "autohome" | "daangn" | "dongchedi";
+const sources: LuxuryLogoSource[] = ["guazi", "autohome2", "autohome", "daangn", "dongchedi"];
 
-/** 기본 = autohome2(오토홈 + 맥라렌 엠블럼, 2026-10-08 확정) · 비교용 1번 오토홈 · 2번 당근 · 3번 동처띠 */
+/** 기본 = autohome2. 비교용 guazi·autohome·daangn·dongchedi를 URL에서 선택한다. */
 export function luxuryLogoSource(): LuxuryLogoSource {
   if (typeof window === "undefined") return "autohome2";
   const value = new URLSearchParams(window.location.search).get("luxlogo");
   return sources.includes(value as LuxuryLogoSource) ? (value as LuxuryLogoSource) : "autohome2";
 }
 
-/** autohome2 폴더는 드라이브 원본 파일명(qf_autohome_…)을 그대로 쓴다 */
-const filePrefix: Record<LuxuryLogoSource, string> = { autohome2: "autohome", autohome: "autohome", daangn: "daangn", dongchedi: "dongchedi" };
+/** autohome2 폴더는 autohome 접두사를 공유하며, guazi는 원본 로고를 같은 44×28 슬롯에 정규화한다. */
+const filePrefix: Record<LuxuryLogoSource, string> = { guazi: "guazi", autohome2: "autohome", autohome: "autohome", daangn: "daangn", dongchedi: "dongchedi" };
 
 /** public/assets/brand/luxury-qf-v01/{source}/qf_{prefix}_{NN}_{slug}_44x28@3x.png (132×84 투명 PNG, 드라이브 원본 복사본) */
 export function luxuryLogoPath(source: LuxuryLogoSource, index: number) {
