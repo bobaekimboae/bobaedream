@@ -1675,7 +1675,7 @@ function MarketplaceScreen() {
               ))}
             </QuickRailCarousel>
           </section> :
-          showTruckFormatRail ? <section className="depth-rail no-label is-truck-image-row is-format-root" aria-label="트럭 형식 빠른 선택">
+          showTruckFormatRail ? <section className="depth-rail no-label is-truck-image-row is-format-root is-truck-type-row" aria-label="트럭 유형 빠른 선택">
             <QuickRailCarousel ariaLabel="트럭 형식" className="brand-carousel" contentClassName="depth-rail-track">
               {truckFormatCatalog.map((group) => <DepthCard key={group.name} className="is-truck-depth" label={desktop ? group.name : truckQuickLabel(group.name)} ariaLabel={group.name} image={<img src={asset(truckFormatImageFor(group.name) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckFormat(group.name)} />)}
             </QuickRailCarousel>
