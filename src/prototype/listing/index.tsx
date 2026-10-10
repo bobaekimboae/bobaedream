@@ -1806,8 +1806,9 @@ function MarketplaceScreen() {
                 </section>
               );
             }
-            if (usesLuxuryBrandRail && plainQuickCards) {
-              // 럭셔리카 로고 3종 시안: 확정 16개 순서 · 초톳 40×40 슬롯, 로고 소스만 ?luxlogo=autohome|daangn|dongchedi
+            if (usesLuxuryBrandRail) {
+              // 럭셔리카 로고 3종 시안: 확정 16개 순서 · 기본은 초톳식 무배경,
+              // 비교 주소의 &qfcard=card 에서는 같은 로고를 사각 카드칩으로 표시한다.
               const logoSource = luxuryLogoSource();
               return (
                 <section className="depth-rail is-kr-maker is-lux-logo no-label" aria-label={`${category} 브랜드 빠른 선택`} data-luxlogo={logoSource}>
