@@ -178,3 +178,4 @@
 "2026-10-11 13:50","미지정","fix/qf-filter-icon-restore-1010","-","-","병합·배포","얇게 다시 그린 필터 아이콘 취소, 노션 원본(시안 2) 복원","listing/index.tsx · docs/quick-filter-spec.md","원본 훼손 취소","-","verify:qf 통과"
 "2026-10-11 14:30","미지정","feat/qf-filter-icon-leasing-1010","-","-","병합·배포","필터 아이콘을 노션 「필터_16/16 (1)」 원본으로 교체","listing/index.tsx · listing/qf-align.css · public/assets/bbm/chip-filter-leasing-24.svg · docs/quick-filter-spec.md","원본 패스 수정 없음","선 두께 실측 안 함","verify:qf 통과"
 "2026-10-11 15:10","미지정","fix/qf-divider-autogallery-filter-1010","-","-","병합·배포","전체차량 모바일 유형 줄 구분선 제거, PC 필터 아이콘 24px 상자","listing/stable-top.css · listing/qf-align.css · docs/quick-filter-spec.md","PC 칩 색은 회색 유지","PC 칩 검정 여부","verify:qf 통과"
+"2026-10-11 15:50","미지정","fix/qf-filter-icon-size-1010","-","-","병합·배포","새 필터 아이콘 크기를 시안 2 폭(13.5)에 맞춤","listing/qf-align.css · docs/quick-filter-spec.md","높이는 원본 비율이라 시안 2보다 낮음","필터 칩 고정 관련 의견","verify:qf 통과"
