@@ -30,6 +30,7 @@ import { truckSubtypeLabel } from "./truck-format-catalog";
 import { luxuryDealers, luxuryListingRows } from "./luxury-category-v01";
 import { seoulAutoGalleryRows } from "./seoul-autogallery-v01";
 import deutschAutoworldRowsJson from "./deutsch-autoworld-all-v01.json";
+import deutschDriveLinks from "./deutsch-autoworld-drive-v01.json";
 import {
   campingScenarioV01,
   materialHandlingScenarioV01,
@@ -213,7 +214,7 @@ let activeDetailCar: Car | null = null;
 const setActiveDetailCar = (car: Car) => { activeDetailCar = car; };
 const getActiveDetailCar = () => activeDetailCar;
 
-const asset = (path: string) => `${import.meta.env.BASE_URL}assets/${path}`;
+const asset = (path: string) => /^https?:\/\//.test(path) ? path : `${import.meta.env.BASE_URL}assets/${path}`;
 
 type FavoritesUi = { likedIds: number[]; toggleLiked: (id: number) => void };
 const FavoritesContext = createContext<FavoritesUi | null>(null);
@@ -1436,7 +1437,11 @@ const deutschRowsByRecent = [...(deutschAutoworldRowsJson as unknown as DeutschR
 const deutschCars: Car[] = deutschRowsByRecent.map((row, order) => {
   const [n, maker, model, generation, trim, year, km, fuel, price, company, dealer, danji, stock, photoSet, registered] = row;
   const idx = String(n).padStart(4, "0");
-  const photos = photoSet ? [1, 2, 3, 4, 5].map((k) => `cars/deutsch-autoworld-v01/${photoSet}-${k}.webp`) : undefined;
+  // 사진 5장: ① 저장소에 흐림 처리해 넣은 43대(photoSet) ② 시트에 Drive 링크가 채워진 매물(내부 테스트용, 첫 장만 저장소의 흐림 처리 대표 사진, 2~5장은 Drive 공개 링크 폭 720)
+  const driveIds = (deutschDriveLinks as Record<string, string[]>)[String(n)];
+  const photos = photoSet
+    ? [1, 2, 3, 4, 5].map((k) => `cars/deutsch-autoworld-v01/${photoSet}-${k}.webp`)
+    : driveIds ? [`cars/deutsch-autoworld-v01/p/${idx}.webp`, ...driveIds.slice(1).map((id) => `https://lh3.googleusercontent.com/d/${id}=w720`)] : undefined;
   return {
     id: 100_000 + n,
     // 도이치오토월드 카테고리 안에서는 등록일 최신순. 중고차에 섞이는 사직 등은 지시 매물 3001~3004 바로 뒤(2990부터)에 둔다
