@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>서울오토갤러리 딜러 일러스트 시안</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #f4f5f6;
+      color: #222;
+      font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main {
+      width: min(100%, 560px);
+      min-height: 100vh;
+      margin: 0 auto;
+      background: #fff;
+      padding: 24px 0 32px;
+    }
+    h1 { margin: 0 16px 6px; font-size: 20px; line-height: 26px; }
+    .intro { margin: 0 16px 24px; color: #767d87; font-size: 13px; line-height: 19px; }
+    section + section { margin-top: 28px; }
+    h2 { margin: 0 16px 12px; font-size: 15px; line-height: 20px; }
+    .rail {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 0 16px 8px;
+      scrollbar-width: none;
+    }
+    .rail::-webkit-scrollbar { display: none; }
+    .dealer {
+      display: block;
+      flex: 0 0 76px;
+      width: 76px;
+      min-height: 102px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .portrait {
+      display: block;
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 8px;
+      object-fit: contain;
+    }
+    .name {
+      display: block;
+      overflow: hidden;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 18px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .count { display: block; margin-top: 1px; color: #8b95a1; font-size: 12px; line-height: 16px; }
+    .note { margin: 20px 16px 0; color: #8b95a1; font-size: 11px; line-height: 17px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>딜러별 매물</h1>
+    <p class="intro">초톳형 76×102 슬롯 · 이름 1줄 · 보유 매물 2줄</p>
+    <section>
+      <h2>컬러 일러스트</h2>
+      <div class="rail" id="colorRail"></div>
+    </section>
+    <section>
+      <h2>흑백 노션형</h2>
+      <div class="rail" id="monoRail"></div>
+    </section>
+    <p class="note">딜러명과 보유대수는 공개 데이터 기준입니다. 인물 그림은 UI 검토용 가상 일러스트이며 실제 딜러의 얼굴을 재현한 것이 아닙니다.</p>
+  </main>
+  <script>
+    const root = './assets/dealer-illustrations/seoul-auto-gallery/v01/';
+    fetch(`${root}dealers.json`)
+      .then((response) => response.json())
+      .then(({ dealers }) => {
+        render('colorRail', dealers, 'colorImage');
+        render('monoRail', dealers, 'monoImage');
+      });
+
+    function render(id, dealers, imageKey) {
+      document.getElementById(id).innerHTML = dealers.map((dealer) => `
+        <a class="dealer" href="https://www.seoulautogallery.com/car/dealer_detail.html?EmpNo=${dealer.empNo}&ShopNo=${dealer.shopNo}" target="_blank" rel="noopener noreferrer" aria-label="${dealer.name} 딜러 매물 ${dealer.listingCount}대 보기">
+          <img class="portrait" src="${root}${dealer[imageKey]}" alt="" />
+          <span class="name">${dealer.name}</span>
+          <span class="count">${dealer.listingCount}대</span>
+        </a>
+      `).join('');
+    }
+  </script>
+</body>
+</html>
