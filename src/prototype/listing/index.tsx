@@ -105,7 +105,7 @@ import { truckModelsByMaker } from "../truck/scenario-v09";
 import { HeavyQuickFilter } from "../heavy";
 import { SeoulAutoGalleryDealerRail } from "./seoul-auto-gallery-dealer-rail";
 import { SeoulAutoGalleryHeader } from "./seoul-auto-gallery-header";
-import { SeoulAutoGalleryCompanyDirectory, SeoulAutoGalleryTabs, type SeoulAutoGallerySection } from "./seoul-auto-gallery-directory";
+import { SeoulAutoGalleryAbout, SeoulAutoGalleryCompanyDirectory, SeoulAutoGalleryTabs, type SeoulAutoGallerySection } from "./seoul-auto-gallery-directory";
 import { emptyHeavySelection, getInitialHeavySelection, replaceHeavyParams, type HeavySelection } from "../heavy/data";
 import { CatalogLogo, CatalogSearchResults, CatalogVehicleImage, CatalogVehiclePickerSheet, useVehicleCatalog, type VehicleSearchRecord } from "../vehicle-catalog";
 
@@ -2496,6 +2496,7 @@ function MarketplaceScreen() {
             {luxuryHead || !showSeoulAutoGalleryVehicles ? null : <div className="bbm-m-quick-slot">{quickRail}</div>}
             {isSeoulAutoGalleryLanding && seoulAutoGallerySection === "companies" ? <SeoulAutoGalleryCompanyDirectory /> : null}
             {isSeoulAutoGalleryLanding && seoulAutoGallerySection === "dealers" ? <div className="sag-tab-panel">{seoulAutoGalleryDealerRail}</div> : null}
+            {isSeoulAutoGalleryLanding && seoulAutoGallerySection === "about" ? <SeoulAutoGalleryAbout onBrowse={() => setSeoulAutoGallerySection("vehicles")} /> : null}
             {luxuryUiTestMode ? <><p className="bbm-ui-test-notice">UI 테스트용 가상 매물 · 실제 판매 가격·조건이 아닙니다</p><BbmHeadlinePreviewLinks /></> : null}
             {!isGuaziQuickStyle ? (
               <section className="bbm-m-head" aria-label="목록 머리">

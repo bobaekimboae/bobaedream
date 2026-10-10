@@ -1,7 +1,7 @@
 .sag-directory-tabs {
   display: grid;
   height: 48px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   border-bottom: 1px solid #ededed;
   background: #fff;
 }
@@ -98,6 +98,47 @@
 .sag-company-row:active { background: #f7f8fa; }
 
 .sag-tab-panel > .sag-dealer-rail { border-top-width: 8px; }
+
+.sag-about {
+  padding: 28px 16px 32px;
+  border-top: 8px solid var(--bbm-page-bg, #f4f4f4);
+  background: #fff;
+}
+
+.sag-about__lead p,
+.sag-about__lead h2,
+.sag-about__lead strong { margin: 0; }
+.sag-about__lead p { color: #7a8491; font-size: 11px; font-weight: 700; line-height: 16px; letter-spacing: 0.8px; }
+.sag-about__lead h2 { margin-top: 5px; color: #222; font-size: 22px; font-weight: 700; line-height: 29px; }
+.sag-about__lead strong { display: block; margin-top: 8px; color: #4e5968; font-size: 15px; font-weight: 400; line-height: 22px; }
+
+.sag-about__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 24px 0 0;
+}
+
+.sag-about__facts div { min-width: 0; padding: 14px 12px; border-radius: 8px; background: #f7f8fa; }
+.sag-about__facts dt { color: #222; font-size: 13px; font-weight: 700; line-height: 18px; }
+.sag-about__facts dd { margin: 5px 0 0; color: #8b95a1; font-size: 11px; font-weight: 400; line-height: 16px; word-break: keep-all; }
+
+.sag-about__browse {
+  width: 100%;
+  height: 48px;
+  margin-top: 24px;
+  border: 0;
+  border-radius: 8px;
+  background: #222;
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sag-about__browse:active { opacity: 0.76; }
+.sag-about__browse:focus-visible { outline: 2px solid #222; outline-offset: 2px; }
 
 /* 서울오토갤러리 전용: 로고·이름은 유지하고 카드 아래 빈 공간만 줄인다. */
 .marketplace.is-seoul-auto-gallery.is-bbm-m.is-qf-plain .bbm-m-quick-slot .depth-rail.is-lux-logo {

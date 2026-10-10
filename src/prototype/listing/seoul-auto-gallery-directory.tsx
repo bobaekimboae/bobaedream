@@ -2,12 +2,13 @@ import { ChevronRightIcon } from "@radix-ui/react-icons";
 import { seoulAutoGalleryRows } from "../data/seoul-autogallery-v01";
 import "./seoul-auto-gallery-directory.css";
 
-export type SeoulAutoGallerySection = "vehicles" | "companies" | "dealers";
+export type SeoulAutoGallerySection = "vehicles" | "companies" | "dealers" | "about";
 
 const tabItems: Array<{ value: SeoulAutoGallerySection; label: string }> = [
   { value: "vehicles", label: "판매 차량" },
   { value: "companies", label: "입점 상사" },
   { value: "dealers", label: "소속 딜러" },
+  { value: "about", label: "소개" },
 ];
 
 const companies = (() => {
@@ -61,6 +62,24 @@ export function SeoulAutoGalleryCompanyDirectory() {
           </button>
         ))}
       </div>
+    </section>
+  );
+}
+
+export function SeoulAutoGalleryAbout({ onBrowse }: { onBrowse: () => void }) {
+  return (
+    <section className="sag-about" aria-labelledby="sag-about-title">
+      <div className="sag-about__lead">
+        <p>SEOUL AUTO GALLERY</p>
+        <h2 id="sag-about-title">서울오토갤러리</h2>
+        <strong>대한민국 수입차의 메카,<br />매일이 모터쇼인 전문 매매단지</strong>
+      </div>
+      <dl className="sag-about__facts">
+        <div><dt>판매 차량</dt><dd>검증된 수입차 매물</dd></div>
+        <div><dt>입점 상사</dt><dd>단지 내 상사별 매물</dd></div>
+        <div><dt>소속 딜러</dt><dd>딜러별 보유 매물</dd></div>
+      </dl>
+      <button type="button" className="sag-about__browse" onClick={onBrowse}>판매 차량 보기</button>
     </section>
   );
 }
