@@ -12,7 +12,7 @@
   min-width: 0;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 2px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -25,7 +25,14 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.sag-directory-tabs button > b { color: #8b95a1; font-size: 12px; font-weight: 700; line-height: 16px; }
+.sag-directory-tabs button > b {
+  align-self: center;
+  color: #8b95a1;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 14px;
+  transform: translateY(-6px);
+}
 
 .sag-directory-tabs button::after {
   position: absolute;
