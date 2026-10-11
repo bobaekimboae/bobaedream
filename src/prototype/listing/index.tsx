@@ -1680,11 +1680,21 @@ function MarketplaceScreen() {
               ))}
             </QuickRailCarousel>
           </section> :
-          showTruckFormatRail ? <section className="depth-rail no-label is-truck-image-row is-format-root is-truck-type-row" aria-label="트럭 유형 빠른 선택">
-            <QuickRailCarousel ariaLabel="트럭 형식" className="brand-carousel" contentClassName="depth-rail-track">
-              {truckFormatCatalog.map((group) => <DepthCard key={group.name} className="is-truck-depth" label={desktop ? group.name : truckQuickLabel(group.name)} ariaLabel={group.name} image={<img src={asset(truckFormatImageFor(group.name) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckFormat(group.name)} />)}
-            </QuickRailCarousel>
-          </section> :
+          showTruckFormatRail ? <>
+            <section className="depth-rail no-label is-truck-depth-chip-row is-cargo-tonnage-row" aria-label="적재중량 빠른 선택">
+              <QuickRailCarousel ariaLabel="적재중량" className="brand-carousel" contentClassName="depth-rail-track is-chips is-truck-tonnage-track">
+                <span className="truck-tonnage-label">적재중량</span>
+                {truckCargoQuickSubtypes.map((subtype) => (
+                  <TrimChip key={subtype} label={truckSubtypeSecondaryLabel("카고(화물)트럭", subtype) ?? subtype} onClick={() => applyTruckTypeSelection("카고(화물)트럭", subtype)} />
+                ))}
+              </QuickRailCarousel>
+            </section>
+            <section className="depth-rail no-label is-truck-image-row is-format-root is-truck-type-row" aria-label="트럭 유형 빠른 선택">
+              <QuickRailCarousel ariaLabel="트럭 형식" className="brand-carousel" contentClassName="depth-rail-track">
+                {truckFormatCatalog.map((group) => <DepthCard key={group.name} className="is-truck-depth" label={desktop ? group.name : truckQuickLabel(group.name)} ariaLabel={group.name} image={<img src={asset(truckFormatImageFor(group.name) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckFormat(group.name)} />)}
+              </QuickRailCarousel>
+            </section>
+          </> :
           showTruckSubtypeRail ? <section className={`depth-rail no-label is-truck-depth-chip-row${selectedTruckFormat === "카고(화물)트럭" ? " is-cargo-tonnage-row" : ""}`} aria-label={`${selectedTruckFormat} 세부 형식 빠른 선택`}>
             <QuickRailCarousel ariaLabel={`${selectedTruckFormat} 세부 형식`} className="brand-carousel" contentClassName={`depth-rail-track${selectedTruckFormat === "카고(화물)트럭" ? " is-chips is-truck-tonnage-track" : ""}`}>
               {selectedTruckFormat === "카고(화물)트럭" ? <>
