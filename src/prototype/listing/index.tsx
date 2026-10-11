@@ -105,7 +105,7 @@ import { truckModelsByMaker } from "../truck/scenario-v09";
 import { HeavyQuickFilter } from "../heavy";
 import "./qf-car-body-types.css";
 import "./qf-chotot-vehicle-slots.css";
-import { SeoulAutoGalleryDealerRail, type SeoulAutoGalleryDealer } from "./seoul-auto-gallery-dealer-rail";
+import { dealers as seoulAutoGalleryDealers, SeoulAutoGalleryDealerRail, type SeoulAutoGalleryDealer } from "./seoul-auto-gallery-dealer-rail";
 import { DealerContactBar, DealerProfileScreen } from "./dealer-profile";
 import { SeoulAutoGalleryHeader } from "./seoul-auto-gallery-header";
 import { DeutschAutoworldHeader } from "./deutsch-autoworld-header";
@@ -740,6 +740,16 @@ function MarketplaceScreen() {
       render: () => <DealerProfileScreen dealer={dealer} cars={seoulAutoGalleryCars} onOpenCar={openCarDetail} />,
     });
   };
+  const didOpenDirectDealerProfile = useRef(false);
+  useEffect(() => {
+    if (didOpenDirectDealerProfile.current) return;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("profile") !== "dealer") return;
+    const shopNo = params.get("shop");
+    const dealer = seoulAutoGalleryDealers.find((item) => item.shopNo === shopNo) ?? seoulAutoGalleryDealers[0];
+    didOpenDirectDealerProfile.current = true;
+    openDealerProfile(dealer);
+  }, []);
   const keyboard = useKeyboard();
   const { likedIds, toggleLiked } = useFavorites();
   const initialFilters = getInitialChoTotFilters();

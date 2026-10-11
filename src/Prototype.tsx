@@ -19,7 +19,7 @@ const detailScreen: FlowScreen = { id: "vehicle-detail", footer: () => <DetailFo
 
 configureListingScreens({ detailScreen, savedListingsScreen });
 
-const listingParams = ["qf", "scenario", "view", "titlepos", "filtericon", "desktop", "pc", "bbmparts", "pcl"];
+const listingParams = ["qf", "scenario", "view", "titlepos", "filtericon", "desktop", "pc", "bbmparts", "pcl", "profile", "shop"];
 const shouldShowMainHome = () => {
   const params = new URLSearchParams(window.location.search);
   return !listingParams.some((key) => params.has(key));
