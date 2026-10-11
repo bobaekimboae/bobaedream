@@ -1619,7 +1619,7 @@ const luxuryCategoryCars: Car[] = luxuryRowsPhotoFirst.map((row, index) => {
 const oldCarCategoryCars: Car[] = oldCarListingRows.map((row, index) => {
   const isPrivate = row.number % 3 === 0;
   const place = isPrivate ? row.region : (dealerComplexByRegion[row.region] ?? row.region);
-  const photo = row.image ? `cars/old-car-category-v01/old-${String(row.number).padStart(2, "0")}.webp` : "";
+  const photo = row.image ? `cars/old-car-category-v01/old-${String(row.number).padStart(2, "0")}.jpg` : "";
   const mileageText = `${row.mileage.toLocaleString("ko-KR")}km`;
   return {
     id: 14_000 + row.number,
@@ -1628,7 +1628,6 @@ const oldCarCategoryCars: Car[] = oldCarListingRows.map((row, index) => {
     modelGroup: row.model,
     sellerType: isPrivate ? "개인" : "딜러",
     image: photo,
-    listThumb: photo ? photo.replace("old-car-category-v01/", "old-car-category-v01/thumb/") : undefined,
     imagePosition: "center center",
     title: [row.titleMaker, row.model].filter(Boolean).join(" "),
     trim: row.trim,
@@ -1669,7 +1668,7 @@ const supercarLuxuryCars: Car[] = luxuryCategoryCars.filter((car) =>
 // 슈퍼카 시트 매물 v01(2026-10-11): 시트 「슈퍼카」 100대(사진·제원은 보배드림 공개 매물, 판매자·등록시각은 가상). 럭셔리 목록의 슈퍼카보다 위에 둔다.
 const supercarSheetCars: Car[] = supercarSheetRows.map((row, index) => {
   const nn = String(row.number).padStart(3, "0");
-  const photo = `cars/supercar-sheet-v01/sc-${nn}.webp`;
+  const photo = `cars/supercar-sheet-v01/sc-${nn}.jpg`;
   const mileageText = row.mileage >= 9500 ? `${String(Math.round(row.mileage / 1000) / 10)}만km` : `${row.mileage.toLocaleString("ko-KR")}km`;
   const place = dealerComplexByRegion[row.region] ?? row.region;
   const yearText = /^\d{2}\/\d{2}/.test(row.yearRaw) ? `${String(row.year).slice(2)}년${row.yearRaw.slice(3, 5)}월` : String(row.year);
@@ -1680,7 +1679,6 @@ const supercarSheetCars: Car[] = supercarSheetRows.map((row, index) => {
     modelGroup: row.group,
     sellerType: "딜러",
     image: photo,
-    listThumb: `cars/supercar-sheet-v01/thumb/sc-${nn}.webp`,
     imagePosition: "center center",
     title: `${row.maker} ${row.model}`,
     trim: "",
