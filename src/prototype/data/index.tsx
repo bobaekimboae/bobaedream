@@ -187,6 +187,7 @@ type Car = {
   /** 올드카 카테고리 가상 매물 v01(차량 › 테마별 중고차 › 올드카). 시트 순번과 가격을 채운 값인지 */
   oldCar?: { number: number; priceFilled: boolean };
   supercarSheet?: boolean;
+  listCrop?: [number, number, number, number];
   luxuryCategory?: { number: number; vehicleNumber: string; model: string; generation: string; filled: boolean; certified: boolean };
   uiTest?: {
     number: number;
@@ -1693,6 +1694,7 @@ const supercarSheetCars: Car[] = supercarSheetRows.map((row, index) => {
     photos: 1,
     sellerProfile: null,
     supercarSheet: true,
+    listCrop: row.crop,
     filter: {
       year: row.year,
       seats: "전체",
