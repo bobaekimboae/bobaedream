@@ -1,68 +1,91 @@
 .dealer-profile-scroll { background: #f4f4f4; }
 .dealer-profile-page { min-height: 100%; color: #222; background: #f4f4f4; }
-.dealer-profile-header { display: grid; position: sticky; z-index: 20; top: 0; height: 56px; grid-template-columns: 48px minmax(0, 1fr) 88px; align-items: center; border-bottom: 1px solid #ededed; background: rgb(255 255 255 / 96%); backdrop-filter: blur(12px); }
-.dealer-profile-header button { display: grid; width: 44px; height: 44px; place-items: center; padding: 0; border: 0; background: transparent; color: #222; }
-.dealer-header-actions { display: flex; justify-content: flex-end; }
-.dealer-profile-header > strong { overflow: hidden; font-size: 17px; font-weight: 700; line-height: 24px; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
 .chotot-icon { display: block; width: 20px; height: 20px; flex: 0 0 auto; object-fit: contain; }
+.dealer-profile-header { display: grid; position: sticky; z-index: 20; top: 0; height: 56px; grid-template-columns: 48px minmax(0, 1fr) 88px; align-items: center; border-bottom: 1px solid #ededed; background: rgb(255 255 255 / 97%); backdrop-filter: blur(12px); }
+.dealer-profile-header button { display: grid; width: 44px; height: 44px; place-items: center; padding: 0; border: 0; background: transparent; }
 .dealer-profile-header .chotot-icon { width: 22px; height: 22px; }
-.dealer-profile-layout { width: 100%; max-width: 1060px; margin: 0 auto; }
+.dealer-profile-header > strong { overflow: hidden; font-size: 17px; font-weight: 700; line-height: 24px; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
+.dealer-header-actions { display: flex; justify-content: flex-end; }
+.dealer-profile-layout { width: 100%; max-width: 1080px; margin: 0 auto; }
 .dealer-profile-summary, .dealer-profile-main { min-width: 0; background: #fff; }
-.dealer-cover { height: 128px; overflow: hidden; background: #071a3a; }
-.dealer-cover img { width: 100%; height: 100%; object-fit: cover; }
+.dealer-cover { position: relative; height: 148px; overflow: hidden; background: #071a3a; }
+.dealer-cover > img { width: 100%; height: 100%; object-fit: cover; }
+.dealer-cover > span { display: flex; position: absolute; right: 12px; bottom: 12px; align-items: center; gap: 5px; padding: 6px 9px; border-radius: 999px; background: rgb(34 34 34 / 76%); color: #fff; font-size: 11px; font-weight: 500; line-height: 16px; }
+.dealer-cover > span .chotot-icon { width: 14px; height: 14px; filter: brightness(0) invert(1); }
 .dealer-identity { position: relative; padding: 50px 16px 16px; }
 .dealer-profile-avatar { position: absolute; top: -38px; left: 16px; width: 76px; height: 76px; overflow: hidden; box-sizing: border-box; border: 4px solid #fff; border-radius: 50%; background: #eef1f4; }
 .dealer-profile-avatar img { display: block; width: 100%; height: 100%; transform: scale(1.72); transform-origin: 50% 26%; object-fit: contain; object-position: center top; }
-.dealer-identity > button { display: flex; position: absolute; top: 12px; right: 16px; min-width: 86px; height: 36px; align-items: center; justify-content: center; gap: 6px; padding: 0 14px; border: 1px solid #d8dce1; border-radius: 8px; background: #fff; color: #222; font: inherit; font-size: 14px; font-weight: 700; }
-.dealer-identity > button.is-following { border-color: #222; background: #222; color: #fff; }
+.dealer-profile-actions { display: flex; position: absolute; top: 10px; right: 16px; gap: 6px; }
+.dealer-profile-actions button { display: flex; height: 34px; align-items: center; justify-content: center; gap: 5px; padding: 0 11px; border: 1px solid #d8dce1; border-radius: 6px; background: #fff; color: #222; font: inherit; font-size: 12px; font-weight: 600; }
+.dealer-profile-actions button.is-following { border-color: #222; background: #222; color: #fff; }
+.dealer-profile-actions .chotot-icon { width: 16px; height: 16px; }
 .dealer-identity h1 { display: flex; align-items: center; gap: 5px; margin: 0; font-size: 20px; font-weight: 700; line-height: 28px; }
 .dealer-identity h1 .chotot-icon { width: 18px; height: 18px; }
-.dealer-identity p { display: flex; align-items: center; gap: 4px; margin: 6px 0 0; color: #6b7280; font-size: 14px; line-height: 20px; }
-.dealer-identity p .chotot-icon, .dealer-stars .chotot-icon { width: 16px; height: 16px; }
-.dealer-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0 16px 16px; padding: 14px 0; border: 1px solid #e8e8e8; border-radius: 8px; }
+.dealer-rating { display: flex; align-items: center; gap: 4px; margin: 7px 0 0; color: #222; font-size: 14px; line-height: 20px; }
+.dealer-rating .chotot-icon { width: 16px; height: 16px; }
+.dealer-rating button { padding: 0; border: 0; background: transparent; color: #4169aa; font: inherit; font-size: 12px; }
+.dealer-address { display: flex; align-items: flex-start; gap: 7px; margin: 10px 0 0; color: #4e5968; font-size: 13px; line-height: 19px; }
+.dealer-address .chotot-icon { width: 18px; height: 18px; margin-top: 1px; }
+.dealer-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0 16px 12px; padding: 14px 0; border: 1px solid #e8e8e8; border-radius: 8px; }
 .dealer-metrics div { text-align: center; }
 .dealer-metrics div + div { border-left: 1px solid #ededed; }
-.dealer-metrics dt { display: flex; align-items: center; justify-content: center; gap: 3px; color: #8b95a1; font-size: 12px; font-weight: 400; line-height: 16px; }
-.dealer-metrics dt .chotot-icon { width: 14px; height: 14px; }
-.dealer-metrics dd { margin: 4px 0 0; font-size: 16px; font-weight: 700; line-height: 22px; }
+.dealer-metrics dt { display: flex; align-items: center; justify-content: center; gap: 3px; color: #8b95a1; font-size: 11px; font-weight: 400; line-height: 16px; }
+.dealer-metrics dt .chotot-icon { width: 13px; height: 13px; }
+.dealer-metrics dd { margin: 4px 0 0; font-size: 15px; font-weight: 700; line-height: 21px; }
+.dealer-policy-card { margin: 0 16px 16px; padding: 14px; border: 1px solid #e8e8e8; border-radius: 8px; }
+.dealer-policy-card h2 { margin: 0 0 4px; color: #8b95a1; font-size: 11px; font-weight: 700; line-height: 16px; text-transform: uppercase; }
+.dealer-policy-card p { display: flex; min-height: 38px; align-items: center; gap: 8px; margin: 0; border-bottom: 1px solid #ededed; color: #4e5968; font-size: 13px; line-height: 19px; }
+.dealer-policy-card p:last-child { border-bottom: 0; }
+.dealer-policy-card .chotot-icon { width: 17px; height: 17px; }
+.dealer-profile-summary-contact { display: none; }
 .dealer-profile-main { margin-top: 8px; }
 .dealer-profile-tabs { display: flex; position: sticky; z-index: 15; top: 56px; height: 48px; gap: 24px; padding: 0 16px; overflow-x: auto; border-bottom: 1px solid #ededed; background: rgb(255 255 255 / 97%); scrollbar-width: none; }
 .dealer-profile-tabs::-webkit-scrollbar { display: none; }
-.dealer-profile-tabs button { position: relative; min-width: max-content; padding: 0; border: 0; background: transparent; color: #8b95a1; font: inherit; font-size: 15px; font-weight: 400; line-height: 22px; }
+.dealer-profile-tabs button { position: relative; min-width: max-content; padding: 0; border: 0; background: transparent; color: #8b95a1; font: inherit; font-size: 14px; font-weight: 500; line-height: 20px; }
 .dealer-profile-tabs button::after { position: absolute; right: 0; bottom: 0; left: 0; height: 2px; background: transparent; content: ""; }
 .dealer-profile-tabs button.is-selected { color: #222; font-weight: 700; }
 .dealer-profile-tabs button.is-selected::after { background: #222; }
-.dealer-promo { display: flex; min-height: 116px; align-items: center; justify-content: space-between; margin: 16px; padding: 18px 20px; overflow: hidden; border-radius: 10px; background: linear-gradient(135deg, #071a3a, #153867); color: #fff; }
-.dealer-promo span, .dealer-promo strong { display: block; }
-.dealer-promo span { color: rgb(255 255 255 / 72%); font-size: 12px; font-weight: 700; line-height: 18px; }
-.dealer-promo strong { margin-top: 5px; font-size: 17px; font-weight: 700; line-height: 24px; }
-.dealer-promo img { width: 52px; height: 68px; object-fit: contain; }
 .dealer-profile-section { padding: 20px 16px; border-top: 8px solid #f4f4f4; background: #fff; }
 .dealer-profile-section.is-tab { min-height: 430px; border-top: 0; }
 .dealer-profile-section > h2, .dealer-section-head h2 { margin: 0; font-size: 17px; font-weight: 700; line-height: 24px; }
 .dealer-section-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.dealer-section-head button, .dealer-section-head > span { display: flex; align-items: center; gap: 2px; padding: 0; border: 0; background: transparent; color: #6b7280; font: inherit; font-size: 13px; font-weight: 400; line-height: 20px; }
+.dealer-section-head button, .dealer-section-head > span { display: flex; align-items: center; gap: 2px; padding: 0; border: 0; background: transparent; color: #6b7280; font: inherit; font-size: 13px; line-height: 20px; }
 .dealer-section-head .is-chevron { width: 16px; height: 16px; }
-.dealer-intro { margin: 10px 0 0; color: #4e5968; font-size: 14px; font-weight: 400; line-height: 21px; word-break: keep-all; }
+.dealer-intro { margin: 10px 0 0; color: #4e5968; font-size: 14px; line-height: 21px; word-break: keep-all; }
 .dealer-inventory-list { margin-top: 12px; }
 .dealer-inventory-row { display: grid; width: 100%; min-height: 112px; grid-template-columns: 112px minmax(0, 1fr) 18px; align-items: center; gap: 12px; padding: 12px 0; border: 0; border-bottom: 1px solid #ededed; background: #fff; color: #222; text-align: left; }
 .dealer-inventory-row > img { width: 112px; height: 84px; border-radius: 6px; object-fit: cover; }
 .dealer-inventory-copy { min-width: 0; }
-.dealer-inventory-copy strong, .dealer-inventory-copy small, .dealer-inventory-copy b { display: block; overflow: hidden; text-overflow: ellipsis; }
-.dealer-inventory-copy strong { font-size: 15px; font-weight: 700; line-height: 21px; white-space: nowrap; }
-.dealer-inventory-copy small { margin-top: 5px; color: #8b95a1; font-size: 12px; font-weight: 400; line-height: 17px; white-space: nowrap; }
-.dealer-inventory-copy b { margin-top: 7px; font-size: 15px; font-weight: 700; line-height: 21px; white-space: nowrap; }
+.dealer-inventory-copy strong, .dealer-inventory-copy small, .dealer-inventory-copy b { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dealer-inventory-copy strong { font-size: 15px; font-weight: 700; line-height: 21px; }
+.dealer-inventory-copy small { margin-top: 5px; color: #8b95a1; font-size: 12px; line-height: 17px; }
+.dealer-inventory-copy b { margin-top: 7px; font-size: 15px; font-weight: 700; line-height: 21px; }
 .dealer-inventory-row > .is-chevron { width: 18px; height: 18px; }
-.dealer-activity-card { margin-top: 12px; padding: 16px; border: 1px solid #e8e8e8; border-radius: 8px; }
-.dealer-activity-card strong { display: block; font-size: 15px; font-weight: 700; line-height: 21px; }
-.dealer-activity-card p { margin: 7px 0 0; color: #4e5968; font-size: 14px; line-height: 21px; }
-.dealer-activity-card time { display: block; margin-top: 10px; color: #8b95a1; font-size: 12px; line-height: 16px; }
+.dealer-activity-preview { display: grid; grid-template-columns: 64px minmax(0, 1fr); align-items: center; gap: 12px; margin-top: 12px; }
+.dealer-activity-preview > img { width: 64px; height: 64px; border-radius: 6px; object-fit: cover; }
+.dealer-activity-preview strong, .dealer-activity-preview small { display: block; }
+.dealer-activity-preview strong { font-size: 14px; line-height: 20px; }
+.dealer-activity-preview small { margin-top: 4px; color: #8b95a1; font-size: 12px; line-height: 17px; }
+.dealer-post-list { display: grid; gap: 12px; }
+.dealer-post-list > h2 { margin-bottom: 2px; }
+.dealer-post-card { overflow: hidden; border: 1px solid #e8e8e8; border-radius: 8px; }
+.dealer-post-card > header { display: flex; align-items: center; gap: 9px; padding: 12px; }
+.dealer-post-card > header > img { width: 34px; height: 34px; border-radius: 50%; background: #eef1f4; object-fit: cover; }
+.dealer-post-card header strong, .dealer-post-card header small { display: block; }
+.dealer-post-card header strong { font-size: 13px; line-height: 18px; }
+.dealer-post-card header small { margin-top: 2px; color: #8b95a1; font-size: 11px; line-height: 15px; }
+.dealer-post-card > p { margin: 0; padding: 0 12px 12px; color: #4e5968; font-size: 13px; line-height: 19px; }
+.dealer-post-image { display: block; width: 100%; max-height: 320px; object-fit: cover; }
+.dealer-post-card footer { display: flex; height: 42px; align-items: center; gap: 14px; padding: 0 12px; color: #8b95a1; font-size: 12px; }
+.dealer-post-card footer button { display: flex; align-items: center; gap: 4px; margin-left: auto; padding: 0; border: 0; background: transparent; font: inherit; }
+.dealer-post-card footer .chotot-icon { width: 17px; height: 17px; }
 .dealer-filter-chips { display: flex; gap: 8px; margin: 14px -16px 0; padding: 0 16px; overflow-x: auto; scrollbar-width: none; }
-.dealer-filter-chips button { min-width: max-content; height: 40px; padding: 0 14px; border: 0; border-radius: 999px; background: #f4f4f4; color: #222; font: inherit; font-size: 14px; font-weight: 500; }
+.dealer-filter-chips button { min-width: max-content; height: 38px; padding: 0 14px; border: 1px solid #d8dce1; border-radius: 999px; background: #fff; color: #222; font: inherit; font-size: 14px; }
 .dealer-rating-summary { display: flex; align-items: center; gap: 16px; margin-top: 16px; padding: 20px 0; border-bottom: 1px solid #ededed; }
 .dealer-rating-summary > strong { font-size: 36px; line-height: 44px; }
 .dealer-rating-summary > span, .dealer-rating-summary small { display: block; }
 .dealer-stars { display: flex; gap: 2px; }
+.dealer-stars .chotot-icon { width: 16px; height: 16px; }
 .dealer-rating-summary small { margin-top: 6px; color: #8b95a1; font-size: 12px; line-height: 16px; }
 .dealer-empty-state { display: grid; min-height: 230px; place-items: center; align-content: center; text-align: center; }
 .dealer-empty-state > .chotot-icon { width: 28px; height: 28px; opacity: .45; filter: grayscale(1); }
@@ -75,20 +98,26 @@
 .dealer-info-list dt { display: flex; align-items: center; gap: 7px; color: #8b95a1; font-size: 13px; line-height: 19px; }
 .dealer-info-list dt .chotot-icon { width: 18px; height: 18px; }
 .dealer-info-list dd { margin: 0; font-size: 14px; line-height: 20px; }
-.dealer-policy-list { display: grid; gap: 10px; margin-top: 20px; padding: 16px; border-radius: 8px; background: #f7f8fa; }
-.dealer-policy-list p { display: flex; align-items: center; gap: 8px; margin: 0; color: #4e5968; font-size: 13px; line-height: 19px; }
-.dealer-policy-list .chotot-icon { width: 18px; height: 18px; }
+.dealer-policy-card.is-compact { margin: 20px 0 0; }
 .dealer-contact-bar { display: grid; width: 100%; height: 64px; grid-template-columns: 1fr 1fr; gap: 8px; padding: 8px 16px; box-sizing: border-box; border-top: 1px solid #e3e6ea; background: #fff; }
 .dealer-contact-bar button { display: flex; height: 48px; align-items: center; justify-content: center; gap: 7px; border: 1px solid #d8dce1; border-radius: 8px; background: #fff; color: #222; font: inherit; font-size: 15px; font-weight: 700; }
 .dealer-contact-bar button:last-child { border-color: #222; background: #222; color: #fff; }
 .dealer-contact-bar .chotot-icon { width: 19px; height: 19px; }
 
 @media (min-width: 900px) {
-  .dealer-profile-page { padding: 24px; }
-  .dealer-profile-header { position: static; width: 100%; max-width: 1060px; margin: 0 auto 16px; border: 1px solid #e8e8e8; border-radius: 10px; }
-  .dealer-profile-layout { display: grid; grid-template-columns: 320px minmax(0, 1fr); align-items: start; gap: 16px; }
-  .dealer-profile-summary, .dealer-profile-main { overflow: hidden; border: 1px solid #e8e8e8; border-radius: 10px; }
-  .dealer-profile-main { margin-top: 0; }
-  .dealer-profile-tabs { top: 0; }
-  .dealer-contact-bar { width: 360px; margin-left: auto; border: 1px solid #e3e6ea; border-radius: 10px; box-shadow: 0 8px 24px rgb(0 0 0 / 14%); }
+  html:not([data-force-mobile]) .dealer-profile-page { padding: 24px; }
+  html:not([data-force-mobile]) .dealer-profile-header { position: static; width: 100%; max-width: 1080px; margin: 0 auto 16px; border: 1px solid #e8e8e8; border-radius: 10px; }
+  html:not([data-force-mobile]) .dealer-profile-layout { display: grid; grid-template-columns: 340px minmax(0, 1fr); align-items: start; gap: 16px; }
+  html:not([data-force-mobile]) .dealer-profile-summary, html:not([data-force-mobile]) .dealer-profile-main { overflow: hidden; border: 1px solid #e8e8e8; border-radius: 10px; }
+  html:not([data-force-mobile]) .dealer-profile-summary { position: sticky; top: 24px; }
+  html:not([data-force-mobile]) .dealer-profile-main { margin-top: 0; }
+  html:not([data-force-mobile]) .dealer-profile-tabs { top: 0; justify-content: space-around; gap: 8px; }
+  html:not([data-force-mobile]) .dealer-profile-tabs button { flex: 1; }
+  html:not([data-force-mobile]) .dealer-profile-summary-contact { display: flex; width: calc(100% - 32px); min-height: 54px; align-items: center; gap: 10px; margin: 0 16px 16px; padding: 8px 14px; border: 0; border-radius: 8px; background: #222; color: #fff; text-align: left; }
+  html:not([data-force-mobile]) .dealer-profile-summary-contact .chotot-icon { width: 22px; height: 22px; filter: brightness(0) invert(1); }
+  html:not([data-force-mobile]) .dealer-profile-summary-contact span, html:not([data-force-mobile]) .dealer-profile-summary-contact strong, html:not([data-force-mobile]) .dealer-profile-summary-contact small { display: block; }
+  html:not([data-force-mobile]) .dealer-profile-summary-contact strong { font-size: 14px; line-height: 20px; }
+  html:not([data-force-mobile]) .dealer-profile-summary-contact small { color: rgb(255 255 255 / 70%); font-size: 11px; line-height: 15px; }
+  html:not([data-force-mobile]) .dealer-inventory-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
+  html:not([data-force-mobile]) .dealer-contact-bar { display: none; }
 }
