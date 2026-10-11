@@ -98,7 +98,7 @@ import { setPretendard } from "../fonts/pretendard";
 import { BBM_PAGE_SIZE, BbmFooter, BbmPagination, BbmPopOptions, BbmToolbarMenu, bbmSortOptions, bbmViewOptionsMobile, bbmViewOptionsPc, sortBbmCars, type BbmSort } from "./bbm-list-area";
 import { bikeListingModelsByMaker, bikeListingModelVisualsByMaker } from "../bike/data";
 import { bikeModelsByMaker } from "../data/bike-filter-catalog";
-import { normalizeTruckFormatSelection, truckFormatCatalog, truckFormatImageFor, truckSubtypeImageFor, truckSubtypeLabel, truckSubtypesFor, truckSubtypeSecondaryLabel, truckSubtypeValuesForSelection } from "../data/truck-format-catalog";
+import { normalizeTruckFormatSelection, truckCargoQuickSubtypes, truckFormatCatalog, truckFormatImageFor, truckSubtypeImageFor, truckSubtypeLabel, truckSubtypesFor, truckSubtypeSecondaryLabel, truckSubtypeValuesForSelection } from "../data/truck-format-catalog";
 import { truckSpecGroupsFor, truckSpecOptionsFor } from "../data/truck-depth4-catalog";
 import { QuickRailCarousel } from "./quick-rail-carousel";
 import { truckModelsByMaker } from "../truck/scenario-v09";
@@ -1689,7 +1689,7 @@ function MarketplaceScreen() {
             <QuickRailCarousel ariaLabel={`${selectedTruckFormat} 세부 형식`} className="brand-carousel" contentClassName={`depth-rail-track${selectedTruckFormat === "카고(화물)트럭" ? " is-chips is-truck-tonnage-track" : ""}`}>
               {selectedTruckFormat === "카고(화물)트럭" ? <>
                 <span className="truck-tonnage-label">적재중량</span>
-                {truckSubtypeOptions.map((subtype) => (
+                {truckCargoQuickSubtypes.map((subtype) => (
                   <TrimChip key={subtype} label={truckSubtypeSecondaryLabel(selectedTruckFormat, subtype) ?? subtype} onClick={() => chooseTruckSubtype(subtype)} />
                 ))}
               </> : <>
@@ -2052,7 +2052,7 @@ function MarketplaceScreen() {
         ? { key: "truck-format", label: selectedTruckFormat, active: true, className: "is-vehicle-summary is-step", onClick: () => setTruckTypePickerOpen(true), onClear: clearTruckFormat }
         : { key: "truck-format", label: "트럭 유형", active: false, onClick: () => setTruckTypePickerOpen(true) },
       selectedTruckFormat && selectedTruckSubtype
-        ? { key: "truck-subtype", label: truckSubtypeLabel(selectedTruckSubtype), active: true, className: "is-vehicle-summary is-step", onClick: () => setTruckTypePickerOpen(true), onClear: clearTruckSubtype }
+        ? { key: "truck-subtype", label: selectedTruckFormat === "카고(화물)트럭" ? truckSubtypeSecondaryLabel(selectedTruckFormat, selectedTruckSubtype) ?? truckSubtypeLabel(selectedTruckSubtype) : truckSubtypeLabel(selectedTruckSubtype), active: true, className: "is-vehicle-summary is-step", onClick: () => setTruckTypePickerOpen(true), onClear: clearTruckSubtype }
         : selectedTruckFormat ? { key: "truck-subtype", label: "세부 유형", active: false, onClick: () => setTruckTypePickerOpen(true) } : null,
       selectedTruckSubtype && truckSpecOptions.length && selectedTruckSpec
         ? { key: "truck-spec", label: selectedTruckSpec, active: true, className: "is-vehicle-summary is-step", onClick: clearTruckSpec, onClear: clearTruckSpec }

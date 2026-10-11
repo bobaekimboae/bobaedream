@@ -2932,12 +2932,12 @@ export const truckSpecGroupsFor = (format: string | null, subtype: string | null
     ];
     const tonnage = (value: string) => Number.parseFloat(value.replace("톤", ""));
     const inBand: Readonly<Record<string, (value: number) => boolean>> = {
-      "경형": (value) => value < 1,
-      "소형": (value) => value >= 1 && value <= 2,
+      "경형": (value) => value <= 1,
+      "소형": (value) => value >= 1.4 && value <= 2.5,
       "준중형": (value) => value > 2 && value <= 3.5,
-      "중형": (value) => value >= 4 && value <= 6.5,
-      "준대형": (value) => value >= 7 && value < 11,
-      "대형": (value) => value >= 11,
+      "중형": (value) => value >= 3.5 && value <= 5,
+      "준대형": (value) => value >= 8 && value <= 11,
+      "대형": (value) => value >= 14,
     };
     const predicate = inBand[subtype];
     if (predicate) return [{ label: "적재용량 (톤수)", options: [...new Set(legacyOptions)].filter((value) => predicate(tonnage(value))) }];

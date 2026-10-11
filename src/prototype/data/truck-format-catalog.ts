@@ -38,13 +38,17 @@ export const truckSubtypesFor = (format: string | null): readonly string[] => tr
 // 카고 차급은 명칭만으로 실제 적재 규모를 가늠하기 어려워 퀵필터와 선택 시트에
 // 대표 톤수를 두 번째 줄로 함께 표시한다. 실제 차량의 승인 톤수는 매물 정보가 기준이다.
 export const truckCargoClassTonnage: Readonly<Record<string, string>> = {
-  "경형": "1톤 미만",
-  "소형": "1~2톤",
+  "경형": "1톤 이하",
+  "소형": "1.4~2.5톤",
   "준중형": "2.5~3.5톤",
-  "중형": "4~6.5톤",
-  "준대형": "7~10.8톤",
-  "대형": "11톤 이상",
+  "중형": "3.5~5톤",
+  "준대형": "8~11톤",
+  "대형": "14톤 이상",
 };
+
+// 카고 목록의 빠른 톤수 구간은 마이트럭 모바일 카고 화면과 같은 5개만 노출한다.
+// 내부 차급 값은 유지해 기존 URL·트리·매물 데이터 연결을 깨지 않는다.
+export const truckCargoQuickSubtypes = ["경형", "소형", "중형", "준대형", "대형"] as const;
 
 export const truckSubtypeSecondaryLabel = (format: string | null, subtype: string): string | null => (
   format === "카고(화물)트럭" ? truckCargoClassTonnage[subtype] ?? null : null
