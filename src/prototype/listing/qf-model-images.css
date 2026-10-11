@@ -757,17 +757,8 @@
   line-height: 18px;
 }
 
-/* QF-124 트럭 첫 화면: 유형 이미지와 적재중량 사이를 8px 리듬으로 통일한다. */
-.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row,
-.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row .brand-carousel,
-.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row .depth-rail-track {
-  height: 78px;
-  min-height: 78px;
-}
-.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row {
-  margin-top: -8px !important;
-  padding-bottom: 0;
-}
+/* QF-124 트럭 첫 화면: 적재중량 칩만 8px 수직 리듬으로 정리한다.
+   트럭 유형 이미지 슬롯은 초톳 규정(86px 레일·78px 카드)을 그대로 유지한다. */
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row.is-cargo-tonnage-row,
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row.is-cargo-tonnage-row .brand-carousel,
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row.is-cargo-tonnage-row .depth-rail-track {
