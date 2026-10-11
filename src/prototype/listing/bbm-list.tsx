@@ -617,7 +617,8 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   const locationSecondary = locationSecondaryParts.join(" · ");
   const priceMatch = car.price.match(/^(월\s*)?(.+?)\s*(만원)$/);
   // 모든 카테고리가 차명을 붙여 한 제목으로(최대 2줄). 중고차도 「제조사 모델 세부모델」을 끊지 않고 잇는다(2026-10-08 「중고차도 차명 끊지 말고 연결」)
-  const title = <strong className="bbm-card-title"><span className="bbm-card-model is-joined">{cardTitleText(car)}</span></strong>;
+  const listingTitle = featured ? car.listingTitle?.trim() : "";
+  const title = <strong className={`bbm-card-title${listingTitle ? " is-secondary" : ""}`}><span className="bbm-card-model is-joined">{cardTitleText(car)}</span></strong>;
   const headlinePosition = getHeadlinePosition();
   const headlineTone = car.uiTest ? getHeadlineTone() : "default";
   const headline = car.uiTest ? <strong className={`bbm-card-headline is-${headlinePosition}${headlineTone === "blue" ? " is-blue" : ""}`}>{car.uiTest.headline}</strong> : null;
@@ -666,6 +667,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
         {headlinePosition === "photo-top" ? <div className="bbm-card-photo-column">{headline}{photo}</div> : photo}
         <div className="bbm-card-content">
           <div className="bbm-card-text">
+            {listingTitle ? <strong className="bbm-card-listing-title">{listingTitle}</strong> : null}
             {title}
             {headlinePosition === "after-model" ? headline : null}
             <span className={`bbm-card-spec${car.adDescription ? " is-ad-description" : ""}`}>{car.adDescription ?? (featured ? renderFeedSpec(specMain) : specMain)}{car.adDescription ? null : <span className="bbm-card-spec-seller"> · {seller}</span>}</span>
