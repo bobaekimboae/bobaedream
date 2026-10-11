@@ -36,3 +36,16 @@
 - 저장 자산: `public/assets/oldcar-header/kia-brisa-official-kv-1920x1080.webp`
 - 선택 이유: 정면 컷보다 차량 식별성이 높고, 측면 컷보다 왼쪽 문구 공간이 충분한 앞 3/4 대표 이미지
 - 처리: 공식 원본 이미지 자체는 수정하지 않고, 화면에서 왼쪽 읽기용 그라데이션만 적용
+
+## 기아 헤리티지 순환 배너
+
+공식 헤리티지 페이지의 연도와 대표 KV를 그대로 사용해 브리사부터 시간순으로 배치한다. 이미지는 수정하지 않고 화면의 위치와 읽기용 그라데이션만 조정한다.
+
+| 순서 | 연도 | 모델 | 공식 페이지 | 저장 자산 |
+| --- | ---: | --- | --- | --- |
+| 1 | 1974 | 기아 브리사 | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/brisa | `kia-brisa-official-kv-1920x1080.webp` |
+| 2 | 1981 | 기아 봉고 | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/bongo | `kia-bongo-official-kv-1920x1080.webp` |
+| 3 | 1987 | 기아 프라이드 | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/pride | `kia-pride-official-kv-1920x1080.webp` |
+| 4 | 1987 | 기아 콩코드 | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/concord | `kia-concord-official-kv-1920x1080.webp` |
+| 5 | 1990 | 기아 록스타 | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/rocsta | `kia-rocsta-official-kv-1920x1080.webp` |
+| 6 | 1996 | 기아 엘란 | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/elan | `kia-elan-official-kv-1920x1080.webp` |
