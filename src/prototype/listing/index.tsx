@@ -2655,7 +2655,9 @@ function MarketplaceScreen() {
                 </div>
               </section>
             ) : null}
-            {showSeoulAutoGalleryVehicles ? <><BbmMobileOptions
+            {showSeoulAutoGalleryVehicles ? <>
+            {category === "슈퍼카" ? <h2 className="bbm-feed-heading">슈퍼카 매물</h2> : null}
+            <BbmMobileOptions
               videoOnly={videoOnly}
               onToggleVideo={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))}
               sortLabel={bbmSort}
