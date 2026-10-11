@@ -2656,7 +2656,7 @@ function MarketplaceScreen() {
               </section>
             ) : null}
             {showSeoulAutoGalleryVehicles ? <>
-            {category === "슈퍼카" ? <h2 className="bbm-feed-heading">슈퍼카 매물</h2> : null}
+            <h2 className="bbm-feed-heading">{maker ? `${maker} 매물` : category === "전체" ? "전체 매물" : `${category} 매물`}</h2>
             <BbmMobileOptions
               videoOnly={videoOnly}
               onToggleVideo={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))}
