@@ -853,9 +853,9 @@ function MarketplaceScreen() {
   const isPartsCategory = category === "부품 · 용품";
   // 럭셔리카(차량 › 중고차 › 럭셔리카): 과쯔에서는 전용 가상 매물 29대(luxury-category-v01)
   const isLuxuryCategory = category === "럭셔리카";
-  // 수입차·서울오토갤러리는 럭셔리카와 같은 16개 브랜드·로고 슬롯을 사용한다.
+  // 수입차·슈퍼카·서울오토갤러리는 럭셔리카와 같은 16개 브랜드·로고 슬롯을 사용한다.
   // 각 카테고리의 매물 데이터는 그대로 유지한다.
-  const usesLuxuryBrandRail = isLuxuryCategory || category === "수입차" || category === "서울오토갤러리";
+  const usesLuxuryBrandRail = isLuxuryCategory || category === "수입차" || category === "슈퍼카" || category === "서울오토갤러리";
   const isTruckCategory = category === "트럭 · 특장";
   const supportsVehicleCatalog = isBikeCategory || ["전체", "중고차", "국산차", "수입차", "전기차", "럭셔리카", "서울오토갤러리", "도이치오토월드"].includes(category);
   const vehicleCatalog = useVehicleCatalog(isBikeCategory ? "bike" : "car", maker);
