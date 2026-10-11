@@ -102,22 +102,24 @@ export function OldcarCategoryHeader() {
           <strong>보배드림 올드카</strong>
           <span className="oldcar-category-hero-subtitle">올드카ㆍ클래식카 판매</span>
         </span>
+      </button>
+      <div className="oldcar-category-hero-footer">
         <span className="oldcar-category-hero-model">
           <small>{slide.year}</small>
           <em>{slide.model}</em>
         </span>
-      </button>
-      <div className="oldcar-category-hero-dots" role="group" aria-label="올드카 배너 선택">
-        {OLDCAR_HERO_SLIDES.map((item, index) => (
-          <button
-            key={item.id}
-            type="button"
-            className={index === activeIndex ? "is-active" : ""}
-            aria-label={`${item.year} ${item.model} 배너`}
-            aria-current={index === activeIndex ? "true" : undefined}
-            onClick={() => setActiveIndex(index)}
-          />
-        ))}
+        <div className="oldcar-category-hero-dots" role="group" aria-label="올드카 배너 선택">
+          {OLDCAR_HERO_SLIDES.map((item, index) => (
+            <button
+              key={item.id}
+              type="button"
+              className={index === activeIndex ? "is-active" : ""}
+              aria-label={`${item.year} ${item.model} 배너`}
+              aria-current={index === activeIndex ? "true" : undefined}
+              onClick={() => setActiveIndex(index)}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
