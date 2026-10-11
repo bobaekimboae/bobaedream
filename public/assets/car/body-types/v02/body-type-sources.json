@@ -14,7 +14,7 @@
     "convertible": "Kia Elan (1996-1999)",
     "suv": "Hyundai Santa Fe MX5",
     "rv": "Hyundai Staria",
-    "van": "Hyundai Solati (H350)",
+    "van": "Hyundai Staria Cargo panel van",
     "pickup": "Hyundai Santa Cruz",
     "limousine": "Hyundai Equus VI long-wheelbase"
   },
@@ -26,7 +26,7 @@
     "convertible": "Mercedes-Benz CLE Cabriolet A236",
     "suv": "Mercedes-Benz GLE V167",
     "rv": "Mercedes-Benz V-Class W447",
-    "van": "Mercedes-Benz Sprinter",
+    "van": "Mercedes-Benz Sprinter panel van",
     "pickup": "Mercedes-Benz X-Class",
     "limousine": "Mercedes-Benz S-Class W223 long-wheelbase"
   }
