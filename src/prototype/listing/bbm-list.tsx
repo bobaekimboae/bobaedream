@@ -273,7 +273,7 @@ export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string, detail
 }
 
 // 초톳 카테고리 시트(2026-10-11 「전체차량 · 중고차 ㅡ 하위 알약 · 트럭특장 우측 터치하면 하위 알약」): 한 줄에 카테고리 하나.
-// 이름을 누르면 그 카테고리를 고르고, 하위가 있는 줄은 오른쪽 화살표를 누르면 그 아래에 하위 알약이 펼쳐진다(여러 줄 동시에 펼침 가능).
+// 하위가 있는 줄은 이름이든 오른쪽 화살표든 누르면 그 아래에 하위 알약이 펼쳐지고(2026-10-11 「중고차 터치하면 하위 카테고리가 열려」), 하위가 없는 줄은 누르면 바로 고른다. 여러 줄 동시에 펼침 가능.
 function BbmCategoryRows({ selected, selectedChild, onChoose }: { selected: string; selectedChild?: string | null; onChoose: (label: string, detail?: string) => void }) {
   const selectedGroup = categoryGroupForSelection(selected);
   const [open, setOpen] = useState<string[]>(() => (selectedGroup.value !== "전체" && selectedGroup.children.length > 1 ? [selectedGroup.value] : []));
@@ -288,7 +288,7 @@ function BbmCategoryRows({ selected, selectedChild, onChoose }: { selected: stri
           return (
             <li key={group.value} className={`bbm-category-row${isOpen ? " is-open" : ""}${isSelected ? " is-selected" : ""}${expandable ? " is-expandable" : ""}`}>
               <div className="bbm-category-row__head">
-                <button type="button" className="bbm-category-row__name" aria-pressed={isSelected} onClick={() => onChoose(group.value)}>
+                <button type="button" className="bbm-category-row__name" aria-pressed={expandable ? undefined : isSelected} aria-expanded={expandable ? isOpen : undefined} onClick={() => (expandable ? toggle(group.value) : onChoose(group.value))}>
                   <span className="bbm-category-row__icon"><img src={asset(group.icon)} alt="" aria-hidden="true" draggable={false} /></span>
                   <span>{group.label}</span>
                 </button>
