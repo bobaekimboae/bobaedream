@@ -1,0 +1,181 @@
+filename,korean_name,category
+chotot-chat-refresh.svg,새로 고침,"채팅 아이콘,UI 기본 아이콘"
+chotot-common-bag.svg,가방,UI 기본 아이콘
+chotot-common-bookmark-filled.svg,북마크_채움,UI 기본 아이콘
+chotot-common-bookmark.svg,북마크,UI 기본 아이콘
+chotot-common-chat.svg,채팅,UI 기본 아이콘
+chotot-common-clock-gray.svg,시계_그레이,UI 기본 아이콘
+chotot-common-clock.svg,시계,UI 기본 아이콘
+chotot-common-contact-list.svg,연락처 목록,UI 기본 아이콘
+chotot-common-copy-link.svg,링크 복사,UI 기본 아이콘
+chotot-common-copy.svg,복사하기,UI 기본 아이콘
+chotot-common-current-location.svg,현재 위치,UI 기본 아이콘
+chotot-common-customer-support.svg,고객지원,UI 기본 아이콘
+chotot-common-dislike-black-bg.svg,싫어요 블랙 배경,UI 기본 아이콘
+chotot-common-dislike.svg,싫어요,UI 기본 아이콘
+chotot-common-favorite-selected.svg,즐겨찾기_선택 됨,UI 기본 아이콘
+chotot-common-favorite.svg,즐겨찾기,UI 기본 아이콘
+chotot-common-filter-icon.svg,filter icon,UI 기본 아이콘
+chotot-common-filter-main.svg,필터,UI 기본 아이콘
+chotot-common-filter-white.svg,필터_화이트,UI 기본 아이콘
+chotot-common-filter.svg,필터,UI 기본 아이콘
+chotot-common-image-attach-gray.svg,이미지 첨부_그레이,UI 기본 아이콘
+chotot-common-image-white-bg.svg,이미지_화이트 배경,UI 기본 아이콘
+chotot-common-image.svg,이미지,UI 기본 아이콘
+chotot-common-info.svg,정보,UI 기본 아이콘
+chotot-common-join-date.svg,가입일,UI 기본 아이콘
+chotot-common-like-black-bg.svg,좋아요_블랙 배경,UI 기본 아이콘
+chotot-common-like.svg,좋아요,UI 기본 아이콘
+chotot-common-list-view.svg,리스트 뷰,UI 기본 아이콘
+chotot-common-location-icon-alt.svg,location icon,UI 기본 아이콘
+chotot-common-location-icon-alt_2.svg,location icon (1),위치
+chotot-common-location-icon.svg,location icon,UI 기본 아이콘
+chotot-common-location-pin-gray.svg,위치 핀_그레이,UI 기본 아이콘
+chotot-common-location-pin.svg,위치 핀,UI 기본 아이콘
+chotot-common-location-project.svg,location project,UI 기본 아이콘
+chotot-common-location-project_2.svg,location project (1),위치
+chotot-common-lock.svg,잠금,UI 기본 아이콘
+chotot-common-logout.svg,로그아웃,UI 기본 아이콘
+chotot-common-menu.svg,메뉴,UI 기본 아이콘
+chotot-common-more.svg,더보기,UI 기본 아이콘
+chotot-common-nearby-location.svg,주변 위치,UI 기본 아이콘
+chotot-common-notification.svg,알림,UI 기본 아이콘
+chotot-common-phone-white.svg,전화_화이트,UI 기본 아이콘
+chotot-common-phone.svg,전화,UI 기본 아이콘
+chotot-common-play.svg,재생,UI 기본 아이콘
+chotot-common-report-post.svg,게시글 신고,UI 기본 아이콘
+chotot-common-report-profile.svg,신고하기,UI 기본 아이콘
+chotot-common-report.svg,신고하기,UI 기본 아이콘
+chotot-common-review-star-button.svg,리뷰 별점 버튼,UI 기본 아이콘
+chotot-common-review-star-selected.svg,리뷰 별점 선택,UI 기본 아이콘
+chotot-common-saved-search.svg,저장된 검색,UI 기본 아이콘
+chotot-common-search-disabled.svg,검색_비활성,UI 기본 아이콘
+chotot-common-search-thin-line.svg,검색_얇은선,UI 기본 아이콘
+chotot-common-search-white.svg,검색_화이트,UI 기본 아이콘
+chotot-common-search.svg,검색,UI 기본 아이콘
+chotot-common-search_2.svg,검색 (1),추가할 아이콘
+chotot-common-seller-review-write.svg,판매자 리뷰 작성,UI 기본 아이콘
+chotot-common-settings.svg,설정,UI 기본 아이콘
+chotot-common-share.svg,공유,UI 기본 아이콘
+chotot-common-sort.svg,정렬하기,UI 기본 아이콘
+chotot-common-thumbnail-favorite.svg,썸네일용 즐겨찾기,UI 기본 아이콘
+chotot-common-user.svg,사용자,UI 기본 아이콘
+chotot-common-video-play-triangle-white-bg.svg,비디오 재생_삼각형_화이트 배경,UI 기본 아이콘
+chotot-common-video-play-white-bg.svg,비디오 재생_화이트 배경,UI 기본 아이콘
+chotot-common-video-play.svg,비디오 재생,UI 기본 아이콘
+chotot-common-view-grid.svg,보기방식_앨범형,UI 기본 아이콘
+chotot-common-view-list.svg,보기방식_목록형,UI 기본 아이콘
+chotot-list-detail-address-location.svg,주소 위치,중고차 리스트/상세정보 아이콘
+chotot-list-detail-address-location_2.svg,주소 위치 (1),위치
+chotot-list-detail-address.svg,주소,매물 리스트 상세정보 아이콘
+chotot-list-detail-chat-alt.svg,채팅,매물 리스트 상세정보 아이콘
+chotot-list-detail-chat.svg,채팅,중고차 리스트/상세정보 아이콘
+chotot-list-detail-chat_2.svg,채팅 (1),중고차 리스트/상세정보 아이콘
+chotot-list-detail-close-window-white-bg.svg,창닫기_화이트 배경,중고차 리스트/상세정보 아이콘
+chotot-list-detail-created-date.svg,등록일,매물 리스트 상세정보 아이콘
+chotot-list-detail-customer-center.svg,고객센터,매물 리스트 상세정보 아이콘
+chotot-list-detail-dropdown-arrow-region-search.svg,드롭다운 화살표_지역 검색 등,중고차 리스트/상세정보 아이콘
+chotot-list-detail-favorite.svg,즐겨찾기,중고차 리스트/상세정보 아이콘
+chotot-list-detail-feed-next-button.svg,피드형 매물_다음 버튼,중고차 리스트/상세정보 아이콘
+chotot-list-detail-feed-prev-button.svg,피드형 매물_이전 버튼,중고차 리스트/상세정보 아이콘
+chotot-list-detail-follow.svg,팔로우,매물 리스트 상세정보 아이콘
+chotot-list-detail-followers.svg,팔로우 수,매물 리스트 상세정보 아이콘
+chotot-list-detail-following.svg,팔로잉,매물 리스트 상세정보 아이콘
+chotot-list-detail-listing-comment.svg,매물_댓글,매물 리스트 상세정보 아이콘
+chotot-list-detail-listing-like.svg,매물_좋아요,매물 리스트 상세정보 아이콘
+chotot-list-detail-news-articles-117.svg,117건의 뉴스 기사,매물 리스트 상세정보 아이콘
+chotot-list-detail-phone-alt.svg,전화,매물 리스트 상세정보 아이콘
+chotot-list-detail-phone.svg,전화,중고차 리스트/상세정보 아이콘
+chotot-list-detail-price-guide.svg,시세 안내,매물 리스트 상세정보 아이콘
+chotot-list-detail-report.svg,신고하기,매물 리스트 상세정보 아이콘
+chotot-list-detail-response-rate.svg,응답률,매물 리스트 상세정보 아이콘
+chotot-list-detail-review-star.svg,리뷰 별점,매물 리스트 상세정보 아이콘
+chotot-list-detail-searchbox-magnifier.svg,검색창_검색 돋보기,중고차 리스트/상세정보 아이콘
+chotot-list-detail-svgexport-25.svg,svgexport-25,중고차 리스트/상세정보 아이콘
+chotot-list-detail-svgexport-25_2.svg,svgexport-25,매물 리스트 상세정보 아이콘
+chotot-list-detail-thumbnail-image-indicator.svg,매물 썸네일_이미지 표시,중고차 리스트/상세정보 아이콘
+chotot-list-detail-thumbnail-video-indicator.svg,매물 썸네일_영상 매물 표시,중고차 리스트/상세정보 아이콘
+chotot-list-detail-toggle-arrow.svg,열기 닫기 화살표,중고차 리스트/상세정보 아이콘
+chotot-list-detail-verified-check-circle.svg,인증 체크_원형,매물 리스트 상세정보 아이콘
+chotot-list-detail-verified-check-wavy-badge.svg,인증 체크_물결 배지,매물 리스트 상세정보 아이콘
+chotot-list-detail-verified-dealer-wavy-badge.svg,인증 딜러 물결 배지,중고차 리스트/상세정보 아이콘
+chotot-list-detail-verified-dealer-wavy-badge_2.svg,인증 딜러 물결 배지 (1),중고차 리스트/상세정보 아이콘
+chotot-list-detail-video-play.svg,영상 플레이,중고차 리스트/상세정보 아이콘
+chotot-list-detail-view-album.svg,보기방식_앨범형,중고차 리스트/상세정보 아이콘
+chotot-list-detail-view-list.svg,보기방식_목록형,중고차 리스트/상세정보 아이콘
+chotot-listing-register-ai.svg,AI,매물 등록용 아이콘
+chotot-listing-register-caret-down.svg,아래 화살표/캐럿 아이콘,매물 등록용 아이콘
+chotot-listing-register-check-mark_2.svg,체크 마크 (1),"매물 등록용 아이콘,셰브론_화살표"
+chotot-listing-register-check-mark.svg,체크 마크,매물 등록용 아이콘
+chotot-listing-register-clear-text-delete-field-icon.svg,텍스트 지우기 아이콘 / 필드 삭제 아이콘,매물 등록용 아이콘
+chotot-listing-register-close-window.svg,창 닫기,매물 등록용 아이콘
+chotot-listing-register-detail-info.svg,상세 정보,매물 등록용 아이콘
+chotot-listing-register-dropdown.svg,드롭 다운,매물 등록용 아이콘
+chotot-listing-register-image-upload-color-change.svg,이미지 업로드 색상 변경용,매물 등록용 아이콘
+chotot-listing-register-image-upload-delete.svg,이미지 업로드_이미지 삭제,매물 등록용 아이콘
+chotot-listing-register-info.svg,인포,매물 등록용 아이콘
+chotot-listing-register-search-gray.svg,검색_그레이,매물 등록용 아이콘
+chotot-listing-register-search.svg,검색,매물 등록용 아이콘
+chotot-listing-register-upload-media.png,업로드 미디어_upload-media,매물 등록용 아이콘
+chotot-listing-register-upload2.png,업로드_2_upload2,매물 등록용 아이콘
+chotot-login-condition-met-check-icon.svg,조건 충족 체크 아이콘,로그인 아이콘
+chotot-login-green-check-valid-input.svg,초록색 체크 (입력 정보 충족),로그인 아이콘
+chotot-login-hide-password.svg,비밀번호 숨기기,로그인 아이콘
+chotot-login-show-password.svg,비밀번호 보이기,로그인 아이콘
+chotot-login-sns-apple-id-1.svg,SNS 연결_애플 아이디 (1),로그인 아이콘
+chotot-login-sns-facebook-1.svg,SNS 연결_페이스북 (1),로그인 아이콘
+chotot-login-sns-google-1.svg,SNS 연결_구글 (1),로그인 아이콘
+chotot-my-account-settings-01.svg,기타_01_계정 설정,마이페이지 아이콘
+chotot-my-benefit-promotion-chotot-offer-01.svg,혜택 · 프로모션_01_초톳 혜택,마이페이지 아이콘
+chotot-my-benefit-promotion-my-offers-02.svg,혜택 · 프로모션_02_내 혜택,마이페이지 아이콘
+chotot-my-customer-center-02.svg,기타_02_고객센터,마이페이지 아이콘
+chotot-my-feedback-03.svg,기타_03_의견 보내기,마이페이지 아이콘
+chotot-my-logout.svg,로그아웃,마이페이지 아이콘
+chotot-my-my-reviews-04.svg,마이 메뉴_04_내가 남긴 리뷰,마이페이지 아이콘
+chotot-my-neighborhood-review-05.svg,마이 메뉴_05_동네 평가(지역 리뷰),마이페이지 아이콘
+chotot-my-paid-service-dong-tot-coin-01.svg,유료 서비스_01_동톳 (포인트 관리),마이페이지 아이콘
+chotot-my-paid-service-partner-channel-03.svg,유료 서비스_03_파트너 채널,마이페이지 아이콘
+chotot-my-paid-service-payment-history-04.svg,유료 서비스_04_결제·이용 내역,마이페이지 아이콘
+chotot-my-paid-service-pro-plan-02.svg,유료서비스_02_PRO 요금제,마이페이지 아이콘
+chotot-my-paid-service-store-pro-05.svg,유료 서비스_05_스토어 / 전문관,마이페이지 아이콘
+chotot-my-recent-viewed-listings-03.svg,마이 메뉴_03_최근 본 매물,마이페이지 아이콘
+chotot-my-saved-listings-01.svg,마이 메뉴_01_저장한 매물(찜한 매물),마이페이지 아이콘
+chotot-my-saved-search-filterset-02.svg,마이 메뉴_02_저장한 검색 조건,마이페이지 아이콘
+chotot-pc-detail-arrow-down-white-bg.svg,아래_화살표_화이트 배경,pc_상세페이지 사용 아이콘
+chotot-pc-detail-call-white-bg.svg,통화_화이트 배경,pc_상세페이지 사용 아이콘
+chotot-pc-detail-chevron-down-white-bg.svg,셰브론_아래_화이트 배경,pc_상세페이지 사용 아이콘
+chotot-pc-detail-chevron-left-white-bg.svg,셰브론_좌측_화이트 배경,pc_상세페이지 사용 아이콘
+chotot-pc-detail-chevron-right-white-bg.svg,셰브론_우측_화이트 배경,pc_상세페이지 사용 아이콘
+chotot-pc-detail-close-window.svg,창닫기,pc_상세페이지 사용 아이콘
+chotot-pc-detail-customer-center-white-bg.svg,고객센터_화이트 배경,pc_상세페이지 사용 아이콘
+chotot-pc-detail-favorite-selected.svg,즐겨찾기 선택 됨,pc_상세페이지 사용 아이콘
+chotot-pc-detail-hamburger-menu-white-bg.svg,전체 메뉴_햄버거_화이트 배경,pc_상세페이지 사용 아이콘
+chotot-pc-detail-next.svg,다음,pc_상세페이지 사용 아이콘
+chotot-pc-detail-number-1.svg,1,pc_상세페이지 사용 아이콘
+chotot-pc-detail-number-2.svg,2,pc_상세페이지 사용 아이콘
+chotot-pc-detail-number-4.svg,4,pc_상세페이지 사용 아이콘
+chotot-pc-detail-prev.svg,이전,pc_상세페이지 사용 아이콘
+chotot-pc-detail-report-white-bg.svg,신고_화이트 배경,pc_상세페이지 사용 아이콘
+chotot-pc-detail-save.svg,save,pc_상세페이지 사용 아이콘
+chotot-pc-detail-search-magnifier-gray.svg,검색 돋보기_그레이,pc_상세페이지 사용 아이콘
+chotot-pc-detail-svgexport-23.svg,svgexport-23,pc_상세페이지 사용 아이콘
+chotot-pc-detail-thumbnail-favorite-white-bg.svg,썸네일_즐겨찾기_화이트 배경,pc_상세페이지 사용 아이콘
+chotot-pc-detail-thumbnail-favorite-white-bg_2.svg,썸네일_즐겨찾기 그레이 배경 (1),pc_상세페이지 사용 아이콘
+chotot-pc-detail-thumbnail-image-white-bg.svg,썸네일_이미지_화이트 배경,pc_상세페이지 사용 아이콘
+chotot-pc-detail-thumbnail-video-play-white-bg.svg,썸네일_영상 플레이_화이트 배경,pc_상세페이지 사용 아이콘
+chotot-pc-detail-thumbnail-video-white-bg.svg,썸네일_영상_화이트 배경,pc_상세페이지 사용 아이콘
+chotot-pc-detail-video-play-button.svg,영상 플레이 버튼_play,pc_상세페이지 사용 아이콘
+chotot-profile-condition-met-check-icon.svg,조건 충족 체크 아이콘,프로필 편집/판매자 페이지
+chotot-profile-edit-profile.svg,프로필 수정,프로필 편집/판매자 페이지
+chotot-profile-info-edit.svg,프로필 정보 수정_edit,프로필 편집/판매자 페이지
+chotot-profile-location.svg,위치,프로필 편집/판매자 페이지
+chotot-profile-login-required-retry.svg,로그인 필요 안내,프로필 편집/판매자 페이지
+chotot-profile-membership-period.svg,가입 기간,프로필 편집/판매자 페이지
+chotot-profile-photo-register.svg,프로필 사진 등록,프로필 편집/판매자 페이지
+chotot-profile-settings-account-02.svg,프로필 설정_02_계정 설정,프로필 편집/판매자 페이지
+chotot-profile-settings-login-history-03.svg,프로필 설정_03_로그인 기록 관리,프로필 편집/판매자 페이지
+chotot-profile-settings-personal-pro-01.svg,프로필 설정_01_개인 / 전문관,프로필 편집/판매자 페이지
+chotot-profile-share.svg,공유하기,프로필 편집/판매자 페이지
+chotot-profile-sns-apple-id.svg,SNS 연결_애플 아이디,프로필 편집/판매자 페이지
+chotot-profile-sns-facebook.svg,SNS 연결_페이스북,프로필 편집/판매자 페이지
+chotot-profile-sns-google.svg,SNS 연결_구글,프로필 편집/판매자 페이지
