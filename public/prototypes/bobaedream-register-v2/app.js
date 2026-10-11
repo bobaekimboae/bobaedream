@@ -1,9 +1,9 @@
 const slots = [
-  "좌전 45°",
-  "정면",
-  "우전 45°",
+  "좌전방 45°",
+  "차량 정면",
+  "우전방 45°",
   "우측면",
-  "후면",
+  "차량 후면",
   "좌측면",
   "계기판",
   "실내",
@@ -66,7 +66,7 @@ const liveCamera = {
   chunks: [],
 };
 
-const videoSegments = ["车辆外观", "车内饰", "发动机舱", "后备箱"];
+const videoSegments = ["차량 외관", "차량 실내", "엔진룸", "트렁크"];
 let videoTimer = null;
 
 const demoParams = new URLSearchParams(window.location.search);
@@ -821,7 +821,7 @@ function cameraView() {
 
       ${
         albumMode
-          ? `<div class="album-guide-pill">우선 등록 각도: 좌전45° · 정면 · 우전45° · 측면</div>
+          ? `<div class="album-guide-pill">우선 등록 각도: 좌전방 45° · 차량 정면 · 우전방 45° · 측면</div>
              <div class="album-grid">
               ${samplePhotos
                 .map(
@@ -841,7 +841,7 @@ function cameraView() {
              </div>`
           : `<div class="camera-stage" data-camera-stage>
               <video class="live-camera-feed" data-camera-preview playsinline autoplay muted></video>
-              <div class="guide-pill">촬영 ${slots[state.activeSlot]}</div>
+              <div class="guide-pill">${slots[state.activeSlot]} 촬영</div>
               <p class="camera-permission-copy" data-camera-error>카메라 권한을 허용하면 실제 화면이 표시됩니다.</p>
             </div>
             <div class="slot-rail">
@@ -938,15 +938,15 @@ function videoView() {
     <div class="video-view is-record">
       <header class="dark-topbar">
         <button class="icon-button dark-button" data-action="video-close" aria-label="닫기">${icon("x", 30)}</button>
-        <h2>车辆视频</h2>
+        <h2>차량 영상</h2>
         <button class="icon-button dark-button flash-button" type="button" aria-label="플래시">${icon("zap", 31)}</button>
       </header>
       <span class="video-header-timer">${state.videoRecording ? formatDuration(activeDuration) : ""}</span>
       <div class="video-stage" data-camera-stage>
         <video class="live-camera-feed" data-camera-preview playsinline autoplay muted></video>
-        <div class="guide-pill">拍摄${videoSegments[state.videoSegment]}</div>
+        <div class="guide-pill">${videoSegments[state.videoSegment]} 촬영</div>
         <div class="video-frame-line"></div>
-        <p class="video-guide-copy">请确保拍摄选项正确</p>
+        <p class="video-guide-copy">촬영 항목을 확인해 주세요</p>
         <p class="camera-permission-copy video-permission-copy" data-camera-error>카메라 권한을 허용하면 실제 화면이 표시됩니다.</p>
       </div>
       <div class="video-segments">
@@ -956,7 +956,7 @@ function videoView() {
               const duration = state.videoDurations[index];
               const active = state.videoSegment === index;
               return `<button class="segment-step ${active ? "is-active" : ""} ${duration ? "has-duration" : ""} ${state.videoRecording && active ? "is-recording" : ""}" data-action="video-segment" data-index="${index}" type="button" style="--segment-image:url('${videoTemplateImages[index]}')">
-                <span>${active && !duration ? "示例" : duration ? formatDuration(duration) : ""}</span>
+                <span>${active && !duration ? "예시" : duration ? formatDuration(duration) : ""}</span>
                 <b>${name}</b>
                 <i class="segment-progress" style="width:${Math.min(100, (duration / 22) * 100)}%"></i>
               </button>`;
@@ -965,13 +965,13 @@ function videoView() {
           .join("")}
       </div>
       <div class="video-controls">
-        <span class="record-timer">${state.videoRecording ? "暂停" : state.videoPaused ? "继续" : ""}</span>
+        <span class="record-timer">${state.videoRecording ? "일시정지" : state.videoPaused ? "계속" : ""}</span>
         <button class="record-button ${state.videoRecording ? "is-recording" : ""}" data-action="record" type="button" aria-label="녹화"></button>
-        ${nextVisible ? `<button class="next-video" data-action="video-next" type="button">下一步</button>` : `<span></span>`}
+        ${nextVisible ? `<button class="next-video" data-action="video-next" type="button">다음</button>` : `<span></span>`}
       </div>
       <div class="mode-tabs video-mode-tabs">
-        <button class="is-active" data-action="video-mode-record" type="button">拍摄</button>
-        <button data-action="video-mode-album" type="button">相册</button>
+        <button class="is-active" data-action="video-mode-record" type="button">촬영</button>
+        <button data-action="video-mode-album" type="button">앨범</button>
       </div>
       ${androidNav()}
       ${modalLayer()}
@@ -981,17 +981,17 @@ function videoView() {
 
 function videoAlbumView() {
   const albumVideos = [
-    { label: "车辆视频 01", duration: 56, src: samplePhotos[1] },
-    { label: "车辆视频 02", duration: 43, src: samplePhotos[3] },
+    { label: "차량 영상 01", duration: 56, src: samplePhotos[1] },
+    { label: "차량 영상 02", duration: 43, src: samplePhotos[3] },
   ];
   return `
     <div class="video-view video-album-view">
       <header class="dark-topbar">
         <button class="icon-button dark-button" data-action="video-close" aria-label="닫기">${icon("x", 30)}</button>
-        <h2>我的相册</h2>
+        <h2>내 앨범</h2>
         <span></span>
       </header>
-      <div class="video-album-banner">请选择一段车辆视频</div>
+      <div class="video-album-banner">차량 영상 1개를 선택해 주세요</div>
       <div class="video-album-grid">
         ${albumVideos
           .map(
@@ -1005,11 +1005,11 @@ function videoAlbumView() {
       </div>
       <div class="video-album-bottom">
         <span>${state.videoAlbumSelected === false ? 0 : 1}/1</span>
-        <button class="next-video" data-action="video-album-confirm" type="button">完成</button>
+        <button class="next-video" data-action="video-album-confirm" type="button">완료</button>
       </div>
       <div class="mode-tabs video-mode-tabs">
-        <button data-action="video-mode-record" type="button">拍摄</button>
-        <button class="is-active" data-action="video-mode-album" type="button">相册</button>
+        <button data-action="video-mode-record" type="button">촬영</button>
+        <button class="is-active" data-action="video-mode-album" type="button">앨범</button>
       </div>
       ${androidNav()}
       ${toastLayer()}
@@ -1023,7 +1023,7 @@ function videoPreviewView() {
     <div class="video-view video-preview-view">
       <header class="dark-topbar">
         <button class="icon-button dark-button" data-action="video-close" aria-label="닫기">${icon("x", 30)}</button>
-        <h2>视频预览</h2>
+        <h2>영상 미리보기</h2>
         <span></span>
       </header>
       <div class="merged-video-stage">
@@ -1034,7 +1034,7 @@ function videoPreviewView() {
         ${segments.map((segment) => `<span>${segment.name} ${formatDuration(segment.seconds)}</span>`).join("")}
       </div>
       <div class="video-preview-actions">
-        <button class="next-video" data-action="video-preview-next" type="button">下一步</button>
+        <button class="next-video" data-action="video-preview-next" type="button">다음</button>
       </div>
       ${androidNav()}
       ${toastLayer()}
@@ -1047,10 +1047,10 @@ function videoCoverView() {
     <div class="video-view video-cover-view">
       <header class="dark-topbar">
         <button class="icon-button dark-button" data-action="video-cover-back" aria-label="뒤로">${icon("chevron-left", 28)}</button>
-        <h2>选择视频封面</h2>
+        <h2>영상 표지 선택</h2>
         <span></span>
       </header>
-      <p class="cover-guide-copy">请在当前视频中选择一张截图设为封面</p>
+      <p class="cover-guide-copy">현재 영상에서 표지로 사용할 장면을 선택해 주세요</p>
       <div class="cover-frame-strip">
         ${frames
           .map(
@@ -1060,7 +1060,7 @@ function videoCoverView() {
           )
           .join("")}
       </div>
-      <button class="cover-complete" data-action="video-cover-complete" type="button">完成</button>
+      <button class="cover-complete" data-action="video-cover-complete" type="button">완료</button>
       ${androidNav()}
       ${toastLayer()}
     </div>`;
@@ -1098,8 +1098,8 @@ function modalLayer() {
   if (state.modal === "video-exit") {
     return `<div class="modal-layer">
       <div class="modal">
-        <div class="modal-body"><h3>是否放弃实车拍摄</h3><p>放弃后当前拍摄的视频不会保存。</p></div>
-        <div class="modal-actions"><button data-action="modal-close">取消</button><button data-action="video-exit-confirm">放弃</button></div>
+        <div class="modal-body"><h3>촬영을 취소할까요?</h3><p>취소하면 현재 촬영 중인 영상은 저장되지 않습니다.</p></div>
+        <div class="modal-actions"><button data-action="modal-close">계속 촬영</button><button data-action="video-exit-confirm">취소하기</button></div>
       </div>
     </div>`;
   }
