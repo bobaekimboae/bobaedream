@@ -29,8 +29,19 @@ const policies = [
   { icon: "chotot-shop-benefit-search-icon.png", text: "차량 이력 조회 안내" },
 ];
 
-const intro = "서울오토갤러리에서 수입차를 전문으로 안내합니다. 매물의 차량 상태와 이력을 직접 확인한 뒤 정확한 정보만 전달해 드립니다. 방문 상담과 시승 예약도 도와드립니다.";
-const SAFE_NUMBER = "0507-1234-5678"; // 안심번호(050) 표기. 모의 데이터의 실제 번호는 쓰지 않는다.
+// 임시값(MOCK): 실제 데이터가 연결되면 이 상수만 바꾼다. 안심번호(050) 표기이며 모의 데이터의 실제 번호는 쓰지 않는다.
+const MOCK = {
+  intro: "서울오토갤러리에서 수입차를 전문으로 안내합니다. 매물의 차량 상태와 이력을 직접 확인한 뒤 정확한 정보만 전달해 드립니다. 방문 상담과 시승 예약도 도와드립니다.",
+  safeNumber: "0507-1234-5678",
+  rating: 4.8,
+  reviewCount: 12,
+  sold: 12,
+  followers: 26,
+  lastActive: "최근 활동 6시간 전",
+  bannerCarCount: 4,
+} as const;
+const intro = MOCK.intro;
+const SAFE_NUMBER = MOCK.safeNumber;
 
 const tabFromUrl = (): TabId => {
   const value = new URLSearchParams(window.location.search).get("tab");
@@ -50,7 +61,7 @@ function Stars({ score }: { score: number }) {
 
 function Banners({ cars }: { cars: Car[] }) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const slides = [asset("seoul-auto-gallery/header/building-bluehour-v01.png"), ...cars.slice(0, 4).map((car) => asset(car.image))];
+  const slides = [asset("seoul-auto-gallery/header/building-bluehour-v01.png"), ...cars.slice(0, MOCK.bannerCarCount).map((car) => asset(car.image))];
   const move = (dir: 1 | -1) => ref.current?.scrollBy({ left: dir * 330, behavior: "smooth" });
   return <div className="dp-banners">
     <div className="dp-banner-track" ref={ref}>{slides.map((src, index) => <img key={src + index} src={src} alt="" draggable={false} />)}</div>
@@ -73,7 +84,7 @@ function InventoryRows({ cars, limit }: { cars: Car[]; limit: number }) {
         <b>{car.price}</b>
         <span className="dp-row-time"><Icon name="chotot-common-clock.svg" />{car.posted}</span>
       </div>
-      <button type="button" className={`dp-row-like${liked.has(car.id) ? " is-on" : ""}`} aria-label="관심 매물" aria-pressed={liked.has(car.id)} onClick={() => setLiked((set) => { const next = new Set(set); if (next.has(car.id)) next.delete(car.id); else next.add(car.id); return next; })}><Icon name="chotot-list-detail-favorite.svg" /></button>
+      <button type="button" className={`dp-row-like${liked.has(car.id) ? " is-on" : ""}`} aria-label="관심 매물" aria-pressed={liked.has(car.id)} onClick={() => setLiked((set) => { const next = new Set(set); if (next.has(car.id)) next.delete(car.id); else next.add(car.id); return next; })}><Icon name={liked.has(car.id) ? "chotot-common-favorite-selected.svg" : "chotot-common-favorite.svg"} /></button>
     </article>
   ))}</div>;
 }
@@ -129,7 +140,7 @@ function InfoTab() {
 
 export default function DealerPage() {
   const params = new URLSearchParams(window.location.search);
-  const dealer: SeoulAutoGalleryDealer = dealers.find((item) => item.shopNo === params.get("shop")) ?? dealers[0];
+  const dealer: SeoulAutoGalleryDealer = dealers.find((item) => item.shopNo === params.get("shop") && item.empNo === (params.get("emp") ?? item.empNo)) ?? dealers[0];
   const [tab, setTab] = useState<TabId>(tabFromUrl);
   const [following, setFollowing] = useState(false);
   const [toast, setToast] = useState("");
@@ -147,7 +158,7 @@ export default function DealerPage() {
   };
   const goBack = () => {
     if (window.history.length > 1) window.history.back();
-    else window.location.href = `${import.meta.env.BASE_URL}?qf=guazi&category=${encodeURIComponent("서울오토갤러리")}`;
+    else window.location.href = `${window.location.pathname}?qf=guazi&category=${encodeURIComponent("서울오토갤러리")}`;
   };
   const share = async () => {
     const url = window.location.href;
@@ -165,7 +176,7 @@ export default function DealerPage() {
           <strong>{dealer.name}</strong>
           <button type="button" aria-label="공유" onClick={share}><Icon name="chotot-common-share.svg" /></button>
         </header>
-        <div className="dp-cover"><img src={asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt="" draggable={false} /><span>최근 활동 6시간 전</span></div>
+        <div className="dp-cover"><img src={asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt="" draggable={false} /><span>{MOCK.lastActive}</span></div>
         <section className="dp-head">
           <img className="dp-logo" src={asset(`dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`)} alt={`${dealer.name} 프로필`} draggable={false} />
           <div className="dp-actions">
@@ -173,9 +184,9 @@ export default function DealerPage() {
             <button type="button" aria-pressed={following} onClick={() => setFollowing((value) => !value)}><Icon name={following ? "chotot-list-detail-following.svg" : "chotot-list-detail-follow.svg"} />{following ? "팔로잉" : "팔로우"}</button>
           </div>
           <h1>{dealer.name}<Icon name="chotot-list-detail-verified-dealer-wavy-badge.svg" className="is-badge" /></h1>
-          <div className="dp-rating"><b>4.8</b><Stars score={4.8} /><span>(12) 평가</span></div>
+          <div className="dp-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><span>({MOCK.reviewCount}) 평가</span></div>
           <p className="dp-address"><Icon name="chotot-list-detail-address-location.svg" /><span>서울특별시 서초구 양재대로11길 36, 서울오토갤러리</span></p>
-          <dl className="dp-stats"><div><dt>판매 완료</dt><dd>12</dd></div><div><dt>팔로워</dt><dd>{following ? 27 : 26}</dd></div><div><dt>판매 중</dt><dd>{cars.length}</dd></div></dl>
+          <dl className="dp-stats"><div><dt>판매 완료</dt><dd>{MOCK.sold}</dd></div><div><dt>팔로워</dt><dd>{MOCK.followers + (following ? 1 : 0)}</dd></div><div><dt>판매 중</dt><dd>{cars.length}</dd></div></dl>
         </section>
         <nav className="dp-tabs" role="tablist" aria-label="상점 메뉴">{tabs.filter((item) => item.isActive).map((item) => <button key={item.id} type="button" role="tab" aria-selected={tab === item.id} onClick={() => openTab(item.id)}><span>{item.label}</span></button>)}</nav>
         <div className="dp-body">
