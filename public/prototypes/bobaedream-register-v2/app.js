@@ -22,10 +22,10 @@ const samplePhotos = [
 ];
 
 const videoTemplateImages = [
-  "assets/video-template-exterior.png",
-  "assets/video-template-interior.png",
-  "assets/video-template-engine.png",
-  "assets/video-template-trunk.png",
+  samplePhotos[1],
+  samplePhotos[5],
+  samplePhotos[4],
+  samplePhotos[2],
 ];
 
 const state = {
