@@ -406,7 +406,6 @@ export function BbmMobileOptions<T extends string>({
   const viewIcon = viewMode === "갤러리로 보기" ? "view-list-chotot-v02" : "view-grid-chotot-v02";
   return (
     <nav className="bbm-m-options" aria-label={navigationLabel}>
-      <button type="button" className="bbm-m-sort" onClick={onSort}><span>{sortLabel}</span><img src={bbmIcon("toolbar-sort-chevron")} alt="" aria-hidden="true" /></button>
       <div className="bbm-m-filter-tabs" role="group" aria-label={groupLabel}>
         <button type="button" className={`bbm-m-filter-tab${videoOnly ? " is-selected" : ""}`} aria-pressed={videoOnly} onClick={onToggleVideo}>
           <span>숏폼카</span>{videoOnly ? <Cross2Icon className="bbm-m-filter-clear" aria-hidden="true" /> : null}
@@ -421,6 +420,7 @@ export function BbmMobileOptions<T extends string>({
         })}
       </div>
       {extra}
+      <button type="button" className="bbm-m-sort" onClick={onSort}><span>{sortLabel}</span><img src={bbmIcon("toolbar-sort-chevron")} alt="" aria-hidden="true" /></button>
       <button type="button" className="bbm-m-view" aria-label="보기 방식 선택" onClick={onView}><img src={bbmIcon(viewIcon)} alt="" aria-hidden="true" /></button>
     </nav>
   );

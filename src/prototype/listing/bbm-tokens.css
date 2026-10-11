@@ -267,13 +267,13 @@
 .marketplace.is-bbm-m .bbm-category-menu__button { gap: 8px; }
 /* 퀵필터 레일(규격 그대로) 아래 회색 8: 레일 안쪽 여백을 줄이지 않도록 다음 줄 위에 둔다 */
 .marketplace.is-bbm-m .depth-rail + .bbm-m-options { margin-top: 8px; box-shadow: 0 -8px 0 var(--bbm-page-bg); }
-/* 모바일 목록 제어(2026-10-08 초톳 앱 1080×2340 캡처 재실측, 384 CSS): 높이 34(글자 중심 → 아래 선 17), 정렬 → 세로 구분선 → 숏폼중고차 · 개인 · 딜러 → 보기 방식. */
+/* 모바일 목록 제어(초톳 384 CSS): 높이 34, 숏폼카 · 개인 · 딜러 → 구분선 → 정렬 → 보기 방식. */
 .bbm-m-options { display: flex; align-items: center; height: 34px; padding: 0 16px; overflow: hidden; border-bottom: 1px solid var(--list-divider); box-sizing: border-box; background: #fff; }
-.bbm-m-sort { display: inline-flex; flex: none; align-items: center; gap: 5px; height: 32px; padding: 0; border: 0; background: none; color: var(--bbm-text-strong); font: inherit; font-size: 14px; font-weight: 500; line-height: 18px; white-space: nowrap; cursor: pointer; }
+.bbm-m-sort { display: inline-flex; flex: none; align-items: center; gap: 5px; height: 32px; margin-left: 4px; padding: 0; border: 0; background: none; color: var(--bbm-text-strong); font: inherit; font-size: 14px; font-weight: 500; line-height: 18px; white-space: nowrap; cursor: pointer; }
 .bbm-m-sort img { width: 13px; height: 13px; }
-/* 정렬 뒤 세로 구분선: 초톳 1px × 17.4, 연회색 */
-.bbm-m-options .bbm-m-sort::after { content: ""; flex: none; width: 1px; height: 17px; margin-left: 6px; background: #f0f0f0; }
-.bbm-m-filter-tabs { display: flex; flex: 1 1 auto; gap: 8px; min-width: 0; height: 32px; margin-left: 8px; align-items: center; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: none; }
+/* 판매자 탭과 정렬 사이 세로 구분선: 초톳 1px × 17px, 연회색 */
+.bbm-m-options .bbm-m-sort::before { content: ""; flex: none; width: 1px; height: 17px; margin-right: 3px; background: #f0f0f0; }
+.bbm-m-filter-tabs { display: flex; flex: 1 1 auto; gap: 8px; min-width: 0; height: 32px; margin-left: 0; align-items: center; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: none; }
 .bbm-m-filter-tabs::-webkit-scrollbar { display: none; }
 /* 초톳 앱 녹화(2026-10-08) 실측: 비선택 탭 좌우 4 + 탭 사이 8 = 글자 사이 16(초톳 16.7), 색 #8C8C8C. 선택하면 알약 좌우 8로 글자가 4 밀리고 × 가 붙는다(초톳과 같음) */
 .bbm-m-filter-tab { display: inline-flex; flex: none; align-items: center; justify-content: center; gap: 6px; height: 28px; padding: 0 4px; border: 0; border-radius: 99px; background: transparent; color: #8c8c8c; font: inherit; font-size: 12px; font-weight: 700; line-height: 18px; white-space: nowrap; cursor: pointer; }
@@ -281,7 +281,7 @@
 .bbm-m-filter-tab.is-selected { height: 28px; padding: 3px 9px 3px 7px; gap: 6px; border: 1px solid #222; border-radius: 99px; box-sizing: border-box; background: #f7f7f7; color: #222; font-size: 12px; font-weight: 700; line-height: 18px; box-shadow: none; }
 /* 해제 ×: 초톳 녹화 실측 잉크 5×5(글자 → × 7.9, × → 알약 끝 11.4) */
 .bbm-m-filter-clear { flex: none; width: 8px; height: 8px; }
-.bbm-m-options .bbm-m-sort { margin-left: 0; }
+.bbm-m-options .bbm-m-sort { margin-left: 4px; }
 .bbm-m-options .quick-style-select { flex: none; margin: 0 8px; }
 .bbm-m-view { display: grid; flex: none; width: 32px; height: 32px; margin-left: 4px; margin-right: 5px; place-items: center; padding: 0; border: 0; border-radius: 0; background: transparent; }
 .bbm-m-view img,
