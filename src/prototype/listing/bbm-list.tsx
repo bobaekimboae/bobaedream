@@ -108,15 +108,28 @@ export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
       { label: "수입차", value: "수입차" },
       { label: "전기차", value: "전기차" },
       { label: "리스/렌트차량", value: "리스/렌트차량" },
-      { label: "올드카", value: "올드카" },
-      { label: "럭셔리카", value: "럭셔리카" },
       { label: "서울오토갤러리", value: "서울오토갤러리" },
       { label: "도이치오토월드", value: "도이치오토월드" },
-      { label: "슈퍼카", value: "슈퍼카" },
       { label: "브랜드 인증중고차", value: "브랜드 인증중고차" },
       { label: "매매단지별 검색", value: "매매단지별 검색" },
       { label: "팔린매물", value: "팔린매물" },
       { label: "장애인차", value: "장애인차" },
+    ],
+  },
+  // 테마 중고차(2026-10-11 「테마별 중고차를 독립시켜서 슈퍼카 · JDM · 튜닝·커스텀카 · 셀럽 중고차 등 배치」): 중고차의 기준 분류(국산·수입·전기 …)와 취향 테마를 나눈다.
+  // 매매단지(서울오토갤러리 · 도이치오토월드 …)는 「일단 중고차 아래」 둔다. JDM · 튜닝·커스텀카 · 셀럽 중고차는 알약만 있고 매물은 아직 없다.
+  // 아이콘은 노션 「N_독일_오토스카우트 24」 icons-sprite symbol-42(하트 자동차) 원본 그대로.
+  {
+    value: "테마 중고차",
+    label: "테마 중고차",
+    icon: categoryIcon("category_theme_used_car_v01.svg"),
+    children: [
+      { label: "슈퍼카", value: "슈퍼카" },
+      { label: "럭셔리카", value: "럭셔리카" },
+      { label: "올드카", value: "올드카" },
+      { label: "JDM", value: "JDM" },
+      { label: "튜닝·커스텀카", value: "튜닝·커스텀카" },
+      { label: "셀럽 중고차", value: "셀럽 중고차" },
     ],
   },
   {
