@@ -134,9 +134,9 @@
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-location img { width: 13px; height: 13px; margin-left: 2px; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-location-text { font-size: 15px; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-meta-row { height: 40px; }
-.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller { gap: 8px; min-width: 0; }
-.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller-logo { width: 24px; height: 24px; }
-.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller-text { display: grid; min-width: 0; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller { gap: 6px; min-width: 0; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller-logo { width: 16px; height: 16px; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller-text { display: flex; min-width: 0; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller-text strong { overflow: hidden; color: #222; font-size: 14px; font-weight: 700; line-height: 18px; text-overflow: ellipsis; white-space: nowrap; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller-sales { display: flex; gap: 8px; color: #8c8c8c; font-size: 13px; line-height: 18px; white-space: nowrap; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-actions { gap: 20px; padding-right: 6px; }
@@ -155,9 +155,8 @@
 /* 2026-10-10 초톳 피드 캡처(1080×2340 → 384) 재실측: 지역 글자 중심 → 프사 중심 24.4, 프사 아래 → 구분선 16.0, 구분선 → 다음 사진 12.1 */
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-meta-row { margin-top: -7px; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured { padding-bottom: 14px; }
-/* 2026-10-10 초톳 두 줄 판매자 캡처 크로스체크: 프사 24 · x16 동일, 프사 오른쪽 → 이름 글자 9.2, 판매 대수 줄은 이름보다 약 3.6 들여 씀 */
-.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller { gap: 9px; }
-.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller-sales { padding-left: 3px; }
+/* 2026-10-12 초톳의 축약 판매자 줄처럼 프사는 16px로 줄이고 판매자명 한 줄만 유지한다. */
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-seller { gap: 6px; }
 /* 2026-10-10 「피드와 목록 색상·간격을 목록으로 맞추자」: 사양 줄 색 #595959(목록과 같음), 지역 글자 중심 → 판매자 중심 24(목록 24, 피드는 25였음). 프사 아래 → 구분선 16은 유지 */
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec { color: #595959; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-meta-row { margin-top: -8px; }

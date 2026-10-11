@@ -1,3 +1,40 @@
+# 피드 판매자 줄 축약 QA · 2026-10-12
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/455d141e-0910-4091-a640-7077b9bf4beb/1-1000017881.jpg`
+- implementation screenshot: `reports/feed-seller-name-only-1012/implementation-card-390.png`
+- focused side-by-side: `reports/feed-seller-name-only-1012/source-vs-implementation-seller-row.png`
+- route: `/?qf=guazi&category=슈퍼카&view=feed`
+- viewport: 390 × 844 CSS px, deviceScaleFactor 1
+- source pixels: 591 × 1280; implementation card pixels: 358 × 377
+- density normalization: 판매자 영역을 같은 358px 폭으로 맞춰 확대 비교
+- state: 슈퍼카 피드 첫 번째 큰 카드
+
+## Findings
+
+- P0/P1/P2 findings: none after the focused comparison.
+- Fonts and typography: 판매자명은 기존 Pretendard 14px·400·#222 한 줄을 유지한다.
+- Spacing and layout rhythm: 프사 16×16, 프사–이름 6px로 축소해 지역 줄보다 시각적 비중이 커지지 않는다.
+- Colors and visual tokens: 기존 판매자명·아이콘·액션 색 토큰을 유지했다.
+- Image quality and asset fidelity: 기존 실제 판매자 프로필 이미지를 그대로 사용하고 크롭 방식도 유지했다.
+- Copy and content: 피드에서는 판매자명만 남기고 판매완료·판매중 대수와 인증 배지를 제거했다. 목록형·PC·상세 데이터는 바꾸지 않았다.
+
+## Comparison history
+
+- Initial finding: 피드 판매자 프사가 24px이고 판매완료·판매중 보조 줄까지 있어 모델·가격 아래에서 판매자 정보가 과도하게 강조됐다.
+- Fix: 피드 프사를 16px로 줄이고 간격을 9px에서 6px로 조정했다. 판매 대수 줄과 피드 인증 배지를 제거했다.
+- Post-fix evidence: 렌더 DOM에서 `.bbm-card-seller-sales` 0개, 첫 카드 판매자 텍스트 `최민재 딜러`, 프사 16×16, 인증 배지 0개를 확인했다.
+
+## Verification
+
+- `npm run verify:qf`: passed
+- `git diff --check`: passed
+- 모바일 390px 브라우저 렌더 캡처 확인
+- 전화·채팅·찜 액션 유지
+
+final result: passed
+
+---
+
 # 초톳 필터 칩 정합 QA
 
 - source visual truth: `C:/Users/bobae/Downloads/KakaoTalk_20261010_202521671.png`
