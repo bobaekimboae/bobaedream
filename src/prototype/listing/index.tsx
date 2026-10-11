@@ -2088,19 +2088,16 @@ function MarketplaceScreen() {
     (() => { const chip = groupChip("price", "가격", "가격", rangeIsSet(bbmValue.ranges.price)); return chip ? { ...chip, className: "is-price" } : null; })(),
     isPartsCategory ? null : groupChip("fuel", "연료", "연료", Boolean(bbmValue.checks.fuel?.length)),
   ] as Array<BbmChip | null | undefined>).filter((chip): chip is BbmChip => Boolean(chip));
-  const mobileBbmChips: BbmChip[] = [
-    ...(!isTruckCategory ? [{
-      key: "category-filter",
-      label: "카테고리",
-      active: false,
-      onClick: () => {
-        setBbmCategoryDraft(category);
-        setBbmCategoryChildDraft(category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild);
-        setBbmCategoryOpen(true);
-      },
-    }] : []),
-    ...bbmChips.filter((chip) => chip.key !== "seller" && !chip.key.startsWith("applied-check:sellerKind:")),
-  ];
+  // 초톳처럼(2026-10-11 「리스트에서는 카테고리 칩 빼자, 선택된 카테고리 누르면 카테고리 나오게」): 별도 `카테고리 ▾` 칩 없이
+  // 선택된 카테고리 칩(`전체차량 ×`)의 이름을 누르면 카테고리 시트가 열리고, ×는 해제. 트럭·특장은 기존 동작(형식 퀵필터) 유지.
+  const openBbmCategorySheet = () => {
+    setBbmCategoryDraft(category);
+    setBbmCategoryChildDraft(category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild);
+    setBbmCategoryOpen(true);
+  };
+  const mobileBbmChips: BbmChip[] = bbmChips
+    .filter((chip) => chip.key !== "seller" && !chip.key.startsWith("applied-check:sellerKind:"))
+    .map((chip) => (chip.key === "category" && !isTruckCategory ? { ...chip, onClick: openBbmCategorySheet } : chip));
   // QF-092 원본 재실측(2026-09-25): 적용 칩이 바뀌어도 칩 줄 스크롤은 그대로(칩을 누를 때만 revealBbmChip). 예전 "맨 앞 적용 칩 47px" 규칙은 우연히 맞았던 것이라 뺐다
   useEffect(() => {
     if (desktop || !isGuaziQuickStyle) return;
