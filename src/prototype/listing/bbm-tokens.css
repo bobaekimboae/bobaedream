@@ -269,7 +269,7 @@
 .marketplace.is-bbm-m .depth-rail + .bbm-m-options { margin-top: 8px; box-shadow: 0 -8px 0 var(--bbm-page-bg); }
 /* 모바일 목록 제어(초톳 384 CSS): 높이 34, 숏폼카 · 개인 · 딜러 → 구분선 → 정렬 → 보기 방식. */
 .bbm-m-options { display: flex; align-items: center; height: 34px; padding: 0 16px; overflow: hidden; border-bottom: 1px solid var(--list-divider); box-sizing: border-box; background: #fff; }
-.bbm-feed-heading { margin: 0; padding: 14px 16px 8px; color: #222; font-size: 18px; font-weight: 700; line-height: 24px; background: #fff; }
+.bbm-feed-heading { margin: 0; padding: 12px 16px 4px; color: #222; font-size: 18px; font-weight: 700; line-height: 24px; letter-spacing: -.2px; background: #fff; }
 .bbm-m-sort { display: inline-flex; flex: none; align-items: center; gap: 5px; height: 32px; margin-left: 4px; padding: 0; border: 0; background: none; color: var(--bbm-text-strong); font: inherit; font-size: 14px; font-weight: 500; line-height: 18px; white-space: nowrap; cursor: pointer; }
 .bbm-m-sort img { width: 13px; height: 13px; }
 /* 판매자 탭과 정렬 사이 세로 구분선: 초톳 1px × 17px, 연회색 */
