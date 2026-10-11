@@ -7,7 +7,9 @@ type OldcarHeroSlide = {
   year: string;
   model: string;
   src: string;
-  shift: string;
+  shiftX: string;
+  shiftY: string;
+  scale: number;
 };
 
 const OLDCAR_HERO_SLIDES: OldcarHeroSlide[] = [
@@ -16,70 +18,90 @@ const OLDCAR_HERO_SLIDES: OldcarHeroSlide[] = [
     year: "1974",
     model: "기아 브리사",
     src: asset("oldcar-header/kia-brisa-official-kv-1920x1080.webp"),
-    shift: "24%",
+    shiftX: "24%",
+    shiftY: "-4%",
+    scale: 0.88,
   },
   {
     id: "brisa-2",
     year: "1977",
     model: "기아 브리사 Ⅱ",
     src: asset("oldcar-header/kia-brisa-2-official-kv-1920x1080.webp"),
-    shift: "22%",
+    shiftX: "22%",
+    shiftY: "-4%",
+    scale: 0.9,
   },
   {
     id: "bongo-truck",
     year: "1980",
     model: "기아 봉고 트럭",
     src: asset("oldcar-header/kia-bongo-truck-official-kv-1920x1080.webp"),
-    shift: "18%",
+    shiftX: "19%",
+    shiftY: "-2%",
+    scale: 0.76,
   },
   {
     id: "bongo",
     year: "1981",
     model: "기아 봉고",
     src: asset("oldcar-header/kia-bongo-official-kv-1920x1080.webp"),
-    shift: "18%",
+    shiftX: "19%",
+    shiftY: "-2%",
+    scale: 0.75,
   },
   {
     id: "besta",
     year: "1986",
     model: "기아 베스타",
     src: asset("oldcar-header/kia-besta-official-kv-1920x1080.webp"),
-    shift: "18%",
+    shiftX: "19%",
+    shiftY: "-2%",
+    scale: 0.75,
   },
   {
     id: "pride",
     year: "1987",
     model: "기아 프라이드",
     src: asset("oldcar-header/kia-pride-official-kv-1920x1080.webp"),
-    shift: "24%",
+    shiftX: "24%",
+    shiftY: "-5%",
+    scale: 0.9,
   },
   {
     id: "concord",
     year: "1987",
     model: "기아 콩코드",
     src: asset("oldcar-header/kia-concord-official-kv-1920x1080.webp"),
-    shift: "22%",
+    shiftX: "22%",
+    shiftY: "-5%",
+    scale: 0.9,
   },
   {
     id: "rocsta",
     year: "1990",
     model: "기아 록스타",
     src: asset("oldcar-header/kia-rocsta-official-kv-1920x1080.webp"),
-    shift: "24%",
+    shiftX: "24%",
+    shiftY: "-3%",
+    scale: 0.84,
   },
   {
     id: "potentia",
     year: "1992",
     model: "기아 포텐샤",
     src: asset("oldcar-header/kia-potentia-official-kv-1920x1080.webp"),
-    shift: "22%",
+    shiftX: "22%",
+    shiftY: "-5%",
+    scale: 0.9,
   },
   {
     id: "elan",
     year: "1996",
     model: "기아 엘란",
     src: asset("oldcar-header/kia-elan-official-kv-1920x1080.webp"),
-    shift: "24%",
+    shiftX: "24%",
+    shiftY: "-4%",
+    scale: 0.98,
   },
 ];
 
@@ -122,7 +144,7 @@ export function OldcarCategoryHeader() {
           className="oldcar-category-hero-media"
           src={slide.src}
           alt={`${slide.year} ${slide.model}`}
-          style={{ transform: `translate(${slide.shift}, -5%) scale(.9)` }}
+          style={{ transform: `translate(${slide.shiftX}, ${slide.shiftY}) scale(${slide.scale})` }}
           draggable={false}
         />
         <span className="oldcar-category-hero-shade" aria-hidden="true" />
