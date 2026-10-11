@@ -94,19 +94,17 @@ export function OldcarCategoryHeader() {
           className="oldcar-category-hero-media"
           src={slide.src}
           alt={`${slide.year} ${slide.model}`}
-          style={{ transform: `translateX(${slide.shift})` }}
+          style={{ transform: `translate(${slide.shift}, -5%) scale(.9)` }}
           draggable={false}
         />
         <span className="oldcar-category-hero-shade" aria-hidden="true" />
         <span className="oldcar-category-hero-copy">
-          <span className="oldcar-category-hero-heading">
-            <strong>보배드림 올드카</strong>
-            <span className="oldcar-category-hero-model">
-              <small>{slide.year}</small>
-              <em>{slide.model}</em>
-            </span>
-          </span>
-          <span className="oldcar-category-hero-subtitle">올드카ㆍ클래식카ㆍ올드바이크 매물</span>
+          <strong>보배드림 올드카</strong>
+          <span className="oldcar-category-hero-subtitle">올드카ㆍ클래식카 판매</span>
+        </span>
+        <span className="oldcar-category-hero-model">
+          <small>{slide.year}</small>
+          <em>{slide.model}</em>
         </span>
       </button>
       <div className="oldcar-category-hero-dots" role="group" aria-label="올드카 배너 선택">

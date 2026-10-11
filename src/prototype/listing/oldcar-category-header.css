@@ -72,20 +72,19 @@
   letter-spacing: -.45px;
 }
 
-.oldcar-category-hero-heading {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0;
-}
-
 .oldcar-category-hero-model {
+  position: absolute;
+  z-index: 2;
+  right: 8px;
+  bottom: 19px;
   display: flex;
   flex-direction: row;
-  flex: 0 0 auto;
   align-items: center;
-  min-width: 0;
-  margin-top: 1px;
+  justify-content: center;
+  width: 142px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 5px rgb(0 0 0 / 80%);
 }
 
 .oldcar-category-hero-model small,
@@ -105,7 +104,7 @@
 }
 
 .oldcar-category-hero-subtitle {
-  margin-top: 1px;
+  margin-top: 2px;
   color: rgb(255 255 255 / 88%);
   font-size: 11px;
   font-weight: 400;
