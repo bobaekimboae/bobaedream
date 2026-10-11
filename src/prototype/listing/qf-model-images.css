@@ -765,6 +765,7 @@
   min-height: 78px;
 }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row {
+  margin-top: -8px;
   padding-bottom: 0;
 }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row.is-cargo-tonnage-row,
