@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>보배드림 딜러 숏폼 만들기</title>
+<link rel="icon" href="data:,">
+<!--
+  보배드림 딜러용 숏폼 제작기 (ReelsMotor /create 흐름 벤치마킹, 2026-10-11)
+  흐름: ① 사진 3~10장(첫 장이 영상 시작) → ② 차량 정보 → ③ 스타일·브랜드 → 영상 만들기 → 재생·내려받기
+  - 화면 문구·디자인·코드는 새로 만들었다(ReelsMotor 자산 미사용).
+  - 영상은 브라우저에서 1080×1920 캔버스로 그리고 MediaRecorder 로 저장한다(MP4 가능하면 MP4, 아니면 WebM).
+  - 배경음악은 WebAudio 합성음(저작권 없음). 음성(AI 내레이션)·SNS 바로 게시·번호판 자동 인식은 서버가 필요해 아직 없다.
+  - 배포 때 HTML 안의 assets 경로 글자가 치환되므로 저장소 사진 주소는 join 으로 만든다.
+-->
+<style>
+:root{--ink:#222;--sub:#595959;--mute:#8C8C8C;--line:#E8E8E8;--bg:#F7F7F7;--card:#fff;--brand:#222;--accent:#1F6FEB;--err:#E5484D}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px 120px}
+header.top{position:sticky;top:0;z-index:5;background:rgba(247,247,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:560px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:10px}
+.brand{font-weight:800;font-size:17px;letter-spacing:-.3px}
+.brand small{font-weight:500;color:var(--mute);font-size:13px;margin-left:6px}
+h1{font-size:24px;line-height:32px;margin:24px 0 4px;letter-spacing:-.4px}
+.lead{margin:0 0 20px;color:var(--sub);font-size:15px;line-height:22px}
+.steps{display:flex;gap:8px;margin:0 0 16px;padding:0;list-style:none}
+.steps li{flex:1;display:flex;align-items:center;gap:8px;font-size:14px;color:var(--mute);font-weight:500}
+.steps li b{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#E9E9E9;color:var(--mute);font-size:13px;flex:none}
+.steps li.on{color:var(--ink)}.steps li.on b{background:var(--ink);color:#fff}
+.steps li.done b{background:#3A3A3A;color:#fff}
+.panel{background:var(--card);border-radius:16px;padding:20px 16px;box-shadow:0 1px 0 var(--line)}
+.panel h2{font-size:18px;margin:0 0 4px}
+.hint{color:var(--mute);font-size:13px;line-height:18px;margin:0 0 14px}
+.load-btn{width:100%;height:48px;border:1px solid var(--ink);background:#fff;border-radius:12px;font-weight:700;font-size:15px;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.ph{position:relative;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:#EEE}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph .first{position:absolute;left:6px;top:6px;background:var(--ink);color:#fff;font-size:11px;font-weight:700;padding:3px 7px;border-radius:99px}
+.ph .x{position:absolute;right:6px;top:6px;width:26px;height:26px;border-radius:50%;border:0;background:rgba(0,0,0,.6);color:#fff;font-size:14px;line-height:26px}
+.ph .tools{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;padding:6px;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.ph .tools button{white-space:nowrap;border:0;background:rgba(255,255,255,.92);border-radius:8px;height:26px;min-width:26px;font-size:12px;font-weight:700;padding:0 6px}
+.ph .masked{position:absolute;left:6px;bottom:38px;background:rgba(0,0,0,.62);color:#fff;font-size:11px;padding:2px 6px;border-radius:6px}
+.add{aspect-ratio:3/4;border:1.5px dashed #C9C9C9;border-radius:10px;background:#FAFAFA;display:grid;place-items:center;text-align:center;color:var(--sub);font-size:13px}
+.add b{display:block;font-size:28px;font-weight:300;color:var(--ink)}
+.count{font-size:13px;color:var(--sub);margin:12px 0 0}
+.field{margin:0 0 14px}
+.field label{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
+.field label i{font-style:normal;color:var(--err)}
+.field input[type=text],.field input[type=number],.field input[type=tel],.field textarea,.field select{width:100%;height:48px;border:1.5px solid #E4E4E4;border-radius:12px;padding:0 14px;background:#fff;font-size:16px}
+.field textarea{height:96px;padding:12px 14px;resize:vertical;line-height:22px}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--ink)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{height:40px;padding:0 14px;border-radius:99px;border:1px solid #DADADA;background:#fff;font-size:14px;font-weight:500}
+.seg button.on{border-color:var(--ink);background:var(--ink);color:#fff;font-weight:700}
+.unit{position:relative}.unit span{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--mute);font-size:14px}
+.unit input{padding-right:48px!important}
+.styles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.style{border:1.5px solid #E4E4E4;border-radius:12px;background:#fff;padding:8px;text-align:left}
+.style.on{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink) inset}
+.style .sw{aspect-ratio:9/16;border-radius:8px;margin-bottom:8px;position:relative;overflow:hidden;background:#333}
+.style strong{display:block;font-size:14px}.style small{color:var(--mute);font-size:12px;line-height:16px}
+.sw-clean{background:linear-gradient(#4A4F55,#2A2D31)!important}.sw-clean::before{content:"";position:absolute;left:10%;right:10%;top:22%;height:38%;background:#C9CED4;border-radius:6px}.sw-clean::after{content:"";position:absolute;left:10%;width:60%;bottom:18%;height:8%;background:#fff;border-radius:3px}
+.sw-bold{background:linear-gradient(#7C8794,#11141A)!important}.sw-bold::after{content:"";position:absolute;left:8%;width:70%;bottom:12%;height:14%;background:var(--brand);border-radius:3px}
+.sw-dyn{background:linear-gradient(120deg,#6C7682 0 50%,#30363D 50%)!important}.sw-dyn::after{content:"";position:absolute;left:0;width:84%;top:62%;height:10%;background:#fff;transform:skewX(-12deg) translateX(-6%)}
+.colors{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.colors button{width:34px;height:34px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #DADADA}
+.colors button.on{box-shadow:0 0 0 2px var(--ink)}
+.colors input[type=color]{width:40px;height:36px;border:0;background:none;padding:0}
+.logo-box{display:flex;align-items:center;gap:12px}
+.logo-box .lp{width:56px;height:56px;border-radius:12px;border:1px dashed #C9C9C9;display:grid;place-items:center;overflow:hidden;background:#FAFAFA;color:var(--mute);font-size:12px}
+.logo-box .lp img{max-width:100%;max-height:100%}
+.logo-box button{height:40px;border-radius:10px;border:1px solid #DADADA;background:#fff;padding:0 14px;font-size:14px}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:15px;margin:4px 0 14px}
+.check input{width:20px;height:20px;margin:1px 0 0;accent-color:#222}
+.check small{display:block;color:var(--mute);font-size:13px;margin-top:2px}
+.preview{display:flex;justify-content:center;margin:6px 0 18px}
+.preview canvas{width:min(70vw,280px);aspect-ratio:9/16;border-radius:16px;background:#111;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.bar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom));z-index:6}
+.bar .in{max-width:560px;margin:0 auto;display:flex;gap:10px}
+.bar button{height:52px;border-radius:12px;font-size:16px;font-weight:700}
+.bar .back{width:92px;border:0;background:#fff;color:var(--ink)}
+.bar .back[disabled]{color:#B7B7B7;cursor:default}
+.bar .next{flex:1;border:0;background:var(--ink);color:#fff}
+.bar .next[disabled]{background:#CFCFCF}
+.err{color:var(--err);font-size:13px;margin:8px 0 0;min-height:18px}
+.result video{width:min(78vw,320px);aspect-ratio:9/16;border-radius:16px;background:#000;display:block;margin:0 auto 16px}
+.prog{height:8px;border-radius:99px;background:#EEE;overflow:hidden;margin:16px 0 8px}.prog i{display:block;height:100%;width:0;background:var(--ink);transition:width .2s}
+.big-btn{display:flex;align-items:center;justify-content:center;width:100%;height:52px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;margin-bottom:10px;border:1px solid var(--ink)}
+.big-btn.dark{background:var(--ink);color:#fff}.big-btn.light{background:#fff;color:var(--ink)}
+.note{background:#F4F4F4;border-radius:12px;padding:12px 14px;font-size:13px;line-height:20px;color:var(--sub);margin-top:14px}
+.note b{color:var(--ink)}
+.sheet-dim{position:fixed;inset:0;background:rgba(15,18,24,.48);z-index:20;display:none}
+.sheet{position:fixed;left:0;right:0;bottom:0;max-height:calc(100dvh - 36px);background:#fff;border-radius:24px 24px 0 0;z-index:21;display:none;flex-direction:column;max-width:560px;margin:0 auto}
+.sheet.open,.sheet-dim.open{display:flex}
+.sheet header{height:64px;display:flex;align-items:center;justify-content:center;position:relative;border-bottom:1px solid var(--line);font-size:20px;font-weight:700;flex:none}
+.sheet header button{position:absolute;right:10px;top:10px;width:44px;height:44px;border:0;background:none;font-size:22px}
+.sheet .list{overflow:auto;padding:4px 16px 16px}
+.item{display:flex;gap:12px;align-items:center;width:100%;border:0;background:#fff;padding:12px 0;border-bottom:1px solid #F0F0F0;text-align:left}
+.item img{width:84px;height:63px;object-fit:cover;border-radius:8px;flex:none;background:#EEE}
+.item strong{display:block;font-size:15px;line-height:20px;font-weight:600}
+.item span{display:block;font-size:13px;color:var(--sub);margin-top:2px}
+.item em{font-style:normal;font-weight:700;font-size:15px;display:block;margin-top:2px}
+.mask-ed{position:fixed;inset:0;background:#111;z-index:30;display:none;flex-direction:column}
+.mask-ed.open{display:flex}
+.mask-ed .head{display:flex;align-items:center;justify-content:space-between;color:#fff;padding:12px 16px}
+.mask-ed .head button{background:none;border:0;color:#fff;font-size:15px;font-weight:700;height:40px}
+.mask-ed .stage{flex:1;display:grid;place-items:center;padding:8px;min-height:0}
+.mask-ed canvas{max-width:100%;max-height:100%;touch-action:none;cursor:crosshair}
+.mask-ed .foot{color:#ccc;font-size:13px;padding:12px 16px calc(16px + env(safe-area-inset-bottom));display:flex;gap:10px;align-items:center;justify-content:space-between}
+.mask-ed .foot button{height:40px;padding:0 14px;border-radius:10px;border:1px solid #555;background:#222;color:#fff}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header class="top"><div class="in"><span class="brand">보배드림<small>딜러 숏폼</small></span></div></header>
+<main class="wrap">
+  <h1>매물 숏폼 만들기</h1>
+  <p class="lead">사진을 올리고 차량 정보를 넣으면 쇼츠·릴스·틱톡에 바로 올릴 세로 영상을 만들어 드려요.</p>
+  <ol class="steps" id="steps">
+    <li data-s="1"><b>1</b>사진</li>
+    <li data-s="2"><b>2</b>차량 정보</li>
+    <li data-s="3"><b>3</b>스타일</li>
+  </ol>
+
+  <!-- ① 사진 -->
+  <section class="panel" data-step="1">
+    <button class="load-btn" id="openListings" type="button">내 매물에서 불러오기</button>
+    <h2>사진</h2>
+    <p class="hint">3~10장을 올려 주세요. 첫 사진이 영상의 첫 장면이 됩니다. 사진을 눌러 번호판을 가릴 수 있어요.</p>
+    <div class="grid" id="grid"></div>
+    <input type="file" id="file" accept="image/*" multiple hidden>
+    <p class="count" id="count"></p>
+  </section>
+
+  <!-- ② 차량 정보 -->
+  <section class="panel" data-step="2" hidden>
+    <h2>차량 정보</h2>
+    <p class="hint">영상 자막에 들어갑니다. <i style="font-style:normal;color:var(--err)">*</i> 는 꼭 넣어 주세요.</p>
+    <div class="row2">
+      <div class="field"><label for="maker">제조사 <i>*</i></label><input id="maker" type="text" placeholder="예: 벤츠"></div>
+      <div class="field"><label for="model">모델 <i>*</i></label><input id="model" type="text" placeholder="예: E클래스"></div>
+    </div>
+    <div class="field"><label for="trim">세부모델·등급</label><input id="trim" type="text" placeholder="예: E350 4매틱 AMG 라인"></div>
+    <div class="row2">
+      <div class="field"><label for="year">연식 <i>*</i></label><div class="unit"><input id="year" type="number" inputmode="numeric" placeholder="2023"><span>년</span></div></div>
+      <div class="field"><label for="km">주행거리 <i>*</i></label><div class="unit"><input id="km" type="number" inputmode="numeric" placeholder="35000"><span>km</span></div></div>
+    </div>
+    <div class="field"><label for="price">판매가격 <i>*</i></label><div class="unit"><input id="price" type="number" inputmode="numeric" placeholder="4,350"><span>만원</span></div></div>
+    <div class="field"><label>연료</label><div class="seg" id="fuel"></div></div>
+    <div class="field"><label>변속기</label><div class="seg" id="gear"></div></div>
+    <div class="field"><label for="points">강조할 점 (한 줄에 하나, 최대 3개)</label><textarea id="points" placeholder="무사고&#10;1인 신조&#10;정비 이력 완비"></textarea></div>
+    <div class="row2">
+      <div class="field"><label for="company">상사명 (영상에 표시)</label><input id="company" type="text" placeholder="예: 보배모터스"></div>
+      <div class="field"><label for="dealer">딜러 이름</label><input id="dealer" type="text" placeholder="예: 김보배"></div>
+    </div>
+    <p class="err" id="err2"></p>
+  </section>
+
+  <!-- ③ 스타일 -->
+  <section class="panel" data-step="3" hidden>
+    <h2>영상 스타일</h2>
+    <p class="hint">미리보기는 실제 영상과 같은 화면입니다.</p>
+    <div class="styles" id="styles"></div>
+    <div class="preview"><canvas id="pv" width="540" height="960"></canvas></div>
+    <div class="field"><label>영상 길이</label><div class="seg" id="len"></div></div>
+    <label class="check"><input type="checkbox" id="music" checked><span>배경음악 넣기<small>저작권 걱정 없는 보배드림 기본 비트</small></span></label>
+
+    <h2 style="margin-top:8px">브랜드 키트</h2>
+    <p class="hint">선택 사항이에요. 로고·전화번호·색이 마지막 장면에 들어갑니다.</p>
+    <div class="field"><label>로고</label><div class="logo-box"><div class="lp" id="logoPrev">없음</div><button type="button" id="logoBtn">로고 올리기</button><button type="button" id="logoDel" hidden>지우기</button></div><input type="file" id="logoFile" accept="image/*" hidden></div>
+    <div class="field"><label for="phone">전화번호</label><input id="phone" type="tel" inputmode="tel" placeholder="010-0000-0000"></div>
+    <div class="field"><label>브랜드 색</label><div class="colors" id="colors"></div></div>
+    <p class="err" id="err3"></p>
+  </section>
+
+  <!-- 결과 -->
+  <section class="panel result" id="result" hidden>
+    <h2 id="rTitle">영상을 만들고 있어요</h2>
+    <p class="hint" id="rHint">실제 길이만큼 걸려요(15초 영상이면 약 15초). 이 화면을 닫지 마세요.</p>
+    <div class="prog" id="prog"><i></i></div>
+    <video id="out" controls playsinline hidden></video>
+    <a class="big-btn dark" id="dl" hidden download>영상 내려받기</a>
+    <button class="big-btn light" id="again" type="button" hidden>다른 영상 만들기</button>
+    <div class="note" id="rNote" hidden></div>
+  </section>
+</main>
+
+<div class="bar" id="bar"><div class="in"><button class="back" id="back" type="button">이전</button><button class="next" id="next" type="button">다음</button></div></div>
+
+<div class="sheet-dim" id="dim"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+  <header><span id="sheetTitle">내 매물에서 불러오기</span><button type="button" id="sheetClose" aria-label="닫기">✕</button></header>
+  <div class="list" id="list"></div>
+</div>
+
+<div class="mask-ed" id="maskEd" role="dialog" aria-modal="true" aria-label="번호판 가리기">
+  <div class="head"><button type="button" id="mCancel">취소</button><span>번호판 가리기</span><button type="button" id="mDone">완료</button></div>
+  <div class="stage"><canvas id="mCv"></canvas></div>
+  <div class="foot"><span>번호판·얼굴 위를 손가락으로 끌어 네모를 그리세요</span><button type="button" id="mUndo">하나 지우기</button></div>
+</div>
+
+<script src="listings.js"></script>
+<script>
+(() => {
+const $ = (s) => document.querySelector(s);
+// 배포 때 assets 경로 글자 치환을 피하려고 저장소 주소는 이어 붙인다.
+const repo = (...p) => ['..', 'assets', ...p].join('/');
+const font = document.createElement('link');
+font.rel = 'stylesheet'; font.href = repo('fonts', 'pretendard', 'pretendard-guazi.css');
+document.head.appendChild(font);
+const FF = '"Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
+
+const FUELS = ['가솔린', '디젤', '하이브리드', '전기', 'LPG'];
+const GEARS = ['오토', '수동'];
+const STYLES = [
+  { id: 'clean', name: '깔끔', desc: '사진을 크게, 정보는 차분하게', sw: 'sw-clean' },
+  { id: 'bold', name: '강렬', desc: '꽉 찬 사진에 큰 가격', sw: 'sw-bold' },
+  { id: 'dynamic', name: '역동', desc: '빠른 전환과 밀려 들어오는 자막', sw: 'sw-dyn' },
+];
+const COLORS = ['#222222', '#1F6FEB', '#E5484D', '#F5A524', '#12A150', '#7C3AED'];
+const W = 1080, H = 1920;
+
+const st = {
+  step: 1, photos: [], fuel: '가솔린', gear: '오토', style: 'clean', len: 15, color: '#222222', logo: null,
+};
+
+/* ---------- 사진 ---------- */
+function loadImage(src) {
+  return new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = src; });
+}
+// 사진마다: 원본(img), 가린 영역(rects, 0~1 비율), 그리기용 캔버스(가림 적용), 흐린 배경
+async function makePhoto(src, name) {
+  const img = await loadImage(src);
+  const p = { id: Math.random().toString(36).slice(2), src, name, img, rects: [] };
+  bake(p);
+  return p;
+}
+function bake(p) {
+  const { img } = p;
+  const s = Math.min(1, 1600 / Math.max(img.naturalWidth, img.naturalHeight));
+  const w = Math.round(img.naturalWidth * s), h = Math.round(img.naturalHeight * s);
+  const c = document.createElement('canvas'); c.width = w; c.height = h;
+  const x = c.getContext('2d'); x.drawImage(img, 0, 0, w, h);
+  for (const r of p.rects) { // 모자이크: 작게 줄였다 키워서 덮는다
+    const rx = r.x * w, ry = r.y * h, rw = Math.max(2, r.w * w), rh = Math.max(2, r.h * h);
+    const t = document.createElement('canvas'); const k = Math.max(4, Math.round(rw / 14));
+    t.width = Math.max(1, Math.round(rw / k)); t.height = Math.max(1, Math.round(rh / k));
+    t.getContext('2d').drawImage(c, rx, ry, rw, rh, 0, 0, t.width, t.height);
+    x.imageSmoothingEnabled = false; x.drawImage(t, 0, 0, t.width, t.height, rx, ry, rw, rh); x.imageSmoothingEnabled = true;
+  }
+  p.cv = c;
+  const b = document.createElement('canvas'); b.width = 270; b.height = 480; // 흐린 배경(9:16)
+  const bx = b.getContext('2d'); bx.filter = 'blur(14px) brightness(.55)';
+  cover(bx, c, -20, -20, 310, 520, 1, .5, .5); p.blur = b;
+  p.thumb = c.toDataURL('image/jpeg', .7);
+}
+function cover(x, src, dx, dy, dw, dh, zoom = 1, fx = .5, fy = .5) {
+  const sw = src.width, sh = src.height; const s = Math.max(dw / sw, dh / sh) * zoom;
+  const w = sw * s, h = sh * s; x.drawImage(src, dx + (dw - w) * fx, dy + (dh - h) * fy, w, h);
+}
+function renderGrid() {
+  const g = $('#grid'); g.innerHTML = '';
+  st.photos.forEach((p, i) => {
+    const d = document.createElement('div'); d.className = 'ph';
+    d.innerHTML = `<img alt="사진 ${i + 1}" src="${p.thumb}">${i === 0 ? '<span class="first">첫 장면</span>' : ''}`
+      + `${p.rects.length ? `<span class="masked">가림 ${p.rects.length}</span>` : ''}`
+      + `<button class="x" aria-label="사진 지우기">✕</button>`
+      + `<div class="tools"><button data-a="l" aria-label="앞으로">◀</button><button data-a="m">가리기</button><button data-a="r" aria-label="뒤로">▶</button></div>`;
+    d.querySelector('.x').onclick = () => { st.photos.splice(i, 1); renderGrid(); };
+    d.querySelector('[data-a=l]').onclick = () => move(i, -1);
+    d.querySelector('[data-a=r]').onclick = () => move(i, 1);
+    d.querySelector('[data-a=m]').onclick = () => openMask(p);
+    d.querySelector('img').onclick = () => openMask(p);
+    g.appendChild(d);
+  });
+  if (st.photos.length < 10) {
+    const a = document.createElement('button'); a.type = 'button'; a.className = 'add';
+    a.innerHTML = '<span><b>+</b>사진 추가</span>'; a.onclick = () => $('#file').click(); g.appendChild(a);
+  }
+  $('#count').textContent = `${st.photos.length} / 10장${st.photos.length < 3 ? ` · ${3 - st.photos.length}장 더 필요해요` : ''}`;
+  syncBar();
+}
+function move(i, d) {
+  const j = i + d; if (j < 0 || j >= st.photos.length) return;
+  [st.photos[i], st.photos[j]] = [st.photos[j], st.photos[i]]; renderGrid();
+}
+$('#file').onchange = async (e) => {
+  const files = [...e.target.files].slice(0, 10 - st.photos.length);
+  for (const f of files) st.photos.push(await makePhoto(URL.createObjectURL(f), f.name));
+  e.target.value = ''; renderGrid();
+};
+
+/* ---------- 번호판 가리기 ---------- */
+let mp = null, mRects = [], drag = null;
+function openMask(p) { mp = p; mRects = p.rects.map((r) => ({ ...r })); $('#maskEd').classList.add('open'); drawMask(); }
+function drawMask() {
+  const cv = $('#mCv'), img = mp.img; const s = Math.min(1, 1200 / img.naturalWidth);
+  cv.width = Math.round(img.naturalWidth * s); cv.height = Math.round(img.naturalHeight * s);
+  const x = cv.getContext('2d'); x.drawImage(img, 0, 0, cv.width, cv.height);
+  x.lineWidth = 3; x.strokeStyle = '#FFD400'; x.fillStyle = 'rgba(255,212,0,.25)';
+  for (const r of [...mRects, ...(drag ? [drag] : [])]) { x.fillRect(r.x * cv.width, r.y * cv.height, r.w * cv.width, r.h * cv.height); x.strokeRect(r.x * cv.width, r.y * cv.height, r.w * cv.width, r.h * cv.height); }
+}
+function pt(e) { const r = $('#mCv').getBoundingClientRect(); return { x: Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)), y: Math.min(1, Math.max(0, (e.clientY - r.top) / r.height)) }; }
+$('#mCv').addEventListener('pointerdown', (e) => { const p = pt(e); drag = { x0: p.x, y0: p.y, x: p.x, y: p.y, w: 0, h: 0 }; e.target.setPointerCapture(e.pointerId); });
+$('#mCv').addEventListener('pointermove', (e) => { if (!drag) return; const p = pt(e); drag.x = Math.min(drag.x0, p.x); drag.y = Math.min(drag.y0, p.y); drag.w = Math.abs(p.x - drag.x0); drag.h = Math.abs(p.y - drag.y0); drawMask(); });
+$('#mCv').addEventListener('pointerup', () => { if (drag && drag.w > .01 && drag.h > .005) mRects.push({ x: drag.x, y: drag.y, w: drag.w, h: drag.h }); drag = null; drawMask(); });
+$('#mUndo').onclick = () => { mRects.pop(); drawMask(); };
+$('#mCancel').onclick = () => $('#maskEd').classList.remove('open');
+$('#mDone').onclick = () => { mp.rects = mRects; bake(mp); $('#maskEd').classList.remove('open'); renderGrid(); };
+
+/* ---------- 내 매물 불러오기 ---------- */
+const L = window.BBM_LISTINGS || [];
+const photoPath = (n, k) => repo('cars', 'seoul-autogallery-v01', `sag-${String(n).padStart(2, '0')}-${k}.webp`);
+const won = (m) => (m >= 10000 ? `${Math.floor(m / 10000)}억 ${m % 10000 ? (m % 10000).toLocaleString() + '만원' : ''}`.trim() : `${m.toLocaleString()}만원`);
+const kmTxt = (k) => (k >= 10000 ? `${Math.round(k / 1000) / 10}만km`.replace('.0만', '만') : `${k.toLocaleString()}km`);
+function openSheet() {
+  const list = $('#list'); list.innerHTML = '';
+  for (const r of L) {
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'item';
+    b.innerHTML = `<img alt="" loading="lazy" src="${photoPath(r.n, 1)}"><div><strong>${r.maker} ${r.model} ${r.trim}</strong><span>${r.year} · ${kmTxt(r.km)} · ${r.fuel}</span><em>${won(r.price)}</em></div>`;
+    b.onclick = () => pick(r); list.appendChild(b);
+  }
+  $('#dim').classList.add('open'); $('#sheet').classList.add('open'); $('#sheetClose').focus();
+}
+function closeSheet() { $('#dim').classList.remove('open'); $('#sheet').classList.remove('open'); $('#openListings').focus(); }
+$('#openListings').onclick = openSheet; $('#dim').onclick = closeSheet; $('#sheetClose').onclick = closeSheet;
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && $('#sheet').classList.contains('open')) closeSheet(); });
+async function pick(r) {
+  closeSheet();
+  st.photos = [];
+  for (let k = 1; k <= 5; k++) { try { st.photos.push(await makePhoto(photoPath(r.n, k), `sag-${r.n}-${k}`)); } catch (e) { /* 없는 사진은 건너뜀 */ } }
+  $('#maker').value = r.maker; $('#model').value = r.model; $('#trim').value = r.trim;
+  $('#year').value = r.year; $('#km').value = r.km; $('#price').value = r.price;
+  st.fuel = FUELS.includes(r.fuel) ? r.fuel : '가솔린'; st.gear = '오토';
+  $('#company').value = r.company; $('#dealer').value = r.dealer;
+  renderSeg(); renderGrid();
+}
+
+/* ---------- 선택 버튼 ---------- */
+function seg(el, items, cur, set, fmt = (v) => v) {
+  el.innerHTML = '';
+  for (const v of items) { const b = document.createElement('button'); b.type = 'button'; b.textContent = fmt(v); b.className = v === cur ? 'on' : ''; b.setAttribute('aria-pressed', v === cur); b.onclick = () => { set(v); renderSeg(); }; el.appendChild(b); }
+}
+function renderSeg() {
+  seg($('#fuel'), FUELS, st.fuel, (v) => (st.fuel = v));
+  seg($('#gear'), GEARS, st.gear, (v) => (st.gear = v));
+  seg($('#len'), [15, 30], st.len, (v) => (st.len = v), (v) => `${v}초`);
+  const s = $('#styles'); s.innerHTML = '';
+  for (const t of STYLES) { const b = document.createElement('button'); b.type = 'button'; b.className = 'style' + (t.id === st.style ? ' on' : ''); b.setAttribute('aria-pressed', t.id === st.style); b.innerHTML = `<div class="sw ${t.sw}"></div><strong>${t.name}</strong><small>${t.desc}</small>`; b.onclick = () => { st.style = t.id; renderSeg(); }; s.appendChild(b); }
+  const c = $('#colors'); c.innerHTML = '';
+  for (const col of COLORS) { const b = document.createElement('button'); b.type = 'button'; b.style.background = col; b.className = col === st.color ? 'on' : ''; b.setAttribute('aria-label', `색 ${col}`); b.onclick = () => { st.color = col; renderSeg(); }; c.appendChild(b); }
+  const ci = document.createElement('input'); ci.type = 'color'; ci.value = st.color; ci.setAttribute('aria-label', '직접 고르기'); ci.oninput = () => { st.color = ci.value; document.documentElement.style.setProperty('--brand', st.color); }; c.appendChild(ci);
+  document.documentElement.style.setProperty('--brand', st.color);
+}
+$('#logoBtn').onclick = () => $('#logoFile').click();
+$('#logoFile').onchange = async (e) => { const f = e.target.files[0]; if (!f) return; st.logo = await loadImage(URL.createObjectURL(f)); $('#logoPrev').innerHTML = ''; $('#logoPrev').appendChild(st.logo.cloneNode()); $('#logoDel').hidden = false; e.target.value = ''; };
+$('#logoDel').onclick = () => { st.logo = null; $('#logoPrev').textContent = '없음'; $('#logoDel').hidden = true; };
+
+/* ---------- 정보 모으기 ---------- */
+function info() {
+  const v = (id) => $('#' + id).value.trim();
+  return {
+    maker: v('maker'), model: v('model'), trim: v('trim'), year: +v('year') || 0, km: +v('km') || 0, price: +v('price') || 0,
+    fuel: st.fuel, gear: st.gear, points: v('points').split('\n').map((s) => s.trim()).filter(Boolean).slice(0, 3),
+    company: v('company').replace(/\(주\)|주식회사/g, '').trim(), dealer: v('dealer'), phone: v('phone'),
+  };
+}
+function valid2() {
+  const i = info(); const miss = [];
+  if (!i.maker) miss.push('제조사'); if (!i.model) miss.push('모델'); if (!i.year) miss.push('연식'); if (!$('#km').value.trim()) miss.push('주행거리'); if (!i.price) miss.push('판매가격');
+  return miss;
+}
+
+/* ---------- 장면 그리기 (미리보기·저장 공통) ---------- */
+function plan(len, n) {
+  const intro = 2.4, outro = 3.2; const mid = Math.max(n - 1, 1); const per = (len - intro - outro) / mid;
+  const sc = [{ k: 'intro', p: 0, t0: 0, t1: intro }];
+  for (let i = 1; i <= mid; i++) sc.push({ k: 'mid', p: n > 1 ? i : 0, t0: intro + (i - 1) * per, t1: intro + i * per, idx: i - 1 });
+  sc.push({ k: 'outro', p: 0, t0: len - outro, t1: len });
+  return sc;
+}
+function facts(i) {
+  const f = [`${i.year}년식`, `주행 ${kmTxt(i.km)}`, `${i.fuel} · ${i.gear}`, ...i.points];
+  return f;
+}
+const ease = (t) => 1 - Math.pow(1 - Math.min(1, Math.max(0, t)), 3);
+function rr(x, X, Y, w, h, r) { x.beginPath(); x.moveTo(X + r, Y); x.arcTo(X + w, Y, X + w, Y + h, r); x.arcTo(X + w, Y + h, X, Y + h, r); x.arcTo(X, Y + h, X, Y, r); x.arcTo(X, Y, X + w, Y, r); x.closePath(); }
+function fitText(x, txt, max, size, weight) { let s = size; do { x.font = `${weight} ${s}px ${FF}`; s -= 4; } while (x.measureText(txt).width > max && s > 28); return s + 4; }
+function wrap(x, txt, max) { const words = txt.split(' '); const lines = []; let cur = ''; for (const w of words) { const t = cur ? cur + ' ' + w : w; if (x.measureText(t).width > max && cur) { lines.push(cur); cur = w; } else cur = t; } if (cur) lines.push(cur); return lines; }
+function textColorOn(hex) { const n = parseInt(hex.slice(1), 16); const r = n >> 16, g = (n >> 8) & 255, b = n & 255; return (r * 299 + g * 587 + b * 114) / 1000 > 150 ? '#111' : '#fff'; }
+
+function draw(x, t, I, opts) {
+  const { style, len, color } = opts; const ph = st.photos; const sc = plan(len, ph.length);
+  const s = sc.find((q) => t >= q.t0 && t < q.t1) || sc[sc.length - 1]; const lt = (t - s.t0) / (s.t1 - s.t0); const p = ph[s.p] || ph[0];
+  x.save(); x.clearRect(0, 0, W, H); x.fillStyle = '#0E0F11'; x.fillRect(0, 0, W, H);
+  const zoom = 1.04 + .08 * lt; const panX = (s.idx || 0) % 2 ? .35 + .3 * lt : .65 - .3 * lt;
+  if (s.k === 'outro') { // 마지막: 브랜드 색 바탕
+    x.drawImage(p.blur, 0, 0, W, H); x.fillStyle = color; x.globalAlpha = .9; x.fillRect(0, 0, W, H); x.globalAlpha = 1;
+  } else if (style === 'clean') {
+    x.drawImage(p.blur, 0, 0, W, H);
+    const fw = 960, fh = 720, fx = 60, fy = 470; x.save(); rr(x, fx, fy, fw, fh, 36); x.clip(); cover(x, p.cv, fx, fy, fw, fh, zoom, panX, .5); x.restore();
+  } else {
+    cover(x, p.cv, 0, 0, W, H, style === 'dynamic' ? zoom + .06 : zoom, panX, .5);
+    const g = x.createLinearGradient(0, H * .45, 0, H); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,.82)'); x.fillStyle = g; x.fillRect(0, 0, W, H);
+    const g2 = x.createLinearGradient(0, 0, 0, 360); g2.addColorStop(0, 'rgba(0,0,0,.45)'); g2.addColorStop(1, 'rgba(0,0,0,0)'); x.fillStyle = g2; x.fillRect(0, 0, W, 360);
+  }
+  if (style === 'dynamic' && s.k === 'mid' && lt < .12) { x.fillStyle = `rgba(255,255,255,${.35 * (1 - lt / .12)})`; x.fillRect(0, 0, W, H); } // 전환 번쩍임
+  const title = `${I.maker} ${I.model}`.trim(); const priceTxt = won(I.price);
+  x.textBaseline = 'alphabetic'; x.fillStyle = '#fff';
+  if (s.k === 'intro') {
+    const a = ease(lt * 2.2); const dy = (1 - a) * 60; x.globalAlpha = a;
+    const ty = style === 'clean' ? 330 : 1460;
+    let fs = fitText(x, title, 960, 104, 800); x.fillText(title, 60, ty + dy);
+    if (I.trim) { x.font = `500 ${Math.min(52, fs * .5)}px ${FF}`; x.fillStyle = 'rgba(255,255,255,.86)'; x.fillText(wrap(x, I.trim, 960)[0], 60, ty + 76 + dy); }
+    x.font = `600 44px ${FF}`; const chip = `${I.year}년식 · ${kmTxt(I.km)}`; const cw = x.measureText(chip).width + 56;
+    const cy = style === 'clean' ? ty + 130 : ty + 140; x.fillStyle = color; rr(x, 60, cy + dy, cw, 84, 42); x.fill(); x.fillStyle = textColorOn(color); x.fillText(chip, 88, cy + 57 + dy);
+    x.globalAlpha = 1;
+  } else if (s.k === 'mid') {
+    const f = facts(I); const fact = f[s.idx % f.length]; const a = ease(lt * 3);
+    // 위: 차 이름(작게) / 아래: 이번 장면 정보 + 가격
+    x.font = `700 46px ${FF}`; x.fillStyle = 'rgba(255,255,255,.92)'; x.fillText(title, 60, style === 'clean' ? 330 : 150);
+    const by = style === 'clean' ? 1330 : 1500;
+    if (style === 'dynamic') {
+      const off = (1 - a) * -W; x.save(); x.translate(off, 0); x.fillStyle = '#fff'; x.beginPath(); x.moveTo(0, by - 90); x.lineTo(900, by - 90); x.lineTo(860, by + 40); x.lineTo(0, by + 40); x.fill();
+      x.fillStyle = '#111'; fitText(x, fact, 760, 76, 800); x.fillText(fact, 60, by + 8); x.restore();
+    } else {
+      x.globalAlpha = a; x.fillStyle = '#fff'; fitText(x, fact, 960, style === 'bold' ? 92 : 76, 800); x.fillText(fact, 60, by + (1 - a) * 40); x.globalAlpha = 1;
+    }
+    const py = by + 170; x.font = `600 40px ${FF}`; x.fillStyle = 'rgba(255,255,255,.8)'; x.fillText('판매가격', 60, py - 70);
+    if (style === 'bold') { x.font = `800 112px ${FF}`; const pw = x.measureText(priceTxt).width + 64; x.fillStyle = color; rr(x, 44, py - 52, pw, 150, 20); x.fill(); x.fillStyle = textColorOn(color); x.fillText(priceTxt, 76, py + 60); }
+    else { x.font = `800 96px ${FF}`; x.fillStyle = '#fff'; x.fillText(priceTxt, 60, py + 50); }
+  } else { // outro
+    const fg = textColorOn(color); const a = ease(lt * 2.5); x.globalAlpha = a; x.fillStyle = fg; x.textAlign = 'center';
+    let y = 560;
+    if (st.logo) { const lw = 360, lh = 200; const s2 = Math.min(lw / st.logo.naturalWidth, lh / st.logo.naturalHeight); const w = st.logo.naturalWidth * s2, h = st.logo.naturalHeight * s2; x.drawImage(st.logo, (W - w) / 2, y - h, w, h); y += 90; }
+    fitText(x, title, 940, 88, 800); x.fillText(title, W / 2, y + 60);
+    x.font = `800 120px ${FF}`; x.fillText(priceTxt, W / 2, y + 230);
+    x.font = `500 46px ${FF}`; x.globalAlpha = a * .85; x.fillText(`${I.year}년식 · ${kmTxt(I.km)} · ${I.fuel}`, W / 2, y + 320); x.globalAlpha = a;
+    const who = [I.company, I.dealer && `${I.dealer} 딜러`].filter(Boolean).join(' · ');
+    if (who) { x.font = `600 50px ${FF}`; x.fillText(who, W / 2, y + 480); }
+    if (I.phone) { x.font = `800 84px ${FF}`; x.fillText(I.phone, W / 2, y + 600); }
+    x.font = `700 46px ${FF}`; const cta = '보배드림에서 매물 보기'; const cw = x.measureText(cta).width + 96; x.fillStyle = fg; rr(x, (W - cw) / 2, 1500, cw, 110, 55); x.fill(); x.fillStyle = color; x.fillText(cta, W / 2, 1572);
+    x.textAlign = 'left'; x.globalAlpha = 1;
+  }
+  // 진행 막대 + 워터마크
+  x.fillStyle = 'rgba(255,255,255,.25)'; x.fillRect(60, 64, W - 120, 8); x.fillStyle = '#fff'; x.fillRect(60, 64, (W - 120) * Math.min(1, t / len), 8);
+  x.font = `700 34px ${FF}`; x.fillStyle = 'rgba(255,255,255,.75)'; x.textAlign = 'right'; x.fillText('보배드림', W - 60, H - 70); x.textAlign = 'left';
+  x.restore();
+}
+
+/* ---------- 배경음악 (WebAudio 합성, 100bpm) ---------- */
+function music(ac, dest, start, len) {
+  const bpm = 100, beat = 60 / bpm; const master = ac.createGain(); master.gain.value = .5; master.connect(dest);
+  master.gain.setValueAtTime(.5, start + len - 1.2); master.gain.linearRampToValueAtTime(0, start + len);
+  const chords = [[220, 277.2, 329.6], [196, 246.9, 293.7], [174.6, 220, 261.6], [196, 246.9, 293.7]];
+  for (let b = 0; b * beat < len; b++) {
+    const t = start + b * beat;
+    const k = ac.createOscillator(), kg = ac.createGain(); k.frequency.setValueAtTime(140, t); k.frequency.exponentialRampToValueAtTime(45, t + .18);
+    kg.gain.setValueAtTime(b % 2 ? .5 : .9, t); kg.gain.exponentialRampToValueAtTime(.001, t + .25); k.connect(kg).connect(master); k.start(t); k.stop(t + .3);
+    const n = ac.createBufferSource(); const buf = ac.createBuffer(1, ac.sampleRate * .05, ac.sampleRate); const d = buf.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / d.length);
+    n.buffer = buf; const hp = ac.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 7000; const hg = ac.createGain(); hg.gain.value = .18; n.connect(hp).connect(hg).connect(master); n.start(t + beat / 2);
+    if (b % 4 === 0) {
+      for (const f of chords[(b / 4) % 4]) { const o = ac.createOscillator(), g = ac.createGain(); o.type = 'triangle'; o.frequency.value = f; g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.06, t + .05); g.gain.linearRampToValueAtTime(0, t + beat * 4); o.connect(g).connect(master); o.start(t); o.stop(t + beat * 4 + .05); }
+    }
+  }
+}
+
+/* ---------- 미리보기 ---------- */
+let pvRAF = 0, pvStart = 0;
+function startPreview() {
+  cancelAnimationFrame(pvRAF); const cv = $('#pv'); const x = cv.getContext('2d'); pvStart = performance.now();
+  const loop = () => {
+    if (st.step !== 3 || !st.photos.length) return;
+    const t = ((performance.now() - pvStart) / 1000) % st.len; x.setTransform(cv.width / W, 0, 0, cv.height / H, 0, 0);
+    draw(x, t, info(), { style: st.style, len: st.len, color: st.color }); pvRAF = requestAnimationFrame(loop);
+  };
+  loop();
+}
+
+/* ---------- 영상 만들기 ---------- */
+function pickMime() {
+  const c = ['video/mp4;codecs=avc1.42E028,mp4a.40.2', 'video/mp4;codecs=avc1,mp4a.40.2', 'video/mp4', 'video/webm;codecs=vp9,opus', 'video/webm;codecs=vp8,opus', 'video/webm'];
+  return c.find((m) => window.MediaRecorder && MediaRecorder.isTypeSupported(m)) || '';
+}
+async function render() {
+  const I = info(); const len = st.len; const opts = { style: st.style, len, color: st.color };
+  cancelAnimationFrame(pvRAF);
+  for (const s of ['.panel[data-step]', '#bar']) document.querySelectorAll(s).forEach((e) => (e.hidden = true));
+  $('#steps').hidden = true; const R = $('#result'); R.hidden = false;
+  $('#rTitle').textContent = '영상을 만들고 있어요'; $('#rHint').hidden = false; $('#prog').hidden = false; $('#out').hidden = true; $('#dl').hidden = true; $('#again').hidden = true; $('#rNote').hidden = true;
+  await document.fonts.load(`800 60px ${FF}`, '가나다라마바사아자차카타파하0123456789' + Object.values(I).join(''));
+  const cv = document.createElement('canvas'); cv.width = W; cv.height = H; const x = cv.getContext('2d');
+  draw(x, 0, I, opts);
+  const stream = cv.captureStream(30);
+  let ac = null;
+  if ($('#music').checked) {
+    ac = new AudioContext(); await ac.resume(); const dest = ac.createMediaStreamDestination(); music(ac, dest, ac.currentTime + .05, len);
+    dest.stream.getAudioTracks().forEach((t) => stream.addTrack(t));
+  }
+  const mime = pickMime(); const rec = new MediaRecorder(stream, mime ? { mimeType: mime, videoBitsPerSecond: 8_000_000 } : undefined);
+  const chunks = []; rec.ondataavailable = (e) => e.data.size && chunks.push(e.data);
+  const done = new Promise((r) => (rec.onstop = r));
+  rec.start(500); const t0 = performance.now();
+  await new Promise((res) => {
+    const tick = () => {
+      const t = (performance.now() - t0) / 1000; draw(x, Math.min(t, len - .001), I, opts);
+      $('#prog i').style.width = `${Math.min(100, (t / len) * 100)}%`;
+      if (t >= len) return res(); requestAnimationFrame(tick);
+    };
+    tick();
+  });
+  rec.stop(); await done; stream.getTracks().forEach((t) => t.stop()); if (ac) ac.close();
+  const type = rec.mimeType || mime || 'video/webm'; const ext = type.includes('mp4') ? 'mp4' : 'webm';
+  const blob = new Blob(chunks, { type }); const url = URL.createObjectURL(blob);
+  const v = $('#out'); v.src = url; v.hidden = false;
+  const name = `bobaedream-${(I.maker + '-' + I.model).replace(/\s+/g, '')}-${len}s.${ext}`;
+  const dl = $('#dl'); dl.href = url; dl.download = name; dl.hidden = false; dl.textContent = `영상 내려받기 (${ext.toUpperCase()} · ${(blob.size / 1048576).toFixed(1)}MB)`;
+  $('#again').hidden = false; $('#prog').hidden = true; $('#rHint').hidden = true;
+  $('#rTitle').textContent = '영상이 준비됐어요!';
+  const n = $('#rNote'); n.hidden = false;
+  const h264 = /avc|h264/i.test(type);
+  n.innerHTML = (ext === 'webm' ? '<b>이 브라우저는 MP4 저장을 지원하지 않아 WebM으로 만들었어요.</b> 인스타그램·틱톡은 MP4(H.264)가 안전해요(크롬·사파리 최신 버전 권장).<br>' : !h264 ? '<b>이 브라우저는 H.264 저장을 지원하지 않아 VP9 코덱 MP4로 만들었어요.</b> 일부 앱에서 올라가지 않을 수 있어요(크롬·사파리 최신 버전 권장).<br>' : '')
+    + '내려받은 영상을 유튜브 쇼츠·인스타그램 릴스·틱톡에 올려 주세요. <b>바로 게시·AI 음성 내레이션·번호판 자동 가림은 준비 중</b>이에요.';
+  window.__shortformResult = { ext, size: blob.size, type, len, h264 };
+}
+$('#again').onclick = () => { $('#result').hidden = true; $('#steps').hidden = false; $('#bar').hidden = false; go(1); };
+
+/* ---------- 단계 이동 ---------- */
+function go(n) {
+  st.step = n;
+  document.querySelectorAll('.panel[data-step]').forEach((p) => (p.hidden = +p.dataset.step !== n));
+  document.querySelectorAll('#steps li').forEach((li) => { const s = +li.dataset.s; li.className = s === n ? 'on' : s < n ? 'done' : ''; });
+  $('#back').disabled = n === 1; $('#next').textContent = n === 3 ? '영상 만들기' : '다음';
+  syncBar(); window.scrollTo({ top: 0 });
+  if (n === 3) startPreview(); else cancelAnimationFrame(pvRAF);
+}
+function syncBar() { $('#next').disabled = st.step === 1 && st.photos.length < 3; }
+$('#back').onclick = () => go(Math.max(1, st.step - 1));
+$('#next').onclick = () => {
+  if (st.step === 1) return go(2);
+  if (st.step === 2) { const m = valid2(); $('#err2').textContent = m.length ? `${m.join(' · ')} 입력이 필요해요.` : ''; if (!m.length) go(3); return; }
+  render();
+};
+
+renderSeg(); renderGrid(); go(1);
+// 자동 점검용: ?sample=번호 로 매물을 불러온다
+const q = new URLSearchParams(location.search);
+if (q.get('sample')) { const r = L.find((v) => v.n === +q.get('sample')) || L[0]; pick(r).then(() => { if (q.get('step')) go(+q.get('step')); }); }
+})();
+</script>
+</body>
+</html>

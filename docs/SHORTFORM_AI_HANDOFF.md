@@ -11,6 +11,7 @@
 | `public/shortform/index.html` | **이 문서의 대상** — 사진+자막+음성+음악 → 9:16 영상 제작기 |
 | `scripts/shortform-render-server.mjs` | FFmpeg 서버 렌더러(서비스용 MP4) |
 | `scripts/shortform-browser-check.mjs` | 실제 브라우저 종단 점검(`npm run check:shortform`) |
+| `public/shortform-reels/` | ReelsMotor `/create` 흐름을 따른 3단계(사진 → 차량 정보 → 스타일) 딜러용 간편 제작기(2026-10-11). 내 매물(서울오토갤러리 23대) 불러오기·번호판 가리기·스타일 3종·브랜드 키트, 브라우저 MediaRecorder 저장. 보고서 `reports/claude/shortform-reels.md` |
 | `public/shortform-upload/`, `public/shortform-uploader/` | **다른 제품**(촬영 업로더). 별도 요청 없이 수정하지 않는다 |
 
 ## 1-2. 화면 구성 원칙 (v6 단순화)
