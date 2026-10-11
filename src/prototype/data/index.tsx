@@ -1680,7 +1680,6 @@ const supercarSheetCars: Car[] = supercarSheetRows.map((row, index) => {
     modelGroup: row.group,
     sellerType: "딜러",
     image: photo,
-    listThumb: `cars/supercar-sheet-v01/thumb/sc-${nn}.webp`,
     imagePosition: "center center",
     title: `${row.maker} ${row.model}`,
     trim: "",
