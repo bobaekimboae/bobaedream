@@ -1,7 +1,7 @@
 {
  "source": "https://xe.chotot.com/cua-hang/vinfastvietnam?tab=info (384x832, 2026-10-11 시안 작업 마스터 실측)",
  "tab": "info",
- "note": "정보 탭 순서: 배너 → 소개 → 고객 정보 박스(2칸: 응답 속도·운영 기간 / 1줄: 주소) → 정책 카드 2열 격자(간격 12, 카드 폭 168, 안쪽 여백 12, 아이콘 19x20 왼쪽 + 글 오른쪽, 같은 줄 카드 높이 같음)",
+ "note": "정보 탭 순서: 배너 → 소개 → 고객 정보 박스(2칸: 응답 속도·운영 기간 / 1줄: 주소) → 정책 카드 2열 격자(간격 12, 카드 폭 168, 안쪽 여백 12, 아이콘 19x20 왼쪽 + 글 오른쪽, 같은 줄 카드 높이 같음) / 카드 높이는 내용에 맞춤(위아래 여백 12 + 테두리), 아이콘·글 세로 가운데",
  "slots": {
   "cover": {
    "w": 384,
@@ -125,6 +125,9 @@
    "x": 16,
    "pitchX": 180,
    "gridRowGap": 12
+  },
+  "tabItem": {
+   "count": 5
   }
  },
  "gaps": [
@@ -210,7 +213,11 @@
   ],
   "noBroken": true,
   "noOverflow": 384,
-  "noConsoleError": true
+  "noConsoleError": true,
+  "fitCards": {
+   "slot": "infoPolicyCard",
+   "pad": 26
+  }
  },
  "absent": [
   "moreLink",

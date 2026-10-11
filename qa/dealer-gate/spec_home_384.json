@@ -1,7 +1,7 @@
 {
  "source": "https://xe.chotot.com/cua-hang/vinfastvietnam (384x832, 2026-10-11 시안 작업 마스터 실측)",
  "tab": "home",
- "note": "",
+ "note": "홈 순서(원본): 배너 → 소개 → 정책(가로) → 정보 더보기 → [띠] 활동(가로 카드) → 활동 더보기 → [띠] 판매 차량 → 차량 더보기 → [띠] 평가 요약 → 하위 탭 → 후기 2개",
  "slots": {
   "cover": {
    "w": 384,
@@ -135,6 +135,106 @@
    "fs": "12px",
    "fw": "400",
    "color": "rgb(155, 155, 155)"
+  },
+  "tabItem": {
+   "count": 5
+  },
+  "activityTitle": {
+   "fs": "16px",
+   "fw": "700",
+   "color": "rgb(34, 34, 34)"
+  },
+  "activityCard": {
+   "w": 272,
+   "radius": "8px",
+   "borderColor": "rgb(224, 224, 224)",
+   "x": 16,
+   "pitchX": 288
+  },
+  "activityImg": {
+   "w": 238,
+   "h": 156,
+   "radius": "4px"
+  },
+  "activityName": {
+   "fs": "14px",
+   "fw": "700",
+   "lh": "16px",
+   "color": "rgb(34, 34, 34)"
+  },
+  "activityTime": {
+   "fs": "12px",
+   "fw": "400",
+   "color": "rgb(140, 140, 140)"
+  },
+  "activityBody": {
+   "fs": "14px",
+   "fw": "400",
+   "lh": "16px",
+   "color": "rgb(34, 34, 34)"
+  },
+  "activityAction": {
+   "h": 32,
+   "radius": "25px",
+   "bg": "rgba(0, 0, 0, 0.05)"
+  },
+  "activityMore": {
+   "fs": "14px",
+   "fw": "700",
+   "color": "rgb(42, 112, 223)"
+  },
+  "ratingScore": {
+   "fs": "32px",
+   "fw": "700",
+   "lh": "48px",
+   "color": "rgb(34, 34, 34)"
+  },
+  "ratingStarBig": {
+   "w": 24,
+   "h": 24,
+   "pitchX": 28
+  },
+  "ratingChip": {
+   "h": 28,
+   "radius": "24px",
+   "bg": "rgb(244, 244, 244)",
+   "fs": "12px",
+   "fw": "400"
+  },
+  "reviewTab": {
+   "h": 40
+  },
+  "reviewCard": {
+   "w": 352,
+   "borderTopColor": "rgb(224, 224, 224)"
+  },
+  "reviewName": {
+   "fs": "14px",
+   "fw": "700",
+   "lh": "21px",
+   "color": "rgb(34, 34, 34)"
+  },
+  "reviewTag": {
+   "h": 28,
+   "radius": "24px",
+   "borderColor": "rgb(155, 155, 155)",
+   "fs": "12px"
+  },
+  "reviewItem": {
+   "w": 308,
+   "h": 67,
+   "radius": "8px",
+   "bg": "rgb(248, 248, 248)"
+  },
+  "reviewItemImg": {
+   "w": 56,
+   "h": 56
+  },
+  "reviewPrice": {
+   "fs": "14px",
+   "fw": "700",
+   "color": "rgb(34, 34, 34)",
+   "note": "가격 검정(사용자 결정)"
   }
  },
  "gaps": [
@@ -179,11 +279,6 @@
    24
   ],
   [
-   "moreLinkBottom",
-   "inventoryTitleTop",
-   46
-  ],
-  [
    "inventoryTitleBottom",
    "pillTop",
    0
@@ -192,6 +287,26 @@
    "pillBottom",
    "rowTop",
    16
+  ],
+  [
+   "moreLinkBottom",
+   "activityTitleTop",
+   46
+  ],
+  [
+   "activityTitleBottom",
+   "activityCardTop",
+   12
+  ],
+  [
+   "activityMoreBottom",
+   "inventoryTitleTop",
+   46
+  ],
+  [
+   "moreBoxBottom",
+   "ratingScoreTop",
+   44
   ]
  ],
  "checks": {
@@ -211,6 +326,16 @@
     "from": "moreLinkBottom",
     "offset": 24,
     "color": "rgb(244, 244, 244)"
+   },
+   {
+    "from": "activityMoreBottom",
+    "offset": 24,
+    "color": "rgb(244, 244, 244)"
+   },
+   {
+    "from": "moreBoxBottom",
+    "offset": 22,
+    "color": "rgb(244, 244, 244)"
    }
   ],
   "noBroken": true,
@@ -223,6 +348,10 @@
   "introTitle",
   "policyCard",
   "moreLink",
-  "row"
+  "activityTitle",
+  "activityCard",
+  "row",
+  "ratingScore",
+  "reviewCard"
  ]
 }

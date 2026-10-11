@@ -1,0 +1,194 @@
+{
+ "source": "https://xe.chotot.com/cua-hang/vinfastvietnam?tab=posts (384x832, 2026-10-11 시안 작업 마스터 실측)",
+ "tab": "posts",
+ "note": "활동 탭: 세로 피드. 글마다 아바타 32 + 상점명 + 시간 → 본문 → 이미지 352x232 → 좋아요·댓글·전화·채팅 알약 버튼 → 16 → 회색 띠 12 → 16 → 다음 글. 본문에 실제 전화번호 금지",
+ "slots": {
+  "cover": {
+   "w": 384,
+   "h": 125
+  },
+  "statusChip": {
+   "h": 29,
+   "radius": "12px",
+   "bg": "rgb(34, 34, 34)",
+   "fs": "12px",
+   "fw": "700"
+  },
+  "logo": {
+   "w": 74,
+   "h": 74,
+   "border": "none"
+  },
+  "shareBtn": {
+   "w": 75,
+   "h": 24,
+   "radius": "6px",
+   "borderColor": "rgb(218, 218, 218)",
+   "fs": "12px",
+   "fw": "700"
+  },
+  "name": {
+   "fs": "16px",
+   "fw": "700",
+   "color": "rgb(34, 34, 34)"
+  },
+  "star": {
+   "w": 16,
+   "h": 16,
+   "pitchX": 20
+  },
+  "address": {
+   "fs": "14px",
+   "fw": "400",
+   "lh": "21px",
+   "color": "rgb(34, 34, 34)"
+  },
+  "stats": {
+   "w": 360,
+   "h": 69,
+   "radius": "8px",
+   "borderColor": "rgb(232, 232, 232)"
+  },
+  "tabs": {
+   "h": 40,
+   "borderBottomWidth": "0px"
+  },
+  "tabActive": {
+   "fs": "14px",
+   "fw": "700",
+   "color": "rgb(34, 34, 34)"
+  },
+  "bottomBar": {
+   "h": 56,
+   "pos": "fixed"
+  },
+  "bottomBtn": {
+   "w": 174,
+   "h": 32,
+   "radius": "8px"
+  },
+  "tabItem": {
+   "count": 5
+  },
+  "postAvatar": {
+   "w": 32,
+   "h": 32,
+   "x": 16,
+   "radius": "50%"
+  },
+  "postName": {
+   "fs": "14px",
+   "fw": "700",
+   "lh": "21px",
+   "color": "rgb(34, 34, 34)",
+   "x": 56
+  },
+  "postTime": {
+   "fs": "12px",
+   "fw": "400",
+   "lh": "18px",
+   "color": "rgb(140, 140, 140)"
+  },
+  "postBody": {
+   "fs": "14px",
+   "fw": "400",
+   "lh": "21px",
+   "color": "rgb(34, 34, 34)",
+   "x": 16
+  },
+  "postImg": {
+   "w": 352,
+   "h": 232,
+   "x": 16,
+   "radius": "4px"
+  },
+  "postAction": {
+   "h": 32,
+   "radius": "25px",
+   "bg": "rgba(0, 0, 0, 0.05)"
+  },
+  "postCard": {
+   "x": 16
+  }
+ },
+ "gaps": [
+  [
+   "coverTop",
+   "logoTop",
+   81
+  ],
+  [
+   "coverBottom",
+   "shareBtnTop",
+   12
+  ],
+  [
+   "nameTop",
+   "ratingTop",
+   32
+  ],
+  [
+   "ratingBottom",
+   "addressTop",
+   8
+  ],
+  [
+   "addressBottom",
+   "statsTop",
+   12
+  ],
+  [
+   "statsBottom",
+   "tabsTop",
+   12
+  ],
+  [
+   "tabsBottom",
+   "postAvatarTop",
+   28
+  ],
+  [
+   "postTimeBottom",
+   "postBodyTop",
+   12
+  ],
+  [
+   "postBodyBottom",
+   "postImgTop",
+   12
+  ]
+ ],
+ "checks": {
+  "sticky": {
+   "slot": "tabs",
+   "scroll": 600,
+   "min": 0,
+   "max": 120
+  },
+  "band": [
+   {
+    "from": "tabsBottom",
+    "offset": 6,
+    "color": "rgb(244, 244, 244)"
+   },
+   {
+    "from": "postCardBottom",
+    "offset": 22,
+    "color": "rgb(244, 244, 244)"
+   }
+  ],
+  "noBroken": true,
+  "noOverflow": 384,
+  "noConsoleError": true
+ },
+ "absent": [
+  "banner",
+  "row",
+  "ratingScore"
+ ],
+ "present": [
+  "postCard",
+  "postImg",
+  "postAction"
+ ]
+}

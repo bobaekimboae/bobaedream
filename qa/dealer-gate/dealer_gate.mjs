@@ -1,10 +1,10 @@
 // 딜러 화면 자동 게이트 v2 (시안 작업 마스터, 2026-10-11) — 홈·판매 차량·정보 탭 공용
-// 사용: node qa/dealer-gate/dealer_gate.mjs "<딜러 화면 URL(tab 없이)>" [home|ads|info|all]
+// 사용: node qa/dealer-gate/dealer_gate.mjs "<딜러 화면 URL(tab 없이)>" [home|posts|ads|rating|info|all]
 import { chromium } from 'playwright';
 import fs from 'fs';
 const dir=new URL('./',import.meta.url);
 const base=process.argv[2];const which=process.argv[3]||'all';
-const tabs=which==='all'?['home','ads','info']:[which];
+const tabs=which==='all'?['home','posts','ads','rating','info']:[which];
 const sel=JSON.parse(fs.readFileSync(new URL('selectors_dp.json',dir)));
 const exe=fs.existsSync('/opt/pw-browsers/chromium')?{executablePath:'/opt/pw-browsers/chromium'}:{};
 const b=await chromium.launch(exe);let totalFail=0;const out=[['탭','결과','항목','실측','기준']];
@@ -23,12 +23,15 @@ for(const tab of tabs){
  for(const k of spec.absent||[])R.push([g(k)?'FAIL':'PASS',`없어야 함: ${k}`,g(k)?'있음':'없음','없음']);
  for(const[k,v]of Object.entries(spec.slots)){const e=g(k);if(!e){if(!(spec.absent||[]).includes(k))R.push(['FAIL',`${k} 없음`,'-',sel[k]]);continue;}
   for(const[f,exp]of Object.entries(v)){
-   if(['w','h','x'].includes(f))ok(`${k}.${f}`,e[f],exp);
+   if(f==='count')ok(`${k}.count`,M[k].length,exp,0);
+   else if(['w','h','x'].includes(f))ok(`${k}.${f}`,e[f],exp);
    else if(f==='pitchX'||f==='pitchY'){const a=M[k];if(a.length>1){const ax=f==='pitchX'?'x':'y';let worst=exp;for(let i=1;i<a.length;i++){const d=a[i][ax]-a[i-1][ax];if(d<=0)continue;if(Math.abs(d-exp)>Math.abs(worst-exp))worst=d;}ok(`${k}.${f}(최대 오차)`,worst,exp);}}
    else if(f==='gridRowGap'){const a=M[k];if(a.length>2){const r2=a.find(z=>z.y>a[0].b);if(r2)ok(`${k}.gridRowGap`,r2.y-a[0].b,exp);else R.push(['FAIL',`${k}.gridRowGap`,'2줄 아님',exp]);}}
    else if(f in e)ok(`${k}.${f}`,e[f],exp);}}
  const pt={};for(const k of Object.keys(M)){const e=g(k);if(e&&typeof e==='object'){pt[k+'Top']=e.y;pt[k+'Bottom']=e.b;}}
  for(const[a,bb,exp]of spec.gaps){if(pt[a]==null||pt[bb]==null){R.push(['FAIL',`gap ${a}→${bb}`,'측정 불가',exp]);continue;}ok(`gap ${a}→${bb}`,pt[bb]-pt[a],exp);}
+ if(spec.checks&&spec.checks.fitCards){const fc=spec.checks.fitCards;const res=await p.evaluate(([s,pad])=>{const cards=[...document.querySelectorAll(s)];const rows={};for(const c of cards){const r=c.getBoundingClientRect();const t=c.querySelector('span');const tr=t?t.getBoundingClientRect():r;(rows[Math.round(r.top)]=rows[Math.round(r.top)]||[]).push({h:r.height,top:r.top,th:tr.height,tt:tr.top})}let worstH=0,worstC=0;for(const k in rows){const row=rows[k];const exp=Math.max(...row.map(z=>z.th))+pad;for(const z of row){worstH=Math.max(worstH,Math.abs(z.h-exp));const center=(z.tt-z.top)-(z.h-z.th)/2;worstC=Math.max(worstC,Math.abs(center));}}return [worstH,worstC]},[sel[fc.slot],fc.pad]);
+  ok(`${fc.slot} 높이=글 높이+${fc.pad}(최대 오차)`,res[0],0);ok(`${fc.slot} 글 세로 가운데(최대 오차)`,res[1],0);}
  const scrollTo=async y=>{await p.evaluate(([s,y])=>{const e=document.querySelector(s)||document.scrollingElement;e.scrollTop=y;window.scrollTo(0,y)},[sel.scroller,y]);await p.waitForTimeout(300);};
  const ch=spec.checks||{};
  for(const bd of ch.band||[]){const y0=pt[bd.from];if(y0==null){R.push(['FAIL',`band ${bd.from}+${bd.offset}`,'측정 불가',bd.color]);continue;}
