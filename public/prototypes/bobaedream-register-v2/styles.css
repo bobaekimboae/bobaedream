@@ -116,7 +116,7 @@ button {
   flex: 0 0 min(100vw, 430px);
   height: 100vh;
   height: 100dvh;
-  min-height: 844px;
+  min-height: 0;
   overflow: hidden;
   background: var(--surface);
   border: 0;
@@ -847,9 +847,24 @@ button {
 .video-view {
   position: relative;
   height: 100%;
+  min-height: 0;
   overflow: hidden;
   color: #fff;
   background: #050607;
+}
+
+.camera-view {
+  display: grid;
+  grid-template-rows: 58px minmax(0, 1fr) 104px 50px 54px;
+}
+
+.video-view.is-record {
+  display: grid;
+  grid-template-rows: 58px minmax(0, 1fr) 104px 50px 54px;
+}
+
+.camera-view.is-album {
+  grid-template-rows: 58px auto minmax(0, 1fr) 58px 50px 54px;
 }
 
 .dark-topbar {
@@ -875,7 +890,8 @@ button {
 
 .camera-stage {
   position: relative;
-  height: 560px;
+  min-height: 0;
+  height: auto;
   margin: 0;
   overflow: hidden;
   background:
@@ -942,12 +958,15 @@ button {
 }
 
 .slot-rail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 208px;
   display: flex;
   gap: 7px;
   overflow-x: auto;
-  margin-top: -88px;
-  padding: 0 10px 12px;
-  position: relative;
+  margin: 0;
+  padding: 12px 10px;
   z-index: 3;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.18));
   scrollbar-width: none;
@@ -1030,6 +1049,7 @@ button {
 
 .camera-controls {
   display: grid;
+  grid-row: 3;
   grid-template-columns: 72px minmax(0, 1fr) 72px;
   align-items: center;
   min-height: 104px;
@@ -1094,6 +1114,7 @@ button {
 
 .mode-tabs {
   display: grid;
+  grid-row: 4;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
   padding: 0 86px 8px;
@@ -1133,6 +1154,12 @@ button {
   background: #fff;
 }
 
+.camera-view > .android-nav {
+  position: relative;
+  grid-row: 5;
+  bottom: auto;
+}
+
 .nav-square {
   width: 17px;
   height: 17px;
@@ -1157,6 +1184,8 @@ button {
 
 .album-grid {
   display: grid;
+  min-height: 0;
+  overflow-y: auto;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
   padding: 10px 14px 14px;
@@ -1183,10 +1212,75 @@ button {
   background-position: center;
   border: 2px solid transparent;
   border-radius: 8px;
+  overflow: hidden;
 }
 
 .album-item.is-selected {
   border-color: var(--orange);
+}
+
+.album-item::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 38px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.68));
+}
+
+.album-item b {
+  position: absolute;
+  left: 7px;
+  right: 7px;
+  bottom: 7px;
+  z-index: 2;
+  color: #fff;
+  font-size: 12px;
+  font-weight: var(--fw-strong);
+  text-align: left;
+}
+
+.album-photo-check {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.52);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 999px;
+}
+
+.album-item.is-selected .album-photo-check {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+
+.album-bottom {
+  display: grid;
+  grid-row: 4;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 9px 18px;
+  background: #000;
+}
+
+.album-bottom span {
+  color: #fff;
+  font-size: 16px;
+  font-weight: var(--fw-title);
+}
+
+.camera-view.is-album .mode-tabs {
+  grid-row: 5;
+}
+
+.camera-view.is-album > .android-nav {
+  grid-row: 6;
 }
 
 .album-item.is-selected::after {
@@ -1405,6 +1499,15 @@ button {
   scrollbar-width: none;
 }
 
+.video-view.is-record .video-segments {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 208px;
+  margin: 0;
+  padding: 12px 10px 10px;
+}
+
 .video-segments::-webkit-scrollbar {
   display: none;
 }
@@ -1473,12 +1576,12 @@ button {
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: 0 2px 5px;
+  padding: 5px 2px 7px;
   background: rgba(0, 0, 0, 0.38);
   color: currentColor;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 680;
-  line-height: 1.1;
+  line-height: 1.18;
   text-align: center;
 }
 
@@ -1521,7 +1624,8 @@ button {
 
 .video-stage {
   position: relative;
-  height: 554px;
+  min-height: 0;
+  height: auto;
   overflow: hidden;
   background:
     radial-gradient(circle at 76% 18%, rgba(255, 255, 255, 0.24), transparent 25%),
@@ -1592,11 +1696,22 @@ button {
 
 .video-controls {
   display: grid;
+  grid-row: 3;
   grid-template-columns: 72px minmax(0, 1fr) 72px;
   align-items: center;
   min-height: 104px;
   padding: 13px 18px 0;
   background: #000;
+}
+
+.video-view.is-record .video-mode-tabs {
+  grid-row: 4;
+}
+
+.video-view.is-record > .android-nav {
+  position: relative;
+  grid-row: 5;
+  bottom: auto;
 }
 
 .record-button {

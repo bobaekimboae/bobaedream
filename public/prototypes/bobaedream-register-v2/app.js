@@ -33,24 +33,10 @@ const state = {
   progress: 32,
   city: "서울",
   verification: "차량명판",
-  photos: [
-    {
-      id: "seed-front",
-      slot: 1,
-      label: "차량 전면",
-      src: samplePhotos[0],
-      edits: defaultPhotoEdits(),
-    },
-    {
-      id: "seed-left-front",
-      slot: 0,
-      label: "좌전 45°",
-      src: samplePhotos[1],
-      edits: defaultPhotoEdits(),
-    },
-  ],
-  activeSlot: 2,
+  photos: [],
+  activeSlot: 0,
   cameraMode: "camera",
+  albumSelected: [],
   maskPlate: false,
   previewIndex: 0,
   previewTool: null,
@@ -219,6 +205,7 @@ function setView(view) {
 
 function setCameraMode(mode) {
   state.cameraMode = mode;
+  if (mode === "camera") state.albumSelected = [];
   render();
 }
 
@@ -258,8 +245,31 @@ function playBeep({ frequency = 880, duration = 0.08, gain = 0.12, type = "squar
 }
 
 function playShutterSound() {
-  playBeep({ frequency: 1250, duration: 0.035, gain: 0.18, type: "square" });
-  playBeep({ frequency: 720, duration: 0.055, gain: 0.14, type: "triangle", delay: 0.045 });
+  const context = audioContext();
+  if (!context) return;
+  const duration = 0.055;
+  const length = Math.floor(context.sampleRate * duration);
+  const buffer = context.createBuffer(1, length, context.sampleRate);
+  const data = buffer.getChannelData(0);
+  for (let index = 0; index < length; index += 1) {
+    const envelope = 1 - index / length;
+    data[index] = (Math.random() * 2 - 1) * envelope * envelope;
+  }
+  const noise = context.createBufferSource();
+  const filter = context.createBiquadFilter();
+  const gain = context.createGain();
+  noise.buffer = buffer;
+  filter.type = "bandpass";
+  filter.frequency.value = 2800;
+  filter.Q.value = 0.9;
+  gain.gain.setValueAtTime(0.0001, context.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.42, context.currentTime + 0.004);
+  gain.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + duration);
+  noise.connect(filter);
+  filter.connect(gain);
+  gain.connect(context.destination);
+  noise.start();
+  noise.stop(context.currentTime + duration);
 }
 
 function playRecordStartSound() {
@@ -463,6 +473,27 @@ function addPhotoFromDataUrl(slot = state.activeSlot, src) {
   state.progress = Math.max(state.progress, 38);
   showToast("사진이 등록되었습니다");
   render();
+}
+
+function addPhotoFromSource(slot = state.activeSlot, src, label, shouldRender = true) {
+  if (!src) return;
+  if (state.photos.length >= 30) {
+    showToast("사진은 최대 30장까지 등록할 수 있습니다");
+    return;
+  }
+  if (photoForSlot(slot)) {
+    slot = firstMissingSlot();
+  }
+  state.photos.push({
+    id: `album-${Date.now()}-${slot}-${Math.random().toString(16).slice(2)}`,
+    slot,
+    label: label || slots[slot] || `기타 ${state.photos.length + 1}`,
+    src,
+    edits: defaultPhotoEdits(),
+  });
+  state.activeSlot = firstMissingSlot();
+  state.progress = Math.max(state.progress, 38);
+  if (shouldRender) render();
 }
 
 function capturePhotoFromLiveCamera() {
@@ -769,7 +800,7 @@ function mainView() {
 function cameraView() {
   const albumMode = state.cameraMode === "album";
   return `
-    <div class="camera-view">
+    <div class="camera-view ${albumMode ? "is-album" : "is-camera"}">
       <header class="dark-topbar">
         <button class="icon-button dark-button" data-action="close-camera" aria-label="닫기">${icon("x", 30)}</button>
         <h2>${albumMode ? "내 사진첩" : "사진 촬영"}</h2>
@@ -782,9 +813,19 @@ function cameraView() {
              <div class="album-grid">
               ${samplePhotos
                 .map(
-                  (src, index) => `<button class="album-item" data-action="album-photo" data-index="${index}" style="background-image:url('${src}')" aria-label="앨범 사진 ${index + 1}"></button>`,
+                  (src, index) => {
+                    const selected = state.albumSelected.includes(index);
+                    return `<button class="album-item ${selected ? "is-selected" : ""}" data-action="album-photo" data-index="${index}" style="background-image:url('${src}')" aria-label="앨범 사진 ${index + 1}">
+                      <span class="album-photo-check">${selected ? icon("check-mark", 16) : ""}</span>
+                      <b>${slots[index]}</b>
+                    </button>`;
+                  },
                 )
                 .join("")}
+             </div>
+             <div class="album-bottom">
+               <span>${state.albumSelected.length}/30</span>
+               <button class="finish-small" data-action="album-confirm" type="button">완료</button>
              </div>`
           : `<div class="camera-stage" data-camera-stage>
               <video class="live-camera-feed" data-camera-preview playsinline autoplay muted></video>
@@ -882,7 +923,7 @@ function videoView() {
   const activeDuration = state.videoDurations[state.videoSegment];
   const nextVisible = state.videoPaused || activeDuration > 0;
   return `
-    <div class="video-view">
+    <div class="video-view is-record">
       <header class="dark-topbar">
         <button class="icon-button dark-button" data-action="video-close" aria-label="닫기">${icon("x", 30)}</button>
         <h2>车辆视频</h2>
@@ -1168,8 +1209,22 @@ function bindEvents() {
         setCameraMode("album");
       }
       if (action === "album-photo") {
-        addPhoto(firstMissingSlot());
-        showToast("앨범 사진이 추가되었습니다");
+        const index = Number(target.dataset.index);
+        state.albumSelected = state.albumSelected.includes(index)
+          ? state.albumSelected.filter((item) => item !== index)
+          : [...state.albumSelected, index];
+        render();
+      }
+      if (action === "album-confirm") {
+        if (!state.albumSelected.length) {
+          showToast("앨범 사진을 선택해 주세요");
+        } else {
+          state.albumSelected.forEach((index) => addPhotoFromSource(firstMissingSlot(), samplePhotos[index], slots[firstMissingSlot()], false));
+          state.albumSelected = [];
+          state.cameraMode = "camera";
+          showToast("앨범 사진이 추가되었습니다");
+          render();
+        }
       }
       if (action === "preview-close" || action === "preview-finish") setView("main");
       if (action === "preview-add") {

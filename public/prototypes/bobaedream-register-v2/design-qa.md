@@ -20,6 +20,11 @@
 
 ## Current Fixes
 
+- 2026-10-11 update: default seed photos were removed so the first screen no longer shows two pre-selected images.
+- 2026-10-11 update: the phone frame no longer forces `844px` height; camera and video screens now fit the actual browser/phone viewport without bottom controls being cut off.
+- 2026-10-11 update: photo and video capture screens now use responsive grid rows for header, live preview, slot/segment rail, controls, tabs, and Android navigation.
+- 2026-10-11 update: photo album mode now follows a select-then-confirm flow with selected count, visible check state, and bottom 완료 action.
+- 2026-10-11 update: shutter sound was changed from a two-tone beep to a short camera-click noise burst.
 - Photo shutter now opens a real mobile camera input (`accept=image/*`, `capture=environment`) and stores the captured file as the slot thumbnail.
 - Album mode now opens a real image picker and adds selected images to the next empty slots.
 - Video record now opens a real mobile video capture input (`accept=video/*`, `capture=environment`) and marks video registration complete after selection.
