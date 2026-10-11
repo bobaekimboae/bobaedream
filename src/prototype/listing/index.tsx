@@ -1685,13 +1685,20 @@ function MarketplaceScreen() {
               {truckFormatCatalog.map((group) => <DepthCard key={group.name} className="is-truck-depth" label={desktop ? group.name : truckQuickLabel(group.name)} ariaLabel={group.name} image={<img src={asset(truckFormatImageFor(group.name) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckFormat(group.name)} />)}
             </QuickRailCarousel>
           </section> :
-          showTruckSubtypeRail ? <section className="depth-rail no-label is-truck-depth-chip-row" aria-label={`${selectedTruckFormat} 세부 형식 빠른 선택`}>
-            <QuickRailCarousel ariaLabel={`${selectedTruckFormat} 세부 형식`} className="brand-carousel" contentClassName="depth-rail-track">
-              <DepthTextChip label={"형식\n변경"} title onClick={clearTruckFormat} />
-              {truckSubtypeOptions.map((subtype) => {
-                const secondaryLabel = truckSubtypeSecondaryLabel(selectedTruckFormat, subtype);
-                return <DepthTextChip key={subtype} label={desktop ? subtype : truckQuickLabel(subtype)} sub={secondaryLabel ?? undefined} onClick={() => chooseTruckSubtype(subtype)} />;
-              })}
+          showTruckSubtypeRail ? <section className={`depth-rail no-label is-truck-depth-chip-row${selectedTruckFormat === "카고(화물)트럭" ? " is-cargo-tonnage-row" : ""}`} aria-label={`${selectedTruckFormat} 세부 형식 빠른 선택`}>
+            <QuickRailCarousel ariaLabel={`${selectedTruckFormat} 세부 형식`} className="brand-carousel" contentClassName={`depth-rail-track${selectedTruckFormat === "카고(화물)트럭" ? " is-chips is-truck-tonnage-track" : ""}`}>
+              {selectedTruckFormat === "카고(화물)트럭" ? <>
+                <span className="truck-tonnage-label">적재중량</span>
+                {truckSubtypeOptions.map((subtype) => (
+                  <TrimChip key={subtype} label={truckSubtypeSecondaryLabel(selectedTruckFormat, subtype) ?? subtype} onClick={() => chooseTruckSubtype(subtype)} />
+                ))}
+              </> : <>
+                <DepthTextChip label={"형식\n변경"} title onClick={clearTruckFormat} />
+                {truckSubtypeOptions.map((subtype) => {
+                  const secondaryLabel = truckSubtypeSecondaryLabel(selectedTruckFormat, subtype);
+                  return <DepthTextChip key={subtype} label={desktop ? subtype : truckQuickLabel(subtype)} sub={secondaryLabel ?? undefined} onClick={() => chooseTruckSubtype(subtype)} />;
+                })}
+              </>}
             </QuickRailCarousel>
           </section> :
           showTruckSpecRail ? <section className="depth-rail is-trim-row no-label" aria-label={`${selectedTruckSubtype} 적재용량 및 규격 빠른 선택`}>

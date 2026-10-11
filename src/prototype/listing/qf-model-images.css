@@ -547,6 +547,42 @@
   padding-right: 16px;
   padding-left: 16px;
 }
+/* QF-123 카고 적재중량: 마이트럭처럼 축 이름은 한 번만 두고 톤수만
+   한 줄 알약칩으로 보여 중복 정보와 카드형 면적을 줄인다. */
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row.is-cargo-tonnage-row,
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row.is-cargo-tonnage-row .brand-carousel,
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row.is-cargo-tonnage-row .depth-rail-track {
+  min-height: 60px;
+  height: 60px;
+}
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row .is-truck-tonnage-track {
+  align-items: center;
+  gap: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.marketplace.is-truck-category.is-qf-guazi .truck-tonnage-label {
+  flex: 0 0 auto;
+  color: #777;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+}
+.marketplace.is-truck-category.is-qf-guazi .is-truck-tonnage-track .truck-tonnage-label + .trim-chip {
+  margin-left: 2px;
+}
+.marketplace.is-truck-category.is-qf-guazi .is-truck-tonnage-track .trim-chip {
+  height: 36px;
+  padding: 0 15px;
+  border-color: #d9d9dd;
+  border-radius: 18px;
+  background: #fff;
+  color: #333;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
 .marketplace.is-truck-category.is-qf-guazi .depth-text-chip {
   display: flex;
   width: auto;
