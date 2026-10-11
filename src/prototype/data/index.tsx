@@ -19,7 +19,11 @@ import {
   siYamahamotorcorporation,
   type SimpleIcon,
 } from "simple-icons";
-import { emptyChoTotFilters, vehicleCategoryOptions, type ChoTotFilterState } from "../../ChoTotFilterSheet";
+import { emptyChoTotFilters, vehicleCategoryOptions as chototCategoryOptions, type ChoTotFilterState } from "../../ChoTotFilterSheet";
+
+// 과쯔 전용 테마 중고차(2026-10-11): ChoTot·동처띠의 카테고리 목록은 그대로 두고 과쯔만 값을 더한다. 아직 매물이 없다.
+export const guaziThemeCategories = ["JDM", "튜닝·커스텀카", "셀럽 중고차"];
+const vehicleCategoryOptions = [...chototCategoryOptions, ...guaziThemeCategories];
 import { luxuryUiTestRows } from "./luxury-ui-test";
 import { bikeModelsByMaker, bikeTopBrands } from "./bike-filter-catalog";
 import { bikeInventory } from "../bike/data";
