@@ -13,6 +13,7 @@ import {
   campingCars,
   luxuryUiTestCars,
   luxuryCategoryCars,
+  oldCarCategoryCars,
   supercarCategoryCars,
   compactYearLabel,
   compactGenerationCardYearLabel,
@@ -951,6 +952,8 @@ function MarketplaceScreen() {
                   ? supercarCategoryCars
                 : isGuaziQuickStyle && isLuxuryCategory
                   ? luxuryCategoryCars
+                : isGuaziQuickStyle && category === "올드카"
+                  ? oldCarCategoryCars
                 : isGuaziQuickStyle && category === "서울오토갤러리"
                   ? seoulAutoGalleryCars
                 : isGuaziQuickStyle && category === "도이치오토월드"
@@ -2208,6 +2211,7 @@ function MarketplaceScreen() {
     switch (value) {
       case "전체": return allVehicleMixedCars.length;
       case "럭셔리카": return luxuryCategoryCars.length;
+      case "올드카": return oldCarCategoryCars.length;
       case "슈퍼카": return supercarCategoryCars.length;
       case "서울오토갤러리": return seoulAutoGalleryCars.length;
       case "도이치오토월드": return deutschAutoworldCars.length;
