@@ -151,6 +151,6 @@
 .filter-shell.is-bbm.is-scrolled .filter-fixed:not(.is-applied) { padding: 4px 8px; }
 .filter-shell.is-bbm.is-scrolled .filter-fixed:not(.is-applied) > span { display: none; }
 
-/* 사진 없는 매물(2026-10-11): 노션 「이미지 없음_24_24」 원본 아이콘을 칸 가운데에 표시한다. */
+/* 사진 없는 매물(2026-10-11): 노션 「사진이 없습니다_140_100」 원본 그림을 칸 가운데에 표시한다(최대 140×100, 칸이 작으면 비율 유지로 줄임). */
 .bbm-card-photo.is-empty { display: flex; align-items: center; justify-content: center; }
-.bbm-card-photo.is-empty::before { content: ""; width: 48px; height: 48px; background: url("/assets/bbm/missing-image-24-v01.svg") center / contain no-repeat; }
+.bbm-card-photo.is-empty::before { content: ""; width: 100%; height: 100%; max-width: 140px; max-height: 100px; background: url("/assets/bbm/no-photo-140x100-v01.svg") center / contain no-repeat; }
