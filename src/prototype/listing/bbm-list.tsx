@@ -178,6 +178,18 @@ export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
   },
 ];
 
+// 테마별 중고차(2026-10-11 「동그란 줄 자리에 하위 칩 줄로 교체」): 동그란 카테고리 줄에서 누르면 카테고리가 `테마별 중고차`로 바뀌고, 같은 자리에 하위 칩 줄이 나온다.
+export const THEME_USED_CAR = "테마별 중고차";
+export function BbmThemeRail({ onChoose }: { onChoose: (label: string, detail?: string) => void }) {
+  const group = bbmCategoryGroups.find((item) => item.value === THEME_USED_CAR);
+  if (!group) return null;
+  return (
+    <section className="bbm-theme-rail" aria-label="테마별 중고차 하위 카테고리">
+      {group.children.map((child) => <button key={child.value} type="button" onClick={() => onChoose(child.value, child.detail)}>{child.label}</button>)}
+    </section>
+  );
+}
+
 function categoryGroupForSelection(selected: string) {
   // 자기 값이 같은 그룹을 먼저 찾는다(전체차량 그룹의 알약에는 다른 카테고리 값도 들어 있다)
   return bbmCategoryGroups.find((group) => group.value === selected)
@@ -247,7 +259,7 @@ export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string, detail
   const [activeValue, setActiveValue] = useState("중고차");
   if (!imageGuideFamily) {
     const activeGroup = bbmCategoryGroups.find((group) => group.value === activeValue) ?? bbmCategoryGroups[1];
-    const entersNextDepthDirectly = (group: BbmCategoryGroup) => group.value === "중고차" || group.value === "트럭 · 특장" || group.children.length === 1;
+    const entersNextDepthDirectly = (group: BbmCategoryGroup) => group.value === "중고차" || group.value === "트럭 · 특장" || group.value === THEME_USED_CAR || group.children.length === 1;
     const activateGroup = (value: string) => {
       setActiveValue(value);
       const nextGroup = bbmCategoryGroups.find((group) => group.value === value);

@@ -22,7 +22,7 @@ import {
 import { emptyChoTotFilters, vehicleCategoryOptions as chototCategoryOptions, type ChoTotFilterState } from "../../ChoTotFilterSheet";
 
 // 과쯔 전용 테마별 중고차(2026-10-11): ChoTot·동처띠의 카테고리 목록은 그대로 두고 과쯔만 값을 더한다. 아직 매물이 없다.
-export const guaziThemeCategories = ["JDM", "튜닝·커스텀카", "셀럽카"];
+export const guaziThemeCategories = ["테마별 중고차", "JDM", "튜닝·커스텀카", "셀럽카"];
 const vehicleCategoryOptions = [...chototCategoryOptions, ...guaziThemeCategories];
 import { luxuryUiTestRows } from "./luxury-ui-test";
 import { bikeModelsByMaker, bikeTopBrands } from "./bike-filter-catalog";
@@ -1657,6 +1657,7 @@ function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
     || category === "자재운반장비" && car.virtualCategory?.category === "자재운반장비"
     || category === "캠핑카" && car.virtualCategory?.category === "캠핑카"
     || category === "부품 · 용품" && car.virtualCategory?.category === "부품 · 용품"
+    || category === "테마별 중고차"
     || ["올드카", "리스/렌트차량", "럭셔리카", "서울오토갤러리", "도이치오토월드", "슈퍼카", "브랜드 인증중고차", "매매단지별 검색", "팔린매물", "장애인차"].includes(category);
   const yearMatch = value.year === "전체"
     || value.year === "2024~2026" && data.year >= 2024
