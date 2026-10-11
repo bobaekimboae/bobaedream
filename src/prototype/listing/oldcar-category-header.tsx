@@ -106,7 +106,7 @@ export function OldcarCategoryHeader() {
               <em>{slide.model}</em>
             </span>
           </span>
-          <span className="oldcar-category-hero-subtitle">국내 유일 올드카ㆍ클래식카 쇼핑몰</span>
+          <span className="oldcar-category-hero-subtitle">올드카ㆍ클래식카ㆍ올드바이크 매물</span>
         </span>
       </button>
       <div className="oldcar-category-hero-dots" role="group" aria-label="올드카 배너 선택">
