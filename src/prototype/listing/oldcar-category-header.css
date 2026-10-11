@@ -21,7 +21,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center 54%;
-  transform: translateX(19%);
+  transform: translateX(24%);
 }
 
 .oldcar-category-hero-shade {
@@ -56,13 +56,28 @@
   letter-spacing: -.45px;
 }
 
-.oldcar-category-hero-copy small {
-  margin-bottom: 1px;
-  color: rgb(255 255 255 / 78%);
-  font-size: 10px;
-  font-weight: 500;
+.oldcar-category-hero-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.oldcar-category-hero-model {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  justify-content: center;
+  min-width: 48px;
+}
+
+.oldcar-category-hero-model small,
+.oldcar-category-hero-model em {
+  color: rgb(255 255 255 / 90%);
+  font-size: 11px;
+  font-weight: 600;
+  font-style: normal;
   line-height: 13px;
-  letter-spacing: -.1px;
+  letter-spacing: 0;
 }
 
 .oldcar-category-hero-copy span {
@@ -94,9 +109,10 @@
     line-height: 28px;
   }
 
-  .oldcar-category-hero-copy small {
+  .oldcar-category-hero-model small,
+  .oldcar-category-hero-model em {
     font-size: 12px;
-    line-height: 16px;
+    line-height: 14px;
   }
 
   .oldcar-category-hero-copy span {
