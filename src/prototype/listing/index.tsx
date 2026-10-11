@@ -103,6 +103,7 @@ import { truckSpecGroupsFor, truckSpecOptionsFor } from "../data/truck-depth4-ca
 import { QuickRailCarousel } from "./quick-rail-carousel";
 import { truckModelsByMaker } from "../truck/scenario-v09";
 import { HeavyQuickFilter } from "../heavy";
+import "./qf-car-body-types.css";
 import { SeoulAutoGalleryDealerRail } from "./seoul-auto-gallery-dealer-rail";
 import { SeoulAutoGalleryHeader } from "./seoul-auto-gallery-header";
 import { DeutschAutoworldHeader } from "./deutsch-autoworld-header";
@@ -390,6 +391,25 @@ const pcPriceLinks = [
   { label: "2억원 이상", min: 20000, max: null },
 ];
 const pcBodyLinks = ["세단", "SUV", "해치백", "스포츠카", "승합"];
+
+type CarBodyPreviewMode = "angle" | "side";
+
+const carBodyQuickOptions = [
+  { label: "세단", assetName: "sedan" },
+  { label: "해치백", assetName: "hatchback" },
+  { label: "왜건", assetName: "wagon" },
+  { label: "쿠페", assetName: "coupe" },
+  { label: "컨버터블", assetName: "convertible" },
+  { label: "SUV", assetName: "suv" },
+  { label: "RV", assetName: "rv" },
+  { label: "밴(승합)", assetName: "van" },
+  { label: "픽업트럭", assetName: "pickup" },
+  { label: "리무진", assetName: "limousine" },
+] as const;
+
+function carBodyQuickImage(assetName: string, mode: CarBodyPreviewMode) {
+  return asset(`car/body-types/v01/${mode}/body_${assetName}_${mode}_v01.png`);
+}
 
 function PcHeader({ query, setQuery, searchPlaceholder, regionLabel, onOpenRegion, onOpenFavorites, onNotify, catalogRecords, onCatalogFocus, onCatalogChoose }: { query: string; setQuery: (query: string) => void; searchPlaceholder: string; regionLabel: string; onOpenRegion: () => void; onOpenFavorites: () => void; onNotify: (message: string) => void; catalogRecords?: VehicleSearchRecord[] | null; onCatalogFocus?: () => void; onCatalogChoose?: (record: VehicleSearchRecord) => void }) {
   const keyboard = useKeyboard();
@@ -871,6 +891,7 @@ function MarketplaceScreen() {
   const usesUxDepth = Boolean(isTruckCategory && maker) || Boolean(supportsVehicleCatalog && maker && vehicleCatalog.index?.manufacturers.some((item) => item.name === maker));
   const isGuaziQuickStyle = quickFilterStyle === "guazi";
   const quickCardMode = typeof window === "undefined" ? null : new URLSearchParams(window.location.search).get("qfcard");
+  const carBodyPreviewMode: CarBodyPreviewMode = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("bodyview") === "side" ? "side" : "angle";
   // 과쯔 카드칩 비교 시안: 기존 plain/card 모드는 그대로 두고 모델 뎁스만 가변폭 카드 레일로 비교한다.
   const guaziCardChipPreview = isGuaziQuickStyle && quickCardMode === "guazi-card";
   const guaziCardSidePreview = guaziCardChipPreview
@@ -1661,6 +1682,12 @@ function MarketplaceScreen() {
     (selectedGeneration && (guaziTrimChosen || guaziTrimRailOptions.length <= 1)) || (!hasGenerationDepth && !hasDirectVariantDepth)
   ));
   const categoryTypeBrandList = krTypeTop10(category);
+  const showCarBodyTypeRail = Boolean(isGuaziQuickStyle && !maker && (category === "국산차" || category === "수입차"));
+  const selectedCarBodyTypes = bbmValue.checks.bodyType ?? [];
+  const chooseCarBodyType = (bodyType: string) => {
+    const nextValues = selectedCarBodyTypes.includes(bodyType) ? [] : [bodyType];
+    setBbmFilters(setBbmChecks(bbmValue, "bodyType", nextValues));
+  };
   // 트럭은 형식 → 차급 → 적재중량(톤수)을 확정한 다음 단계에서만 제조사 로고를 노출한다.
   useEffect(() => { setGroupRail(null); }, [category]);
   const showGroupRail = Boolean(isGuaziQuickStyle && groupRail && categoryIsDefault && !maker);
@@ -1949,14 +1976,30 @@ function MarketplaceScreen() {
               return <DepthCard key={item.label} className={typeList && sampleCount(item.key) === 0 ? "is-dim" : undefined} label={categoryRailLabel(category, item.label)} image={image} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />;
             };
             return (
-              <section className="depth-rail is-kr-maker no-label" aria-label={`${categoryBrandRail.title} 빠른 선택`}>
-                <QuickRailCarousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName="depth-rail-track">
-                  {sections.domestic.map(card)}
-                  {sections.domestic.length && sections.imported.length ? <span className="kr-maker-divider" aria-hidden="true" /> : null}
-                  {sections.imported.map(card)}
-                  <DepthCard key="전체 브랜드" label="전체 브랜드" image={<span className="kr-all-brands" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="3" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /></svg></span>} mediaKind="brand" onClick={() => supportsVehicleCatalog ? setSheet("vehicle") : setBbmChipPanel("제조사")} />
-                </QuickRailCarousel>
-              </section>
+              <>
+                {showCarBodyTypeRail ? <section className="depth-rail is-car-body-type no-label" aria-label={`${category} 바디타입 빠른 선택`} data-bodyview={carBodyPreviewMode}>
+                  <QuickRailCarousel ariaLabel={`${category} 바디타입`} className="brand-carousel" contentClassName="depth-rail-track">
+                    {carBodyQuickOptions.map((option) => (
+                      <DepthCard
+                        key={option.label}
+                        className="is-car-body-depth"
+                        label={option.label}
+                        image={<img src={carBodyQuickImage(option.assetName, carBodyPreviewMode)} alt="" aria-hidden="true" draggable={false} />}
+                        selected={selectedCarBodyTypes.includes(option.label)}
+                        onClick={() => chooseCarBodyType(option.label)}
+                      />
+                    ))}
+                  </QuickRailCarousel>
+                </section> : null}
+                <section className="depth-rail is-kr-maker no-label" aria-label={`${categoryBrandRail.title} 빠른 선택`}>
+                  <QuickRailCarousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName="depth-rail-track">
+                    {sections.domestic.map(card)}
+                    {sections.domestic.length && sections.imported.length ? <span className="kr-maker-divider" aria-hidden="true" /> : null}
+                    {sections.imported.map(card)}
+                    <DepthCard key="전체 브랜드" label="전체 브랜드" image={<span className="kr-all-brands" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="3" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /></svg></span>} mediaKind="brand" onClick={() => supportsVehicleCatalog ? setSheet("vehicle") : setBbmChipPanel("제조사")} />
+                  </QuickRailCarousel>
+                </section>
+              </>
             );
           })() : showGuaziMakerRail ? <section className="depth-rail no-label" aria-label={`${categoryBrandRail.title} 빠른 선택`}>
             <Carousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName="depth-rail-track">

@@ -1,0 +1,87 @@
+/* 국산차·수입차 바디타입 퀵필터.
+   초톳의 무배경 슬롯(PC 84 / 모바일 72) 위에 AutoScout24식 카탈로그 컷을 얹는다. */
+.marketplace.is-qf-guazi.is-qf-plain .depth-rail.is-car-body-type .depth-rail-track {
+  gap: 8px;
+}
+
+.marketplace.is-qf-guazi.is-qf-plain .depth-rail.is-car-body-type .depth-card,
+.marketplace.is-qf-guazi.is-qf-plain .depth-rail.is-car-body-type .depth-card.is-selected {
+  height: 102px;
+  padding: 0 4px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #595959;
+}
+
+.marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-rail.is-car-body-type .depth-card {
+  width: 84px;
+  flex-basis: 84px;
+}
+
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail.is-car-body-type .depth-card {
+  width: 72px;
+  flex-basis: 72px;
+}
+
+.marketplace.is-qf-guazi.is-qf-plain .depth-rail.is-car-body-type .depth-card-media:not(.is-brand) {
+  width: 100%;
+  height: 40px;
+  margin-top: 6px;
+}
+
+.marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-rail.is-car-body-type .depth-card-media:not(.is-brand) {
+  width: 76px;
+}
+
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail.is-car-body-type .depth-card-media:not(.is-brand) {
+  width: 64px;
+}
+
+.marketplace.is-qf-guazi.is-qf-plain .depth-rail.is-car-body-type .depth-card-media:not(.is-brand) img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+  object-position: center bottom;
+  mix-blend-mode: normal;
+}
+
+.marketplace.is-qf-guazi.is-qf-plain .depth-rail.is-car-body-type .depth-card-label {
+  display: -webkit-box;
+  width: 100%;
+  margin-top: 8px;
+  overflow: hidden;
+  color: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: center;
+  white-space: normal;
+  word-break: keep-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.marketplace.is-qf-guazi.is-qf-plain .depth-rail.is-car-body-type .depth-card.is-selected .depth-card-label {
+  color: #222;
+  font-weight: 700;
+}
+
+.marketplace.is-qf-guazi.is-qf-plain .depth-rail.is-car-body-type .depth-card:active {
+  opacity: .6;
+}
+
+.marketplace.is-qf-guazi.is-qf-plain .depth-rail.is-car-body-type .depth-card:focus-visible {
+  outline: 2px solid #222;
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .marketplace.is-bbm.is-qf-guazi.is-qf-plain .depth-rail.is-car-body-type .depth-card-label {
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
