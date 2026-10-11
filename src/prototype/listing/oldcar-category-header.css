@@ -13,7 +13,7 @@
   isolation: isolate;
 }
 
-.oldcar-category-hero-hit {
+.oldcar-category-hero-hit { touch-action: pan-y;
   position: relative;
   display: block;
   width: 100%;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type PointerEvent } from "react";
 import { asset } from "../data";
 import "./oldcar-category-header.css";
 
@@ -26,6 +26,13 @@ const OLDCAR_HERO_SLIDES: OldcarHeroSlide[] = [
     shift: "18%",
   },
   {
+    id: "besta",
+    year: "1986",
+    model: "기아 베스타",
+    src: asset("oldcar-header/kia-besta-official-kv-1920x1080.webp"),
+    shift: "22%",
+  },
+  {
     id: "pride",
     year: "1987",
     model: "기아 프라이드",
@@ -45,6 +52,13 @@ const OLDCAR_HERO_SLIDES: OldcarHeroSlide[] = [
     model: "기아 록스타",
     src: asset("oldcar-header/kia-rocsta-official-kv-1920x1080.webp"),
     shift: "24%",
+  },
+  {
+    id: "potentia",
+    year: "1992",
+    model: "기아 포텐샤",
+    src: asset("oldcar-header/kia-potentia-official-kv-1920x1080.webp"),
+    shift: "22%",
   },
   {
     id: "elan",
@@ -85,10 +99,27 @@ export function OldcarCategoryHeader() {
   }, [reduceMotion]);
 
   const showNext = () => setActiveIndex((current) => (current + 1) % OLDCAR_HERO_SLIDES.length);
+  const showPrev = () => setActiveIndex((current) => (current - 1 + OLDCAR_HERO_SLIDES.length) % OLDCAR_HERO_SLIDES.length);
+  // 좌우로 밀면 이전·다음 차(2026-10-11 「인디게이터로 차량 제스처 가능하게」). 밀어서 넘긴 뒤에는 터치(다음)가 한 번 더 일어나지 않게 막는다.
+  const dragStart = useRef<{ x: number; y: number } | null>(null);
+  const swiped = useRef(false);
+  const onPointerDown = (event: PointerEvent<HTMLButtonElement>) => { dragStart.current = { x: event.clientX, y: event.clientY }; swiped.current = false; };
+  const onPointerUp = (event: PointerEvent<HTMLButtonElement>) => {
+    const start = dragStart.current;
+    dragStart.current = null;
+    if (!start) return;
+    const dx = event.clientX - start.x;
+    const dy = event.clientY - start.y;
+    if (Math.abs(dx) >= 40 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      swiped.current = true;
+      if (dx < 0) showNext(); else showPrev();
+    }
+  };
+  const onHeroClick = () => { if (swiped.current) { swiped.current = false; return; } showNext(); };
 
   return (
     <section className="oldcar-category-hero" aria-label="보배드림 올드카 소개">
-      <button className="oldcar-category-hero-hit" type="button" onClick={showNext} aria-label="다음 올드카 배너 보기">
+      <button className="oldcar-category-hero-hit" type="button" onClick={onHeroClick} onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { dragStart.current = null; }} aria-label="다음 올드카 배너 보기">
         <img
           key={slide.id}
           className="oldcar-category-hero-media"
