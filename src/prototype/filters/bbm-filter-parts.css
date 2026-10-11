@@ -664,8 +664,10 @@
 .bbm-category-row__icon { flex: none; display: grid; place-items: center; width: 28px; height: 28px; }
 .bbm-category-row__icon img { width: 24px; height: 24px; object-fit: contain; }
 .bbm-category-row__toggle { flex: none; width: 44px; height: 44px; margin-right: -8px; border: 0; background: none; cursor: pointer; display: grid; place-items: center; }
-.bbm-category-row__toggle i { width: 8px; height: 8px; border-right: 1.6px solid #222; border-bottom: 1.6px solid #222; transform: rotate(45deg) translate(-2px, -2px); transition: transform .15s; }
-.bbm-category-row.is-open .bbm-category-row__toggle i { transform: rotate(-135deg) translate(-2px, -2px); }
+/* 초톳 웹 직접 확인(2026-10-11): 닫힌 줄·하위 없는 줄은 오른쪽 `>`, 열린 줄은 아래 `v` */
+.bbm-category-row__toggle i { width: 8px; height: 8px; border-right: 1.6px solid #222; border-top: 1.6px solid #222; transform: rotate(45deg) translate(-1px, 1px); transition: transform .15s; }
+.bbm-category-row.is-open .bbm-category-row__toggle i { transform: rotate(135deg) translate(-1px, 1px); }
+.bbm-category-row__toggle.is-leaf { pointer-events: none; }
 .bbm-category-row .bbm-category-child-pills { padding: 0 0 12px; }
 /* 바탕색 칩: 하위 알약이 없는 줄은 선택하면 이름이 검정 칩으로 바뀐다(초톳 선택 알약과 같은 색) */
 .bbm-category-row.is-selected:not(.is-expandable) .bbm-category-row__name > span:last-child { display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border-radius: 9999px; background: #222; color: #fff; font-size: 14px; font-weight: 500; line-height: 20px; }
