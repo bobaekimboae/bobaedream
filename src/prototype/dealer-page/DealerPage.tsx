@@ -107,6 +107,7 @@ function StoreTab({ cars, openTab }: { cars: Car[]; openTab: (tab: TabId) => voi
       <button type="button" className="dp-link-center" onClick={() => openTab("info")}>정보 더보기</button>
     </section>
     {sections.activity ? null : null}
+    <div className="dp-band" aria-hidden="true" />
     <section className="dp-section dp-inventory">
       <h2 className="dp-title-tall">판매 차량 ({cars.length})</h2>
       <FilterPills />

@@ -1,0 +1,8 @@
+{
+ "cover": ".dp-cover", "statusChip": ".dp-cover span", "logo": ".dp-logo", "shareBtn": ".dp-actions button",
+ "name": ".dp-head h1", "rating": ".dp-rating", "star": ".dp-star", "address": ".dp-address", "stats": ".dp-stats",
+ "tabs": ".dp-tabs", "banner": ".dp-banner-track img", "introTitle": ".dp-intro h2", "policyCard": ".dp-policy-card",
+ "moreLink": ".dp-link-center", "inventoryTitle": ".dp-title-tall", "row": ".dp-row", "rowPhoto": ".dp-row-photo",
+ "rowCopy": ".dp-row-copy", "price": ".dp-row-copy b", "bottomBar": ".dp-bar", "bottomBtn": ".dp-bar a, .dp-bar button",
+ "scroller": ".dp-scroll"
+}

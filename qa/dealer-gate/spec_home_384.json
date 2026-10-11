@@ -1,0 +1,33 @@
+{
+ "source": "https://xe.chotot.com/cua-hang/vinfastvietnam (384x832, measured 2026-10-11 by 시안 작업 마스터)",
+ "note": "y values are relative gaps between consecutive blocks so header height and text length do not matter. tolerance 1px unless stated.",
+ "slots": {
+  "cover":        {"w":384,"h":125},
+  "statusChip":   {"h":29,"radius":"12px","bg":"rgb(34, 34, 34)","fs":"12px","fw":"700"},
+  "logo":         {"w":74,"h":74,"border":"none","offsetFromCoverTop":81},
+  "shareBtn":     {"w":75,"h":24,"radius":"6px","borderColor":"rgb(218, 218, 218)","fs":"12px","fw":"700"},
+  "name":         {"fs":"16px","fw":"700","color":"rgb(34, 34, 34)"},
+  "star":         {"w":16,"h":16,"pitch":20},
+  "address":      {"fs":"14px","fw":"400","lh":"21px","color":"rgb(34, 34, 34)"},
+  "stats":        {"w":360,"h":69,"radius":"8px","borderColor":"rgb(232, 232, 232)"},
+  "tabs":         {"h":40,"sticky":true},
+  "banner":       {"w":318,"h":212,"firstX":16,"pitch":330},
+  "policyCard":   {"w":168,"h":89,"radius":"8px","bg":"rgb(255, 255, 255)","borderColor":"rgb(232, 232, 232)","pitch":180},
+  "moreLink":     {"fs":"14px","fw":"700","color":"rgb(42, 112, 223)"},
+  "row":          {"w":352,"h":169,"photoX":16,"photo":144,"textX":176},
+  "price":        {"fs":"14px","fw":"700","color":"rgb(229, 25, 59)","intentional":"#222 if approved"},
+  "bottomBar":    {"h":56,"fixed":true},
+  "bottomBtn":    {"w":174,"h":32,"radius":"8px"}
+ },
+ "gaps": [
+  ["coverBottom","shareBtnTop",12],
+  ["nameTop","ratingTop",32],
+  ["ratingBottom","addressTop",8],
+  ["addressBottom","statsTop",12],
+  ["statsBottom","tabsTop",12],
+  ["tabsBottom","bannerTop",28,"12 gray band #F4F4F4 + 16"],
+  ["bannerBottom","introTitleTop",24],
+  ["moreLinkBottom","inventoryTitleTop",46,"18 + 12 gray band #F4F4F4 + 16"]
+ ],
+ "bands": [["tabsBottom",12],["moreLinkBottom+18",12]]
+}
