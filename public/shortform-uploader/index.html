@@ -3,237 +3,208 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta
-      name="description"
-      content="보배드림 중고차 매물 등록용 숏폼 촬영 업로더 데모"
-    />
-    <title>보배드림 숏폼 촬영 업로더</title>
+    <meta name="description" content="보배드림 중고차 딜러용 매물 영상 제작 스튜디오" />
+    <title>딜러 영상 스튜디오 | 보배드림</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div id="app">
-      <header class="topbar">
-        <a class="brand" href="#top" aria-label="보배드림 홈">
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="딜러 스튜디오 메뉴">
+        <a class="brand" href="#" aria-label="보배드림 딜러 홈">
           <span class="brand-mark">B</span>
-          <span>보배드림</span>
+          <span class="brand-copy"><strong>보배드림</strong><small>DEALER STUDIO</small></span>
         </a>
-        <nav class="topnav" aria-label="주요 메뉴">
-          <a href="#shortform">숏폼카</a>
-          <a href="#form">중고차</a>
-          <a href="#research">조사표</a>
-          <a class="nav-strong" href="#form">매물등록</a>
+        <nav class="side-nav">
+          <a href="#"><span class="nav-dot"></span>대시보드</a>
+          <a href="#"><span class="nav-dot"></span>내 매물</a>
+          <a class="active" href="#studio"><span class="nav-dot"></span>영상 스튜디오</a>
+          <a href="#"><span class="nav-dot"></span>문의 관리</a>
+          <a href="#"><span class="nav-dot"></span>성과 리포트</a>
         </nav>
-      </header>
+        <div class="studio-credit">
+          <span>이번 달 영상</span>
+          <strong>8 / 20건</strong>
+          <div><i></i></div>
+          <small>12건 남음</small>
+        </div>
+        <div class="dealer-profile">
+          <span class="avatar">서</span>
+          <div><strong>서울오토갤러리</strong><small>딜러 관리자</small></div>
+          <button type="button" aria-label="계정 메뉴">•••</button>
+        </div>
+      </aside>
 
-      <main id="top" class="page-shell">
-        <section id="form" class="phone-stage" aria-labelledby="pageTitle">
-          <div class="status-strip">
-            <div>
-              <p class="eyebrow">58닷컴 등록폼 + Cars24 영상 챕터</p>
-              <h1 id="pageTitle">중고차 매물 등록</h1>
-            </div>
-            <span class="draft-pill" id="draftState">임시저장 대기</span>
+      <main class="main" id="studio">
+        <header class="topbar">
+          <button class="menu-button" type="button" id="menuButton" aria-label="메뉴 열기">메뉴</button>
+          <div class="crumb"><span>영상 스튜디오</span><b>/</b><strong>새 영상 만들기</strong></div>
+          <div class="top-actions">
+            <span class="save-state" id="saveState"><i></i>임시저장 완료</span>
+            <button class="help-button" type="button" id="helpButton">제작 가이드</button>
           </div>
+        </header>
 
-          <div class="progress-block" aria-label="등록 완료도">
-            <div class="progress-copy">
-              <strong id="progressLabel">완료도 0%</strong>
-              <span id="missingLabel">필수 사진과 영상 챕터를 등록하세요</span>
-            </div>
-            <div class="progress-track">
-              <span id="progressBar"></span>
-            </div>
+        <section class="page-head">
+          <div>
+            <span class="kicker">NEW PROJECT</span>
+            <h1>매물 영상 만들기</h1>
+            <p>등록된 차량 사진으로 채널별 판매 영상을 빠르게 제작하세요.</p>
           </div>
-
-          <section class="vehicle-card" aria-labelledby="vehicleTitle">
-            <div class="vehicle-photo" id="heroPreview">
-              <div class="car-outline" aria-hidden="true"></div>
-              <span>대표 이미지</span>
-            </div>
-            <div class="vehicle-meta">
-              <p class="eyebrow">등록 예시 매물</p>
-              <h2 id="vehicleTitle">제네시스 GV80 2.5T AWD</h2>
-              <dl class="meta-grid">
-                <div>
-                  <dt>연식</dt>
-                  <dd>2024년 3월</dd>
-                </div>
-                <div>
-                  <dt>주행</dt>
-                  <dd>18,240km</dd>
-                </div>
-                <div>
-                  <dt>연료</dt>
-                  <dd>가솔린</dd>
-                </div>
-                <div>
-                  <dt>가격</dt>
-                  <dd>6,780만원</dd>
-                </div>
-              </dl>
-            </div>
-          </section>
-
-          <section class="upload-card" aria-labelledby="uploadTitle">
-            <div class="section-head">
-              <div>
-                <h2 id="uploadTitle">사진 및 영상 업로드</h2>
-                <p>첫 이미지는 좌측 전방 45도 사진을 권장합니다.</p>
-              </div>
-              <button class="text-button" type="button" data-action="rules">촬영 규칙 보기</button>
-            </div>
-
-            <div class="entry-grid">
-              <button class="entry-card" type="button" data-open-panel="photo">
-                <span class="entry-icon"><img src="./public/icons/camera.svg" alt="" /></span>
-                <strong>사진 추가</strong>
-                <small><span id="photoCount">0</span>/30장</small>
-              </button>
-              <button class="entry-card" type="button" data-open-panel="video">
-                <span class="entry-icon"><img src="./public/icons/video.svg" alt="" /></span>
-                <strong>영상 추가</strong>
-                <small><span id="videoCount">0</span>/9개</small>
-              </button>
-            </div>
-
-            <div class="mode-tabs" role="tablist" aria-label="촬영 모드">
-              <button class="mode-tab active" type="button" data-mode="template">템플릿형 촬영</button>
-              <button class="mode-tab" type="button" data-mode="freeform">자유형 숏폼</button>
-            </div>
-
-            <div class="notice-row">
-              <span>번호판 가림</span>
-              <button class="switch" type="button" id="plateMaskToggle" aria-pressed="true">
-                <span></span>
-              </button>
-            </div>
-
-            <div class="upload-queue" id="uploadQueue" aria-live="polite"></div>
-          </section>
-
-          <section class="slot-section" aria-labelledby="photoSlotsTitle">
-            <div class="section-head compact">
-              <div>
-                <h2 id="photoSlotsTitle">사진 체크리스트</h2>
-                <p id="photoMissingText">필수 12장 이상 권장</p>
-              </div>
-              <button class="small-button" type="button" data-open-panel="photo">촬영</button>
-            </div>
-            <div class="slot-list" id="photoSlots"></div>
-          </section>
-
-          <section id="shortform" class="slot-section" aria-labelledby="videoSlotsTitle">
-            <div class="section-head compact">
-              <div>
-                <h2 id="videoSlotsTitle">영상 챕터</h2>
-                <p>Cars24 방식으로 섹션별 확인</p>
-              </div>
-              <button class="small-button" type="button" data-open-panel="video">촬영</button>
-            </div>
-            <div class="chapter-grid" id="videoChapters"></div>
-          </section>
+          <button class="close-project" type="button" id="closeProject">나가기</button>
         </section>
 
-        <aside class="viewer-panel" aria-labelledby="viewerTitle">
-          <div class="viewer-card">
-            <div class="viewer-header">
-              <div>
-                <p class="eyebrow">Cars24식 미리보기</p>
-                <h2 id="viewerTitle">매물 영상 투어</h2>
-                <span>GV80 AWD · 18,240km · 가솔린 · 6,780만원</span>
-              </div>
-              <div class="viewer-actions">
-                <button type="button" id="favoriteBtn" aria-pressed="false">♡</button>
-                <button type="button" id="muteBtn" aria-pressed="false">음소거</button>
-              </div>
-            </div>
-            <div class="video-frame" id="viewerFrame">
-              <video id="mainVideo" playsinline controls></video>
-              <div class="empty-video" id="emptyVideo">
-                <img src="./public/icons/video.svg" alt="" />
-                <strong>챕터 영상을 등록하면 여기서 재생됩니다</strong>
-                <span>하단 챕터 탭을 누르면 해당 섹션으로 이동합니다.</span>
-              </div>
-              <span class="chapter-badge" id="currentChapterBadge">Walkaround</span>
-            </div>
-            <div class="viewer-tabs" id="viewerTabs" role="tablist" aria-label="영상 챕터 탭"></div>
-          </div>
+        <ol class="stepper" aria-label="영상 제작 단계">
+          <li class="active" data-step-nav="1"><span>1</span><div><b>차량 선택</b><small>매물 불러오기</small></div></li>
+          <li data-step-nav="2"><span>2</span><div><b>사진 구성</b><small>순서와 표지</small></div></li>
+          <li data-step-nav="3"><span>3</span><div><b>영상 스타일</b><small>템플릿과 음악</small></div></li>
+          <li data-step-nav="4"><span>4</span><div><b>게시 설정</b><small>채널과 문구</small></div></li>
+        </ol>
 
-          <section id="research" class="research-card" aria-labelledby="researchTitle">
-            <h2 id="researchTitle">해외 유사 솔루션 조사</h2>
-            <div class="research-table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>서비스</th>
-                    <th>핵심 기능</th>
-                    <th>적용</th>
-                  </tr>
-                </thead>
-                <tbody id="researchRows"></tbody>
-              </table>
+        <div class="studio-grid">
+          <section class="workspace" aria-live="polite">
+            <div class="step-panel active" data-step-panel="1">
+              <div class="section-title">
+                <div><span>STEP 1</span><h2>영상으로 만들 차량을 선택하세요</h2><p>보배드림에 등록된 매물 정보와 사진을 자동으로 불러옵니다.</p></div>
+                <button class="quiet-button" type="button" id="openInventory">차량 불러오기</button>
+              </div>
+              <article class="selected-vehicle" id="selectedVehicle"></article>
+              <div class="import-note">
+                <span class="note-icon">i</span>
+                <div><strong>매물 수정 내용도 함께 반영됩니다</strong><p>가격, 주행거리, 주요 옵션은 영상 생성 시점의 최신 정보로 표시됩니다.</p></div>
+              </div>
+              <div class="quick-settings">
+                <label><span>영상 제목</span><input id="projectTitle" maxlength="45" value="GV80, 오늘의 추천 매물" /></label>
+                <label><span>담당자 연락처</span><input id="contactNumber" inputmode="tel" value="02-1234-5678" /></label>
+              </div>
             </div>
+
+            <div class="step-panel" data-step-panel="2">
+              <div class="section-title">
+                <div><span>STEP 2</span><h2>보여줄 사진을 구성하세요</h2><p>7~20장을 권장합니다. 첫 사진은 영상 표지로 사용됩니다.</p></div>
+                <div class="media-add-actions">
+                  <label class="quiet-button file-button">사진 추가<input id="imageInput" type="file" accept="image/*" multiple /></label>
+                  <label class="quiet-button file-button">원본 영상 추가<input id="videoInput" type="file" accept="video/*" /></label>
+                </div>
+              </div>
+              <div class="image-toolbar">
+                <div><strong><span id="imageCount">0</span>장 선택</strong><span>화살표로 순서를 조정할 수 있습니다.</span></div>
+                <button type="button" id="resetImages">기본 사진 복원</button>
+              </div>
+              <div class="image-list" id="imageList"></div>
+              <div class="source-video" id="sourceVideo"></div>
+              <div class="shoot-tip"><strong>좋은 영상의 시작</strong><span>외관 → 실내 → 옵션 → 디테일 순서로 구성하면 차량을 이해하기 쉽습니다.</span></div>
+            </div>
+
+            <div class="step-panel" data-step-panel="3">
+              <div class="section-title">
+                <div><span>STEP 3</span><h2>영상 스타일을 선택하세요</h2><p>차량과 판매 채널에 맞는 화면 비율과 분위기를 고르세요.</p></div>
+              </div>
+              <fieldset class="choice-group">
+                <legend>템플릿</legend>
+                <div class="template-grid" id="templateGrid">
+                  <button class="template-card selected" type="button" data-template="clean"><span class="template-swatch clean"><i></i></span><b>클린</b><small>차량 정보가 잘 보이는 기본형</small><em>추천</em></button>
+                  <button class="template-card" type="button" data-template="dynamic"><span class="template-swatch dynamic"><i></i></span><b>다이내믹</b><small>빠른 전환과 강한 가격 강조</small></button>
+                  <button class="template-card" type="button" data-template="premium"><span class="template-swatch premium"><i></i></span><b>프리미엄</b><small>수입·고가 차량에 어울리는 무드</small></button>
+                </div>
+              </fieldset>
+              <fieldset class="choice-group">
+                <legend>화면 비율</legend>
+                <div class="ratio-grid" id="ratioGrid">
+                  <button class="ratio-option selected" type="button" data-ratio="vertical"><span class="ratio-shape vertical"></span><div><b>세로 9:16</b><small>릴스 · 쇼츠</small></div></button>
+                  <button class="ratio-option" type="button" data-ratio="square"><span class="ratio-shape square"></span><div><b>정사각 1:1</b><small>피드 · 카카오</small></div></button>
+                  <button class="ratio-option" type="button" data-ratio="wide"><span class="ratio-shape wide"></span><div><b>가로 16:9</b><small>매물 · 유튜브</small></div></button>
+                </div>
+              </fieldset>
+              <fieldset class="choice-group">
+                <legend>영상 길이</legend>
+                <div class="duration-grid" id="durationGrid">
+                  <button type="button" data-duration="15"><b>15초</b><small>핵심 정보형</small></button>
+                  <button class="selected" type="button" data-duration="30"><b>30초</b><small>균형형 · 추천</small></button>
+                  <button type="button" data-duration="45"><b>45초</b><small>상세 소개형</small></button>
+                </div>
+              </fieldset>
+              <fieldset class="choice-group">
+                <legend>배경 음악</legend>
+                <div class="music-list" id="musicList">
+                  <button class="music-row selected" type="button" data-music="drive"><span class="play-mark">▶</span><div><b>City Drive</b><small>경쾌한 팝 · 32초</small></div><i class="sound-wave"></i><em>선택됨</em></button>
+                  <button class="music-row" type="button" data-music="premium"><span class="play-mark">▶</span><div><b>Premium Motion</b><small>모던 일렉트로닉 · 35초</small></div><i class="sound-wave"></i><em>선택</em></button>
+                  <button class="music-row" type="button" data-music="none"><span class="play-mark">×</span><div><b>음악 없음</b><small>차량 정보만 깔끔하게</small></div><i></i><em>선택</em></button>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="step-panel" data-step-panel="4">
+              <div class="section-title">
+                <div><span>STEP 4</span><h2>게시 채널과 안내 문구를 확인하세요</h2><p>한 번의 제작으로 선택한 채널에 맞는 파일이 함께 준비됩니다.</p></div>
+              </div>
+              <fieldset class="choice-group">
+                <legend>사용 채널</legend>
+                <div class="channel-grid" id="channelGrid">
+                  <label><input type="checkbox" value="bobaedream" checked /><span class="channel-logo bb">B</span><div><b>보배드림 매물</b><small>상세 페이지 영상</small></div></label>
+                  <label><input type="checkbox" value="instagram" checked /><span class="channel-logo in">IN</span><div><b>인스타그램</b><small>Reels 9:16</small></div></label>
+                  <label><input type="checkbox" value="youtube" /><span class="channel-logo yt">YT</span><div><b>유튜브</b><small>Shorts · 일반 영상</small></div></label>
+                  <label><input type="checkbox" value="tiktok" /><span class="channel-logo tk">TK</span><div><b>틱톡</b><small>승인 후 게시</small></div></label>
+                  <label><input type="checkbox" value="download" checked /><span class="channel-logo dl">↓</span><div><b>파일 다운로드</b><small>MP4 원본</small></div></label>
+                </div>
+              </fieldset>
+              <label class="caption-field"><span>게시 문구</span><textarea id="caption" rows="5">무사고 · 1인 소유 제네시스 GV80입니다. 실내외 관리 상태가 좋으며 주요 옵션을 영상으로 확인해 보세요.</textarea><small><b id="captionCount">0</b>/300자</small></label>
+              <div class="render-summary" id="renderSummary"></div>
+              <div class="consent-row"><input id="rightsCheck" type="checkbox" checked /><label for="rightsCheck">차량 사진과 음악을 게시 채널에 사용할 권한을 확인했습니다.</label></div>
+            </div>
+
+            <footer class="workspace-footer">
+              <button class="back-button" type="button" id="backButton">이전</button>
+              <div><span id="stepStatus">1 / 4 단계</span><button class="primary-button" type="button" id="nextButton">사진 구성하기</button></div>
+            </footer>
           </section>
-        </aside>
-      </main>
 
-      <div class="bottom-safe">
-        <button class="primary-action" type="button" id="saveDraftBtn">임시저장</button>
-        <button class="ghost-action" type="button" id="resetBtn">데모 초기화</button>
-      </div>
+          <aside class="preview-panel" aria-label="영상 미리보기">
+            <div class="preview-head"><div><span>LIVE PREVIEW</span><h2>미리보기</h2></div><button type="button" id="refreshPreview">새로 재생</button></div>
+            <div class="phone-wrap">
+              <div class="video-preview vertical clean" id="videoPreview">
+                <img id="previewImage" src="/assets/detail/raw-20.jpeg" alt="영상 미리보기 차량" />
+                <div class="preview-shade"></div>
+                <div class="preview-brand"><span>B</span>보배드림 인증딜러</div>
+                <div class="preview-copy"><small id="previewEyebrow">오늘의 추천 매물</small><strong id="previewVehicle">제네시스 GV80 2.5T AWD</strong><b id="previewPrice">6,780만원</b><span id="previewMeta">2024년 · 18,240km · 가솔린</span></div>
+                <div class="preview-progress"><i id="previewProgress"></i></div>
+                <div class="render-overlay" id="renderOverlay"><div class="spinner"></div><strong>영상 만드는 중</strong><span id="renderPercent">0%</span><small>사진과 차량 정보를 조합하고 있습니다.</small></div>
+                <div class="result-overlay" id="resultOverlay"><span class="result-check">✓</span><strong>영상 시안 준비 완료</strong><small id="resultFilesText">채널별 파일이 준비되었습니다.</small><button type="button" id="downloadResult">결과 확인</button></div>
+              </div>
+            </div>
+            <div class="preview-note"><span id="durationNote">30초 예상</span><span>1080p</span><span>워터마크 없음</span></div>
+            <p class="preview-help">미리보기는 구성 확인용입니다. 최종 영상은 원본 화질로 생성됩니다.</p>
+          </aside>
+        </div>
+      </main>
     </div>
 
-    <section class="capture-panel" id="photoPanel" aria-hidden="true" aria-labelledby="photoPanelTitle">
-      <div class="capture-shell">
-        <div class="capture-top">
-          <button class="close-button" type="button" data-close-panel>닫기</button>
-          <h2 id="photoPanelTitle">사진 촬영</h2>
-          <button class="done-button" type="button" data-close-panel>완료</button>
+    <section class="modal" id="inventoryModal" aria-hidden="true" aria-labelledby="inventoryTitle">
+      <div class="modal-backdrop" data-close-modal></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true">
+        <div class="modal-head"><div><span>MY INVENTORY</span><h2 id="inventoryTitle">내 매물에서 선택</h2></div><button type="button" data-close-modal aria-label="닫기">×</button></div>
+        <div class="vehicle-source-tabs" id="vehicleSourceTabs">
+          <button class="selected" type="button" data-source="inventory">내 매물</button>
+          <button type="button" data-source="plate">차량번호 조회</button>
+          <button type="button" data-source="manual">직접 선택</button>
         </div>
-        <div class="camera-preview">
-          <div class="guide-frame">
-            <div class="car-outline large" aria-hidden="true"></div>
-            <span id="selectedPhotoPill">좌측 전방 45도</span>
-          </div>
-          <button class="mask-chip" type="button" id="panelMaskToggle">번호판 가림 ON</button>
+        <div class="vehicle-source-panel active" data-source-panel="inventory">
+          <label class="search-field"><span>검색</span><input id="vehicleSearch" placeholder="차량명, 차량번호, 매물번호 검색" /></label>
+          <div class="inventory-list" id="inventoryList"></div>
         </div>
-        <div class="capture-controls">
-          <button type="button" class="album-button" data-photo-source="album">앨범</button>
-          <button type="button" class="shutter" data-photo-source="camera" aria-label="사진 촬영"></button>
-          <span class="counter" id="photoCounterPanel">0/30</span>
+        <div class="vehicle-source-panel" data-source-panel="plate">
+          <div class="lookup-card"><label><span>차량번호</span><input id="plateNumber" placeholder="예: 240모3182" /></label><button type="button" id="lookupPlate">기본정보 조회</button></div>
+          <div class="lookup-result" id="plateResult"><span>차량번호를 입력하면 연식·모델 후보를 확인할 수 있습니다.</span></div>
         </div>
-        <div class="capture-carousel" id="photoCarousel"></div>
+        <div class="vehicle-source-panel" data-source-panel="manual">
+          <div class="manual-grid"><label><span>제조사</span><select id="manualMaker"><option>제네시스</option><option>현대</option><option>기아</option><option>BMW</option><option>벤츠</option></select></label><label><span>모델</span><select id="manualModel"><option>GV80</option><option>G80</option><option>GV70</option></select></label><label><span>세부 모델</span><select id="manualTrim"><option>2.5T AWD</option><option>3.5T AWD</option><option>3.0 디젤 AWD</option></select></label><button type="button" id="useManualVehicle">이 정보로 계속</button></div>
+        </div>
       </div>
     </section>
 
-    <section class="capture-panel" id="videoPanel" aria-hidden="true" aria-labelledby="videoPanelTitle">
-      <div class="capture-shell">
-        <div class="capture-top">
-          <button class="close-button" type="button" data-close-panel>닫기</button>
-          <h2 id="videoPanelTitle">차량 영상</h2>
-          <button class="done-button" type="button" data-close-panel>완료</button>
-        </div>
-        <div class="camera-preview video-preview">
-          <div class="guide-frame">
-            <img src="./public/icons/video.svg" alt="" />
-            <span id="selectedVideoPill">외관 한바퀴</span>
-            <strong id="timerText">00:00</strong>
-          </div>
-        </div>
-        <div class="quick-chips" id="quickVideoChips"></div>
-        <div class="capture-controls">
-          <button type="button" class="album-button" data-video-source="album">앨범</button>
-          <button type="button" class="record-button" data-video-source="camera" aria-label="영상 촬영"></button>
-          <span class="counter" id="videoCounterPanel">0/9</span>
-        </div>
-        <div class="capture-carousel video" id="videoCarousel"></div>
-      </div>
+    <section class="guide-drawer" id="guideDrawer" aria-hidden="true">
+      <div class="drawer-head"><div><span>VIDEO GUIDE</span><h2>잘 팔리는 매물 영상 체크</h2></div><button id="closeGuide" type="button">닫기</button></div>
+      <ol><li><b>대표 사진부터</b><span>차량 전체가 선명한 좌측 전방 45도 사진을 첫 장에 놓으세요.</span></li><li><b>구매자가 궁금한 순서</b><span>외관, 실내, 주요 옵션, 휠과 타이어 순서를 권장합니다.</span></li><li><b>정보는 짧고 정확하게</b><span>핵심 옵션 3개와 가격이 3초 안에 보이게 구성합니다.</span></li><li><b>채널에 맞는 비율</b><span>릴스와 쇼츠는 9:16, 매물 상세는 16:9가 가장 안정적입니다.</span></li></ol>
     </section>
-
-    <input id="photoCameraInput" class="sr-only" type="file" accept="image/*" capture="environment" />
-    <input id="photoAlbumInput" class="sr-only" type="file" accept="image/*" multiple />
-    <input id="videoCameraInput" class="sr-only" type="file" accept="video/*" capture="environment" />
-    <input id="videoAlbumInput" class="sr-only" type="file" accept="video/*" />
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="./app.js" defer></script>
