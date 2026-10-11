@@ -1,0 +1,33 @@
+{
+  "spec": {
+    "view": "exact left-facing side profile",
+    "canvas": "640x400 transparent PNG",
+    "visibleWidth": "88-90%",
+    "bottomMargin": "6%",
+    "referenceStyle": "AutoScout24 mobile catalog tone"
+  },
+  "domestic": {
+    "sedan": "Hyundai Grandeur GN7",
+    "hatchback": "Hyundai i30 PD",
+    "wagon": "Hyundai i30 Wagon PD",
+    "coupe": "Hyundai Genesis Coupe BK",
+    "convertible": "Kia Elan (1996-1999)",
+    "suv": "Hyundai Santa Fe MX5",
+    "rv": "Hyundai Staria",
+    "van": "Hyundai Solati (H350)",
+    "pickup": "Hyundai Santa Cruz",
+    "limousine": "Hyundai Equus VI long-wheelbase"
+  },
+  "imported": {
+    "sedan": "Mercedes-Benz E-Class W214",
+    "hatchback": "Mercedes-Benz A-Class W177",
+    "wagon": "Mercedes-Benz E-Class Estate S214",
+    "coupe": "Mercedes-Benz CLE Coupe C236",
+    "convertible": "Mercedes-Benz CLE Cabriolet A236",
+    "suv": "Mercedes-Benz GLE V167",
+    "rv": "Mercedes-Benz V-Class W447",
+    "van": "Mercedes-Benz Sprinter",
+    "pickup": "Mercedes-Benz X-Class",
+    "limousine": "Mercedes-Benz S-Class W223 long-wheelbase"
+  }
+}

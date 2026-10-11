@@ -392,7 +392,7 @@ const pcPriceLinks = [
 ];
 const pcBodyLinks = ["세단", "SUV", "해치백", "스포츠카", "승합"];
 
-type CarBodyPreviewMode = "angle" | "side";
+type CarBodyBrandTheme = "hyundai" | "mercedes";
 
 const carBodyQuickOptions = [
   { label: "세단", assetName: "sedan" },
@@ -407,8 +407,11 @@ const carBodyQuickOptions = [
   { label: "리무진", assetName: "limousine" },
 ] as const;
 
-function carBodyQuickImage(assetName: string, mode: CarBodyPreviewMode) {
-  return asset(`car/body-types/v01/${mode}/body_${assetName}_${mode}_v01.png`);
+function carBodyQuickImage(assetName: string, brand: CarBodyBrandTheme) {
+  if (brand === "hyundai" && assetName === "convertible") {
+    return asset("car/body-types/v02/hyundai/body_convertible_kia_elan_side_v02.png");
+  }
+  return asset(`car/body-types/v02/${brand}/body_${assetName}_${brand}_side_v02.png`);
 }
 
 function PcHeader({ query, setQuery, searchPlaceholder, regionLabel, onOpenRegion, onOpenFavorites, onNotify, catalogRecords, onCatalogFocus, onCatalogChoose }: { query: string; setQuery: (query: string) => void; searchPlaceholder: string; regionLabel: string; onOpenRegion: () => void; onOpenFavorites: () => void; onNotify: (message: string) => void; catalogRecords?: VehicleSearchRecord[] | null; onCatalogFocus?: () => void; onCatalogChoose?: (record: VehicleSearchRecord) => void }) {
@@ -891,7 +894,7 @@ function MarketplaceScreen() {
   const usesUxDepth = Boolean(isTruckCategory && maker) || Boolean(supportsVehicleCatalog && maker && vehicleCatalog.index?.manufacturers.some((item) => item.name === maker));
   const isGuaziQuickStyle = quickFilterStyle === "guazi";
   const quickCardMode = typeof window === "undefined" ? null : new URLSearchParams(window.location.search).get("qfcard");
-  const carBodyPreviewMode: CarBodyPreviewMode = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("bodyview") === "side" ? "side" : "angle";
+  const carBodyBrandTheme: CarBodyBrandTheme = category === "국산차" ? "hyundai" : "mercedes";
   // 과쯔 카드칩 비교 시안: 기존 plain/card 모드는 그대로 두고 모델 뎁스만 가변폭 카드 레일로 비교한다.
   const guaziCardChipPreview = isGuaziQuickStyle && quickCardMode === "guazi-card";
   const guaziCardSidePreview = guaziCardChipPreview
@@ -1955,13 +1958,29 @@ function MarketplaceScreen() {
               // 비교 주소의 &qfcard=card 에서는 같은 로고를 사각 카드칩으로 표시한다.
               const logoSource = luxuryLogoSource();
               return (
-                <section className="depth-rail is-kr-maker is-lux-logo no-label" aria-label={`${category} 브랜드 빠른 선택`} data-luxlogo={logoSource}>
-                  <QuickRailCarousel ariaLabel={`${category} 브랜드`} className="brand-carousel" contentClassName="depth-rail-track">
-                    {luxuryLogoBrands.map((brand, index) => (
-                      <DepthCard key={brand.maker} label={brand.maker} image={<img className={`lux-qf-logo lux-qf-logo--${brand.slug}`} src={asset(luxuryLogoPath(logoSource, index))} alt="" draggable={false} />} mediaKind="brand" selected={maker === brand.maker} onClick={() => applyMakerFilter(brand.maker)} />
-                    ))}
-                  </QuickRailCarousel>
-                </section>
+                <>
+                  {showCarBodyTypeRail ? <section className="depth-rail is-car-body-type no-label" aria-label={`${category} 바디타입 빠른 선택`} data-bodyview="side" data-bodybrand={carBodyBrandTheme}>
+                    <QuickRailCarousel ariaLabel={`${category} 바디타입`} className="brand-carousel" contentClassName="depth-rail-track">
+                      {carBodyQuickOptions.map((option) => (
+                        <DepthCard
+                          key={option.label}
+                          className="is-car-body-depth"
+                          label={option.label}
+                          image={<img src={carBodyQuickImage(option.assetName, carBodyBrandTheme)} alt="" aria-hidden="true" draggable={false} />}
+                          selected={selectedCarBodyTypes.includes(option.label)}
+                          onClick={() => chooseCarBodyType(option.label)}
+                        />
+                      ))}
+                    </QuickRailCarousel>
+                  </section> : null}
+                  <section className="depth-rail is-kr-maker is-lux-logo no-label" aria-label={`${category} 브랜드 빠른 선택`} data-luxlogo={logoSource}>
+                    <QuickRailCarousel ariaLabel={`${category} 브랜드`} className="brand-carousel" contentClassName="depth-rail-track">
+                      {luxuryLogoBrands.map((brand, index) => (
+                        <DepthCard key={brand.maker} label={brand.maker} image={<img className={`lux-qf-logo lux-qf-logo--${brand.slug}`} src={asset(luxuryLogoPath(logoSource, index))} alt="" draggable={false} />} mediaKind="brand" selected={maker === brand.maker} onClick={() => applyMakerFilter(brand.maker)} />
+                      ))}
+                    </QuickRailCarousel>
+                  </section>
+                </>
               );
             }
             const card = (item: { label: string; key: string }) => {
@@ -1977,14 +1996,14 @@ function MarketplaceScreen() {
             };
             return (
               <>
-                {showCarBodyTypeRail ? <section className="depth-rail is-car-body-type no-label" aria-label={`${category} 바디타입 빠른 선택`} data-bodyview={carBodyPreviewMode}>
+                {showCarBodyTypeRail ? <section className="depth-rail is-car-body-type no-label" aria-label={`${category} 바디타입 빠른 선택`} data-bodyview="side" data-bodybrand={carBodyBrandTheme}>
                   <QuickRailCarousel ariaLabel={`${category} 바디타입`} className="brand-carousel" contentClassName="depth-rail-track">
                     {carBodyQuickOptions.map((option) => (
                       <DepthCard
                         key={option.label}
                         className="is-car-body-depth"
                         label={option.label}
-                        image={<img src={carBodyQuickImage(option.assetName, carBodyPreviewMode)} alt="" aria-hidden="true" draggable={false} />}
+                        image={<img src={carBodyQuickImage(option.assetName, carBodyBrandTheme)} alt="" aria-hidden="true" draggable={false} />}
                         selected={selectedCarBodyTypes.includes(option.label)}
                         onClick={() => chooseCarBodyType(option.label)}
                       />
