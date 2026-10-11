@@ -796,3 +796,12 @@
   line-height: 20px;
   white-space: nowrap;
 }
+
+/* AutoScout24 공통 차량 톤
+   승용·바이크·트럭의 원본 명도와 채도 편차를 화면 단계에서 같은
+   밝은 뉴트럴 실버로 정리한다. 형상과 투명 배경은 그대로 유지한다. */
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type .depth-card-media:not(.is-brand) img,
+.marketplace.is-qf-guazi .depth-rail.is-bike-type-row .depth-card-media:not(.is-brand) img,
+.marketplace.is-qf-guazi .depth-rail.is-truck-type-row .depth-card-media:not(.is-brand) img {
+  filter: grayscale(1) sepia(0.035) saturate(0.42) hue-rotate(168deg) brightness(0.96) contrast(1.08);
+}
