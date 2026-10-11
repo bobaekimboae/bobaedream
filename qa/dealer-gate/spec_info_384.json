@@ -1,0 +1,226 @@
+{
+ "source": "https://xe.chotot.com/cua-hang/vinfastvietnam?tab=info (384x832, 2026-10-11 시안 작업 마스터 실측)",
+ "tab": "info",
+ "note": "정보 탭 순서: 배너 → 소개 → 고객 정보 박스(2칸: 응답 속도·운영 기간 / 1줄: 주소) → 정책 카드 2열 격자(간격 12, 카드 폭 168, 안쪽 여백 12, 아이콘 19x20 왼쪽 + 글 오른쪽, 같은 줄 카드 높이 같음)",
+ "slots": {
+  "cover": {
+   "w": 384,
+   "h": 125
+  },
+  "statusChip": {
+   "h": 29,
+   "radius": "12px",
+   "bg": "rgb(34, 34, 34)",
+   "fs": "12px",
+   "fw": "700"
+  },
+  "logo": {
+   "w": 74,
+   "h": 74,
+   "border": "none"
+  },
+  "shareBtn": {
+   "w": 75,
+   "h": 24,
+   "radius": "6px",
+   "borderColor": "rgb(218, 218, 218)",
+   "fs": "12px",
+   "fw": "700"
+  },
+  "name": {
+   "fs": "16px",
+   "fw": "700",
+   "color": "rgb(34, 34, 34)"
+  },
+  "star": {
+   "w": 16,
+   "h": 16,
+   "pitchX": 20
+  },
+  "address": {
+   "fs": "14px",
+   "fw": "400",
+   "lh": "21px",
+   "color": "rgb(34, 34, 34)"
+  },
+  "stats": {
+   "w": 360,
+   "h": 69,
+   "radius": "8px",
+   "borderColor": "rgb(232, 232, 232)"
+  },
+  "tabs": {
+   "h": 40,
+   "borderBottomWidth": "0px"
+  },
+  "tabActive": {
+   "fs": "14px",
+   "fw": "700",
+   "color": "rgb(34, 34, 34)"
+  },
+  "bottomBar": {
+   "h": 56,
+   "pos": "fixed"
+  },
+  "bottomBtn": {
+   "w": 174,
+   "h": 32,
+   "radius": "8px"
+  },
+  "banner": {
+   "w": 318,
+   "h": 212,
+   "x": 16,
+   "radius": "12px",
+   "pitchX": 330
+  },
+  "introTitle": {
+   "fs": "16px",
+   "fw": "700",
+   "color": "rgb(34, 34, 34)"
+  },
+  "introBody": {
+   "fs": "14px",
+   "fw": "400",
+   "lh": "21px",
+   "color": "rgb(34, 34, 34)"
+  },
+  "infoTitle": {
+   "fs": "16px",
+   "fw": "700",
+   "color": "rgb(34, 34, 34)"
+  },
+  "infoBox": {
+   "w": 352,
+   "radius": "8px",
+   "borderColor": "rgb(232, 232, 232)"
+  },
+  "infoCell": {
+   "w": 157,
+   "pitchX": 169,
+   "borderBottomColor": "rgb(232, 232, 232)"
+  },
+  "infoLabel": {
+   "fs": "14px",
+   "fw": "400",
+   "lh": "21px",
+   "color": "rgb(34, 34, 34)",
+   "x": 29
+  },
+  "infoValue": {
+   "fs": "14px",
+   "fw": "700",
+   "lh": "21px",
+   "color": "rgb(34, 34, 34)"
+  },
+  "policyTitle": {
+   "fs": "16px",
+   "fw": "700",
+   "color": "rgb(34, 34, 34)"
+  },
+  "infoPolicyCard": {
+   "w": 168,
+   "radius": "8px",
+   "borderColor": "rgb(232, 232, 232)",
+   "x": 16,
+   "pitchX": 180,
+   "gridRowGap": 12
+  }
+ },
+ "gaps": [
+  [
+   "coverTop",
+   "logoTop",
+   81
+  ],
+  [
+   "coverBottom",
+   "shareBtnTop",
+   12
+  ],
+  [
+   "nameTop",
+   "ratingTop",
+   32
+  ],
+  [
+   "ratingBottom",
+   "addressTop",
+   8
+  ],
+  [
+   "addressBottom",
+   "statsTop",
+   12
+  ],
+  [
+   "statsBottom",
+   "tabsTop",
+   12
+  ],
+  [
+   "tabsBottom",
+   "bannerTop",
+   28
+  ],
+  [
+   "bannerBottom",
+   "introTitleTop",
+   24
+  ],
+  [
+   "infoTitleBottom",
+   "infoBoxTop",
+   12
+  ],
+  [
+   "infoBoxTop",
+   "infoLabelTop",
+   13
+  ],
+  [
+   "infoLabelTop",
+   "infoValueTop",
+   25
+  ],
+  [
+   "infoBoxBottom",
+   "policyTitleTop",
+   12
+  ],
+  [
+   "policyTitleBottom",
+   "infoPolicyCardTop",
+   12
+  ]
+ ],
+ "checks": {
+  "sticky": {
+   "slot": "tabs",
+   "scroll": 600,
+   "min": 0,
+   "max": 120
+  },
+  "band": [
+   {
+    "from": "tabsBottom",
+    "offset": 6,
+    "color": "rgb(244, 244, 244)"
+   }
+  ],
+  "noBroken": true,
+  "noOverflow": 384,
+  "noConsoleError": true
+ },
+ "absent": [
+  "moreLink",
+  "row"
+ ],
+ "present": [
+  "banner",
+  "introTitle",
+  "infoTitle",
+  "infoBox",
+  "infoPolicyCard"
+ ]
+}

@@ -8,12 +8,12 @@ import "./dealer-page.css";
 // 아이콘은 초톳 원본 파일만 쓰고 asset()(= BASE_URL + assets/)으로 연결한다. 번들에 "/assets/" 글자가 남아야 Pages 배포가 경로를 바꾼다.
 const icon = (name: string) => asset(`icons/chotot/${name}`);
 
-type TabId = "store" | "activity" | "inventory" | "reviews" | "info";
+type TabId = "store" | "activity" | "ads" | "reviews" | "info";
 // isActive=false 인 탭·구역은 구조만 두고 화면에서 숨긴다(총괄 규칙 6).
 const tabs: Array<{ id: TabId; label: string; isActive: boolean }> = [
   { id: "store", label: "상점", isActive: true },
   { id: "activity", label: "활동", isActive: false },
-  { id: "inventory", label: "판매 차량", isActive: true },
+  { id: "ads", label: "판매 차량", isActive: true },
   { id: "reviews", label: "평가", isActive: false },
   { id: "info", label: "정보", isActive: true },
 ];
@@ -39,12 +39,16 @@ const MOCK = {
   followers: 26,
   lastActive: "최근 활동 6시간 전",
   bannerCarCount: 4,
+  responseSpeed: "보통 1시간 이내",
+  operatingPeriod: "3년 2개월",
+  address: "서울특별시 서초구 양재대로11길 36, 서울오토갤러리",
 } as const;
 const intro = MOCK.intro;
 const SAFE_NUMBER = MOCK.safeNumber;
 
 const tabFromUrl = (): TabId => {
-  const value = new URLSearchParams(window.location.search).get("tab");
+  const raw = new URLSearchParams(window.location.search).get("tab");
+  const value = raw === "inventory" ? "ads" : raw; // 예전 주소(tab=inventory)도 판매 차량 탭으로 연다
   const found = tabs.find((item) => item.id === value && item.isActive);
   return found ? found.id : "store";
 };
@@ -112,7 +116,7 @@ function StoreTab({ cars, openTab }: { cars: Car[]; openTab: (tab: TabId) => voi
       <h2 className="dp-title-tall">판매 차량 ({cars.length})</h2>
       <FilterPills />
       <InventoryRows cars={cars} limit={5} />
-      <button type="button" className="dp-more-box" onClick={() => openTab("inventory")}>판매 차량 더보기</button>
+      <button type="button" className="dp-more-box" onClick={() => openTab("ads")}>판매 차량 더보기</button>
     </section>
     {sections.reviews ? null : null}
   </>;
@@ -120,21 +124,27 @@ function StoreTab({ cars, openTab }: { cars: Car[]; openTab: (tab: TabId) => voi
 
 function InventoryTab({ cars }: { cars: Car[] }) {
   return <section className="dp-section dp-inventory is-tab">
-    <h2 className="dp-title-tall">판매 차량 ({cars.length})</h2>
+    <h2 className="dp-title-tall" data-qa="adsTitle">판매 차량 ({cars.length})</h2>
     <FilterPills />
     <InventoryRows cars={cars} limit={cars.length} />
   </section>;
 }
 
-function InfoTab() {
+function InfoTab({ cars }: { cars: Car[] }) {
   return <>
+    <Banners cars={cars} />
     <section className="dp-section dp-intro"><h2>소개</h2><p className="is-open">{intro}</p></section>
-    <section className="dp-section dp-policy"><h2>정책 · 혜택</h2><PolicyCards /></section>
-    <section className="dp-section dp-info-list"><h2>상점 정보</h2>
-      <dl>
-        <div><dt>주소</dt><dd>서울특별시 서초구 양재대로11길 36, 서울오토갤러리</dd></div>
-        <div><dt>안심번호</dt><dd>{SAFE_NUMBER}</dd></div>
-      </dl>
+    <section className="dp-section dp-info-customer">
+      <h2 data-qa="infoTitle">고객 정보</h2>
+      <div className="dp-info-box" data-qa="infoBox">
+        <div className="dp-info-cells">
+          <div className="dp-info-cell" data-qa="infoCell"><span className="dp-info-label" data-qa="infoLabel">응답 속도</span><b className="dp-info-value" data-qa="infoValue">{MOCK.responseSpeed}</b></div>
+          <div className="dp-info-cell" data-qa="infoCell"><span className="dp-info-label" data-qa="infoLabel">운영 기간</span><b className="dp-info-value" data-qa="infoValue">{MOCK.operatingPeriod}</b></div>
+        </div>
+        <div className="dp-info-address"><span className="dp-info-label" data-qa="infoLabel">주소</span><b className="dp-info-value" data-qa="infoValue">{MOCK.address}</b></div>
+      </div>
+      <h2 data-qa="policyTitle">정책·혜택</h2>
+      <div className="dp-policy-grid">{policies.map((item) => <div key={item.icon} className="dp-policy-card is-grid" data-qa="infoPolicyCard"><img src={icon(item.icon)} alt="" aria-hidden="true" draggable={false} /><span>{item.text}</span></div>)}</div>
     </section>
   </>;
 }
@@ -191,7 +201,7 @@ export default function DealerPage() {
         </section>
         <nav className="dp-tabs" role="tablist" aria-label="상점 메뉴">{tabs.filter((item) => item.isActive).map((item) => <button key={item.id} type="button" role="tab" aria-selected={tab === item.id} onClick={() => openTab(item.id)}><span>{item.label}</span></button>)}</nav>
         <div className="dp-body">
-          {tab === "store" ? <StoreTab cars={cars} openTab={openTab} /> : tab === "inventory" ? <InventoryTab cars={cars} /> : <InfoTab />}
+          {tab === "store" ? <StoreTab cars={cars} openTab={openTab} /> : tab === "ads" ? <InventoryTab cars={cars} /> : <InfoTab cars={cars} />}
         </div>
       </main>
     </div>

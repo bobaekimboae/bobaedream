@@ -67,3 +67,11 @@
 | 정책 아래 회색 띠 없음 | 흰 여백 46만 있었음 | 18 + 회색 12 + 16 구조 (`.dp-band`) |
 | 탭 고정 안 됨 | sticky 없음 | `position: sticky; top: 48px` (스크롤 600에서 탭 top 48) |
 | 매물 가격색 | #222 (의도적 변경) | 총괄 결정 전까지 그대로 |
+
+---
+## 게이트 v2 결과 (원본 그대로 맞추기, 2026-10-11)
+- 게이트 v2 키트(시안 작업 마스터)를 `qa/dealer-gate/`에 교체. spec 기준값은 수정하지 않음
+- 수정 전(커밋 2c4956c8 로컬 빌드): 홈 PASS 100 / FAIL 6, 판매 차량 PASS 72 / FAIL 9, 정보 PASS 59 / FAIL 21
+- 수정 후(로컬 빌드): 홈 PASS 106 / FAIL 0, 판매 차량 PASS 84 / FAIL 0, 정보 PASS 104 / FAIL 0 (3회 반복 같은 결과)
+- 결과 원본: `qa/dealer-gate/results/v2_local_all.tsv`, 캡처 `reports/claude-dealer-page-rebuild-1011/gate-v2/`
+- 바꾼 것: 탭 아래 선 제거, 배너 모서리 12, 소개 글 #222, 매물 사진 모서리 4, `tab=ads`(판매 차량 탭, `tab=inventory`도 인식), 정보 탭(배너→소개→고객 정보 박스→정책·혜택 2열, 전화번호 줄 없음)

@@ -1,44 +1,49 @@
-// 딜러 화면 자동 비교 게이트 (시안 작업 마스터, 2026-10-11)
-// 사용: node qa/dealer-gate/dealer_gate.mjs <URL> qa/dealer-gate/selectors_dp.json qa/dealer-gate/spec_home_384.json
+// 딜러 화면 자동 게이트 v2 (시안 작업 마스터, 2026-10-11) — 홈·판매 차량·정보 탭 공용
+// 사용: node qa/dealer-gate/dealer_gate.mjs "<딜러 화면 URL(tab 없이)>" [home|ads|info|all]
 import { chromium } from 'playwright';
 import fs from 'fs';
-const url=process.argv[2];
-const sel=JSON.parse(fs.readFileSync(process.argv[3]));
-const spec=JSON.parse(fs.readFileSync(process.argv[4]));
+const dir=new URL('./',import.meta.url);
+const base=process.argv[2];const which=process.argv[3]||'all';
+const tabs=which==='all'?['home','ads','info']:[which];
+const sel=JSON.parse(fs.readFileSync(new URL('selectors_dp.json',dir)));
 const exe=fs.existsSync('/opt/pw-browsers/chromium')?{executablePath:'/opt/pw-browsers/chromium'}:{};
-const b=await chromium.launch(exe);
-const c=await b.newContext({viewport:{width:384,height:832},deviceScaleFactor:2,isMobile:true,hasTouch:true});
-const p=await c.newPage();const errs=[];
-p.on('console',m=>{if(m.type()==='error'&&!/favicon/.test(m.location().url||''))errs.push(m.text())});
-await p.goto(url,{waitUntil:'networkidle',timeout:60000});await p.waitForTimeout(1500);
-const M=await p.evaluate(sel=>{const o={};for(const[k,s]of Object.entries(sel)){const els=[...document.querySelectorAll(s)];o[k]=els.slice(0,8).map(e=>{const r=e.getBoundingClientRect(),c=getComputedStyle(e);return {x:r.left,y:r.top,w:r.width,h:r.height,b:r.bottom,fs:c.fontSize,fw:c.fontWeight,lh:c.lineHeight,color:c.color,bg:c.backgroundColor,radius:c.borderRadius,border:c.borderTopStyle==='none'&&c.borderLeftStyle==='none'?'none':c.borderTopWidth+' '+c.borderTopColor,borderColor:c.borderTopColor,pos:c.position}})}
- o.broken=[...document.querySelectorAll('img')].filter(i=>i.complete&&i.naturalWidth===0).length;o.sw=document.documentElement.scrollWidth;return o},sel);
-const R=[];const ok=(name,act,exp,tol=1)=>{const pass=typeof exp==='number'?Math.abs(act-exp)<=tol:String(act)===String(exp);R.push([pass?'PASS':'FAIL',name,typeof act==='number'?Math.round(act*10)/10:act,exp]);};
-const g=k=>M[k]&&M[k][0];
-const S=spec.slots;
-for(const[k,v]of Object.entries(S)){const e=g(k);if(!e){R.push(['FAIL',k+' 없음','-','selector '+sel[k]]);continue;}
- for(const[f,exp]of Object.entries(v)){if(['w','h'].includes(f))ok(`${k}.${f}`,e[f],exp);
-  else if(['fs','fw','lh','color','bg','radius','borderColor'].includes(f))ok(`${k}.${f}`,e[f],exp);
-  else if(f==='border')ok(`${k}.border`,e.border,exp);}}
-const pitch=(k,exp)=>{const a=M[k];if(a&&a.length>1){let worst=exp;for(let i=1;i<a.length;i++){const d=a[i].x-a[i-1].x;if(Math.abs(d-exp)>Math.abs(worst-exp))worst=d;}ok(k+".pitch(최대 오차)",worst,exp);}};
-pitch('star',S.star.pitch);pitch('banner',S.banner.pitch);pitch('policyCard',S.policyCard.pitch);
-if(g('banner'))ok('banner.firstX',g('banner').x,S.banner.firstX);
-if(g('row')&&g('rowPhoto')){ok('row.photoX',g('rowPhoto').x,S.row.photoX);ok('row.textX',g('rowCopy').x,S.row.textX);}
-if(g('logo')&&g('cover'))ok('logo.offsetFromCoverTop',g('logo').y-g('cover').y,S.logo.offsetFromCoverTop);
-const pt={coverBottom:g('cover')?.b,shareBtnTop:g('shareBtn')?.y,nameTop:g('name')?.y,ratingTop:g('rating')?.y,ratingBottom:g('rating')?.b,addressTop:g('address')?.y,addressBottom:g('address')?.b,statsTop:g('stats')?.y,statsBottom:g('stats')?.b,tabsTop:g('tabs')?.y,tabsBottom:g('tabs')?.b,bannerTop:g('banner')?.y,bannerBottom:g('banner')?.b,introTitleTop:g('introTitle')?.y,moreLinkBottom:g('moreLink')?.b,inventoryTitleTop:g('inventoryTitle')?.y};
-for(const[a,bb,exp]of spec.gaps){if(pt[a]==null||pt[bb]==null){R.push(['FAIL',`gap ${a}→${bb}`,'측정 불가',exp]);continue;}ok(`gap ${a}→${bb}`,pt[bb]-pt[a],exp);}
-const shot=async(y)=>{await p.evaluate(([s,y])=>{const e=document.querySelector(s)||document.scrollingElement;e.scrollTop=y;window.scrollTo(0,y)},[sel.scroller,y]);await p.waitForTimeout(300);};
-const bandAt=async(absY)=>{await shot(Math.max(0,absY-300));return await p.evaluate(([s,absY])=>{const e=document.querySelector(s);const top=e?e.scrollTop:scrollY;const vy=absY-top;const el=document.elementFromPoint(300,vy);let n=el,bg='';while(n&&n!==document.body){const c=getComputedStyle(n).backgroundColor;if(c!=='rgba(0, 0, 0, 0)'){bg=c;break}n=n.parentElement}return bg},[sel.scroller,absY]);};
-if(pt.moreLinkBottom){ok('band after policy (#F4F4F4)',await bandAt(pt.moreLinkBottom+18+6),'rgb(244, 244, 244)');}
-await shot(600);
-const t1=await p.evaluate(s=>{const e=document.querySelector(s);return e?e.getBoundingClientRect().top:null},sel.tabs);
-R.push([t1!==null&&t1>=0&&t1<120?'PASS':'FAIL','tabs sticky (scroll 600 → top)',t1===null?'-':Math.round(t1),'0~120 (헤더 바로 아래)']);
-await p.screenshot({path:'gate_scroll600.png'});
-ok('bottomBar.position',g('bottomBar')?.pos,'fixed');
-ok('broken images',M.broken,0,0);ok('horizontal overflow (scrollWidth)',M.sw,384,0);ok('console errors (favicon 제외)',errs.length,0,0);
+const b=await chromium.launch(exe);let totalFail=0;const out=[['탭','결과','항목','실측','기준']];
+for(const tab of tabs){
+ const spec=JSON.parse(fs.readFileSync(new URL(`spec_${tab}_384.json`,dir)));
+ const c=await b.newContext({viewport:{width:384,height:832},deviceScaleFactor:2,isMobile:true,hasTouch:true});
+ const p=await c.newPage();const errs=[];
+ p.on('console',m=>{if(m.type()==='error'&&!/favicon/.test(m.location().url||''))errs.push(m.text())});
+ const url=tab==='home'?base:base+(base.includes('?')?'&':'?')+'tab='+tab;
+ await p.goto(url,{waitUntil:'networkidle',timeout:60000});await p.waitForTimeout(1500);
+ const M=await p.evaluate(sel=>{const o={};for(const[k,s]of Object.entries(sel)){if(k==='scroller')continue;o[k]=[...document.querySelectorAll(s)].filter(e=>{const r=e.getBoundingClientRect();return r.width>0&&r.height>0}).slice(0,8).map(e=>{const r=e.getBoundingClientRect(),c=getComputedStyle(e);return {x:r.left,y:r.top,w:r.width,h:r.height,b:r.bottom,fs:c.fontSize,fw:c.fontWeight,lh:c.lineHeight,color:c.color,bg:c.backgroundColor,radius:c.borderRadius,border:c.borderTopStyle==='none'&&c.borderLeftStyle==='none'?'none':c.borderTopWidth+' '+c.borderTopColor,borderColor:c.borderTopColor,borderTopColor:c.borderTopColor,borderBottomColor:c.borderBottomColor,borderBottomWidth:c.borderBottomWidth,pos:c.position}})}
+  o.broken=[...document.querySelectorAll('img')].filter(i=>i.complete&&i.naturalWidth===0).length;o.sw=document.documentElement.scrollWidth;return o},sel);
+ const R=[];const ok=(n,a,e,t=1)=>{const pass=typeof e==='number'?(typeof a==='number'&&Math.abs(a-e)<=t):String(a)===String(e);R.push([pass?'PASS':'FAIL',n,typeof a==='number'?Math.round(a*10)/10:a,e]);};
+ const g=k=>M[k]&&M[k][0];
+ for(const k of spec.present||[])R.push([g(k)?'PASS':'FAIL',`있어야 함: ${k}`,g(k)?'있음':'없음','있음']);
+ for(const k of spec.absent||[])R.push([g(k)?'FAIL':'PASS',`없어야 함: ${k}`,g(k)?'있음':'없음','없음']);
+ for(const[k,v]of Object.entries(spec.slots)){const e=g(k);if(!e){if(!(spec.absent||[]).includes(k))R.push(['FAIL',`${k} 없음`,'-',sel[k]]);continue;}
+  for(const[f,exp]of Object.entries(v)){
+   if(['w','h','x'].includes(f))ok(`${k}.${f}`,e[f],exp);
+   else if(f==='pitchX'||f==='pitchY'){const a=M[k];if(a.length>1){const ax=f==='pitchX'?'x':'y';let worst=exp;for(let i=1;i<a.length;i++){const d=a[i][ax]-a[i-1][ax];if(d<=0)continue;if(Math.abs(d-exp)>Math.abs(worst-exp))worst=d;}ok(`${k}.${f}(최대 오차)`,worst,exp);}}
+   else if(f==='gridRowGap'){const a=M[k];if(a.length>2){const r2=a.find(z=>z.y>a[0].b);if(r2)ok(`${k}.gridRowGap`,r2.y-a[0].b,exp);else R.push(['FAIL',`${k}.gridRowGap`,'2줄 아님',exp]);}}
+   else if(f in e)ok(`${k}.${f}`,e[f],exp);}}
+ const pt={};for(const k of Object.keys(M)){const e=g(k);if(e&&typeof e==='object'){pt[k+'Top']=e.y;pt[k+'Bottom']=e.b;}}
+ for(const[a,bb,exp]of spec.gaps){if(pt[a]==null||pt[bb]==null){R.push(['FAIL',`gap ${a}→${bb}`,'측정 불가',exp]);continue;}ok(`gap ${a}→${bb}`,pt[bb]-pt[a],exp);}
+ const scrollTo=async y=>{await p.evaluate(([s,y])=>{const e=document.querySelector(s)||document.scrollingElement;e.scrollTop=y;window.scrollTo(0,y)},[sel.scroller,y]);await p.waitForTimeout(300);};
+ const ch=spec.checks||{};
+ for(const bd of ch.band||[]){const y0=pt[bd.from];if(y0==null){R.push(['FAIL',`band ${bd.from}+${bd.offset}`,'측정 불가',bd.color]);continue;}
+  const abs=y0+bd.offset;await scrollTo(Math.max(0,abs-300));
+  const col=await p.evaluate(([s,abs])=>{const e=document.querySelector(s);const top=e?e.scrollTop:scrollY;const vy=abs-top;let n=document.elementFromPoint(300,vy);while(n&&n!==document.body){const c=getComputedStyle(n),r=n.getBoundingClientRect(),bt=parseFloat(c.borderTopWidth)||0;if(bt&&vy>=r.top&&vy<r.top+bt)return c.borderTopColor;if(c.backgroundColor!=='rgba(0, 0, 0, 0)')return c.backgroundColor;n=n.parentElement}return 'none'},[sel.scroller,abs]);
+  ok(`band ${bd.from}+${bd.offset} 바탕색`,col,bd.color);}
+ if(ch.sticky){const want=(pt[ch.sticky.slot+'Top']||0)+200;await scrollTo(want);const [t,got]=await p.evaluate(([s,sc])=>{const e=document.querySelector(s);const x=document.querySelector(sc);return [e?e.getBoundingClientRect().top:null,x?x.scrollTop:scrollY]},[sel[ch.sticky.slot],sel.scroller]);
+  if(got<want-150)R.push(['PASS',`${ch.sticky.slot} 고정`,'페이지가 짧아 확인 생략',`스크롤 ${Math.round(got)}`]);else R.push([t!==null&&t>=ch.sticky.min&&t<=ch.sticky.max?'PASS':'FAIL',`${ch.sticky.slot} 고정(스크롤 ${Math.round(got)})`,t===null?'-':Math.round(t),`${ch.sticky.min}~${ch.sticky.max}`]);
+  await p.screenshot({path:`gate_${tab}_scrolled.png`});await scrollTo(0);}
+ await p.screenshot({path:`gate_${tab}_top.png`});
+ if(ch.noBroken)ok('깨진 이미지',M.broken,0,0);if(ch.noOverflow)ok('가로 넘침(scrollWidth)',M.sw,ch.noOverflow,0);if(ch.noConsoleError)ok('콘솔 오류(favicon 제외)',errs.length,0,0);
+ const f=R.filter(r=>r[0]==='FAIL').length;totalFail+=f;
+ for(const r of R)out.push([tab,...r]);out.push([tab,'합계',`PASS ${R.length-f} / FAIL ${f}`,'','']);
+ await c.close();}
 await b.close();
-const fail=R.filter(r=>r[0]==='FAIL').length;
-console.log(['결과','항목','실측','기준'].join('\t'));for(const r of R)console.log(r.join('\t'));
-console.log(`\nPASS ${R.length-fail} / FAIL ${fail}`);
-fs.writeFileSync('gate_result.tsv',[['결과','항목','실측','기준'],...R].map(r=>r.join('\t')).join('\n'));
-process.exit(fail?1:0);
+for(const r of out)console.log(r.join('\t'));
+fs.writeFileSync('gate_result.tsv',out.map(r=>r.join('\t')).join('\n'));
+process.exit(totalFail?1:0);
