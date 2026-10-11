@@ -1631,7 +1631,7 @@ const oldCarCategoryCars: Car[] = oldCarListingRows.map((row, index) => {
     title: [row.titleMaker, row.model].filter(Boolean).join(" "),
     trim: row.trim,
     specs: [`${row.year}년식`, mileageText, row.fuel, row.transmission],
-    cardSpec: [String(row.year), mileageText, row.fuel],
+    cardSpec: [String(row.year), mileageText, row.fuel, row.transmission],
     price: `${row.price.toLocaleString("ko-KR")} 만원`,
     place,
     views: 0,
