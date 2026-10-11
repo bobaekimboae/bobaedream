@@ -1,0 +1,141 @@
+.oldcar-category-hero {
+  position: relative;
+  width: calc(100% - 32px);
+  aspect-ratio: 179 / 49;
+  min-height: 88px;
+  max-height: 98px;
+  margin: 12px 16px 10px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #716149;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 12%);
+  color: #fff;
+  isolation: isolate;
+}
+
+.oldcar-category-hero.is-kia { background: #31566a; }
+.oldcar-category-hero.is-daewoo { background: #5d5768; }
+
+.oldcar-category-hero-hit {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.oldcar-category-hero-media {
+  position: absolute;
+  z-index: 1;
+  right: -3%;
+  bottom: -24%;
+  width: 69%;
+  height: 146%;
+  object-fit: contain;
+  object-position: right bottom;
+  filter: drop-shadow(0 5px 7px rgb(0 0 0 / 35%));
+  animation: oldcar-hero-reveal 360ms ease-out both;
+}
+
+.oldcar-category-hero-copy {
+  position: absolute;
+  z-index: 2;
+  inset: 0 auto 0 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 190px;
+  padding-bottom: 2px;
+  text-shadow: 0 1px 7px rgb(0 0 0 / 55%);
+}
+
+.oldcar-category-hero-copy strong {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: -.45px;
+}
+
+.oldcar-category-hero-copy span {
+  margin-top: 2px;
+  color: rgb(255 255 255 / 86%);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: -.2px;
+}
+
+.oldcar-category-hero-dots {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transform: translateX(-50%);
+}
+
+.oldcar-category-hero-dots button {
+  width: 5px;
+  height: 5px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 46%);
+  cursor: pointer;
+}
+
+.oldcar-category-hero-dots button.is-active {
+  width: 14px;
+  border-radius: 3px;
+  background: #fff;
+}
+
+@keyframes oldcar-hero-reveal {
+  from { opacity: .72; transform: translateX(8px) scale(.99); }
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@media (min-width: 768px) {
+  .oldcar-category-hero {
+    width: 100%;
+    min-height: 0;
+    max-height: 132px;
+    margin: 0 0 16px;
+    border-radius: 10px;
+  }
+
+  .oldcar-category-hero-media {
+    right: 1%;
+    width: 61%;
+    height: 152%;
+  }
+
+  .oldcar-category-hero-copy {
+    left: 24px;
+    max-width: 320px;
+  }
+
+  .oldcar-category-hero-copy strong {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .oldcar-category-hero-copy span {
+    margin-top: 3px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oldcar-category-hero-media { animation: none; }
+}

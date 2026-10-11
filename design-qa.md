@@ -1,3 +1,44 @@
+# 올드카 카테고리 헤더 QA · 2026-10-12
+
+- source visual truth: `reports/oldcar-hero-1012/source-supercar-header-390.png`
+- implementation screenshot: `reports/oldcar-hero-1012/implementation-oldcar-header-390.png`
+- focused side-by-side: `reports/oldcar-hero-1012/comparison-supercar-oldcar-390.png`
+- route: `/?qf=guazi&category=올드카&view=feed`
+- viewport: 390 × 844 CSS px, deviceScaleFactor 1
+- compared element size: source 358 × 98px / implementation 358 × 98px
+- state: 첫 번째 슬라이드, light theme
+
+## Findings
+
+- P0/P1/P2 findings: none after the focused comparison.
+- Fonts and typography: 슈퍼카 헤더와 동일한 Pretendard 제목 18/23·700, 설명 12/17·400을 유지했다.
+- Spacing and layout rhythm: 좌우 16px, 상단 12px, 높이 98px, 8px 모서리, 가운데 인디케이터를 동일하게 적용했다.
+- Colors and visual tokens: 쌍용·기아·대우의 시대감을 구분하는 저채도 브라운·블루·퍼플 단색 배경을 사용해 본문과 분리했다.
+- Image quality and asset fidelity: 저장소의 투명 세대 이미지를 재사용해 무쏘·프라이드·에스페로 실차 형상을 유지하고 문자·배경 합성을 추가하지 않았다.
+- Copy and content: `보배드림 올드카`와 `쌍용 · 기아 · 대우 명차 컬렉션`으로 카테고리 정체성을 한 화면 안에 고정했다.
+- Interaction: 6초 순환, 헤더 탭 시 다음 장, 하단 인디케이터 직접 선택을 지원하며 reduced-motion에서는 자동 순환을 중단한다.
+
+## Focused region evidence
+
+슈퍼카 헤더와 올드카 헤더 자체만 같은 358×98px 크기로 붙여 비교했다. 카드 하단 피드 콘텐츠는 판정에서 제외했다.
+
+## Comparison history
+
+- Initial finding: 별도 올드카 헤더가 없어 목록 시작점에서 카테고리 정체성이 드러나지 않았다.
+- Fix: 기존 슈퍼카 헤더의 검증된 슬롯과 계층을 그대로 사용하고 쌍용 무쏘·기아 프라이드·대우 에스페로 3장 순환 콘텐츠를 추가했다.
+- Post-fix evidence: 두 헤더의 실측 크기 358×98px, 텍스트 시작선, 중앙 인디케이터 위치가 일치하며 이미지와 문구가 겹치지 않는다.
+
+## Verification
+
+- `npm run verify:qf`: passed
+- `git diff --check`: passed
+- 모바일 390×844 브라우저 렌더 확인
+- 깨진 이미지 0, 헤더 버튼과 인디케이터 접근성 이름 확인
+
+final result: passed
+
+---
+
 # 피드 판매자 줄 축약 QA · 2026-10-12
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/455d141e-0910-4091-a640-7077b9bf4beb/1-1000017881.jpg`
