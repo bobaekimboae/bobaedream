@@ -1,0 +1,204 @@
+{
+ "source": "https://xe.chotot.com/cua-hang/vinfastvietnam?tab=rating (384x832, 2026-10-11 시안 작업 마스터 실측)",
+ "tab": "rating",
+ "note": "평가 탭: 점수 32 + 큰 별 24 → 평가 칩(가운데 정렬 줄바꿈) → 16 → 회색 띠 16 → 16 → 하위 탭 3개(전체/구매자/판매자) → 후기 카드. 후기 0건이면 빈 상태 그림+문구",
+ "slots": {
+  "cover": {
+   "w": 384,
+   "h": 125
+  },
+  "statusChip": {
+   "h": 29,
+   "radius": "12px",
+   "bg": "rgb(34, 34, 34)",
+   "fs": "12px",
+   "fw": "700"
+  },
+  "logo": {
+   "w": 74,
+   "h": 74,
+   "border": "none"
+  },
+  "shareBtn": {
+   "w": 75,
+   "h": 24,
+   "radius": "6px",
+   "borderColor": "rgb(218, 218, 218)",
+   "fs": "12px",
+   "fw": "700"
+  },
+  "name": {
+   "fs": "16px",
+   "fw": "700",
+   "color": "rgb(34, 34, 34)"
+  },
+  "star": {
+   "w": 16,
+   "h": 16,
+   "pitchX": 20
+  },
+  "address": {
+   "fs": "14px",
+   "fw": "400",
+   "lh": "21px",
+   "color": "rgb(34, 34, 34)"
+  },
+  "stats": {
+   "w": 360,
+   "h": 69,
+   "radius": "8px",
+   "borderColor": "rgb(232, 232, 232)"
+  },
+  "tabs": {
+   "h": 40,
+   "borderBottomWidth": "0px"
+  },
+  "tabActive": {
+   "fs": "14px",
+   "fw": "700",
+   "color": "rgb(34, 34, 34)"
+  },
+  "bottomBar": {
+   "h": 56,
+   "pos": "fixed"
+  },
+  "bottomBtn": {
+   "w": 174,
+   "h": 32,
+   "radius": "8px"
+  },
+  "tabItem": {
+   "count": 5
+  },
+  "ratingScore": {
+   "fs": "32px",
+   "fw": "700",
+   "lh": "48px",
+   "color": "rgb(34, 34, 34)"
+  },
+  "ratingStarBig": {
+   "w": 24,
+   "h": 24,
+   "pitchX": 28
+  },
+  "ratingChip": {
+   "h": 28,
+   "radius": "24px",
+   "bg": "rgb(244, 244, 244)",
+   "fs": "12px",
+   "fw": "400"
+  },
+  "reviewTab": {
+   "h": 40
+  },
+  "reviewCard": {
+   "w": 352,
+   "borderTopColor": "rgb(224, 224, 224)"
+  },
+  "reviewName": {
+   "fs": "14px",
+   "fw": "700",
+   "lh": "21px",
+   "color": "rgb(34, 34, 34)"
+  },
+  "reviewTag": {
+   "h": 28,
+   "radius": "24px",
+   "borderColor": "rgb(155, 155, 155)",
+   "fs": "12px"
+  },
+  "reviewItem": {
+   "w": 308,
+   "h": 67,
+   "radius": "8px",
+   "bg": "rgb(248, 248, 248)"
+  },
+  "reviewItemImg": {
+   "w": 56,
+   "h": 56
+  },
+  "reviewPrice": {
+   "fs": "14px",
+   "fw": "700",
+   "color": "rgb(34, 34, 34)",
+   "note": "가격 검정(사용자 결정)"
+  },
+  "ratingChips": {}
+ },
+ "gaps": [
+  [
+   "coverTop",
+   "logoTop",
+   81
+  ],
+  [
+   "coverBottom",
+   "shareBtnTop",
+   12
+  ],
+  [
+   "nameTop",
+   "ratingTop",
+   32
+  ],
+  [
+   "ratingBottom",
+   "addressTop",
+   8
+  ],
+  [
+   "addressBottom",
+   "statsTop",
+   12
+  ],
+  [
+   "statsBottom",
+   "tabsTop",
+   12
+  ],
+  [
+   "tabsBottom",
+   "ratingScoreTop",
+   28
+  ],
+  [
+   "ratingChipsBottom",
+   "reviewTabTop",
+   48
+  ]
+ ],
+ "checks": {
+  "sticky": {
+   "slot": "tabs",
+   "scroll": 600,
+   "min": 0,
+   "max": 120
+  },
+  "band": [
+   {
+    "from": "tabsBottom",
+    "offset": 6,
+    "color": "rgb(244, 244, 244)"
+   },
+   {
+    "from": "ratingChipsBottom",
+    "offset": 24,
+    "color": "rgb(244, 244, 244)"
+   }
+  ],
+  "noBroken": true,
+  "noOverflow": 384,
+  "noConsoleError": true
+ },
+ "absent": [
+  "banner",
+  "row",
+  "postCard"
+ ],
+ "present": [
+  "ratingScore",
+  "ratingChip",
+  "reviewTab",
+  "reviewCard"
+ ]
+}
