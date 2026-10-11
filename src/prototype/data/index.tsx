@@ -33,6 +33,7 @@ import { truckScenarioImageV02 } from "../truck/scenario-images-v02";
 import { truckSubtypeLabel } from "./truck-format-catalog";
 import { luxuryDealers, luxuryListingRows } from "./luxury-category-v01";
 import { oldCarListingRows } from "./old-car-category-v01";
+import { jdmListingRows } from "./jdm-category-v01";
 import { supercarSheetRows } from "./supercar-sheet-v01";
 import { seoulAutoGalleryRows } from "./seoul-autogallery-v01";
 import deutschAutoworldRowsJson from "./deutsch-autoworld-all-v01.json";
@@ -187,6 +188,7 @@ type Car = {
   /** 올드카 카테고리 가상 매물 v01(차량 › 테마별 중고차 › 올드카). 시트 순번과 가격을 채운 값인지 */
   oldCar?: { number: number; priceFilled: boolean };
   supercarSheet?: boolean;
+  jdm?: boolean;
   listCrop?: [number, number, number, number];
   luxuryCategory?: { number: number; vehicleNumber: string; model: string; generation: string; filled: boolean; certified: boolean };
   uiTest?: {
@@ -355,7 +357,7 @@ const sellerLabel = (car: Car) => {
   if (car.heavy?.isVirtual) return car.dealer;
   if (car.virtualCategory?.isVirtual) return car.dealer;
   if (car.uiTest) return car.dealer;
-  if (car.luxuryCategory || car.seoulAutoGallery || car.realDealer || car.oldCar || car.supercarSheet) return car.dealer;
+  if (car.luxuryCategory || car.seoulAutoGallery || car.realDealer || car.oldCar || car.supercarSheet || car.jdm) return car.dealer;
   if (car.dealer && car.dealer !== sellerScenario.name) return car.dealer;
   const index = ((car.id - 1) % dealerNamePool.length + dealerNamePool.length) % dealerNamePool.length;
   return dealerNamePool[index];
@@ -1658,6 +1660,47 @@ const oldCarCategoryCars: Car[] = oldCarListingRows.map((row, index) => {
     },
   };
 });
+// JDM 카테고리 v01(차량 › 테마별 중고차 › JDM, 2026-10-11): 구글 시트 「JDM」 21대. 사진(원본 그대로)이 있는 18대를 앞에 두고 나머지는 빈 사진 칸으로 뒤에 둔다. 판매자(딜러) · 등록시각은 UI 검증용 가상 값이다.
+const jdmCategoryCars: Car[] = [...jdmListingRows].sort((a, b) => Number(b.image) - Number(a.image) || a.number - b.number).map((row, index, all) => {
+  const photo = row.image ? `cars/jdm-category-v01/jdm-${String(row.number).padStart(2, "0")}.jpg` : "";
+  const mileageText = row.mileage >= 9500 ? `${String(Math.round(row.mileage / 1000) / 10)}만km` : `${row.mileage.toLocaleString("ko-KR")}km`;
+  const place = dealerComplexByRegion[row.region] ?? row.region;
+  return {
+    id: 16_000 + row.number,
+    updateRank: all.length - index,
+    maker: row.maker,
+    modelGroup: row.group,
+    sellerType: "딜러",
+    image: photo,
+    imagePosition: "center center",
+    title: `${row.maker} ${row.model}`,
+    trim: "",
+    specs: [`${row.year}년식`, mileageText, row.fuel, row.transmission],
+    cardSpec: [String(row.year), mileageText, row.fuel, row.transmission],
+    price: row.price === null ? "가격 상담" : `${row.price.toLocaleString("ko-KR")} 만원`,
+    place,
+    views: 0,
+    dealer: `${virtualPersonNames[row.number % virtualPersonNames.length]} 딜러`,
+    stock: 2 + (row.number % 5),
+    posted: `${(index % 9) + 1}일 전`,
+    photos: photo ? 1 : 0,
+    sellerProfile: null,
+    jdm: true,
+    filter: {
+      year: row.year,
+      seats: "전체",
+      condition: "중고",
+      mileage: row.mileage,
+      owners: "전체",
+      transmission: row.transmission,
+      fuel: row.fuel,
+      color: row.color,
+      origin: "수입",
+      body: row.body,
+      video: false,
+    },
+  };
+});
 // 슈퍼카 카테고리는 럭셔리카 전체 목록을 재사용하되 실제 슈퍼카 모델만 노출한다.
 // 브랜드 전체가 슈퍼카인 제조사와, 종합 브랜드의 대표 슈퍼카 모델을 명시적으로 구분해
 // G-클래스·S-클래스·7시리즈·모델 X 같은 럭셔리 일반 모델이 섞이지 않게 한다.
@@ -1760,7 +1803,7 @@ function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
     || category === "자재운반장비" && car.virtualCategory?.category === "자재운반장비"
     || category === "캠핑카" && car.virtualCategory?.category === "캠핑카"
     || category === "부품 · 용품" && car.virtualCategory?.category === "부품 · 용품"
-    || ["올드카", "리스/렌트차량", "럭셔리카", "서울오토갤러리", "도이치오토월드", "슈퍼카", "브랜드 인증중고차", "매매단지별 검색", "팔린매물", "장애인차"].includes(category);
+    || ["올드카", "JDM", "리스/렌트차량", "럭셔리카", "서울오토갤러리", "도이치오토월드", "슈퍼카", "브랜드 인증중고차", "매매단지별 검색", "팔린매물", "장애인차"].includes(category);
   const yearMatch = value.year === "전체"
     || value.year === "2024~2026" && data.year >= 2024
     || value.year === "2021~2023" && data.year >= 2021 && data.year <= 2023
@@ -1868,6 +1911,7 @@ export {
   luxuryUiTestCars,
   luxuryCategoryCars,
   oldCarCategoryCars,
+  jdmCategoryCars,
   supercarCategoryCars,
   seoulAutoGalleryCars,
   deutschAutoworldCars,
