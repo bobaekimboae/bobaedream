@@ -83,7 +83,7 @@ import { BbmPartsGallery } from "../filters/bbm-parts-gallery";
 import { BbmActionBar, BbmFullExcludeAction, BbmFullFilter, BbmFullItem, BbmModal, BbmSheet } from "../filters/bbm-filter-parts";
 import { BBM_MAKER_ITEM, bbmFilterOrder, bbmSidebarItems, bikeFilterOrder, daangnFilterLabel, partsFilterOrder, partsPricePresets, splitDaangnFilterOrder, truckFilterOrder, type BbmFilterItem } from "../filters/bbm-filter-options";
 import { BbmBodyTypeSheet, BbmExpandPanel, BbmModalPanel, BbmSellerTypeSheet, clearBbmItem } from "../filters/bbm-filter-panels";
-import { bbmCategoryGroups, BbmBottomGnb, BbmBrandMenu, BbmCategoryMenu, BbmCategoryPicker, BbmThemeRail, THEME_USED_CAR, BbmHeadlinePreviewLinks, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, BbmTextViewTable, bbmIcon } from "./bbm-list";
+import { bbmCategoryGroups, BbmBottomGnb, BbmBrandMenu, BbmCategoryMenu, BbmCategoryPicker, BbmGroupRail, bbmGroupLabel, BbmHeadlinePreviewLinks, BbmMakerList, BbmMobileOptions, BbmModelList, BbmOneLineCard, BbmResultCard, BbmTextViewTable, bbmIcon } from "./bbm-list";
 import "./qf-pc-view-modes.css";
 import "./qf-m-view-modes.css";
 import { BbmFilterDrawer } from "./bbm-filter-drawer";
@@ -754,6 +754,8 @@ function MarketplaceScreen() {
   const [bbmCategoryOpen, setBbmCategoryOpen] = useState(false);
   const [bbmCategoryDraft, setBbmCategoryDraft] = useState(() => initialFilters.category);
   const [bbmCategoryChild, setBbmCategoryChild] = useState<string | null>(null);
+  // 동그란 카테고리 줄에서 그룹(중고차 · 테마별 중고차 · 캠핑카)을 눌렀을 때 하위 칩 줄을 보여주는 중인 그룹
+  const [groupRail, setGroupRail] = useState<string | null>(null);
   const [bbmCategoryChildDraft, setBbmCategoryChildDraft] = useState<string | null>(null);
   const [bbmFullItem, setBbmFullItem] = useState<BbmFilterItem | "카테고리" | "제조사 · 모델" | null>(() => initialAutohomeMakerSheetPreview() ? "제조사 · 모델" : null);
   const [bbmMakerDraft, setBbmMakerDraft] = useState<string | null>(() => initialAutohomeMakerSheetPreview() ? initialFilters.maker : null);
@@ -1500,10 +1502,10 @@ function MarketplaceScreen() {
   const quickFilterChips: QuickFilterChip[] = ([
     {
       key: "category",
-      label: categoryIsDefault ? "전체차량" : category,
+      label: categoryIsDefault ? (groupRail && !maker ? bbmGroupLabel(groupRail) : "전체차량") : category,
       active: true,
       onClick: () => openQuickFilter("category"),
-      onClear: clearCategoryFilter,
+      onClear: categoryIsDefault && groupRail ? () => setGroupRail(null) : clearCategoryFilter,
     },
     isGuaziQuickStyle && maker ? {
       key: "vehicle-summary",
@@ -1660,8 +1662,9 @@ function MarketplaceScreen() {
   ));
   const categoryTypeBrandList = krTypeTop10(category);
   // 트럭은 형식 → 차급 → 적재중량(톤수)을 확정한 다음 단계에서만 제조사 로고를 노출한다.
-  const showThemePillRail = isGuaziQuickStyle && category === THEME_USED_CAR && !maker;
-  const showGuaziMakerRail = Boolean(isGuaziQuickStyle && !showThemePillRail && (!isTruckCategory || Boolean(selectedTruckSubtype && truckSpecDepthComplete)) && !guaziTrimChosen && !showCategoryQuickRail && !showBikeTypeQuickRail && !showModelQuickRail && !showGenerationQuickRail && !showVariantQuickRail && !showVehicleHeaderRail && (categoryBrandRail.title === "제조사" || category === "바이크" || categoryTypeBrandList));
+  useEffect(() => { setGroupRail(null); }, [category]);
+  const showGroupRail = Boolean(isGuaziQuickStyle && groupRail && categoryIsDefault && !maker);
+  const showGuaziMakerRail = Boolean(isGuaziQuickStyle && (!isTruckCategory || Boolean(selectedTruckSubtype && truckSpecDepthComplete)) && !guaziTrimChosen && !showCategoryQuickRail && !showBikeTypeQuickRail && !showModelQuickRail && !showGenerationQuickRail && !showVariantQuickRail && !showVehicleHeaderRail && (categoryBrandRail.title === "제조사" || category === "바이크" || categoryTypeBrandList));
   // 필터 칩 줄과 퀵필터 레일은 모바일·PC가 같은 마크업을 쓰고, PC에서는 필터 헤더 패널 안으로 위치만 옮긴다.
   const filterShell = (
           <section className={`filter-shell quick-style-${quickFilterStyle}${activeFilterCount ? " has-active-filters" : ""}`} aria-label="중고차 필터">
@@ -1674,7 +1677,7 @@ function MarketplaceScreen() {
   const quickRail = (
           // QF-105: 트림까지 고르면 퀵필터 줄은 닫힌다(칩 [트림 ×] 로 다시 연다)
           // QF-106: ④ 퀵필터 자리는 닫지 않는다 — 계층(제조사 → 모델 → 세부모델 → 트림)이 끝나면 연식 알약 줄
-          showThemePillRail ? <BbmThemeRail onChoose={chooseHierarchyCategory} /> :
+          showGroupRail && groupRail ? <BbmGroupRail groupValue={groupRail} onChoose={chooseHierarchyCategory} /> :
           isHeavyCategory ? <HeavyQuickFilter value={heavySelection} onChange={applyHeavySelection} /> :
           showBikeTypeQuickRail ? <section className="depth-rail no-label is-bike-type-row" aria-label="바이크 유형 빠른 선택">
             <QuickRailCarousel ariaLabel="바이크 유형" className="brand-carousel" contentClassName="depth-rail-track">
@@ -1743,7 +1746,7 @@ function MarketplaceScreen() {
           </section> :
           showYearQuickRail ? <StableYearRow value={bbmValue} onChange={(next) => setBbmFilters(next)} /> :
           // QF-091: 과쯔(개발 시안형)는 퀵필터 0단계 대신 원본 차량 유형 줄. 유형을 고르면 같은 자리가 제조사 레일로 바뀐다
-          showCategoryQuickRail && isGuaziQuickStyle ? <BbmCategoryMenu onChoose={chooseHierarchyCategory} /> : showCategoryQuickRail ? <section className="category-row" aria-label="차량 대카테고리 선택">
+          showCategoryQuickRail && isGuaziQuickStyle ? <BbmCategoryMenu onChoose={chooseHierarchyCategory} onOpenGroup={setGroupRail} /> : showCategoryQuickRail ? <section className="category-row" aria-label="차량 대카테고리 선택">
             <Carousel ariaLabel="차량 대카테고리" className="category-carousel" contentClassName="category-track">
               {vehicleCategories.map((categoryOption) => (
                 <button key={categoryOption.name} className="category-item" type="button" onClick={() => chooseVehicleCategory(categoryOption.name)}>
