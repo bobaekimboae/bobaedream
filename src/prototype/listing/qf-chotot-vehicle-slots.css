@@ -1,0 +1,82 @@
+/* 초톳 모바일 이미지 슬롯 공통 규격.
+   승용 바디타입·바이크 유형·트럭 유형은 같은 64×78 셀과 86px 레일을 사용한다.
+   개별 카테고리 CSS가 바뀌어도 이 파일을 마지막에 불러 슬롯 리듬이 어긋나지 않게 한다. */
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain
+  .depth-rail:is(.is-car-body-type, .is-bike-type-row, .is-truck-type-row),
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain
+  .depth-rail:is(.is-car-body-type, .is-bike-type-row, .is-truck-type-row)
+  .brand-carousel,
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain
+  .depth-rail:is(.is-car-body-type, .is-bike-type-row, .is-truck-type-row)
+  .depth-rail-track {
+  height: 86px;
+  min-height: 86px;
+}
+
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain
+  .bbm-content-head.is-chotot
+  .bbm-quick-slot:has(> .depth-rail:is(.is-car-body-type, .is-bike-type-row, .is-truck-type-row)) {
+  height: 86px;
+}
+
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain
+  .depth-rail:is(.is-car-body-type, .is-bike-type-row, .is-truck-type-row)
+  .depth-rail-track {
+  align-items: flex-start;
+  gap: 8px;
+  padding: 2px 16px 6px;
+}
+
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain
+  .depth-rail:is(.is-car-body-type, .is-bike-type-row)
+  .depth-card:has(> .depth-card-media:not(.is-brand)),
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain
+  .depth-rail.is-truck-image-row.is-truck-type-row
+  .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand)) {
+  box-sizing: border-box;
+  width: 64px;
+  height: 78px;
+  flex: 0 0 64px;
+  padding: 0;
+}
+
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain
+  .depth-rail:is(.is-car-body-type, .is-bike-type-row)
+  .depth-card:has(> .depth-card-media:not(.is-brand))
+  > .depth-card-media:not(.is-brand),
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain
+  .depth-rail.is-truck-image-row.is-truck-type-row
+  .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand))
+  > .depth-card-media:not(.is-brand) {
+  width: 64px;
+  height: 40px;
+  margin: 0;
+}
+
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain
+  .depth-rail:is(.is-car-body-type, .is-bike-type-row)
+  .depth-card:has(> .depth-card-media:not(.is-brand))
+  > .depth-card-label,
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain
+  .depth-rail.is-truck-image-row.is-truck-type-row
+  .depth-card.is-truck-depth:has(> .depth-card-media:not(.is-brand))
+  > .depth-card-label {
+  display: -webkit-box;
+  box-sizing: border-box;
+  width: 64px;
+  height: auto;
+  max-height: 36px;
+  margin-top: 2px;
+  overflow: hidden;
+  color: #595959;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: center;
+  text-overflow: clip;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}

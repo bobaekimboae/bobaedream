@@ -104,6 +104,7 @@ import { QuickRailCarousel } from "./quick-rail-carousel";
 import { truckModelsByMaker } from "../truck/scenario-v09";
 import { HeavyQuickFilter } from "../heavy";
 import "./qf-car-body-types.css";
+import "./qf-chotot-vehicle-slots.css";
 import { SeoulAutoGalleryDealerRail } from "./seoul-auto-gallery-dealer-rail";
 import { SeoulAutoGalleryHeader } from "./seoul-auto-gallery-header";
 import { DeutschAutoworldHeader } from "./deutsch-autoworld-header";
