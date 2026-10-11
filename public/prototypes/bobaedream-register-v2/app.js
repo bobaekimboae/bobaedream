@@ -133,7 +133,9 @@ const chototIcons = {
   "chevron-right": "chotot-listing-register-caret-down.svg",
   photo: "chotot-listing-register-image-upload-color-change.svg",
   camera: "chotot-listing-register-image-upload-color-change.svg",
-  video: "chotot-listing-register-image-upload-color-change.svg",
+  video: "chotot-common-video-play.svg",
+  play: "chotot-common-video-play.svg",
+  "video-play": "chotot-common-video-play.svg",
   "image-upload": "chotot-listing-register-image-upload-color-change.svg",
   image: "chotot-common-image.svg",
   album: "chotot-common-image-attach-gray.svg",
@@ -155,12 +157,11 @@ function icon(name, size = 21) {
     const rotate = iconRotations[name] ? `--icon-rotate:${iconRotations[name]}deg;` : "";
     return `<img class="ui-icon chotot-icon ui-icon-${name}" src="${chototIconBase}${filename}" alt="" aria-hidden="true" style="width:${size}px;height:${size}px;${rotate}" />`;
   }
-  const label = { archive: "임", plus: "+", "scan-face": "가", grip: "모", "rotate-cw": "회", crop: "자", zap: "번", play: "▶" }[name] || "?";
-  return `<span class="ui-icon icon-placeholder ui-icon-${name}" aria-hidden="true" style="width:${size}px;height:${size}px">${label}</span>`;
+  return `<span class="ui-icon icon-placeholder ui-icon-${name}" aria-hidden="true" data-missing-icon="${name}" style="width:${size}px;height:${size}px"></span>`;
 }
 
 function uploadAssetIcon(type, size = 42) {
-  return icon(type === "video" ? "video" : "photo", size);
+  return icon(type === "video" ? "video-play" : "image-upload", size);
 }
 
 function defaultPhotoEdits() {
@@ -746,7 +747,7 @@ function mainView() {
                 ? `<div class="media-card video-result-card">
                     <button class="thumb video-thumb" data-action="video" aria-label="영상 미리보기">
                       <span class="video-thumb-logo">58</span>
-                      <span class="video-thumb-play">${icon("play", 22)}</span>
+                      <span class="video-thumb-play">${icon("video-play", 22)}</span>
                       <span class="video-thumb-time">${formatDuration(totalVideoDuration() || 56)}</span>
                     </button>
                     <button class="delete-chip" data-action="video-delete" aria-label="영상 삭제">${icon("trash-2", 16)}</button>
@@ -1027,7 +1028,7 @@ function videoPreviewView() {
         <span></span>
       </header>
       <div class="merged-video-stage">
-        <button class="merged-play" type="button">${icon("play", 38)}</button>
+        <button class="merged-play" type="button">${icon("video-play", 38)}</button>
         <div class="video-preview-timeline"><span>00:00</span><span>${formatDuration(total)}</span></div>
       </div>
       <div class="preview-segment-strip">
