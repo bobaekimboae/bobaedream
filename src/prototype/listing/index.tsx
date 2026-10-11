@@ -1965,7 +1965,7 @@ function MarketplaceScreen() {
                       {carBodyQuickOptions.map((option) => (
                         <DepthCard
                           key={option.label}
-                          className="is-car-body-depth"
+                          className={`is-car-body-depth is-body-${option.assetName}`}
                           label={option.label}
                           image={<img src={carBodyQuickImage(option.assetName, carBodyBrandTheme)} alt="" aria-hidden="true" draggable={false} />}
                           selected={selectedCarBodyTypes.includes(option.label)}
@@ -2002,7 +2002,7 @@ function MarketplaceScreen() {
                     {carBodyQuickOptions.map((option) => (
                       <DepthCard
                         key={option.label}
-                        className="is-car-body-depth"
+                        className={`is-car-body-depth is-body-${option.assetName}`}
                         label={option.label}
                         image={<img src={carBodyQuickImage(option.assetName, carBodyBrandTheme)} alt="" aria-hidden="true" draggable={false} />}
                         selected={selectedCarBodyTypes.includes(option.label)}

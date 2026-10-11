@@ -797,10 +797,43 @@
   white-space: nowrap;
 }
 
-/* AutoScout24 공통 차량 톤
-   승용·바이크·트럭의 원본 명도와 채도 편차를 화면 단계에서 같은
-   밝은 뉴트럴 실버로 정리한다. 형상과 투명 배경은 그대로 유지한다. */
-.marketplace.is-qf-guazi .depth-rail.is-car-body-type .depth-card-media:not(.is-brand) img,
+/* AutoScout24 승용 바디타입 원본 계조
+   #F0F0F0 highlight / #E8E8E8 surface / #E0E0E0 mid /
+   #D8D8D8 contour / #080808 glass·wheel. 원본에는 청록 hue가 없다.
+   생성 자산의 차종별 중앙 명도를 AutoScout24 120×73 원본에 맞춘다. */
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type {
+  --vehicle-tone-contrast: .92;
+}
+
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type .depth-card-media:not(.is-brand) img {
+  filter: grayscale(1) brightness(var(--vehicle-tone-brightness, 1.24)) contrast(var(--vehicle-tone-contrast));
+}
+
+/* 국산(현대 계열) — AutoScout24 차종별 중앙 명도 보정. */
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type[data-bodybrand="hyundai"] .is-body-sedan { --vehicle-tone-brightness: 1.34; }
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type[data-bodybrand="hyundai"] .is-body-hatchback { --vehicle-tone-brightness: 1.17; }
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type[data-bodybrand="hyundai"] .is-body-wagon { --vehicle-tone-brightness: 1.25; }
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type[data-bodybrand="hyundai"] .is-body-coupe { --vehicle-tone-brightness: 1.30; }
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type[data-bodybrand="hyundai"] .is-body-convertible { --vehicle-tone-brightness: 1.39; }
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type[data-bodybrand="hyundai"] .is-body-suv { --vehicle-tone-brightness: 1.06; }
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type[data-bodybrand="hyundai"] .is-body-rv { --vehicle-tone-brightness: 1.29; }
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type[data-bodybrand="hyundai"] .is-body-van { --vehicle-tone-brightness: 1.15; }
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type[data-bodybrand="hyundai"] .is-body-pickup { --vehicle-tone-brightness: .85; }
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type[data-bodybrand="hyundai"] .is-body-limousine { --vehicle-tone-brightness: 1.23; }
+
+/* 수입(벤츠 계열) — 같은 목표 계조, 원본 명도 차이만 상쇄. */
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type[data-bodybrand="mercedes"] .is-body-sedan { --vehicle-tone-brightness: 1.26; }
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type[data-bodybrand="mercedes"] .is-body-hatchback { --vehicle-tone-brightness: 1.18; }
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type[data-bodybrand="mercedes"] .is-body-wagon { --vehicle-tone-brightness: 1.24; }
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type[data-bodybrand="mercedes"] .is-body-coupe { --vehicle-tone-brightness: 1.38; }
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type[data-bodybrand="mercedes"] .is-body-convertible { --vehicle-tone-brightness: 1.48; }
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type[data-bodybrand="mercedes"] .is-body-suv { --vehicle-tone-brightness: .83; }
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type[data-bodybrand="mercedes"] .is-body-rv { --vehicle-tone-brightness: 1.28; }
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type[data-bodybrand="mercedes"] .is-body-van { --vehicle-tone-brightness: 1.07; }
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type[data-bodybrand="mercedes"] .is-body-pickup { --vehicle-tone-brightness: .74; }
+.marketplace.is-qf-guazi .depth-rail.is-car-body-type[data-bodybrand="mercedes"] .is-body-limousine { --vehicle-tone-brightness: 1.29; }
+
+/* 바이크·트럭은 이번 승용 원본 대조 범위 밖이므로 기존 톤을 유지한다. */
 .marketplace.is-qf-guazi .depth-rail.is-bike-type-row .depth-card-media:not(.is-brand) img,
 .marketplace.is-qf-guazi .depth-rail.is-truck-type-row .depth-card-media:not(.is-brand) img {
   filter: grayscale(1) sepia(0.035) saturate(0.42) hue-rotate(168deg) brightness(0.96) contrast(1.08);
