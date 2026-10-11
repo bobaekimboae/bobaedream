@@ -1,0 +1,228 @@
+{
+ "source": "https://xe.chotot.com/cua-hang/vinfastvietnam (384x832, 2026-10-11 시안 작업 마스터 실측)",
+ "tab": "home",
+ "note": "",
+ "slots": {
+  "cover": {
+   "w": 384,
+   "h": 125
+  },
+  "statusChip": {
+   "h": 29,
+   "radius": "12px",
+   "bg": "rgb(34, 34, 34)",
+   "fs": "12px",
+   "fw": "700"
+  },
+  "logo": {
+   "w": 74,
+   "h": 74,
+   "border": "none"
+  },
+  "shareBtn": {
+   "w": 75,
+   "h": 24,
+   "radius": "6px",
+   "borderColor": "rgb(218, 218, 218)",
+   "fs": "12px",
+   "fw": "700"
+  },
+  "name": {
+   "fs": "16px",
+   "fw": "700",
+   "color": "rgb(34, 34, 34)"
+  },
+  "star": {
+   "w": 16,
+   "h": 16,
+   "pitchX": 20
+  },
+  "address": {
+   "fs": "14px",
+   "fw": "400",
+   "lh": "21px",
+   "color": "rgb(34, 34, 34)"
+  },
+  "stats": {
+   "w": 360,
+   "h": 69,
+   "radius": "8px",
+   "borderColor": "rgb(232, 232, 232)"
+  },
+  "tabs": {
+   "h": 40,
+   "borderBottomWidth": "0px"
+  },
+  "tabActive": {
+   "fs": "14px",
+   "fw": "700",
+   "color": "rgb(34, 34, 34)"
+  },
+  "bottomBar": {
+   "h": 56,
+   "pos": "fixed"
+  },
+  "bottomBtn": {
+   "w": 174,
+   "h": 32,
+   "radius": "8px"
+  },
+  "banner": {
+   "w": 318,
+   "h": 212,
+   "x": 16,
+   "radius": "12px",
+   "pitchX": 330
+  },
+  "introTitle": {
+   "fs": "16px",
+   "fw": "700",
+   "color": "rgb(34, 34, 34)"
+  },
+  "introBody": {
+   "fs": "14px",
+   "fw": "400",
+   "lh": "21px",
+   "color": "rgb(34, 34, 34)"
+  },
+  "policyCard": {
+   "w": 168,
+   "h": 89,
+   "radius": "8px",
+   "bg": "rgb(255, 255, 255)",
+   "borderColor": "rgb(232, 232, 232)",
+   "pitchX": 180
+  },
+  "moreLink": {
+   "fs": "14px",
+   "fw": "700",
+   "color": "rgb(42, 112, 223)"
+  },
+  "inventoryTitle": {
+   "h": 36,
+   "fs": "16px",
+   "fw": "700"
+  },
+  "pill": {
+   "h": 32,
+   "radius": "9999px",
+   "bg": "rgb(244, 244, 244)",
+   "fs": "14px",
+   "fw": "500"
+  },
+  "row": {
+   "w": 352,
+   "h": 169,
+   "pitchY": 169,
+   "borderTopColor": "rgb(232, 232, 232)"
+  },
+  "rowPhoto": {
+   "w": 144,
+   "h": 144,
+   "x": 16,
+   "radius": "4px"
+  },
+  "rowCopy": {
+   "x": 176
+  },
+  "price": {
+   "fs": "14px",
+   "fw": "700",
+   "color": "rgb(34, 34, 34)",
+   "note": "사용자 결정: 가격 검정(#222). 원본 #E5193B"
+  },
+  "rowTime": {
+   "fs": "12px",
+   "fw": "400",
+   "color": "rgb(155, 155, 155)"
+  }
+ },
+ "gaps": [
+  [
+   "coverTop",
+   "logoTop",
+   81
+  ],
+  [
+   "coverBottom",
+   "shareBtnTop",
+   12
+  ],
+  [
+   "nameTop",
+   "ratingTop",
+   32
+  ],
+  [
+   "ratingBottom",
+   "addressTop",
+   8
+  ],
+  [
+   "addressBottom",
+   "statsTop",
+   12
+  ],
+  [
+   "statsBottom",
+   "tabsTop",
+   12
+  ],
+  [
+   "tabsBottom",
+   "bannerTop",
+   28
+  ],
+  [
+   "bannerBottom",
+   "introTitleTop",
+   24
+  ],
+  [
+   "moreLinkBottom",
+   "inventoryTitleTop",
+   46
+  ],
+  [
+   "inventoryTitleBottom",
+   "pillTop",
+   0
+  ],
+  [
+   "pillBottom",
+   "rowTop",
+   16
+  ]
+ ],
+ "checks": {
+  "sticky": {
+   "slot": "tabs",
+   "scroll": 600,
+   "min": 0,
+   "max": 120
+  },
+  "band": [
+   {
+    "from": "tabsBottom",
+    "offset": 6,
+    "color": "rgb(244, 244, 244)"
+   },
+   {
+    "from": "moreLinkBottom",
+    "offset": 24,
+    "color": "rgb(244, 244, 244)"
+   }
+  ],
+  "noBroken": true,
+  "noOverflow": 384,
+  "noConsoleError": true
+ },
+ "absent": [],
+ "present": [
+  "banner",
+  "introTitle",
+  "policyCard",
+  "moreLink",
+  "row"
+ ]
+}

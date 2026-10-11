@@ -1,0 +1,71 @@
+결과	항목	실측	기준
+PASS	cover.w	384	384
+PASS	cover.h	125	125
+PASS	statusChip.h	29	29
+PASS	statusChip.radius	12px	12px
+PASS	statusChip.bg	rgb(34, 34, 34)	rgb(34, 34, 34)
+PASS	statusChip.fs	12px	12px
+PASS	statusChip.fw	700	700
+PASS	logo.w	74	74
+PASS	logo.h	74	74
+PASS	logo.border	none	none
+PASS	shareBtn.w	75	75
+PASS	shareBtn.h	24	24
+PASS	shareBtn.radius	6px	6px
+PASS	shareBtn.borderColor	rgb(218, 218, 218)	rgb(218, 218, 218)
+PASS	shareBtn.fs	12px	12px
+PASS	shareBtn.fw	700	700
+PASS	name.fs	16px	16px
+PASS	name.fw	700	700
+PASS	name.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+PASS	star.w	16	16
+PASS	star.h	16	16
+PASS	address.fs	14px	14px
+PASS	address.fw	400	400
+PASS	address.lh	21px	21px
+PASS	address.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+PASS	stats.w	360	360
+PASS	stats.h	69	69
+PASS	stats.radius	8px	8px
+PASS	stats.borderColor	rgb(232, 232, 232)	rgb(232, 232, 232)
+PASS	tabs.h	41	40
+PASS	banner.w	318	318
+PASS	banner.h	212	212
+PASS	policyCard.w	168	168
+PASS	policyCard.h	89	89
+PASS	policyCard.radius	8px	8px
+PASS	policyCard.bg	rgb(255, 255, 255)	rgb(255, 255, 255)
+PASS	policyCard.borderColor	rgb(232, 232, 232)	rgb(232, 232, 232)
+PASS	moreLink.fs	14px	14px
+PASS	moreLink.fw	700	700
+PASS	moreLink.color	rgb(42, 112, 223)	rgb(42, 112, 223)
+PASS	row.w	352	352
+PASS	row.h	169	169
+PASS	price.fs	14px	14px
+PASS	price.fw	700	700
+FAIL	price.color	rgb(34, 34, 34)	rgb(229, 25, 59)
+PASS	bottomBar.h	56	56
+PASS	bottomBtn.w	174	174
+PASS	bottomBtn.h	32	32
+PASS	bottomBtn.radius	8px	8px
+PASS	star.pitch(최대 오차)	20	20
+PASS	banner.pitch(최대 오차)	330	330
+PASS	policyCard.pitch(최대 오차)	180	180
+PASS	banner.firstX	16	16
+PASS	row.photoX	16	16
+PASS	row.textX	176	176
+PASS	logo.offsetFromCoverTop	81	81
+PASS	gap coverBottom→shareBtnTop	12	12
+PASS	gap nameTop→ratingTop	32	32
+PASS	gap ratingBottom→addressTop	8	8
+PASS	gap addressBottom→statsTop	12	12
+PASS	gap statsBottom→tabsTop	12	12
+PASS	gap tabsBottom→bannerTop	28	28
+PASS	gap bannerBottom→introTitleTop	24	24
+PASS	gap moreLinkBottom→inventoryTitleTop	46	46
+PASS	band after policy (#F4F4F4)	rgb(244, 244, 244)	rgb(244, 244, 244)
+PASS	tabs sticky (scroll 600 → top)	48	0~120 (헤더 바로 아래)
+PASS	bottomBar.position	fixed	fixed
+PASS	broken images	0	0
+PASS	horizontal overflow (scrollWidth)	384	384
+PASS	console errors (favicon 제외)	0	0

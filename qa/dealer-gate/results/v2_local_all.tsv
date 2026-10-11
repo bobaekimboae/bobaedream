@@ -1,0 +1,298 @@
+탭	결과	항목	실측	기준
+home	PASS	있어야 함: banner	있음	있음
+home	PASS	있어야 함: introTitle	있음	있음
+home	PASS	있어야 함: policyCard	있음	있음
+home	PASS	있어야 함: moreLink	있음	있음
+home	PASS	있어야 함: row	있음	있음
+home	PASS	cover.w	384	384
+home	PASS	cover.h	125	125
+home	PASS	statusChip.h	29	29
+home	PASS	statusChip.radius	12px	12px
+home	PASS	statusChip.bg	rgb(34, 34, 34)	rgb(34, 34, 34)
+home	PASS	statusChip.fs	12px	12px
+home	PASS	statusChip.fw	700	700
+home	PASS	logo.w	74	74
+home	PASS	logo.h	74	74
+home	PASS	logo.border	none	none
+home	PASS	shareBtn.w	75	75
+home	PASS	shareBtn.h	24	24
+home	PASS	shareBtn.radius	6px	6px
+home	PASS	shareBtn.borderColor	rgb(218, 218, 218)	rgb(218, 218, 218)
+home	PASS	shareBtn.fs	12px	12px
+home	PASS	shareBtn.fw	700	700
+home	PASS	name.fs	16px	16px
+home	PASS	name.fw	700	700
+home	PASS	name.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+home	PASS	star.w	16	16
+home	PASS	star.h	16	16
+home	PASS	star.pitchX(최대 오차)	20	20
+home	PASS	address.fs	14px	14px
+home	PASS	address.fw	400	400
+home	PASS	address.lh	21px	21px
+home	PASS	address.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+home	PASS	stats.w	360	360
+home	PASS	stats.h	69	69
+home	PASS	stats.radius	8px	8px
+home	PASS	stats.borderColor	rgb(232, 232, 232)	rgb(232, 232, 232)
+home	PASS	tabs.h	40	40
+home	PASS	tabs.borderBottomWidth	0px	0px
+home	PASS	tabActive.fs	14px	14px
+home	PASS	tabActive.fw	700	700
+home	PASS	tabActive.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+home	PASS	bottomBar.h	56	56
+home	PASS	bottomBar.pos	fixed	fixed
+home	PASS	bottomBtn.w	174	174
+home	PASS	bottomBtn.h	32	32
+home	PASS	bottomBtn.radius	8px	8px
+home	PASS	banner.w	318	318
+home	PASS	banner.h	212	212
+home	PASS	banner.x	16	16
+home	PASS	banner.radius	12px	12px
+home	PASS	banner.pitchX(최대 오차)	330	330
+home	PASS	introTitle.fs	16px	16px
+home	PASS	introTitle.fw	700	700
+home	PASS	introTitle.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+home	PASS	introBody.fs	14px	14px
+home	PASS	introBody.fw	400	400
+home	PASS	introBody.lh	21px	21px
+home	PASS	introBody.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+home	PASS	policyCard.w	168	168
+home	PASS	policyCard.h	89	89
+home	PASS	policyCard.radius	8px	8px
+home	PASS	policyCard.bg	rgb(255, 255, 255)	rgb(255, 255, 255)
+home	PASS	policyCard.borderColor	rgb(232, 232, 232)	rgb(232, 232, 232)
+home	PASS	policyCard.pitchX(최대 오차)	180	180
+home	PASS	moreLink.fs	14px	14px
+home	PASS	moreLink.fw	700	700
+home	PASS	moreLink.color	rgb(42, 112, 223)	rgb(42, 112, 223)
+home	PASS	inventoryTitle.h	36	36
+home	PASS	inventoryTitle.fs	16px	16px
+home	PASS	inventoryTitle.fw	700	700
+home	PASS	pill.h	32	32
+home	PASS	pill.radius	9999px	9999px
+home	PASS	pill.bg	rgb(244, 244, 244)	rgb(244, 244, 244)
+home	PASS	pill.fs	14px	14px
+home	PASS	pill.fw	500	500
+home	PASS	row.w	352	352
+home	PASS	row.h	169	169
+home	PASS	row.pitchY(최대 오차)	169	169
+home	PASS	row.borderTopColor	rgb(232, 232, 232)	rgb(232, 232, 232)
+home	PASS	rowPhoto.w	144	144
+home	PASS	rowPhoto.h	144	144
+home	PASS	rowPhoto.x	16	16
+home	PASS	rowPhoto.radius	4px	4px
+home	PASS	rowCopy.x	176	176
+home	PASS	price.fs	14px	14px
+home	PASS	price.fw	700	700
+home	PASS	price.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+home	PASS	rowTime.fs	12px	12px
+home	PASS	rowTime.fw	400	400
+home	PASS	rowTime.color	rgb(155, 155, 155)	rgb(155, 155, 155)
+home	PASS	gap coverTop→logoTop	81	81
+home	PASS	gap coverBottom→shareBtnTop	12	12
+home	PASS	gap nameTop→ratingTop	32	32
+home	PASS	gap ratingBottom→addressTop	8	8
+home	PASS	gap addressBottom→statsTop	12	12
+home	PASS	gap statsBottom→tabsTop	12	12
+home	PASS	gap tabsBottom→bannerTop	28	28
+home	PASS	gap bannerBottom→introTitleTop	24	24
+home	PASS	gap moreLinkBottom→inventoryTitleTop	46	46
+home	PASS	gap inventoryTitleBottom→pillTop	0	0
+home	PASS	gap pillBottom→rowTop	16	16
+home	PASS	band tabsBottom+6 바탕색	rgb(244, 244, 244)	rgb(244, 244, 244)
+home	PASS	band moreLinkBottom+24 바탕색	rgb(244, 244, 244)	rgb(244, 244, 244)
+home	PASS	tabs 고정(스크롤 599)	48	0~120
+home	PASS	깨진 이미지	0	0
+home	PASS	가로 넘침(scrollWidth)	384	384
+home	PASS	콘솔 오류(favicon 제외)	0	0
+home	합계	PASS 106 / FAIL 0		
+ads	PASS	있어야 함: adsTitle	있음	있음
+ads	PASS	있어야 함: pill	있음	있음
+ads	PASS	있어야 함: row	있음	있음
+ads	PASS	없어야 함: banner	없음	없음
+ads	PASS	없어야 함: introTitle	없음	없음
+ads	PASS	없어야 함: moreLink	없음	없음
+ads	PASS	cover.w	384	384
+ads	PASS	cover.h	125	125
+ads	PASS	statusChip.h	29	29
+ads	PASS	statusChip.radius	12px	12px
+ads	PASS	statusChip.bg	rgb(34, 34, 34)	rgb(34, 34, 34)
+ads	PASS	statusChip.fs	12px	12px
+ads	PASS	statusChip.fw	700	700
+ads	PASS	logo.w	74	74
+ads	PASS	logo.h	74	74
+ads	PASS	logo.border	none	none
+ads	PASS	shareBtn.w	75	75
+ads	PASS	shareBtn.h	24	24
+ads	PASS	shareBtn.radius	6px	6px
+ads	PASS	shareBtn.borderColor	rgb(218, 218, 218)	rgb(218, 218, 218)
+ads	PASS	shareBtn.fs	12px	12px
+ads	PASS	shareBtn.fw	700	700
+ads	PASS	name.fs	16px	16px
+ads	PASS	name.fw	700	700
+ads	PASS	name.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+ads	PASS	star.w	16	16
+ads	PASS	star.h	16	16
+ads	PASS	star.pitchX(최대 오차)	20	20
+ads	PASS	address.fs	14px	14px
+ads	PASS	address.fw	400	400
+ads	PASS	address.lh	21px	21px
+ads	PASS	address.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+ads	PASS	stats.w	360	360
+ads	PASS	stats.h	69	69
+ads	PASS	stats.radius	8px	8px
+ads	PASS	stats.borderColor	rgb(232, 232, 232)	rgb(232, 232, 232)
+ads	PASS	tabs.h	40	40
+ads	PASS	tabs.borderBottomWidth	0px	0px
+ads	PASS	tabActive.fs	14px	14px
+ads	PASS	tabActive.fw	700	700
+ads	PASS	tabActive.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+ads	PASS	bottomBar.h	56	56
+ads	PASS	bottomBar.pos	fixed	fixed
+ads	PASS	bottomBtn.w	174	174
+ads	PASS	bottomBtn.h	32	32
+ads	PASS	bottomBtn.radius	8px	8px
+ads	PASS	adsTitle.h	36	36
+ads	PASS	adsTitle.fs	16px	16px
+ads	PASS	adsTitle.fw	700	700
+ads	PASS	adsTitle.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+ads	PASS	pill.h	32	32
+ads	PASS	pill.radius	9999px	9999px
+ads	PASS	pill.bg	rgb(244, 244, 244)	rgb(244, 244, 244)
+ads	PASS	pill.fs	14px	14px
+ads	PASS	pill.fw	500	500
+ads	PASS	row.w	352	352
+ads	PASS	row.h	169	169
+ads	PASS	row.pitchY(최대 오차)	169	169
+ads	PASS	row.borderTopColor	rgb(232, 232, 232)	rgb(232, 232, 232)
+ads	PASS	rowPhoto.w	144	144
+ads	PASS	rowPhoto.h	144	144
+ads	PASS	rowPhoto.x	16	16
+ads	PASS	rowPhoto.radius	4px	4px
+ads	PASS	rowCopy.x	176	176
+ads	PASS	price.fs	14px	14px
+ads	PASS	price.fw	700	700
+ads	PASS	price.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+ads	PASS	rowTime.fs	12px	12px
+ads	PASS	rowTime.fw	400	400
+ads	PASS	rowTime.color	rgb(155, 155, 155)	rgb(155, 155, 155)
+ads	PASS	gap coverTop→logoTop	81	81
+ads	PASS	gap coverBottom→shareBtnTop	12	12
+ads	PASS	gap nameTop→ratingTop	32	32
+ads	PASS	gap ratingBottom→addressTop	8	8
+ads	PASS	gap addressBottom→statsTop	12	12
+ads	PASS	gap statsBottom→tabsTop	12	12
+ads	PASS	gap tabsBottom→adsTitleTop	28	28
+ads	PASS	gap adsTitleBottom→pillTop	0	0
+ads	PASS	gap pillBottom→rowTop	16	16
+ads	PASS	band tabsBottom+6 바탕색	rgb(244, 244, 244)	rgb(244, 244, 244)
+ads	PASS	tabs 고정(스크롤 599)	48	0~120
+ads	PASS	깨진 이미지	0	0
+ads	PASS	가로 넘침(scrollWidth)	384	384
+ads	PASS	콘솔 오류(favicon 제외)	0	0
+ads	합계	PASS 84 / FAIL 0		
+info	PASS	있어야 함: banner	있음	있음
+info	PASS	있어야 함: introTitle	있음	있음
+info	PASS	있어야 함: infoTitle	있음	있음
+info	PASS	있어야 함: infoBox	있음	있음
+info	PASS	있어야 함: infoPolicyCard	있음	있음
+info	PASS	없어야 함: moreLink	없음	없음
+info	PASS	없어야 함: row	없음	없음
+info	PASS	cover.w	384	384
+info	PASS	cover.h	125	125
+info	PASS	statusChip.h	29	29
+info	PASS	statusChip.radius	12px	12px
+info	PASS	statusChip.bg	rgb(34, 34, 34)	rgb(34, 34, 34)
+info	PASS	statusChip.fs	12px	12px
+info	PASS	statusChip.fw	700	700
+info	PASS	logo.w	74	74
+info	PASS	logo.h	74	74
+info	PASS	logo.border	none	none
+info	PASS	shareBtn.w	75	75
+info	PASS	shareBtn.h	24	24
+info	PASS	shareBtn.radius	6px	6px
+info	PASS	shareBtn.borderColor	rgb(218, 218, 218)	rgb(218, 218, 218)
+info	PASS	shareBtn.fs	12px	12px
+info	PASS	shareBtn.fw	700	700
+info	PASS	name.fs	16px	16px
+info	PASS	name.fw	700	700
+info	PASS	name.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+info	PASS	star.w	16	16
+info	PASS	star.h	16	16
+info	PASS	star.pitchX(최대 오차)	20	20
+info	PASS	address.fs	14px	14px
+info	PASS	address.fw	400	400
+info	PASS	address.lh	21px	21px
+info	PASS	address.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+info	PASS	stats.w	360	360
+info	PASS	stats.h	69	69
+info	PASS	stats.radius	8px	8px
+info	PASS	stats.borderColor	rgb(232, 232, 232)	rgb(232, 232, 232)
+info	PASS	tabs.h	40	40
+info	PASS	tabs.borderBottomWidth	0px	0px
+info	PASS	tabActive.fs	14px	14px
+info	PASS	tabActive.fw	700	700
+info	PASS	tabActive.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+info	PASS	bottomBar.h	56	56
+info	PASS	bottomBar.pos	fixed	fixed
+info	PASS	bottomBtn.w	174	174
+info	PASS	bottomBtn.h	32	32
+info	PASS	bottomBtn.radius	8px	8px
+info	PASS	banner.w	318	318
+info	PASS	banner.h	212	212
+info	PASS	banner.x	16	16
+info	PASS	banner.radius	12px	12px
+info	PASS	banner.pitchX(최대 오차)	330	330
+info	PASS	introTitle.fs	16px	16px
+info	PASS	introTitle.fw	700	700
+info	PASS	introTitle.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+info	PASS	introBody.fs	14px	14px
+info	PASS	introBody.fw	400	400
+info	PASS	introBody.lh	21px	21px
+info	PASS	introBody.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+info	PASS	infoTitle.fs	16px	16px
+info	PASS	infoTitle.fw	700	700
+info	PASS	infoTitle.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+info	PASS	infoBox.w	352	352
+info	PASS	infoBox.radius	8px	8px
+info	PASS	infoBox.borderColor	rgb(232, 232, 232)	rgb(232, 232, 232)
+info	PASS	infoCell.w	157	157
+info	PASS	infoCell.pitchX(최대 오차)	169	169
+info	PASS	infoCell.borderBottomColor	rgb(232, 232, 232)	rgb(232, 232, 232)
+info	PASS	infoLabel.fs	14px	14px
+info	PASS	infoLabel.fw	400	400
+info	PASS	infoLabel.lh	21px	21px
+info	PASS	infoLabel.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+info	PASS	infoLabel.x	29	29
+info	PASS	infoValue.fs	14px	14px
+info	PASS	infoValue.fw	700	700
+info	PASS	infoValue.lh	21px	21px
+info	PASS	infoValue.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+info	PASS	policyTitle.fs	16px	16px
+info	PASS	policyTitle.fw	700	700
+info	PASS	policyTitle.color	rgb(34, 34, 34)	rgb(34, 34, 34)
+info	PASS	infoPolicyCard.w	168	168
+info	PASS	infoPolicyCard.radius	8px	8px
+info	PASS	infoPolicyCard.borderColor	rgb(232, 232, 232)	rgb(232, 232, 232)
+info	PASS	infoPolicyCard.x	16	16
+info	PASS	infoPolicyCard.pitchX(최대 오차)	180	180
+info	PASS	infoPolicyCard.gridRowGap	12	12
+info	PASS	gap coverTop→logoTop	81	81
+info	PASS	gap coverBottom→shareBtnTop	12	12
+info	PASS	gap nameTop→ratingTop	32	32
+info	PASS	gap ratingBottom→addressTop	8	8
+info	PASS	gap addressBottom→statsTop	12	12
+info	PASS	gap statsBottom→tabsTop	12	12
+info	PASS	gap tabsBottom→bannerTop	28	28
+info	PASS	gap bannerBottom→introTitleTop	24	24
+info	PASS	gap infoTitleBottom→infoBoxTop	12	12
+info	PASS	gap infoBoxTop→infoLabelTop	13	13
+info	PASS	gap infoLabelTop→infoValueTop	25	25
+info	PASS	gap infoBoxBottom→policyTitleTop	12	12
+info	PASS	gap policyTitleBottom→infoPolicyCardTop	12	12
+info	PASS	band tabsBottom+6 바탕색	rgb(244, 244, 244)	rgb(244, 244, 244)
+info	PASS	tabs 고정(스크롤 599)	48	0~120
+info	PASS	깨진 이미지	0	0
+info	PASS	가로 넘침(scrollWidth)	384	384
+info	PASS	콘솔 오류(favicon 제외)	0	0
+info	합계	PASS 104 / FAIL 0		
