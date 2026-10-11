@@ -1656,6 +1656,14 @@ const oldCarCategoryCars: Car[] = oldCarListingRows.map((row, index) => {
     },
   };
 });
+// 슈퍼카 카테고리는 럭셔리카 전체 목록을 재사용하되 실제 슈퍼카 모델만 노출한다.
+// 브랜드 전체가 슈퍼카인 제조사와, 종합 브랜드의 대표 슈퍼카 모델을 명시적으로 구분해
+// G-클래스·S-클래스·7시리즈·모델 X 같은 럭셔리 일반 모델이 섞이지 않게 한다.
+const supercarOnlyMakers = new Set(["페라리", "람보르기니", "맥라렌", "부가티", "코닉세그", "파가니"]);
+const supercarOnlyModels = new Set(["포르쉐|911", "마세라티|MC20", "아우디|R8", "애스턴마틴|밴티지"]);
+const supercarCategoryCars: Car[] = luxuryCategoryCars.filter((car) =>
+  supercarOnlyMakers.has(car.maker) || supercarOnlyModels.has(`${car.maker}|${car.modelGroup ?? ""}`),
+);
 
 // 서울오토갤러리 카테고리(차량 › 중고차 › 서울오토갤러리, 2026-10-10): 시트 「서울오토갤러리」 실데이터(사진 5장 · 실제 상사명 · 실제 딜러명). 위치는 서울 서초구 · 서울오토갤러리
 const seoulAutoGalleryMileageText = (km: number) => km >= 9500 ? `${String(Math.round(km / 1000) / 10)}만km` : `${km.toLocaleString("ko-KR")}km`;
@@ -1813,6 +1821,7 @@ export {
   luxuryUiTestCars,
   luxuryCategoryCars,
   oldCarCategoryCars,
+  supercarCategoryCars,
   seoulAutoGalleryCars,
   deutschAutoworldCars,
   isDesktopPreview,
