@@ -1,0 +1,127 @@
+.supercar-category-hero {
+  position: relative;
+  width: 100%;
+  height: 116px;
+  overflow: hidden;
+  background: #111;
+  color: #fff;
+}
+
+.supercar-category-hero-hit {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: #111;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.supercar-category-hero-media,
+.supercar-category-hero-shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.supercar-category-hero-media {
+  object-fit: cover;
+  animation: supercar-hero-reveal 360ms ease-out both;
+}
+
+.supercar-category-hero-shade {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, .78) 0%, rgba(0, 0, 0, .54) 43%, rgba(0, 0, 0, .1) 76%),
+    linear-gradient(180deg, rgba(0, 0, 0, .08), rgba(0, 0, 0, .3));
+}
+
+.supercar-category-hero-copy {
+  position: absolute;
+  inset: 0 auto 0 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 230px;
+  padding-bottom: 2px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, .48);
+}
+
+.supercar-category-hero-copy strong {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -.4px;
+}
+
+.supercar-category-hero-copy span {
+  margin-top: 2px;
+  color: rgba(255, 255, 255, .88);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -.1px;
+}
+
+.supercar-category-hero-dots {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.supercar-category-hero-dots button {
+  width: 5px;
+  height: 5px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .46);
+  cursor: pointer;
+}
+
+.supercar-category-hero-dots button.is-active {
+  width: 14px;
+  border-radius: 3px;
+  background: #fff;
+}
+
+@keyframes supercar-hero-reveal {
+  from { opacity: .72; transform: scale(1.012); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (min-width: 768px) {
+  .supercar-category-hero {
+    height: 152px;
+  }
+
+  .supercar-category-hero-copy {
+    left: 24px;
+    max-width: 360px;
+  }
+
+  .supercar-category-hero-copy strong {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .supercar-category-hero-copy span {
+    font-size: 15px;
+    line-height: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .supercar-category-hero-media {
+    animation: none;
+  }
+}
