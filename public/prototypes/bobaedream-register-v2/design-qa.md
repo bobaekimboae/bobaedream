@@ -26,6 +26,7 @@
 - 2026-10-11 update: photo album mode now follows a select-then-confirm flow with selected count, visible check state, and bottom 완료 action.
 - 2026-10-11 update: shutter sound was changed from a two-tone beep to a short camera-click noise burst.
 - 2026-10-11 update: missing video template image paths were replaced with available vehicle sample images so the segment example cards no longer load as 404 placeholders.
+- 2026-10-11 update: capturing a middle angle such as 우측면 now advances to the next angle instead of jumping back to the first empty slot.
 - Photo shutter now opens a real mobile camera input (`accept=image/*`, `capture=environment`) and stores the captured file as the slot thumbnail.
 - Album mode now opens a real image picker and adds selected images to the next empty slots.
 - Video record now opens a real mobile video capture input (`accept=video/*`, `capture=environment`) and marks video registration complete after selection.

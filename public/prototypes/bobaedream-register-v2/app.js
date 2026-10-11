@@ -462,6 +462,7 @@ function addPhotoFromDataUrl(slot = state.activeSlot, src) {
   if (photoForSlot(slot)) {
     slot = firstMissingSlot();
   }
+  const usedSlot = slot;
   state.photos.push({
     id: `camera-${Date.now()}-${slot}`,
     slot,
@@ -469,7 +470,7 @@ function addPhotoFromDataUrl(slot = state.activeSlot, src) {
     src,
     edits: defaultPhotoEdits(),
   });
-  state.activeSlot = firstMissingSlot();
+  state.activeSlot = nextMissingSlotAfter(usedSlot);
   state.progress = Math.max(state.progress, 38);
   showToast("사진이 등록되었습니다");
   render();
@@ -484,6 +485,7 @@ function addPhotoFromSource(slot = state.activeSlot, src, label, shouldRender = 
   if (photoForSlot(slot)) {
     slot = firstMissingSlot();
   }
+  const usedSlot = slot;
   state.photos.push({
     id: `album-${Date.now()}-${slot}-${Math.random().toString(16).slice(2)}`,
     slot,
@@ -491,7 +493,7 @@ function addPhotoFromSource(slot = state.activeSlot, src, label, shouldRender = 
     src,
     edits: defaultPhotoEdits(),
   });
-  state.activeSlot = firstMissingSlot();
+  state.activeSlot = nextMissingSlotAfter(usedSlot);
   state.progress = Math.max(state.progress, 38);
   if (shouldRender) render();
 }
@@ -517,6 +519,14 @@ function firstMissingSlot() {
   const taken = new Set(state.photos.map((photo) => photo.slot));
   const priority = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   return priority.find((slot) => !taken.has(slot)) ?? state.photos.length;
+}
+
+function nextMissingSlotAfter(fromSlot) {
+  const taken = new Set(state.photos.map((photo) => photo.slot));
+  for (let slot = fromSlot + 1; slot < slots.length; slot += 1) {
+    if (!taken.has(slot)) return slot;
+  }
+  return firstMissingSlot();
 }
 
 function photoForSlot(slot) {
@@ -579,6 +589,7 @@ function addPhoto(slot = state.activeSlot) {
     showToast("이미 등록된 각도입니다");
     return;
   }
+  const usedSlot = slot;
   const photo = {
     id: `p-${Date.now()}-${slot}`,
     slot,
@@ -587,7 +598,7 @@ function addPhoto(slot = state.activeSlot) {
     edits: defaultPhotoEdits(),
   };
   state.photos.push(photo);
-  state.activeSlot = firstMissingSlot();
+  state.activeSlot = nextMissingSlotAfter(usedSlot);
   state.progress = Math.max(state.progress, 38);
   render();
 }
@@ -600,6 +611,7 @@ function addPhotoFromFile(slot = state.activeSlot, file, shouldRender = true) {
   if (photoForSlot(slot)) {
     slot = firstMissingSlot();
   }
+  const usedSlot = slot;
   const photo = {
     id: `file-${Date.now()}-${slot}-${Math.random().toString(16).slice(2)}`,
     slot,
@@ -609,7 +621,7 @@ function addPhotoFromFile(slot = state.activeSlot, file, shouldRender = true) {
     edits: defaultPhotoEdits(),
   };
   state.photos.push(photo);
-  state.activeSlot = firstMissingSlot();
+  state.activeSlot = nextMissingSlotAfter(usedSlot);
   state.progress = Math.max(state.progress, 38);
   if (shouldRender) render();
 }
