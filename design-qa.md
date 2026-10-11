@@ -1,8 +1,8 @@
-# 올드카 현대 포니 단일 헤더 QA · 2026-10-12
+# 올드카 현대 포니 단일 차량 헤더 QA · 2026-10-12
 
-- source visual truth: 현대자동차 공식 헤리티지의 PONY 키비주얼
-- source page: `https://www.hyundai.com/worldwide/en/brand-journal/heritage/hyundai-heritage-retracing-hyundais-iconic-pony`
-- source asset: `https://www.hyundai.com/content/dam/hyundai/ww/en/images/brand-journal/heritage/230608-hyundai-heritage/hyundai-heritage-book-stg-pc.jpg.jpg`
+- source visual truth: 현대자동차 유럽 공식 PONY 페이지의 1세대 포니 단일 차량 사진
+- source page: `https://www.hyundai.com/eu/en/electrification/electrified-models/concept-cars/pony.html`
+- source asset: `https://s7g10.scene7.com/is/image/hyundaiautoever/Hyundai_Pony_Heritage_Comparison_Slider_Old?fit=wrap%2C1&hei=720&wid=1940`
 - implementation: `http://127.0.0.1:4212/?qf=guazi&category=올드카&view=feed`
 - viewport: 390 × 844 CSS px, deviceScaleFactor 1
 - compared header size: 358 × 98px
@@ -12,16 +12,16 @@
 
 - Fonts and typography: Pretendard 제목 18/23·700, 설명 11/15·400. 설명은 `국내 유일 올드카ㆍ클래식카 쇼핑몰`로 정확히 표기한다.
 - Spacing and layout rhythm: 기존 검증 슬롯 358×98, 좌우 16px, 8px 모서리를 유지한다.
-- Image quality and asset fidelity: 현대자동차 공식 1920×480 포니 사진 1장만 사용한다. 슬라이드·인디케이터·별도 차량 합성은 없다.
-- Color and contrast: 사진 전체에 34% 검정 단색 음영과 텍스트 그림자를 적용해 흰색 문구 대비를 확보한다.
-- Content hierarchy: 여러 대의 포니가 만드는 시대감 위에 짧은 문구를 겹쳐 국내 올드카 카테고리 정체성을 즉시 인식하게 한다.
+- Image quality and asset fidelity: 현대자동차 공식 1940×720 포니 사진 1장만 사용한다. 1세대 포니 한 대의 전체 실루엣이 보이며 슬라이드·인디케이터·별도 차량 합성은 없다.
+- Color and contrast: 사진 전체에 24% 검정 단색 음영과 텍스트 그림자를 적용해 파란 차체와 흰색 문구를 함께 살린다.
+- Content hierarchy: 왼쪽 문구와 오른쪽 단일 차량을 분리해 포니의 형태를 즉시 인식하게 한다.
 
 ## Verification
 
 - `npm run verify:qf`: passed
 - `git diff --check`: passed
 - 헤더 실측 358.4×98px, 이미지 1장, 버튼 0개
-- 원본 이미지 1920×476px 로드, 깨진 이미지 0
+- 원본 이미지 1940×720px 로드, 깨진 이미지 0
 - 모바일 390×844 브라우저 렌더 확인, 콘솔 오류 0
 
 final result: passed
