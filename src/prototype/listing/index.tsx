@@ -14,6 +14,7 @@ import {
   luxuryUiTestCars,
   luxuryCategoryCars,
   oldCarCategoryCars,
+  jdmCategoryCars,
   supercarCategoryCars,
   compactYearLabel,
   compactGenerationCardYearLabel,
@@ -955,6 +956,8 @@ function MarketplaceScreen() {
                   ? luxuryCategoryCars
                 : isGuaziQuickStyle && category === "올드카"
                   ? oldCarCategoryCars
+                : isGuaziQuickStyle && category === "JDM"
+                  ? jdmCategoryCars
                 : isGuaziQuickStyle && category === "서울오토갤러리"
                   ? seoulAutoGalleryCars
                 : isGuaziQuickStyle && category === "도이치오토월드"
@@ -2000,7 +2003,7 @@ function MarketplaceScreen() {
               const catalogMake = vehicleCatalog.index?.manufacturers.find((entry) => entry.name === item.key || entry.name === item.label);
               const image = category === "바이크"
                 ? <CategoryBrandLogo category={category} name={item.label} kind={plainQuickCards ? "plain" : "rail"} initialFallback />
-                : !typeList && plainQuickCards && railBrandLogo(item.key)
+                : (!typeList || category === "JDM") && plainQuickCards && railBrandLogo(item.key)
                   ? railBrandLogo(item.key)
                   : catalogMake
                     ? <CatalogLogo path={catalogMake.logoPath} name={catalogMake.name} kind="rail" />
@@ -2225,7 +2228,8 @@ function MarketplaceScreen() {
       case "건설기계": return heavyCars.length;
       case "자재운반장비": return materialHandlingCars.length;
       case "부품 · 용품": return partsCars.length;
-      case "JDM": case "튜닝·커스텀카": case "셀럽카": return 0;
+      case "JDM": return jdmCategoryCars.length;
+      case "튜닝·커스텀카": case "셀럽카": return 0;
       default: return bbmSampleCars.filter((car) => matchesChoTotFilters(car, { ...emptyChoTotFilters, category: value })).length;
     }
   };

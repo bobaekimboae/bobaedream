@@ -7,6 +7,7 @@ import brandTop10Truck from "../data/brand-top10-truck.json";
 import brandTop10Camping from "../data/brand-top10-camping.json";
 import brandTop10Material from "../data/brand-top10-material.json";
 import brandTop10Parts from "../data/brand-top10-parts.json";
+import brandTop10Jdm from "../data/brand-top10-jdm.json";
 import { selectedBikeBrandLogo } from "./brand-logos-bike-motofan-v01";
 import "./bbm-brand-logos.css";
 import { bikeBrandCount } from "../data/bike-filter-catalog";
@@ -171,6 +172,7 @@ const typeTop10: Record<string, TypeTop10> = {
   캠핑카: brandTop10Camping,
   자재운반장비: brandTop10Material,
   "부품 · 용품": brandTop10Parts,
+  JDM: brandTop10Jdm,
 };
 export const krTypeTop10 = (category: string) => typeTop10[category] ?? null;
 const bikePremiumFirstPreview = ["BMW", "할리데이비슨", "두카티", "혼다", "야마하", "스즈키", "가와사키", "트라이엄프", "KTM", "피아지오"];
