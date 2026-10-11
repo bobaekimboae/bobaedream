@@ -21,7 +21,7 @@ const SUPERCAR_HERO_SLIDES: SupercarHeroSlide[] = [
     id: "enzo-ferrari",
     kind: "image",
     src: asset("supercar-header/enzo-ferrari.jpg"),
-    position: "58% 42%",
+    position: "50% 14%",
   },
   {
     id: "lamborghini-motion",
