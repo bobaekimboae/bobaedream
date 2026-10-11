@@ -18,7 +18,7 @@
 
 .dp-cover { position: relative; height: 125px; background: var(--dp-bg); overflow: hidden; }
 .dp-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.dp-cover span { position: absolute; right: 12px; bottom: 12px; height: 29px; padding: 0 12px; border-radius: 12px; background: rgb(34, 34, 34); color: #fff; font-size: 12px; font-weight: 700; line-height: 29px; }
+.dp-cover span { position: absolute; right: 12px; bottom: 12px; height: 29px; padding: 4px 12px 4px 8px; border-radius: 12px; background: rgb(34, 34, 34); color: #fff; font-size: 12px; font-weight: 700; line-height: 21px; }
 
 .dp-head { position: relative; padding: 0 12px; }
 .dp-logo { position: absolute; left: 16px; top: -44px; width: 74px; height: 74px; border-radius: 50%; object-fit: cover; background: var(--dp-bg); border: 0; }
