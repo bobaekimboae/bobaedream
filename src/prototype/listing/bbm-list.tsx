@@ -294,7 +294,9 @@ function BbmCategoryRows({ selected, selectedChild, onChoose }: { selected: stri
                 </button>
                 {expandable ? (
                   <button type="button" className="bbm-category-row__toggle" aria-expanded={isOpen} aria-label={`${group.label} 하위 카테고리 ${isOpen ? "접기" : "펼치기"}`} onClick={() => toggle(group.value)}><i aria-hidden="true" /></button>
-                ) : null}
+                ) : (
+                  <span className="bbm-category-row__toggle is-leaf" aria-hidden="true"><i /></span>
+                )}
               </div>
               {isOpen ? <BbmCategoryChildPills group={group} selected={selected} selectedChild={selectedChild} onChoose={onChoose} /> : null}
             </li>
