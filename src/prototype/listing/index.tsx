@@ -2123,6 +2123,24 @@ function MarketplaceScreen() {
   ] as Array<BbmChip | null | undefined>).filter((chip): chip is BbmChip => Boolean(chip));
   // 초톳처럼(2026-10-11 「리스트에서는 카테고리 칩 빼자, 선택된 카테고리 누르면 카테고리 나오게」): 별도 `카테고리 ▾` 칩 없이
   // 선택된 카테고리 칩(`전체차량 ×`)의 이름을 누르면 카테고리 시트가 열리고, ×는 해제. 트럭·특장은 기존 동작(형식 퀵필터) 유지.
+  // 카테고리 시트 하단 `선택 · N대`(2026-10-11 「매물 있는 건 선택되면 하단 선택에 개수 표기」): 임시로 고른 카테고리의 매물 수. 매물이 없으면(JDM 등) 표기하지 않는다.
+  const bbmCategoryDraftCount = (value: string, detail: string | null): number => {
+    if (!isGuaziQuickStyle) return 0;
+    switch (value) {
+      case "전체": return allVehicleMixedCars.length;
+      case "럭셔리카": return luxuryCategoryCars.length;
+      case "서울오토갤러리": return seoulAutoGalleryCars.length;
+      case "도이치오토월드": return deutschAutoworldCars.length;
+      case "트럭 · 특장": return truckCars.filter((car) => !detail || car.truck?.format === detail).length;
+      case "바이크": return bikeCars.length;
+      case "캠핑카": return campingCars.filter((car) => !detail || car.virtualCategory?.categoryDetail === detail).length;
+      case "건설기계": return heavyCars.length;
+      case "자재운반장비": return materialHandlingCars.length;
+      case "부품 · 용품": return partsCars.length;
+      case "JDM": case "튜닝·커스텀카": case "셀럽카": return 0;
+      default: return bbmSampleCars.filter((car) => matchesChoTotFilters(car, { ...emptyChoTotFilters, category: value })).length;
+    }
+  };
   const openBbmCategorySheet = () => {
     setBbmCategoryDraft(category);
     setBbmCategoryChildDraft(category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild);
@@ -2595,7 +2613,7 @@ function MarketplaceScreen() {
         <BbmBottomGnb onNotify={setSearchToast} />
         {bbmMenu === "m-sort" ? <BbmSheet title="정렬" flush onClose={() => setBbmMenu(null)}><BbmPopOptions options={bbmSortOptions} selected={bbmSort} onSelect={chooseBbmSort} /></BbmSheet> : null}
         {bbmMenu === "m-view" ? <BbmSheet title="리스트 필터" flush onClose={() => setBbmMenu(null)}><BbmPopOptions options={bbmViewOptionsMobile} selected={bbmMobileView} onSelect={chooseBbmView} /></BbmSheet> : null}
-        {bbmCategoryOpen ? <BbmSheet variant="category" title="카테고리" onClose={() => setBbmCategoryOpen(false)} footer={<div className="bbmf-category-footer"><button type="button" onClick={() => { setBbmCategoryDraft("전체"); setBbmCategoryChildDraft(null); }}>초기화</button><button type="button" className="bbmf-category-confirm" onClick={() => { chooseHierarchyCategory(bbmCategoryDraft, bbmCategoryChildDraft ?? undefined); setBbmCategoryOpen(false); }}>선택</button></div>}>
+        {bbmCategoryOpen ? <BbmSheet variant="category" title="카테고리" onClose={() => setBbmCategoryOpen(false)} footer={<div className="bbmf-category-footer"><button type="button" onClick={() => { setBbmCategoryDraft("전체"); setBbmCategoryChildDraft(null); }}>초기화</button><button type="button" className="bbmf-category-confirm" onClick={() => { chooseHierarchyCategory(bbmCategoryDraft, bbmCategoryChildDraft ?? undefined); setBbmCategoryOpen(false); }}>선택{bbmCategoryDraftCount(bbmCategoryDraft, bbmCategoryChildDraft) > 0 ? ` · ${bbmCategoryDraftCount(bbmCategoryDraft, bbmCategoryChildDraft).toLocaleString("ko-KR")}대` : ""}</button></div>}>
           <BbmCategoryPicker selected={bbmCategoryDraft} selectedChild={bbmCategoryChildDraft} onChoose={(label, detail) => { setBbmCategoryDraft(label); setBbmCategoryChildDraft(detail ?? null); }} />
         </BbmSheet> : null}
         {bbmFullOpen ? (
