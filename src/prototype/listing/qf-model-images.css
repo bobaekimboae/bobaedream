@@ -756,3 +756,27 @@
   font-weight: 500;
   line-height: 18px;
 }
+
+/* QF-124 트럭 첫 화면: 유형 이미지와 적재중량 사이를 8px 리듬으로 통일한다. */
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row,
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row .brand-carousel,
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row .depth-rail-track {
+  height: 78px;
+  min-height: 78px;
+}
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row.is-truck-type-row {
+  padding-bottom: 0;
+}
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row.is-cargo-tonnage-row,
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row.is-cargo-tonnage-row .brand-carousel,
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row.is-cargo-tonnage-row .depth-rail-track {
+  height: 48px;
+  min-height: 48px;
+}
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row.is-cargo-tonnage-row {
+  padding: 0;
+}
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row .is-truck-tonnage-track {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
