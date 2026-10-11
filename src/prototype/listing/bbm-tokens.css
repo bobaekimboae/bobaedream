@@ -83,7 +83,6 @@
 .bbm-card-count img { width: 12px; height: 12px; }
 .bbm-card-content { display: flex; min-width: 0; flex: 1; flex-direction: column; }
 .bbm-card-text { display: flex; min-width: 0; flex-direction: column; }
-.bbm-card-listing-title { display: -webkit-box; min-width: 0; overflow: hidden; color: var(--bbm-text-strong); font-size: 17px; font-weight: 700; line-height: 24px; word-break: keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .bbm-card-title { align-self: flex-start; max-width: 100%; overflow: hidden; color: var(--bbm-text-strong); font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
 /* JOB-8: dev처럼 " · " 텍스트 한 줄. 블록이라야 text-overflow 말줄임이 걸린다 */
 .bbm-card-spec { display: block; min-width: 0; overflow: hidden; font-size: 14px; font-weight: 400; text-overflow: ellipsis; white-space: nowrap; }
@@ -270,6 +269,7 @@
 .marketplace.is-bbm-m .depth-rail + .bbm-m-options { margin-top: 8px; box-shadow: 0 -8px 0 var(--bbm-page-bg); }
 /* 모바일 목록 제어(초톳 384 CSS): 높이 34, 숏폼카 · 개인 · 딜러 → 구분선 → 정렬 → 보기 방식. */
 .bbm-m-options { display: flex; align-items: center; height: 34px; padding: 0 16px; overflow: hidden; border-bottom: 1px solid var(--list-divider); box-sizing: border-box; background: #fff; }
+.bbm-feed-heading { margin: 0; padding: 12px 16px 4px; color: #222; font-size: 18px; font-weight: 700; line-height: 24px; letter-spacing: -.2px; background: #fff; }
 .bbm-m-sort { display: inline-flex; flex: none; align-items: center; gap: 5px; height: 32px; margin-left: 4px; padding: 0; border: 0; background: none; color: var(--bbm-text-strong); font: inherit; font-size: 14px; font-weight: 500; line-height: 18px; white-space: nowrap; cursor: pointer; }
 .bbm-m-sort img { width: 13px; height: 13px; }
 /* 판매자 탭과 정렬 사이 세로 구분선: 초톳 1px × 17px, 연회색 */

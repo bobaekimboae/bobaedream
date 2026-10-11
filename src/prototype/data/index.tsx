@@ -70,8 +70,6 @@ const isForcedMobileView = () => !isDesktopPreview();
 const forcedMobileDesignWidth = 430;
 
 type Car = {
-  /** 판매자가 직접 작성한 매물 제목. 피드에서 차명보다 먼저 강조해 보여준다 */
-  listingTitle?: string;
   /** 카드 스펙 줄을 그대로 쓸 값(실매물처럼 등록연월·주행을 정확히 보여줄 때). 없으면 bbmCardSpec 이 만든다 */
   cardSpec?: string[];
   /** 판매자가 입력한 광고 설명. 있으면 목록 카드에서 제원 줄 대신 한 줄로 표시한다 */
@@ -1420,7 +1418,7 @@ const bbmLuxuryAddCars: Car[] = [
   makeChoTotCar(3001, { maker: "페라리", modelGroup: "푸로산게", image: "listing-photos/v01/ferrari_purosangue_3001.jpg", imageFit: "cover", title: "페라리 푸로산게", trim: "6.5 V12", specs: ["2024년식", "3,685km", "가솔린", ""], cardSpec: ["24년11월", "3,685km", "가솔린"], price: "68,500 만원", place: "경기 수원시", filter: { year: 2024, seats: "4인승", condition: "중고", mileage: 3685, owners: "1인", transmission: "오토", fuel: "가솔린", color: "파랑", origin: "수입", body: "SUV", video: false } }),
   makeChoTotCar(3002, { maker: "롤스로이스", modelGroup: "컬리넌", image: "listing-photos/v01/rollsroyce_cullinan_3002.jpg", imageFit: "cover", title: "롤스로이스 컬리넌", trim: "6.7 V12", specs: ["2024년식", "14,562km", "가솔린", ""], cardSpec: ["24년12월", "14,562km", "가솔린"], price: "60,000 만원", place: "부산 해운대구", filter: { year: 2024, seats: "5인승", condition: "중고", mileage: 14562, owners: "1인", transmission: "오토", fuel: "가솔린", color: "초록", origin: "수입", body: "SUV", video: false } }),
   makeChoTotCar(3003, { maker: "람보르기니", modelGroup: "우루스", image: "listing-photos/v01/lamborghini_urus_phev_3003.jpg", imageFit: "cover", title: "람보르기니 우루스 PHEV", trim: "4.0 V8 SE", specs: ["2025년식", "5,679km", "가솔린+전기", ""], cardSpec: ["25년11월", "5,679km", "하이브리드"], price: "42,500 만원", place: "경기 수원시", filter: { year: 2025, seats: "5인승", condition: "중고", mileage: 5679, owners: "1인", transmission: "오토", fuel: "하이브리드", color: "회색", origin: "수입", body: "SUV", video: false } }),
-  makeChoTotCar(3004, { maker: "페라리", modelGroup: "GTC4 루쏘", image: "listing-photos/v01/ferrari_gtc4lusso_t_3004.jpg", imageFit: "cover", listingTitle: "꽃이 제목이다", title: "페라리 GTC4 루쏘 T", trim: "3.9 V8", specs: ["2017년식", "31,135km", "가솔린", ""], cardSpec: ["17년10월", "31,135km", "가솔린"], price: "18,990 만원", place: "경기 수원시", filter: { year: 2017, seats: "4인승", condition: "중고", mileage: 31135, owners: "전체", transmission: "오토", fuel: "가솔린", color: "빨강", origin: "수입", body: "쿠페", video: false } }),
+  makeChoTotCar(3004, { maker: "페라리", modelGroup: "GTC4 루쏘", image: "listing-photos/v01/ferrari_gtc4lusso_t_3004.jpg", imageFit: "cover", title: "페라리 GTC4 루쏘 T", trim: "3.9 V8", specs: ["2017년식", "31,135km", "가솔린", ""], cardSpec: ["17년10월", "31,135km", "가솔린"], price: "18,990 만원", place: "경기 수원시", filter: { year: 2017, seats: "4인승", condition: "중고", mileage: 31135, owners: "전체", transmission: "오토", fuel: "가솔린", color: "빨강", origin: "수입", body: "쿠페", video: false } }),
 ];
 // 도이치오토월드 1차본 실데이터 4,673대(2026-10-10, 시트 「도이치오토월드」): 상사명 · 딜러명 전 차량, 목록 사진은 압축본 1장(사진 5장은 Drive 업로드가 끝난 43대만).
 // 매매단지가 도이치오토월드인 4,298대는 `도이치오토월드` 카테고리, 부산 사직오토랜드 등 나머지 375대는 중고차 목록에 넣는다(「사직은 중고차에 넣어라」).
