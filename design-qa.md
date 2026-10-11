@@ -1,6 +1,6 @@
 # 올드카 현대 포니 단일 차량 헤더 QA · 2026-10-12
 
-- source visual truth: 현대자동차 유럽 공식 PONY 페이지의 1세대 포니 단일 차량 사진을 바탕으로 배경만 교체한 1970년대 카탈로그 스튜디오 이미지
+- source visual truth: Dyler 홈페이지의 저조도 클래식카 히어로 구도와 현대자동차 공식 1세대 포니 단일 차량 사진
 - source page: `https://www.hyundai.com/eu/en/electrification/electrified-models/concept-cars/pony.html`
 - source asset: `https://s7g10.scene7.com/is/image/hyundaiautoever/Hyundai_Pony_Heritage_Comparison_Slider_Old?fit=wrap%2C1&hei=720&wid=1940`
 - implementation: `http://127.0.0.1:4212/?qf=guazi&category=올드카&view=feed`
@@ -12,8 +12,8 @@
 
 - Fonts and typography: Pretendard 제목 18/23·700, 설명 11/15·400. 설명은 `국내 유일 올드카ㆍ클래식카 쇼핑몰`로 정확히 표기한다.
 - Spacing and layout rhythm: 기존 검증 슬롯 358×98, 좌우 16px, 8px 모서리를 유지한다.
-- Image quality and asset fidelity: 현대자동차 공식 포니의 차체 형상은 유지하고 박물관 배경만 1970년대 웜그레이 카탈로그 스튜디오로 교체했다. 포니 한 대의 전체 실루엣이 보이며 추가 차량·소품·문자는 없다.
-- Color and contrast: 생성 이미지 자체의 왼쪽 어두운 여백에 12% 검정 음영과 텍스트 그림자를 더해 파란 차체와 흰색 문구를 함께 살린다.
+- Image quality and asset fidelity: 현대자동차 공식 포니의 차체 형상은 유지하고 Dyler처럼 검정 스튜디오와 앰버 림라이트를 적용했다. 포니 한 대의 전체 실루엣이 보이며 추가 차량·소품·문자는 없다.
+- Color and contrast: 이미지 자체의 검정 왼쪽 여백에 4% 음영과 텍스트 그림자만 더해 Dyler의 깊은 블랙과 파란 차체를 유지한다.
 - Content hierarchy: 왼쪽 문구와 오른쪽 단일 차량을 분리해 포니의 형태를 즉시 인식하게 한다.
 
 ## Verification
@@ -21,7 +21,7 @@
 - `npm run verify:qf`: passed
 - `git diff --check`: passed
 - 헤더 실측 358.4×98px, 이미지 1장, 버튼 0개
-- 편집 이미지 2058×764px 로드, 깨진 이미지 0
+- 편집 이미지 2078×757px 로드, 깨진 이미지 0
 - 모바일 390×844 브라우저 렌더 확인, 콘솔 오류 0
 
 final result: passed
