@@ -108,6 +108,7 @@ import "./qf-chotot-vehicle-slots.css";
 import { dealers as seoulAutoGalleryDealers, SeoulAutoGalleryDealerRail, type SeoulAutoGalleryDealer } from "./seoul-auto-gallery-dealer-rail";
 import { SeoulAutoGalleryHeader } from "./seoul-auto-gallery-header";
 import { DeutschAutoworldHeader } from "./deutsch-autoworld-header";
+import { SupercarCategoryHeader } from "./supercar-category-header";
 import { SeoulAutoGalleryAbout, SeoulAutoGalleryCompanyDirectory, SeoulAutoGalleryTabs, type SeoulAutoGallerySection } from "./seoul-auto-gallery-directory";
 import { emptyHeavySelection, getInitialHeavySelection, replaceHeavyParams, type HeavySelection } from "../heavy/data";
 import { CatalogLogo, CatalogSearchResults, CatalogVehicleImage, CatalogVehiclePickerSheet, useVehicleCatalog, type VehicleSearchRecord } from "../vehicle-catalog";
@@ -2058,7 +2059,10 @@ function MarketplaceScreen() {
   const deutschAutoworldHeader = isGuaziQuickStyle && category === "도이치오토월드" && !maker
     ? <DeutschAutoworldHeader />
     : null;
-  const categoryComplexHeader = seoulAutoGalleryHeader ?? deutschAutoworldHeader;
+  const supercarCategoryHeader = isGuaziQuickStyle && category === "슈퍼카" && !maker
+    ? <SupercarCategoryHeader />
+    : null;
+  const categoryComplexHeader = supercarCategoryHeader ?? seoulAutoGalleryHeader ?? deutschAutoworldHeader;
   const isSeoulAutoGalleryLanding = isGuaziQuickStyle && category === "서울오토갤러리";
   const showSeoulAutoGalleryVehicles = !isSeoulAutoGalleryLanding || seoulAutoGallerySection === "vehicles";
   const quickStyleSelect = (
