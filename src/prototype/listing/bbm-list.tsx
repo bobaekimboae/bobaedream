@@ -641,10 +641,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
     <div className={`bbm-card-meta-row${variant === "mobile" ? " bbm-card-mobile-footer" : ""}`}>
       <div className="bbm-card-seller">
         <img className="bbm-card-seller-logo" src={asset(featured ? sellerRealPhoto(car) : sellerAvatar(car))} alt="" draggable={false} />
-        <div className="bbm-card-seller-text"><strong>{seller}{car.luxuryCategory?.certified ? <img className="bbm-card-verified" src={asset("bbm/verified-dealer-wavy-chotot-v01.svg")} alt="인증딜러" draggable={false} /> : null}</strong>
-          {/* 피드 전용: 초톳 「1 đã bán 52 đang bán」처럼 판매완료 · 판매중 대수(딜러만). 판매완료 대수는 UI 검증용 가상 값 */}
-          {featured && car.sellerType !== "개인" ? <span className="bbm-card-seller-sales">{car.seoulAutoGallery || car.realDealer ? null : <span>{(car.id * 7) % 40 + 1}대 판매완료</span>}<span>{Math.max(car.stock, 1)}대 판매중</span></span> : null}
-        </div>
+        <div className="bbm-card-seller-text"><strong>{seller}{!featured && car.luxuryCategory?.certified ? <img className="bbm-card-verified" src={asset("bbm/verified-dealer-wavy-chotot-v01.svg")} alt="인증딜러" draggable={false} /> : null}</strong></div>
       </div>
       <div className="bbm-card-actions">
         {/* 피드 보기 전용(테스트 서버 car-list-feed-card__seller-action): 전화 · 채팅 · 찜 20, 간격 24. 다른 보기에서는 CSS로 숨김 */}
