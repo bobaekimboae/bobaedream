@@ -5,6 +5,7 @@ import { DetailFooter, DetailUiProvider, VehicleDetail } from "./prototype/detai
 import { configureListingScreens, MarketplaceScreen, SavedListingsHeader, SavedListingsScreen } from "./prototype/listing";
 import { BuildBadge } from "./prototype/build-badge";
 import MainHome from "./main-home/MainHome";
+import DealerPage from "./prototype/dealer-page/DealerPage";
 import "./prototype.css";
 
 // JOB-7: ?register 매물 등록 화면(dev /car/register 동일).
@@ -24,6 +25,7 @@ const shouldShowMainHome = () => {
   const params = new URLSearchParams(window.location.search);
   return !listingParams.some((key) => params.has(key));
 };
+const shouldShowDealerPage = () => new URLSearchParams(window.location.search).get("profile") === "dealer";
 const shouldShowRegister = () => new URLSearchParams(window.location.search).has("register");
 
 export default function Prototype() {
@@ -32,7 +34,7 @@ export default function Prototype() {
 
   useEffect(() => {
     const root = document.documentElement;
-    if (showMainHome) {
+    if (showMainHome || shouldShowDealerPage()) {
       root.removeAttribute("data-force-mobile");
       root.removeAttribute("data-force-mobile-wide");
       root.style.removeProperty("--force-mobile-scale");
@@ -67,6 +69,7 @@ export default function Prototype() {
   }, [showMainHome]);
 
   if (showRegister) return <><RegisterPage /><BuildBadge /></>;
+  if (shouldShowDealerPage()) return <><DealerPage /><BuildBadge /></>;
   if (showMainHome) return <MainHome />;
 
   return <FavoritesProvider><DetailUiProvider><FlowStack initial={listScreen} /><BuildBadge /></DetailUiProvider></FavoritesProvider>;

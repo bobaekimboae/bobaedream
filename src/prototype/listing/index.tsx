@@ -106,7 +106,6 @@ import { HeavyQuickFilter } from "../heavy";
 import "./qf-car-body-types.css";
 import "./qf-chotot-vehicle-slots.css";
 import { dealers as seoulAutoGalleryDealers, SeoulAutoGalleryDealerRail, type SeoulAutoGalleryDealer } from "./seoul-auto-gallery-dealer-rail";
-import { DealerContactBar, DealerProfileScreen } from "./dealer-profile";
 import { SeoulAutoGalleryHeader } from "./seoul-auto-gallery-header";
 import { DeutschAutoworldHeader } from "./deutsch-autoworld-header";
 import { SeoulAutoGalleryAbout, SeoulAutoGalleryCompanyDirectory, SeoulAutoGalleryTabs, type SeoulAutoGallerySection } from "./seoul-auto-gallery-directory";
@@ -732,24 +731,10 @@ function MarketplaceScreen() {
     setActiveDetailCar(car);
     flow.push(detailScreen);
   };
+  // 딜러 화면은 목록 위 덮개가 아닌 독립 화면(?profile=dealer)이다. 같은 탭에서 열어 뒤로 가기로 목록에 돌아온다.
   const openDealerProfile = (dealer: SeoulAutoGalleryDealer) => {
-    flow.push({
-      id: `dealer-${dealer.shopNo}-${dealer.empNo}`,
-      footer: () => <DealerContactBar />,
-      footerHeight: 64,
-      render: () => <DealerProfileScreen dealer={dealer} cars={seoulAutoGalleryCars} onOpenCar={openCarDetail} />,
-    });
+    window.location.assign(`${window.location.pathname}?profile=dealer&shop=${dealer.shopNo}&emp=${dealer.empNo}`);
   };
-  const didOpenDirectDealerProfile = useRef(false);
-  useEffect(() => {
-    if (didOpenDirectDealerProfile.current) return;
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("profile") !== "dealer") return;
-    const shopNo = params.get("shop");
-    const dealer = seoulAutoGalleryDealers.find((item) => item.shopNo === shopNo) ?? seoulAutoGalleryDealers[0];
-    didOpenDirectDealerProfile.current = true;
-    openDealerProfile(dealer);
-  }, []);
   const keyboard = useKeyboard();
   const { likedIds, toggleLiked } = useFavorites();
   const initialFilters = getInitialChoTotFilters();
