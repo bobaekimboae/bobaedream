@@ -576,9 +576,9 @@
   min-width: 48px;
   height: 32px;
   padding: 0 10px;
-  border: 0;
+  border: 1px solid #dedee3;
   border-radius: 9999px;
-  background: #f1f1f1;
+  background: transparent;
   color: #1a1a1a;
   font-size: 14px;
   font-weight: 500;
