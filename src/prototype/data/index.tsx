@@ -32,6 +32,7 @@ import { truckListingRowsV09, truckModelsByMaker, truckPlaceV09 } from "../truck
 import { truckScenarioImageV02 } from "../truck/scenario-images-v02";
 import { truckSubtypeLabel } from "./truck-format-catalog";
 import { luxuryDealers, luxuryListingRows } from "./luxury-category-v01";
+import { oldCarListingRows } from "./old-car-category-v01";
 import { seoulAutoGalleryRows } from "./seoul-autogallery-v01";
 import deutschAutoworldRowsJson from "./deutsch-autoworld-all-v01.json";
 import deutschDriveLinks from "./deutsch-autoworld-drive-v01.json";
@@ -182,6 +183,8 @@ type Car = {
   realDealer?: { company: string; dealer: string };
   /** 피드 사진 넘기기에 쓰는 실제 다중 사진(있으면 임시 슬라이드 대신 사용) */
   photoList?: string[];
+  /** 올드카 카테고리 가상 매물 v01(차량 › 테마별 중고차 › 올드카). 시트 순번과 가격을 채운 값인지 */
+  oldCar?: { number: number; priceFilled: boolean };
   luxuryCategory?: { number: number; vehicleNumber: string; model: string; generation: string; filled: boolean; certified: boolean };
   uiTest?: {
     number: number;
@@ -349,7 +352,7 @@ const sellerLabel = (car: Car) => {
   if (car.heavy?.isVirtual) return car.dealer;
   if (car.virtualCategory?.isVirtual) return car.dealer;
   if (car.uiTest) return car.dealer;
-  if (car.luxuryCategory || car.seoulAutoGallery || car.realDealer) return car.dealer;
+  if (car.luxuryCategory || car.seoulAutoGallery || car.realDealer || car.oldCar) return car.dealer;
   if (car.dealer && car.dealer !== sellerScenario.name) return car.dealer;
   const index = ((car.id - 1) % dealerNamePool.length + dealerNamePool.length) % dealerNamePool.length;
   return dealerNamePool[index];
@@ -1609,6 +1612,51 @@ const luxuryCategoryCars: Car[] = luxuryRowsPhotoFirst.map((row, index) => {
   };
 });
 
+// 올드카 카테고리 v01(차량 › 테마별 중고차 › 올드카, 2026-10-11): 구글 시트 「가상 매물 시나리오 › 올드카」 40대(오류·중복 2행 제외).
+// 사진이 있는 8대를 앞에 두고 나머지는 빈 사진 칸으로 뒤에 둔다. 판매자(딜러 2/3 · 개인 1/3) · 지역 · 등록시각은 UI 검증용 가상 값이다.
+const oldCarCategoryCars: Car[] = oldCarListingRows.map((row, index) => {
+  const isPrivate = row.number % 3 === 0;
+  const place = isPrivate ? row.region : (dealerComplexByRegion[row.region] ?? row.region);
+  const photo = row.image ? `cars/old-car-category-v01/old-${String(row.number).padStart(2, "0")}.webp` : "";
+  const mileageText = `${row.mileage.toLocaleString("ko-KR")}km`;
+  return {
+    id: 14_000 + row.number,
+    updateRank: oldCarListingRows.length - index,
+    maker: row.maker,
+    modelGroup: row.model,
+    sellerType: isPrivate ? "개인" : "딜러",
+    image: photo,
+    listThumb: photo ? photo.replace("old-car-category-v01/", "old-car-category-v01/thumb/") : undefined,
+    imagePosition: "center center",
+    title: [row.titleMaker, row.model].filter(Boolean).join(" "),
+    trim: row.trim,
+    specs: [`${row.year}년식`, mileageText, row.fuel, row.transmission],
+    cardSpec: [String(row.year), mileageText, row.fuel],
+    price: `${row.price.toLocaleString("ko-KR")} 만원`,
+    place,
+    views: 0,
+    dealer: isPrivate ? "개인판매자" : `${virtualPersonNames[row.number % virtualPersonNames.length]} 딜러`,
+    stock: isPrivate ? 1 : 2 + (row.number % 5),
+    posted: `${(index % 9) + 1}일 전`,
+    photos: photo ? 1 : 0,
+    sellerProfile: null,
+    oldCar: { number: row.number, priceFilled: row.priceFilled },
+    filter: {
+      year: row.year,
+      seats: "전체",
+      condition: "중고",
+      mileage: row.mileage,
+      owners: "전체",
+      transmission: row.transmission,
+      fuel: row.fuel,
+      color: row.color,
+      origin: row.origin,
+      body: row.body,
+      video: false,
+    },
+  };
+});
+
 // 서울오토갤러리 카테고리(차량 › 중고차 › 서울오토갤러리, 2026-10-10): 시트 「서울오토갤러리」 실데이터(사진 5장 · 실제 상사명 · 실제 딜러명). 위치는 서울 서초구 · 서울오토갤러리
 const seoulAutoGalleryMileageText = (km: number) => km >= 9500 ? `${String(Math.round(km / 1000) / 10)}만km` : `${km.toLocaleString("ko-KR")}km`;
 const seoulAutoGalleryCars: Car[] = seoulAutoGalleryRows.map((row, index) => {
@@ -1764,6 +1812,7 @@ export {
   bbmSampleCars,
   luxuryUiTestCars,
   luxuryCategoryCars,
+  oldCarCategoryCars,
   seoulAutoGalleryCars,
   deutschAutoworldCars,
   isDesktopPreview,
