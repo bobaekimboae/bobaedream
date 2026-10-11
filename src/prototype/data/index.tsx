@@ -33,6 +33,7 @@ import { truckScenarioImageV02 } from "../truck/scenario-images-v02";
 import { truckSubtypeLabel } from "./truck-format-catalog";
 import { luxuryDealers, luxuryListingRows } from "./luxury-category-v01";
 import { oldCarListingRows } from "./old-car-category-v01";
+import { oldCarBobaeRows } from "./old-car-bobae-v01";
 import { jdmListingRows } from "./jdm-category-v01";
 import { supercarSheetRows } from "./supercar-sheet-v01";
 import { seoulAutoGalleryRows } from "./seoul-autogallery-v01";
@@ -1660,6 +1661,49 @@ const oldCarCategoryCars: Car[] = oldCarListingRows.map((row, index) => {
     },
   };
 });
+// 올드카 보배드림 매물 v01(2026-10-12 수집 55대): 시트 「올드카_보배드림」 수집 상태 ok 행. 사진(원본 그대로)이 모두 있고 올드카 목록 맨 위에 둔다. 판매자는 가상 값이다.
+const oldCarBobaeCars: Car[] = oldCarBobaeRows.map((row, index) => {
+  const isPrivate = row.number % 3 === 0;
+  const place = isPrivate ? row.region : (dealerComplexByRegion[row.region] ?? row.region);
+  const photo = row.image ? `cars/old-car-bobae-v01/ob-${String(row.number).padStart(3, "0")}.jpg` : "";
+  const mileageText = row.mileage >= 9500 ? `${String(Math.round(row.mileage / 1000) / 10)}만km` : `${row.mileage.toLocaleString("ko-KR")}km`;
+  return {
+    id: 17_000 + row.number,
+    updateRank: 1_000 - index,
+    maker: row.maker,
+    modelGroup: row.model,
+    sellerType: isPrivate ? "개인" : "딜러",
+    image: photo,
+    imagePosition: "center center",
+    title: [row.titleMaker, row.model].join(" "),
+    trim: "",
+    specs: [`${row.year}년식`, mileageText, row.fuel],
+    cardSpec: [String(row.year), mileageText, row.fuel],
+    price: row.price === null ? "가격 상담" : `${row.price.toLocaleString("ko-KR")} 만원`,
+    place,
+    views: 0,
+    dealer: isPrivate ? "개인판매자" : `${virtualPersonNames[row.number % virtualPersonNames.length]} 딜러`,
+    stock: isPrivate ? 1 : 2 + (row.number % 5),
+    posted: row.days === 0 ? "오늘" : `${row.days}일 전`,
+    photos: photo ? 1 : 0,
+    sellerProfile: null,
+    oldCar: { number: 100 + row.number, priceFilled: false },
+    filter: {
+      year: row.year,
+      seats: "전체",
+      condition: "중고",
+      mileage: row.mileage,
+      owners: "전체",
+      transmission: "오토",
+      fuel: row.fuel,
+      color: "기타",
+      origin: row.origin,
+      body: row.body,
+      video: false,
+    },
+  };
+});
+const oldCarCategoryCarsAll: Car[] = [...oldCarBobaeCars, ...oldCarCategoryCars];
 // JDM 카테고리 v01(차량 › 테마별 중고차 › JDM, 2026-10-11): 구글 시트 「JDM」 21대. 사진(원본 그대로)이 있는 18대를 앞에 두고 나머지는 빈 사진 칸으로 뒤에 둔다. 판매자(딜러) · 등록시각은 UI 검증용 가상 값이다.
 const jdmCategoryCars: Car[] = [...jdmListingRows].sort((a, b) => Number(b.image) - Number(a.image) || a.number - b.number).map((row, index, all) => {
   const photo = row.image ? `cars/jdm-category-v01/jdm-${String(row.number).padStart(2, "0")}.jpg` : "";
@@ -1910,7 +1954,7 @@ export {
   bbmSampleCars,
   luxuryUiTestCars,
   luxuryCategoryCars,
-  oldCarCategoryCars,
+  oldCarCategoryCarsAll as oldCarCategoryCars,
   jdmCategoryCars,
   supercarCategoryCars,
   seoulAutoGalleryCars,

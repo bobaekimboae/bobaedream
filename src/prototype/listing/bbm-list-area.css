@@ -153,4 +153,4 @@
 
 /* 사진 없는 매물(2026-10-11): 노션 「사진이 없습니다_140_100」 원본 그림을 칸 가운데에 표시한다(칸의 60%·최대 84×60으로 줄여 가운데에 둔다(2026-10-11 「밸런스 맞춰」)). */
 .bbm-card-photo.is-empty { display: flex; align-items: center; justify-content: center; }
-.bbm-card-photo.is-empty::before { content: ""; width: 56%; height: 56%; max-width: 84px; max-height: 60px; background: url("/assets/bbm/no-photo-140x100-v01.svg") center / contain no-repeat; }
+.bbm-card-photo.is-empty::before { content: ""; width: 40%; height: 40%; max-width: 48px; max-height: 34px; background: url("/assets/bbm/no-photo-140x100-v01.svg") center / contain no-repeat; }
