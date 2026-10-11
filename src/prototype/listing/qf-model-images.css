@@ -552,8 +552,8 @@
 .marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row.is-cargo-tonnage-row,
 .marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row.is-cargo-tonnage-row .brand-carousel,
 .marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row.is-cargo-tonnage-row .depth-rail-track {
-  min-height: 60px;
-  height: 60px;
+  min-height: 56px;
+  height: 56px;
 }
 .marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-depth-chip-row .is-truck-tonnage-track {
   align-items: center;
@@ -573,14 +573,15 @@
   margin-left: 2px;
 }
 .marketplace.is-truck-category.is-qf-guazi .is-truck-tonnage-track .trim-chip {
-  height: 36px;
-  padding: 0 15px;
-  border-color: #d9d9dd;
-  border-radius: 18px;
-  background: #fff;
-  color: #333;
+  min-width: 48px;
+  height: 32px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 9999px;
+  background: #f1f1f1;
+  color: #1a1a1a;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 20px;
 }
 .marketplace.is-truck-category.is-qf-guazi .depth-text-chip {
