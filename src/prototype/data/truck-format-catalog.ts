@@ -119,7 +119,7 @@ const truckSubtypeImages: Readonly<Record<string, Readonly<Record<string, string
     "트랜스/와이드 파워게이트": "truck/formats/v01/truck_subtype_transform_wide_powergate_v01.png",
   },
   "윙바디/탑": {
-    "윙바디": "truck/formats/v03/truck_wingbody_hyundai_side_v03.png",
+    "윙바디": "truck/formats/v04/truck_wingbody_porter2_side_v04.png",
     "윙바디 파워게이트": "truck/formats/v01/truck_subtype_wingbody_powergate_v01.png",
     "상승 윙바디": "truck/formats/v01/truck_subtype_rising_wingbody_v01.png",
     "저상형 윙바디": "truck/formats/v01/truck_subtype_low_floor_wingbody_v01.png",
