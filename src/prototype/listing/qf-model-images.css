@@ -772,3 +772,27 @@
   padding-top: 8px;
   padding-bottom: 8px;
 }
+/* 윙바디·탑차 2뎁스 B안: 초톳 한 줄 알약칩. 이미지 슬롯 A안과 URL로 분리해 비교한다. */
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-wingbody-pill-row,
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-wingbody-pill-row .brand-carousel,
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-wingbody-pill-row .depth-rail-track {
+  min-height: 56px;
+  height: 56px;
+}
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-wingbody-pill-row .depth-rail-track {
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+}
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-wingbody-pill-row .trim-chip {
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid #dedee3;
+  border-radius: 9999px;
+  background: transparent;
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+}

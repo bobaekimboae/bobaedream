@@ -130,6 +130,10 @@ const bikeTypeQuickOptions = [
   { label: "기타", image: "bike/types/autoscout-v01/other.png" },
 ] as const;
 
+// 윙바디·탑차 2뎁스 비교 시안은 실제 상위 분류만 노출한다.
+// 내장탑의 일반·하이탑·저상형·상승형은 다음 뎁스에서 다룬다.
+const wingbodyQuickSubtypes = ["윙바디", "내장탑", "워크스루밴", "다용도탑"] as const;
+
 // BMW 공식 라인업의 대표 차체 분류를 카드칩 보조 정보로 사용한다.
 // 한 모델군에 여러 차체가 있는 경우 국내 대표 형태를 우선하고,
 // 실제 이름부터 두 형태가 함께인 M 쿠페/로드스터만 복수 표기한다.
@@ -825,6 +829,9 @@ function MarketplaceScreen() {
   const supportsVehicleCatalog = isBikeCategory || ["전체", "중고차", "국산차", "수입차", "전기차", "럭셔리카", "서울오토갤러리", "도이치오토월드"].includes(category);
   const vehicleCatalog = useVehicleCatalog(isBikeCategory ? "bike" : "car", maker);
   const autohomeLogoPreview = new URLSearchParams(window.location.search).get("brandlogo") === "autohome";
+  const truckDepthPreviewMode = typeof window === "undefined" ? null : new URLSearchParams(window.location.search).get("truckdepth");
+  const showWingbodyImageDepth = selectedTruckFormat === "윙바디·탑차" && truckDepthPreviewMode === "image";
+  const showWingbodyPillDepth = selectedTruckFormat === "윙바디·탑차" && truckDepthPreviewMode === "pill";
   const truckSubtypeOptions = truckSubtypesFor(selectedTruckFormat);
   const truckSpecGroups = truckSpecGroupsFor(selectedTruckFormat, selectedTruckSubtype);
   const truckSpecOptions = truckSpecGroups.flatMap((group) => group.options.map((option) => ({ group: group.label, value: option })));
@@ -1695,13 +1702,29 @@ function MarketplaceScreen() {
               </QuickRailCarousel>
             </section>
           </> :
-                    showTruckSubtypeRail ? <section className={`depth-rail no-label is-truck-depth-chip-row${selectedTruckFormat === "카고(화물)트럭" ? " is-cargo-tonnage-row" : ""}`} aria-label={`${selectedTruckFormat} 세부 형식 빠른 선택`}>
-            <QuickRailCarousel ariaLabel={`${selectedTruckFormat} 세부 형식`} className="brand-carousel" contentClassName={`depth-rail-track${selectedTruckFormat === "카고(화물)트럭" ? " is-chips is-truck-tonnage-track" : ""}`}>
+                    showTruckSubtypeRail ? <section className={showWingbodyImageDepth
+            ? "depth-rail no-label is-truck-image-row is-format-sub"
+            : `depth-rail no-label is-truck-depth-chip-row${selectedTruckFormat === "카고(화물)트럭" ? " is-cargo-tonnage-row" : ""}${showWingbodyPillDepth ? " is-wingbody-pill-row" : ""}`} aria-label={`${selectedTruckFormat} 세부 형식 빠른 선택`}>
+            <QuickRailCarousel ariaLabel={`${selectedTruckFormat} 세부 형식`} className="brand-carousel" contentClassName={showWingbodyImageDepth
+              ? "depth-rail-track"
+              : `depth-rail-track${selectedTruckFormat === "카고(화물)트럭" ? " is-chips is-truck-tonnage-track" : ""}${showWingbodyPillDepth ? " is-chips" : ""}`}>
               {selectedTruckFormat === "카고(화물)트럭" ? <>
                 <span className="truck-tonnage-label">적재중량</span>
                 {truckCargoQuickSubtypes.map((subtype) => (
                   <TrimChip key={subtype} label={truckSubtypeSecondaryLabel(selectedTruckFormat, subtype) ?? subtype} onClick={() => chooseTruckSubtype(subtype)} />
                 ))}
+              </> : showWingbodyImageDepth ? <>
+                {wingbodyQuickSubtypes.map((subtype) => (
+                  <DepthCard
+                    key={subtype}
+                    className="is-truck-depth"
+                    label={subtype}
+                    image={<img src={asset(truckSubtypeImageFor(selectedTruckFormat, subtype) ?? "")} alt="" aria-hidden="true" draggable={false} />}
+                    onClick={() => chooseTruckSubtype(subtype)}
+                  />
+                ))}
+              </> : showWingbodyPillDepth ? <>
+                {wingbodyQuickSubtypes.map((subtype) => <TrimChip key={subtype} label={subtype} onClick={() => chooseTruckSubtype(subtype)} />)}
               </> : <>
                 <DepthTextChip label={"형식\n변경"} title onClick={clearTruckFormat} />
                 {truckSubtypeOptions.map((subtype) => {
