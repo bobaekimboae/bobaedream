@@ -14,7 +14,7 @@
 - Spacing and layout rhythm: 기존 검증 슬롯 358×98, 좌우 16px, 8px 모서리를 유지한다.
 - Image quality and asset fidelity: 기아 공식 1920×1080 브리사 대표 이미지를 수정 없이 사용한다.
 - Color and contrast: 원본의 중성 회색 스튜디오 톤은 유지하고, 왼쪽 문구 영역에만 검정 그라데이션을 적용한다.
-- Content hierarchy: 왼쪽 문구와 오른쪽 앞 3/4 브리사를 분리해 차종을 즉시 인식하게 한다.
+- Content hierarchy: 브리사 이미지를 슬롯 폭의 15% 오른쪽으로 이동해 왼쪽 문구와 앞 3/4 차체가 겹치지 않게 한다.
 
 ## Verification
 
