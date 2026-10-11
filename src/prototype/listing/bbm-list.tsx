@@ -630,7 +630,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
     </div>
   ) : (
     <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`}>
-      {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(listPhoto ?? car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} loading={eagerPhoto ? "eager" : "lazy"} decoding="async" style={{ objectPosition: listPhoto ? "center center" : car.imagePosition ?? "center center" }} /> : null}
+      {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(listPhoto ?? car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} loading={eagerPhoto ? "eager" : "lazy"} decoding="async" style={car.listCrop && !listPhoto ? { position: "absolute", width: `${car.listCrop[0]}%`, height: `${car.listCrop[1]}%`, left: `${car.listCrop[2]}%`, top: `${car.listCrop[3]}%`, objectFit: "fill" } : { objectPosition: listPhoto ? "center center" : car.imagePosition ?? "center center" }} /> : null}
       <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span></div>
     </div>
   );

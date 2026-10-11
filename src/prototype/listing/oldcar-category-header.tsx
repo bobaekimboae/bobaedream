@@ -6,7 +6,7 @@ export function OldcarCategoryHeader() {
     <section className="oldcar-category-hero" aria-label="보배드림 올드카 소개">
       <img
         className="oldcar-category-hero-media"
-        src={asset("oldcar-header/hyundai-pony-catalog-studio-v2.png")}
+        src={asset("oldcar-header/hyundai-pony-dyler-dark-v3.png")}
         alt="현대자동차 1세대 포니"
         draggable={false}
       />
