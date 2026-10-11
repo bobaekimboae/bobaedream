@@ -44,8 +44,12 @@
 | 순서 | 연도 | 모델 | 공식 페이지 | 저장 자산 |
 | --- | ---: | --- | --- | --- |
 | 1 | 1974 | 기아 브리사 | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/brisa | `kia-brisa-official-kv-1920x1080.webp` |
-| 2 | 1981 | 기아 봉고 | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/bongo | `kia-bongo-official-kv-1920x1080.webp` |
-| 3 | 1987 | 기아 프라이드 | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/pride | `kia-pride-official-kv-1920x1080.webp` |
-| 4 | 1987 | 기아 콩코드 | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/concord | `kia-concord-official-kv-1920x1080.webp` |
-| 5 | 1990 | 기아 록스타 | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/rocsta | `kia-rocsta-official-kv-1920x1080.webp` |
-| 6 | 1996 | 기아 엘란 | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/elan | `kia-elan-official-kv-1920x1080.webp` |
+| 2 | 1977 | 기아 브리사 Ⅱ | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/brisa-2 | `kia-brisa-2-official-kv-1920x1080.webp` |
+| 3 | 1980 | 기아 봉고 트럭 | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/bongo-truck | `kia-bongo-truck-official-kv-1920x1080.webp` |
+| 4 | 1981 | 기아 봉고 | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/bongo | `kia-bongo-official-kv-1920x1080.webp` |
+| 5 | 1986 | 기아 베스타 | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/besta | `kia-besta-official-kv-1920x1080.webp` |
+| 6 | 1987 | 기아 프라이드 | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/pride | `kia-pride-official-kv-1920x1080.webp` |
+| 7 | 1987 | 기아 콩코드 | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/concord | `kia-concord-official-kv-1920x1080.webp` |
+| 8 | 1990 | 기아 록스타 | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/rocsta | `kia-rocsta-official-kv-1920x1080.webp` |
+| 9 | 1992 | 기아 포텐샤 | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/potentia | `kia-potentia-official-kv-1920x1080.webp` |
+| 10 | 1996 | 기아 엘란 | https://worldwide.kia.com/ko/brand/our-brand/heritage/vehicles/elan | `kia-elan-official-kv-1920x1080.webp` |

@@ -19,10 +19,31 @@ const OLDCAR_HERO_SLIDES: OldcarHeroSlide[] = [
     shift: "24%",
   },
   {
+    id: "brisa-2",
+    year: "1977",
+    model: "기아 브리사 Ⅱ",
+    src: asset("oldcar-header/kia-brisa-2-official-kv-1920x1080.webp"),
+    shift: "22%",
+  },
+  {
+    id: "bongo-truck",
+    year: "1980",
+    model: "기아 봉고 트럭",
+    src: asset("oldcar-header/kia-bongo-truck-official-kv-1920x1080.webp"),
+    shift: "18%",
+  },
+  {
     id: "bongo",
     year: "1981",
     model: "기아 봉고",
     src: asset("oldcar-header/kia-bongo-official-kv-1920x1080.webp"),
+    shift: "18%",
+  },
+  {
+    id: "besta",
+    year: "1986",
+    model: "기아 베스타",
+    src: asset("oldcar-header/kia-besta-official-kv-1920x1080.webp"),
     shift: "18%",
   },
   {
@@ -45,6 +66,13 @@ const OLDCAR_HERO_SLIDES: OldcarHeroSlide[] = [
     model: "기아 록스타",
     src: asset("oldcar-header/kia-rocsta-official-kv-1920x1080.webp"),
     shift: "24%",
+  },
+  {
+    id: "potentia",
+    year: "1992",
+    model: "기아 포텐샤",
+    src: asset("oldcar-header/kia-potentia-official-kv-1920x1080.webp"),
+    shift: "22%",
   },
   {
     id: "elan",
@@ -103,23 +131,21 @@ export function OldcarCategoryHeader() {
           <span className="oldcar-category-hero-subtitle">올드카ㆍ클래식카 판매</span>
         </span>
       </button>
-      <div className="oldcar-category-hero-footer">
-        <span className="oldcar-category-hero-model">
-          <small>{slide.year}</small>
-          <em>{slide.model}</em>
-        </span>
-        <div className="oldcar-category-hero-dots" role="group" aria-label="올드카 배너 선택">
-          {OLDCAR_HERO_SLIDES.map((item, index) => (
-            <button
-              key={item.id}
-              type="button"
-              className={index === activeIndex ? "is-active" : ""}
-              aria-label={`${item.year} ${item.model} 배너`}
-              aria-current={index === activeIndex ? "true" : undefined}
-              onClick={() => setActiveIndex(index)}
-            />
-          ))}
-        </div>
+      <span className="oldcar-category-hero-model">
+        <small>{slide.year}</small>
+        <em>{slide.model}</em>
+      </span>
+      <div className="oldcar-category-hero-dots" role="group" aria-label="올드카 배너 선택">
+        {OLDCAR_HERO_SLIDES.map((item, index) => (
+          <button
+            key={item.id}
+            type="button"
+            className={index === activeIndex ? "is-active" : ""}
+            aria-label={`${item.year} ${item.model} 배너`}
+            aria-current={index === activeIndex ? "true" : undefined}
+            onClick={() => setActiveIndex(index)}
+          />
+        ))}
       </div>
     </section>
   );
