@@ -33,6 +33,7 @@ import { truckScenarioImageV02 } from "../truck/scenario-images-v02";
 import { truckSubtypeLabel } from "./truck-format-catalog";
 import { luxuryDealers, luxuryListingRows } from "./luxury-category-v01";
 import { oldCarListingRows } from "./old-car-category-v01";
+import { supercarSheetRows } from "./supercar-sheet-v01";
 import { seoulAutoGalleryRows } from "./seoul-autogallery-v01";
 import deutschAutoworldRowsJson from "./deutsch-autoworld-all-v01.json";
 import deutschDriveLinks from "./deutsch-autoworld-drive-v01.json";
@@ -185,6 +186,7 @@ type Car = {
   photoList?: string[];
   /** 올드카 카테고리 가상 매물 v01(차량 › 테마별 중고차 › 올드카). 시트 순번과 가격을 채운 값인지 */
   oldCar?: { number: number; priceFilled: boolean };
+  supercarSheet?: boolean;
   luxuryCategory?: { number: number; vehicleNumber: string; model: string; generation: string; filled: boolean; certified: boolean };
   uiTest?: {
     number: number;
@@ -352,7 +354,7 @@ const sellerLabel = (car: Car) => {
   if (car.heavy?.isVirtual) return car.dealer;
   if (car.virtualCategory?.isVirtual) return car.dealer;
   if (car.uiTest) return car.dealer;
-  if (car.luxuryCategory || car.seoulAutoGallery || car.realDealer || car.oldCar) return car.dealer;
+  if (car.luxuryCategory || car.seoulAutoGallery || car.realDealer || car.oldCar || car.supercarSheet) return car.dealer;
   if (car.dealer && car.dealer !== sellerScenario.name) return car.dealer;
   const index = ((car.id - 1) % dealerNamePool.length + dealerNamePool.length) % dealerNamePool.length;
   return dealerNamePool[index];
@@ -1661,9 +1663,54 @@ const oldCarCategoryCars: Car[] = oldCarListingRows.map((row, index) => {
 // G-클래스·S-클래스·7시리즈·모델 X 같은 럭셔리 일반 모델이 섞이지 않게 한다.
 const supercarOnlyMakers = new Set(["페라리", "람보르기니", "맥라렌", "부가티", "코닉세그", "파가니"]);
 const supercarOnlyModels = new Set(["포르쉐|911", "마세라티|MC20", "아우디|R8", "애스턴마틴|밴티지"]);
-const supercarCategoryCars: Car[] = luxuryCategoryCars.filter((car) =>
+const supercarLuxuryCars: Car[] = luxuryCategoryCars.filter((car) =>
   supercarOnlyMakers.has(car.maker) || supercarOnlyModels.has(`${car.maker}|${car.modelGroup ?? ""}`),
 );
+// 슈퍼카 시트 매물 v01(2026-10-11): 시트 「슈퍼카」 100대(사진·제원은 보배드림 공개 매물, 판매자·등록시각은 가상). 럭셔리 목록의 슈퍼카보다 위에 둔다.
+const supercarSheetCars: Car[] = supercarSheetRows.map((row, index) => {
+  const nn = String(row.number).padStart(3, "0");
+  const photo = `cars/supercar-sheet-v01/sc-${nn}.webp`;
+  const mileageText = row.mileage >= 9500 ? `${String(Math.round(row.mileage / 1000) / 10)}만km` : `${row.mileage.toLocaleString("ko-KR")}km`;
+  const place = dealerComplexByRegion[row.region] ?? row.region;
+  const yearText = /^\d{2}\/\d{2}/.test(row.yearRaw) ? `${String(row.year).slice(2)}년${row.yearRaw.slice(3, 5)}월` : String(row.year);
+  return {
+    id: 15_000 + row.number,
+    updateRank: 5_000 - index,
+    maker: row.maker,
+    modelGroup: row.group,
+    sellerType: "딜러",
+    image: photo,
+    listThumb: `cars/supercar-sheet-v01/thumb/sc-${nn}.webp`,
+    imagePosition: "center center",
+    title: `${row.maker} ${row.model}`,
+    trim: "",
+    specs: [`${row.year}년식`, mileageText, row.fuel],
+    cardSpec: [yearText, mileageText, row.fuel],
+    price: row.price === null ? "가격 상담" : `${row.price.toLocaleString("ko-KR")} 만원`,
+    place,
+    views: 0,
+    dealer: `${virtualPersonNames[row.number % virtualPersonNames.length]} 딜러`,
+    stock: 2 + (row.number % 6),
+    posted: row.daysAgo === 0 ? "오늘" : `${row.daysAgo}일 전`,
+    photos: 1,
+    sellerProfile: null,
+    supercarSheet: true,
+    filter: {
+      year: row.year,
+      seats: "전체",
+      condition: "중고",
+      mileage: row.mileage,
+      owners: "전체",
+      transmission: "오토",
+      fuel: row.fuel,
+      color: "전체",
+      origin: "수입",
+      body: row.body,
+      video: false,
+    },
+  };
+});
+const supercarCategoryCars: Car[] = [...supercarSheetCars, ...supercarLuxuryCars];
 
 // 서울오토갤러리 카테고리(차량 › 중고차 › 서울오토갤러리, 2026-10-10): 시트 「서울오토갤러리」 실데이터(사진 5장 · 실제 상사명 · 실제 딜러명). 위치는 서울 서초구 · 서울오토갤러리
 const seoulAutoGalleryMileageText = (km: number) => km >= 9500 ? `${String(Math.round(km / 1000) / 10)}만km` : `${km.toLocaleString("ko-KR")}km`;
