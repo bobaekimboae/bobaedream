@@ -1,3 +1,33 @@
+# 올드카 벤츠 클래식 단일 헤더 QA · 2026-10-12
+
+- source visual truth: Mercedes-Benz Media의 공식 300 SL Coupé(W 198) 사진
+- source page: `https://media.mercedes-benz.com/article/35d4b3c7-87e9-4c0a-a536-7c4964268f72`
+- source asset: `https://api.media.mercedes-benz.com/jsonapi/image/deliver/a5b0c332-7249-49f1-ab42-2af7d8b9e1af/1920`
+- implementation: `http://127.0.0.1:4212/?qf=guazi&category=올드카&view=feed`
+- viewport: 390 × 844 CSS px, deviceScaleFactor 1
+- compared header size: 358 × 98px
+- state: light theme, 정적 이미지 1장
+
+## Findings
+
+- Fonts and typography: Pretendard 제목 18/23·700, 설명 11/15·400. 설명은 `국내 유일 올드카ㆍ클래식카 쇼핑몰`로 정확히 표기한다.
+- Spacing and layout rhythm: 기존 검증 슬롯 358×98, 좌우 16px, 8px 모서리를 유지한다.
+- Image quality and asset fidelity: Mercedes-Benz Media 공식 1800×1200 300 SL 사진 1장만 사용한다. 슬라이드·인디케이터·별도 차량 합성은 없다.
+- Color and contrast: 사진 전체에 24% 검정 단색 음영과 텍스트 그림자를 적용해 흰색 문구 대비를 확보한다.
+- Content hierarchy: 왼쪽 문구, 오른쪽 300 SL 차체가 분리되어 작은 모바일 슬롯에서도 브랜드와 카테고리가 즉시 인식된다.
+
+## Verification
+
+- `npm run verify:qf`: passed
+- `git diff --check`: passed
+- 헤더 실측 358.4×98px, 이미지 1장, 버튼 0개
+- 이미지 complete=true, naturalWidth=1800, naturalHeight=1200
+- 새 탭 첫 로드 콘솔 오류 0
+
+final result: passed
+
+---
+
 # 올드카 카테고리 헤더 QA · 2026-10-12
 
 - source visual truth: `reports/oldcar-hero-1012/source-supercar-header-390.png`
