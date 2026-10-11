@@ -105,7 +105,8 @@ import { truckModelsByMaker } from "../truck/scenario-v09";
 import { HeavyQuickFilter } from "../heavy";
 import "./qf-car-body-types.css";
 import "./qf-chotot-vehicle-slots.css";
-import { SeoulAutoGalleryDealerRail } from "./seoul-auto-gallery-dealer-rail";
+import { SeoulAutoGalleryDealerRail, type SeoulAutoGalleryDealer } from "./seoul-auto-gallery-dealer-rail";
+import { DealerContactBar, DealerProfileScreen } from "./dealer-profile";
 import { SeoulAutoGalleryHeader } from "./seoul-auto-gallery-header";
 import { DeutschAutoworldHeader } from "./deutsch-autoworld-header";
 import { SeoulAutoGalleryAbout, SeoulAutoGalleryCompanyDirectory, SeoulAutoGalleryTabs, type SeoulAutoGallerySection } from "./seoul-auto-gallery-directory";
@@ -730,6 +731,14 @@ function MarketplaceScreen() {
   const openCarDetail = (car: Car) => {
     setActiveDetailCar(car);
     flow.push(detailScreen);
+  };
+  const openDealerProfile = (dealer: SeoulAutoGalleryDealer) => {
+    flow.push({
+      id: `dealer-${dealer.shopNo}-${dealer.empNo}`,
+      footer: () => <DealerContactBar />,
+      footerHeight: 64,
+      render: () => <DealerProfileScreen dealer={dealer} cars={seoulAutoGalleryCars} onOpenCar={openCarDetail} />,
+    });
   };
   const keyboard = useKeyboard();
   const { likedIds, toggleLiked } = useFavorites();
@@ -2046,7 +2055,7 @@ function MarketplaceScreen() {
           </section>
   );
   const seoulAutoGalleryDealerRail = isGuaziQuickStyle && category === "서울오토갤러리" && !maker
-    ? <SeoulAutoGalleryDealerRail />
+    ? <SeoulAutoGalleryDealerRail onOpenDealer={openDealerProfile} />
     : null;
   const seoulAutoGalleryHeader = isGuaziQuickStyle && category === "서울오토갤러리" && !maker
     ? <SeoulAutoGalleryHeader />

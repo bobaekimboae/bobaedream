@@ -35,6 +35,10 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
   color: #222;
   text-align: center;
   text-decoration: none;
