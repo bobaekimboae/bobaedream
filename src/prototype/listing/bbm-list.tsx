@@ -178,14 +178,20 @@ export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
   },
 ];
 
-// 테마별 중고차(2026-10-11 「동그란 줄 자리에 하위 칩 줄로 교체」): 동그란 카테고리 줄에서 누르면 카테고리가 `테마별 중고차`로 바뀌고, 같은 자리에 하위 칩 줄이 나온다.
-export const THEME_USED_CAR = "테마별 중고차";
-export function BbmThemeRail({ onChoose }: { onChoose: (label: string, detail?: string) => void }) {
-  const group = bbmCategoryGroups.find((item) => item.value === THEME_USED_CAR);
+// 하위가 있는 그룹(중고차 · 테마별 중고차 · 캠핑카)은 같은 방식(2026-10-11 「중고차 등 모두 같은 방식」): 동그란 카테고리 줄에서 누르면 그 자리에 하위 칩 줄이 나온다.
+export function bbmGroupHasRail(value: string) {
+  const group = bbmCategoryGroups.find((item) => item.value === value);
+  return Boolean(group && value !== "전체" && value !== "트럭 · 특장" && group.children.length > 1);
+}
+export function bbmGroupLabel(value: string) {
+  return bbmCategoryGroups.find((item) => item.value === value)?.label ?? value;
+}
+export function BbmGroupRail({ groupValue, onChoose }: { groupValue: string; onChoose: (label: string, detail?: string) => void }) {
+  const group = bbmCategoryGroups.find((item) => item.value === groupValue);
   if (!group) return null;
   return (
-    <section className="bbm-theme-rail" aria-label="테마별 중고차 하위 카테고리">
-      {group.children.map((child) => <button key={child.value} type="button" onClick={() => onChoose(child.value, child.detail)}>{child.label}</button>)}
+    <section className="bbm-theme-rail" aria-label={`${group.label} 하위 카테고리`}>
+      {group.children.map((child) => <button key={`${child.value}-${child.detail ?? child.label}`} type="button" onClick={() => onChoose(child.value, child.detail)}>{child.label}</button>)}
     </section>
   );
 }
@@ -253,17 +259,18 @@ function getImageGuideFamily(): ImageGuideFamily | null {
   return value === "body" || value === "gclass" || value === "heavy" ? value : null;
 }
 
-export function BbmCategoryMenu({ onChoose }: { onChoose: (label: string, detail?: string) => void }) {
+export function BbmCategoryMenu({ onChoose, onOpenGroup }: { onChoose: (label: string, detail?: string) => void; onOpenGroup?: (value: string) => void }) {
   const imageGuideFamily = getImageGuideFamily();
   const items = imageGuideFamily ? imageGuideItems[imageGuideFamily] : bbmCategoryItems;
   const [activeValue, setActiveValue] = useState("중고차");
   if (!imageGuideFamily) {
     const activeGroup = bbmCategoryGroups.find((group) => group.value === activeValue) ?? bbmCategoryGroups[1];
-    const entersNextDepthDirectly = (group: BbmCategoryGroup) => group.value === "중고차" || group.value === "트럭 · 특장" || group.value === THEME_USED_CAR || group.children.length === 1;
+    const entersNextDepthDirectly = (group: BbmCategoryGroup) => group.value === "트럭 · 특장" || group.children.length === 1 || (Boolean(onOpenGroup) && bbmGroupHasRail(group.value));
     const activateGroup = (value: string) => {
       setActiveValue(value);
       const nextGroup = bbmCategoryGroups.find((group) => group.value === value);
       if (!nextGroup || !entersNextDepthDirectly(nextGroup)) return;
+      if (onOpenGroup && bbmGroupHasRail(nextGroup.value)) { onOpenGroup(nextGroup.value); return; }
       const onlyChild = nextGroup.children.length === 1 ? nextGroup.children[0] : undefined;
       // 중고차는 브랜드, 트럭/특장은 형식 이미지, 단일 "전체" 카테고리는 각 전용 퀵필터로 바로 진입한다.
       onChoose(onlyChild?.value ?? value, onlyChild?.detail);
