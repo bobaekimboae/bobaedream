@@ -34,7 +34,7 @@ export default function Prototype() {
 
   useEffect(() => {
     const root = document.documentElement;
-    if (showMainHome) {
+    if (showMainHome || shouldShowDealerPage()) {
       root.removeAttribute("data-force-mobile");
       root.removeAttribute("data-force-mobile-wide");
       root.style.removeProperty("--force-mobile-scale");
