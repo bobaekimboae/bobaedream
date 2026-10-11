@@ -150,3 +150,7 @@
 .filter-shell.is-bbm.is-scrolled .filter-fixed::after { content: ""; position: absolute; top: 0; right: -9px; width: 1px; height: 100%; background: #e8e8e8; }
 .filter-shell.is-bbm.is-scrolled .filter-fixed:not(.is-applied) { padding: 4px 8px; }
 .filter-shell.is-bbm.is-scrolled .filter-fixed:not(.is-applied) > span { display: none; }
+
+/* 사진 없는 매물(2026-10-11): 노션 「이미지 없음_24_24」 원본 아이콘을 칸 가운데에 표시한다. */
+.bbm-card-photo.is-empty { display: flex; align-items: center; justify-content: center; }
+.bbm-card-photo.is-empty::before { content: ""; width: 48px; height: 48px; background: url("/assets/bbm/missing-image-24-v01.svg") center / contain no-repeat; }
