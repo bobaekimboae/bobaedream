@@ -2655,8 +2655,7 @@ function MarketplaceScreen() {
                 </div>
               </section>
             ) : null}
-            {showSeoulAutoGalleryVehicles ? <>
-            <BbmMobileOptions
+            {showSeoulAutoGalleryVehicles ? <><BbmMobileOptions
               videoOnly={videoOnly}
               onToggleVideo={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))}
               sortLabel={bbmSort}

@@ -83,7 +83,6 @@
 .bbm-card-count img { width: 12px; height: 12px; }
 .bbm-card-content { display: flex; min-width: 0; flex: 1; flex-direction: column; }
 .bbm-card-text { display: flex; min-width: 0; flex-direction: column; }
-.bbm-card-listing-title { display: -webkit-box; min-width: 0; overflow: hidden; color: var(--bbm-text-strong); font-size: 17px; font-weight: 700; line-height: 24px; word-break: keep-all; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .bbm-card-title { align-self: flex-start; max-width: 100%; overflow: hidden; color: var(--bbm-text-strong); font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
 /* JOB-8: dev처럼 " · " 텍스트 한 줄. 블록이라야 text-overflow 말줄임이 걸린다 */
 .bbm-card-spec { display: block; min-width: 0; overflow: hidden; font-size: 14px; font-weight: 400; text-overflow: ellipsis; white-space: nowrap; }
