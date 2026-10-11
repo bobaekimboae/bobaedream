@@ -12,8 +12,13 @@ export function OldcarCategoryHeader() {
       />
       <div className="oldcar-category-hero-shade" aria-hidden="true" />
       <div className="oldcar-category-hero-copy">
-        <small>1974 기아 브리사</small>
-        <strong>보배드림 올드카</strong>
+        <div className="oldcar-category-hero-heading">
+          <strong>보배드림 올드카</strong>
+          <div className="oldcar-category-hero-model">
+            <small>1974</small>
+            <em>기아 브리사</em>
+          </div>
+        </div>
         <span>국내 유일 올드카ㆍ클래식카 쇼핑몰</span>
       </div>
     </section>
