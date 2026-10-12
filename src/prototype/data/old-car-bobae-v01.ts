@@ -22,7 +22,7 @@ export type OldCarBobaeRow = {
   image: boolean;
 };
 
-export const oldCarBobaeRows: OldCarBobaeRow[] = [
+const oldCarBobaeSheetRows: OldCarBobaeRow[] = [
   {number: 1, titleMaker: "폭스바겐", maker: "폭스바겐", model: "T3 바나곤 캠퍼", year: 1990, mileage: 129000, fuel: "가솔린", price: 10500, region: "서울 종로구", body: "왜건", origin: "수입", days: 4, image: true},
   {number: 2, titleMaker: "BMW", maker: "BMW", model: "Z8 5.0", year: 2000, mileage: 20000, fuel: "가솔린", price: null, region: "서울 서초구", body: "컨버터블", origin: "수입", days: 4, image: true},
   {number: 3, titleMaker: "랜드로버", maker: "랜드로버", model: "레인지로버 3.9 V8", year: 1994, mileage: 110000, fuel: "가솔린", price: null, region: "서울 성동구", body: "SUV", origin: "수입", days: 5, image: true},
@@ -79,3 +79,6 @@ export const oldCarBobaeRows: OldCarBobaeRow[] = [
   {number: 65, titleMaker: "벤츠", maker: "벤츠", model: "SL560", year: 1986, mileage: 177000, fuel: "가솔린", price: null, region: "경기 수원시", body: "컨버터블", origin: "수입", days: 314, image: true},
   {number: 72, titleMaker: "폭스바겐", maker: "폭스바겐", model: "비틀 클래식", year: 1996, mileage: 20000, fuel: "가솔린", price: null, region: "경기 수원시", body: "세단", origin: "수입", days: 360, image: true},
 ];
+
+// 올드카 기준(2026-10-12 「올드카에 2000년대 모델 들어가있다」): 1999년식 이하만 목록에 쓴다(2000년식 이상 17대 제외, 위 시트 값은 보존).
+export const oldCarBobaeRows: OldCarBobaeRow[] = oldCarBobaeSheetRows.filter((row) => row.year < 2000);
