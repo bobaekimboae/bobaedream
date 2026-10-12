@@ -33,6 +33,9 @@ const yearOnlyToNumber = (text: string) => text.split(" · ").map((part) => {
   return match ? (match[1].length === 2 ? `20${match[1]}` : match[1]) : part;
 }).join(" · ");
 
+// 피드형 메타정보용 샘플 마력(2026-10-12 「피드형에서는 연료 뒤에 마력 모두 표기」): PC 카드와 같은 id 기준 샘플 값이다(실제 제원 아님)
+export const bbmSampleHorsepower = (id: number) => `${horsepowerPool[id % horsepowerPool.length]}마력`;
+
 export function bbmCardSpec(source: SampleSource, withPower = true) {
   return yearOnlyToNumber(bbmCardSpecRaw(source, withPower));
 }
