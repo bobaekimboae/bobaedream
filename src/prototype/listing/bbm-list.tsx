@@ -602,8 +602,12 @@ function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string
     window.setTimeout(() => track.removeEventListener("click", block, true), 0);
   };
   // 점은 최대 7개까지만 보이고, 현재 점 둘레로 창을 옮긴다(레딧과 같은 방식)
-  const start = Math.max(0, Math.min(index - 3, photos.length - 7));
-  const dots = photos.map((_, i) => i).slice(start, start + 7);
+  // 2026-10-12 「5개로 줄여서」: 레딧(약 4개)·에어비앤비(약 5개)처럼 최대 5개. 뒤에 사진이 더 있는 쪽 끝 점만 작게(끝 3px · 그 안쪽 4px)
+  const dotMax = 5;
+  const start = Math.max(0, Math.min(index - 2, photos.length - dotMax));
+  const dots = photos.map((_, i) => i).slice(start, start + dotMax);
+  const moreBefore = start > 0;
+  const moreAfter = start + dotMax < photos.length;
   return (
     <div className="bbm-feed-carousel-wrap" ref={wrapRef}>
       <div className="bbm-feed-carousel" ref={trackRef} onScroll={onScroll} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={endDrag} onPointerCancel={endDrag} onClick={(event) => { if (trackRef.current && trackRef.current.scrollLeft % trackRef.current.clientWidth) event.stopPropagation(); }}>
@@ -613,7 +617,7 @@ function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string
       </div>
       <span className={`bbm-feed-count${countVisible ? " is-visible" : ""}`} aria-label={`사진 ${photos.length}장 중 ${index + 1}번째`}>{index + 1}/{photos.length}</span>
       <div className="bbm-feed-dots" aria-hidden="true">
-        {dots.map((i) => <i key={i} className={i === index ? "is-on" : Math.abs(i - index) >= 4 ? "is-edge" : Math.abs(i - index) === 3 ? "is-near" : ""} />)}
+        {dots.map((i) => <i key={i} className={`${i === index ? "is-on" : ""}${(moreBefore && i === start) || (moreAfter && i === start + dotMax - 1) ? " is-edge" : (moreBefore && i === start + 1) || (moreAfter && i === start + dotMax - 2) ? " is-near" : ""}`.trim()} />)}
       </div>
     </div>
   );
