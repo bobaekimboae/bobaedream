@@ -118,6 +118,20 @@ import { emptyHeavySelection, getInitialHeavySelection, replaceHeavyParams, type
 import { CatalogLogo, CatalogSearchResults, CatalogVehicleImage, CatalogVehiclePickerSheet, useVehicleCatalog, type VehicleSearchRecord } from "../vehicle-catalog";
 
 type BbmMobileView = "목록으로 보기" | "피드로 보기" | "갤러리로 보기" | "한줄 광고로 보기" | "텍스트로 보기";
+type OldcarDecade = 1960 | 1970 | 1980 | 1990;
+
+const oldcarDecades: Array<{ value: OldcarDecade; label: string }> = [
+  { value: 1960, label: "60년대" },
+  { value: 1970, label: "70년대" },
+  { value: 1980, label: "80년대" },
+  { value: 1990, label: "90년대" },
+];
+
+const getInitialOldcarDecade = (): OldcarDecade | null => {
+  if (typeof window === "undefined") return null;
+  const value = Number(new URLSearchParams(window.location.search).get("decade"));
+  return oldcarDecades.some((option) => option.value === value) ? value as OldcarDecade : null;
+};
 
 // 바이크는 제조사보다 유형을 먼저 고른다. 슬롯은 초톳 76/84×102,
 // 이미지는 AutoScout24 카탈로그 톤의 좌향 전신 컷으로 통일한다.
@@ -750,6 +764,7 @@ function MarketplaceScreen() {
   const [selectedTruckFormat, setSelectedTruckFormat] = useState<string | null>(() => initialFilters.category === "트럭 · 특장" ? initialTruckFormatSelection().format : null);
   const [selectedTruckSubtype, setSelectedTruckSubtype] = useState<string | null>(() => initialFilters.category === "트럭 · 특장" ? initialTruckFormatSelection().subtype : null);
   const [selectedTruckSpec, setSelectedTruckSpec] = useState<string | null>(() => initialFilters.category === "트럭 · 특장" ? initialTruckFormatSelection().spec : null);
+  const [selectedOldcarDecade, setSelectedOldcarDecade] = useState<OldcarDecade | null>(() => initialFilters.category === "올드카" ? getInitialOldcarDecade() : null);
   const [truckTypePickerOpen, setTruckTypePickerOpen] = useState(false);
   const [filterFocus, setFilterFocus] = useState<ChoTotFilterFocus | null>(null);
   const [quickFilterFocus, setQuickFilterFocus] = useState<ChoTotFilterFocus | null>(null);
@@ -1008,6 +1023,7 @@ function MarketplaceScreen() {
     Boolean(selectedTruckFormat),
     Boolean(selectedTruckSubtype),
     Boolean(selectedTruckSpec),
+    Boolean(selectedOldcarDecade),
     Boolean(selectedGeneration),
     isGuaziQuickStyle ? selectedVariants.length > 0 : trimApplied && selectedVariants.length > 0,
     price.min !== 0 || price.max !== null,
@@ -1034,6 +1050,7 @@ function MarketplaceScreen() {
     Boolean(selectedTruckFormat),
     Boolean(selectedTruckSubtype),
     Boolean(selectedTruckSpec),
+    Boolean(selectedOldcarDecade),
     Boolean(selectedGeneration),
     price.min !== 0 || price.max !== null,
     filters.year !== "전체",
@@ -1073,9 +1090,10 @@ function MarketplaceScreen() {
         && (!heavySelection.modelCode || car.heavy?.modelCode === heavySelection.modelCode)
         && (!heavySelection.submodelCode || car.heavy?.submodelCode === heavySelection.submodelCode)
       );
-      return categoryChildMatch && heavyMatch && matchesTruckSelection(car) && matchesChoTotFilters(car, filters) && catalogModelMatch && generationMatch && trimMatch && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || searchText.toLowerCase().includes(normalized));
+      const oldcarDecadeMatch = category !== "올드카" || selectedOldcarDecade === null || Math.floor((car.filter?.year ?? 0) / 10) * 10 === selectedOldcarDecade;
+      return categoryChildMatch && heavyMatch && oldcarDecadeMatch && matchesTruckSelection(car) && matchesChoTotFilters(car, filters) && catalogModelMatch && generationMatch && trimMatch && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || searchText.toLowerCase().includes(normalized));
     });
-  }, [bbmCategoryChild, effectiveSelectedVariants, filters, heavySelection, isCampingCategory, isCatalogMaker, isGuaziQuickStyle, isHeavyCategory, isTruckCategory, listingCars, query, region.district, regionKeyword, selectedGeneration, selectedGenerationOption, selectedTruckFormat, selectedTruckSpec, selectedTruckSubtype, selectedVariants, trimApplied]);
+  }, [bbmCategoryChild, category, effectiveSelectedVariants, filters, heavySelection, isCampingCategory, isCatalogMaker, isGuaziQuickStyle, isHeavyCategory, isTruckCategory, listingCars, query, region.district, regionKeyword, selectedGeneration, selectedGenerationOption, selectedOldcarDecade, selectedTruckFormat, selectedTruckSpec, selectedTruckSubtype, selectedVariants, trimApplied]);
   // QF-090: 우리 데이터가 있는 개발 시안형 항목(바디타입·연식·주행거리·가격·연료·변속기·인승·외부색상·판매자 구분·지역)으로 거른다
   const filteredWithoutPrice = useMemo(() => isGuaziQuickStyle ? baseListCars.filter((car) => matchesBbmFilters(car, filters.bbm)) : baseListCars, [baseListCars, filters.bbm, isGuaziQuickStyle]);
   // QF-097 보완(매물 수 기준 하나로): 과쯔 카탈로그 제조사의 모델·세부 모델·트림 수 = 화면 샘플 매물 수(모델·세부 모델·트림만 뺀 지금 조건).
@@ -1159,6 +1177,19 @@ function MarketplaceScreen() {
     window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
   };
 
+  const replaceOldcarDecadeParam = (value: OldcarDecade | null) => {
+    const url = new URL(window.location.href);
+    if (value === null) url.searchParams.delete("decade");
+    else url.searchParams.set("decade", String(value));
+    window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+  };
+
+  const chooseOldcarDecade = (nextDecade: OldcarDecade) => {
+    const value = selectedOldcarDecade === nextDecade ? null : nextDecade;
+    setSelectedOldcarDecade(value);
+    replaceOldcarDecadeParam(value);
+  };
+
   const resetFilters = ({ closeActiveSheet = true }: { closeActiveSheet?: boolean } = {}) => {
     // QF-106: 과쯔 "필터 초기화"는 1번 상태(들어온 카테고리 유지 · ④ 제조사 이미지 줄)로 — 카테고리 없이 들어왔으면 첫 화면
     const keepCategory = isGuaziQuickStyle && filters.category !== "전체" ? filters.category : null;
@@ -1177,10 +1208,12 @@ function MarketplaceScreen() {
     setSelectedTruckFormat(null);
     setSelectedTruckSubtype(null);
     setSelectedTruckSpec(null);
+    setSelectedOldcarDecade(null);
     setBbmAvailableOnly(false);
     applyHeavySelection(emptyHeavySelection);
     replaceFilterParams(null, null, keepCategory ?? undefined);
     replaceTruckParams(null, null);
+    replaceOldcarDecadeParam(null);
     if (closeActiveSheet) setSheet(null);
   };
 
@@ -1194,9 +1227,11 @@ function MarketplaceScreen() {
     setSelectedTruckFormat(null);
     setSelectedTruckSubtype(null);
     setSelectedTruckSpec(null);
+    setSelectedOldcarDecade(null);
     applyHeavySelection(emptyHeavySelection);
     replaceFilterParams(null, null, "전체");
     replaceTruckParams(null, null);
+    replaceOldcarDecadeParam(null);
   };
 
   const clearTruckFormat = () => {
@@ -1473,10 +1508,12 @@ function MarketplaceScreen() {
       setSelectedTruckFormat(null);
       setSelectedTruckSubtype(null);
       setSelectedTruckSpec(null);
+      setSelectedOldcarDecade(null);
       applyHeavySelection(emptyHeavySelection);
       setCategoryLandingOpen(categoryName === "전체");
       replaceFilterParams(null, null, categoryName);
       replaceTruckParams(null, null);
+      replaceOldcarDecadeParam(null);
       return;
     }
     setSearchToast(`${categoryName.replace("\n", " ")} 카테고리는 준비 중입니다.`);
@@ -1493,9 +1530,11 @@ function MarketplaceScreen() {
       setSelectedTruckFormat(null);
       setSelectedTruckSubtype(null);
       setSelectedTruckSpec(null);
+      setSelectedOldcarDecade(null);
       setCategoryLandingOpen(categoryName === "전체");
       replaceFilterParams(null, null, categoryName);
       replaceTruckParams(null, null);
+      replaceOldcarDecadeParam(null);
       closeSheet();
       return;
     }
@@ -1720,7 +1759,7 @@ function MarketplaceScreen() {
             </Carousel>
           </section>
   );
-  const quickRail = (
+  const baseQuickRail = (
           // QF-105: 트림까지 고르면 퀵필터 줄은 닫힌다(칩 [트림 ×] 로 다시 연다)
           // QF-106: ④ 퀵필터 자리는 닫지 않는다 — 계층(제조사 → 모델 → 세부모델 → 트림)이 끝나면 연식 알약 줄
           showGroupRail && groupRail ? <BbmGroupRail groupValue={groupRail} onChoose={chooseHierarchyCategory} /> :
@@ -2060,6 +2099,22 @@ function MarketplaceScreen() {
             </Carousel>
           </section>
   );
+  const quickRail = isGuaziQuickStyle && category === "올드카" && !maker ? <>
+    <section className="depth-rail no-label is-oldcar-decade-row" aria-label="올드카 연대 빠른 선택">
+      <QuickRailCarousel ariaLabel="올드카 연대" className="brand-carousel" contentClassName="depth-rail-track is-chips is-oldcar-decade-track">
+        <span className="oldcar-decade-label">연대</span>
+        {oldcarDecades.map((option) => (
+          <TrimChip
+            key={option.value}
+            label={option.label}
+            selected={selectedOldcarDecade === option.value}
+            onClick={() => chooseOldcarDecade(option.value)}
+          />
+        ))}
+      </QuickRailCarousel>
+    </section>
+    {baseQuickRail}
+  </> : baseQuickRail;
   const seoulAutoGalleryDealerRail = isGuaziQuickStyle && category === "서울오토갤러리" && !maker
     ? <SeoulAutoGalleryDealerRail onOpenDealer={openDealerProfile} />
     : null;
@@ -2116,7 +2171,7 @@ function MarketplaceScreen() {
   const shownCars = bbmFrozen?.cars ?? visibleCars;
   const shownHistory = bbmFrozen ? bbmFrozen.history : bbmValue.history ?? 0;
   // QF-092: 한 페이지 20대(원본). 필터·정렬·판매자 탭·검색을 바꾸면 1페이지로
-  const bbmPageKey = JSON.stringify([filters, heavySelection, selectedTruckFormat, selectedTruckSubtype, selectedTruckSpec, query, region, selectedGeneration, effectiveSelectedVariants, bbmSort]);
+  const bbmPageKey = JSON.stringify([filters, heavySelection, selectedTruckFormat, selectedTruckSubtype, selectedTruckSpec, selectedOldcarDecade, query, region, selectedGeneration, effectiveSelectedVariants, bbmSort]);
   useEffect(() => { setBbmPage(1); }, [bbmPageKey]);
   const bbmPageCount = Math.max(1, Math.ceil(shownCars.length / BBM_PAGE_SIZE));
   const bbmPageNow = Math.min(bbmPage, bbmPageCount);

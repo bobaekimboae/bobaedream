@@ -146,6 +146,59 @@
   background: rgb(255 255 255 / 34%);
 }
 
+/* 트럭 적재중량 줄과 같은 56px 리듬으로, 올드카 제조사 로고 바로 위에 연대 선택을 둔다. */
+.marketplace.is-qf-guazi .depth-rail.is-oldcar-decade-row,
+.marketplace.is-qf-guazi .depth-rail.is-oldcar-decade-row .brand-carousel,
+.marketplace.is-qf-guazi .depth-rail.is-oldcar-decade-row .depth-rail-track {
+  min-height: 56px;
+  height: 56px;
+}
+
+.marketplace.is-qf-guazi .is-oldcar-decade-track {
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+}
+
+.marketplace.is-bbm-m.is-qf-guazi .is-oldcar-decade-track {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.marketplace.is-qf-guazi .oldcar-decade-label {
+  flex: 0 0 auto;
+  color: #777;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.marketplace.is-qf-guazi .is-oldcar-decade-track .oldcar-decade-label + .trim-chip {
+  margin-left: 2px;
+}
+
+.marketplace.is-qf-guazi .is-oldcar-decade-track .trim-chip {
+  min-width: 62px;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid #dedee3;
+  border-radius: 9999px;
+  background: transparent;
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.marketplace.is-qf-guazi .is-oldcar-decade-track .trim-chip.is-selected {
+  border-color: #222;
+  background: #fff;
+  color: #222;
+  box-shadow: inset 0 0 0 1px #222;
+  font-weight: 600;
+}
+
 @keyframes oldcar-hero-reveal {
   from { opacity: .72; }
   to { opacity: 1; }
