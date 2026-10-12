@@ -191,6 +191,12 @@
 .bbm-feed-dots i { width: 6px; height: 6px; }
 .bbm-feed-dots i.is-near { width: 5px; height: 5px; }
 .bbm-feed-dots i.is-edge { width: 4px; height: 4px; }
+/* 2026-10-12 「레딧 스타일 먼저 적용」(레딧 캡처 923px÷2.4 환산: 알약 약 51×16, 점 약 5, 현재 점 흰색 · 나머지 회색, 가장자리 점은 더 작음): 점 뒤에 작고 옅은 어두운 알약을 깔아 밝은 사진에서도 점이 보이게 한다 */
+.bbm-feed-dots { bottom: 10px; gap: 4px; height: 16px; padding: 0 7px; border-radius: 8px; background: rgba(0, 0, 0, 0.45); }
+.bbm-feed-dots i { width: 5px; height: 5px; background: rgba(255, 255, 255, 0.55); box-shadow: none; }
+.bbm-feed-dots i.is-near { width: 4px; height: 4px; }
+.bbm-feed-dots i.is-edge { width: 3px; height: 3px; }
+.bbm-feed-dots i.is-on { background: #fff; }
 .bbm-feed-count { opacity: 0; transition: opacity 0.2s; }
 .bbm-feed-count.is-visible { opacity: 1; }
 /* 2026-10-10 「중고차 피드에 메타정보 아이콘」: 노션 원본 아이콘(연식·주행·연료·마력·축 수)을 항목 앞에 16px로 둔다. 색은 사양 글자색(#595959)을 따르고 항목 사이는 14px(아이콘이 구분을 맡아 가운데 점은 아이콘 줄에서 뺌) */
