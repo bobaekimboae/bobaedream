@@ -81,6 +81,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
+  gap: 4px;
   width: 112px;
   color: #fff;
   text-align: right;
@@ -95,12 +96,6 @@
   font-style: normal;
   line-height: 13px;
   letter-spacing: 0;
-}
-
-.oldcar-category-hero-model small::after {
-  margin: 0 4px;
-  content: "·";
-  opacity: .72;
 }
 
 .oldcar-category-hero-subtitle {
