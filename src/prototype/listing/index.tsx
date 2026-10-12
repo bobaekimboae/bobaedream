@@ -2305,16 +2305,38 @@ function MarketplaceScreen() {
   const mobileBbmChips: BbmChip[] = bbmChips
     .filter((chip) => chip.key !== "seller" && !chip.key.startsWith("applied-check:sellerKind:"))
     .map((chip) => (chip.key === "category" && !isTruckCategory ? { ...chip, onClick: openBbmCategorySheet } : chip));
+  const railLeftWide = useRef<number | null>(null);
   // QF-092 원본 재실측(2026-09-25): 적용 칩이 바뀌어도 칩 줄 스크롤은 그대로(칩을 누를 때만 revealBbmChip). 예전 "맨 앞 적용 칩 47px" 규칙은 우연히 맞았던 것이라 뺐다
   useEffect(() => {
     if (desktop || !isGuaziQuickStyle) return;
     const rail = document.querySelector<HTMLElement>(".filter-shell.is-bbm .filter-rail");
     if (!rail) return;
-    const update = () => setBbmRailScrolled(rail.scrollLeft > 0);
+    const update = () => {
+      const scrolled = rail.scrollLeft > 0;
+      // 필터 칩이 아직 넓을 때(밀리기 직전)의 칩 줄 왼쪽 끝을 기억한다
+      if (scrolled && !rail.style.paddingLeft && !document.querySelector(".filter-shell.is-bbm.is-scrolled")) railLeftWide.current = rail.getBoundingClientRect().left;
+      setBbmRailScrolled(scrolled);
+    };
     update();
     rail.addEventListener("scroll", update, { passive: true });
     return () => rail.removeEventListener("scroll", update);
   }, [desktop, isGuaziQuickStyle]);
+  // 칩 줄 끊김 보정(2026-10-12 「필터칩 좌측 이동시키면 부자연스럽게 뚝뚝 끊긴다」): "필터" 칩이 줄어들면 칩 줄 왼쪽 끝이 그만큼 왼쪽으로 옮겨
+  // 칩들이 손가락 밑에서 한 번에 튀었다. 줄어든 폭만큼 칩 줄 왼쪽 안쪽 여백을 더해 칩 위치를 그대로 두고, 다시 펴지면 여백을 뺀다.
+  useLayoutEffect(() => {
+    if (desktop || !isGuaziQuickStyle) return;
+    const rail = document.querySelector<HTMLElement>(".filter-shell.is-bbm .filter-rail");
+    if (!rail) return;
+    if (bbmRailScrolled) {
+      const wide = railLeftWide.current;
+      if (wide !== null) {
+        const delta = wide - rail.getBoundingClientRect().left;
+        if (delta > 0) rail.style.paddingLeft = `${delta}px`;
+      }
+    } else {
+      rail.style.paddingLeft = "";
+    }
+  }, [bbmRailScrolled, desktop, isGuaziQuickStyle]);
   // QF-092 원본 실측(2026-09-25): 모바일 칩을 누르면 칩 오른쪽 끝이 칩 줄 밖일 때만 그만큼 스크롤(가격 57 · 판매자 끝까지 · 연식 그대로)
   const revealBbmChip = (label: string) => {
     const rail = document.querySelector<HTMLElement>(".filter-shell.is-bbm .filter-rail");
