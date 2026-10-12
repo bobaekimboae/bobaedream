@@ -232,3 +232,4 @@
 "2026-10-12 07:00","미지정","claude/chip-rail-smooth-1012","-","푸시","검수 대기","모바일 칩 줄 좌우 이동 시 필터 칩 축소로 칩이 41px 튀던 끊김 보정","src/prototype/listing/index.tsx · docs/quick-filter-spec.md","헤드리스 측정 · 실제 손가락 제스처는 미확인"
 "2026-10-12 08:00","미지정","claude/feed-photos-1012","-","푸시","검수 대기","피드 사진 마우스 끌기 추가(터치는 원래 정상, 마우스는 안 넘어가 개수도 안 보였음)","src/prototype/listing/bbm-list.tsx · docs/quick-filter-spec.md","실제 폰 터치는 헤드리스로만 확인"
 "2026-10-12 09:00","미지정","claude/feed-photos-1012","-","푸시","검수 대기","피드 사진 점 레딧 스타일(작은 어두운 알약 + 점 5px)","src/prototype/listing/qf-m-view-modes.css · docs/quick-filter-spec.md","폰 실기기 미확인"
+"2026-10-12 10:00","미지정","claude/feed-dots-5-1012","-","푸시","검수 대기","피드 사진 점 최대 7개 → 5개(끝 점만 작게)","src/prototype/listing/bbm-list.tsx · docs/quick-filter-spec.md","레딧·에어비앤비 규칙은 웹으로 확인 못함"
