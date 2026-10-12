@@ -309,6 +309,15 @@
     padding-top: 10px;
     padding-bottom: 0;
   }
+
+  /* 올드카 제조사 줄에는 왼쪽 제목 칸이 없으므로 첫 76px 카드가 화면 시작점부터
+     배치되게 한다. 카드 안 40px 로고는 x18, 68px 이름 상자는 x4에서 시작한다. */
+  .marketplace.is-bbm-m.is-oldcar-category.is-qf-guazi.is-qf-plain
+    .bbm-m-quick-slot:has(> .is-oldcar-decade-row)
+    > .depth-rail.is-kr-maker
+    .depth-rail-track {
+    padding-left: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
