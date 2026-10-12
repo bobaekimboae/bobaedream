@@ -37,6 +37,7 @@ import { oldCarBobaeRows } from "./old-car-bobae-v01";
 import { oldCarListCrop } from "./old-car-list-crop-v01";
 import { jdmListingRows } from "./jdm-category-v01";
 import { supercarSheetRows } from "./supercar-sheet-v01";
+import { ferrariSheetRows } from "./ferrari-sheet-v02";
 import { seoulAutoGalleryRows } from "./seoul-autogallery-v01";
 import deutschAutoworldRowsJson from "./deutsch-autoworld-all-v01.json";
 import deutschDriveLinks from "./deutsch-autoworld-drive-v01.json";
@@ -1800,7 +1801,48 @@ const supercarSheetCars: Car[] = supercarSheetRows.map((row, index) => {
     },
   };
 });
-const supercarCategoryCars: Car[] = [...supercarSheetCars, ...supercarLuxuryCars];
+// 페라리 시트 매물 v02(2026-10-12): 차란차·전국연합 수집 8대. 사진은 없어 빈 사진 칸이고 슈퍼카 시트 매물보다 위에 둔다.
+const ferrariSheetCars: Car[] = ferrariSheetRows.map((row, index) => {
+  const mileageText = row.mileage >= 9500 ? `${String(Math.round(row.mileage / 1000) / 10)}만km` : `${row.mileage.toLocaleString("ko-KR")}km`;
+  const [fy, fm] = row.firstReg.split("-");
+  const yearText = `${fy.slice(2)}년${fm}월`;
+  const daysAgo = 1 + (row.number % 3);
+  return {
+    id: 15_200 + row.number,
+    updateRank: 5_100 - index,
+    maker: "페라리",
+    modelGroup: row.group,
+    sellerType: "딜러",
+    image: "",
+    title: `페라리 ${row.model}`,
+    trim: "",
+    specs: [`${row.year}년식`, mileageText, row.fuel],
+    cardSpec: [yearText, mileageText, row.fuel],
+    price: row.price === null ? "가격 상담" : `${row.price.toLocaleString("ko-KR")} 만원`,
+    place: `${row.region} · ${row.complex}`,
+    views: 0,
+    dealer: `${virtualPersonNames[(row.number + 7) % virtualPersonNames.length]} 딜러`,
+    stock: 2 + (row.number % 5),
+    posted: `${daysAgo}일 전`,
+    photos: 0,
+    sellerProfile: null,
+    supercarSheet: true,
+    filter: {
+      year: row.year,
+      seats: "전체",
+      condition: "중고",
+      mileage: row.mileage,
+      owners: "전체",
+      transmission: "오토",
+      fuel: row.fuel,
+      color: "전체",
+      origin: "수입",
+      body: row.body,
+      video: false,
+    },
+  };
+});
+const supercarCategoryCars: Car[] = [...ferrariSheetCars, ...supercarSheetCars, ...supercarLuxuryCars];
 
 // 서울오토갤러리 카테고리(차량 › 중고차 › 서울오토갤러리, 2026-10-10): 시트 「서울오토갤러리」 실데이터(사진 5장 · 실제 상사명 · 실제 딜러명). 위치는 서울 서초구 · 서울오토갤러리
 const seoulAutoGalleryMileageText = (km: number) => km >= 9500 ? `${String(Math.round(km / 1000) / 10)}만km` : `${km.toLocaleString("ko-KR")}km`;
