@@ -147,6 +147,16 @@
 - 적용(2026-10-08): 과쯔 승용 제조사 레일(plain, 모바일·PC)은 Drive `원본_오토홈_0925`에서 받아 투명 여백을 잘라낸 `public/assets/brand/rail-v01/`(manifest.json) 로고를 `railBrandLogo`로 그린다. 40×40 상자 가운데, 크기는 `chototRailLogoSize`의 v4 광학 면적 규칙을 쓰며 브랜드별 강제 폭 예외는 없다. 르노코리아·KGM은 헤이딜러 로고 폴더(Drive `1eZlq0MkFywDT_2mHo5fXoylfAGEX8kcr`)의 현행 로고(평면 다이아몬드 · 남색 KGM 글자, 구형 르노삼성·쌍용 로고 미사용). 바이크·트럭 등 다른 유형 레일은 기존 로고 그대로.
 - 세로 위치(칩 줄 → 로고 중심 42, 로고 중심 → 이름 윗선 37.9)는 QF-100 초톳 4장 실측(상자 위 6 · 이름까지 14)과 이번 캡처(32.2 · 31.5)가 달라 확정 전까지 기존 값을 유지한다.
 
+### 초톳 로고·아이콘 아래 1단·2단 라벨 규칙 (2026-10-12)
+
+- 근거: 사용자 제공 초톳 앱 `Thú cưng` 캡처(`1000017904.jpg`, 첨부본 591×1280)를 S25 Ultra 논리 폭 412dp로 환산했다(배율 1.434px/dp). `Chó` 1단 라벨과 `Thú cưng khác`·`Phụ kiện, Thức ăn, …` 2단 라벨을 같은 레일에서 대조했다.
+- 세로 기준점은 로고·아이콘의 **보이는 잉크 끝이 아니라 슬롯 상자 아래끝**이다. 카테고리 원형 아이콘 슬롯은 44×44px, 제조사 로고는 기존 40×40px 슬롯을 유지하며 각 슬롯 안에서 광학적으로 가운데 정렬한다.
+- 슬롯 아래끝 → 1단 텍스트 line box 윗선은 **8px**로 고정한다. 원본의 실제 글자 잉크까지 보이는 공백은 약 12px(첨부본 17px ÷ 1.434 = 11.9px)이며, 폰트의 위쪽 leading을 포함한 CSS 간격은 8px이다.
+- 1단 텍스트는 **14px / line-height 20px / 400 / `#595959` / 가운데 정렬**이다. 한 줄 이름도 두 줄 이름과 같은 1단 기준선에서 시작하며, 두 줄 칸의 가운데로 따로 내리지 않는다.
+- 2단 텍스트는 1단과 같은 14/20 규격을 쓰고 별도 `margin-top`은 **0px**이다. 1단 윗선 → 2단 윗선은 **20px**(원본 글자 잉크 윗선 427→455~456px, 환산 19.5~20.2px)이다.
+- 라벨 블록 높이는 1단 **20px**, 2단 **40px**이며 최대 2줄이다. `word-break: keep-all`과 2줄 말줄임을 쓰고, 한 줄·두 줄 항목이 섞여도 로고/아이콘 슬롯과 1단 기준선은 전 항목이 같아야 한다.
+- 이 규칙은 제조사 로고·카테고리 아이콘·바디타입 아이콘처럼 **세로형 퀵필터 레일**에 공통 적용하며, 모델 실사 이미지 레일의 별도 사진 슬롯 규칙은 유지한다. QF-100의 `이름 14 아래`는 이 실측 규칙의 `슬롯→line box 8px`로 대체한다.
+
 ## PC Left Filter Order (QF-110)
 
 - Guazi PC left filter (and the 1024–1279 drawer) order comes from one config array `bbmFilterOrder` in `src/prototype/filters/bbm-filter-options.ts`: `제조사 · 모델` (open by default) → `연식` → `주행거리` → `가격` → `바디타입` → `차급` (closed) → `지역` → `매매단지` → … (rest unchanged). The filter header stays on top. ChoTot/Dongchedi PC keep the original order (`order` prop not passed). The mobile filter sheet is unchanged for now and can switch to the same array later. Check: `npm run check:sidebar`.
