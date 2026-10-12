@@ -2055,9 +2055,10 @@ function MarketplaceScreen() {
                   : catalogMake
                     ? <CatalogLogo path={catalogMake.logoPath} name={catalogMake.name} kind="rail" />
                     : <CategoryBrandLogo category={category} name={item.label} kind={plainQuickCards ? "plain" : "rail"} initialFallback={Boolean(typeList)} />;
-              const featuredOldcarBrand = category === "올드카" && item.key === "현대";
-              const railLabel = featuredOldcarBrand ? "현대\n올드카" : categoryRailLabel(category, item.label);
-              const cardClassName = [typeList && sampleCount(item.key) === 0 ? "is-dim" : null, featuredOldcarBrand ? "is-oldcar-featured-brand" : null].filter(Boolean).join(" ") || undefined;
+              const oldcarBrand = category === "올드카";
+              const baseRailLabel = categoryRailLabel(category, item.label);
+              const railLabel = oldcarBrand ? `${baseRailLabel}\n올드카` : baseRailLabel;
+              const cardClassName = [typeList && sampleCount(item.key) === 0 ? "is-dim" : null, oldcarBrand ? "is-oldcar-brand" : null].filter(Boolean).join(" ") || undefined;
               return <DepthCard key={item.label} className={cardClassName} label={railLabel} image={image} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />;
             };
             return (
