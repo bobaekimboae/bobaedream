@@ -161,7 +161,10 @@
 }
 
 .marketplace.is-qf-guazi .oldcar-decade-label {
+  display: inline-flex;
+  height: 32px;
   flex: 0 0 auto;
+  align-items: center;
   color: #777;
   font-size: 14px;
   font-weight: 500;
@@ -179,6 +182,7 @@
   min-width: 64px;
   height: 32px;
   flex: 0 0 64px;
+  justify-content: center;
   padding: 0;
   border: 1px solid #dedee3;
   border-radius: 9999px;
