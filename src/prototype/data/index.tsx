@@ -1629,7 +1629,7 @@ const oldCarCategoryCars: Car[] = oldCarListingRows.map((row, index) => {
   return {
     id: 14_000 + row.number,
     updateRank: oldCarListingRows.length - index,
-    maker: row.maker,
+    maker: row.maker === "KG모빌리티" ? "KGM" : row.maker,
     modelGroup: row.model,
     sellerType: isPrivate ? "개인" : "딜러",
     image: photo,

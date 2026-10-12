@@ -1979,6 +1979,13 @@ function MarketplaceScreen() {
             // QF-114: 바이크 · 트럭·특장은 유형별 상위 10(승용 브랜드 없음), 샘플 0대 칸은 흐리게(빼지 않음), 로고가 없으면 첫 글자 원형
             const typeList = categoryTypeBrandList;
             const sections = krTopTenSections(category === "국산차" ? "domestic" : category === "수입차" || category === "도이치오토월드" ? "imported" : "all", typeList ? category : undefined);
+            // 올드카는 고정 인기 제조사 목록을 쓰지 않는다. 현재 목록(선택한 연대·검색·필터 반영)에
+            // 실제로 남아 있는 제조사만, 매물에 처음 등장하는 순서대로 로고 레일에 노출한다.
+            const oldcarListingBrands = category === "올드카"
+              ? Array.from(new Map(visibleCars
+                .filter((car) => Boolean(car.maker))
+                .map((car) => [car.maker, { label: car.maker, key: car.maker }])).values())
+              : null;
             const sampleCount = (key: string) => isTruckCategory
               ? listingCars.filter((car) => car.maker === key && matchesTruckSelection(car)).length
               : listingCars.filter((car) => car.maker === key).length;
@@ -2067,10 +2074,12 @@ function MarketplaceScreen() {
                 </section> : null}
                 <section className="depth-rail is-kr-maker no-label" aria-label={`${categoryBrandRail.title} 빠른 선택`}>
                   <QuickRailCarousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName="depth-rail-track">
-                    {sections.domestic.map(card)}
-                    {sections.domestic.length && sections.imported.length ? <span className="kr-maker-divider" aria-hidden="true" /> : null}
-                    {sections.imported.map(card)}
-                    <DepthCard key="전체 브랜드" label="전체 브랜드" image={<span className="kr-all-brands" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="3" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /></svg></span>} mediaKind="brand" onClick={() => supportsVehicleCatalog ? setSheet("vehicle") : setBbmChipPanel("제조사")} />
+                    {oldcarListingBrands ? oldcarListingBrands.map(card) : <>
+                      {sections.domestic.map(card)}
+                      {sections.domestic.length && sections.imported.length ? <span className="kr-maker-divider" aria-hidden="true" /> : null}
+                      {sections.imported.map(card)}
+                      <DepthCard key="전체 브랜드" label="전체 브랜드" image={<span className="kr-all-brands" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="3" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /></svg></span>} mediaKind="brand" onClick={() => supportsVehicleCatalog ? setSheet("vehicle") : setBbmChipPanel("제조사")} />
+                    </>}
                   </QuickRailCarousel>
                 </section>
               </>

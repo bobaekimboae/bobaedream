@@ -24,6 +24,7 @@ export const krBrandAliases: Record<string, string> = {
   다이하쯔: "다이하쓰",
   동풍소콘: "동펑",
   코닉세그: "코닉세크",
+  미쓰오카: "미쯔오카",
   MG로버: "로버",
   "쉐보레(GM대우)": "쉐보레(국산)",
   "시트로엥/DS": "시트로엥",
