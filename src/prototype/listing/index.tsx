@@ -774,6 +774,7 @@ function MarketplaceScreen() {
   const [selectedTruckSubtype, setSelectedTruckSubtype] = useState<string | null>(() => initialFilters.category === "트럭 · 특장" ? initialTruckFormatSelection().subtype : null);
   const [selectedTruckSpec, setSelectedTruckSpec] = useState<string | null>(() => initialFilters.category === "트럭 · 특장" ? initialTruckFormatSelection().spec : null);
   const [selectedOldcarDecade, setSelectedOldcarDecade] = useState<OldcarDecade | null>(() => initialFilters.category === "올드카" ? getInitialOldcarDecade() : null);
+  const [selectedFerrariDealer, setSelectedFerrariDealer] = useState<string | null>(null);
   const [truckTypePickerOpen, setTruckTypePickerOpen] = useState(false);
   const [filterFocus, setFilterFocus] = useState<ChoTotFilterFocus | null>(null);
   const [quickFilterFocus, setQuickFilterFocus] = useState<ChoTotFilterFocus | null>(null);
@@ -796,6 +797,9 @@ function MarketplaceScreen() {
   const [catalogSelectionRecord, setCatalogSelectionRecord] = useState<VehicleSearchRecord | null>(null);
   const [debouncedSelectedVariants, setDebouncedSelectedVariants] = useState<string[]>([]);
   const [trimApplied, setTrimApplied] = useState(false);
+  useEffect(() => {
+    if (!ferrariSpecialRegions.includes(region.province as (typeof ferrariSpecialRegions)[number])) setSelectedFerrariDealer(null);
+  }, [region.province]);
   const desktop = useDesktopLayout(quickFilterStyle === "guazi" && pcLayoutStyle === "bbmuseum" ? hybridLayoutQuery : desktopLayoutQuery);
   const hybridNarrow = useMediaMatch(hybridNarrowQuery);
   // QF-093: 1024~1279 왼쪽 필터 펼침판
@@ -1010,6 +1014,24 @@ function MarketplaceScreen() {
       });
     return [...specialOptions, ...provinceOptions];
   }, [listingCars, maker]);
+  const ferrariRegionDepthOptions = useMemo(() => {
+    if (maker !== "페라리" || !region.province) return [];
+    const isDealerDepth = ferrariSpecialRegions.includes(region.province as (typeof ferrariSpecialRegions)[number]);
+    const scopedCars = listingCars.filter((car) => car.maker === "페라리" && (isDealerDepth
+      ? car.place.includes(region.province)
+      : car.place.trim().startsWith(`${region.province} `)));
+    const counts = new Map<string, number>();
+    scopedCars.forEach((car) => {
+      const value = isDealerDepth
+        ? car.dealer
+        : car.place.split(" · ")[0].trim().split(/\s+/).slice(0, 2).join(" ");
+      if (value) counts.set(value, (counts.get(value) ?? 0) + 1);
+    });
+    return [...counts.entries()]
+      .map(([value, count]) => ({ value, label: value, count, kind: isDealerDepth ? "dealer" as const : "district" as const }))
+      .filter((option) => option.count > 0)
+      .sort((first, second) => second.count - first.count || first.label.localeCompare(second.label, "ko"));
+  }, [listingCars, maker, region.province]);
   const bbmValue = filters.bbm ?? emptyBbmFilters;
   // QF-097: 과쯔는 9개 제조사의 모델·세부 모델을 카탈로그 스냅숏으로(model-catalog-kr), 나머지 제조사·다른 모드는 기존 데이터
   // 바이크는 30대 가상 매물에 나온 모델만 쓰지 않고 전체 카탈로그를 쓴다.
@@ -1123,9 +1145,10 @@ function MarketplaceScreen() {
         && (!heavySelection.submodelCode || car.heavy?.submodelCode === heavySelection.submodelCode)
       );
       const oldcarDecadeMatch = category !== "올드카" || selectedOldcarDecade === null || Math.floor((car.filter?.year ?? 0) / 10) * 10 === selectedOldcarDecade;
-      return categoryChildMatch && heavyMatch && oldcarDecadeMatch && matchesTruckSelection(car) && matchesChoTotFilters(car, filters) && catalogModelMatch && generationMatch && trimMatch && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || searchText.toLowerCase().includes(normalized));
+      const ferrariDealerMatch = maker !== "페라리" || !selectedFerrariDealer || car.dealer === selectedFerrariDealer;
+      return categoryChildMatch && heavyMatch && oldcarDecadeMatch && matchesTruckSelection(car) && matchesChoTotFilters(car, filters) && catalogModelMatch && generationMatch && trimMatch && ferrariDealerMatch && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || searchText.toLowerCase().includes(normalized));
     });
-  }, [bbmCategoryChild, category, effectiveSelectedVariants, filters, heavySelection, isCampingCategory, isCatalogMaker, isGuaziQuickStyle, isHeavyCategory, isTruckCategory, listingCars, query, region.district, regionKeyword, selectedGeneration, selectedGenerationOption, selectedOldcarDecade, selectedTruckFormat, selectedTruckSpec, selectedTruckSubtype, selectedVariants, trimApplied]);
+  }, [bbmCategoryChild, category, effectiveSelectedVariants, filters, heavySelection, isCampingCategory, isCatalogMaker, isGuaziQuickStyle, isHeavyCategory, isTruckCategory, listingCars, maker, query, region.district, regionKeyword, selectedFerrariDealer, selectedGeneration, selectedGenerationOption, selectedOldcarDecade, selectedTruckFormat, selectedTruckSpec, selectedTruckSubtype, selectedVariants, trimApplied]);
   // QF-090: 우리 데이터가 있는 개발 시안형 항목(바디타입·연식·주행거리·가격·연료·변속기·인승·외부색상·판매자 구분·지역)으로 거른다
   const filteredWithoutPrice = useMemo(() => isGuaziQuickStyle ? baseListCars.filter((car) => matchesBbmFilters(car, filters.bbm)) : baseListCars, [baseListCars, filters.bbm, isGuaziQuickStyle]);
   // QF-097 보완(매물 수 기준 하나로): 과쯔 카탈로그 제조사의 모델·세부 모델·트림 수 = 화면 샘플 매물 수(모델·세부 모델·트림만 뺀 지금 조건).
@@ -1230,6 +1253,19 @@ function MarketplaceScreen() {
       : { province: nextRegion, district: "", radius: "" };
     setRegion(next);
     setDraftRegion(next);
+    setSelectedFerrariDealer(null);
+  };
+
+  const chooseFerrariRegionDepth = (option: (typeof ferrariRegionDepthOptions)[number]) => {
+    if (option.kind === "dealer") {
+      setSelectedFerrariDealer((current) => current === option.value ? null : option.value);
+      return;
+    }
+    const next = region.district === option.value
+      ? { province: region.province, district: "", radius: "" }
+      : { province: region.province, district: option.value, radius: "" };
+    setRegion(next);
+    setDraftRegion(next);
   };
 
   const resetFilters = ({ closeActiveSheet = true }: { closeActiveSheet?: boolean } = {}) => {
@@ -1251,6 +1287,7 @@ function MarketplaceScreen() {
     setSelectedTruckSubtype(null);
     setSelectedTruckSpec(null);
     setSelectedOldcarDecade(null);
+    setSelectedFerrariDealer(null);
     setBbmAvailableOnly(false);
     applyHeavySelection(emptyHeavySelection);
     replaceFilterParams(null, null, keepCategory ?? undefined);
@@ -1270,6 +1307,7 @@ function MarketplaceScreen() {
     setSelectedTruckSubtype(null);
     setSelectedTruckSpec(null);
     setSelectedOldcarDecade(null);
+    setSelectedFerrariDealer(null);
     applyHeavySelection(emptyHeavySelection);
     replaceFilterParams(null, null, "전체");
     replaceTruckParams(null, null);
@@ -1370,6 +1408,7 @@ function MarketplaceScreen() {
     setSelectedVariants([]);
     setTrimApplied(false);
     setCatalogSelectionRecord(null);
+    setSelectedFerrariDealer(null);
     setCategoryLandingOpen(category === "전체");
     replaceFilterParams(null, null);
   };
@@ -1434,6 +1473,7 @@ function MarketplaceScreen() {
     setSelectedGeneration(null);
     setSelectedVariants([]);
     setTrimApplied(false);
+    setSelectedFerrariDealer(null);
     replaceFilterParams(nextMaker, null);
   };
 
@@ -2175,12 +2215,25 @@ function MarketplaceScreen() {
           <TrimChip
             key={option.value}
             label={`${option.label} ${option.count.toLocaleString("ko-KR")}대`}
-            selected={region.province === option.value && !region.district && !region.radius}
+            selected={region.province === option.value && !region.radius}
             onClick={() => chooseFerrariRegion(option.value)}
           />
         ))}
       </QuickRailCarousel>
     </section>
+    {region.province && ferrariRegionDepthOptions.length ? <section className="depth-rail no-label is-ferrari-region-depth-row" aria-label={ferrariSpecialRegions.includes(region.province as (typeof ferrariSpecialRegions)[number]) ? "페라리 딜러 빠른 선택" : "페라리 시군구 빠른 선택"}>
+      <QuickRailCarousel ariaLabel={ferrariSpecialRegions.includes(region.province as (typeof ferrariSpecialRegions)[number]) ? "페라리 딜러" : "페라리 시군구"} className="brand-carousel" contentClassName="depth-rail-track is-chips is-ferrari-region-track is-depth-two">
+        <span className="ferrari-region-label">{ferrariSpecialRegions.includes(region.province as (typeof ferrariSpecialRegions)[number]) ? "딜러" : "시·군·구"}</span>
+        {ferrariRegionDepthOptions.map((option) => (
+          <TrimChip
+            key={`${option.kind}-${option.value}`}
+            label={`${option.label} ${option.count.toLocaleString("ko-KR")}대`}
+            selected={option.kind === "dealer" ? selectedFerrariDealer === option.value : region.district === option.value}
+            onClick={() => chooseFerrariRegionDepth(option)}
+          />
+        ))}
+      </QuickRailCarousel>
+    </section> : null}
     {baseQuickRail}
   </> : baseQuickRail;
   const seoulAutoGalleryDealerRail = isGuaziQuickStyle && category === "서울오토갤러리" && !maker

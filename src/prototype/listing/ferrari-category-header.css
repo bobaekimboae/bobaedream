@@ -93,8 +93,15 @@
 
 /* 초톳 지역 알약 규칙: 32px 칩을 모델 이미지 슬롯 바로 위에 둔다. */
 .marketplace.is-qf-guazi .depth-rail.is-ferrari-region-row,
+.marketplace.is-qf-guazi .depth-rail.is-ferrari-region-depth-row,
 .marketplace.is-qf-guazi .depth-rail.is-ferrari-region-row .brand-carousel,
+.marketplace.is-qf-guazi .depth-rail.is-ferrari-region-depth-row .brand-carousel,
 .marketplace.is-qf-guazi .depth-rail.is-ferrari-region-row .depth-rail-track {
+  min-height: 56px;
+  height: 56px;
+}
+
+.marketplace.is-qf-guazi .depth-rail.is-ferrari-region-depth-row .depth-rail-track {
   min-height: 56px;
   height: 56px;
 }
@@ -148,13 +155,24 @@
 
 @media (max-width: 767px) {
   .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-ferrari-region-row,
+  .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-ferrari-region-depth-row,
   .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-ferrari-region-row .brand-carousel,
+  .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-ferrari-region-depth-row .brand-carousel,
   .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-ferrari-region-row .depth-rail-track {
     min-height: 32px;
     height: 32px;
   }
 
+  .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-ferrari-region-depth-row .depth-rail-track {
+    min-height: 32px;
+    height: 32px;
+  }
+
   .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-ferrari-region-row {
+    box-sizing: border-box;
+  }
+
+  .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-ferrari-region-depth-row {
     box-sizing: border-box;
   }
 
