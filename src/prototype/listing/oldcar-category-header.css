@@ -201,8 +201,8 @@
   font-weight: 600;
 }
 
-/* 올드카 브랜드 첫 칸은 카테고리 의미를 함께 보여 주되, 기존 68px 로고 슬롯 안에서 두 줄로만 확장한다. */
-.marketplace.is-qf-guazi .depth-card.is-oldcar-featured-brand .depth-card-label {
+/* 모든 올드카 브랜드는 카테고리 의미를 함께 보여 주되, 기존 68px 로고 슬롯 안에서 두 줄로만 확장한다. */
+.marketplace.is-qf-guazi .depth-card.is-oldcar-brand .depth-card-label {
   white-space: pre-line;
 }
 
