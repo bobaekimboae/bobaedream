@@ -179,9 +179,12 @@
 }
 
 .marketplace.is-qf-guazi .is-oldcar-decade-track .trim-chip {
-  min-width: 62px;
+  box-sizing: border-box;
+  width: 64px;
+  min-width: 64px;
   height: 32px;
-  padding: 0 12px;
+  flex: 0 0 64px;
+  padding: 0;
   border: 1px solid #dedee3;
   border-radius: 9999px;
   background: transparent;
