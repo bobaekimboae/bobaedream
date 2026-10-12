@@ -235,3 +235,4 @@
 "2026-10-12 10:00","미지정","claude/feed-dots-5-1012","-","푸시","검수 대기","피드 사진 점 최대 7개 → 5개(끝 점만 작게)","src/prototype/listing/bbm-list.tsx · docs/quick-filter-spec.md","레딧·에어비앤비 규칙은 웹으로 확인 못함"
 "2026-10-12 12:00","미지정","claude/photo-time-scrim-1012","-","푸시","검수 대기","사진 위 등록시간 아래 그라데이션(초톳 방식) + 흰 600 글자","src/prototype/listing/qf-m-view-modes.css · docs/quick-filter-spec.md","폰 실기기 미확인 · 사진 개수 아이콘은 미적용"
 "2026-10-12 11:00","미지정","claude/feed-power-1012","-","푸시","검수 대기","피드형 메타정보 연료 뒤에 마력 표기(승용·지시값 매물, 샘플 값)","src/prototype/listing/bbm-list.tsx · src/prototype/data/bbm-card-samples.ts · docs/quick-filter-spec.md","마력은 id 기준 샘플 값 · 올드카엔 부자연스러움"
+"2026-10-12 13:00","미지정","claude/oldcar-data-cleanup-1012","-","푸시","검수 대기","올드카 세대 데이터 선정리(쏘나타 II/2 → 2세대 Y2, Series 표기 통일)","src/prototype/data/old-car-generation-v01.ts · docs/quick-filter-spec.md","프라이드·W210 등 기준표 대조 결정 항목은 보류"
