@@ -253,6 +253,11 @@
     height: 32px;
   }
 
+  .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-oldcar-decade-row {
+    border-bottom: 1px solid #ebebeb;
+    box-sizing: border-box;
+  }
+
   .marketplace.is-bbm-m.is-qf-guazi .is-oldcar-decade-track {
     padding-top: 0;
     padding-bottom: 0;
