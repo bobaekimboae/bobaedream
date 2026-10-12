@@ -213,6 +213,11 @@ const bmwGuaziQuickOrder = [
 ] as const;
 const bmwGuaziQuickRank = new Map<string, number>(bmwGuaziQuickOrder.map((name, index) => [name, index]));
 
+// 페라리 카탈로그의 모델그룹별 최신 세대 출시월 기준 상위 5개.
+// 나머지 모델은 기존 카탈로그 순서를 유지한다.
+const ferrariLatestModelOrder = ["12 칠린드리", "푸로산게", "296", "SF90", "로마"] as const;
+const ferrariLatestModelRank = new Map<string, number>(ferrariLatestModelOrder.map((name, index) => [name, index]));
+
 // 과쯔 카드칩 측면 비교 시안. 기존 3/4 이미지는 그대로 보존하고
 // &qfangle=side 일 때 BMW 전체 모델을 완전 측면 이미지로 바꾼다.
 const bmwGuaziSideVisuals: Record<string, QuickModelVisual> = {
@@ -1146,9 +1151,11 @@ function MarketplaceScreen() {
     }
     return !isCatalogMaker || modelVisualsByMakerMap[maker]?.[name]?.count !== "0대";
   })) : [];
-  const cardChipModelQuickOptions = guaziCardChipPreview && maker === "BMW"
-    ? [...modelQuickOptions].sort((first, second) => (bmwGuaziQuickRank.get(first) ?? 999) - (bmwGuaziQuickRank.get(second) ?? 999))
-    : modelQuickOptions;
+  const cardChipModelQuickOptions = maker === "페라리"
+    ? [...modelQuickOptions].sort((first, second) => (ferrariLatestModelRank.get(first) ?? ferrariLatestModelOrder.length) - (ferrariLatestModelRank.get(second) ?? ferrariLatestModelOrder.length))
+    : guaziCardChipPreview && maker === "BMW"
+      ? [...modelQuickOptions].sort((first, second) => (bmwGuaziQuickRank.get(first) ?? 999) - (bmwGuaziQuickRank.get(second) ?? 999))
+      : modelQuickOptions;
   const railGenerationOptions = maker && selectedModel ? (generationsByMakerModelMap[maker]?.[selectedModel] ?? []).filter((generation) => !isCatalogMaker || (generation.count ?? 0) > 0) : [];
   // 선택지 옆 매물 수: 그 항목만 뺀 나머지 조건을 모두 반영(원본과 같은 방식). 데이터 없는 항목은 null → 원본 숫자 글자
   const bbmCountOf = (key: BbmCheckKey, option: string) => isBbmDataOption(key, option)
