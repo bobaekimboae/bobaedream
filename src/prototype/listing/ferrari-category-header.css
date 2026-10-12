@@ -91,6 +91,84 @@
   }
 }
 
+/* 초톳 지역 알약 규칙: 32px 칩을 모델 이미지 슬롯 바로 위에 둔다. */
+.marketplace.is-qf-guazi .depth-rail.is-ferrari-region-row,
+.marketplace.is-qf-guazi .depth-rail.is-ferrari-region-row .brand-carousel,
+.marketplace.is-qf-guazi .depth-rail.is-ferrari-region-row .depth-rail-track {
+  min-height: 56px;
+  height: 56px;
+}
+
+.marketplace.is-qf-guazi .is-ferrari-region-track {
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+}
+
+.marketplace.is-qf-guazi .ferrari-region-label {
+  display: inline-flex;
+  height: 32px;
+  flex: 0 0 auto;
+  align-items: center;
+  color: #777;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.marketplace.is-qf-guazi .is-ferrari-region-track .ferrari-region-label + .trim-chip {
+  margin-left: 2px;
+}
+
+.marketplace.is-qf-guazi .is-ferrari-region-track .trim-chip {
+  box-sizing: border-box;
+  width: auto;
+  min-width: max-content;
+  height: 32px;
+  flex: 0 0 auto;
+  justify-content: center;
+  padding: 0 14px;
+  border: 1px solid #dedee3;
+  border-radius: 9999px;
+  background: transparent;
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.marketplace.is-qf-guazi .is-ferrari-region-track .trim-chip.is-selected {
+  border-color: #222;
+  background: #fff;
+  color: #222;
+  box-shadow: inset 0 0 0 1px #222;
+  font-weight: 600;
+}
+
+@media (max-width: 767px) {
+  .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-ferrari-region-row,
+  .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-ferrari-region-row .brand-carousel,
+  .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-ferrari-region-row .depth-rail-track {
+    min-height: 32px;
+    height: 32px;
+  }
+
+  .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-ferrari-region-row {
+    border-bottom: 1px solid #ebebeb;
+    box-sizing: border-box;
+  }
+
+  .marketplace.is-bbm-m.is-qf-guazi .is-ferrari-region-track {
+    padding: 0 16px;
+  }
+
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot:has(> .is-ferrari-region-row) > .is-ferrari-model-row {
+    padding-top: 10px;
+    padding-bottom: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ferrari-category-hero-media {
     animation: none;

@@ -217,6 +217,8 @@ const bmwGuaziQuickRank = new Map<string, number>(bmwGuaziQuickOrder.map((name, 
 // 나머지 모델은 기존 카탈로그 순서를 유지한다.
 const ferrariLatestModelOrder = ["12 칠린드리", "푸로산게", "296", "SF90", "로마"] as const;
 const ferrariLatestModelRank = new Map<string, number>(ferrariLatestModelOrder.map((name, index) => [name, index]));
+const ferrariSpecialRegions = ["서울오토갤러리", "도이치오토월드"] as const;
+const ferrariProvinceOrder = ["서울", "경기", "인천", "부산", "대구", "광주", "대전", "울산", "세종", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"] as const;
 
 // 과쯔 카드칩 측면 비교 시안. 기존 3/4 이미지는 그대로 보존하고
 // &qfangle=side 일 때 BMW 전체 모델을 완전 측면 이미지로 바꾼다.
@@ -985,6 +987,29 @@ function MarketplaceScreen() {
                 : isGuaziQuickStyle && category === "도이치오토월드"
                   ? deutschAutoworldCars
                 : isGuaziQuickStyle ? (category === "전체" ? allVehicleMixedCars : bbmSampleCars) : chototTestCars;
+  const ferrariRegionOptions = useMemo(() => {
+    if (maker !== "페라리") return [];
+    const ferrariCars = listingCars.filter((car) => car.maker === "페라리");
+    const specialOptions = ferrariSpecialRegions.map((name) => ({
+      value: name,
+      label: name,
+      count: ferrariCars.filter((car) => car.place.includes(name)).length,
+    })).filter((option) => option.count > 0);
+    const provinceCounts = new Map<string, number>();
+    ferrariCars.forEach((car) => {
+      const province = car.place.trim().split(/\s+/)[0];
+      if (province) provinceCounts.set(province, (provinceCounts.get(province) ?? 0) + 1);
+    });
+    const provinceOptions = [...provinceCounts.entries()]
+      .map(([value, count]) => ({ value, label: value, count }))
+      .filter((option) => option.count > 0)
+      .sort((first, second) => {
+        const firstRank = ferrariProvinceOrder.indexOf(first.value as (typeof ferrariProvinceOrder)[number]);
+        const secondRank = ferrariProvinceOrder.indexOf(second.value as (typeof ferrariProvinceOrder)[number]);
+        return (firstRank < 0 ? ferrariProvinceOrder.length : firstRank) - (secondRank < 0 ? ferrariProvinceOrder.length : secondRank);
+      });
+    return [...specialOptions, ...provinceOptions];
+  }, [listingCars, maker]);
   const bbmValue = filters.bbm ?? emptyBbmFilters;
   // QF-097: 과쯔는 9개 제조사의 모델·세부 모델을 카탈로그 스냅숏으로(model-catalog-kr), 나머지 제조사·다른 모드는 기존 데이터
   // 바이크는 30대 가상 매물에 나온 모델만 쓰지 않고 전체 카탈로그를 쓴다.
@@ -1197,6 +1222,14 @@ function MarketplaceScreen() {
     const value = selectedOldcarDecade === nextDecade ? null : nextDecade;
     setSelectedOldcarDecade(value);
     replaceOldcarDecadeParam(value);
+  };
+
+  const chooseFerrariRegion = (nextRegion: string) => {
+    const next = region.province === nextRegion && !region.district && !region.radius
+      ? emptyRegion
+      : { province: nextRegion, district: "", radius: "" };
+    setRegion(next);
+    setDraftRegion(next);
   };
 
   const resetFilters = ({ closeActiveSheet = true }: { closeActiveSheet?: boolean } = {}) => {
@@ -2129,6 +2162,21 @@ function MarketplaceScreen() {
             label={option.label}
             selected={selectedOldcarDecade === option.value}
             onClick={() => chooseOldcarDecade(option.value)}
+          />
+        ))}
+      </QuickRailCarousel>
+    </section>
+    {baseQuickRail}
+  </> : isGuaziQuickStyle && maker === "페라리" && showModelQuickRail && ferrariRegionOptions.length ? <>
+    <section className="depth-rail no-label is-ferrari-region-row" aria-label="페라리 지역 빠른 선택">
+      <QuickRailCarousel ariaLabel="페라리 지역" className="brand-carousel" contentClassName="depth-rail-track is-chips is-ferrari-region-track">
+        <span className="ferrari-region-label">지역</span>
+        {ferrariRegionOptions.map((option) => (
+          <TrimChip
+            key={option.value}
+            label={`${option.label} ${option.count.toLocaleString("ko-KR")}대`}
+            selected={region.province === option.value && !region.district && !region.radius}
+            onClick={() => chooseFerrariRegion(option.value)}
           />
         ))}
       </QuickRailCarousel>
