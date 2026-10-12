@@ -159,13 +159,13 @@
   .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-ferrari-region-row .brand-carousel,
   .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-ferrari-region-depth-row .brand-carousel,
   .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-ferrari-region-row .depth-rail-track {
-    min-height: 32px;
-    height: 32px;
+    min-height: 34px;
+    height: 34px;
   }
 
   .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-ferrari-region-depth-row .depth-rail-track {
-    min-height: 32px;
-    height: 32px;
+    min-height: 34px;
+    height: 34px;
   }
 
   .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-ferrari-region-row {
@@ -177,7 +177,7 @@
   }
 
   .marketplace.is-bbm-m.is-qf-guazi .is-ferrari-region-track {
-    padding: 0 16px;
+    padding: 1px 16px;
   }
 
   .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot:has(> .is-ferrari-region-row) > .is-ferrari-model-row {
