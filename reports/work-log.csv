@@ -244,3 +244,4 @@
 "2026-10-12 19:00","미지정","claude/oldcar-dev-brief-1012","-","푸시","검수 대기","피드 메타 점을 엔카 기준(지름 2px, 양쪽 4px)으로 조정","src/prototype/listing/qf-m-view-modes.css · docs/quick-filter-spec.md","엔카 캡처 픽셀 실측 대비 점 앞뒤 4.75/4.75"
 "2026-10-12 20:00","미지정","claude/oldcar-dev-brief-1012","-","푸시","검수 대기","슈퍼카 카테고리에 페라리 시트 매물 8대 추가(차란차·전국연합, 사진 없음, GTC4 루쏘 중복 제외)","src/prototype/data/ferrari-sheet-v02.ts · index.tsx · docs/quick-filter-spec.md","사진 없음 · 판매자 이름 가상"
 "2026-10-12 20:30","미지정","claude/oldcar-dev-brief-1012","-","푸시","검수 대기","사진 없는 페라리 시트 매물 8대를 슈퍼카 목록에서 제외(photo 값 있는 행만 노출)","src/prototype/data/ferrari-sheet-v02.ts · index.tsx · docs/quick-filter-spec.md","사진 오면 photo 지정"
+"2026-10-12 21:00","미지정","claude/oldcar-dev-brief-1012","-","푸시","검수 대기","슈퍼카 페라리 가격 상담 54대에 엔카 시세(모델 매핑 + 가까운 5대 중앙값) 기재","src/prototype/data/supercar-sheet-v01.ts · docs/quick-filter-spec.md","360 · 12 칠린드리는 비교 2대뿐"
