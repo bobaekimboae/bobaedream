@@ -201,6 +201,54 @@
   font-weight: 600;
 }
 
+/* 올드카 공통 세로 스택 샘플.
+   제조사 로고 슬롯의 실제 크기와 관계없이 슬롯 하단 → 라벨 1행 → 라벨 2행의
+   기준선을 고정해 초톳처럼 한 줄·두 줄 항목이 같은 리듬으로 보이게 한다. */
+.marketplace.is-oldcar-category.is-qf-guazi.is-qf-plain {
+  --oldcar-rail-mark-size: 40px;
+  --oldcar-rail-label-gap: 8px;
+  --oldcar-rail-label-size: 14px;
+  --oldcar-rail-label-line: 20px;
+  --oldcar-rail-label-color: #595959;
+}
+
+.marketplace.is-oldcar-category.is-qf-guazi.is-qf-plain
+  .depth-rail.is-kr-maker
+  .depth-card:has(> .depth-card-media.is-brand) {
+  height: 102px;
+}
+
+.marketplace.is-oldcar-category.is-qf-guazi.is-qf-plain
+  .depth-rail.is-kr-maker
+  .depth-card-media.is-brand {
+  width: var(--oldcar-rail-mark-size);
+  height: var(--oldcar-rail-mark-size);
+  margin-top: 6px;
+}
+
+.marketplace.is-oldcar-category.is-qf-guazi.is-qf-plain
+  .depth-rail.is-kr-maker
+  .depth-card:has(> .depth-card-media.is-brand)
+  > .depth-card-label {
+  display: -webkit-box;
+  box-sizing: border-box;
+  width: 68px;
+  max-height: calc(var(--oldcar-rail-label-line) * 2);
+  margin-top: var(--oldcar-rail-label-gap);
+  overflow: hidden;
+  color: var(--oldcar-rail-label-color);
+  font-size: var(--oldcar-rail-label-size);
+  font-weight: 400;
+  line-height: var(--oldcar-rail-label-line);
+  text-align: center;
+  text-overflow: clip;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
 @keyframes oldcar-hero-reveal {
   from { opacity: .72; }
   to { opacity: 1; }
