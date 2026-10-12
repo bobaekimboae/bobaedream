@@ -1,6 +1,6 @@
 // 페라리 시트 매물 v02(2026-10-12 「페라리 추가해라」): 구글 시트 「페라리 모델별 매물 수집_차란차_코리아카_전국연합_2026-10-12」 중복 제거본 9대 중 8대.
 // 차란차 4 + 전국연합(carku) 5(코리아카마켓은 접속 오류로 0). GTC4 루쏘 T(18,990만원)는 사용자 지시 매물 3004와 같아 뺐다.
-// 연락처·차량번호·VIN·개인 딜러명·원본 URL·매물 ID는 저장하지 않는다. 사진은 시트에 없어 빈 사진 칸이다. 판매자 이름은 가상 값이고 매매단지는 시트의 실제 단지다.
+// 연락처·차량번호·VIN·개인 딜러명·원본 URL·매물 ID는 저장하지 않는다. 사진은 시트에 없어 사진이 오기 전까지 목록에서 뺀다(`photo`가 있는 행만 노출). 판매자 이름은 가상 값이고 매매단지는 시트의 실제 단지다.
 export type FerrariSheetRow = {
   number: number;
   model: string;
@@ -13,6 +13,8 @@ export type FerrariSheetRow = {
   region: string;
   complex: string;
   body: string;
+  // 사진 파일 경로(`cars/ferrari-sheet-v02/...`). 없으면 목록에서 뺀다(2026-10-12 「사진 없는건 빼」).
+  photo?: string;
 };
 
 export const ferrariSheetRows: FerrariSheetRow[] = [

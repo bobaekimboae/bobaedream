@@ -1801,8 +1801,8 @@ const supercarSheetCars: Car[] = supercarSheetRows.map((row, index) => {
     },
   };
 });
-// 페라리 시트 매물 v02(2026-10-12): 차란차·전국연합 수집 8대. 사진은 없어 빈 사진 칸이고 슈퍼카 시트 매물보다 위에 둔다.
-const ferrariSheetCars: Car[] = ferrariSheetRows.map((row, index) => {
+// 페라리 시트 매물 v02(2026-10-12): 차란차·전국연합 수집 8대. 사진이 있는 행만 노출한다(지금은 사진이 없어 0대, 2026-10-12 「사진 없는건 빼」). 슈퍼카 시트 매물보다 위에 둔다.
+const ferrariSheetCars: Car[] = ferrariSheetRows.filter((row) => row.photo).map((row, index) => {
   const mileageText = row.mileage >= 9500 ? `${String(Math.round(row.mileage / 1000) / 10)}만km` : `${row.mileage.toLocaleString("ko-KR")}km`;
   const [fy, fm] = row.firstReg.split("-");
   const yearText = `${fy.slice(2)}년${fm}월`;
@@ -1813,7 +1813,7 @@ const ferrariSheetCars: Car[] = ferrariSheetRows.map((row, index) => {
     maker: "페라리",
     modelGroup: row.group,
     sellerType: "딜러",
-    image: "",
+    image: row.photo ?? "",
     title: `페라리 ${row.model}`,
     trim: "",
     specs: [`${row.year}년식`, mileageText, row.fuel],
