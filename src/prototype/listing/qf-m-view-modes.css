@@ -125,7 +125,7 @@
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-title .bbm-card-model { font-weight: 700; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec { display: block; height: 22px; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; color: #8c8c8c; font-size: 15px; line-height: 22px; white-space: nowrap; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec-item { display: inline; }
-.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec-dot { display: inline-block; width: 3px; height: 3px; margin: 0 7px; border-radius: 50%; background: currentColor; vertical-align: middle; } /* 2026-10-12 「가운데 점, 메타정보 간격 밸런스」: 글자 「 · 」 대신 CSS 점(양쪽 7px, 글자 가운데) */
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec-dot { display: inline-block; width: 2px; height: 2px; margin: 0 4px; border-radius: 50%; background: currentColor; vertical-align: middle; } /* 2026-10-12 「가운데 점, 메타정보 간격 밸런스」: 글자 「 · 」 대신 CSS 점(양쪽 7px, 글자 가운데) */
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-price-badges { margin-top: 2px; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-price { height: 24px; color: #222; font-size: 17px; font-weight: 700; line-height: 24px; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-price-unit { font-size: 17px; font-weight: 400; line-height: 24px; }
