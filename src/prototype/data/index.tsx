@@ -34,6 +34,7 @@ import { truckSubtypeLabel } from "./truck-format-catalog";
 import { luxuryDealers, luxuryListingRows } from "./luxury-category-v01";
 import { oldCarListingRows } from "./old-car-category-v01";
 import { oldCarBobaeRows } from "./old-car-bobae-v01";
+import { oldCarListCrop } from "./old-car-list-crop-v01";
 import { jdmListingRows } from "./jdm-category-v01";
 import { supercarSheetRows } from "./supercar-sheet-v01";
 import { seoulAutoGalleryRows } from "./seoul-autogallery-v01";
@@ -1646,6 +1647,7 @@ const oldCarCategoryCars: Car[] = oldCarListingRows.map((row, index) => {
     photos: photo ? 1 : 0,
     sellerProfile: null,
     oldCar: { number: row.number, priceFilled: row.priceFilled },
+    listCrop: photo ? oldCarListCrop[`old-${String(row.number).padStart(2, "0")}`] : undefined,
     filter: {
       year: row.year,
       seats: "전체",
@@ -1688,6 +1690,7 @@ const oldCarBobaeCars: Car[] = oldCarBobaeRows.map((row, index) => {
     photos: photo ? 1 : 0,
     sellerProfile: null,
     oldCar: { number: 100 + row.number, priceFilled: false },
+    listCrop: oldCarListCrop[`ob-${String(row.number).padStart(3, "0")}`],
     filter: {
       year: row.year,
       seats: "전체",
