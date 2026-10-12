@@ -1875,7 +1875,7 @@ function MarketplaceScreen() {
                 );
               })}
             </QuickRailCarousel>
-          </section> : showModelQuickRail && isGuaziQuickStyle && (!isBikeCategory || maker === "BMW") ? <section className={`depth-rail no-label${isLuxuryCategory ? " is-luxury-model-row" : ""}${isBikeCategory ? " is-bike-model-row" : ""}${guaziCardChipPreview ? " is-guazi-card-chip-row" : ""}`} aria-label={`${maker} 모델 빠른 선택`}>
+          </section> : showModelQuickRail && isGuaziQuickStyle && (!isBikeCategory || maker === "BMW") ? <section className={`depth-rail no-label${isLuxuryCategory ? " is-luxury-model-row" : ""}${maker === "페라리" ? " is-ferrari-model-row" : ""}${isBikeCategory ? " is-bike-model-row" : ""}${guaziCardChipPreview ? " is-guazi-card-chip-row" : ""}`} aria-label={`${maker} 모델 빠른 선택`}>
             <QuickRailCarousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName={`depth-rail-track${guaziCardChipPreview ? " is-guazi-card-chip-track" : ""}`}>
               {cardChipModelQuickOptions.map((model) => {
                 const modelVisual = guaziVisualsForMaker?.[model];
