@@ -229,3 +229,4 @@
 "2026-10-12 03:00","미지정","claude/jdm-no-trans-1012","-","푸시","검수 대기","JDM 카드 스펙 줄에서 변속기 제거(올드카 카테고리만 변속기 노출)","src/prototype/data/index.tsx · docs/quick-filter-spec.md","필터 값은 유지"
 "2026-10-12 05:00","미지정","claude/oldcar-generation-1012","-","푸시","검수 대기","올드카 피드형 메타정보 끝에 세대(코드네임) 표기 추가(목록형 제외)","src/prototype/data/old-car-generation-v01.ts · src/prototype/listing/bbm-list.tsx · docs/quick-filter-spec.md","카탈로그 직접 대조 못함 · 경계 연식·불명 모델은 비움"
 "2026-10-12 06:00","미지정","claude/oldcar-generation-1012","-","푸시","검수 대기","올드카 세대 ADAC 크로스체크(재규어 XJ·E-Type, 300ZX, 560SEC, 911 카레라 1994 수정)","src/prototype/data/old-car-generation-v01.ts · docs/quick-filter-spec.md","T3·콜벳·미니·국산·일본차는 대조 못함"
+"2026-10-12 07:00","미지정","claude/chip-rail-smooth-1012","-","푸시","검수 대기","모바일 칩 줄 좌우 이동 시 필터 칩 축소로 칩이 41px 튀던 끊김 보정","src/prototype/listing/index.tsx · docs/quick-filter-spec.md","헤드리스 측정 · 실제 손가락 제스처는 미확인"
