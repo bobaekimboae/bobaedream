@@ -515,7 +515,7 @@ function renderFeedSpec(text: string) {
     const icon = iconOf(item);
     return (
       <span key={index} className="bbm-card-spec-item">
-        {index && !hasIcon ? <span className="bbm-card-spec-dot"> · </span> : null}
+        {index && !hasIcon ? <span className="bbm-card-spec-dot" aria-hidden="true" /> : null}
         {icon ? <i className="bbm-card-spec-icon" aria-hidden="true" style={{ ["--spec-icon" as string]: `url(${asset(`bbm/meta-icons/${specIconFiles[icon]}.svg`)})` }} /> : null}
         <span className="bbm-card-spec-text">{item}</span>
       </span>
