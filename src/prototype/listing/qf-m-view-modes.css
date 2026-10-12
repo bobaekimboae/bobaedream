@@ -218,3 +218,12 @@
    목록형 카드는 151·171(평균 약 164), 피드형 카드는 373(실측). 사진은 처음 4장만 바로, 나머지는 지연(loading="lazy") · 비동기 해독(decoding="async")으로 불러 한꺼번에 해독하지 않는다 */
 .marketplace .bbm-m-list .bbm-result-card.is-mobile { content-visibility: auto; contain-intrinsic-size: auto 164px; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured { contain-intrinsic-size: auto 373px; }
+
+/* 2026-10-12 「초톳 등록시간 배경, 우리 시간이 배경에 따라 안 보일 때가 많다」(초톳 캡처 1080×2340 실측): 초톳은 사진 아래에 투명 → 검정 50% 세로 그라데이션을 깔고
+   그 위에 흰 글자(12 · 600)를 올린다. 글자 가운데는 사진 아래에서 약 15px, 왼쪽은 약 10px(120px 썸네일). 우리는 모바일 목록형에서 그라데이션을 없애
+   밝은 사진 위에서 시간이 묻혔다. 모든 모바일 보기(목록 · 갤러리 · 피드)의 사진 아래에 같은 그라데이션을 깐다. */
+.marketplace.is-bbm-m .bbm-m-list .bbm-result-card.is-mobile .bbm-card-media-footer { align-items: flex-end; height: 36px; padding: 0 10px 6px; background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)); pointer-events: none; }
+.marketplace.is-bbm-m .bbm-m-list .bbm-result-card.is-mobile .bbm-card-time { font-size: 12px; font-weight: 600; line-height: 18px; text-shadow: none; }
+.marketplace.is-bbm-m .bbm-m-list.is-gallery .bbm-result-card.is-mobile .bbm-card-media-footer { height: 40px; padding: 0 10px 8px; }
+.marketplace.is-bbm-m .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-media-footer { height: 44px; padding: 0 10px 10px; }
+.marketplace.is-bbm-m .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-time { font-size: 12px; font-weight: 600; line-height: 18px; }
