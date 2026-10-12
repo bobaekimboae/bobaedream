@@ -241,3 +241,4 @@
 "2026-10-12 16:00","미지정","claude/oldcar-dev-brief-1012","-","푸시","검수 대기","올드카 세대 공란 정리: 1992 그랜저 2건 1세대 (L) 채움, 쏘나타 III 연식 확인","src/prototype/data/old-car-generation-v01.ts · docs/quick-filter-spec.md · reports/oldcar-feed-dev-brief-v1.md","W210 번호 체계·랜드크루저 형식은 기준표 대기"
 "2026-10-12 17:00","미지정","claude/oldcar-dev-brief-1012","-","푸시","검수 대기","딜러 화면 커버에 서울오토갤러리 헤더 구성(건물 사진+shade+SAG 마크+문구) 적용","src/prototype/dealer-page/DealerPage.tsx · dealer-page.css · docs/quick-filter-spec.md","커버 크기 384×125 유지"
 "2026-10-12 18:00","미지정","claude/oldcar-dev-brief-1012","-","푸시","검수 대기","피드 메타정보 가운데 점을 CSS 원으로 바꿔 좌우 간격 7/7로 맞춤","src/prototype/listing/bbm-list.tsx · qf-m-view-modes.css · docs/quick-filter-spec.md","점 앞 7·뒤 10이던 것을 7·7"
+"2026-10-12 19:00","미지정","claude/oldcar-dev-brief-1012","-","푸시","검수 대기","피드 메타 점을 엔카 기준(지름 2px, 양쪽 4px)으로 조정","src/prototype/listing/qf-m-view-modes.css · docs/quick-filter-spec.md","엔카 캡처 픽셀 실측 대비 점 앞뒤 4.75/4.75"
