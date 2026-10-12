@@ -238,6 +238,27 @@
   }
 }
 
+/* 초톳 모바일 실측 리듬: 필터 아래 14px 뒤에 32px 칩이 바로 시작하고,
+   칩 아래에서 102px 제조사 슬롯까지 10px, 제조사 슬롯 아래 여백은 0으로 둔다. */
+@media (max-width: 767px) {
+  .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-oldcar-decade-row,
+  .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-oldcar-decade-row .brand-carousel,
+  .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-oldcar-decade-row .depth-rail-track {
+    min-height: 32px;
+    height: 32px;
+  }
+
+  .marketplace.is-bbm-m.is-qf-guazi .is-oldcar-decade-track {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot:has(> .is-oldcar-decade-row) > .depth-rail.is-kr-maker {
+    padding-top: 10px;
+    padding-bottom: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .oldcar-category-hero-media {
     animation: none;
