@@ -1985,6 +1985,7 @@ function MarketplaceScreen() {
               ? Array.from(new Map(visibleCars
                 .filter((car) => Boolean(car.maker))
                 .map((car) => [car.maker, { label: car.maker, key: car.maker }])).values())
+                .sort((first, second) => Number(second.key === "현대") - Number(first.key === "현대"))
               : null;
             const sampleCount = (key: string) => isTruckCategory
               ? listingCars.filter((car) => car.maker === key && matchesTruckSelection(car)).length
@@ -2054,7 +2055,10 @@ function MarketplaceScreen() {
                   : catalogMake
                     ? <CatalogLogo path={catalogMake.logoPath} name={catalogMake.name} kind="rail" />
                     : <CategoryBrandLogo category={category} name={item.label} kind={plainQuickCards ? "plain" : "rail"} initialFallback={Boolean(typeList)} />;
-              return <DepthCard key={item.label} className={typeList && sampleCount(item.key) === 0 ? "is-dim" : undefined} label={categoryRailLabel(category, item.label)} image={image} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />;
+              const featuredOldcarBrand = category === "올드카" && item.key === "현대";
+              const railLabel = featuredOldcarBrand ? "현대\n올드카" : categoryRailLabel(category, item.label);
+              const cardClassName = [typeList && sampleCount(item.key) === 0 ? "is-dim" : null, featuredOldcarBrand ? "is-oldcar-featured-brand" : null].filter(Boolean).join(" ") || undefined;
+              return <DepthCard key={item.label} className={cardClassName} label={railLabel} image={image} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />;
             };
             return (
               <>
