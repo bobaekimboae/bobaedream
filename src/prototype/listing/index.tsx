@@ -112,6 +112,7 @@ import { dealers as seoulAutoGalleryDealers, SeoulAutoGalleryDealerRail, type Se
 import { SeoulAutoGalleryHeader } from "./seoul-auto-gallery-header";
 import { DeutschAutoworldHeader } from "./deutsch-autoworld-header";
 import { SupercarCategoryHeader } from "./supercar-category-header";
+import { FerrariCategoryHeader } from "./ferrari-category-header";
 import { OldcarCategoryHeader } from "./oldcar-category-header";
 import { SeoulAutoGalleryAbout, SeoulAutoGalleryCompanyDirectory, SeoulAutoGalleryTabs, type SeoulAutoGallerySection } from "./seoul-auto-gallery-directory";
 import { emptyHeavySelection, getInitialHeavySelection, replaceHeavyParams, type HeavySelection } from "../heavy/data";
@@ -877,7 +878,7 @@ function MarketplaceScreen() {
   // 각 카테고리의 매물 데이터는 그대로 유지한다.
   const usesLuxuryBrandRail = isLuxuryCategory || category === "수입차" || category === "슈퍼카" || category === "서울오토갤러리";
   const isTruckCategory = category === "트럭 · 특장";
-  const supportsVehicleCatalog = isBikeCategory || ["전체", "중고차", "국산차", "수입차", "전기차", "럭셔리카", "서울오토갤러리", "도이치오토월드"].includes(category);
+  const supportsVehicleCatalog = isBikeCategory || ["전체", "중고차", "국산차", "수입차", "전기차", "럭셔리카", "슈퍼카", "서울오토갤러리", "도이치오토월드"].includes(category);
   const vehicleCatalog = useVehicleCatalog(isBikeCategory ? "bike" : "car", maker);
   const autohomeLogoPreview = new URLSearchParams(window.location.search).get("brandlogo") === "autohome";
   const truckDepthPreviewMode = typeof window === "undefined" ? null : new URLSearchParams(window.location.search).get("truckdepth");
@@ -2139,10 +2140,13 @@ function MarketplaceScreen() {
   const supercarCategoryHeader = isGuaziQuickStyle && category === "슈퍼카" && !maker
     ? <SupercarCategoryHeader />
     : null;
+  const ferrariCategoryHeader = isGuaziQuickStyle && maker === "페라리"
+    ? <FerrariCategoryHeader />
+    : null;
   const oldcarCategoryHeader = isGuaziQuickStyle && category === "올드카" && !maker
     ? <OldcarCategoryHeader />
     : null;
-  const categoryComplexHeader = supercarCategoryHeader ?? oldcarCategoryHeader ?? seoulAutoGalleryHeader ?? deutschAutoworldHeader;
+  const categoryComplexHeader = ferrariCategoryHeader ?? supercarCategoryHeader ?? oldcarCategoryHeader ?? seoulAutoGalleryHeader ?? deutschAutoworldHeader;
   const isSeoulAutoGalleryLanding = isGuaziQuickStyle && category === "서울오토갤러리";
   const showSeoulAutoGalleryVehicles = !isSeoulAutoGalleryLanding || seoulAutoGallerySection === "vehicles";
   const quickStyleSelect = (
