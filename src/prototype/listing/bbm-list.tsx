@@ -568,12 +568,45 @@ function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string
       setIndex(Math.max(0, Math.min(photos.length - 1, Math.round(track.scrollLeft / track.clientWidth))));
     });
   };
+  // 마우스 끌기(2026-10-12 「피드형에서 레딧처럼 사진 좌우 제스처 안 되고」): 터치는 브라우저가 알아서 넘기지만 마우스는 끌어도 안 넘어가서,
+  // 마우스로 끌면 사진 줄이 따라오고 놓으면 가까운 사진에 붙는다. 터치·펜은 그대로 둔다.
+  const drag = useRef<{ x: number; left: number; moved: boolean } | null>(null);
+  const onPointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (event.pointerType !== "mouse" || event.button !== 0 || !trackRef.current) return;
+    drag.current = { x: event.clientX, left: trackRef.current.scrollLeft, moved: false };
+  };
+  const onPointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    const track = trackRef.current;
+    const state = drag.current;
+    if (!track || !state) return;
+    const dx = event.clientX - state.x;
+    if (!state.moved && Math.abs(dx) < 4) return;
+    if (!state.moved) { state.moved = true; track.style.scrollSnapType = "none"; track.setPointerCapture(event.pointerId); }
+    track.scrollLeft = state.left - dx;
+  };
+  const endDrag = (event: React.PointerEvent<HTMLDivElement>) => {
+    const track = trackRef.current;
+    const state = drag.current;
+    drag.current = null;
+    if (!track || !state?.moved) return;
+    if (track.hasPointerCapture(event.pointerId)) track.releasePointerCapture(event.pointerId);
+    const width = track.clientWidth || 1;
+    const dx = event.clientX - state.x;
+    const from = Math.round(state.left / width);
+    const target = Math.max(0, Math.min(photos.length - 1, Math.abs(dx) > width * 0.15 ? from + (dx < 0 ? 1 : -1) : from));
+    track.style.scrollSnapType = "";
+    track.scrollTo({ left: target * width, behavior: "smooth" });
+    // 끌고 난 뒤 곧바로 오는 클릭이 상세로 열리지 않게 한 번 막는다
+    const block = (e: MouseEvent) => { e.stopPropagation(); e.preventDefault(); };
+    track.addEventListener("click", block, { capture: true, once: true });
+    window.setTimeout(() => track.removeEventListener("click", block, true), 0);
+  };
   // 점은 최대 7개까지만 보이고, 현재 점 둘레로 창을 옮긴다(레딧과 같은 방식)
   const start = Math.max(0, Math.min(index - 3, photos.length - 7));
   const dots = photos.map((_, i) => i).slice(start, start + 7);
   return (
     <div className="bbm-feed-carousel-wrap" ref={wrapRef}>
-      <div className="bbm-feed-carousel" ref={trackRef} onScroll={onScroll} onClick={(event) => { if (trackRef.current && trackRef.current.scrollLeft % trackRef.current.clientWidth) event.stopPropagation(); }}>
+      <div className="bbm-feed-carousel" ref={trackRef} onScroll={onScroll} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={endDrag} onPointerCancel={endDrag} onClick={(event) => { if (trackRef.current && trackRef.current.scrollLeft % trackRef.current.clientWidth) event.stopPropagation(); }}>
         {photos.map((src, i) => armed || i === 0
           ? <img key={src + i} className={fit === "contain" ? "is-catalog" : ""} src={asset(src)} alt={i === 0 ? alt : `${alt} 사진 ${i + 1}`} draggable={false} decoding="async" onError={retryExternalPhoto} />
           : <span key={src + i} className="bbm-feed-slide-empty" aria-hidden="true" />)}
