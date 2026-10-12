@@ -118,9 +118,10 @@ import { emptyHeavySelection, getInitialHeavySelection, replaceHeavyParams, type
 import { CatalogLogo, CatalogSearchResults, CatalogVehicleImage, CatalogVehiclePickerSheet, useVehicleCatalog, type VehicleSearchRecord } from "../vehicle-catalog";
 
 type BbmMobileView = "목록으로 보기" | "피드로 보기" | "갤러리로 보기" | "한줄 광고로 보기" | "텍스트로 보기";
-type OldcarDecade = 1960 | 1970 | 1980 | 1990;
+type OldcarDecade = 1950 | 1960 | 1970 | 1980 | 1990;
 
 const oldcarDecades: Array<{ value: OldcarDecade; label: string }> = [
+  { value: 1950, label: "50년대" },
   { value: 1960, label: "60년대" },
   { value: 1970, label: "70년대" },
   { value: 1980, label: "80년대" },

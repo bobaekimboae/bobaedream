@@ -125,7 +125,7 @@
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-title .bbm-card-model { font-weight: 700; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec { display: block; height: 22px; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; color: #8c8c8c; font-size: 15px; line-height: 22px; white-space: nowrap; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec-item { display: inline; }
-.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec-dot { white-space: pre; } /* 2026-10-10 「메타정보 가운데 점」: 항목 사이 「 · 」 */
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec-dot { display: inline-block; width: 3px; height: 3px; margin: 0 7px; border-radius: 50%; background: currentColor; vertical-align: middle; } /* 2026-10-12 「가운데 점, 메타정보 간격 밸런스」: 글자 「 · 」 대신 CSS 점(양쪽 7px, 글자 가운데) */
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-price-badges { margin-top: 2px; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-price { height: 24px; color: #222; font-size: 17px; font-weight: 700; line-height: 24px; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-price-unit { font-size: 17px; font-weight: 400; line-height: 24px; }
@@ -206,6 +206,7 @@
 .bbm-card-spec-icon { flex: none; display: block; width: 16px; height: 16px; background: currentColor; -webkit-mask: var(--spec-icon) center / contain no-repeat; mask: var(--spec-icon) center / contain no-repeat; }
 /* 아이콘 없는 줄(아이콘 없는 비교 버전 &specicon=off, 아이콘이 없는 카테고리)은 한 줄 유지, 넘치면 마지막 항목만 말줄임 */
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec:not(:has(.bbm-card-spec-icon)) { flex-wrap: nowrap; }
+.marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec:not(:has(.bbm-card-spec-icon)) .bbm-card-spec-item { gap: 0; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec:not(:has(.bbm-card-spec-icon)) .bbm-card-spec-item:nth-last-child(2) { flex: 0 1 auto; min-width: 0; }
 .marketplace .bbm-m-list.is-feed .bbm-result-card.is-mobile.is-feed-featured .bbm-card-spec:not(:has(.bbm-card-spec-icon)) .bbm-card-spec-item:nth-last-child(2) .bbm-card-spec-text { overflow: hidden; text-overflow: ellipsis; }
 /* 2026-10-10 「피드에서 가격이 메타정보에 붙어 답답, 지역·판매자도 답답」: 초톳 캡처와 같은 배율로 줄 사이를 재측정(글자 기준선 간격 · 글자 잉크 사이 간격).

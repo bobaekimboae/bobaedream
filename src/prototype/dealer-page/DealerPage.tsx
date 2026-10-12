@@ -301,7 +301,15 @@ export default function DealerPage() {
           <strong>{dealer.name}</strong>
           <button type="button" aria-label="공유" onClick={share}><Icon name="chotot-common-share.svg" /></button>
         </header>
-        <div className="dp-cover"><img src={asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt="" draggable={false} /><span>{MOCK.lastActive}</span></div>
+        <div className="dp-cover">
+          <img className="dp-cover-photo" src={asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt="" draggable={false} />
+          <div className="dp-cover-shade" aria-hidden="true" />
+          <div className="dp-cover-brand">
+            <img src={asset("seoul-auto-gallery/header/sag-mark-banner-v02.png")} alt="" aria-hidden="true" draggable={false} />
+            <div><strong>서울오토갤러리</strong><small>수입차 전문 매매단지</small></div>
+          </div>
+          <span>{MOCK.lastActive}</span>
+        </div>
         <section className="dp-head">
           <img className="dp-logo" src={asset(`dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`)} alt={`${dealer.name} 프로필`} draggable={false} />
           <div className="dp-actions">
