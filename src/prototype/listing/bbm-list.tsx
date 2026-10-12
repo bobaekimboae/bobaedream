@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type KeyboardEvent, type ReactNode, type SyntheticEvent } from "react";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { asset, displayListPlace, placeSidoGugun, sellerAvatar, sellerLabel, sellerRealPhoto, type Car } from "../data";
-import { bbmCardBadges, bbmCardSpec } from "../data/bbm-card-samples";
+import { bbmCardBadges, bbmCardSpec, bbmSampleHorsepower } from "../data/bbm-card-samples";
 import { oldCarGeneration } from "../data/old-car-generation-v01";
 import { truckFormatCatalog } from "../data/truck-format-catalog";
 import { normalizedListThumb } from "./list-thumbs";
@@ -648,7 +648,10 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   const specBase = car.truck && !car.truck.trailer && !featured && variant !== "pc"
     ? bbmCardSpec(car, false).split(" · ").filter((part) => !/^적재 [\d.]+톤$/.test(part)).join(" · ")
     : bbmCardSpec(car, variant === "pc");
-  const specText = oldCarGen ? `${specBase} · ${oldCarGen}` : specBase;
+  // 피드형은 승용·지시값 매물도 연료 뒤에 마력을 붙인다(트럭은 이미 있고, 바이크·건설기계·캠핑카는 해당 없음). 올드카 세대는 그 뒤 맨 끝
+  const isPassengerCar = !(car.truck || car.bike || car.heavy || car.virtualCategory);
+  const withFeedPower = featured && isPassengerCar && !specBase.includes("마력") ? `${specBase} · ${bbmSampleHorsepower(car.id)}` : specBase;
+  const specText = oldCarGen ? `${withFeedPower} · ${oldCarGen}` : withFeedPower;
   // 캠핑카 모터홈은 「승차 N인 · 취침 N인」(카라반·트레일러는 한 줄에 들어가 나누지 않음, 2026-10-08), 트럭은 「적재 · 마력 · 차축」이 한 줄에 다 안 들어가 둘째 줄로 내린다(2026-10-08)
   // 피드는 목록과 달리 메타정보를 한 줄로(2026-10-10 「피드에서는 목록과 틀리게 메타정보 한줄로」), 넘치면 말줄임
   const seatSplit = featured ? -1 : car.virtualCategory?.category === "캠핑카" ? specText.search(/ · 승차 /) : car.truck && !car.truck.trailer ? specText.search(/ · (적재 [\d.]+톤|\d+인승|[\d.]+(㎘|㎥|m) · |\d+마력)/) : -1;
