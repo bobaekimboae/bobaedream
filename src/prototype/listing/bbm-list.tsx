@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type KeyboardEvent, type ReactNode, type S
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { asset, displayListPlace, placeSidoGugun, sellerAvatar, sellerLabel, sellerRealPhoto, type Car } from "../data";
 import { bbmCardBadges, bbmCardSpec } from "../data/bbm-card-samples";
+import { oldCarGeneration } from "../data/old-car-generation-v01";
 import { truckFormatCatalog } from "../data/truck-format-catalog";
 import { normalizedListThumb } from "./list-thumbs";
 import { truckPlaceV09 } from "../truck/scenario-v09";
@@ -605,9 +606,12 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   const badges = bbmCardBadges(car);
   // dev 원본처럼 스펙 항목을 " · "(공백+가운데점+공백) 텍스트로 잇는다(JOB-8). 한 줄 넘치면 말줄임
   // 모바일 목록형 트럭은 적재를 뺀다(2026-10-10 「적재는 빼는게 어떨까, 목록형에서」): 2행에 톤수가 이미 있다. 피드·PC·트레일러는 그대로
-  const specText = car.truck && !car.truck.trailer && !featured && variant !== "pc"
+  // 올드카 피드형은 메타정보 맨 끝에 세대(코드네임)를 붙인다(2026-10-12). 값은 old-car-generation-v01.ts
+  const oldCarGen = featured && car.oldCar ? oldCarGeneration[car.oldCar.number] : undefined;
+  const specBase = car.truck && !car.truck.trailer && !featured && variant !== "pc"
     ? bbmCardSpec(car, false).split(" · ").filter((part) => !/^적재 [\d.]+톤$/.test(part)).join(" · ")
     : bbmCardSpec(car, variant === "pc");
+  const specText = oldCarGen ? `${specBase} · ${oldCarGen}` : specBase;
   // 캠핑카 모터홈은 「승차 N인 · 취침 N인」(카라반·트레일러는 한 줄에 들어가 나누지 않음, 2026-10-08), 트럭은 「적재 · 마력 · 차축」이 한 줄에 다 안 들어가 둘째 줄로 내린다(2026-10-08)
   // 피드는 목록과 달리 메타정보를 한 줄로(2026-10-10 「피드에서는 목록과 틀리게 메타정보 한줄로」), 넘치면 말줄임
   const seatSplit = featured ? -1 : car.virtualCategory?.category === "캠핑카" ? specText.search(/ · 승차 /) : car.truck && !car.truck.trailer ? specText.search(/ · (적재 [\d.]+톤|\d+인승|[\d.]+(㎘|㎥|m) · |\d+마력)/) : -1;

@@ -227,3 +227,4 @@
 "2026-10-12 04:00","미지정","claude/oldcar-pre2000-1012","-","푸시","검수 대기","올드카 목록에서 2000년식 이상 17대 제외(1999년식 이하만)","src/prototype/data/old-car-bobae-v01.ts · docs/quick-filter-spec.md","기준 연도 1999는 임의 해석, 변경 가능"
 "2026-10-12 02:00","미지정","claude/oldcar-thumb-balance-1012","-","푸시","검수 대기","올드카 목록 썸네일 밸런스(63대, 사진 원본 유지·표시 확대/이동만)","src/prototype/data/old-car-list-crop-v01.ts · src/prototype/data/index.tsx · docs/quick-filter-spec.md","ob-036 확대 큼, 사진 없는 32대 제외"
 "2026-10-12 03:00","미지정","claude/jdm-no-trans-1012","-","푸시","검수 대기","JDM 카드 스펙 줄에서 변속기 제거(올드카 카테고리만 변속기 노출)","src/prototype/data/index.tsx · docs/quick-filter-spec.md","필터 값은 유지"
+"2026-10-12 05:00","미지정","claude/oldcar-generation-1012","-","푸시","검수 대기","올드카 피드형 메타정보 끝에 세대(코드네임) 표기 추가(목록형 제외)","src/prototype/data/old-car-generation-v01.ts · src/prototype/listing/bbm-list.tsx · docs/quick-filter-spec.md","카탈로그 직접 대조 못함 · 경계 연식·불명 모델은 비움"
