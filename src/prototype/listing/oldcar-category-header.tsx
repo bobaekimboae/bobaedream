@@ -106,6 +106,15 @@ const OLDCAR_HERO_SLIDES: OldcarHeroSlide[] = [
 ];
 
 const HERO_INTERVAL_MS = 6000;
+const MAX_VISIBLE_DOTS = 5;
+
+function getVisibleDotIndices(activeIndex: number, total: number) {
+  const count = Math.min(MAX_VISIBLE_DOTS, total);
+  const maxStart = Math.max(0, total - count);
+  const start = Math.min(Math.max(activeIndex - Math.floor(count / 2), 0), maxStart);
+
+  return Array.from({ length: count }, (_, index) => start + index);
+}
 
 export function OldcarCategoryHeader() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -113,6 +122,7 @@ export function OldcarCategoryHeader() {
     () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches,
   );
   const slide = OLDCAR_HERO_SLIDES[activeIndex];
+  const visibleDotIndices = getVisibleDotIndices(activeIndex, OLDCAR_HERO_SLIDES.length);
 
   useEffect(() => {
     if (typeof window === "undefined" || reduceMotion) return;
@@ -157,17 +167,27 @@ export function OldcarCategoryHeader() {
         <small>{slide.year}</small>
         <em>{slide.model}</em>
       </span>
-      <div className="oldcar-category-hero-dots" role="group" aria-label="올드카 배너 선택">
-        {OLDCAR_HERO_SLIDES.map((item, index) => (
-          <button
-            key={item.id}
-            type="button"
-            className={index === activeIndex ? "is-active" : ""}
-            aria-label={`${item.year} ${item.model} 배너`}
-            aria-current={index === activeIndex ? "true" : undefined}
-            onClick={() => setActiveIndex(index)}
-          />
-        ))}
+      <div
+        className="oldcar-category-hero-dots"
+        role="group"
+        aria-label={`올드카 배너 선택, ${activeIndex + 1}/${OLDCAR_HERO_SLIDES.length}`}
+      >
+        {visibleDotIndices.map((index, visibleIndex) => {
+          const item = OLDCAR_HERO_SLIDES[index];
+          const isLeadingEdge = visibleIndex === 0 && index > 0;
+          const isTrailingEdge = visibleIndex === visibleDotIndices.length - 1 && index < OLDCAR_HERO_SLIDES.length - 1;
+
+          return (
+            <button
+              key={item.id}
+              type="button"
+              className={`${index === activeIndex ? "is-active" : ""} ${isLeadingEdge || isTrailingEdge ? "is-edge" : ""}`.trim()}
+              aria-label={`${index + 1}/${OLDCAR_HERO_SLIDES.length} ${item.year} ${item.model} 배너`}
+              aria-current={index === activeIndex ? "true" : undefined}
+              onClick={() => setActiveIndex(index)}
+            />
+          );
+        })}
       </div>
     </section>
   );
