@@ -260,3 +260,4 @@
 "2026-10-13 20:30","미지정","claude/used-car-detail-1013","-","배포","완료","상세: 하트를 차명 줄 오른쪽으로, 단지 색을 지역과 동일하게, 판매자 이름 `이름 딜러` 형식","src/prototype/detail/index.tsx · detail.css · docs/quick-filter-spec.md","「이은호 딜러」는 판매자 이름 형식으로 해석","해석 확인","verify 통과"
 "2026-10-13 21:00","미지정","claude/used-car-detail-1013","-","배포","완료","상세 판매자 영역에서 상사 정보 줄 제거(일단 숨김)","src/prototype/detail/index.tsx · docs/quick-filter-spec.md","","","verify 통과"
 "2026-10-13 21:30","미지정","claude/used-car-detail-1013","-","배포","완료","상세 하트 위치를 목록 하트와 같게(오른쪽 끝 368, 제목 첫 줄 중심)","src/prototype/detail/detail.css · docs/quick-filter-spec.md","초톳 Lưu 알약 대신 목록 하트 기준","","verify 통과"
+"2026-10-13 22:00","미지정","claude/used-car-detail-1013","-","배포","완료","상세 판매자 프사를 승인된 초톳 인물 사진(실사)으로","src/prototype/data/index.tsx · detail/index.tsx · docs/quick-filter-spec.md","자리용 사진, 실제 딜러 사진 아님","","verify 통과"

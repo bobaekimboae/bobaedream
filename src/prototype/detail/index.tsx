@@ -14,7 +14,7 @@ import {
   optionItems,
   priceHistoryRows,
   relatedCars,
-  sellerAvatar,
+  sellerDetailPhoto,
   sellerLabel,
   sellerScenario,
   useFavorites,
@@ -351,7 +351,7 @@ function DetailSellerInfo({ car }: { car: Car }) {
   const soldCount = 12 + ((car.id * 37) % 188);
   return (
     <section className="detail-seller-info" aria-label="판매자 정보">
-      <img className="detail-seller-avatar" src={asset(sellerAvatar(car))} alt="" draggable={false} />
+      <img className="detail-seller-avatar" src={asset(sellerDetailPhoto(car))} alt="" draggable={false} />
       <div className="detail-seller-text">
         <strong>{sellerName}</strong>
         {isDealer ? <span><b>{soldCount}대</b> 판매완료 · <b>{car.stock}대</b> 판매중</span> : null}
