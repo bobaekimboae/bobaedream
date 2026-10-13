@@ -304,3 +304,4 @@
 "2026-10-14 21:50","미지정","claude/used-car-detail-1013","-","배포","완료","상세 썸네일 크기 세 시안(카이디·이베이·동처띠) 비교용 &thumbs= 파라미터","detail/index.tsx · detail.css","동처띠 값은 실측 아닌 이전 구현값","동처띠 실측 캡처 필요",verify:qf 통과 · 세 시안 384 측정
 "2026-10-14 22:20","미지정","claude/used-car-detail-1013","-","배포","완료","상세 썸네일 이베이 방식 확정(64×64·간격 8·선택 어두운 2px, 재실측)","detail.css · detail/index.tsx","큰 사진 8 여백·둥근 모서리는 아직 미적용","",verify:qf 통과 · 384/260 측정
 2026-10-13 12:40,상세 썸네일 뺀 시안(&thumbs=off),claude/used-car-detail-1013,pending,미리보기 전용
+2026-10-13 12:47,상세 썸네일 기본 제외(&thumbs=on으로만 표시),claude/used-car-detail-1013,pending,기본값 변경
