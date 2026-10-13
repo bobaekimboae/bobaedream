@@ -264,11 +264,18 @@ function OptionsCard({ desktop = false }: { desktop?: boolean }) {
     ["전동시트", "option-09.png"],
     ["가죽시트", "option-06.png"],
   ];
-  const options = fd
+  const ferrariOptions = fd
     ? fd.options.map((label) => ({
       label,
       icon: ferrariIconByKeyword.find(([keyword]) => label.includes(keyword))?.[1] ?? "option-06.png",
     }))
+    : [];
+  const normalizedFerrariLabels = new Set(ferrariOptions.map(({ label }) => label.replace(/\s+/g, "")));
+  const options = fd
+    ? [
+      ...ferrariOptions,
+      ...optionItems.filter(({ label }) => !normalizedFerrariLabels.has(label.replace(/\s+/g, ""))),
+    ]
     : optionItems;
   const previewCount = Math.min(8, options.length);
   const visibleOptions = expanded ? options : options.slice(0, previewCount);
