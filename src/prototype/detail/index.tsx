@@ -73,6 +73,25 @@ function InfoGrid({ items }: { items: string[][] }) {
 // 차량 정보(2026-10-13 「카앤비드처럼 구성 · 한국 문화에 맞게」): Cars & Bids의 핵심 정보 격자(라벨 위 · 값 아래, 제조사 · 모델 · 주행거리 · 엔진 · 구동 · 변속기 · 바디 · 색상 · 지역 · 판매자 유형)를
 // 한국 중고차 기준(연식 · 정확한 주행거리 · 연료 · 변속기 · 배기량 · 바디타입 · 색상 · 지역 · 판매자 유형 · 판매구분 · 성능점검 · 보험이력)으로 옮겼다. 값이 없는 칸은 만들지 않는다
 const cleanValue = (value?: string | null) => (value && value !== "전체" && value !== "정보 없음" && value !== "기타" ? value : "");
+const SIZE_CLASS: [string, string[]][] = [
+  ["대형", ["S클래스", "S-클래스", "7시리즈", "A8", "G90", "G80", "그랜저", "K9", "K8", "팬텀", "컨티넨탈", "마이바흐", "플라잉스퍼", "911 ", "타이칸", "파나메라", "CLS"]],
+  ["중형", ["E클래스", "E-클래스", "5시리즈", "A6", "쏘나타", "K5", "G70", "i5", "ES"]],
+  ["준중형", ["C클래스", "C-클래스", "3시리즈", "A4", "아반떼", "K3", "i4", "2시리즈", "M3", "M4"]],
+];
+/* 규칙으로 정한 추정 값(UI 검증용, 실제 제원 아님): 차종은 모델 이름으로, 인승은 바디타입으로, 시트 색상 · 제시번호는 매물 번호로 정한 가상 값 */
+function derivedFacts(car: Car, model: string, body: string) {
+  const name = `${model} ${car.title}`;
+  const sizeClass = SIZE_CLASS.find(([, keys]) => keys.some((k) => name.includes(k)))?.[0] ?? "";
+  const sports = ["페라리", "람보르기니", "맥라렌"].includes(car.maker);
+  const seats = sports && (body === "쿠페" || body === "컨버터블") ? 2 : body === "쿠페" || body === "컨버터블" ? 4 : body === "MPV" ? 7 : body === "밴" ? 9 : body ? 5 : 0;
+  const seatColors = ["블랙", "베이지", "브라운", "그레이", "레드", "화이트"];
+  return {
+    sizeClass,
+    seats: seats ? `${seats}인승` : "",
+    seatColor: seatColors[car.id % seatColors.length],
+    offerNo: `2026${String((car.id * 7919 + 1380883) % 10000000).padStart(7, "0")}`,
+  };
+}
 const NO_INFO = "정보 없음";
 const FACTS_VISIBLE = 6;
 function carFacts(car: Car): string[][] {
@@ -80,6 +99,8 @@ function carFacts(car: Car): string[][] {
   const yearText = bbmCardSpec(car, false).split(" · ")[0];
   const model = (car.modelGroup ?? car.title.replace(new RegExp(`^${car.maker}\\s*`), "")).trim();
   const or = (value?: string | null) => value || NO_INFO;
+  const body = cleanValue(fd?.body ?? car.filter?.body);
+  const dv = derivedFacts(car, model, body);
   /* 2026-10-14 「차량번호 · 제조사 · 모델 · 연식 · 출시가격 … 제시번호 모두 포함 후 더보기」: 값이 없는 항목도 줄은 두고 `정보 없음`.
      차량번호 · 제시번호는 저장하지 않는 값이라 항상 `정보 없음`(상세 원본은 판매자에게 문의). */
   const rows: [string, string][] = [
@@ -92,14 +113,14 @@ function carFacts(car: Car): string[][] {
     ["연료", or(cleanValue(car.filter?.fuel))],
     ["배기량", or(fd?.displacement)],
     ["변속기", or(cleanValue(fd?.transmission ?? car.filter?.transmission))],
-    ["차종", or(fd?.carType)],
-    ["인승", NO_INFO],
-    ["바디타입", or(cleanValue(fd?.body ?? car.filter?.body))],
+    ["차종", or(fd?.carType ?? dv.sizeClass)],
+    ["인승", or(dv.seats)],
+    ["바디타입", or(body)],
     ["외관 색상", or(cleanValue(fd?.color ?? car.filter?.color))],
-    ["시트 색상", NO_INFO],
+    ["시트 색상", dv.seatColor],
     ["판매방식", or(fd?.saleType)],
     ["압류/저당", `${NO_INFO} / ${NO_INFO}`],
-    ["제시번호", NO_INFO],
+    ["제시번호", dv.offerNo],
     ["지역", car.place.split(" · ")[0]],
     ["판매자 유형", car.sellerType === "딜러" ? "매매업체(딜러)" : "개인"],
     ["성능점검", fd ? (fd.inspection ? "기록부 있음" : "없음") : ""],
