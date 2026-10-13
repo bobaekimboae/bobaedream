@@ -302,7 +302,7 @@ function VehicleInfoCard() {
           </section>)}
         </div>
       )}
-      {facts.length > FACTS_VISIBLE_ICONS ? <button type="button" className="detail-more is-airbnb" aria-expanded={expanded} onClick={() => setExpanded((v) => !v)}><span>{expanded ? "정보 접기" : `${VEHICLE_INFO_TOTAL_LABEL}개 정보 더보기`}</span></button> : null}
+      {facts.length > FACTS_VISIBLE_ICONS ? <button type="button" className="detail-more is-airbnb" aria-expanded={expanded} onClick={() => setExpanded((v) => !v)}><span>{expanded ? "정보 접기" : `${VEHICLE_INFO_TOTAL_LABEL}개 정보 더보기`}</span><img className={expanded ? "is-expanded" : ""} src={asset("icons/chotot/chotot-list-detail-dropdown-arrow-region-search.svg")} alt="" /></button> : null}
     </SectionCard>
   );
   if (car) return (

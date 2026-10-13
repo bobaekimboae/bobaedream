@@ -591,10 +591,12 @@
 .detail-more { display: inline-flex; align-items: center; gap: 4px; margin: 4px 0 12px; padding: 4px 0; border: 0; background: none; color: #222; font: inherit; font-size: 16px; font-weight: 600; line-height: 24px; cursor: pointer; }
 .detail-more span { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
 .detail-more:focus-visible { outline: 2px solid #222; outline-offset: 2px; border-radius: 4px; }
-.detail-more.is-airbnb { display: block; width: 100%; height: 48px; margin: 12px 0 4px; padding: 14px 24px; border: 0; border-radius: 12px; background: #f2f2f2; color: #222; font-size: 16px; font-weight: 500; line-height: 20px; text-align: center; }
+.detail-more.is-airbnb { display: flex; width: 100%; height: 48px; align-items: center; justify-content: center; gap: 4px; margin: 12px 0 4px; padding: 11px 24px; border: 1px solid #d8d8d8; border-radius: 24px; background: #fff; color: #222; font-size: 16px; font-weight: 600; line-height: 24px; text-align: center; }
 .detail-more.is-airbnb span { text-decoration: none; }
-.detail-more.is-airbnb:active { background: #e8e8e8; }
-.detail-more.is-airbnb:focus-visible { border-radius: 12px; }
+.detail-more.is-airbnb img { width: 20px; height: 20px; transition: transform .18s ease; }
+.detail-more.is-airbnb img.is-expanded { transform: rotate(180deg); }
+.detail-more.is-airbnb:active { background: #f7f7f7; }
+.detail-more.is-airbnb:focus-visible { border-radius: 24px; }
 
 /* 차량 정보 펼침(2026-10-13 무다 차량 제원 시트): 아이콘 요약 뒤에 기술 제원을 의미 단위로 묶고,
    각 그룹은 무다처럼 제목 + 라벨/값 2열로 읽히게 한다. 그룹 안에는 구분선을 두지 않는다. */

@@ -227,12 +227,10 @@ final result: passed
 
 ---
 
-# 에어비앤비형 차량 정보 더보기 칩 QA · 2026-10-13
+# 초톳형 차량 정보 더보기 칩 QA · 2026-10-13
 
-- source URL: `https://www.airbnb.co.kr/rooms/749432416774983495`
-- source capture: `C:/Users/bobae/Downloads/airbnb-info-chip-1013/airbnb-amenities-button-mobile.png`
-- implementation screenshot: `C:/Users/bobae/Downloads/vehicle-grid-icon-tuned-1013/06-airbnb-info-chip-local-final.png`
-- comparison composite: `C:/Users/bobae/Downloads/vehicle-grid-icon-tuned-1013/comparison-airbnb-info-chip.png`
+- source visual truth: 사용자 제공 초톳 상세 화면의 흰색 `Xem thêm` 알약 버튼
+- implementation screenshot: `C:/Users/bobae/Downloads/vehicle-grid-icon-tuned-1013/07-chotot-white-info-button.png`
 - viewport: 390 × 844 CSS px, deviceScaleFactor 1
 - source and implementation pixels: 각각 390 × 844
 - state: 차량 정보 8개 노출, 더보기 닫힘
@@ -240,18 +238,18 @@ final result: passed
 ## Findings
 
 - P0/P1/P2 findings: none after the focused comparison.
-- Fonts and typography: 에어비앤비의 16/20·500을 Pretendard Variable 16/20·500으로 옮겼다.
-- Spacing and layout rhythm: 기준과 동일하게 x=24, width=342, height=48, padding 14px 24px, radius 12px다.
-- Colors and visual tokens: 배경 `#F2F2F2`, 글자 `#222`, 테두리·그림자 없음으로 일치한다.
-- Image quality and asset fidelity: 이미지나 별도 아이콘을 사용하지 않는 텍스트 버튼이므로 대체 자산은 없다.
+- Fonts and typography: Pretendard Variable 16/24·600으로 본문 CTA와 명확히 구분했다.
+- Spacing and layout rhythm: x=24, width=342, height=48, padding 11px 24px, radius 24px다.
+- Colors and visual tokens: 흰 배경, `#D8D8D8` 1px 테두리, 글자 `#222`, 그림자 없음으로 맞췄다.
+- Image quality and asset fidelity: 초톳 원본 드롭다운 화살표 SVG를 사용하고 펼친 상태에서 180도 회전한다.
 - Copy and content: 사용자 지정 문구 `37개 정보 더보기`를 적용했고, 펼친 상태에서는 `정보 접기`로 바뀐다.
 - Interaction: 버튼 클릭 시 `aria-expanded=false → true`, 차량 정보 행 `8 → 23`, 다시 클릭 시 닫힘을 확인했다.
 
 ## Comparison history
 
-- 1차: 버튼이 기준보다 좌우 4px씩 좁은 334px로 렌더링됐다.
-- 수정: 좌우 보정 마진을 제거해 기준과 같은 342px로 교정했다.
-- 2차: 390px 캡처에서 342×48px, 깨진 이미지 0, 콘솔 오류 0, 가로 오버플로 0을 확인했다.
+- 이전: 에어비앤비 기준의 `#F2F2F2`, 반경 12px, 아이콘 없는 버튼이었다.
+- 수정: 초톳 기준의 흰색 테두리 알약 버튼과 중앙 화살표로 교체했다.
+- 최종: 390px 캡처에서 342×48px, 깨진 이미지 0, 콘솔 오류 0, 가로 오버플로 0을 확인했다.
 
 final result: passed
 
