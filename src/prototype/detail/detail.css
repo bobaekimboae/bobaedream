@@ -591,8 +591,8 @@
 .detail-facts.is-icons.is-charancha { display: flex; flex-direction: column; gap: 14px; margin: 0; padding: 4px 0 0; border: 0; }
 .detail-facts.is-icons.is-charancha > div { align-items: center; gap: 8px; }
 .detail-facts.is-icons.is-charancha .detail-fact-text { display: contents; }
-.detail-facts.is-icons.is-charancha dt { flex: 1; min-width: 0; color: #707b89; font-size: 16px; font-weight: 400; line-height: 24px; }
-.detail-facts.is-icons.is-charancha dd { flex: none; max-width: 60%; margin-left: auto; color: #191f28; font-size: 16px; font-weight: 500; line-height: 24px; text-align: right; }
+.detail-facts.is-icons.is-charancha dt { flex: 0 0 calc(50% - 32px); min-width: 0; color: #707b89; font-size: 16px; font-weight: 400; line-height: 24px; }
+.detail-facts.is-icons.is-charancha dd { flex: 1; min-width: 0; margin: 0; color: #191f28; font-size: 16px; font-weight: 500; line-height: 24px; text-align: left; }
 
 /* 상세 아이콘 슬롯 규칙(2026-10-14 「제조사 교체 아이콘들 슬롯 규칙 잡고 밸런스」): 모든 아이콘은 24×24 슬롯 안에서 보이는 면적 √(폭×높이)=18px, 보이는 부분의 중심이 슬롯 정중앙(12,12)에 오도록 아이콘별로 크기·위치만 보정한다(원본 SVG는 그대로, 측정값은 24px 기준 렌더 잉크). */
 .detail-facts.is-icons > div > img[data-icon="body"] { transform: translate(-0.11px, 0.11px) scale(1.068); }
