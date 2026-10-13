@@ -756,7 +756,9 @@ function SavedListingsScreen() {
 function MarketplaceScreen() {
   const flow = useFlow();
   const openCarDetail = (car: Car) => {
-    setActiveDetailCar(car);
+    // 사진이 1장뿐인 매물도 상세에서 썸네일 줄이 보이도록 피드와 같은 임시 슬라이드(3~6장)를 붙인다. 실제 다중 사진이 오면 photoList를 그대로 쓴다
+    const slides = feedPhotosFor(shownCars, shownCars.findIndex((other) => other.id === car.id));
+    setActiveDetailCar(slides && slides.length > 1 && !(car.photoList && car.photoList.length > 1) ? { ...car, photoList: slides } : car);
     flow.push(detailScreen);
   };
   // 딜러 화면은 목록 위 덮개가 아닌 독립 화면(?profile=dealer)이다. 같은 탭에서 열어 뒤로 가기로 목록에 돌아온다.
