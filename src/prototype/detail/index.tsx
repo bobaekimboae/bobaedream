@@ -129,10 +129,23 @@ function carFacts(car: Car): string[][] {
   return rows.filter(([, value]) => value);
 }
 
+/* 차량 정보 아이콘 시안(`&facts=icons`, 2026-10-14, 노션 「영국_오토트레이더 초톳 변경」 아이콘 원본 그대로 `public/assets/bbm/detail-icons/`) */
+const FACT_ICONS: Record<string, string> = {
+  차량번호: "document", 제조사: "maker", 모델: "model", 연식: "year", 주행거리: "mileage", "출시가격(옵션미포함)": "price",
+  연료: "fuel", 배기량: "engine", 변속기: "gearbox", 차종: "body", 인승: "seats", 바디타입: "body", "외관 색상": "color", "시트 색상": "color",
+  판매방식: "seller-type", "압류/저당": "document", 제시번호: "document", 지역: "location", "판매자 유형": "seller-type", 성능점검: "document", "보험이력 조회": "document",
+};
+const FACTS_VISIBLE_ICONS = 8;
 function VehicleInfoCard() {
   const [expanded, setExpanded] = useState(false);
   const car = getActiveDetailCar();
   const facts = car ? carFacts(car) : [];
+  if (car && new URLSearchParams(window.location.search).get("facts") === "icons") return (
+    <SectionCard title="차량 정보" className="vehicle-info-card is-facts-icons">
+      <dl className="detail-facts is-icons">{(expanded ? facts : facts.slice(0, FACTS_VISIBLE_ICONS)).map(([label, value]) => <div key={label}>{FACT_ICONS[label] ? <img src={asset(`bbm/detail-icons/${FACT_ICONS[label]}.svg`)} alt="" aria-hidden="true" draggable={false} /> : <span className="detail-fact-icon-gap" />}<span className="detail-fact-text"><dt>{label}</dt><dd>{label === "제조사" ? <a className="detail-fact-link" href={`?qf=guazi&maker=${encodeURIComponent(value)}`}>{value}</a> : value}</dd></span></div>)}</dl>
+      {facts.length > FACTS_VISIBLE_ICONS ? <button type="button" className="detail-more" aria-expanded={expanded} onClick={() => setExpanded((v) => !v)}><span>{expanded ? "정보 접기" : "정보 더보기"}</span><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ transformOrigin: "8px 8px", transform: expanded ? "rotate(180deg)" : "none" }} /></svg></button> : null}
+    </SectionCard>
+  );
   if (car) return (
     <SectionCard title="차량 정보" className="vehicle-info-card">
       <dl className="detail-facts">{(expanded ? facts : facts.slice(0, FACTS_VISIBLE)).map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{label === "제조사" ? <a className="detail-fact-link" href={`?qf=guazi&maker=${encodeURIComponent(value)}`}>{value}</a> : value}</dd></div>)}</dl>
