@@ -263,3 +263,4 @@
 "2026-10-13 22:00","미지정","claude/used-car-detail-1013","-","배포","완료","상세 판매자 프사를 승인된 초톳 인물 사진(실사)으로","src/prototype/data/index.tsx · detail/index.tsx · docs/quick-filter-spec.md","자리용 사진, 실제 딜러 사진 아님","","verify 통과"
 "2026-10-13 22:30","미지정","claude/used-car-detail-1013","-","배포","완료","상세: 지역 밑 상사명 줄 + 등록일 줄(노션 시계 아이콘)","public/assets/bbm/chotot-common-clock-v01.svg · detail/index.tsx · detail.css · docs/quick-filter-spec.md","「상사명 2줄」은 지역 아래 별도 줄로 해석","해석 확인","verify 통과"
 "2026-10-13 23:00","미지정","claude/used-car-detail-1013","-","배포","완료","상세: 상사명을 매매단지 뒤 같은 줄로(별도 줄 제거)","detail/index.tsx · docs/quick-filter-spec.md","","","verify 통과"
+"2026-10-13 23:30","미지정","claude/used-car-detail-1013","-","배포","완료","상세 차량정보 연식을 우리 표기(19년01월/2023)로, 연식·주행·연료는 매물 값으로","detail/index.tsx · docs/quick-filter-spec.md","나머지 행(변속기 등)은 시안 값 그대로","상세 차량정보 나머지 행도 매물 값으로 바꿀지","verify 통과"

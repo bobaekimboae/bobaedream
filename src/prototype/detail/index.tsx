@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { ChevronDownIcon, HeartFilledIcon, HeartIcon, LockClosedIcon, MobileIcon, QuestionMarkCircledIcon } from "@radix-ui/react-icons";
 import { BottomSheet, Carousel, MobileScroll, useFlow } from "../../mobile";
+import { bbmCardSpec } from "../data/bbm-card-samples";
 import {
   asset,
   classCars,
@@ -71,12 +72,17 @@ function VehicleInfoCard() {
   const [expanded, setExpanded] = useState(false);
   const car = getActiveDetailCar();
   const fd = car?.ferrariDetail;
+  // 연식 표기는 우리 규칙(2026-10-13 「중고차 연식 표기법 맞춰라」): 월을 알면 `24년08월`, 모르면 `2024`(목록 카드 첫 사양과 같은 값)
+  const yearText = car ? bbmCardSpec(car, false).split(" · ")[0] : "";
+  const mileageText = car ? `${(car.filter?.mileage ?? 0).toLocaleString("ko-KR")}km` : "";
   const realBase: string[][] | null = car && fd ? [
-    ["연식", `${car.specs[0]?.replace("년식", "")}년`], ["주행거리", `${(car.filter?.mileage ?? 0).toLocaleString("ko-KR")}km`], ["연료", car.specs[2] ?? ""], ["변속기", fd.transmission],
+    ["연식", yearText], ["주행거리", mileageText], ["연료", car.specs[2] ?? ""], ["변속기", fd.transmission],
     ["배기량", fd.displacement], ["색상", fd.color],
   ] : null;
+  // 실제 상세 값이 없는 매물도 연식·주행거리·연료는 매물 값으로 바꾼다(옛 시안 값 2021년 1월 · 4만km를 쓰지 않음)
+  const baseRows = car && !fd ? vehicleInfo.map(([label, value]) => label === "연식" ? [label, yearText] : label === "주행거리" ? [label, mileageText] : label === "연료" ? [label, car.filter?.fuel ?? value] : [label, value]) : vehicleInfo;
   const realExtra: string[][] | null = fd ? [["차종", fd.carType], ["바디타입", fd.body], ["판매구분", fd.saleType]] : null;
-  const items = realBase ? (expanded ? [...realBase, ...(realExtra ?? [])] : realBase) : expanded ? [...vehicleInfo, ...extraInfo] : vehicleInfo;
+  const items = realBase ? (expanded ? [...realBase, ...(realExtra ?? [])] : realBase) : expanded ? [...baseRows, ...extraInfo] : baseRows;
 
   return (
     <SectionCard title="차량 정보" className="vehicle-info-card">
