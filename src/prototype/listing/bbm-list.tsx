@@ -623,7 +623,7 @@ function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string
   );
 }
 
-export function BbmResultCard({ car, variant, featured = false, liked, onToggleLike, onOpen, onChat, onCall, feedPhotos, eagerPhoto = true, locationDong, detailLocation }: { car: Car; eagerPhoto?: boolean; locationDong?: string; detailLocation?: { dealer?: string; shop?: string }; variant: "pc" | "mobile"; featured?: boolean; feedPhotos?: string[]; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void; onCall?: () => void }) {
+export function BbmResultCard({ car, variant, featured = false, detailSummary = false, liked, onToggleLike, onOpen, onChat, onCall, feedPhotos, eagerPhoto = true, locationDong, detailLocation }: { car: Car; eagerPhoto?: boolean; locationDong?: string; detailLocation?: { dealer?: string; shop?: string }; variant: "pc" | "mobile"; featured?: boolean; detailSummary?: boolean; feedPhotos?: string[]; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void; onCall?: () => void }) {
   const seller = sellerLabel(car);
   // 목록 썸네일은 정규화 사본(럭셔리카와 같은 규칙)을 쓰고, 피드 대표 사진·그림(contain)은 원본 그대로
   const listPhoto = featured || car.imageFit === "contain" ? undefined : car.listThumb ?? normalizedListThumb(car.image);
@@ -696,12 +696,13 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
         </> : null}
         <button type="button" className={`bbm-card-wish${liked ? " is-liked" : ""}`} aria-label={`${car.title} ${liked ? "찜 해제" : "찜"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>
           {liked ? <span className="bbm-card-wish-on" style={{ WebkitMaskImage: `url("${bbmIcon("card-wish-off")}")`, maskImage: `url("${bbmIcon("card-wish-off")}")` }} aria-hidden="true" /> : <img src={bbmIcon("card-wish-off")} alt="" aria-hidden="true" />}
+          {detailSummary ? <span className="bbm-card-wish-label">저장</span> : null}
         </button>
       </div>
     </div>
   );
   return (
-    <article className={`bbm-result-card is-${variant}${featured ? " is-feed-featured" : ""}${badges.length ? " has-badges" : " has-no-badges"}${car.uiTest ? ` is-ui-test headline-${headlinePosition}` : ""}`} role="link" tabIndex={0} aria-label={`${car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
+    <article className={`bbm-result-card is-${variant}${featured ? " is-feed-featured" : ""}${detailSummary ? " is-detail-summary" : ""}${badges.length ? " has-badges" : " has-no-badges"}${car.uiTest ? ` is-ui-test headline-${headlinePosition}` : ""}`} role="link" tabIndex={0} aria-label={`${car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
       {headlinePosition === "top" ? headline : null}
       <div className="bbm-card-main">
         {/* 사진이 없는 매물은 원본처럼 빈 회색 칸(car-list-result-card__image 배경 #EBEBEB) */}

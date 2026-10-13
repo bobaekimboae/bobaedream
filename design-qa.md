@@ -28,6 +28,37 @@ final result: passed
 
 ---
 
+# Design QA · 상세 하트·판매자 리뷰 재정렬 (2026-10-14)
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/9745c5c0-e284-4109-b52c-d87c9006da14/1-1000018198.jpg`
+- implementation: `reports/detail-heart-review-2026-10-14/after.png`
+- route: `/?qf=guazi&category=서울오토갤러리&facts=icons` → BMW M3 첫 매물 상세
+- viewport: 384 × 844 CSS px, DPR 1
+
+## Focused comparison
+
+- 저장 버튼: 초톳 정규화 기준 88×48px 캡슐, 우측 24px, 사진 아래 12px. 구현 88×48px, 우측 24px, 사진 아래 12px.
+- 저장 아이콘/문구: 24px 하트 + 15/20px 600 `저장`, 간격 6px.
+- 리뷰 열: x=274px, 폭 94px, 높이 64px, 좌측 1px `#e8e8e8` 구분선.
+- 평점: 22/28px 600, 별 18×18px, 후기 13/18px 밑줄.
+- 판매자 글 높이가 바뀌어도 리뷰 열은 `align-self:flex-start`와 고정 높이로 독립 정렬된다.
+
+## Findings
+
+- P0/P1/P2 findings: none after correction.
+- 제목 내용 차이에 따른 줄바꿈만 콘텐츠 차이로 허용했다.
+- 가격 검정은 기존 제품 결정대로 유지했다.
+
+## Verification
+
+- `npm run verify:qf`: passed
+- 384×844: 하트 캡슐과 리뷰 열 위치 통과
+- 깨진 이미지 0, 콘솔 오류 0
+
+final result: passed
+
+---
+
 # 차량 정보 배기량 아이콘 교체 QA · 2026-10-14
 
 - source visual truth: `C:/Users/bobae/Downloads/notion-displacement-alpha.png`
