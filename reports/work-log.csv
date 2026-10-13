@@ -255,3 +255,4 @@
 "2026-10-13 18:00","미지정","claude/used-car-detail-1013","-","배포","완료","상세 상단 글자 크기를 초톳 캡처 실측으로 맞춤(제목 19 · 메타 14 · 가격 20 · 지역 15 한 줄)","src/prototype/detail/detail.css · docs/quick-filter-spec.md","초톳 분홍 가격은 쓰지 않음","","verify 통과"
 "2026-10-13 18:30","미지정","claude/used-car-detail-1013","-","배포","완료","상세 지역 아이콘을 노션 초톳 원본(속 빈 외곽선 핀)으로 교체, 24px","public/assets/bbm/chotot-profile-location-v01.svg · detail.css · docs/quick-filter-spec.md","","","verify 통과"
 "2026-10-13 19:00","미지정","claude/used-car-detail-1013","-","배포","완료","상세 지역 아래 판매자 정보 영역 추가(프사·이름·판매중 대수), 옛 판매자 카드 숨김","src/prototype/detail/index.tsx · detail.css · docs/quick-filter-spec.md","초톳 평점·응답률은 값이 없어 제외","평점·응답률 표시 여부","verify 통과"
+"2026-10-13 19:30","미지정","claude/used-car-detail-1013","-","배포","완료","상세 큰 사진 가운데 점 인디게이터 제거(개수 알약은 유지)","src/prototype/detail/index.tsx · docs/quick-filter-spec.md","","","verify 통과"
