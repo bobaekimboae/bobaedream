@@ -349,7 +349,7 @@ function DetailHighlights() {
       </div>
       {lines.length > 2 ? (
         <button className="detail-highlights-more" type="button" aria-expanded={expanded} onClick={() => setExpanded((value) => !value)}>
-          <span>{expanded ? "접기" : "더보기"}</span>
+          <span>{expanded ? "접기" : "더 보기"}</span>
           <img className={expanded ? "is-expanded" : ""} src={asset("ui/category-chevron-right.svg")} alt="" />
         </button>
       ) : null}

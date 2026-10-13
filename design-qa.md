@@ -28,6 +28,28 @@ final result: passed
 
 ---
 
+# 차량 설명 더 보기 QA · 2026-10-13
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/9815eb3a-8d59-4681-9c95-25879fc9905c/2-1000018116.jpg`
+- collapsed implementation: `C:/Users/bobae/Downloads/vehicle-intro-more-1013/01-collapsed.png`
+- expanded implementation: `C:/Users/bobae/Downloads/vehicle-intro-more-1013/02-expanded.png`
+- viewport: 390 × 844 CSS px
+
+## Findings
+
+- 에어비앤비 원본처럼 접힌 상태의 문구를 `더 보기`로 띄어 쓰고, 텍스트 밑줄과 우측 꺾쇠를 유지했다.
+- 링크는 16/24, 600, `#222`, 본문과 12px 간격이며 카드 전체를 덮는 버튼이나 배경 칩은 사용하지 않았다.
+- 펼치면 전체 설명이 노출되고 `접기`로 전환된다.
+
+## Verification
+
+- 모바일 390×844 가로 오버플로 0
+- 깨진 이미지 0, 콘솔 오류 0, 네트워크 오류 0
+
+final result: passed
+
+---
+
 # 차량 정보 첫 행 간격·2열 균형 QA · 2026-10-13
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/70775948-7c3d-402b-a535-982778481cd1/1-1000018149.jpg`
