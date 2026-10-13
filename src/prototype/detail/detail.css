@@ -739,3 +739,8 @@
 .is-list-summary .bbm-card-location-row.is-first .bbm-card-location-part { margin-left: 4px; }
 .is-list-summary .bbm-card-location-part.is-complex::before { content: none !important; }
 .is-list-summary .bbm-card-location-part.is-complex, .is-list-summary .bbm-card-location-part.is-complex.is-link { color: #306bd9; text-decoration: none; }
+
+/* 상사명을 판매자 이름 옆으로(2026-10-14 「상사를 프사 딜러 옆으로」): 지역 2줄(딜러ㆍ상사명)을 없애고 판매자 칸 이름줄 `박상용 딜러ㆍ디앤디플러스`로 옮겼다 */
+.detail-seller-name { display: flex; min-width: 0; align-items: baseline; }
+.detail-seller-name strong { flex: 0 1 auto; min-width: 0; }
+.detail-seller-name .detail-seller-shop { min-width: 0; overflow: hidden; color: #222; font-size: 16px; font-weight: 400; line-height: 22px; text-overflow: ellipsis; white-space: nowrap; }

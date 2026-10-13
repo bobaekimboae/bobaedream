@@ -512,7 +512,7 @@ function VehicleSummary() {
   useLocationLinks(summaryRef, car);
   if (car) return (
     <section ref={summaryRef} className="vehicle-summary is-list-summary marketplace is-bbm-m is-qf-guazi"><div className="bbm-m-list">
-      <BbmResultCard car={car} locationDong={detailLocationDong(car)} detailLocation={detailLocationRows(car)} variant="mobile" liked={liked} onToggleLike={() => setLiked(!liked)} onOpen={() => undefined} onChat={() => undefined} />
+      <BbmResultCard car={car} locationDong={detailLocationDong(car)} detailLocation={{}} variant="mobile" liked={liked} onToggleLike={() => setLiked(!liked)} onOpen={() => undefined} onChat={() => undefined} />
     </div>
       <p className="detail-posted-line"><img src={asset("bbm/chotot-common-clock-v01.svg")} alt="" aria-hidden="true" draggable={false} /><span>{car.posted}</span></p>
       <DetailSellerInfo car={car} /></section>
@@ -903,17 +903,6 @@ function detailLocationDong(car: Car): string | undefined {
   if (city?.endsWith("시") && ward?.endsWith("구")) return ward;
   return car.place.includes("도이치오토월드") ? "권선구" : undefined;
 }
-// 상세 지역 줄(2026-10-14 「이렇게 가자: 서울 서초구 서울오토갤러리 / 박상용 딜러ㆍ상사명」): 1줄 = 지역 + 단지(파랑 링크), 2줄 = 딜러 이름ㆍ상사명
-function detailDealerName(car: Car): string {
-  if (car.sellerType !== "딜러") return "";
-  const label = sellerLabel(car);
-  const [personName, ...shopParts] = label.split(" ");
-  return !/딜러$/.test(label) && shopParts.length ? `${personName} 딜러` : label;
-}
-function detailLocationRows(car: Car) {
-  return { dealer: detailDealerName(car), shop: carShopName(car) };
-}
-
 function useLocationWrap(ref: { current: HTMLElement | null }) {
   useEffect(() => {
     const root = ref.current;
@@ -990,7 +979,7 @@ function DetailSellerInfo({ car }: { car: Car }) {
     <section className="detail-seller-info" aria-label="판매자 정보">
       <img className="detail-seller-avatar" src={asset(sellerDetailPhoto(car))} alt="" draggable={false} />
       <div className="detail-seller-text">
-        <strong>{sellerName}</strong>
+        <div className="detail-seller-name"><strong>{sellerName}</strong>{isDealer && carShopName(car) ? <span className="bbm-card-location-part detail-seller-shop">{carShopName(car)}</span> : null}</div>
         {isDealer ? <span><b>{soldCount}대</b> 판매완료 · <b>{car.stock}대</b> 판매중</span> : null}
       </div>
     </section>
