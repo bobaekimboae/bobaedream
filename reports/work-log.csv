@@ -292,3 +292,4 @@
 "2026-10-14 15:00","미지정","claude/used-car-detail-1013","-","배포","완료","상세 아이콘 연료·연식·가격 교체 + 슬롯 보정 재측정","detail-icons · detail.css"
 "2026-10-14 15:30","미지정","claude/used-car-detail-1013","-","배포","완료","상세 차란차식 1열 값 좌측 정렬(50% 지점)","detail.css"
 "2026-10-14 16:00","미지정","claude/used-car-detail-1013","-","배포","완료","상세 아이콘 오토스카우트 세트 교체(시트2) + 슬롯 보정 재측정","detail-icons · detail.css · detail/index.tsx"
+"2026-10-14 16:20","미지정","claude/used-car-detail-1013","-","배포","완료","상세 아이콘 연식 교체(캘린더 24/24) + 보정 재측정","year.svg · detail.css"
