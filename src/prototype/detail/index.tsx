@@ -270,7 +270,7 @@ function OptionsCard({ desktop = false }: { desktop?: boolean }) {
       icon: ferrariIconByKeyword.find(([keyword]) => label.includes(keyword))?.[1] ?? "option-06.png",
     }))
     : optionItems;
-  const previewCount = fd ? Math.min(4, options.length) : 6;
+  const previewCount = fd ? Math.min(4, options.length) : 8;
   const visibleOptions = expanded ? options : options.slice(0, previewCount);
   const canToggle = options.length > previewCount;
 
