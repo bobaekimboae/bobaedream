@@ -696,7 +696,6 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
         </> : null}
         <button type="button" className={`bbm-card-wish${liked ? " is-liked" : ""}`} aria-label={`${car.title} ${liked ? "찜 해제" : "찜"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>
           {liked ? <span className="bbm-card-wish-on" style={{ WebkitMaskImage: `url("${bbmIcon("card-wish-off")}")`, maskImage: `url("${bbmIcon("card-wish-off")}")` }} aria-hidden="true" /> : <img src={bbmIcon("card-wish-off")} alt="" aria-hidden="true" />}
-          {detailSummary ? <span className="bbm-card-wish-label">저장</span> : null}
         </button>
       </div>
     </div>

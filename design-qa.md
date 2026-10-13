@@ -829,3 +829,35 @@ final result: passed
 - copy/content: 기존 차량 데이터 보존, 최근 활동·평점은 시안용 값임을 기록
 
 final result: passed
+
+---
+
+# Design QA · 상세 저장 문구 제거 (2026-10-14)
+
+- source visual truth: 직전 승인된 상세 하트·리뷰 시안 + 사용자 결정 「저장 텍스트 제거」
+- implementation screenshot: `reports/detail-heart-review-2026-10-14/after-heart-only.png`
+- viewport: 384 × 844 CSS px, DPR 1
+- state: BMW M3 첫 매물 상세 상단
+
+## Comparison evidence
+
+- 저장 문구를 제거하고 48×48px 원형 하트 버튼으로 축소했다.
+- 버튼 우측 24px과 사진 아래 12px 위치는 유지했다.
+- 제목 우측 여백을 104px에서 64px로 줄여 40px의 제목 공간을 되찾았다.
+- 리뷰 열의 위치·크기·타이포는 직전 통과본을 그대로 유지했다.
+
+## Findings
+
+- P0/P1/P2 findings: none.
+- fonts/typography: 저장 문구 제거 외 변동 없음.
+- spacing/layout rhythm: 48px 터치 영역과 제목 간 8px 안전 간격 통과.
+- colors/tokens: `#222`, 흰 배경, `#dedede` 테두리 유지.
+- image quality/assets: 기존 초톳 계열 하트 SVG 유지, 깨진 이미지 없음.
+- copy/content: 시각 문구는 제거했지만 접근성 이름은 유지.
+
+## Verification
+
+- `npm run verify:qf`: passed
+- 깨진 이미지 0, 콘솔 오류 0
+
+final result: passed
