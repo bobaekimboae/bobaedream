@@ -691,7 +691,7 @@
 .detail-media-track > img:not(:last-child) { border-right: 3px solid #222; }
 
 /* 좐좐식 상세 탭(2026-10-14): 사진·요약 아래에서 시작해 스크롤하면 화면 맨 위에 붙는다 */
-.detail-tabs { position: sticky; top: 0; z-index: 6; display: flex; overflow-x: auto; padding: 0 8px; border-bottom: 1px solid #EBEBEB; background: #fff; scrollbar-width: none; }
+.detail-tabs { position: sticky; top: 0; z-index: 6; display: flex; overflow-x: auto; padding: 0 8px; border-top: 1px solid #EBEBEB; border-bottom: 1px solid #EBEBEB; background: #fff; scrollbar-width: none; }
 .detail-tabs::-webkit-scrollbar { display: none; }
 .detail-tabs button { position: relative; flex: none; height: 44px; padding: 0 12px; border: 0; background: transparent; color: #8C8C8C; font: 500 15px/20px inherit; font-family: inherit; cursor: pointer; }
 .detail-tabs button.is-active { color: #222; font-weight: 700; }
