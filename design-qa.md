@@ -28,24 +28,24 @@ final result: passed
 
 ---
 
-# 차량 히스토리 독립 카드 QA · 2026-10-13
+# 차량 히스토리 그룹 QA · 2026-10-13
 
-- implementation: `C:/Users/bobae/Downloads/vehicle-info-groups-1013/05-independent-history.png`
-- route: `/?qf=guazi&category=서울오토갤러리&facts=icons` → 첫 매물 → 차량 정보 바로 아래
+- implementation: `C:/Users/bobae/Downloads/vehicle-info-groups-1013/05-expanded-history.png`
+- route: `/?qf=guazi&category=서울오토갤러리&facts=icons` → 첫 매물 → `37개 정보 더보기`
 - viewport: 390 × 844 CSS px, deviceScaleFactor 1
 
 ## Findings
 
-- `차량 히스토리`를 차량 제원 펼침에서 떼어 별도 카드 카테고리로 만들었다.
-- 내부는 `등록·주행`, `출고 정보`, `권리·출처` 세 묶음이며 차량 정보 바로 아래에 둔다.
+- 펼친 차량정보 마지막 그룹을 `차량 히스토리`로 정리했다.
 - 순서는 연식, 등록일, 주행거리, 소유자 변경, 최초 출고가격(옵션 포함/미포함), 압류/저당, 보험이력, 생산국가다.
+- 연식·생산국가는 기본 정보의 중복 항목에서 이동해 펼침 전체 37개 정보 수를 유지했다.
 - 등록월·옵션 포함 출고가·소유자 변경·압류/저당처럼 원본 데이터가 없는 값은 추정하지 않고 `정보 없음`으로 표시한다.
 - M3의 공식 국내 출시가격 13,770만원은 `옵션 미포함`에만 표시한다.
 
 ## Verification
 
-- 차량 정보: 그룹 7개, 전체 행 30개
-- 독립 차량 히스토리: 그룹 3개, 전체 행 9개
+- 그룹 8개, 전체 행 37개
+- 차량 히스토리 9개 행
 - 모바일 390×844 가로 오버플로 0
 - 깨진 이미지 0, 콘솔 오류 0, 400 이상 네트워크 오류 0
 
@@ -66,15 +66,16 @@ final result: passed
 
 | 그룹 | 항목 수 | 기준 |
 |---|---:|---|
-| 기본 정보 | 10 | Mudah Car Specifications |
+| 기본 정보 | 8 | Mudah Car Specifications에서 히스토리 중복 항목 제외 |
 | 엔진·성능 | 5 | Mudah Engine |
 | 크기·중량 | 6 | Mudah Dimension & Weight |
 | 제동장치 | 2 | Mudah Brakes |
 | 서스펜션 | 2 | Mudah Suspension |
 | 조향장치 | 1 | Mudah Steering |
 | 타이어·휠 | 4 | Mudah Tyres & Wheels |
+| 차량 히스토리 | 9 | 보배드림 차량 이력 정보 |
 
-합계 30개로 차량정보 버튼 표기와 실제 펼침 항목 수가 일치한다. 차량 히스토리 9개는 별도 카드다.
+합계 37개로 버튼 표기와 실제 펼침 항목 수가 일치한다.
 
 ## Findings
 
@@ -89,7 +90,7 @@ final result: passed
 
 - `npm run verify:qf`: passed
 - 모바일 390×844: 가로 오버플로 0
-- 차량 정보 그룹 7개 / 행 30개
+- 그룹 8개 / 행 37개
 - 깨진 이미지 0
 - 콘솔 오류 0 / 400 이상 네트워크 오류 0
 - 펼침 `aria-expanded=true`, 버튼 문구 `정보 접기`
