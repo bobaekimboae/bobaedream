@@ -512,7 +512,7 @@ function VehicleSummary() {
   useLocationLinks(summaryRef, car);
   if (car) return (
     <section ref={summaryRef} className="vehicle-summary is-list-summary marketplace is-bbm-m is-qf-guazi"><div className="bbm-m-list">
-      <BbmResultCard car={carShopName(car) ? { ...car, place: `${car.place} · ${carShopName(car)}` } : car} variant="mobile" liked={liked} onToggleLike={() => setLiked(!liked)} onOpen={() => undefined} onChat={() => undefined} />
+      <BbmResultCard car={{ ...car, place: detailPlaceLine(car) }} locationDong={detailLocationDong(car)} variant="mobile" liked={liked} onToggleLike={() => setLiked(!liked)} onOpen={() => undefined} onChat={() => undefined} />
     </div>
       <p className="detail-posted-line"><img src={asset("bbm/chotot-common-clock-v01.svg")} alt="" aria-hidden="true" draggable={false} /><span>등록 {car.posted}</span></p>
       <DetailSellerInfo car={car} /></section>
@@ -898,6 +898,15 @@ function carShopName(car: Car) {
 
 // 판매자 정보 영역(2026-10-13 「지역 밑에 판매자 정보 영역 추가」): 실제 매물은 지역 바로 아래(상단 블록)에 그리고, 아래 회색 영역의 옛 판매자 카드는 숨긴다
 // 지역 줄에서 줄 맨 앞으로 내려간 항목은 앞의 가운데 점을 뺀다(2026-10-13)
+// 상세 지역 줄(2026-10-14 「지역도 서울 서초구 양재동 / 단지ㆍ상사명 이렇게 분리, 복잡한 거 줄이자」): 1줄 = 시도 구군(동이 확인된 단지만 동까지), 2줄 = 단지ㆍ상사명
+function detailLocationDong(car: Car): string | undefined {
+  return car.seoulAutoGallery ? "양재동" : undefined; // 사용자가 알려 준 단지만(다른 단지는 동 자료가 없어 시도 구군까지)
+}
+function detailPlaceLine(car: Car): string {
+  const shop = carShopName(car);
+  return shop ? `${car.place} · ${shop}` : car.place;
+}
+
 function useLocationWrap(ref: { current: HTMLElement | null }) {
   useEffect(() => {
     const root = ref.current;
