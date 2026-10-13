@@ -428,3 +428,32 @@ final result: passed
 - `npm run verify:qf`: passed
 
 final result: passed
+
+---
+
+# 차량 정보 초톳형 테마 QA · 2026-10-13
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/686e7f8e-a5cf-4e7c-8a82-ede39fb39fb1/1-1000018136.jpg`
+- implementation: `C:/Users/bobae/Downloads/vehicle-info-chotot-1013/01-local.png`
+- side-by-side comparison: `C:/Users/bobae/Downloads/vehicle-info-chotot-1013/comparison.png`
+- route: `/?qf=guazi&category=서울오토갤러리&facts=chotot` → 첫 번째 매물 상세
+- viewport: 390 × 844 CSS px, deviceScaleFactor 1
+
+## Findings
+
+- P0/P1/P2 findings: none after the focused comparison.
+- 초톳의 흰 카드·24px 안쪽 여백·회색 배경 구조를 기존 상세 카드 토큰으로 재현했다.
+- `차량 상태`와 `기술 제원` 두 구역을 1px `#E6E6E6` 선으로만 나눴다.
+- 각 구역은 2열, 라벨 14/20 `#8A8A8A`, 값 16/24 `#222`, 열 간격 22px, 행 간격 18px다.
+- 초톳처럼 짧게 훑도록 변속기·공차중량·최고출력 값은 요약 표기하고, 무다형에는 전체 공식 제원을 유지했다.
+- 제조사 링크만 보배드림의 링크 색을 유지했다.
+
+## Verification
+
+- 카드 374px, 높이 680px
+- 차량 상태 6개 + 기술 제원 10개
+- 모바일 390×844 가로 오버플로 0
+- 깨진 이미지 0, 콘솔 오류 0, 400 이상 네트워크 오류 0
+- `npm run verify:qf`: passed
+
+final result: passed

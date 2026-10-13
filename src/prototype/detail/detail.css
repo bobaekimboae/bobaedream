@@ -610,6 +610,19 @@
 .detail-fact-group.is-basic img[data-icon="fuel"] { transform: translate(-0.47px, -0.47px) scale(.947); }
 .detail-fact-group + .detail-more.is-airbnb { margin-top: 24px; }
 
+/* 차량 정보 B안 `&facts=chotot`: 초톳 상세 제원처럼 상태/기술 두 구역, 각 구역은 2열 필드 묶음이다. */
+.vehicle-info-card.is-facts-chotot .detail-section-heading { margin-bottom: 18px; }
+.chotot-fact-groups { margin: 0; }
+.chotot-fact-group { margin: 0; }
+.chotot-fact-group + .chotot-fact-group { margin-top: 20px; padding-top: 22px; border-top: 1px solid #e6e6e6; }
+.chotot-fact-group h3 { margin: 0 0 14px; color: #222; font-size: 16px; font-weight: 500; line-height: 24px; }
+.chotot-fact-group dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 22px; row-gap: 18px; margin: 0; }
+.chotot-fact-group dl > div { min-width: 0; }
+.chotot-fact-group dt, .chotot-fact-group dd { margin: 0; word-break: keep-all; }
+.chotot-fact-group dt { color: #8a8a8a; font-size: 14px; font-weight: 400; line-height: 20px; }
+.chotot-fact-group dd { margin-top: 4px; color: #222; font-size: 16px; font-weight: 400; line-height: 24px; }
+.chotot-fact-group dd .detail-fact-link { color: #3074c2; }
+
 /* 차량 정보 아이콘 시안 `&facts=icons`(2026-10-14): FINN의 여백, mobile.de의 회색 라벨·굵은 값, Auto Trader의 2열 구조를 조합한다. 오토스카우트와 같은 24px 점유 슬롯에서 실제 도형이 약 20~22px 보이도록 28px 원본을 광학 보정하며, 제목 아래 구분선은 두지 않는다. */
 .detail-facts.is-icons { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 12px; margin: 4px 0 0; padding: 14px 0; border: 0; }
 .detail-facts.is-icons > div { display: flex; align-items: center; gap: 12px; padding: 0; border: 0; min-width: 0; }

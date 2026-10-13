@@ -228,6 +228,29 @@ function carFactGroups(car: Car): VehicleFactGroup[] {
   ];
 }
 
+function chototFactRows(car: Car, groups: VehicleFactGroup[]) {
+  const facts = new Map(groups.flatMap((group) => group.rows));
+  const currentCondition = car.filter?.condition === "신차" ? "신차" : "중고";
+  const transmission = facts.get("변속기") ?? NO_INFO;
+  const compactTransmission = /스텝트로닉|자동/i.test(transmission) ? "자동" : transmission;
+  const compactWeight = (facts.get("공차중량") ?? NO_INFO).split("(")[0].trim();
+  const compactPower = (facts.get("최고출력") ?? NO_INFO).split("(")[0].trim();
+  return {
+    condition: [
+      [["소유자 변경", facts.get("이전 소유자") ?? NO_INFO], ["기본 부속품", "확인 필요"]],
+      [["검사 유효기간", "확인 필요"], ["생산국", facts.get("생산국") ?? NO_INFO]],
+      [["차량 상태", currentCondition], ["보증 정책", "성능점검 보증"]],
+    ] as VehicleFactRow[][],
+    technical: [
+      [["제조사", facts.get("제조사") ?? NO_INFO], ["모델", facts.get("모델") ?? NO_INFO]],
+      [["연식", facts.get("연식") ?? NO_INFO], ["변속기", compactTransmission]],
+      [["연료", facts.get("연료") ?? NO_INFO], ["바디타입", facts.get("차체형식") ?? NO_INFO]],
+      [["좌석 수", facts.get("좌석 수") ?? NO_INFO], ["공차중량", compactWeight]],
+      [["배기량", facts.get("배기량") ?? NO_INFO], ["최고출력", compactPower]],
+    ] as VehicleFactRow[][],
+  };
+}
+
 /* 차량 정보 아이콘 시안(`&facts=icons`, 2026-10-14, 노션 「영국_오토트레이더 초톳 변경」 아이콘 원본 그대로 `public/assets/bbm/detail-icons/`) */
 const FACT_ICONS: Record<string, string> = {
   제조사: "maker", 모델: "model-trim", 연식: "year", 주행거리: "mileage", "출시가격": "price",
@@ -243,7 +266,24 @@ function VehicleInfoCard() {
   const facts = car ? carFacts(car) : [];
   const factGroups = car ? carFactGroups(car) : [];
   const factsMode = new URLSearchParams(window.location.search).get("facts");
-  if (car && (factsMode === "icons" || factsMode === "icons-charancha")) return (
+  if (car && factsMode === "chotot") {
+    const chototRows = chototFactRows(car, factGroups);
+    return (
+      <SectionCard title="차량 정보" className="vehicle-info-card is-facts-chotot">
+        <div className="chotot-fact-groups">
+          <section className="chotot-fact-group">
+            <h3>차량 상태</h3>
+            <dl>{chototRows.condition.flatMap((row, rowIndex) => row.map(([label, factValue]) => <div key={`${rowIndex}-${label}`}><dt>{label}</dt><dd>{factValue}</dd></div>))}</dl>
+          </section>
+          <section className="chotot-fact-group">
+            <h3>기술 제원</h3>
+            <dl>{chototRows.technical.flatMap((row, rowIndex) => row.map(([label, factValue]) => <div key={`${rowIndex}-${label}`}><dt>{label}</dt><dd>{label === "제조사" ? <a className="detail-fact-link" href={`?qf=guazi&maker=${encodeURIComponent(factValue)}`}>{factValue}</a> : factValue}</dd></div>))}</dl>
+          </section>
+        </div>
+      </SectionCard>
+    );
+  }
+  if (car && (factsMode === "icons" || factsMode === "mudah" || factsMode === "icons-charancha")) return (
     <SectionCard title="차량 정보" className="vehicle-info-card is-facts-icons">
       {!expanded ? <dl className={`detail-facts is-icons${factsMode === "icons-charancha" ? " is-charancha" : ""}`}>{facts.slice(0, FACTS_VISIBLE_ICONS).map(([label, value]) => <div key={label}>{FACT_ICONS[label] ? <img src={asset(`bbm/detail-icons/${FACT_ICONS[label]}.svg`)} data-icon={FACT_ICONS[label]} alt="" aria-hidden="true" draggable={false} /> : <span className="detail-fact-icon-gap" />}<span className="detail-fact-text"><dt>{label}</dt><dd>{label === "제조사" ? <a className="detail-fact-link" href={`?qf=guazi&maker=${encodeURIComponent(value)}`}>{value}</a> : value}</dd></span></div>)}</dl> : (
         <div className="detail-fact-groups">
