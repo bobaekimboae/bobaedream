@@ -28,6 +28,52 @@ final result: passed
 
 ---
 
+# 차량 정보 그룹 펼침 QA · 2026-10-13
+
+- source visual truth: 사용자 제공 Mudah.my 차량 제원 캡처 4장
+- field source: Google Sheet `국내 중고차사이트 링크`의 `기본정보` 탭, Mudah.my 차량정보 노출 항목
+- implementation screenshots: `C:/Users/bobae/Downloads/vehicle-info-groups-1013/01-expanded-basic.png` ~ `04-expanded-tyres-history.png`
+- side-by-side: `comparison-basic.png`, `comparison-engine.png`
+- route: `/?qf=guazi&category=서울오토갤러리&facts=icons` → 첫 번째 매물 상세 → `37개 정보 더보기`
+- viewport: 390 × 844 CSS px, deviceScaleFactor 1
+
+## 구조 대조
+
+| 그룹 | 항목 수 | 기준 |
+|---|---:|---|
+| 기본 정보 | 10 | Mudah Car Specifications |
+| 엔진·성능 | 5 | Mudah Engine |
+| 크기·중량 | 6 | Mudah Dimension & Weight |
+| 제동장치 | 2 | Mudah Brakes |
+| 서스펜션 | 2 | Mudah Suspension |
+| 조향장치 | 1 | Mudah Steering |
+| 타이어·휠 | 4 | Mudah Tyres & Wheels |
+| 매물·이력 | 7 | 보배드림 기존 상세 정보 |
+
+합계 37개로 버튼 표기와 실제 펼침 항목 수가 일치한다.
+
+## Findings
+
+- P0/P1/P2 findings: none after the focused comparison.
+- 접힌 상태는 기존 2열 핵심 정보 8개를 유지했다.
+- 펼친 상태는 그룹 제목 18/25·700, 일반 행 16/24, 라벨 `#767676`, 값 `#222`로 통일했다.
+- 기본 정보만 기존 원본 아이콘을 쓰고 기술 제원 그룹은 무다처럼 텍스트 라벨/값 2열로 구성했다.
+- 그룹 안 구분선은 없으며, 그룹 사이 28px 간격과 제목으로만 위계를 만든다.
+- 미확정 DB 값은 추정하지 않고 `정보 없음`으로 표시한다.
+
+## Verification
+
+- `npm run verify:qf`: passed
+- 모바일 390×844: 가로 오버플로 0
+- 그룹 8개 / 행 37개
+- 깨진 이미지 0
+- 콘솔 오류 0 / 400 이상 네트워크 오류 0
+- 펼침 `aria-expanded=true`, 버튼 문구 `정보 접기`
+
+final result: passed
+
+---
+
 # 차량 정보 2열 아이콘 격자 시안 QA · 2026-10-13
 
 - source visual truth:

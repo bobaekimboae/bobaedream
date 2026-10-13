@@ -96,6 +96,8 @@ function derivedFacts(car: Car, model: string, body: string) {
 }
 const NO_INFO = "정보 없음";
 const FACTS_VISIBLE = 6;
+type VehicleFactRow = [label: string, value: string];
+type VehicleFactGroup = { title: string; rows: VehicleFactRow[]; basic?: boolean };
 function carFacts(car: Car): string[][] {
   const fd = car.ferrariDetail;
   const yearText = bbmCardSpec(car, false).split(" · ")[0];
@@ -135,10 +137,61 @@ function carFacts(car: Car): string[][] {
   return rows.filter(([, value]) => value);
 }
 
+/* 무다 차량 제원 시트(2026-10-13) 기준 30개 + 보배드림 매물·이력 7개 = 총 37개.
+   접힌 화면은 기존 핵심 8개를 유지하고, 펼친 화면만 의미 단위로 묶는다. */
+function carFactGroups(car: Car): VehicleFactGroup[] {
+  const fd = car.ferrariDetail;
+  const yearText = bbmCardSpec(car, false).split(" · ")[0];
+  const model = (car.modelGroup ?? car.title.replace(new RegExp(`^${car.maker}\\s*`), "")).trim();
+  const body = cleanValue(fd?.body ?? car.filter?.body);
+  const dv = derivedFacts(car, model, body);
+  const value = (entry?: string | number | null) => entry === undefined || entry === null || entry === "" ? NO_INFO : String(entry);
+  const mileage = car.filter?.mileage ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : NO_INFO;
+  const inspection = fd ? (fd.inspection ? "기록부 있음" : "없음") : NO_INFO;
+  const insurance = fd ? (fd.insurance ? "조회 완료" : NO_INFO) : NO_INFO;
+
+  return [
+    {
+      title: "기본 정보",
+      basic: true,
+      rows: [
+        ["제조사", car.maker], ["모델", model], ["연식", yearText], ["세부모델", value(car.trim)],
+        ["변속기", value(cleanValue(fd?.transmission ?? car.filter?.transmission))], ["시리즈·코드", NO_INFO],
+        ["차체형식", value(body ? `${dv.doors ? `${dv.doors} ` : ""}${body}` : "")], ["좌석 수", value(dv.seats)],
+        ["연료", value(cleanValue(car.filter?.fuel))], ["생산국", value(cleanValue(car.filter?.origin))],
+      ],
+    },
+    {
+      title: "엔진·성능",
+      rows: [
+        ["배기량", value(fd?.displacement ?? (car.filter?.displacement ? `${car.filter.displacement.toLocaleString("ko-KR")}cc` : ""))],
+        ["압축비", NO_INFO], ["최고출력", bbmSampleHorsepower(car.id)], ["최대토크", NO_INFO], ["엔진 형식", NO_INFO],
+      ],
+    },
+    {
+      title: "크기·중량",
+      rows: [["전장", NO_INFO], ["전폭", NO_INFO], ["전고", NO_INFO], ["축거", NO_INFO], ["공차중량", NO_INFO], ["연료탱크 용량", NO_INFO]],
+    },
+    { title: "제동장치", rows: [["전륜 브레이크", NO_INFO], ["후륜 브레이크", NO_INFO]] },
+    { title: "서스펜션", rows: [["전륜 서스펜션", NO_INFO], ["후륜 서스펜션", NO_INFO]] },
+    { title: "조향장치", rows: [["조향 방식", NO_INFO]] },
+    { title: "타이어·휠", rows: [["전륜 타이어", NO_INFO], ["후륜 타이어", NO_INFO], ["전륜 휠", NO_INFO], ["후륜 휠", NO_INFO]] },
+    {
+      title: "매물·이력",
+      rows: [
+        ["주행거리", mileage], ["출시가격", NO_INFO], ["외관 색상", value(cleanValue(fd?.color ?? car.filter?.color))],
+        ["이전 소유자", fd?.insurance ? `${fd.insurance.owners}명` : NO_INFO], ["판매방식", value(fd?.saleType)],
+        ["성능점검", inspection], ["보험이력 조회", insurance],
+      ],
+    },
+  ];
+}
+
 /* 차량 정보 아이콘 시안(`&facts=icons`, 2026-10-14, 노션 「영국_오토트레이더 초톳 변경」 아이콘 원본 그대로 `public/assets/bbm/detail-icons/`) */
 const FACT_ICONS: Record<string, string> = {
   제조사: "maker", 모델: "model-trim", 연식: "year", 주행거리: "mileage", "출시가격": "price",
   연료: "fuel", 배기량: "engine", 마력: "power", 변속기: "gearbox", 차종: "body", "도어 수": "doors", 인승: "seats", "배출가스 등급": "emission", "이전 소유자": "owners", "키 수": "keys", 바디타입: "body", "외관 색상": "color", "시트 색상": "interior",
+  세부모델: "model-trim", "시리즈·코드": "document", 차체형식: "body", "좌석 수": "seats", 생산국: "location",
   판매방식: "seller-type", "압류/저당": "document", 제시번호: "document", 지역: "location", "판매자 유형": "seller-type", 성능점검: "document", "보험이력 조회": "document",
 };
 const FACTS_VISIBLE_ICONS = 8;
@@ -147,10 +200,22 @@ function VehicleInfoCard() {
   const [expanded, setExpanded] = useState(false);
   const car = getActiveDetailCar();
   const facts = car ? carFacts(car) : [];
+  const factGroups = car ? carFactGroups(car) : [];
   const factsMode = new URLSearchParams(window.location.search).get("facts");
   if (car && (factsMode === "icons" || factsMode === "icons-charancha")) return (
     <SectionCard title="차량 정보" className="vehicle-info-card is-facts-icons">
-      <dl className={`detail-facts is-icons${factsMode === "icons-charancha" ? " is-charancha" : ""}`}>{(expanded ? facts : facts.slice(0, FACTS_VISIBLE_ICONS)).map(([label, value]) => <div key={label}>{FACT_ICONS[label] ? <img src={asset(`bbm/detail-icons/${FACT_ICONS[label]}.svg`)} data-icon={FACT_ICONS[label]} alt="" aria-hidden="true" draggable={false} /> : <span className="detail-fact-icon-gap" />}<span className="detail-fact-text"><dt>{label}</dt><dd>{label === "제조사" ? <a className="detail-fact-link" href={`?qf=guazi&maker=${encodeURIComponent(value)}`}>{value}</a> : value}</dd></span></div>)}</dl>
+      {!expanded ? <dl className={`detail-facts is-icons${factsMode === "icons-charancha" ? " is-charancha" : ""}`}>{facts.slice(0, FACTS_VISIBLE_ICONS).map(([label, value]) => <div key={label}>{FACT_ICONS[label] ? <img src={asset(`bbm/detail-icons/${FACT_ICONS[label]}.svg`)} data-icon={FACT_ICONS[label]} alt="" aria-hidden="true" draggable={false} /> : <span className="detail-fact-icon-gap" />}<span className="detail-fact-text"><dt>{label}</dt><dd>{label === "제조사" ? <a className="detail-fact-link" href={`?qf=guazi&maker=${encodeURIComponent(value)}`}>{value}</a> : value}</dd></span></div>)}</dl> : (
+        <div className="detail-fact-groups">
+          {factGroups.map((group) => <section className={`detail-fact-group${group.basic ? " is-basic" : ""}`} key={group.title}>
+            <h3>{group.title}</h3>
+            <dl>{group.rows.map(([label, factValue]) => <div key={label}>
+              {group.basic && FACT_ICONS[label] ? <img src={asset(`bbm/detail-icons/${FACT_ICONS[label]}.svg`)} data-icon={FACT_ICONS[label]} alt="" aria-hidden="true" draggable={false} /> : null}
+              <dt>{label}</dt>
+              <dd>{label === "제조사" ? <a className="detail-fact-link" href={`?qf=guazi&maker=${encodeURIComponent(factValue)}`}>{factValue}</a> : factValue}</dd>
+            </div>)}</dl>
+          </section>)}
+        </div>
+      )}
       {facts.length > FACTS_VISIBLE_ICONS ? <button type="button" className="detail-more is-airbnb" aria-expanded={expanded} onClick={() => setExpanded((v) => !v)}><span>{expanded ? "정보 접기" : `${VEHICLE_INFO_TOTAL_LABEL}개 정보 더보기`}</span></button> : null}
     </SectionCard>
   );
