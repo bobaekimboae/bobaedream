@@ -585,6 +585,11 @@
 .vehicle-info-card .detail-section-heading h2 { color: #222; font-size: 18px; font-weight: 700; line-height: 24px; letter-spacing: 0; }
 .detail-highlights p { margin: 0 0 10px; color: #191f28; font-size: 16px; line-height: 24px; word-break: keep-all; }
 .detail-highlights p:last-child { margin-bottom: 0; }
+.detail-highlights-more { display: inline-flex; align-items: center; gap: 4px; margin: 12px 0 0; padding: 4px 0; border: 0; background: none; color: #222; font: inherit; font-size: 16px; font-weight: 600; line-height: 24px; cursor: pointer; }
+.detail-highlights-more span { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+.detail-highlights-more img { width: 16px; height: 16px; transition: transform .18s ease; }
+.detail-highlights-more img.is-expanded { transform: rotate(-90deg); }
+.detail-highlights-more:focus-visible { outline: 2px solid #222; outline-offset: 2px; border-radius: 4px; }
 
 /* 설명글류 차란차 크기(2026-10-14 「초톳 방식 유지, 설명글 같은 것만 차란차 따라하자, 14 너무 작아 보여」, 차란차 실측 본문 16/24 #191F28): 차량 소개 · 판매 정보 줄 · 판매자 판매완료/판매중 줄 */
 .detail-rows.is-facts-size > div { min-height: 38px; font-size: 16px; line-height: 24px; color: #595959; }

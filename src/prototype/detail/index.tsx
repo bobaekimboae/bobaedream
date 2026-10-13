@@ -328,6 +328,7 @@ function VehicleInfoCard() {
 
 // 차량 소개(Cars & Bids의 Highlights): 실제로 가진 값만으로 문장을 만든다(없는 값은 문장에서 뺀다)
 function DetailHighlights() {
+  const [expanded, setExpanded] = useState(false);
   const car = getActiveDetailCar();
   if (!car) return null;
   const fd = car.ferrariDetail;
@@ -340,9 +341,18 @@ function DetailHighlights() {
   else if (fd) lines.push("등록된 보험이력 정보가 없어 직접 확인이 필요합니다.");
   if (fd?.options.length) lines.push(`판매자가 등록한 옵션은 ${fd.optionCount}개이며 주요 옵션은 ${fd.options.join(", ")} 등입니다.`);
   lines.push(`${car.place.split(" · ")[0]}에서 ${car.sellerType === "딜러" ? "매매업체" : "개인"}가 판매 중입니다. 실차 확인과 성능점검 기록부 확인 후 거래하세요.`);
+  const visibleLines = expanded ? lines : lines.slice(0, 2);
   return (
     <SectionCard title="차량 소개" className="detail-highlights">
-      {lines.map((line) => <p key={line}>{line}</p>)}
+      <div className="detail-highlights-copy">
+        {visibleLines.map((line) => <p key={line}>{line}</p>)}
+      </div>
+      {lines.length > 2 ? (
+        <button className="detail-highlights-more" type="button" aria-expanded={expanded} onClick={() => setExpanded((value) => !value)}>
+          <span>{expanded ? "접기" : "더보기"}</span>
+          <img className={expanded ? "is-expanded" : ""} src={asset("ui/category-chevron-right.svg")} alt="" />
+        </button>
+      ) : null}
     </SectionCard>
   );
 }

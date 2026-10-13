@@ -28,6 +28,42 @@ final result: passed
 
 ---
 
+# 차량 소개 에어비앤비형 더보기 QA · 2026-10-13
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/9815eb3a-8d59-4681-9c95-25879fc9905c/2-1000018116.jpg`
+- implementation collapsed: `C:/Users/bobae/Downloads/vehicle-intro-more-1013/01-collapsed.png`
+- implementation expanded: `C:/Users/bobae/Downloads/vehicle-intro-more-1013/02-expanded.png`
+- route: `/?qf=guazi&category=서울오토갤러리&facts=icons` → 첫 번째 매물 상세
+- viewport: 390 × 844 CSS px, deviceScaleFactor 1
+- source pixels: 591 × 1280, implementation pixels: 390 × 844
+- state: 차량 소개 접힘 / 펼침
+
+## Findings
+
+- P0/P1/P2 findings: none after focused comparison.
+- Fonts and typography: 기존 Pretendard Variable 본문 16/24를 유지하고, 에어비앤비 참고 화면처럼 버튼을 16/24·600·1px 밑줄로 구분했다.
+- Spacing and layout rhythm: 핵심 2문단 다음 12px 뒤에 링크형 버튼을 배치해 차량 정보 카드와의 흐름을 유지했다.
+- Colors and visual tokens: 소개 본문 `#191F28`, 더보기 `#222`, 흰 카드 배경을 유지했다.
+- Image quality and asset fidelity: 우측 꺾쇠는 기존 `public/assets/ui/category-chevron-right.svg`를 재사용했으며 CSS/문자 대체 아이콘은 없다.
+- Copy and content: 접힘 상태는 차량·주행거리 핵심 2문단, 펼침 상태는 판매 위치와 실차 확인 안내까지 모두 노출한다.
+
+## Interaction and verification
+
+- `더보기` 클릭 시 `aria-expanded=true`, 숨긴 문단 노출, 라벨 `접기`, 꺾쇠 위 방향 전환을 확인했다.
+- `접기` 시 핵심 2문단과 `더보기` 상태로 복귀한다.
+- 모바일 390 × 844 가로 오버플로 0, 깨진 이미지 0, 콘솔 오류 0, 400 이상 네트워크 오류 0.
+- `npm run verify:qf`: passed.
+
+## Comparison history
+
+- Initial finding: 차량 소개의 모든 문단이 항상 노출되어 다음 차량 정보까지의 세로 이동이 길었다.
+- Fix: 에어비앤비 설명문 패턴처럼 핵심 2문단 뒤에 밑줄형 `더보기 ›`를 추가하고 펼침/접기 동작을 연결했다.
+- Post-fix evidence: 접힘·펼침 캡처에서 카드 폭 374px, 버튼 16/24·600, 위 여백 12px, 가로 오버플로 0을 확인했다.
+
+final result: passed
+
+---
+
 # 차량 히스토리 그룹 QA · 2026-10-13
 
 - implementation: `C:/Users/bobae/Downloads/vehicle-info-groups-1013/05-expanded-history.png`
