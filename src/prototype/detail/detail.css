@@ -406,9 +406,10 @@
 .is-list-summary .bbm-card-location-part.is-link::before { text-decoration: none; display: inline-block; }
 
 /* 차량 정보 격자 · 차량 소개(2026-10-13, Cars & Bids 구성): 라벨 13/18 회색 위 · 값 15/22 600 아래, 2열 */
-.detail-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 20px; margin: 0; padding: 4px 0 8px; }
-.detail-facts > div { min-width: 0; }
-.detail-facts dt { color: #8c8c8c; font-size: 13px; line-height: 18px; }
-.detail-facts dd { margin: 2px 0 0; color: #222; font-size: 15px; font-weight: 600; line-height: 22px; word-break: keep-all; }
+.detail-facts { margin: 0; padding: 0; }
+.detail-facts > div { display: grid; grid-template-columns: 96px minmax(0, 1fr); column-gap: 16px; align-items: baseline; min-width: 0; padding: 12px 0; border-bottom: 1px solid #ebebeb; }
+.detail-facts > div:last-child { border-bottom: 0; }
+.detail-facts dt { color: #8c8c8c; font-size: 14px; line-height: 20px; }
+.detail-facts dd { margin: 0; color: #222; font-size: 15px; font-weight: 600; line-height: 22px; word-break: keep-all; }
 .detail-highlights p { margin: 0 0 10px; color: #222; font-size: 15px; line-height: 23px; word-break: keep-all; }
 .detail-highlights p:last-child { margin-bottom: 0; }
