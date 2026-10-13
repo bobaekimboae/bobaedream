@@ -266,3 +266,4 @@
 "2026-10-13 23:30","미지정","claude/used-car-detail-1013","-","배포","완료","상세 차량정보 연식을 우리 표기(19년01월/2023)로, 연식·주행·연료는 매물 값으로","detail/index.tsx · docs/quick-filter-spec.md","나머지 행(변속기 등)은 시안 값 그대로","상세 차량정보 나머지 행도 매물 값으로 바꿀지","verify 통과"
 "2026-10-13 23:50","미지정","claude/used-car-detail-1013","-","배포","완료","페라리 시트 매물 연식에 차란차 방식 연형 추가(23년08월(22년형))","src/prototype/data/index.tsx · docs/quick-filter-spec.md","","어떤 표기가 틀렸는지 확인(추측으로 연형 규칙 적용)","verify 통과"
 "2026-10-14 00:10","미지정","claude/used-car-detail-1013","-","배포","완료","상세 상사명에서 주식회사·(주) 생략, 인수인계 문서 10장에 상세 표기 규칙 기재","detail/index.tsx · docs/HANDOFF.md · docs/quick-filter-spec.md","","","verify 통과"
+"2026-10-14 00:40","미지정","claude/used-car-detail-1013","-","배포","완료","상세 지역 줄: 길면 상사명이 통째로 아랫줄로(점 없음), 한 줄이면 이어서","bbm-list.tsx · bbm-tokens.css · detail/index.tsx · detail.css · docs","목록 카드 지역은 글자 동일(보조 항목을 span으로 분리)","","verify 통과"

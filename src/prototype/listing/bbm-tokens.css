@@ -549,3 +549,6 @@
 .bbmf-sheet .bbmf-price-chip .bbmf-price-chip-fields { margin-top: 29px; }
 /* OP-011 빌드 버전 표시(&debug=1 일 때만) */
 .build-badge { position: fixed; right: 8px; bottom: 8px; z-index: 9999; padding: 3px 7px; border-radius: 6px; background: rgba(26, 26, 26, 0.72); color: #fff; font: 500 11px/15px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; pointer-events: none; }
+
+/* 지역 보조 항목(단지 · 상사)을 항목별 span으로 나눴다(2026-10-13): 목록에서는 이전과 같은 글자 `A · B`가 되도록 두 번째부터 앞에 가운데 점을 붙인다 */
+.bbm-card-location-part + .bbm-card-location-part::before { content: " · "; white-space: pre; }

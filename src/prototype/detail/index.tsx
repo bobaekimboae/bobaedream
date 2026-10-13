@@ -181,8 +181,10 @@ function VehicleSummary() {
   // 첫 메타정보는 목록 카드와 같은 값을 그대로 쓴다(초톳 상세와 동일, 2026-10-13)
   const summarySpecs = ["2019", formatMileage("42,920 km"), "가솔린", detailVehiclePlate, "1인소유"];
   // 상세 상단 정보는 목록 카드와 같은 컴포넌트(제조사 모델 · 메타정보 · 가격 · 지역 · 하트)를 쓰고 사진·판매자 줄만 숨긴다(2026-10-13 「초톳처럼 리스트와 동일하게」)
+  const summaryRef = useRef<HTMLElement>(null);
+  useLocationWrap(summaryRef);
   if (car) return (
-    <section className="vehicle-summary is-list-summary marketplace is-bbm-m is-qf-guazi"><div className="bbm-m-list">
+    <section ref={summaryRef} className="vehicle-summary is-list-summary marketplace is-bbm-m is-qf-guazi"><div className="bbm-m-list">
       <BbmResultCard car={carShopName(car) ? { ...car, place: `${car.place} · ${carShopName(car)}` } : car} variant="mobile" liked={liked} onToggleLike={() => setLiked(!liked)} onOpen={() => undefined} onChat={() => undefined} />
     </div>
       <p className="detail-posted-line"><img src={asset("bbm/chotot-common-clock-v01.svg")} alt="" aria-hidden="true" draggable={false} /><span>등록 {car.posted}</span></p>
@@ -366,6 +368,29 @@ function carShopName(car: Car) {
 }
 
 // 판매자 정보 영역(2026-10-13 「지역 밑에 판매자 정보 영역 추가」): 실제 매물은 지역 바로 아래(상단 블록)에 그리고, 아래 회색 영역의 옛 판매자 카드는 숨긴다
+// 지역 줄에서 줄 맨 앞으로 내려간 항목은 앞의 가운데 점을 뺀다(2026-10-13)
+function useLocationWrap(ref: { current: HTMLElement | null }) {
+  useEffect(() => {
+    const root = ref.current;
+    const text = root?.querySelector<HTMLElement>(".bbm-card-location-text");
+    if (!text) return;
+    const apply = () => {
+      const parts = Array.from(text.querySelectorAll<HTMLElement>(".bbm-card-location-part"));
+      parts.forEach((part) => part.classList.remove("is-line-start"));
+      const first = text.firstElementChild as HTMLElement | null;
+      let prevTop = first?.offsetTop ?? 0;
+      parts.forEach((part) => {
+        if (part.offsetTop > prevTop + 2) part.classList.add("is-line-start");
+        prevTop = part.offsetTop;
+      });
+    };
+    apply();
+    const observer = new ResizeObserver(apply);
+    observer.observe(text);
+    return () => observer.disconnect();
+  });
+}
+
 function DetailSellerInfo({ car }: { car: Car }) {
   const isDealer = car.sellerType === "딜러";
   // 판매완료 대수는 실제 값이 없어 매물 번호로 정한 가상 값이다(2026-10-13 「판매중 판매완료 추가」)

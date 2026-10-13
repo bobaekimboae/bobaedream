@@ -658,7 +658,6 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
   const specMain = seatSplit > 0 ? specText.slice(0, seatSplit) : specText;
   const specCapacity = seatSplit > 0 ? specText.slice(seatSplit + 3) : "";
   const [locationMain, ...locationSecondaryParts] = listPlace.split(" · ");
-  const locationSecondary = locationSecondaryParts.join(" · ");
   const priceMatch = car.price.match(/^(월\s*)?(.+?)\s*(만원)$/);
   // 모든 카테고리가 차명을 붙여 한 제목으로(최대 2줄). 중고차도 「제조사 모델 세부모델」을 끊지 않고 잇는다(2026-10-08 「중고차도 차명 끊지 말고 연결」)
   const title = <strong className="bbm-card-title"><span className="bbm-card-model is-joined">{cardTitleText(car)}</span></strong>;
@@ -717,7 +716,7 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
             </div>
           </div>
           <div className="bbm-card-meta">
-            <div className="bbm-card-location"><img src={bbmIcon("card-location")} alt="" aria-hidden="true" /><span className="bbm-card-location-text"><span>{locationMain}</span>{locationSecondary ? <span className="bbm-card-location-secondary">{locationSecondary}</span> : null}</span></div>
+            <div className="bbm-card-location"><img src={bbmIcon("card-location")} alt="" aria-hidden="true" /><span className="bbm-card-location-text"><span>{locationMain}</span>{locationSecondaryParts.length ? <span className="bbm-card-location-secondary">{locationSecondaryParts.map((part, index) => <span key={`${part}-${index}`} className="bbm-card-location-part">{part}</span>)}</span> : null}</span></div>
             {/* JOB-8: 모바일도 초톳처럼 판매자 줄을 지역 바로 아래(오른쪽 글 칸 안)에 둔다 */}
             {sellerRow}
           </div>
