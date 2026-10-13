@@ -341,16 +341,16 @@ function DetailHighlights() {
   else if (fd) lines.push("등록된 보험이력 정보가 없어 직접 확인이 필요합니다.");
   if (fd?.options.length) lines.push(`판매자가 등록한 옵션은 ${fd.optionCount}개이며 주요 옵션은 ${fd.options.join(", ")} 등입니다.`);
   lines.push(`${car.place.split(" · ")[0]}에서 ${car.sellerType === "딜러" ? "매매업체" : "개인"}가 판매 중입니다. 실차 확인과 성능점검 기록부 확인 후 거래하세요.`);
-  const visibleLines = expanded ? lines : lines.slice(0, 2);
+  const description = lines.join(" ");
   return (
     <SectionCard title="차량 설명" className="detail-highlights">
-      <div className="detail-highlights-copy">
-        {visibleLines.map((line) => <p key={line}>{line}</p>)}
+      <div className={`detail-highlights-copy${expanded ? " is-expanded" : ""}`}>
+        <p>{description}</p>
       </div>
       {lines.length > 2 ? (
         <button className="detail-highlights-more" type="button" aria-expanded={expanded} onClick={() => setExpanded((value) => !value)}>
           <span>{expanded ? "접기" : "더 보기"}</span>
-          <img className={expanded ? "is-expanded" : ""} src={asset("ui/category-chevron-right.svg")} alt="" />
+          <img className={expanded ? "is-expanded" : ""} src={asset("register/chotot-v01/chevron-right.svg")} alt="" />
         </button>
       ) : null}
     </SectionCard>
