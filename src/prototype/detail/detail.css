@@ -3,25 +3,22 @@
 .detail-screen { background: #f1f1f1; color: #222; font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
 .vehicle-detail { min-height: 100%; padding-top: var(--device-safe-area-top, 0px); padding-bottom: calc(var(--flow-footer-height) + var(--mobile-safe-area-height) + 18px); background: #fff; }
 .vehicle-detail button, .vehicle-detail a, .detail-bottom-bar button, .detail-bottom-bar a, .detail-sheet-actions button, .detail-sheet-actions a { -webkit-tap-highlight-color: transparent; }
-.detail-hero { position: relative; height: 379px; overflow: hidden; background: #fff; }
+.detail-hero { position: relative; height: 305px; overflow: hidden; background: #fff; }
 .detail-hero-main { position: relative; height: 305px; overflow: hidden; border-bottom: .5px solid #eee; background: #000; }
 .detail-media-carousel, .detail-media-track { height: 100%; }
 .detail-media-track { display: flex; min-width: max-content; }
 .detail-media-track > img { display: block; width: min(100vw, 430px); height: 305px; flex: 0 0 min(100vw, 430px); object-fit: contain; background: #000; }
 .detail-video-play { position: absolute; top: 50%; left: 50%; display: grid; width: 56px; height: 56px; place-items: center; border: 2px solid #fff; border-radius: 50%; box-sizing: border-box; background: rgba(0,0,0,.42); pointer-events: none; transform: translate(-50%, -50%); }
 .detail-video-play span { width: 0; height: 0; margin-left: 4px; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 15px solid #fff; }
-.detail-photo-count { position: absolute; right: 18px; bottom: 11px; min-width: 48px; padding: 4px 10px; border-radius: 999px; background: rgba(0,0,0,.42); color: #fff; font-size: 16px; font-weight: 600; line-height: 22px; text-align: center; }
+.detail-photo-pagination { position: absolute; bottom: 15px; left: 50%; z-index: 2; display: flex; align-items: center; gap: 5px; height: 8px; transform: translateX(-50%); pointer-events: none; }
+.detail-photo-pagination span { width: 6px; height: 6px; flex: 0 0 6px; border-radius: 50%; background: rgba(255,255,255,.62); box-shadow: 0 1px 2px rgba(0,0,0,.28); transition: width .15s ease, height .15s ease, opacity .15s ease; }
+.detail-photo-pagination span.is-active { width: 7px; height: 7px; flex-basis: 7px; background: #fff; }
+.detail-photo-pagination span.is-edge:not(.is-active) { width: 4px; height: 4px; flex-basis: 4px; opacity: .72; }
+.detail-photo-count { position: absolute; right: 12px; bottom: 12px; z-index: 2; min-width: 42px; padding: 4px 8px; border-radius: 999px; background: rgba(34,34,34,.72); color: #fff; font-size: 12px; font-weight: 600; line-height: 16px; text-align: center; font-variant-numeric: tabular-nums; }
 .detail-hero-actions { position: absolute; top: 0; right: 0; left: 0; display: flex; justify-content: space-between; align-items: center; height: 54px; padding: 0 16px; pointer-events: none; }
 .detail-hero-actions > div { display: flex; gap: 8px; }
 .detail-hero-actions button { display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; border-radius: 50%; background: #fff; cursor: pointer; pointer-events: auto; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
 .detail-hero-actions img { width: 24px; height: 24px; }
-.detail-thumbnail-region { position: relative; height: 74px; background: #fff; }
-.detail-thumbnail-carousel, .detail-thumbnail-track { height: 74px; }
-.detail-thumbnail-track { display: flex; min-width: max-content; align-items: center; gap: 8px; padding: 0 12px; box-sizing: border-box; }
-.detail-thumbnail { position: relative; display: block; width: 64px; height: 64px; flex: 0 0 64px; padding: 0; overflow: visible; border: 0; border-radius: 8px; box-sizing: border-box; background: transparent; cursor: pointer; }
-.detail-thumbnail.is-selected { z-index: 2; box-shadow: 0 0 0 2px #fff, 0 0 0 4px #222; }
-.detail-thumbnail > img:first-child { display: block; width: 64px; height: 64px; border-radius: 8px; object-fit: cover; pointer-events: none; }
-.detail-thumbnail .detail-thumbnail-play { position: absolute; top: 50%; left: 50%; width: 32px; height: 32px; pointer-events: none; transform: translate(-50%, -50%); }
 .vehicle-summary { padding: 14px 12px 16px; background: #fff; }
 .vehicle-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
 .vehicle-title-row h1 { width: auto; min-width: 0; flex: 1; margin: 0; color: #101010; font-size: 18px; font-weight: 700; line-height: 26px; letter-spacing: -.36px; }

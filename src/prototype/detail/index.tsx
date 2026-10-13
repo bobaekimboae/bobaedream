@@ -86,40 +86,34 @@ function DetailHero({ onBack }: { onBack: () => void }) {
   const [photoIndex, setPhotoIndex] = useState(1);
   const heroRef = useRef<HTMLElement>(null);
 
-  const selectPhoto = (index: number) => {
-    const carousel = heroRef.current?.querySelector<HTMLElement>(".detail-media-carousel");
-    const firstPhoto = carousel?.querySelector<HTMLElement>(".detail-media-track > img");
-    if (!carousel || !firstPhoto) return;
-    const photoWidth = firstPhoto.getBoundingClientRect().width || carousel.clientWidth;
-    setPhotoIndex(index + 1);
-    carousel.scrollTo({ left: photoWidth * index, behavior: "auto" });
-  };
-
   useEffect(() => {
     const carousel = heroRef.current?.querySelector<HTMLElement>(".detail-media-carousel");
     const firstPhoto = carousel?.querySelector<HTMLElement>(".detail-media-track > img");
     if (!carousel || !firstPhoto) return;
+    let snapTimer = 0;
     const updatePhotoIndex = () => {
       const photoWidth = firstPhoto.getBoundingClientRect().width || carousel.clientWidth;
-      setPhotoIndex(Math.min(detailPhotos.length, Math.max(1, Math.round(carousel.scrollLeft / photoWidth) + 1)));
+      const nextIndex = Math.min(detailPhotos.length, Math.max(1, Math.round(carousel.scrollLeft / photoWidth) + 1));
+      setPhotoIndex(nextIndex);
+      window.clearTimeout(snapTimer);
+      snapTimer = window.setTimeout(() => {
+        const targetLeft = photoWidth * (nextIndex - 1);
+        if (Math.abs(carousel.scrollLeft - targetLeft) > 1) carousel.scrollTo({ left: targetLeft, behavior: "smooth" });
+      }, 90);
     };
     carousel.addEventListener("scroll", updatePhotoIndex, { passive: true });
     updatePhotoIndex();
-    return () => carousel.removeEventListener("scroll", updatePhotoIndex);
+    return () => {
+      window.clearTimeout(snapTimer);
+      carousel.removeEventListener("scroll", updatePhotoIndex);
+    };
   }, []);
 
-  useEffect(() => {
-    const carousel = heroRef.current?.querySelector<HTMLElement>(".detail-thumbnail-carousel");
-    const activeThumbnail = carousel?.querySelector<HTMLElement>(`[data-thumbnail-index="${photoIndex - 1}"]`);
-    if (!carousel || !activeThumbnail) return;
-    const gutter = 12;
-    const thumbnailLeft = activeThumbnail.offsetLeft;
-    const thumbnailRight = thumbnailLeft + activeThumbnail.offsetWidth;
-    const visibleLeft = carousel.scrollLeft + gutter;
-    const visibleRight = carousel.scrollLeft + carousel.clientWidth - gutter;
-    if (thumbnailLeft < visibleLeft) carousel.scrollTo({ left: Math.max(0, thumbnailLeft - gutter), behavior: "smooth" });
-    else if (thumbnailRight > visibleRight) carousel.scrollTo({ left: thumbnailRight - carousel.clientWidth + gutter, behavior: "smooth" });
-  }, [photoIndex]);
+  const totalPhotos = detailPhotos.length;
+  const activePhoto = photoIndex - 1;
+  const dotCount = Math.min(5, totalPhotos);
+  const dotStart = Math.max(0, Math.min(activePhoto - 2, totalPhotos - dotCount));
+  const visibleDots = Array.from({ length: dotCount }, (_, index) => dotStart + index);
 
   return (
     <section ref={heroRef} className="detail-hero" aria-label="차량 사진">
@@ -128,7 +122,15 @@ function DetailHero({ onBack }: { onBack: () => void }) {
           {detailPhotos.map((photo, index) => <img key={`${photo}-${index}`} src={photo} alt={`벤틀리 차량 사진 ${index + 1}`} draggable={false} />)}
         </Carousel>
         {photoIndex === 1 ? <span className="detail-video-play" aria-hidden="true"><span /></span> : null}
-        <div className="detail-photo-count" aria-live="polite">{photoIndex}/{detailPhotos.length}</div>
+        <div className="detail-photo-pagination" aria-hidden="true">
+          {visibleDots.map((index, slot) => (
+            <span
+              key={index}
+              className={`${index === activePhoto ? "is-active" : ""}${slot === 0 && dotStart > 0 ? " is-edge" : ""}${slot === visibleDots.length - 1 && dotStart + dotCount < totalPhotos ? " is-edge" : ""}`}
+            />
+          ))}
+        </div>
+        <div className="detail-photo-count" aria-live="polite" aria-atomic="true">{photoIndex} / {totalPhotos}</div>
         <div className="detail-hero-actions">
           <button type="button" aria-label="목록으로 돌아가기" onClick={onBack}><img src={asset("detail/back.svg")} alt="" /></button>
           <div>
@@ -136,16 +138,6 @@ function DetailHero({ onBack }: { onBack: () => void }) {
             <button type="button" aria-label="더보기" onClick={() => setSheet("more")}><img src={asset("detail/more.svg")} alt="" /></button>
           </div>
         </div>
-      </div>
-      <div className="detail-thumbnail-region">
-        <Carousel ariaLabel="차량 사진 썸네일" className="detail-thumbnail-carousel" contentClassName="detail-thumbnail-track">
-          {detailPhotos.map((photo, index) => (
-            <button key={`thumbnail-${photo}-${index}`} className={`detail-thumbnail${photoIndex === index + 1 ? " is-selected" : ""}`} type="button" data-thumbnail-index={index} aria-label={`사진 ${index + 1} 보기`} aria-pressed={photoIndex === index + 1} onClick={() => selectPhoto(index)}>
-              <img src={photo} alt="" aria-hidden="true" draggable={false} />
-              {index === 0 ? <img className="detail-thumbnail-play" src={asset("detail/thumbnail-play.png")} alt="" aria-hidden="true" draggable={false} /> : null}
-            </button>
-          ))}
-        </Carousel>
       </div>
     </section>
   );
