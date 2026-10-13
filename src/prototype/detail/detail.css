@@ -572,7 +572,9 @@
 .vehicle-info-card .detail-section-heading h2 { color: #222; font-size: 18px; font-weight: 700; line-height: 24px; letter-spacing: 0; }
 .vehicle-info-card.is-facts-icons .detail-section-heading { padding-bottom: 0; }
 .detail-highlights-copy p { margin: 0; color: #222; font-size: 16px; font-weight: 400; line-height: 24px; word-break: keep-all; }
+.detail-highlights-copy:not(.is-expanded) { position: relative; }
 .detail-highlights-copy:not(.is-expanded) p { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+.detail-highlights-copy:not(.is-expanded)::after { content: ""; position: absolute; right: 0; bottom: 0; width: 112px; height: 24px; pointer-events: none; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.86) 62%, #fff 100%); -webkit-backdrop-filter: blur(1.2px); backdrop-filter: blur(1.2px); }
 /* 차량 설명 CTA: 에어비앤비의 넓은 행동 영역에 초톳의 중앙형 아래 화살표를 결합한다. */
 .detail-highlights-more { display: flex; width: 100%; min-height: 48px; align-items: center; justify-content: center; gap: 4px; margin: 16px 0 0; padding: 12px 20px; border: 0; border-radius: 12px; background: #f2f2f2; color: #222; font: inherit; font-size: 16px; font-weight: 600; line-height: 24px; cursor: pointer; }
 .detail-highlights-more img { width: 20px; height: 20px; transition: transform .18s ease; }
