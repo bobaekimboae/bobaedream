@@ -476,7 +476,7 @@
 /* 차량 정보 격자 · 차량 소개(2026-10-13, Cars & Bids 구성): 라벨 13/18 회색 위 · 값 15/22 600 아래, 2열 */
 .detail-facts { margin: 0; padding: 0; }
 .detail-facts > div { display: grid; grid-template-columns: 50% 50%; align-items: center; box-sizing: border-box; padding: 9px 0; border-bottom: 1px solid #e8e8e8; min-width: 0; }
-.detail-facts dt { margin: 0; color: #222; font-size: 14px; font-weight: 400; line-height: 20px; }
+.detail-facts dt { margin: 0; color: #595959; font-size: 14px; font-weight: 400; line-height: 20px; }
 .detail-facts dd { margin: 0; color: #222; font-size: 14px; font-weight: 400; line-height: 20px; word-break: keep-all; }
 .detail-fact-link { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
 .detail-fact-link:focus-visible { outline: 2px solid #222; outline-offset: 2px; border-radius: 2px; }
