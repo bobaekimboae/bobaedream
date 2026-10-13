@@ -623,7 +623,7 @@ function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string
   );
 }
 
-export function BbmResultCard({ car, variant, featured = false, liked, onToggleLike, onOpen, onChat, onCall, feedPhotos, eagerPhoto = true, locationDong, detailLocation }: { car: Car; eagerPhoto?: boolean; locationDong?: string; detailLocation?: { dealer: string; shop: string }; variant: "pc" | "mobile"; featured?: boolean; feedPhotos?: string[]; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void; onCall?: () => void }) {
+export function BbmResultCard({ car, variant, featured = false, liked, onToggleLike, onOpen, onChat, onCall, feedPhotos, eagerPhoto = true, locationDong, detailLocation }: { car: Car; eagerPhoto?: boolean; locationDong?: string; detailLocation?: { dealer?: string; shop?: string }; variant: "pc" | "mobile"; featured?: boolean; feedPhotos?: string[]; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void; onCall?: () => void }) {
   const seller = sellerLabel(car);
   // 목록 썸네일은 정규화 사본(럭셔리카와 같은 규칙)을 쓰고, 피드 대표 사진·그림(contain)은 원본 그대로
   const listPhoto = featured || car.imageFit === "contain" ? undefined : car.listThumb ?? normalizedListThumb(car.image);
