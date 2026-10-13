@@ -803,7 +803,6 @@ function InspectionCard() {
 }
 
 function WarrantyCard() {
-  const [expanded, setExpanded] = useState(false);
   const [inspectionOpen, setInspectionOpen] = useState(false);
   const [inspectionTop, setInspectionTop] = useState(0);
   const inspectionDialogRef = useRef<HTMLDivElement | null>(null);
@@ -856,7 +855,6 @@ function WarrantyCard() {
     <SectionCard
       title="A/S 정보"
       className="warranty-card"
-      action={<button className="warranty-detail-link" type="button" aria-label="A/S 정보 안내 보기" aria-expanded={expanded} onClick={() => setExpanded((value) => !value)}><img src={asset("ui/category-chevron-right.svg")} alt="" /></button>}
     >
       <div className="warranty-box">
         <div className={bodyWarranty.active ? "is-active" : ""}>
@@ -875,7 +873,6 @@ function WarrantyCard() {
           <i><b style={{ width: isDealer ? "100%" : "0%" }} /></i>
         </div>
       </div>
-      {expanded ? <div className="warranty-guide"><p>제조사 보증은 최초 등록일, 차량 트림과 정비 이력에 따라 달라질 수 있습니다.</p><p>성능·상태점검 보증은 매매업자 거래 기준이며 실제 적용 범위는 성능점검기록부에서 확인하세요.</p></div> : null}
       {inspectionOpen ? <div className="warranty-inspection-overlay" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setInspectionOpen(false); }}>
         <div ref={inspectionDialogRef} className="warranty-inspection-dialog" role="dialog" aria-modal="true" aria-label="성능 상태점검 보증 안내" tabIndex={-1} style={{ top: `${inspectionTop}px` }}>
           <h3>성능/상태 점검 보증</h3>
