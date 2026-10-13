@@ -610,6 +610,15 @@
 .detail-fact-group.is-basic img[data-icon="fuel"] { transform: translate(-0.47px, -0.47px) scale(.947); }
 .detail-fact-group + .detail-more.is-airbnb { margin-top: 24px; }
 
+/* 차량 히스토리(2026-10-13): 차량 제원에서 분리한 독립 카드. 세 묶음은 작은 제목과 여백만으로 나눠 과밀한 표 느낌을 피한다. */
+.vehicle-history-card .detail-section-heading { margin-bottom: 16px; }
+.vehicle-history-groups { padding-top: 0; }
+.vehicle-history-groups .detail-fact-group + .detail-fact-group { margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; }
+.vehicle-history-groups .detail-fact-group h3 { margin-bottom: 8px; font-size: 16px; font-weight: 600; line-height: 22px; }
+.vehicle-history-groups .detail-fact-group dl > div { min-height: 38px; padding: 7px 0; }
+.vehicle-history-groups .detail-fact-group dt,
+.vehicle-history-groups .detail-fact-group dd { font-size: 15px; line-height: 24px; }
+
 /* 차량 정보 B안 `&facts=chotot`: 초톳 상세 제원처럼 상태/기술 두 구역, 각 구역은 2열 필드 묶음이다. */
 .vehicle-info-card.is-facts-chotot .detail-section-heading { margin-bottom: 18px; }
 .chotot-fact-groups { margin: 0; }

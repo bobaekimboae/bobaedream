@@ -173,8 +173,8 @@ function carFacts(car: Car): string[][] {
   return rows.filter(([, value]) => value);
 }
 
-/* 무다 차량 제원 시트(2026-10-13) 기준 30개 + 보배드림 매물·이력 7개 = 총 37개.
-   접힌 화면은 기존 핵심 8개를 유지하고, 펼친 화면만 의미 단위로 묶는다. */
+/* 무다 차량 제원 시트(2026-10-13) 기준 기술 정보 30개.
+   접힌 화면은 핵심 8개를 유지하고, 차량 히스토리는 별도 카드로 분리한다. */
 function carFactGroups(car: Car): VehicleFactGroup[] {
   const fd = car.ferrariDetail;
   const yearText = bbmCardSpec(car, false).split(" · ")[0];
@@ -183,24 +183,16 @@ function carFactGroups(car: Car): VehicleFactGroup[] {
   const dv = derivedFacts(car, model, body);
   const m3 = isBmwM3CompetitionXDrive(car, model) ? BMW_M3_COMPETITION_XDRIVE_2023 : null;
   const value = (entry?: string | number | null) => entry === undefined || entry === null || entry === "" ? NO_INFO : String(entry);
-  const mileage = car.filter?.mileage ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : NO_INFO;
-  const insurance = fd ? (fd.insurance ? "조회 완료" : NO_INFO) : NO_INFO;
-  const modelYear = car.filter?.year ? `${String(car.filter.year).slice(-2)}년식` : /년식$/.test(yearText) ? yearText : NO_INFO;
-  const registeredToken = bbmCardSpec(car, false).split(" · ")[0];
-  const registeredMatch = registeredToken.match(/^(\d{2}|\d{4})년(\d{2})월$/);
-  const registeredAt = registeredMatch ? `${registeredMatch[1].slice(-2)}년 ${registeredMatch[2]}월 등록` : NO_INFO;
-  const previousOwners = fd?.insurance ? `${fd.insurance.owners}회` : NO_INFO;
-  const origin = m3?.origin ?? value(cleanValue(car.filter?.origin));
 
   return [
     {
       title: "기본 정보",
       basic: true,
       rows: [
-        ["제조사", car.maker], ["모델", model], ["세부모델", m3?.trim ?? value(car.trim)],
+        ["제조사", car.maker], ["모델", model], ["연식", yearText], ["세부모델", m3?.trim ?? value(car.trim)],
         ["변속기", m3?.transmission ?? value(cleanValue(fd?.transmission ?? car.filter?.transmission))], ["시리즈·코드", m3?.series ?? NO_INFO],
         ["차체형식", m3?.body ?? value(body ? `${dv.doors ? `${dv.doors} ` : ""}${body}` : "")], ["좌석 수", m3?.seats ?? value(dv.seats)],
-        ["연료", m3?.fuel ?? value(cleanValue(car.filter?.fuel))],
+        ["연료", m3?.fuel ?? value(cleanValue(car.filter?.fuel))], ["생산국", m3?.origin ?? value(cleanValue(car.filter?.origin))],
       ],
     },
     {
@@ -222,14 +214,25 @@ function carFactGroups(car: Car): VehicleFactGroup[] {
     { title: "서스펜션", rows: [["전륜 서스펜션", m3?.frontSuspension ?? NO_INFO], ["후륜 서스펜션", m3?.rearSuspension ?? NO_INFO]] },
     { title: "조향장치", rows: [["조향 방식", m3?.steering ?? NO_INFO]] },
     { title: "타이어·휠", rows: [["전륜 타이어", m3?.frontTyre ?? NO_INFO], ["후륜 타이어", m3?.rearTyre ?? NO_INFO], ["전륜 휠", m3?.frontWheel ?? NO_INFO], ["후륜 휠", m3?.rearWheel ?? NO_INFO]] },
-    {
-      title: "차량 히스토리",
-      rows: [
-        ["연식", modelYear], ["등록일", registeredAt], ["주행거리", mileage], ["소유자 변경", previousOwners],
-        ["최초 출고가격 (옵션 포함)", NO_INFO], ["최초 출고가격 (옵션 미포함)", m3?.launchPrice ?? NO_INFO],
-        ["압류/저당", NO_INFO], ["보험이력", insurance], ["생산국가", origin],
-      ],
-    },
+  ];
+}
+
+function vehicleHistorySections(car: Car): Array<{ title: string; rows: VehicleFactRow[] }> {
+  const fd = car.ferrariDetail;
+  const model = (car.modelGroup ?? car.title.replace(new RegExp(`^${car.maker}\\s*`), "")).trim();
+  const m3 = isBmwM3CompetitionXDrive(car, model) ? BMW_M3_COMPETITION_XDRIVE_2023 : null;
+  const modelYear = car.filter?.year ? `${String(car.filter.year).slice(-2)}년식` : NO_INFO;
+  const registeredToken = bbmCardSpec(car, false).split(" · ")[0];
+  const registeredMatch = registeredToken.match(/^(\d{2}|\d{4})년(\d{2})월$/);
+  const registeredAt = registeredMatch ? `${registeredMatch[1].slice(-2)}년 ${registeredMatch[2]}월 등록` : NO_INFO;
+  const mileage = car.filter?.mileage ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : NO_INFO;
+  const previousOwners = fd?.insurance ? `${fd.insurance.owners}회` : NO_INFO;
+  const insurance = fd?.insurance ? "조회 완료" : NO_INFO;
+  const origin = m3?.origin ?? cleanValue(car.filter?.origin) ?? NO_INFO;
+  return [
+    { title: "등록·주행", rows: [["연식", modelYear], ["등록일", registeredAt], ["주행거리", mileage], ["소유자 변경", previousOwners]] },
+    { title: "출고 정보", rows: [["최초 출고가격 (옵션 포함)", NO_INFO], ["최초 출고가격 (옵션 미포함)", m3?.launchPrice ?? NO_INFO]] },
+    { title: "권리·출처", rows: [["압류/저당", NO_INFO], ["보험이력", insurance], ["생산국가", origin]] },
   ];
 }
 
@@ -264,7 +267,7 @@ const FACT_ICONS: Record<string, string> = {
   판매방식: "seller-type", "압류/저당": "document", 제시번호: "document", 지역: "location", "판매자 유형": "seller-type", 성능점검: "document", "보험이력 조회": "document",
 };
 const FACTS_VISIBLE_ICONS = 8;
-const VEHICLE_INFO_TOTAL_LABEL = 37;
+const VEHICLE_INFO_TOTAL_LABEL = 30;
 function VehicleInfoCard() {
   const [expanded, setExpanded] = useState(false);
   const car = getActiveDetailCar();
@@ -697,7 +700,22 @@ function OptionsCard({ desktop = false }: { desktop?: boolean }) {
   );
 }
 
-function HistoryCard() {
+function VehicleHistoryCard() {
+  const car = getActiveDetailCar();
+  if (!car) return null;
+  return (
+    <SectionCard title="차량 히스토리" className="vehicle-history-card">
+      <div className="detail-fact-groups vehicle-history-groups">
+        {vehicleHistorySections(car).map((section) => <section className="detail-fact-group" key={section.title}>
+          <h3>{section.title}</h3>
+          <dl>{section.rows.map(([label, historyValue]) => <div key={label}><dt>{label}</dt><dd>{historyValue}</dd></div>)}</dl>
+        </section>)}
+      </div>
+    </SectionCard>
+  );
+}
+
+function InsuranceHistoryCard() {
   const [expanded, setExpanded] = useState(false);
   const fd = getActiveDetailCar()?.ferrariDetail;
   if (getActiveDetailCar() && !fd) return null;
@@ -1061,7 +1079,7 @@ function DesktopVehicleDetail({ onBack }: { onBack: () => void }) {
   return <div className="pc-detail" ref={content}>
     <DesktopHeader onBack={onBack} />
     <main className="pc-detail-container" aria-label="중고차 PC 상세">
-      <div className="pc-detail-columns"><div className="pc-detail-left"><DesktopGallery onBack={onBack} /><DescriptionCard desktop /><DesktopVehicleInfo /><OptionsCard desktop /><div id="pc-history"><HistoryCard /></div><div id="pc-inspection"><InspectionCard /></div><WarrantyCard /></div><DesktopSummary jump={jump} /></div>
+      <div className="pc-detail-columns"><div className="pc-detail-left"><DesktopGallery onBack={onBack} /><DescriptionCard desktop /><DesktopVehicleInfo /><VehicleHistoryCard /><OptionsCard desktop /><div id="pc-history"><InsuranceHistoryCard /></div><div id="pc-inspection"><InspectionCard /></div><WarrantyCard /></div><DesktopSummary jump={jump} /></div>
       <CarRail title="한강모터스 박성수의 다른 매물" cars={relatedCars} />
       <div id="pc-related"><CarRail title="동급매물" cars={classCars} /></div>
       <p className="safety-copy">안전한 거래와 허위매물 근절을 위해 안심번호(050) 이용 시 통화 내용이 보배드림에 안전하게 보관됩니다.<br />보배드림은 등록 시스템만 제공하며, 판매자가 직접 등록한 차량에 대한 모든 책임은 판매자에게 있습니다.</p>
@@ -1153,8 +1171,9 @@ function VehicleDetail() {
             <SellerCard />
             <DetailHighlights />
             <VehicleInfoCard />
+            <VehicleHistoryCard />
             <OptionsCard />
-            <HistoryCard />
+            <InsuranceHistoryCard />
             <InspectionCard />
             <WarrantyCard />
             <SaleCard />
