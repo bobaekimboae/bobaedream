@@ -315,3 +315,4 @@
 2026-10-13 14:17,상세 사진 칸 250px·#222·contain + 넘기기 500ms ease·폭 1/5(초톳 실측),claude/used-car-detail-1013,pending,
 2026-10-13 14:31,상세 사진 넘기기 오류 수정(포인터 캡처 의존 제거·되돌림 타이머 제거),claude/used-car-detail-1013,pending,
 2026-10-13 14:42,피드 사진 넘기기를 상세와 같은 초톳 방식(500ms ease·폭 1/5)으로,claude/used-car-detail-1013,pending,
+2026-10-13 14:51,사진 넘기기를 표준 갤러리 규칙(Swiper 소스·Material 3)으로: 300ms 이하 휙=넘김·오래 끌면 50%·300ms·키보드,claude/used-car-detail-1013,pending,

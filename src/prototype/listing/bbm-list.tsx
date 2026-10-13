@@ -579,7 +579,7 @@ function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string
   const moreAfter = start + dotMax < photos.length;
   return (
     <div className="bbm-feed-carousel-wrap" ref={wrapRef}>
-      <div className="bbm-feed-carousel" ref={trackRef} onScroll={onScroll} onPointerDown={paged.onPointerDown} onClickCapture={paged.onClickCapture} onClick={(event) => { if (trackRef.current && trackRef.current.scrollLeft % trackRef.current.clientWidth) event.stopPropagation(); }}>
+      <div className="bbm-feed-carousel" ref={trackRef} onScroll={onScroll} onKeyDown={paged.onKeyDown} onPointerDown={paged.onPointerDown} onClickCapture={paged.onClickCapture} onClick={(event) => { if (trackRef.current && trackRef.current.scrollLeft % trackRef.current.clientWidth) event.stopPropagation(); }}>
         {photos.map((src, i) => armed || i === 0
           ? <img key={src + i} className={fit === "contain" ? "is-catalog" : ""} src={asset(src)} alt={i === 0 ? alt : `${alt} 사진 ${i + 1}`} draggable={false} decoding="async" onError={retryExternalPhoto} />
           : <span key={src + i} className="bbm-feed-slide-empty" aria-hidden="true" />)}
