@@ -989,7 +989,7 @@ function DetailSellerInfo({ car }: { car: Car }) {
       <div className="detail-seller-text">
         <div className="detail-seller-name"><strong>{sellerName}</strong>{isDealer && carShopName(car) ? <span className="bbm-card-location-part detail-seller-shop">{carShopName(car)}</span> : null}</div>
         {isDealer ? <span><b>{soldCount}대</b> 판매완료 · <b>{car.stock}대</b> 판매중</span> : null}
-        <span className="detail-seller-activity">최근 활동 {car.posted}</span>
+        {isDealer ? <span className="detail-seller-activity">딜러 경력 7년</span> : null}
       </div>
     </section>
   );
