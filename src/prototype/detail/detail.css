@@ -673,3 +673,8 @@
 .detail-facts.is-icons > div > img[data-icon="seats"] { transform: translate(0.00px, 0.00px) scale(0.985); }
 .detail-facts.is-icons > div > img[data-icon="seller-type"] { transform: translate(0.00px, 0.00px) scale(1.125); }
 .detail-facts.is-icons > div > img[data-icon="year"] { transform: translate(0.00px, 0.00px) scale(0.900); }
+
+/* 차량 정보 값 우측 정렬(2026-10-14 「차량정보 우측 정렬해봐」): 라벨은 왼쪽, 값은 오른쪽 끝. 아이콘 시안(.is-icons)은 그대로. */
+.detail-facts:not(.is-icons) > div { grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; }
+.detail-facts:not(.is-icons) dt { white-space: nowrap; }
+.detail-facts:not(.is-icons) dd { text-align: right; }
