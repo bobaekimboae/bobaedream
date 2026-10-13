@@ -287,3 +287,4 @@
 "2026-10-14 12:30","미지정","claude/used-car-detail-1013","-","배포","완료","상세 차량정보 모델 아이콘 교체(노션 트림 모델등급 16/16)","detail/index.tsx · detail-icons"
 "2026-10-14 13:00","미지정","claude/used-car-detail-1013","-","배포","완료","상세 아이콘 시안 차란차 그대로(&facts=icons-charancha, 1열·값 오른쪽·피치38)","detail/index.tsx · detail.css"
 "2026-10-14 14:00","미지정","claude/used-car-detail-1013","-","배포","완료","상세 아이콘 헤이카 세트 교체 + 마력 줄(노션 영국_헤이카 원본)","detail/index.tsx · detail-icons"
+"2026-10-14 14:20","미지정","claude/used-car-detail-1013","-","배포","완료","상세 아이콘 시안 밸런스(아이콘 세로 가운데 · 값 16/22)","detail.css"
