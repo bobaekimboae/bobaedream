@@ -689,3 +689,10 @@
 /* 상세 사진 사이 구분선(2026-10-14 「사진이 하나로 붙었다」): 같은 배경 사진이 이어 보이지 않게 검은 3px을 둔다. 한 장 폭은 그대로(border-box). */
 .detail-media-track > img { box-sizing: border-box; }
 .detail-media-track > img:not(:last-child) { border-right: 3px solid #222; }
+
+/* 좐좐식 상세 탭(2026-10-14): 사진·요약 아래에서 시작해 스크롤하면 화면 맨 위에 붙는다 */
+.detail-tabs { position: sticky; top: 0; z-index: 6; display: flex; overflow-x: auto; padding: 0 8px; border-bottom: 1px solid #EBEBEB; background: #fff; scrollbar-width: none; }
+.detail-tabs::-webkit-scrollbar { display: none; }
+.detail-tabs button { position: relative; flex: none; height: 44px; padding: 0 12px; border: 0; background: transparent; color: #8C8C8C; font: 500 15px/20px inherit; font-family: inherit; cursor: pointer; }
+.detail-tabs button.is-active { color: #222; font-weight: 700; }
+.detail-tabs button.is-active::after { position: absolute; right: 12px; bottom: 0; left: 12px; height: 2px; background: #222; content: ""; }

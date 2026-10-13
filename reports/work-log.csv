@@ -318,3 +318,4 @@
 2026-10-13 14:51,사진 넘기기를 표준 갤러리 규칙(Swiper 소스·Material 3)으로: 300ms 이하 휙=넘김·오래 끌면 50%·300ms·키보드,claude/used-car-detail-1013,pending,
 2026-10-13 15:08,사진 넘기기 튕김 수정: 에르미트 곡선·이동 중 연속 넘기기 기준 목표,claude/used-car-detail-1013,pending,
 2026-10-14,사진 넘기기 원복,상세 Carousel+snap 타이머·피드 scroll-snap 원래 방식 복원 (#589~#593 직접 구현 제거),verify:qf 통과
+2026-10-14,상세 좐좐식 탭,DetailTabs 추가(앵커 이동·스크롤 강조·sticky) 원복은 컴포넌트+CSS 삭제,verify:qf 통과
