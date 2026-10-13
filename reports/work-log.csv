@@ -275,3 +275,4 @@
 "2026-10-14 04:10","미지정","claude/used-car-detail-1013","-","배포","완료","상세 차량 정보를 카앤비드 Quick Facts 실측(줄42.67·16px·밑줄 링크)으로","detail/index.tsx · detail.css"
 "2026-10-14 04:40","미지정","claude/used-car-detail-1013","-","배포","완료","상세 차량 정보 사실표를 초톳 값으로 확정, 카앤비드는 밑줄 링크만 유지","detail.css"
 "2026-10-14 05:10","미지정","claude/used-car-detail-1013","-","배포","완료","상세 차량 정보 라벨 색 #595959(최적안)","detail.css"
+"2026-10-14 05:40","미지정","claude/used-car-detail-1013","-","배포","완료","상세 차량 정보 크기 2시안(초톳 14/39 · 차란차 16/38, &facts=charancha)","detail/index.tsx · detail.css"
