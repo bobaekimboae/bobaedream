@@ -320,3 +320,4 @@
 2026-10-14,사진 넘기기 원복,상세 Carousel+snap 타이머·피드 scroll-snap 원래 방식 복원 (#589~#593 직접 구현 제거),verify:qf 통과
 2026-10-14,상세 좐좐식 탭,DetailTabs 추가(앵커 이동·스크롤 강조·sticky) 원복은 컴포넌트+CSS 삭제,verify:qf 통과
 2026-10-14,상세 탭 위 구분선,탭 줄 border-top 1px #EBEBEB 추가,verify:qf 통과
+2026-10-14,상세 탭 소개→설명,첫 탭 이름 변경,verify:qf 통과
