@@ -364,3 +364,6 @@
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text > span { font-size: 15px; line-height: 20px; }
 .vehicle-summary.is-list-summary .bbm-card-location-secondary::before { content: "· "; }
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-price-badges { margin-top: 8px; }
+/* 지역 아이콘 = 노션 「chotot-profile-location」 원본(속 빈 외곽선 핀, 2026-10-13 「아이콘 변경도」): 초톳 캡처 핀 잉크 15.6×19.9 · 왼쪽 16 · 글자 시작 40.2 → 24px 상자(잉크 16×20), 상자 왼쪽 12, 글자와 간격 4 */
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location { gap: 4px; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location img { content: url("/assets/bbm/chotot-profile-location-v01.svg"); width: 24px; height: 24px; margin: -2px 0 0 -4px; filter: none; opacity: 1; }
