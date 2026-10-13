@@ -494,7 +494,7 @@ function DetailHero({ onBack }: { onBack: () => void }) {
         </div>
       </div>
     </section>
-    {photos.length > 1 ? <div className="detail-thumbs" ref={thumbsRef} role="group" aria-label="차량 사진 썸네일" onKeyDown={onThumbKey}>
+    {photos.length > 1 && new URLSearchParams(window.location.search).get("thumbs") !== "off" ? <div className="detail-thumbs" ref={thumbsRef} role="group" aria-label="차량 사진 썸네일" onKeyDown={onThumbKey}>
       {photos.map((photo, index) => <button key={`${photo}-${index}`} type="button" aria-label={`사진 ${index + 1} 보기`} aria-pressed={index === activePhoto} className={index === activePhoto ? "is-active" : ""} onClick={() => choosePhoto(index)}><img src={photo} alt="" draggable={false} loading="lazy" /></button>)}
     </div> : null}
     </>
@@ -1166,7 +1166,7 @@ function BikeVehicleDetail({ car, onBack }: { car: Car; onBack: () => void }) {
           <img src={photos[photoIndex] ?? asset(car.image)} alt={car.title} style={{ display: "block", width: "100%", aspectRatio: "4 / 3", objectFit: "cover" }} />
           <button type="button" aria-label="목록으로 돌아가기" onClick={onBack} style={{ position: "absolute", top: 12, left: 12, width: 40, height: 40, border: 0, borderRadius: 20, background: "rgba(0,0,0,.55)", color: "#fff", fontSize: 22 }}>←</button>
         </div>
-        {photos.length > 1 ? <div className="detail-thumbs" role="group" aria-label="차량 사진 썸네일">
+        {photos.length > 1 && new URLSearchParams(window.location.search).get("thumbs") !== "off" ? <div className="detail-thumbs" role="group" aria-label="차량 사진 썸네일">
           {photos.map((photo, index) => <button key={`${photo}-${index}`} type="button" aria-label={`사진 ${index + 1} 보기`} aria-pressed={index === photoIndex} className={index === photoIndex ? "is-active" : ""} onClick={() => setPhotoIndex(index)}><img src={photo} alt="" draggable={false} loading="lazy" /></button>)}
         </div> : null}
         <div style={{ padding: 20 }}>
