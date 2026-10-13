@@ -138,7 +138,7 @@ function carFacts(car: Car): string[][] {
 /* 차량 정보 아이콘 시안(`&facts=icons`, 2026-10-14, 노션 「영국_오토트레이더 초톳 변경」 아이콘 원본 그대로 `public/assets/bbm/detail-icons/`) */
 const FACT_ICONS: Record<string, string> = {
   제조사: "maker", 모델: "model-trim", 연식: "year", 주행거리: "mileage", "출시가격": "price",
-  연료: "fuel", 배기량: "engine", 마력: "power", 변속기: "gearbox", 차종: "body", "도어 수": "doors", 인승: "seats", "배출가스 등급": "emission", "이전 소유자": "owners", "키 수": "keys", 바디타입: "body", "외관 색상": "color", "시트 색상": "color",
+  연료: "fuel", 배기량: "engine", 마력: "power", 변속기: "gearbox", 차종: "body", "도어 수": "doors", 인승: "seats", "배출가스 등급": "emission", "이전 소유자": "owners", "키 수": "keys", 바디타입: "body", "외관 색상": "color", "시트 색상": "interior",
   판매방식: "seller-type", "압류/저당": "document", 제시번호: "document", 지역: "location", "판매자 유형": "seller-type", 성능점검: "document", "보험이력 조회": "document",
 };
 const FACTS_VISIBLE_ICONS = 8;
