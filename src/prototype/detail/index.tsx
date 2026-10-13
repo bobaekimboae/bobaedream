@@ -143,9 +143,6 @@ function DetailHero({ onBack }: { onBack: () => void }) {
 
   const totalPhotos = photos.length;
   const activePhoto = photoIndex - 1;
-  const dotCount = Math.min(5, totalPhotos);
-  const dotStart = Math.max(0, Math.min(activePhoto - 2, totalPhotos - dotCount));
-  const visibleDots = Array.from({ length: dotCount }, (_, index) => dotStart + index);
 
   return (
     <>
@@ -155,14 +152,6 @@ function DetailHero({ onBack }: { onBack: () => void }) {
           {photos.map((photo, index) => <img key={`${photo}-${index}`} src={photo} alt={`차량 사진 ${index + 1}`} draggable={false} />)}
         </Carousel>
         {photoIndex === 1 ? <span className="detail-video-play" aria-hidden="true"><span /></span> : null}
-        <div className="detail-photo-pagination" aria-hidden="true">
-          {visibleDots.map((index, slot) => (
-            <span
-              key={index}
-              className={`${index === activePhoto ? "is-active" : ""}${slot === 0 && dotStart > 0 ? " is-edge" : ""}${slot === visibleDots.length - 1 && dotStart + dotCount < totalPhotos ? " is-edge" : ""}`}
-            />
-          ))}
-        </div>
         <div className="detail-photo-count" aria-live="polite" aria-atomic="true">{photoIndex} / {totalPhotos}</div>
         <div className="detail-hero-actions">
           <button type="button" aria-label="목록으로 돌아가기" onClick={onBack}><img src={asset("detail/back.svg")} alt="" /></button>
