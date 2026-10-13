@@ -576,10 +576,10 @@
 .detail-highlights-copy:not(.is-expanded) p { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
 .detail-highlights-copy:not(.is-expanded)::after { content: ""; position: absolute; right: 0; bottom: 0; width: 112px; height: 24px; pointer-events: none; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.86) 62%, #fff 100%); -webkit-backdrop-filter: blur(1.2px); backdrop-filter: blur(1.2px); }
 /* 차량 설명 CTA: 에어비앤비의 넓은 행동 영역에 초톳의 중앙형 아래 화살표를 결합한다. */
-.detail-highlights-more { display: flex; width: 100%; min-height: 48px; align-items: center; justify-content: center; gap: 4px; margin: 16px 0 0; padding: 12px 20px; border: 0; border-radius: 12px; background: #f2f2f2; color: #222; font: inherit; font-size: 16px; font-weight: 600; line-height: 24px; cursor: pointer; }
+.detail-highlights-more { display: flex; width: 100%; min-height: 48px; align-items: center; justify-content: center; gap: 4px; margin: 16px 0 0; padding: 11px 20px; border: 1px solid #d8d8d8; border-radius: 24px; background: #fff; color: #222; font: inherit; font-size: 16px; font-weight: 600; line-height: 24px; cursor: pointer; }
 .detail-highlights-more img { width: 20px; height: 20px; transition: transform .18s ease; }
 .detail-highlights-more img.is-expanded { transform: rotate(180deg); }
-.detail-highlights-more:active { background: #e8e8e8; }
+.detail-highlights-more:active { background: #f7f7f7; }
 .detail-highlights-more:focus-visible { outline: 2px solid #222; outline-offset: 2px; }
 
 /* 설명글류 차란차 크기(2026-10-14 「초톳 방식 유지, 설명글 같은 것만 차란차 따라하자, 14 너무 작아 보여」, 차란차 실측 본문 16/24 #191F28): 차량 소개 · 판매 정보 줄 · 판매자 판매완료/판매중 줄 */
