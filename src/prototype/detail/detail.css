@@ -525,3 +525,10 @@
 .detail-facts.is-icons dd { color: #333; font-size: 17px; font-weight: 600; line-height: 24px; word-break: keep-all; }
 
 /* 오토스카우트24 핵심 정보 격자 크로스체크(2026-10-14 「오토스카웃처럼 잘 보이게」, 캡처 1080×2340 ÷2.8125 실측): 라벨 작은 회색 `#676767`(대문자 높이 9.2 ≈ 13px) 위 · 값 `#333` 큰 글자(대문자 높이 11.0 ≈ 16px, 500~600) 아래, 아이콘 20 · 글자와 간격 약 7, 칸 세로 피치 52.3, 격자 위아래 1px `#D6D6D6` 선, 2열(둘째 열 x=194). 한글은 라벨 14/20 `#676767` · 값 17/24 600 `#333`으로 옮겨 값이 먼저 보이게 했다(이전 오토트레이더식 굵은 라벨 위 · 보통 값 아래는 대체). */
+
+/* 아이콘 시안 차란차 그대로 `&facts=icons-charancha`(2026-10-14 「아이콘 시안 차란차 그대로 적용」, 차란차 매물 상세 「기본 정보」 실제 스타일): 1열 줄 목록, 줄 24 + 간격 14(피치 38) · 구분선 없음, 라벨 16/24 400 `#707B89`(왼쪽) · 값 16/24 500 `#191F28`(오른쪽 끝 정렬), 아이콘 24는 노션 원본 그대로 줄 맨 앞 */
+.detail-facts.is-icons.is-charancha { display: flex; flex-direction: column; gap: 14px; margin: 0; padding: 4px 0 0; border: 0; }
+.detail-facts.is-icons.is-charancha > div { align-items: center; gap: 8px; }
+.detail-facts.is-icons.is-charancha .detail-fact-text { display: contents; }
+.detail-facts.is-icons.is-charancha dt { flex: 1; min-width: 0; color: #707b89; font-size: 16px; font-weight: 400; line-height: 24px; }
+.detail-facts.is-icons.is-charancha dd { flex: none; max-width: 60%; margin-left: auto; color: #191f28; font-size: 16px; font-weight: 500; line-height: 24px; text-align: right; }
