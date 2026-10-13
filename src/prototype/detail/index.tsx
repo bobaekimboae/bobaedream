@@ -356,11 +356,13 @@ function WarrantyCard() {
 }
 
 // 상사명(2026-10-13 「지역 밑에 상사명 2줄 · 그 밑에 등록일」): 페라리 실제 상세는 시트의 상사, 나머지는 판매자 이름 뒤 상사 낱말. 없으면 줄을 만들지 않는다
+// 법인 표기 「주식회사」·「(주)」는 화면에서 생략한다(2026-10-13, 인수인계 문서 기재)
+const stripCorp = (name: string) => name.replace(/\(주\)|주식회사/g, "").replace(/\s+/g, " ").trim();
 function carShopName(car: Car) {
-  if (car.ferrariDetail) return car.ferrariDetail.shop;
+  if (car.ferrariDetail) return stripCorp(car.ferrariDetail.shop);
   const label = sellerLabel(car);
   const [, ...rest] = label.split(" ");
-  return car.sellerType === "딜러" && !/딜러$/.test(label) && rest.length ? rest.join(" ") : "";
+  return car.sellerType === "딜러" && !/딜러$/.test(label) && rest.length ? stripCorp(rest.join(" ")) : "";
 }
 
 // 판매자 정보 영역(2026-10-13 「지역 밑에 판매자 정보 영역 추가」): 실제 매물은 지역 바로 아래(상단 블록)에 그리고, 아래 회색 영역의 옛 판매자 카드는 숨긴다
