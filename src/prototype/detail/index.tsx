@@ -109,7 +109,7 @@ function carFacts(car: Car): string[][] {
     ["모델", model],
     ["연식", yearText],
     ["주행거리", car.filter?.mileage ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : NO_INFO],
-    ["출시가격(옵션미포함)", NO_INFO],
+    ["출시가격", NO_INFO],
     ["연료", or(cleanValue(car.filter?.fuel))],
     ["배기량", or(fd?.displacement)],
     ["변속기", or(cleanValue(fd?.transmission ?? car.filter?.transmission))],
@@ -119,7 +119,7 @@ function carFacts(car: Car): string[][] {
     ["외관 색상", or(cleanValue(fd?.color ?? car.filter?.color))],
     ["시트 색상", dv.seatColor],
     ["판매방식", or(fd?.saleType)],
-    ["압류/저당", `${NO_INFO} / ${NO_INFO}`],
+    ["압류/저당", NO_INFO],
     ["제시번호", dv.offerNo],
     ["지역", car.place.split(" · ")[0]],
     ["판매자 유형", car.sellerType === "딜러" ? "매매업체(딜러)" : "개인"],
@@ -131,7 +131,7 @@ function carFacts(car: Car): string[][] {
 
 /* 차량 정보 아이콘 시안(`&facts=icons`, 2026-10-14, 노션 「영국_오토트레이더 초톳 변경」 아이콘 원본 그대로 `public/assets/bbm/detail-icons/`) */
 const FACT_ICONS: Record<string, string> = {
-  차량번호: "document", 제조사: "maker", 모델: "model", 연식: "year", 주행거리: "mileage", "출시가격(옵션미포함)": "price",
+  차량번호: "document", 제조사: "maker", 모델: "model", 연식: "year", 주행거리: "mileage", "출시가격": "price",
   연료: "fuel", 배기량: "engine", 변속기: "gearbox", 차종: "body", 인승: "seats", 바디타입: "body", "외관 색상": "color", "시트 색상": "color",
   판매방식: "seller-type", "압류/저당": "document", 제시번호: "document", 지역: "location", "판매자 유형": "seller-type", 성능점검: "document", "보험이력 조회": "document",
 };

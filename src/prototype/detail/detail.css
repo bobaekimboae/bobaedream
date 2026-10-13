@@ -516,10 +516,10 @@
 .detail-more:focus-visible { outline: 2px solid #222; outline-offset: 2px; border-radius: 4px; }
 
 /* 차량 정보 아이콘 시안 `&facts=icons`(2026-10-14 「오토트레이더 Overview처럼 아이콘 조합」, 오토트레이더 모바일 Overview 격자): 2열, 칸마다 아이콘 24 + 굵은 라벨 위 · 값 아래 */
-.detail-facts.is-icons { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 12px; padding: 4px 0 8px; }
+.detail-facts.is-icons { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 12px; padding: 4px 0 8px; }
 .detail-facts.is-icons > div { display: flex; align-items: flex-start; gap: 12px; padding: 0; border: 0; min-width: 0; }
-.detail-facts.is-icons > div > img, .detail-fact-icon-gap { flex: none; width: 24px; height: 24px; object-fit: contain; }
-.detail-fact-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.detail-facts.is-icons dt { color: #222; font-size: 16px; font-weight: 700; line-height: 24px; word-break: keep-all; }
+.detail-facts.is-icons > div > img, .detail-fact-icon-gap { flex: none; width: 24px; height: 24px; margin-top: -1px; object-fit: contain; }
+.detail-fact-text { display: flex; flex-direction: column; gap: 0; min-width: 0; }
+.detail-facts.is-icons dt { color: #222; font-size: 16px; font-weight: 700; line-height: 22px; word-break: keep-all; }
 .detail-facts.is-icons dt::after { content: none; }
-.detail-facts.is-icons dd { color: #222; font-size: 16px; font-weight: 400; line-height: 24px; word-break: keep-all; }
+.detail-facts.is-icons dd { color: #222; font-size: 16px; font-weight: 400; line-height: 22px; word-break: keep-all; }
