@@ -1810,7 +1810,8 @@ const supercarSheetCars: Car[] = supercarSheetRows.map((row, index) => {
 const ferrariSheetCars: Car[] = ferrariSheetRows.filter((row) => row.photo).map((row, index) => {
   const mileageText = row.mileage >= 9500 ? `${String(Math.round(row.mileage / 1000) / 10)}만km` : `${row.mileage.toLocaleString("ko-KR")}km`;
   const [fy, fm] = row.firstReg.split("-");
-  const yearText = `${fy.slice(2)}년${fm}월`;
+  // 차란차 방식(2026-10-13): 최초등록 연월 + 연형이 다르면 `23년08월(22년형)`
+  const yearText = `${fy.slice(2)}년${fm}월${row.year !== Number(fy) ? `(${String(row.year).slice(2)}년형)` : ""}`;
   const daysAgo = 1 + (row.number % 3);
   return {
     id: 15_200 + row.number,
