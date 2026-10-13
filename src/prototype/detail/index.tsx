@@ -1189,6 +1189,77 @@ function BikeVehicleDetail({ car, onBack }: { car: Car; onBack: () => void }) {
   );
 }
 
+const detailTabLabels: Record<string, string> = { "차량 설명": "소개", "차량 정보": "차량정보", "차량 옵션": "옵션", "보험 이력": "이력", "성능 점검": "점검", "A/S 정보": "A/S", "판매 정보": "판매정보", "동급매물": "동급" };
+
+// 2026-10-14 좐좐식 상세 탭: 아래 카드들을 그대로 두고, 카드 제목을 읽어 탭을 만들고 누르면 그 카드로 이동한다. 스크롤하면 보고 있는 카드의 탭이 강조된다.
+function DetailTabs() {
+  const barRef = useRef<HTMLDivElement>(null);
+  const lockRef = useRef(0);
+  const [tabs, setTabs] = useState<{ key: string; label: string }[]>([]);
+  const [active, setActive] = useState("");
+  const sectionsFor = () => {
+    const main = barRef.current?.closest("main");
+    if (!main) return [] as { key: string; label: string; el: HTMLElement }[];
+    const list: { key: string; label: string; el: HTMLElement }[] = [];
+    main.querySelectorAll<HTMLElement>(".detail-gray-stack > section, .related-section").forEach((el, i) => {
+      const title = el.querySelector("h2")?.textContent?.trim() ?? "";
+      const label = detailTabLabels[title] ?? (title.endsWith("다른 매물") ? "판매자" : "");
+      if (label) list.push({ key: `${i}-${label}`, label, el });
+    });
+    return list;
+  };
+  useEffect(() => {
+    const main = barRef.current?.closest("main");
+    if (!main) return;
+    const scan = () => setTabs((prev) => {
+      const next = sectionsFor().map(({ key, label }) => ({ key, label }));
+      return prev.length === next.length && prev.every((t, i) => t.key === next[i].key) ? prev : next;
+    });
+    scan();
+    const observer = new MutationObserver(scan);
+    observer.observe(main, { childList: true, subtree: true });
+    return () => observer.disconnect();
+  }, []);
+  useEffect(() => {
+    const bar = barRef.current;
+    const scroller = bar?.closest<HTMLElement>(".mobile-scroll");
+    if (!bar || !scroller) return;
+    const update = () => {
+      if (Date.now() < lockRef.current) return;
+      const line = scroller.getBoundingClientRect().top + bar.offsetHeight + 12;
+      let current = "";
+      for (const { key, el } of sectionsFor()) if (el.getBoundingClientRect().top <= line) current = key;
+      if (scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight - 2) current = sectionsFor().at(-1)?.key ?? current;
+      setActive(current);
+    };
+    scroller.addEventListener("scroll", update, { passive: true });
+    update();
+    return () => scroller.removeEventListener("scroll", update);
+  }, [tabs]);
+  useEffect(() => {
+    const bar = barRef.current;
+    const tab = bar?.querySelector<HTMLElement>(".is-active");
+    if (!bar || !tab) return;
+    bar.scrollTo({ left: tab.offsetLeft - (bar.clientWidth - tab.offsetWidth) / 2, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }, [active]);
+  if (tabs.length < 2) return <div ref={barRef} hidden />;
+  const go = (key: string) => {
+    const bar = barRef.current;
+    const scroller = bar?.closest<HTMLElement>(".mobile-scroll");
+    const target = sectionsFor().find((section) => section.key === key)?.el;
+    if (!bar || !scroller || !target) return;
+    setActive(key);
+    lockRef.current = Date.now() + 900;
+    const top = scroller.scrollTop + target.getBoundingClientRect().top - scroller.getBoundingClientRect().top - bar.offsetHeight;
+    scroller.scrollTo({ top: Math.max(0, top), behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  };
+  return (
+    <div ref={barRef} className="detail-tabs" role="tablist" aria-label="상세 메뉴" data-scroll-drag="ignore">
+      {tabs.map((tab) => <button key={tab.key} type="button" role="tab" aria-selected={tab.key === active} className={tab.key === active ? "is-active" : ""} onClick={() => go(tab.key)}>{tab.label}</button>)}
+    </div>
+  );
+}
+
 function VehicleDetail() {
   const flow = useFlow();
   const activeCar = getActiveDetailCar();
@@ -1219,6 +1290,7 @@ function VehicleDetail() {
         <main className="vehicle-detail" aria-label="중고차 상세">
           <DetailHero onBack={flow.pop} />
           <VehicleSummary />
+          <DetailTabs />
           <div className="detail-gray-stack">
             <SellerCard />
             <DetailHighlights />
