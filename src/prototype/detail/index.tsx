@@ -101,7 +101,7 @@ function VehicleInfoCard() {
   const car = getActiveDetailCar();
   if (car) return (
     <SectionCard title="차량 정보" className="vehicle-info-card">
-      <dl className="detail-facts">{carFacts(car).map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
+      <dl className="detail-facts">{carFacts(car).map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{label === "제조사" ? <a className="detail-fact-link" href={`?qf=guazi&maker=${encodeURIComponent(value)}`}>{value}</a> : value}</dd></div>)}</dl>
     </SectionCard>
   );
   const items = expanded ? [...vehicleInfo, ...extraInfo] : vehicleInfo;
