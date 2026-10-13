@@ -370,7 +370,6 @@
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location img { width: 18px; height: 18px; margin-top: 1px; }
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text { flex-direction: row; flex-wrap: wrap; gap: 0 4px; font-size: 15px; line-height: 20px; }
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text > span { font-size: 15px; line-height: 20px; }
-.vehicle-summary.is-list-summary .bbm-card-location-secondary::before { content: "· "; }
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-price-badges { margin-top: 8px; }
 /* 지역 아이콘 = 노션 「chotot-profile-location」 원본(속 빈 외곽선 핀, 2026-10-13 「아이콘 변경도」): 초톳 캡처 핀 잉크 15.6×19.9 · 왼쪽 16 · 글자 시작 40.2 → 24px 상자(잉크 16×20), 상자 왼쪽 12, 글자와 간격 4 */
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location { gap: 4px; }
@@ -394,3 +393,9 @@
 .detail-posted-line { display: flex; align-items: center; gap: 4px; margin: 12px 16px 12px 12px; color: #222; font-size: 15px; line-height: 20px; }
 .detail-posted-line img { flex: none; width: 24px; height: 24px; }
 .detail-posted-line span { margin: 0; }
+
+/* 지역 줄 자동 줄바꿈(2026-10-13 「길이가 길어지면 상사명은 자동으로 아랫줄」): 단지 · 상사명을 항목 단위로 줄바꿈한다. 한 줄에 들어가면 `시도 구군 · 단지 · 상사`, 넘치면 상사명이 아랫줄로 가고 줄 맨 앞의 가운데 점은 뺀다 */
+.is-list-summary .bbm-card-location-secondary { display: contents; }
+.is-list-summary .bbm-card-location-part { white-space: nowrap; color: #222; }
+.is-list-summary .bbm-card-location-part::before { content: "· " !important; white-space: pre; }
+.is-list-summary .bbm-card-location-part.is-line-start::before { content: none !important; }
