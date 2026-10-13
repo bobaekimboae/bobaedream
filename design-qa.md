@@ -914,3 +914,20 @@ final result: passed
 - 깨진 이미지 0, 콘솔 오류 0
 
 final result: passed
+
+---
+
+# Design QA · 상세 메타정보 마력 추가 (2026-10-14)
+
+- source visual truth: 사용자 결정 「메타정보에 마력 추가」
+- viewport: 384 × 844 CSS px, DPR 1
+- state: BMW M3 첫 매물 상세 상단
+
+## Verification
+
+- 메타정보를 `2023 · 2.2만km · 가솔린 · 510마력`으로 표시했다.
+- 차량 정보 격자의 실제 표시값과 같은 마력값을 재사용했다.
+- 한 줄 유지, 잘림 없음, 깨진 이미지 0, 콘솔 오류 0.
+- `npm run verify:qf`: passed
+
+final result: passed

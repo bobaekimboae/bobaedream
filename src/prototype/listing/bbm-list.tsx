@@ -623,7 +623,7 @@ function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string
   );
 }
 
-export function BbmResultCard({ car, variant, featured = false, detailSummary = false, liked, onToggleLike, onOpen, onChat, onCall, feedPhotos, eagerPhoto = true, locationDong, detailLocation }: { car: Car; eagerPhoto?: boolean; locationDong?: string; detailLocation?: { dealer?: string; shop?: string }; variant: "pc" | "mobile"; featured?: boolean; detailSummary?: boolean; feedPhotos?: string[]; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void; onCall?: () => void }) {
+export function BbmResultCard({ car, variant, featured = false, detailSummary = false, detailPower, liked, onToggleLike, onOpen, onChat, onCall, feedPhotos, eagerPhoto = true, locationDong, detailLocation }: { car: Car; eagerPhoto?: boolean; locationDong?: string; detailLocation?: { dealer?: string; shop?: string }; variant: "pc" | "mobile"; featured?: boolean; detailSummary?: boolean; detailPower?: string; feedPhotos?: string[]; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void; onCall?: () => void }) {
   const seller = sellerLabel(car);
   // 목록 썸네일은 정규화 사본(럭셔리카와 같은 규칙)을 쓰고, 피드 대표 사진·그림(contain)은 원본 그대로
   const listPhoto = featured || car.imageFit === "contain" ? undefined : car.listThumb ?? normalizedListThumb(car.image);
@@ -651,7 +651,8 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
   // 피드형은 승용·지시값 매물도 연료 뒤에 마력을 붙인다(트럭은 이미 있고, 바이크·건설기계·캠핑카는 해당 없음). 올드카 세대는 그 뒤 맨 끝
   const isPassengerCar = !(car.truck || car.bike || car.heavy || car.virtualCategory);
   const withFeedPower = featured && isPassengerCar && !specBase.includes("마력") ? `${specBase} · ${bbmSampleHorsepower(car.id)}` : specBase;
-  const specText = oldCarGen ? `${withFeedPower} · ${oldCarGen}` : withFeedPower;
+  const withDetailPower = detailSummary && detailPower && !withFeedPower.includes("마력") ? `${withFeedPower} · ${detailPower}` : withFeedPower;
+  const specText = oldCarGen ? `${withDetailPower} · ${oldCarGen}` : withDetailPower;
   // 캠핑카 모터홈은 「승차 N인 · 취침 N인」(카라반·트레일러는 한 줄에 들어가 나누지 않음, 2026-10-08), 트럭은 「적재 · 마력 · 차축」이 한 줄에 다 안 들어가 둘째 줄로 내린다(2026-10-08)
   // 피드는 목록과 달리 메타정보를 한 줄로(2026-10-10 「피드에서는 목록과 틀리게 메타정보 한줄로」), 넘치면 말줄임
   const seatSplit = featured ? -1 : car.virtualCategory?.category === "캠핑카" ? specText.search(/ · 승차 /) : car.truck && !car.truck.trailer ? specText.search(/ · (적재 [\d.]+톤|\d+인승|[\d.]+(㎘|㎥|m) · |\d+마력)/) : -1;
