@@ -26,8 +26,6 @@
 
 final result: passed
 
----
-
 # Design QA · 상세 하트·판매자 리뷰 재정렬 (2026-10-14)
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/9745c5c0-e284-4109-b52c-d87c9006da14/1-1000018198.jpg`
@@ -890,6 +888,29 @@ final result: passed
 ## Verification
 
 - 384×844 렌더 확인
+- 깨진 이미지 0, 콘솔 오류 0
+
+final result: passed
+
+---
+
+# Design QA · 하트 사진 상단 이동 (2026-10-14)
+
+- source visual truth: 사용자 결정 「하트는 모델 위쪽, 리뷰 제거」
+- viewport: 384 × 844 CSS px, DPR 1
+- state: BMW M3 첫 매물 상세 상단
+
+## Comparison evidence
+
+- 하트를 차량 사진 상단 액션 줄로 옮겨 모델명과 판매자 정보의 가로 폭을 모두 확보했다.
+- 우측 액션은 하트 → 공유 → 더보기 순으로 32px 원형 버튼과 8px 간격을 사용한다.
+- 판매자 줄의 리뷰·평점·세로 구분선·하트 슬롯을 모두 제거했다.
+- 비선택/선택 상태는 기존 하트 SVG와 핑크 마스크를 재사용한다.
+
+## Verification
+
+- `npm run verify:qf`: passed
+- 하트 선택 상태 전환 확인
 - 깨진 이미지 0, 콘솔 오류 0
 
 final result: passed

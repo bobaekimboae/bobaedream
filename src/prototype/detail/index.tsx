@@ -368,7 +368,7 @@ const THUMB_EDGE_LEFT = 8;
 const THUMB_EDGE_RIGHT = 8;
 
 function DetailHero({ onBack }: { onBack: () => void }) {
-  const { setSheet, notify } = useDetailUi();
+  const { liked, setLiked, setSheet, notify } = useDetailUi();
   const photos = detailPhotosOf(getActiveDetailCar());
   const [photoIndex, setPhotoIndex] = useState(1);
   const heroRef = useRef<HTMLElement>(null);
@@ -488,6 +488,9 @@ function DetailHero({ onBack }: { onBack: () => void }) {
         <div className="detail-hero-actions">
           <button type="button" aria-label="목록으로 돌아가기" onClick={onBack}><img src={asset("detail/reddit-back.svg")} alt="" /></button>
           <div>
+            <button type="button" className={`detail-hero-wish${liked ? " is-liked" : ""}`} aria-label={liked ? "매물 찜 해제" : "매물 찜"} aria-pressed={liked} onClick={() => setLiked(!liked)}>
+              {liked ? <span className="detail-hero-wish-on" style={{ WebkitMaskImage: `url("${bbmIcon("card-wish-off")}")`, maskImage: `url("${bbmIcon("card-wish-off")}")` }} aria-hidden="true" /> : <img src={bbmIcon("card-wish-off")} alt="" aria-hidden="true" />}
+            </button>
             <button type="button" aria-label="공유하기" onClick={() => notify("공유 링크를 복사했어요")}><img src={asset("detail/reddit-share.svg")} alt="" /></button>
             <button type="button" aria-label="더보기" onClick={() => setSheet("more")}><img src={asset("detail/reddit-more-vertical.svg")} alt="" /></button>
           </div>
@@ -972,7 +975,6 @@ function useLocationLinks(ref: { current: HTMLElement | null }, car: Car | null 
 }
 
 function DetailSellerInfo({ car }: { car: Car }) {
-  const { liked, setLiked } = useDetailUi();
   const isDealer = car.sellerType === "딜러";
   // 판매완료 대수는 실제 값이 없어 매물 번호로 정한 가상 값이다(2026-10-13 「판매중 판매완료 추가」)
   // 딜러 이름은 「이은호 딜러」 형식(2026-10-13): 목록의 「이름 상사」는 이름만 따고 상사는 아래 회색 줄로 옮긴다
@@ -988,9 +990,6 @@ function DetailSellerInfo({ car }: { car: Car }) {
         {isDealer ? <span><b>{soldCount}대</b> 판매완료 · <b>{car.stock}대</b> 판매중</span> : null}
         <span className="detail-seller-activity">최근 활동 {car.posted}</span>
       </div>
-      <button type="button" className={`detail-seller-wish${liked ? " is-liked" : ""}`} aria-label={liked ? "매물 찜 해제" : "매물 찜"} aria-pressed={liked} onClick={() => setLiked(!liked)}>
-        {liked ? <span className="detail-seller-wish-on" style={{ WebkitMaskImage: `url("${bbmIcon("card-wish-off")}")`, maskImage: `url("${bbmIcon("card-wish-off")}")` }} aria-hidden="true" /> : <img src={bbmIcon("card-wish-off")} alt="" aria-hidden="true" />}
-      </button>
     </section>
   );
 }
