@@ -623,7 +623,7 @@ function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string
   );
 }
 
-export function BbmResultCard({ car, variant, featured = false, liked, onToggleLike, onOpen, onChat, onCall, feedPhotos, eagerPhoto = true, locationDong }: { car: Car; eagerPhoto?: boolean; locationDong?: string; variant: "pc" | "mobile"; featured?: boolean; feedPhotos?: string[]; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void; onCall?: () => void }) {
+export function BbmResultCard({ car, variant, featured = false, liked, onToggleLike, onOpen, onChat, onCall, feedPhotos, eagerPhoto = true, locationDong, detailLocation }: { car: Car; eagerPhoto?: boolean; locationDong?: string; detailLocation?: { dealer: string; shop: string }; variant: "pc" | "mobile"; featured?: boolean; feedPhotos?: string[]; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void; onCall?: () => void }) {
   const seller = sellerLabel(car);
   // 목록 썸네일은 정규화 사본(럭셔리카와 같은 규칙)을 쓰고, 피드 대표 사진·그림(contain)은 원본 그대로
   const listPhoto = featured || car.imageFit === "contain" ? undefined : car.listThumb ?? normalizedListThumb(car.image);
@@ -718,7 +718,10 @@ export function BbmResultCard({ car, variant, featured = false, liked, onToggleL
             </div>
           </div>
           <div className="bbm-card-meta">
-            <div className="bbm-card-location"><img src={bbmIcon("card-location")} alt="" aria-hidden="true" /><span className="bbm-card-location-text"><span>{locationMain}</span>{locationSecondaryParts.length ? <span className="bbm-card-location-secondary">{locationSecondaryParts.map((part, index) => <span key={`${part}-${index}`} className="bbm-card-location-part">{part}</span>)}</span> : null}</span></div>
+            <div className="bbm-card-location"><img src={bbmIcon("card-location")} alt="" aria-hidden="true" /><span className="bbm-card-location-text">{detailLocation ? <>
+              <span className="bbm-card-location-row is-first"><span>{locationMain}</span>{locationSecondaryParts[0] ? <span className="bbm-card-location-part is-complex">{locationSecondaryParts[0]}</span> : null}</span>
+              {detailLocation.dealer || detailLocation.shop ? <span className="bbm-card-location-row">{[detailLocation.dealer, detailLocation.shop].filter(Boolean).map((part) => <span key={part} className="bbm-card-location-part">{part}</span>)}</span> : null}
+            </> : <><span>{locationMain}</span>{locationSecondaryParts.length ? <span className="bbm-card-location-secondary">{locationSecondaryParts.map((part, index) => <span key={`${part}-${index}`} className="bbm-card-location-part">{part}</span>)}</span> : null}</>}</span></div>
             {/* JOB-8: 모바일도 초톳처럼 판매자 줄을 지역 바로 아래(오른쪽 글 칸 안)에 둔다 */}
             {sellerRow}
           </div>
