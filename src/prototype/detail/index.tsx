@@ -1028,6 +1028,9 @@ function DesktopVehicleDetail({ onBack }: { onBack: () => void }) {
 
 function BikeVehicleDetail({ car, onBack }: { car: Car; onBack: () => void }) {
   const bike = car.bike!;
+  // 상세 썸네일 줄(카이디 크기)을 바이크 상세에도 쓴다. 사진이 여러 장이면 아래 줄에서 큰 사진을 고른다
+  const photos = detailPhotosOf(car);
+  const [photoIndex, setPhotoIndex] = useState(0);
   const rows = [
     ["제조사", car.maker],
     ["모델", car.modelGroup ?? car.title],
@@ -1049,9 +1052,12 @@ function BikeVehicleDetail({ car, onBack }: { car: Car; onBack: () => void }) {
     <main className="vehicle-detail bike-vehicle-detail" aria-label="바이크 상세">
       <section className="detail-card" style={{ padding: 0, overflow: "hidden" }}>
         <div style={{ position: "relative" }}>
-          <img src={asset(car.image)} alt={car.title} style={{ display: "block", width: "100%", aspectRatio: "4 / 3", objectFit: "cover" }} />
+          <img src={photos[photoIndex] ?? asset(car.image)} alt={car.title} style={{ display: "block", width: "100%", aspectRatio: "4 / 3", objectFit: "cover" }} />
           <button type="button" aria-label="목록으로 돌아가기" onClick={onBack} style={{ position: "absolute", top: 12, left: 12, width: 40, height: 40, border: 0, borderRadius: 20, background: "rgba(0,0,0,.55)", color: "#fff", fontSize: 22 }}>←</button>
         </div>
+        {photos.length > 1 ? <div className="detail-thumbs" role="group" aria-label="차량 사진 썸네일">
+          {photos.map((photo, index) => <button key={`${photo}-${index}`} type="button" aria-label={`사진 ${index + 1} 보기`} aria-pressed={index === photoIndex} className={index === photoIndex ? "is-active" : ""} onClick={() => setPhotoIndex(index)}><img src={photo} alt="" draggable={false} loading="lazy" /></button>)}
+        </div> : null}
         <div style={{ padding: 20 }}>
           <p style={{ margin: "0 0 6px", color: "#777", fontSize: 13 }}>테스트용 가상 매물 · {bike.scenarioId}</p>
           <h1 style={{ margin: 0, fontSize: 23 }}>{car.title}</h1>
