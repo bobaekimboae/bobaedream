@@ -142,6 +142,7 @@ const FACT_ICONS: Record<string, string> = {
   판매방식: "seller-type", "압류/저당": "document", 제시번호: "document", 지역: "location", "판매자 유형": "seller-type", 성능점검: "document", "보험이력 조회": "document",
 };
 const FACTS_VISIBLE_ICONS = 8;
+const VEHICLE_INFO_TOTAL_LABEL = 37;
 function VehicleInfoCard() {
   const [expanded, setExpanded] = useState(false);
   const car = getActiveDetailCar();
@@ -150,7 +151,7 @@ function VehicleInfoCard() {
   if (car && (factsMode === "icons" || factsMode === "icons-charancha")) return (
     <SectionCard title="차량 정보" className="vehicle-info-card is-facts-icons">
       <dl className={`detail-facts is-icons${factsMode === "icons-charancha" ? " is-charancha" : ""}`}>{(expanded ? facts : facts.slice(0, FACTS_VISIBLE_ICONS)).map(([label, value]) => <div key={label}>{FACT_ICONS[label] ? <img src={asset(`bbm/detail-icons/${FACT_ICONS[label]}.svg`)} data-icon={FACT_ICONS[label]} alt="" aria-hidden="true" draggable={false} /> : <span className="detail-fact-icon-gap" />}<span className="detail-fact-text"><dt>{label}</dt><dd>{label === "제조사" ? <a className="detail-fact-link" href={`?qf=guazi&maker=${encodeURIComponent(value)}`}>{value}</a> : value}</dd></span></div>)}</dl>
-      {facts.length > FACTS_VISIBLE_ICONS ? <button type="button" className="detail-more" aria-expanded={expanded} onClick={() => setExpanded((v) => !v)}><span>{expanded ? "정보 접기" : "정보 더보기"}</span><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ transformOrigin: "8px 8px", transform: expanded ? "rotate(180deg)" : "none" }} /></svg></button> : null}
+      {facts.length > FACTS_VISIBLE_ICONS ? <button type="button" className="detail-more is-airbnb" aria-expanded={expanded} onClick={() => setExpanded((v) => !v)}><span>{expanded ? "정보 접기" : `${VEHICLE_INFO_TOTAL_LABEL}개 정보 더보기`}</span></button> : null}
     </SectionCard>
   );
   if (car) return (
