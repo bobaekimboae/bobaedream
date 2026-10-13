@@ -363,6 +363,7 @@ function CostCalculatorSheet({ onClose }: { onClose: () => void }) {
         <img src={asset("detail/price-history-close.svg")} alt="" />
       </button>
 
+      <div className="cost-calculator-scroll">
       <section className="cost-vehicle-summary" aria-label="계산 대상 차량">
         <img src={photo} alt="" />
         <div><strong>{title}</strong><span>판매가 {formatCostManwon(price)}</span></div>
@@ -410,6 +411,7 @@ function CostCalculatorSheet({ onClose }: { onClose: () => void }) {
       </section>
 
       <p className="cost-disclaimer">계산 결과는 참고용 예상 금액입니다. 실제 취득세·공채·매도비·보험료는 차량과 구매자 조건 및 등록 지역에 따라 달라질 수 있습니다.</p>
+      </div>
       <div className="cost-calculator-footer"><div><span>예상 총 비용</span><strong>{formatCostManwon(total)}</strong></div><button type="button" onClick={complete}>계산 완료</button></div>
     </div>
   );
