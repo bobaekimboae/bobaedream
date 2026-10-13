@@ -742,3 +742,59 @@ final result: passed
 - `npm run verify:qf`: passed
 
 final result: passed
+
+---
+
+# Design QA · 초톳 상세 상단 정보 슬롯
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/9745c5c0-e284-4109-b52c-d87c9006da14/1-1000018198.jpg`
+- source pixels: 591×1280 JPEG; 384px CSS 폭으로 정규화(배율 0.6497, 래스터 추정 오차 ±1~2px)
+- implementation: `http://127.0.0.1:4210/?qf=guazi&category=서울오토갤러리&facts=icons`
+- implementation screenshot: Chrome Browser tab `229709567`의 384×844 인라인 캡처
+- implementation pixels/CSS/density: 384×844 / 384×844 CSS / DPR 1
+- state: BMW M3 첫 매물 상세, 사진 1/20, 상세 상단과 첫 콘텐츠 카드가 보이는 초기 상태
+
+## Full-view comparison evidence
+
+원본과 구현의 차량/상품 사진 내용이 달라 사진 영역 자체는 판정에서 제외했다. 사진 아래 정보 블록의 좌우 16px 정렬, 텍스트 계층, 주소 두 줄, 등록 시간, 판매자 블록의 전체 밀도를 비교했다. 구현은 초톳과 같은 순서와 정보 위계를 유지하며, 가격 색상은 제품 결정에 따라 `#222`를 유지했다.
+
+## Focused region comparison evidence
+
+- 제목: 20px/28px/600, 사진 아래 16px
+- 메타: 15px/22px/400, 제목 아래 8px
+- 가격: 22px/28px/600, 메타 아래 8px, `#222`
+- 지역: 15px/22px/400, 두 줄 간격 4px, 보조 주소 `#8c8c8c`
+- 등록일: 15px/22px/400, 지역 아래 12px
+- 판매자: 등록일 아래 36px, 프사 48×48px, 이름 16px/22px/600, 실적·최근 활동 14px/20px/400
+- 평점: 세로 구분선, 4.8 + 초톳 원본 별 SVG, 후기 버튼
+
+## Findings
+
+- P3: 원본과 구현의 제목 내용이 달라 줄바꿈 위치는 동일 문구 기준으로 비교할 수 없다. 슬롯 폭과 타이포 토큰은 기준에 맞으며 콘텐츠 차이로 허용한다.
+- P3: 평점·후기·최근 활동 값은 프런트 시안용 결정값이다. 실제 API가 연결되면 실데이터로 교체해야 한다.
+
+## Comparison history
+
+### Pass 1 — blocked
+
+- 제목 19/29.5/500, 메타 14/20, 가격 20/28/700으로 초톳보다 작거나 위계가 달랐다.
+- 주소 두 줄 간격이 0px였고 등록일에서 판매자까지 12px뿐이었다.
+- 판매 실적이 16/24로 과대했고 최근 활동 및 우측 평점 영역이 없었다.
+
+### Pass 2 — passed
+
+- 위 타이포와 간격을 항목별 토큰으로 수정했다.
+- 주소 보조 줄과 판매자 3단 정보, 평점 영역을 추가했다.
+- 384×844 렌더에서 DOM 수치를 재확인했다.
+- 깨진 이미지 0개, 콘솔 오류 0건.
+- 후기 버튼 동작을 확인했다.
+
+## Required fidelity surfaces
+
+- fonts/typography: Pretendard 계열 유지, 크기·굵기·행높이 통과
+- spacing/layout rhythm: 좌우 16px, 슬롯 간격, 판매자 블록 통과
+- colors/tokens: 본문 `#222`, 보조 `#8c8c8c`, 가격 검정 의도적 변경 통과
+- image quality/assets: 기존 실차·프사 유지, 초톳 원본 별 SVG 사용, 깨진 이미지 없음
+- copy/content: 기존 차량 데이터 보존, 최근 활동·평점은 시안용 값임을 기록
+
+final result: passed

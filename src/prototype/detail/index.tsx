@@ -973,6 +973,7 @@ function useLocationLinks(ref: { current: HTMLElement | null }, car: Car | null 
 }
 
 function DetailSellerInfo({ car }: { car: Car }) {
+  const { notify } = useDetailUi();
   const isDealer = car.sellerType === "딜러";
   // 판매완료 대수는 실제 값이 없어 매물 번호로 정한 가상 값이다(2026-10-13 「판매중 판매완료 추가」)
   // 딜러 이름은 「이은호 딜러」 형식(2026-10-13): 목록의 「이름 상사」는 이름만 따고 상사는 아래 회색 줄로 옮긴다
@@ -980,12 +981,18 @@ function DetailSellerInfo({ car }: { car: Car }) {
   const [personName, ...shopParts] = label.split(" "); // 상사 정보는 일단 숨김(2026-10-13)
   const sellerName = isDealer && !/딜러$/.test(label) && shopParts.length ? `${personName} 딜러` : label;
   const soldCount = 12 + ((car.id * 37) % 188);
+  const reviewCount = 9 + (car.id % 18);
   return (
     <section className="detail-seller-info" aria-label="판매자 정보">
       <img className="detail-seller-avatar" src={asset(sellerDetailPhoto(car))} alt="" draggable={false} />
       <div className="detail-seller-text">
         <strong>{sellerName}</strong>
         {isDealer ? <span><b>{soldCount}대</b> 판매완료 · <b>{car.stock}대</b> 판매중</span> : null}
+        <span className="detail-seller-activity">최근 활동 {car.posted}</span>
+      </div>
+      <div className="detail-seller-rating" aria-label={`판매자 평점 4.8점, 후기 ${reviewCount}개`}>
+        <div className="detail-seller-rating-score"><strong>4.8</strong><img src={asset("icons/chotot/chotot-list-detail-review-star.svg")} alt="" aria-hidden="true" /></div>
+        <button type="button" onClick={() => notify("판매자 후기를 준비하고 있어요")}>{reviewCount}개 후기</button>
       </div>
     </section>
   );
