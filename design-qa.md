@@ -28,6 +28,39 @@ final result: passed
 
 ---
 
+# 상세 차량 옵션 · Airbnb 편의시설형 시안 QA · 2026-10-13
+
+- source visual truth: Airbnb 공식 숙소 상세의 `What this place offers` / `Show all amenities` 구조
+- source URL: `https://www.airbnb.co.kr/rooms/38527334`
+- supporting source: `https://www.airbnb.com/rooms/1461437324598523995`
+- implementation: `http://127.0.0.1:4212/?qf=guazi&category=슈퍼카&view=feed&maker=페라리`
+- intended viewport: 모바일 390×844 CSS px / PC 1440×900 CSS px
+- state: 주요 옵션 접힘·전체 옵션 펼침
+
+## Findings
+
+- Fonts and typography: 기존 Pretendard를 유지하고 옵션명은 16/22·400으로 정리했다.
+- Spacing and layout rhythm: 모바일은 1열 48px 행, 아이콘 24px, 아이콘–텍스트 16px. PC는 2열 52px 행으로 구성했다.
+- Colors and visual tokens: 본문·버튼은 #222, 배경은 흰색, 전체 보기 버튼은 1px 진한 테두리와 8px 모서리를 사용한다.
+- Image quality and asset fidelity: 기존 차량 옵션 PNG만 재사용했으며 새 CSS 도형·문자 아이콘·임의 SVG를 만들지 않았다.
+- Copy and content: 페라리 실데이터는 공개된 주요 옵션만 보여주고, 전체 등록 개수는 보조 문구로 구분한다.
+- Interaction: 처음에는 핵심 옵션만 노출하고 `주요 옵션 N개 모두 보기`로 펼치며 같은 버튼으로 접는다.
+
+## Blocking issue
+
+- Chrome CDP 연결이 `Page.navigate`와 `Page.getFrameTree`에서 반복 시간 초과되어 Airbnb 원본과 로컬 구현의 브라우저 캡처를 만들 수 없었다.
+- 따라서 같은 뷰포트의 나란히 비교, 실제 줄바꿈, 아이콘 광학 정렬, 콘솔 오류 확인은 완료하지 못했다.
+
+## Verification
+
+- `npm run check:runtime`: passed
+- `npm run verify:qf`: passed
+- 브라우저 렌더 증거: blocked
+
+final result: blocked
+
+---
+
 # 올드카 카테고리 헤더 QA · 2026-10-12
 
 - source visual truth: `reports/oldcar-hero-1012/source-supercar-header-390.png`
