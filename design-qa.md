@@ -434,9 +434,10 @@ final result: passed
 # 차량 정보 초톳형 테마 QA · 2026-10-13
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/686e7f8e-a5cf-4e7c-8a82-ede39fb39fb1/1-1000018136.jpg`
-- implementation: `C:/Users/bobae/Downloads/vehicle-info-chotot-1013/01-local.png`
-- side-by-side comparison: `C:/Users/bobae/Downloads/vehicle-info-chotot-1013/comparison.png`
-- route: `/?qf=guazi&category=서울오토갤러리&facts=chotot` → 첫 번째 매물 상세
+- text-only implementation: `C:/Users/bobae/Downloads/vehicle-info-chotot-1013/01-text.png`
+- icon implementation: `C:/Users/bobae/Downloads/vehicle-info-chotot-1013/02-icons.png`
+- three-way comparison: `C:/Users/bobae/Downloads/vehicle-info-chotot-1013/comparison-two-themes.png`
+- routes: `facts=chotot` (초톳 원본형), `facts=chotot-icons` (동일 구조 + 아이콘형)
 - viewport: 390 × 844 CSS px, deviceScaleFactor 1
 
 ## Findings
@@ -447,6 +448,8 @@ final result: passed
 - 각 구역은 2열, 라벨 14/20 `#8A8A8A`, 값 16/24 `#222`, 열 간격 22px, 행 간격 18px다.
 - 초톳처럼 짧게 훑도록 변속기·공차중량·최고출력 값은 요약 표기하고, 무다형에는 전체 공식 제원을 유지했다.
 - 제조사 링크만 보배드림의 링크 색을 유지했다.
+- 아이콘형은 같은 2열 구조와 카드 높이를 유지하며 각 정보 슬롯 앞에 기존 차량정보 아이콘을 22px로 배치했다.
+- 아이콘은 회색 단색으로 통일해 초톳형의 텍스트 위계를 해치지 않게 했고, 텍스트형과 URL로 즉시 비교할 수 있게 분리했다.
 
 ## Verification
 

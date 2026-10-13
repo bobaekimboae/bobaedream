@@ -622,6 +622,14 @@
 .chotot-fact-group dt { color: #8a8a8a; font-size: 14px; font-weight: 400; line-height: 20px; }
 .chotot-fact-group dd { margin-top: 4px; color: #222; font-size: 16px; font-weight: 400; line-height: 24px; }
 .chotot-fact-group dd .detail-fact-link { color: #3074c2; }
+.chotot-fact-groups.has-icons .chotot-fact-group dl { column-gap: 16px; }
+.chotot-fact-groups.has-icons .chotot-fact-group dl > div { display: grid; grid-template-columns: 22px minmax(0, 1fr); column-gap: 8px; align-items: start; }
+.chotot-fact-groups.has-icons .chotot-fact-group dl > div > img { grid-column: 1; grid-row: 1 / span 2; width: 22px; height: 22px; margin-top: 1px; object-fit: contain; opacity: .68; filter: grayscale(1); }
+.chotot-fact-groups.has-icons .chotot-fact-group dt,
+.chotot-fact-groups.has-icons .chotot-fact-group dd { grid-column: 2; }
+.chotot-fact-groups.has-icons .chotot-fact-group img[data-icon="gearbox"] { transform: scale(1.1); }
+.chotot-fact-groups.has-icons .chotot-fact-group img[data-icon="year"] { transform: scale(.92); }
+.chotot-fact-groups.has-icons .chotot-fact-group img[data-icon="fuel"] { transform: scale(.96); }
 
 /* 차량 정보 아이콘 시안 `&facts=icons`(2026-10-14): FINN의 여백, mobile.de의 회색 라벨·굵은 값, Auto Trader의 2열 구조를 조합한다. 오토스카우트와 같은 24px 점유 슬롯에서 실제 도형이 약 20~22px 보이도록 28px 원본을 광학 보정하며, 제목 아래 구분선은 두지 않는다. */
 .detail-facts.is-icons { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 12px; margin: 4px 0 0; padding: 14px 0; border: 0; }
