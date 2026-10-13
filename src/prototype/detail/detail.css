@@ -685,3 +685,7 @@
 
 /* 차량 정보 좌측 정렬 시안(2026-10-14 「시안 다시줘봐」): 값이 라벨 바로 옆(라벨 칸 112px)에서 시작해 왼쪽 정렬. */
 .detail-facts.is-left > div { grid-template-columns: 112px minmax(0, 1fr); }
+
+/* 상세 사진 사이 구분선(2026-10-14 「사진이 하나로 붙었다」): 같은 배경 사진이 이어 보이지 않게 검은 3px을 둔다. 한 장 폭은 그대로(border-box). */
+.detail-media-track > img { box-sizing: border-box; }
+.detail-media-track > img:not(:last-child) { border-right: 3px solid #000; }
