@@ -281,3 +281,4 @@
 "2026-10-14 08:00","미지정","claude/used-car-detail-1013","-","배포","완료","상세 차량 정보 17개 항목 + 정보 더보기(에어비앤비식), 명칭 수정","detail/index.tsx · detail.css"
 "2026-10-14 08:40","미지정","claude/used-car-detail-1013","-","배포","완료","상세 차량 정보 차종·인승·시트색상·제시번호 추정값 채움(차량번호·출시가격·압류저당은 정보없음 유지)","detail/index.tsx"
 "2026-10-14 10:00","미지정","claude/used-car-detail-1013","-","배포","완료","상세 차량 정보 아이콘 조합 시안(&facts=icons, 오토트레이더 Overview식 2열 · 노션 아이콘 14종)","detail/index.tsx · detail.css · public/assets/bbm/detail-icons"
+"2026-10-14 10:30","미지정","claude/used-car-detail-1013","-","배포","완료","상세 아이콘 시안 간격 정리(피치 62) · 출시가격 라벨 · 압류저당 한 줄","detail/index.tsx · detail.css"
