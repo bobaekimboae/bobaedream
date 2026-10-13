@@ -20,7 +20,8 @@ const bezier = (x1: number, y1: number, x2: number, y2: number) => (t: number) =
 };
 const ease = bezier(0.25, 0.1, 0.25, 1);
 
-export function PagedPhotoCarousel({ ariaLabel, count, children }: PropsWithChildren<{ ariaLabel: string; count: number }>) {
+// 상세 사진과 피드(목록) 사진이 같은 넘기기를 쓰도록 훅으로 둔다(2026-10-14 「피드도 같은 속도로 맞춰」)
+export function usePagedDrag(count: number) {
   const ref = useRef<HTMLDivElement>(null);
   const frame = useRef(0);
   const suppressClick = useRef(false);
@@ -72,7 +73,7 @@ export function PagedPhotoCarousel({ ariaLabel, count, children }: PropsWithChil
       suppressClick.current = true;
       window.setTimeout(() => { suppressClick.current = false; }, 0);
       // 한 장 폭은 첫 사진 폭(좁은 화면에서는 칸 폭보다 클 수 있다)을 쓴다
-      const width = node.querySelector<HTMLElement>(".detail-media-track > img")?.getBoundingClientRect().width || node.clientWidth || 1;
+      const width = node.querySelector<HTMLElement>("img")?.getBoundingClientRect().width || node.clientWidth || 1;
       const dx = e.clientX - state.x;
       const from = Math.round(state.left / width);
       const to = Math.max(0, Math.min(count - 1, e.type === "pointercancel" ? from : Math.abs(dx) > width / THRESHOLD ? from + (dx < 0 ? 1 : -1) : from));
@@ -88,16 +89,16 @@ export function PagedPhotoCarousel({ ariaLabel, count, children }: PropsWithChil
       detach.current = () => {};
     };
   };
+  const onClickCapture = (event: { stopPropagation: () => void; preventDefault: () => void }) => {
+    if (suppressClick.current) { event.stopPropagation(); event.preventDefault(); }
+  };
+  return { ref, onPointerDown, onClickCapture };
+}
 
+export function PagedPhotoCarousel({ ariaLabel, count, children }: PropsWithChildren<{ ariaLabel: string; count: number }>) {
+  const paged = usePagedDrag(count);
   return (
-    <div
-      ref={ref}
-      className="detail-media-carousel"
-      role="region"
-      aria-label={ariaLabel}
-      onPointerDown={onPointerDown}
-      onClickCapture={(event) => { if (suppressClick.current) { event.stopPropagation(); event.preventDefault(); } }}
-    >
+    <div ref={paged.ref} className="detail-media-carousel" role="region" aria-label={ariaLabel} onPointerDown={paged.onPointerDown} onClickCapture={paged.onClickCapture}>
       <div className="detail-media-track">{children}</div>
     </div>
   );
