@@ -483,7 +483,7 @@ function DetailHero({ onBack }: { onBack: () => void }) {
         <Carousel ariaLabel="차량 사진" className="detail-media-carousel" contentClassName="detail-media-track">
           {photos.map((photo, index) => <img key={`${photo}-${index}`} src={photo} alt={`차량 사진 ${index + 1}`} draggable={false} />)}
         </Carousel>
-        {photoIndex === 1 ? <span className="detail-video-play" aria-hidden="true"><span /></span> : null}
+        {photoIndex === 1 && (getActiveDetailCar() ? getActiveDetailCar()?.filter?.video : true) ? <span className="detail-video-play" aria-hidden="true"><span /></span> : null}
         <div className="detail-photo-count" aria-live="polite" aria-atomic="true">{photoIndex} / {totalPhotos}</div>
         <div className="detail-hero-actions">
           <button type="button" aria-label="목록으로 돌아가기" onClick={onBack}><img src={asset("detail/reddit-back.svg")} alt="" /></button>
@@ -1043,7 +1043,11 @@ function DesktopGallery({ onBack }: { onBack: () => void }) {
   const { setSheet, notify } = useDetailUi();
   const [selected, setSelected] = useState(0);
   const thumbs = useRef<HTMLDivElement>(null);
-  const photos = Array.from({ length: 24 }, (_, i) => pcAsset(`9573-imgImage${i % 8 || ""}.png`));
+  // 2026-10-14 「영상도 없는데 영상 버튼, 전반적으로 오류 수정」: 실매물 상세는 그 매물의 사진 · 사진 수를 쓰고 영상 표시도 영상이 있을 때만 보인다(시안 폴백만 벤틀리 시안 24장 · 영상 표시)
+  const activeCar = getActiveDetailCar();
+  const isMock = !activeCar;
+  const photos = isMock ? Array.from({ length: 24 }, (_, i) => pcAsset(`9573-imgImage${i % 8 || ""}.png`)) : detailPhotosOf(activeCar);
+  const showPlay = isMock || !!activeCar?.filter?.video;
   const choose = (index: number) => setSelected((index + photos.length) % photos.length);
   useEffect(() => {
     const rail = thumbs.current?.querySelector<HTMLElement>(".pc-thumbnails");
@@ -1056,16 +1060,16 @@ function DesktopGallery({ onBack }: { onBack: () => void }) {
   };
   return <section className="pc-gallery" aria-label="차량 사진">
     <div className="pc-hero" onKeyDown={(event) => { if (event.key === "ArrowRight") choose(selected + 1); if (event.key === "ArrowLeft") choose(selected - 1); }} tabIndex={0}>
-      <img className="pc-hero-photo" src={selected === 0 ? pcAsset("9550-imgFrame1000006297.png") : photos[selected]} alt={`벤틀리 차량 사진 ${selected + 1}`} draggable={false} />
+      <img className="pc-hero-photo" src={isMock && selected === 0 ? pcAsset("9550-imgFrame1000006297.png") : photos[selected]} alt={`${isMock ? "벤틀리 " : ""}차량 사진 ${selected + 1}`} draggable={false} />
       <div className="pc-hero-tools"><button aria-label="목록으로 돌아가기" onClick={onBack}><img src={asset("detail/reddit-back.svg")} alt="" /></button><div><button aria-label="공유하기" onClick={share}><img src={asset("detail/reddit-share.svg")} alt="" /></button><button aria-label="더보기" onClick={() => setSheet("more")}><img src={asset("detail/reddit-more-vertical.svg")} alt="" /></button></div></div>
-      {selected === 0 && <span className="pc-play" aria-hidden="true"><img src={pcAsset("9550-imgMaskGroup.svg")} alt="" /><img src={pcAsset("9550-imgFill7.svg")} alt="" /></span>}
+      {showPlay && selected === 0 && <span className="pc-play" aria-hidden="true"><img src={pcAsset("9550-imgMaskGroup.svg")} alt="" /><img src={pcAsset("9550-imgFill7.svg")} alt="" /></span>}
       <button className="pc-photo-prev" aria-label="이전 사진" onClick={() => choose(selected - 1)}><img src={pcAsset("9573-imgFrame1000006284.svg")} alt="" /></button>
       <button className="pc-photo-next" aria-label="다음 사진" onClick={() => choose(selected + 1)}><img src={pcAsset("9573-imgFrame1000006284.svg")} alt="" /></button>
-      <span className="pc-photo-counter" aria-live="polite">{selected + 1}/24</span>
+      <span className="pc-photo-counter" aria-live="polite">{selected + 1}/{photos.length}</span>
     </div>
     <div className="pc-thumbnail-region" ref={thumbs}>
       <Carousel ariaLabel="차량 사진 썸네일" className="pc-thumbnails" contentClassName="pc-thumbnail-track">
-        {photos.map((src, i) => <button key={i} data-photo={i} aria-label={`사진 ${i + 1} 보기`} aria-pressed={i === selected} onClick={() => choose(i)}><img src={src} alt="" draggable={false} />{i === 0 && <span className="pc-thumb-play" aria-hidden="true"><img src={pcAsset("9550-imgMaskGroup.svg")} alt="" /><img src={pcAsset("9550-imgFill7.svg")} alt="" /></span>}</button>)}
+        {photos.map((src, i) => <button key={i} data-photo={i} aria-label={`사진 ${i + 1} 보기`} aria-pressed={i === selected} onClick={() => choose(i)}><img src={src} alt="" draggable={false} />{showPlay && i === 0 && <span className="pc-thumb-play" aria-hidden="true"><img src={pcAsset("9550-imgMaskGroup.svg")} alt="" /><img src={pcAsset("9550-imgFill7.svg")} alt="" /></span>}</button>)}
       </Carousel>
       <button className="pc-rail-next" aria-label="다음 썸네일" onClick={() => choose(selected + 1)}><img src={pcAsset("9573-imgFrame1000006284.svg")} alt="" /></button>
     </div>
