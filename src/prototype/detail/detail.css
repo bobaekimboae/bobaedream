@@ -346,3 +346,9 @@
 .is-list-summary .bbm-card-content { min-height: 0 !important; }
 .is-list-summary .bbm-card-meta { position: relative; }
 .is-list-summary .bbm-card-meta-row { position: absolute !important; top: -8px; right: -6px; width: auto !important; height: auto !important; margin: 0 !important; padding: 0 !important; }
+/* 지역 줄 = 초톳 상세(2026-10-13 「초톳처럼 지역 아이콘과 텍스트 색상 크기 변경」, 초톳 캡처 923px÷2.4): 아이콘 20px 진한 색, 1줄 16/24 #222, 2줄(단지) 16/24 #8C8C8C */
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location { height: auto; align-items: flex-start; gap: 10px; margin-top: 10px; color: #222; font-size: 16px; line-height: 24px; font-weight: 400; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location img { width: 20px; height: 20px; margin-top: 2px; filter: brightness(0); opacity: .87; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text { display: flex; flex-direction: column; gap: 0; overflow: visible; font-size: 16px; line-height: 24px; white-space: normal; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text > span { font-size: 16px; line-height: 24px; color: #222; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text > .bbm-card-location-secondary { color: #8c8c8c; }
