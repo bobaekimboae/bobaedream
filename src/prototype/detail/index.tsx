@@ -326,7 +326,7 @@ function VehicleInfoCard() {
   );
 }
 
-// 차량 소개(Cars & Bids의 Highlights): 실제로 가진 값만으로 문장을 만든다(없는 값은 문장에서 뺀다)
+// 차량 설명(Cars & Bids의 Highlights): 실제로 가진 값만으로 문장을 만든다(없는 값은 문장에서 뺀다)
 function DetailHighlights() {
   const [expanded, setExpanded] = useState(false);
   const car = getActiveDetailCar();
@@ -343,7 +343,7 @@ function DetailHighlights() {
   lines.push(`${car.place.split(" · ")[0]}에서 ${car.sellerType === "딜러" ? "매매업체" : "개인"}가 판매 중입니다. 실차 확인과 성능점검 기록부 확인 후 거래하세요.`);
   const visibleLines = expanded ? lines : lines.slice(0, 2);
   return (
-    <SectionCard title="차량 소개" className="detail-highlights">
+    <SectionCard title="차량 설명" className="detail-highlights">
       <div className="detail-highlights-copy">
         {visibleLines.map((line) => <p key={line}>{line}</p>)}
       </div>
