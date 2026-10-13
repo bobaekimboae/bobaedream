@@ -258,12 +258,6 @@ const FACT_ICONS: Record<string, string> = {
   세부모델: "model-trim", "시리즈·코드": "document", 차체형식: "body", "좌석 수": "seats", 생산국: "location",
   판매방식: "seller-type", "압류/저당": "document", 제시번호: "document", 지역: "location", "판매자 유형": "seller-type", 성능점검: "document", "보험이력 조회": "document",
 };
-const CHOTOT_FACT_ICONS: Record<string, string> = {
-  "소유자 변경": "owners", "기본 부속품": "keys", "검사 유효기간": "document", 생산국: "location",
-  "차량 상태": "body", "보증 정책": "document", 제조사: "maker", 모델: "model-trim", 연식: "year",
-  변속기: "gearbox", 연료: "fuel", 바디타입: "body", "좌석 수": "seats", 공차중량: "mileage",
-  배기량: "engine", 최고출력: "power",
-};
 const FACTS_VISIBLE_ICONS = 8;
 const VEHICLE_INFO_TOTAL_LABEL = 37;
 function VehicleInfoCard() {
@@ -272,24 +266,18 @@ function VehicleInfoCard() {
   const facts = car ? carFacts(car) : [];
   const factGroups = car ? carFactGroups(car) : [];
   const factsMode = new URLSearchParams(window.location.search).get("facts");
-  if (car && (factsMode === "chotot" || factsMode === "chotot-icons")) {
+  if (car && factsMode === "chotot") {
     const chototRows = chototFactRows(car, factGroups);
-    const withIcons = factsMode === "chotot-icons";
-    const renderChototFact = ([label, factValue]: VehicleFactRow, rowIndex: number) => <div key={`${rowIndex}-${label}`}>
-      {withIcons && CHOTOT_FACT_ICONS[label] ? <img src={asset(`bbm/detail-icons/${CHOTOT_FACT_ICONS[label]}.svg`)} data-icon={CHOTOT_FACT_ICONS[label]} alt="" aria-hidden="true" draggable={false} /> : null}
-      <dt>{label}</dt>
-      <dd>{label === "제조사" ? <a className="detail-fact-link" href={`?qf=guazi&maker=${encodeURIComponent(factValue)}`}>{factValue}</a> : factValue}</dd>
-    </div>;
     return (
-      <SectionCard title="차량 정보" className={`vehicle-info-card is-facts-chotot${withIcons ? " has-icons" : ""}`}>
-        <div className={`chotot-fact-groups${withIcons ? " has-icons" : ""}`}>
+      <SectionCard title="차량 정보" className="vehicle-info-card is-facts-chotot">
+        <div className="chotot-fact-groups">
           <section className="chotot-fact-group">
             <h3>차량 상태</h3>
-            <dl>{chototRows.condition.flatMap((row, rowIndex) => row.map((fact) => renderChototFact(fact, rowIndex)))}</dl>
+            <dl>{chototRows.condition.flatMap((row, rowIndex) => row.map(([label, factValue]) => <div key={`${rowIndex}-${label}`}><dt>{label}</dt><dd>{factValue}</dd></div>))}</dl>
           </section>
           <section className="chotot-fact-group">
             <h3>기술 제원</h3>
-            <dl>{chototRows.technical.flatMap((row, rowIndex) => row.map((fact) => renderChototFact(fact, rowIndex)))}</dl>
+            <dl>{chototRows.technical.flatMap((row, rowIndex) => row.map(([label, factValue]) => <div key={`${rowIndex}-${label}`}><dt>{label}</dt><dd>{label === "제조사" ? <a className="detail-fact-link" href={`?qf=guazi&maker=${encodeURIComponent(factValue)}`}>{factValue}</a> : factValue}</dd></div>))}</dl>
           </section>
         </div>
       </SectionCard>
