@@ -679,6 +679,13 @@
 .detail-facts.is-icons > div > img[data-icon="seller-type"] { transform: translate(0.00px, 0.00px) scale(1.125); }
 .detail-facts.is-icons > div > img[data-icon="year"] { transform: translate(0.00px, 0.00px) scale(0.900); }
 
+/* AutoUncle 24px 원본인 마력·배기량은 28px 정렬 슬롯 안에서만 24px로 표시해 확대로 선이 굵어지지 않게 한다. */
+.detail-facts.is-icons:not(.is-charancha) > div > img[data-icon="engine"],
+.detail-facts.is-icons:not(.is-charancha) > div > img[data-icon="power"] {
+  box-sizing: border-box;
+  padding: 2px;
+}
+
 /* 차량 정보 값 우측 정렬(2026-10-14 「차량정보 우측 정렬해봐」): 라벨은 왼쪽, 값은 오른쪽 끝. 아이콘 시안(.is-icons)은 그대로. */
 .detail-facts:not(.is-icons):not(.is-left) > div { grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; }
 .detail-facts:not(.is-icons):not(.is-left) dt { white-space: nowrap; }

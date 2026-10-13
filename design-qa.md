@@ -56,6 +56,40 @@ final result: passed
 
 ---
 
+# 마력·배기량 24px 원본 크기 QA · 2026-10-14
+
+- source visual truth: `C:/Users/bobae/Downloads/vehicle-grid-icon-tuned-1013/notion-displacement-public-89a0095.png`
+- implementation screenshot: `C:/Users/bobae/Downloads/vehicle-grid-icon-tuned-1013/notion-engine-power-24px-local.png`
+- focused before/after comparison: `C:/Users/bobae/Downloads/vehicle-grid-icon-tuned-1013/comparison-engine-power-28-vs-24.png`
+- route: `/?qf=guazi&category=서울오토갤러리&facts=icons` → 첫 매물 상세
+- viewport: 390 × 844 CSS px, deviceScaleFactor 1
+- source and implementation: 390 × 844px, 밀도 변환 없음
+- state: 차량 정보 8개 접힘 상태
+
+## Findings
+
+- P0/P1/P2 findings: none after the 24px correction.
+- 기존 구현은 24px 래스터 원본을 28px로 확대해 마력·배기량의 선이 다른 아이콘보다 굵고 흐리게 보였다.
+- 28px 정렬 박스는 유지하고 안쪽 원본만 24px로 렌더해 텍스트 시작선과 격자 구조를 그대로 보존했다.
+- 수정 후 마력·배기량의 시각 무게가 연식·연료 아이콘과 비슷하고, 래스터 확대 흐림이 줄었다.
+- 폰트·타이포그래피, 간격, 색상 토큰, 복사, 카드 구조는 변경하지 않았다.
+- 원본 투명 이미지의 잘림·크롭·재채색은 없다.
+
+## Comparison history
+
+- 이전 P2: 24px 원본의 28px 확대로 선 두께와 안티앨리어싱이 강해짐.
+- 수정: 두 아이콘에만 2px 내부 여백을 적용해 실제 원본을 24px로 렌더.
+- 수정 후 근거: 좌측 28px 확대본과 우측 24px 원본 크기본의 집중 비교에서 두께·선명도가 개선됨.
+
+## Verification
+
+- 모바일 390×844 가로 오버플로 0
+- 깨진 이미지 0, 콘솔 오류 0, 400 이상 네트워크 오류 0
+
+final result: passed
+
+---
+
 # 차량 정보 주행거리 아이콘 교체 QA · 2026-10-13
 
 - source visual truth: Notion `09_주행거리 Mileage (km) (1)`의 `MileageOdometer.svg`
