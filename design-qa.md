@@ -239,8 +239,8 @@ final result: passed
 
 - P0/P1/P2 findings: none after the focused comparison.
 - Fonts and typography: Pretendard Variable 16/24·600으로 본문 CTA와 명확히 구분했다.
-- Spacing and layout rhythm: x=24, width=342, height=48, padding 11px 24px, radius 24px다.
-- Colors and visual tokens: 흰 배경, `#D8D8D8` 1px 테두리, 글자 `#222`, 그림자 없음으로 맞췄다.
+- Spacing and layout rhythm: x=24, width=342, height=48, padding 10px 23px, radius 24px다.
+- Colors and visual tokens: 흰 배경과 글자 `#222`를 유지하고, FINN 보조 버튼처럼 윤곽이 묻히지 않도록 `#C8C8C8` 2px 테두리를 적용했다.
 - Image quality and asset fidelity: 초톳 원본 드롭다운 화살표 SVG를 사용하고 펼친 상태에서 180도 회전한다.
 - Copy and content: 사용자 지정 문구 `37개 정보 더보기`를 적용했고, 펼친 상태에서는 `정보 접기`로 바뀐다.
 - Interaction: 버튼 클릭 시 `aria-expanded=false → true`, 차량 정보 행 `8 → 23`, 다시 클릭 시 닫힘을 확인했다.

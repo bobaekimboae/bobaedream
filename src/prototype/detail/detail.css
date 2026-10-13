@@ -591,7 +591,7 @@
 .detail-more { display: inline-flex; align-items: center; gap: 4px; margin: 4px 0 12px; padding: 4px 0; border: 0; background: none; color: #222; font: inherit; font-size: 16px; font-weight: 600; line-height: 24px; cursor: pointer; }
 .detail-more span { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
 .detail-more:focus-visible { outline: 2px solid #222; outline-offset: 2px; border-radius: 4px; }
-.detail-more.is-airbnb { display: flex; width: 100%; height: 48px; align-items: center; justify-content: center; gap: 4px; margin: 12px 0 4px; padding: 11px 24px; border: 1px solid #d8d8d8; border-radius: 24px; background: #fff; color: #222; font-size: 16px; font-weight: 600; line-height: 24px; text-align: center; }
+.detail-more.is-airbnb { display: flex; width: 100%; height: 48px; align-items: center; justify-content: center; gap: 4px; margin: 12px 0 4px; padding: 10px 23px; border: 2px solid #c8c8c8; border-radius: 24px; background: #fff; color: #222; font-size: 16px; font-weight: 600; line-height: 24px; text-align: center; }
 .detail-more.is-airbnb span { text-decoration: none; }
 .detail-more.is-airbnb img { width: 20px; height: 20px; transition: transform .18s ease; }
 .detail-more.is-airbnb img.is-expanded { transform: rotate(180deg); }
