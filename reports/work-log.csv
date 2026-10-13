@@ -305,3 +305,4 @@
 "2026-10-14 22:20","미지정","claude/used-car-detail-1013","-","배포","완료","상세 썸네일 이베이 방식 확정(64×64·간격 8·선택 어두운 2px, 재실측)","detail.css · detail/index.tsx","큰 사진 8 여백·둥근 모서리는 아직 미적용","",verify:qf 통과 · 384/260 측정
 2026-10-13 12:40,상세 썸네일 뺀 시안(&thumbs=off),claude/used-car-detail-1013,pending,미리보기 전용
 2026-10-13 12:47,상세 썸네일 기본 제외(&thumbs=on으로만 표시),claude/used-car-detail-1013,pending,기본값 변경
+2026-10-13 13:10,상세 차량 정보 값 우측 정렬,claude/used-car-detail-1013,pending,기본 사실표
