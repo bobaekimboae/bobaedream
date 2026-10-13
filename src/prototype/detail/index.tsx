@@ -98,10 +98,46 @@ const NO_INFO = "정보 없음";
 const FACTS_VISIBLE = 6;
 type VehicleFactRow = [label: string, value: string];
 type VehicleFactGroup = { title: string; rows: VehicleFactRow[]; basic?: boolean };
+
+/* BMW 공식 G80 M3 Competition M xDrive 제원(2021~2024형 공통 차체/파워트레인).
+   가격은 BMW 코리아 2023년 12월 가격표 기준이며 매물 고유 이력과 혼합하지 않는다. */
+const BMW_M3_COMPETITION_XDRIVE_2023 = {
+  trim: "M3 컴페티션 M xDrive",
+  transmission: "8단 M 스텝트로닉 Drivelogic",
+  series: "G80",
+  body: "4도어 세단",
+  seats: "5인승",
+  fuel: "가솔린",
+  origin: "독일",
+  displacement: "2,993cc",
+  compression: "9.3:1",
+  power: "510마력(375kW) @ 6,250rpm",
+  torque: "650N·m @ 2,750–5,500rpm",
+  engine: "S58 3.0L 직렬 6기통 트윈터보",
+  length: "4,794mm",
+  width: "1,903mm",
+  height: "1,434mm",
+  wheelbase: "2,857mm",
+  curbWeight: "1,780kg(DIN) / 1,855kg(EU)",
+  fuelTank: "59L",
+  frontBrakes: "M 컴파운드 벤틸레이티드 · 6피스톤",
+  rearBrakes: "M 컴파운드 벤틸레이티드 · 1피스톤 플로팅",
+  frontSuspension: "어댑티브 M 더블 조인트 스트럿",
+  rearSuspension: "어댑티브 M 5링크",
+  steering: "EPS M 서보트로닉 · 가변비 14.6:1",
+  frontTyre: "275/35 ZR19",
+  rearTyre: "285/30 ZR20",
+  frontWheel: "9.5J × 19",
+  rearWheel: "10.5J × 20",
+  launchPrice: "13,770만원",
+} as const;
+const isBmwM3CompetitionXDrive = (car: Car, model: string) => car.maker === "BMW" && /M3/i.test(`${model} ${car.title} ${car.trim}`) && /xDrive|컴페티션|Competition/i.test(`${car.title} ${car.trim}`);
+
 function carFacts(car: Car): string[][] {
   const fd = car.ferrariDetail;
   const yearText = bbmCardSpec(car, false).split(" · ")[0];
   const model = (car.modelGroup ?? car.title.replace(new RegExp(`^${car.maker}\\s*`), "")).trim();
+  const m3 = isBmwM3CompetitionXDrive(car, model) ? BMW_M3_COMPETITION_XDRIVE_2023 : null;
   const or = (value?: string | null) => value || NO_INFO;
   const body = cleanValue(fd?.body ?? car.filter?.body);
   const dv = derivedFacts(car, model, body);
@@ -112,11 +148,11 @@ function carFacts(car: Car): string[][] {
     ["모델", model],
     ["연식", yearText],
     ["주행거리", car.filter?.mileage ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : NO_INFO],
-    ["출시가격", NO_INFO],
-    ["연료", or(cleanValue(car.filter?.fuel))],
-    ["배기량", or(fd?.displacement)],
-    ["마력", bbmSampleHorsepower(car.id)],
-    ["변속기", or(cleanValue(fd?.transmission ?? car.filter?.transmission))],
+    ["출시가격", m3?.launchPrice ?? NO_INFO],
+    ["연료", m3?.fuel ?? or(cleanValue(car.filter?.fuel))],
+    ["배기량", m3?.displacement ?? or(fd?.displacement)],
+    ["마력", m3 ? "510마력" : bbmSampleHorsepower(car.id)],
+    ["변속기", m3?.transmission ?? or(cleanValue(fd?.transmission ?? car.filter?.transmission))],
     ["차종", or(fd?.carType ?? dv.sizeClass)],
     ["도어 수", or(dv.doors)],
     ["인승", or(dv.seats)],
@@ -145,6 +181,7 @@ function carFactGroups(car: Car): VehicleFactGroup[] {
   const model = (car.modelGroup ?? car.title.replace(new RegExp(`^${car.maker}\\s*`), "")).trim();
   const body = cleanValue(fd?.body ?? car.filter?.body);
   const dv = derivedFacts(car, model, body);
+  const m3 = isBmwM3CompetitionXDrive(car, model) ? BMW_M3_COMPETITION_XDRIVE_2023 : null;
   const value = (entry?: string | number | null) => entry === undefined || entry === null || entry === "" ? NO_INFO : String(entry);
   const mileage = car.filter?.mileage ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : NO_INFO;
   const inspection = fd ? (fd.inspection ? "기록부 있음" : "없음") : NO_INFO;
@@ -155,31 +192,35 @@ function carFactGroups(car: Car): VehicleFactGroup[] {
       title: "기본 정보",
       basic: true,
       rows: [
-        ["제조사", car.maker], ["모델", model], ["연식", yearText], ["세부모델", value(car.trim)],
-        ["변속기", value(cleanValue(fd?.transmission ?? car.filter?.transmission))], ["시리즈·코드", NO_INFO],
-        ["차체형식", value(body ? `${dv.doors ? `${dv.doors} ` : ""}${body}` : "")], ["좌석 수", value(dv.seats)],
-        ["연료", value(cleanValue(car.filter?.fuel))], ["생산국", value(cleanValue(car.filter?.origin))],
+        ["제조사", car.maker], ["모델", model], ["연식", yearText], ["세부모델", m3?.trim ?? value(car.trim)],
+        ["변속기", m3?.transmission ?? value(cleanValue(fd?.transmission ?? car.filter?.transmission))], ["시리즈·코드", m3?.series ?? NO_INFO],
+        ["차체형식", m3?.body ?? value(body ? `${dv.doors ? `${dv.doors} ` : ""}${body}` : "")], ["좌석 수", m3?.seats ?? value(dv.seats)],
+        ["연료", m3?.fuel ?? value(cleanValue(car.filter?.fuel))], ["생산국", m3?.origin ?? value(cleanValue(car.filter?.origin))],
       ],
     },
     {
       title: "엔진·성능",
       rows: [
-        ["배기량", value(fd?.displacement ?? (car.filter?.displacement ? `${car.filter.displacement.toLocaleString("ko-KR")}cc` : ""))],
-        ["압축비", NO_INFO], ["최고출력", bbmSampleHorsepower(car.id)], ["최대토크", NO_INFO], ["엔진 형식", NO_INFO],
+        ["배기량", m3?.displacement ?? value(fd?.displacement ?? (car.filter?.displacement ? `${car.filter.displacement.toLocaleString("ko-KR")}cc` : ""))],
+        ["압축비", m3?.compression ?? NO_INFO], ["최고출력", m3?.power ?? bbmSampleHorsepower(car.id)],
+        ["최대토크", m3?.torque ?? NO_INFO], ["엔진 형식", m3?.engine ?? NO_INFO],
       ],
     },
     {
       title: "크기·중량",
-      rows: [["전장", NO_INFO], ["전폭", NO_INFO], ["전고", NO_INFO], ["축거", NO_INFO], ["공차중량", NO_INFO], ["연료탱크 용량", NO_INFO]],
+      rows: [
+        ["전장", m3?.length ?? NO_INFO], ["전폭", m3?.width ?? NO_INFO], ["전고", m3?.height ?? NO_INFO],
+        ["축거", m3?.wheelbase ?? NO_INFO], ["공차중량", m3?.curbWeight ?? NO_INFO], ["연료탱크 용량", m3?.fuelTank ?? NO_INFO],
+      ],
     },
-    { title: "제동장치", rows: [["전륜 브레이크", NO_INFO], ["후륜 브레이크", NO_INFO]] },
-    { title: "서스펜션", rows: [["전륜 서스펜션", NO_INFO], ["후륜 서스펜션", NO_INFO]] },
-    { title: "조향장치", rows: [["조향 방식", NO_INFO]] },
-    { title: "타이어·휠", rows: [["전륜 타이어", NO_INFO], ["후륜 타이어", NO_INFO], ["전륜 휠", NO_INFO], ["후륜 휠", NO_INFO]] },
+    { title: "제동장치", rows: [["전륜 브레이크", m3?.frontBrakes ?? NO_INFO], ["후륜 브레이크", m3?.rearBrakes ?? NO_INFO]] },
+    { title: "서스펜션", rows: [["전륜 서스펜션", m3?.frontSuspension ?? NO_INFO], ["후륜 서스펜션", m3?.rearSuspension ?? NO_INFO]] },
+    { title: "조향장치", rows: [["조향 방식", m3?.steering ?? NO_INFO]] },
+    { title: "타이어·휠", rows: [["전륜 타이어", m3?.frontTyre ?? NO_INFO], ["후륜 타이어", m3?.rearTyre ?? NO_INFO], ["전륜 휠", m3?.frontWheel ?? NO_INFO], ["후륜 휠", m3?.rearWheel ?? NO_INFO]] },
     {
       title: "매물·이력",
       rows: [
-        ["주행거리", mileage], ["출시가격", NO_INFO], ["외관 색상", value(cleanValue(fd?.color ?? car.filter?.color))],
+        ["주행거리", mileage], ["출시가격", m3?.launchPrice ?? NO_INFO], ["외관 색상", value(cleanValue(fd?.color ?? car.filter?.color))],
         ["이전 소유자", fd?.insurance ? `${fd.insurance.owners}명` : NO_INFO], ["판매방식", value(fd?.saleType)],
         ["성능점검", inspection], ["보험이력 조회", insurance],
       ],

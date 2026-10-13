@@ -401,3 +401,30 @@ final result: passed
 - 깨진 이미지 0, 가로 오버플로 0, 콘솔 오류 0
 
 final result: passed
+
+---
+
+# 2023 BMW M3 컴페티션 M xDrive 제원 QA · 2026-10-13
+
+- 적용 대상: 서울오토갤러리 첫 매물 `BMW M3 6세대 M3 xDrive 컴페티션 M`
+- 기준: BMW Group PressClub의 G80 M3 Competition xDrive 공식 기술자료, BMW 코리아 2023년 12월 가격표
+- 접힘 캡처: `C:/Users/bobae/Downloads/vehicle-grid-icon-tuned-1013/01-local-tuned.png`
+- 펼침 캡처: `C:/Users/bobae/Downloads/vehicle-info-groups-1013/01-expanded-basic.png` ~ `04-expanded-tyres-history.png`
+
+## 확인한 핵심 값
+
+- S58 2,993cc 직렬 6기통 트윈터보, 압축비 9.3:1
+- 510마력(375kW), 650N·m, 8단 M 스텝트로닉 Drivelogic
+- 4,794 × 1,903 × 1,434mm, 축거 2,857mm, 연료탱크 59L
+- 전륜 275/35 ZR19·9.5J×19, 후륜 285/30 ZR20·10.5J×20
+- 2023년 12월 국내 출시가격 13,770만원
+
+## Verification
+
+- 접힌 8개 핵심 정보에 출시가격·배기량·510마력 반영
+- 펼친 30개 기술 제원에서 `정보 없음` 제거
+- 매물 고유 이력 7개는 공식 차량 제원으로 추정하지 않음
+- 모바일 390×844 가로 오버플로 0, 깨진 이미지 0, 콘솔 오류 0
+- `npm run verify:qf`: passed
+
+final result: passed
