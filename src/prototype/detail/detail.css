@@ -573,12 +573,12 @@
 .vehicle-info-card.is-facts-icons .detail-section-heading { padding-bottom: 0; }
 .detail-highlights-copy p { margin: 0; color: #222; font-size: 16px; font-weight: 400; line-height: 24px; word-break: keep-all; }
 .detail-highlights-copy:not(.is-expanded) p { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
-/* 에어비앤비 설명 더 보기: 보이는 링크는 간결하게, 실제 터치 영역은 44px 이상 확보한다. */
-.detail-highlights-more { display: inline-flex; min-height: 44px; align-items: center; gap: 2px; margin: 8px 0 -8px; padding: 10px 0; border: 0; background: none; color: #222; font: inherit; font-size: 16px; font-weight: 600; line-height: 24px; cursor: pointer; }
-.detail-highlights-more span { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+/* 차량 설명 CTA: 에어비앤비의 넓은 행동 영역에 초톳의 중앙형 아래 화살표를 결합한다. */
+.detail-highlights-more { display: flex; width: 100%; min-height: 48px; align-items: center; justify-content: center; gap: 4px; margin: 16px 0 0; padding: 12px 20px; border: 0; border-radius: 12px; background: #f2f2f2; color: #222; font: inherit; font-size: 16px; font-weight: 600; line-height: 24px; cursor: pointer; }
 .detail-highlights-more img { width: 20px; height: 20px; transition: transform .18s ease; }
-.detail-highlights-more img.is-expanded { transform: rotate(-90deg); }
-.detail-highlights-more:focus-visible { outline: 2px solid #222; outline-offset: 2px; border-radius: 4px; }
+.detail-highlights-more img.is-expanded { transform: rotate(180deg); }
+.detail-highlights-more:active { background: #e8e8e8; }
+.detail-highlights-more:focus-visible { outline: 2px solid #222; outline-offset: 2px; }
 
 /* 설명글류 차란차 크기(2026-10-14 「초톳 방식 유지, 설명글 같은 것만 차란차 따라하자, 14 너무 작아 보여」, 차란차 실측 본문 16/24 #191F28): 차량 소개 · 판매 정보 줄 · 판매자 판매완료/판매중 줄 */
 .detail-rows.is-facts-size > div { min-height: 38px; font-size: 16px; line-height: 24px; color: #595959; }

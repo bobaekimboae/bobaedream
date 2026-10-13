@@ -350,7 +350,7 @@ function DetailHighlights() {
       {lines.length > 2 ? (
         <button className="detail-highlights-more" type="button" aria-expanded={expanded} onClick={() => setExpanded((value) => !value)}>
           <span>{expanded ? "접기" : "더 보기"}</span>
-          <img className={expanded ? "is-expanded" : ""} src={asset("register/chotot-v01/chevron-right.svg")} alt="" />
+          <img className={expanded ? "is-expanded" : ""} src={asset("icons/chotot/chotot-list-detail-dropdown-arrow-region-search.svg")} alt="" />
         </button>
       ) : null}
     </SectionCard>
