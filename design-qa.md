@@ -861,3 +861,35 @@ final result: passed
 - 깨진 이미지 0, 콘솔 오류 0
 
 final result: passed
+
+---
+
+# Design QA · 리뷰 제거·하트 판매자 줄 이동 (2026-10-14)
+
+- source visual truth: 사용자 결정 「리뷰 빼고 그 자리 하트」
+- implementation screenshot: `reports/detail-heart-review-2026-10-14/after-heart-seller-row.png`
+- viewport: 384 × 844 CSS px, DPR 1
+- state: BMW M3 첫 매물 상세 상단
+
+## Comparison evidence
+
+- 제목 옆 하트와 우측 제목 여백을 모두 제거해 제목이 352px 전체 폭을 사용한다.
+- 목업 평점·후기 열을 제거하고 같은 94×64px 판매자 우측 슬롯에 28px 하트를 배치했다.
+- 기존 1px 세로 구분선과 판매자 블록 높이는 유지했다.
+- 비선택/선택 상태 모두 기존 초톳 계열 하트 SVG와 핑크 마스크를 재사용한다.
+
+## Findings
+
+- P0/P1/P2 findings: none.
+- fonts/typography: 차량·판매자 텍스트 토큰 변동 없음.
+- spacing/layout rhythm: 제목 폭 회복, 판매자 우측 행동 슬롯 정렬 통과.
+- colors/tokens: 기존 본문·선·찜 색상 유지.
+- image quality/assets: 기존 실제 아이콘 자산 사용, 깨진 이미지 없음.
+- copy/content: 목업 평점·후기 삭제, 하트는 접근성 이름과 선택 상태 유지.
+
+## Verification
+
+- 384×844 렌더 확인
+- 깨진 이미지 0, 콘솔 오류 0
+
+final result: passed

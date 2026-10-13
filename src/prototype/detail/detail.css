@@ -505,22 +505,7 @@
 .is-list-summary .bbm-result-card { position: relative; }
 .is-list-summary .bbm-card-meta { position: static; }
 .is-list-summary .bbm-card-meta-row { position: absolute !important; top: 12px; right: 8px; width: auto !important; height: auto !important; margin: 0 !important; padding: 0 !important; }
-.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-title { padding-right: 64px; }
-.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-actions .bbm-card-wish {
-  display: inline-flex;
-  width: 48px;
-  height: 48px;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border: 1px solid #dedede;
-  border-radius: 24px;
-  box-sizing: border-box;
-  background: #fff;
-  color: #222;
-}
-.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-actions .bbm-card-wish img,
-.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-actions .bbm-card-wish-on { width: 24px; height: 24px; flex: none; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-title { padding-right: 0; }
 /* 지역 줄 = 초톳 상세(2026-10-13 「초톳처럼 지역 아이콘과 텍스트 색상 크기 변경」, 초톳 캡처 923px÷2.4): 아이콘 20px 진한 색, 1줄 16/24 #222, 2줄(단지) 16/24 #8C8C8C */
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location { height: auto; align-items: flex-start; gap: 10px; margin-top: 10px; color: #222; font-size: 16px; line-height: 24px; font-weight: 400; }
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location img { width: 20px; height: 20px; margin-top: 2px; filter: brightness(0); opacity: .87; }
@@ -802,39 +787,28 @@
 .detail-seller-text { flex: 1 1 auto; gap: 2px; min-width: 0; padding-top: 0; }
 .detail-seller-text > span { color: #8c8c8c; font-size: 14px; line-height: 20px; }
 .detail-seller-text .detail-seller-activity { color: #8c8c8c; font-size: 14px; line-height: 20px; }
-.detail-seller-rating {
-  display: flex;
+.detail-seller-wish {
+  display: grid;
   width: 94px;
   height: 64px;
   flex: 0 0 94px;
   align-self: flex-start;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
   margin-left: auto;
-  padding-left: 12px;
+  padding: 0 0 0 12px;
   border-left: 1px solid #e8e8e8;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 0;
   color: #222;
   box-sizing: border-box;
-}
-.detail-seller-rating-score { display: flex; height: 28px; align-items: center; gap: 4px; }
-.detail-seller-rating-score strong { font-size: 22px; font-weight: 600; line-height: 28px; }
-.detail-seller-rating-score img { width: 18px; height: 18px; }
-.detail-seller-rating button {
-  margin: 2px 0 0;
-  padding: 0;
-  border: 0;
-  background: none;
-  color: #222;
-  font: inherit;
-  font-size: 13px;
-  line-height: 18px;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
+  place-items: center;
+  background: #fff;
   cursor: pointer;
 }
-.detail-seller-rating button:focus-visible { outline: 2px solid #222; outline-offset: 2px; border-radius: 2px; }
+.detail-seller-wish img,
+.detail-seller-wish-on { width: 28px; height: 28px; }
+.detail-seller-wish-on { background: #f14069; -webkit-mask-position: center; mask-position: center; -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+.detail-seller-wish:focus-visible { outline: 2px solid #222; outline-offset: 2px; border-radius: 2px; }
 
 /* 상세 지역 2줄: 1줄 = 지역 + 단지, 2줄 = 딜러 이름ㆍ상사명 */
 .is-list-summary .bbm-card-location-row { display: flex; flex-wrap: wrap; }

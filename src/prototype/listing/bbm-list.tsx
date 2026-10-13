@@ -723,7 +723,7 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
               {detailLocation.dealer || detailLocation.shop ? <span className="bbm-card-location-row">{[detailLocation.dealer, detailLocation.shop].filter(Boolean).map((part) => <span key={part} className="bbm-card-location-part">{part}</span>)}</span> : null}
             </> : <><span>{locationMain}</span>{locationSecondaryParts.length ? <span className="bbm-card-location-secondary">{locationSecondaryParts.map((part, index) => <span key={`${part}-${index}`} className="bbm-card-location-part">{part}</span>)}</span> : null}</>}</span></div>
             {/* JOB-8: 모바일도 초톳처럼 판매자 줄을 지역 바로 아래(오른쪽 글 칸 안)에 둔다 */}
-            {sellerRow}
+            {detailSummary ? null : sellerRow}
           </div>
         </div>
       </div>
