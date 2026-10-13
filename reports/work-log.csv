@@ -312,3 +312,4 @@
 2026-10-13 13:46,M3 사진 사이 구분선 + 목록 썸네일 빈 칸 흐린 배경,claude/used-car-detail-1013,pending,
 2026-10-13 13:59,상세 사진 칸 높이를 사진 비율에 맞춤(검은 띠 제거),claude/used-car-detail-1013,pending,
 2026-10-13 14:09,상세 영상 버튼은 영상 있을 때만 · PC 상세 사진을 실매물 사진으로,claude/used-car-detail-1013,pending,
+2026-10-13 14:17,상세 사진 칸 250px·#222·contain + 넘기기 500ms ease·폭 1/5(초톳 실측),claude/used-car-detail-1013,pending,

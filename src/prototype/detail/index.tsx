@@ -1,3 +1,4 @@
+import { PagedPhotoCarousel } from "./paged-carousel";
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { ChevronDownIcon, HeartFilledIcon, HeartIcon, LockClosedIcon, MobileIcon, QuestionMarkCircledIcon } from "@radix-ui/react-icons";
 import { BottomSheet, Carousel, MobileScroll, useFlow } from "../../mobile";
@@ -480,9 +481,9 @@ function DetailHero({ onBack }: { onBack: () => void }) {
     <>
     <section ref={heroRef} className="detail-hero" aria-label="차량 사진">
       <div className="detail-hero-main">
-        <Carousel ariaLabel="차량 사진" className="detail-media-carousel" contentClassName="detail-media-track">
+        <PagedPhotoCarousel ariaLabel="차량 사진" count={photos.length}>
           {photos.map((photo, index) => <img key={`${photo}-${index}`} src={photo} alt={`차량 사진 ${index + 1}`} draggable={false} />)}
-        </Carousel>
+        </PagedPhotoCarousel>
         {photoIndex === 1 && (getActiveDetailCar() ? getActiveDetailCar()?.filter?.video : true) ? <span className="detail-video-play" aria-hidden="true"><span /></span> : null}
         <div className="detail-photo-count" aria-live="polite" aria-atomic="true">{photoIndex} / {totalPhotos}</div>
         <div className="detail-hero-actions">
