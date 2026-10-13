@@ -733,3 +733,9 @@
 .detail-seller-avatar { width: 46px; height: 46px; }
 .detail-seller-info { align-items: flex-start; }
 .detail-seller-text { padding-top: 2px; }
+
+/* 상세 지역 2줄(2026-10-14 「이렇게 가자: 서울 서초구 서울오토갤러리 / 박상용 딜러ㆍ상사명, 서울오토갤러리는 밑줄 빼고 파랑색으로」): 1줄 = 지역 + 단지, 2줄 = 딜러 이름ㆍ상사명 */
+.is-list-summary .bbm-card-location-row { display: flex; flex-wrap: wrap; }
+.is-list-summary .bbm-card-location-row.is-first .bbm-card-location-part { margin-left: 4px; }
+.is-list-summary .bbm-card-location-part.is-complex::before { content: none !important; }
+.is-list-summary .bbm-card-location-part.is-complex, .is-list-summary .bbm-card-location-part.is-complex.is-link { color: #306bd9; text-decoration: none; }
