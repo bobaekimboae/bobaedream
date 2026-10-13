@@ -719,28 +719,114 @@
 .vehicle-detail > .detail-gray-stack > .vehicle-info-card .detail-more { margin-bottom: 0; padding-bottom: 0; }
 .vehicle-detail > .detail-gray-stack > .is-history-card .detail-rows { margin-bottom: 0; }
 
-/* 상세 상단 초톳 전수 대조(2026-10-14 「제조사 모델명·메타정보·지역·등록일·판매자정보 및 프사 초톳 원본과 사이즈·글자 크기·위아래 간격 전수조사」, 초톳 상세 캡처 1080×2340 ÷2.8125 실측 → 상세 `.vehicle-summary` 같은 방법 측정):
-   제목 글자 아랫선 → 메타 윗선 20.3 · 메타 아랫선 → 가격 윗선 20.6 · 가격 아랫선 → 지역 윗선 23.8 · 지역 줄 간격 24.5 · 지역 아랫선 → 시간 윗선 22.8 · 시간 글자 14 · 가격 숫자 높이 15.3~15.6(약 22px) · 프사 46.6 · 프사 → 이름 13.9 */
-.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-spec { margin-top: 9.5px; }
-.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-price-badges { margin-top: 12px; }
-.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-price { font-size: 22px; line-height: 28px; }
-.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-price-unit { font-size: 22px; }
-.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location { line-height: 24.5px; margin-top: 6.7px; }
-.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text, .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text > span { line-height: 24.5px; }
-.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location img { margin-top: 0; }
-.detail-posted-line { font-size: 14px; margin-top: 9.9px; }
-.detail-seller-info { gap: 14px; }
-.detail-seller-avatar { width: 46px; height: 46px; }
-.detail-seller-info { align-items: flex-start; }
-.detail-seller-text { padding-top: 2px; }
+/* 상세 상단 초톳 384px 슬롯 규칙(2026-10-14): 각 슬롯의 크기와 세로 리듬을 독립적으로 맞춘다. */
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile { padding-top: 16px !important; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-title,
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-model {
+  color: #222;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -.2px;
+  line-height: 28px;
+}
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-spec {
+  margin-top: 8px;
+  color: #222;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22px;
+}
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-price-badges { margin-top: 8px; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-price,
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-price-unit {
+  color: #222;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 28px;
+}
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location {
+  gap: 4px;
+  margin-top: 12px;
+  color: #222;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22px;
+}
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location img { margin-top: -1px; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text {
+  flex-direction: column !important;
+  flex-wrap: nowrap !important;
+  gap: 4px !important;
+  font-size: 15px;
+  line-height: 22px;
+}
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text > span {
+  font-size: 15px;
+  line-height: 22px;
+}
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-secondary {
+  display: flex;
+  flex-wrap: wrap;
+  color: #8c8c8c;
+}
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-secondary .bbm-card-location-part { color: #8c8c8c; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-secondary .is-link { text-decoration: none; }
+.detail-posted-line {
+  margin: 12px 16px 36px 12px;
+  color: #222;
+  font-size: 15px;
+  line-height: 22px;
+}
+.detail-seller-info {
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-top: 0;
+}
+.detail-seller-avatar { width: 48px; height: 48px; }
+.detail-seller-text { flex: 1 1 auto; gap: 2px; min-width: 0; padding-top: 0; }
+.detail-seller-text > span { color: #8c8c8c; font-size: 14px; line-height: 20px; }
+.detail-seller-text .detail-seller-activity { color: #8c8c8c; font-size: 14px; line-height: 20px; }
+.detail-seller-rating {
+  display: flex;
+  width: 94px;
+  min-height: 64px;
+  flex: 0 0 94px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 14px;
+  border-left: 1px solid #e8e8e8;
+  color: #222;
+  box-sizing: border-box;
+}
+.detail-seller-rating-score { display: flex; align-items: center; gap: 4px; }
+.detail-seller-rating-score strong { font-size: 24px; font-weight: 600; line-height: 30px; }
+.detail-seller-rating-score img { width: 20px; height: 20px; }
+.detail-seller-rating button {
+  margin: 2px 0 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #222;
+  font: inherit;
+  font-size: 13px;
+  line-height: 18px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.detail-seller-rating button:focus-visible { outline: 2px solid #222; outline-offset: 2px; border-radius: 2px; }
 
-/* 상세 지역 2줄(2026-10-14 「이렇게 가자: 서울 서초구 서울오토갤러리 / 박상용 딜러ㆍ상사명, 서울오토갤러리는 밑줄 빼고 파랑색으로」): 1줄 = 지역 + 단지, 2줄 = 딜러 이름ㆍ상사명 */
+/* 상세 지역 2줄: 1줄 = 지역 + 단지, 2줄 = 딜러 이름ㆍ상사명 */
 .is-list-summary .bbm-card-location-row { display: flex; flex-wrap: wrap; }
 .is-list-summary .bbm-card-location-row.is-first .bbm-card-location-part { margin-left: 4px; }
 .is-list-summary .bbm-card-location-part.is-complex::before { content: none !important; }
-.is-list-summary .bbm-card-location-part.is-complex, .is-list-summary .bbm-card-location-part.is-complex.is-link { color: #306bd9; text-decoration: none; }
+.is-list-summary .bbm-card-location-part.is-complex,
+.is-list-summary .bbm-card-location-part.is-complex.is-link { color: #306bd9; text-decoration: none; }
 
-/* 상사명을 판매자 이름 옆으로(2026-10-14 「상사를 프사 딜러 옆으로」): 지역 2줄(딜러ㆍ상사명)을 없애고 판매자 칸 이름줄 `박상용 딜러ㆍ디앤디플러스`로 옮겼다 */
+/* 상사명은 판매자 이름 옆에 배치한다. */
 .detail-seller-name { display: flex; min-width: 0; align-items: baseline; }
 .detail-seller-name strong { flex: 0 1 auto; min-width: 0; }
 .detail-seller-name .detail-seller-shop { min-width: 0; overflow: hidden; color: #222; font-size: 16px; font-weight: 400; line-height: 22px; text-overflow: ellipsis; white-space: nowrap; }
