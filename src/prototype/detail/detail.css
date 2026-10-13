@@ -367,3 +367,12 @@
 /* 지역 아이콘 = 노션 「chotot-profile-location」 원본(속 빈 외곽선 핀, 2026-10-13 「아이콘 변경도」): 초톳 캡처 핀 잉크 15.6×19.9 · 왼쪽 16 · 글자 시작 40.2 → 24px 상자(잉크 16×20), 상자 왼쪽 12, 글자와 간격 4 */
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location { gap: 4px; }
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location img { content: url("/assets/bbm/chotot-profile-location-v01.svg"); width: 24px; height: 24px; margin: -2px 0 0 -4px; filter: none; opacity: 1; }
+
+/* 판매자 정보 영역(2026-10-13): 초톳 상세의 판매자 카드(프사 48 · 이름 · 판매 대수)를 지역 줄 아래에 둔다. 평점·응답률은 데이터가 없어 넣지 않는다 */
+.detail-seller-info { display: flex; align-items: center; gap: 12px; margin: 0 16px 16px; padding: 14px 16px; border: 1px solid #ebebeb; border-radius: 12px; background: #fff; }
+.detail-seller-avatar { flex: none; width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: #f4f4f4; }
+.detail-seller-text { display: flex; min-width: 0; flex-direction: column; gap: 2px; }
+.detail-seller-text strong { overflow: hidden; color: #222; font-size: 16px; font-weight: 600; line-height: 22px; text-overflow: ellipsis; white-space: nowrap; }
+.detail-seller-text span { color: #595959; font-size: 14px; line-height: 20px; }
+.detail-seller-text span b { color: #222; font-weight: 600; }
+.detail-seller-text .detail-seller-shop { color: #8c8c8c; font-size: 13px; line-height: 18px; }
