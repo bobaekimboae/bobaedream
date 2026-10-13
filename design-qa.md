@@ -28,6 +28,32 @@ final result: passed
 
 ---
 
+# 차량 정보 마력 아이콘 교체 QA · 2026-10-13
+
+- source visual truth: Notion `마력` 페이지의 스웨덴 AutoUncle 원본 SVG와 AutoUncle 공식 상세 페이지의 동일 벡터 경로
+- before: 속도계 모양의 일반 출력 아이콘
+- after: 엔진 본체 안 번개를 넣은 AutoUncle 마력 아이콘
+- implementation capture: `C:/Users/bobae/Downloads/vehicle-grid-icon-tuned-1013/15-autouncle-power-balanced.png`
+- viewport: 390 × 844 CSS px, deviceScaleFactor 1
+
+## Optical balance
+
+- 원본 SVG 경로는 수정하지 않고 28px 공통 슬롯의 CSS transform만 보정했다.
+- 마력 아이콘: `translate(0, 0.28px) scale(0.985)`
+- 배기량 아이콘 렌더 박스: 28.08 × 28.08px
+- 마력 아이콘 렌더 박스: 27.58 × 27.58px
+- 두 아이콘의 시각 중심, 선 굵기, 검정 농도를 8개 차량정보 격자에서 함께 확인했다.
+
+## Verification
+
+- 모바일 390×844 가로 오버플로 0
+- 깨진 이미지 0, 콘솔 오류 0, 400 이상 네트워크 오류 0
+- 제조사·모델·연식·주행거리·출시가격·연료·배기량·마력 8개 슬롯 정렬 유지
+
+final result: passed
+
+---
+
 # FINN 제조사 아이콘 교체 QA · 2026-10-13
 
 - source URL: `https://www.finn.no/mobility/item/476214749`
