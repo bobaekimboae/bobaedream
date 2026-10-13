@@ -393,61 +393,64 @@ function CostCalculatorSheet({ onClose }: { onClose: () => void }) {
   };
 
   return (
-    <div className="cost-calculator-sheet">
+    <div className="cost-calculator-sheet cost-calculator-kcar">
       <button className="cost-calculator-close" type="button" aria-label="구매비용 계산기 닫기" onClick={onClose}>
         <img src={asset("detail/price-history-close.svg")} alt="" />
       </button>
 
+      <div className="cost-payment-tabs" role="tablist" aria-label="구매비용 계산 방식">
+        <button type="button" role="tab" aria-selected={payment === "cash"} onClick={() => setPayment("cash")}>예상 구매비용</button>
+        <button type="button" role="tab" aria-selected={payment === "loan"} onClick={() => setPayment("loan")}>할부 계산기</button>
+      </div>
+
       <div className="cost-calculator-scroll" ref={scrollRef}>
       <section className="cost-vehicle-summary" aria-label="계산 대상 차량">
         <img src={photo} alt="" />
-        <div><strong>{title}</strong><span>판매가 {formatCostManwon(price)}</span></div>
+        <div><strong>{title}</strong><span>{car?.filter ? `${car.filter.year}년 · ${car.filter.mileage.toLocaleString("ko-KR")}km` : "2016년 · 117,037km"}</span></div>
       </section>
 
-      <section className="cost-total-hero" aria-live="polite">
-        <span>예상 총 구매비용</span>
-        <strong>{formatCostWon(total)}</strong>
-        <small>{vehicleType} · {fuel} · {region} 등록 기준</small>
-      </section>
+      {payment === "cash" ? (
+        <>
+          <section className="cost-kcar-card" aria-label="예상 구매비용 상세">
+            <label className="cost-kcar-row cost-kcar-price"><span>차량가</span><span><input inputMode="numeric" value={price.toLocaleString("ko-KR")} onChange={(event) => setPrice(Math.max(0, Number(event.target.value.replace(/[^\d]/g, "")) || 0))} aria-label="차량가격, 만원 단위" />만원</span></label>
+            <div className="cost-kcar-row"><span>이전등록비<small>취득세·공채·등록 수수료</small></span><strong>{formatCostWon(transferCost)}</strong></div>
+            <div className="cost-kcar-row"><span>관리비용<small>매도비</small></span><strong>{formatCostWon(managementFee)}</strong></div>
+            <div className="cost-kcar-row"><span>성능책임보험료</span><strong>{formatCostWon(inspectionInsurance)}</strong></div>
+            <div className="cost-kcar-row"><span>배송비</span><strong>별도</strong></div>
+          </section>
 
-      <div className="cost-payment-tabs" role="group" aria-label="구매 방식">
-        <button type="button" aria-pressed={payment === "cash"} onClick={() => setPayment("cash")}>현금 구매</button>
-        <button type="button" aria-pressed={payment === "loan"} onClick={() => setPayment("loan")}>할부 구매</button>
-      </div>
+          <section className="cost-kcar-total" aria-live="polite"><span>총 예상 구매비용<small>{vehicleType} · {region} 등록 기준</small></span><strong>{formatCostWon(total)}</strong></section>
 
-      <section className="cost-input-section" aria-labelledby="cost-input-title">
-        <div className="cost-section-title"><h3 id="cost-input-title">계산 조건</h3><span>직접 변경할 수 있어요</span></div>
-        <label className="cost-price-field"><span>차량가격</span><span><input inputMode="numeric" min="100" step="100" value={price} onChange={(event) => setPrice(Math.max(0, Number(event.target.value) || 0))} aria-label="차량가격, 만원 단위" />만원</span></label>
-        <div className="cost-choice-grid">
-          <label><span>차종</span><select value={vehicleType} onChange={(event) => setVehicleType(event.target.value as CostVehicleType)}>{(["승용", "경차", "승합", "화물"] as CostVehicleType[]).map((value) => <option key={value}>{value}</option>)}</select></label>
-          <label><span>연료</span><select value={fuel} onChange={(event) => setFuel(event.target.value)}>{fuelOptions.map((value) => <option key={value}>{value}</option>)}</select></label>
-          <label><span>감면</span><select value={benefit} onChange={(event) => setBenefit(event.target.value as CostBenefit)}>{(["해당없음", "다자녀", "장애인"] as CostBenefit[]).map((value) => <option key={value}>{value}</option>)}</select></label>
-          <label><span>등록 지역</span><select value={region} onChange={(event) => setRegion(event.target.value as CostRegion)}>{(["서울", "경기", "기타"] as CostRegion[]).map((value) => <option key={value}>{value}</option>)}</select></label>
-        </div>
-      </section>
-
-      {payment === "loan" ? (
-        <section className="cost-loan-section" aria-labelledby="cost-loan-title">
-          <div className="cost-section-title"><h3 id="cost-loan-title">할부 조건</h3><span>연 6.9% 예시</span></div>
-          <div className="cost-option-row"><span>선수금</span><div>{[20, 30, 40].map((value) => <button type="button" key={value} aria-pressed={downPayment === value} onClick={() => setDownPayment(value)}>{value}%</button>)}</div></div>
-          <div className="cost-option-row"><span>기간</span><div>{[24, 36, 48].map((value) => <button type="button" key={value} aria-pressed={loanMonths === value} onClick={() => setLoanMonths(value)}>{value}개월</button>)}</div></div>
-          <div className="cost-loan-result"><span>월 예상 납입금</span><strong>{formatCostManwon(monthlyPayment)}</strong><small>대출원금 {formatCostManwon(financed)} · 원리금균등상환</small></div>
-        </section>
-      ) : null}
-
-      <section className="cost-breakdown-section" aria-labelledby="cost-breakdown-title">
-        <div className="cost-section-title"><h3 id="cost-breakdown-title">비용 상세</h3><span>보험료 제외</span></div>
-        <ol className="cost-breakdown-list">
-          <li><i>1</i><div><b>차량가격</b><small>판매자가 등록한 차량가</small></div><strong>{formatCostManwon(price)}</strong></li>
-          <li><i>2</i><div><b>이전등록비 합계</b><small>취득세 {formatCostManwon(acquisitionTax)} · 공채할인 {formatCostManwon(bondDiscount)} · 등록비 {formatCostManwon(registrationFees)}</small></div><strong>{formatCostManwon(transferCost)}</strong></li>
-          <li><i>3</i><div><b>관리비용(매도비)</b><small>상사·매물에 따라 달라질 수 있어요</small></div><strong>약 {formatCostManwon(managementFee)}</strong></li>
-          <li><i>4</i><div><b>성능점검보험료</b><small>차량 상태와 보증 범위에 따라 변동</small></div><strong>약 {formatCostManwon(inspectionInsurance)}</strong></li>
-        </ol>
-      </section>
+          <section className="cost-condition-card" aria-labelledby="cost-condition-title">
+            <div className="cost-section-title"><h3 id="cost-condition-title">등록 조건</h3><span>선택 즉시 반영</span></div>
+            <div className="cost-choice-grid">
+              <label><span>차종</span><select value={vehicleType} onChange={(event) => setVehicleType(event.target.value as CostVehicleType)}>{(["승용", "경차", "승합", "화물"] as CostVehicleType[]).map((value) => <option key={value}>{value}</option>)}</select></label>
+              <label><span>연료</span><select value={fuel} onChange={(event) => setFuel(event.target.value)}>{fuelOptions.map((value) => <option key={value}>{value}</option>)}</select></label>
+              <label><span>등록 지역</span><select value={region} onChange={(event) => setRegion(event.target.value as CostRegion)}>{(["서울", "경기", "기타"] as CostRegion[]).map((value) => <option key={value}>{value}</option>)}</select></label>
+              <label><span>감면</span><select value={benefit} onChange={(event) => setBenefit(event.target.value as CostBenefit)}>{(["해당없음", "다자녀", "장애인"] as CostBenefit[]).map((value) => <option key={value}>{value}</option>)}</select></label>
+            </div>
+          </section>
+        </>
+      ) : (
+        <>
+          <section className="cost-loan-summary" aria-live="polite"><span>월 예상 납입금</span><strong>{formatCostManwon(monthlyPayment)}</strong><small>연 6.9% · 원리금균등상환 예시</small></section>
+          <section className="cost-loan-section" aria-labelledby="cost-loan-title">
+            <div className="cost-section-title"><h3 id="cost-loan-title">할부 조건</h3><span>선택 즉시 계산</span></div>
+            <label className="cost-price-field"><span>차량가격</span><span><input inputMode="numeric" value={price.toLocaleString("ko-KR")} onChange={(event) => setPrice(Math.max(0, Number(event.target.value.replace(/[^\d]/g, "")) || 0))} aria-label="차량가격, 만원 단위" />만원</span></label>
+            <div className="cost-option-row"><span>선수금</span><div>{[20, 30, 40].map((value) => <button type="button" key={value} aria-pressed={downPayment === value} onClick={() => setDownPayment(value)}>{value}%</button>)}</div></div>
+            <div className="cost-option-row"><span>기간</span><div>{[24, 36, 48].map((value) => <button type="button" key={value} aria-pressed={loanMonths === value} onClick={() => setLoanMonths(value)}>{value}개월</button>)}</div></div>
+          </section>
+          <section className="cost-kcar-card cost-loan-breakdown" aria-label="할부 계산 상세">
+            <div className="cost-kcar-row"><span>총 구매비용</span><strong>{formatCostWon(total)}</strong></div>
+            <div className="cost-kcar-row"><span>선수금 {downPayment}%</span><strong>{formatCostWon(total - financed)}</strong></div>
+            <div className="cost-kcar-row"><span>대출원금</span><strong>{formatCostWon(financed)}</strong></div>
+          </section>
+        </>
+      )}
 
       <p className="cost-disclaimer">계산 결과는 참고용 예상 금액입니다. 실제 취득세·공채·매도비·보험료는 차량과 구매자 조건 및 등록 지역에 따라 달라질 수 있습니다.</p>
       </div>
-      <div className="cost-calculator-footer"><div><span>예상 총 비용</span><strong>{formatCostManwon(total)}</strong></div><button type="button" onClick={complete}>계산하기</button></div>
+      <div className="cost-calculator-footer"><div><span>{payment === "cash" ? "총 예상 구매비용" : "월 예상 납입금"}</span><strong>{payment === "cash" ? formatCostManwon(total) : formatCostManwon(monthlyPayment)}</strong></div><button type="button" onClick={complete}>계산하기</button></div>
     </div>
   );
 }

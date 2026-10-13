@@ -204,43 +204,57 @@
 .bottom-sheet:has(.cost-calculator-sheet) .sheet-title { color: #161616; font-size: 18px; font-weight: 700; line-height: 25px; }
 .bottom-sheet:has(.cost-calculator-sheet) .sheet-content { min-height: 0; flex: 1; padding: 0; overflow: hidden; }
 .cost-calculator-sheet { position: relative; display: flex; height: 100%; min-height: 0; flex-direction: column; overflow: hidden; background: #fff; color: #222; box-sizing: border-box; }
-.cost-calculator-scroll { min-height: 0; flex: 1; overflow-x: hidden; overflow-y: auto; padding: 0 16px 24px; box-sizing: border-box; overscroll-behavior: contain; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.cost-calculator-scroll { min-height: 0; flex: 1; overflow-x: hidden; overflow-y: auto; padding: 0 20px 28px; background: #fff; box-sizing: border-box; overscroll-behavior: contain; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .cost-calculator-scroll::-webkit-scrollbar { display: none; }
 .cost-calculator-close { position: fixed; z-index: 3; top: calc(6% + 12px); right: max(12px, calc((100% - 480px) / 2 + 12px)); display: grid; width: 32px; height: 32px; place-items: center; padding: 0; border: 0; border-radius: 50%; background: transparent; cursor: pointer; }
 .cost-calculator-close:focus { outline: 0 !important; }
 .mobile-web-screen .cost-calculator-close:focus-visible { outline: 0 !important; outline-offset: 0 !important; background: #f2f3f5; box-shadow: none; }
 .cost-calculator-close img { width: 18px; height: 18px; }
-.cost-vehicle-summary { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid #ededed; }
-.cost-vehicle-summary > img { width: 72px; height: 54px; flex: 0 0 72px; border-radius: 6px; object-fit: cover; }
-.cost-vehicle-summary > div { display: grid; gap: 4px; min-width: 0; }
+.cost-vehicle-summary { display: flex; align-items: center; gap: 12px; margin: 16px 0; }
+.cost-vehicle-summary > img { width: 64px; height: 48px; flex: 0 0 64px; border-radius: 4px; object-fit: cover; }
+.cost-vehicle-summary > div { display: grid; gap: 3px; min-width: 0; }
 .cost-vehicle-summary strong { overflow: hidden; font-size: 14px; font-weight: 700; line-height: 20px; text-overflow: ellipsis; white-space: nowrap; }
-.cost-vehicle-summary span { color: #666; font-size: 13px; line-height: 18px; }
-.cost-total-hero { display: grid; gap: 8px; margin: 16px 0; padding: 22px 18px; border-radius: 16px; background: #151821; color: #fff; }
-.cost-total-hero > span { color: #b7bfd0; font-size: 13px; font-weight: 500; line-height: 18px; }
-.cost-total-hero > strong { overflow: hidden; font-size: clamp(28px, 8vw, 36px); font-weight: 700; line-height: 1.18; letter-spacing: -.8px; text-overflow: ellipsis; white-space: nowrap; }
-.cost-total-hero > small { color: #98a3ba; font-size: 12px; line-height: 17px; }
-.cost-payment-tabs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; padding: 4px; border-radius: 12px; background: #f2f3f5; }
-.cost-payment-tabs button { height: 40px; border: 0; border-radius: 9px; background: transparent; color: #767d87; font-size: 14px; font-weight: 600; cursor: pointer; }
-.cost-payment-tabs button[aria-pressed="true"] { background: #fff; color: #222; font-weight: 700; box-shadow: 0 1px 5px rgba(0, 0, 0, .09); }
-.cost-input-section, .cost-loan-section, .cost-breakdown-section { padding: 24px 0 0; }
+.cost-vehicle-summary span { color: #8b95a1; font-size: 12px; line-height: 17px; }
+.cost-payment-tabs { display: grid; width: 100%; flex: 0 0 48px; grid-template-columns: repeat(2, 1fr); border-bottom: 1px solid #e8ebef; background: #fff; }
+.cost-payment-tabs button { position: relative; height: 48px; padding: 0; border: 0; background: transparent; color: #5f6672; font-size: 15px; font-weight: 600; cursor: pointer; }
+.cost-payment-tabs button[aria-selected="true"] { color: #222; font-weight: 700; }
+.cost-payment-tabs button[aria-selected="true"]::after { position: absolute; right: 20px; bottom: -1px; left: 20px; height: 2px; background: #222; content: ""; }
+.cost-input-section, .cost-loan-section, .cost-breakdown-section { padding: 20px 0 0; }
 .cost-section-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
-.cost-section-title h3 { margin: 0; color: #222; font-size: 17px; font-weight: 700; line-height: 24px; }
+.cost-section-title h3 { margin: 0; color: #222; font-size: 16px; font-weight: 700; line-height: 23px; }
 .cost-section-title > span { color: #8b95a1; font-size: 12px; line-height: 17px; }
 .cost-price-field { display: flex; min-height: 54px; align-items: center; justify-content: space-between; gap: 16px; padding: 0 14px; border: 1px solid #e2e5e9; border-radius: 12px; background: #fff; box-sizing: border-box; }
 .cost-price-field > span:first-child { color: #505967; font-size: 13px; font-weight: 500; }
 .cost-price-field > span:last-child { display: flex; align-items: baseline; gap: 4px; color: #222; font-size: 14px; font-weight: 600; }
 .cost-price-field input { width: 112px; padding: 0; border: 0; outline: 0; background: transparent; color: #222; font: inherit; font-size: 18px; font-weight: 700; text-align: right; }
 .cost-choice-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 10px; }
-.cost-choice-grid label { display: grid; gap: 5px; min-width: 0; padding: 11px 12px; border-radius: 12px; background: #f5f6f8; box-sizing: border-box; }
+.cost-choice-grid label { display: grid; gap: 5px; min-width: 0; padding: 11px 12px; border: 1px solid #e5e8ec; border-radius: 8px; background: #fff; box-sizing: border-box; }
 .cost-choice-grid label > span { color: #8b95a1; font-size: 11px; font-weight: 500; line-height: 16px; }
 .cost-choice-grid select { width: 100%; height: 24px; padding: 0 22px 0 0; overflow: hidden; border: 0; outline: 0; background-color: transparent; color: #222; font-family: inherit; font-size: 15px; font-weight: 700; line-height: 22px; text-overflow: ellipsis; cursor: pointer; }
-.cost-loan-section { margin-top: 24px; padding: 20px 14px 14px; border-radius: 14px; background: #fff7e8; }
+.cost-condition-card { padding: 20px 0 0; }
+.cost-kcar-card { padding: 6px 20px; border-radius: 4px; background: #f7f8fa; }
+.cost-kcar-row { display: flex; min-height: 50px; align-items: center; justify-content: space-between; gap: 14px; border-bottom: 1px solid #dfe3e8; color: #222; box-sizing: border-box; }
+.cost-kcar-row:last-child { border-bottom: 0; }
+.cost-kcar-row > span:first-child { display: grid; gap: 2px; font-size: 13px; font-weight: 600; line-height: 19px; }
+.cost-kcar-row small { color: #8b95a1; font-size: 11px; font-weight: 400; line-height: 15px; }
+.cost-kcar-row > strong { color: #222; font-size: 14px; font-weight: 700; line-height: 20px; white-space: nowrap; }
+.cost-kcar-price > span:last-child { display: flex; align-items: baseline; gap: 3px; color: #222; font-size: 13px; font-weight: 700; white-space: nowrap; }
+.cost-kcar-price input { width: 108px; padding: 0; border: 0; outline: 0; background: transparent; color: #222; font-family: inherit; font-size: 15px; font-weight: 700; text-align: right; }
+.cost-kcar-total { display: flex; min-height: 72px; align-items: center; justify-content: space-between; gap: 16px; margin-top: 20px; padding: 0 20px; border-radius: 4px; background: #f7f8fa; }
+.cost-kcar-total > span { display: grid; gap: 3px; color: #222; font-size: 14px; font-weight: 700; line-height: 20px; }
+.cost-kcar-total small { color: #8b95a1; font-size: 11px; font-weight: 400; line-height: 15px; }
+.cost-kcar-total > strong { color: #222; font-size: 20px; font-weight: 800; line-height: 28px; letter-spacing: -.4px; white-space: nowrap; }
+.cost-loan-summary { display: grid; gap: 5px; margin: 0 0 20px; padding: 20px; border-radius: 4px; background: #f7f8fa; }
+.cost-loan-summary > span { color: #5f6672; font-size: 13px; font-weight: 600; line-height: 19px; }
+.cost-loan-summary > strong { color: #222; font-size: 28px; font-weight: 800; line-height: 36px; letter-spacing: -.5px; }
+.cost-loan-summary > small { color: #8b95a1; font-size: 11px; line-height: 16px; }
+.cost-loan-section { padding: 0 0 20px; }
 .cost-loan-section .cost-section-title { margin-bottom: 14px; }
 .cost-option-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 10px; }
 .cost-option-row > span { flex: 0 0 48px; color: #5f6672; font-size: 13px; }
 .cost-option-row > div { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; flex: 1; }
 .cost-option-row button { height: 34px; border: 1px solid #e3e5e8; border-radius: 8px; background: #fff; color: #5f6672; font-size: 12px; font-weight: 600; cursor: pointer; }
-.cost-option-row button[aria-pressed="true"] { border-color: #1b4c8c; color: #1b4c8c; font-weight: 700; }
+.cost-option-row button[aria-pressed="true"] { border-color: #222; background: #222; color: #fff; font-weight: 700; }
 .cost-loan-result { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid #eadfc9; }
 .cost-loan-result > span { color: #5f6672; font-size: 13px; }
 .cost-loan-result > strong { color: #222; font-size: 18px; font-weight: 700; }
@@ -253,7 +267,9 @@
 .cost-breakdown-list b { color: #222; font-size: 14px; font-weight: 650; line-height: 20px; }
 .cost-breakdown-list small { color: #8b95a1; font-size: 11px; line-height: 16px; }
 .cost-breakdown-list li > strong { padding-top: 2px; color: #222; font-size: 14px; font-weight: 700; line-height: 20px; white-space: nowrap; }
-.cost-disclaimer { margin: 2px 0 10px; padding: 12px 14px; border-radius: 10px; background: #f7f8fa; color: #707782; font-size: 11px; line-height: 17px; word-break: keep-all; }
+.cost-loan-breakdown { margin-top: 0; }
+.cost-disclaimer { position: relative; margin: 18px 0 4px; padding: 0 0 0 12px; color: #707782; font-size: 11px; line-height: 17px; word-break: keep-all; }
+.cost-disclaimer::before { position: absolute; top: 6px; left: 2px; width: 3px; height: 3px; border-radius: 50%; background: currentColor; content: ""; }
 .cost-calculator-footer { position: relative; z-index: 2; display: grid; width: 100%; flex: 0 0 auto; grid-template-columns: minmax(0, 1fr) 132px; gap: 12px; align-items: center; padding: 12px 16px calc(max(var(--mobile-safe-area-height, 0px), env(safe-area-inset-bottom)) + 12px); border-top: 1px solid #e8e8e8; background: rgba(255, 255, 255, .98); backdrop-filter: blur(10px); box-sizing: border-box; }
 .cost-calculator-footer > div { display: grid; gap: 2px; min-width: 0; }
 .cost-calculator-footer span { color: #8b95a1; font-size: 11px; line-height: 16px; }
