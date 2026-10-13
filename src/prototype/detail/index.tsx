@@ -230,12 +230,17 @@ function DetailHero({ onBack }: { onBack: () => void }) {
     };
   }, [photos.length]);
 
-  // 선택한 썸네일이 줄 가운데 오도록 줄만 가로로 옮긴다(동처띠 방식, 페이지 스크롤은 건드리지 않음)
+  // 선택한 썸네일이 줄 안에서 완전히 보이도록 필요할 때만 줄을 가로로 옮긴다(카이디 방식, 페이지 스크롤은 건드리지 않음)
   const thumbsRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const strip = thumbsRef.current;
     const thumb = strip?.children[photoIndex - 1] as HTMLElement | undefined;
-    if (strip && thumb) strip.scrollTo({ left: thumb.offsetLeft - (strip.clientWidth - thumb.offsetWidth) / 2, behavior: "smooth" });
+    if (!strip || !thumb) return;
+    const edge = 18;
+    const left = thumb.offsetLeft - edge;
+    const right = thumb.offsetLeft + thumb.offsetWidth + edge - strip.clientWidth;
+    if (left < strip.scrollLeft) strip.scrollTo({ left, behavior: "smooth" });
+    else if (right > strip.scrollLeft) strip.scrollTo({ left: right, behavior: "smooth" });
   }, [photoIndex]);
 
   const choosePhoto = (index: number) => {
