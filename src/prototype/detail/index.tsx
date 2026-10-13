@@ -21,7 +21,7 @@ import {
   type DetailSheet,
   type Car,
 } from "../data";
-import { bbmCardSpec } from "../data/bbm-card-samples";
+import { BbmResultCard } from "../listing/bbm-list";
 
 type DetailUi = {
   liked: boolean;
@@ -182,15 +182,21 @@ function VehicleSummary() {
   const { liked, setLiked, setSheet, notify } = useDetailUi();
   const car = getActiveDetailCar();
   // 첫 메타정보는 목록 카드와 같은 값을 그대로 쓴다(초톳 상세와 동일, 2026-10-13)
-  const summarySpecs = car ? bbmCardSpec(car, false).split(" · ").filter(Boolean) : ["2019", formatMileage("42,920 km"), "가솔린", detailVehiclePlate, "1인소유"];
+  const summarySpecs = ["2019", formatMileage("42,920 km"), "가솔린", detailVehiclePlate, "1인소유"];
+  // 상세 상단 정보는 목록 카드와 같은 컴포넌트(제조사 모델 · 메타정보 · 가격 · 지역 · 하트)를 쓰고 사진·판매자 줄만 숨긴다(2026-10-13 「초톳처럼 리스트와 동일하게」)
+  if (car) return (
+    <section className="vehicle-summary is-list-summary marketplace is-bbm-m is-qf-guazi"><div className="bbm-m-list">
+      <BbmResultCard car={car} variant="mobile" liked={liked} onToggleLike={() => setLiked(!liked)} onOpen={() => undefined} onChat={() => undefined} />
+    </div></section>
+  );
   return (
     <section className="vehicle-summary">
-      <div className="vehicle-title-row"><h1>{car ? <><span className="vehicle-name">{car.title}</span>{car.trim ? <span className="vehicle-headline">{car.trim}</span> : null}</> : "2019 벤틀리 컨티넨탈 GT 3세대 6.0 퍼스트 에디션"}</h1><button type="button" aria-label="매물 저장" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}<span>{liked ? "저장됨" : "저장"}</span></button></div>
+      <div className="vehicle-title-row"><h1>2019 벤틀리 컨티넨탈 GT 3세대 6.0 퍼스트 에디션</h1><button type="button" aria-label="매물 저장" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}<span>{liked ? "저장됨" : "저장"}</span></button></div>
       <div className="vehicle-spec-row" aria-label="차량 핵심 정보">
-        {summarySpecs.map((spec) => <span key={spec} data-override-value={car ? spec : undefined}>{spec}</span>)}
+        {summarySpecs.map((spec) => <span key={spec} >{spec}</span>)}
       </div>
       <div className="detail-price-row">
-        <strong data-override-price={car?.price}>{car?.price ?? "1억 4,500만원"}</strong>
+        <strong>1억 4,500만원</strong>
         <button type="button" onClick={() => setSheet("priceHistory")}>가격 변동</button>
       </div>
       <p className="vehicle-finance">할부 예상 월 153만원부터</p>
@@ -200,9 +206,9 @@ function VehicleSummary() {
         <button type="button" onClick={() => notify("카카오 상담을 준비했어요")}>카카오</button>
         <button type="button" onClick={() => setSheet("contact")}>채팅</button>
       </div>
-      <div className="vehicle-location-row" data-override-posted={car ? `등록 ${car.posted}` : undefined}>
-        <p data-override-location={car?.place}>{car?.place ?? "서울 서초구 양재동"}</p>
-        <span data-override-status={car ? "" : undefined}>{car ? "" : "등록 2개월 전"}</span>
+      <div className="vehicle-location-row">
+        <p>서울 서초구 양재동</p>
+        <span>등록 2개월 전</span>
       </div>
     </section>
   );

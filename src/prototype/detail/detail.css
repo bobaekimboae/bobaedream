@@ -337,3 +337,12 @@
 .detail-real-options { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
 .detail-real-options li { padding: 6px 12px; border-radius: 999px; background: #f4f4f4; color: #222; font-size: 14px; line-height: 20px; }
 .detail-real-note { margin: 12px 0 0; color: #8c8c8c; font-size: 13px; line-height: 18px; }
+
+/* 상세 상단 = 목록 카드 정보(2026-10-13): 목록과 같은 조상 클래스를 달아 같은 CSS를 쓰고, 사진·판매자 줄만 숨긴다(하트는 그대로) */
+.vehicle-summary.is-list-summary { display: block !important; padding: 0 !important; min-height: 0 !important; height: auto !important; background: #fff !important; }
+.is-list-summary .bbm-result-card { cursor: default; border-bottom: 0 !important; padding-bottom: 16px !important; }
+.is-list-summary .bbm-card-photo, .is-list-summary .bbm-card-seller { display: none !important; }
+.is-list-summary .bbm-card-main { display: block !important; }
+.is-list-summary .bbm-card-content { min-height: 0 !important; }
+.is-list-summary .bbm-card-meta { position: relative; }
+.is-list-summary .bbm-card-meta-row { position: absolute !important; top: -8px; right: -6px; width: auto !important; height: auto !important; margin: 0 !important; padding: 0 !important; }
