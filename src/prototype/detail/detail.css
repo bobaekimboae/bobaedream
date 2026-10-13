@@ -701,3 +701,20 @@
 .is-list-summary .bbm-card-location-secondary { display: flex; flex-wrap: wrap; }
 .is-list-summary .bbm-card-location-part::before { content: "ㆍ" !important; }
 .is-list-summary .bbm-card-location-part:first-child::before { content: none !important; }
+
+/* 상세 섹션 카드 간격 통일(2026-10-14 「메뉴 섹션별 타이틀과 하단 위아래 간격 초톳 측정해서 기준 모두 적용」, 초톳 상세 캡처 1080×2340 ÷2.8125 실측):
+   카드 사이 10 · 카드 윗선 → 제목 글자 윗선 15.5 · 제목 글자 아랫선 → 본문 첫 글자 윗선 21.5 · 마지막 내용 아랫선 → 카드 아랫선 15.
+   본문마다 첫 줄 안쪽 여백이 달라, 제목 아래 여백(--dh)과 카드 아래 여백(--db)을 카드별로 보정한다(한글 글자 윗·아랫선 기준 실측, 파란 박스로 시작하는 보험 이력은 박스 윗선 기준) */
+.vehicle-detail:not(.bike-vehicle-detail) > .detail-gray-stack { gap: 10px; }
+.vehicle-detail:not(.bike-vehicle-detail) > .detail-gray-stack > .detail-card { --dh: 13.2px; --db: 15px; padding: 11px 12px var(--db); }
+.vehicle-detail:not(.bike-vehicle-detail) > .detail-gray-stack > .detail-card > .detail-section-heading { min-height: 0 !important; padding: 0 !important; margin: 0 0 var(--dh) !important; }
+.vehicle-detail:not(.bike-vehicle-detail) > .detail-gray-stack > .detail-card > .detail-section-heading h2 { line-height: 24px; }
+.vehicle-detail:not(.bike-vehicle-detail) > .detail-gray-stack > .vehicle-info-card { --dh: 7.1px; --db: 15px; }
+.vehicle-detail:not(.bike-vehicle-detail) > .detail-gray-stack > .airbnb-options-card { --dh: 6.8px; --db: 10.8px; }
+.vehicle-detail:not(.bike-vehicle-detail) > .detail-gray-stack > .is-history-card { --dh: 17.7px; }
+.vehicle-detail:not(.bike-vehicle-detail) > .detail-gray-stack > .is-inspection-card { --dh: 14.6px; --db: 10.8px; }
+.vehicle-detail:not(.bike-vehicle-detail) > .detail-gray-stack > .warranty-card { --dh: 14.1px; }
+.vehicle-detail:not(.bike-vehicle-detail) > .detail-gray-stack > .is-sale-card { --dh: 7.1px; }
+.vehicle-detail:not(.bike-vehicle-detail) > .detail-gray-stack > .vehicle-info-card { --db: 10.8px; }
+.vehicle-detail > .detail-gray-stack > .vehicle-info-card .detail-more { margin-bottom: 0; padding-bottom: 0; }
+.vehicle-detail > .detail-gray-stack > .is-history-card .detail-rows { margin-bottom: 0; }
