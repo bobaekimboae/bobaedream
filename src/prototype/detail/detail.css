@@ -387,3 +387,10 @@
 
 /* 매매단지(2차 지역) 색을 지역과 같게(2026-10-13) */
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text > .bbm-card-location-secondary { color: #222; }
+
+/* 상사명 · 등록일(2026-10-13 「지역 밑에 상사명 2줄 · 그 밑에 등록일, 아이콘 사용」): 지역 줄 아래 상사명(지역 글자 시작선, 15/20 회색), 그 아래 시계 아이콘(노션 「시계」 chotot-common-clock 원본, 24px) + `등록 N일 전` 15/20 #222 */
+.is-list-summary .bbm-result-card { padding-bottom: 0 !important; }
+.detail-shop-line { margin: 0; padding: 0 16px 0 44px; color: #8c8c8c; font-size: 15px; line-height: 20px; }
+.detail-posted-line { display: flex; align-items: center; gap: 4px; margin: 12px 16px 12px 12px; color: #222; font-size: 15px; line-height: 20px; }
+.detail-posted-line img { flex: none; width: 24px; height: 24px; }
+.detail-posted-line span { margin: 0; }

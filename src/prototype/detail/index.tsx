@@ -178,7 +178,10 @@ function VehicleSummary() {
   if (car) return (
     <section className="vehicle-summary is-list-summary marketplace is-bbm-m is-qf-guazi"><div className="bbm-m-list">
       <BbmResultCard car={car} variant="mobile" liked={liked} onToggleLike={() => setLiked(!liked)} onOpen={() => undefined} onChat={() => undefined} />
-    </div><DetailSellerInfo car={car} /></section>
+    </div>
+      {carShopName(car) ? <p className="detail-shop-line">{carShopName(car)}</p> : null}
+      <p className="detail-posted-line"><img src={asset("bbm/chotot-common-clock-v01.svg")} alt="" aria-hidden="true" draggable={false} /><span>등록 {car.posted}</span></p>
+      <DetailSellerInfo car={car} /></section>
   );
   return (
     <section className="vehicle-summary">
@@ -338,6 +341,14 @@ function WarrantyCard() {
       <div className="warranty-box"><div><span>일반/차체</span><small>보증 종료</small><i><b style={{ width: "0%" }} /></i></div><div><span>엔진/미션</span><small>2년 10개월 / 99,984km 남음</small><i><b style={{ width: "67%" }} /></i></div></div>
     </SectionCard>
   );
+}
+
+// 상사명(2026-10-13 「지역 밑에 상사명 2줄 · 그 밑에 등록일」): 페라리 실제 상세는 시트의 상사, 나머지는 판매자 이름 뒤 상사 낱말. 없으면 줄을 만들지 않는다
+function carShopName(car: Car) {
+  if (car.ferrariDetail) return car.ferrariDetail.shop;
+  const label = sellerLabel(car);
+  const [, ...rest] = label.split(" ");
+  return car.sellerType === "딜러" && !/딜러$/.test(label) && rest.length ? rest.join(" ") : "";
 }
 
 // 판매자 정보 영역(2026-10-13 「지역 밑에 판매자 정보 영역 추가」): 실제 매물은 지역 바로 아래(상단 블록)에 그리고, 아래 회색 영역의 옛 판매자 카드는 숨긴다
