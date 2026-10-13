@@ -37,6 +37,7 @@ import { oldCarBobaeRows } from "./old-car-bobae-v01";
 import { oldCarListCrop } from "./old-car-list-crop-v01";
 import { jdmListingRows } from "./jdm-category-v01";
 import { supercarSheetRows } from "./supercar-sheet-v01";
+import { ferrariDetails, type FerrariDetail } from "./ferrari-detail-v01";
 import { ferrariSheetRows } from "./ferrari-sheet-v02";
 import { seoulAutoGalleryRows } from "./seoul-autogallery-v01";
 import deutschAutoworldRowsJson from "./deutsch-autoworld-all-v01.json";
@@ -191,6 +192,8 @@ type Car = {
   /** 올드카 카테고리 가상 매물 v01(차량 › 테마별 중고차 › 올드카). 시트 순번과 가격을 채운 값인지 */
   oldCar?: { number: number; priceFilled: boolean };
   supercarSheet?: boolean;
+  /** 시트 실제 상세정보가 연결된 페라리 매물(2026-10-13) */
+  ferrariDetail?: FerrariDetail;
   jdm?: boolean;
   listCrop?: [number, number, number, number];
   luxuryCategory?: { number: number; vehicleNumber: string; model: string; generation: string; filled: boolean; certified: boolean };
@@ -1827,6 +1830,7 @@ const ferrariSheetCars: Car[] = ferrariSheetRows.filter((row) => row.photo).map(
     photos: 0,
     sellerProfile: null,
     supercarSheet: true,
+    ferrariDetail: ferrariDetails[row.number],
     filter: {
       year: row.year,
       seats: "전체",

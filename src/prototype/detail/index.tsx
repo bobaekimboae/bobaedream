@@ -67,7 +67,14 @@ function InfoGrid({ items }: { items: string[][] }) {
 
 function VehicleInfoCard() {
   const [expanded, setExpanded] = useState(false);
-  const items = expanded ? [...vehicleInfo, ...extraInfo] : vehicleInfo;
+  const car = getActiveDetailCar();
+  const fd = car?.ferrariDetail;
+  const realBase: string[][] | null = car && fd ? [
+    ["연식", `${car.specs[0]?.replace("년식", "")}년`], ["주행거리", `${(car.filter?.mileage ?? 0).toLocaleString("ko-KR")}km`], ["연료", car.specs[2] ?? ""], ["변속기", fd.transmission],
+    ["배기량", fd.displacement], ["색상", fd.color],
+  ] : null;
+  const realExtra: string[][] | null = fd ? [["차종", fd.carType], ["바디타입", fd.body], ["판매구분", fd.saleType]] : null;
+  const items = realBase ? (expanded ? [...realBase, ...(realExtra ?? [])] : realBase) : expanded ? [...vehicleInfo, ...extraInfo] : vehicleInfo;
 
   return (
     <SectionCard title="차량 정보" className="vehicle-info-card">
@@ -250,6 +257,13 @@ function PriceHistorySheet({ onClose }: { onClose: () => void }) {
 
 function OptionsCard({ desktop = false }: { desktop?: boolean }) {
   const [expanded, setExpanded] = useState(false);
+  const fd = getActiveDetailCar()?.ferrariDetail;
+  if (fd) return (
+    <SectionCard title="차량 옵션">
+      <ul className="detail-real-options">{fd.options.map((name) => <li key={name}>{name}</li>)}</ul>
+      <p className="detail-real-note">판매자 등록 옵션 {fd.optionCount}개 중 주요 옵션입니다.</p>
+    </SectionCard>
+  );
   return (
     <SectionCard title="차량 옵션" action={<button className="text-action" type="button" onClick={() => setExpanded(!expanded)}>옵션설명</button>}>
       <div className="option-grid">{optionItems.map(({ label, icon }, index) => <div key={label}><img src={desktop ? pcAsset(`9653-img${index + 1}.png`) : asset(`detail/${icon}`)} alt="" draggable={false} /><span>{label}</span></div>)}</div>
@@ -261,6 +275,15 @@ function OptionsCard({ desktop = false }: { desktop?: boolean }) {
 
 function HistoryCard() {
   const [expanded, setExpanded] = useState(false);
+  const fd = getActiveDetailCar()?.ferrariDetail;
+  if (fd) return (
+    <SectionCard title="보험 이력">
+      {fd.insurance ? <>
+        <div className="insurance-summary"><div>내 차 피해<strong>{fd.insurance.own}건</strong></div><div>상대 차 피해<strong>{fd.insurance.other}건</strong></div><div>전손·침수·도난<strong>{fd.insurance.special}</strong></div></div>
+        <dl className="detail-rows"><div><dt>소유자 변경</dt><dd>{fd.insurance.owners}회</dd></div><div><dt>번호판 변경</dt><dd>{fd.insurance.plateChanges === 0 ? "없음" : `${fd.insurance.plateChanges}회`}</dd></div></dl>
+      </> : <p className="detail-real-note">등록된 보험 이력 정보가 없습니다.</p>}
+    </SectionCard>
+  );
   return (
     <SectionCard title="보험 이력" action={<a className="history-link" href={vehicleHistoryUrl(detailVehiclePlate)}>통합 이력조회</a>}>
       <div className="insurance-summary"><div>내 차 피해<strong>0건</strong></div><div>상대 차 피해<strong>0건</strong></div><div>특수사항<strong>없음</strong></div></div>
@@ -274,6 +297,10 @@ function HistoryCard() {
 
 function InspectionCard() {
   const [expanded, setExpanded] = useState(false);
+  const fd = getActiveDetailCar()?.ferrariDetail;
+  if (fd) return (
+    <SectionCard title="성능 점검"><p className="detail-real-note">{fd.inspection ? "성능·상태 점검기록부가 등록된 매물입니다." : "성능점검 기록부가 없습니다."}</p></SectionCard>
+  );
   return (
     <SectionCard title="성능 점검" action={<span className="muted-label">제시번호 : 262621002567</span>}>
       <dl className="detail-info-grid compact"><div><dt>사고이력 <QuestionMarkCircledIcon /></dt><dd>없음</dd></div><div><dt>단순수리 <QuestionMarkCircledIcon /></dt><dd>없음</dd></div></dl>
@@ -284,6 +311,7 @@ function InspectionCard() {
 }
 
 function WarrantyCard() {
+  if (getActiveDetailCar()?.ferrariDetail) return null;
   return (
     <SectionCard title="제조사 보증">
       <div className="warranty-box"><div><span>일반/차체</span><small>보증 종료</small><i><b style={{ width: "0%" }} /></i></div><div><span>엔진/미션</span><small>2년 10개월 / 99,984km 남음</small><i><b style={{ width: "67%" }} /></i></div></div>
@@ -292,6 +320,14 @@ function WarrantyCard() {
 }
 
 function SellerCard() {
+  const car = getActiveDetailCar();
+  const fd = car?.ferrariDetail;
+  if (car && fd) return (
+    <section className="detail-card seller-card">
+      <div className="seller-profile"><div><h2>{car.dealer}</h2><p>● {car.place}</p></div></div>
+      <dl className="detail-rows"><div><dt>상사</dt><dd>{fd.shop}</dd></div><div><dt>소속 조합</dt><dd>{fd.union}</dd></div></dl>
+    </section>
+  );
   return (
     <section className="detail-card seller-card">
       <div className="seller-profile"><img src={asset("detail/raw-10.jpeg")} alt={sellerScenario.name} /><div><h2>{sellerScenario.name}</h2><p>● {sellerScenario.location}</p></div></div>
@@ -302,6 +338,10 @@ function SellerCard() {
 
 function SaleCard() {
   const { notify } = useDetailUi();
+  const car = getActiveDetailCar();
+  if (car?.ferrariDetail) return (
+    <SectionCard title="판매 정보"><dl className="detail-rows"><div><dt>차량가</dt><dd>{car.price}</dd></div><div><dt>판매구분</dt><dd>{car.ferrariDetail.saleType}</dd></div></dl></SectionCard>
+  );
   return (
     <SectionCard title="판매 정보">
       <div className="cost-box"><dl><div><dt>차량가</dt><dd>1억5,980만원</dd></div><div><dt>이전 등록비(예상)</dt><dd>314만원</dd></div><div><dt>매도비</dt><dd>33만원</dd></div></dl><div className="cost-total"><span>예상 총 비용</span><strong>1억 6,328만원</strong></div></div>
@@ -313,6 +353,7 @@ function SaleCard() {
 
 function DescriptionCard({ desktop = false }: { desktop?: boolean }) {
   const [expanded, setExpanded] = useState(false);
+  if (getActiveDetailCar()?.ferrariDetail) return null;
   return (
     <SectionCard title={desktop ? "차량 설명" : "상세 설명"}>
       <div className={`description-copy${expanded ? " is-expanded" : ""}`}>
@@ -329,6 +370,8 @@ type RailCar = { image: string; title: string; price: string; place: string; pos
 
 function CarRail({ title, cars: railCars }: { title: string; cars: RailCar[] }) {
   const { notify } = useDetailUi();
+  // 실제 상세정보가 연결된 매물은 가상 추천 매물을 보여주지 않는다(2026-10-13)
+  if (getActiveDetailCar()?.ferrariDetail) return null;
   return (
     <section className="related-section"><h2>{title}</h2><Carousel ariaLabel={title} className="related-carousel" contentClassName="related-track">
       {railCars.map((car) => <button key={`${title}-${car.title}`} className="related-card" type="button" onClick={() => notify(`${car.title} 매물을 열었어요`)}><div className="related-photo"><img src={asset(`detail/${car.image}`)} alt={car.title} draggable={false} /><span>{car.posted}</span><b>10 ▣</b></div><div><h3>{car.title}</h3>{car.meta ? <p>{formatMileage(car.meta)}</p> : null}<strong>{car.price}</strong><small>● {car.place}</small></div></button>)}
