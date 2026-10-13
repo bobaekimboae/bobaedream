@@ -73,26 +73,37 @@ function InfoGrid({ items }: { items: string[][] }) {
 // 차량 정보(2026-10-13 「카앤비드처럼 구성 · 한국 문화에 맞게」): Cars & Bids의 핵심 정보 격자(라벨 위 · 값 아래, 제조사 · 모델 · 주행거리 · 엔진 · 구동 · 변속기 · 바디 · 색상 · 지역 · 판매자 유형)를
 // 한국 중고차 기준(연식 · 정확한 주행거리 · 연료 · 변속기 · 배기량 · 바디타입 · 색상 · 지역 · 판매자 유형 · 판매구분 · 성능점검 · 보험이력)으로 옮겼다. 값이 없는 칸은 만들지 않는다
 const cleanValue = (value?: string | null) => (value && value !== "전체" && value !== "정보 없음" && value !== "기타" ? value : "");
+const NO_INFO = "정보 없음";
+const FACTS_VISIBLE = 6;
 function carFacts(car: Car): string[][] {
   const fd = car.ferrariDetail;
   const yearText = bbmCardSpec(car, false).split(" · ")[0];
   const model = (car.modelGroup ?? car.title.replace(new RegExp(`^${car.maker}\\s*`), "")).trim();
+  const or = (value?: string | null) => value || NO_INFO;
+  /* 2026-10-14 「차량번호 · 제조사 · 모델 · 연식 · 출시가격 … 제시번호 모두 포함 후 더보기」: 값이 없는 항목도 줄은 두고 `정보 없음`.
+     차량번호 · 제시번호는 저장하지 않는 값이라 항상 `정보 없음`(상세 원본은 판매자에게 문의). */
   const rows: [string, string][] = [
+    ["차량번호", NO_INFO],
     ["제조사", car.maker],
     ["모델", model],
     ["연식", yearText],
-    ["주행거리", car.filter?.mileage ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : ""],
-    ["연료", cleanValue(car.filter?.fuel)],
-    ["변속기", cleanValue(fd?.transmission ?? car.filter?.transmission)],
-    ["배기량", fd?.displacement ?? ""],
-    ["바디타입", cleanValue(fd?.body ?? car.filter?.body)],
-    ["차종", fd?.carType ?? ""],
-    ["외장색", cleanValue(fd?.color ?? car.filter?.color)],
+    ["주행거리", car.filter?.mileage ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : NO_INFO],
+    ["출시가격(옵션미포함)", NO_INFO],
+    ["연료", or(cleanValue(car.filter?.fuel))],
+    ["배기량", or(fd?.displacement)],
+    ["변속기", or(cleanValue(fd?.transmission ?? car.filter?.transmission))],
+    ["차종", or(fd?.carType)],
+    ["인승", NO_INFO],
+    ["바디타입", or(cleanValue(fd?.body ?? car.filter?.body))],
+    ["외관 색상", or(cleanValue(fd?.color ?? car.filter?.color))],
+    ["시트 색상", NO_INFO],
+    ["판매방식", or(fd?.saleType)],
+    ["압류/저당", `${NO_INFO} / ${NO_INFO}`],
+    ["제시번호", NO_INFO],
     ["지역", car.place.split(" · ")[0]],
     ["판매자 유형", car.sellerType === "딜러" ? "매매업체(딜러)" : "개인"],
-    ["판매구분", fd?.saleType ?? ""],
     ["성능점검", fd ? (fd.inspection ? "기록부 있음" : "없음") : ""],
-    ["보험이력 조회", fd ? (fd.insurance ? "조회 완료" : "정보 없음") : ""],
+    ["보험이력 조회", fd ? (fd.insurance ? "조회 완료" : NO_INFO) : ""],
   ];
   return rows.filter(([, value]) => value);
 }
@@ -100,9 +111,11 @@ function carFacts(car: Car): string[][] {
 function VehicleInfoCard() {
   const [expanded, setExpanded] = useState(false);
   const car = getActiveDetailCar();
+  const facts = car ? carFacts(car) : [];
   if (car) return (
     <SectionCard title="차량 정보" className="vehicle-info-card">
-      <dl className="detail-facts">{carFacts(car).map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{label === "제조사" ? <a className="detail-fact-link" href={`?qf=guazi&maker=${encodeURIComponent(value)}`}>{value}</a> : value}</dd></div>)}</dl>
+      <dl className="detail-facts">{(expanded ? facts : facts.slice(0, FACTS_VISIBLE)).map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{label === "제조사" ? <a className="detail-fact-link" href={`?qf=guazi&maker=${encodeURIComponent(value)}`}>{value}</a> : value}</dd></div>)}</dl>
+      {facts.length > FACTS_VISIBLE ? <button type="button" className="detail-more" aria-expanded={expanded} onClick={() => setExpanded((v) => !v)}><span>{expanded ? "정보 접기" : "정보 더보기"}</span><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ transformOrigin: "8px 8px", transform: expanded ? "rotate(180deg)" : "none" }} /></svg></button> : null}
     </SectionCard>
   );
   const items = expanded ? [...vehicleInfo, ...extraInfo] : vehicleInfo;

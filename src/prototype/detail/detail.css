@@ -493,3 +493,8 @@
 .detail-rows.is-facts-size > div { min-height: 38px; font-size: 16px; line-height: 24px; color: #595959; }
 .detail-rows.is-facts-size dd { color: #222; }
 .detail-seller-text span { font-size: 16px; line-height: 24px; }
+
+/* 정보 더보기(2026-10-14, 에어비앤비 「Show more」 링크형): 본문색 600 + 밑줄(1px · 간격 2px) + 아래 꺾쇠 */
+.detail-more { display: inline-flex; align-items: center; gap: 4px; margin: 4px 0 12px; padding: 4px 0; border: 0; background: none; color: #222; font: inherit; font-size: 16px; font-weight: 600; line-height: 24px; cursor: pointer; }
+.detail-more span { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+.detail-more:focus-visible { outline: 2px solid #222; outline-offset: 2px; border-radius: 4px; }
