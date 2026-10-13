@@ -344,8 +344,8 @@ function DetailHero({ onBack }: { onBack: () => void }) {
     const thumb = strip?.children[photoIndex - 1] as HTMLElement | undefined;
     if (!strip || !thumb) return;
     // 선택 칸 양옆의 이웃 칸이 항상 줄 안에 보이게 한다(카이디: 다음 썸네일이 1칸 이상 보임). 처음·끝은 브라우저가 끝 여백에서 멈춘다.
-    // 카이디 영상 실측: 앞으로 넘길 때 다음 칸 오른쪽 끝이 화면 끝에서 18, 뒤로 넘길 때 앞 칸 왼쪽 끝이 화면 끝에서 약 5
-    const edgeLeft = 5;
+    // 카이디 영상 실측: 앞으로 넘길 때 다음 칸 오른쪽 끝이 화면 끝에서 18, 뒤로 넘길 때 앞 칸 왼쪽 끝이 화면 끝에서 약 3
+    const edgeLeft = 3;
     const edgeRight = 18;
     const prev = (strip.children[photoIndex - 2] as HTMLElement | undefined) ?? thumb;
     const next = (strip.children[photoIndex] as HTMLElement | undefined) ?? thumb;
