@@ -6,7 +6,6 @@
 .detail-hero { position: relative; height: 250px; overflow: hidden; background: #fff; }
 .detail-hero-main { position: relative; height: 250px; overflow: hidden; border-bottom: .5px solid #eee; background: #222; }
 .detail-media-carousel, .detail-media-track { height: 100%; }
-.detail-media-carousel { overflow-x: hidden; overflow-y: hidden; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
 .detail-media-track { display: flex; min-width: max-content; }
 .detail-media-track > img { display: block; width: min(100vw, 430px); height: 250px; flex: 0 0 min(100vw, 430px); object-fit: contain; background: #222; }
 .detail-video-play { position: absolute; top: 50%; left: 50%; display: grid; width: 56px; height: 56px; place-items: center; border: 2px solid #fff; border-radius: 50%; box-sizing: border-box; background: rgba(0,0,0,.42); pointer-events: none; transform: translate(-50%, -50%); }

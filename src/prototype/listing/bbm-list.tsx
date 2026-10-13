@@ -6,7 +6,6 @@ import { oldCarGeneration } from "../data/old-car-generation-v01";
 import { truckFormatCatalog } from "../data/truck-format-catalog";
 import { normalizedListThumb } from "./list-thumbs";
 import { truckPlaceV09 } from "../truck/scenario-v09";
-import { usePagedDrag } from "../detail/paged-carousel";
 import "./bbm-tokens.css";
 
 // QF-091: 개발 시안(dev.bbmuseum.co.kr/car/list) 원본과 같은 목록 부품. 수치·아이콘은 원본에서 뽑은 값(bbm-tokens.css, public/assets/bbm/).
@@ -536,8 +535,7 @@ const retryExternalPhoto = (event: SyntheticEvent<HTMLImageElement>) => {
 };
 function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string; fit: "cover" | "contain" }) {
   const wrapRef = useRef<HTMLDivElement>(null);
-  const paged = usePagedDrag(photos.length);
-  const trackRef = paged.ref;
+  const trackRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef(0);
   const [index, setIndex] = useState(0);
   // 레딧처럼 사진 개수는 넘길 때만 잠깐 보이고 1.5초 뒤 저절로 사라진다(2026-10-10)
@@ -570,6 +568,39 @@ function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string
       setIndex(Math.max(0, Math.min(photos.length - 1, Math.round(track.scrollLeft / track.clientWidth))));
     });
   };
+  // 마우스 끌기(2026-10-12 「피드형에서 레딧처럼 사진 좌우 제스처 안 되고」): 터치는 브라우저가 알아서 넘기지만 마우스는 끌어도 안 넘어가서,
+  // 마우스로 끌면 사진 줄이 따라오고 놓으면 가까운 사진에 붙는다. 터치·펜은 그대로 둔다.
+  const drag = useRef<{ x: number; left: number; moved: boolean } | null>(null);
+  const onPointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (event.pointerType !== "mouse" || event.button !== 0 || !trackRef.current) return;
+    drag.current = { x: event.clientX, left: trackRef.current.scrollLeft, moved: false };
+  };
+  const onPointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    const track = trackRef.current;
+    const state = drag.current;
+    if (!track || !state) return;
+    const dx = event.clientX - state.x;
+    if (!state.moved && Math.abs(dx) < 4) return;
+    if (!state.moved) { state.moved = true; track.style.scrollSnapType = "none"; track.setPointerCapture(event.pointerId); }
+    track.scrollLeft = state.left - dx;
+  };
+  const endDrag = (event: React.PointerEvent<HTMLDivElement>) => {
+    const track = trackRef.current;
+    const state = drag.current;
+    drag.current = null;
+    if (!track || !state?.moved) return;
+    if (track.hasPointerCapture(event.pointerId)) track.releasePointerCapture(event.pointerId);
+    const width = track.clientWidth || 1;
+    const dx = event.clientX - state.x;
+    const from = Math.round(state.left / width);
+    const target = Math.max(0, Math.min(photos.length - 1, Math.abs(dx) > width * 0.15 ? from + (dx < 0 ? 1 : -1) : from));
+    track.style.scrollSnapType = "";
+    track.scrollTo({ left: target * width, behavior: "smooth" });
+    // 끌고 난 뒤 곧바로 오는 클릭이 상세로 열리지 않게 한 번 막는다
+    const block = (e: MouseEvent) => { e.stopPropagation(); e.preventDefault(); };
+    track.addEventListener("click", block, { capture: true, once: true });
+    window.setTimeout(() => track.removeEventListener("click", block, true), 0);
+  };
   // 점은 최대 7개까지만 보이고, 현재 점 둘레로 창을 옮긴다(레딧과 같은 방식)
   // 2026-10-12 「5개로 줄여서」: 레딧(약 4개)·에어비앤비(약 5개)처럼 최대 5개. 뒤에 사진이 더 있는 쪽 끝 점만 작게(끝 3px · 그 안쪽 4px)
   const dotMax = 5;
@@ -579,7 +610,7 @@ function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string
   const moreAfter = start + dotMax < photos.length;
   return (
     <div className="bbm-feed-carousel-wrap" ref={wrapRef}>
-      <div className="bbm-feed-carousel" ref={trackRef} onScroll={onScroll} onKeyDown={paged.onKeyDown} onPointerDown={paged.onPointerDown} onClickCapture={paged.onClickCapture} onClick={(event) => { if (trackRef.current && trackRef.current.scrollLeft % trackRef.current.clientWidth) event.stopPropagation(); }}>
+      <div className="bbm-feed-carousel" ref={trackRef} onScroll={onScroll} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={endDrag} onPointerCancel={endDrag} onClick={(event) => { if (trackRef.current && trackRef.current.scrollLeft % trackRef.current.clientWidth) event.stopPropagation(); }}>
         {photos.map((src, i) => armed || i === 0
           ? <img key={src + i} className={fit === "contain" ? "is-catalog" : ""} src={asset(src)} alt={i === 0 ? alt : `${alt} 사진 ${i + 1}`} draggable={false} decoding="async" onError={retryExternalPhoto} />
           : <span key={src + i} className="bbm-feed-slide-empty" aria-hidden="true" />)}
