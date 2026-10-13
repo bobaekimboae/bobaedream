@@ -14,6 +14,8 @@ import {
   optionItems,
   priceHistoryRows,
   relatedCars,
+  sellerAvatar,
+  sellerLabel,
   sellerScenario,
   useFavorites,
   vehicleHistoryUrl,
@@ -187,7 +189,7 @@ function VehicleSummary() {
   if (car) return (
     <section className="vehicle-summary is-list-summary marketplace is-bbm-m is-qf-guazi"><div className="bbm-m-list">
       <BbmResultCard car={car} variant="mobile" liked={liked} onToggleLike={() => setLiked(!liked)} onOpen={() => undefined} onChat={() => undefined} />
-    </div></section>
+    </div><DetailSellerInfo car={car} /></section>
   );
   return (
     <section className="vehicle-summary">
@@ -325,15 +327,24 @@ function WarrantyCard() {
   );
 }
 
-function SellerCard() {
-  const car = getActiveDetailCar();
-  const fd = car?.ferrariDetail;
-  if (car && fd) return (
-    <section className="detail-card seller-card">
-      <div className="seller-profile"><div><h2>{car.dealer}</h2><p>● {car.place}</p></div></div>
-      <dl className="detail-rows"><div><dt>상사</dt><dd>{fd.shop}</dd></div><div><dt>소속 조합</dt><dd>{fd.union}</dd></div></dl>
+// 판매자 정보 영역(2026-10-13 「지역 밑에 판매자 정보 영역 추가」): 실제 매물은 지역 바로 아래(상단 블록)에 그리고, 아래 회색 영역의 옛 판매자 카드는 숨긴다
+function DetailSellerInfo({ car }: { car: Car }) {
+  const fd = car.ferrariDetail;
+  const isDealer = car.sellerType === "딜러";
+  return (
+    <section className="detail-seller-info" aria-label="판매자 정보">
+      <img className="detail-seller-avatar" src={asset(sellerAvatar(car))} alt="" draggable={false} />
+      <div className="detail-seller-text">
+        <strong>{sellerLabel(car)}</strong>
+        {isDealer ? <span><b>{car.stock}대</b> 판매중</span> : null}
+        {fd ? <span className="detail-seller-shop">{fd.shop} · {fd.union}</span> : null}
+      </div>
     </section>
   );
+}
+
+function SellerCard() {
+  if (getActiveDetailCar()) return null;
   return (
     <section className="detail-card seller-card">
       <div className="seller-profile"><img src={asset("detail/raw-10.jpeg")} alt={sellerScenario.name} /><div><h2>{sellerScenario.name}</h2><p>● {sellerScenario.location}</p></div></div>
