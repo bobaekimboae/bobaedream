@@ -342,14 +342,12 @@ function WarrantyCard() {
 
 // 판매자 정보 영역(2026-10-13 「지역 밑에 판매자 정보 영역 추가」): 실제 매물은 지역 바로 아래(상단 블록)에 그리고, 아래 회색 영역의 옛 판매자 카드는 숨긴다
 function DetailSellerInfo({ car }: { car: Car }) {
-  const fd = car.ferrariDetail;
   const isDealer = car.sellerType === "딜러";
   // 판매완료 대수는 실제 값이 없어 매물 번호로 정한 가상 값이다(2026-10-13 「판매중 판매완료 추가」)
   // 딜러 이름은 「이은호 딜러」 형식(2026-10-13): 목록의 「이름 상사」는 이름만 따고 상사는 아래 회색 줄로 옮긴다
   const label = sellerLabel(car);
-  const [personName, ...shopParts] = label.split(" ");
+  const [personName, ...shopParts] = label.split(" "); // 상사 정보는 일단 숨김(2026-10-13)
   const sellerName = isDealer && !/딜러$/.test(label) && shopParts.length ? `${personName} 딜러` : label;
-  const shopLine = isDealer && !/딜러$/.test(label) && shopParts.length ? shopParts.join(" ") : "";
   const soldCount = 12 + ((car.id * 37) % 188);
   return (
     <section className="detail-seller-info" aria-label="판매자 정보">
@@ -357,7 +355,6 @@ function DetailSellerInfo({ car }: { car: Car }) {
       <div className="detail-seller-text">
         <strong>{sellerName}</strong>
         {isDealer ? <span><b>{soldCount}대</b> 판매완료 · <b>{car.stock}대</b> 판매중</span> : null}
-        {fd ? <span className="detail-seller-shop">{fd.shop} · {fd.union}</span> : shopLine ? <span className="detail-seller-shop">{shopLine}</span> : null}
       </div>
     </section>
   );
