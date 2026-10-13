@@ -28,6 +28,34 @@ final result: passed
 
 ---
 
+# 차량 정보 배기량 아이콘 교체 QA · 2026-10-14
+
+- source visual truth: `C:/Users/bobae/Downloads/notion-displacement-alpha.png`
+- source page: `https://app.notion.com/p/35d45bdf6e4540c1890cc941f7b33604`
+- implementation screenshot: `C:/Users/bobae/Downloads/vehicle-grid-icon-tuned-1013/notion-displacement-local.png`
+- side-by-side comparison: `C:/Users/bobae/Downloads/vehicle-grid-icon-tuned-1013/comparison-notion-displacement.png`
+- route: `/?qf=guazi&category=서울오토갤러리&facts=icons` → 첫 매물 상세
+- viewport: 390 × 844 CSS px, deviceScaleFactor 1
+- state: 차량 정보 8개 접힘 상태
+
+## Findings
+
+- P0/P1/P2 findings: none after the focused comparison.
+- Notion에 첨부된 AutoUncle 배기량 아이콘의 24×24 투명 원본 렌더를 잘림·재채색 없이 적용했다.
+- 기존 28px 아이콘 슬롯을 유지해 레이아웃과 텍스트 정렬은 변경하지 않았다.
+- 배기량 렌더 박스는 28.08px, 마력은 27.58px로 시각 크기 차이가 1px 이내다.
+- 타이포그래피·간격·카드 구조·복사는 변경하지 않았다.
+
+## Verification
+
+- 모바일 390×844 가로 오버플로 0
+- 깨진 이미지 0, 콘솔 오류 0, 400 이상 네트워크 오류 0
+- 기존 굵은 일반 엔진 아이콘을 노션 원본 배기량 아이콘으로 교체했다.
+
+final result: passed
+
+---
+
 # 차량 정보 주행거리 아이콘 교체 QA · 2026-10-13
 
 - source visual truth: Notion `09_주행거리 Mileage (km) (1)`의 `MileageOdometer.svg`
