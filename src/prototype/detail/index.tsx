@@ -184,18 +184,23 @@ function carFactGroups(car: Car): VehicleFactGroup[] {
   const m3 = isBmwM3CompetitionXDrive(car, model) ? BMW_M3_COMPETITION_XDRIVE_2023 : null;
   const value = (entry?: string | number | null) => entry === undefined || entry === null || entry === "" ? NO_INFO : String(entry);
   const mileage = car.filter?.mileage ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : NO_INFO;
-  const inspection = fd ? (fd.inspection ? "기록부 있음" : "없음") : NO_INFO;
   const insurance = fd ? (fd.insurance ? "조회 완료" : NO_INFO) : NO_INFO;
+  const modelYear = car.filter?.year ? `${String(car.filter.year).slice(-2)}년식` : /년식$/.test(yearText) ? yearText : NO_INFO;
+  const registeredToken = bbmCardSpec(car, false).split(" · ")[0];
+  const registeredMatch = registeredToken.match(/^(\d{2}|\d{4})년(\d{2})월$/);
+  const registeredAt = registeredMatch ? `${registeredMatch[1].slice(-2)}년 ${registeredMatch[2]}월 등록` : NO_INFO;
+  const previousOwners = fd?.insurance ? `${fd.insurance.owners}회` : NO_INFO;
+  const origin = m3?.origin ?? value(cleanValue(car.filter?.origin));
 
   return [
     {
       title: "기본 정보",
       basic: true,
       rows: [
-        ["제조사", car.maker], ["모델", model], ["연식", yearText], ["세부모델", m3?.trim ?? value(car.trim)],
+        ["제조사", car.maker], ["모델", model], ["세부모델", m3?.trim ?? value(car.trim)],
         ["변속기", m3?.transmission ?? value(cleanValue(fd?.transmission ?? car.filter?.transmission))], ["시리즈·코드", m3?.series ?? NO_INFO],
         ["차체형식", m3?.body ?? value(body ? `${dv.doors ? `${dv.doors} ` : ""}${body}` : "")], ["좌석 수", m3?.seats ?? value(dv.seats)],
-        ["연료", m3?.fuel ?? value(cleanValue(car.filter?.fuel))], ["생산국", m3?.origin ?? value(cleanValue(car.filter?.origin))],
+        ["연료", m3?.fuel ?? value(cleanValue(car.filter?.fuel))],
       ],
     },
     {
@@ -218,11 +223,11 @@ function carFactGroups(car: Car): VehicleFactGroup[] {
     { title: "조향장치", rows: [["조향 방식", m3?.steering ?? NO_INFO]] },
     { title: "타이어·휠", rows: [["전륜 타이어", m3?.frontTyre ?? NO_INFO], ["후륜 타이어", m3?.rearTyre ?? NO_INFO], ["전륜 휠", m3?.frontWheel ?? NO_INFO], ["후륜 휠", m3?.rearWheel ?? NO_INFO]] },
     {
-      title: "매물·이력",
+      title: "차량 히스토리",
       rows: [
-        ["주행거리", mileage], ["출시가격", m3?.launchPrice ?? NO_INFO], ["외관 색상", value(cleanValue(fd?.color ?? car.filter?.color))],
-        ["이전 소유자", fd?.insurance ? `${fd.insurance.owners}명` : NO_INFO], ["판매방식", value(fd?.saleType)],
-        ["성능점검", inspection], ["보험이력 조회", insurance],
+        ["연식", modelYear], ["등록일", registeredAt], ["주행거리", mileage], ["소유자 변경", previousOwners],
+        ["최초 출고가격 (옵션 포함)", NO_INFO], ["최초 출고가격 (옵션 미포함)", m3?.launchPrice ?? NO_INFO],
+        ["압류/저당", NO_INFO], ["보험이력", insurance], ["생산국가", origin],
       ],
     },
   ];
