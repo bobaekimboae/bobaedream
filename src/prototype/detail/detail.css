@@ -407,14 +407,13 @@
 
 /* 차량 정보 격자 · 차량 소개(2026-10-13, Cars & Bids 구성): 라벨 13/18 회색 위 · 값 15/22 600 아래, 2열 */
 .detail-facts { margin: 0; padding: 0; }
-.detail-facts > div { display: grid; grid-template-columns: 50% 50%; align-items: center; box-sizing: border-box; min-height: 41px; border-bottom: 1px solid #e8e8e8; min-width: 0; }
+.detail-facts > div { display: grid; grid-template-columns: 50% 50%; align-items: center; box-sizing: border-box; padding: 9px 0; border-bottom: 1px solid #e8e8e8; min-width: 0; }
 .detail-facts dt { margin: 0; color: #222; font-size: 14px; font-weight: 400; line-height: 20px; }
-.detail-facts dt::after { content: ":"; }
 .detail-facts dd { margin: 0; color: #222; font-size: 14px; font-weight: 400; line-height: 20px; word-break: keep-all; }
 /* 초톳 매물 상세 「Đặc điểm」 카드 실측(2026-10-14, 1080×2340 ÷2.8125): 카드 안쪽 좌우 16 · 제목 18/24 700 · 줄 40+1px #E8E8E8 · 값 열 50% */
 .vehicle-info-card { padding: 10px 16px 4px; }
 .vehicle-info-card .detail-facts > div:last-child { border-bottom: 0; }
-.vehicle-info-card .detail-section-heading { padding-bottom: 6px; }
+.vehicle-info-card .detail-section-heading { padding-bottom: 13px; }
 .vehicle-info-card .detail-section-heading h2 { color: #222; font-size: 18px; font-weight: 700; line-height: 24px; letter-spacing: 0; }
 .detail-highlights p { margin: 0 0 10px; color: #222; font-size: 15px; line-height: 23px; word-break: keep-all; }
 .detail-highlights p:last-child { margin-bottom: 0; }
