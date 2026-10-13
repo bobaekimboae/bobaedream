@@ -306,3 +306,4 @@
 2026-10-13 12:40,상세 썸네일 뺀 시안(&thumbs=off),claude/used-car-detail-1013,pending,미리보기 전용
 2026-10-13 12:47,상세 썸네일 기본 제외(&thumbs=on으로만 표시),claude/used-car-detail-1013,pending,기본값 변경
 2026-10-13 13:10,상세 차량 정보 값 우측 정렬,claude/used-car-detail-1013,pending,기본 사실표
+2026-10-13 13:17,상세 차량 정보 정렬 두 시안(&facts=left),claude/used-car-detail-1013,pending,미리보기

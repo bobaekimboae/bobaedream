@@ -307,7 +307,7 @@ function VehicleInfoCard() {
   );
   if (car) return (
     <SectionCard title="차량 정보" className="vehicle-info-card">
-      <dl className="detail-facts">{(expanded ? facts : facts.slice(0, FACTS_VISIBLE)).map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{label === "제조사" ? <a className="detail-fact-link" href={`?qf=guazi&maker=${encodeURIComponent(value)}`}>{value}</a> : value}</dd></div>)}</dl>
+      <dl className={`detail-facts${factsMode === "left" ? " is-left" : ""}`}>{(expanded ? facts : facts.slice(0, FACTS_VISIBLE)).map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{label === "제조사" ? <a className="detail-fact-link" href={`?qf=guazi&maker=${encodeURIComponent(value)}`}>{value}</a> : value}</dd></div>)}</dl>
       {facts.length > FACTS_VISIBLE ? <button type="button" className="detail-more" aria-expanded={expanded} onClick={() => setExpanded((v) => !v)}><span>{expanded ? "정보 접기" : "정보 더보기"}</span><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ transformOrigin: "8px 8px", transform: expanded ? "rotate(180deg)" : "none" }} /></svg></button> : null}
     </SectionCard>
   );
