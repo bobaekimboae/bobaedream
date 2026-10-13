@@ -105,9 +105,8 @@
 .warranty-inspection-trigger:focus-visible { border-radius: 4px; outline: 2px solid #2f71de; outline-offset: 3px; }
 .warranty-box strong { color: #555d68; font-size: 13px; font-weight: 600; line-height: 20px; text-align: right; white-space: nowrap; }
 .warranty-box i { grid-column: 1 / -1; display: block; height: 5px; overflow: hidden; border-radius: 999px; background: #e5e7ea; }
-.warranty-box b { display: block; height: 100%; border-radius: inherit; background: #222; }
+.warranty-box b { display: block; height: 100%; border-radius: inherit; background: #306bd9; }
 .warranty-box .is-active strong { color: #222; }
-.warranty-box .warranty-inspection { padding-top: 18px; }
 .warranty-guide { display: grid; gap: 6px; margin-top: 18px; padding: 12px 14px; border-radius: 8px; background: #f7f8f9; }
 .warranty-guide p { position: relative; margin: 0; padding-left: 9px; color: #6b7280; font-size: 11px; line-height: 17px; word-break: keep-all; }
 .warranty-guide p::before { position: absolute; top: 7px; left: 0; width: 3px; height: 3px; border-radius: 50%; background: #8b95a1; content: ""; }
