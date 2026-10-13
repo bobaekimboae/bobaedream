@@ -255,17 +255,41 @@ function PriceHistorySheet({ onClose }: { onClose: () => void }) {
 function OptionsCard({ desktop = false }: { desktop?: boolean }) {
   const [expanded, setExpanded] = useState(false);
   const fd = getActiveDetailCar()?.ferrariDetail;
-  if (fd) return (
-    <SectionCard title="차량 옵션">
-      <ul className="detail-real-options">{fd.options.map((name) => <li key={name}>{name}</li>)}</ul>
-      <p className="detail-real-note">판매자 등록 옵션 {fd.optionCount}개 중 주요 옵션입니다.</p>
-    </SectionCard>
-  );
+  const ferrariIconByKeyword: Array<[string, string]> = [
+    ["후방카메라", "option-04.png"],
+    ["주차감지", "option-03.png"],
+    ["LED헤드램프", "option-02.png"],
+    ["스마트키", "option-smart-key.png"],
+    ["열선시트", "option-08.png"],
+    ["전동시트", "option-09.png"],
+    ["가죽시트", "option-06.png"],
+  ];
+  const options = fd
+    ? fd.options.map((label) => ({
+      label,
+      icon: ferrariIconByKeyword.find(([keyword]) => label.includes(keyword))?.[1] ?? "option-06.png",
+    }))
+    : optionItems;
+  const previewCount = fd ? Math.min(4, options.length) : 6;
+  const visibleOptions = expanded ? options : options.slice(0, previewCount);
+  const canToggle = options.length > previewCount;
+
   return (
-    <SectionCard title="차량 옵션" action={<button className="text-action" type="button" onClick={() => setExpanded(!expanded)}>옵션설명</button>}>
-      <div className="option-grid">{optionItems.map(({ label, icon }, index) => <div key={label}><img src={desktop ? pcAsset(`9653-img${index + 1}.png`) : asset(`detail/${icon}`)} alt="" draggable={false} /><span>{label}</span></div>)}</div>
-      <button className="outline-wide-button" type="button" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>옵션 32개 모두 보기</button>
-      <div className="selected-options"><h3>선택 옵션</h3><dl><div><dt>빌트인 캠 패키지 <img src={asset("detail/option-info.svg")} alt="옵션 정보" /></dt><dd>70만원</dd></div><div><dt>헤드업 디스플레이 <img src={asset("detail/option-info.svg")} alt="옵션 정보" /></dt><dd>130만원</dd></div></dl></div>
+    <SectionCard title="차량 옵션" className="airbnb-options-card">
+      <ul className="option-amenity-list">
+        {visibleOptions.map(({ label, icon }, index) => (
+          <li key={label}>
+            <img src={!fd && desktop ? pcAsset(`9653-img${index + 1}.png`) : asset(`detail/${icon}`)} alt="" draggable={false} />
+            <span>{label}</span>
+          </li>
+        ))}
+      </ul>
+      {canToggle ? (
+        <button className="option-amenity-toggle" type="button" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>
+          {expanded ? "옵션 간단히 보기" : `주요 옵션 ${options.length}개 모두 보기`}
+        </button>
+      ) : null}
+      {fd ? <p className="detail-real-note option-amenity-note">판매자 등록 옵션 {fd.optionCount}개 중 확인된 주요 옵션입니다.</p> : null}
     </SectionCard>
   );
 }
