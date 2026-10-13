@@ -268,3 +268,4 @@
 "2026-10-14 00:10","미지정","claude/used-car-detail-1013","-","배포","완료","상세 상사명에서 주식회사·(주) 생략, 인수인계 문서 10장에 상세 표기 규칙 기재","detail/index.tsx · docs/HANDOFF.md · docs/quick-filter-spec.md","","","verify 통과"
 "2026-10-14 00:40","미지정","claude/used-car-detail-1013","-","배포","완료","상세 지역 줄: 길면 상사명이 통째로 아랫줄로(점 없음), 한 줄이면 이어서","bbm-list.tsx · bbm-tokens.css · detail/index.tsx · detail.css · docs","목록 카드 지역은 글자 동일(보조 항목을 span으로 분리)","","verify 통과"
 "2026-10-14 01:10","미지정","claude/used-car-detail-1013","-","배포","완료","상세 지역 줄: 매매단지·상사명에 밑줄 링크(에어비앤비 방식), 단지→카테고리, 상사→딜러 페이지","detail/index.tsx · detail.css · docs","딜러 페이지는 5명만","도이치오토월드 상사 페이지 필요 여부","verify 통과"
+"2026-10-14 01:40","미지정","claude/used-car-detail-1013","-","배포","완료","상세 차량 정보를 카앤비드식 사실표+차량 소개로 개편(한국식 항목), 가상 카드 숨김","detail/index.tsx · detail.css · quick-filter-spec.md"
