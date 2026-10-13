@@ -28,6 +28,39 @@ final result: passed
 
 ---
 
+# 차량 정보 2열 아이콘 격자 시안 QA · 2026-10-13
+
+- source visual truth:
+  - `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/414dd1f6-fc84-496c-a5fc-8ce98721d31d/1-1000018101.jpg` (FINN)
+  - `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/414dd1f6-fc84-496c-a5fc-8ce98721d31d/2-1000018099.jpg` (mobile.de)
+  - `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/414dd1f6-fc84-496c-a5fc-8ce98721d31d/3-1000018097.jpg` (Auto Trader)
+- implementation screenshot: `C:/Users/bobae/Downloads/vehicle-grid-icon-tuned-1013/01-local-tuned.png`
+- comparison composite: `C:/Users/bobae/Downloads/vehicle-grid-icon-tuned-1013/comparison-mobilede-local.png`
+- route: `/?qf=guazi&category=서울오토갤러리&facts=icons` → 첫 번째 매물 상세 → 차량 정보
+- viewport: 390 × 844 CSS px, deviceScaleFactor 1
+- state: 차량 정보 기본 펼침
+
+## Findings
+
+- P0/P1/P2 findings: none after the focused comparison.
+- Fonts and typography: 라벨 14/20·400 `#676767`, 값 16/22·600 `#222`로 mobile.de의 회색 라벨·강한 값 위계를 유지했다.
+- Spacing and layout rhythm: 2열 165px, 열 간격 12px, 행 간격 20px, 아이콘과 텍스트 간격 10px다.
+- Icon balance: 24px 점유 슬롯 안에 기본 22px 아이콘을 1px 인셋으로 배치하고 opacity `0.74`를 적용했다. 아이콘별 광학 보정 후 실측 외곽은 19.8–22.84px다.
+- Source synthesis: FINN의 넉넉한 여백, mobile.de의 라벨·값 위계, Auto Trader의 2열 아이콘 구조를 조합했다.
+- Data preservation: 제조사·모델·연식·주행거리·출시가격·연료·배기량·마력 8개 데이터와 기존 아이콘 자산을 그대로 사용했다.
+
+## Verification
+
+- `npm run verify:qf`: passed
+- `git diff --check`: passed
+- 깨진 이미지 0
+- 콘솔 오류 0
+- 가로 오버플로 0
+
+final result: passed
+
+---
+
 # A/S 성능·상태점검 보증 안내 카드 QA · 2026-10-13
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/c74bc93f-5543-4941-a40b-a2b46876261b/1-1000018089.jpg`
