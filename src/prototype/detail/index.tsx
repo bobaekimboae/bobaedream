@@ -1,4 +1,3 @@
-import { PagedPhotoCarousel } from "./paged-carousel";
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { ChevronDownIcon, HeartFilledIcon, HeartIcon, LockClosedIcon, MobileIcon, QuestionMarkCircledIcon } from "@radix-ui/react-icons";
 import { BottomSheet, Carousel, MobileScroll, useFlow } from "../../mobile";
@@ -380,6 +379,7 @@ function DetailHero({ onBack }: { onBack: () => void }) {
     const carousel = heroRef.current?.querySelector<HTMLElement>(".detail-media-carousel");
     const firstPhoto = carousel?.querySelector<HTMLElement>(".detail-media-track > img");
     if (!carousel || !firstPhoto) return;
+    let snapTimer = 0;
     const updatePhotoIndex = () => {
       const photoWidth = firstPhoto.getBoundingClientRect().width || carousel.clientWidth;
       const nextIndex = Math.min(photos.length, Math.max(1, Math.round(carousel.scrollLeft / photoWidth) + 1));
@@ -389,13 +389,17 @@ function DetailHero({ onBack }: { onBack: () => void }) {
         if (nextIndex !== lock) return;
         jumpLockRef.current = null;
       }
-      // 2026-10-14 「넘겨지지도 않아」: 예전에는 스크롤이 90ms 멈추면 가까운 사진으로 다시 맞추는 타이머가 있었다. 손가락으로 끄는 중 잠깐 멈추거나 느리게 끌면
-      // 이 타이머가 끌던 위치를 되돌려 넘겨지지 않았다. 이제 넘기기는 PagedPhotoCarousel이 놓는 순간 직접 맞추므로 이 타이머는 없앴다.
       setPhotoIndex(nextIndex);
+      window.clearTimeout(snapTimer);
+      snapTimer = window.setTimeout(() => {
+        const targetLeft = photoWidth * (nextIndex - 1);
+        if (Math.abs(carousel.scrollLeft - targetLeft) > 1) carousel.scrollTo({ left: targetLeft, behavior: "smooth" });
+      }, 90);
     };
     carousel.addEventListener("scroll", updatePhotoIndex, { passive: true });
     updatePhotoIndex();
     return () => {
+      window.clearTimeout(snapTimer);
       carousel.removeEventListener("scroll", updatePhotoIndex);
     };
   }, [photos.length]);
@@ -476,9 +480,9 @@ function DetailHero({ onBack }: { onBack: () => void }) {
     <>
     <section ref={heroRef} className="detail-hero" aria-label="차량 사진">
       <div className="detail-hero-main">
-        <PagedPhotoCarousel ariaLabel="차량 사진" count={photos.length}>
+        <Carousel ariaLabel="차량 사진" className="detail-media-carousel" contentClassName="detail-media-track">
           {photos.map((photo, index) => <img key={`${photo}-${index}`} src={photo} alt={`차량 사진 ${index + 1}`} draggable={false} />)}
-        </PagedPhotoCarousel>
+        </Carousel>
         {photoIndex === 1 && (getActiveDetailCar() ? getActiveDetailCar()?.filter?.video : true) ? <span className="detail-video-play" aria-hidden="true"><span /></span> : null}
         <div className="detail-photo-count" aria-live="polite" aria-atomic="true">{photoIndex} / {totalPhotos}</div>
         <div className="detail-hero-actions">
