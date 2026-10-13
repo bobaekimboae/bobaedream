@@ -352,3 +352,18 @@
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text { display: flex; flex-direction: column; gap: 0; overflow: visible; font-size: 16px; line-height: 24px; white-space: normal; }
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text > span { font-size: 16px; line-height: 24px; color: #222; }
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text > .bbm-card-location-secondary { color: #8c8c8c; }
+/* 크로스체크(2026-10-13 「지역 한 줄로 · 제조사 모델 등 텍스트 크기」, 초톳 상세 캡처 1080×2340 ÷2.8125 잉크 실측): 제목 대문자 M 13.5 · 줄 간격 29.5, 메타 숫자 10.3, 가격 숫자 14.9, 지역 글자 10.7 · 줄 간격 20.3(숫자 높이 ÷ 0.72 = 글자 크기) */
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-title,
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-model { font-size: 19px; line-height: 29.5px; font-weight: 500; letter-spacing: -.3px; color: #222; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-spec { margin-top: 4px; font-size: 14px; line-height: 20px; color: #595959; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-price { font-size: 20px; line-height: 28px; font-weight: 700; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-price-unit { font-size: 20px; font-weight: 400; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location { font-size: 15px; line-height: 20px; margin-top: 12px; gap: 8px; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location img { width: 18px; height: 18px; margin-top: 1px; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text { flex-direction: row; flex-wrap: wrap; gap: 0 4px; font-size: 15px; line-height: 20px; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text > span { font-size: 15px; line-height: 20px; }
+.vehicle-summary.is-list-summary .bbm-card-location-secondary::before { content: "· "; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-price-badges { margin-top: 8px; }
+/* 지역 아이콘 = 노션 「chotot-profile-location」 원본(속 빈 외곽선 핀, 2026-10-13 「아이콘 변경도」): 초톳 캡처 핀 잉크 15.6×19.9 · 왼쪽 16 · 글자 시작 40.2 → 24px 상자(잉크 16×20), 상자 왼쪽 12, 글자와 간격 4 */
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location { gap: 4px; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location img { content: url("/assets/bbm/chotot-profile-location-v01.svg"); width: 24px; height: 24px; margin: -2px 0 0 -4px; filter: none; opacity: 1; }
