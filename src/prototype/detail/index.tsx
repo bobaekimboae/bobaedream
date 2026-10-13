@@ -69,21 +69,42 @@ function InfoGrid({ items }: { items: string[][] }) {
   return <dl className="detail-info-grid">{items.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>;
 }
 
+// 차량 정보(2026-10-13 「카앤비드처럼 구성 · 한국 문화에 맞게」): Cars & Bids의 핵심 정보 격자(라벨 위 · 값 아래, 제조사 · 모델 · 주행거리 · 엔진 · 구동 · 변속기 · 바디 · 색상 · 지역 · 판매자 유형)를
+// 한국 중고차 기준(연식 · 정확한 주행거리 · 연료 · 변속기 · 배기량 · 바디타입 · 색상 · 지역 · 판매자 유형 · 판매구분 · 성능점검 · 보험이력)으로 옮겼다. 값이 없는 칸은 만들지 않는다
+const cleanValue = (value?: string | null) => (value && value !== "전체" && value !== "정보 없음" && value !== "기타" ? value : "");
+function carFacts(car: Car): string[][] {
+  const fd = car.ferrariDetail;
+  const yearText = bbmCardSpec(car, false).split(" · ")[0];
+  const model = (car.modelGroup ?? car.title.replace(new RegExp(`^${car.maker}\\s*`), "")).trim();
+  const rows: [string, string][] = [
+    ["제조사", car.maker],
+    ["모델", model],
+    ["연식", yearText],
+    ["주행거리", car.filter?.mileage ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : ""],
+    ["연료", cleanValue(car.filter?.fuel)],
+    ["변속기", cleanValue(fd?.transmission ?? car.filter?.transmission)],
+    ["배기량", fd?.displacement ?? ""],
+    ["바디타입", cleanValue(fd?.body ?? car.filter?.body)],
+    ["차종", fd?.carType ?? ""],
+    ["외장색", cleanValue(fd?.color ?? car.filter?.color)],
+    ["지역", car.place.split(" · ")[0]],
+    ["판매자 유형", car.sellerType === "딜러" ? "매매업체(딜러)" : "개인"],
+    ["판매구분", fd?.saleType ?? ""],
+    ["성능점검", fd ? (fd.inspection ? "기록부 있음" : "없음") : ""],
+    ["보험이력 조회", fd ? (fd.insurance ? "조회 완료" : "정보 없음") : ""],
+  ];
+  return rows.filter(([, value]) => value);
+}
+
 function VehicleInfoCard() {
   const [expanded, setExpanded] = useState(false);
   const car = getActiveDetailCar();
-  const fd = car?.ferrariDetail;
-  // 연식 표기는 우리 규칙(2026-10-13 「중고차 연식 표기법 맞춰라」): 월을 알면 `24년08월`, 모르면 `2024`(목록 카드 첫 사양과 같은 값)
-  const yearText = car ? bbmCardSpec(car, false).split(" · ")[0] : "";
-  const mileageText = car ? `${(car.filter?.mileage ?? 0).toLocaleString("ko-KR")}km` : "";
-  const realBase: string[][] | null = car && fd ? [
-    ["연식", yearText], ["주행거리", mileageText], ["연료", car.specs[2] ?? ""], ["변속기", fd.transmission],
-    ["배기량", fd.displacement], ["색상", fd.color],
-  ] : null;
-  // 실제 상세 값이 없는 매물도 연식·주행거리·연료는 매물 값으로 바꾼다(옛 시안 값 2021년 1월 · 4만km를 쓰지 않음)
-  const baseRows = car && !fd ? vehicleInfo.map(([label, value]) => label === "연식" ? [label, yearText] : label === "주행거리" ? [label, mileageText] : label === "연료" ? [label, car.filter?.fuel ?? value] : [label, value]) : vehicleInfo;
-  const realExtra: string[][] | null = fd ? [["차종", fd.carType], ["바디타입", fd.body], ["판매구분", fd.saleType]] : null;
-  const items = realBase ? (expanded ? [...realBase, ...(realExtra ?? [])] : realBase) : expanded ? [...baseRows, ...extraInfo] : baseRows;
+  if (car) return (
+    <SectionCard title="차량 정보" className="vehicle-info-card">
+      <dl className="detail-facts">{carFacts(car).map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
+    </SectionCard>
+  );
+  const items = expanded ? [...vehicleInfo, ...extraInfo] : vehicleInfo;
 
   return (
     <SectionCard title="차량 정보" className="vehicle-info-card">
@@ -94,6 +115,27 @@ function VehicleInfoCard() {
         {expanded ? "접기" : "더보기"}
         <img className={expanded ? "is-expanded" : ""} src={asset("detail/vehicle-info-chevron.svg")} alt="" />
       </button>
+    </SectionCard>
+  );
+}
+
+// 차량 소개(Cars & Bids의 Highlights): 실제로 가진 값만으로 문장을 만든다(없는 값은 문장에서 뺀다)
+function DetailHighlights() {
+  const car = getActiveDetailCar();
+  if (!car) return null;
+  const fd = car.ferrariDetail;
+  const yearText = bbmCardSpec(car, false).split(" · ")[0];
+  const color = cleanValue(fd?.color ?? car.filter?.color);
+  const lines: string[] = [];
+  lines.push(`${yearText} ${car.title}${car.trim ? ` ${car.trim}` : ""}${color ? `, ${color} 외장` : ""} 차량입니다.`);
+  if (car.filter?.mileage) lines.push(`주행거리는 ${car.filter.mileage.toLocaleString("ko-KR")}km이며 ${cleanValue(car.filter.fuel) || "연료 정보 없음"} 모델입니다.`);
+  if (fd?.insurance) lines.push(`보험이력 조회 결과 내 차 피해 ${fd.insurance.own}건 · 상대 차 피해 ${fd.insurance.other}건, 소유자 변경 ${fd.insurance.owners}회, 번호판 변경 ${fd.insurance.plateChanges}회입니다.`);
+  else if (fd) lines.push("등록된 보험이력 정보가 없어 직접 확인이 필요합니다.");
+  if (fd?.options.length) lines.push(`판매자가 등록한 옵션은 ${fd.optionCount}개이며 주요 옵션은 ${fd.options.join(", ")} 등입니다.`);
+  lines.push(`${car.place.split(" · ")[0]}에서 ${car.sellerType === "딜러" ? "매매업체" : "개인"}가 판매 중입니다. 실차 확인과 성능점검 기록부 확인 후 거래하세요.`);
+  return (
+    <SectionCard title="차량 소개" className="detail-highlights">
+      {lines.map((line) => <p key={line}>{line}</p>)}
     </SectionCard>
   );
 }
@@ -267,6 +309,7 @@ function PriceHistorySheet({ onClose }: { onClose: () => void }) {
 function OptionsCard({ desktop = false }: { desktop?: boolean }) {
   const [expanded, setExpanded] = useState(false);
   const fd = getActiveDetailCar()?.ferrariDetail;
+  if (getActiveDetailCar() && !fd) return null;
   const ferrariIconByKeyword: Array<[string, string]> = [
     ["후방카메라", "option-04.png"],
     ["주차감지", "option-03.png"],
@@ -316,6 +359,7 @@ function OptionsCard({ desktop = false }: { desktop?: boolean }) {
 function HistoryCard() {
   const [expanded, setExpanded] = useState(false);
   const fd = getActiveDetailCar()?.ferrariDetail;
+  if (getActiveDetailCar() && !fd) return null;
   if (fd) return (
     <SectionCard title="보험 이력">
       {fd.insurance ? <>
@@ -338,6 +382,7 @@ function HistoryCard() {
 function InspectionCard() {
   const [expanded, setExpanded] = useState(false);
   const fd = getActiveDetailCar()?.ferrariDetail;
+  if (getActiveDetailCar() && !fd) return null;
   if (fd) return (
     <SectionCard title="성능 점검"><p className="detail-real-note">{fd.inspection ? "성능·상태 점검기록부가 등록된 매물입니다." : "성능점검 기록부가 없습니다."}</p></SectionCard>
   );
@@ -351,7 +396,7 @@ function InspectionCard() {
 }
 
 function WarrantyCard() {
-  if (getActiveDetailCar()?.ferrariDetail) return null;
+  if (getActiveDetailCar()) return null;
   return (
     <SectionCard title="제조사 보증">
       <div className="warranty-box"><div><span>일반/차체</span><small>보증 종료</small><i><b style={{ width: "0%" }} /></i></div><div><span>엔진/미션</span><small>2년 10개월 / 99,984km 남음</small><i><b style={{ width: "67%" }} /></i></div></div>
@@ -467,8 +512,8 @@ function SellerCard() {
 function SaleCard() {
   const { notify } = useDetailUi();
   const car = getActiveDetailCar();
-  if (car?.ferrariDetail) return (
-    <SectionCard title="판매 정보"><dl className="detail-rows"><div><dt>차량가</dt><dd>{car.price}</dd></div><div><dt>판매구분</dt><dd>{car.ferrariDetail.saleType}</dd></div></dl></SectionCard>
+  if (car) return (
+    <SectionCard title="판매 정보"><dl className="detail-rows"><div><dt>차량가</dt><dd>{car.price}</dd></div>{car.ferrariDetail ? <div><dt>판매구분</dt><dd>{car.ferrariDetail.saleType}</dd></div> : null}</dl></SectionCard>
   );
   return (
     <SectionCard title="판매 정보">
@@ -481,7 +526,7 @@ function SaleCard() {
 
 function DescriptionCard({ desktop = false }: { desktop?: boolean }) {
   const [expanded, setExpanded] = useState(false);
-  if (getActiveDetailCar()?.ferrariDetail) return null;
+  if (getActiveDetailCar()) return null;
   return (
     <SectionCard title={desktop ? "차량 설명" : "상세 설명"}>
       <div className={`description-copy${expanded ? " is-expanded" : ""}`}>
@@ -683,6 +728,7 @@ function VehicleDetail() {
           <VehicleSummary />
           <div className="detail-gray-stack">
             <SellerCard />
+            <DetailHighlights />
             <VehicleInfoCard />
             <OptionsCard />
             <HistoryCard />
