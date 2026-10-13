@@ -898,9 +898,13 @@ function carShopName(car: Car) {
 
 // 판매자 정보 영역(2026-10-13 「지역 밑에 판매자 정보 영역 추가」): 실제 매물은 지역 바로 아래(상단 블록)에 그리고, 아래 회색 영역의 옛 판매자 카드는 숨긴다
 // 지역 줄에서 줄 맨 앞으로 내려간 항목은 앞의 가운데 점을 뺀다(2026-10-13)
-// 상세 지역 줄(2026-10-14 「지역도 서울 서초구 양재동 / 단지ㆍ상사명 이렇게 분리, 복잡한 거 줄이자」): 1줄 = 시도 구군(동이 확인된 단지만 동까지), 2줄 = 단지ㆍ상사명
+// 상세 지역 줄(2026-10-14 「지역도 서울 서초구 / 단지ㆍ상사명 이렇게 분리」 → 「지역은 구군까지, 경기 수원시 권선구」): 1줄 = 시도 시 구(군), 2줄 = 단지ㆍ상사명
+// 3단계 지역(`경기 수원시 권선구`)은 구까지 쓰고, 시 이름만 있는 단지는 아는 구만 더한다(도이치오토월드 = 수원시 권선구). 동은 쓰지 않는다
 function detailLocationDong(car: Car): string | undefined {
-  return car.seoulAutoGallery ? "양재동" : undefined; // 사용자가 알려 준 단지만(다른 단지는 동 자료가 없어 시도 구군까지)
+  const [main] = car.place.split(" · ");
+  const [, city, ward] = main.trim().split(/\s+/);
+  if (city?.endsWith("시") && ward?.endsWith("구")) return ward;
+  return car.place.includes("도이치오토월드") ? "권선구" : undefined;
 }
 function detailPlaceLine(car: Car): string {
   const shop = carShopName(car);
