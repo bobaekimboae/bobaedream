@@ -575,10 +575,52 @@ function InspectionCard() {
 }
 
 function WarrantyCard() {
-  if (getActiveDetailCar()) return null;
+  const [expanded, setExpanded] = useState(false);
+  const car = getActiveDetailCar();
+  const year = car?.filter?.year;
+  const mileage = car?.filter?.mileage;
+  const isDealer = !car || car.sellerType === "딜러";
+  const hasManufacturerWarranty = !!car && (car.badges?.includes("제조사보증") || /제조사\s*보증/.test(`${car.title} ${car.trim}`));
+  const currentYear = 2026;
+
+  const manufacturerStatus = (years: number, distance: number) => {
+    if (!year || mileage === undefined) return { label: "보증 여부 확인 필요", progress: 0, active: false };
+    const remainingYears = year + years - currentYear;
+    const remainingDistance = Math.max(0, distance - mileage);
+    if (remainingYears <= 0 || remainingDistance <= 0) return { label: "보증기간 종료", progress: 0, active: false };
+    if (!hasManufacturerWarranty) return { label: "보증 여부 확인 필요", progress: 0, active: false };
+    const progress = Math.max(8, Math.min(100, Math.round(Math.min(remainingYears / years, remainingDistance / distance) * 100)));
+    return { label: `약 ${remainingYears}년 / ${remainingDistance.toLocaleString("ko-KR")}km 남음`, progress, active: true };
+  };
+
+  const bodyWarranty = manufacturerStatus(3, 60000);
+  const powertrainWarranty = manufacturerStatus(5, 100000);
+  const inspectionLabel = isDealer ? "2,000km / 1개월" : "개인 매물 · 별도 확인";
+
   return (
-    <SectionCard title="제조사 보증">
-      <div className="warranty-box"><div><span>일반/차체</span><small>보증 종료</small><i><b style={{ width: "0%" }} /></i></div><div><span>엔진/미션</span><small>2년 10개월 / 99,984km 남음</small><i><b style={{ width: "67%" }} /></i></div></div>
+    <SectionCard
+      title="A/S 정보"
+      className="warranty-card"
+      action={<button className="warranty-detail-link" type="button" aria-label="A/S 정보 안내 보기" aria-expanded={expanded} onClick={() => setExpanded((value) => !value)}><img src={asset("ui/category-chevron-right.svg")} alt="" /></button>}
+    >
+      <div className="warranty-box">
+        <div className={bodyWarranty.active ? "is-active" : ""}>
+          <span>제조사 보증 <small>(차체/일반)</small></span>
+          <strong>{bodyWarranty.label}</strong>
+          <i><b style={{ width: `${bodyWarranty.progress}%` }} /></i>
+        </div>
+        <div className={powertrainWarranty.active ? "is-active" : ""}>
+          <span>제조사 보증 <small>(엔진/주요)</small></span>
+          <strong>{powertrainWarranty.label}</strong>
+          <i><b style={{ width: `${powertrainWarranty.progress}%` }} /></i>
+        </div>
+        <div className={isDealer ? "is-active warranty-inspection" : "warranty-inspection"}>
+          <span>성능·상태점검 보증 <QuestionMarkCircledIcon /></span>
+          <strong>{inspectionLabel}</strong>
+          <i><b style={{ width: isDealer ? "100%" : "0%" }} /></i>
+        </div>
+      </div>
+      {expanded ? <div className="warranty-guide"><p>제조사 보증은 최초 등록일, 차량 트림과 정비 이력에 따라 달라질 수 있습니다.</p><p>성능·상태점검 보증은 매매업자 거래 기준이며 실제 적용 범위는 성능점검기록부에서 확인하세요.</p></div> : null}
     </SectionCard>
   );
 }

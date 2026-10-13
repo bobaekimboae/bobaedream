@@ -215,3 +215,42 @@ final result: passed
 - [x] 마이트럭 5개 톤수 구간과 노출 순서 일치
 - [x] `git diff --check` 통과
 - [ ] 배포본 390px에서 줄 높이·가로 스크롤·첫 칩 노출 확인
+
+---
+
+# 중고차 상세 A/S 정보 업그레이드 QA · 2026-10-13
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/01d398d9-b73a-4071-af75-a1c3764a9d0d/1-1000018087.jpg`
+- implementation screenshot: `C:/Users/bobae/Downloads/as-info-audit-1013/01-local-default.png`
+- expanded-state screenshot: `C:/Users/bobae/Downloads/as-info-audit-1013/02-local-expanded.png`
+- route: `/?qf=guazi&category=슈퍼카&view=feed&maker=페라리` → 첫 번째 매물 상세
+- viewport: 390 × 844 CSS px, deviceScaleFactor 1
+- source pixels: 591 × 1280; implementation pixels: 390 × 844
+- density normalization: 원본의 A/S 영역 정보 위계와 390px 구현 영역을 동일한 3행 구조로 대조
+- state: 기본 접힘 / 안내 펼침
+
+## Findings
+
+- P0/P1/P2 findings: none after the focused comparison.
+- Fonts and typography: 기존 Pretendard Variable을 유지하고 행 라벨 14px, 상태값 13px로 정리했다.
+- Spacing and layout rhythm: 제목 아래 18px, 행 사이 22px, 라벨·상태값·프로그레스바를 3행 반복 규칙으로 통일했다.
+- Colors and visual tokens: 종료·확인 필요는 회색, 성능점검 보증은 #536fae 텍스트와 #6e89c2 프로그레스로 영역을 구분했다.
+- Image quality and asset fidelity: 헤더 화살표는 기존 `public/assets/ui/category-chevron-right.svg`를 사용했다. CSS 대체 그림은 없다.
+- Copy and content: `제조사 보증 (차체/일반)`, `제조사 보증 (엔진/주요)`, `성능·상태점검 보증`으로 정리했다. 제조사 보증은 확정 데이터가 없으면 `보증 여부 확인 필요`로 표시한다.
+- Interaction: 우측 화살표로 제조사 보증 산정 주의와 성능점검 보증 적용 기준을 펼치고 접을 수 있다.
+
+## Comparison history
+
+- Initial finding: 기존 구현은 선택된 매물 상세에서 A/S 카드를 완전히 숨기고, 비선택 상태에서도 2행만 표시했다.
+- Fix: 실제 매물 상세에 3행 A/S 정보를 출력하고 차량 연식·주행거리·판매자 구분에 따라 상태 문구를 보수적으로 계산하게 했다.
+- Post-fix evidence: `.warranty-card` 374px 폭, 행 3개, 제목 `A/S 정보`, 깨진 이미지 0, 가로 오버플로 0, 콘솔 오류 0을 확인했다.
+
+## Verification
+
+- `npm run verify`: passed
+- `git diff --check`: passed
+- 모바일 390×844 렌더 확인
+- 기본·펼침 상태 캡처 확인
+- 깨진 이미지 0, 가로 오버플로 0, 콘솔 오류 0
+
+final result: passed
