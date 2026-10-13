@@ -988,7 +988,7 @@ function DetailSellerInfo({ car }: { car: Car }) {
       <img className="detail-seller-avatar" src={asset(sellerDetailPhoto(car))} alt="" draggable={false} />
       <div className="detail-seller-text">
         <div className="detail-seller-name"><strong>{sellerName}</strong>{isDealer && carShopName(car) ? <span className="bbm-card-location-part detail-seller-shop">{carShopName(car)}</span> : null}</div>
-        {isDealer ? <span><b>{soldCount}대</b> 판매완료 · <b>{car.stock}대</b> 판매중</span> : null}
+        {isDealer ? <span><b>{car.stock}대</b> 판매중 · <b>{soldCount}대</b> 판매완료</span> : null}
         {isDealer ? <span className="detail-seller-activity">딜러 경력 7년</span> : null}
       </div>
     </section>
