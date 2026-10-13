@@ -1855,7 +1855,9 @@ const supercarCategoryCars: Car[] = [...ferrariSheetCars, ...supercarSheetCars, 
 const seoulAutoGalleryMileageText = (km: number) => km >= 9500 ? `${String(Math.round(km / 1000) / 10)}만km` : `${km.toLocaleString("ko-KR")}km`;
 const seoulAutoGalleryCars: Car[] = seoulAutoGalleryRows.map((row, index) => {
   const nn = String(row.number).padStart(2, "0");
-  const photos = [1, 2, 3, 4, 5].map((n) => `cars/seoul-autogallery-v01/sag-${nn}-${n}.webp`);
+  // 2026-10-14 「m3 사진 교체」: 1번(BMW M3)은 차란차 원본 전체 20장(배경 제거 · 자르기 없음, 900×506)으로 바꾸고 목록 썸네일도 사본 없이 원본 전체를 그대로 보인다.
+  const originalPhotos = row.number === 1 ? Array.from({ length: 20 }, (_, i) => i + 1).map((n) => `cars/seoul-autogallery-v01/m3-original/m3-${n}.webp`) : undefined;
+  const photos = originalPhotos ?? [1, 2, 3, 4, 5].map((n) => `cars/seoul-autogallery-v01/sag-${nn}-${n}.webp`);
   return {
     id: 13_000 + row.number,
     updateRank: seoulAutoGalleryRows.length - index,
@@ -1864,7 +1866,7 @@ const seoulAutoGalleryCars: Car[] = seoulAutoGalleryRows.map((row, index) => {
     sellerType: "딜러",
     image: photos[0],
     photoList: photos,
-    listThumb: `cars/seoul-autogallery-v01/thumb/sag-${nn}.webp`,
+    ...(originalPhotos ? { listCrop: [100, 56.25, 0, 21.875] as [number, number, number, number] } : { listThumb: `cars/seoul-autogallery-v01/thumb/sag-${nn}.webp` }),
     imagePosition: "center center",
     title: [row.maker, row.model, row.generation].filter(Boolean).join(" "),
     trim: row.trim,
