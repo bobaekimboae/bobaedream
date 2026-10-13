@@ -207,7 +207,7 @@
 .cost-calculator-sheet::-webkit-scrollbar { display: none; }
 .cost-calculator-close { position: fixed; z-index: 3; top: calc(6% + 12px); right: max(12px, calc((100% - 480px) / 2 + 12px)); display: grid; width: 32px; height: 32px; place-items: center; padding: 0; border: 0; border-radius: 50%; background: transparent; cursor: pointer; }
 .cost-calculator-close:focus { outline: 0 !important; }
-.cost-calculator-close:focus-visible { outline: 0 !important; outline-offset: 0; background: #f2f3f5; box-shadow: none; }
+.mobile-web-screen .cost-calculator-close:focus-visible { outline: 0 !important; outline-offset: 0 !important; background: #f2f3f5; box-shadow: none; }
 .cost-calculator-close img { width: 18px; height: 18px; }
 .cost-vehicle-summary { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid #ededed; }
 .cost-vehicle-summary > img { width: 72px; height: 54px; flex: 0 0 72px; border-radius: 6px; object-fit: cover; }
