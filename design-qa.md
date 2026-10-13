@@ -28,6 +28,43 @@ final result: passed
 
 ---
 
+# A/S 성능·상태점검 보증 안내 카드 QA · 2026-10-13
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/c74bc93f-5543-4941-a40b-a2b46876261b/1-1000018089.jpg`
+- implementation screenshot: `C:/Users/bobae/Downloads/as-info-modal-audit-1013/01-local-open.png`
+- viewport: 390 × 844 CSS px, deviceScaleFactor 1
+- source pixels: 591 × 1280; implementation pixels: 390 × 844
+- density normalization: 안내 카드 폭을 화면의 약 90%로 맞춰 본문·테두리·딤 상태를 집중 대조
+- state: `성능·상태점검 보증` 안내 열림
+
+## Findings
+
+- P0/P1/P2 findings: none after the focused comparison.
+- Fonts and typography: Pretendard Variable, 제목 16/24·700, 본문 14/22·400으로 원본의 위계를 재현했다.
+- Spacing and layout rhythm: 카드 폭은 350px(390px 화면의 89.7%), 내부 여백 18px, 제목 아래 10px이다.
+- Colors and visual tokens: 흰 카드, #222 1px 테두리, rgba(0,0,0,.14) 딤을 적용했다.
+- Image quality and asset fidelity: 이번 상태에는 별도 래스터·아이콘 자산이 없으며 기존 정보 아이콘을 유지했다.
+- Copy and content: 원본의 성능기록부 불일치, 30일 또는 2,000km, 수입·노후 차량 예외 안내를 그대로 반영했다.
+- Interaction and accessibility: 행 클릭으로 열기, 바깥 영역 클릭과 Escape로 닫기, 다이얼로그 초점 이동·복귀를 구현했다.
+
+## Comparison history
+
+- Initial finding: A/S 3행은 있었지만 성능점검 보증의 적용 범위와 예외를 확인할 수 있는 상세 상태가 없었다.
+- Fix: 원본 비율의 안내 카드와 전체 화면 딤을 추가하고 성능점검 행을 대화상자 트리거로 변경했다.
+- Post-fix evidence: dialog 350×203, `aria-modal=true`, 열린 뒤 초점 이동, 바깥 영역 닫힘, 깨진 이미지 0, 가로 오버플로 0, 콘솔 오류 0을 확인했다.
+
+## Verification
+
+- `npm run verify:qf`: passed
+- `git diff --check`: passed
+- 모바일 390×844 열림 상태 캡처 확인
+- 닫기·Escape·초점 이동 확인
+- 깨진 이미지 0, 가로 오버플로 0, 콘솔 오류 0
+
+final result: passed
+
+---
+
 # 상세 차량 옵션 · Airbnb 편의시설형 시안 QA · 2026-10-13
 
 - source visual truth: Airbnb 공식 숙소 상세의 `What this place offers` / `Show all amenities` 구조
