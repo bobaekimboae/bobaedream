@@ -85,8 +85,10 @@ function derivedFacts(car: Car, model: string, body: string) {
   const sports = ["페라리", "람보르기니", "맥라렌"].includes(car.maker);
   const seats = sports && (body === "쿠페" || body === "컨버터블") ? 2 : body === "쿠페" || body === "컨버터블" ? 4 : body === "MPV" ? 7 : body === "밴" ? 9 : body ? 5 : 0;
   const seatColors = ["블랙", "베이지", "브라운", "그레이", "레드", "화이트"];
+  const doors = body === "쿠페" || body === "컨버터블" ? 2 : body === "세단" ? 4 : body === "밴" ? 3 : body ? 5 : 0;
   return {
     sizeClass,
+    doors: doors ? `${doors}도어` : "",
     seats: seats ? `${seats}인승` : "",
     seatColor: seatColors[car.id % seatColors.length],
     offerNo: `2026${String((car.id * 7919 + 1380883) % 10000000).padStart(7, "0")}`,
@@ -104,7 +106,6 @@ function carFacts(car: Car): string[][] {
   /* 2026-10-14 「차량번호 · 제조사 · 모델 · 연식 · 출시가격 … 제시번호 모두 포함 후 더보기」: 값이 없는 항목도 줄은 두고 `정보 없음`.
      차량번호 · 제시번호는 저장하지 않는 값이라 항상 `정보 없음`(상세 원본은 판매자에게 문의). */
   const rows: [string, string][] = [
-    ["차량번호", NO_INFO],
     ["제조사", car.maker],
     ["모델", model],
     ["연식", yearText],
@@ -114,10 +115,14 @@ function carFacts(car: Car): string[][] {
     ["배기량", or(fd?.displacement)],
     ["변속기", or(cleanValue(fd?.transmission ?? car.filter?.transmission))],
     ["차종", or(fd?.carType ?? dv.sizeClass)],
+    ["도어 수", or(dv.doors)],
     ["인승", or(dv.seats)],
     ["바디타입", or(body)],
     ["외관 색상", or(cleanValue(fd?.color ?? car.filter?.color))],
     ["시트 색상", dv.seatColor],
+    ["배출가스 등급", NO_INFO],
+    ["이전 소유자", fd?.insurance ? `${fd.insurance.owners}명` : NO_INFO],
+    ["키 수", NO_INFO],
     ["판매방식", or(fd?.saleType)],
     ["압류/저당", NO_INFO],
     ["제시번호", dv.offerNo],
@@ -131,8 +136,8 @@ function carFacts(car: Car): string[][] {
 
 /* 차량 정보 아이콘 시안(`&facts=icons`, 2026-10-14, 노션 「영국_오토트레이더 초톳 변경」 아이콘 원본 그대로 `public/assets/bbm/detail-icons/`) */
 const FACT_ICONS: Record<string, string> = {
-  차량번호: "document", 제조사: "maker", 모델: "model", 연식: "year", 주행거리: "mileage", "출시가격": "price",
-  연료: "fuel", 배기량: "engine", 변속기: "gearbox", 차종: "body", 인승: "seats", 바디타입: "body", "외관 색상": "color", "시트 색상": "color",
+  제조사: "maker", 모델: "model", 연식: "year", 주행거리: "mileage", "출시가격": "price",
+  연료: "fuel", 배기량: "engine", 변속기: "gearbox", 차종: "body", "도어 수": "doors", 인승: "seats", "배출가스 등급": "emission", "이전 소유자": "owners", "키 수": "keys", 바디타입: "body", "외관 색상": "color", "시트 색상": "color",
   판매방식: "seller-type", "압류/저당": "document", 제시번호: "document", 지역: "location", "판매자 유형": "seller-type", 성능점검: "document", "보험이력 조회": "document",
 };
 const FACTS_VISIBLE_ICONS = 8;
