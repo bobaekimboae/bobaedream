@@ -21,6 +21,7 @@ import {
   type DetailSheet,
   type Car,
 } from "../data";
+import { bbmCardSpec } from "../data/bbm-card-samples";
 
 type DetailUi = {
   liked: boolean;
@@ -81,8 +82,15 @@ function VehicleInfoCard() {
   );
 }
 
+// 실매물 상세(2026-10-13): 목록에서 연 매물의 사진을 쓰고, 없으면 기존 시안 사진을 쓴다
+const detailPhotosOf = (car: Car | null | undefined): string[] => {
+  const list = car?.photoList?.length ? car.photoList : car?.image ? [car.image] : [];
+  return list.length ? list.map((src) => asset(src)) : detailPhotos;
+};
+
 function DetailHero({ onBack }: { onBack: () => void }) {
   const { setSheet, notify } = useDetailUi();
+  const photos = detailPhotosOf(getActiveDetailCar());
   const [photoIndex, setPhotoIndex] = useState(1);
   const heroRef = useRef<HTMLElement>(null);
 
@@ -93,7 +101,7 @@ function DetailHero({ onBack }: { onBack: () => void }) {
     let snapTimer = 0;
     const updatePhotoIndex = () => {
       const photoWidth = firstPhoto.getBoundingClientRect().width || carousel.clientWidth;
-      const nextIndex = Math.min(detailPhotos.length, Math.max(1, Math.round(carousel.scrollLeft / photoWidth) + 1));
+      const nextIndex = Math.min(photos.length, Math.max(1, Math.round(carousel.scrollLeft / photoWidth) + 1));
       setPhotoIndex(nextIndex);
       window.clearTimeout(snapTimer);
       snapTimer = window.setTimeout(() => {
@@ -107,19 +115,27 @@ function DetailHero({ onBack }: { onBack: () => void }) {
       window.clearTimeout(snapTimer);
       carousel.removeEventListener("scroll", updatePhotoIndex);
     };
-  }, []);
+  }, [photos.length]);
 
-  const totalPhotos = detailPhotos.length;
+  const choosePhoto = (index: number) => {
+    const carousel = heroRef.current?.querySelector<HTMLElement>(".detail-media-carousel");
+    const firstPhoto = carousel?.querySelector<HTMLElement>(".detail-media-track > img");
+    if (!carousel || !firstPhoto) return;
+    carousel.scrollTo({ left: firstPhoto.getBoundingClientRect().width * index, behavior: "smooth" });
+  };
+
+  const totalPhotos = photos.length;
   const activePhoto = photoIndex - 1;
   const dotCount = Math.min(5, totalPhotos);
   const dotStart = Math.max(0, Math.min(activePhoto - 2, totalPhotos - dotCount));
   const visibleDots = Array.from({ length: dotCount }, (_, index) => dotStart + index);
 
   return (
+    <>
     <section ref={heroRef} className="detail-hero" aria-label="차량 사진">
       <div className="detail-hero-main">
         <Carousel ariaLabel="차량 사진" className="detail-media-carousel" contentClassName="detail-media-track">
-          {detailPhotos.map((photo, index) => <img key={`${photo}-${index}`} src={photo} alt={`벤틀리 차량 사진 ${index + 1}`} draggable={false} />)}
+          {photos.map((photo, index) => <img key={`${photo}-${index}`} src={photo} alt={`차량 사진 ${index + 1}`} draggable={false} />)}
         </Carousel>
         {photoIndex === 1 ? <span className="detail-video-play" aria-hidden="true"><span /></span> : null}
         <div className="detail-photo-pagination" aria-hidden="true">
@@ -140,20 +156,26 @@ function DetailHero({ onBack }: { onBack: () => void }) {
         </div>
       </div>
     </section>
+    {photos.length > 1 ? <div className="detail-thumbs" role="group" aria-label="차량 사진 썸네일">
+      {photos.map((photo, index) => <button key={`${photo}-${index}`} type="button" aria-label={`사진 ${index + 1} 보기`} aria-pressed={index === activePhoto} className={index === activePhoto ? "is-active" : ""} onClick={() => choosePhoto(index)}><img src={photo} alt="" draggable={false} loading="lazy" /></button>)}
+    </div> : null}
+    </>
   );
 }
 
 function VehicleSummary() {
   const { liked, setLiked, setSheet, notify } = useDetailUi();
-  const summarySpecs = ["2019", formatMileage("42,920 km"), "가솔린", detailVehiclePlate, "1인소유"];
+  const car = getActiveDetailCar();
+  // 첫 메타정보는 목록 카드와 같은 값을 그대로 쓴다(초톳 상세와 동일, 2026-10-13)
+  const summarySpecs = car ? bbmCardSpec(car, false).split(" · ").filter(Boolean) : ["2019", formatMileage("42,920 km"), "가솔린", detailVehiclePlate, "1인소유"];
   return (
     <section className="vehicle-summary">
-      <div className="vehicle-title-row"><h1>2019 벤틀리 컨티넨탈 GT 3세대 6.0 퍼스트 에디션</h1><button type="button" aria-label="매물 저장" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}<span>{liked ? "저장됨" : "저장"}</span></button></div>
+      <div className="vehicle-title-row"><h1>{car ? <><span className="vehicle-name">{car.title}</span>{car.trim ? <span className="vehicle-headline">{car.trim}</span> : null}</> : "2019 벤틀리 컨티넨탈 GT 3세대 6.0 퍼스트 에디션"}</h1><button type="button" aria-label="매물 저장" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <HeartIcon />}<span>{liked ? "저장됨" : "저장"}</span></button></div>
       <div className="vehicle-spec-row" aria-label="차량 핵심 정보">
-        {summarySpecs.map((spec) => <span key={spec}>{spec}</span>)}
+        {summarySpecs.map((spec) => <span key={spec} data-override-value={car ? spec : undefined}>{spec}</span>)}
       </div>
       <div className="detail-price-row">
-        <strong>1억 4,500만원</strong>
+        <strong data-override-price={car?.price}>{car?.price ?? "1억 4,500만원"}</strong>
         <button type="button" onClick={() => setSheet("priceHistory")}>가격 변동</button>
       </div>
       <p className="vehicle-finance">할부 예상 월 153만원부터</p>
@@ -163,9 +185,9 @@ function VehicleSummary() {
         <button type="button" onClick={() => notify("카카오 상담을 준비했어요")}>카카오</button>
         <button type="button" onClick={() => setSheet("contact")}>채팅</button>
       </div>
-      <div className="vehicle-location-row">
-        <p>서울 서초구 양재동</p>
-        <span>등록 2개월 전</span>
+      <div className="vehicle-location-row" data-override-posted={car ? `등록 ${car.posted}` : undefined}>
+        <p data-override-location={car?.place}>{car?.place ?? "서울 서초구 양재동"}</p>
+        <span data-override-status={car ? "" : undefined}>{car ? "" : "등록 2개월 전"}</span>
       </div>
     </section>
   );
