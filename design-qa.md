@@ -90,6 +90,42 @@ final result: passed
 
 ---
 
+# 마력·배기량 크기 복원·선 두께 광학 보정 QA · 2026-10-14
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/5eeae80b-1ea0-4479-9489-1e80688c1730/1-1000018191.jpg`
+- previous full-size implementation: `C:/Users/bobae/Downloads/vehicle-grid-icon-tuned-1013/notion-displacement-public-89a0095.png`
+- failed reduced-size implementation: `C:/Users/bobae/Downloads/vehicle-grid-icon-tuned-1013/notion-engine-power-24px-public-87b65a5.png`
+- corrected implementation screenshot: `C:/Users/bobae/Downloads/vehicle-grid-icon-tuned-1013/notion-engine-power-optical-thin-local.png`
+- focused three-pass comparison: `C:/Users/bobae/Downloads/vehicle-grid-icon-tuned-1013/comparison-engine-power-three-pass.png`
+- route: `/?qf=guazi&category=서울오토갤러리&facts=icons` → 첫 매물 상세
+- viewport: 390 × 844 CSS px, deviceScaleFactor 1
+- source/implementation density: 구현 캡처 390 × 844px, 밀도 변환 없음
+- state: 차량 정보 8개 접힘 상태
+
+## Findings
+
+- P0/P1/P2 findings: none after the optical-weight correction.
+- 폰트·타이포그래피: 변경 없음. Pretendard, 라벨 14/20, 값 16/22·600을 유지했다.
+- 간격·레이아웃: 마력·배기량을 다시 기존 28px 점유 크기로 복원해 다른 핵심 아이콘과 세로 비율을 맞춰다. 열·텍스트 시작선은 변경 없음.
+- 색상·토큰: 래스터 원본의 서로 다른 회색을 차량 정보 기본색 `#222`로 통일했다.
+- 이미지·아이콘 품질: 크기를 줄이지 않고 원본 알파에 `feMorphology erode 0.3` 광학 보정만 적용해 선 무게를 줄였다. 0.5px 시험은 세부 도형이 끊겨 폐기했다.
+- 복사·콘텐츠: 변경 없음.
+
+## Comparison history
+
+- 이전 P1: 두께 문제를 24px 축소로 처리해 마력·배기량의 세로 크기와 정보 격자 밸런스가 깨짐.
+- 수정: 2px 내부 여백을 제거해 기존 크기를 복원하고, 별도 알파 선 얇힘·`#222` 재채색을 적용.
+- 수정 후 근거: 3단 비교의 오른쪽 최종본은 왼쪽 초기 28px본의 크기를 유지하면서, 중앙 24px 축소본의 작은 비율을 해소했다.
+
+## Verification
+
+- 모바일 390×844 가로 오버플로 0
+- 깨진 이미지 0, 콘솔 오류 0, 400 이상 네트워크 오류 0
+
+final result: passed
+
+---
+
 # 차량 정보 주행거리 아이콘 교체 QA · 2026-10-13
 
 - source visual truth: Notion `09_주행거리 Mileage (km) (1)`의 `MileageOdometer.svg`
