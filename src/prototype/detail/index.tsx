@@ -320,12 +320,14 @@ function WarrantyCard() {
 function DetailSellerInfo({ car }: { car: Car }) {
   const fd = car.ferrariDetail;
   const isDealer = car.sellerType === "딜러";
+  // 판매완료 대수는 실제 값이 없어 매물 번호로 정한 가상 값이다(2026-10-13 「판매중 판매완료 추가」)
+  const soldCount = 12 + ((car.id * 37) % 188);
   return (
     <section className="detail-seller-info" aria-label="판매자 정보">
       <img className="detail-seller-avatar" src={asset(sellerAvatar(car))} alt="" draggable={false} />
       <div className="detail-seller-text">
         <strong>{sellerLabel(car)}</strong>
-        {isDealer ? <span><b>{car.stock}대</b> 판매중</span> : null}
+        {isDealer ? <span><b>{soldCount}대</b> 판매완료 · <b>{car.stock}대</b> 판매중</span> : null}
         {fd ? <span className="detail-seller-shop">{fd.shop} · {fd.union}</span> : null}
       </div>
     </section>
