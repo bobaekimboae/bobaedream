@@ -353,6 +353,14 @@ const detailPhotosOf = (car: Car | null | undefined): string[] => {
   return list.length ? list.map((src) => asset(src)) : detailPhotos;
 };
 
+// 썸네일 크기 비교 시안: 주소 끝 &thumbs=kaidee(기본) · ebay · dongchedi
+const thumbVariantOf = (): "kaidee" | "ebay" | "dongchedi" => {
+  const v = new URLSearchParams(window.location.search).get("thumbs");
+  return v === "ebay" || v === "dongchedi" ? v : "kaidee";
+};
+// 줄이 멈추는 위치(화면 가장자리 기준): 카이디 앞 3 · 뒤 18(영상 실측), 이베이 앞 4 · 뒤 8(첫 칸 왼쪽 8), 동처띠는 선택 칸을 가운데로
+const thumbEdges = { kaidee: { left: 3, right: 18 }, ebay: { left: 4, right: 8 }, dongchedi: { left: 0, right: 0 } } as const;
+
 function DetailHero({ onBack }: { onBack: () => void }) {
   const { setSheet, notify } = useDetailUi();
   const photos = detailPhotosOf(getActiveDetailCar());
@@ -401,8 +409,9 @@ function DetailHero({ onBack }: { onBack: () => void }) {
     const thumb = strip?.children[photoIndex - 1] as HTMLElement | undefined;
     if (!strip || !thumb) return;
     // 카이디 영상 실측: 앞으로 넘길 때 다음 칸 오른쪽 끝이 화면 끝에서 18, 뒤로 넘길 때 앞 칸 왼쪽 끝이 화면 끝에서 약 3
-    const edgeLeft = 3;
-    const edgeRight = 18;
+    const variant = thumbVariantOf();
+    const edgeLeft = thumbEdges[variant].left;
+    const edgeRight = thumbEdges[variant].right;
     const prev = (strip.children[photoIndex - 2] as HTMLElement | undefined) ?? thumb;
     const next = (strip.children[photoIndex] as HTMLElement | undefined) ?? thumb;
     const maxLeft = Math.max(0, strip.scrollWidth - strip.clientWidth);
@@ -410,7 +419,8 @@ function DetailHero({ onBack }: { onBack: () => void }) {
     const right = next.offsetLeft + next.offsetWidth + edgeRight - strip.clientWidth;
     // 진행 중인 이동의 목표를 기준으로 필요한 만큼만 옮긴다
     const from = stripTargetRef.current ?? strip.scrollLeft;
-    const target = Math.min(maxLeft, Math.max(0, left < from ? left : right > from ? right : from));
+    const centered = thumb.offsetLeft - (strip.clientWidth - thumb.offsetWidth) / 2;
+    const target = Math.min(maxLeft, Math.max(0, variant === "dongchedi" ? centered : left < from ? left : right > from ? right : from));
     if (Math.abs(target - strip.scrollLeft) < 1 && stripTargetRef.current === null) return;
     stripTargetRef.current = target;
     window.cancelAnimationFrame(stripAnimRef.current);
@@ -481,7 +491,7 @@ function DetailHero({ onBack }: { onBack: () => void }) {
         </div>
       </div>
     </section>
-    {photos.length > 1 ? <div className="detail-thumbs" ref={thumbsRef} role="group" aria-label="차량 사진 썸네일" onKeyDown={onThumbKey}>
+    {photos.length > 1 ? <div className="detail-thumbs" data-thumbs={thumbVariantOf()} ref={thumbsRef} role="group" aria-label="차량 사진 썸네일" onKeyDown={onThumbKey}>
       {photos.map((photo, index) => <button key={`${photo}-${index}`} type="button" aria-label={`사진 ${index + 1} 보기`} aria-pressed={index === activePhoto} className={index === activePhoto ? "is-active" : ""} onClick={() => choosePhoto(index)}><img src={photo} alt="" draggable={false} loading="lazy" /></button>)}
     </div> : null}
     </>
@@ -1153,7 +1163,7 @@ function BikeVehicleDetail({ car, onBack }: { car: Car; onBack: () => void }) {
           <img src={photos[photoIndex] ?? asset(car.image)} alt={car.title} style={{ display: "block", width: "100%", aspectRatio: "4 / 3", objectFit: "cover" }} />
           <button type="button" aria-label="목록으로 돌아가기" onClick={onBack} style={{ position: "absolute", top: 12, left: 12, width: 40, height: 40, border: 0, borderRadius: 20, background: "rgba(0,0,0,.55)", color: "#fff", fontSize: 22 }}>←</button>
         </div>
-        {photos.length > 1 ? <div className="detail-thumbs" role="group" aria-label="차량 사진 썸네일">
+        {photos.length > 1 ? <div className="detail-thumbs" data-thumbs={thumbVariantOf()} role="group" aria-label="차량 사진 썸네일">
           {photos.map((photo, index) => <button key={`${photo}-${index}`} type="button" aria-label={`사진 ${index + 1} 보기`} aria-pressed={index === photoIndex} className={index === photoIndex ? "is-active" : ""} onClick={() => setPhotoIndex(index)}><img src={photo} alt="" draggable={false} loading="lazy" /></button>)}
         </div> : null}
         <div style={{ padding: 20 }}>
