@@ -28,6 +28,25 @@ final result: passed
 
 ---
 
+# FINN 제조사 아이콘 교체 QA · 2026-10-13
+
+- source URL: `https://www.finn.no/mobility/item/476214749`
+- source asset: FINN 상세 화면의 24×24 `Bil` SVG, `stroke-width: 1.5`
+- implementation screenshot: `C:/Users/bobae/Downloads/vehicle-grid-icon-tuned-1013/11-finn-maker-icon.png`
+- viewport: 390 × 844 CSS px
+
+## Findings
+
+- 제조사 아이콘을 기존 차량+검색 조합 아이콘에서 FINN 원본 정면 차량 아이콘으로 교체했다.
+- SVG 원본의 24×24 뷰박스와 1.5px 스트로크를 유지했다.
+- 기존 28px 점유 슬롯 안에서 다른 정보 아이콘과 같은 시각 면적이 되도록 `scale(0.860)`과 y축 `0.35px`만 광학 보정했다.
+- 차량 정보 격자, 제조사 링크, 펼침 동작은 그대로 유지했다.
+- 390px에서 깨진 이미지 0, 콘솔 오류 0, 가로 오버플로 0을 확인했다.
+
+final result: passed
+
+---
+
 # 차량 설명 더 보기 QA · 2026-10-13
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/9815eb3a-8d59-4681-9c95-25879fc9905c/2-1000018116.jpg`
