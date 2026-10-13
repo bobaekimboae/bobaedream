@@ -352,3 +352,15 @@
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text { display: flex; flex-direction: column; gap: 0; overflow: visible; font-size: 16px; line-height: 24px; white-space: normal; }
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text > span { font-size: 16px; line-height: 24px; color: #222; }
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text > .bbm-card-location-secondary { color: #8c8c8c; }
+/* 크로스체크(2026-10-13 「지역 한 줄로 · 제조사 모델 등 텍스트 크기」, 초톳 상세 캡처 1080×2340 ÷2.8125 잉크 실측): 제목 대문자 M 13.5 · 줄 간격 29.5, 메타 숫자 10.3, 가격 숫자 14.9, 지역 글자 10.7 · 줄 간격 20.3(숫자 높이 ÷ 0.72 = 글자 크기) */
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-title,
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-model { font-size: 19px; line-height: 29.5px; font-weight: 500; letter-spacing: -.3px; color: #222; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-spec { margin-top: 4px; font-size: 14px; line-height: 20px; color: #595959; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-price { font-size: 20px; line-height: 28px; font-weight: 700; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-price-unit { font-size: 20px; font-weight: 400; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location { font-size: 15px; line-height: 20px; margin-top: 12px; gap: 8px; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location img { width: 18px; height: 18px; margin-top: 1px; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text { flex-direction: row; flex-wrap: wrap; gap: 0 4px; font-size: 15px; line-height: 20px; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location-text > span { font-size: 15px; line-height: 20px; }
+.vehicle-summary.is-list-summary .bbm-card-location-secondary::before { content: "· "; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-price-badges { margin-top: 8px; }
