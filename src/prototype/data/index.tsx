@@ -377,6 +377,8 @@ const sellerAvatar = (car: Car) => {
 };
 
 // 피드 보기 전용: 승인된 초톳 인물 사진(위 허용 목록)을 매물마다 다르게 돌려 쓴다(2026-10-10 「프사 실제 프사로」). 이미 초톳 사진이 정해진 매물은 그대로
+// 상세 판매자 프사(2026-10-13 「프사 실사 느낌 변경」): 실제 딜러 카테고리도 기본 아이콘 대신 승인된 초톳 인물 사진(임시 자리 사진, 실제 딜러 사진 아님)을 매물 번호로 돌려 쓴다
+const sellerDetailPhoto = (car: Car) => chototHumanSellerProfiles[((car.id % chototHumanSellerProfiles.length) + chototHumanSellerProfiles.length) % chototHumanSellerProfiles.length];
 const sellerRealPhoto = (car: Car) => car.seoulAutoGallery || car.realDealer ? sellerAvatar(car) : car.sellerProfile?.includes("sellers/chotot/")
   ? car.sellerProfile
   : chototHumanSellerProfiles[((car.id % chototHumanSellerProfiles.length) + chototHumanSellerProfiles.length) % chototHumanSellerProfiles.length];
@@ -2021,6 +2023,7 @@ export {
   sellerLabel,
   sellerAvatar,
   sellerRealPhoto,
+  sellerDetailPhoto,
   displaySpecs,
   displayListPlace,
   emptyPrice,
