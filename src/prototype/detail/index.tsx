@@ -13,6 +13,7 @@ import {
   isDesktopPreview,
   isForcedMobileView,
   optionItems,
+  parsePrice,
   priceHistoryRows,
   relatedCars,
   sellerDetailPhoto,
@@ -306,6 +307,114 @@ function PriceHistorySheet({ onClose }: { onClose: () => void }) {
   );
 }
 
+type CostVehicleType = "승용" | "경차" | "승합" | "화물";
+type CostRegion = "서울" | "경기" | "기타";
+type CostBenefit = "해당없음" | "다자녀" | "장애인";
+
+const formatCostManwon = (value: number) => {
+  const rounded = Math.max(0, Math.round(value));
+  const eok = Math.floor(rounded / 10000);
+  const manwon = rounded % 10000;
+  if (!eok) return `${manwon.toLocaleString("ko-KR")}만원`;
+  return manwon ? `${eok}억 ${manwon.toLocaleString("ko-KR")}만원` : `${eok}억원`;
+};
+
+const formatCostWon = (value: number) => `${Math.max(0, Math.round(value * 10000)).toLocaleString("ko-KR")}원`;
+
+function CostCalculatorSheet({ onClose }: { onClose: () => void }) {
+  const { notify } = useDetailUi();
+  const car = getActiveDetailCar();
+  const initialPrice = Math.max(100, parsePrice(car?.price ?? "1억 4,500만원") || 14500);
+  const [price, setPrice] = useState(initialPrice);
+  const [payment, setPayment] = useState<"cash" | "loan">("cash");
+  const [vehicleType, setVehicleType] = useState<CostVehicleType>("승용");
+  const [fuel, setFuel] = useState(car?.filter?.fuel ?? "가솔린");
+  const [region, setRegion] = useState<CostRegion>(car?.place.includes("경기") ? "경기" : car?.place.includes("서울") ? "서울" : "기타");
+  const [benefit, setBenefit] = useState<CostBenefit>("해당없음");
+  const [downPayment, setDownPayment] = useState(30);
+  const [loanMonths, setLoanMonths] = useState(36);
+
+  const taxRate: Record<CostVehicleType, number> = { 승용: .07, 경차: .04, 승합: .05, 화물: .05 };
+  const bondRate: Record<CostRegion, number> = { 서울: .012, 경기: .01, 기타: .008 };
+  const baseAcquisitionTax = Math.round(price * taxRate[vehicleType]);
+  const taxDiscount = benefit === "장애인" ? baseAcquisitionTax : benefit === "다자녀" ? Math.min(140, baseAcquisitionTax) : 0;
+  const acquisitionTax = Math.max(0, baseAcquisitionTax - taxDiscount);
+  const bondDiscount = Math.round(price * bondRate[region]);
+  const registrationFees = 5;
+  const managementFee = 44;
+  const inspectionInsurance = 12;
+  const transferCost = acquisitionTax + bondDiscount + registrationFees;
+  const total = price + transferCost + managementFee + inspectionInsurance;
+  const financed = Math.round(total * (1 - downPayment / 100));
+  const monthlyRate = .069 / 12;
+  const monthlyPayment = financed * monthlyRate * ((1 + monthlyRate) ** loanMonths) / (((1 + monthlyRate) ** loanMonths) - 1);
+  const fuelOptions = Array.from(new Set([fuel, "가솔린", "디젤", "하이브리드", "전기"]));
+  const title = car ? `${car.title} ${car.trim}`.trim() : "벤틀리 컨티넨탈 GT 3세대";
+  const photo = detailPhotosOf(car)[0];
+
+  const complete = () => {
+    notify(`예상 구매비용은 ${formatCostManwon(total)}입니다.`);
+    onClose();
+  };
+
+  return (
+    <div className="cost-calculator-sheet">
+      <button className="cost-calculator-close" type="button" aria-label="구매비용 계산기 닫기" onClick={onClose}>
+        <img src={asset("detail/price-history-close.svg")} alt="" />
+      </button>
+
+      <section className="cost-vehicle-summary" aria-label="계산 대상 차량">
+        <img src={photo} alt="" />
+        <div><strong>{title}</strong><span>판매가 {formatCostManwon(price)}</span></div>
+      </section>
+
+      <section className="cost-total-hero" aria-live="polite">
+        <span>예상 총 구매비용</span>
+        <strong>{formatCostWon(total)}</strong>
+        <small>{vehicleType} · {fuel} · {region} 등록 기준</small>
+      </section>
+
+      <div className="cost-payment-tabs" role="group" aria-label="구매 방식">
+        <button type="button" aria-pressed={payment === "cash"} onClick={() => setPayment("cash")}>현금 구매</button>
+        <button type="button" aria-pressed={payment === "loan"} onClick={() => setPayment("loan")}>할부 구매</button>
+      </div>
+
+      <section className="cost-input-section" aria-labelledby="cost-input-title">
+        <div className="cost-section-title"><h3 id="cost-input-title">계산 조건</h3><span>직접 변경할 수 있어요</span></div>
+        <label className="cost-price-field"><span>차량가격</span><span><input inputMode="numeric" min="100" step="100" value={price} onChange={(event) => setPrice(Math.max(0, Number(event.target.value) || 0))} aria-label="차량가격, 만원 단위" />만원</span></label>
+        <div className="cost-choice-grid">
+          <label><span>차종</span><select value={vehicleType} onChange={(event) => setVehicleType(event.target.value as CostVehicleType)}>{(["승용", "경차", "승합", "화물"] as CostVehicleType[]).map((value) => <option key={value}>{value}</option>)}</select></label>
+          <label><span>연료</span><select value={fuel} onChange={(event) => setFuel(event.target.value)}>{fuelOptions.map((value) => <option key={value}>{value}</option>)}</select></label>
+          <label><span>감면</span><select value={benefit} onChange={(event) => setBenefit(event.target.value as CostBenefit)}>{(["해당없음", "다자녀", "장애인"] as CostBenefit[]).map((value) => <option key={value}>{value}</option>)}</select></label>
+          <label><span>등록 지역</span><select value={region} onChange={(event) => setRegion(event.target.value as CostRegion)}>{(["서울", "경기", "기타"] as CostRegion[]).map((value) => <option key={value}>{value}</option>)}</select></label>
+        </div>
+      </section>
+
+      {payment === "loan" ? (
+        <section className="cost-loan-section" aria-labelledby="cost-loan-title">
+          <div className="cost-section-title"><h3 id="cost-loan-title">할부 조건</h3><span>연 6.9% 예시</span></div>
+          <div className="cost-option-row"><span>선수금</span><div>{[20, 30, 40].map((value) => <button type="button" key={value} aria-pressed={downPayment === value} onClick={() => setDownPayment(value)}>{value}%</button>)}</div></div>
+          <div className="cost-option-row"><span>기간</span><div>{[24, 36, 48].map((value) => <button type="button" key={value} aria-pressed={loanMonths === value} onClick={() => setLoanMonths(value)}>{value}개월</button>)}</div></div>
+          <div className="cost-loan-result"><span>월 예상 납입금</span><strong>{formatCostManwon(monthlyPayment)}</strong><small>대출원금 {formatCostManwon(financed)} · 원리금균등상환</small></div>
+        </section>
+      ) : null}
+
+      <section className="cost-breakdown-section" aria-labelledby="cost-breakdown-title">
+        <div className="cost-section-title"><h3 id="cost-breakdown-title">비용 상세</h3><span>보험료 제외</span></div>
+        <ol className="cost-breakdown-list">
+          <li><i>1</i><div><b>차량가격</b><small>판매자가 등록한 차량가</small></div><strong>{formatCostManwon(price)}</strong></li>
+          <li><i>2</i><div><b>이전등록비 합계</b><small>취득세 {formatCostManwon(acquisitionTax)} · 공채할인 {formatCostManwon(bondDiscount)} · 등록비 {formatCostManwon(registrationFees)}</small></div><strong>{formatCostManwon(transferCost)}</strong></li>
+          <li><i>3</i><div><b>관리비용(매도비)</b><small>상사·매물에 따라 달라질 수 있어요</small></div><strong>약 {formatCostManwon(managementFee)}</strong></li>
+          <li><i>4</i><div><b>성능점검보험료</b><small>차량 상태와 보증 범위에 따라 변동</small></div><strong>약 {formatCostManwon(inspectionInsurance)}</strong></li>
+        </ol>
+      </section>
+
+      <p className="cost-disclaimer">계산 결과는 참고용 예상 금액입니다. 실제 취득세·공채·매도비·보험료는 차량과 구매자 조건 및 등록 지역에 따라 달라질 수 있습니다.</p>
+      <div className="cost-calculator-footer"><div><span>예상 총 비용</span><strong>{formatCostManwon(total)}</strong></div><button type="button" onClick={complete}>계산 완료</button></div>
+    </div>
+  );
+}
+
 function OptionsCard({ desktop = false }: { desktop?: boolean }) {
   const [expanded, setExpanded] = useState(false);
   const fd = getActiveDetailCar()?.ferrariDetail;
@@ -510,15 +619,18 @@ function SellerCard() {
 }
 
 function SaleCard() {
-  const { notify } = useDetailUi();
+  const { setSheet, notify } = useDetailUi();
   const car = getActiveDetailCar();
   if (car) return (
-    <SectionCard title="판매 정보"><dl className="detail-rows"><div><dt>차량가</dt><dd>{car.price}</dd></div>{car.ferrariDetail ? <div><dt>판매구분</dt><dd>{car.ferrariDetail.saleType}</dd></div> : null}</dl></SectionCard>
+    <SectionCard title="판매 정보">
+      <dl className="detail-rows"><div><dt>차량가</dt><dd>{car.price}</dd></div>{car.ferrariDetail ? <div><dt>판매구분</dt><dd>{car.ferrariDetail.saleType}</dd></div> : null}</dl>
+      <button className="cost-entry-button" type="button" onClick={() => setSheet("cost")}><span><b>구매비용 계산기</b><small>취득세·이전비·할부금까지 한 번에</small></span><strong>계산하기</strong></button>
+    </SectionCard>
   );
   return (
     <SectionCard title="판매 정보">
       <div className="cost-box"><dl><div><dt>차량가</dt><dd>1억5,980만원</dd></div><div><dt>이전 등록비(예상)</dt><dd>314만원</dd></div><div><dt>매도비</dt><dd>33만원</dd></div></dl><div className="cost-total"><span>예상 총 비용</span><strong>1억 6,328만원</strong></div></div>
-      <div className="sale-actions"><button type="button" onClick={() => notify("비용 계산기를 열었어요")}>비용계산기</button><button type="button" onClick={() => notify("동급매물로 이동했어요")}>동급매물</button><button type="button" onClick={() => notify("할부매물을 확인해요")}>할부매물</button></div>
+      <div className="sale-actions"><button type="button" onClick={() => setSheet("cost")}>비용계산기</button><button type="button" onClick={() => notify("동급매물로 이동했어요")}>동급매물</button><button type="button" onClick={() => notify("할부매물을 확인해요")}>할부매물</button></div>
       <button className="report-button" type="button" onClick={() => notify("신고 접수 화면을 준비했어요")}><LockClosedIcon /> 신고하기</button>
     </SectionCard>
   );
@@ -603,7 +715,6 @@ function DesktopVehicleInfo() {
 
 function DesktopSummary({ jump }: { jump: (id: string) => void }) {
   const { liked, setLiked, setSheet, notify } = useDetailUi();
-  const [costOpen, setCostOpen] = useState(false);
   return <aside className="pc-sidebar">
     <section className="detail-card pc-summary">
       <div className="pc-title-row"><h1>벤틀리 컨티넨탈 GT 3세대 6.0 퍼스트 에디션</h1><button aria-label="매물 저장" aria-pressed={liked} onClick={() => setLiked(!liked)}>{liked ? <HeartFilledIcon /> : <img src={pcAsset("9877-imgIcon.svg")} alt="" />}<span>{liked ? 1 : 0}</span></button></div>
@@ -612,8 +723,7 @@ function DesktopSummary({ jump }: { jump: (id: string) => void }) {
       <div className="pc-price-row"><strong>1억 4,500만원</strong><button onClick={() => setSheet("priceHistory")}>가격 변동</button><button className="pc-insurance" onClick={() => notify("보험료는 보험사 상담을 통해 확인해 주세요.")}>보험료 계산</button></div>
       <p className="pc-summary-note">6인승 독립시트로 뒷좌석의 편안함을 최우선으로 느껴보세요.</p>
       <div className="pc-summary-links"><button onClick={() => jump("pc-history")}><b>보험이력</b><span>0건 <img src={pcAsset("9877-imgIcon1.svg")} alt="" /></span></button><button onClick={() => jump("pc-inspection")}><b>성능점검</b><span>보기 <img src={pcAsset("9877-imgIcon1.svg")} alt="" /></span></button></div>
-      <div className="pc-calculators"><button onClick={() => setCostOpen(!costOpen)} aria-expanded={costOpen}>비용계산기</button><button onClick={() => jump("pc-related")}>동급매물</button><button onClick={() => notify("판매 완료된 매물 정보가 없습니다.")}>팔린매물</button></div>
-      {costOpen && <div className="pc-cost"><strong>차량 구매 비용</strong><p>차량가 1억 4,500만원</p><p>이전 등록비와 보험료는 별도입니다.</p></div>}
+      <div className="pc-calculators"><button onClick={() => setSheet("cost")}>비용계산기</button><button onClick={() => jump("pc-related")}>동급매물</button><button onClick={() => notify("판매 완료된 매물 정보가 없습니다.")}>팔린매물</button></div>
     </section>
     <section className="detail-card pc-seller">
       <div className="seller-profile"><img src={pcAsset("9877-imgFrame1000006239.png")} alt="한강모터스 박성수" /><div><h2>한강모터스 박성수 <span>딜러</span></h2><p><b>5대</b> 판매중 · <b>10대</b> 판매완료</p><p>● 서울 서초구 오토갤러리</p></div></div>
@@ -744,8 +854,8 @@ function VehicleDetail() {
         </>}
       </MobileScroll>
       {toast ? <div className="detail-toast" role="status">{toast}</div> : null}
-      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && setSheet(null)} title={sheet === "priceHistory" ? "가격 변동 내역" : sheet === "more" ? "매물 더보기" : "판매자 상담"} description={sheet === "priceHistory" ? undefined : sheet === "more" ? "원하는 작업을 선택하세요." : `${sellerScenario.name}에게 문의할 수 있어요.`} snap={sheet === "priceHistory" ? 0.75 : 0.42}>
-        {sheet === "priceHistory" ? <PriceHistorySheet onClose={() => setSheet(null)} /> : <div className="detail-sheet-actions">
+      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && setSheet(null)} title={sheet === "cost" ? "구매비용 계산기" : sheet === "priceHistory" ? "가격 변동 내역" : sheet === "more" ? "매물 더보기" : "판매자 상담"} description={sheet === "cost" || sheet === "priceHistory" ? undefined : sheet === "more" ? "원하는 작업을 선택하세요." : `${sellerScenario.name}에게 문의할 수 있어요.`} snap={sheet === "cost" ? 0.94 : sheet === "priceHistory" ? 0.75 : 0.42}>
+        {sheet === "cost" ? <CostCalculatorSheet onClose={() => setSheet(null)} /> : sheet === "priceHistory" ? <PriceHistorySheet onClose={() => setSheet(null)} /> : <div className="detail-sheet-actions">
           {sheet === "more" ? <><button type="button" onClick={() => { notify("매물 신고를 선택했어요"); setSheet(null); }}>허위매물 신고</button><button type="button" onClick={() => { notify("판매자를 차단했어요"); setSheet(null); }}>판매자 차단</button><button type="button" onClick={() => setSheet(null)}>취소</button></> : <><a href={sellerScenario.phoneHref}><MobileIcon /> {sellerScenario.phoneLabel} 전화하기</a><button type="button" onClick={() => { notify("상담 요청을 보냈어요"); setSheet(null); }}>문자로 상담 요청</button><button type="button" onClick={() => setSheet(null)}>닫기</button></>}
         </div>}
       </BottomSheet>

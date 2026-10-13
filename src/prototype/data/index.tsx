@@ -57,7 +57,7 @@ import {
 
 export type SellerType = "전체" | "개인" | "딜러";
 type SheetType = "filter" | "quick" | "carType" | "maker" | "vehicle" | "year" | "price" | "region" | "sort" | null;
-type DetailSheet = "contact" | "more" | "priceHistory" | null;
+type DetailSheet = "contact" | "more" | "priceHistory" | "cost" | null;
 type RegionSelection = { province: string; district: string; radius: string };
 type RegionMenu = "province" | "district" | "radius" | null;
 type PriceMode = "cash" | "lease";
