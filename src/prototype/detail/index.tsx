@@ -625,7 +625,7 @@ function SaleCard() {
   const car = getActiveDetailCar();
   if (car) return (
     <SectionCard title="판매 정보">
-      <dl className="detail-rows"><div><dt>차량가</dt><dd>{car.price}</dd></div>{car.ferrariDetail ? <div><dt>판매구분</dt><dd>{car.ferrariDetail.saleType}</dd></div> : null}</dl>
+      <dl className="detail-rows is-facts-size"><div><dt>차량가</dt><dd>{car.price}</dd></div>{car.ferrariDetail ? <div><dt>판매구분</dt><dd>{car.ferrariDetail.saleType}</dd></div> : null}</dl>
       <button className="cost-entry-button" type="button" onClick={() => setSheet("cost")}><span><b>구매비용 계산기</b><small>취득세·이전비·할부금까지 한 번에</small></span><strong>계산하기</strong></button>
     </SectionCard>
   );

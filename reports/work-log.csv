@@ -277,3 +277,4 @@
 "2026-10-14 05:10","미지정","claude/used-car-detail-1013","-","배포","완료","상세 차량 정보 라벨 색 #595959(최적안)","detail.css"
 "2026-10-14 05:40","미지정","claude/used-car-detail-1013","-","배포","완료","상세 차량 정보 크기 2시안(초톳 14/39 · 차란차 16/38, &facts=charancha)","detail/index.tsx · detail.css"
 "2026-10-14 06:10","미지정","claude/used-car-detail-1013","-","배포","완료","상세 차량 정보 차란차 크기(16/22·줄38) 기본 확정, 비교 파라미터 제거","detail/index.tsx · detail.css"
+"2026-10-14 07:10","미지정","claude/used-car-detail-1013","-","배포","완료","상세 설명글류(차량 소개·판매 정보·판매자 줄) 차란차 크기 16/24","detail/index.tsx · detail.css"
