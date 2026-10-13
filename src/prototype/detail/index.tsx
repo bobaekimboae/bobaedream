@@ -25,6 +25,7 @@ import {
   type Car,
 } from "../data";
 import { BbmResultCard } from "../listing/bbm-list";
+import { dealers as sagDealers } from "../listing/seoul-auto-gallery-dealer-rail";
 
 type DetailUi = {
   liked: boolean;
@@ -183,6 +184,7 @@ function VehicleSummary() {
   // 상세 상단 정보는 목록 카드와 같은 컴포넌트(제조사 모델 · 메타정보 · 가격 · 지역 · 하트)를 쓰고 사진·판매자 줄만 숨긴다(2026-10-13 「초톳처럼 리스트와 동일하게」)
   const summaryRef = useRef<HTMLElement>(null);
   useLocationWrap(summaryRef);
+  useLocationLinks(summaryRef, car);
   if (car) return (
     <section ref={summaryRef} className="vehicle-summary is-list-summary marketplace is-bbm-m is-qf-guazi"><div className="bbm-m-list">
       <BbmResultCard car={carShopName(car) ? { ...car, place: `${car.place} · ${carShopName(car)}` } : car} variant="mobile" liked={liked} onToggleLike={() => setLiked(!liked)} onOpen={() => undefined} onChat={() => undefined} />
@@ -388,6 +390,48 @@ function useLocationWrap(ref: { current: HTMLElement | null }) {
     const observer = new ResizeObserver(apply);
     observer.observe(text);
     return () => observer.disconnect();
+  });
+}
+
+// 지역 줄의 단지 · 상사명 링크(2026-10-13 「에어비앤비처럼 단지 상사 밑줄 링크」): 이동할 곳이 있는 항목에만 밑줄을 긋는다.
+// 단지 = 카테고리 목록(서울오토갤러리 · 도이치오토월드), 상사명 = 딜러 페이지(서울오토갤러리 딜러 중 화면이 있는 5명)
+const complexCategories = ["서울오토갤러리", "도이치오토월드"];
+function locationLinks(car: Car): Record<string, string> {
+  const links: Record<string, string> = {};
+  const base = new URLSearchParams(window.location.search);
+  const complex = complexCategories.find((name) => car.place.split(" · ").includes(name));
+  if (complex) {
+    const next = new URLSearchParams(base);
+    ["profile", "shop", "emp", "tab", "category", "maker", "q"].forEach((key) => next.delete(key));
+    next.set("category", complex);
+    links[complex] = `${window.location.pathname}?${next.toString()}`;
+  }
+  const shop = carShopName(car);
+  const sagDealer = car.seoulAutoGallery ? sagDealers.find((dealer) => car.dealer.startsWith(dealer.name)) : undefined;
+  if (shop && sagDealer) links[shop] = `${window.location.pathname}?profile=dealer&shop=${sagDealer.shopNo}&emp=${sagDealer.empNo}`;
+  return links;
+}
+
+function useLocationLinks(ref: { current: HTMLElement | null }, car: Car | null | undefined) {
+  useEffect(() => {
+    const root = ref.current;
+    if (!root || !car) return;
+    const links = locationLinks(car);
+    root.querySelectorAll<HTMLElement>(".bbm-card-location-part").forEach((part) => {
+      const href = links[(part.textContent ?? "").trim()];
+      if (href) { part.classList.add("is-link"); part.dataset.href = href; part.setAttribute("role", "link"); part.tabIndex = 0; }
+      else { part.classList.remove("is-link"); delete part.dataset.href; part.removeAttribute("role"); part.removeAttribute("tabindex"); }
+    });
+    const go = (event: Event) => {
+      const target = (event.target as HTMLElement).closest<HTMLElement>("[data-href]");
+      if (!target) return;
+      if (event instanceof KeyboardEvent && event.key !== "Enter") return;
+      event.preventDefault();
+      window.location.assign(target.dataset.href as string);
+    };
+    root.addEventListener("click", go);
+    root.addEventListener("keydown", go);
+    return () => { root.removeEventListener("click", go); root.removeEventListener("keydown", go); };
   });
 }
 

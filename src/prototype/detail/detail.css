@@ -399,3 +399,8 @@
 .is-list-summary .bbm-card-location-part { white-space: nowrap; color: #222; }
 .is-list-summary .bbm-card-location-part::before { content: "· " !important; white-space: pre; }
 .is-list-summary .bbm-card-location-part.is-line-start::before { content: none !important; }
+
+/* 링크 항목 밑줄(2026-10-13, 에어비앤비 모바일 상세 확인: 링크는 파랑 대신 본문색 + 밑줄 1px · 글자와 간격 2px, 링크 없는 글자는 밑줄 없음) */
+.is-list-summary .bbm-card-location-part.is-link { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; cursor: pointer; }
+.is-list-summary .bbm-card-location-part.is-link:focus-visible { outline: 2px solid #222; outline-offset: 2px; border-radius: 2px; }
+.is-list-summary .bbm-card-location-part.is-link::before { text-decoration: none; display: inline-block; }
