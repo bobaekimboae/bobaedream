@@ -276,6 +276,55 @@
 .cost-calculator-footer strong { overflow: hidden; color: #222; font-size: 16px; font-weight: 700; line-height: 23px; text-overflow: ellipsis; white-space: nowrap; }
 .cost-calculator-footer button { height: 46px; border: 0; border-radius: 12px; background: #222; color: #fff; font-size: 15px; font-weight: 700; cursor: pointer; }
 
+/* Purchase cost calculator — flat, information-first rebuild. */
+.cost-calculator-smart .cost-calculator-scroll { padding: 0 20px 28px; }
+.cost-smart-vehicle { display: grid; gap: 2px; padding: 18px 0 16px; border-bottom: 1px solid #eceef0; }
+.cost-smart-vehicle > span { color: #8b95a1; font-size: 12px; font-weight: 500; line-height: 18px; }
+.cost-smart-vehicle > strong { overflow: hidden; color: #222; font-size: 15px; font-weight: 700; line-height: 22px; text-overflow: ellipsis; white-space: nowrap; }
+.cost-smart-vehicle > small { color: #6b7280; font-size: 12px; font-weight: 400; line-height: 18px; }
+.cost-smart-total { display: grid; gap: 3px; padding: 24px 0 22px; }
+.cost-smart-total > span { color: #555d68; font-size: 13px; font-weight: 600; line-height: 19px; }
+.cost-smart-total > strong { color: #171717; font-size: 28px; font-weight: 750; line-height: 38px; letter-spacing: -.7px; }
+.cost-smart-total > small { color: #8b95a1; font-size: 12px; font-weight: 400; line-height: 18px; }
+.cost-smart-form { border-top: 8px solid #f4f5f6; margin: 0 -20px; padding: 12px 20px 24px; }
+.cost-smart-field { display: flex; min-height: 52px; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid #eceef0; }
+.cost-smart-field > span:first-child { color: #333; font-size: 14px; font-weight: 600; line-height: 20px; }
+.cost-smart-field > span:last-child { display: flex; align-items: baseline; gap: 3px; color: #222; font-size: 14px; font-weight: 600; }
+.cost-smart-field input { width: 130px; padding: 0; border: 0; outline: 0; background: transparent; color: #222; font-family: inherit; font-size: 17px; font-weight: 700; text-align: right; }
+.cost-smart-field select { min-width: 104px; height: 40px; padding: 0 26px 0 8px; border: 0; outline: 0; background-color: transparent; color: #222; font-family: inherit; font-size: 15px; font-weight: 600; text-align: right; }
+.cost-smart-disclosure { display: flex; width: 100%; height: 48px; align-items: center; justify-content: space-between; padding: 0; border: 0; border-bottom: 1px solid #eceef0; background: transparent; color: #555d68; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+.cost-smart-disclosure span { color: #8b95a1; font-size: 20px; font-weight: 400; }
+.cost-smart-advanced { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 12px 0 4px; }
+.cost-smart-advanced label { display: grid; gap: 4px; min-width: 0; }
+.cost-smart-advanced label > span { color: #8b95a1; font-size: 11px; line-height: 16px; }
+.cost-smart-advanced select { width: 100%; height: 40px; padding: 0 24px 0 10px; border: 1px solid #dfe3e8; border-radius: 8px; background-color: #fff; color: #222; font-family: inherit; font-size: 13px; font-weight: 600; }
+.cost-smart-calculate { width: 100%; height: 48px; margin-top: 16px; border: 0; border-radius: 8px; background: #222; color: #fff; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer; }
+.cost-smart-section { border-top: 8px solid #f4f5f6; margin: 0 -20px; padding: 22px 20px 20px; }
+.cost-smart-section h3 { margin: 0 0 10px; color: #222; font-size: 16px; font-weight: 700; line-height: 23px; }
+.cost-smart-list { border-top: 1px solid #222; }
+.cost-smart-list > div:not(.cost-smart-sublist), .cost-smart-list > button { display: flex; width: 100%; min-height: 48px; align-items: center; justify-content: space-between; gap: 14px; padding: 0; border: 0; border-bottom: 1px solid #eceef0; background: transparent; color: #333; font-family: inherit; font-size: 13px; text-align: left; }
+.cost-smart-list > button { cursor: pointer; }
+.cost-smart-list span { font-weight: 500; }
+.cost-smart-list small { margin-left: 4px; color: #8b95a1; font-size: 11px; font-weight: 400; }
+.cost-smart-list strong { color: #222; font-size: 14px; font-weight: 650; white-space: nowrap; }
+.cost-smart-sublist { display: grid; gap: 8px; padding: 12px 14px; border-bottom: 1px solid #eceef0; background: #f7f8f9; }
+.cost-smart-sublist span { display: flex; justify-content: space-between; color: #6b7280; font-size: 12px; line-height: 18px; }
+.cost-smart-sublist b { color: #444; font-weight: 600; }
+.cost-smart-loan { padding-bottom: 22px; }
+.cost-smart-loan-head { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 16px; padding: 0; border: 0; background: transparent; color: #222; font-family: inherit; text-align: left; cursor: pointer; }
+.cost-smart-loan-head > span { display: grid; gap: 2px; }
+.cost-smart-loan-head b { font-size: 16px; font-weight: 700; line-height: 23px; }
+.cost-smart-loan-head small { color: #8b95a1; font-size: 11px; font-weight: 400; line-height: 16px; }
+.cost-smart-loan-head > strong { color: #222; font-size: 16px; font-weight: 700; white-space: nowrap; }
+.cost-smart-loan-head i { margin-left: 4px; color: #8b95a1; font-size: 18px; font-style: normal; font-weight: 400; }
+.cost-smart-loan-options { padding-top: 14px; }
+.cost-smart-loan-options .cost-option-row { margin-top: 8px; }
+.cost-smart-loan-principal { display: flex; min-height: 42px; align-items: center; justify-content: space-between; margin-top: 10px; padding-top: 8px; border-top: 1px solid #eceef0; color: #6b7280; font-size: 12px; }
+.cost-smart-loan-principal strong { color: #222; font-size: 13px; font-weight: 650; }
+.cost-calculator-smart .cost-disclaimer { margin: 18px 0 2px; padding-left: 10px; color: #8b95a1; line-height: 17px; }
+.cost-calculator-smart .cost-calculator-footer { background: #fff; backdrop-filter: none; }
+.cost-calculator-smart .cost-calculator-footer button { border-radius: 8px; }
+
 /* Desktop detail follows Figma 2607:9545; mobile detail stays independent. */
 .pc-detail { background: #f1f1f1; min-height: 100%; font-family: "Pretendard", sans-serif; color: #222; }
 .pc-detail * { box-sizing: border-box; }
