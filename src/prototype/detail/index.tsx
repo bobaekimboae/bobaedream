@@ -361,6 +361,8 @@ function DetailHero({ onBack }: { onBack: () => void }) {
   const photos = detailPhotosOf(getActiveDetailCar());
   const [photoIndex, setPhotoIndex] = useState(1);
   const heroRef = useRef<HTMLElement>(null);
+  const jumpLockRef = useRef<number | null>(null);
+  const jumpTimerRef = useRef(0);
 
   useEffect(() => {
     const carousel = heroRef.current?.querySelector<HTMLElement>(".detail-media-carousel");
@@ -370,6 +372,12 @@ function DetailHero({ onBack }: { onBack: () => void }) {
     const updatePhotoIndex = () => {
       const photoWidth = firstPhoto.getBoundingClientRect().width || carousel.clientWidth;
       const nextIndex = Math.min(photos.length, Math.max(1, Math.round(carousel.scrollLeft / photoWidth) + 1));
+      // 썸네일을 눌러 먼 사진으로 갈 때는 지나가는 사진 번호를 무시한다(Swiper·Embla 썸네일 동기화와 같은 방식: 눌린 칸이 즉시 선택, 도착하면 잠금 해제)
+      const lock = jumpLockRef.current;
+      if (lock !== null) {
+        if (nextIndex !== lock) return;
+        jumpLockRef.current = null;
+      }
       setPhotoIndex(nextIndex);
       window.clearTimeout(snapTimer);
       snapTimer = window.setTimeout(() => {
@@ -386,28 +394,73 @@ function DetailHero({ onBack }: { onBack: () => void }) {
   }, [photos.length]);
 
   // 선택한 썸네일이 줄 안에서 완전히 보이도록 필요할 때만 줄을 가로로 옮긴다(카이디 방식, 페이지 스크롤은 건드리지 않음)
+  // 이동은 requestAnimationFrame 하나로 목표를 계속 바꿔 가며 부드럽게 따라간다(브라우저 smooth를 연달아 부르면 매번 멈췄다 다시 시작해 덜컹거린다)
   const thumbsRef = useRef<HTMLDivElement>(null);
+  const stripAnimRef = useRef(0);
+  const stripTargetRef = useRef<number | null>(null);
+  useEffect(() => () => window.cancelAnimationFrame(stripAnimRef.current), []);
   useEffect(() => {
     const strip = thumbsRef.current;
     const thumb = strip?.children[photoIndex - 1] as HTMLElement | undefined;
     if (!strip || !thumb) return;
-    // 선택 칸 양옆의 이웃 칸이 항상 줄 안에 보이게 한다(카이디: 다음 썸네일이 1칸 이상 보임). 처음·끝은 브라우저가 끝 여백에서 멈춘다.
     // 카이디 영상 실측: 앞으로 넘길 때 다음 칸 오른쪽 끝이 화면 끝에서 18, 뒤로 넘길 때 앞 칸 왼쪽 끝이 화면 끝에서 약 3
     const edgeLeft = 3;
     const edgeRight = 18;
     const prev = (strip.children[photoIndex - 2] as HTMLElement | undefined) ?? thumb;
     const next = (strip.children[photoIndex] as HTMLElement | undefined) ?? thumb;
+    const maxLeft = Math.max(0, strip.scrollWidth - strip.clientWidth);
     const left = photoIndex === 1 ? 0 : prev.offsetLeft - edgeLeft;
     const right = next.offsetLeft + next.offsetWidth + edgeRight - strip.clientWidth;
-    if (left < strip.scrollLeft) strip.scrollTo({ left, behavior: "smooth" });
-    else if (right > strip.scrollLeft) strip.scrollTo({ left: right, behavior: "smooth" });
+    // 진행 중인 이동의 목표를 기준으로 필요한 만큼만 옮긴다
+    const from = stripTargetRef.current ?? strip.scrollLeft;
+    const target = Math.min(maxLeft, Math.max(0, left < from ? left : right > from ? right : from));
+    if (Math.abs(target - strip.scrollLeft) < 1 && stripTargetRef.current === null) return;
+    stripTargetRef.current = target;
+    window.cancelAnimationFrame(stripAnimRef.current);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      strip.scrollLeft = target;
+      stripTargetRef.current = null;
+      return;
+    }
+    // 거리와 상관없이 일정한 감속: 남은 거리의 일부씩 가까워진다(목표가 바뀌어도 속도가 끊기지 않음)
+    const step = () => {
+      const goal = stripTargetRef.current;
+      if (goal === null) return;
+      const diff = goal - strip.scrollLeft;
+      if (Math.abs(diff) < 0.5) {
+        strip.scrollLeft = goal;
+        stripTargetRef.current = null;
+        return;
+      }
+      strip.scrollLeft += diff * 0.22 + Math.sign(diff) * 0.4;
+      stripAnimRef.current = window.requestAnimationFrame(step);
+    };
+    stripAnimRef.current = window.requestAnimationFrame(step);
   }, [photoIndex]);
 
   const choosePhoto = (index: number) => {
     const carousel = heroRef.current?.querySelector<HTMLElement>(".detail-media-carousel");
     const firstPhoto = carousel?.querySelector<HTMLElement>(".detail-media-track > img");
     if (!carousel || !firstPhoto) return;
-    carousel.scrollTo({ left: firstPhoto.getBoundingClientRect().width * index, behavior: "smooth" });
+    // 눌린 칸을 바로 선택하고, 큰 사진이 도착할 때까지(또는 1.2초) 지나가는 사진 번호는 무시한다
+    jumpLockRef.current = index + 1;
+    window.clearTimeout(jumpTimerRef.current);
+    jumpTimerRef.current = window.setTimeout(() => { jumpLockRef.current = null; }, 1200);
+    setPhotoIndex(index + 1);
+    carousel.scrollTo({ left: firstPhoto.getBoundingClientRect().width * index, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  };
+
+  // 썸네일 줄 키보드 조작(WAI-ARIA 캐러셀 관례): 좌우 화살표로 이전·다음, Home·End로 처음·끝
+  const onThumbKey = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const keys: Record<string, number> = { ArrowLeft: -1, ArrowRight: 1 };
+    let next = -1;
+    if (event.key in keys) next = Math.min(photos.length - 1, Math.max(0, photoIndex - 1 + keys[event.key]));
+    else if (event.key === "Home") next = 0;
+    else if (event.key === "End") next = photos.length - 1;
+    if (next < 0) return;
+    event.preventDefault();
+    choosePhoto(next);
+    (thumbsRef.current?.children[next] as HTMLElement | undefined)?.focus({ preventScroll: true });
   };
 
   const totalPhotos = photos.length;
@@ -431,7 +484,7 @@ function DetailHero({ onBack }: { onBack: () => void }) {
         </div>
       </div>
     </section>
-    {photos.length > 1 ? <div className="detail-thumbs" ref={thumbsRef} role="group" aria-label="차량 사진 썸네일">
+    {photos.length > 1 ? <div className="detail-thumbs" ref={thumbsRef} role="group" aria-label="차량 사진 썸네일" onKeyDown={onThumbKey}>
       {photos.map((photo, index) => <button key={`${photo}-${index}`} type="button" aria-label={`사진 ${index + 1} 보기`} aria-pressed={index === activePhoto} className={index === activePhoto ? "is-active" : ""} onClick={() => choosePhoto(index)}><img src={photo} alt="" draggable={false} loading="lazy" /></button>)}
     </div> : null}
     </>
