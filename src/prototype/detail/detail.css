@@ -696,3 +696,9 @@
 .detail-tabs button { position: relative; flex: none; height: 44px; padding: 0 12px; border: 0; background: transparent; color: #8C8C8C; font: 500 15px/20px inherit; font-family: inherit; cursor: pointer; }
 .detail-tabs button.is-active { color: #222; font-weight: 700; }
 .detail-tabs button.is-active::after { position: absolute; right: 12px; bottom: 0; left: 12px; height: 2px; background: #222; content: ""; }
+
+/* 상세 지역 줄 분리(2026-10-14): 1줄 `시도 구군 동`, 2줄 `단지ㆍ상사명`(가운데점 ㆍ). 자동 줄바꿈용 점 규칙(위)을 대체 */
+.is-list-summary .bbm-card-location-text { flex-direction: column !important; flex-wrap: nowrap !important; gap: 0 !important; }
+.is-list-summary .bbm-card-location-secondary { display: flex; flex-wrap: wrap; }
+.is-list-summary .bbm-card-location-part::before { content: "ㆍ" !important; }
+.is-list-summary .bbm-card-location-part:first-child::before { content: none !important; }
