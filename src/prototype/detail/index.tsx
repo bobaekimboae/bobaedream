@@ -1189,7 +1189,7 @@ function BikeVehicleDetail({ car, onBack }: { car: Car; onBack: () => void }) {
   );
 }
 
-const detailTabLabels: Record<string, string> = { "차량 설명": "설명", "차량 정보": "기본 정보", "차량 옵션": "옵션", "보험 이력": "이력", "성능 점검": "점검", "A/S 정보": "A/S", "판매 정보": "판매정보", "동급매물": "동급" };
+const detailTabLabels: Record<string, string> = { "차량 설명": "설명", "차량 정보": "기본 정보", "차량 옵션": "옵션", "보험 이력": "이력", "성능 점검": "점검", "A/S 정보": "보증현황", "판매 정보": "판매 정보", "동급매물": "동급" };
 
 // 2026-10-14 좐좐식 상세 탭: 아래 카드들을 그대로 두고, 카드 제목을 읽어 탭을 만들고 누르면 그 카드로 이동한다. 스크롤하면 보고 있는 카드의 탭이 강조된다.
 function DetailTabs() {
