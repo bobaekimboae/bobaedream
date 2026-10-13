@@ -101,6 +101,8 @@
 .warranty-box span { display: inline-flex; min-width: 0; align-items: center; gap: 4px; font-weight: 500; }
 .warranty-box span small { color: #5f6672; font-size: 13px; font-weight: 400; }
 .warranty-box span svg { width: 15px; height: 15px; color: #a5abb3; }
+.warranty-inspection-trigger { display: inline-flex; width: max-content; max-width: 100%; align-items: center; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.warranty-inspection-trigger:focus-visible { border-radius: 4px; outline: 2px solid #2f71de; outline-offset: 3px; }
 .warranty-box strong { color: #555d68; font-size: 13px; font-weight: 600; line-height: 20px; text-align: right; white-space: nowrap; }
 .warranty-box i { grid-column: 1 / -1; display: block; height: 5px; overflow: hidden; border-radius: 999px; background: #e5e7ea; }
 .warranty-box b { display: block; height: 100%; border-radius: inherit; background: #6e89c2; }
@@ -109,6 +111,11 @@
 .warranty-guide { display: grid; gap: 6px; margin-top: 18px; padding: 12px 14px; border-radius: 8px; background: #f7f8f9; }
 .warranty-guide p { position: relative; margin: 0; padding-left: 9px; color: #6b7280; font-size: 11px; line-height: 17px; word-break: keep-all; }
 .warranty-guide p::before { position: absolute; top: 7px; left: 0; width: 3px; height: 3px; border-radius: 50%; background: #8b95a1; content: ""; }
+.warranty-inspection-overlay { position: fixed; inset: 0; z-index: 120; background: rgba(0, 0, 0, .14); }
+.warranty-inspection-dialog { position: absolute; left: 50%; width: min(calc(100% - 40px), 530px); padding: 17px 18px 18px; border: 1px solid #222; border-radius: 5px; box-sizing: border-box; background: #fff; box-shadow: 0 1px 2px rgba(0, 0, 0, .04); color: #222; outline: none; transform: translateX(-50%); }
+.mobile-web-screen .warranty-inspection-dialog:focus-visible { outline: 0 !important; box-shadow: 0 1px 2px rgba(0, 0, 0, .04); }
+.warranty-inspection-dialog h3 { margin: 0 0 10px; font-size: 16px; font-weight: 700; line-height: 24px; }
+.warranty-inspection-dialog p { margin: 0; font-size: 14px; font-weight: 400; line-height: 22px; word-break: keep-all; }
 .seller-card { padding-top: 16px; }
 .seller-profile { display: flex; gap: 14px; padding-bottom: 16px; }
 .seller-profile > img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }

@@ -7,6 +7,8 @@
 - 연식·주행거리·제조사 보증 표기 유무로 `종료 / 확인 필요 / 잔여 예상`을 나눠 표시한다.
 - 딜러 매물은 성능점검 보증 `2,000km / 1개월`, 개인 매물은 `별도 확인`으로 구분했다.
 - 우측 화살표를 누르면 산정·적용 주의사항을 펼쳐 볼 수 있다.
+- `성능·상태점검 보증` 행을 누르면 30일 또는 2,000km 보증 범위와 수입·노후 차량 예외를 안내하는 원본형 카드가 열린다.
+- 안내 카드는 바깥 영역 클릭 또는 Escape로 닫힌다.
 
 ## 실측·검증
 
@@ -24,4 +26,5 @@
 
 - 기본: `C:/Users/bobae/Downloads/as-info-audit-1013/01-local-default.png`
 - 펼침: `C:/Users/bobae/Downloads/as-info-audit-1013/02-local-expanded.png`
+- 성능점검 안내: `C:/Users/bobae/Downloads/as-info-modal-audit-1013/01-local-open.png`
 - 상세 QA: `design-qa.md` 의 `중고차 상세 A/S 정보 업그레이드 QA`

@@ -576,6 +576,10 @@ function InspectionCard() {
 
 function WarrantyCard() {
   const [expanded, setExpanded] = useState(false);
+  const [inspectionOpen, setInspectionOpen] = useState(false);
+  const [inspectionTop, setInspectionTop] = useState(0);
+  const inspectionDialogRef = useRef<HTMLDivElement | null>(null);
+  const inspectionTriggerRef = useRef<HTMLButtonElement | null>(null);
   const car = getActiveDetailCar();
   const year = car?.filter?.year;
   const mileage = car?.filter?.mileage;
@@ -597,6 +601,29 @@ function WarrantyCard() {
   const powertrainWarranty = manufacturerStatus(5, 100000);
   const inspectionLabel = isDealer ? "2,000km / 1개월" : "개인 매물 · 별도 확인";
 
+  useEffect(() => {
+    if (!inspectionOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    inspectionDialogRef.current?.focus();
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setInspectionOpen(false);
+      inspectionTriggerRef.current?.focus();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [inspectionOpen]);
+
+  const openInspectionGuide = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const row = event.currentTarget.closest<HTMLElement>(".warranty-inspection");
+    setInspectionTop((row?.getBoundingClientRect().bottom ?? window.innerHeight * 0.52) + 8);
+    setInspectionOpen(true);
+  };
+
   return (
     <SectionCard
       title="A/S 정보"
@@ -615,12 +642,18 @@ function WarrantyCard() {
           <i><b style={{ width: `${powertrainWarranty.progress}%` }} /></i>
         </div>
         <div className={isDealer ? "is-active warranty-inspection" : "warranty-inspection"}>
-          <span>성능·상태점검 보증 <QuestionMarkCircledIcon /></span>
+          <button ref={inspectionTriggerRef} className="warranty-inspection-trigger" type="button" aria-haspopup="dialog" aria-expanded={inspectionOpen} onClick={openInspectionGuide}><span>성능·상태점검 보증 <QuestionMarkCircledIcon /></span></button>
           <strong>{inspectionLabel}</strong>
           <i><b style={{ width: isDealer ? "100%" : "0%" }} /></i>
         </div>
       </div>
       {expanded ? <div className="warranty-guide"><p>제조사 보증은 최초 등록일, 차량 트림과 정비 이력에 따라 달라질 수 있습니다.</p><p>성능·상태점검 보증은 매매업자 거래 기준이며 실제 적용 범위는 성능점검기록부에서 확인하세요.</p></div> : null}
+      {inspectionOpen ? <div className="warranty-inspection-overlay" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setInspectionOpen(false); }}>
+        <div ref={inspectionDialogRef} className="warranty-inspection-dialog" role="dialog" aria-modal="true" aria-label="성능 상태점검 보증 안내" tabIndex={-1} style={{ top: `${inspectionTop}px` }}>
+          <h3>성능/상태 점검 보증</h3>
+          <p>주요 부품의 점검 항목과 차량의 상태가 성능기록부와 다를 경우, 30일 또는 2,000km 이내에서 보증수리를 받을 수 있습니다. 자동차관리법에 따라 중고차 구매 시 의무 가입해야 하며, 일부 수입 또는 노후 차량의 경우 보증 요건이 다를 수 있으니 가입 가능여부를 꼭 확인하세요.</p>
+        </div>
+      </div> : null}
     </SectionCard>
   );
 }
