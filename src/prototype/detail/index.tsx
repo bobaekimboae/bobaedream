@@ -177,9 +177,8 @@ function VehicleSummary() {
   // 상세 상단 정보는 목록 카드와 같은 컴포넌트(제조사 모델 · 메타정보 · 가격 · 지역 · 하트)를 쓰고 사진·판매자 줄만 숨긴다(2026-10-13 「초톳처럼 리스트와 동일하게」)
   if (car) return (
     <section className="vehicle-summary is-list-summary marketplace is-bbm-m is-qf-guazi"><div className="bbm-m-list">
-      <BbmResultCard car={car} variant="mobile" liked={liked} onToggleLike={() => setLiked(!liked)} onOpen={() => undefined} onChat={() => undefined} />
+      <BbmResultCard car={carShopName(car) ? { ...car, place: `${car.place} · ${carShopName(car)}` } : car} variant="mobile" liked={liked} onToggleLike={() => setLiked(!liked)} onOpen={() => undefined} onChat={() => undefined} />
     </div>
-      {carShopName(car) ? <p className="detail-shop-line">{carShopName(car)}</p> : null}
       <p className="detail-posted-line"><img src={asset("bbm/chotot-common-clock-v01.svg")} alt="" aria-hidden="true" draggable={false} /><span>등록 {car.posted}</span></p>
       <DetailSellerInfo car={car} /></section>
   );
