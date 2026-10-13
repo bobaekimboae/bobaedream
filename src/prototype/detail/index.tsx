@@ -895,11 +895,15 @@ function carShopName(car: Car) {
 
 // 판매자 정보 영역(2026-10-13 「지역 밑에 판매자 정보 영역 추가」): 실제 매물은 지역 바로 아래(상단 블록)에 그리고, 아래 회색 영역의 옛 판매자 카드는 숨긴다
 // 지역 줄에서 줄 맨 앞으로 내려간 항목은 앞의 가운데 점을 뺀다(2026-10-13)
-// 상세 지역 줄(2026-10-14 「지역도 서울 서초구 / 단지ㆍ상사명 이렇게 분리」 → 「지역은 구군까지, 경기 수원시 권선구」): 1줄 = 시도 시 구(군), 2줄 = 단지ㆍ상사명
-// 3단계 지역(`경기 수원시 권선구`)은 구까지 쓰고, 시 이름만 있는 단지는 아는 구만 더한다(도이치오토월드 = 수원시 권선구). 동은 쓰지 않는다
+// 상세 지역 줄(2026-10-14): 1줄은 확인 가능한 시·구·동까지, 2줄은 단지ㆍ상사명으로 표시한다.
+// 원본 데이터에 동이 있으면 그대로 쓰고, 서울오토갤러리는 실제 소재지인 양재동을 보완한다.
 function detailLocationDong(car: Car): string | undefined {
   const [main] = car.place.split(" · ");
-  const [, city, ward] = main.trim().split(/\s+/);
+  const parts = main.trim().split(/\s+/);
+  const dong = parts.find((part) => /(동|읍|면)$/.test(part));
+  if (dong) return dong;
+  if (car.place.includes("서울오토갤러리")) return "양재동";
+  const [, city, ward] = parts;
   if (city?.endsWith("시") && ward?.endsWith("구")) return ward;
   return car.place.includes("도이치오토월드") ? "권선구" : undefined;
 }
