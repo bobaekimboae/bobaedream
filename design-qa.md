@@ -28,6 +28,31 @@ final result: passed
 
 ---
 
+# 차량 정보 주행거리 아이콘 교체 QA · 2026-10-13
+
+- source visual truth: Notion `09_주행거리 Mileage (km) (1)`의 `MileageOdometer.svg`
+- implementation: `C:/Users/bobae/Downloads/vehicle-grid-icon-tuned-1013/17-mileage-notion-raw.png`
+- route: `/?qf=guazi&category=서울오토갤러리&facts=icons` → 첫 번째 매물 상세
+- viewport: 390 × 844 CSS px, deviceScaleFactor 1
+
+## Findings
+
+- 기존 도로형 아이콘을 노션에 등록된 오토스카우트24 숫자형 오도미터 원본 SVG로 교체했다.
+- SVG path와 24×24 viewBox는 원본 그대로 유지했다.
+- 28px 공통 아이콘 슬롯에서 실제 잉크가 가운데 정렬되며 연식·마력 아이콘과 시각 무게가 균형을 이룬다.
+- 별도 path 수정이나 CSS 왜곡 없이 기존 광학 보정값을 유지했다.
+
+## Verification
+
+- 모바일 390×844 가로 오버플로 0
+- 깨진 이미지 0, 콘솔 오류 0, 400 이상 네트워크 오류 0
+- `git diff --check`: passed
+- `npm run verify:qf`: passed
+
+final result: passed
+
+---
+
 # 차량 정보 마력 아이콘 교체 QA · 2026-10-13
 
 - source visual truth: Notion `마력` 페이지의 스웨덴 AutoUncle 원본 SVG와 AutoUncle 공식 상세 페이지의 동일 벡터 경로
