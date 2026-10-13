@@ -3,11 +3,12 @@
 .detail-screen { background: #f1f1f1; color: #222; font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
 .vehicle-detail { min-height: 100%; padding-top: var(--device-safe-area-top, 0px); padding-bottom: calc(var(--flow-footer-height) + var(--mobile-safe-area-height) + 18px); background: #fff; }
 .vehicle-detail button, .vehicle-detail a, .detail-bottom-bar button, .detail-bottom-bar a, .detail-sheet-actions button, .detail-sheet-actions a { -webkit-tap-highlight-color: transparent; }
-.detail-hero { position: relative; height: auto; min-height: 216px; overflow: hidden; background: #fff; }
-.detail-hero-main { position: relative; height: auto; overflow: hidden; border-bottom: .5px solid #eee; background: #000; }
-.detail-media-carousel, .detail-media-track { height: auto; }
+.detail-hero { position: relative; height: 250px; overflow: hidden; background: #fff; }
+.detail-hero-main { position: relative; height: 250px; overflow: hidden; border-bottom: .5px solid #eee; background: #222; }
+.detail-media-carousel, .detail-media-track { height: 100%; }
+.detail-media-carousel { overflow-x: hidden; overflow-y: hidden; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
 .detail-media-track { display: flex; min-width: max-content; }
-.detail-media-track > img { display: block; width: min(100vw, 430px); height: auto; flex: 0 0 min(100vw, 430px); object-fit: contain; background: #000; }
+.detail-media-track > img { display: block; width: min(100vw, 430px); height: 250px; flex: 0 0 min(100vw, 430px); object-fit: contain; background: #222; }
 .detail-video-play { position: absolute; top: 50%; left: 50%; display: grid; width: 56px; height: 56px; place-items: center; border: 2px solid #fff; border-radius: 50%; box-sizing: border-box; background: rgba(0,0,0,.42); pointer-events: none; transform: translate(-50%, -50%); }
 .detail-video-play span { width: 0; height: 0; margin-left: 4px; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 15px solid #fff; }
 .detail-photo-pagination { position: absolute; bottom: 15px; left: 50%; z-index: 2; display: flex; align-items: center; gap: 5px; height: 8px; transform: translateX(-50%); pointer-events: none; }
@@ -688,4 +689,4 @@
 
 /* 상세 사진 사이 구분선(2026-10-14 「사진이 하나로 붙었다」): 같은 배경 사진이 이어 보이지 않게 검은 3px을 둔다. 한 장 폭은 그대로(border-box). */
 .detail-media-track > img { box-sizing: border-box; }
-.detail-media-track > img:not(:last-child) { border-right: 3px solid #000; }
+.detail-media-track > img:not(:last-child) { border-right: 3px solid #222; }
