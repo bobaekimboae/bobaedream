@@ -570,6 +570,7 @@
 .vehicle-info-card .detail-facts > div:last-child { border-bottom: 0; }
 .vehicle-info-card .detail-section-heading { padding-bottom: 13px; }
 .vehicle-info-card .detail-section-heading h2 { color: #222; font-size: 18px; font-weight: 700; line-height: 24px; letter-spacing: 0; }
+.vehicle-info-card.is-facts-icons .detail-section-heading { padding-bottom: 0; }
 .detail-highlights p { margin: 0 0 10px; color: #191f28; font-size: 16px; line-height: 24px; word-break: keep-all; }
 .detail-highlights p:last-child { margin-bottom: 0; }
 .detail-highlights-more { display: inline-flex; align-items: center; gap: 4px; margin: 12px 0 0; padding: 4px 0; border: 0; background: none; color: #222; font: inherit; font-size: 16px; font-weight: 600; line-height: 24px; cursor: pointer; }
@@ -629,7 +630,7 @@
 .chotot-fact-group dd .detail-fact-link { color: #3074c2; }
 
 /* 차량 정보 아이콘 시안 `&facts=icons`(2026-10-14): FINN의 여백, mobile.de의 회색 라벨·굵은 값, Auto Trader의 2열 구조를 조합한다. 오토스카우트와 같은 24px 점유 슬롯에서 실제 도형이 약 20~22px 보이도록 28px 원본을 광학 보정하며, 제목 아래 구분선은 두지 않는다. */
-.detail-facts.is-icons { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 12px; margin: 4px 0 0; padding: 14px 0; border: 0; }
+.detail-facts.is-icons { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 12px; margin: 2px 0 0; padding: 14px 0; border: 0; }
 .detail-facts.is-icons > div { display: flex; align-items: center; gap: 12px; padding: 0; border: 0; min-width: 0; }
 .detail-facts.is-icons > div > img, .detail-fact-icon-gap { flex: none; width: 24px; height: 24px; margin-top: 0; object-fit: contain; }
 .detail-facts.is-icons:not(.is-charancha) > div { gap: 10px; }

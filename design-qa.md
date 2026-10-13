@@ -28,6 +28,41 @@ final result: passed
 
 ---
 
+# 차량 정보 첫 행 간격·2열 균형 QA · 2026-10-13
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/70775948-7c3d-402b-a535-982778481cd1/1-1000018149.jpg`
+- implementation: `C:/Users/bobae/Downloads/vehicle-grid-icon-tuned-1013/13-heading-gap-16.png`
+- normalized side-by-side: `C:/Users/bobae/Downloads/vehicle-grid-icon-tuned-1013/14-reference-vs-gap16.png`
+- viewport: 390 × 844 CSS px, deviceScaleFactor 1
+- source pixels: 591 × 1280 → 390 × 844 normalized, implementation pixels: 390 × 844
+- state: 차량 정보 아이콘 요약 접힘 상태
+
+## Findings
+
+- [P2 fixed] `차량 정보` 제목 하단부터 제조사·모델 셀 상단까지 31px로 벌어져 제목과 격자가 분리되어 보였다.
+- Fix: 아이콘형 카드에만 제목 하단 패딩을 제거하고 격자 상단 여백을 2px로 조정해 실측 간격을 16px로 줄였다.
+- Fonts and typography: Pretendard Variable, 제목 18/24·700, 라벨 14/20·400, 값 16/22·600을 유지했다.
+- Spacing and layout rhythm: 2열 165px + 중앙 12px, 셀 가로 간격 10px, 행 간격 20px, 아이콘 중심과 42px 텍스트 묶음 중심을 유지했다.
+- Colors and visual tokens: `#222` 값·아이콘, `#676767` 라벨, `#F2F2F2` 정보 더보기 버튼을 유지했다.
+- Image quality and asset fidelity: 기존 보배드림 상세 아이콘 SVG와 광학 보정값을 그대로 사용했다. 참고 화면의 원형 배경은 초톳 슬롯 규칙과 다르므로 가져오지 않았다.
+- Copy and content: 제조사·모델을 포함한 기존 8개 핵심정보와 `37개 정보 더보기` 문구를 유지했다.
+
+## Comparison history
+
+- Before: 제목→첫 셀 31px, 카드 높이 375px.
+- After: 제목→첫 셀 16px, 카드 높이 360px.
+- Post-fix evidence: 두 열 시작선과 아이콘·라벨·값 중심선이 유지되고 카드 상단의 불필요한 공백만 15px 감소했다.
+
+## Verification
+
+- 모바일 390 × 844 가로 오버플로 0.
+- 깨진 이미지 0, 콘솔 오류 0, 400 이상 네트워크 오류 0.
+- `37개 정보 더보기` 펼침·복귀 동작 정상.
+
+final result: passed
+
+---
+
 # 차량 소개 에어비앤비형 더보기 QA · 2026-10-13
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/9815eb3a-8d59-4681-9c95-25879fc9905c/2-1000018116.jpg`
