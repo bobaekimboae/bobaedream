@@ -768,7 +768,7 @@ function HistoryCard() {
   const fd = getActiveDetailCar()?.ferrariDetail;
   if (getActiveDetailCar() && !fd) return null;
   if (fd) return (
-    <SectionCard title="보험 이력">
+    <SectionCard title="보험 이력" className="is-history-card">
       {fd.insurance ? <>
         <div className="insurance-summary"><div>내 차 피해<strong>{fd.insurance.own}건</strong></div><div>상대 차 피해<strong>{fd.insurance.other}건</strong></div><div>전손·침수·도난<strong>{fd.insurance.special}</strong></div></div>
         <dl className="detail-rows"><div><dt>소유자 변경</dt><dd>{fd.insurance.owners}회</dd></div><div><dt>번호판 변경</dt><dd>{fd.insurance.plateChanges === 0 ? "없음" : `${fd.insurance.plateChanges}회`}</dd></div></dl>
@@ -776,7 +776,7 @@ function HistoryCard() {
     </SectionCard>
   );
   return (
-    <SectionCard title="보험 이력" action={<a className="history-link" href={vehicleHistoryUrl(detailVehiclePlate)}>통합 이력조회</a>}>
+    <SectionCard title="보험 이력" className="is-history-card" action={<a className="history-link" href={vehicleHistoryUrl(detailVehiclePlate)}>통합 이력조회</a>}>
       <div className="insurance-summary"><div>내 차 피해<strong>0건</strong></div><div>상대 차 피해<strong>0건</strong></div><div>특수사항<strong>없음</strong></div></div>
       <h3 className="subheading">차량 이력 상세</h3>
       <dl className="detail-rows"><div><dt>특수 용도 이력</dt><dd>없음</dd></div><div><dt>용도 및 차종</dt><dd>자가용 승용</dd></div>{expanded ? <><div><dt>소유자 변경</dt><dd>1회</dd></div><div><dt>번호판 변경</dt><dd>없음</dd></div></> : null}</dl>
@@ -791,10 +791,10 @@ function InspectionCard() {
   const fd = getActiveDetailCar()?.ferrariDetail;
   if (getActiveDetailCar() && !fd) return null;
   if (fd) return (
-    <SectionCard title="성능 점검"><p className="detail-real-note">{fd.inspection ? "성능·상태 점검기록부가 등록된 매물입니다." : "성능점검 기록부가 없습니다."}</p></SectionCard>
+    <SectionCard title="성능 점검" className="is-inspection-card"><p className="detail-real-note">{fd.inspection ? "성능·상태 점검기록부가 등록된 매물입니다." : "성능점검 기록부가 없습니다."}</p></SectionCard>
   );
   return (
-    <SectionCard title="성능 점검" action={<span className="muted-label">제시번호 : 262621002567</span>}>
+    <SectionCard title="성능 점검" className="is-inspection-card" action={<span className="muted-label">제시번호 : 262621002567</span>}>
       <dl className="detail-info-grid compact"><div><dt>사고이력 <QuestionMarkCircledIcon /></dt><dd>없음</dd></div><div><dt>단순수리 <QuestionMarkCircledIcon /></dt><dd>없음</dd></div></dl>
       {expanded ? <p className="inspection-note">성능·상태 점검기록부 기준으로 주요 골격 손상과 침수 이력이 없습니다.</p> : null}
       <button className="outline-wide-button" type="button" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>{expanded ? "성능 점검 접기" : "성능 점검 전체 보기"}</button>
@@ -1005,13 +1005,13 @@ function SaleCard() {
   const { setSheet, notify } = useDetailUi();
   const car = getActiveDetailCar();
   if (car) return (
-    <SectionCard title="판매 정보">
+    <SectionCard title="판매 정보" className="is-sale-card">
       <dl className="detail-rows is-facts-size"><div><dt>차량가</dt><dd>{car.price}</dd></div>{car.ferrariDetail ? <div><dt>판매구분</dt><dd>{car.ferrariDetail.saleType}</dd></div> : null}</dl>
       <button className="cost-entry-button" type="button" onClick={() => setSheet("cost")}><span><b>구매비용 계산기</b><small>취득세·이전비·할부금까지 한 번에</small></span><strong>계산하기</strong></button>
     </SectionCard>
   );
   return (
-    <SectionCard title="판매 정보">
+    <SectionCard title="판매 정보" className="is-sale-card">
       <div className="cost-box"><dl><div><dt>차량가</dt><dd>1억5,980만원</dd></div><div><dt>이전 등록비(예상)</dt><dd>314만원</dd></div><div><dt>매도비</dt><dd>33만원</dd></div></dl><div className="cost-total"><span>예상 총 비용</span><strong>1억 6,328만원</strong></div></div>
       <div className="sale-actions"><button type="button" onClick={() => setSheet("cost")}>비용계산기</button><button type="button" onClick={() => notify("동급매물로 이동했어요")}>동급매물</button><button type="button" onClick={() => notify("할부매물을 확인해요")}>할부매물</button></div>
       <button className="report-button" type="button" onClick={() => notify("신고 접수 화면을 준비했어요")}><LockClosedIcon /> 신고하기</button>
