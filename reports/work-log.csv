@@ -257,3 +257,4 @@
 "2026-10-13 19:00","미지정","claude/used-car-detail-1013","-","배포","완료","상세 지역 아래 판매자 정보 영역 추가(프사·이름·판매중 대수), 옛 판매자 카드 숨김","src/prototype/detail/index.tsx · detail.css · docs/quick-filter-spec.md","초톳 평점·응답률은 값이 없어 제외","평점·응답률 표시 여부","verify 통과"
 "2026-10-13 19:30","미지정","claude/used-car-detail-1013","-","배포","완료","상세 큰 사진 가운데 점 인디게이터 제거(개수 알약은 유지)","src/prototype/detail/index.tsx · docs/quick-filter-spec.md","","","verify 통과"
 "2026-10-13 20:00","미지정","claude/used-car-detail-1013","-","배포","완료","상세 판매자 영역: 박스 제거, N대 판매완료 · N대 판매중 추가","src/prototype/detail/index.tsx · detail.css · docs/quick-filter-spec.md","판매완료는 가상 값","","verify 통과"
+"2026-10-13 20:30","미지정","claude/used-car-detail-1013","-","배포","완료","상세: 하트를 차명 줄 오른쪽으로, 단지 색을 지역과 동일하게, 판매자 이름 `이름 딜러` 형식","src/prototype/detail/index.tsx · detail.css · docs/quick-filter-spec.md","「이은호 딜러」는 판매자 이름 형식으로 해석","해석 확인","verify 통과"
