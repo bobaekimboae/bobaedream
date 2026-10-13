@@ -117,6 +117,14 @@ function DetailHero({ onBack }: { onBack: () => void }) {
     };
   }, [photos.length]);
 
+  // 선택한 썸네일이 줄 가운데 오도록 줄만 가로로 옮긴다(동처띠 방식, 페이지 스크롤은 건드리지 않음)
+  const thumbsRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const strip = thumbsRef.current;
+    const thumb = strip?.children[photoIndex - 1] as HTMLElement | undefined;
+    if (strip && thumb) strip.scrollTo({ left: thumb.offsetLeft - (strip.clientWidth - thumb.offsetWidth) / 2, behavior: "smooth" });
+  }, [photoIndex]);
+
   const choosePhoto = (index: number) => {
     const carousel = heroRef.current?.querySelector<HTMLElement>(".detail-media-carousel");
     const firstPhoto = carousel?.querySelector<HTMLElement>(".detail-media-track > img");
@@ -156,7 +164,7 @@ function DetailHero({ onBack }: { onBack: () => void }) {
         </div>
       </div>
     </section>
-    {photos.length > 1 ? <div className="detail-thumbs" role="group" aria-label="차량 사진 썸네일">
+    {photos.length > 1 ? <div className="detail-thumbs" ref={thumbsRef} role="group" aria-label="차량 사진 썸네일">
       {photos.map((photo, index) => <button key={`${photo}-${index}`} type="button" aria-label={`사진 ${index + 1} 보기`} aria-pressed={index === activePhoto} className={index === activePhoto ? "is-active" : ""} onClick={() => choosePhoto(index)}><img src={photo} alt="" draggable={false} loading="lazy" /></button>)}
     </div> : null}
     </>
