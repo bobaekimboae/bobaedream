@@ -236,9 +236,12 @@ function DetailHero({ onBack }: { onBack: () => void }) {
     const strip = thumbsRef.current;
     const thumb = strip?.children[photoIndex - 1] as HTMLElement | undefined;
     if (!strip || !thumb) return;
+    // 선택 칸 양옆의 이웃 칸이 항상 줄 안에 보이게 한다(카이디: 다음 썸네일이 1칸 이상 보임). 처음·끝은 브라우저가 끝 여백에서 멈춘다.
     const edge = 18;
-    const left = thumb.offsetLeft - edge;
-    const right = thumb.offsetLeft + thumb.offsetWidth + edge - strip.clientWidth;
+    const prev = (strip.children[photoIndex - 2] as HTMLElement | undefined) ?? thumb;
+    const next = (strip.children[photoIndex] as HTMLElement | undefined) ?? thumb;
+    const left = prev.offsetLeft - edge;
+    const right = next.offsetLeft + next.offsetWidth + edge - strip.clientWidth;
     if (left < strip.scrollLeft) strip.scrollTo({ left, behavior: "smooth" });
     else if (right > strip.scrollLeft) strip.scrollTo({ left: right, behavior: "smooth" });
   }, [photoIndex]);
