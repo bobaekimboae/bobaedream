@@ -46,6 +46,7 @@
     "community:verify:write-tools": "node scripts/community-write-tools-check.mjs",
     "community:verify:full-audit": "node scripts/community-write-full-audit-check.mjs",
     "community:verify:number-clipping": "node scripts/community-write-number-clipping-check.mjs",
+    "community:verify:compact-write": "node scripts/community-compact-write-check.mjs",
     "community:verify:attachments": "node scripts/community-write-attachments-check.mjs",
     "community:verify:video": "node scripts/community-write-video-check.mjs",
     "community:verify:notion-write": "node scripts/community-notion-write-check.mjs",
