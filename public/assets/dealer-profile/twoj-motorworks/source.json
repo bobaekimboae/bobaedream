@@ -1,0 +1,37 @@
+{
+  "company": "(주)투제이모터웍스",
+  "shopNo": "450554",
+  "source": "https://www.carku.kr/info/sangsa-info.html?wShopNo=450554",
+  "fetchedAt": "2026-10-15",
+  "dealers": [
+    {
+      "name": "김태규",
+      "empNo": "1",
+      "employeeNo": "26-003-00097",
+      "file": "kim-taegyu.jpg",
+      "source": "https://photo.korea-usedcar.co.kr/dealer/4505540001.JPG"
+    },
+    {
+      "name": "김민석",
+      "empNo": "5",
+      "employeeNo": "26-003-00108",
+      "file": "kim-minseok.jpg",
+      "source": "https://photo.korea-usedcar.co.kr/dealer/4505540005.JPG"
+    },
+    {
+      "name": "박명주",
+      "empNo": "4",
+      "employeeNo": "26-003-00117",
+      "file": "park-myeongju.jpg",
+      "source": "https://www.carku.kr/images/manager.jpg",
+      "note": "공식 등록처 프로필 사진 미등록으로 공식 기본 이미지를 사용"
+    },
+    {
+      "name": "이민규",
+      "empNo": "3",
+      "employeeNo": "26-003-00107",
+      "file": "lee-mingyu.jpg",
+      "source": "https://photo.korea-usedcar.co.kr/dealer/4505540003.JPG"
+    }
+  ]
+}

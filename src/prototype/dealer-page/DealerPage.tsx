@@ -12,6 +12,7 @@ const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : 
 const icon = (name: string) => `${publicBase}icons/chotot/${name}`;
 const dealerIcon = (name: string) => `${publicBase}icons/dealer-profile/${name}.svg`;
 const bobaeAsset = (name: string) => asset(`pc-detail/${name}`);
+const dealerPhoto = (dealer: SeoulAutoGalleryDealer) => asset(dealer.profileAsset ?? `dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`);
 
 type SectionId = "home" | "ads" | "social" | "dealers" | "intro";
 type ListingMode = "active" | "sold";
@@ -121,44 +122,31 @@ function SiteHeader() {
 }
 
 function DealerProfile({ dealer, listingCount, following, setFollowing, share }: { dealer: SeoulAutoGalleryDealer; listingCount: number; following: boolean; setFollowing: (value: boolean) => void; share: () => void }) {
-  const coverVideoRef = useRef<HTMLVideoElement | null>(null);
-  const [coverVideoPaused, setCoverVideoPaused] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-  const toggleCoverVideo = async () => {
-    const video = coverVideoRef.current;
-    if (!video) return;
-    if (video.paused) {
-      try { await video.play(); } catch { return; }
-    } else video.pause();
-  };
+  const team = dealers.filter((item) => item.shopNo === "450554");
 
   return <section className="dp-profile">
     <div className="dp-cover">
-      <video
-        ref={coverVideoRef}
-        className="dp-cover-photo dp-cover-video"
-        autoPlay={!coverVideoPaused}
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        poster={asset("seoul-auto-gallery/header/building-bluehour-v01.png")}
-        aria-hidden="true"
-        tabIndex={-1}
-        disablePictureInPicture
-        onPlay={() => setCoverVideoPaused(false)}
-        onPause={() => setCoverVideoPaused(true)}
-      >
-        <source src={asset("seoul-auto-gallery/header/dealer-team-hero-v01.mp4")} type="video/mp4" />
-      </video>
+      <div className="dp-cover-team" role="img" aria-label="투제이모터웍스 소속 딜러 김태규, 김민석, 박명주, 이민규">
+        <div className="dp-cover-brand-copy">
+          <small>SEOUL AUTO GALLERY</small>
+          <strong>2J MOTORWORKS</strong>
+          <span>정확한 정보, 투명한 상담</span>
+        </div>
+        <div className="dp-cover-portraits" aria-hidden="true">
+          {team.map((member) => <figure key={member.empNo} className={member.empNo === "4" ? "is-placeholder" : undefined}>
+            <img src={dealerPhoto(member)} alt="" draggable={false} />
+            <figcaption>{member.name}</figcaption>
+          </figure>)}
+        </div>
+      </div>
       <span>{MOCK.lastActive}</span>
-      <button type="button" className="dp-cover-video-toggle" aria-label={coverVideoPaused ? "배너 영상 재생" : "배너 영상 일시정지"} aria-pressed={coverVideoPaused} onClick={toggleCoverVideo}><b aria-hidden="true">{coverVideoPaused ? "▶" : "Ⅱ"}</b></button>
       <button type="button" className="dp-cover-more" aria-label="판매자 메뉴"><Icon name="chotot-common-more.svg" /></button>
     </div>
     <div className="dp-profile-body">
-      <img className="dp-avatar" src={asset(`dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`)} alt={`${dealer.name} 프로필`} draggable={false} />
+      <img className="dp-avatar" src={dealerPhoto(dealer)} alt={`${dealer.name} 프로필`} draggable={false} />
       <div className="dp-profile-copy">
         <h1>{dealer.name}<Icon name="chotot-list-detail-verified-dealer-wavy-badge.svg" className="is-badge" /></h1>
-        <div className="dp-profile-inline is-channel-handle">대표 · {MOCK.company}</div>
+        <div className="dp-profile-inline is-channel-handle">{dealer.role ?? "인증딜러"} · {MOCK.company}</div>
         <div className="dp-profile-inline is-channel-meta">{MOCK.complex} · 판매중 {listingCount}대</div>
         <div className="dp-profile-inline is-mobile-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>({MOCK.reviewCount}개 평가)</u><span>· 팔로워 {MOCK.followers + (following ? 1 : 0)}</span></div>
         <div className="dp-profile-actions">
@@ -307,7 +295,7 @@ function SocialFeedSection({ cars }: { cars: Car[] }) {
 }
 
 function AffiliatedDealersSection({ currentDealer, onOpenDealer }: { currentDealer: SeoulAutoGalleryDealer; onOpenDealer: (dealer: SeoulAutoGalleryDealer) => void }) {
-  const staff = dealers.slice(0, 4);
+  const staff = dealers.filter((item) => item.shopNo === "450554");
   const totalListings = staff.reduce((sum, item) => sum + item.listingCount, 0);
   return <section className="dp-content-card dp-affiliated" aria-labelledby="dp-affiliated-title">
     <div className="dp-affiliated-company">
@@ -326,9 +314,9 @@ function AffiliatedDealersSection({ currentDealer, onOpenDealer }: { currentDeal
     <div className="dp-affiliated-trust"><span>사업자 확인</span><span>상사 허가 확인</span><span>실매물 운영</span></div>
     <div className="dp-affiliated-heading"><h3>소속 딜러</h3><small>딜러를 선택하면 등록 매물을 확인할 수 있습니다.</small></div>
     <div className="dp-dealer-grid">
-      {staff.map((item, index) => <button key={`${item.shopNo}-${item.empNo}`} type="button" className="dp-dealer-card" onClick={() => onOpenDealer(item)} aria-label={`${item.name} 딜러 판매차량 ${item.listingCount}대 보기`}>
-        <img src={asset(`dealer-illustrations/seoul-auto-gallery/v02/suit/${item.image}`)} alt="" aria-hidden="true" draggable={false} />
-        <span><b>{item.name}{item.name === currentDealer.name ? <em>현재</em> : null}</b><small>{index === 0 ? "대표 · 수입차 전문" : "인증딜러 · 수입차 전문"}</small><small>판매중 {item.listingCount}대 · 보통 1시간 이내</small></span>
+      {staff.map((item) => <button key={`${item.shopNo}-${item.empNo}`} type="button" className="dp-dealer-card" onClick={() => onOpenDealer(item)} aria-label={`${item.name} 딜러 판매차량 ${item.listingCount}대 보기`}>
+        <img src={dealerPhoto(item)} alt="" aria-hidden="true" draggable={false} />
+        <span><b>{item.name}{item.name === currentDealer.name ? <em>현재</em> : null}</b><small>{item.role} · 투제이모터웍스</small><small>종사원번호 {item.employeeNo}</small></span>
         <strong>매물 보기</strong>
       </button>)}
     </div>
@@ -360,17 +348,20 @@ function RatingsSection({ cars }: { cars: Car[] }) {
   </section>;
 }
 
-function AboutSection({ notify }: { notify: (message: string) => void }) {
+function AboutSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; notify: (message: string) => void }) {
+  const introduction = dealer.empNo === "1"
+    ? MOCK.intro
+    : `서울오토갤러리 은관 (주)투제이모터웍스 소속 ${dealer.name} 딜러입니다. 차량 상태와 이력을 꼼꼼히 확인하고 정확한 정보로 상담드리겠습니다.`;
   return <section className="dp-content-card dp-about">
     <h2>소개</h2>
-    <p>{MOCK.intro}</p>
+    <p>{introduction}</p>
     <dl>
       <div><dt>전문 분야</dt><dd>수입차</dd></div>
       <div><dt>활동 지역</dt><dd>{MOCK.address}</dd></div>
       <div><dt><DealerIcon name="clock" />응답 시간</dt><dd>{MOCK.response}</dd></div>
       <div><dt><DealerIcon name="calendar" />딜러 경력</dt><dd>7년</dd></div>
       <div><dt><DealerIcon name="dealership" />소속 상사</dt><dd>{MOCK.company}</dd></div>
-      <div><dt>종사원 번호</dt><dd>{MOCK.employeeNo}</dd></div>
+      <div><dt>종사원 번호</dt><dd>{dealer.employeeNo ?? MOCK.employeeNo}</dd></div>
       <div><dt>상사 허가번호</dt><dd>{MOCK.licenseNo}</dd></div>
       <div><dt>사업자 번호</dt><dd>{MOCK.businessNo}</dd></div>
       <div><dt><DealerIcon name="phone" />상사 연락처</dt><dd><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></dd></div>
@@ -438,7 +429,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
         {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}
         {activeSection === "social" ? <SocialFeedSection cars={cars} /> : null}
         {activeSection === "dealers" ? <AffiliatedDealersSection currentDealer={dealer} onOpenDealer={openDealer} /> : null}
-        {activeSection === "intro" ? <AboutSection notify={notify} /> : null}
+        {activeSection === "intro" ? <AboutSection dealer={dealer} notify={notify} /> : null}
       </main>
       <Footer />
     </div>
