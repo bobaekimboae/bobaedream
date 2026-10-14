@@ -336,3 +336,4 @@
 2026-10-15,제조사 로고 그림자 카드 시안,claude/used-car-detail-1013,,,,&qfbrand=shadowcard 흰 카드 80x80 + 로고 + 이름 + (대수) + 전체 카드,listing/index.tsx qf-brand-shadowcard.css,,수입차·바이크·트럭 레일 미적용,verify:qf 통과
 2026-10-15,그림자 카드 글자 크기 보정,claude/used-car-detail-1013,,,,이름 · (대수) 14px → 11px(원본 실측 10~11px),qf-brand-shadowcard.css,,원본 폰트가 달라 11px로 반올림,verify:qf
 2026-10-15,상세 상단 판매자명·브레드크럼 시안,claude/used-car-detail-1013,,,,&detailtop=above(사진 위) · overlay(사진 위에 올림),detail/index.tsx detail.css,,팔로워·별점 미표시,verify:qf
+2026-10-15,럭셔리카 로고 박스형 적용,claude/used-car-detail-1013,,,,&qfbrand=shadowcard 를 럭셔리카·슈퍼카 로고 레일에도 적용,listing/index.tsx,,,verify:qf
