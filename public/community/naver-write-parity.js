@@ -61,7 +61,7 @@
       draftContent.innerHTML = '<p>임시글이 없습니다.</p>';
     } else {
       const time = state.draft.savedAt.toLocaleString('ko-KR', { month:'numeric', day:'numeric', hour:'2-digit', minute:'2-digit' });
-      draftContent.innerHTML = `<article class="draft-card"><strong>${state.draft.title}</strong><small>${time}</small><div class="draft-tools"><button type="button" data-action="restore-draft" aria-label="수정"><img src="./assets/write-parity/draft-edit.svg" alt=""></button><button type="button" data-action="delete-draft" aria-label="삭제"><img src="./assets/write-parity/draft-delete.svg" alt=""></button></div></article>`;
+      draftContent.innerHTML = `<article class="draft-card"><strong>${state.draft.title}</strong><small>${time}</small><div class="draft-tools"><button type="button" data-action="restore-draft" aria-label="수정"><img src="assets/write-parity/draft-edit.svg" alt=""></button><button type="button" data-action="delete-draft" aria-label="삭제"><img src="assets/write-parity/draft-delete.svg" alt=""></button></div></article>`;
     }
     draftLayer.hidden = false;
   }
