@@ -579,12 +579,12 @@
 .detail-highlights-copy:not(.is-expanded) { position: relative; }
 .detail-highlights-copy:not(.is-expanded) p { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
 .detail-highlights-copy:not(.is-expanded)::after { content: ""; position: absolute; right: 0; bottom: 0; width: 112px; height: 24px; pointer-events: none; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.86) 62%, #fff 100%); -webkit-backdrop-filter: blur(1.2px); backdrop-filter: blur(1.2px); }
-/* 차량 설명 CTA: 에어비앤비의 넓은 행동 영역에 초톳의 중앙형 아래 화살표를 결합한다. */
-.detail-highlights-more { display: flex; width: 100%; min-height: 48px; align-items: center; justify-content: center; gap: 4px; margin: 16px 0 0; padding: 11px 20px; border: 1px solid #d8d8d8; border-radius: 24px; background: #fff; color: #222; font: inherit; font-size: 16px; font-weight: 600; line-height: 24px; cursor: pointer; }
-.detail-highlights-more img { width: 20px; height: 20px; transition: transform .18s ease; }
+/* 초톳 차량 설명 CTA: 흰 바탕 · 무테 · 중앙형 텍스트와 아래 화살표. */
+.detail-highlights-more { display: flex; width: 100%; height: 48px; min-height: 48px; align-items: center; justify-content: center; gap: 4px; margin: 12px 0 0; padding: 0 20px; border: 0; border-radius: 0; background: #fff; color: #8c8c8c; font: inherit; font-size: 16px; font-weight: 500; line-height: 24px; cursor: pointer; }
+.detail-highlights-more img { width: 18px; height: 18px; transition: transform .18s ease; }
 .detail-highlights-more img.is-expanded { transform: rotate(180deg); }
 .detail-highlights-more:active { background: #f7f7f7; }
-.detail-highlights-more:focus-visible { outline: 2px solid #222; outline-offset: 2px; }
+.detail-highlights-more:focus-visible { outline: 2px solid #222; outline-offset: 2px; border-radius: 4px; }
 
 /* 설명글류 차란차 크기(2026-10-14 「초톳 방식 유지, 설명글 같은 것만 차란차 따라하자, 14 너무 작아 보여」, 차란차 실측 본문 16/24 #191F28): 차량 소개 · 판매 정보 줄 · 판매자 판매완료/판매중 줄 */
 .detail-rows.is-facts-size > div { min-height: 38px; font-size: 16px; line-height: 24px; color: #595959; }
@@ -595,12 +595,12 @@
 .detail-more { display: inline-flex; align-items: center; gap: 4px; margin: 4px 0 12px; padding: 4px 0; border: 0; background: none; color: #222; font: inherit; font-size: 16px; font-weight: 600; line-height: 24px; cursor: pointer; }
 .detail-more span { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
 .detail-more:focus-visible { outline: 2px solid #222; outline-offset: 2px; border-radius: 4px; }
-.detail-more.is-airbnb { display: flex; width: 100%; height: 48px; align-items: center; justify-content: center; gap: 4px; margin: 12px 0 4px; padding: 10px 23px; border: 2px solid #c8c8c8; border-radius: 24px; background: #fff; color: #222; font-size: 16px; font-weight: 600; line-height: 24px; text-align: center; }
+.detail-more.is-airbnb { display: flex; width: 100%; height: 48px; align-items: center; justify-content: center; gap: 4px; margin: 12px 0 0; padding: 0 20px; border: 0; border-radius: 0; background: #fff; color: #8c8c8c; font-size: 16px; font-weight: 500; line-height: 24px; text-align: center; }
 .detail-more.is-airbnb span { text-decoration: none; }
-.detail-more.is-airbnb img { width: 20px; height: 20px; transition: transform .18s ease; }
+.detail-more.is-airbnb img { width: 18px; height: 18px; transition: transform .18s ease; }
 .detail-more.is-airbnb img.is-expanded { transform: rotate(180deg); }
 .detail-more.is-airbnb:active { background: #f7f7f7; }
-.detail-more.is-airbnb:focus-visible { border-radius: 24px; }
+.detail-more.is-airbnb:focus-visible { border-radius: 4px; }
 
 /* 차량 정보 펼침(2026-10-13 무다 차량 제원 시트): 아이콘 요약 뒤에 기술 제원을 의미 단위로 묶고,
    각 그룹은 무다처럼 제목 + 라벨/값 2열로 읽히게 한다. 그룹 안에는 구분선을 두지 않는다. */

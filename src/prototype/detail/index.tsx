@@ -350,10 +350,11 @@ function VehicleHistoryCard() {
   const rows = carFactGroups(car).find((group) => group.title === "차량 히스토리")?.rows ?? [];
   const deliveryLabels = new Set(["생산 공장", "출고일", "출고가격(옵션 미포함)", "출고가격(옵션 포함)", "정식/직수입 여부", "구입 딜러"]);
   const saleLabels = new Set(["판매 방식", "매도비(관리비용)", "제시번호"]);
+  const conditionLabels = new Set(["수리이력", "사고이력"]);
   const historyGroups = [
-    { title: "출고 정보", rows: rows.filter(([label]) => deliveryLabels.has(label)) },
+    { title: "출고·유통 정보", rows: rows.filter(([label]) => deliveryLabels.has(label)) },
     { title: "판매 정보", rows: rows.filter(([label]) => saleLabels.has(label)) },
-    { title: "이력·권리 정보", rows: rows.filter(([label]) => !deliveryLabels.has(label) && !saleLabels.has(label)) },
+    { title: "소유·권리 정보", rows: rows.filter(([label]) => !deliveryLabels.has(label) && !saleLabels.has(label) && !conditionLabels.has(label)) },
   ];
   return (
     <SectionCard title="차량 히스토리" className="vehicle-history-card">
@@ -361,13 +362,67 @@ function VehicleHistoryCard() {
         {historyGroups.map((group) => <section className="vehicle-history-group" key={group.title}>
           <h3>{group.title}</h3>
           <dl className="vehicle-history-grid">
-            {group.rows.map(([label, value]) => {
-              const isHistoryLink = label === "수리이력" || label === "사고이력";
-              return <div key={label}><dt>{label}</dt><dd>{isHistoryLink ? <a className="vehicle-history-link" href={vehicleHistoryUrl(detailVehiclePlate)} aria-label={`${label} ${value} 상세 이력조회`}>{value}</a> : value}</dd></div>;
-            })}
+            {group.rows.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
           </dl>
         </section>)}
       </div>
+    </SectionCard>
+  );
+}
+
+function AccidentInspectionCard() {
+  const [inspectionOpen, setInspectionOpen] = useState(false);
+  const [inspectionTop, setInspectionTop] = useState(0);
+  const inspectionDialogRef = useRef<HTMLDivElement | null>(null);
+  const inspectionTriggerRef = useRef<HTMLButtonElement | null>(null);
+  const car = getActiveDetailCar();
+  if (!car) return null;
+  const historyRows = new Map(carFactGroups(car).find((group) => group.title === "차량 히스토리")?.rows ?? []);
+  const accidentHistory = historyRows.get("사고이력") ?? NO_INFO;
+  const repairHistory = historyRows.get("수리이력") ?? NO_INFO;
+  const inspectionRecord = car.ferrariDetail?.inspection === false ? "기록부 없음" : "확인하기";
+  const inspectionWarranty = car.sellerType === "딜러" ? "2,000km / 1개월" : "개인 매물 · 별도 확인";
+
+  useEffect(() => {
+    if (!inspectionOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    inspectionDialogRef.current?.focus();
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setInspectionOpen(false);
+      inspectionTriggerRef.current?.focus();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [inspectionOpen]);
+
+  const openInspectionGuide = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const row = event.currentTarget.closest<HTMLElement>(".warranty-inspection");
+    setInspectionTop((row?.getBoundingClientRect().bottom ?? window.innerHeight * 0.52) + 8);
+    setInspectionOpen(true);
+  };
+
+  return (
+    <SectionCard title="사고·성능점검" className="warranty-card accident-inspection-card">
+      <div className="warranty-box">
+        <div><span>사고이력</span><strong><a className="vehicle-history-link" href={vehicleHistoryUrl(detailVehiclePlate)}>{accidentHistory}</a></strong></div>
+        <div><span>수리이력</span><strong><a className="vehicle-history-link" href={vehicleHistoryUrl(detailVehiclePlate)}>{repairHistory}</a></strong></div>
+        <div><span>성능점검기록부</span><strong><a className="vehicle-history-link" href={vehicleHistoryUrl(detailVehiclePlate)}>{inspectionRecord}</a></strong></div>
+        <div className={car.sellerType === "딜러" ? "is-active warranty-inspection" : "warranty-inspection"}>
+          <button ref={inspectionTriggerRef} className="warranty-inspection-trigger" type="button" aria-haspopup="dialog" aria-expanded={inspectionOpen} onClick={openInspectionGuide}><span>성능·상태점검 보증 <QuestionMarkCircledIcon /></span></button>
+          <strong>{inspectionWarranty}</strong>
+        </div>
+      </div>
+      {inspectionOpen ? <div className="warranty-inspection-overlay" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setInspectionOpen(false); }}>
+        <div ref={inspectionDialogRef} className="warranty-inspection-dialog" role="dialog" aria-modal="true" aria-label="성능 상태점검 보증 안내" tabIndex={-1} style={{ top: `${inspectionTop}px` }}>
+          <h3>성능/상태 점검 보증</h3>
+          <p>주요 부품의 점검 항목과 차량의 상태가 성능기록부와 다를 경우, 30일 또는 2,000km 이내에서 보증수리를 받을 수 있습니다. 자동차관리법에 따라 중고차 구매 시 의무 가입해야 하며, 일부 수입 또는 노후 차량의 경우 보증 요건이 다를 수 있으니 가입 가능여부를 꼭 확인하세요.</p>
+        </div>
+      </div> : null}
     </SectionCard>
   );
 }
@@ -852,14 +907,9 @@ function InspectionCard() {
 }
 
 function WarrantyCard() {
-  const [inspectionOpen, setInspectionOpen] = useState(false);
-  const [inspectionTop, setInspectionTop] = useState(0);
-  const inspectionDialogRef = useRef<HTMLDivElement | null>(null);
-  const inspectionTriggerRef = useRef<HTMLButtonElement | null>(null);
   const car = getActiveDetailCar();
   const year = car?.filter?.year;
   const mileage = car?.filter?.mileage;
-  const isDealer = !car || car.sellerType === "딜러";
   const hasManufacturerWarranty = !!car && (car.badges?.includes("제조사보증") || /제조사\s*보증/.test(`${car.title} ${car.trim}`));
   const currentYear = 2026;
 
@@ -874,30 +924,6 @@ function WarrantyCard() {
 
   const bodyWarranty = manufacturerStatus(3, 60000);
   const powertrainWarranty = manufacturerStatus(5, 100000);
-  const inspectionLabel = isDealer ? "2,000km / 1개월" : "개인 매물 · 별도 확인";
-
-  useEffect(() => {
-    if (!inspectionOpen) return;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    inspectionDialogRef.current?.focus();
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key !== "Escape") return;
-      setInspectionOpen(false);
-      inspectionTriggerRef.current?.focus();
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", onKeyDown);
-    };
-  }, [inspectionOpen]);
-
-  const openInspectionGuide = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const row = event.currentTarget.closest<HTMLElement>(".warranty-inspection");
-    setInspectionTop((row?.getBoundingClientRect().bottom ?? window.innerHeight * 0.52) + 8);
-    setInspectionOpen(true);
-  };
 
   return (
     <SectionCard
@@ -913,17 +939,7 @@ function WarrantyCard() {
           <span>제조사 보증 <small>(엔진·주요)</small></span>
           <strong>{powertrainWarranty.label}</strong>
         </div>
-        <div className={isDealer ? "is-active warranty-inspection" : "warranty-inspection"}>
-          <button ref={inspectionTriggerRef} className="warranty-inspection-trigger" type="button" aria-haspopup="dialog" aria-expanded={inspectionOpen} onClick={openInspectionGuide}><span>성능·상태점검 보증 <QuestionMarkCircledIcon /></span></button>
-          <strong>{inspectionLabel}</strong>
-        </div>
       </div>
-      {inspectionOpen ? <div className="warranty-inspection-overlay" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setInspectionOpen(false); }}>
-        <div ref={inspectionDialogRef} className="warranty-inspection-dialog" role="dialog" aria-modal="true" aria-label="성능 상태점검 보증 안내" tabIndex={-1} style={{ top: `${inspectionTop}px` }}>
-          <h3>성능/상태 점검 보증</h3>
-          <p>주요 부품의 점검 항목과 차량의 상태가 성능기록부와 다를 경우, 30일 또는 2,000km 이내에서 보증수리를 받을 수 있습니다. 자동차관리법에 따라 중고차 구매 시 의무 가입해야 하며, 일부 수입 또는 노후 차량의 경우 보증 요건이 다를 수 있으니 가입 가능여부를 꼭 확인하세요.</p>
-        </div>
-      </div> : null}
     </SectionCard>
   );
 }
@@ -1244,7 +1260,7 @@ function BikeVehicleDetail({ car, onBack }: { car: Car; onBack: () => void }) {
   );
 }
 
-const detailTabLabels: Record<string, string> = { "차량 설명": "설명", "차량 정보": "기본 정보", "차량 히스토리": "히스토리", "차량 옵션": "옵션", "보험 이력": "보험", "성능 점검": "점검", "보증 정보": "보증정보", "판매 정보": "판매 정보", "동급매물": "동급" };
+const detailTabLabels: Record<string, string> = { "차량 설명": "설명", "차량 정보": "기본 정보", "차량 히스토리": "히스토리", "사고·성능점검": "사고·점검", "차량 옵션": "옵션", "보험 이력": "보험", "성능 점검": "점검", "보증 정보": "보증정보", "판매 정보": "판매 정보", "동급매물": "동급" };
 
 // 2026-10-14 좐좐식 상세 탭: 아래 카드들을 그대로 두고, 카드 제목을 읽어 탭을 만들고 누르면 그 카드로 이동한다. 스크롤하면 보고 있는 카드의 탭이 강조된다.
 function DetailTabs() {
@@ -1351,9 +1367,8 @@ function VehicleDetail() {
             <DetailHighlights />
             <VehicleInfoCard />
             <VehicleHistoryCard />
+            <AccidentInspectionCard />
             <OptionsCard />
-            <HistoryCard />
-            <InspectionCard />
             <WarrantyCard />
             <SaleCard />
             <DescriptionCard />
