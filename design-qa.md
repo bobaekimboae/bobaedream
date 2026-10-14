@@ -89,6 +89,68 @@ final result: passed
 
 ---
 
+# Design QA · 초톳형 딜러 판매자 페이지 (2026-10-15)
+
+- source visual truth: `https://www.chotot.com/user/182c9bf8014956c591f7579852308956`
+- source capture: Codex in-app Browser 현재 턴 원본 캡처(모바일 상단·판매중·판매완료·평가, PC 상단·5열 매물·평가)
+- implementation screenshot: Codex in-app Browser 현재 턴 `http://127.0.0.1:4210/?profile=dealer&qf=guazi&category=서울오토갤러리` 캡처
+- mobile viewport: 390 × 844 CSS px, DPR 1, source/implementation 동일
+- desktop viewport: 1440 × 1000 CSS px, DPR 1
+- state: 강홍구 딜러 샘플, 판매중 7대·판매완료 12대·평가 3개
+
+## Full-view comparison evidence
+
+- 모바일은 104px 2단 헤더, 146px 배너, 98px 원형 프로필 오버랩, 24/32px 판매자명, 32px 공유·팔로우 알약 버튼 순서를 원본과 맞췄다.
+- 판매자 신뢰 정보는 평점·팔로워 → 응답률 → 지역 → 딜러 경력 순서로 정리했다.
+- 모바일 매물은 원본처럼 128×170px 세로 썸네일과 우측 정보 열, PC는 1184px 카드 안 5열 그리드다.
+- 판매중/판매완료 상태는 각각 이미지 카드와 텍스트 이력 카드로 분리했고, `소개 / 전체 매물 / 평가` 앵커를 매물과 평가 사이에 배치했다.
+- PC는 기존 430px 모바일 고정 폭을 제거하고 원본처럼 전체 폭 헤더, 배너·프로필 카드, 5열 매물, 3열 평가 카드로 반응한다.
+
+## Focused region comparison evidence
+
+- 원본 모바일 측정: 판매자명 24/32px·700, 상태 칩 32px, 더보기 174×40px, 섹션 제목 18~20px, 썸네일 128×170px.
+- 구현 모바일: 동일한 텍스트 위계·컨트롤 높이·썸네일 크기와 좌우 16~20px 시작축을 사용했다.
+- 원본 PC 측정: 1184px 본문 카드와 5열 매물 구조. 구현도 1184px 컨테이너와 5개 동일 열을 사용했다.
+- 초톳의 노란 브랜드 배너·로고는 복제하지 않고 서울오토갤러리 배너, 보배드림 로고, 기존 실차·딜러 자산으로 치환했다.
+
+## Required fidelity surfaces
+
+- Fonts and typography: Pretendard, 이름 24/32px·700, 섹션 20/28px·700, 카드 제목 14/21px, 가격 17/24px·700.
+- Spacing and layout rhythm: 모바일 프로필 오버랩과 14~18px 정보 간격, PC 16px 카드 간격과 12px 바깥 카드 간격을 확인했다.
+- Colors and visual tokens: 원본의 `#222`, `#F4F4F4`, `#E8E8E8`, 별 `#F8BA02`를 유지하고 브랜드 강조만 보배드림 남색으로 교체했다.
+- Image quality and asset fidelity: 프로젝트의 서울오토갤러리 건물·실차·딜러 원본 이미지와 기존 SVG 아이콘만 사용했다. 깨진 이미지 0개를 확인했다.
+- Copy and content: 원본의 정보 구조를 한국어 딜러 데이터로 치환했고, 실제 API 전 단계임을 알 수 있도록 샘플 수치와 리뷰를 일관되게 사용했다.
+
+## Comparison history
+
+- Pass 1 P1: 기존 구현은 5개 전환 탭과 모바일 430px 고정 폭이라 원본의 긴 페이지 흐름과 PC 5열 레이아웃이 달랐다.
+- Fix: 3개 앵커 구역의 단일 페이지 구조와 모바일 행/PC 그리드 반응형을 새로 구성했다.
+- Pass 2 P2: 새 상단의 보배드림·공통 아이콘 경로가 잘못되어 이미지가 깨졌다.
+- Fix: 로고는 `assets/pc-detail`, 공통 아이콘은 `/icons/chotot`의 실제 로컬 자산 경로로 교정했다.
+- Pass 3 P2: 모바일에서 응답률 행이 빠지고 프로필 하단 공백이 원본보다 컸다.
+- Fix: 응답률을 독립 행으로 추가하고 고정 최소 높이를 제거해 원본의 세로 리듬에 맞췄다.
+- Post-fix evidence: 390×844 원본/구현 동시 캡처에서 이름·버튼·평점·응답률·지역·경력·첫 매물 시작 위치를 비교했고 P0/P1/P2 잔여 항목이 없다.
+
+## Interaction and verification
+
+- 판매중 ↔ 판매완료 전환: passed
+- 매물 더보기: 5대 → 7대 확장, passed
+- 관심 매물 선택 상태: `aria-pressed=true`, passed
+- 팔로우: 팔로우 → 팔로잉, passed
+- 평가 앵커 이동: passed
+- 평가 전체/구매자/판매자 필터: passed
+- 신규 브라우저 탭 콘솔 오류: 0
+- `npm run build`: passed
+- `git diff --check`: passed
+
+## Follow-up polish
+
+- P3: 원본의 노란 초톳 그래픽과 수치는 타사 브랜드 자산이므로 의도적으로 보배드림·서울오토갤러리 자산과 샘플 데이터로 대체했다.
+
+final result: passed
+
+---
+
 # Design QA · 초톳형 2열 시작축 정렬 (2026-10-14)
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/80a25fd3-79ac-4b04-adf3-38296c86922d/1-1000018248.jpg`

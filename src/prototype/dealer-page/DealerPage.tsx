@@ -1,335 +1,244 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type RefObject } from "react";
 import { asset, seoulAutoGalleryCars, type Car } from "../data";
 import { dealers, type SeoulAutoGalleryDealer } from "../listing/seoul-auto-gallery-dealer-rail";
 import { setPretendard } from "../fonts/pretendard";
 import "./dealer-page.css";
 
-// 딜러 화면 재제작(2026-10-11, 총괄 확정 규칙 1~9). 목록 위 덮개가 아닌 독립 화면이다.
-// 아이콘은 초톳 원본 파일만 쓰고 asset()(= BASE_URL + assets/)으로 연결한다. 번들에 "/assets/" 글자가 남아야 Pages 배포가 경로를 바꾼다.
-const icon = (name: string) => asset(`icons/chotot/${name}`);
+const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.location.href).pathname;
+const icon = (name: string) => `${publicBase}icons/chotot/${name}`;
+const bobaeAsset = (name: string) => asset(`pc-detail/${name}`);
 
-type TabId = "store" | "posts" | "ads" | "rating" | "info";
-// 원본(초톳)에 있는 탭은 숨기지 않고 모두 만든다(2026-10-11 22:15 결정). isActive=false 로 두면 화면에서만 숨길 수 있다.
-const tabs: Array<{ id: TabId; label: string; isActive: boolean }> = [
-  { id: "store", label: "상점", isActive: true },
-  { id: "posts", label: "활동", isActive: true },
-  { id: "ads", label: "판매 차량", isActive: true },
-  { id: "rating", label: "평가", isActive: true },
-  { id: "info", label: "정보", isActive: true },
-];
+type SectionId = "intro" | "ads" | "rating";
+type ListingMode = "active" | "sold";
+type ReviewFilter = "all" | "buyer" | "seller";
 
-const policies = [
-  { icon: "chotot-shop-benefit-shield-icon.png", text: "실매물 확인 보증" },
-  { icon: "chotot-shop-benefit-certificate-icon.png", text: "성능·상태 기록 안내" },
-  { icon: "chotot-shop-benefit-loan-icon.png", text: "할부·금융 상담 지원" },
-  { icon: "chotot-shop-benefit-test-drive-icon.png", text: "시승·방문 상담 지원" },
-  { icon: "chotot-shop-benefit-used-car-icon.png", text: "내 차 팔기·매입 상담" },
-  { icon: "chotot-shop-benefit-fix-2-icon.png", text: "정비·점검 서비스 안내" },
-  { icon: "chotot-shop-benefit-search-icon.png", text: "차량 이력 조회 안내" },
-];
-
-// 임시값(MOCK): 실제 데이터가 연결되면 이 상수만 바꾼다. 안심번호(050) 표기이며 모의 데이터의 실제 번호는 쓰지 않는다.
 const MOCK = {
-  intro: "서울오토갤러리에서 수입차를 전문으로 안내합니다. 매물의 차량 상태와 이력을 직접 확인한 뒤 정확한 정보만 전달해 드립니다. 방문 상담과 시승 예약도 도와드립니다.",
-  safeNumber: "0507-1234-5678",
   rating: 4.8,
-  reviewCount: 12,
+  reviewCount: 3,
   sold: 12,
-  followers: 26,
-  lastActive: "최근 활동 6시간 전",
-  bannerCarCount: 4,
-  responseSpeed: "보통 1시간 이내",
-  operatingPeriod: "3년 2개월",
-  address: "서울특별시 서초구 양재대로11길 36, 서울오토갤러리",
-  // 활동 글(임시). 본문에 실제 전화번호를 넣지 않는다.
-  posts: [
-    { text: "이번 주 입고 차량 3대를 점검했습니다. 차량 상태와 정비 이력은 방문 상담 때 직접 확인하실 수 있어요.", time: "3일 전", likes: 4, comments: 1 },
-    { text: "겨울 전에 타이어와 배터리 점검을 무료로 도와드립니다. 구매 전 시승도 예약 가능합니다.", time: "1주 전", likes: 7, comments: 2 },
-    { text: "서울오토갤러리 3층 전시장을 새 단장했습니다. 편하게 방문해 주세요.", time: "2주 전", likes: 3, comments: 0 },
-    { text: "수입 SUV 신규 입고. 실매물 확인과 차량 이력 조회를 함께 안내해 드립니다.", time: "1개월 전", likes: 5, comments: 1 },
-    { text: "중고차 할부·금융 상담도 한 번에 진행해 드립니다. 궁금한 점은 채팅으로 남겨 주세요.", time: "2개월 전", likes: 2, comments: 0 },
-  ],
-  // 평가 칩·후기(임시)
-  ratingChips: [{ label: "친절해요", count: 8 }, { label: "설명이 자세해요", count: 5 }, { label: "응답이 빨라요", count: 3 }],
+  followers: 426,
+  lastActive: "6시간 전 활동",
+  response: "보통 1시간 이내",
+  joined: "딜러 경력 7년",
+  address: "서울 서초구 양재동",
+  intro: "서울오토갤러리에서 수입차를 전문으로 판매합니다. 모든 차량의 상태와 이력을 직접 확인하고, 정확한 정보와 투명한 상담을 약속드립니다.",
   reviews: [
-    { name: "김**", role: "구매자", tags: ["친절해요"], score: 5, date: "2026.09.28", text: "차량 상태를 꼼꼼하게 설명해 주셔서 믿고 구매했어요. 응답도 빨랐습니다." },
-    { name: "박**", role: "구매자", tags: ["응답이 빨라요"], score: 4, date: "2026.09.12", text: "문의에 바로 답해 주시고 방문 일정도 편하게 잡아 주셨어요." },
+    { name: "김**", role: "buyer", score: 4, date: "3개월 전", car: "벤츠 GLS클래스 3세대", price: "7,575만원" },
+    { name: "박**", role: "buyer", score: 5, date: "5개월 전", car: "벤츠 E클래스 5세대", price: "4,344만원" },
+    { name: "이**", role: "seller", score: 5, date: "8개월 전", car: "벤츠 S클래스 7세대", price: "8,145만원" },
   ],
+  soldCars: [
+    ["BMW X5 xDrive40i M 스포츠", "3일 전"],
+    ["벤츠 GLE 450 4매틱", "1개월 전"],
+    ["포르쉐 카이엔 3.0", "2개월 전"],
+    ["BMW 740Li xDrive", "3개월 전"],
+    ["벤츠 S580 4매틱", "4개월 전"],
+    ["아우디 Q8 55 TFSI", "5개월 전"],
+    ["랜드로버 레인지로버 스포츠", "7개월 전"],
+    ["마세라티 르반떼", "8개월 전"],
+    ["BMW M4 컴페티션", "10개월 전"],
+    ["벤츠 AMG GT 43", "1년 전"],
+    ["포르쉐 파나메라 4", "1년 전"],
+    ["BMW 530i M 스포츠", "1년 전"],
+  ] as const,
 } as const;
-const intro = MOCK.intro;
-const SAFE_NUMBER = MOCK.safeNumber;
-
-const tabFromUrl = (): TabId => {
-  const raw = new URLSearchParams(window.location.search).get("tab");
-  const value = raw === "inventory" ? "ads" : raw; // 예전 주소(tab=inventory)도 판매 차량 탭으로 연다
-  const found = tabs.find((item) => item.id === value && item.isActive);
-  return found ? found.id : "store";
-};
 
 function Icon({ name, className }: { name: string; className?: string }) {
   return <img className={`dp-icon${className ? ` ${className}` : ""}`} src={icon(name)} alt="" aria-hidden="true" draggable={false} />;
 }
 
-/** 별은 초톳 원본 별 파일을 마스크로 써서 채움/빈 색만 바꾼다(모양은 수정하지 않는다). */
 function Stars({ score }: { score: number }) {
-  const filled = Math.floor(score); // 초톳은 4.5점도 별 4개 채움 + 1개 회색
-  return <span className="dp-stars" aria-label={`별점 ${score}점`}>{Array.from({ length: 5 }, (_, index) => <span key={index} className={`dp-star${index < filled ? " is-on" : ""}`} style={{ maskImage: `url(${icon("chotot-list-detail-review-star.svg")})`, WebkitMaskImage: `url(${icon("chotot-list-detail-review-star.svg")})` }} />)}</span>;
+  const filled = Math.floor(score);
+  const star = `url(${icon("chotot-list-detail-review-star.svg")})`;
+  return <span className="dp-stars" aria-label={`별점 ${score}점`}>
+    {Array.from({ length: 5 }, (_, index) => <span key={index} className={`dp-star${index < filled ? " is-on" : ""}`} style={{ maskImage: star, WebkitMaskImage: star }} />)}
+  </span>;
 }
 
-function Banners({ cars }: { cars: Car[] }) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const slides = [asset("seoul-auto-gallery/header/building-bluehour-v01.png"), ...cars.slice(0, MOCK.bannerCarCount).map((car) => asset(car.image))];
-  const move = (dir: 1 | -1) => ref.current?.scrollBy({ left: dir * 330, behavior: "smooth" });
-  return <div className="dp-banners">
-    <div className="dp-banner-track" ref={ref}>{slides.map((src, index) => <img key={src + index} src={src} alt="" draggable={false} />)}</div>
-    <button type="button" className="dp-banner-arrow is-prev" aria-label="이전 배너" onClick={() => move(-1)}><Icon name="chotot-pc-detail-chevron-left-white-bg.svg" /></button>
-    <button type="button" className="dp-banner-arrow is-next" aria-label="다음 배너" onClick={() => move(1)}><Icon name="chotot-pc-detail-chevron-right-white-bg.svg" /></button>
-  </div>;
+function SiteHeader() {
+  return <header className="dp-site-header">
+    <div className="dp-site-main">
+      <button type="button" className="dp-site-menu" aria-label="전체 메뉴"><Icon name="chotot-common-menu.svg" /></button>
+      <a className="dp-wordmark" href="./" aria-label="보배드림 홈">
+        <span className="dp-wordmark-mark"><img src={bobaeAsset("9546-imgGroup.svg")} alt="" /></span>
+        <img src={bobaeAsset("9546-imgLogo.svg")} alt="보배드림" />
+      </a>
+      <button type="button" className="dp-region"><Icon name="chotot-common-location-pin.svg" />전국 <Icon name="chotot-pc-detail-chevron-down-white-bg.svg" /></button>
+      <label className="dp-search"><Icon name="chotot-pc-detail-search-magnifier-gray.svg" /><input aria-label="차량 검색" placeholder="차량을 검색해 보세요" /></label>
+      <div className="dp-site-actions">
+        <button type="button" aria-label="관심 차량"><Icon name="chotot-common-favorite.svg" /></button>
+        <button type="button" aria-label="채팅"><Icon name="chotot-common-chat.svg" /></button>
+        <button type="button" className="dp-login">로그인</button>
+        <button type="button" className="dp-register">내차팔기</button>
+      </div>
+      <button type="button" className="dp-open-app">앱 열기</button>
+    </div>
+    <div className="dp-mobile-search">
+      <label><Icon name="chotot-pc-detail-search-magnifier-gray.svg" /><input aria-label="차량 검색" placeholder="차량을 검색해 보세요" /></label>
+      <button type="button" aria-label="관심 차량"><Icon name="chotot-common-favorite.svg" /></button>
+      <button type="button" aria-label="채팅"><Icon name="chotot-common-chat.svg" /></button>
+    </div>
+  </header>;
 }
 
-function PolicyCards() {
-  return <div className="dp-policy-track">{policies.map((item) => <div key={item.icon} className="dp-policy-card"><img src={icon(item.icon)} alt="" aria-hidden="true" draggable={false} /><span>{item.text}</span></div>)}</div>;
+function DealerProfile({ dealer, following, setFollowing, share }: { dealer: SeoulAutoGalleryDealer; following: boolean; setFollowing: (value: boolean) => void; share: () => void }) {
+  return <section className="dp-profile" data-section="intro">
+    <div className="dp-cover">
+      <img className="dp-cover-photo" src={asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt="서울오토갤러리 전경" draggable={false} />
+      <div className="dp-cover-brand"><strong>서울오토갤러리</strong><small>수입차 전문 매매단지</small></div>
+      <span>{MOCK.lastActive}</span>
+      <button type="button" className="dp-cover-more" aria-label="판매자 메뉴"><Icon name="chotot-common-more.svg" /></button>
+    </div>
+    <div className="dp-profile-body">
+      <img className="dp-avatar" src={asset(`dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`)} alt={`${dealer.name} 프로필`} draggable={false} />
+      <div className="dp-profile-copy">
+        <h1>{dealer.name}<Icon name="chotot-list-detail-verified-dealer-wavy-badge.svg" className="is-badge" /></h1>
+        <div className="dp-profile-actions">
+          <button type="button" onClick={share}><Icon name="chotot-common-share.svg" />공유</button>
+          <button type="button" aria-pressed={following} onClick={() => setFollowing(!following)}><Icon name={following ? "chotot-list-detail-following.svg" : "chotot-list-detail-follow.svg"} />{following ? "팔로잉" : "팔로우"}</button>
+        </div>
+        <div className="dp-profile-inline is-first"><span className="dp-online-dot" />{MOCK.lastActive}<i />응답률: {MOCK.response}<i /><u>팔로워 {MOCK.followers + (following ? 1 : 0)}</u></div>
+        <div className="dp-profile-inline is-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>({MOCK.reviewCount}개 평가)</u><span className="dp-mobile-followers">· 팔로워 {MOCK.followers + (following ? 1 : 0)}</span><i /><span className="dp-desktop-career"><Icon name="chotot-common-clock.svg" />{MOCK.joined}</span></div>
+        <div className="dp-profile-inline is-response"><Icon name="chotot-list-detail-response-rate.svg" />응답률: {MOCK.response}</div>
+        <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" />{MOCK.address}</div>
+        <div className="dp-profile-inline is-career"><Icon name="chotot-common-join-date.svg" />{MOCK.joined}</div>
+        <p className="dp-intro-copy">{MOCK.intro}</p>
+      </div>
+    </div>
+  </section>;
 }
 
-function InventoryRows({ cars, limit }: { cars: Car[]; limit: number }) {
+function ActiveCards({ cars, limit, notify }: { cars: Car[]; limit: number; notify: (text: string) => void }) {
   const [liked, setLiked] = useState<Set<number>>(new Set());
-  return <div className="dp-rows">{cars.slice(0, limit).map((car) => (
-    <article key={car.id} className="dp-row">
-      <img className="dp-row-photo" src={asset(car.listThumb ?? car.image)} alt="" draggable={false} />
-      <div className="dp-row-copy">
+  return <div className="dp-listings-grid">{cars.slice(0, limit).map((car) => (
+    <article className="dp-listing-card" key={car.id} onClick={() => notify(`${car.title} 상세를 선택했어요`)}>
+      <div className="dp-listing-media">
+        <img src={asset(car.listThumb ?? car.image)} alt="" draggable={false} />
+        <span>{car.posted}</span>
+        <small>{car.photos}</small>
+        <button type="button" aria-label="관심 매물" aria-pressed={liked.has(car.id)} onClick={(event) => { event.stopPropagation(); setLiked((current) => { const next = new Set(current); if (next.has(car.id)) next.delete(car.id); else next.add(car.id); return next; }); }}><Icon name={liked.has(car.id) ? "chotot-pc-detail-favorite-selected.svg" : "chotot-pc-detail-thumbnail-favorite-white-bg.svg"} /></button>
+      </div>
+      <div className="dp-listing-copy">
         <h3>{[car.title, car.trim].filter(Boolean).join(" ")}</h3>
         <b>{car.price}</b>
-        <span className="dp-row-time"><Icon name="chotot-common-clock.svg" />{car.posted}</span>
+        <p><Icon name="chotot-common-location-pin-gray.svg" />{car.place}</p>
       </div>
-      <button type="button" className={`dp-row-like${liked.has(car.id) ? " is-on" : ""}`} aria-label="관심 매물" aria-pressed={liked.has(car.id)} onClick={() => setLiked((set) => { const next = new Set(set); if (next.has(car.id)) next.delete(car.id); else next.add(car.id); return next; })}><Icon name={liked.has(car.id) ? "chotot-common-favorite-selected.svg" : "chotot-common-favorite.svg"} /></button>
     </article>
   ))}</div>;
 }
 
-function FilterPills() {
-  return <div className="dp-pills"><button type="button">차종<Icon name="chotot-list-detail-dropdown-arrow-region-search.svg" /></button><button type="button">가격<Icon name="chotot-list-detail-dropdown-arrow-region-search.svg" /></button></div>;
-}
-
-/** 좋아요·댓글·전화·채팅 알약 버튼(활동 카드 공통). 아이콘은 초톳 원본 파일. */
-function ActionPills({ likes, comments, qa, onCall, onChat }: { likes: number; comments: number; qa: "activityAction" | "postAction"; onCall: () => void; onChat: () => void }) {
-  const [liked, setLiked] = useState(false);
-  return <div className="dp-actions-row">
-    <button type="button" className="dp-pill-action" data-qa={qa} aria-pressed={liked} onClick={() => setLiked((v) => !v)}><Icon name="chotot-list-detail-listing-like.svg" /><span>{likes + (liked ? 1 : 0)}</span></button>
-    <button type="button" className="dp-pill-action" data-qa={qa}><Icon name="chotot-list-detail-listing-comment.svg" /><span>{comments}</span></button>
-    <button type="button" className="dp-pill-action" data-qa={qa} aria-label="전화" onClick={onCall}><Icon name="chotot-list-detail-phone.svg" /></button>
-    <button type="button" className="dp-pill-action" data-qa={qa} aria-label="채팅" onClick={onChat}><Icon name="chotot-list-detail-chat.svg" /></button>
-  </div>;
-}
-
-function PostImage({ cars, index, qa }: { cars: Car[]; index: number; qa: "activityImg" | "postImg" }) {
-  const car = cars[index % Math.max(cars.length, 1)];
-  return <img className="dp-post-img" data-qa={qa} src={asset(car ? car.image : "seoul-auto-gallery/header/building-bluehour-v01.png")} alt="" draggable={false} />;
-}
-
-function ActivitySection({ dealer, cars, openTab, notify }: { dealer: SeoulAutoGalleryDealer; cars: Car[]; openTab: (tab: TabId) => void; notify: (text: string) => void }) {
-  const avatar = asset(`dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`);
-  return <section className="dp-section dp-activity">
-    <h2 data-qa="activityTitle">활동</h2>
-    <div className="dp-activity-track">{MOCK.posts.slice(0, 4).map((post, index) => (
-      <article key={post.time} className="dp-activity-card" data-qa="activityCard">
-        <header><img src={avatar} alt="" draggable={false} /><span><b data-qa="activityName">{dealer.name}</b><small data-qa="activityTime">{post.time}</small></span></header>
-        <p data-qa="activityBody">{post.text}</p>
-        <PostImage cars={cars} index={index} qa="activityImg" />
-        <ActionPills likes={post.likes} comments={post.comments} qa="activityAction" onCall={() => notify(`안심번호 ${SAFE_NUMBER}`)} onChat={() => notify("채팅 상담은 준비 중이에요")} />
-      </article>
-    ))}</div>
-    <button type="button" className="dp-link-act" data-qa="activityMore" onClick={() => openTab("posts")}>활동 더보기</button>
-  </section>;
-}
-
-function PostsTab({ dealer, cars, notify }: { dealer: SeoulAutoGalleryDealer; cars: Car[]; notify: (text: string) => void }) {
-  const avatar = asset(`dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`);
-  return <div className="dp-posts">{MOCK.posts.map((post, index) => (
-    <div key={post.time}>
-      <article className="dp-post" data-qa="postCard">
-        <header><img src={avatar} alt="" data-qa="postAvatar" draggable={false} /><span><b data-qa="postName">{dealer.name}</b><small data-qa="postTime">{post.time}</small></span></header>
-        <p data-qa="postBody">{post.text}</p>
-        <PostImage cars={cars} index={index} qa="postImg" />
-        <ActionPills likes={post.likes} comments={post.comments} qa="postAction" onCall={() => notify(`안심번호 ${SAFE_NUMBER}`)} onChat={() => notify("채팅 상담은 준비 중이에요")} />
-      </article>
-      <div className="dp-band is-post" aria-hidden="true" />
-    </div>
+function SoldCards({ limit }: { limit: number }) {
+  return <div className="dp-sold-grid">{MOCK.soldCars.slice(0, limit).map(([title, time]) => (
+    <article className="dp-sold-card" key={title}>
+      <span><i />판매완료</span>
+      <h3>{title}</h3>
+      <time>{time}</time>
+    </article>
   ))}</div>;
 }
 
-/** 평가 요약(점수 · 큰 별 · 평가 칩). 별 모양은 초톳 원본 별 파일을 마스크로 쓰고 채움/빈 색만 바꾼다. */
-function RatingSummary() {
-  const filled = Math.floor(MOCK.rating);
-  const star = `url(${icon("chotot-list-detail-review-star.svg")})`;
-  return <div className="dp-rating-sum">
-    <div className="dp-score-row">
-      <b data-qa="ratingScore">{MOCK.rating}</b>
-      <span className="dp-stars-big" aria-label={`별점 ${MOCK.rating}점`}>{Array.from({ length: 5 }, (_, i) => <span key={i} data-qa="ratingStarBig" className={`dp-star-big${i < filled ? " is-on" : ""}`} style={{ maskImage: star, WebkitMaskImage: star }} />)}</span>
+function ListingsSection({ cars, mode, setMode, notify }: { cars: Car[]; mode: ListingMode; setMode: (mode: ListingMode) => void; notify: (text: string) => void }) {
+  const [limit, setLimit] = useState(5);
+  const total = cars.length + MOCK.sold;
+  const max = mode === "active" ? cars.length : MOCK.soldCars.length;
+  return <section className="dp-content-card dp-listings" data-section="ads">
+    <h2>전체 매물 ({total})</h2>
+    <div className="dp-listing-modes" role="tablist" aria-label="판매 상태">
+      <button type="button" role="tab" aria-selected={mode === "active"} onClick={() => { setMode("active"); setLimit(5); }}>판매중 ({cars.length})</button>
+      <button type="button" role="tab" aria-selected={mode === "sold"} onClick={() => { setMode("sold"); setLimit(5); }}>판매완료 ({MOCK.sold})</button>
     </div>
-    <div className="dp-rating-chips" data-qa="ratingChips">{MOCK.ratingChips.map((chip) => <span key={chip.label} className="dp-rating-chip" data-qa="ratingChip">{chip.label} {chip.count}</span>)}</div>
-  </div>;
+    {mode === "active" ? <ActiveCards cars={cars} limit={limit} notify={notify} /> : <SoldCards limit={limit} />}
+    {limit < max ? <button type="button" className="dp-more" onClick={() => setLimit((value) => Math.min(value + 5, max))}>매물 더보기</button> : null}
+  </section>;
 }
 
-type ReviewFilter = "all" | "buyer" | "seller";
-const reviewFilters: Array<{ id: ReviewFilter; label: string }> = [{ id: "all", label: "전체" }, { id: "buyer", label: "구매자" }, { id: "seller", label: "판매자" }];
+function AnchorNav({ active, goTo, total }: { active: SectionId; goTo: (section: SectionId) => void; total: number }) {
+  const items: Array<[SectionId, string]> = [["intro", "소개"], ["ads", `전체 매물 (${total})`], ["rating", `평가 (${MOCK.reviewCount})`]];
+  return <nav className="dp-anchor-nav" aria-label="판매자 페이지 구역">{items.map(([id, label]) => <button key={id} type="button" className={active === id ? "is-active" : ""} onClick={() => goTo(id)}>{label}</button>)}</nav>;
+}
 
-function ReviewList({ cars, limit }: { cars: Car[]; limit: number }) {
+function RatingsSection({ cars }: { cars: Car[] }) {
   const [filter, setFilter] = useState<ReviewFilter>("all");
-  const star = `url(${icon("chotot-list-detail-review-star.svg")})`;
-  const shown = MOCK.reviews.filter((review) => filter === "all" || (filter === "buyer" ? (review.role as string) === "구매자" : (review.role as string) === "판매자")).slice(0, limit);
-  return <div className="dp-reviews">
-    <div className="dp-review-tabs" role="tablist" aria-label="평가 구분">{reviewFilters.map((item) => <button key={item.id} type="button" role="tab" data-qa="reviewTab" aria-selected={filter === item.id} onClick={() => setFilter(item.id)}><span>{item.label}</span></button>)}</div>
-    {shown.length === 0 ? <div className="dp-empty"><Icon name="chotot-common-seller-review-write.svg" className="is-empty" /><strong>아직 받은 평가가 없어요</strong></div> : shown.map((review, index) => {
-      const car = cars[index % Math.max(cars.length, 1)];
-      return <article key={review.date} className="dp-review" data-qa="reviewCard">
-        <header>
-          <span className="dp-review-avatar"><Icon name="chotot-common-user.svg" /></span>
-          <span className="dp-review-who"><b data-qa="reviewName">{review.name}</b><span className="dp-review-tags">{review.tags.map((tag) => <i key={tag} data-qa="reviewTag">{tag}</i>)}</span></span>
-        </header>
-        <div className="dp-review-meta"><b>{review.score}</b><span className="dp-stars" aria-label={`별점 ${review.score}점`}>{Array.from({ length: 5 }, (_, i) => <span key={i} className={`dp-star${i < review.score ? " is-on" : ""}`} style={{ maskImage: star, WebkitMaskImage: star }} />)}</span><time>{review.date}</time></div>
-        <p>{review.text}</p>
-        {car ? <div className="dp-review-item" data-qa="reviewItem"><img src={asset(car.listThumb ?? car.image)} alt="" data-qa="reviewItemImg" draggable={false} /><span><span>{car.title}</span><b data-qa="reviewPrice">{car.price}</b></span></div> : null}
-      </article>;
-    })}
-  </div>;
-}
-
-function RatingTab({ cars }: { cars: Car[] }) {
-  return <section className="dp-section dp-rating-tab">
-    <RatingSummary />
-    <div className="dp-band is-16" aria-hidden="true" />
-    <ReviewList cars={cars} limit={MOCK.reviews.length} />
-  </section>;
-}
-
-function StoreTab({ dealer, cars, openTab, notify }: { dealer: SeoulAutoGalleryDealer; cars: Car[]; openTab: (tab: TabId) => void; notify: (text: string) => void }) {
-  const [expanded, setExpanded] = useState(false);
-  return <>
-    <Banners cars={cars} />
-    <section className="dp-section dp-intro">
-      <h2>소개</h2>
-      <p className={expanded ? "is-open" : undefined}>{intro}{!expanded ? <button type="button" onClick={() => setExpanded(true)}>… <span>더보기</span></button> : null}</p>
-    </section>
-    <section className="dp-section dp-policy">
-      <h2>정책 · 혜택</h2>
-      <PolicyCards />
-      <button type="button" className="dp-link-center" onClick={() => openTab("info")}>정보 더보기</button>
-    </section>
-    <div className="dp-band" aria-hidden="true" />
-    <ActivitySection dealer={dealer} cars={cars} openTab={openTab} notify={notify} />
-    <div className="dp-band" aria-hidden="true" />
-    <section className="dp-section dp-inventory">
-      <h2 className="dp-title-tall">판매 차량 ({cars.length})</h2>
-      <FilterPills />
-      <InventoryRows cars={cars} limit={5} />
-      <button type="button" className="dp-more-box" onClick={() => openTab("ads")}>판매 차량 더보기</button>
-    </section>
-    <div className="dp-band" aria-hidden="true" />
-    <section className="dp-section dp-rating-home">
-      <RatingSummary />
-      <div className="dp-band is-16" aria-hidden="true" />
-      <ReviewList cars={cars} limit={2} />
-      <button type="button" className="dp-link-center is-review" onClick={() => openTab("rating")}>평가 더보기</button>
-    </section>
-  </>;
-}
-
-function InventoryTab({ cars }: { cars: Car[] }) {
-  return <section className="dp-section dp-inventory is-tab">
-    <h2 className="dp-title-tall" data-qa="adsTitle">판매 차량 ({cars.length})</h2>
-    <FilterPills />
-    <InventoryRows cars={cars} limit={cars.length} />
-  </section>;
-}
-
-function InfoTab({ cars }: { cars: Car[] }) {
-  return <>
-    <Banners cars={cars} />
-    <section className="dp-section dp-intro"><h2>소개</h2><p className="is-open">{intro}</p></section>
-    <section className="dp-section dp-info-customer">
-      <h2 data-qa="infoTitle">고객 정보</h2>
-      <div className="dp-info-box" data-qa="infoBox">
-        <div className="dp-info-cells">
-          <div className="dp-info-cell" data-qa="infoCell"><span className="dp-info-label" data-qa="infoLabel">응답 속도</span><b className="dp-info-value" data-qa="infoValue">{MOCK.responseSpeed}</b></div>
-          <div className="dp-info-cell" data-qa="infoCell"><span className="dp-info-label" data-qa="infoLabel">운영 기간</span><b className="dp-info-value" data-qa="infoValue">{MOCK.operatingPeriod}</b></div>
-        </div>
-        <div className="dp-info-address"><span className="dp-info-label" data-qa="infoLabel">주소</span><b className="dp-info-value" data-qa="infoValue">{MOCK.address}</b></div>
+  const reviews = MOCK.reviews.filter((review) => filter === "all" || review.role === filter);
+  const filterItems: Array<[ReviewFilter, string]> = [["all", `전체 (${MOCK.reviewCount})`], ["buyer", "구매자 (2)"], ["seller", "판매자 (1)"]];
+  return <section className="dp-content-card dp-ratings" data-section="rating">
+    <h2>평가</h2>
+    <div className="dp-rating-layout">
+      <div className="dp-rating-summary"><strong>{MOCK.rating}<span>★</span> 매우 만족</strong><small>({MOCK.reviewCount}명의 이용자 평가)</small></div>
+      <div className="dp-rating-list">
+        <h3>이용자 평가 <span aria-label="도움말">ⓘ</span></h3>
+        <p>평가 유형</p>
+        <div className="dp-review-filters" role="tablist" aria-label="평가 유형">{filterItems.map(([id, label]) => <button type="button" role="tab" aria-selected={filter === id} key={id} onClick={() => setFilter(id)}>{label}</button>)}</div>
+        <div className="dp-review-grid">{reviews.map((review, index) => {
+          const car = cars[index % Math.max(cars.length, 1)];
+          return <article className="dp-review" key={review.name + review.date}>
+            <header><span className="dp-review-avatar"><Icon name="chotot-common-user.svg" /></span><b>{review.name}</b></header>
+            <div className="dp-review-meta"><Stars score={review.score} /><time>{review.date}</time></div>
+            <div className="dp-review-car"><img src={car ? asset(car.listThumb ?? car.image) : asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt="" /><span><b>{review.car}</b><strong>{review.price}</strong></span></div>
+          </article>;
+        })}</div>
       </div>
-      <h2 data-qa="policyTitle">정책·혜택</h2>
-      <div className="dp-policy-grid">{policies.map((item) => <div key={item.icon} className="dp-policy-card is-grid" data-qa="infoPolicyCard"><img src={icon(item.icon)} alt="" aria-hidden="true" draggable={false} /><span>{item.text}</span></div>)}</div>
-    </section>
-  </>;
+    </div>
+  </section>;
+}
+
+function Footer() {
+  return <footer className="dp-footer"><div className="dp-footer-brand"><img src={bobaeAsset("9546-imgLogo.svg")} alt="보배드림" /><span>믿을 수 있는 자동차 거래</span></div><div className="dp-footer-links"><span>회사소개</span><span>이용약관</span><span>개인정보처리방침</span><span>고객센터</span></div><small>© BOBae Network. All rights reserved.</small></footer>;
 }
 
 export default function DealerPage() {
   const params = new URLSearchParams(window.location.search);
   const dealer: SeoulAutoGalleryDealer = dealers.find((item) => item.shopNo === params.get("shop") && item.empNo === (params.get("emp") ?? item.empNo)) ?? dealers[0];
-  const [tab, setTab] = useState<TabId>(tabFromUrl);
+  const cars = useMemo(() => seoulAutoGalleryCars.filter((car) => car.dealer.startsWith(dealer.name)), [dealer.name]);
   const [following, setFollowing] = useState(false);
+  const [mode, setMode] = useState<ListingMode>("active");
+  const [activeSection, setActiveSection] = useState<SectionId>("intro");
   const [toast, setToast] = useState("");
   const scrollRef = useRef<HTMLDivElement | null>(null);
-  const cars = useMemo(() => seoulAutoGalleryCars.filter((car) => car.dealer.startsWith(dealer.name)), [dealer.name]);
+  const introRef = useRef<HTMLDivElement | null>(null);
+  const adsRef = useRef<HTMLDivElement | null>(null);
+  const ratingRef = useRef<HTMLDivElement | null>(null);
+  const refs: Record<SectionId, RefObject<HTMLDivElement | null>> = { intro: introRef, ads: adsRef, rating: ratingRef };
 
-  useEffect(() => { setPretendard(true); document.title = `${dealer.name} · 서울오토갤러리`; }, [dealer.name]);
-  useEffect(() => { document.querySelector<HTMLElement>(".dp-tabs [aria-selected=true]")?.scrollIntoView({ inline: "center", block: "nearest" }); }, [tab]);
+  useEffect(() => { setPretendard(true); document.title = `${dealer.name} 딜러`; }, [dealer.name]);
+  useEffect(() => {
+    const root = scrollRef.current;
+    if (!root) return;
+    const onScroll = () => {
+      const marker = root.scrollTop + 180;
+      let next: SectionId = "intro";
+      if ((adsRef.current?.offsetTop ?? Infinity) <= marker) next = "ads";
+      if ((ratingRef.current?.offsetTop ?? Infinity) <= marker) next = "rating";
+      setActiveSection(next);
+    };
+    root.addEventListener("scroll", onScroll, { passive: true });
+    return () => root.removeEventListener("scroll", onScroll);
+  }, []);
 
-  const openTab = (next: TabId) => {
-    setTab(next);
-    const url = new URL(window.location.href);
-    if (next === "store") url.searchParams.delete("tab"); else url.searchParams.set("tab", next);
-    window.history.replaceState(null, "", url);
-    scrollRef.current?.scrollTo({ top: 0 });
-  };
-  const goBack = () => {
-    if (window.history.length > 1) window.history.back();
-    else window.location.href = `${window.location.pathname}?qf=guazi&category=${encodeURIComponent("서울오토갤러리")}`;
-  };
-  const notify = (text: string) => { setToast(text); window.setTimeout(() => setToast(""), 1800); };
+  const notify = (message: string) => { setToast(message); window.setTimeout(() => setToast(""), 1800); };
   const share = async () => {
-    const url = window.location.href;
     try {
-      if (navigator.share) await navigator.share({ title: dealer.name, url });
-      else { await navigator.clipboard.writeText(url); setToast("링크를 복사했어요"); window.setTimeout(() => setToast(""), 1800); }
+      if (navigator.share) await navigator.share({ title: `${dealer.name} 딜러`, url: window.location.href });
+      else { await navigator.clipboard.writeText(window.location.href); notify("링크를 복사했어요"); }
     } catch { /* 공유 취소 */ }
+  };
+  const goTo = (section: SectionId) => {
+    setActiveSection(section);
+    const root = scrollRef.current;
+    const target = refs[section].current;
+    if (root && target) root.scrollTo({ top: Math.max(0, target.offsetTop - 112), behavior: "smooth" });
   };
 
   return <div className="dp-root">
     <div className="dp-scroll" ref={scrollRef}>
-      <main className="dp-page" aria-label={`${dealer.name} 상점`}>
-        <header className="dp-topbar">
-          <button type="button" aria-label="뒤로 가기" onClick={goBack}><Icon name="chotot-pc-detail-chevron-left-white-bg.svg" /></button>
-          <strong>{dealer.name}</strong>
-          <button type="button" aria-label="공유" onClick={share}><Icon name="chotot-common-share.svg" /></button>
-        </header>
-        <div className="dp-cover">
-          <img className="dp-cover-photo" src={asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt="" draggable={false} />
-          <div className="dp-cover-shade" aria-hidden="true" />
-          <div className="dp-cover-brand">
-            <img src={asset("seoul-auto-gallery/header/sag-mark-banner-v02.png")} alt="" aria-hidden="true" draggable={false} />
-            <div><strong>서울오토갤러리</strong><small>수입차 전문 매매단지</small></div>
-          </div>
-          <span>{MOCK.lastActive}</span>
-        </div>
-        <section className="dp-head">
-          <img className="dp-logo" src={asset(`dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`)} alt={`${dealer.name} 프로필`} draggable={false} />
-          <div className="dp-actions">
-            <button type="button" onClick={share}><Icon name="chotot-common-share.svg" />공유</button>
-            <button type="button" aria-pressed={following} onClick={() => setFollowing((value) => !value)}><Icon name={following ? "chotot-list-detail-following.svg" : "chotot-list-detail-follow.svg"} />{following ? "팔로잉" : "팔로우"}</button>
-          </div>
-          <h1>{dealer.name}<Icon name="chotot-list-detail-verified-dealer-wavy-badge.svg" className="is-badge" /></h1>
-          <div className="dp-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><span>({MOCK.reviewCount}) 평가</span></div>
-          <p className="dp-address"><Icon name="chotot-list-detail-address-location.svg" /><span>서울특별시 서초구 양재대로11길 36, 서울오토갤러리</span></p>
-          <dl className="dp-stats"><div><dt>판매 완료</dt><dd>{MOCK.sold}</dd></div><div><dt>팔로워</dt><dd>{MOCK.followers + (following ? 1 : 0)}</dd></div><div><dt>판매 중</dt><dd>{cars.length}</dd></div></dl>
-        </section>
-        <nav className="dp-tabs" role="tablist" aria-label="상점 메뉴">{tabs.filter((item) => item.isActive).map((item) => <button key={item.id} type="button" role="tab" aria-selected={tab === item.id} onClick={() => openTab(item.id)}><span>{item.label}</span></button>)}</nav>
-        <div className="dp-body">
-          {tab === "store" ? <StoreTab dealer={dealer} cars={cars} openTab={openTab} notify={notify} /> : tab === "posts" ? <PostsTab dealer={dealer} cars={cars} notify={notify} /> : tab === "ads" ? <InventoryTab cars={cars} /> : tab === "rating" ? <RatingTab cars={cars} /> : <InfoTab cars={cars} />}
-        </div>
+      <SiteHeader />
+      <main className="dp-page" aria-label={`${dealer.name} 딜러 판매자 페이지`}>
+        <div ref={introRef}><DealerProfile dealer={dealer} following={following} setFollowing={setFollowing} share={share} /></div>
+        <div ref={adsRef}><ListingsSection cars={cars} mode={mode} setMode={setMode} notify={notify} /></div>
+        <AnchorNav active={activeSection} goTo={goTo} total={cars.length + MOCK.sold} />
+        <div ref={ratingRef}><RatingsSection cars={cars} /></div>
       </main>
-    </div>
-    <div className="dp-bar" role="group" aria-label="상점 연락">
-      <button type="button" className="is-chat"><Icon name="chotot-list-detail-chat.svg" />채팅</button>
-      <button type="button" className="is-call" onClick={() => notify(`안심번호 ${SAFE_NUMBER}`)}><Icon name="chotot-common-phone-white.svg" />전화 상담</button>
+      <Footer />
     </div>
     {toast ? <div className="dp-toast" role="status">{toast}</div> : null}
   </div>;

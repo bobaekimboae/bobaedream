@@ -1857,7 +1857,9 @@ const seoulAutoGalleryCars: Car[] = seoulAutoGalleryRows.map((row, index) => {
   const nn = String(row.number).padStart(2, "0");
   // 2026-10-14 「m3 사진 교체」: 1번(BMW M3)은 차란차 원본 전체 20장(배경 제거 · 자르기 없음, 900×506)으로 바꾸고 목록 썸네일도 사본 없이 원본 전체를 그대로 보인다.
   const originalPhotos = row.number === 1 ? Array.from({ length: 20 }, (_, i) => i + 1).map((n) => `cars/seoul-autogallery-v01/m3-original/m3-${n}.webp`) : undefined;
-  const photos = originalPhotos ?? [1, 2, 3, 4, 5].map((n) => `cars/seoul-autogallery-v01/sag-${nn}-${n}.webp`);
+  const photoSet = row.photoSet;
+  const setPhotos = photoSet ? Array.from({ length: photoSet.count }, (_, i) => `cars/seoul-autogallery-v01/${photoSet.dir}/${photoSet.prefix}-${String(i + 1).padStart(2, "0")}.jpg`) : undefined;
+  const photos = originalPhotos ?? setPhotos ?? [1, 2, 3, 4, 5].map((n) => `cars/seoul-autogallery-v01/sag-${nn}-${n}.webp`);
   return {
     id: 13_000 + row.number,
     updateRank: seoulAutoGalleryRows.length - index,
@@ -1866,13 +1868,13 @@ const seoulAutoGalleryCars: Car[] = seoulAutoGalleryRows.map((row, index) => {
     sellerType: "딜러",
     image: photos[0],
     photoList: photos,
-    ...(originalPhotos ? { listCrop: [100, 56.25, 0, 21.875] as [number, number, number, number] } : { listThumb: `cars/seoul-autogallery-v01/thumb/sag-${nn}.webp` }),
+    ...(photoSet ? { listCrop: [100, 100 * photoSet.ratio[1] / photoSet.ratio[0], 0, (100 - 100 * photoSet.ratio[1] / photoSet.ratio[0]) / 2] as [number, number, number, number] } : originalPhotos ? { listCrop: [100, 56.25, 0, 21.875] as [number, number, number, number] } : { listThumb: `cars/seoul-autogallery-v01/thumb/sag-${nn}.webp` }),
     imagePosition: "center center",
     title: [row.maker, row.model, row.generation].filter(Boolean).join(" "),
     trim: row.trim,
     specs: [`${row.year}년식`, seoulAutoGalleryMileageText(row.mileage), row.fuel],
     cardSpec: [String(row.year), seoulAutoGalleryMileageText(row.mileage), row.fuel],
-    price: `${row.price.toLocaleString("ko-KR")} 만원`,
+    price: row.price === null ? "가격 상담" : `${row.price.toLocaleString("ko-KR")} 만원`,
     place: "서울 서초구 · 서울오토갤러리",
     views: 0,
     dealer: `${row.dealer} ${row.company.replace(/\(주\)|주식회사/g, "").trim()}`,
