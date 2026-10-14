@@ -63,7 +63,7 @@
 .vehicle-info-rows { margin: 0; }
 .vehicle-info-rows > div { display: grid; grid-template-columns: 57% minmax(0, 43%); align-items: center; min-height: 44px; border-bottom: 1px solid #f4f4f4; color: #3a3a3a; font-size: 14px; line-height: 20px; }
 .vehicle-info-rows dt, .vehicle-info-rows dd { margin: 0; }
-.vehicle-info-rows dd { color: #1a1a1a; font-weight: 600; letter-spacing: -.14px; word-break: keep-all; }
+.vehicle-info-rows dd { color: #1a1a1a; font-weight: 600; letter-spacing: -.14px; text-align: right; word-break: keep-all; }
 .vehicle-info-toggle { display: flex; width: calc(100% - 20px); height: 44px; align-items: center; justify-content: center; gap: 0; margin: 12px 10px 0; padding: 0 10px; border: 0; background: #fff; color: #8c8c8c; font-size: 14px; font-weight: 600; line-height: 20px; cursor: pointer; }
 .vehicle-info-toggle img { width: 20px; height: 20px; transition: transform .2s ease; }
 .vehicle-info-toggle img.is-expanded { transform: rotate(180deg); }
@@ -90,6 +90,7 @@
 .detail-rows { margin: 0 0 16px; }
 .detail-rows > div { display: grid; grid-template-columns: 1fr 1.05fr; min-height: 42px; align-items: center; border-bottom: 1px solid #eee; color: #3a3a3a; font-size: 14px; }
 .detail-rows dt, .detail-rows dd { margin: 0; }
+.detail-rows dd { text-align: right; }
 .detail-rows dd u { margin-left: 4px; color: #8c8c8c; }
 .inspection-note { margin: 0 0 16px; padding: 12px; border-radius: 8px; background: #f7f7f7; color: #595959; font-size: 13px; line-height: 19px; }
 .warranty-card .detail-section-heading { margin-bottom: 18px; }
@@ -104,7 +105,7 @@
 .warranty-box span svg { width: 15px; height: 15px; color: #a5abb3; }
 .warranty-inspection-trigger { display: inline-flex; width: max-content; max-width: 100%; align-items: center; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; }
 .warranty-inspection-trigger:focus-visible { border-radius: 4px; outline: 2px solid #2f71de; outline-offset: 3px; }
-.warranty-box strong { min-width: 0; color: #222; font-size: 15px; font-weight: 500; line-height: 22px; text-align: left; word-break: keep-all; }
+.warranty-box strong { width: 100%; min-width: 0; color: #222; font-size: 15px; font-weight: 500; line-height: 22px; text-align: right; word-break: keep-all; }
 .warranty-box .is-active strong { color: #222; }
 .warranty-guide { display: grid; gap: 6px; margin-top: 18px; padding: 12px 14px; border-radius: 8px; background: #f7f8f9; }
 .warranty-guide p { position: relative; margin: 0; padding-left: 9px; color: #6b7280; font-size: 11px; line-height: 17px; word-break: keep-all; }
