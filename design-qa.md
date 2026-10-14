@@ -59,6 +59,109 @@ final result: passed
 
 ---
 
+# Design QA · 네이버 카페 게시글 목록 밀도 동일화 (2026-10-15)
+
+- source visual truth: `https://m.cafe.naver.com/ca-fe/bimmerwerks?tc=section_home_my_cafe`
+- source screenshot: `reports/naver-cafe-list-fidelity-1015/source-naver-393x852.png`
+- implementation screenshot: `reports/naver-cafe-list-fidelity-1015/implementation-393x852.png`
+- comparison sheet: `reports/naver-cafe-list-fidelity-1015/comparison-side-by-side.png`
+- viewport: 393 × 852 CSS px
+- state: 전체 게시글, 목록형, 초기 스크롤 위치
+
+## Full-view comparison evidence
+
+- 네이버 카페와 구현을 같은 393 × 852 기준으로 나란히 비교했다.
+- 서비스 고유 상단 영역은 유지하고 게시글 목록의 행 높이, 좌우 여백, 이미지·댓글 슬롯과 글자 위계를 동일화했다.
+- 구현 목록의 첫 행은 x=16px, 높이 86px이며 기준 화면과 동일하다.
+
+## Focused region comparison evidence
+
+- 제목 16/22px/400, 메타 14/19px/400으로 수정했다.
+- 썸네일 60 × 60px, 댓글 배지 46 × 60px, 모서리 12px를 확인했다.
+- 댓글 숫자 14/19px/600, 댓글 라벨 12/16px/400을 확인했다.
+- 공지 행 55px, 공지 배지 38.5 × 22px, 글쓰기 버튼 54 × 54px을 확인했다.
+
+## Comparison history
+
+### Pass 1 — blocked
+
+- P2: 제목이 15.5px, 메타가 13px, 댓글 라벨이 10.5px으로 기준보다 작았다.
+- P2: 공지 행 49px·밝은 공지 배지·글쓰기 버튼 60px으로 기준 밀도와 달랐다.
+
+### Pass 2 — passed
+
+- 위 수치를 기준 화면에 맞춘 뒤 동일 뷰포트로 다시 캡처했다.
+- 필터 전환, 보기방식 열기·닫기, 글쓰기 버튼 반응을 확인했다.
+- 가로 넘침 없음, 깨진 이미지 없음, 콘솔 오류 0건.
+
+## Required fidelity surfaces
+
+- fonts/typography: 제목·메타·댓글 숫자와 라벨의 크기, 행높이, 굵기 통과
+- spacing/layout rhythm: 목록 16px 시작축, 86px 행, 55px 공지 행 통과
+- colors/tokens: 짙은 공지 배지, 연회색 댓글 배지, 본문·보조색 통과
+- image quality/assets: 60px 썸네일의 비율과 12px 모서리 유지, 깨진 이미지 없음
+- copy/content: 기존 보배드림 커뮤니티 데이터와 카테고리 구조 유지
+
+## Verification
+
+- `npm run verify`: passed
+- `git diff --check`: passed
+- 콘솔 오류: 0건
+
+final result: passed
+
+---
+
+# Design QA · 판매자 실제 테스트 매물·탭 균형 (2026-10-15)
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/8ea69c42-2ca7-461a-8800-147ccaade0e1/1-1000018260.jpg`
+- secondary reference: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/8ea69c42-2ca7-461a-8800-147ccaade0e1/2-1000018256.jpg`
+- implementation screenshot: `design-qa-dealer-tabs-mobile.jpg`
+- side-by-side comparison: `design-qa-dealer-tabs-comparison.jpg`
+- source images: 592 × 1280 px 계열 기기 캡처, 393 × 852 CSS px 기준으로 정규화
+- implementation: 393 × 852 CSS px, DPR 1
+- state: 판매차량 탭 선택, 실제 테스트 매물 24대 연결
+
+## Full-view comparison evidence
+
+- 유튜브식 흰 배경 프로필 구조와 첫차식 판매자 정보 탭 구조를 같은 비교 이미지에서 대조했다.
+- 프로필의 판매중 수와 판매차량 제목·상태 탭이 모두 실제 테스트 데이터 24대를 표시한다.
+- 판매 목록 첫 화면에 레인지로버, BMW M3, 타이칸 등 실제 테스트 카드가 노출된다.
+- 모바일 393px과 PC 1440px에서 세 개의 주 탭이 콘텐츠 중앙축에 균등하게 자리 잡는다.
+
+## Focused tab evidence
+
+- 주 탭 높이 52px, 글자 14px, 항목 최대 너비 176px, 선택 밑줄 2px로 통일했다.
+- 모바일은 좌우 16px, PC는 좌우 20px 여백을 두고 탭 묶음을 중앙 정렬했다.
+- `판매차량`, `리뷰`, `소개`를 전환해 제목·콘텐츠가 정상 교체되는 것을 확인했다.
+- BMW M3 카드를 열어 실제 `listing=13001` 상세 화면으로 연결되는 것을 확인했다.
+
+## Comparison history
+
+- 이전 P2: 강홍구 이름으로 필터된 7대만 보여 실제 테스트 재고를 대표하지 못했고, PC 탭 묶음이 왼쪽으로 치우쳤다.
+- fix: 대표 판매자에 서울오토갤러리 테스트 재고 24대를 연결하고 탭 너비·중앙축을 반응형으로 다시 설정했다.
+- post-fix evidence: 모바일/PC 캡처에서 실제 카드와 수량이 일치하고 주 탭의 좌우 시각 무게가 같다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 탭 14/20px, 선택 700·비선택 500으로 정보 계층을 명확히 했다.
+- spacing/layout rhythm: 52px 탭 높이와 2px 밑줄, 최대 176px 폭으로 모바일과 PC 리듬을 통일했다.
+- colors/tokens: 흰 배경, `#222` 선택 텍스트, `#666` 비선택 텍스트, 기존 구분선 토큰을 유지했다.
+- image quality/assets: 실제 테스트 매물 사진을 원본 비율로 사용했고 깨진 이미지가 없다.
+- copy/content: 판매중 24대, 판매차량 24, 실제 차량명·가격·지역을 데이터와 동일하게 표시한다.
+
+## Verification
+
+- 모바일 393 × 852, PC 1440 × 1000 확인.
+- 리뷰·소개 탭 전환 확인.
+- BMW M3 상세 연결 확인.
+- 콘솔 오류 0건.
+- P0/P1/P2 findings: none after fixes.
+
+final result: passed
+
+---
+
 # Design QA · 판매자 페이지 3탭 평면화 (2026-10-15)
 
 - source visual truth (YouTube): `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/8ea69c42-2ca7-461a-8800-147ccaade0e1/1-1000018260.jpg`

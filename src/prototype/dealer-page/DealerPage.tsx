@@ -97,7 +97,7 @@ function SiteHeader() {
   </header>;
 }
 
-function DealerProfile({ dealer, following, setFollowing, share }: { dealer: SeoulAutoGalleryDealer; following: boolean; setFollowing: (value: boolean) => void; share: () => void }) {
+function DealerProfile({ dealer, listingCount, following, setFollowing, share }: { dealer: SeoulAutoGalleryDealer; listingCount: number; following: boolean; setFollowing: (value: boolean) => void; share: () => void }) {
   return <section className="dp-profile">
     <div className="dp-cover">
       <img className="dp-cover-photo" src={asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt="서울오토갤러리 전경" draggable={false} />
@@ -110,7 +110,7 @@ function DealerProfile({ dealer, following, setFollowing, share }: { dealer: Seo
       <div className="dp-profile-copy">
         <h1>{dealer.name}<Icon name="chotot-list-detail-verified-dealer-wavy-badge.svg" className="is-badge" /></h1>
         <div className="dp-profile-inline is-channel-handle">@서울오토갤러리</div>
-        <div className="dp-profile-inline is-channel-meta">팔로워 {MOCK.followers + (following ? 1 : 0)} · 판매중 7대</div>
+        <div className="dp-profile-inline is-channel-meta">팔로워 {MOCK.followers + (following ? 1 : 0)} · 판매중 {listingCount}대</div>
         <div className="dp-profile-actions">
           <button type="button" onClick={share}><Icon name="chotot-common-share.svg" />공유</button>
           <button type="button" aria-pressed={following} onClick={() => setFollowing(!following)}><Icon name={following ? "chotot-list-detail-following.svg" : "chotot-list-detail-follow.svg"} />{following ? "팔로잉" : "팔로우"}</button>
@@ -156,10 +156,9 @@ function SoldCards({ limit }: { limit: number }) {
 
 function ListingsSection({ cars, mode, setMode, onOpen }: { cars: Car[]; mode: ListingMode; setMode: (mode: ListingMode) => void; onOpen: (car: Car) => void }) {
   const [limit, setLimit] = useState(5);
-  const total = cars.length + MOCK.sold;
   const max = mode === "active" ? cars.length : MOCK.soldCars.length;
   return <section className="dp-content-card dp-listings">
-    <h2>판매차량 <span>{total}</span></h2>
+    <h2>판매차량 <span>{cars.length}</span></h2>
     <div className="dp-listing-modes" role="tablist" aria-label="판매 상태">
       <button type="button" role="tab" aria-selected={mode === "active"} onClick={() => { setMode("active"); setLimit(5); }}>판매중 ({cars.length})</button>
       <button type="button" role="tab" aria-selected={mode === "sold"} onClick={() => { setMode("sold"); setLimit(5); }}>판매완료 ({MOCK.sold})</button>
@@ -251,7 +250,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
     <div className="dp-scroll" ref={scrollRef}>
       <SiteHeader />
       <main className="dp-page" aria-label={`${dealer.name} 딜러 판매자 페이지`}>
-        <DealerProfile dealer={dealer} following={following} setFollowing={setFollowing} share={share} />
+        <DealerProfile dealer={dealer} listingCount={cars.length} following={following} setFollowing={setFollowing} share={share} />
         <AnchorNav active={activeSection} onChange={changeSection} />
         {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}
         {activeSection === "rating" ? <RatingsSection cars={cars} /> : null}
@@ -266,7 +265,9 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
 export default function DealerPage() {
   const params = new URLSearchParams(window.location.search);
   const dealer: SeoulAutoGalleryDealer = dealers.find((item) => item.shopNo === params.get("shop") && item.empNo === (params.get("emp") ?? item.empNo)) ?? dealers[0];
-  const cars = useMemo(() => seoulAutoGalleryCars.filter((car) => car.dealer.startsWith(dealer.name)), [dealer.name]);
+  const cars = useMemo(() => dealer.shopNo === dealers[0].shopNo
+    ? seoulAutoGalleryCars
+    : seoulAutoGalleryCars.filter((car) => car.dealer.startsWith(dealer.name)), [dealer.name, dealer.shopNo]);
   const linkedCar = cars.find((car) => String(car.id) === params.get("listing"));
 
   if (linkedCar) {
