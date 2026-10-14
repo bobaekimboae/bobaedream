@@ -2,8 +2,21 @@ const params = new URLSearchParams(location.search);
 const id = Number(params.get('id') || 8326278);
 const isNotice = params.get('type') === 'notice' || params.get('notice') === '1';
 const posts = window.BOBAE_POSTS || [];
-const sourcePost = posts.find((item) => item.id === id);
-const isReferencePost = id === 8326278 || id === 8131629 || !sourcePost;
+function loadLocalPost() {
+  if (params.get('local') !== '1') return null;
+  try {
+    const saved = JSON.parse(localStorage.getItem('bbm.community.latestPost.v2') || 'null');
+    const savedId = Date.parse(saved?.submittedAt || saved?.savedAt || '');
+    if (!saved || !savedId || savedId !== id) return null;
+    const container = document.createElement('div');
+    container.innerHTML = saved.body || '';
+    const lines = (container.innerText || container.textContent || '').split(/\n+/).map((value) => value.trim()).filter(Boolean);
+    return { id:savedId, title:saved.title, user:'보배드림 회원', level:1, date:'방금 전', view:0, likes:0, board:saved.board || '자유게시판', tags:saved.tags || '', body:lines.length ? lines : ['내용이 없습니다.'] };
+  } catch { return null; }
+}
+const localSourcePost = loadLocalPost();
+const sourcePost = localSourcePost || posts.find((item) => item.id === id);
+const isReferencePost = !localSourcePost && (id === 8326278 || id === 8131629 || !sourcePost);
 const post = isReferencePost ? {
   title: '출첵!',
   user: '쿠로토라',
@@ -19,7 +32,7 @@ const toast = $('#toast');
 let toastTimer;
 let up = false;
 let down = false;
-let comments = 2;
+let comments = localSourcePost ? 0 : 2;
 
 function showToast(message) {
   toast.textContent = message;
@@ -37,12 +50,23 @@ function setRegularContent() {
   $('#authorName').textContent = post.user || '쿠로토라';
   $('#authorLevel').textContent = post.level || 17;
   $('#authorDate').textContent = post.date || '7시간 전';
-  $('#authorView').textContent = Number(post.view || 34).toLocaleString();
-  $('#score').textContent = Number(post.likes || 16);
+  $('#authorView').textContent = Number(post.view ?? 34).toLocaleString();
+  $('#score').textContent = Number(post.likes ?? 16);
   $('#latestAuthor').textContent = post.user || '쿠로토라';
   if (!isReferencePost) {
     const copy = (post.body && post.body.length ? post.body : ['좋은 정보 함께 나눠요.']).slice(0, 2).join('\n');
     $('#postBody').querySelector('p').textContent = copy;
+  }
+  if (localSourcePost) {
+    $('#boardBtn').childNodes[0].nodeValue = `${post.board.replace('게시판', '').trim()} `;
+    $('#postBody').querySelector('.heroSticker')?.remove();
+    const tagRow = $('#regularPost .tagRow');
+    const tags = String(post.tags || '').split('#').map((value) => value.trim()).filter(Boolean).slice(0, 10);
+    tagRow.replaceChildren(...tags.map((tag) => { const button = document.createElement('button'); button.textContent = `#${tag}`; return button; }));
+    tagRow.hidden = tags.length === 0;
+    $('#commentList').innerHTML = '';
+    $('#commentCount').textContent = '댓글 0';
+    $('#actionCommentCount').textContent = '0';
   }
   document.title = `${$('#postTitle').textContent} | 치지직`;
 }
@@ -66,7 +90,7 @@ function setNoticeMode() {
 }
 
 function updateVote() {
-  const base = Number(post.likes || 16);
+  const base = Number(post.likes ?? 16);
   $('#score').textContent = base + (up ? 1 : 0) - (down ? 1 : 0);
   $('#upBtn').classList.toggle('active', up);
   $('#downBtn').classList.toggle('active', down);
