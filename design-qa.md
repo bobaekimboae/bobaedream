@@ -1298,3 +1298,51 @@ final result: passed
 - `npm run verify:qf`: passed
 
 final result: passed
+
+---
+
+# Design QA · 유튜브 프로필 비율 재조정 (2026-10-15)
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/f53ec7ce-b4f4-4ca5-b5ae-dce638bdddbc/1-1000018254.jpg`
+- live reference: `https://www.youtube.com/@이성미의나는꼰대다`
+- implementation screenshot: Codex IAB capture `dealer-youtube-avatar-review-row-2026-10-15`
+- source pixels: 591 × 1280 px, normalized from device-density capture to 393 CSS px reference width
+- implementation: 393 × 852 CSS px, DPR 1
+- state: 강홍구 딜러 판매자 페이지, 팔로잉 상태
+
+## Full-view comparison evidence
+
+- 원본과 구현을 같은 비교 출력에서 직접 대조했다.
+- 모바일 앱 바는 뒤로가기·검색·더보기의 44px 터치 영역과 56px 높이를 사용한다.
+- 배너는 좌우 16px, 높이 100px, 12px 모서리로 원본 앱 채널의 비율에 맞췄다.
+- 프로필 사진을 112px에서 76px로 축소하고 판매자명·채널명·팔로워/판매중 수를 오른쪽 세 줄로 정렬했다.
+- 평점과 리뷰 수를 이름 영역에서 제거하고 주소 줄 오른쪽에 배치했다.
+
+## Focused region comparison evidence
+
+- 헤더·배너·프로필 사진·판매자명 영역을 집중 비교했다.
+- 원본의 약 76px 프로필 원과 구현의 76px 원을 1:1 CSS 크기로 맞췄다.
+- 자동차 판매자 페이지에 필요한 주소·경력·응답률은 원본 유튜브보다 추가된 의도적 제품 정보다.
+
+## Comparison history
+
+- 이전 P2: 프로필 사진 112px와 146px 배너가 유튜브 원본보다 커서 상단 밀도가 낮았다.
+- fix: 사진 76px, 배너 100px, 앱 바 56px로 조정했다.
+- post-fix evidence: 393px 브라우저 캡처에서 이름의 시작축과 프로필 원 비율이 원본과 일치하고 가로 넘침이 없다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 판매자명 22/28px, 보조 정보 13/18px로 원본의 제목·핸들·구독자 계층을 재현했다.
+- spacing/layout rhythm: 좌우 16~20px 여백, 사진-텍스트 14px 간격, 46px 행동 버튼을 확인했다.
+- colors/tokens: 흰 배경, `#222` 본문, 비팔로우 검정/팔로잉 회색 버튼을 사용한다.
+- image quality/assets: 기존 고해상도 딜러 사진과 서울오토갤러리 배너를 원형·커버 슬롯에 맞게 사용했다.
+- copy/content: `강홍구`, `@서울오토갤러리`, 팔로워, 판매중 수, 주소, 리뷰 정보를 보존했다.
+
+## Verification
+
+- 팔로우 → 팔로잉 상태 전환 확인.
+- 모바일 393 × 852, PC 1440 × 1000 확인.
+- 콘솔 오류 0건.
+- P0/P1/P2 findings: none after the size correction.
+
+final result: passed

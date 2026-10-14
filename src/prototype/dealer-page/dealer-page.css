@@ -14,8 +14,8 @@
 .dp-icon { display: block; width: 24px; height: 24px; flex: none; object-fit: contain; }
 .dp-scroll { position: absolute; inset: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
 
-.dp-site-header { position: sticky; top: 0; z-index: 30; height: 64px; background: #fff; box-shadow: 0 1px 0 var(--dp-line); }
-.dp-mobile-channel-head { display: flex; align-items: center; justify-content: space-between; height: 64px; padding: 0 16px; }
+.dp-site-header { position: sticky; top: 0; z-index: 30; height: 56px; background: #fff; box-shadow: 0 1px 0 var(--dp-line); }
+.dp-mobile-channel-head { display: flex; align-items: center; justify-content: space-between; height: 56px; padding: 0 14px; }
 .dp-mobile-channel-head > button, .dp-mobile-channel-head > div > button { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; }
 .dp-mobile-channel-head > button img { display: block; width: 28px; height: 28px; object-fit: contain; }
 .dp-mobile-channel-head > div { display: flex; align-items: center; gap: 2px; }
@@ -36,39 +36,49 @@
 
 .dp-page { width: 100%; margin: 0 auto; }
 .dp-profile { background: #fff; }
-.dp-cover { position: relative; height: 146px; margin: 8px 16px 0; overflow: hidden; border-radius: 12px; background: #15264c; }
+.dp-cover { position: relative; height: 100px; margin: 8px 16px 0; overflow: hidden; border-radius: 12px; background: #15264c; }
 .dp-cover-photo { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 52%; }
 .dp-cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,19,48,.9), rgba(6,19,48,.35) 62%, rgba(6,19,48,.08)); }
-.dp-cover-brand { position: absolute; z-index: 1; left: 50%; top: 42px; transform: translateX(-50%); color: #fff; text-align: center; text-shadow: 0 1px 2px rgba(0,0,0,.32); white-space: nowrap; }
-.dp-cover-brand strong { display: block; font-size: 18px; line-height: 26px; font-weight: 800; }
+.dp-cover-brand { position: absolute; z-index: 1; left: 50%; top: 23px; transform: translateX(-50%); color: #fff; text-align: center; text-shadow: 0 1px 2px rgba(0,0,0,.32); white-space: nowrap; }
+.dp-cover-brand strong { display: block; font-size: 17px; line-height: 24px; font-weight: 800; }
 .dp-cover-brand small { display: block; margin-top: 2px; font-size: 12px; line-height: 18px; opacity: .86; }
 .dp-cover > span { display: none; position: absolute; z-index: 2; right: 16px; bottom: 16px; padding: 5px 10px; border-radius: 6px; background: rgba(34,34,34,.66); color: #fff; font-size: 12px; line-height: 18px; }
 .dp-cover-more { position: absolute; z-index: 2; top: 12px; right: 12px; display: none; place-items: center; width: 36px; height: 36px; border-radius: 50% !important; background: rgba(255,255,255,.94) !important; }
 .dp-cover-more .dp-icon { width: 20px; height: 20px; }
-.dp-profile-body { position: relative; display: grid; grid-template-columns: 112px minmax(0, 1fr); column-gap: 18px; padding: 18px 20px 26px; }
-.dp-avatar { position: static; z-index: 2; grid-column: 1; grid-row: 1 / span 3; align-self: start; width: 112px; height: 112px; border: 1px solid #e2e2e2; border-radius: 50%; object-fit: cover; background: var(--dp-bg); }
+.dp-profile-body { position: relative; display: grid; grid-template-columns: 76px minmax(0, 1fr); column-gap: 14px; padding: 14px 20px 24px; }
+.dp-avatar { position: static; z-index: 2; grid-column: 1; grid-row: 1 / span 3; align-self: start; width: 76px; height: 76px; border: 1px solid #e2e2e2; border-radius: 50%; object-fit: cover; background: var(--dp-bg); }
 .dp-profile-copy { display: contents; }
-.dp-profile-copy h1 { display: flex; grid-column: 2; grid-row: 1; align-self: end; align-items: center; gap: 5px; font-size: 24px; line-height: 32px; font-weight: 700; letter-spacing: -.3px; }
+.dp-profile-copy h1 { display: flex; grid-column: 2; grid-row: 1; align-self: start; align-items: center; gap: 5px; font-size: 22px; line-height: 28px; font-weight: 700; letter-spacing: -.3px; }
 .dp-profile-copy h1 .is-badge { width: 18px; height: 18px; }
-.dp-profile-actions { display: flex; grid-column: 1 / -1; grid-row: 6; gap: 10px; margin-top: 20px; }
+.dp-profile-actions { display: flex; grid-column: 1 / -1; grid-row: 8; gap: 10px; margin-top: 18px; }
 .dp-profile-actions button { display: flex; align-items: center; justify-content: center; gap: 7px; height: 46px; padding: 0 16px; border: 0; border-radius: 999px; background: #f2f2f2; font-size: 15px; font-weight: 700; }
 .dp-profile-actions button:first-child { width: 92px; border: 1px solid #e2e2e2; background: #fff; }
-.dp-profile-actions button:last-child { flex: 1; }
+.dp-profile-actions button:last-child { flex: 1; background: #0f0f0f; color: #fff; }
+.dp-profile-actions button:last-child .dp-icon { filter: invert(1); }
+.dp-profile-actions button:last-child[aria-pressed="true"] { background: #f2f2f2; color: var(--dp-ink); }
+.dp-profile-actions button:last-child[aria-pressed="true"] .dp-icon { filter: none; }
 .dp-profile-actions .dp-icon { width: 18px; height: 18px; }
 .dp-profile-inline { display: flex; align-items: center; min-width: 0; color: var(--dp-sub); font-size: 14px; line-height: 22px; }
 .dp-profile-inline i { width: 4px; height: 4px; margin: 0 10px; border-radius: 50%; background: #666; }
 .dp-profile-inline u { color: #555; text-underline-offset: 2px; }
+.dp-profile-inline.is-channel-handle { grid-column: 2; grid-row: 2; align-self: center; color: var(--dp-ink); font-size: 13px; line-height: 18px; }
+.dp-profile-inline.is-channel-meta { grid-column: 2; grid-row: 3; align-self: start; color: #666; font-size: 13px; line-height: 18px; }
 .dp-profile-inline.is-first { display: none; }
-.dp-profile-inline.is-rating { grid-column: 2; grid-row: 2; align-self: center; margin-top: 6px; color: var(--dp-ink); }
+.dp-profile-inline.is-rating { display: none; color: var(--dp-ink); }
 .dp-profile-inline.is-rating > b { margin-right: 5px; font-size: 16px; }
 .dp-profile-inline.is-rating > u { margin-left: 8px; }
 .dp-mobile-followers { margin-left: 6px; color: #666; }
 .dp-desktop-career { display: none; align-items: center; gap: 6px; }
 .dp-desktop-career .dp-icon { width: 20px; height: 20px; }
-.dp-profile-inline.is-response { grid-column: 2; grid-row: 3; align-self: start; margin-top: 4px; }
+.dp-profile-inline.is-response { grid-column: 1 / -1; grid-row: 7; margin-top: 10px; }
 .dp-profile-inline.is-response .dp-icon { width: 20px; height: 20px; margin-right: 8px; }
-.dp-profile-inline.is-location { grid-column: 1 / -1; grid-row: 4; margin-top: 18px; }
+.dp-profile-inline.is-location { grid-column: 1 / -1; grid-row: 4; margin-top: 16px; }
 .dp-profile-inline.is-location .dp-icon { width: 22px; height: 22px; margin-right: 8px; }
+.dp-profile-inline.is-location > span:first-of-type { white-space: nowrap; }
+.dp-location-rating { display: inline-flex; align-items: center; gap: 4px; margin-left: auto; color: var(--dp-ink); white-space: nowrap; }
+.dp-location-rating .dp-icon { width: 16px !important; height: 16px !important; margin: 0 !important; }
+.dp-location-rating b { font-size: 14px; }
+.dp-location-rating u { color: var(--dp-ink); }
 .dp-profile-inline.is-career { grid-column: 1 / -1; grid-row: 5; margin-top: 10px; }
 .dp-profile-inline.is-career .dp-icon { width: 20px; height: 20px; margin-right: 8px; }
 .dp-online-dot { width: 10px; height: 10px; border-radius: 50%; background: #999; }
@@ -175,12 +185,13 @@
   .dp-avatar { position: absolute; }
   .dp-profile-copy { display: block; position: relative; padding-top: 0; }
   .dp-profile-copy h1 { font-size: 24px; line-height: 32px; }
+  .dp-profile-inline.is-channel-handle, .dp-profile-inline.is-channel-meta, .dp-location-rating { display: none; }
   .dp-profile-actions { position: absolute; left: 0; top: 118px; gap: 12px; margin: 0; }
   .dp-profile-actions button { min-width: 94px; width: auto; height: 32px; padding: 0 12px; border: 1px solid #d8d8d8; background: #fff; font-size: 14px; }
   .dp-profile-actions button:first-child { width: auto; }
   .dp-profile-actions button:last-child { flex: none; }
   .dp-profile-inline.is-first { display: flex; margin-top: 8px; }
-  .dp-profile-inline.is-rating { margin-top: 8px; }
+  .dp-profile-inline.is-rating { display: flex; margin-top: 8px; }
   .dp-profile-inline.is-response { display: none; }
   .dp-mobile-followers { display: none; }
   .dp-desktop-career { display: flex; }

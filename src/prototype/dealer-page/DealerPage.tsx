@@ -100,6 +100,8 @@ function DealerProfile({ dealer, following, setFollowing, share }: { dealer: Seo
       <img className="dp-avatar" src={asset(`dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`)} alt={`${dealer.name} 프로필`} draggable={false} />
       <div className="dp-profile-copy">
         <h1>{dealer.name}<Icon name="chotot-list-detail-verified-dealer-wavy-badge.svg" className="is-badge" /></h1>
+        <div className="dp-profile-inline is-channel-handle">@서울오토갤러리</div>
+        <div className="dp-profile-inline is-channel-meta">팔로워 {MOCK.followers + (following ? 1 : 0)} · 판매중 7대</div>
         <div className="dp-profile-actions">
           <button type="button" onClick={share}><Icon name="chotot-common-share.svg" />공유</button>
           <button type="button" aria-pressed={following} onClick={() => setFollowing(!following)}><Icon name={following ? "chotot-list-detail-following.svg" : "chotot-list-detail-follow.svg"} />{following ? "팔로잉" : "팔로우"}</button>
@@ -107,7 +109,7 @@ function DealerProfile({ dealer, following, setFollowing, share }: { dealer: Seo
         <div className="dp-profile-inline is-first"><span className="dp-online-dot" />{MOCK.lastActive}<i />응답률: {MOCK.response}<i /><u>팔로워 {MOCK.followers + (following ? 1 : 0)}</u></div>
         <div className="dp-profile-inline is-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>({MOCK.reviewCount}개 평가)</u><span className="dp-mobile-followers">· 팔로워 {MOCK.followers + (following ? 1 : 0)}</span><i /><span className="dp-desktop-career"><Icon name="chotot-common-clock.svg" />{MOCK.joined}</span></div>
         <div className="dp-profile-inline is-response"><Icon name="chotot-list-detail-response-rate.svg" />응답률: {MOCK.response}</div>
-        <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" />{MOCK.address}</div>
+        <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span><span className="dp-location-rating"><Icon name="chotot-list-detail-review-star.svg" /><b>{MOCK.rating}</b><u>리뷰 {MOCK.reviewCount}개</u></span></div>
         <div className="dp-profile-inline is-career"><Icon name="chotot-common-join-date.svg" />{MOCK.joined}</div>
         <p className="dp-intro-copy">{MOCK.intro}</p>
       </div>
