@@ -154,6 +154,10 @@ function DealerProfile({ dealer, listingCount, following, setFollowing, share }:
         <div className="dp-profile-inline is-response"><DealerIcon name="clock" />응답률: {MOCK.response}</div>
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
         <div className="dp-profile-inline is-career"><DealerIcon name="calendar" />{MOCK.joined}</div>
+        <div className="dp-profile-stats" aria-label="판매 실적">
+          <span><small>판매중</small><b>{listingCount}</b></span>
+          <span><small>판매완료</small><b>{MOCK.sold}</b></span>
+        </div>
       </div>
     </div>
   </section>;

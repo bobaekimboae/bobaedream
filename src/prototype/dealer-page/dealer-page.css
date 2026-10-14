@@ -53,11 +53,11 @@
 .dp-profile-copy h1 { display: flex; grid-column: 2; grid-row: 1; align-self: start; align-items: center; gap: 5px; font-size: 22px; line-height: 28px; font-weight: 700; letter-spacing: -.3px; }
 .dp-profile-copy h1 .is-badge { width: 18px; height: 18px; }
 .dp-profile-actions { display: flex; grid-column: 1 / -1; grid-row: 5; justify-content: flex-start; gap: 10px; margin-top: 16px; }
-.dp-profile-actions button { display: flex; width: auto; min-width: 92px; height: 36px; align-items: center; justify-content: center; gap: 7px; padding: 0 14px; border: 1px solid #dedede; border-radius: 8px; background: #fff; font-size: 14px; line-height: 20px; font-weight: 700; }
-.dp-profile-actions button:last-child { min-width: 102px; background: #fff; color: var(--dp-ink); }
+.dp-profile-actions button { display: flex; width: auto; min-width: 84px; height: 32px; align-items: center; justify-content: center; gap: 6px; padding: 0 12px; border: 1px solid #dedede; border-radius: 7px; background: #fff; font-size: 13px; line-height: 18px; font-weight: 700; }
+.dp-profile-actions button:last-child { min-width: 90px; background: #fff; color: var(--dp-ink); }
 .dp-profile-actions button:last-child[aria-pressed="true"] { background: #f4f4f4; color: var(--dp-ink); }
-.dp-profile-actions button > svg { width: 18px; height: 18px; }
-.dp-profile-actions .dp-icon { width: 18px; height: 18px; }
+.dp-profile-actions button > svg { width: 16px; height: 16px; }
+.dp-profile-actions .dp-icon { width: 16px; height: 16px; }
 .dp-profile-inline { display: flex; align-items: center; min-width: 0; color: var(--dp-sub); font-size: 14px; line-height: 22px; }
 .dp-profile-inline i { width: 4px; height: 4px; margin: 0 10px; border-radius: 50%; background: #666; }
 .dp-profile-inline u { color: #555; text-underline-offset: 2px; }
@@ -83,6 +83,11 @@
 .dp-profile-inline.is-location > span:first-of-type { white-space: normal; word-break: keep-all; }
 .dp-profile-inline.is-career { grid-column: 1 / -1; grid-row: 8; margin-top: 12px; }
 .dp-profile-inline.is-career .dp-icon { width: 20px; height: 20px; margin-right: 8px; }
+.dp-profile-stats { display: grid; grid-column: 1 / -1; grid-row: 9; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 16px; overflow: hidden; border: 1px solid #d8d8d8; border-radius: 10px; background: #fff; }
+.dp-profile-stats > span { display: flex; min-height: 68px; flex-direction: column; align-items: center; justify-content: center; gap: 3px; }
+.dp-profile-stats > span + span { border-left: 1px solid #e5e5e5; }
+.dp-profile-stats small { color: #777; font-size: 13px; line-height: 18px; }
+.dp-profile-stats b { color: var(--dp-ink); font-size: 19px; line-height: 24px; font-weight: 600; }
 .dp-online-dot { width: 10px; height: 10px; border-radius: 50%; background: #999; }
 .dp-intro-copy { display: none; }
 .dp-stars { display: inline-flex; gap: 2px; }
@@ -282,6 +287,8 @@
   .dp-desktop-career { display: flex; }
   .dp-profile-inline.is-career { display: none; }
   .dp-profile-inline.is-location { margin-top: 8px; }
+  .dp-profile-stats { width: 360px; margin-top: 14px; }
+  .dp-profile-stats > span { min-height: 62px; }
   .dp-listings { margin-top: 0; padding: 16px 20px 28px; }
   .dp-listings h2, .dp-ratings > h2 { font-size: 20px; line-height: 28px; }
   .dp-listings-shell { margin-top: 10px; }
