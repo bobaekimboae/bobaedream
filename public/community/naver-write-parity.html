@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>카페 글쓰기 UI 동일화 테스트</title>
+    <link rel="stylesheet" href="./naver-write-parity.css" />
+  </head>
+  <body>
+    <main class="write-page" data-testid="write-page">
+      <header class="write-header">
+        <button class="icon-button close-button" type="button" aria-label="닫기" data-action="exit">
+          <img src="./assets/write-parity/close.svg" alt="" />
+        </button>
+        <div class="header-actions">
+          <button class="header-link" type="button" data-action="drafts">임시 <span id="draftCount">0</span></button>
+          <button class="header-link" type="button" data-action="save-draft">임시등록</button>
+          <button class="submit-button" type="button" data-action="submit" disabled>등록</button>
+        </div>
+      </header>
+
+      <button class="board-select" type="button" data-action="board" aria-expanded="false">
+        <span id="selectedBoard">게시판을 선택해주세요.</span>
+        <img src="./assets/write-parity/chevron-down.svg" alt="" />
+      </button>
+
+      <section class="title-area">
+        <label class="sr-only" for="postTitle">제목</label>
+        <input id="postTitle" maxlength="80" placeholder="제목" autocomplete="off" />
+      </section>
+
+      <section class="editor-shell" aria-label="본문 편집기">
+        <div class="primary-toolbar" role="toolbar" aria-label="콘텐츠 도구">
+          <button class="tool-button" type="button" data-dialog="사진"><img src="./assets/write-parity/photo.svg" alt="" /><span>사진</span></button>
+          <button class="tool-button" type="button" data-dialog="동영상"><img src="./assets/write-parity/video.svg" alt="" /><span>동영상</span></button>
+          <button class="tool-button" type="button" data-action="text-tools" aria-expanded="false"><img src="./assets/write-parity/text.svg" alt="" /><span>텍스트 도구막대</span></button>
+          <button class="tool-button" type="button" data-dialog="스티커"><img src="./assets/write-parity/sticker.svg" alt="" /><span>스티커</span></button>
+          <button class="tool-button" type="button" data-dialog="글감"><img src="./assets/write-parity/tag.svg" alt="" /><span>글감</span></button>
+          <button class="tool-button" type="button" data-action="quote"><img src="./assets/write-parity/quote.svg" alt="" /><span>인용구</span></button>
+          <button class="tool-button" type="button" data-action="divider"><img src="./assets/write-parity/strike.svg" alt="" /><span>구분선</span></button>
+          <button class="tool-button" type="button" data-dialog="링크"><img src="./assets/write-parity/link.svg" alt="" /><span>링크</span></button>
+          <button class="tool-button" type="button" data-dialog="파일"><img src="./assets/write-parity/table.svg" alt="" /><span>파일</span></button>
+          <button class="tool-button" type="button" data-dialog="장소"><img src="./assets/write-parity/place.svg" alt="" /><span>장소</span></button>
+        </div>
+
+        <div class="text-toolbar" data-testid="text-toolbar" hidden>
+          <label class="select-label"><span class="sr-only">문단 스타일</span><select><option>본문</option><option>인용구</option></select></label>
+          <button type="button" data-command="font">기본서체</button>
+          <button type="button" data-command="size">15</button>
+          <button class="format-button" type="button" data-command="bold" aria-label="굵게"><img src="./assets/write-parity/bold.svg" alt="" /></button>
+          <button class="format-button" type="button" data-command="italic" aria-label="기울이기"><img src="./assets/write-parity/italic.svg" alt="" /></button>
+          <button class="format-button format-underline" type="button" data-command="underline" aria-label="밑줄">U</button>
+          <button class="format-button color-dot" type="button" data-command="foreColor" aria-label="글자색"><span></span></button>
+          <button class="format-button color-box" type="button" data-command="hiliteColor" aria-label="배경색"><span></span></button>
+          <button class="format-button" type="button" data-dialog="링크" aria-label="링크"><img src="./assets/write-parity/link.svg" alt="" /></button>
+          <button class="format-button" type="button" data-command="strikeThrough" aria-label="취소선"><img src="./assets/write-parity/strike.svg" alt="" /></button>
+        </div>
+
+        <article id="postBody" class="editor-body" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="내용을 입력하세요."></article>
+        <button class="add-body" type="button" data-action="add-body">본문 추가</button>
+      </section>
+
+      <section class="tag-area">
+        <label class="sr-only" for="postTags">태그</label>
+        <input id="postTags" placeholder="#태그 입력(#으로 구분, 최대10개)" autocomplete="off" />
+      </section>
+
+      <section class="public-settings" aria-labelledby="settingsTitle">
+        <div class="settings-title-row">
+          <h2 id="settingsTitle">공개 설정</h2>
+          <button class="visibility-button" type="button" data-dialog="공개 범위">멤버 공개</button>
+        </div>
+        <label class="setting-row">
+          <span><strong>검색 · 네이버 서비스 공개 허용</strong><small>검색 ∙ 네이버 서비스 공개 허용 시 멤버가 아닌 사람도 글을 볼 수 있는 경우가 있습니다.</small></span>
+          <input type="checkbox" checked /><i aria-hidden="true"></i>
+        </label>
+        <label class="setting-row compact"><span><strong>카페 · 블로그 스크랩 허용</strong></span><input type="checkbox" checked /><i aria-hidden="true"></i></label>
+        <label class="setting-row compact"><span><strong>복사 · 저장 허용</strong></span><input type="checkbox" checked /><i aria-hidden="true"></i></label>
+      </section>
+
+      <footer class="write-footer">
+        <div class="footer-actions"><button type="button" data-action="exit">취소</button><button type="button" class="footer-submit" data-action="submit" disabled>등록</button></div>
+        <button class="to-top" type="button" data-action="top"><img src="./assets/write-parity/to-top.svg" alt="" />맨위로</button>
+      </footer>
+    </main>
+
+    <div class="overlay" id="boardOverlay" hidden>
+      <section class="board-modal" role="dialog" aria-modal="true" aria-labelledby="boardTitle">
+        <header><h2 id="boardTitle">게시판 선택</h2><button type="button" aria-label="닫기" data-action="close-board"><img src="./assets/write-parity/close.svg" alt="" /></button></header>
+        <label class="board-search"><img src="./assets/write-parity/search.svg" alt="" /><input id="boardSearch" placeholder="게시판 검색" /></label>
+        <ul id="boardList" class="board-list"></ul>
+      </section>
+    </div>
+
+    <section class="draft-layer" id="draftLayer" aria-labelledby="draftTitle" hidden>
+      <header><button type="button" aria-label="뒤로가기" data-action="close-drafts"><img src="./assets/write-parity/chevron-left.svg" alt="" /></button><h2 id="draftTitle">이 카페 임시글</h2></header>
+      <div class="draft-content" id="draftContent"><p>임시글이 없습니다.</p></div>
+    </section>
+
+    <div class="overlay" id="dialogOverlay" hidden>
+      <section class="small-dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+        <header><h2 id="dialogTitle">안내</h2><button type="button" aria-label="닫기" data-action="close-dialog"><img src="./assets/write-parity/close.svg" alt="" /></button></header>
+        <p id="dialogMessage"></p>
+        <button class="dialog-confirm" type="button" data-action="close-dialog">확인</button>
+      </section>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+    <script src="./naver-write-parity.js"></script>
+  </body>
+</html>

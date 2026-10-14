@@ -1,0 +1,237 @@
+[
+  {
+    "viewport": {
+      "name": "desktop-source-1536x695",
+      "width": 1536,
+      "height": 695
+    },
+    "rects": {
+      "bodyWidth": 1536,
+      "viewportWidth": 1536,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1536,
+        "height": 52
+      },
+      "board": {
+        "x": 16,
+        "y": 52,
+        "width": 1504,
+        "height": 49
+      },
+      "title": {
+        "x": 16,
+        "y": 120,
+        "width": 1504,
+        "height": 47
+      },
+      "toolbar": {
+        "x": 0,
+        "y": 188,
+        "width": 1536,
+        "height": 48
+      },
+      "editor": {
+        "x": 0,
+        "y": 236,
+        "width": 1536,
+        "height": 300
+      },
+      "tag": {
+        "x": 0,
+        "y": 536,
+        "width": 1536,
+        "height": 45
+      }
+    }
+  },
+  {
+    "viewport": {
+      "name": "desktop-1536",
+      "width": 1536,
+      "height": 864
+    },
+    "rects": {
+      "bodyWidth": 1536,
+      "viewportWidth": 1536,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1536,
+        "height": 52
+      },
+      "board": {
+        "x": 16,
+        "y": 52,
+        "width": 1504,
+        "height": 49
+      },
+      "title": {
+        "x": 16,
+        "y": 120,
+        "width": 1504,
+        "height": 47
+      },
+      "toolbar": {
+        "x": 0,
+        "y": 188,
+        "width": 1536,
+        "height": 48
+      },
+      "editor": {
+        "x": 0,
+        "y": 236,
+        "width": 1536,
+        "height": 300
+      },
+      "tag": {
+        "x": 0,
+        "y": 536,
+        "width": 1536,
+        "height": 45
+      }
+    }
+  },
+  {
+    "viewport": {
+      "name": "mobile-384",
+      "width": 384,
+      "height": 844
+    },
+    "rects": {
+      "bodyWidth": 384,
+      "viewportWidth": 384,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 384,
+        "height": 52
+      },
+      "board": {
+        "x": 16,
+        "y": 52,
+        "width": 352,
+        "height": 49
+      },
+      "title": {
+        "x": 16,
+        "y": 120,
+        "width": 352,
+        "height": 47
+      },
+      "toolbar": {
+        "x": 0,
+        "y": 188,
+        "width": 384,
+        "height": 48
+      },
+      "editor": {
+        "x": 0,
+        "y": 236,
+        "width": 384,
+        "height": 300
+      },
+      "tag": {
+        "x": 0,
+        "y": 536,
+        "width": 384,
+        "height": 45
+      }
+    }
+  },
+  {
+    "viewport": {
+      "name": "mobile-360",
+      "width": 360,
+      "height": 800
+    },
+    "rects": {
+      "bodyWidth": 360,
+      "viewportWidth": 360,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 360,
+        "height": 52
+      },
+      "board": {
+        "x": 16,
+        "y": 52,
+        "width": 328,
+        "height": 49
+      },
+      "title": {
+        "x": 16,
+        "y": 120,
+        "width": 328,
+        "height": 47
+      },
+      "toolbar": {
+        "x": 0,
+        "y": 188,
+        "width": 360,
+        "height": 48
+      },
+      "editor": {
+        "x": 0,
+        "y": 236,
+        "width": 360,
+        "height": 300
+      },
+      "tag": {
+        "x": 0,
+        "y": 536,
+        "width": 360,
+        "height": 45
+      }
+    }
+  },
+  {
+    "viewport": {
+      "name": "mobile-412",
+      "width": 412,
+      "height": 915
+    },
+    "rects": {
+      "bodyWidth": 412,
+      "viewportWidth": 412,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 412,
+        "height": 52
+      },
+      "board": {
+        "x": 16,
+        "y": 52,
+        "width": 380,
+        "height": 49
+      },
+      "title": {
+        "x": 16,
+        "y": 120,
+        "width": 380,
+        "height": 47
+      },
+      "toolbar": {
+        "x": 0,
+        "y": 188,
+        "width": 412,
+        "height": 48
+      },
+      "editor": {
+        "x": 0,
+        "y": 236,
+        "width": 412,
+        "height": 300
+      },
+      "tag": {
+        "x": 0,
+        "y": 536,
+        "width": 412,
+        "height": 45
+      }
+    }
+  }
+]

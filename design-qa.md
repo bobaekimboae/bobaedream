@@ -1,3 +1,64 @@
+# Design QA · 네이버 카페 글쓰기 UI 동일화 (2026-10-15)
+
+- source visual truth: `https://m.cafe.naver.com/ca-fe/web/cafes/25233466/articles/write`의 로그인된 실제 글쓰기 화면
+- source capture: Chrome Browser Use 렌더 1536×695 CSS px, DPR 1.25. 계정 보호 정책에 따라 원본 캡처 파일은 저장소에 저장하지 않고 같은 비교 입력에서 구현 캡처와 함께 확인했다.
+- implementation: `http://127.0.0.1:4173/community/naver-write-parity.html`
+- implementation screenshots: `artifacts/community-write-parity-1015/desktop-source-1536x695-viewport.png`, `mobile-384-viewport.png`, `desktop-source-1536x695-board-modal.png`, `mobile-384-filled-tools.png`
+- implementation pixels/CSS/density: 1536×695 / 1536×695 CSS / DPR 1; 384×844 / 384×844 CSS / DPR 1
+- density normalization: CSS 좌표와 컴포넌트 실측을 기준으로 비교하고, 래스터 배율 차이는 판정에서 제외했다.
+- state: 빈 편집기, 게시판 선택 모달, 확장 텍스트 도구막대, 임시글 저장/목록
+
+## Full-view comparison evidence
+
+- 원본과 구현을 같은 Browser Use 비교 입력에서 확인했다.
+- 헤더 52px, 게시판 49px, 제목 47px, 기본 도구막대 48px, 본문 300px, 태그 45px의 세로 구조가 일치한다.
+- 구현의 제목 y=120, 도구막대 y=188, 본문 y=236, 태그 y=536으로 원본 실측 오차 1px 이내다.
+- PC 1536px과 모바일 384·360·412px에서 가로 오버플로가 없고, 도구막대만 의도적으로 가로 스크롤한다.
+
+## Focused region comparison evidence
+
+- 게시판 모달은 원본과 같은 300×417px, 16px 모서리, 40px 검색 필드, 40px 선택 행을 사용한다.
+- 상단 행동은 닫기 / 임시 건수 / 임시등록 / 비활성 등록 순서와 52px 높이를 유지한다.
+- 편집기 툴바의 39px 버튼·44px 중심 간격과 공개 설정의 44×26px 스위치를 집중 대조했다.
+
+## Required fidelity surfaces
+
+- Fonts and typography: 시스템 `-apple-system`, BlinkMacSystemFont, Helvetica Neue, Apple SD Gothic Neo 폴백과 14~17px 위계를 적용했다. 입력·버튼·설정 문구 줄바꿈을 뷰포트별로 확인했다.
+- Spacing and layout rhythm: 좌우 16px, 상단 행 높이, 편집기 300px, 모달 300×417px을 자동 실측으로 고정했다.
+- Colors and visual tokens: 흰 배경, `#f5f6f7` 입력 배경, `#03c75a` 활성색, 옅은 회색 구분선과 비활성 등록색을 대조했다.
+- Image quality and asset fidelity: 사용자 지정 노션 DB의 SVG 21개를 원본 벡터로 저장했으며 매니페스트를 남겼다. 네이버 전용 편집기 스프라이트는 복제하지 않았고, 사용자 지시대로 승인된 노션 자산을 사용했다.
+- Copy and content: 게시판/제목/본문/태그/공개 설정/임시글 문구와 상태가 기준 화면과 일치한다.
+
+## Findings
+
+- P0/P1/P2: 없음.
+- P3: 사진·동영상·글감·파일 등 일부 글리프는 네이버 전용 스프라이트 대신 사용자 지정 노션 DB의 동등 기능 SVG를 사용한다. 버튼 박스·정렬·동작은 기준과 같고, 이는 사용자 지정 자산 원천을 우선한 의도적 차이다.
+- P3: 원본 모바일 384px 화면은 인증된 Chrome 창의 크기 변경 제약으로 직접 저장하지 못했다. 구현은 384·360·412px에서 자동 캡처·실측·상호작용 검증을 완료했다.
+
+## Comparison history
+
+### Pass 1 — blocked
+
+- P2: 제목·도구막대·본문·태그가 원본보다 1~2px 아래에 있었고 게시판 문구가 기본 버튼 패딩 때문에 x=22에서 시작했다.
+- 수정: 제목 영역 상·하 패딩을 각각 1px 줄이고 게시판 버튼 패딩을 0으로 고정했다.
+
+### Pass 2 — passed
+
+- 수정 후 제목 y=120, 도구막대 y=188, 본문 y=236, 태그 y=536, 게시판 문구 x=16.
+- 5개 뷰포트 기능 테스트, 외부 요청 0건, 콘솔·페이지 오류 0건.
+
+## Primary interactions tested
+
+- 게시판 모달 열기/검색/단일 선택/닫기
+- 제목·본문 입력 후 등록 활성화
+- 텍스트 도구막대 열기
+- 임시글 저장/건수/목록/복원/삭제
+- 공개 설정 스위치와 등록 전송 차단
+
+final result: passed
+
+---
+
 # 올드카 기아 브리사 공식 헤리티지 헤더 QA · 2026-10-12
 
 - source visual truth: 기아 헤리티지 아카이브의 1974 브리사 대표 KV
