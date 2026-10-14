@@ -2033,3 +2033,17 @@ final result: passed
 - P0/P1/P2 findings: none
 
 final result: passed
+
+---
+
+# 치지직 상세 · 에어비앤비 팔레트 적용 QA · 2026-10-15
+
+- source visual truth: 저장소의 보배드림 Airbnb 토큰(`public/community/naver-write-parity.css`, `src/prototype/register/bike-register.css`)과 기존 치지직 상세 레이아웃
+- color system: 브랜드 강조 `#FF385C`, 강조 눌림 `#E00B41`, 본문 `#222222`, 보조 `#717171`, 테두리 `#DDDDDD`, 연한 바탕 `#F7F7F7`
+- scope: `public/community/chzzk-detail.html`만 변경하고 네이버 카페 상세페이지는 유지
+- required states: 모바일·PC 기본 화면, 추천·비추 선택, 댓글 입력 포커스·등록
+- mobile evidence: 390×844에서 `#FF385C` 강조색, 추천 1→2, 비추 전환 2→0, 댓글 1→2, 가로 넘침 없음, 깨진 이미지 0건
+- desktop evidence: 1536×900에서 1056px 셸, `#222222` 헤더와 `#FF385C` 강조색, 가로 넘침 없음, 깨진 이미지 0건
+- console: warning/error 0건
+- regression: `npm run verify` 통과(관리자 29건, Sites 4건, 빌드 포함)
+- final result: passed
