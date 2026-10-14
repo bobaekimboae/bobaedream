@@ -13,8 +13,8 @@ export type SeoulAutoGalleryRow = {
   year: number;
   mileage: number;
   fuel: string;
-  /** 만원 */
-  price: number;
+  /** 만원, null = 가격 상담 */
+  price: number | null;
   priceKind: "공개" | "추정";
   /** 실제 상사명 */
   company: string;
@@ -25,9 +25,12 @@ export type SeoulAutoGalleryRow = {
   posted: string;
   /** 시트 「서울오토갤러리」 전체(매물번호 중복 제외 447대)에서 같은 상사·딜러의 판매중 대수 */
   stock: number;
+  /** 2026-10-15 드라이브 원본 사진 폴더(없으면 sag-NN-1..5) */
+  photoSet?: { dir: string; prefix: string; count: number; ratio: [number, number] };
 };
 
 export const seoulAutoGalleryRows: SeoulAutoGalleryRow[] = [
+  {"number": 24, "maker": "랜드로버", "model": "레인지로버", "generation": "4세대", "trim": "5.0 V8 SC LWB SV AB", "year": 2019, "mileage": 52000, "fuel": "가솔린", "price": null, "priceKind": "공개", "company": "(주)투제이모터웍스", "dealer": "김태규", "body": "SUV", "origin": "영국", "posted": "5분 전", "stock": 1, "photoSet": {"dir": "rr", "prefix": "rr", "count": 17, "ratio": [4, 3]}},
   {"number": 1, "maker": "BMW", "model": "M3", "generation": "6세대", "trim": "M3 xDrive 컴페티션 M", "year": 2023, "mileage": 22000, "fuel": "가솔린", "price": 9595, "priceKind": "추정", "company": "(주)디앤디플러스", "dealer": "박상용", "body": "세단", "origin": "독일", "posted": "10분 전", "stock": 3},
   {"number": 2, "maker": "포르쉐", "model": "타이칸", "generation": "", "trim": "EV", "year": 2023, "mileage": 30000, "fuel": "전기", "price": 12690, "priceKind": "추정", "company": "(주)서울자동차선물거래소", "dealer": "권재한", "body": "세단", "origin": "독일", "posted": "17분 전", "stock": 15},
   {"number": 3, "maker": "벤츠", "model": "GLS클래스", "generation": "3세대", "trim": "GLS 580 4매틱", "year": 2022, "mileage": 95000, "fuel": "가솔린", "price": 7575, "priceKind": "추정", "company": "(주)브로엠와이", "dealer": "강홍구", "body": "SUV", "origin": "독일", "posted": "24분 전", "stock": 23},
