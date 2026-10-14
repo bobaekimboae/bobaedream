@@ -22,6 +22,8 @@
   const mediaDialogTitle = document.querySelector("#mediaDialogTitle");
   const uploadHelp = document.querySelector("#uploadHelp");
   const mediaUrl = document.querySelector("#mediaUrl");
+  const embedDialog = document.querySelector("#embedDialog");
+  const embedUrl = document.querySelector("#embedUrl");
   const altDialog = document.querySelector("#altDialog");
   const altText = document.querySelector("#altText");
   const previewDialog = document.querySelector("#previewDialog");
@@ -171,7 +173,11 @@
       <select data-media-action="width" aria-label="미디어 크기">
         <option value="small">작게</option><option value="wide" selected>넓게</option><option value="full">전체</option>
       </select>
+      ${kind === "embed" ? `<select data-media-action="height" aria-label="임베드 높이">
+        <option value="compact">낮게</option><option value="standard" selected>기본 높이</option><option value="tall">높게</option>
+      </select>` : ""}
       ${kind === "image" ? '<button type="button" data-media-action="alt">ALT</button>' : ""}
+      ${kind === "embed" ? '<button type="button" data-media-action="original">원본</button>' : ""}
       <button type="button" data-media-action="replace">교체</button>
       <button type="button" data-media-action="delete">삭제</button>`;
     return tools;
@@ -266,6 +272,110 @@
     return /\.(mp4|webm|mov|m4v|ogv)(?:[?#].*)?$/i.test(value || "");
   }
 
+  function getEmbedInfo(value, mode = "auto") {
+    let parsed;
+    try { parsed = new URL(value); } catch (_) { return null; }
+    if (!["http:", "https:"].includes(parsed.protocol)) return null;
+    const host = parsed.hostname.replace(/^www\./, "").toLowerCase();
+    const fallback = { url: parsed.href, src: "", provider: host, title: host, mode: "bookmark", requestedMode: mode };
+    if (mode === "bookmark") return fallback;
+
+    const videoSrc = toVideoEmbed(parsed.href);
+    if (videoSrc) {
+      return { ...fallback, src: videoSrc, provider: host.includes("vimeo") ? "Vimeo" : "YouTube", title: "동영상 임베드", mode: "embed" };
+    }
+
+    if (host === "open.spotify.com") {
+      const parts = parsed.pathname.split("/").filter(Boolean);
+      if (parts.length >= 2) return { ...fallback, src: `https://open.spotify.com/embed/${encodeURIComponent(parts[0])}/${encodeURIComponent(parts[1])}`, provider: "Spotify", title: "Spotify 임베드", mode: "embed", compact: true };
+    }
+    if (host === "soundcloud.com" || host.endsWith(".soundcloud.com")) {
+      return { ...fallback, src: `https://w.soundcloud.com/player/?url=${encodeURIComponent(parsed.href)}&auto_play=false&show_comments=false`, provider: "SoundCloud", title: "SoundCloud 임베드", mode: "embed", compact: true };
+    }
+    if (host === "codepen.io") {
+      const parts = parsed.pathname.split("/").filter(Boolean);
+      const typeIndex = parts.findIndex((part) => part === "pen" || part === "details");
+      if (typeIndex > 0 && parts[typeIndex + 1]) {
+        const ownerPath = parts.slice(0, typeIndex).map(encodeURIComponent).join("/");
+        return { ...fallback, src: `https://codepen.io/${ownerPath}/embed/${encodeURIComponent(parts[typeIndex + 1])}`, provider: "CodePen", title: "CodePen 임베드", mode: "embed" };
+      }
+    }
+    if (host === "figma.com" || host.endsWith(".figma.com")) {
+      return { ...fallback, src: `https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(parsed.href)}`, provider: "Figma", title: "Figma 임베드", mode: "embed", tall: true };
+    }
+    if ((host === "google.com" || host.endsWith(".google.com")) && parsed.pathname.includes("/maps/embed")) {
+      return { ...fallback, src: parsed.href, provider: "Google Maps", title: "Google 지도 임베드", mode: "embed", tall: true };
+    }
+    if (host === "docs.google.com" && /\/(presentation|spreadsheets|forms)\//.test(parsed.pathname)) {
+      const source = parsed.href.replace(/\/(edit|view)(?:\?.*)?$/, "/preview");
+      return { ...fallback, src: source, provider: "Google", title: "Google 문서 임베드", mode: "embed", tall: true };
+    }
+    if (/(^|\.)(player|embed)\./.test(host) || /\/(embed|player)(\/|$)/.test(parsed.pathname)) {
+      return { ...fallback, src: parsed.href, provider: host, title: "웹 콘텐츠 임베드", mode: "embed" };
+    }
+    return fallback;
+  }
+
+  function createEmbedBlock(info) {
+    const figure = document.createElement("figure");
+    figure.className = "media-block embed-block";
+    figure.setAttribute("contenteditable", "false");
+    figure.dataset.kind = "embed";
+    figure.dataset.width = "wide";
+    figure.dataset.align = "center";
+    figure.dataset.height = info.tall ? "tall" : info.compact ? "compact" : "standard";
+    figure.dataset.embedUrl = info.url;
+    figure.dataset.embedMode = info.requestedMode || info.mode;
+    figure.dataset.embedRender = info.mode;
+    figure.dataset.provider = info.provider;
+    const tools = createMediaTools("embed");
+    tools.querySelector('[data-media-action="height"]').value = figure.dataset.height;
+    figure.append(tools);
+
+    const surface = document.createElement("div");
+    surface.className = "media-surface";
+    if (info.src) {
+      const frame = document.createElement("iframe");
+      frame.src = info.src;
+      frame.title = info.title;
+      frame.loading = "lazy";
+      frame.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture; web-share";
+      frame.allowFullscreen = true;
+      frame.referrerPolicy = "strict-origin-when-cross-origin";
+      frame.setAttribute("sandbox", "allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts");
+      surface.append(frame);
+    } else {
+      const card = document.createElement("a");
+      card.className = "embed-card";
+      card.href = info.url;
+      card.target = "_blank";
+      card.rel = "noopener noreferrer";
+      const mark = document.createElement("span");
+      mark.className = "embed-card-mark";
+      mark.textContent = (info.provider || "W").slice(0, 1);
+      const copy = document.createElement("span");
+      copy.className = "embed-card-copy";
+      const label = document.createElement("strong");
+      label.textContent = info.title || info.provider;
+      const address = document.createElement("small");
+      address.textContent = info.url;
+      copy.append(label, address);
+      const open = document.createElement("span");
+      open.className = "embed-card-open";
+      open.textContent = "원본 열기";
+      card.append(mark, copy, open);
+      surface.append(card);
+    }
+    figure.append(surface);
+    const caption = document.createElement("figcaption");
+    caption.className = "media-caption";
+    caption.contentEditable = "true";
+    caption.dataset.placeholder = "임베드 설명을 입력하세요";
+    caption.setAttribute("aria-label", "임베드 설명");
+    figure.append(caption);
+    return figure;
+  }
+
   async function addFiles(files, kind, replace = false) {
     const allowed = Array.from(files).filter((file) => file.type.startsWith(`${kind}/`));
     if (!allowed.length) return showToast(kind === "image" ? "이미지 파일을 선택해 주세요." : "동영상 파일을 선택해 주세요.");
@@ -333,10 +443,47 @@
     mediaDialog.showModal();
   }
 
+  function openEmbedDialog(block = null) {
+    if (!block) rememberSelection();
+    replaceTarget = block;
+    document.querySelector("#embedDialogTitle").textContent = block ? "임베드 교체" : "임베드 추가";
+    embedUrl.value = block?.dataset.embedUrl || "";
+    const mode = block?.dataset.embedMode === "bookmark" ? "bookmark" : "auto";
+    const option = document.querySelector(`input[name="embedMode"][value="${mode}"]`);
+    if (option) option.checked = true;
+    embedDialog.showModal();
+    setTimeout(() => embedUrl.focus(), 0);
+  }
+
+  function insertEmbed() {
+    const mode = document.querySelector('input[name="embedMode"]:checked')?.value || "auto";
+    const info = getEmbedInfo(embedUrl.value.trim(), mode);
+    if (!info) return showToast("올바른 http:// 또는 https:// 주소를 입력해 주세요.");
+    const block = createEmbedBlock(info);
+    if (replaceTarget?.dataset.kind === "embed") {
+      block.dataset.width = replaceTarget.dataset.width || "wide";
+      block.dataset.align = replaceTarget.dataset.align || "center";
+      block.dataset.height = replaceTarget.dataset.height || block.dataset.height;
+      block.querySelector('[data-media-action="height"]').value = block.dataset.height;
+      block.querySelector(".media-caption").textContent = replaceTarget.querySelector(".media-caption")?.textContent || "";
+      replaceTarget.replaceWith(block);
+      selectBlock(block);
+      scheduleSave();
+      showToast(info.src ? `${info.provider} 임베드로 교체했습니다.` : "링크 카드로 교체했습니다.");
+    } else {
+      insertNodeAtSelection(block);
+      showToast(info.src ? `${info.provider} 콘텐츠를 임베드했습니다.` : "해당 사이트는 링크 카드로 삽입했습니다.");
+    }
+    replaceTarget = null;
+    embedUrl.value = "";
+    embedDialog.close();
+  }
+
   function chooseCommand(command) {
     removeSlashTrigger();
     closeBlockMenu();
     if (command === "image" || command === "video") return openMediaDialog(command);
+    if (command === "embed") return openEmbedDialog();
     editor.focus();
     restoreSelection();
     if (command === "divider") {
@@ -382,6 +529,8 @@
       const tools = createMediaTools(figure.dataset.kind);
       tools.querySelector('[data-media-action="align"]').value = figure.dataset.align || "center";
       tools.querySelector('[data-media-action="width"]').value = figure.dataset.width || "wide";
+      const heightControl = tools.querySelector('[data-media-action="height"]');
+      if (heightControl) heightControl.value = figure.dataset.height || "standard";
       figure.prepend(tools);
       const id = figure.dataset.mediaId;
       const url = figure.dataset.embedUrl;
@@ -394,7 +543,11 @@
           media.dataset.objectUrl = objectUrl;
         }
       } else if (url && media) {
-        media.src = media.tagName === "IFRAME" ? toVideoEmbed(url) : url;
+        if (figure.dataset.kind === "embed" && media.tagName === "IFRAME") {
+          media.src = getEmbedInfo(url, figure.dataset.embedMode)?.src || "";
+        } else {
+          media.src = media.tagName === "IFRAME" ? toVideoEmbed(url) : url;
+        }
       }
       if (figure.querySelector("img")?.alt) addAltChip(figure);
     }
@@ -490,6 +643,7 @@
     const action = event.target.closest("[data-action]")?.dataset.action;
     if (action === "add-image") openMediaDialog("image");
     if (action === "add-video") openMediaDialog("video");
+    if (action === "add-embed") openEmbedDialog();
     if (action === "preview") buildPreview();
     if (action === "close-preview") previewDialog.close();
     if (action === "publish") {
@@ -512,6 +666,10 @@
   mediaUrl.addEventListener("keydown", (event) => {
     if (event.key === "Enter") { event.preventDefault(); addMediaUrl(pendingKind, mediaUrl.value.trim()); }
   });
+  document.querySelector("#insertEmbedButton").addEventListener("click", insertEmbed);
+  embedUrl.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") { event.preventDefault(); insertEmbed(); }
+  });
 
   imageInput.addEventListener("change", () => addFiles(imageInput.files, "image"));
   videoInput.addEventListener("change", () => addFiles(videoInput.files, "video"));
@@ -524,6 +682,7 @@
     if (!figure) return;
     if (control.dataset.mediaAction === "align") figure.dataset.align = control.value;
     if (control.dataset.mediaAction === "width") figure.dataset.width = control.value;
+    if (control.dataset.mediaAction === "height") figure.dataset.height = control.value;
     scheduleSave();
   });
   editor.addEventListener("click", async (event) => {
@@ -542,7 +701,11 @@
     }
     if (action === "replace") {
       replaceTarget = figure;
-      (figure.dataset.kind === "image" ? replaceImageInput : replaceVideoInput).click();
+      if (figure.dataset.kind === "embed") openEmbedDialog(figure);
+      else (figure.dataset.kind === "image" ? replaceImageInput : replaceVideoInput).click();
+    }
+    if (action === "original") {
+      window.open(figure.dataset.embedUrl, "_blank", "noopener,noreferrer");
     }
     if (action === "alt") {
       selectedBlock = figure;
