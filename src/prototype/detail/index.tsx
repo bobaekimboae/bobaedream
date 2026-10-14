@@ -1334,6 +1334,7 @@ function DetailTabs() {
 
 function VehicleDetail() {
   const flow = useFlow();
+  const goBack = () => flow.canGoBack ? flow.pop() : window.history.back();
   const activeCar = getActiveDetailCar();
   const [desktop, setDesktop] = useState(() => isDesktopPreview() && window.matchMedia("(min-width: 820px)").matches);
   useEffect(() => {
@@ -1350,7 +1351,7 @@ function VehicleDetail() {
   if (activeCar?.bike) {
     return (
       <div className="detail-scene">
-        <MobileScroll className="detail-screen"><BikeVehicleDetail car={activeCar} onBack={flow.pop} /></MobileScroll>
+        <MobileScroll className="detail-screen"><BikeVehicleDetail car={activeCar} onBack={goBack} /></MobileScroll>
         {toast ? <div className="detail-toast" role="status">{toast}</div> : null}
       </div>
     );
@@ -1358,9 +1359,9 @@ function VehicleDetail() {
   return (
     <div className="detail-scene">
       <MobileScroll className="detail-screen">
-        {desktop ? <DesktopVehicleDetail onBack={flow.pop} /> : <>
+        {desktop ? <DesktopVehicleDetail onBack={goBack} /> : <>
         <main className="vehicle-detail" aria-label="중고차 상세">
-          <DetailHero onBack={flow.pop} />
+          <DetailHero onBack={goBack} />
           <VehicleSummary />
           <DetailTabs />
           <div className="detail-gray-stack">

@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type RefObject } from "react";
-import { asset, seoulAutoGalleryCars, type Car } from "../data";
+import { FlowStack, type FlowScreen } from "../../mobile";
+import { DetailFooter, DetailUiProvider, VehicleDetail } from "../detail";
+import { FavoritesProvider, asset, seoulAutoGalleryCars, setActiveDetailCar, type Car } from "../data";
 import { dealers, type SeoulAutoGalleryDealer } from "../listing/seoul-auto-gallery-dealer-rail";
 import { setPretendard } from "../fonts/pretendard";
 import "./dealer-page.css";
@@ -11,6 +13,13 @@ const bobaeAsset = (name: string) => asset(`pc-detail/${name}`);
 type SectionId = "intro" | "ads" | "rating";
 type ListingMode = "active" | "sold";
 type ReviewFilter = "all" | "buyer" | "seller";
+
+const dealerDetailScreen: FlowScreen = {
+  id: "dealer-vehicle-detail",
+  footer: () => <DetailFooter />,
+  footerHeight: 56,
+  render: () => <VehicleDetail />,
+};
 
 const MOCK = {
   rating: 4.8,
@@ -117,10 +126,10 @@ function DealerProfile({ dealer, following, setFollowing, share }: { dealer: Seo
   </section>;
 }
 
-function ActiveCards({ cars, limit, notify }: { cars: Car[]; limit: number; notify: (text: string) => void }) {
+function ActiveCards({ cars, limit, onOpen }: { cars: Car[]; limit: number; onOpen: (car: Car) => void }) {
   const [liked, setLiked] = useState<Set<number>>(new Set());
   return <div className="dp-listings-grid">{cars.slice(0, limit).map((car) => (
-    <article className="dp-listing-card" key={car.id} onClick={() => notify(`${car.title} 상세를 선택했어요`)}>
+    <article className="dp-listing-card" key={car.id} role="link" tabIndex={0} aria-label={`${car.title} ${car.trim} 상세 보기`} onClick={() => onOpen(car)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); onOpen(car); } }}>
       <div className="dp-listing-media">
         <img src={asset(car.listThumb ?? car.image)} alt="" draggable={false} />
         <span>{car.posted}</span>
@@ -146,7 +155,7 @@ function SoldCards({ limit }: { limit: number }) {
   ))}</div>;
 }
 
-function ListingsSection({ cars, mode, setMode, notify }: { cars: Car[]; mode: ListingMode; setMode: (mode: ListingMode) => void; notify: (text: string) => void }) {
+function ListingsSection({ cars, mode, setMode, onOpen }: { cars: Car[]; mode: ListingMode; setMode: (mode: ListingMode) => void; onOpen: (car: Car) => void }) {
   const [limit, setLimit] = useState(5);
   const total = cars.length + MOCK.sold;
   const max = mode === "active" ? cars.length : MOCK.soldCars.length;
@@ -156,7 +165,7 @@ function ListingsSection({ cars, mode, setMode, notify }: { cars: Car[]; mode: L
       <button type="button" role="tab" aria-selected={mode === "active"} onClick={() => { setMode("active"); setLimit(5); }}>판매중 ({cars.length})</button>
       <button type="button" role="tab" aria-selected={mode === "sold"} onClick={() => { setMode("sold"); setLimit(5); }}>판매완료 ({MOCK.sold})</button>
     </div>
-    {mode === "active" ? <ActiveCards cars={cars} limit={limit} notify={notify} /> : <SoldCards limit={limit} />}
+    {mode === "active" ? <ActiveCards cars={cars} limit={limit} onOpen={onOpen} /> : <SoldCards limit={limit} />}
     {limit < max ? <button type="button" className="dp-more" onClick={() => setLimit((value) => Math.min(value + 5, max))}>매물 더보기</button> : null}
   </section>;
 }
@@ -195,10 +204,7 @@ function Footer() {
   return <footer className="dp-footer"><div className="dp-footer-brand"><img src={bobaeAsset("9546-imgLogo.svg")} alt="보배드림" /><span>믿을 수 있는 자동차 거래</span></div><div className="dp-footer-links"><span>회사소개</span><span>이용약관</span><span>개인정보처리방침</span><span>고객센터</span></div><small>© BOBae Network. All rights reserved.</small></footer>;
 }
 
-export default function DealerPage() {
-  const params = new URLSearchParams(window.location.search);
-  const dealer: SeoulAutoGalleryDealer = dealers.find((item) => item.shopNo === params.get("shop") && item.empNo === (params.get("emp") ?? item.empNo)) ?? dealers[0];
-  const cars = useMemo(() => seoulAutoGalleryCars.filter((car) => car.dealer.startsWith(dealer.name)), [dealer.name]);
+function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; cars: Car[] }) {
   const [following, setFollowing] = useState(false);
   const [mode, setMode] = useState<ListingMode>("active");
   const [activeSection, setActiveSection] = useState<SectionId>("intro");
@@ -225,6 +231,14 @@ export default function DealerPage() {
   }, []);
 
   const notify = (message: string) => { setToast(message); window.setTimeout(() => setToast(""), 1800); };
+  const openListing = (car: Car) => {
+    const target = new URL(window.location.href);
+    target.searchParams.set("profile", "dealer");
+    target.searchParams.set("shop", dealer.shopNo);
+    target.searchParams.set("emp", dealer.empNo);
+    target.searchParams.set("listing", String(car.id));
+    window.location.assign(`${target.pathname}${target.search}${target.hash}`);
+  };
   const share = async () => {
     try {
       if (navigator.share) await navigator.share({ title: `${dealer.name} 딜러`, url: window.location.href });
@@ -243,7 +257,7 @@ export default function DealerPage() {
       <SiteHeader />
       <main className="dp-page" aria-label={`${dealer.name} 딜러 판매자 페이지`}>
         <div ref={introRef}><DealerProfile dealer={dealer} following={following} setFollowing={setFollowing} share={share} /></div>
-        <div ref={adsRef}><ListingsSection cars={cars} mode={mode} setMode={setMode} notify={notify} /></div>
+        <div ref={adsRef}><ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /></div>
         <AnchorNav active={activeSection} goTo={goTo} total={cars.length + MOCK.sold} />
         <div ref={ratingRef}><RatingsSection cars={cars} /></div>
       </main>
@@ -251,4 +265,18 @@ export default function DealerPage() {
     </div>
     {toast ? <div className="dp-toast" role="status">{toast}</div> : null}
   </div>;
+}
+
+export default function DealerPage() {
+  const params = new URLSearchParams(window.location.search);
+  const dealer: SeoulAutoGalleryDealer = dealers.find((item) => item.shopNo === params.get("shop") && item.empNo === (params.get("emp") ?? item.empNo)) ?? dealers[0];
+  const cars = useMemo(() => seoulAutoGalleryCars.filter((car) => car.dealer.startsWith(dealer.name)), [dealer.name]);
+  const linkedCar = cars.find((car) => String(car.id) === params.get("listing"));
+
+  if (linkedCar) {
+    setActiveDetailCar(linkedCar);
+    return <FavoritesProvider><DetailUiProvider><FlowStack initial={dealerDetailScreen} /></DetailUiProvider></FavoritesProvider>;
+  }
+
+  return <DealerProfilePage dealer={dealer} cars={cars} />;
 }
