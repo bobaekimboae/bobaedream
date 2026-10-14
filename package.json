@@ -38,13 +38,15 @@
     "check:models": "node scripts/model-catalog-check.mjs",
     "check:stability": "node scripts/stability-check.mjs",
     "check:model-images": "node scripts/model-images-check.mjs",
-    "check:category-photos": "node scripts/audit-category-photo-v02.mjs"
-    ,"catalog:data": "node scripts/build-vehicle-catalog-static.mjs"
-    ,"catalog:verify": "node scripts/verify-vehicle-catalog-static.mjs && node scripts/verify-vehicle-catalog-search.mjs"
-    ,"catalog:verify:ui": "node scripts/verify-vehicle-catalog-ui.mjs"
-    ,"community:verify:write-parity": "node scripts/community-write-parity-check.mjs"
-    ,"community:verify:write-tools": "node scripts/community-write-tools-check.mjs"
-    ,"community:verify:attachments": "node scripts/community-write-attachments-check.mjs"
+    "check:category-photos": "node scripts/audit-category-photo-v02.mjs",
+    "catalog:data": "node scripts/build-vehicle-catalog-static.mjs",
+    "catalog:verify": "node scripts/verify-vehicle-catalog-static.mjs && node scripts/verify-vehicle-catalog-search.mjs",
+    "catalog:verify:ui": "node scripts/verify-vehicle-catalog-ui.mjs",
+    "community:verify:write-parity": "node scripts/community-write-parity-check.mjs",
+    "community:verify:write-tools": "node scripts/community-write-tools-check.mjs",
+    "community:verify:attachments": "node scripts/community-write-attachments-check.mjs",
+    "community:build:emoji": "node scripts/build-community-emoji-data.mjs",
+    "community:verify:emoji": "node scripts/community-emoji-data-check.mjs"
   },
   "dependencies": {
     "@fontsource/roboto": "5.2.10",
@@ -68,6 +70,7 @@
     "chromatic": "^18.7.2",
     "storybook": "^10.5.10",
     "typescript": "7.0.2",
+    "unicode-emoji": "^2.8.0",
     "vite": "8.1.3"
   }
 }
