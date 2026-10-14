@@ -156,6 +156,52 @@ final result: passed
 
 ---
 
+# Design QA · 김태규 딜러 초톳형 프로필 정리 (2026-10-15)
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/8cdec0e6-56e0-42be-bc3d-9c6f5ad7d870/1-1000018278.jpg`
+- official business source: `https://www.carku.kr/info/sangsa-info.html?wShopNo=450554`
+- official dealer source: `https://www.carku.kr/info/dealer-info.html?wShopNo=450554&wEmpNo=1`
+- implementation screenshot: Codex IAB capture `dealer-kim-taegyu-premium-mobile-2026-10-15`
+- source pixels: 591 × 1280 px, 393 CSS px 기준으로 정규화
+- implementation: 394 × 852 CSS px, 모바일 판매차량 탭·판매중 선택
+
+## Full-view comparison evidence
+
+- 초톳 참고 화면처럼 판매자명 아래에 평점·별점·평가 수를 배치하고, 주소 줄에 섞여 있던 리뷰 요소를 분리했다.
+- 헤더 하단 그림자를 제거해 앱 바와 커버 사이의 불필요한 구분선을 없앴다.
+- 상단 탭의 `판매차량`과 본문 제목 `판매차량 24`가 중복되던 구조에서 본문 제목을 제거했다.
+- 커버에는 실제 소속 상사 `(주)투제이모터웍스`를 유리 패널형 명판으로 표시하고 서울오토갤러리 건물 사진을 어두운 남색·샴페인 톤으로 정리했다.
+
+## Focused region comparison evidence
+
+- 판매자명 `김태규`, 소속 상사, 서울SAG, 판매중 수가 프로필 사진 오른쪽의 네 줄 안에서 읽힌다.
+- 공식 등록 사진을 기반으로 얼굴 정체성을 유지한 정장·쇼룸 프로필 보정본을 76px 원형 슬롯에 적용했다.
+- 공유·팔로우는 36px 흰 외곽 버튼으로 유지하고, 평점 행 바로 아래에 배치했다.
+- 공식 주소는 `서울특별시 서초구 양재대로11길 36 은관 421호 (양재동)`로 두 줄 허용해 잘림을 방지했다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 판매자명 22/28px, 상사·단지 정보 13/18px, 평점 14px와 14px 별 아이콘을 확인했다.
+- spacing/layout rhythm: 16px 커버 여백, 14px 사진-텍스트 간격, 10px 행동 버튼 간격을 확인했다.
+- colors/tokens: `#222` 본문, `#2764af` 평가 링크, `#d8bd77` 커버 포인트, 남색 반투명 명판을 사용했다.
+- image quality/assets: 공식 딜러 사진에서 생성한 1254 × 1254 보정 프로필과 2048 × 750 서울오토갤러리 커버를 사용했다.
+- copy/content: 상사명, 대표자, 허가번호, 사업자번호, 전화, 팩스, 주소, 종사원번호, 소속 직원 수를 공식 등록 정보와 대조했다.
+
+## Verification
+
+- 모바일 394 × 852, PC 1280 × 720 확인.
+- 모바일 가로 넘침 없음 (`scrollWidth = innerWidth = 394`).
+- 중복 `판매차량` 본문 제목 0개, 실제 목록 카드 5개 초기 노출.
+- 소개 탭에서 공식 상사·딜러 정보 전 항목 노출 확인.
+- 콘솔 오류 0건.
+- `npm run build`: passed.
+- `npm run verify:qf`: passed.
+- P0/P1/P2 findings: none after fixes.
+
+final result: passed
+
+---
+
 # Design QA · 네이버 카페 게시글 목록 밀도 동일화 (2026-10-15)
 
 - source visual truth: `https://m.cafe.naver.com/ca-fe/bimmerwerks?tc=section_home_my_cafe`

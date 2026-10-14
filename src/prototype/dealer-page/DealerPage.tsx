@@ -31,8 +31,16 @@ const MOCK = {
   lastActive: "6시간 전 활동",
   response: "보통 1시간 이내",
   joined: "딜러 경력 7년",
-  address: "서울 서초구 양재동",
-  intro: "서울오토갤러리에서 수입차를 전문으로 판매합니다. 모든 차량의 상태와 이력을 직접 확인하고, 정확한 정보와 투명한 상담을 약속드립니다.",
+  company: "(주)투제이모터웍스",
+  complex: "서울SAG · 서울오토갤러리",
+  licenseNo: "02-1123-000075",
+  businessNo: "462-86-03494",
+  employeeNo: "26-003-00097",
+  phone: "02-2059-5211",
+  fax: "02-2059-5200",
+  staff: "4명",
+  address: "서울특별시 서초구 양재대로11길 36 은관 421호 (양재동)",
+  intro: "서울오토갤러리 은관에 위치한 (주)투제이모터웍스 대표 김태규입니다. 모든 차량의 상태와 이력을 직접 확인하고, 정확한 정보와 투명한 상담을 약속드립니다.",
   reviews: [
     { name: "김**", role: "buyer", score: 4, date: "3개월 전", car: "벤츠 GLS클래스 3세대", price: "7,575만원" },
     { name: "박**", role: "buyer", score: 5, date: "5개월 전", car: "벤츠 E클래스 5세대", price: "4,344만원" },
@@ -103,7 +111,7 @@ function DealerProfile({ dealer, listingCount, following, setFollowing, share }:
   return <section className="dp-profile">
     <div className="dp-cover">
       <img className="dp-cover-photo" src={asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt="서울오토갤러리 전경" draggable={false} />
-      <div className="dp-cover-brand"><strong>서울오토갤러리</strong><small>수입차 전문 매매단지</small></div>
+      <div className="dp-cover-brand"><small>{MOCK.complex}</small><strong>{MOCK.company}</strong><em>IMPORT MOTORS · SEOUL</em></div>
       <span>{MOCK.lastActive}</span>
       <button type="button" className="dp-cover-more" aria-label="판매자 메뉴"><Icon name="chotot-common-more.svg" /></button>
     </div>
@@ -111,8 +119,9 @@ function DealerProfile({ dealer, listingCount, following, setFollowing, share }:
       <img className="dp-avatar" src={asset(`dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`)} alt={`${dealer.name} 프로필`} draggable={false} />
       <div className="dp-profile-copy">
         <h1>{dealer.name}<Icon name="chotot-list-detail-verified-dealer-wavy-badge.svg" className="is-badge" /></h1>
-        <div className="dp-profile-inline is-channel-handle">@서울오토갤러리</div>
-        <div className="dp-profile-inline is-channel-meta">팔로워 {MOCK.followers + (following ? 1 : 0)} · 판매중 {listingCount}대</div>
+        <div className="dp-profile-inline is-channel-handle">대표 · {MOCK.company}</div>
+        <div className="dp-profile-inline is-channel-meta">{MOCK.complex} · 판매중 {listingCount}대</div>
+        <div className="dp-profile-inline is-mobile-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>({MOCK.reviewCount}개 평가)</u><span>· 팔로워 {MOCK.followers + (following ? 1 : 0)}</span></div>
         <div className="dp-profile-actions">
           <button type="button" onClick={share}><Icon name="chotot-common-share.svg" />공유</button>
           <button type="button" aria-pressed={following} onClick={() => setFollowing(!following)}>{following ? <CheckIcon aria-hidden="true" /> : <PlusIcon aria-hidden="true" />}{following ? "팔로잉" : "팔로우"}</button>
@@ -120,7 +129,7 @@ function DealerProfile({ dealer, listingCount, following, setFollowing, share }:
         <div className="dp-profile-inline is-first"><span className="dp-online-dot" />{MOCK.lastActive}<i />응답률: {MOCK.response}<i /><u>팔로워 {MOCK.followers + (following ? 1 : 0)}</u></div>
         <div className="dp-profile-inline is-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>({MOCK.reviewCount}개 평가)</u><span className="dp-mobile-followers">· 팔로워 {MOCK.followers + (following ? 1 : 0)}</span><i /><span className="dp-desktop-career"><Icon name="chotot-common-clock.svg" />{MOCK.joined}</span></div>
         <div className="dp-profile-inline is-response"><Icon name="chotot-list-detail-response-rate.svg" />응답률: {MOCK.response}</div>
-        <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span><span className="dp-location-rating"><Icon name="chotot-list-detail-review-star.svg" /><b>{MOCK.rating}</b><u>리뷰 {MOCK.reviewCount}개</u></span></div>
+        <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
         <div className="dp-profile-inline is-career"><Icon name="chotot-common-join-date.svg" />{MOCK.joined}</div>
       </div>
     </div>
@@ -170,7 +179,6 @@ function ListingsSection({ cars, mode, setMode, onOpen }: { cars: Car[]; mode: L
   const [limit, setLimit] = useState(5);
   const max = mode === "active" ? cars.length : MOCK.soldCars.length;
   return <section className="dp-content-card dp-listings">
-    <h2>판매차량 <span>{cars.length}</span></h2>
     <div className="dp-listing-modes" role="tablist" aria-label="판매 상태">
       <button type="button" role="tab" aria-selected={mode === "active"} onClick={() => { setMode("active"); setLimit(5); }}>판매중 ({cars.length})</button>
       <button type="button" role="tab" aria-selected={mode === "sold"} onClick={() => { setMode("sold"); setLimit(5); }}>판매완료 ({MOCK.sold})</button>
@@ -219,6 +227,13 @@ function AboutSection() {
       <div><dt>활동 지역</dt><dd>{MOCK.address}</dd></div>
       <div><dt>응답 시간</dt><dd>{MOCK.response}</dd></div>
       <div><dt>딜러 경력</dt><dd>7년</dd></div>
+      <div><dt>소속 상사</dt><dd>{MOCK.company}</dd></div>
+      <div><dt>종사원 번호</dt><dd>{MOCK.employeeNo}</dd></div>
+      <div><dt>상사 허가번호</dt><dd>{MOCK.licenseNo}</dd></div>
+      <div><dt>사업자 번호</dt><dd>{MOCK.businessNo}</dd></div>
+      <div><dt>상사 연락처</dt><dd>{MOCK.phone}</dd></div>
+      <div><dt>팩스</dt><dd>{MOCK.fax}</dd></div>
+      <div><dt>소속 직원</dt><dd>{MOCK.staff}</dd></div>
     </dl>
   </section>;
 }
