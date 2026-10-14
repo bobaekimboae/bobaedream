@@ -19,10 +19,19 @@ await page.evaluate(() => {
   localStorage.removeItem('bbm.community.latestPost.v2');
   localStorage.removeItem('bbm.community.writeDraft.v2');
 });
-await page.reload({ waitUntil:'domcontentloaded' });
+await page.reload({ waitUntil:'commit' });
+await page.locator('#typeLabel').waitFor({ state:'visible' });
 
 check((await page.locator('#typeLabel').textContent())?.trim() === '간결형', 'default list mode is not compact');
 check(await page.locator('.fab').isVisible(), 'compact list write button is missing');
+const titleStyle = await page.locator('.itemTitle').first().evaluate((element) => ({ fontSize:getComputedStyle(element).fontSize }));
+const replyStyle = await page.locator('.compactReply').first().evaluate((element) => {
+  const style = getComputedStyle(element);
+  return { color:style.color, fontSize:style.fontSize };
+});
+check(replyStyle.color === 'rgb(35, 143, 227)', 'compact reply count is not Bobaedream blue');
+check(replyStyle.fontSize === titleStyle.fontSize, 'compact reply parentheses and number do not match the title size');
+check(/^\(\d+\)$/.test((await page.locator('.compactReply').first().textContent())?.trim() || ''), 'compact reply count format is not (number)');
 await Promise.all([
   page.waitForURL(/naver-write-parity\.html/),
   page.locator('.fab').click(),
