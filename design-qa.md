@@ -2096,3 +2096,51 @@ final result: passed
 - console: warning/error 0건
 - regression: `npm run verify` 통과(관리자 29건, Sites 4건, 빌드 포함)
 - final result: passed
+
+---
+
+# 치지직 상세 · 모바일 레퍼런스 v3 QA · 2026-10-15
+
+- source visual truth:
+  - 일반글: `.codex-remote-attachments/01a128e5-de8a-78d0-9ed9-96cbde6a07c3/05b4afa3-384c-4b00-99d0-0beffae80c58/2-1000018294.png`
+  - 공지글: `.codex-remote-attachments/01a128e5-de8a-78d0-9ed9-96cbde6a07c3/05b4afa3-384c-4b00-99d0-0beffae80c58/1-1000018292.jpg`
+- implementation screenshots:
+  - `artifacts/chzzk-detail-reference-v3/implementation-regular-600.png`
+  - `artifacts/chzzk-detail-reference-v3/implementation-notice-content-591x1150.png`
+- normalized comparisons:
+  - `artifacts/chzzk-detail-reference-v3/comparison-regular-content.png`
+  - `artifacts/chzzk-detail-reference-v3/comparison-notice-content.png`
+- viewport and density:
+  - 일반글 원본 1080×3689px에서 Android 상태바 98px을 제외하고 584px 폭으로 정규화; 구현 CSS viewport 600×1280, DPR 1, 전체 캡처 584×1948px
+  - 공지글 원본 591×1280px에서 상태바·시스템 내비게이션을 제외한 591×1150px 콘텐츠 영역; 구현 CSS viewport 591×1150, DPR 1
+- states: 일반글 기본, 버프 16→17, 너프 전환 17→15, 댓글 입력·등록 2→3, 공지글 댓글 비활성
+
+## Full-view comparison evidence
+
+- 상단 흰 헤더, 이벤트 띠, 자유 게시판 라벨, 제목·작성자, 본문 스티커, 태그, 버프/너프, 전폭 배너, 최신글 카드, 댓글·답글, 맨 위로, 하단 입력창의 순서를 참고 화면과 동일하게 구성했다.
+- 공지글은 일반글 헤더·댓글을 숨기고 긴 본문, 업데이트 시각, 태그, 버프/너프, 배너, 최신글, 댓글 비활성 입력창만 노출한다.
+- 참고 화면의 외부 광고는 제품 맥락상 기존 보배드림 드라이브 챌린지 배너로 교체했고, 초록 서비스 강조 외에 기존 요청의 Airbnb `#FF385C` 상호작용 색을 유지했다.
+
+## Required fidelity surfaces
+
+- fonts/typography: Pretendard, 16–24px 위계, 제목 700대 굵기, 댓글·메타 13–17px를 확인했다.
+- spacing/layout rhythm: 모바일 23–24px 좌우 여백, 64px 헤더, 65px 이벤트 띠, 20–22px 최신글 카드 반경과 전체 세로 순서를 비교했다.
+- colors/tokens: 흰 표면, `#222` 본문, `#F7F7F7` 카드, `#00A86B` 게시판 라벨, `#FF385C` 상호작용 강조를 확인했다.
+- image quality/assets: 생성한 고양이 본문·답글 스티커와 작성자 아바타를 실제 PNG로 배치했다. 깨진 이미지 0건이다.
+- copy/content: `치지직`, 이벤트, `출첵!`, 태그, 최신글, 클린봇, 댓글/답글, 공지 안내 문구와 댓글 비활성 문구를 확인했다.
+- focused region: 정규화된 전체 비교가 원본 픽셀 크기를 유지해 헤더·본문·댓글 텍스트와 아이콘이 읽히므로 별도 확대 크롭은 필요하지 않았다.
+
+## Comparison history
+
+- P2 before: 구현의 모바일 제목·최신글·댓글 글자가 참고 화면보다 1–2px 작아 정보 밀도가 달랐다.
+- fix: 이벤트 18px, 제목 24px, 작성자 17px, 태그 16–17px, 최신글 18px, 댓글 16–17px로 조정하고 카드 높이를 늘렸다.
+- post-fix: `comparison-regular-content.png`에서 제목·작성자·최신글·댓글 위계와 세로 리듬이 참고 화면에 근접했다.
+- P3 accepted: 배너 문안과 Airbnb 핑크 강조은 보배드림 브랜드·직전 사용자 지시를 따르는 의도적 차이다.
+
+## Verification
+
+- 모바일 일반글·공지글: 가로 넘침 없음, 깨진 이미지 0건, 콘솔 warning/error 0건
+- PC 1536×639: 760px 중앙 셸, 가로 넘침 없음, 깨진 이미지 0건
+- `npm run verify`: passed(관리자 29건, Sites 4건, 빌드 포함)
+
+final result: passed
