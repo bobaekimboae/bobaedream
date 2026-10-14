@@ -70,17 +70,6 @@ function InfoGrid({ items }: { items: string[][] }) {
   return <dl className="detail-info-grid">{items.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>;
 }
 
-// 상세 상단 메타의 세대·코드네임. 현재 실매물 제목에 세대만 있고 코드가 빠진 M3 G80을 먼저 연결한다.
-// 다른 매물은 데이터에 함께 들어 있는 값만 표시해 근거 없는 코드네임을 만들지 않는다.
-function detailGenerationLabel(car: Car) {
-  const name = `${car.title} ${car.trim}`;
-  if (car.maker === "BMW" && /\bM3\b/.test(name) && /6세대/.test(name)) return "6세대 (G80)";
-  const generation = name.match(/(\d+세대)/)?.[1] ?? "";
-  const code = name.match(/\(([A-Z][A-Za-z0-9-]{1,10})\)/)?.[1] ?? "";
-  if (generation && code) return `${generation} (${code})`;
-  return generation || (code ? `(${code})` : "");
-}
-
 // 차량 정보(2026-10-13 「카앤비드처럼 구성 · 한국 문화에 맞게」): Cars & Bids의 핵심 정보 격자(라벨 위 · 값 아래, 제조사 · 모델 · 주행거리 · 엔진 · 구동 · 변속기 · 바디 · 색상 · 지역 · 판매자 유형)를
 // 한국 중고차 기준(연식 · 정확한 주행거리 · 연료 · 변속기 · 배기량 · 바디타입 · 색상 · 지역 · 판매자 유형 · 판매구분 · 성능점검 · 보험이력)으로 옮겼다. 값이 없는 칸은 만들지 않는다
 const cleanValue = (value?: string | null) => (value && value !== "전체" && value !== "정보 없음" && value !== "기타" ? value : "");
@@ -525,10 +514,10 @@ function VehicleSummary() {
   useLocationWrap(summaryRef);
   useLocationLinks(summaryRef, car);
   const detailPower = car ? carFacts(car).find(([label]) => label === "마력")?.[1] : undefined;
-  const detailGeneration = car ? detailGenerationLabel(car) : undefined;
+  const detailBodyType = car ? carFacts(car).find(([label]) => label === "바디타입")?.[1] : undefined;
   if (car) return (
     <section ref={summaryRef} className="vehicle-summary is-list-summary marketplace is-bbm-m is-qf-guazi"><div className="bbm-m-list">
-      <BbmResultCard car={car} locationDong={detailLocationDong(car)} detailLocation={{}} variant="mobile" detailSummary detailPower={detailPower} detailGeneration={detailGeneration} liked={liked} onToggleLike={() => setLiked(!liked)} onOpen={() => undefined} onChat={() => undefined} />
+      <BbmResultCard car={car} locationDong={detailLocationDong(car)} detailLocation={{}} variant="mobile" detailSummary detailPower={detailPower} detailBodyType={detailBodyType === NO_INFO ? undefined : detailBodyType} liked={liked} onToggleLike={() => setLiked(!liked)} onOpen={() => undefined} onChat={() => undefined} />
     </div>
       <p className="detail-posted-line"><img src={asset("bbm/autoscout24-clock-54b8e0b2-balanced.svg")} alt="" aria-hidden="true" draggable={false} /><span>{car.posted}</span></p>
       <DetailSellerInfo car={car} /></section>
