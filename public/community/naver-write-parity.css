@@ -127,6 +127,22 @@ button:focus-visible,input:focus-visible,select:focus-visible,[contenteditable]:
 @media (max-width:380px){.taxonomy-row .taxonomy-select{font-size:14px}.taxonomy-row .board-select{width:55%;flex-basis:55%}.taxonomy-row .head-select{width:45%;flex-basis:45%;padding-left:10px}}
 
 /* Naver editor parity: exact font/size choices, alignment and collapsible details. */
-.text-toolbar .select-label{flex:0 0 auto}.text-toolbar #fontFamily{max-width:150px}.text-toolbar #fontSize{width:64px}.text-toolbar #textAlign{width:86px}
+.text-toolbar .select-label{flex:0 0 auto}
+.text-toolbar select{
+  -webkit-appearance:none;
+  appearance:none;
+  background-color:transparent;
+  background-image:url("assets/write-parity/chevron-down.svg");
+  background-position:right 6px center;
+  background-repeat:no-repeat;
+  background-size:16px 16px;
+  line-height:40px;
+  padding:0 26px 0 9px;
+}
+.text-toolbar #fontFamily{max-width:150px}
+.text-toolbar #fontSize{width:68px;min-width:68px;font-variant-numeric:tabular-nums}
+.text-toolbar #textAlign{width:86px}
+.text-toolbar{scroll-padding-inline:12px;scrollbar-width:none}
+.text-toolbar::-webkit-scrollbar{display:none}
 .color-control{position:relative}.color-control input{position:absolute;width:1px;height:1px;opacity:0}.color-control:after{content:"";position:absolute;right:7px;bottom:5px;left:7px;height:3px;border-radius:2px;background:var(--selected-color,#222)}
 .settings-expand{display:flex;width:100%;height:48px;align-items:center;justify-content:space-between;border-bottom:1px solid #f0f0f0;font-size:14px;text-align:left}.settings-expand:after{content:"⌄";font-size:19px;transition:transform .18s}.settings-expand[aria-expanded="true"]:after{transform:rotate(180deg)}

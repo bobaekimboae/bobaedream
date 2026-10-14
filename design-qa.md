@@ -1,3 +1,52 @@
+# Design QA · 게시물 작성 숫자 잘림 수정 (2026-10-15)
+
+- source visual truth: 사용자 제공 모바일 캡처 `1-1000018290.jpg` (591×1280 래스터, 글자 크기 `15`의 오른쪽 획 잘림)
+- implementation: `http://127.0.0.1:4173/community/naver-write-parity.html`
+- implementation screenshots: `artifacts/community-write-number-clipping-1015/mobile-360-toolbar-long-values.png`, `mobile-384-toolbar-long-values.png`, `mobile-412-toolbar-long-values.png`, `desktop-1536-toolbar-long-values.png`
+- implementation pixels/CSS/density: 360×800, 384×844, 412×915, 1536×864 CSS px / DPR 1
+- density normalization: 원본은 기기 스크린샷이므로 실제 픽셀 배율을 직접 비교하지 않고, 글자 획의 완전 노출·선택창 내부 여백·화살표 충돌 여부를 같은 비교 입력에서 판정했다.
+- state: 텍스트 도구막대 열림, 긴 글꼴명, 글자 크기 38, 가운데 정렬
+
+## Full-view comparison evidence
+
+- 원본 캡처와 360px 수정본을 같은 비교 입력에 넣어 확인했다.
+- 헤더·분류·제목·기본 도구막대·텍스트 도구막대·본문·태그·공개 설정의 전체 순서와 밀도는 유지됐다.
+- 수정 전 잘린 `15`와 수정 후 최대 두 자리 `38`을 비교했고, 수정본은 숫자 두 획과 화살표 사이에 독립 여백이 있다.
+
+## Focused region comparison evidence
+
+- 글자 크기 선택창을 68px로 고정하고 문자 영역 33px, 화살표 여백 26px을 확보했다.
+- 11·13·15·16·19·24·28·30·34·38을 네 개 뷰포트에서 모두 선택해 값 유지와 내부 오버플로를 검사했다.
+- 실제 인앱 브라우저에서 기본값 `15`가 잘리지 않는 것을 다시 육안 확인했다.
+
+## Required fidelity surfaces
+
+- Fonts and typography: 기존 네이버형 시스템 글꼴과 크기 위계를 유지했고 숫자만 `tabular-nums`로 안정화했다.
+- Spacing and layout rhythm: 선택창 폭 외의 행 높이·도구 순서·본문 시작점은 변경하지 않았다.
+- Colors and visual tokens: 기존 검정/회색 토큰을 보존하고 새 색상은 추가하지 않았다.
+- Image quality and asset fidelity: 새 래스터를 만들지 않고 기존 벡터 `chevron-down.svg`를 재사용했다.
+- Copy and content: 문구와 선택값은 변경하지 않았다.
+
+## Findings
+
+- P0/P1/P2: 없음.
+- P3: 모바일 텍스트 도구막대 전체 폭은 화면보다 넓어 뒤쪽 기능은 가로 스크롤로 접근한다. 기존 구조를 유지한 의도적 동작이며 글자 크기 칸은 첫 화면에 완전히 노출된다.
+
+## Comparison history
+
+### Pass 1 — failed
+
+- 모바일 네이티브 선택창 화살표가 64px 칸의 문자 영역을 침범해 `15`의 마지막 획이 잘렸다.
+
+### Pass 2 — passed
+
+- 네이티브 외형을 제거하고 전용 화살표·68px 폭·고정 패딩을 적용했다.
+- 4개 뷰포트 × 10개 글자 크기 40/40, 숫자 표기, 전체 기능·첨부·이모지·빌드 회귀가 통과했다.
+
+final result: passed
+
+---
+
 # Design QA · 네이버 카페 글쓰기 UI 동일화 (2026-10-15)
 
 - source visual truth: `https://m.cafe.naver.com/ca-fe/web/cafes/25233466/articles/write`의 로그인된 실제 글쓰기 화면
