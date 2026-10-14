@@ -1,3 +1,48 @@
+# Design QA · 간결형 댓글 숫자·괄호 통일 (2026-10-15)
+
+- source visual truth: 사용자 제공 치지직 모바일 캡처 `1-1000018320.jpg` (591×1280 래스터)
+- implementation: `http://127.0.0.1:4175/community/naver-cafe-list.html?qa=comment-blue`
+- implementation screenshot: `artifacts/community-compact-write-1015/mobile-384-comment-blue.png`
+- comparison image: `artifacts/community-compact-write-1015/design-qa-comment-blue-list-comparison.png`
+- viewport: 384×844 CSS px, DPR 1
+- density normalization: 원본 목록 영역을 폭 384px에 맞춰 정규화하고 구현의 384px 목록 영역과 가로로 결합했다.
+- state: 간결형 목록, 오른쪽 썸네일, 댓글 수 괄호 표기
+
+## Full-view comparison evidence
+
+- 구현의 게시물 행은 70px, 좌우 여백 15px, 제목 16/23px, 메타 12.5/17px, 썸네일 52px로 기준 캡처와 같은 밀도를 유지한다.
+- 사용자 지시대로 상단 헤더 60px와 상단 탭 50px는 변경하지 않았다.
+- 새 글 빨간 점은 기준 캡처처럼 제목 왼쪽에 다시 표시된다.
+
+## Focused region comparison evidence
+
+- 결합 비교 이미지에서 원본과 구현의 목록 영역을 같은 384px 폭으로 확인했다.
+- 댓글 표기 전체 `(13)`이 하나의 span에서 보배 블루 `rgb(35, 143, 227)`, 16px, 23px, 500으로 렌더링된다.
+- 숫자와 양쪽 괄호는 같은 글꼴·크기·굵기·행간을 상속하며 별도 축소 요소가 없다.
+
+## Required fidelity surfaces
+
+- Fonts and typography: Pretendard를 유지하고 제목과 댓글 표기를 모두 16/23px, 500으로 통일했다.
+- Spacing and layout rhythm: 행 70px, 상하 9px, 제목-댓글 4px, 본문-썸네일 12px을 유지했다.
+- Colors and visual tokens: 댓글은 보배 블루 토큰 `--blue: #238fe3`를 사용한다.
+- Image quality and asset fidelity: 기존 52×52px 썸네일과 실제 이미지 자산을 변경하지 않았다.
+- Copy and content: `(숫자)` 형식을 유지하고 숫자·괄호를 분리하지 않았다.
+
+## Findings
+
+- P0/P1/P2: 없음.
+- P3: 기준 캡처의 댓글 초록색 대신 사용자 결정에 따라 보배 블루를 적용한 의도적 차이가 있다.
+
+## Comparison history
+
+- Pass 1: 기존 댓글은 15px이었고 새 글 점이 간결형에서 숨겨져 있었다.
+- Fix: 댓글 전체를 16/23px로 통일하고 새 글 점을 복원했다. 헤더·탭은 변경하지 않았다.
+- Pass 2: 384px 결합 비교에서 행 높이·제목 기준선·댓글 괄호·썸네일 정렬이 일치했고 P0/P1/P2가 남지 않았다.
+
+final result: passed
+
+---
+
 # Design QA · 게시물 작성 숫자 잘림 수정 (2026-10-15)
 
 - source visual truth: 사용자 제공 모바일 캡처 `1-1000018290.jpg` (591×1280 래스터, 글자 크기 `15`의 오른쪽 획 잘림)
