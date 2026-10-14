@@ -113,7 +113,36 @@ final result: passed
 - 맨 위로 이동: passed
 - 콘솔 오류/경고: 0건
 - 모바일/PC 가로 넘침: 없음
+final result: passed
 
+---
+
+# Design QA · 커뮤니티 전체 이모지 선택기 (2026-10-15)
+
+- source visual truth: 기존 `naver-write-parity.html` 도구 바텀시트의 헤더·버튼·Airbnb 핑크 토큰
+- implementation screenshot: `artifacts/community-write-attachment-parity-1015/mobile-384-emoji-picker.png`
+- viewport: 384 × 844 CSS px, DPR 1
+- state: 등록폼에서 스티커 도구를 열고 기본 `표정` 카테고리를 표시
+
+## Full-view comparison evidence
+
+- 기존 바텀시트의 56px 헤더, 흰 배경, 하단 취소·추가 버튼을 유지했다.
+- 12개 고정 목록을 검색·카테고리·피부색·스크롤 그리드로 확장하되 등록폼의 다른 도구 위치는 바꾸지 않았다.
+- 화면 높이는 모바일 88vh 안에서 유지되고 본문은 바텀시트 뒤로 가려져 편집 상태가 보존된다.
+
+## Focused region comparison evidence
+
+- 검색창 44px, 카테고리 탭 54px, 피부색 버튼 31px, 이모지 7열로 터치 밀도와 탐색성을 맞췄다.
+- 선택·포커스에는 기존 `--primary`와 `--primary-soft`를 사용했다.
+- 카테고리 이름을 아이콘 아래에 같이 표시해 아이콘 의미를 추측하지 않아도 된다.
+- 기본 1,867개를 한꺼번에 DOM에 넣지 않고 카테고리별로 렌더링해 모바일 스크롤을 유지했다.
+
+## Verification
+
+- 384px에서 가로 넘침 없음.
+- 영문 검색, 한글 카테고리 검색, 피부색, 최근 사용, 본문 삽입 통과.
+- 키보드 포커스와 스크린리더용 버튼 이름 제공.
+- 런타임 오류 0건.
 final result: passed
 
 ---

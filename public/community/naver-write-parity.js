@@ -11,10 +11,23 @@
     { name:'블랙박스 제보', heads:['제보','사고 영상','위반 차량','교통 안전'] },
     { name:'바이크', heads:['입문','기종','정비','투어','용품'] },
   ];
-  const stickers = ['😀','😍','👏','🔥','🚗','🏍️','👍','🎉','❤️','😂','😎','🙏'];
   const topics = ['내차소개','시승기','정비후기','교통정보','자동차뉴스','바이크','질문','자유'];
   const draftKey = 'bbm.community.writeDraft.v2';
   const postKey = 'bbm.community.latestPost.v2';
+  const emojiRecentKey = 'bbm.community.recentEmojis.v1';
+  const emojiDataUrl = './data/emoji-v17.json';
+  const emojiCategories = [
+    { key:'recent', label:'최근', icon:'🕘', search:'최근 사용' },
+    { key:'face-emotion', label:'표정', icon:'😀', search:'표정 얼굴 웃음 감정 하트 미소' },
+    { key:'person-people', label:'사람', icon:'👋', search:'사람 인물 손 몸 직업 가족' },
+    { key:'animals-nature', label:'동물·자연', icon:'🐻', search:'동물 자연 식물 날씨 꽃' },
+    { key:'food-drink', label:'음식·음료', icon:'🍔', search:'음식 음료 과일 요리 식사' },
+    { key:'travel-places', label:'여행·장소', icon:'🚗', search:'여행 장소 자동차 차 바이크 교통 건물 지도' },
+    { key:'activities-events', label:'활동', icon:'⚽', search:'활동 운동 스포츠 행사 축하 게임' },
+    { key:'objects', label:'사물', icon:'💡', search:'사물 물건 도구 전자기기' },
+    { key:'symbols', label:'기호', icon:'❤️', search:'기호 하트 화살표 숫자 표시' },
+    { key:'flags', label:'국기', icon:'🏁', search:'국기 깃발 나라 국가' },
+  ];
   const MAX_PHOTOS = 100;
   const MAX_PHOTO_BYTES = 20 * 1024 * 1024;
   const MAX_FILES = 10;
@@ -54,6 +67,8 @@
     tool: '', selectedChoice: '', savedRange: null, toastTimer: 0,
     photos: new Map(), activePhotoId: '', replacePhotoId: '', dragPhotoId: '',
     editPhotoId: '', editDraft: null, editPollId: '',
+    emojiCatalog: null, emojiLoading: null, emojiCategory: 'face-emotion', emojiQuery: '', emojiTone: 0,
+    recentEmojis: [],
   };
 
   const escapeHtml = (value = '') => String(value).replace(/[&<>'"]/g, (char) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#39;', '"':'&quot;' }[char]));
@@ -320,6 +335,95 @@
     return `<div class="choice-grid ${className}">${items.map((item) => `<button class="choice-button" type="button" data-choice="${escapeHtml(item)}">${escapeHtml(item)}</button>`).join('')}</div>`;
   }
 
+  function emojiPickerMarkup() {
+    return `<section class="emoji-picker" aria-label="전체 이모지 선택기">
+      <label class="emoji-search"><span class="sr-only">이모지 검색</span><input id="emojiSearch" type="search" autocomplete="off" placeholder="이모지 검색 (이름·키워드)"></label>
+      <nav class="emoji-category-tabs" aria-label="이모지 카테고리">${emojiCategories.map((category) => `<button type="button" class="emoji-category-tab" data-emoji-category="${category.key}" aria-label="${category.label}" title="${category.label}"><span aria-hidden="true">${category.icon}</span><small>${category.label}</small></button>`).join('')}</nav>
+      <div class="emoji-picker-tools"><div class="emoji-tone-list" role="group" aria-label="피부색"><button type="button" data-emoji-tone="0" aria-label="기본 피부색">✋</button><button type="button" data-emoji-tone="1" aria-label="밝은 피부색">✋🏻</button><button type="button" data-emoji-tone="2" aria-label="중간 밝은 피부색">✋🏼</button><button type="button" data-emoji-tone="3" aria-label="중간 피부색">✋🏽</button><button type="button" data-emoji-tone="4" aria-label="중간 어두운 피부색">✋🏾</button><button type="button" data-emoji-tone="5" aria-label="어두운 피부색">✋🏿</button></div><span id="emojiResultCount" aria-live="polite"></span></div>
+      <div class="emoji-grid" id="emojiGrid" aria-busy="true"><p class="emoji-loading">전체 이모지를 불러오는 중입니다.</p></div>
+      <p class="emoji-picker-meta">Unicode Emoji 17 · unicode-emoji (MIT)</p>
+    </section>`;
+  }
+
+  function loadRecentEmojis() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(emojiRecentKey) || '[]');
+      state.recentEmojis = Array.isArray(saved) ? saved.filter((item) => typeof item === 'string').slice(0, 24) : [];
+    } catch { state.recentEmojis = []; }
+  }
+
+  function rememberEmoji(emoji) {
+    state.recentEmojis = [emoji, ...state.recentEmojis.filter((item) => item !== emoji)].slice(0, 24);
+    try { localStorage.setItem(emojiRecentKey, JSON.stringify(state.recentEmojis)); } catch { /* private browsing */ }
+  }
+
+  async function loadEmojiCatalog() {
+    if (state.emojiCatalog) return state.emojiCatalog;
+    if (!state.emojiLoading) {
+      state.emojiLoading = fetch(emojiDataUrl)
+        .then((response) => {
+          if (!response.ok) throw new Error(`emoji catalog ${response.status}`);
+          return response.json();
+        })
+        .then((catalog) => { state.emojiCatalog = catalog; return catalog; })
+        .finally(() => { state.emojiLoading = null; });
+    }
+    return state.emojiLoading;
+  }
+
+  function emojiForTone(item) {
+    if (!state.emojiTone || !item.v?.length) return item.e;
+    return item.v[state.emojiTone - 1] || item.e;
+  }
+
+  function renderEmojiPicker() {
+    const grid = qs('#emojiGrid', toolDialogBody);
+    if (!grid || !state.emojiCatalog) return;
+    const query = state.emojiQuery.trim().toLocaleLowerCase();
+    const categorySearch = emojiCategories.find((category) => query && category.search.includes(query));
+    let items;
+    if (!query && state.emojiCategory === 'recent') {
+      const index = new Map(state.emojiCatalog.emojis.flatMap((item) => [[item.e, item], ...item.v.map((variation) => [variation, { ...item, e:variation, v:[] }])]));
+      items = state.recentEmojis.map((emoji) => index.get(emoji)).filter(Boolean);
+    } else {
+      items = state.emojiCatalog.emojis.filter((item) => {
+        if (!query) return item.c === state.emojiCategory;
+        const haystack = `${item.d} ${item.k.join(' ')} ${item.c}`.toLocaleLowerCase();
+        return haystack.includes(query) || (categorySearch && item.c === categorySearch.key);
+      });
+    }
+    qsa('[data-emoji-category]', toolDialogBody).forEach((button) => {
+      const selected = !query && button.dataset.emojiCategory === state.emojiCategory;
+      button.classList.toggle('is-selected', selected);
+      button.setAttribute('aria-current', selected ? 'true' : 'false');
+    });
+    qsa('[data-emoji-tone]', toolDialogBody).forEach((button) => {
+      const selected = Number(button.dataset.emojiTone) === state.emojiTone;
+      button.classList.toggle('is-selected', selected);
+      button.setAttribute('aria-pressed', String(selected));
+    });
+    const count = qs('#emojiResultCount', toolDialogBody);
+    if (count) count.textContent = `${items.length.toLocaleString('ko-KR')}개`;
+    grid.setAttribute('aria-busy', 'false');
+    grid.innerHTML = items.length
+      ? items.map((item) => { const emoji = emojiForTone(item); return `<button class="emoji-choice" type="button" data-emoji="${escapeHtml(emoji)}" aria-label="${escapeHtml(item.d)}" title="${escapeHtml(item.d)}">${escapeHtml(emoji)}</button>`; }).join('')
+      : `<p class="emoji-empty">${state.emojiCategory === 'recent' && !query ? '최근 사용한 이모지가 없습니다.' : '검색 결과가 없습니다.'}</p>`;
+  }
+
+  async function initializeEmojiPicker() {
+    loadRecentEmojis();
+    state.emojiQuery = '';
+    const search = qs('#emojiSearch', toolDialogBody);
+    search?.addEventListener('input', () => { state.emojiQuery = search.value; renderEmojiPicker(); });
+    try {
+      await loadEmojiCatalog();
+      if (state.tool === 'sticker') renderEmojiPicker();
+    } catch {
+      const grid = qs('#emojiGrid', toolDialogBody);
+      if (grid) { grid.setAttribute('aria-busy', 'false'); grid.innerHTML = '<p class="emoji-empty">이모지를 불러오지 못했습니다. 잠시 후 다시 시도해주세요.</p>'; }
+    }
+  }
+
   function pollOptionFields(options = ['',''], startIndex = 0) {
     return options.map((option, index) => `<label class="poll-option-field"><span class="sr-only">선택지 ${startIndex + index + 1}</span><input class="poll-option-input" maxlength="60" value="${escapeHtml(option)}" placeholder="선택지 ${startIndex + index + 1}"><button type="button" data-action="remove-poll-option" aria-label="선택지 ${startIndex + index + 1} 삭제">×</button></label>`).join('');
   }
@@ -351,7 +455,7 @@
       link: ['링크 추가', '<label class="dialog-field"><span>주소</span><input id="toolUrl" type="url" inputmode="url" placeholder="https://example.com" /></label><label class="dialog-field"><span>링크 문구</span><input id="toolText" maxlength="80" placeholder="링크 이름" /></label>'],
       place: ['장소 추가', '<label class="dialog-field"><span>장소명</span><input id="toolText" maxlength="60" placeholder="예: 보배드림 본사" /></label><label class="dialog-field"><span>주소</span><input id="toolAddress" maxlength="120" placeholder="도로명 또는 지번 주소" /></label>'],
       poll: [state.editPollId ? '투표 수정' : '투표 만들기', `<label class="dialog-field"><span>질문</span><input id="pollQuestion" maxlength="100" value="${escapeHtml(currentPoll?.question || '')}" placeholder="투표 질문을 입력하세요"></label><div class="poll-options" id="pollOptions">${pollOptionFields(currentPoll?.options || ['',''])}</div><button class="poll-add-option" type="button" data-action="add-poll-option">+ 선택지 추가</button><div class="poll-settings"><label><span>복수 선택 허용</span><input id="pollMultiple" type="checkbox" ${currentPoll?.multiple ? 'checked' : ''}></label><label><span>익명 투표</span><input id="pollAnonymous" type="checkbox" ${currentPoll?.anonymous ? 'checked' : ''}></label><label><span>마감</span><select id="pollDuration">${['1일','3일','7일','제한 없음'].map((value) => `<option ${value === (currentPoll?.duration || '7일') ? 'selected' : ''}>${value}</option>`).join('')}</select></label></div><p class="upload-note">선택지는 2개 이상 10개까지 추가할 수 있습니다.</p>`],
-      sticker: ['스티커', choiceButtons(stickers, 'sticker-grid')],
+      sticker: ['이모지', emojiPickerMarkup()],
       topic: ['글감 선택', choiceButtons(topics, 'topic-grid')],
       visibility: ['공개 범위', `<div class="visibility-list">${['전체 공개','멤버 공개','나만 보기'].map((item) => `<label class="visibility-option"><span>${item}</span><input type="radio" name="visibility" value="${item}" ${state.visibility === item ? 'checked' : ''}></label>`).join('')}</div>`],
       'photo-link': ['사진 링크', `<label class="dialog-field"><span>연결 주소</span><input id="toolUrl" type="url" inputmode="url" value="${escapeHtml(getPhoto(state.activePhotoId)?.link || '')}" placeholder="https://example.com" /></label><p class="upload-note">주소를 비우고 적용하면 링크가 해제됩니다.</p>`],
@@ -361,6 +465,7 @@
     toolDialogBody.innerHTML = config[1];
     toolApply.textContent = type === 'visibility' ? '선택' : state.editPollId ? '수정' : '추가';
     toolOverlay.hidden = false;
+    if (type === 'sticker') initializeEmojiPicker();
     window.setTimeout(() => qs('input:not([type="radio"])', toolDialogBody)?.focus(), 0);
   }
 
@@ -396,7 +501,8 @@
       } else insertHtml(`${pollMarkup(poll)}<p><br></p>`);
       state.editPollId = '';
     } else if (type === 'sticker') {
-      if (!state.selectedChoice) { showToast('스티커를 선택해주세요.'); return; }
+      if (!state.selectedChoice) { showToast('이모지를 선택해주세요.'); return; }
+      rememberEmoji(state.selectedChoice);
       insertHtml(`<span class="sticker-chip" contenteditable="false">${escapeHtml(state.selectedChoice)}</span>&nbsp;`);
     } else if (type === 'topic') {
       if (!state.selectedChoice) { showToast('글감을 선택해주세요.'); return; }
@@ -548,6 +654,25 @@
     if (button?.dataset.choice) {
       state.selectedChoice = button.dataset.choice;
       qsa('[data-choice]', toolDialogBody).forEach((item) => item.classList.toggle('is-selected', item === button));
+    }
+    if (button?.dataset.emojiCategory) {
+      state.emojiCategory = button.dataset.emojiCategory;
+      state.emojiQuery = '';
+      const search = qs('#emojiSearch', toolDialogBody);
+      if (search) search.value = '';
+      renderEmojiPicker();
+    }
+    if (button?.dataset.emojiTone !== undefined) {
+      state.emojiTone = Number(button.dataset.emojiTone);
+      renderEmojiPicker();
+    }
+    if (button?.dataset.emoji) {
+      state.selectedChoice = button.dataset.emoji;
+      qsa('[data-emoji]', toolDialogBody).forEach((item) => {
+        const selected = item === button;
+        item.classList.toggle('is-selected', selected);
+        item.setAttribute('aria-pressed', String(selected));
+      });
     }
     if (action === 'board' || action === 'head') {
       if (action === 'head' && !state.board) { showToast('게시판을 먼저 선택해주세요.'); return; }

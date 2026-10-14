@@ -25,6 +25,10 @@ for (const viewport of [{ name:'pc-1440', width:1440, height:900 }, { name:'mobi
     await page.locator('.poll-option-input').nth(1).fill('기아 EV6');
     await page.screenshot({ path:path.join(output, 'mobile-384-poll-dialog.png') });
     await page.locator('#toolApply').click();
+    await page.getByRole('button', { name:'스티커', exact:true }).click();
+    await page.locator('#emojiGrid .emoji-choice').first().waitFor();
+    await page.screenshot({ path:path.join(output, 'mobile-384-emoji-picker.png') });
+    await page.locator('[data-action="close-tool"]').first().click();
   }
   await page.locator('#photoInput').setInputFiles(photos);
   await page.waitForFunction(() => document.querySelectorAll('.editor-media img').length === 3 && [...document.querySelectorAll('.editor-media img')].every((image) => image.naturalWidth > 0));
@@ -40,4 +44,4 @@ for (const viewport of [{ name:'pc-1440', width:1440, height:900 }, { name:'mobi
   await context.close();
 }
 await browser.close();
-console.log(JSON.stringify({ output, files:['pc-1440.png','mobile-384.png','mobile-384-focus-boundary.png','mobile-384-board-select.png','mobile-384-head-select.png','mobile-384-poll-dialog.png'] }, null, 2));
+console.log(JSON.stringify({ output, files:['pc-1440.png','mobile-384.png','mobile-384-focus-boundary.png','mobile-384-board-select.png','mobile-384-head-select.png','mobile-384-poll-dialog.png','mobile-384-emoji-picker.png'] }, null, 2));

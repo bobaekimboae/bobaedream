@@ -42,9 +42,25 @@ for (const viewport of viewports) {
   assert((await page.locator('.embed-card').count()) === 1, `${viewport.name}: video card`);
 
   await page.getByRole('button', { name: '스티커', exact: true }).click();
-  await page.locator('[data-choice="🚗"]').click();
+  await page.locator('#emojiGrid .emoji-choice').first().waitFor();
+  assert((await page.locator('[data-emoji-category]').count()) === 10, `${viewport.name}: emoji categories`);
+  await page.locator('#emojiSearch').fill('automobile');
+  await page.getByRole('button', { name:'automobile', exact:true }).click();
   await page.locator('#toolApply').click();
-  assert((await page.locator('.sticker-chip').count()) === 1, `${viewport.name}: sticker`);
+  assert((await page.locator('.sticker-chip').count()) === 1, `${viewport.name}: emoji search and insert`);
+
+  await page.getByRole('button', { name: '스티커', exact: true }).click();
+  await page.getByRole('button', { name:'사람', exact:true }).click();
+  await page.getByRole('button', { name:'중간 피부색', exact:true }).click();
+  await page.getByRole('button', { name:'baby', exact:true }).click();
+  await page.locator('#toolApply').click();
+  assert((await page.locator('.sticker-chip').count()) === 2, `${viewport.name}: skin tone emoji insert`);
+  assert((await page.locator('.sticker-chip').last().textContent()) === '👶🏽', `${viewport.name}: selected skin tone`);
+
+  await page.getByRole('button', { name: '스티커', exact: true }).click();
+  await page.getByRole('button', { name:'최근', exact:true }).click();
+  assert((await page.locator('#emojiGrid .emoji-choice').count()) === 2, `${viewport.name}: recent emoji`);
+  await page.locator('[data-action="close-tool"]').first().click();
 
   await page.getByRole('button', { name: '글감', exact: true }).click();
   await page.locator('[data-choice="내차소개"]').click();
@@ -124,4 +140,4 @@ if (failures.length) {
   console.error(JSON.stringify({ ok: false, failures }, null, 2));
   process.exit(1);
 }
-console.log(JSON.stringify({ ok: true, viewports: viewports.map(({ name }) => name), features: 21 }, null, 2));
+console.log(JSON.stringify({ ok: true, viewports: viewports.map(({ name }) => name), features: 25 }, null, 2));
