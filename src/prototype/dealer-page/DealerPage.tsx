@@ -121,21 +121,35 @@ function SiteHeader() {
   </header>;
 }
 
-function DealerProfile({ dealer, listingCount, following, setFollowing, share }: { dealer: SeoulAutoGalleryDealer; listingCount: number; following: boolean; setFollowing: (value: boolean) => void; share: () => void }) {
+function DealerProfile({ dealer, cars, following, setFollowing, share }: { dealer: SeoulAutoGalleryDealer; cars: Car[]; following: boolean; setFollowing: (value: boolean) => void; share: () => void }) {
+  const heroCars = cars.slice(0, 5);
+  const [heroIndex, setHeroIndex] = useState(0);
+  const heroCar = heroCars[heroIndex % Math.max(heroCars.length, 1)];
+  const listingCount = cars.length;
+
+  useEffect(() => {
+    if (heroCars.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setInterval(() => setHeroIndex((current) => (current + 1) % heroCars.length), 6000);
+    return () => window.clearInterval(timer);
+  }, [heroCars.length]);
+
   return <section className="dp-profile">
     <div className="dp-cover">
       <img
+        key={heroCar?.id ?? "dealer-cover"}
         className="dp-cover-photo"
-        src={asset("dealer-profile/twoj-motorworks/import-luxury-hero-v01.png")}
-        alt="프리미엄 수입차 전시장"
+        src={heroCar ? asset(heroCar.image) : asset("dealer-profile/twoj-motorworks/import-luxury-hero-v01.png")}
+        alt={heroCar ? `${heroCar.title} 판매 차량` : "수입차 전문 전시장"}
         draggable={false}
       />
       <div className="dp-cover-brand-copy">
-        <small>SEOUL AUTO GALLERY</small>
-        <strong>2J MOTORWORKS</strong>
-        <span>프리미엄 수입차 전문</span>
+        <strong>투제이모터웍스</strong>
+        <span>수입차 전문 매매</span>
       </div>
-      <span>{MOCK.lastActive}</span>
+      {heroCar ? <span className="dp-cover-vehicle-meta"><small>{heroCar.specs[0]}</small><em>{heroCar.title}</em></span> : null}
+      {heroCars.length > 1 ? <div className="dp-cover-dots" role="group" aria-label={`판매 차량 배너 ${heroIndex + 1}/${heroCars.length}`}>
+        {heroCars.map((car, index) => <button key={car.id} type="button" className={index === heroIndex ? "is-active" : ""} aria-label={`${index + 1}/${heroCars.length} ${car.title}`} aria-current={index === heroIndex ? "true" : undefined} onClick={() => setHeroIndex(index)} />)}
+      </div> : null}
       <button type="button" className="dp-cover-more" aria-label="판매자 메뉴"><Icon name="chotot-common-more.svg" /></button>
     </div>
     <div className="dp-profile-body">
@@ -354,7 +368,10 @@ function AboutSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; noti
     : `서울오토갤러리 은관 (주)투제이모터웍스 소속 ${dealer.name} 딜러입니다. 차량 상태와 이력을 꼼꼼히 확인하고 정확한 정보로 상담드리겠습니다.`;
   return <section className="dp-content-card dp-about">
     <h2>소개</h2>
-    <p>{introduction}</p>
+    <article className="dp-about-story">
+      <header><img src={dealerPhoto(dealer)} alt="" aria-hidden="true" draggable={false} /><span><b>{dealer.name}</b><small>{MOCK.company} · 딜러 경력 7년</small></span></header>
+      <p>{introduction}</p>
+    </article>
     <dl>
       <div><dt>전문 분야</dt><dd>수입차</dd></div>
       <div><dt>활동 지역</dt><dd>{MOCK.address}</dd></div>
@@ -423,7 +440,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
     <div className="dp-scroll" ref={scrollRef}>
       <SiteHeader />
       <main className="dp-page" aria-label={`${dealer.name} 딜러 판매자 페이지`}>
-        <DealerProfile dealer={dealer} listingCount={cars.length} following={following} setFollowing={setFollowing} share={share} />
+        <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} share={share} />
         <AnchorNav active={activeSection} onChange={changeSection} />
         {activeSection === "home" ? <HomeSection /> : null}
         {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}

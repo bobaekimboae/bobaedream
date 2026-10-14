@@ -37,14 +37,17 @@
 .dp-page { width: 100%; margin: 0 auto; background: #fff; }
 .dp-profile { background: #fff; }
 .dp-cover { position: relative; aspect-ratio: 18 / 5; height: auto; margin: 0 16px; overflow: hidden; border-radius: 12px; background: #15264c; }
-.dp-cover::before { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(4,10,20,.9) 0%, rgba(6,14,27,.64) 35%, rgba(7,15,28,.14) 70%), linear-gradient(0deg, rgba(4,9,18,.28), transparent 58%); pointer-events: none; }
+.dp-cover::before { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(4,10,20,.98) 0%, rgba(5,13,26,.88) 34%, rgba(7,15,28,.3) 62%, rgba(7,15,28,.08) 100%), linear-gradient(0deg, rgba(4,9,18,.42), transparent 64%); pointer-events: none; }
 .dp-cover::after { content: ""; position: absolute; z-index: 3; inset: 0; border: 1px solid rgba(255,255,255,.15); border-radius: inherit; pointer-events: none; }
-.dp-cover-photo { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 59% 54%; }
+.dp-cover-photo { position: absolute; inset: 0 0 0 auto; display: block; width: 72%; height: 100%; object-fit: cover; object-position: center; animation: dp-cover-reveal 360ms ease-out both; }
 .dp-cover-brand-copy { position: absolute; z-index: 2; top: 50%; left: 12px; display: flex; min-width: 0; max-width: 46%; flex-direction: column; color: #fff; transform: translateY(-50%); text-shadow: 0 2px 14px rgba(0,0,0,.46); }
-.dp-cover-brand-copy small { overflow: hidden; color: #a9c6e9; font-size: 8px; line-height: 12px; font-weight: 700; letter-spacing: 1px; white-space: nowrap; }
-.dp-cover-brand-copy strong { overflow: hidden; margin-top: 1px; font-size: 15px; line-height: 19px; font-weight: 800; letter-spacing: -.25px; white-space: nowrap; }
-.dp-cover-brand-copy span { overflow: hidden; margin-top: 2px; color: rgba(255,255,255,.72); font-size: 9px; line-height: 13px; white-space: nowrap; }
-.dp-cover > span { display: none; position: absolute; z-index: 2; right: 16px; bottom: 16px; padding: 5px 10px; border-radius: 6px; background: rgba(34,34,34,.66); color: #fff; font-size: 12px; line-height: 18px; }
+.dp-cover-brand-copy strong { overflow: hidden; font-size: 15px; line-height: 20px; font-weight: 800; letter-spacing: -.25px; white-space: nowrap; }
+.dp-cover-brand-copy span { overflow: hidden; margin-top: 2px; color: rgba(255,255,255,.82); font-size: 10px; line-height: 14px; white-space: nowrap; }
+.dp-cover-vehicle-meta { position: absolute; z-index: 2; right: 8px; bottom: 7px; display: flex; max-width: 42%; align-items: center; justify-content: flex-end; gap: 4px; color: #fff; text-align: right; text-shadow: 0 1px 5px rgba(0,0,0,.9); }
+.dp-cover-vehicle-meta small, .dp-cover-vehicle-meta em { overflow: hidden; color: rgba(255,255,255,.92); font-size: 10px; line-height: 13px; font-weight: 600; font-style: normal; text-overflow: ellipsis; white-space: nowrap; }
+.dp-cover-dots { position: absolute; z-index: 2; left: 50%; bottom: 8px; display: flex; align-items: center; gap: 4px; transform: translateX(-50%); }
+.dp-cover-dots button { width: 4px; height: 4px; padding: 0; border: 0; border-radius: 50%; background: rgba(255,255,255,.46); }
+.dp-cover-dots button.is-active { width: 12px; border-radius: 3px; background: #fff; }
 .dp-cover-more { position: absolute; z-index: 2; top: 12px; right: 12px; display: none; place-items: center; width: 36px; height: 36px; border-radius: 50% !important; background: rgba(255,255,255,.94) !important; }
 .dp-cover-more .dp-icon { width: 20px; height: 20px; }
 .dp-profile-body { position: relative; display: grid; grid-template-columns: 72px minmax(0, 1fr); column-gap: 20px; padding: 14px 16px 18px; }
@@ -217,7 +220,13 @@
 
 .dp-about { min-height: 360px; padding: 20px 20px 36px; }
 .dp-about h2 { font-size: 20px; line-height: 28px; font-weight: 700; }
-.dp-about > p { margin-top: 16px; color: #444; font-size: 15px; line-height: 25px; word-break: keep-all; }
+.dp-about-story { margin-top: 16px; overflow: hidden; border: 1px solid #e2e2e2; border-radius: 14px; background: #fff; }
+.dp-about-story > header { display: grid; grid-template-columns: 42px minmax(0, 1fr); align-items: center; gap: 10px; padding: 14px 14px 10px; }
+.dp-about-story > header img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: var(--dp-bg); }
+.dp-about-story > header span { display: flex; min-width: 0; flex-direction: column; }
+.dp-about-story > header b { font-size: 14px; line-height: 20px; }
+.dp-about-story > header small { overflow: hidden; margin-top: 1px; color: #888; font-size: 12px; line-height: 18px; text-overflow: ellipsis; white-space: nowrap; }
+.dp-about-story > p { padding: 0 14px 16px; color: #444; font-size: 15px; line-height: 25px; word-break: keep-all; }
 .dp-about dl { margin: 24px 0 0; }
 .dp-about dl > div { display: grid; grid-template-columns: 100px minmax(0, 1fr); padding: 13px 0; border-bottom: 1px solid var(--dp-line); font-size: 14px; line-height: 21px; }
 .dp-about dt { display: flex; align-items: center; gap: 6px; color: #777; }
@@ -264,12 +273,13 @@
   .dp-page { max-width: 1184px; padding-top: 12px; }
   .dp-profile, .dp-content-card { overflow: hidden; }
   .dp-cover { aspect-ratio: 6 / 1; height: auto; margin: 0; border-radius: 12px; }
-  .dp-cover-photo { object-position: 58% 56%; }
+  .dp-cover-photo { width: 70%; object-position: center; }
   .dp-cover-brand-copy { left: 46px; max-width: 38%; }
-  .dp-cover-brand-copy small { font-size: 12px; line-height: 17px; letter-spacing: 1.8px; }
-  .dp-cover-brand-copy strong { margin-top: 2px; font-size: 31px; line-height: 38px; letter-spacing: -.6px; }
+  .dp-cover-brand-copy strong { font-size: 31px; line-height: 38px; letter-spacing: -.6px; }
   .dp-cover-brand-copy span { margin-top: 5px; font-size: 14px; line-height: 20px; }
-  .dp-cover > span { display: block; right: 58px; }
+  .dp-cover-vehicle-meta { right: 18px; bottom: 12px; max-width: 34%; }
+  .dp-cover-vehicle-meta small, .dp-cover-vehicle-meta em { font-size: 12px; line-height: 15px; }
+  .dp-cover-dots { bottom: 12px; }
   .dp-cover-more { display: grid; }
   .dp-profile-body { display: block; min-height: 198px; padding: 18px 20px 20px 178px; }
   .dp-avatar { top: 20px; left: 20px; width: 138px; height: 138px; border-width: 0; }
@@ -306,6 +316,7 @@
   .dp-review-grid { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
   .dp-about { padding: 22px 20px 40px; }
   .dp-about > p { max-width: 720px; }
+  .dp-about-story { max-width: 760px; }
   .dp-about dl { max-width: 760px; }
   .dp-about dl > div { grid-template-columns: 132px minmax(0, 1fr); }
   .dp-social-block { max-width: 760px; }
@@ -322,6 +333,11 @@
   .dp-footer-links { display: flex; gap: 32px; }
 }
 
+@keyframes dp-cover-reveal {
+  from { opacity: .72; }
+  to { opacity: 1; }
+}
+
 @media (max-width: 767px) {
   .dp-profile-inline.is-rating { flex-wrap: wrap; }
   .dp-profile-inline.is-rating i { display: none; }
@@ -336,4 +352,5 @@
 
 @media (prefers-reduced-motion: reduce) {
   .dp-root * { scroll-behavior: auto !important; }
+  .dp-cover-photo { animation: none; }
 }
