@@ -518,7 +518,7 @@ function VehicleSummary() {
     <section ref={summaryRef} className="vehicle-summary is-list-summary marketplace is-bbm-m is-qf-guazi"><div className="bbm-m-list">
       <BbmResultCard car={car} locationDong={detailLocationDong(car)} detailLocation={{}} variant="mobile" detailSummary detailPower={detailPower} liked={liked} onToggleLike={() => setLiked(!liked)} onOpen={() => undefined} onChat={() => undefined} />
     </div>
-      <p className="detail-posted-line"><img src={asset("bbm/chotot-common-clock-v01.svg")} alt="" aria-hidden="true" draggable={false} /><span>{car.posted}</span></p>
+      <p className="detail-posted-line"><img src={asset("bbm/autoscout-detail-clock-20-v01.svg")} alt="" aria-hidden="true" draggable={false} /><span>{car.posted}</span></p>
       <DetailSellerInfo car={car} /></section>
   );
   return (
