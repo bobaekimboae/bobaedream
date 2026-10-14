@@ -47,6 +47,61 @@ final result: passed
 
 ---
 
+# 치지직 상세 · 실제 원본 글 8326278 및 PC 반응형 v4 QA · 2026-10-15
+
+- source visual truth:
+  - live: `https://m.game.naver.com/lounge/chzzk/board/detail/8326278`
+  - mobile capture: `.codex-remote-attachments/01a128e5-de8a-78d0-9ed9-96cbde6a07c3/05b4afa3-384c-4b00-99d0-0beffae80c58/2-1000018294.png`
+- implementation route: `http://127.0.0.1:4175/community/chzzk-detail.html?id=8326278`
+- implementation screenshot evidence: Chrome browser capture of the route above at 390×844 and 1536×639; unchanged mobile regions are also recorded in `artifacts/chzzk-detail-reference-v3/implementation-regular-600.png`
+- normalized side-by-side evidence: `artifacts/chzzk-detail-reference-v3/comparison-regular-content.png`
+- source pixels: uploaded mobile capture 1080×3689px; live desktop viewport 1520×750 with approximately 1055px content shell
+- implementation pixels/CSS: browser viewport 390×844 and 1536×639, DPR managed by Chrome; desktop shell measured 1060px
+- state: regular post `8326278`, default reactions, event ticker first item
+
+## Full-view comparison evidence
+
+- live source resolved from the supplied short link to post `8326278`; title, author, level, elapsed time, view 34, tags, buff 16, comment hierarchy, and latest-post copy were checked against the rendered implementation.
+- mobile retained the reference screen's header, post, sticker, tags, banner, latest card, comments, nested reply, and fixed composer order with zero horizontal overflow.
+- desktop changed from the earlier 760px shell to a measured 1060px shell, matching the live source's approximately 1055px centered content region.
+- the reaction strip intentionally follows the user's later Reddit-layout instruction: buff/nerf and comment start on the left while share remains on the far right. This is an accepted product override from the source's right-aligned mobile strip.
+
+## Focused region comparison evidence
+
+- mobile reaction coordinates: row 23–352px, vote 23–179px, comment 187–243px, share 309–352px; the requested left cluster and separated share control are visible and non-overlapping.
+- desktop reaction coordinates: row 246–1274px, vote 246–406px, comment 416–473px, share 1231–1274px.
+- event ticker click advanced to the next observed live-source message; buff toggled 16→17 and restored; comment input enabled the submit control and was then cleared.
+
+## Required fidelity surfaces
+
+- fonts/typography: Pretendard hierarchy and 13–24px type scale remain unchanged; source copy and current elapsed-time/view metadata were updated.
+- spacing/layout rhythm: mobile 23px content inset and 390px viewport remain stable; desktop shell now measures 1060px with 16px content inset.
+- colors/tokens: source green board label is retained, while the user-requested Airbnb `#FF385C` interaction token remains the intentional brand override.
+- image quality/assets: source-matching cat stickers and avatar are local raster assets; browser check found zero broken images.
+- copy/content: default route now resolves to post `8326278`, view is 34, parent comment time is 7 hours, and the event row cycles through three messages observed on the live source.
+
+## Comparison history
+
+- P2 before: desktop remained constrained to 760px although the supplied live desktop page uses an approximately 1055px centered shell.
+- fix: introduced `--shell-max: 1060px`, aligned the fixed composer to the same width, and reduced desktop content insets to 16px.
+- P2 before: reaction controls were right-aligned despite the user's explicit Reddit-style left placement request.
+- fix: moved vote and comment controls to the left and pushed only share to the far right; notice-mode votes remain right-aligned like the reference.
+- post-fix browser evidence: mobile and desktop coordinate checks above, zero horizontal overflow, zero broken images, and zero console warnings/errors.
+
+## Verification
+
+- mobile 390×844 and desktop 1536×639: passed
+- regular and notice modes: passed
+- buff toggle, event ticker, comment input enablement: passed
+- console warning/error: 0
+- broken images: 0
+- `npm run verify`: passed (admin 29, Sites 4, production build)
+- P0/P1/P2 findings: none after fixes
+
+final result: passed
+
+---
+
 # Design QA · 네이버 카페 글쓰기 UI 동일화 (2026-10-15)
 
 - source visual truth: `https://m.cafe.naver.com/ca-fe/web/cafes/25233466/articles/write`의 로그인된 실제 글쓰기 화면
@@ -2142,5 +2197,13 @@ final result: passed
 - 모바일 일반글·공지글: 가로 넘침 없음, 깨진 이미지 0건, 콘솔 warning/error 0건
 - PC 1536×639: 760px 중앙 셸, 가로 넘침 없음, 깨진 이미지 0건
 - `npm run verify`: passed(관리자 29건, Sites 4건, 빌드 포함)
+
+final result: passed
+
+---
+
+## Latest effective result · chzzk detail v4
+
+The v4 QA section titled `치지직 상세 · 실제 원본 글 8326278 및 PC 반응형 v4 QA` supersedes the v3 desktop-shell note above. The effective PC shell is 1060px, the default/source post id is 8326278, and Reddit-style vote/comment controls are left aligned with share on the right.
 
 final result: passed

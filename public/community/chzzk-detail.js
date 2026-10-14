@@ -1,15 +1,15 @@
 const params = new URLSearchParams(location.search);
-const id = Number(params.get('id') || 8131629);
+const id = Number(params.get('id') || 8326278);
 const isNotice = params.get('type') === 'notice' || params.get('notice') === '1';
 const posts = window.BOBAE_POSTS || [];
 const sourcePost = posts.find((item) => item.id === id);
-const isReferencePost = id === 8131629 || !sourcePost;
+const isReferencePost = id === 8326278 || id === 8131629 || !sourcePost;
 const post = isReferencePost ? {
   title: '출첵!',
   user: '쿠로토라',
   level: 17,
   date: '7시간 전',
-  view: 33,
+  view: 34,
   likes: 16,
   body: ['출첵!'],
 } : sourcePost;
@@ -37,7 +37,7 @@ function setRegularContent() {
   $('#authorName').textContent = post.user || '쿠로토라';
   $('#authorLevel').textContent = post.level || 17;
   $('#authorDate').textContent = post.date || '7시간 전';
-  $('#authorView').textContent = Number(post.view || 33).toLocaleString();
+  $('#authorView').textContent = Number(post.view || 34).toLocaleString();
   $('#score').textContent = Number(post.likes || 16);
   $('#latestAuthor').textContent = post.user || '쿠로토라';
   if (!isReferencePost) {
@@ -83,7 +83,17 @@ $('#bookmarkBtn').addEventListener('click', (event) => {
   showToast(next ? '게시글을 저장했습니다' : '저장을 취소했습니다');
 });
 $('#menuBtn').addEventListener('click', () => showToast('게시글 메뉴입니다'));
-$('#eventBar').addEventListener('click', () => showToast('이벤트 안내를 확인합니다'));
+const eventMessages = [
+  '[놈웨의 과몰입 만화방 2화] 신세기 에반게리온 과몰입 토크 스트리머 모집',
+  '2026 데마시아 컵 글로벌 인비테이셔널(DCGI) 같이보기 안내',
+  '(2차 당첨자 안내 업데이트) [그님픽] 그님팀 9월 내전 시청자 이벤트 안내',
+];
+let eventIndex = 0;
+$('#eventBar').addEventListener('click', () => {
+  eventIndex = (eventIndex + 1) % eventMessages.length;
+  $('#eventText').textContent = eventMessages[eventIndex];
+  showToast('다음 이벤트 안내입니다');
+});
 $('#upBtn').addEventListener('click', () => { up = !up; if (up) down = false; updateVote(); showToast(up ? '버프를 추천했습니다' : '버프를 취소했습니다'); });
 $('#downBtn').addEventListener('click', () => { down = !down; if (down) up = false; updateVote(); showToast(down ? '너프를 선택했습니다' : '너프를 취소했습니다'); });
 $('#commentJump').addEventListener('click', () => { $('#comments').scrollIntoView({ behavior: 'smooth' }); setTimeout(() => $('#commentInput').focus(), 350); });
