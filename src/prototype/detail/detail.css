@@ -638,8 +638,6 @@
 .vehicle-history-grid dd { margin: 0; word-break: keep-all; }
 .vehicle-history-grid dt { min-height: 20px; color: #767676; font-size: 14px; font-weight: 400; line-height: 20px; }
 .vehicle-history-grid dd { min-width: 0; color: #222; font-size: 16px; font-weight: 500; line-height: 22px; text-align: left; }
-.vehicle-history-link { color: inherit; font: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
-.vehicle-history-link:focus-visible { outline: 2px solid #222; outline-offset: 3px; border-radius: 2px; }
 
 /* 차량 정보 B안 `&facts=chotot`: 초톳 상세 제원처럼 상태/기술 두 구역, 각 구역은 2열 필드 묶음이다. */
 .vehicle-info-card.is-facts-chotot .detail-section-heading { margin-bottom: 18px; }
