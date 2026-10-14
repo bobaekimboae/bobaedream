@@ -48,7 +48,7 @@ for (const viewport of viewports) {
       bodyWidth: document.documentElement.scrollWidth,
       viewportWidth: window.innerWidth,
       header: rect('.write-header'),
-      board: rect('.board-select'),
+      board: rect('.taxonomy-row'),
       title: rect('#postTitle'),
       toolbar: rect('.primary-toolbar'),
       editor: rect('.editor-body'),
@@ -67,12 +67,14 @@ for (const viewport of viewports) {
   assert(externalRequests.length === 0, `${viewport.name}: external requests ${externalRequests.join(', ')}`);
   assert(runtimeErrors.length === 0, `${viewport.name}: runtime errors ${runtimeErrors.join(' | ')}`);
 
-  await page.getByRole('button', { name: '게시판을 선택해주세요.' }).click();
+  await page.getByRole('button', { name: '게시판 선택' }).click();
   const modal = await page.locator('.board-modal').boundingBox();
   assert(Math.round(modal.width) === 300 && Math.round(modal.height) === 417, `${viewport.name}: modal ${JSON.stringify(modal)}`);
   await page.screenshot({ path: path.join(outputDir, `${viewport.name}-board-modal.png`), fullPage: true });
-  await page.getByPlaceholder('게시판 검색').fill('자동차');
-  await page.getByText('자동차 이야기', { exact: true }).click();
+  await page.getByPlaceholder('게시판 검색').fill('국산차');
+  await page.getByLabel('국산차 오너톡').check();
+  await page.getByRole('button', { name: '말머리 선택' }).click();
+  await page.getByLabel('현대').check();
   await page.getByPlaceholder('제목').fill('테스트 제목');
   await page.locator('#postBody').fill('테스트 본문');
   assert(await page.getByRole('button', { name: '등록', exact: true }).first().isEnabled(), `${viewport.name}: submit did not enable`);

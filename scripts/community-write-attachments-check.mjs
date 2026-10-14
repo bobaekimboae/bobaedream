@@ -20,6 +20,12 @@ for (const viewport of [{ name:'desktop', width:1440, height:900 }, { name:'mobi
   ]);
   await page.waitForFunction(() => document.querySelectorAll('.editor-media').length === 3);
   assert(await page.locator('.editor-media').count() === 3, `${viewport.name}: multiple image upload`);
+  await page.locator('#postBody').focus();
+  const editorFocus = await page.locator('#postBody').evaluate((element) => {
+    const style = getComputedStyle(element);
+    return { outlineStyle:style.outlineStyle, outlineWidth:style.outlineWidth };
+  });
+  assert(editorFocus.outlineStyle === 'none' || editorFocus.outlineWidth === '0px', `${viewport.name}: editor focus has no full-width outline`);
   assert(await page.locator('.cover-badge:not([hidden])').count() === 1, `${viewport.name}: one initial cover`);
   const orderBefore = await page.locator('.editor-media').evaluateAll((items) => items.map((item) => item.dataset.mediaId));
   await page.evaluate(() => {
@@ -123,4 +129,4 @@ await rejectContext.close();
 
 await browser.close();
 if (failures.length) { console.error(JSON.stringify({ ok:false, failures }, null, 2)); process.exit(1); }
-console.log(JSON.stringify({ ok:true, scenarios:22, viewports:['desktop','mobile'] }, null, 2));
+console.log(JSON.stringify({ ok:true, scenarios:23, viewports:['desktop','mobile'] }, null, 2));

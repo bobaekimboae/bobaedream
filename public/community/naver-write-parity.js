@@ -1,5 +1,16 @@
 (() => {
-  const boards = ['스티커 신청/인증','베르크 후원/기부','공식 행사','이벤트 & 체험단','블랙리스트','가입했어요','칭찬합니다','잡/못생긴사람게시판','자유게시판','자동차 이야기','바이크 이야기','질문과 답변'];
+  const boards = [
+    { name:'자유게시판', heads:['자유','질문','정보','후기'] },
+    { name:'국산차 오너톡', heads:['현대','기아','제네시스','KG모빌리티','르노코리아','쉐보레'] },
+    { name:'수입차 라운지', heads:['BMW','벤츠','아우디','폭스바겐','포르쉐','기타 수입차'] },
+    { name:'전기차', heads:['구매','충전','보조금','정비'] },
+    { name:'정비 · DIY', heads:['정비','DIY','용품','질문'] },
+    { name:'튜닝', heads:['외장','내장','성능','휠 · 타이어'] },
+    { name:'중고차', heads:['구매 상담','판매 상담','시세','거래 후기'] },
+    { name:'보험 · 사고', heads:['보험','사고 상담','과실','보상'] },
+    { name:'블랙박스 제보', heads:['제보','사고 영상','위반 차량','교통 안전'] },
+    { name:'바이크', heads:['입문','기종','정비','투어','용품'] },
+  ];
   const stickers = ['😀','😍','👏','🔥','🚗','🏍️','👍','🎉','❤️','😂','😎','🙏'];
   const topics = ['내차소개','시승기','정비후기','교통정보','자동차뉴스','바이크','질문','자유'];
   const draftKey = 'bbm.community.writeDraft.v2';
@@ -18,6 +29,8 @@
   const boardList = qs('#boardList');
   const boardSearch = qs('#boardSearch');
   const selectedBoard = qs('#selectedBoard');
+  const headSelect = qs('.head-select');
+  const selectedHead = qs('#selectedHead');
   const draftLayer = qs('#draftLayer');
   const draftContent = qs('#draftContent');
   const dialogOverlay = qs('#dialogOverlay');
@@ -37,10 +50,10 @@
   const visibilityButton = qs('#visibilityButton');
   const toast = qs('#toast');
   const state = {
-    board: '', draft: null, attachments: [], visibility: '멤버 공개',
+    board: '', head: '', selectionMode: 'board', draft: null, attachments: [], visibility: '멤버 공개',
     tool: '', selectedChoice: '', savedRange: null, toastTimer: 0,
     photos: new Map(), activePhotoId: '', replacePhotoId: '', dragPhotoId: '',
-    editPhotoId: '', editDraft: null,
+    editPhotoId: '', editDraft: null, editPollId: '',
   };
 
   const escapeHtml = (value = '') => String(value).replace(/[&<>'"]/g, (char) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#39;', '"':'&quot;' }[char]));
@@ -156,12 +169,16 @@
 
   function renderBoards(query = '') {
     const keyword = query.trim().toLowerCase();
-    const filtered = boards.filter((name) => name.toLowerCase().includes(keyword));
-    boardList.innerHTML = filtered.map((name) => `<li><label><span>${escapeHtml(name)}</span><input type="radio" name="board" value="${escapeHtml(name)}" ${state.board === name ? 'checked' : ''}><i aria-hidden="true"></i></label></li>`).join('') || '<li class="empty-board">검색 결과가 없습니다.</li>';
+    const options = state.selectionMode === 'head'
+      ? ['말머리 없음', ...(boards.find((board) => board.name === state.board)?.heads || [])]
+      : boards.map((board) => board.name);
+    const selected = state.selectionMode === 'head' ? (state.head || '말머리 없음') : state.board;
+    const filtered = options.filter((name) => name.toLowerCase().includes(keyword));
+    boardList.innerHTML = filtered.map((name) => `<li><label><span>${escapeHtml(name)}</span><input type="radio" name="taxonomy" data-selection="${state.selectionMode}" value="${escapeHtml(name)}" ${selected === name ? 'checked' : ''}><i aria-hidden="true"></i></label></li>`).join('') || '<li class="empty-board">검색 결과가 없습니다.</li>';
   }
 
   function hasBodyContent() {
-    return Boolean(body.textContent.trim() || body.querySelector('img,.embed-card,.place-card,.topic-card,.sticker-chip') || state.attachments.length);
+    return Boolean(body.textContent.trim() || body.querySelector('img,.embed-card,.place-card,.topic-card,.sticker-chip,.poll-card') || state.attachments.length);
   }
 
   function syncSubmit() {
@@ -184,7 +201,7 @@
 
   function closeBoard() {
     boardOverlay.hidden = true;
-    qs('[data-action="board"]').setAttribute('aria-expanded', 'false');
+    qsa('[data-action="board"],[data-action="head"]').forEach((button) => button.setAttribute('aria-expanded', 'false'));
   }
 
   function captureRange() {
@@ -222,7 +239,7 @@
     qsa('.editor-media', bodyClone).forEach((figure) => figure.classList.remove('is-selected'));
     return {
       title: title.value.trim() || '제목 없음', body: bodyClone.innerHTML, tags: tags.value,
-      board: state.board, visibility: state.visibility,
+      board: state.board, head: state.head, visibility: state.visibility,
       permissions: { search: qs('#allowSearch').checked, share: qs('#allowShare').checked, copy: qs('#allowCopy').checked },
       attachments: state.attachments.map(({ name, size, type }) => ({ name, size, type })),
       photos: [...state.photos.values()].map(({ url, ...photo }) => photo),
@@ -251,9 +268,12 @@
     body.innerHTML = state.draft.body || '';
     tags.value = state.draft.tags || '';
     state.board = state.draft.board || '';
+    state.head = state.draft.head || '';
     state.visibility = state.draft.visibility || '멤버 공개';
     visibilityButton.textContent = state.visibility;
-    selectedBoard.textContent = state.board || '게시판을 선택해주세요.';
+    selectedBoard.textContent = state.board || '게시판 선택';
+    selectedHead.textContent = state.head || '말머리 선택';
+    headSelect.disabled = !state.board;
     const permissions = state.draft.permissions || {};
     qs('#allowSearch').checked = permissions.search !== false;
     qs('#allowShare').checked = permissions.share !== false;
@@ -293,10 +313,31 @@
     toolOverlay.hidden = true;
     state.tool = '';
     state.selectedChoice = '';
+    state.editPollId = '';
   }
 
   function choiceButtons(items, className = '') {
     return `<div class="choice-grid ${className}">${items.map((item) => `<button class="choice-button" type="button" data-choice="${escapeHtml(item)}">${escapeHtml(item)}</button>`).join('')}</div>`;
+  }
+
+  function pollOptionFields(options = ['',''], startIndex = 0) {
+    return options.map((option, index) => `<label class="poll-option-field"><span class="sr-only">선택지 ${startIndex + index + 1}</span><input class="poll-option-input" maxlength="60" value="${escapeHtml(option)}" placeholder="선택지 ${startIndex + index + 1}"><button type="button" data-action="remove-poll-option" aria-label="선택지 ${startIndex + index + 1} 삭제">×</button></label>`).join('');
+  }
+
+  function pollDataFromCard(card) {
+    if (!card) return null;
+    return {
+      question:card.dataset.question || '',
+      options:[...card.querySelectorAll('.poll-option-preview')].map((option) => option.textContent),
+      multiple:card.dataset.multiple === 'true',
+      duration:card.dataset.duration || '7일',
+      anonymous:card.dataset.anonymous === 'true',
+    };
+  }
+
+  function pollMarkup({ id, question, options, multiple, duration, anonymous }) {
+    const meta = [multiple ? '복수 선택' : '단일 선택', anonymous ? '익명 투표' : '닉네임 공개', duration === '제한 없음' ? duration : `${duration} 후 마감`].join(' · ');
+    return `<section class="poll-card" data-poll-id="${escapeHtml(id)}" data-question="${escapeHtml(question)}" data-multiple="${multiple}" data-duration="${escapeHtml(duration)}" data-anonymous="${anonymous}" contenteditable="false"><header><span>투표</span><strong>${escapeHtml(question)}</strong></header><div class="poll-option-list">${options.map((option) => `<span class="poll-option-preview">${escapeHtml(option)}</span>`).join('')}</div><footer><small>${escapeHtml(meta)}</small><span class="poll-card-actions"><button type="button" data-action="edit-poll">수정</button><button type="button" data-action="remove-poll">삭제</button></span></footer></section>`;
   }
 
   function openTool(type) {
@@ -304,10 +345,12 @@
     else state.savedRange = null;
     state.tool = type;
     state.selectedChoice = '';
+    const currentPoll = type === 'poll' ? pollDataFromCard(body.querySelector(`.poll-card[data-poll-id="${CSS.escape(state.editPollId)}"]`)) : null;
     const config = {
       video: ['동영상 추가', '<label class="dialog-field"><span>동영상 주소</span><input id="toolUrl" type="url" inputmode="url" placeholder="https://youtu.be/..." /></label><label class="dialog-field"><span>표시 제목</span><input id="toolText" maxlength="80" placeholder="동영상 제목" /></label><p class="upload-note">주소 카드로 본문에 삽입됩니다. 외부 영상은 자동 재생하지 않습니다.</p>'],
       link: ['링크 추가', '<label class="dialog-field"><span>주소</span><input id="toolUrl" type="url" inputmode="url" placeholder="https://example.com" /></label><label class="dialog-field"><span>링크 문구</span><input id="toolText" maxlength="80" placeholder="링크 이름" /></label>'],
       place: ['장소 추가', '<label class="dialog-field"><span>장소명</span><input id="toolText" maxlength="60" placeholder="예: 보배드림 본사" /></label><label class="dialog-field"><span>주소</span><input id="toolAddress" maxlength="120" placeholder="도로명 또는 지번 주소" /></label>'],
+      poll: [state.editPollId ? '투표 수정' : '투표 만들기', `<label class="dialog-field"><span>질문</span><input id="pollQuestion" maxlength="100" value="${escapeHtml(currentPoll?.question || '')}" placeholder="투표 질문을 입력하세요"></label><div class="poll-options" id="pollOptions">${pollOptionFields(currentPoll?.options || ['',''])}</div><button class="poll-add-option" type="button" data-action="add-poll-option">+ 선택지 추가</button><div class="poll-settings"><label><span>복수 선택 허용</span><input id="pollMultiple" type="checkbox" ${currentPoll?.multiple ? 'checked' : ''}></label><label><span>익명 투표</span><input id="pollAnonymous" type="checkbox" ${currentPoll?.anonymous ? 'checked' : ''}></label><label><span>마감</span><select id="pollDuration">${['1일','3일','7일','제한 없음'].map((value) => `<option ${value === (currentPoll?.duration || '7일') ? 'selected' : ''}>${value}</option>`).join('')}</select></label></div><p class="upload-note">선택지는 2개 이상 10개까지 추가할 수 있습니다.</p>`],
       sticker: ['스티커', choiceButtons(stickers, 'sticker-grid')],
       topic: ['글감 선택', choiceButtons(topics, 'topic-grid')],
       visibility: ['공개 범위', `<div class="visibility-list">${['전체 공개','멤버 공개','나만 보기'].map((item) => `<label class="visibility-option"><span>${item}</span><input type="radio" name="visibility" value="${item}" ${state.visibility === item ? 'checked' : ''}></label>`).join('')}</div>`],
@@ -316,7 +359,7 @@
     if (!config) return;
     toolDialogTitle.textContent = config[0];
     toolDialogBody.innerHTML = config[1];
-    toolApply.textContent = type === 'visibility' ? '선택' : '추가';
+    toolApply.textContent = type === 'visibility' ? '선택' : state.editPollId ? '수정' : '추가';
     toolOverlay.hidden = false;
     window.setTimeout(() => qs('input:not([type="radio"])', toolDialogBody)?.focus(), 0);
   }
@@ -340,6 +383,18 @@
       const address = qs('#toolAddress', toolDialogBody)?.value.trim();
       if (!name || !address) { showToast('장소명과 주소를 입력해주세요.'); return; }
       insertHtml(`<div class="place-card" contenteditable="false"><strong>📍 ${escapeHtml(name)}</strong><span>${escapeHtml(address)}</span></div><p><br></p>`);
+    } else if (type === 'poll') {
+      const question = qs('#pollQuestion', toolDialogBody)?.value.trim();
+      const options = qsa('.poll-option-input', toolDialogBody).map((input) => input.value.trim()).filter(Boolean);
+      if (!question) { showToast('투표 질문을 입력해주세요.'); return; }
+      if (options.length < 2) { showToast('선택지를 2개 이상 입력해주세요.'); return; }
+      if (new Set(options).size !== options.length) { showToast('같은 선택지는 한 번만 입력해주세요.'); return; }
+      const poll = { id:state.editPollId || `poll_${Date.now().toString(36)}`, question, options, multiple:qs('#pollMultiple', toolDialogBody).checked, duration:qs('#pollDuration', toolDialogBody).value, anonymous:qs('#pollAnonymous', toolDialogBody).checked };
+      if (state.editPollId) {
+        body.querySelector(`.poll-card[data-poll-id="${CSS.escape(state.editPollId)}"]`)?.replaceWith(document.createRange().createContextualFragment(pollMarkup(poll)));
+        body.dispatchEvent(new Event('input', { bubbles:true }));
+      } else insertHtml(`${pollMarkup(poll)}<p><br></p>`);
+      state.editPollId = '';
     } else if (type === 'sticker') {
       if (!state.selectedChoice) { showToast('스티커를 선택해주세요.'); return; }
       insertHtml(`<span class="sticker-chip" contenteditable="false">${escapeHtml(state.selectedChoice)}</span>&nbsp;`);
@@ -494,7 +549,14 @@
       state.selectedChoice = button.dataset.choice;
       qsa('[data-choice]', toolDialogBody).forEach((item) => item.classList.toggle('is-selected', item === button));
     }
-    if (action === 'board') { renderBoards(); boardOverlay.hidden = false; button.setAttribute('aria-expanded', 'true'); window.setTimeout(() => boardSearch.focus(), 0); }
+    if (action === 'board' || action === 'head') {
+      if (action === 'head' && !state.board) { showToast('게시판을 먼저 선택해주세요.'); return; }
+      state.selectionMode = action;
+      qs('#boardTitle').textContent = action === 'head' ? '말머리 선택' : '게시판 선택';
+      boardSearch.value = '';
+      boardSearch.placeholder = action === 'head' ? '말머리 검색' : '게시판 검색';
+      renderBoards(); boardOverlay.hidden = false; button.setAttribute('aria-expanded', 'true'); window.setTimeout(() => boardSearch.focus(), 0);
+    }
     if (action === 'close-board') closeBoard();
     if (action === 'close-tool') closeTool();
     if (action === 'text-tools') { const bar = qs('.text-toolbar'); bar.hidden = !bar.hidden; button.setAttribute('aria-expanded', String(!bar.hidden)); }
@@ -514,6 +576,31 @@
     if (action === 'replace-photo' && figure) { state.replacePhotoId = figure.dataset.mediaId; replacePhotoInput.click(); }
     if (action === 'remove-media' && figure) removePhoto(figure.dataset.mediaId);
     if (action === 'remove-attachment') { const index = Number(button.dataset.index); const [removed] = state.attachments.splice(index, 1); if (removed?.url) URL.revokeObjectURL(removed.url); renderAttachments(); }
+    if (action === 'add-poll-option') {
+      const pollOptions = qs('#pollOptions', toolDialogBody);
+      const count = qsa('.poll-option-field', pollOptions).length;
+      if (count >= 10) { showToast('선택지는 최대 10개입니다.'); return; }
+      pollOptions.insertAdjacentHTML('beforeend', pollOptionFields([''], count));
+      qsa('.poll-option-input', pollOptions).at(-1)?.focus();
+    }
+    if (action === 'remove-poll-option') {
+      const fields = qsa('.poll-option-field', toolDialogBody);
+      if (fields.length <= 2) { showToast('선택지는 2개 이상 필요합니다.'); return; }
+      button.closest('.poll-option-field')?.remove();
+    }
+    if (action === 'edit-poll') {
+      const card = button.closest('.poll-card');
+      state.editPollId = card?.dataset.pollId || '';
+      if (state.editPollId) openTool('poll');
+    }
+    if (action === 'remove-poll') {
+      const card = button.closest('.poll-card');
+      const spacer = card?.nextElementSibling;
+      card?.remove();
+      if (spacer?.tagName === 'P' && !spacer.textContent.trim()) spacer.remove();
+      body.dispatchEvent(new Event('input', { bubbles:true }));
+      showToast('투표를 삭제했습니다.');
+    }
     if (action === 'save-draft') saveDraft();
     if (action === 'drafts') openDrafts();
     if (action === 'close-drafts') draftLayer.hidden = true;
@@ -609,8 +696,16 @@
   }, true);
   boardList.addEventListener('change', (event) => {
     if (!(event.target instanceof HTMLInputElement)) return;
-    state.board = event.target.value;
-    selectedBoard.textContent = state.board;
+    if (event.target.dataset.selection === 'head') {
+      state.head = event.target.value === '말머리 없음' ? '' : event.target.value;
+      selectedHead.textContent = state.head || '말머리 없음';
+    } else {
+      state.board = event.target.value;
+      state.head = '';
+      selectedBoard.textContent = state.board;
+      selectedHead.textContent = '말머리 선택';
+      headSelect.disabled = false;
+    }
     closeBoard();
     syncSubmit();
   });

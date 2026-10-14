@@ -59,6 +59,55 @@ final result: passed
 
 ---
 
+# Design QA · 게시물 등록 본문 포커스 선·게시판·말머리·투표 (2026-10-15)
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/d89e79e2-5c6c-4318-a35d-bc6b28e9988d/1-1000018270.jpg`
+- implementation screenshot: `C:/Users/bobae/codex-worktrees/community-write-parity-1015/artifacts/community-write-attachment-parity-1015/mobile-384-focus-boundary.png`
+- additional implementation evidence: `mobile-384-board-select.png`, `mobile-384-head-select.png`, `mobile-384-poll-dialog.png`
+- viewport: 384 × 844 CSS px, DPR 1
+- source pixels: 591 × 1280 px; implementation pixels: 384 × 844 px
+- normalization: source was inspected at its native device screenshot size; the content boundary was compared by matching the mobile authoring state rather than browser chrome.
+- state: attached image, caption, focused editor body, tag boundary; board/head selectors and filled poll sheet.
+
+## Full-view comparison evidence
+
+- Source showed a 2px primary-color line spanning the full editor width immediately above the tag field.
+- Revised implementation shows only the neutral 1px content/tag separator; no primary-color editor outline is visible.
+- The board and headword selectors share the original 49px taxonomy row, so the title, toolbar, editor and tag positions do not shift.
+- The poll authoring sheet fits within 384px and keeps the primary action visible without horizontal overflow.
+
+## Focused region comparison evidence
+
+- The editor-bottom/tag-top boundary was compared directly. The accidental focus outline is absent after the selector change.
+- The selected-photo state was checked separately: its intended primary-color selection border and caption focus border remain visible.
+- Board, headword and poll sheets were reviewed at 384px for close controls, radio affordances, field spacing and bottom action visibility.
+
+## Comparison history
+
+- P1 before: the generic `[contenteditable]:focus-visible` rule overrode `.editor-body{outline:none}`, creating the full-width pink line in long mobile posts.
+- Fix: exclude `.editor-body` from the global focus-outline selector while retaining focus outlines on buttons, form controls and nested editable captions.
+- Post-fix evidence: `mobile-384-focus-boundary.png` shows no primary-colored line; automated computed-style checks pass on desktop and mobile.
+
+## Required fidelity surfaces
+
+- fonts/typography: existing system font, 14–17px hierarchy and label weights are unchanged; poll question and option hierarchy is legible.
+- spacing/layout rhythm: original 49px taxonomy row and downstream y positions are preserved; sheets use the existing 16–20px dialog rhythm.
+- colors/tokens: primary `#ff385c`, neutral borders and disabled states continue to use existing tokens.
+- image quality/assets: existing verified toolbar icons and test imagery remain intact; broken image count is zero.
+- copy/content: Naver sample boards were replaced with Bobaedream boards; board-specific headwords and poll settings use Korean service copy.
+
+## Verification
+
+- `community:verify:write-tools`: 21 features passed on 1536px and 384px.
+- `community:verify:attachments`: 23 scenarios passed on desktop and mobile.
+- `community:verify:write-parity`: five viewports passed.
+- horizontal overflow: 0; runtime errors: 0; broken images: 0.
+- P0/P1/P2 findings: none after correction.
+
+final result: passed
+
+---
+
 # Design QA · 네이버 카페 게시글 목록 밀도 동일화 (2026-10-15)
 
 - source visual truth: `https://m.cafe.naver.com/ca-fe/bimmerwerks?tc=section_home_my_cafe`
