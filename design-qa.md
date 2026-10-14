@@ -28,6 +28,53 @@ final result: passed
 
 ---
 
+# Design QA · 초톳형 2열 시작축 정렬 (2026-10-14)
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/80a25fd3-79ac-4b04-adf3-38296c86922d/1-1000018248.jpg`
+- source pixels: 591 × 1280 JPEG
+- implementation screenshot: Codex in-app Browser의 이번 턴 차량 히스토리 집중 캡처(도구 출력)
+- implementation route: `http://127.0.0.1:4210/?qf=guazi&category=서울오토갤러리&facts=icons` → BMW M3 첫 매물 → 히스토리
+- viewport: 390 × 844 CSS px, 브라우저 스테이지 자동 배율
+- state: 차량 히스토리 `출고·유통 정보`, 아이콘 핵심정보 격자는 변경하지 않음
+
+## Full-view comparison evidence
+
+- 참고 화면은 왼쪽 열과 화면 가운데에서 시작하는 오른쪽 열, 두 개의 왼쪽 정렬 시작축을 사용한다.
+- 구현도 항목을 왼쪽 열에서, 값을 50% 지점의 오른쪽 열에서 시작하도록 복원했다.
+- 이전의 가운데축·우측끝 정렬은 참고 화면과 달라 제거했다.
+
+## Focused region comparison evidence
+
+- `생산 공장` 시작점과 `BMW 뮌헨 공장` 시작점이 각각 첫 열과 두 번째 열의 고정 시작축에 놓인다.
+- 런타임 계산값: 두 텍스트 모두 `text-align:left`, `font-size:14px`; 같은 열의 `출고일`, `출고가격`도 동일 시작점을 유지한다.
+- 브라우저 집중 캡처에서 행 구분선, 50:50 열, 14px 정보 밀도를 확인했다.
+
+## Required fidelity surfaces
+
+- Fonts and typography: Pretendard 유지, 좌·우 열 모두 14/20px; 값 500 weight.
+- Spacing and layout rhythm: 50:50 열, 첫 열 좌측 시작축과 둘째 열 가운데 시작축, 44px 행과 1px 구분선 유지.
+- Colors and visual tokens: 항목 `#767676`, 값 `#222`, 선 `#E5E5E5` 유지.
+- Image quality and asset fidelity: 이 행형 영역은 이미지 자산이 없으며 아이콘 격자 자산을 변경하지 않았다.
+- Copy and content: `생산 공장 / BMW 뮌헨 공장`을 포함한 모든 차량 히스토리 문구와 순서를 보존했다.
+
+## Comparison history
+
+- 이전 P1: 항목명이 가운데 경계에 끝나고 값이 카드 우측 끝에 붙어 초톳의 두 시작축과 반대로 보였다.
+- 수정: 모든 비격자 2열 행에서 항목과 값을 각 열의 왼쪽 시작점에 맞췄다.
+- 수정 후 근거: 브라우저에서 `생산 공장`과 `BMW 뮌헨 공장`의 두 시작축, 동일 14px 크기, 콘솔 오류 0건을 확인했다.
+
+## Verification
+
+- `npm run verify:qf`: passed
+- `git diff --check`: passed
+- 주요 행의 계산 스타일과 시작점 확인
+- PC 차량 정보도 항목 x=121, 값 x=361의 두 시작축과 `text-align:left`를 확인
+- 콘솔 오류 0
+
+final result: passed
+
+---
+
 # Design QA · PC 차량 정보 우측 정렬·밀도 조정 (2026-10-14)
 
 - source visual truth: 직전 승인된 모바일 차량 정보의 14px 정보 밀도와 사용자 결정 「우측으로 텍스트 정렬 하고 정보 텍스트들 줄여라」, 「PC 버전도」

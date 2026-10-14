@@ -63,8 +63,8 @@
 .vehicle-info-rows { margin: 0; }
 .vehicle-info-rows > div { display: grid; grid-template-columns: 57% minmax(0, 43%); align-items: center; min-height: 44px; border-bottom: 1px solid #f4f4f4; color: #3a3a3a; font-size: 14px; line-height: 20px; }
 .vehicle-info-rows dt, .vehicle-info-rows dd { margin: 0; }
-.vehicle-info-rows dt { text-align: right; }
-.vehicle-info-rows dd { color: #1a1a1a; font-weight: 600; letter-spacing: -.14px; text-align: right; word-break: keep-all; }
+.vehicle-info-rows dt { text-align: left; }
+.vehicle-info-rows dd { color: #1a1a1a; font-weight: 600; letter-spacing: -.14px; text-align: left; word-break: keep-all; }
 .vehicle-info-toggle { display: flex; width: calc(100% - 20px); height: 44px; align-items: center; justify-content: center; gap: 0; margin: 12px 10px 0; padding: 0 10px; border: 0; background: #fff; color: #8c8c8c; font-size: 14px; font-weight: 600; line-height: 20px; cursor: pointer; }
 .vehicle-info-toggle img { width: 20px; height: 20px; transition: transform .2s ease; }
 .vehicle-info-toggle img.is-expanded { transform: rotate(180deg); }
@@ -91,8 +91,8 @@
 .detail-rows { margin: 0 0 16px; }
 .detail-rows > div { display: grid; grid-template-columns: 1fr 1.05fr; min-height: 42px; align-items: center; border-bottom: 1px solid #eee; color: #3a3a3a; font-size: 14px; }
 .detail-rows dt, .detail-rows dd { margin: 0; }
-.detail-rows dt { text-align: right; }
-.detail-rows dd { text-align: right; }
+.detail-rows dt { text-align: left; }
+.detail-rows dd { text-align: left; }
 .detail-rows dd u { margin-left: 4px; color: #8c8c8c; }
 .inspection-note { margin: 0 0 16px; padding: 12px; border-radius: 8px; background: #f7f7f7; color: #595959; font-size: 13px; line-height: 19px; }
 .warranty-card .detail-section-heading { margin-bottom: 18px; }
@@ -102,12 +102,12 @@
 .warranty-box { display: flex; flex-direction: column; gap: 0; }
 .warranty-box > div { position: relative; display: grid; grid-template-columns: 50% minmax(0, 1fr); align-items: center; min-height: 44px; gap: 0; border-bottom: 1px solid #e5e5e5; color: #222; font-size: 14px; line-height: 20px; }
 .warranty-box > div:last-child { border-bottom: 0; }
-.warranty-box span { display: inline-flex; min-width: 0; align-items: center; justify-content: flex-end; gap: 4px; color: #767676; font-weight: 400; text-align: right; }
+.warranty-box span { display: inline-flex; min-width: 0; align-items: center; gap: 4px; color: #767676; font-weight: 400; text-align: left; }
 .warranty-box span small { color: inherit; font-size: 13px; font-weight: 400; }
 .warranty-box span svg { width: 15px; height: 15px; color: #a5abb3; }
-.warranty-inspection-trigger { display: inline-flex; width: max-content; max-width: 100%; align-items: center; justify-self: end; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-align: right; cursor: pointer; }
+.warranty-inspection-trigger { display: inline-flex; width: max-content; max-width: 100%; align-items: center; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; }
 .warranty-inspection-trigger:focus-visible { border-radius: 4px; outline: 2px solid #2f71de; outline-offset: 3px; }
-.warranty-box strong { width: 100%; min-width: 0; color: #222; font-size: 15px; font-weight: 500; line-height: 22px; text-align: right; word-break: keep-all; }
+.warranty-box strong { width: 100%; min-width: 0; color: #222; font-size: 15px; font-weight: 500; line-height: 22px; text-align: left; word-break: keep-all; }
 .warranty-box .is-active strong { color: #222; }
 .warranty-guide { display: grid; gap: 6px; margin-top: 18px; padding: 12px 14px; border-radius: 8px; background: #f7f8f9; }
 .warranty-guide p { position: relative; margin: 0; padding-left: 9px; color: #6b7280; font-size: 11px; line-height: 17px; word-break: keep-all; }
@@ -402,9 +402,9 @@
 .pc-info .detail-section-heading { min-height: 25px; padding-bottom: 0; }
 .pc-info dl { margin: 0; }
 .pc-info dl > div { display: grid; grid-template-columns: 216px minmax(0, 1fr); align-items: center; min-height: 40px; column-gap: 24px; border-bottom: 1px solid #f1f1f1; font-size: 14px; line-height: 20px; }
-.pc-info dt { display: flex; align-items: center; justify-content: flex-end; gap: 8px; color: #767676; text-align: right; }
+.pc-info dt { display: flex; align-items: center; gap: 8px; color: #767676; text-align: left; }
 .pc-info dt img { width: 20px; height: 20px; }
-.pc-info dd { display: flex; align-items: center; justify-content: flex-end; justify-self: end; width: 100%; margin: 0; color: #222; font-weight: 500; text-align: right; word-break: keep-all; }
+.pc-info dd { display: flex; align-items: center; justify-content: flex-start; width: 100%; margin: 0; color: #222; font-weight: 500; text-align: left; word-break: keep-all; }
 .pc-info .vehicle-info-toggle { margin: 0; height: 32px; width: 100%; }
 .pc-summary .pc-title-row h1 { font-size: 22px; line-height: 1.4; max-width: 302px; letter-spacing: -.44px; }
 .pc-summary .pc-title-row button { border: 1px solid #eee; border-radius: 100px; min-width: 50px; font-weight: 400; }
@@ -439,8 +439,8 @@
 .pc-seller .seller-profile p { font-size: 14px; line-height: 20px; }
 .pc-seller dl { margin: 10px 0 0; font-size: 14px; }
 .pc-seller dl > div { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; min-height: 32px; align-items: center; }
-.pc-seller dt { font-weight: 600; text-align: right; white-space: nowrap; }
-.pc-seller dd { margin: 0; text-align: right; }
+.pc-seller dt { font-weight: 600; text-align: left; white-space: nowrap; }
+.pc-seller dd { margin: 0; text-align: left; }
 .pc-seller dd button { border: 0; background: none; padding: 0; color: #8c8c8c; text-decoration: underline; }
 .pc-seller-contact { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 12px 0; }
 .pc-seller-contact button, .pc-seller-contact a { display: flex; align-items: center; justify-content: center; gap: 8px; height: 40px; border-radius: 8px; background: #f1f1f1; border: 0; font-size: 16px; font-weight: 600; text-decoration: none; }
@@ -613,8 +613,8 @@
 .detail-fact-group dl { margin: 0; }
 .detail-fact-group dl > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; min-height: 36px; padding: 6px 0; box-sizing: border-box; column-gap: 16px; }
 .detail-fact-group dt, .detail-fact-group dd { margin: 0; font-size: 14px; font-weight: 400; line-height: 20px; word-break: keep-all; }
-.detail-fact-group dt { color: #767676; text-align: right; }
-.detail-fact-group dd { color: #222; text-align: right; }
+.detail-fact-group dt { color: #767676; text-align: left; }
+.detail-fact-group dd { color: #222; text-align: left; }
 .detail-fact-group dd .detail-fact-link { color: inherit; }
 .detail-fact-group.is-basic dl > div { grid-template-columns: 28px minmax(0, 1fr) minmax(112px, 1fr); column-gap: 10px; }
 .detail-fact-group.is-basic img { width: 28px; height: 28px; margin: -2px 0 0 -2px; object-fit: contain; opacity: .56; }
@@ -638,8 +638,8 @@
 .vehicle-history-grid > div:last-child { border-bottom: 0; }
 .vehicle-history-grid dt,
 .vehicle-history-grid dd { margin: 0; word-break: keep-all; }
-.vehicle-history-grid dt { min-height: 20px; color: #767676; font-size: 14px; font-weight: 400; line-height: 20px; text-align: right; }
-.vehicle-history-grid dd { min-width: 0; color: #222; font-size: 14px; font-weight: 500; line-height: 20px; text-align: right; }
+.vehicle-history-grid dt { min-height: 20px; color: #767676; font-size: 14px; font-weight: 400; line-height: 20px; text-align: left; }
+.vehicle-history-grid dd { min-width: 0; color: #222; font-size: 14px; font-weight: 500; line-height: 20px; text-align: left; }
 .vehicle-history-link { color: inherit; font: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .vehicle-history-link:focus-visible { outline: 2px solid #222; outline-offset: 3px; border-radius: 2px; }
 
@@ -700,10 +700,10 @@
 .detail-facts.is-icons > div > img[data-icon="seller-type"] { transform: translate(0.00px, 0.00px) scale(1.125); }
 .detail-facts.is-icons > div > img[data-icon="year"] { transform: translate(0.00px, 0.00px) scale(0.900); }
 
-/* 차량 정보 값 우측 정렬(2026-10-14 「차량정보 우측 정렬해봐」): 라벨은 왼쪽, 값은 오른쪽 끝. 아이콘 시안(.is-icons)은 그대로. */
+/* 차량 정보 2열 시작축 정렬: 라벨은 첫 열, 값은 둘째 열의 왼쪽 시작점. 아이콘 시안(.is-icons)은 그대로. */
 .detail-facts:not(.is-icons):not(.is-left) > div { grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; }
-.detail-facts:not(.is-icons):not(.is-left) dt { text-align: right; white-space: nowrap; }
-.detail-facts:not(.is-icons):not(.is-left) dd { text-align: right; }
+.detail-facts:not(.is-icons):not(.is-left) dt { text-align: left; white-space: nowrap; }
+.detail-facts:not(.is-icons):not(.is-left) dd { text-align: left; }
 
 /* 차량 정보 좌측 정렬 시안(2026-10-14 「시안 다시줘봐」): 값이 라벨 바로 옆(라벨 칸 112px)에서 시작해 왼쪽 정렬. */
 .detail-facts.is-left > div { grid-template-columns: 112px minmax(0, 1fr); }
