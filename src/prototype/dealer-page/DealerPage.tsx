@@ -13,7 +13,7 @@ const icon = (name: string) => `${publicBase}icons/chotot/${name}`;
 const dealerIcon = (name: string) => `${publicBase}icons/dealer-profile/${name}.svg`;
 const bobaeAsset = (name: string) => asset(`pc-detail/${name}`);
 
-type SectionId = "intro" | "ads" | "rating" | "location";
+type SectionId = "home" | "ads" | "social" | "dealers" | "intro" | "location";
 type ListingMode = "active" | "sold";
 type ReviewFilter = "all" | "buyer" | "seller";
 
@@ -210,8 +210,111 @@ function ListingsSection({ cars, mode, setMode, onOpen }: { cars: Car[]; mode: L
 }
 
 function AnchorNav({ active, onChange }: { active: SectionId; onChange: (section: SectionId) => void }) {
-  const items: Array<[SectionId, string]> = [["ads", "판매차량"], ["rating", "리뷰"], ["intro", "소개"], ["location", "위치"]];
+  const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["social", "SNS"], ["dealers", "소속딜러"], ["intro", "소개"], ["location", "위치"]];
   return <nav className="dp-anchor-nav" aria-label="판매자 페이지 구역" role="tablist">{items.map(([id, label]) => <button key={id} type="button" role="tab" aria-selected={active === id} className={active === id ? "is-active" : ""} onClick={() => onChange(id)}>{label}</button>)}</nav>;
+}
+
+function HomeSection() {
+  return <section className="dp-content-card dp-home-pending" aria-labelledby="dp-home-title">
+    <h2 id="dp-home-title">홈</h2>
+    <p>판매자 홈 구성은 다음 단계에서 준비합니다.</p>
+  </section>;
+}
+
+function SocialFeedSection({ cars }: { cars: Car[] }) {
+  const posts = [
+    {
+      platform: "instagram",
+      label: "인스타그램",
+      handle: "@twoj_motorworks",
+      time: "2일 전",
+      copy: "입고부터 상품화까지 직접 확인한 레인지로버 LWB입니다. 실내외 상태와 옵션을 영상으로 확인해 보세요.",
+      car: cars[0],
+      href: SOCIAL_CHANNELS.find((channel) => channel.id === "instagram")?.href ?? "#",
+      stats: "좋아요 128 · 댓글 9",
+    },
+    {
+      platform: "youtube",
+      label: "유튜브",
+      handle: "투제이모터웍스",
+      time: "5일 전",
+      copy: "BMW M3 xDrive 컴페티션, 실제 주행감과 관리 상태를 한 번에 소개합니다.",
+      car: cars[1] ?? cars[0],
+      href: SOCIAL_CHANNELS.find((channel) => channel.id === "youtube")?.href ?? "#",
+      stats: "조회 1.2천회",
+    },
+    {
+      platform: "facebook",
+      label: "페이스북",
+      handle: "(주)투제이모터웍스",
+      time: "1주 전",
+      copy: "새로 입고된 수입차 라인업을 공개합니다. 차량별 상세 상담과 방문 예약은 판매자 페이지에서 가능합니다.",
+      car: cars[2] ?? cars[0],
+      href: SOCIAL_CHANNELS.find((channel) => channel.id === "facebook")?.href ?? "#",
+      stats: "반응 46 · 공유 3",
+    },
+    {
+      platform: "tiktok",
+      label: "틱톡",
+      handle: "@twoj_motorworks",
+      time: "2주 전",
+      copy: "출고 전 최종 점검 현장을 짧은 영상으로 담았습니다. 상담 차량의 실제 상태를 투명하게 확인해 보세요.",
+      car: cars[3] ?? cars[0],
+      href: SOCIAL_CHANNELS.find((channel) => channel.id === "tiktok")?.href ?? "#",
+      stats: "조회 3.4천회 · 좋아요 182",
+    },
+  ];
+
+  return <section className="dp-content-card dp-social-feed" aria-labelledby="dp-social-title">
+    <div className="dp-section-heading">
+      <div><h2 id="dp-social-title">SNS</h2><p>판매자가 등록한 채널의 최신 게시물입니다.</p></div>
+      <span>{posts.length}개 채널 게시물</span>
+    </div>
+    <div className="dp-social-feed-list">
+      {posts.map((post) => <article className="dp-social-post" key={`${post.platform}-${post.time}`}>
+        <header>
+          <DealerIcon name={post.platform} />
+          <span><b>{post.label}</b><small>{post.handle} · {post.time}</small></span>
+          <a href={post.href} target="_blank" rel="noreferrer" aria-label={`${post.label} 원문 보기`}><ExternalLinkIcon aria-hidden="true" /></a>
+        </header>
+        <p>{post.copy}</p>
+        {post.car ? <a className="dp-social-media" href={post.href} target="_blank" rel="noreferrer" aria-label={`${post.label}에서 ${post.car.title} 게시물 보기`}>
+          <img src={asset(post.car.listThumb ?? post.car.image)} alt={`${post.car.title} SNS 게시물`} draggable={false} />
+          <span><b>{post.car.title}</b><small>{post.car.price === "상담" ? "가격 상담" : `${post.car.price}만원`}</small></span>
+        </a> : null}
+        <footer><span>{post.stats}</span><a href={post.href} target="_blank" rel="noreferrer">원문 보기 <ExternalLinkIcon aria-hidden="true" /></a></footer>
+      </article>)}
+    </div>
+  </section>;
+}
+
+function AffiliatedDealersSection({ currentDealer, onOpenDealer }: { currentDealer: SeoulAutoGalleryDealer; onOpenDealer: (dealer: SeoulAutoGalleryDealer) => void }) {
+  const staff = dealers.slice(0, 4);
+  const totalListings = staff.reduce((sum, item) => sum + item.listingCount, 0);
+  return <section className="dp-content-card dp-affiliated" aria-labelledby="dp-affiliated-title">
+    <div className="dp-affiliated-company">
+      <img src={asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt="서울오토갤러리 전경" draggable={false} />
+      <div>
+        <span>{MOCK.complex}</span>
+        <h2 id="dp-affiliated-title">{MOCK.company}</h2>
+        <p>{MOCK.address}</p>
+      </div>
+    </div>
+    <div className="dp-affiliated-stats" aria-label="상사 운영 정보">
+      <span><b>{staff.length}명</b>등록 딜러</span>
+      <span><b>{totalListings}대</b>판매중 차량</span>
+      <span><b>확인</b>상사 허가</span>
+    </div>
+    <div className="dp-affiliated-trust"><span>사업자 확인</span><span>상사 허가 확인</span><span>실매물 운영</span></div>
+    <div className="dp-affiliated-heading"><h3>소속 딜러</h3><small>딜러를 선택하면 등록 매물을 확인할 수 있습니다.</small></div>
+    <div className="dp-dealer-grid">
+      {staff.map((item, index) => <button key={`${item.shopNo}-${item.empNo}`} type="button" className="dp-dealer-card" onClick={() => onOpenDealer(item)} aria-label={`${item.name} 딜러 판매차량 ${item.listingCount}대 보기`}>
+        <img src={asset(`dealer-illustrations/seoul-auto-gallery/v02/suit/${item.image}`)} alt="" aria-hidden="true" draggable={false} />
+        <span><b>{item.name}{item.name === currentDealer.name ? <em>현재</em> : null}</b><small>{index === 0 ? "대표 · 수입차 전문" : "인증딜러 · 수입차 전문"}</small><small>판매중 {item.listingCount}대 · 보통 1시간 이내</small></span>
+        <strong>매물 보기</strong>
+      </button>)}
+    </div>
+  </section>;
 }
 
 function RatingsSection({ cars }: { cars: Car[] }) {
@@ -257,16 +360,6 @@ function AboutSection({ notify }: { notify: (message: string) => void }) {
       <div><dt>팩스</dt><dd>{MOCK.fax}</dd></div>
       <div><dt>소속 직원</dt><dd>{MOCK.staff}</dd></div>
     </dl>
-    <div className="dp-social-block">
-      <h3>SNS</h3>
-      <p>최신 매물과 출고 소식을 딜러 채널에서 확인해 보세요.</p>
-      <div className="dp-social-grid">
-        {SOCIAL_CHANNELS.map((channel) => <a key={channel.id} href={channel.href} target="_blank" rel="noreferrer" aria-label={`${channel.label}에서 ${MOCK.company} 찾아보기`}>
-          <DealerIcon name={channel.id} />
-          <span><b>{channel.label}</b><small>{channel.description}</small></span>
-        </a>)}
-      </div>
-    </div>
   </section>;
 }
 
@@ -313,6 +406,18 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
     target.searchParams.set("listing", String(car.id));
     window.location.assign(`${target.pathname}${target.search}${target.hash}`);
   };
+  const openDealer = (targetDealer: SeoulAutoGalleryDealer) => {
+    if (targetDealer.shopNo === dealer.shopNo && targetDealer.empNo === dealer.empNo) {
+      setActiveSection("ads");
+      return;
+    }
+    const target = new URL(window.location.href);
+    target.searchParams.set("profile", "dealer");
+    target.searchParams.set("shop", targetDealer.shopNo);
+    target.searchParams.set("emp", targetDealer.empNo);
+    target.searchParams.delete("listing");
+    window.location.assign(`${target.pathname}${target.search}${target.hash}`);
+  };
   const share = async () => {
     try {
       if (navigator.share) await navigator.share({ title: `${dealer.name} 딜러`, url: window.location.href });
@@ -332,8 +437,10 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
       <main className="dp-page" aria-label={`${dealer.name} 딜러 판매자 페이지`}>
         <DealerProfile dealer={dealer} listingCount={cars.length} following={following} setFollowing={setFollowing} share={share} />
         <AnchorNav active={activeSection} onChange={changeSection} />
+        {activeSection === "home" ? <HomeSection /> : null}
         {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}
-        {activeSection === "rating" ? <RatingsSection cars={cars} /> : null}
+        {activeSection === "social" ? <SocialFeedSection cars={cars} /> : null}
+        {activeSection === "dealers" ? <AffiliatedDealersSection currentDealer={dealer} onOpenDealer={openDealer} /> : null}
         {activeSection === "intro" ? <AboutSection notify={notify} /> : null}
         {activeSection === "location" ? <LocationSection /> : null}
       </main>
