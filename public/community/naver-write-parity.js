@@ -11,6 +11,18 @@
     { name:'블랙박스 제보', heads:['제보','사고 영상','위반 차량','교통 안전'] },
     { name:'바이크', heads:['입문','기종','정비','투어','용품'] },
   ];
+  const entryParams = new URLSearchParams(location.search);
+  const requestedBoard = entryParams.get('board') || '';
+  const requestedReturn = entryParams.get('returnTo') || '';
+  const entrySource = entryParams.get('source') || '';
+  const returnTo = (() => {
+    if (!requestedReturn) return '';
+    try {
+      const url = new URL(requestedReturn, location.href);
+      if (url.origin !== location.origin || !url.pathname.endsWith('/community/naver-cafe-list.html')) return '';
+      return `${url.pathname}${url.search}${url.hash}`;
+    } catch { return ''; }
+  })();
   const topics = ['내차소개','시승기','정비후기','교통정보','자동차뉴스','바이크','질문','자유'];
   const draftKey = 'bbm.community.writeDraft.v2';
   const postKey = 'bbm.community.latestPost.v2';
@@ -69,6 +81,7 @@
   const toast = qs('#toast');
   const state = {
     board: '', head: '', selectionMode: 'board', draft: null, attachments: [], visibility: '멤버 공개',
+    entrySource, returnTo, postSubmitted:false,
     tool: '', selectedChoice: '', savedRange: null, formatRange: null, toastTimer: 0,
     photos: new Map(), videos: new Map(), activePhotoId: '', activeMediaId: '', replacePhotoId: '', replaceVideoId: '', dragMediaId: '',
     editPhotoId: '', editDraft: null, editPollId: '',
@@ -862,6 +875,7 @@
     const post = { ...snapshot(), status:'LOCAL_PREVIEW', submittedAt:new Date().toISOString() };
     try { localStorage.setItem(postKey, JSON.stringify(post)); }
     catch { showToast('게시물이 커서 브라우저에 저장하지 못했습니다.'); return; }
+    state.postSubmitted = true;
     showDialog('게시물 등록 완료', '테스트 게시물이 이 브라우저에 저장되었습니다. 실제 운영 서버에는 전송되지 않았습니다.');
   }
 
@@ -967,7 +981,10 @@
       state.draft = null; localStorage.removeItem(draftKey); qs('#draftCount').textContent = '0'; draftContent.innerHTML = '<p>임시글이 없습니다.</p>';
       showToast('임시글을 삭제했습니다.');
     }
-    if (action === 'close-dialog') dialogOverlay.hidden = true;
+    if (action === 'close-dialog') {
+      dialogOverlay.hidden = true;
+      if (state.postSubmitted && state.returnTo) location.href = state.returnTo;
+    }
     if (action === 'close-photo-editor') closePhotoEditor();
     if (action === 'apply-photo-editor') applyPhotoEditor();
     if (action === 'top') window.scrollTo({ top:0, behavior:'smooth' });
@@ -1111,6 +1128,12 @@
     const savedDraft = JSON.parse(localStorage.getItem(draftKey));
     if (savedDraft) { state.draft = savedDraft; qs('#draftCount').textContent = '1'; }
   } catch { localStorage.removeItem(draftKey); }
+  if (boards.some((board) => board.name === requestedBoard)) {
+    state.board = requestedBoard;
+    selectedBoard.textContent = requestedBoard;
+    selectedHead.textContent = '말머리 선택';
+    headSelect.disabled = false;
+  }
   renderBoards();
   renderAttachments();
 })();
