@@ -59,6 +59,62 @@ final result: passed
 
 ---
 
+# Design QA · FC온라인 치지직 전용 상세페이지 분리 (2026-10-15)
+
+- source visual truth: `https://m.game.naver.com/lounge/FIFA_ONLINE4/board/detail/8131629`
+- source mobile capture: Browser tab `229710682`, 390 × 844 CSS px
+- source desktop capture: Browser tab `229710688`, 1536 × 639 CSS px, 본문 1056px
+- implementation: `public/community/chzzk-detail.html`
+- implementation mobile capture: Browser tab `229710692`, 390 × 844 CSS px
+- implementation desktop capture: Browser tab `229710695`, 1536 × 639 CSS px, 본문 1056px
+- side-by-side comparison: Browser tab `229710704`, 원본·구현 각각 390 × 844px iframe
+- density normalization: 원본과 구현 모두 DPR 1의 동일 CSS 크기로 비교
+- state: FC온라인 자유 게시글 상세, 댓글 1개, 등록순
+
+## Full-view comparison evidence
+
+- 원본과 구현을 같은 390 × 844 비교 화면에서 나란히 확인했다.
+- 48px 다크 헤더, 1056px PC 본문 폭, 모바일 단일 열, 흰 콘텐츠와 `#ebedf3` 바깥 배경을 재현했다.
+- 게시글 → 댓글 입력 → 클린봇 → 댓글 → 자유 목록 → 인기글 → 푸터 순서를 원본과 동일하게 구성했다.
+- 사용자 요청에 따라 원본의 우측 버프·너프 대신 레딧형 추천·점수·비추, 파란 댓글 수, 공유를 본문 아래 왼쪽에 배치했다.
+- 기존 `naver-cafe-detail.html`은 보존하고 새 `chzzk-detail.html`로 완전히 분리했다.
+
+## Focused region comparison evidence
+
+- 모바일 원본과 구현의 제목 시작축 y=99~103px, 작성자 영역 y=124~160px, 본문 시작축 y=193~199px로 6px 이내다.
+- 댓글 헤더는 두 화면 모두 y=329~330px, 연관글 첫 구역은 y=688px 전후로 일치한다.
+- PC는 원본과 같은 1056px 중앙 카드, 48px 헤더, 좌우 15px 콘텐츠 여백을 사용한다.
+- 원본 기본 프로필·댓글 작성자·댓글 스티커를 로컬 자산으로 저장해 외부 핫링크 없이 사용했다.
+
+## Comparison history
+
+### Pass 1 — passed
+
+- P0/P1/P2 findings: 없음.
+- 앱으로 보기의 원형 서비스 아이콘은 원본 자산 번들링이 차단되어 텍스트 버튼으로 유지했다. 기능 흐름과 버튼 크기는 같으며 P3 자산 차이로 기록한다.
+- 레딧형 게시글 액션은 사용자 지정 변경이므로 원본과의 의도적 차이로 판정했다.
+
+## Required fidelity surfaces
+
+- fonts/typography: Pretendard, 제목 18/24px 650, 본문 15/27px, 메타 11~14px 계층 통과
+- spacing/layout rhythm: 모바일 15px, PC 15px 여백, 48px 헤더, 8px 섹션 구분 통과
+- colors/tokens: 다크 헤더 `#202125`, 페이지 `#ebedf3`, 클린봇 퍼플, 댓글 블루 통과
+- image quality/assets: 원본 프로필·댓글 작성자·스티커와 지정 Notion 액션 SVG 사용, 깨진 이미지 0
+- copy/content: FC온라인·자유·앱으로 보기·클린봇·댓글·연관글·푸터 문구 통과
+
+## Primary interactions tested
+
+- 추천 1→2, 비추 전환 2→0 및 상호 배타 상태
+- 댓글 아이콘 이동·입력 포커스
+- 댓글 입력·등록 후 댓글 1→2
+- 댓글별 추천·비추, 답글 입력, 정렬 메뉴
+- 게시판 목록 첫 항목 → `chzzk-detail.html?id=1` 연결
+- 모바일·PC 가로 오버플로 0, 깨진 이미지 0, 콘솔 오류·경고 0
+
+final result: passed
+
+---
+
 # Design QA · 레딧형 게시글·댓글 액션 배치 (2026-10-15)
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a128e5-de8a-78d0-9ed9-96cbde6a07c3/3eec52e2-01d4-459d-9a5b-25c6a8c99f60/1-1000018284.jpg`
