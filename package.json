@@ -43,6 +43,7 @@
     ,"catalog:verify": "node scripts/verify-vehicle-catalog-static.mjs && node scripts/verify-vehicle-catalog-search.mjs"
     ,"catalog:verify:ui": "node scripts/verify-vehicle-catalog-ui.mjs"
     ,"community:verify:write-parity": "node scripts/community-write-parity-check.mjs"
+    ,"community:verify:write-tools": "node scripts/community-write-tools-check.mjs"
   },
   "dependencies": {
     "@fontsource/roboto": "5.2.10",
