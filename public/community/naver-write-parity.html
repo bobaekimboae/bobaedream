@@ -20,10 +20,16 @@
         </div>
       </header>
 
-      <button class="board-select" type="button" data-action="board" aria-expanded="false">
-        <span id="selectedBoard">게시판을 선택해주세요.</span>
-        <img src="assets/write-parity/chevron-down.svg" alt="" />
-      </button>
+      <div class="taxonomy-row" aria-label="게시판과 말머리 선택">
+        <button class="board-select taxonomy-select" type="button" data-action="board" aria-expanded="false">
+          <span id="selectedBoard">게시판 선택</span>
+          <img src="assets/write-parity/chevron-down.svg" alt="" />
+        </button>
+        <button class="head-select taxonomy-select" type="button" data-action="head" aria-expanded="false" disabled>
+          <span id="selectedHead">말머리 선택</span>
+          <img src="assets/write-parity/chevron-down.svg" alt="" />
+        </button>
+      </div>
 
       <section class="title-area">
         <label class="sr-only" for="postTitle">제목</label>
@@ -42,6 +48,7 @@
           <button class="tool-button" type="button" data-tool="link"><img src="assets/write-parity/link.svg" alt="" /><span>링크</span></button>
           <button class="tool-button" type="button" data-action="add-file"><img src="assets/write-parity/table.svg" alt="" /><span>파일</span></button>
           <button class="tool-button" type="button" data-tool="place"><img src="assets/write-parity/place.svg" alt="" /><span>장소</span></button>
+          <button class="tool-button" type="button" data-tool="poll"><img src="assets/write-parity/table.svg" alt="" /><span>투표</span></button>
         </div>
         <input id="photoInput" class="sr-only" type="file" accept=".jpg,.jpeg,.gif,.png,.bmp,.heic,.heif,.webp" multiple />
         <input id="replacePhotoInput" class="sr-only" type="file" accept=".jpg,.jpeg,.gif,.png,.bmp,.heic,.heif,.webp" />

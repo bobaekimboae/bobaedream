@@ -13,7 +13,7 @@
 .board-list input:checked+i:after{background:var(--primary)}
 .dialog-confirm{color:var(--primary-dark)}
 .visibility-button{color:var(--primary-dark);font-weight:600}
-button:focus-visible,input:focus-visible,select:focus-visible,[contenteditable]:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+button:focus-visible,input:focus-visible,select:focus-visible,[contenteditable]:not(.editor-body):focus-visible{outline:2px solid var(--primary);outline-offset:2px}
 .format-button.is-active{border-radius:6px;background:var(--primary-soft);color:var(--primary-dark)}
 .color-control{position:relative;cursor:pointer}
 .color-control input{position:absolute;width:1px;height:1px;opacity:0}
@@ -92,3 +92,27 @@ button:focus-visible,input:focus-visible,select:focus-visible,[contenteditable]:
   .photo-editor{align-self:end;width:100%;max-height:94vh;border-radius:18px 18px 0 0}.overlay:has(.photo-editor){place-items:end center}
   .photo-editor-stage{height:48vh}.photo-editor-controls{grid-template-columns:1fr;gap:12px;max-height:32vh}
 }
+
+/* Bobaedream board taxonomy and poll authoring */
+.taxonomy-row{display:flex;width:calc(100% - 32px);height:49px;margin:0 16px;border-bottom:1px solid #e8e8e8}
+.taxonomy-row .taxonomy-select{display:flex;min-width:0;height:48px;margin:0;padding:0 10px 0 0;align-items:center;justify-content:space-between;border:0;font-size:15px;text-align:left}
+.taxonomy-row .board-select{width:58%;flex:1 1 58%}
+.taxonomy-row .head-select{width:42%;flex:0 1 42%;padding-left:14px;border-left:1px solid #eee}
+.taxonomy-select span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.taxonomy-select img{width:18px;height:18px;flex:0 0 18px;margin-left:6px;transition:transform .18s}
+.taxonomy-select[aria-expanded="true"] img{transform:rotate(180deg)}
+.taxonomy-select:disabled{color:#a9adb0;cursor:default}
+.poll-options{display:grid;gap:8px}
+.poll-option-field{display:grid;grid-template-columns:minmax(0,1fr) 42px;align-items:center;border:1px solid #d5d5d5;border-radius:9px;overflow:hidden}
+.poll-option-field input{min-width:0;height:44px;padding:0 12px;border:0;outline:0}
+.poll-option-field button{height:44px;border-left:1px solid #eee;color:#8a8a8a;font-size:20px}
+.poll-add-option{width:100%;height:42px;margin:9px 0 16px;border:1px dashed #d2d2d2;border-radius:9px;color:var(--primary-dark);font-size:14px;font-weight:600}
+.poll-settings{display:grid;gap:0;margin-bottom:14px;border-top:1px solid #eee}
+.poll-settings label{display:flex;min-height:46px;align-items:center;justify-content:space-between;border-bottom:1px solid #eee;font-size:14px}
+.poll-settings input{width:19px;height:19px;accent-color:var(--primary)}
+.poll-settings select{height:34px;padding:0 28px 0 10px;border:1px solid #ddd;border-radius:7px;background:#fff}
+.poll-card{display:grid;gap:14px;margin:18px 0;padding:18px;border:1px solid #dfe1e5;border-radius:14px;background:#fff;box-shadow:0 2px 9px #0000000d}
+.poll-card header{display:grid;gap:5px}.poll-card header>span{color:var(--primary-dark);font-size:12px;font-weight:700}.poll-card header strong{font-size:17px;line-height:1.45}
+.poll-option-list{display:grid;gap:8px}.poll-option-preview{display:flex;min-height:42px;align-items:center;padding:0 12px;border:1px solid #e0e0e0;border-radius:8px;color:#444;font-size:14px}.poll-option-preview:before{content:"";width:16px;height:16px;margin-right:9px;border:1.5px solid #b5b5b5;border-radius:50%}
+.poll-card footer{display:flex;align-items:center;justify-content:space-between;gap:12px}.poll-card footer small{color:#858585;font-size:12px}.poll-card-actions{display:flex;gap:4px}.poll-card-actions button{padding:6px 8px;border-radius:6px;color:#666;font-size:12px}.poll-card-actions button:hover{background:#f4f4f4}.poll-card-actions button:last-child{color:#c93045}
+@media (max-width:380px){.taxonomy-row .taxonomy-select{font-size:14px}.taxonomy-row .board-select{width:55%;flex-basis:55%}.taxonomy-row .head-select{width:45%;flex-basis:45%;padding-left:10px}}

@@ -24,8 +24,10 @@ for (const viewport of viewports) {
   assert(await page.getByText('게시물 허용 설정', { exact: true }).isVisible(), `${viewport.name}: permission title`);
   assert((await page.getByText(/네이버 서비스/).count()) === 0, `${viewport.name}: Naver-specific permission copy remains`);
 
-  await page.getByRole('button', { name: '게시판을 선택해주세요.' }).click();
-  await page.getByText('자동차 이야기', { exact: true }).click();
+  await page.getByRole('button', { name: '게시판 선택' }).click();
+  await page.getByLabel('국산차 오너톡').check();
+  await page.getByRole('button', { name: '말머리 선택' }).click();
+  await page.getByLabel('현대').check();
   await page.getByPlaceholder('제목').fill('전체 기능 테스트');
   await page.locator('#postBody').fill('본문 테스트');
 
@@ -62,6 +64,24 @@ for (const viewport of viewports) {
   await page.locator('#toolApply').click();
   assert((await page.locator('.place-card').count()) === 1, `${viewport.name}: place`);
 
+  await page.getByRole('button', { name: '투표', exact: true }).click();
+  await page.locator('#pollQuestion').fill('가장 기대되는 국산차는?');
+  const pollOptions = page.locator('.poll-option-input');
+  await pollOptions.nth(0).fill('현대 아이오닉 5');
+  await pollOptions.nth(1).fill('기아 EV6');
+  await page.getByRole('button', { name: '선택지 추가' }).click();
+  await page.locator('.poll-option-input').nth(2).fill('제네시스 GV60');
+  await page.locator('#pollMultiple').check();
+  await page.locator('#pollAnonymous').check();
+  await page.locator('#pollDuration').selectOption({ label:'3일' });
+  await page.locator('#toolApply').click();
+  assert((await page.locator('.poll-card').count()) === 1, `${viewport.name}: poll card`);
+  assert((await page.locator('.poll-option-preview').count()) === 3, `${viewport.name}: poll options`);
+  await page.locator('.poll-card').getByRole('button', { name:'수정' }).click();
+  await page.locator('#pollQuestion').fill('가장 기대되는 국산 전기차는?');
+  await page.locator('#toolApply').click();
+  assert((await page.locator('.poll-card strong').textContent()) === '가장 기대되는 국산 전기차는?', `${viewport.name}: poll edit`);
+
   await page.locator('#fileInput').setInputFiles({ name: 'spec.txt', mimeType: 'text/plain', buffer: Buffer.from('vehicle spec') });
   assert((await page.locator('.attachment-item').count()) === 1, `${viewport.name}: file attachment`);
 
@@ -79,6 +99,8 @@ for (const viewport of viewports) {
   const draft = await page.evaluate(() => JSON.parse(localStorage.getItem('bbm.community.writeDraft.v2')));
   assert(draft?.visibility === '전체 공개', `${viewport.name}: persisted visibility`);
   assert(draft?.permissions?.search === false, `${viewport.name}: persisted permission`);
+  assert(draft?.board === '국산차 오너톡' && draft?.head === '현대', `${viewport.name}: persisted board and head`);
+  assert(draft?.body?.includes('가장 기대되는 국산 전기차는?'), `${viewport.name}: persisted poll`);
 
   const primaryColor = await page.getByRole('button', { name: '등록', exact: true }).first().evaluate((element) => getComputedStyle(element).backgroundColor);
   assert(primaryColor === 'rgb(255, 56, 92)', `${viewport.name}: primary color ${primaryColor}`);
@@ -86,6 +108,9 @@ for (const viewport of viewports) {
   assert(await page.getByText('게시물 등록 완료', { exact: true }).isVisible(), `${viewport.name}: submit confirmation`);
   const post = await page.evaluate(() => JSON.parse(localStorage.getItem('bbm.community.latestPost.v2')));
   assert(post?.status === 'LOCAL_PREVIEW' && post?.attachments?.length === 1, `${viewport.name}: saved post`);
+  await page.getByRole('button', { name:'확인', exact:true }).click();
+  await page.locator('.poll-card').getByRole('button', { name:'삭제' }).click();
+  assert((await page.locator('.poll-card').count()) === 0, `${viewport.name}: poll delete`);
 
   const brokenImages = await page.locator('img').evaluateAll((images) => images.filter((image) => !image.complete || image.naturalWidth === 0).map((image) => image.src));
   assert(brokenImages.length === 0, `${viewport.name}: broken images ${brokenImages.join(', ')}`);
@@ -99,4 +124,4 @@ if (failures.length) {
   console.error(JSON.stringify({ ok: false, failures }, null, 2));
   process.exit(1);
 }
-console.log(JSON.stringify({ ok: true, viewports: viewports.map(({ name }) => name), features: 15 }, null, 2));
+console.log(JSON.stringify({ ok: true, viewports: viewports.map(({ name }) => name), features: 21 }, null, 2));
