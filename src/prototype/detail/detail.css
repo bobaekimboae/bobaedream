@@ -822,3 +822,36 @@
 .detail-seller-name { display: flex; min-width: 0; align-items: baseline; }
 .detail-seller-name strong { flex: 0 1 auto; min-width: 0; }
 .detail-seller-name .detail-seller-shop { min-width: 0; overflow: hidden; color: #222; font-size: 16px; font-weight: 400; line-height: 22px; text-overflow: ellipsis; white-space: nowrap; }
+
+/* 2026-10-15 상세 상단 시안 — ?detailtop=above (판매자 줄 + 경로 줄을 사진 위) · ?detailtop=overlay (사진 위에 올림)
+   기준 캡처(태국 카이디 매물 상세, 923px ÷2.404 → 384): 판매자 줄 프사 42 · 이름 16/22 700 · 보조 14/20, 경로 줄 13/18, 사진 좌우 16 · 반경 12 */
+.detail-top-head { background: #fff; }
+.detail-top-head .detail-hero-actions { position: static; height: 54px; padding: 0 12px; }
+.detail-top-head .detail-hero-actions button { background: transparent; box-shadow: none; }
+.detail-top-seller { display: flex; align-items: center; gap: 12px; box-sizing: border-box; height: 68px; padding: 0 16px; background: #fff; color: #222; text-decoration: none; }
+.detail-top-seller-avatar { flex: 0 0 42px; width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #f4f4f4; }
+.detail-top-seller-text { display: grid; min-width: 0; flex: 1; gap: 2px; }
+.detail-top-seller-text strong { overflow: hidden; font: 700 16px/22px "Pretendard Variable", Pretendard, sans-serif; text-overflow: ellipsis; white-space: nowrap; }
+.detail-top-seller-text small { overflow: hidden; font: 400 14px/20px "Pretendard Variable", Pretendard, sans-serif; color: #595959; text-overflow: ellipsis; white-space: nowrap; }
+.detail-top-seller-chevron { flex: 0 0 16px; width: 16px; height: 16px; color: #8c8c8c; }
+.detail-top-crumbs { padding: 4px 16px 12px; background: #fff; }
+.detail-top-crumbs ol { display: flex; flex-wrap: wrap; align-items: center; margin: 0; padding: 0; list-style: none; font: 400 13px/18px "Pretendard Variable", Pretendard, sans-serif; color: #595959; }
+.detail-top-crumbs li + li::before { content: "›"; margin: 0 7px; color: #a6a6a6; }
+.detail-hero.is-top-above { height: 250px; margin: 0 16px 12px; border-radius: 12px; }
+.detail-hero.is-top-above .detail-hero-main { border-bottom: 0; border-radius: 12px; }
+.detail-hero.is-top-above .detail-media-carousel img { border-radius: 0; }
+
+.detail-hero.is-top-overlay .detail-hero-main::before { content: ""; position: absolute; z-index: 1; top: 0; right: 0; left: 0; height: 112px; background: linear-gradient(rgba(0, 0, 0, .55), rgba(0, 0, 0, 0)); pointer-events: none; }
+.detail-hero.is-top-overlay .detail-hero-actions { z-index: 2; }
+.detail-top-overlay { position: absolute; z-index: 2; top: 50px; right: 0; left: 0; pointer-events: none; }
+.detail-top-overlay .detail-top-crumbs { padding: 0 16px; background: transparent; }
+.detail-top-overlay .detail-top-crumbs ol { color: #fff; text-shadow: 0 1px 3px rgba(0, 0, 0, .45); }
+.detail-top-overlay .detail-top-crumbs li + li::before { color: rgba(255, 255, 255, .8); }
+.detail-top-seller.is-overlay { position: absolute; z-index: 2; bottom: 12px; left: 16px; max-width: calc(100% - 112px); height: 44px; gap: 8px; padding: 0 12px 0 6px; border-radius: 999px; background: rgba(255, 255, 255, .94); box-shadow: 0 1px 6px rgba(0, 0, 0, .25); }
+.detail-top-seller.is-overlay .detail-top-seller-avatar { flex-basis: 32px; width: 32px; height: 32px; }
+.detail-top-seller.is-overlay .detail-top-seller-text { flex: 0 1 auto; }
+.detail-top-seller.is-overlay .detail-top-seller-text strong { font-size: 14px; line-height: 20px; }
+/* 사진 칸이 좌우 16 여백으로 줄어드는 above 시안: 사진 한 장 폭도 같이 줄이고(전체 폭이면 오른쪽이 잘린다) 둥근 칸 안 빈 곳은 옅은 회색으로 둔다 */
+.detail-hero.is-top-above .detail-media-track > img { width: min(calc(100vw - 32px), 398px); flex-basis: min(calc(100vw - 32px), 398px); background: #f2f2f2; }
+.detail-hero.is-top-above .detail-media-track > img:not(:last-child) { border-right-color: #fff; }
+.detail-hero.is-top-above .detail-hero-main { background: #f2f2f2; }
