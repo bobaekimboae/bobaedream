@@ -144,8 +144,8 @@ const BMW_M3_HISTORY_MOCK = {
   dealerSaleMethod: "위탁 판매",
   dealerFee: "없음",
   ownerChanges: "1회",
-  repairHistory: "단순 수리 1건",
-  accidentHistory: "주요 골격 사고 없음",
+  repairHistory: "1건",
+  accidentHistory: "0건",
   encumbrance: "없음",
 } as const;
 const isBmwM3CompetitionXDrive = (car: Car, model: string) => car.maker === "BMW" && /M3/i.test(`${model} ${car.title} ${car.trim}`) && /xDrive|컴페티션|Competition/i.test(`${car.title} ${car.trim}`);
@@ -361,7 +361,10 @@ function VehicleHistoryCard() {
         {historyGroups.map((group) => <section className="vehicle-history-group" key={group.title}>
           <h3>{group.title}</h3>
           <dl className="vehicle-history-grid">
-            {group.rows.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+            {group.rows.map(([label, value]) => {
+              const isHistoryLink = label === "수리이력" || label === "사고이력";
+              return <div key={label}><dt>{label}</dt><dd>{isHistoryLink ? <a className="vehicle-history-link" href={vehicleHistoryUrl(detailVehiclePlate)} aria-label={`${label} ${value} 상세 이력조회`}>{value}</a> : value}</dd></div>;
+            })}
           </dl>
         </section>)}
       </div>
