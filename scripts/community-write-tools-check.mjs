@@ -119,7 +119,7 @@ for (const viewport of viewports) {
   assert(draft?.body?.includes('가장 기대되는 국산 전기차는?'), `${viewport.name}: persisted poll`);
 
   const primaryColor = await page.getByRole('button', { name: '등록', exact: true }).first().evaluate((element) => getComputedStyle(element).backgroundColor);
-  assert(primaryColor === 'rgb(255, 56, 92)', `${viewport.name}: primary color ${primaryColor}`);
+  assert(primaryColor === 'rgb(34, 34, 34)', `${viewport.name}: primary color ${primaryColor}`);
   await page.getByRole('button', { name: '등록', exact: true }).first().click();
   assert(await page.getByText('게시물 등록 완료', { exact: true }).isVisible(), `${viewport.name}: submit confirmation`);
   const post = await page.evaluate(() => JSON.parse(localStorage.getItem('bbm.community.latestPost.v2')));

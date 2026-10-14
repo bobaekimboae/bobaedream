@@ -64,7 +64,7 @@
   const toast = qs('#toast');
   const state = {
     board: '', head: '', selectionMode: 'board', draft: null, attachments: [], visibility: '멤버 공개',
-    tool: '', selectedChoice: '', savedRange: null, toastTimer: 0,
+    tool: '', selectedChoice: '', savedRange: null, formatRange: null, toastTimer: 0,
     photos: new Map(), activePhotoId: '', replacePhotoId: '', dragPhotoId: '',
     editPhotoId: '', editDraft: null, editPollId: '',
     emojiCatalog: null, emojiLoading: null, emojiCategory: 'face-emotion', emojiQuery: '', emojiTone: 0,
@@ -222,6 +222,53 @@
   function captureRange() {
     const selection = window.getSelection();
     if (selection?.rangeCount && body.contains(selection.anchorNode)) state.savedRange = selection.getRangeAt(0).cloneRange();
+  }
+
+  function rememberFormatRange() {
+    const selection = window.getSelection();
+    if (selection?.rangeCount && body.contains(selection.anchorNode)) state.formatRange = selection.getRangeAt(0).cloneRange();
+  }
+
+  function restoreFormatRange() {
+    const range = state.formatRange;
+    if (!range || !body.contains(range.commonAncestorContainer)) return false;
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    return true;
+  }
+
+  function runFormatCommand(command, value = null) {
+    restoreFormatRange();
+    body.focus({ preventScroll:true });
+    restoreFormatRange();
+    document.execCommand(command, false, value);
+    rememberFormatRange();
+    body.dispatchEvent(new Event('input', { bubbles:true }));
+  }
+
+  function applyInlineStyle(property, value) {
+    restoreFormatRange();
+    body.focus({ preventScroll:true });
+    if (!restoreFormatRange()) return;
+    const selection = window.getSelection();
+    const range = selection.getRangeAt(0);
+    const span = document.createElement('span');
+    span.style[property] = value;
+    if (range.collapsed) {
+      span.append(document.createTextNode('\u200b'));
+      range.insertNode(span);
+      range.setStart(span.firstChild, 1);
+      range.collapse(true);
+    } else {
+      span.append(range.extractContents());
+      range.insertNode(span);
+      range.selectNodeContents(span);
+    }
+    selection.removeAllRanges();
+    selection.addRange(range);
+    state.formatRange = range.cloneRange();
+    body.dispatchEvent(new Event('input', { bubbles:true }));
   }
 
   function insertHtml(html) {
@@ -457,7 +504,7 @@
       poll: [state.editPollId ? '투표 수정' : '투표 만들기', `<label class="dialog-field"><span>질문</span><input id="pollQuestion" maxlength="100" value="${escapeHtml(currentPoll?.question || '')}" placeholder="투표 질문을 입력하세요"></label><div class="poll-options" id="pollOptions">${pollOptionFields(currentPoll?.options || ['',''])}</div><button class="poll-add-option" type="button" data-action="add-poll-option">+ 선택지 추가</button><div class="poll-settings"><label><span>복수 선택 허용</span><input id="pollMultiple" type="checkbox" ${currentPoll?.multiple ? 'checked' : ''}></label><label><span>익명 투표</span><input id="pollAnonymous" type="checkbox" ${currentPoll?.anonymous ? 'checked' : ''}></label><label><span>마감</span><select id="pollDuration">${['1일','3일','7일','제한 없음'].map((value) => `<option ${value === (currentPoll?.duration || '7일') ? 'selected' : ''}>${value}</option>`).join('')}</select></label></div><p class="upload-note">선택지는 2개 이상 10개까지 추가할 수 있습니다.</p>`],
       sticker: ['이모지', emojiPickerMarkup()],
       topic: ['글감 선택', choiceButtons(topics, 'topic-grid')],
-      visibility: ['공개 범위', `<div class="visibility-list">${['전체 공개','멤버 공개','나만 보기'].map((item) => `<label class="visibility-option"><span>${item}</span><input type="radio" name="visibility" value="${item}" ${state.visibility === item ? 'checked' : ''}></label>`).join('')}</div>`],
+      visibility: ['공개 범위', `<div class="visibility-list">${['전체 공개','멤버 공개'].map((item) => `<label class="visibility-option"><span>${item}</span><input type="radio" name="visibility" value="${item}" ${state.visibility === item ? 'checked' : ''}></label>`).join('')}</div>`],
       'photo-link': ['사진 링크', `<label class="dialog-field"><span>연결 주소</span><input id="toolUrl" type="url" inputmode="url" value="${escapeHtml(getPhoto(state.activePhotoId)?.link || '')}" placeholder="https://example.com" /></label><p class="upload-note">주소를 비우고 적용하면 링크가 해제됩니다.</p>`],
     }[type];
     if (!config) return;
@@ -685,10 +732,17 @@
     if (action === 'close-board') closeBoard();
     if (action === 'close-tool') closeTool();
     if (action === 'text-tools') { const bar = qs('.text-toolbar'); bar.hidden = !bar.hidden; button.setAttribute('aria-expanded', String(!bar.hidden)); }
+    if (action === 'toggle-settings') {
+      const details = qs('#advancedPermissions');
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!expanded));
+      button.textContent = expanded ? '상세설정 펼치기' : '상세설정 접기';
+      details.hidden = expanded;
+    }
     if (action === 'add-photo') photoInput.click();
     if (action === 'add-file') fileInput.click();
-    if (action === 'quote') { body.focus(); document.execCommand('formatBlock', false, 'blockquote'); }
-    if (action === 'divider') { body.focus(); document.execCommand('insertHorizontalRule'); body.dispatchEvent(new Event('input', { bubbles:true })); }
+    if (action === 'quote') runFormatCommand('formatBlock', 'blockquote');
+    if (action === 'divider') runFormatCommand('insertHorizontalRule');
     if (action === 'add-body') body.focus();
     if (action === 'set-cover' && figure) {
       state.photos.forEach((photo) => { photo.cover = photo.id === figure.dataset.mediaId; syncPhotoElement(photo.id); });
@@ -750,7 +804,7 @@
     if (button?.dataset.editRatio && state.editDraft) { state.editDraft.ratio = button.dataset.editRatio; previewPhotoEdit(); }
     if (button?.dataset.editFilter && state.editDraft) { state.editDraft.filter = button.dataset.editFilter; previewPhotoEdit(); }
     const command = button?.dataset.command;
-    if (command && ['bold','italic','underline','strikeThrough'].includes(command)) { body.focus(); document.execCommand(command); button.classList.toggle('is-active'); }
+    if (command && ['bold','italic','underline','strikeThrough'].includes(command)) { runFormatCommand(command); button.classList.toggle('is-active'); }
   });
 
   toolApply.addEventListener('click', applyTool);
@@ -765,6 +819,8 @@
     }
     syncSubmit();
   });
+  document.addEventListener('selectionchange', rememberFormatRange);
+  qs('.text-toolbar').addEventListener('pointerdown', rememberFormatRange);
   body.addEventListener('dragstart', (event) => {
     const figure = getPhotoFigure(event.target);
     if (!figure) return;
@@ -840,11 +896,15 @@
     const tokens = tags.value.split('#').map((item) => item.trim()).filter(Boolean);
     if (tokens.length > 10) { tags.value = `#${tokens.slice(0, 10).join('#')}`; showToast('태그는 최대 10개까지 입력할 수 있습니다.'); }
   });
-  qs('#blockStyle').addEventListener('change', (event) => { body.focus(); document.execCommand('formatBlock', false, event.target.value); });
-  qs('#fontFamily').addEventListener('change', (event) => { body.focus(); document.execCommand('fontName', false, event.target.value); });
-  qs('#fontSize').addEventListener('change', (event) => { body.focus(); document.execCommand('fontSize', false, event.target.value); });
-  qs('#foreColor').addEventListener('input', (event) => { body.focus(); document.execCommand('foreColor', false, event.target.value); event.target.parentElement.style.setProperty('--selected-color', event.target.value); });
-  qs('#backColor').addEventListener('input', (event) => { body.focus(); document.execCommand('hiliteColor', false, event.target.value); event.target.parentElement.style.setProperty('--selected-color', event.target.value); });
+  qs('#blockStyle').addEventListener('change', (event) => runFormatCommand('formatBlock', event.target.value));
+  qs('#fontFamily').addEventListener('change', (event) => {
+    const family = event.target.value === 'system' ? '-apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif' : `"${event.target.value}"`;
+    applyInlineStyle('fontFamily', family);
+  });
+  qs('#fontSize').addEventListener('change', (event) => applyInlineStyle('fontSize', `${event.target.value}px`));
+  qs('#textAlign').addEventListener('change', (event) => runFormatCommand(event.target.value));
+  qs('#foreColor').addEventListener('input', (event) => { applyInlineStyle('color', event.target.value); event.target.parentElement.style.setProperty('--selected-color', event.target.value); });
+  qs('#backColor').addEventListener('input', (event) => { applyInlineStyle('backgroundColor', event.target.value); event.target.parentElement.style.setProperty('--selected-color', event.target.value); });
   [boardOverlay, dialogOverlay, toolOverlay].forEach((overlay) => overlay.addEventListener('click', (event) => {
     if (event.target !== overlay) return;
     if (overlay === boardOverlay) closeBoard();

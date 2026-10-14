@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="robots" content="noindex,nofollow" />
     <title>보배드림 게시물 작성 테스트</title>
+    <link rel="stylesheet" href="./community-editor-fonts.css" />
     <link rel="stylesheet" href="./naver-write-parity.css" />
   </head>
   <body>
@@ -55,14 +56,26 @@
         <input id="fileInput" class="sr-only" type="file" />
 
         <div class="text-toolbar" data-testid="text-toolbar" hidden>
-          <label class="select-label"><span class="sr-only">문단 스타일</span><select id="blockStyle"><option value="p">본문</option><option value="h2">소제목</option><option value="blockquote">인용구</option></select></label>
-          <label class="select-label"><span class="sr-only">서체</span><select id="fontFamily"><option value="Arial">기본서체</option><option value="serif">명조체</option><option value="monospace">고정폭</option></select></label>
-          <label class="select-label"><span class="sr-only">글자 크기</span><select id="fontSize"><option value="3">15</option><option value="2">13</option><option value="4">17</option><option value="5">20</option></select></label>
+          <label class="select-label"><span class="sr-only">문단 스타일</span><select id="blockStyle" aria-label="문단 스타일"><option value="p">본문</option><option value="blockquote">인용구</option></select></label>
+          <label class="select-label"><span class="sr-only">글꼴</span><select id="fontFamily" aria-label="글꼴">
+            <option value="system">기본서체</option>
+            <option value="Nanum Gothic">나눔고딕</option>
+            <option value="Nanum Myeongjo">나눔명조</option>
+            <option value="Nanum Barun Gothic">나눔바른고딕</option>
+            <option value="NanumSquare">나눔스퀘어</option>
+            <option value="NanumSquareNeo">나눔스퀘어 네오</option>
+            <option value="Maru Buri">마루부리</option>
+            <option value="Restart">다시시작해</option>
+            <option value="Bareun Hipi">바른히피</option>
+            <option value="Daughter Handwriting">우리딸손글씨</option>
+          </select></label>
+          <label class="select-label"><span class="sr-only">글자 크기</span><select id="fontSize" aria-label="글자 크기"><option>11</option><option>13</option><option selected>15</option><option>16</option><option>19</option><option>24</option><option>28</option><option>30</option><option>34</option><option>38</option></select></label>
+          <label class="select-label"><span class="sr-only">문단 정렬</span><select id="textAlign" aria-label="문단 정렬"><option value="justifyLeft">왼쪽</option><option value="justifyCenter">가운데</option><option value="justifyRight">오른쪽</option><option value="justifyFull">양쪽</option></select></label>
           <button class="format-button" type="button" data-command="bold" aria-label="굵게"><img src="assets/write-parity/bold.svg" alt="" /></button>
           <button class="format-button" type="button" data-command="italic" aria-label="기울이기"><img src="assets/write-parity/italic.svg" alt="" /></button>
           <button class="format-button format-underline" type="button" data-command="underline" aria-label="밑줄">U</button>
           <label class="format-button color-control" aria-label="글자색"><input id="foreColor" type="color" value="#222222" /><span class="color-dot"></span></label>
-          <label class="format-button color-control" aria-label="배경색"><input id="backColor" type="color" value="#fff1f3" /><span class="color-box"></span></label>
+          <label class="format-button color-control" aria-label="배경색"><input id="backColor" type="color" value="#f2f2f2" /><span class="color-box"></span></label>
           <button class="format-button" type="button" data-tool="link" aria-label="링크"><img src="assets/write-parity/link.svg" alt="" /></button>
           <button class="format-button" type="button" data-command="strikeThrough" aria-label="취소선"><img src="assets/write-parity/strike.svg" alt="" /></button>
         </div>
@@ -87,8 +100,11 @@
           <span><strong>게시물 검색 허용</strong><small>허용하면 서비스 검색 결과에서 이 게시물을 찾을 수 있습니다.</small></span>
           <input id="allowSearch" type="checkbox" checked /><i aria-hidden="true"></i>
         </label>
-        <label class="setting-row compact"><span><strong>게시물 공유 허용</strong></span><input id="allowShare" type="checkbox" checked /><i aria-hidden="true"></i></label>
-        <label class="setting-row compact"><span><strong>복사 · 저장 허용</strong></span><input id="allowCopy" type="checkbox" checked /><i aria-hidden="true"></i></label>
+        <button class="settings-expand" type="button" data-action="toggle-settings" aria-expanded="false" aria-controls="advancedPermissions">상세설정 펼치기</button>
+        <div id="advancedPermissions" hidden>
+          <label class="setting-row compact"><span><strong>카페 · 블로그 스크랩 허용</strong></span><input id="allowShare" type="checkbox" checked /><i aria-hidden="true"></i></label>
+          <label class="setting-row compact"><span><strong>복사 · 저장 허용</strong></span><input id="allowCopy" type="checkbox" checked /><i aria-hidden="true"></i></label>
+        </div>
       </section>
 
       <footer class="write-footer">

@@ -44,6 +44,7 @@
     "catalog:verify:ui": "node scripts/verify-vehicle-catalog-ui.mjs",
     "community:verify:write-parity": "node scripts/community-write-parity-check.mjs",
     "community:verify:write-tools": "node scripts/community-write-tools-check.mjs",
+    "community:verify:full-audit": "node scripts/community-write-full-audit-check.mjs",
     "community:verify:attachments": "node scripts/community-write-attachments-check.mjs",
     "community:build:emoji": "node scripts/build-community-emoji-data.mjs",
     "community:verify:emoji": "node scripts/community-emoji-data-check.mjs"
