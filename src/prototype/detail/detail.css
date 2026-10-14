@@ -605,15 +605,15 @@
    각 그룹은 무다처럼 제목 + 라벨/값 2열로 읽히게 한다. 그룹 안에는 구분선을 두지 않는다. */
 .detail-fact-groups { padding-top: 4px; }
 .detail-fact-group { margin: 0; padding: 0; }
-.detail-fact-group + .detail-fact-group { margin-top: 28px; }
-.detail-fact-group h3 { margin: 0 0 14px; color: #222; font-size: 18px; font-weight: 700; line-height: 25px; }
+.detail-fact-group + .detail-fact-group { margin-top: 24px; }
+.detail-fact-group h3 { margin: 0 0 8px; color: #222; font-size: 16px; font-weight: 700; line-height: 22px; }
 .detail-fact-group dl { margin: 0; }
-.detail-fact-group dl > div { display: grid; grid-template-columns: minmax(0, 1.42fr) minmax(0, 1fr); align-items: start; min-height: 40px; padding: 7px 0; box-sizing: border-box; }
-.detail-fact-group dt, .detail-fact-group dd { margin: 0; font-size: 16px; font-weight: 400; line-height: 24px; word-break: keep-all; }
+.detail-fact-group dl > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; min-height: 36px; padding: 6px 0; box-sizing: border-box; column-gap: 16px; }
+.detail-fact-group dt, .detail-fact-group dd { margin: 0; font-size: 14px; font-weight: 400; line-height: 20px; word-break: keep-all; }
 .detail-fact-group dt { color: #767676; }
-.detail-fact-group dd { color: #222; }
+.detail-fact-group dd { color: #222; text-align: right; }
 .detail-fact-group dd .detail-fact-link { color: inherit; }
-.detail-fact-group.is-basic dl > div { grid-template-columns: 28px minmax(0, 1fr) minmax(112px, .9fr); column-gap: 12px; }
+.detail-fact-group.is-basic dl > div { grid-template-columns: 28px minmax(0, 1fr) minmax(112px, 1fr); column-gap: 10px; }
 .detail-fact-group.is-basic img { width: 28px; height: 28px; margin: -2px 0 0 -2px; object-fit: contain; opacity: .56; }
 .detail-fact-group.is-basic dt { color: #676767; }
 .detail-fact-group.is-basic img[data-icon="body"] { transform: translate(-0.16px, 0.05px) scale(1.068); }
