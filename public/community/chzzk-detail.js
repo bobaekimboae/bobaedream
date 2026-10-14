@@ -1,6 +1,7 @@
 const params = new URLSearchParams(location.search);
 const id = Number(params.get('id') || 8326278);
 const isNotice = params.get('type') === 'notice' || params.get('notice') === '1';
+const isLongNotice = id === 8303245;
 const posts = window.BOBAE_POSTS || [];
 function loadLocalPost() {
   if (params.get('local') !== '1') return null;
@@ -16,8 +17,16 @@ function loadLocalPost() {
 }
 const localSourcePost = loadLocalPost();
 const sourcePost = localSourcePost || posts.find((item) => item.id === id);
-const isReferencePost = !localSourcePost && (id === 8326278 || id === 8131629 || !sourcePost);
-const post = isReferencePost ? {
+const isReferencePost = !localSourcePost && (id === 8326278 || id === 8131629 || isLongNotice || !sourcePost);
+const post = isLongNotice ? {
+  title: "[안내] 24시간 방송 추천 '루프 스테이션' 안내 (10/9~10/11)",
+  user: '치지직',
+  level: 27,
+  date: '10.08',
+  view: 11269,
+  likes: 30,
+  body: [],
+} : isReferencePost ? {
   title: '출첵!',
   user: '쿠로토라',
   level: 17,
@@ -46,14 +55,43 @@ function listUrl() {
 }
 
 function setRegularContent() {
-  $('#postTitle').textContent = String(post.title || '출첵!').replace(/^\[[^\]]+\]\s*/, '');
+  $('#postTitle').textContent = isLongNotice ? post.title : String(post.title || '출첵!').replace(/^\[[^\]]+\]\s*/, '');
   $('#authorName').textContent = post.user || '쿠로토라';
   $('#authorLevel').textContent = post.level || 17;
   $('#authorDate').textContent = post.date || '7시간 전';
   $('#authorView').textContent = Number(post.view ?? 34).toLocaleString();
   $('#score').textContent = Number(post.likes ?? 16);
   $('#latestAuthor').textContent = post.user || '쿠로토라';
-  if (!isReferencePost) {
+  if (isLongNotice) {
+    document.body.classList.add('isLongNotice');
+    $('#boardBtn').childNodes[0].nodeValue = '공지사항 ';
+    $('#eventText').textContent = '[치지직 오버워치] 넥슨 네이버 계정 연동 이벤트';
+    $('#authorAvatar').src = 'assets/chzzk-detail/chzzk-operator-avatar.png';
+    $('#authorAvatar').alt = '치지직 운영자 프로필';
+    $('#operatorBadge').hidden = false;
+    $('#postBody').innerHTML = `
+      <img class="loopBanner" src="assets/chzzk-detail/loop-station-banner.png" alt="루프 스테이션">
+      <div class="longNoticeBody">
+        <p>안녕하세요, 치지직입니다. 🧀</p>
+        <p>오늘은 어떤 방송을 볼까 고민하신 적 있으신가요?</p>
+        <p><strong>'루프 스테이션'</strong>에서 하루 24시간 동안 시간에 잘 어울리는 방송을 소개해드려요.</p>
+        <p>잔잔한 피아노 연주와 ASMR로 꿀잠자고,<br>노래와 토크로 오전을 힘차게 열고,<br>쿡방과 캐주얼 게임이 가득한 낮을 지나<br>예능/합방/게임으로 달아오르는 저녁까지!</p>
+        <p>시간대마다 새로운 채널을 발견하는 재미를 느껴보세요.</p>
+        <div class="longNoticeSection"><strong>■ 임시 운영 기간</strong><p>2026년 10월 9일(금) 00:00 ~ 10월 11일(일) 24:00 (3일간)</p></div>
+        <div class="longNoticeSection"><strong>■ 시청 방법</strong><p>3일 내내 치지직 홈 중단의 <strong>'루프 스테이션'</strong> 영역에서 만날 수 있어요. (PC / 모바일)</p></div>
+        <div class="longNoticeSection"><strong>■ 노출 콘텐츠</strong><p>• ON AIR : 지금 잘 어울리는 라이브<br>• 추천 다시보기 : 놓치기 아까운 최신 라이브 다시보기<br>• 이건 꼭 봐야 해 : 핵심 장면을 짧게 즐기는 클립</p></div>
+        <p class="sourceNote">편성 시간 및 콘텐츠는 스트리머의 사정에 따라 일부 변경될 수 있습니다.</p>
+      </div>`;
+    $('.latestItem:nth-of-type(1)').textContent = '[수정완료] 일부 라이브에서 채팅이 작동하지 않는 오류 발생 안내';
+    $('.latestItem:nth-of-type(2)').textContent = '[월즈 2026] LoL 한정판 시청 드롭스 안내';
+    $('.latestItem:nth-of-type(3)').textContent = '[24H LIVE] JTBC 채널 일시 중지 안내 (10/13)';
+    const input = $('#commentInput');
+    input.value = '';
+    input.placeholder = '댓글을 쓸 수 없는 게시글입니다.';
+    input.disabled = true;
+    $('#submitBtn').disabled = true;
+    $('#commentForm').classList.add('isDisabled');
+  } else if (!isReferencePost) {
     const copy = (post.body && post.body.length ? post.body : ['좋은 정보 함께 나눠요.']).slice(0, 2).join('\n');
     $('#postBody').querySelector('p').textContent = copy;
   }

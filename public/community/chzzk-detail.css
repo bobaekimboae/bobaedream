@@ -79,6 +79,7 @@ img { display: block; }
 .authorText { display: grid; gap: 5px; font-size: 17px; line-height: 22px; }
 .authorText strong { font-weight: 700; }
 .authorText span { color: var(--sub); }
+.operatorBadge { margin-left: 6px; color: var(--green) !important; font-size: 13px; font-weight: 500; }
 .authorMeta { display: flex; align-items: center; gap: 6px; color: var(--sub); }
 .viewCount { display: inline-flex; align-items: center; gap: 4px; }
 .viewCount img { width: 18px; height: 18px; opacity: .65; }
@@ -86,6 +87,13 @@ img { display: block; }
 .postBody { min-height: 320px; padding: 38px 0 0; }
 .heroSticker { width: 280px; max-width: 78%; height: auto; margin: 0 0 20px 8px; }
 .postBody p { margin: 0; font-size: 23px; line-height: 32px; font-weight: 650; letter-spacing: -.03em; white-space: pre-line; }
+.loopBanner { width: 100%; height: auto; margin: 0 0 22px; border-radius: 5px; }
+.longNoticeBody { display: grid; gap: 22px; }
+.longNoticeBody p { margin: 0; font-size: 17px; line-height: 1.7; font-weight: 400; letter-spacing: -.02em; white-space: normal; }
+.longNoticeBody strong { font-weight: 750; }
+.longNoticeSection { display: grid; gap: 5px; }
+.longNoticeSection > strong { font-size: 17px; line-height: 1.5; }
+.sourceNote { color: var(--sub); font-size: 14px !important; }
 .tagRow { display: flex; gap: 10px; margin-top: 24px; }
 .tagRow button { min-height: 42px; padding: 0 14px; border-radius: 10px; background: #f4f4f4; font-size: 17px; }
 .reactionRow { display: flex; min-height: 90px; align-items: center; justify-content: flex-start; gap: 10px; }
@@ -176,6 +184,11 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid 
 body.isNotice .eventBar, body.isNotice .comments, body.isNotice .toTop { display: none; }
 body.isNotice .noticePost { display: block; }
 body.isNotice .latestCard { margin-top: 24px; }
+body.isLongNotice .tagRow, body.isLongNotice .comments, body.isLongNotice .toTop { display: none; }
+body.isLongNotice .postBody { padding-top: 15px; }
+body.isLongNotice .postTitle { letter-spacing: 0; word-break: break-all; }
+body.isLongNotice .reactionRow { justify-content: flex-end; }
+body.isLongNotice .reactionRow .roundAction { display: none; }
 
 @media (max-width: 600px) {
   html, body { background: #fff; }
@@ -194,16 +207,25 @@ body.isNotice .latestCard { margin-top: 24px; }
   .boardLink { height: 38px; gap: 4px; font-size: 14px; }
   .boardLink img { width: 11px; height: 11px; }
   .postTitle { margin: 7px 0 8px; font-size: 18px; line-height: 24px; }
+  body.isLongNotice .postTitle { margin-bottom: 3px; }
   .authorRow { gap: 10px; }
   .authorAvatar { width: 38px; height: 38px; }
   .authorText { gap: 2px; font-size: 14px; line-height: 17px; }
+  .operatorBadge { margin-left: 4px; font-size: 11px; }
   .authorMeta { gap: 4px; font-size: 12px; line-height: 15px; }
   .viewCount { gap: 3px; }
   .viewCount img { width: 16px; height: 16px; }
   .postDivider { margin-top: 12px; }
+  body.isLongNotice .postDivider { margin-top: 7px; }
   .postBody { min-height: 0; padding-top: 20px; }
   .heroSticker { width: 139px; margin: 0 0 12px; }
   .postBody p { font-size: 15px; line-height: 21px; font-weight: 500; }
+  .loopBanner { margin-bottom: 18px; border-radius: 4px; }
+  .longNoticeBody { gap: 20px; }
+  .longNoticeBody p { font-size: 15px; line-height: 1.58; }
+  .longNoticeSection { gap: 3px; }
+  .longNoticeSection > strong { font-size: 15px; }
+  .sourceNote { font-size: 12px !important; }
   .tagRow { gap: 8px; margin-top: 16px; }
   .tagRow button { min-height: 32px; padding: 0 10px; border-radius: 7px; font-size: 13px; }
   .reactionRow { min-height: 70px; gap: 8px; }

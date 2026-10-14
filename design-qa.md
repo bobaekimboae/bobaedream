@@ -43,6 +43,46 @@ final result: passed
 
 ---
 
+# 치지직 상세 · 긴 제목 공지 구조 v6 QA · 2026-10-15
+
+- source visual truth: `https://m.game.naver.com/lounge/chzzk/board/detail/8303245` (사용자 제공 `https://naver.me/x7eQI0p3` 리디렉션)
+- implementation screenshot target: `http://172.30.1.200:45174/community/chzzk-detail.html?id=8303245`
+- browser captures: Chrome 원본 탭 `229711228`, 구현 탭 `229711249`
+- viewport/density: 모바일 394 × 852 CSS px, DPR 1; PC 1440 × 1000 CSS px, DPR 1
+- state: 긴 제목 공지 기본 화면, 버프 선택, 너프 전환, 댓글 비활성
+
+## Full-view and focused comparison evidence
+
+- 모바일 상단 집중 비교에서 `공지사항 → 2줄 제목 → 운영자 프로필 → 구분선 → 루프 스테이션 배너 → 본문` 순서를 원본과 동일하게 맞췄다.
+- 핵심 좌표는 제목 y=154px, 작성자 y=205px, 구분선 y=250px, 배너 y=266px로 원본 캡처와 일치한다.
+- PC에서는 1060px 중앙 셸에서 제목이 1줄, 배너가 콘텐츠 폭 전체로 표시된다.
+- 원본 치지직 운영자 프로필 40 × 40 PNG와 루프 스테이션 800 × 67 PNG를 직접 추출해 사용했다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 모바일 제목 18/24px·2줄, PC 24/32px·1줄이며 원본과 같은 어절 내부 줄바꿈을 적용했다.
+- spacing/layout rhythm: 모바일 상단 핵심 요소의 y 좌표와 15px 좌우 여백, PC 1060px 셸을 확인했다.
+- colors/tokens: 기존 Airbnb 로즈 상호작용 토큰과 초록 게시판 라벨을 유지했다.
+- image quality/assets: 운영자 프로필과 본문 배너는 원본 파일이며 깨진 이미지 0건이다.
+- copy/content: 제목, 작성자·레벨·운영자 표기, 날짜·조회수, 공지 본문, 최신글 3건을 원본과 대조했다.
+
+## Comparison history
+
+- P2 before: 긴 제목이 모바일에서 원본보다 뒤쪽에서 줄바꿈되고 작성자·구분선·배너가 5–11px 아래에 놓였다.
+- fix: 긴 제목에 원본형 글자 간격과 어절 내부 줄바꿈을 적용하고 제목 하단·구분선 간격을 각각 5px 줄였다.
+- post-fix: 제목 y=154px, 2줄 높이 48px, 작성자 y=205px, 구분선 y=250px, 배너 y=266px로 재측정했다.
+
+## Verification
+
+- 모바일·PC 가로 넘침 없음, 깨진 이미지 0건, 콘솔 warning/error 0건.
+- 상호작용: 버프 30→31, 너프 전환 31→29, 공지 댓글 입력 비활성 통과.
+- `npm run verify`: 관리자 29건, Sites 4건, 타입 검사·프로덕션 빌드 전체 통과.
+- P0/P1/P2 findings: none.
+
+final result: passed
+
+---
+
 # Design QA · 게시물 작성 숫자 잘림 수정 (2026-10-15)
 
 - source visual truth: 사용자 제공 모바일 캡처 `1-1000018290.jpg` (591×1280 래스터, 글자 크기 `15`의 오른쪽 획 잘림)
