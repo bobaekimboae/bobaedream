@@ -177,19 +177,11 @@ function carFacts(car: Car): string[][] {
    접힌 화면은 기존 핵심 8개를 유지하고, 펼친 화면만 의미 단위로 묶는다. */
 function carFactGroups(car: Car): VehicleFactGroup[] {
   const fd = car.ferrariDetail;
-  const yearText = bbmCardSpec(car, false).split(" · ")[0];
   const model = (car.modelGroup ?? car.title.replace(new RegExp(`^${car.maker}\\s*`), "")).trim();
   const body = cleanValue(fd?.body ?? car.filter?.body);
   const dv = derivedFacts(car, model, body);
   const m3 = isBmwM3CompetitionXDrive(car, model) ? BMW_M3_COMPETITION_XDRIVE_2023 : null;
   const value = (entry?: string | number | null) => entry === undefined || entry === null || entry === "" ? NO_INFO : String(entry);
-  const mileage = car.filter?.mileage ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : NO_INFO;
-  const insurance = fd ? (fd.insurance ? "조회 완료" : NO_INFO) : NO_INFO;
-  const modelYear = car.filter?.year ? `${String(car.filter.year).slice(-2)}년식` : /년식$/.test(yearText) ? yearText : NO_INFO;
-  const registeredToken = bbmCardSpec(car, false).split(" · ")[0];
-  const registeredMatch = registeredToken.match(/^(\d{2}|\d{4})년(\d{2})월$/);
-  const registeredAt = registeredMatch ? `${registeredMatch[1].slice(-2)}년 ${registeredMatch[2]}월 등록` : car.filter?.year ? `${String(car.filter.year).slice(-2)}년 등록` : NO_INFO;
-  const previousOwners = fd?.insurance ? `${fd.insurance.owners}회` : NO_INFO;
   const origin = m3?.origin ?? value(cleanValue(car.filter?.origin));
 
   return [
@@ -225,9 +217,8 @@ function carFactGroups(car: Car): VehicleFactGroup[] {
     {
       title: "차량 히스토리",
       rows: [
-        ["연식", modelYear], ["등록일", registeredAt], ["주행거리", mileage], ["소유자 변경", previousOwners],
-        ["최초 출고가격 (옵션 포함)", NO_INFO], ["최초 출고가격 (옵션 미포함)", m3?.launchPrice ?? NO_INFO],
-        ["압류/저당", NO_INFO], ["보험이력", insurance], ["생산국가", origin],
+        ["출고일", NO_INFO], ["생산 국가", origin],
+        ["정식/직수입 여부", NO_INFO], ["구입 딜러", NO_INFO],
       ],
     },
   ];
@@ -329,8 +320,7 @@ function VehicleInfoCard() {
 function VehicleHistoryCard() {
   const car = getActiveDetailCar();
   if (!car) return null;
-  const rows = carFactGroups(car).find((group) => group.title === "차량 히스토리")?.rows
-    .filter(([label]) => label !== "보험이력") ?? [];
+  const rows = carFactGroups(car).find((group) => group.title === "차량 히스토리")?.rows ?? [];
   return (
     <SectionCard title="차량 히스토리" className="vehicle-history-card">
       <dl className="vehicle-history-grid">
