@@ -83,7 +83,7 @@ function DealerStore({ dealer, cars, onOpenTab, onOpenCar }: { dealer: SeoulAuto
 }
 
 function DealerInfo({ cars }: { cars: Car[] }) {
-  return <section className="dealer-profile-section is-tab"><h2>상점 정보</h2><p className="dealer-intro">서울오토갤러리에서 수입차를 전문으로 안내합니다. 매물 상태와 차량 이력을 확인한 뒤 정확한 정보를 전달합니다.</p><div className="dealer-gallery" aria-label="상점 판매 차량 미리보기">{cars.slice(0, 4).map((car) => <img key={car.id} src={asset(car.image)} alt="" aria-hidden="true" />)}</div><dl className="dealer-info-list"><div><dt><ChototIcon name="chotot-list-detail-response-rate.svg" />응답</dt><dd>영업시간 내 순차 답변</dd></div><div><dt><ChototIcon name="chotot-profile-membership-period.svg" />운영 기간</dt><dd>서울오토갤러리 인증 상점</dd></div><div><dt><ChototIcon name="chotot-common-clock.svg" />활동 시간</dt><dd>판매 차량 정보 수시 갱신</dd></div><div><dt><ChototIcon name="chotot-list-detail-address-location.svg" />주소</dt><dd>서울특별시 서초구 양재대로11길 36</dd></div></dl><PolicyList compact /></section>;
+  return <section className="dealer-profile-section is-tab"><h2>상점 정보</h2><p className="dealer-intro">서울오토갤러리에서 수입차를 전문으로 안내합니다. 매물 상태와 차량 이력을 확인한 뒤 정확한 정보를 전달합니다.</p><div className="dealer-gallery" aria-label="상점 판매 차량 미리보기">{cars.slice(0, 4).map((car) => <img key={car.id} src={asset(car.image)} alt="" aria-hidden="true" />)}</div><dl className="dealer-info-list"><div><dt><ChototIcon name="chotot-list-detail-response-rate.svg" />응답</dt><dd>영업시간 내 순차 답변</dd></div><div><dt><ChototIcon name="chotot-profile-membership-period.svg" />운영 기간</dt><dd>서울오토갤러리 인증 상점</dd></div><div><dt><ChototIcon name="chotot-common-clock.svg" />활동 시간</dt><dd>판매 차량 정보 수시 갱신</dd></div><div><dt><ChototIcon name="chotot-list-detail-address-location.svg" />주소</dt><dd>서울특별시 서초구 양재대로11길 36, 은관 421호</dd></div></dl><PolicyList compact /></section>;
 }
 
 function DealerTabContent({ tab, dealer, cars, onOpenTab, onOpenCar }: { tab: DealerProfileTab; dealer: SeoulAutoGalleryDealer; cars: Car[]; onOpenTab: (tab: DealerProfileTab) => void; onOpenCar: (car: Car) => void }) {
@@ -117,11 +117,11 @@ export function DealerProfileScreen({ dealer, cars, onOpenCar }: { dealer: Seoul
             <div className="dealer-profile-actions"><button type="button" aria-label="상점 공유"><ChototIcon name="chotot-common-share.svg" />공유</button><button type="button" className={following ? "is-following" : undefined} aria-pressed={following} onClick={() => setFollowing((value) => !value)}><ChototIcon name={following ? "chotot-list-detail-following.svg" : "chotot-list-detail-follow.svg"} />{following ? "팔로잉" : "팔로우"}</button></div>
             <h1>{dealer.name} <ChototIcon name="chotot-list-detail-verified-dealer-wavy-badge.svg" /></h1>
             <p className="dealer-rating"><ChototIcon name="chotot-list-detail-review-star.svg" />4.8 <button type="button" onClick={() => setTab("reviews")}>(후기 보기)</button></p>
-            <p className="dealer-address"><ChototIcon name="chotot-list-detail-address-location.svg" />서울특별시 서초구 양재대로11길 36, 서울오토갤러리</p>
+            <p className="dealer-address"><ChototIcon name="chotot-list-detail-address-location.svg" />서울특별시 서초구 양재대로11길 36, 은관 421호</p>
           </div>
           <dl className="dealer-metrics"><div><dt>판매 완료</dt><dd>12</dd></div><div><dt><ChototIcon name="chotot-list-detail-followers.svg" />팔로워</dt><dd>26</dd></div><div><dt>판매 중</dt><dd>{dealer.listingCount}</dd></div></dl>
           <PolicyList />
-          <button type="button" className="dealer-profile-summary-contact"><ChototIcon name="chotot-list-detail-phone.svg" /><span><strong>02-2059-5000</strong><small>전화번호 보기</small></span></button>
+          <button type="button" className="dealer-profile-summary-contact"><ChototIcon name="chotot-list-detail-phone.svg" /><span><strong>02-2059-5211</strong><small>전화번호 보기</small></span></button>
         </aside>
         <div className="dealer-profile-main">
           <nav className="dealer-profile-tabs" role="tablist" aria-label="상점 메뉴">{tabs.map((item) => <button key={item.id} ref={tab === item.id ? activeTabRef : undefined} type="button" role="tab" aria-selected={tab === item.id} className={tab === item.id ? "is-selected" : undefined} onClick={() => setTab(item.id)}>{item.label}</button>)}</nav>
