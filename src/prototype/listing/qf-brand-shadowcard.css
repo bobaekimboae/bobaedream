@@ -46,7 +46,7 @@
   height: 16px !important;
   margin: 1px 0 0 !important;
   overflow: hidden;
-  font: 400 14px/16px "Pretendard Variable", Pretendard, sans-serif !important;
+  font: 400 11px/16px "Pretendard Variable", Pretendard, sans-serif !important;
   color: #222 !important;
   text-align: center;
   white-space: nowrap;
@@ -56,7 +56,7 @@
   display: block !important;
   height: 16px;
   margin: 0 !important;
-  font: 400 14px/16px "Pretendard Variable", Pretendard, sans-serif !important;
+  font: 400 11px/16px "Pretendard Variable", Pretendard, sans-serif !important;
   color: #595959 !important;
   text-align: center;
 }

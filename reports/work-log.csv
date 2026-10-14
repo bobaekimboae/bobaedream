@@ -334,3 +334,4 @@
 2026-10-14,상사명 판매자 이름 옆으로,지역 2줄 삭제·판매자 이름줄 `딜러ㆍ상사명`,verify:qf 통과
 2026-10-15,서울오토갤러리 레인지로버 추가,claude/used-car-detail-1013,,,,레인지로버 4세대 5.0 V8 SC LWB SV AB 사진 17장 추가(가격 상담),data/index.tsx seoul-autogallery-v01.ts rr/*.jpg,,월 표기 08 미반영,verify:qf 통과
 2026-10-15,제조사 로고 그림자 카드 시안,claude/used-car-detail-1013,,,,&qfbrand=shadowcard 흰 카드 80x80 + 로고 + 이름 + (대수) + 전체 카드,listing/index.tsx qf-brand-shadowcard.css,,수입차·바이크·트럭 레일 미적용,verify:qf 통과
+2026-10-15,그림자 카드 글자 크기 보정,claude/used-car-detail-1013,,,,이름 · (대수) 14px → 11px(원본 실측 10~11px),qf-brand-shadowcard.css,,원본 폰트가 달라 11px로 반올림,verify:qf
