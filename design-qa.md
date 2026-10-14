@@ -59,6 +59,47 @@ final result: passed
 
 ---
 
+# Design QA · 판매자 페이지 3탭 평면화 (2026-10-15)
+
+- source visual truth (YouTube): `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/8ea69c42-2ca7-461a-8800-147ccaade0e1/1-1000018260.jpg`
+- source visual truth (FirstCar): `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/8ea69c42-2ca7-461a-8800-147ccaade0e1/2-1000018256.jpg`
+- implementation screenshot: `design-qa-dealer-tabs-mobile.jpg`
+- comparison sheet: `design-qa-dealer-tabs-comparison.jpg`
+- viewport: 393 × 852 CSS px, DPR 1
+- state: `판매차량` 탭 선택, 판매중 목록
+
+## Full-view comparison evidence
+
+- 유튜브 채널 참고처럼 상단 프로필과 본문을 하나의 흰 바탕으로 연결했다.
+- 프로필 아래에 첫차와 같은 수평 탭 구조를 배치하고 `판매차량 · 리뷰 · 소개`로 재구성했다.
+- 탭 경계는 얇은 하단 선, 선택 상태는 3px 검정 밑줄로만 구분했다.
+- 판매중·판매완료 필터와 실제 매물 링크는 기존 동작을 유지했다.
+
+## Focused region comparison evidence
+
+- 프로필 배너, 아바타, 판매자명, 3탭 스트립을 집중 비교했다.
+- 유튜브의 평면 구조와 첫차의 선택 밑줄 언어를 어긋나지 않게 결합했다.
+- 중고차 상품의 탐색 성격을 위해 아래 목록은 원본 크기 비율을 유지한 의도적 차이다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 프로필명 22/28px, 탭 15px, 섹션 제목 20px의 계층을 확인했다.
+- spacing/layout rhythm: 16px 모바일 여백, 54px 탭 높이, 선택 밑줄과 목록 시작점의 간격을 확인했다.
+- colors/tokens: 상단과 본문 배경은 흰색, 본문은 `#222`, 구분선은 연한 회색으로 통일했다.
+- image quality/assets: 기존 서울오토갤러리 배너·딜러 사진·실제 매물 사진을 재사용했고 표시 품질 저하가 없다.
+- copy/content: `판매차량`, `리뷰`, `소개` 명칭과 판매자·주소·경력·응답 정보를 보존했다.
+
+## Verification
+
+- `판매차량` 기본 상태, `리뷰`, `소개` 탭 전환 확인.
+- 모바일 393 × 852, PC 1440 × 1000 확인.
+- 콘솔 오류 0건, 깨진 이미지 0건.
+- P0/P1/P2 findings: none.
+
+final result: passed
+
+---
+
 # 올드카 기아 브리사 공식 헤리티지 헤더 QA · 2026-10-12
 
 - source visual truth: 기아 헤리티지 아카이브의 1974 브리사 대표 KV

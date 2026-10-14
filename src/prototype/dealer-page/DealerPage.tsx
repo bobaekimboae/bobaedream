@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type RefObject } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { FlowStack, type FlowScreen } from "../../mobile";
 import { DetailFooter, DetailUiProvider, VehicleDetail } from "../detail";
 import { FavoritesProvider, asset, seoulAutoGalleryCars, setActiveDetailCar, type Car } from "../data";
@@ -98,7 +98,7 @@ function SiteHeader() {
 }
 
 function DealerProfile({ dealer, following, setFollowing, share }: { dealer: SeoulAutoGalleryDealer; following: boolean; setFollowing: (value: boolean) => void; share: () => void }) {
-  return <section className="dp-profile" data-section="intro">
+  return <section className="dp-profile">
     <div className="dp-cover">
       <img className="dp-cover-photo" src={asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt="서울오토갤러리 전경" draggable={false} />
       <div className="dp-cover-brand"><strong>서울오토갤러리</strong><small>수입차 전문 매매단지</small></div>
@@ -120,7 +120,6 @@ function DealerProfile({ dealer, following, setFollowing, share }: { dealer: Seo
         <div className="dp-profile-inline is-response"><Icon name="chotot-list-detail-response-rate.svg" />응답률: {MOCK.response}</div>
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span><span className="dp-location-rating"><Icon name="chotot-list-detail-review-star.svg" /><b>{MOCK.rating}</b><u>리뷰 {MOCK.reviewCount}개</u></span></div>
         <div className="dp-profile-inline is-career"><Icon name="chotot-common-join-date.svg" />{MOCK.joined}</div>
-        <p className="dp-intro-copy">{MOCK.intro}</p>
       </div>
     </div>
   </section>;
@@ -159,8 +158,8 @@ function ListingsSection({ cars, mode, setMode, onOpen }: { cars: Car[]; mode: L
   const [limit, setLimit] = useState(5);
   const total = cars.length + MOCK.sold;
   const max = mode === "active" ? cars.length : MOCK.soldCars.length;
-  return <section className="dp-content-card dp-listings" data-section="ads">
-    <h2>전체 매물 ({total})</h2>
+  return <section className="dp-content-card dp-listings">
+    <h2>판매차량 <span>{total}</span></h2>
     <div className="dp-listing-modes" role="tablist" aria-label="판매 상태">
       <button type="button" role="tab" aria-selected={mode === "active"} onClick={() => { setMode("active"); setLimit(5); }}>판매중 ({cars.length})</button>
       <button type="button" role="tab" aria-selected={mode === "sold"} onClick={() => { setMode("sold"); setLimit(5); }}>판매완료 ({MOCK.sold})</button>
@@ -170,17 +169,17 @@ function ListingsSection({ cars, mode, setMode, onOpen }: { cars: Car[]; mode: L
   </section>;
 }
 
-function AnchorNav({ active, goTo, total }: { active: SectionId; goTo: (section: SectionId) => void; total: number }) {
-  const items: Array<[SectionId, string]> = [["intro", "소개"], ["ads", `전체 매물 (${total})`], ["rating", `평가 (${MOCK.reviewCount})`]];
-  return <nav className="dp-anchor-nav" aria-label="판매자 페이지 구역">{items.map(([id, label]) => <button key={id} type="button" className={active === id ? "is-active" : ""} onClick={() => goTo(id)}>{label}</button>)}</nav>;
+function AnchorNav({ active, onChange }: { active: SectionId; onChange: (section: SectionId) => void }) {
+  const items: Array<[SectionId, string]> = [["ads", "판매차량"], ["rating", "리뷰"], ["intro", "소개"]];
+  return <nav className="dp-anchor-nav" aria-label="판매자 페이지 구역" role="tablist">{items.map(([id, label]) => <button key={id} type="button" role="tab" aria-selected={active === id} className={active === id ? "is-active" : ""} onClick={() => onChange(id)}>{label}</button>)}</nav>;
 }
 
 function RatingsSection({ cars }: { cars: Car[] }) {
   const [filter, setFilter] = useState<ReviewFilter>("all");
   const reviews = MOCK.reviews.filter((review) => filter === "all" || review.role === filter);
   const filterItems: Array<[ReviewFilter, string]> = [["all", `전체 (${MOCK.reviewCount})`], ["buyer", "구매자 (2)"], ["seller", "판매자 (1)"]];
-  return <section className="dp-content-card dp-ratings" data-section="rating">
-    <h2>평가</h2>
+  return <section className="dp-content-card dp-ratings">
+    <h2>리뷰</h2>
     <div className="dp-rating-layout">
       <div className="dp-rating-summary"><strong>{MOCK.rating}<span>★</span> 매우 만족</strong><small>({MOCK.reviewCount}명의 이용자 평가)</small></div>
       <div className="dp-rating-list">
@@ -200,6 +199,19 @@ function RatingsSection({ cars }: { cars: Car[] }) {
   </section>;
 }
 
+function AboutSection() {
+  return <section className="dp-content-card dp-about">
+    <h2>소개</h2>
+    <p>{MOCK.intro}</p>
+    <dl>
+      <div><dt>전문 분야</dt><dd>수입차</dd></div>
+      <div><dt>활동 지역</dt><dd>{MOCK.address}</dd></div>
+      <div><dt>응답 시간</dt><dd>{MOCK.response}</dd></div>
+      <div><dt>딜러 경력</dt><dd>7년</dd></div>
+    </dl>
+  </section>;
+}
+
 function Footer() {
   return <footer className="dp-footer"><div className="dp-footer-brand"><img src={bobaeAsset("9546-imgLogo.svg")} alt="보배드림" /><span>믿을 수 있는 자동차 거래</span></div><div className="dp-footer-links"><span>회사소개</span><span>이용약관</span><span>개인정보처리방침</span><span>고객센터</span></div><small>© BOBae Network. All rights reserved.</small></footer>;
 }
@@ -207,28 +219,11 @@ function Footer() {
 function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; cars: Car[] }) {
   const [following, setFollowing] = useState(false);
   const [mode, setMode] = useState<ListingMode>("active");
-  const [activeSection, setActiveSection] = useState<SectionId>("intro");
+  const [activeSection, setActiveSection] = useState<SectionId>("ads");
   const [toast, setToast] = useState("");
   const scrollRef = useRef<HTMLDivElement | null>(null);
-  const introRef = useRef<HTMLDivElement | null>(null);
-  const adsRef = useRef<HTMLDivElement | null>(null);
-  const ratingRef = useRef<HTMLDivElement | null>(null);
-  const refs: Record<SectionId, RefObject<HTMLDivElement | null>> = { intro: introRef, ads: adsRef, rating: ratingRef };
 
   useEffect(() => { setPretendard(true); document.title = `${dealer.name} 딜러`; }, [dealer.name]);
-  useEffect(() => {
-    const root = scrollRef.current;
-    if (!root) return;
-    const onScroll = () => {
-      const marker = root.scrollTop + 180;
-      let next: SectionId = "intro";
-      if ((adsRef.current?.offsetTop ?? Infinity) <= marker) next = "ads";
-      if ((ratingRef.current?.offsetTop ?? Infinity) <= marker) next = "rating";
-      setActiveSection(next);
-    };
-    root.addEventListener("scroll", onScroll, { passive: true });
-    return () => root.removeEventListener("scroll", onScroll);
-  }, []);
 
   const notify = (message: string) => { setToast(message); window.setTimeout(() => setToast(""), 1800); };
   const openListing = (car: Car) => {
@@ -245,21 +240,22 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
       else { await navigator.clipboard.writeText(window.location.href); notify("링크를 복사했어요"); }
     } catch { /* 공유 취소 */ }
   };
-  const goTo = (section: SectionId) => {
+  const changeSection = (section: SectionId) => {
     setActiveSection(section);
     const root = scrollRef.current;
-    const target = refs[section].current;
-    if (root && target) root.scrollTo({ top: Math.max(0, target.offsetTop - 112), behavior: "smooth" });
+    const nav = root?.querySelector<HTMLElement>(".dp-anchor-nav");
+    if (root && nav && nav.getBoundingClientRect().top < 56) root.scrollTo({ top: nav.offsetTop - 56, behavior: "smooth" });
   };
 
   return <div className="dp-root">
     <div className="dp-scroll" ref={scrollRef}>
       <SiteHeader />
       <main className="dp-page" aria-label={`${dealer.name} 딜러 판매자 페이지`}>
-        <div ref={introRef}><DealerProfile dealer={dealer} following={following} setFollowing={setFollowing} share={share} /></div>
-        <div ref={adsRef}><ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /></div>
-        <AnchorNav active={activeSection} goTo={goTo} total={cars.length + MOCK.sold} />
-        <div ref={ratingRef}><RatingsSection cars={cars} /></div>
+        <DealerProfile dealer={dealer} following={following} setFollowing={setFollowing} share={share} />
+        <AnchorNav active={activeSection} onChange={changeSection} />
+        {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}
+        {activeSection === "rating" ? <RatingsSection cars={cars} /> : null}
+        {activeSection === "intro" ? <AboutSection /> : null}
       </main>
       <Footer />
     </div>
