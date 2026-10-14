@@ -134,6 +134,8 @@ const BMW_M3_COMPETITION_XDRIVE_2023 = {
 
 /* 임시 화면 검수용 시나리오. 백엔드 차량 이력 API 연결 시 이 객체를 응답 필드로 교체한다. */
 const BMW_M3_HISTORY_MOCK = {
+  firstRegisteredAt: "2023년 7월 25일",
+  factory: "BMW 뮌헨 공장",
   releasedAt: "2023년 7월 21일",
   priceWithoutOptions: "13,770만원",
   priceWithOptions: "14,680만원",
@@ -163,14 +165,13 @@ function carFacts(car: Car): string[][] {
     ["모델", model],
     ["연식", yearText],
     ["주행거리", car.filter?.mileage ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : NO_INFO],
-    ["출시가격", m3?.launchPrice ?? NO_INFO],
     ["연료", m3?.fuel ?? or(cleanValue(car.filter?.fuel))],
     ["배기량", m3?.displacement ?? or(fd?.displacement)],
-    ["마력", m3 ? "510마력" : bbmSampleHorsepower(car.id)],
+    ["인승", m3?.seats ?? or(dv.seats)],
+    ["최초등록일", m3 ? BMW_M3_HISTORY_MOCK.firstRegisteredAt : NO_INFO],
     ["변속기", m3?.transmission ?? or(cleanValue(fd?.transmission ?? car.filter?.transmission))],
     ["차종", or(fd?.carType ?? dv.sizeClass)],
     ["도어 수", or(dv.doors)],
-    ["인승", or(dv.seats)],
     ["바디타입", or(body)],
     ["외관 색상", or(cleanValue(fd?.color ?? car.filter?.color))],
     ["시트 색상", dv.seatColor],
@@ -198,7 +199,6 @@ function carFactGroups(car: Car): VehicleFactGroup[] {
   const m3 = isBmwM3CompetitionXDrive(car, model) ? BMW_M3_COMPETITION_XDRIVE_2023 : null;
   const historyMock = m3 ? BMW_M3_HISTORY_MOCK : null;
   const value = (entry?: string | number | null) => entry === undefined || entry === null || entry === "" ? NO_INFO : String(entry);
-  const origin = m3?.origin ?? value(cleanValue(car.filter?.origin));
 
   return [
     {
@@ -233,7 +233,7 @@ function carFactGroups(car: Car): VehicleFactGroup[] {
     {
       title: "차량 히스토리",
       rows: [
-        ["생산 국가", origin],
+        ["생산 공장", historyMock?.factory ?? NO_INFO],
         ["출고일", historyMock?.releasedAt ?? NO_INFO],
         ["출고가격(옵션 미포함)", historyMock?.priceWithoutOptions ?? NO_INFO],
         ["출고가격(옵션 포함)", historyMock?.priceWithOptions ?? NO_INFO],
@@ -276,8 +276,8 @@ function chototFactRows(car: Car, groups: VehicleFactGroup[]) {
 
 /* 차량 정보 아이콘 시안(`&facts=icons`, 2026-10-14, 노션 「영국_오토트레이더 초톳 변경」 아이콘 원본 그대로 `public/assets/bbm/detail-icons/`) */
 const FACT_ICONS: Record<string, string> = {
-  제조사: "maker-autoscout", 모델: "model-trim", 연식: "year", 주행거리: "mileage", "출시가격": "price",
-  연료: "fuel", 배기량: "engine-hubraum", 마력: "power", 변속기: "gearbox", 차종: "body", "도어 수": "doors", 인승: "seats", "배출가스 등급": "emission", "이전 소유자": "owners", "키 수": "keys", 바디타입: "body", "외관 색상": "color", "시트 색상": "interior",
+  제조사: "maker-autoscout", 모델: "model-trim", 연식: "year", 주행거리: "mileage",
+  연료: "fuel", 배기량: "engine-hubraum", 인승: "seats", 최초등록일: "first-registration", 변속기: "gearbox", 차종: "body", "도어 수": "doors", "배출가스 등급": "emission", "이전 소유자": "owners", "키 수": "keys", 바디타입: "body", "외관 색상": "color", "시트 색상": "interior",
   세부모델: "model-trim", "시리즈·코드": "document", 차체형식: "body", "좌석 수": "seats", 생산국: "location",
   판매방식: "seller-type", "압류/저당": "document", 제시번호: "document", 지역: "location", "판매자 유형": "seller-type", 성능점검: "document", "보험이력 조회": "document",
 };
@@ -348,10 +348,12 @@ function VehicleHistoryCard() {
   const car = getActiveDetailCar();
   if (!car) return null;
   const rows = carFactGroups(car).find((group) => group.title === "차량 히스토리")?.rows ?? [];
-  const deliveryLabels = new Set(["생산 국가", "출고일", "출고가격(옵션 미포함)", "출고가격(옵션 포함)", "정식/직수입 여부", "구입 딜러"]);
+  const deliveryLabels = new Set(["생산 공장", "출고일", "출고가격(옵션 미포함)", "출고가격(옵션 포함)", "정식/직수입 여부", "구입 딜러"]);
+  const saleLabels = new Set(["판매 방식", "매도비(관리비용)", "제시번호"]);
   const historyGroups = [
     { title: "출고 정보", rows: rows.filter(([label]) => deliveryLabels.has(label)) },
-    { title: "거래·권리 정보", rows: rows.filter(([label]) => !deliveryLabels.has(label)) },
+    { title: "판매 정보", rows: rows.filter(([label]) => saleLabels.has(label)) },
+    { title: "이력·권리 정보", rows: rows.filter(([label]) => !deliveryLabels.has(label) && !saleLabels.has(label)) },
   ];
   return (
     <SectionCard title="차량 히스토리" className="vehicle-history-card">
@@ -551,7 +553,8 @@ function VehicleSummary() {
   const summaryRef = useRef<HTMLElement>(null);
   useLocationWrap(summaryRef);
   useLocationLinks(summaryRef, car);
-  const detailPower = car ? carFacts(car).find(([label]) => label === "마력")?.[1] : undefined;
+  // 상단 메타의 마력은 유지한다. 아래 차량 정보 8칸에서만 마력을 제외한다.
+  const detailPower = car ? (isBmwM3CompetitionXDrive(car, (car.modelGroup ?? car.title).trim()) ? "510마력" : bbmSampleHorsepower(car.id)) : undefined;
   const detailBodyType = car ? carFacts(car).find(([label]) => label === "바디타입")?.[1] : undefined;
   if (car) return (
     <section ref={summaryRef} className="vehicle-summary is-list-summary marketplace is-bbm-m is-qf-guazi"><div className="bbm-m-list">
