@@ -112,6 +112,56 @@ final result: passed
 
 ---
 
+# Design QA · 판매자 실제 테스트 매물·탭 균형 (2026-10-15)
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/8ea69c42-2ca7-461a-8800-147ccaade0e1/1-1000018260.jpg`
+- secondary reference: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/8ea69c42-2ca7-461a-8800-147ccaade0e1/2-1000018256.jpg`
+- implementation screenshot: `design-qa-dealer-tabs-mobile.jpg`
+- side-by-side comparison: `design-qa-dealer-tabs-comparison.jpg`
+- source images: 592 × 1280 px 계열 기기 캡처, 393 × 852 CSS px 기준으로 정규화
+- implementation: 393 × 852 CSS px, DPR 1
+- state: 판매차량 탭 선택, 실제 테스트 매물 24대 연결
+
+## Full-view comparison evidence
+
+- 유튜브식 흰 배경 프로필 구조와 첫차식 판매자 정보 탭 구조를 같은 비교 이미지에서 대조했다.
+- 프로필의 판매중 수와 판매차량 제목·상태 탭이 모두 실제 테스트 데이터 24대를 표시한다.
+- 판매 목록 첫 화면에 레인지로버, BMW M3, 타이칸 등 실제 테스트 카드가 노출된다.
+- 모바일 393px과 PC 1440px에서 세 개의 주 탭이 콘텐츠 중앙축에 균등하게 자리 잡는다.
+
+## Focused tab evidence
+
+- 주 탭 높이 52px, 글자 14px, 항목 최대 너비 176px, 선택 밑줄 2px로 통일했다.
+- 모바일은 좌우 16px, PC는 좌우 20px 여백을 두고 탭 묶음을 중앙 정렬했다.
+- `판매차량`, `리뷰`, `소개`를 전환해 제목·콘텐츠가 정상 교체되는 것을 확인했다.
+- BMW M3 카드를 열어 실제 `listing=13001` 상세 화면으로 연결되는 것을 확인했다.
+
+## Comparison history
+
+- 이전 P2: 강홍구 이름으로 필터된 7대만 보여 실제 테스트 재고를 대표하지 못했고, PC 탭 묶음이 왼쪽으로 치우쳤다.
+- fix: 대표 판매자에 서울오토갤러리 테스트 재고 24대를 연결하고 탭 너비·중앙축을 반응형으로 다시 설정했다.
+- post-fix evidence: 모바일/PC 캡처에서 실제 카드와 수량이 일치하고 주 탭의 좌우 시각 무게가 같다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 탭 14/20px, 선택 700·비선택 500으로 정보 계층을 명확히 했다.
+- spacing/layout rhythm: 52px 탭 높이와 2px 밑줄, 최대 176px 폭으로 모바일과 PC 리듬을 통일했다.
+- colors/tokens: 흰 배경, `#222` 선택 텍스트, `#666` 비선택 텍스트, 기존 구분선 토큰을 유지했다.
+- image quality/assets: 실제 테스트 매물 사진을 원본 비율로 사용했고 깨진 이미지가 없다.
+- copy/content: 판매중 24대, 판매차량 24, 실제 차량명·가격·지역을 데이터와 동일하게 표시한다.
+
+## Verification
+
+- 모바일 393 × 852, PC 1440 × 1000 확인.
+- 리뷰·소개 탭 전환 확인.
+- BMW M3 상세 연결 확인.
+- 콘솔 오류 0건.
+- P0/P1/P2 findings: none after fixes.
+
+final result: passed
+
+---
+
 # Design QA · 판매자 페이지 3탭 평면화 (2026-10-15)
 
 - source visual truth (YouTube): `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/8ea69c42-2ca7-461a-8800-147ccaade0e1/1-1000018260.jpg`
