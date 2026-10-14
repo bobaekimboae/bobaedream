@@ -59,6 +59,50 @@ final result: passed
 
 ---
 
+# Design QA · 레딧형 게시글·댓글 액션 배치 (2026-10-15)
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a128e5-de8a-78d0-9ed9-96cbde6a07c3/3eec52e2-01d4-459d-9a5b-25c6a8c99f60/1-1000018284.jpg`
+- icon source: 사용자가 지정한 Notion 아이콘 DB의 좋아요·싫어요·댓글·공유 SVG 원본
+- implementation: `public/community/naver-cafe-detail.html`
+- mobile viewport: 394 × 864 CSS px
+- desktop viewport: 1536 × 639 CSS px, 본문 카드 760px
+
+## Full-view comparison evidence
+
+- 기존 FC온라인 상세의 헤더·게시글·클린봇·댓글 입력 구조는 유지했다.
+- 레딧 참고 화면처럼 본문 바로 아래 왼쪽에 추천/점수/비추 묶음, 댓글 수, 공유 버튼을 한 줄로 배치했다.
+- 댓글 하단은 더보기, 답글 달기, 추천 수, 비추 순으로 왼쪽부터 읽히도록 정렬했다.
+- 모바일과 PC 모두 동일한 정보 순서를 사용하며 PC에서는 760px 카드 폭 안에서 같은 축을 유지한다.
+
+## Focused region comparison evidence
+
+- 게시글 액션은 40px 높이, 21px 라운드 투표 묶음, 9px 간격을 사용한다.
+- 추천·비추는 상호 배타적으로 동작하고 점수는 추천 시 +1, 비추 시 -1로 즉시 반영된다.
+- 댓글 수와 댓글 아이콘은 사용자 지시에 따라 `#238fe3` 블루로 표시한다.
+- 댓글 아이콘을 누르면 댓글 영역으로 이동하고 입력창에 포커스된다.
+- 댓글별 추천·비추도 상호 배타적 선택 상태와 한국어 접근성 이름을 제공한다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 기존 Pretendard 계층 유지, 액션 수치는 14/20px 750으로 통과
+- spacing/layout rhythm: 모바일 좌우 15px, PC 좌우 32px, 액션 버튼 40~42px로 통과
+- colors/tokens: 추천 오렌지, 비추·댓글 블루, 흰 버튼·회색 외곽선으로 레딧형 상태 대비 통과
+- image quality/assets: Notion에서 받은 벡터 4종을 로컬 정적 자산으로 저장, 깨진 이미지 0
+- copy/accessibility: 추천·비추·댓글로 이동·공유·답글 달기 접근성 이름 통과
+
+## Verification
+
+- 모바일 추천 3→4, 비추 전환 4→2: passed
+- 댓글 아이콘 이동 및 입력 포커스: passed
+- 모바일 가로 오버플로: 0
+- PC 760px 카드 가로 오버플로: 0
+- 모바일·PC 깨진 이미지: 0
+- 모바일·PC 콘솔 오류·경고: 0
+
+final result: passed
+
+---
+
 # Design QA · 판매자 아이콘·SNS 홍보 정보란 (2026-10-15)
 
 - source assets: 사용자가 지정한 Notion 원본 10종(페이스북·유튜브·인스타그램·틱톡·이메일·전화·시계·공유·딜러·달력)
