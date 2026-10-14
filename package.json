@@ -44,6 +44,7 @@
     ,"catalog:verify:ui": "node scripts/verify-vehicle-catalog-ui.mjs"
     ,"community:verify:write-parity": "node scripts/community-write-parity-check.mjs"
     ,"community:verify:write-tools": "node scripts/community-write-tools-check.mjs"
+    ,"community:verify:attachments": "node scripts/community-write-attachments-check.mjs"
   },
   "dependencies": {
     "@fontsource/roboto": "5.2.10",

@@ -43,8 +43,9 @@
           <button class="tool-button" type="button" data-action="add-file"><img src="assets/write-parity/table.svg" alt="" /><span>파일</span></button>
           <button class="tool-button" type="button" data-tool="place"><img src="assets/write-parity/place.svg" alt="" /><span>장소</span></button>
         </div>
-        <input id="photoInput" class="sr-only" type="file" accept="image/png,image/jpeg,image/webp,image/gif" multiple />
-        <input id="fileInput" class="sr-only" type="file" multiple />
+        <input id="photoInput" class="sr-only" type="file" accept=".jpg,.jpeg,.gif,.png,.bmp,.heic,.heif,.webp" multiple />
+        <input id="replacePhotoInput" class="sr-only" type="file" accept=".jpg,.jpeg,.gif,.png,.bmp,.heic,.heif,.webp" />
+        <input id="fileInput" class="sr-only" type="file" />
 
         <div class="text-toolbar" data-testid="text-toolbar" hidden>
           <label class="select-label"><span class="sr-only">문단 스타일</span><select id="blockStyle"><option value="p">본문</option><option value="h2">소제목</option><option value="blockquote">인용구</option></select></label>
@@ -60,6 +61,7 @@
         </div>
 
         <article id="postBody" class="editor-body" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="내용을 입력하세요."></article>
+        <p id="uploadStatus" class="upload-status" role="status" aria-live="polite" hidden></p>
         <section id="attachmentList" class="attachment-list" aria-label="첨부 파일" hidden></section>
         <button class="add-body" type="button" data-action="add-body">본문 추가</button>
       </section>
@@ -114,6 +116,22 @@
         <header><h2 id="dialogTitle">안내</h2><button type="button" aria-label="닫기" data-action="close-dialog"><img src="assets/write-parity/close.svg" alt="" /></button></header>
         <p id="dialogMessage"></p>
         <button class="dialog-confirm" type="button" data-action="close-dialog">확인</button>
+      </section>
+    </div>
+
+    <div class="overlay" id="photoEditorOverlay" hidden>
+      <section class="photo-editor" role="dialog" aria-modal="true" aria-labelledby="photoEditorTitle">
+        <header>
+          <button type="button" aria-label="닫기" data-action="close-photo-editor"><img src="assets/write-parity/close.svg" alt="" /></button>
+          <h2 id="photoEditorTitle">사진 편집</h2>
+          <button class="photo-editor-done" type="button" data-action="apply-photo-editor">완료</button>
+        </header>
+        <div class="photo-editor-stage"><img id="photoEditorPreview" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9Y9ZIfsAAAAASUVORK5CYII=" alt="편집 중인 사진" /></div>
+        <div class="photo-editor-controls">
+          <fieldset><legend>회전 · 반전</legend><div class="photo-editor-buttons"><button type="button" data-edit-command="rotate-left">↶ 왼쪽</button><button type="button" data-edit-command="rotate-right">↷ 오른쪽</button><button type="button" data-edit-command="flip">⇆ 좌우</button></div></fieldset>
+          <fieldset><legend>비율</legend><div class="photo-editor-buttons"><button type="button" data-edit-ratio="auto">원본</button><button type="button" data-edit-ratio="1 / 1">1:1</button><button type="button" data-edit-ratio="4 / 3">4:3</button><button type="button" data-edit-ratio="16 / 9">16:9</button></div></fieldset>
+          <fieldset><legend>필터</legend><div class="photo-editor-buttons"><button type="button" data-edit-filter="none">원본</button><button type="button" data-edit-filter="auto">자동</button><button type="button" data-edit-filter="mono">흑백</button><button type="button" data-edit-filter="warm">따뜻하게</button></div></fieldset>
+        </div>
       </section>
     </div>
 
