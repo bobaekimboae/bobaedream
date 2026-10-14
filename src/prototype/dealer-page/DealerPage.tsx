@@ -10,6 +10,7 @@ import "./dealer-page.css";
 
 const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.location.href).pathname;
 const icon = (name: string) => `${publicBase}icons/chotot/${name}`;
+const dealerIcon = (name: string) => `${publicBase}icons/dealer-profile/${name}.svg`;
 const bobaeAsset = (name: string) => asset(`pc-detail/${name}`);
 
 type SectionId = "intro" | "ads" | "rating";
@@ -38,6 +39,7 @@ const MOCK = {
   employeeNo: "26-003-00097",
   phone: "02-2059-5211",
   fax: "02-2059-5200",
+  email: "이메일 문의",
   staff: "4명",
   address: "서울특별시 서초구 양재대로11길 36 은관 421호 (양재동)",
   intro: "서울오토갤러리 은관에 위치한 (주)투제이모터웍스 대표 김태규입니다. 모든 차량의 상태와 이력을 직접 확인하고, 정확한 정보와 투명한 상담을 약속드립니다.",
@@ -62,8 +64,19 @@ const MOCK = {
   ] as const,
 } as const;
 
+const SOCIAL_CHANNELS = [
+  { id: "facebook", label: "페이스북", description: "판매 소식", href: "https://www.facebook.com/search/top?q=%ED%88%AC%EC%A0%9C%EC%9D%B4%EB%AA%A8%ED%84%B0%EC%9B%8D%EC%8A%A4" },
+  { id: "youtube", label: "유튜브", description: "차량 영상", href: "https://www.youtube.com/results?search_query=%ED%88%AC%EC%A0%9C%EC%9D%B4%EB%AA%A8%ED%84%B0%EC%9B%8D%EC%8A%A4" },
+  { id: "instagram", label: "인스타그램", description: "신규 매물", href: "https://www.instagram.com/explore/tags/%ED%88%AC%EC%A0%9C%EC%9D%B4%EB%AA%A8%ED%84%B0%EC%9B%8D%EC%8A%A4/" },
+  { id: "tiktok", label: "틱톡", description: "숏폼 영상", href: "https://www.tiktok.com/search?q=%ED%88%AC%EC%A0%9C%EC%9D%B4%EB%AA%A8%ED%84%B0%EC%9B%8D%EC%8A%A4" },
+] as const;
+
 function Icon({ name, className }: { name: string; className?: string }) {
   return <img className={`dp-icon${className ? ` ${className}` : ""}`} src={icon(name)} alt="" aria-hidden="true" draggable={false} />;
+}
+
+function DealerIcon({ name, className }: { name: string; className?: string }) {
+  return <img className={`dp-icon dp-dealer-icon${className ? ` ${className}` : ""}`} src={dealerIcon(name)} alt="" aria-hidden="true" draggable={false} />;
 }
 
 function Stars({ score }: { score: number }) {
@@ -123,14 +136,14 @@ function DealerProfile({ dealer, listingCount, following, setFollowing, share }:
         <div className="dp-profile-inline is-channel-meta">{MOCK.complex} · 판매중 {listingCount}대</div>
         <div className="dp-profile-inline is-mobile-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>({MOCK.reviewCount}개 평가)</u><span>· 팔로워 {MOCK.followers + (following ? 1 : 0)}</span></div>
         <div className="dp-profile-actions">
-          <button type="button" onClick={share}><Icon name="chotot-common-share.svg" />공유</button>
+          <button type="button" onClick={share}><DealerIcon name="share" />공유</button>
           <button type="button" aria-pressed={following} onClick={() => setFollowing(!following)}>{following ? <CheckIcon aria-hidden="true" /> : <PlusIcon aria-hidden="true" />}{following ? "팔로잉" : "팔로우"}</button>
         </div>
-        <div className="dp-profile-inline is-first"><span className="dp-online-dot" />{MOCK.lastActive}<i />응답률: {MOCK.response}<i /><u>팔로워 {MOCK.followers + (following ? 1 : 0)}</u></div>
-        <div className="dp-profile-inline is-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>({MOCK.reviewCount}개 평가)</u><span className="dp-mobile-followers">· 팔로워 {MOCK.followers + (following ? 1 : 0)}</span><i /><span className="dp-desktop-career"><Icon name="chotot-common-clock.svg" />{MOCK.joined}</span></div>
-        <div className="dp-profile-inline is-response"><Icon name="chotot-list-detail-response-rate.svg" />응답률: {MOCK.response}</div>
+        <div className="dp-profile-inline is-first"><DealerIcon name="clock" />{MOCK.lastActive}<i />응답률: {MOCK.response}<i /><u>팔로워 {MOCK.followers + (following ? 1 : 0)}</u></div>
+        <div className="dp-profile-inline is-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>({MOCK.reviewCount}개 평가)</u><span className="dp-mobile-followers">· 팔로워 {MOCK.followers + (following ? 1 : 0)}</span><i /><span className="dp-desktop-career"><DealerIcon name="calendar" />{MOCK.joined}</span></div>
+        <div className="dp-profile-inline is-response"><DealerIcon name="clock" />응답률: {MOCK.response}</div>
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
-        <div className="dp-profile-inline is-career"><Icon name="chotot-common-join-date.svg" />{MOCK.joined}</div>
+        <div className="dp-profile-inline is-career"><DealerIcon name="calendar" />{MOCK.joined}</div>
       </div>
     </div>
   </section>;
@@ -218,23 +231,34 @@ function RatingsSection({ cars }: { cars: Car[] }) {
   </section>;
 }
 
-function AboutSection() {
+function AboutSection({ notify }: { notify: (message: string) => void }) {
   return <section className="dp-content-card dp-about">
     <h2>소개</h2>
     <p>{MOCK.intro}</p>
     <dl>
       <div><dt>전문 분야</dt><dd>수입차</dd></div>
       <div><dt>활동 지역</dt><dd>{MOCK.address}</dd></div>
-      <div><dt>응답 시간</dt><dd>{MOCK.response}</dd></div>
-      <div><dt>딜러 경력</dt><dd>7년</dd></div>
-      <div><dt>소속 상사</dt><dd>{MOCK.company}</dd></div>
+      <div><dt><DealerIcon name="clock" />응답 시간</dt><dd>{MOCK.response}</dd></div>
+      <div><dt><DealerIcon name="calendar" />딜러 경력</dt><dd>7년</dd></div>
+      <div><dt><DealerIcon name="dealership" />소속 상사</dt><dd>{MOCK.company}</dd></div>
       <div><dt>종사원 번호</dt><dd>{MOCK.employeeNo}</dd></div>
       <div><dt>상사 허가번호</dt><dd>{MOCK.licenseNo}</dd></div>
       <div><dt>사업자 번호</dt><dd>{MOCK.businessNo}</dd></div>
-      <div><dt>상사 연락처</dt><dd>{MOCK.phone}</dd></div>
+      <div><dt><DealerIcon name="phone" />상사 연락처</dt><dd><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></dd></div>
+      <div><dt><DealerIcon name="email" />이메일</dt><dd><button type="button" className="dp-about-link" onClick={() => notify("딜러 이메일 문의를 준비 중이에요")}>{MOCK.email}</button></dd></div>
       <div><dt>팩스</dt><dd>{MOCK.fax}</dd></div>
       <div><dt>소속 직원</dt><dd>{MOCK.staff}</dd></div>
     </dl>
+    <div className="dp-social-block">
+      <h3>SNS</h3>
+      <p>최신 매물과 출고 소식을 딜러 채널에서 확인해 보세요.</p>
+      <div className="dp-social-grid">
+        {SOCIAL_CHANNELS.map((channel) => <a key={channel.id} href={channel.href} target="_blank" rel="noreferrer" aria-label={`${channel.label}에서 ${MOCK.company} 찾아보기`}>
+          <DealerIcon name={channel.id} />
+          <span><b>{channel.label}</b><small>{channel.description}</small></span>
+        </a>)}
+      </div>
+    </div>
   </section>;
 }
 
@@ -281,7 +305,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
         <AnchorNav active={activeSection} onChange={changeSection} />
         {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}
         {activeSection === "rating" ? <RatingsSection cars={cars} /> : null}
-        {activeSection === "intro" ? <AboutSection /> : null}
+        {activeSection === "intro" ? <AboutSection notify={notify} /> : null}
       </main>
       <Footer />
     </div>

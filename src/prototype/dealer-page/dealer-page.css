@@ -74,6 +74,7 @@
 .dp-mobile-followers { margin-left: 6px; color: #666; }
 .dp-desktop-career { display: none; align-items: center; gap: 6px; }
 .dp-desktop-career .dp-icon { width: 20px; height: 20px; }
+.dp-profile-inline.is-first > .dp-dealer-icon { width: 18px; height: 18px; margin-right: 7px; }
 .dp-profile-inline.is-response { grid-column: 1 / -1; grid-row: 6; margin-top: 16px; }
 .dp-profile-inline.is-response .dp-icon { width: 20px; height: 20px; margin-right: 8px; }
 .dp-profile-inline.is-location { grid-column: 1 / -1; grid-row: 7; align-items: flex-start; margin-top: 12px; }
@@ -156,8 +157,20 @@
 .dp-about > p { margin-top: 16px; color: #444; font-size: 15px; line-height: 25px; word-break: keep-all; }
 .dp-about dl { margin: 24px 0 0; }
 .dp-about dl > div { display: grid; grid-template-columns: 100px minmax(0, 1fr); padding: 13px 0; border-bottom: 1px solid var(--dp-line); font-size: 14px; line-height: 21px; }
-.dp-about dt { color: #777; }
+.dp-about dt { display: flex; align-items: center; gap: 6px; color: #777; }
+.dp-about dt .dp-icon { width: 17px; height: 17px; opacity: .78; }
 .dp-about dd { margin: 0; color: var(--dp-ink); }
+.dp-about dd a, .dp-about-link { color: var(--dp-ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.dp-social-block { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--dp-line); }
+.dp-social-block h3 { font-size: 17px; line-height: 24px; font-weight: 700; }
+.dp-social-block > p { margin-top: 5px; color: #777; font-size: 13px; line-height: 20px; }
+.dp-social-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+.dp-social-grid > a { display: flex; min-width: 0; min-height: 60px; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid #e3e3e3; border-radius: 10px; background: #fff; transition: border-color .15s ease, box-shadow .15s ease; }
+.dp-social-grid > a:hover { border-color: #cfcfcf; box-shadow: 0 3px 10px rgba(0,0,0,.06); }
+.dp-social-grid > a > .dp-icon { width: 34px; height: 34px; }
+.dp-social-grid > a > span { display: flex; min-width: 0; flex-direction: column; }
+.dp-social-grid b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; line-height: 20px; }
+.dp-social-grid small { margin-top: 1px; color: #888; font-size: 12px; line-height: 17px; }
 
 .dp-footer { padding: 26px 20px 38px; border-top: 1px solid var(--dp-line); background: #fff; color: #777; }
 .dp-footer-brand { display: flex; align-items: center; gap: 12px; }
@@ -227,6 +240,10 @@
   .dp-review-grid { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
   .dp-about { padding: 22px 20px 40px; }
   .dp-about > p { max-width: 720px; }
+  .dp-about dl { max-width: 760px; }
+  .dp-about dl > div { grid-template-columns: 132px minmax(0, 1fr); }
+  .dp-social-block { max-width: 760px; }
+  .dp-social-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .dp-footer { max-width: none; margin-top: 0; padding: 28px max(20px, calc((100vw - 1184px) / 2)) 48px; }
   .dp-footer-links { display: flex; gap: 32px; }
 }

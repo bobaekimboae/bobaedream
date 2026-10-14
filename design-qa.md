@@ -59,6 +59,42 @@ final result: passed
 
 ---
 
+# Design QA · 판매자 아이콘·SNS 홍보 정보란 (2026-10-15)
+
+- source assets: 사용자가 지정한 Notion 원본 10종(페이스북·유튜브·인스타그램·틱톡·이메일·전화·시계·공유·딜러·달력)
+- implementation route: `?profile=dealer&shop=450554&emp=1&qf=guazi&category=서울오토갤러리`
+- mobile viewport: 393 × 852 px
+- desktop viewport: 1280 × 900 px
+- state: 김태규 판매자 페이지, 소개 탭
+
+## Pass 1 — passed
+
+- 상단 공유는 새 아웃라인 SVG로 교체했고 18px 시각 크기를 기존 36px 버튼 안에 유지했다.
+- 응답 시간·딜러 경력·소속 상사·전화·이메일에 역할별 원본 아이콘을 연결했다.
+- 소개 정보 하단에 SNS 4종을 모바일 2열, PC 4열로 배치했다.
+- SNS 아이콘은 색상 원본을 유지하고 34px 박스에 통일해 플랫폼 간 원본 크기 차이를 보정했다.
+- 모바일과 PC에서 가로 넘침, 잘린 텍스트, 깨진 이미지가 없음을 확인했다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 채널명 14/20px 700, 보조 설명 12/17px, 정보 행 14/21px 통과
+- spacing/layout rhythm: 모바일 2열 10px 간격·60px 최소 높이, PC 4열 정렬 통과
+- colors/tokens: 브랜드 SNS 색상 유지, 정보 아이콘은 검정 아웃라인과 0.78 농도로 조화
+- image quality/assets: Notion에서 받은 SVG 10종을 로컬 정적 자산으로 사용, 원격 만료 링크 없음
+- copy/content: 딜러 판매 소식·차량 영상·신규 매물·숏폼 영상의 목적을 각 채널에 명시
+
+## Verification
+
+- `npm run verify:qf`: passed
+- 모바일 393 × 852 소개 탭: passed
+- PC 1280 × 900 소개 탭: passed
+- 키보드 접근 가능한 전화·이메일·SNS 링크: passed
+- P0/P1/P2 findings: none
+
+final result: passed
+
+---
+
 # Design QA · 치지직형 게시글 상세 PC·모바일 (2026-10-15)
 
 > 2026-10-15 사용자 후속 요청으로 상세페이지 광고 배너는 모바일·PC 모두 제거했으며, 게시글 반응 영역 다음에 댓글 영역이 바로 이어진다.
