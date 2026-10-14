@@ -19,8 +19,6 @@
 .detail-hero-actions > div { display: flex; gap: 8px; }
 .detail-hero-actions button { display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; border-radius: 50%; background: #fff; cursor: pointer; pointer-events: auto; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
 .detail-hero-actions img { width: 20px; height: 20px; }
-.detail-hero-wish-on { width: 20px; height: 20px; background: #f14069; -webkit-mask-position: center; mask-position: center; -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
-.detail-hero-wish:focus-visible { outline: 2px solid #222; outline-offset: 2px; }
 .vehicle-summary { padding: 14px 12px 16px; background: #fff; }
 .vehicle-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
 .vehicle-title-row h1 { width: auto; min-width: 0; flex: 1; margin: 0; color: #101010; font-size: 18px; font-weight: 700; line-height: 26px; letter-spacing: -.36px; }
@@ -508,6 +506,12 @@
 .is-list-summary .bbm-card-meta { position: static; }
 .is-list-summary .bbm-card-meta-row { position: absolute !important; top: 12px; right: 8px; width: auto !important; height: auto !important; margin: 0 !important; padding: 0 !important; }
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-title { padding-right: 0; }
+.vehicle-summary.is-list-summary .bbm-card-detail-title-row { display: flex; min-width: 0; align-items: flex-start; gap: 12px; }
+.vehicle-summary.is-list-summary .bbm-card-detail-title-row .bbm-card-title { min-width: 0; flex: 1 1 auto; }
+.vehicle-summary.is-list-summary .bbm-card-detail-title-row .bbm-card-wish { display: grid; width: 32px; height: 32px; flex: 0 0 32px; place-items: center; margin: -2px -4px 0 0; padding: 4px; border: 0; background: transparent; cursor: pointer; }
+.vehicle-summary.is-list-summary .bbm-card-detail-title-row .bbm-card-wish img,
+.vehicle-summary.is-list-summary .bbm-card-detail-title-row .bbm-card-wish-on { width: 24px; height: 24px; }
+.vehicle-summary.is-list-summary .bbm-card-detail-title-row .bbm-card-wish:focus-visible { border-radius: 50%; outline: 2px solid #222; outline-offset: 2px; }
 /* 지역 줄 = 초톳 상세(2026-10-13 「초톳처럼 지역 아이콘과 텍스트 색상 크기 변경」, 초톳 캡처 923px÷2.4): 아이콘 20px 진한 색, 1줄 16/24 #222, 2줄(단지) 16/24 #8C8C8C */
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location { height: auto; align-items: flex-start; gap: 10px; margin-top: 10px; color: #222; font-size: 16px; line-height: 24px; font-weight: 400; }
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location img { width: 20px; height: 20px; margin-top: 2px; filter: brightness(0); opacity: .87; }
@@ -621,6 +625,15 @@
 .detail-fact-group.is-basic img[data-icon="seats"] { transform: scale(.985); }
 .detail-fact-group.is-basic img[data-icon="fuel"] { transform: translate(-0.47px, -0.47px) scale(.947); }
 .detail-fact-group + .detail-more.is-airbnb { margin-top: 24px; }
+
+/* 차량 히스토리는 기본·기술 제원과 분리한 독립 카드다. 2열 네 줄로 이력값을 빠르게 비교한다. */
+.vehicle-history-card { --dh: 13.2px; }
+.vehicle-history-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; row-gap: 18px; margin: 0; }
+.vehicle-history-grid > div { min-width: 0; }
+.vehicle-history-grid dt,
+.vehicle-history-grid dd { margin: 0; word-break: keep-all; }
+.vehicle-history-grid dt { min-height: 20px; color: #767676; font-size: 14px; font-weight: 400; line-height: 20px; }
+.vehicle-history-grid dd { margin-top: 4px; color: #222; font-size: 16px; font-weight: 500; line-height: 22px; }
 
 /* 차량 정보 B안 `&facts=chotot`: 초톳 상세 제원처럼 상태/기술 두 구역, 각 구역은 2열 필드 묶음이다. */
 .vehicle-info-card.is-facts-chotot .detail-section-heading { margin-bottom: 18px; }

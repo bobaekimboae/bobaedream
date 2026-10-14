@@ -25,7 +25,7 @@ import {
   type DetailSheet,
   type Car,
 } from "../data";
-import { bbmIcon, BbmResultCard } from "../listing/bbm-list";
+import { BbmResultCard } from "../listing/bbm-list";
 import { dealers as sagDealers } from "../listing/seoul-auto-gallery-dealer-rail";
 
 type DetailUi = {
@@ -188,7 +188,7 @@ function carFactGroups(car: Car): VehicleFactGroup[] {
   const modelYear = car.filter?.year ? `${String(car.filter.year).slice(-2)}년식` : /년식$/.test(yearText) ? yearText : NO_INFO;
   const registeredToken = bbmCardSpec(car, false).split(" · ")[0];
   const registeredMatch = registeredToken.match(/^(\d{2}|\d{4})년(\d{2})월$/);
-  const registeredAt = registeredMatch ? `${registeredMatch[1].slice(-2)}년 ${registeredMatch[2]}월 등록` : NO_INFO;
+  const registeredAt = registeredMatch ? `${registeredMatch[1].slice(-2)}년 ${registeredMatch[2]}월 등록` : car.filter?.year ? `${String(car.filter.year).slice(-2)}년 등록` : NO_INFO;
   const previousOwners = fd?.insurance ? `${fd.insurance.owners}회` : NO_INFO;
   const origin = m3?.origin ?? value(cleanValue(car.filter?.origin));
 
@@ -264,7 +264,7 @@ const FACT_ICONS: Record<string, string> = {
   판매방식: "seller-type", "압류/저당": "document", 제시번호: "document", 지역: "location", "판매자 유형": "seller-type", 성능점검: "document", "보험이력 조회": "document",
 };
 const FACTS_VISIBLE_ICONS = 8;
-const VEHICLE_INFO_TOTAL_LABEL = 37;
+const VEHICLE_INFO_TOTAL_LABEL = 28;
 function VehicleInfoCard() {
   const [expanded, setExpanded] = useState(false);
   const car = getActiveDetailCar();
@@ -292,7 +292,7 @@ function VehicleInfoCard() {
     <SectionCard title="차량 정보" className="vehicle-info-card is-facts-icons">
       {!expanded ? <dl className={`detail-facts is-icons${factsMode === "icons-charancha" ? " is-charancha" : ""}`}>{facts.slice(0, FACTS_VISIBLE_ICONS).map(([label, value]) => <div key={label}>{FACT_ICONS[label] ? <img src={asset(`bbm/detail-icons/${FACT_ICONS[label]}.svg`)} data-icon={FACT_ICONS[label]} alt="" aria-hidden="true" draggable={false} /> : <span className="detail-fact-icon-gap" />}<span className="detail-fact-text"><dt>{label}</dt><dd>{label === "제조사" ? <a className="detail-fact-link" href={`?qf=guazi&maker=${encodeURIComponent(value)}`}>{value}</a> : value}</dd></span></div>)}</dl> : (
         <div className="detail-fact-groups">
-          {factGroups.map((group) => <section className={`detail-fact-group${group.basic ? " is-basic" : ""}`} key={group.title}>
+          {factGroups.filter((group) => group.title !== "차량 히스토리").map((group) => <section className={`detail-fact-group${group.basic ? " is-basic" : ""}`} key={group.title}>
             <h3>{group.title}</h3>
             <dl>{group.rows.map(([label, factValue]) => <div key={label}>
               {group.basic && FACT_ICONS[label] ? <img src={asset(`bbm/detail-icons/${FACT_ICONS[label]}.svg`)} data-icon={FACT_ICONS[label]} alt="" aria-hidden="true" draggable={false} /> : null}
@@ -322,6 +322,20 @@ function VehicleInfoCard() {
         {expanded ? "접기" : "더보기"}
         <img className={expanded ? "is-expanded" : ""} src={asset("detail/vehicle-info-chevron.svg")} alt="" />
       </button>
+    </SectionCard>
+  );
+}
+
+function VehicleHistoryCard() {
+  const car = getActiveDetailCar();
+  if (!car) return null;
+  const rows = carFactGroups(car).find((group) => group.title === "차량 히스토리")?.rows
+    .filter(([label]) => label !== "보험이력") ?? [];
+  return (
+    <SectionCard title="차량 히스토리" className="vehicle-history-card">
+      <dl className="vehicle-history-grid">
+        {rows.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+      </dl>
     </SectionCard>
   );
 }
@@ -368,7 +382,7 @@ const THUMB_EDGE_LEFT = 8;
 const THUMB_EDGE_RIGHT = 8;
 
 function DetailHero({ onBack }: { onBack: () => void }) {
-  const { liked, setLiked, setSheet, notify } = useDetailUi();
+  const { setSheet, notify } = useDetailUi();
   const photos = detailPhotosOf(getActiveDetailCar());
   const [photoIndex, setPhotoIndex] = useState(1);
   const heroRef = useRef<HTMLElement>(null);
@@ -488,11 +502,8 @@ function DetailHero({ onBack }: { onBack: () => void }) {
         <div className="detail-hero-actions">
           <button type="button" aria-label="목록으로 돌아가기" onClick={onBack}><img src={asset("detail/reddit-back.svg")} alt="" /></button>
           <div>
-            <button type="button" className={`detail-hero-wish${liked ? " is-liked" : ""}`} aria-label={liked ? "매물 찜 해제" : "매물 찜"} aria-pressed={liked} onClick={() => setLiked(!liked)}>
-              {liked ? <span className="detail-hero-wish-on" style={{ WebkitMaskImage: `url("${bbmIcon("card-wish-off")}")`, maskImage: `url("${bbmIcon("card-wish-off")}")` }} aria-hidden="true" /> : <img src={bbmIcon("card-wish-off")} alt="" aria-hidden="true" />}
-            </button>
-            <button type="button" aria-label="공유하기" onClick={() => notify("공유 링크를 복사했어요")}><img src={asset("detail/reddit-share.svg")} alt="" /></button>
-            <button type="button" aria-label="더보기" onClick={() => setSheet("more")}><img src={asset("detail/reddit-more-vertical.svg")} alt="" /></button>
+            <button type="button" aria-label="공유하기" onClick={() => notify("공유 링크를 복사했어요")}><img src={asset("detail/autoscout24-share.svg")} alt="" /></button>
+            <button type="button" aria-label="더보기" onClick={() => setSheet("more")}><img src={asset("detail/autoscout24-more-vertical.svg")} alt="" /></button>
           </div>
         </div>
       </div>
@@ -1076,7 +1087,7 @@ function DesktopGallery({ onBack }: { onBack: () => void }) {
   return <section className="pc-gallery" aria-label="차량 사진">
     <div className="pc-hero" onKeyDown={(event) => { if (event.key === "ArrowRight") choose(selected + 1); if (event.key === "ArrowLeft") choose(selected - 1); }} tabIndex={0}>
       <img className="pc-hero-photo" src={isMock && selected === 0 ? pcAsset("9550-imgFrame1000006297.png") : photos[selected]} alt={`${isMock ? "벤틀리 " : ""}차량 사진 ${selected + 1}`} draggable={false} />
-      <div className="pc-hero-tools"><button aria-label="목록으로 돌아가기" onClick={onBack}><img src={asset("detail/reddit-back.svg")} alt="" /></button><div><button aria-label="공유하기" onClick={share}><img src={asset("detail/reddit-share.svg")} alt="" /></button><button aria-label="더보기" onClick={() => setSheet("more")}><img src={asset("detail/reddit-more-vertical.svg")} alt="" /></button></div></div>
+      <div className="pc-hero-tools"><button aria-label="목록으로 돌아가기" onClick={onBack}><img src={asset("detail/reddit-back.svg")} alt="" /></button><div><button aria-label="공유하기" onClick={share}><img src={asset("detail/autoscout24-share.svg")} alt="" /></button><button aria-label="더보기" onClick={() => setSheet("more")}><img src={asset("detail/autoscout24-more-vertical.svg")} alt="" /></button></div></div>
       {showPlay && selected === 0 && <span className="pc-play" aria-hidden="true"><img src={pcAsset("9550-imgMaskGroup.svg")} alt="" /><img src={pcAsset("9550-imgFill7.svg")} alt="" /></span>}
       <button className="pc-photo-prev" aria-label="이전 사진" onClick={() => choose(selected - 1)}><img src={pcAsset("9573-imgFrame1000006284.svg")} alt="" /></button>
       <button className="pc-photo-next" aria-label="다음 사진" onClick={() => choose(selected + 1)}><img src={pcAsset("9573-imgFrame1000006284.svg")} alt="" /></button>
@@ -1204,7 +1215,7 @@ function BikeVehicleDetail({ car, onBack }: { car: Car; onBack: () => void }) {
   );
 }
 
-const detailTabLabels: Record<string, string> = { "차량 설명": "설명", "차량 정보": "기본 정보", "차량 옵션": "옵션", "보험 이력": "이력", "성능 점검": "점검", "A/S 정보": "보증정보", "판매 정보": "판매 정보", "동급매물": "동급" };
+const detailTabLabels: Record<string, string> = { "차량 설명": "설명", "차량 정보": "기본 정보", "차량 히스토리": "히스토리", "차량 옵션": "옵션", "보험 이력": "보험", "성능 점검": "점검", "A/S 정보": "보증정보", "판매 정보": "판매 정보", "동급매물": "동급" };
 
 // 2026-10-14 좐좐식 상세 탭: 아래 카드들을 그대로 두고, 카드 제목을 읽어 탭을 만들고 누르면 그 카드로 이동한다. 스크롤하면 보고 있는 카드의 탭이 강조된다.
 function DetailTabs() {
@@ -1310,6 +1321,7 @@ function VehicleDetail() {
             <SellerCard />
             <DetailHighlights />
             <VehicleInfoCard />
+            <VehicleHistoryCard />
             <OptionsCard />
             <HistoryCard />
             <InspectionCard />

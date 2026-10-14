@@ -684,6 +684,12 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
   const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (event.key === "Enter" || event.key === " ") { event.preventDefault(); onOpen(); }
   };
+  const wishButton = (
+    <button type="button" className={`bbm-card-wish${liked ? " is-liked" : ""}`} aria-label={`${car.title} ${liked ? "찜 해제" : "찜"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>
+      {liked ? <span className="bbm-card-wish-on" style={{ WebkitMaskImage: `url("${bbmIcon("card-wish-off")}")`, maskImage: `url("${bbmIcon("card-wish-off")}")` }} aria-hidden="true" /> : <img src={bbmIcon("card-wish-off")} alt="" aria-hidden="true" />}
+    </button>
+  );
+  const titleSlot = detailSummary ? <div className="bbm-card-detail-title-row">{title}{wishButton}</div> : title;
   const sellerRow = (
     <div className={`bbm-card-meta-row${variant === "mobile" ? " bbm-card-mobile-footer" : ""}`}>
       <div className="bbm-card-seller">
@@ -696,9 +702,7 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
           <button type="button" className="bbm-card-feed-action" aria-label="전화하기" onClick={(event) => { event.stopPropagation(); onCall?.(); }}><img src={bbmIcon("card-phone")} alt="" aria-hidden="true" /></button>
           <button type="button" className="bbm-card-feed-action" aria-label="채팅" onClick={(event) => { event.stopPropagation(); onChat(); }}><img src={bbmIcon("card-chat")} alt="" aria-hidden="true" /></button>
         </> : null}
-        <button type="button" className={`bbm-card-wish${liked ? " is-liked" : ""}`} aria-label={`${car.title} ${liked ? "찜 해제" : "찜"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>
-          {liked ? <span className="bbm-card-wish-on" style={{ WebkitMaskImage: `url("${bbmIcon("card-wish-off")}")`, maskImage: `url("${bbmIcon("card-wish-off")}")` }} aria-hidden="true" /> : <img src={bbmIcon("card-wish-off")} alt="" aria-hidden="true" />}
-        </button>
+        {wishButton}
       </div>
     </div>
   );
@@ -710,7 +714,7 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
         {headlinePosition === "photo-top" ? <div className="bbm-card-photo-column">{headline}{photo}</div> : photo}
         <div className="bbm-card-content">
           <div className="bbm-card-text">
-            {title}
+            {titleSlot}
             {headlinePosition === "after-model" ? headline : null}
             <span className={`bbm-card-spec${car.adDescription ? " is-ad-description" : ""}`}>{car.adDescription ?? (featured ? renderFeedSpec(specMain) : specMain)}{car.adDescription ? null : <span className="bbm-card-spec-seller"> · {seller}</span>}</span>
             {!car.adDescription && specCapacity ? <span className="bbm-card-spec is-capacity">{specCapacity}</span> : null}
