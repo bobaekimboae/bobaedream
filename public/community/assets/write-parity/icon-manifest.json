@@ -1,0 +1,28 @@
+{
+  "source": "Notion 미국_레딧 icon database",
+  "sourceDatabase": "https://app.notion.com/p/1e3ee9c4b6068060ab04e62cc9445b8b",
+  "policy": "Use exact functional matches first; do not invent a substitute when a matching database icon exists.",
+  "icons": [
+    {"file":"photo.svg","sourceName":"에디터_07_이미지","sourceCategory":"N_글쓰기","selectionReason":"사진 첨부"},
+    {"file":"video.svg","sourceName":"에디터_08_동영상","sourceCategory":"N_글쓰기","selectionReason":"동영상 첨부"},
+    {"file":"text.svg","sourceName":"에디터_05_제목","sourceCategory":"N_글쓰기","selectionReason":"텍스트 도구"},
+    {"file":"sticker.svg","sourceName":"이모지/스티커","sourceCategory":"N_기본 아이콘","selectionReason":"스티커"},
+    {"file":"quote.svg","sourceName":"에디터_12_인용 블럭","sourceCategory":"N_글쓰기","selectionReason":"인용구"},
+    {"file":"link.svg","sourceName":"에디터_06_링크","sourceCategory":"N_글쓰기","selectionReason":"링크"},
+    {"file":"place.svg","sourceName":"위치","sourceCategory":"네이버 모바일웹 아이콘","selectionReason":"장소"},
+    {"file":"search.svg","sourceName":"검색","sourceCategory":"네이버 모바일웹 아이콘","selectionReason":"게시판 검색"},
+    {"file":"close.svg","sourceName":"창닫기","sourceCategory":"네이버 카페 셰브론/화살표","selectionReason":"닫기"},
+    {"file":"chevron-down.svg","sourceName":"셰브론_아래로","sourceCategory":"네이버 카페 셰브론/화살표","selectionReason":"게시판 펼치기"},
+    {"file":"chevron-left.svg","sourceName":"셰브론_좌측","sourceCategory":"네이버 카페 셰브론/화살표","selectionReason":"임시글 뒤로"},
+    {"file":"chevron-right.svg","sourceName":"셰브론_우측","sourceCategory":"네이버 카페 셰브론/화살표","selectionReason":"향후 목록 이동"},
+    {"file":"to-top.svg","sourceName":"맨 위로","sourceCategory":"네이버 카페 셰브론/화살표","selectionReason":"상단 이동"},
+    {"file":"tag.svg","sourceName":"태그추가","sourceCategory":"N_글쓰기","selectionReason":"글감/태그"},
+    {"file":"community.svg","sourceName":"커뮤니티 선택","sourceCategory":"N_글쓰기","selectionReason":"게시판 선택"},
+    {"file":"bold.svg","sourceName":"에디터_01_굵게","sourceCategory":"N_글쓰기","selectionReason":"굵게"},
+    {"file":"italic.svg","sourceName":"에디터_02_기울임꼴","sourceCategory":"N_글쓰기","selectionReason":"기울임"},
+    {"file":"strike.svg","sourceName":"에디터_03_취소선","sourceCategory":"N_글쓰기","selectionReason":"취소선/구분선"},
+    {"file":"draft-delete.svg","sourceName":"임시저장본_삭제 (1)","sourceCategory":"N_글쓰기","selectionReason":"임시글 삭제"},
+    {"file":"draft-edit.svg","sourceName":"임시저장본_수정 (1)","sourceCategory":"N_글쓰기","selectionReason":"임시글 수정"},
+    {"file":"table.svg","sourceName":"애디터_15_표","sourceCategory":"N_글쓰기","selectionReason":"파일/확장 편집기 표"}
+  ]
+}
