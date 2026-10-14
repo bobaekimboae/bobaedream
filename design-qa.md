@@ -61,6 +61,8 @@ final result: passed
 
 # Design QA · 치지직형 게시글 상세 PC·모바일 (2026-10-15)
 
+> 2026-10-15 사용자 후속 요청으로 상세페이지 광고 배너는 모바일·PC 모두 제거했으며, 게시글 반응 영역 다음에 댓글 영역이 바로 이어진다.
+
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a128e5-de8a-78d0-9ed9-96cbde6a07c3/1f84abc6-973d-4383-89e0-5448c4df5fbb/1-1000018274.png`
 - implementation: `public/community/naver-cafe-detail.html`
 - implementation browser capture: `http://127.0.0.1:4174/community/naver-cafe-detail.html?id=2&v=detail-reference-v2-2`
