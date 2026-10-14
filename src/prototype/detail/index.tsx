@@ -430,6 +430,52 @@ const detailPhotosOf = (car: Car | null | undefined): string[] => {
 const THUMB_EDGE_LEFT = 8;
 const THUMB_EDGE_RIGHT = 8;
 
+// 2026-10-15 「판매자명 페이지 · 브레드크럼」 상세 상단 시안(&detailtop=above | overlay): 판매자 줄 + 경로 줄을 사진 위(above) 또는 사진 위에 올려(overlay) 보여준다.
+function detailTopMode(): "above" | "overlay" | null {
+  if (typeof window === "undefined") return null;
+  const value = new URLSearchParams(window.location.search).get("detailtop");
+  return value === "above" || value === "overlay" ? value : null;
+}
+
+function detailSellerName(car: Car) {
+  const label = sellerLabel(car);
+  const [personName, ...shopParts] = label.split(" ");
+  return car.sellerType === "딜러" && !/딜러$/.test(label) && shopParts.length ? `${personName} 딜러` : label;
+}
+
+function detailCrumbs(car: Car) {
+  const kind = car.truck ? "트럭·특장" : car.bike ? "바이크" : car.heavy ? "건설기계" : "중고차";
+  const body = carFacts(car).find(([label]) => label === "바디타입")?.[1];
+  return ["홈", "차량", kind, ...(body && body !== NO_INFO && kind === "중고차" ? [body] : [])];
+}
+
+function DetailTopCrumbs({ car }: { car: Car }) {
+  return (
+    <nav className="detail-top-crumbs" aria-label="현재 위치">
+      <ol>{detailCrumbs(car).map((crumb) => <li key={crumb}>{crumb}</li>)}</ol>
+    </nav>
+  );
+}
+
+function DetailTopSeller({ car, overlay }: { car: Car; overlay?: boolean }) {
+  const isDealer = car.sellerType === "딜러";
+  const shop = carShopName(car);
+  const sagDealer = car.seoulAutoGallery ? sagDealers.find((dealer) => car.dealer.startsWith(dealer.name)) : undefined;
+  const href = sagDealer ? `${window.location.pathname}?profile=dealer&shop=${sagDealer.shopNo}&emp=${sagDealer.empNo}` : undefined;
+  const body = (
+    <>
+      <img className="detail-top-seller-avatar" src={asset(sellerDetailPhoto(car))} alt="" draggable={false} />
+      <span className="detail-top-seller-text">
+        <strong>{detailSellerName(car)}</strong>
+        {!overlay ? <small>{isDealer ? [shop, `${car.stock}대 판매중`].filter(Boolean).join(" · ") : "개인 판매자"}</small> : null}
+      </span>
+      <svg className="detail-top-seller-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+    </>
+  );
+  const className = `detail-top-seller${overlay ? " is-overlay" : ""}`;
+  return href ? <a className={className} href={href} aria-label={`${detailSellerName(car)} 판매자 페이지`}>{body}</a> : <div className={className}>{body}</div>;
+}
+
 function DetailHero({ onBack }: { onBack: () => void }) {
   const { setSheet, notify } = useDetailUi();
   const photos = detailPhotosOf(getActiveDetailCar());
@@ -538,23 +584,30 @@ function DetailHero({ onBack }: { onBack: () => void }) {
 
   const totalPhotos = photos.length;
   const activePhoto = photoIndex - 1;
+  const topCar = getActiveDetailCar();
+  const topMode = topCar ? detailTopMode() : null;
+  const heroActions = (
+    <div className="detail-hero-actions">
+      <button type="button" aria-label="목록으로 돌아가기" onClick={onBack}><img src={asset("detail/reddit-back.svg")} alt="" /></button>
+      <div>
+        <button type="button" aria-label="공유하기" onClick={() => notify("공유 링크를 복사했어요")}><img src={asset("detail/autoscout24-share.svg")} alt="" /></button>
+        <button type="button" aria-label="더보기" onClick={() => setSheet("more")}><img src={asset("detail/autoscout24-more-vertical.svg")} alt="" /></button>
+      </div>
+    </div>
+  );
 
   return (
     <>
-    <section ref={heroRef} className="detail-hero" aria-label="차량 사진">
+    {topMode === "above" && topCar ? <><div className="detail-top-head">{heroActions}</div><DetailTopSeller car={topCar} /><DetailTopCrumbs car={topCar} /></> : null}
+    <section ref={heroRef} className={`detail-hero${topMode ? ` is-top-${topMode}` : ""}`} aria-label="차량 사진">
       <div className="detail-hero-main">
         <Carousel ariaLabel="차량 사진" className="detail-media-carousel" contentClassName="detail-media-track">
           {photos.map((photo, index) => <img key={`${photo}-${index}`} src={photo} alt={`차량 사진 ${index + 1}`} draggable={false} />)}
         </Carousel>
         {photoIndex === 1 && (getActiveDetailCar() ? getActiveDetailCar()?.filter?.video : true) ? <span className="detail-video-play" aria-hidden="true"><span /></span> : null}
         <div className="detail-photo-count" aria-live="polite" aria-atomic="true">{photoIndex} / {totalPhotos}</div>
-        <div className="detail-hero-actions">
-          <button type="button" aria-label="목록으로 돌아가기" onClick={onBack}><img src={asset("detail/reddit-back.svg")} alt="" /></button>
-          <div>
-            <button type="button" aria-label="공유하기" onClick={() => notify("공유 링크를 복사했어요")}><img src={asset("detail/autoscout24-share.svg")} alt="" /></button>
-            <button type="button" aria-label="더보기" onClick={() => setSheet("more")}><img src={asset("detail/autoscout24-more-vertical.svg")} alt="" /></button>
-          </div>
-        </div>
+        {topMode === "above" ? null : heroActions}
+        {topMode === "overlay" && topCar ? <><div className="detail-top-overlay"><DetailTopCrumbs car={topCar} /></div><DetailTopSeller car={topCar} overlay /></> : null}
       </div>
     </section>
     {photos.length > 1 && new URLSearchParams(window.location.search).get("thumbs") === "on" ? <div className="detail-thumbs" ref={thumbsRef} role="group" aria-label="차량 사진 썸네일" onKeyDown={onThumbKey}>
