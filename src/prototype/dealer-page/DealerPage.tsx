@@ -4,7 +4,8 @@ import { dealers, type SeoulAutoGalleryDealer } from "../listing/seoul-auto-gall
 import { setPretendard } from "../fonts/pretendard";
 import "./dealer-page.css";
 
-const icon = (name: string) => `${import.meta.env.BASE_URL}icons/chotot/${name}`;
+const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.location.href).pathname;
+const icon = (name: string) => `${publicBase}icons/chotot/${name}`;
 const bobaeAsset = (name: string) => asset(`pc-detail/${name}`);
 
 type SectionId = "intro" | "ads" | "rating";
