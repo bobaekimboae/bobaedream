@@ -108,6 +108,54 @@ final result: passed
 
 ---
 
+# Design QA · 치지직형 게시글 상세 (2026-10-15)
+
+- source visual truth: `https://m.game.naver.com/lounge/FIFA_ONLINE4/board/detail/8125137`
+- implementation screenshot: CUA 브라우저 캡처 `http://localhost:4173/community/naver-cafe-detail.html?id=2&v=detail-qa3`
+- source capture: CUA 브라우저 캡처 `https://m.game.naver.com/lounge/FIFA_ONLINE4/board/detail/8125137`
+- source and implementation pixels: 390 × 844 px
+- CSS viewport: 390 × 844, 동일 브라우저·동일 밀도
+- state: 모바일 기본 상세, 댓글 입력 닫힘, 등록순
+
+## Full-view comparison evidence
+
+- 같은 도구 호출에서 원본과 구현 이미지를 390 × 844로 함께 열어 상단부터 댓글 진입부까지 대조했다.
+- 48px 검정 고정 헤더, 15px 좌우 시작축, 게시판 링크, 18/24px 제목, 38px 프로필, 본문 16/24px, 우측 버프·너프, 작성자 최신 글 카드, 댓글 영역 순서를 맞췄다.
+- 무사진 게시글 기준 원본 댓글 시작점은 약 635px, 구현은 약 617px이며 콘텐츠 길이 차이를 고려하면 동일한 정보 밀도다.
+- 사진이 있는 보배드림 게시글은 본문 흐름 안에서 원본 비율을 유지해 표시하는 제품 데이터 차이로 분류했다.
+
+## Focused region comparison evidence
+
+- 댓글 영역을 별도로 확인해 15px 댓글 제목, 48px 입력 필드, 클린봇 안내, 30px 아바타, 작성자·레벨·본문·날짜·답글·버프/너프의 위계를 대조했다.
+- 정렬 메뉴는 원본과 같이 우측 드롭다운으로 열리며 등록순·인기순·최신순이 동작한다.
+- 댓글 입력을 펼쳐 텍스트를 등록한 뒤 댓글 수가 8에서 9로 증가하는 것을 확인했다.
+
+## Comparison history
+
+- Pass 1 P1: 기존 상세는 붉은 헤더, 광고, 대형 24px 제목, 하단 고정 메뉴, 카드형 인기글로 치지직 상세 구조와 달랐다.
+- fix: 상세 전용 구조를 검정 헤더·본문·반응·작성자 최신 글·댓글·관련 목록 순으로 재구성하고 모바일 치수를 원본 측정값에 맞췄다.
+- Pass 2: 동일 크기 원본/구현 비교에서 actionable P0/P1/P2 없음.
+
+## Required fidelity surfaces
+
+- fonts/typography: 제목 18/24px, 본문 16/24px, 댓글 제목 15/20px과 보조 텍스트 위계 통과
+- spacing/layout rhythm: 48px 헤더, 15px 좌우 여백, 38px 프로필, 8px 섹션 구분, 댓글 밀도 통과
+- colors/tokens: 헤더 `#202124`, 게시판/강조 `#4e41db`, 멘션 `#238fe3`, 본문 `#222` 통과
+- image quality/assets: 기존 보배드림 원본 썸네일·아바타와 저장된 실제 SVG 아이콘 사용, 늘어짐 없음
+- copy/content: 보배드림 게시글·작성자·조회·댓글 데이터를 유지하고 치지직형 정보 구조만 적용
+
+## Verification
+
+- 모바일 390 × 844 확인
+- 버프·너프 상태 전환 확인
+- 댓글 입력·등록, 댓글 수 증가 확인
+- 등록순·인기순·최신순 정렬 확인
+- 콘솔 오류: 0건
+
+final result: passed
+
+---
+
 # Design QA · 네이버 카페 게시글 목록 밀도 동일화 (2026-10-15)
 
 - source visual truth: `https://m.cafe.naver.com/ca-fe/bimmerwerks?tc=section_home_my_cafe`
@@ -1563,7 +1611,7 @@ final result: passed
 ## Focused region comparison evidence
 
 - 행 높이 70px, 좌우 15px, 구분선 `#dedfe1`을 적용했다.
-- 제목은 한 줄 16/23px/500, 댓글 수는 15px 녹색으로 분리했다.
+- 제목은 한 줄 16/23px/500, 댓글 수는 15px 블루로 분리했다.
 - 메타는 작성자·날짜·추천 아이콘/수·조회 아이콘/수 순서의 12.5/17px 구조다.
 - 우측 썸네일은 52 × 52px, 모서리 7px이며 원본과 같은 일부 게시물에만 나타난다.
 - 치지직의 실제 추천·조회 아이콘 자산을 재사용했다.
@@ -1585,9 +1633,9 @@ final result: passed
 
 ## Required fidelity surfaces
 
-- fonts/typography: 한 줄 제목, 녹색 댓글 수, 회색 메타 위계 통과
+- fonts/typography: 한 줄 제목, 블루 댓글 수, 회색 메타 위계 통과
 - spacing/layout rhythm: 15px 시작축, 70px 행, 52px 썸네일과 행 구분선 통과
-- colors/tokens: 본문 `#292b2e`, 메타 `#7b7d80`, 댓글 `#00a77b` 통과
+- colors/tokens: 본문 `#292b2e`, 메타 `#7b7d80`, 댓글 `#238fe3` 통과
 - image quality/assets: 기존 실차 썸네일 유지, 52px 커버 크롭과 7px 모서리 통과
 - copy/content: 기존 보배드림 게시글 제목·작성자·조회 데이터 유지, 표시 날짜만 치지직 목록 형식으로 정규화
 
