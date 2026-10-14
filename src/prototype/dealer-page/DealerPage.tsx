@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { CheckIcon, PlusIcon } from "@radix-ui/react-icons";
 import { FlowStack, type FlowScreen } from "../../mobile";
 import { DetailFooter, DetailUiProvider, VehicleDetail } from "../detail";
 import { FavoritesProvider, asset, seoulAutoGalleryCars, setActiveDetailCar, type Car } from "../data";
+import { BbmResultCard } from "../listing/bbm-list";
 import { dealers, type SeoulAutoGalleryDealer } from "../listing/seoul-auto-gallery-dealer-rail";
 import { setPretendard } from "../fonts/pretendard";
 import "./dealer-page.css";
@@ -113,7 +115,7 @@ function DealerProfile({ dealer, listingCount, following, setFollowing, share }:
         <div className="dp-profile-inline is-channel-meta">팔로워 {MOCK.followers + (following ? 1 : 0)} · 판매중 {listingCount}대</div>
         <div className="dp-profile-actions">
           <button type="button" onClick={share}><Icon name="chotot-common-share.svg" />공유</button>
-          <button type="button" aria-pressed={following} onClick={() => setFollowing(!following)}><Icon name={following ? "chotot-list-detail-following.svg" : "chotot-list-detail-follow.svg"} />{following ? "팔로잉" : "팔로우"}</button>
+          <button type="button" aria-pressed={following} onClick={() => setFollowing(!following)}>{following ? <CheckIcon aria-hidden="true" /> : <PlusIcon aria-hidden="true" />}{following ? "팔로잉" : "팔로우"}</button>
         </div>
         <div className="dp-profile-inline is-first"><span className="dp-online-dot" />{MOCK.lastActive}<i />응답률: {MOCK.response}<i /><u>팔로워 {MOCK.followers + (following ? 1 : 0)}</u></div>
         <div className="dp-profile-inline is-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>({MOCK.reviewCount}개 평가)</u><span className="dp-mobile-followers">· 팔로워 {MOCK.followers + (following ? 1 : 0)}</span><i /><span className="dp-desktop-career"><Icon name="chotot-common-clock.svg" />{MOCK.joined}</span></div>
@@ -127,21 +129,31 @@ function DealerProfile({ dealer, listingCount, following, setFollowing, share }:
 
 function ActiveCards({ cars, limit, onOpen }: { cars: Car[]; limit: number; onOpen: (car: Car) => void }) {
   const [liked, setLiked] = useState<Set<number>>(new Set());
-  return <div className="dp-listings-grid">{cars.slice(0, limit).map((car) => (
-    <article className="dp-listing-card" key={car.id} role="link" tabIndex={0} aria-label={`${car.title} ${car.trim} 상세 보기`} onClick={() => onOpen(car)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); onOpen(car); } }}>
-      <div className="dp-listing-media">
-        <img src={asset(car.listThumb ?? car.image)} alt="" draggable={false} />
-        <span>{car.posted}</span>
-        <small>{car.photos}</small>
-        <button type="button" aria-label="관심 매물" aria-pressed={liked.has(car.id)} onClick={(event) => { event.stopPropagation(); setLiked((current) => { const next = new Set(current); if (next.has(car.id)) next.delete(car.id); else next.add(car.id); return next; }); }}><Icon name={liked.has(car.id) ? "chotot-pc-detail-favorite-selected.svg" : "chotot-pc-detail-thumbnail-favorite-white-bg.svg"} /></button>
-      </div>
-      <div className="dp-listing-copy">
-        <h3>{[car.title, car.trim].filter(Boolean).join(" ")}</h3>
-        <b>{car.price}</b>
-        <p><Icon name="chotot-common-location-pin-gray.svg" />{car.place}</p>
-      </div>
-    </article>
-  ))}</div>;
+  const [desktop, setDesktop] = useState(() => window.matchMedia("(min-width: 820px)").matches);
+  useEffect(() => {
+    const media = window.matchMedia("(min-width: 820px)");
+    const update = () => setDesktop(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+  const toggleLiked = (id: number) => setLiked((current) => {
+    const next = new Set(current);
+    if (next.has(id)) next.delete(id);
+    else next.add(id);
+    return next;
+  });
+  return <div className={`dp-listings-shell marketplace ${desktop ? "is-bbm" : "is-bbm-m"}`}>
+    <div className="bbm-m-list">{cars.slice(0, limit).map((car) => <BbmResultCard
+      key={car.id}
+      car={car}
+      variant={desktop ? "pc" : "mobile"}
+      liked={liked.has(car.id)}
+      onToggleLike={() => toggleLiked(car.id)}
+      onOpen={() => onOpen(car)}
+      onChat={() => undefined}
+    />)}</div>
+  </div>;
 }
 
 function SoldCards({ limit }: { limit: number }) {

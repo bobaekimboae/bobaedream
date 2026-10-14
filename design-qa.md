@@ -1550,3 +1550,54 @@ final result: passed
 - `git diff --check`: passed
 
 final result: passed
+
+---
+
+# Design QA · 초톳 행동 버튼·서비스 목록형 재사용 (2026-10-15)
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/b9846df3-385e-4e6d-86c7-e49a39e0bcfd/1-1000018268.jpg`
+- implementation screenshot: `design-qa-dealer-chotot-actions-list-mobile.jpg`
+- side-by-side comparison: `design-qa-dealer-chotot-actions-list-comparison.jpg`
+- source pixels: 591 × 1280 px, 393 × 852 CSS px 기준으로 정규화
+- implementation pixels: 393 × 852 px, CSS viewport 393 × 852, DPR 1
+- state: 강홍구 판매자 페이지, 판매차량 탭·판매중 선택
+
+## Full-view comparison evidence
+
+- 기존 유튜브식 배너·프로필 구조는 유지하고, 초톳 참고 화면에서 지정된 공유·팔로우의 상대 위치와 외곽 버튼 표현만 적용했다.
+- 공유·팔로우를 이름·채널 메타 바로 아래, 응답률·주소·딜러 경력보다 위에 배치했다.
+- 판매차량은 판매자 전용 카드가 아니라 서비스 본문에서 사용하는 `BbmResultCard` 목록형을 그대로 재사용했다.
+- 첫 화면에서 사진·차명·연식/주행거리/연료·가격·지역·판매자·찜 정보가 동일한 목록 위계로 보인다.
+
+## Focused region comparison evidence
+
+- 행동 버튼은 36px 높이, 8px 반경, `#dedede` 1px 선, 공유 92px·팔로우 102px 최소 폭으로 대조했다.
+- 팔로우 아이콘은 참고 화면과 같은 더하기 기호를 실제 Radix 아이콘 자산으로 사용했다.
+- 목록형 모바일 카드는 서비스 공통 120 × 120px 사진, 12px 간격, 16/20px 제목, 14/20px 메타 규격을 상속한다.
+- PC 1440 × 1000에서는 공통 PC 목록형의 160px 사진과 세로 행 배치를 사용하며 가로 넘침이 없다.
+
+## Comparison history
+
+- 이전 P2: 공유·팔로우가 프로필 정보 맨 아래의 큰 46px 버튼이었고 팔로우가 검정 채움이라 초톳의 정보 흐름과 달랐다.
+- 이전 P2: 판매자 페이지 전용 카드는 기존 목록형의 사양·판매자·찜 정보가 빠져 서비스 전체와 일관되지 않았다.
+- fix: 행동 버튼을 프로필 메타 바로 아래의 작은 흰 외곽 버튼으로 옮기고, 목록을 공통 `BbmResultCard`로 교체했다.
+- post-fix evidence: 비교 이미지에서 행동 버튼의 순서·크기·위치가 초톳과 같은 흐름이며 실제 매물 목록은 서비스 목록형과 동일하다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 행동 버튼 14/20px 700, 목록 제목 16/20px 600과 공통 메타 토큰을 확인했다.
+- spacing/layout rhythm: 버튼 간 10px, 버튼 아래 정보 행 16px, 목록 카드 12px 상하 여백과 1px 구분선을 확인했다.
+- colors/tokens: 흰 버튼, `#dedede` 테두리, `#222` 텍스트와 기존 목록 토큰을 재사용했다.
+- image quality/assets: 실제 테스트 매물 정규화 썸네일과 기존 공유·위치·찜 아이콘을 사용했고 깨진 이미지가 없다.
+- copy/content: 판매중 24대, 실제 차량명·사양·가격·지역·판매자 정보를 그대로 유지했다.
+
+## Verification
+
+- 모바일 393 × 852, PC 1440 × 1000 확인.
+- 공유·팔로우 버튼 표시 및 팔로우 상태 전환 확인.
+- 실제 목록형 매물 5개 초기 노출, 매물 상세 연결 확인.
+- 가로 넘침 없음, 콘솔 오류 0건.
+- `npm run verify:qf`: passed.
+- P0/P1/P2 findings: none after fixes.
+
+final result: passed
