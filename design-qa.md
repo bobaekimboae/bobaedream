@@ -26,6 +26,53 @@
 
 final result: passed
 
+---
+
+# Design QA · 차량 히스토리 초톳 행 구조 (2026-10-14)
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/9694c755-6097-4361-9ba1-55dff93bb383/1-1000018216.jpg`
+- source pixels: 592 × 1280 JPEG
+- implementation screenshot: Codex in-app Browser의 384 × 844 인라인 캡처
+- implementation route: `http://127.0.0.1:4210/?qf=guazi&category=서울오토갤러리&facts=icons` → BMW M3 첫 매물 → 히스토리
+- viewport / CSS size / density: 384 × 844 / 384 × 844 CSS px / DPR 1
+- state: 차량 정보는 기존 2열 아이콘 격자 유지, 차량 히스토리 탭 선택
+
+## Full-view comparison evidence
+
+- 초톳의 흰 카드 안 세로 목록 구조와 구현의 차량 히스토리 카드를 비교했다.
+- 구현은 인접한 A/S 정보와 판매 정보 카드의 구조를 변경하지 않고 히스토리 카드에만 행 규칙을 적용했다.
+
+## Focused region comparison evidence
+
+- 각 행은 172px / 172px의 동일한 두 열이며 항목과 값 모두 왼쪽 정렬이다.
+- 네 행 모두 높이 44px이고, 행 사이에만 `#E5E5E5` 1px 구분선을 둔다.
+- 마지막 행 아래 구분선은 제거해 초톳 카드의 끝 처리를 따른다.
+
+## Findings
+
+- P0/P1/P2 findings: none after correction.
+- Fonts and typography: 기존 Pretendard와 히스토리 라벨·값 위계는 유지했다.
+- Spacing and layout rhythm: 50% / 50% 열, 44px 행 높이, 공통 좌측 시작선을 확인했다.
+- Colors and visual tokens: 초톳의 옅은 회색 행 구분선에 맞춰 `#E5E5E5`를 사용했다.
+- Image quality and asset fidelity: 이 영역에는 이미지 자산이 없으며 기존 차량 정보 아이콘은 변경하지 않았다.
+- Copy and content: 출고일, 생산 국가, 정식/직수입 여부, 구입 딜러와 각 값은 그대로 유지했다.
+
+## Comparison history
+
+- 이전 P2: 값이 각 셀 중앙에 정렬되어 문자열 길이에 따라 시작점이 달랐고 행 구분선이 없었다.
+- 수정: 열을 50% / 50%로 고정하고 값을 좌측 정렬했으며 행 사이에 1px 선을 추가했다.
+- 수정 후 근거: 런타임 계산값에서 모든 행 `172px 172px`, `text-align:left`, `min-height:44px`를 확인했다.
+
+## Verification
+
+- `npm run verify:qf`: passed
+- 깨진 이미지 0, 콘솔 오류 0
+- 차량 정보 2열 아이콘 격자 보존
+
+final result: passed
+
+---
+
 # Design QA · 상세 하트·판매자 리뷰 재정렬 (2026-10-14)
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/9745c5c0-e284-4109-b52c-d87c9006da14/1-1000018198.jpg`

@@ -626,14 +626,15 @@
 .detail-fact-group.is-basic img[data-icon="fuel"] { transform: translate(-0.47px, -0.47px) scale(.947); }
 .detail-fact-group + .detail-more.is-airbnb { margin-top: 24px; }
 
-/* 차량 히스토리는 기본·기술 제원과 분리한 독립 카드다. 항목은 왼쪽, 값은 동일한 가운데 축에 둔다. */
+/* 차량 히스토리는 초톳 상세 정보 행처럼 항목·값을 좌측 정렬하고 행 사이를 1px 선으로 나눈다. */
 .vehicle-history-card { --dh: 13.2px; }
-.vehicle-history-grid { display: flex; flex-direction: column; gap: 16px; margin: 0; }
-.vehicle-history-grid > div { display: grid; grid-template-columns: 120px minmax(0, 1fr); align-items: center; min-height: 24px; column-gap: 12px; min-width: 0; }
+.vehicle-history-grid { display: flex; flex-direction: column; margin: 0; }
+.vehicle-history-grid > div { display: grid; grid-template-columns: 50% minmax(0, 1fr); align-items: center; min-height: 44px; min-width: 0; border-bottom: 1px solid #e5e5e5; }
+.vehicle-history-grid > div:last-child { border-bottom: 0; }
 .vehicle-history-grid dt,
 .vehicle-history-grid dd { margin: 0; word-break: keep-all; }
 .vehicle-history-grid dt { min-height: 20px; color: #767676; font-size: 14px; font-weight: 400; line-height: 20px; }
-.vehicle-history-grid dd { min-width: 0; color: #222; font-size: 16px; font-weight: 500; line-height: 22px; text-align: center; }
+.vehicle-history-grid dd { min-width: 0; color: #222; font-size: 16px; font-weight: 500; line-height: 22px; text-align: left; }
 
 /* 차량 정보 B안 `&facts=chotot`: 초톳 상세 제원처럼 상태/기술 두 구역, 각 구역은 2열 필드 묶음이다. */
 .vehicle-info-card.is-facts-chotot .detail-section-heading { margin-bottom: 18px; }
