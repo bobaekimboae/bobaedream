@@ -339,3 +339,4 @@
 2026-10-15,럭셔리카 로고 박스형 적용,claude/used-car-detail-1013,,,,&qfbrand=shadowcard 를 럭셔리카·슈퍼카 로고 레일에도 적용,listing/index.tsx,,,verify:qf
 2026-10-15,그림자 카드 선택 색 에어비앤비,claude/used-car-detail-1013,,,,선택 테두리 파랑 → #222,qf-brand-shadowcard.css,,,verify:qf
 2026-10-15,그림자 카드 원본 재대조,claude/used-car-detail-1013,,,,그림자 · 안쪽 여백 · 글자 10.5 · 회색 바탕 보정,qf-brand-shadowcard.css,,첫 카드 왼쪽 16 유지(원본 17),verify:qf
+2026-10-15,그림자 카드 레일 배경색 제거,claude/used-car-detail-1013,,,,레일 바탕 #F3F4F6 삭제(흰색),qf-brand-shadowcard.css,,,verify:qf
