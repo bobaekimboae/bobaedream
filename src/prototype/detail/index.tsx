@@ -139,7 +139,10 @@ const BMW_M3_HISTORY_MOCK = {
   priceWithOptions: "14,680만원",
   importType: "정식 수입",
   purchaseDealer: "BMW 코오롱 모터스",
+  dealerSaleMethod: "위탁 판매",
   ownerChanges: "1회",
+  repairHistory: "단순 수리 1건",
+  accidentHistory: "주요 골격 사고 없음",
   encumbrance: "없음",
 } as const;
 const isBmwM3CompetitionXDrive = (car: Car, model: string) => car.maker === "BMW" && /M3/i.test(`${model} ${car.title} ${car.trim}`) && /xDrive|컴페티션|Competition/i.test(`${car.title} ${car.trim}`);
@@ -235,7 +238,10 @@ function carFactGroups(car: Car): VehicleFactGroup[] {
         ["출고가격(옵션 포함)", historyMock?.priceWithOptions ?? NO_INFO],
         ["정식/직수입 여부", historyMock?.importType ?? NO_INFO],
         ["구입 딜러", historyMock?.purchaseDealer ?? NO_INFO],
+        ["딜러 판매 방법", historyMock?.dealerSaleMethod ?? NO_INFO],
         ["소유자 변경", fd?.insurance ? `${fd.insurance.owners}회` : historyMock?.ownerChanges ?? NO_INFO],
+        ["수리 이력", historyMock?.repairHistory ?? NO_INFO],
+        ["사고 이력", historyMock?.accidentHistory ?? NO_INFO],
         ["압류/저당", historyMock?.encumbrance ?? NO_INFO],
         ["제시번호", dv.offerNo],
       ],
@@ -340,11 +346,21 @@ function VehicleHistoryCard() {
   const car = getActiveDetailCar();
   if (!car) return null;
   const rows = carFactGroups(car).find((group) => group.title === "차량 히스토리")?.rows ?? [];
+  const deliveryLabels = new Set(["생산 국가", "출고일", "출고가격(옵션 미포함)", "출고가격(옵션 포함)", "정식/직수입 여부", "구입 딜러"]);
+  const historyGroups = [
+    { title: "출고 정보", rows: rows.filter(([label]) => deliveryLabels.has(label)) },
+    { title: "거래·권리 정보", rows: rows.filter(([label]) => !deliveryLabels.has(label)) },
+  ];
   return (
     <SectionCard title="차량 히스토리" className="vehicle-history-card">
-      <dl className="vehicle-history-grid">
-        {rows.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
-      </dl>
+      <div className="vehicle-history-groups">
+        {historyGroups.map((group) => <section className="vehicle-history-group" key={group.title}>
+          <h3>{group.title}</h3>
+          <dl className="vehicle-history-grid">
+            {group.rows.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+          </dl>
+        </section>)}
+      </div>
     </SectionCard>
   );
 }

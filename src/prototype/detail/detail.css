@@ -628,6 +628,10 @@
 
 /* 차량 히스토리는 초톳 상세 정보 행처럼 항목·값을 좌측 정렬하고 행 사이를 1px 선으로 나눈다. */
 .vehicle-history-card { --dh: 13.2px; }
+.vehicle-history-groups { margin: 0; }
+.vehicle-history-group { margin: 0; }
+.vehicle-history-group + .vehicle-history-group { margin-top: 22px; padding-top: 22px; border-top: 1px solid #e5e5e5; }
+.vehicle-history-group h3 { margin: 0 0 8px; color: #222; font-size: 16px; font-weight: 700; line-height: 22px; }
 .vehicle-history-grid { display: flex; flex-direction: column; margin: 0; }
 .vehicle-history-grid > div { display: grid; grid-template-columns: 50% minmax(0, 1fr); align-items: center; min-height: 44px; min-width: 0; border-bottom: 1px solid #e5e5e5; }
 .vehicle-history-grid > div:last-child { border-bottom: 0; }
