@@ -1490,3 +1490,63 @@ final result: passed
 - P0/P1/P2 findings: none after the size correction.
 
 final result: passed
+
+---
+
+# Design QA · 치지직형 게시글 리스트 (2026-10-15)
+
+- source visual truth: `reports/chzzk-list-parity-20261015/source-full.jpg`
+- normalized source list: `reports/chzzk-list-parity-20261015/source-list-393x525.png`
+- implementation: `public/community/naver-cafe-list.html`
+- implementation screenshot: `reports/chzzk-list-parity-20261015/implementation-full.png`
+- implementation list crop: `reports/chzzk-list-parity-20261015/implementation-list-393x525.png`
+- comparison sheet: `reports/chzzk-list-parity-20261015/comparison-list-side-by-side.png`
+- source pixels: 591 × 1280; 게시글 영역을 x=0, y=190, 591 × 790으로 잘라 393 × 525로 정규화
+- implementation pixels/CSS/density: 393 × 852 / 393 × 852 CSS / DPR 1; 게시글 영역 y=279부터 393 × 525로 비교
+- state: 기존 보배드림 상단 UI 유지, 전체 게시글, 치지직형 간결 리스트
+
+## Full-view comparison evidence
+
+- 사용자 정정에 따라 상단 앱 바, 메뉴, 게시판 선택, 카테고리, 공지와 글쓰기 버튼은 비교·수정 범위에서 제외했다.
+- 원본과 구현의 게시글 영역만 같은 393 × 525 입력으로 나란히 비교했다.
+- 원본의 기기 상태바와 화면 위 동영상 PIP는 앱 외부 요소이므로 제외했다.
+
+## Focused region comparison evidence
+
+- 행 높이 70px, 좌우 15px, 구분선 `#dedfe1`을 적용했다.
+- 제목은 한 줄 16/23px/500, 댓글 수는 15px 녹색으로 분리했다.
+- 메타는 작성자·날짜·추천 아이콘/수·조회 아이콘/수 순서의 12.5/17px 구조다.
+- 우측 썸네일은 52 × 52px, 모서리 7px이며 원본과 같은 일부 게시물에만 나타난다.
+- 치지직의 실제 추천·조회 아이콘 자산을 재사용했다.
+
+## Comparison history
+
+### Pass 1 — blocked
+
+- P1: 최초 변경에서 상단 헤더와 탭까지 치지직 스타일로 바뀌어 사용자가 지정한 리스트 전용 범위를 넘었다.
+- P2: 동적 간결형 스타일이 정적 CSS를 덮어 제목 15.5px, 행 68px, 썸네일 50px으로 표시됐다.
+- P1: 추천수 옵션을 조기 활성화해 기존 렌더 단계에서 스크립트 오류가 발생했다.
+
+### Pass 2 — passed
+
+- 상단 관련 변경을 전부 되돌리고 게시글 리스트에만 치지직형 스타일을 적용했다.
+- 최종 동적 스타일을 행 70px, 제목 16px, 썸네일 52px로 수정했다.
+- 기본 추천 옵션은 유지하지 않고 최종 간결 렌더 단계에서 추천·조회 메타를 구성해 오류를 제거했다.
+- 새 브라우저 탭에서 카테고리 필터 후에도 간결형 유지, 콘솔 오류 0건을 확인했다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 한 줄 제목, 녹색 댓글 수, 회색 메타 위계 통과
+- spacing/layout rhythm: 15px 시작축, 70px 행, 52px 썸네일과 행 구분선 통과
+- colors/tokens: 본문 `#292b2e`, 메타 `#7b7d80`, 댓글 `#00a77b` 통과
+- image quality/assets: 기존 실차 썸네일 유지, 52px 커버 크롭과 7px 모서리 통과
+- copy/content: 기존 보배드림 게시글 제목·작성자·조회 데이터 유지, 표시 날짜만 치지직 목록 형식으로 정규화
+
+## Verification
+
+- 카테고리 필터: passed
+- 필터 후 간결형 유지: passed
+- 콘솔 오류: 0건
+- `git diff --check`: passed
+
+final result: passed
