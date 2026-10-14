@@ -28,6 +28,40 @@ final result: passed
 
 ---
 
+# Design QA · PC 차량 정보 우측 정렬·밀도 조정 (2026-10-14)
+
+- source visual truth: 직전 승인된 모바일 차량 정보의 14px 정보 밀도와 사용자 결정 「우측으로 텍스트 정렬 하고 정보 텍스트들 줄여라」, 「PC 버전도」
+- supporting source: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/a02f62c6-044c-47d3-ae5c-e6ea40a778ad/4-1000018218.jpg`
+- implementation screenshot: Codex in-app Browser tab 64 capture (tool output)
+- implementation route: `http://127.0.0.1:5173/?qf=guazi&category=서울오토갤러리&facts=icons&pc=1` → 첫 매물 상세 → 차량 정보 펼침
+- viewport: 1440 × 1000 CSS px, DPR 1
+- state: PC 차량 상세, 차량 정보 펼침
+
+## Comparison evidence
+
+- 모바일에서 승인한 항목/값 위계를 PC의 216px 라벨 열과 가변 값 열에 맞춰 반응형으로 옮겼다.
+- 값은 오른쪽 끝선에 정렬되고, 긴 색상·치수 값도 행 밖으로 넘치지 않는다.
+- 14px/20px 정보 텍스트, 40px 행 높이, 24px 열 간격으로 전체 제원을 펼쳐도 지나치게 성기지 않다.
+
+## Required fidelity surfaces
+
+- Fonts and typography: Pretendard 유지, 항목·값 14/20px, 값 500 weight.
+- Spacing and layout rhythm: 라벨 216px, 열 간격 24px, 행 높이 40px, 기존 1px 구분선 유지.
+- Colors and visual tokens: 항목 `#767676`, 값 `#222`, 구분선 `#F1F1F1`.
+- Image quality and asset fidelity: 기존 20px 차량 정보 아이콘 자산을 변경하지 않았다.
+- Copy and content: PC 차량 정보의 기존 항목과 값, 펼침/접기 동작을 모두 보존했다.
+
+## Verification
+
+- 계산 스타일: `font-size: 14px`, `line-height: 20px`, `text-align: right`, `min-height: 40px`.
+- 1440px 뷰포트에서 문서 가로 오버플로 0.
+- 차량 정보 펼침 동작 확인, 콘솔 오류 0.
+- `npm run verify:qf`: passed.
+
+final result: passed
+
+---
+
 # Design QA · 차량 정보 에어비앤비형 모두 보기 박스 (2026-10-14)
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/041e5e66-4282-4ca5-a4b4-2096bc91601c/3-1000018235.jpg`
