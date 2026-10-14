@@ -131,6 +131,17 @@ const BMW_M3_COMPETITION_XDRIVE_2023 = {
   rearWheel: "10.5J × 20",
   launchPrice: "13,770만원",
 } as const;
+
+/* 임시 화면 검수용 시나리오. 백엔드 차량 이력 API 연결 시 이 객체를 응답 필드로 교체한다. */
+const BMW_M3_HISTORY_MOCK = {
+  releasedAt: "2023년 7월 21일",
+  priceWithoutOptions: "13,770만원",
+  priceWithOptions: "14,680만원",
+  importType: "정식 수입",
+  purchaseDealer: "BMW 코오롱 모터스",
+  ownerChanges: "1회",
+  encumbrance: "없음",
+} as const;
 const isBmwM3CompetitionXDrive = (car: Car, model: string) => car.maker === "BMW" && /M3/i.test(`${model} ${car.title} ${car.trim}`) && /xDrive|컴페티션|Competition/i.test(`${car.title} ${car.trim}`);
 
 function carFacts(car: Car): string[][] {
@@ -181,6 +192,7 @@ function carFactGroups(car: Car): VehicleFactGroup[] {
   const body = cleanValue(fd?.body ?? car.filter?.body);
   const dv = derivedFacts(car, model, body);
   const m3 = isBmwM3CompetitionXDrive(car, model) ? BMW_M3_COMPETITION_XDRIVE_2023 : null;
+  const historyMock = m3 ? BMW_M3_HISTORY_MOCK : null;
   const value = (entry?: string | number | null) => entry === undefined || entry === null || entry === "" ? NO_INFO : String(entry);
   const origin = m3?.origin ?? value(cleanValue(car.filter?.origin));
 
@@ -218,14 +230,14 @@ function carFactGroups(car: Car): VehicleFactGroup[] {
       title: "차량 히스토리",
       rows: [
         ["생산 국가", origin],
-        ["출고일", NO_INFO],
-        ["출고가격(옵션 미포함)", NO_INFO],
-        ["출고가격(옵션 포함)", NO_INFO],
-        ["정식/직수입 여부", NO_INFO],
-        ["구입 딜러", NO_INFO],
-        ["소유자 변경", fd?.insurance ? `${fd.insurance.owners}회` : NO_INFO],
-        ["주행거리", car.filter?.mileage ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : NO_INFO],
-        ["압류/저당", NO_INFO],
+        ["출고일", historyMock?.releasedAt ?? NO_INFO],
+        ["출고가격(옵션 미포함)", historyMock?.priceWithoutOptions ?? NO_INFO],
+        ["출고가격(옵션 포함)", historyMock?.priceWithOptions ?? NO_INFO],
+        ["정식/직수입 여부", historyMock?.importType ?? NO_INFO],
+        ["구입 딜러", historyMock?.purchaseDealer ?? NO_INFO],
+        ["소유자 변경", fd?.insurance ? `${fd.insurance.owners}회` : historyMock?.ownerChanges ?? NO_INFO],
+        ["압류/저당", historyMock?.encumbrance ?? NO_INFO],
+        ["제시번호", dv.offerNo],
       ],
     },
   ];
