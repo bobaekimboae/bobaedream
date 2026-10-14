@@ -31,7 +31,7 @@ for (const viewport of viewports) {
     const url = new URL(request.url());
     if (!['127.0.0.1', 'localhost'].includes(url.hostname)) externalRequests.push(request.url());
   });
-  await page.goto(baseUrl, { waitUntil: 'networkidle' });
+  await page.goto(baseUrl, { waitUntil: 'load' });
   const brokenIcons = await page.locator('img').evaluateAll((images) => images
     .filter((image) => !image.complete || image.naturalWidth === 0)
     .map((image) => image.getAttribute('src')));
@@ -83,6 +83,7 @@ for (const viewport of viewports) {
   assert((await page.locator('#draftCount').textContent()) === '1', `${viewport.name}: draft count`);
   await page.getByRole('button', { name: /임시 1/ }).click();
   assert(await page.getByText('테스트 제목', { exact: true }).isVisible(), `${viewport.name}: draft not shown`);
+  await page.waitForFunction(() => [...document.querySelectorAll('.draft-tools img')].every((image) => image.complete && image.naturalWidth > 0));
   const brokenDraftIcons = await page.locator('.draft-tools img').evaluateAll((images) => images
     .filter((image) => !image.complete || image.naturalWidth === 0)
     .map((image) => image.getAttribute('src')));

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="robots" content="noindex,nofollow" />
-    <title>카페 글쓰기 UI 동일화 테스트</title>
+    <title>보배드림 게시물 작성 테스트</title>
     <link rel="stylesheet" href="./naver-write-parity.css" />
   </head>
   <body>
@@ -32,32 +32,35 @@
 
       <section class="editor-shell" aria-label="본문 편집기">
         <div class="primary-toolbar" role="toolbar" aria-label="콘텐츠 도구">
-          <button class="tool-button" type="button" data-dialog="사진"><img src="assets/write-parity/photo.svg" alt="" /><span>사진</span></button>
-          <button class="tool-button" type="button" data-dialog="동영상"><img src="assets/write-parity/video.svg" alt="" /><span>동영상</span></button>
+          <button class="tool-button" type="button" data-action="add-photo"><img src="assets/write-parity/photo.svg" alt="" /><span>사진</span></button>
+          <button class="tool-button" type="button" data-tool="video"><img src="assets/write-parity/video.svg" alt="" /><span>동영상</span></button>
           <button class="tool-button" type="button" data-action="text-tools" aria-expanded="false"><img src="assets/write-parity/text.svg" alt="" /><span>텍스트 도구막대</span></button>
-          <button class="tool-button" type="button" data-dialog="스티커"><img src="assets/write-parity/sticker.svg" alt="" /><span>스티커</span></button>
-          <button class="tool-button" type="button" data-dialog="글감"><img src="assets/write-parity/tag.svg" alt="" /><span>글감</span></button>
+          <button class="tool-button" type="button" data-tool="sticker"><img src="assets/write-parity/sticker.svg" alt="" /><span>스티커</span></button>
+          <button class="tool-button" type="button" data-tool="topic"><img src="assets/write-parity/tag.svg" alt="" /><span>글감</span></button>
           <button class="tool-button" type="button" data-action="quote"><img src="assets/write-parity/quote.svg" alt="" /><span>인용구</span></button>
           <button class="tool-button" type="button" data-action="divider"><img src="assets/write-parity/strike.svg" alt="" /><span>구분선</span></button>
-          <button class="tool-button" type="button" data-dialog="링크"><img src="assets/write-parity/link.svg" alt="" /><span>링크</span></button>
-          <button class="tool-button" type="button" data-dialog="파일"><img src="assets/write-parity/table.svg" alt="" /><span>파일</span></button>
-          <button class="tool-button" type="button" data-dialog="장소"><img src="assets/write-parity/place.svg" alt="" /><span>장소</span></button>
+          <button class="tool-button" type="button" data-tool="link"><img src="assets/write-parity/link.svg" alt="" /><span>링크</span></button>
+          <button class="tool-button" type="button" data-action="add-file"><img src="assets/write-parity/table.svg" alt="" /><span>파일</span></button>
+          <button class="tool-button" type="button" data-tool="place"><img src="assets/write-parity/place.svg" alt="" /><span>장소</span></button>
         </div>
+        <input id="photoInput" class="sr-only" type="file" accept="image/png,image/jpeg,image/webp,image/gif" multiple />
+        <input id="fileInput" class="sr-only" type="file" multiple />
 
         <div class="text-toolbar" data-testid="text-toolbar" hidden>
-          <label class="select-label"><span class="sr-only">문단 스타일</span><select><option>본문</option><option>인용구</option></select></label>
-          <button type="button" data-command="font">기본서체</button>
-          <button type="button" data-command="size">15</button>
+          <label class="select-label"><span class="sr-only">문단 스타일</span><select id="blockStyle"><option value="p">본문</option><option value="h2">소제목</option><option value="blockquote">인용구</option></select></label>
+          <label class="select-label"><span class="sr-only">서체</span><select id="fontFamily"><option value="Arial">기본서체</option><option value="serif">명조체</option><option value="monospace">고정폭</option></select></label>
+          <label class="select-label"><span class="sr-only">글자 크기</span><select id="fontSize"><option value="3">15</option><option value="2">13</option><option value="4">17</option><option value="5">20</option></select></label>
           <button class="format-button" type="button" data-command="bold" aria-label="굵게"><img src="assets/write-parity/bold.svg" alt="" /></button>
           <button class="format-button" type="button" data-command="italic" aria-label="기울이기"><img src="assets/write-parity/italic.svg" alt="" /></button>
           <button class="format-button format-underline" type="button" data-command="underline" aria-label="밑줄">U</button>
-          <button class="format-button color-dot" type="button" data-command="foreColor" aria-label="글자색"><span></span></button>
-          <button class="format-button color-box" type="button" data-command="hiliteColor" aria-label="배경색"><span></span></button>
-          <button class="format-button" type="button" data-dialog="링크" aria-label="링크"><img src="assets/write-parity/link.svg" alt="" /></button>
+          <label class="format-button color-control" aria-label="글자색"><input id="foreColor" type="color" value="#222222" /><span class="color-dot"></span></label>
+          <label class="format-button color-control" aria-label="배경색"><input id="backColor" type="color" value="#fff1f3" /><span class="color-box"></span></label>
+          <button class="format-button" type="button" data-tool="link" aria-label="링크"><img src="assets/write-parity/link.svg" alt="" /></button>
           <button class="format-button" type="button" data-command="strikeThrough" aria-label="취소선"><img src="assets/write-parity/strike.svg" alt="" /></button>
         </div>
 
         <article id="postBody" class="editor-body" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="내용을 입력하세요."></article>
+        <section id="attachmentList" class="attachment-list" aria-label="첨부 파일" hidden></section>
         <button class="add-body" type="button" data-action="add-body">본문 추가</button>
       </section>
 
@@ -68,15 +71,15 @@
 
       <section class="public-settings" aria-labelledby="settingsTitle">
         <div class="settings-title-row">
-          <h2 id="settingsTitle">공개 설정</h2>
-          <button class="visibility-button" type="button" data-dialog="공개 범위">멤버 공개</button>
+          <h2 id="settingsTitle">게시물 허용 설정</h2>
+          <button class="visibility-button" id="visibilityButton" type="button" data-tool="visibility">멤버 공개</button>
         </div>
         <label class="setting-row">
-          <span><strong>검색 · 네이버 서비스 공개 허용</strong><small>검색 ∙ 네이버 서비스 공개 허용 시 멤버가 아닌 사람도 글을 볼 수 있는 경우가 있습니다.</small></span>
-          <input type="checkbox" checked /><i aria-hidden="true"></i>
+          <span><strong>게시물 검색 허용</strong><small>허용하면 서비스 검색 결과에서 이 게시물을 찾을 수 있습니다.</small></span>
+          <input id="allowSearch" type="checkbox" checked /><i aria-hidden="true"></i>
         </label>
-        <label class="setting-row compact"><span><strong>카페 · 블로그 스크랩 허용</strong></span><input type="checkbox" checked /><i aria-hidden="true"></i></label>
-        <label class="setting-row compact"><span><strong>복사 · 저장 허용</strong></span><input type="checkbox" checked /><i aria-hidden="true"></i></label>
+        <label class="setting-row compact"><span><strong>게시물 공유 허용</strong></span><input id="allowShare" type="checkbox" checked /><i aria-hidden="true"></i></label>
+        <label class="setting-row compact"><span><strong>복사 · 저장 허용</strong></span><input id="allowCopy" type="checkbox" checked /><i aria-hidden="true"></i></label>
       </section>
 
       <footer class="write-footer">
@@ -97,6 +100,14 @@
       <header><button type="button" aria-label="뒤로가기" data-action="close-drafts"><img src="assets/write-parity/chevron-left.svg" alt="" /></button><h2 id="draftTitle">이 카페 임시글</h2></header>
       <div class="draft-content" id="draftContent"><p>임시글이 없습니다.</p></div>
     </section>
+
+    <div class="overlay" id="toolOverlay" hidden>
+      <section class="tool-dialog" role="dialog" aria-modal="true" aria-labelledby="toolDialogTitle">
+        <header><h2 id="toolDialogTitle">콘텐츠 추가</h2><button type="button" aria-label="닫기" data-action="close-tool"><img src="assets/write-parity/close.svg" alt="" /></button></header>
+        <div id="toolDialogBody" class="tool-dialog-body"></div>
+        <footer><button type="button" data-action="close-tool">취소</button><button class="tool-apply" id="toolApply" type="button">적용</button></footer>
+      </section>
+    </div>
 
     <div class="overlay" id="dialogOverlay" hidden>
       <section class="small-dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
