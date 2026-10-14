@@ -28,6 +28,48 @@ final result: passed
 
 ---
 
+# Design QA · 차량 정보 에어비앤비형 모두 보기 박스 (2026-10-14)
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/041e5e66-4282-4ca5-a4b4-2096bc91601c/3-1000018235.jpg`
+- supporting source: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/041e5e66-4282-4ca5-a4b4-2096bc91601c/1-1000018239.jpg`, `2-1000018237.jpg`
+- implementation screenshot: Codex in-app Browser tab 24 capture (tool output)
+- implementation route: `http://127.0.0.1:5173/?qf=guazi&category=서울오토갤러리&facts=icons` → BMW M3 첫 매물 상세
+- viewport: 393 × 852 CSS px, DPR 1
+- source pixels: 591 × 1280px; focused component comparison으로 기기 크롬과 하단 예약 바는 제외
+- state: 차량 정보 8개 접힘 / 28개 전체 정보 펼침 / 접힘 복귀
+
+## Full-view comparison evidence
+
+- 차량 정보 카드의 8개 핵심 정보는 기존 2열 격자와 아이콘 비율을 유지했다.
+- 카드 하단 행동만 에어비앤비의 편의시설·후기 `모두 보기` 버튼처럼 전체 폭 연회색 박스로 분리했다.
+- 버튼은 카드 안쪽 좌우 12px 흐름에 맞고 하단 고정 상담 바에 가리지 않는다.
+
+## Focused region comparison evidence
+
+- 버튼 높이 52px, 모서리 12px, 배경 `#F2F2F2`, 본문 `#222`, 16/24px·600으로 측정·구현했다.
+- 문구는 `차량 정보 28개 모두 보기`로 대상을 먼저 밝히고, 에어비앤비처럼 별도 화살표 없이 단일 행동으로 정리했다.
+- 펼친 상태는 `차량 정보 접기`로 동일 위치와 스타일을 유지하며, 접으면 기존 8개 격자로 정확히 복귀한다.
+
+## Findings
+
+- P0/P1/P2 findings: none.
+- Fonts and typography: 기존 Pretendard와 차량 정보 제목·라벨·값 위계는 변경하지 않았고 버튼만 16/24·600으로 명확히 했다.
+- Spacing and layout rhythm: 핵심 격자 아래 16px 간격, 버튼 내부 12px 세로 패딩, 12px 모서리로 에어비앤비의 넓은 행동 박스 리듬을 반영했다.
+- Colors and visual tokens: 흰 카드와 외부 회색 스택 사이에서 버튼이 묻히지 않도록 카드 내부에만 `#F2F2F2`를 사용했다.
+- Image quality and asset fidelity: 기존 차량 정보 아이콘 원본과 광학 보정값을 그대로 유지했다. 새 이미지 자산은 없다.
+- Copy and content: 기존 28개 전체 제원과 8개 핵심 정보는 보존하고 더보기 문구만 목적 중심으로 바꿨다.
+
+## Interaction and verification
+
+- `차량 정보 28개 모두 보기` 클릭 → 그룹형 전체 제원 표시 확인.
+- `차량 정보 접기` 클릭 → 8개 핵심 격자 복귀 확인.
+- 모바일 393×852 가로 오버플로 없음, 콘솔 오류 0.
+- `npm run verify:qf`: passed.
+
+final result: passed
+
+---
+
 # Design QA · 차량 히스토리 건수 링크 (2026-10-14)
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/cb601674-78d6-4f91-b3d6-fd390eae26b3/1-1000018232.jpg`
