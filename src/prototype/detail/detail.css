@@ -676,13 +676,13 @@
 .detail-facts.is-icons > div > img[data-icon="document"] { transform: translate(0.00px, 0.00px) scale(1.006); }
 .detail-facts.is-icons > div > img[data-icon="doors"] { transform: translate(0.00px, 0.00px) scale(0.962); }
 .detail-facts.is-icons > div > img[data-icon="emission"] { transform: translate(0.36px, 0.31px) scale(0.948); }
-.detail-facts.is-icons > div > img[data-icon="engine"] { transform: none; }
+.detail-facts.is-icons > div > img[data-icon="engine-hubraum"] { transform: none; }
 .detail-facts.is-icons > div > img[data-icon="fuel"] { transform: translate(-0.47px, -0.47px) scale(0.947); }
 .detail-facts.is-icons > div > img[data-icon="gearbox"] { transform: translate(-0.17px, 0.29px) scale(1.150); }
 .detail-facts.is-icons > div > img[data-icon="interior"] { transform: translate(0.00px, 0.00px) scale(1.006); }
 .detail-facts.is-icons > div > img[data-icon="keys"] { transform: translate(0.07px, 0.39px) scale(0.978); }
 .detail-facts.is-icons > div > img[data-icon="location"] { transform: translate(0.00px, 0.00px) scale(1.006); }
-.detail-facts.is-icons > div > img[data-icon="maker"] { transform: none; }
+.detail-facts.is-icons > div > img[data-icon="maker-autoscout"] { transform: none; }
 .detail-facts.is-icons > div > img[data-icon="mileage"] { transform: translate(0.00px, 0.03px) scale(1.002); }
 .detail-facts.is-icons > div > img[data-icon="model-trim"] { transform: translate(0.00px, 0.00px) scale(0.996); }
 .detail-facts.is-icons > div > img[data-icon="owners"] { transform: translate(0.00px, 0.00px) scale(1.006); }
