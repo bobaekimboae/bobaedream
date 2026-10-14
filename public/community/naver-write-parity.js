@@ -30,9 +30,12 @@
   ];
   const MAX_PHOTOS = 100;
   const MAX_PHOTO_BYTES = 20 * 1024 * 1024;
+  const MAX_VIDEOS = 10;
+  const MAX_VIDEO_BYTES = 200 * 1024 * 1024;
   const MAX_FILES = 10;
   const MAX_FILE_BYTES = 50 * 1024 * 1024;
   const PHOTO_EXTENSIONS = new Set(['jpg','jpeg','gif','png','bmp','heic','heif','webp']);
+  const VIDEO_EXTENSIONS = new Set(['mp4','webm','mov','m4v','ogv']);
   const qs = (selector, root = document) => root.querySelector(selector);
   const qsa = (selector, root = document) => [...root.querySelectorAll(selector)];
   const title = qs('#postTitle');
@@ -56,6 +59,8 @@
   const attachmentList = qs('#attachmentList');
   const photoInput = qs('#photoInput');
   const replacePhotoInput = qs('#replacePhotoInput');
+  const videoInput = qs('#videoInput');
+  const replaceVideoInput = qs('#replaceVideoInput');
   const fileInput = qs('#fileInput');
   const uploadStatus = qs('#uploadStatus');
   const photoEditorOverlay = qs('#photoEditorOverlay');
@@ -65,7 +70,7 @@
   const state = {
     board: '', head: '', selectionMode: 'board', draft: null, attachments: [], visibility: '멤버 공개',
     tool: '', selectedChoice: '', savedRange: null, formatRange: null, toastTimer: 0,
-    photos: new Map(), activePhotoId: '', replacePhotoId: '', dragPhotoId: '',
+    photos: new Map(), videos: new Map(), activePhotoId: '', activeMediaId: '', replacePhotoId: '', replaceVideoId: '', dragMediaId: '',
     editPhotoId: '', editDraft: null, editPollId: '',
     emojiCatalog: null, emojiLoading: null, emojiCategory: 'face-emotion', emojiQuery: '', emojiTone: 0,
     recentEmojis: [],
@@ -82,11 +87,13 @@
   const uid = () => `photo_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
   const fileExtension = (name = '') => name.split('.').pop().toLowerCase();
   const isPhotoFile = (file) => PHOTO_EXTENSIONS.has(fileExtension(file.name)) || /^image\/(jpeg|png|gif|bmp|webp|heic|heif)$/i.test(file.type);
-  const photoCount = () => body.querySelectorAll('.editor-media[data-media-id]').length;
+  const isVideoFile = (file) => VIDEO_EXTENSIONS.has(fileExtension(file.name)) || /^video\/(mp4|webm|quicktime|ogg)$/i.test(file.type);
+  const photoCount = () => body.querySelectorAll('.editor-media[data-media-kind="photo"]').length;
+  const videoCount = () => body.querySelectorAll('.editor-media[data-media-kind="video"]').length;
   const photoFilter = (value) => ({ none:'none', auto:'contrast(1.05) saturate(1.08)', mono:'grayscale(1)', warm:'sepia(.18) saturate(1.12)' }[value] || 'none');
 
   function photoMarkup(photo) {
-    return `<figure class="editor-media is-${photo.widthMode}" data-media-id="${photo.id}" data-align="${photo.align}" draggable="true" contenteditable="false">
+    return `<figure class="editor-media is-${photo.widthMode}" data-media-id="${photo.id}" data-media-kind="photo" data-align="${photo.align}" draggable="true" contenteditable="false">
       <div class="media-quick-toolbar" role="toolbar" aria-label="${escapeHtml(photo.name)} 사진 편집">
         <button type="button" data-action="set-cover" aria-pressed="${photo.cover}">${photo.cover ? '대표 사진' : '대표'}</button>
         <button type="button" data-action="photo-width" data-width="small">작게</button>
@@ -105,13 +112,38 @@
         <img src="${photo.url}" alt="${escapeHtml(photo.name)}" style="transform:rotate(${photo.rotation}deg) scaleX(${photo.flip ? -1 : 1});filter:${photoFilter(photo.filter)}">
         <span class="media-drag-handle" aria-hidden="true">⋮⋮</span>
       </div>
-      <figcaption><span class="photo-caption" contenteditable="true" role="textbox" data-placeholder="사진 설명을 입력하세요" aria-label="사진 설명">${escapeHtml(photo.caption)}</span><small>${escapeHtml(photo.name)} · ${formatBytes(photo.size)}</small></figcaption>
+      <figcaption><span class="photo-caption media-caption" contenteditable="true" role="textbox" data-placeholder="사진 설명을 입력하세요" aria-label="사진 설명">${escapeHtml(photo.caption)}</span><small>${escapeHtml(photo.name)} · ${formatBytes(photo.size)}</small></figcaption>
     </figure><p class="after-media"><br></p>`;
   }
 
-  function getPhotoFigure(target) { return target?.closest?.('.editor-media[data-media-id]'); }
+  function videoMarkup(video) {
+    return `<figure class="editor-media editor-video is-${video.widthMode}" data-media-id="${video.id}" data-media-kind="video" data-align="${video.align}" draggable="true" contenteditable="false">
+      <div class="media-quick-toolbar" role="toolbar" aria-label="${escapeHtml(video.name)} 동영상 편집">
+        <button type="button" data-action="photo-width" data-width="small">작게</button>
+        <button type="button" data-action="photo-width" data-width="document">문서 너비</button>
+        <button type="button" data-action="photo-width" data-width="full">옆트임</button>
+        <button type="button" data-action="photo-align" data-align="left" aria-label="왼쪽 정렬">왼쪽</button>
+        <button type="button" data-action="photo-align" data-align="center" aria-label="가운데 정렬">가운데</button>
+        <button type="button" data-action="photo-align" data-align="right" aria-label="오른쪽 정렬">오른쪽</button>
+        <button type="button" data-action="video-link">링크</button>
+        <button type="button" data-action="replace-video">교체</button>
+        <button type="button" data-action="remove-media">삭제</button>
+      </div>
+      <div class="editor-media-frame">
+        <video src="${video.url}" controls playsinline preload="metadata" aria-label="${escapeHtml(video.name)}"></video>
+        <button class="media-type-badge" type="button" aria-label="동영상 편집 도구 열기">VIDEO</button>
+        <span class="media-drag-handle" aria-hidden="true">⋮⋮</span>
+      </div>
+      <figcaption><span class="video-caption media-caption" contenteditable="true" role="textbox" data-placeholder="동영상 설명을 입력하세요" aria-label="동영상 설명">${escapeHtml(video.caption)}</span><small>${escapeHtml(video.name)} · ${formatBytes(video.size)}</small></figcaption>
+    </figure><p class="after-media"><br></p>`;
+  }
+
+  function getMediaFigure(target) { return target?.closest?.('.editor-media[data-media-id]'); }
+  function getPhotoFigure(target) { return getMediaFigure(target); }
 
   function getPhoto(id) { return state.photos.get(id); }
+  function getVideo(id) { return state.videos.get(id); }
+  function getMedia(id) { return getPhoto(id) || getVideo(id); }
 
   function syncPhotoElement(id) {
     const photo = getPhoto(id);
@@ -119,6 +151,7 @@
     if (!photo || !figure) return;
     figure.className = `editor-media is-${photo.widthMode}${state.activePhotoId === id ? ' is-selected' : ''}`;
     figure.dataset.align = photo.align;
+    figure.dataset.mediaKind = 'photo';
     const image = qs('img', figure);
     delete image.dataset.fallback;
     image.src = photo.url;
@@ -136,14 +169,34 @@
   }
 
   function selectPhoto(id) {
-    state.activePhotoId = id;
+    state.activeMediaId = id;
+    state.activePhotoId = state.photos.has(id) ? id : '';
     qsa('.editor-media[data-media-id]', body).forEach((figure) => figure.classList.toggle('is-selected', figure.dataset.mediaId === id));
+  }
+
+  function syncVideoElement(id) {
+    const video = getVideo(id);
+    const figure = body.querySelector(`.editor-media[data-media-id="${CSS.escape(id)}"]`);
+    if (!video || !figure) return;
+    figure.className = `editor-media editor-video is-${video.widthMode}${state.activeMediaId === id ? ' is-selected' : ''}`;
+    figure.dataset.align = video.align;
+    figure.dataset.mediaKind = 'video';
+    const player = qs('video', figure);
+    player.src = video.url;
+    player.setAttribute('aria-label', video.name);
+    const caption = qs('.video-caption', figure);
+    if (caption && caption.textContent !== video.caption) caption.textContent = video.caption;
+    const meta = qs('figcaption small', figure);
+    if (meta) meta.textContent = `${video.name} · ${formatBytes(video.size)}`;
   }
 
   function openMediaDb() {
     return new Promise((resolve, reject) => {
-      const request = indexedDB.open('bbm-community-write-media', 1);
-      request.onupgradeneeded = () => request.result.createObjectStore('photos', { keyPath:'id' });
+      const request = indexedDB.open('bbm-community-write-media', 2);
+      request.onupgradeneeded = () => {
+        if (!request.result.objectStoreNames.contains('photos')) request.result.createObjectStore('photos', { keyPath:'id' });
+        if (!request.result.objectStoreNames.contains('videos')) request.result.createObjectStore('videos', { keyPath:'id' });
+      };
       request.onsuccess = () => resolve(request.result);
       request.onerror = () => reject(request.error);
     });
@@ -182,6 +235,39 @@
     db.close();
   }
 
+  async function storeVideoBlob(id, blob) {
+    const db = await openMediaDb();
+    await new Promise((resolve, reject) => {
+      const transaction = db.transaction('videos', 'readwrite');
+      transaction.objectStore('videos').put({ id, blob });
+      transaction.oncomplete = resolve;
+      transaction.onerror = () => reject(transaction.error);
+    });
+    db.close();
+  }
+
+  async function readVideoBlob(id) {
+    const db = await openMediaDb();
+    const result = await new Promise((resolve, reject) => {
+      const request = db.transaction('videos').objectStore('videos').get(id);
+      request.onsuccess = () => resolve(request.result?.blob || null);
+      request.onerror = () => reject(request.error);
+    });
+    db.close();
+    return result;
+  }
+
+  async function deleteVideoBlob(id) {
+    const db = await openMediaDb();
+    await new Promise((resolve, reject) => {
+      const transaction = db.transaction('videos', 'readwrite');
+      transaction.objectStore('videos').delete(id);
+      transaction.oncomplete = resolve;
+      transaction.onerror = () => reject(transaction.error);
+    });
+    db.close();
+  }
+
   function renderBoards(query = '') {
     const keyword = query.trim().toLowerCase();
     const options = state.selectionMode === 'head'
@@ -193,7 +279,7 @@
   }
 
   function hasBodyContent() {
-    return Boolean(body.textContent.trim() || body.querySelector('img,.embed-card,.place-card,.topic-card,.sticker-chip,.poll-card') || state.attachments.length);
+    return Boolean(body.textContent.trim() || body.querySelector('img,video,.embed-card,.place-card,.topic-card,.sticker-chip,.poll-card') || state.attachments.length);
   }
 
   function syncSubmit() {
@@ -297,7 +383,7 @@
 
   function snapshot() {
     const bodyClone = body.cloneNode(true);
-    qsa('.editor-media[data-media-id] img', bodyClone).forEach((image) => image.removeAttribute('src'));
+    qsa('.editor-media[data-media-id] img,.editor-media[data-media-id] video', bodyClone).forEach((media) => media.removeAttribute('src'));
     qsa('.editor-media', bodyClone).forEach((figure) => figure.classList.remove('is-selected'));
     return {
       title: title.value.trim() || '제목 없음', body: bodyClone.innerHTML, tags: tags.value,
@@ -305,6 +391,7 @@
       permissions: { search: qs('#allowSearch').checked, share: qs('#allowShare').checked, copy: qs('#allowCopy').checked },
       attachments: state.attachments.map(({ name, size, type }) => ({ name, size, type })),
       photos: [...state.photos.values()].map(({ url, ...photo }) => photo),
+      videos: [...state.videos.values()].map(({ url, ...video }) => video),
       savedAt: new Date().toISOString(),
     };
   }
@@ -343,7 +430,10 @@
     state.attachments = (state.draft.attachments || []).map((file) => ({ ...file, url: '' }));
     state.photos.forEach((photo) => { if (photo.url) URL.revokeObjectURL(photo.url); });
     state.photos.clear();
+    state.videos.forEach((video) => { if (video.url) URL.revokeObjectURL(video.url); });
+    state.videos.clear();
     let missingPhotos = 0;
+    let missingVideos = 0;
     for (const saved of state.draft.photos || []) {
       const blob = await readPhotoBlob(saved.id).catch(() => null);
       if (!blob) { body.querySelector(`.editor-media[data-media-id="${CSS.escape(saved.id)}"]`)?.remove(); missingPhotos += 1; continue; }
@@ -352,6 +442,12 @@
       const restoredCaption = body.querySelector(`.editor-media[data-media-id="${CSS.escape(saved.id)}"] .photo-caption`);
       if (restoredCaption) restoredCaption.textContent = saved.caption || '';
     }
+    for (const saved of state.draft.videos || []) {
+      const blob = await readVideoBlob(saved.id).catch(() => null);
+      if (!blob) { body.querySelector(`.editor-media[data-media-id="${CSS.escape(saved.id)}"]`)?.remove(); missingVideos += 1; continue; }
+      state.videos.set(saved.id, { ...saved, url:URL.createObjectURL(blob) });
+      syncVideoElement(saved.id);
+    }
     (state.draft.photos || []).forEach((saved) => {
       const restoredCaption = body.querySelector(`.editor-media[data-media-id="${CSS.escape(saved.id)}"] .photo-caption`);
       if (restoredCaption) restoredCaption.textContent = saved.caption || '';
@@ -359,7 +455,8 @@
     renderAttachments();
     draftLayer.hidden = true;
     syncSubmit();
-    showToast(missingPhotos ? `임시글을 불러왔습니다. 사진 ${missingPhotos}장은 다시 첨부해주세요.` : '임시글을 불러왔습니다.');
+    const missing = [missingPhotos ? `사진 ${missingPhotos}장` : '', missingVideos ? `동영상 ${missingVideos}개` : ''].filter(Boolean).join(', ');
+    showToast(missing ? `임시글을 불러왔습니다. ${missing}는 다시 첨부해주세요.` : '임시글을 불러왔습니다.');
   }
 
   function openDrafts() {
@@ -492,13 +589,13 @@
   }
 
   function openTool(type) {
-    if (!['photo-link','visibility'].includes(type)) captureRange();
+    if (!['photo-link','video-link','visibility'].includes(type)) captureRange();
     else state.savedRange = null;
     state.tool = type;
     state.selectedChoice = '';
     const currentPoll = type === 'poll' ? pollDataFromCard(body.querySelector(`.poll-card[data-poll-id="${CSS.escape(state.editPollId)}"]`)) : null;
     const config = {
-      video: ['동영상 추가', '<label class="dialog-field"><span>동영상 주소</span><input id="toolUrl" type="url" inputmode="url" placeholder="https://youtu.be/..." /></label><label class="dialog-field"><span>표시 제목</span><input id="toolText" maxlength="80" placeholder="동영상 제목" /></label><p class="upload-note">주소 카드로 본문에 삽입됩니다. 외부 영상은 자동 재생하지 않습니다.</p>'],
+      video: ['동영상 추가', '<section class="video-upload-panel"><strong>내 기기에서 업로드</strong><p>MP4, WebM, MOV · 파일당 최대 200MB · 최대 10개</p><button type="button" data-action="choose-video">동영상 선택</button></section><div class="dialog-divider"><span>또는 링크로 추가</span></div><label class="dialog-field"><span>동영상 주소</span><input id="toolUrl" type="url" inputmode="url" placeholder="https://youtu.be/..." /></label><label class="dialog-field"><span>표시 제목</span><input id="toolText" maxlength="80" placeholder="동영상 제목" /></label><p class="upload-note">링크는 안전한 주소 카드로 삽입하며 자동 재생하지 않습니다.</p>'],
       link: ['링크 추가', '<label class="dialog-field"><span>주소</span><input id="toolUrl" type="url" inputmode="url" placeholder="https://example.com" /></label><label class="dialog-field"><span>링크 문구</span><input id="toolText" maxlength="80" placeholder="링크 이름" /></label>'],
       place: ['장소 추가', '<label class="dialog-field"><span>장소명</span><input id="toolText" maxlength="60" placeholder="예: 보배드림 본사" /></label><label class="dialog-field"><span>주소</span><input id="toolAddress" maxlength="120" placeholder="도로명 또는 지번 주소" /></label>'],
       poll: [state.editPollId ? '투표 수정' : '투표 만들기', `<label class="dialog-field"><span>질문</span><input id="pollQuestion" maxlength="100" value="${escapeHtml(currentPoll?.question || '')}" placeholder="투표 질문을 입력하세요"></label><div class="poll-options" id="pollOptions">${pollOptionFields(currentPoll?.options || ['',''])}</div><button class="poll-add-option" type="button" data-action="add-poll-option">+ 선택지 추가</button><div class="poll-settings"><label><span>복수 선택 허용</span><input id="pollMultiple" type="checkbox" ${currentPoll?.multiple ? 'checked' : ''}></label><label><span>익명 투표</span><input id="pollAnonymous" type="checkbox" ${currentPoll?.anonymous ? 'checked' : ''}></label><label><span>마감</span><select id="pollDuration">${['1일','3일','7일','제한 없음'].map((value) => `<option ${value === (currentPoll?.duration || '7일') ? 'selected' : ''}>${value}</option>`).join('')}</select></label></div><p class="upload-note">선택지는 2개 이상 10개까지 추가할 수 있습니다.</p>`],
@@ -506,6 +603,7 @@
       topic: ['글감 선택', choiceButtons(topics, 'topic-grid')],
       visibility: ['공개 범위', `<div class="visibility-list">${['전체 공개','멤버 공개'].map((item) => `<label class="visibility-option"><span>${item}</span><input type="radio" name="visibility" value="${item}" ${state.visibility === item ? 'checked' : ''}></label>`).join('')}</div>`],
       'photo-link': ['사진 링크', `<label class="dialog-field"><span>연결 주소</span><input id="toolUrl" type="url" inputmode="url" value="${escapeHtml(getPhoto(state.activePhotoId)?.link || '')}" placeholder="https://example.com" /></label><p class="upload-note">주소를 비우고 적용하면 링크가 해제됩니다.</p>`],
+      'video-link': ['동영상 링크', `<label class="dialog-field"><span>연결 주소</span><input id="toolUrl" type="url" inputmode="url" value="${escapeHtml(getVideo(state.activeMediaId)?.link || '')}" placeholder="https://example.com" /></label><p class="upload-note">주소를 비우고 적용하면 링크가 해제됩니다.</p>`],
     }[type];
     if (!config) return;
     toolDialogTitle.textContent = config[0];
@@ -530,6 +628,12 @@
       if (raw && !url) { showToast('http 또는 https 주소를 입력해주세요.'); return; }
       const photo = getPhoto(state.activePhotoId);
       if (photo) { photo.link = url; syncPhotoElement(photo.id); showToast(url ? '사진 링크를 연결했습니다.' : '사진 링크를 해제했습니다.'); }
+    } else if (type === 'video-link') {
+      const raw = qs('#toolUrl', toolDialogBody)?.value.trim() || '';
+      const url = raw ? safeUrl(raw) : '';
+      if (raw && !url) { showToast('http 또는 https 주소를 입력해주세요.'); return; }
+      const video = getVideo(state.activeMediaId);
+      if (video) { video.link = url; showToast(url ? '동영상 링크를 연결했습니다.' : '동영상 링크를 해제했습니다.'); }
     } else if (type === 'place') {
       const name = qs('#toolText', toolDialogBody)?.value.trim();
       const address = qs('#toolAddress', toolDialogBody)?.value.trim();
@@ -624,6 +728,7 @@
       if (next) { next.cover = true; syncPhotoElement(next.id); }
     }
     state.activePhotoId = '';
+    if (state.activeMediaId === id) state.activeMediaId = '';
     syncSubmit();
   }
 
@@ -669,6 +774,75 @@
     syncSubmit();
   }
 
+  async function replaceVideo(file) {
+    const id = state.replaceVideoId;
+    state.replaceVideoId = '';
+    if (!id || !file) return;
+    if (!isVideoFile(file)) { showDialog('교체 실패', '지원하지 않는 동영상 형식입니다.'); return; }
+    if (file.size > MAX_VIDEO_BYTES) { showDialog('교체 실패', '동영상 1개는 200MB까지 첨부할 수 있습니다.'); return; }
+    await addVideoFile(file, id);
+    replaceVideoInput.value = '';
+    showToast('동영상을 교체했습니다.');
+  }
+
+  function removeVideo(id) {
+    const video = getVideo(id);
+    const figure = body.querySelector(`.editor-media[data-media-id="${CSS.escape(id)}"]`);
+    const after = figure?.nextElementSibling;
+    if (video?.url) URL.revokeObjectURL(video.url);
+    state.videos.delete(id);
+    deleteVideoBlob(id).catch(() => {});
+    figure?.remove();
+    if (after?.classList.contains('after-media')) after.remove();
+    state.activeMediaId = '';
+    syncSubmit();
+  }
+
+  function removeMedia(id) {
+    if (state.photos.has(id)) removePhoto(id);
+    else if (state.videos.has(id)) removeVideo(id);
+  }
+
+  async function addVideoFile(file, replaceId = '') {
+    const id = replaceId || `video_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
+    const previous = replaceId ? getVideo(replaceId) : null;
+    const url = URL.createObjectURL(file);
+    const video = {
+      id, name:file.name, size:file.size, type:file.type, url,
+      caption:previous?.caption || '', widthMode:previous?.widthMode || 'document',
+      align:previous?.align || 'center', link:previous?.link || '',
+    };
+    if (previous?.url) URL.revokeObjectURL(previous.url);
+    state.videos.set(id, video);
+    await storeVideoBlob(id, file);
+    if (replaceId) syncVideoElement(id);
+    else insertHtml(videoMarkup(video));
+    return video;
+  }
+
+  async function addVideos(files, source = 'picker') {
+    const incoming = [...files];
+    const room = Math.max(0, MAX_VIDEOS - videoCount());
+    const selected = incoming.slice(0, room);
+    const errors = [];
+    let added = 0;
+    if (!room && incoming.length) errors.push(`동영상은 게시글당 최대 ${MAX_VIDEOS}개입니다.`);
+    if (incoming.length > room) errors.push(`한도를 넘은 ${incoming.length - room}개는 제외했습니다.`);
+    uploadStatus.hidden = false;
+    uploadStatus.textContent = `동영상 ${selected.length}개를 확인하고 있습니다.`;
+    for (const file of selected) {
+      if (!isVideoFile(file)) { errors.push(`${file.name}: 지원하지 않는 형식`); continue; }
+      if (file.size > MAX_VIDEO_BYTES) { errors.push(`${file.name}: 200MB 초과`); continue; }
+      try { await addVideoFile(file); added += 1; }
+      catch { errors.push(`${file.name}: 읽기 실패`); }
+    }
+    videoInput.value = '';
+    uploadStatus.hidden = true;
+    if (added) showToast(`${source === 'drop' ? '끌어온' : source === 'paste' ? '붙여넣은' : '선택한'} 동영상 ${added}개를 첨부했습니다.`);
+    if (errors.length) showDialog('첨부하지 못한 동영상', errors.slice(0, 5).join('\n') + (errors.length > 5 ? `\n외 ${errors.length - 5}건` : ''));
+    syncSubmit();
+  }
+
   function addFiles(files) {
     const room = Math.max(0, MAX_FILES - state.attachments.length);
     const selected = [...files].slice(0, room);
@@ -694,7 +868,7 @@
   document.addEventListener('click', (event) => {
     const button = event.target.closest('button');
     const action = button?.dataset.action;
-    const figure = getPhotoFigure(event.target);
+    const figure = getMediaFigure(event.target);
     if (figure) selectPhoto(figure.dataset.mediaId);
     else if (!event.target.closest('.tool-dialog,.photo-editor')) selectPhoto('');
     if (button?.dataset.tool) openTool(button.dataset.tool);
@@ -740,20 +914,23 @@
       details.hidden = expanded;
     }
     if (action === 'add-photo') photoInput.click();
+    if (action === 'choose-video') videoInput.click();
     if (action === 'add-file') fileInput.click();
     if (action === 'quote') runFormatCommand('formatBlock', 'blockquote');
     if (action === 'divider') runFormatCommand('insertHorizontalRule');
     if (action === 'add-body') body.focus();
-    if (action === 'set-cover' && figure) {
+    if (action === 'set-cover' && figure?.dataset.mediaKind === 'photo') {
       state.photos.forEach((photo) => { photo.cover = photo.id === figure.dataset.mediaId; syncPhotoElement(photo.id); });
       showToast('대표 사진으로 설정했습니다.');
     }
-    if (action === 'photo-width' && figure) { const photo = getPhoto(figure.dataset.mediaId); if (photo) { photo.widthMode = button.dataset.width; syncPhotoElement(photo.id); } }
-    if (action === 'photo-align' && figure) { const photo = getPhoto(figure.dataset.mediaId); if (photo) { photo.align = button.dataset.align; syncPhotoElement(photo.id); } }
-    if (action === 'photo-link' && figure) openTool('photo-link');
-    if (action === 'edit-photo' && figure) openPhotoEditor(figure.dataset.mediaId);
-    if (action === 'replace-photo' && figure) { state.replacePhotoId = figure.dataset.mediaId; replacePhotoInput.click(); }
-    if (action === 'remove-media' && figure) removePhoto(figure.dataset.mediaId);
+    if (action === 'photo-width' && figure) { const media = getMedia(figure.dataset.mediaId); if (media) { media.widthMode = button.dataset.width; state.photos.has(media.id) ? syncPhotoElement(media.id) : syncVideoElement(media.id); } }
+    if (action === 'photo-align' && figure) { const media = getMedia(figure.dataset.mediaId); if (media) { media.align = button.dataset.align; state.photos.has(media.id) ? syncPhotoElement(media.id) : syncVideoElement(media.id); } }
+    if (action === 'photo-link' && figure?.dataset.mediaKind === 'photo') openTool('photo-link');
+    if (action === 'video-link' && figure?.dataset.mediaKind === 'video') openTool('video-link');
+    if (action === 'edit-photo' && figure?.dataset.mediaKind === 'photo') openPhotoEditor(figure.dataset.mediaId);
+    if (action === 'replace-photo' && figure?.dataset.mediaKind === 'photo') { state.replacePhotoId = figure.dataset.mediaId; replacePhotoInput.click(); }
+    if (action === 'replace-video' && figure?.dataset.mediaKind === 'video') { state.replaceVideoId = figure.dataset.mediaId; replaceVideoInput.click(); }
+    if (action === 'remove-media' && figure) removeMedia(figure.dataset.mediaId);
     if (action === 'remove-attachment') { const index = Number(button.dataset.index); const [removed] = state.attachments.splice(index, 1); if (removed?.url) URL.revokeObjectURL(removed.url); renderAttachments(); }
     if (action === 'add-poll-option') {
       const pollOptions = qs('#pollOptions', toolDialogBody);
@@ -786,6 +963,7 @@
     if (action === 'restore-draft') restoreDraft();
     if (action === 'delete-draft') {
       (state.draft?.photos || []).forEach((photo) => deletePhotoBlob(photo.id).catch(() => {}));
+      (state.draft?.videos || []).forEach((video) => deleteVideoBlob(video.id).catch(() => {}));
       state.draft = null; localStorage.removeItem(draftKey); qs('#draftCount').textContent = '0'; draftContent.innerHTML = '<p>임시글이 없습니다.</p>';
       showToast('임시글을 삭제했습니다.');
     }
@@ -810,37 +988,42 @@
   toolApply.addEventListener('click', applyTool);
   photoInput.addEventListener('change', () => addPhotos(photoInput.files).catch(() => showToast('이미지를 읽지 못했습니다.')));
   replacePhotoInput.addEventListener('change', () => replacePhoto(replacePhotoInput.files[0]).catch(() => showDialog('교체 실패', '이미지를 읽지 못했습니다.')));
+  videoInput.addEventListener('change', () => {
+    closeTool();
+    addVideos(videoInput.files).catch(() => showToast('동영상을 읽지 못했습니다.'));
+  });
+  replaceVideoInput.addEventListener('change', () => replaceVideo(replaceVideoInput.files[0]).catch(() => showDialog('교체 실패', '동영상을 읽지 못했습니다.')));
   fileInput.addEventListener('change', () => addFiles(fileInput.files));
   body.addEventListener('input', (event) => {
-    if (event.target.classList?.contains('photo-caption')) {
-      const figure = getPhotoFigure(event.target);
-      const photo = figure && getPhoto(figure.dataset.mediaId);
-      if (photo) photo.caption = event.target.textContent.slice(0, 200);
+    if (event.target.classList?.contains('media-caption')) {
+      const figure = getMediaFigure(event.target);
+      const media = figure && getMedia(figure.dataset.mediaId);
+      if (media) media.caption = event.target.textContent.slice(0, 200);
     }
     syncSubmit();
   });
   document.addEventListener('selectionchange', rememberFormatRange);
   qs('.text-toolbar').addEventListener('pointerdown', rememberFormatRange);
   body.addEventListener('dragstart', (event) => {
-    const figure = getPhotoFigure(event.target);
+    const figure = getMediaFigure(event.target);
     if (!figure) return;
-    state.dragPhotoId = figure.dataset.mediaId;
+    state.dragMediaId = figure.dataset.mediaId;
     event.dataTransfer.effectAllowed = 'move';
-    event.dataTransfer.setData('text/plain', state.dragPhotoId);
+    event.dataTransfer.setData('text/plain', state.dragMediaId);
     figure.classList.add('is-dragging');
   });
-  body.addEventListener('dragend', () => { qsa('.is-dragging', body).forEach((item) => item.classList.remove('is-dragging')); state.dragPhotoId = ''; });
+  body.addEventListener('dragend', () => { qsa('.is-dragging', body).forEach((item) => item.classList.remove('is-dragging')); state.dragMediaId = ''; });
   body.addEventListener('dragover', (event) => {
-    if (state.dragPhotoId || [...(event.dataTransfer?.items || [])].some((item) => item.kind === 'file')) {
-      event.preventDefault(); event.dataTransfer.dropEffect = state.dragPhotoId ? 'move' : 'copy'; body.classList.add('is-drop-target');
+    if (state.dragMediaId || [...(event.dataTransfer?.items || [])].some((item) => item.kind === 'file')) {
+      event.preventDefault(); event.dataTransfer.dropEffect = state.dragMediaId ? 'move' : 'copy'; body.classList.add('is-drop-target');
     }
   });
   body.addEventListener('dragleave', (event) => { if (!body.contains(event.relatedTarget)) body.classList.remove('is-drop-target'); });
   body.addEventListener('drop', (event) => {
     event.preventDefault(); body.classList.remove('is-drop-target');
-    if (state.dragPhotoId) {
-      const moving = body.querySelector(`.editor-media[data-media-id="${CSS.escape(state.dragPhotoId)}"]`);
-      const target = getPhotoFigure(event.target);
+    if (state.dragMediaId) {
+      const moving = body.querySelector(`.editor-media[data-media-id="${CSS.escape(state.dragMediaId)}"]`);
+      const target = getMediaFigure(event.target);
       if (moving && target && moving !== target) {
         const movingSpacer = moving.nextElementSibling?.classList.contains('after-media') ? moving.nextElementSibling : null;
         const movingBlock = document.createDocumentFragment();
@@ -850,20 +1033,25 @@
         const targetRect = target.getBoundingClientRect();
         if (event.clientY < targetRect.top + targetRect.height / 2) target.before(movingBlock);
         else afterTarget.after(movingBlock);
-        showToast('사진 순서를 변경했습니다.');
+        showToast('미디어 순서를 변경했습니다.');
       }
-      state.dragPhotoId = '';
+      state.dragMediaId = '';
       return;
     }
-    const imageFiles = [...(event.dataTransfer?.files || [])].filter(isPhotoFile);
+    const droppedFiles = [...(event.dataTransfer?.files || [])];
+    const imageFiles = droppedFiles.filter(isPhotoFile);
+    const videoFiles = droppedFiles.filter(isVideoFile);
     if (imageFiles.length) addPhotos(imageFiles, 'drop');
-    else showToast('지원하는 이미지 파일을 끌어다 놓아주세요.');
+    if (videoFiles.length) addVideos(videoFiles, 'drop');
+    if (!imageFiles.length && !videoFiles.length) showToast('지원하는 이미지 또는 동영상 파일을 끌어다 놓아주세요.');
   });
   body.addEventListener('paste', (event) => {
     const imageFiles = [...(event.clipboardData?.items || [])].filter((item) => item.kind === 'file' && item.type.startsWith('image/')).map((item) => item.getAsFile()).filter(Boolean);
-    if (!imageFiles.length) return;
+    const videoFiles = [...(event.clipboardData?.items || [])].filter((item) => item.kind === 'file' && item.type.startsWith('video/')).map((item) => item.getAsFile()).filter(Boolean);
+    if (!imageFiles.length && !videoFiles.length) return;
     event.preventDefault();
-    addPhotos(imageFiles, 'paste');
+    if (imageFiles.length) addPhotos(imageFiles, 'paste');
+    if (videoFiles.length) addVideos(videoFiles, 'paste');
   });
   body.addEventListener('error', (event) => {
     const image = event.target;
@@ -913,8 +1101,8 @@
   }));
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') { closeBoard(); closeTool(); closePhotoEditor(); dialogOverlay.hidden = true; draftLayer.hidden = true; }
-    if ((event.key === 'Backspace' || event.key === 'Delete') && state.activePhotoId && !event.target.matches('input,textarea,[contenteditable="true"]')) {
-      event.preventDefault(); removePhoto(state.activePhotoId); showToast('사진을 삭제했습니다.');
+    if ((event.key === 'Backspace' || event.key === 'Delete') && state.activeMediaId && !event.target.matches('input,textarea,[contenteditable="true"]')) {
+      event.preventDefault(); removeMedia(state.activeMediaId); showToast('미디어를 삭제했습니다.');
     }
   });
   photoEditorOverlay.addEventListener('click', (event) => { if (event.target === photoEditorOverlay) closePhotoEditor(); });

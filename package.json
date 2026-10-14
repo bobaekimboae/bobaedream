@@ -46,6 +46,7 @@
     "community:verify:write-tools": "node scripts/community-write-tools-check.mjs",
     "community:verify:full-audit": "node scripts/community-write-full-audit-check.mjs",
     "community:verify:attachments": "node scripts/community-write-attachments-check.mjs",
+    "community:verify:video": "node scripts/community-write-video-check.mjs",
     "community:build:emoji": "node scripts/build-community-emoji-data.mjs",
     "community:verify:emoji": "node scripts/community-emoji-data-check.mjs"
   },
