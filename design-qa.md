@@ -28,6 +28,41 @@ final result: passed
 
 ---
 
+# Design QA · 차량 히스토리 건수 링크 (2026-10-14)
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/cb601674-78d6-4f91-b3d6-fd390eae26b3/1-1000018232.jpg`
+- implementation screenshot: Codex in-app browser tab 18 capture (tool output)
+- viewport: 384 × 820 CSS px
+- source pixels: 592 × 1280 px; focused region comparison으로 기기 크롬과 전체 화면 배율은 제외
+- state: BMW M3 상세 → 히스토리 → 이력·권리 정보
+
+## Comparison evidence
+
+- `수리이력 1건`, `사고이력 0건`을 기존 값과 동일한 16px/22px, 500 weight, `#222`로 유지했다.
+- 참고 화면처럼 값에만 1px 밑줄과 3px 오프셋을 적용했다.
+- 두 링크는 모두 차량번호를 포함한 통합 이력조회 경로로 연결된다.
+- 기존 44px 행 높이, 50:50 열, 회색 구분선과 그룹 간격은 변하지 않았다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 기존 차량 히스토리 값 토큰 상속, 차이 없음.
+- spacing/layout rhythm: 기존 행·열·구분선 유지.
+- colors/tokens: 브라우저 기본 파랑을 차단하고 `#222` 상속.
+- image quality/assets: 이미지·아이콘 변경 없음.
+- copy/content: 수리 1건, 사고 0건으로 건수형 표기.
+
+## Verification
+
+- 히스토리 탭 이동 확인.
+- 두 링크의 밑줄, 색상, 이력조회 URL 확인.
+- 키보드 초점 스타일 포함.
+- 콘솔 오류 0.
+- P0/P1/P2 findings: none.
+
+final result: passed
+
+---
+
 # Design QA · 차량 히스토리 초톳 행 구조 (2026-10-14)
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/9694c755-6097-4361-9ba1-55dff93bb383/1-1000018216.jpg`
