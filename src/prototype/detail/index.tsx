@@ -858,13 +858,12 @@ function WarrantyCard() {
   const currentYear = 2026;
 
   const manufacturerStatus = (years: number, distance: number) => {
-    if (!year || mileage === undefined) return { label: "보증 여부 확인 필요", progress: 0, active: false };
+    if (!year || mileage === undefined) return { label: "보증 여부 확인 필요", active: false };
     const remainingYears = year + years - currentYear;
     const remainingDistance = Math.max(0, distance - mileage);
-    if (remainingYears <= 0 || remainingDistance <= 0) return { label: "보증기간 종료", progress: 0, active: false };
-    if (!hasManufacturerWarranty) return { label: "보증 여부 확인 필요", progress: 0, active: false };
-    const progress = Math.max(8, Math.min(100, Math.round(Math.min(remainingYears / years, remainingDistance / distance) * 100)));
-    return { label: `약 ${remainingYears}년 / ${remainingDistance.toLocaleString("ko-KR")}km 남음`, progress, active: true };
+    if (remainingYears <= 0 || remainingDistance <= 0) return { label: "보증기간 종료", active: false };
+    if (!hasManufacturerWarranty) return { label: "보증 여부 확인 필요", active: false };
+    return { label: `약 ${remainingYears}년 / ${remainingDistance.toLocaleString("ko-KR")}km 남음`, active: true };
   };
 
   const bodyWarranty = manufacturerStatus(3, 60000);
@@ -896,24 +895,21 @@ function WarrantyCard() {
 
   return (
     <SectionCard
-      title="A/S 정보"
+      title="보증 정보"
       className="warranty-card"
     >
       <div className="warranty-box">
         <div className={bodyWarranty.active ? "is-active" : ""}>
-          <span>제조사 보증 <small>(차체/일반)</small></span>
+          <span>제조사 보증 <small>(차체·일반)</small></span>
           <strong>{bodyWarranty.label}</strong>
-          <i><b style={{ width: `${bodyWarranty.progress}%` }} /></i>
         </div>
         <div className={powertrainWarranty.active ? "is-active" : ""}>
-          <span>제조사 보증 <small>(엔진/주요)</small></span>
+          <span>제조사 보증 <small>(엔진·주요)</small></span>
           <strong>{powertrainWarranty.label}</strong>
-          <i><b style={{ width: `${powertrainWarranty.progress}%` }} /></i>
         </div>
         <div className={isDealer ? "is-active warranty-inspection" : "warranty-inspection"}>
           <button ref={inspectionTriggerRef} className="warranty-inspection-trigger" type="button" aria-haspopup="dialog" aria-expanded={inspectionOpen} onClick={openInspectionGuide}><span>성능·상태점검 보증 <QuestionMarkCircledIcon /></span></button>
           <strong>{inspectionLabel}</strong>
-          <i><b style={{ width: isDealer ? "100%" : "0%" }} /></i>
         </div>
       </div>
       {inspectionOpen ? <div className="warranty-inspection-overlay" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setInspectionOpen(false); }}>
@@ -1242,7 +1238,7 @@ function BikeVehicleDetail({ car, onBack }: { car: Car; onBack: () => void }) {
   );
 }
 
-const detailTabLabels: Record<string, string> = { "차량 설명": "설명", "차량 정보": "기본 정보", "차량 히스토리": "히스토리", "차량 옵션": "옵션", "보험 이력": "보험", "성능 점검": "점검", "A/S 정보": "보증정보", "판매 정보": "판매 정보", "동급매물": "동급" };
+const detailTabLabels: Record<string, string> = { "차량 설명": "설명", "차량 정보": "기본 정보", "차량 히스토리": "히스토리", "차량 옵션": "옵션", "보험 이력": "보험", "성능 점검": "점검", "보증 정보": "보증정보", "판매 정보": "판매 정보", "동급매물": "동급" };
 
 // 2026-10-14 좐좐식 상세 탭: 아래 카드들을 그대로 두고, 카드 제목을 읽어 탭을 만들고 누르면 그 카드로 이동한다. 스크롤하면 보고 있는 카드의 탭이 강조된다.
 function DetailTabs() {
