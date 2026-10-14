@@ -32,7 +32,7 @@
         <section class="page-heading" aria-label="게시물 정보">
           <div class="page-kicker">
             <span class="step-badge">1단계</span>
-            <span>이미지 · 동영상 블록</span>
+            <span>이미지 · 동영상 · 임베드 블록</span>
           </div>
           <div class="page-actions">
             <button class="page-action" type="button" data-action="add-image">
@@ -40,6 +40,9 @@
             </button>
             <button class="page-action" type="button" data-action="add-video">
               <img src="assets/write-parity/video.svg" alt="" />동영상 추가
+            </button>
+            <button class="page-action" type="button" data-action="add-embed">
+              <img src="assets/write-parity/link.svg" alt="" />임베드 추가
             </button>
           </div>
           <label class="sr-only" for="postTitle">게시물 제목</label>
@@ -90,6 +93,7 @@
         <p class="menu-label">미디어</p>
         <button type="button" role="menuitem" data-command="image"><img src="assets/write-parity/photo.svg" alt="" /><span><strong>이미지</strong><small>업로드하거나 링크로 삽입합니다</small></span></button>
         <button type="button" role="menuitem" data-command="video"><img src="assets/write-parity/video.svg" alt="" /><span><strong>동영상</strong><small>업로드하거나 링크로 삽입합니다</small></span></button>
+        <button type="button" role="menuitem" data-command="embed"><img src="assets/write-parity/link.svg" alt="" /><span><strong>임베드</strong><small>외부 콘텐츠를 페이지 안에 표시합니다</small></span></button>
         <button type="button" role="menuitem" data-command="divider"><img src="assets/write-parity/strike.svg" alt="" /><span><strong>구분선</strong><small>내용 사이를 나눕니다</small></span></button>
       </div>
 
@@ -117,6 +121,27 @@
             <input id="mediaUrl" type="url" inputmode="url" placeholder="https://" autocomplete="off" />
             <button id="embedButton" class="dialog-primary" type="button">링크 삽입</button>
           </div>
+        </form>
+      </dialog>
+
+      <dialog id="embedDialog" class="dialog-card" aria-labelledby="embedDialogTitle">
+        <form method="dialog">
+          <div class="dialog-header">
+            <div>
+              <span class="dialog-eyebrow">외부 콘텐츠</span>
+              <h2 id="embedDialogTitle">임베드 추가</h2>
+            </div>
+            <button class="icon-button" type="submit" value="cancel" aria-label="닫기"><img src="assets/write-parity/close.svg" alt="" /></button>
+          </div>
+          <label for="embedUrl">콘텐츠 URL</label>
+          <input id="embedUrl" type="url" inputmode="url" placeholder="https://" autocomplete="off" />
+          <fieldset class="embed-mode-fieldset">
+            <legend>표시 방식</legend>
+            <label><input type="radio" name="embedMode" value="auto" checked /><span><strong>자동 임베드</strong><small>지원 서비스는 플레이어로 표시합니다</small></span></label>
+            <label><input type="radio" name="embedMode" value="bookmark" /><span><strong>링크 카드</strong><small>원본 페이지로 이동하는 카드로 표시합니다</small></span></label>
+          </fieldset>
+          <p class="embed-support">YouTube, Vimeo, Spotify, SoundCloud, CodePen, Figma와 공개 임베드 주소를 지원합니다. 임베드를 막은 사이트는 링크 카드로 안전하게 표시됩니다.</p>
+          <button id="insertEmbedButton" class="dialog-primary" type="button">임베드 삽입</button>
         </form>
       </dialog>
 
