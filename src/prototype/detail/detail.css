@@ -527,7 +527,7 @@
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-price-badges { margin-top: 8px; }
 /* 지역 아이콘 = 노션 「위치(map-pin)_24_24」 AutoScout24 원본. 24px 상자를 x=12에 두어 핀 잉크 x=16, 글자는 x=40에 맞춘다. */
 .vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location { gap: 4px; }
-.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location img { content: url("/assets/bbm/autoscout24-location-be4a6dc3.svg"); width: 24px; height: 24px; margin: -2px 0 0 -4px; filter: none; opacity: 1; }
+.vehicle-summary.is-list-summary .bbm-result-card.is-mobile .bbm-card-location img { content: url("/assets/bbm/autoscout24-location-be4a6dc3-bbm.svg"); width: 24px; height: 24px; margin: -2px 0 0 -4px; filter: none; opacity: 1; }
 
 /* 판매자 정보 영역(2026-10-13): 초톳 상세의 판매자 카드(프사 48 · 이름 · 판매 대수)를 지역 줄 아래에 둔다. 평점·응답률은 데이터가 없어 넣지 않는다 */
 .detail-seller-info { display: flex; align-items: center; gap: 12px; margin: 0 16px 16px; padding: 4px 0 0; background: #fff; }
@@ -779,7 +779,7 @@
   font-size: 15px;
   line-height: 22px;
 }
-.detail-posted-line img { width: 20px; height: 20px; }
+.detail-posted-line img { width: 20px; height: 20px; transform: translateX(-1.5px); }
 .detail-seller-info {
   align-items: flex-start;
   gap: 12px;
