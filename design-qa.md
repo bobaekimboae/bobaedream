@@ -59,6 +59,59 @@ final result: passed
 
 ---
 
+# Design QA · 네이버 카페 게시글 목록 밀도 동일화 (2026-10-15)
+
+- source visual truth: `https://m.cafe.naver.com/ca-fe/bimmerwerks?tc=section_home_my_cafe`
+- source screenshot: `reports/naver-cafe-list-fidelity-1015/source-naver-393x852.png`
+- implementation screenshot: `reports/naver-cafe-list-fidelity-1015/implementation-393x852.png`
+- comparison sheet: `reports/naver-cafe-list-fidelity-1015/comparison-side-by-side.png`
+- viewport: 393 × 852 CSS px
+- state: 전체 게시글, 목록형, 초기 스크롤 위치
+
+## Full-view comparison evidence
+
+- 네이버 카페와 구현을 같은 393 × 852 기준으로 나란히 비교했다.
+- 서비스 고유 상단 영역은 유지하고 게시글 목록의 행 높이, 좌우 여백, 이미지·댓글 슬롯과 글자 위계를 동일화했다.
+- 구현 목록의 첫 행은 x=16px, 높이 86px이며 기준 화면과 동일하다.
+
+## Focused region comparison evidence
+
+- 제목 16/22px/400, 메타 14/19px/400으로 수정했다.
+- 썸네일 60 × 60px, 댓글 배지 46 × 60px, 모서리 12px를 확인했다.
+- 댓글 숫자 14/19px/600, 댓글 라벨 12/16px/400을 확인했다.
+- 공지 행 55px, 공지 배지 38.5 × 22px, 글쓰기 버튼 54 × 54px을 확인했다.
+
+## Comparison history
+
+### Pass 1 — blocked
+
+- P2: 제목이 15.5px, 메타가 13px, 댓글 라벨이 10.5px으로 기준보다 작았다.
+- P2: 공지 행 49px·밝은 공지 배지·글쓰기 버튼 60px으로 기준 밀도와 달랐다.
+
+### Pass 2 — passed
+
+- 위 수치를 기준 화면에 맞춘 뒤 동일 뷰포트로 다시 캡처했다.
+- 필터 전환, 보기방식 열기·닫기, 글쓰기 버튼 반응을 확인했다.
+- 가로 넘침 없음, 깨진 이미지 없음, 콘솔 오류 0건.
+
+## Required fidelity surfaces
+
+- fonts/typography: 제목·메타·댓글 숫자와 라벨의 크기, 행높이, 굵기 통과
+- spacing/layout rhythm: 목록 16px 시작축, 86px 행, 55px 공지 행 통과
+- colors/tokens: 짙은 공지 배지, 연회색 댓글 배지, 본문·보조색 통과
+- image quality/assets: 60px 썸네일의 비율과 12px 모서리 유지, 깨진 이미지 없음
+- copy/content: 기존 보배드림 커뮤니티 데이터와 카테고리 구조 유지
+
+## Verification
+
+- `npm run verify`: passed
+- `git diff --check`: passed
+- 콘솔 오류: 0건
+
+final result: passed
+
+---
+
 # Design QA · 판매자 페이지 3탭 평면화 (2026-10-15)
 
 - source visual truth (YouTube): `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/8ea69c42-2ca7-461a-8800-147ccaade0e1/1-1000018260.jpg`
