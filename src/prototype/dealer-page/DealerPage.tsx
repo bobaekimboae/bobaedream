@@ -270,7 +270,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
     setActiveSection(section);
     const root = scrollRef.current;
     const nav = root?.querySelector<HTMLElement>(".dp-anchor-nav");
-    if (root && nav && nav.getBoundingClientRect().top < 56) root.scrollTo({ top: nav.offsetTop - 56, behavior: "smooth" });
+    if (root && nav && nav.getBoundingClientRect().top < 50) root.scrollTo({ top: nav.offsetTop - 50, behavior: "smooth" });
   };
 
   return <div className="dp-root">

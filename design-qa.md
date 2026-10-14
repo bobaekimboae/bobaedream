@@ -118,6 +118,33 @@ final result: passed
 
 ---
 
+# Design QA · 유튜브 헤더·프로필 축 정밀 조정 (2026-10-15)
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/f53ec7ce-b4f4-4ca5-b5ae-dce638bdddbc/1-1000018254.jpg`
+- implementation screenshot: Codex IAB capture `dealer-youtube-header-avatar-spacing-2026-10-15`
+- source normalization: 591px 원본을 394 CSS px 기준으로 대조
+- implementation viewport: 394 × 852 CSS px
+
+## Focused comparison evidence
+
+- 모바일 앱 헤더를 50px로 맞추고 배너의 상단 여백을 제거해 유튜브 원본처럼 헤더 바로 아래에서 시작하게 했다.
+- 배너는 x=16px, y=50px, 351.2 × 100px으로 측정됐다.
+- 프로필 사진은 x=16px, y=164px, 72 × 72px이며 배너 하단과 14px 간격이다.
+- 판매자명은 x=108px, y=164px에서 시작해 프로필 사진의 상단축과 정확히 일치한다.
+- 프로필 사진과 판매자명 사이 간격은 20px으로 유튜브 원본의 정규화 치수와 일치한다.
+
+## Verification
+
+- 모바일 가로 넘침 0px.
+- 헤더·배너·프로필 사진·판매자명 DOM 실측 통과.
+- PC 헤더 64px 규격과 데스크톱 프로필 레이아웃은 유지.
+- `npm run verify:qf`: passed.
+- P0/P1/P2 findings: none.
+
+final result: passed
+
+---
+
 # Design QA · 게시물 등록 본문 포커스 선·게시판·말머리·투표 (2026-10-15)
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/d89e79e2-5c6c-4318-a35d-bc6b28e9988d/1-1000018270.jpg`

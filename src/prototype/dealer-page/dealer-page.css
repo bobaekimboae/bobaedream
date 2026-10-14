@@ -14,8 +14,8 @@
 .dp-icon { display: block; width: 24px; height: 24px; flex: none; object-fit: contain; }
 .dp-scroll { position: absolute; inset: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
 
-.dp-site-header { position: sticky; top: 0; z-index: 30; height: 56px; background: #fff; box-shadow: none; }
-.dp-mobile-channel-head { display: flex; align-items: center; justify-content: space-between; height: 56px; padding: 0 14px; }
+.dp-site-header { position: sticky; top: 0; z-index: 30; height: 50px; background: #fff; box-shadow: none; }
+.dp-mobile-channel-head { display: flex; align-items: center; justify-content: space-between; height: 50px; padding: 0 14px; }
 .dp-mobile-channel-head > button, .dp-mobile-channel-head > div > button { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; }
 .dp-mobile-channel-head > button img { display: block; width: 28px; height: 28px; object-fit: contain; }
 .dp-mobile-channel-head > div { display: flex; align-items: center; gap: 2px; }
@@ -36,7 +36,7 @@
 
 .dp-page { width: 100%; margin: 0 auto; background: #fff; }
 .dp-profile { background: #fff; }
-.dp-cover { position: relative; height: 100px; margin: 8px 16px 0; overflow: hidden; border-radius: 12px; background: #15264c; }
+.dp-cover { position: relative; height: 100px; margin: 0 16px; overflow: hidden; border-radius: 12px; background: #15264c; }
 .dp-cover-photo { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 52%; }
 .dp-cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,18,42,.94), rgba(8,31,66,.66) 56%, rgba(7,22,49,.14)); }
 .dp-cover-brand { position: absolute; z-index: 1; left: 22px; top: 50%; transform: translateY(-50%); min-width: 208px; padding: 9px 13px 8px; border: 1px solid rgba(255,255,255,.3); border-radius: 8px; background: linear-gradient(135deg,rgba(10,27,57,.72),rgba(10,27,57,.22)); box-shadow: 0 8px 24px rgba(0,0,0,.2); color: #fff; text-align: left; text-shadow: 0 1px 2px rgba(0,0,0,.35); white-space: nowrap; backdrop-filter: blur(4px); }
@@ -46,8 +46,8 @@
 .dp-cover > span { display: none; position: absolute; z-index: 2; right: 16px; bottom: 16px; padding: 5px 10px; border-radius: 6px; background: rgba(34,34,34,.66); color: #fff; font-size: 12px; line-height: 18px; }
 .dp-cover-more { position: absolute; z-index: 2; top: 12px; right: 12px; display: none; place-items: center; width: 36px; height: 36px; border-radius: 50% !important; background: rgba(255,255,255,.94) !important; }
 .dp-cover-more .dp-icon { width: 20px; height: 20px; }
-.dp-profile-body { position: relative; display: grid; grid-template-columns: 76px minmax(0, 1fr); column-gap: 14px; padding: 14px 20px 18px; }
-.dp-avatar { position: static; z-index: 2; grid-column: 1; grid-row: 1 / span 4; align-self: start; width: 76px; height: 76px; border: 2px solid #fff; border-radius: 50%; object-fit: cover; background: var(--dp-bg); box-shadow: 0 0 0 1px #dedede, 0 4px 14px rgba(0,0,0,.1); }
+.dp-profile-body { position: relative; display: grid; grid-template-columns: 72px minmax(0, 1fr); column-gap: 20px; padding: 14px 16px 18px; }
+.dp-avatar { position: static; z-index: 2; grid-column: 1; grid-row: 1 / span 4; align-self: start; width: 72px; height: 72px; border: 2px solid #fff; border-radius: 50%; object-fit: cover; background: var(--dp-bg); box-shadow: 0 0 0 1px #dedede, 0 4px 14px rgba(0,0,0,.1); }
 .dp-profile-copy { display: contents; }
 .dp-profile-copy h1 { display: flex; grid-column: 2; grid-row: 1; align-self: start; align-items: center; gap: 5px; font-size: 22px; line-height: 28px; font-weight: 700; letter-spacing: -.3px; }
 .dp-profile-copy h1 .is-badge { width: 18px; height: 18px; }
@@ -120,7 +120,7 @@
 .dp-sold-card h3 { margin-top: 4px; font-size: 14px; line-height: 21px; font-weight: 500; }
 .dp-sold-card time { display: block; margin-top: 5px; color: #999; font-size: 12px; line-height: 18px; }
 
-.dp-anchor-nav { position: sticky; top: 56px; z-index: 20; display: flex; justify-content: center; height: 52px; margin-top: 0; padding: 0 16px; border-bottom: 1px solid var(--dp-line); background: #fff; }
+.dp-anchor-nav { position: sticky; top: 50px; z-index: 20; display: flex; justify-content: center; height: 52px; margin-top: 0; padding: 0 16px; border-bottom: 1px solid var(--dp-line); background: #fff; }
 .dp-anchor-nav button { position: relative; flex: 1 1 0; max-width: 176px; height: 52px; color: #666; font-size: 14px; line-height: 20px; font-weight: 500; white-space: nowrap; }
 .dp-anchor-nav button::after { content: ""; position: absolute; right: 12px; bottom: -1px; left: 12px; height: 2px; background: transparent; }
 .dp-anchor-nav button.is-active { color: var(--dp-ink); font-weight: 700; }
