@@ -89,6 +89,45 @@ final result: passed
 
 ---
 
+# Design QA · 유튜브형 판매자 헤더 (2026-10-15)
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/85756e7f-78bb-4563-8ce5-863efac3a1c0/1-1000018254.jpg`
+- implementation screenshot: Codex IAB capture `dealer-youtube-header-mobile-2026-10-15`
+- viewport: 393 × 852 CSS px, DPR 1
+- state: 강홍구 딜러 판매자 페이지, 팔로잉 상태
+
+## Full-view comparison evidence
+
+- 모바일 상단을 64px 앱 바의 뒤로가기·검색·더보기 구조로 바꿔 유튜브 채널 헤더의 정보 밀도를 맞췄다.
+- 배너를 좌우 16px, 12px 모서리로 배치하고 프로필 사진을 배너 밖으로 분리했다.
+- 112px 원형 프로필 사진 오른쪽 첫 줄에 판매자명과 인증 배지를 배치했다.
+- 평점·팔로워·응답률은 이름 아래, 지역·딜러 경력은 다음 줄, 공유·팔로우는 전체 폭 행동 영역으로 정리했다.
+- PC 1440 × 1000에서 기존 보배드림 헤더와 5열 매물 레이아웃이 유지되는 것을 확인했다.
+
+## Focused region comparison evidence
+
+- 상단 앱 바와 프로필 블록을 집중 비교했다. 참고 화면의 44px 터치 영역, 배너 여백, 원형 프로필과 이름의 수평 관계를 구현했다.
+- 원본 유튜브의 채널 고유 텍스트 대신 자동차 판매자에게 필요한 평점·팔로워·응답률을 유지한 것은 의도된 콘텐츠 차이다.
+
+## Findings
+
+- P0/P1/P2 findings: none.
+- fonts/typography: Pretendard 24/32px 판매자명과 14/22px 보조 정보가 계층을 유지한다.
+- spacing/layout rhythm: 16px 페이지 여백, 18px 프로필 열 간격, 46px 행동 버튼을 확인했다.
+- colors/tokens: 흰 배경, `#222` 본문, `#f2f2f2` 팔로우 버튼으로 참고 화면의 중립 톤을 따른다.
+- image quality/assets: 기존 서울오토갤러리 배너와 딜러 프로필 원본을 재사용하고 실제 SVG 아이콘만 사용했다.
+- copy/content: 판매자명 `강홍구`, 위치, 경력, 팔로워, 평점 데이터를 보존했다.
+
+## Interaction and browser verification
+
+- 팔로우 → 팔로잉 전환과 팔로워 426 → 427 갱신 확인.
+- 모바일·PC 브라우저 렌더 확인.
+- 콘솔 오류 0건.
+
+final result: passed
+
+---
+
 # Design QA · 초톳형 딜러 판매자 페이지 (2026-10-15)
 
 - source visual truth: `https://www.chotot.com/user/182c9bf8014956c591f7579852308956`

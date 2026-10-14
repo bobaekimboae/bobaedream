@@ -57,6 +57,13 @@ function Stars({ score }: { score: number }) {
 
 function SiteHeader() {
   return <header className="dp-site-header">
+    <div className="dp-mobile-channel-head">
+      <button type="button" aria-label="뒤로가기" onClick={() => window.history.back()}><img src={asset("detail/back.svg")} alt="" aria-hidden="true" /></button>
+      <div>
+        <button type="button" aria-label="판매자 매물 검색"><Icon name="chotot-common-search-thin-line.svg" /></button>
+        <button type="button" aria-label="판매자 메뉴"><Icon name="chotot-common-more.svg" /></button>
+      </div>
+    </div>
     <div className="dp-site-main">
       <button type="button" className="dp-site-menu" aria-label="전체 메뉴"><Icon name="chotot-common-menu.svg" /></button>
       <a className="dp-wordmark" href="./" aria-label="보배드림 홈">
