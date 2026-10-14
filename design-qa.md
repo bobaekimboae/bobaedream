@@ -2207,3 +2207,32 @@ final result: passed
 The v4 QA section titled `치지직 상세 · 실제 원본 글 8326278 및 PC 반응형 v4 QA` supersedes the v3 desktop-shell note above. The effective PC shell is 1060px, the default/source post id is 8326278, and Reddit-style vote/comment controls are left aligned with share on the right.
 
 final result: passed
+
+---
+
+# 치지직 상세 · Notion 아이콘·원본 프로필 자산 v5 QA · 2026-10-15
+
+- source visual truth: `https://m.game.naver.com/lounge/chzzk/board/detail/8326278`
+- icon source: 사용자 제공 Notion `미국_레딧` 아이콘 데이터베이스
+- implementation: `public/community/chzzk-detail.html?id=8326278`
+- viewports: 모바일 394 × 852 CSS px, PC 1440 × 1000 CSS px
+- scope: 치지직 전용 상세페이지만 변경; 네이버 카페 상세는 미변경
+
+## Cross-check evidence
+
+- 실제 치지직 API와 렌더 자산에서 쿠로토라 프로필, 꼬부기 댓글 프로필 GIF, 본문 출첵 고양이, 답글 야호 고양이를 직접 대조해 원본 파일로 교체했다.
+- 모바일 표시 크기는 실제 치지직 측정값에 맞췄다: 작성자 38px, 댓글·답글 프로필 30px, 본문 스티커 139 × 120px, 답글 스티커 96 × 83px.
+- 모바일 핵심 좌표는 원본과 일치한다: 상단 바 48px, 제목 시작 y=154px, 제목 18/24px, 본문 스티커 시작 y=257px(원본 251.4px, 5.6px 차이).
+- 닫기·저장·더보기·버프·너프·댓글·공유·새로고침·필터·설정·맨 위로·카메라·스티커·잠금 아이콘을 Notion 원본 벡터 경로로 치지직 전용 폴더에 분리했다.
+- 버프는 추천(엄지 위), 너프는 비추천(엄지 아래) 의미를 유지하고 Reddit식 좌측 반응 배치·우측 공유 배치를 보존했다.
+- Airbnb 상호작용 색상은 선택 시 `#E00B41` / `#FFF1F4`로 유지했다.
+
+## Verification
+
+- 모바일: 가로 넘침 없음, 깨진 이미지 0건, 콘솔 warning/error 0건.
+- PC: 1060px 중앙 셸, 가로 넘침 없음, 깨진 이미지 0건.
+- 상호작용: 버프 16→17, 너프 전환 17→15, 댓글 2→3 통과.
+- `npm run verify`: 관리자 29건, Sites 4건, 타입 검사·프로덕션 빌드 전체 통과.
+- P0/P1/P2 findings: none.
+
+final result: passed

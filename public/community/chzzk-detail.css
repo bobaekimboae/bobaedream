@@ -179,29 +179,80 @@ body.isNotice .latestCard { margin-top: 24px; }
 
 @media (max-width: 600px) {
   html, body { background: #fff; }
-  .pageShell { max-width: none; box-shadow: none; }
-  .topBar { height: 62px; grid-template-columns: 60px 1fr 102px; }
-  .brand { font-size: 23px; }
-  .eventBar { min-height: 65px; padding: 10px 23px; }
-  .eventBar strong { font-size: 18px; }
-  .post { padding: 24px 23px 0; }
-  .postTitle { margin: 27px 0 21px; font-size: 24px; }
-  .authorAvatar { width: 54px; height: 54px; }
-  .postBody { min-height: 310px; padding-top: 34px; }
-  .heroSticker { width: 270px; margin-left: 2px; }
-  .tagRow { margin-top: 18px; }
-  .tagRow button { min-height: 40px; padding: 0 13px; font-size: 16px; }
-  .reactionRow { min-height: 88px; gap: 8px; }
+  .pageShell { max-width: none; padding-bottom: 60px; box-shadow: none; }
+  .topBar { height: 48px; grid-template-columns: 48px 1fr 88px; }
+  .brand { font-size: 18px; letter-spacing: -.03em; }
+  .iconButton { width: 44px; height: 48px; }
+  .iconButton img { width: 20px; height: 20px; }
+  .closeButton { margin-left: 0; }
+  .headerActions { padding-right: 0; }
+  .eventBar { min-height: 56px; gap: 8px; padding: 8px 15px; }
+  .eventIcon { width: 26px; height: 26px; border-radius: 7px; }
+  .eventIcon img { width: 18px; height: 18px; }
+  .eventBar strong { font-size: 14px; font-weight: 650; }
+  .post { padding: 5px 15px 0; }
+  .boardLink { height: 38px; gap: 4px; font-size: 14px; }
+  .boardLink img { width: 11px; height: 11px; }
+  .postTitle { margin: 7px 0 8px; font-size: 18px; line-height: 24px; }
+  .authorRow { gap: 10px; }
+  .authorAvatar { width: 38px; height: 38px; }
+  .authorText { gap: 2px; font-size: 14px; line-height: 17px; }
+  .authorMeta { gap: 4px; font-size: 12px; line-height: 15px; }
+  .viewCount { gap: 3px; }
+  .viewCount img { width: 16px; height: 16px; }
+  .postDivider { margin-top: 12px; }
+  .postBody { min-height: 0; padding-top: 20px; }
+  .heroSticker { width: 139px; margin: 0 0 12px; }
+  .postBody p { font-size: 15px; line-height: 21px; font-weight: 500; }
+  .tagRow { gap: 8px; margin-top: 16px; }
+  .tagRow button { min-height: 32px; padding: 0 10px; border-radius: 7px; font-size: 13px; }
+  .reactionRow { min-height: 70px; gap: 8px; }
   .votePill, .roundAction { height: 40px; }
   .voteButton { height: 38px; padding: 0 8px; }
-  .latestCard { margin: 23px; padding: 24px 22px; border-radius: 20px; }
-  .comments { padding: 15px 23px 0; }
-  .commentTitle strong { font-size: 21px; }
-  .commentItem { grid-template-columns: 46px minmax(0, 1fr); gap: 10px; }
-  .commentAvatar { width: 46px; height: 46px; }
-  .miniVotes button { min-width: 54px; padding: 0 6px; }
-  .noticePost { padding: 34px 23px 0; }
-  .noticeCopy { min-height: 370px; font-size: 20px; }
+  .promoBanner img { height: 86px; min-height: 0; object-fit: cover; }
+  .latestCard { margin: 15px; padding: 18px; border-radius: 14px; }
+  .latestHead { margin-bottom: 8px; font-size: 15px; }
+  .latestHead button { font-size: 13px; }
+  .latestItem { min-height: 32px; padding-left: 17px; font-size: 15px; }
+  .comments { padding: 10px 15px 0; }
+  .commentHead { height: 48px; }
+  .commentTitle { gap: 5px; }
+  .commentTitle strong { font-size: 15px; }
+  .commentTitle button, .filterButton { width: 32px; height: 32px; }
+  .commentTitle img, .filterButton img { width: 20px; height: 20px; }
+  .cleanBot { min-height: 40px; padding: 0 10px; border-radius: 9px; font-size: 13px; }
+  .botIcon { width: 24px; height: 24px; margin-right: 7px; }
+  .botIcon img { width: 16px; height: 16px; }
+  .cleanBot > button { width: 32px; height: 32px; }
+  .cleanBot > button img { width: 17px; height: 17px; }
+  .commentItem { grid-template-columns: 30px minmax(0, 1fr); gap: 10px; padding: 20px 0 12px; }
+  .commentAvatar { width: 30px; height: 30px; }
+  .commentAuthor { gap: 5px; }
+  .commentAuthor strong { font-size: 13px; }
+  .commentAuthor span, .replyAuthor span { font-size: 12px; }
+  .commentAuthor button { width: 30px; height: 30px; }
+  .commentAuthor button img { width: 18px; height: 18px; }
+  .commentContent > p { margin: 7px 0 8px; font-size: 15px; }
+  .commentTools, .nestedTools { min-height: 34px; gap: 10px; font-size: 12px; }
+  .miniVotes button { min-width: 46px; height: 32px; padding: 0 6px; font-size: 11px; }
+  .miniVotes button img { width: 18px; height: 18px; }
+  .miniVotes b { min-width: 24px; }
+  .nestedReply { grid-template-columns: 30px minmax(0, 1fr); gap: 10px; margin-top: 16px; }
+  .replyAvatar { width: 30px; height: 30px; }
+  .replyAuthor strong { font-size: 13px; }
+  .nestedReply a { margin-top: 6px; font-size: 15px; }
+  .replySticker { width: 96px; margin-top: 8px; }
+  .toTop { height: 64px; gap: 8px; font-size: 14px; }
+  .toTop span { width: 34px; height: 34px; }
+  .toTop img { width: 20px; height: 20px; }
+  .composer { height: 60px; grid-template-columns: 44px 1fr 36px 36px 44px; padding: 6px 8px calc(6px + env(safe-area-inset-bottom)); }
+  .composer > button { width: 36px; height: 36px; }
+  .composer > button img { width: 24px; height: 24px; }
+  .composer input { height: 42px; padding: 0 14px; font-size: 14px; }
+  .composer.isDisabled { grid-template-columns: 44px 1fr 36px 36px 44px; }
+  .toast { bottom: 72px; }
+  .noticePost { padding: 24px 15px 0; }
+  .noticeCopy { min-height: 310px; font-size: 16px; }
 }
 
 @media (min-width: 761px) {
