@@ -217,8 +217,15 @@ function carFactGroups(car: Car): VehicleFactGroup[] {
     {
       title: "차량 히스토리",
       rows: [
-        ["출고일", NO_INFO], ["생산 국가", origin],
-        ["정식/직수입 여부", NO_INFO], ["구입 딜러", NO_INFO],
+        ["출고일", NO_INFO],
+        ["주행거리", car.filter?.mileage ? `${car.filter.mileage.toLocaleString("ko-KR")}km` : NO_INFO],
+        ["소유자 변경", fd?.insurance ? `${fd.insurance.owners}회` : NO_INFO],
+        ["출고가격(옵션 포함)", NO_INFO],
+        ["출고가격(옵션 미포함)", NO_INFO],
+        ["압류/저당", NO_INFO],
+        ["생산 국가", origin],
+        ["정식/직수입 여부", NO_INFO],
+        ["구입 딜러", NO_INFO],
       ],
     },
   ];
