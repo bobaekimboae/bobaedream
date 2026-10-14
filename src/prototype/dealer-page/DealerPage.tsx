@@ -122,22 +122,18 @@ function SiteHeader() {
 }
 
 function DealerProfile({ dealer, listingCount, following, setFollowing, share }: { dealer: SeoulAutoGalleryDealer; listingCount: number; following: boolean; setFollowing: (value: boolean) => void; share: () => void }) {
-  const team = dealers.filter((item) => item.shopNo === "450554");
-
   return <section className="dp-profile">
     <div className="dp-cover">
-      <div className="dp-cover-team" role="img" aria-label="투제이모터웍스 소속 딜러 김태규, 김민석, 박명주, 이민규">
-        <div className="dp-cover-brand-copy">
-          <small>SEOUL AUTO GALLERY</small>
-          <strong>2J MOTORWORKS</strong>
-          <span>정확한 정보, 투명한 상담</span>
-        </div>
-        <div className="dp-cover-portraits" aria-hidden="true">
-          {team.map((member) => <figure key={member.empNo} className={member.empNo === "4" ? "is-placeholder" : undefined}>
-            <img src={dealerPhoto(member)} alt="" draggable={false} />
-            <figcaption>{member.name}</figcaption>
-          </figure>)}
-        </div>
+      <img
+        className="dp-cover-photo"
+        src={asset("dealer-profile/twoj-motorworks/import-luxury-hero-v01.png")}
+        alt="프리미엄 수입차 전시장"
+        draggable={false}
+      />
+      <div className="dp-cover-brand-copy">
+        <small>SEOUL AUTO GALLERY</small>
+        <strong>2J MOTORWORKS</strong>
+        <span>프리미엄 수입차 전문</span>
       </div>
       <span>{MOCK.lastActive}</span>
       <button type="button" className="dp-cover-more" aria-label="판매자 메뉴"><Icon name="chotot-common-more.svg" /></button>

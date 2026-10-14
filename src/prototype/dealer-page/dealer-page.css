@@ -37,18 +37,13 @@
 .dp-page { width: 100%; margin: 0 auto; background: #fff; }
 .dp-profile { background: #fff; }
 .dp-cover { position: relative; aspect-ratio: 18 / 5; height: auto; margin: 0 16px; overflow: hidden; border-radius: 12px; background: #15264c; }
-.dp-cover::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 30% 0, rgba(85,143,216,.32), transparent 38%), linear-gradient(120deg, #101d35 0%, #1d3b66 54%, #0f192b 100%); }
-.dp-cover::after { content: ""; position: absolute; inset: 0; border: 1px solid rgba(255,255,255,.15); border-radius: inherit; pointer-events: none; }
-.dp-cover-team { position: relative; z-index: 1; display: flex; height: 100%; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; }
-.dp-cover-brand-copy { display: flex; min-width: 0; flex-direction: column; color: #fff; }
+.dp-cover::before { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(4,10,20,.9) 0%, rgba(6,14,27,.64) 35%, rgba(7,15,28,.14) 70%), linear-gradient(0deg, rgba(4,9,18,.28), transparent 58%); pointer-events: none; }
+.dp-cover::after { content: ""; position: absolute; z-index: 3; inset: 0; border: 1px solid rgba(255,255,255,.15); border-radius: inherit; pointer-events: none; }
+.dp-cover-photo { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 59% 54%; }
+.dp-cover-brand-copy { position: absolute; z-index: 2; top: 50%; left: 12px; display: flex; min-width: 0; max-width: 46%; flex-direction: column; color: #fff; transform: translateY(-50%); text-shadow: 0 2px 14px rgba(0,0,0,.46); }
 .dp-cover-brand-copy small { overflow: hidden; color: #a9c6e9; font-size: 8px; line-height: 12px; font-weight: 700; letter-spacing: 1px; white-space: nowrap; }
 .dp-cover-brand-copy strong { overflow: hidden; margin-top: 1px; font-size: 15px; line-height: 19px; font-weight: 800; letter-spacing: -.25px; white-space: nowrap; }
 .dp-cover-brand-copy span { overflow: hidden; margin-top: 2px; color: rgba(255,255,255,.72); font-size: 9px; line-height: 13px; white-space: nowrap; }
-.dp-cover-portraits { display: flex; min-width: 0; align-items: center; gap: 5px; }
-.dp-cover-portraits figure { width: 38px; margin: 0; }
-.dp-cover-portraits img { display: block; width: 38px; height: 38px; border: 1px solid rgba(255,255,255,.72); border-radius: 50%; background: #fff; object-fit: cover; object-position: center 24%; box-shadow: 0 4px 12px rgba(0,0,0,.28); }
-.dp-cover-portraits figure.is-placeholder img { padding: 5px; background: #e9edf3; object-fit: contain; opacity: .92; }
-.dp-cover-portraits figcaption { overflow: hidden; margin-top: 2px; color: rgba(255,255,255,.9); font-size: 8px; line-height: 10px; font-weight: 600; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
 .dp-cover > span { display: none; position: absolute; z-index: 2; right: 16px; bottom: 16px; padding: 5px 10px; border-radius: 6px; background: rgba(34,34,34,.66); color: #fff; font-size: 12px; line-height: 18px; }
 .dp-cover-more { position: absolute; z-index: 2; top: 12px; right: 12px; display: none; place-items: center; width: 36px; height: 36px; border-radius: 50% !important; background: rgba(255,255,255,.94) !important; }
 .dp-cover-more .dp-icon { width: 20px; height: 20px; }
@@ -264,14 +259,11 @@
   .dp-page { max-width: 1184px; padding-top: 12px; }
   .dp-profile, .dp-content-card { overflow: hidden; }
   .dp-cover { aspect-ratio: 6 / 1; height: auto; margin: 0; border-radius: 12px; }
-  .dp-cover-team { gap: 40px; padding: 20px 46px; }
+  .dp-cover-photo { object-position: 58% 56%; }
+  .dp-cover-brand-copy { left: 46px; max-width: 38%; }
   .dp-cover-brand-copy small { font-size: 12px; line-height: 17px; letter-spacing: 1.8px; }
   .dp-cover-brand-copy strong { margin-top: 2px; font-size: 31px; line-height: 38px; letter-spacing: -.6px; }
   .dp-cover-brand-copy span { margin-top: 5px; font-size: 14px; line-height: 20px; }
-  .dp-cover-portraits { gap: 14px; padding-right: 66px; }
-  .dp-cover-portraits figure { width: 88px; }
-  .dp-cover-portraits img { width: 88px; height: 88px; border-width: 2px; box-shadow: 0 8px 22px rgba(0,0,0,.32); }
-  .dp-cover-portraits figcaption { margin-top: 5px; font-size: 12px; line-height: 16px; }
   .dp-cover > span { display: block; right: 58px; }
   .dp-cover-more { display: grid; }
   .dp-profile-body { display: block; min-height: 198px; padding: 18px 20px 20px 178px; }
