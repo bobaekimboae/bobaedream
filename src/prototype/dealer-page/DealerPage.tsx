@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { CheckIcon, PlusIcon } from "@radix-ui/react-icons";
+import { CheckIcon, ExternalLinkIcon, PlusIcon } from "@radix-ui/react-icons";
 import { FlowStack, type FlowScreen } from "../../mobile";
 import { DetailFooter, DetailUiProvider, VehicleDetail } from "../detail";
 import { FavoritesProvider, asset, seoulAutoGalleryCars, setActiveDetailCar, type Car } from "../data";
@@ -13,7 +13,7 @@ const icon = (name: string) => `${publicBase}icons/chotot/${name}`;
 const dealerIcon = (name: string) => `${publicBase}icons/dealer-profile/${name}.svg`;
 const bobaeAsset = (name: string) => asset(`pc-detail/${name}`);
 
-type SectionId = "intro" | "ads" | "rating";
+type SectionId = "intro" | "ads" | "rating" | "location";
 type ListingMode = "active" | "sold";
 type ReviewFilter = "all" | "buyer" | "seller";
 
@@ -69,6 +69,14 @@ const SOCIAL_CHANNELS = [
   { id: "youtube", label: "유튜브", description: "차량 영상", href: "https://www.youtube.com/results?search_query=%ED%88%AC%EC%A0%9C%EC%9D%B4%EB%AA%A8%ED%84%B0%EC%9B%8D%EC%8A%A4" },
   { id: "instagram", label: "인스타그램", description: "신규 매물", href: "https://www.instagram.com/explore/tags/%ED%88%AC%EC%A0%9C%EC%9D%B4%EB%AA%A8%ED%84%B0%EC%9B%8D%EC%8A%A4/" },
   { id: "tiktok", label: "틱톡", description: "숏폼 영상", href: "https://www.tiktok.com/search?q=%ED%88%AC%EC%A0%9C%EC%9D%B4%EB%AA%A8%ED%84%B0%EC%9B%8D%EC%8A%A4" },
+] as const;
+
+const encodedAddress = encodeURIComponent(MOCK.address);
+const LOCATION_LINKS = [
+  { id: "walk", icon: "🚶", label: "도보", description: "도보 길찾기", href: `https://www.google.com/maps/dir/?api=1&destination=${encodedAddress}&travelmode=walking` },
+  { id: "subway", icon: "🚇", label: "지하철", description: "가까운 역 찾기", href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${MOCK.address} 가까운 지하철역`)}` },
+  { id: "bus", icon: "🚌", label: "버스", description: "정류장 찾기", href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${MOCK.address} 버스정류장`)}` },
+  { id: "car", icon: "🚗", label: "차량", description: "차량 길찾기", href: `https://www.google.com/maps/dir/?api=1&destination=${encodedAddress}&travelmode=driving` },
 ] as const;
 
 function Icon({ name, className }: { name: string; className?: string }) {
@@ -202,7 +210,7 @@ function ListingsSection({ cars, mode, setMode, onOpen }: { cars: Car[]; mode: L
 }
 
 function AnchorNav({ active, onChange }: { active: SectionId; onChange: (section: SectionId) => void }) {
-  const items: Array<[SectionId, string]> = [["ads", "판매차량"], ["rating", "리뷰"], ["intro", "소개"]];
+  const items: Array<[SectionId, string]> = [["ads", "판매차량"], ["rating", "리뷰"], ["intro", "소개"], ["location", "위치"]];
   return <nav className="dp-anchor-nav" aria-label="판매자 페이지 구역" role="tablist">{items.map(([id, label]) => <button key={id} type="button" role="tab" aria-selected={active === id} className={active === id ? "is-active" : ""} onClick={() => onChange(id)}>{label}</button>)}</nav>;
 }
 
@@ -262,6 +270,27 @@ function AboutSection({ notify }: { notify: (message: string) => void }) {
   </section>;
 }
 
+function LocationSection() {
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+  return <section className="dp-content-card dp-location-section">
+    <h2>찾아오시는 길</h2>
+    <a className="dp-location-address" href={mapsUrl} target="_blank" rel="noreferrer">
+      <span className="dp-location-pin"><Icon name="chotot-profile-location.svg" /></span>
+      <span><b>{MOCK.company}</b><small>{MOCK.address}</small></span>
+      <ExternalLinkIcon aria-hidden="true" />
+    </a>
+    <h3>교통편</h3>
+    <div className="dp-route-grid">
+      {LOCATION_LINKS.map((route) => <a key={route.id} href={route.href} target="_blank" rel="noreferrer" aria-label={`${route.label} ${route.description} Google 지도에서 열기`}>
+        <span className="dp-route-icon" aria-hidden="true">{route.icon}</span>
+        <span><b>{route.label}</b><small>{route.description}</small></span>
+        <ExternalLinkIcon aria-hidden="true" />
+      </a>)}
+    </div>
+    <p className="dp-location-note">길찾기는 Google 지도에서 열리며 출발지는 현재 위치에서 설정할 수 있습니다.</p>
+  </section>;
+}
+
 function Footer() {
   return <footer className="dp-footer"><div className="dp-footer-brand"><img src={bobaeAsset("9546-imgLogo.svg")} alt="보배드림" /><span>믿을 수 있는 자동차 거래</span></div><div className="dp-footer-links"><span>회사소개</span><span>이용약관</span><span>개인정보처리방침</span><span>고객센터</span></div><small>© BOBae Network. All rights reserved.</small></footer>;
 }
@@ -306,6 +335,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
         {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}
         {activeSection === "rating" ? <RatingsSection cars={cars} /> : null}
         {activeSection === "intro" ? <AboutSection notify={notify} /> : null}
+        {activeSection === "location" ? <LocationSection /> : null}
       </main>
       <Footer />
     </div>

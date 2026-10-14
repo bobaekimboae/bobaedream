@@ -1897,3 +1897,39 @@ final result: passed
 - P0/P1/P2 findings: none after fixes.
 
 final result: passed
+
+---
+
+# Design QA · 판매자 위치·교통편 탭 (2026-10-15)
+
+- source: 기존 김태규 판매자 페이지와 공개 상사 주소
+- implementation route: `?profile=dealer&shop=450554&emp=1&qf=guazi&category=서울오토갤러리`
+- mobile viewport: 393 × 852 px
+- desktop viewport: 1280 × 900 px
+- state: 위치 탭 선택
+
+## Pass 1 — passed
+
+- 판매차량·리뷰·소개와 동일한 1차 탭에 위치를 추가했다.
+- 주소 카드는 상사명, 전체 주소, 위치 아이콘, 외부 링크 표시를 한 행에 정리했다.
+- 이동수단은 모바일 2열, PC 4열로 도보·지하철·버스·차량을 배치했다.
+- 도보·차량은 Google 지도 길찾기, 지하철·버스는 주변 역·정류장 검색 URL로 구분했다.
+- 모바일과 PC에서 탭 폭, 텍스트 줄바꿈, 가로 넘침, 링크 접근성을 확인했다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 제목 20/28px, 교통편 17/24px, 버튼명 14/20px 통과
+- spacing/layout rhythm: 주소 카드 92px, 교통 버튼 68px, 모바일 2열·PC 4열 통과
+- colors/tokens: 기존 흰 배경·회색 외곽선·검정 본문 토큰 유지
+- interaction: 모든 위치·교통편 링크가 새 탭의 Google 지도 URL로 연결
+- accessibility: 링크별 이동수단·목적·Google 지도 열기 이름 제공
+
+## Verification
+
+- `npm run verify:qf`: passed
+- 모바일 393 × 852 위치 탭: passed
+- PC 1280 × 900 위치 탭: passed
+- 브라우저 오류·경고: 0건
+- P0/P1/P2 findings: none
+
+final result: passed
