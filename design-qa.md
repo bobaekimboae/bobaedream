@@ -59,6 +59,65 @@ final result: passed
 
 ---
 
+# Design QA · 치지직형 게시글 상세 PC·모바일 (2026-10-15)
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a128e5-de8a-78d0-9ed9-96cbde6a07c3/1f84abc6-973d-4383-89e0-5448c4df5fbb/1-1000018274.png`
+- implementation: `public/community/naver-cafe-detail.html`
+- implementation browser capture: `http://127.0.0.1:4174/community/naver-cafe-detail.html?id=2&v=detail-reference-v2-2`
+- source pixels: 1080 × 2376; 393px 폭 기준 393 × 864.5 CSS px로 정규화
+- implementation viewports: 모바일 393 × 864 CSS px, PC 1280 × 900 CSS px
+- state: FC온라인 자유 게시글, 댓글 1개, 하단 댓글 입력창 기본 상태
+
+## Full-view comparison evidence
+
+- 모바일은 흰색 상단바, 녹색 게시판명, 제목·작성자, 본문 두 문단, 추천/비추천, 검정·금색 광고, 댓글 헤더, 클린봇, 스티커 댓글, 맨 위로, 고정 입력창 순서를 원본과 같은 한 화면 흐름으로 대조했다.
+- 원본의 기기 상태바는 런타임 밖 요소라 제외하고 앱 UI만 393 × 864 뷰포트에서 비교했다.
+- 최종 모바일 화면은 문서 가로 넘침이 없고 `맨 위로`가 y=727–789, 고정 입력창이 y=798–864에 배치되어 원본과 같은 첫 화면 노출 관계를 유지한다.
+- PC는 1280 × 900에서 760px 중앙 카드형 본문으로 확장했고 광고·댓글·고정 입력창이 동일 축을 공유하며 가로 넘침이 없다.
+
+## Focused region comparison evidence
+
+- 상단바는 닫기·FC온라인·북마크·더보기 순서로 구성하고 실제 SVG 아이콘을 사용했다.
+- 게시글은 15px 모바일 시작축, 21/29px 제목, 40px 프로필, 16/25px 본문 위계를 적용했다.
+- 광고는 393 × 82 모바일, 760 × 118 PC 비율로 배치했고 별도 생성한 검정·금색 자동차 배너를 사용했다.
+- 댓글은 34px 원형 새로고침/정렬, 46px 클린봇, 파란 멘션 토큰, 보라색 캐릭터 스티커, 외곽형 버프/너프 버튼으로 구성했다.
+- 하단 입력창은 사진·표정·비밀댓글·전송 SVG를 포함하며 모바일 393px, PC 760px에서 각각 콘텐츠 폭과 정렬된다.
+
+## Comparison history
+
+### Pass 1 — needs density correction
+
+- P1: 첫 모바일 구현에서 댓글 카드가 265px로 길어 `맨 위로` 버튼이 첫 화면 아래로 밀렸다.
+- P2: 58px 상단바와 넓은 본문/추천 여백 때문에 원본보다 세로 밀도가 느슨했다.
+
+### Pass 2 — passed
+
+- 상단바를 50px로, 본문과 추천 영역의 수직 간격을 압축하고 댓글을 190px 단일 행형으로 조정했다.
+- 최종 393 × 864 화면에서 광고·댓글·스티커·맨 위로·고정 입력창이 모두 원본과 같은 한 화면 흐름에 들어왔다.
+- 768px 이상에서는 여백과 타이포를 다시 확장하는 PC 전용 규칙을 추가해 모바일 압축이 데스크톱 가독성에 영향을 주지 않도록 했다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 모바일 21px 제목·16px 본문·14–15px 댓글, PC 26px 제목·17px 본문 통과
+- spacing/layout rhythm: 모바일 15px 축과 393px 고정 입력창, PC 32px 축과 760px 중앙 콘텐츠 통과
+- colors/tokens: 녹색 게시판/클린봇, 회색 메타·입력창, 검정 본문, 파란 멘션 통과
+- image quality/assets: 786 × 164 광고와 224 × 192 투명 댓글 스티커, SVG UI 아이콘 로딩 통과
+- copy/content: 기존 보배드림 게시글·작성자·조회·댓글 데이터를 유지하고 치지직 상세 위계로 표시
+
+## Interaction verification
+
+- 북마크 활성화: passed
+- 댓글 정렬 메뉴 및 최신순 전환: passed
+- 게시글 버프 수 5 → 6: passed
+- 댓글 입력 후 전송 활성화 및 댓글 수 1 → 2: passed
+- 맨 위로 이동: passed
+- 콘솔 오류/경고: 0건
+- 모바일/PC 가로 넘침: 없음
+
+final result: passed
+
+---
+
 # Design QA · 게시물 등록 본문 포커스 선·게시판·말머리·투표 (2026-10-15)
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/d89e79e2-5c6c-4318-a35d-bc6b28e9988d/1-1000018270.jpg`
