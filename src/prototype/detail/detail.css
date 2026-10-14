@@ -636,7 +636,7 @@
 .vehicle-history-grid dt,
 .vehicle-history-grid dd { margin: 0; word-break: keep-all; }
 .vehicle-history-grid dt { min-height: 20px; color: #767676; font-size: 14px; font-weight: 400; line-height: 20px; }
-.vehicle-history-grid dd { min-width: 0; color: #222; font-size: 16px; font-weight: 500; line-height: 22px; text-align: right; }
+.vehicle-history-grid dd { min-width: 0; color: #222; font-size: 14px; font-weight: 500; line-height: 20px; text-align: right; }
 .vehicle-history-link { color: inherit; font: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .vehicle-history-link:focus-visible { outline: 2px solid #222; outline-offset: 3px; border-radius: 2px; }
 
