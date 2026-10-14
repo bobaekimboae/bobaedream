@@ -108,6 +108,7 @@ import { truckModelsByMaker } from "../truck/scenario-v09";
 import { HeavyQuickFilter } from "../heavy";
 import "./qf-car-body-types.css";
 import "./qf-chotot-vehicle-slots.css";
+import "./qf-brand-shadowcard.css";
 import { dealers as seoulAutoGalleryDealers, SeoulAutoGalleryDealerRail, type SeoulAutoGalleryDealer } from "./seoul-auto-gallery-dealer-rail";
 import { SeoulAutoGalleryHeader } from "./seoul-auto-gallery-header";
 import { DeutschAutoworldHeader } from "./deutsch-autoworld-header";
@@ -934,6 +935,8 @@ function MarketplaceScreen() {
   const usesUxDepth = Boolean(isTruckCategory && maker) || Boolean(supportsVehicleCatalog && maker && vehicleCatalog.index?.manufacturers.some((item) => item.name === maker));
   const isGuaziQuickStyle = quickFilterStyle === "guazi";
   const quickCardMode = typeof window === "undefined" ? null : new URLSearchParams(window.location.search).get("qfcard");
+  // 2026-10-15 「이 디자인으로 별도 주소」: 흰 카드 + 그림자 + 이름 · (대수) 브랜드 칩 테스트(&qfbrand=shadowcard).
+  const brandShadowCard = isGuaziQuickStyle && typeof window !== "undefined" && new URLSearchParams(window.location.search).get("qfbrand") === "shadowcard";
   const carBodyBrandTheme: CarBodyBrandTheme = category === "국산차" ? "hyundai" : "mercedes";
   // 과쯔 카드칩 비교 시안: 기존 plain/card 모드는 그대로 두고 모델 뎁스만 가변폭 카드 레일로 비교한다.
   const guaziCardChipPreview = isGuaziQuickStyle && quickCardMode === "guazi-card";
@@ -2140,7 +2143,7 @@ function MarketplaceScreen() {
                     ? <CatalogLogo path={catalogMake.logoPath} name={catalogMake.name} kind="rail" />
                     : <CategoryBrandLogo category={category} name={item.label} kind={plainQuickCards ? "plain" : "rail"} initialFallback={Boolean(typeList)} />;
               const cardClassName = typeList && sampleCount(item.key) === 0 ? "is-dim" : undefined;
-              return <DepthCard key={item.label} className={cardClassName} label={categoryRailLabel(category, item.label)} image={image} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />;
+              return <DepthCard key={item.label} className={cardClassName} label={categoryRailLabel(category, item.label)} sub={brandShadowCard ? `(${sampleCount(item.key)})` : undefined} image={image} mediaKind="brand" selected={maker === item.key} onClick={() => applyMakerFilter(item.key)} />;
             };
             return (
               <>
@@ -2158,8 +2161,9 @@ function MarketplaceScreen() {
                     ))}
                   </QuickRailCarousel>
                 </section> : null}
-                <section className="depth-rail is-kr-maker no-label" aria-label={`${categoryBrandRail.title} 빠른 선택`}>
+                <section className={`depth-rail is-kr-maker no-label${brandShadowCard ? " is-brand-shadowcard" : ""}`} aria-label={`${categoryBrandRail.title} 빠른 선택`}>
                   <QuickRailCarousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName="depth-rail-track">
+                    {brandShadowCard ? <DepthCard key="전체" className="is-brand-all" label="전체" sub={`(${listingCars.length})`} selected={!maker} onClick={() => applyMakerFilter(null)} /> : null}
                     {oldcarListingBrands ? oldcarListingBrands.map(card) : <>
                       {sections.domestic.map(card)}
                       {sections.domestic.length && sections.imported.length ? <span className="kr-maker-divider" aria-hidden="true" /> : null}
