@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="보배드림 게시판용 노션 스타일 글쓰기 편집기" />
+    <title>노션 글쓰기 · 보배드림</title>
+    <link rel="stylesheet" href="./notion-write.css" />
+  </head>
+  <body>
+    <div class="notion-app" data-testid="notion-write-page">
+      <header class="topbar">
+        <div class="topbar-leading">
+          <a class="icon-button" href="./naver-write-parity.html" aria-label="기존 글쓰기 화면으로 돌아가기">
+            <img src="assets/write-parity/chevron-left.svg" alt="" />
+          </a>
+          <div class="breadcrumb" aria-label="현재 위치">
+            <span class="workspace-mark" aria-hidden="true">B</span>
+            <span class="breadcrumb-workspace">보배드림</span>
+            <span class="breadcrumb-separator">/</span>
+            <span id="breadcrumbTitle" class="breadcrumb-page">제목 없음</span>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <span id="saveStatus" class="save-status" role="status">저장됨</span>
+          <button class="quiet-button" type="button" data-action="preview">미리보기</button>
+          <button class="primary-button" type="button" data-action="publish">게시</button>
+        </div>
+      </header>
+
+      <main class="page-canvas">
+        <section class="page-heading" aria-label="게시물 정보">
+          <div class="page-kicker">
+            <span class="step-badge">1단계</span>
+            <span>이미지 · 동영상 블록</span>
+          </div>
+          <div class="page-actions">
+            <button class="page-action" type="button" data-action="add-image">
+              <img src="assets/write-parity/photo.svg" alt="" />이미지 추가
+            </button>
+            <button class="page-action" type="button" data-action="add-video">
+              <img src="assets/write-parity/video.svg" alt="" />동영상 추가
+            </button>
+          </div>
+          <label class="sr-only" for="postTitle">게시물 제목</label>
+          <textarea id="postTitle" rows="1" maxlength="100" placeholder="제목 없음" data-testid="notion-title"></textarea>
+          <div class="property-row">
+            <span class="property-name">게시판</span>
+            <label class="property-control">
+              <span class="sr-only">게시판 선택</span>
+              <select id="boardSelect">
+                <option>자유게시판</option>
+                <option>국산차게시판</option>
+                <option>수입차게시판</option>
+                <option>중고차 이야기</option>
+                <option>자동차 뉴스</option>
+              </select>
+            </label>
+          </div>
+        </section>
+
+        <section class="editor-region" aria-label="게시물 본문">
+          <div id="editorGutter" class="editor-gutter">
+            <button id="blockAddButton" class="block-add-button" type="button" aria-label="블록 추가" aria-expanded="false">블록 추가</button>
+          </div>
+          <div
+            id="blockEditor"
+            class="block-editor"
+            contenteditable="true"
+            role="textbox"
+            aria-multiline="true"
+            aria-label="본문을 입력하세요"
+            data-placeholder="내용을 입력하거나 '/'를 눌러 블록을 추가하세요"
+            data-testid="notion-editor"
+          ><p class="starter-block" data-placeholder="내용을 입력하거나 '/'를 눌러 블록을 추가하세요"><br /></p></div>
+        </section>
+        <p class="editor-help"><kbd>/</kbd>를 입력하거나 왼쪽의 ‘블록 추가’를 눌러 이미지와 동영상을 넣을 수 있습니다.</p>
+      </main>
+
+      <input id="imageInput" class="sr-only" type="file" accept="image/jpeg,image/png,image/gif,image/webp,image/svg+xml" multiple />
+      <input id="videoInput" class="sr-only" type="file" accept="video/mp4,video/webm,video/quicktime,video/ogg" multiple />
+      <input id="replaceImageInput" class="sr-only" type="file" accept="image/jpeg,image/png,image/gif,image/webp,image/svg+xml" />
+      <input id="replaceVideoInput" class="sr-only" type="file" accept="video/mp4,video/webm,video/quicktime,video/ogg" />
+
+      <div id="blockMenu" class="block-menu popover" role="menu" aria-label="블록 유형" hidden data-testid="block-menu">
+        <p class="menu-label">기본 블록</p>
+        <button type="button" role="menuitem" data-command="text"><span class="menu-icon">T</span><span><strong>텍스트</strong><small>일반 문장을 입력합니다</small></span></button>
+        <button type="button" role="menuitem" data-command="heading"><span class="menu-icon">H1</span><span><strong>제목 1</strong><small>큰 구역 제목을 만듭니다</small></span></button>
+        <button type="button" role="menuitem" data-command="quote"><img src="assets/write-parity/quote.svg" alt="" /><span><strong>인용</strong><small>인용문을 강조합니다</small></span></button>
+        <p class="menu-label">미디어</p>
+        <button type="button" role="menuitem" data-command="image"><img src="assets/write-parity/photo.svg" alt="" /><span><strong>이미지</strong><small>업로드하거나 링크로 삽입합니다</small></span></button>
+        <button type="button" role="menuitem" data-command="video"><img src="assets/write-parity/video.svg" alt="" /><span><strong>동영상</strong><small>업로드하거나 링크로 삽입합니다</small></span></button>
+        <button type="button" role="menuitem" data-command="divider"><img src="assets/write-parity/strike.svg" alt="" /><span><strong>구분선</strong><small>내용 사이를 나눕니다</small></span></button>
+      </div>
+
+      <dialog id="mediaDialog" class="dialog-card" aria-labelledby="mediaDialogTitle">
+        <form method="dialog">
+          <div class="dialog-header">
+            <div>
+              <span class="dialog-eyebrow">미디어 블록</span>
+              <h2 id="mediaDialogTitle">이미지 추가</h2>
+            </div>
+            <button class="icon-button" type="submit" value="cancel" aria-label="닫기"><img src="assets/write-parity/close.svg" alt="" /></button>
+          </div>
+          <div class="media-tabs" role="tablist" aria-label="미디어 추가 방식">
+            <button id="uploadTab" type="button" role="tab" aria-selected="true" data-tab="upload">업로드</button>
+            <button id="linkTab" type="button" role="tab" aria-selected="false" data-tab="link">링크 삽입</button>
+          </div>
+          <div id="uploadPanel" class="media-panel" role="tabpanel">
+            <button id="dialogUploadButton" class="drop-zone" type="button">
+              <span class="drop-zone-title">내 컴퓨터에서 파일 선택</span>
+              <span id="uploadHelp" class="drop-zone-help">JPG, PNG, GIF, WEBP · 파일당 20MB</span>
+            </button>
+          </div>
+          <div id="linkPanel" class="media-panel" role="tabpanel" hidden>
+            <label for="mediaUrl">공개 링크</label>
+            <input id="mediaUrl" type="url" inputmode="url" placeholder="https://" autocomplete="off" />
+            <button id="embedButton" class="dialog-primary" type="button">링크 삽입</button>
+          </div>
+        </form>
+      </dialog>
+
+      <dialog id="altDialog" class="dialog-card compact-dialog" aria-labelledby="altDialogTitle">
+        <form method="dialog">
+          <div class="dialog-header">
+            <div><span class="dialog-eyebrow">접근성</span><h2 id="altDialogTitle">대체 텍스트</h2></div>
+            <button class="icon-button" type="submit" value="cancel" aria-label="닫기"><img src="assets/write-parity/close.svg" alt="" /></button>
+          </div>
+          <label for="altText">이미지를 짧고 구체적으로 설명해 주세요.</label>
+          <textarea id="altText" rows="4" maxlength="250"></textarea>
+          <button id="saveAltButton" class="dialog-primary" type="button">저장</button>
+        </form>
+      </dialog>
+
+      <dialog id="previewDialog" class="preview-dialog" aria-labelledby="previewTitle">
+        <div class="preview-header">
+          <span>미리보기</span>
+          <button class="icon-button" type="button" data-action="close-preview" aria-label="미리보기 닫기"><img src="assets/write-parity/close.svg" alt="" /></button>
+        </div>
+        <article class="preview-content">
+          <p id="previewBoard" class="preview-board"></p>
+          <h1 id="previewTitle"></h1>
+          <div id="previewBody" class="preview-body"></div>
+        </article>
+      </dialog>
+
+      <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    </div>
+    <script src="./notion-write.js" defer></script>
+  </body>
+</html>
