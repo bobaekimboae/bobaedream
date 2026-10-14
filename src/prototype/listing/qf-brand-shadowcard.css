@@ -33,7 +33,7 @@
   box-shadow: 0 1px 4px rgba(0, 0, 0, .22) !important;
 }
 .marketplace.is-qf-guazi .depth-rail.is-kr-maker.is-brand-shadowcard .depth-card.is-selected {
-  box-shadow: inset 0 0 0 2px #1b4cdb, 0 1px 4px rgba(0, 0, 0, .22) !important;
+  box-shadow: inset 0 0 0 2px #222, 0 1px 4px rgba(0, 0, 0, .22) !important;
 }
 .marketplace.is-qf-guazi .depth-rail.is-kr-maker.is-brand-shadowcard .depth-card > .depth-card-media {
   width: 40px !important;
