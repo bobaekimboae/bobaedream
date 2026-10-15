@@ -450,7 +450,7 @@ function AboutSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; noti
 
 function SellPriceCta({ onRequest, profile = false }: { onRequest: () => void; profile?: boolean }) {
   return <aside className={`dp-sell-price-cta${profile ? " is-profile" : ""}`} aria-label="내 차 판매 가격 무료 견적">
-    <span><b>내 차, 얼마에 팔 수 있을까요?</b><small>딜러에게 무료 견적을 받아보세요</small></span>
+    <span><b>내 차 판매 가격, 무료 견적 받아보세요</b></span>
     <button type="button" onClick={onRequest}>견적신청</button>
   </aside>;
 }

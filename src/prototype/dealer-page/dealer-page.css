@@ -296,6 +296,8 @@
 .dp-sell-price-cta > button { flex: none; min-width: 86px; height: 40px; padding: 0 15px !important; border-radius: 999px !important; background: var(--dp-ink) !important; color: #fff !important; font-size: 13px !important; line-height: 19px !important; font-weight: 800 !important; }
 .dp-sell-price-cta > button:hover { background: #000 !important; }
 .dp-sell-price-cta.is-profile { grid-column: 1 / -1; grid-row: 9; min-height: 68px; margin: 14px 0 0; }
+.dp-sell-price-cta.is-profile > span { overflow: hidden; }
+.dp-sell-price-cta.is-profile b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .dp-toast { position: fixed; left: 50%; bottom: 28px; z-index: 50; transform: translateX(-50%); max-width: calc(100% - 32px); padding: 10px 16px; border-radius: 8px; background: rgba(34,34,34,.94); color: #fff; font-size: 14px; white-space: nowrap; }
 
 @media (min-width: 768px) {
@@ -404,6 +406,7 @@
   .dp-listing-media { width: 118px; height: 158px; }
   .dp-profile-actions { gap: 8px; }
   .dp-profile-actions > :is(button, a) { padding: 0 6px; font-size: 13px; }
+  .dp-sell-price-cta.is-profile b { font-size: 13px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
