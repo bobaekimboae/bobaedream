@@ -1851,13 +1851,14 @@ function MarketplaceScreen() {
           // QF-106: ④ 퀵필터 자리는 닫지 않는다 — 계층(제조사 → 모델 → 세부모델 → 트림)이 끝나면 연식 알약 줄
           showGroupRail && groupRail ? <BbmGroupRail groupValue={groupRail} onChoose={chooseHierarchyCategory} /> :
           isHeavyCategory ? <HeavyQuickFilter value={heavySelection} onChange={applyHeavySelection} /> :
-          showBikeTypeQuickRail ? <section className="depth-rail no-label is-bike-type-row" aria-label="바이크 유형 빠른 선택">
+          showBikeTypeQuickRail ? <section className={`depth-rail no-label is-bike-type-row${brandShadowCard ? " is-brand-shadowcard" : ""}`} aria-label="바이크 유형 빠른 선택">
             <QuickRailCarousel ariaLabel="바이크 유형" className="brand-carousel" contentClassName="depth-rail-track">
               {bikeTypeQuickOptions.map((option) => (
                 <DepthCard
                   key={option.label}
                   className="is-bike-type-depth"
                   label={option.label}
+                  sub={brandShadowCard ? `(${listingCars.filter((car) => car.filter?.bikeGenre === option.label).length})` : undefined}
                   image={<img src={asset(option.image)} alt="" aria-hidden="true" draggable={false} />}
                   onClick={() => setBbmFilters(setBbmChecks(bbmValue, "bikeGenre", [option.label]))}
                 />
