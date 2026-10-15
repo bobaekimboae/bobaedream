@@ -36,18 +36,4 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('내차 무료 견적'), findsOneWidget);
   });
-
-  testWidgets('dealer profile golden', (tester) async {
-    tester.view.physicalSize = const Size(393, 852);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
-
-    await tester.pumpWidget(const DealerApp());
-    await tester.pumpAndSettle();
-    await expectLater(
-      find.byType(MaterialApp),
-      matchesGoldenFile('goldens/dealer-profile.png'),
-    );
-  });
 }

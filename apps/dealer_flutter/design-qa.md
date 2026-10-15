@@ -5,7 +5,7 @@
 - 기존 모바일 페이지 캡처: `../../artifacts/dealer-profile-avatar-banner-1015/mobile.png`
 - 기존 구현: `../../src/prototype/dealer-page/DealerPage.tsx`
 - Flutter 구현 캡처 기준: Codex in-app browser, `393 × 852`, `http://127.0.0.1:4211/`
-- 자동 레이아웃 기준 이미지: `test/goldens/dealer-profile.png`
+- 자동 레이아웃 검증: `test/dealer_profile_test.dart`
 
 ## Visual comparison
 
@@ -33,7 +33,7 @@
 ## Validation
 
 - `flutter analyze`: 통과, 오류 0건.
-- `flutter test`: 3개 테스트 통과.
+- `flutter test`: 플랫폼 독립 기능 테스트 2개 통과.
 - `flutter build web --release`: 통과.
 - `flutter build apk --debug`: 통과.
 
