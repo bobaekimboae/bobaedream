@@ -1,0 +1,5 @@
+package kr.co.bobaedream.seoul_autogallery
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity : FlutterActivity()
