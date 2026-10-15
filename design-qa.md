@@ -20,6 +20,42 @@ final result: passed
 
 ---
 
+# 간결형 게시판 댓글 수 크기 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/b0c8e281-2dc0-4a9d-917b-fd55bd1e8b84/1-1000018464.jpg`
+- browser-rendered implementation: `artifacts/community-headword-toggle-1015/mobile-384-collapsed.png`
+- full-view comparison: `artifacts/community-headword-toggle-1015/comment-size-comparison-1015.png`
+- focused typography comparison: `artifacts/community-headword-toggle-1015/comment-size-focused-1015.png`
+- viewport and density: 구현 384×844 CSS px, DPR 1. 원본 591×1280px을 384px 폭으로 정규화해 비교했다.
+- state: 간결형 목록, 자유게시판, 말머리 접힘
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 제목 16px에 붙던 댓글 수를 16px에서 13px로 낮춰 참고 화면처럼 제목보다 한 단계 작은 위계를 만들었다. 괄호·500 weight·23px 기준선은 유지했다.
+- spacing and layout rhythm: 댓글 수 왼쪽 간격 4px과 한 줄 말줄임 구조를 유지해 제목 폭이나 행 높이가 달라지지 않는다.
+- colors and visual tokens: 참고 화면의 초록색 대신 보배드림 커뮤니티의 확정 파란색 `#238fe3`을 유지했다.
+- image quality and asset fidelity: 이번 변경에 추가·교체된 이미지 자산은 없다.
+- copy and content: 댓글 숫자와 괄호 표기는 그대로 보존했다.
+- focused evidence: 나란히 비교한 목록 행에서 댓글 수가 제목 본문보다 작게 읽히며 제목과 경쟁하지 않는다.
+- browser verification: 실제 렌더링은 댓글 13px / 제목 16px이며 콘솔 오류 0건이다.
+
+## Comparison history
+
+- Pass 1: 기존 댓글 수가 제목과 같은 16px여서 숫자의 시각적 비중이 과했다.
+- Fix: 모든 모바일 폭에서 댓글 수를 13px로 통일하고 자동 검사에 13px 단언을 추가했다.
+- Pass 2: 360/384/412px 자동 검사와 Chrome 실측에서 13px, 가로 오버플로 0, 콘솔 오류 0을 확인했다.
+
+## Primary interactions tested
+
+- 말머리 펼침·선택·접힘
+- 커뮤니티 검색바 안내
+- 360/384/412px 댓글 수 크기 및 가로 잘림
+
+final result: passed
+
+---
+
 # 초톳 피드형 게시판·딜러 유형 QA · 2026-10-15
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a128e5-de8a-78d0-9ed9-96cbde6a07c3/774c69ef-c203-4810-8844-6b97e643fdc6/1-1000018448.jpg`

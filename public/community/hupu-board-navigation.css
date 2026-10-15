@@ -8,7 +8,7 @@
 .boardChannelTab.on:after{content:"";position:absolute;left:-6px;right:-6px;bottom:0;height:2px;border-radius:2px 2px 0 0;background:#252525}
 .boardOrderMenu{width:44px;min-width:44px;height:44px;display:grid;place-items:center;background:#fff;box-shadow:-12px 0 14px #fff;cursor:pointer;position:relative;z-index:2}
 .boardOrderMenu img{width:23px;height:23px;display:block}
-.boardTop .viewIconBtn{display:none}
+.boardTop .boardTools{display:none}
 .boardOrderBackdrop{position:fixed;inset:0;z-index:130;background:rgba(0,0,0,.45);display:flex;justify-content:center;align-items:flex-end}
 .boardOrderBackdrop[hidden]{display:none}
 .boardOrderPanel{width:100%;max-width:720px;height:100dvh;background:#fff;display:flex;flex-direction:column;color:#202226;overflow:hidden}
@@ -18,6 +18,7 @@
 .boardOrderClose img{width:23px;height:23px;display:block}
 .boardOrderBody{overflow-x:hidden;overflow-y:auto;padding:22px 16px calc(24px + env(safe-area-inset-bottom));-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .boardOrderViewEntry{width:100%;min-height:70px;margin:0 0 22px;padding:0 15px;display:flex;align-items:center;gap:13px;border:1px solid #e1e3e6;border-radius:14px;background:#f7f8f9;text-align:left;cursor:pointer}
+.boardOrderViewEntry[hidden]{display:none}
 .boardOrderViewEntry:active{background:#eef0f2}
 .boardOrderViewIcon{width:38px;height:38px;flex:0 0 38px;padding:8px;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);gap:3px;border-radius:11px;background:#252525}
 .boardOrderViewIcon i{display:block;border-radius:2px;background:#fff}

@@ -30,6 +30,7 @@ for (const width of [360, 384, 412]) {
     const chip = document.querySelector('.cat');
     const header = document.querySelector('.appbar');
     const search = document.querySelector('.communitySearch');
+    const compactReply = document.querySelector('.compactReply');
     const sectionBox = section.getBoundingClientRect();
     const categoryBox = category.getBoundingClientRect();
     const boardBox = board.getBoundingClientRect();
@@ -53,6 +54,7 @@ for (const width of [360, 384, 412]) {
       searchHeight: searchBox.height,
       searchText: search.textContent.trim(),
       searchWithinViewport: searchBox.left >= 0 && searchBox.right <= innerWidth,
+      compactReplyFontSize: getComputedStyle(compactReply).fontSize,
       scrollWidth: document.documentElement.scrollWidth,
       viewport: innerWidth,
     };
@@ -69,6 +71,7 @@ for (const width of [360, 384, 412]) {
   check(Math.abs(metrics.searchHeight - 42) <= 1, `${width}px: 검색바 높이가 42px가 아닙니다 (${metrics.searchHeight})`);
   check(metrics.searchText === '커뮤니티', `${width}px: 검색바 텍스트가 다릅니다 (${metrics.searchText})`);
   check(metrics.searchWithinViewport, `${width}px: 검색바가 화면 밖으로 잘렸습니다`);
+  check(metrics.compactReplyFontSize === '13px', `${width}px: 댓글 수 글자 크기가 13px가 아닙니다 (${metrics.compactReplyFontSize})`);
   check(metrics.scrollWidth <= metrics.viewport, `${width}px: 가로 화면 잘림 (${metrics.scrollWidth}/${metrics.viewport})`);
   check(await toggle.getAttribute('aria-expanded') === 'false', `${width}px: 초기 접힘 상태가 아닙니다`);
 
