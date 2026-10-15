@@ -12,8 +12,8 @@ const legacyStorageKey='bbm.community.boardOrder.v1';
 await mkdir(outputDir,{recursive:true});
 const browser=await chromium.launch({headless:true});
 
-for(const width of [360,384,412,1280]){
-  const page=await browser.newPage({viewport:{width,height:844}});
+for(const width of [360,384,412,592,1280]){
+  const page=await browser.newPage({viewport:{width,height:width===592?1280:844}});
   const errors=[];
   page.on('pageerror',error=>errors.push(error.message));
   page.on('console',message=>{if(message.type()==='error')errors.push(message.text())});
@@ -63,10 +63,11 @@ for(const width of [360,384,412,1280]){
   check(await page.locator('.boardOrderRemove').count()===0,'일반 상태에 제외 버튼이 노출되었습니다');
   check((await page.locator('.boardOrderEdit').textContent())?.trim()==='편집','일반 상태 버튼이 편집이 아닙니다');
   const columns=await page.locator('.boardOrderMyGrid').evaluate(element=>getComputedStyle(element).gridTemplateColumns.split(' ').length);
-  check(columns===(width>=768?6:4),`${width}px 그리드 열 수가 ${columns}개입니다`);
+  check(columns===(width>=768?6:3),`${width}px 그리드 열 수가 ${columns}개입니다`);
   const clipped=await page.locator('.boardOrderName').evaluateAll(elements=>elements.filter(element=>element.scrollWidth>element.clientWidth+1).map(element=>element.textContent));
   check(clipped.length===0,`${width}px 잘린 축약명이 있습니다: ${clipped.join(', ')}`);
   if(width===384)await page.screenshot({path:path.join(outputDir,'mobile-384-channel-normal.png'),fullPage:false});
+  if(width===592)await page.screenshot({path:path.join(outputDir,'mobile-592-channel-normal.png'),fullPage:false});
   if(width===1280)await page.screenshot({path:path.join(outputDir,'pc-1280-channel-normal.png'),fullPage:false});
 
   if(width===384){
@@ -132,4 +133,4 @@ await migration.close();
 await browser.close();
 
 if(failures.length){console.error(JSON.stringify({ok:false,failures},null,2));process.exit(1)}
-console.log(JSON.stringify({ok:true,channels:32,fixed:['전체','베스트'],movable:30,sections:{게시판:13,자료실:17},widths:[360,384,412,1280],mobileColumns:4,desktopColumns:6,migration:'v1-to-v2',outputDir},null,2));
+console.log(JSON.stringify({ok:true,channels:32,fixed:['전체','베스트'],movable:30,sections:{게시판:13,자료실:17},widths:[360,384,412,592,1280],mobileColumns:3,desktopColumns:6,migration:'v1-to-v2',outputDir},null,2));
