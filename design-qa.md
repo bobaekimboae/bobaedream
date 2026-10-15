@@ -43,6 +43,39 @@ final result: passed
 
 ---
 
+# 치지직 상세 · Reddit형 반응 알약칩 v11 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a128e5-de8a-78d0-9ed9-96cbde6a07c3/1d502e3f-4676-47fe-9e4c-6e641aa51c24/1-1000018354.jpg`
+- implementation: `public/community/chzzk-detail.html?id=8325190`
+- implementation capture: Chrome 로컬 렌더, 모바일 394 × 852 CSS px
+- source pixels: 591 × 1280, 구현은 콘텐츠 영역 기준으로 비율 정규화
+
+## Comparison evidence
+
+- P2 before: 추천·비추천·댓글·공유 아이콘이 평면적으로 나열돼 기능별 묶음이 약했고 공유가 좌측 반응 그룹에 붙어 있었다.
+- fix: 추천·점수·비추천을 하나의 999px 알약칩으로 묶고, 댓글·댓글 수는 별도 알약칩, 공유는 우측 끝 독립 원형칩으로 분리했다.
+- fix: 댓글의 추천·비추천도 999px 소형 알약칩으로 묶어 게시글과 댓글의 반응 체계를 통일했다.
+- post-fix mobile geometry: 추천칩 115.6 × 40px, 댓글칩 57 × 40px, 공유칩 40 × 40px, 댓글 반응칩 63.6 × 34px, 그룹 간격 6px.
+- PC: 기존 1060px 중앙 셸과 반응형 규칙은 유지하고 공유칩의 `margin-left:auto`로 넓은 화면에서도 좌·우 그룹을 명확히 분리했다.
+
+## Required fidelity surfaces
+
+- typography: 기존 Pretendard, 점수 15–17px, 댓글 수 14–16px 유지
+- spacing/layout rhythm: 모바일 40px, PC 44px 터치 영역과 6–8px 간격 유지
+- colors/tokens: 흰 칩, `#dddddd` 외곽선, 선택 시 기존 Airbnb 핑크 토큰 유지
+- icons/assets: 직전 확정한 Reddit 계열 엄지·댓글·공유 아이콘 그대로 사용
+- copy/content: 원본 사용자 문의글, 프로필, 댓글, 최신글 내용 변경 없음
+
+## Verification
+
+- 모바일 394 × 852: 가로 넘침 없음, 깨진 이미지 0건.
+- 상호작용: 추천 -4→-3, 추천 후 비추천 전환 -3→-5, 답글쓰기 `@익씽 ` 자동 입력 통과.
+- P0/P1/P2 findings: none.
+
+final result: passed
+
+---
+
 # 딜러 프로필 · 인스타그램형 정보 위계 QA · 2026-10-15
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/2fa25692-156f-4b36-9fd0-5541173e51a6/1-1000018350.jpg`
