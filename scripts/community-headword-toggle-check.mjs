@@ -34,6 +34,7 @@ for (const width of [360, 384, 412]) {
     const descriptionSection = document.querySelector('#boardDescriptionSection');
     const descriptionText = document.querySelector('#boardDescriptionText');
     const board = document.querySelector('.boardTop');
+    const boardStats = document.querySelector('.boardStats');
     const avatar = document.querySelector('.boardAvatar');
     const notice = document.querySelector('.noticeText');
     const chip = document.querySelector('.cat');
@@ -47,6 +48,7 @@ for (const width of [360, 384, 412]) {
     const categoryBox = category.getBoundingClientRect();
     const descriptionBox = descriptionSection.getBoundingClientRect();
     const boardBox = board.getBoundingClientRect();
+    const boardStatsBox = boardStats.getBoundingClientRect();
     const chipBox = chip.getBoundingClientRect();
     const avatarBox = avatar.getBoundingClientRect();
     const headerBox = header.getBoundingClientRect();
@@ -58,6 +60,10 @@ for (const width of [360, 384, 412]) {
       descriptionHeight: descriptionBox.height,
       descriptionWhiteSpace: getComputedStyle(descriptionText).whiteSpace,
       boardBottom: boardBox.bottom,
+      boardStatsTop: boardStatsBox.top,
+      boardStatsBottom: boardStatsBox.bottom,
+      boardStatsText: boardStats.textContent.trim(),
+      boardStatsFontSize: getComputedStyle(boardStats).fontSize,
       sectionHeight: sectionBox.height,
       categoryHeight: categoryBox.height,
       chipHeight: chipBox.height,
@@ -83,6 +89,9 @@ for (const width of [360, 384, 412]) {
     };
   });
   check(Math.abs(metrics.descriptionTop - metrics.boardBottom) <= 1, `${width}px: 게시판 설명이 게시판명 바로 아래에 있지 않습니다`);
+  check(metrics.boardStatsTop > metrics.descriptionTop - 80 && metrics.boardStatsBottom <= metrics.boardBottom + 1, `${width}px: 게시판 통계가 게시판 헤더 안에 배치되지 않았습니다`);
+  check(metrics.boardStatsText === '1주일 기준 방문자 38.4만명 · 활동 1.2만회', `${width}px: 자유게시판 통계 문구가 다릅니다 (${metrics.boardStatsText})`);
+  check(metrics.boardStatsFontSize === '12.5px', `${width}px: 자유게시판 통계 글자 크기가 다릅니다 (${metrics.boardStatsFontSize})`);
   check(Math.abs(metrics.sectionTop - metrics.descriptionBottom) <= 1, `${width}px: 말머리가 게시판 설명 바로 아래에 있지 않습니다`);
   check(Math.abs(metrics.descriptionHeight - 44) <= 1, `${width}px: 접힌 게시판 설명 높이가 44px가 아닙니다 (${metrics.descriptionHeight})`);
   check(metrics.descriptionWhiteSpace === 'nowrap', `${width}px: 접힌 게시판 설명이 한 줄 말줄임이 아닙니다 (${metrics.descriptionWhiteSpace})`);

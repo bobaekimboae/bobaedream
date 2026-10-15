@@ -1,3 +1,31 @@
+# 자유게시판 주간 통계 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/62224fb5-1c2a-424b-9e2c-7bcd1750c0cc/1-1000018442.jpg`
+- browser-rendered implementation: `artifacts/community-headword-toggle-1015/mobile-384-collapsed.png`
+- full-view comparison: `artifacts/community-headword-toggle-1015/reddit-board-stats-comparison-1015.png`
+- viewport and density: 구현 384 × 844 CSS px, DPR 1. 원본 591 × 1280px을 384px 폭으로 정규화했다.
+- state: 자유게시판, 설명·말머리 접힘
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 레딧의 커뮤니티명 아래 통계 계층을 따라 12.5px 회색 텍스트를 사용했다.
+- spacing and layout rhythm: 48px 게시판 프로필 오른쪽, 게시판명 바로 아래에 한 줄 통계를 배치했다. 설명과 말머리 위치는 순서대로 유지된다.
+- colors and visual tokens: 통계는 `#7b7e84`를 사용해 게시판명보다 한 단계 낮은 대비를 유지한다.
+- image quality and asset fidelity: 기존 자유게시판 전용 프로필 PNG를 그대로 사용했다.
+- copy and content: `1주일 기준 방문자 38.4만명 · 활동 1.2만회`를 표시하며 다른 게시판으로 이동하면 자유게시판 통계를 숨긴다.
+- browser verification: 360 / 384 / 412px에서 한 줄 표시, 가로 오버플로 0, 콘솔 오류 0을 확인했다.
+
+## Comparison history
+
+- Pass 1: 게시판명 아래에 활동 규모 정보가 없어 레딧 참고 화면보다 커뮤니티 정체성이 약했다.
+- Fix: 게시판 헤더 안에 주간 방문자·활동 통계를 추가하고 모바일 폭에서 말줄임 안전성을 적용했다.
+- Pass 2: 정규화 비교에서 이름·통계·설명 순서와 시각적 위계가 일치했고 남은 P0/P1/P2가 없음을 확인했다.
+
+final result: passed
+
+---
+
 # 딜러 페이지 탭 구분 간격 QA · 2026-10-15
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/83ba0216-6270-43fc-bc42-94994f4f95c4/1-1000018418.jpg`
