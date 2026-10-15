@@ -163,7 +163,7 @@ try {
   await expect(await page.locator("#blockEditor pre", { hasText: "const car" }).isVisible(), "코드 블록이 복원되지 않았습니다.");
   await context.close();
 
-  const mobileContext = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true });
+  const mobileContext = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
   const mobilePage = await mobileContext.newPage();
   await mobilePage.goto(baseUrl, { waitUntil: "domcontentloaded" });
   await expect(await mobilePage.getByTestId("notion-title").isVisible(), "모바일 제목 입력란이 보이지 않습니다.");
@@ -208,6 +208,17 @@ try {
   await expect(await mediaManager.isVisible(), "사진 관리 시안 주소가 열리지 않습니다.");
   await expect((await mediaManager.locator(".media-manager-tile").count()) === 5, "시안의 사진 5장이 보이지 않습니다.");
   await expect((await mediaManager.locator(".media-manager-video").count()) === 1, "시안의 동영상 항목이 보이지 않습니다.");
+  await mobilePage.evaluate(() => {
+    const tiles = Array.from(document.querySelectorAll("#mediaManagerGrid .media-manager-tile"));
+    const handle = tiles[0].querySelector('[data-manager-action="drag"]');
+    const source = handle.getBoundingClientRect();
+    const target = tiles[3].getBoundingClientRect();
+    const base = { bubbles: true, pointerId: 7, pointerType: "touch", isPrimary: true };
+    handle.dispatchEvent(new PointerEvent("pointerdown", { ...base, buttons: 1, button: 0, clientX: source.x + source.width / 2, clientY: source.y + source.height / 2 }));
+    handle.dispatchEvent(new PointerEvent("pointermove", { ...base, buttons: 1, clientX: target.x + target.width / 2, clientY: target.y + target.height / 2 }));
+    handle.dispatchEvent(new PointerEvent("pointerup", { ...base, buttons: 0, button: 0, clientX: target.x + target.width / 2, clientY: target.y + target.height / 2 }));
+  });
+  await expect((await mediaManager.locator(".media-manager-tile").nth(3).locator("img").getAttribute("alt")) === "레인지로버 차량 사진 1", "모바일 터치 드래그로 사진 순서가 변경되지 않습니다.");
   await mediaManager.getByRole("button", { name: "대표 사진으로 설정: 레인지로버 차량 사진 2" }).click();
   const firstManagedImage = mediaManager.locator(".media-manager-tile").first();
   await expect((await firstManagedImage.locator("img").getAttribute("alt")) === "레인지로버 차량 사진 2", "대표 사진 선택 시 선택한 사진이 첫 순서로 이동하지 않습니다.");

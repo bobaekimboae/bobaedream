@@ -17,8 +17,10 @@ async function checkCase(name,viewport,expectedMediaHeight){
   page.on('response',response=>{if(response.status()>=400)failedResources.push(`${response.status()} ${response.url()}`)});
   await page.goto(baseUrl,{waitUntil:'domcontentloaded',timeout:30000});
   await page.locator('.chototFeedCard').first().waitFor({state:'visible'});
+  await page.waitForTimeout(700);
 
   const label=await page.locator('#typeLabel').textContent();
+  if(!await page.locator('.phone.chototFeedMode').count())throw new Error(`${name}: direct Chotot view reverted after delayed board initialization`);
   const firstTitle=(await page.locator('.chototFeedTitle').first().textContent())?.trim();
   const cardCount=await page.locator('.chototFeedCard').count();
   const railBox=await page.locator('.chototMediaRail').first().boundingBox();

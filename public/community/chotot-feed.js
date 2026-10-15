@@ -296,6 +296,7 @@
   window.renderChototFeed=renderChototFeed;
   var requestedView=new URLSearchParams(location.search).get('view');
   if(requestedView==='chotot'||requestedView==='feed-chotot'){
+    if(typeof mode!=='undefined')mode='feed-chotot';
     renderChototFeed();
   }
   window.addEventListener('pageshow',function(){
