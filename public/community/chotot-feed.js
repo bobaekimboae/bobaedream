@@ -12,8 +12,20 @@
     'assets/chzzk-detail/comment-anonymous-avatar.png'
   ];
   var carAssets=Array.from({length:30},function(_,index){
-    return '../assets/cars/supercar-sheet-v01/sc-'+String(index+1).padStart(3,'0')+'.jpg';
+    return '../assets/cars/supercar-sheet-v01/sc-'+String(index+1).padStart(3,'0')+'.jpg?v=20261015realfeed2';
   });
+  var feedScenarios=[
+    {title:'주말 모임에 등장한 블루 SUV, 실물 색감은 이렇습니다',user:'성수동카스팟',time:'방금 전',reply:18,media:[1,4,12,15,18,22],layout:['landscape','portrait','square','landscape','portrait','square'],body:'주말 자동차 모임에서 직접 촬영한 차량들입니다. 전시장 조명과 야외 자연광에서 색감이 어떻게 달라지는지 순서대로 담았습니다.'},
+    {title:'수입차 전시장 실물 비교, 사진으로 먼저 보세요',user:'전시장한바퀴',time:'3분 전',reply:31,media:[2,3,5,6,11],layout:['landscape','landscape','square','square','portrait'],body:'같은 날 여러 전시장을 돌며 촬영했습니다. 차체 비율과 전면 디자인을 비교하기 쉽도록 정면과 측면 사진을 함께 올립니다.'},
+    {title:'도산대로에서 만난 슈퍼카, 디테일 사진 모음',user:'도산대로직찍',time:'8분 전',reply:42,media:[3,9,14],layout:['landscape','portrait','square'],body:'도로에서 직접 본 차량을 안전한 위치에서 촬영했습니다. 사진을 좌우로 넘기면 전면, 휠, 후면 순서로 확인할 수 있습니다.'},
+    {title:'블루 SUV 두 대 직접 비교해봤습니다',user:'패밀리카고민중',time:'17분 전',reply:24,media:[1,4,17,21],layout:['landscape','landscape','portrait','square'],body:'패밀리카로 고민 중인 두 차량을 같은 기준으로 비교했습니다. 2열 공간과 트렁크, 휠 크기는 상세 사진에서 확인해 주세요.'},
+    {title:'레드 페라리 출고 전 검수 사진 공유합니다',user:'출고검수팀장',time:'29분 전',reply:15,media:[5,7,8,16],layout:['landscape','landscape','square','portrait'],body:'인도 전에 도장면과 휠, 실내 버튼 작동 상태를 확인했습니다. 사진은 보정하지 않은 원본 색감에 가깝게 올렸습니다.'},
+    {title:'야간 주행 영상과 실제 배기음 기록',user:'밤드라이브',time:'41분 전',reply:57,media:[10],layout:['video'],body:'교통 법규를 지키며 촬영한 짧은 주행 영상입니다. 소리는 이어폰보다 휴대폰 스피커 기준으로 자연스럽게 들리도록 정리했습니다.'},
+    {title:'오늘 입고된 중고 슈퍼카, 첫 점검 사진',user:'중고차보는눈',time:'1시간 전',reply:36,media:[11],layout:['landscape'],body:'입고 직후 세차 전 상태에서 촬영했습니다. 외판 단차와 타이어 마모, 실내 사용감은 계약 전에 한 번 더 확인할 예정입니다.'},
+    {title:'동호회 차량 스티커 실제 부착 위치 비교',user:'스티커장인',time:'2시간 전',reply:9,media:[13,20],layout:['square','landscape'],body:'같은 크기의 스티커를 유리와 차체에 각각 대봤습니다. 운전 시야를 가리지 않으면서 사진에도 잘 보이는 위치를 비교했습니다.'},
+    {title:'구매 전 확인한 외관·휠·실내 사진 5장',user:'현금완납러',time:'3시간 전',reply:68,media:[6,8,19,23,27],layout:['landscape','portrait','square','landscape','portrait'],body:'매물 설명만으로 부족했던 부분을 현장에서 직접 촬영했습니다. 휠 스크래치와 시트 주름, 트렁크 마감까지 차례대로 확인할 수 있습니다.'},
+    {title:'중고차 매물 볼 때 사진으로 먼저 거르는 기준',user:'성능기록부필수',time:'5시간 전',reply:73,media:[24,25,26],layout:['landscape','square','portrait'],body:'성능기록부를 보기 전에도 사진에서 확인할 수 있는 항목을 정리했습니다. 패널 간격, 타이어 편마모, 실내 버튼 마모를 먼저 살펴보세요.'}
+  ];
   var ratios=['portrait','tall','square','landscape'];
   var layouts=[
     ['portrait','portrait','portrait','portrait','portrait','portrait'],
@@ -42,6 +54,8 @@
   var videoAssets=['media/car-driving-road-v01.mp4','media/car-sunset-drive-v01.mp4','media/car-desert-drone-v01.mp4'];
   var galleryItems=[];
   var galleryIndex=0;
+  var galleryOpener=null;
+  var lockedScrollY=0;
 
   function esc(value){
     return String(value==null?'':value).replace(/[&<>"']/g,function(char){
@@ -63,24 +77,28 @@
 
   function postData(){
     var source=(window.BOBAE_POSTS&&window.BOBAE_POSTS.length?window.BOBAE_POSTS:window.posts)||[];
-    return source.slice(0,10);
+    return source.slice(0,10).map(function(post,index){
+      return Object.assign({},post,feedScenarios[index]||{});
+    });
   }
 
-  function itemSource(postIndex,itemIndex){
-    return carAssets[(postIndex*3+itemIndex)%carAssets.length];
+  function itemSource(post,postIndex,itemIndex){
+    var selected=post.media&&post.media.length?post.media[itemIndex%post.media.length]:((postIndex*3+itemIndex)%carAssets.length)+1;
+    return carAssets[(Math.max(1,Number(selected)||1)-1)%carAssets.length];
   }
 
   function mediaMarkup(post,index){
-    var layout=layouts[index%layouts.length];
+    var layout=post.layout||layouts[index%layouts.length];
     if(!layout.length)return '';
     var cells=layout.map(function(ratio,itemIndex){
       if(ratio==='video'){
         var video=videoAssets[index%videoAssets.length];
-        var poster=itemSource(index,itemIndex);
+        var poster=itemSource(post,index,itemIndex);
         return '<button class="chototMediaItem video" type="button" data-media-index="'+itemIndex+'" data-kind="video" data-src="'+esc(video)+'" data-ratio="portrait" aria-label="영상 크게 보기"><video muted playsinline preload="metadata" poster="'+esc(poster)+'"><source src="'+esc(video)+'" type="video/mp4"></video><img class="chototVideoPlay" src="'+chototIcon('chotot-common-video-play-white-bg')+'" alt=""></button>';
       }
-      var source=itemSource(index,itemIndex);
-      return '<button class="chototMediaItem" type="button" data-media-index="'+itemIndex+'" data-kind="image" data-src="'+esc(source)+'" data-ratio="'+ratio+'" aria-label="'+esc(cleanTitle(post.title))+' 사진 '+(itemIndex+1)+' 크게 보기"><img src="'+esc(source)+'" alt="'+esc(cleanTitle(post.title))+' 사진 '+(itemIndex+1)+'" loading="lazy"></button>';
+      var source=itemSource(post,index,itemIndex);
+      var priority=index===0&&itemIndex===0;
+      return '<button class="chototMediaItem" type="button" data-media-index="'+itemIndex+'" data-kind="image" data-src="'+esc(source)+'" data-ratio="'+ratio+'" aria-label="'+esc(cleanTitle(post.title))+' 사진 '+(itemIndex+1)+' 크게 보기"><img src="'+esc(source)+'" alt="'+esc(cleanTitle(post.title))+' 사진 '+(itemIndex+1)+'" loading="'+(priority?'eager':'lazy')+'"'+(priority?' fetchpriority="high"':'')+'></button>';
     }).join('');
     return '<div class="chototMediaShell"><div class="chototMediaRail" aria-label="게시물 미디어, 좌우로 넘기기">'+cells+'</div><button class="chototRailArrow chototRailPrev" type="button" aria-label="이전 사진"><img src="'+chototIcon('chotot-list-detail-feed-prev-button')+'" alt=""></button><button class="chototRailArrow chototRailNext" type="button" aria-label="다음 사진"><img src="'+chototIcon('chotot-list-detail-feed-next-button')+'" alt=""></button>'+(layout.length>1?'<span class="chototMediaCount">1 / '+layout.length+'</span>':'')+'</div>';
   }
@@ -96,7 +114,7 @@
           '<button class="chototFeedMore" type="button" aria-label="게시물 더보기"><img src="'+redditIcon('more-reddit')+'" alt=""></button>',
         '</div>',
         '<a class="chototFeedTitle" href="./chzzk-detail.html?id='+encodeURIComponent(post.id)+'&v=20261015chototfeed">'+esc(title)+'</a>',
-        '<div class="chototFeedBodyWrap"><p class="chototFeedBody">'+esc(bodyCopy[index%bodyCopy.length])+'</p><button class="chototFeedMoreText" type="button" aria-expanded="false">더보기</button></div>',
+        '<div class="chototFeedBodyWrap"><p class="chototFeedBody">'+esc(post.body||bodyCopy[index%bodyCopy.length])+'</p><button class="chototFeedMoreText" type="button" aria-expanded="false">더보기</button></div>',
         mediaMarkup(post,index),
         '<div class="chototFeedActions" aria-label="게시물 반응">',
           '<div class="chototActionPill"><button class="chototVoteButton" type="button" data-vote="up" aria-label="추천" aria-pressed="false"><img src="'+redditIcon('vote-up')+'" alt=""><span>'+score+'</span></button><span class="chototVoteDivider" aria-hidden="true"></span><button class="chototVoteButton" type="button" data-vote="down" aria-label="비추천" aria-pressed="false"><img src="'+redditIcon('vote-down')+'" alt=""></button></div>',
@@ -123,6 +141,19 @@
     gallery.querySelector('.chototGalleryPrev').onclick=function(){moveGallery(-1)};
     gallery.querySelector('.chototGalleryNext').onclick=function(){moveGallery(1)};
     gallery.addEventListener('click',function(event){if(event.target===gallery)closeGallery()});
+    var touchStart=null;
+    gallery.addEventListener('touchstart',function(event){
+      var touch=event.touches&&event.touches[0];
+      if(touch)touchStart={x:touch.clientX,y:touch.clientY};
+    },{passive:true});
+    gallery.addEventListener('touchend',function(event){
+      var touch=event.changedTouches&&event.changedTouches[0];
+      if(!touch||!touchStart)return;
+      var dx=touch.clientX-touchStart.x;
+      var dy=touch.clientY-touchStart.y;
+      touchStart=null;
+      if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.25)moveGallery(dx<0?1:-1);
+    },{passive:true});
     return gallery;
   }
 
@@ -139,11 +170,15 @@
 
   function openGallery(card,startIndex){
     galleryItems=[].map.call(card.querySelectorAll('.chototMediaItem'),function(item){return{kind:item.dataset.kind,src:item.dataset.src}});
+    if(!galleryItems.length)return;
     galleryIndex=Math.max(0,Math.min(startIndex,galleryItems.length-1));
     var gallery=ensureGallery();
+    galleryOpener=card.querySelector('.chototMediaItem[data-media-index="'+galleryIndex+'"]');
+    lockedScrollY=window.scrollY||window.pageYOffset||0;
     showGalleryItem();
     gallery.classList.add('open');
     document.body.classList.add('chototGalleryOpen');
+    document.body.style.top='-'+lockedScrollY+'px';
     gallery.querySelector('.chototGalleryClose').focus();
   }
 
@@ -154,6 +189,9 @@
     if(video)video.pause();
     gallery.classList.remove('open');
     document.body.classList.remove('chototGalleryOpen');
+    document.body.style.top='';
+    window.scrollTo(0,lockedScrollY);
+    if(galleryOpener&&document.contains(galleryOpener))galleryOpener.focus({preventScroll:true});
   }
 
   function moveGallery(delta){
@@ -173,7 +211,18 @@
     var more=card.querySelector('.chototFeedMoreText');
     var wrap=card.querySelector('.chototFeedBodyWrap');
     if(more)more.onclick=function(){var expanded=wrap.classList.toggle('expanded');more.textContent=expanded?'접기':'더보기';more.setAttribute('aria-expanded',String(expanded))};
-    [].forEach.call(card.querySelectorAll('.chototMediaItem'),function(item){item.onclick=function(){openGallery(card,Number(item.dataset.mediaIndex)||0)}});
+    [].forEach.call(card.querySelectorAll('.chototMediaItem'),function(item){
+      var gesture={x:0,y:0,moved:false};
+      item.addEventListener('pointerdown',function(event){gesture.x=event.clientX;gesture.y=event.clientY;gesture.moved=false});
+      item.addEventListener('pointermove',function(event){if(Math.abs(event.clientX-gesture.x)>10||Math.abs(event.clientY-gesture.y)>10)gesture.moved=true});
+      item.addEventListener('pointercancel',function(){gesture.moved=true});
+      item.onclick=function(event){
+        event.preventDefault();
+        event.stopPropagation();
+        if(gesture.moved){gesture.moved=false;return}
+        openGallery(card,Number(item.dataset.mediaIndex)||0);
+      };
+    });
     var rail=card.querySelector('.chototMediaRail');
     var counter=card.querySelector('.chototMediaCount');
     function updateCounter(){
@@ -182,11 +231,16 @@
       var nearest=items.reduce(function(best,item,index){var distance=Math.abs(item.offsetLeft-rail.scrollLeft);return distance<best.distance?{index:index,distance:distance}:best},{index:0,distance:Infinity});
       counter.textContent=(nearest.index+1)+' / '+items.length;
     }
-    if(rail){rail.addEventListener('scroll',updateCounter,{passive:true})}
+    if(rail){
+      rail.addEventListener('scroll',updateCounter,{passive:true});
+      ['touchstart','touchmove','touchend','touchcancel'].forEach(function(eventName){
+        rail.addEventListener(eventName,function(event){event.stopPropagation()},{passive:true});
+      });
+    }
     var prev=card.querySelector('.chototRailPrev');
     var next=card.querySelector('.chototRailNext');
-    if(prev)prev.onclick=function(){rail.scrollBy({left:-Math.max(220,rail.clientWidth*.78),behavior:'smooth'})};
-    if(next)next.onclick=function(){rail.scrollBy({left:Math.max(220,rail.clientWidth*.78),behavior:'smooth'})};
+    if(prev)prev.onclick=function(event){event.stopPropagation();rail.scrollBy({left:-Math.max(220,rail.clientWidth*.78),behavior:'smooth'})};
+    if(next)next.onclick=function(event){event.stopPropagation();rail.scrollBy({left:Math.max(220,rail.clientWidth*.78),behavior:'smooth'})};
     [].forEach.call(card.querySelectorAll('.chototVoteButton'),function(button){button.onclick=function(){
       var pill=button.parentElement;
       var wasActive=button.classList.contains('is-active');
