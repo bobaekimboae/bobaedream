@@ -2862,3 +2862,16 @@ final result: passed
 - mobile runtime integrity: passed
 
 final result: passed
+
+# 딜러 프로필 · 행동 아이콘 축소 및 커뮤니티 탭 QA · 2026-10-15
+
+- implementation: 김태규 딜러 프로필, 394 × 852 CSS px
+- 행동 버튼 3개에 초톳 팔로우·채팅·전화 아이콘을 적용했다.
+- 각 버튼은 113 × 38px로 축소했고 텍스트·아이콘 중앙 정렬을 확인했다.
+- 탭 순서는 `홈 · 판매차량 · 커뮤니티 · 내차시세문의 · 리뷰 · SNS · 소속딜러 · 소개`다.
+- 커뮤니티는 판매차량 바로 옆에 위치하며 선택 시 게시물 3개와 글쓰기 버튼이 노출된다.
+- 선택 밑줄 3px, page horizontal overflow 0px, console errors 0.
+- `npm run build`: passed
+- mobile runtime integrity: passed
+
+final result: passed

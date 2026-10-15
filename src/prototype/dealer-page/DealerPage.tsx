@@ -14,7 +14,7 @@ const dealerIcon = (name: string) => `${publicBase}icons/dealer-profile/${name}.
 const bobaeAsset = (name: string) => asset(`pc-detail/${name}`);
 const dealerPhoto = (dealer: SeoulAutoGalleryDealer) => asset(dealer.profileAsset ?? `dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`);
 
-type SectionId = "home" | "ads" | "valuation" | "reviews" | "social" | "dealers" | "intro";
+type SectionId = "home" | "ads" | "community" | "valuation" | "reviews" | "social" | "dealers" | "intro";
 type ListingMode = "active" | "sold";
 type ReviewFilter = "all" | "buyer" | "seller";
 
@@ -169,9 +169,9 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify }: { deal
           <p>{MOCK.intro}</p>
         </div>
         <div className="dp-profile-actions">
-          <button type="button" className="is-follow" aria-pressed={following} onClick={() => setFollowing(!following)}>{following ? "팔로잉" : "팔로우"}</button>
-          <button type="button" onClick={() => notify(`${dealer.name} 딜러와 채팅을 시작할 수 있어요`)}>채팅하기</button>
-          <a href={`tel:${MOCK.phone.replaceAll("-", "")}`} aria-label={`${dealer.name} 딜러에게 전화하기`}>전화하기</a>
+          <button type="button" className="is-follow" aria-pressed={following} onClick={() => setFollowing(!following)}><Icon name={following ? "chotot-list-detail-following.svg" : "chotot-list-detail-follow.svg"} />{following ? "팔로잉" : "팔로우"}</button>
+          <button type="button" onClick={() => notify(`${dealer.name} 딜러와 채팅을 시작할 수 있어요`)}><Icon name="chotot-list-detail-chat.svg" />채팅하기</button>
+          <a href={`tel:${MOCK.phone.replaceAll("-", "")}`} aria-label={`${dealer.name} 딜러에게 전화하기`}><Icon name="chotot-list-detail-phone.svg" />전화하기</a>
         </div>
         <div className="dp-profile-inline is-first"><DealerIcon name="clock" />{MOCK.lastActive}<i /><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>리뷰 {MOCK.reviewCount}</u></div>
         <div className="dp-profile-inline is-mobile-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>리뷰 {MOCK.reviewCount}</u></div>
@@ -244,7 +244,7 @@ function ListingsSection({ cars, mode, setMode, onOpen }: { cars: Car[]; mode: L
 }
 
 function AnchorNav({ active, onChange }: { active: SectionId; onChange: (section: SectionId) => void }) {
-  const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["valuation", "내차시세문의"], ["reviews", "리뷰"], ["social", "SNS"], ["dealers", "소속딜러"], ["intro", "소개"]];
+  const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["community", "커뮤니티"], ["valuation", "내차시세문의"], ["reviews", "리뷰"], ["social", "SNS"], ["dealers", "소속딜러"], ["intro", "소개"]];
   return <nav className="dp-anchor-nav" aria-label="판매자 페이지 구역" role="tablist">{items.map(([id, label]) => <button key={id} type="button" role="tab" aria-selected={active === id} className={`${active === id ? "is-active" : ""}${id === "valuation" ? " is-valuation" : ""}`} onClick={() => onChange(id)}>{label}</button>)}</nav>;
 }
 
@@ -252,6 +252,26 @@ function HomeSection() {
   return <section className="dp-content-card dp-home-pending" aria-labelledby="dp-home-title">
     <h2 id="dp-home-title">홈</h2>
     <p>판매자 홈 구성은 다음 단계에서 준비합니다.</p>
+  </section>;
+}
+
+function CommunitySection({ cars, notify }: { cars: Car[]; notify: (message: string) => void }) {
+  const posts = [
+    { category: "차량 소개", title: "BMW M3 xDrive 컴페티션 입고 안내", copy: "관리 상태와 주요 옵션을 직접 확인했습니다. 방문 전 궁금한 점을 댓글로 남겨주세요.", author: "김태규", time: "2시간 전", views: 128, comments: 6, car: cars[1] ?? cars[0] },
+    { category: "관리 팁", title: "수입차 장기 보관 전 확인할 세 가지", copy: "배터리와 타이어 공기압, 실내 습도만 점검해도 차량 컨디션을 오래 유지할 수 있습니다.", author: "투제이모터웍스", time: "1일 전", views: 246, comments: 11, car: cars[0] },
+    { category: "상담 후기", title: "멀리서 방문해 주신 고객님 출고 후기", copy: "차량 이력과 상품화 과정을 함께 확인하고 안전하게 출고를 마쳤습니다.", author: "김태규", time: "3일 전", views: 193, comments: 4, car: cars[2] ?? cars[0] },
+  ];
+  return <section className="dp-content-card dp-community" aria-labelledby="dp-community-title">
+    <div className="dp-section-heading">
+      <div><h2 id="dp-community-title">커뮤니티</h2><p>딜러가 전하는 차량 소식과 관리 정보입니다.</p></div>
+      <button type="button" onClick={() => notify("커뮤니티 글쓰기를 준비 중이에요")}>글쓰기</button>
+    </div>
+    <div className="dp-community-list">
+      {posts.map((post) => <button type="button" className="dp-community-post" key={post.title} onClick={() => notify(post.title)}>
+        <span className="dp-community-copy"><small>{post.category}</small><b>{post.title}</b><p>{post.copy}</p><em>{post.author} · {post.time} · 조회 {post.views} · 댓글 {post.comments}</em></span>
+        {post.car ? <img src={asset(post.car.listThumb ?? post.car.image)} alt="" aria-hidden="true" draggable={false} /> : null}
+      </button>)}
+    </div>
   </section>;
 }
 
@@ -471,6 +491,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
         <AnchorNav active={activeSection} onChange={changeSection} />
         {activeSection === "home" ? <HomeSection /> : null}
         {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}
+        {activeSection === "community" ? <CommunitySection cars={cars} notify={notify} /> : null}
         {activeSection === "valuation" ? <ValuationSection dealer={dealer} notify={notify} /> : null}
         {activeSection === "reviews" ? <RatingsSection cars={cars} /> : null}
         {activeSection === "social" ? <SocialFeedSection cars={cars} /> : null}
