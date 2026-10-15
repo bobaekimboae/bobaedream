@@ -1829,6 +1829,10 @@ function MarketplaceScreen() {
   const categoryTypeBrandList = krTypeTop10(category);
   const showCarBodyTypeRail = Boolean(isGuaziQuickStyle && !maker && (category === "국산차" || category === "수입차"));
   const selectedCarBodyTypes = bbmValue.checks.bodyType ?? [];
+  const carBodyTypeCount = (label: string) => listingCars.filter((car) => {
+    const body = car.filter?.body ?? "";
+    return (body === "승합" ? "밴(승합)" : body === "스포츠카" ? "쿠페" : body) === label;
+  }).length;
   const chooseCarBodyType = (bodyType: string) => {
     const nextValues = selectedCarBodyTypes.includes(bodyType) ? [] : [bodyType];
     setBbmFilters(setBbmChecks(bbmValue, "bodyType", nextValues));
@@ -2110,12 +2114,13 @@ function MarketplaceScreen() {
               const logoSource = luxuryLogoSource();
               return (
                 <>
-                  {showCarBodyTypeRail ? <section className="depth-rail is-car-body-type no-label" aria-label={`${category} 바디타입 빠른 선택`} data-bodyview="side" data-bodybrand={carBodyBrandTheme}>
+                  {showCarBodyTypeRail ? <section className={`depth-rail is-car-body-type no-label${brandShadowCard ? " is-brand-shadowcard" : ""}`} aria-label={`${category} 바디타입 빠른 선택`} data-bodyview="side" data-bodybrand={carBodyBrandTheme}>
                     <QuickRailCarousel ariaLabel={`${category} 바디타입`} className="brand-carousel" contentClassName="depth-rail-track">
                       {carBodyQuickOptions.map((option) => (
                         <DepthCard
                           key={option.label}
                           className={`is-car-body-depth is-body-${option.assetName}`}
+                          sub={brandShadowCard ? `(${carBodyTypeCount(option.label)})` : undefined}
                           label={option.label}
                           image={<img src={carBodyQuickImage(option.assetName, carBodyBrandTheme)} alt="" aria-hidden="true" draggable={false} />}
                           selected={selectedCarBodyTypes.includes(option.label)}
@@ -2149,12 +2154,13 @@ function MarketplaceScreen() {
             };
             return (
               <>
-                {showCarBodyTypeRail ? <section className="depth-rail is-car-body-type no-label" aria-label={`${category} 바디타입 빠른 선택`} data-bodyview="side" data-bodybrand={carBodyBrandTheme}>
+                {showCarBodyTypeRail ? <section className={`depth-rail is-car-body-type no-label${brandShadowCard ? " is-brand-shadowcard" : ""}`} aria-label={`${category} 바디타입 빠른 선택`} data-bodyview="side" data-bodybrand={carBodyBrandTheme}>
                   <QuickRailCarousel ariaLabel={`${category} 바디타입`} className="brand-carousel" contentClassName="depth-rail-track">
                     {carBodyQuickOptions.map((option) => (
                       <DepthCard
                         key={option.label}
                         className={`is-car-body-depth is-body-${option.assetName}`}
+                          sub={brandShadowCard ? `(${carBodyTypeCount(option.label)})` : undefined}
                         label={option.label}
                         image={<img src={carBodyQuickImage(option.assetName, carBodyBrandTheme)} alt="" aria-hidden="true" draggable={false} />}
                         selected={selectedCarBodyTypes.includes(option.label)}
