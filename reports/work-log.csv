@@ -341,3 +341,4 @@
 2026-10-15,그림자 카드 원본 재대조,claude/used-car-detail-1013,,,,그림자 · 안쪽 여백 · 글자 10.5 · 회색 바탕 보정,qf-brand-shadowcard.css,,첫 카드 왼쪽 16 유지(원본 17),verify:qf
 2026-10-15,그림자 카드 레일 배경색 제거,claude/used-car-detail-1013,,,,레일 바탕 #F3F4F6 삭제(흰색),qf-brand-shadowcard.css,,,verify:qf
 2026-10-15,그림자 카드 박스 윤곽 복원,claude/used-car-detail-1013,,,,1px 옅은 윤곽 + 그림자 보강(흰 레일 유지),qf-brand-shadowcard.css,,,verify:qf
+2026-10-15,그림자 카드 오토스카우트 카드선 맞춤,claude/used-car-detail-1013,,,,윤곽선 제거 + 그림자 0 3px 7px .24(실측),qf-brand-shadowcard.css,,카드 크기·반경 유지,verify:qf
