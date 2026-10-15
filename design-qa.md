@@ -43,6 +43,53 @@ final result: passed
 
 ---
 
+# Design QA · 유튜브 모바일 헤더·프로필 크기 보정 (2026-10-15)
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/dbff4f9b-8c08-43b9-bccf-46b545374c2e/1-1000018338.jpg`
+- implementation: `http://127.0.0.1:4213/?profile=dealer&shop=450554&emp=1&qf=guazi&category=서울오토갤러리&v=youtube-size`
+- implementation screenshot: Codex IAB tab `108`, 393 × 852 CSS px iframe capture
+- source pixels: 592 × 1280 px; Android 기기 배율을 393 CSS px 기준으로 정규화
+- implementation pixels/CSS/density: 393 × 852 CSS px, 브라우저 기본 DPR
+- state: 김태규 판매자 페이지, 판매차량 탭, 팔로우 전
+
+## Full-view comparison evidence
+
+- 원본 유튜브 배너는 좌우 약 16px, 폭 약 361px, 높이 약 100px로 측정됐다.
+- 구현을 393px 프레임에서 열어 배너 좌우 16px, 18:5 비율, 최대 높이 100px로 렌더되는 것을 확인했다.
+- 원본 프로필 사진은 약 74px이고 배너 하단에서 약 13px 떨어져 시작한다. 구현도 74px 원형 사진과 13px 상단 간격으로 맞췄다.
+
+## Focused region comparison evidence
+
+- 프로필 사진의 왼쪽 시작점은 16px, 판매자명 시작점은 108px로 유지했다.
+- 프사 폭을 72px에서 74px로 늘리는 대신 사진–텍스트 간격을 20px에서 18px로 줄여 제목 시작축이 움직이지 않게 했다.
+- 헤더 아래 과도했던 24px 합산 간격을 13px로 줄여 원본 유튜브의 세로 밀도와 맞췄다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 기존 판매자명 22/28px 및 보조 정보 13/18px을 유지해 텍스트 위계를 변경하지 않았다.
+- spacing/layout rhythm: 배너 18:5·100px, 프사 74px, 좌우 16px, 배너–프사 13px으로 보정했다.
+- colors/tokens: 기존 흰 배경·검정 본문·회색 보조 정보 토큰을 유지했다.
+- image quality/assets: 기존 공식 Range Rover 헤더 이미지와 실제 딜러 프로필 원본을 유지하고 크롭만 슬롯에 맞췄다.
+- copy/content: 판매자·상사·평점·판매 실적 문구는 변경하지 않았다.
+
+## Comparison history
+
+- Pass 1 P2: 배너가 3.65:1·98px로 원본보다 약간 낮고, 프사 72px 및 배너–프사 24px 간격으로 상단 밀도가 느슨했다.
+- Fix: 모바일 배너를 18:5·100px, 프사를 74px, 배너–프사 간격을 13px으로 수정했다.
+- Pass 2: 393 × 852 IAB 프레임에서 제목 시작축, 배너 비율, 프사 크기와 세로 간격을 다시 확인했고 P0/P1/P2 차이가 남지 않았다.
+
+## Verification
+
+- `npm run check:runtime`: passed
+- `npx tsc --noEmit`: passed
+- `npm run build`: passed
+- 모바일 393 × 852 및 PC 기본 뷰포트 렌더 확인
+- P0/P1/P2 findings: none
+
+final result: passed
+
+---
+
 # 치지직 상세 · 댓글 있는 사용자 게시물 v7 QA · 2026-10-15
 
 - source visual truth: `https://m.game.naver.com/lounge/chzzk/board/detail/8325190`

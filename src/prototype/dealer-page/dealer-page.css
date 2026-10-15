@@ -36,7 +36,7 @@
 
 .dp-page { width: 100%; margin: 0 auto; background: #fff; }
 .dp-profile { background: #fff; }
-.dp-cover { position: relative; width: calc(100% - 32px); aspect-ratio: 179 / 49; min-height: 88px; max-height: 98px; margin: 12px 16px 10px; overflow: hidden; border-radius: 8px; background: #7f7f7f; box-shadow: 0 1px 2px rgba(0,0,0,.12); color: #fff; isolation: isolate; }
+.dp-cover { position: relative; width: calc(100% - 32px); aspect-ratio: 18 / 5; min-height: 88px; max-height: 100px; margin: 12px 16px 0; overflow: hidden; border-radius: 8px; background: #7f7f7f; box-shadow: 0 1px 2px rgba(0,0,0,.12); color: #fff; isolation: isolate; }
 .dp-cover::before { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.68) 0%, rgba(0,0,0,.42) 38%, rgba(0,0,0,.1) 70%, transparent 100%); pointer-events: none; }
 .dp-cover::after { display: none; }
 .dp-cover-photo { position: absolute; z-index: 0; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 54%; animation: dp-cover-reveal 360ms ease-out both; }
@@ -50,8 +50,8 @@
 .dp-cover-dots button.is-active { width: 12px; border-radius: 3px; background: #fff; }
 .dp-cover-more { position: absolute; z-index: 2; top: 12px; right: 12px; display: none; place-items: center; width: 36px; height: 36px; border-radius: 50% !important; background: rgba(255,255,255,.94) !important; }
 .dp-cover-more .dp-icon { width: 20px; height: 20px; }
-.dp-profile-body { position: relative; display: grid; grid-template-columns: 72px minmax(0, 1fr); column-gap: 20px; padding: 14px 16px 18px; }
-.dp-avatar { position: static; z-index: 2; grid-column: 1; grid-row: 1 / span 4; align-self: start; width: 72px; height: 72px; border: 2px solid #fff; border-radius: 50%; object-fit: cover; background: var(--dp-bg); box-shadow: 0 0 0 1px #dedede, 0 4px 14px rgba(0,0,0,.1); }
+.dp-profile-body { position: relative; display: grid; grid-template-columns: 74px minmax(0, 1fr); column-gap: 18px; padding: 13px 16px 18px; }
+.dp-avatar { position: static; z-index: 2; grid-column: 1; grid-row: 1 / span 4; align-self: start; width: 74px; height: 74px; border: 2px solid #fff; border-radius: 50%; object-fit: cover; background: var(--dp-bg); box-shadow: 0 0 0 1px #dedede, 0 4px 14px rgba(0,0,0,.1); }
 .dp-profile-copy { display: contents; }
 .dp-profile-copy h1 { display: flex; grid-column: 2; grid-row: 1; align-self: start; align-items: center; gap: 5px; font-size: 22px; line-height: 28px; font-weight: 700; letter-spacing: -.3px; }
 .dp-profile-copy h1 .is-badge { width: 18px; height: 18px; }
