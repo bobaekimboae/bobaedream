@@ -4,6 +4,80 @@ const isNotice = params.get('type') === 'notice' || params.get('notice') === '1'
 const isLongNotice = id === 8303245;
 const isUserInquiry = id === 8325190;
 const posts = window.BOBAE_POSTS || [];
+const dukkaebiPosts = [
+  {
+    id: 8325190,
+    title: '특정 채널의 채팅 이용 제한 해제 관련 문의드립니다',
+    user: '두깝이',
+    category: '자유게시판',
+    date: '14시간 전',
+    view: 91,
+    likes: -4,
+  },
+  {
+    id: 8325181,
+    title: '가입 인사드립니다. 잘 부탁드려요',
+    user: '두깝이',
+    level: 7,
+    category: '자유게시판',
+    date: '1일 전',
+    view: 128,
+    likes: 8,
+    authorAvatar: 'assets/chzzk-detail/user-default-avatar.png',
+    tags: ['가입인사', '첫글'],
+    body: [
+      '안녕하세요. 오늘 처음 가입해서 인사드립니다.',
+      '치지직 방송과 게임 이야기를 좋아해서 커뮤니티 글도 자주 읽어보려고 합니다.',
+      '아직 모르는 기능이 많지만 이용 규칙을 지키면서 천천히 활동하겠습니다.',
+      '앞으로 잘 부탁드립니다.',
+    ],
+    comments: [
+      { id:'8325181-1', user:'초록라임', level:5, avatar:'assets/chzzk-detail/comment-avatar.gif', text:'반갑습니다. 편하게 활동하세요!', date:'22시간 전', like:4, replies:[] },
+      { id:'8325181-2', user:'익씽', level:12, avatar:'assets/chzzk-detail/comment-anonymous-avatar.png', text:'공지 한 번 읽고 시작하시면 금방 적응하실 거예요.', date:'20시간 전', like:2, replies:[] },
+    ],
+  },
+  {
+    id: 8325147,
+    title: '치지직 채팅 이용 규칙은 어디에서 확인하나요?',
+    user: '두깝이',
+    level: 7,
+    category: '자유게시판',
+    date: '2일 전',
+    view: 204,
+    likes: 5,
+    authorAvatar: 'assets/chzzk-detail/user-default-avatar.png',
+    tags: ['채팅', '이용규칙'],
+    body: [
+      '채널마다 채팅 규칙이 조금씩 다른 것 같아 정확한 확인 위치를 찾고 있습니다.',
+      '치지직 공통 운영정책과 스트리머별 채널 규칙을 각각 어디에서 볼 수 있을까요?',
+      '모바일 앱에서 확인하는 경로를 아시는 분은 알려주시면 감사하겠습니다.',
+    ],
+    comments: [
+      { id:'8325147-1', user:'규칙먼저', level:9, avatar:'assets/chzzk-detail/comment-anonymous-avatar.png', text:'채널 정보의 이용 안내와 치지직 운영정책을 같이 확인하시면 됩니다.', date:'2일 전', like:7, replies:[{ id:'8325147-1-1', user:'두깝이', level:7, avatar:'assets/chzzk-detail/user-default-avatar.png', writer:true, text:'확인했습니다. 알려주셔서 감사합니다.', date:'2일 전', like:2 }] },
+    ],
+  },
+  {
+    id: 8325093,
+    title: '구독 알림이 조금 늦게 오는 것 같습니다',
+    user: '두깝이',
+    level: 7,
+    category: '자유게시판',
+    date: '3일 전',
+    view: 176,
+    likes: 3,
+    authorAvatar: 'assets/chzzk-detail/user-default-avatar.png',
+    tags: ['구독알림', '모바일'],
+    body: [
+      '구독 중인 채널이 방송을 시작한 뒤 알림이 몇 분 늦게 도착하는 경우가 있습니다.',
+      '앱 알림과 휴대폰 알림 권한은 모두 켜둔 상태입니다.',
+      '비슷한 증상을 해결하신 분이 있다면 설정 방법을 공유 부탁드립니다.',
+    ],
+    comments: [
+      { id:'8325093-1', user:'알림체크', level:4, avatar:'assets/chzzk-detail/comment-avatar.gif', text:'배터리 최적화에서 치지직 앱을 제외하니 저는 좋아졌습니다.', date:'3일 전', like:6, replies:[] },
+    ],
+  },
+];
+const allPosts = [...posts, ...dukkaebiPosts];
 function loadLocalPost() {
   if (params.get('local') !== '1') return null;
   try {
@@ -17,7 +91,7 @@ function loadLocalPost() {
   } catch { return null; }
 }
 const localSourcePost = loadLocalPost();
-const sourcePost = localSourcePost || posts.find((item) => item.id === id);
+const sourcePost = localSourcePost || allPosts.find((item) => item.id === id);
 const isReferencePost = !localSourcePost && (id === 8326278 || id === 8131629 || isLongNotice || isUserInquiry || !sourcePost);
 const post = isLongNotice ? {
   title: "[안내] 24시간 방송 추천 '루프 스테이션' 안내 (10/9~10/11)",
@@ -75,7 +149,7 @@ function commentActionsHtml(item, label = '댓글') {
     <button class="commentIconButton moreCommentButton" aria-label="${label} 더보기"><img src="assets/chzzk-detail/icons/more-reddit.svg" alt=""></button>
     <button class="commentTextButton replyButton" data-reply-user="${user}"><img src="assets/chzzk-detail/icons/reply-reddit.svg" alt=""><span>답글</span></button>
     <button class="commentTextButton commentShareButton" data-comment-share="${itemId}" aria-label="${label} 공유"><img src="assets/chzzk-detail/icons/share-reddit.svg" alt=""><span>공유</span></button>
-    <div class="miniVotes"><button aria-label="${label} 추천"><img src="assets/chzzk-detail/icons/buff.svg?v=20261015v11" alt=""><span>추천</span></button><b>${score}</b><button aria-label="${label} 비추"><img src="assets/chzzk-detail/icons/nerf.svg?v=20261015v11" alt=""><span>비추</span></button></div>
+    <div class="miniVotes"><button aria-label="${label} 추천"><img src="assets/chzzk-detail/icons/vote-up.svg?v=20261015v13" alt=""><span>추천</span></button><b>${score}</b><button aria-label="${label} 비추"><img src="assets/chzzk-detail/icons/vote-down.svg?v=20261015v13" alt=""><span>비추</span></button></div>
   </div>`;
 }
 
@@ -151,6 +225,7 @@ function setRegularContent() {
     $('#commentForm').classList.add('isDisabled');
   } else if (isUserInquiry) {
     document.body.classList.add('isUserInquiry');
+    $('#boardBtn').childNodes[0].nodeValue = '자유게시판 ';
     $('#eventText').textContent = '[월즈 2026] LoL 한정판 시청 드롭스 안내 (플레이인-스위스 스테이지)';
     $('#authorAvatar').src = 'assets/chzzk-detail/user-default-avatar.png';
     $('#authorAvatar').alt = '두깝이 프로필';
@@ -167,9 +242,11 @@ function setRegularContent() {
     tagRow.hidden = true;
     $('#latestAuthor').textContent = '두깝이';
     const latestItems = document.querySelectorAll('.latestItem');
-    latestItems[0].textContent = '가입 인사';
-    latestItems[1].hidden = true;
-    latestItems[2].hidden = true;
+    dukkaebiPosts.filter((item) => item.id !== id).forEach((next, index) => {
+      latestItems[index].textContent = next.title;
+      latestItems[index].dataset.postId = String(next.id);
+      latestItems[index].hidden = false;
+    });
     $('#commentCount').textContent = '댓글 2';
     $('#actionCommentCount').textContent = '2';
     $('#commentList').innerHTML = `
@@ -189,7 +266,7 @@ function setRegularContent() {
       </li>`;
   } else if (!isReferencePost && !localSourcePost) {
     document.body.classList.add('isScenarioPost');
-    $('#boardBtn').childNodes[0].nodeValue = `${post.category || '자유'} `;
+    $('#boardBtn').childNodes[0].nodeValue = `${post.category || '자유게시판'} `;
     if (post.authorAvatar) {
       $('#authorAvatar').src = post.authorAvatar;
       $('#authorAvatar').alt = `${post.user || '회원'} 프로필`;
@@ -207,11 +284,16 @@ function setRegularContent() {
     }));
     tagRow.hidden = tags.length === 0;
     renderSourceComments(post);
-    const related = posts.filter((item) => item.id !== post.id && item.category === post.category).slice(0, 3);
+    const related = allPosts.filter((item) => item.id !== post.id && (item.user === post.user || item.category === post.category)).slice(0, 3);
     document.querySelectorAll('.latestItem').forEach((item, index) => {
       const next = related[index];
       item.hidden = !next;
-      if (next) item.textContent = String(next.title || '').replace(/^\[[^\]]+\]\s*/, '');
+      if (next) {
+        item.textContent = String(next.title || '').replace(/^\[[^\]]+\]\s*/, '');
+        item.dataset.postId = String(next.id);
+      } else {
+        delete item.dataset.postId;
+      }
     });
   }
   if (localSourcePost) {
@@ -285,7 +367,14 @@ $('#shareBtn').addEventListener('click', async () => {
   try { await navigator.clipboard.writeText(location.href); showToast('게시글 링크를 복사했습니다'); } catch { showToast('주소창의 링크를 복사해 주세요'); }
 });
 $('#latestMore').addEventListener('click', () => showToast('최신글을 더 불러옵니다'));
-document.querySelectorAll('.latestItem').forEach((item) => item.addEventListener('click', () => showToast(item.textContent.trim())));
+document.querySelectorAll('.latestItem').forEach((item) => item.addEventListener('click', () => {
+  const postId = Number(item.dataset.postId || 0);
+  if (postId) {
+    location.href = `./chzzk-detail.html?id=${postId}`;
+    return;
+  }
+  showToast(item.textContent.trim());
+}));
 $('#refreshBtn').addEventListener('click', () => showToast('댓글을 새로고침했습니다'));
 $('#filterBtn').addEventListener('click', () => showToast('댓글 정렬: 등록순'));
 $('#gearBtn').addEventListener('click', () => showToast('클린봇이 켜져 있습니다'));

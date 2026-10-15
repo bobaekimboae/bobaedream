@@ -1,3 +1,21 @@
+# 치지직 상세 · 보트 아이콘·블루·두깝이 최신글 v14 QA · 2026-10-15
+
+- scope: 게시글과 동적 댓글의 엄지 추천·비추 아이콘을 Reddit 업보트·다운보트 화살표로 교체
+- assets: `vote-up.svg`, `vote-down.svg`
+- color: Airbnb 레드 대신 보배 블루 `#238fe3`, 선택 배경 `#eef7ff` 적용
+- board: `자유`를 `자유게시판`으로 확장
+- latest scenarios: 두깝이 최신글 3개에 제목·본문·댓글·상호 이동 경로 구성
+- preserved: 추천·점수·비추 알약칩, 댓글칩, 우측 공유칩
+- accessibility: 추천·비추 `aria-label`과 `aria-pressed` 상태 유지
+- PC 1536 × 639 / 모바일 394 × 852: 가로 넘침 없음, 깨진 이미지 0건, 콘솔 warning/error 0건
+- interaction: 추천 -4→-3, 비추 전환 -3→-5, 두깝이 최신글 상세 이동 통과
+- scenario: 가입 인사 상세의 본문 4단락, 댓글 2건, 최신글 상호 링크 확인
+- verification: `npm run verify`, `community:verify:detail-actions`, `community:verify:detail-scenarios` 통과
+
+final result: passed
+
+---
+
 # Design QA · 간결형 댓글 숫자·괄호 통일 (2026-10-15)
 
 - source visual truth: 사용자 제공 치지직 모바일 캡처 `1-1000018320.jpg` (591×1280 래스터)
