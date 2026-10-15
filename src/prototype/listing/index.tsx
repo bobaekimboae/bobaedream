@@ -2858,12 +2858,11 @@ function MarketplaceScreen() {
               <LuxuryThemeHero variant={luxuryHead} header={bbmMobileHeader} listingCount={luxuryCategoryCars.length} dealerCount={new Set(luxuryCategoryCars.map((car) => car.dealer)).size} onNotify={setSearchToast} />
               <div className="lux-hero-sheet"><div className="bbm-m-quick-slot">{quickRail}</div></div>
             </> : bbmMobileHeader}
-            {luxuryHead || isSeoulAutoGalleryLanding ? null : categoryComplexHeader}
+            {luxuryHead ? null : categoryComplexHeader}
             {luxuryHead ? null : isSeoulAutoGalleryLanding ? <SeoulAutoGalleryTabs value={seoulAutoGallerySection} onChange={(next) => { setSeoulAutoGallerySection(next); if (next !== "vehicles" && maker) clearMakerFilter(); }} /> : <section className="region-bar is-bbm" aria-label="지역 선택">
               <button type="button" aria-label={`현재 지역 ${isGuaziQuickStyle ? stableRegionLabel(bbmValue) : regionLabel}, 지역 선택 열기`} onClick={isGuaziQuickStyle ? () => setStableRegionOpen(true) : openRegionSheet}><span className="region-text">{isGuaziQuickStyle ? <img className="region-location-icon" src={bbmIcon("header-location-chotot-v01")} alt="" aria-hidden="true" /> : <span className="region-label">지역:</span>}<strong>{isGuaziQuickStyle ? stableRegionLabel(bbmValue) : regionLabel}</strong></span><span className="region-chevron-icon" aria-hidden="true"><img src={bbmIcon("triangle-down-chotot")} alt="" /></span></button>
               <button type="button" className="reset-button" onClick={() => resetFilters()}>초기화</button>
             </section>}
-            {luxuryHead || !isSeoulAutoGalleryLanding ? null : categoryComplexHeader}
             {showSeoulAutoGalleryVehicles ? <section className={`filter-shell quick-style-guazi is-bbm${bbmRailScrolled ? " is-scrolled" : ""}`} aria-label="중고차 필터" data-history={shownHistory}>
               <button className={`filter-fixed${bbmAppliedCount ? " is-applied" : ""}`} type="button" aria-label={bbmAppliedCount ? `필터 ${bbmAppliedCount}개 적용됨` : "필터"} onClick={openBbmFull}><img className="ui-icon" src={bbmIcon(bbmFilterIconName)} alt="" aria-hidden="true" />{isGuaziQuickStyle ? <><span>필터</span>{bbmAppliedCount ? <b className="filter-fixed-count">{bbmAppliedCount}</b> : null}</> : bbmAppliedCount ? <b className="filter-fixed-count">{bbmAppliedCount}</b> : <span>필터</span>}</button>
               <Carousel ariaLabel="중고차 조건" className="filter-rail" contentClassName="filter-track">
