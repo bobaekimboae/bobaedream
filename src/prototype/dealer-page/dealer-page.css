@@ -68,6 +68,7 @@
 .dp-profile-actions > .is-follow { border-color: #bfc1c4; box-shadow: 0 1px 2px rgba(0, 0, 0, .1); }
 .dp-profile-actions > .is-follow[aria-pressed="true"] { border-color: #b5b7ba; background: #fff; color: var(--dp-ink); }
 .dp-profile-actions .dp-icon { width: 17px; height: 17px; }
+.dp-profile-actions .dp-dealer-icon { width: 18px; height: 18px; flex: none; }
 .dp-profile-inline { display: flex; align-items: center; min-width: 0; color: var(--dp-sub); font-size: 14px; line-height: 22px; }
 .dp-profile-inline i { width: 4px; height: 4px; margin: 0 10px; border-radius: 50%; background: #666; }
 .dp-profile-inline u { color: #555; text-underline-offset: 2px; }
