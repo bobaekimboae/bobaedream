@@ -149,7 +149,7 @@ function commentActionsHtml(item, label = '댓글') {
     <button class="commentIconButton moreCommentButton" aria-label="${label} 더보기"><img src="assets/chzzk-detail/icons/more-reddit.svg" alt=""></button>
     <button class="commentTextButton replyButton" data-reply-user="${user}"><img src="assets/chzzk-detail/icons/reply-reddit.svg" alt=""><span>답글</span></button>
     <button class="commentTextButton commentShareButton" data-comment-share="${itemId}" aria-label="${label} 공유"><img src="assets/chzzk-detail/icons/share-reddit.svg" alt=""><span>공유</span></button>
-    <div class="miniVotes"><button aria-label="${label} 추천"><img src="assets/chzzk-detail/icons/vote-up.svg?v=20261015v13" alt=""><span>추천</span></button><b>${score}</b><button aria-label="${label} 비추"><img src="assets/chzzk-detail/icons/vote-down.svg?v=20261015v13" alt=""><span>비추</span></button></div>
+    <div class="miniVotes"><button aria-label="${label} 추천"><img src="assets/chzzk-detail/icons/vote-up.svg?v=20261015v14" alt=""><span>추천</span></button><b>${score}</b><button aria-label="${label} 비추"><img src="assets/chzzk-detail/icons/vote-down.svg?v=20261015v14" alt=""><span>비추</span></button></div>
   </div>`;
 }
 
