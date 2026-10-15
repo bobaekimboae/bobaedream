@@ -227,6 +227,11 @@
     });
     var rail=card.querySelector('.chototMediaRail');
     var counter=card.querySelector('.chototMediaCount');
+    function resetRailToFirstImage(){
+      if(!rail)return;
+      rail.scrollLeft=0;
+      if(counter)counter.textContent='1 / '+rail.children.length;
+    }
     function updateCounter(){
       if(!rail||!counter)return;
       var items=[].slice.call(rail.children);
@@ -234,6 +239,8 @@
       counter.textContent=(nearest.index+1)+' / '+items.length;
     }
     if(rail){
+      resetRailToFirstImage();
+      requestAnimationFrame(resetRailToFirstImage);
       rail.addEventListener('scroll',updateCounter,{passive:true});
       ['touchstart','touchmove','touchend','touchcancel'].forEach(function(eventName){
         rail.addEventListener(eventName,function(event){event.stopPropagation()},{passive:true});
@@ -282,4 +289,14 @@
   if(requestedView==='chotot'||requestedView==='feed-chotot'){
     renderChototFeed();
   }
+  window.addEventListener('pageshow',function(){
+    if(!phone.classList.contains('chototFeedMode'))return;
+    requestAnimationFrame(function(){
+      [].forEach.call(list.querySelectorAll('.chototMediaRail'),function(rail){rail.scrollLeft=0});
+      [].forEach.call(list.querySelectorAll('.chototMediaCount'),function(counter){
+        var rail=counter.parentElement.querySelector('.chototMediaRail');
+        if(rail)counter.textContent='1 / '+rail.children.length;
+      });
+    });
+  });
 })();

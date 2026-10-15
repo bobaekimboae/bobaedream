@@ -34,6 +34,27 @@ async function checkCase(name,viewport,expectedMediaHeight){
   if(!railBox||Math.abs(railBox.height-expectedMediaHeight)>1)throw new Error(`${name}: expected media height ${expectedMediaHeight}, got ${railBox?.height}`);
   if(metrics.scrollWidth<=metrics.clientWidth)throw new Error(`${name}: first media rail is not horizontally scrollable`);
   if(metrics.bodyScrollWidth>metrics.bodyClientWidth+1)throw new Error(`${name}: body overflows horizontally`);
+  const initialMediaPosition=await page.locator('.chototMediaRail').first().evaluate(rail=>{
+    const first=rail.firstElementChild;
+    return {scrollLeft:rail.scrollLeft,visualOffset:first.getBoundingClientRect().left-rail.getBoundingClientRect().left,counter:rail.parentElement.querySelector('.chototMediaCount')?.textContent?.trim()};
+  });
+  if(Math.abs(initialMediaPosition.visualOffset)>1||initialMediaPosition.counter!=='1 / 6')throw new Error(`${name}: feed did not start at first image: ${JSON.stringify(initialMediaPosition)}`);
+  const restoredMediaPosition=await page.locator('.chototMediaRail').first().evaluate(async rail=>{
+    rail.scrollLeft=rail.scrollWidth;
+    window.dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}));
+    await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+    const first=rail.firstElementChild;
+    return {scrollLeft:rail.scrollLeft,visualOffset:first.getBoundingClientRect().left-rail.getBoundingClientRect().left,counter:rail.parentElement.querySelector('.chototMediaCount')?.textContent?.trim()};
+  });
+  if(Math.abs(restoredMediaPosition.visualOffset)>1||restoredMediaPosition.counter!=='1 / 6')throw new Error(`${name}: restored feed did not reset to first image: ${JSON.stringify(restoredMediaPosition)}`);
+  const mediaScenarioCoverage=await page.locator('.chototFeedCard').evaluateAll(cards=>cards.map(card=>({
+    count:card.querySelectorAll('.chototMediaItem').length,
+    ratios:[...card.querySelectorAll('.chototMediaItem')].map(item=>item.dataset.ratio),
+    hasVideo:Boolean(card.querySelector('.chototMediaItem.video'))
+  })));
+  const expectedCounts=[6,5,3,4,4,1,1,2,5,3];
+  if(JSON.stringify(mediaScenarioCoverage.map(item=>item.count))!==JSON.stringify(expectedCounts))throw new Error(`${name}: media scenarios are incomplete: ${JSON.stringify(mediaScenarioCoverage)}`);
+  if(mediaScenarioCoverage.filter(item=>item.hasVideo).length!==1)throw new Error(`${name}: video scenario coverage is incomplete`);
   const firstImage=page.locator('.chototMediaItem img').first();
   await firstImage.waitFor({state:'visible'});
   await firstImage.scrollIntoViewIfNeeded();
@@ -90,7 +111,7 @@ async function checkCase(name,viewport,expectedMediaHeight){
   const viewportScreenshot=path.join(artifactDir,`${name}-viewport.png`);
   await page.screenshot({path:screenshot,fullPage:true});
   await page.screenshot({path:viewportScreenshot,fullPage:false});
-  const entry={name,viewport,label:label.trim(),firstTitle,cardCount,railBox,metrics,imageState,touchIsolation,dragSuppressed,scrollBeforeGallery,scrollAfterGallery,screenshot,viewportScreenshot,consoleErrors,failedResources};
+  const entry={name,viewport,label:label.trim(),firstTitle,cardCount,railBox,metrics,initialMediaPosition,restoredMediaPosition,mediaScenarioCoverage,imageState,touchIsolation,dragSuppressed,scrollBeforeGallery,scrollAfterGallery,screenshot,viewportScreenshot,consoleErrors,failedResources};
   report.cases.push(entry);
   if(failedResources.length)throw new Error(`${name}: failed resources: ${failedResources.join(' | ')}`);
   if(consoleErrors.length)throw new Error(`${name}: console errors: ${consoleErrors.join(' | ')}`);
