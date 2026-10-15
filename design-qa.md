@@ -27,6 +27,35 @@ final result: passed
 
 ---
 
+# PC 상단 메뉴 원본 SVG 아이콘 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/Downloads/중고차.svg`, `트럭.svg`, `캠핑카.svg`, `용품부품.svg`, `수입차.svg`, `더보기.svg`
+- browser-rendered implementation: `http://127.0.0.1:4311/?qf=guazi&pc=1&v=nav-icons` (Codex 인앱 브라우저 캡처로 확인; 브라우저가 로컬 이미지 경로를 노출하지 않아 URL을 증거로 기록)
+- viewport and density: 1440 × 900, 1024 × 768, 390 × 844 CSS px, DPR 1
+- state: 전체차량 선택 기본 상태와 `더보기` 드롭다운 열린 상태
+- full-view comparison evidence: 기존 117px 헤더와 1200px 콘텐츠 폭, 좌측 GNB 정렬, 카테고리 사이 가운데점 5개를 유지하면서 첨부 아이콘만 추가했다.
+- focused region comparison evidence: 1440px 메뉴 아이콘 5개가 모두 18 × 18px, 1024px에서 16 × 16px으로 계산됐다. 더보기 드롭다운의 수입차 아이콘은 18 × 18px이며 나머지 미제공 항목은 텍스트만 유지했다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 기존 Pretendard 메뉴 계층과 문구는 변경하지 않았다.
+- spacing and layout rhythm: 아이콘과 라벨 간격은 6px, 더보기 내부는 4px이다. 1440px GNB 시작점은 x=120, 1024px은 x=24이며 가로 오버플로는 모두 0px이다.
+- colors and visual tokens: SVG 실루엣을 `currentColor` 마스크로 사용해 기본 `#1a1a1a`, 활성 `#1b4c8c` 상태가 동일하게 적용된다.
+- image quality and asset fidelity: 사용자 첨부 SVG 여섯 개를 `public/assets/bbm/nav-icons/`에 보관하고 도형을 다시 그리거나 대체하지 않았다. 커뮤니티·바이크·전체차량은 원본 파일이 없어 임의 아이콘을 넣지 않았다.
+- copy and content: 중고차·화물-특장-중기·캠핑카·부품-용품·더보기와 드롭다운의 수입차에만 대응 자산을 연결했다.
+- interaction and accessibility: 장식 아이콘은 `aria-hidden`이며 기존 버튼 이름, 선택 상태, 드롭다운 동작을 유지한다.
+- browser verification: 1440px·1024px 콘솔 오류 0건. 390px에서는 PC 헤더가 DOM에 없고 기존 모바일 화면의 가로 오버플로가 0px이다.
+
+## Comparison history
+
+- Pass 1: 1440px에서 다섯 메뉴 아이콘, 가운데점 5개, 더보기 드롭다운 수입차 아이콘을 확인했다. 가로 오버플로와 콘솔 오류가 없었다.
+- Pass 2: 1024px에서 아이콘을 16px로 축소해 커뮤니티와 더보기까지 모두 보이는 것을 확인했다. 390px 모바일 비영향도 통과했다.
+
+final result: passed
+
+---
+
 # PC 메인 탑메뉴 좌측 정렬·분류 구분 QA · 2026-10-15
 
 - 기준: 사용자 후속 지시 — 메뉴 전체 좌측 정렬, 가운데점은 같은 차량 분류 메뉴 사이에만 사용.
