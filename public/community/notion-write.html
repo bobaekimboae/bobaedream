@@ -32,7 +32,7 @@
         <section class="page-heading" aria-label="게시물 정보">
           <div class="page-kicker">
             <span class="step-badge">1단계</span>
-            <span>이미지 · 동영상 · 임베드 블록</span>
+            <span>텍스트 · 이미지 · 동영상 · 임베드 블록</span>
           </div>
           <div class="page-actions">
             <button class="page-action" type="button" data-action="add-image">
@@ -88,13 +88,36 @@
       <div id="blockMenu" class="block-menu popover" role="menu" aria-label="블록 유형" hidden data-testid="block-menu">
         <p class="menu-label">기본 블록</p>
         <button type="button" role="menuitem" data-command="text"><span class="menu-icon">T</span><span><strong>텍스트</strong><small>일반 문장을 입력합니다</small></span></button>
-        <button type="button" role="menuitem" data-command="heading"><span class="menu-icon">H1</span><span><strong>제목 1</strong><small>큰 구역 제목을 만듭니다</small></span></button>
+        <button type="button" role="menuitem" data-command="heading1"><span class="menu-icon">H1</span><span><strong>제목 1</strong><small>가장 큰 구역 제목입니다</small></span></button>
+        <button type="button" role="menuitem" data-command="heading2"><span class="menu-icon">H2</span><span><strong>제목 2</strong><small>중간 크기 구역 제목입니다</small></span></button>
+        <button type="button" role="menuitem" data-command="heading3"><span class="menu-icon">H3</span><span><strong>제목 3</strong><small>작은 구역 제목입니다</small></span></button>
+        <button type="button" role="menuitem" data-command="bulleted-list"><span class="menu-icon">•</span><span><strong>글머리 기호 목록</strong><small>순서 없는 목록을 만듭니다</small></span></button>
+        <button type="button" role="menuitem" data-command="numbered-list"><span class="menu-icon">1.</span><span><strong>번호 매기기 목록</strong><small>순서가 있는 목록을 만듭니다</small></span></button>
+        <button type="button" role="menuitem" data-command="todo"><span class="menu-icon">✓</span><span><strong>할 일</strong><small>체크 가능한 작업을 만듭니다</small></span></button>
         <button type="button" role="menuitem" data-command="quote"><img src="assets/write-parity/quote.svg" alt="" /><span><strong>인용</strong><small>인용문을 강조합니다</small></span></button>
+        <button type="button" role="menuitem" data-command="code"><span class="menu-icon">&lt;/&gt;</span><span><strong>코드</strong><small>고정폭 코드 블록을 만듭니다</small></span></button>
         <p class="menu-label">미디어</p>
         <button type="button" role="menuitem" data-command="image"><img src="assets/write-parity/photo.svg" alt="" /><span><strong>이미지</strong><small>업로드하거나 링크로 삽입합니다</small></span></button>
         <button type="button" role="menuitem" data-command="video"><img src="assets/write-parity/video.svg" alt="" /><span><strong>동영상</strong><small>업로드하거나 링크로 삽입합니다</small></span></button>
         <button type="button" role="menuitem" data-command="embed"><img src="assets/write-parity/link.svg" alt="" /><span><strong>임베드</strong><small>외부 콘텐츠를 페이지 안에 표시합니다</small></span></button>
         <button type="button" role="menuitem" data-command="divider"><img src="assets/write-parity/strike.svg" alt="" /><span><strong>구분선</strong><small>내용 사이를 나눕니다</small></span></button>
+      </div>
+
+      <div id="textToolbar" class="text-selection-toolbar" role="toolbar" aria-label="선택한 텍스트 편집" hidden data-testid="text-toolbar">
+        <select id="selectionBlockType" aria-label="블록 유형">
+          <option value="p">텍스트</option>
+          <option value="h1">제목 1</option>
+          <option value="h2">제목 2</option>
+          <option value="h3">제목 3</option>
+          <option value="blockquote">인용</option>
+        </select>
+        <span class="toolbar-separator" aria-hidden="true"></span>
+        <button type="button" data-format="bold" aria-label="굵게"><img src="assets/write-parity/bold.svg" alt="" /></button>
+        <button type="button" data-format="italic" aria-label="기울임"><img src="assets/write-parity/italic.svg" alt="" /></button>
+        <button type="button" data-format="strikeThrough" aria-label="취소선"><img src="assets/write-parity/strike.svg" alt="" /></button>
+        <button class="text-format-button" type="button" data-format="inline-code" aria-label="인라인 코드">코드</button>
+        <button type="button" data-format="link" aria-label="링크"><img src="assets/write-parity/link.svg" alt="" /></button>
+        <button class="text-format-button" type="button" data-format="unlink" aria-label="링크 해제">해제</button>
       </div>
 
       <dialog id="mediaDialog" class="dialog-card" aria-labelledby="mediaDialogTitle">
@@ -154,6 +177,18 @@
           <label for="altText">이미지를 짧고 구체적으로 설명해 주세요.</label>
           <textarea id="altText" rows="4" maxlength="250"></textarea>
           <button id="saveAltButton" class="dialog-primary" type="button">저장</button>
+        </form>
+      </dialog>
+
+      <dialog id="linkDialog" class="dialog-card compact-dialog" aria-labelledby="linkDialogTitle">
+        <form method="dialog">
+          <div class="dialog-header">
+            <div><span class="dialog-eyebrow">선택한 텍스트</span><h2 id="linkDialogTitle">링크 연결</h2></div>
+            <button class="icon-button" type="submit" value="cancel" aria-label="닫기"><img src="assets/write-parity/close.svg" alt="" /></button>
+          </div>
+          <label for="textLinkUrl">이동할 웹주소</label>
+          <input id="textLinkUrl" type="url" inputmode="url" placeholder="https://" autocomplete="off" />
+          <button id="saveTextLinkButton" class="dialog-primary" type="button">링크 적용</button>
         </form>
       </dialog>
 

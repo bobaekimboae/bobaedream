@@ -25,6 +25,40 @@ try {
   await page.getByTestId("notion-editor").click();
   await page.keyboard.type("사진과 동영상을 한 페이지에서 정리했습니다.");
 
+  await page.evaluate(() => {
+    const paragraph = document.querySelector("#blockEditor p");
+    const text = paragraph.firstChild;
+    const range = document.createRange();
+    range.setStart(text, 0);
+    range.setEnd(text, 3);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.querySelector("#blockEditor").dispatchEvent(new KeyboardEvent("keyup", { bubbles: true, key: "Shift" }));
+  });
+  await page.waitForTimeout(50);
+  const toolbarDebug = await page.evaluate(() => ({ selected: window.getSelection()?.toString(), hidden: document.querySelector("#textToolbar").hidden }));
+  await expect(await page.getByTestId("text-toolbar").isVisible(), `텍스트 선택 도구막대가 보이지 않습니다: ${JSON.stringify(toolbarDebug)}`);
+  await page.locator('#textToolbar [data-format="bold"]').click();
+  await expect(await page.locator("#blockEditor strong, #blockEditor b").first().isVisible(), "굵게 서식이 적용되지 않았습니다.");
+
+  await page.evaluate(() => {
+    const paragraph = document.querySelector("#blockEditor p");
+    const walker = document.createTreeWalker(paragraph, NodeFilter.SHOW_TEXT);
+    const text = walker.nextNode();
+    const range = document.createRange();
+    range.setStart(text, 0);
+    range.setEnd(text, Math.min(3, text.textContent.length));
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.querySelector("#blockEditor").dispatchEvent(new KeyboardEvent("keyup", { bubbles: true, key: "Shift" }));
+  });
+  await page.locator('#textToolbar [data-format="link"]').click();
+  await page.locator("#textLinkUrl").fill("https://www.bobaedream.co.kr/");
+  await page.locator("#saveTextLinkButton").click();
+  await expect((await page.locator('#blockEditor a[href="https://www.bobaedream.co.kr/"]').getAttribute("target")) === "_blank", "텍스트 링크가 적용되지 않았습니다.");
+
   await page.locator('[data-action="add-image"]').click();
   await expect(await page.locator("#mediaDialog").isVisible(), "이미지 추가 창이 열리지 않습니다.");
   await page.locator("#imageInput").setInputFiles({
@@ -73,6 +107,37 @@ try {
   await bookmarkBlock.locator(".media-surface").click();
   await bookmarkBlock.locator('[data-media-action="delete"]').click();
 
+  const tailParagraph = page.getByTestId("notion-editor").locator("p").last();
+  await tailParagraph.click();
+  await page.keyboard.type("/");
+  await page.locator('[data-command="heading2"]').click();
+  await page.keyboard.type("차량 상태");
+  const headingCreated = await page.locator("#blockEditor h2", { hasText: "차량 상태" }).isVisible().catch(() => false);
+  await expect(headingCreated, `제목 2 블록이 생성되지 않았습니다: ${await page.locator("#blockEditor").innerHTML()}`);
+  await page.keyboard.press("Enter");
+  await page.keyboard.type("/");
+  await page.locator('[data-command="todo"]').click();
+  const todo = page.locator("#blockEditor .todo-block").last();
+  await todo.locator("span").fill("보험 이력 확인");
+  await todo.locator('input[type="checkbox"]').check();
+  await expect(await todo.evaluate((node) => node.classList.contains("is-done")), "할 일 완료 상태가 적용되지 않았습니다.");
+  await todo.locator("span").press("Enter");
+  const emptyTodo = page.locator("#blockEditor .todo-block").last();
+  await emptyTodo.locator("span").press("Enter");
+  await page.keyboard.type("/");
+  await page.locator('[data-command="code"]').click();
+  await page.keyboard.type("const car = 'ready';");
+  await expect(await page.locator("#blockEditor pre", { hasText: "const car" }).isVisible(), "코드 블록이 생성되지 않았습니다.");
+  await page.keyboard.press("Control+Enter");
+  await page.keyboard.type("## ");
+  await page.keyboard.type("빠른 입력 제목");
+  await expect(await page.locator("#blockEditor h2", { hasText: "빠른 입력 제목" }).isVisible(), "마크다운 제목 단축키가 동작하지 않았습니다.");
+  await page.keyboard.press("Enter");
+  await page.keyboard.type("/");
+  await page.locator('[data-command="numbered-list"]').click();
+  await page.keyboard.type("점검 완료");
+  await expect(await page.locator("#blockEditor ol li", { hasText: "점검 완료" }).isVisible(), "번호 목록이 생성되지 않았습니다.");
+
   await page.getByTestId("notion-editor").locator("p").last().click();
   await page.keyboard.type("/");
   await expect(await page.getByTestId("block-menu").isVisible(), "슬래시 블록 메뉴가 열리지 않습니다.");
@@ -90,6 +155,8 @@ try {
   await expect(await page.locator('.media-block[data-kind="image"] img').getAttribute("src"), "업로드 이미지가 복원되지 않았습니다.");
   await expect(await page.locator('.media-block[data-kind="video"] iframe').getAttribute("src"), "링크 동영상이 복원되지 않았습니다.");
   await expect((await page.locator('.media-block[data-kind="embed"] iframe').getAttribute("src"))?.includes("codepen.io/team/codepen/embed/PNaGbb"), "임베드 블록이 복원되지 않았습니다.");
+  await expect(await page.locator("#blockEditor .todo-block.is-done").isVisible(), "할 일 완료 상태가 복원되지 않았습니다.");
+  await expect(await page.locator("#blockEditor pre", { hasText: "const car" }).isVisible(), "코드 블록이 복원되지 않았습니다.");
   await context.close();
 
   const mobileContext = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true });
@@ -101,7 +168,7 @@ try {
   await expect(!hasHorizontalOverflow, "모바일 화면에 가로 스크롤이 생겼습니다.");
   await mobileContext.close();
 
-  console.log("Notion write check passed: media, embeds, preview, persistence, and mobile layout.");
+  console.log("Notion write check passed: rich text, blocks, media, embeds, persistence, and mobile layout.");
 } finally {
   await browser.close();
 }
