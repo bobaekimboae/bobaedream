@@ -34,11 +34,9 @@
 .boardOrderMyGrid,.boardOrderAvailableGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 10px}
 .boardOrderPanel[data-grid-columns="3"] .boardOrderMyGrid,.boardOrderPanel[data-grid-columns="3"] .boardOrderAvailableGrid{grid-template-columns:repeat(3,minmax(0,1fr))}
 .boardOrderPanel[data-grid-columns="4"] .boardOrderMyGrid,.boardOrderPanel[data-grid-columns="4"] .boardOrderAvailableGrid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 9px}
-.boardOrderPanel[data-grid-columns="4"] .boardOrderItem,.boardOrderPanel[data-grid-columns="4"] .boardOrderAdd{gap:4px;padding-left:4px;padding-right:4px}
-.boardOrderPanel[data-grid-columns="4"] .boardOrderAvatar{width:20px;height:20px;flex-basis:20px}
+.boardOrderPanel[data-grid-columns="4"] .boardOrderItem,.boardOrderPanel[data-grid-columns="4"] .boardOrderAdd{padding-left:10px;padding-right:10px}
 .boardOrderPanel[data-grid-columns="4"] .boardOrderName,.boardOrderPanel[data-grid-columns="4"] .boardOrderAdd span{font-size:11.5px;letter-spacing:-.07em}
-.boardOrderItem,.boardOrderAdd{height:40px;padding:0 6px;border-radius:8px;background:#f6f7f8;display:flex;align-items:center;justify-content:flex-start;gap:5px;min-width:0;position:relative;border:1px solid transparent;transition:transform .12s,border-color .12s,box-shadow .12s,background-color .12s;user-select:none;cursor:pointer}
-.boardOrderAvatar{width:22px;height:22px;display:block;flex:0 0 22px;border-radius:50%;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+.boardOrderItem,.boardOrderAdd{height:40px;padding:0 14px;border-radius:8px;background:#f6f7f8;display:flex;align-items:center;justify-content:flex-start;min-width:0;position:relative;border:1px solid transparent;transition:transform .12s,border-color .12s,box-shadow .12s,background-color .12s;user-select:none;cursor:pointer}
 .boardOrderItem:focus-visible,.boardOrderAdd:focus-visible,.boardOrderEdit:focus-visible,.boardOrderClose:focus-visible,.boardOrderViewEntry:focus-visible,.boardOrderSectionTabs button:focus-visible{outline:2px solid #222;outline-offset:2px}
 .boardOrderItem.selected{color:#2864e8;font-weight:760}
 .boardOrderItem.boardOrderFixed{background:#f1f2f3;color:#a4a6aa;cursor:default}

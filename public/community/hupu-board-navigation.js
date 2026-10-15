@@ -52,7 +52,6 @@
     var svg='<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96"><defs><linearGradient id="g" x1="10" y1="8" x2="86" y2="88" gradientUnits="userSpaceOnUse"><stop stop-color="'+color+'"/><stop offset="1" stop-color="'+accent+'"/></linearGradient></defs><rect width="96" height="96" rx="48" fill="url(#g)"/><circle cx="74" cy="21" r="17" fill="#fff" fill-opacity=".13"/><path d="M14 69c17-13 34-15 68-3" fill="none" stroke="#fff" stroke-opacity=".13" stroke-width="8" stroke-linecap="round"/><text x="48" y="55" fill="#fff" font-family="Pretendard,Arial,sans-serif" font-size="'+fontSize+'" font-weight="800" text-anchor="middle" letter-spacing="-.8">'+escapeHtml(label)+'</text></svg>';
     return'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg);
   }
-  function boardAvatarMarkup(board,className){return'<img class="'+className+'" src="'+boardAvatarSrc(board)+'" alt="" aria-hidden="true">'}
   function normalizeActiveOrder(value,appendMissing){
     var result=[],seen={};
     if(Array.isArray(value))value.forEach(function(id){if(boardById[id]&&!boardById[id].fixed&&!seen[id]){seen[id]=true;result.push(id)}});
@@ -146,15 +145,14 @@
 
     function fixedTile(id,label,fullName){
       var selected=id===selectedId;
-      var board=boardForId(id);
-      return '<div class="boardOrderItem boardOrderFixed '+(selected?'selected':'')+'" role="button" tabindex="0" data-board-id="'+id+'" data-fixed="true" aria-label="'+escapeHtml(fullName)+' 고정 채널" '+(selected?'aria-current="page"':'')+'>'+boardAvatarMarkup(board,'boardOrderAvatar')+'<span class="boardOrderName">'+escapeHtml(label)+'</span></div>';
+      return '<div class="boardOrderItem boardOrderFixed '+(selected?'selected':'')+'" role="button" tabindex="0" data-board-id="'+id+'" data-fixed="true" aria-label="'+escapeHtml(fullName)+' 고정 채널" '+(selected?'aria-current="page"':'')+'><span class="boardOrderName">'+escapeHtml(label)+'</span></div>';
     }
     function movableTile(board){
       var selected=board.id===selectedId;
-      return '<div class="boardOrderItem '+(selected?'selected ':'')+(editing?'editing':'')+'" role="button" tabindex="0" draggable="'+(editing?'true':'false')+'" data-board-id="'+escapeHtml(board.id)+'" data-board-name="'+escapeHtml(board.displayName)+'" data-movable="true" aria-label="'+escapeHtml(board.displayName)+(editing?' 순서 변경':' 이동')+'" '+(selected?'aria-current="page"':'')+'>'+boardAvatarMarkup(board,'boardOrderAvatar')+'<span class="boardOrderName">'+escapeHtml(board.shortName)+'</span>'+(editing?'<button class="boardOrderRemove" aria-label="'+escapeHtml(board.displayName)+' 내 채널에서 제외"><img src="assets/chzzk-detail/icons/close.svg" alt=""></button>':'')+'</div>';
+      return '<div class="boardOrderItem '+(selected?'selected ':'')+(editing?'editing':'')+'" role="button" tabindex="0" draggable="'+(editing?'true':'false')+'" data-board-id="'+escapeHtml(board.id)+'" data-board-name="'+escapeHtml(board.displayName)+'" data-movable="true" aria-label="'+escapeHtml(board.displayName)+(editing?' 순서 변경':' 이동')+'" '+(selected?'aria-current="page"':'')+'><span class="boardOrderName">'+escapeHtml(board.shortName)+'</span>'+(editing?'<button class="boardOrderRemove" aria-label="'+escapeHtml(board.displayName)+' 내 채널에서 제외"><img src="assets/chzzk-detail/icons/close.svg" alt=""></button>':'')+'</div>';
     }
     function addTile(board){
-      return '<button class="boardOrderAdd" data-board-id="'+escapeHtml(board.id)+'" aria-label="'+escapeHtml(board.displayName)+' 내 채널에 추가">'+boardAvatarMarkup(board,'boardOrderAvatar')+'<span>'+escapeHtml(board.shortName)+'</span><img class="boardOrderPlusIcon" src="assets/chzzk-detail/icons/close.svg" alt=""></button>';
+      return '<button class="boardOrderAdd" data-board-id="'+escapeHtml(board.id)+'" aria-label="'+escapeHtml(board.displayName)+' 내 채널에 추가"><span>'+escapeHtml(board.shortName)+'</span><img class="boardOrderPlusIcon" src="assets/chzzk-detail/icons/close.svg" alt=""></button>';
     }
     function currentOrder(){return editing?draftOrder.slice():loadState().activeOrder.slice()}
     function readGridOrder(){return Array.prototype.map.call(myGrid.querySelectorAll('.boardOrderItem[data-movable="true"]'),function(item){return item.dataset.boardId})}
