@@ -20,6 +20,35 @@ final result: passed
 
 ---
 
+# 자유게시판 설명·말머리 디카드형 전환 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/af0facfc-fbac-461b-a0a0-c50fe1ce12f2/1-1000018478.jpg`, `.../2-1000018480.jpg`
+- browser-rendered implementation: `artifacts/community-headword-toggle-1015/mobile-384-collapsed.png`, `mobile-384-expanded.png`
+- full-view comparison: `artifacts/community-headword-toggle-1015/dcard-board-info-comparison-1015.png`
+- viewport and density: 구현 384 × 844 CSS px, DPR 1. 원본 592 × 1280px을 384px 폭으로 정규화해 접힘·펼침 상태를 각각 비교했다.
+- state: 자유게시판, 설명/말머리 모두 접힘 및 모두 펼침
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 설명은 14px/21px의 회색 보조 계층, 말머리는 14px/32px으로 맞춰 디카드 참고 화면과 유사한 밀도를 만든다.
+- spacing and layout rhythm: 게시판명 옆 화살표를 제거하고, 게시판명 아래에 설명 44px과 말머리 48px을 순서대로 배치했다. 설명과 말머리는 각각 독립적으로 여러 줄 확장된다.
+- colors and visual tokens: 비선택 말머리는 옅은 회색 채움, 선택 말머리는 기존 보배드림 검정 활성 토큰을 사용한다.
+- image quality and asset fidelity: 자유게시판 프로필은 자동차와 대화 말풍선을 결합한 전용 256 × 256 PNG로 교체했으며 48px 원형 슬롯에서 선명하게 표시된다. 펼침 화살표는 저장소의 실자산 `board-chevron.svg`를 사용한다.
+- copy and content: 자유게시판 설명을 추가했고 게시판 전환 시 해당 게시판 설명으로 교체된다.
+- accessibility and interaction: 두 토글의 `aria-expanded`와 안내 라벨이 상태에 맞게 바뀌며 Escape로 열린 영역을 닫을 수 있다.
+- browser verification: 360 / 384 / 412px에서 설명·말머리 펼침/선택/접힘, 프로필 로드, 가로 오버플로 0, 브라우저 오류 0을 확인했다.
+
+## Comparison history
+
+- Pass 1: 게시판명 옆 오른쪽 화살표가 남아 있고 설명 영역이 없어 디카드의 정보 구조와 달랐다.
+- Fix: 게시판명 화살표를 숨기고 설명 행 및 독립 토글을 추가했으며 말머리 칩을 회색 채움형으로 변경했다.
+- Pass 2: 접힘·펼침 상태를 원본과 구현이 나란히 보이도록 정규화해 비교했고 남은 P0/P1/P2가 없음을 확인했다.
+
+final result: passed
+
+---
+
 # 간결형 게시판 댓글 수 크기 QA · 2026-10-15
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/b0c8e281-2dc0-4a9d-917b-fd55bd1e8b84/1-1000018464.jpg`
@@ -3455,9 +3484,9 @@ final result: passed
 
 # 커뮤니티 채널 메뉴 · 모바일 3열 QA · 2026-10-15
 
-- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a128e5-de8a-78d0-9ed9-96cbde6a07c3/c9167412-9f8a-4f55-a59a-398a8cfb0d41/1-1000018468.jpg`
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a128e5-de8a-78d0-9ed9-96cbde6a07c3/aac2161d-8117-4017-9cb3-bfcd1d26a268/1-1000018476.jpg`
 - implementation screenshot: `artifacts/community-board-order-1015/mobile-592-channel-normal.png`
-- comparison image: `artifacts/community-board-order-1015/comparison-592-source-vs-3col.png`
+- comparison image: `artifacts/community-board-order-1015/comparison-592-source-vs-3col-equal-height.png`
 - viewport: source 592 × 1280px, implementation 592 × 1280 CSS px, device scale 1.
 - state: 상단 전체 메뉴 햄버거의 채널 목록이 열린 상태.
 
@@ -3465,18 +3494,19 @@ final result: passed
 
 - P0/P1/P2 없음.
 - fonts and typography: 기존 Pretendard 계층과 13px 채널명을 유지하며 긴 게시판명도 한 줄 중앙 정렬된다.
-- spacing and layout rhythm: 모바일 그리드를 4열에서 3열로 바꾸고 타일을 약 181 × 56px, 열 간격 9px, 행 간격 10px, 반경 10px로 확대했다. 첨부 이미지의 넓은 카드 비율을 유지하면서 요청한 3열 밀도를 적용했다.
+- spacing and layout rhythm: 모바일 그리드는 3열을 유지하고 타일을 약 181 × 62px, 열 간격 9px, 행 간격 14px, 반경 10px로 맞췄다. 첨부 이미지의 실측 타일 높이 61~62px와 행 간격 13~14px을 반영했다.
 - colors and visual tokens: 참고 화면의 옅은 회색 카드와 흰 배경 대비를 기존 커뮤니티 토큰으로 유지했다.
 - image quality and asset fidelity: 변경 범위는 텍스트 채널 타일이며 신규 이미지 자산이나 대체 아이콘은 없다.
 - copy and content: 32개 채널명, `전체 · 베스트` 고정 항목, 게시판·자료실 분류를 그대로 유지했다.
 - responsiveness: 360 / 384 / 412 / 592px은 3열, 1280px은 6열이다. 가로 오버플로와 텍스트 잘림이 없다.
 - accessibility and interaction: 키보드 상하 이동 계산도 모바일 3열에 맞췄고, 채널 선택·편집·제거·재추가 흐름이 통과했다.
-- browser evidence: Chrome에서 592 × 1280으로 열어 3열, 56px 타일 높이, 패널 폭 592px을 확인했다. 콘솔 오류는 없었다.
+- browser evidence: Chrome에서 592 × 1280으로 열어 3열, 32개 타일 모두 62px 높이, 14px 행 간격, 패널 폭 592px을 확인했다. 콘솔 오류는 없었다.
 
 ## Comparison history
 
 - Pass 1: 기존 4열은 모바일에서 카드 폭이 좁고 정보가 촘촘했다.
-- Fix: 모바일 3열과 56px 높이를 적용하고 592px 회귀 캡처를 추가했다.
-- Pass 2: 동일 592 × 1280 비교에서 넓은 타일 비율과 단순한 여백이 확보됐고 남은 P0/P1/P2가 없음을 확인했다.
+- Fix: 모바일 3열을 적용하고 592px 회귀 캡처를 추가했다.
+- Pass 2: 사용자 후속 이미지의 카드 높이를 실측해 56px에서 62px로, 행 간격을 10px에서 14px로 조정했다.
+- Pass 3: 동일 592 × 1280 비교에서 모든 타일 높이가 참고 이미지와 일치했고 남은 P0/P1/P2가 없음을 확인했다.
 
 final result: passed

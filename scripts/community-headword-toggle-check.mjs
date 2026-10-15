@@ -20,10 +20,14 @@ for (const width of [360, 384, 412]) {
   const section = page.locator('#headwordSection');
   const category = page.locator('#category');
   const toggle = page.locator('#categoryToggle');
+  const descriptionSection = page.locator('#boardDescriptionSection');
+  const descriptionToggle = page.locator('#boardDescriptionToggle');
   const boardTop = page.locator('.boardTop');
   const metrics = await page.evaluate(() => {
     const section = document.querySelector('#headwordSection');
     const category = document.querySelector('#category');
+    const descriptionSection = document.querySelector('#boardDescriptionSection');
+    const descriptionText = document.querySelector('#boardDescriptionText');
     const board = document.querySelector('.boardTop');
     const avatar = document.querySelector('.boardAvatar');
     const notice = document.querySelector('.noticeText');
@@ -33,8 +37,10 @@ for (const width of [360, 384, 412]) {
     const compactReply = document.querySelector('.compactReply');
     const searchIcon = search.querySelector('img');
     const boardChevron = document.querySelector('.boardChevron');
+    const headwordChevron = document.querySelector('#categoryToggle img');
     const sectionBox = section.getBoundingClientRect();
     const categoryBox = category.getBoundingClientRect();
+    const descriptionBox = descriptionSection.getBoundingClientRect();
     const boardBox = board.getBoundingClientRect();
     const chipBox = chip.getBoundingClientRect();
     const avatarBox = avatar.getBoundingClientRect();
@@ -42,6 +48,10 @@ for (const width of [360, 384, 412]) {
     const searchBox = search.getBoundingClientRect();
     return {
       sectionTop: sectionBox.top,
+      descriptionTop: descriptionBox.top,
+      descriptionBottom: descriptionBox.bottom,
+      descriptionHeight: descriptionBox.height,
+      descriptionWhiteSpace: getComputedStyle(descriptionText).whiteSpace,
       boardBottom: boardBox.bottom,
       sectionHeight: sectionBox.height,
       categoryHeight: categoryBox.height,
@@ -50,6 +60,8 @@ for (const width of [360, 384, 412]) {
       boardBorderBottom: getComputedStyle(board).borderBottomWidth,
       avatarWidth: avatarBox.width,
       avatarHeight: avatarBox.height,
+      avatarSrc: avatar.getAttribute('src'),
+      avatarLoaded: avatar.complete && avatar.naturalWidth > 0,
       noticeWeight: getComputedStyle(notice).fontWeight,
       noticeBadgeCount: document.querySelectorAll('.noticeBadge').length,
       headerHeight: headerBox.height,
@@ -59,17 +71,22 @@ for (const width of [360, 384, 412]) {
       compactReplyFontSize: getComputedStyle(compactReply).fontSize,
       searchIconSrc: searchIcon.getAttribute('src'),
       searchIconLoaded: searchIcon.complete && searchIcon.naturalWidth > 0,
-      boardChevronContent: getComputedStyle(boardChevron).content,
+      boardChevronDisplay: getComputedStyle(boardChevron).display,
+      headwordChevronSrc: headwordChevron.getAttribute('src'),
       scrollWidth: document.documentElement.scrollWidth,
       viewport: innerWidth,
     };
   });
-  check(Math.abs(metrics.sectionTop - metrics.boardBottom) <= 1, `${width}px: 말머리가 게시판명 바로 아래에 있지 않습니다`);
+  check(Math.abs(metrics.descriptionTop - metrics.boardBottom) <= 1, `${width}px: 게시판 설명이 게시판명 바로 아래에 있지 않습니다`);
+  check(Math.abs(metrics.sectionTop - metrics.descriptionBottom) <= 1, `${width}px: 말머리가 게시판 설명 바로 아래에 있지 않습니다`);
+  check(Math.abs(metrics.descriptionHeight - 44) <= 1, `${width}px: 접힌 게시판 설명 높이가 44px가 아닙니다 (${metrics.descriptionHeight})`);
+  check(metrics.descriptionWhiteSpace === 'nowrap', `${width}px: 접힌 게시판 설명이 한 줄 말줄임이 아닙니다 (${metrics.descriptionWhiteSpace})`);
   check(Math.abs(metrics.sectionHeight - 48) <= 1, `${width}px: 접힌 말머리 높이가 48px가 아닙니다 (${metrics.sectionHeight})`);
   check(Math.abs(metrics.chipHeight - 32) <= 1, `${width}px: 칩 높이가 32px가 아닙니다 (${metrics.chipHeight})`);
   check(metrics.chipFontSize === (width <= 370 ? '13.7px' : '14px'), `${width}px: 칩 글자 크기가 다릅니다 (${metrics.chipFontSize})`);
   check(metrics.boardBorderBottom === '0px', `${width}px: 게시판명 아래 구분선이 남아 있습니다 (${metrics.boardBorderBottom})`);
   check(Math.abs(metrics.avatarWidth - 48) <= 1 && Math.abs(metrics.avatarHeight - 48) <= 1, `${width}px: 게시판 프로필이 48px가 아닙니다 (${metrics.avatarWidth}x${metrics.avatarHeight})`);
+  check(metrics.avatarSrc === 'assets/free-board-avatar.png' && metrics.avatarLoaded, `${width}px: 자유게시판 프로필 이미지가 연결되지 않았습니다`);
   check(Number(metrics.noticeWeight) >= 700, `${width}px: 공지 제목이 볼드가 아닙니다 (${metrics.noticeWeight})`);
   check(metrics.noticeBadgeCount === 0, `${width}px: 공지 칩이 남아 있습니다 (${metrics.noticeBadgeCount})`);
   check(Math.abs(metrics.headerHeight - 56) <= 1, `${width}px: 상단 높이가 56px가 아닙니다 (${metrics.headerHeight})`);
@@ -78,11 +95,18 @@ for (const width of [360, 384, 412]) {
   check(metrics.searchWithinViewport, `${width}px: 검색바가 화면 밖으로 잘렸습니다`);
   check(metrics.compactReplyFontSize === '13px', `${width}px: 댓글 수 글자 크기가 13px가 아닙니다 (${metrics.compactReplyFontSize})`);
   check(metrics.searchIconSrc === 'assets/chotot-search-gray.svg' && metrics.searchIconLoaded, `${width}px: 초톳 검색 아이콘이 연결되지 않았습니다`);
-  check(metrics.boardChevronContent.includes('chotot-arrow-right.svg'), `${width}px: 초톳 오른쪽 화살표가 연결되지 않았습니다 (${metrics.boardChevronContent})`);
+  check(metrics.boardChevronDisplay === 'none', `${width}px: 자유게시판명 옆 화살표가 남아 있습니다 (${metrics.boardChevronDisplay})`);
+  check(metrics.headwordChevronSrc === 'assets/board-chevron.svg', `${width}px: 말머리 접기 화살표가 디카드형 아이콘이 아닙니다 (${metrics.headwordChevronSrc})`);
   check(metrics.scrollWidth <= metrics.viewport, `${width}px: 가로 화면 잘림 (${metrics.scrollWidth}/${metrics.viewport})`);
   check(await toggle.getAttribute('aria-expanded') === 'false', `${width}px: 초기 접힘 상태가 아닙니다`);
+  check(await descriptionToggle.getAttribute('aria-expanded') === 'false', `${width}px: 게시판 설명 초기 접힘 상태가 아닙니다`);
 
   if (width === 384) await page.screenshot({ path: path.join(outputDir, 'mobile-384-collapsed.png'), fullPage: false });
+  await descriptionToggle.click();
+  check(await descriptionToggle.getAttribute('aria-expanded') === 'true', `${width}px: 게시판 설명 펼침 상태가 반영되지 않습니다`);
+  check(await descriptionSection.evaluate((element) => element.classList.contains('expanded')), `${width}px: 게시판 설명 펼침 클래스가 없습니다`);
+  const expandedDescriptionHeight = await descriptionSection.evaluate((element) => element.getBoundingClientRect().height);
+  check(expandedDescriptionHeight > 44, `${width}px: 게시판 설명이 여러 줄로 펼쳐지지 않습니다 (${expandedDescriptionHeight})`);
   await toggle.click();
   check(await toggle.getAttribute('aria-expanded') === 'true', `${width}px: 펼침 상태가 반영되지 않습니다`);
   check(await section.evaluate((element) => element.classList.contains('expanded')), `${width}px: 펼침 클래스가 없습니다`);
@@ -98,6 +122,9 @@ for (const width of [360, 384, 412]) {
   await toggle.click();
   check(await toggle.getAttribute('aria-expanded') === 'false', `${width}px: 다시 접히지 않습니다`);
   check(!(await section.evaluate((element) => element.classList.contains('expanded'))), `${width}px: 접힘 클래스 상태가 틀립니다`);
+  await descriptionToggle.click();
+  check(await descriptionToggle.getAttribute('aria-expanded') === 'false', `${width}px: 게시판 설명이 다시 접히지 않습니다`);
+  check(!(await descriptionSection.evaluate((element) => element.classList.contains('expanded'))), `${width}px: 게시판 설명 접힘 클래스 상태가 틀립니다`);
 
   if (width === 384) {
     await page.locator('.communitySearch').click();
@@ -120,6 +147,6 @@ console.log(JSON.stringify({
   viewports: [360, 384, 412],
   collapsedHeight: 48,
   chipHeight: 32,
-  interactions: ['expand', 'select', 'collapse'],
+  interactions: ['description expand', 'headword expand', 'select', 'collapse'],
   outputDir,
 }, null, 2));
