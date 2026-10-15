@@ -16,6 +16,31 @@ final result: passed
 
 ---
 
+# 치지직 상세 · 배경색·본문 글자 크기 v15 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/72c6f71b-f9ca-4038-bfe8-29e5a453bea8/1-1000018376.jpg`
+- implementation evidence: Codex IAB 로컬 렌더 `http://127.0.0.1:4176/community/chzzk-detail.html?id=1&v=20261015v15`
+- viewport: 구현 486 × 668 CSS px / 원본 591 × 1280 px Android 캡처
+- state: 시나리오 1 상세 본문, 최신글 카드, 댓글 입력창
+
+**Findings**
+
+- P0/P1/P2 없음.
+- 헤더 구조와 상호작용은 유지하고 본문 계층의 면 색상과 글자 크기만 조정했다.
+- 전체 배경은 `#FFFFFF`, 본문 글자는 `#303033`, 최신글 카드는 `#F4F4F6`, 댓글 입력창은 `#E9E9ED`로 확인했다.
+- 모바일 본문은 16px/28px, 최신글 항목은 16px/22px로 확인했다.
+- 페이지 가로 오버플로는 0px이다.
+
+**Interaction and runtime checks**
+
+- 상세 시나리오 5건: passed
+- 댓글·추천·비추천·공유 동작: passed
+- 모바일 가로 잘림: 0px
+
+final result: passed
+
+---
+
 # Design QA · 간결형 댓글 숫자·괄호 통일 (2026-10-15)
 
 - source visual truth: 사용자 제공 치지직 모바일 캡처 `1-1000018320.jpg` (591×1280 래스터)
