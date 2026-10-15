@@ -3,6 +3,33 @@
   "shopNo": "450554",
   "source": "https://www.carku.kr/info/sangsa-info.html?wShopNo=450554",
   "fetchedAt": "2026-10-15",
+  "officialLuxuryHeader": {
+    "brand": "Range Rover",
+    "sourcePage": "https://www.rangerover.com/en-us/range-rover/index.html",
+    "fetchedAt": "2026-10-15",
+    "images": [
+      {
+        "file": "official-luxury/range-rover-01.jpg",
+        "source": "https://www.rangerover.com/content/dam/lrdx/global/l460/27my/int/L46027GL_303105263_069_1.jpg.res/JLRHASH7BF7509941879BBC50D211FCD95DB31ECFBF2BC2/L46027GL_303105263_069_1.jpg"
+      },
+      {
+        "file": "official-luxury/range-rover-02.jpg",
+        "source": "https://www.rangerover.com/content/dam/lrdx/global/l460/27my/int/L46027GL_303105263_002.jpg.res/JLRHASHBB667348E3A8557FB8EF734248B78F3286EF71D4/L46027GL_303105263_002.jpg"
+      },
+      {
+        "file": "official-luxury/range-rover-03.jpg",
+        "source": "https://www.rangerover.com/content/dam/lrdx/global/l460/27my/int/L46027GL_303105263_082.jpg.res/JLRHASHCA05442F2B1410AA373BADE62E119E84F7B054B0/L46027GL_303105263_082.jpg"
+      },
+      {
+        "file": "official-luxury/range-rover-04.jpg",
+        "source": "https://www.rangerover.com/content/dam/lrdx/global/l460/27my/markets/us/L46027US_303105263_061.jpg.res/JLRHASHFBEAA1838815024AA9399F89E3990238E9CD1FC2/L46027US_303105263_061.jpg"
+      },
+      {
+        "file": "official-luxury/range-rover-05.jpg",
+        "source": "https://www.rangerover.com/content/dam/lrdx/global/l460/27my/markets/us/L46027US_303105263_063.jpg.res/JLRHASH715C30AD0FA8842E2F999C57C5D3390EC9FB9479/L46027US_303105263_063.jpg"
+      }
+    ]
+  },
   "dealers": [
     {
       "name": "김태규",

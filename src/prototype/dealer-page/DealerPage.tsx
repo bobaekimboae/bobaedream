@@ -72,6 +72,14 @@ const SOCIAL_CHANNELS = [
   { id: "tiktok", label: "틱톡", description: "숏폼 영상", href: "https://www.tiktok.com/search?q=%ED%88%AC%EC%A0%9C%EC%9D%B4%EB%AA%A8%ED%84%B0%EC%9B%8D%EC%8A%A4" },
 ] as const;
 
+const OFFICIAL_LUXURY_HERO = [
+  { id: "range-rover-01", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-01.jpg"), year: "2027", model: "RANGE ROVER" },
+  { id: "range-rover-02", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-02.jpg"), year: "2027", model: "RANGE ROVER INTERIOR" },
+  { id: "range-rover-03", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-03.jpg"), year: "2027", model: "RANGE ROVER" },
+  { id: "range-rover-04", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-04.jpg"), year: "2027", model: "RANGE ROVER" },
+  { id: "range-rover-05", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-05.jpg"), year: "2027", model: "RANGE ROVER" },
+] as const;
+
 function Icon({ name, className }: { name: string; className?: string }) {
   return <img className={`dp-icon${className ? ` ${className}` : ""}`} src={icon(name)} alt="" aria-hidden="true" draggable={false} />;
 }
@@ -122,33 +130,33 @@ function SiteHeader() {
 }
 
 function DealerProfile({ dealer, cars, following, setFollowing, share }: { dealer: SeoulAutoGalleryDealer; cars: Car[]; following: boolean; setFollowing: (value: boolean) => void; share: () => void }) {
-  const heroCars = cars.slice(0, 5);
+  const heroSlides = OFFICIAL_LUXURY_HERO;
   const [heroIndex, setHeroIndex] = useState(0);
-  const heroCar = heroCars[heroIndex % Math.max(heroCars.length, 1)];
+  const heroSlide = heroSlides[heroIndex % heroSlides.length];
   const listingCount = cars.length;
 
   useEffect(() => {
-    if (heroCars.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = window.setInterval(() => setHeroIndex((current) => (current + 1) % heroCars.length), 6000);
+    if (heroSlides.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setInterval(() => setHeroIndex((current) => (current + 1) % heroSlides.length), 6000);
     return () => window.clearInterval(timer);
-  }, [heroCars.length]);
+  }, [heroSlides.length]);
 
   return <section className="dp-profile">
     <div className="dp-cover">
       <img
-        key={heroCar?.id ?? "dealer-cover"}
+        key={heroSlide.id}
         className="dp-cover-photo"
-        src={heroCar ? asset(heroCar.image) : asset("dealer-profile/twoj-motorworks/import-luxury-hero-v01.png")}
-        alt={heroCar ? `${heroCar.title} 판매 차량` : "수입차 전문 전시장"}
+        src={heroSlide.src}
+        alt={`${heroSlide.year} ${heroSlide.model} 공식 브랜드 이미지`}
         draggable={false}
       />
       <div className="dp-cover-brand-copy">
         <strong>투제이모터웍스</strong>
         <span>수입차 전문 매매</span>
       </div>
-      {heroCar ? <span className="dp-cover-vehicle-meta"><small>{heroCar.specs[0]}</small><em>{heroCar.title}</em></span> : null}
-      {heroCars.length > 1 ? <div className="dp-cover-dots" role="group" aria-label={`판매 차량 배너 ${heroIndex + 1}/${heroCars.length}`}>
-        {heroCars.map((car, index) => <button key={car.id} type="button" className={index === heroIndex ? "is-active" : ""} aria-label={`${index + 1}/${heroCars.length} ${car.title}`} aria-current={index === heroIndex ? "true" : undefined} onClick={() => setHeroIndex(index)} />)}
+      <span className="dp-cover-vehicle-meta"><small>{heroSlide.year}</small><em>{heroSlide.model}</em></span>
+      {heroSlides.length > 1 ? <div className="dp-cover-dots" role="group" aria-label={`공식 브랜드 배너 ${heroIndex + 1}/${heroSlides.length}`}>
+        {heroSlides.map((slide, index) => <button key={slide.id} type="button" className={index === heroIndex ? "is-active" : ""} aria-label={`${index + 1}/${heroSlides.length} ${slide.year} ${slide.model}`} aria-current={index === heroIndex ? "true" : undefined} onClick={() => setHeroIndex(index)} />)}
       </div> : null}
       <button type="button" className="dp-cover-more" aria-label="판매자 메뉴"><Icon name="chotot-common-more.svg" /></button>
     </div>
