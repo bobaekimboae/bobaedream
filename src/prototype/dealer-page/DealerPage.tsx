@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { CheckIcon, ExternalLinkIcon, PlusIcon } from "@radix-ui/react-icons";
+import { ExternalLinkIcon } from "@radix-ui/react-icons";
 import { FlowStack, type FlowScreen } from "../../mobile";
 import { DetailFooter, DetailUiProvider, VehicleDetail } from "../detail";
 import { FavoritesProvider, asset, seoulAutoGalleryCars, setActiveDetailCar, type Car } from "../data";
@@ -29,7 +29,7 @@ const MOCK = {
   rating: 4.8,
   reviewCount: 3,
   sold: 12,
-  followers: 426,
+  followers: 425,
   lastActive: "6시간 전 활동",
   response: "보통 1시간 이내",
   joined: "딜러 경력 7년",
@@ -72,13 +72,8 @@ const SOCIAL_CHANNELS = [
   { id: "tiktok", label: "틱톡", description: "숏폼 영상", href: "https://www.tiktok.com/search?q=%ED%88%AC%EC%A0%9C%EC%9D%B4%EB%AA%A8%ED%84%B0%EC%9B%8D%EC%8A%A4" },
 ] as const;
 
-const OFFICIAL_LUXURY_HERO = [
-  { id: "range-rover-03", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-03.jpg"), year: "2027", model: "RANGE ROVER" },
-  { id: "range-rover-04", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-04.jpg"), year: "2027", model: "RANGE ROVER" },
-  { id: "range-rover-01", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-01.jpg"), year: "2027", model: "RANGE ROVER" },
-  { id: "range-rover-05", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-05.jpg"), year: "2027", model: "RANGE ROVER" },
-  { id: "range-rover-02", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-02.jpg"), year: "2027", model: "RANGE ROVER INTERIOR" },
-] as const;
+const FERRARI_HERO_VIDEO = "https://s7mbrstream-g1.scene7.com/is/content/ferrari/_media_/13d/13d2b055-5408-40dc-b461-c1e2439868f6-stream.mp4?utm_medium=fmp4_dash";
+const FERRARI_HERO_POSTER = asset("supercar-header/ferrari-f80.jpg");
 
 function Icon({ name, className }: { name: string; className?: string }) {
   return <img className={`dp-icon${className ? ` ${className}` : ""}`} src={icon(name)} alt="" aria-hidden="true" draggable={false} />;
@@ -100,6 +95,7 @@ function SiteHeader() {
   return <header className="dp-site-header">
     <div className="dp-mobile-channel-head">
       <button type="button" aria-label="뒤로가기" onClick={() => window.history.back()}><img src={asset("detail/back.svg")} alt="" aria-hidden="true" /></button>
+      <strong className="dp-mobile-channel-name">{MOCK.company.replace("(주)", "")}</strong>
       <div>
         <button type="button" aria-label="판매자 매물 검색"><Icon name="chotot-common-search-thin-line.svg" /></button>
         <button type="button" aria-label="판매자 메뉴"><Icon name="chotot-common-more.svg" /></button>
@@ -129,56 +125,67 @@ function SiteHeader() {
   </header>;
 }
 
-function DealerProfile({ dealer, cars, following, setFollowing, share }: { dealer: SeoulAutoGalleryDealer; cars: Car[]; following: boolean; setFollowing: (value: boolean) => void; share: () => void }) {
-  const heroSlides = OFFICIAL_LUXURY_HERO;
-  const [heroIndex, setHeroIndex] = useState(0);
-  const heroSlide = heroSlides[heroIndex % heroSlides.length];
+function DealerProfile({ dealer, cars, following, setFollowing, share, notify }: { dealer: SeoulAutoGalleryDealer; cars: Car[]; following: boolean; setFollowing: (value: boolean) => void; share: () => void; notify: (message: string) => void }) {
+  const [heroVideoFailed, setHeroVideoFailed] = useState(false);
+  const reduceMotion = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const listingCount = cars.length;
-
-  useEffect(() => {
-    if (heroSlides.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = window.setInterval(() => setHeroIndex((current) => (current + 1) % heroSlides.length), 6000);
-    return () => window.clearInterval(timer);
-  }, [heroSlides.length]);
 
   return <section className="dp-profile">
     <div className="dp-cover">
-      <img
-        key={heroSlide.id}
-        className="dp-cover-photo"
-        src={heroSlide.src}
-        alt={`${heroSlide.year} ${heroSlide.model} 공식 브랜드 이미지`}
+      {heroVideoFailed || reduceMotion ? <img
+        className="dp-cover-photo dp-cover-video"
+        src={FERRARI_HERO_POSTER}
+        alt="페라리 F80"
         draggable={false}
-      />
+      /> : <video
+        className="dp-cover-photo dp-cover-video"
+        src={FERRARI_HERO_VIDEO}
+        poster={FERRARI_HERO_POSTER}
+        muted
+        autoPlay
+        playsInline
+        loop
+        preload="metadata"
+        aria-hidden="true"
+        onError={() => setHeroVideoFailed(true)}
+      />}
       <div className="dp-cover-brand-copy">
         <strong>투제이모터웍스</strong>
         <span>수입차 전문 매매</span>
       </div>
-      <span className="dp-cover-vehicle-meta"><small>{heroSlide.year}</small><em>{heroSlide.model}</em></span>
-      {heroSlides.length > 1 ? <div className="dp-cover-dots" role="group" aria-label={`공식 브랜드 배너 ${heroIndex + 1}/${heroSlides.length}`}>
-        {heroSlides.map((slide, index) => <button key={slide.id} type="button" className={index === heroIndex ? "is-active" : ""} aria-label={`${index + 1}/${heroSlides.length} ${slide.year} ${slide.model}`} aria-current={index === heroIndex ? "true" : undefined} onClick={() => setHeroIndex(index)} />)}
-      </div> : null}
       <button type="button" className="dp-cover-more" aria-label="판매자 메뉴"><Icon name="chotot-common-more.svg" /></button>
     </div>
     <div className="dp-profile-body">
       <img className="dp-avatar" src={dealerPhoto(dealer)} alt={`${dealer.name} 프로필`} draggable={false} />
       <div className="dp-profile-copy">
         <h1>{dealer.name}<Icon name="chotot-list-detail-verified-dealer-wavy-badge.svg" className="is-badge" /></h1>
-        <div className="dp-profile-inline is-channel-handle">{dealer.role ?? "인증딜러"} · {MOCK.company}</div>
-        <div className="dp-profile-inline is-channel-meta">{MOCK.complex}</div>
-        <div className="dp-profile-inline is-mobile-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>({MOCK.reviewCount}개 평가)</u><span>· 팔로워 {MOCK.followers + (following ? 1 : 0)}</span></div>
-        <div className="dp-profile-actions">
-          <button type="button" onClick={share}><DealerIcon name="share" />공유</button>
-          <button type="button" aria-pressed={following} onClick={() => setFollowing(!following)}>{following ? <CheckIcon aria-hidden="true" /> : <PlusIcon aria-hidden="true" />}{following ? "팔로잉" : "팔로우"}</button>
-        </div>
-        <div className="dp-profile-inline is-first"><DealerIcon name="clock" />{MOCK.lastActive}<i />응답률: {MOCK.response}<i /><u>팔로워 {MOCK.followers + (following ? 1 : 0)}</u></div>
-        <div className="dp-profile-inline is-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>({MOCK.reviewCount}개 평가)</u><span className="dp-mobile-followers">· 팔로워 {MOCK.followers + (following ? 1 : 0)}</span><i /><span className="dp-desktop-career"><DealerIcon name="calendar" />{MOCK.joined}</span></div>
-        <div className="dp-profile-inline is-response"><DealerIcon name="clock" />응답률: {MOCK.response}</div>
-        <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
-        <div className="dp-profile-inline is-career"><DealerIcon name="calendar" />{MOCK.joined}</div>
-        <div className="dp-profile-stats" aria-label="판매 실적">
+        <div className="dp-profile-stats dp-profile-stats-mobile" aria-label="판매 실적">
           <span><small>판매중</small><b>{listingCount}</b></span>
           <span><small>판매완료</small><b>{MOCK.sold}</b></span>
+          <span><small>팔로워</small><b>{MOCK.followers + (following ? 1 : 0)}</b></span>
+        </div>
+        <div className="dp-profile-bio">
+          <b>{dealer.role ?? "인증딜러"} · {MOCK.company}</b>
+          <p>{MOCK.intro}</p>
+        </div>
+        <div className="dp-profile-actions">
+          <button type="button" className="is-follow" aria-pressed={following} onClick={() => setFollowing(!following)}>{following ? "팔로잉" : "팔로우"}</button>
+          <button type="button" onClick={() => notify(`${dealer.name} 딜러에게 메시지를 보낼 수 있어요`)}>메시지 보내기</button>
+          <a href={`tel:${MOCK.phone.replaceAll("-", "")}`} aria-label={`${dealer.name} 딜러에게 전화 걸기`}>전화 걸기</a>
+          <button type="button" onClick={share}>공유</button>
+        </div>
+        <div className="dp-profile-inline is-first"><DealerIcon name="clock" />{MOCK.lastActive}<i />응답률: {MOCK.response}</div>
+        <div className="dp-profile-inline is-response"><DealerIcon name="clock" />응답률: {MOCK.response}</div>
+        <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
+        <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></div>
+        <div className="dp-profile-career-review">
+          <div className="dp-profile-inline is-career"><DealerIcon name="calendar" />{MOCK.joined}</div>
+          <div className="dp-profile-inline is-mobile-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>리뷰 {MOCK.reviewCount}</u></div>
+        </div>
+        <div className="dp-profile-stats dp-profile-stats-desktop" aria-label="판매 실적">
+          <span><small>판매중</small><b>{listingCount}</b></span>
+          <span><small>판매완료</small><b>{MOCK.sold}</b></span>
+          <span><small>팔로워</small><b>{MOCK.followers + (following ? 1 : 0)}</b></span>
         </div>
       </div>
     </div>
@@ -402,7 +409,7 @@ function Footer() {
 }
 
 function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; cars: Car[] }) {
-  const [following, setFollowing] = useState(false);
+  const [following, setFollowing] = useState(true);
   const [mode, setMode] = useState<ListingMode>("active");
   const [activeSection, setActiveSection] = useState<SectionId>("ads");
   const [toast, setToast] = useState("");
@@ -448,7 +455,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
     <div className="dp-scroll" ref={scrollRef}>
       <SiteHeader />
       <main className="dp-page" aria-label={`${dealer.name} 딜러 판매자 페이지`}>
-        <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} share={share} />
+        <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} share={share} notify={notify} />
         <AnchorNav active={activeSection} onChange={changeSection} />
         {activeSection === "home" ? <HomeSection /> : null}
         {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}

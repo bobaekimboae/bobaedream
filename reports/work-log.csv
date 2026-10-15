@@ -342,3 +342,12 @@
 2026-10-15,그림자 카드 레일 배경색 제거,claude/used-car-detail-1013,,,,레일 바탕 #F3F4F6 삭제(흰색),qf-brand-shadowcard.css,,,verify:qf
 2026-10-15,그림자 카드 박스 윤곽 복원,claude/used-car-detail-1013,,,,1px 옅은 윤곽 + 그림자 보강(흰 레일 유지),qf-brand-shadowcard.css,,,verify:qf
 2026-10-15,그림자 카드 오토스카우트 카드선 맞춤,claude/used-car-detail-1013,,,,윤곽선 제거 + 그림자 0 3px 7px .24(실측),qf-brand-shadowcard.css,,카드 크기·반경 유지,verify:qf
+2026-10-15,그림자 카드 페라리 모델 이미지 추가,claude/used-car-detail-1013,,,,페라리 모델 레일을 그림자 카드로(이미지 64x36 + 이름 + 대수),qf-brand-shadowcard.css · listing/index.tsx,,기본 화면 변화 없음(파라미터 시안),verify:qf
+2026-10-15,그림자 카드 위아래 간격 16/16 + 글자 위치 재대조,claude/used-car-detail-1013,,,,레일 98 · 여백 0 16 18 · 대수 9.5px 위로,qf-brand-shadowcard.css,,로고 크기 미변경,verify:qf
+2026-10-15,그림자 카드 위쪽 그림자 잘림 방지,claude/used-car-detail-1013,,,,레일 margin-top -8 · 높이 106 · 안쪽 위 8,qf-brand-shadowcard.css,,간격 16/16 유지,verify:qf
+2026-10-15,그림자 카드 페라리 모델 레일 위 그림자 복원,claude/used-car-detail-1013,,,,레일 위 여백 8 + 트랙 위 8,qf-brand-shadowcard.css,,간격 16/16 유지,verify:qf
+2026-10-15,그림자 카드 바이크 유형 레일 적용,claude/used-car-detail-1013,,,,바이크 유형 13종을 그림자 카드로(이미지 64x36 + 이름 + 대수),qf-brand-shadowcard.css · listing/index.tsx,,기본 화면 변화 없음(파라미터 시안),verify:qf
+2026-10-15,그림자 카드 트럭 유형 레일 적용,claude/used-car-detail-1013,,,,트럭 유형 14종을 그림자 카드로(위 16/아래 16),qf-brand-shadowcard.css · listing/index.tsx,,기본 화면 변화 없음(파라미터 시안),verify:qf
+2026-10-15,그림자 카드 바디타입 줄 적용,claude/used-car-detail-1013,,,,국산차·수입차 바디타입 줄을 그림자 카드로(위 16/아래 16 모바일),qf-brand-shadowcard.css · listing/index.tsx,,기본 화면 변화 없음(파라미터 시안),verify:qf
+2026-10-15,그림자 카드 일반 모델 줄 적용,claude/used-car-detail-1013,,,,제조사 선택 후 모델 줄을 그림자 카드로(이미지 64x36 + 이름 + 대수),qf-brand-shadowcard.css · listing/index.tsx,,기본 화면 변화 없음(파라미터 시안),verify:qf
+2026-10-15,그림자 카드 세부모델 줄 적용,claude/used-car-detail-1013,,,,모델 선택 후 세부모델 줄을 그림자 카드로(연식 글자 유지),listing/index.tsx,,기본 화면 변화 없음(파라미터 시안),verify:qf

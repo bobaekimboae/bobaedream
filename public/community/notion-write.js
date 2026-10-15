@@ -15,15 +15,22 @@
   const blockMenu = document.querySelector("#blockMenu");
   const blockAddButton = document.querySelector("#blockAddButton");
   const imageInput = document.querySelector("#imageInput");
+  const cameraImageInput = document.querySelector("#cameraImageInput");
+  const fileImageInput = document.querySelector("#fileImageInput");
   const videoInput = document.querySelector("#videoInput");
   const replaceImageInput = document.querySelector("#replaceImageInput");
   const replaceVideoInput = document.querySelector("#replaceVideoInput");
   const mediaDialog = document.querySelector("#mediaDialog");
-  const mediaDialogTitle = document.querySelector("#mediaDialogTitle");
+  const mediaDialogDesktopTitle = document.querySelector("#mediaDialogDesktopTitle");
+  const mediaDialogMobileTitle = document.querySelector("#mediaDialogMobileTitle");
   const uploadHelp = document.querySelector("#uploadHelp");
   const mediaUrl = document.querySelector("#mediaUrl");
   const embedDialog = document.querySelector("#embedDialog");
   const embedUrl = document.querySelector("#embedUrl");
+  const textToolbar = document.querySelector("#textToolbar");
+  const selectionBlockType = document.querySelector("#selectionBlockType");
+  const linkDialog = document.querySelector("#linkDialog");
+  const textLinkUrl = document.querySelector("#textLinkUrl");
   const altDialog = document.querySelector("#altDialog");
   const altText = document.querySelector("#altText");
   const previewDialog = document.querySelector("#previewDialog");
@@ -36,6 +43,7 @@
   let selectedBlock = null;
   let pendingKind = "image";
   let replaceTarget = null;
+  let menuTargetBlock = null;
 
   function openDatabase() {
     if (!dbPromise) {
@@ -94,16 +102,70 @@
 
   function restoreSelection() {
     if (!savedRange) return false;
+    try {
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(savedRange);
+      return true;
+    } catch (_) {
+      savedRange = null;
+      return false;
+    }
+  }
+
+  function selectionBlock(range = savedRange) {
+    if (!range) return null;
+    let node = range.commonAncestorContainer.nodeType === Node.ELEMENT_NODE
+      ? range.commonAncestorContainer
+      : range.commonAncestorContainer.parentElement;
+    if (node === editor) {
+      const offset = Math.min(Math.max(range.startOffset - 1, 0), editor.childNodes.length - 1);
+      const candidate = editor.childNodes[offset];
+      node = candidate?.nodeType === Node.ELEMENT_NODE ? candidate : candidate?.parentElement;
+    }
+    const block = node?.closest?.("p, h1, h2, h3, blockquote, li, pre, .todo-block");
+    return block && editor.contains(block) ? block : null;
+  }
+
+  function hideTextToolbar() {
+    textToolbar.hidden = true;
+  }
+
+  function updateTextToolbar() {
     const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(savedRange);
-    return true;
+    if (!selection?.rangeCount || selection.isCollapsed || !editor.contains(selection.anchorNode) || !editor.contains(selection.focusNode)) {
+      hideTextToolbar();
+      return;
+    }
+    const range = selection.getRangeAt(0);
+    if (range.commonAncestorContainer.parentElement?.closest(".media-tools")) return hideTextToolbar();
+    savedRange = range.cloneRange();
+    const rect = range.getBoundingClientRect();
+    if (!rect.width && !rect.height) return hideTextToolbar();
+    const block = selectionBlock(range);
+    const tag = block?.tagName?.toLowerCase();
+    selectionBlockType.value = ["h1", "h2", "h3", "blockquote"].includes(tag) ? tag : "p";
+    ["bold", "italic", "strikeThrough"].forEach((command) => {
+      const button = textToolbar.querySelector(`[data-format="${command}"]`);
+      button?.setAttribute("aria-pressed", String(document.queryCommandState(command)));
+    });
+    textToolbar.hidden = false;
+    const width = textToolbar.offsetWidth;
+    const left = Math.min(Math.max(12, rect.left + rect.width / 2 - width / 2), window.innerWidth - width - 12);
+    const top = rect.top > 56 ? rect.top - textToolbar.offsetHeight - 8 : rect.bottom + 8;
+    textToolbar.style.left = `${left}px`;
+    textToolbar.style.top = `${top}px`;
   }
 
   function placeCaretAtEnd(node) {
     const range = document.createRange();
-    range.selectNodeContents(node);
-    range.collapse(false);
+    if (node.lastChild?.nodeName === "BR") {
+      range.setStart(node, Math.max(0, node.childNodes.length - 1));
+      range.collapse(true);
+    } else {
+      range.selectNodeContents(node);
+      range.collapse(false);
+    }
     const selection = window.getSelection();
     selection.removeAllRanges();
     selection.addRange(range);
@@ -117,6 +179,7 @@
 
   function openBlockMenu(anchor = blockAddButton) {
     rememberSelection();
+    menuTargetBlock = selectionBlock();
     const rect = anchor.getBoundingClientRect();
     blockMenu.hidden = false;
     blockAddButton.setAttribute("aria-expanded", "true");
@@ -129,17 +192,14 @@
     blockMenu.querySelector("button")?.focus();
   }
 
-  function removeSlashTrigger() {
-    restoreSelection();
-    const selection = window.getSelection();
-    if (!selection?.rangeCount) return;
-    const range = selection.getRangeAt(0);
-    const node = range.startContainer;
-    if (node.nodeType === Node.TEXT_NODE && range.startOffset > 0 && node.textContent[range.startOffset - 1] === "/") {
-      node.deleteData(range.startOffset - 1, 1);
-      range.setStart(node, range.startOffset - 1);
-      range.collapse(true);
-    }
+  function removeTrailingSlash(block) {
+    if (!block) return;
+    const walker = document.createTreeWalker(block, NodeFilter.SHOW_TEXT);
+    let textNode = null;
+    while (walker.nextNode()) textNode = walker.currentNode;
+    const slashIndex = textNode?.data.lastIndexOf("/") ?? -1;
+    if (slashIndex >= 0) textNode.deleteData(slashIndex, 1);
+    if (!block.textContent.trim()) block.innerHTML = "<br>";
   }
 
   function insertNodeAtSelection(node) {
@@ -147,9 +207,10 @@
     if (!restoreSelection()) placeCaretAtEnd(editor);
     const selection = window.getSelection();
     const range = selection.getRangeAt(0);
-    const block = range.startContainer.nodeType === Node.ELEMENT_NODE
-      ? range.startContainer.closest?.("p, div, h2, blockquote")
-      : range.startContainer.parentElement?.closest("p, div, h2, blockquote");
+    let block = range.startContainer.nodeType === Node.ELEMENT_NODE
+      ? range.startContainer.closest?.("p, div, h1, h2, h3, blockquote, li, pre")
+      : range.startContainer.parentElement?.closest("p, div, h1, h2, h3, blockquote, li, pre");
+    if (block?.matches("li")) block = block.closest("ul, ol");
     if (block && editor.contains(block) && block !== editor && !block.classList.contains("media-block")) {
       block.insertAdjacentElement("afterend", node);
     } else {
@@ -160,6 +221,156 @@
     node.insertAdjacentElement("afterend", paragraph);
     placeCaretAtEnd(paragraph);
     scheduleSave();
+  }
+
+  function createTodoBlock(text = "") {
+    const todo = document.createElement("div");
+    todo.className = "todo-block";
+    todo.setAttribute("contenteditable", "false");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.setAttribute("aria-label", "할 일 완료");
+    const content = document.createElement("span");
+    content.contentEditable = "true";
+    content.innerHTML = text ? escapeHtml(text) : "<br>";
+    content.setAttribute("aria-label", "할 일 내용");
+    todo.append(checkbox, content);
+    return todo;
+  }
+
+  function createCodeBlock(text = "") {
+    const pre = document.createElement("pre");
+    const code = document.createElement("code");
+    code.innerHTML = text ? escapeHtml(text) : "<br>";
+    pre.append(code);
+    return pre;
+  }
+
+  function replaceOrInsertTextBlock(node, focusTarget = node, targetBlock = null) {
+    const current = targetBlock?.isConnected ? targetBlock : selectionBlock();
+    if (current && !current.closest(".media-block") && !current.textContent.trim()) current.replaceWith(node);
+    else if (current && !current.closest(".media-block")) current.insertAdjacentElement("afterend", node);
+    else {
+      editor.focus();
+      restoreSelection();
+      editor.append(node);
+    }
+    placeCaretAtEnd(focusTarget);
+    scheduleSave();
+  }
+
+  function applyBlockCommand(command, targetBlock = null) {
+    const currentBlock = targetBlock?.isConnected ? targetBlock : selectionBlock();
+    if (command === "bulleted-list" || command === "numbered-list") {
+      if (currentBlock?.matches("p, h1, h2, h3, blockquote")) {
+        const list = document.createElement(command === "bulleted-list" ? "ul" : "ol");
+        const item = document.createElement("li");
+        while (currentBlock.firstChild) item.append(currentBlock.firstChild);
+        if (!item.textContent.trim()) item.innerHTML = "<br>";
+        list.append(item);
+        currentBlock.replaceWith(list);
+        placeCaretAtEnd(item);
+      } else {
+        editor.focus();
+        restoreSelection();
+        document.execCommand(command === "bulleted-list" ? "insertUnorderedList" : "insertOrderedList", false);
+      }
+    }
+    else if (command === "todo") {
+      const todo = createTodoBlock();
+      replaceOrInsertTextBlock(todo, todo.querySelector("span"), currentBlock);
+      return;
+    } else if (command === "code") {
+      const codeBlock = createCodeBlock();
+      replaceOrInsertTextBlock(codeBlock, codeBlock.querySelector("code"), currentBlock);
+      return;
+    } else {
+      const formats = { text: "p", heading1: "h1", heading2: "h2", heading3: "h3", quote: "blockquote" };
+      const tag = formats[command] || "p";
+      const current = currentBlock;
+      if (current?.matches("p, h1, h2, h3, blockquote")) {
+        if (current.tagName.toLowerCase() !== tag) {
+          const replacement = document.createElement(tag);
+          while (current.firstChild) replacement.append(current.firstChild);
+          current.replaceWith(replacement);
+          placeCaretAtEnd(replacement);
+        }
+      } else {
+        editor.focus();
+        restoreSelection();
+        document.execCommand("formatBlock", false, tag);
+      }
+    }
+    scheduleSave();
+  }
+
+  function applyInlineFormat(command) {
+    editor.focus();
+    if (!restoreSelection()) return;
+    if (command === "link") {
+      textLinkUrl.value = "";
+      linkDialog.showModal();
+      setTimeout(() => textLinkUrl.focus(), 0);
+      return;
+    }
+    if (command === "inline-code") {
+      const selection = window.getSelection();
+      const range = selection.getRangeAt(0);
+      if (range.collapsed) return;
+      const code = document.createElement("code");
+      try {
+        range.surroundContents(code);
+      } catch (_) {
+        code.append(range.extractContents());
+        range.insertNode(code);
+      }
+      selection.removeAllRanges();
+      const nextRange = document.createRange();
+      nextRange.selectNodeContents(code);
+      selection.addRange(nextRange);
+      savedRange = nextRange.cloneRange();
+    } else {
+      document.execCommand(command, false);
+    }
+    scheduleSave();
+    setTimeout(updateTextToolbar, 0);
+  }
+
+  function saveTextLink() {
+    let parsed;
+    try { parsed = new URL(textLinkUrl.value.trim()); } catch (_) { return showToast("올바른 웹주소를 입력해 주세요."); }
+    if (!["http:", "https:"].includes(parsed.protocol)) return showToast("http:// 또는 https:// 주소만 연결할 수 있습니다.");
+    linkDialog.close();
+    editor.focus();
+    if (!restoreSelection()) return;
+    document.execCommand("createLink", false, parsed.href);
+    editor.querySelectorAll(`a[href="${CSS.escape(parsed.href)}"]`).forEach((anchor) => {
+      anchor.target = "_blank";
+      anchor.rel = "noopener noreferrer";
+    });
+    scheduleSave();
+    hideTextToolbar();
+    showToast("선택한 텍스트에 링크를 연결했습니다.");
+  }
+
+  function applyMarkdownShortcut(event) {
+    if (event.key !== " " || event.ctrlKey || event.metaKey || event.altKey) return false;
+    const selection = window.getSelection();
+    if (!selection?.rangeCount || !selection.isCollapsed || !editor.contains(selection.anchorNode)) return false;
+    const range = selection.getRangeAt(0);
+    const block = selectionBlock(range);
+    if (!block || block.closest(".media-block") || block.matches("li, pre, .todo-block")) return false;
+    const before = document.createRange();
+    before.selectNodeContents(block);
+    before.setEnd(range.startContainer, range.startOffset);
+    const marker = before.toString();
+    const command = ({ "#": "heading1", "##": "heading2", "###": "heading3", "-": "bulleted-list", "*": "bulleted-list", "+": "bulleted-list", "1.": "numbered-list", "[]": "todo", ">": "quote", '"': "quote", "```": "code" })[marker];
+    if (!command) return false;
+    event.preventDefault();
+    block.innerHTML = "<br>";
+    placeCaretAtEnd(block);
+    applyBlockCommand(command);
+    return true;
   }
 
   function createMediaTools(kind) {
@@ -412,6 +623,8 @@
     }
     mediaDialog.close();
     imageInput.value = "";
+    cameraImageInput.value = "";
+    fileImageInput.value = "";
     videoInput.value = "";
     replaceImageInput.value = "";
     replaceVideoInput.value = "";
@@ -437,7 +650,9 @@
   function openMediaDialog(kind) {
     rememberSelection();
     pendingKind = kind;
-    mediaDialogTitle.textContent = kind === "image" ? "이미지 추가" : "동영상 추가";
+    mediaDialog.dataset.kind = kind;
+    mediaDialogDesktopTitle.textContent = kind === "image" ? "이미지 추가" : "동영상 추가";
+    mediaDialogMobileTitle.textContent = kind === "image" ? "이미지" : "동영상";
     uploadHelp.textContent = kind === "image" ? "JPG, PNG, GIF, WEBP · 파일당 20MB" : "MP4, WEBM, MOV · 파일당 200MB";
     document.querySelector("#uploadTab").click();
     mediaDialog.showModal();
@@ -480,19 +695,40 @@
   }
 
   function chooseCommand(command) {
-    removeSlashTrigger();
+    const slashBlocks = Array.from(editor.querySelectorAll("p, h1, h2, h3, blockquote"));
+    const targetBlock = slashBlocks.findLast((block) => block.textContent.trim() === "/")
+      || (menuTargetBlock?.isConnected ? menuTargetBlock : selectionBlock());
+    const targetIndex = Array.from(editor.children).indexOf(targetBlock);
     closeBlockMenu();
-    if (command === "image" || command === "video") return openMediaDialog(command);
-    if (command === "embed") return openEmbedDialog();
-    editor.focus();
-    restoreSelection();
+    removeTrailingSlash(targetBlock);
+    const liveTarget = targetBlock?.isConnected ? targetBlock : editor.children[targetIndex];
+    if (command === "image" || command === "video") {
+      if (liveTarget) placeCaretAtEnd(liveTarget);
+      menuTargetBlock = null;
+      return openMediaDialog(command);
+    }
+    if (command === "embed") {
+      if (liveTarget) placeCaretAtEnd(liveTarget);
+      menuTargetBlock = null;
+      return openEmbedDialog();
+    }
     if (command === "divider") {
       const line = document.createElement("hr");
-      return insertNodeAtSelection(line);
+      if (liveTarget && !liveTarget.textContent.trim()) {
+        const paragraph = document.createElement("p");
+        paragraph.innerHTML = "<br>";
+        liveTarget.replaceWith(line, paragraph);
+        placeCaretAtEnd(paragraph);
+        scheduleSave();
+      } else {
+        if (liveTarget) placeCaretAtEnd(liveTarget);
+        insertNodeAtSelection(line);
+      }
+      menuTargetBlock = null;
+      return;
     }
-    const tag = command === "heading" ? "h2" : command === "quote" ? "blockquote" : "p";
-    document.execCommand("formatBlock", false, tag);
-    scheduleSave();
+    applyBlockCommand(command, liveTarget);
+    menuTargetBlock = null;
   }
 
   function cleanEditorHtml() {
@@ -593,8 +829,8 @@
       }
     }
   });
-  editor.addEventListener("keyup", rememberSelection);
-  editor.addEventListener("mouseup", rememberSelection);
+  editor.addEventListener("keyup", () => { rememberSelection(); setTimeout(updateTextToolbar, 0); });
+  editor.addEventListener("mouseup", () => { rememberSelection(); setTimeout(updateTextToolbar, 0); });
   editor.addEventListener("click", (event) => {
     const block = event.target.closest(".media-block");
     selectBlock(block);
@@ -604,6 +840,42 @@
   });
   editor.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeBlockMenu();
+    const todoContent = event.target.closest?.(".todo-block > span");
+    if (event.key === "Enter" && todoContent) {
+      event.preventDefault();
+      const currentTodo = todoContent.closest(".todo-block");
+      if (!todoContent.textContent.trim()) {
+        const paragraph = document.createElement("p");
+        paragraph.innerHTML = "<br>";
+        currentTodo.replaceWith(paragraph);
+        placeCaretAtEnd(paragraph);
+      } else {
+        const nextTodo = createTodoBlock();
+        currentTodo.insertAdjacentElement("afterend", nextTodo);
+        placeCaretAtEnd(nextTodo.querySelector("span"));
+      }
+      scheduleSave();
+      return;
+    }
+    if (event.key === "Enter" && (event.ctrlKey || event.metaKey) && selectionBlock()?.matches("pre")) {
+      event.preventDefault();
+      const paragraph = document.createElement("p");
+      paragraph.innerHTML = "<br>";
+      selectionBlock().insertAdjacentElement("afterend", paragraph);
+      placeCaretAtEnd(paragraph);
+      scheduleSave();
+      return;
+    }
+    if (applyMarkdownShortcut(event)) return;
+    if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key.toLowerCase() === "s") {
+      event.preventDefault();
+      applyInlineFormat("strikeThrough");
+    }
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
+      event.preventDefault();
+      rememberSelection();
+      applyInlineFormat("link");
+    }
   });
   editor.addEventListener("dragover", (event) => {
     if (Array.from(event.dataTransfer?.items || []).some((item) => item.kind === "file")) event.preventDefault();
@@ -639,6 +911,19 @@
     if (event.key === "Escape") { closeBlockMenu(); editor.focus(); }
   });
 
+  textToolbar.addEventListener("mousedown", (event) => {
+    if (event.target.closest("button")) event.preventDefault();
+  });
+  textToolbar.addEventListener("click", (event) => {
+    const command = event.target.closest("[data-format]")?.dataset.format;
+    if (command) applyInlineFormat(command);
+  });
+  selectionBlockType.addEventListener("change", () => {
+    const mapping = { p: "text", h1: "heading1", h2: "heading2", h3: "heading3", blockquote: "quote" };
+    applyBlockCommand(mapping[selectionBlockType.value] || "text");
+    hideTextToolbar();
+  });
+
   document.addEventListener("click", (event) => {
     const action = event.target.closest("[data-action]")?.dataset.action;
     if (action === "add-image") openMediaDialog("image");
@@ -662,6 +947,12 @@
     if (!isUpload) setTimeout(() => mediaUrl.focus(), 0);
   }));
   document.querySelector("#dialogUploadButton").addEventListener("click", () => (pendingKind === "image" ? imageInput : videoInput).click());
+  document.querySelectorAll("[data-mobile-media-source]").forEach((button) => button.addEventListener("click", () => {
+    const source = button.dataset.mobileMediaSource;
+    if (source === "camera") cameraImageInput.click();
+    else if (source === "file") fileImageInput.click();
+    else imageInput.click();
+  }));
   document.querySelector("#embedButton").addEventListener("click", () => addMediaUrl(pendingKind, mediaUrl.value.trim()));
   mediaUrl.addEventListener("keydown", (event) => {
     if (event.key === "Enter") { event.preventDefault(); addMediaUrl(pendingKind, mediaUrl.value.trim()); }
@@ -670,13 +961,28 @@
   embedUrl.addEventListener("keydown", (event) => {
     if (event.key === "Enter") { event.preventDefault(); insertEmbed(); }
   });
+  document.querySelector("#saveTextLinkButton").addEventListener("click", saveTextLink);
+  textLinkUrl.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") { event.preventDefault(); saveTextLink(); }
+  });
 
   imageInput.addEventListener("change", () => addFiles(imageInput.files, "image"));
+  cameraImageInput.addEventListener("change", () => addFiles(cameraImageInput.files, "image"));
+  fileImageInput.addEventListener("change", () => addFiles(fileImageInput.files, "image"));
   videoInput.addEventListener("change", () => addFiles(videoInput.files, "video"));
   replaceImageInput.addEventListener("change", () => addFiles(replaceImageInput.files, "image", true));
   replaceVideoInput.addEventListener("change", () => addFiles(replaceVideoInput.files, "video", true));
 
   editor.addEventListener("change", (event) => {
+    const todoCheckbox = event.target.closest('.todo-block input[type="checkbox"]');
+    if (todoCheckbox) {
+      const todo = todoCheckbox.closest(".todo-block");
+      todo.classList.toggle("is-done", todoCheckbox.checked);
+      if (todoCheckbox.checked) todoCheckbox.setAttribute("checked", "");
+      else todoCheckbox.removeAttribute("checked");
+      scheduleSave();
+      return;
+    }
     const control = event.target.closest("[data-media-action]");
     const figure = control?.closest(".media-block");
     if (!figure) return;
@@ -725,8 +1031,12 @@
   });
 
   window.addEventListener("scroll", () => document.querySelector(".topbar").classList.toggle("scrolled", window.scrollY > 2), { passive: true });
+  document.addEventListener("selectionchange", () => {
+    if (document.activeElement === editor || editor.contains(document.activeElement)) setTimeout(updateTextToolbar, 0);
+  });
   window.addEventListener("beforeunload", saveDocument);
 
+  document.execCommand("defaultParagraphSeparator", false, "p");
   restoreDocument();
   autosizeTitle();
 })();

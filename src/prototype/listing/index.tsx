@@ -1829,6 +1829,10 @@ function MarketplaceScreen() {
   const categoryTypeBrandList = krTypeTop10(category);
   const showCarBodyTypeRail = Boolean(isGuaziQuickStyle && !maker && (category === "국산차" || category === "수입차"));
   const selectedCarBodyTypes = bbmValue.checks.bodyType ?? [];
+  const carBodyTypeCount = (label: string) => listingCars.filter((car) => {
+    const body = car.filter?.body ?? "";
+    return (body === "승합" ? "밴(승합)" : body === "스포츠카" ? "쿠페" : body) === label;
+  }).length;
   const chooseCarBodyType = (bodyType: string) => {
     const nextValues = selectedCarBodyTypes.includes(bodyType) ? [] : [bodyType];
     setBbmFilters(setBbmChecks(bbmValue, "bodyType", nextValues));
@@ -1851,13 +1855,14 @@ function MarketplaceScreen() {
           // QF-106: ④ 퀵필터 자리는 닫지 않는다 — 계층(제조사 → 모델 → 세부모델 → 트림)이 끝나면 연식 알약 줄
           showGroupRail && groupRail ? <BbmGroupRail groupValue={groupRail} onChoose={chooseHierarchyCategory} /> :
           isHeavyCategory ? <HeavyQuickFilter value={heavySelection} onChange={applyHeavySelection} /> :
-          showBikeTypeQuickRail ? <section className="depth-rail no-label is-bike-type-row" aria-label="바이크 유형 빠른 선택">
+          showBikeTypeQuickRail ? <section className={`depth-rail no-label is-bike-type-row${brandShadowCard ? " is-brand-shadowcard" : ""}`} aria-label="바이크 유형 빠른 선택">
             <QuickRailCarousel ariaLabel="바이크 유형" className="brand-carousel" contentClassName="depth-rail-track">
               {bikeTypeQuickOptions.map((option) => (
                 <DepthCard
                   key={option.label}
                   className="is-bike-type-depth"
                   label={option.label}
+                  sub={brandShadowCard ? `(${listingCars.filter((car) => car.filter?.bikeGenre === option.label).length})` : undefined}
                   image={<img src={asset(option.image)} alt="" aria-hidden="true" draggable={false} />}
                   onClick={() => setBbmFilters(setBbmChecks(bbmValue, "bikeGenre", [option.label]))}
                 />
@@ -1873,9 +1878,9 @@ function MarketplaceScreen() {
                 ))}
               </QuickRailCarousel>
             </section>
-            <section className="depth-rail no-label is-truck-image-row is-format-root is-truck-type-row" aria-label="트럭 유형 빠른 선택">
+            <section className={`depth-rail no-label is-truck-image-row is-format-root is-truck-type-row${brandShadowCard ? " is-brand-shadowcard" : ""}`} aria-label="트럭 유형 빠른 선택">
               <QuickRailCarousel ariaLabel="트럭 형식" className="brand-carousel" contentClassName="depth-rail-track">
-                {truckFormatCatalog.map((group) => <DepthCard key={group.name} className="is-truck-depth" label={desktop ? group.name : truckQuickLabel(group.name)} ariaLabel={group.name} image={<img src={asset(truckFormatImageFor(group.name) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckFormat(group.name)} />)}
+                {truckFormatCatalog.map((group) => <DepthCard key={group.name} className="is-truck-depth" label={desktop ? group.name : truckQuickLabel(group.name)} ariaLabel={group.name} sub={brandShadowCard ? `(${listingCars.filter((car) => car.truck?.format === group.name).length})` : undefined} image={<img src={asset(truckFormatImageFor(group.name) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckFormat(group.name)} />)}
               </QuickRailCarousel>
             </section>
           </> :
@@ -1953,7 +1958,7 @@ function MarketplaceScreen() {
                 );
               })}
             </QuickRailCarousel>
-          </section> : showModelQuickRail && isGuaziQuickStyle && (!isBikeCategory || maker === "BMW") ? <section className={`depth-rail no-label${isLuxuryCategory ? " is-luxury-model-row" : ""}${maker === "페라리" ? " is-ferrari-model-row" : ""}${isBikeCategory ? " is-bike-model-row" : ""}${guaziCardChipPreview ? " is-guazi-card-chip-row" : ""}`} aria-label={`${maker} 모델 빠른 선택`}>
+          </section> : showModelQuickRail && isGuaziQuickStyle && (!isBikeCategory || maker === "BMW") ? <section className={`depth-rail no-label${isLuxuryCategory ? " is-luxury-model-row" : ""}${maker === "페라리" ? " is-ferrari-model-row" : ""}${brandShadowCard ? " is-brand-shadowcard" : ""}${brandShadowCard && maker !== "페라리" ? " is-shadow-model-row" : ""}${isBikeCategory ? " is-bike-model-row" : ""}${guaziCardChipPreview ? " is-guazi-card-chip-row" : ""}`} aria-label={`${maker} 모델 빠른 선택`}>
             <QuickRailCarousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName={`depth-rail-track${guaziCardChipPreview ? " is-guazi-card-chip-track" : ""}`}>
               {cardChipModelQuickOptions.map((model) => {
                 const modelVisual = guaziVisualsForMaker?.[model];
@@ -1984,7 +1989,7 @@ function MarketplaceScreen() {
                     key={model}
                     className={guaziCardChipPreview ? "is-guazi-card-chip" : undefined}
                     label={formatModelLabel(model)}
-                    sub={guaziCardChipPreview && maker === "BMW" ? bmwModelBodyTypes[model] : bodyTypeLabel(cardVisual?.bodyType)}
+                    sub={brandShadowCard ? `(${listingCars.filter((car) => car.maker === maker && (isCatalogMaker ? catalogModelOfCar(car) === model : car.title.includes(model))).length})` : guaziCardChipPreview && maker === "BMW" ? bmwModelBodyTypes[model] : bodyTypeLabel(cardVisual?.bodyType)}
                     image={supportsVehicleCatalog && vehicleCatalog.index ? <CatalogVehicleImage path={cardVisual?.image} name={model} compact /> : isCatalogMaker ? <CatalogModelImage src={cardVisual?.image || undefined} /> : cardVisual?.image ? <img src={cardVisual.image} alt="" aria-hidden="true" draggable={false} /> : undefined}
                     imageFit={cardVisual?.bodyFit ?? "width"}
                     isEV={cardVisual?.isEV}
@@ -2006,7 +2011,7 @@ function MarketplaceScreen() {
               })}
               {isBikeCategory && maker ? <button type="button" className="benz-model-chip is-all-models" onClick={() => openBbmChipPanel("모델")}>전체 {modelsByMakerMap[maker]?.length.toLocaleString("ko-KR")}개</button> : null}
             </Carousel>
-          </section> : showGenerationQuickRail && isGuaziQuickStyle ? <section className="depth-rail no-label" aria-label={`${accessibleDepthLabel(selectedModel)} 세부모델 빠른 선택`}>
+          </section> : showGenerationQuickRail && isGuaziQuickStyle ? <section className={`depth-rail no-label${brandShadowCard ? " is-brand-shadowcard is-shadow-model-row" : ""}`} aria-label={`${accessibleDepthLabel(selectedModel)} 세부모델 빠른 선택`}>
             <QuickRailCarousel ariaLabel={`${accessibleDepthLabel(selectedModel)} 세부모델`} className="brand-carousel" contentClassName="depth-rail-track">
               {railGenerationOptions.map((generation) => {
                 // QF-097: 카탈로그 세부 모델은 자기 이미지만(없으면 점선 빈 칸)
@@ -2109,12 +2114,13 @@ function MarketplaceScreen() {
               const logoSource = luxuryLogoSource();
               return (
                 <>
-                  {showCarBodyTypeRail ? <section className="depth-rail is-car-body-type no-label" aria-label={`${category} 바디타입 빠른 선택`} data-bodyview="side" data-bodybrand={carBodyBrandTheme}>
+                  {showCarBodyTypeRail ? <section className={`depth-rail is-car-body-type no-label${brandShadowCard ? " is-brand-shadowcard" : ""}`} aria-label={`${category} 바디타입 빠른 선택`} data-bodyview="side" data-bodybrand={carBodyBrandTheme}>
                     <QuickRailCarousel ariaLabel={`${category} 바디타입`} className="brand-carousel" contentClassName="depth-rail-track">
                       {carBodyQuickOptions.map((option) => (
                         <DepthCard
                           key={option.label}
                           className={`is-car-body-depth is-body-${option.assetName}`}
+                          sub={brandShadowCard ? `(${carBodyTypeCount(option.label)})` : undefined}
                           label={option.label}
                           image={<img src={carBodyQuickImage(option.assetName, carBodyBrandTheme)} alt="" aria-hidden="true" draggable={false} />}
                           selected={selectedCarBodyTypes.includes(option.label)}
@@ -2148,12 +2154,13 @@ function MarketplaceScreen() {
             };
             return (
               <>
-                {showCarBodyTypeRail ? <section className="depth-rail is-car-body-type no-label" aria-label={`${category} 바디타입 빠른 선택`} data-bodyview="side" data-bodybrand={carBodyBrandTheme}>
+                {showCarBodyTypeRail ? <section className={`depth-rail is-car-body-type no-label${brandShadowCard ? " is-brand-shadowcard" : ""}`} aria-label={`${category} 바디타입 빠른 선택`} data-bodyview="side" data-bodybrand={carBodyBrandTheme}>
                   <QuickRailCarousel ariaLabel={`${category} 바디타입`} className="brand-carousel" contentClassName="depth-rail-track">
                     {carBodyQuickOptions.map((option) => (
                       <DepthCard
                         key={option.label}
                         className={`is-car-body-depth is-body-${option.assetName}`}
+                          sub={brandShadowCard ? `(${carBodyTypeCount(option.label)})` : undefined}
                         label={option.label}
                         image={<img src={carBodyQuickImage(option.assetName, carBodyBrandTheme)} alt="" aria-hidden="true" draggable={false} />}
                         selected={selectedCarBodyTypes.includes(option.label)}

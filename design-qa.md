@@ -45,7 +45,7 @@ final result: passed
 
 # 커뮤니티 상세정보 시나리오 5종 QA · 2026-10-15
 
-- source visual truth: 기존 치지직 상세 v5 레이아웃과 Reddit식 댓글 작업 영역
+- source visual truth: 기존 치지직 상세 레이아웃과 Reddit식 댓글 작업 영역
 - implementation: `public/community/chzzk-detail.html?id=1` ~ `id=5`
 - scenarios: GV80 장거리 시승, 테슬라 업데이트, 모델Y 트렁크 매트, 모델3 도어라이트 DIY, 프렁크 소프트 클로징
 - content: 각 글 본문 4단락, 태그 3개, 상위 댓글 3개, 대댓글 1~3개
@@ -57,6 +57,229 @@ final result: passed
 - P0/P1/P2 findings: none
 
 final result: passed
+
+---
+
+# 딜러 프로필 · 인스타그램형 정보 위계 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/2fa25692-156f-4b36-9fd0-5541173e51a6/1-1000018350.jpg`
+- implementation: 딜러 프로필 모바일 화면, IAB 393 × 852 CSS px
+- scope: 프로필 사진 옆 딜러명, 판매중·판매완료·팔로워, 소개글, 딜러 경력 아래 리뷰 순서
+
+## Cross-check evidence
+
+- 74px 원형 프로필 사진 오른쪽 첫 줄에 `김태규`와 인증 배지를 유지했다.
+- 딜러명 바로 아래에 판매중·판매완료·팔로워를 3열 무테두리 통계로 배치하고 숫자를 먼저 읽히게 했다.
+- 프로필 영역 전체 폭에 소속·역할과 두 줄 소개글을 배치해 인스타그램 프로필의 정보 위계를 적용했다.
+- 공유·팔로우, 응답률, 주소, 딜러 경력, 리뷰 순으로 세로 흐름을 정리해 리뷰가 경력 아래에 오도록 했다.
+- PC에서는 기존 박스형 판매 통계를 유지해 데스크톱 정보 밀도 회귀를 방지했다.
+
+## Verification
+
+- 모바일 393 × 852: 헤더·프로필·통계·소개글·리뷰 순서 통과
+- 가로 넘침 및 텍스트 충돌: 없음
+- `npm run check:runtime`: passed
+- `npx tsc --noEmit`: passed
+- P0/P1/P2 findings: none
+
+final result: passed
+
+---
+
+# Design QA · 투제이모터웍스 페라리 영상 헤더 (2026-10-15)
+
+- source visual truth: 기존 보배드림 페라리 카테고리의 Ferrari 공식 Sports Cars 히어로 영상
+- implementation: `http://127.0.0.1:4213/?profile=dealer&shop=450554&emp=1&qf=guazi&category=서울오토갤러리&v=ferrari-video`
+- implementation screenshot: Codex IAB tab `110`, 393 × 852 CSS px iframe capture, 서로 다른 재생 프레임 2회
+- viewport: 모바일 393 × 852 CSS px; PC 기본 뷰포트
+- state: 김태규 판매자 페이지, 판매차량 탭, 무음 자동재생
+
+## Full-view comparison evidence
+
+- 기존 Range Rover 5장 슬라이드를 페라리 공식 16:9 히어로 영상의 18:5 배너 크롭으로 교체했다.
+- 모바일 393px 화면에서 영상은 좌우 16px·최대 100px 헤더 슬롯을 유지하며 프로필 사진과 제목의 위치를 움직이지 않는다.
+- 1.2초 간격의 두 브라우저 캡처에서 서로 다른 차량 프레임이 보여 자동재생이 실제로 진행됨을 확인했다.
+
+## Focused region comparison evidence
+
+- 영상 초점을 오른쪽 62%에 배치해 차량의 주행 장면과 왼쪽 상사 문구가 겹치지 않는다.
+- 좌측 76% 검정 오버레이와 하단 26% 음영으로 흰색 `투제이모터웍스 / 수입차 전문 매매`의 대비를 확보했다.
+- 슬라이드 점·연식·차종 표기를 제거해 헤더의 정보 잡음을 줄였다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 기존 18/23px 상사명과 11/15px 설명을 유지하고 설명 자간만 `.02em`으로 정돈했다.
+- spacing/layout rhythm: 직전 유튜브 기준 18:5·100px 헤더, 74px 프사, 13px 간격을 보존했다.
+- colors/tokens: 검정 비네팅·흰색 타이포만 사용해 페라리 영상의 색을 방해하지 않는다.
+- image quality/assets: Ferrari 공식 1280×720 MP4를 재사용하고, 실패·모션 감소 시 로컬 Ferrari F80 포스터로 전환한다.
+- copy/content: 상사명과 전문 분야 문구를 유지하고 불필요한 연식·모델 문구만 제거했다.
+
+## Verification
+
+- 모바일 영상 자동재생·무음·인라인·반복 렌더 확인
+- 정지 포스터 fallback 및 `prefers-reduced-motion` 경로 구현
+- `npm run check:runtime`: passed
+- `npx tsc --noEmit`: passed
+- P0/P1/P2 findings: none
+
+final result: passed
+
+---
+
+# 치지직 상세 · 당근형 엄지 반응 아이콘 v8 QA · 2026-10-15
+
+- source visual truth: 사용자 제공 `1-1000018342.jpg` (591 × 1280px, 당근형 모바일 게시물)
+- implementation screenshot: Chrome 브라우저 캡처 `http://172.30.1.200:45174/community/chzzk-detail.html?id=8325190`
+- viewport: 모바일 394 × 852 CSS px, DPR 1 / PC 1440 × 1000 CSS px
+- density normalization: 원본은 591px 폭 모바일 캡처이며, 전체 페이지 복제가 아닌 반응 아이콘 행의 형태·무게·간격을 394px 구현 화면과 집중 비교했다.
+- state: 기본, 추천 선택, 비추천 전환, 댓글 추천 선택
+
+## Full-view comparison evidence
+
+- 치지직의 제목·본문·댓글 정보 구조는 유지하면서 참고 화면의 테두리 없는 평면 반응 아이콘 행을 적용했다.
+- 모바일에서 추천·점수·비추천·댓글 수·공유가 하나의 기준선에 놓이고, PC에서는 1060px 셸 안에서 동일한 아이콘 비율을 유지한다.
+- 상단 북마크·더보기와 하단 입력 아이콘도 24px 계열로 통일해 화면 전체의 아이콘 밀도를 맞췄다.
+
+## Focused region comparison evidence
+
+- 참고 화면의 추천 24px, 댓글 24px, 공유 24px 시각 무게에 맞춰 구현의 게시글 반응 아이콘 네 종을 모두 24 × 24px로 측정했다.
+- 댓글 단위 추천·비추천은 20 × 20px, 32px 원형 터치 영역으로 축소해 본문 반응보다 한 단계 낮은 위계를 만들었다.
+- 텍스트 `버프`·`너프`는 시각적으로 제거하고 접근성 이름만 `추천`·`비추천`으로 유지했다.
+
+## Comparison history
+
+- P2 before: 기존 반응은 테두리 캡슐 안의 `버프`·`너프` 텍스트와 서로 다른 크기의 댓글·공유 아이콘 때문에 참고 화면보다 복잡하고 무게가 불균형했다.
+- fix: 저장소의 동일 계열 Chợ Tốt 24px 엄지·댓글·공유·북마크·더보기 자산으로 교체하고, 테두리를 제거해 40px 모바일 터치 영역에 정렬했다.
+- post-fix: 모바일 캡처에서 네 아이콘이 같은 기준선과 24px 박스를 사용하며, 댓글 영역의 20px 엄지 쌍도 균형 있게 정렬됐다.
+- P3 accepted: 치지직 정보 구조와 기존 Airbnb `#FF385C` 선택 상태는 제품 맥락에 따른 의도적 차이다.
+
+## Verification
+
+- 모바일: 가로 넘침 없음, 깨진 이미지 0건, 콘솔 warning/error 0건.
+- PC: 1060px 중앙 셸, 가로 넘침 없음, 깨진 이미지 0건.
+- 상호작용: 추천 -4→-3, 비추천 전환 -3→-5, 답글 `@익씽 ` 입력 통과.
+- `npm run verify`: 관리자 29건, Sites 4건, 타입 검사·프로덕션 빌드 전체 통과.
+- P0/P1/P2 findings: none.
+
+final result: passed
+
+---
+
+# 치지직 상세 · 레딧 아이콘 전면 통일 v9 QA · 2026-10-15
+
+- source visual truth: 사용자 제공 Reddit 상세 화면과 Notion `미국_레딧` 아이콘 데이터베이스에서 분리한 저장소 벡터 세트
+- implementation: `public/community/chzzk-detail.html?id=8325190`
+- viewports: 모바일 394 × 852 CSS px / PC 1440 × 1000 CSS px
+- scope: 치지직 상세 전용 아이콘만 변경; 네이버 카페 상세·목록은 미변경
+
+## Cross-check evidence
+
+- 직전 v8에서 섞였던 Chợ Tốt 북마크·더보기·추천·비추천·댓글·공유 참조를 모두 제거했다.
+- 상단 닫기·북마크·더보기, 이벤트, 게시글 추천·비추천·댓글·공유, 댓글 더보기·추천·비추천, 새로고침·정렬·설정·맨 위로, 입력창 카메라·스티커·잠금·전송을 `assets/chzzk-detail/icons/`의 Reddit 원본 벡터 세트로 통일했다.
+- 모바일 핵심 반응 아이콘은 24 × 24px, 댓글 반응 아이콘은 20 × 20px, PC 핵심 반응 아이콘은 26 × 26px로 기존 균형을 유지했다.
+- 추천·비추천의 의미와 Airbnb `#FF385C` 선택 상태는 그대로 유지했다.
+
+## Verification
+
+- 모바일: 가로 넘침 없음, 깨진 이미지 0건, 콘솔 warning/error 0건.
+- PC: 1060px 중앙 셸, 가로 넘침 없음, 깨진 이미지 0건.
+- 상호작용: 추천 -4→-3, 비추천 전환 -3→-5, 답글 `@익씽 ` 입력 통과.
+- 코드 검색: 치지직 상세 HTML·JS의 `chotot` 아이콘 참조 0건.
+- 검증: 관리자 29건 통과, 프로덕션 빌드 통과, Sites 4건 통과.
+- P0/P1/P2 findings: none.
+
+final result: passed
+
+---
+
+# 치지직 상세 · 레딧 엄지 실측 균형 v10 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a128e5-de8a-78d0-9ed9-96cbde6a07c3/18c75ea0-215b-4cac-858d-8c1a6f1691c6/1-1000018368.jpg`
+- implementation: `http://127.0.0.1:45174/community/chzzk-detail.html?id=8325190&v=10`
+- implementation screenshot: Chrome Browser 탭 `229711349`, 모바일 394 × 852 CSS px 캡처
+- source pixels: 591 × 1280px; 구현은 394 × 852 CSS px, DPR 1 기준으로 반응 행을 정규화해 비교
+- state: 사용자 문의 게시물, 추천·비추천 미선택 기본 상태
+
+## Full-view comparison evidence
+
+- 원본 캡처와 수정 구현을 같은 사용자 문의 게시물·모바일 상태에서 비교했다.
+- 게시글 본문, 반응 행, 최신글 카드, 댓글 헤더, 하단 입력창의 기존 구조와 세로 리듬은 유지했다.
+- 수정 범위는 레딧 추천·비추천 엄지의 실제 보이는 크기와 캐시 갱신에 한정했다.
+
+## Focused region comparison evidence
+
+- P2 before: 24 × 24px 이미지 박스 안에서 엄지 도형이 약 10px로만 보여, 24px 댓글·공유 아이콘의 절반 수준이었다.
+- fix: Reddit 엄지 원본 path는 그대로 두고 SVG `viewBox`를 `0 0 40 40`에서 `10 10 20 20`으로 보정해 내부 여백만 제거했다.
+- post-fix: 모바일 캡처에서 추천·비추천·댓글·공유가 동일한 24 × 24px 슬롯과 유사한 시각 무게로 정렬됐다.
+- 댓글 단위 엄지 역시 20 × 20px 슬롯 안에서 본문 반응보다 한 단계 작은 위계를 유지한다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 기존 Pretendard 제목·본문·점수 체계를 변경하지 않았다.
+- spacing/layout rhythm: 반응 버튼 40px 터치 영역과 좌측 정렬 간격을 유지했다.
+- colors/tokens: 기본 `#222`, 선택 `#FF385C` 및 Airbnb 상태색을 유지했다.
+- image quality/assets: Reddit 원본 벡터 path를 재제작하지 않고 viewBox만 보정했으며 흐림·왜곡이 없다.
+- copy/content: 제목·본문·점수·댓글 문구는 변경하지 않았다.
+
+## Verification
+
+- 모바일 394 × 852: 네 핵심 아이콘 24 × 24px, 가로 넘침 없음, 깨진 이미지 0건.
+- PC 1440 × 1000: 1060px 중앙 셸, 가로 넘침 없음, 깨진 이미지 0건.
+- 상호작용: 추천 -4→-3, 비추천 전환 -3→-5 통과.
+- 콘솔 warning/error 0건.
+- 캐시 방지: 모든 추천·비추천 SVG URL에 `v=20261015v10` 적용.
+- P0/P1/P2 findings: none.
+
+final result: passed
+
+---
+
+# Design QA · 유튜브 모바일 헤더·프로필 크기 보정 (2026-10-15)
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/dbff4f9b-8c08-43b9-bccf-46b545374c2e/1-1000018338.jpg`
+- implementation: `http://127.0.0.1:4213/?profile=dealer&shop=450554&emp=1&qf=guazi&category=서울오토갤러리&v=youtube-size`
+- implementation screenshot: Codex IAB tab `108`, 393 × 852 CSS px iframe capture
+- source pixels: 592 × 1280 px; Android 기기 배율을 393 CSS px 기준으로 정규화
+- implementation pixels/CSS/density: 393 × 852 CSS px, 브라우저 기본 DPR
+- state: 김태규 판매자 페이지, 판매차량 탭, 팔로우 전
+
+## Full-view comparison evidence
+
+- 원본 유튜브 배너는 좌우 약 16px, 폭 약 361px, 높이 약 100px로 측정됐다.
+- 구현을 393px 프레임에서 열어 배너 좌우 16px, 18:5 비율, 최대 높이 100px로 렌더되는 것을 확인했다.
+- 원본 프로필 사진은 약 74px이고 배너 하단에서 약 13px 떨어져 시작한다. 구현도 74px 원형 사진과 13px 상단 간격으로 맞췄다.
+
+## Focused region comparison evidence
+
+- 프로필 사진의 왼쪽 시작점은 16px, 판매자명 시작점은 108px로 유지했다.
+- 프사 폭을 72px에서 74px로 늘리는 대신 사진–텍스트 간격을 20px에서 18px로 줄여 제목 시작축이 움직이지 않게 했다.
+- 헤더 아래 과도했던 24px 합산 간격을 13px로 줄여 원본 유튜브의 세로 밀도와 맞췄다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 기존 판매자명 22/28px 및 보조 정보 13/18px을 유지해 텍스트 위계를 변경하지 않았다.
+- spacing/layout rhythm: 배너 18:5·100px, 프사 74px, 좌우 16px, 배너–프사 13px으로 보정했다.
+- colors/tokens: 기존 흰 배경·검정 본문·회색 보조 정보 토큰을 유지했다.
+- image quality/assets: 기존 공식 Range Rover 헤더 이미지와 실제 딜러 프로필 원본을 유지하고 크롭만 슬롯에 맞췄다.
+- copy/content: 판매자·상사·평점·판매 실적 문구는 변경하지 않았다.
+
+## Comparison history
+
+- Pass 1 P2: 배너가 3.65:1·98px로 원본보다 약간 낮고, 프사 72px 및 배너–프사 24px 간격으로 상단 밀도가 느슨했다.
+- Fix: 모바일 배너를 18:5·100px, 프사를 74px, 배너–프사 간격을 13px으로 수정했다.
+- Pass 2: 393 × 852 IAB 프레임에서 제목 시작축, 배너 비율, 프사 크기와 세로 간격을 다시 확인했고 P0/P1/P2 차이가 남지 않았다.
+
+## Verification
+
+- `npm run check:runtime`: passed
+- `npx tsc --noEmit`: passed
+- `npm run build`: passed
+- 모바일 393 × 852 및 PC 기본 뷰포트 렌더 확인
+- P0/P1/P2 findings: none
+
+final result: passed
+
+---
 
 # 치지직 상세 · 댓글 있는 사용자 게시물 v7 QA · 2026-10-15
 
@@ -2415,5 +2638,83 @@ final result: passed
 - 상호작용: 버프 16→17, 너프 전환 17→15, 댓글 2→3 통과.
 - `npm run verify`: 관리자 29건, Sites 4건, 타입 검사·프로덕션 빌드 전체 통과.
 - P0/P1/P2 findings: none.
+
+final result: passed
+
+---
+
+# 딜러 프로필 · 통계 좌측 정렬 및 전화번호 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/97b6a156-eacf-4641-b60c-5699928a1226/1-1000018358.jpg`
+- implementation: 로컬 딜러 프로필, IAB 393 × 852 CSS px
+- scope: 닉네임 아래 판매중·판매완료·팔로워 좌측 정렬, 프로필 정보 전화번호 추가
+
+## Cross-check evidence
+
+- 세 통계 셀의 콘텐츠를 각 열의 왼쪽 시작선에 맞추고 첫 열을 딜러명 시작선과 일치시켰다.
+- 프로필 연락 정보에 전화 아이콘과 `02-2059-5211`을 추가했다.
+- 전화번호는 `tel:0220595211` 링크로 연결해 모바일에서 바로 통화할 수 있게 했다.
+- 전화번호 다음에 딜러 경력과 리뷰가 이어지도록 기존 정보 위계를 유지했다.
+
+## Verification
+
+- 모바일 393 × 852: 통계 3열 `align-items: flex-start` 확인
+- 전화 링크 및 표시 텍스트: passed
+- 가로 넘침: 0px
+- P0/P1/P2 findings: none
+
+final result: passed
+
+---
+
+# 딜러 프로필 · 인스타그램형 헤더·행동 버튼 QA · 2026-10-15
+
+- source visual truth:
+  - `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/e701f2ea-c867-4db2-95b7-e129f14146cc/1-1000018360.jpg`
+  - `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/e701f2ea-c867-4db2-95b7-e129f14146cc/2-1000018364.jpg`
+- implementation capture: Codex IAB `393 × 852` 로컬 렌더 캡처
+- state: 팔로잉 기본 상태, 판매차량 탭 선택, 메시지 알림 표시
+- density normalization: CSS viewport와 구현 캡처 모두 393 × 852, 별도 배율 변환 없음
+
+## Full-view comparison evidence
+
+- 인스타그램 참고 화면처럼 상단 뒤로가기 바로 오른쪽에 상사명 `투제이모터웍스`를 배치했다.
+- 프로필 소개 아래에 `팔로잉 · 메시지 보내기 · 전화 걸기 · 공유` 네 행동을 같은 높이의 버튼 한 줄로 구성했다.
+- 딜러 경력은 좌측 x=16px, 리뷰는 우측 끝 x=367px에 맞춰 한 줄 양끝 정렬했다.
+- 기존 배너·프로필·통계·소개·주소 흐름은 유지해 사용자가 요청하지 않은 영역의 구조 변경을 피했다.
+
+## Focused comparison evidence
+
+- 상단 헤더에서 상사명이 말줄임 가능한 단일 행으로 표시되고 검색·더보기 아이콘과 충돌하지 않음을 확인했다.
+- 393px 폭에서 네 버튼의 전체 문구가 줄바꿈 없이 노출되고 가로 넘침이 0px임을 확인했다.
+- 전화 버튼은 `tel:0220595211`, 메시지 버튼은 딜러명 포함 상태 알림, 팔로잉 버튼은 팔로우/팔로잉 양방향 전환을 검증했다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 기존 Pretendard와 12–17px 모바일 위계를 유지
+- spacing/layout rhythm: 헤더 50px, 버튼 34px, 6px 간격, 경력·리뷰 한 줄 양끝 정렬 통과
+- colors/tokens: 흰 배경, `#222` 본문, `#f6f6f6` 버튼, `#dedede` 외곽선 유지
+- image quality: 기존 딜러 사진과 페라리 영상 배너 자산 유지
+- copy/content: 상사명, 팔로잉, 메시지 보내기, 전화 걸기, 공유, 딜러 경력, 리뷰 수 확인
+
+## Verification
+
+- 팔로잉 → 팔로우 → 팔로잉 전환: passed
+- 메시지 알림: passed
+- 전화 링크: passed
+- 브라우저 콘솔 error: 0건
+- P0/P1/P2 findings: none
+
+final result: passed
+
+---
+
+# 딜러 프로필 · 행동 버튼 하단 이동 QA · 2026-10-15
+
+- implementation capture: Codex IAB 393 × 852 로컬 렌더
+- intended order: 응답률 → 주소 → 전화번호 → 딜러 경력·리뷰 → 행동 버튼
+- measured y positions: 응답률 338px, 주소 372px, 전화번호 406px, 경력·리뷰 440px, 행동 버튼 476px
+- 행동 버튼 네 개의 한 줄 표시와 가로 넘침 0px을 확인했다.
+- P0/P1/P2 findings: none
 
 final result: passed
