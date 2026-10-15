@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="seoul_autogallery"
+        android:label="서울오토갤러리"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
