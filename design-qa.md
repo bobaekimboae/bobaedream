@@ -20,6 +20,82 @@ final result: passed
 
 ---
 
+# 레딧형 게시판 프로필·구분선 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/62224fb5-1c2a-424b-9e2c-7bcd1750c0cc/1-1000018442.jpg`
+- implementation screenshot: `artifacts/community-headword-toggle-1015/mobile-384-collapsed.png`
+- focused comparison: `artifacts/community-headword-toggle-1015/reddit-avatar-divider-comparison.png`
+- viewport: 구현 384 × 844 CSS px, DPR 1 / 원본 591 × 1280px Android 캡처
+- normalization: 원본을 384px 폭으로 정규화한 뒤 게시판 프로필 영역을 구현의 같은 영역과 나란히 배치했다.
+- state: 자유게시판 선택, 말머리 한 줄 접힘
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 게시판명은 기존 17px/720 위계를 보존해 커진 프로필 옆에서도 중심이 흐트러지지 않는다.
+- spacing and layout rhythm: 레딧 캡처에서 환산한 약 47px 프로필 크기에 맞춰 48px로 적용했고 행 높이를 68px로 늘렸다. 게시판명 행 하단 테두리는 0px로 제거했다.
+- colors and tokens: 기존 흰 배경·검정 텍스트·회색 보조 텍스트 토큰을 유지했다.
+- image quality and asset fidelity: 기존 실제 게시판 프로필 이미지를 확대 표시했으며 새 가짜 자산이나 CSS 그림을 만들지 않았다.
+- copy and content: 자유게시판명과 보기 방식·간결형 문구는 변경하지 않았다.
+- responsiveness: 360/384/412px에서 프로필 48×48px, 하단 테두리 0px, 가로 오버플로 0을 확인했다.
+- focused comparison: 원본과 구현의 원형 프로필 직경 및 게시판명과의 시각 비중이 유사하며, 구현에서는 요청 범위에 맞춰 말머리 칩이 바로 이어진다.
+
+## Comparison history
+
+- Pass 1: 기존 프로필은 28px로 레딧 참고 화면보다 작고 게시판명 아래 1px 구분선이 남아 있었다.
+- Fix: 프로필을 48px, 게시판 행을 68px로 조정하고 하단 테두리를 제거했다.
+- Pass 2: 정규화 비교와 360/384/412px 자동 검사에서 남은 P0/P1/P2가 없음을 확인했다.
+
+## Primary interactions tested
+
+- 말머리 펼침·선택·접힘 유지
+- 게시판명·보기 방식·간결형 컨트롤 충돌 없음
+- 브라우저 페이지 오류 및 가로 잘림 없음
+
+final result: passed
+
+---
+
+# 말머리 칩·펼침/접힘 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/79941765-2e07-4569-baaa-cb76c220405c/1-1000018436.jpg`, `.../2-1000018440.jpg`
+- implementation screenshots: `artifacts/community-headword-toggle-1015/mobile-384-collapsed.png`, `mobile-384-expanded.png`
+- comparison image: `artifacts/community-headword-toggle-1015/reference-comparison.png`
+- viewport: 구현 360/384/412 × 844 CSS px, DPR 1 / 원본 각 591 × 1280px Android 캡처
+- normalization: 원본 두 장을 384px 폭으로 정규화하고 구현의 접힘·펼침 상태와 한 장에 배치했다.
+- state: 게시판명 아래 말머리 기본 접힘, 전체 펼침, `튜닝` 선택, 다시 접힘
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 레딧 참고 화면과 같은 14px 중심의 작은 칩 글자와 32px 칩 높이를 적용했다. 360px에서는 기존 반응형 비율에 맞춰 13.7px로 유지했다.
+- spacing and layout rhythm: 게시판명 행의 하단 여백을 없애 말머리가 바로 이어지며, 접힘 48px 한 줄과 펼침 8px 행간의 다중 행 구조가 안정적으로 전환된다.
+- colors and tokens: 선택 칩은 커뮤니티의 기존 검정 토큰, 비선택 칩은 흰 바탕과 옅은 회색 테두리를 사용해 레딧식 대비를 유지했다.
+- image quality and asset fidelity: 펼침 아이콘은 기존 Dcard 원본 자산 `assets/write-parity/chevron-down.svg`를 재사용했고 CSS/문자 모양으로 새로 그리지 않았다.
+- copy and content: 기존 말머리 11개와 선택 상태를 그대로 보존했다.
+- interaction and accessibility: 버튼은 `aria-expanded`, `aria-controls`, `aria-pressed`를 제공한다. 펼침·선택·접힘과 Escape 접힘을 확인했다.
+- responsiveness: 360/384/412px에서 가로 오버플로 0, 접힘 높이 48px, 칩 높이 32px가 모두 일치한다.
+- focused comparison: 비교 이미지에서 칩 크기·선택 상태·게시판명 아래 위치·Dcard식 펼침 상태가 충분히 읽혀 추가 확대 크롭은 필요하지 않았다.
+
+## Comparison history
+
+- Pass 1: 기존 게시판 행의 8px 하단 마진 때문에 말머리가 게시판명에 바로 붙지 않았다.
+- Fix: 게시판 행의 하단 마진과 하단 그림자를 제거하고 말머리 영역을 직접 연결했다.
+- Pass 2: 동일 위치 실측과 360/384/412px 브라우저 검사에서 남은 P0/P1/P2가 없음을 확인했다.
+
+## Primary interactions tested
+
+- 한 줄 말머리 좌우 스크롤
+- 아래 화살표로 전체 말머리 펼침
+- 펼친 상태에서 말머리 선택 및 상태 유지
+- 위 화살표와 Escape로 접힘
+- 게시판 변경 시 기본 접힘으로 복귀
+- 브라우저 콘솔·페이지 런타임 오류 0건
+
+final result: passed
+
+---
+
 # 치지직 상세 · 보트 아이콘·블루·두깝이 최신글 v14 QA · 2026-10-15
 
 - scope: 게시글과 동적 댓글의 엄지 추천·비추 아이콘을 Reddit 업보트·다운보트 화살표로 교체

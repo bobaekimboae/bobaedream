@@ -57,7 +57,8 @@
     "community:verify:notion-write": "node scripts/community-notion-write-check.mjs",
     "community:build:avatars": "node scripts/generate-community-avatars.mjs",
     "community:build:emoji": "node scripts/build-community-emoji-data.mjs",
-    "community:verify:emoji": "node scripts/community-emoji-data-check.mjs"
+    "community:verify:emoji": "node scripts/community-emoji-data-check.mjs",
+    "community:verify:headwords": "node scripts/community-headword-toggle-check.mjs"
   },
   "dependencies": {
     "@fontsource/roboto": "5.2.10",
