@@ -75,6 +75,9 @@
     var headerMenuButton=document.querySelector('.appbar .hamburger');
     if(!scroller||!track||!menuButton)return null;
     var queryId=new URLSearchParams(location.search).get('board');
+    var queryParams=new URLSearchParams(location.search);
+    var previewGrid=queryParams.get('boardGrid');
+    var panelColumns=previewGrid==='4'?4:previewGrid==='3'?3:null;
     var selectedId=queryId==='home'||boardById[queryId]?queryId:'free';
     var editing=false;
     var draftOrder=[];
@@ -117,8 +120,10 @@
     var backdrop=document.createElement('div');
     backdrop.className='boardOrderBackdrop';
     backdrop.hidden=true;
-    backdrop.innerHTML='<section class="boardOrderPanel" role="dialog" aria-modal="true" aria-labelledby="boardOrderTitle"><header class="boardOrderHeader"><h2 id="boardOrderTitle">커뮤니티 메뉴</h2><button class="boardOrderClose" aria-label="닫기"><img src="assets/chzzk-detail/icons/close.svg" alt=""></button></header><div class="boardOrderBody"><button class="boardOrderViewEntry" type="button"><span class="boardOrderViewIcon" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="boardOrderViewCopy"><strong>보기 방식</strong></span><span class="boardOrderViewArrow" aria-hidden="true">›</span></button><div class="boardOrderHeading"><div><strong>내 채널</strong><span class="boardOrderGuide">누르면 해당 게시판으로 이동합니다</span></div><button class="boardOrderEdit" aria-pressed="false">편집</button></div><div class="boardOrderMyGrid"></div><div class="boardOrderAvailable"><div class="boardOrderSectionTabs" role="tablist" aria-label="게시판 분류"><button role="tab" data-section="게시판">게시판</button><button role="tab" data-section="자료실">자료실</button></div><div class="boardOrderAvailableGrid"></div><p class="boardOrderEmpty" hidden></p></div><button class="boardOrderReset" hidden>기본 순서로 초기화</button><p class="boardOrderHint">내 채널에서 제외해도 아래 분류에서 다시 추가할 수 있습니다.</p></div><div class="boardOrderLive" aria-live="polite" aria-atomic="true"></div></section>';
+    backdrop.innerHTML='<section class="boardOrderPanel" role="dialog" aria-modal="true" aria-labelledby="boardOrderTitle"><header class="boardOrderHeader"><h2 id="boardOrderTitle">전체 게시판</h2><button class="boardOrderClose" aria-label="닫기"><img src="assets/chzzk-detail/icons/close.svg" alt=""></button></header><div class="boardOrderBody"><button class="boardOrderViewEntry" type="button"><span class="boardOrderViewIcon" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="boardOrderViewCopy"><strong>보기 방식</strong></span><span class="boardOrderViewArrow" aria-hidden="true">›</span></button><div class="boardOrderHeading"><div><strong>내 게시판</strong><span class="boardOrderGuide">누르면 해당 게시판으로 이동합니다</span></div><button class="boardOrderEdit" aria-pressed="false">편집</button></div><div class="boardOrderMyGrid"></div><div class="boardOrderAvailable"><div class="boardOrderSectionTabs" role="tablist" aria-label="게시판 분류"><button role="tab" data-section="게시판">게시판</button><button role="tab" data-section="자료실">자료실</button></div><div class="boardOrderAvailableGrid"></div><p class="boardOrderEmpty" hidden></p></div><button class="boardOrderReset" hidden>기본 순서로 초기화</button><p class="boardOrderHint">내 게시판에서 제외해도 아래 분류에서 다시 추가할 수 있습니다.</p></div><div class="boardOrderLive" aria-live="polite" aria-atomic="true"></div></section>';
     document.body.appendChild(backdrop);
+    var panel=backdrop.querySelector('.boardOrderPanel');
+    if(panelColumns)panel.dataset.gridColumns=String(panelColumns);
     var myGrid=backdrop.querySelector('.boardOrderMyGrid');
     var availableGrid=backdrop.querySelector('.boardOrderAvailableGrid');
 
@@ -166,7 +171,7 @@
           if(!editing&&(event.key==='Enter'||event.key===' ')){event.preventDefault();choose(id,{closePanel:true});return}
           if(!editing||item.dataset.movable!=='true')return;
           var items=Array.prototype.slice.call(myGrid.querySelectorAll('.boardOrderItem[data-movable="true"]'));
-          var index=items.indexOf(item),columns=innerWidth>=768?6:3,next=index;
+          var index=items.indexOf(item),columns=panelColumns||(innerWidth>=768?6:3),next=index;
           if(event.key==='ArrowLeft')next=index-1;
           if(event.key==='ArrowRight')next=index+1;
           if(event.key==='ArrowUp')next=index-columns;
@@ -265,6 +270,7 @@
 
     renderNav();
     if(queryId==='home'||boardById[queryId])choose(queryId,{skipQuery:true,silent:true});else scrollSelected();
+    if(queryParams.get('menu')==='all')requestAnimationFrame(function(){openPanel({showViewEntry:false})});
     return{
       setSelectedByLabel:function(label){var board=boards.find(function(item){return item.displayName===label});if(board){selectedId=board.id;renderNav();updateQuery(board.id);scrollSelected()}else if(label==='전체 게시글'||label==='전체'){selectedId='home';renderNav();updateQuery('home');scrollSelected()}},
       getSelectedId:function(){return selectedId},

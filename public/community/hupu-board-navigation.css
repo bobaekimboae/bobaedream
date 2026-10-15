@@ -31,23 +31,25 @@
 .boardOrderHeading strong{font-size:18px;font-weight:800;letter-spacing:-.05em;white-space:nowrap}
 .boardOrderHeading span{color:#a0a2a7;font-size:12px;font-weight:500;letter-spacing:-.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .boardOrderEdit{min-width:48px;height:34px;color:#252525;font-size:14px;font-weight:760;letter-spacing:-.035em;cursor:pointer}
-.boardOrderMyGrid,.boardOrderAvailableGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 9px}
-.boardOrderItem,.boardOrderAdd{height:62px;border-radius:10px;background:#f4f5f6;display:flex;align-items:center;justify-content:center;min-width:0;position:relative;border:1px solid transparent;transition:transform .12s,border-color .12s,box-shadow .12s,background-color .12s;user-select:none;cursor:pointer}
+.boardOrderMyGrid,.boardOrderAvailableGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 10px}
+.boardOrderPanel[data-grid-columns="3"] .boardOrderMyGrid,.boardOrderPanel[data-grid-columns="3"] .boardOrderAvailableGrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.boardOrderPanel[data-grid-columns="4"] .boardOrderMyGrid,.boardOrderPanel[data-grid-columns="4"] .boardOrderAvailableGrid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 9px}
+.boardOrderItem,.boardOrderAdd{height:40px;border-radius:8px;background:#f6f7f8;display:flex;align-items:center;justify-content:center;min-width:0;position:relative;border:1px solid transparent;transition:transform .12s,border-color .12s,box-shadow .12s,background-color .12s;user-select:none;cursor:pointer}
 .boardOrderItem:focus-visible,.boardOrderAdd:focus-visible,.boardOrderEdit:focus-visible,.boardOrderClose:focus-visible,.boardOrderViewEntry:focus-visible,.boardOrderSectionTabs button:focus-visible{outline:2px solid #222;outline-offset:2px}
-.boardOrderItem.selected{color:#238fe3;font-weight:760}
-.boardOrderItem.boardOrderFixed{background:#f0f1f2;color:#a4a6aa;cursor:default}
+.boardOrderItem.selected{color:#2864e8;font-weight:760}
+.boardOrderItem.boardOrderFixed{background:#f1f2f3;color:#a4a6aa;cursor:default}
 .boardOrderItem.boardOrderFixed.selected{color:#6f7277}
 .boardOrderBackdrop:not(.isEditing) .boardOrderItem.boardOrderFixed{cursor:pointer}
 .boardOrderItem.dragging{transform:scale(1.045);border-color:#252525;background:#fff;box-shadow:0 8px 22px rgba(0,0,0,.16);z-index:3}
-.boardOrderName{min-width:0;max-width:100%;padding:0 6px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;line-height:18px;font-weight:620;letter-spacing:-.05em}
-.boardOrderRemove{position:absolute;right:-1px;top:-5px;width:24px;height:24px;display:grid;place-items:center;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.16);cursor:pointer;touch-action:manipulation}
+.boardOrderName{min-width:0;max-width:100%;padding:0 5px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;line-height:18px;font-weight:620;letter-spacing:-.05em}
+.boardOrderRemove{position:absolute;right:-4px;top:-7px;width:22px;height:22px;display:grid;place-items:center;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.16);cursor:pointer;touch-action:manipulation}
 .boardOrderRemove img{width:11px;height:11px;display:block;opacity:.72}
 .boardOrderAvailable{margin-top:30px}
 .boardOrderSectionTabs{height:42px;display:flex;align-items:stretch;gap:28px;border-bottom:1px solid #ececef;margin-bottom:16px}
 .boardOrderSectionTabs button{height:42px;position:relative;color:#9a9ca1;font-size:15px;font-weight:650;letter-spacing:-.045em;cursor:pointer}
 .boardOrderSectionTabs button.on{color:#1d1e21;font-weight:800}
 .boardOrderSectionTabs button.on:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;border-radius:3px 3px 0 0;background:#252525}
-.boardOrderAdd{background:#fff;border-color:#e1e2e4;color:#34363a}
+.boardOrderAdd{background:#fff;border-color:#e1e3e6;color:#34363a}
 .boardOrderAdd span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 9px;font-size:13px;font-weight:620;letter-spacing:-.05em}
 .boardOrderPlusIcon{position:absolute;right:5px;top:5px;width:10px;height:10px;display:block;opacity:.76;transform:rotate(45deg)}
 .boardOrderEmpty{min-height:70px;margin:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#9a9ca1;font-size:13px;line-height:19px;letter-spacing:-.035em}
@@ -57,6 +59,6 @@
 .boardOrderLive{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 body.boardOrderOpen,body.boardOrderDragging{overflow:hidden}
 body.boardOrderDragging{touch-action:none}
-@media(min-width:768px){.boardOrderBackdrop{align-items:center}.boardOrderPanel{height:min(780px,92dvh);border-radius:22px;overflow:hidden}.boardOrderMyGrid,.boardOrderAvailableGrid{grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}.boardOrderItem,.boardOrderAdd{height:50px;border-radius:9px}.boardChannelTrack{padding-left:22px;gap:28px}.boardOrderBody{padding-left:22px;padding-right:22px}}
+@media(min-width:768px){.boardOrderBackdrop{align-items:center}.boardOrderPanel{height:min(780px,92dvh);border-radius:22px;overflow:hidden}.boardOrderMyGrid,.boardOrderAvailableGrid{grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}.boardOrderPanel[data-grid-columns="3"] .boardOrderMyGrid,.boardOrderPanel[data-grid-columns="3"] .boardOrderAvailableGrid{grid-template-columns:repeat(3,minmax(0,1fr))}.boardOrderPanel[data-grid-columns="4"] .boardOrderMyGrid,.boardOrderPanel[data-grid-columns="4"] .boardOrderAvailableGrid{grid-template-columns:repeat(4,minmax(0,1fr))}.boardOrderItem,.boardOrderAdd{height:40px;border-radius:8px}.boardChannelTrack{padding-left:22px;gap:28px}.boardOrderBody{padding-left:22px;padding-right:22px}}
 @media(max-width:370px){.boardChannelTrack{gap:20px;padding-left:15px}.boardChannelTab{font-size:16px}.boardOrderBody{padding-left:13px;padding-right:13px}.boardOrderMyGrid,.boardOrderAvailableGrid{gap:8px 6px}.boardOrderName,.boardOrderAdd span{font-size:12.5px}.boardOrderHeading span{font-size:11.5px}}
 @media(prefers-reduced-motion:reduce){.boardOrderItem,.boardChannelScroller{transition:none;scroll-behavior:auto}}

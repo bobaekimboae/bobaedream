@@ -65,7 +65,7 @@ for(const width of [360,384,412,592,1280]){
   const columns=await page.locator('.boardOrderMyGrid').evaluate(element=>getComputedStyle(element).gridTemplateColumns.split(' ').length);
   check(columns===(width>=768?6:3),`${width}px 그리드 열 수가 ${columns}개입니다`);
   const itemHeight=await page.locator('.boardOrderItem').first().evaluate(element=>element.getBoundingClientRect().height);
-  check(itemHeight===(width>=768?50:62),`${width}px 채널 높이가 ${itemHeight}px입니다`);
+  check(itemHeight===40,`${width}px 채널 높이가 ${itemHeight}px입니다`);
   const clipped=await page.locator('.boardOrderName').evaluateAll(elements=>elements.filter(element=>element.scrollWidth>element.clientWidth+1).map(element=>element.textContent));
   check(clipped.length===0,`${width}px 잘린 축약명이 있습니다: ${clipped.join(', ')}`);
   if(width===384)await page.screenshot({path:path.join(outputDir,'mobile-384-channel-normal.png'),fullPage:false});
@@ -132,7 +132,21 @@ check(new Set(migrated).size===32,'v1 이전 뒤 중복 또는 누락 채널이 
 const saved=await migration.evaluate(storageKey=>JSON.parse(localStorage.getItem(storageKey)),storageKey);
 check(saved?.version===2&&JSON.stringify(saved.fixedIds)===JSON.stringify(['home','best']),'v2 저장 구조가 다릅니다');
 await migration.close();
+
+for(const columns of [3,4]){
+  const preview=await browser.newPage({viewport:{width:384,height:844}});
+  await preview.goto(`${baseUrl}${baseUrl.includes('?')?'&':'?'}menu=all&boardGrid=${columns}`,{waitUntil:'domcontentloaded'});
+  await preview.locator('.boardOrderPanel').waitFor({state:'visible'});
+  const actualColumns=await preview.locator('.boardOrderMyGrid').evaluate(element=>getComputedStyle(element).gridTemplateColumns.split(' ').length);
+  check(actualColumns===columns,`384px ${columns}열 시안이 ${actualColumns}열로 표시됩니다`);
+  const chipStyles=await preview.locator('.boardOrderItem').first().evaluate(element=>{const style=getComputedStyle(element);return{height:element.getBoundingClientRect().height,backgroundColor:style.backgroundColor,borderRadius:style.borderRadius}});
+  check(chipStyles.height===40,`${columns}열 시안 칩 높이가 ${chipStyles.height}px입니다`);
+  check(chipStyles.backgroundColor==='rgb(241, 242, 243)',`${columns}열 시안 고정 칩 바탕색이 ${chipStyles.backgroundColor}입니다`);
+  check(chipStyles.borderRadius==='8px',`${columns}열 시안 칩 모서리가 ${chipStyles.borderRadius}입니다`);
+  await preview.screenshot({path:path.join(outputDir,`mobile-384-baidu-${columns}-column.png`),fullPage:false});
+  await preview.close();
+}
 await browser.close();
 
 if(failures.length){console.error(JSON.stringify({ok:false,failures},null,2));process.exit(1)}
-console.log(JSON.stringify({ok:true,channels:32,fixed:['전체','베스트'],movable:30,sections:{게시판:13,자료실:17},widths:[360,384,412,592,1280],mobileColumns:3,desktopColumns:6,migration:'v1-to-v2',outputDir},null,2));
+console.log(JSON.stringify({ok:true,channels:32,fixed:['전체','베스트'],movable:30,sections:{게시판:13,자료실:17},widths:[360,384,412,592,1280],mobileColumns:3,desktopColumns:6,previewColumns:[3,4],chipHeight:40,migration:'v1-to-v2',outputDir},null,2));

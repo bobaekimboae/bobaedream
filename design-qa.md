@@ -1,3 +1,32 @@
+# 전체 게시판 바이두형 3열·4열 시안 QA · 2026-10-15
+
+- source visual truth: Google Drive `바이두,편집.jpg`, `바이두.jpg`, `바이두메뉴열기.mp4` (`1VpPkHQBgb15f7_ma6NhtCxr_NIaFKaHL`)
+- browser-rendered implementation: `artifacts/community-board-order-1015/mobile-384-baidu-3-column.png`, `mobile-384-baidu-4-column.png`
+- full-view comparison: `artifacts/community-board-order-1015/baidu-vs-3col-vs-4col-1015.png`
+- viewport and density: 구현 384 × 844 CSS px, DPR 1. 원본 924 × 2048px을 384px 폭으로 정규화했다.
+- state: 상단 햄버거로 전체 게시판을 연 일반 상태, 게시판 분류 선택
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 제목 20px/800, 내 게시판 18px/800, 칩 13px/620으로 기존 보배드림 한글 체계를 유지하면서 바이두의 굵기 위계를 반영했다.
+- spacing and layout rhythm: 칩 높이 40px, 모서리 8px, 세로 간격 12px로 통일했다. 3열은 긴 이름의 가독성, 4열은 한 화면 정보량 비교용이다.
+- colors and visual tokens: 내 게시판은 `#f6f7f8`, 고정 칩은 `#f1f2f3`, 추가 가능한 게시판은 흰색과 `#e1e3e6` 테두리를 사용했다. 현재 게시판은 바이두 참고 화면처럼 파란 글자로 표시한다.
+- image quality and asset fidelity: 이번 화면은 별도 사진·일러스트 없이 기존 닫기/추가 아이콘 실자산만 사용한다.
+- copy and content: 제목은 `전체 게시판`, 고정 항목은 `전체·베스트`, 분류는 `게시판·자료실`로 유지했다.
+- interaction: 일반 상태에서는 즉시 이동, 편집 상태에서는 제외·추가·드래그 재정렬, 완료 후 저장, 전체·베스트 고정 동작을 확인했다.
+- browser verification: 360 / 384 / 412 / 592 / 1280px, 3열·4열 직접 링크, 가로 오버플로와 런타임 오류가 없음을 확인했다.
+
+## Comparison history
+
+- Pass 1: 기존 칩이 62px로 높아 바이두 40px 밀도보다 화면을 과도하게 차지했다.
+- Fix: 두 시안 모두 칩을 40px/8px radius로 맞추고 내부·추가 항목의 배경 체계를 분리했다.
+- Pass 2: 3열과 4열을 같은 데이터·동작으로 나란히 비교했으며 칩 높이, 상태색, 고정 항목, 분류 탭 모두 일관됨을 확인했다.
+
+final result: passed
+
+---
+
 # 자유게시판 주간 통계 QA · 2026-10-15
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/62224fb5-1c2a-424b-9e2c-7bcd1750c0cc/1-1000018442.jpg`
