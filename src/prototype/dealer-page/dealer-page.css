@@ -149,11 +149,6 @@
 .dp-anchor-nav button.is-active::after { background: var(--dp-ink); }
 .dp-anchor-nav button.is-valuation { flex-basis: 68px; }
 
-@media (max-width: 767px) {
-  .dp-anchor-nav button:first-child { flex-basis: 68px; padding: 0; text-align: left; }
-  .dp-anchor-nav button:first-child::after { right: 14px; left: 0; }
-}
-
 .dp-home-pending { min-height: 300px; padding: 22px 20px 40px; }
 .dp-home-pending h2 { font-size: 20px; line-height: 28px; font-weight: 700; }
 .dp-community { min-height: 360px; padding: 20px 16px 36px; }
