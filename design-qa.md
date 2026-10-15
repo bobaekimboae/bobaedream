@@ -20,6 +20,37 @@ final result: passed
 
 ---
 
+# 김태규 딜러 배너·매장 아이콘 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/cfde466c-9b43-4b12-b40a-b06e118d7c20/1-1000018472.jpg`
+- source icon: Notion `딜러 매장_16/16` (`cbfef568a45345308060dc72575166f0`), 원본 `7._딜러.svg`
+- implementation screenshots: `artifacts/dealer-profile-avatar-banner-1015/mobile.png`, `desktop.png`
+- comparison image: `artifacts/dealer-profile-avatar-banner-1015/comparison.png`
+- viewport: 모바일 393 × 852 CSS px, 데스크톱 1280 × 900 CSS px, DPR 1
+- state: 김태규 딜러 기본 화면, 판매차량 탭 선택, 팔로우 완료 상태
+
+## Findings
+
+- P0/P1/P2 없음.
+- profile composition: 모바일 프로필 사진을 88px 원형으로 키우고 배너 하단에 겹쳐 배치했다. 4px 흰 테두리와 얕은 그림자로 밝고 어두운 배너 모두에서 인물이 분리된다.
+- hierarchy and spacing: 배너 문구는 프사 오른쪽 124px에서 시작하며, 딜러명과 판매중·판매완료·팔로워 통계는 배너 바로 아래의 기존 정보 위계를 유지한다.
+- icon fidelity: 기존 일반 빌딩 아이콘을 Notion 제공 매장+빌딩 원본 자산으로 교체했다. 20px 표시와 0.86 불투명도를 적용해 전화·위치 아이콘 및 `#777` 메타 텍스트 농도와 맞췄다.
+- responsiveness: 모바일 393px에서 `scrollWidth === innerWidth`이며, 데스크톱 1280px에서도 헤더·프로필·탭에 가로 오버플로가 없다.
+- interaction: 팔로우 버튼은 `팔로우 중 → 팔로우 → 팔로우 중`으로 정상 전환되고, 리뷰와 판매차량 탭의 `aria-selected` 및 본문 전환이 정상이다.
+- browser evidence: 원본 아이콘은 128 × 128 투명 PNG로 로드되며 실제 표시는 20 × 20px이다. 콘솔 오류는 0건이다.
+
+## Comparison history
+
+- Pass 1: 기존 74px 프사가 배너 아래 그리드 안에만 있어 참고 화면보다 프로필 정체성이 약했다.
+- Fix: 프사를 88px로 확대해 배너와 본문 경계에 겹치고, 배너 문구를 오른쪽으로 이동했다.
+- Pass 2: 프사와 배너 문구가 겹치지 않고 딜러명이 자연스럽게 이어졌으나 기존 각진 빌딩 아이콘이 주변 메타 아이콘보다 강했다.
+- Fix: Notion의 매장+빌딩 아이콘으로 교체하고 회색 농도와 표시 크기를 통일했다.
+- Pass 3: 동일 비교 화면에서 배너·프사·정보 위계와 아이콘 톤이 안정적이며 남은 P0/P1/P2가 없음을 확인했다.
+
+final result: passed
+
+---
+
 # 자유게시판 설명·말머리 디카드형 전환 QA · 2026-10-15
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/af0facfc-fbac-461b-a0a0-c50fe1ce12f2/1-1000018478.jpg`, `.../2-1000018480.jpg`
