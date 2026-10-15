@@ -18,11 +18,12 @@
   .bbm-logo > span { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: #1b498c; }
   .bbm-logo > span img { width: 20px; height: 19px; }
   .bbm-logo > img { width: 80px; height: 23px; }
-  .bbm-gnb-row { display: flex; align-items: center; justify-content: center; height: 49px; }
-  .bbm-gnb { display: flex; min-width: 0; align-items: stretch; justify-content: center; gap: 10px; height: 49px; overflow: visible; scrollbar-width: none; }
+  .bbm-gnb-row { display: flex; align-items: center; justify-content: flex-start; height: 49px; }
+  .bbm-gnb { display: flex; width: 100%; min-width: 0; align-items: stretch; justify-content: flex-start; gap: 10px; height: 49px; overflow: visible; scrollbar-width: none; }
   .bbm-gnb::-webkit-scrollbar { display: none; }
   .bbm-gnb button { position: relative; display: flex; align-items: center; height: 49px; padding: 0; border: 0; background: none; color: #1a1a1a; font-size: 16px; font-weight: 600; line-height: 24px; letter-spacing: -.2px; white-space: nowrap; }
   .bbm-gnb button.is-home { font-size: 15px; font-weight: 500; }
+  .bbm-gnb button.is-section-start { margin-left: 14px; }
   .bbm-gnb button.is-active { color: #1b4c8c; font-weight: 700; }
   .bbm-gnb button.is-active::after { content: ""; position: absolute; right: 0; bottom: -1px; left: 0; height: 3px; background: #1b4c8c; }
   .bbm-gnb-dot { display: flex; height: 49px; align-items: center; color: #b7b7b7; font-size: 15px; font-weight: 500; line-height: 1; }

@@ -95,15 +95,20 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
         </div>
         <div className="bbm-gnb-row">
           <nav className="bbm-gnb" aria-label="주 메뉴">
-            {bbGnbItems.map((item, index) => <Fragment key={item.label}>
-              {index ? <span className="bbm-gnb-dot" aria-hidden="true">·</span> : null}
+            {bbGnbItems.map((item, index) => {
+              const previousItem = bbGnbItems[index - 1];
+              const isCatalogDivider = Boolean(item.category && previousItem?.category);
+              const isSectionStart = index > 0 && !isCatalogDivider;
+              const itemClassName = `${item.label === activeItem ? "is-active" : ""}${item.action === "home" ? " is-home" : ""}${isSectionStart ? " is-section-start" : ""}`;
+              return <Fragment key={item.label}>
+              {isCatalogDivider ? <span className="bbm-gnb-dot" aria-hidden="true">·</span> : null}
               {item.action === "more" ? <div className="bbm-gnb-more-wrap" ref={moreRef}>
-                <button type="button" className={`bbm-gnb-more${item.label === activeItem ? " is-active" : ""}`} aria-current={item.label === activeItem ? "page" : undefined} aria-haspopup="menu" aria-expanded={moreOpen} onClick={() => chooseMenu(item)}>
+                <button type="button" className={`bbm-gnb-more ${itemClassName}`.trim()} aria-current={item.label === activeItem ? "page" : undefined} aria-haspopup="menu" aria-expanded={moreOpen} onClick={() => chooseMenu(item)}>
                   <span>{item.label}</span><BbIcon name="chevron-down" size={18} />
                 </button>
                 {moreOpen ? <div className="bbm-gnb-more-menu" role="menu">{bbGnbMoreItems.map((moreItem) => <button key={moreItem.label} type="button" role="menuitem" className={moreItem.category === category ? "is-current" : ""} onClick={() => chooseMenu(moreItem)}>{moreItem.label}</button>)}</div> : null}
-              </div> : <button type="button" className={`${item.label === activeItem ? "is-active" : ""}${item.action === "home" ? " is-home" : ""}`} aria-current={item.label === activeItem ? "page" : undefined} onClick={() => chooseMenu(item)}>{item.label}</button>}
-            </Fragment>)}
+              </div> : <button type="button" className={itemClassName} aria-current={item.label === activeItem ? "page" : undefined} onClick={() => chooseMenu(item)}>{item.label}</button>}
+            </Fragment>})}
           </nav>
         </div>
       </div>
