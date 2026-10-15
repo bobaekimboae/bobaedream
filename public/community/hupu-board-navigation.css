@@ -31,8 +31,8 @@
 .boardOrderHeading strong{font-size:18px;font-weight:800;letter-spacing:-.05em;white-space:nowrap}
 .boardOrderHeading span{color:#a0a2a7;font-size:12px;font-weight:500;letter-spacing:-.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .boardOrderEdit{min-width:48px;height:34px;color:#252525;font-size:14px;font-weight:760;letter-spacing:-.035em;cursor:pointer}
-.boardOrderMyGrid,.boardOrderAvailableGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 9px}
-.boardOrderItem,.boardOrderAdd{height:56px;border-radius:10px;background:#f4f5f6;display:flex;align-items:center;justify-content:center;min-width:0;position:relative;border:1px solid transparent;transition:transform .12s,border-color .12s,box-shadow .12s,background-color .12s;user-select:none;cursor:pointer}
+.boardOrderMyGrid,.boardOrderAvailableGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 9px}
+.boardOrderItem,.boardOrderAdd{height:62px;border-radius:10px;background:#f4f5f6;display:flex;align-items:center;justify-content:center;min-width:0;position:relative;border:1px solid transparent;transition:transform .12s,border-color .12s,box-shadow .12s,background-color .12s;user-select:none;cursor:pointer}
 .boardOrderItem:focus-visible,.boardOrderAdd:focus-visible,.boardOrderEdit:focus-visible,.boardOrderClose:focus-visible,.boardOrderViewEntry:focus-visible,.boardOrderSectionTabs button:focus-visible{outline:2px solid #222;outline-offset:2px}
 .boardOrderItem.selected{color:#238fe3;font-weight:760}
 .boardOrderItem.boardOrderFixed{background:#f0f1f2;color:#a4a6aa;cursor:default}

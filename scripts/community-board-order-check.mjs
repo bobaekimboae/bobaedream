@@ -64,6 +64,8 @@ for(const width of [360,384,412,592,1280]){
   check((await page.locator('.boardOrderEdit').textContent())?.trim()==='편집','일반 상태 버튼이 편집이 아닙니다');
   const columns=await page.locator('.boardOrderMyGrid').evaluate(element=>getComputedStyle(element).gridTemplateColumns.split(' ').length);
   check(columns===(width>=768?6:3),`${width}px 그리드 열 수가 ${columns}개입니다`);
+  const itemHeight=await page.locator('.boardOrderItem').first().evaluate(element=>element.getBoundingClientRect().height);
+  check(itemHeight===(width>=768?50:62),`${width}px 채널 높이가 ${itemHeight}px입니다`);
   const clipped=await page.locator('.boardOrderName').evaluateAll(elements=>elements.filter(element=>element.scrollWidth>element.clientWidth+1).map(element=>element.textContent));
   check(clipped.length===0,`${width}px 잘린 축약명이 있습니다: ${clipped.join(', ')}`);
   if(width===384)await page.screenshot({path:path.join(outputDir,'mobile-384-channel-normal.png'),fullPage:false});
