@@ -148,6 +148,33 @@ final result: passed
 
 ---
 
+# 치지직 상세 · 레딧 아이콘 전면 통일 v9 QA · 2026-10-15
+
+- source visual truth: 사용자 제공 Reddit 상세 화면과 Notion `미국_레딧` 아이콘 데이터베이스에서 분리한 저장소 벡터 세트
+- implementation: `public/community/chzzk-detail.html?id=8325190`
+- viewports: 모바일 394 × 852 CSS px / PC 1440 × 1000 CSS px
+- scope: 치지직 상세 전용 아이콘만 변경; 네이버 카페 상세·목록은 미변경
+
+## Cross-check evidence
+
+- 직전 v8에서 섞였던 Chợ Tốt 북마크·더보기·추천·비추천·댓글·공유 참조를 모두 제거했다.
+- 상단 닫기·북마크·더보기, 이벤트, 게시글 추천·비추천·댓글·공유, 댓글 더보기·추천·비추천, 새로고침·정렬·설정·맨 위로, 입력창 카메라·스티커·잠금·전송을 `assets/chzzk-detail/icons/`의 Reddit 원본 벡터 세트로 통일했다.
+- 모바일 핵심 반응 아이콘은 24 × 24px, 댓글 반응 아이콘은 20 × 20px, PC 핵심 반응 아이콘은 26 × 26px로 기존 균형을 유지했다.
+- 추천·비추천의 의미와 Airbnb `#FF385C` 선택 상태는 그대로 유지했다.
+
+## Verification
+
+- 모바일: 가로 넘침 없음, 깨진 이미지 0건, 콘솔 warning/error 0건.
+- PC: 1060px 중앙 셸, 가로 넘침 없음, 깨진 이미지 0건.
+- 상호작용: 추천 -4→-3, 비추천 전환 -3→-5, 답글 `@익씽 ` 입력 통과.
+- 코드 검색: 치지직 상세 HTML·JS의 `chotot` 아이콘 참조 0건.
+- 검증: 관리자 29건 통과, 프로덕션 빌드 통과, Sites 4건 통과.
+- P0/P1/P2 findings: none.
+
+final result: passed
+
+---
+
 # Design QA · 유튜브 모바일 헤더·프로필 크기 보정 (2026-10-15)
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/dbff4f9b-8c08-43b9-bccf-46b545374c2e/1-1000018338.jpg`
