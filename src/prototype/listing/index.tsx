@@ -2011,7 +2011,7 @@ function MarketplaceScreen() {
               })}
               {isBikeCategory && maker ? <button type="button" className="benz-model-chip is-all-models" onClick={() => openBbmChipPanel("모델")}>전체 {modelsByMakerMap[maker]?.length.toLocaleString("ko-KR")}개</button> : null}
             </Carousel>
-          </section> : showGenerationQuickRail && isGuaziQuickStyle ? <section className="depth-rail no-label" aria-label={`${accessibleDepthLabel(selectedModel)} 세부모델 빠른 선택`}>
+          </section> : showGenerationQuickRail && isGuaziQuickStyle ? <section className={`depth-rail no-label${brandShadowCard ? " is-brand-shadowcard is-shadow-model-row" : ""}`} aria-label={`${accessibleDepthLabel(selectedModel)} 세부모델 빠른 선택`}>
             <QuickRailCarousel ariaLabel={`${accessibleDepthLabel(selectedModel)} 세부모델`} className="brand-carousel" contentClassName="depth-rail-track">
               {railGenerationOptions.map((generation) => {
                 // QF-097: 카탈로그 세부 모델은 자기 이미지만(없으면 점선 빈 칸)
