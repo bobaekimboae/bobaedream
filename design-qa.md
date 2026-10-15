@@ -44,9 +44,11 @@ final result: passed
 
 - 사용자 캡처: `C:\Users\bobae\OneDrive\문서\ChatGPT\퀵필터 제작\.codex-remote-attachments\01a128e5-de8a-78d0-9ed9-96cbde6a07c3\4896e130-8db4-4e35-939b-e4865e4e55f8\1-1000018420.jpg`
 - 좌측 밀착 문제 후속 캡처: `C:\Users\bobae\OneDrive\문서\ChatGPT\퀵필터 제작\.codex-remote-attachments\01a128e5-de8a-78d0-9ed9-96cbde6a07c3\7996fe5f-3593-46e4-82e5-f859abb1525f\1-1000018430.jpg`
+- 모바일 카드 구분선 후속 캡처: `C:\Users\bobae\OneDrive\문서\ChatGPT\퀵필터 제작\.codex-remote-attachments\01a128e5-de8a-78d0-9ed9-96cbde6a07c3\67a2a0a4-2451-4c1f-807a-e0468e11a63e\1-1000018432.jpg`
 - 구현 캡처: `artifacts/community-chotot-feed-1015/mobile-390x844-viewport.png`
 - 좌우 비교: `artifacts/community-chotot-feed-1015/qa-comparison-mobile.png`
 - 좌측 여백 집중 비교: `artifacts/community-chotot-feed-1015/qa-comparison-mobile-inset.png`
+- 카드 구분선 집중 비교: `artifacts/community-chotot-feed-1015/qa-comparison-mobile-separator.png`
 
 **Viewport and state**
 
@@ -63,6 +65,7 @@ final result: passed
 - 후속 사용자 캡처에서 첫 사진이 화면 왼쪽 `0px`에 붙는 P2 정렬 문제를 확인했다. 미디어 셸의 음수 여백과 레일 내부 패딩을 제거해 첫 사진을 카드 본문과 같은 좌측 여백(모바일 16px, 데스크톱 22px)에 맞췄다.
 - Pass 2: 첫 이미지가 카드 상단에 놓이며 카운터는 첫 이미지 우측에서 9px 안쪽에 정렬된다.
 - Pass 3: 후속 비교에서 첫 사진과 카드 본문의 좌측 기준선이 모바일 16px, 데스크톱 22px로 일치하고 페이지 가로 오버플로가 없음을 확인했다.
+- Pass 4: 후속 캡처에서 카드 사이에 중복된 1px 위·아래 테두리와 8px 회색 간격이 구분선처럼 보이는 P2 문제를 확인했다. 모바일 카드의 위·아래 테두리와 카드 간격을 모두 0으로 제거해 흰 배경이 끊김 없이 이어지도록 했다.
 
 **Required fidelity surfaces**
 
