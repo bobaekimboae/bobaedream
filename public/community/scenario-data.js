@@ -87,7 +87,7 @@ const featuredDetails={
 };
 
 [0,1,2,3,4].forEach((thumbIndex)=>{featuredDetails[thumbIndex+1].detailImage=img(thumbs[thumbIndex],960)});
-featuredDetails[1].detailImage='../assets/maker-model/generations/genesis-v1/genesis_asset_f427ba8401d15d7a4eec.png';
+featuredDetails[1].detailImage='/assets/maker-model/generations/genesis-v1/genesis_asset_f427ba8401d15d7a4eec.png';
 
 window.BOBAE_POSTS=titles.map((title,i)=>{
   const hasImg=i%3!==1;
