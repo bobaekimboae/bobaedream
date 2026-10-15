@@ -1,20 +1,20 @@
 /* 2026-10-15 「이 디자인으로 별도 주소」 — ?qf=guazi&qfbrand=shadowcard
    흰 카드 80×80 · 둥근 8 · 옅은 그림자 · 로고 · 이름 · (대수), 선택은 파랑 2px 테두리.
    캡처(923px ÷ 2.404 → 384) 실측: 카드 80×80, 간격 10, 로고 위 4 · 이름 중심 53 · 대수 중심 69, 첫 카드 왼쪽 16. */
-.marketplace.is-qf-guazi .depth-rail.is-kr-maker.is-brand-shadowcard,
-.marketplace.is-qf-guazi .depth-rail.is-kr-maker.is-brand-shadowcard .brand-carousel,
-.marketplace.is-qf-guazi .depth-rail.is-kr-maker.is-brand-shadowcard .depth-rail-track {
+.marketplace.is-qf-guazi .depth-rail:is(.is-kr-maker, .is-ferrari-model-row).is-brand-shadowcard,
+.marketplace.is-qf-guazi .depth-rail:is(.is-kr-maker, .is-ferrari-model-row).is-brand-shadowcard .brand-carousel,
+.marketplace.is-qf-guazi .depth-rail:is(.is-kr-maker, .is-ferrari-model-row).is-brand-shadowcard .depth-rail-track {
   height: 96px !important;
   min-height: 96px !important;
   box-shadow: none !important;
 }
-.marketplace.is-qf-guazi .depth-rail.is-kr-maker.is-brand-shadowcard .depth-rail-track {
+.marketplace.is-qf-guazi .depth-rail:is(.is-kr-maker, .is-ferrari-model-row).is-brand-shadowcard .depth-rail-track {
   align-items: center !important;
   gap: 10px !important;
   padding: 8px 16px !important;
 }
-.marketplace.is-qf-guazi .depth-rail.is-kr-maker.is-brand-shadowcard .kr-maker-divider { display: none !important; }
-.marketplace.is-qf-guazi .depth-rail.is-kr-maker.is-brand-shadowcard .depth-card {
+.marketplace.is-qf-guazi .depth-rail:is(.is-kr-maker, .is-ferrari-model-row).is-brand-shadowcard .kr-maker-divider { display: none !important; }
+.marketplace.is-qf-guazi .depth-rail:is(.is-kr-maker, .is-ferrari-model-row).is-brand-shadowcard .depth-card {
   position: relative;
   box-sizing: border-box;
   display: flex !important;
@@ -32,16 +32,16 @@
   background: #fff !important;
   box-shadow: 0 3px 7px rgba(0, 0, 0, .24) !important;
 }
-.marketplace.is-qf-guazi .depth-rail.is-kr-maker.is-brand-shadowcard .depth-card.is-selected {
+.marketplace.is-qf-guazi .depth-rail:is(.is-kr-maker, .is-ferrari-model-row).is-brand-shadowcard .depth-card.is-selected {
   box-shadow: inset 0 0 0 2px #222, 0 3px 7px rgba(0, 0, 0, .24) !important;
 }
-.marketplace.is-qf-guazi .depth-rail.is-kr-maker.is-brand-shadowcard .depth-card > .depth-card-media {
+.marketplace.is-qf-guazi .depth-rail:is(.is-kr-maker, .is-ferrari-model-row).is-brand-shadowcard .depth-card > .depth-card-media {
   width: 40px !important;
   height: 40px !important;
   flex: 0 0 40px;
   margin: 0 !important;
 }
-.marketplace.is-qf-guazi .depth-rail.is-kr-maker.is-brand-shadowcard .depth-card > .depth-card-label {
+.marketplace.is-qf-guazi .depth-rail:is(.is-kr-maker, .is-ferrari-model-row).is-brand-shadowcard .depth-card > .depth-card-label {
   width: 72px !important;
   height: 16px !important;
   margin: 1px 0 0 !important;
@@ -52,7 +52,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.marketplace.is-qf-guazi .depth-rail.is-kr-maker.is-brand-shadowcard .depth-card > .depth-card-sub {
+.marketplace.is-qf-guazi .depth-rail:is(.is-kr-maker, .is-ferrari-model-row).is-brand-shadowcard .depth-card > .depth-card-sub {
   display: block !important;
   height: 16px;
   margin: 0 !important;
@@ -61,6 +61,43 @@
   text-align: center;
 }
 /* 「전체 (N)」 칸은 로고가 없어 이름 · 대수를 칸 가운데에 둔다. */
-.marketplace.is-qf-guazi .depth-rail.is-kr-maker.is-brand-shadowcard .depth-card.is-brand-all { justify-content: center; padding-top: 0 !important; }
-.marketplace.is-qf-guazi .depth-rail.is-kr-maker.is-brand-shadowcard .depth-card.is-brand-all > .depth-card-media { display: none !important; }
-.marketplace.is-qf-guazi .depth-rail.is-kr-maker.is-brand-shadowcard .depth-card.is-brand-all > .depth-card-label { margin-top: 0 !important; font-weight: 700 !important; }
+.marketplace.is-qf-guazi .depth-rail:is(.is-kr-maker, .is-ferrari-model-row).is-brand-shadowcard .depth-card.is-brand-all { justify-content: center; padding-top: 0 !important; }
+.marketplace.is-qf-guazi .depth-rail:is(.is-kr-maker, .is-ferrari-model-row).is-brand-shadowcard .depth-card.is-brand-all > .depth-card-media { display: none !important; }
+.marketplace.is-qf-guazi .depth-rail:is(.is-kr-maker, .is-ferrari-model-row).is-brand-shadowcard .depth-card.is-brand-all > .depth-card-label { margin-top: 0 !important; font-weight: 700 !important; }
+
+/* 2026-10-15 「페라리 모델 이미지도 이 카드에 추가」 — 페라리 모델 레일도 같은 흰 카드로 그린다.
+   카드 80×80은 그대로, 로고 칸(40×40) 자리에 모델 이미지 칸 64×36(contain · 아래 맞춤)을 둔다. */
+.marketplace.is-qf-guazi .depth-rail.is-ferrari-model-row.is-brand-shadowcard .depth-card > .depth-card-media {
+  width: 64px !important;
+  height: 36px !important;
+  flex: 0 0 36px;
+  margin: 3px 0 0 !important;
+}
+.marketplace.is-qf-guazi .depth-rail.is-ferrari-model-row.is-brand-shadowcard .depth-card > .depth-card-media img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+  object-position: center bottom;
+}
+.marketplace.is-qf-guazi .depth-rail.is-ferrari-model-row.is-brand-shadowcard .depth-card > .depth-card-label,
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail.is-ferrari-model-row.is-brand-shadowcard .depth-card:has(> .depth-card-media:not(.is-brand)) > .depth-card-label {
+  display: block !important;
+  height: 16px !important;
+  min-height: 16px !important;
+  max-height: 16px !important;
+  margin: 3px 0 0 !important;
+  -webkit-line-clamp: 1 !important;
+  white-space: nowrap !important;
+}
+.marketplace.is-bbm-m.is-qf-guazi.is-qf-plain .depth-rail.is-ferrari-model-row.is-brand-shadowcard .depth-card:has(> .depth-card-media:not(.is-brand)) > .depth-card-sub {
+  height: 16px !important;
+  flex: 0 0 16px;
+  font-size: 10.5px !important;
+  line-height: 16px !important;
+  color: #595959 !important;
+}
+/* 모델 레일이 놓이는 칸(86)도 카드 레일 높이 96에 맞춘다. */
+.marketplace.is-qf-guazi .bbm-quick-slot:has(> .depth-rail.is-ferrari-model-row.is-brand-shadowcard) {
+  height: 96px !important;
+  min-height: 96px !important;
+}

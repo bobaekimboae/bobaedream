@@ -64,6 +64,14 @@ button { color: inherit; }
 .property-name { color: var(--muted); }
 .property-control select { width: auto; min-height: 30px; padding: 0 26px 0 8px; border: 0; border-radius: 4px; outline: 0; background-color: transparent; color: var(--ink); cursor: pointer; }
 .property-control select:hover { background-color: var(--hover); }
+.estimate-cta { display: grid; grid-template-columns: 38px minmax(0, 1fr) auto; align-items: center; gap: 12px; min-height: 64px; margin-top: 18px; padding: 11px 14px; border: 1px solid #f1cfcb; border-radius: 8px; background: #fff8f7; color: var(--ink); text-decoration: none; transition: border-color .15s ease, background-color .15s ease, box-shadow .15s ease; }
+.estimate-cta:hover { border-color: #df9b95; background: #fff3f1; box-shadow: 0 5px 16px rgba(217, 53, 43, .08); }
+.estimate-cta:focus-visible { outline: 3px solid rgba(47, 128, 237, .24); outline-offset: 2px; }
+.estimate-cta-icon { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; background: var(--accent); color: #fff; font-size: 18px; font-weight: 800; }
+.estimate-cta-copy { display: grid; gap: 2px; min-width: 0; }
+.estimate-cta-copy strong { font-size: 14px; line-height: 1.35; }
+.estimate-cta-copy small { overflow: hidden; color: var(--muted); font-size: 12px; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; }
+.estimate-cta-arrow { color: var(--accent); font-size: 19px; font-weight: 700; }
 
 .editor-region { position: relative; min-height: 340px; }
 .editor-gutter { position: absolute; top: 1px; left: -92px; width: 86px; display: flex; justify-content: flex-end; }
@@ -192,6 +200,8 @@ kbd { padding: 1px 5px; border: 1px solid #d6d5d2; border-bottom-width: 2px; bor
   .quiet-button, .primary-button { padding: 0 9px; }
   .page-canvas { width: 100%; padding: 56px 20px 120px; }
   .page-actions { opacity: 1; }
+  .estimate-cta { min-height: 60px; padding: 10px 12px; }
+  .estimate-cta-copy small { white-space: normal; }
   #postTitle { font-size: 36px; }
   .editor-gutter { position: static; width: auto; justify-content: flex-start; margin: 0 0 8px; }
   .block-add-button { opacity: 1; padding-left: 0; }
