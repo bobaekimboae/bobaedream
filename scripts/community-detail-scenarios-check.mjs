@@ -33,10 +33,22 @@ for (const scenario of scenarios) {
   check(await page.locator('.commentShareButton').count() === scenario.comments, `${scenario.id}: 공유 버튼 수 불일치`);
   check(!(await page.locator('body').innerText()).includes('버프'), `${scenario.id}: 버프 문구가 남아 있음`);
   check(!(await page.locator('body').innerText()).includes('너프'), `${scenario.id}: 너프 문구가 남아 있음`);
+  await page.waitForFunction(() => [...document.querySelectorAll('#authorAvatar,.commentAvatar,.replyAvatar')].every((image) => image.complete));
+  const avatars = await page.locator('#authorAvatar,.commentAvatar,.replyAvatar').evaluateAll((images) => ({
+    total:images.length,
+    broken:images.filter((image) => image.naturalWidth === 0).length,
+    external:images.filter((image) => !image.src.includes('/community/assets/profile-avatars/')).length,
+    unique:new Set(images.map((image) => image.src)).size,
+  }));
+  check(avatars.total === scenario.comments + 1, `${scenario.id}: 작성자·댓글 프사 수 불일치 ${avatars.total}/${scenario.comments + 1}`);
+  check(avatars.broken === 0, `${scenario.id}: 깨진 프사 ${avatars.broken}개`);
+  check(avatars.external === 0, `${scenario.id}: 외부 프사 ${avatars.external}개`);
+  check(avatars.unique >= 4, `${scenario.id}: 프사 종류가 부족함 ${avatars.unique}개`);
   const dimensions = await page.evaluate(() => ({ viewport:innerWidth, scrollWidth:document.documentElement.scrollWidth }));
   check(dimensions.scrollWidth <= dimensions.viewport, `${scenario.id}: 가로 잘림 ${dimensions.scrollWidth}/${dimensions.viewport}`);
   await page.locator('.replyButton').first().click();
-  check((await page.locator('#commentInput').inputValue()).startsWith('@'), `${scenario.id}: 답글 대상 입력 실패`);
+  check(await page.locator('.commentContext').isVisible(), `${scenario.id}: 답글 대상 표시 실패`);
+  check((await page.locator('.commentContext strong').textContent())?.includes('에게 답글'), `${scenario.id}: 답글 대상 문구 불일치`);
   await page.screenshot({ path:path.join(outputDir, `scenario-${scenario.id}-mobile-384.png`), fullPage:true });
 }
 
@@ -50,4 +62,5 @@ if (failures.length) {
 
 console.log('PASS: 상세 게시물 시나리오 5개');
 console.log('PASS: 본문 4단락 + 이미지 + 댓글/대댓글');
+console.log('PASS: 모든 작성자·댓글·답글 로컬 프로필 이미지');
 console.log('PASS: 모바일 384 가로 잘림 없음');

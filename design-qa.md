@@ -3039,3 +3039,20 @@ final result: passed
 - None required for handoff.
 
 final result: passed
+
+---
+
+# 커뮤니티 작성자·댓글·답글 전체 프로필 이미지 QA · 2026-10-15
+
+- 자체 생성한 로컬 SVG 프로필 이미지 48개를 `public/community/assets/profile-avatars/`에 추가했다.
+- 같은 닉네임은 목록·상세·댓글·답글에서 항상 같은 프로필 이미지를 사용한다.
+- 게시글 작성자 30명과 5개 상세 시나리오의 댓글·답글 전부를 로컬 이미지로 연결했다.
+- Reddit형 피드 5개 카드와 네이버 카페형 피드·목록의 프로필 이미지도 같은 원천을 사용한다.
+- 외부 DiceBear·Pravatar 프로필 주소를 화면 데이터 경로에서 제거했다.
+- 상세 시나리오 5개: 작성자·댓글·답글 이미지 누락 0, 깨짐 0, 외부 URL 0.
+- Reddit형 피드: 프로필 이미지 5/5 로컬 로드, 깨짐 0, 작성자별 중복 0.
+- implementation capture: `artifacts/community-detail-scenarios-1015/scenario-1-mobile-384.png`
+- 모바일 가로 오버플로: 0px (`384/384`)
+- P0/P1/P2 findings: none
+
+final result: passed

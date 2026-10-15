@@ -156,7 +156,7 @@ function commentActionsHtml(item, label = '댓글', parentId = '') {
 
 function replyHtml(reply, parentId) {
   return `<div class="nestedReply" id="${escapeHtml(reply.id)}">
-    <img class="replyAvatar" src="${escapeHtml(reply.avatar)}" alt="${escapeHtml(reply.user)} 프로필" onerror="this.onerror=null;this.src='assets/chzzk-detail/user-default-avatar.png'">
+    <img class="replyAvatar" src="${escapeHtml(reply.avatar)}" alt="${escapeHtml(reply.user)} 프로필" onerror="this.onerror=null;this.src='assets/profile-avatars/avatar-01.svg'">
     <div>
       <div class="replyAuthor"><strong>${escapeHtml(reply.user)} · LV ${escapeHtml(reply.level || 1)}</strong>${reply.writer ? '<span class="authorBadge">작성자</span>' : ''}<span>${escapeHtml(reply.date)}</span></div>
       <p class="replyText">${escapeHtml(reply.text)}</p>
@@ -168,7 +168,7 @@ function replyHtml(reply, parentId) {
 function commentHtml(comment) {
   const nested = (comment.replies || []).map((reply) => replyHtml(reply, comment.id)).join('');
   return `<li class="commentItem" id="${escapeHtml(comment.id)}">
-    <img class="commentAvatar" src="${escapeHtml(comment.avatar)}" alt="${escapeHtml(comment.user)} 프로필" onerror="this.onerror=null;this.src='assets/chzzk-detail/user-default-avatar.png'">
+    <img class="commentAvatar" src="${escapeHtml(comment.avatar)}" alt="${escapeHtml(comment.user)} 프로필" onerror="this.onerror=null;this.src='assets/profile-avatars/avatar-01.svg'">
     <div class="commentContent">
       <div class="commentAuthor"><strong>${escapeHtml(comment.user)} · LV ${escapeHtml(comment.level || 1)}</strong>${comment.writer ? '<span class="authorBadge">작성자</span>' : ''}<span>${escapeHtml(comment.date)}</span></div>
       <p>${escapeHtml(comment.text)}</p>
@@ -543,7 +543,7 @@ $('#commentForm').addEventListener('submit', (event) => {
     id:`local-${Date.now()}`,
     user:'보배드림 회원',
     level:1,
-    avatar:'assets/chzzk-detail/user-default-avatar.png',
+    avatar:window.BOBAE_AVATAR_FOR?.('보배드림 회원')||'assets/profile-avatars/avatar-01.svg',
     text:value,
     date:'방금 전',
     own:true,

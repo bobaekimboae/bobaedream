@@ -54,7 +54,14 @@ const times=['1분 전','2분 전','3분 전','4분 전','5분 전','6분 전','
 const photoCounts=[38,0,2,6,8,0,15,4,1,3,0,2,11,0,5,0,3,2,6,9,0,4,2,7,0,6,3,2,5,0];
 
 function img(seed,w=360){return `https://images.unsplash.com/${seed}?auto=format&fit=crop&w=${w}&q=75`}
-function avatar(seed){return `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(seed)}&backgroundColor=111827,64748b,0f766e,7c2d12,991b1b&fontFamily=Pretendard&fontSize=42`}
+function avatar(seed){
+  const value=String(seed||'회원');
+  let hash=2166136261;
+  for(let i=0;i<value.length;i+=1){hash^=value.charCodeAt(i);hash=Math.imul(hash,16777619)}
+  const number=String((hash>>>0)%48+1).padStart(2,'0');
+  return `assets/profile-avatars/avatar-${number}.svg`;
+}
+window.BOBAE_AVATAR_FOR=avatar;
 
 const commentNames=['고속도로요정','현금완납러','전비차궁금','정비소단골','카페인오일','하이브리드초보','연비왕김대표','디젤끝물','중고차보는눈','캠핑짐만렙'];
 

@@ -27,14 +27,7 @@
 
   function card(post,index){
     var body=Array.isArray(post.body)&&post.body.length?post.body[0]:'실사용하면서 확인한 내용을 사진과 함께 공유합니다.';
-    var avatars=[
-      'assets/chzzk-detail/author-avatar.png',
-      'assets/chzzk-detail/comment-avatar.gif',
-      'assets/chzzk-detail/default-user.png',
-      'assets/chzzk-detail/chzzk-operator-avatar.png',
-      'assets/chzzk-detail/comment-anonymous-avatar.png'
-    ];
-    var avatar=avatars[index%avatars.length];
+    var avatar=post.authorAvatar||'assets/profile-avatars/avatar-01.svg';
     var category=post.category||'자유게시판';
     return [
       '<article class="redditFeedCard" data-post-id="'+post.id+'">',
