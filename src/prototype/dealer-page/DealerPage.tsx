@@ -125,7 +125,7 @@ function SiteHeader() {
   </header>;
 }
 
-function DealerProfile({ dealer, cars, following, setFollowing, share, notify }: { dealer: SeoulAutoGalleryDealer; cars: Car[]; following: boolean; setFollowing: (value: boolean) => void; share: () => void; notify: (message: string) => void }) {
+function DealerProfile({ dealer, cars, following, setFollowing, notify }: { dealer: SeoulAutoGalleryDealer; cars: Car[]; following: boolean; setFollowing: (value: boolean) => void; notify: (message: string) => void }) {
   const [heroVideoFailed, setHeroVideoFailed] = useState(false);
   const reduceMotion = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const listingCount = cars.length;
@@ -172,7 +172,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, share, notify }:
           <button type="button" className="is-follow" aria-pressed={following} onClick={() => setFollowing(!following)}>{following ? "팔로잉" : "팔로우"}</button>
           <button type="button" onClick={() => notify(`${dealer.name} 딜러에게 메시지를 보낼 수 있어요`)}>메시지 보내기</button>
           <a href={`tel:${MOCK.phone.replaceAll("-", "")}`} aria-label={`${dealer.name} 딜러에게 전화 걸기`}>전화 걸기</a>
-          <button type="button" onClick={share}>공유</button>
+          <button type="button" onClick={() => notify("내 차 시세 문의를 준비 중이에요")}>내차시세문의</button>
         </div>
         <div className="dp-profile-inline is-first"><DealerIcon name="clock" />{MOCK.lastActive}<i />응답률: {MOCK.response}</div>
         <div className="dp-profile-inline is-response"><DealerIcon name="clock" />응답률: {MOCK.response}</div>
@@ -438,12 +438,6 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
     target.searchParams.delete("listing");
     window.location.assign(`${target.pathname}${target.search}${target.hash}`);
   };
-  const share = async () => {
-    try {
-      if (navigator.share) await navigator.share({ title: `${dealer.name} 딜러`, url: window.location.href });
-      else { await navigator.clipboard.writeText(window.location.href); notify("링크를 복사했어요"); }
-    } catch { /* 공유 취소 */ }
-  };
   const changeSection = (section: SectionId) => {
     setActiveSection(section);
     const root = scrollRef.current;
@@ -455,7 +449,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
     <div className="dp-scroll" ref={scrollRef}>
       <SiteHeader />
       <main className="dp-page" aria-label={`${dealer.name} 딜러 판매자 페이지`}>
-        <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} share={share} notify={notify} />
+        <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} notify={notify} />
         <AnchorNav active={activeSection} onChange={changeSection} />
         {activeSection === "home" ? <HomeSection /> : null}
         {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}
