@@ -14,6 +14,19 @@
 
 final result: passed
 
+# 딜러 프로필 · 홈 좌측 정렬, 초톳형 칩, 설명 더 보기 QA · 2026-10-15
+
+- implementation: 김태규 딜러 프로필, 393 × 852 CSS px
+- `홈` 탭 시작 좌표를 본문과 동일한 좌측 16px에 맞췄다.
+- 행동 칩 `팔로잉 · 채팅 · 전화` 3개는 각각 약 116 × 38px이며 `#c9c9c9` 1px 테두리, 9px 반경, 얕은 그림자를 적용했다.
+- 설명은 짧은 미리보기와 인스타그램형 `더 보기`를 제공하고, 선택 시 전체 문장과 `접기`로 전환된다.
+- 응답률에서 `보통`을 제거해 `응답률: 1시간 이내`로 표시한다.
+- page horizontal overflow: 0px.
+- `npm run build`: passed
+- mobile runtime integrity: passed (28 protected files)
+
+final result: passed
+
 ---
 
 # 커뮤니티 상세 · 댓글 작성/답글/관리 및 댓글 투표 제거 QA · 2026-10-15
