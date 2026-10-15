@@ -20,17 +20,64 @@ function BbIcon({ name, size = 20, className = "" }: { name: BbIconName; size?: 
   return <span className={`bb-icon ${className}`} style={style} aria-hidden="true" />;
 }
 
-const bbGnbItems = ["홈", "전체차량", "중고차", "수입차", "화물/특장차", "건설기계(덤프/지게차)", "캠핑카(모터홈/캐러밴)", "바이크", "부품/용품", "커뮤니티"];
+type BbGnbItem = { label: string; category?: string; action?: "home" | "community" | "more" };
+
+const bbGnbItems: readonly BbGnbItem[] = [
+  { label: "홈", action: "home" },
+  { label: "전체차량", category: "전체" },
+  { label: "중고차", category: "중고차" },
+  { label: "화물-특장-중기", category: "트럭 · 특장" },
+  { label: "바이크", category: "바이크" },
+  { label: "캠핑카", category: "캠핑카" },
+  { label: "부품-용품", category: "부품 · 용품" },
+  { label: "커뮤니티", action: "community" },
+  { label: "더보기", action: "more" },
+];
+const bbGnbMoreItems: readonly BbGnbItem[] = [
+  { label: "수입차", category: "수입차" },
+  { label: "건설기계", category: "건설기계" },
+  { label: "자재운반장비", category: "자재운반장비" },
+  { label: "올드카", category: "올드카" },
+];
 // QF-091: 헤더 아이콘·로고는 개발 시안 원본 파일(public/assets/bbm/)
 const bbHeaderIcons: Array<[string, string]> = [["search", "검색"], ["mypage", "마이페이지"], ["heart", "찜"], ["chat", "채팅"], ["notification", "알림"], ["menu", "메뉴"]];
 const bbmAsset = (name: string) => asset(`bbm/${name}.svg`);
 
-function BbHeader({ category, onNotify, onOpenFavorites, searchSlot }: { category: string; onNotify: (message: string) => void; onOpenFavorites: () => void; searchSlot?: ReactNode }) {
-  const activeItem = category === "트럭 · 특장" ? "화물/특장차"
-    : category === "건설기계" ? "건설기계(덤프/지게차)"
-      : category === "캠핑카" ? "캠핑카(모터홈/캐러밴)"
-        : category === "부품 · 용품" ? "부품/용품"
-          : category === "수입차" || category === "바이크" ? category : "중고차";
+function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searchSlot }: { category: string; onChooseCategory: (category: string) => void; onNotify: (message: string) => void; onOpenFavorites: () => void; searchSlot?: ReactNode }) {
+  const [moreOpen, setMoreOpen] = useState(false);
+  const moreRef = useRef<HTMLDivElement>(null);
+  const activeItem = category === "전체" ? "전체차량"
+    : category === "트럭 · 특장" || category === "건설기계" || category === "자재운반장비" ? "화물-특장-중기"
+      : category === "캠핑카" ? "캠핑카"
+        : category === "부품 · 용품" ? "부품-용품"
+          : category === "바이크" || category === "중고차" ? category : "더보기";
+
+  useEffect(() => {
+    if (!moreOpen) return;
+    const closeMore = (event: MouseEvent) => {
+      if (!moreRef.current?.contains(event.target as Node)) setMoreOpen(false);
+    };
+    document.addEventListener("pointerdown", closeMore);
+    return () => document.removeEventListener("pointerdown", closeMore);
+  }, [moreOpen]);
+
+  const chooseMenu = (item: BbGnbItem) => {
+    if (item.action === "more") {
+      setMoreOpen((open) => !open);
+      return;
+    }
+    setMoreOpen(false);
+    if (item.action === "home") {
+      onChooseCategory("전체");
+      document.querySelector(".app-screen")?.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    if (item.action === "community") {
+      onNotify("커뮤니티는 정식 서비스에서 이용해 주세요.");
+      return;
+    }
+    if (item.category) onChooseCategory(item.category);
+  };
   return (
     <header className="bbm-header" aria-label="보배드림">
       <div className="bbm-header-inner">
@@ -42,7 +89,14 @@ function BbHeader({ category, onNotify, onOpenFavorites, searchSlot }: { categor
         </button>
         <div className="bbm-gnb-row">
           <nav className="bbm-gnb" aria-label="주 메뉴">
-            {bbGnbItems.map((label) => <button key={label} type="button" className={label === activeItem ? "is-active" : ""} aria-current={label === activeItem ? "page" : undefined} onClick={() => label === activeItem ? undefined : onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`)}>{label}</button>)}
+            {bbGnbItems.map((item) => item.action === "more" ? (
+              <div className="bbm-gnb-more-wrap" ref={moreRef} key={item.label}>
+                <button type="button" className={`bbm-gnb-more${item.label === activeItem ? " is-active" : ""}`} aria-current={item.label === activeItem ? "page" : undefined} aria-haspopup="menu" aria-expanded={moreOpen} onClick={() => chooseMenu(item)}>
+                  <span>{item.label}</span><BbIcon name="chevron-down" size={18} />
+                </button>
+                {moreOpen ? <div className="bbm-gnb-more-menu" role="menu">{bbGnbMoreItems.map((moreItem) => <button key={moreItem.label} type="button" role="menuitem" className={moreItem.category === category ? "is-current" : ""} onClick={() => chooseMenu(moreItem)}>{moreItem.label}</button>)}</div> : null}
+              </div>
+            ) : <button key={item.label} type="button" className={`${item.label === activeItem ? "is-active" : ""}${item.action === "home" ? " is-home" : ""}`} aria-current={item.label === activeItem ? "page" : undefined} onClick={() => chooseMenu(item)}>{item.label}</button>)}
           </nav>
           {searchSlot ? <div className="bbm-header-search-slot">{searchSlot}</div> : null}
           <div className="bbm-header-icons">

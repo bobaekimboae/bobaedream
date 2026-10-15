@@ -26,7 +26,6 @@
 final result: passed
 
 ---
-
 # 자유게시판 주간 통계 QA · 2026-10-15
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/62224fb5-1c2a-424b-9e2c-7bcd1750c0cc/1-1000018442.jpg`
@@ -3598,3 +3597,32 @@ final result: passed
 - Pass 3: 동일 592 × 1280 비교에서 모든 타일 높이가 참고 이미지와 일치했고 남은 P0/P1/P2가 없음을 확인했다.
 
 final result: passed
+# PC 메인 탑메뉴·Pretendard QA · 2026-10-15
+
+- source visual truth: 기존 공개 PC 시안 `https://bobaekimboae.github.io/bobaedream/?qf=guazi&pc=1&v=0dc12792`의 헤더 구조·색·높이와 사용자 지정 메뉴 문구.
+- browser-rendered implementation: `http://127.0.0.1:4311/?qf=guazi&pc=1` (1440×900 및 1024×768 브라우저 캡처를 이 작업에서 확인).
+- viewport and density: 1440 × 900 CSS px, 1024 × 768 CSS px, DPR 1. 모바일 비영향 검사는 390 × 844 CSS px에서 수행했다.
+- state: 전체차량 선택, `더보기` 드롭다운 열림. 추가로 건설기계 선택 후 결합 메뉴 활성 상태를 확인했다.
+- full-view comparison evidence: 기존 117px 헤더, 로고, 검색, 우측 아이콘의 위치·색·배경은 유지하고 GNB만 요청한 9개 항목으로 교체했다. 1440px에서 가로 오버플로 0px.
+- focused region evidence: 1440px에서 기본 메뉴 16px/600, 홈 15px/500, 선택 메뉴 16px/700을 실측했다. 1024px에서는 반응형 14px과 10px 간격으로 모든 9개 메뉴가 검색창 왼쪽에 노출된다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: `Pretendard Variable`, Pretendard 우선 스택이 계산 스타일에 적용됐다. 기본 16px/600, 선택 700, 좁은 PC 14px 규칙으로 계층과 가독성을 유지한다.
+- spacing and layout rhythm: 1440px은 메뉴 간격 18px, 1024px은 10px이다. 기존 54px GNB 높이와 3px 활성 밑줄을 유지했다.
+- colors and visual tokens: 기존 `#1b4c8c` 활성색, 흰 헤더, `#ebebeb` 경계와 드롭다운의 중립 톤을 유지했다.
+- image quality and asset fidelity: 로고·검색·사용자·찜·채팅·알림·메뉴 아이콘 원본 자산을 변경하지 않았다. 더보기 화살표도 기존 `icons/bb/chevron-down.svg`를 재사용했다.
+- copy and content: `홈 / 전체차량 / 중고차 / 화물-특장-중기 / 바이크 / 캠핑카 / 부품-용품 / 커뮤니티 / 더보기` 순서를 정확히 적용했다.
+- interaction: 전체차량·중고차·바이크·캠핑카·부품/용품은 실제 카테고리로 이동하고, 결합 메뉴는 화물·특장·건설기계·자재운반장비 상태를 함께 강조한다. 더보기는 수입차·건설기계·자재운반장비·올드카 메뉴를 열고 바깥 클릭으로 닫힌다.
+- browser verification: 1440px과 1024px 가로 오버플로 0px, 콘솔 오류 0건. 390px에서는 PC 헤더가 렌더링되지 않고 기존 모바일 화면만 유지된다.
+
+## Comparison history
+
+- Pass 1: 1440px은 통과했지만 1024px에서 16px/18px 메뉴가 검색창과 겹쳐 `더보기`가 가려지는 P2를 확인했다.
+- Fix: 820~1199px 범위에 14px 글자와 10px 메뉴 간격을 적용했다.
+- Pass 2: 1024px에서 9개 메뉴의 오른쪽 끝 510.9px, 검색창 왼쪽 535.7px으로 24.8px 여유를 확인했다. 1440px 기본 16px 규칙과 드롭다운도 재확인했다.
+
+final result: passed
+
+---
