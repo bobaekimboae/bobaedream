@@ -14,7 +14,7 @@ const dealerIcon = (name: string) => `${publicBase}icons/dealer-profile/${name}.
 const bobaeAsset = (name: string) => asset(`pc-detail/${name}`);
 const dealerPhoto = (dealer: SeoulAutoGalleryDealer) => asset(dealer.profileAsset ?? `dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`);
 
-type SectionId = "home" | "ads" | "social" | "dealers" | "intro";
+type SectionId = "home" | "ads" | "valuation" | "social" | "dealers" | "intro";
 type ListingMode = "active" | "sold";
 type ReviewFilter = "all" | "buyer" | "seller";
 
@@ -171,8 +171,6 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify }: { deal
         <div className="dp-profile-actions">
           <button type="button" className="is-follow" aria-pressed={following} onClick={() => setFollowing(!following)}>{following ? "팔로잉" : "팔로우"}</button>
           <button type="button" onClick={() => notify(`${dealer.name} 딜러에게 메시지를 보낼 수 있어요`)}>메시지 보내기</button>
-          <a href={`tel:${MOCK.phone.replaceAll("-", "")}`} aria-label={`${dealer.name} 딜러에게 전화 걸기`}>전화 걸기</a>
-          <button type="button" onClick={() => notify("내 차 시세 문의를 준비 중이에요")}>내차시세문의</button>
         </div>
         <div className="dp-profile-inline is-first"><DealerIcon name="clock" />{MOCK.lastActive}<i />응답률: {MOCK.response}</div>
         <div className="dp-profile-inline is-response"><DealerIcon name="clock" />응답률: {MOCK.response}</div>
@@ -245,14 +243,33 @@ function ListingsSection({ cars, mode, setMode, onOpen }: { cars: Car[]; mode: L
 }
 
 function AnchorNav({ active, onChange }: { active: SectionId; onChange: (section: SectionId) => void }) {
-  const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["social", "SNS"], ["dealers", "소속딜러"], ["intro", "소개"]];
-  return <nav className="dp-anchor-nav" aria-label="판매자 페이지 구역" role="tablist">{items.map(([id, label]) => <button key={id} type="button" role="tab" aria-selected={active === id} className={active === id ? "is-active" : ""} onClick={() => onChange(id)}>{label}</button>)}</nav>;
+  const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["valuation", "내차시세문의"], ["social", "SNS"], ["dealers", "소속딜러"], ["intro", "소개"]];
+  return <nav className="dp-anchor-nav" aria-label="판매자 페이지 구역" role="tablist">{items.map(([id, label]) => <button key={id} type="button" role="tab" aria-selected={active === id} className={`${active === id ? "is-active" : ""}${id === "valuation" ? " is-valuation" : ""}`} onClick={() => onChange(id)}>{label}</button>)}</nav>;
 }
 
 function HomeSection() {
   return <section className="dp-content-card dp-home-pending" aria-labelledby="dp-home-title">
     <h2 id="dp-home-title">홈</h2>
     <p>판매자 홈 구성은 다음 단계에서 준비합니다.</p>
+  </section>;
+}
+
+function ValuationSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; notify: (message: string) => void }) {
+  const [plate, setPlate] = useState("");
+  const [owner, setOwner] = useState("");
+  const canSubmit = plate.trim().length >= 6 && owner.trim().length >= 2;
+  return <section className="dp-content-card dp-valuation" aria-labelledby="dp-valuation-title">
+    <div className="dp-valuation-heading">
+      <span>내 차, 얼마에 팔 수 있을까요?</span>
+      <h2 id="dp-valuation-title">김태규 딜러에게 시세 문의</h2>
+      <p>차량번호와 소유자명을 입력하면 차량 기본정보를 확인해 상담을 시작합니다.</p>
+    </div>
+    <form onSubmit={(event) => { event.preventDefault(); if (canSubmit) notify(`${dealer.name} 딜러에게 시세 문의를 접수했어요`); }}>
+      <label><span>차량번호</span><input value={plate} onChange={(event) => setPlate(event.target.value)} placeholder="예: 12가 3456" autoComplete="off" /></label>
+      <label><span>소유자명</span><input value={owner} onChange={(event) => setOwner(event.target.value)} placeholder="차량 소유자 이름" autoComplete="name" /></label>
+      <button type="submit" disabled={!canSubmit}>내 차 시세 확인하기</button>
+    </form>
+    <small>입력한 정보는 차량 조회 및 시세 상담 목적으로만 사용됩니다.</small>
   </section>;
 }
 
@@ -453,6 +470,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
         <AnchorNav active={activeSection} onChange={changeSection} />
         {activeSection === "home" ? <HomeSection /> : null}
         {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}
+        {activeSection === "valuation" ? <ValuationSection dealer={dealer} notify={notify} /> : null}
         {activeSection === "social" ? <SocialFeedSection cars={cars} /> : null}
         {activeSection === "dealers" ? <AffiliatedDealersSection currentDealer={dealer} onOpenDealer={openDealer} /> : null}
         {activeSection === "intro" ? <AboutSection dealer={dealer} notify={notify} /> : null}

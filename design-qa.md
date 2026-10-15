@@ -40,7 +40,6 @@
 - Pass 2: 384px 결합 비교에서 행 높이·제목 기준선·댓글 괄호·썸네일 정렬이 일치했고 P0/P1/P2가 남지 않았다.
 
 final result: passed
-
 ---
 
 # 치지직 상세 · Reddit형 반응 알약칩 v11 QA · 2026-10-15
@@ -2774,5 +2773,46 @@ final result: passed
 - 행동 버튼은 흰 바탕, `#d7d7d7` 1px 테두리, 8px 곡률, `0 1px 3px rgba(0,0,0,.12)` 그림자로 초톳형 스타일을 적용했다.
 - 네 버튼의 한 줄 표시와 페이지 가로 넘침 0px을 확인했다.
 - P0/P1/P2 findings: none
+
+final result: passed
+# 딜러 프로필 · 초톳 크기 행동 버튼 및 내차시세문의 탭 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/231dae6d-7900-452b-ac42-41e074ed47e1/1-1000018374.jpg`
+- implementation evidence: CUA browser tab `117`, `http://127.0.0.1:4211/?profile=dealer&shop=450554&emp=1&qf=guazi`에서 캡처·화면 출력
+- viewport: 구현 394 × 852 CSS px, deviceScaleFactor 1 / 원본 592 × 1280 px Android 캡처
+- normalization: 전체 화면 복제가 아니라 원본의 CTA 영역을 기준으로 너비 비율·높이·캡슐 반경을 비교했다. 구현 버튼은 각 171px(가용 폭의 약 46%), 높이 46px, `999px` 반경이다.
+- state: 김태규 딜러 프로필, 판매차량 기본 탭 및 내차시세문의 선택 탭
+
+**Findings**
+
+- P0/P1/P2 없음.
+- 원본처럼 주요 행동을 가로 2분할 캡슐 버튼으로 정리했고 `팔로잉`, `메시지 보내기`를 동일 크기로 맞췄다.
+- 중복되던 전화 버튼은 프로필의 `02-2059-5211` 전화 링크로 유지하고, `내차시세문의`는 독립 1차 탭으로 이동했다.
+- 여섯 개 탭은 394px 모바일에서 한 줄을 유지하며 문구 잘림과 페이지 가로 오버플로가 없다.
+- 시세 문의 탭은 차량번호·소유자명 입력 전 비활성, 유효 입력 후 활성, 제출 후 `김태규 딜러에게 시세 문의를 접수했어요` 상태 알림까지 정상 동작한다.
+
+**Required fidelity surfaces**
+
+- fonts/typography: Pretendard 15px/700 버튼 텍스트로 원본의 굵고 중앙 정렬된 CTA 위계를 유지했다.
+- spacing/layout rhythm: 2열 10px 간격, 46px 높이, 좌우 16px 패딩, 완전한 캡슐 반경으로 원본 버튼 비율을 반영했다.
+- colors/tokens: 기존 초톳형 흰 배경·`#d7d7d7` 경계선을 유지해 이번 요청의 사이즈 변경만 반영했다.
+- image quality: 이번 변경 범위는 버튼과 탭이며 신규 이미지 자산이 없다. 기존 프로필·배너 자산은 유지했다.
+- copy/content: `내차시세문의`를 독립 탭으로 추가하고 문의 목적과 입력 항목을 명확히 표시했다.
+
+**Interaction and runtime checks**
+
+- `npm run build`: passed
+- mobile runtime integrity: passed (28 protected files)
+- 팔로잉 토글 및 메시지 버튼 노출: passed
+- 내차시세문의 탭 전환: passed
+- 차량번호·소유자명 입력, CTA 활성화, 제출 상태 알림: passed
+- horizontal overflow: 0px
+- browser console errors: 0
+
+**Comparison history**
+
+- initial implementation: 작은 4분할 34px 버튼이라 원본의 주 행동 버튼 대비 밀도가 높았다.
+- fix: 중복 행동을 정리하고 2분할 46px 캡슐 버튼으로 변경, 내차시세문의를 독립 탭과 작동하는 문의 폼으로 분리했다.
+- post-fix evidence: 394 × 852 브라우저 캡처에서 버튼 171 × 46px, 탭 6개, 오버플로 0px 확인.
 
 final result: passed

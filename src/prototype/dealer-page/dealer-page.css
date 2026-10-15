@@ -60,8 +60,9 @@
 .dp-profile-bio { grid-column: 1 / -1; grid-row: 3; min-width: 0; margin-top: 14px; color: var(--dp-ink); font-size: 13px; line-height: 19px; }
 .dp-profile-bio > b { display: block; font-weight: 700; }
 .dp-profile-bio > p { display: -webkit-box; overflow: hidden; margin-top: 2px; -webkit-box-orient: vertical; -webkit-line-clamp: 2; word-break: keep-all; }
-.dp-profile-actions { display: grid; grid-column: 1 / -1; grid-row: 9; grid-template-columns: .82fr 1.15fr .92fr 1.2fr; gap: 6px; margin-top: 14px; }
-.dp-profile-actions > :is(button, a) { display: flex; min-width: 0; height: 34px; align-items: center; justify-content: center; padding: 0 7px; border: 1px solid #d7d7d7; border-radius: 8px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.12); color: var(--dp-ink); font-size: 12px; line-height: 18px; font-weight: 700; white-space: nowrap; }
+.dp-profile-actions { display: grid; grid-column: 1 / -1; grid-row: 9; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 16px; }
+.dp-profile-actions > :is(button, a) { display: flex; min-width: 0; height: 46px; align-items: center; justify-content: center; padding: 0 16px; border: 1px solid #d7d7d7; border-radius: 999px; background: #fff; box-shadow: none; color: var(--dp-ink); font-size: 15px; line-height: 22px; font-weight: 700; white-space: nowrap; }
+.dp-profile-actions > :is(button, a):hover { border-color: #bdbdbd; background: #fafafa; }
 .dp-profile-actions > .is-follow[aria-pressed="true"] { background: #fff; color: var(--dp-ink); }
 .dp-profile-actions button > svg { width: 16px; height: 16px; }
 .dp-profile-actions .dp-icon { width: 16px; height: 16px; }
@@ -143,9 +144,22 @@
 .dp-anchor-nav button::after { content: ""; position: absolute; right: 7px; bottom: -1px; left: 7px; height: 2px; background: transparent; }
 .dp-anchor-nav button.is-active { color: var(--dp-ink); font-weight: 700; }
 .dp-anchor-nav button.is-active::after { background: var(--dp-ink); }
+.dp-anchor-nav button.is-valuation { flex-basis: 92px; }
 
 .dp-home-pending { min-height: 300px; padding: 22px 20px 40px; }
 .dp-home-pending h2 { font-size: 20px; line-height: 28px; font-weight: 700; }
+.dp-valuation { min-height: 360px; padding: 24px 20px 40px; }
+.dp-valuation-heading > span { color: #315d91; font-size: 13px; line-height: 19px; font-weight: 700; }
+.dp-valuation-heading h2 { margin-top: 4px; font-size: 22px; line-height: 30px; font-weight: 800; letter-spacing: -.35px; }
+.dp-valuation-heading p { margin-top: 8px; color: #777; font-size: 13px; line-height: 20px; word-break: keep-all; }
+.dp-valuation form { display: grid; gap: 12px; margin-top: 24px; }
+.dp-valuation label { display: grid; gap: 7px; }
+.dp-valuation label > span { font-size: 13px; line-height: 19px; font-weight: 700; }
+.dp-valuation input { width: 100%; height: 48px; padding: 0 14px; border: 1px solid #d9d9d9; border-radius: 10px; outline: 0; background: #fff; font-size: 15px; }
+.dp-valuation input:focus { border-color: #315d91; box-shadow: 0 0 0 3px rgba(49,93,145,.1); }
+.dp-valuation form > button { height: 48px; margin-top: 4px; border-radius: 999px; background: var(--dp-ink); color: #fff; font-size: 15px; font-weight: 800; }
+.dp-valuation form > button:disabled { background: #dedede; color: #929292; cursor: not-allowed; }
+.dp-valuation > small { display: block; margin-top: 12px; color: #999; font-size: 11px; line-height: 17px; }
 .dp-home-pending p { margin-top: 14px; color: #777; font-size: 14px; line-height: 22px; }
 
 .dp-section-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
@@ -294,8 +308,8 @@
   .dp-profile-copy { display: block; position: relative; padding-top: 0; }
   .dp-profile-copy h1 { font-size: 24px; line-height: 32px; }
   .dp-profile-stats-mobile, .dp-profile-bio { display: none; }
-  .dp-profile-actions { position: absolute; left: 0; top: 118px; width: min(520px, 100%); gap: 8px; margin: 0; }
-  .dp-profile-actions > :is(button, a) { height: 34px; padding: 0 10px; border: 1px solid #dedede; border-radius: 8px; background: #fff; font-size: 13px; }
+  .dp-profile-actions { position: absolute; left: 0; top: 118px; width: min(420px, 100%); gap: 10px; margin: 0; }
+  .dp-profile-actions > :is(button, a) { height: 42px; padding: 0 18px; border: 1px solid #dedede; border-radius: 999px; background: #fff; font-size: 14px; }
   .dp-profile-inline.is-first { display: flex; margin-top: 8px; }
   .dp-profile-inline.is-rating { display: flex; margin-top: 8px; }
   .dp-profile-inline.is-response { display: none; }
@@ -321,6 +335,8 @@
   .dp-rating-list > p { margin-top: 14px; }
   .dp-review-grid { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
   .dp-about { padding: 22px 20px 40px; }
+  .dp-valuation { padding: 28px 20px 48px; }
+  .dp-valuation-heading, .dp-valuation form, .dp-valuation > small { max-width: 560px; }
   .dp-about > p { max-width: 720px; }
   .dp-about-story { max-width: 760px; }
   .dp-about dl { max-width: 760px; }
@@ -353,8 +369,8 @@
 @media (max-width: 360px) {
   .dp-listing-card { grid-template-columns: 118px minmax(0,1fr); gap: 12px; }
   .dp-listing-media { width: 118px; height: 158px; }
-  .dp-profile-actions { gap: 4px; }
-  .dp-profile-actions > :is(button, a) { padding: 0 4px; font-size: 11px; }
+  .dp-profile-actions { gap: 8px; }
+  .dp-profile-actions > :is(button, a) { padding: 0 10px; font-size: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
