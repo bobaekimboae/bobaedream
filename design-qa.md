@@ -2553,3 +2553,27 @@ final result: passed
 - P0/P1/P2 findings: none.
 
 final result: passed
+
+---
+
+# 딜러 프로필 · 통계 좌측 정렬 및 전화번호 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/97b6a156-eacf-4641-b60c-5699928a1226/1-1000018358.jpg`
+- implementation: 로컬 딜러 프로필, IAB 393 × 852 CSS px
+- scope: 닉네임 아래 판매중·판매완료·팔로워 좌측 정렬, 프로필 정보 전화번호 추가
+
+## Cross-check evidence
+
+- 세 통계 셀의 콘텐츠를 각 열의 왼쪽 시작선에 맞추고 첫 열을 딜러명 시작선과 일치시켰다.
+- 프로필 연락 정보에 전화 아이콘과 `02-2059-5211`을 추가했다.
+- 전화번호는 `tel:0220595211` 링크로 연결해 모바일에서 바로 통화할 수 있게 했다.
+- 전화번호 다음에 딜러 경력과 리뷰가 이어지도록 기존 정보 위계를 유지했다.
+
+## Verification
+
+- 모바일 393 × 852: 통계 3열 `align-items: flex-start` 확인
+- 전화 링크 및 표시 텍스트: passed
+- 가로 넘침: 0px
+- P0/P1/P2 findings: none
+
+final result: passed
