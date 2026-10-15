@@ -332,3 +332,7 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
   .latestCard { margin-left: 16px; margin-right: 16px; }
   .comments { padding-left: 16px; padding-right: 16px; }
 }
+
+/* Final Reddit icon normalization after responsive rules. */
+.boardLink img{width:16px;height:16px;transform:none;filter:none}.voteButton img,.roundAction img{width:20px;height:20px}.commentIconButton img{width:19px;height:19px}
+@media(max-width:600px){.boardLink img{width:15px;height:15px}.voteButton img,.roundAction img{width:20px;height:20px}.commentIconButton img{width:18px;height:18px}}

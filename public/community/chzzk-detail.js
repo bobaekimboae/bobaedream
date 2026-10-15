@@ -477,8 +477,8 @@ function ensureCommentMenu() {
   overlay.hidden = true;
   overlay.innerHTML = `<section class="commentMenuSheet" role="dialog" aria-modal="true" aria-label="댓글 관리">
     <span class="commentMenuHandle" aria-hidden="true"></span>
-    <button type="button" data-comment-menu="edit"><img src="assets/write-parity/draft-edit.svg" alt=""><span>수정하기</span></button>
-    <button class="danger" type="button" data-comment-menu="delete"><img src="assets/write-parity/draft-delete.svg" alt=""><span>삭제하기</span></button>
+    <button type="button" data-comment-menu="edit"><img src="assets/reddit-ui/edit.svg" alt=""><span>수정하기</span></button>
+    <button class="danger" type="button" data-comment-menu="delete"><img src="assets/reddit-ui/delete.svg" alt=""><span>삭제하기</span></button>
     <button type="button" data-comment-menu="cancel"><img src="assets/write-parity/close.svg" alt=""><span>취소</span></button>
   </section>`;
   document.body.appendChild(overlay);

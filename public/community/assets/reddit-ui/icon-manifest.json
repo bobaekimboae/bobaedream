@@ -1,0 +1,23 @@
+{
+  "version": "2026-10-16",
+  "policy": "Reddit 계열 통일. 전화 아이콘만 German AutoScout24 원본 사용.",
+  "replacementOrder": [
+    { "order": 1, "group": "global-navigation", "icons": ["back.svg", "search.svg", "menu.svg", "chevron-down.svg", "chevron-right.svg", "chevron-up.svg"] },
+    { "order": 2, "group": "post-actions", "icons": ["../chzzk-detail/icons/vote-up.svg", "../chzzk-detail/icons/vote-down.svg", "../chzzk-detail/icons/comment-reddit.svg", "../chzzk-detail/icons/share-reddit.svg", "../chzzk-detail/icons/bookmark.svg", "../chzzk-detail/icons/more-reddit.svg"] },
+    { "order": 3, "group": "view-modes", "icons": ["view-list.svg", "view-card.svg", "view-compact.svg", "view-count.svg"] },
+    { "order": 4, "group": "creation-and-media", "icons": ["write.svg", "video.svg", "previous.svg", "next.svg", "repost.svg"] },
+    { "order": 5, "group": "dealer-actions", "icons": ["chat.svg", "phone-autoscout24.svg"] },
+    { "order": 6, "group": "comment-management", "icons": ["edit.svg", "delete.svg", "../chzzk-detail/icons/reply-reddit.svg"] }
+  ],
+  "sources": {
+    "reddit": "https://app.notion.com/p/1e3ee9c4b6068060ab04e62cc9445b8b",
+    "autoscout24Telephone": "https://app.notion.com/p/3c3ee9c4b606808791e9df7b39cc9a9c"
+  },
+  "balance": {
+    "standardGlyphPx": 20,
+    "compactGlyphPx": 18,
+    "dealerTelephonePx": 21,
+    "minimumTouchTargetPx": 40,
+    "pillHeightPx": 36
+  }
+}

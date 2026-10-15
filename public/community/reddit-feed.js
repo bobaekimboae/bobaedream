@@ -20,6 +20,10 @@
     return 'assets/chzzk-detail/icons/'+name+'.svg?v=20261015redditfeed1';
   }
 
+  function uiIcon(name){
+    return 'assets/reddit-ui/'+name+'.svg?v=20261016redditicons1';
+  }
+
   function mediaFor(post,index){
     if(index===0||!post.detailImage) return '';
     return '<a class="redditFeedMedia" href="./chzzk-detail.html?id='+post.id+'&v=20261015redditfeed1" aria-label="'+esc(cleanTitle(post.title))+' 상세 보기"><img src="'+esc(post.detailImage)+'" alt="'+esc(cleanTitle(post.title))+'" loading="lazy"></a>';
@@ -47,7 +51,7 @@
             '<button class="redditVoteButton" type="button" data-vote="down" aria-label="비추천" aria-pressed="false"><img src="'+icon('vote-down')+'" alt=""></button>',
           '</div>',
           '<button class="redditActionButton" type="button" data-comment="'+post.id+'" aria-label="댓글 '+post.reply+'개"><img src="'+icon('comment-reddit')+'" alt=""><span>'+post.reply+'</span></button>',
-          '<button class="redditActionButton reshare" type="button" data-reshare="'+post.id+'" aria-label="재공유"><img src="'+icon('refresh')+'" alt=""></button>',
+          '<button class="redditActionButton reshare" type="button" data-reshare="'+post.id+'" aria-label="재공유"><img src="'+uiIcon('repost')+'" alt=""></button>',
           '<button class="redditActionButton" type="button" data-share="'+post.id+'" aria-label="공유"><img src="'+icon('share-reddit')+'" alt=""></button>',
         '</div>',
       '</article>'
@@ -157,7 +161,7 @@
     phone.classList.add('redditFeedMode');
     typeLabel.textContent='피드형';
     list.className='list redditFeedList';
-    list.innerHTML='<div class="redditFeedControls"><button class="redditFeedOption" type="button" data-reddit-options><img src="assets/chzzk-detail/icons/filter.svg" alt="">피드 옵션</button></div>'+posts.map(card).join('');
+    list.innerHTML='<div class="redditFeedControls"><button class="redditFeedOption" type="button" data-reddit-options><img src="assets/reddit-ui/view-compact.svg" alt="">피드 옵션</button></div>'+posts.map(card).join('');
     bind();
   };
 
