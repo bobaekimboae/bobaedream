@@ -1,4 +1,5 @@
 import 'package:dealer_flutter/main.dart';
+import 'package:dealer_flutter/seller_inventory_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -35,5 +36,29 @@ void main() {
     await tester.tap(find.text('내차견적'));
     await tester.pumpAndSettle();
     expect(find.text('내차 무료 견적'), findsOneWidget);
+  });
+
+  testWidgets('seller inventory filters and selects vehicles', (tester) async {
+    tester.view.physicalSize = const Size(393, 852);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(const DealerApp(home: SellerInventoryPage()));
+
+    expect(find.text('매물 관리'), findsOneWidget);
+    expect(find.text('랜드로버 레인지로버 4세대 5.0 V8 SC LWB SV AB'), findsOneWidget);
+
+    await tester.tap(find.text('검수 대기'));
+    await tester.pumpAndSettle();
+    expect(find.text('BMW M3 6세대 M3 xDrive 컴페티션 M'), findsOneWidget);
+
+    await tester.tap(find.byTooltip('격자 보기'));
+    await tester.pumpAndSettle();
+    expect(find.byType(SliverGrid), findsOneWidget);
+
+    await tester.tap(find.byType(Checkbox).last);
+    await tester.pumpAndSettle();
+    expect(find.text('1대가 선택되었습니다'), findsOneWidget);
   });
 }

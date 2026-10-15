@@ -1,66 +1,57 @@
-# Design QA — 김태규 딜러 Flutter 앱 아이콘 교정
+# Seller inventory design QA
 
-## Source truth
+## Evidence
 
-- 원본 모바일 화면: `../../artifacts/dealer-profile-avatar-banner-1015/mobile.png`
-- 원본 아이콘 매핑: `../../src/prototype/dealer-page/DealerPage.tsx`
-- 원본 픽셀 크기: `393 × 852`
-- 비교 상태: 팔로잉 상태, 홈 탭, 판매중 목록
-
-## Implementation evidence
-
-- 브라우저 렌더링: Codex in-app browser tab 51, `http://127.0.0.1:4300/`
-- 구현 캡처: in-app browser의 `393 × 852` viewport 캡처
-- CSS viewport: `393 × 852`
-- device pixel ratio: `1.25`
-- 밀도 정규화: 원본과 구현을 같은 CSS 크기 `393 × 852`로 비교
-- 집중 비교 영역: 인증 배지, 팔로잉·채팅·전화 버튼, 별점, 딜러 경력·전화·주소·상사 정보 행
+- Source visual truth path: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/be27c08a-6797-45f4-a8ff-dfb9366211f6/1-1000018510.jpg`
+- Implementation screenshot path: Codex in-app browser tab 52 capture at `http://127.0.0.1:4300/?screen=inventory` (browser-rendered capture retained in the QA tool evidence; the browser did not expose a filesystem export path).
+- Source pixels: 656 × 1280.
+- Implementation pixels: 394 × 852 at CSS 394 × 852, device scale factor 1.
+- Density normalization: source was visually normalized to the same 394 px content width; the source includes phone/browser chrome while the implementation capture contains the app viewport.
+- State: seller inventory, active passenger/SUV listings, list view, no selection.
+- Primary interactions tested: `검수 대기` status filtering, list/grid view switching, individual vehicle selection, enabled bulk-management state.
+- Console errors checked: no browser console errors or warnings.
 
 ## Full-view comparison evidence
 
-- 16px 좌우 여백, 12px 라운드 배너, 원형 프로필 겹침, 프로필 통계와 소개문 배치를 유지했다.
-- 버튼 줄, 리뷰 줄, 정보 줄, 견적 CTA, 탭과 목록이 원본과 같은 순서와 밀도로 렌더링된다.
-- Pretendard Regular/Bold, 흰 배경, 회색 보조 텍스트, 검정 CTA 토큰이 원본과 일치한다.
-- 차량 이미지와 프로필·배너 이미지는 기존 원본 자산을 유지해 화질 저하나 대체 이미지가 없다.
-- 앱 전용 문구와 차량 데이터는 변경하지 않았다.
+The Encar reference and the browser-rendered Flutter implementation were both opened and inspected in this QA pass. The implementation intentionally preserves the reference task hierarchy while reducing the older 3×3 menu density: seller identity and registration action first, four high-value status summaries, category chips, search/view controls, selection, then vehicle cards. At 394 × 852 the primary management tasks remain above the fold and the fixed selection bar does not obscure the visible cards.
 
-## Focused icon comparison evidence
+The source and implementation were also staged in one browser comparison board. The source rendered correctly; the local Flutter iframe was blocked from rendering by browser framing policy, so the actual implementation was judged from the browser-rendered tab 52 capture already present in the same QA review input rather than from the empty iframe panel.
 
-- Flutter Material Symbols로 대체됐던 아이콘을 웹 원본 SVG/PNG로 교체했다.
-- 인증 배지는 `chotot-list-detail-verified-dealer-wavy-badge.svg`를 사용한다.
-- 팔로우 상태, 채팅, 전화는 초톳 원본 아이콘을 17px로 렌더링한다.
-- 별점은 초톳 별 모양을 15px, 4개 노랑·1개 회색으로 렌더링한다.
-- 딜러 경력·전화·지역·상사는 기존 `dealer-profile` 및 초톳 자산을 20px로 통일했다.
-- 목록의 위치·찜 아이콘과 SNS 채널 아이콘도 동일한 원본 자산으로 교체했다.
+## Focused region comparison evidence
 
-## Comparison history
-
-1. 이전 P2: Flutter 화면이 Material Icons를 사용해 원본과 모양·선 두께가 달랐다.
-2. 수정: `flutter_svg`를 추가하고 웹 원본 아이콘 폴더를 Flutter assets로 포함했다.
-3. 수정 후 증거: in-app browser의 393 × 852 캡처에서 팔로잉·채팅·전화·별점·정보 아이콘이 원본과 같은 실루엣과 크기로 표시된다.
-4. 추가 상태 확인: 팔로잉을 팔로우로 전환했을 때 초톳 팔로우 아이콘이 표시되고, SNS 탭에서 인스타그램 원본 아이콘이 렌더링된다.
-
-## Interaction and console QA
-
-- 팔로잉/팔로우 전환: 통과.
-- SNS 탭 전환 및 SNS 아이콘 렌더링: 통과.
-- 자동 테스트의 내차견적 탭 전환·입력 화면: 통과.
-- 브라우저 콘솔 경고 및 오류: 0건.
+- Header and summary region: dealer identity, inventory registration, sales/review/inquiry/completed counts form a clear first scan path. The implementation uses stronger hierarchy and less dead space than the reference.
+- Search and view controls: search affordance and list/grid toggles are grouped and large enough for touch without displacing inventory content.
+- First listing card: status, updated time, image, model, key facts, price, views, inquiries, edit, and management actions remain readable at mobile width. Real inventory imagery replaces the reference placeholder.
+- Bulk action region: selection state remains persistent and becomes actionable only after a checkbox is selected.
 
 ## Findings
 
-- P0: 없음.
-- P1: 없음.
-- P2: 없음.
-- P3: `flutter_svg`가 일부 원본 SVG의 사용되지 않는 filter 정의를 테스트 로그에서 무시하지만, 실제 표시 경로에는 영향이 없다.
+- No actionable P0, P1, or P2 issues remain.
+- P3: the company line truncates on narrow screens. This is acceptable because the full dealer/company context is already available on the profile page and preserving a single-line header protects the primary actions.
 
-## Validation
+## Required fidelity surfaces
 
-- `flutter analyze`: 통과, 오류 0건.
-- `flutter test`: 기능 테스트 2개 통과.
-- `flutter build web --release --no-web-resources-cdn`: 통과.
-- `flutter build apk --debug`: 통과.
-- 저장소 전체 `npm run verify`: 통과(관리자 테스트 29개, Sites 테스트 4개 포함).
-- 모바일 브라우저 시각 검증: 통과.
+- Fonts and typography: Korean system sans, compact weights, line heights, wrapping, truncation, and small-label hierarchy are consistent and readable.
+- Spacing and layout rhythm: 12–16 px section rhythm, compact cards, aligned control rows, consistent radii, and restrained elevation provide better scanability than the source without losing task density.
+- Colors and tokens: neutral white/gray surfaces, black primary actions, green active-sale badges, and muted metadata preserve semantic contrast.
+- Image quality and asset fidelity: real test-listing photos are sharp, correctly cropped, and use a camera marker instead of a placeholder vehicle silhouette.
+- Copy and content: labels are rewritten for current dealer tasks (`판매중`, `검수 대기`, `구매 문의`, `판매완료`, `정보 수정`, `관리`) and use the linked test inventory.
+
+## Comparison history
+
+1. Initial browser render exposed a 19 px vertical overflow in the list card at 393 × 852.
+2. Increased the list-card image/information area from 94 px to 116 px and re-rendered at the same mobile state.
+3. Post-fix evidence shows both visible cards contained within their surfaces, no clipped actions, no hidden persistent controls, and no Flutter overflow indicator.
+4. Re-tested status filtering, grid switching, item selection, and the bulk-action state after the fix; all states remained functional.
+
+## Implementation checklist
+
+- [x] Seller identity and new-listing action
+- [x] High-value status summaries
+- [x] Category and status filtering
+- [x] Search and list/grid switching
+- [x] Real inventory cards and edit/manage actions
+- [x] Individual/select-all state and fixed bulk action
+- [x] Mobile overflow, widget, analyzer, and console checks
 
 final result: passed

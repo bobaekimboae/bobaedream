@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'seller_inventory_page.dart';
+
 const _iconRoot = 'assets/icons';
 const _followIcon = '$_iconRoot/chotot/chotot-list-detail-follow.svg';
 const _followingIcon =
@@ -53,7 +55,9 @@ class _AssetIcon extends StatelessWidget {
 void main() => runApp(const DealerApp());
 
 class DealerApp extends StatelessWidget {
-  const DealerApp({super.key});
+  const DealerApp({super.key, this.home});
+
+  final Widget? home;
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +86,11 @@ class DealerApp extends StatelessWidget {
           titleMedium: TextStyle(color: ink, fontWeight: FontWeight.w700),
         ),
       ),
-      home: const DealerProfilePage(),
+      home:
+          home ??
+          (Uri.base.queryParameters['screen'] == 'inventory'
+              ? const SellerInventoryPage()
+              : const DealerProfilePage()),
     );
   }
 }
@@ -210,7 +218,11 @@ class _DealerProfilePageState extends State<DealerProfilePage> {
                   ),
                   IconButton(
                     tooltip: '더보기',
-                    onPressed: () => toast('판매자 메뉴를 준비 중입니다'),
+                    onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (_) => const SellerInventoryPage(),
+                      ),
+                    ),
                     icon: const Icon(Icons.more_vert_rounded),
                   ),
                   const SizedBox(width: 4),
