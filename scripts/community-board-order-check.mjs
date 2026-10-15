@@ -28,6 +28,8 @@ for(const width of [360,384,412,1280]){
   check(await nav.nth(0).getAttribute('data-board-id')==='home',`${width}px 전체 ID가 home이 아닙니다`);
   check(await nav.nth(1).getAttribute('data-board-id')==='best',`${width}px 베스트 ID가 best가 아닙니다`);
   check(await page.locator('#boardOrderMenu').isVisible(),`${width}px 메뉴보기 버튼이 없습니다`);
+  check(await page.locator('.appbar .hamburger').isVisible(),`${width}px 상단 햄버거 버튼이 없습니다`);
+  check(!await page.locator('#viewBtn').isVisible(),`${width}px 기존 보기 방식 버튼이 아직 노출됩니다`);
   const overflow=await page.evaluate(()=>({body:document.documentElement.scrollWidth-document.documentElement.clientWidth,track:document.getElementById('boardChannelTrack').scrollWidth,scroller:document.getElementById('boardChannelScroller').clientWidth}));
   check(overflow.body===0,`${width}px 페이지 가로 오버플로가 ${overflow.body}px입니다`);
   check(overflow.track>overflow.scroller,`${width}px 게시판 메뉴가 가로 스크롤되지 않습니다`);
@@ -45,6 +47,15 @@ for(const width of [360,384,412,1280]){
 
   await page.locator('#boardOrderMenu').click();
   check(await page.locator('.boardOrderPanel').isVisible(),'전체 게시판 화면이 열리지 않았습니다');
+  check(await page.locator('.boardOrderViewEntry').isVisible(),'햄버거 메뉴에 보기 방식이 없습니다');
+  check((await page.locator('.boardOrderCurrentView').textContent())?.trim()==='간결형','현재 보기 방식 안내가 다릅니다');
+  await page.locator('.boardOrderViewEntry').click();
+  check(await page.locator('.boardOrderBackdrop').isHidden(),'보기 방식 진입 뒤 햄버거 메뉴가 닫히지 않았습니다');
+  check(await page.locator('#sheet').isVisible(),'햄버거에서 보기 방식 시트가 열리지 않았습니다');
+  check((await page.locator('.sheetTitle').textContent())?.trim()==='보기방식 편집','보기 방식 시트 제목이 다릅니다');
+  await page.locator('#sheetClose').click();
+  await page.locator('.appbar .hamburger').click();
+  check(await page.locator('.boardOrderPanel').isVisible(),'상단 햄버거에서 커뮤니티 메뉴가 열리지 않았습니다');
   check(await page.locator('.boardOrderFixed').count()===2,'고정 채널이 2개가 아닙니다');
   check(await page.locator('.boardOrderItem[data-movable="true"]').count()===30,'이동 채널이 30개가 아닙니다');
   check(await page.locator('.boardOrderRemove').count()===0,'일반 상태에 제외 버튼이 노출되었습니다');
