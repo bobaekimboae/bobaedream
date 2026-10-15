@@ -172,13 +172,13 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify }: { deal
           <button type="button" className="is-follow" aria-pressed={following} onClick={() => setFollowing(!following)}>{following ? "팔로잉" : "팔로우"}</button>
           <button type="button" onClick={() => notify(`${dealer.name} 딜러에게 메시지를 보낼 수 있어요`)}>메시지 보내기</button>
         </div>
-        <div className="dp-profile-inline is-first"><DealerIcon name="clock" />{MOCK.lastActive}<i />응답률: {MOCK.response}</div>
-        <div className="dp-profile-inline is-response"><DealerIcon name="clock" />응답률: {MOCK.response}</div>
+        <div className="dp-profile-inline is-first"><DealerIcon name="clock" />{MOCK.lastActive}<i /><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>리뷰 {MOCK.reviewCount}</u></div>
+        <div className="dp-profile-inline is-mobile-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>리뷰 {MOCK.reviewCount}</u></div>
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
         <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></div>
-        <div className="dp-profile-career-review">
+        <div className="dp-profile-career-meta">
           <div className="dp-profile-inline is-career"><DealerIcon name="calendar" />{MOCK.joined}</div>
-          <div className="dp-profile-inline is-mobile-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>리뷰 {MOCK.reviewCount}</u></div>
+          <div className="dp-profile-inline is-career-response"><DealerIcon name="clock" />응답률: {MOCK.response}</div>
         </div>
         <div className="dp-profile-stats dp-profile-stats-desktop" aria-label="판매 실적">
           <span><small>판매중</small><b>{listingCount}</b></span>

@@ -40,6 +40,19 @@
 - Pass 2: 384px 결합 비교에서 행 높이·제목 기준선·댓글 괄호·썸네일 정렬이 일치했고 P0/P1/P2가 남지 않았다.
 
 final result: passed
+
+# 딜러 프로필 · 리뷰/응답률 위치 교체 QA · 2026-10-15
+
+- implementation: 김태규 딜러 프로필, 394 × 852 CSS px
+- 리뷰 행은 기존 응답률 위치인 첫 번째 메타정보 행으로 이동했다.
+- `딜러 경력 7년` 옆에는 응답률을 배치했다.
+- 측정값: 리뷰 상단 338px, 경력·응답률 상단 436px, horizontal overflow 0px.
+- PC에서는 최근 활동 옆에 리뷰를 표시하고 경력 옆 응답률 구조를 동일하게 유지한다.
+- `npm run build`: passed
+- mobile runtime integrity: passed
+- browser console errors: 0
+
+final result: passed
 ---
 
 # 치지직 상세 · Reddit형 반응 알약칩 v11 QA · 2026-10-15
