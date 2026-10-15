@@ -60,6 +60,9 @@ for(const width of [360,384,412,592,1280]){
   check(!await page.locator('.boardOrderViewEntry').isVisible(),'상단 전체 메뉴에 보기 방식이 노출되었습니다');
   check(await page.locator('.boardOrderFixed').count()===2,'고정 채널이 2개가 아닙니다');
   check(await page.locator('.boardOrderItem[data-movable="true"]').count()===30,'이동 채널이 30개가 아닙니다');
+  check(await page.locator('.boardOrderAvatar').count()===32,'게시판별 프로필 이미지가 32개가 아닙니다');
+  const uniqueBoardAvatars=await page.locator('.boardOrderAvatar').evaluateAll(elements=>new Set(elements.map(element=>element.src)).size);
+  check(uniqueBoardAvatars===32,`게시판별 고유 프로필 이미지가 ${uniqueBoardAvatars}개입니다`);
   check(await page.locator('.boardOrderRemove').count()===0,'일반 상태에 제외 버튼이 노출되었습니다');
   check((await page.locator('.boardOrderEdit').textContent())?.trim()==='편집','일반 상태 버튼이 편집이 아닙니다');
   const columns=await page.locator('.boardOrderMyGrid').evaluate(element=>getComputedStyle(element).gridTemplateColumns.split(' ').length);

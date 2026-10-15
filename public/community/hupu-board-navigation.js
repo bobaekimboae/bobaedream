@@ -2,37 +2,37 @@
   'use strict';
 
   var boards=[
-    {id:'best',displayName:'베스트글',shortName:'베스트',section:'게시판',topicKey:'전체',fixed:true},
-    {id:'free',displayName:'자유게시판',shortName:'자유',section:'게시판',topicKey:'전체'},
-    {id:'car-news',displayName:'자동차뉴스/토론',shortName:'자동차뉴스',section:'게시판',topicKey:'전체'},
-    {id:'politics',displayName:'정치/시사게시판',shortName:'정치시사',section:'게시판',topicKey:'전체'},
-    {id:'test-drive',displayName:'시승기/배틀/목격담',shortName:'시승배틀',section:'게시판',topicKey:'전체'},
-    {id:'celebrity-car',displayName:'유명인의 차',shortName:'유명인차',section:'게시판',topicKey:'전체'},
-    {id:'adult',displayName:'성인게시판',shortName:'성인',section:'게시판',topicKey:'전체'},
-    {id:'boba-story',displayName:'보배드림 이야기',shortName:'보배이야기',section:'게시판',topicKey:'전체'},
-    {id:'suggestion',displayName:'제안/건의',shortName:'제안건의',section:'게시판',topicKey:'전체'},
-    {id:'kbo',displayName:'국내야구',shortName:'국내야구',section:'게시판',topicKey:'전체'},
-    {id:'mlb',displayName:'해외야구',shortName:'해외야구',section:'게시판',topicKey:'전체'},
-    {id:'overseas-football',displayName:'해외축구',shortName:'해외축구',section:'게시판',topicKey:'전체'},
-    {id:'domestic-football',displayName:'국내축구',shortName:'국내축구',section:'게시판',topicKey:'전체'},
-    {id:'event',displayName:'이벤트',shortName:'이벤트',section:'게시판',topicKey:'전체'},
-    {id:'new-humor',displayName:'신유머/감동/이슈',shortName:'유머이슈',section:'자료실',topicKey:'전체'},
-    {id:'humor',displayName:'유머게시판',shortName:'유머',section:'자료실',topicKey:'전체'},
-    {id:'accident-blackbox',displayName:'교통사고/블박',shortName:'교통블박',section:'자료실',topicKey:'블박'},
-    {id:'domestic-car',displayName:'국산차게시판',shortName:'국산차',section:'자료실',topicKey:'전체'},
-    {id:'import-car',displayName:'수입차게시판',shortName:'수입차',section:'자료실',topicKey:'전체'},
-    {id:'my-car-photo',displayName:'내차사진',shortName:'내차사진',section:'자료실',topicKey:'전체'},
-    {id:'scoop',displayName:'직찍/특종발견',shortName:'직찍특종',section:'자료실',topicKey:'전체'},
-    {id:'car-media',displayName:'자동차사진/동영상',shortName:'자동차영상',section:'자료실',topicKey:'전체'},
-    {id:'installation',displayName:'장착시공사진',shortName:'장착시공',section:'자료실',topicKey:'튜닝'},
-    {id:'free-media',displayName:'자유사진/동영상',shortName:'자유영상',section:'자료실',topicKey:'전체'},
-    {id:'caution',displayName:'후방주의방',shortName:'후방주의',section:'자료실',topicKey:'전체'},
-    {id:'racing-model',displayName:'레이싱모델',shortName:'레이싱',section:'자료실',topicKey:'전체'},
-    {id:'military',displayName:'군사/무기',shortName:'군사무기',section:'자료실',topicKey:'전체'},
-    {id:'truck-bus-heavy',displayName:'트럭/버스/중기',shortName:'트럭중기',section:'자료실',topicKey:'전체'},
-    {id:'aviation-rail',displayName:'항공/해운/철도',shortName:'항공철도',section:'자료실',topicKey:'전체'},
-    {id:'bike-cycle',displayName:'오토바이/자전거',shortName:'바이크',section:'자료실',topicKey:'전체'},
-    {id:'oldcar-memory',displayName:'올드카/추억거리',shortName:'올드카',section:'자료실',topicKey:'전체'}
+    {id:'best',displayName:'베스트글',shortName:'베스트',section:'게시판',topicKey:'전체',fixed:true,avatarLabel:'BEST',avatarColor:'#18181b',avatarAccent:'#f5b942'},
+    {id:'free',displayName:'자유게시판',shortName:'자유',section:'게시판',topicKey:'전체',avatarLabel:'자유',avatarColor:'#2457d6',avatarAccent:'#6ea8ff'},
+    {id:'car-news',displayName:'자동차뉴스/토론',shortName:'자동차뉴스',section:'게시판',topicKey:'전체',avatarLabel:'뉴스',avatarColor:'#006d77',avatarAccent:'#45c4b0'},
+    {id:'politics',displayName:'정치/시사게시판',shortName:'정치시사',section:'게시판',topicKey:'전체',avatarLabel:'시사',avatarColor:'#5031a9',avatarAccent:'#9678e8'},
+    {id:'test-drive',displayName:'시승기/배틀/목격담',shortName:'시승배틀',section:'게시판',topicKey:'전체',avatarLabel:'시승',avatarColor:'#c65316',avatarAccent:'#ff9c57'},
+    {id:'celebrity-car',displayName:'유명인의 차',shortName:'유명인차',section:'게시판',topicKey:'전체',avatarLabel:'STAR',avatarColor:'#9e3f77',avatarAccent:'#f08bc2'},
+    {id:'adult',displayName:'성인게시판',shortName:'성인',section:'게시판',topicKey:'전체',avatarLabel:'19',avatarColor:'#74253d',avatarAccent:'#d36386'},
+    {id:'boba-story',displayName:'보배드림 이야기',shortName:'보배이야기',section:'게시판',topicKey:'전체',avatarLabel:'보배',avatarColor:'#a51f34',avatarAccent:'#ef6679'},
+    {id:'suggestion',displayName:'제안/건의',shortName:'제안건의',section:'게시판',topicKey:'전체',avatarLabel:'제안',avatarColor:'#35556f',avatarAccent:'#76a5c8'},
+    {id:'kbo',displayName:'국내야구',shortName:'국내야구',section:'게시판',topicKey:'전체',avatarLabel:'KBO',avatarColor:'#1f6d3f',avatarAccent:'#61bd7e'},
+    {id:'mlb',displayName:'해외야구',shortName:'해외야구',section:'게시판',topicKey:'전체',avatarLabel:'MLB',avatarColor:'#174b8d',avatarAccent:'#5d9eea'},
+    {id:'overseas-football',displayName:'해외축구',shortName:'해외축구',section:'게시판',topicKey:'전체',avatarLabel:'해축',avatarColor:'#236b4b',avatarAccent:'#62c894'},
+    {id:'domestic-football',displayName:'국내축구',shortName:'국내축구',section:'게시판',topicKey:'전체',avatarLabel:'국축',avatarColor:'#16736d',avatarAccent:'#58c7bc'},
+    {id:'event',displayName:'이벤트',shortName:'이벤트',section:'게시판',topicKey:'전체',avatarLabel:'EVENT',avatarColor:'#b23d28',avatarAccent:'#ff856b'},
+    {id:'new-humor',displayName:'신유머/감동/이슈',shortName:'유머이슈',section:'자료실',topicKey:'전체',avatarLabel:'이슈',avatarColor:'#7f4c16',avatarAccent:'#e2a34d'},
+    {id:'humor',displayName:'유머게시판',shortName:'유머',section:'자료실',topicKey:'전체',avatarLabel:'유머',avatarColor:'#745400',avatarAccent:'#f2c94c'},
+    {id:'accident-blackbox',displayName:'교통사고/블박',shortName:'교통블박',section:'자료실',topicKey:'블박',avatarLabel:'블박',avatarColor:'#b4332b',avatarAccent:'#ff766e'},
+    {id:'domestic-car',displayName:'국산차게시판',shortName:'국산차',section:'자료실',topicKey:'전체',avatarLabel:'국산',avatarColor:'#176549',avatarAccent:'#5bc699'},
+    {id:'import-car',displayName:'수입차게시판',shortName:'수입차',section:'자료실',topicKey:'전체',avatarLabel:'수입',avatarColor:'#252932',avatarAccent:'#808b9e'},
+    {id:'my-car-photo',displayName:'내차사진',shortName:'내차사진',section:'자료실',topicKey:'전체',avatarLabel:'MY',avatarColor:'#11748d',avatarAccent:'#5bc3dc'},
+    {id:'scoop',displayName:'직찍/특종발견',shortName:'직찍특종',section:'자료실',topicKey:'전체',avatarLabel:'특종',avatarColor:'#5c3b8f',avatarAccent:'#a982e4'},
+    {id:'car-media',displayName:'자동차사진/동영상',shortName:'자동차영상',section:'자료실',topicKey:'전체',avatarLabel:'영상',avatarColor:'#3348a1',avatarAccent:'#7488eb'},
+    {id:'installation',displayName:'장착시공사진',shortName:'장착시공',section:'자료실',topicKey:'튜닝',avatarLabel:'DIY',avatarColor:'#414f8a',avatarAccent:'#8594d6'},
+    {id:'free-media',displayName:'자유사진/동영상',shortName:'자유영상',section:'자료실',topicKey:'전체',avatarLabel:'PHOTO',avatarColor:'#147675',avatarAccent:'#58c2bd'},
+    {id:'caution',displayName:'후방주의방',shortName:'후방주의',section:'자료실',topicKey:'전체',avatarLabel:'주의',avatarColor:'#a3295d',avatarAccent:'#eb76ab'},
+    {id:'racing-model',displayName:'레이싱모델',shortName:'레이싱',section:'자료실',topicKey:'전체',avatarLabel:'RACE',avatarColor:'#a52345',avatarAccent:'#f06e8e'},
+    {id:'military',displayName:'군사/무기',shortName:'군사무기',section:'자료실',topicKey:'전체',avatarLabel:'군사',avatarColor:'#4e5e31',avatarAccent:'#95a967'},
+    {id:'truck-bus-heavy',displayName:'트럭/버스/중기',shortName:'트럭중기',section:'자료실',topicKey:'전체',avatarLabel:'TRUCK',avatarColor:'#645044',avatarAccent:'#ae8b72'},
+    {id:'aviation-rail',displayName:'항공/해운/철도',shortName:'항공철도',section:'자료실',topicKey:'전체',avatarLabel:'교통',avatarColor:'#244b72',avatarAccent:'#6f9bc6'},
+    {id:'bike-cycle',displayName:'오토바이/자전거',shortName:'바이크',section:'자료실',topicKey:'전체',avatarLabel:'BIKE',avatarColor:'#b02e2e',avatarAccent:'#ef7474'},
+    {id:'oldcar-memory',displayName:'올드카/추억거리',shortName:'올드카',section:'자료실',topicKey:'전체',avatarLabel:'OLD',avatarColor:'#6c4c2f',avatarAccent:'#bc9061'}
   ];
   var storageKey='bbm.community.boardChannels.v2';
   var legacyStorageKey='bbm.community.boardOrder.v1';
@@ -43,6 +43,16 @@
   boards.forEach(function(board,index){board.defaultOrder=index+1;boardById[board.id]=board});
 
   function escapeHtml(value){return String(value).replace(/[&<>\"]/g,function(character){return{'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[character]})}
+  function boardAvatarSrc(board){
+    board=board||{};
+    var label=String(board.avatarLabel||board.shortName||'전체');
+    var fontSize=label.length>=5?18:label.length>=3?21:26;
+    var color=board.avatarColor||'#252525';
+    var accent=board.avatarAccent||'#777';
+    var svg='<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96"><defs><linearGradient id="g" x1="10" y1="8" x2="86" y2="88" gradientUnits="userSpaceOnUse"><stop stop-color="'+color+'"/><stop offset="1" stop-color="'+accent+'"/></linearGradient></defs><rect width="96" height="96" rx="48" fill="url(#g)"/><circle cx="74" cy="21" r="17" fill="#fff" fill-opacity=".13"/><path d="M14 69c17-13 34-15 68-3" fill="none" stroke="#fff" stroke-opacity=".13" stroke-width="8" stroke-linecap="round"/><text x="48" y="55" fill="#fff" font-family="Pretendard,Arial,sans-serif" font-size="'+fontSize+'" font-weight="800" text-anchor="middle" letter-spacing="-.8">'+escapeHtml(label)+'</text></svg>';
+    return'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg);
+  }
+  function boardAvatarMarkup(board,className){return'<img class="'+className+'" src="'+boardAvatarSrc(board)+'" alt="" aria-hidden="true">'}
   function normalizeActiveOrder(value,appendMissing){
     var result=[],seen={};
     if(Array.isArray(value))value.forEach(function(id){if(boardById[id]&&!boardById[id].fixed&&!seen[id]){seen[id]=true;result.push(id)}});
@@ -86,7 +96,13 @@
     var longPressTimer=null;
     var longPressActive=false;
 
-    function boardForId(id){return id==='home'?{id:'home',displayName:'전체 게시글',shortName:'전체',topicKey:'전체',fixed:true}:boardById[id]}
+    function boardForId(id){return id==='home'?{id:'home',displayName:'전체 게시글',shortName:'전체',topicKey:'전체',fixed:true,avatarLabel:'ALL',avatarColor:'#202124',avatarAccent:'#666a70'}:boardById[id]}
+    function updateCurrentBoardAvatar(board){
+      var avatar=document.querySelector('.boardAvatar');
+      if(!avatar||!board)return;
+      avatar.src=boardAvatarSrc(board);
+      avatar.alt=board.displayName+' 프로필';
+    }
     function updateQuery(id){
       var url=new URL(location.href);
       if(id==='home')url.searchParams.delete('board');else url.searchParams.set('board',id);
@@ -100,6 +116,7 @@
       if(!board)return;
       selectedId=id;
       renderNav();
+      updateCurrentBoardAvatar(board);
       if(!options.skipQuery)updateQuery(id);
       if(api&&api.onSelect)api.onSelect(board,{silent:!!options.silent,fromNavigation:true});
       scrollSelected();
@@ -107,7 +124,8 @@
     }
     function navButton(id,label,fullName,isHome){
       var on=id===selectedId;
-      return '<button class="boardChannelTab '+(isHome?'home ':'')+(on?'on':'')+'" data-board-id="'+escapeHtml(id)+'" aria-label="'+escapeHtml(fullName)+'" '+(on?'aria-current="page"':'')+'>'+escapeHtml(label)+'</button>';
+      var board=boardForId(id);
+      return '<button class="boardChannelTab '+(isHome?'home ':'')+(on?'on':'')+'" data-board-id="'+escapeHtml(id)+'" aria-label="'+escapeHtml(fullName)+'" '+(on?'aria-current="page"':'')+'>'+boardAvatarMarkup(board,'boardChannelAvatar')+'<span>'+escapeHtml(label)+'</span></button>';
     }
     function renderNav(){
       var state=loadState();
@@ -129,14 +147,15 @@
 
     function fixedTile(id,label,fullName){
       var selected=id===selectedId;
-      return '<div class="boardOrderItem boardOrderFixed '+(selected?'selected':'')+'" role="button" tabindex="0" data-board-id="'+id+'" data-fixed="true" aria-label="'+escapeHtml(fullName)+' 고정 채널" '+(selected?'aria-current="page"':'')+'><span class="boardOrderName">'+escapeHtml(label)+'</span></div>';
+      var board=boardForId(id);
+      return '<div class="boardOrderItem boardOrderFixed '+(selected?'selected':'')+'" role="button" tabindex="0" data-board-id="'+id+'" data-fixed="true" aria-label="'+escapeHtml(fullName)+' 고정 채널" '+(selected?'aria-current="page"':'')+'>'+boardAvatarMarkup(board,'boardOrderAvatar')+'<span class="boardOrderName">'+escapeHtml(label)+'</span></div>';
     }
     function movableTile(board){
       var selected=board.id===selectedId;
-      return '<div class="boardOrderItem '+(selected?'selected ':'')+(editing?'editing':'')+'" role="button" tabindex="0" draggable="'+(editing?'true':'false')+'" data-board-id="'+escapeHtml(board.id)+'" data-board-name="'+escapeHtml(board.displayName)+'" data-movable="true" aria-label="'+escapeHtml(board.displayName)+(editing?' 순서 변경':' 이동')+'" '+(selected?'aria-current="page"':'')+'><span class="boardOrderName">'+escapeHtml(board.shortName)+'</span>'+(editing?'<button class="boardOrderRemove" aria-label="'+escapeHtml(board.displayName)+' 내 채널에서 제외"><img src="assets/chzzk-detail/icons/close.svg" alt=""></button>':'')+'</div>';
+      return '<div class="boardOrderItem '+(selected?'selected ':'')+(editing?'editing':'')+'" role="button" tabindex="0" draggable="'+(editing?'true':'false')+'" data-board-id="'+escapeHtml(board.id)+'" data-board-name="'+escapeHtml(board.displayName)+'" data-movable="true" aria-label="'+escapeHtml(board.displayName)+(editing?' 순서 변경':' 이동')+'" '+(selected?'aria-current="page"':'')+'>'+boardAvatarMarkup(board,'boardOrderAvatar')+'<span class="boardOrderName">'+escapeHtml(board.shortName)+'</span>'+(editing?'<button class="boardOrderRemove" aria-label="'+escapeHtml(board.displayName)+' 내 채널에서 제외"><img src="assets/chzzk-detail/icons/close.svg" alt=""></button>':'')+'</div>';
     }
     function addTile(board){
-      return '<button class="boardOrderAdd" data-board-id="'+escapeHtml(board.id)+'" aria-label="'+escapeHtml(board.displayName)+' 내 채널에 추가"><span>'+escapeHtml(board.shortName)+'</span><img class="boardOrderPlusIcon" src="assets/chzzk-detail/icons/close.svg" alt=""></button>';
+      return '<button class="boardOrderAdd" data-board-id="'+escapeHtml(board.id)+'" aria-label="'+escapeHtml(board.displayName)+' 내 채널에 추가">'+boardAvatarMarkup(board,'boardOrderAvatar')+'<span>'+escapeHtml(board.shortName)+'</span><img class="boardOrderPlusIcon" src="assets/chzzk-detail/icons/close.svg" alt=""></button>';
     }
     function currentOrder(){return editing?draftOrder.slice():loadState().activeOrder.slice()}
     function readGridOrder(){return Array.prototype.map.call(myGrid.querySelectorAll('.boardOrderItem[data-movable="true"]'),function(item){return item.dataset.boardId})}
@@ -269,14 +288,15 @@
     document.addEventListener('keydown',function(event){if(event.key==='Escape'&&!backdrop.hidden)closePanel()});
 
     renderNav();
-    if(queryId==='home'||boardById[queryId])choose(queryId,{skipQuery:true,silent:true});else scrollSelected();
+    if(queryId==='home'||boardById[queryId])choose(queryId,{skipQuery:true,silent:true});else{updateCurrentBoardAvatar(boardForId(selectedId));scrollSelected()}
     if(queryParams.get('menu')==='all')requestAnimationFrame(function(){openPanel({showViewEntry:false})});
     return{
-      setSelectedByLabel:function(label){var board=boards.find(function(item){return item.displayName===label});if(board){selectedId=board.id;renderNav();updateQuery(board.id);scrollSelected()}else if(label==='전체 게시글'||label==='전체'){selectedId='home';renderNav();updateQuery('home');scrollSelected()}},
+      setSelectedByLabel:function(label){var board=boards.find(function(item){return item.displayName===label});if(board){selectedId=board.id;renderNav();updateCurrentBoardAvatar(board);updateQuery(board.id);scrollSelected()}else if(label==='전체 게시글'||label==='전체'){selectedId='home';renderNav();updateCurrentBoardAvatar(boardForId('home'));updateQuery('home');scrollSelected()}},
       getSelectedId:function(){return selectedId},
-      openEditor:openPanel
+      openEditor:openPanel,
+      avatarSrc:boardAvatarSrc
     };
   }
 
-  window.BBMCommunityBoardNavigation={catalog:boards,sections:sections,ordered:orderedBoards,normalizeOrder:function(value){return normalizeActiveOrder(value,true)},init:init,storageKey:storageKey,legacyStorageKey:legacyStorageKey,fixedIds:fixedIds.slice()};
+  window.BBMCommunityBoardNavigation={catalog:boards,sections:sections,ordered:orderedBoards,avatarSrc:boardAvatarSrc,normalizeOrder:function(value){return normalizeActiveOrder(value,true)},init:init,storageKey:storageKey,legacyStorageKey:legacyStorageKey,fixedIds:fixedIds.slice()};
 })();

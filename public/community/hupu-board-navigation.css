@@ -2,7 +2,8 @@
 .boardChannelScroller{min-width:0;flex:1;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain}
 .boardChannelScroller::-webkit-scrollbar{display:none}
 .boardChannelTrack{height:100%;display:flex;align-items:stretch;gap:22px;width:max-content;padding:0 14px 0 16px}
-.boardChannelTab{height:44px;position:relative;display:flex;align-items:center;justify-content:center;white-space:nowrap;color:#73767c;font-size:16px;font-weight:600;letter-spacing:-.3px;cursor:pointer}
+.boardChannelTab{height:44px;position:relative;display:flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap;color:#73767c;font-size:16px;font-weight:600;letter-spacing:-.3px;cursor:pointer}
+.boardChannelAvatar{width:20px;height:20px;display:block;flex:0 0 20px;border-radius:50%;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
 .boardChannelTab.home{color:#282a2e;font-weight:600}
 .boardChannelTab.on{color:#111214;font-weight:700}
 .boardChannelTab.on:after{content:"";position:absolute;left:-6px;right:-6px;bottom:0;height:2px;border-radius:2px 2px 0 0;background:#252525}
@@ -34,14 +35,18 @@
 .boardOrderMyGrid,.boardOrderAvailableGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 10px}
 .boardOrderPanel[data-grid-columns="3"] .boardOrderMyGrid,.boardOrderPanel[data-grid-columns="3"] .boardOrderAvailableGrid{grid-template-columns:repeat(3,minmax(0,1fr))}
 .boardOrderPanel[data-grid-columns="4"] .boardOrderMyGrid,.boardOrderPanel[data-grid-columns="4"] .boardOrderAvailableGrid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 9px}
-.boardOrderItem,.boardOrderAdd{height:40px;border-radius:8px;background:#f6f7f8;display:flex;align-items:center;justify-content:center;min-width:0;position:relative;border:1px solid transparent;transition:transform .12s,border-color .12s,box-shadow .12s,background-color .12s;user-select:none;cursor:pointer}
+.boardOrderPanel[data-grid-columns="4"] .boardOrderItem,.boardOrderPanel[data-grid-columns="4"] .boardOrderAdd{gap:4px;padding-left:4px;padding-right:4px}
+.boardOrderPanel[data-grid-columns="4"] .boardOrderAvatar{width:20px;height:20px;flex-basis:20px}
+.boardOrderPanel[data-grid-columns="4"] .boardOrderName,.boardOrderPanel[data-grid-columns="4"] .boardOrderAdd span{font-size:11.5px;letter-spacing:-.07em}
+.boardOrderItem,.boardOrderAdd{height:40px;padding:0 6px;border-radius:8px;background:#f6f7f8;display:flex;align-items:center;justify-content:flex-start;gap:5px;min-width:0;position:relative;border:1px solid transparent;transition:transform .12s,border-color .12s,box-shadow .12s,background-color .12s;user-select:none;cursor:pointer}
+.boardOrderAvatar{width:22px;height:22px;display:block;flex:0 0 22px;border-radius:50%;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
 .boardOrderItem:focus-visible,.boardOrderAdd:focus-visible,.boardOrderEdit:focus-visible,.boardOrderClose:focus-visible,.boardOrderViewEntry:focus-visible,.boardOrderSectionTabs button:focus-visible{outline:2px solid #222;outline-offset:2px}
 .boardOrderItem.selected{color:#2864e8;font-weight:760}
 .boardOrderItem.boardOrderFixed{background:#f1f2f3;color:#a4a6aa;cursor:default}
 .boardOrderItem.boardOrderFixed.selected{color:#6f7277}
 .boardOrderBackdrop:not(.isEditing) .boardOrderItem.boardOrderFixed{cursor:pointer}
 .boardOrderItem.dragging{transform:scale(1.045);border-color:#252525;background:#fff;box-shadow:0 8px 22px rgba(0,0,0,.16);z-index:3}
-.boardOrderName{min-width:0;max-width:100%;padding:0 5px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;line-height:18px;font-weight:620;letter-spacing:-.05em}
+.boardOrderName{min-width:0;max-width:100%;padding:0;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;line-height:18px;font-weight:620;letter-spacing:-.05em}
 .boardOrderRemove{position:absolute;right:-4px;top:-7px;width:22px;height:22px;display:grid;place-items:center;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.16);cursor:pointer;touch-action:manipulation}
 .boardOrderRemove img{width:11px;height:11px;display:block;opacity:.72}
 .boardOrderAvailable{margin-top:30px}
@@ -50,7 +55,7 @@
 .boardOrderSectionTabs button.on{color:#1d1e21;font-weight:800}
 .boardOrderSectionTabs button.on:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;border-radius:3px 3px 0 0;background:#252525}
 .boardOrderAdd{background:#fff;border-color:#e1e3e6;color:#34363a}
-.boardOrderAdd span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 9px;font-size:13px;font-weight:620;letter-spacing:-.05em}
+.boardOrderAdd span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 12px 0 0;font-size:13px;font-weight:620;letter-spacing:-.05em}
 .boardOrderPlusIcon{position:absolute;right:5px;top:5px;width:10px;height:10px;display:block;opacity:.76;transform:rotate(45deg)}
 .boardOrderEmpty{min-height:70px;margin:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#9a9ca1;font-size:13px;line-height:19px;letter-spacing:-.035em}
 .boardOrderEmpty[hidden]{display:none}

@@ -31,6 +31,9 @@ const boardLabels = await page.locator('.boardRow [data-board-label], .boardRow 
 const normalizedLabels = boardLabels.map((label) => label.trim()).filter(Boolean);
 check(JSON.stringify(sectionTitles.map((title) => title.trim())) === JSON.stringify(['게시판','자료실']), '게시판/자료실 구역명이 다릅니다');
 check(await page.locator('.boardRow').count() === officialBoards.length + 1, '전체 게시글 포함 게시판 행 수가 32개가 아닙니다');
+check(await page.locator('.boardRowAvatar').count() === officialBoards.length + 1, '게시판 선택 프사가 32개가 아닙니다');
+const uniqueBoardAvatars = await page.locator('.boardRowAvatar').evaluateAll((elements) => new Set(elements.map((element) => element.src)).size);
+check(uniqueBoardAvatars === officialBoards.length + 1, `게시판 선택 고유 프사가 ${uniqueBoardAvatars}개입니다`);
 for (const board of officialBoards) check(normalizedLabels.filter((label) => label === board).length === 1, `${board} 게시판이 없거나 중복입니다`);
 check(new Set(normalizedLabels).size === normalizedLabels.length, '게시판 이름이 중복되었습니다');
 
