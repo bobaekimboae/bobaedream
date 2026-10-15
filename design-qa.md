@@ -20,6 +20,42 @@ final result: passed
 
 ---
 
+# 레딧형 게시판 프로필·구분선 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/62224fb5-1c2a-424b-9e2c-7bcd1750c0cc/1-1000018442.jpg`
+- implementation screenshot: `artifacts/community-headword-toggle-1015/mobile-384-collapsed.png`
+- focused comparison: `artifacts/community-headword-toggle-1015/reddit-avatar-divider-comparison.png`
+- viewport: 구현 384 × 844 CSS px, DPR 1 / 원본 591 × 1280px Android 캡처
+- normalization: 원본을 384px 폭으로 정규화한 뒤 게시판 프로필 영역을 구현의 같은 영역과 나란히 배치했다.
+- state: 자유게시판 선택, 말머리 한 줄 접힘
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 게시판명은 기존 17px/720 위계를 보존해 커진 프로필 옆에서도 중심이 흐트러지지 않는다.
+- spacing and layout rhythm: 레딧 캡처에서 환산한 약 47px 프로필 크기에 맞춰 48px로 적용했고 행 높이를 68px로 늘렸다. 게시판명 행 하단 테두리는 0px로 제거했다.
+- colors and tokens: 기존 흰 배경·검정 텍스트·회색 보조 텍스트 토큰을 유지했다.
+- image quality and asset fidelity: 기존 실제 게시판 프로필 이미지를 확대 표시했으며 새 가짜 자산이나 CSS 그림을 만들지 않았다.
+- copy and content: 자유게시판명과 보기 방식·간결형 문구는 변경하지 않았다.
+- responsiveness: 360/384/412px에서 프로필 48×48px, 하단 테두리 0px, 가로 오버플로 0을 확인했다.
+- focused comparison: 원본과 구현의 원형 프로필 직경 및 게시판명과의 시각 비중이 유사하며, 구현에서는 요청 범위에 맞춰 말머리 칩이 바로 이어진다.
+
+## Comparison history
+
+- Pass 1: 기존 프로필은 28px로 레딧 참고 화면보다 작고 게시판명 아래 1px 구분선이 남아 있었다.
+- Fix: 프로필을 48px, 게시판 행을 68px로 조정하고 하단 테두리를 제거했다.
+- Pass 2: 정규화 비교와 360/384/412px 자동 검사에서 남은 P0/P1/P2가 없음을 확인했다.
+
+## Primary interactions tested
+
+- 말머리 펼침·선택·접힘 유지
+- 게시판명·보기 방식·간결형 컨트롤 충돌 없음
+- 브라우저 페이지 오류 및 가로 잘림 없음
+
+final result: passed
+
+---
+
 # 말머리 칩·펼침/접힘 QA · 2026-10-15
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/79941765-2e07-4569-baaa-cb76c220405c/1-1000018436.jpg`, `.../2-1000018440.jpg`

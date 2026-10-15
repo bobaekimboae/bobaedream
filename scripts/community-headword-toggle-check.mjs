@@ -25,11 +25,13 @@ for (const width of [360, 384, 412]) {
     const section = document.querySelector('#headwordSection');
     const category = document.querySelector('#category');
     const board = document.querySelector('.boardTop');
+    const avatar = document.querySelector('.boardAvatar');
     const chip = document.querySelector('.cat');
     const sectionBox = section.getBoundingClientRect();
     const categoryBox = category.getBoundingClientRect();
     const boardBox = board.getBoundingClientRect();
     const chipBox = chip.getBoundingClientRect();
+    const avatarBox = avatar.getBoundingClientRect();
     return {
       sectionTop: sectionBox.top,
       boardBottom: boardBox.bottom,
@@ -37,6 +39,9 @@ for (const width of [360, 384, 412]) {
       categoryHeight: categoryBox.height,
       chipHeight: chipBox.height,
       chipFontSize: getComputedStyle(chip).fontSize,
+      boardBorderBottom: getComputedStyle(board).borderBottomWidth,
+      avatarWidth: avatarBox.width,
+      avatarHeight: avatarBox.height,
       scrollWidth: document.documentElement.scrollWidth,
       viewport: innerWidth,
     };
@@ -45,6 +50,8 @@ for (const width of [360, 384, 412]) {
   check(Math.abs(metrics.sectionHeight - 48) <= 1, `${width}px: 접힌 말머리 높이가 48px가 아닙니다 (${metrics.sectionHeight})`);
   check(Math.abs(metrics.chipHeight - 32) <= 1, `${width}px: 칩 높이가 32px가 아닙니다 (${metrics.chipHeight})`);
   check(metrics.chipFontSize === (width <= 370 ? '13.7px' : '14px'), `${width}px: 칩 글자 크기가 다릅니다 (${metrics.chipFontSize})`);
+  check(metrics.boardBorderBottom === '0px', `${width}px: 게시판명 아래 구분선이 남아 있습니다 (${metrics.boardBorderBottom})`);
+  check(Math.abs(metrics.avatarWidth - 48) <= 1 && Math.abs(metrics.avatarHeight - 48) <= 1, `${width}px: 게시판 프로필이 48px가 아닙니다 (${metrics.avatarWidth}x${metrics.avatarHeight})`);
   check(metrics.scrollWidth <= metrics.viewport, `${width}px: 가로 화면 잘림 (${metrics.scrollWidth}/${metrics.viewport})`);
   check(await toggle.getAttribute('aria-expanded') === 'false', `${width}px: 초기 접힘 상태가 아닙니다`);
 
