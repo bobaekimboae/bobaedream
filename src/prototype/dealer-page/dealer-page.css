@@ -150,7 +150,7 @@
 .dp-anchor-nav button.is-valuation { flex-basis: 108px; }
 
 @media (max-width: 767px) {
-  .dp-anchor-nav button:first-child { flex-basis: 44px; padding: 0; text-align: left; }
+  .dp-anchor-nav button:first-child { flex-basis: 68px; padding: 0; text-align: left; }
   .dp-anchor-nav button:first-child::after { right: 14px; left: 0; }
 }
 
