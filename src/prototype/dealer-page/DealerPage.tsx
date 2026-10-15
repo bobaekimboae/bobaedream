@@ -31,7 +31,6 @@ const MOCK = {
   sold: 12,
   followers: 425,
   lastActive: "6시간 전 활동",
-  response: "1시간 이내",
   joined: "딜러 경력 7년",
   company: "(주)투제이모터웍스",
   complex: "서울SAG · 서울오토갤러리",
@@ -42,7 +41,7 @@ const MOCK = {
   fax: "02-2059-5200",
   email: "이메일 문의",
   staff: "4명",
-  address: "서울특별시 서초구 양재대로11길 36, 은관 421호",
+  address: "서울 서초구 양재대로11길 36, 은관 421호",
   intro: "서울오토갤러리 은관에 위치한 (주)투제이모터웍스 대표 김태규입니다. 모든 차량의 상태와 이력을 직접 확인하고, 정확한 정보와 투명한 상담을 약속드립니다.",
   reviews: [
     { name: "김**", role: "buyer", score: 4, date: "3개월 전", car: "벤츠 GLS클래스 3세대", price: "7,575만원" },
@@ -180,12 +179,11 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
         </div>
         <div className="dp-profile-inline is-first"><DealerIcon name="clock" />{MOCK.lastActive}<i /><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>리뷰 {MOCK.reviewCount}</u></div>
         <div className="dp-profile-inline is-mobile-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>리뷰 {MOCK.reviewCount}</u></div>
-        <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
-        <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></div>
         <div className="dp-profile-career-meta">
           <div className="dp-profile-inline is-career"><DealerIcon name="calendar" />{MOCK.joined}</div>
-          <div className="dp-profile-inline is-career-response"><DealerIcon name="clock" />응답률: {MOCK.response}</div>
         </div>
+        <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></div>
+        <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
         <SellPriceCta onRequest={onValuation} profile />
         <div className="dp-profile-stats dp-profile-stats-desktop" aria-label="판매 실적">
           <span><small>판매중</small><b>{listingCount}</b></span>
@@ -434,7 +432,6 @@ function AboutSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; noti
     <dl>
       <div><dt>전문 분야</dt><dd>수입차</dd></div>
       <div><dt>활동 지역</dt><dd>{MOCK.address}</dd></div>
-      <div><dt><DealerIcon name="clock" />응답 시간</dt><dd>{MOCK.response}</dd></div>
       <div><dt><DealerIcon name="calendar" />딜러 경력</dt><dd>7년</dd></div>
       <div><dt><DealerIcon name="dealership" />소속 상사</dt><dd>{MOCK.company}</dd></div>
       <div><dt>종사원 번호</dt><dd>{dealer.employeeNo ?? MOCK.employeeNo}</dd></div>

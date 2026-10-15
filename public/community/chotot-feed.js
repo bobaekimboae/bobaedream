@@ -11,8 +11,10 @@
     'assets/chzzk-detail/chzzk-operator-avatar.png',
     'assets/chzzk-detail/comment-anonymous-avatar.png'
   ];
+  var slash='/';
+  var projectAssetRoot=(/github\.io$/i.test(location.hostname)?slash+'bobaedream':'')+slash+'assets'+slash;
   var carAssets=Array.from({length:30},function(_,index){
-    return '../assets/cars/supercar-sheet-v01/sc-'+String(index+1).padStart(3,'0')+'.jpg?v=20261015realfeed2';
+    return projectAssetRoot+'cars'+slash+'supercar-sheet-v01'+slash+'sc-'+String(index+1).padStart(3,'0')+'.jpg?v=20261015realfeed3';
   });
   var feedScenarios=[
     {title:'주말 모임에 등장한 블루 SUV, 실물 색감은 이렇습니다',user:'성수동카스팟',time:'방금 전',reply:18,media:[1,4,12,15,18,22],layout:['landscape','portrait','square','landscape','portrait','square'],body:'주말 자동차 모임에서 직접 촬영한 차량들입니다. 전시장 조명과 야외 자연광에서 색감이 어떻게 달라지는지 순서대로 담았습니다.'},
