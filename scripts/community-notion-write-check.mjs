@@ -180,12 +180,43 @@ try {
   await expect(await mobileMediaDialog.getByText("사진 보관함", { exact: true }).isVisible(), "사진 보관함 선택지가 없습니다.");
   await expect(await mobileMediaDialog.getByText("사진 또는 비디오 찍기", { exact: true }).isVisible(), "카메라 선택지가 없습니다.");
   await expect(await mobileMediaDialog.getByText("파일 선택", { exact: true }).isVisible(), "파일 선택지가 없습니다.");
-  await mobileMediaDialog.getByRole("button", { name: "닫기" }).click();
+  await mobilePage.locator("#imageInput").setInputFiles({
+    name: "mobile-car.png",
+    mimeType: "image/png",
+    buffer: Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=", "base64"),
+  });
+  const mediaManager = mobilePage.getByTestId("media-manager");
+  await expect(await mediaManager.isVisible(), "파일 선택 후 사진 관리 화면이 열리지 않습니다.");
+  const managerBox = await mediaManager.evaluate((dialog) => {
+    const rect = dialog.getBoundingClientRect();
+    return { width: rect.width, height: rect.height };
+  });
+  await expect(managerBox.width >= 389 && managerBox.height >= 843, `사진 관리 화면이 전체 화면이 아닙니다: ${JSON.stringify(managerBox)}`);
+  await expect(await mediaManager.getByText("대표 사진을 선택하고 순서를 정리하세요", { exact: true }).isVisible(), "사진 관리 안내가 보이지 않습니다.");
+  await expect(await mediaManager.getByRole("button", { name: "사진 추가" }).isVisible(), "사진 추가 타일이 보이지 않습니다.");
+  await expect(await mediaManager.getByRole("button", { name: "+ 동영상 추가" }).isVisible(), "동영상 추가 버튼이 보이지 않습니다.");
+  await mediaManager.getByRole("button", { name: "완료" }).waitFor({ state: "visible" });
+  await expect(await mediaManager.getByText("대표", { exact: true }).isVisible(), "첫 사진에 대표 표시가 없습니다.");
+  await mobilePage.waitForFunction(() => !document.querySelector("#completeMediaManager").disabled);
+  await mediaManager.getByRole("button", { name: "완료" }).click();
+  await expect(await mobilePage.locator('.media-block[data-kind="image"] img').isVisible(), "사진 관리 완료 후 이미지가 본문에 추가되지 않았습니다.");
+
+  const demoUrl = new URL(baseUrl);
+  demoUrl.searchParams.set("mediaDemo", "manager");
+  await mobilePage.goto(demoUrl.href, { waitUntil: "domcontentloaded" });
+  await mediaManager.waitFor({ state: "visible" });
+  await expect(await mediaManager.isVisible(), "사진 관리 시안 주소가 열리지 않습니다.");
+  await expect((await mediaManager.locator(".media-manager-tile").count()) === 5, "시안의 사진 5장이 보이지 않습니다.");
+  await expect((await mediaManager.locator(".media-manager-video").count()) === 1, "시안의 동영상 항목이 보이지 않습니다.");
+  await mediaManager.getByRole("button", { name: "대표 사진으로 설정: 레인지로버 차량 사진 2" }).click();
+  const firstManagedImage = mediaManager.locator(".media-manager-tile").first();
+  await expect((await firstManagedImage.locator("img").getAttribute("alt")) === "레인지로버 차량 사진 2", "대표 사진 선택 시 선택한 사진이 첫 순서로 이동하지 않습니다.");
+  await expect(await firstManagedImage.getByText("대표", { exact: true }).isVisible(), "변경한 대표 사진에 표시가 없습니다.");
   const hasHorizontalOverflow = await mobilePage.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
   await expect(!hasHorizontalOverflow, "모바일 화면에 가로 스크롤이 생겼습니다.");
   await mobileContext.close();
 
-  console.log("Notion write check passed: rich text, blocks, media, embeds, persistence, and mobile layout.");
+  console.log("Notion write check passed: rich text, blocks, media manager, embeds, persistence, and mobile layout.");
 } finally {
   await browser.close();
 }
