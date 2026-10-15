@@ -2131,7 +2131,6 @@ function MarketplaceScreen() {
                   </section> : null}
                   <section className={`depth-rail is-kr-maker is-lux-logo no-label${brandShadowCard ? " is-brand-shadowcard" : ""}`} aria-label={`${category} 브랜드 빠른 선택`} data-luxlogo={logoSource}>
                     <QuickRailCarousel ariaLabel={`${category} 브랜드`} className="brand-carousel" contentClassName="depth-rail-track">
-                      {brandShadowCard ? <DepthCard key="전체" className="is-brand-all" label="전체" sub={`(${listingCars.length})`} selected={!maker} onClick={() => applyMakerFilter(null)} /> : null}
                       {luxuryLogoBrands.map((brand, index) => (
                         <DepthCard key={brand.maker} label={brand.maker} sub={brandShadowCard ? `(${listingCars.filter((car) => car.maker === brand.maker).length})` : undefined} image={<img className={`lux-qf-logo lux-qf-logo--${brand.slug}`} src={asset(luxuryLogoPath(logoSource, index))} alt="" draggable={false} />} mediaKind="brand" selected={maker === brand.maker} onClick={() => applyMakerFilter(brand.maker)} />
                       ))}
@@ -2171,7 +2170,6 @@ function MarketplaceScreen() {
                 </section> : null}
                 <section className={`depth-rail is-kr-maker no-label${brandShadowCard ? " is-brand-shadowcard" : ""}`} aria-label={`${categoryBrandRail.title} 빠른 선택`}>
                   <QuickRailCarousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName="depth-rail-track">
-                    {brandShadowCard ? <DepthCard key="전체" className="is-brand-all" label="전체" sub={`(${listingCars.length})`} selected={!maker} onClick={() => applyMakerFilter(null)} /> : null}
                     {oldcarListingBrands ? oldcarListingBrands.map(card) : <>
                       {sections.domestic.map(card)}
                       {sections.domestic.length && sections.imported.length ? <span className="kr-maker-divider" aria-hidden="true" /> : null}

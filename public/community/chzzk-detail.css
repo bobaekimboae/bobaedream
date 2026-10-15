@@ -161,16 +161,9 @@ img { display: block; }
 .commentIconButton img { width: 19px; height: 19px; }
 .commentTextButton { gap: 4px; padding: 0 7px; font-size: 12px; font-weight: 650; white-space: nowrap; }
 .commentTextButton img { width: 17px; height: 17px; }
+.commentTools .moreCommentButton, .nestedTools .moreCommentButton { margin-left: auto; }
 .commentIconButton:hover, .commentTextButton:hover, .commentIconButton:focus-visible, .commentTextButton:focus-visible { background: #f2f2f3; }
 .replyCount { white-space: nowrap; }
-.miniVotes { display: flex; align-items: center; margin-left: auto; border: 1px solid #d7d7d7; border-radius: 18px; overflow: hidden; }
-.miniVotes button { display: flex; height: 34px; align-items: center; justify-content: center; gap: 3px; padding: 0 7px; background: #fff; font-size: 12px; font-weight: 750; white-space: nowrap; }
-.miniVotes button.active { color: var(--brand-dark); background: var(--brand-soft); }
-.miniVotes button.active img { filter: invert(50%) sepia(91%) saturate(1966%) hue-rotate(177deg) brightness(92%) contrast(93%); }
-.miniVotes button:last-child.active { color: var(--brand-dark); background: var(--brand-soft); }
-.miniVotes button:last-child.active img { filter: invert(50%) sepia(91%) saturate(1966%) hue-rotate(177deg) brightness(92%) contrast(93%); }
-.miniVotes button img { width: 16px; height: 16px; }
-.miniVotes b { min-width: 25px; border-right: 1px solid #e5e5e5; border-left: 1px solid #e5e5e5; line-height: 20px; text-align: center; font-variant-numeric: tabular-nums; }
 .nestedReply { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 10px; margin-top: 18px; padding-top: 2px; }
 .replyAvatar { width: 38px; height: 38px; }
 .replyAuthor strong { font-size: 15px; }
@@ -194,6 +187,20 @@ img { display: block; }
 .composer input:focus { box-shadow: inset 0 0 0 1px var(--ink); }
 .sendButton { opacity: .42; }
 .sendButton.ready { opacity: 1; }
+.commentContext { position: absolute; right: 0; bottom: 100%; left: 0; display: flex; height: 38px; align-items: center; justify-content: space-between; padding: 0 14px 0 20px; border-top: 1px solid var(--line); background: #fff; color: var(--brand-dark); font-size: 13px; }
+.commentContext[hidden] { display: none; }
+.commentContext button { display: grid; width: 32px; height: 32px; place-items: center; }
+.commentContext img { width: 18px; height: 18px; }
+.commentMenuOverlay { position: fixed; z-index: 100; inset: 0; background: rgba(0, 0, 0, .48); opacity: 0; transition: opacity .18s ease; }
+.commentMenuOverlay[hidden] { display: none; }
+.commentMenuOverlay.open { opacity: 1; }
+.commentMenuSheet { position: absolute; right: 0; bottom: 0; left: 0; width: min(var(--shell-max), 100%); margin: 0 auto; padding: 10px 20px calc(18px + env(safe-area-inset-bottom)); border-radius: 22px 22px 0 0; background: #fff; transform: translateY(100%); transition: transform .18s ease; }
+.commentMenuOverlay.open .commentMenuSheet { transform: translateY(0); }
+.commentMenuHandle { display: block; width: 42px; height: 4px; margin: 0 auto 10px; border-radius: 999px; background: #b9bbbf; }
+.commentMenuSheet button { display: flex; width: 100%; height: 56px; align-items: center; gap: 16px; color: #202126; font-size: 16px; font-weight: 650; text-align: left; }
+.commentMenuSheet button.danger { color: #e12525; }
+.commentMenuSheet button img { width: 22px; height: 22px; }
+.commentMenuSheet button.danger img { filter: invert(21%) sepia(98%) saturate(3441%) hue-rotate(351deg) brightness(97%) contrast(82%); }
 .sendButton.ready img { filter: invert(28%) sepia(95%) saturate(2858%) hue-rotate(335deg) brightness(102%) contrast(102%); }
 .composer.isDisabled { grid-template-columns: 48px 1fr 42px 42px 50px; }
 .composer.isDisabled input { color: var(--sub); }
@@ -296,19 +303,14 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
   .commentTextButton { height: 32px; gap: 3px; padding: 0 5px; font-size: 11px; }
   .commentTextButton img { width: 16px; height: 16px; }
   .replyCount { display: none; }
-  .miniVotes { margin-left: auto; border-radius: 17px; }
-  .miniVotes button { height: 32px; gap: 2px; padding: 0 5px; font-size: 11px; }
-  .miniVotes button img { width: 15px; height: 15px; }
-  .miniVotes b { min-width: 22px; }
   .nestedReply { grid-template-columns: 30px minmax(0, 1fr); gap: 10px; margin-top: 16px; }
   .replyAvatar { width: 30px; height: 30px; }
   .replyAuthor strong { font-size: 13px; }
   .replyText { margin-top: 6px; font-size: 14px; line-height: 20px; }
   .nestedReply a { margin-top: 6px; font-size: 15px; }
   .replySticker { width: 96px; margin-top: 8px; }
-  .nestedTools .commentShareButton span, .nestedTools .miniVotes span { display: none; }
+  .nestedTools .commentShareButton span { display: none; }
   .nestedTools .commentTextButton { width: 32px; padding: 0; }
-  .nestedTools .miniVotes button { width: 32px; padding: 0; }
   .toTop { height: 64px; gap: 8px; font-size: 14px; }
   .toTop span { width: 34px; height: 34px; }
   .toTop img { width: 20px; height: 20px; }

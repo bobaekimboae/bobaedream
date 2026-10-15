@@ -29,6 +29,24 @@ final result: passed
 
 ---
 
+# 커뮤니티 상세 · 댓글 작성/답글/관리 및 댓글 투표 제거 QA · 2026-10-15
+
+- source visual truth: `1000018388.jpg`, `1000018386.jpg`의 치지직 댓글 목록과 내 댓글 관리 바텀시트
+- implementation capture: `artifacts/community-chzzk-detail-actions-1015/mobile-384-comment-menu.png`
+- viewport: 384px 모바일 CSS 폭
+- 댓글과 답글은 `답글 · 공유 · 더보기` 행동만 제공하며 댓글 단위 추천/비추천(버프/너프) DOM은 0개다.
+- 게시글 본문의 기존 `추천 · 비추` 반응은 유지했다.
+- 댓글 등록, 기존 댓글에 답글 등록, 내 댓글 수정, 내 댓글 삭제, 댓글 공유를 실제 상태 변경으로 검증했다.
+- 내 댓글 더보기는 하단 바텀시트로 열리며 `수정하기 · 삭제하기 · 취소`를 제공한다.
+- 외부 프로필 이미지 오류 시 로컬 기본 프로필 이미지로 대체한다.
+- 모바일 가로 오버플로: 0px (`384/384`)
+- browser runtime errors: 0
+- P0/P1/P2 findings: none
+
+final result: passed
+
+---
+
 # 커뮤니티 목록 · 레딧형 피드와 추천 안내 토스트 QA · 2026-10-15
 
 - source visual truth: `1000018382.jpg`, `1000018380.jpg` (Reddit 모바일 피드·추천 토스트 상태)
