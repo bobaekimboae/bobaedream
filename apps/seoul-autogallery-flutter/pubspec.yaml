@@ -1,0 +1,47 @@
+name: seoul_autogallery
+description: 보배드림 서울오토갤러리 카테고리 앱 (프로토타입 데이터 기반).
+publish_to: "none"
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.13.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/data/
+    - assets/logos/
+    - assets/thumbs/
+    - assets/photos/1/
+    - assets/photos/2/
+    - assets/photos/3/
+    - assets/photos/4/
+    - assets/photos/5/
+    - assets/photos/6/
+    - assets/photos/7/
+    - assets/photos/8/
+    - assets/photos/9/
+    - assets/photos/10/
+    - assets/photos/11/
+    - assets/photos/12/
+    - assets/photos/13/
+    - assets/photos/14/
+    - assets/photos/15/
+    - assets/photos/16/
+    - assets/photos/17/
+    - assets/photos/18/
+    - assets/photos/19/
+    - assets/photos/20/
+    - assets/photos/21/
+    - assets/photos/22/
+    - assets/photos/23/
+    - assets/photos/24/
