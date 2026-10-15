@@ -41,6 +41,23 @@
 
 final result: passed
 
+---
+
+# 커뮤니티 상세정보 시나리오 5종 QA · 2026-10-15
+
+- source visual truth: 기존 치지직 상세 v5 레이아웃과 Reddit식 댓글 작업 영역
+- implementation: `public/community/chzzk-detail.html?id=1` ~ `id=5`
+- scenarios: GV80 장거리 시승, 테슬라 업데이트, 모델Y 트렁크 매트, 모델3 도어라이트 DIY, 프렁크 소프트 클로징
+- content: 각 글 본문 4단락, 태그 3개, 상위 댓글 3개, 대댓글 1~3개
+- interaction: 게시글 추천·비추, 댓글 추천·비추, 답글 대상 자동 입력, 댓글 공유를 모든 시나리오에서 확인
+- image treatment: 상세 이미지는 전폭 16px 반경(모바일 10px), 본문과 18~24px 간격. 첫 시나리오는 저장소의 제네시스 GV80 자산을 사용해 제목·사진 불일치를 제거
+- responsive evidence: 384×844에서 5개 전체 가로 넘침 없음. 고정 댓글 입력창과 댓글 작업 버튼이 콘텐츠를 가로로 밀지 않음
+- screenshots: `artifacts/community-detail-scenarios-1015/scenario-1-mobile-384.png` ~ `scenario-5-mobile-384.png`
+- verification: `community:verify:detail-scenarios`, `community:verify:detail-actions`, `community:verify:compact-write` 통과
+- P0/P1/P2 findings: none
+
+final result: passed
+
 # 치지직 상세 · 댓글 있는 사용자 게시물 v7 QA · 2026-10-15
 
 - source visual truth: `https://m.game.naver.com/lounge/chzzk/board/detail/8325190`

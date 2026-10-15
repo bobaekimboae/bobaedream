@@ -63,11 +63,60 @@ function listUrl() {
   return './naver-cafe-list.html?v=20261015chzzk';
 }
 
+function escapeHtml(value) {
+  return String(value ?? '').replace(/[&<>"]/g, (character) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[character]));
+}
+
+function commentActionsHtml(item, label = '댓글') {
+  const itemId = escapeHtml(item.id || label);
+  const user = escapeHtml(item.user || '회원');
+  const score = Number(item.like || 0);
+  return `<div class="${label === '답글' ? 'nestedTools' : 'commentTools'}" aria-label="${label} 작업">
+    <button class="commentIconButton moreCommentButton" aria-label="${label} 더보기"><img src="assets/chzzk-detail/icons/more-reddit.svg" alt=""></button>
+    <button class="commentTextButton replyButton" data-reply-user="${user}"><img src="assets/chzzk-detail/icons/reply-reddit.svg" alt=""><span>답글</span></button>
+    <button class="commentTextButton commentShareButton" data-comment-share="${itemId}" aria-label="${label} 공유"><img src="assets/chzzk-detail/icons/share-reddit.svg" alt=""><span>공유</span></button>
+    <div class="miniVotes"><button aria-label="${label} 추천"><img src="assets/chzzk-detail/icons/vote-up.svg" alt=""><span>추천</span></button><b>${score}</b><button aria-label="${label} 비추"><img src="assets/chzzk-detail/icons/vote-down.svg" alt=""><span>비추</span></button></div>
+  </div>`;
+}
+
+function replyHtml(reply) {
+  return `<div class="nestedReply" id="${escapeHtml(reply.id)}">
+    <img class="replyAvatar" src="${escapeHtml(reply.avatar)}" alt="${escapeHtml(reply.user)} 프로필">
+    <div>
+      <div class="replyAuthor"><strong>${escapeHtml(reply.user)} · LV ${escapeHtml(reply.level || 1)}</strong>${reply.writer ? '<span class="authorBadge">작성자</span>' : ''}<span>${escapeHtml(reply.date)}</span></div>
+      <p class="replyText">${escapeHtml(reply.text)}</p>
+      ${commentActionsHtml(reply, '답글')}
+    </div>
+  </div>`;
+}
+
+function commentHtml(comment) {
+  const nested = (comment.replies || []).map(replyHtml).join('');
+  return `<li class="commentItem" id="${escapeHtml(comment.id)}">
+    <img class="commentAvatar" src="${escapeHtml(comment.avatar)}" alt="${escapeHtml(comment.user)} 프로필">
+    <div class="commentContent">
+      <div class="commentAuthor"><strong>${escapeHtml(comment.user)} · LV ${escapeHtml(comment.level || 1)}</strong>${comment.writer ? '<span class="authorBadge">작성자</span>' : ''}<span>${escapeHtml(comment.date)}</span></div>
+      <p>${escapeHtml(comment.text)}</p>
+      ${commentActionsHtml(comment)}
+      ${nested}
+    </div>
+  </li>`;
+}
+
+function renderSourceComments(source) {
+  const items = source.comments || [];
+  const total = items.reduce((sum, item) => sum + 1 + (item.replies || []).length, 0);
+  comments = total;
+  $('#commentList').innerHTML = items.map(commentHtml).join('');
+  $('#commentCount').textContent = `댓글 ${total}`;
+  $('#actionCommentCount').textContent = total;
+}
+
 function setRegularContent() {
   $('#postTitle').textContent = isLongNotice ? post.title : String(post.title || '출첵!').replace(/^\[[^\]]+\]\s*/, '');
   $('#authorName').textContent = post.user || '쿠로토라';
   $('#authorLevel').textContent = post.level || 17;
-  $('#authorDate').textContent = post.date || '7시간 전';
+  $('#authorDate').textContent = post.time || post.date || '7시간 전';
   $('#authorView').textContent = Number(post.view ?? 34).toLocaleString();
   $('#score').textContent = Number(post.likes ?? 16);
   $('#latestAuthor').textContent = post.user || '쿠로토라';
@@ -138,13 +187,36 @@ function setRegularContent() {
           </div>
         </div>
       </li>`;
-  } else if (!isReferencePost) {
-    const copy = (post.body && post.body.length ? post.body : ['좋은 정보 함께 나눠요.']).slice(0, 2).join('\n');
-    $('#postBody').querySelector('p').textContent = copy;
+  } else if (!isReferencePost && !localSourcePost) {
+    document.body.classList.add('isScenarioPost');
+    $('#boardBtn').childNodes[0].nodeValue = `${post.category || '자유'} `;
+    if (post.authorAvatar) {
+      $('#authorAvatar').src = post.authorAvatar;
+      $('#authorAvatar').alt = `${post.user || '회원'} 프로필`;
+    }
+    const paragraphs = post.body && post.body.length ? post.body : ['좋은 정보 함께 나눠요.'];
+    const detailImage = post.detailImage || String(post.thumbnail || '').replace(/([?&])w=\d+/, '$1w=960');
+    $('#postBody').innerHTML = `${detailImage ? `<img class="detailPhoto" src="${escapeHtml(detailImage)}" alt="${escapeHtml(post.title)}">` : ''}
+      <div class="detailCopy">${paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>`;
+    const tagRow = $('#regularPost .tagRow');
+    const tags = (post.tags || [post.category]).filter(Boolean).slice(0, 10);
+    tagRow.replaceChildren(...tags.map((tag) => {
+      const button = document.createElement('button');
+      button.textContent = `#${tag}`;
+      return button;
+    }));
+    tagRow.hidden = tags.length === 0;
+    renderSourceComments(post);
+    const related = posts.filter((item) => item.id !== post.id && item.category === post.category).slice(0, 3);
+    document.querySelectorAll('.latestItem').forEach((item, index) => {
+      const next = related[index];
+      item.hidden = !next;
+      if (next) item.textContent = String(next.title || '').replace(/^\[[^\]]+\]\s*/, '');
+    });
   }
   if (localSourcePost) {
     $('#boardBtn').childNodes[0].nodeValue = `${post.board.replace('게시판', '').trim()} `;
-    $('#postBody').querySelector('.heroSticker')?.remove();
+    $('#postBody').innerHTML = `<div class="detailCopy">${post.body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>`;
     const tagRow = $('#regularPost .tagRow');
     const tags = String(post.tags || '').split('#').map((value) => value.trim()).filter(Boolean).slice(0, 10);
     tagRow.replaceChildren(...tags.map((tag) => { const button = document.createElement('button'); button.textContent = `#${tag}`; return button; }));

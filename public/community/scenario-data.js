@@ -1,7 +1,7 @@
 window.BOBAE_TOPICS=['전체','테슬라','일론머스크','TSLA주식','스페이스X','전기차','정비','튜닝','중고차','보험','블박'];
 
 const titles=[
-'[전기차] 제네시스 GV90 네오룬 공개',
+'[시승기] 제네시스 GV80 장거리 시승 후기',
 '[테슬라] 테슬라 니우스',
 '[테슬라] 모델Y 트렁크 매트 추천 부탁드립니다',
 '[정비] 모델3 하이랜드 도어라이트 DIY 비용 공유',
@@ -58,6 +58,37 @@ function avatar(seed){return `https://api.dicebear.com/9.x/initials/svg?seed=${e
 
 const commentNames=['고속도로요정','현금완납러','전비차궁금','정비소단골','카페인오일','하이브리드초보','연비왕김대표','디젤끝물','중고차보는눈','캠핑짐만렙'];
 
+const featuredDetails={
+  1:{body:['제네시스 GV80으로 서울에서 강릉까지 왕복한 느낌을 정리해 봤습니다.','고속도로에서는 차체가 안정적이고 2열 승차감도 단단하기보다 차분한 쪽이었습니다. 풍절음은 제한속도 안에서는 크게 거슬리지 않았습니다.','주차할 때는 차폭이 확실히 부담스럽지만, 서라운드 뷰와 후측방 화면 덕분에 골목에서도 적응할 수 있었습니다.','가족용 대형 SUV로는 만족도가 높았고, 다음에는 3열과 실제 연비를 더 길게 확인해 보려고 합니다.'],tags:['GV80','제네시스','장거리시승'],reply:5,likes:24,comments:[
+    {id:'1-1',user:'대형SUV찾는중',level:'3',avatar:avatar('대형SUV찾는중'),text:'2열 승차감이 궁금했는데 설명 감사합니다. 22인치 휠에서도 비슷했나요?',date:'12분 전',like:8,replies:[{id:'1-1-1',user:'전기차궁금',level:'1',avatar:avatar('전기차궁금'),writer:true,text:'시승차는 22인치였습니다. 요철에서는 충격이 느껴져도 잔진동은 금방 잡혔습니다.',date:'8분 전',like:3}]},
+    {id:'1-2',user:'패밀리카고민',level:'2',avatar:avatar('패밀리카고민'),text:'주말 짐이 많아서 트렁크 깊이도 궁금합니다. 유모차를 세로로 넣을 수 있나요?',date:'9분 전',like:5,replies:[]},
+    {id:'1-3',user:'팰리차주',level:'4',avatar:avatar('팰리차주'),text:'팰리세이드보다 정숙성은 확실히 좋더라고요. 대신 3열은 자주 쓰기엔 좁았습니다.',date:'4분 전',like:2,replies:[{id:'1-3-1',user:'고속도로요정',level:'2',avatar:avatar('고속도로요정'),text:'가족 구성과 3열 사용 빈도가 선택 기준이겠네요.',date:'2분 전',like:1}]}
+  ]},
+  2:{title:'[테슬라] 이번 업데이트 이후 달라진 점 정리',body:['어젯밤 업데이트 후 출근길에 확인한 변화만 적어봅니다.','후방 카메라 전환 속도는 확실히 빨라졌고, 주차 보조 화면의 장애물 표시도 이전보다 덜 흔들렸습니다.','다만 블루투스 통화 음량은 한 번 초기화됐고 즐겨찾기 일부가 풀려 다시 설정했습니다.','같은 버전을 받은 분들은 오토파일럿 차선 유지가 달라졌는지도 알려주세요.'],tags:['테슬라업데이트','오토파일럿','주차보조'],reply:6,likes:19,comments:[
+    {id:'2-1',user:'모델Y롱레인지',level:'3',avatar:avatar('모델Y롱레인지'),text:'저도 후방 카메라는 빨라졌는데 휴대폰 키가 한 번씩 늦게 잡힙니다.',date:'18분 전',like:6,replies:[{id:'2-1-1',user:'하이랜드초보',level:'2',avatar:avatar('하이랜드초보'),writer:true,text:'휴대폰 키는 앱 로그아웃 후 다시 연결하니 지금은 괜찮습니다.',date:'14분 전',like:4}]},
+    {id:'2-2',user:'차선중앙러',level:'3',avatar:avatar('차선중앙러'),text:'고속도로 차선 중앙은 이전보다 부드러워진 느낌입니다. 급커브는 비슷하고요.',date:'11분 전',like:7,replies:[]},
+    {id:'2-3',user:'소프트웨어기다림',level:'1',avatar:avatar('소프트웨어기다림'),text:'제 차는 아직 배포 전이네요. 버전 번호도 본문에 추가해 주시면 좋겠습니다.',date:'7분 전',like:2,replies:[{id:'2-3-1',user:'현금완납러',level:'2',avatar:avatar('현금완납러'),text:'차량별로 순차 배포라 하루 이틀 차이가 나더라고요.',date:'5분 전',like:1},{id:'2-3-2',user:'하이랜드초보',level:'2',avatar:avatar('하이랜드초보'),writer:true,text:'본문 기준 버전은 2026.32.7입니다.',date:'3분 전',like:2}]}
+  ]},
+  3:{body:['모델Y 5인승 트렁크 매트를 고르는 중인데 실제 사용 후기가 궁금합니다.','캠핑 장비를 자주 싣고 물청소도 할 예정이라 코일형보다는 TPE 일체형을 보고 있습니다.','2열 등받이까지 덮는 제품과 트렁크 바닥만 덮는 제품 중 어느 쪽이 덜 밀리는지도 알려주세요.','냄새와 들뜸이 적었던 제품이면 가격대와 함께 추천 부탁드립니다.'],tags:['모델Y','트렁크매트','캠핑'],reply:5,likes:11,comments:[
+    {id:'3-1',user:'캠핑짐만렙',level:'4',avatar:avatar('캠핑짐만렙'),text:'TPE 일체형 1년째 쓰는데 흙이나 물 닦기는 편합니다. 대신 처음 일주일은 냄새가 조금 났어요.',date:'21분 전',like:9,replies:[{id:'3-1-1',user:'트렁크테트리스',level:'3',avatar:avatar('트렁크테트리스'),writer:true,text:'혹시 2열 등받이까지 이어지는 제품인가요? 짐 밀림이 제일 걱정됩니다.',date:'17분 전',like:2}]},
+    {id:'3-2',user:'차박은주말',level:'2',avatar:avatar('차박은주말'),text:'등받이 분할형이 시트 접을 때 편했습니다. 벨크로 면적이 넓은 제품으로 보세요.',date:'13분 전',like:5,replies:[{id:'3-2-1',user:'트렁크테트리스',level:'3',avatar:avatar('트렁크테트리스'),writer:true,text:'벨크로 면적 확인해 보겠습니다. 감사합니다.',date:'10분 전',like:1}]},
+    {id:'3-3',user:'모델Y오너',level:'3',avatar:avatar('모델Y오너'),text:'바닥만 덮는 제품은 설치는 쉽지만 차박 매트 펼칠 때 단차가 조금 남았습니다.',date:'6분 전',like:3,replies:[]}
+  ]},
+  4:{body:['모델3 하이랜드 도어라이트를 직접 교체했습니다.','부품은 앞문 2개 기준 4만 원대였고, 플라스틱 헤라와 얇은 장갑만 준비했습니다.','순정 램프 커넥터를 빼는 데 가장 시간이 오래 걸렸고 양쪽 작업은 약 25분 걸렸습니다.','배선 가공이 없는 제품이라 원복도 가능하지만, 밝기가 너무 강한 제품은 야간에 눈에 거슬릴 수 있습니다.'],tags:['모델3하이랜드','DIY','도어라이트'],reply:4,likes:32,comments:[
+    {id:'4-1',user:'공구함가득',level:'4',avatar:avatar('공구함가득'),text:'커넥터 걸쇠 방향만 미리 알면 작업은 어렵지 않더라고요. 사진 설명이 도움 됩니다.',date:'26분 전',like:12,replies:[]},
+    {id:'4-2',user:'정비소단골',level:'3',avatar:avatar('정비소단골'),text:'도어 트림을 전부 탈거하지 않아도 되는 제품인가요?',date:'19분 전',like:4,replies:[{id:'4-2-1',user:'송파T불빠따',level:'4',avatar:avatar('송파T불빠따'),writer:true,text:'네, 하단 순정 램프만 헤라로 빼서 교체하는 방식입니다.',date:'15분 전',like:6}]},
+    {id:'4-3',user:'야간운전러',level:'2',avatar:avatar('야간운전러'),text:'로고가 너무 선명한 제품보다 살짝 흐린 쪽이 실제로는 덜 부담스럽습니다.',date:'8분 전',like:3,replies:[]}
+  ]},
+  5:{body:['프렁크를 세게 닫아야 하는 게 불편해서 소프트 클로징 모듈을 장착했습니다.','예약 후 작업 시간은 약 1시간이었고 기존 잠금 장치를 교체하는 방식이라 외관 변화는 없습니다.','프렁크를 살짝 내려놓으면 자동으로 당겨 닫히는 점은 편하지만, 비상 해제 장치 위치를 꼭 확인해야 합니다.','일주일 사용 기준 오작동은 없었고 세차 후에도 정상 작동했습니다.'],tags:['프렁크','소프트클로징','장착후기'],reply:5,likes:27,comments:[
+    {id:'5-1',user:'튜닝은순정처럼',level:'3',avatar:avatar('튜닝은순정처럼'),text:'보증 문제 때문에 고민 중인데 순정 배선 절단은 없었나요?',date:'31분 전',like:7,replies:[{id:'5-1-1',user:'디젤끝물',level:'1',avatar:avatar('디젤끝물'),writer:true,text:'제가 장착한 제품은 커넥터 방식이라 배선 절단은 없었습니다.',date:'27분 전',like:5}]},
+    {id:'5-2',user:'세차매주',level:'2',avatar:avatar('세차매주'),text:'겨울철 결빙 때 모터가 무리하지 않는지도 나중에 후기 부탁드립니다.',date:'20분 전',like:4,replies:[]},
+    {id:'5-3',user:'프렁크자주씀',level:'4',avatar:avatar('프렁크자주씀'),text:'짐을 자주 넣으면 만족도가 높습니다. 저는 6개월째 문제 없이 사용 중입니다.',date:'13분 전',like:8,replies:[{id:'5-3-1',user:'카페인오일',level:'2',avatar:avatar('카페인오일'),text:'소음은 순정 잠금음보다 조금 큰가요?',date:'9분 전',like:1}]}
+  ]}
+};
+
+[0,1,2,3,4].forEach((thumbIndex)=>{featuredDetails[thumbIndex+1].detailImage=img(thumbs[thumbIndex],960)});
+featuredDetails[1].detailImage='../assets/maker-model/generations/genesis-v1/genesis_asset_f427ba8401d15d7a4eec.png';
+
 window.BOBAE_POSTS=titles.map((title,i)=>{
   const hasImg=i%3!==1;
   const p={
@@ -96,5 +127,7 @@ window.BOBAE_POSTS=titles.map((title,i)=>{
     like:(i+j)%9+1,
     reply:j>2&&j%2===0
   }));
+  if(featuredDetails[p.id]) Object.assign(p,featuredDetails[p.id]);
+  if(p.id===1) p.thumbnail=featuredDetails[1].detailImage;
   return p;
 });
