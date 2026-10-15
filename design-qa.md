@@ -14,6 +14,22 @@
 
 final result: passed
 
+---
+
+# 보배드림 전체 게시판 선택 QA · 2026-10-15
+
+- 보배드림 모바일 커뮤니티 구조를 기준으로 `게시판` 14개와 `자료실` 17개를 상단 게시판 선택 바텀시트에 추가했다.
+- `전체 게시글`을 포함한 선택 행은 총 32개이며 게시판명 중복·누락은 0개다.
+- 선택한 게시판명은 상단에 즉시 반영되고, 해당 게시판명으로 글쓰기 화면까지 전달된다.
+- 기존 데이터에 전용 분류가 없는 게시판은 목록을 비우지 않고 전체 게시물을 보여 주며, `교통사고/블박`과 `장착시공사진`은 기존 블박·튜닝 데이터에 연결했다.
+- 모바일 384 × 844에서 긴 목록 스크롤, 선택 상태 유지, 목록 표시, 글쓰기 연결을 확인했다.
+- implementation capture: `artifacts/community-board-selector-1015/mobile-384-all-boards.png`
+- `npm run community:verify:boards`: passed (31/31, 전체 포함 32행)
+- `npm run community:verify:compact-write`: passed
+- browser console errors: 0
+
+final result: passed
+
 # 딜러 프로필 · 홈 좌측 정렬, 초톳형 칩, 설명 더 보기 QA · 2026-10-15
 
 - implementation: 김태규 딜러 프로필, 393 × 852 CSS px

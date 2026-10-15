@@ -140,10 +140,25 @@ openTypeSheet=function(){
   [].forEach.call(sh.querySelectorAll('[data-thumb]'),function(button){button.onclick=function(){mode=button.dataset.typeMode;display.thumbnail=button.dataset.thumb==='1';display.commentBadge=button.dataset.badge==='1';renderList();openTypeSheet()}});
 };
 function openBoardSheet(){
-  var boards=[['자유게시판','전체'],['테슬라','테슬라'],['전기차','전기차'],['정비 / DIY','정비'],['튜닝','튜닝'],['중고차','중고차'],['보험 · 사고','보험'],['블랙박스','블박']];
+  var boardSections=[
+    {title:'게시판',boards:[
+      ['베스트글','전체'],['자유게시판','전체'],['자동차뉴스/토론','전체'],['정치/시사게시판','전체'],
+      ['시승기/배틀/목격담','전체'],['유명인의 차','전체'],['성인게시판','전체'],['보배드림 이야기','전체'],
+      ['제안/건의','전체'],['국내야구','전체'],['해외야구','전체'],['해외축구','전체'],['국내축구','전체'],['이벤트','전체']
+    ]},
+    {title:'자료실',boards:[
+      ['신유머/감동/이슈','전체'],['유머게시판','전체'],['교통사고/블박','블박'],['국산차게시판','전체'],
+      ['수입차게시판','전체'],['내차사진','전체'],['직찍/특종발견','전체'],['자동차사진/동영상','전체'],
+      ['장착시공사진','튜닝'],['자유사진/동영상','전체'],['후방주의방','전체'],['레이싱모델','전체'],
+      ['군사/무기','전체'],['트럭/버스/중기','전체'],['항공/해운/철도','전체'],['오토바이/자전거','전체'],['올드카/추억거리','전체']
+    ]}
+  ];
   var sh=document.getElementById('sheet'),ov=document.getElementById('overlay');
-  var boardRows=boards.map(function(board,index){var selected=boardLabel===board[0];return '<button class="boardRow '+(selected?'selected':'')+'" data-board-label="'+board[0]+'" data-topic="'+board[1]+'">'+icon('list')+'<span>'+board[0]+'</span>'+(board[2]?'<span class="boardNewDot" aria-hidden="true"></span>':'')+'</button>'}).join('');
-  sh.innerHTML='<div class="handle"></div><div class="sheetHead"><div class="sheetTitle">게시판 선택</div><button class="sheetClose" id="sheetClose" aria-label="닫기">×</button></div><div class="boardSheetScroll"><button class="boardRow '+(boardLabel==='전체 게시글'?'selected':'')+'" data-board-label="전체 게시글" data-topic="전체">'+icon('list')+'<span>전체 게시글</span><span class="boardNewDot" aria-hidden="true"></span></button><div class="boardDivider"></div><div class="boardSectionTitle">자동차토론</div>'+boardRows+'</div>';
+  var boardSectionsHtml=boardSections.map(function(section){
+    var boardRows=section.boards.map(function(board){var selected=boardLabel===board[0];return '<button class="boardRow '+(selected?'selected':'')+'" '+(selected?'aria-current="true" ':'')+'data-board-label="'+esc(board[0])+'" data-topic="'+esc(board[1])+'">'+icon('list')+'<span>'+esc(board[0])+'</span></button>'}).join('');
+    return '<div class="boardSectionTitle">'+esc(section.title)+'</div>'+boardRows;
+  }).join('');
+  sh.innerHTML='<div class="handle"></div><div class="sheetHead"><div class="sheetTitle">게시판 선택</div><button class="sheetClose" id="sheetClose" aria-label="닫기">×</button></div><div class="boardSheetScroll"><button class="boardRow '+(boardLabel==='전체 게시글'?'selected':'')+'" '+(boardLabel==='전체 게시글'?'aria-current="true" ':'')+'data-board-label="전체 게시글" data-topic="전체">'+icon('list')+'<span>전체 게시글</span><span class="boardNewDot" aria-hidden="true"></span></button><div class="boardDivider"></div>'+boardSectionsHtml+'</div>';
   ov.classList.add('open');sh.classList.add('open');
   document.getElementById('sheetClose').onclick=closeSheet;
   [].forEach.call(sh.querySelectorAll('[data-board-label]'),function(button){button.onclick=function(){boardLabel=button.dataset.boardLabel;active=Math.max(0,topics.indexOf(button.dataset.topic));document.querySelector('.boardSelectName').textContent=boardLabel;renderTabs();renderList();closeSheet();toast(boardLabel+' 선택')}});
