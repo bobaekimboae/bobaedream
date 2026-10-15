@@ -128,6 +128,28 @@
     ].join('');
   }
 
+  function dealerCard(post,index){
+    var title=cleanTitle(post.title);
+    return [
+      '<article class="chototFeedCard chototDealerFeedCard" data-post-id="'+esc(post.id)+'">',
+        '<div class="chototFeedIdentity">',
+          '<img class="chototFeedAvatar" src="'+avatarAssets[index%avatarAssets.length]+'" alt="'+esc(post.user)+' 프로필">',
+          '<div class="chototFeedAuthor"><strong>'+esc(post.user)+'</strong><span>보배드림 딜러 · '+esc(post.time||'방금 전')+'</span></div>',
+          '<button class="chototFeedMore" type="button" aria-label="게시물 더보기"><img src="'+chototIcon('chotot-common-more')+'" alt=""></button>',
+        '</div>',
+        '<a class="chototDealerCaption" href="./chzzk-detail.html?id='+encodeURIComponent(post.id)+'&v=20261015chototdealer">'+esc(title)+'</a>',
+        mediaMarkup(post,index),
+        '<div class="chototDealerActions" aria-label="딜러 게시물 반응과 연락">',
+          '<button class="chototDealerAction" type="button" data-dealer-like aria-label="좋아요" aria-pressed="false"><img src="'+chototIcon('chotot-common-like')+'" alt=""><span>0</span></button>',
+          '<button class="chototDealerAction" type="button" data-comment="'+esc(post.id)+'" aria-label="댓글 '+esc(post.reply||0)+'개"><img src="'+chototIcon('chotot-list-detail-listing-comment')+'" alt=""><span>'+esc(post.reply||0)+'</span></button>',
+          '<a class="chototDealerAction" href="tel:02-2059-5211" aria-label="딜러에게 전화"><img src="'+chototIcon('chotot-common-phone')+'" alt=""><span>전화</span></a>',
+          '<button class="chototDealerAction" type="button" data-dealer-chat aria-label="딜러와 채팅"><img src="'+chototIcon('chotot-common-chat')+'" alt=""><span>채팅</span></button>',
+          '<button class="chototDealerAction" type="button" data-save="'+esc(post.id)+'" data-dealer-save aria-label="저장" aria-pressed="false"><img src="'+chototIcon('chotot-common-bookmark')+'" alt=""><span>저장</span></button>',
+        '</div>',
+      '</article>'
+    ].join('');
+  }
+
   function ensureGallery(){
     var gallery=document.getElementById('chototGallery');
     if(gallery)return gallery;
@@ -209,6 +231,15 @@
     else if(window.toast)window.toast('공유 링크를 준비했습니다');
   }
 
+  function notify(message){
+    if(window.toast){window.toast(message);return}
+    var element=document.getElementById('toast');
+    if(!element)return;
+    element.textContent=message;
+    element.classList.add('show');
+    window.setTimeout(function(){element.classList.remove('show')},1000);
+  }
+
   function bindCard(card){
     var more=card.querySelector('.chototFeedMoreText');
     var wrap=card.querySelector('.chototFeedBodyWrap');
@@ -275,14 +306,43 @@
     if(menu)menu.onclick=function(){if(window.toast)window.toast('게시물 메뉴')};
   }
 
+  function bindDealerCard(card){
+    bindCard(card);
+    var like=card.querySelector('[data-dealer-like]');
+    if(like)like.onclick=function(){
+      var active=like.classList.toggle('is-active');
+      like.setAttribute('aria-pressed',String(active));
+      like.querySelector('span').textContent=active?'1':'0';
+    };
+    var chat=card.querySelector('[data-dealer-chat]');
+    if(chat)chat.onclick=function(){notify('딜러 채팅을 준비했습니다')};
+    var save=card.querySelector('[data-dealer-save]');
+    if(save)save.onclick=function(){
+      var active=save.classList.toggle('is-active');
+      save.setAttribute('aria-pressed',String(active));
+      save.querySelector('img').src=chototIcon(active?'chotot-common-bookmark-filled':'chotot-common-bookmark');
+      notify(active?'게시물을 저장했습니다':'저장을 취소했습니다');
+    };
+  }
+
   function renderChototFeed(){
     var data=postData();
-    phone.classList.remove('compactMode','feedCafeMode','redditFeedMode');
-    phone.classList.add('chototFeedMode');
-    typeLabel.textContent='피드형 · 초톳';
+    phone.classList.remove('compactMode','feedCafeMode','redditFeedMode','chototDealerFeedMode');
+    phone.classList.add('chototFeedMode','chototBoardFeedMode');
+    typeLabel.textContent='초톳 피드형 · 게시판형';
     list.className='list chototFeedList';
     list.innerHTML='<div class="chototFeedIntro"><strong>사진을 좌우로 넘겨보세요</strong><span>초톳처럼 원본 비율을 살린 가로 피드입니다.</span></div>'+data.map(card).join('');
     [].forEach.call(list.querySelectorAll('.chototFeedCard'),bindCard);
+  }
+
+  function renderChototDealerFeed(){
+    var data=postData();
+    phone.classList.remove('compactMode','feedCafeMode','redditFeedMode','chototBoardFeedMode');
+    phone.classList.add('chototFeedMode','chototDealerFeedMode');
+    typeLabel.textContent='초톳 피드형 · 딜러형';
+    list.className='list chototFeedList chototDealerFeedList';
+    list.innerHTML=data.map(dealerCard).join('');
+    [].forEach.call(list.querySelectorAll('.chototDealerFeedCard'),bindDealerCard);
   }
 
   document.addEventListener('keydown',function(event){
@@ -294,10 +354,14 @@
   });
 
   window.renderChototFeed=renderChototFeed;
+  window.renderChototDealerFeed=renderChototDealerFeed;
   var requestedView=new URLSearchParams(location.search).get('view');
-  if(requestedView==='chotot'||requestedView==='feed-chotot'){
+  if(requestedView==='chotot'||requestedView==='chotot-board'||requestedView==='feed-chotot'){
     if(typeof mode!=='undefined')mode='feed-chotot';
     renderChototFeed();
+  }else if(requestedView==='chotot-dealer'||requestedView==='feed-chotot-dealer'){
+    if(typeof mode!=='undefined')mode='feed-chotot-dealer';
+    renderChototDealerFeed();
   }
   window.addEventListener('pageshow',function(){
     if(!phone.classList.contains('chototFeedMode'))return;
