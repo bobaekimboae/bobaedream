@@ -86,7 +86,7 @@
     var queryId=new URLSearchParams(location.search).get('board');
     var queryParams=new URLSearchParams(location.search);
     var previewGrid=queryParams.get('boardGrid');
-    var panelColumns=previewGrid==='4'?4:previewGrid==='3'?3:null;
+    var panelColumns=previewGrid==='3'?3:4;
     var selectedId=queryId==='home'||boardById[queryId]?queryId:'free';
     var editing=false;
     var draftOrder=[];
@@ -94,6 +94,7 @@
     var dragging=null;
     var longPressTimer=null;
     var longPressActive=false;
+    var toastTimer=null;
 
     function boardForId(id){return id==='home'?{id:'home',displayName:'전체 게시글',shortName:'전체',topicKey:'전체',fixed:true,avatarLabel:'ALL',avatarColor:'#202124',avatarAccent:'#666a70'}:boardById[id]}
     function updateCurrentBoardAvatar(board){
@@ -136,16 +137,41 @@
     var backdrop=document.createElement('div');
     backdrop.className='boardOrderBackdrop';
     backdrop.hidden=true;
-    backdrop.innerHTML='<section class="boardOrderPanel" role="dialog" aria-modal="true" aria-labelledby="boardOrderTitle"><header class="boardOrderHeader"><h2 id="boardOrderTitle">전체 게시판</h2><button class="boardOrderClose" aria-label="닫기"><img src="assets/chzzk-detail/icons/close.svg" alt=""></button></header><div class="boardOrderBody"><button class="boardOrderViewEntry" type="button"><span class="boardOrderViewIcon" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="boardOrderViewCopy"><strong>보기 방식</strong></span><span class="boardOrderViewArrow" aria-hidden="true">›</span></button><div class="boardOrderHeading"><div><strong>내 게시판</strong><span class="boardOrderGuide">누르면 해당 게시판으로 이동합니다</span></div><button class="boardOrderEdit" aria-pressed="false">편집</button></div><div class="boardOrderMyGrid"></div><div class="boardOrderAvailable"><div class="boardOrderSectionTabs" role="tablist" aria-label="게시판 분류"><button role="tab" data-section="게시판">게시판</button><button role="tab" data-section="자료실">자료실</button></div><div class="boardOrderAvailableGrid"></div><p class="boardOrderEmpty" hidden></p></div><button class="boardOrderReset" hidden>기본 순서로 초기화</button><p class="boardOrderHint">내 게시판에서 제외해도 아래 분류에서 다시 추가할 수 있습니다.</p></div><div class="boardOrderLive" aria-live="polite" aria-atomic="true"></div></section>';
+    backdrop.innerHTML='<section class="boardOrderPanel" role="dialog" aria-modal="true" aria-labelledby="boardOrderTitle"><header class="boardOrderHeader"><h2 id="boardOrderTitle">전체 게시판</h2><button class="boardOrderClose" aria-label="닫기"><img src="assets/chzzk-detail/icons/close.svg" alt=""></button></header><div class="boardOrderBody"><button class="boardOrderViewEntry" type="button"><span class="boardOrderViewIcon" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="boardOrderViewCopy"><strong>보기 방식</strong></span><span class="boardOrderViewArrow" aria-hidden="true">›</span></button><div class="boardOrderHeading"><div><strong>내 게시판</strong><span class="boardOrderGuide">누르면 해당 게시판으로 이동합니다</span></div><button class="boardOrderEdit" aria-pressed="false">편집</button></div><div class="boardOrderMyGrid"></div><div class="boardOrderAvailable"><div class="boardOrderSectionTabs" role="tablist" aria-label="게시판 분류"><button role="tab" data-section="게시판">게시판</button><button role="tab" data-section="자료실">자료실</button></div><div class="boardOrderAvailableGrid"></div><p class="boardOrderEmpty" hidden></p></div><button class="boardOrderReset" hidden>기본 순서로 초기화</button><p class="boardOrderHint">변경 내용은 바로 저장되며, 제외한 게시판은 아래에서 다시 추가할 수 있습니다.</p></div><div class="boardOrderToast" role="status" aria-live="polite" hidden><span class="boardOrderToastText"></span><button class="boardOrderUndo" type="button" hidden>되돌리기</button></div><div class="boardOrderLive" aria-live="polite" aria-atomic="true"></div></section>';
     document.body.appendChild(backdrop);
     var panel=backdrop.querySelector('.boardOrderPanel');
     if(panelColumns)panel.dataset.gridColumns=String(panelColumns);
     var myGrid=backdrop.querySelector('.boardOrderMyGrid');
     var availableGrid=backdrop.querySelector('.boardOrderAvailableGrid');
+    var toast=backdrop.querySelector('.boardOrderToast');
+    var toastText=backdrop.querySelector('.boardOrderToastText');
+    var toastUndo=backdrop.querySelector('.boardOrderUndo');
+
+    function hideToast(){
+      clearTimeout(toastTimer);
+      toastTimer=null;
+      toast.hidden=true;
+      toastUndo.hidden=true;
+      toastUndo.onclick=null;
+    }
+    function showToast(message,undo){
+      clearTimeout(toastTimer);
+      toastText.textContent=message;
+      toastUndo.hidden=typeof undo!=='function';
+      toastUndo.onclick=typeof undo==='function'?function(){hideToast();undo()}:null;
+      toast.hidden=false;
+      announce(message);
+      toastTimer=setTimeout(hideToast,5000);
+    }
+    function commitDraft(message){
+      saveState(draftOrder);
+      renderNav();
+      if(message)announce(message);
+    }
 
     function fixedTile(id,label,fullName){
       var selected=id===selectedId;
-      return '<div class="boardOrderItem boardOrderFixed '+(selected?'selected':'')+'" role="button" tabindex="0" data-board-id="'+id+'" data-fixed="true" aria-label="'+escapeHtml(fullName)+' 고정 채널" '+(selected?'aria-current="page"':'')+'><span class="boardOrderName">'+escapeHtml(label)+'</span></div>';
+      return '<div class="boardOrderItem boardOrderFixed '+(selected?'selected':'')+'" role="button" tabindex="0" data-board-id="'+id+'" data-fixed="true" aria-label="'+escapeHtml(fullName)+' 고정 게시판" '+(selected?'aria-current="page"':'')+'><span class="boardOrderName">'+escapeHtml(label)+'</span>'+(editing?'<img class="boardOrderFixedIcon" src="assets/chzzk-detail/icons/lock.svg" alt="고정">':'')+'</div>';
     }
     function movableTile(board){
       var selected=board.id===selectedId;
@@ -160,10 +186,10 @@
     function updateItemLabels(){
       Array.prototype.forEach.call(myGrid.querySelectorAll('.boardOrderItem[data-movable="true"]'),function(item,index){item.setAttribute('aria-label',item.dataset.boardName+' 현재 '+(index+3)+'번째, 방향키로 이동')});
     }
-    function finishDrag(){
+    function finishDrag(shouldSave){
       clearTimeout(longPressTimer);
       if(dragging)dragging.classList.remove('dragging');
-      if(longPressActive)updateDraftFromGrid();
+      if(longPressActive){updateDraftFromGrid();if(shouldSave!==false)commitDraft('게시판 순서를 저장했습니다')}
       dragging=null;
       longPressActive=false;
       document.body.classList.remove('boardOrderDragging');
@@ -187,12 +213,12 @@
           if(!editing&&(event.key==='Enter'||event.key===' ')){event.preventDefault();choose(id,{closePanel:true});return}
           if(!editing||item.dataset.movable!=='true')return;
           var items=Array.prototype.slice.call(myGrid.querySelectorAll('.boardOrderItem[data-movable="true"]'));
-          var index=items.indexOf(item),columns=panelColumns||(innerWidth>=768?6:3),next=index;
+          var index=items.indexOf(item),columns=panelColumns,next=index;
           if(event.key==='ArrowLeft')next=index-1;
           if(event.key==='ArrowRight')next=index+1;
           if(event.key==='ArrowUp')next=index-columns;
           if(event.key==='ArrowDown')next=index+columns;
-          if(next!==index&&next>=0&&next<items.length){event.preventDefault();myGrid.insertBefore(item,next>index?items[next].nextSibling:items[next]);updateDraftFromGrid();updateItemLabels();item.focus();announce(item.dataset.boardName+' '+(next+3)+'번째로 이동')}
+          if(next!==index&&next>=0&&next<items.length){event.preventDefault();myGrid.insertBefore(item,next>index?items[next].nextSibling:items[next]);updateDraftFromGrid();updateItemLabels();commitDraft(item.dataset.boardName+' '+(next+3)+'번째로 이동·저장');item.focus()}
         };
         if(!editing||item.dataset.movable!=='true')return;
         item.ondragstart=function(event){dragging=item;longPressActive=true;item.classList.add('dragging');document.body.classList.add('boardOrderDragging');event.dataTransfer.effectAllowed='move';event.dataTransfer.setData('text/plain',id)};
@@ -205,7 +231,7 @@
           if(source&&source!==item)myGrid.insertBefore(source,item);
           updateDraftFromGrid();
         };
-        item.ondragend=function(){updateDraftFromGrid();finishDrag()};
+        item.ondragend=function(){updateDraftFromGrid();finishDrag(true)};
         item.onpointerdown=function(event){
           if(event.target.closest('.boardOrderRemove')||event.pointerType==='mouse')return;
           clearTimeout(longPressTimer);
@@ -221,11 +247,23 @@
           if(event.clientY<bodyRect.top+64)body.scrollTop-=12;
           if(event.clientY>bodyRect.bottom-64)body.scrollTop+=12;
         };
-        item.onpointerup=item.onpointercancel=function(){updateDraftFromGrid();finishDrag()};
+        item.onpointerup=item.onpointercancel=function(){updateDraftFromGrid();finishDrag(true)};
         var remove=item.querySelector('.boardOrderRemove');
         if(remove){
           remove.onpointerdown=function(event){event.stopPropagation()};
-          remove.onclick=function(event){event.stopPropagation();draftOrder=draftOrder.filter(function(boardId){return boardId!==id});announce(item.dataset.boardName+' 내 채널에서 제외');renderPanel()};
+          remove.onclick=function(event){
+            event.stopPropagation();
+            var removedIndex=draftOrder.indexOf(id);
+            draftOrder=draftOrder.filter(function(boardId){return boardId!==id});
+            commitDraft(item.dataset.boardName+' 내 게시판에서 제외');
+            renderPanel();
+            showToast(item.dataset.boardName+'을 제외했습니다',function(){
+              if(draftOrder.indexOf(id)<0)draftOrder.splice(Math.max(0,removedIndex),0,id);
+              commitDraft(item.dataset.boardName+' 제외를 취소');
+              renderPanel();
+              showToast(item.dataset.boardName+'을 다시 추가했습니다');
+            });
+          };
         }
       });
     }
@@ -239,9 +277,9 @@
       empty.textContent=activeSection+'의 모든 게시판이 내 채널에 추가되어 있습니다.';
       Array.prototype.forEach.call(availableGrid.querySelectorAll('.boardOrderAdd'),function(button){button.onclick=function(){
         var id=button.dataset.boardId;
-        if(editing){if(draftOrder.indexOf(id)<0)draftOrder.push(id)}else{var next=loadState().activeOrder.slice();if(next.indexOf(id)<0)next.push(id);saveState(next);renderNav()}
-        announce(boardById[id].displayName+' 내 채널에 추가');
+        if(editing){if(draftOrder.indexOf(id)<0)draftOrder.push(id);commitDraft(boardById[id].displayName+' 내 게시판에 추가')}else{var next=loadState().activeOrder.slice();if(next.indexOf(id)<0)next.push(id);saveState(next);draftOrder=next.slice();renderNav()}
         renderPanel();
+        showToast(boardById[id].displayName+'을 추가했습니다');
       }});
     }
     function renderPanel(){
@@ -270,17 +308,25 @@
       document.body.classList.add('boardOrderOpen');
       backdrop.querySelector('.boardOrderClose').focus();
     }
-    function closePanel(){finishDrag();editing=false;backdrop.hidden=true;document.body.classList.remove('boardOrderOpen');menuButton.focus()}
+    function closePanel(){
+      if(editing){updateDraftFromGrid();commitDraft()}
+      finishDrag(false);
+      hideToast();
+      editing=false;
+      backdrop.hidden=true;
+      document.body.classList.remove('boardOrderOpen');
+      menuButton.focus();
+    }
 
     menuButton.onclick=function(){openPanel({showViewEntry:true})};
     if(headerMenuButton)headerMenuButton.onclick=function(){openPanel({showViewEntry:false})};
     backdrop.querySelector('.boardOrderClose').onclick=closePanel;
     backdrop.querySelector('.boardOrderViewEntry').onclick=function(){closePanel();if(api&&api.onOpenView)api.onOpenView()};
     backdrop.querySelector('.boardOrderEdit').onclick=function(){
-      if(editing){updateDraftFromGrid();saveState(draftOrder);editing=false;renderNav();announce('내 채널 순서를 저장했습니다')}else{draftOrder=loadState().activeOrder.slice();editing=true}
+      if(editing){updateDraftFromGrid();commitDraft();editing=false;showToast('편집을 완료했습니다')}else{draftOrder=loadState().activeOrder.slice();editing=true;announce('게시판 편집을 시작했습니다')}
       renderPanel();
     };
-    backdrop.querySelector('.boardOrderReset').onclick=function(){draftOrder=defaultActiveOrder.slice();announce('기본 순서로 되돌렸습니다');renderPanel()};
+    backdrop.querySelector('.boardOrderReset').onclick=function(){draftOrder=defaultActiveOrder.slice();commitDraft('기본 순서로 저장');renderPanel();showToast('기본 순서로 되돌렸습니다')};
     backdrop.onclick=function(event){if(event.target===backdrop)closePanel()};
     document.addEventListener('keydown',function(event){if(event.key==='Escape'&&!backdrop.hidden)closePanel()});
 
