@@ -89,7 +89,7 @@
 .dp-profile-inline.is-location .dp-icon { width: 22px; height: 22px; margin-right: 8px; }
 .dp-profile-inline.is-location > span:first-of-type { white-space: normal; word-break: keep-all; }
 .dp-profile-inline.is-dealership { grid-column: 1 / -1; grid-row: 9; margin-top: 12px; }
-.dp-profile-inline.is-dealership .dp-icon { width: 20px; height: 20px; margin-right: 8px; }
+.dp-profile-inline.is-dealership .dp-icon { width: 20px; height: 20px; margin-right: 8px; opacity: .86; }
 .dp-profile-inline.is-dealership i { display: inline; width: auto; height: auto; margin: 0 7px; background: none; color: #999; font-style: normal; }
 .dp-profile-inline.is-dealership b { color: #777; font-weight: 500; }
 .dp-profile-inline.is-phone { grid-column: 1 / -1; grid-row: 7; margin-top: 12px; }
