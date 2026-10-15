@@ -1,0 +1,42 @@
+{
+  "sourceDatabase": "https://app.notion.com/p/1e3ee9c4b6068060ab04e62cc9445b8b",
+  "downloadedAt": "2026-10-15",
+  "icons": [
+    {
+      "usage": "추천",
+      "notionPageUrl": "https://app.notion.com/p/3c3ee9c4b606809ab457ca4299b8d6ee",
+      "localFile": "icons/vote-up.svg",
+      "sha256": "A747AA88B53E5E932D09800F82BCB538984088D7EDD776F49798275E2CB491A6"
+    },
+    {
+      "usage": "비추천",
+      "notionPageUrl": "https://app.notion.com/p/3c3ee9c4b6068085ac45c1c46d522045",
+      "localFile": "icons/vote-down.svg",
+      "sha256": "9A4D0B69EC0DB099C4D3D7DF6AEB095492F96C55B935D7F605B8D700EA5314DA"
+    },
+    {
+      "usage": "댓글",
+      "notionPageUrl": "https://app.notion.com/p/3c0ee9c4b606809cb5eef3bf011d9752",
+      "localFile": "icons/comment-reddit.svg",
+      "sha256": "9533097956260D5C48DEED8195B9AB2F8B7E0752DAFBEC4ACAC7D815D6106281"
+    },
+    {
+      "usage": "공유",
+      "notionPageUrl": "https://app.notion.com/p/3c0ee9c4b6068007b534e439425d9097",
+      "localFile": "icons/share-reddit.svg",
+      "sha256": "2EA75E573E4300BC9B2C9C4A716CE1ACFAF493DBBBEB2E3172C9D41006CACBDC"
+    },
+    {
+      "usage": "더보기",
+      "notionPageUrl": "https://app.notion.com/p/3c2ee9c4b606803da7f8ed04ae66a1ab",
+      "localFile": "icons/more-reddit.svg",
+      "sha256": "63B1561BEE22A7907FA61B31321E5AFDDDA5C87C54269173DC7E79A78B774993"
+    },
+    {
+      "usage": "답글",
+      "notionPageUrl": "https://app.notion.com/p/3bfee9c4b60680f0beeee34fb4ea79c8",
+      "localFile": "icons/reply-reddit.svg",
+      "sha256": "527102ED42DF52594A95E25802E591D35EA9E795874153DDF54FCEAB3722F3BB"
+    }
+  ]
+}

@@ -76,6 +76,23 @@ final result: passed
 
 ---
 
+# 커뮤니티 상세정보 시나리오 5종 QA · 2026-10-15
+
+- source visual truth: 기존 치지직 상세 레이아웃과 Reddit식 댓글 작업 영역
+- implementation: `public/community/chzzk-detail.html?id=1` ~ `id=5`
+- scenarios: GV80 장거리 시승, 테슬라 업데이트, 모델Y 트렁크 매트, 모델3 도어라이트 DIY, 프렁크 소프트 클로징
+- content: 각 글 본문 4단락, 태그 3개, 상위 댓글 3개, 대댓글 1~3개
+- interaction: 게시글 추천·비추, 댓글 추천·비추, 답글 대상 자동 입력, 댓글 공유를 모든 시나리오에서 확인
+- image treatment: 상세 이미지는 전폭 16px 반경(모바일 10px), 본문과 18~24px 간격. 첫 시나리오는 저장소의 제네시스 GV80 자산을 사용해 제목·사진 불일치를 제거
+- responsive evidence: 384×844에서 5개 전체 가로 넘침 없음. 고정 댓글 입력창과 댓글 작업 버튼이 콘텐츠를 가로로 밀지 않음
+- screenshots: `artifacts/community-detail-scenarios-1015/scenario-1-mobile-384.png` ~ `scenario-5-mobile-384.png`
+- verification: `community:verify:detail-scenarios`, `community:verify:detail-actions`, `community:verify:compact-write` 통과
+- P0/P1/P2 findings: none
+
+final result: passed
+
+---
+
 # 딜러 프로필 · 인스타그램형 정보 위계 QA · 2026-10-15
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/2fa25692-156f-4b36-9fd0-5541173e51a6/1-1000018350.jpg`
@@ -318,6 +335,34 @@ final result: passed
 - 상호작용: 버프 -4→-3, 너프 전환 -3→-5, 답글쓰기 `@익씽 ` 입력 및 등록 버튼 활성화 통과.
 - `npm run verify`: 관리자 29건, Sites 4건, 타입 검사·프로덕션 빌드 전체 통과.
 - P0/P1/P2 findings: none.
+
+final result: passed
+
+---
+
+# 치지직 상세 · Reddit 댓글 액션 v8 QA · 2026-10-15
+
+- source visual truth: 사용자 첨부 `1000018336.jpg`의 Reddit 모바일 게시글·댓글 액션 영역
+- icon source: 사용자 제공 Notion `미국_레딧` DB의 `N_커뮤니티 시안용 아이콘 모음`과 답글 아이콘
+- implementation: `public/community/chzzk-detail.html?id=8326278`
+- viewport: 모바일 384 × 844, 360 × 800 CSS px
+
+## Cross-check evidence
+
+- 게시글 반응을 `추천 아이콘 + 추천 + 점수 + 비추 아이콘 + 비추`, 댓글 수, 우측 공유 순서로 재구성했다.
+- 댓글과 답글에 `더보기 / 답글 / 공유 / 추천 / 비추` 액션을 같은 크기 체계로 추가했다.
+- 360px에서 문구와 숫자가 잘리지 않고 가로 스크롤이 생기지 않는다(`scrollWidth 345 / viewport 360`).
+- 추천과 비추는 같은 그룹에서 상호 배타적으로 동작하고, 답글 버튼은 `@쿠로토라 `를 입력창에 준비한다.
+- 실제 댓글 시나리오 `8325190`도 같은 아이콘·명칭으로 교체했고 답글 대상 `@익씽 `을 유지한다.
+- Notion 원본 SVG 6개는 `reddit-icon-manifest.json`에 페이지 URL과 SHA-256을 기록했다.
+
+## Verification
+
+- `npm run community:verify:detail-actions`: passed
+- `npm run community:verify:compact-write`: passed
+- `npm run build`: passed
+- 브라우저 console warning/error: 0건
+- P0/P1/P2 findings: none
 
 final result: passed
 

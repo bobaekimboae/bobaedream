@@ -99,19 +99,21 @@ img { display: block; }
 .userInquiryBody p { margin: 0; font-size: 18px; line-height: 1.75; font-weight: 400; letter-spacing: -.03em; white-space: normal; }
 .tagRow { display: flex; gap: 10px; margin-top: 24px; }
 .tagRow button { min-height: 42px; padding: 0 14px; border-radius: 10px; background: #f4f4f4; font-size: 17px; }
-.reactionRow { display: flex; min-height: 82px; align-items: center; justify-content: flex-start; gap: 8px; }
-.votePill, .roundAction { height: 44px; border: 1px solid var(--line); border-radius: 999px; background: #ffffff; }
-.votePill { display: flex; align-items: center; padding: 0 2px; }
-.voteButton { display: grid; width: 44px; height: 44px; flex: 0 0 44px; border-radius: 50%; place-items: center; }
-.voteButton img { width: 26px; height: 26px; }
+.reactionRow { display: flex; min-height: 90px; align-items: center; justify-content: flex-start; gap: 10px; }
+.votePill, .roundAction { height: 42px; border: 1px solid #d7d7d7; border-radius: 22px; background: #ffffff; }
+.votePill { display: flex; align-items: center; overflow: hidden; }
+.voteButton { display: flex; height: 40px; align-items: center; gap: 5px; padding: 0 10px; font-size: 13px; font-weight: 750; white-space: nowrap; }
+.voteButton img { width: 18px; height: 18px; }
 .voteButton.active { color: var(--brand-dark); background: var(--brand-soft); }
 .voteButton.active img { filter: invert(28%) sepia(95%) saturate(2858%) hue-rotate(335deg) brightness(102%) contrast(102%); }
 .voteButton.down.active { color: var(--ink); background: var(--soft); }
 .voteButton.down.active img { filter: brightness(0) saturate(100%); }
-.votePill strong { min-width: 34px; font-size: 17px; font-weight: 550; text-align: center; font-variant-numeric: tabular-nums; }
-.roundAction { display: flex; min-width: 44px; align-items: center; justify-content: center; gap: 6px; padding: 0 10px; color: var(--ink); font-size: 16px; font-weight: 550; }
-.roundAction img { width: 26px; height: 26px; }
-.reactionRow > .roundAction:last-child { margin-left: auto; padding: 0; }
+.votePill strong { min-width: 28px; padding: 0 2px; border-right: 1px solid #e5e5e5; border-left: 1px solid #e5e5e5; font-size: 14px; line-height: 22px; text-align: center; font-variant-numeric: tabular-nums; }
+.roundAction { display: flex; min-width: 42px; align-items: center; justify-content: center; gap: 5px; padding: 0 12px; color: var(--ink); font-size: 14px; font-weight: 700; }
+.roundAction img { width: 19px; height: 19px; }
+.commentAction { min-width: 62px; }
+.shareAction { width: 42px; padding: 0; }
+.reactionRow > .roundAction:last-child { margin-left: auto; }
 
 .noticePost { padding: 34px 24px 0; }
 .noticeCopy { display: grid; min-height: 380px; align-content: space-between; font-size: 20px; line-height: 1.75; letter-spacing: -.04em; }
@@ -150,24 +152,37 @@ img { display: block; }
 .commentAuthor, .replyAuthor { display: flex; align-items: center; gap: 7px; }
 .commentAuthor strong { font-size: 16px; }
 .commentAuthor span, .replyAuthor span { color: #999999; font-size: 13px; }
-.commentAuthor button { display: grid; width: 34px; height: 34px; margin-left: auto; place-items: center; }
-.commentAuthor button img { width: 21px; height: 21px; }
+
 .commentContent > p { margin: 7px 0 12px; font-size: 17px; }
-.commentTools, .nestedTools { display: flex; min-height: 42px; align-items: center; gap: 12px; color: var(--sub); font-size: 14px; }
+.commentTools, .nestedTools { display: flex; min-height: 42px; align-items: center; gap: 6px; color: var(--sub); font-size: 13px; }
 .commentTools > strong { color: var(--sub); }
-.miniVotes { display: flex; height: 38px; align-items: center; gap: 0; margin-left: auto; padding: 0 2px; border: 1px solid var(--line); border-radius: 999px; background: #fff; }
-.miniVotes button { display: grid; width: 34px; min-width: 34px; height: 34px; padding: 0; border-radius: 50%; background: #fff; place-items: center; }
-.miniVotes button.active { background: var(--brand-soft); }
+.commentIconButton, .commentTextButton { display: flex; height: 34px; align-items: center; justify-content: center; border-radius: 17px; color: #5f666b; }
+.commentIconButton { width: 34px; flex: 0 0 34px; }
+.commentIconButton img { width: 19px; height: 19px; }
+.commentTextButton { gap: 4px; padding: 0 7px; font-size: 12px; font-weight: 650; white-space: nowrap; }
+.commentTextButton img { width: 17px; height: 17px; }
+.commentIconButton:hover, .commentTextButton:hover, .commentIconButton:focus-visible, .commentTextButton:focus-visible { background: #f2f2f3; }
+.replyCount { white-space: nowrap; }
+.miniVotes { display: flex; align-items: center; margin-left: auto; border: 1px solid #d7d7d7; border-radius: 18px; overflow: hidden; }
+.miniVotes button { display: flex; height: 34px; align-items: center; justify-content: center; gap: 3px; padding: 0 7px; background: #fff; font-size: 12px; font-weight: 750; white-space: nowrap; }
+.miniVotes button.active { color: var(--brand-dark); background: var(--brand-soft); }
 .miniVotes button.active img { filter: invert(28%) sepia(95%) saturate(2858%) hue-rotate(335deg) brightness(102%) contrast(102%); }
-.miniVotes button img { width: 21px; height: 21px; }
-.miniVotes b { min-width: 22px; font-size: 14px; font-weight: 550; text-align: center; }
+.miniVotes button:last-child.active { color: var(--ink); background: var(--soft); }
+.miniVotes button:last-child.active img { filter: brightness(0) saturate(100%); }
+.miniVotes button img { width: 16px; height: 16px; }
+.miniVotes b { min-width: 25px; border-right: 1px solid #e5e5e5; border-left: 1px solid #e5e5e5; line-height: 20px; text-align: center; font-variant-numeric: tabular-nums; }
 .nestedReply { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 10px; margin-top: 18px; padding-top: 2px; }
 .replyAvatar { width: 38px; height: 38px; }
 .replyAuthor strong { font-size: 15px; }
 .authorBadge { padding: 2px 6px; border-radius: 6px; background: #eeeeee; color: #555 !important; font-size: 11px !important; }
 .nestedReply a { display: inline-block; margin-top: 7px; color: var(--green); font-size: 15px; font-weight: 700; text-decoration: none; }
+.replyText { margin: 8px 0 0; font-size: 15px; line-height: 1.55; }
 .replySticker { width: 150px; max-width: 65%; height: auto; margin-top: 8px; }
 .nestedTools { margin-top: 8px; }
+
+.detailPhoto { display: block; width: 100%; max-height: 560px; border-radius: 16px; background: #f1f1f1; object-fit: cover; }
+.detailCopy { display: grid; gap: 18px; margin-top: 24px; }
+.detailCopy p { margin: 0; font-size: 17px; line-height: 1.7; white-space: pre-line; }
 
 .toTop { display: flex; width: 100%; height: 102px; align-items: center; justify-content: center; gap: 12px; border-bottom: 1px solid var(--line); font-size: 17px; font-weight: 700; }
 .toTop span { display: grid; width: 42px; height: 42px; border-radius: 50%; background: #e4e4e6; place-items: center; }
@@ -230,6 +245,9 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
   .postBody { min-height: 0; padding-top: 20px; }
   .heroSticker { width: 139px; margin: 0 0 12px; }
   .postBody p { font-size: 15px; line-height: 21px; font-weight: 500; }
+  .detailPhoto { max-height: 280px; border-radius: 10px; }
+  .detailCopy { gap: 16px; margin-top: 18px; }
+  .detailCopy p { font-size: 15px; line-height: 1.62; }
   .loopBanner { margin-bottom: 18px; border-radius: 4px; }
   .longNoticeBody { gap: 20px; }
   .longNoticeBody p { font-size: 15px; line-height: 1.58; }
@@ -242,12 +260,12 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
   .tagRow button { min-height: 32px; padding: 0 10px; border-radius: 7px; font-size: 13px; }
   .reactionRow { min-height: 66px; gap: 6px; }
   .votePill, .roundAction { height: 40px; }
-  .voteButton { width: 40px; height: 40px; flex-basis: 40px; }
-  .voteButton img { width: 24px; height: 24px; }
-  .votePill strong { min-width: 30px; font-size: 15px; }
-  .roundAction { min-width: 40px; gap: 5px; padding: 0 9px; font-size: 14px; }
-  .reactionRow > .roundAction:last-child { padding: 0; }
-  .roundAction img { width: 24px; height: 24px; }
+  .voteButton { height: 38px; gap: 4px; padding: 0 8px; font-size: 12px; }
+  .voteButton img { width: 17px; height: 17px; }
+  .votePill strong { min-width: 25px; font-size: 13px; }
+  .roundAction { padding: 0 10px; }
+  .commentAction { min-width: 56px; }
+  .shareAction { width: 40px; padding: 0; }
   .promoBanner img { height: 86px; min-height: 0; object-fit: cover; }
   .latestCard { margin: 15px; padding: 18px; border-radius: 14px; }
   .latestHead { margin-bottom: 8px; font-size: 15px; }
@@ -271,19 +289,26 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
   .commentAuthor { gap: 5px; }
   .commentAuthor strong { font-size: 13px; }
   .commentAuthor span, .replyAuthor span { font-size: 12px; }
-  .commentAuthor button { width: 30px; height: 30px; }
-  .commentAuthor button img { width: 20px; height: 20px; }
   .commentContent > p { margin: 7px 0 8px; font-size: 15px; }
-  .commentTools, .nestedTools { min-height: 34px; gap: 10px; font-size: 12px; }
-  .miniVotes { height: 34px; gap: 0; padding: 0 1px; }
-  .miniVotes button { width: 30px; min-width: 30px; height: 30px; }
-  .miniVotes button img { width: 20px; height: 20px; }
-  .miniVotes b { min-width: 20px; font-size: 12px; }
+  .commentTools, .nestedTools { min-height: 34px; gap: 3px; font-size: 11px; }
+  .commentIconButton { width: 30px; height: 32px; flex-basis: 30px; }
+  .commentIconButton img { width: 17px; height: 17px; }
+  .commentTextButton { height: 32px; gap: 3px; padding: 0 5px; font-size: 11px; }
+  .commentTextButton img { width: 16px; height: 16px; }
+  .replyCount { display: none; }
+  .miniVotes { margin-left: auto; border-radius: 17px; }
+  .miniVotes button { height: 32px; gap: 2px; padding: 0 5px; font-size: 11px; }
+  .miniVotes button img { width: 15px; height: 15px; }
+  .miniVotes b { min-width: 22px; }
   .nestedReply { grid-template-columns: 30px minmax(0, 1fr); gap: 10px; margin-top: 16px; }
   .replyAvatar { width: 30px; height: 30px; }
   .replyAuthor strong { font-size: 13px; }
+  .replyText { margin-top: 6px; font-size: 14px; line-height: 20px; }
   .nestedReply a { margin-top: 6px; font-size: 15px; }
   .replySticker { width: 96px; margin-top: 8px; }
+  .nestedTools .commentShareButton span, .nestedTools .miniVotes span { display: none; }
+  .nestedTools .commentTextButton { width: 32px; padding: 0; }
+  .nestedTools .miniVotes button { width: 32px; padding: 0; }
   .toTop { height: 64px; gap: 8px; font-size: 14px; }
   .toTop span { width: 34px; height: 34px; }
   .toTop img { width: 20px; height: 20px; }

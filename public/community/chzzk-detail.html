@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
-  <meta name="ui-version" content="chzzk-detail-reference-v11-20261015">
+  <meta name="ui-version" content="chzzk-detail-scenarios-v11-20261015">
   <title>치지직 | 커뮤니티 상세</title>
   <link rel="stylesheet" href="../%61ssets/fonts/pretendard/pretendard-guazi.css">
   <link rel="stylesheet" href="./chzzk-detail.css?v=20261015v11">
@@ -43,12 +43,12 @@
       <div class="tagRow" aria-label="태그"><button>#출첵</button><button>#출석체크</button></div>
       <div class="reactionRow" aria-label="게시글 반응">
         <div class="votePill">
-          <button class="voteButton" id="upBtn" aria-label="추천" aria-pressed="false"><span class="srOnly">추천</span><img src="assets/chzzk-detail/icons/buff.svg?v=20261015v10" alt=""></button>
+          <button class="voteButton" id="upBtn" aria-label="추천" aria-pressed="false"><img src="assets/chzzk-detail/icons/buff.svg?v=20261015v11" alt=""><span>추천</span></button>
           <strong id="score">16</strong>
-          <button class="voteButton down" id="downBtn" aria-label="비추천" aria-pressed="false"><span class="srOnly">비추천</span><img src="assets/chzzk-detail/icons/nerf.svg?v=20261015v10" alt=""></button>
+          <button class="voteButton down" id="downBtn" aria-label="비추" aria-pressed="false"><img src="assets/chzzk-detail/icons/nerf.svg?v=20261015v11" alt=""><span>비추</span></button>
         </div>
-        <button class="roundAction" id="commentJump" aria-label="댓글로 이동"><img src="assets/chzzk-detail/icons/comment.svg" alt=""><span id="actionCommentCount">2</span></button>
-        <button class="roundAction" id="shareBtn" aria-label="공유"><img src="assets/chzzk-detail/icons/share.svg" alt=""></button>
+        <button class="roundAction commentAction" id="commentJump" aria-label="댓글로 이동"><img src="assets/chzzk-detail/icons/comment-reddit.svg" alt=""><span id="actionCommentCount">2</span></button>
+        <button class="roundAction shareAction" id="shareBtn" aria-label="게시글 공유"><img src="assets/chzzk-detail/icons/share-reddit.svg" alt=""></button>
       </div>
     </article>
 
@@ -59,7 +59,7 @@
       </div>
       <p class="noticeUpdate">(2026. 09. 23 11:20 업데이트)</p>
       <div class="tagRow"><button>#그님티</button><button>#내전</button></div>
-      <div class="reactionRow noticeReaction"><div class="votePill"><button class="voteButton" aria-label="추천"><span class="srOnly">추천</span><img src="assets/chzzk-detail/icons/buff.svg?v=20261015v10" alt=""></button><strong>12</strong><button class="voteButton down" aria-label="비추천"><span class="srOnly">비추천</span><img src="assets/chzzk-detail/icons/nerf.svg?v=20261015v10" alt=""></button></div></div>
+      <div class="reactionRow noticeReaction"><div class="votePill"><button class="voteButton" aria-label="추천"><img src="assets/chzzk-detail/icons/vote-up.svg" alt=""><span>추천</span></button><strong>12</strong><button class="voteButton down" aria-label="비추"><img src="assets/chzzk-detail/icons/vote-down.svg" alt=""><span>비추</span></button></div></div>
     </article>
 
     <a class="promoBanner" href="#latest"><img src="assets/detail-parity/chzzk-style-promo-banner.png" alt="드라이브 챌린지 자동차 인증 이벤트"></a>
@@ -81,12 +81,18 @@
         <li class="commentItem">
           <img class="commentAvatar" src="assets/chzzk-detail/comment-avatar.gif" alt="댓글 작성자">
           <div class="commentContent">
-            <div class="commentAuthor"><strong>전국제패 모범생 4669</strong><span>7시간 전</span><button aria-label="댓글 더보기"><img src="assets/chzzk-detail/icons/more.svg" alt=""></button></div>
+            <div class="commentAuthor"><strong>전국제패 모범생 4669</strong><span>7시간 전</span></div>
             <p>ㅊㅊ</p>
-            <div class="commentTools"><button class="replyButton">답글쓰기</button><strong>답글 1</strong><div class="miniVotes"><button aria-label="댓글 추천"><span class="srOnly">추천</span><img src="assets/chzzk-detail/icons/buff.svg?v=20261015v10" alt=""></button><b>1</b><button aria-label="댓글 비추천"><span class="srOnly">비추천</span><img src="assets/chzzk-detail/icons/nerf.svg?v=20261015v10" alt=""></button></div></div>
+            <div class="commentTools" aria-label="댓글 작업">
+              <button class="commentIconButton moreCommentButton" aria-label="댓글 더보기"><img src="assets/chzzk-detail/icons/more-reddit.svg" alt=""></button>
+              <button class="commentTextButton replyButton" data-reply-user="쿠로토라"><img src="assets/chzzk-detail/icons/reply-reddit.svg" alt=""><span>답글</span></button>
+              <button class="commentTextButton commentShareButton" data-comment-share="comment-1" aria-label="댓글 공유"><img src="assets/chzzk-detail/icons/share-reddit.svg" alt=""><span>공유</span></button>
+              <strong class="replyCount">답글 1</strong>
+              <div class="miniVotes"><button aria-label="댓글 추천"><img src="assets/chzzk-detail/icons/vote-up.svg" alt=""><span>추천</span></button><b>1</b><button aria-label="댓글 비추"><img src="assets/chzzk-detail/icons/vote-down.svg" alt=""><span>비추</span></button></div>
+            </div>
             <div class="nestedReply">
               <img class="replyAvatar" src="assets/chzzk-detail/author-avatar.png" alt="답글 작성자">
-              <div><div class="replyAuthor"><strong>쿠로토라</strong><span class="authorBadge">작성자</span><span>6시간 전</span></div><a href="#">전국제패 모범생 4669</a><img class="replySticker" src="assets/chzzk-detail/reply-cat.png" alt="야호 고양이 스티커"><div class="nestedTools"><button>답글쓰기</button><div class="miniVotes"><button aria-label="답글 추천"><span class="srOnly">추천</span><img src="assets/chzzk-detail/icons/buff.svg?v=20261015v10" alt=""></button><button aria-label="답글 비추천"><span class="srOnly">비추천</span><img src="assets/chzzk-detail/icons/nerf.svg?v=20261015v10" alt=""></button></div></div></div>
+              <div><div class="replyAuthor"><strong>쿠로토라</strong><span class="authorBadge">작성자</span><span>6시간 전</span></div><a href="#">전국제패 모범생 4669</a><img class="replySticker" src="assets/chzzk-detail/reply-cat.png" alt="야호 고양이 스티커"><div class="nestedTools" aria-label="답글 작업"><button class="commentIconButton moreCommentButton" aria-label="답글 더보기"><img src="assets/chzzk-detail/icons/more-reddit.svg" alt=""></button><button class="commentTextButton replyButton" data-reply-user="쿠로토라"><img src="assets/chzzk-detail/icons/reply-reddit.svg" alt=""><span>답글</span></button><button class="commentTextButton commentShareButton" data-comment-share="reply-1" aria-label="답글 공유"><img src="assets/chzzk-detail/icons/share-reddit.svg" alt=""><span>공유</span></button><div class="miniVotes"><button aria-label="답글 추천"><img src="assets/chzzk-detail/icons/vote-up.svg" alt=""><span>추천</span></button><button aria-label="답글 비추"><img src="assets/chzzk-detail/icons/vote-down.svg" alt=""><span>비추</span></button></div></div></div>
             </div>
           </div>
         </li>
@@ -104,7 +110,7 @@
     </form>
   </main>
   <div class="toast" id="toast" role="status"></div>
-  <script src="./scenario-data.js?v=20260820e"></script>
+  <script src="./scenario-data.js?v=20261015v11"></script>
   <script src="./chzzk-detail.js?v=20261015v11"></script>
 </body>
 </html>
