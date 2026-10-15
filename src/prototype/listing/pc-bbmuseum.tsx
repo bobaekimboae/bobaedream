@@ -40,7 +40,7 @@ const bbGnbMoreItems: readonly BbGnbItem[] = [
   { label: "올드카", category: "올드카" },
 ];
 // QF-091: 헤더 아이콘·로고는 개발 시안 원본 파일(public/assets/bbm/)
-const bbHeaderIcons: Array<[string, string]> = [["search", "검색"], ["mypage", "마이페이지"], ["heart", "찜"], ["chat", "채팅"], ["notification", "알림"], ["menu", "메뉴"]];
+const bbHeaderIcons: Array<[string, string]> = [["heart", "찜"], ["mypage", "마이페이지"]];
 const bbmAsset = (name: string) => asset(`bbm/${name}.svg`);
 
 function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searchSlot }: { category: string; onChooseCategory: (category: string) => void; onNotify: (message: string) => void; onOpenFavorites: () => void; searchSlot?: ReactNode }) {
@@ -84,24 +84,27 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
         <div className="bbm-header-top">
           {["로그인", "회원가입", "고객센터"].map((label, index) => <span key={label} className="bbm-header-top-item">{index ? <img src={bbmAsset("header-top-divider")} alt="" aria-hidden="true" /> : null}<button type="button" onClick={() => onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`)}>{label}</button></span>)}
         </div>
-        <button type="button" className="bbm-logo" aria-label="보배드림 처음으로" onClick={() => document.querySelector(".app-screen")?.scrollTo({ top: 0 })}>
-          <img src={bbmAsset("header-logo")} alt="보배드림" draggable={false} />
-        </button>
-        <div className="bbm-gnb-row">
-          <nav className="bbm-gnb" aria-label="주 메뉴">
-            {bbGnbItems.map((item) => item.action === "more" ? (
-              <div className="bbm-gnb-more-wrap" ref={moreRef} key={item.label}>
-                <button type="button" className={`bbm-gnb-more${item.label === activeItem ? " is-active" : ""}`} aria-current={item.label === activeItem ? "page" : undefined} aria-haspopup="menu" aria-expanded={moreOpen} onClick={() => chooseMenu(item)}>
-                  <span>{item.label}</span><BbIcon name="chevron-down" size={18} />
-                </button>
-                {moreOpen ? <div className="bbm-gnb-more-menu" role="menu">{bbGnbMoreItems.map((moreItem) => <button key={moreItem.label} type="button" role="menuitem" className={moreItem.category === category ? "is-current" : ""} onClick={() => chooseMenu(moreItem)}>{moreItem.label}</button>)}</div> : null}
-              </div>
-            ) : <button key={item.label} type="button" className={`${item.label === activeItem ? "is-active" : ""}${item.action === "home" ? " is-home" : ""}`} aria-current={item.label === activeItem ? "page" : undefined} onClick={() => chooseMenu(item)}>{item.label}</button>)}
-          </nav>
+        <div className="bbm-header-main">
+          <button type="button" className="bbm-logo" aria-label="보배드림 처음으로" onClick={() => document.querySelector(".app-screen")?.scrollTo({ top: 0 })}>
+            <img src={bbmAsset("header-logo")} alt="보배드림" draggable={false} />
+          </button>
           {searchSlot ? <div className="bbm-header-search-slot">{searchSlot}</div> : null}
           <div className="bbm-header-icons">
             {bbHeaderIcons.map(([icon, label]) => <button key={icon} type="button" aria-label={label} onClick={() => icon === "heart" ? onOpenFavorites() : onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`)}><img src={bbmAsset(`header-${icon}`)} alt="" aria-hidden="true" /></button>)}
           </div>
+        </div>
+        <div className="bbm-gnb-row">
+          <nav className="bbm-gnb" aria-label="주 메뉴">
+            {bbGnbItems.map((item, index) => <Fragment key={item.label}>
+              {index ? <span className="bbm-gnb-dot" aria-hidden="true">·</span> : null}
+              {item.action === "more" ? <div className="bbm-gnb-more-wrap" ref={moreRef}>
+                <button type="button" className={`bbm-gnb-more${item.label === activeItem ? " is-active" : ""}`} aria-current={item.label === activeItem ? "page" : undefined} aria-haspopup="menu" aria-expanded={moreOpen} onClick={() => chooseMenu(item)}>
+                  <span>{item.label}</span><BbIcon name="chevron-down" size={18} />
+                </button>
+                {moreOpen ? <div className="bbm-gnb-more-menu" role="menu">{bbGnbMoreItems.map((moreItem) => <button key={moreItem.label} type="button" role="menuitem" className={moreItem.category === category ? "is-current" : ""} onClick={() => chooseMenu(moreItem)}>{moreItem.label}</button>)}</div> : null}
+              </div> : <button type="button" className={`${item.label === activeItem ? "is-active" : ""}${item.action === "home" ? " is-home" : ""}`} aria-current={item.label === activeItem ? "page" : undefined} onClick={() => chooseMenu(item)}>{item.label}</button>}
+            </Fragment>)}
+          </nav>
         </div>
       </div>
     </header>

@@ -6,36 +6,38 @@
   .marketplace.is-bbm { min-height: 100%; padding: 0 0 48px; background: #f4f4f4; color: #1a1a1a; }
   .marketplace.is-bbm button { font-family: inherit; cursor: pointer; }
 
-  /* QF-048 헤더 117 (유틸 29 · 로고 · GNB 54), 스크롤 고정 없음 */
+  /* 카이디형 검색 중심 헤더: 유틸 20 · 검색 행 48 · 메뉴 49 */
   .bbm-header { height: 117px; background: #fff; box-shadow: 0 1px 0 #ebebeb; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
   .bbm-header-inner { position: relative; width: min(1200px, calc(100% - 48px)); height: 117px; margin: 0 auto; }
-  .bbm-header-top { display: flex; align-items: center; justify-content: flex-end; height: 29px; padding: 8px 0 4px; box-sizing: border-box; }
+  .bbm-header-top { display: flex; align-items: center; justify-content: flex-end; height: 20px; padding: 3px 0 1px; box-sizing: border-box; }
   .bbm-header-top button { position: relative; padding: 0; border: 0; background: none; color: #767676; font-size: 12px; font-weight: 600; line-height: 16.8px; }
   .bbm-header-top button + button { margin-left: 17px; }
   .bbm-header-top button + button::before { content: ""; position: absolute; top: 4.4px; left: -9px; width: 1px; height: 8px; background: #e0e0e0; }
-  .bbm-logo { position: absolute; top: 30px; left: 0; display: flex; align-items: center; gap: 6px; height: 28px; padding: 0; border: 0; background: none; }
+  .bbm-header-main { display: grid; height: 48px; grid-template-columns: 100px minmax(320px, 560px) 100px; align-items: center; justify-content: space-between; gap: 32px; }
+  .bbm-logo { display: flex; grid-column: 1; align-items: center; gap: 6px; height: 28px; padding: 0; border: 0; background: none; }
   .bbm-logo > span { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: #1b498c; }
   .bbm-logo > span img { width: 20px; height: 19px; }
   .bbm-logo > img { width: 80px; height: 23px; }
-  .bbm-gnb-row { position: absolute; top: 63px; right: 0; left: 0; display: flex; gap: 14px; align-items: center; justify-content: space-between; height: 54px; }
-  .bbm-gnb { display: flex; min-width: 0; align-items: stretch; gap: 18px; height: 54px; overflow: visible; scrollbar-width: none; }
+  .bbm-gnb-row { display: flex; align-items: center; justify-content: center; height: 49px; }
+  .bbm-gnb { display: flex; min-width: 0; align-items: stretch; justify-content: center; gap: 10px; height: 49px; overflow: visible; scrollbar-width: none; }
   .bbm-gnb::-webkit-scrollbar { display: none; }
-  .bbm-gnb button { position: relative; display: flex; align-items: center; height: 54px; padding: 0; border: 0; background: none; color: #1a1a1a; font-size: 16px; font-weight: 600; line-height: 24px; letter-spacing: -.2px; white-space: nowrap; }
+  .bbm-gnb button { position: relative; display: flex; align-items: center; height: 49px; padding: 0; border: 0; background: none; color: #1a1a1a; font-size: 16px; font-weight: 600; line-height: 24px; letter-spacing: -.2px; white-space: nowrap; }
   .bbm-gnb button.is-home { font-size: 15px; font-weight: 500; }
   .bbm-gnb button.is-active { color: #1b4c8c; font-weight: 700; }
   .bbm-gnb button.is-active::after { content: ""; position: absolute; right: 0; bottom: -1px; left: 0; height: 3px; background: #1b4c8c; }
+  .bbm-gnb-dot { display: flex; height: 49px; align-items: center; color: #b7b7b7; font-size: 15px; font-weight: 500; line-height: 1; }
   .bbm-gnb-more-wrap { position: relative; display: flex; flex: none; }
   .bbm-gnb-more { gap: 4px; }
   .bbm-gnb-more .bb-icon { color: #505050; transition: transform 160ms ease; }
   .bbm-gnb-more[aria-expanded="true"] .bb-icon { transform: rotate(180deg); }
-  .bbm-gnb-more-menu { position: absolute; top: 49px; right: -12px; z-index: 150; display: grid; min-width: 164px; padding: 8px; border: 1px solid #e5e5e5; border-radius: 10px; background: #fff; box-shadow: 0 8px 24px rgba(0, 0, 0, .12); }
+  .bbm-gnb-more-menu { position: absolute; top: 46px; right: -12px; z-index: 150; display: grid; min-width: 164px; padding: 8px; border: 1px solid #e5e5e5; border-radius: 10px; background: #fff; box-shadow: 0 8px 24px rgba(0, 0, 0, .12); }
   .bbm-gnb .bbm-gnb-more-menu button { width: 100%; height: 38px; padding: 0 12px; border-radius: 7px; font-size: 14px; font-weight: 500; line-height: 20px; text-align: left; }
   .bbm-gnb .bbm-gnb-more-menu button:hover, .bbm-gnb .bbm-gnb-more-menu button.is-current { background: #f2f6fb; color: #1b4c8c; font-weight: 700; }
   .bbm-gnb .bbm-gnb-more-menu button::after { display: none; }
-  .bbm-header-icons { display: flex; flex: none; align-items: center; gap: 12px; }
+  .bbm-header-icons { display: flex; grid-column: 3; flex: none; align-items: center; justify-content: flex-end; gap: 14px; }
   .bbm-header-icons button { display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; background: none; color: #1a1a1a; }
-  .bbm-header-search-slot { position: relative; width: min(280px, 23vw); flex: none; }
-  .bbm-catalog-search { position: relative; display: flex; height: 40px; align-items: center; gap: 8px; padding: 0 12px; border: 1px solid #d9d9d9; border-radius: 8px; background: #fff; box-sizing: border-box; }
+  .bbm-header-search-slot { position: relative; grid-column: 2; width: 100%; min-width: 0; }
+  .bbm-catalog-search { position: relative; display: flex; height: 40px; align-items: center; gap: 8px; padding: 0 15px; border: 1px solid #ededed; border-radius: 999px; background: #f7f7f8; box-sizing: border-box; }
   .bbm-catalog-search > svg { width: 18px; height: 18px; flex: none; color: #595959; }
   .bbm-catalog-search > input { min-width: 0; flex: 1; border: 0; outline: 0; background: transparent; color: #1a1a1a; font-size: 14px; }
   .bbm-catalog-search-clear { width: 22px !important; height: 22px !important; flex: none; border-radius: 50% !important; background: #f1f1f1 !important; color: #555 !important; font-size: 18px; line-height: 1; }
@@ -177,9 +179,11 @@
   .bbm-header-inner { width: min(1200px, calc(100% - 32px)); }
 }
 @media (min-width: 820px) and (max-width: 1199px) {
-  .bbm-gnb { gap: 10px; }
+  .bbm-header-main { grid-template-columns: 92px minmax(280px, 48vw) 76px; gap: 20px; }
+  .bbm-gnb { gap: 8px; }
   .bbm-gnb button { font-size: 14px; line-height: 20px; }
   .bbm-gnb button.is-home { font-size: 14px; }
+  .bbm-gnb-dot { font-size: 13px; }
   .bbm-gnb-more .bb-icon { width: 16px; height: 16px; }
 }
 @media (min-width: 820px) and (max-width: 1119px) {

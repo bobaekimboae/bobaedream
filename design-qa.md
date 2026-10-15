@@ -26,6 +26,36 @@
 final result: passed
 
 ---
+
+# PC 메인 카이디형 검색 헤더 QA · 2026-10-15
+
+- source visual truth: `https://www.kaidee.com/en/cars`의 1440 × 900 브라우저 캡처(상단 로고·중앙 검색·간결한 우측 액션·2단 카테고리 구조).
+- browser-rendered implementation: `http://127.0.0.1:4311/?qf=guazi&pc=1`의 1440 × 900 및 1024 × 768 브라우저 캡처(이 작업에서 원본과 같은 비교 입력으로 확인).
+- viewport and density: 원본·구현 모두 1440 × 900 CSS px, DPR 1. 반응형은 1024 × 768, 모바일 비영향은 390 × 844 CSS px에서 확인했다.
+- state: 전체차량 활성, 기본 헤더. `더보기` 드롭다운 열린 상태도 별도 검증했다.
+- full-view comparison evidence: 카이디처럼 첫 행에 로고·중앙 검색·필수 액션을 배치하고 둘째 행에 메뉴를 모았다. 보배드림의 117px 헤더 높이와 파란 활성 상태는 유지했다.
+- focused region comparison evidence: 1440px에서 검색창은 x=440~1000, 로고는 x=120~220, 우측 액션은 x=1220~1320으로 좌우 균형을 맞췄다. 메뉴는 x=392~1048에 중앙 정렬되고 8개의 가운데점이 표시된다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: Pretendard Variable 우선 스택을 유지했다. 1440px 메뉴 16px/600, 선택 700, 홈 15px/500이며 1024px에서는 14px로 축소된다.
+- spacing and layout rhythm: 상단 유틸 20px, 검색 행 48px, 메뉴 행 49px으로 전체 117px을 유지했다. 검색창은 560px, 1024px에서는 48vw로 유동 배치된다.
+- colors and visual tokens: 카이디의 연회색 pill 검색창 구조를 차용하되 보배드림 `#1b4c8c` 활성색과 기존 회색 배경·경계 토큰을 유지했다.
+- image quality and asset fidelity: 보배드림 로고와 기존 찜·마이페이지 원본 아이콘을 그대로 사용했다. 검색·채팅·알림·전체 메뉴 중복 아이콘은 제거했다.
+- copy and content: 기존 9개 메뉴 순서와 문구는 유지하고 각 항목 사이를 가운데점으로 구분했다.
+- interaction: 검색 입력, 카테고리 이동, 더보기 드롭다운, 찜 열기가 유지된다. 우측에는 찜과 마이페이지만 남겼다.
+- browser verification: 1440px·1024px 가로 오버플로 0, 콘솔 오류 0건. 390px에서는 PC 헤더가 렌더링되지 않아 모바일 화면 변경이 없다.
+
+## Comparison history
+
+- Pass 1: 기존 헤더는 검색이 메뉴 행에 있어 카이디보다 검색 우선순위가 낮고, 우측 아이콘 6개가 과밀한 P2가 있었다.
+- Fix: 검색창을 첫 행 중앙으로 이동하고 우측 액션을 찜·마이페이지 2개로 축소했다. 메뉴를 둘째 행 중앙으로 옮기고 가운데점 8개를 추가했다.
+- Pass 2: 1440px 원본·구현 동시 비교와 1024px 재검수에서 검색 중심 위계, 메뉴 중앙 정렬, 가로 안전 영역을 확인했다.
+
+final result: passed
+
+---
 # 자유게시판 주간 통계 QA · 2026-10-15
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/62224fb5-1c2a-424b-9e2c-7bcd1750c0cc/1-1000018442.jpg`
