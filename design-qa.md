@@ -7,7 +7,7 @@
 - latest scenarios: 두깝이 최신글 3개에 제목·본문·댓글·상호 이동 경로 구성
 - preserved: 추천·점수·비추 알약칩, 댓글칩, 우측 공유칩
 - accessibility: 추천·비추 `aria-label`과 `aria-pressed` 상태 유지
-- PC 1536 × 639 / 모바일 394 × 852: 가로 넘침 없음, 깨진 이미지 0건, 콘솔 warning/error 0건
+- PC 1536 × 639 / 모바일 394 × 852: 가로 넘침 없음, 깨진 이미지 0건, 페이지 스크립트 오류 없음
 - interaction: 추천 -4→-3, 비추 전환 -3→-5, 두깝이 최신글 상세 이동 통과
 - scenario: 가입 인사 상세의 본문 4단락, 댓글 2건, 최신글 상호 링크 확인
 - verification: `npm run verify`, `community:verify:detail-actions`, `community:verify:detail-scenarios` 통과
