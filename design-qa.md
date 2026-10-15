@@ -2719,3 +2719,15 @@ final result: passed
 - P0/P1/P2 findings: none
 
 final result: passed
+
+---
+
+# 딜러 프로필 · 초톳 행동 버튼 및 리뷰 인접 배치 QA · 2026-10-15
+
+- implementation capture: Codex IAB 393 × 852 로컬 렌더
+- 딜러 경력 우측 14px 지점에 별점과 리뷰 링크를 인접 배치했다.
+- 행동 버튼은 흰 바탕, `#d7d7d7` 1px 테두리, 8px 곡률, `0 1px 3px rgba(0,0,0,.12)` 그림자로 초톳형 스타일을 적용했다.
+- 네 버튼의 한 줄 표시와 페이지 가로 넘침 0px을 확인했다.
+- P0/P1/P2 findings: none
+
+final result: passed
