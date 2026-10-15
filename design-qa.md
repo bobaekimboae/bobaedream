@@ -29,6 +29,37 @@ final result: passed
 
 ---
 
+# 커뮤니티 목록 · 레딧형 피드와 추천 안내 토스트 QA · 2026-10-15
+
+- source visual truth: `1000018382.jpg`, `1000018380.jpg` (Reddit 모바일 피드·추천 토스트 상태)
+- implementation capture: `artifacts/community-reddit-feed-1015/mobile-384-reddit-feed.png`
+- viewport: 구현 384 × 844 CSS px / 원본 591 × 1280 px Android 캡처
+- preserved surface: 기존 커뮤니티 헤더·상단 탭·게시판 선택 구조
+
+**Findings**
+
+- P0/P1/P2 없음.
+- 카드 제목 18px, 본문 16px, 작성자 14px이며 원본의 제목 우선 계층과 본문 밀도를 재현했다.
+- 프로필·시간·더보기, 말머리 캡슐, 본문 미리보기, 큰 이미지, 투표·댓글·재공유·공유 순서를 적용했다.
+- 추천은 주황색 `1`, 비추천은 보라색 `-1`이며 상호배타로 동작한다.
+- 추천 시 원본과 같은 검정 캡슐형 안내 토스트와 공유 버튼이 열린다.
+- 상세 시나리오 5개를 목록에 연결했고 두 번째 게시물부터 이미지를 표시한다.
+- 가로 오버플로는 0px이다.
+
+**Interaction and runtime checks**
+
+- `npm run community:verify:reddit-feed`: passed
+- 게시물 카드 5개 / 반응 영역 5개 / 이미지 카드 4개: passed
+- 추천·비추천 상호배타 및 점수 변화: passed
+- 추천 안내 토스트: passed
+- 댓글 상세 이동·재공유·공유: passed
+- mobile width: 384/384
+- browser console errors: 0
+
+final result: passed
+
+---
+
 # 치지직 상세 · 배경색·본문 글자 크기 v15 QA · 2026-10-15
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/72c6f71b-f9ca-4038-bfe8-29e5a453bea8/1-1000018376.jpg`
