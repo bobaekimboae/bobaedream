@@ -3250,3 +3250,32 @@ final result: passed
 - P0/P1/P2 findings: none
 
 final result: passed
+
+---
+
+# 탑메뉴 게시판 · TikTok 텍스트 대조 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/e0824bd2-af7f-4a21-a3ca-5683447ce7ae/1-1000018428.jpg`
+- implementation screenshot: `artifacts/community-board-order-1015/mobile-384-top-menu-tiktok-text.png`
+- focused comparison: `artifacts/community-board-order-1015/tiktok-vs-bobae-top-menu-text.png`
+- viewport: 구현 384 × 844 CSS px, DPR 1 / 원본 591 × 1280px Android 캡처
+- normalization: 원본 탭 영역을 384px 폭으로 정규화하고 구현의 384px 탑메뉴 영역과 같은 비교 이미지에 배치했다.
+- state: 상단 게시판 탭 `자유` 선택, 가로 메뉴 기본 위치
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 탭 글자 16px, 선택 700, 비선택 600, 자간 -0.3px로 TikTok의 선택/비선택 위계에 맞췄다.
+- spacing and layout rhythm: 행 높이 44px, 항목 간격 22px, 좌측 시작 16px로 조정했다.
+- colors and tokens: 선택 `#111214`, 비선택 `#73767c`를 사용했다. TikTok보다 비선택 색을 약간 진하게 유지한 것은 흰 배경 가독성을 위한 의도적 P3 차이다.
+- image quality and asset fidelity: 이번 범위는 텍스트 탭이며 신규 래스터 자산이 없다. 기존 메뉴 SVG는 변경하지 않았다.
+- copy and content: 축약 게시판명과 전체 원문 접근성 이름을 그대로 유지했다.
+- focused comparison: 글자 굵기·기준선·밑줄이 충분히 읽히므로 별도 추가 확대 크롭은 필요하지 않았다.
+
+## Comparison history
+
+- Pass 1: 기존 50px 행, 선택 760, 비선택 520, 자간 -0.70px, 3px 밑줄로 TikTok보다 대비가 거칠고 행이 높았다.
+- Fix: 44px 행, 16px 글자, 선택 700, 비선택 600, 자간 -0.3px, 2px 밑줄과 좌우 6px 확장을 적용했다.
+- Pass 2: 정규화 비교에서 텍스트 계층·메뉴 밀도·선택 밑줄이 일치했고 360/384/412/1280px 테스트에서 잘림과 가로 오버플로가 없었다.
+
+final result: passed

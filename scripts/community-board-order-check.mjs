@@ -31,6 +31,17 @@ for(const width of [360,384,412,1280]){
   const overflow=await page.evaluate(()=>({body:document.documentElement.scrollWidth-document.documentElement.clientWidth,track:document.getElementById('boardChannelTrack').scrollWidth,scroller:document.getElementById('boardChannelScroller').clientWidth}));
   check(overflow.body===0,`${width}px 페이지 가로 오버플로가 ${overflow.body}px입니다`);
   check(overflow.track>overflow.scroller,`${width}px 게시판 메뉴가 가로 스크롤되지 않습니다`);
+  const navStyle=await nav.nth(2).evaluate(element=>{
+    const style=getComputedStyle(element);
+    const underline=getComputedStyle(element,'::after');
+    return {height:element.getBoundingClientRect().height,fontSize:style.fontSize,fontWeight:style.fontWeight,letterSpacing:style.letterSpacing,underlineHeight:underline.height};
+  });
+  check(navStyle.height===44,`${width}px 탑메뉴 높이가 ${navStyle.height}px입니다`);
+  check(navStyle.fontSize==='16px',`${width}px 탑메뉴 글자 크기가 ${navStyle.fontSize}입니다`);
+  check(navStyle.fontWeight==='700',`${width}px 선택 탑메뉴 굵기가 ${navStyle.fontWeight}입니다`);
+  check(navStyle.letterSpacing==='-0.3px',`${width}px 탑메뉴 자간이 ${navStyle.letterSpacing}입니다`);
+  check(navStyle.underlineHeight==='2px',`${width}px 선택 밑줄 두께가 ${navStyle.underlineHeight}입니다`);
+  if(width===384)await page.screenshot({path:path.join(outputDir,'mobile-384-top-menu-tiktok-text.png'),fullPage:false});
 
   await page.locator('#boardOrderMenu').click();
   check(await page.locator('.boardOrderPanel').isVisible(),'전체 게시판 화면이 열리지 않았습니다');
