@@ -43,8 +43,10 @@ final result: passed
 **Source visual truth**
 
 - 사용자 캡처: `C:\Users\bobae\OneDrive\문서\ChatGPT\퀵필터 제작\.codex-remote-attachments\01a128e5-de8a-78d0-9ed9-96cbde6a07c3\4896e130-8db4-4e35-939b-e4865e4e55f8\1-1000018420.jpg`
+- 좌측 밀착 문제 후속 캡처: `C:\Users\bobae\OneDrive\문서\ChatGPT\퀵필터 제작\.codex-remote-attachments\01a128e5-de8a-78d0-9ed9-96cbde6a07c3\7996fe5f-3593-46e4-82e5-f859abb1525f\1-1000018430.jpg`
 - 구현 캡처: `artifacts/community-chotot-feed-1015/mobile-390x844-viewport.png`
 - 좌우 비교: `artifacts/community-chotot-feed-1015/qa-comparison-mobile.png`
+- 좌측 여백 집중 비교: `artifacts/community-chotot-feed-1015/qa-comparison-mobile-inset.png`
 
 **Viewport and state**
 
@@ -58,7 +60,9 @@ final result: passed
 - Pass 1 P2: `1/6` 카운터가 미디어 레일 우측 끝에 고정되어 두 번째 이미지 위에 놓였다.
 - Fix: 미디어 셸을 카드의 첫 번째 자식으로 이동하고, 현재 이미지의 우측 끝을 기준으로 카운터 좌표를 계산하도록 변경했다.
 - 공개 직접 링크 점검에서 게시판 초기화가 늦게 끝날 때 간결형으로 복귀하는 경합을 발견해, `?view=chotot` 요청 시 보기 상태도 `feed-chotot`으로 고정했다.
+- 후속 사용자 캡처에서 첫 사진이 화면 왼쪽 `0px`에 붙는 P2 정렬 문제를 확인했다. 미디어 셸의 음수 여백과 레일 내부 패딩을 제거해 첫 사진을 카드 본문과 같은 좌측 여백(모바일 16px, 데스크톱 22px)에 맞췄다.
 - Pass 2: 첫 이미지가 카드 상단에 놓이며 카운터는 첫 이미지 우측에서 9px 안쪽에 정렬된다.
+- Pass 3: 후속 비교에서 첫 사진과 카드 본문의 좌측 기준선이 모바일 16px, 데스크톱 22px로 일치하고 페이지 가로 오버플로가 없음을 확인했다.
 
 **Required fidelity surfaces**
 
