@@ -165,7 +165,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, share }: { deale
       <div className="dp-profile-copy">
         <h1>{dealer.name}<Icon name="chotot-list-detail-verified-dealer-wavy-badge.svg" className="is-badge" /></h1>
         <div className="dp-profile-inline is-channel-handle">{dealer.role ?? "인증딜러"} · {MOCK.company}</div>
-        <div className="dp-profile-inline is-channel-meta">{MOCK.complex} · 판매중 {listingCount}대</div>
+        <div className="dp-profile-inline is-channel-meta">{MOCK.complex}</div>
         <div className="dp-profile-inline is-mobile-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>({MOCK.reviewCount}개 평가)</u><span>· 팔로워 {MOCK.followers + (following ? 1 : 0)}</span></div>
         <div className="dp-profile-actions">
           <button type="button" onClick={share}><DealerIcon name="share" />공유</button>
