@@ -41,8 +41,6 @@
 
 final result: passed
 
----
-
 # 치지직 상세 · 댓글 있는 사용자 게시물 v7 QA · 2026-10-15
 
 - source visual truth: `https://m.game.naver.com/lounge/chzzk/board/detail/8325190`
@@ -64,6 +62,34 @@ final result: passed
 - 상호작용: 버프 -4→-3, 너프 전환 -3→-5, 답글쓰기 `@익씽 ` 입력 및 등록 버튼 활성화 통과.
 - `npm run verify`: 관리자 29건, Sites 4건, 타입 검사·프로덕션 빌드 전체 통과.
 - P0/P1/P2 findings: none.
+
+final result: passed
+
+---
+
+# 치지직 상세 · Reddit 댓글 액션 v8 QA · 2026-10-15
+
+- source visual truth: 사용자 첨부 `1000018336.jpg`의 Reddit 모바일 게시글·댓글 액션 영역
+- icon source: 사용자 제공 Notion `미국_레딧` DB의 `N_커뮤니티 시안용 아이콘 모음`과 답글 아이콘
+- implementation: `public/community/chzzk-detail.html?id=8326278`
+- viewport: 모바일 384 × 844, 360 × 800 CSS px
+
+## Cross-check evidence
+
+- 게시글 반응을 `추천 아이콘 + 추천 + 점수 + 비추 아이콘 + 비추`, 댓글 수, 우측 공유 순서로 재구성했다.
+- 댓글과 답글에 `더보기 / 답글 / 공유 / 추천 / 비추` 액션을 같은 크기 체계로 추가했다.
+- 360px에서 문구와 숫자가 잘리지 않고 가로 스크롤이 생기지 않는다(`scrollWidth 345 / viewport 360`).
+- 추천과 비추는 같은 그룹에서 상호 배타적으로 동작하고, 답글 버튼은 `@쿠로토라 `를 입력창에 준비한다.
+- 실제 댓글 시나리오 `8325190`도 같은 아이콘·명칭으로 교체했고 답글 대상 `@익씽 `을 유지한다.
+- Notion 원본 SVG 6개는 `reddit-icon-manifest.json`에 페이지 URL과 SHA-256을 기록했다.
+
+## Verification
+
+- `npm run community:verify:detail-actions`: passed
+- `npm run community:verify:compact-write`: passed
+- `npm run build`: passed
+- 브라우저 console warning/error: 0건
+- P0/P1/P2 findings: none
 
 final result: passed
 

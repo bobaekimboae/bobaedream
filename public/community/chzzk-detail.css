@@ -99,18 +99,19 @@ img { display: block; }
 .tagRow { display: flex; gap: 10px; margin-top: 24px; }
 .tagRow button { min-height: 42px; padding: 0 14px; border-radius: 10px; background: #f4f4f4; font-size: 17px; }
 .reactionRow { display: flex; min-height: 90px; align-items: center; justify-content: flex-start; gap: 10px; }
-.votePill, .roundAction { height: 42px; border: 1px solid #cfcfcf; border-radius: 22px; background: #ffffff; }
+.votePill, .roundAction { height: 42px; border: 1px solid #d7d7d7; border-radius: 22px; background: #ffffff; }
 .votePill { display: flex; align-items: center; overflow: hidden; }
-.voteButton { display: flex; height: 40px; align-items: center; gap: 2px; padding: 0 9px; font-size: 14px; font-weight: 750; }
-.voteButton img { width: 23px; height: 23px; }
+.voteButton { display: flex; height: 40px; align-items: center; gap: 5px; padding: 0 10px; font-size: 13px; font-weight: 750; white-space: nowrap; }
+.voteButton img { width: 18px; height: 18px; }
 .voteButton.active { color: var(--brand-dark); background: var(--brand-soft); }
 .voteButton.active img { filter: invert(28%) sepia(95%) saturate(2858%) hue-rotate(335deg) brightness(102%) contrast(102%); }
 .voteButton.down.active { color: var(--ink); background: var(--soft); }
 .voteButton.down.active img { filter: brightness(0) saturate(100%); }
-.votePill strong { min-width: 24px; font-size: 15px; text-align: center; font-variant-numeric: tabular-nums; }
-.roundAction { display: flex; min-width: 42px; align-items: center; justify-content: center; gap: 4px; padding: 0 11px; color: var(--brand-dark); font-size: 14px; font-weight: 700; }
-.roundAction img { width: 20px; height: 20px; }
-.roundAction:first-of-type img { filter: invert(28%) sepia(95%) saturate(2858%) hue-rotate(335deg) brightness(102%) contrast(102%); }
+.votePill strong { min-width: 28px; padding: 0 2px; border-right: 1px solid #e5e5e5; border-left: 1px solid #e5e5e5; font-size: 14px; line-height: 22px; text-align: center; font-variant-numeric: tabular-nums; }
+.roundAction { display: flex; min-width: 42px; align-items: center; justify-content: center; gap: 5px; padding: 0 12px; color: var(--ink); font-size: 14px; font-weight: 700; }
+.roundAction img { width: 19px; height: 19px; }
+.commentAction { min-width: 62px; }
+.shareAction { width: 42px; padding: 0; }
 .reactionRow > .roundAction:last-child { margin-left: auto; }
 
 .noticePost { padding: 34px 24px 0; }
@@ -150,15 +151,24 @@ img { display: block; }
 .commentAuthor, .replyAuthor { display: flex; align-items: center; gap: 7px; }
 .commentAuthor strong { font-size: 16px; }
 .commentAuthor span, .replyAuthor span { color: #999999; font-size: 13px; }
-.commentAuthor button { display: grid; width: 34px; height: 34px; margin-left: auto; place-items: center; }
-.commentAuthor button img { width: 18px; height: 18px; }
 .commentContent > p { margin: 7px 0 12px; font-size: 17px; }
-.commentTools, .nestedTools { display: flex; min-height: 42px; align-items: center; gap: 12px; color: var(--sub); font-size: 14px; }
+.commentTools, .nestedTools { display: flex; min-height: 42px; align-items: center; gap: 6px; color: var(--sub); font-size: 13px; }
 .commentTools > strong { color: var(--sub); }
-.miniVotes { display: flex; align-items: center; margin-left: auto; }
-.miniVotes button { display: flex; min-width: 56px; height: 38px; align-items: center; justify-content: center; gap: 2px; padding: 0 8px; border: 1px solid #cfcfcf; border-radius: 20px; background: #fff; font-size: 13px; font-weight: 750; }
-.miniVotes button img { width: 21px; height: 21px; }
-.miniVotes b { min-width: 28px; text-align: center; }
+.commentIconButton, .commentTextButton { display: flex; height: 34px; align-items: center; justify-content: center; border-radius: 17px; color: #5f666b; }
+.commentIconButton { width: 34px; flex: 0 0 34px; }
+.commentIconButton img { width: 19px; height: 19px; }
+.commentTextButton { gap: 4px; padding: 0 7px; font-size: 12px; font-weight: 650; white-space: nowrap; }
+.commentTextButton img { width: 17px; height: 17px; }
+.commentIconButton:hover, .commentTextButton:hover, .commentIconButton:focus-visible, .commentTextButton:focus-visible { background: #f2f2f3; }
+.replyCount { white-space: nowrap; }
+.miniVotes { display: flex; align-items: center; margin-left: auto; border: 1px solid #d7d7d7; border-radius: 18px; overflow: hidden; }
+.miniVotes button { display: flex; height: 34px; align-items: center; justify-content: center; gap: 3px; padding: 0 7px; background: #fff; font-size: 12px; font-weight: 750; white-space: nowrap; }
+.miniVotes button.active { color: var(--brand-dark); background: var(--brand-soft); }
+.miniVotes button.active img { filter: invert(28%) sepia(95%) saturate(2858%) hue-rotate(335deg) brightness(102%) contrast(102%); }
+.miniVotes button:last-child.active { color: var(--ink); background: var(--soft); }
+.miniVotes button:last-child.active img { filter: brightness(0) saturate(100%); }
+.miniVotes button img { width: 16px; height: 16px; }
+.miniVotes b { min-width: 25px; border-right: 1px solid #e5e5e5; border-left: 1px solid #e5e5e5; line-height: 20px; text-align: center; font-variant-numeric: tabular-nums; }
 .nestedReply { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 10px; margin-top: 18px; padding-top: 2px; }
 .replyAvatar { width: 38px; height: 38px; }
 .replyAuthor strong { font-size: 15px; }
@@ -240,7 +250,12 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
   .tagRow button { min-height: 32px; padding: 0 10px; border-radius: 7px; font-size: 13px; }
   .reactionRow { min-height: 70px; gap: 8px; }
   .votePill, .roundAction { height: 40px; }
-  .voteButton { height: 38px; padding: 0 8px; }
+  .voteButton { height: 38px; gap: 4px; padding: 0 8px; font-size: 12px; }
+  .voteButton img { width: 17px; height: 17px; }
+  .votePill strong { min-width: 25px; font-size: 13px; }
+  .roundAction { padding: 0 10px; }
+  .commentAction { min-width: 56px; }
+  .shareAction { width: 40px; padding: 0; }
   .promoBanner img { height: 86px; min-height: 0; object-fit: cover; }
   .latestCard { margin: 15px; padding: 18px; border-radius: 14px; }
   .latestHead { margin-bottom: 8px; font-size: 15px; }
@@ -264,18 +279,25 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
   .commentAuthor { gap: 5px; }
   .commentAuthor strong { font-size: 13px; }
   .commentAuthor span, .replyAuthor span { font-size: 12px; }
-  .commentAuthor button { width: 30px; height: 30px; }
-  .commentAuthor button img { width: 18px; height: 18px; }
   .commentContent > p { margin: 7px 0 8px; font-size: 15px; }
-  .commentTools, .nestedTools { min-height: 34px; gap: 10px; font-size: 12px; }
-  .miniVotes button { min-width: 46px; height: 32px; padding: 0 6px; font-size: 11px; }
-  .miniVotes button img { width: 18px; height: 18px; }
-  .miniVotes b { min-width: 24px; }
+  .commentTools, .nestedTools { min-height: 34px; gap: 3px; font-size: 11px; }
+  .commentIconButton { width: 30px; height: 32px; flex-basis: 30px; }
+  .commentIconButton img { width: 17px; height: 17px; }
+  .commentTextButton { height: 32px; gap: 3px; padding: 0 5px; font-size: 11px; }
+  .commentTextButton img { width: 16px; height: 16px; }
+  .replyCount { display: none; }
+  .miniVotes { margin-left: auto; border-radius: 17px; }
+  .miniVotes button { height: 32px; gap: 2px; padding: 0 5px; font-size: 11px; }
+  .miniVotes button img { width: 15px; height: 15px; }
+  .miniVotes b { min-width: 22px; }
   .nestedReply { grid-template-columns: 30px minmax(0, 1fr); gap: 10px; margin-top: 16px; }
   .replyAvatar { width: 30px; height: 30px; }
   .replyAuthor strong { font-size: 13px; }
   .nestedReply a { margin-top: 6px; font-size: 15px; }
   .replySticker { width: 96px; margin-top: 8px; }
+  .nestedTools .commentShareButton span, .nestedTools .miniVotes span { display: none; }
+  .nestedTools .commentTextButton { width: 32px; padding: 0; }
+  .nestedTools .miniVotes button { width: 32px; padding: 0; }
   .toTop { height: 64px; gap: 8px; font-size: 14px; }
   .toTop span { width: 34px; height: 34px; }
   .toTop img { width: 20px; height: 20px; }
