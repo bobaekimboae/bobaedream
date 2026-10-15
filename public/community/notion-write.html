@@ -95,6 +95,8 @@
       </main>
 
       <input id="imageInput" class="sr-only" type="file" accept="image/jpeg,image/png,image/gif,image/webp,image/svg+xml" multiple />
+      <input id="cameraImageInput" class="sr-only" type="file" accept="image/*" capture="environment" />
+      <input id="fileImageInput" class="sr-only" type="file" accept="image/jpeg,image/png,image/gif,image/webp,image/svg+xml" multiple />
       <input id="videoInput" class="sr-only" type="file" accept="video/mp4,video/webm,video/quicktime,video/ogg" multiple />
       <input id="replaceImageInput" class="sr-only" type="file" accept="image/jpeg,image/png,image/gif,image/webp,image/svg+xml" />
       <input id="replaceVideoInput" class="sr-only" type="file" accept="video/mp4,video/webm,video/quicktime,video/ogg" />
@@ -139,19 +141,27 @@
           <div class="dialog-header">
             <div>
               <span class="dialog-eyebrow">미디어 블록</span>
-              <h2 id="mediaDialogTitle">이미지 추가</h2>
+              <h2 id="mediaDialogTitle"><span id="mediaDialogDesktopTitle" class="desktop-only">이미지 추가</span><span id="mediaDialogMobileTitle" class="mobile-only">이미지</span></h2>
             </div>
-            <button class="icon-button" type="submit" value="cancel" aria-label="닫기"><img src="assets/write-parity/close.svg" alt="" /></button>
+            <button class="icon-button" type="submit" value="cancel" aria-label="닫기"><img src="assets/write-parity/close.svg" alt="" /><span class="dialog-close-text">닫기</span></button>
           </div>
           <div class="media-tabs" role="tablist" aria-label="미디어 추가 방식">
             <button id="uploadTab" type="button" role="tab" aria-selected="true" data-tab="upload">업로드</button>
-            <button id="linkTab" type="button" role="tab" aria-selected="false" data-tab="link">링크 삽입</button>
+            <button id="linkTab" type="button" role="tab" aria-selected="false" data-tab="link"><span class="desktop-only">링크 삽입</span><span class="mobile-only">링크 임베드</span></button>
           </div>
           <div id="uploadPanel" class="media-panel" role="tabpanel">
             <button id="dialogUploadButton" class="drop-zone" type="button">
               <span class="drop-zone-title">내 컴퓨터에서 파일 선택</span>
               <span id="uploadHelp" class="drop-zone-help">JPG, PNG, GIF, WEBP · 파일당 20MB</span>
             </button>
+            <div class="mobile-media-picker" data-testid="mobile-image-picker">
+              <p>이미지를 선택하세요</p>
+              <div class="mobile-media-actions">
+                <button type="button" data-mobile-media-source="library"><span>사진 보관함</span><img src="assets/notion-mobile/image.svg" alt="" /></button>
+                <button type="button" data-mobile-media-source="camera"><span>사진 또는 비디오 찍기</span><img src="assets/notion-mobile/camera.svg" alt="" /></button>
+                <button type="button" data-mobile-media-source="file"><span>파일 선택</span><img src="assets/notion-mobile/file.svg" alt="" /></button>
+              </div>
+            </div>
           </div>
           <div id="linkPanel" class="media-panel" role="tabpanel" hidden>
             <label for="mediaUrl">공개 링크</label>
