@@ -2875,3 +2875,13 @@ final result: passed
 - mobile runtime integrity: passed
 
 final result: passed
+
+# 딜러 프로필 · 팔로잉 체크 아이콘 상태 QA · 2026-10-15
+
+- 팔로우 전에는 기존 팔로우 아이콘을 표시한다.
+- 팔로잉 상태에서는 하트 채움 대신 초톳 계열 체크 마크 아이콘을 표시한다.
+- 동일 버튼에서 `aria-pressed`와 아이콘 소스가 함께 전환된다.
+- `npm run build`: passed
+- mobile runtime integrity: passed
+
+final result: passed
