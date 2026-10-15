@@ -2718,3 +2718,16 @@ final result: passed
 - P0/P1/P2 findings: none
 
 final result: passed
+
+---
+
+# 딜러 프로필 · 내차시세문의 행동 교체 QA · 2026-10-15
+
+- implementation capture: Codex IAB 393 × 852 로컬 렌더
+- actions: 팔로잉 · 메시지 보내기 · 전화 걸기 · 내차시세문의
+- 공유 버튼 제거 및 내차시세문의 버튼 추가를 확인했다.
+- 문의 버튼의 표시 폭은 98px이며 문구 잘림, 버튼 행 넘침, 페이지 가로 넘침은 모두 0px이다.
+- 내차시세문의 선택 시 `내 차 시세 문의를 준비 중이에요` 상태 알림을 확인했다.
+- P0/P1/P2 findings: none
+
+final result: passed
