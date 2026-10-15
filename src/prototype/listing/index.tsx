@@ -1874,9 +1874,9 @@ function MarketplaceScreen() {
                 ))}
               </QuickRailCarousel>
             </section>
-            <section className="depth-rail no-label is-truck-image-row is-format-root is-truck-type-row" aria-label="트럭 유형 빠른 선택">
+            <section className={`depth-rail no-label is-truck-image-row is-format-root is-truck-type-row${brandShadowCard ? " is-brand-shadowcard" : ""}`} aria-label="트럭 유형 빠른 선택">
               <QuickRailCarousel ariaLabel="트럭 형식" className="brand-carousel" contentClassName="depth-rail-track">
-                {truckFormatCatalog.map((group) => <DepthCard key={group.name} className="is-truck-depth" label={desktop ? group.name : truckQuickLabel(group.name)} ariaLabel={group.name} image={<img src={asset(truckFormatImageFor(group.name) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckFormat(group.name)} />)}
+                {truckFormatCatalog.map((group) => <DepthCard key={group.name} className="is-truck-depth" label={desktop ? group.name : truckQuickLabel(group.name)} ariaLabel={group.name} sub={brandShadowCard ? `(${listingCars.filter((car) => car.truck?.format === group.name).length})` : undefined} image={<img src={asset(truckFormatImageFor(group.name) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckFormat(group.name)} />)}
               </QuickRailCarousel>
             </section>
           </> :
