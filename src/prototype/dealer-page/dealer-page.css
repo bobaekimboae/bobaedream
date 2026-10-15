@@ -52,8 +52,8 @@
 .dp-cover-dots button.is-active { width: 12px; border-radius: 3px; background: #fff; }
 .dp-cover-more { position: absolute; z-index: 2; top: 12px; right: 12px; display: none; place-items: center; width: 36px; height: 36px; border-radius: 50% !important; background: rgba(255,255,255,.94) !important; }
 .dp-cover-more .dp-icon { width: 20px; height: 20px; }
-.dp-profile-body { position: relative; display: grid; grid-template-columns: 96px minmax(0, 1fr); column-gap: 16px; padding: 13px 16px 18px; }
-.dp-avatar { position: absolute; z-index: 3; top: -82px; left: 16px; grid-column: 1; grid-row: 1 / span 2; align-self: start; width: 88px; height: 88px; box-sizing: border-box; border: 4px solid #fff; border-radius: 50%; object-fit: cover; background: var(--dp-bg); box-shadow: 0 0 0 1px #dedede, 0 4px 14px rgba(0,0,0,.14); }
+.dp-profile-body { position: relative; display: grid; grid-template-columns: 96px minmax(0, 1fr); column-gap: 16px; padding: 16px 16px 18px; }
+.dp-avatar { position: relative; z-index: 1; top: auto; left: auto; grid-column: 1; grid-row: 1 / span 2; align-self: start; width: 88px; height: 88px; box-sizing: border-box; border: 1px solid #dedede; border-radius: 50%; object-fit: cover; background: var(--dp-bg); box-shadow: none; }
 .dp-profile-copy { display: contents; }
 .dp-profile-copy h1 { display: flex; grid-column: 2; grid-row: 1; align-self: start; align-items: center; gap: 5px; font-size: 22px; line-height: 28px; font-weight: 700; letter-spacing: -.3px; }
 .dp-profile-copy h1 .is-badge { width: 18px; height: 18px; }
