@@ -60,7 +60,7 @@
 .dp-profile-bio { grid-column: 1 / -1; grid-row: 3; min-width: 0; margin-top: 14px; color: var(--dp-ink); font-size: 13px; line-height: 19px; }
 .dp-profile-bio > b { display: block; font-weight: 700; }
 .dp-profile-bio > p { display: -webkit-box; overflow: hidden; margin-top: 2px; -webkit-box-orient: vertical; -webkit-line-clamp: 2; word-break: keep-all; }
-.dp-profile-actions { display: grid; grid-column: 1 / -1; grid-row: 4; grid-template-columns: .86fr 1.35fr 1.08fr .72fr; gap: 6px; margin-top: 14px; }
+.dp-profile-actions { display: grid; grid-column: 1 / -1; grid-row: 9; grid-template-columns: .86fr 1.35fr 1.08fr .72fr; gap: 6px; margin-top: 14px; }
 .dp-profile-actions > :is(button, a) { display: flex; min-width: 0; height: 34px; align-items: center; justify-content: center; padding: 0 7px; border: 1px solid #dedede; border-radius: 7px; background: #f6f6f6; color: var(--dp-ink); font-size: 12px; line-height: 18px; font-weight: 700; white-space: nowrap; }
 .dp-profile-actions > .is-follow[aria-pressed="true"] { background: #efefef; color: var(--dp-ink); }
 .dp-profile-actions button > svg { width: 16px; height: 16px; }

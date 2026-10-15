@@ -2661,3 +2661,15 @@ final result: passed
 - P0/P1/P2 findings: none
 
 final result: passed
+
+---
+
+# 딜러 프로필 · 행동 버튼 하단 이동 QA · 2026-10-15
+
+- implementation capture: Codex IAB 393 × 852 로컬 렌더
+- intended order: 응답률 → 주소 → 전화번호 → 딜러 경력·리뷰 → 행동 버튼
+- measured y positions: 응답률 338px, 주소 372px, 전화번호 406px, 경력·리뷰 440px, 행동 버튼 476px
+- 행동 버튼 네 개의 한 줄 표시와 가로 넘침 0px을 확인했다.
+- P0/P1/P2 findings: none
+
+final result: passed
