@@ -28,11 +28,15 @@ for (const width of [360, 384, 412]) {
     const avatar = document.querySelector('.boardAvatar');
     const notice = document.querySelector('.noticeText');
     const chip = document.querySelector('.cat');
+    const header = document.querySelector('.appbar');
+    const search = document.querySelector('.communitySearch');
     const sectionBox = section.getBoundingClientRect();
     const categoryBox = category.getBoundingClientRect();
     const boardBox = board.getBoundingClientRect();
     const chipBox = chip.getBoundingClientRect();
     const avatarBox = avatar.getBoundingClientRect();
+    const headerBox = header.getBoundingClientRect();
+    const searchBox = search.getBoundingClientRect();
     return {
       sectionTop: sectionBox.top,
       boardBottom: boardBox.bottom,
@@ -44,6 +48,11 @@ for (const width of [360, 384, 412]) {
       avatarWidth: avatarBox.width,
       avatarHeight: avatarBox.height,
       noticeWeight: getComputedStyle(notice).fontWeight,
+      noticeBadgeCount: document.querySelectorAll('.noticeBadge').length,
+      headerHeight: headerBox.height,
+      searchHeight: searchBox.height,
+      searchText: search.textContent.trim(),
+      searchWithinViewport: searchBox.left >= 0 && searchBox.right <= innerWidth,
       scrollWidth: document.documentElement.scrollWidth,
       viewport: innerWidth,
     };
@@ -55,6 +64,11 @@ for (const width of [360, 384, 412]) {
   check(metrics.boardBorderBottom === '0px', `${width}px: 게시판명 아래 구분선이 남아 있습니다 (${metrics.boardBorderBottom})`);
   check(Math.abs(metrics.avatarWidth - 48) <= 1 && Math.abs(metrics.avatarHeight - 48) <= 1, `${width}px: 게시판 프로필이 48px가 아닙니다 (${metrics.avatarWidth}x${metrics.avatarHeight})`);
   check(Number(metrics.noticeWeight) >= 700, `${width}px: 공지 제목이 볼드가 아닙니다 (${metrics.noticeWeight})`);
+  check(metrics.noticeBadgeCount === 0, `${width}px: 공지 칩이 남아 있습니다 (${metrics.noticeBadgeCount})`);
+  check(Math.abs(metrics.headerHeight - 56) <= 1, `${width}px: 상단 높이가 56px가 아닙니다 (${metrics.headerHeight})`);
+  check(Math.abs(metrics.searchHeight - 42) <= 1, `${width}px: 검색바 높이가 42px가 아닙니다 (${metrics.searchHeight})`);
+  check(metrics.searchText === '커뮤니티', `${width}px: 검색바 텍스트가 다릅니다 (${metrics.searchText})`);
+  check(metrics.searchWithinViewport, `${width}px: 검색바가 화면 밖으로 잘렸습니다`);
   check(metrics.scrollWidth <= metrics.viewport, `${width}px: 가로 화면 잘림 (${metrics.scrollWidth}/${metrics.viewport})`);
   check(await toggle.getAttribute('aria-expanded') === 'false', `${width}px: 초기 접힘 상태가 아닙니다`);
 
@@ -74,6 +88,11 @@ for (const width of [360, 384, 412]) {
   await toggle.click();
   check(await toggle.getAttribute('aria-expanded') === 'false', `${width}px: 다시 접히지 않습니다`);
   check(!(await section.evaluate((element) => element.classList.contains('expanded'))), `${width}px: 접힘 클래스 상태가 틀립니다`);
+
+  if (width === 384) {
+    await page.locator('.communitySearch').click();
+    check(await page.locator('#toast').textContent() === '커뮤니티 검색 준비중', `${width}px: 검색바 동작 안내가 표시되지 않습니다`);
+  }
 
   check(runtimeErrors.length === 0, `${width}px: 브라우저 오류 ${runtimeErrors.join(' | ')}`);
   await page.close();
