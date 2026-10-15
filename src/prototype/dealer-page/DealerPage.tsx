@@ -447,6 +447,13 @@ function AboutSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; noti
   </section>;
 }
 
+function SellPriceCta({ onRequest }: { onRequest: () => void }) {
+  return <aside className="dp-sell-price-cta" aria-label="내 차 판매 가격 무료 견적">
+    <span><b>내 차, 얼마에 팔 수 있을까요?</b><small>딜러에게 무료 견적을 받아보세요</small></span>
+    <button type="button" onClick={onRequest}>견적신청</button>
+  </aside>;
+}
+
 function Footer() {
   return <footer className="dp-footer"><div className="dp-footer-brand"><img src={bobaeAsset("9546-imgLogo.svg")} alt="보배드림" /><span>믿을 수 있는 자동차 거래</span></div><div className="dp-footer-links"><span>회사소개</span><span>이용약관</span><span>개인정보처리방침</span><span>고객센터</span></div><small>© BOBae Network. All rights reserved.</small></footer>;
 }
@@ -502,6 +509,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
         {activeSection === "social" ? <SocialFeedSection cars={cars} /> : null}
         {activeSection === "dealers" ? <AffiliatedDealersSection currentDealer={dealer} onOpenDealer={openDealer} /> : null}
         {activeSection === "intro" ? <AboutSection dealer={dealer} notify={notify} /> : null}
+        {activeSection !== "valuation" ? <SellPriceCta onRequest={() => changeSection("valuation")} /> : null}
       </main>
       <Footer />
     </div>

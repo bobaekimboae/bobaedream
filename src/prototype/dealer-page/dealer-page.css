@@ -289,6 +289,12 @@
 .dp-footer-brand span { font-size: 12px; }
 .dp-footer-links { display: grid; grid-template-columns: repeat(2, auto); gap: 8px 24px; margin-top: 20px; font-size: 12px; }
 .dp-footer small { display: block; margin-top: 18px; font-size: 11px; }
+.dp-sell-price-cta { display: flex; min-height: 76px; align-items: center; justify-content: space-between; gap: 12px; margin: 0 16px 24px; padding: 13px 12px 13px 16px; border-radius: 14px; background: #f5f5f5; }
+.dp-sell-price-cta > span { display: flex; min-width: 0; flex-direction: column; }
+.dp-sell-price-cta b { font-size: 14px; line-height: 20px; font-weight: 700; word-break: keep-all; }
+.dp-sell-price-cta small { margin-top: 2px; color: #777; font-size: 12px; line-height: 18px; word-break: keep-all; }
+.dp-sell-price-cta > button { flex: none; min-width: 86px; height: 40px; padding: 0 15px !important; border-radius: 999px !important; background: var(--dp-ink) !important; color: #fff !important; font-size: 13px !important; line-height: 19px !important; font-weight: 800 !important; }
+.dp-sell-price-cta > button:hover { background: #000 !important; }
 .dp-toast { position: fixed; left: 50%; bottom: 28px; z-index: 50; transform: translateX(-50%); max-width: calc(100% - 32px); padding: 10px 16px; border-radius: 8px; background: rgba(34,34,34,.94); color: #fff; font-size: 14px; white-space: nowrap; }
 
 @media (min-width: 768px) {
@@ -375,6 +381,10 @@
   .dp-dealer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .dp-footer { max-width: none; margin-top: 0; padding: 28px max(20px, calc((100vw - 1184px) / 2)) 48px; }
   .dp-footer-links { display: flex; gap: 32px; }
+  .dp-sell-price-cta { min-height: 82px; margin: 8px 0 32px; padding: 16px 18px 16px 22px; }
+  .dp-sell-price-cta b { font-size: 16px; line-height: 23px; }
+  .dp-sell-price-cta small { font-size: 13px; line-height: 19px; }
+  .dp-sell-price-cta > button { min-width: 102px; height: 42px; font-size: 14px !important; }
 }
 
 @keyframes dp-cover-reveal {
