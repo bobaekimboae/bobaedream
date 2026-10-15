@@ -110,6 +110,7 @@
     var score=(Number(post.id||index+1)*7)%46+3;
     return [
       '<article class="chototFeedCard" data-post-id="'+esc(post.id)+'">',
+        mediaMarkup(post,index),
         '<div class="chototFeedIdentity">',
           '<img class="chototFeedAvatar" src="'+avatarAssets[index%avatarAssets.length]+'" alt="'+esc(post.user)+' 프로필">',
           '<div class="chototFeedAuthor"><strong>'+esc(post.user)+'</strong><span>보배드림 · '+esc(post.time||'방금 전')+'</span></div>',
@@ -117,7 +118,6 @@
         '</div>',
         '<a class="chototFeedTitle" href="./chzzk-detail.html?id='+encodeURIComponent(post.id)+'&v=20261015chototfeed">'+esc(title)+'</a>',
         '<div class="chototFeedBodyWrap"><p class="chototFeedBody">'+esc(post.body||bodyCopy[index%bodyCopy.length])+'</p><button class="chototFeedMoreText" type="button" aria-expanded="false">더보기</button></div>',
-        mediaMarkup(post,index),
         '<div class="chototFeedActions" aria-label="게시물 반응">',
           '<div class="chototActionPill"><button class="chototVoteButton" type="button" data-vote="up" aria-label="추천" aria-pressed="false"><img src="'+redditIcon('vote-up')+'" alt=""><span>'+score+'</span></button><span class="chototVoteDivider" aria-hidden="true"></span><button class="chototVoteButton" type="button" data-vote="down" aria-label="비추천" aria-pressed="false"><img src="'+redditIcon('vote-down')+'" alt=""></button></div>',
           '<button class="chototActionButton" type="button" data-comment="'+esc(post.id)+'" aria-label="댓글 '+esc(post.reply||0)+'개"><img src="'+redditIcon('comment-reddit')+'" alt=""><span>'+esc(post.reply||0)+'</span></button>',
@@ -227,16 +227,25 @@
     });
     var rail=card.querySelector('.chototMediaRail');
     var counter=card.querySelector('.chototMediaCount');
+    function placeCounter(item){
+      if(!counter||!item)return;
+      var shell=counter.parentElement;
+      var shellRect=shell.getBoundingClientRect();
+      var itemRect=item.getBoundingClientRect();
+      counter.style.left=Math.max(34,Math.min(shellRect.width-9,itemRect.right-shellRect.left-9))+'px';
+    }
     function resetRailToFirstImage(){
       if(!rail)return;
       rail.scrollLeft=0;
       if(counter)counter.textContent='1 / '+rail.children.length;
+      placeCounter(rail.firstElementChild);
     }
     function updateCounter(){
       if(!rail||!counter)return;
       var items=[].slice.call(rail.children);
       var nearest=items.reduce(function(best,item,index){var distance=Math.abs(item.offsetLeft-rail.scrollLeft);return distance<best.distance?{index:index,distance:distance}:best},{index:0,distance:Infinity});
       counter.textContent=(nearest.index+1)+' / '+items.length;
+      placeCounter(items[nearest.index]);
     }
     if(rail){
       resetRailToFirstImage();
