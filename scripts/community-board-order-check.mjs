@@ -69,7 +69,7 @@ for(const width of [360,384,412,592,1280]){
   check(await page.locator('.boardOrderRemove').count()===0,'일반 상태에 제외 버튼이 노출되었습니다');
   check((await page.locator('.boardOrderEdit').textContent())?.trim()==='편집','일반 상태 버튼이 편집이 아닙니다');
   const columns=await page.locator('.boardOrderMyGrid').evaluate(element=>getComputedStyle(element).gridTemplateColumns.split(' ').length);
-  check(columns===(width>=768?6:3),`${width}px 그리드 열 수가 ${columns}개입니다`);
+  check(columns===4,`${width}px 기본 그리드 열 수가 ${columns}개입니다`);
   const itemHeight=await page.locator('.boardOrderItem').first().evaluate(element=>element.getBoundingClientRect().height);
   check(itemHeight===40,`${width}px 채널 높이가 ${itemHeight}px입니다`);
   const clipped=await page.locator('.boardOrderName').evaluateAll(elements=>elements.filter(element=>element.scrollWidth>element.clientWidth+1).map(element=>element.textContent));
@@ -90,10 +90,18 @@ for(const width of [360,384,412,592,1280]){
     check(await page.locator('.boardOrderRemove').count()===30,'편집 상태 일반 채널 제외 버튼 수가 다릅니다');
     check(await page.locator('.boardOrderFixed .boardOrderRemove').count()===0,'고정 채널에 제외 버튼이 생겼습니다');
     check(await page.locator('.boardOrderFixed[draggable="true"]').count()===0,'고정 채널이 드래그 가능 상태입니다');
+    check(await page.locator('.boardOrderFixedIcon').count()===2,'고정 게시판 잠금 표시가 2개가 아닙니다');
+    const removeTarget=await page.locator('.boardOrderRemove').first().evaluate(element=>({width:element.getBoundingClientRect().width,height:element.getBoundingClientRect().height}));
+    check(removeTarget.width===44&&removeTarget.height===44,`제외 버튼 터치 영역이 ${removeTarget.width}×${removeTarget.height}px입니다`);
     await page.screenshot({path:path.join(outputDir,'mobile-384-channel-edit.png'),fullPage:false});
 
     await page.locator('.boardOrderItem[data-board-id="car-news"] .boardOrderRemove').click();
     check(await page.locator('.boardOrderAdd[data-board-id="car-news"]').count()===1,'제외 게시판이 게시판 분류에 나타나지 않았습니다');
+    check(await page.locator('.boardChannelTab[data-board-id="car-news"]').count()===0,'제외 게시판이 즉시 저장되지 않았습니다');
+    check(await page.locator('.boardOrderUndo').isVisible(),'제외 후 5초 되돌리기가 노출되지 않았습니다');
+    await page.locator('.boardOrderUndo').click();
+    check(await page.locator('.boardChannelTab[data-board-id="car-news"]').count()===1,'되돌리기로 게시판이 복구되지 않았습니다');
+    await page.locator('.boardOrderItem[data-board-id="car-news"] .boardOrderRemove').click();
     await page.locator('.boardOrderEdit').click();
     check((await page.locator('.boardOrderEdit').textContent())?.trim()==='편집','완료 뒤 일반 상태로 돌아오지 않았습니다');
     check(await page.locator('.boardChannelTab[data-board-id="car-news"]').count()===0,'제외 게시판이 상단 채널에 남았습니다');
@@ -117,7 +125,7 @@ for(const width of [360,384,412,592,1280]){
     await page.locator('.boardOrderEdit').click();
     await page.locator('.boardOrderItem[data-board-id="free"] .boardOrderRemove').click();
     await page.locator('.boardOrderClose').click();
-    check(await page.locator('.boardChannelTab[data-board-id="free"]').count()===1,'닫기 취소인데 draft가 저장되었습니다');
+    check(await page.locator('.boardChannelTab[data-board-id="free"]').count()===0,'편집 중 닫았을 때 자동 저장이 유지되지 않았습니다');
   }else{
     await page.locator('.boardOrderClose').click();
   }
@@ -155,4 +163,4 @@ for(const columns of [3,4]){
 await browser.close();
 
 if(failures.length){console.error(JSON.stringify({ok:false,failures},null,2));process.exit(1)}
-console.log(JSON.stringify({ok:true,channels:32,fixed:['전체','베스트'],movable:30,sections:{게시판:13,자료실:17},widths:[360,384,412,592,1280],mobileColumns:3,desktopColumns:6,previewColumns:[3,4],chipHeight:40,migration:'v1-to-v2',outputDir},null,2));
+console.log(JSON.stringify({ok:true,channels:32,fixed:['전체','베스트'],movable:30,sections:{게시판:13,자료실:17},widths:[360,384,412,592,1280],defaultColumns:4,previewColumns:[3,4],chipHeight:40,removeTarget:44,undoSeconds:5,migration:'v1-to-v2',outputDir},null,2));
