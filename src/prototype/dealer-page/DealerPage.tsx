@@ -158,19 +158,26 @@ function DealerProfile({ dealer, cars, following, setFollowing, share }: { deale
       <img className="dp-avatar" src={dealerPhoto(dealer)} alt={`${dealer.name} 프로필`} draggable={false} />
       <div className="dp-profile-copy">
         <h1>{dealer.name}<Icon name="chotot-list-detail-verified-dealer-wavy-badge.svg" className="is-badge" /></h1>
-        <div className="dp-profile-inline is-channel-handle">{dealer.role ?? "인증딜러"} · {MOCK.company}</div>
-        <div className="dp-profile-inline is-channel-meta">{MOCK.complex}</div>
-        <div className="dp-profile-inline is-mobile-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>({MOCK.reviewCount}개 평가)</u></div>
+        <div className="dp-profile-stats dp-profile-stats-mobile" aria-label="판매 실적">
+          <span><small>판매중</small><b>{listingCount}</b></span>
+          <span><small>판매완료</small><b>{MOCK.sold}</b></span>
+          <span><small>팔로워</small><b>{MOCK.followers + (following ? 1 : 0)}</b></span>
+        </div>
+        <div className="dp-profile-bio">
+          <b>{dealer.role ?? "인증딜러"} · {MOCK.company}</b>
+          <p>{MOCK.intro}</p>
+        </div>
         <div className="dp-profile-actions">
           <button type="button" onClick={share}><DealerIcon name="share" />공유</button>
           <button type="button" aria-pressed={following} onClick={() => setFollowing(!following)}>{following ? <CheckIcon aria-hidden="true" /> : <PlusIcon aria-hidden="true" />}{following ? "팔로잉" : "팔로우"}</button>
         </div>
         <div className="dp-profile-inline is-first"><DealerIcon name="clock" />{MOCK.lastActive}<i />응답률: {MOCK.response}</div>
-        <div className="dp-profile-inline is-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>({MOCK.reviewCount}개 평가)</u><i /><span className="dp-desktop-career"><DealerIcon name="calendar" />{MOCK.joined}</span></div>
         <div className="dp-profile-inline is-response"><DealerIcon name="clock" />응답률: {MOCK.response}</div>
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
         <div className="dp-profile-inline is-career"><DealerIcon name="calendar" />{MOCK.joined}</div>
-        <div className="dp-profile-stats" aria-label="판매 실적">
+        <div className="dp-profile-inline is-mobile-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>({MOCK.reviewCount}개 평가)</u></div>
+        <div className="dp-profile-inline is-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>({MOCK.reviewCount}개 평가)</u></div>
+        <div className="dp-profile-stats dp-profile-stats-desktop" aria-label="판매 실적">
           <span><small>판매중</small><b>{listingCount}</b></span>
           <span><small>판매완료</small><b>{MOCK.sold}</b></span>
           <span><small>팔로워</small><b>{MOCK.followers + (following ? 1 : 0)}</b></span>

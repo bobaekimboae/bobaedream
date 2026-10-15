@@ -43,6 +43,32 @@ final result: passed
 
 ---
 
+# 딜러 프로필 · 인스타그램형 정보 위계 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/2fa25692-156f-4b36-9fd0-5541173e51a6/1-1000018350.jpg`
+- implementation: 딜러 프로필 모바일 화면, IAB 393 × 852 CSS px
+- scope: 프로필 사진 옆 딜러명, 판매중·판매완료·팔로워, 소개글, 딜러 경력 아래 리뷰 순서
+
+## Cross-check evidence
+
+- 74px 원형 프로필 사진 오른쪽 첫 줄에 `김태규`와 인증 배지를 유지했다.
+- 딜러명 바로 아래에 판매중·판매완료·팔로워를 3열 무테두리 통계로 배치하고 숫자를 먼저 읽히게 했다.
+- 프로필 영역 전체 폭에 소속·역할과 두 줄 소개글을 배치해 인스타그램 프로필의 정보 위계를 적용했다.
+- 공유·팔로우, 응답률, 주소, 딜러 경력, 리뷰 순으로 세로 흐름을 정리해 리뷰가 경력 아래에 오도록 했다.
+- PC에서는 기존 박스형 판매 통계를 유지해 데스크톱 정보 밀도 회귀를 방지했다.
+
+## Verification
+
+- 모바일 393 × 852: 헤더·프로필·통계·소개글·리뷰 순서 통과
+- 가로 넘침 및 텍스트 충돌: 없음
+- `npm run check:runtime`: passed
+- `npx tsc --noEmit`: passed
+- P0/P1/P2 findings: none
+
+final result: passed
+
+---
+
 # Design QA · 투제이모터웍스 페라리 영상 헤더 (2026-10-15)
 
 - source visual truth: 기존 보배드림 페라리 카테고리의 Ferrari 공식 Sports Cars 히어로 영상
