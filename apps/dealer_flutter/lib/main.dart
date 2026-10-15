@@ -1,4 +1,54 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+const _iconRoot = 'assets/icons';
+const _followIcon = '$_iconRoot/chotot/chotot-list-detail-follow.svg';
+const _followingIcon =
+    '$_iconRoot/chotot/chotot-listing-register-check-mark.svg';
+const _chatIcon = '$_iconRoot/chotot/chotot-list-detail-chat.svg';
+const _verifiedIcon =
+    '$_iconRoot/chotot/chotot-list-detail-verified-dealer-wavy-badge.svg';
+const _locationIcon = '$_iconRoot/chotot/chotot-profile-location.svg';
+const _reviewStarIcon = '$_iconRoot/chotot/chotot-list-detail-review-star.svg';
+const _favoriteIcon = '$_iconRoot/chotot/chotot-common-favorite.svg';
+const _favoriteSelectedIcon =
+    '$_iconRoot/chotot/chotot-common-favorite-selected.svg';
+const _phoneIcon = '$_iconRoot/dealer-profile/phone.svg';
+const _dealerIcon = '$_iconRoot/dealer-profile/dealership.svg';
+const _dealershipIcon = '$_iconRoot/dealer-profile/dealership-building.png';
+
+class _AssetIcon extends StatelessWidget {
+  const _AssetIcon({required this.asset, required this.size, this.color});
+
+  final String asset;
+  final double size;
+  final Color? color;
+
+  @override
+  Widget build(BuildContext context) {
+    if (asset.endsWith('.svg')) {
+      return SvgPicture.asset(
+        asset,
+        width: size,
+        height: size,
+        fit: BoxFit.contain,
+        colorFilter: color == null
+            ? null
+            : ColorFilter.mode(color!, BlendMode.srcIn),
+      );
+    }
+
+    return Image.asset(
+      asset,
+      width: size,
+      height: size,
+      fit: BoxFit.contain,
+      color: color,
+      colorBlendMode: color == null ? null : BlendMode.srcIn,
+      filterQuality: FilterQuality.high,
+    );
+  }
+}
 
 void main() => runApp(const DealerApp());
 
@@ -388,11 +438,7 @@ class DealerHero extends StatelessWidget {
                     ),
                   ),
                   SizedBox(width: 5),
-                  Icon(
-                    Icons.verified_rounded,
-                    color: Color(0xFF287CF2),
-                    size: 19,
-                  ),
+                  _AssetIcon(asset: _verifiedIcon, size: 19),
                 ],
               ),
               const SizedBox(height: 13),
@@ -441,7 +487,7 @@ class DealerHero extends StatelessWidget {
                   Expanded(
                     child: _ActionButton(
                       label: following ? '팔로잉' : '팔로우',
-                      icon: following ? Icons.check_rounded : Icons.add_rounded,
+                      iconAsset: following ? _followingIcon : _followIcon,
                       onTap: onToggleFollow,
                     ),
                   ),
@@ -449,7 +495,7 @@ class DealerHero extends StatelessWidget {
                   Expanded(
                     child: _ActionButton(
                       label: '채팅',
-                      icon: Icons.chat_bubble_outline_rounded,
+                      iconAsset: _chatIcon,
                       onTap: onChat,
                     ),
                   ),
@@ -457,7 +503,7 @@ class DealerHero extends StatelessWidget {
                   Expanded(
                     child: _ActionButton(
                       label: '전화',
-                      icon: Icons.phone_in_talk_outlined,
+                      iconAsset: _phoneIcon,
                       onTap: onCall,
                     ),
                   ),
@@ -490,17 +536,14 @@ class DealerHero extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 13),
-              const _InfoLine(icon: Icons.badge_outlined, text: '딜러 경력 7년'),
+              const _InfoLine(iconAsset: _dealerIcon, text: '딜러 경력 7년'),
+              const _InfoLine(iconAsset: _phoneIcon, text: '02-2059-5211'),
               const _InfoLine(
-                icon: Icons.phone_in_talk_outlined,
-                text: '02-2059-5211',
-              ),
-              const _InfoLine(
-                icon: Icons.location_on_outlined,
+                iconAsset: _locationIcon,
                 text: '서울 서초구 양재대로11길 36, 은관 421호',
               ),
               const _InfoLine(
-                icon: Icons.storefront_outlined,
+                iconAsset: _dealershipIcon,
                 text: '서울오토갤러리 · (주)투제이모터웍스',
               ),
               const SizedBox(height: 7),
@@ -584,18 +627,22 @@ class _Stat extends StatelessWidget {
 class _ActionButton extends StatelessWidget {
   const _ActionButton({
     required this.label,
-    required this.icon,
+    required this.iconAsset,
     required this.onTap,
   });
   final String label;
-  final IconData icon;
+  final String iconAsset;
   final VoidCallback onTap;
   @override
   Widget build(BuildContext context) => SizedBox(
     height: 38,
     child: OutlinedButton.icon(
       onPressed: onTap,
-      icon: Icon(icon, size: 17),
+      icon: _AssetIcon(
+        asset: iconAsset,
+        size: 17,
+        color: const Color(0xFF202124),
+      ),
       label: Text(
         label,
         maxLines: 1,
@@ -617,18 +664,22 @@ class _Stars extends StatelessWidget {
   Widget build(BuildContext context) => const Row(
     mainAxisSize: MainAxisSize.min,
     children: [
-      Icon(Icons.star_rounded, color: Color(0xFFFFA000), size: 18),
-      Icon(Icons.star_rounded, color: Color(0xFFFFA000), size: 18),
-      Icon(Icons.star_rounded, color: Color(0xFFFFA000), size: 18),
-      Icon(Icons.star_rounded, color: Color(0xFFFFA000), size: 18),
-      Icon(Icons.star_half_rounded, color: Color(0xFFFFA000), size: 18),
+      _AssetIcon(asset: _reviewStarIcon, size: 15, color: Color(0xFFF8BA02)),
+      SizedBox(width: 2),
+      _AssetIcon(asset: _reviewStarIcon, size: 15, color: Color(0xFFF8BA02)),
+      SizedBox(width: 2),
+      _AssetIcon(asset: _reviewStarIcon, size: 15, color: Color(0xFFF8BA02)),
+      SizedBox(width: 2),
+      _AssetIcon(asset: _reviewStarIcon, size: 15, color: Color(0xFFF8BA02)),
+      SizedBox(width: 2),
+      _AssetIcon(asset: _reviewStarIcon, size: 15, color: Color(0xFFD9D9D9)),
     ],
   );
 }
 
 class _InfoLine extends StatelessWidget {
-  const _InfoLine({required this.icon, required this.text});
-  final IconData icon;
+  const _InfoLine({required this.iconAsset, required this.text});
+  final String iconAsset;
   final String text;
   @override
   Widget build(BuildContext context) => Padding(
@@ -636,7 +687,7 @@ class _InfoLine extends StatelessWidget {
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Icon(icon, size: 20, color: const Color(0xFF34363A)),
+        _AssetIcon(asset: iconAsset, size: 20, color: const Color(0xFF34363A)),
         const SizedBox(width: 11),
         Expanded(
           child: Text(
@@ -935,8 +986,8 @@ class _CarCardState extends State<CarCard> {
                   const Spacer(),
                   Row(
                     children: [
-                      const Icon(
-                        Icons.location_on,
+                      const _AssetIcon(
+                        asset: _locationIcon,
                         size: 14,
                         color: Color(0xFF9A9DA2),
                       ),
@@ -956,14 +1007,12 @@ class _CarCardState extends State<CarCard> {
                           setState(() => favorite = !favorite);
                           widget.onFavorite();
                         },
-                        child: Icon(
-                          favorite
-                              ? Icons.favorite_rounded
-                              : Icons.favorite_border_rounded,
+                        child: _AssetIcon(
+                          asset: favorite
+                              ? _favoriteSelectedIcon
+                              : _favoriteIcon,
                           size: 22,
-                          color: favorite
-                              ? const Color(0xFFE43F5A)
-                              : const Color(0xFF777A80),
+                          color: favorite ? null : const Color(0xFF777A80),
                         ),
                       ),
                     ],
@@ -1197,10 +1246,10 @@ class SocialView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final channels = [
-      (Icons.photo_camera_outlined, '인스타그램', '신규 매물과 출고 소식'),
-      (Icons.play_circle_outline_rounded, '유튜브', '차량 리뷰 영상'),
-      (Icons.facebook_rounded, '페이스북', '투제이모터웍스 소식'),
-      (Icons.music_note_rounded, '틱톡', '수입차 숏폼'),
+      ('$_iconRoot/dealer-profile/instagram.svg', '인스타그램', '신규 매물과 출고 소식'),
+      ('$_iconRoot/dealer-profile/youtube.svg', '유튜브', '차량 리뷰 영상'),
+      ('$_iconRoot/dealer-profile/facebook.svg', '페이스북', '투제이모터웍스 소식'),
+      ('$_iconRoot/dealer-profile/tiktok.svg', '틱톡', '수입차 숏폼'),
     ];
     return SectionShell(
       title: 'SNS',
@@ -1213,7 +1262,11 @@ class SocialView extends StatelessWidget {
                 contentPadding: EdgeInsets.zero,
                 leading: CircleAvatar(
                   backgroundColor: const Color(0xFFF2F3F4),
-                  child: Icon(item.$1, color: const Color(0xFF232529)),
+                  child: _AssetIcon(
+                    asset: item.$1,
+                    size: 22,
+                    color: const Color(0xFF232529),
+                  ),
                 ),
                 title: Text(
                   item.$2,
