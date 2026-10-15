@@ -31,6 +31,7 @@ async function checkCase(name,viewport,expectedMediaHeight){
   if(label?.trim()!=='피드형 · 초톳')throw new Error(`${name}: unexpected label ${label}`);
   if(firstTitle!=='주말 모임에 등장한 블루 SUV, 실물 색감은 이렇습니다')throw new Error(`${name}: realistic scenario copy is missing`);
   if(cardCount!==10)throw new Error(`${name}: expected 10 cards, got ${cardCount}`);
+  if(!await page.locator('.chototFeedCard').first().locator(':scope > .chototMediaShell:first-child').count())throw new Error(`${name}: media is not the first block in the card`);
   if(!railBox||Math.abs(railBox.height-expectedMediaHeight)>1)throw new Error(`${name}: expected media height ${expectedMediaHeight}, got ${railBox?.height}`);
   if(metrics.scrollWidth<=metrics.clientWidth)throw new Error(`${name}: first media rail is not horizontally scrollable`);
   if(metrics.bodyScrollWidth>metrics.bodyClientWidth+1)throw new Error(`${name}: body overflows horizontally`);
@@ -39,6 +40,14 @@ async function checkCase(name,viewport,expectedMediaHeight){
     return {scrollLeft:rail.scrollLeft,visualOffset:first.getBoundingClientRect().left-rail.getBoundingClientRect().left,counter:rail.parentElement.querySelector('.chototMediaCount')?.textContent?.trim()};
   });
   if(Math.abs(initialMediaPosition.visualOffset)>1||initialMediaPosition.counter!=='1 / 6')throw new Error(`${name}: feed did not start at first image: ${JSON.stringify(initialMediaPosition)}`);
+  const counterAlignment=await page.locator('.chototFeedCard').first().evaluate(card=>{
+    const first=card.querySelector('.chototMediaItem');
+    const counter=card.querySelector('.chototMediaCount');
+    const firstRect=first.getBoundingClientRect();
+    const counterRect=counter.getBoundingClientRect();
+    return {firstRight:firstRect.right,counterRight:counterRect.right,delta:firstRect.right-counterRect.right};
+  });
+  if(Math.abs(counterAlignment.delta-9)>1)throw new Error(`${name}: media counter is not anchored to the first image: ${JSON.stringify(counterAlignment)}`);
   const restoredMediaPosition=await page.locator('.chototMediaRail').first().evaluate(async rail=>{
     rail.scrollLeft=rail.scrollWidth;
     window.dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}));
@@ -92,6 +101,7 @@ async function checkCase(name,viewport,expectedMediaHeight){
   });
   if(!dragSuppressed)throw new Error(`${name}: horizontal media drag incorrectly opened the gallery`);
   await page.evaluate(()=>window.scrollTo(0,Math.min(360,document.documentElement.scrollHeight-innerHeight)));
+  await firstMedia.scrollIntoViewIfNeeded();
   const scrollBeforeGallery=await page.evaluate(()=>window.scrollY);
   const urlBeforeGallery=page.url();
   await firstMedia.click();
@@ -111,7 +121,7 @@ async function checkCase(name,viewport,expectedMediaHeight){
   const viewportScreenshot=path.join(artifactDir,`${name}-viewport.png`);
   await page.screenshot({path:screenshot,fullPage:true});
   await page.screenshot({path:viewportScreenshot,fullPage:false});
-  const entry={name,viewport,label:label.trim(),firstTitle,cardCount,railBox,metrics,initialMediaPosition,restoredMediaPosition,mediaScenarioCoverage,imageState,touchIsolation,dragSuppressed,scrollBeforeGallery,scrollAfterGallery,screenshot,viewportScreenshot,consoleErrors,failedResources};
+  const entry={name,viewport,label:label.trim(),firstTitle,cardCount,railBox,metrics,initialMediaPosition,counterAlignment,restoredMediaPosition,mediaScenarioCoverage,imageState,touchIsolation,dragSuppressed,scrollBeforeGallery,scrollAfterGallery,screenshot,viewportScreenshot,consoleErrors,failedResources};
   report.cases.push(entry);
   if(failedResources.length)throw new Error(`${name}: failed resources: ${failedResources.join(' | ')}`);
   if(consoleErrors.length)throw new Error(`${name}: console errors: ${consoleErrors.join(' | ')}`);

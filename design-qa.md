@@ -16,6 +16,48 @@ final result: passed
 
 ---
 
+# Chợ Tốt 피드 · 이미지 첫 위치 및 카운터 정렬 QA · 2026-10-15
+
+**Source visual truth**
+
+- 사용자 캡처: `C:\Users\bobae\OneDrive\문서\ChatGPT\퀵필터 제작\.codex-remote-attachments\01a128e5-de8a-78d0-9ed9-96cbde6a07c3\4896e130-8db4-4e35-939b-e4865e4e55f8\1-1000018420.jpg`
+- 구현 캡처: `artifacts/community-chotot-feed-1015/mobile-390x844-viewport.png`
+- 좌우 비교: `artifacts/community-chotot-feed-1015/qa-comparison-mobile.png`
+
+**Viewport and state**
+
+- 구현: 390 × 844 CSS px, deviceScaleFactor 1.
+- 원본: 592 × 1280 Android 캡처에서 브라우저 상단을 제외한 y=141~1280 영역을 390px 너비로 정규화했다.
+- 상태: `피드형 · 초톳` 초기 화면, 첫 게시물의 첫 이미지와 `1/6` 카운터가 보이는 상태.
+
+**Findings and fixes**
+
+- Pass 1 P1: 게시물 순서가 작성자·제목·본문 뒤에 이미지로 구성되어, 요청한 이미지 우선 피드 구조와 달랐다.
+- Pass 1 P2: `1/6` 카운터가 미디어 레일 우측 끝에 고정되어 두 번째 이미지 위에 놓였다.
+- Fix: 미디어 셸을 카드의 첫 번째 자식으로 이동하고, 현재 이미지의 우측 끝을 기준으로 카운터 좌표를 계산하도록 변경했다.
+- Pass 2: 첫 이미지가 카드 상단에 놓이며 카운터는 첫 이미지 우측에서 9px 안쪽에 정렬된다.
+
+**Required fidelity surfaces**
+
+- typography: 기존 Pretendard 제목·본문·메타 위계 유지.
+- spacing/layout: 이미지 → 작성자 → 제목 → 본문 → 반응 순으로 재배치하고 카드 모서리 밖 미디어를 클리핑했다.
+- colors/tokens: 요청 범위가 위치 교정이므로 기존 보드 블루와 중립 배경을 유지했다.
+- image quality: 기존 실제 차량 이미지를 그대로 사용하고 cover 처리와 가로 스와이프를 유지했다.
+- copy/content: 게시물 문구와 작성자 데이터는 변경하지 않았다.
+
+**Interaction and runtime checks**
+
+- 모바일·데스크톱 피드 렌더링: passed.
+- 미디어 스와이프 후 카운터 위치 갱신: passed.
+- 첫 이미지 터치로 갤러리 열기, 닫기 후 스크롤 복원: passed.
+- 추천·비추천, 저장, 더보기 동작: passed.
+- 브라우저 콘솔 오류 및 실패 리소스: 0.
+- `node scripts/community-chotot-feed-check.mjs`: passed.
+
+final result: passed
+
+---
+
 # 게시판 밑줄·말머리 칩 분리 QA · 2026-10-15
 
 - 상단 게시판의 선택 상태는 3px 검은 밑줄로 복원했다. 전체 행을 가로지르는 구분선은 넣지 않았다.
