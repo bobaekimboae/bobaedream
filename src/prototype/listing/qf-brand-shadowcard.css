@@ -115,3 +115,32 @@
   height: 98px !important;
   min-height: 98px !important;
 }
+/* 카드 위쪽 그림자 잘림 방지: 레일을 위로 8 넓히고(margin-top -8) 안쪽 위 여백 8을 둔다.
+   카드 위치(칩 줄 → 카드 16)와 아래 간격(16)은 그대로. */
+.marketplace.is-qf-guazi .depth-rail.is-kr-maker.is-brand-shadowcard {
+  margin-top: -8px !important;
+}
+.marketplace.is-qf-guazi .depth-rail.is-kr-maker.is-brand-shadowcard,
+.marketplace.is-qf-guazi .depth-rail.is-kr-maker.is-brand-shadowcard .brand-carousel,
+.marketplace.is-qf-guazi .depth-rail.is-kr-maker.is-brand-shadowcard .depth-rail-track {
+  height: 106px !important;
+  min-height: 106px !important;
+}
+.marketplace.is-qf-guazi .depth-rail.is-kr-maker.is-brand-shadowcard .depth-rail-track {
+  padding: 8px 16px 18px !important;
+}
+/* 페라리 모델 레일 위쪽 그림자 잘림 방지: 레일 안쪽 위 여백 16 → 8, 트랙 안쪽 위 여백 8을 둬
+   카드 위치(지역 줄 → 카드 16)와 아래 간격(16)은 그대로 두고 그림자만 살린다. */
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot:has(> .is-ferrari-region-row) > .is-ferrari-model-row.is-brand-shadowcard {
+  padding-top: 8px !important;
+  height: 104px !important;
+  min-height: 104px !important;
+}
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot:has(> .is-ferrari-region-row) > .is-ferrari-model-row.is-brand-shadowcard .brand-carousel,
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot:has(> .is-ferrari-region-row) > .is-ferrari-model-row.is-brand-shadowcard .depth-rail-track {
+  height: 104px !important;
+  min-height: 104px !important;
+}
+.marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot:has(> .is-ferrari-region-row) > .is-ferrari-model-row.is-brand-shadowcard .depth-rail-track {
+  padding: 8px 16px 16px !important;
+}

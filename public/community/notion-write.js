@@ -15,11 +15,14 @@
   const blockMenu = document.querySelector("#blockMenu");
   const blockAddButton = document.querySelector("#blockAddButton");
   const imageInput = document.querySelector("#imageInput");
+  const cameraImageInput = document.querySelector("#cameraImageInput");
+  const fileImageInput = document.querySelector("#fileImageInput");
   const videoInput = document.querySelector("#videoInput");
   const replaceImageInput = document.querySelector("#replaceImageInput");
   const replaceVideoInput = document.querySelector("#replaceVideoInput");
   const mediaDialog = document.querySelector("#mediaDialog");
-  const mediaDialogTitle = document.querySelector("#mediaDialogTitle");
+  const mediaDialogDesktopTitle = document.querySelector("#mediaDialogDesktopTitle");
+  const mediaDialogMobileTitle = document.querySelector("#mediaDialogMobileTitle");
   const uploadHelp = document.querySelector("#uploadHelp");
   const mediaUrl = document.querySelector("#mediaUrl");
   const embedDialog = document.querySelector("#embedDialog");
@@ -620,6 +623,8 @@
     }
     mediaDialog.close();
     imageInput.value = "";
+    cameraImageInput.value = "";
+    fileImageInput.value = "";
     videoInput.value = "";
     replaceImageInput.value = "";
     replaceVideoInput.value = "";
@@ -645,7 +650,9 @@
   function openMediaDialog(kind) {
     rememberSelection();
     pendingKind = kind;
-    mediaDialogTitle.textContent = kind === "image" ? "이미지 추가" : "동영상 추가";
+    mediaDialog.dataset.kind = kind;
+    mediaDialogDesktopTitle.textContent = kind === "image" ? "이미지 추가" : "동영상 추가";
+    mediaDialogMobileTitle.textContent = kind === "image" ? "이미지" : "동영상";
     uploadHelp.textContent = kind === "image" ? "JPG, PNG, GIF, WEBP · 파일당 20MB" : "MP4, WEBM, MOV · 파일당 200MB";
     document.querySelector("#uploadTab").click();
     mediaDialog.showModal();
@@ -940,6 +947,12 @@
     if (!isUpload) setTimeout(() => mediaUrl.focus(), 0);
   }));
   document.querySelector("#dialogUploadButton").addEventListener("click", () => (pendingKind === "image" ? imageInput : videoInput).click());
+  document.querySelectorAll("[data-mobile-media-source]").forEach((button) => button.addEventListener("click", () => {
+    const source = button.dataset.mobileMediaSource;
+    if (source === "camera") cameraImageInput.click();
+    else if (source === "file") fileImageInput.click();
+    else imageInput.click();
+  }));
   document.querySelector("#embedButton").addEventListener("click", () => addMediaUrl(pendingKind, mediaUrl.value.trim()));
   mediaUrl.addEventListener("keydown", (event) => {
     if (event.key === "Enter") { event.preventDefault(); addMediaUrl(pendingKind, mediaUrl.value.trim()); }
@@ -954,6 +967,8 @@
   });
 
   imageInput.addEventListener("change", () => addFiles(imageInput.files, "image"));
+  cameraImageInput.addEventListener("change", () => addFiles(cameraImageInput.files, "image"));
+  fileImageInput.addEventListener("change", () => addFiles(fileImageInput.files, "image"));
   videoInput.addEventListener("change", () => addFiles(videoInput.files, "video"));
   replaceImageInput.addEventListener("change", () => addFiles(replaceImageInput.files, "image", true));
   replaceVideoInput.addEventListener("change", () => addFiles(replaceVideoInput.files, "video", true));

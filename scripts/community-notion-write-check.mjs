@@ -168,6 +168,19 @@ try {
   await mobilePage.goto(baseUrl, { waitUntil: "domcontentloaded" });
   await expect(await mobilePage.getByTestId("notion-title").isVisible(), "모바일 제목 입력란이 보이지 않습니다.");
   await expect(await mobilePage.locator("#blockAddButton").isVisible(), "모바일 블록 추가 버튼이 보이지 않습니다.");
+  await mobilePage.locator('[data-action="add-image"]').click();
+  const mobileMediaDialog = mobilePage.locator("#mediaDialog");
+  await expect(await mobileMediaDialog.isVisible(), "모바일 이미지 첨부 화면이 열리지 않습니다.");
+  const mobileDialogBox = await mobileMediaDialog.evaluate((dialog) => {
+    const rect = dialog.getBoundingClientRect();
+    return { width: rect.width, height: rect.height };
+  });
+  await expect(mobileDialogBox.width >= 389 && mobileDialogBox.height >= 843, `모바일 이미지 첨부 화면이 전체 화면이 아닙니다: ${JSON.stringify(mobileDialogBox)}`);
+  await expect(await mobilePage.getByTestId("mobile-image-picker").isVisible(), "Notion형 모바일 이미지 선택 목록이 보이지 않습니다.");
+  await expect(await mobileMediaDialog.getByText("사진 보관함", { exact: true }).isVisible(), "사진 보관함 선택지가 없습니다.");
+  await expect(await mobileMediaDialog.getByText("사진 또는 비디오 찍기", { exact: true }).isVisible(), "카메라 선택지가 없습니다.");
+  await expect(await mobileMediaDialog.getByText("파일 선택", { exact: true }).isVisible(), "파일 선택지가 없습니다.");
+  await mobileMediaDialog.getByRole("button", { name: "닫기" }).click();
   const hasHorizontalOverflow = await mobilePage.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
   await expect(!hasHorizontalOverflow, "모바일 화면에 가로 스크롤이 생겼습니다.");
   await mobileContext.close();
