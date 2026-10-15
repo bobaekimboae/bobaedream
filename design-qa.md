@@ -43,6 +43,46 @@ final result: passed
 
 ---
 
+# Design QA · 투제이모터웍스 페라리 영상 헤더 (2026-10-15)
+
+- source visual truth: 기존 보배드림 페라리 카테고리의 Ferrari 공식 Sports Cars 히어로 영상
+- implementation: `http://127.0.0.1:4213/?profile=dealer&shop=450554&emp=1&qf=guazi&category=서울오토갤러리&v=ferrari-video`
+- implementation screenshot: Codex IAB tab `110`, 393 × 852 CSS px iframe capture, 서로 다른 재생 프레임 2회
+- viewport: 모바일 393 × 852 CSS px; PC 기본 뷰포트
+- state: 김태규 판매자 페이지, 판매차량 탭, 무음 자동재생
+
+## Full-view comparison evidence
+
+- 기존 Range Rover 5장 슬라이드를 페라리 공식 16:9 히어로 영상의 18:5 배너 크롭으로 교체했다.
+- 모바일 393px 화면에서 영상은 좌우 16px·최대 100px 헤더 슬롯을 유지하며 프로필 사진과 제목의 위치를 움직이지 않는다.
+- 1.2초 간격의 두 브라우저 캡처에서 서로 다른 차량 프레임이 보여 자동재생이 실제로 진행됨을 확인했다.
+
+## Focused region comparison evidence
+
+- 영상 초점을 오른쪽 62%에 배치해 차량의 주행 장면과 왼쪽 상사 문구가 겹치지 않는다.
+- 좌측 76% 검정 오버레이와 하단 26% 음영으로 흰색 `투제이모터웍스 / 수입차 전문 매매`의 대비를 확보했다.
+- 슬라이드 점·연식·차종 표기를 제거해 헤더의 정보 잡음을 줄였다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 기존 18/23px 상사명과 11/15px 설명을 유지하고 설명 자간만 `.02em`으로 정돈했다.
+- spacing/layout rhythm: 직전 유튜브 기준 18:5·100px 헤더, 74px 프사, 13px 간격을 보존했다.
+- colors/tokens: 검정 비네팅·흰색 타이포만 사용해 페라리 영상의 색을 방해하지 않는다.
+- image quality/assets: Ferrari 공식 1280×720 MP4를 재사용하고, 실패·모션 감소 시 로컬 Ferrari F80 포스터로 전환한다.
+- copy/content: 상사명과 전문 분야 문구를 유지하고 불필요한 연식·모델 문구만 제거했다.
+
+## Verification
+
+- 모바일 영상 자동재생·무음·인라인·반복 렌더 확인
+- 정지 포스터 fallback 및 `prefers-reduced-motion` 경로 구현
+- `npm run check:runtime`: passed
+- `npx tsc --noEmit`: passed
+- P0/P1/P2 findings: none
+
+final result: passed
+
+---
+
 # 치지직 상세 · 당근형 엄지 반응 아이콘 v8 QA · 2026-10-15
 
 - source visual truth: 사용자 제공 `1-1000018342.jpg` (591 × 1280px, 당근형 모바일 게시물)

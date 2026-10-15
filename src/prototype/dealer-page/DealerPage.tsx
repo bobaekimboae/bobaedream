@@ -72,13 +72,8 @@ const SOCIAL_CHANNELS = [
   { id: "tiktok", label: "틱톡", description: "숏폼 영상", href: "https://www.tiktok.com/search?q=%ED%88%AC%EC%A0%9C%EC%9D%B4%EB%AA%A8%ED%84%B0%EC%9B%8D%EC%8A%A4" },
 ] as const;
 
-const OFFICIAL_LUXURY_HERO = [
-  { id: "range-rover-03", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-03.jpg"), year: "2027", model: "RANGE ROVER" },
-  { id: "range-rover-04", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-04.jpg"), year: "2027", model: "RANGE ROVER" },
-  { id: "range-rover-01", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-01.jpg"), year: "2027", model: "RANGE ROVER" },
-  { id: "range-rover-05", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-05.jpg"), year: "2027", model: "RANGE ROVER" },
-  { id: "range-rover-02", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-02.jpg"), year: "2027", model: "RANGE ROVER INTERIOR" },
-] as const;
+const FERRARI_HERO_VIDEO = "https://s7mbrstream-g1.scene7.com/is/content/ferrari/_media_/13d/13d2b055-5408-40dc-b461-c1e2439868f6-stream.mp4?utm_medium=fmp4_dash";
+const FERRARI_HERO_POSTER = asset("supercar-header/ferrari-f80.jpg");
 
 function Icon({ name, className }: { name: string; className?: string }) {
   return <img className={`dp-icon${className ? ` ${className}` : ""}`} src={icon(name)} alt="" aria-hidden="true" draggable={false} />;
@@ -130,34 +125,33 @@ function SiteHeader() {
 }
 
 function DealerProfile({ dealer, cars, following, setFollowing, share }: { dealer: SeoulAutoGalleryDealer; cars: Car[]; following: boolean; setFollowing: (value: boolean) => void; share: () => void }) {
-  const heroSlides = OFFICIAL_LUXURY_HERO;
-  const [heroIndex, setHeroIndex] = useState(0);
-  const heroSlide = heroSlides[heroIndex % heroSlides.length];
+  const [heroVideoFailed, setHeroVideoFailed] = useState(false);
+  const reduceMotion = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const listingCount = cars.length;
-
-  useEffect(() => {
-    if (heroSlides.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = window.setInterval(() => setHeroIndex((current) => (current + 1) % heroSlides.length), 6000);
-    return () => window.clearInterval(timer);
-  }, [heroSlides.length]);
 
   return <section className="dp-profile">
     <div className="dp-cover">
-      <img
-        key={heroSlide.id}
-        className="dp-cover-photo"
-        src={heroSlide.src}
-        alt={`${heroSlide.year} ${heroSlide.model} 공식 브랜드 이미지`}
+      {heroVideoFailed || reduceMotion ? <img
+        className="dp-cover-photo dp-cover-video"
+        src={FERRARI_HERO_POSTER}
+        alt="페라리 F80"
         draggable={false}
-      />
+      /> : <video
+        className="dp-cover-photo dp-cover-video"
+        src={FERRARI_HERO_VIDEO}
+        poster={FERRARI_HERO_POSTER}
+        muted
+        autoPlay
+        playsInline
+        loop
+        preload="metadata"
+        aria-hidden="true"
+        onError={() => setHeroVideoFailed(true)}
+      />}
       <div className="dp-cover-brand-copy">
         <strong>투제이모터웍스</strong>
         <span>수입차 전문 매매</span>
       </div>
-      <span className="dp-cover-vehicle-meta"><small>{heroSlide.year}</small><em>{heroSlide.model}</em></span>
-      {heroSlides.length > 1 ? <div className="dp-cover-dots" role="group" aria-label={`공식 브랜드 배너 ${heroIndex + 1}/${heroSlides.length}`}>
-        {heroSlides.map((slide, index) => <button key={slide.id} type="button" className={index === heroIndex ? "is-active" : ""} aria-label={`${index + 1}/${heroSlides.length} ${slide.year} ${slide.model}`} aria-current={index === heroIndex ? "true" : undefined} onClick={() => setHeroIndex(index)} />)}
-      </div> : null}
       <button type="button" className="dp-cover-more" aria-label="판매자 메뉴"><Icon name="chotot-common-more.svg" /></button>
     </div>
     <div className="dp-profile-body">
