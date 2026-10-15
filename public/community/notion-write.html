@@ -95,7 +95,7 @@
       </main>
 
       <input id="imageInput" class="sr-only" type="file" accept="image/jpeg,image/png,image/gif,image/webp,image/svg+xml" multiple />
-      <input id="cameraImageInput" class="sr-only" type="file" accept="image/*" capture="environment" />
+      <input id="cameraImageInput" class="sr-only" type="file" accept="image/*,video/*" capture="environment" />
       <input id="fileImageInput" class="sr-only" type="file" accept="image/jpeg,image/png,image/gif,image/webp,image/svg+xml" multiple />
       <input id="videoInput" class="sr-only" type="file" accept="video/mp4,video/webm,video/quicktime,video/ogg" multiple />
       <input id="replaceImageInput" class="sr-only" type="file" accept="image/jpeg,image/png,image/gif,image/webp,image/svg+xml" />
@@ -169,6 +169,36 @@
             <button id="embedButton" class="dialog-primary" type="button">링크 삽입</button>
           </div>
         </form>
+      </dialog>
+
+      <dialog id="mediaManagerDialog" class="media-manager-dialog" aria-labelledby="mediaManagerTitle" data-testid="media-manager" tabindex="-1">
+        <div class="media-manager-shell">
+          <header class="media-manager-header">
+            <button id="cancelMediaManager" class="media-manager-header-button is-cancel" type="button">취소</button>
+            <h2 id="mediaManagerTitle">사진 관리</h2>
+            <button id="completeMediaManager" class="media-manager-header-button is-complete" type="button">완료</button>
+          </header>
+          <main class="media-manager-content">
+            <section class="media-manager-intro" aria-labelledby="mediaManagerGuide">
+              <h3 id="mediaManagerGuide">대표 사진을 선택하고 순서를 정리하세요</h3>
+              <p>첫 화면에 보일 사진을 고른 뒤 끌어서 순서를 바꿀 수 있어요.</p>
+            </section>
+            <section aria-label="첨부 사진">
+              <div id="mediaManagerGrid" class="media-manager-grid" data-testid="media-manager-grid"></div>
+            </section>
+            <section id="mediaManagerVideoSection" class="media-manager-video-section" aria-labelledby="mediaManagerVideoTitle">
+              <div class="media-manager-section-heading">
+                <div><h3 id="mediaManagerVideoTitle">동영상</h3><p>차량 상태가 잘 보이는 영상을 함께 올려보세요.</p></div>
+                <button id="addManagerVideo" type="button">+ 동영상 추가</button>
+              </div>
+              <div id="mediaManagerVideos" class="media-manager-videos"></div>
+            </section>
+          </main>
+          <footer class="media-manager-footer">
+            <p id="mediaManagerSummary" aria-live="polite">첨부한 미디어가 없습니다.</p>
+            <button id="insertManagedMedia" type="button">글에 추가하기</button>
+          </footer>
+        </div>
       </dialog>
 
       <dialog id="embedDialog" class="dialog-card" aria-labelledby="embedDialogTitle">

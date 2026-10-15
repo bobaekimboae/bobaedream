@@ -21,6 +21,12 @@
   const replaceImageInput = document.querySelector("#replaceImageInput");
   const replaceVideoInput = document.querySelector("#replaceVideoInput");
   const mediaDialog = document.querySelector("#mediaDialog");
+  const mediaManagerDialog = document.querySelector("#mediaManagerDialog");
+  const mediaManagerGrid = document.querySelector("#mediaManagerGrid");
+  const mediaManagerVideos = document.querySelector("#mediaManagerVideos");
+  const mediaManagerSummary = document.querySelector("#mediaManagerSummary");
+  const completeMediaManager = document.querySelector("#completeMediaManager");
+  const insertManagedMedia = document.querySelector("#insertManagedMedia");
   const mediaDialogDesktopTitle = document.querySelector("#mediaDialogDesktopTitle");
   const mediaDialogMobileTitle = document.querySelector("#mediaDialogMobileTitle");
   const uploadHelp = document.querySelector("#uploadHelp");
@@ -44,6 +50,9 @@
   let pendingKind = "image";
   let replaceTarget = null;
   let menuTargetBlock = null;
+  let mediaQueue = [];
+  let mediaCoverId = "";
+  let draggedMediaId = "";
 
   function openDatabase() {
     if (!dbPromise) {
@@ -587,10 +596,217 @@
     return figure;
   }
 
+  function isMobileMediaFlow() {
+    return window.matchMedia("(max-width: 720px)").matches;
+  }
+
+  function renderMediaManager() {
+    const images = mediaQueue.filter((item) => item.kind === "image");
+    const videos = mediaQueue.filter((item) => item.kind === "video");
+    mediaManagerGrid.innerHTML = images.map((item, index) => {
+      const uploading = item.status === "uploading";
+      const failed = item.status === "error";
+      const cover = item.id === mediaCoverId;
+      const status = uploading ? `업로드 ${item.progress}%` : "";
+      return `<article class="media-manager-tile${cover ? " is-cover" : ""}${failed ? " is-error" : ""}" draggable="${!uploading && !failed}" data-media-queue-id="${escapeHtml(item.id)}">
+        <button class="media-manager-cover-button" type="button" data-manager-action="cover" aria-label="대표 사진으로 설정: ${escapeHtml(item.name)}">
+          <img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.name)}" />
+        </button>
+        <span class="media-manager-order" aria-hidden="true">${index + 1}</span>
+        ${cover ? '<span class="media-manager-cover-badge">대표</span>' : ""}
+        ${!uploading && !failed ? '<button class="media-manager-drag" type="button" data-manager-action="drag" aria-label="순서 변경. 방향키로 이동">⠿</button>' : ""}
+        <button class="media-manager-remove" type="button" data-manager-action="remove" aria-label="${escapeHtml(item.name)} 삭제">×</button>
+        ${uploading ? `<div class="media-manager-status"><span>${status}</span><div class="media-manager-progress"><span style="width:${item.progress}%"></span></div></div>` : ""}
+        ${failed ? '<button class="media-manager-retry" type="button" data-manager-action="retry"><span aria-hidden="true">↻</span><span>다시 올리기</span></button>' : ""}
+      </article>`;
+    }).join("") + `<button class="media-manager-add" type="button" data-manager-action="add-image"><strong aria-hidden="true">＋</strong><span>사진 추가</span></button>`;
+
+    mediaManagerVideos.innerHTML = videos.length ? videos.map((item) => {
+      const state = item.status === "uploading" ? `업로드 중 ${item.progress}%` : item.status === "error" ? "업로드 실패 · 다시 시도 필요" : "업로드 완료";
+      return `<article class="media-manager-video" data-media-queue-id="${escapeHtml(item.id)}">
+        <div class="media-manager-video-preview" aria-hidden="true">▶</div>
+        <div class="media-manager-video-copy"><strong>${escapeHtml(item.name)}</strong><small>${state}</small></div>
+        <div class="media-manager-video-actions">
+          ${item.status === "error" ? '<button class="media-manager-video-remove" type="button" data-manager-action="retry" aria-label="동영상 다시 올리기">↻</button>' : ""}
+          <button class="media-manager-video-remove" type="button" data-manager-action="remove" aria-label="동영상 삭제">×</button>
+        </div>
+      </article>`;
+    }).join("") : '<p class="media-manager-empty-video">추가한 동영상이 없습니다.</p>';
+
+    const hasPending = mediaQueue.some((item) => item.status === "uploading");
+    const hasError = mediaQueue.some((item) => item.status === "error");
+    const disabled = !mediaQueue.length || hasPending || hasError;
+    completeMediaManager.disabled = disabled;
+    insertManagedMedia.disabled = disabled;
+    mediaManagerSummary.textContent = !mediaQueue.length
+      ? "첨부한 미디어가 없습니다."
+      : `사진 ${images.length}장 · 동영상 ${videos.length}개${hasPending ? " · 업로드 중" : hasError ? " · 실패 항목을 확인해 주세요" : " · 업로드 완료"}`;
+  }
+
+  function openMediaManager() {
+    if (mediaDialog.open) mediaDialog.close();
+    renderMediaManager();
+    if (!mediaManagerDialog.open) {
+      mediaManagerDialog.showModal();
+      mediaManagerDialog.focus();
+    }
+  }
+
+  async function uploadQueuedMedia(item) {
+    item.status = "uploading";
+    item.progress = 8;
+    renderMediaManager();
+    const progressTimer = setInterval(() => {
+      if (item.status !== "uploading") return;
+      item.progress = Math.min(88, item.progress + Math.ceil(Math.random() * 13));
+      renderMediaManager();
+    }, 90);
+    try {
+      await Promise.all([
+        putBlob(item.id, item.file),
+        new Promise((resolve) => setTimeout(resolve, 320)),
+      ]);
+      item.persisted = true;
+      if (!mediaQueue.includes(item)) {
+        await deleteBlob(item.id).catch(() => {});
+        if (item.src.startsWith("blob:")) URL.revokeObjectURL(item.src);
+        return;
+      }
+      item.progress = 100;
+      item.status = "done";
+    } catch (_) {
+      item.status = "error";
+      item.progress = 0;
+    } finally {
+      clearInterval(progressTimer);
+      renderMediaManager();
+    }
+  }
+
+  function enqueueManagedFiles(files, kind) {
+    const max = kind === "image" ? MAX_IMAGE_BYTES : MAX_VIDEO_BYTES;
+    const allowed = Array.from(files).filter((file) => file.type.startsWith(`${kind}/`));
+    if (!allowed.length) {
+      showToast(kind === "image" ? "이미지 파일을 선택해 주세요." : "동영상 파일을 선택해 주세요.");
+      return;
+    }
+    allowed.forEach((file) => {
+      if (file.size > max) {
+        showToast(`${file.name} 파일이 허용 크기를 초과했습니다.`);
+        return;
+      }
+      const item = { id: uid(), kind, file, name: file.name, src: URL.createObjectURL(file), status: "uploading", progress: 0, persisted: false };
+      mediaQueue.push(item);
+      if (kind === "image" && !mediaCoverId) mediaCoverId = item.id;
+      uploadQueuedMedia(item);
+    });
+    openMediaManager();
+  }
+
+  async function removeQueuedMedia(id) {
+    const item = mediaQueue.find((candidate) => candidate.id === id);
+    if (!item) return;
+    mediaQueue = mediaQueue.filter((candidate) => candidate.id !== id);
+    if (item.persisted) await deleteBlob(item.id).catch(() => {});
+    if (item.src.startsWith("blob:")) URL.revokeObjectURL(item.src);
+    if (mediaCoverId === id) mediaCoverId = mediaQueue.find((candidate) => candidate.kind === "image")?.id || "";
+    renderMediaManager();
+  }
+
+  function selectMediaCover(id) {
+    const index = mediaQueue.findIndex((item) => item.id === id && item.kind === "image");
+    if (index < 0) return;
+    const [item] = mediaQueue.splice(index, 1);
+    const firstImageIndex = mediaQueue.findIndex((candidate) => candidate.kind === "image");
+    mediaQueue.splice(firstImageIndex < 0 ? 0 : firstImageIndex, 0, item);
+    mediaCoverId = id;
+    renderMediaManager();
+  }
+
+  function reorderMedia(sourceId, targetId) {
+    const sourceIndex = mediaQueue.findIndex((item) => item.id === sourceId);
+    const targetIndex = mediaQueue.findIndex((item) => item.id === targetId);
+    if (sourceIndex < 0 || targetIndex < 0 || sourceIndex === targetIndex) return;
+    if (mediaQueue[sourceIndex].kind !== mediaQueue[targetIndex].kind) return;
+    const [item] = mediaQueue.splice(sourceIndex, 1);
+    mediaQueue.splice(targetIndex, 0, item);
+    renderMediaManager();
+  }
+
+  function moveQueuedMedia(id, direction) {
+    const sameKind = mediaQueue.filter((item) => item.kind === "image");
+    const position = sameKind.findIndex((item) => item.id === id);
+    const target = sameKind[position + direction];
+    if (target) reorderMedia(id, target.id);
+  }
+
+  async function clearMediaQueue() {
+    const discarded = [...mediaQueue];
+    mediaQueue = [];
+    mediaCoverId = "";
+    renderMediaManager();
+    await Promise.all(discarded.map(async (item) => {
+      if (item.persisted) await deleteBlob(item.id).catch(() => {});
+      if (item.src.startsWith("blob:")) URL.revokeObjectURL(item.src);
+    }));
+  }
+
+  function completeManagedMediaFlow() {
+    if (!mediaQueue.length || mediaQueue.some((item) => item.status !== "done")) return;
+    mediaQueue.forEach((item) => {
+      const block = createMediaBlock({
+        kind: item.kind,
+        id: item.persisted ? item.id : "",
+        src: item.persisted ? item.src : "",
+        url: item.persisted ? "" : item.src,
+        name: item.name,
+      });
+      const media = block.querySelector("img, video");
+      if (item.persisted && media) media.dataset.objectUrl = item.src;
+      insertNodeAtSelection(block);
+    });
+    const count = mediaQueue.length;
+    mediaQueue = [];
+    mediaCoverId = "";
+    mediaManagerDialog.close();
+    showToast(`${count}개의 미디어를 글에 추가했습니다.`);
+  }
+
+  function seedMediaManagerDemo() {
+    const demoImages = [1, 2, 3, 4, 5].map((number) => ({
+      id: `demo-image-${number}`,
+      kind: "image",
+      name: `레인지로버 차량 사진 ${number}`,
+      src: `../assets/dealer-profile/twoj-motorworks/official-luxury/range-rover-0${number}.jpg`,
+      status: "done",
+      progress: 100,
+      persisted: false,
+    }));
+    mediaQueue = [...demoImages, {
+      id: "demo-video-1",
+      kind: "video",
+      name: "차량 외관 주행 영상.mp4",
+      src: "./media/car-sunset-drive-v01.mp4",
+      status: "done",
+      progress: 100,
+      persisted: false,
+    }];
+    mediaCoverId = demoImages[0].id;
+    openMediaManager();
+  }
+
   async function addFiles(files, kind, replace = false) {
     const allowed = Array.from(files).filter((file) => file.type.startsWith(`${kind}/`));
     if (!allowed.length) return showToast(kind === "image" ? "이미지 파일을 선택해 주세요." : "동영상 파일을 선택해 주세요.");
     const max = kind === "image" ? MAX_IMAGE_BYTES : MAX_VIDEO_BYTES;
+    if (!replace && isMobileMediaFlow()) {
+      enqueueManagedFiles(allowed, kind);
+      imageInput.value = "";
+      cameraImageInput.value = "";
+      fileImageInput.value = "";
+      videoInput.value = "";
+      return;
+    }
     for (const file of allowed) {
       if (file.size > max) {
         showToast(`${file.name} 파일이 허용 크기를 초과했습니다.`);
@@ -967,11 +1183,75 @@
   });
 
   imageInput.addEventListener("change", () => addFiles(imageInput.files, "image"));
-  cameraImageInput.addEventListener("change", () => addFiles(cameraImageInput.files, "image"));
+  cameraImageInput.addEventListener("change", () => {
+    const files = Array.from(cameraImageInput.files || []);
+    const kind = files[0]?.type.startsWith("video/") ? "video" : "image";
+    addFiles(files, kind);
+  });
   fileImageInput.addEventListener("change", () => addFiles(fileImageInput.files, "image"));
   videoInput.addEventListener("change", () => addFiles(videoInput.files, "video"));
   replaceImageInput.addEventListener("change", () => addFiles(replaceImageInput.files, "image", true));
   replaceVideoInput.addEventListener("change", () => addFiles(replaceVideoInput.files, "video", true));
+
+  mediaManagerGrid.addEventListener("click", async (event) => {
+    const action = event.target.closest("[data-manager-action]")?.dataset.managerAction;
+    const tile = event.target.closest("[data-media-queue-id]");
+    const id = tile?.dataset.mediaQueueId;
+    if (action === "add-image") imageInput.click();
+    if (action === "cover" && id) selectMediaCover(id);
+    if (action === "remove" && id) await removeQueuedMedia(id);
+    if (action === "retry" && id) {
+      const item = mediaQueue.find((candidate) => candidate.id === id);
+      if (item?.file) uploadQueuedMedia(item);
+    }
+  });
+  mediaManagerGrid.addEventListener("keydown", (event) => {
+    const handle = event.target.closest('[data-manager-action="drag"]');
+    const id = handle?.closest("[data-media-queue-id]")?.dataset.mediaQueueId;
+    if (!id || !["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+    event.preventDefault();
+    moveQueuedMedia(id, event.key === "ArrowLeft" ? -1 : 1);
+    mediaManagerGrid.querySelector(`[data-media-queue-id="${id}"] [data-manager-action="drag"]`)?.focus();
+  });
+  mediaManagerGrid.addEventListener("dragstart", (event) => {
+    const tile = event.target.closest("[data-media-queue-id]");
+    if (!tile) return;
+    draggedMediaId = tile.dataset.mediaQueueId;
+    tile.classList.add("is-dragging");
+    event.dataTransfer.effectAllowed = "move";
+  });
+  mediaManagerGrid.addEventListener("dragover", (event) => {
+    if (event.target.closest("[data-media-queue-id]")) event.preventDefault();
+  });
+  mediaManagerGrid.addEventListener("drop", (event) => {
+    const targetId = event.target.closest("[data-media-queue-id]")?.dataset.mediaQueueId;
+    if (draggedMediaId && targetId) reorderMedia(draggedMediaId, targetId);
+  });
+  mediaManagerGrid.addEventListener("dragend", () => {
+    draggedMediaId = "";
+    mediaManagerGrid.querySelectorAll(".is-dragging").forEach((tile) => tile.classList.remove("is-dragging"));
+  });
+  mediaManagerVideos.addEventListener("click", async (event) => {
+    const action = event.target.closest("[data-manager-action]")?.dataset.managerAction;
+    const id = event.target.closest("[data-media-queue-id]")?.dataset.mediaQueueId;
+    if (action === "remove" && id) await removeQueuedMedia(id);
+    if (action === "retry" && id) {
+      const item = mediaQueue.find((candidate) => candidate.id === id);
+      if (item?.file) uploadQueuedMedia(item);
+    }
+  });
+  document.querySelector("#addManagerVideo").addEventListener("click", () => videoInput.click());
+  document.querySelector("#cancelMediaManager").addEventListener("click", async () => {
+    mediaManagerDialog.close();
+    await clearMediaQueue();
+  });
+  completeMediaManager.addEventListener("click", completeManagedMediaFlow);
+  insertManagedMedia.addEventListener("click", completeManagedMediaFlow);
+  mediaManagerDialog.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    mediaManagerDialog.close();
+    clearMediaQueue();
+  });
 
   editor.addEventListener("change", (event) => {
     const todoCheckbox = event.target.closest('.todo-block input[type="checkbox"]');
@@ -1039,4 +1319,7 @@
   document.execCommand("defaultParagraphSeparator", false, "p");
   restoreDocument();
   autosizeTitle();
+  if (new URLSearchParams(window.location.search).get("mediaDemo") === "manager") {
+    setTimeout(seedMediaManagerDemo, 80);
+  }
 })();

@@ -62,7 +62,7 @@
 .dp-profile-bio > p { margin-top: 2px; word-break: keep-all; }
 .dp-profile-bio > p > button { display: inline; padding: 0; color: #737373; font: inherit; font-weight: 600; white-space: nowrap; vertical-align: baseline; }
 .dp-profile-bio > p > button:hover { color: var(--dp-ink); }
-.dp-profile-actions { display: grid; grid-column: 1 / -1; grid-row: 9; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 14px; }
+.dp-profile-actions { display: grid; grid-column: 1 / -1; grid-row: 4; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 12px; }
 .dp-profile-actions > :is(button, a) { display: flex; min-width: 0; height: 38px; align-items: center; justify-content: center; gap: 5px; padding: 0 10px; border: 1px solid #c9c9c9; border-radius: 9px; background: #fff; box-shadow: 0 1px 2px rgba(0, 0, 0, .08); color: var(--dp-ink); font-size: 13px; line-height: 19px; font-weight: 700; white-space: nowrap; }
 .dp-profile-actions > :is(button, a):hover { border-color: #aeb0b3; background: #fafafa; }
 .dp-profile-actions > .is-follow[aria-pressed="true"] { background: #fff; color: var(--dp-ink); }
@@ -295,6 +295,9 @@
 .dp-sell-price-cta small { margin-top: 2px; color: #777; font-size: 12px; line-height: 18px; word-break: keep-all; }
 .dp-sell-price-cta > button { flex: none; min-width: 86px; height: 40px; padding: 0 15px !important; border-radius: 999px !important; background: var(--dp-ink) !important; color: #fff !important; font-size: 13px !important; line-height: 19px !important; font-weight: 800 !important; }
 .dp-sell-price-cta > button:hover { background: #000 !important; }
+.dp-sell-price-cta.is-profile { grid-column: 1 / -1; grid-row: 9; min-height: 68px; margin: 14px 0 0; }
+.dp-sell-price-cta.is-profile > span { overflow: hidden; }
+.dp-sell-price-cta.is-profile b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .dp-toast { position: fixed; left: 50%; bottom: 28px; z-index: 50; transform: translateX(-50%); max-width: calc(100% - 32px); padding: 10px 16px; border-radius: 8px; background: rgba(34,34,34,.94); color: #fff; font-size: 14px; white-space: nowrap; }
 
 @media (min-width: 768px) {
@@ -332,9 +335,9 @@
   .dp-profile-copy { display: block; position: relative; padding-top: 0; }
   .dp-profile-copy h1 { font-size: 24px; line-height: 32px; }
   .dp-profile-stats-mobile, .dp-profile-bio { display: none; }
-  .dp-profile-actions { position: absolute; left: 0; top: 118px; width: min(450px, 100%); gap: 7px; margin: 0; }
+  .dp-profile-actions { position: absolute; left: 0; top: 40px; width: min(420px, 46%); gap: 7px; margin: 0; }
   .dp-profile-actions > :is(button, a) { height: 38px; padding: 0 14px; border: 1px solid #c9c9c9; border-radius: 9px; background: #fff; font-size: 13px; }
-  .dp-profile-inline.is-first { display: flex; margin-top: 8px; }
+  .dp-profile-inline.is-first { display: flex; margin-top: 56px; }
   .dp-profile-inline.is-rating { display: flex; margin-top: 8px; }
   .dp-profile-inline.is-mobile-rating { display: none; }
   .dp-profile-career-meta { width: 520px; margin-top: 8px; }
@@ -381,10 +384,10 @@
   .dp-dealer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .dp-footer { max-width: none; margin-top: 0; padding: 28px max(20px, calc((100vw - 1184px) / 2)) 48px; }
   .dp-footer-links { display: flex; gap: 32px; }
-  .dp-sell-price-cta { min-height: 82px; margin: 8px 0 32px; padding: 16px 18px 16px 22px; }
-  .dp-sell-price-cta b { font-size: 16px; line-height: 23px; }
-  .dp-sell-price-cta small { font-size: 13px; line-height: 19px; }
-  .dp-sell-price-cta > button { min-width: 102px; height: 42px; font-size: 14px !important; }
+  .dp-sell-price-cta.is-profile { position: absolute; top: 40px; right: 0; width: min(430px, 48%); min-height: 38px; height: 38px; margin: 0; padding: 4px 5px 4px 14px; border-radius: 9px; }
+  .dp-sell-price-cta.is-profile b { font-size: 13px; line-height: 19px; }
+  .dp-sell-price-cta.is-profile small { display: none; }
+  .dp-sell-price-cta.is-profile > button { min-width: 78px; height: 30px; padding: 0 12px !important; font-size: 12px !important; }
 }
 
 @keyframes dp-cover-reveal {
@@ -403,6 +406,7 @@
   .dp-listing-media { width: 118px; height: 158px; }
   .dp-profile-actions { gap: 8px; }
   .dp-profile-actions > :is(button, a) { padding: 0 6px; font-size: 13px; }
+  .dp-sell-price-cta.is-profile b { font-size: 13px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

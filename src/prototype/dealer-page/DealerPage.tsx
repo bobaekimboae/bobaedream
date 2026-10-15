@@ -125,7 +125,7 @@ function SiteHeader() {
   </header>;
 }
 
-function DealerProfile({ dealer, cars, following, setFollowing, notify }: { dealer: SeoulAutoGalleryDealer; cars: Car[]; following: boolean; setFollowing: (value: boolean) => void; notify: (message: string) => void }) {
+function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuation }: { dealer: SeoulAutoGalleryDealer; cars: Car[]; following: boolean; setFollowing: (value: boolean) => void; notify: (message: string) => void; onValuation: () => void }) {
   const [heroVideoFailed, setHeroVideoFailed] = useState(false);
   const [bioExpanded, setBioExpanded] = useState(false);
   const reduceMotion = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -186,6 +186,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify }: { deal
           <div className="dp-profile-inline is-career"><DealerIcon name="calendar" />{MOCK.joined}</div>
           <div className="dp-profile-inline is-career-response"><DealerIcon name="clock" />응답률: {MOCK.response}</div>
         </div>
+        <SellPriceCta onRequest={onValuation} profile />
         <div className="dp-profile-stats dp-profile-stats-desktop" aria-label="판매 실적">
           <span><small>판매중</small><b>{listingCount}</b></span>
           <span><small>판매완료</small><b>{MOCK.sold}</b></span>
@@ -447,9 +448,9 @@ function AboutSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; noti
   </section>;
 }
 
-function SellPriceCta({ onRequest }: { onRequest: () => void }) {
-  return <aside className="dp-sell-price-cta" aria-label="내 차 판매 가격 무료 견적">
-    <span><b>내 차, 얼마에 팔 수 있을까요?</b><small>딜러에게 무료 견적을 받아보세요</small></span>
+function SellPriceCta({ onRequest, profile = false }: { onRequest: () => void; profile?: boolean }) {
+  return <aside className={`dp-sell-price-cta${profile ? " is-profile" : ""}`} aria-label="내 차 판매 가격 무료 견적">
+    <span><b>내 차 판매 가격, 무료 견적 받아보세요</b></span>
     <button type="button" onClick={onRequest}>견적신청</button>
   </aside>;
 }
@@ -499,7 +500,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
     <div className="dp-scroll" ref={scrollRef}>
       <SiteHeader />
       <main className="dp-page" aria-label={`${dealer.name} 딜러 판매자 페이지`}>
-        <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} notify={notify} />
+        <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} notify={notify} onValuation={() => changeSection("valuation")} />
         <AnchorNav active={activeSection} onChange={changeSection} />
         {activeSection === "home" ? <HomeSection /> : null}
         {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}
@@ -509,7 +510,6 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
         {activeSection === "social" ? <SocialFeedSection cars={cars} /> : null}
         {activeSection === "dealers" ? <AffiliatedDealersSection currentDealer={dealer} onOpenDealer={openDealer} /> : null}
         {activeSection === "intro" ? <AboutSection dealer={dealer} notify={notify} /> : null}
-        {activeSection !== "valuation" ? <SellPriceCta onRequest={() => changeSection("valuation")} /> : null}
       </main>
       <Footer />
     </div>
