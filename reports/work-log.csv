@@ -349,3 +349,4 @@
 2026-10-15,그림자 카드 바이크 유형 레일 적용,claude/used-car-detail-1013,,,,바이크 유형 13종을 그림자 카드로(이미지 64x36 + 이름 + 대수),qf-brand-shadowcard.css · listing/index.tsx,,기본 화면 변화 없음(파라미터 시안),verify:qf
 2026-10-15,그림자 카드 트럭 유형 레일 적용,claude/used-car-detail-1013,,,,트럭 유형 14종을 그림자 카드로(위 16/아래 16),qf-brand-shadowcard.css · listing/index.tsx,,기본 화면 변화 없음(파라미터 시안),verify:qf
 2026-10-15,그림자 카드 바디타입 줄 적용,claude/used-car-detail-1013,,,,국산차·수입차 바디타입 줄을 그림자 카드로(위 16/아래 16 모바일),qf-brand-shadowcard.css · listing/index.tsx,,기본 화면 변화 없음(파라미터 시안),verify:qf
+2026-10-15,그림자 카드 일반 모델 줄 적용,claude/used-car-detail-1013,,,,제조사 선택 후 모델 줄을 그림자 카드로(이미지 64x36 + 이름 + 대수),qf-brand-shadowcard.css · listing/index.tsx,,기본 화면 변화 없음(파라미터 시안),verify:qf
