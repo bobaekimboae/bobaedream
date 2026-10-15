@@ -43,6 +43,32 @@ final result: passed
 
 ---
 
+# 치지직 상세 · 댓글 있는 사용자 게시물 v7 QA · 2026-10-15
+
+- source visual truth: `https://m.game.naver.com/lounge/chzzk/board/detail/8325190`
+- implementation: `public/community/chzzk-detail.html?id=8325190`
+- viewports: 모바일 394 × 852 CSS px, PC 1440 × 1000 CSS px
+- scope: 다른 사용자 게시물·실제 댓글 시나리오 추가; 기존 공지와 네이버 카페 상세는 유지
+
+## Cross-check evidence
+
+- 원본의 긴 제목, 작성자 `두깝이 · LV 7`, `14시간 전`, 조회 91, 6문단 본문을 동일한 정보 순서로 구성했다.
+- 작성자 최신글은 `가입 인사` 한 건만 노출하고, 댓글 2건은 클린봇 숨김 안내와 `익씽 · LV 12`의 공개 댓글로 재현했다.
+- 원본 사용자·익명 댓글 프로필 자산을 로컬로 고정하고, 치지직 상세의 Airbnb 강조색과 Reddit식 좌측 버프/너프/댓글·우측 공유 구조를 유지했다.
+- 모바일에서 제목·본문·최신글·클린봇·댓글·하단 입력창의 순서와 고정 헤더/입력창을 확인했다.
+
+## Verification
+
+- 모바일: 가로 넘침 없음, 깨진 이미지 0건, 콘솔 warning/error 0건.
+- PC: 1060px 중앙 셸, 가로 넘침 없음, 깨진 이미지 0건.
+- 상호작용: 버프 -4→-3, 너프 전환 -3→-5, 답글쓰기 `@익씽 ` 입력 및 등록 버튼 활성화 통과.
+- `npm run verify`: 관리자 29건, Sites 4건, 타입 검사·프로덕션 빌드 전체 통과.
+- P0/P1/P2 findings: none.
+
+final result: passed
+
+---
+
 # 치지직 상세 · 긴 제목 공지 구조 v6 QA · 2026-10-15
 
 - source visual truth: `https://m.game.naver.com/lounge/chzzk/board/detail/8303245` (사용자 제공 `https://naver.me/x7eQI0p3` 리디렉션)

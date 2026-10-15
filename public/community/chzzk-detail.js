@@ -2,6 +2,7 @@ const params = new URLSearchParams(location.search);
 const id = Number(params.get('id') || 8326278);
 const isNotice = params.get('type') === 'notice' || params.get('notice') === '1';
 const isLongNotice = id === 8303245;
+const isUserInquiry = id === 8325190;
 const posts = window.BOBAE_POSTS || [];
 function loadLocalPost() {
   if (params.get('local') !== '1') return null;
@@ -17,7 +18,7 @@ function loadLocalPost() {
 }
 const localSourcePost = loadLocalPost();
 const sourcePost = localSourcePost || posts.find((item) => item.id === id);
-const isReferencePost = !localSourcePost && (id === 8326278 || id === 8131629 || isLongNotice || !sourcePost);
+const isReferencePost = !localSourcePost && (id === 8326278 || id === 8131629 || isLongNotice || isUserInquiry || !sourcePost);
 const post = isLongNotice ? {
   title: "[안내] 24시간 방송 추천 '루프 스테이션' 안내 (10/9~10/11)",
   user: '치지직',
@@ -25,6 +26,14 @@ const post = isLongNotice ? {
   date: '10.08',
   view: 11269,
   likes: 30,
+  body: [],
+} : isUserInquiry ? {
+  title: '특정 채널의 채팅 이용 제한 해제 관련 문의드립니다',
+  user: '두깝이',
+  level: 7,
+  date: '14시간 전',
+  view: 91,
+  likes: -4,
   body: [],
 } : isReferencePost ? {
   title: '출첵!',
@@ -91,6 +100,48 @@ function setRegularContent() {
     input.disabled = true;
     $('#submitBtn').disabled = true;
     $('#commentForm').classList.add('isDisabled');
+  } else if (isUserInquiry) {
+    document.body.classList.add('isUserInquiry');
+    $('#eventText').textContent = '[월즈 2026] LoL 한정판 시청 드롭스 안내 (플레이인-스위스 스테이지)';
+    $('#authorAvatar').src = 'assets/chzzk-detail/user-default-avatar.png';
+    $('#authorAvatar').alt = '두깝이 프로필';
+    $('#postBody').innerHTML = `
+      <div class="userInquiryBody">
+        <p>안녕하세요.</p>
+        <p>치지직 특정 채널의 채팅 이용 제한과 관련하여 문의드립니다.</p>
+        <p>현재 해당 채널의 방송 시청은 가능하지만, 채팅을 작성할 수 없는 상태입니다. 채팅 이용 제한을 해제받고 싶어 문의드리게 되었습니다.</p>
+        <p>과거 이용 과정에서 문제가 있었던 부분은 반성하고 있으며, 앞으로는 관련 이용 규칙을 준수하고자 합니다.</p>
+        <p>이러한 경우 치지직 운영진을 통해 채팅 이용 제한 해제에 대한 검토를 요청할 수 있는지, 또는 별도의 공식 문의 절차가 있는지 안내해 주시면 감사하겠습니다.</p>
+        <p>읽어주셔서 감사합니다.</p>
+      </div>`;
+    const tagRow = $('#regularPost .tagRow');
+    tagRow.hidden = true;
+    $('#latestAuthor').textContent = '두깝이';
+    const latestItems = document.querySelectorAll('.latestItem');
+    latestItems[0].textContent = '가입 인사';
+    latestItems[1].hidden = true;
+    latestItems[2].hidden = true;
+    $('#commentCount').textContent = '댓글 2';
+    $('#actionCommentCount').textContent = '2';
+    $('#commentList').innerHTML = `
+      <li class="moderatedComment"><img src="assets/chzzk-detail/comment-anonymous-avatar.png" alt="숨김 댓글"><span>클린봇이 부적절한 내용을 감지했습니다.</span></li>
+      <li class="commentItem">
+        <img class="commentAvatar" src="assets/chzzk-detail/comment-anonymous-avatar.png" alt="익씽 프로필">
+        <div class="commentContent">
+          <div class="commentAuthor"><strong>익씽 · LV 12</strong><span>8시간 전</span><button aria-label="댓글 더보기"><img src="assets/chzzk-detail/icons/more.svg" alt=""></button></div>
+          <p>고객센터나 벤당한 스트리머 한테 애기하는거지 여기 애기하는게 아닙니다.</p>
+          <div class="commentTools"><button class="replyButton">답글쓰기</button><div class="miniVotes"><button aria-label="댓글 버프"><span>버프</span><img src="assets/chzzk-detail/icons/buff.svg" alt=""></button><button aria-label="댓글 너프"><span>너프</span><img src="assets/chzzk-detail/icons/nerf.svg" alt=""></button></div></div>
+        </div>
+      </li>`;
+    $('#commentList .replyButton').addEventListener('click', () => {
+      $('#commentInput').value = '@익씽 ';
+      $('#commentInput').dispatchEvent(new Event('input'));
+      $('#commentInput').focus();
+    });
+    document.querySelectorAll('#commentList .miniVotes button').forEach((button) => button.addEventListener('click', () => {
+      button.classList.toggle('active');
+      showToast(button.getAttribute('aria-label').includes('너프') ? '댓글을 너프했습니다' : '댓글을 버프했습니다');
+    }));
   } else if (!isReferencePost) {
     const copy = (post.body && post.body.length ? post.body : ['좋은 정보 함께 나눠요.']).slice(0, 2).join('\n');
     $('#postBody').querySelector('p').textContent = copy;

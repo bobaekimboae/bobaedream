@@ -94,6 +94,8 @@ img { display: block; }
 .longNoticeSection { display: grid; gap: 5px; }
 .longNoticeSection > strong { font-size: 17px; line-height: 1.5; }
 .sourceNote { color: var(--sub); font-size: 14px !important; }
+.userInquiryBody { display: grid; gap: 24px; }
+.userInquiryBody p { margin: 0; font-size: 18px; line-height: 1.75; font-weight: 400; letter-spacing: -.03em; white-space: normal; }
 .tagRow { display: flex; gap: 10px; margin-top: 24px; }
 .tagRow button { min-height: 42px; padding: 0 14px; border-radius: 10px; background: #f4f4f4; font-size: 17px; }
 .reactionRow { display: flex; min-height: 90px; align-items: center; justify-content: flex-start; gap: 10px; }
@@ -141,6 +143,8 @@ img { display: block; }
 .cleanBot > button { display: grid; width: 40px; height: 40px; margin-left: auto; place-items: center; }
 .cleanBot > button img { width: 24px; height: 24px; }
 .commentList { margin: 0; padding: 0; list-style: none; }
+.moderatedComment { display: flex; min-height: 48px; align-items: center; gap: 8px; padding: 10px 0 0; color: #b0b0b0; font-size: 14px; }
+.moderatedComment img { width: 30px; height: 30px; border-radius: 50%; filter: grayscale(1); opacity: .16; }
 .commentItem { display: grid; grid-template-columns: 50px minmax(0, 1fr); gap: 12px; padding: 28px 0 18px; border-bottom: 1px solid var(--line); }
 .commentAvatar { width: 50px; height: 50px; }
 .commentAuthor, .replyAuthor { display: flex; align-items: center; gap: 7px; }
@@ -189,6 +193,10 @@ body.isLongNotice .postBody { padding-top: 15px; }
 body.isLongNotice .postTitle { letter-spacing: 0; word-break: break-all; }
 body.isLongNotice .reactionRow { justify-content: flex-end; }
 body.isLongNotice .reactionRow .roundAction { display: none; }
+body.isUserInquiry .tagRow, body.isUserInquiry .promoBanner { display: none; }
+body.isUserInquiry .authorAvatar, body.isUserInquiry .commentAvatar { filter: grayscale(1); opacity: .16; }
+body.isUserInquiry .latestCard { border: 1px solid var(--divider); background: #fff; }
+body.isUserInquiry .latestItem[hidden] { display: none; }
 
 @media (max-width: 600px) {
   html, body { background: #fff; }
@@ -226,6 +234,8 @@ body.isLongNotice .reactionRow .roundAction { display: none; }
   .longNoticeSection { gap: 3px; }
   .longNoticeSection > strong { font-size: 15px; }
   .sourceNote { font-size: 12px !important; }
+  .userInquiryBody { gap: 20px; }
+  .userInquiryBody p { font-size: 15px; line-height: 1.65; }
   .tagRow { gap: 8px; margin-top: 16px; }
   .tagRow button { min-height: 32px; padding: 0 10px; border-radius: 7px; font-size: 13px; }
   .reactionRow { min-height: 70px; gap: 8px; }
@@ -248,6 +258,8 @@ body.isLongNotice .reactionRow .roundAction { display: none; }
   .cleanBot > button { width: 32px; height: 32px; }
   .cleanBot > button img { width: 17px; height: 17px; }
   .commentItem { grid-template-columns: 30px minmax(0, 1fr); gap: 10px; padding: 20px 0 12px; }
+  .moderatedComment { min-height: 46px; padding-top: 8px; font-size: 12px; }
+  .moderatedComment img { width: 28px; height: 28px; }
   .commentAvatar { width: 30px; height: 30px; }
   .commentAuthor { gap: 5px; }
   .commentAuthor strong { font-size: 13px; }
