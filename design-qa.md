@@ -27,6 +27,39 @@ final result: passed
 
 ---
 
+# 커뮤니티 레딧형 게시판 프로필·설명 QA · 2026-10-16
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/dc8d7806-ecb4-4832-9d0d-ed158a1ae4c9/1-1000018526.jpg`
+- browser-rendered implementation: `artifacts/community-board-order-1015/mobile-384-top-menu-tiktok-text.png`
+- full-view comparison evidence: `artifacts/community-board-order-1015/reddit-profile-reference-vs-implementation.png`
+- viewport and density: 구현 384 × 844 CSS px, DPR 1. 원본 592 × 1280px을 384px 폭으로 정규화해 384 × 830px으로 만든 뒤 흰색으로 384 × 844px까지 패딩했다.
+- state: 자유게시판, 간결형 목록, 게시판 설명 접힘 상태
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 게시판명은 Pretendard 18px/760, 활동 정보는 13px/18px, 설명은 14.5px/20px로 레딧의 제목→통계→설명 위계를 맞췄다.
+- spacing and layout rhythm: 원형 프로필을 화면 폭의 약 13%인 52px로 맞추고, 프로필 행 80px과 설명 영역 55px 안에서 목록 시작 지점을 앞당겼다.
+- colors and visual tokens: 제목 `#1d1d1f`, 활동 정보 `#6b6e73`, 설명 `#34363a`, 구분선 `#e7e8eb`로 레딧형 중립 회색 체계를 적용했다.
+- image quality and asset fidelity: 기존 게시판별 원형 프로필 실자산을 유지했으며 늘어짐 없이 1:1 원형 크롭으로 노출된다.
+- copy and content: 32개 게시판에 각 주제에 맞는 한글 설명과 주간 활동 문구를 연결했다. 설명은 기본 두 줄 말줄임이며 펼치기 버튼으로 전체 내용을 확인할 수 있다.
+- interaction: 빠른 게시판 이동 후 프로필 이미지 대체 텍스트, 게시판명, 설명, 활동 정보가 함께 변경된다. 설명 펼치기/접기와 기존 글쓰기·목록 기능을 확인했다.
+- browser verification: Chrome에서 로컬 렌더링을 열어 모바일 폭으로 확인했고, 콘솔의 로컬 페이지 오류는 0건이다.
+
+## Comparison history
+
+- Pass 1: 프로필이 64px로 레딧 원본의 화면 폭 대비 비율보다 컸고, 기존에 숨긴 보기 방식 버튼이 다시 노출됐다.
+- Fix: 프로필을 52px, 제목을 18px로 낮추고 프로필 행을 80px로 축소했다. 보기 방식 버튼은 다시 숨겨 게시판 정보에 집중하도록 했다.
+- Pass 2: 원본과 구현을 384 × 844px로 정규화해 나란히 비교했다. 프로필 비율, 제목/활동 정보 위계, 두 줄 설명과 목록 시작 밀도에 더 이상 P0/P1/P2 차이가 없었다.
+
+## Follow-up Polish
+
+- P3: 레딧의 상단 자동차 배너와 가입/알림 버튼은 이번 요청 범위인 프사·게시판 설명에 포함하지 않아 보배드림 기존 상단 구조를 유지했다.
+
+final result: passed
+
+---
+
 # 커뮤니티 게시판별 프로필 이미지 QA · 2026-10-16
 
 - 31개 공식 게시판과 `전체 게시글`에 서로 다른 원형 프로필 이미지 32개를 적용했다.

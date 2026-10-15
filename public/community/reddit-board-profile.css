@@ -1,0 +1,232 @@
+.boardTop.redditProfileReady {
+  min-height: 80px;
+  height: auto;
+  margin: 0;
+  padding: 12px 16px;
+  border-top: 1px solid #e7e8eb;
+  border-bottom: 0;
+  background: #fff;
+  box-shadow: none;
+}
+
+.boardTop.redditProfileReady .boardSelect {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: auto;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.boardTop.redditProfileReady .boardAvatar {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .1);
+}
+
+.boardIdentityCopy {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.boardIdentityTitle {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.boardTop.redditProfileReady .boardSelectName {
+  overflow: hidden;
+  color: #1d1d1f;
+  font-size: 18px;
+  font-weight: 760;
+  line-height: 23px;
+  letter-spacing: -.045em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.boardTop.redditProfileReady .boardChevron {
+  display: block;
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  opacity: .72;
+}
+
+.boardTop.redditProfileReady .boardStats {
+  position: static;
+  display: -webkit-box;
+  min-width: 0;
+  margin-top: 4px;
+  overflow: hidden;
+  color: #6b6e73;
+  font-size: 13px;
+  font-weight: 450;
+  line-height: 18px;
+  letter-spacing: -.025em;
+  white-space: normal;
+  text-overflow: clip;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.boardTop.redditProfileReady .boardStats[hidden] {
+  display: none;
+}
+
+.boardTop.redditProfileReady .boardTools {
+  display: none;
+}
+
+.boardTop.redditProfileReady .viewIconBtn,
+.boardTop.redditProfileReady .typeSelect {
+  height: 40px;
+  border: 1px solid #c7c8ca;
+  background: #fff;
+  color: #252629;
+}
+
+.boardTop.redditProfileReady .viewIconBtn {
+  width: 42px;
+  padding: 0;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.boardTop.redditProfileReady .viewIconBtn svg {
+  width: 19px;
+  height: 19px;
+}
+
+.boardTop.redditProfileReady .boardToolLabel {
+  display: none;
+}
+
+.boardTop.redditProfileReady .typeSelect {
+  min-width: 68px;
+  padding: 0 11px;
+  justify-content: center;
+  gap: 3px;
+  border-radius: 999px;
+}
+
+.boardTop.redditProfileReady .viewText {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -.035em;
+}
+
+.boardDescriptionSection.redditDescriptionReady {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 32px;
+  align-items: end;
+  gap: 2px;
+  padding: 0 12px 14px 16px;
+  border-bottom: 1px solid #e7e8eb;
+  background: #fff;
+}
+
+.boardDescriptionSection.redditDescriptionReady .boardDescription {
+  min-height: 40px;
+  padding: 0;
+  align-items: flex-start;
+  color: #34363a;
+  font-size: 14.5px;
+  font-weight: 430;
+  line-height: 20px;
+  letter-spacing: -.03em;
+}
+
+.boardDescriptionSection.redditDescriptionReady .boardDescriptionText {
+  display: -webkit-box;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: keep-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.boardDescriptionSection.redditDescriptionReady .descriptionToggle {
+  width: 32px;
+  min-height: 32px;
+  height: 32px;
+  align-self: end;
+  border-radius: 50%;
+  background: #f3f4f5;
+}
+
+.boardDescriptionSection.redditDescriptionReady .descriptionToggle img {
+  width: 16px;
+  height: 16px;
+  opacity: .7;
+}
+
+.boardDescriptionSection.redditDescriptionReady.expanded .boardDescription {
+  padding: 0;
+}
+
+.boardDescriptionSection.redditDescriptionReady.expanded .boardDescriptionText {
+  display: block;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+  -webkit-line-clamp: unset;
+}
+
+@media (max-width: 370px) {
+  .boardTop.redditProfileReady {
+    min-height: 76px;
+    padding: 11px 14px;
+  }
+
+  .boardTop.redditProfileReady .boardAvatar {
+    width: 50px;
+    height: 50px;
+    flex-basis: 50px;
+  }
+
+  .boardTop.redditProfileReady .boardSelect {
+    gap: 10px;
+  }
+
+  .boardTop.redditProfileReady .boardSelectName {
+    font-size: 17.5px;
+    line-height: 22px;
+  }
+
+  .boardTop.redditProfileReady .boardStats {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .boardTop.redditProfileReady .boardTools {
+    gap: 6px;
+    margin-left: 6px;
+  }
+
+  .boardTop.redditProfileReady .viewIconBtn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .boardTop.redditProfileReady .typeSelect {
+    min-width: 62px;
+    height: 38px;
+    padding: 0 9px;
+  }
+
+  .boardDescriptionSection.redditDescriptionReady {
+    padding-right: 10px;
+    padding-left: 14px;
+  }
+}
