@@ -62,10 +62,13 @@
 .dp-profile-bio > p { margin-top: 2px; word-break: keep-all; }
 .dp-profile-bio > p > button { display: inline; padding: 0; color: #737373; font: inherit; font-weight: 600; white-space: nowrap; vertical-align: baseline; }
 .dp-profile-bio > p > button:hover { color: var(--dp-ink); }
-.dp-profile-actions { display: grid; grid-column: 1 / -1; grid-row: 4; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 12px; }
+.dp-profile-actions { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.dp-profile-actions.is-before-valuation { grid-row: 9; margin-top: 14px; }
+.dp-profile-actions.is-after-valuation { grid-row: 11; margin-top: 8px; }
 .dp-profile-actions > :is(button, a) { display: flex; min-width: 0; height: 38px; align-items: center; justify-content: center; gap: 5px; padding: 0 10px; border: 1px solid #c9c9c9; border-radius: 9px; background: #fff; box-shadow: 0 1px 2px rgba(0, 0, 0, .08); color: var(--dp-ink); font-size: 13px; line-height: 19px; font-weight: 700; white-space: nowrap; }
 .dp-profile-actions > :is(button, a):hover { border-color: #aeb0b3; background: #fafafa; }
-.dp-profile-actions > .is-follow[aria-pressed="true"] { background: #fff; color: var(--dp-ink); }
+.dp-profile-actions > .is-follow { border-color: #bfc1c4; box-shadow: 0 1px 2px rgba(0, 0, 0, .1); }
+.dp-profile-actions > .is-follow[aria-pressed="true"] { border-color: #b5b7ba; background: #fff; color: var(--dp-ink); }
 .dp-profile-actions .dp-icon { width: 17px; height: 17px; }
 .dp-profile-inline { display: flex; align-items: center; min-width: 0; color: var(--dp-sub); font-size: 14px; line-height: 22px; }
 .dp-profile-inline i { width: 4px; height: 4px; margin: 0 10px; border-radius: 50%; background: #666; }
@@ -146,7 +149,7 @@
 .dp-anchor-nav button::after { content: ""; position: absolute; right: 10px; bottom: -1px; left: 10px; height: 3px; border-radius: 3px 3px 0 0; background: transparent; }
 .dp-anchor-nav button.is-active { color: var(--dp-ink); font-weight: 700; }
 .dp-anchor-nav button.is-active::after { background: var(--dp-ink); }
-.dp-anchor-nav button.is-valuation { flex-basis: 108px; }
+.dp-anchor-nav button.is-valuation { flex-basis: 68px; }
 
 @media (max-width: 767px) {
   .dp-anchor-nav button:first-child { flex-basis: 68px; padding: 0; text-align: left; }
@@ -294,7 +297,7 @@
 .dp-sell-price-cta small { margin-top: 2px; color: #777; font-size: 12px; line-height: 18px; word-break: keep-all; }
 .dp-sell-price-cta > button { flex: none; min-width: 86px; height: 40px; padding: 0 15px !important; border-radius: 999px !important; background: var(--dp-ink) !important; color: #fff !important; font-size: 13px !important; line-height: 19px !important; font-weight: 800 !important; }
 .dp-sell-price-cta > button:hover { background: #000 !important; }
-.dp-sell-price-cta.is-profile { grid-column: 1 / -1; grid-row: 9; min-height: 52px; margin: 14px 8px 0; padding: 6px 16px; }
+.dp-sell-price-cta.is-profile { grid-column: 1 / -1; grid-row: 10; min-height: 52px; margin: 8px 8px 0; padding: 6px 16px; }
 .dp-sell-price-cta.is-profile > span { overflow: hidden; }
 .dp-sell-price-cta.is-profile b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .dp-toast { position: fixed; left: 50%; bottom: 28px; z-index: 50; transform: translateX(-50%); max-width: calc(100% - 32px); padding: 10px 16px; border-radius: 8px; background: rgba(34,34,34,.94); color: #fff; font-size: 14px; white-space: nowrap; }
@@ -334,7 +337,9 @@
   .dp-profile-copy { display: block; position: relative; padding-top: 0; }
   .dp-profile-copy h1 { font-size: 24px; line-height: 32px; }
   .dp-profile-stats-mobile, .dp-profile-bio { display: none; }
-  .dp-profile-actions { position: absolute; left: 0; top: 40px; width: min(420px, 46%); gap: 7px; margin: 0; }
+  .dp-profile-actions { position: absolute; left: 0; width: min(420px, 46%); gap: 7px; margin: 0; }
+  .dp-profile-actions.is-before-valuation { top: 40px; }
+  .dp-profile-actions.is-after-valuation { display: none; }
   .dp-profile-actions > :is(button, a) { height: 38px; padding: 0 14px; border: 1px solid #c9c9c9; border-radius: 9px; background: #fff; font-size: 13px; }
   .dp-profile-inline.is-first { display: flex; margin-top: 56px; }
   .dp-profile-inline.is-rating { display: flex; margin-top: 8px; }
