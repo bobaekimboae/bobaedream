@@ -20,6 +20,35 @@ final result: passed
 
 ---
 
+# 자유게시판 설명·말머리 디카드형 전환 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/af0facfc-fbac-461b-a0a0-c50fe1ce12f2/1-1000018478.jpg`, `.../2-1000018480.jpg`
+- browser-rendered implementation: `artifacts/community-headword-toggle-1015/mobile-384-collapsed.png`, `mobile-384-expanded.png`
+- full-view comparison: `artifacts/community-headword-toggle-1015/dcard-board-info-comparison-1015.png`
+- viewport and density: 구현 384 × 844 CSS px, DPR 1. 원본 592 × 1280px을 384px 폭으로 정규화해 접힘·펼침 상태를 각각 비교했다.
+- state: 자유게시판, 설명/말머리 모두 접힘 및 모두 펼침
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 설명은 14px/21px의 회색 보조 계층, 말머리는 14px/32px으로 맞춰 디카드 참고 화면과 유사한 밀도를 만든다.
+- spacing and layout rhythm: 게시판명 옆 화살표를 제거하고, 게시판명 아래에 설명 44px과 말머리 48px을 순서대로 배치했다. 설명과 말머리는 각각 독립적으로 여러 줄 확장된다.
+- colors and visual tokens: 비선택 말머리는 옅은 회색 채움, 선택 말머리는 기존 보배드림 검정 활성 토큰을 사용한다.
+- image quality and asset fidelity: 자유게시판 프로필은 자동차와 대화 말풍선을 결합한 전용 256 × 256 PNG로 교체했으며 48px 원형 슬롯에서 선명하게 표시된다. 펼침 화살표는 저장소의 실자산 `board-chevron.svg`를 사용한다.
+- copy and content: 자유게시판 설명을 추가했고 게시판 전환 시 해당 게시판 설명으로 교체된다.
+- accessibility and interaction: 두 토글의 `aria-expanded`와 안내 라벨이 상태에 맞게 바뀌며 Escape로 열린 영역을 닫을 수 있다.
+- browser verification: 360 / 384 / 412px에서 설명·말머리 펼침/선택/접힘, 프로필 로드, 가로 오버플로 0, 브라우저 오류 0을 확인했다.
+
+## Comparison history
+
+- Pass 1: 게시판명 옆 오른쪽 화살표가 남아 있고 설명 영역이 없어 디카드의 정보 구조와 달랐다.
+- Fix: 게시판명 화살표를 숨기고 설명 행 및 독립 토글을 추가했으며 말머리 칩을 회색 채움형으로 변경했다.
+- Pass 2: 접힘·펼침 상태를 원본과 구현이 나란히 보이도록 정규화해 비교했고 남은 P0/P1/P2가 없음을 확인했다.
+
+final result: passed
+
+---
+
 # 간결형 게시판 댓글 수 크기 QA · 2026-10-15
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/b0c8e281-2dc0-4a9d-917b-fd55bd1e8b84/1-1000018464.jpg`
