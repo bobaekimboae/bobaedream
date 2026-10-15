@@ -38,17 +38,23 @@ export function SeoulAutoGalleryTabs({ value, onChange }: { value: SeoulAutoGall
           type="button"
           role="tab"
           aria-selected={value === item.value}
-          aria-label={item.value === "vehicles" ? "판매 차량 · 서울 서초구 양재대로11길 36" : item.label}
-          className={`${item.value === "vehicles" ? "is-location " : ""}${value === item.value ? "is-selected" : ""}`.trim() || undefined}
+          aria-label={item.label}
+          className={value === item.value ? "is-selected" : undefined}
           onClick={() => onChange(item.value)}
         >
-          {item.value === "vehicles" ? <>
-            <img src={locationIcon} alt="" aria-hidden="true" />
-            <span>서울 서초구 양재대로11길 36</span>
-          </> : <span>{item.label}</span>}
+          <span>{item.label}</span>
         </button>
       ))}
     </nav>
+  );
+}
+
+export function SeoulAutoGalleryLocation() {
+  return (
+    <div className="sag-location-row" aria-label="서울오토갤러리 위치">
+      <img src={locationIcon} alt="" aria-hidden="true" />
+      <span>서울 서초구 양재대로11길 36</span>
+    </div>
   );
 }
 
