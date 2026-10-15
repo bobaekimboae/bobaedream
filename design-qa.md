@@ -1,3 +1,25 @@
+# 딜러 페이지 탭 구분 간격 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/83ba0216-6270-43fc-bc42-94994f4f95c4/1-1000018418.jpg`
+- implementation: Chrome QA tab `http://127.0.0.1:4261/?profile=dealer&shop=450554&emp=1&qf=guazi` (browser screenshot captured in this task)
+- viewport: 393 × 852 CSS px, device scale 1. Source image 592 × 1280 px; layout was compared by matching the 393px mobile content width rather than raw image density.
+- state: `판매차량` 탭 선택, 판매중 목록 노출.
+- full-view comparison evidence: 상단 프로필, 탭 띠, 판매 상태 칩, 첫 차량 카드가 동일한 순서와 모바일 밀도로 표시됐다.
+- focused region evidence: 탭 6개의 좌우 패딩은 모두 16px이며 너비는 `44.1 / 80.4 / 80.4 / 80.4 / 56.2 / 59.2px`로 측정됐다. 글자 길이에 관계없이 인접 라벨 사이 공간은 32px로 통일됐다.
+- fonts and typography: 기존 Pretendard 14px/500, 선택 탭 700을 유지했다.
+- spacing and layout rhythm: 고정 68px 칸을 제거하고 내용 너비 + 좌우 16px 규칙으로 변경했다. 활성 밑줄은 라벨 폭에 맞췄다.
+- colors and visual tokens: 기존 검정 선택 상태와 `--dp-line` 구분선을 유지했다.
+- image quality and assets: 이번 범위에서 변경된 이미지 자산은 없다.
+- copy and content: 탭명과 순서는 변경하지 않았다.
+- interaction: `홈` → `판매차량` 전환 후 `aria-selected=true` 확인.
+- runtime: 페이지 가로 오버플로 0px, 브라우저 콘솔 오류 0건.
+- comparison history: 최초 캡처에서 짧은 `홈`과 긴 탭 사이의 시각적 간격 차이를 P2로 확인했다. 고정 너비를 내용 기반 너비로 교체한 뒤 재측정 및 재캡처하여 차이를 해소했다.
+- P0/P1/P2 findings: none.
+
+final result: passed
+
+---
+
 # 치지직 상세 · 보트 아이콘·블루·두깝이 최신글 v14 QA · 2026-10-15
 
 - scope: 게시글과 동적 댓글의 엄지 추천·비추 아이콘을 Reddit 업보트·다운보트 화살표로 교체

@@ -143,11 +143,10 @@
 
 .dp-anchor-nav { position: sticky; top: 50px; z-index: 20; display: flex; justify-content: flex-start; height: 62px; margin-top: 0; padding: 0 16px; overflow-x: auto; border-top: 10px solid var(--dp-bg); border-bottom: 1px solid var(--dp-line); background: #fff; scrollbar-width: none; }
 .dp-anchor-nav::-webkit-scrollbar { display: none; }
-.dp-anchor-nav button { position: relative; flex: 0 0 68px; min-width: 0; height: 52px; color: #666; font-size: 14px; line-height: 20px; font-weight: 500; white-space: nowrap; }
-.dp-anchor-nav button::after { content: ""; position: absolute; right: 10px; bottom: -1px; left: 10px; height: 3px; border-radius: 3px 3px 0 0; background: transparent; }
+.dp-anchor-nav button { position: relative; flex: 0 0 auto; min-width: 0; height: 52px; padding: 0 16px; color: #666; font-size: 14px; line-height: 20px; font-weight: 500; white-space: nowrap; }
+.dp-anchor-nav button::after { content: ""; position: absolute; right: 16px; bottom: -1px; left: 16px; height: 3px; border-radius: 3px 3px 0 0; background: transparent; }
 .dp-anchor-nav button.is-active { color: var(--dp-ink); font-weight: 700; }
 .dp-anchor-nav button.is-active::after { background: var(--dp-ink); }
-.dp-anchor-nav button.is-valuation { flex-basis: 68px; }
 
 .dp-home-pending { min-height: 300px; padding: 22px 20px 40px; }
 .dp-home-pending h2 { font-size: 20px; line-height: 28px; font-weight: 700; }
