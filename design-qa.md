@@ -20,6 +20,34 @@ final result: passed
 
 ---
 
+# 초톳 피드형 게시판·딜러 유형 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a128e5-de8a-78d0-9ed9-96cbde6a07c3/774c69ef-c203-4810-8844-6b97e643fdc6/1-1000018448.jpg`
+- implementation screenshots: `artifacts/community-chotot-feed-1015/mobile-390x844-viewport.png`, `dealer-mobile-390x844-viewport.png`, `dealer-desktop-1200x900-viewport.png`
+- comparison image: `artifacts/community-chotot-feed-1015/qa-comparison-dealer-mobile.png`
+- viewports: 모바일 390 × 844 CSS px, PC 1200 × 900 CSS px
+- states: `초톳 피드형 · 게시판형`, `초톳 피드형 · 딜러형`, 사진 확대, 좋아요, 저장
+
+## Findings
+
+- P0/P1/P2 없음.
+- 두 초톳 유형을 보기 방식과 유형 선택 패널에 각각 독립 항목으로 추가했다.
+- 모바일 카드 사이에 1px 구분선을 넣어 게시물 경계를 분명히 했다.
+- 딜러형은 프로필 → 짧은 문구 → 사진/영상 → 좋아요·댓글·전화·채팅·저장 순서를 적용했다.
+- 딜러형 액션에는 저장된 초톳 SVG 자산을 사용했으며 5개 아이콘의 로드 실패는 0건이다.
+- 게시판형의 가로 스와이프, 첫 사진 위치, 확대 갤러리와 딜러형의 전화 링크, 좋아요·저장 토글을 자동 검증했다.
+- 모바일·PC 가로 오버플로와 콘솔 오류, 4xx/5xx 자산 응답은 0건이다.
+
+## Comparison history
+
+- Pass 1: 딜러형 사진과 액션 행이 원본보다 넓고 세로 이미지 높이가 과했다.
+- Fix: 모바일 콘텐츠 시작점을 53px 부근으로 맞추고 사진·액션 폭을 260px, 가로 사진 높이를 136px, 세로 사진 높이를 178px로 조정했다.
+- Pass 2: 원본과 구현을 390px 폭으로 정규화해 프로필·문구·미디어·액션·구분선 순서와 밀도가 일치함을 확인했다.
+
+final result: passed
+
+---
+
 # 레딧형 게시판 프로필·구분선 QA · 2026-10-15
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/62224fb5-1c2a-424b-9e2c-7bcd1750c0cc/1-1000018442.jpg`

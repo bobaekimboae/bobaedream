@@ -26,6 +26,7 @@ for (const width of [360, 384, 412]) {
     const category = document.querySelector('#category');
     const board = document.querySelector('.boardTop');
     const avatar = document.querySelector('.boardAvatar');
+    const notice = document.querySelector('.noticeText');
     const chip = document.querySelector('.cat');
     const sectionBox = section.getBoundingClientRect();
     const categoryBox = category.getBoundingClientRect();
@@ -42,6 +43,7 @@ for (const width of [360, 384, 412]) {
       boardBorderBottom: getComputedStyle(board).borderBottomWidth,
       avatarWidth: avatarBox.width,
       avatarHeight: avatarBox.height,
+      noticeWeight: getComputedStyle(notice).fontWeight,
       scrollWidth: document.documentElement.scrollWidth,
       viewport: innerWidth,
     };
@@ -52,6 +54,7 @@ for (const width of [360, 384, 412]) {
   check(metrics.chipFontSize === (width <= 370 ? '13.7px' : '14px'), `${width}px: 칩 글자 크기가 다릅니다 (${metrics.chipFontSize})`);
   check(metrics.boardBorderBottom === '0px', `${width}px: 게시판명 아래 구분선이 남아 있습니다 (${metrics.boardBorderBottom})`);
   check(Math.abs(metrics.avatarWidth - 48) <= 1 && Math.abs(metrics.avatarHeight - 48) <= 1, `${width}px: 게시판 프로필이 48px가 아닙니다 (${metrics.avatarWidth}x${metrics.avatarHeight})`);
+  check(Number(metrics.noticeWeight) >= 700, `${width}px: 공지 제목이 볼드가 아닙니다 (${metrics.noticeWeight})`);
   check(metrics.scrollWidth <= metrics.viewport, `${width}px: 가로 화면 잘림 (${metrics.scrollWidth}/${metrics.viewport})`);
   check(await toggle.getAttribute('aria-expanded') === 'false', `${width}px: 초기 접힘 상태가 아닙니다`);
 

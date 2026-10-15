@@ -7,7 +7,7 @@
 .chototFeedIntro{padding:12px 16px 10px;background:#fff;border-bottom:1px solid #e3e5e8}
 .chototFeedIntro strong{display:block;color:#1f2328;font-size:16px;line-height:22px;font-weight:750;letter-spacing:-.035em}
 .chototFeedIntro span{display:block;margin-top:2px;color:#777b82;font-size:13px;line-height:18px;letter-spacing:-.02em}
-.chototFeedCard{position:relative;margin:0;padding:15px 16px 12px;overflow:hidden;background:#fff;border-top:0;border-bottom:0;color:#1b1d20}
+.chototFeedCard{position:relative;margin:0;padding:15px 16px 12px;overflow:hidden;background:#fff;border-top:0;border-bottom:1px solid #e8eaed;color:#1b1d20}
 .chototFeedIdentity{display:flex;align-items:center;gap:9px;min-height:38px}
 .chototFeedAvatar{width:36px;height:36px;flex:0 0 36px;border-radius:50%;object-fit:cover;background:#eceef1}
 .chototFeedAuthor{min-width:0;display:flex;flex:1;flex-direction:column;gap:1px}
@@ -49,6 +49,23 @@
 .chototVoteButton.is-active img,.chototActionButton.is-active img{filter:invert(52%) sepia(97%) saturate(2146%) hue-rotate(179deg) brightness(92%) contrast(94%)}
 .chototActionButton{min-width:42px;padding:0 10px;gap:6px}
 .chototActionButton[data-share]{margin-left:auto}
+.chototDealerFeedList{background:#fff!important}
+.chototDealerFeedCard{padding:18px 16px 19px;border-bottom:1px solid #e4e6e9}
+.chototDealerCaption{display:block;margin:9px 0 11px 37px;color:#1d2024;font-size:17px;line-height:23px;font-weight:540;letter-spacing:-.035em;text-decoration:none;word-break:keep-all}
+.chototDealerFeedCard .chototMediaShell{width:min(260px,calc(100% - 37px));margin:0 0 12px 37px}
+.chototDealerFeedCard .chototMediaRail{height:136px;gap:0;overflow:hidden;scroll-snap-type:none}
+.chototDealerFeedCard .chototMediaItem{display:none;width:100%;height:100%;border-radius:9px;cursor:zoom-in}
+.chototDealerFeedCard .chototMediaItem:first-child{display:block}
+.chototDealerFeedCard .chototMediaItem:first-child[data-ratio="portrait"],.chototDealerFeedCard .chototMediaItem:first-child[data-ratio="tall"],.chototDealerFeedCard .chototMediaItem:first-child.video{width:150px;height:178px}
+.chototDealerFeedCard .chototMediaRail:has(.chototMediaItem:first-child[data-ratio="portrait"]),.chototDealerFeedCard .chototMediaRail:has(.chototMediaItem:first-child[data-ratio="tall"]),.chototDealerFeedCard .chototMediaRail:has(.chototMediaItem:first-child.video){height:178px}
+.chototDealerFeedCard .chototMediaCount,.chototDealerFeedCard .chototRailArrow{display:none}
+.chototDealerActions{margin-left:37px;display:flex;align-items:center;justify-content:space-between;gap:4px;width:min(260px,calc(100% - 37px));min-height:34px}
+.chototDealerAction{min-width:0;height:34px;padding:0 2px;display:inline-flex;align-items:center;justify-content:center;gap:4px;border-radius:17px;color:#555b60;text-decoration:none;white-space:nowrap}
+.chototDealerAction img{display:block;width:23px;height:23px;object-fit:contain}
+.chototDealerAction span{font-size:13px;line-height:18px;font-weight:520;letter-spacing:-.025em}
+.chototDealerAction:active{background:#f1f2f4}
+.chototDealerAction.is-active{color:#238fe3;background:#eef7fe}
+.chototDealerAction.is-active img{filter:invert(52%) sepia(97%) saturate(2146%) hue-rotate(179deg) brightness(92%) contrast(94%)}
 .chototGallery{position:fixed;inset:0;z-index:120;background:rgba(8,10,13,.96);display:none;align-items:center;justify-content:center;overscroll-behavior:contain;touch-action:none}
 .chototGallery.open{display:flex}
 .chototGalleryStage{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:62px 18px 54px}
@@ -69,6 +86,13 @@ body.chototGalleryOpen{position:fixed;left:0;right:0;width:100%;overflow:hidden}
   .chototFeedIntro,.chototFeedCard{width:min(996px,calc(100% - 40px));margin-left:auto;margin-right:auto}
   .chototFeedIntro{padding:14px 22px;border:1px solid #e2e4e7;border-radius:12px}
   .chototFeedCard{margin-top:12px;padding:18px 22px 14px;border:1px solid #e2e4e7;border-radius:12px}
+  .chototDealerFeedCard{width:min(720px,calc(100% - 40px));padding:22px 24px 20px}
+  .chototDealerCaption{margin-left:49px;font-size:18px;line-height:25px}
+  .chototDealerFeedCard .chototMediaShell{width:420px;margin-left:49px}
+  .chototDealerFeedCard .chototMediaRail{height:220px}
+  .chototDealerFeedCard .chototMediaItem:first-child[data-ratio="portrait"],.chototDealerFeedCard .chototMediaItem:first-child[data-ratio="tall"],.chototDealerFeedCard .chototMediaItem:first-child.video{width:222px;height:264px}
+  .chototDealerFeedCard .chototMediaRail:has(.chototMediaItem:first-child[data-ratio="portrait"]),.chototDealerFeedCard .chototMediaRail:has(.chototMediaItem:first-child[data-ratio="tall"]),.chototDealerFeedCard .chototMediaRail:has(.chototMediaItem:first-child.video){height:264px}
+  .chototDealerActions{width:420px;margin-left:49px}
   .chototMediaShell{margin:0}
   .chototFeedCard>.chototMediaShell:first-child{margin-top:-18px;margin-bottom:16px}
   .chototMediaRail{height:240px;padding:0;gap:10px}
@@ -88,5 +112,10 @@ body.chototGalleryOpen{position:fixed;left:0;right:0;width:100%;overflow:hidden}
   .chototMediaItem[data-ratio="tall"]{width:102px}
   .chototMediaItem[data-ratio="square"]{width:182px}
   .chototMediaItem[data-ratio="landscape"]{width:243px}
+  .chototDealerCaption,.chototDealerFeedCard .chototMediaShell,.chototDealerActions{margin-left:37px}
+  .chototDealerFeedCard .chototMediaShell{width:min(250px,calc(100% - 37px))}
+  .chototDealerActions{width:min(250px,calc(100% - 37px));gap:2px}
+  .chototDealerAction img{width:21px;height:21px}
+  .chototDealerAction span{font-size:12px}
 }
 @media(prefers-reduced-motion:reduce){.chototMediaRail{scroll-behavior:auto}}
