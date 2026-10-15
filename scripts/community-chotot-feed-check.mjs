@@ -57,6 +57,10 @@ async function checkCase(name,viewport,expectedMediaHeight){
     return {actual:firstRect.left-cardRect.left,expected:parseFloat(style.borderLeftWidth)+parseFloat(style.paddingLeft)};
   });
   if(Math.abs(mediaInset.actual-mediaInset.expected)>1)throw new Error(`${name}: first image is not aligned to the card content inset: ${JSON.stringify(mediaInset)}`);
+  const cardBorders=await page.locator('.chototFeedCard').first().evaluate(card=>{const style=getComputedStyle(card);return{top:Number.parseFloat(style.borderTopWidth),bottom:Number.parseFloat(style.borderBottomWidth)}});
+  if(viewport.width<768&&(cardBorders.top!==0||cardBorders.bottom!==0))throw new Error(`${name}: mobile card separator border remains: ${JSON.stringify(cardBorders)}`);
+  const cardGap=await page.locator('.chototFeedCard').nth(1).evaluate(card=>card.getBoundingClientRect().top-card.previousElementSibling.getBoundingClientRect().bottom);
+  if(viewport.width<768&&Math.abs(cardGap)>1)throw new Error(`${name}: mobile card separator gap remains: ${cardGap}`);
   const restoredMediaPosition=await page.locator('.chototMediaRail').first().evaluate(async rail=>{
     rail.scrollLeft=rail.scrollWidth;
     window.dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}));
@@ -130,7 +134,7 @@ async function checkCase(name,viewport,expectedMediaHeight){
   const viewportScreenshot=path.join(artifactDir,`${name}-viewport.png`);
   await page.screenshot({path:screenshot,fullPage:true});
   await page.screenshot({path:viewportScreenshot,fullPage:false});
-  const entry={name,viewport,label:label.trim(),firstTitle,cardCount,railBox,metrics,initialMediaPosition,counterAlignment,mediaInset,restoredMediaPosition,mediaScenarioCoverage,imageState,touchIsolation,dragSuppressed,scrollBeforeGallery,scrollAfterGallery,screenshot,viewportScreenshot,consoleErrors,failedResources};
+  const entry={name,viewport,label:label.trim(),firstTitle,cardCount,railBox,metrics,initialMediaPosition,counterAlignment,mediaInset,cardBorders,cardGap,restoredMediaPosition,mediaScenarioCoverage,imageState,touchIsolation,dragSuppressed,scrollBeforeGallery,scrollAfterGallery,screenshot,viewportScreenshot,consoleErrors,failedResources};
   report.cases.push(entry);
   if(failedResources.length)throw new Error(`${name}: failed resources: ${failedResources.join(' | ')}`);
   if(consoleErrors.length)throw new Error(`${name}: console errors: ${consoleErrors.join(' | ')}`);

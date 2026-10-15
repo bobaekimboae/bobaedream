@@ -7,7 +7,7 @@
 .chototFeedIntro{padding:12px 16px 10px;background:#fff;border-bottom:1px solid #e3e5e8}
 .chototFeedIntro strong{display:block;color:#1f2328;font-size:16px;line-height:22px;font-weight:750;letter-spacing:-.035em}
 .chototFeedIntro span{display:block;margin-top:2px;color:#777b82;font-size:13px;line-height:18px;letter-spacing:-.02em}
-.chototFeedCard{position:relative;margin:8px 0 0;padding:15px 16px 12px;overflow:hidden;background:#fff;border-top:1px solid #e7e8ea;border-bottom:1px solid #e0e2e5;color:#1b1d20}
+.chototFeedCard{position:relative;margin:0;padding:15px 16px 12px;overflow:hidden;background:#fff;border-top:0;border-bottom:0;color:#1b1d20}
 .chototFeedIdentity{display:flex;align-items:center;gap:9px;min-height:38px}
 .chototFeedAvatar{width:36px;height:36px;flex:0 0 36px;border-radius:50%;object-fit:cover;background:#eceef1}
 .chototFeedAuthor{min-width:0;display:flex;flex:1;flex-direction:column;gap:1px}
