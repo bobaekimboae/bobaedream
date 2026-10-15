@@ -47,6 +47,7 @@
     "community:verify:full-audit": "node scripts/community-write-full-audit-check.mjs",
     "community:verify:number-clipping": "node scripts/community-write-number-clipping-check.mjs",
     "community:verify:compact-write": "node scripts/community-compact-write-check.mjs",
+    "community:verify:boards": "node scripts/community-board-selector-check.mjs",
     "community:verify:detail-actions": "node scripts/community-chzzk-detail-actions-check.mjs",
     "community:verify:detail-scenarios": "node scripts/community-detail-scenarios-check.mjs",
     "community:verify:reddit-feed": "node scripts/community-reddit-feed-check.mjs",
