@@ -31,7 +31,6 @@ const MOCK = {
   sold: 12,
   followers: 425,
   lastActive: "6시간 전 활동",
-  response: "1시간 이내",
   joined: "딜러 경력 7년",
   company: "(주)투제이모터웍스",
   complex: "서울SAG · 서울오토갤러리",
@@ -182,7 +181,6 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
         <div className="dp-profile-inline is-mobile-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>리뷰 {MOCK.reviewCount}</u></div>
         <div className="dp-profile-career-meta">
           <div className="dp-profile-inline is-career"><DealerIcon name="calendar" />{MOCK.joined}</div>
-          <div className="dp-profile-inline is-career-response"><DealerIcon name="clock" />응답률: {MOCK.response}</div>
         </div>
         <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></div>
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
@@ -434,7 +432,6 @@ function AboutSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; noti
     <dl>
       <div><dt>전문 분야</dt><dd>수입차</dd></div>
       <div><dt>활동 지역</dt><dd>{MOCK.address}</dd></div>
-      <div><dt><DealerIcon name="clock" />응답 시간</dt><dd>{MOCK.response}</dd></div>
       <div><dt><DealerIcon name="calendar" />딜러 경력</dt><dd>7년</dd></div>
       <div><dt><DealerIcon name="dealership" />소속 상사</dt><dd>{MOCK.company}</dd></div>
       <div><dt>종사원 번호</dt><dd>{dealer.employeeNo ?? MOCK.employeeNo}</dd></div>
