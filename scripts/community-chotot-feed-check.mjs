@@ -146,7 +146,8 @@ async function checkViewSelector(){
   const selectorUrl=new URL(baseUrl);
   selectorUrl.search='';
   await page.goto(selectorUrl.href,{waitUntil:'domcontentloaded',timeout:30000});
-  await page.locator('#viewBtn').click();
+  await page.locator('#boardOrderMenu').click();
+  await page.locator('.boardOrderViewEntry').click();
   await page.locator('[data-mode="feed-chotot"]').click();
   await page.locator('.chototFeedCard').first().waitFor({state:'visible'});
   const label=(await page.locator('#typeLabel').textContent())?.trim();
