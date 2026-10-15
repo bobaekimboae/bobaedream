@@ -124,8 +124,7 @@
     }
     function navButton(id,label,fullName,isHome){
       var on=id===selectedId;
-      var board=boardForId(id);
-      return '<button class="boardChannelTab '+(isHome?'home ':'')+(on?'on':'')+'" data-board-id="'+escapeHtml(id)+'" aria-label="'+escapeHtml(fullName)+'" '+(on?'aria-current="page"':'')+'>'+boardAvatarMarkup(board,'boardChannelAvatar')+'<span>'+escapeHtml(label)+'</span></button>';
+      return '<button class="boardChannelTab '+(isHome?'home ':'')+(on?'on':'')+'" data-board-id="'+escapeHtml(id)+'" aria-label="'+escapeHtml(fullName)+'" '+(on?'aria-current="page"':'')+'><span>'+escapeHtml(label)+'</span></button>';
     }
     function renderNav(){
       var state=loadState();

@@ -27,6 +27,11 @@ for(const width of [360,384,412,592,1280]){
   check((await nav.nth(1).textContent())?.trim()==='베스트',`${width}px 둘째 채널이 베스트가 아닙니다`);
   check(await nav.nth(0).getAttribute('data-board-id')==='home',`${width}px 전체 ID가 home이 아닙니다`);
   check(await nav.nth(1).getAttribute('data-board-id')==='best',`${width}px 베스트 ID가 best가 아닙니다`);
+  check(await page.locator('.boardChannelAvatar').count()===0,`${width}px 탑메뉴에 게시판 프사가 남아 있습니다`);
+  const backIcon=await page.locator('.appbar .back img').evaluate(element=>({src:element.src,width:element.getBoundingClientRect().width,height:element.getBoundingClientRect().height,loaded:element.complete&&element.naturalWidth>0}));
+  check(/\/(?:assets|%61ssets)\/bbm\/m-header-back\.svg$/i.test(backIcon.src),`${width}px 뒤로가기 아이콘이 중고차 목록 아이콘이 아닙니다: ${backIcon.src}`);
+  check(backIcon.width===24&&backIcon.height===24,`${width}px 뒤로가기 아이콘 크기가 ${backIcon.width}×${backIcon.height}px입니다`);
+  check(backIcon.loaded,`${width}px 뒤로가기 아이콘이 로드되지 않았습니다`);
   check(await page.locator('#boardOrderMenu').isVisible(),`${width}px 메뉴보기 버튼이 없습니다`);
   check(await page.locator('.appbar .hamburger').isVisible(),`${width}px 상단 햄버거 버튼이 없습니다`);
   check(!await page.locator('#viewBtn').isVisible(),`${width}px 기존 보기 방식 버튼이 아직 노출됩니다`);
