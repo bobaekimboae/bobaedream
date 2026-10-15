@@ -275,3 +275,52 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+/* 2026-10-15 「PC 간격도 맞춰서」 — PC(개발 시안형 .is-bbm)에서도 지역 줄 → 카드 16 · 줄 사이 16 · 카드 → 카드 영역 끝 16.
+   PC는 stable-top.css가 퀵슬롯 안 줄의 위 여백을 0으로 고정하므로 더 구체적인 선택자로 레일을 위로 8 겹친다. */
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot:has(.is-brand-shadowcard) {
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+}
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot:has(.bbm-quick-slot .is-brand-shadowcard, .bbm-quick-slot .heavy-qf.is-shadowcard) {
+  padding-bottom: 0 !important;
+}
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot > .depth-rail.is-brand-shadowcard:not(.is-truck-type-row):not(.is-ferrari-model-row) {
+  margin-top: -8px !important;
+  height: 104px !important;
+  min-height: 104px !important;
+}
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot > .depth-rail.is-brand-shadowcard:not(.is-truck-type-row):not(.is-ferrari-model-row) .brand-carousel,
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot > .depth-rail.is-brand-shadowcard:not(.is-truck-type-row):not(.is-ferrari-model-row) .depth-rail-track {
+  height: 104px !important;
+  min-height: 104px !important;
+  padding: 8px 20px 16px !important;
+}
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot > .heavy-qf.is-shadowcard {
+  margin-top: -8px !important;
+}
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail.is-brand-shadowcard:not(.is-truck-type-row):not(.is-ferrari-model-row)) {
+  margin-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+/* 트럭 유형 줄: 위의 적재중량 줄은 알약이 줄 가운데에 있어 알약 아래에 여백이 이미 있다.
+   보이는 알약 → 카드 16이 되도록 트랙 안쪽 위 여백을 모바일 8 · PC 4로 줄인다(줄 높이도 같이 줄임). */
+.marketplace.is-qf-guazi .depth-rail.is-truck-type-row.is-brand-shadowcard,
+.marketplace.is-qf-guazi .depth-rail.is-truck-type-row.is-brand-shadowcard .brand-carousel,
+.marketplace.is-qf-guazi .depth-rail.is-truck-type-row.is-brand-shadowcard .depth-rail-track {
+  height: 104px !important;
+  min-height: 104px !important;
+}
+.marketplace.is-qf-guazi .depth-rail.is-truck-type-row.is-brand-shadowcard .depth-rail-track {
+  padding: 8px 16px 16px !important;
+}
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot > .depth-rail.is-truck-type-row.is-brand-shadowcard,
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot > .depth-rail.is-truck-type-row.is-brand-shadowcard .brand-carousel,
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot > .depth-rail.is-truck-type-row.is-brand-shadowcard .depth-rail-track {
+  height: 100px !important;
+  min-height: 100px !important;
+}
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot > .depth-rail.is-truck-type-row.is-brand-shadowcard .depth-rail-track {
+  padding: 4px 20px 16px !important;
+}
