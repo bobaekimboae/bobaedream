@@ -2577,3 +2577,45 @@ final result: passed
 - P0/P1/P2 findings: none
 
 final result: passed
+
+---
+
+# 딜러 프로필 · 인스타그램형 헤더·행동 버튼 QA · 2026-10-15
+
+- source visual truth:
+  - `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/e701f2ea-c867-4db2-95b7-e129f14146cc/1-1000018360.jpg`
+  - `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/e701f2ea-c867-4db2-95b7-e129f14146cc/2-1000018364.jpg`
+- implementation capture: Codex IAB `393 × 852` 로컬 렌더 캡처
+- state: 팔로잉 기본 상태, 판매차량 탭 선택, 메시지 알림 표시
+- density normalization: CSS viewport와 구현 캡처 모두 393 × 852, 별도 배율 변환 없음
+
+## Full-view comparison evidence
+
+- 인스타그램 참고 화면처럼 상단 뒤로가기 바로 오른쪽에 상사명 `투제이모터웍스`를 배치했다.
+- 프로필 소개 아래에 `팔로잉 · 메시지 보내기 · 전화 걸기 · 공유` 네 행동을 같은 높이의 버튼 한 줄로 구성했다.
+- 딜러 경력은 좌측 x=16px, 리뷰는 우측 끝 x=367px에 맞춰 한 줄 양끝 정렬했다.
+- 기존 배너·프로필·통계·소개·주소 흐름은 유지해 사용자가 요청하지 않은 영역의 구조 변경을 피했다.
+
+## Focused comparison evidence
+
+- 상단 헤더에서 상사명이 말줄임 가능한 단일 행으로 표시되고 검색·더보기 아이콘과 충돌하지 않음을 확인했다.
+- 393px 폭에서 네 버튼의 전체 문구가 줄바꿈 없이 노출되고 가로 넘침이 0px임을 확인했다.
+- 전화 버튼은 `tel:0220595211`, 메시지 버튼은 딜러명 포함 상태 알림, 팔로잉 버튼은 팔로우/팔로잉 양방향 전환을 검증했다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 기존 Pretendard와 12–17px 모바일 위계를 유지
+- spacing/layout rhythm: 헤더 50px, 버튼 34px, 6px 간격, 경력·리뷰 한 줄 양끝 정렬 통과
+- colors/tokens: 흰 배경, `#222` 본문, `#f6f6f6` 버튼, `#dedede` 외곽선 유지
+- image quality: 기존 딜러 사진과 페라리 영상 배너 자산 유지
+- copy/content: 상사명, 팔로잉, 메시지 보내기, 전화 걸기, 공유, 딜러 경력, 리뷰 수 확인
+
+## Verification
+
+- 팔로잉 → 팔로우 → 팔로잉 전환: passed
+- 메시지 알림: passed
+- 전화 링크: passed
+- 브라우저 콘솔 error: 0건
+- P0/P1/P2 findings: none
+
+final result: passed

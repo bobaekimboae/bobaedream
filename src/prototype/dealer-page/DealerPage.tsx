@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { CheckIcon, ExternalLinkIcon, PlusIcon } from "@radix-ui/react-icons";
+import { ExternalLinkIcon } from "@radix-ui/react-icons";
 import { FlowStack, type FlowScreen } from "../../mobile";
 import { DetailFooter, DetailUiProvider, VehicleDetail } from "../detail";
 import { FavoritesProvider, asset, seoulAutoGalleryCars, setActiveDetailCar, type Car } from "../data";
@@ -29,7 +29,7 @@ const MOCK = {
   rating: 4.8,
   reviewCount: 3,
   sold: 12,
-  followers: 426,
+  followers: 425,
   lastActive: "6시간 전 활동",
   response: "보통 1시간 이내",
   joined: "딜러 경력 7년",
@@ -95,6 +95,7 @@ function SiteHeader() {
   return <header className="dp-site-header">
     <div className="dp-mobile-channel-head">
       <button type="button" aria-label="뒤로가기" onClick={() => window.history.back()}><img src={asset("detail/back.svg")} alt="" aria-hidden="true" /></button>
+      <strong className="dp-mobile-channel-name">{MOCK.company.replace("(주)", "")}</strong>
       <div>
         <button type="button" aria-label="판매자 매물 검색"><Icon name="chotot-common-search-thin-line.svg" /></button>
         <button type="button" aria-label="판매자 메뉴"><Icon name="chotot-common-more.svg" /></button>
@@ -124,7 +125,7 @@ function SiteHeader() {
   </header>;
 }
 
-function DealerProfile({ dealer, cars, following, setFollowing, share }: { dealer: SeoulAutoGalleryDealer; cars: Car[]; following: boolean; setFollowing: (value: boolean) => void; share: () => void }) {
+function DealerProfile({ dealer, cars, following, setFollowing, share, notify }: { dealer: SeoulAutoGalleryDealer; cars: Car[]; following: boolean; setFollowing: (value: boolean) => void; share: () => void; notify: (message: string) => void }) {
   const [heroVideoFailed, setHeroVideoFailed] = useState(false);
   const reduceMotion = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const listingCount = cars.length;
@@ -168,16 +169,19 @@ function DealerProfile({ dealer, cars, following, setFollowing, share }: { deale
           <p>{MOCK.intro}</p>
         </div>
         <div className="dp-profile-actions">
-          <button type="button" onClick={share}><DealerIcon name="share" />공유</button>
-          <button type="button" aria-pressed={following} onClick={() => setFollowing(!following)}>{following ? <CheckIcon aria-hidden="true" /> : <PlusIcon aria-hidden="true" />}{following ? "팔로잉" : "팔로우"}</button>
+          <button type="button" className="is-follow" aria-pressed={following} onClick={() => setFollowing(!following)}>{following ? "팔로잉" : "팔로우"}</button>
+          <button type="button" onClick={() => notify(`${dealer.name} 딜러에게 메시지를 보낼 수 있어요`)}>메시지 보내기</button>
+          <a href={`tel:${MOCK.phone.replaceAll("-", "")}`} aria-label={`${dealer.name} 딜러에게 전화 걸기`}>전화 걸기</a>
+          <button type="button" onClick={share}>공유</button>
         </div>
         <div className="dp-profile-inline is-first"><DealerIcon name="clock" />{MOCK.lastActive}<i />응답률: {MOCK.response}</div>
         <div className="dp-profile-inline is-response"><DealerIcon name="clock" />응답률: {MOCK.response}</div>
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
         <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></div>
-        <div className="dp-profile-inline is-career"><DealerIcon name="calendar" />{MOCK.joined}</div>
-        <div className="dp-profile-inline is-mobile-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>({MOCK.reviewCount}개 평가)</u></div>
-        <div className="dp-profile-inline is-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>({MOCK.reviewCount}개 평가)</u></div>
+        <div className="dp-profile-career-review">
+          <div className="dp-profile-inline is-career"><DealerIcon name="calendar" />{MOCK.joined}</div>
+          <div className="dp-profile-inline is-mobile-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>리뷰 {MOCK.reviewCount}</u></div>
+        </div>
         <div className="dp-profile-stats dp-profile-stats-desktop" aria-label="판매 실적">
           <span><small>판매중</small><b>{listingCount}</b></span>
           <span><small>판매완료</small><b>{MOCK.sold}</b></span>
@@ -405,7 +409,7 @@ function Footer() {
 }
 
 function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; cars: Car[] }) {
-  const [following, setFollowing] = useState(false);
+  const [following, setFollowing] = useState(true);
   const [mode, setMode] = useState<ListingMode>("active");
   const [activeSection, setActiveSection] = useState<SectionId>("ads");
   const [toast, setToast] = useState("");
@@ -451,7 +455,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
     <div className="dp-scroll" ref={scrollRef}>
       <SiteHeader />
       <main className="dp-page" aria-label={`${dealer.name} 딜러 판매자 페이지`}>
-        <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} share={share} />
+        <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} share={share} notify={notify} />
         <AnchorNav active={activeSection} onChange={changeSection} />
         {activeSection === "home" ? <HomeSection /> : null}
         {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}

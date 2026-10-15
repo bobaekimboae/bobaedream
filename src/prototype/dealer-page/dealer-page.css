@@ -15,10 +15,11 @@
 .dp-scroll { position: absolute; inset: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
 
 .dp-site-header { position: sticky; top: 0; z-index: 30; height: 50px; background: #fff; box-shadow: none; }
-.dp-mobile-channel-head { display: flex; align-items: center; justify-content: space-between; height: 50px; padding: 0 14px; }
+.dp-mobile-channel-head { display: flex; align-items: center; justify-content: flex-start; gap: 4px; height: 50px; padding: 0 10px; }
 .dp-mobile-channel-head > button, .dp-mobile-channel-head > div > button { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; }
 .dp-mobile-channel-head > button img { display: block; width: 28px; height: 28px; object-fit: contain; }
-.dp-mobile-channel-head > div { display: flex; align-items: center; gap: 2px; }
+.dp-mobile-channel-name { overflow: hidden; min-width: 0; max-width: calc(100% - 140px); font-size: 17px; line-height: 24px; font-weight: 700; letter-spacing: -.2px; text-overflow: ellipsis; white-space: nowrap; }
+.dp-mobile-channel-head > div { display: flex; align-items: center; gap: 2px; margin-left: auto; }
 .dp-mobile-channel-head .dp-icon { width: 26px; height: 26px; }
 .dp-site-main { display: none; grid-template-columns: 52px 1fr 78px; align-items: center; height: 52px; padding: 0 12px; }
 .dp-site-menu { display: grid; place-items: center; width: 44px; height: 44px; }
@@ -59,16 +60,15 @@
 .dp-profile-bio { grid-column: 1 / -1; grid-row: 3; min-width: 0; margin-top: 14px; color: var(--dp-ink); font-size: 13px; line-height: 19px; }
 .dp-profile-bio > b { display: block; font-weight: 700; }
 .dp-profile-bio > p { display: -webkit-box; overflow: hidden; margin-top: 2px; -webkit-box-orient: vertical; -webkit-line-clamp: 2; word-break: keep-all; }
-.dp-profile-actions { display: flex; grid-column: 1 / -1; grid-row: 4; justify-content: flex-start; gap: 10px; margin-top: 14px; }
-.dp-profile-actions button { display: flex; width: auto; min-width: 84px; height: 32px; align-items: center; justify-content: center; gap: 6px; padding: 0 12px; border: 1px solid #dedede; border-radius: 7px; background: #fff; font-size: 13px; line-height: 18px; font-weight: 700; }
-.dp-profile-actions button:last-child { min-width: 90px; background: #fff; color: var(--dp-ink); }
-.dp-profile-actions button:last-child[aria-pressed="true"] { background: #f4f4f4; color: var(--dp-ink); }
+.dp-profile-actions { display: grid; grid-column: 1 / -1; grid-row: 4; grid-template-columns: .86fr 1.35fr 1.08fr .72fr; gap: 6px; margin-top: 14px; }
+.dp-profile-actions > :is(button, a) { display: flex; min-width: 0; height: 34px; align-items: center; justify-content: center; padding: 0 7px; border: 1px solid #dedede; border-radius: 7px; background: #f6f6f6; color: var(--dp-ink); font-size: 12px; line-height: 18px; font-weight: 700; white-space: nowrap; }
+.dp-profile-actions > .is-follow[aria-pressed="true"] { background: #efefef; color: var(--dp-ink); }
 .dp-profile-actions button > svg { width: 16px; height: 16px; }
 .dp-profile-actions .dp-icon { width: 16px; height: 16px; }
 .dp-profile-inline { display: flex; align-items: center; min-width: 0; color: var(--dp-sub); font-size: 14px; line-height: 22px; }
 .dp-profile-inline i { width: 4px; height: 4px; margin: 0 10px; border-radius: 50%; background: #666; }
 .dp-profile-inline u { color: #555; text-underline-offset: 2px; }
-.dp-profile-inline.is-mobile-rating { grid-column: 1 / -1; grid-row: 9; align-self: start; gap: 5px; margin-top: 12px; color: var(--dp-ink); font-size: 13px; line-height: 18px; }
+.dp-profile-inline.is-mobile-rating { gap: 5px; color: var(--dp-ink); font-size: 13px; line-height: 18px; }
 .dp-profile-inline.is-mobile-rating > b { font-size: 14px; }
 .dp-profile-inline.is-mobile-rating > u { color: #2764af; text-underline-offset: 2px; }
 .dp-profile-inline.is-mobile-rating > span { color: #666; }
@@ -86,7 +86,8 @@
 .dp-profile-inline.is-phone { grid-column: 1 / -1; grid-row: 7; margin-top: 12px; }
 .dp-profile-inline.is-phone .dp-icon { width: 20px; height: 20px; margin-right: 8px; }
 .dp-profile-inline.is-phone a { color: inherit; text-decoration: none; }
-.dp-profile-inline.is-career { grid-column: 1 / -1; grid-row: 8; margin-top: 12px; }
+.dp-profile-career-review { display: flex; grid-column: 1 / -1; grid-row: 8; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; }
+.dp-profile-inline.is-career { margin: 0; }
 .dp-profile-inline.is-career .dp-icon { width: 20px; height: 20px; margin-right: 8px; }
 .dp-profile-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .dp-profile-stats > span { display: flex; min-height: 68px; flex-direction: column; align-items: center; justify-content: center; gap: 3px; }
@@ -292,14 +293,14 @@
   .dp-avatar { position: absolute; }
   .dp-profile-copy { display: block; position: relative; padding-top: 0; }
   .dp-profile-copy h1 { font-size: 24px; line-height: 32px; }
-  .dp-profile-inline.is-mobile-rating, .dp-profile-stats-mobile, .dp-profile-bio { display: none; }
-  .dp-profile-actions { position: absolute; left: 0; top: 118px; gap: 10px; margin: 0; }
-  .dp-profile-actions button { width: auto; min-width: 92px; height: 34px; padding: 0 14px; border: 1px solid #dedede; border-radius: 8px; background: #fff; font-size: 14px; }
-  .dp-profile-actions button:last-child { min-width: 102px; flex: none; background: #fff; color: var(--dp-ink); }
+  .dp-profile-stats-mobile, .dp-profile-bio { display: none; }
+  .dp-profile-actions { position: absolute; left: 0; top: 118px; width: min(520px, 100%); gap: 8px; margin: 0; }
+  .dp-profile-actions > :is(button, a) { height: 34px; padding: 0 10px; border: 1px solid #dedede; border-radius: 8px; background: #fff; font-size: 13px; }
   .dp-profile-inline.is-first { display: flex; margin-top: 8px; }
   .dp-profile-inline.is-rating { display: flex; margin-top: 8px; }
   .dp-profile-inline.is-response { display: none; }
-  .dp-profile-inline.is-career { display: flex; margin-top: 8px; }
+  .dp-profile-career-review { width: 360px; margin-top: 8px; }
+  .dp-profile-career-review .dp-profile-inline.is-career { display: flex; margin-top: 0; }
   .dp-profile-inline.is-location { margin-top: 8px; }
   .dp-profile-stats-desktop { display: grid; width: 360px; margin-top: 14px; overflow: hidden; border: 1px solid #d8d8d8; border-radius: 10px; background: #fff; }
   .dp-profile-stats-desktop > span + span { border-left: 1px solid #e5e5e5; }
@@ -352,7 +353,8 @@
 @media (max-width: 360px) {
   .dp-listing-card { grid-template-columns: 118px minmax(0,1fr); gap: 12px; }
   .dp-listing-media { width: 118px; height: 158px; }
-  .dp-profile-actions { gap: 8px; }
+  .dp-profile-actions { gap: 4px; }
+  .dp-profile-actions > :is(button, a) { padding: 0 4px; font-size: 11px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
