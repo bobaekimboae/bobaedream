@@ -62,6 +62,7 @@
 .chototDealerActions{margin-left:37px;display:flex;align-items:center;justify-content:space-between;gap:3px;width:min(278px,calc(100% - 37px));min-height:40px}
 .chototDealerAction{min-width:44px;height:40px;padding:0 5px;display:inline-flex;align-items:center;justify-content:center;gap:4px;border-radius:20px;color:#555b60;text-decoration:none;white-space:nowrap}
 .chototDealerAction img{display:block;width:20px;height:20px;object-fit:contain}
+.chototDealerAction[data-dealer-save] img{width:19px;height:19px}
 .chototDealerAction img.autoScoutPhone{width:21px;height:21px}
 .chototDealerAction span{font-size:13px;line-height:18px;font-weight:520;letter-spacing:-.025em}
 .chototDealerAction:active{background:#f1f2f4}
