@@ -10,7 +10,7 @@ import "./dealer-page.css";
 
 const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.location.href).pathname;
 const icon = (name: string) => `${publicBase}icons/chotot/${name}`;
-const dealerIcon = (name: string) => `${publicBase}icons/dealer-profile/${name}.svg`;
+const dealerIcon = (name: string) => `${publicBase}icons/dealer-profile/${name}.${name === "dealership-building" ? "png" : "svg"}`;
 const bobaeAsset = (name: string) => asset(`pc-detail/${name}`);
 const dealerPhoto = (dealer: SeoulAutoGalleryDealer) => asset(dealer.profileAsset ?? `dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`);
 
