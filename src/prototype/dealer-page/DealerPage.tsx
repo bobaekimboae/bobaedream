@@ -34,6 +34,7 @@ const MOCK = {
   joined: "딜러 경력 7년",
   company: "(주)투제이모터웍스",
   complex: "서울SAG · 서울오토갤러리",
+  gallery: "서울오토갤러리",
   licenseNo: "02-1123-000075",
   businessNo: "462-86-03494",
   employeeNo: "26-003-00097",
@@ -184,6 +185,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
         </div>
         <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></div>
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
+        <div className="dp-profile-inline is-dealership"><DealerIcon name="dealership" /><span>{MOCK.gallery}</span></div>
         <SellPriceCta onRequest={onValuation} profile />
         <div className="dp-profile-stats dp-profile-stats-desktop" aria-label="판매 실적">
           <span><small>판매중</small><b>{listingCount}</b></span>
