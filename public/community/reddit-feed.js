@@ -160,7 +160,7 @@
   }
 
   window.renderRedditFeed=function(){
-    phone.classList.remove('compactMode','feedCafeMode');
+    phone.classList.remove('compactMode','feedCafeMode','chototFeedMode');
     phone.classList.add('redditFeedMode');
     typeLabel.textContent='피드형';
     list.className='list redditFeedList';

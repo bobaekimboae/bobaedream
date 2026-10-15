@@ -2954,3 +2954,70 @@ final result: passed
 - mobile runtime integrity: passed
 
 final result: passed
+
+---
+
+# Chợ Tốt feed view design QA
+
+**Source visual truth paths**
+
+- `C:\Users\bobae\AppData\Local\Temp\nhatot-live-mobile-top.png`
+- `C:\Users\bobae\AppData\Local\Temp\nhatot-live-desktop-0650.png`
+
+**Implementation screenshot paths**
+
+- `C:\Users\bobae\.codex\worktrees\naver-cafe-list-fidelity-1015\artifacts\community-chotot-feed-1015\mobile-390x844-viewport.png`
+- `C:\Users\bobae\.codex\worktrees\naver-cafe-list-fidelity-1015\artifacts\community-chotot-feed-1015\desktop-1200x900-viewport.png`
+
+**Viewport and normalization**
+
+- Mobile: source 390 × 844 px; implementation 390 × 844 px; CSS viewport 390 × 844; deviceScaleFactor 1.
+- Desktop: source 1200 × 900 px; implementation 1200 × 900 px; CSS viewport 1200 × 900; deviceScaleFactor 1.
+- Both comparisons use equal pixel dimensions and equal density. No resampling was required.
+- State: initial feed view, first post visible, gallery closed, reaction controls inactive.
+
+**Full-view comparison evidence**
+
+- `C:\Users\bobae\.codex\worktrees\naver-cafe-list-fidelity-1015\artifacts\community-chotot-feed-1015\comparison-mobile.png`
+- `C:\Users\bobae\.codex\worktrees\naver-cafe-list-fidelity-1015\artifacts\community-chotot-feed-1015\comparison-desktop.png`
+- The source is on the left and the implementation is on the right in each image.
+
+**Focused region comparison evidence**
+
+- A separate crop was not needed. The 1:1 mobile comparison makes author typography, body copy, 194 px media rail, image counter, and action pills readable. The 1:1 desktop comparison makes the 240 px rail, mixed media widths, arrow affordances, card spacing, and action alignment readable.
+
+**Findings**
+
+- No actionable P0, P1, or P2 differences remain.
+- Fonts and typography: Pretendard hierarchy and weights preserve the compact source-feed density while using Korean content. Titles, metadata, body copy, and action counts wrap and truncate consistently.
+- Spacing and layout rhythm: the implementation matches the source's single-column feed, fixed-height horizontal media rail, narrow inter-image gaps, rounded media, and compact action row. The surrounding community board header is intentionally retained because this is a viewing mode, not a broker-profile clone.
+- Colors and visual tokens: neutral gray surfaces and white cards match the source structure. `#238FE3` is intentionally used for active states to preserve the requested board blue instead of Chợ Tốt orange.
+- Image quality and asset fidelity: production car assets render sharply with cover treatment inside four supported aspect classes. Source-style rail arrows use the checked-in Chợ Tốt assets; votes, comments, share, save, and overflow use the checked-in Reddit-style icon assets requested for this board.
+- Copy and content: source feed behaviors are translated to Korean community copy, including source/time metadata, `더보기`, image count, and board-specific reactions.
+
+**Primary interactions tested**
+
+- Selecting `피드형 · 초톳` from the existing viewing-mode sheet.
+- Direct `?view=chotot` route.
+- Mobile horizontal media overflow and desktop arrow-ready overflow.
+- Body `더보기` expand/collapse.
+- Recommendation vote toggle, save toggle, comments navigation hook, full-screen image/video gallery open/close.
+- Body horizontal overflow check at both viewports.
+- Browser console checked; zero errors after the page favicon was declared.
+
+**Comparison history**
+
+- Pass 1: no P0/P1/P2 fidelity issues found in the normalized side-by-side comparisons. No visual fix iteration was required after this comparison.
+
+**Implementation checklist**
+
+- [x] Add the mode to both view selectors.
+- [x] Preserve existing list, Reddit, and Naver Cafe modes.
+- [x] Support 3:4, tall, square, landscape, video, mixed, single-media, multi-media, and text-only scenarios.
+- [x] Verify mobile and desktop renderings and interactions in Chrome.
+
+**Follow-up polish**
+
+- None required for handoff.
+
+final result: passed
