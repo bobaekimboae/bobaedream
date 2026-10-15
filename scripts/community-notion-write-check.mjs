@@ -21,6 +21,10 @@ try {
   await page.reload({ waitUntil: "domcontentloaded" });
 
   await expect(await page.getByTestId("notion-write-page").isVisible(), "전용 글쓰기 페이지가 보이지 않습니다.");
+  const estimateButton = page.getByTestId("car-estimate-button");
+  await expect(await estimateButton.isVisible(), "내 차 시세 무료 견적 버튼이 보이지 않습니다.");
+  await expect((await estimateButton.getAttribute("href")) === "https://app.notion.com/p/1-701ee9c4b60683d0ae0801d3de2248fb?source=copy_link", "무료 견적 버튼 주소가 일치하지 않습니다.");
+  await expect((await estimateButton.getAttribute("target")) === "_blank", "무료 견적 버튼이 새 창으로 열리지 않습니다.");
   await page.getByTestId("notion-title").fill("퇴근길에 만난 멋진 자동차");
   await page.getByTestId("notion-editor").click();
   await page.keyboard.type("사진과 동영상을 한 페이지에서 정리했습니다.");
