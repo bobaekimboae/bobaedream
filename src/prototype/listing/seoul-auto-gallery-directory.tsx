@@ -11,6 +11,8 @@ const tabItems: Array<{ value: SeoulAutoGallerySection; label: string }> = [
   { value: "about", label: "소개" },
 ];
 
+const locationIcon = `${import.meta.env.BASE_URL}icons/chotot/chotot-profile-location.svg`;
+
 const companies = (() => {
   const directory = new Map<string, Map<string, number>>();
   for (const row of seoulAutoGalleryRows) {
@@ -36,10 +38,14 @@ export function SeoulAutoGalleryTabs({ value, onChange }: { value: SeoulAutoGall
           type="button"
           role="tab"
           aria-selected={value === item.value}
-          className={value === item.value ? "is-selected" : undefined}
+          aria-label={item.value === "vehicles" ? "판매 차량 · 서울 서초구 양재대로11길 36" : item.label}
+          className={`${item.value === "vehicles" ? "is-location " : ""}${value === item.value ? "is-selected" : ""}`.trim() || undefined}
           onClick={() => onChange(item.value)}
         >
-          <span>{item.label}</span>
+          {item.value === "vehicles" ? <>
+            <img src={locationIcon} alt="" aria-hidden="true" />
+            <span>서울 서초구 양재대로11길 36</span>
+          </> : <span>{item.label}</span>}
         </button>
       ))}
     </nav>
