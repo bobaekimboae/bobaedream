@@ -3450,3 +3450,33 @@ final result: passed
 - Pass 2: 바이두 편집 화면과 구현의 4열 구조를 비교해 남은 P0/P1/P2가 없음을 확인했다.
 
 final result: passed
+
+---
+
+# 커뮤니티 채널 메뉴 · 모바일 3열 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a128e5-de8a-78d0-9ed9-96cbde6a07c3/c9167412-9f8a-4f55-a59a-398a8cfb0d41/1-1000018468.jpg`
+- implementation screenshot: `artifacts/community-board-order-1015/mobile-592-channel-normal.png`
+- comparison image: `artifacts/community-board-order-1015/comparison-592-source-vs-3col.png`
+- viewport: source 592 × 1280px, implementation 592 × 1280 CSS px, device scale 1.
+- state: 상단 전체 메뉴 햄버거의 채널 목록이 열린 상태.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 기존 Pretendard 계층과 13px 채널명을 유지하며 긴 게시판명도 한 줄 중앙 정렬된다.
+- spacing and layout rhythm: 모바일 그리드를 4열에서 3열로 바꾸고 타일을 약 181 × 56px, 열 간격 9px, 행 간격 10px, 반경 10px로 확대했다. 첨부 이미지의 넓은 카드 비율을 유지하면서 요청한 3열 밀도를 적용했다.
+- colors and visual tokens: 참고 화면의 옅은 회색 카드와 흰 배경 대비를 기존 커뮤니티 토큰으로 유지했다.
+- image quality and asset fidelity: 변경 범위는 텍스트 채널 타일이며 신규 이미지 자산이나 대체 아이콘은 없다.
+- copy and content: 32개 채널명, `전체 · 베스트` 고정 항목, 게시판·자료실 분류를 그대로 유지했다.
+- responsiveness: 360 / 384 / 412 / 592px은 3열, 1280px은 6열이다. 가로 오버플로와 텍스트 잘림이 없다.
+- accessibility and interaction: 키보드 상하 이동 계산도 모바일 3열에 맞췄고, 채널 선택·편집·제거·재추가 흐름이 통과했다.
+- browser evidence: Chrome에서 592 × 1280으로 열어 3열, 56px 타일 높이, 패널 폭 592px을 확인했다. 콘솔 오류는 없었다.
+
+## Comparison history
+
+- Pass 1: 기존 4열은 모바일에서 카드 폭이 좁고 정보가 촘촘했다.
+- Fix: 모바일 3열과 56px 높이를 적용하고 592px 회귀 캡처를 추가했다.
+- Pass 2: 동일 592 × 1280 비교에서 넓은 타일 비율과 단순한 여백이 확보됐고 남은 P0/P1/P2가 없음을 확인했다.
+
+final result: passed

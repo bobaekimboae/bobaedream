@@ -166,7 +166,7 @@
           if(!editing&&(event.key==='Enter'||event.key===' ')){event.preventDefault();choose(id,{closePanel:true});return}
           if(!editing||item.dataset.movable!=='true')return;
           var items=Array.prototype.slice.call(myGrid.querySelectorAll('.boardOrderItem[data-movable="true"]'));
-          var index=items.indexOf(item),columns=innerWidth>=768?6:4,next=index;
+          var index=items.indexOf(item),columns=innerWidth>=768?6:3,next=index;
           if(event.key==='ArrowLeft')next=index-1;
           if(event.key==='ArrowRight')next=index+1;
           if(event.key==='ArrowUp')next=index-columns;
