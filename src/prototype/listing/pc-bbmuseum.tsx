@@ -34,7 +34,7 @@ const bbGnbItems: readonly BbGnbItem[] = [
   { label: "화물 · 특장 · 중기", category: "트럭 · 특장", icon: "truck.svg" },
   { label: "바이크", category: "바이크" },
   { label: "캠핑카", category: "캠핑카", icon: "camper.svg" },
-  { label: "부품-용품", category: "부품 · 용품", icon: "parts.svg" },
+  { label: "부품 · 용품", category: "부품 · 용품", icon: "parts.svg" },
   { label: "커뮤니티", action: "community", icon: "community.svg" },
   { label: "더보기", action: "more", icon: "more.svg" },
 ];
@@ -54,7 +54,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
   const activeItem = category === "전체" ? "전체차량"
     : category === "트럭 · 특장" || category === "건설기계" || category === "자재운반장비" ? "화물 · 특장 · 중기"
       : category === "캠핑카" ? "캠핑카"
-        : category === "부품 · 용품" ? "부품-용품"
+        : category === "부품 · 용품" ? "부품 · 용품"
           : category === "바이크" || category === "중고차" ? category : "더보기";
 
   useEffect(() => {
