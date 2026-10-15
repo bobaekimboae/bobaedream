@@ -1,11 +1,10 @@
 .sag-directory-tabs {
   display: grid;
   height: 48px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr) repeat(3, 50px);
   align-items: stretch;
-  gap: 0;
+  gap: 12px;
   padding: 0 16px;
-  border-top: 1px solid #ededed;
   border-bottom: 1px solid #ededed;
   background: #fff;
 }
@@ -13,9 +12,9 @@
 .sag-directory-tabs button {
   display: flex;
   position: relative;
-  min-width: 0;
+  min-width: max-content;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 0;
   border: 0;
   background: transparent;
@@ -28,22 +27,16 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.sag-location-row {
-  display: flex;
-  height: 42px;
-  align-items: center;
-  gap: 7px;
-  padding: 0 16px;
-  border-bottom: 1px solid #ededed;
-  background: #fff;
+.sag-directory-tabs button:not(.is-location) { justify-content: center; }
+.sag-directory-tabs button.is-location {
+  min-width: 0;
+  gap: 6px;
   color: #555;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  line-height: 20px;
 }
-
-.sag-location-row img { width: 18px; height: 18px; flex: none; opacity: .82; }
-.sag-location-row span { overflow: hidden; min-width: 0; text-overflow: ellipsis; white-space: nowrap; }
+.sag-directory-tabs button.is-location img { width: 18px; height: 18px; flex: none; opacity: .82; }
+.sag-directory-tabs button.is-location span { overflow: hidden; min-width: 0; text-overflow: ellipsis; white-space: nowrap; }
 
 .sag-directory-tabs button::after {
   position: absolute;
