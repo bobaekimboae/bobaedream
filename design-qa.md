@@ -27,6 +27,25 @@ final result: passed
 
 ---
 
+# PC 메뉴 가운데점·활성 상태 QA · 2026-10-16
+
+- implementation: `http://127.0.0.1:4311/?qf=guazi&pc=1&v=nav-rhythm`
+- viewport: 1440 × 900, 1024 × 768 CSS px, DPR 1
+- state: 전체차량 활성 및 `화물 · 특장 · 중기` 선택 상태
+
+## Findings
+
+- P0/P1/P2 없음.
+- 메뉴 사이 장식 가운데점은 0개이며, 복합 메뉴명 안에만 `화물 · 특장 · 중기` 형태로 사용한다.
+- 활성 메뉴는 `#222`, 700 굵기, 2px 검정 밑줄로 표시된다.
+- 1440px과 1024px 모두 메뉴가 한 줄에 유지되고 가로 오버플로는 0px이다.
+- 복합 메뉴 선택 후 `aria-current="page"`와 검정 활성 스타일이 정상 적용된다.
+- 콘솔 오류 0건이며 기존 아이콘과 메뉴 동작을 유지한다.
+
+final result: passed
+
+---
+
 # PC 커뮤니티 메뉴 원본 SVG 아이콘 QA · 2026-10-15
 
 - source visual truth: `C:/Users/bobae/Downloads/inline_97f2156b.svg` (24 × 24 viewBox, 사용자 첨부 원본)

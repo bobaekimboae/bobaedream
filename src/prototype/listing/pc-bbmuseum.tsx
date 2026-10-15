@@ -31,7 +31,7 @@ const bbGnbItems: readonly BbGnbItem[] = [
   { label: "홈", action: "home" },
   { label: "전체차량", category: "전체" },
   { label: "중고차", category: "중고차", icon: "used-car.svg" },
-  { label: "화물-특장-중기", category: "트럭 · 특장", icon: "truck.svg" },
+  { label: "화물 · 특장 · 중기", category: "트럭 · 특장", icon: "truck.svg" },
   { label: "바이크", category: "바이크" },
   { label: "캠핑카", category: "캠핑카", icon: "camper.svg" },
   { label: "부품-용품", category: "부품 · 용품", icon: "parts.svg" },
@@ -52,7 +52,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
   const [moreOpen, setMoreOpen] = useState(false);
   const moreRef = useRef<HTMLDivElement>(null);
   const activeItem = category === "전체" ? "전체차량"
-    : category === "트럭 · 특장" || category === "건설기계" || category === "자재운반장비" ? "화물-특장-중기"
+    : category === "트럭 · 특장" || category === "건설기계" || category === "자재운반장비" ? "화물 · 특장 · 중기"
       : category === "캠핑카" ? "캠핑카"
         : category === "부품 · 용품" ? "부품-용품"
           : category === "바이크" || category === "중고차" ? category : "더보기";
@@ -100,13 +100,9 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
         </div>
         <div className="bbm-gnb-row">
           <nav className="bbm-gnb" aria-label="주 메뉴">
-            {bbGnbItems.map((item, index) => {
-              const previousItem = bbGnbItems[index - 1];
-              const isCatalogDivider = Boolean(item.category && previousItem?.category);
-              const isSectionStart = index > 0 && !isCatalogDivider;
-              const itemClassName = `${item.label === activeItem ? "is-active" : ""}${item.action === "home" ? " is-home" : ""}${isSectionStart ? " is-section-start" : ""}`;
+            {bbGnbItems.map((item) => {
+              const itemClassName = `${item.label === activeItem ? "is-active" : ""}${item.action === "home" ? " is-home" : ""}`;
               return <Fragment key={item.label}>
-              {isCatalogDivider ? <span className="bbm-gnb-dot" aria-hidden="true">·</span> : null}
               {item.action === "more" ? <div className="bbm-gnb-more-wrap" ref={moreRef}>
                 <button type="button" className={`bbm-gnb-more ${itemClassName}`.trim()} aria-current={item.label === activeItem ? "page" : undefined} aria-haspopup="menu" aria-expanded={moreOpen} onClick={() => chooseMenu(item)}>
                   {item.icon ? <BbNavIcon src={item.icon} /> : null}<span>{item.label}</span><BbIcon name="chevron-down" size={18} />
