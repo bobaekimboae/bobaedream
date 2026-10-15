@@ -20,6 +20,17 @@ await page.locator('.redditFeedCard').first().waitFor({state:'visible'});
 check(await page.locator('.redditFeedCard').count()===5,'상세 시나리오 게시물 5개가 아니다');
 check(await page.locator('.redditFeedActions').count()===5,'게시물별 반응 영역이 없다');
 check(await page.locator('.redditFeedMedia').count()===4,'두 번째 이후 게시물 이미지 4개가 아니다');
+await page.waitForFunction(()=>[...document.querySelectorAll('.redditFeedAvatar')].every((image)=>image.complete));
+const avatars=await page.locator('.redditFeedAvatar').evaluateAll((images)=>({
+  total:images.length,
+  broken:images.filter((image)=>image.naturalWidth===0).length,
+  external:images.filter((image)=>!image.src.includes('/community/assets/profile-avatars/')).length,
+  unique:new Set(images.map((image)=>image.src)).size,
+}));
+check(avatars.total===5,`피드 프사 수 불일치: ${avatars.total}`);
+check(avatars.broken===0,`피드 깨진 프사: ${avatars.broken}`);
+check(avatars.external===0,`피드 외부 프사: ${avatars.external}`);
+check(avatars.unique===5,`피드 프사가 작성자별로 다르지 않음: ${avatars.unique}/5`);
 
 const first=page.locator('.redditFeedCard').first();
 const up=first.getByRole('button',{name:'추천',exact:true});
@@ -53,6 +64,7 @@ if(failures.length){
 }
 
 console.log('PASS: Reddit-style feed cards 5');
+console.log('PASS: all feed profile avatars are local assets');
 console.log('PASS: exclusive vote states and recommendation toast');
 console.log(`PASS: type scale ${metrics.title}/${metrics.preview}`);
 console.log(`PASS: mobile width ${metrics.scrollWidth}/${metrics.viewport}`);
