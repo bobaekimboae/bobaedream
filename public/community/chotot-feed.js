@@ -240,6 +240,20 @@
     window.setTimeout(function(){element.classList.remove('show')},1000);
   }
 
+  function setDealerBoardName(enabled){
+    var name=document.querySelector('.boardSelectName');
+    if(!name)return;
+    if(enabled){
+      if(!phone.dataset.chototBoardName)phone.dataset.chototBoardName=name.textContent.trim()||'자유게시판';
+      name.textContent='중고차딜러';
+      return;
+    }
+    if(phone.dataset.chototBoardName){
+      name.textContent=phone.dataset.chototBoardName;
+      delete phone.dataset.chototBoardName;
+    }
+  }
+
   function bindCard(card){
     var more=card.querySelector('.chototFeedMoreText');
     var wrap=card.querySelector('.chototFeedBodyWrap');
@@ -327,6 +341,7 @@
 
   function renderChototFeed(){
     var data=postData();
+    setDealerBoardName(false);
     phone.classList.remove('compactMode','feedCafeMode','redditFeedMode','chototDealerFeedMode');
     phone.classList.add('chototFeedMode','chototBoardFeedMode');
     typeLabel.textContent='초톳 피드형 · 게시판형';
@@ -337,6 +352,7 @@
 
   function renderChototDealerFeed(){
     var data=postData();
+    setDealerBoardName(true);
     phone.classList.remove('compactMode','feedCafeMode','redditFeedMode','chototBoardFeedMode');
     phone.classList.add('chototFeedMode','chototDealerFeedMode');
     typeLabel.textContent='초톳 피드형 · 딜러형';

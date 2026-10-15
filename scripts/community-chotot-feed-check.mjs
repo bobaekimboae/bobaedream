@@ -155,6 +155,9 @@ async function checkViewSelector(){
   await page.locator('.chototDealerFeedCard').first().waitFor({state:'visible'});
   const dealerLabel=(await page.locator('#typeLabel').textContent())?.trim();
   if(dealerLabel!=='초톳 피드형 · 딜러형')throw new Error(`selector: unexpected dealer label ${dealerLabel}`);
+  if((await page.locator('.boardSelectName').textContent())?.trim()!=='중고차딜러')throw new Error('selector: dealer board name is missing');
+  await page.locator('[data-mode="feed-chotot"]').click();
+  if((await page.locator('.boardSelectName').textContent())?.trim()!=='자유게시판')throw new Error('selector: original board name was not restored');
   report.cases.push({name:'view-selector',viewport:{width:390,height:844},label,result:'passed'});
   await page.close();
 }
@@ -173,6 +176,8 @@ async function checkDealerCase(name,viewport){
 
   const label=(await page.locator('#typeLabel').textContent())?.trim();
   if(label!=='초톳 피드형 · 딜러형')throw new Error(`${name}: unexpected label ${label}`);
+  const boardName=(await page.locator('.boardSelectName').textContent())?.trim();
+  if(boardName!=='중고차딜러')throw new Error(`${name}: unexpected dealer board name ${boardName}`);
   if(!await page.locator('.phone.chototDealerFeedMode').count())throw new Error(`${name}: dealer mode class is missing`);
   const cards=page.locator('.chototDealerFeedCard');
   if(await cards.count()!==10)throw new Error(`${name}: expected 10 dealer cards`);
