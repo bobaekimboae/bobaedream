@@ -24,6 +24,7 @@ body {
 button, input { font: inherit; }
 button { border: 0; padding: 0; color: inherit; background: none; cursor: pointer; }
 img { display: block; }
+.srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; margin: -1px; padding: 0; border: 0; clip: rect(0 0 0 0); white-space: nowrap; }
 
 .pageShell {
   width: 100%;
@@ -48,8 +49,8 @@ img { display: block; }
   backdrop-filter: blur(12px);
 }
 .brand { font-size: 25px; font-weight: 800; text-align: center; letter-spacing: -.04em; }
-.iconButton { display: grid; width: 52px; height: 52px; place-items: center; }
-.iconButton img { width: 25px; height: 25px; }
+.iconButton { display: grid; width: 52px; height: 52px; border-radius: 50%; place-items: center; }
+.iconButton img { width: 24px; height: 24px; }
 .closeButton { margin-left: 4px; }
 .headerActions { display: flex; justify-content: flex-end; padding-right: 4px; }
 .bookmarkButton[aria-pressed="true"] { border-radius: 50%; background: var(--brand-soft); }
@@ -98,20 +99,19 @@ img { display: block; }
 .userInquiryBody p { margin: 0; font-size: 18px; line-height: 1.75; font-weight: 400; letter-spacing: -.03em; white-space: normal; }
 .tagRow { display: flex; gap: 10px; margin-top: 24px; }
 .tagRow button { min-height: 42px; padding: 0 14px; border-radius: 10px; background: #f4f4f4; font-size: 17px; }
-.reactionRow { display: flex; min-height: 90px; align-items: center; justify-content: flex-start; gap: 10px; }
-.votePill, .roundAction { height: 42px; border: 1px solid #cfcfcf; border-radius: 22px; background: #ffffff; }
-.votePill { display: flex; align-items: center; overflow: hidden; }
-.voteButton { display: flex; height: 40px; align-items: center; gap: 2px; padding: 0 9px; font-size: 14px; font-weight: 750; }
-.voteButton img { width: 23px; height: 23px; }
+.reactionRow { display: flex; min-height: 82px; align-items: center; justify-content: flex-start; gap: 8px; }
+.votePill, .roundAction { height: 44px; background: #ffffff; }
+.votePill { display: flex; align-items: center; }
+.voteButton { display: grid; width: 44px; height: 44px; flex: 0 0 44px; border-radius: 50%; place-items: center; }
+.voteButton img { width: 26px; height: 26px; }
 .voteButton.active { color: var(--brand-dark); background: var(--brand-soft); }
 .voteButton.active img { filter: invert(28%) sepia(95%) saturate(2858%) hue-rotate(335deg) brightness(102%) contrast(102%); }
 .voteButton.down.active { color: var(--ink); background: var(--soft); }
 .voteButton.down.active img { filter: brightness(0) saturate(100%); }
-.votePill strong { min-width: 24px; font-size: 15px; text-align: center; font-variant-numeric: tabular-nums; }
-.roundAction { display: flex; min-width: 42px; align-items: center; justify-content: center; gap: 4px; padding: 0 11px; color: var(--brand-dark); font-size: 14px; font-weight: 700; }
-.roundAction img { width: 20px; height: 20px; }
-.roundAction:first-of-type img { filter: invert(28%) sepia(95%) saturate(2858%) hue-rotate(335deg) brightness(102%) contrast(102%); }
-.reactionRow > .roundAction:last-child { margin-left: auto; }
+.votePill strong { min-width: 34px; font-size: 17px; font-weight: 550; text-align: center; font-variant-numeric: tabular-nums; }
+.roundAction { display: flex; min-width: 44px; align-items: center; justify-content: center; gap: 6px; padding: 0 8px; border-radius: 50%; color: var(--ink); font-size: 16px; font-weight: 550; }
+.roundAction img { width: 26px; height: 26px; }
+.reactionRow > .roundAction:last-child { margin-left: 0; }
 
 .noticePost { padding: 34px 24px 0; }
 .noticeCopy { display: grid; min-height: 380px; align-content: space-between; font-size: 20px; line-height: 1.75; letter-spacing: -.04em; }
@@ -135,7 +135,7 @@ img { display: block; }
 .commentTitle { display: flex; align-items: center; gap: 8px; }
 .commentTitle strong { font-size: 22px; }
 .commentTitle button, .filterButton { display: grid; width: 40px; height: 40px; border-radius: 50%; background: #f0f0f2; place-items: center; }
-.commentTitle img, .filterButton img { width: 24px; height: 24px; }
+.commentTitle img, .filterButton img { width: 22px; height: 22px; }
 .cleanBot { display: flex; min-height: 56px; align-items: center; padding: 0 12px; border-radius: 12px; background: #f3f4f5; font-size: 16px; }
 .botIcon { display: grid; width: 32px; height: 32px; margin-right: 8px; border-radius: 50%; background: var(--brand); place-items: center; }
 .botIcon img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
@@ -151,14 +151,16 @@ img { display: block; }
 .commentAuthor strong { font-size: 16px; }
 .commentAuthor span, .replyAuthor span { color: #999999; font-size: 13px; }
 .commentAuthor button { display: grid; width: 34px; height: 34px; margin-left: auto; place-items: center; }
-.commentAuthor button img { width: 18px; height: 18px; }
+.commentAuthor button img { width: 21px; height: 21px; }
 .commentContent > p { margin: 7px 0 12px; font-size: 17px; }
 .commentTools, .nestedTools { display: flex; min-height: 42px; align-items: center; gap: 12px; color: var(--sub); font-size: 14px; }
 .commentTools > strong { color: var(--sub); }
-.miniVotes { display: flex; align-items: center; margin-left: auto; }
-.miniVotes button { display: flex; min-width: 56px; height: 38px; align-items: center; justify-content: center; gap: 2px; padding: 0 8px; border: 1px solid #cfcfcf; border-radius: 20px; background: #fff; font-size: 13px; font-weight: 750; }
+.miniVotes { display: flex; align-items: center; gap: 2px; margin-left: auto; }
+.miniVotes button { display: grid; width: 36px; min-width: 36px; height: 36px; padding: 0; border-radius: 50%; background: #fff; place-items: center; }
+.miniVotes button.active { background: var(--brand-soft); }
+.miniVotes button.active img { filter: invert(28%) sepia(95%) saturate(2858%) hue-rotate(335deg) brightness(102%) contrast(102%); }
 .miniVotes button img { width: 21px; height: 21px; }
-.miniVotes b { min-width: 28px; text-align: center; }
+.miniVotes b { min-width: 22px; font-size: 14px; font-weight: 550; text-align: center; }
 .nestedReply { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 10px; margin-top: 18px; padding-top: 2px; }
 .replyAvatar { width: 38px; height: 38px; }
 .replyAuthor strong { font-size: 15px; }
@@ -171,8 +173,8 @@ img { display: block; }
 .toTop span { display: grid; width: 42px; height: 42px; border-radius: 50%; background: #e4e4e6; place-items: center; }
 .toTop img { width: 22px; height: 22px; }
 .composer { position: fixed; z-index: 60; bottom: 0; left: 50%; display: grid; width: min(var(--shell-max), 100%); height: 74px; transform: translateX(-50%); grid-template-columns: 48px 1fr 42px 42px 50px; align-items: center; padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: rgba(255, 255, 255, .97); }
-.composer > button { display: grid; width: 42px; height: 42px; place-items: center; }
-.composer > button img { width: 27px; height: 27px; }
+.composer > button { display: grid; width: 42px; height: 42px; border-radius: 50%; place-items: center; }
+.composer > button img { width: 24px; height: 24px; }
 .composer input { min-width: 0; height: 46px; padding: 0 16px; border: 0; border-radius: 24px; outline: 0; background: #ededf0; font-size: 15px; }
 .composer input:focus { box-shadow: inset 0 0 0 1px var(--ink); }
 .sendButton { opacity: .42; }
@@ -204,7 +206,7 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
   .topBar { height: 48px; grid-template-columns: 48px 1fr 88px; }
   .brand { font-size: 18px; letter-spacing: -.03em; }
   .iconButton { width: 44px; height: 48px; }
-  .iconButton img { width: 20px; height: 20px; }
+  .iconButton img { width: 24px; height: 24px; }
   .closeButton { margin-left: 0; }
   .headerActions { padding-right: 0; }
   .eventBar { min-height: 56px; gap: 8px; padding: 8px 15px; }
@@ -238,9 +240,13 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
   .userInquiryBody p { font-size: 15px; line-height: 1.65; }
   .tagRow { gap: 8px; margin-top: 16px; }
   .tagRow button { min-height: 32px; padding: 0 10px; border-radius: 7px; font-size: 13px; }
-  .reactionRow { min-height: 70px; gap: 8px; }
+  .reactionRow { min-height: 66px; gap: 6px; }
   .votePill, .roundAction { height: 40px; }
-  .voteButton { height: 38px; padding: 0 8px; }
+  .voteButton { width: 40px; height: 40px; flex-basis: 40px; }
+  .voteButton img { width: 24px; height: 24px; }
+  .votePill strong { min-width: 30px; font-size: 15px; }
+  .roundAction { min-width: 40px; gap: 5px; padding: 0 6px; font-size: 14px; }
+  .roundAction img { width: 24px; height: 24px; }
   .promoBanner img { height: 86px; min-height: 0; object-fit: cover; }
   .latestCard { margin: 15px; padding: 18px; border-radius: 14px; }
   .latestHead { margin-bottom: 8px; font-size: 15px; }
@@ -251,7 +257,7 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
   .commentTitle { gap: 5px; }
   .commentTitle strong { font-size: 15px; }
   .commentTitle button, .filterButton { width: 32px; height: 32px; }
-  .commentTitle img, .filterButton img { width: 20px; height: 20px; }
+  .commentTitle img, .filterButton img { width: 19px; height: 19px; }
   .cleanBot { min-height: 40px; padding: 0 10px; border-radius: 9px; font-size: 13px; }
   .botIcon { width: 24px; height: 24px; margin-right: 7px; }
   .botIcon img { width: 16px; height: 16px; }
@@ -265,12 +271,13 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
   .commentAuthor strong { font-size: 13px; }
   .commentAuthor span, .replyAuthor span { font-size: 12px; }
   .commentAuthor button { width: 30px; height: 30px; }
-  .commentAuthor button img { width: 18px; height: 18px; }
+  .commentAuthor button img { width: 20px; height: 20px; }
   .commentContent > p { margin: 7px 0 8px; font-size: 15px; }
   .commentTools, .nestedTools { min-height: 34px; gap: 10px; font-size: 12px; }
-  .miniVotes button { min-width: 46px; height: 32px; padding: 0 6px; font-size: 11px; }
-  .miniVotes button img { width: 18px; height: 18px; }
-  .miniVotes b { min-width: 24px; }
+  .miniVotes { gap: 0; }
+  .miniVotes button { width: 32px; min-width: 32px; height: 32px; }
+  .miniVotes button img { width: 20px; height: 20px; }
+  .miniVotes b { min-width: 20px; font-size: 12px; }
   .nestedReply { grid-template-columns: 30px minmax(0, 1fr); gap: 10px; margin-top: 16px; }
   .replyAvatar { width: 30px; height: 30px; }
   .replyAuthor strong { font-size: 13px; }
@@ -281,7 +288,7 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
   .toTop img { width: 20px; height: 20px; }
   .composer { height: 60px; grid-template-columns: 44px 1fr 36px 36px 44px; padding: 6px 8px calc(6px + env(safe-area-inset-bottom)); }
   .composer > button { width: 36px; height: 36px; }
-  .composer > button img { width: 24px; height: 24px; }
+  .composer > button img { width: 23px; height: 23px; }
   .composer input { height: 42px; padding: 0 14px; font-size: 14px; }
   .composer.isDisabled { grid-template-columns: 44px 1fr 36px 36px 44px; }
   .toast { bottom: 72px; }

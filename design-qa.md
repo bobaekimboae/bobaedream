@@ -43,6 +43,45 @@ final result: passed
 
 ---
 
+# 치지직 상세 · 당근형 엄지 반응 아이콘 v8 QA · 2026-10-15
+
+- source visual truth: 사용자 제공 `1-1000018342.jpg` (591 × 1280px, 당근형 모바일 게시물)
+- implementation screenshot: Chrome 브라우저 캡처 `http://172.30.1.200:45174/community/chzzk-detail.html?id=8325190`
+- viewport: 모바일 394 × 852 CSS px, DPR 1 / PC 1440 × 1000 CSS px
+- density normalization: 원본은 591px 폭 모바일 캡처이며, 전체 페이지 복제가 아닌 반응 아이콘 행의 형태·무게·간격을 394px 구현 화면과 집중 비교했다.
+- state: 기본, 추천 선택, 비추천 전환, 댓글 추천 선택
+
+## Full-view comparison evidence
+
+- 치지직의 제목·본문·댓글 정보 구조는 유지하면서 참고 화면의 테두리 없는 평면 반응 아이콘 행을 적용했다.
+- 모바일에서 추천·점수·비추천·댓글 수·공유가 하나의 기준선에 놓이고, PC에서는 1060px 셸 안에서 동일한 아이콘 비율을 유지한다.
+- 상단 북마크·더보기와 하단 입력 아이콘도 24px 계열로 통일해 화면 전체의 아이콘 밀도를 맞췄다.
+
+## Focused region comparison evidence
+
+- 참고 화면의 추천 24px, 댓글 24px, 공유 24px 시각 무게에 맞춰 구현의 게시글 반응 아이콘 네 종을 모두 24 × 24px로 측정했다.
+- 댓글 단위 추천·비추천은 20 × 20px, 32px 원형 터치 영역으로 축소해 본문 반응보다 한 단계 낮은 위계를 만들었다.
+- 텍스트 `버프`·`너프`는 시각적으로 제거하고 접근성 이름만 `추천`·`비추천`으로 유지했다.
+
+## Comparison history
+
+- P2 before: 기존 반응은 테두리 캡슐 안의 `버프`·`너프` 텍스트와 서로 다른 크기의 댓글·공유 아이콘 때문에 참고 화면보다 복잡하고 무게가 불균형했다.
+- fix: 저장소의 동일 계열 Chợ Tốt 24px 엄지·댓글·공유·북마크·더보기 자산으로 교체하고, 테두리를 제거해 40px 모바일 터치 영역에 정렬했다.
+- post-fix: 모바일 캡처에서 네 아이콘이 같은 기준선과 24px 박스를 사용하며, 댓글 영역의 20px 엄지 쌍도 균형 있게 정렬됐다.
+- P3 accepted: 치지직 정보 구조와 기존 Airbnb `#FF385C` 선택 상태는 제품 맥락에 따른 의도적 차이다.
+
+## Verification
+
+- 모바일: 가로 넘침 없음, 깨진 이미지 0건, 콘솔 warning/error 0건.
+- PC: 1060px 중앙 셸, 가로 넘침 없음, 깨진 이미지 0건.
+- 상호작용: 추천 -4→-3, 비추천 전환 -3→-5, 답글 `@익씽 ` 입력 통과.
+- `npm run verify`: 관리자 29건, Sites 4건, 타입 검사·프로덕션 빌드 전체 통과.
+- P0/P1/P2 findings: none.
+
+final result: passed
+
+---
+
 # Design QA · 유튜브 모바일 헤더·프로필 크기 보정 (2026-10-15)
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/dbff4f9b-8c08-43b9-bccf-46b545374c2e/1-1000018338.jpg`

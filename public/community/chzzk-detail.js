@@ -128,9 +128,9 @@ function setRegularContent() {
       <li class="commentItem">
         <img class="commentAvatar" src="assets/chzzk-detail/comment-anonymous-avatar.png" alt="익씽 프로필">
         <div class="commentContent">
-          <div class="commentAuthor"><strong>익씽 · LV 12</strong><span>8시간 전</span><button aria-label="댓글 더보기"><img src="assets/chzzk-detail/icons/more.svg" alt=""></button></div>
+          <div class="commentAuthor"><strong>익씽 · LV 12</strong><span>8시간 전</span><button aria-label="댓글 더보기"><img src="../icons/chotot/chotot-common-more.svg" alt=""></button></div>
           <p>고객센터나 벤당한 스트리머 한테 애기하는거지 여기 애기하는게 아닙니다.</p>
-          <div class="commentTools"><button class="replyButton">답글쓰기</button><div class="miniVotes"><button aria-label="댓글 버프"><span>버프</span><img src="assets/chzzk-detail/icons/buff.svg" alt=""></button><button aria-label="댓글 너프"><span>너프</span><img src="assets/chzzk-detail/icons/nerf.svg" alt=""></button></div></div>
+          <div class="commentTools"><button class="replyButton">답글쓰기</button><div class="miniVotes"><button aria-label="댓글 추천"><span class="srOnly">추천</span><img src="../icons/chotot/chotot-common-like.svg" alt=""></button><button aria-label="댓글 비추천"><span class="srOnly">비추천</span><img src="../icons/chotot/chotot-common-dislike.svg" alt=""></button></div></div>
         </div>
       </li>`;
     $('#commentList .replyButton').addEventListener('click', () => {
@@ -140,7 +140,7 @@ function setRegularContent() {
     });
     document.querySelectorAll('#commentList .miniVotes button').forEach((button) => button.addEventListener('click', () => {
       button.classList.toggle('active');
-      showToast(button.getAttribute('aria-label').includes('너프') ? '댓글을 너프했습니다' : '댓글을 버프했습니다');
+      showToast(button.getAttribute('aria-label').includes('비추천') ? '댓글을 비추천했습니다' : '댓글을 추천했습니다');
     }));
   } else if (!isReferencePost) {
     const copy = (post.body && post.body.length ? post.body : ['좋은 정보 함께 나눠요.']).slice(0, 2).join('\n');
@@ -207,8 +207,8 @@ $('#eventBar').addEventListener('click', () => {
   $('#eventText').textContent = eventMessages[eventIndex];
   showToast('다음 이벤트 안내입니다');
 });
-$('#upBtn').addEventListener('click', () => { up = !up; if (up) down = false; updateVote(); showToast(up ? '버프를 추천했습니다' : '버프를 취소했습니다'); });
-$('#downBtn').addEventListener('click', () => { down = !down; if (down) up = false; updateVote(); showToast(down ? '너프를 선택했습니다' : '너프를 취소했습니다'); });
+$('#upBtn').addEventListener('click', () => { up = !up; if (up) down = false; updateVote(); showToast(up ? '추천했습니다' : '추천을 취소했습니다'); });
+$('#downBtn').addEventListener('click', () => { down = !down; if (down) up = false; updateVote(); showToast(down ? '비추천했습니다' : '비추천을 취소했습니다'); });
 $('#commentJump').addEventListener('click', () => { $('#comments').scrollIntoView({ behavior: 'smooth' }); setTimeout(() => $('#commentInput').focus(), 350); });
 $('#shareBtn').addEventListener('click', async () => {
   if (navigator.share) {
@@ -222,7 +222,7 @@ $('#refreshBtn').addEventListener('click', () => showToast('댓글을 새로고�
 $('#filterBtn').addEventListener('click', () => showToast('댓글 정렬: 등록순'));
 $('#gearBtn').addEventListener('click', () => showToast('클린봇이 켜져 있습니다'));
 document.querySelectorAll('.replyButton, .nestedTools > button').forEach((button) => button.addEventListener('click', () => { $('#commentInput').value = '@쿠로토라 '; $('#commentInput').dispatchEvent(new Event('input')); $('#commentInput').focus(); }));
-document.querySelectorAll('.miniVotes button').forEach((button) => button.addEventListener('click', () => { button.classList.toggle('active'); showToast(button.getAttribute('aria-label').includes('너프') ? '댓글을 너프했습니다' : '댓글을 버프했습니다'); }));
+document.querySelectorAll('.miniVotes button').forEach((button) => button.addEventListener('click', () => { button.classList.toggle('active'); showToast(button.getAttribute('aria-label').includes('비추천') ? '댓글을 비추천했습니다' : '댓글을 추천했습니다'); }));
 $('#toTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
 const commentInput = $('#commentInput');
