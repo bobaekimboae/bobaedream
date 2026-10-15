@@ -300,6 +300,11 @@ const feedPhotosFor = (cars: Car[], index: number): string[] | undefined => {
 };
 const initialBbmMobileView = (): BbmMobileView => bbmViewParam[new URLSearchParams(window.location.search).get("view") ?? ""] ?? "목록으로 보기";
 
+const initialSeoulAutoGallerySection = (): SeoulAutoGallerySection => {
+  const value = new URLSearchParams(window.location.search).get("sag");
+  return value === "companies" || value === "dealers" || value === "about" ? value : "vehicles";
+};
+
 const initialAutohomeMakerSheetPreview = () => {
   const params = new URLSearchParams(window.location.search);
   return params.get("brandlogo") === "autohome" && params.get("preview") === "maker-sheet";
@@ -790,7 +795,7 @@ function MarketplaceScreen() {
   const [draftRegion, setDraftRegion] = useState<RegionSelection>(emptyRegion);
   const [searchSaved, setSearchSaved] = useState(false);
   const [searchToast, setSearchToast] = useState("");
-  const [seoulAutoGallerySection, setSeoulAutoGallerySection] = useState<SeoulAutoGallerySection>("vehicles");
+  const [seoulAutoGallerySection, setSeoulAutoGallerySection] = useState<SeoulAutoGallerySection>(initialSeoulAutoGallerySection);
   const [categoryLandingOpen, setCategoryLandingOpen] = useState(() => !initialFilters.maker && initialFilters.category === "전체");
   const [quickFilterStyle, setQuickFilterStyle] = useState<QuickFilterStyle>(() => getInitialQuickFilterStyle());
   // QF-120: 과쯔일 때만 Pretendard Variable(첫 그림 전에 붙이도록 layout effect)
@@ -1416,6 +1421,15 @@ function MarketplaceScreen() {
     setSelectedFerrariDealer(null);
     setCategoryLandingOpen(category === "전체");
     replaceFilterParams(null, null);
+  };
+
+  const chooseSeoulAutoGallerySection = (next: SeoulAutoGallerySection) => {
+    setSeoulAutoGallerySection(next);
+    if (next !== "vehicles" && maker) clearMakerFilter();
+    const url = new URL(window.location.href);
+    if (next === "vehicles") url.searchParams.delete("sag");
+    else url.searchParams.set("sag", next);
+    window.history.replaceState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`);
   };
 
   const clearModelFilter = () => {
@@ -2859,7 +2873,7 @@ function MarketplaceScreen() {
               <div className="lux-hero-sheet"><div className="bbm-m-quick-slot">{quickRail}</div></div>
             </> : bbmMobileHeader}
             {luxuryHead ? null : categoryComplexHeader}
-            {luxuryHead ? null : isSeoulAutoGalleryLanding ? <SeoulAutoGalleryTabs value={seoulAutoGallerySection} onChange={(next) => { setSeoulAutoGallerySection(next); if (next !== "vehicles" && maker) clearMakerFilter(); }} /> : <section className="region-bar is-bbm" aria-label="지역 선택">
+            {luxuryHead ? null : isSeoulAutoGalleryLanding ? <SeoulAutoGalleryTabs value={seoulAutoGallerySection} onChange={chooseSeoulAutoGallerySection} /> : <section className="region-bar is-bbm" aria-label="지역 선택">
               <button type="button" aria-label={`현재 지역 ${isGuaziQuickStyle ? stableRegionLabel(bbmValue) : regionLabel}, 지역 선택 열기`} onClick={isGuaziQuickStyle ? () => setStableRegionOpen(true) : openRegionSheet}><span className="region-text">{isGuaziQuickStyle ? <img className="region-location-icon" src={bbmIcon("header-location-chotot-v01")} alt="" aria-hidden="true" /> : <span className="region-label">지역:</span>}<strong>{isGuaziQuickStyle ? stableRegionLabel(bbmValue) : regionLabel}</strong></span><span className="region-chevron-icon" aria-hidden="true"><img src={bbmIcon("triangle-down-chotot")} alt="" /></span></button>
               <button type="button" className="reset-button" onClick={() => resetFilters()}>초기화</button>
             </section>}
@@ -2873,7 +2887,7 @@ function MarketplaceScreen() {
             {luxuryHead || !showSeoulAutoGalleryVehicles ? null : <div className="bbm-m-quick-slot">{quickRail}</div>}
             {isSeoulAutoGalleryLanding && seoulAutoGallerySection === "companies" ? <SeoulAutoGalleryCompanyDirectory /> : null}
             {isSeoulAutoGalleryLanding && seoulAutoGallerySection === "dealers" ? <div className="sag-tab-panel">{seoulAutoGalleryDealerRail}</div> : null}
-            {isSeoulAutoGalleryLanding && seoulAutoGallerySection === "about" ? <SeoulAutoGalleryAbout onBrowse={() => setSeoulAutoGallerySection("vehicles")} /> : null}
+            {isSeoulAutoGalleryLanding && seoulAutoGallerySection === "about" ? <SeoulAutoGalleryAbout onBrowse={() => chooseSeoulAutoGallerySection("vehicles")} /> : null}
             {luxuryUiTestMode ? <><p className="bbm-ui-test-notice">UI 테스트용 가상 매물 · 실제 판매 가격·조건이 아닙니다</p><BbmHeadlinePreviewLinks /></> : null}
             {!isGuaziQuickStyle ? (
               <section className="bbm-m-head" aria-label="목록 머리">
