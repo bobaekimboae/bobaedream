@@ -125,6 +125,9 @@ let toastTimer;
 let up = false;
 let down = false;
 let comments = localSourcePost ? 0 : 2;
+let commentItems = [];
+let replyTarget = null;
+let editTarget = null;
 
 function showToast(message) {
   toast.textContent = message;
@@ -141,33 +144,31 @@ function escapeHtml(value) {
   return String(value ?? '').replace(/[&<>"]/g, (character) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[character]));
 }
 
-function commentActionsHtml(item, label = '댓글') {
+function commentActionsHtml(item, label = '댓글', parentId = '') {
   const itemId = escapeHtml(item.id || label);
   const user = escapeHtml(item.user || '회원');
-  const score = Number(item.like || 0);
   return `<div class="${label === '답글' ? 'nestedTools' : 'commentTools'}" aria-label="${label} 작업">
-    <button class="commentIconButton moreCommentButton" aria-label="${label} 더보기"><img src="assets/chzzk-detail/icons/more-reddit.svg" alt=""></button>
-    <button class="commentTextButton replyButton" data-reply-user="${user}"><img src="assets/chzzk-detail/icons/reply-reddit.svg" alt=""><span>답글</span></button>
+    <button class="commentTextButton replyButton" data-reply-user="${user}" data-reply-id="${itemId}" data-parent-id="${escapeHtml(parentId)}"><img src="assets/chzzk-detail/icons/reply-reddit.svg" alt=""><span>답글</span></button>
     <button class="commentTextButton commentShareButton" data-comment-share="${itemId}" aria-label="${label} 공유"><img src="assets/chzzk-detail/icons/share-reddit.svg" alt=""><span>공유</span></button>
-    <div class="miniVotes"><button aria-label="${label} 추천"><img src="assets/chzzk-detail/icons/vote-up.svg?v=20261015v14" alt=""><span>추천</span></button><b>${score}</b><button aria-label="${label} 비추"><img src="assets/chzzk-detail/icons/vote-down.svg?v=20261015v14" alt=""><span>비추</span></button></div>
+    <button class="commentIconButton moreCommentButton" data-comment-id="${itemId}" data-parent-id="${escapeHtml(parentId)}" data-owned="${item.own === true}" aria-label="${label} 더보기"><img src="assets/chzzk-detail/icons/more-reddit.svg" alt=""></button>
   </div>`;
 }
 
-function replyHtml(reply) {
+function replyHtml(reply, parentId) {
   return `<div class="nestedReply" id="${escapeHtml(reply.id)}">
-    <img class="replyAvatar" src="${escapeHtml(reply.avatar)}" alt="${escapeHtml(reply.user)} 프로필">
+    <img class="replyAvatar" src="${escapeHtml(reply.avatar)}" alt="${escapeHtml(reply.user)} 프로필" onerror="this.onerror=null;this.src='assets/chzzk-detail/user-default-avatar.png'">
     <div>
       <div class="replyAuthor"><strong>${escapeHtml(reply.user)} · LV ${escapeHtml(reply.level || 1)}</strong>${reply.writer ? '<span class="authorBadge">작성자</span>' : ''}<span>${escapeHtml(reply.date)}</span></div>
       <p class="replyText">${escapeHtml(reply.text)}</p>
-      ${commentActionsHtml(reply, '답글')}
+      ${commentActionsHtml(reply, '답글', parentId)}
     </div>
   </div>`;
 }
 
 function commentHtml(comment) {
-  const nested = (comment.replies || []).map(replyHtml).join('');
+  const nested = (comment.replies || []).map((reply) => replyHtml(reply, comment.id)).join('');
   return `<li class="commentItem" id="${escapeHtml(comment.id)}">
-    <img class="commentAvatar" src="${escapeHtml(comment.avatar)}" alt="${escapeHtml(comment.user)} 프로필">
+    <img class="commentAvatar" src="${escapeHtml(comment.avatar)}" alt="${escapeHtml(comment.user)} 프로필" onerror="this.onerror=null;this.src='assets/chzzk-detail/user-default-avatar.png'">
     <div class="commentContent">
       <div class="commentAuthor"><strong>${escapeHtml(comment.user)} · LV ${escapeHtml(comment.level || 1)}</strong>${comment.writer ? '<span class="authorBadge">작성자</span>' : ''}<span>${escapeHtml(comment.date)}</span></div>
       <p>${escapeHtml(comment.text)}</p>
@@ -178,12 +179,46 @@ function commentHtml(comment) {
 }
 
 function renderSourceComments(source) {
-  const items = source.comments || [];
-  const total = items.reduce((sum, item) => sum + 1 + (item.replies || []).length, 0);
+  const storageKey = `bbm.community.comments.${id}`;
+  try {
+    commentItems = JSON.parse(localStorage.getItem(storageKey) || 'null') || structuredClone(source.comments || []);
+  } catch {
+    commentItems = structuredClone(source.comments || []);
+  }
+  renderCommentItems();
+}
+
+function persistComments() {
+  try { localStorage.setItem(`bbm.community.comments.${id}`, JSON.stringify(commentItems)); } catch {}
+}
+
+function renderCommentItems() {
+  const total = commentItems.reduce((sum, item) => sum + 1 + (item.replies || []).length, 0);
   comments = total;
-  $('#commentList').innerHTML = items.map(commentHtml).join('');
+  $('#commentList').innerHTML = commentItems.map(commentHtml).join('');
   $('#commentCount').textContent = `댓글 ${total}`;
   $('#actionCommentCount').textContent = total;
+}
+
+function findComment(itemId, parentId = '') {
+  if (parentId) {
+    const parent = commentItems.find((item) => String(item.id) === String(parentId));
+    const item = parent?.replies?.find((reply) => String(reply.id) === String(itemId));
+    return item ? { item, parent } : null;
+  }
+  const item = commentItems.find((comment) => String(comment.id) === String(itemId));
+  return item ? { item, parent:null } : null;
+}
+
+function removeComment(itemId, parentId = '') {
+  if (parentId) {
+    const parent = commentItems.find((item) => String(item.id) === String(parentId));
+    if (parent) parent.replies = (parent.replies || []).filter((reply) => String(reply.id) !== String(itemId));
+  } else {
+    commentItems = commentItems.filter((item) => String(item.id) !== String(itemId));
+  }
+  persistComments();
+  renderCommentItems();
 }
 
 function setRegularContent() {
@@ -260,7 +295,6 @@ function setRegularContent() {
             <button class="commentIconButton moreCommentButton" aria-label="댓글 더보기"><img src="assets/chzzk-detail/icons/more-reddit.svg" alt=""></button>
             <button class="commentTextButton replyButton" data-reply-user="익씽"><img src="assets/chzzk-detail/icons/reply-reddit.svg" alt=""><span>답글</span></button>
             <button class="commentTextButton commentShareButton" data-comment-share="comment-inquiry" aria-label="댓글 공유"><img src="assets/chzzk-detail/icons/share-reddit.svg" alt=""><span>공유</span></button>
-            <div class="miniVotes"><button aria-label="댓글 추천"><img src="assets/chzzk-detail/icons/vote-up.svg" alt=""><span>추천</span></button><button aria-label="댓글 비추"><img src="assets/chzzk-detail/icons/vote-down.svg" alt=""><span>비추</span></button></div>
           </div>
         </div>
       </li>`;
@@ -382,20 +416,20 @@ $('#commentList').addEventListener('click', async (event) => {
   const button = event.target.closest('button');
   if (!button) return;
   if (button.classList.contains('replyButton')) {
-    $('#commentInput').value = `@${button.dataset.replyUser || '쿠로토라'} `;
-    $('#commentInput').dispatchEvent(new Event('input'));
+    replyTarget = {
+      id: button.dataset.replyId || '',
+      parentId: button.dataset.parentId || button.dataset.replyId || '',
+      user: button.dataset.replyUser || '쿠로토라',
+    };
+    editTarget = null;
+    showCommentContext(`${replyTarget.user}에게 답글`);
+    $('#commentInput').placeholder = '답글을 입력하세요.';
     $('#commentInput').focus();
     return;
   }
-  if (button.closest('.miniVotes')) {
-    const group = button.closest('.miniVotes');
-    group.querySelectorAll('button').forEach((item) => { if (item !== button) item.classList.remove('active'); });
-    button.classList.toggle('active');
-    showToast(button.getAttribute('aria-label').includes('비추') ? '댓글을 비추천했습니다' : '댓글을 추천했습니다');
-    return;
-  }
   if (button.classList.contains('moreCommentButton')) {
-    showToast('댓글 메뉴입니다');
+    if (button.dataset.owned !== 'true') { showToast('내가 작성한 댓글만 수정할 수 있습니다'); return; }
+    openCommentMenu(button.dataset.commentId, button.dataset.parentId || '');
     return;
   }
   if (button.classList.contains('commentShareButton')) {
@@ -411,6 +445,81 @@ $('#toTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 
 
 const commentInput = $('#commentInput');
 const submitBtn = $('#submitBtn');
+let contextElement;
+
+function showCommentContext(label) {
+  if (!contextElement) {
+    contextElement = document.createElement('div');
+    contextElement.className = 'commentContext';
+    contextElement.innerHTML = '<strong></strong><button type="button" aria-label="작성 취소"><img src="assets/chzzk-detail/icons/close.svg" alt=""></button>';
+    $('#commentForm').appendChild(contextElement);
+    contextElement.querySelector('button').addEventListener('click', resetCommentComposer);
+  }
+  contextElement.querySelector('strong').textContent = label;
+  contextElement.hidden = false;
+}
+
+function resetCommentComposer() {
+  replyTarget = null;
+  editTarget = null;
+  commentInput.value = '';
+  commentInput.placeholder = '댓글을 입력하세요.';
+  commentInput.dispatchEvent(new Event('input'));
+  if (contextElement) contextElement.hidden = true;
+}
+
+function ensureCommentMenu() {
+  let overlay = $('#commentMenuOverlay');
+  if (overlay) return overlay;
+  overlay = document.createElement('div');
+  overlay.id = 'commentMenuOverlay';
+  overlay.className = 'commentMenuOverlay';
+  overlay.hidden = true;
+  overlay.innerHTML = `<section class="commentMenuSheet" role="dialog" aria-modal="true" aria-label="댓글 관리">
+    <span class="commentMenuHandle" aria-hidden="true"></span>
+    <button type="button" data-comment-menu="edit"><img src="assets/write-parity/draft-edit.svg" alt=""><span>수정하기</span></button>
+    <button class="danger" type="button" data-comment-menu="delete"><img src="assets/write-parity/draft-delete.svg" alt=""><span>삭제하기</span></button>
+    <button type="button" data-comment-menu="cancel"><img src="assets/write-parity/close.svg" alt=""><span>취소</span></button>
+  </section>`;
+  document.body.appendChild(overlay);
+  overlay.addEventListener('click', (event) => {
+    const action = event.target.closest('[data-comment-menu]')?.dataset.commentMenu;
+    if (!action && event.target !== overlay) return;
+    if (action === 'edit') {
+      const found = findComment(overlay.dataset.commentId, overlay.dataset.parentId);
+      if (found) {
+        editTarget = { id:overlay.dataset.commentId, parentId:overlay.dataset.parentId };
+        replyTarget = null;
+        commentInput.value = found.item.text;
+        commentInput.dispatchEvent(new Event('input'));
+        showCommentContext('댓글 수정 중');
+        commentInput.focus();
+      }
+    }
+    if (action === 'delete') {
+      removeComment(overlay.dataset.commentId, overlay.dataset.parentId);
+      showToast('댓글을 삭제했습니다');
+    }
+    closeCommentMenu();
+  });
+  return overlay;
+}
+
+function openCommentMenu(itemId, parentId) {
+  const overlay = ensureCommentMenu();
+  overlay.dataset.commentId = itemId;
+  overlay.dataset.parentId = parentId;
+  overlay.hidden = false;
+  requestAnimationFrame(() => overlay.classList.add('open'));
+}
+
+function closeCommentMenu() {
+  const overlay = $('#commentMenuOverlay');
+  if (!overlay) return;
+  overlay.classList.remove('open');
+  setTimeout(() => { overlay.hidden = true; }, 180);
+}
+
 commentInput.addEventListener('input', () => {
   const ready = commentInput.value.trim().length > 0;
   submitBtn.disabled = !ready;
@@ -420,12 +529,38 @@ $('#commentForm').addEventListener('submit', (event) => {
   event.preventDefault();
   const value = commentInput.value.trim();
   if (!value || isNotice) return;
-  comments += 1;
-  $('#commentCount').textContent = `댓글 ${comments}`;
-  $('#actionCommentCount').textContent = comments;
-  commentInput.value = '';
-  commentInput.dispatchEvent(new Event('input'));
-  showToast('댓글이 등록되었습니다');
+  if (editTarget) {
+    const found = findComment(editTarget.id, editTarget.parentId);
+    if (found) found.item.text = value;
+    persistComments();
+    renderCommentItems();
+    resetCommentComposer();
+    showToast('댓글을 수정했습니다');
+    return;
+  }
+  const wasReply = Boolean(replyTarget);
+  const ownComment = {
+    id:`local-${Date.now()}`,
+    user:'보배드림 회원',
+    level:1,
+    avatar:'assets/chzzk-detail/user-default-avatar.png',
+    text:value,
+    date:'방금 전',
+    own:true,
+    replies:[],
+  };
+  if (replyTarget) {
+    const parentId = replyTarget.parentId || replyTarget.id;
+    const parent = commentItems.find((item) => String(item.id) === String(parentId));
+    if (parent) parent.replies = [...(parent.replies || []), ownComment];
+    else commentItems.push(ownComment);
+  } else {
+    commentItems.push(ownComment);
+  }
+  persistComments();
+  renderCommentItems();
+  resetCommentComposer();
+  showToast(wasReply ? '답글이 등록되었습니다' : '댓글이 등록되었습니다');
 });
 
 setRegularContent();
