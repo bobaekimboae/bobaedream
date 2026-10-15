@@ -16,6 +16,11 @@ for (const width of [360, 384, 412]) {
   page.on('pageerror', (error) => runtimeErrors.push(error.message));
   page.on('console', (message) => { if (message.type() === 'error') runtimeErrors.push(message.text()); });
   await page.goto(baseUrl, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => {
+    const avatar = document.querySelector('.boardAvatar');
+    const searchIcon = document.querySelector('.communitySearch img');
+    return avatar?.complete && avatar.naturalWidth > 0 && searchIcon?.complete && searchIcon.naturalWidth > 0;
+  });
 
   const section = page.locator('#headwordSection');
   const category = page.locator('#category');
