@@ -3279,3 +3279,31 @@ final result: passed
 - Pass 2: 정규화 비교에서 텍스트 계층·메뉴 밀도·선택 밑줄이 일치했고 360/384/412/1280px 테스트에서 잘림과 가로 오버플로가 없었다.
 
 final result: passed
+
+---
+
+# 바이두형 게시판 채널 관리 QA · 2026-10-15
+
+- source visual truth: Google Drive `1VpPkHQBgb15f7_ma6NhtCxr_NIaFKaHL`의 바이두 채널 목록·편집 영상 및 캡처
+- implementation screenshots: `artifacts/community-board-order-1015/mobile-384-channel-normal.png`, `mobile-384-channel-edit.png`, `pc-1280-channel-normal.png`
+- comparison image: `artifacts/community-board-order-1015/baidu-vs-bobae-edit.png`
+- viewport: 모바일 384px CSS 폭 / PC 1280px CSS 폭
+- state: 채널 기본·편집·제거·재추가·순서 변경
+
+## Findings
+
+- P0/P1/P2 없음.
+- 모바일 4열, PC 6열이며 `전체 · 베스트`를 첫 두 칸 고정 항목으로 유지했다.
+- `게시판 · 자료실` 분류와 편집·완료·기본 순서 상태를 구현했다.
+- 기본 상태에서 채널을 누르면 해당 게시판으로 이동하고 패널이 닫힌다.
+- 편집 상태에서 이동 가능한 30개 채널은 제거·재추가·드래그·키보드 순서 변경이 가능하다.
+- 저장값은 v2 구조로 유지되며 기존 v1 순서는 자동 이전된다.
+- 360 / 384 / 412 / 1280px 가로 넘침과 런타임 오류 0건이다.
+
+## Comparison history
+
+- Pass 1: 삭제 배지가 패널 폭 밖으로 밀려 모바일 편집 화면이 수평 이동했다.
+- Fix: 패널 가로 오버플로를 차단하고 배지를 타일 안쪽으로 조정했다.
+- Pass 2: 바이두 편집 화면과 구현의 4열 구조를 비교해 남은 P0/P1/P2가 없음을 확인했다.
+
+final result: passed
