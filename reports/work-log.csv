@@ -346,3 +346,4 @@
 2026-10-15,그림자 카드 위아래 간격 16/16 + 글자 위치 재대조,claude/used-car-detail-1013,,,,레일 98 · 여백 0 16 18 · 대수 9.5px 위로,qf-brand-shadowcard.css,,로고 크기 미변경,verify:qf
 2026-10-15,그림자 카드 위쪽 그림자 잘림 방지,claude/used-car-detail-1013,,,,레일 margin-top -8 · 높이 106 · 안쪽 위 8,qf-brand-shadowcard.css,,간격 16/16 유지,verify:qf
 2026-10-15,그림자 카드 페라리 모델 레일 위 그림자 복원,claude/used-car-detail-1013,,,,레일 위 여백 8 + 트랙 위 8,qf-brand-shadowcard.css,,간격 16/16 유지,verify:qf
+2026-10-15,그림자 카드 바이크 유형 레일 적용,claude/used-car-detail-1013,,,,바이크 유형 13종을 그림자 카드로(이미지 64x36 + 이름 + 대수),qf-brand-shadowcard.css · listing/index.tsx,,기본 화면 변화 없음(파라미터 시안),verify:qf
