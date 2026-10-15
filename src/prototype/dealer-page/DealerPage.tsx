@@ -14,7 +14,7 @@ const dealerIcon = (name: string) => `${publicBase}icons/dealer-profile/${name}.
 const bobaeAsset = (name: string) => asset(`pc-detail/${name}`);
 const dealerPhoto = (dealer: SeoulAutoGalleryDealer) => asset(dealer.profileAsset ?? `dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`);
 
-type SectionId = "home" | "ads" | "valuation" | "social" | "dealers" | "intro";
+type SectionId = "home" | "ads" | "valuation" | "reviews" | "social" | "dealers" | "intro";
 type ListingMode = "active" | "sold";
 type ReviewFilter = "all" | "buyer" | "seller";
 
@@ -165,12 +165,13 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify }: { deal
           <span><small>팔로워</small><b>{MOCK.followers + (following ? 1 : 0)}</b></span>
         </div>
         <div className="dp-profile-bio">
-          <b>{dealer.role ?? "인증딜러"} · {MOCK.company}</b>
+          <b>{MOCK.company} · {dealer.role ?? "인증딜러"}</b>
           <p>{MOCK.intro}</p>
         </div>
         <div className="dp-profile-actions">
           <button type="button" className="is-follow" aria-pressed={following} onClick={() => setFollowing(!following)}>{following ? "팔로잉" : "팔로우"}</button>
-          <button type="button" onClick={() => notify(`${dealer.name} 딜러에게 메시지를 보낼 수 있어요`)}>메시지 보내기</button>
+          <button type="button" onClick={() => notify(`${dealer.name} 딜러와 채팅을 시작할 수 있어요`)}>채팅하기</button>
+          <a href={`tel:${MOCK.phone.replaceAll("-", "")}`} aria-label={`${dealer.name} 딜러에게 전화하기`}>전화하기</a>
         </div>
         <div className="dp-profile-inline is-first"><DealerIcon name="clock" />{MOCK.lastActive}<i /><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>리뷰 {MOCK.reviewCount}</u></div>
         <div className="dp-profile-inline is-mobile-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>리뷰 {MOCK.reviewCount}</u></div>
@@ -243,7 +244,7 @@ function ListingsSection({ cars, mode, setMode, onOpen }: { cars: Car[]; mode: L
 }
 
 function AnchorNav({ active, onChange }: { active: SectionId; onChange: (section: SectionId) => void }) {
-  const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["valuation", "내차시세문의"], ["social", "SNS"], ["dealers", "소속딜러"], ["intro", "소개"]];
+  const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["valuation", "내차시세문의"], ["reviews", "리뷰"], ["social", "SNS"], ["dealers", "소속딜러"], ["intro", "소개"]];
   return <nav className="dp-anchor-nav" aria-label="판매자 페이지 구역" role="tablist">{items.map(([id, label]) => <button key={id} type="button" role="tab" aria-selected={active === id} className={`${active === id ? "is-active" : ""}${id === "valuation" ? " is-valuation" : ""}`} onClick={() => onChange(id)}>{label}</button>)}</nav>;
 }
 
@@ -471,6 +472,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
         {activeSection === "home" ? <HomeSection /> : null}
         {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}
         {activeSection === "valuation" ? <ValuationSection dealer={dealer} notify={notify} /> : null}
+        {activeSection === "reviews" ? <RatingsSection cars={cars} /> : null}
         {activeSection === "social" ? <SocialFeedSection cars={cars} /> : null}
         {activeSection === "dealers" ? <AffiliatedDealersSection currentDealer={dealer} onOpenDealer={openDealer} /> : null}
         {activeSection === "intro" ? <AboutSection dealer={dealer} notify={notify} /> : null}

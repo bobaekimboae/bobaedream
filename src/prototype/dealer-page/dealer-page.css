@@ -60,7 +60,7 @@
 .dp-profile-bio { grid-column: 1 / -1; grid-row: 3; min-width: 0; margin-top: 14px; color: var(--dp-ink); font-size: 13px; line-height: 19px; }
 .dp-profile-bio > b { display: block; font-weight: 700; }
 .dp-profile-bio > p { display: -webkit-box; overflow: hidden; margin-top: 2px; -webkit-box-orient: vertical; -webkit-line-clamp: 2; word-break: keep-all; }
-.dp-profile-actions { display: grid; grid-column: 1 / -1; grid-row: 9; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 16px; }
+.dp-profile-actions { display: grid; grid-column: 1 / -1; grid-row: 9; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 16px; }
 .dp-profile-actions > :is(button, a) { display: flex; min-width: 0; height: 46px; align-items: center; justify-content: center; padding: 0 16px; border: 1px solid #d7d7d7; border-radius: 999px; background: #fff; box-shadow: none; color: var(--dp-ink); font-size: 15px; line-height: 22px; font-weight: 700; white-space: nowrap; }
 .dp-profile-actions > :is(button, a):hover { border-color: #bdbdbd; background: #fafafa; }
 .dp-profile-actions > .is-follow[aria-pressed="true"] { background: #fff; color: var(--dp-ink); }
@@ -140,13 +140,13 @@
 .dp-sold-card h3 { margin-top: 4px; font-size: 14px; line-height: 21px; font-weight: 500; }
 .dp-sold-card time { display: block; margin-top: 5px; color: #999; font-size: 12px; line-height: 18px; }
 
-.dp-anchor-nav { position: sticky; top: 50px; z-index: 20; display: flex; justify-content: center; height: 62px; margin-top: 0; padding: 0 8px; overflow-x: auto; border-top: 10px solid var(--dp-bg); border-bottom: 1px solid var(--dp-line); background: #fff; scrollbar-width: none; }
+.dp-anchor-nav { position: sticky; top: 50px; z-index: 20; display: flex; justify-content: flex-start; height: 62px; margin-top: 0; padding: 0 8px; overflow-x: auto; border-top: 10px solid var(--dp-bg); border-bottom: 1px solid var(--dp-line); background: #fff; scrollbar-width: none; }
 .dp-anchor-nav::-webkit-scrollbar { display: none; }
-.dp-anchor-nav button { position: relative; flex: 1 0 54px; min-width: 0; max-width: 176px; height: 52px; color: #666; font-size: 13px; line-height: 20px; font-weight: 500; white-space: nowrap; }
-.dp-anchor-nav button::after { content: ""; position: absolute; right: 7px; bottom: -1px; left: 7px; height: 2px; background: transparent; }
+.dp-anchor-nav button { position: relative; flex: 0 0 68px; min-width: 0; height: 52px; color: #666; font-size: 14px; line-height: 20px; font-weight: 500; white-space: nowrap; }
+.dp-anchor-nav button::after { content: ""; position: absolute; right: 10px; bottom: -1px; left: 10px; height: 3px; border-radius: 3px 3px 0 0; background: transparent; }
 .dp-anchor-nav button.is-active { color: var(--dp-ink); font-weight: 700; }
 .dp-anchor-nav button.is-active::after { background: var(--dp-ink); }
-.dp-anchor-nav button.is-valuation { flex-basis: 92px; }
+.dp-anchor-nav button.is-valuation { flex-basis: 108px; }
 
 .dp-home-pending { min-height: 300px; padding: 22px 20px 40px; }
 .dp-home-pending h2 { font-size: 20px; line-height: 28px; font-weight: 700; }
@@ -310,7 +310,7 @@
   .dp-profile-copy { display: block; position: relative; padding-top: 0; }
   .dp-profile-copy h1 { font-size: 24px; line-height: 32px; }
   .dp-profile-stats-mobile, .dp-profile-bio { display: none; }
-  .dp-profile-actions { position: absolute; left: 0; top: 118px; width: min(420px, 100%); gap: 10px; margin: 0; }
+  .dp-profile-actions { position: absolute; left: 0; top: 118px; width: min(520px, 100%); gap: 8px; margin: 0; }
   .dp-profile-actions > :is(button, a) { height: 42px; padding: 0 18px; border: 1px solid #dedede; border-radius: 999px; background: #fff; font-size: 14px; }
   .dp-profile-inline.is-first { display: flex; margin-top: 8px; }
   .dp-profile-inline.is-rating { display: flex; margin-top: 8px; }
@@ -327,9 +327,9 @@
   .dp-listings-shell.marketplace.is-bbm .bbm-result-card:first-child { border-top: 1px solid var(--bbm-line); }
   .dp-sold-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
   .dp-sold-card { min-height: 126px; }
-  .dp-anchor-nav { top: 64px; width: 100%; height: 62px; margin: 0 auto; padding: 0 20px; }
+  .dp-anchor-nav { top: 64px; width: 100%; height: 62px; justify-content: center; margin: 0 auto; padding: 0 20px; }
   .dp-anchor-nav button { flex: 1 1 0; max-width: 154px; height: 52px; padding: 0 14px; font-size: 14px; }
-  .dp-anchor-nav button::after { right: 20px; left: 20px; }
+  .dp-anchor-nav button::after { right: 18px; left: 18px; }
   .dp-ratings { margin-top: 0; padding: 22px 20px 28px; }
   .dp-rating-layout { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 18px; }
   .dp-rating-summary { align-self: start; }
@@ -372,7 +372,7 @@
   .dp-listing-card { grid-template-columns: 118px minmax(0,1fr); gap: 12px; }
   .dp-listing-media { width: 118px; height: 158px; }
   .dp-profile-actions { gap: 8px; }
-  .dp-profile-actions > :is(button, a) { padding: 0 10px; font-size: 14px; }
+  .dp-profile-actions > :is(button, a) { padding: 0 6px; font-size: 13px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

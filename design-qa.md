@@ -2847,3 +2847,18 @@ final result: passed
 - post-fix evidence: 394 × 852 브라우저 캡처에서 버튼 171 × 46px, 탭 6개, 오버플로 0px 확인.
 
 final result: passed
+
+# 딜러 프로필 · 리뷰 탭과 연락 행동 확장 QA · 2026-10-15
+
+- implementation: 김태규 딜러 프로필, 394 × 852 CSS px
+- 프로필 역할 표기를 `(주)투제이모터웍스 · 대표` 순서로 수정했다.
+- 행동 버튼은 `팔로잉 · 채팅하기 · 전화하기` 3개이며 각각 112 × 46px로 동일하다.
+- 1차 탐색에 `리뷰`를 추가해 총 7개 탭을 가로 스크롤로 제공한다.
+- 선택 탭 밑줄은 높이 3px, `#222`로 확인했다.
+- 리뷰 탭 선택 시 리뷰 본문과 선택 상태가 정상 노출된다.
+- navigation scroll width 532px / client width 383px, page horizontal overflow 0px.
+- browser console errors: 0
+- `npm run build`: passed
+- mobile runtime integrity: passed
+
+final result: passed
