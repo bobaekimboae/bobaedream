@@ -19,6 +19,7 @@ async function checkCase(name,viewport,expectedMediaHeight){
   await page.locator('.chototFeedCard').first().waitFor({state:'visible'});
 
   const label=await page.locator('#typeLabel').textContent();
+  const firstTitle=(await page.locator('.chototFeedTitle').first().textContent())?.trim();
   const cardCount=await page.locator('.chototFeedCard').count();
   const railBox=await page.locator('.chototMediaRail').first().boundingBox();
   const metrics=await page.locator('.chototMediaRail').first().evaluate(element=>({
@@ -28,10 +29,31 @@ async function checkCase(name,viewport,expectedMediaHeight){
     bodyClientWidth:document.documentElement.clientWidth
   }));
   if(label?.trim()!=='피드형 · 초톳')throw new Error(`${name}: unexpected label ${label}`);
+  if(firstTitle!=='주말 모임에 등장한 블루 SUV, 실물 색감은 이렇습니다')throw new Error(`${name}: realistic scenario copy is missing`);
   if(cardCount!==10)throw new Error(`${name}: expected 10 cards, got ${cardCount}`);
   if(!railBox||Math.abs(railBox.height-expectedMediaHeight)>1)throw new Error(`${name}: expected media height ${expectedMediaHeight}, got ${railBox?.height}`);
   if(metrics.scrollWidth<=metrics.clientWidth)throw new Error(`${name}: first media rail is not horizontally scrollable`);
   if(metrics.bodyScrollWidth>metrics.bodyClientWidth+1)throw new Error(`${name}: body overflows horizontally`);
+  const firstImage=page.locator('.chototMediaItem img').first();
+  await firstImage.waitFor({state:'visible'});
+  await firstImage.scrollIntoViewIfNeeded();
+  await page.waitForFunction(image=>image.complete&&image.naturalWidth>0,await firstImage.elementHandle());
+  const imageState=await firstImage.evaluate(image=>({complete:image.complete,naturalWidth:image.naturalWidth,src:image.currentSrc}));
+  if(!imageState.complete||imageState.naturalWidth<300)throw new Error(`${name}: local vehicle image did not load: ${JSON.stringify(imageState)}`);
+
+  const touchIsolation=await page.locator('.chototMediaRail').first().evaluate(rail=>{
+    const card=rail.closest('.chototFeedCard');
+    card.dataset.touchStable='true';
+    const makeTouch=(type,property,x,y)=>{
+      const event=new Event(type,{bubbles:true,cancelable:true});
+      Object.defineProperty(event,property,{value:[{clientX:x,clientY:y}]});
+      return event;
+    };
+    rail.dispatchEvent(makeTouch('touchstart','touches',300,400));
+    rail.dispatchEvent(makeTouch('touchend','changedTouches',110,405));
+    return card.isConnected&&card.dataset.touchStable==='true';
+  });
+  if(!touchIsolation)throw new Error(`${name}: media swipe escaped to the board swipe handler`);
 
   await page.locator('.chototFeedMoreText').first().click();
   if(!await page.locator('.chototFeedBodyWrap').first().evaluate(element=>element.classList.contains('expanded')))throw new Error(`${name}: more-text expansion failed`);
@@ -41,19 +63,34 @@ async function checkCase(name,viewport,expectedMediaHeight){
   if(await page.locator('.chototActionButton[data-save]').first().getAttribute('aria-pressed')!=='true')throw new Error(`${name}: save toggle failed`);
 
   const firstMedia=page.locator('.chototMediaItem').first();
+  const dragSuppressed=await firstMedia.evaluate(item=>{
+    item.dispatchEvent(new PointerEvent('pointerdown',{bubbles:true,clientX:280,clientY:420,pointerId:1}));
+    item.dispatchEvent(new PointerEvent('pointermove',{bubbles:true,clientX:150,clientY:422,pointerId:1}));
+    item.click();
+    return !document.getElementById('chototGallery')?.classList.contains('open');
+  });
+  if(!dragSuppressed)throw new Error(`${name}: horizontal media drag incorrectly opened the gallery`);
+  await page.evaluate(()=>window.scrollTo(0,Math.min(360,document.documentElement.scrollHeight-innerHeight)));
+  const scrollBeforeGallery=await page.evaluate(()=>window.scrollY);
+  const urlBeforeGallery=page.url();
   await firstMedia.click();
   await page.locator('#chototGallery.open').waitFor({state:'visible'});
+  if(page.url()!==urlBeforeGallery)throw new Error(`${name}: media tap unexpectedly navigated away`);
   await page.locator('.chototGalleryClose').click();
   await page.locator('#chototGallery.open').waitFor({state:'hidden'});
+  const scrollAfterGallery=await page.evaluate(()=>window.scrollY);
+  if(Math.abs(scrollAfterGallery-scrollBeforeGallery)>2)throw new Error(`${name}: gallery close did not restore scroll position (${scrollBeforeGallery} -> ${scrollAfterGallery})`);
   await page.locator('.chototFeedMoreText').first().click();
   await page.locator('.chototVoteButton[data-vote="up"]').first().click();
   await page.locator('.chototActionButton[data-save]').first().click();
 
+  await page.evaluate(()=>window.scrollTo(0,0));
+  await page.waitForTimeout(100);
   const screenshot=path.join(artifactDir,`${name}.png`);
   const viewportScreenshot=path.join(artifactDir,`${name}-viewport.png`);
   await page.screenshot({path:screenshot,fullPage:true});
   await page.screenshot({path:viewportScreenshot,fullPage:false});
-  const entry={name,viewport,label:label.trim(),cardCount,railBox,metrics,screenshot,viewportScreenshot,consoleErrors,failedResources};
+  const entry={name,viewport,label:label.trim(),firstTitle,cardCount,railBox,metrics,imageState,touchIsolation,dragSuppressed,scrollBeforeGallery,scrollAfterGallery,screenshot,viewportScreenshot,consoleErrors,failedResources};
   report.cases.push(entry);
   if(failedResources.length)throw new Error(`${name}: failed resources: ${failedResources.join(' | ')}`);
   if(consoleErrors.length)throw new Error(`${name}: console errors: ${consoleErrors.join(' | ')}`);

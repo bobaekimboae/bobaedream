@@ -55,6 +55,51 @@ final result: passed
 
 ---
 
+# Chợ Tốt 피드 · 실사진 시나리오 및 모바일 터치 안정화 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/AppData/Local/Temp/nhatot-live-mobile-top.png`, 사용자 제공 Reddit 피드 참고 이미지 `1-1000018354.jpg`
+- implementation screenshots:
+  - `artifacts/community-chotot-feed-1015/mobile-390x844-viewport.png`
+  - `artifacts/community-chotot-feed-1015/desktop-1200x900-viewport.png`
+- viewport: 모바일 390 × 844 CSS px / PC 1200 × 900 CSS px, deviceScaleFactor 1
+- state: `피드형 · 초톳`, 첫 실제 차량 시나리오, 갤러리 닫힘, 반응 미선택
+
+## Full-view comparison evidence
+
+- 초톳 참고 화면의 가로 미디어 레일과 Reddit 참고 화면의 반응 알약칩을 기존 보배드림 게시판 셸 안에 유지했다.
+- 모바일 첫 화면에서 작성자, 긴 제목, 본문 미리보기, 실제 차량 사진 2장, 사진 수, 추천·비추천·댓글·공유·저장까지 한 흐름으로 읽힌다.
+- PC에서는 996px 중앙 카드와 240px 미디어 레일을 유지하며 네 장의 실제 차량 사진과 좌우 화살표가 한 화면에 노출된다.
+
+## Focused interaction evidence
+
+- 로컬 보배드림 차량 사진 `sc-001.jpg`가 모바일·PC 모두 `640 × 480` 자연 크기로 로드되며 실패 리소스가 없다.
+- 사진 레일의 `touchstart/touchmove/touchend`를 게시판 스와이프 처리에서 격리했다. 190px 가로 스와이프 후 카드 DOM이 유지됨을 확인했다.
+- 130px 포인터 드래그 뒤 합성 click은 갤러리를 열지 않고, 짧은 탭만 갤러리를 연다.
+- 갤러리 열기 전후 URL은 동일하고, 닫은 뒤 스크롤 위치는 모바일·PC 모두 `360 → 360`으로 복원된다.
+
+## Required fidelity surfaces
+
+- fonts and typography: Pretendard, 제목 18px/24px, 본문 15.5px/22px, 메타 12.5px 계층을 유지했다.
+- spacing and layout rhythm: 모바일 미디어 높이 194px, PC 240px, 8–10px 사진 간격과 9px 반경을 유지했다.
+- colors and visual tokens: 흰 카드, 중립 회색 배경, 보배 블루 선택 상태를 유지했다.
+- image quality and asset fidelity: 외부 플레이스홀더 대신 저장소의 실제 보배드림 차량 JPEG를 10개 가상 게시물 시나리오에 연결했다. 첫 사진은 eager/high priority로 로드한다.
+- copy and content: 전시장 비교, 도산대로 직찍, 출고 검수, 중고차 입고 점검 등 실제 커뮤니티 사용 맥락의 제목·작성자·본문·댓글 수를 구성했다.
+
+## Findings
+
+- P0/P1/P2: 없음.
+- P3: 원본 사진이 640px 폭이라 초고해상도 화면에서 확대 시 원본 한계가 보일 수 있으나, 피드 카드와 일반 모바일 확대에서는 선명하다.
+
+## Comparison history
+
+- Pass 1: 사진 레일 터치가 상위 게시판 좌우 스와이프까지 전달되어 피드가 재렌더링되고, 드래그 종료 click이 갤러리를 열 수 있었다.
+- Fix: 미디어 레일 터치 전파 차단, 10px 이동 임계값의 탭/드래그 분리, 고정 body 스크롤 잠금·복원, 갤러리 좌우 스와이프를 추가했다.
+- Pass 2: 모바일·PC 자동 검증에서 카드 유지, 드래그 억제, 탭 갤러리, URL 유지, 스크롤 복원, 콘솔 오류 0건, 실패 리소스 0건을 확인했다.
+
+final result: passed
+
+---
+
 # 보배드림 전체 게시판 선택 QA · 2026-10-15
 
 - 보배드림 모바일 커뮤니티 구조를 기준으로 `게시판` 14개와 `자료실` 17개를 상단 게시판 선택 바텀시트에 추가했다.
