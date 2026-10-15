@@ -75,7 +75,6 @@
 .dp-profile-inline.is-rating { display: none; color: var(--dp-ink); }
 .dp-profile-inline.is-rating > b { margin-right: 5px; font-size: 16px; }
 .dp-profile-inline.is-rating > u { margin-left: 8px; }
-.dp-mobile-followers { margin-left: 6px; color: #666; }
 .dp-desktop-career { display: none; align-items: center; gap: 6px; }
 .dp-desktop-career .dp-icon { width: 20px; height: 20px; }
 .dp-profile-inline.is-first > .dp-dealer-icon { width: 18px; height: 18px; margin-right: 7px; }
@@ -86,7 +85,7 @@
 .dp-profile-inline.is-location > span:first-of-type { white-space: normal; word-break: keep-all; }
 .dp-profile-inline.is-career { grid-column: 1 / -1; grid-row: 8; margin-top: 12px; }
 .dp-profile-inline.is-career .dp-icon { width: 20px; height: 20px; margin-right: 8px; }
-.dp-profile-stats { display: grid; grid-column: 1 / -1; grid-row: 9; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 16px; overflow: hidden; border: 1px solid #d8d8d8; border-radius: 10px; background: #fff; }
+.dp-profile-stats { display: grid; grid-column: 1 / -1; grid-row: 9; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 16px; overflow: hidden; border: 1px solid #d8d8d8; border-radius: 10px; background: #fff; }
 .dp-profile-stats > span { display: flex; min-height: 68px; flex-direction: column; align-items: center; justify-content: center; gap: 3px; }
 .dp-profile-stats > span + span { border-left: 1px solid #e5e5e5; }
 .dp-profile-stats small { color: #777; font-size: 13px; line-height: 18px; }
@@ -293,7 +292,6 @@
   .dp-profile-inline.is-first { display: flex; margin-top: 8px; }
   .dp-profile-inline.is-rating { display: flex; margin-top: 8px; }
   .dp-profile-inline.is-response { display: none; }
-  .dp-mobile-followers { display: none; }
   .dp-desktop-career { display: flex; }
   .dp-profile-inline.is-career { display: none; }
   .dp-profile-inline.is-location { margin-top: 8px; }
