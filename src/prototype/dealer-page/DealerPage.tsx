@@ -73,11 +73,11 @@ const SOCIAL_CHANNELS = [
 ] as const;
 
 const OFFICIAL_LUXURY_HERO = [
-  { id: "range-rover-01", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-01.jpg"), year: "2027", model: "RANGE ROVER" },
-  { id: "range-rover-02", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-02.jpg"), year: "2027", model: "RANGE ROVER INTERIOR" },
   { id: "range-rover-03", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-03.jpg"), year: "2027", model: "RANGE ROVER" },
   { id: "range-rover-04", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-04.jpg"), year: "2027", model: "RANGE ROVER" },
+  { id: "range-rover-01", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-01.jpg"), year: "2027", model: "RANGE ROVER" },
   { id: "range-rover-05", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-05.jpg"), year: "2027", model: "RANGE ROVER" },
+  { id: "range-rover-02", src: asset("dealer-profile/twoj-motorworks/official-luxury/range-rover-02.jpg"), year: "2027", model: "RANGE ROVER INTERIOR" },
 ] as const;
 
 function Icon({ name, className }: { name: string; className?: string }) {
