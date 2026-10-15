@@ -190,9 +190,10 @@ export function HeavyQuickFilter({ value, onChange }: HeavyQuickFilterProps) {
   };
 
   const resultCount = heavyRowsFor(value).length;
+  const shadowCard = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("qfbrand") === "shadowcard";
 
   return (
-    <section className="heavy-qf" aria-label={`건설기계 ${depth} 빠른 선택`}>
+    <section className={`heavy-qf${shadowCard ? " is-shadowcard" : ""}`} aria-label={`건설기계 ${depth} 빠른 선택`}>
       {!value.equipmentTypeCode ? (
         <div className="heavy-qf-track is-type-track" role="list" aria-label="건설기계 법정 유형 27개">
           {heavyTypeQuickFilters.map((type) => {
@@ -202,6 +203,7 @@ export function HeavyQuickFilter({ value, onChange }: HeavyQuickFilterProps) {
               <button key={type.code} type="button" className="heavy-qf-card is-type" onClick={() => chooseEquipmentType(type.code)} role="listitem" data-equipment-type-code={type.code} aria-label={`${type.label} ${count}대`}>
                 <span className="heavy-qf-symbol"><HeavySlotImage candidates={imageCandidates} alt={`${type.label} 유형`} /></span>
                 <strong>{type.label}</strong>
+                {shadowCard ? <small>({count})</small> : null}
               </button>
             );
           })}
@@ -230,6 +232,7 @@ export function HeavyQuickFilter({ value, onChange }: HeavyQuickFilterProps) {
               <button key={slot.manufacturerCode} type="button" className="heavy-qf-card is-logo" onClick={() => chooseManufacturer(slot.manufacturerCode)} role="listitem" data-manufacturer-code={slot.manufacturerCode} aria-label={`${slot.name} ${count}대`}>
                 <span className="heavy-qf-symbol"><HeavySlotImage candidates={logoCandidates} alt={`${slot.name} 로고`} /></span>
                 <strong>{slot.name}</strong>
+                {shadowCard ? <small>({count})</small> : null}
               </button>
             );
           })}
