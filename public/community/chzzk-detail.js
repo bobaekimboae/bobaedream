@@ -130,7 +130,7 @@ function setRegularContent() {
         <div class="commentContent">
           <div class="commentAuthor"><strong>익씽 · LV 12</strong><span>8시간 전</span><button aria-label="댓글 더보기"><img src="assets/chzzk-detail/icons/more.svg" alt=""></button></div>
           <p>고객센터나 벤당한 스트리머 한테 애기하는거지 여기 애기하는게 아닙니다.</p>
-          <div class="commentTools"><button class="replyButton">답글쓰기</button><div class="miniVotes"><button aria-label="댓글 추천"><span class="srOnly">추천</span><img src="assets/chzzk-detail/icons/buff.svg" alt=""></button><button aria-label="댓글 비추천"><span class="srOnly">비추천</span><img src="assets/chzzk-detail/icons/nerf.svg" alt=""></button></div></div>
+          <div class="commentTools"><button class="replyButton">답글쓰기</button><div class="miniVotes"><button aria-label="댓글 추천"><span class="srOnly">추천</span><img src="assets/chzzk-detail/icons/buff.svg?v=20261015v10" alt=""></button><button aria-label="댓글 비추천"><span class="srOnly">비추천</span><img src="assets/chzzk-detail/icons/nerf.svg?v=20261015v10" alt=""></button></div></div>
         </div>
       </li>`;
     $('#commentList .replyButton').addEventListener('click', () => {

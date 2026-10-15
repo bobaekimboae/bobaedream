@@ -175,6 +175,48 @@ final result: passed
 
 ---
 
+# 치지직 상세 · 레딧 엄지 실측 균형 v10 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a128e5-de8a-78d0-9ed9-96cbde6a07c3/18c75ea0-215b-4cac-858d-8c1a6f1691c6/1-1000018368.jpg`
+- implementation: `http://127.0.0.1:45174/community/chzzk-detail.html?id=8325190&v=10`
+- implementation screenshot: Chrome Browser 탭 `229711349`, 모바일 394 × 852 CSS px 캡처
+- source pixels: 591 × 1280px; 구현은 394 × 852 CSS px, DPR 1 기준으로 반응 행을 정규화해 비교
+- state: 사용자 문의 게시물, 추천·비추천 미선택 기본 상태
+
+## Full-view comparison evidence
+
+- 원본 캡처와 수정 구현을 같은 사용자 문의 게시물·모바일 상태에서 비교했다.
+- 게시글 본문, 반응 행, 최신글 카드, 댓글 헤더, 하단 입력창의 기존 구조와 세로 리듬은 유지했다.
+- 수정 범위는 레딧 추천·비추천 엄지의 실제 보이는 크기와 캐시 갱신에 한정했다.
+
+## Focused region comparison evidence
+
+- P2 before: 24 × 24px 이미지 박스 안에서 엄지 도형이 약 10px로만 보여, 24px 댓글·공유 아이콘의 절반 수준이었다.
+- fix: Reddit 엄지 원본 path는 그대로 두고 SVG `viewBox`를 `0 0 40 40`에서 `10 10 20 20`으로 보정해 내부 여백만 제거했다.
+- post-fix: 모바일 캡처에서 추천·비추천·댓글·공유가 동일한 24 × 24px 슬롯과 유사한 시각 무게로 정렬됐다.
+- 댓글 단위 엄지 역시 20 × 20px 슬롯 안에서 본문 반응보다 한 단계 작은 위계를 유지한다.
+
+## Required fidelity surfaces
+
+- fonts/typography: 기존 Pretendard 제목·본문·점수 체계를 변경하지 않았다.
+- spacing/layout rhythm: 반응 버튼 40px 터치 영역과 좌측 정렬 간격을 유지했다.
+- colors/tokens: 기본 `#222`, 선택 `#FF385C` 및 Airbnb 상태색을 유지했다.
+- image quality/assets: Reddit 원본 벡터 path를 재제작하지 않고 viewBox만 보정했으며 흐림·왜곡이 없다.
+- copy/content: 제목·본문·점수·댓글 문구는 변경하지 않았다.
+
+## Verification
+
+- 모바일 394 × 852: 네 핵심 아이콘 24 × 24px, 가로 넘침 없음, 깨진 이미지 0건.
+- PC 1440 × 1000: 1060px 중앙 셸, 가로 넘침 없음, 깨진 이미지 0건.
+- 상호작용: 추천 -4→-3, 비추천 전환 -3→-5 통과.
+- 콘솔 warning/error 0건.
+- 캐시 방지: 모든 추천·비추천 SVG URL에 `v=20261015v10` 적용.
+- P0/P1/P2 findings: none.
+
+final result: passed
+
+---
+
 # Design QA · 유튜브 모바일 헤더·프로필 크기 보정 (2026-10-15)
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/dbff4f9b-8c08-43b9-bccf-46b545374c2e/1-1000018338.jpg`
