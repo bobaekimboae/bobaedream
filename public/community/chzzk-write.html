@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>글쓰기 | 보배드림</title>
+    <link rel="stylesheet" href="./community-editor-fonts.css" />
+    <link rel="stylesheet" href="./chzzk-write.css" />
+  </head>
+  <body>
+    <main class="chzzk-write" data-testid="chzzk-write-page">
+      <header class="write-head">
+        <button class="head-close" type="button" aria-label="닫기" data-action="exit">×</button>
+        <h1>글쓰기</h1>
+        <div class="head-actions">
+          <button class="save-button" type="button" data-action="save-draft">저장</button>
+          <button class="submit-button" type="button" data-action="submit" disabled>등록</button>
+        </div>
+      </header>
+
+      <button class="board-button" id="boardButton" type="button" data-action="board" aria-expanded="false">
+        <img src="assets/write-parity/community.svg" alt="" />
+        <span id="selectedBoard">게시판을 선택하세요</span>
+        <img class="chevron" src="assets/write-parity/chevron-down.svg" alt="" />
+      </button>
+
+      <label class="sr-only" for="postTitle">제목</label>
+      <input class="title-input" id="postTitle" maxlength="80" placeholder="제목을 입력해주세요" autocomplete="off" />
+
+      <section class="editor" aria-label="본문 편집기">
+        <div class="main-tools" role="toolbar" aria-label="콘텐츠 도구">
+          <button type="button" data-action="photo" aria-label="사진"><img src="assets/write-parity/photo.svg" alt="" /></button>
+          <button type="button" data-action="video" aria-label="동영상"><img src="assets/write-parity/video.svg" alt="" /></button>
+          <button type="button" data-action="text-tools" aria-label="텍스트 도구막대" aria-expanded="false"><img src="assets/write-parity/text.svg" alt="" /></button>
+          <button type="button" data-action="sticker" aria-label="스티커"><img src="assets/write-parity/sticker.svg" alt="" /></button>
+          <button type="button" data-action="quote" aria-label="인용구"><img src="assets/write-parity/quote.svg" alt="" /></button>
+          <button type="button" data-action="divider" aria-label="구분선"><span class="line-icon">−</span></button>
+          <button type="button" data-action="link" aria-label="링크"><img src="assets/write-parity/link.svg" alt="" /></button>
+          <button class="poll-tool" type="button" data-action="poll" aria-label="투표"><span class="poll-icon">⚑</span><i>NEW</i></button>
+        </div>
+
+        <div class="text-tools" id="textTools" role="toolbar" aria-label="텍스트 서식" hidden>
+          <select id="blockStyle" aria-label="문단 스타일"><option value="p">본문</option><option value="h3">소제목</option><option value="blockquote">인용구</option></select>
+          <select id="fontFamily" aria-label="글꼴"><option value="system">기본서체</option><option value="Nanum Gothic">나눔고딕</option><option value="Nanum Myeongjo">나눔명조</option></select>
+          <select id="fontSize" aria-label="글자 크기"><option>13</option><option selected>15</option><option>17</option><option>20</option><option>24</option></select>
+          <button type="button" data-command="justifyLeft" aria-label="왼쪽 정렬">≡</button>
+          <button type="button" data-command="bold" aria-label="굵게"><b>B</b></button>
+          <button type="button" data-command="italic" aria-label="기울이기"><i>I</i></button>
+          <button type="button" data-command="underline" aria-label="밑줄"><u>U</u></button>
+        </div>
+
+        <article id="postBody" class="editor-body" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="함께 나누고 싶은 얘기를 남겨주세요."></article>
+        <section class="media-list" id="mediaList" aria-label="첨부 미디어" hidden></section>
+      </section>
+
+      <button class="tag-button" type="button" data-action="tags"><b>#</b><span id="tagSummary">#태그 입력 (#으로 구분, 최대 10개)</span></button>
+      <label class="hide-row"><img src="assets/write-parity/community.svg" alt="" /><span>본문 숨기기</span><input id="hideBody" type="checkbox" /><i aria-hidden="true"></i></label>
+
+      <footer class="write-foot">
+        <button type="button" data-action="exit">취소</button>
+        <button class="footer-save" type="button" data-action="save-draft">저장</button>
+        <button class="footer-submit" type="button" data-action="submit" disabled>등록</button>
+      </footer>
+    </main>
+
+    <input id="photoInput" class="sr-only" type="file" accept="image/*" multiple />
+    <input id="videoInput" class="sr-only" type="file" accept="video/mp4,video/webm,video/quicktime" multiple />
+
+    <div class="overlay" id="sheetOverlay" hidden>
+      <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+        <header><button type="button" aria-label="뒤로가기" data-action="close-sheet">‹</button><h2 id="sheetTitle">선택</h2><button class="sheet-primary" id="sheetPrimary" type="button" hidden>등록</button></header>
+        <div class="sheet-body" id="sheetBody"></div>
+      </section>
+    </div>
+
+    <div class="overlay dialog-overlay" id="dialogOverlay" hidden>
+      <section class="notice-dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+        <h2 id="dialogTitle">안내</h2>
+        <p id="dialogMessage"></p>
+        <button class="dialog-confirm" type="button" data-action="close-dialog">확인</button>
+      </section>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+    <script src="./chzzk-write.js"></script>
+  </body>
+</html>

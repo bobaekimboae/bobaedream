@@ -18,6 +18,7 @@ await page.goto(baseUrl, { waitUntil:'domcontentloaded' });
 await page.evaluate(() => {
   localStorage.removeItem('bbm.community.latestPost.v2');
   localStorage.removeItem('bbm.community.writeDraft.v2');
+  localStorage.removeItem('bbm.community.chzzkDraft.v1');
 });
 await page.reload({ waitUntil:'commit' });
 await page.locator('#typeLabel').waitFor({ state:'visible' });
@@ -33,7 +34,7 @@ check(replyStyle.color === 'rgb(35, 143, 227)', 'compact reply count is not Boba
 check(replyStyle.fontSize === titleStyle.fontSize, 'compact reply parentheses and number do not match the title size');
 check(/^\(\d+\)$/.test((await page.locator('.compactReply').first().textContent())?.trim() || ''), 'compact reply count format is not (number)');
 await Promise.all([
-  page.waitForURL(/naver-write-parity\.html/),
+  page.waitForURL(/chzzk-write\.html/),
   page.locator('.fab').click(),
 ]);
 
@@ -42,7 +43,26 @@ check(entryUrl.searchParams.get('source') === 'chzzk-compact', 'writer source qu
 check(entryUrl.searchParams.get('board') === '자유게시판', 'current board was not handed to writer');
 check(entryUrl.searchParams.get('returnTo')?.includes('naver-cafe-list.html'), 'list return path is missing');
 check((await page.locator('#selectedBoard').textContent())?.trim() === '자유게시판', 'writer board was not preselected');
-check(await page.locator('.head-select').isEnabled(), 'writer head selector was not enabled');
+check((await page.locator('.main-tools > button').count()) === 8, 'Chzzk writer tool count is not 8');
+check(await page.getByRole('button', { name:'투표' }).isVisible(), 'poll tool is missing');
+check(await page.getByRole('button', { name:'스티커' }).isVisible(), 'sticker tool is missing');
+check(await page.getByRole('button', { name:'링크' }).isVisible(), 'link tool is missing');
+await page.screenshot({ path:path.join(outputDir, 'mobile-384-chzzk-writer.png'), fullPage:false });
+
+await page.getByRole('button', { name:'텍스트 도구막대' }).click();
+check(await page.locator('#textTools').isVisible(), 'text toolbar did not open');
+await page.getByRole('button', { name:'스티커' }).click();
+await page.locator('.emoji-grid button').first().waitFor({ state:'visible' });
+check(await page.locator('.emoji-tabs button').count() === 9, 'emoji categories are incomplete');
+await page.getByRole('button', { name:'뒤로가기' }).click();
+await page.getByRole('button', { name:'링크' }).click();
+check(await page.locator('#linkUrl').isVisible(), 'link sheet did not open');
+await page.getByRole('button', { name:'뒤로가기' }).click();
+await page.getByRole('button', { name:'투표' }).click();
+check((await page.locator('#sheetTitle').textContent())?.trim() === '투표', 'poll sheet did not open');
+check((await page.locator('.poll-option').count()) === 3, 'poll sheet initial option count is not 3');
+await page.screenshot({ path:path.join(outputDir, 'mobile-384-chzzk-poll.png'), fullPage:false });
+await page.getByRole('button', { name:'뒤로가기' }).click();
 
 await page.locator('#postTitle').fill('간결형 글쓰기 연동 테스트');
 await page.locator('#postBody').fill('치지직형 상세 화면까지 이어지는 테스트 본문입니다.');
@@ -81,7 +101,7 @@ if (failures.length) {
 
 console.log(JSON.stringify({
   ok:true,
-  flow:['간결형 목록','글쓰기','게시판 자동 선택','등록','목록 반영','치지직 상세'],
+  flow:['간결형 목록','치지직 글쓰기','게시판 자동 선택','8개 도구','투표','등록','목록 반영','치지직 상세'],
   viewport:'384x844',
   runtimeErrors,
   outputDir,
