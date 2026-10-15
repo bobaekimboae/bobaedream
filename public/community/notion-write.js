@@ -53,6 +53,7 @@
   let mediaQueue = [];
   let mediaCoverId = "";
   let draggedMediaId = "";
+  let pointerMediaDrag = null;
 
   function openDatabase() {
     if (!dbPromise) {
@@ -740,6 +741,39 @@
     if (target) reorderMedia(id, target.id);
   }
 
+  function pointerTargetMediaId(clientX, clientY) {
+    const tile = document.elementFromPoint(clientX, clientY)?.closest?.("[data-media-queue-id]");
+    const id = tile?.dataset.mediaQueueId || "";
+    const source = mediaQueue.find((item) => item.id === pointerMediaDrag?.sourceId);
+    const target = mediaQueue.find((item) => item.id === id);
+    return source?.kind === "image" && target?.kind === "image" ? id : "";
+  }
+
+  function updatePointerMediaDrag(event) {
+    if (!pointerMediaDrag || event.pointerId !== pointerMediaDrag.pointerId) return;
+    event.preventDefault();
+    const targetId = pointerTargetMediaId(event.clientX, event.clientY);
+    if (!targetId || targetId === pointerMediaDrag.sourceId) return;
+    pointerMediaDrag.targetId = targetId;
+    mediaManagerGrid.querySelectorAll(".is-drop-target").forEach((tile) => tile.classList.remove("is-drop-target"));
+    mediaManagerGrid.querySelector(`[data-media-queue-id="${targetId}"]`)?.classList.add("is-drop-target");
+  }
+
+  function finishPointerMediaDrag(event, cancelled = false) {
+    if (!pointerMediaDrag || event.pointerId !== pointerMediaDrag.pointerId) return;
+    event.preventDefault();
+    const { sourceId, targetId, handle } = pointerMediaDrag;
+    try { handle.releasePointerCapture?.(event.pointerId); } catch (_) { /* capture may already be released */ }
+    pointerMediaDrag = null;
+    draggedMediaId = "";
+    mediaManagerGrid.classList.remove("is-reordering");
+    mediaManagerGrid.querySelectorAll(".is-dragging, .is-drop-target").forEach((tile) => tile.classList.remove("is-dragging", "is-drop-target"));
+    if (!cancelled && targetId && targetId !== sourceId) {
+      reorderMedia(sourceId, targetId);
+      showToast("사진 순서를 변경했습니다.");
+    }
+  }
+
   async function clearMediaQueue() {
     const discarded = [...mediaQueue];
     mediaQueue = [];
@@ -1213,6 +1247,20 @@
     moveQueuedMedia(id, event.key === "ArrowLeft" ? -1 : 1);
     mediaManagerGrid.querySelector(`[data-media-queue-id="${id}"] [data-manager-action="drag"]`)?.focus();
   });
+  mediaManagerGrid.addEventListener("pointerdown", (event) => {
+    const handle = event.target.closest('[data-manager-action="drag"]');
+    const tile = handle?.closest("[data-media-queue-id]");
+    if (!handle || !tile || (event.button !== undefined && event.button !== 0)) return;
+    event.preventDefault();
+    draggedMediaId = tile.dataset.mediaQueueId;
+    pointerMediaDrag = { pointerId: event.pointerId, sourceId: draggedMediaId, targetId: draggedMediaId, handle };
+    tile.classList.add("is-dragging");
+    mediaManagerGrid.classList.add("is-reordering");
+    try { handle.setPointerCapture?.(event.pointerId); } catch (_) { /* synthetic and older touch events may not support capture */ }
+  });
+  mediaManagerGrid.addEventListener("pointermove", updatePointerMediaDrag, { passive: false });
+  mediaManagerGrid.addEventListener("pointerup", (event) => finishPointerMediaDrag(event));
+  mediaManagerGrid.addEventListener("pointercancel", (event) => finishPointerMediaDrag(event, true));
   mediaManagerGrid.addEventListener("dragstart", (event) => {
     const tile = event.target.closest("[data-media-queue-id]");
     if (!tile) return;
