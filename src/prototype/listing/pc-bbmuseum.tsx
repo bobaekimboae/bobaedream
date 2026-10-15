@@ -35,7 +35,7 @@ const bbGnbItems: readonly BbGnbItem[] = [
   { label: "바이크", category: "바이크" },
   { label: "캠핑카", category: "캠핑카", icon: "camper.svg" },
   { label: "부품-용품", category: "부품 · 용품", icon: "parts.svg" },
-  { label: "커뮤니티", action: "community" },
+  { label: "커뮤니티", action: "community", icon: "community.svg" },
   { label: "더보기", action: "more", icon: "more.svg" },
 ];
 const bbGnbMoreItems: readonly BbGnbItem[] = [

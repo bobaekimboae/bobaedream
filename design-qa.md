@@ -27,6 +27,34 @@ final result: passed
 
 ---
 
+# PC 커뮤니티 메뉴 원본 SVG 아이콘 QA · 2026-10-15
+
+- source visual truth: `C:/Users/bobae/Downloads/inline_97f2156b.svg` (24 × 24 viewBox, 사용자 첨부 원본)
+- browser-rendered implementation: `http://127.0.0.1:4311/?qf=guazi&pc=1&v=nav-icons`
+- viewport and density: 1440 × 900, 1024 × 768, 390 × 844 CSS px, DPR 1
+- state: 전체차량 선택 기본 상태에서 PC 상단 커뮤니티 메뉴 표시
+- full-view comparison evidence: 기존 헤더 높이·좌측 정렬·가운데점·메뉴 순서를 유지하고 커뮤니티 라벨 왼쪽에만 원본 아이콘을 추가했다.
+- focused region comparison evidence: 첨부 SVG와 프로젝트 자산은 공백 정규화 후 완전히 일치한다. 렌더링 크기는 1440px에서 18 × 18px, 1024px에서 16 × 16px이다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 커뮤니티 라벨의 Pretendard 글꼴·크기·굵기·기준선은 기존 값 그대로다.
+- spacing and layout rhythm: 아이콘과 텍스트 간격은 6px이며 메뉴 높이 49px를 유지한다. 1440px과 1024px 모두 가로 오버플로 0px이다.
+- colors and visual tokens: 원본의 `currentColor` 실루엣을 메뉴의 기본 `#1a1a1a` 토큰으로 표시한다.
+- image quality and asset fidelity: 첨부한 24 × 24 SVG 경로를 다시 그리지 않고 그대로 저장해 CSS 마스크로 사용했다.
+- copy and content: `커뮤니티` 문구와 기존 클릭 동작은 변경하지 않았다.
+- accessibility and interaction: 장식 아이콘은 `aria-hidden`이고 버튼의 접근성 이름은 `커뮤니티`로 유지된다.
+- browser verification: 1440px·1024px 콘솔 오류 0건. 390px에서는 PC 헤더가 렌더링되지 않으며 모바일 가로 오버플로도 0px이다.
+
+## Comparison history
+
+- Pass 1: 1440px과 1024px에서 원본 사람 그룹 실루엣, 크기, 정렬을 확인했고 남은 P0/P1/P2가 없었다.
+
+final result: passed
+
+---
+
 # PC 상단 메뉴 원본 SVG 아이콘 QA · 2026-10-15
 
 - source visual truth: `C:/Users/bobae/Downloads/중고차.svg`, `트럭.svg`, `캠핑카.svg`, `용품부품.svg`, `수입차.svg`, `더보기.svg`
