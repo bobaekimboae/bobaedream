@@ -1,10 +1,11 @@
 .boardChannelNav{height:50px;display:flex;align-items:stretch;border-bottom:0;background:#fff;position:relative;z-index:4}
 .boardChannelScroller{min-width:0;flex:1;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain}
 .boardChannelScroller::-webkit-scrollbar{display:none}
-.boardChannelTrack{height:100%;display:flex;align-items:center;gap:18px;width:max-content;padding:0 14px 0 17px}
-.boardChannelTab{height:34px;position:relative;display:flex;align-items:center;justify-content:center;white-space:nowrap;border-radius:20px;color:#65676c;font-size:15.5px;font-weight:520;letter-spacing:-.045em;cursor:pointer}
+.boardChannelTrack{height:100%;display:flex;align-items:stretch;gap:23px;width:max-content;padding:0 14px 0 17px}
+.boardChannelTab{height:50px;position:relative;display:flex;align-items:center;justify-content:center;white-space:nowrap;color:#65676c;font-size:15.5px;font-weight:520;letter-spacing:-.045em;cursor:pointer}
 .boardChannelTab.home{color:#282a2e;font-weight:650}
-.boardChannelTab.on{padding:0 14px;background:#f3f4f6;color:#17181b;font-weight:650}
+.boardChannelTab.on{color:#111214;font-weight:760}
+.boardChannelTab.on:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;border-radius:3px 3px 0 0;background:#252525}
 .boardOrderMenu{width:50px;min-width:50px;height:50px;display:grid;place-items:center;background:#fff;box-shadow:-12px 0 14px #fff;cursor:pointer;position:relative;z-index:2}
 .boardOrderMenu img{width:23px;height:23px;display:block}
 .boardOrderBackdrop{position:fixed;inset:0;z-index:130;background:rgba(0,0,0,.45);display:flex;justify-content:center;align-items:flex-end}
@@ -31,5 +32,5 @@
 .boardOrderReset{height:46px;margin-top:20px;padding:0 3px;color:#5f6268;font-size:14px;font-weight:650;text-decoration:underline;text-underline-offset:3px}
 .boardOrderHint{margin:11px 0 0;color:#92949a;font-size:12px;line-height:18px;letter-spacing:-.025em}
 body.boardOrderOpen{overflow:hidden}
-@media(min-width:768px){.boardOrderBackdrop{align-items:center}.boardOrderPanel{height:min(760px,90dvh);border-radius:22px;overflow:hidden}.boardOrderGrid{grid-template-columns:repeat(5,minmax(0,1fr))}.boardOrderHome{width:calc((100% - 40px)/5)}.boardChannelTrack{padding-left:22px;gap:18px}}
-@media(max-width:370px){.boardChannelTrack{gap:16px;padding-left:15px}.boardChannelTab{font-size:15px}.boardOrderBody{padding-left:14px;padding-right:14px}.boardOrderGrid{gap:8px}.boardOrderName{font-size:12px;line-height:15px}}
+@media(min-width:768px){.boardOrderBackdrop{align-items:center}.boardOrderPanel{height:min(760px,90dvh);border-radius:22px;overflow:hidden}.boardOrderGrid{grid-template-columns:repeat(5,minmax(0,1fr))}.boardOrderHome{width:calc((100% - 40px)/5)}.boardChannelTrack{padding-left:22px;gap:28px}}
+@media(max-width:370px){.boardChannelTrack{gap:20px;padding-left:15px}.boardChannelTab{font-size:15px}.boardOrderBody{padding-left:14px;padding-right:14px}.boardOrderGrid{gap:8px}.boardOrderName{font-size:12px;line-height:15px}}
