@@ -59,6 +59,16 @@ jobs:
           flutter build web --release --no-web-resources-cdn --base-href /bobaedream/seoul-autogallery/
           mkdir -p ../../dist/client/seoul-autogallery
           cp -r build/web/. ../../dist/client/seoul-autogallery/
+      - name: Build Kim Tae-gyu dealer Flutter web
+        if: steps.flutter.outcome == 'success'
+        continue-on-error: true
+        working-directory: apps/dealer_flutter
+        run: |
+          flutter pub get
+          flutter test
+          flutter build web --release --no-web-resources-cdn --base-href /bobaedream/dealer-app/
+          mkdir -p ../../dist/client/dealer-app
+          cp -r build/web/. ../../dist/client/dealer-app/
       - uses: actions/configure-pages@v5
         with:
           enablement: true
