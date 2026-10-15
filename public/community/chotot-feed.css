@@ -21,9 +21,9 @@
 .chototFeedBody{display:-webkit-box;margin:0;color:#42464b;font-size:15.5px;line-height:22px;font-weight:400;letter-spacing:-.027em;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;word-break:keep-all}
 .chototFeedBodyWrap.expanded .chototFeedBody{display:block;overflow:visible}
 .chototFeedMoreText{margin-top:2px;color:#73777d;font-size:14px;line-height:20px;font-weight:600}
-.chototMediaShell{position:relative;margin:0 -16px}
+.chototMediaShell{position:relative;margin:0}
 .chototFeedCard>.chototMediaShell:first-child{margin-top:-15px;margin-bottom:14px}
-.chototMediaRail{display:flex;width:100%;height:194px;gap:8px;padding:0 16px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain;touch-action:pan-x pan-y}
+.chototMediaRail{display:flex;width:100%;height:194px;gap:8px;padding:0;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain;touch-action:pan-x pan-y}
 .chototMediaRail::-webkit-scrollbar{display:none}
 .chototMediaItem{position:relative;height:100%;flex:0 0 auto;overflow:hidden;border-radius:9px;background:#e8eaed;scroll-snap-align:start;cursor:zoom-in;-webkit-tap-highlight-color:transparent}
 .chototMediaItem[data-ratio="portrait"]{width:146px}
@@ -69,9 +69,9 @@ body.chototGalleryOpen{position:fixed;left:0;right:0;width:100%;overflow:hidden}
   .chototFeedIntro,.chototFeedCard{width:min(996px,calc(100% - 40px));margin-left:auto;margin-right:auto}
   .chototFeedIntro{padding:14px 22px;border:1px solid #e2e4e7;border-radius:12px}
   .chototFeedCard{margin-top:12px;padding:18px 22px 14px;border:1px solid #e2e4e7;border-radius:12px}
-  .chototMediaShell{margin:0 -22px}
+  .chototMediaShell{margin:0}
   .chototFeedCard>.chototMediaShell:first-child{margin-top:-18px;margin-bottom:16px}
-  .chototMediaRail{height:240px;padding:0 22px;gap:10px}
+  .chototMediaRail{height:240px;padding:0;gap:10px}
   .chototMediaItem[data-ratio="portrait"]{width:180px}
   .chototMediaItem[data-ratio="tall"]{width:135px}
   .chototMediaItem[data-ratio="square"]{width:240px}
@@ -82,8 +82,8 @@ body.chototGalleryOpen{position:fixed;left:0;right:0;width:100%;overflow:hidden}
 }
 @media(max-width:370px){
   .chototFeedCard{padding-left:14px;padding-right:14px}
-  .chototMediaShell{margin-left:-14px;margin-right:-14px}
-  .chototMediaRail{height:182px;padding-left:14px;padding-right:14px}
+  .chototMediaShell{margin-left:0;margin-right:0}
+  .chototMediaRail{height:182px;padding-left:0;padding-right:0}
   .chototMediaItem[data-ratio="portrait"]{width:137px}
   .chototMediaItem[data-ratio="tall"]{width:102px}
   .chototMediaItem[data-ratio="square"]{width:182px}

@@ -50,6 +50,13 @@ async function checkCase(name,viewport,expectedMediaHeight){
     return {firstRight:firstRect.right,counterRight:counterRect.right,delta:firstRect.right-counterRect.right};
   });
   if(Math.abs(counterAlignment.delta-9)>1)throw new Error(`${name}: media counter is not anchored to the first image: ${JSON.stringify(counterAlignment)}`);
+  const mediaInset=await page.locator('.chototFeedCard').first().evaluate(card=>{
+    const firstRect=card.querySelector('.chototMediaItem').getBoundingClientRect();
+    const cardRect=card.getBoundingClientRect();
+    const style=getComputedStyle(card);
+    return {actual:firstRect.left-cardRect.left,expected:parseFloat(style.borderLeftWidth)+parseFloat(style.paddingLeft)};
+  });
+  if(Math.abs(mediaInset.actual-mediaInset.expected)>1)throw new Error(`${name}: first image is not aligned to the card content inset: ${JSON.stringify(mediaInset)}`);
   const restoredMediaPosition=await page.locator('.chototMediaRail').first().evaluate(async rail=>{
     rail.scrollLeft=rail.scrollWidth;
     window.dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}));
@@ -123,7 +130,7 @@ async function checkCase(name,viewport,expectedMediaHeight){
   const viewportScreenshot=path.join(artifactDir,`${name}-viewport.png`);
   await page.screenshot({path:screenshot,fullPage:true});
   await page.screenshot({path:viewportScreenshot,fullPage:false});
-  const entry={name,viewport,label:label.trim(),firstTitle,cardCount,railBox,metrics,initialMediaPosition,counterAlignment,restoredMediaPosition,mediaScenarioCoverage,imageState,touchIsolation,dragSuppressed,scrollBeforeGallery,scrollAfterGallery,screenshot,viewportScreenshot,consoleErrors,failedResources};
+  const entry={name,viewport,label:label.trim(),firstTitle,cardCount,railBox,metrics,initialMediaPosition,counterAlignment,mediaInset,restoredMediaPosition,mediaScenarioCoverage,imageState,touchIsolation,dragSuppressed,scrollBeforeGallery,scrollAfterGallery,screenshot,viewportScreenshot,consoleErrors,failedResources};
   report.cases.push(entry);
   if(failedResources.length)throw new Error(`${name}: failed resources: ${failedResources.join(' | ')}`);
   if(consoleErrors.length)throw new Error(`${name}: console errors: ${consoleErrors.join(' | ')}`);
