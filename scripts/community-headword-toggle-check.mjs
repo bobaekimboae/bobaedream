@@ -31,6 +31,8 @@ for (const width of [360, 384, 412]) {
     const header = document.querySelector('.appbar');
     const search = document.querySelector('.communitySearch');
     const compactReply = document.querySelector('.compactReply');
+    const searchIcon = search.querySelector('img');
+    const boardChevron = document.querySelector('.boardChevron');
     const sectionBox = section.getBoundingClientRect();
     const categoryBox = category.getBoundingClientRect();
     const boardBox = board.getBoundingClientRect();
@@ -55,6 +57,9 @@ for (const width of [360, 384, 412]) {
       searchText: search.textContent.trim(),
       searchWithinViewport: searchBox.left >= 0 && searchBox.right <= innerWidth,
       compactReplyFontSize: getComputedStyle(compactReply).fontSize,
+      searchIconSrc: searchIcon.getAttribute('src'),
+      searchIconLoaded: searchIcon.complete && searchIcon.naturalWidth > 0,
+      boardChevronContent: getComputedStyle(boardChevron).content,
       scrollWidth: document.documentElement.scrollWidth,
       viewport: innerWidth,
     };
@@ -72,6 +77,8 @@ for (const width of [360, 384, 412]) {
   check(metrics.searchText === '커뮤니티', `${width}px: 검색바 텍스트가 다릅니다 (${metrics.searchText})`);
   check(metrics.searchWithinViewport, `${width}px: 검색바가 화면 밖으로 잘렸습니다`);
   check(metrics.compactReplyFontSize === '13px', `${width}px: 댓글 수 글자 크기가 13px가 아닙니다 (${metrics.compactReplyFontSize})`);
+  check(metrics.searchIconSrc === 'assets/chotot-search-gray.svg' && metrics.searchIconLoaded, `${width}px: 초톳 검색 아이콘이 연결되지 않았습니다`);
+  check(metrics.boardChevronContent.includes('chotot-arrow-right.svg'), `${width}px: 초톳 오른쪽 화살표가 연결되지 않았습니다 (${metrics.boardChevronContent})`);
   check(metrics.scrollWidth <= metrics.viewport, `${width}px: 가로 화면 잘림 (${metrics.scrollWidth}/${metrics.viewport})`);
   check(await toggle.getAttribute('aria-expanded') === 'false', `${width}px: 초기 접힘 상태가 아닙니다`);
 
