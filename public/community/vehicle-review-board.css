@@ -11,3 +11,4 @@
 .vrb-summary .vrb-stars img.is-empty{filter:grayscale(1) brightness(2);opacity:.52}
 .vrb-rating .vrb-stars img.is-filled{filter:none}
 .vrb-rating .vrb-stars img.is-empty{filter:grayscale(1);opacity:.55}
+.vrb-card h3{display:-webkit-box;overflow:hidden;margin:8px 0 0;color:#222;font-size:16px;line-height:22px;letter-spacing:-.035em;-webkit-box-orient:vertical;-webkit-line-clamp:2}.vrb-card h3+p{margin-top:5px;color:#555;font-size:14px;line-height:21px}

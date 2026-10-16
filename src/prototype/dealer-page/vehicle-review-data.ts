@@ -49,6 +49,32 @@ export const ratingProfiles: Record<Powertrain, { label: string; required: Ratin
   ice: { label: "내연기관", required: ["exterior", "interior", "space", "features", "power", "fuel"], optional: [], ownerMetric: { label: "실연비", placeholder: "평균 연비", unit: "km/L" } },
 };
 
+export const reviewSeedVehicles = [
+  { id: "sag-01-m3", brand: "BMW", model: "M3", trim: "2023 M3 xDrive 컴페티션 M", powertrain: "ice" as const, logo: "bmw.png", benchmark: "고성능 세단 평균 4.4", photoKey: "sag-01" },
+  { id: "sag-02-taycan", brand: "포르쉐", model: "타이칸", trim: "2023 EV", powertrain: "ev" as const, logo: "porsche.png", benchmark: "고성능 전기 세단 평균 4.5", photoKey: "sag-02" },
+  { id: "sag-03-gls", brand: "벤츠", model: "GLS클래스", trim: "2022 GLS 580 4매틱", powertrain: "ice" as const, logo: "mercedes-benz.png", benchmark: "대형 SUV 평균 4.3", photoKey: "sag-03" },
+  { id: "sag-04-glc", brand: "벤츠", model: "GLC클래스", trim: "2024 GLC 300 4매틱 쿠페", powertrain: "ice" as const, logo: "mercedes-benz.png", benchmark: "중형 SUV 평균 4.3", photoKey: "sag-04" },
+  { id: "sag-05-eclass", brand: "벤츠", model: "E클래스", trim: "2023 E350 4매틱 AMG 라인", powertrain: "ice" as const, logo: "mercedes-benz.png", benchmark: "준대형 세단 평균 4.2", photoKey: "sag-05" },
+  { id: "sag-06-rx", brand: "렉서스", model: "RX", trim: "2022 RX 450h", powertrain: "hybrid" as const, logo: "lexus.png", benchmark: "하이브리드 SUV 평균 4.4", photoKey: "sag-06" },
+  { id: "sag-07-sclass", brand: "벤츠", model: "S클래스", trim: "2023 S350d", powertrain: "ice" as const, logo: "mercedes-benz.png", benchmark: "대형 세단 평균 4.5", photoKey: "sag-07" },
+  { id: "sag-08-gla", brand: "벤츠", model: "GLA클래스", trim: "2018 GLA 45 AMG 4매틱", powertrain: "ice" as const, logo: "mercedes-benz.png", benchmark: "고성능 소형 SUV 평균 4.1", photoKey: "sag-08" },
+  { id: "sag-09-defender", brand: "랜드로버", model: "올 뉴 디펜더", trim: "2025 90 D250 X다이나믹 SE", powertrain: "ice" as const, logo: "land-rover.png", benchmark: "대형 SUV 평균 4.3", photoKey: "sag-09" },
+  { id: "sag-10-7series", brand: "BMW", model: "7시리즈", trim: "2021 740Li xDrive", powertrain: "ice" as const, logo: "bmw.png", benchmark: "대형 세단 평균 4.4", photoKey: "sag-10" },
+  { id: "sag-11-eclass", brand: "벤츠", model: "E클래스", trim: "2002 E240", powertrain: "ice" as const, logo: "mercedes-benz.png", benchmark: "올드 세단 평균 4.0", photoKey: "sag-11" },
+  { id: "sag-12-cls", brand: "벤츠", model: "CLS클래스", trim: "2022 CLS 450 4매틱", powertrain: "ice" as const, logo: "mercedes-benz.png", benchmark: "4도어 쿠페 평균 4.3", photoKey: "sag-12" },
+  { id: "sag-13-sclass", brand: "벤츠", model: "S클래스", trim: "2021 S500L 4매틱", powertrain: "ice" as const, logo: "mercedes-benz.png", benchmark: "대형 세단 평균 4.5", photoKey: "sag-13" },
+  { id: "sag-14-4series", brand: "BMW", model: "4시리즈", trim: "2021 M440i xDrive 쿠페", powertrain: "ice" as const, logo: "bmw.png", benchmark: "고성능 쿠페 평균 4.4", photoKey: "sag-14" },
+  { id: "sag-15-sclass", brand: "벤츠", model: "S클래스", trim: "2022 S500L 4매틱", powertrain: "ice" as const, logo: "mercedes-benz.png", benchmark: "대형 세단 평균 4.5", photoKey: "sag-15" },
+  { id: "sag-16-flying-spur", brand: "벤틀리", model: "플라잉스퍼", trim: "2022 4.0 V8", powertrain: "ice" as const, logo: "bentley.png", benchmark: "럭셔리 세단 평균 4.6", photoKey: "sag-16" },
+  { id: "sag-17-ftype", brand: "재규어", model: "F-타입", trim: "2014 쿠페 3.0", powertrain: "ice" as const, logo: "jaguar.png", benchmark: "스포츠 쿠페 평균 4.3", photoKey: "sag-17" },
+  { id: "sag-18-defender", brand: "랜드로버", model: "올 뉴 디펜더", trim: "2026 110 D250 X다이나믹 SE", powertrain: "ice" as const, logo: "land-rover.png", benchmark: "대형 SUV 평균 4.3", photoKey: "sag-18" },
+  { id: "sag-19-macan", brand: "포르쉐", model: "마칸", trim: "2016 3.0 S 디젤", powertrain: "ice" as const, logo: "porsche.png", benchmark: "스포츠 SUV 평균 4.3", photoKey: "sag-19" },
+  { id: "sag-20-sclass", brand: "벤츠", model: "S클래스", trim: "2021 S450L 4매틱", powertrain: "ice" as const, logo: "mercedes-benz.png", benchmark: "대형 세단 평균 4.5", photoKey: "sag-20" },
+  { id: "sag-21-avante", brand: "현대", model: "더 뉴 아반떼", trim: "2024 1.6 스마트", powertrain: "ice" as const, logo: "hyundai.png", benchmark: "준중형 세단 평균 4.1", photoKey: "sag-21" },
+  { id: "sag-22-carnival", brand: "기아", model: "카니발", trim: "2021 9인승 가솔린", powertrain: "ice" as const, logo: "kia.png", benchmark: "대형 MPV 평균 4.2", photoKey: "sag-22" },
+  { id: "sag-23-maybach", brand: "벤츠", model: "마이바흐 S580", trim: "2021 S580 4매틱", powertrain: "ice" as const, logo: "maybach.png", benchmark: "최상위 럭셔리 세단 평균 4.7", photoKey: "sag-23" },
+] as const;
+
 export const reviewModels = [
   { id: "ev-a06", brand: "현대", model: "아이오닉 6", trim: "2026 롱레인지 2WD", powertrain: "ev" as const, logo: "hyundai.png", benchmark: "전기 세단 평균 4.3" },
   { id: "phev-xc60", brand: "볼보", model: "XC60", trim: "2026 T8 AWD 플러그인 하이브리드", powertrain: "phev" as const, logo: "volvo.png", benchmark: "중형 SUV 평균 4.4" },
@@ -56,6 +82,7 @@ export const reviewModels = [
   { id: "erev-m7", brand: "AITO", model: "M7", trim: "2026 Max AWD 주행거리 연장형", powertrain: "erev" as const, logo: "", benchmark: "중형 SUV 평균 4.4" },
   { id: "ice-m3", brand: "BMW", model: "M3", trim: "2025 컴페티션 M xDrive", powertrain: "ice" as const, logo: "bmw.png", benchmark: "고성능 세단 평균 4.4" },
   { id: "ev-preview", brand: "기아", model: "EV4", trim: "출시 예정 · 사전 체험 모델", powertrain: "ev" as const, logo: "kia.png", benchmark: "준중형 전기차", released: false },
+  ...reviewSeedVehicles,
 ] as const;
 
 export type ReviewModel = (typeof reviewModels)[number];

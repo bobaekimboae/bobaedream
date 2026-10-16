@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { asset, type Car } from "../data";
-import { ratingCategories, ratingComment, ratingProfiles, reviewModels, type RatingCategoryId, type ReviewModel } from "./vehicle-review-data";
+import { ratingCategories, ratingComment, ratingProfiles, reviewModels, reviewSeedVehicles, type RatingCategoryId, type ReviewModel } from "./vehicle-review-data";
 import "./vehicle-review-board.css";
 import "./vehicle-review-board-variables.css";
 
@@ -11,6 +11,7 @@ type ReviewSort = "all" | "latest" | "negative" | "liked";
 type SavedReview = {
   id: string;
   modelId: ReviewModel["id"];
+  title: string;
   ratings: ScoreMap;
   body: string;
   owner: boolean;
@@ -56,13 +57,46 @@ function ReviewIcon({ name, size }: { name: ReviewIconName; size?: number }) {
   return <img className="vr-ui-icon" src={publicIcon(reviewIcons[name])} alt="" aria-hidden="true" style={size ? { width: size, height: size } : undefined} />;
 }
 
-const seedReviews: SavedReview[] = [
-  { id: "sample-bmw-m3", modelId: "ice-m3", ratings: { exterior: 4.5, interior: 4, space: 3.5, features: 4, power: 5, fuel: 2.5 }, body: "고속에서 차체가 안정적이고 스티어링 반응이 정확합니다. 일상 주행에서는 승차감이 단단하지만 운전 재미는 확실합니다.", owner: true, purchaseDate: "2026-03", location: "서울", price: "12,300", ownerMetric: "7.4", createdAt: "2026-10-15", likes: 54, comments: 20, author: "M드라이버92", ownershipLabel: "보유 7개월" },
-  { id: "sample-ioniq6", modelId: "ev-a06", ratings: { exterior: 4, interior: 4, space: 4, features: 4.5, driving: 4.5, range: 4.5, adas: 4 }, body: "출퇴근과 주말 장거리 모두 사용하고 있습니다. 실제 주행거리와 충전 효율이 만족스럽고 고속도로 주행 보조도 편리합니다.", owner: true, purchaseDate: "2026-01", location: "경기", price: "5,400", ownerMetric: "438", createdAt: "2026-10-13", likes: 38, comments: 9, author: "전기차일상", ownershipLabel: "보유 9개월" },
-  { id: "sample-xc60", modelId: "phev-xc60", ratings: { exterior: 4.5, interior: 4.5, space: 4, features: 4.5, driving: 4, range: 3.5, cockpit: 4 }, body: "평일에는 전기로 출퇴근하고 주말 장거리는 엔진을 함께 사용합니다. 실내 마감과 안전 사양은 만족스럽고 순수 전기 주행거리는 날씨에 따라 차이가 납니다.", owner: true, purchaseDate: "2026-02", location: "인천", price: "8,900", ownerMetric: "67", createdAt: "2026-10-10", likes: 31, comments: 7, author: "볼보패밀리", ownershipLabel: "보유 8개월" },
-  { id: "sample-camry", modelId: "hybrid-camry", ratings: { exterior: 3.5, interior: 3.5, space: 4, features: 3, power: 3.5, fuel: 4.5 }, body: "막히는 시내에서 연비가 특히 좋고 승차감도 편안합니다. 인포테인먼트 구성은 다소 단순하지만 패밀리 세단으로는 균형이 좋습니다.", owner: false, location: "부산", createdAt: "2026-10-08", likes: 17, comments: 4, author: "시승기록", ownershipLabel: "시승 리뷰" },
-  { id: "sample-m7", modelId: "erev-m7", ratings: { exterior: 3, interior: 3, space: 3.5, features: 3, driving: 2.5, range: 2.5, adas: 2.5, cockpit: 3 }, body: "도심에서는 전기차처럼 조용하지만 장거리 주행 시 기대한 만큼 효율이 나오지 않았습니다. 공간은 넉넉한 편이고 고속 주행감은 직접 시승해 보는 편이 좋습니다.", owner: false, location: "대전", createdAt: "2026-10-04", likes: 12, comments: 3, author: "SUV탐험대", ownershipLabel: "시승 리뷰" },
-];
+const reviewBodies = [
+  "출퇴근과 주말 장거리에서 함께 운행했습니다. 차체가 안정적이고 조향 반응이 자연스러우며, 실내 정숙성과 시트 편안함도 기대했던 수준입니다.",
+  "도심 정체 구간과 고속도로를 번갈아 주행했습니다. 가속과 제동이 매끄럽고 시야가 편안하지만, 노면이 거친 구간에서는 승차감이 조금 단단하게 느껴집니다.",
+  "가족과 여행하며 적재 공간과 2열 승차감을 집중해서 봤습니다. 장거리 피로도가 낮고 기본 편의 사양이 충분해 일상용으로 만족스럽습니다.",
+] as const;
+const titleSuffixes = ["실사용 솔직 후기", "출퇴근·장거리 주행 후기", "승차감과 유지비 체감 후기"] as const;
+const reviewAuthors = ["드라이브로그", "차생활연구소", "주말오너", "매일출근러", "패밀리카유저", "모터다이어리", "서울드라이버", "로드테스터"] as const;
+const reviewLocations = ["서울", "경기", "인천", "부산", "대구", "대전"] as const;
+
+function seedRatings(powertrain: ReviewModel["powertrain"], index: number): ScoreMap {
+  const values = [3.5, 4, 4.5, 4, 3.5, 4.5, 4, 3.5];
+  if (powertrain === "ev" || powertrain === "phev" || powertrain === "erev") {
+    return { exterior: values[index % 8], interior: values[(index + 1) % 8], space: values[(index + 2) % 8], features: values[(index + 3) % 8], driving: values[(index + 4) % 8], range: values[(index + 5) % 8], adas: values[(index + 6) % 8], cockpit: values[(index + 7) % 8] };
+  }
+  return { exterior: values[index % 8], interior: values[(index + 1) % 8], space: values[(index + 2) % 8], features: values[(index + 3) % 8], power: values[(index + 4) % 8], fuel: values[(index + 5) % 8] };
+}
+
+const seedReviews: SavedReview[] = Array.from({ length: 50 }, (_, index) => {
+  const vehicle = reviewSeedVehicles[index % reviewSeedVehicles.length];
+  const variant = Math.floor(index / reviewSeedVehicles.length);
+  const owner = index % 4 !== 3;
+  return {
+    id: `review-${vehicle.photoKey}-${variant + 1}`,
+    modelId: vehicle.id,
+    title: `${vehicle.brand} ${vehicle.model} ${titleSuffixes[(index + variant) % titleSuffixes.length]}`,
+    ratings: seedRatings(vehicle.powertrain, index),
+    body: reviewBodies[(index + variant) % reviewBodies.length],
+    owner,
+    purchaseDate: owner ? `202${3 + (index % 4)}-${String((index % 12) + 1).padStart(2, "0")}` : undefined,
+    location: reviewLocations[index % reviewLocations.length],
+    price: owner ? String(3200 + index * 170) : undefined,
+    ownerMetric: owner ? (vehicle.powertrain === "ev" ? String(360 + index % 90) : String((7.2 + (index % 7) * 0.6).toFixed(1))) : undefined,
+    imageData: asset(`cars/seoul-autogallery-v01/${vehicle.photoKey}-${(index % 5) + 1}.webp`),
+    createdAt: `2026-10-${String(16 - (index % 15)).padStart(2, "0")}`,
+    likes: 12 + (index * 7) % 89,
+    comments: 2 + (index * 3) % 24,
+    author: reviewAuthors[index % reviewAuthors.length],
+    ownershipLabel: owner ? `보유 ${3 + (index % 21)}개월` : "시승 리뷰",
+  };
+});
 
 function loadReviews() {
   try {
@@ -129,6 +163,7 @@ function ReviewWriter({ onCancel, onSaved }: { onCancel: () => void; onSaved: (r
   const [showOptional, setShowOptional] = useState(false);
   const [showModelPicker, setShowModelPicker] = useState(false);
   const [owner, setOwner] = useState(true);
+  const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [purchaseDate, setPurchaseDate] = useState("");
   const [location, setLocation] = useState("");
@@ -142,11 +177,12 @@ function ReviewWriter({ onCancel, onSaved }: { onCancel: () => void; onSaved: (r
   const unreleased = "released" in model && model.released === false;
 
   const changeModel = (next: ReviewModel) => {
-    if (Object.keys(ratings).length || body) {
+    if (Object.keys(ratings).length || title || body) {
       if (!window.confirm("차량을 바꾸면 입력한 별점과 내용이 초기화됩니다. 변경할까요?")) return;
     }
     setModel(next);
     setRatings({});
+    setTitle("");
     setBody("");
     setShowOptional(false);
     setOwnerMetric("");
@@ -159,17 +195,18 @@ function ReviewWriter({ onCancel, onSaved }: { onCancel: () => void; onSaved: (r
   };
 
   const cancel = () => {
-    if ((Object.keys(ratings).length || body || imageData) && !window.confirm("작성 중인 리뷰를 닫을까요? 입력한 내용은 저장되지 않습니다.")) return;
+    if ((Object.keys(ratings).length || title || body || imageData) && !window.confirm("작성 중인 리뷰를 닫을까요? 입력한 내용은 저장되지 않습니다.")) return;
     onCancel();
   };
 
   const submit = () => {
+    if (title.trim().length < 5) { setError("리뷰 제목을 5자 이상 입력해 주세요."); return; }
     const missing = profile.required.filter((id) => !ratings[id]);
     if (missing.length) { setError(`${missing.map((id) => ratingCategories[id].label).join(", ")} 항목의 별점을 선택해 주세요.`); return; }
     if (owner && (!purchaseDate || !location || !price || !ownerMetric)) { setError("실소유자 정보의 필수 항목을 입력해 주세요."); return; }
     if (body.trim().length < 30) { setError(`리뷰를 30자 이상 작성해 주세요. 현재 ${body.trim().length}자예요.`); return; }
     if (unreleased && !imageData) { setError("출시 예정 모델은 시승·체험을 확인할 수 있는 사진을 추가해 주세요."); return; }
-    const review: SavedReview = { id: `local-${Date.now()}`, modelId: model.id, ratings, body: body.trim(), owner, purchaseDate, location, price, ownerMetric, imageData: imageData || undefined, createdAt: new Date().toISOString().slice(0, 10), likes: 0, comments: 0, author: "보배드림 회원", ownershipLabel: owner ? "실소유자" : "시승 리뷰" };
+    const review: SavedReview = { id: `local-${Date.now()}`, modelId: model.id, title: title.trim(), ratings, body: body.trim(), owner, purchaseDate, location, price, ownerMetric, imageData: imageData || undefined, createdAt: new Date().toISOString().slice(0, 10), likes: 0, comments: 0, author: "보배드림 회원", ownershipLabel: owner ? "실소유자" : "시승 리뷰" };
     const current = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "[]") as SavedReview[];
     localStorage.setItem(STORAGE_KEY, JSON.stringify([review, ...current]));
     onSaved(review);
@@ -178,6 +215,8 @@ function ReviewWriter({ onCancel, onSaved }: { onCancel: () => void; onSaved: (r
   return <section className="vr-write" aria-label="차량 리뷰 등록">
     <header className="vr-write-head"><button type="button" onClick={cancel} aria-label="닫기"><ReviewIcon name="close" /></button><strong>차량 리뷰</strong><button type="button" onClick={submit}><ReviewIcon name="write" /> 등록</button></header>
     <div className="vr-exposure"><b>300자 이상 자세히 작성하면 노출 기회가 높아져요</b><span><i style={{ width: `${progress}%` }} /></span><small><span>등록 가능</span><span>300자 상세 리뷰</span></small></div>
+
+    <label className="vr-write-card vr-title-field"><span><b>리뷰 제목</b><small>{title.length}/60</small></span><input value={title} maxLength={60} onChange={(event) => { setTitle(event.target.value); setError(""); }} placeholder="차량 경험이 잘 드러나는 제목을 입력해 주세요" autoFocus /></label>
 
     <section className="vr-write-card vr-vehicle-card" aria-label="평가 차량과 소유 여부">
       <button type="button" className="vr-selected-model" onClick={() => setShowModelPicker(true)}><Logo model={model} large /><span><b>{model.brand} {model.model}</b><small>{model.trim}</small><em>{profile.label}</em></span><ReviewIcon name="chevronRight" /></button>
@@ -245,6 +284,7 @@ function ReviewList({ reviews, cars, onWrite, onOpen }: { reviews: SavedReview[]
         <header><Logo model={model} /><span><b>{review.author ?? "보배드림 회원"}{review.owner ? <em><ReviewIcon name="check" /> 인증</em> : null}</b><small>{model.brand} {model.model} · {review.location ?? "지역 미입력"}</small></span><button type="button" aria-pressed={following.has(review.id)} onClick={() => setFollowing((current) => { const next = new Set(current); if (next.has(review.id)) next.delete(review.id); else next.add(review.id); return next; })}>{following.has(review.id) ? "구독 중" : "구독"}</button></header>
         <button type="button" className="vr-card-open" onClick={() => onOpen(review)}>
           <div className="vr-card-rating"><ScoreStars score={score} size={20} /><strong>{score.toFixed(1)}</strong><span>{score >= 4.5 ? "매우 만족" : score >= 4 ? "만족" : score >= 3 ? "보통" : "아쉬움"}</span><small>{model.trim.split(" ")[0]} · {review.ownershipLabel ?? (review.owner ? "실소유자" : "시승 리뷰")}</small></div>
+          <h3>{review.title || `${model.brand} ${model.model} 사용자 리뷰`}</h3>
           <p>{review.body}</p>
           {review.imageData ? <img src={review.imageData} alt="리뷰 차량" /> : image ? <img src={asset(image.listThumb ?? image.image)} alt="" aria-hidden="true" /> : null}
           <footer><span>{review.createdAt}</span><span>도움돼요 {review.likes ?? 0} · 댓글 {review.comments ?? 0}</span></footer>
@@ -271,6 +311,7 @@ function ReviewDetail({ review, cars, onBack, onDelete }: { review: SavedReview;
   return <article className="vr-detail">
     <header className="vr-detail-head"><button type="button" onClick={onBack} aria-label="목록으로"><ReviewIcon name="back" /></button><strong>차량 리뷰</strong><button type="button" aria-label="공유" onClick={async () => { await navigator.clipboard?.writeText(window.location.href); setCopied(true); window.setTimeout(() => setCopied(false), 1400); }}><ReviewIcon name="share" /></button></header>
     <div className="vr-detail-model"><Logo model={model} large /><span><h2>{review.author ?? "보배드림 회원"}{review.owner ? <em><ReviewIcon name="check" /> 실소유자</em> : null}</h2><p>{model.brand} {model.model} · {review.location ?? "지역 미입력"}</p></span><button type="button" aria-pressed={subscribed} onClick={() => setSubscribed((value) => !value)}>{subscribed ? "구독 중" : "구독"}</button></div>
+    <div className="vr-detail-title"><h1>{review.title || `${model.brand} ${model.model} 사용자 리뷰`}</h1></div>
     <div className="vr-detail-score"><div><b>{model.brand} {model.model}</b><ScoreStars score={score} size={20} /><strong>{score.toFixed(2)}</strong><em>{score >= 4.5 ? "매우 만족" : score >= 4 ? "만족" : score >= 3 ? "보통" : "아쉬움"}</em></div><small>{model.trim} · {model.benchmark}</small></div>
     <div className="vr-detail-ratings">{[...profile.required, ...profile.optional].filter((id) => review.ratings[id]).map((id) => { const value = review.ratings[id] ?? 0; const comment = ratingComment(id, value); return <div key={id}><span><b>{ratingCategories[id].label}</b><small>{comment.korean}</small></span><strong>{value.toFixed(1)}</strong><i><em style={{ width: `${value * 20}%` }} /></i></div>; })}</div>
     {review.owner ? <dl className="vr-detail-owner"><div><dt>소유자 인증</dt><dd>실소유자 리뷰</dd></div><div><dt>구매 시기</dt><dd>{review.purchaseDate ?? "미입력"}</dd></div><div><dt>구매 지역</dt><dd>{review.location ?? "미입력"}</dd></div><div><dt>차량 가격</dt><dd>{review.price ? `${review.price}만원` : "미입력"}</dd></div><div><dt>{profile.ownerMetric.label}</dt><dd>{review.ownerMetric ? `${review.ownerMetric}${profile.ownerMetric.unit}` : "미입력"}</dd></div></dl> : null}
