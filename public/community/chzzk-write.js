@@ -44,6 +44,17 @@
     toastTimer = window.setTimeout(() => { toast.hidden = true; }, 1500);
   };
   const bodyText = () => body.innerText.trim();
+  /* 임시저장 글을 되살릴 때: 글자·서식만 남기고 스크립트·on* 속성·javascript: 주소는 걷어 낸다 */
+  const safeDraftHtml = (html) => {
+    const doc = new DOMParser().parseFromString(`<div>${html}</div>`, 'text/html');
+    doc.querySelectorAll('script,style,iframe[srcdoc],object,embed,link,meta').forEach((node) => node.remove());
+    doc.body.querySelectorAll('*').forEach((node) => {
+      [...node.attributes].forEach((attr) => {
+        if (/^on/i.test(attr.name) || (/^(href|src|xlink:href|action|formaction)$/i.test(attr.name) && /^\s*javascript:/i.test(attr.value))) node.removeAttribute(attr.name);
+      });
+    });
+    return doc.body.firstChild ? doc.body.firstChild.innerHTML : '';
+  };
   const syncSubmit = () => {
     const ready = Boolean(state.board && title.value.trim() && (bodyText() || state.photos.length || state.videos.length || body.querySelector('.write-embed')));
     $$('.submit-button,.footer-submit').forEach((button) => { button.disabled = !ready; });
@@ -63,7 +74,7 @@
   function renderTagsSheet() {
     sheetBody.innerHTML = `<div class="sheet-form"><input id="tagInput" maxlength="120" placeholder="#으로 구분, 최대 10개" value="${state.tags.map((tag) => `#${escapeHtml(tag)}`).join(' ')}"><p class="sheet-note">예: #자동차 #드라이브 #정비</p></div>`;
     sheetPrimary.onclick = () => {
-      state.tags = $('#tagInput').value.split('#').map((value) => value.trim()).filter(Boolean).slice(0,10);
+      state.tags = [...new Set($('#tagInput').value.split('#').map((value) => value.trim()).filter(Boolean))].slice(0,10);
       $('#tagSummary').textContent = state.tags.length ? state.tags.map((tag) => `#${tag}`).join(' ') : '#태그 입력 (#으로 구분, 최대 10개)';
       closeSheet();
     };
@@ -266,7 +277,7 @@
       if (!state.board) state.board = draft.board || '';
       if (draft.title || draft.body) {
         title.value = draft.title || '';
-        body.innerHTML = draft.body || '';
+        body.innerHTML = safeDraftHtml(draft.body || '');
         state.tags = Array.isArray(draft.tags) ? draft.tags : [];
         if (state.tags.length) $('#tagSummary').textContent = state.tags.map((tag) => `#${tag}`).join(' ');
         $('#hideBody').checked = Boolean(draft.hideBody);
