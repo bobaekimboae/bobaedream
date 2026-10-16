@@ -82,6 +82,13 @@
       location:String(row.location||'').trim(),
       ratings:list(row.ratings),
       brandLogo:String(row.brandLogo||'').trim(),
+      energyId:String(row.energyId||row.id||'').trim(),
+      city:String(row.city||'').trim(),
+      odometer:String(row.odometer||'').trim(),
+      fuelConsumption:String(row.fuelConsumption||'').trim(),
+      energyConsumption:String(row.energyConsumption||'').trim(),
+      fullChargeRange:String(row.fullChargeRange||'').trim(),
+      verified:String(row.verified||'').toLowerCase()==='true',
       embeds:embeds
     };
   }

@@ -1,0 +1,82 @@
+{
+  "ok": true,
+  "pass": 18,
+  "fail": 0,
+  "failures": [],
+  "errors": [],
+  "results": [
+    {
+      "label": "독립 게시판 테스트 기록 20개",
+      "pass": true
+    },
+    {
+      "label": "모든 피드 카드에 에너지 수치 표시",
+      "pass": true
+    },
+    {
+      "label": "모든 피드 카드에 브랜드 엠블럼 표시",
+      "pass": true
+    },
+    {
+      "label": "게시판명이 연비·전비로 표시",
+      "pass": true
+    },
+    {
+      "label": "전기차 필터 동작",
+      "pass": true
+    },
+    {
+      "label": "전기차 필터 결과 일치",
+      "pass": true
+    },
+    {
+      "label": "전기차 상세에 전비와 완충 실주행거리 표시",
+      "pass": true
+    },
+    {
+      "label": "상세 댓글 입력 기능 표시",
+      "pass": true
+    },
+    {
+      "label": "상세 하단 동작 버튼 표시",
+      "pass": true
+    },
+    {
+      "label": "전용 글쓰기 화면 진입",
+      "pass": true
+    },
+    {
+      "label": "차량 선택 전 에너지 입력란 숨김",
+      "pass": true
+    },
+    {
+      "label": "전기차 가변 항목 정확",
+      "pass": true
+    },
+    {
+      "label": "플러그인 하이브리드 가변 항목 정확",
+      "pass": true
+    },
+    {
+      "label": "내연기관 가변 항목 정확",
+      "pass": true
+    },
+    {
+      "label": "새 기록 저장 후 상세 수치 유지",
+      "pass": true
+    },
+    {
+      "label": "새 기록 저장 후 주행거리 유지",
+      "pass": true
+    },
+    {
+      "label": "PC에서 읽기 폭 620px 이하 유지",
+      "pass": true
+    },
+    {
+      "label": "브라우저 오류 0건 ()",
+      "pass": true
+    }
+  ],
+  "outputDir": "C:\\Users\\bobae\\.codex\\worktrees\\deploy-vehicle-review-1017\\artifacts\\community-fuel-economy-gate-1017"
+}

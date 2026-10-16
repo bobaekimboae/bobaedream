@@ -7,6 +7,7 @@ import { BuildBadge } from "./prototype/build-badge";
 import MainHome from "./main-home/MainHome";
 import DealerPage from "./prototype/dealer-page/DealerPage";
 import CommunityVehicleReviewPage from "./prototype/community-review/CommunityVehicleReviewPage";
+import CommunityFuelEconomyPage from "./prototype/community-fuel-economy/CommunityFuelEconomyPage";
 import "./prototype.css";
 
 // JOB-7: ?register 매물 등록 화면(dev /car/register 동일).
@@ -28,6 +29,7 @@ const shouldShowMainHome = () => {
 };
 const shouldShowDealerPage = () => new URLSearchParams(window.location.search).get("profile") === "dealer";
 const shouldShowCommunityReviews = () => new URLSearchParams(window.location.search).get("community") === "reviews";
+const shouldShowCommunityFuelEconomy = () => new URLSearchParams(window.location.search).get("community") === "fuel-economy";
 const shouldShowRegister = () => new URLSearchParams(window.location.search).has("register");
 
 export default function Prototype() {
@@ -36,7 +38,7 @@ export default function Prototype() {
 
   useEffect(() => {
     const root = document.documentElement;
-    if (showMainHome || shouldShowDealerPage() || shouldShowCommunityReviews()) {
+    if (showMainHome || shouldShowDealerPage() || shouldShowCommunityReviews() || shouldShowCommunityFuelEconomy()) {
       root.removeAttribute("data-force-mobile");
       root.removeAttribute("data-force-mobile-wide");
       root.style.removeProperty("--force-mobile-scale");
@@ -71,6 +73,7 @@ export default function Prototype() {
   }, [showMainHome]);
 
   if (showRegister) return <><RegisterPage /><BuildBadge /></>;
+  if (shouldShowCommunityFuelEconomy()) return <><CommunityFuelEconomyPage /><BuildBadge /></>;
   if (shouldShowCommunityReviews()) return <><CommunityVehicleReviewPage /><BuildBadge /></>;
   if (shouldShowDealerPage()) return <><DealerPage /><BuildBadge /></>;
   if (showMainHome) return <MainHome />;

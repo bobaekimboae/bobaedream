@@ -60,6 +60,7 @@
     "community:verify:emoji": "node scripts/community-emoji-data-check.mjs",
     "community:verify:headwords": "node scripts/community-headword-toggle-check.mjs",
     "community:verify:vehicle-review-rating": "node qa/community-vehicle-review-rating-matrix/rating-matrix.mjs",
+    "community:verify:fuel-economy": "node qa/community-fuel-economy/flow-gate.mjs",
     "news:sources": "node scripts/foreign-news/import-sources.mjs",
     "news:discover": "node scripts/foreign-news/discover-feeds.mjs",
     "news:collect": "node scripts/foreign-news/collect.mjs",

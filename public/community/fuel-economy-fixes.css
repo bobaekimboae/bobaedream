@@ -1,0 +1,33 @@
+.phone.fuelEconomyBoardMode .boardTools,
+.phone.fuelEconomyBoardMode .boardDescriptionSection,
+.phone.fuelEconomyBoardMode .headwordSection,
+.phone.fuelEconomyBoardMode .noticeRow {
+  display: none !important;
+}
+
+.phone.fuelEconomyBoardMode .boardTop {
+  height: 68px;
+  margin-top: 8px;
+  border-bottom: 1px solid #ececee;
+}
+
+.phone.fuelEconomyBoardMode .boardStats {
+  left: 76px;
+  bottom: 5px;
+}
+
+.phone.fuelEconomyDetailMode > .appbar,
+.phone.fuelEconomyDetailMode > .boardChannelNav,
+.phone.fuelEconomyDetailMode > .boardHero,
+.phone.fuelEconomyDetailMode > .boardTop,
+.phone.fuelEconomyDetailMode > .boardDescriptionSection,
+.phone.fuelEconomyDetailMode > .headwordSection,
+.phone.fuelEconomyDetailMode > .popularSection,
+.phone.fuelEconomyDetailMode > .bottomSpace,
+.phone.fuelEconomyDetailMode > .fab {
+  display: none !important;
+}
+
+.phone.fuelEconomyDetailMode .fuelEconomyDetailList {
+  min-height: 100dvh;
+}
