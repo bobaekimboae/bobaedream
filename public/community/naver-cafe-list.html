@@ -8,9 +8,9 @@
 <link rel="stylesheet" href="../%61ssets/fonts/pretendard/pretendard-guazi.css">
 <link rel="stylesheet" href="./reddit-feed.css?v=20261016redditicons1">
 <link rel="stylesheet" href="./news-card.css?v=20261017threads1">
-<link rel="stylesheet" href="./naver-discussion-feed.css?v=20261017sum3c">
+<link rel="stylesheet" href="./naver-discussion-feed.css?v=20261017sum3d">
 <link rel="stylesheet" href="./chotot-feed.css?v=20261016saveicon1">
-<link rel="stylesheet" href="./reddit-popular.css?v=20261016besttable1">
+<link rel="stylesheet" href="./reddit-popular.css?v=20261017bestcolor1">
 <link rel="stylesheet" href="./hupu-board-navigation.css?v=20261016reorder3">
 <link rel="stylesheet" href="./reddit-board-profile.css?v=20261016redditsubscribe2">
 <link rel="stylesheet" href="./board-header-variants.css?v=20261016genesiskr2">
@@ -159,8 +159,7 @@ function renderCafePopular(leftThumb){
     var clean=esc(p.title).replace(/^\[[^\]]+\]\s*/,'');
     var image=p.thumb||(leftThumb?(thumbPool[index%thumbPool.length]||fallbackThumb):'');
     var hasThumb=!!image;
-    var featured=cafePopularMetric==='popular'&&index<3;
-    return '<article class="naverCafePopularRow '+(hasThumb?'hasThumb ':'')+(featured?'isPopular':'')+'" data-id="'+p.id+'"><button type="button" class="naverCafePopularMain" aria-label="'+clean+'">'+(p.fresh&&!leftThumb?'<i class="naverCafeNew" aria-hidden="true"></i>':'')+'<span class="naverCafePopularBody"><strong>'+(featured?'<span class="naverCafePopularBadge" aria-label="인기 '+(index+1)+'위">'+(index+1)+'</span>':'')+clean+'</strong><span class="naverCafePopularMeta"><span>'+esc(p.user)+'</span><span>'+esc(p.local?'방금 전':'10.'+String(Math.max(1,17-Math.floor(index/6))).padStart(2,'0'))+'</span><span>조회 '+esc(view(p.view))+'</span></span></span>'+(hasThumb?'<span class="naverCafePopularThumb"><img src="'+esc(image)+'" alt="" loading="'+(index<6?'eager':'lazy')+'">'+(p.photos?'<b>'+p.photos+'+</b>':'')+'</span>':'')+'</button><button type="button" class="naverCafePopularReply" aria-label="댓글 '+esc(countFull(p.reply))+'개"><b>'+esc(count(p.reply))+'</b><span>댓글</span></button></article>';
+    return '<article class="naverCafePopularRow '+(hasThumb?'hasThumb':'')+'" data-id="'+p.id+'"><button type="button" class="naverCafePopularMain" aria-label="'+clean+'">'+(p.fresh&&!leftThumb?'<i class="naverCafeNew" aria-hidden="true"></i>':'')+'<span class="naverCafePopularBody"><strong>'+clean+'</strong><span class="naverCafePopularMeta"><span>'+esc(p.user)+'</span><span>'+esc(p.local?'방금 전':'10.'+String(Math.max(1,17-Math.floor(index/6))).padStart(2,'0'))+'</span><span>조회 '+esc(view(p.view))+'</span></span></span>'+(hasThumb?'<span class="naverCafePopularThumb"><img src="'+esc(image)+'" alt="" loading="'+(index<6?'eager':'lazy')+'">'+(p.photos?'<b>'+p.photos+'+</b>':'')+'</span>':'')+'</button><button type="button" class="naverCafePopularReply" aria-label="댓글 '+esc(countFull(p.reply))+'개"><b>'+esc(count(p.reply))+'</b><span>댓글</span></button></article>';
   }).join('')+'</div>';
   [].forEach.call(list.querySelectorAll('[data-cafe-metric]'),function(button){button.onclick=function(){cafePopularMetric=button.dataset.cafeMetric;renderCafePopular(leftThumb)}});
   [].forEach.call(list.querySelectorAll('.naverCafePopularRow'),function(row){function open(){location.href='./chzzk-detail.html?id='+row.dataset.id+'&v=20261017navercafe1'}row.querySelector('.naverCafePopularMain').onclick=open;row.querySelector('.naverCafePopularReply').onclick=open});
