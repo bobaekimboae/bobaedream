@@ -105,7 +105,6 @@
     const item = window.BBM_EMBED.info(href);
     if (!item) { showToast('올바른 URL을 입력해주세요.'); return; }
     if (item.render === 'preview') item.title = '미리보기를 불러오는 중…';
-    if (item.render === 'preview') showToast('이 사이트는 임베드를 지원하지 않아 링크 카드로 보여줘요.');
     const figure = embedFigure(item);
     const after = document.createElement('p'); after.append(document.createElement('br'));
     body.focus();
@@ -116,7 +115,7 @@
       while (block && block.parentNode !== body) block = block.parentNode;
       if (block && block !== body) block.after(figure, after); else body.append(figure, after);
     } else body.append(figure, after);
-    showToast(item.render === 'iframe' ? `${item.provider} 임베드를 넣었습니다.` : '뉴스 카드를 넣었습니다.');
+    showToast(item.render === 'iframe' ? `${item.provider} 임베드를 넣었습니다.` : '이 사이트는 임베드를 지원하지 않아 링크 카드로 넣었어요.');
     if (item.render === 'preview') {
       figure.classList.add('is-loading');
       window.BBM_EMBED.fetchMeta(item.url).then((meta) => {
