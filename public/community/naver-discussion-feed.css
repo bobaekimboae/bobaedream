@@ -257,9 +257,9 @@
 @media(hover:hover) and (pointer:fine){.naverCafePopularRow:hover{background:#fafbfc}}
 @media(max-width:370px){.naverCafePopularHeader,.naverCafePopularRows{padding-left:14px}.naverCafePopularRow{padding-right:14px}.naverCafePopularBody>strong{font-size:15.5px}.naverCafePopularMeta{gap:5px;font-size:13px}.naverCafePopularRow.hasThumb .naverCafePopularMain{grid-template-columns:minmax(0,1fr) 56px;gap:8px}.naverCafePopularThumb{width:56px;height:56px}.naverCafePopularLeftMode .naverCafePopularRow.hasThumb .naverCafePopularMain{grid-template-columns:56px minmax(0,1fr)}.naverCafePopularLeftMode .naverCafePopularRow.hasThumb .naverCafeNew{left:56px}}
 
-/* 3줄 요약: 번호 1·2·3 + 한 줄씩, 넘치면 말줄임 */
+/* 3줄 요약: 번호 1·2·3, 한 항목 최대 2줄까지 보여 주고 넘치면 말줄임 */
 .naverDiscussionSummary3{margin:6px 0 0;padding:10px 12px;border-radius:8px;background:#f6f7f8;list-style:none;counter-reset:s3}
-.naverDiscussionSummary3 li{position:relative;padding-left:20px;color:#3d4148;font-size:14px;line-height:21px;letter-spacing:-.025em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;counter-increment:s3}
+.naverDiscussionSummary3 li{position:relative;display:-webkit-box;padding-left:20px;color:#3d4148;font-size:14px;line-height:21px;letter-spacing:-.025em;overflow:hidden;word-break:keep-all;-webkit-box-orient:vertical;-webkit-line-clamp:2;counter-increment:s3}
 .naverDiscussionSummary3 li+li{margin-top:4px}
 .naverDiscussionSummary3 li:before{content:counter(s3);position:absolute;left:0;top:2px;width:15px;height:17px;border-radius:4px;background:#222;color:#fff;font-size:11px;line-height:17px;font-weight:700;text-align:center}
 .naverDiscussionCard.is-thumb .naverDiscussionSummary3{padding:0;background:none}
