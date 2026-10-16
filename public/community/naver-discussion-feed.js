@@ -11,6 +11,7 @@
   var list=document.getElementById('list');
   var phone=document.querySelector('.phone');
   var typeLabel=document.getElementById('typeLabel');
+  var mediaCarousels=[];
   var scenarioMediaRoot='media/discussion-scenarios-v2/';
   var relatedScenarioMedia={
     1:[1],
@@ -98,6 +99,8 @@
     return data.map(card).join('');
   }
   function render(){
+    mediaCarousels.forEach(function(api){api.destroy();});
+    mediaCarousels=[];
     phone.classList.remove('compactMode','feedCafeMode','redditFeedMode','chototFeedMode','chototBoardFeedMode','chototDealerFeedMode');
     phone.classList.add('naverDiscussionMode');
     typeLabel.textContent='네이버 토론형';
@@ -106,6 +109,7 @@
     bind();
   }
   function bind(){
+    initMediaCarousels();
     list.querySelectorAll('[data-discussion-video]').forEach(function(button){
       var video=button.parentElement.querySelector('video');
       if(!video)return;
@@ -118,6 +122,29 @@
     });
     list.querySelectorAll('[data-discussion-vote]').forEach(function(button){button.addEventListener('click',function(){var active=button.getAttribute('aria-pressed')==='true';var cardElement=button.closest('.naverDiscussionCard');cardElement.querySelectorAll('[data-discussion-vote]').forEach(function(other){other.classList.remove('is-active');other.setAttribute('aria-pressed','false');});if(!active){button.classList.add('is-active');button.setAttribute('aria-pressed','true');}});});
     list.querySelectorAll('[data-discussion-comment]').forEach(function(button){button.addEventListener('click',function(){location.href='./chzzk-detail.html?id='+encodeURIComponent(button.dataset.discussionComment)+'#comments';});});
+  }
+
+  function initMediaCarousels(){
+    if(typeof window.EmblaCarousel!=='function')return;
+    list.querySelectorAll('.naverDiscussionMediaShell.is-multi').forEach(function(shell){
+      shell.classList.add('is-embla-ready');
+      shell.dataset.carouselEngine='embla';
+      var api=window.EmblaCarousel(shell,{
+        align:'start',
+        containScroll:'trimSnaps',
+        dragFree:true,
+        loop:false,
+        duration:24
+      });
+      shell._discussionEmbla=api;
+      api.on('pointerDown',function(){shell.classList.add('is-dragging');});
+      api.on('pointerUp',function(){shell.classList.remove('is-dragging');});
+      shell.addEventListener('keydown',function(event){
+        if(event.key==='ArrowRight'){event.preventDefault();api.scrollNext();}
+        if(event.key==='ArrowLeft'){event.preventDefault();api.scrollPrev();}
+      });
+      mediaCarousels.push(api);
+    });
   }
 
   window.renderNaverDiscussionFeed=render;
