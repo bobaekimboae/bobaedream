@@ -26,7 +26,7 @@
     displayName:"자동차뉴스",
     idStart:9100001,
     defaultView:"naver-discussion",
-    updatedAt:"2026-10-16T15:46:23.039Z",
+    updatedAt:"2026-10-16T16:11:29.792Z",
     rows:[
       {
         "id": "9100001",
@@ -523,6 +523,37 @@
         "ratings": "",
         "brandLogo": "",
         "embed": "https://n.news.naver.com/article/119/0003143757"
+      },
+      {
+        "id": "9100017",
+        "category": "국내",
+        "title": "‘우정은 뜨겁게, 승부는 치열하게’ 울산웨일즈-롱비치 코스트, 특별한 교류전의 하루",
+        "summary": "울산웨일즈와 롱비치 코스트가 특별한 교류전을 치렀다는 네이버 스포츠 기사입니다.",
+        "body": "",
+        "source": "OSEN · 네이버 스포츠",
+        "sourceUrl": "https://m.sports.naver.com/kbaseball/article/109/0005624469",
+        "author": "",
+        "publishedAt": "2026-10-17T01:01:00+09:00",
+        "thumbnail": "",
+        "images": "",
+        "views": "0",
+        "comments": "0",
+        "likes": "0",
+        "tags": "국내|야구|네이버스포츠",
+        "reviewId": "",
+        "modelId": "",
+        "brand": "",
+        "model": "",
+        "trim": "",
+        "powertrain": "",
+        "rating": "",
+        "owner": "",
+        "ownershipLabel": "",
+        "benchmark": "",
+        "location": "",
+        "ratings": "",
+        "brandLogo": "",
+        "embed": "https://m.sports.naver.com/kbaseball/article/109/0005624469"
       }
     ]
   };

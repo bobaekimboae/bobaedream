@@ -100,7 +100,7 @@
     if(!item)return '';
     var host=String(item.url||'').replace(/^https?:\/\/(www\.)?/,'').split('/')[0];
     var overseas=item.lang&&!/^ko/i.test(item.lang);
-    return '<a class="news-card" href="'+esc(item.url)+'" target="_blank" rel="noopener noreferrer">'+(item.image?'<span class="news-card-image"><img src="'+esc(item.image)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></span>':'')+'<span class="news-card-copy"><span class="news-card-site">'+(item.logo?'<img src="'+esc(item.logo)+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<span>'+esc(item.site||item.provider||host)+'</span>'+(overseas?'<em>해외</em>':'')+'</span><strong class="news-card-title">'+esc(item.title||host)+'</strong>'+(item.description?'<span class="news-card-desc">'+esc(item.description)+'</span>':'')+'<small class="news-card-url">'+esc(host)+'</small></span></a>';
+    return '<a class="news-card"'+(item.image?'':' data-embed-hydrate data-embed-title="'+esc(cleanTitle(post.title))+'"')+' href="'+esc(item.url)+'" target="_blank" rel="noopener noreferrer">'+(item.image?'<span class="news-card-image"><img src="'+esc(item.image)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></span>':'')+'<span class="news-card-copy"><span class="news-card-site">'+(item.logo?'<img src="'+esc(item.logo)+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<span>'+esc(item.site||item.provider||host)+'</span>'+(overseas?'<em>해외</em>':'')+'</span><strong class="news-card-title">'+esc(item.title||host)+'</strong>'+(item.description?'<span class="news-card-desc">'+esc(item.description)+'</span>':'')+'<small class="news-card-url">'+esc(host)+'</small></span></a>';
   }
   /* 첫 임베드가 인스타그램·유튜브 같은 재생형이면 피드 카드 안에서 바로 보여 준다 */
   function embedInlineFor(post,autoplay){
@@ -218,6 +218,7 @@
   function bind(){
     initMediaCarousels();
     if(window.BBM_EMBED&&window.BBM_EMBED.hydratePreviews)window.BBM_EMBED.hydratePreviews(list);
+    if(window.BBM_EMBED&&window.BBM_EMBED.hydrateCards)window.BBM_EMBED.hydrateCards(list);
     hydrateNewsCards();
     list.querySelectorAll('[data-discussion-video]').forEach(function(button){
       var video=button.parentElement.querySelector('video');
