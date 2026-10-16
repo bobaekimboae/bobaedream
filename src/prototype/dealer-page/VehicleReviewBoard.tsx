@@ -34,19 +34,21 @@ const autohomeLogo = (file: string) => asset(`brand/kr/${file}`);
 const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.location.href).pathname;
 const publicIcon = (path: string) => `${publicBase}${path}`;
 const reviewIcons = {
-  back: "community/assets/reddit-ui/back.svg",
+  // `%61ssets` resolves to `assets` in the browser while avoiding the Pages
+  // workflow's global `/assets/` replacement inside nested community paths.
+  back: "community/%61ssets/reddit-ui/back.svg",
   bookmark: "icons/chotot/chotot-common-bookmark.svg",
-  chat: "community/assets/reddit-ui/chat.svg",
+  chat: "community/%61ssets/reddit-ui/chat.svg",
   check: "assets/register/chotot-v01/check-mark.svg",
   chevronRight: "assets/register/chotot-v01/chevron-right.svg",
   close: "assets/register/chotot-v01/close-x.svg",
   image: "assets/register/chotot-v01/image.svg",
   info: "icons/chotot/chotot-common-info.svg",
-  like: "community/assets/reddit-ui/recommend-thumb-up.svg",
+  like: "community/%61ssets/reddit-ui/recommend-thumb-up.svg",
   share: "assets/detail/autoscout24-share.svg",
   starEmpty: "icons/chotot/chotot-common-review-star-button.svg",
   starFilled: "icons/chotot/chotot-common-review-star-selected.svg",
-  write: "community/assets/reddit-ui/write.svg",
+  write: "community/%61ssets/reddit-ui/write.svg",
 } as const;
 type ReviewIconName = keyof typeof reviewIcons;
 
