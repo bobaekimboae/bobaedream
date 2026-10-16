@@ -4699,4 +4699,26 @@ final result: passed
 - 베스트 전용 시나리오 50개를 추가해 총 56개 게시물을 두 보기방식에서 검증했다.
 - 모바일 390×844 실측: 인기글형 글자 x=58px / 간결형 글자 x=20px / 썸네일 우측 x=299.2px / 가로 넘침 0px.
 - 브라우저 검증: 인기글형 순위 56개, 간결형 순위 0개, 재방문 복원 성공, 경고·오류 0건.
+
+## 베스트글 — 네이버 랭킹뉴스형 (2026-10-17)
+
+- source visual truth: `https://media.naver.com/press/081/ranking?type=popular&date=20261017`
+- source capture: Chrome, 모바일 390×844 및 PC 1280×900 상단·목록 스크롤 캡처
+- implementation target: `/community/naver-cafe-list.html?board=best&view=naver-ranking-news`
+- 비교 기준: 모바일 순위 22px, 제목 16/21px 2줄, 조회수 14~15px, 우측 썸네일 74×74·radius 4px
+- PC 원본은 2열이나 현재 시안의 `.phone`이 PC에서도 393px로 고정되는 기존 규칙을 보존해 중앙 모바일 1열로 표시한다. 외부 viewport 기준 2열을 강제하면 제목 폭이 0이 되는 회귀가 확인되어 적용하지 않았다.
+- 콘텐츠·이미지는 네이버에서 복제하지 않고 기존 보배드림 베스트글 56개와 저장소 자산을 사용한다.
+- 주요 상호작용: 많이 본·댓글 많은·추천 많은 탭 정렬, 집계 안내 팝오버, 보기 방식 저장
+- full-view / focused comparison: 모바일 상단 탭과 1~5위 행, PC 2열 그룹을 각각 같은 viewport에서 비교한다.
+- browser-rendered evidence: 로컬 Chrome에서 390×844, 360×844, 412×844, PC 1280×900으로 렌더링 확인
+- 모바일 390px 실측: 순위 x=20 / 제목 x=54·폭 211.2·높이 42 / 썸네일 x=281.2·74×74 / 가로 넘침 0
+- 반응형 실측: 360px에서는 썸네일 70×70·가로 넘침 0, 412px에서는 74×74·가로 넘침 0
+- PC 회귀 검증: 기존 393px 중앙 프레임 유지, 행 353×88·제목 폭 229·썸네일 74×74·가로 넘침 0
+- 상호작용: 많이 본·댓글 많은·추천 많은 정렬 전환, 선택 탭 aria-selected, 집계 안내 팝오버, 보기방식 메뉴 노출, 재방문 복원 확인
+- 콘솔 경고·오류: 0건
+- full-view comparison: 모바일 원본과 구현 모두 3탭 → 랭킹 제목 → 순위/2줄 제목/메타/우측 이미지의 동일 계층을 유지한다.
+- focused comparison: 원본 모바일 첫 행의 x=20/54/281.2와 구현 첫 행의 x=20/54/281.2, 썸네일 74×74를 대조했다.
+- findings: P0/P1/P2 없음. 네이버 콘텐츠·상표 자산을 복제하지 않고 보배드림 데이터로 치환한 차이만 의도적으로 남겼다.
+- comparison history: 초기 PC 외부 viewport 기준 2열 규칙에서 393px 프레임 내부 제목 폭이 0이 되는 P1을 발견했다. 2열 미디어 규칙을 제거하고 기존 중앙 모바일 프레임 1열로 복원한 뒤 제목 폭 229px, 넘침 0을 재확인했다.
+- final result: passed
 - 자동 검증: `npm run check:runtime`, `npm run test:sites`, `npm run build` 모두 통과.
