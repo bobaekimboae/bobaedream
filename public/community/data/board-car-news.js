@@ -26,7 +26,7 @@
     displayName:"자동차뉴스",
     idStart:9100001,
     defaultView:"naver-discussion",
-    updatedAt:"2026-10-16T20:15:24.612Z",
+    updatedAt:"2026-10-16T20:41:57.530Z",
     rows:[
       {
         "id": "9100001",
@@ -63,7 +63,10 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "현대차·기아가 화성에서 2026 R&D 협력사 테크 데이를 열었다.|이 자리에서 협력사 37곳이 개발한 신기술 42건을 소개했다.|최우수상은 테일게이트 소음을 줄인 대동도어의 소프트 오프닝 래치가 받았다."
+        "summary3": "현대차·기아가 화성에서 2026 R&D 협력사 테크 데이를 열었다.|이 자리에서 협력사 37곳이 개발한 신기술 42건을 소개했다.|최우수상은 테일게이트 소음을 줄인 대동도어의 소프트 오프닝 래치가 받았다.",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100002",
@@ -100,7 +103,10 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "파리모터쇼에서 기아는 셀토스·K4 하이브리드와 고성능 GT 5종을 내세웠다.|현대차는 신형 베이온과 AI 음성비서를 앞세웠다.|두 회사는 하이브리드·고성능·전기 밴으로 중국 브랜드의 유럽 공세에 맞서고 있다."
+        "summary3": "파리모터쇼에서 기아는 셀토스·K4 하이브리드와 고성능 GT 5종을 내세웠다.|현대차는 신형 베이온과 AI 음성비서를 앞세웠다.|두 회사는 하이브리드·고성능·전기 밴으로 중국 브랜드의 유럽 공세에 맞서고 있다.",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100003",
@@ -137,7 +143,10 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "9월 수입 상용차 신규등록은 290대로 전월보다 31.2% 늘었다.|다만 1년 전 같은 달과 비교하면 소폭 줄었다.|브랜드별로는 볼보트럭이 가장 많이 등록됐다."
+        "summary3": "9월 수입 상용차 신규등록은 290대로 전월보다 31.2% 늘었다.|다만 1년 전 같은 달과 비교하면 소폭 줄었다.|브랜드별로는 볼보트럭이 가장 많이 등록됐다.",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100004",
@@ -174,7 +183,10 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "파리모터쇼가 개막하면서 현대차·기아가 신차 경쟁에 나섰다.|두 회사는 신형 SUV와 하이브리드, 고성능 GT 모델을 공개했다.|현대차는 자율주행 협력을 넓히는 방안도 검토한다고 밝혔다."
+        "summary3": "파리모터쇼가 개막하면서 현대차·기아가 신차 경쟁에 나섰다.|두 회사는 신형 SUV와 하이브리드, 고성능 GT 모델을 공개했다.|현대차는 자율주행 협력을 넓히는 방안도 검토한다고 밝혔다.",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100005",
@@ -211,7 +223,10 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "현대차가 2018년 이후 8년 만에 파리모터쇼에 다시 참가했다.|이번에는 SUV 신차와 소형 전기차, 전기 상용차를 공개한다.|전시장에는 플레오스 커넥트와 N 브랜드 체험 공간도 마련했다."
+        "summary3": "현대차가 2018년 이후 8년 만에 파리모터쇼에 다시 참가했다.|이번에는 SUV 신차와 소형 전기차, 전기 상용차를 공개한다.|전시장에는 플레오스 커넥트와 N 브랜드 체험 공간도 마련했다.",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100006",
@@ -248,7 +263,10 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "9월 수입 승용차 신규 등록은 3만4904대로 전월과 전년보다 모두 늘었다.|브랜드별로는 테슬라가 1만2372대로 1위에 올랐다.|그 결과 전기차 비중이 절반을 넘어섰다."
+        "summary3": "9월 수입 승용차 신규 등록은 3만4904대로 전월과 전년보다 모두 늘었다.|브랜드별로는 테슬라가 1만2372대로 1위에 올랐다.|그 결과 전기차 비중이 절반을 넘어섰다.",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100007",
@@ -285,7 +303,10 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "국산 완성차 5개 브랜드의 10월 브랜드평판에서 현대차가 1위를 차지했다.|기아와 KG모빌리티는 지수가 올라 그 뒤를 이었다.|반면 르노코리아와 한국지엠은 지수가 내려갔다."
+        "summary3": "국산 완성차 5개 브랜드의 10월 브랜드평판에서 현대차가 1위를 차지했다.|기아와 KG모빌리티는 지수가 올라 그 뒤를 이었다.|반면 르노코리아와 한국지엠은 지수가 내려갔다.",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100008",
@@ -322,7 +343,10 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "추석 연휴로 영업일이 줄면서 9월 국산차 내수 판매가 약 20% 감소했다.|완성차 5사 모두 1년 전보다 판매가 줄었다.|그중 현대차는 전월 대비 회복 폭이 가장 컸다."
+        "summary3": "추석 연휴로 영업일이 줄면서 9월 국산차 내수 판매가 약 20% 감소했다.|완성차 5사 모두 1년 전보다 판매가 줄었다.|그중 현대차는 전월 대비 회복 폭이 가장 컸다.",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100009",
@@ -359,7 +383,10 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "올해 4분기에는 연말 신차가 잇따라 출시된다.|디 올 뉴 투싼과 제네시스 GV80 하이브리드·GV90, BMW 신형 7시리즈 등이 대기 중이다.|다만 일부 모델은 아직 국내 출시일과 가격이 정해지지 않았다."
+        "summary3": "올해 4분기에는 연말 신차가 잇따라 출시된다.|디 올 뉴 투싼과 제네시스 GV80 하이브리드·GV90, BMW 신형 7시리즈 등이 대기 중이다.|다만 일부 모델은 아직 국내 출시일과 가격이 정해지지 않았다.",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100010",
@@ -396,7 +423,10 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "현대차가 6년 만의 5세대 완전변경 「디 올 뉴 투싼」을 공개했다.|새 투싼은 차체를 키우고 1.6 터보 가솔린과 하이브리드 두 가지로 나온다.|현대차 SUV 가운데 처음으로 플레오스 커넥트를 넣었고, 가격은 10월에 공개된다."
+        "summary3": "현대차가 6년 만의 5세대 완전변경 「디 올 뉴 투싼」을 공개했다.|새 투싼은 차체를 키우고 1.6 터보 가솔린과 하이브리드 두 가지로 나온다.|현대차 SUV 가운데 처음으로 플레오스 커넥트를 넣었고, 가격은 10월에 공개된다.",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100011",
@@ -433,7 +463,10 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": ""
+        "summary3": "",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100012",
@@ -470,7 +503,10 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": ""
+        "summary3": "",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100013",
@@ -507,7 +543,10 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": ""
+        "summary3": "",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100014",
@@ -544,7 +583,10 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": ""
+        "summary3": "",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100015",
@@ -581,7 +623,10 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": ""
+        "summary3": "",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100016",
@@ -618,7 +663,10 @@
         "embedImage": "./media/news-meta/news-9100016.jpg",
         "embedSite": "네이버 뉴스",
         "embedLogo": "./media/favicons/n.news.naver.com.png",
-        "summary3": ""
+        "summary3": "",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100017",
@@ -655,7 +703,10 @@
         "embedImage": "./media/news-meta/news-9100017.jpg",
         "embedSite": "네이버 스포츠",
         "embedLogo": "./media/favicons/m.sports.naver.com.png",
-        "summary3": "울산웨일즈와 롱비치 코스트가 특별한 교류전을 치렀다.|두 팀은 「우정은 뜨겁게, 승부는 치열하게」라는 구호 아래 하루를 함께했다.|이 소식은 OSEN이 네이버 스포츠를 통해 전했다."
+        "summary3": "울산웨일즈와 롱비치 코스트가 특별한 교류전을 치렀다.|두 팀은 「우정은 뜨겁게, 승부는 치열하게」라는 구호 아래 하루를 함께했다.|이 소식은 OSEN이 네이버 스포츠를 통해 전했다.",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100018",
@@ -692,7 +743,10 @@
         "embedImage": "",
         "embedSite": "네이버 카페",
         "embedLogo": "./media/favicons/m.cafe.naver.com.png",
-        "summary3": ""
+        "summary3": "",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100019",
@@ -729,7 +783,10 @@
         "embedImage": "https://sun9-7.vkuserphoto.ru/s/v1/ig2/_60jKitovgfBFvxmX0sOjemngQqCq3ZZdmlsznQV_h2a1fTGfCNk7DoVTv7thbSBeWUbtLcQHapQRhIieBNCQRFPmzkcNA.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x854,720x960,1080x1441,1280x1708,1440x1921,1919x2560&from=bu&u=-RPV5AtKStGSFOQfaJCSH5NuGoEQs-c_i5zY_bCjhQc&cs=540x0",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": ""
+        "summary3": "",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100020",
@@ -766,7 +823,10 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": ""
+        "summary3": "",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100021",
@@ -803,7 +863,10 @@
         "embedImage": "https://imgnews.pstatic.net/image/018/2026/10/16/0006389657_001_20261016194816242.jpg?type=w800",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "BMW코리아가 7시리즈 부분변경 모델 「더 뉴 BMW 7시리즈」의 사전예약을 시작했다.|예약은 16일부터 내달 9일까지 온라인 판매 채널 BMW 샵 온라인에서 받는다.|가격은 1억6000만원부터다."
+        "summary3": "BMW코리아가 7시리즈 부분변경 모델 「더 뉴 BMW 7시리즈」의 사전예약을 시작했다.|예약은 16일부터 내달 9일까지 온라인 판매 채널 BMW 샵 온라인에서 받는다.|가격은 1억6000만원부터다.",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100022",
@@ -840,7 +903,10 @@
         "embedImage": "https://img1.daumcdn.net/thumb/S1200x630/?fname=https://t1.daumcdn.net/news/202610/14/kukminilbo/20261014171914551ocqt.jpg",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "BYD가 파리모터쇼에서 7인승 플래그십 SUV 「아토8」을 공개했다.|이 차는 9분 만에 배터리를 97%까지 충전할 수 있다.|함께 덴자 브랜드도 「Z9GT」와 「D9 DM-i」를 선보였다."
+        "summary3": "BYD가 파리모터쇼에서 7인승 플래그십 SUV 「아토8」을 공개했다.|이 차는 9분 만에 배터리를 97%까지 충전할 수 있다.|함께 덴자 브랜드도 「Z9GT」와 「D9 DM-i」를 선보였다.",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100023",
@@ -877,7 +943,10 @@
         "embedImage": "https://hips.hearstapps.com/hmg-prod/images/4f6a5e39-fdf0-4150-a99f-4f61ace70812.jpg",
         "embedSite": "MotorTrend",
         "embedLogo": "",
-        "summary3": "모터트렌드가 2026 파리모터쇼에서 주목할 신차와 콘셉트카를 정리했다.|이번 모터쇼의 핵심은 중국차가 유럽 시장에 본격 상륙했다는 점이다.|매체는 유럽 브랜드가 이에 맞서 반격할 수 있을지를 짚었다."
+        "summary3": "모터트렌드가 2026 파리모터쇼에서 주목할 신차와 콘셉트카를 정리했다.|이번 모터쇼의 핵심은 중국차가 유럽 시장에 본격 상륙했다는 점이다.|매체는 유럽 브랜드가 이에 맞서 반격할 수 있을지를 짚었다.",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100024",
@@ -914,7 +983,10 @@
         "embedImage": "https://hips.hearstapps.com/hmg-prod/images/004c2171-8b88-461a-918f-bdededcced75.jpg?crop=0.564xw:0.423xh;0.273xw,0.294xh&resize=1200:*",
         "embedSite": "Car and Driver",
         "embedLogo": "",
-        "summary3": "2027년형 쉐보레 실버라도 HD와 GMC 시에라 HD가 공개됐다.|두 모델에는 「몽구스」라는 이름의 8.3L 디젤 엔진이 새로 들어간다.|견인 능력도 높아졌고, 조향 장치는 더 정교한 방식으로 바뀌었다."
+        "summary3": "2027년형 쉐보레 실버라도 HD와 GMC 시에라 HD가 공개됐다.|두 모델에는 「몽구스」라는 이름의 8.3L 디젤 엔진이 새로 들어간다.|견인 능력도 높아졌고, 조향 장치는 더 정교한 방식으로 바뀌었다.",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100025",
@@ -951,7 +1023,10 @@
         "embedImage": "https://static0.carbuzzimages.com/wordpress/wp-content/uploads/2026/10/25115_2027_sorento_hybrid-1.jpg?w=1600&h=900&fit=crop",
         "embedSite": "CarBuzz",
         "embedLogo": "",
-        "summary3": "2027년형 기아 쏘렌토 하이브리드에 X-Line EX 트림이 새로 추가됐다.|이 트림은 강인한 외관 스타일을 그대로 갖췄다.|그러면서도 SX-프레스티지보다 수천 달러 싸다."
+        "summary3": "2027년형 기아 쏘렌토 하이브리드에 X-Line EX 트림이 새로 추가됐다.|이 트림은 강인한 외관 스타일을 그대로 갖췄다.|그러면서도 SX-프레스티지보다 수천 달러 싸다.",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100026",
@@ -988,7 +1063,10 @@
         "embedImage": "https://cdn.motor1.com/images/mgl/g4gW8o/s1/lexus-sport-concept.jpg",
         "embedSite": "Motor1",
         "embedLogo": "",
-        "summary3": "토요타의 특허에 전기 렉서스 LFA의 가상 변속 기능이 담겼다.|토크를 순간적으로 끊고 주행 모드를 바꿔 시퀀셜 변속 느낌을 흉내 내는 방식이다.|다만 최종 양산 사양은 아직 확정되지 않았다."
+        "summary3": "토요타의 특허에 전기 렉서스 LFA의 가상 변속 기능이 담겼다.|토크를 순간적으로 끊고 주행 모드를 바꿔 시퀀셜 변속 느낌을 흉내 내는 방식이다.|다만 최종 양산 사양은 아직 확정되지 않았다.",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100027",
@@ -1025,7 +1103,10 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": ""
+        "summary3": "",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100028",
@@ -1062,7 +1143,10 @@
         "embedImage": "https://images.autozeitung.de/mercedes-c-klasse-elektrisch-test,id=5ea02d90,b=autozeitung,w=1600,ca=4.40,27.74,94.40,88.90,rm=sk.jpeg",
         "embedSite": "AUTO ZEITUNG",
         "embedLogo": "",
-        "summary3": "새 전기 메르세데스 C-클래스가 첫 본격 시승에 나섰다.|시승한 모델은 C 400 4MATIC이다.|아우토 차이퉁은 이 순수 전기 세단이 얼마나 설득력 있는지 따져 봤다."
+        "summary3": "새 전기 메르세데스 C-클래스가 첫 본격 시승에 나섰다.|시승한 모델은 C 400 4MATIC이다.|아우토 차이퉁은 이 순수 전기 세단이 얼마나 설득력 있는지 따져 봤다.",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100029",
@@ -1099,7 +1183,10 @@
         "embedImage": "https://img.auto-motor-und-sport.de/_/bg:FFFFFF/f:best/h:1238/rt:fill/w:2200/plain/2322786.jpg",
         "embedSite": "auto motor und sport",
         "embedLogo": "",
-        "summary3": "차세대 메르세데스 E-클래스가 처음으로 순수 전기 모델로 테스트 중이다.|새로 찍힌 AMG 버전은 위장이 줄고 양산형에 가까운 부분이 늘었다.|기사는 이 차를 900마력급 전기 세단으로 소개했다."
+        "summary3": "차세대 메르세데스 E-클래스가 처음으로 순수 전기 모델로 테스트 중이다.|새로 찍힌 AMG 버전은 위장이 줄고 양산형에 가까운 부분이 늘었다.|기사는 이 차를 900마력급 전기 세단으로 소개했다.",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
       },
       {
         "id": "9100030",
@@ -1136,7 +1223,50 @@
         "embedImage": "https://i.auto-bild.de/ir_img/4/1/1/2/0/8/5/BMW-M5-Touring-Polizei-2869-1080x608-fba49a772491834c.jpg?impolicy=og_images",
         "embedSite": "AUTO BILD",
         "embedLogo": "",
-        "summary3": "BMW M5 투어링이 경찰 도색을 입고 등장했다.|이 차의 출력은 727마력에 이른다.|아우토빌트는 경찰도 스포티한 업무용 차를 원할 것이라며 이 차를 소개했다."
+        "summary3": "BMW M5 투어링이 경찰 도색을 입고 등장했다.|이 차의 출력은 727마력에 이른다.|아우토빌트는 경찰도 스포티한 업무용 차를 원할 것이라며 이 차를 소개했다.",
+        "pollTitle": "",
+        "pollOptions": "",
+        "pollNote": ""
+      },
+      {
+        "id": "9100031",
+        "category": "신차",
+        "title": "투표: 올해 가장 끌리는 신차는?",
+        "summary": "올해 출시·공개된 신차 중 가장 끌리는 차를 골라 주세요. 투표 샘플입니다.",
+        "body": "",
+        "source": "보배드림 투표",
+        "sourceUrl": "",
+        "author": "",
+        "publishedAt": "2026-10-17T05:30:00+09:00",
+        "thumbnail": "",
+        "images": "",
+        "views": "0",
+        "comments": "0",
+        "likes": "0",
+        "tags": "투표|신차",
+        "reviewId": "",
+        "modelId": "",
+        "brand": "",
+        "model": "",
+        "trim": "",
+        "powertrain": "",
+        "rating": "",
+        "owner": "",
+        "ownershipLabel": "",
+        "benchmark": "",
+        "location": "",
+        "ratings": "",
+        "brandLogo": "",
+        "embed": "",
+        "embedTitle": "",
+        "embedDescription": "",
+        "embedImage": "",
+        "embedSite": "",
+        "embedLogo": "",
+        "summary3": "",
+        "pollTitle": "올해 가장 끌리는 신차는?",
+        "pollOptions": "제네시스 GV80 하이브리드|기아 EV9|현대 디 올 뉴 투싼|BMW 5시리즈",
+        "pollNote": "무기명 투표"
       }
     ]
   };

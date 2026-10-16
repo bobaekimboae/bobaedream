@@ -89,6 +89,7 @@
       energyConsumption:String(row.energyConsumption||'').trim(),
       fullChargeRange:String(row.fullChargeRange||'').trim(),
       verified:String(row.verified||'').toLowerCase()==='true',
+      poll:(String(row.pollTitle||'').trim()&&list(row.pollOptions).length>1)?{title:String(row.pollTitle).trim(),options:list(row.pollOptions),note:String(row.pollNote||'').trim()}:null,
       embeds:embeds
     };
   }

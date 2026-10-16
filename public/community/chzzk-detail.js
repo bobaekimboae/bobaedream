@@ -331,7 +331,8 @@ function setRegularContent() {
       ? `<p class="detailSource">출처 ${escapeHtml(post.source || '')}${post.sourceUrl && /^https?:\/\//.test(post.sourceUrl) ? ` · <a href="${escapeHtml(post.sourceUrl)}" target="_blank" rel="noopener noreferrer">원문 보기</a>` : ''}</p>`
       : '';
     const summary3 = post.boardTable && Array.isArray(post.summary3) && post.summary3.length ? `<section class="detailSummary3" aria-label="3줄 요약"><strong>3줄 요약</strong><p>${escapeHtml(post.summary3.join(' '))}</p></section>` : '';
-    $('#postBody').innerHTML = `${summary3}${photoHtml}${tableEmbedHtml}
+    const pollHtml = post.boardTable && post.poll && post.poll.options && post.poll.options.length ? `<section class="editor-poll"><strong>📊 ${escapeHtml(post.poll.title)}</strong>${post.poll.options.map((option) => `<span>○ ${escapeHtml(option)}</span>`).join('')}${post.poll.note ? `<small>${escapeHtml(post.poll.note)}</small>` : ''}</section>` : '';
+    $('#postBody').innerHTML = `${summary3}${photoHtml}${tableEmbedHtml}${pollHtml}
       <div class="detailCopy">${paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>${sourceHtml}`;
     if (window.BBM_EMBED && window.BBM_EMBED.hydrateCards) window.BBM_EMBED.hydrateCards($('#postBody'));
     const photoTarget = Number(new URLSearchParams(location.search).get('photo')) || 0;

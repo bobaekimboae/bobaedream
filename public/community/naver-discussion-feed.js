@@ -268,7 +268,7 @@
     var data=posts();
     if(!data.length)return '<div style="padding:44px 16px;color:#858990;font-size:14px;text-align:center">등록된 글이 없습니다.</div>';
     /* 뉴스 게시판의 스레드식 링크 카드는 수집 기사용이고, 회원이 쓴 글(local)은 일반 글 카드로 보여 준다 */
-    return data.map(function(post,index){return isThreadNewsBoard()&&!post.local?threadNewsCard(post,index):currentVariant==='thumb'?thumbCard(post,index):card(post,index);}).join('');
+    return data.map(function(post,index){return isThreadNewsBoard()&&!post.local&&!post.poll?threadNewsCard(post,index):currentVariant==='thumb'?thumbCard(post,index):card(post,index);}).join('');
   }
   function render(variant){
     phone.classList.remove('foreignThreadMode');
