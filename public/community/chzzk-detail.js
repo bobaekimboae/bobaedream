@@ -378,6 +378,7 @@ function setRegularContent() {
 function detailEmbedHtml(item) {
   if (!item || !/^https?:\/\//.test(item.url || '')) return '';
   const caption = item.caption ? `<figcaption>${escapeHtml(item.caption)}</figcaption>` : '';
+  if (window.BBM_EMBED && /instagram\.com\//.test(item.url)) { const fresh = window.BBM_EMBED.info(item.url); if (fresh) return window.BBM_EMBED.blockHtml({ ...fresh, caption: item.caption }); }
   if (item.render === 'iframe' && /^https:\/\//.test(item.src || '')) {
     return `<figure class="detailEmbed${item.tall ? ' is-tall' : ''}"><iframe src="${escapeHtml(item.src)}" title="${escapeHtml(item.provider || '임베드')}" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts"></iframe>${caption}</figure>`;
   }
