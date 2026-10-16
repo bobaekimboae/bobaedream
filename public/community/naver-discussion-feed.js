@@ -100,7 +100,7 @@
     if(!item)return '';
     var host=String(item.url||'').replace(/^https?:\/\/(www\.)?/,'').split('/')[0];
     var overseas=item.lang&&!/^ko/i.test(item.lang);
-    return '<a class="news-card" href="'+esc(item.url)+'" target="_blank" rel="noopener noreferrer">'+(item.image?'<span class="news-card-image"><img src="'+esc(item.image)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></span>':'')+'<span class="news-card-copy"><span class="news-card-site">'+(item.logo?'<img src="'+esc(item.logo)+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<span>'+esc(item.site||item.provider||host)+'</span>'+(overseas?'<em>해외</em>':'')+'</span><strong class="news-card-title">'+esc(item.title||host)+'</strong>'+(item.description?'<span class="news-card-desc">'+esc(item.description)+'</span>':'')+'<small class="news-card-url">'+esc(host)+'</small></span></a>';
+    return '<a class="news-card"'+(item.image?'':' data-embed-hydrate data-embed-title="'+esc(cleanTitle(post.title))+'"')+' href="'+esc(item.url)+'" target="_blank" rel="noopener noreferrer">'+(item.image?'<span class="news-card-image"><img src="'+esc(item.image)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></span>':'')+'<span class="news-card-copy"><span class="news-card-site">'+(item.logo?'<img src="'+esc(item.logo)+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<span>'+esc(item.site||item.provider||host)+'</span>'+(overseas?'<em>해외</em>':'')+'</span><strong class="news-card-title">'+esc(item.title||host)+'</strong>'+(item.description?'<span class="news-card-desc">'+esc(item.description)+'</span>':'')+'<small class="news-card-url">'+esc(host)+'</small></span></a>';
   }
   /* 첫 임베드가 인스타그램·유튜브 같은 재생형이면 피드 카드 안에서 바로 보여 준다 */
   function embedInlineFor(post,autoplay){
@@ -155,6 +155,47 @@
     info.addEventListener('click',function(){setInfo(popover.hidden);});
     close.addEventListener('click',function(){setInfo(false);info.focus();});
   }
+  var activeRankingMetric='popular';
+  function rankingValue(post,metricName){
+    if(metricName==='comment')return Number(post.reply)||0;
+    if(metricName==='recommend')return Number(post.likes)||0;
+    return Number(post.view)||0;
+  }
+  function rankingMeta(post,metricName){
+    if(metricName==='comment')return '<img src="assets/chzzk-detail/icons/comment-reddit.svg" alt=""> 댓글 '+metric(post.reply);
+    if(metricName==='recommend')return '<img src="assets/reddit-ui/recommend-thumb-up.svg" alt=""> 추천 '+metric(post.likes);
+    return '<img src="assets/reddit-ui/view-count.svg" alt=""> 조회 '+metric(post.view);
+  }
+  function naverRankingCard(post,index){
+    var photos=mediaSources(post,index).filter(function(item){return item.kind==='image'&&item.src;});
+    var thumbSrc=photos.length?photos[0].src:(post.thumb||'');
+    var thumb=thumbSrc?'<span class="naverRankingThumb"><img src="'+esc(thumbSrc)+'" alt="" loading="'+(index<4?'eager':'lazy')+'" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></span>':'';
+    return '<a class="naverRankingRow'+(thumb?'':' no-thumb')+'" href="'+detailUrl(post)+'" data-naver-ranking-post="'+esc(post.id)+'"><em class="naverRankingNumber">'+(index+1)+'</em><span class="naverRankingCopy"><strong>'+esc(cleanTitle(post.title))+'</strong><span>'+rankingMeta(post,activeRankingMetric)+'</span></span>'+thumb+'</a>';
+  }
+  function naverRankingGroups(data){
+    var groups=[];
+    for(var start=0;start<data.length;start+=10){
+      var chunk=data.slice(start,start+10);
+      var split=Math.min(5,chunk.length);
+      var left=chunk.slice(0,split).map(function(post,index){return naverRankingCard(post,start+index);}).join('');
+      var right=chunk.slice(split).map(function(post,index){return naverRankingCard(post,start+split+index);}).join('');
+      groups.push('<section class="naverRankingGroup"><div class="naverRankingColumn">'+left+'</div>'+(right?'<div class="naverRankingColumn">'+right+'</div>':'')+'</section>');
+    }
+    return groups.join('');
+  }
+  function renderNaverRanking(){
+    var data=posts().sort(function(a,b){var diff=rankingValue(b,activeRankingMetric)-rankingValue(a,activeRankingMetric);return diff||Number(b.id)-Number(a.id);});
+    syncHeadwords();
+    phone.classList.remove('compactMode','feedCafeMode','redditFeedMode','chototFeedMode','chototBoardFeedMode','chototDealerFeedMode','naverDiscussionThumbMode','loungeBestMode','loungeBestCleanMode','loungeBestLeftMode');
+    phone.classList.add('naverDiscussionMode','naverRankingMode');
+    typeLabel.textContent='네이버 랭킹뉴스형';
+    list.className='list naverRankingList';
+    var tabs=[['popular','많이 본'],['comment','댓글 많은'],['recommend','추천 많은']];
+    list.innerHTML='<section class="naverRankingHeader"><div class="naverRankingTabs" role="tablist" aria-label="랭킹 기준">'+tabs.map(function(tab){var on=tab[0]===activeRankingMetric;return '<button type="button" role="tab" aria-selected="'+on+'" class="'+(on?'on':'')+'" data-ranking-metric="'+tab[0]+'">'+tab[1]+'</button>';}).join('')+'</div><div class="naverRankingHeading"><strong>'+tabs.filter(function(tab){return tab[0]===activeRankingMetric;})[0][1]+' 랭킹</strong><button type="button" data-ranking-info aria-label="랭킹 집계 기준 안내" aria-expanded="false">i</button><div class="naverRankingPopover" data-ranking-popover hidden>조회·댓글·추천 반응을 기준으로 정렬합니다.<br>실시간 수치와 다를 수 있습니다.</div></div></section><div class="naverRankingRows">'+(data.length?naverRankingGroups(data):'<div class="loungeBestEmpty">등록된 베스트글이 없습니다.</div>')+'</div>';
+    list.querySelectorAll('[data-ranking-metric]').forEach(function(button){button.addEventListener('click',function(){activeRankingMetric=button.dataset.rankingMetric;renderNaverRanking();});});
+    var info=list.querySelector('[data-ranking-info]'),popover=list.querySelector('[data-ranking-popover]');
+    info.addEventListener('click',function(){var open=popover.hidden;popover.hidden=!open;info.setAttribute('aria-expanded',String(open));});
+  }
   var currentVariant='';
   function feedBody(){
     var data=posts();
@@ -171,14 +212,14 @@
       mediaCarousels.forEach(function(api){api.destroy();});
       mediaCarousels=[];
       var bestView=(window.BBM_GET_VIEW_MODE&&window.BBM_GET_VIEW_MODE())||variant;
-      renderLoungeBest(bestView);
+      if(bestView==='naver-ranking-news')renderNaverRanking();else renderLoungeBest(bestView);
       return;
     }
     currentVariant=variant==='thumb'?'thumb':'';
     mediaCarousels.forEach(function(api){api.destroy();});
     mediaCarousels=[];
     syncHeadwords();
-    phone.classList.remove('compactMode','feedCafeMode','redditFeedMode','chototFeedMode','chototBoardFeedMode','chototDealerFeedMode','loungeBestMode','loungeBestCleanMode','loungeBestLeftMode');
+    phone.classList.remove('compactMode','feedCafeMode','redditFeedMode','chototFeedMode','chototBoardFeedMode','chototDealerFeedMode','loungeBestMode','loungeBestCleanMode','loungeBestLeftMode','naverRankingMode');
     phone.classList.add('naverDiscussionMode');
     phone.classList.toggle('naverDiscussionThumbMode',currentVariant==='thumb');
     typeLabel.textContent=currentVariant==='thumb'?'네이버 토론 · 좌측 썸네일':'네이버 토론형';
@@ -199,9 +240,27 @@
       });
     };
   }
+  /* 피드의 뉴스 카드는 주소만 있으므로 제목·요약·대표 이미지를 불러와 채운다 */
+  function hydrateNewsCards(){
+    if(!window.BBM_EMBED||!window.BBM_EMBED.fetchMeta||!window.BBM_EMBED.cardHtml)return;
+    list.querySelectorAll('a.news-card:not([data-news-hydrated])').forEach(function(card){
+      card.setAttribute('data-news-hydrated','');
+      var url=card.getAttribute('href');
+      window.BBM_EMBED.fetchMeta(url).then(function(meta){
+        if(!meta||!card.isConnected||!(meta.title||meta.image))return;
+        var item=Object.assign({url:url},meta);
+        var holder=document.createElement('div');
+        holder.innerHTML=window.BBM_EMBED.cardHtml(item);
+        var next=holder.firstElementChild;
+        if(next){next.setAttribute('data-news-hydrated','');card.replaceWith(next);}
+      }).catch(function(){});
+    });
+  }
   function bind(){
     initMediaCarousels();
     if(window.BBM_EMBED&&window.BBM_EMBED.hydratePreviews)window.BBM_EMBED.hydratePreviews(list);
+    if(window.BBM_EMBED&&window.BBM_EMBED.hydrateCards)window.BBM_EMBED.hydrateCards(list);
+    hydrateNewsCards();
     list.querySelectorAll('[data-discussion-video]').forEach(function(button){
       var video=button.parentElement.querySelector('video');
       if(!video)return;
@@ -314,6 +373,6 @@
   if(activeBoardTable!=='vehicle-review'){
     if(startMode==='naver-discussion')render();
     else if(startMode==='naver-discussion-thumb')render('thumb');
-    else if(startMode==='lounge-best-rank'||startMode==='lounge-best-clean'||startMode==='lounge-best-left')render(startMode);
+    else if(startMode==='lounge-best-rank'||startMode==='lounge-best-clean'||startMode==='lounge-best-left'||startMode==='naver-ranking-news')render(startMode);
   }
 })();
