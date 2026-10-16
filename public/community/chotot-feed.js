@@ -346,7 +346,7 @@
   function renderChototFeed(){
     var data=postData();
     setDealerBoardName(false);
-    phone.classList.remove('compactMode','feedCafeMode','redditFeedMode','chototDealerFeedMode');
+    phone.classList.remove('compactMode','feedCafeMode','naverCafePopularMode','redditFeedMode','chototDealerFeedMode');
     phone.classList.add('chototFeedMode','chototBoardFeedMode');
     typeLabel.textContent='초톳 피드형 · 게시판형';
     list.className='list chototFeedList';
@@ -357,7 +357,7 @@
   function renderChototDealerFeed(){
     var data=postData();
     setDealerBoardName(true);
-    phone.classList.remove('compactMode','feedCafeMode','redditFeedMode','chototBoardFeedMode');
+    phone.classList.remove('compactMode','feedCafeMode','naverCafePopularMode','redditFeedMode','chototBoardFeedMode');
     phone.classList.add('chototFeedMode','chototDealerFeedMode');
     typeLabel.textContent='초톳 피드형 · 딜러형';
     list.className='list chototFeedList chototDealerFeedList';

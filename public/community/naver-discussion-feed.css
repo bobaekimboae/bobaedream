@@ -225,3 +225,30 @@
 .cafeLeftEmpty{padding:44px 0;color:#858990;font-size:14px;text-align:center}
 @media(hover:hover) and (pointer:fine){.cafeLeftRow:hover{background:#f8fafc}}
 @media(max-width:370px){.phone.cafeLeftMode .list{padding-left:16px;padding-right:16px}.cafeLeftRow{grid-template-columns:70px minmax(0,1fr);gap:10px}.cafeLeftThumb{width:70px;height:70px}.cafeLeftCopy>strong{font-size:15.5px}.cafeLeftMeta{gap:5px;font-size:11.5px}}
+
+/* Naver Cafe popular list: measured from the mobile Cafe popular tab. */
+.phone.naverCafePopularMode .list{min-height:520px;padding:0;background:#fff;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Apple SD Gothic Neo",Arial,sans-serif}
+.naverCafePopularHeader{padding:12px 16px 10px;background:#fff;border-bottom:1px solid #f0f1f2}
+.naverCafePopularTabs{height:40px;display:flex;align-items:center;gap:5px}
+.naverCafePopularTabs button{height:38px;padding:0 14px;border-radius:19px;color:#7f8287;font-size:14px;line-height:38px;font-weight:600;letter-spacing:-.03em;white-space:nowrap}
+.naverCafePopularTabs button.on{background:#f5f6f7;color:#17181a;font-weight:700}
+.naverCafePopularHeader p{margin:7px 0 0;color:#9a9ca0;font-size:12px;line-height:17px;font-weight:400;letter-spacing:-.025em}
+.naverCafePopularHeader p span{display:inline-grid;place-items:center;width:14px;height:14px;margin-left:3px;border-radius:50%;background:#eef0f2;color:#a8aaad;font-size:10px;font-weight:700;vertical-align:-1px}
+.naverCafePopularRows{padding-left:16px;background:#fff}
+.naverCafePopularRow{position:relative;height:86px;display:grid;grid-template-columns:minmax(0,1fr) 46px;gap:0;align-items:center;padding-right:16px;border-bottom:1px solid #eeeeef;background:#fff}
+.naverCafePopularMain{min-width:0;height:85px;display:grid;grid-template-columns:minmax(0,1fr);align-items:center;padding:12px 12px 12px 0;text-align:left;cursor:pointer}
+.naverCafePopularRow.hasThumb .naverCafePopularMain{grid-template-columns:minmax(0,1fr) 60px;gap:10px}
+.naverCafeNew{position:absolute;left:-9px;top:19px;width:5px;height:5px;border-radius:50%;background:#ff3441}
+.naverCafePopularBody{display:block;min-width:0}
+.naverCafePopularBody>strong{display:-webkit-box;overflow:hidden;color:#111112;font-size:16px;line-height:22px;font-weight:400;letter-spacing:-.035em;word-break:keep-all;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.naverCafePopularMeta{height:19px;margin-top:2px;display:flex;align-items:center;gap:6px;overflow:hidden;color:#949699;font-size:14px;line-height:19px;font-weight:400;letter-spacing:-.025em;white-space:nowrap}
+.naverCafePopularMeta span{flex:0 0 auto}
+.naverCafePopularMeta span:first-child{max-width:43%;overflow:hidden;text-overflow:ellipsis}
+.naverCafePopularThumb{position:relative;width:60px;height:60px;overflow:hidden;border-radius:8px;background:#f1f3f5}
+.naverCafePopularThumb img{display:block;width:100%;height:100%;object-fit:cover}
+.naverCafePopularThumb b{position:absolute;right:4px;bottom:4px;min-width:19px;height:18px;padding:0 5px;border-radius:9px;background:rgba(31,32,34,.72);color:#fff;font-size:10px;line-height:18px;font-weight:650;text-align:center}
+.naverCafePopularReply{width:46px;height:60px;border-radius:12px;background:#f5f6f7;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;cursor:pointer}
+.naverCafePopularReply b{color:#272829;font-size:14px;line-height:19px;font-weight:600}
+.naverCafePopularReply span{color:#949699;font-size:12px;line-height:16px;font-weight:400}
+@media(hover:hover) and (pointer:fine){.naverCafePopularRow:hover{background:#fafbfc}}
+@media(max-width:370px){.naverCafePopularHeader,.naverCafePopularRows{padding-left:14px}.naverCafePopularRow{padding-right:14px}.naverCafePopularBody>strong{font-size:15.5px}.naverCafePopularMeta{gap:5px;font-size:13px}.naverCafePopularRow.hasThumb .naverCafePopularMain{grid-template-columns:minmax(0,1fr) 56px;gap:8px}.naverCafePopularThumb{width:56px;height:56px}}
