@@ -293,7 +293,13 @@ export default function VehicleReviewBoard({ cars }: { cars: Car[] }) {
     if (value) target.searchParams.set("review", value); else target.searchParams.delete("review");
     window.history.replaceState(null, "", `${target.pathname}${target.search}${target.hash}`);
   };
-  const openList = () => { setSelected(null); setView("list"); syncReviewUrl(); };
+  const openList = () => {
+    if (new URLSearchParams(window.location.search).get("from") === "community") {
+      window.location.href = "./community/naver-cafe-list.html?board=vehicle-review";
+      return;
+    }
+    setSelected(null); setView("list"); syncReviewUrl();
+  };
   const openWriter = () => { setSelected(null); setView("write"); syncReviewUrl("write"); };
   const openDetail = (review: SavedReview) => { setSelected(review); setView("detail"); syncReviewUrl(review.id); };
   const saved = (review: SavedReview) => { setReviews((current) => [review, ...current]); openDetail(review); };

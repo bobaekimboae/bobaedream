@@ -3,7 +3,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const baseUrl = process.env.REVIEW_BASE_URL ?? "http://127.0.0.1:4312/";
+const baseUrl = process.env.REVIEW_BASE_URL ?? "http://127.0.0.1:4313/";
 const outputDir = new URL("../../artifacts/community-review-audit-1016/", import.meta.url);
 await mkdir(outputDir, { recursive: true });
 const outputPath = fileURLToPath(outputDir);
@@ -34,11 +34,11 @@ async function measureType(surface, selectors) {
   }
 }
 
-const communityUrl = `${baseUrl}?community=reviews&v=typography-audit`;
-const writerUrl = `${baseUrl}?community=reviews&review=write&v=typography-audit`;
+const communityUrl = `${baseUrl}community/naver-cafe-list.html?board=vehicle-review&v=black-table-audit`;
+const writerUrl = `${baseUrl}?community=reviews&review=write&from=community&v=black-table-audit`;
 
 async function openWriter() {
-  await page.goto(writerUrl, { waitUntil: "networkidle" });
+  await page.goto(writerUrl, { waitUntil: "domcontentloaded" });
   await page.locator(".vr-write").waitFor();
 }
 
@@ -81,18 +81,28 @@ async function auditRows(profile) {
   }
 }
 
-await page.goto(`${baseUrl}community/naver-cafe-list.html?view=compact&menu=all&boardGrid=4`, { waitUntil: "networkidle" });
+await page.goto(`${baseUrl}community/naver-cafe-list.html?view=compact&menu=all&boardGrid=4`, { waitUntil: "domcontentloaded" });
 await page.locator(".boardChannelTab", { hasText: "차량리뷰" }).waitFor();
 check("커뮤니티 상단 차량리뷰 탭", await page.locator(".boardChannelTab", { hasText: "차량리뷰" }).isVisible());
 
-await page.goto(communityUrl, { waitUntil: "networkidle" });
-await page.locator(".community-review-page").waitFor();
-check("커뮤니티 차량리뷰 목록 진입", await page.locator(".vr-list").isVisible());
-check("목록 시드 리뷰 5개", await page.locator(".vr-card").count() === 5, String(await page.locator(".vr-card").count()));
-await measureType("목록", { appbarTitle: ".community-review-appbar strong", appbarMeta: ".community-review-appbar small", activeTab: ".community-review-tabs strong", heroTitle: ".vr-community-head h2", heroBody: ".vr-community-head p", summaryScore: ".vr-summary > strong", cardTitle: ".vr-card h3", cardBody: ".vr-card p", cardMeta: ".vr-card footer" });
+await page.goto(communityUrl, { waitUntil: "domcontentloaded" });
+await page.locator(".vehicleReviewBoardMode").waitFor();
+check("커뮤니티 독립 차량리뷰 테이블 등록", await page.evaluate(() => Boolean(window.BBM_BOARD_TABLE?.has("vehicle-review"))));
+check("커뮤니티 차량리뷰 목록 진입", await page.locator(".vrb-shell").isVisible());
+check("목록 시드 리뷰 5개", await page.locator(".vrb-card").count() === 5, String(await page.locator(".vrb-card").count()));
+check("일반 게시글과 분리", await page.locator("#list > .item").count() === 0, String(await page.locator("#list > .item").count()));
+check("실제 SVG 별 아이콘 사용", await page.locator('.vrb-stars img[src*="chotot-common-review-star"]').count() >= 5);
+check("Airbnb 블랙 활성 칩", await page.locator('.vrb-filter button[aria-selected="true"]').evaluate((element) => getComputedStyle(element).backgroundColor === "rgb(34, 34, 34)"));
+await measureType("목록", { heroTitle: ".vrb-intro h2", heroBody: ".vrb-intro p", summaryScore: ".vrb-summary > strong", cardTitle: ".vrb-card h3", cardBody: ".vrb-card p", cardMeta: ".vrb-metrics" });
 await page.screenshot({ path: join(outputPath, "01-community-list-390x844.png"), fullPage: false });
+await page.locator('[data-powertrain="ev"]').click();
+check("전기차 필터 1건", await page.locator(".vrb-card").count() === 1, String(await page.locator(".vrb-card").count()));
+await page.locator('[data-powertrain="all"]').click();
+const subscribe = page.locator(".vrb-subscribe").first();
+await subscribe.click();
+check("구독 토글", await subscribe.getAttribute("aria-pressed") === "true" && await subscribe.innerText() === "구독 중");
 
-await page.getByRole("button", { name: /리뷰 등록/ }).first().click();
+await page.locator(".vrb-write").click();
 await page.locator(".vr-write").waitFor();
 check("커뮤니티 목록→등록 이동", new URL(page.url()).searchParams.get("review") === "write", page.url());
 await measureType("등록", { headerTitle: ".vr-write-head strong", exposureTitle: ".vr-exposure b", exposureMeta: ".vr-exposure small", modelTitle: ".vr-selected-model b", modelTrim: ".vr-selected-model small", ratingTitle: ".vr-rating-title h2", bodyTitle: ".vr-body b", bodyInput: ".vr-body textarea", submit: ".vr-submit" });
@@ -157,17 +167,33 @@ await page.locator(".vr-owner-switch").click();
 check("비오너 구매정보 숨김", await page.locator(".vr-owner-fields-card").count() === 0);
 await page.screenshot({ path: join(outputPath, "04-ice-nonowner-390x844.png"), fullPage: false });
 
-await page.goto(communityUrl, { waitUntil: "networkidle" });
-await page.locator(".vr-card-open").first().click();
+await page.goto(communityUrl, { waitUntil: "domcontentloaded" });
+await page.locator(".vrb-card-main").first().click();
 await page.locator(".vr-detail").waitFor();
 check("목록→상세 이동", new URL(page.url()).searchParams.get("review") === "sample-bmw-m3", page.url());
 check("상세 평점 카드", await page.locator(".vr-detail-score").isVisible());
 await measureType("상세", { headerTitle: ".vr-detail-head strong", author: ".vr-detail-author b", modelTitle: ".vr-detail-score h2", bodyTitle: ".vr-detail-body h3", bodyCopy: ".vr-detail-body p", action: ".vr-detail-actions button" });
 await page.screenshot({ path: join(outputPath, "05-detail-390x844.png"), fullPage: false });
 
+await openWriter();
+await selectModel("M3");
+await page.locator(".vr-owner-switch").click();
+for (const row of await page.locator(".vr-rating-row").all()) await row.getByRole("radio", { name: "4점", exact: true }).click();
+await page.locator(".vr-body textarea").fill("실제 등록과 삭제 흐름을 확인하기 위한 차량 리뷰 테스트 문장입니다. 주행감과 조향 반응이 안정적이었습니다.");
+await page.locator(".vr-submit").click();
+await page.locator(".vr-detail").waitFor();
+const createdId = new URL(page.url()).searchParams.get("review") ?? "";
+check("리뷰 등록→상세 이동", createdId.startsWith("local-"), page.url());
+check("테스트 리뷰 삭제 버튼", await page.locator(".vr-delete").isVisible());
+page.once("dialog", (dialog) => dialog.accept());
+await page.locator(".vr-delete").click();
+await page.waitForURL(/community\/naver-cafe-list\.html\?board=vehicle-review/);
+check("테스트 리뷰 삭제 후 목록 복귀", await page.locator(".vrb-card").count() === 5, String(await page.locator(".vrb-card").count()));
+check("테스트 데이터 완전 삭제", await page.evaluate((id) => !JSON.parse(localStorage.getItem("bobae-vehicle-reviews-v1") || "[]").some((item) => item.id === id), createdId));
+
 await page.setViewportSize({ width: 1440, height: 900 });
-await page.goto(communityUrl, { waitUntil: "networkidle" });
-check("PC 1440 목록", await page.locator(".vr-list").isVisible());
+await page.goto(communityUrl, { waitUntil: "domcontentloaded" });
+check("PC 1440 목록", await page.locator(".vrb-shell").isVisible());
 const brokenImages = await page.locator("img").evaluateAll((items) => items.filter((item) => !item.complete || item.naturalWidth === 0).map((item) => item.getAttribute("src") ?? ""));
 check("깨진 이미지 0건", brokenImages.length === 0, brokenImages.join(" | "));
 await page.screenshot({ path: join(outputPath, "06-community-list-1440x900.png"), fullPage: false });

@@ -1,8 +1,13 @@
 {
-  "baseUrl": "http://127.0.0.1:4311/",
+  "baseUrl": "http://127.0.0.1:4313/",
   "checks": [
     {
       "name": "커뮤니티 상단 차량리뷰 탭",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "커뮤니티 독립 차량리뷰 테이블 등록",
       "result": "PASS",
       "actual": ""
     },
@@ -17,9 +22,34 @@
       "actual": "5"
     },
     {
+      "name": "일반 게시글과 분리",
+      "result": "PASS",
+      "actual": "0"
+    },
+    {
+      "name": "실제 SVG 별 아이콘 사용",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "Airbnb 블랙 활성 칩",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "전기차 필터 1건",
+      "result": "PASS",
+      "actual": "1"
+    },
+    {
+      "name": "구독 토글",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
       "name": "커뮤니티 목록→등록 이동",
       "result": "PASS",
-      "actual": "http://127.0.0.1:4311/?community=reviews&v=typography-audit&review=write"
+      "actual": "http://127.0.0.1:4313/?community=reviews&review=write&from=community"
     },
     {
       "name": "전기·PHEV·증거리형 공통/외관/0.5 문구 노출",
@@ -1054,10 +1084,30 @@
     {
       "name": "목록→상세 이동",
       "result": "PASS",
-      "actual": "http://127.0.0.1:4311/?community=reviews&v=typography-audit&review=sample-bmw-m3"
+      "actual": "http://127.0.0.1:4313/?community=reviews&review=sample-bmw-m3&from=community"
     },
     {
       "name": "상세 평점 카드",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "리뷰 등록→상세 이동",
+      "result": "PASS",
+      "actual": "http://127.0.0.1:4313/?community=reviews&review=local-1792152431126&from=community&v=black-table-audit"
+    },
+    {
+      "name": "테스트 리뷰 삭제 버튼",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "테스트 리뷰 삭제 후 목록 복귀",
+      "result": "PASS",
+      "actual": "5"
+    },
+    {
+      "name": "테스트 데이터 완전 삭제",
       "result": "PASS",
       "actual": ""
     },
@@ -1093,99 +1143,75 @@
   "typographySurfaces": [
     {
       "surface": "목록",
-      "name": "appbarTitle",
-      "selector": ".community-review-appbar strong",
-      "text": "차량리뷰",
-      "fontSize": "17px",
-      "lineHeight": "21px",
-      "fontWeight": "700",
-      "color": "rgb(32, 35, 42)",
-      "width": 243.92,
-      "height": 21
-    },
-    {
-      "surface": "목록",
-      "name": "appbarMeta",
-      "selector": ".community-review-appbar small",
-      "text": "보배드림 커뮤니티",
-      "fontSize": "10px",
-      "lineHeight": "13px",
-      "fontWeight": "400",
-      "color": "rgb(138, 144, 155)",
-      "width": 243.92,
-      "height": 13
-    },
-    {
-      "surface": "목록",
-      "name": "activeTab",
-      "selector": ".community-review-tabs strong",
-      "text": "차량리뷰",
-      "fontSize": "13px",
-      "lineHeight": "normal",
-      "fontWeight": "800",
-      "color": "rgb(34, 37, 43)",
-      "width": 94,
-      "height": 43
-    },
-    {
-      "surface": "목록",
       "name": "heroTitle",
-      "selector": ".vr-community-head h2",
+      "selector": ".vrb-intro h2",
       "text": "차량 경험 리뷰",
       "fontSize": "24px",
       "lineHeight": "31px",
       "fontWeight": "700",
-      "color": "rgb(34, 34, 34)",
-      "width": 228.52,
+      "color": "rgb(255, 255, 255)",
+      "width": 174.7,
       "height": 31
     },
     {
       "surface": "목록",
       "name": "heroBody",
-      "selector": ".vr-community-head p",
-      "text": "실제 오너와 시승자가 남긴 솔직한 평가를 확인하세요.",
-      "fontSize": "11px",
-      "lineHeight": "17px",
+      "selector": ".vrb-intro p",
+      "text": "실제 오너와 시승자가 남긴 솔직한 평가",
+      "fontSize": "12px",
+      "lineHeight": "18px",
       "fontWeight": "400",
-      "color": "rgb(119, 125, 137)",
-      "width": 228.52,
-      "height": 17
+      "color": "rgb(208, 208, 208)",
+      "width": 174.7,
+      "height": 18
     },
     {
       "surface": "목록",
       "name": "summaryScore",
-      "selector": ".vr-summary > strong",
+      "selector": ".vrb-summary > strong",
       "text": "3.8",
       "fontSize": "38px",
-      "lineHeight": "48px",
+      "lineHeight": "42px",
       "fontWeight": "700",
-      "color": "rgb(29, 33, 48)",
-      "width": 57.58,
-      "height": 48
-    },
-    {
-      "surface": "목록",
-      "name": "cardBody",
-      "selector": ".vr-card p",
-      "text": "고속에서 차체가 안정적이고 스티어링 반응이 정확합니다. 일상 주행에서는 승차감이 단단하지만 운전 재미는 확실합니다.",
-      "fontSize": "14px",
-      "lineHeight": "21px",
-      "fontWeight": "400",
-      "color": "rgb(43, 47, 56)",
-      "width": 336,
+      "color": "rgb(255, 255, 255)",
+      "width": 53.05,
       "height": 42
     },
     {
       "surface": "목록",
+      "name": "cardTitle",
+      "selector": ".vrb-card h3",
+      "text": "BMW M3 컴페티션 M xDrive 7개월 후기",
+      "fontSize": "16px",
+      "lineHeight": "22px",
+      "fontWeight": "700",
+      "color": "rgb(34, 34, 34)",
+      "width": 358,
+      "height": 22
+    },
+    {
+      "surface": "목록",
+      "name": "cardBody",
+      "selector": ".vrb-card p",
+      "text": "고속에서 차체가 안정적이고 스티어링 반응이 정확합니다.",
+      "fontSize": "13px",
+      "lineHeight": "20px",
+      "fontWeight": "400",
+      "color": "rgb(68, 68, 68)",
+      "width": 358,
+      "height": 20
+    },
+    {
+      "surface": "목록",
       "name": "cardMeta",
-      "selector": ".vr-card footer",
-      "text": "2026-10-15도움돼요 54 · 댓글 20",
-      "fontSize": "9px",
+      "selector": ".vrb-metrics",
+      "text": "도움돼요 54댓글 201일 전",
+      "fontSize": "11px",
       "lineHeight": "normal",
       "fontWeight": "400",
-      "color": "rgb(149, 154, 164)",
-      "width": 336,
-      "height": 11
+      "color": "rgb(119, 119, 119)",
+      "width": 358,
+      "height": 16
     },
     {
       "surface": "등록",
@@ -1291,7 +1317,7 @@
       "fontSize": "16px",
       "lineHeight": "normal",
       "fontWeight": "400",
-      "color": "rgb(32, 35, 43)",
+      "color": "rgb(255, 255, 255)",
       "width": 350,
       "height": 48
     },

@@ -46,7 +46,20 @@
       source:String(row.source||'').trim(),
       sourceUrl:String(row.sourceUrl||'').trim(),
       publishedAt:row.publishedAt||'',
-      tags:list(row.tags)
+      tags:list(row.tags),
+      reviewId:String(row.reviewId||row.id||'').trim(),
+      modelId:String(row.modelId||'').trim(),
+      brand:String(row.brand||'').trim(),
+      model:String(row.model||'').trim(),
+      trim:String(row.trim||'').trim(),
+      powertrain:String(row.powertrain||'').trim(),
+      rating:num(row.rating),
+      owner:String(row.owner||'').toLowerCase()==='true',
+      ownershipLabel:String(row.ownershipLabel||'').trim(),
+      benchmark:String(row.benchmark||'').trim(),
+      location:String(row.location||'').trim(),
+      ratings:list(row.ratings),
+      brandLogo:String(row.brandLogo||'').trim()
     };
   }
   function postsFor(boardId){

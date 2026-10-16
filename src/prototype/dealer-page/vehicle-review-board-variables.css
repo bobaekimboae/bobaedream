@@ -1101,3 +1101,32 @@
     grid-template-columns: minmax(0,1fr) 130px;
   }
 }
+
+/* Final black-edition overrides intentionally live last in the cascade. */
+.vr-community-head > button,
+.vr-floating-write,
+.vr-write-head > button:last-child,
+.vr-submit,
+.vr-detail-model > button,
+.vr-owner-switch input:checked + i {
+  border-color: #222;
+  background: #222;
+  color: #fff;
+}
+.vr-community-head > button .vr-ui-icon,
+.vr-floating-write .vr-ui-icon,
+.vr-write-head > button:last-child .vr-ui-icon {
+  filter: brightness(0) invert(1);
+}
+.vr-exposure > span i,
+.vr-detail-ratings em {
+  background: #222;
+}
+.vr-star-visual i .vr-ui-icon,
+.vr-star-popover .vr-ui-icon {
+  filter: brightness(0);
+}
+.vr-community-head span,
+.vr-detail-score strong {
+  color: #222;
+}

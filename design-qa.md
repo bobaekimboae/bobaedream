@@ -52,6 +52,28 @@ final result: passed
 final result: passed
 
 ---
+# 커뮤니티 차량리뷰 독립 테이블 · 블랙 에디션 QA · 2026-10-16
+
+- source visual truth: USB 재연결한 동처띠 `NewPublisherActivityV2` 등록 화면과 `artifacts/dongchedi-review-audit-1016` 전수 캡처.
+- browser-rendered implementation: `community/naver-cafe-list.html?board=vehicle-review`, 등록·상세는 `?community=reviews&review=...&from=community`.
+- viewport: 390×844, 1440×900.
+- architecture: `data/boards/vehicle-review.csv`를 원본으로 한 커뮤니티 독립 테이블. 일반 게시글과 혼합하지 않음.
+- visual tokens: 동처띠 옐로우 대신 `#222` Airbnb식 블랙 CTA·필터·평점 진행선. 흰 배경과 8px 회색 섹션 밴드 유지.
+- asset fidelity: 초톳 별점 SVG, 레딧/치지직 반응·댓글·작성 SVG, 오토스카우트 공유 SVG, 프로젝트 오토홈 계열 브랜드 엠블럼만 사용. CSS/문자 별 없음.
+- interaction: 필터·구독·등록·가변 평가·상세·테스트 삭제 전부 동작.
+- automated result: PASS 225 / FAIL 0, 별점 상태 100/100 노출 및 무잘림, 깨진 이미지 0, 콘솔 오류 0.
+
+## Comparison history
+
+- Pass 1: 차량리뷰가 커뮤니티 독립 테이블이 아니라 별도 SPA로 연결된 구조 오류를 확인했다.
+- Fix: `vehicle-review` 전용 CSV/JS 테이블과 커뮤니티 내부 렌더러를 추가하고 별도 목록 진입은 내부 게시판으로 리다이렉트했다.
+- Pass 2: 옐로우 CTA와 직접 표현된 평점 강조가 브랜드 요청과 달랐다.
+- Fix: 블랙 에디션 토큰과 실제 아이콘 파일만 쓰도록 수정했다.
+- Pass 3: 등록한 테스트 리뷰가 상세로 이동하고 삭제 후 테이블 5건·저장소 0건으로 복귀하는 것을 확인했다.
+
+final result: passed
+
+---
 # 커뮤니티 차량리뷰 · 동처띠 등록/목록/상세 QA · 2026-10-16
 
 - source visual truth: `artifacts/dongchedi-review-audit-1016/15-score-3.png` 및 동 폴더의 전기·내연기관·오너·비오너 전수 캡처.
