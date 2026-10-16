@@ -250,23 +250,26 @@
 .naverSportsLeagueMenu button.on .naverSportsLeagueIcon{background:linear-gradient(145deg,#39a0ff,#087bf5)}
 .naverSportsGroups{display:flex;flex-direction:column;gap:8px;background:#eef1f5}
 .naverSportsGroup{display:grid;grid-template-columns:minmax(0,1fr);row-gap:16px;padding:20px 16px;background:#fff}
-.naverSportsRow{height:88px;display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.naverSportsRow{min-height:112px;display:grid;grid-template-columns:88px minmax(0,1fr);align-items:start;gap:12px;color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.naverSportsRow.is-two-line{min-height:136px}
 .naverSportsThumb{width:88px;height:88px;overflow:hidden;border-radius:8px;background:#e9edf1}
 .naverSportsThumb img{display:block;width:100%;height:100%;object-fit:cover}
-.naverSportsCopy{min-width:0;height:88px;display:flex;flex-direction:column;padding:2px 0 1px}
-.naverSportsCopy strong{height:42px;display:-webkit-box;overflow:hidden;color:#26282c;font-size:15.5px;line-height:21px;font-weight:600;letter-spacing:-.03em;-webkit-box-orient:vertical;-webkit-line-clamp:2;word-break:keep-all}
-.naverSportsRow.is-one-line .naverSportsCopy strong{height:21px;-webkit-line-clamp:1;white-space:normal}
-.naverSportsIdentity{min-width:0;height:18px;display:flex;align-items:center;gap:5px;margin-top:auto;overflow:hidden;color:#565a60;font-size:11.5px;line-height:18px;letter-spacing:-.025em;white-space:nowrap}
-.naverSportsIdentity img{width:16px;height:16px;flex:0 0 16px;border-radius:50%;object-fit:cover;background:#eef0f2}
-.naverSportsIdentity b{max-width:78px;overflow:hidden;color:#34373b;font-weight:700;text-overflow:ellipsis}
-.naverSportsIdentity span{min-width:0;overflow:hidden;text-overflow:ellipsis}
-.naverSportsIdentity span:before{content:"";display:inline-block;width:2px;height:2px;margin:0 5px 3px 0;border-radius:50%;background:#aeb2b8}
-.naverSportsMeta{height:17px;display:flex;align-items:center;gap:0;overflow:hidden;color:#7b7e83;font-size:11.5px;line-height:17px;font-weight:400;letter-spacing:-.025em;white-space:nowrap;font-variant-numeric:tabular-nums}
-.naverSportsMeta span{min-width:0;overflow:hidden;text-overflow:ellipsis}
-.naverSportsMeta span+span:before{content:"";display:inline-block;width:2px;height:2px;margin:0 6px 3px;border-radius:50%;background:#b6b8bc}
+.naverSportsCopy{min-width:0;display:flex;flex-direction:column}
+.naverSportsBoard{align-self:flex-start;height:22px;padding:2px 6px;border-radius:4px;background:#f3f5f7;color:#404048;font-size:12px;line-height:18px;font-weight:700;letter-spacing:-.3px;white-space:nowrap}
+.naverSportsIdentity{min-width:0;height:20px;display:flex;align-items:center;gap:6px;margin-top:10px;overflow:hidden;color:#404048;font-size:13px;line-height:19px;letter-spacing:-.3px;white-space:nowrap}
+.naverSportsIdentity img{width:20px;height:20px;flex:0 0 20px;border-radius:50%;object-fit:cover;background:#eef0f2}
+.naverSportsIdentity b{min-width:0;overflow:hidden;font-weight:500;text-overflow:ellipsis}
+.naverSportsIdentity time{flex:0 0 auto;margin-left:auto;color:#929294;font-weight:400;font-style:normal}
+.naverSportsCopy>strong{height:48px;display:-webkit-box;overflow:hidden;margin-top:5px;color:#1e1e23;font-size:16px;line-height:24px;font-weight:700;letter-spacing:-.3px;-webkit-box-orient:vertical;-webkit-line-clamp:2;word-break:keep-all}
+.naverSportsRow.is-one-line .naverSportsCopy>strong{height:24px;-webkit-line-clamp:1;white-space:normal}
+.naverSportsMeta{height:19px;display:flex;align-items:center;margin-top:12px;overflow:hidden;color:#404048;font-size:13px;line-height:19px;font-weight:500;letter-spacing:-.3px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.naverSportsRecommend{display:inline-flex;align-items:center;gap:4px}
+.naverSportsRecommend img{width:17px;height:17px;object-fit:contain;opacity:.78}
+.naverSportsViews{margin-left:auto;color:#767678}
+.naverSportsViews>span{font-size:12px;line-height:18px}
 .naverSportsEmpty{padding:54px 16px;background:#fff;color:#858990;font-size:14px;text-align:center}
 @media(hover:hover) and (pointer:fine){.naverSportsRow:hover .naverSportsCopy strong{text-decoration:underline}.naverSportsLeagueMenu button:hover{background:#f4f7fa}}
-@media(max-width:370px){.naverSportsGroup{padding-left:14px;padding-right:14px}.naverSportsControls{padding-left:14px;padding-right:14px}.naverSportsLeagueMenu{left:14px;right:14px}.naverSportsSort button{padding:0 9px}.naverSportsRow{grid-template-columns:84px minmax(0,1fr);gap:11px}.naverSportsThumb{width:84px;height:84px}.naverSportsCopy{height:84px}.naverSportsCopy strong{font-size:15px}.naverSportsIdentity,.naverSportsMeta{font-size:11px}.naverSportsIdentity b{max-width:67px}}
+@media(max-width:370px){.naverSportsGroup{padding-left:14px;padding-right:14px}.naverSportsControls{padding-left:14px;padding-right:14px}.naverSportsLeagueMenu{left:14px;right:14px}.naverSportsSort button{padding:0 9px}.naverSportsRow{grid-template-columns:84px minmax(0,1fr);gap:11px}.naverSportsThumb{width:84px;height:84px}.naverSportsIdentity{gap:5px}.naverSportsIdentity time{font-size:12px}.naverSportsCopy>strong{font-size:15.5px}}
 @media(min-width:768px){
   .phone.naverSportsMode{max-width:1024px;box-shadow:0 0 0 1px rgba(0,0,0,.035)}
   .phone.naverSportsMode .sheet{max-width:430px}
@@ -276,13 +279,8 @@
   .naverSportsLeagueMenu{left:22px;right:auto;top:66px;width:420px}
   .naverSportsGroups{gap:14px;padding:14px 18px 24px}
   .naverSportsGroup{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:44px;row-gap:16px;padding:22px 24px;border-radius:14px;box-shadow:0 1px 3px rgba(32,43,54,.05)}
-  .naverSportsRow{height:106px;grid-template-columns:80px minmax(0,1fr);gap:12px}
+  .naverSportsRow{min-height:112px;grid-template-columns:80px minmax(0,1fr);gap:12px}
+  .naverSportsRow.is-two-line{min-height:136px}
   .naverSportsThumb{width:80px;height:80px;margin-top:2px;border-radius:7px}
-  .naverSportsCopy{height:82px;padding:1px 0 0}
-  .naverSportsCopy strong{height:44px;font-size:16px;line-height:22px;font-weight:650}
-  .naverSportsRow.is-one-line .naverSportsCopy strong{height:22px}
-  .naverSportsIdentity{height:19px;font-size:12.5px;line-height:19px}
-  .naverSportsIdentity img{width:18px;height:18px;flex-basis:18px}
-  .naverSportsIdentity b{max-width:105px}
-  .naverSportsMeta{height:18px;font-size:12px;line-height:18px}
+  .naverSportsCopy{padding:0}
 }
