@@ -4,7 +4,8 @@
   var boards=[
     {id:'best',displayName:'베스트글',shortName:'베스트',section:'게시판',topicKey:'전체',fixed:true,avatarLabel:'BEST',avatarColor:'#18181b',avatarAccent:'#f5b942'},
     {id:'free',displayName:'자유게시판',shortName:'자유',section:'게시판',topicKey:'전체',avatarLabel:'자유',avatarColor:'#2457d6',avatarAccent:'#6ea8ff'},
-    {id:'car-news',displayName:'자동차뉴스/토론',shortName:'자동차뉴스',section:'게시판',topicKey:'전체',avatarLabel:'뉴스',avatarColor:'#006d77',avatarAccent:'#45c4b0'},
+    {id:'car-news',displayName:'자동차뉴스/토론',shortName:'뉴스토론',section:'게시판',topicKey:'전체',avatarLabel:'토론',avatarColor:'#006d77',avatarAccent:'#45c4b0'},
+    {id:'auto-news',displayName:'자동차뉴스',shortName:'자동차뉴스',section:'게시판',topicKey:'전체',avatarLabel:'NEWS',avatarColor:'#164e9b',avatarAccent:'#55a5f5'},
     {id:'politics',displayName:'정치/시사게시판',shortName:'정치시사',section:'게시판',topicKey:'전체',avatarLabel:'시사',avatarColor:'#5031a9',avatarAccent:'#9678e8'},
     {id:'test-drive',displayName:'시승기/배틀/목격담',shortName:'시승배틀',section:'게시판',topicKey:'전체',avatarLabel:'시승',avatarColor:'#c65316',avatarAccent:'#ff9c57'},
     {id:'celebrity-car',displayName:'유명인의 차',shortName:'유명인차',section:'게시판',topicKey:'전체',avatarLabel:'STAR',avatarColor:'#9e3f77',avatarAccent:'#f08bc2'},
@@ -36,6 +37,7 @@
   ];
   var storageKey='bbm.community.boardChannels.v2';
   var legacyStorageKey='bbm.community.boardOrder.v1';
+  var catalogRevision=3;
   var fixedIds=['home','best'];
   var movableBoards=boards.filter(function(board){return !board.fixed});
   var defaultActiveOrder=movableBoards.map(function(board){return board.id});
@@ -59,20 +61,28 @@
     return result;
   }
   function saveState(order){
-    var state={version:2,fixedIds:fixedIds.slice(),activeOrder:normalizeActiveOrder(order,false),updatedAt:new Date().toISOString()};
+    var state={version:2,catalogRevision:catalogRevision,fixedIds:fixedIds.slice(),activeOrder:normalizeActiveOrder(order,false),updatedAt:new Date().toISOString()};
     try{localStorage.setItem(storageKey,JSON.stringify(state))}catch(error){}
     return state;
   }
   function loadState(){
     try{
       var stored=JSON.parse(localStorage.getItem(storageKey)||'null');
-      if(stored&&stored.version===2&&Array.isArray(stored.activeOrder))return{version:2,fixedIds:fixedIds.slice(),activeOrder:normalizeActiveOrder(stored.activeOrder,false),updatedAt:stored.updatedAt||null};
+      if(stored&&stored.version===2&&Array.isArray(stored.activeOrder)){
+        var activeOrder=normalizeActiveOrder(stored.activeOrder,false);
+        if((Number(stored.catalogRevision)||0)<catalogRevision&&activeOrder.indexOf('auto-news')<0){
+          var newsIndex=activeOrder.indexOf('car-news');
+          activeOrder.splice(newsIndex>=0?newsIndex+1:Math.min(1,activeOrder.length),0,'auto-news');
+          return saveState(activeOrder);
+        }
+        return{version:2,catalogRevision:catalogRevision,fixedIds:fixedIds.slice(),activeOrder:activeOrder,updatedAt:stored.updatedAt||null};
+      }
     }catch(error){}
     try{
       var legacy=JSON.parse(localStorage.getItem(legacyStorageKey)||'null');
       if(Array.isArray(legacy))return saveState(normalizeActiveOrder(legacy,true));
     }catch(error){}
-    return{version:2,fixedIds:fixedIds.slice(),activeOrder:defaultActiveOrder.slice(),updatedAt:null};
+    return{version:2,catalogRevision:catalogRevision,fixedIds:fixedIds.slice(),activeOrder:defaultActiveOrder.slice(),updatedAt:null};
   }
   function orderedBoards(){return[boardById.best].concat(loadState().activeOrder.map(function(id){return boardById[id]}).filter(Boolean))}
   function sections(){return['게시판','자료실'].map(function(title){return{title:title,boards:boards.filter(function(board){return board.section===title})}})}
@@ -391,5 +401,5 @@
     };
   }
 
-  window.BBMCommunityBoardNavigation={catalog:boards,sections:sections,ordered:orderedBoards,avatarSrc:boardAvatarSrc,normalizeOrder:function(value){return normalizeActiveOrder(value,true)},init:init,storageKey:storageKey,legacyStorageKey:legacyStorageKey,fixedIds:fixedIds.slice()};
+  window.BBMCommunityBoardNavigation={catalog:boards,sections:sections,ordered:orderedBoards,avatarSrc:boardAvatarSrc,normalizeOrder:function(value){return normalizeActiveOrder(value,true)},init:init,storageKey:storageKey,legacyStorageKey:legacyStorageKey,catalogRevision:catalogRevision,fixedIds:fixedIds.slice()};
 })();

@@ -2,6 +2,8 @@
   "use strict";
 
   const STORAGE_KEY = "bbm.notion-write.v1";
+  const FEED_POST_KEY = "bbm.community.latestPost.v2";
+  const FEED_URL = "./naver-cafe-list.html?view=naver-discussion&board=auto-news";
   const DB_NAME = "bbm-notion-write-media";
   const DB_STORE = "media";
   const MAX_IMAGE_BYTES = 20 * 1024 * 1024;
@@ -1009,6 +1011,46 @@
     saveStatus.textContent = "저장됨";
   }
 
+  function publishToDiscussionFeed() {
+    const postTitle = title.value.trim();
+    if (!postTitle) {
+      title.focus();
+      showToast("제목을 입력해 주세요.");
+      return;
+    }
+
+    const media = Array.from(editor.querySelectorAll('.media-block[data-kind="image"], .media-block[data-kind="video"]')).map((figure) => ({
+      kind: figure.dataset.kind,
+      id: figure.dataset.mediaId || "",
+      url: figure.dataset.embedUrl || "",
+      name: figure.dataset.fileName || figure.querySelector("figcaption")?.textContent.trim() || "",
+    }));
+    const cleanedHtml = cleanEditorHtml();
+    const bodyReader = document.createElement("div");
+    bodyReader.innerHTML = cleanedHtml;
+    const bodyText = bodyReader.textContent.replace(/\s+/g, " ").trim();
+    const photos = media.filter((item) => item.kind === "image");
+    const videos = media.filter((item) => item.kind === "video");
+
+    saveDocument();
+    localStorage.setItem(FEED_POST_KEY, JSON.stringify({
+      status: "LOCAL_PREVIEW",
+      source: "notion-write",
+      board: "자동차뉴스",
+      head: "자동차뉴스",
+      title: postTitle,
+      body: bodyText ? [bodyText] : [],
+      html: cleanedHtml,
+      photos,
+      videos,
+      media,
+      hideBody: false,
+      submittedAt: new Date().toISOString(),
+    }));
+    showToast("자동차뉴스 피드에 게시했습니다.");
+    window.setTimeout(() => { location.href = FEED_URL; }, 220);
+  }
+
   async function hydrateMedia() {
     const blocks = editor.querySelectorAll(".media-block");
     for (const figure of blocks) {
@@ -1181,10 +1223,7 @@
     if (action === "add-embed") openEmbedDialog();
     if (action === "preview") buildPreview();
     if (action === "close-preview") previewDialog.close();
-    if (action === "publish") {
-      saveDocument();
-      showToast("이 브라우저에 임시 저장했습니다. 실제 게시 연동은 다음 단계입니다.");
-    }
+    if (action === "publish") publishToDiscussionFeed();
     if (!event.target.closest("#blockMenu, #blockAddButton") && !blockMenu.hidden) closeBlockMenu();
   });
 
