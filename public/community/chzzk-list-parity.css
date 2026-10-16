@@ -34,7 +34,7 @@
   width: 16px !important;
   height: 16px !important;
   margin: 0 1px 0 0 !important;
-  opacity: 1 !important;
+  opacity: .68 !important;
 }
 
 .phone.compactMode .metaView .metaAsset {
