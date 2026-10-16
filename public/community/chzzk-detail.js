@@ -314,8 +314,21 @@ function setRegularContent() {
     }
     const paragraphs = post.body && post.body.length ? post.body : ['좋은 정보 함께 나눠요.'];
     const detailImage = post.detailImage || String(post.thumbnail || '').replace(/([?&])w=\d+/, '$1w=960');
-    $('#postBody').innerHTML = `${detailImage ? `<img class="detailPhoto" src="${escapeHtml(detailImage)}" alt="${escapeHtml(post.title)}">` : ''}
+    // 네이버 토론형 피드에서 온 글은 피드와 같은 사진을 모두 보여 준다(무관한 기본 사진 대신)
+    const fromDiscussion = new URLSearchParams(location.search).get('from') === 'discussion' && window.BBM_DISCUSSION_MEDIA;
+    const discussionPhotos = fromDiscussion ? window.BBM_DISCUSSION_MEDIA.photosFor(post) : [];
+    const discussionVideo = fromDiscussion ? window.BBM_DISCUSSION_MEDIA.videoFor(post) : '';
+    const photoHtml = fromDiscussion
+      ? discussionPhotos.map((photo, index) => (index === 0 && discussionVideo
+        ? `<video class="detailPhoto detailDiscussionPhoto" id="detailPhoto${index + 1}" src="${escapeHtml(discussionVideo)}" poster="${escapeHtml(photo.src)}" controls muted playsinline preload="metadata" style="aspect-ratio:${photo.ratio}"></video>`
+        : `<img class="detailPhoto detailDiscussionPhoto" id="detailPhoto${index + 1}" src="${escapeHtml(photo.src)}" alt="${escapeHtml(post.title)} 사진 ${index + 1}" style="aspect-ratio:${photo.ratio}" loading="${index < 2 ? 'eager' : 'lazy'}">`)).join('')
+      : (detailImage ? `<img class="detailPhoto" src="${escapeHtml(detailImage)}" alt="${escapeHtml(post.title)}">` : '');
+    $('#postBody').innerHTML = `${photoHtml}
       <div class="detailCopy">${paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>`;
+    const photoTarget = Number(new URLSearchParams(location.search).get('photo')) || 0;
+    if (fromDiscussion && photoTarget > 1) {
+      requestAnimationFrame(() => document.getElementById(`detailPhoto${photoTarget}`)?.scrollIntoView({ block: 'start' }));
+    }
     const tagRow = $('#regularPost .tagRow');
     const tags = (post.tags || [post.category]).filter(Boolean).slice(0, 10);
     tagRow.replaceChildren(...tags.map((tag) => {
