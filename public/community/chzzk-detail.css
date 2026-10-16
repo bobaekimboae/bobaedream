@@ -56,20 +56,6 @@ img { display: block; }
 .bookmarkButton[aria-pressed="true"] { border-radius: 50%; background: var(--brand-soft); }
 .bookmarkButton[aria-pressed="true"] img { filter: invert(29%) sepia(96%) saturate(2600%) hue-rotate(333deg) brightness(101%) contrast(102%); }
 
-.eventBar {
-  display: flex;
-  width: 100%;
-  min-height: 66px;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 24px;
-  border-bottom: 1px solid var(--divider);
-  text-align: left;
-}
-.eventIcon { display: grid; width: 32px; height: 32px; flex: 0 0 auto; border-radius: 9px; background: #2f3035; place-items: center; }
-.eventIcon img { width: 22px; height: 22px; filter: brightness(0) invert(1); }
-.eventBar strong { min-width: 0; overflow: hidden; font-size: 18px; font-weight: 650; text-overflow: ellipsis; white-space: nowrap; }
-
 .post { padding: 24px 24px 0; }
 .boardLink { display: flex; align-items: center; gap: 5px; color: var(--green); font-size: 18px; font-weight: 750; }
 .boardLink img { width: 13px; height: 13px; transform: rotate(-90deg); filter: invert(54%) sepia(78%) saturate(3360%) hue-rotate(128deg) brightness(86%) contrast(101%); }
@@ -121,9 +107,6 @@ img { display: block; }
 .noticeUpdate { margin: 16px 0 0; color: #999999; font-size: 16px; font-style: italic; text-align: right; }
 .noticeReaction { min-height: 90px; }
 .noticeReaction { justify-content: flex-end; }
-
-.promoBanner { display: block; width: 100%; overflow: hidden; border-top: 1px solid var(--divider); border-bottom: 1px solid var(--divider); background: #151515; }
-.promoBanner img { width: 100%; min-height: 126px; object-fit: cover; }
 
 .latestCard { margin: 24px; padding: 24px; border-radius: 22px; background: #f4f4f6; }
 .latestHead { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; font-size: 18px; }
@@ -209,7 +192,7 @@ img { display: block; }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
 
-body.isNotice .eventBar, body.isNotice .comments, body.isNotice .toTop { display: none; }
+body.isNotice .comments, body.isNotice .toTop { display: none; }
 body.isNotice .noticePost { display: block; }
 body.isNotice .latestCard { margin-top: 24px; }
 body.isLongNotice .tagRow, body.isLongNotice .comments, body.isLongNotice .toTop { display: none; }
@@ -217,7 +200,7 @@ body.isLongNotice .postBody { padding-top: 15px; }
 body.isLongNotice .postTitle { letter-spacing: 0; word-break: break-all; }
 body.isLongNotice .reactionRow { justify-content: flex-end; }
 body.isLongNotice .reactionRow .roundAction { display: none; }
-body.isUserInquiry .tagRow, body.isUserInquiry .promoBanner { display: none; }
+body.isUserInquiry .tagRow { display: none; }
 body.isUserInquiry .authorAvatar, body.isUserInquiry .commentAvatar { filter: grayscale(1); opacity: .16; }
 body.isUserInquiry .latestCard { border: 1px solid var(--divider); background: #fff; }
 body.isUserInquiry .latestItem[hidden] { display: none; }
@@ -231,10 +214,6 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
   .iconButton img { width: 24px; height: 24px; }
   .closeButton { margin-left: 0; }
   .headerActions { padding-right: 0; }
-  .eventBar { min-height: 56px; gap: 8px; padding: 8px 15px; }
-  .eventIcon { width: 26px; height: 26px; border-radius: 7px; }
-  .eventIcon img { width: 18px; height: 18px; }
-  .eventBar strong { font-size: 14px; font-weight: 650; }
   .post { padding: 5px 15px 0; }
   .boardLink { height: 38px; gap: 4px; font-size: 14px; }
   .boardLink img { width: 11px; height: 11px; }
@@ -273,7 +252,6 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
   .roundAction { padding: 0 10px; }
   .commentAction { min-width: 56px; }
   .shareAction { width: 40px; padding: 0; }
-  .promoBanner img { height: 86px; min-height: 0; object-fit: cover; }
   .latestCard { margin: 15px; padding: 18px; border-radius: 14px; }
   .latestHead { margin-bottom: 8px; font-size: 15px; }
   .latestHead button { font-size: 13px; }

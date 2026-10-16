@@ -232,7 +232,6 @@ function setRegularContent() {
   if (isLongNotice) {
     document.body.classList.add('isLongNotice');
     $('#boardBtn').childNodes[0].nodeValue = '공지사항 ';
-    $('#eventText').textContent = '[치지직 오버워치] 넥슨 네이버 계정 연동 이벤트';
     $('#authorAvatar').src = 'assets/chzzk-detail/chzzk-operator-avatar.png';
     $('#authorAvatar').alt = '치지직 운영자 프로필';
     $('#operatorBadge').hidden = false;
@@ -261,7 +260,6 @@ function setRegularContent() {
   } else if (isUserInquiry) {
     document.body.classList.add('isUserInquiry');
     $('#boardBtn').childNodes[0].nodeValue = '자유게시판 ';
-    $('#eventText').textContent = '[월즈 2026] LoL 한정판 시청 드롭스 안내 (플레이인-스위스 스테이지)';
     $('#authorAvatar').src = 'assets/chzzk-detail/user-default-avatar.png';
     $('#authorAvatar').alt = '두깝이 프로필';
     $('#postBody').innerHTML = `
@@ -380,17 +378,6 @@ $('#bookmarkBtn').addEventListener('click', (event) => {
   showToast(next ? '게시글을 저장했습니다' : '저장을 취소했습니다');
 });
 $('#menuBtn').addEventListener('click', () => showToast('게시글 메뉴입니다'));
-const eventMessages = [
-  '[놈웨의 과몰입 만화방 2화] 신세기 에반게리온 과몰입 토크 스트리머 모집',
-  '2026 데마시아 컵 글로벌 인비테이셔널(DCGI) 같이보기 안내',
-  '(2차 당첨자 안내 업데이트) [그님픽] 그님팀 9월 내전 시청자 이벤트 안내',
-];
-let eventIndex = 0;
-$('#eventBar').addEventListener('click', () => {
-  eventIndex = (eventIndex + 1) % eventMessages.length;
-  $('#eventText').textContent = eventMessages[eventIndex];
-  showToast('다음 이벤트 안내입니다');
-});
 $('#upBtn').addEventListener('click', () => { up = !up; if (up) down = false; updateVote(); showToast(up ? '게시글을 추천했습니다' : '추천을 취소했습니다'); });
 $('#downBtn').addEventListener('click', () => { down = !down; if (down) up = false; updateVote(); showToast(down ? '게시글을 비추천했습니다' : '비추를 취소했습니다'); });
 $('#commentJump').addEventListener('click', () => { $('#comments').scrollIntoView({ behavior: 'smooth' }); setTimeout(() => $('#commentInput').focus(), 350); });
