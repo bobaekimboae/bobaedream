@@ -87,7 +87,7 @@
     var queryParams=new URLSearchParams(location.search);
     var previewGrid=queryParams.get('boardGrid');
     var panelColumns=previewGrid==='3'?3:4;
-    var selectedId=queryId==='home'||boardById[queryId]?queryId:'free';
+    var selectedId=queryId==='home'||boardById[queryId]?queryId:'home';
     var editing=false;
     var draftOrder=[];
     var activeSection='게시판';
@@ -381,7 +381,7 @@
     });
 
     renderNav();
-    if(queryId==='home'||boardById[queryId])choose(queryId,{skipQuery:true,silent:true});else{updateCurrentBoardAvatar(boardForId(selectedId));scrollSelected()}
+    if(queryId==='home'||boardById[queryId])choose(queryId,{skipQuery:true,silent:true});else choose('home',{skipQuery:true,silent:true});
     if(queryParams.get('menu')==='all')requestAnimationFrame(function(){openPanel({showViewEntry:false})});
     return{
       setSelectedByLabel:function(label){var board=boards.find(function(item){return item.displayName===label});if(board){selectedId=board.id;renderNav();updateCurrentBoardAvatar(board);updateQuery(board.id);scrollSelected()}else if(label==='전체 게시글'||label==='전체'){selectedId='home';renderNav();updateCurrentBoardAvatar(boardForId('home'));updateQuery('home');scrollSelected()}},

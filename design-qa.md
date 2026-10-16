@@ -1,3 +1,33 @@
+# 전체 게시글 · 치지직형 목록 QA · 2026-10-16
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/4f8c42b6-2ce9-4ad1-ade6-f10423e892ce/1-1000018632.jpg` (591 × 1280px)
+- browser-rendered implementation: `cua://browser/1/tab/229716870#viewport=393x844` (`http://127.0.0.1:4176/community/naver-cafe-list.html?view=compact`)
+- viewport and density: 원본 591px 폭을 393px CSS 폭으로 정규화했다. 구현은 Chrome 393 × 844 CSS px, DPR 1이며 기기 상태 표시줄은 비교 대상에서 제외했다.
+- state: 기본 진입 `전체 게시글`, 구독 해제, 말머리 축소, 인기글 첫 묶음, 목록 최상단.
+- full-view comparison evidence: 원본을 `view_image` 원본 해상도로 열고 동일 턴의 CUA 393 × 844 전체 화면 캡처와 비교했다.
+- focused region comparison evidence: 인기글 3행과 일반 게시글 첫 4행의 핀·추천·조회 아이콘, 제목/메타 글자 크기, 구분선을 확대 비교했다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: Pretendard를 유지하고 치지직 기준으로 일반 제목 16px/23px/500, 메타 13px/17px, 말머리 12px/22px으로 맞췄다. 제목은 한 줄 말줄임, 댓글 수는 초록색 보조 정보로 분리했다.
+- spacing and layout rhythm: 인기글은 44px 행 3개, 일반 게시글은 70px 행, 좌우 15px, 1px 구분선으로 정규화한 원본의 목록 밀도와 일치한다. 배너 350 × 106px과 프로필 분리 간격도 유지했다.
+- colors and visual tokens: 인기글의 파란 배경을 제거하고 흰 바탕, `#33343a` 핀 배지, `#e0e1e3` 구분선으로 교체했다. 메타는 `#777a80`, 댓글 수는 `#00a66a`로 정리했다.
+- image quality and asset fidelity: 기존 1440 × 450 WebP 배너를 왜곡 없이 사용하며 배너 제목과 프로필 제목을 모두 `전체 게시글`로 동기화했다. 깨진 이미지 0건이다.
+- icons: 인기글은 프로젝트 의존성의 Radix `DrawingPinFilledIcon` 자산을 14px로 사용하고, 일반 게시글 추천은 기존 치지직 상향 화살표 자산, 조회는 기존 눈 아이콘을 각각 14px로 통일했다.
+- copy and content: 기본 진입명·배너 제목·대체 텍스트·설명·통계가 `전체 게시글` 상태로 일치한다. 개별 게시판 탭으로 이동하면 해당 게시판명으로 다시 동기화된다.
+- interaction and responsiveness: `자유게시판 → 전체 게시글` 전환과 URL 상태 복귀를 확인했다. 393 × 844와 360 × 800 모두 가로 넘침 0px, 콘솔 오류 0건이다.
+
+## Comparison history
+
+- Pass 1: 기본 상태가 `자유게시판`이었고 인기글은 파란 배경의 `인기` 텍스트 배지, 일반 목록은 손 모양 추천 아이콘과 말머리 미노출 상태여서 P1/P2로 분류했다.
+- Fix: 기본 게시판을 `전체 게시글`로 전환하고 배너·프로필·설명을 동기화했다. 인기글을 흰 바탕의 짙은 핀 행으로 바꾸고, 말머리 칩과 치지직 상향 화살표 아이콘을 추가했다.
+- Pass 2: 393px에서 44px 인기글 행, 70px 일반 행, 16px 제목, 13px 메타를 확인했다. 360px에서도 동일한 계층과 오버플로 0px을 확인해 남은 P0/P1/P2가 없다.
+
+final result: passed
+
+---
+
 # 커뮤니티 치지직형 인기글 고정 행 QA · 2026-10-16
 
 - source visual truth: 첨부 이미지 `1000018598.jpg`의 게시판 상단 고정 게시물 영역 (592 × 1280px)

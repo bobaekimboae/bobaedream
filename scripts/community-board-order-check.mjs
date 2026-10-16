@@ -39,7 +39,7 @@ for(const width of [360,384,412,592,1280]){
   const overflow=await page.evaluate(()=>({body:document.documentElement.scrollWidth-document.documentElement.clientWidth,track:document.getElementById('boardChannelTrack').scrollWidth,scroller:document.getElementById('boardChannelScroller').clientWidth}));
   check(overflow.body===0,`${width}px 페이지 가로 오버플로가 ${overflow.body}px입니다`);
   check(overflow.track>overflow.scroller,`${width}px 게시판 메뉴가 가로 스크롤되지 않습니다`);
-  const navStyle=await nav.nth(2).evaluate(element=>{
+  const navStyle=await page.locator('.boardChannelTab.on').evaluate(element=>{
     const style=getComputedStyle(element);
     const underline=getComputedStyle(element,'::after');
     return {height:element.getBoundingClientRect().height,fontSize:style.fontSize,fontWeight:style.fontWeight,letterSpacing:style.letterSpacing,underlineHeight:underline.height};
