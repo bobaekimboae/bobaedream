@@ -32,6 +32,12 @@ jobs:
           FOREIGN_NEWS_COLLECT_CONCURRENCY: "6"
           NEWS_TRANSLATE_ENDPOINT: ${{ secrets.NEWS_TRANSLATE_ENDPOINT }}
           NEWS_TRANSLATE_TOKEN: ${{ secrets.NEWS_TRANSLATE_TOKEN }}
+      - name: Sync Google Sheet
+        run: npm run news:sync-sheet
+        env:
+          FOREIGN_NEWS_SHEET_ID: ${{ secrets.FOREIGN_NEWS_SHEET_ID }}
+          FOREIGN_NEWS_SHEET_TAB: "해외자동차뉴스_자동수집"
+          GOOGLE_SHEETS_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SHEETS_SERVICE_ACCOUNT_JSON }}
       - name: Commit changed snapshot
         run: |
           if git diff --quiet -- public/community/data/foreign-car-news.json public/community/data/board-foreign-car-news.js; then

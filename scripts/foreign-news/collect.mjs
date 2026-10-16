@@ -24,9 +24,55 @@ const maxArticles = Math.max(20, Number(process.env.FOREIGN_NEWS_MAX_ARTICLES ||
 // RSS/Atom 제공 이미지 URL만 원격 표시한다. 이미지는 내려받거나 재호스팅하지 않는다.
 // 운영 중 긴급 차단이 필요하면 FOREIGN_NEWS_ALLOW_FEED_IMAGES=false 로 끌 수 있다.
 const allowFeedImages = process.env.FOREIGN_NEWS_ALLOW_FEED_IMAGES !== "false";
-const outputSchemaVersion = 3;
+const outputSchemaVersion = 4;
 const activeSources = registry.sources.filter((source) => source.status === "active" && source.feedUrl && ["rss", "atom", "sitemap"].includes(source.fetchType));
 const selectedSources = limit ? activeSources.slice(0, limit) : activeSources;
+
+const makeNamesKo = new Map([
+  ["hyundai", "현대"], ["kia", "기아"], ["genesis", "제네시스"], ["tesla", "테슬라"],
+  ["toyota", "토요타"], ["honda", "혼다"], ["nissan", "닛산"], ["mazda", "마쓰다"],
+  ["subaru", "스바루"], ["suzuki", "스즈키"], ["bmw", "BMW"], ["mercedes", "메르세데스-벤츠"],
+  ["audi", "아우디"], ["volkswagen", "폭스바겐"], ["porsche", "포르쉐"], ["ferrari", "페라리"],
+  ["lamborghini", "람보르기니"], ["volvo", "볼보"], ["ford", "포드"], ["chevrolet", "쉐보레"],
+  ["jeep", "지프"], ["renault", "르노"], ["peugeot", "푸조"], ["citroen", "시트로엥"],
+  ["byd", "BYD"], ["nio", "니오"], ["xpeng", "샤오펑"], ["geely", "지리"],
+  ["rivian", "리비안"], ["lucid", "루시드"],
+]);
+
+function koreanMakeName(value) {
+  const text = String(value || "").trim();
+  return makeNamesKo.get(text.toLowerCase()) || (/^[가-힣]/.test(text) ? text : "");
+}
+
+function normalizedEntityList(value) {
+  const values = Array.isArray(value) ? value : String(value || "").split(/[|,]/);
+  return [...new Set(values.map((item) => String(item || "").trim()).filter(Boolean))];
+}
+
+function displayTitleKo(article) {
+  const translated = String(article.titleKo || "").trim();
+  if (translated) return translated;
+  const makes = [...new Set((article.makes || []).map(koreanMakeName).filter(Boolean))].slice(0, 2);
+  const subject = makes.length ? makes.join("·") : `${article.country || "해외"} 자동차`;
+  return `${subject} ${article.topic || "주요"} 관련 해외 보도`;
+}
+
+function translatedSummaryLines(article) {
+  const translated = String(article.summaryKo || "").replace(/\s+/g, " ").trim();
+  if (translated) {
+    const sentences = translated.match(/[^.!?。！？]+[.!?。！？]?/g)?.map((value) => value.trim()).filter(Boolean) || [];
+    const lines = (sentences.length ? sentences : [translated]).slice(0, 3);
+    if (lines.length < 2) lines.push(`${article.source}가 제공한 기사 내용을 요약했습니다.`);
+    if (lines.length < 3) lines.push("세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.");
+    return lines.join("\n");
+  }
+  const makes = [...new Set((article.makes || []).map(koreanMakeName).filter(Boolean))].slice(0, 3);
+  return [
+    `${article.source}가 전한 ${article.country || "해외"} 자동차 소식입니다.`,
+    `${makes.length ? `${makes.join("·")} 관련 ` : ""}${article.topic || "자동차"} 내용을 다룹니다.`,
+    "번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+  ].join("\n");
+}
 
 async function collectSource(source) {
   try {
@@ -125,23 +171,60 @@ if (translationEndpoint && visible.length) {
       "content-type": "application/json",
       ...(process.env.NEWS_TRANSLATE_TOKEN ? { authorization: `Bearer ${process.env.NEWS_TRANSLATE_TOKEN}` } : {}),
     },
-    body: JSON.stringify({ articles: visible.map(({ id, originalTitle, originalSummary, originalLanguage }) => ({ id, originalTitle, originalSummary, originalLanguage })) }),
+    body: JSON.stringify({
+      articles: visible.map(({ id, originalTitle, originalSummary, originalLanguage }) => ({ id, originalTitle, originalSummary, originalLanguage })),
+      outputSchema: {
+        titleKo: "한국어 번역 제목",
+        summaryKo: "줄바꿈으로 구분한 한국어 3줄 요약",
+        articleTypeKo: "기사 유형",
+        makesKo: ["제조사"],
+        modelsKo: ["자동차 모델"],
+        peopleKo: ["기사에 등장하는 인물"],
+      },
+      summaryRules: [
+        "1줄: 핵심 사건 또는 발표",
+        "2줄: 모델·기술·수치 등 구체 정보",
+        "3줄: 출시 일정·시장 영향 또는 다음 단계",
+      ],
+    }),
   });
   if (!response.ok) throw new Error(`translation endpoint failed: ${response.status}`);
   const translated = await response.json();
   const byId = new Map((translated.articles || []).map((article) => [String(article.id), article]));
   visible = visible.map((article) => {
     const next = byId.get(String(article.id));
-    return next ? { ...article, titleKo: next.titleKo || "", summaryKo: next.summaryKo || "", translationStatus: next.titleKo ? "translated" : "original" } : article;
+    return next ? {
+      ...article,
+      titleKo: next.titleKo || "",
+      summaryKo: next.summaryKo || "",
+      articleTypeKo: next.articleTypeKo || "",
+      makesKo: normalizedEntityList(next.makesKo),
+      modelsKo: normalizedEntityList(next.modelsKo),
+      peopleKo: normalizedEntityList(next.peopleKo),
+      translationStatus: next.titleKo ? "translated" : "original",
+    } : article;
   });
 }
+
+visible = visible.map((article) => ({
+  ...article,
+  displayArticleTypeKo: article.articleTypeKo || article.topic || "자동차 일반",
+  displayMakesKo: normalizedEntityList(article.makesKo).length
+    ? normalizedEntityList(article.makesKo)
+    : [...new Set((article.makes || []).map(koreanMakeName).filter(Boolean))],
+  displayModelsKo: normalizedEntityList(article.modelsKo),
+  displayPeopleKo: normalizedEntityList(article.peopleKo),
+  displayTitleKo: displayTitleKo(article),
+  displaySummaryKo: translatedSummaryLines(article),
+  displayTranslationStatus: article.titleKo ? "번역완료" : "한국어 메타 대체",
+}));
 
 let previous = null;
 try { previous = JSON.parse(await readFile(jsonPath, "utf8")); } catch {}
 const signature = sha1(JSON.stringify({
   outputSchemaVersion,
-  articles: visible.map(({ id, originalTitle, originalSummary, titleKo, summaryKo, imageUrl, relatedCount }) => ({
-    id, originalTitle, originalSummary, titleKo, summaryKo, imageUrl, relatedCount,
+  articles: visible.map(({ id, originalTitle, originalSummary, titleKo, summaryKo, displayArticleTypeKo, displayMakesKo, displayModelsKo, displayPeopleKo, displayTitleKo, displaySummaryKo, imageUrl, relatedCount }) => ({
+    id, originalTitle, originalSummary, titleKo, summaryKo, displayArticleTypeKo, displayMakesKo, displayModelsKo, displayPeopleKo, displayTitleKo, displaySummaryKo, imageUrl, relatedCount,
   })),
 }));
 if (previous?.signature === signature) {
@@ -158,7 +241,7 @@ const payload = {
   activeSourceCount: activeSources.length,
   collectedSourceCount: selectedSources.length,
   articleCount: visible.length,
-  translationMode: translationEndpoint ? "endpoint" : "original",
+  translationMode: translationEndpoint ? "endpoint" : "korean-metadata-fallback",
   articles: visible,
 };
 await writeFile(jsonPath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
@@ -166,12 +249,14 @@ await writeFile(jsonPath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
 const topics = ["전체", ...new Set(visible.map((article) => article.topic))];
 const rows = visible.map((article) => {
   const previewImage = allowFeedImages && article.imageUsage === "feed-provided-review" ? article.imageUrl : "";
+  const titleKo = article.displayTitleKo;
+  const summaryKo = article.displaySummaryKo;
   return ({
   id: article.id,
   category: article.topic,
-  title: article.titleKo || article.originalTitle,
-  summary: article.summaryKo || article.originalSummary,
-  body: article.summaryKo || article.originalSummary,
+  title: titleKo,
+  summary: summaryKo,
+  body: summaryKo,
   source: article.source,
   sourceUrl: article.canonicalUrl,
   author: article.source,
@@ -181,18 +266,18 @@ const rows = visible.map((article) => {
   thumbnail: "",
   images: "",
   embed: article.canonicalUrl,
-  embedTitle: article.titleKo || article.originalTitle,
-  embedDescription: article.summaryKo || article.originalSummary,
+  embedTitle: titleKo,
+  embedDescription: summaryKo,
   embedImage: previewImage,
   embedSite: article.source,
   embedLang: article.originalLanguage,
   views: "0",
   comments: "0",
   likes: "0",
-  tags: [article.country, article.topic, ...article.makes].filter(Boolean).join("|"),
+  tags: [article.country, article.displayArticleTypeKo, ...article.displayMakesKo, ...article.displayModelsKo, ...article.displayPeopleKo].filter(Boolean).join("|"),
   country: article.country,
   region: article.region,
-  originalTitle: article.originalTitle,
+  originalTitle: "",
   originalLanguage: article.originalLanguage,
   relatedCount: String(article.relatedCount),
   collectedAt: article.collectedAt,

@@ -10,6 +10,7 @@ import {
   stableArticleId,
   titleSimilarity,
 } from "../scripts/foreign-news/lib.mjs";
+import { buildSheetRows, sheetHeaders } from "../scripts/foreign-news/sheet-lib.mjs";
 
 test("CSV parser keeps quoted commas and line breaks", () => {
   const rows = parseCsv('\uFEFFname,url,note\r\n"매체, A",https://example.com,"첫 줄\n둘째 줄"\r\n');
@@ -35,6 +36,34 @@ test("generated board stores Reddit-style link preview metadata", async () => {
   assert.match(board, /"defaultView": "naver-discussion"/);
   assert.match(board, /"embedTitle":/);
   assert.match(board, /"embedImage": "https:\/\//);
+  assert.doesNotMatch(board, /"originalTitle": "[^\"]+/);
+  const descriptions = [...board.matchAll(/"embedDescription": "([^\"]+)"/g)].map((match) => JSON.parse(`"${match[1]}"`));
+  assert.ok(descriptions.length > 0);
+  assert.ok(descriptions.every((description) => description.split("\n").length === 3));
+});
+
+test("Google Sheet rows expose Korean display fields without an original-title column", () => {
+  assert.deepEqual(sheetHeaders.slice(0, 8), ["기사 유형", "제조사", "모델", "인물", "국가", "출처", "제목", "기사 요약(3줄)"]);
+  assert.equal(sheetHeaders.includes("원문 제목"), false);
+  const rows = buildSheetRows({
+    generatedAt: "2026-10-17T00:00:00.000Z",
+    articles: [{
+      id: "news-1",
+      source: "테스트 매체",
+      displayArticleTypeKo: "신차",
+      displayMakesKo: ["포르쉐"],
+      displayModelsKo: ["911"],
+      displayPeopleKo: ["올리버 블루메"],
+      displayTitleKo: "포르쉐 신차 관련 해외 보도",
+      displaySummaryKo: "첫 줄\n둘째 줄\n셋째 줄",
+      canonicalUrl: "https://example.com/news-1",
+      relatedCount: 2,
+    }],
+  });
+  assert.equal(rows.length, 1);
+  assert.deepEqual(rows[0].slice(0, 7), ["신차", "포르쉐", "911", "올리버 블루메", "", "테스트 매체", "포르쉐 신차 관련 해외 보도"]);
+  assert.equal(rows[0][7], "첫 줄\n둘째 줄\n셋째 줄");
+  assert.equal(rows[0][13], "https://example.com/news-1");
 });
 
 test("robots longest matching rule wins", () => {

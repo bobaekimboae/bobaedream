@@ -10,7 +10,7 @@
 .news-card-site>span,.news-card-site>em{display:none}
 .news-card-site>img{grid-area:fav;width:16px;height:16px;min-width:16px;margin:6px 6px 0 0;border-radius:2px;object-fit:contain}
 .news-card-title{grid-area:title;display:block;min-height:24px;margin-bottom:2px;overflow:hidden;color:#37352f;font-size:14px;line-height:20px;font-weight:400;letter-spacing:0;white-space:nowrap;text-overflow:ellipsis}
-.news-card-desc{grid-area:desc;display:-webkit-box;height:32px;overflow:hidden;color:rgba(55,53,47,.65);font-size:12px;line-height:16px;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.news-card-desc{grid-area:desc;display:-webkit-box;height:48px;overflow:hidden;color:rgba(55,53,47,.65);font-size:12px;line-height:16px;white-space:pre-line;-webkit-box-orient:vertical;-webkit-line-clamp:3}
 .news-card-url{grid-area:url;margin-top:6px;overflow:hidden;color:#37352f;font-size:12px;line-height:16px;white-space:nowrap;text-overflow:ellipsis}
 .news-card-copy:not(:has(.news-card-site>img)) .news-card-url{grid-column:1 / -1}
 .embed-block .media-surface:has(.news-card){min-height:0;border:0;background:none}
