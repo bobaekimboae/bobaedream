@@ -45,5 +45,5 @@ iframe[data-embed-short]{width:min(100%,315px)!important;max-width:315px;height:
 .bbm-embed-fallback strong{font-size:14px;line-height:20px;font-weight:600}
 .bbm-embed-fallback span{color:rgba(55,53,47,.65);font-size:12px;line-height:16px;text-decoration:underline}
 /* 틱톡 크리에이터 임베드: 틱톡 embed.js가 주는 높이 388 그대로 */
-iframe[data-embed-tiktok-profile]{width:100%;max-width:540px;height:388px!important;margin:0 auto}
+iframe[data-embed-tiktok-profile],.naverDiscussionEmbed iframe[data-embed-tiktok-profile],.detailEmbed iframe[data-embed-tiktok-profile]{width:100%;max-width:540px;height:389px;margin:0 auto}
 .bbm-embed-preview.is-tiktok-profile{aspect-ratio:352/388;background:#000}
