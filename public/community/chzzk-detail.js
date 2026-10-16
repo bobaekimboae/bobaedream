@@ -88,7 +88,7 @@ function loadLocalPost() {
     if (!saved || !savedId || savedId !== id) return null;
     const container = new DOMParser().parseFromString(`<div>${Array.isArray(saved.body) ? '' : (saved.body || '')}</div>`, 'text/html').body.firstChild;
     const lines = Array.isArray(saved.body) ? saved.body.map((value) => String(value).trim()).filter(Boolean) : (container.innerText || container.textContent || '').split(/\n+/).map((value) => value.trim()).filter(Boolean);
-    return { id:savedId, title:saved.title, user:'보배드림 회원', level:1, date:'방금 전', view:0, likes:0, board:saved.board || '자유게시판', tags:saved.tags || '', body:lines.length ? lines : ['내용이 없습니다.'], html:saved.html || (Array.isArray(saved.embeds) && saved.embeds.length && typeof saved.body === 'string' ? saved.body : ''), embeds:Array.isArray(saved.embeds) ? saved.embeds : [], media:Array.isArray(saved.media) ? saved.media : [] };
+    return { id:savedId, title:saved.title, user:'보배드림 회원', level:1, date:'방금 전', view:0, likes:0, board:saved.board || '자유게시판', tags:saved.tags || '', body:lines.length ? lines : ['내용이 없습니다.'], html:saved.html || (Array.isArray(saved.embeds) && saved.embeds.length && typeof saved.body === 'string' ? saved.body : ''), embeds:Array.isArray(saved.embeds) ? saved.embeds : [], media:Array.isArray(saved.media) ? saved.media : [], hideBody:Boolean(saved.hideBody) };
   } catch { return null; }
 }
 const localSourcePost = loadLocalPost();
@@ -362,8 +362,8 @@ function setRegularContent() {
   }
   if (localSourcePost) {
     $('#boardBtn').childNodes[0].nodeValue = `${post.board.replace('게시판', '').trim()} `;
-    $('#postBody').innerHTML = post.html ? renderLocalHtml(post) : `<div class="detailCopy">${post.body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>`;
-    renderLocalMedia(post.media);
+    $('#postBody').innerHTML = post.hideBody ? '<div class="detailCopy"><p>작성자가 본문을 숨긴 글입니다.</p></div>' : post.html ? renderLocalHtml(post) : `<div class="detailCopy">${post.body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>`;
+    if (!post.hideBody) renderLocalMedia(post.media);
     const tagRow = $('#regularPost .tagRow');
     const tags = String(post.tags || '').split('#').map((value) => value.trim()).filter(Boolean).slice(0, 10);
     tagRow.replaceChildren(...tags.map((tag) => { const button = document.createElement('button'); button.textContent = `#${tag}`; return button; }));
