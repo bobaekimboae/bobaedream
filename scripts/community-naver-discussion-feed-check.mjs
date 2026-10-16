@@ -13,7 +13,8 @@ await Promise.all(Array.from({ length: 60 }, (_, index) =>
 
 try {
   for (const width of widths) {
-    const page = await browser.newPage({ viewport: { width, height: 844 } });
+    const context = await browser.newContext({ viewport: { width, height: 844 }, isMobile: true, hasTouch: true });
+    const page = await context.newPage();
     const consoleErrors = [];
     page.on("console", (message) => {
       if (message.type() === "error") consoleErrors.push(message.text());
@@ -135,6 +136,29 @@ try {
     await page.waitForTimeout(80);
     const box = await shell.boundingBox();
     if (!box) throw new Error(`${width}px: 캐러셀 영역 측정 실패`);
+    const cdp = await context.newCDPSession(page);
+    const touchY = box.y + box.height / 2;
+    const touchStartX = box.x + box.width * 0.82;
+    const touchEndX = box.x + box.width * 0.24;
+    const touchStartProgress = await shell.evaluate((element) => element._discussionEmbla.scrollProgress());
+    await cdp.send("Input.dispatchTouchEvent", {
+      type: "touchStart",
+      touchPoints: [{ x: touchStartX, y: touchY, id: 1, radiusX: 8, radiusY: 8, force: 0.8 }],
+    });
+    for (let step = 1; step <= 12; step += 1) {
+      const x = touchStartX + ((touchEndX - touchStartX) * step) / 12;
+      await cdp.send("Input.dispatchTouchEvent", {
+        type: "touchMove",
+        touchPoints: [{ x, y: touchY, id: 1, radiusX: 8, radiusY: 8, force: 0.8 }],
+      });
+      await page.waitForTimeout(16);
+    }
+    await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
+    await page.waitForTimeout(700);
+    const touchSettledProgress = await shell.evaluate((element) => element._discussionEmbla.scrollProgress());
+    if (touchSettledProgress <= touchStartProgress + 0.08) throw new Error(`${width}px: 실제 터치 스와이프 후 다음 사진 유지 실패 (${touchStartProgress}/${touchSettledProgress})`);
+
+    await shell.evaluate((element) => element._discussionEmbla.scrollTo(0, true));
     const startProgress = await shell.evaluate((element) => element._discussionEmbla.scrollProgress());
     const dragY = box.y + box.height / 2;
     await page.mouse.move(box.x + box.width * 0.82, dragY);
@@ -192,7 +216,7 @@ try {
     if (commentUrl.searchParams.get("id") !== commentId || commentUrl.hash !== "#comments") throw new Error(`${width}px: 댓글 상세 이동 실패`);
 
     console.log(`PASS ${width}px · cards 60 · text/media ${measurements.textOnlyCards}/${measurements.mediaShells} · primary mapping 42/42 · avatars ${measurements.uniqueAvatars} local · single/multi ${measurements.singleRails}/${measurements.multiRails} · videos ${measurements.videos} · Embla drag-free momentum · pagination 0 · overflow 0`);
-    await page.close();
+    await context.close();
   }
 } finally {
   await browser.close();
