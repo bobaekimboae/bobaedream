@@ -151,7 +151,7 @@
   grid-template-columns: minmax(0, 1fr);
   align-items: end;
   padding: 0 16px 10px;
-  border-bottom: 1px solid #e7e8eb;
+  border-bottom: 0;
   background: #fff;
 }
 
