@@ -19,17 +19,6 @@
 .phone.compactMode .viewIconBtn svg{width:17px;height:17px;color:#686b70}
 
 .phone.compactMode .compactLead{display:block;background:#fff}
-.compactNotices{padding:4px 15px 0}
-.compactNotice{width:100%;height:42px;display:flex;align-items:center;gap:9px;border-bottom:1px solid #dedfe1;background:#fff;text-align:left;overflow:hidden}
-.compactNotice:last-child{border-bottom:0}
-.compactPin{width:23px;height:23px;border-radius:6px;background:#303136;display:grid;place-items:center;flex:0 0 23px}
-.compactPin img{width:14px;height:14px;display:block}
-.compactNotice strong{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:15.5px;line-height:22px;font-weight:650;letter-spacing:-.04em;color:#2a2c30}
-.compactNoticeReply{color:#238fe3;font-size:13px;line-height:20px;font-weight:600;flex:0 0 auto}
-.compactNoticePager{height:24px;display:flex;align-items:center;justify-content:center;gap:5px}
-.compactNoticePager i{width:4px;height:4px;border-radius:50%;background:#d2d4d7}
-.compactNoticePager i.on{background:#6c6e72}
-.compactLeadDivider{height:14px;background:#f5f6f7}
 .compactCleanBot{height:58px;margin:14px 15px;display:flex;align-items:center;gap:9px;padding:0 13px;border-radius:10px;background:#f4f5f6;color:#2e3034;font-size:14px;line-height:20px;letter-spacing:-.035em}
 .compactCleanBot strong{font-weight:750}
 .compactBotIcon{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;flex:0 0 24px;background:#19b58b}
@@ -61,7 +50,6 @@
 @media(max-width:370px){
   .phone.compactMode .boardTop{padding:0 14px}
   .phone.compactMode .boardTools{gap:10px}
-  .compactNotices,.phone.compactMode .list{padding-left:14px;padding-right:14px}
+  .phone.compactMode .list{padding-left:14px;padding-right:14px}
   .compactCleanBot{margin-left:14px;margin-right:14px}
-  .compactNotice strong{font-size:15px}
 }

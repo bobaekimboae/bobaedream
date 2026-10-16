@@ -17,8 +17,9 @@
       "compact": true,
       "listType": "간결형",
       "descriptionsHidden": true,
-      "notices": 3,
+      "noticesRemoved": true,
       "botVisible": true,
+      "cleanBotGap": 14,
       "rows": 30,
       "freshRows": 8,
       "visibleDots": 8,
@@ -36,8 +37,7 @@
       "replyColor": "rgb(35, 143, 227)",
       "recommendIcon": "assets/reddit-ui/recommend-thumb-up.svg?v=20261016thumbgray2",
       "brokenImages": [],
-      "firstItemTarget": "1",
-      "noticeTarget": "1"
+      "firstItemTarget": "1"
     },
     "errors": []
   },
@@ -54,15 +54,15 @@
       "preservedExceptions": true,
       "targets": true,
       "runtime": true,
-      "itemNavigation": true,
-      "noticeNavigation": true
+      "itemNavigation": true
     },
     "metrics": {
       "compact": true,
       "listType": "간결형",
       "descriptionsHidden": true,
-      "notices": 3,
+      "noticesRemoved": true,
       "botVisible": true,
+      "cleanBotGap": 14,
       "rows": 30,
       "freshRows": 8,
       "visibleDots": 8,
@@ -80,8 +80,7 @@
       "replyColor": "rgb(35, 143, 227)",
       "recommendIcon": "assets/reddit-ui/recommend-thumb-up.svg?v=20261016thumbgray2",
       "brokenImages": [],
-      "firstItemTarget": "1",
-      "noticeTarget": "1"
+      "firstItemTarget": "1"
     },
     "errors": []
   },
@@ -103,8 +102,9 @@
       "compact": true,
       "listType": "간결형",
       "descriptionsHidden": true,
-      "notices": 3,
+      "noticesRemoved": true,
       "botVisible": true,
+      "cleanBotGap": 14,
       "rows": 30,
       "freshRows": 8,
       "visibleDots": 8,
@@ -122,8 +122,7 @@
       "replyColor": "rgb(35, 143, 227)",
       "recommendIcon": "assets/reddit-ui/recommend-thumb-up.svg?v=20261016thumbgray2",
       "brokenImages": [],
-      "firstItemTarget": "1",
-      "noticeTarget": "1"
+      "firstItemTarget": "1"
     },
     "errors": []
   }

@@ -30,13 +30,16 @@ for (const width of [360, 384, 412]) {
     const title = firstThumbRow?.querySelector('.body');
     const reply = document.querySelector('.compactReply');
     const item = rows[0];
+    const boardTop = document.querySelector('.boardTop');
+    const cleanBot = document.querySelector('.compactCleanBot');
     const thumbStyle = firstThumb ? getComputedStyle(firstThumb) : null;
     return {
       compact: document.querySelector('.phone')?.classList.contains('compactMode'),
       listType: document.getElementById('typeLabel')?.textContent?.trim(),
       descriptionsHidden: getComputedStyle(document.getElementById('boardDescriptionSection')).display === 'none' && getComputedStyle(document.getElementById('headwordSection')).display === 'none',
-      notices: document.querySelectorAll('.compactNotice').length,
+      noticesRemoved: document.querySelectorAll('.compactNotice,.compactNoticePager,.compactLeadDivider').length === 0,
       botVisible: getComputedStyle(document.getElementById('compactLead')).display !== 'none',
+      cleanBotGap: boardTop && cleanBot ? Math.round(cleanBot.getBoundingClientRect().top - boardTop.getBoundingClientRect().bottom) : -1,
       rows: rows.length,
       freshRows: freshRows.length,
       visibleDots: visibleDots.length,
@@ -51,21 +54,20 @@ for (const width of [360, 384, 412]) {
       replyColor: reply ? getComputedStyle(reply).color : '',
       recommendIcon: document.querySelector('.metaRecommend .metaAsset')?.getAttribute('src') || '',
       brokenImages: [...document.images].filter((image) => image.complete && image.naturalWidth === 0).map((image) => image.getAttribute('src')),
-      firstItemTarget: item?.getAttribute('data-id') || '',
-      noticeTarget: document.querySelector('.compactNotice')?.getAttribute('data-notice-id') || ''
+      firstItemTarget: item?.getAttribute('data-id') || ''
     };
   });
 
   const checks = {
     compactRoute: metrics.compact && metrics.listType === '간결형',
-    chzzkLead: metrics.descriptionsHidden && metrics.notices === 3 && metrics.botVisible,
+    chzzkLead: metrics.descriptionsHidden && metrics.noticesRemoved && metrics.botVisible && metrics.cleanBotGap === 14,
     mixedRows: metrics.rows >= 20 && metrics.thumbs > 0 && metrics.noThumbs > 0,
     mediaStates: metrics.videoBadges > 0 && metrics.linkBadges > 0 && metrics.photoBadges > 0,
     newDots: metrics.visibleDots === metrics.freshRows,
     rightThumb: metrics.rightThumb,
     dimensions: metrics.itemHeight === 70 && metrics.thumbSize[0] === 52 && metrics.thumbSize[1] === 52,
     preservedExceptions: metrics.replyColor === 'rgb(35, 143, 227)' && metrics.recommendIcon.includes('recommend-thumb-up.svg'),
-    targets: metrics.firstItemTarget === '1' && metrics.noticeTarget === '1',
+    targets: metrics.firstItemTarget === '1',
     runtime: errors.length === 0
   };
   if (width === 384) {
@@ -74,12 +76,6 @@ for (const width of [360, 384, 412]) {
       page.locator('.item[data-id="1"]').click()
     ]);
     checks.itemNavigation = page.url().includes('chzzk-detail.html?id=1');
-    await page.goto(`${baseUrl}/community/naver-cafe-list.html?view=compact`, { waitUntil: 'networkidle' });
-    await Promise.all([
-      page.waitForURL(/chzzk-detail\.html\?id=1&v=20261017compactnotice/),
-      page.locator('.compactNotice[data-notice-id="1"]').click()
-    ]);
-    checks.noticeNavigation = page.url().includes('v=20261017compactnotice');
     await page.goto(`${baseUrl}/community/naver-cafe-list.html?view=compact`, { waitUntil: 'networkidle' });
   }
   if (Object.values(checks).some((value) => !value)) failed = true;

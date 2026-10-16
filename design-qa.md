@@ -28,6 +28,16 @@
 
 final result: passed
 
+---
+
+## 치지직 간결형 공지 제거 · 2026-10-17
+
+- 사용자 결정에 따라 상단 고정 공지 3건과 공지 페이지 점을 제거했다.
+- 공지 제거 뒤 회색 구분대와 빈 여백도 함께 제거해 게시판 선택 아래 14px 간격으로 클린봇이 바로 이어진다.
+- 댓글 숫자 블루, 추천 아이콘, 70px 목록 행, 52×52px 우측 썸네일은 유지했다.
+- 360·384·412px에서 공지 DOM 0건, 클린봇 간격 14px, 깨진 이미지·콘솔 오류 0건을 확인했다.
+- final result: passed.
+
 ## 해외 자동차뉴스 Threads형 링크 카드 QA (2026-10-17)
 
 - source visual truth: `C:\Users\bobae\OneDrive\문서\ChatGPT\퀵필터 제작\.codex-remote-attachments\01a10689-936d-7973-9ae7-047c763eeb65\a2ed51e8-0dbd-48b2-b904-7f1a656e094a\1-1000018728.jpg`
