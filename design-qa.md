@@ -32,6 +32,37 @@ final result: passed
 
 ---
 
+# 자유게시판 유튜브형 확정 헤더 QA · 2026-10-16
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/49224cb7-8b54-4b78-8f7f-7e58114fdf36/2-1000018628.jpg`
+- implementation screenshot: `artifacts/community-youtube-header-1016/implementation-393x844.png`
+- comparison image: `artifacts/community-youtube-header-1016/comparison-reference-vs-implementation.png`
+- generated hero asset: `public/community/assets/board-header-youtube-v2.webp` (1440 × 450px, built-in Image Gen)
+- viewport and density: source 591 × 1280px를 393px 폭으로 정규화, 구현 393 × 844 CSS px, DPR 1.
+- state: `자유게시판` 선택, 구독 해제, 말머리 축소, 인기글 첫 묶음.
+- browser-rendered evidence: Chrome/CUA 393 × 844에서 기본 주소(별도 `header` 쿼리 없음)를 확인했다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: Pretendard 기반의 배너 제목 23px/820, 채널 제목 20px/800, 통계 12px 계층이 유튜브 채널 헤더의 제목 대비를 유지하면서 게시판 밀도에 맞게 축소됐다.
+- spacing and layout rhythm: 배너는 350 × 106px, 좌우 14px, 반경 12px이다. `자유` 프로필은 56px이며 배너 하단과 14px 겹쳐 채널 정체성이 이어진다.
+- colors and visual tokens: 흰 콘텐츠 바탕, 검정 구독 칩, 파란 자유 프로필과 야간 자동차 배너의 네이비·앰버 톤이 충돌 없이 이어진다.
+- image quality and asset fidelity: 1440 × 450 WebP 원본을 `object-fit: cover`로 사용하며 깨진 이미지 0건, 왜곡·워터마크·브랜드 로고가 없다.
+- copy and content: 배너에는 `자유게시판`, `자동차를 넘어, 사람 사는 이야기`를 배치했고 기존 구독 수·게시물 수·설명은 유지했다.
+- interaction and responsiveness: 게시판 탭을 `자동차뉴스/토론`으로 전환하면 배너 제목도 동기화되고, 자유게시판 복귀와 구독/구독 취소가 정상 동작한다. 가로 오버플로는 0px이다.
+- accessibility: 배너 이미지 대체 텍스트가 있고 제목은 실제 텍스트로 유지된다. 콘솔 오류 0건.
+
+## Comparison history
+
+- Pass 1 baseline: 기존 유튜브형은 80px 배너와 프로필이 분리돼 채널 헤더 결속이 약했고, 이미지 안에 게시판 타이틀이 없었다.
+- Fix: 106px 전용 배너를 새로 제작하고, 프로필을 하단에 14px 겹치게 배치했으며 배너 제목·태그라인과 동적 게시판명 동기화를 추가했다.
+- Pass 2: 기준 화면과 구현을 393px 폭으로 나란히 비교했다. 유튜브식 배너→채널 정체성→설명 흐름은 유지하면서 게시판 목록의 정보 밀도도 보존돼 남은 P0/P1/P2가 없다.
+
+final result: passed
+
+---
+
 # 커뮤니티 게시판 헤더 · 유튜브형/레딧형 2안 QA · 2026-10-16
 
 - source visual truth paths:
