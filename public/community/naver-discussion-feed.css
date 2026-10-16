@@ -250,5 +250,9 @@
 .naverCafePopularReply{width:46px;height:60px;border-radius:12px;background:#f5f6f7;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;cursor:pointer}
 .naverCafePopularReply b{color:#272829;font-size:14px;line-height:19px;font-weight:600}
 .naverCafePopularReply span{color:#949699;font-size:12px;line-height:16px;font-weight:400}
+.naverCafePopularLeftMode .naverCafePopularRow.hasThumb .naverCafePopularMain{grid-template-columns:60px minmax(0,1fr);gap:10px}
+.naverCafePopularLeftMode .naverCafePopularRow.hasThumb .naverCafePopularBody{grid-column:2;grid-row:1}
+.naverCafePopularLeftMode .naverCafePopularRow.hasThumb .naverCafePopularThumb{grid-column:1;grid-row:1}
+.naverCafePopularLeftMode .naverCafePopularRow.hasThumb .naverCafeNew{left:62px}
 @media(hover:hover) and (pointer:fine){.naverCafePopularRow:hover{background:#fafbfc}}
-@media(max-width:370px){.naverCafePopularHeader,.naverCafePopularRows{padding-left:14px}.naverCafePopularRow{padding-right:14px}.naverCafePopularBody>strong{font-size:15.5px}.naverCafePopularMeta{gap:5px;font-size:13px}.naverCafePopularRow.hasThumb .naverCafePopularMain{grid-template-columns:minmax(0,1fr) 56px;gap:8px}.naverCafePopularThumb{width:56px;height:56px}}
+@media(max-width:370px){.naverCafePopularHeader,.naverCafePopularRows{padding-left:14px}.naverCafePopularRow{padding-right:14px}.naverCafePopularBody>strong{font-size:15.5px}.naverCafePopularMeta{gap:5px;font-size:13px}.naverCafePopularRow.hasThumb .naverCafePopularMain{grid-template-columns:minmax(0,1fr) 56px;gap:8px}.naverCafePopularThumb{width:56px;height:56px}.naverCafePopularLeftMode .naverCafePopularRow.hasThumb .naverCafePopularMain{grid-template-columns:56px minmax(0,1fr)}.naverCafePopularLeftMode .naverCafePopularRow.hasThumb .naverCafeNew{left:56px}}
