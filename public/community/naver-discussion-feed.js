@@ -131,7 +131,7 @@
   }
   function loungeBestTime(){
     var hour=new Date().getHours();
-    return (hour||24)+'시 기준';
+    return (hour<12?'오전 ':'오후 ')+(hour%12||12)+'시 기준';
   }
   function renderLoungeBest(){
     var data=posts();
