@@ -45,6 +45,7 @@
   }
   function cleanTitle(value){return String(value||'').replace(/^\[[^\]]+\]\s*/,'');}
   function bodyFor(post,index){
+    if(post.hideBody)return '작성자가 본문을 숨긴 글입니다.';
     if(Array.isArray(post.body)&&post.body.length){
       return post.board==='foreign-car-news'?post.body.slice(0,3).join('\n'):post.body[0];
     }
