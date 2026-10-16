@@ -86,10 +86,9 @@ function loadLocalPost() {
     const saved = JSON.parse(localStorage.getItem('bbm.community.latestPost.v2') || 'null');
     const savedId = Date.parse(saved?.submittedAt || saved?.savedAt || '');
     if (!saved || !savedId || savedId !== id) return null;
-    const container = document.createElement('div');
-    container.innerHTML = saved.body || '';
-    const lines = (container.innerText || container.textContent || '').split(/\n+/).map((value) => value.trim()).filter(Boolean);
-    return { id:savedId, title:saved.title, user:'보배드림 회원', level:1, date:'방금 전', view:0, likes:0, board:saved.board || '자유게시판', tags:saved.tags || '', body:lines.length ? lines : ['내용이 없습니다.'], html:saved.html || (Array.isArray(saved.embeds) && saved.embeds.length && typeof saved.body === 'string' ? saved.body : ''), embeds:Array.isArray(saved.embeds) ? saved.embeds : [] };
+    const container = new DOMParser().parseFromString(`<div>${Array.isArray(saved.body) ? '' : (saved.body || '')}</div>`, 'text/html').body.firstChild;
+    const lines = Array.isArray(saved.body) ? saved.body.map((value) => String(value).trim()).filter(Boolean) : (container.innerText || container.textContent || '').split(/\n+/).map((value) => value.trim()).filter(Boolean);
+    return { id:savedId, title:saved.title, user:'보배드림 회원', level:1, date:'방금 전', view:0, likes:0, board:saved.board || '자유게시판', tags:saved.tags || '', body:lines.length ? lines : ['내용이 없습니다.'], html:saved.html || (Array.isArray(saved.embeds) && saved.embeds.length && typeof saved.body === 'string' ? saved.body : ''), embeds:Array.isArray(saved.embeds) ? saved.embeds : [], media:Array.isArray(saved.media) ? saved.media : [] };
   } catch { return null; }
 }
 const localSourcePost = loadLocalPost();
@@ -364,6 +363,7 @@ function setRegularContent() {
   if (localSourcePost) {
     $('#boardBtn').childNodes[0].nodeValue = `${post.board.replace('게시판', '').trim()} `;
     $('#postBody').innerHTML = post.html ? renderLocalHtml(post) : `<div class="detailCopy">${post.body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>`;
+    renderLocalMedia(post.media);
     const tagRow = $('#regularPost .tagRow');
     const tags = String(post.tags || '').split('#').map((value) => value.trim()).filter(Boolean).slice(0, 10);
     tagRow.replaceChildren(...tags.map((tag) => { const button = document.createElement('button'); button.textContent = `#${tag}`; return button; }));
@@ -373,6 +373,31 @@ function setRegularContent() {
     $('#actionCommentCount').textContent = '0';
   }
   document.title = `${$('#postTitle').textContent} | 치지직`;
+}
+
+/* 글쓰기에서 첨부한 사진·영상: 브라우저 저장소(IndexedDB)에서 꺼내 본문 위에 보여 준다 */
+function renderLocalMedia(media) {
+  if (!Array.isArray(media) || !media.length || !window.indexedDB) return;
+  const holder = document.createElement('div');
+  holder.className = 'detailLocalMedia';
+  $('#postBody').prepend(holder);
+  const request = indexedDB.open('bbm-notion-write-media', 1);
+  request.onupgradeneeded = () => request.result.createObjectStore('media');
+  request.onsuccess = () => {
+    const db = request.result;
+    media.forEach((item) => {
+      const read = db.transaction('media', 'readonly').objectStore('media').get(item.id);
+      read.onsuccess = () => {
+        if (!read.result) return;
+        const url = URL.createObjectURL(read.result);
+        const el = document.createElement(item.kind === 'video' ? 'video' : 'img');
+        el.className = 'detailPhoto detailDiscussionPhoto';
+        el.src = url;
+        if (item.kind === 'video') { el.controls = true; el.playsInline = true; } else el.alt = item.name || '첨부 사진';
+        holder.append(el);
+      };
+    });
+  };
 }
 
 // 노션식 글쓰기로 올린 글: 본문 순서대로 글·임베드(레딧·유튜브)·뉴스 카드를 보여 준다
@@ -390,9 +415,32 @@ function detailEmbedHtml(item) {
   const logo = item.logo ? `<img src="${escapeHtml(item.logo)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">` : '';
   return `<figure class="detailEmbed"><a class="news-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${image}<span class="news-card-copy"><span class="news-card-site">${logo}<span>${escapeHtml(item.site || item.provider || host)}</span>${overseas ? '<em>해외</em>' : ''}</span><strong class="news-card-title">${escapeHtml(item.title || host)}</strong>${item.description ? `<span class="news-card-desc">${escapeHtml(item.description)}</span>` : ''}<small class="news-card-url">${escapeHtml(host)}</small></span></a>${caption}</figure>`;
 }
+/* 글쓰기 본문의 서식(굵게·기울임·밑줄·링크·줄바꿈)만 남기고 나머지 태그·속성은 버린다 */
+function safeInline(root) {
+  return Array.from(root.childNodes).map((node) => {
+    if (node.nodeType === 3) return escapeHtml(node.textContent);
+    if (node.nodeType !== 1) return '';
+    const inner = safeInline(node);
+    const tag = node.tagName;
+    if (tag === 'BR') return '<br>';
+    if (tag === 'B' || tag === 'STRONG') return `<strong>${inner}</strong>`;
+    if (tag === 'I' || tag === 'EM') return `<em>${inner}</em>`;
+    if (tag === 'U') return `<u>${inner}</u>`;
+    if (tag === 'A' && /^https?:\/\//.test(node.getAttribute('href') || '')) return `<a href="${escapeHtml(node.getAttribute('href'))}" target="_blank" rel="noopener noreferrer">${inner}</a>`;
+    if (tag === 'FONT' && node.getAttribute('size')) { const size = { 1: 12, 2: 13, 3: 16, 4: 18, 5: 22, 6: 26, 7: 30 }[node.getAttribute('size')] || 16; return `<span style="font-size:${size}px">${inner}</span>`; }
+    if (tag === 'FIGURE' || tag === 'SCRIPT' || tag === 'STYLE' || tag === 'IFRAME') return '';
+    return inner;
+  }).join('');
+}
+function localPollHtml(node) {
+  const title = node.querySelector('strong')?.textContent.replace(/^📊\s*/, '') || '투표';
+  const options = Array.from(node.querySelectorAll('span')).map((span) => span.textContent.replace(/^○\s*/, ''));
+  const note = node.querySelector('small')?.textContent || '';
+  return `<section class="detailPoll" aria-label="투표"><strong>${escapeHtml(title)}</strong>${options.map((option) => `<label><input type="radio" name="detailPoll" disabled><span>${escapeHtml(option)}</span></label>`).join('')}${note ? `<small>${escapeHtml(note)}</small>` : ''}</section>`;
+}
 function renderLocalHtml(source) {
-  const box = document.createElement('div');
-  box.innerHTML = source.html;
+  /* DOMParser로 읽으면 이미지 로딩·onerror 같은 스크립트가 실행되지 않는다(innerHTML로 임시 div에 넣으면 실행됨) */
+  const box = new DOMParser().parseFromString(`<div>${source.html}</div>`, 'text/html').body.firstChild;
   const byUrl = new Map((source.embeds || []).map((item) => [item.url, item]));
   const parts = [];
   let paragraphs = [];
@@ -407,10 +455,16 @@ function renderLocalHtml(source) {
       Array.from(node.childNodes).forEach((child) => { if (child.nodeType === 1 && child.matches('figure.write-embed')) { flush(); parts.push(detailEmbedHtml(byUrl.get(child.dataset.embedUrl) || { url: child.dataset.embedUrl })); } else { const t = (child.textContent || '').trim(); if (t) paragraphs.push(`<p>${escapeHtml(t)}</p>`); } });
       return;
     }
+    if (node.nodeType === 1 && node.tagName === 'HR') { flush(); parts.push('<hr class="detailRule">'); return; }
+    if (node.nodeType === 1 && node.matches('section.editor-poll')) { flush(); parts.push(localPollHtml(node)); return; }
     const text = (node.textContent || '').trim();
     if (!text) return;
-    const strong = node.nodeType === 1 && /^H[1-3]$/.test(node.tagName);
-    paragraphs.push(`<p>${strong ? `<strong>${escapeHtml(text)}</strong>` : escapeHtml(text)}</p>`);
+    const tag = node.nodeType === 1 ? node.tagName : '';
+    const inner = node.nodeType === 1 ? safeInline(node) : escapeHtml(text);
+    if (/^H[1-3]$/.test(tag)) paragraphs.push(`<h3 class="detailSubhead">${inner}</h3>`);
+    else if (tag === 'BLOCKQUOTE') paragraphs.push(`<blockquote class="detailQuote">${inner}</blockquote>`);
+    else if (tag === 'UL' || tag === 'OL') paragraphs.push(`<${tag.toLowerCase()}>${Array.from(node.children).map((li) => `<li>${safeInline(li)}</li>`).join('')}</${tag.toLowerCase()}>`);
+    else paragraphs.push(`<p>${inner}</p>`);
   });
   flush();
   return parts.join('') || `<div class="detailCopy"><p>${escapeHtml(source.body?.[0] || '내용이 없습니다.')}</p></div>`;

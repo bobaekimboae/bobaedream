@@ -88,12 +88,12 @@ export const reviewModels = [
 export type ReviewModel = (typeof reviewModels)[number];
 
 export function scoreBucket(score: number) {
-  // Dongchedi keeps the same phrase across 0.5/1.0/1.5 and then changes
-  // at the next whole-star boundary. 5.0 has its own top phrase.
-  if (score < 2) return 0;
-  if (score < 3) return 1;
-  if (score < 4) return 2;
-  if (score < 5) return 3;
+  // Verified against the native writer by tapping both halves of every star:
+  // 0.5/1.0, 1.5/2.0, 2.5/3.0, 3.5/4.0, 4.5/5.0.
+  if (score <= 1) return 0;
+  if (score <= 2) return 1;
+  if (score <= 3) return 2;
+  if (score <= 4) return 3;
   return 4;
 }
 

@@ -41,6 +41,24 @@ final result: passed
 
 final result: passed
 
+## 네이버 스포츠뉴스형 · 2026-10-17
+
+- source visual truth: `https://m.sports.naver.com/wfootball/news`
+- implementation: `/community/naver-cafe-list.html?view=naver-sports-news`
+- 콘텐츠 정책: 네이버 기사·로고·사진은 복제하지 않고 기존 보배드림 게시물과 저장소 이미지로 치환했다.
+- 모바일 원본 실측: 행 x=16px·폭 343.2px·높이 88px, 이미지 88×88px, 이미지-문자 간격 12px, 제목 16/23px 2줄, 매체·시간 15/18px.
+- 모바일 구현 실측: 행 x=16px·폭 343.2px·높이 88px, 이미지 88×88px, 본문 x=116px·폭 243.2px, 제목 높이 46px으로 원본과 일치한다.
+- 후속 메타 구성: 제목은 1줄 22건·2줄 35건을 섞어 표시한다. 제목 아래 첫 줄은 16px 원형 프사·게시판명·닉네임, 둘째 줄은 등록일·조회·추천이다.
+- 모바일 글자 실측: 제목 15.5/21px(1줄 21px·2줄 42px), 신원·수치 메타 11.5px이며 88px 행 안에서 잘림과 가로 넘침이 없다.
+- PC 원본: 옅은 회색 배경 위 흰 카드, 뉴스 2열, 왼쪽 이미지와 제목·요약·매체/시간의 3단 정보 구조.
+- PC 구현 실측(1280×900): 콘텐츠 프레임 1024px, 카드 988px, 열 448px×2, 열 간격 44px, 행 106px, 이미지 80×80px. 프사는 18px, 신원 12.5px, 수치 메타 12px이다.
+- interaction: 리그 7개 드롭다운, 최신순·인기순 정렬, 화보기사 제외 체크를 실제 클릭 검증했다. 전체에서 화보기사 3건이 제외되며, 인기순 전환 시 첫 게시물이 변경된다.
+- responsive: 390px 1열과 1280px 2열을 각각 브라우저 렌더링하고 원본과 같은 비교 입력에서 나란히 확인했다.
+- accessibility: 리그 버튼 `aria-expanded`, 정렬 `tablist/aria-selected`, 화보기사 필터 `role=checkbox/aria-checked`를 상태와 함께 갱신한다.
+- console: 오류 0건. `node --check`, `git diff --check` 통과.
+- comparison history: 1차에서 로컬 대체 이미지 파일명의 0 채움이 빠진 P1과 PC 필터 영역이 두 줄로 늘어난 P2를 발견했다. `post-01.webp` 형식으로 수정하고 PC 화보기사 토글을 같은 행에 배치했다.
+- final result: passed
+
 ## 네이버카페 좌측 썸네일형 QA (2026-10-17)
 
 - implementation: `/community/naver-cafe-list.html?view=feed-cafe-left`

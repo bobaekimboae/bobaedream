@@ -41,7 +41,7 @@ await page.goto(`${base}?community=reviews&review=write&from=community&v=crossch
 await page.locator(".vr-write").waitFor();
 await page.getByRole("radiogroup", { name: "외관 별점" }).getByRole("radio", { name: "2.5점", exact: true }).click();
 const exterior = await page.getByRole("radiogroup", { name: "외관 별점" }).locator("xpath=..").innerText();
-check("2.5점 한국어 코멘트", exterior.includes("겨우 볼 만해요"), exterior);
+check("2.5점 한국어 코멘트", exterior.includes("무난한 디자인"), exterior);
 check("선택 코멘트 11px", await page.locator(".vr-rating-row small").first().evaluate((el) => getComputedStyle(el).fontSize === "11px"));
 await page.screenshot({ path: join(out, "03-writer-rating-390x844.png"), fullPage: false });
 

@@ -333,3 +333,15 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
 /* 전용 테이블 게시판(자동차뉴스) 출처 줄 */
 .detailSource { margin: 12px 0 0; color: #767d87; font-size: 13px; line-height: 18px; }
 .detailSource a { color: #222; text-decoration: underline; text-underline-offset: 2px; }
+
+/* 간결형 글쓰기 본문 서식 */
+.detailLocalMedia { display: grid; gap: 10px; }
+.detailSubhead { margin: 6px 0 0; font-size: 19px; line-height: 1.5; font-weight: 700; }
+.detailQuote { margin: 0; padding: 4px 0 4px 14px; border-left: 3px solid #d1d5db; color: #4b5563; font-size: 16px; line-height: 1.7; }
+.detailRule { width: 100%; margin: 6px 0; border: 0; border-top: 1px solid #e5e7eb; }
+.detailCopy ul, .detailCopy ol { margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.75; }
+.detailCopy a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.detailPoll { display: grid; gap: 8px; margin-top: 18px; padding: 16px; border: 1px solid #e5e7eb; border-radius: 12px; }
+.detailPoll strong { font-size: 16px; line-height: 22px; }
+.detailPoll label { display: flex; align-items: center; gap: 10px; min-height: 40px; padding: 0 12px; border: 1px solid #e5e7eb; border-radius: 8px; font-size: 15px; }
+.detailPoll small { color: #6b7280; font-size: 13px; }
