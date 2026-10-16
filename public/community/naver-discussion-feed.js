@@ -43,7 +43,7 @@
     var selected=container.querySelector('.cat.on');
     if(selected)selected.scrollIntoView({inline:'center',block:'nearest'});
   }
-  /* 3줄 요약이 있으면 본문 첫 줄 대신 「3줄 요약」 목록으로 보여 준다 */
+  /* 3줄 요약이 있으면 본문 첫 줄 대신 세 문장을 이은 한 단락(문장 연결형)으로 보여 준다 */
   /* 스레드형 카드: 3줄 요약이 있으면 세 문장을 이어 붙인 문장 연결형 단락으로, 없으면 기존 요약 */
   function summaryText(post,index){
     var lines=Array.isArray(post.summary3)?post.summary3.filter(Boolean).slice(0,3):[];
@@ -52,7 +52,7 @@
   }
   function bodyBlock(post,index){
     var lines=Array.isArray(post.summary3)?post.summary3.filter(Boolean).slice(0,3):[];
-    if(lines.length)return '<ol class="naverDiscussionSummary3" aria-label="3줄 요약">'+lines.map(function(line){return '<li>'+esc(line)+'</li>';}).join('')+'</ol>';
+    if(lines.length)return '<p class="naverDiscussionBody is-summary3" aria-label="3줄 요약">'+esc(lines.join(' '))+'</p>';
     return '<p class="naverDiscussionBody">'+esc(bodyFor(post,index))+'</p>';
   }
   function cleanTitle(value){return String(value||'').replace(/^\[[^\]]+\]\s*/,'');}
