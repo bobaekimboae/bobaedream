@@ -11,7 +11,7 @@ const icons = {
   image: "assets/register/chotot-v01/image.svg",
   chevron: "assets/register/chotot-v01/chevron-right.svg",
   check: "assets/register/chotot-v01/check-mark.svg",
-  location: "icons/chotot/chotot-common-location.svg",
+  location: "icons/chotot/chotot-common-location-icon.svg",
 };
 
 function UiIcon({ name }: { name: keyof typeof icons }) {

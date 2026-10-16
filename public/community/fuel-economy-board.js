@@ -3,7 +3,7 @@
   var active='all';
   var storageKey='bobae-fuel-economy-posts-v1';
   var commentKey='bobae-fuel-economy-comments-v1';
-  var icons={back:'assets/reddit-ui/back.svg',share:'../%61ssets/detail/autoscout24-share.svg',chat:'assets/chzzk-detail/icons/comment-reddit.svg',like:'assets/reddit-ui/recommend-thumb-up.svg',bookmark:'../icons/chotot/chotot-common-bookmark.svg',write:'assets/reddit-ui/write.svg',check:'../%61ssets/register/chotot-v01/check-mark.svg',location:'../icons/chotot/chotot-common-location.svg'};
+  var icons={back:'assets/reddit-ui/back.svg',share:'../%61ssets/detail/autoscout24-share.svg',chat:'assets/chzzk-detail/icons/comment-reddit.svg',like:'assets/reddit-ui/recommend-thumb-up.svg',bookmark:'../icons/chotot/chotot-common-bookmark.svg',write:'assets/reddit-ui/write.svg',check:'../%61ssets/register/chotot-v01/check-mark.svg',location:'../icons/chotot/chotot-common-location-icon.svg'};
   var modelMeta={
     'bmw-m3':{brand:'BMW',model:'M3',trim:'2023 M3 xDrive 컴페티션 M',powertrain:'ice',brandLogo:'../%61ssets/brand/kr/bmw.png',photoKey:'sag-01'},
     'porsche-taycan':{brand:'포르쉐',model:'타이칸',trim:'2023 EV',powertrain:'ev',brandLogo:'../%61ssets/brand/kr/porsche.png',photoKey:'sag-02'},
