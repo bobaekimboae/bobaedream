@@ -26,7 +26,7 @@
     displayName:"자동차뉴스",
     idStart:9100001,
     defaultView:"naver-discussion",
-    updatedAt:"2026-10-16T17:53:06.121Z",
+    updatedAt:"2026-10-16T18:17:51.530Z",
     rows:[
       {
         "id": "9100001",
@@ -602,7 +602,7 @@
         "embedDescription": "",
         "embedImage": "./media/news-meta/news-9100016.jpg",
         "embedSite": "네이버 뉴스",
-        "embedLogo": "./media/news-meta/logo-9100016.png"
+        "embedLogo": "./media/favicons/n.news.naver.com.png"
       },
       {
         "id": "9100017",
@@ -638,7 +638,7 @@
         "embedDescription": "",
         "embedImage": "./media/news-meta/news-9100017.jpg",
         "embedSite": "네이버 스포츠",
-        "embedLogo": "./media/news-meta/logo-9100017.png"
+        "embedLogo": "./media/favicons/m.sports.naver.com.png"
       },
       {
         "id": "9100018",
@@ -674,7 +674,7 @@
         "embedDescription": "",
         "embedImage": "",
         "embedSite": "네이버 카페",
-        "embedLogo": ""
+        "embedLogo": "./media/favicons/m.cafe.naver.com.png"
       },
       {
         "id": "9100019",
