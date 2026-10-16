@@ -6,7 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const boards = {
-  'car-news': { displayName: '자동차뉴스', idStart: 9100001 },
+  'car-news': { displayName: '자동차뉴스', idStart: 9100001, defaultView: 'naver-discussion-thumb' },
 };
 const board = process.argv[2];
 if (!boards[board]) {
@@ -41,7 +41,7 @@ function parseCsv(text) {
 const [header, ...lines] = parseCsv(fs.readFileSync(csvPath, 'utf8').replace(/^﻿/, ''));
 const missing = columns.filter((c) => !header.includes(c));
 if (missing.length) { console.error(`CSV에 없는 열: ${missing.join(', ')}`); process.exit(1); }
-const { displayName, idStart } = boards[board];
+const { displayName, idStart, defaultView } = boards[board];
 const seen = new Set();
 const problems = [];
 const rows = lines.map((line, index) => {
@@ -65,6 +65,7 @@ const body = `(function(){
     board:${JSON.stringify(board)},
     displayName:${JSON.stringify(displayName)},
     idStart:${idStart},
+    defaultView:${JSON.stringify(defaultView || '')},
     updatedAt:${JSON.stringify(new Date().toISOString())},
     rows:${JSON.stringify(rows, null, 2).replace(/\n/g, '\n    ')}
   };
