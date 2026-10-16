@@ -23,8 +23,10 @@
     var data=(window.BOBAE_POSTS||[]).slice();
     var localPost=window.BOBAE_LOCAL_POST;
     var activeBoard=window.BBM_GET_ACTIVE_BOARD_TABLE?window.BBM_GET_ACTIVE_BOARD_TABLE():'';
+    var activeTable=activeBoard&&window.BBM_BOARD_TABLES?window.BBM_BOARD_TABLES[activeBoard]:null;
+    var localPostMatches=!activeTable||Boolean(localPost&&localPost.board&&localPost.board===activeTable.displayName);
     var alreadyIncluded=localPost&&data.some(function(post){return String(post.id)===String(localPost.id);});
-    if(localPost&&activeBoard!=='best'&&!alreadyIncluded)data.unshift(localPost);
+    if(localPost&&activeBoard!=='best'&&localPostMatches&&!alreadyIncluded)data.unshift(localPost);
     var headword=selectedHeadword();
     if(headword==='전체')return data;
     return data.filter(function(post){return categoryFor(post)===headword;});
@@ -134,13 +136,16 @@
     var hour=new Date().getHours();
     return (hour<12?'오전 ':'오후 ')+(hour%12||12)+'시 기준';
   }
-  function renderLoungeBest(clean){
+  function renderLoungeBest(viewMode){
+    var clean=viewMode==='lounge-best-clean'||viewMode==='lounge-best-left';
+    var left=viewMode==='lounge-best-left';
     var data=posts();
     syncHeadwords();
     phone.classList.remove('compactMode','feedCafeMode','redditFeedMode','chototFeedMode','chototBoardFeedMode','chototDealerFeedMode','naverDiscussionThumbMode');
     phone.classList.add('naverDiscussionMode','loungeBestMode');
     phone.classList.toggle('loungeBestCleanMode',!!clean);
-    typeLabel.textContent=clean?'라운지 간결형':'라운지 인기글형';
+    phone.classList.toggle('loungeBestLeftMode',left);
+    typeLabel.textContent=left?'라운지 썸네일 좌측형':clean?'라운지 간결형':'라운지 인기글형';
     list.className='list loungeBestList';
     list.innerHTML='<section class="loungeBestIntro" aria-labelledby="loungeBestHeading"><div class="loungeBestHead"><h2 id="loungeBestHeading"><em>지금</em> 보배드림 트렌드<img src="../assets/bbm/header-notification.svg" alt=""></h2><button class="loungeBestTime" type="button" data-lounge-best-info aria-expanded="false">'+loungeBestTime()+'<span aria-hidden="true">i</span></button></div><div class="loungeBestInfo" data-lounge-best-popover hidden><strong>인기 게시글 선정 기준</strong><p>게시글의 조회·댓글·추천 반응을 종합해 순위를 업데이트합니다.</p><button type="button" data-lounge-best-close aria-label="선정 기준 닫기"><img src="'+icon('close')+'" alt=""></button></div></section><div class="loungeBestRows">'+(data.length?data.map(function(post,index){return loungeBestCard(post,index,!clean)}).join(''):'<div class="loungeBestEmpty">등록된 베스트글이 없습니다.</div>')+'</div>';
     var info=list.querySelector('[data-lounge-best-info]');
@@ -166,14 +171,14 @@
       mediaCarousels.forEach(function(api){api.destroy();});
       mediaCarousels=[];
       var bestView=(window.BBM_GET_VIEW_MODE&&window.BBM_GET_VIEW_MODE())||variant;
-      renderLoungeBest(bestView==='lounge-best-clean');
+      renderLoungeBest(bestView);
       return;
     }
     currentVariant=variant==='thumb'?'thumb':'';
     mediaCarousels.forEach(function(api){api.destroy();});
     mediaCarousels=[];
     syncHeadwords();
-    phone.classList.remove('compactMode','feedCafeMode','redditFeedMode','chototFeedMode','chototBoardFeedMode','chototDealerFeedMode','loungeBestMode','loungeBestCleanMode');
+    phone.classList.remove('compactMode','feedCafeMode','redditFeedMode','chototFeedMode','chototBoardFeedMode','chototDealerFeedMode','loungeBestMode','loungeBestCleanMode','loungeBestLeftMode');
     phone.classList.add('naverDiscussionMode');
     phone.classList.toggle('naverDiscussionThumbMode',currentVariant==='thumb');
     typeLabel.textContent=currentVariant==='thumb'?'네이버 토론 · 좌측 썸네일':'네이버 토론형';
@@ -309,6 +314,6 @@
   if(activeBoardTable!=='vehicle-review'){
     if(startMode==='naver-discussion')render();
     else if(startMode==='naver-discussion-thumb')render('thumb');
-    else if(startMode==='lounge-best-rank'||startMode==='lounge-best-clean')render(startMode);
+    else if(startMode==='lounge-best-rank'||startMode==='lounge-best-clean'||startMode==='lounge-best-left')render(startMode);
   }
 })();

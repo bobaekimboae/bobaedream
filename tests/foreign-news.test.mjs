@@ -42,15 +42,18 @@ test("topic, duplicate similarity and IDs are deterministic", () => {
 });
 
 test("community UI loads and exposes the overseas board", async () => {
-  const [list, detail, navigation, profile] = await Promise.all([
+  const [list, detail, navigation, profile, discussion] = await Promise.all([
     readFile(new URL("../public/community/naver-cafe-list.html", import.meta.url), "utf8"),
     readFile(new URL("../public/community/chzzk-detail.html", import.meta.url), "utf8"),
     readFile(new URL("../public/community/hupu-board-navigation.js", import.meta.url), "utf8"),
     readFile(new URL("../public/community/reddit-board-profile.js", import.meta.url), "utf8"),
+    readFile(new URL("../public/community/naver-discussion-feed.js", import.meta.url), "utf8"),
   ]);
   assert.match(list, /board-foreign-car-news\.js/);
   assert.match(list, /해외 자동차뉴스는 자동 수집 게시판입니다/);
   assert.match(detail, /board-foreign-car-news\.js/);
   assert.match(navigation, /id:'foreign-car-news',displayName:'해외 자동차뉴스'/);
   assert.match(profile, /'해외 자동차뉴스':'해외 107개 매체 · 5분 간격 갱신'/);
+  assert.match(discussion, /localPostMatches/);
+  assert.match(discussion, /activeTable\.displayName/);
 });

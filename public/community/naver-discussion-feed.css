@@ -152,6 +152,9 @@
 .loungeBestRows{padding:0 20px}
 .loungeBestRow{min-height:73px;display:grid;grid-template-columns:26px minmax(0,1fr) auto;align-items:center;column-gap:12px;border-bottom:1px solid #f0f1f3;color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
 .phone.loungeBestCleanMode .loungeBestRow{grid-template-columns:minmax(0,1fr) auto}
+.phone.loungeBestLeftMode .loungeBestRow{grid-template-columns:56px minmax(0,1fr)}
+.phone.loungeBestLeftMode .loungeBestThumb{grid-column:1;grid-row:1}
+.phone.loungeBestLeftMode .loungeBestCopy{grid-column:2;grid-row:1}
 .loungeBestRank{align-self:stretch;display:grid;place-items:center;color:#2e2e2e;font-size:16px;line-height:24px;font-weight:650;font-variant-numeric:tabular-nums}
 .loungeBestCopy{min-width:0;display:flex;flex-direction:column;gap:2px}
 .loungeBestTitleLine{min-width:0;height:24px;display:flex;align-items:center;gap:6px}
