@@ -502,6 +502,11 @@
     const host = parsed.hostname.replace(/^www\./, "").toLowerCase();
     const fallback = { url: parsed.href, src: "", provider: host, title: host, mode: "bookmark", requestedMode: mode };
     if (mode === "bookmark") return fallback;
+    /* 공용 임베드 목록(노션 지원 서비스 30여 종, community-embed.js)을 먼저 쓴다 */
+    const shared = window.BBM_EMBED && window.BBM_EMBED.info(parsed.href);
+    if (shared && shared.render === "iframe" && shared.src) {
+      return { ...fallback, url: shared.url, src: shared.src, provider: shared.provider, title: shared.title, mode: "embed", tall: Boolean(shared.tall || (shared.height || 0) >= 480), compact: Boolean(shared.height && shared.height < 260) };
+    }
 
     const videoSrc = toVideoEmbed(parsed.href);
     if (videoSrc) {
