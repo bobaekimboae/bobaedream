@@ -40,6 +40,7 @@ try {
       multiRails: document.querySelectorAll(".naverDiscussionMediaShell.is-multi").length,
       emblaRails: document.querySelectorAll(".naverDiscussionMediaShell.is-multi[data-carousel-engine='embla']").length,
       emblaApis: Array.from(document.querySelectorAll(".naverDiscussionMediaShell.is-multi")).filter((shell) => typeof shell._discussionEmbla?.scrollProgress === "function").length,
+      nonScrollableMulti: Array.from(document.querySelectorAll(".naverDiscussionMediaShell.is-multi")).filter((shell) => !shell._discussionEmbla?.canScrollNext()).length,
       singleRails: document.querySelectorAll(".naverDiscussionMediaShell:not(.is-multi)").length,
       multiItems: document.querySelector(".naverDiscussionMediaShell.is-multi")?.querySelectorAll(".naverDiscussionMediaItem").length || 0,
       mediaLinks: document.querySelectorAll(".naverDiscussionMediaLink").length,
@@ -97,6 +98,7 @@ try {
     if (measurements.textOnlyCards !== 18) throw new Error(`${width}px: 텍스트 전용 카드 수 불일치 (${measurements.textOnlyCards}/18)`);
     if (measurements.multiRails !== 30) throw new Error(`${width}px: 다중 사진 카드 수 불일치 (${measurements.multiRails}/30)`);
     if (measurements.emblaRails !== measurements.multiRails || measurements.emblaApis !== measurements.multiRails) throw new Error(`${width}px: Embla 초기화 누락 (${measurements.emblaRails}/${measurements.emblaApis}/${measurements.multiRails})`);
+    if (measurements.nonScrollableMulti !== 0) throw new Error(`${width}px: 좌우 이동 공간이 없는 다중 사진 카드 ${measurements.nonScrollableMulti}개`);
     if (measurements.singleRails !== 12) throw new Error(`${width}px: 단일 사진·영상 카드 수 불일치 (${measurements.singleRails}/12)`);
     if (measurements.multiItems < 2) throw new Error(`${width}px: 다중 사진 수 부족`);
     if (measurements.mediaLinks < 1) throw new Error(`${width}px: 사진 상세 링크 없음`);
