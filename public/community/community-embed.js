@@ -44,11 +44,25 @@
         return tp;
       }
     }
+    /* 레딧: 공식 widgets.js와 같은 주소·변수(embed.reddit.com/{경로}/?embed=true&ref_source=embed&ref=share…).
+       글(r|user/…/comments/ID), 댓글(…/comments/ID/슬러그/댓글ID, 윗 댓글 맥락 포함), 서브레딧(/r/이름) 지원 */
     if (/(^|\.)reddit\.com$/.test(host)) {
       var at = parts.indexOf('comments');
-      if (parts[0] === 'r' && parts[1] && at > 1 && parts[at + 1]) {
-        var slug = parts[at + 2] ? encodeURIComponent(parts[at + 2]) + '/' : '';
-        return frame('https://embed.reddit.com/r/' + encodeURIComponent(parts[1]) + '/comments/' + encodeURIComponent(parts[at + 1]) + '/' + slug + '?embed=true&theme=light&showmedia=true&showmore=false', 'Reddit', 'Reddit 게시물', true);
+      var rbase = 'ref_source=embed&ref=share&utm_source=embedv2&utm_medium=widgets&embed_host_url=' + encodeURIComponent(location.origin || '');
+      var rpath = '';
+      var rtitle = 'Reddit 게시물';
+      var rcomment = false;
+      if ((parts[0] === 'r' || parts[0] === 'user') && parts[1] && at === 2 && parts[at + 1]) {
+        rpath = parts[0] + '/' + encodeURIComponent(parts[1]) + '/comments/' + encodeURIComponent(parts[at + 1]) + '/';
+        if (parts[at + 2]) rpath += encodeURIComponent(parts[at + 2]) + '/';
+        if (parts[at + 3]) { rpath += encodeURIComponent(parts[at + 3]) + '/'; rcomment = true; rtitle = 'Reddit 댓글'; }
+      } else if (parts[0] === 'r' && parts[1] && parts.length === 2) {
+        rpath = 'r/' + encodeURIComponent(parts[1]) + '/';
+        rtitle = 'Reddit r/' + parts[1];
+      }
+      if (rpath) {
+        var rq = 'embed=true&theme=light&' + (rcomment ? 'showmedia=false&showmore=false&depth=1&context=1&utm_name=comment_embed' : 'showmedia=true&showmore=false&utm_name=post_embed') + '&' + rbase;
+        return frame('https://embed.reddit.com/' + rpath + '?' + rq, 'Reddit', rtitle, true, parsed.href);
       }
     }
     /* 스레드: 공식 글 임베드(/@이름/post/ID/embed). 계정·검색 주소는 링크 카드 */
