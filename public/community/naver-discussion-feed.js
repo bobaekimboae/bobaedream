@@ -30,7 +30,7 @@
   function posts(){return (window.BOBAE_POSTS||[]).slice();}
   function cleanTitle(value){return String(value||'').replace(/^\[[^\]]+\]\s*/,'');}
   function bodyFor(post,index){return Array.isArray(post.body)&&post.body.length?post.body[0]:bodyFallbacks[index%bodyFallbacks.length];}
-  function avatarFor(post,index){return post.authorAvatar||'assets/profile-avatars/avatar-'+String(index%20+1).padStart(2,'0')+'.svg';}
+  function avatarFor(post,index){return post.authorAvatar||'assets/rank-avatars/minimal/avatar-'+String(index%50+1).padStart(2,'0')+'.png';}
   function detailUrl(post){return './chzzk-detail.html?id='+encodeURIComponent(post.id)+'&v=20261016naverdiscussion2';}
   function icon(name){return 'assets/chzzk-detail/icons/'+name+'.svg?v=20261016naverdiscussion2';}
   function chototIcon(name){return '../icons/chotot/'+name+'.svg?v=20261016navermedia1';}

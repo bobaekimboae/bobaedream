@@ -31,7 +31,7 @@
 
   function card(post,index){
     var body=Array.isArray(post.body)&&post.body.length?post.body[0]:'실사용하면서 확인한 내용을 사진과 함께 공유합니다.';
-    var avatar=post.authorAvatar||'assets/profile-avatars/avatar-01.svg';
+    var avatar=post.authorAvatar||'assets/rank-avatars/minimal/avatar-01.png';
     var category=post.category||'자유게시판';
     return [
       '<article class="redditFeedCard" data-post-id="'+post.id+'">',

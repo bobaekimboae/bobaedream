@@ -54,14 +54,24 @@ const times=['1분 전','2분 전','3분 전','4분 전','5분 전','6분 전','
 const photoCounts=[38,0,2,6,8,0,15,4,1,3,0,2,11,0,5,0,3,2,6,9,0,4,2,7,0,6,3,2,5,0];
 
 function img(seed,w=360){return `https://images.unsplash.com/${seed}?auto=format&fit=crop&w=${w}&q=75`}
+const rankAvatarStyles=['minimal','metal','game'];
+const requestedRankAvatarStyle=new URLSearchParams(location.search).get('avatarStyle');
+if(rankAvatarStyles.includes(requestedRankAvatarStyle)){
+  sessionStorage.setItem('bbm.community.rankAvatarStyle',requestedRankAvatarStyle);
+}
+const rankAvatarStyle=rankAvatarStyles.includes(requestedRankAvatarStyle)
+  ?requestedRankAvatarStyle
+  :(rankAvatarStyles.includes(sessionStorage.getItem('bbm.community.rankAvatarStyle'))?sessionStorage.getItem('bbm.community.rankAvatarStyle'):'minimal');
+
 function avatar(seed){
   const value=String(seed||'회원');
   let hash=2166136261;
   for(let i=0;i<value.length;i+=1){hash^=value.charCodeAt(i);hash=Math.imul(hash,16777619)}
-  const number=String((hash>>>0)%48+1).padStart(2,'0');
-  return `assets/profile-avatars/avatar-${number}.svg`;
+  const number=String((hash>>>0)%50+1).padStart(2,'0');
+  return `assets/rank-avatars/${rankAvatarStyle}/avatar-${number}.png?v=20261016rankavatars1`;
 }
 window.BOBAE_AVATAR_FOR=avatar;
+window.BOBAE_RANK_AVATAR_STYLE=rankAvatarStyle;
 
 const commentNames=['고속도로요정','현금완납러','전비차궁금','정비소단골','카페인오일','하이브리드초보','연비왕김대표','디젤끝물','중고차보는눈','캠핑짐만렙'];
 
