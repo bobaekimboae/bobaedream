@@ -77,7 +77,9 @@ const dukkaebiPosts = [
     ],
   },
 ];
-const allPosts = [...posts, ...dukkaebiPosts];
+// 전용 테이블 게시판(자동차뉴스 등)의 글도 상세에서 찾는다
+const boardTablePosts = window.BBM_BOARD_TABLE ? window.BBM_BOARD_TABLE.allPosts() : [];
+const allPosts = [...posts, ...dukkaebiPosts, ...boardTablePosts];
 function loadLocalPost() {
   if (params.get('local') !== '1') return null;
   try {
@@ -87,7 +89,7 @@ function loadLocalPost() {
     const container = document.createElement('div');
     container.innerHTML = saved.body || '';
     const lines = (container.innerText || container.textContent || '').split(/\n+/).map((value) => value.trim()).filter(Boolean);
-    return { id:savedId, title:saved.title, user:'보배드림 회원', level:1, date:'방금 전', view:0, likes:0, board:saved.board || '자유게시판', tags:saved.tags || '', body:lines.length ? lines : ['내용이 없습니다.'] };
+    return { id:savedId, title:saved.title, user:'보배드림 회원', level:1, date:'방금 전', view:0, likes:0, board:saved.board || '자유게시판', tags:saved.tags || '', body:lines.length ? lines : ['내용이 없습니다.'], html:saved.html || (Array.isArray(saved.embeds) && saved.embeds.length && typeof saved.body === 'string' ? saved.body : ''), embeds:Array.isArray(saved.embeds) ? saved.embeds : [] };
   } catch { return null; }
 }
 const localSourcePost = loadLocalPost();
@@ -307,15 +309,34 @@ function setRegularContent() {
       </li>`;
   } else if (!isReferencePost && !localSourcePost) {
     document.body.classList.add('isScenarioPost');
-    $('#boardBtn').childNodes[0].nodeValue = `${post.category || '자유게시판'} `;
+    $('#boardBtn').childNodes[0].nodeValue = `${post.boardTable ? (window.BBM_BOARD_TABLES?.[post.board]?.displayName || post.category) : (post.category || '자유게시판')} `;
     if (post.authorAvatar) {
       $('#authorAvatar').src = post.authorAvatar;
       $('#authorAvatar').alt = `${post.user || '회원'} 프로필`;
     }
     const paragraphs = post.body && post.body.length ? post.body : ['좋은 정보 함께 나눠요.'];
     const detailImage = post.detailImage || String(post.thumbnail || '').replace(/([?&])w=\d+/, '$1w=960');
-    $('#postBody').innerHTML = `${detailImage ? `<img class="detailPhoto" src="${escapeHtml(detailImage)}" alt="${escapeHtml(post.title)}">` : ''}
-      <div class="detailCopy">${paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>`;
+    // 네이버 토론형 피드에서 온 글은 피드와 같은 사진을 모두 보여 준다(무관한 기본 사진 대신)
+    const fromDiscussion = new URLSearchParams(location.search).get('from') === 'discussion' && window.BBM_DISCUSSION_MEDIA;
+    const discussionPhotos = fromDiscussion ? window.BBM_DISCUSSION_MEDIA.photosFor(post) : [];
+    const discussionVideo = fromDiscussion ? window.BBM_DISCUSSION_MEDIA.videoFor(post) : '';
+    const photoHtml = fromDiscussion
+      ? discussionPhotos.map((photo, index) => (index === 0 && discussionVideo
+        ? `<video class="detailPhoto detailDiscussionPhoto" id="detailPhoto${index + 1}" src="${escapeHtml(discussionVideo)}" poster="${escapeHtml(photo.src)}" controls muted playsinline preload="metadata" ${photo.ratio ? ` style="aspect-ratio:${photo.ratio}"` : ''}></video>`
+        : `<img class="detailPhoto detailDiscussionPhoto" id="detailPhoto${index + 1}" src="${escapeHtml(photo.src)}" alt="${escapeHtml(post.title)} 사진 ${index + 1}" ${photo.ratio ? ` style="aspect-ratio:${photo.ratio}"` : ''} loading="${index < 2 ? 'eager' : 'lazy'}">`)).join('')
+      : post.boardTable && post.images && post.images.length
+        ? post.images.map((src, index) => `<img class="detailPhoto detailDiscussionPhoto" src="${escapeHtml(src)}" alt="${escapeHtml(post.title)} 사진 ${index + 1}" loading="${index < 2 ? 'eager' : 'lazy'}">`).join('')
+        : (detailImage ? `<img class="detailPhoto" src="${escapeHtml(detailImage)}" alt="${escapeHtml(post.title)}">` : '');
+    const tableEmbedHtml = post.boardTable && Array.isArray(post.embeds) && window.BBM_EMBED ? post.embeds.map((item) => window.BBM_EMBED.blockHtml(item)).join('') : '';
+    const sourceHtml = post.boardTable && (post.source || post.sourceUrl)
+      ? `<p class="detailSource">출처 ${escapeHtml(post.source || '')}${post.sourceUrl && /^https?:\/\//.test(post.sourceUrl) ? ` · <a href="${escapeHtml(post.sourceUrl)}" target="_blank" rel="noopener noreferrer">원문 보기</a>` : ''}</p>`
+      : '';
+    $('#postBody').innerHTML = `${photoHtml}${tableEmbedHtml}
+      <div class="detailCopy">${paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>${sourceHtml}`;
+    const photoTarget = Number(new URLSearchParams(location.search).get('photo')) || 0;
+    if (fromDiscussion && photoTarget > 1) {
+      requestAnimationFrame(() => document.getElementById(`detailPhoto${photoTarget}`)?.scrollIntoView({ block: 'start' }));
+    }
     const tagRow = $('#regularPost .tagRow');
     const tags = (post.tags || [post.category]).filter(Boolean).slice(0, 10);
     tagRow.replaceChildren(...tags.map((tag) => {
@@ -341,7 +362,7 @@ function setRegularContent() {
   }
   if (localSourcePost) {
     $('#boardBtn').childNodes[0].nodeValue = `${post.board.replace('게시판', '').trim()} `;
-    $('#postBody').innerHTML = `<div class="detailCopy">${post.body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>`;
+    $('#postBody').innerHTML = post.html ? renderLocalHtml(post) : `<div class="detailCopy">${post.body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>`;
     const tagRow = $('#regularPost .tagRow');
     const tags = String(post.tags || '').split('#').map((value) => value.trim()).filter(Boolean).slice(0, 10);
     tagRow.replaceChildren(...tags.map((tag) => { const button = document.createElement('button'); button.textContent = `#${tag}`; return button; }));
@@ -351,6 +372,47 @@ function setRegularContent() {
     $('#actionCommentCount').textContent = '0';
   }
   document.title = `${$('#postTitle').textContent} | 치지직`;
+}
+
+// 노션식 글쓰기로 올린 글: 본문 순서대로 글·임베드(레딧·유튜브)·뉴스 카드를 보여 준다
+function detailEmbedHtml(item) {
+  if (!item || !/^https?:\/\//.test(item.url || '')) return '';
+  const caption = item.caption ? `<figcaption>${escapeHtml(item.caption)}</figcaption>` : '';
+  if (window.BBM_EMBED && /instagram\.com\//.test(item.url)) { const fresh = window.BBM_EMBED.info(item.url); if (fresh) return window.BBM_EMBED.blockHtml({ ...fresh, caption: item.caption }); }
+  if (item.render === 'iframe' && /^https:\/\//.test(item.src || '')) {
+    return `<figure class="detailEmbed${item.tall ? ' is-tall' : ''}"><iframe src="${escapeHtml(item.src)}" title="${escapeHtml(item.provider || '임베드')}" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts"></iframe>${caption}</figure>`;
+  }
+  let host = item.url;
+  try { host = new URL(item.url).hostname.replace(/^www\./, ''); } catch (_) {}
+  const overseas = item.lang && !/^ko/i.test(item.lang);
+  const image = item.image ? `<span class="news-card-image"><img src="${escapeHtml(item.image)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></span>` : '';
+  const logo = item.logo ? `<img src="${escapeHtml(item.logo)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">` : '';
+  return `<figure class="detailEmbed"><a class="news-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${image}<span class="news-card-copy"><span class="news-card-site">${logo}<span>${escapeHtml(item.site || item.provider || host)}</span>${overseas ? '<em>해외</em>' : ''}</span><strong class="news-card-title">${escapeHtml(item.title || host)}</strong>${item.description ? `<span class="news-card-desc">${escapeHtml(item.description)}</span>` : ''}<small class="news-card-url">${escapeHtml(host)}</small></span></a>${caption}</figure>`;
+}
+function renderLocalHtml(source) {
+  const box = document.createElement('div');
+  box.innerHTML = source.html;
+  const byUrl = new Map((source.embeds || []).map((item) => [item.url, item]));
+  const parts = [];
+  let paragraphs = [];
+  const flush = () => { if (paragraphs.length) { parts.push(`<div class="detailCopy">${paragraphs.join('')}</div>`); paragraphs = []; } };
+  Array.from(box.childNodes).forEach((node) => {
+    if (node.nodeType === 1 && node.matches('figure.media-block, figure.write-embed')) {
+      if (node.dataset.kind === 'embed' || node.classList.contains('write-embed')) { flush(); parts.push(detailEmbedHtml(byUrl.get(node.dataset.embedUrl) || { url: node.dataset.embedUrl })); }
+      return;
+    }
+    if (node.nodeType === 1 && node.querySelector('figure.write-embed')) {
+      // 글쓰기에서 줄 안에 들어간 임베드도 순서대로 꺼낸다
+      Array.from(node.childNodes).forEach((child) => { if (child.nodeType === 1 && child.matches('figure.write-embed')) { flush(); parts.push(detailEmbedHtml(byUrl.get(child.dataset.embedUrl) || { url: child.dataset.embedUrl })); } else { const t = (child.textContent || '').trim(); if (t) paragraphs.push(`<p>${escapeHtml(t)}</p>`); } });
+      return;
+    }
+    const text = (node.textContent || '').trim();
+    if (!text) return;
+    const strong = node.nodeType === 1 && /^H[1-3]$/.test(node.tagName);
+    paragraphs.push(`<p>${strong ? `<strong>${escapeHtml(text)}</strong>` : escapeHtml(text)}</p>`);
+  });
+  flush();
+  return parts.join('') || `<div class="detailCopy"><p>${escapeHtml(source.body?.[0] || '내용이 없습니다.')}</p></div>`;
 }
 
 function setNoticeMode() {

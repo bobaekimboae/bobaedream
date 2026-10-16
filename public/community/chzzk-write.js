@@ -41,7 +41,7 @@
   };
   const bodyText = () => body.innerText.trim();
   const syncSubmit = () => {
-    const ready = Boolean(state.board && title.value.trim() && (bodyText() || state.photos.length || state.videos.length));
+    const ready = Boolean(state.board && title.value.trim() && (bodyText() || state.photos.length || state.videos.length || body.querySelector('.write-embed')));
     $$('.submit-button,.footer-submit').forEach((button) => { button.disabled = !ready; });
   };
   const setBoard = (name) => {
@@ -76,13 +76,58 @@
     sheetBody.innerHTML = `<nav class="emoji-tabs">${categories.map(([key,label]) => `<button type="button" data-emoji-category="${key}" class="${key === state.emojiCategory ? 'is-active' : ''}">${label}</button>`).join('')}</nav><div class="emoji-grid">${values.map((item) => `<button type="button" data-emoji="${item.e}" aria-label="${escapeHtml(item.d || item.e)}">${item.e}</button>`).join('')}</div>`;
   }
   function renderLinkSheet() {
-    sheetBody.innerHTML = '<div class="sheet-form"><input id="linkUrl" type="url" inputmode="url" placeholder="URL을 입력하세요."><input id="linkLabel" placeholder="표시할 문구 (선택)"><p class="sheet-note">http:// 또는 https:// 주소만 첨부할 수 있습니다.</p></div>';
+    sheetBody.innerHTML = '<div class="sheet-form"><input id="linkUrl" type="url" inputmode="url" placeholder="URL을 입력하세요."><label class="embed-toggle"><span><strong>임베드로 보여주기</strong><small>유튜브·인스타그램·레딧은 본문에 바로, 기사는 뉴스 카드로 보여줍니다</small></span><input id="linkEmbed" type="checkbox" checked></label><input id="linkLabel" placeholder="표시할 문구 (선택)" hidden><p class="sheet-note">http:// 또는 https:// 주소만 첨부할 수 있습니다.</p></div>';
+    $('#linkEmbed').addEventListener('change', (event) => { $('#linkLabel').hidden = event.target.checked; });
     sheetPrimary.onclick = () => {
       const raw = $('#linkUrl').value.trim(); let url;
       try { url = new URL(raw); } catch { showToast('올바른 URL을 입력해주세요.'); return; }
       if (!['http:','https:'].includes(url.protocol)) { showToast('웹 주소만 첨부할 수 있습니다.'); return; }
+      const mode = $('#linkEmbed').checked ? 'embed' : 'link';
+      if (mode === 'embed' && window.BBM_EMBED) { insertEmbed(url.href); closeSheet(); syncSubmit(); return; }
       body.focus(); document.execCommand('insertHTML', false, `<a href="${escapeHtml(url.href)}" target="_blank" rel="noopener">${escapeHtml($('#linkLabel').value.trim() || url.hostname)}</a>`); closeSheet(); syncSubmit();
     };
+  }
+  /* 임베드 블록: 본문 안에 고칠 수 없는 블록으로 넣고, 뉴스 카드는 제목·요약·이미지를 받아 채운다 */
+  function embedFigure(item) {
+    const figure = document.createElement('figure');
+    figure.className = 'write-embed';
+    figure.contentEditable = 'false';
+    Object.entries({ url:item.url, render:item.render, src:item.src || '', provider:item.provider || '', title:item.title || '', tall:item.tall ? '1' : '' }).forEach(([key, value]) => { figure.dataset[`embed${key[0].toUpperCase()}${key.slice(1)}`] = value; });
+    figure.innerHTML = (item.render === 'iframe' ? window.BBM_EMBED.frameHtml(item) : window.BBM_EMBED.cardHtml(item)) + '<button type="button" class="write-embed-remove" data-remove-embed aria-label="임베드 삭제">×</button>';
+    if (item.tall) figure.classList.add('is-tall');
+    return figure;
+  }
+  function insertEmbed(href) {
+    const item = window.BBM_EMBED.info(href);
+    if (!item) { showToast('올바른 URL을 입력해주세요.'); return; }
+    if (item.render === 'preview') item.title = '미리보기를 불러오는 중…';
+    const figure = embedFigure(item);
+    const after = document.createElement('p'); after.append(document.createElement('br'));
+    body.focus();
+    const sel = window.getSelection();
+    const range = sel && sel.rangeCount && body.contains(sel.anchorNode) ? sel.getRangeAt(0) : null;
+    if (range) {
+      let block = range.startContainer.nodeType === 1 ? range.startContainer : range.startContainer.parentNode;
+      while (block && block.parentNode !== body) block = block.parentNode;
+      if (block && block !== body) block.after(figure, after); else body.append(figure, after);
+    } else body.append(figure, after);
+    showToast(item.render === 'iframe' ? `${item.provider} 임베드를 넣었습니다.` : '뉴스 카드를 넣었습니다.');
+    if (item.render === 'preview') {
+      figure.classList.add('is-loading');
+      window.BBM_EMBED.fetchMeta(item.url).then((meta) => {
+        const full = { ...item, ...meta, title: meta.title || '' };
+        Object.entries({ metaTitle:full.title, metaDescription:full.description || '', metaImage:full.image || '', metaSite:full.site || '', metaLogo:full.logo || '', metaLang:full.lang || '' }).forEach(([key, value]) => { figure.dataset[key] = value; });
+        figure.querySelector('.news-card')?.replaceWith(document.createRange().createContextualFragment(window.BBM_EMBED.cardHtml(full)));
+        figure.classList.remove('is-loading');
+      });
+    }
+  }
+  function collectEmbeds() {
+    return $$('.write-embed', body).map((figure) => ({
+      url: figure.dataset.embedUrl, render: figure.dataset.embedRender, src: figure.dataset.embedSrc, provider: figure.dataset.embedProvider,
+      tall: figure.dataset.embedTall === '1', title: figure.dataset.metaTitle || figure.dataset.embedTitle || '', description: figure.dataset.metaDescription || '',
+      image: figure.dataset.metaImage || '', site: figure.dataset.metaSite || '', logo: figure.dataset.metaLogo || '', lang: figure.dataset.metaLang || '',
+    })).filter((item) => item.url);
   }
   function pollRows(values = ['','','']) { return values.map((value,index) => `<div class="poll-row"><b>${index + 1}</b><input class="poll-option" maxlength="40" placeholder="항목을 입력하세요" value="${escapeHtml(value)}"><button type="button" data-remove-option aria-label="항목 삭제">×</button></div>`).join(''); }
   function renderPollSheet() {
@@ -129,7 +174,7 @@
   function exitWriter() { if (title.value.trim() || bodyText()) saveDraft(); location.href = returnTo; }
   function submitPost() {
     if ($('.submit-button').disabled) return;
-    localStorage.setItem(postKey, JSON.stringify({ status:'LOCAL_PREVIEW', source:'chzzk-compact', board:state.board, head:'', title:title.value.trim(), body:body.innerHTML, tags:state.tags.map((tag) => `#${tag}`).join(' '), photos:state.photos.map(({name}) => ({name})), videos:state.videos.map(({name}) => ({name})), hideBody:$('#hideBody').checked, submittedAt:new Date().toISOString() }));
+    localStorage.setItem(postKey, JSON.stringify({ status:'LOCAL_PREVIEW', source:'chzzk-compact', board:state.board, head:'', title:title.value.trim(), body:body.innerHTML, html:body.innerHTML, embeds:collectEmbeds(), tags:state.tags.map((tag) => `#${tag}`).join(' '), photos:state.photos.map(({name}) => ({name})), videos:state.videos.map(({name}) => ({name})), hideBody:$('#hideBody').checked, submittedAt:new Date().toISOString() }));
     localStorage.removeItem(draftKey);
     $('#dialogTitle').textContent = '게시물 등록 완료'; $('#dialogMessage').textContent = '간결형 게시판에서 등록한 글을 확인할 수 있습니다.'; $('#dialogOverlay').hidden = false;
     $('.dialog-confirm').onclick = () => { location.href = returnTo; };
@@ -164,6 +209,7 @@
       const rows = $$('.poll-row'); if (rows.length <= 2) return showToast('선택지는 2개 이상 필요합니다.');
       button.closest('.poll-row').remove(); $$('.poll-row b').forEach((item,index) => { item.textContent = index + 1; });
     }
+    if (button.hasAttribute('data-remove-embed')) { button.closest('.write-embed')?.remove(); syncSubmit(); return; }
     if (button.hasAttribute('data-remove-media')) {
       const id = button.closest('[data-media-id]').dataset.mediaId;
       for (const list of [state.photos,state.videos]) { const index = list.findIndex((item) => item.id === id); if (index >= 0) { URL.revokeObjectURL(list[index].url); list.splice(index,1); } }

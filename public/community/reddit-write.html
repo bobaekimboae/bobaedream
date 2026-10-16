@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="description" content="레딧 스타일 보배드림 독립 글쓰기 화면" />
+    <title>게시물 작성 · 보배드림</title>
+    <link rel="stylesheet" href="../%61ssets/fonts/pretendard/pretendard-guazi.css" />
+    <link rel="stylesheet" href="./reddit-write.css?v=20261016redditwrite1" />
+  </head>
+  <body>
+    <header class="global-header">
+      <a class="brand" href="./naver-cafe-list.html?view=reddit" aria-label="보배드림 커뮤니티">
+        <span class="brand-mark" aria-hidden="true">b</span>
+        <strong>보배드림</strong>
+      </a>
+      <button class="search-pill" type="button" aria-label="커뮤니티 검색">
+        <img src="assets/reddit-ui/search.svg" alt="" />
+        <span>커뮤니티 검색</span>
+      </button>
+      <nav class="header-actions" aria-label="빠른 메뉴">
+        <button type="button" aria-label="메뉴"><img src="assets/reddit-ui/menu.svg" alt="" /></button>
+        <button class="profile-button" type="button" aria-label="내 프로필"><img src="assets/chotot-default-avatar.svg" alt="" /></button>
+      </nav>
+    </header>
+
+    <div class="page-grid">
+      <aside class="left-rail" aria-label="커뮤니티 메뉴">
+        <a href="./naver-cafe-list.html?view=reddit"><span class="rail-icon"><img src="assets/reddit-ui/back.svg" alt="" /></span>피드로 돌아가기</a>
+        <button type="button"><span class="rail-icon"><img src="assets/reddit-ui/view-card.svg" alt="" /></span>인기 게시물</button>
+        <button type="button"><span class="rail-icon"><img src="assets/reddit-ui/view-list.svg" alt="" /></span>최신 게시물</button>
+        <hr />
+        <p>최근 게시판</p>
+        <button type="button"><span class="community-dot is-news">N</span>자동차뉴스</button>
+        <button type="button"><span class="community-dot">자</span>자유게시판</button>
+        <button type="button"><span class="community-dot">국</span>국산차 오너톡</button>
+      </aside>
+
+      <main class="composer-column" data-testid="reddit-write-page">
+        <div class="mobile-titlebar">
+          <a href="./naver-cafe-list.html?view=reddit" aria-label="닫기"><img src="assets/write-parity/close.svg" alt="" /></a>
+          <strong>게시물 작성</strong>
+          <button id="mobilePostButton" type="button" data-action="publish" disabled>게시</button>
+        </div>
+
+        <section class="composer-heading">
+          <div>
+            <h1>게시물 작성</h1>
+            <span id="draftStatus" role="status">변경사항 없음</span>
+          </div>
+          <button class="draft-button" type="button" data-action="save-draft">임시 저장</button>
+        </section>
+
+        <button id="communityPicker" class="community-picker" type="button" aria-haspopup="dialog">
+          <span class="community-avatar">N</span>
+          <span><small>게시할 커뮤니티</small><strong id="selectedCommunity">자동차뉴스</strong></span>
+          <img src="assets/reddit-ui/chevron-down.svg" alt="" />
+        </button>
+
+        <form id="composerForm" class="composer-card" novalidate>
+          <div class="title-field">
+            <textarea id="postTitle" rows="1" maxlength="300" placeholder="제목" aria-label="게시물 제목"></textarea>
+            <span><b id="titleCount">0</b>/300</span>
+          </div>
+
+          <div id="flairRow" class="selected-tags" hidden></div>
+
+          <section class="editor-shell" aria-label="본문 편집기">
+            <div id="postBody" class="post-body" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="내용을 입력하세요."></div>
+            <div id="attachmentArea" class="attachment-area" hidden></div>
+            <div id="linkPanel" class="insert-panel" hidden>
+              <div class="panel-heading"><img src="assets/write-parity/link.svg" alt="" /><strong>링크</strong><button type="button" data-close-panel="link" aria-label="닫기"><img src="assets/write-parity/close.svg" alt="" /></button></div>
+              <input id="linkUrl" type="url" inputmode="url" placeholder="https://" aria-label="링크 주소" />
+              <input id="linkLabel" maxlength="100" placeholder="링크 제목 (선택)" aria-label="링크 제목" />
+              <button type="button" data-action="confirm-link">링크 추가</button>
+            </div>
+            <div id="pollPanel" class="insert-panel" hidden>
+              <div class="panel-heading"><img src="assets/write-parity/table.svg" alt="" /><strong>투표</strong><button type="button" data-close-panel="poll" aria-label="닫기"><img src="assets/write-parity/close.svg" alt="" /></button></div>
+              <div id="pollOptions" class="poll-options"></div>
+              <button class="add-option" type="button" data-action="add-poll-option">선택지 추가</button>
+              <label class="duration-field">투표 기간<select id="pollDuration"><option value="1">1일</option><option value="3" selected>3일</option><option value="7">7일</option></select></label>
+            </div>
+            <div id="amaPanel" class="insert-panel" hidden>
+              <div class="panel-heading"><img src="assets/write-parity/sticker.svg" alt="" /><strong>AMA 설정</strong><button type="button" data-close-panel="ama" aria-label="닫기"><img src="assets/write-parity/close.svg" alt="" /></button></div>
+              <label>시작 시간<input id="amaTime" type="datetime-local" /></label>
+              <label>공동 진행자<input id="amaHosts" maxlength="100" placeholder="닉네임을 쉼표로 구분" /></label>
+            </div>
+
+            <div class="format-toolbar" role="toolbar" aria-label="텍스트 서식">
+              <button type="button" data-command="bold" aria-label="굵게"><img src="assets/write-parity/bold.svg" alt="" /></button>
+              <button type="button" data-command="italic" aria-label="기울임"><img src="assets/write-parity/italic.svg" alt="" /></button>
+              <button type="button" data-command="strikeThrough" aria-label="취소선"><img src="assets/write-parity/strike.svg" alt="" /></button>
+              <button type="button" data-action="format-link" aria-label="본문 링크"><img src="assets/write-parity/link.svg" alt="" /></button>
+              <button type="button" data-command="insertUnorderedList" aria-label="글머리 기호"><img src="assets/reddit-ui/view-list.svg" alt="" /></button>
+              <button type="button" data-command="formatBlock" data-value="blockquote" aria-label="인용"><img src="assets/write-parity/quote.svg" alt="" /></button>
+            </div>
+
+            <div class="insert-toolbar" role="toolbar" aria-label="게시물에 추가">
+              <button type="button" data-action="image" aria-label="이미지 추가"><img src="assets/write-parity/photo.svg" alt="" /><span>이미지</span></button>
+              <button type="button" data-action="video" aria-label="동영상 추가"><img src="assets/write-parity/video.svg" alt="" /><span>동영상</span></button>
+              <button type="button" data-action="link" aria-label="링크 추가"><img src="assets/write-parity/link.svg" alt="" /><span>링크</span></button>
+              <button type="button" data-action="poll" aria-label="투표 추가"><img src="assets/write-parity/table.svg" alt="" /><span>투표</span></button>
+              <button type="button" data-action="ama" aria-label="AMA 추가"><img src="assets/write-parity/sticker.svg" alt="" /><span>AMA</span></button>
+            </div>
+          </section>
+
+          <div class="post-options">
+            <button type="button" data-action="flair"><img src="assets/write-parity/tag.svg" alt="" />플레어 및 태그</button>
+            <button type="button" data-toggle="spoiler" aria-pressed="false">스포일러</button>
+            <button type="button" data-toggle="nsfw" aria-pressed="false">18+</button>
+          </div>
+
+          <footer class="composer-actions">
+            <button class="cancel-button" type="button" data-action="cancel">취소</button>
+            <button id="desktopPostButton" class="post-button" type="submit" disabled>게시</button>
+          </footer>
+        </form>
+      </main>
+
+      <aside class="rules-card">
+        <h2><span class="community-avatar">N</span>자동차뉴스 게시 규칙</h2>
+        <ol>
+          <li><b>자동차 관련 내용을 작성해 주세요</b><span>기사, 신차, 정책, 정비와 시장 소식을 다룹니다.</span></li>
+          <li><b>출처를 명확히 표시해 주세요</b><span>외부 자료는 링크와 작성자를 함께 적어 주세요.</span></li>
+          <li><b>중복 게시물을 확인해 주세요</b><span>같은 소식이 있는지 검색 후 작성해 주세요.</span></li>
+          <li><b>개인정보를 올리지 마세요</b><span>번호판과 연락처 등 민감한 정보는 가려 주세요.</span></li>
+        </ol>
+      </aside>
+    </div>
+
+    <input id="imageInput" type="file" accept="image/jpeg,image/png,image/gif,image/webp" multiple hidden />
+    <input id="videoInput" type="file" accept="video/mp4,video/webm,video/quicktime" multiple hidden />
+
+    <div id="dialogBackdrop" class="dialog-backdrop" hidden>
+      <section id="communityDialog" class="dialog" role="dialog" aria-modal="true" aria-labelledby="communityDialogTitle" hidden>
+        <header><button type="button" data-action="close-dialog" aria-label="닫기"><img src="assets/write-parity/close.svg" alt="" /></button><h2 id="communityDialogTitle">커뮤니티 선택</h2><span></span></header>
+        <label class="dialog-search"><img src="assets/reddit-ui/search.svg" alt="" /><input id="communitySearch" placeholder="커뮤니티 검색" /></label>
+        <div id="communityList" class="community-list"></div>
+      </section>
+      <section id="flairDialog" class="dialog" role="dialog" aria-modal="true" aria-labelledby="flairDialogTitle" hidden>
+        <header><button type="button" data-action="close-dialog" aria-label="닫기"><img src="assets/write-parity/close.svg" alt="" /></button><h2 id="flairDialogTitle">플레어 및 태그</h2><button type="button" data-action="apply-flair">적용</button></header>
+        <div id="flairList" class="flair-list"></div>
+      </section>
+    </div>
+
+    <div id="toast" class="toast" role="status" hidden></div>
+    <script src="./car-news-table.js?v=20261016redditwrite1"></script>
+    <script src="./reddit-write.js?v=20261016redditwrite1"></script>
+  </body>
+</html>

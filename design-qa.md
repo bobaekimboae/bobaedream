@@ -1,3 +1,178 @@
+# 베스트글 독립 테이블 분리 QA · 2026-10-16
+
+- 일반 게시글 원천 `BOBAE_POSTS`와 베스트글 원천 `BOBAE_BEST_POSTS`를 분리했다.
+- 베스트글은 `data/best-posts.js`의 독립 6행을 순위 순으로 렌더링하며 일반 게시판 정렬·필터 결과에 의존하지 않는다.
+- 화면에는 `베스트글 / 실시간` 독립 헤더, 1~6위 순위, 3행씩 2페이지를 표시한다.
+- 상세 이동은 독립 행의 `sourcePostId`로 기존 게시물 상세를 연결한다.
+- 384px 브라우저에서 1~3위와 4~6위 전환을 확인했다. 일반 목록은 테슬라 필터에서 30행→4행으로 바뀌지만 베스트글 행은 유지된다.
+- 기존 유튜브 배너 340.8 × 106px, 가로 오버플로 0, 콘솔 경고·오류 0을 확인했다.
+
+final result: passed
+
+---
+
+# 베스트게시판 · 네이버 라운지 인기글형 QA · 2026-10-16
+
+- source visual truth path: `https://lounge.naver.com/` 상단 `지금 라운지 트렌드` 영역을 Chrome/CUA로 직접 캡처했다.
+- implementation screenshot path: `http://127.0.0.1:4189/community/naver-cafe-list.html?board=best&v=loungebest1` 로컬 렌더링을 Chrome/CUA로 직접 캡처했다.
+- viewport: 원본·구현 모두 390 × 844 CSS px, desktop 회귀 1280 × 900 CSS px.
+- pixel dimensions and density: 둘 다 동일 Chrome viewport 설정으로 비교했고 추가 밀도 보정은 없다.
+- state: 베스트글 독립 테이블 6건, 전체 말머리, 선정 기준 안내 닫힘 상태.
+- full-view comparison evidence: 순위→제목·댓글→게시판·조회→우측 썸네일의 행 구성, 72~73px 수직 리듬, 하단 구분선을 동일 상태에서 비교했다.
+- focused region comparison evidence: 원본/구현 모두 순위 x=20·폭 26px, 텍스트 x=58px, 썸네일 x=299.2px·56×56px. 제목 16/21px, 메타 13/18px, 댓글 필 24px을 확인했다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 원본의 Apple SD Gothic Neo 계열 대신 기존 보배드림 디자인 시스템의 Pretendard를 유지했다. 크기·줄높이·굵기 위계는 원본과 동일하다.
+- spacing and layout rhythm: 모바일 행 73px, 좌우 20px, 순위 칸 26px, 텍스트 시작 58px, 우측 썸네일 56px이다. 가로 오버플로는 0px이다.
+- colors and visual tokens: 원본의 빨간 `지금` 강조를 보배드림 블루 `#1677ff`로 치환했다. 중립 텍스트·구분선·필 배경은 원본 명도를 유지했다.
+- image quality and asset fidelity: 베스트 독립 테이블의 실제 게시물 썸네일만 사용하며 네이버 자산은 복사하지 않았다. 기존 알림 SVG를 재사용했다.
+- copy and content: `지금 보배드림 트렌드`, 현재 시간 기준, 선정 기준 설명으로 서비스 문구를 독자화했다.
+- interaction: 선정 기준 팝오버 열기·닫기, 6개 상세 링크, 글쓰기 차단을 확인했다. 브라우저 console warning/error 0건이다.
+
+## Comparison history
+
+- Pass 1: 기존 네이버 토론형 카드는 프로필·본문·반응 영역이 포함돼 인기 순위를 빠르게 비교하기 어려웠다(P1).
+- Fix: 베스트게시판에서만 라운지형 1행 랭킹 리스트로 렌더링하고 순위·제목·댓글·조회·썸네일을 73px에 정리했다.
+- Pass 2: 390px에서 원본과 주요 x좌표·크기가 일치했고 1280px 회귀, 상세 링크 6건, 팝오버, 콘솔 오류 0건을 확인했다.
+
+final result: passed
+
+---
+
+# 전체 게시글 · 유튜브 헤더 규격 복구 QA · 2026-10-16
+
+- 사용자 확정 규칙: 유튜브형 헤더 배너 340.8 × 106px
+- 유지: 제네시스 코리아 공식 여수 로드트립 이미지
+- 복구: 14px 좌우 여백, 12px 라운드, 106px 높이, 중앙 제목 배치. 384px 실측 340.8 × 106px 일치
+- 370px 이하: 12px 좌우 여백, 100px 높이
+- 풀블리드 210px 변경은 폐기했다.
+
+final result: passed
+
+---
+
+# 전체 게시글 · FINN형 몰입 배경 재검 QA · 2026-10-16
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/ae5197df-59c5-415b-84f7-0b8fbc7c2181/1-1000018686.jpg` (591 × 1280px)
+- target: `community/naver-cafe-list.html?view=compact`, 모바일 384·360 CSS px
+- asset: 제네시스 코리아 공식 여수 로드트립 캠페인 사진, 한국인 뮤지션 3명과 GV60, 생성형 이미지 아님
+
+## Findings
+
+- P0/P1/P2 없음.
+- 반복 제공된 FINN 참고 화면에서 핵심 차이를 이미지 소재가 아니라 상단 배경의 점유율로 재분류했다.
+- 기존 340.8 × 106px 둥근 카드형 배너를 폭 100% × 210px의 모서리 없는 몰입형 헤더로 변경했다.
+- 한국인 인물 3명과 GV60가 모바일 세로 비율에서도 함께 남도록 `object-fit: cover`와 중앙 정렬을 적용했다.
+- 제목은 이미지 하단에 배치하고 이중 그라데이션을 적용해 밝은 배경 위에서도 읽히게 했다.
+- 게시판 프로필은 헤더 바로 아래 붙여 FINN의 사진→콘텐츠 전환 리듬을 따랐다.
+
+## Comparison history
+
+- Pass 1: 메르세데스 가족 캠페인 이미지는 구도는 적합했으나 외국인 모델이며 106px 카드형이라 국내 커뮤니티 정서와 참고 화면 위계가 달랐다(P1).
+- Fix: 제네시스 코리아의 한국인 로드트립 사진으로 교체하고 좌우 여백·라운드·그림자를 제거한 210px 풀블리드 헤더로 확장했다.
+- Pass 2: 384px에서 368.8 × 210px, 360px에서 344.8 × 198px로 렌더링됐다. 원본 1600 × 562px 로딩, 피사체 크롭, 제목 가독성, 가로 오버플로 0, 콘솔 경고·오류 0을 확인했다.
+
+final result: passed
+
+---
+
+# 전체 게시글 · 가족형 럭셔리카 헤더 QA · 2026-10-16
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/2367ca60-e6dc-44f6-a7c3-9c543babaca3/1-1000018686.jpg` (591 × 1280px)
+- implementation: `community/naver-cafe-list.html?view=compact`, Chrome 384 × 812 CSS px
+- focused evidence: 전체 게시글 상단 340.8 × 106px 헤더, `board-header-mercedes-glb-family.webp` 1600 × 476px
+- asset source: Mercedes-Benz GLB 공식 가족 캠페인 영상 스틸. AI 생성 이미지가 아니다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- 참고 화면의 핵심인 가족·야외·차량이 한 장면에 함께 보이는 라이프스타일 방향을 반영했다.
+- 차량 단독 보도사진 대신 인물과 생활 맥락이 있는 실제 브랜드 캠페인 장면을 사용했다.
+- 원본 영상 하단 워드마크는 서비스 배너에 노출되지 않도록 크롭만 적용했고 합성·생성형 보정은 하지 않았다.
+- 384px 화면에서 가족과 차량이 모두 남고, 좌측 흰 제목은 어두운 그라데이션 위에서 읽힌다.
+- 이미지 원본 1600 × 476px이 깨짐 없이 로딩되고, 헤더는 기존 106px 높이와 목록 레이아웃을 유지한다.
+- P3: 참고 화면은 숲속 피크닉, 구현은 놀이공원 장면이다. 가족 중심 자동차 라이프스타일이라는 시각 목적은 동일하며 공식 출처 우선 원칙에 따른 허용 차이다.
+
+## Comparison history
+
+- Pass 1: 아스톤마틴 DB12 차량 단독 사진은 브랜드 사진이지만 가족·생활 장면이 없어 사용자 참고 화면의 정서와 달랐다.
+- Fix: Mercedes-Benz GLB 공식 가족 캠페인 스틸로 교체하고 1600 × 476px 헤더 비율로 크롭했다.
+- Pass 2: Chrome 384px에서 가족·차량 동시 노출, 제목 가독성, 원본 크기, 깨진 이미지 여부를 확인했다.
+
+final result: passed
+
+---
+
+# 치지직 간결형 댓글 블루 범위 정정 QA · 2026-10-16
+
+- source visual truth: 사용자 정정 `치지직 간결 게시판만 댓글 파랑색`
+- implementation: `public/community/naver-cafe-list.html?view=compact`
+- viewport and density: 384 × 844 CSS px, DPR 1
+- state: 치지직 간결형 목록과 네이버 토론형 반응 영역 교차검증
+- focused evidence: 간결형 `.compactReply`만 `#238fe3`; 토론형 `[data-discussion-comment]`는 공통 회색을 상속한다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- 간결형 댓글 숫자만 보배드림 블루로 유지했다.
+- 네이버 토론형 댓글 아이콘·숫자는 기존 회색으로 복원했다.
+- 폰트·간격·이미지·문구는 변경하지 않았다.
+- 새 탭 재검에서 console warning/error 0건을 확인했다.
+
+## Comparison history
+
+- Pass 1: 블루 범위를 네이버 토론형까지 잘못 확대했다.
+- Fix: 토론형 전용 블루 규칙을 제거하고 간결형 `.compactReply` 블루만 유지했다.
+
+final result: passed
+
+---
+# 동처띠 차량 리뷰 · 등록/목록/상세 최종 QA · 2026-10-16
+
+- source visual truth: USB 연결 Android의 동처띠 `com.ss.android.auto`에서 직접 캡처한 등록·목록·상세 화면. 핵심 캡처는 `artifacts/dongchedi-review-reaudit-1016/04-ev-form-selected.png`, `05-ev-exterior-0_5.png`, `06-ev-exterior-5_0.png`, `artifacts/dongchedi-review-audit-1016/52-review-tab.png`, `60-single-review-entry.png`이다.
+- browser-rendered implementation: `community/naver-cafe-list.html?board=vehicle-review`, `?board=vehicle-review&review=write`, `?board=vehicle-review&review=sample-bmw-m3`.
+- viewport and density: 원본 1080×2400/384×853dp, 구현 모바일 390×844 CSS px, PC 1440×900 CSS px.
+- full-view comparison evidence: 목록→등록→상세의 정보 순서, 카드 배경, 별점 스트립, 소유 정보, 본문, 하단 액션을 화면별 대조했다.
+- focused comparison evidence: 등록 별 22px, 간격 8px, 전체 선택폭 142×30px; 목록·상세 별 20px; 평가 라벨 13px/18px; 코멘트 10px/14px을 실측했다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- 원본 별점 문구 경계는 `0.5~1.5 / 2~2.5 / 3~3.5 / 4~4.5 / 5`였다. 기존 구현이 반점수에서 한 단계 빨리 전환하던 P1을 수정했다.
+- 전기 계열 8항목과 내연기관·하이브리드 고유 2항목의 0.5~5.0점 총 100상태를 검사했고 모든 문구가 보이며 잘리지 않았다.
+- 실소유자/비오너, EV/PHEV/EREV/하이브리드/내연기관, 출시 전 차량의 입력 가변 요소를 확인했다.
+- Chợ Tốt 별·체크·정보, Reddit 뒤로·댓글·추천·작성, AutoScout24 공유, AutoHome 엠블럼 자산을 사용하며 손그림 아이콘은 없다.
+- 등록→상세→테스트 글 삭제까지 통과했고 최종 목록 5개, 테스트 데이터 잔존 0건, 깨진 이미지 0건, 콘솔 오류 0건이다.
+- automated gate: `PASS 235 / FAIL 0 · rating states 100`.
+
+final result: passed
+
+---
+# 네이버 종목토론 피드 규칙·황금 별점 QA · 2026-10-16
+
+- source visual truth: `https://m.stock.naver.com/discussion/home/topic`의 게시글 작성자 메타 행과 프로필 이미지 비율.
+- browser-rendered implementation: `http://127.0.0.1:4311/community/naver-cafe-list.html?view=naver-discussion&v=naver24gold` 및 `?board=vehicle-review&v=naver24gold`.
+- viewport and density: Codex 인앱 브라우저의 393px 모바일 콘텐츠 폭에서 원본과 구현을 동일 브라우저로 비교했다.
+- feed profile rule: 원형 프로필 24×24px, 작성자 13px/18px, 시간 12px/18px, 프로필·작성자 간격 6px, 메타 행 24px, 카드 좌우 16px.
+- spacing and hierarchy: 말머리 다음 메타 행 상단 8px, 메타 다음 제목 상단 8px로 고정해 일반 피드와 우측 썸네일 피드가 같은 리듬을 공유한다.
+- asset fidelity: 임시 글자형 인라인 SVG 프사를 제거하고 `assets/profile-avatars/`의 실제 프로필 자산을 사용한다.
+- review icons: 별은 `icons/chotot/chotot-common-review-star-selected.svg`와 빈 별 SVG를 사용하며, 채운 별의 원본 황금색 `#FFBA00`을 보존한다. 나머지 리뷰 동작 아이콘은 기존 Reddit·초톳·AutoScout24 자산 매핑을 유지한다.
+- measured implementation: 첫 피드 프로필 `24×24px`, border-radius `50%`, object-fit `cover`; 메타 행 `24px`, gap `6px`, margin-top `8px`. 리뷰 채운 별 `15×15px`, CSS filter `none`.
+- interaction and console: 프로필 규격은 목록의 링크·추천·댓글 동작을 변경하지 않는다. 로컬 빌드 성공 및 브라우저 콘솔 오류 0건을 확인했다.
+
+## Comparison history
+
+- Pass 1: 일반 피드는 27px, 우측 썸네일 피드는 24px로 프로필 규격이 나뉘어 있었고 임시 생성 SVG가 섞여 있었다.
+- Fix: 24px 토큰을 공통화하고 실제 프로필 자산으로 통일했다.
+- Pass 2: 리뷰의 초톳 황금 별 SVG에 검정 필터가 덮여 있었다.
+- Fix: 채운 별 필터를 제거해 `#FFBA00` 원색을 복원하고 빈 별만 회색으로 유지했다.
+
+final result: passed
+
+---
+
 # 전체 게시글 · 치지직형 목록 QA · 2026-10-16
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/4f8c42b6-2ce9-4ad1-ade6-f10423e892ce/1-1000018632.jpg` (591 × 1280px)
@@ -23,6 +198,76 @@
 - Pass 1: 기본 상태가 `자유게시판`이었고 인기글은 파란 배경의 `인기` 텍스트 배지, 일반 목록은 손 모양 추천 아이콘과 말머리 미노출 상태여서 P1/P2로 분류했다.
 - Fix: 기본 게시판을 `전체 게시글`로 전환하고 배너·프로필·설명을 동기화했다. 인기글을 흰 바탕의 짙은 핀 행으로 바꾸고, 말머리 칩과 치지직 상향 화살표 아이콘을 추가했다.
 - Pass 2: 393px에서 44px 인기글 행, 70px 일반 행, 16px 제목, 13px 메타를 확인했다. 360px에서도 동일한 계층과 오버플로 0px을 확인해 남은 P0/P1/P2가 없다.
+
+final result: passed
+
+---
+# 커뮤니티 차량리뷰 독립 테이블 · 블랙 에디션 QA · 2026-10-16
+
+- source visual truth: USB 재연결한 동처띠 `NewPublisherActivityV2` 등록 화면과 `artifacts/dongchedi-review-audit-1016` 전수 캡처.
+- browser-rendered implementation: `community/naver-cafe-list.html?board=vehicle-review`, 등록·상세는 `?community=reviews&review=...&from=community`.
+- viewport: 390×844, 1440×900.
+- architecture: `data/boards/vehicle-review.csv`를 원본으로 한 커뮤니티 독립 테이블. 일반 게시글과 혼합하지 않음.
+- visual tokens: 동처띠 옐로우 대신 `#222` Airbnb식 블랙 CTA·필터·평점 진행선. 흰 배경과 8px 회색 섹션 밴드 유지.
+- asset fidelity: 초톳 별점 SVG, 레딧/치지직 반응·댓글·작성 SVG, 오토스카우트 공유 SVG, 프로젝트 오토홈 계열 브랜드 엠블럼만 사용. CSS/문자 별 없음.
+- interaction: 필터·구독·등록·가변 평가·상세·테스트 삭제 전부 동작.
+- automated result: PASS 225 / FAIL 0, 별점 상태 100/100 노출 및 무잘림, 깨진 이미지 0, 콘솔 오류 0.
+
+## Comparison history
+
+- Pass 1: 차량리뷰가 커뮤니티 독립 테이블이 아니라 별도 SPA로 연결된 구조 오류를 확인했다.
+- Fix: `vehicle-review` 전용 CSV/JS 테이블과 커뮤니티 내부 렌더러를 추가하고 별도 목록 진입은 내부 게시판으로 리다이렉트했다.
+- Pass 2: 옐로우 CTA와 직접 표현된 평점 강조가 브랜드 요청과 달랐다.
+- Fix: 블랙 에디션 토큰과 실제 아이콘 파일만 쓰도록 수정했다.
+- Pass 3: 등록한 테스트 리뷰가 상세로 이동하고 삭제 후 테이블 5건·저장소 0건으로 복귀하는 것을 확인했다.
+
+final result: passed
+
+---
+# 커뮤니티 차량리뷰 · 동처띠 등록/목록/상세 QA · 2026-10-16
+
+- source visual truth: `artifacts/dongchedi-review-audit-1016/15-score-3.png` 및 동 폴더의 전기·내연기관·오너·비오너 전수 캡처.
+- browser-rendered implementation: `?community=reviews`, `?community=reviews&review=write`, 상세 `review=sample-bmw-m3`.
+- viewport: 모바일 390×844, PC 1440×900.
+- typography: 앱바 17/21/700, 평가명 13/18/700, 평가 문구 10/14/400, 본문 13/21 및 14/23. 평가 행 48px, 별점 터치영역 130×30px.
+- copy: 10개 평가 항목의 5단계 원문 50개를 한국 문화화했고, 0.5점 단위 100상태를 실제 클릭해 노출과 무잘림을 확인했다.
+- interaction: 커뮤니티→목록→등록→별점→오너/비오너→상세 경로, 동력원별 평가 항목과 실사용 단위를 확인했다.
+- assets: Reddit·Chợ Tốt·AutoScout24 아이콘과 AutoHome 계열 브랜드 엠블럼을 유지했다.
+- responsive: 모바일 단일 열과 PC 820px 중앙 콘텐츠를 확인했다.
+- browser evidence: `artifacts/community-review-audit-1016/` 6개 캡처와 `results.json`.
+- comparison history: P1 평점 코멘트 9px/92px 숨김·말줄임을 발견했다. 한국어 단문 사전, 10px/14px 인라인 구조, 선택 점수 팝업으로 수정했다. 중간 검사에서 `편의 사양이 만족스러워요` 한 건이 실제로 잘려 FAIL했고 `편의 사양 만족`으로 수정 후 재검사했다.
+- automated result: PASS 215 / FAIL 0, rating states 100, broken images 0, console errors 0.
+
+final result: passed
+
+---
+
+# 차량 리뷰 게시판 · 동처띠 교차검증 QA · 2026-10-16
+
+- source visual truth: `artifacts/dongchedi-review-audit-1016/05-selected-vehicle-form.png`, `06-submit-empty-validation.png`, `10-owner-mode.png`, `15-score-3.png`, `16-form-lower-1.png`, `17-form-lower-2.png`, `53-review-detail-top.png`, `60-single-review-entry.png`
+- browser-rendered implementation: `artifacts/dealer-review-crosscheck-1016/writer-top-390x844.png`, `writer-390x844.png`, `list-390x844.png`, `detail-390x844.png`, `list-1440x900.png`
+- automated results: `artifacts/dealer-review-crosscheck-1016/results.json`
+- viewport and density: 모바일 390×844, PC 1440×900, DPR 1
+- state: 등록 초기·반점 별점·PHEV/EREV/HEV/ICE 전환·오너 OFF·출시 전 모델·목록 필터·상세 댓글
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 딜러 페이지 Pretendard 체계 안에서 등록 14~16px, 메타 9~11px, 목록 본문 14px/21px, 상세 점수 18~20px로 원본의 위계를 맞췄다.
+- spacing and layout rhythm: 등록은 옅은 청회색 바탕과 흰 카드, 목록은 요약→필터→작성자 카드, 상세는 작성자 헤더→어두운 점수 카드→평가·오너정보 순서를 따른다.
+- colors and visual tokens: 동처띠의 노란 CTA, 짙은 점수 카드, 흰 정보 카드, 회색 보조 텍스트를 기존 보배드림 화면 토큰과 조화되게 적용했다.
+- image quality and asset fidelity: 차량 엠블럼은 프로젝트의 오토홈 계열 브랜드 자산을 사용한다. 화면 아이콘은 Reddit의 뒤로·작성·채팅·추천, ChoTot의 별점·체크·닫기·정보·북마크, AutoScout24의 공유 SVG를 재사용한다.
+- copy and content: 중국어 원문은 조사 문서와 시트에 보존하고 서비스 화면에서는 10개 평가항목·50개 상태의 한국형 코멘트만 노출한다.
+- interaction and responsiveness: EV/PHEV/EREV/HEV/ICE, 오너/비오너, 출시 예정 모델 분기와 0.5점 입력, 필수 별점·본문·사진 검증, 목록 필터, 상세 댓글을 확인했다.
+- browser verification: 프로덕션 빌드 자동 검증 `PASS 29 / FAIL 0`, 모바일·PC 가로 깨짐 없음, 프로젝트 아이콘 경로 일치, 깨진 이미지·콘솔 오류 0건이다.
+
+## Comparison history
+
+- Pass 1: 원본 조사의 데이터 분기는 반영됐지만 목록 카드에 모델과 무관한 매물 사진이 순환될 수 있었고 필터 칩 폭이 압축됐다.
+- Fix: 제조사·모델이 일치하는 보유 매물만 연결하고 필터 칩에 최소 내용 폭과 좌우 패딩을 부여했다.
+- Pass 2: 임시 Radix 아이콘이 프로젝트의 기존 서비스 시각 언어와 달랐다.
+- Fix: Reddit·ChoTot·AutoScout24 프로젝트 SVG로 전면 교체하고 11~22px 범위에서 용도별 광학 크기를 맞췄다.
+- Final: 등록·목록·상세와 가변 시나리오 27개를 재검증해 남은 P0/P1/P2가 없다.
 
 final result: passed
 
@@ -4444,3 +4689,14 @@ final result: passed
 - Pass 2: 목록 전체 리듬을 유지하면서 추천 지표만 즉시 식별되는 것을 확인했다.
 
 final result: passed
+
+## 베스트게시판 보기방식 2종 · 시나리오 확장 QA · 2026-10-17
+
+- `라운지 인기글형`: 기존 순위 숫자 + 우측 56×56 썸네일 구성을 기본값으로 보존했다.
+- `라운지 간결형`: 순위 숫자를 제거하고 본문 시작점을 x=20px로 넓혔으며, 우측 썸네일은 x=299.2px / 56×56px로 유지했다.
+- 보기방식은 `bbm.community.bestView.v1`에 저장하며, 베스트게시판 재방문·새로고침 뒤 선택한 형식이 복원된다.
+- 게시판 메뉴보기 → 보기 방식에서 두 형식을 선택할 수 있고, 직접 URL의 `view=lounge-best-rank|lounge-best-clean`도 지원한다.
+- 베스트 전용 시나리오 50개를 추가해 총 56개 게시물을 두 보기방식에서 검증했다.
+- 모바일 390×844 실측: 인기글형 글자 x=58px / 간결형 글자 x=20px / 썸네일 우측 x=299.2px / 가로 넘침 0px.
+- 브라우저 검증: 인기글형 순위 56개, 간결형 순위 0개, 재방문 복원 성공, 경고·오류 0건.
+- 자동 검증: `npm run check:runtime`, `npm run test:sites`, `npm run build` 모두 통과.

@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="보배드림 게시판용 노션 스타일 글쓰기 편집기" />
     <title>노션 글쓰기 · 보배드림</title>
-    <link rel="stylesheet" href="./notion-write.css" />
+    <link rel="stylesheet" href="./notion-write.css?v=20261016newscard1" />
+    <link rel="stylesheet" href="./news-card.css?v=20261017tiktok3" />
   </head>
   <body>
     <div class="notion-app" data-testid="notion-write-page">
@@ -210,10 +211,10 @@
           <input id="embedUrl" type="url" inputmode="url" placeholder="https://" autocomplete="off" />
           <fieldset class="embed-mode-fieldset">
             <legend>표시 방식</legend>
-            <label><input type="radio" name="embedMode" value="auto" checked /><span><strong>자동 임베드</strong><small>지원 서비스는 플레이어로 표시합니다</small></span></label>
-            <label><input type="radio" name="embedMode" value="bookmark" /><span><strong>링크 카드</strong><small>원본 페이지로 이동하는 카드로 표시합니다</small></span></label>
+            <label><input type="radio" name="embedMode" value="auto" checked /><span><strong>자동 임베드</strong><small>지원 서비스는 화면에 바로, 뉴스 기사는 뉴스 카드로 표시합니다</small></span></label>
+            <label><input type="radio" name="embedMode" value="bookmark" /><span><strong>링크 카드</strong><small>제목과 주소만 있는 간단한 카드로 표시합니다</small></span></label>
           </fieldset>
-          <p class="embed-support">YouTube, Vimeo, Spotify, SoundCloud, CodePen, Figma와 공개 임베드 주소를 지원합니다. 임베드를 막은 사이트는 링크 카드로 안전하게 표시됩니다.</p>
+          <p class="embed-support">YouTube, Instagram, Reddit, Vimeo, Spotify, SoundCloud, CodePen, Figma는 화면 안에 바로 보입니다. 국내·해외 자동차뉴스 등 그 밖의 기사 주소는 제목·요약·대표 이미지가 있는 뉴스 카드로 들어갑니다.</p>
           <button id="insertEmbedButton" class="dialog-primary" type="button">임베드 삽입</button>
         </form>
       </dialog>
@@ -256,6 +257,7 @@
 
       <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
     </div>
-    <script src="./notion-write.js" defer></script>
+    <script src="./community-embed.js?v=20261017tiktok3"></script>
+    <script src="./notion-write.js?v=20261016igcrop1" defer></script>
   </body>
 </html>

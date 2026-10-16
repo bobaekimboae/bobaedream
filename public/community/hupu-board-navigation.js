@@ -5,6 +5,8 @@
     {id:'best',displayName:'베스트글',shortName:'베스트',section:'게시판',topicKey:'전체',fixed:true,avatarLabel:'BEST',avatarColor:'#18181b',avatarAccent:'#f5b942'},
     {id:'free',displayName:'자유게시판',shortName:'자유',section:'게시판',topicKey:'전체',avatarLabel:'자유',avatarColor:'#2457d6',avatarAccent:'#6ea8ff'},
     {id:'car-news',displayName:'자동차뉴스',shortName:'자동차뉴스',section:'게시판',topicKey:'전체',avatarLabel:'NEWS',avatarColor:'#164e9b',avatarAccent:'#55a5f5'},
+    {id:'foreign-car-news',displayName:'해외 자동차뉴스',shortName:'해외뉴스',section:'게시판',topicKey:'전체',avatarLabel:'WORLD',avatarColor:'#0f4c5c',avatarAccent:'#3fb7a7'},
+    {id:'vehicle-review',displayName:'차량리뷰',shortName:'차량리뷰',section:'게시판',topicKey:'전체',avatarLabel:'리뷰',avatarColor:'#1f2937',avatarAccent:'#7c8698'},
     {id:'politics',displayName:'정치/시사게시판',shortName:'정치시사',section:'게시판',topicKey:'전체',avatarLabel:'시사',avatarColor:'#5031a9',avatarAccent:'#9678e8'},
     {id:'test-drive',displayName:'시승기/배틀/목격담',shortName:'시승배틀',section:'게시판',topicKey:'전체',avatarLabel:'시승',avatarColor:'#c65316',avatarAccent:'#ff9c57'},
     {id:'celebrity-car',displayName:'유명인의 차',shortName:'유명인차',section:'게시판',topicKey:'전체',avatarLabel:'STAR',avatarColor:'#9e3f77',avatarAccent:'#f08bc2'},

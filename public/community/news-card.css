@@ -1,0 +1,49 @@
+/* 링크 미리보기 카드(노션 북마크형) — 글쓰기 에디터 · 상세 · 피드 공용 */
+/* 노션 북마크와 같게(2026-10-16 「노션과 임베드 노출 동일하게」): 글 왼쪽 · 이미지 오른쪽 106px, 좁으면 이미지가 위로(노션 wrap-reverse),
+   제목 14/20 한 줄 · 요약 12/16 두 줄 · 파비콘 16 + 주소 12/16, 테두리 rgba(55,53,47,.16) 반경 10, 매체명·해외 표시는 숨김 */
+.news-card{display:flex;flex-direction:row-reverse;flex-wrap:wrap;align-items:stretch;overflow:hidden;border:1px solid rgba(55,53,47,.16);border-radius:10px;background:#fff;color:#37352f;text-align:left;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.news-card:hover{background:rgba(55,53,47,.03)}
+.news-card-image{display:block;flex:1 1 180px;height:106px;min-width:0;overflow:hidden;background:#f1f1ef}
+.news-card-image img{display:block;width:100%;height:100%;object-fit:cover}
+.news-card-copy{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"title title" "desc desc" "fav url";flex:4 1 180px;align-content:start;min-width:0;padding:12px 14px 14px;overflow:hidden}
+.news-card-site{display:contents}
+.news-card-site>span,.news-card-site>em{display:none}
+.news-card-site>img{grid-area:fav;width:16px;height:16px;min-width:16px;margin:6px 6px 0 0;border-radius:2px;object-fit:contain}
+.news-card-title{grid-area:title;display:block;min-height:24px;margin-bottom:2px;overflow:hidden;color:#37352f;font-size:14px;line-height:20px;font-weight:400;letter-spacing:0;white-space:nowrap;text-overflow:ellipsis}
+.news-card-desc{grid-area:desc;display:-webkit-box;height:32px;overflow:hidden;color:rgba(55,53,47,.65);font-size:12px;line-height:16px;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.news-card-url{grid-area:url;margin-top:6px;overflow:hidden;color:#37352f;font-size:12px;line-height:16px;white-space:nowrap;text-overflow:ellipsis}
+.news-card-copy:not(:has(.news-card-site>img)) .news-card-url{grid-column:1 / -1}
+.embed-block .media-surface:has(.news-card){min-height:0;border:0;background:none}
+.embed-block.is-loading .news-card{opacity:.65}
+/* 상세 화면의 임베드(레딧·유튜브 등) */
+.detailEmbed{margin:14px 0}
+.detailEmbed iframe{display:block;width:100%;max-width:540px;height:420px;margin:0 auto;border:0;background:transparent}
+.detailEmbed.is-tall iframe{height:620px}
+.detailEmbed figcaption{margin-top:6px;color:#767d87;font-size:13px;line-height:18px}
+/* 피드 카드 아래 작은 링크 카드 */
+.naverDiscussionCard .news-card{margin-top:10px}
+/* 노션 임베드처럼: 회색 상자 없이 원본(인스타그램 등) 높이 그대로 — 높이는 community-embed.js가 원본 크기 신호로 맞춘다 */
+iframe[data-embed-height]{height:var(--embed-h)!important}
+/* 인스타그램: 스레드처럼 계정 줄 + 사진·영상만(본문·반응 줄 숨김), 모서리 8 */
+.bbm-embed-crop{position:relative;max-width:540px;height:var(--crop-h,500px);margin:0 auto;overflow:hidden;border:1px solid rgba(0,0,0,.1);border-radius:8px}
+.bbm-embed-crop iframe{display:block;width:100%;max-width:none;height:700px;margin:0;border:0;border-radius:0}
+/* 유튜브 가로 영상: 16:9 그대로(위아래 검은 띠 없이) */
+iframe[data-embed-wide]{height:auto!important;aspect-ratio:16/9}
+iframe[data-embed-short]{width:min(100%,315px)!important;max-width:315px;height:auto!important;aspect-ratio:9/16;margin:0 auto}
+/* 레딧 expando식 미리보기: 목록은 썸네일 + 재생 버튼, 누르면 그 자리에서 재생 */
+.bbm-embed-preview{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;width:100%;max-width:540px;margin:0 auto;padding:0;overflow:hidden;border:0;border-radius:8px;background:#111;color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.bbm-embed-preview.is-wide{aspect-ratio:16/9}
+.bbm-embed-preview.is-short{width:min(100%,315px);aspect-ratio:9/16}
+.bbm-embed-preview.is-instagram{aspect-ratio:5/7;background:linear-gradient(135deg,#feda75,#d62976 55%,#4f5bd5)}
+.bbm-embed-preview.is-tall{aspect-ratio:4/5}
+.bbm-embed-preview img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bbm-embed-preview:after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.18);pointer-events:none}
+.bbm-embed-play{position:relative;z-index:1;width:56px;height:56px;border-radius:50%;background:rgba(0,0,0,.6)}
+.bbm-embed-play:before{content:"";position:absolute;left:22px;top:17px;border-left:18px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent}
+.bbm-embed-label{position:absolute;left:10px;bottom:10px;z-index:1;height:22px;padding:0 8px;border-radius:11px;background:rgba(0,0,0,.6);font-size:12px;line-height:22px;font-weight:600}
+.bbm-embed-fallback{display:flex;flex-direction:column;gap:4px;padding:16px;border:1px solid rgba(55,53,47,.16);border-radius:10px;color:#37352f;text-decoration:none}
+.bbm-embed-fallback strong{font-size:14px;line-height:20px;font-weight:600}
+.bbm-embed-fallback span{color:rgba(55,53,47,.65);font-size:12px;line-height:16px;text-decoration:underline}
+/* 틱톡 크리에이터 임베드: 틱톡 embed.js가 주는 높이 388 그대로 */
+iframe[data-embed-tiktok-profile],.naverDiscussionEmbed iframe[data-embed-tiktok-profile],.detailEmbed iframe[data-embed-tiktok-profile]{width:100%;max-width:540px;height:389px;margin:0 auto}
+.bbm-embed-preview.is-tiktok-profile{aspect-ratio:352/388;background:#000}

@@ -533,10 +533,123 @@
       const source = parsed.href.replace(/\/(edit|view)(?:\?.*)?$/, "/preview");
       return { ...fallback, src: source, provider: "Google", title: "Google 문서 임베드", mode: "embed", tall: true };
     }
+    if (host === "instagram.com" || host.endsWith(".instagram.com")) {
+      const parts = parsed.pathname.split("/").filter(Boolean);
+      const kind = parts[0];
+      if (["p", "reel", "reels", "tv"].includes(kind) && parts[1]) {
+        const type = kind === "reels" ? "reel" : kind;
+        return { ...fallback, url: `https://www.instagram.com/${type}/${encodeURIComponent(parts[1])}/`, src: `https://www.instagram.com/${type}/${encodeURIComponent(parts[1])}/embed/`, provider: "Instagram", title: type === "reel" ? "Instagram 릴스" : "Instagram 게시물", mode: "embed", tall: true };
+      }
+    }
+    if (/(^|\.)reddit\.com$/.test(host)) {
+      const parts = parsed.pathname.split("/").filter(Boolean);
+      const at = parts.indexOf("comments");
+      if (parts[0] === "r" && parts[1] && at > 1 && parts[at + 1]) {
+        const slug = parts[at + 2] ? `${encodeURIComponent(parts[at + 2])}/` : "";
+        return { ...fallback, src: `https://embed.reddit.com/r/${encodeURIComponent(parts[1])}/comments/${encodeURIComponent(parts[at + 1])}/${slug}?embed=true&theme=light&showmedia=true&showmore=false`, provider: "Reddit", title: "Reddit 게시물", mode: "embed", tall: true };
+      }
+    }
     if (/(^|\.)(player|embed)\./.test(host) || /\/(embed|player)(\/|$)/.test(parsed.pathname)) {
       return { ...fallback, src: parsed.href, provider: host, title: "웹 콘텐츠 임베드", mode: "embed" };
     }
-    return fallback;
+    // 뉴스·블로그 등 임베드를 막은 사이트: 노션 북마크처럼 제목·요약·대표 이미지 카드로 보여 준다
+    return { ...fallback, mode: "preview" };
+  }
+
+  /* 링크 미리보기 카드(노션 북마크형). 메타데이터는 microlink 공개 API에서 받아 figure 에 저장한다. */
+  const previewCache = new Map();
+  function fetchPreviewMeta(url) {
+    if (previewCache.has(url)) return previewCache.get(url);
+    const task = fetch(`https://api.microlink.io/?url=${encodeURIComponent(url)}`)
+      .then((response) => (response.ok ? response.json() : null))
+      .then((json) => {
+        const data = json && json.status === "success" ? json.data || {} : {};
+        return {
+          title: data.title || "",
+          description: data.description || "",
+          image: data.image?.url || "",
+          site: data.publisher || "",
+          logo: data.logo?.url || "",
+          lang: data.lang || "",
+        };
+      })
+      .catch(() => ({}));
+    previewCache.set(url, task);
+    return task;
+  }
+  function renderPreviewCard(card, url, meta) {
+    let host = url;
+    try { host = new URL(url).hostname.replace(/^www\./, ""); } catch (_) {}
+    const overseas = meta.lang && !/^ko/i.test(meta.lang);
+    card.replaceChildren();
+    if (meta.image) {
+      const media = document.createElement("span");
+      media.className = "news-card-image";
+      const img = document.createElement("img");
+      img.src = meta.image;
+      img.alt = "";
+      img.loading = "lazy";
+      img.referrerPolicy = "no-referrer";
+      img.addEventListener("error", () => media.remove());
+      media.append(img);
+      card.append(media);
+    }
+    const copy = document.createElement("span");
+    copy.className = "news-card-copy";
+    const site = document.createElement("span");
+    site.className = "news-card-site";
+    if (meta.logo) {
+      const logo = document.createElement("img");
+      logo.src = meta.logo;
+      logo.alt = "";
+      logo.referrerPolicy = "no-referrer";
+      logo.addEventListener("error", () => logo.remove());
+      site.append(logo);
+    }
+    const siteName = document.createElement("span");
+    siteName.textContent = meta.site || host;
+    site.append(siteName);
+    if (overseas) {
+      const badge = document.createElement("em");
+      badge.textContent = "해외";
+      site.append(badge);
+    }
+    const heading = document.createElement("strong");
+    heading.className = "news-card-title";
+    heading.textContent = meta.title || host;
+    copy.append(site, heading);
+    if (meta.description) {
+      const description = document.createElement("span");
+      description.className = "news-card-desc";
+      description.textContent = meta.description;
+      copy.append(description);
+    }
+    const address = document.createElement("small");
+    address.className = "news-card-url";
+    address.textContent = host;
+    copy.append(address);
+    card.append(copy);
+  }
+  function applyPreviewMeta(figure, meta) {
+    figure.dataset.metaTitle = meta.title || "";
+    figure.dataset.metaDescription = meta.description || "";
+    figure.dataset.metaImage = meta.image || "";
+    figure.dataset.metaSite = meta.site || "";
+    figure.dataset.metaLogo = meta.logo || "";
+    figure.dataset.metaLang = meta.lang || "";
+    figure.classList.remove("is-loading");
+    const card = figure.querySelector(".news-card");
+    if (card) renderPreviewCard(card, figure.dataset.embedUrl, meta);
+  }
+  function metaFromFigure(figure) {
+    return {
+      title: figure.dataset.metaTitle || "",
+      description: figure.dataset.metaDescription || "",
+      image: figure.dataset.metaImage || "",
+      site: figure.dataset.metaSite || "",
+      logo: figure.dataset.metaLogo || "",
+      lang: figure.dataset.metaLang || "",
+    };
   }
 
   function createEmbedBlock(info) {
@@ -557,7 +670,20 @@
 
     const surface = document.createElement("div");
     surface.className = "media-surface";
-    if (info.src) {
+    if (info.mode === "preview") {
+      figure.classList.add("is-loading");
+      const card = document.createElement("a");
+      card.className = "news-card";
+      card.href = info.url;
+      card.target = "_blank";
+      card.rel = "noopener noreferrer";
+      renderPreviewCard(card, info.url, { title: "미리보기를 불러오는 중…" });
+      surface.append(card);
+      fetchPreviewMeta(info.url).then((meta) => {
+        applyPreviewMeta(figure, meta || {});
+        scheduleSave();
+      });
+    } else if (info.src) {
       const frame = document.createElement("iframe");
       frame.src = info.src;
       frame.title = info.title;
@@ -936,10 +1062,10 @@
       replaceTarget.replaceWith(block);
       selectBlock(block);
       scheduleSave();
-      showToast(info.src ? `${info.provider} 임베드로 교체했습니다.` : "링크 카드로 교체했습니다.");
+      showToast(info.src ? `${info.provider} 임베드로 교체했습니다.` : info.mode === "preview" ? "뉴스 카드로 교체했습니다." : "링크 카드로 교체했습니다.");
     } else {
       insertNodeAtSelection(block);
-      showToast(info.src ? `${info.provider} 콘텐츠를 임베드했습니다.` : "해당 사이트는 링크 카드로 삽입했습니다.");
+      showToast(info.src ? `${info.provider} 콘텐츠를 임베드했습니다.` : info.mode === "preview" ? "뉴스 카드로 넣었습니다." : "해당 사이트는 링크 카드로 삽입했습니다.");
     }
     replaceTarget = null;
     embedUrl.value = "";
@@ -1025,9 +1151,22 @@
       url: figure.dataset.embedUrl || "",
       name: figure.dataset.fileName || figure.querySelector("figcaption")?.textContent.trim() || "",
     }));
+    const embeds = Array.from(editor.querySelectorAll('.media-block[data-kind="embed"]')).map((figure) => {
+      const info = getEmbedInfo(figure.dataset.embedUrl || "", figure.dataset.embedMode || "auto") || {};
+      return {
+        url: figure.dataset.embedUrl || "",
+        provider: figure.dataset.provider || info.provider || "",
+        render: info.mode === "embed" ? "iframe" : info.mode === "preview" ? "preview" : "bookmark",
+        src: info.mode === "embed" ? info.src : "",
+        tall: Boolean(info.tall),
+        caption: figure.querySelector(".media-caption")?.textContent.trim() || "",
+        ...metaFromFigure(figure),
+      };
+    }).filter((item) => item.url);
     const cleanedHtml = cleanEditorHtml();
     const bodyReader = document.createElement("div");
     bodyReader.innerHTML = cleanedHtml;
+    bodyReader.querySelectorAll(".media-block").forEach((figure) => figure.remove());
     const bodyText = bodyReader.textContent.replace(/\s+/g, " ").trim();
     const photos = media.filter((item) => item.kind === "image");
     const videos = media.filter((item) => item.kind === "video");
@@ -1044,6 +1183,7 @@
       photos,
       videos,
       media,
+      embeds,
       hideBody: false,
       submittedAt: new Date().toISOString(),
     }));
@@ -1062,6 +1202,12 @@
       figure.prepend(tools);
       const id = figure.dataset.mediaId;
       const url = figure.dataset.embedUrl;
+      const previewCard = figure.querySelector(".news-card");
+      if (figure.dataset.kind === "embed" && previewCard) {
+        if (figure.dataset.metaTitle) renderPreviewCard(previewCard, url, metaFromFigure(figure));
+        else fetchPreviewMeta(url).then((meta) => { applyPreviewMeta(figure, meta || {}); scheduleSave(); });
+        continue;
+      }
       const media = figure.querySelector("img, video, iframe");
       if (id && media) {
         const blob = await getBlob(id).catch(() => null);
