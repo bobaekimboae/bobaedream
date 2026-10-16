@@ -53,7 +53,7 @@
   function bodyFor(post,index){
     if(post.hideBody)return '작성자가 본문을 숨긴 글입니다.';
     if(Array.isArray(post.body)&&post.body.length){
-      return post.board==='foreign-car-news'?post.body.slice(0,3).join('\n'):post.body[0];
+      return post.board==='foreign-car-news'||post.board==='car-news'?post.body.slice(0,3).join('\n'):post.body[0];
     }
     return bodyFallbacks[index%bodyFallbacks.length];
   }
@@ -104,6 +104,47 @@
     var likes=Math.max(0,Math.round(Number(post.view||0)/23)+Number(post.reply||0));
     var dislikes=Math.max(0,Math.round(Number(post.reply||0)/7));
     return '<article class="naverDiscussionCard" data-discussion-post="'+esc(post.id)+'"><span class="naverDiscussionCategory">'+esc(categoryFor(post))+'</span><div class="naverDiscussionIdentity"><img class="naverDiscussionAvatar" src="'+esc(avatarFor(post,index))+'" alt="'+esc(post.user)+' 프로필"><strong class="naverDiscussionAuthor">'+esc(post.user)+'</strong><time class="naverDiscussionTime">'+esc(post.time)+'</time></div><a class="naverDiscussionTitle" href="'+detailUrl(post)+'">'+esc(cleanTitle(post.title))+'</a>'+bodyBlock(post,index)+(mediaFor(post,index)||embedInlineFor(post)||newsCardFor(post))+'<div class="naverDiscussionMetrics" aria-label="게시물 반응"><button class="naverDiscussionMetric" type="button" data-discussion-vote="up" aria-label="버프 '+metric(likes)+'" aria-pressed="false"><img src="'+icon('buff')+'" alt=""><span>'+metric(likes)+'</span></button><button class="naverDiscussionMetric" type="button" data-discussion-vote="down" aria-label="너프 '+metric(dislikes)+'" aria-pressed="false"><img src="'+icon('nerf')+'" alt=""><span>'+metric(dislikes)+'</span></button><button class="naverDiscussionMetric" type="button" data-discussion-comment="'+esc(post.id)+'" aria-label="댓글 '+Number(post.reply||0).toLocaleString('ko-KR')+'개"><img src="'+icon('comment-reddit')+'" alt="">'+metric(post.reply)+'</button><span class="naverDiscussionViews">조회 '+Number(post.view||0).toLocaleString('ko-KR')+'</span></div></article>';
+  }
+  function sourceLabelFor(post){
+    try{
+      var url=new URL(post.sourceUrl||'',location.href);
+      var path=(url.pathname||'').replace(/\/$/,'');
+      return url.hostname.replace(/^www\./,'')+(path&&path!=='/'?path:'');
+    }catch(error){return post.source||post.sourceUrl||'';}
+  }
+  function threadNewsCardFor(post,index){
+    var item=firstEmbed(post)||{};
+    var url=post.sourceUrl||item.url||detailUrl(post);
+    var host=sourceLabelFor(post).split('/')[0];
+    var site=post.source||item.site||item.provider||host;
+    var logo=item.logo||(window.BBM_EMBED&&window.BBM_EMBED.faviconFor?window.BBM_EMBED.faviconFor(url):'');
+    var image=item.image||post.thumbnail||post.thumb||'';
+    var media=image?'<span class="news-card-image"><img src="'+esc(image)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></span>':'<span class="news-card-placeholder" aria-hidden="true"><img src="assets/write-parity/link.svg" alt=""></span>';
+    return '<a class="news-card" data-news-hydrated href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">'+media+'<span class="news-card-copy"><span class="news-card-site">'+(logo?'<img src="'+esc(logo)+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<span>'+esc(site)+'</span></span><strong class="news-card-title">'+esc(cleanTitle(post.title))+'</strong><span class="news-card-desc">'+esc(bodyFor(post,index))+'</span><small class="news-card-url">'+esc(host)+'</small></span></a>';
+  }
+  function isThreadNewsBoard(){
+    var board=window.BBM_GET_ACTIVE_BOARD_TABLE&&window.BBM_GET_ACTIVE_BOARD_TABLE();
+    return board==='car-news'||board==='foreign-car-news';
+  }
+  /* 자동차뉴스·해외 자동차뉴스: Threads 게시물처럼 하나의 운영 계정 아래 원문 링크 카드를 쌓는다. */
+  function threadNewsCard(post,index){
+    var avatar='../assets/bbm/header-logo.svg';
+    var sourceLabel=sourceLabelFor(post);
+    var content=embedInlineFor(post)||threadNewsCardFor(post,index);
+    return '<article class="naverDiscussionCard foreignThreadCard" data-discussion-post="'+esc(post.id)+'">'
+      +'<img class="foreignThreadAvatar" src="'+avatar+'" alt="bobaebike 프로필">'
+      +'<div class="foreignThreadPost">'
+        +'<div class="foreignThreadIdentity"><strong>bobaebike</strong><time>'+esc(post.time)+'</time><button class="foreignThreadMore" type="button" aria-label="게시물 메뉴" aria-expanded="false" data-thread-menu><img src="'+icon('more-reddit')+'" alt=""></button></div>'
+        +'<a class="foreignThreadSource" href="'+esc(post.sourceUrl||'')+'" target="_blank" rel="noopener noreferrer">'+esc(sourceLabel)+'</a>'
+        +content
+        +'<div class="foreignThreadActions" aria-label="게시물 반응">'
+          +'<button type="button" data-thread-like aria-label="좋아요" aria-pressed="false"><img src="assets/heart.svg" alt=""></button>'
+          +'<button type="button" data-discussion-comment="'+esc(post.id)+'" aria-label="댓글"><img src="'+icon('comment-reddit')+'" alt=""></button>'
+          +'<button type="button" data-thread-repost aria-label="재게시" aria-pressed="false"><img src="assets/reddit-ui/repost.svg" alt=""></button>'
+          +'<button type="button" data-thread-share="'+esc(post.id)+'" aria-label="공유"><img src="'+icon('share-reddit')+'" alt=""></button>'
+        +'</div>'
+      +'</div>'
+    +'</article>';
   }
   /* 글쓰기에서 넣은 링크·뉴스 카드(첫 번째 것만 피드에 보여 준다) */
   function firstEmbed(post){return Array.isArray(post.embeds)&&post.embeds.length?post.embeds[0]:null;}
@@ -215,9 +256,10 @@
   function feedBody(){
     var data=posts();
     if(!data.length)return '<div style="padding:44px 16px;color:#858990;font-size:14px;text-align:center">등록된 글이 없습니다.</div>';
-    return data.map(currentVariant==='thumb'?thumbCard:card).join('');
+    return data.map(isThreadNewsBoard()?threadNewsCard:currentVariant==='thumb'?thumbCard:card).join('');
   }
   function render(variant){
+    phone.classList.remove('foreignThreadMode');
     if(window.BBM_GET_ACTIVE_BOARD_TABLE&&window.BBM_GET_ACTIVE_BOARD_TABLE()==='vehicle-review'){
       if(window.renderVehicleReviewBoardTable)window.renderVehicleReviewBoardTable({posts:(window.BOBAE_POSTS||[]).slice()});
       return;
@@ -237,7 +279,9 @@
     phone.classList.remove('compactMode','feedCafeMode','cafeLeftMode','naverCafePopularMode','redditFeedMode','chototFeedMode','chototBoardFeedMode','chototDealerFeedMode','loungeBestMode','loungeBestCleanMode','loungeBestLeftMode','naverRankingMode');
     phone.classList.add('naverDiscussionMode');
     phone.classList.toggle('naverDiscussionThumbMode',currentVariant==='thumb');
-    typeLabel.textContent=currentVariant==='thumb'?'네이버 토론 · 좌측 썸네일':'네이버 토론형';
+    var threadNews=isThreadNewsBoard();
+    phone.classList.toggle('foreignThreadMode',threadNews);
+    typeLabel.textContent=threadNews?'스레드 뉴스 피드':currentVariant==='thumb'?'네이버 토론 · 좌측 썸네일':'네이버 토론형';
     list.className='list naverDiscussionList'+(currentVariant==='thumb'?' is-thumb':'');
     list.innerHTML=feedBody();
     bind();
@@ -304,6 +348,9 @@
       tile.addEventListener('keydown',function(event){if(event.key==='Enter'||event.key===' ')toggle(event);});
     });
     list.querySelectorAll('[data-discussion-vote]').forEach(function(button){button.addEventListener('click',function(){var active=button.getAttribute('aria-pressed')==='true';var cardElement=button.closest('.naverDiscussionCard');cardElement.querySelectorAll('[data-discussion-vote]').forEach(function(other){other.classList.remove('is-active');other.setAttribute('aria-pressed','false');});if(!active){button.classList.add('is-active');button.setAttribute('aria-pressed','true');}});});
+    list.querySelectorAll('[data-thread-like],[data-thread-repost]').forEach(function(button){button.addEventListener('click',function(){var active=button.getAttribute('aria-pressed')==='true';button.setAttribute('aria-pressed',String(!active));button.classList.toggle('is-active',!active);});});
+    list.querySelectorAll('[data-thread-menu]').forEach(function(button){button.addEventListener('click',function(){var open=button.getAttribute('aria-expanded')==='true';button.setAttribute('aria-expanded',String(!open));button.classList.toggle('is-active',!open);});});
+    list.querySelectorAll('[data-thread-share]').forEach(function(button){button.addEventListener('click',function(){var post=posts().filter(function(item){return String(item.id)===String(button.dataset.threadShare);})[0];var url=post&&post.sourceUrl||location.href;if(navigator.share){navigator.share({title:post&&cleanTitle(post.title)||document.title,url:url}).catch(function(){});return;}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(function(){button.classList.add('is-active');button.setAttribute('aria-label','링크 복사됨');}).catch(function(){});}});});
     list.querySelectorAll('[data-discussion-comment]').forEach(function(button){button.addEventListener('click',function(){location.href='./chzzk-detail.html?id='+encodeURIComponent(button.dataset.discussionComment)+'#comments';});});
   }
 

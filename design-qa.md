@@ -28,6 +28,34 @@
 
 final result: passed
 
+## 자동차뉴스 주소 Threads형 적용 QA (2026-10-17)
+
+- requested route: `/community/naver-cafe-list.html?board=car-news`
+- visual target: 사용자가 첨부한 Threads 모바일 피드 스크린샷의 `프로필 → 계정·시간 → 원문 링크 → 미리보기/임베드 → 반응` 구조.
+- viewport: Codex in-app browser 390×844 CSS px, DPR 1.
+- measured result: 카드 폭 375.2px, 프로필 44×44px, 본문 시작 x=72px, 링크 카드 폭 287.2px, 대표 이미지 285.6×151.9px(1.88:1), 반응 행 높이 34px.
+- content rules: 일반 뉴스는 원문 URL·출처·대표 이미지를 유지하고 한국어 제목과 요약만 노출한다. Threads·TikTok·YouTube·Instagram은 기존 실제 임베드/재생형을 보존한다.
+- interaction evidence: 좋아요·재게시 `aria-pressed=true`, 게시물 메뉴 `aria-expanded=true`를 실제 클릭으로 확인하고 검수 뒤 초기화했다.
+- quality evidence: 깨진 이미지 0, 가로 넘침 0, 콘솔 warning/error 0.
+- findings: P0/P1/P2 없음. 게시판 상단 헤더·말머리·베스트글 영역은 기존 자동차뉴스 제품 구조로 유지했다.
+
+final result: passed
+
+## 해외 자동차뉴스 Threads 게시물 골격 재검수 (2026-10-17)
+
+- source visual truth: `C:\Users\bobae\OneDrive\문서\ChatGPT\퀵필터 제작\.codex-remote-attachments\01a10689-936d-7973-9ae7-047c763eeb65\c94c8012-94d1-4723-a008-8298560e5ec7\1-1000018744.jpg`
+- implementation: `/community/naver-cafe-list.html?view=naver-discussion&board=foreign-car-news`
+- viewport: Codex in-app browser 390×844 CSS px.
+- full-view comparison: 원본의 `원형 프로필 → bobaebike·시간 → 원문 주소 → 큰 링크 카드 → 좋아요·댓글·재게시·공유` 순서를 그대로 적용했다.
+- focused comparison: 본문 시작점은 프로필 오른쪽 열, 카드 모서리는 16px, 이미지 비율은 1.88:1, 반응 아이콘은 4개 한 줄로 맞췄다.
+- copy policy: 외국어 원문 제목은 노출하지 않고 한국어 제목과 3줄 한국어 요약만 카드에 표시한다. 번역 준비 전 데이터는 한국어 대체문으로 표시한다.
+- interaction evidence: 좋아요·재게시 `aria-pressed` 토글과 게시물 메뉴 `aria-expanded` 토글을 실제 클릭으로 확인했다.
+- image and console: 원문 사이트가 제공한 허용 썸네일을 그대로 사용하며, 이미지가 없는 기사는 링크형 카드로 폴백한다. 모바일 렌더에서 가로 넘침과 콘솔 오류가 없었다.
+- automated verification: 해외뉴스 테스트 10/10, `npm run verify:qf`, `git diff --check` 통과.
+- findings: P0/P1/P2 없음. 상단 보배드림 게시판 헤더는 제품 고유 영역이라 Threads 앱 헤더와 동일화 대상에서 제외했다.
+
+final result: passed
+
 ## 해외 자동차뉴스 Threads형 링크 카드 QA (2026-10-17)
 
 - source visual truth: `C:\Users\bobae\OneDrive\문서\ChatGPT\퀵필터 제작\.codex-remote-attachments\01a10689-936d-7973-9ae7-047c763eeb65\a2ed51e8-0dbd-48b2-b904-7f1a656e094a\1-1000018728.jpg`
