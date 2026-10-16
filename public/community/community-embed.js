@@ -96,6 +96,12 @@
     /* 노션 동영상 블록처럼 유튜브는 본문 폭 16:9, 쇼츠는 세로 9:16(최대 폭 315, 가운데) */
     var tt = /tiktok\.com\/(player|embed)\//.test(src);
     var shape = yt ? (item.tall ? ' data-embed-short' : ' data-embed-wide') : tt ? (/\/player\//.test(src) ? ' data-embed-short' : ' data-embed-tiktok-profile') : '';
+    if (tt) {
+      /* 틱톡 공식 embed.js가 만드는 iframe과 똑같이: name(__tt_embed__…)·lang·referrer·sandbox. 높이는 틱톡이 보내는 신호로 맞춘다 */
+      var ttName = '__tt_embed__v' + Math.floor(Math.random() * 1e15);
+      var ttSrc = src + (src.indexOf('?') < 0 ? '?' : '&') + 'lang=ko-KR&referrer=' + encodeURIComponent(location.href);
+      return '<iframe' + shape + ' name="' + ttName + '" src="' + esc(ttSrc) + '" title="' + esc(item.title || 'TikTok') + '" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen sandbox="allow-popups allow-popups-to-escape-sandbox allow-scripts allow-top-navigation allow-same-origin"></iframe>';
+    }
     var html = '<iframe' + shape + ' src="' + esc(src) + '" title="' + esc(item.title || item.provider || '임베드') + '" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts"></iframe>';
     return crop ? '<div class="bbm-embed-crop">' + html + '</div>' : html;
   }
@@ -108,6 +114,14 @@
   }
   /* 노션처럼 원본 높이로: 인스타그램(MEASURE)·레딧(resize.embed)이 보내는 높이 신호로 iframe 높이를 맞춘다 */
   window.addEventListener('message', function (event) {
+    if (/(^|\.)tiktok\.com$/.test((function () { try { return new URL(event.origin).hostname; } catch (_) { return ''; } })())) {
+      var td = event.data;
+      try { if (typeof td === 'string' && td.charAt(0) === '{') td = JSON.parse(td); } catch (_) { return; }
+      if (!td || !td.signalSource || !(Number(td.height) > 50)) return;
+      var tf = document.querySelector('iframe[name="' + String(td.signalSource).replace(/[^\w]/g, '') + '"]');
+      if (tf) { tf.setAttribute('data-embed-height', ''); tf.style.setProperty('--embed-h', Math.ceil(td.height) + 'px'); }
+      return;
+    }
     if (!/(^|\.)(instagram\.com|reddit\.com)$/.test((function () { try { return new URL(event.origin).hostname; } catch (_) { return ''; } })())) return;
     var data = event.data, height = 0;
     try { if (typeof data === 'string') data = JSON.parse(data); } catch (_) { return; }
