@@ -394,6 +394,13 @@ $('#eventBar').addEventListener('click', () => {
 $('#upBtn').addEventListener('click', () => { up = !up; if (up) down = false; updateVote(); showToast(up ? '좋아요를 눌렀습니다' : '좋아요를 취소했습니다'); });
 $('#downBtn').addEventListener('click', () => { down = !down; if (down) up = false; updateVote(); showToast(down ? '싫어요를 눌렀습니다' : '싫어요를 취소했습니다'); });
 $('#commentJump').addEventListener('click', () => { $('#comments').scrollIntoView({ behavior: 'smooth' }); setTimeout(() => $('#commentInput').focus(), 350); });
+$('#repostBtn').addEventListener('click', (event) => {
+  const button = event.currentTarget;
+  const next = button.getAttribute('aria-pressed') !== 'true';
+  button.setAttribute('aria-pressed', String(next));
+  button.classList.toggle('active', next);
+  showToast(next ? '게시글을 재게시했습니다' : '재게시를 취소했습니다');
+});
 $('#shareBtn').addEventListener('click', async () => {
   if (navigator.share) {
     try { await navigator.share({ title: document.title, url: location.href }); return; } catch (error) { if (error.name === 'AbortError') return; }

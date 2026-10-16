@@ -338,3 +338,13 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
 @media(max-width:600px){.boardLink img{width:15px;height:15px}.voteButton img,.roundAction img{width:20px;height:20px}.commentIconButton img{width:18px;height:18px}}
 .voteButton img.voteThumb{width:18px;height:18px;object-fit:contain}
 .voteButton img.voteThumbDown{transform:rotate(180deg)}
+.reactionRow .voteButton{width:40px;justify-content:center;gap:0;padding:0}
+.reactionRow .votePill strong{min-width:28px;padding:0 4px;border-left:0;border-right:1px solid #e5e5e5}
+.reactionRow .roundAction{min-width:42px;padding:0}
+.reactionRow .roundAction img{width:18px;height:18px}
+.reactionRow .commentAction{min-width:58px;gap:6px;padding:0 10px}
+.reactionRow>.repostAction{margin-left:auto}
+.reactionRow>.roundAction:last-child{margin-left:0}
+.reactionRow .roundAction.active{color:var(--brand-dark);background:var(--brand-soft)}
+.reactionRow .roundAction.active img{filter:invert(50%) sepia(91%) saturate(1966%) hue-rotate(177deg) brightness(92%) contrast(93%)}
+@media(max-width:600px){.reactionRow .voteButton{width:38px}.reactionRow .votePill strong{min-width:25px;padding:0 3px}.reactionRow .roundAction{width:40px;min-width:40px}.reactionRow .commentAction{width:auto;min-width:56px;padding:0 9px}.reactionRow .roundAction img{width:18px;height:18px}}

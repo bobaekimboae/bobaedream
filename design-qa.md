@@ -1,3 +1,33 @@
+# 상세페이지 레딧형 본문 반응바 QA · 2026-10-16
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a128e5-de8a-78d0-9ed9-96cbde6a07c3/3eb64c87-ab16-400f-a4ce-4ce1372483b4/1-1000018554.jpg`
+- browser-rendered implementation: `artifacts/community-detail-actions-1016/implementation-592.png`
+- focused comparison: `artifacts/community-detail-actions-1016/comparison-actions-source-vs-implementation.png`
+- viewport and density: 실제 동작 검사는 Chrome 393 × 850 CSS px에서 수행했다. 참고 화면은 592 × 1280px이며 구조 비교 캡처는 동일한 592 × 1280px으로 맞췄다.
+- state: 일반 게시물 상세, 반응 미선택 상태, 본문 하단 반응바 노출
+- full-view comparison evidence: 참고 화면과 구현 화면을 동일 비교 이미지에 배치해 `투표·댓글` 왼쪽 그룹과 `재게시·공유` 오른쪽 그룹의 구조를 확인했다.
+- focused region comparison evidence: 393px 브라우저에서 투표칩 102.6 × 40px, 댓글칩 56 × 40px, 재게시·공유 각 40 × 40px, 아이콘 18 × 18px, 그룹 내 간격 6px을 실측했다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 기존 Pretendard 본문·점수 계층을 보존하고 투표의 시각 문구만 제거했다. 좋아요·싫어요 의미는 `aria-label`로 유지한다.
+- spacing and layout rhythm: 레딧처럼 왼쪽에 투표칩과 댓글칩, 오른쪽에 재게시와 공유를 분리했다. 모바일 반응행 348px 안에서 `scrollWidth`가 348px로 일치해 가로 넘침이 없다.
+- colors and visual tokens: 흰 칩, 중립 회색 테두리, 검정 아이콘을 유지하고 선택 상태만 기존 브랜드 소프트 블루를 사용한다.
+- image quality and asset fidelity: 댓글·재게시·공유는 기존 Reddit SVG 자산을 사용하고, 좋아요·싫어요는 동일한 외곽선 엄지를 180도 회전해 획과 면적을 정확히 맞췄다.
+- copy and content: 보이는 `좋아요/싫어요` 문구를 제거해 참고 화면처럼 아이콘과 점수 중심으로 압축했다. 댓글 수와 추천 점수는 기존 실제형 시나리오 값을 유지한다.
+- interaction: 좋아요·싫어요 상호 배타 선택, 점수 증감·취소, 재게시 선택·취소와 토스트를 확인했다. 브라우저 콘솔 오류는 0건이다.
+
+## Comparison history
+
+- Pass 1: 투표칩에 `좋아요/싫어요` 문구가 있어 참고 화면보다 길고, 오른쪽 재게시 액션이 없어 반응바 균형이 맞지 않았다.
+- Fix: 문구를 제거해 투표칩을 102.6px로 압축하고, Reddit 재게시 자산을 40px 원형칩으로 추가했다. 재게시와 공유를 `margin-left:auto` 그룹으로 분리했다.
+- Pass 2: 393 × 850 브라우저에서 모든 아이콘이 18px, 원형칩이 40px로 정렬됐고 360px 상당 폭에서도 넘침과 충돌이 없음을 확인했다.
+
+final result: passed
+
+---
+
 # 커뮤니티 레딧형 구독 프로필 QA · 2026-10-16
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/1471b383-e429-4a24-a5b1-495c872e45ce/1-1000018552.jpg`
