@@ -16,7 +16,9 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(8, 12, 17, .68) 0%, rgba(8, 12, 17, .28) 43%, rgba(8, 12, 17, .03) 72%);
+  background:
+    linear-gradient(180deg, rgba(8, 12, 17, .08) 34%, rgba(8, 12, 17, .54) 100%),
+    linear-gradient(90deg, rgba(8, 12, 17, .48) 0%, rgba(8, 12, 17, .12) 56%, rgba(8, 12, 17, .02) 78%);
   pointer-events: none;
 }
 
@@ -26,8 +28,8 @@
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 0 16px;
+  justify-content: flex-end;
+  padding: 0 20px 20px;
   color: #fff;
   pointer-events: none;
   text-shadow: 0 1px 8px rgba(0, 0, 0, .48);
@@ -35,35 +37,36 @@
 
 .boardHeroKicker {
   color: rgba(255, 255, 255, .72);
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 720;
   line-height: 12px;
   letter-spacing: .12em;
 }
 
 .boardHeroTitle {
-  margin-top: 2px;
-  font-size: 23px;
+  margin-top: 3px;
+  font-size: 28px;
   font-weight: 820;
-  line-height: 28px;
+  line-height: 34px;
   letter-spacing: -.055em;
 }
 
 .boardHeroTagline {
-  margin-top: 1px;
+  margin-top: 2px;
   color: rgba(255, 255, 255, .84);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 520;
-  line-height: 15px;
+  line-height: 17px;
   letter-spacing: -.025em;
 }
 
 .phone.headerYouTube .boardHero {
   display: block;
-  height: 106px;
-  margin: 8px 14px 0;
-  border-radius: 12px;
-  box-shadow: 0 7px 20px rgba(20, 24, 31, .13);
+  width: 100%;
+  height: 210px;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .phone.headerYouTube .boardHeroImage {
@@ -76,7 +79,7 @@
 
 .phone.headerYouTube .boardTop.redditProfileReady {
   min-height: 68px;
-  margin: 8px 0 0;
+  margin: 0;
   padding: 6px 16px;
   align-items: center;
 }
@@ -128,18 +131,16 @@
 
 @media (max-width: 370px) {
   .phone.headerYouTube .boardHero {
-    height: 100px;
-    margin-right: 12px;
-    margin-left: 12px;
+    height: 198px;
   }
 
   .boardHeroCopy {
-    padding-left: 14px;
+    padding: 0 16px 18px;
   }
 
   .boardHeroTitle {
-    font-size: 21px;
-    line-height: 26px;
+    font-size: 26px;
+    line-height: 32px;
   }
 
   .phone.headerYouTube .boardTop.redditProfileReady {

@@ -10,8 +10,8 @@
     phone.classList.add('headerYouTube');
     hero.hidden=false;
     hero.dataset.variant='youtube';
-    image.src='assets/board-header-mercedes-glb-family.webp';
-    image.alt='가족과 메르세데스-벤츠 GLB가 함께하는 자동차 커뮤니티 배너';
+    image.src='assets/board-header-genesis-yeosu.webp';
+    image.alt='한국인 뮤지션들과 제네시스 GV60가 함께하는 여수 로드트립 배너';
 
     var boardName=document.querySelector('.boardSelectName');
     var heroTitle=hero.querySelector('.boardHeroTitle');

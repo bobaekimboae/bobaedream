@@ -1,3 +1,28 @@
+# 전체 게시글 · FINN형 몰입 배경 재검 QA · 2026-10-16
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/ae5197df-59c5-415b-84f7-0b8fbc7c2181/1-1000018686.jpg` (591 × 1280px)
+- target: `community/naver-cafe-list.html?view=compact`, 모바일 384·360 CSS px
+- asset: 제네시스 코리아 공식 여수 로드트립 캠페인 사진, 한국인 뮤지션 3명과 GV60, 생성형 이미지 아님
+
+## Findings
+
+- P0/P1/P2 없음.
+- 반복 제공된 FINN 참고 화면에서 핵심 차이를 이미지 소재가 아니라 상단 배경의 점유율로 재분류했다.
+- 기존 340.8 × 106px 둥근 카드형 배너를 폭 100% × 210px의 모서리 없는 몰입형 헤더로 변경했다.
+- 한국인 인물 3명과 GV60가 모바일 세로 비율에서도 함께 남도록 `object-fit: cover`와 중앙 정렬을 적용했다.
+- 제목은 이미지 하단에 배치하고 이중 그라데이션을 적용해 밝은 배경 위에서도 읽히게 했다.
+- 게시판 프로필은 헤더 바로 아래 붙여 FINN의 사진→콘텐츠 전환 리듬을 따랐다.
+
+## Comparison history
+
+- Pass 1: 메르세데스 가족 캠페인 이미지는 구도는 적합했으나 외국인 모델이며 106px 카드형이라 국내 커뮤니티 정서와 참고 화면 위계가 달랐다(P1).
+- Fix: 제네시스 코리아의 한국인 로드트립 사진으로 교체하고 좌우 여백·라운드·그림자를 제거한 210px 풀블리드 헤더로 확장했다.
+- Pass 2: 384px에서 368.8 × 210px, 360px에서 344.8 × 198px로 렌더링됐다. 원본 1600 × 562px 로딩, 피사체 크롭, 제목 가독성, 가로 오버플로 0, 콘솔 경고·오류 0을 확인했다.
+
+final result: passed
+
+---
+
 # 전체 게시글 · 가족형 럭셔리카 헤더 QA · 2026-10-16
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/2367ca60-e6dc-44f6-a7c3-9c543babaca3/1-1000018686.jpg` (591 × 1280px)

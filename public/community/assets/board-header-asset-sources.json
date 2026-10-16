@@ -17,5 +17,14 @@
     "sourceFile": "https://img.youtube.com/vi/IasPbYdD0DY/maxresdefault.jpg",
     "transformation": "crop-and-resize-only",
     "outputSize": "1600x476"
+  },
+  "board-header-genesis-yeosu.webp": {
+    "brand": "Genesis",
+    "model": "GV60",
+    "sourceType": "official-korea-roadtrip-campaign-photo",
+    "sourcePage": "https://www.genesis.com/kr/ko/genesis/roadtrip/roadtrip-overview.html",
+    "sourceFile": "https://www.genesis.com/content/dam/genesis-p2/kr/assets/genesis/roadtrip/roadtrip-overview/genesis-kr-roadtrip-overview-key-visual-yeosu-gv60-2560x900.jpg",
+    "transformation": "resize-only",
+    "outputSize": "1600x562"
   }
 }
