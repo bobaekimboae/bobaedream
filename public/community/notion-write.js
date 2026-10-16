@@ -607,6 +607,7 @@
     if (logoUrl) {
       const logo = document.createElement("img");
       logo.src = logoUrl;
+      if (/google\.com\/s2\/favicons/.test(logoUrl)) logo.addEventListener("load", () => { if (logo.naturalWidth <= 16) logo.remove(); });
       logo.alt = "";
       logo.referrerPolicy = "no-referrer";
       logo.addEventListener("error", () => logo.remove());

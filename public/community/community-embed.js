@@ -208,6 +208,7 @@
   /* 사이트 파비콘(스레드 카드처럼 도메인 앞에 표시): 메타에 로고가 없으면 저장해 둔 것을 쓴다 */
   var FAVICONS = { 'n.news.naver.com': './media/favicons/n.news.naver.com.png', 'm.sports.naver.com': './media/favicons/m.sports.naver.com.png', 'sports.naver.com': './media/favicons/m.sports.naver.com.png', 'm.cafe.naver.com': './media/favicons/m.cafe.naver.com.png', 'cafe.naver.com': './media/favicons/m.cafe.naver.com.png', 'naver.me': './media/favicons/n.news.naver.com.png', 'v.daum.net': './media/favicons/v.daum.net.png', 'news.daum.net': './media/favicons/v.daum.net.png', 'm.daum.net': './media/favicons/v.daum.net.png' };
   /* 노션 북마크처럼 각 사이트 파비콘: 저장본(네이버·다음) → 없으면 구글 파비콘 서비스(사이트 파비콘을 돌려주고, 없으면 기본 지구본) */
+  /* 구글 서비스는 파비콘이 없는 사이트에 16px 기본 지구본을 주므로, 노션처럼 그때는 아이콘 자리를 비운다(img의 onload에서 지움) */
   function faviconFor(url) {
     var host = hostOf(url);
     if (!host || !/\./.test(host)) return '';
@@ -219,7 +220,7 @@
     var overseas = item.lang && !/^ko/i.test(item.lang);
     return '<a class="news-card" href="' + esc(item.url) + '" target="_blank" rel="noopener noreferrer">' +
       (item.image ? '<span class="news-card-image"><img src="' + esc(item.image) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></span>' : '') +
-      '<span class="news-card-copy"><span class="news-card-site">' + (item.logo ? '<img src="' + esc(item.logo) + '" alt="" referrerpolicy="no-referrer" onerror="this.remove()">' : '') +
+      '<span class="news-card-copy"><span class="news-card-site">' + (item.logo ? '<img src="' + esc(item.logo) + '" alt="" referrerpolicy="no-referrer"' + (/google\.com\/s2\/favicons/.test(item.logo) ? ' onload="if(this.naturalWidth<=16)this.remove()"' : '') + ' onerror="this.remove()">' : '') +
       '<span>' + esc(item.site || item.provider || host) + '</span>' + (overseas ? '<em>해외</em>' : '') + '</span>' +
       '<strong class="news-card-title">' + esc(item.title || host) + '</strong>' +
       (item.description ? '<span class="news-card-desc">' + esc(item.description) + '</span>' : '') +
