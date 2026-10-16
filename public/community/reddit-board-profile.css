@@ -1,9 +1,9 @@
 .boardTop.redditProfileReady {
   min-height: 62px;
   height: auto;
-  margin: 0;
+  margin: 8px 0 0;
   padding: 6px 16px;
-  border-top: 1px solid #e7e8eb;
+  border-top: 0;
   border-bottom: 0;
   background: #fff;
   box-shadow: none;
