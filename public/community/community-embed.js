@@ -46,13 +46,19 @@
 
   /* 뉴스 카드용 메타데이터(제목·요약·대표 이미지·매체). microlink 공개 API */
   var cache = {};
+  /* 레딧 MediaByURL처럼 주소별 결과를 저장해 다시 긁지 않는다(이번 방문 동안) */
+  function stored(url) { try { var v = sessionStorage.getItem('bbm-embed-meta:' + url); return v ? JSON.parse(v) : null; } catch (_) { return null; } }
   function fetchMeta(url) {
     if (cache[url]) return cache[url];
+    var hit = stored(url);
+    if (hit) { cache[url] = Promise.resolve(hit); return cache[url]; }
     cache[url] = fetch('https://api.microlink.io/?url=' + encodeURIComponent(url))
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (json) {
         var d = json && json.status === 'success' ? json.data || {} : {};
-        return { title: d.title || '', description: d.description || '', image: (d.image && d.image.url) || '', site: d.publisher || '', logo: (d.logo && d.logo.url) || '', lang: d.lang || '' };
+        var meta = { title: d.title || '', description: d.description || '', image: (d.image && d.image.url) || '', site: d.publisher || '', logo: (d.logo && d.logo.url) || '', lang: d.lang || '' };
+        try { if (meta.title || meta.image) sessionStorage.setItem('bbm-embed-meta:' + url, JSON.stringify(meta)); } catch (_) {}
+        return meta;
       })
       .catch(function () { return {}; });
     return cache[url];
@@ -69,11 +75,13 @@
       (item.description ? '<span class="news-card-desc">' + esc(item.description) + '</span>' : '') +
       '<small class="news-card-url">' + esc(host) + '</small></span></a>';
   }
-  function frameHtml(item) {
+  function frameHtml(item, opts) {
+    /* 레딧 validate_secure_oembed처럼 https 주소만 iframe으로, 아니면 링크 카드 */
     if (!/^https:\/\//.test(item.src || '')) return cardHtml(item);
     var crop = item.crop === 'instagram' || /instagram\.com\//.test(item.src || '');
     var src = crop ? String(item.src).replace(/embed\/captioned\/?$/, 'embed/') : item.src;
     var yt = /youtube(-nocookie)?\.com\/embed\//.test(src);
+    if (yt && opts && opts.autoplay) src += (src.indexOf('?') < 0 ? '?' : '&') + 'autoplay=1&playsinline=1';
     /* 노션 동영상 블록처럼 유튜브는 본문 폭 16:9, 쇼츠는 세로 9:16(최대 폭 315, 가운데) */
     var html = '<iframe' + (yt ? (item.tall ? ' data-embed-short' : ' data-embed-wide') : '') + ' src="' + esc(src) + '" title="' + esc(item.title || item.provider || '임베드') + '" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts"></iframe>';
     return crop ? '<div class="bbm-embed-crop">' + html + '</div>' : html;
@@ -101,5 +109,49 @@
       if (box && box.classList.contains('bbm-embed-crop')) box.style.setProperty('--crop-h', Math.max(120, Math.ceil(height) - 154) + 'px');
     });
   });
-  window.BBM_EMBED = { info: info, fetchMeta: fetchMeta, cardHtml: cardHtml, frameHtml: frameHtml, blockHtml: blockHtml };
+  /* 레딧 목록 방식(expando): 목록에서는 외부 플레이어를 불러오지 않고 썸네일 + 재생 버튼만 보여 주고,
+     누르면 그 자리에서 플레이어로 바꿔 바로 재생한다. 썸네일은 레딧 스크래퍼 순서대로
+     ① 제공처 썸네일(유튜브 i.ytimg) ② 원문 og:image(microlink) ③ 없으면 제공처 색 타일 */
+  function kindOf(item) { return item.provider === 'YouTube' ? (item.tall ? 'short' : 'wide') : item.provider === 'Instagram' ? 'instagram' : 'tall'; }
+  function previewHtml(item) {
+    if (!item || item.render !== 'iframe') return blockless(item);
+    var label = item.provider === 'YouTube' ? (item.tall ? 'YouTube 쇼츠' : 'YouTube') : item.provider;
+    return '<button type="button" class="bbm-embed-preview is-' + kindOf(item) + '" data-embed-activate="' + esc(item.url) + '" aria-label="' + esc(label) + ' 재생">' +
+      (item.image ? '<img src="' + esc(item.image) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">' : '') +
+      '<span class="bbm-embed-play" aria-hidden="true"></span><span class="bbm-embed-label">' + esc(label) + '</span></button>';
+  }
+  function blockless(item) { return item ? cardHtml(item) : ''; }
+  function hydratePreviews(root) {
+    Array.prototype.forEach.call((root || document).querySelectorAll('.bbm-embed-preview:not([data-embed-hydrated])'), function (button) {
+      button.setAttribute('data-embed-hydrated', '');
+      if (button.querySelector('img')) return;
+      fetchMeta(button.getAttribute('data-embed-activate')).then(function (meta) {
+        if (!meta || !meta.image || button.querySelector('img')) return;
+        button.insertAdjacentHTML('afterbegin', '<img src="' + esc(meta.image) + '" alt="" referrerpolicy="no-referrer" onerror="this.remove()">');
+      });
+    });
+  }
+  function activate(button) {
+    var item = info(button.getAttribute('data-embed-activate'));
+    if (!item) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'bbm-embed-live';
+    wrap.innerHTML = frameHtml(item, { autoplay: true });
+    button.replaceWith(wrap);
+    /* 레딧이 실패한 주소를 오류로 남기듯: 인스타·레딧이 12초 안에 크기 신호를 안 보내면(삭제·비공개·차단) 원문 링크로 바꾼다 */
+    if (item.provider === 'Instagram' || item.provider === 'Reddit') {
+      setTimeout(function () {
+        var frame = wrap.querySelector('iframe');
+        if (!frame || frame.hasAttribute('data-embed-height') || !wrap.isConnected) return;
+        wrap.innerHTML = '<a class="bbm-embed-fallback" href="' + esc(item.url) + '" target="_blank" rel="noopener noreferrer"><strong>원문을 확인할 수 없습니다</strong><span>' + esc(item.provider) + '에서 보기</span></a>';
+      }, 12000);
+    }
+  }
+  document.addEventListener('click', function (event) {
+    var button = event.target.closest && event.target.closest('[data-embed-activate]');
+    if (!button) return;
+    event.preventDefault(); event.stopPropagation();
+    activate(button);
+  }, true);
+  window.BBM_EMBED = { info: info, fetchMeta: fetchMeta, cardHtml: cardHtml, frameHtml: frameHtml, blockHtml: blockHtml, previewHtml: previewHtml, hydratePreviews: hydratePreviews };
 })();
