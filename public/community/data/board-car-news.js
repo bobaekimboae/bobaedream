@@ -26,7 +26,7 @@
     displayName:"자동차뉴스",
     idStart:9100001,
     defaultView:"naver-discussion",
-    updatedAt:"2026-10-16T15:15:40.702Z",
+    updatedAt:"2026-10-16T15:46:23.039Z",
     rows:[
       {
         "id": "9100001",
@@ -461,6 +461,37 @@
         "ratings": "",
         "brandLogo": "",
         "embed": "https://www.tiktok.com/@bmw"
+      },
+      {
+        "id": "9100015",
+        "category": "해외",
+        "title": "BMW 틱톡: 신형 BMW iX4 공개",
+        "summary": "BMW 공식 틱톡에 올라온 신형 iX4 영상입니다. 게시판에서 바로 재생됩니다.",
+        "body": "",
+        "source": "BMW · TikTok",
+        "sourceUrl": "https://www.tiktok.com/@bmw/video/7694049359599619361",
+        "author": "",
+        "publishedAt": "2026-10-17T00:45:00+09:00",
+        "thumbnail": "",
+        "images": "",
+        "views": "0",
+        "comments": "0",
+        "likes": "0",
+        "tags": "해외|틱톡|BMW|iX4",
+        "reviewId": "",
+        "modelId": "",
+        "brand": "",
+        "model": "",
+        "trim": "",
+        "powertrain": "",
+        "rating": "",
+        "owner": "",
+        "ownershipLabel": "",
+        "benchmark": "",
+        "location": "",
+        "ratings": "",
+        "brandLogo": "",
+        "embed": "https://www.tiktok.com/@bmw/video/7694049359599619361"
       }
     ]
   };
