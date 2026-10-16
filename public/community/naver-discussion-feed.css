@@ -310,3 +310,6 @@
 .naverDiscussionPoll span{display:block;padding:9px 12px;border:1px solid #e3e5e8;border-radius:10px;color:#3a3d42;font-size:14px;line-height:20px}
 .naverDiscussionPoll em{color:#858990;font-size:12.5px;line-height:18px;font-style:normal}
 .naverDiscussionPoll small{color:#858990;font-size:12px;line-height:16px}
+
+/* 3줄 요약(문장 연결형): 세 문장을 한 단락으로, 최대 4줄 */
+.naverDiscussionCard .news-card-desc.is-summary3{display:-webkit-box;height:auto;max-height:none;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;white-space:normal;word-break:keep-all}

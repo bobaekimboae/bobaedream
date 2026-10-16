@@ -44,6 +44,12 @@
     if(selected)selected.scrollIntoView({inline:'center',block:'nearest'});
   }
   /* 3줄 요약이 있으면 본문 첫 줄 대신 「3줄 요약」 목록으로 보여 준다 */
+  /* 스레드형 카드: 3줄 요약이 있으면 세 문장을 이어 붙인 문장 연결형 단락으로, 없으면 기존 요약 */
+  function summaryText(post,index){
+    var lines=Array.isArray(post.summary3)?post.summary3.filter(Boolean).slice(0,3):[];
+    if(lines.length)return '<span class="news-card-desc is-summary3">'+esc(lines.join(' '))+'</span>';
+    return '<span class="news-card-desc">'+esc(bodyFor(post,index))+'</span>';
+  }
   function bodyBlock(post,index){
     var lines=Array.isArray(post.summary3)?post.summary3.filter(Boolean).slice(0,3):[];
     if(lines.length)return '<ol class="naverDiscussionSummary3" aria-label="3줄 요약">'+lines.map(function(line){return '<li>'+esc(line)+'</li>';}).join('')+'</ol>';
@@ -125,7 +131,7 @@
     var logo=item.logo||(window.BBM_EMBED&&window.BBM_EMBED.faviconFor?window.BBM_EMBED.faviconFor(url):'');
     var image=item.image||post.thumbnail||post.thumb||'';
     var media=image?'<span class="news-card-image"><img src="'+esc(image)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></span>':'<span class="news-card-placeholder" aria-hidden="true"><img src="assets/write-parity/link.svg" alt=""></span>';
-    return '<a class="news-card" data-news-hydrated href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">'+media+'<span class="news-card-copy"><span class="news-card-site">'+(logo?'<img src="'+esc(logo)+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<span>'+esc(site)+'</span></span><strong class="news-card-title">'+esc(cleanTitle(post.title))+'</strong><span class="news-card-desc">'+esc(bodyFor(post,index))+'</span><small class="news-card-url">'+esc(host)+'</small></span></a>';
+    return '<a class="news-card" data-news-hydrated href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">'+media+'<span class="news-card-copy"><span class="news-card-site">'+(logo?'<img src="'+esc(logo)+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<span>'+esc(site)+'</span></span><strong class="news-card-title">'+esc(cleanTitle(post.title))+'</strong>'+summaryText(post,index)+'<small class="news-card-url">'+esc(host)+'</small></span></a>';
   }
   function isThreadNewsBoard(){
     var board=window.BBM_GET_ACTIVE_BOARD_TABLE&&window.BBM_GET_ACTIVE_BOARD_TABLE();
