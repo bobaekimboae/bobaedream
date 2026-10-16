@@ -70,18 +70,18 @@ final result: passed
 - browser-rendered implementation: `reports/naver-discussion-feed-1016/implementation-390x844.png`
 - full-view comparison evidence: 원본과 구현을 390 × 844로 함께 캡처해 로컬에서 나란히 검수했다. 제3자 게시물·브랜드 화면은 PR에 보관하지 않았다.
 - viewport and density: 원본·구현 모두 Chrome 390 × 844 CSS px, DPR 1
-- state: 자유게시판, 네이버 토론형, 추천 탭, 전체 토론방, 추천순
+- state: 자유게시판, 네이버 토론형, 게시물 피드 카드만 노출
 
 ## Findings
 
 - P0/P1/P2 없음.
 - fonts and typography: 토론 제목은 Pretendard 16px/24px/750, 본문은 14px/21px으로 원본의 제목→요약 위계를 반영했다.
-- spacing and layout rhythm: 52px 상단 탭, 54px 토론방 카드, 31px 키워드 칩, 44px 클린봇 안내를 사용했다. 보배드림 게시판 프로필은 공통 구조이므로 그대로 유지하고 그 아래부터 토론형 피드를 시작한다.
-- colors and visual tokens: 흰 배경, 중립 회색 경계선, 검정 활성 탭, 클린봇 초록 강조를 적용했다. 네이버 브랜드 자산은 복사하지 않았다.
+- spacing and layout rhythm: 보배드림 게시판 프로필 바로 아래에서 16px 좌우 여백의 토론 카드가 연속되며 별도 네이버 탐색 영역이 끼어들지 않는다.
+- colors and visual tokens: 흰 배경, 중립 회색 경계선, 검정 제목과 회색 메타 정보로 피드 카드에만 네이버 토론의 정보 위계를 적용했다. 네이버 브랜드 자산은 복사하지 않았다.
 - image quality and asset fidelity: 게시판·작성자·게시물 이미지는 저장소의 기존 로컬 자산만 사용하며 게시물 이미지는 지연 로딩한다.
 - copy and content: 네이버 원문 게시물은 복사하지 않고 기존 보배드림 테스트 게시물로 토론 카테고리·작성자·제목·요약·반응 수를 구성했다.
-- interaction: 추천/HOT/팔로잉/MY 탭, 토론방, 키워드, 추천·최신·댓글·조회 정렬, 버프/너프 상호 배타 선택, 댓글·상세 이동을 연결했다.
-- responsive verification: 360/390/412px에서 카드 렌더, 토론방·키워드 필터, 정렬, 투표를 검사했고 가로 오버플로는 모두 0px이었다.
+- interaction: 버프/너프 상호 배타 선택과 댓글·상세 이동만 유지했다. 상단 탭·토론방·키워드·정렬·클린봇·중간 HOT 모듈은 렌더하지 않는다.
+- responsive verification: 360/390/412px에서 피드 카드와 투표 동작을 검사했고 가로 오버플로는 모두 0px이었다.
 - browser verification: Chrome에서 콘솔 오류 0건과 3개 모바일 폭 자동 검사를 확인했다.
 
 ## Comparison history
@@ -89,6 +89,7 @@ final result: passed
 - Pass 1: 네이버 토론 홈에서 탭·토론방·실시간 키워드·정렬·클린봇·토론 카드·중간 인기 토론 모듈의 순서를 실측했다.
 - Fix: 기존 게시판의 보기 방식에 `피드형 · 네이버 토론`을 추가하고, 기존 게시물·프로필·상세 링크를 새 피드 구조에 연결했다.
 - Pass 2: 390px 원본과 구현을 나란히 비교하고 360/390/412px에서 상호작용과 가로 넘침을 재검증했다.
+- 사용자 후속 수정: 네이버의 상단 탐색 구조와 중간 추천 모듈을 모두 제거하고 게시물 피드 리스트만 남겼다.
 
 final result: passed
 

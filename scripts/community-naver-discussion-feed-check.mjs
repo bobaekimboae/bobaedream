@@ -22,14 +22,20 @@ try {
       tabs: document.querySelectorAll(".naverDiscussionTab").length,
       rooms: document.querySelectorAll(".naverDiscussionRoom").length,
       keywords: document.querySelectorAll(".naverDiscussionKeyword").length,
+      sortRows: document.querySelectorAll(".naverDiscussionSortRow").length,
+      cleanbots: document.querySelectorAll(".naverDiscussionCleanbot").length,
+      hotModules: document.querySelectorAll(".naverDiscussionHot").length,
       cards: document.querySelectorAll(".naverDiscussionCard").length,
       overflow: Math.max(0, document.documentElement.scrollWidth - document.documentElement.clientWidth),
     }));
 
     if (measurements.label !== "네이버 토론형") throw new Error(`${width}px: 보기 방식 라벨 불일치`);
-    if (measurements.tabs !== 4) throw new Error(`${width}px: 상단 탭 개수 불일치`);
-    if (measurements.rooms !== 5) throw new Error(`${width}px: 토론방 개수 불일치`);
-    if (measurements.keywords !== 8) throw new Error(`${width}px: 키워드 개수 불일치`);
+    if (measurements.tabs !== 0) throw new Error(`${width}px: 상단 탭이 남아 있음`);
+    if (measurements.rooms !== 0) throw new Error(`${width}px: 토론방 선택이 남아 있음`);
+    if (measurements.keywords !== 0) throw new Error(`${width}px: 키워드 영역이 남아 있음`);
+    if (measurements.sortRows !== 0) throw new Error(`${width}px: 정렬 행이 남아 있음`);
+    if (measurements.cleanbots !== 0) throw new Error(`${width}px: 클린봇 영역이 남아 있음`);
+    if (measurements.hotModules !== 0) throw new Error(`${width}px: HOT 모듈이 남아 있음`);
     if (measurements.cards < 1) throw new Error(`${width}px: 게시물 카드 없음`);
     if (measurements.overflow !== 0) throw new Error(`${width}px: 가로 넘침 ${measurements.overflow}px`);
 
@@ -38,22 +44,12 @@ try {
       await page.screenshot({ path: "reports/naver-discussion-feed-1016/implementation-390x844.png", fullPage: false });
     }
 
-    await page.locator('[data-discussion-room="자동차"]').click();
-    if ((await page.locator(".naverDiscussionCard").count()) < 1) throw new Error(`${width}px: 자동차 토론방 결과 없음`);
-
-    await page.locator('[data-discussion-keyword="테슬라"]').click();
-    if ((await page.locator(".naverDiscussionCard").count()) < 1) throw new Error(`${width}px: 테슬라 키워드 결과 없음`);
-
-    await page.locator(".naverDiscussionSort").click();
-    await page.locator('[data-discussion-sort="최신순"]').click();
-    if ((await page.locator(".naverDiscussionSort").innerText()).trim() !== "최신순") throw new Error(`${width}px: 최신순 전환 실패`);
-
     const vote = page.locator('[data-discussion-vote="up"]').first();
     await vote.click();
     if ((await vote.getAttribute("aria-pressed")) !== "true") throw new Error(`${width}px: 버프 상태 전환 실패`);
 
     if (consoleErrors.length) throw new Error(`${width}px: 콘솔 오류\n${consoleErrors.join("\n")}`);
-    console.log(`PASS ${width}px · cards ${measurements.cards} · overflow 0 · interactions OK`);
+    console.log(`PASS ${width}px · feed-only cards ${measurements.cards} · overflow 0 · vote OK`);
     await page.close();
   }
 } finally {
