@@ -29,6 +29,9 @@ try {
       visibleVoteLabels: Array.from(document.querySelectorAll("[data-discussion-vote]"))
         .filter((button) => /버프|너프/.test(button.textContent || "")).length,
       cards: document.querySelectorAll(".naverDiscussionCard").length,
+      multiRails: document.querySelectorAll(".naverDiscussionMediaShell.is-multi").length,
+      multiItems: document.querySelector(".naverDiscussionMediaShell.is-multi")?.querySelectorAll(".naverDiscussionMediaItem").length || 0,
+      scrollSnap: getComputedStyle(document.querySelector(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaRail")).scrollSnapType,
       overflow: Math.max(0, document.documentElement.scrollWidth - document.documentElement.clientWidth),
     }));
 
@@ -42,6 +45,9 @@ try {
     if (measurements.votes !== measurements.cards * 2) throw new Error(`${width}px: 버프·너프 아이콘 개수 불일치`);
     if (measurements.visibleVoteLabels !== 0) throw new Error(`${width}px: 버프·너프 텍스트가 노출됨`);
     if (measurements.cards < 1) throw new Error(`${width}px: 게시물 카드 없음`);
+    if (measurements.multiRails < 1) throw new Error(`${width}px: 다중 사진 레일 없음`);
+    if (measurements.multiItems < 2) throw new Error(`${width}px: 다중 사진 수 부족`);
+    if (!measurements.scrollSnap.includes("x")) throw new Error(`${width}px: 가로 스냅 미적용`);
     if (measurements.overflow !== 0) throw new Error(`${width}px: 가로 넘침 ${measurements.overflow}px`);
 
     if (width === 390) {
@@ -49,12 +55,25 @@ try {
       await page.screenshot({ path: "reports/naver-discussion-feed-1016/implementation-390x844.png", fullPage: false });
     }
 
+    const rail = page.locator(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaRail").first();
+    const beforeCount = await page.locator(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaCount b").first().textContent();
+    await rail.evaluate((element) => {
+      const items = element.querySelectorAll(".naverDiscussionMediaItem");
+      const distance = items[1].getBoundingClientRect().left - items[0].getBoundingClientRect().left;
+      element.style.scrollBehavior = "auto";
+      element.scrollLeft = distance;
+      element.dispatchEvent(new Event("scroll"));
+    });
+    await page.waitForTimeout(250);
+    const afterCount = await page.locator(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaCount b").first().textContent();
+    if (beforeCount !== "1" || afterCount !== "2") throw new Error(`${width}px: 사진 페이지 표시 갱신 실패 (${beforeCount}→${afterCount})`);
+
     const vote = page.locator('[data-discussion-vote="up"]').first();
     await vote.click();
     if ((await vote.getAttribute("aria-pressed")) !== "true") throw new Error(`${width}px: 버프 아이콘 선택 실패`);
 
     if (consoleErrors.length) throw new Error(`${width}px: 콘솔 오류\n${consoleErrors.join("\n")}`);
-    console.log(`PASS ${width}px · feed-only cards ${measurements.cards} · icon votes ${measurements.votes} · labels 0 · overflow 0`);
+    console.log(`PASS ${width}px · feed-only cards ${measurements.cards} · multi rails ${measurements.multiRails} · swipe 1→2 · icon votes ${measurements.votes} · labels 0 · overflow 0`);
     await page.close();
   }
 } finally {

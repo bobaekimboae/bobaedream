@@ -11,6 +11,11 @@
   var list=document.getElementById('list');
   var phone=document.querySelector('.phone');
   var typeLabel=document.getElementById('typeLabel');
+  var slash='/';
+  var projectRoot=/github\.io$/i.test(location.hostname)?slash+'bobaedream':'';
+  var fallbackMedia=Array.from({length:30},function(_,index){
+    return projectRoot+'/assets/cars/supercar-sheet-v01/sc-'+String(index+1).padStart(3,'0')+'.jpg?v=20261016navercarousel1';
+  });
 
   function esc(value){
     return String(value==null?'':value).replace(/[&<>"']/g,function(char){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char];});
@@ -28,14 +33,44 @@
     if(number>=1000){var thousand=Math.floor(number/100)/10;return (thousand%1===0?String(thousand):thousand.toFixed(1))+'천';}
     return String(number);
   }
-  function mediaFor(post){
-    if(!post.detailImage)return '';
-    return '<a class="naverDiscussionMedia" href="'+detailUrl(post)+'" aria-label="'+esc(cleanTitle(post.title))+' 이미지와 상세 보기"><img src="'+esc(post.detailImage)+'" alt="" loading="lazy"></a>';
+  function normalizedMediaSource(source){
+    if(!source)return '';
+    if(/^https?:\/\//i.test(source))return source.replace(/([?&])w=\d+/,'$1w=960');
+    if(source.charAt(0)==='/'&&projectRoot&&source.indexOf(projectRoot+'/')!==0)return projectRoot+source;
+    return source;
+  }
+  function mediaSources(post,index){
+    var requested=Math.min(6,Math.max(0,Number(post.photos)||0));
+    var supplied=[];
+    ['detailImages','images','mediaImages'].forEach(function(field){
+      if(Array.isArray(post[field]))supplied=supplied.concat(post[field]);
+    });
+    supplied.push(post.detailImage||'',post.thumbnail||'');
+    var sources=supplied.map(normalizedMediaSource).filter(function(source,position,all){return source&&all.indexOf(source)===position;});
+    if(!sources.length)return [];
+    var target=Math.max(1,Math.min(6,requested||sources.length));
+    while(sources.length<target){
+      var fallback=fallbackMedia[(index*4+sources.length-1)%fallbackMedia.length];
+      if(sources.indexOf(fallback)<0)sources.push(fallback);
+    }
+    return sources.slice(0,target);
+  }
+  function mediaFor(post,index){
+    var sources=mediaSources(post,index);
+    if(!sources.length)return '';
+    var multiple=sources.length>1;
+    var title=cleanTitle(post.title);
+    var items=sources.map(function(source,itemIndex){
+      return '<a class="naverDiscussionMediaItem" href="'+detailUrl(post)+'" data-discussion-media-index="'+itemIndex+'" aria-label="'+esc(title)+' 사진 '+(itemIndex+1)+' / '+sources.length+' 상세 보기"><img src="'+esc(source)+'" alt="" loading="'+(index===0&&itemIndex===0?'eager':'lazy')+'"'+(index===0&&itemIndex===0?' fetchpriority="high"':'')+'></a>';
+    }).join('');
+    var dots=multiple?'<div class="naverDiscussionMediaDots" aria-label="사진 페이지">'+sources.map(function(_,itemIndex){return '<button type="button" data-discussion-media-dot="'+itemIndex+'" aria-label="사진 '+(itemIndex+1)+'로 이동"'+(itemIndex===0?' class="is-active" aria-current="true"':'')+'></button>';}).join('')+'</div>':'';
+    var count=multiple?'<span class="naverDiscussionMediaCount" aria-live="polite"><b>1</b> / '+sources.length+'</span>':'';
+    return '<div class="naverDiscussionMediaShell'+(multiple?' is-multi':'')+'"><div class="naverDiscussionMediaRail" tabindex="0" aria-label="'+esc(title)+' 사진, 좌우로 넘기기">'+items+'</div>'+count+dots+'</div>';
   }
   function card(post,index){
     var likes=Math.max(0,Math.round(Number(post.view||0)/23)+Number(post.reply||0));
     var dislikes=Math.max(0,Math.round(Number(post.reply||0)/7));
-    return '<article class="naverDiscussionCard" data-discussion-post="'+esc(post.id)+'"><span class="naverDiscussionCategory">'+esc(categoryFor(post))+'</span><div class="naverDiscussionIdentity"><img class="naverDiscussionAvatar" src="'+esc(avatarFor(post,index))+'" alt="'+esc(post.user)+' 프로필"><strong class="naverDiscussionAuthor">'+esc(post.user)+'</strong><time class="naverDiscussionTime">'+esc(post.time)+'</time></div><a class="naverDiscussionTitle" href="'+detailUrl(post)+'">'+esc(cleanTitle(post.title))+'</a><p class="naverDiscussionBody">'+esc(bodyFor(post,index))+'</p>'+mediaFor(post)+'<div class="naverDiscussionMetrics" aria-label="게시물 반응"><button class="naverDiscussionMetric" type="button" data-discussion-vote="up" aria-label="버프 '+metric(likes)+'" aria-pressed="false"><img src="'+icon('buff')+'" alt=""><span>'+metric(likes)+'</span></button><button class="naverDiscussionMetric" type="button" data-discussion-vote="down" aria-label="너프 '+metric(dislikes)+'" aria-pressed="false"><img src="'+icon('nerf')+'" alt=""><span>'+metric(dislikes)+'</span></button><button class="naverDiscussionMetric" type="button" data-discussion-comment="'+esc(post.id)+'" aria-label="댓글 '+Number(post.reply||0).toLocaleString('ko-KR')+'개"><img src="'+icon('comment-reddit')+'" alt="">'+metric(post.reply)+'</button><span class="naverDiscussionViews">조회 '+Number(post.view||0).toLocaleString('ko-KR')+'</span></div></article>';
+    return '<article class="naverDiscussionCard" data-discussion-post="'+esc(post.id)+'"><span class="naverDiscussionCategory">'+esc(categoryFor(post))+'</span><div class="naverDiscussionIdentity"><img class="naverDiscussionAvatar" src="'+esc(avatarFor(post,index))+'" alt="'+esc(post.user)+' 프로필"><strong class="naverDiscussionAuthor">'+esc(post.user)+'</strong><time class="naverDiscussionTime">'+esc(post.time)+'</time></div><a class="naverDiscussionTitle" href="'+detailUrl(post)+'">'+esc(cleanTitle(post.title))+'</a><p class="naverDiscussionBody">'+esc(bodyFor(post,index))+'</p>'+mediaFor(post,index)+'<div class="naverDiscussionMetrics" aria-label="게시물 반응"><button class="naverDiscussionMetric" type="button" data-discussion-vote="up" aria-label="버프 '+metric(likes)+'" aria-pressed="false"><img src="'+icon('buff')+'" alt=""><span>'+metric(likes)+'</span></button><button class="naverDiscussionMetric" type="button" data-discussion-vote="down" aria-label="너프 '+metric(dislikes)+'" aria-pressed="false"><img src="'+icon('nerf')+'" alt=""><span>'+metric(dislikes)+'</span></button><button class="naverDiscussionMetric" type="button" data-discussion-comment="'+esc(post.id)+'" aria-label="댓글 '+Number(post.reply||0).toLocaleString('ko-KR')+'개"><img src="'+icon('comment-reddit')+'" alt="">'+metric(post.reply)+'</button><span class="naverDiscussionViews">조회 '+Number(post.view||0).toLocaleString('ko-KR')+'</span></div></article>';
   }
   function feedBody(){
     var data=posts();
@@ -51,6 +86,36 @@
     bind();
   }
   function bind(){
+    list.querySelectorAll('.naverDiscussionMediaShell.is-multi').forEach(function(shell){
+      var rail=shell.querySelector('.naverDiscussionMediaRail');
+      var items=[].slice.call(shell.querySelectorAll('.naverDiscussionMediaItem'));
+      var dots=[].slice.call(shell.querySelectorAll('[data-discussion-media-dot]'));
+      var current=shell.querySelector('.naverDiscussionMediaCount b');
+      var frame=0;
+      function setActive(index){
+        var safe=Math.max(0,Math.min(index,items.length-1));
+        if(current)current.textContent=String(safe+1);
+        dots.forEach(function(dot,dotIndex){
+          var active=dotIndex===safe;
+          dot.classList.toggle('is-active',active);
+          if(active)dot.setAttribute('aria-current','true');else dot.removeAttribute('aria-current');
+        });
+      }
+      function sync(){
+        frame=0;
+        var railCenter=rail.scrollLeft+rail.clientWidth/2;
+        var closest=0;
+        var distance=Infinity;
+        items.forEach(function(item,itemIndex){
+          var itemCenter=item.offsetLeft+item.offsetWidth/2;
+          var nextDistance=Math.abs(itemCenter-railCenter);
+          if(nextDistance<distance){distance=nextDistance;closest=itemIndex;}
+        });
+        setActive(closest);
+      }
+      rail.addEventListener('scroll',function(){if(!frame)frame=requestAnimationFrame(sync);},{passive:true});
+      dots.forEach(function(dot){dot.addEventListener('click',function(){var target=items[Number(dot.dataset.discussionMediaDot)||0];if(target)rail.scrollTo({left:target.offsetLeft-rail.offsetLeft,behavior:'smooth'});});});
+    });
     list.querySelectorAll('[data-discussion-vote]').forEach(function(button){button.addEventListener('click',function(){var active=button.getAttribute('aria-pressed')==='true';var cardElement=button.closest('.naverDiscussionCard');cardElement.querySelectorAll('[data-discussion-vote]').forEach(function(other){other.classList.remove('is-active');other.setAttribute('aria-pressed','false');});if(!active){button.classList.add('is-active');button.setAttribute('aria-pressed','true');}});});
     list.querySelectorAll('[data-discussion-comment]').forEach(function(button){button.addEventListener('click',function(){location.href='./chzzk-detail.html?id='+encodeURIComponent(button.dataset.discussionComment)+'#comments';});});
   }
