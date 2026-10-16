@@ -26,7 +26,7 @@
     displayName:"자동차뉴스",
     idStart:9100001,
     defaultView:"naver-discussion",
-    updatedAt:"2026-10-16T16:41:46.328Z",
+    updatedAt:"2026-10-16T17:14:42.914Z",
     rows:[
       {
         "id": "9100001",
@@ -57,7 +57,10 @@
         "location": "",
         "ratings": "",
         "brandLogo": "",
-        "embed": ""
+        "embed": "",
+        "embedTitle": "",
+        "embedDescription": "",
+        "embedImage": ""
       },
       {
         "id": "9100002",
@@ -88,7 +91,10 @@
         "location": "",
         "ratings": "",
         "brandLogo": "",
-        "embed": ""
+        "embed": "",
+        "embedTitle": "",
+        "embedDescription": "",
+        "embedImage": ""
       },
       {
         "id": "9100003",
@@ -119,7 +125,10 @@
         "location": "",
         "ratings": "",
         "brandLogo": "",
-        "embed": ""
+        "embed": "",
+        "embedTitle": "",
+        "embedDescription": "",
+        "embedImage": ""
       },
       {
         "id": "9100004",
@@ -150,7 +159,10 @@
         "location": "",
         "ratings": "",
         "brandLogo": "",
-        "embed": ""
+        "embed": "",
+        "embedTitle": "",
+        "embedDescription": "",
+        "embedImage": ""
       },
       {
         "id": "9100005",
@@ -181,7 +193,10 @@
         "location": "",
         "ratings": "",
         "brandLogo": "",
-        "embed": ""
+        "embed": "",
+        "embedTitle": "",
+        "embedDescription": "",
+        "embedImage": ""
       },
       {
         "id": "9100006",
@@ -212,7 +227,10 @@
         "location": "",
         "ratings": "",
         "brandLogo": "",
-        "embed": ""
+        "embed": "",
+        "embedTitle": "",
+        "embedDescription": "",
+        "embedImage": ""
       },
       {
         "id": "9100007",
@@ -243,7 +261,10 @@
         "location": "",
         "ratings": "",
         "brandLogo": "",
-        "embed": ""
+        "embed": "",
+        "embedTitle": "",
+        "embedDescription": "",
+        "embedImage": ""
       },
       {
         "id": "9100008",
@@ -274,7 +295,10 @@
         "location": "",
         "ratings": "",
         "brandLogo": "",
-        "embed": ""
+        "embed": "",
+        "embedTitle": "",
+        "embedDescription": "",
+        "embedImage": ""
       },
       {
         "id": "9100009",
@@ -305,7 +329,10 @@
         "location": "",
         "ratings": "",
         "brandLogo": "",
-        "embed": ""
+        "embed": "",
+        "embedTitle": "",
+        "embedDescription": "",
+        "embedImage": ""
       },
       {
         "id": "9100010",
@@ -336,7 +363,10 @@
         "location": "",
         "ratings": "",
         "brandLogo": "",
-        "embed": ""
+        "embed": "",
+        "embedTitle": "",
+        "embedDescription": "",
+        "embedImage": ""
       },
       {
         "id": "9100011",
@@ -367,7 +397,10 @@
         "location": "",
         "ratings": "",
         "brandLogo": "",
-        "embed": "https://www.instagram.com/reel/DdPRAfCDLtA/"
+        "embed": "https://www.instagram.com/reel/DdPRAfCDLtA/",
+        "embedTitle": "",
+        "embedDescription": "",
+        "embedImage": ""
       },
       {
         "id": "9100012",
@@ -398,7 +431,10 @@
         "location": "",
         "ratings": "",
         "brandLogo": "",
-        "embed": "https://youtu.be/d1rVNdJq83c"
+        "embed": "https://youtu.be/d1rVNdJq83c",
+        "embedTitle": "",
+        "embedDescription": "",
+        "embedImage": ""
       },
       {
         "id": "9100013",
@@ -429,7 +465,10 @@
         "location": "",
         "ratings": "",
         "brandLogo": "",
-        "embed": "https://youtube.com/shorts/jy3olv6MKsU"
+        "embed": "https://youtube.com/shorts/jy3olv6MKsU",
+        "embedTitle": "",
+        "embedDescription": "",
+        "embedImage": ""
       },
       {
         "id": "9100014",
@@ -460,7 +499,10 @@
         "location": "",
         "ratings": "",
         "brandLogo": "",
-        "embed": "https://www.tiktok.com/@bmw"
+        "embed": "https://www.tiktok.com/@bmw",
+        "embedTitle": "",
+        "embedDescription": "",
+        "embedImage": ""
       },
       {
         "id": "9100015",
@@ -491,7 +533,10 @@
         "location": "",
         "ratings": "",
         "brandLogo": "",
-        "embed": "https://www.tiktok.com/@bmw/video/7694049359599619361"
+        "embed": "https://www.tiktok.com/@bmw/video/7694049359599619361",
+        "embedTitle": "",
+        "embedDescription": "",
+        "embedImage": ""
       },
       {
         "id": "9100016",
@@ -522,7 +567,10 @@
         "location": "",
         "ratings": "",
         "brandLogo": "",
-        "embed": "https://n.news.naver.com/article/119/0003143757"
+        "embed": "https://n.news.naver.com/article/119/0003143757",
+        "embedTitle": "",
+        "embedDescription": "",
+        "embedImage": ""
       },
       {
         "id": "9100017",
@@ -553,7 +601,10 @@
         "location": "",
         "ratings": "",
         "brandLogo": "",
-        "embed": "https://m.sports.naver.com/kbaseball/article/109/0005624469"
+        "embed": "https://m.sports.naver.com/kbaseball/article/109/0005624469",
+        "embedTitle": "",
+        "embedDescription": "",
+        "embedImage": ""
       },
       {
         "id": "9100018",
@@ -584,7 +635,44 @@
         "location": "",
         "ratings": "",
         "brandLogo": "",
-        "embed": "https://m.cafe.naver.com/ca-fe/web/cafes/21771803/articles/2164061"
+        "embed": "https://m.cafe.naver.com/ca-fe/web/cafes/21771803/articles/2164061",
+        "embedTitle": "",
+        "embedDescription": "",
+        "embedImage": ""
+      },
+      {
+        "id": "9100019",
+        "category": "해외",
+        "title": "VK 게시물: 「아직도 따로 팔지 않는 맛있는 것들」",
+        "summary": "러시아 SNS VK(브콘탁테) 게시물입니다. 「아직도 따로 팔지 않는 그 맛있는 것들, 가장 갖고 싶은 건?」이라는 사진 10장 글이에요.",
+        "body": "",
+        "source": "ДаДа - НетНет · VK",
+        "sourceUrl": "https://vk.ru/wall-210936992_157811",
+        "author": "",
+        "publishedAt": "2026-10-17T02:11:00+09:00",
+        "thumbnail": "",
+        "images": "",
+        "views": "0",
+        "comments": "0",
+        "likes": "0",
+        "tags": "해외|VK|SNS",
+        "reviewId": "",
+        "modelId": "",
+        "brand": "",
+        "model": "",
+        "trim": "",
+        "powertrain": "",
+        "rating": "",
+        "owner": "",
+        "ownershipLabel": "",
+        "benchmark": "",
+        "location": "",
+        "ratings": "",
+        "brandLogo": "",
+        "embed": "https://vk.ru/wall-210936992_157811",
+        "embedTitle": "Те самые вкусные вещи, которые почему-то до сих пор не продаются отдельно",
+        "embedDescription": "Что хотели бы больше всего?) · 사진 10장 · 좋아요 2.2K",
+        "embedImage": "https://sun9-7.vkuserphoto.ru/s/v1/ig2/_60jKitovgfBFvxmX0sOjemngQqCq3ZZdmlsznQV_h2a1fTGfCNk7DoVTv7thbSBeWUbtLcQHapQRhIieBNCQRFPmzkcNA.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x854,720x960,1080x1441,1280x1708,1440x1921,1919x2560&from=bu&u=-RPV5AtKStGSFOQfaJCSH5NuGoEQs-c_i5zY_bCjhQc&cs=540x0"
       }
     ]
   };
