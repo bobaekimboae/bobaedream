@@ -1,0 +1,91 @@
+{
+  "base": "http://127.0.0.1:4322/",
+  "rows": [
+    {
+      "name": "독립 테이블 50개",
+      "result": "PASS",
+      "actual": "50"
+    },
+    {
+      "name": "카드 프사 44px",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "카드 반경 10px",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "사진 높이 112px",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "반점수 레이어 별",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "깨진 이미지 0",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "상세 독립 URL",
+      "result": "PASS",
+      "actual": "http://127.0.0.1:4322/community/naver-cafe-list.html?board=vehicle-review&review=review-sag-23-2&v=crosscheck-local"
+    },
+    {
+      "name": "상세 어두운 헤더",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "상세 숫자 평가표 3열",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "상세 진행막대 제거",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "점수별 코멘트",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "상세 댓글",
+      "result": "PASS",
+      "actual": "4"
+    },
+    {
+      "name": "2.5점 한국어 코멘트",
+      "result": "PASS",
+      "actual": "외관\n*\n무난한 디자인\n2.5점\n2.5점"
+    },
+    {
+      "name": "선택 코멘트 11px",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "PHEV 순수 전기 주행거리",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "비오너 구매정보 숨김",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "콘솔 오류 0",
+      "result": "PASS",
+      "actual": ""
+    }
+  ],
+  "errors": []
+}
