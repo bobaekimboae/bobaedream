@@ -11,6 +11,36 @@ final result: passed
 
 ---
 
+# 베스트게시판 · 네이버 라운지 인기글형 QA · 2026-10-16
+
+- source visual truth path: `https://lounge.naver.com/` 상단 `지금 라운지 트렌드` 영역을 Chrome/CUA로 직접 캡처했다.
+- implementation screenshot path: `http://127.0.0.1:4189/community/naver-cafe-list.html?board=best&v=loungebest1` 로컬 렌더링을 Chrome/CUA로 직접 캡처했다.
+- viewport: 원본·구현 모두 390 × 844 CSS px, desktop 회귀 1280 × 900 CSS px.
+- pixel dimensions and density: 둘 다 동일 Chrome viewport 설정으로 비교했고 추가 밀도 보정은 없다.
+- state: 베스트글 독립 테이블 6건, 전체 말머리, 선정 기준 안내 닫힘 상태.
+- full-view comparison evidence: 순위→제목·댓글→게시판·조회→우측 썸네일의 행 구성, 72~73px 수직 리듬, 하단 구분선을 동일 상태에서 비교했다.
+- focused region comparison evidence: 원본/구현 모두 순위 x=20·폭 26px, 텍스트 x=58px, 썸네일 x=299.2px·56×56px. 제목 16/21px, 메타 13/18px, 댓글 필 24px을 확인했다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 원본의 Apple SD Gothic Neo 계열 대신 기존 보배드림 디자인 시스템의 Pretendard를 유지했다. 크기·줄높이·굵기 위계는 원본과 동일하다.
+- spacing and layout rhythm: 모바일 행 73px, 좌우 20px, 순위 칸 26px, 텍스트 시작 58px, 우측 썸네일 56px이다. 가로 오버플로는 0px이다.
+- colors and visual tokens: 원본의 빨간 `지금` 강조를 보배드림 블루 `#1677ff`로 치환했다. 중립 텍스트·구분선·필 배경은 원본 명도를 유지했다.
+- image quality and asset fidelity: 베스트 독립 테이블의 실제 게시물 썸네일만 사용하며 네이버 자산은 복사하지 않았다. 기존 알림 SVG를 재사용했다.
+- copy and content: `지금 보배드림 트렌드`, 현재 시간 기준, 선정 기준 설명으로 서비스 문구를 독자화했다.
+- interaction: 선정 기준 팝오버 열기·닫기, 6개 상세 링크, 글쓰기 차단을 확인했다. 브라우저 console warning/error 0건이다.
+
+## Comparison history
+
+- Pass 1: 기존 네이버 토론형 카드는 프로필·본문·반응 영역이 포함돼 인기 순위를 빠르게 비교하기 어려웠다(P1).
+- Fix: 베스트게시판에서만 라운지형 1행 랭킹 리스트로 렌더링하고 순위·제목·댓글·조회·썸네일을 73px에 정리했다.
+- Pass 2: 390px에서 원본과 주요 x좌표·크기가 일치했고 1280px 회귀, 상세 링크 6건, 팝오버, 콘솔 오류 0건을 확인했다.
+
+final result: passed
+
+---
+
 # 전체 게시글 · 유튜브 헤더 규격 복구 QA · 2026-10-16
 
 - 사용자 확정 규칙: 유튜브형 헤더 배너 340.8 × 106px
