@@ -1,0 +1,11 @@
+{
+  "board-header-aston-martin-db12.webp": {
+    "brand": "Aston Martin",
+    "model": "DB12",
+    "sourceType": "official-media-photo",
+    "sourcePage": "https://media.astonmartin.com/aston-martin-db12-satin-aluminite-silver-south-of-france-photography/?lang=eng",
+    "sourceFile": "https://media.astonmartin.com/wp-content/uploads/2024/10/fb82ab0c2df5b62e4b45317fadc3f8a0-l.jpg",
+    "transformation": "crop-and-resize-only",
+    "outputSize": "1600x476"
+  }
+}
