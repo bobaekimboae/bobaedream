@@ -63,6 +63,9 @@ for(const width of [360,384,412,592,1280]){
   await page.locator('.appbar .hamburger').click();
   check(await page.locator('.boardOrderPanel').isVisible(),'상단 햄버거에서 커뮤니티 메뉴가 열리지 않았습니다');
   check(!await page.locator('.boardOrderViewEntry').isVisible(),'상단 전체 메뉴에 보기 방식이 노출되었습니다');
+  await page.locator('.boardOrderClose').focus();
+  await page.keyboard.press('Shift+Tab');
+  check(await page.locator('.boardOrderPanel').evaluate(panel=>panel.contains(document.activeElement)),'모달에서 Shift+Tab 포커스가 밖으로 빠졌습니다');
   check(await page.locator('.boardOrderFixed').count()===2,'고정 채널이 2개가 아닙니다');
   check(await page.locator('.boardOrderItem[data-movable="true"]').count()===30,'이동 채널이 30개가 아닙니다');
   check(await page.locator('.boardOrderAvatar').count()===0,'전체 게시판 칩에 프로필 이미지가 남아 있습니다');
@@ -91,8 +94,22 @@ for(const width of [360,384,412,592,1280]){
     check(await page.locator('.boardOrderFixed .boardOrderRemove').count()===0,'고정 채널에 제외 버튼이 생겼습니다');
     check(await page.locator('.boardOrderFixed[draggable="true"]').count()===0,'고정 채널이 드래그 가능 상태입니다');
     check(await page.locator('.boardOrderFixedIcon').count()===2,'고정 게시판 잠금 표시가 2개가 아닙니다');
+    check(await page.locator('.boardOrderFixed[tabindex]').count()===0,'편집 중 고정 게시판이 키보드 포커스를 받습니다');
+    check(await page.locator('.boardOrderFixed[aria-disabled="true"]').count()===2,'편집 중 고정 게시판 비활성 상태가 명시되지 않았습니다');
+    const touchAction=await page.locator('.boardOrderItem[data-board-id="free"]').evaluate(element=>getComputedStyle(element).touchAction);
+    check(touchAction==='none',`편집 칩 touch-action이 ${touchAction}입니다`);
     const removeTarget=await page.locator('.boardOrderRemove').first().evaluate(element=>({width:element.getBoundingClientRect().width,height:element.getBoundingClientRect().height}));
     check(removeTarget.width===44&&removeTarget.height===44,`제외 버튼 터치 영역이 ${removeTarget.width}×${removeTarget.height}px입니다`);
+    const removeOverlaps=await page.locator('.boardOrderMyGrid').evaluate(grid=>{
+      const items=[...grid.querySelectorAll('.boardOrderItem')];
+      return items.flatMap(item=>{
+        const remove=item.querySelector('.boardOrderRemove');
+        if(!remove)return[];
+        const a=remove.getBoundingClientRect();
+        return items.filter(other=>other!==item).filter(other=>{const b=other.getBoundingClientRect();return a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top}).map(other=>`${item.dataset.boardId}->${other.dataset.boardId}`);
+      });
+    });
+    check(removeOverlaps.length===0,`제외 버튼 터치 영역이 이웃 칩과 겹칩니다: ${removeOverlaps.join(', ')}`);
     await page.screenshot({path:path.join(outputDir,'mobile-384-channel-edit.png'),fullPage:false});
 
     await page.locator('.boardOrderItem[data-board-id="car-news"] .boardOrderRemove').click();
@@ -113,7 +130,6 @@ for(const width of [360,384,412,592,1280]){
     const second=page.locator('.boardOrderItem[data-movable="true"]').nth(1);
     const secondId=await second.getAttribute('data-board-id');
     await second.dragTo(first,{targetPosition:{x:4,y:24}});
-    await page.locator('.boardOrderEdit').click();
     const ids=await page.locator('.boardChannelTab').evaluateAll(elements=>elements.map(element=>element.dataset.boardId));
     check(ids[0]==='home'&&ids[1]==='best','순서 변경 뒤 고정 채널 위치가 바뀌었습니다');
     check(ids[2]===secondId,'변경한 일반 채널 순서가 반영되지 않았습니다');
@@ -126,12 +142,48 @@ for(const width of [360,384,412,592,1280]){
     await page.locator('.boardOrderItem[data-board-id="free"] .boardOrderRemove').click();
     await page.locator('.boardOrderClose').click();
     check(await page.locator('.boardChannelTab[data-board-id="free"]').count()===0,'편집 중 닫았을 때 자동 저장이 유지되지 않았습니다');
+    check(await page.locator('#boardOrderMenu').evaluate(element=>document.activeElement===element),'모달을 연 게시판 메뉴보기 버튼으로 포커스가 돌아오지 않았습니다');
   }else{
     await page.locator('.boardOrderClose').click();
   }
   check(errors.length===0,`${width}px runtime errors: ${errors.join(' | ')}`);
   await page.close();
 }
+
+const touchContext=await browser.newContext({viewport:{width:384,height:844},isMobile:true,hasTouch:true});
+const touchPage=await touchContext.newPage();
+const touchErrors=[];
+touchPage.on('pageerror',error=>touchErrors.push(error.message));
+touchPage.on('console',message=>{if(message.type()==='error')touchErrors.push(message.text())});
+await touchPage.goto(baseUrl,{waitUntil:'domcontentloaded'});
+await touchPage.evaluate(({storageKey,legacyStorageKey})=>{localStorage.removeItem(storageKey);localStorage.removeItem(legacyStorageKey)},{storageKey,legacyStorageKey});
+await touchPage.reload({waitUntil:'domcontentloaded'});
+await touchPage.locator('#boardOrderMenu').click();
+await touchPage.locator('.boardOrderEdit').click();
+const touchSource=await touchPage.locator('.boardOrderItem[data-board-id="car-news"]').boundingBox();
+const touchTarget=await touchPage.locator('.boardOrderItem[data-board-id="free"]').boundingBox();
+check(Boolean(touchSource&&touchTarget),'터치 드래그 대상 칩 좌표를 찾지 못했습니다');
+if(touchSource&&touchTarget){
+  const cdp=await touchContext.newCDPSession(touchPage);
+  const start={x:touchSource.x+20,y:touchSource.y+touchSource.height/2};
+  const end={x:touchTarget.x+8,y:touchTarget.y+touchTarget.height/2};
+  await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{id:1,x:start.x,y:start.y,radiusX:1,radiusY:1,force:1}]});
+  await touchPage.waitForTimeout(420);
+  check(await touchPage.locator('.boardOrderItem[data-board-id="car-news"].dragging').count()===1,'350ms 길게 누른 뒤 터치 드래그가 시작되지 않았습니다');
+  await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{id:1,x:end.x,y:end.y,radiusX:1,radiusY:1,force:1}]});
+  await touchPage.waitForTimeout(80);
+  await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+  const touchOrder=await touchPage.locator('.boardOrderItem[data-movable="true"]').evaluateAll(elements=>elements.slice(0,3).map(element=>element.dataset.boardId));
+  check(touchOrder[0]==='car-news'&&touchOrder[1]==='free',`모바일 길게 누르기 이동 결과가 다릅니다: ${touchOrder.join(', ')}`);
+  const touchNav=await touchPage.locator('.boardChannelTab').evaluateAll(elements=>elements.slice(0,4).map(element=>element.dataset.boardId));
+  check(touchNav[0]==='home'&&touchNav[1]==='best'&&touchNav[2]==='car-news','모바일 이동이 상단 게시판 순서에 즉시 반영되지 않았습니다');
+  await touchPage.screenshot({path:path.join(outputDir,'mobile-384-touch-reorder.png'),fullPage:false});
+  await touchPage.reload({waitUntil:'domcontentloaded'});
+  const touchPersisted=await touchPage.locator('.boardChannelTab').evaluateAll(elements=>elements.slice(0,4).map(element=>element.dataset.boardId));
+  check(touchPersisted[2]==='car-news'&&touchPersisted[3]==='free',`모바일 이동 순서가 새로고침 뒤 유지되지 않았습니다: ${touchPersisted.join(', ')}`);
+}
+check(touchErrors.length===0,`모바일 터치 runtime errors: ${touchErrors.join(' | ')}`);
+await touchContext.close();
 
 const migration=await browser.newPage({viewport:{width:384,height:844}});
 await migration.goto(baseUrl,{waitUntil:'domcontentloaded'});
