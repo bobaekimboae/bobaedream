@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../%61ssets/fonts/pretendard/pretendard-guazi.css">
 <link rel="stylesheet" href="./reddit-feed.css?v=20261016redditicons1">
 <link rel="stylesheet" href="./news-card.css?v=20261017threads1">
-<link rel="stylesheet" href="./naver-discussion-feed.css?v=20261017chzpoll2">
+<link rel="stylesheet" href="./naver-discussion-feed.css?v=20261017feedtabs3">
 <link rel="stylesheet" href="./community-poll.css?v=20261017chzpoll1">
 <link rel="stylesheet" href="./chotot-feed.css?v=20261016saveicon1">
 <link rel="stylesheet" href="./reddit-popular.css?v=20261017bestcolor1">
@@ -158,13 +158,15 @@ function renderCafePopular(leftThumb){
   var descriptions={all:'모든 게시글을 최신순으로 확인합니다.',popular:'최근 7일간 반응이 많은 게시글입니다.',following:'팔로우한 작성자의 새 글만 모아봅니다.'};
   var thumbPool=data.filter(function(post){return !!post.thumb}).map(function(post){return post.thumb});
   var fallbackThumb='https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=220&q=75';
-  list.innerHTML='<section class="naverCafePopularHeader"><div class="naverCafePopularTabs" role="tablist" aria-label="피드 보기">'+tabs.map(function(tab){var on=tab[0]===cafePopularMetric;return '<button type="button" role="tab" aria-selected="'+on+'" class="'+(on?'on':'')+'" data-cafe-metric="'+tab[0]+'">'+tab[1]+'</button>'}).join('')+'</div><p>'+descriptions[cafePopularMetric]+'<span aria-hidden="true">?</span></p></section><div class="naverCafePopularRows">'+(data.length?data.map(function(p,index){
+  list.innerHTML='<section class="naverCafePopularHeader"><div class="naverCafePopularTabs" role="tablist" aria-label="피드 보기">'+tabs.map(function(tab){var on=tab[0]===cafePopularMetric;return '<button type="button" role="tab" aria-selected="'+on+'" class="'+(on?'on':'')+'" data-cafe-metric="'+tab[0]+'">'+tab[1]+'</button>'}).join('')+'</div><div class="naverCafePopularHeadwords" role="group" aria-label="말머리">'+topics.map(function(topic,index){var on=index===active;return '<button type="button" class="'+(on?'on':'')+'" aria-pressed="'+on+'" data-cafe-headword="'+index+'">'+esc(topic)+'</button>'}).join('')+'</div><p>'+descriptions[cafePopularMetric]+'<span aria-hidden="true">?</span></p></section><div class="naverCafePopularRows">'+(data.length?data.map(function(p,index){
     var clean=esc(p.title).replace(/^\[[^\]]+\]\s*/,'');
     var image=p.thumb||(leftThumb?(thumbPool[index%thumbPool.length]||fallbackThumb):'');
     var hasThumb=!!image;
     return '<article class="naverCafePopularRow '+(hasThumb?'hasThumb':'')+'" data-id="'+p.id+'"><button type="button" class="naverCafePopularMain" aria-label="'+clean+'">'+(p.fresh&&!leftThumb?'<i class="naverCafeNew" aria-hidden="true"></i>':'')+'<span class="naverCafePopularBody"><strong>'+clean+'</strong><span class="naverCafePopularMeta"><span>'+esc(p.user)+'</span><span>'+esc(p.local?'방금 전':'10.'+String(Math.max(1,17-Math.floor(index/6))).padStart(2,'0'))+'</span><span>조회 '+esc(view(p.view))+'</span></span></span>'+(hasThumb?'<span class="naverCafePopularThumb"><img src="'+esc(image)+'" alt="" loading="'+(index<6?'eager':'lazy')+'">'+(p.photos?'<b>'+p.photos+'+</b>':'')+'</span>':'')+'</button><button type="button" class="naverCafePopularReply" aria-label="댓글 '+esc(countFull(p.reply))+'개"><b>'+esc(count(p.reply))+'</b><span>댓글</span></button></article>';
   }).join(''):'<div class="naverCafePopularEmpty">팔로우한 작성자의 글이 없습니다.</div>')+'</div>';
   [].forEach.call(list.querySelectorAll('[data-cafe-metric]'),function(button){button.onclick=function(){cafePopularMetric=button.dataset.cafeMetric;renderCafePopular(leftThumb)}});
+  [].forEach.call(list.querySelectorAll('[data-cafe-headword]'),function(button){button.onclick=function(){active=+button.dataset.cafeHeadword;renderTabs();renderCafePopular(leftThumb)}});
+  var selectedHeadword=list.querySelector('[data-cafe-headword="'+active+'"]');if(selectedHeadword)selectedHeadword.scrollIntoView({inline:'center',block:'nearest'});
   [].forEach.call(list.querySelectorAll('.naverCafePopularRow'),function(row){function open(){location.href='./chzzk-detail.html?id='+row.dataset.id+'&v=20261017navercafe1'}row.querySelector('.naverCafePopularMain').onclick=open;row.querySelector('.naverCafePopularReply').onclick=open});
 }
 function metaIcon(type){var asset={eye:'assets/reddit-ui/view-count.svg',thumb:'assets/reddit-ui/recommend-thumb-up.svg?v=20261016thumbgray2',comment:'assets/chzzk-detail/icons/comment-reddit.svg',clock:'assets/chzzk-detail/icons/refresh.svg'}[type];return asset?'<img class="metaAsset" src="'+asset+'" alt="" aria-hidden="true">':''}

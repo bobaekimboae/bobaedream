@@ -228,11 +228,16 @@
 
 /* Naver Cafe popular list: measured from the mobile Cafe popular tab. */
 .phone.naverCafePopularMode .list{min-height:520px;padding:0;background:#fff;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Apple SD Gothic Neo",Arial,sans-serif}
+.phone.naverCafePopularMode .headwordSection{display:none}
 .naverCafePopularHeader{padding:0 16px 10px;background:#fff;border-bottom:1px solid #f0f1f2}
 .naverCafePopularTabs{height:48px;display:grid;grid-template-columns:repeat(3,1fr);align-items:center;border-bottom:1px solid #eceef0}
 .naverCafePopularTabs button{position:relative;height:48px;padding:0;background:transparent;color:#7f8287;font-size:15px;line-height:48px;font-weight:600;letter-spacing:-.03em;white-space:nowrap}
 .naverCafePopularTabs button.on{background:transparent;color:#17181a;font-weight:750}
 .naverCafePopularTabs button.on:after{content:"";position:absolute;left:50%;bottom:-1px;width:44px;height:2px;border-radius:2px;background:#17181a;transform:translateX(-50%)}
+.naverCafePopularHeadwords{height:48px;display:flex;align-items:center;gap:8px;overflow-x:auto;margin:0 -16px;padding:0 16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.naverCafePopularHeadwords::-webkit-scrollbar{display:none}
+.naverCafePopularHeadwords button{height:32px;flex:0 0 auto;padding:0 14px;border-radius:16px;background:#f4f5f6;color:#555960;font-size:14px;line-height:32px;font-weight:560;letter-spacing:-.025em;white-space:nowrap}
+.naverCafePopularHeadwords button.on{background:#252525;color:#fff;font-weight:680}
 .naverCafePopularHeader p{margin:8px 0 0;color:#9a9ca0;font-size:12px;line-height:17px;font-weight:400;letter-spacing:-.025em}
 .naverCafePopularHeader p span{display:inline-grid;place-items:center;width:14px;height:14px;margin-left:3px;border-radius:50%;background:#eef0f2;color:#a8aaad;font-size:10px;font-weight:700;vertical-align:-1px}
 .naverCafePopularRows{padding-left:16px;background:#fff}
