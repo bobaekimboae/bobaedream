@@ -142,7 +142,7 @@
     var left=viewMode==='lounge-best-left';
     var data=posts();
     syncHeadwords();
-    phone.classList.remove('compactMode','feedCafeMode','redditFeedMode','chototFeedMode','chototBoardFeedMode','chototDealerFeedMode','naverDiscussionThumbMode');
+    phone.classList.remove('compactMode','feedCafeMode','cafeLeftMode','redditFeedMode','chototFeedMode','chototBoardFeedMode','chototDealerFeedMode','naverDiscussionThumbMode');
     phone.classList.add('naverDiscussionMode','loungeBestMode');
     phone.classList.toggle('loungeBestCleanMode',!!clean);
     phone.classList.toggle('loungeBestLeftMode',left);
@@ -187,7 +187,7 @@
   function renderNaverRanking(){
     var data=posts().sort(function(a,b){var diff=rankingValue(b,activeRankingMetric)-rankingValue(a,activeRankingMetric);return diff||Number(b.id)-Number(a.id);});
     syncHeadwords();
-    phone.classList.remove('compactMode','feedCafeMode','redditFeedMode','chototFeedMode','chototBoardFeedMode','chototDealerFeedMode','naverDiscussionThumbMode','loungeBestMode','loungeBestCleanMode','loungeBestLeftMode');
+    phone.classList.remove('compactMode','feedCafeMode','cafeLeftMode','redditFeedMode','chototFeedMode','chototBoardFeedMode','chototDealerFeedMode','naverDiscussionThumbMode','loungeBestMode','loungeBestCleanMode','loungeBestLeftMode');
     phone.classList.add('naverDiscussionMode','naverRankingMode');
     typeLabel.textContent='네이버 랭킹뉴스형';
     list.className='list naverRankingList';
@@ -220,7 +220,7 @@
     mediaCarousels.forEach(function(api){api.destroy();});
     mediaCarousels=[];
     syncHeadwords();
-    phone.classList.remove('compactMode','feedCafeMode','redditFeedMode','chototFeedMode','chototBoardFeedMode','chototDealerFeedMode','loungeBestMode','loungeBestCleanMode','loungeBestLeftMode','naverRankingMode');
+    phone.classList.remove('compactMode','feedCafeMode','cafeLeftMode','redditFeedMode','chototFeedMode','chototBoardFeedMode','chototDealerFeedMode','loungeBestMode','loungeBestCleanMode','loungeBestLeftMode','naverRankingMode');
     phone.classList.add('naverDiscussionMode');
     phone.classList.toggle('naverDiscussionThumbMode',currentVariant==='thumb');
     typeLabel.textContent=currentVariant==='thumb'?'네이버 토론 · 좌측 썸네일':'네이버 토론형';

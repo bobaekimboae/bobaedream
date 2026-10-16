@@ -206,3 +206,22 @@
 .naverRankingThumb img{display:block;width:100%;height:100%;object-fit:cover}
 @media(hover:hover) and (pointer:fine){.naverRankingRow:hover{background:#f8fafc}}
 @media(max-width:370px){.naverRankingRows{padding:0 16px}.naverRankingHeading{padding-left:16px;padding-right:16px}.naverRankingPopover{left:16px}.naverRankingRow{grid-template-columns:70px minmax(0,1fr);column-gap:10px}.naverRankingRow.no-thumb{grid-template-columns:minmax(0,1fr);column-gap:0}.naverRankingThumb{width:70px;height:70px}}
+
+/* 네이버 카페: 좌측 썸네일 목록형 */
+.phone.cafeLeftMode .list{min-height:520px;padding:0 20px 84px;background:#fff;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",Arial,sans-serif}
+.cafeLeftRow{min-height:94px;display:grid;grid-template-columns:74px minmax(0,1fr);gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #eef0f2;color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.cafeLeftThumb{position:relative;width:74px;height:74px;overflow:hidden;border-radius:8px;background:#f1f3f5}
+.cafeLeftThumb>img:first-child{display:block;width:100%;height:100%;object-fit:cover}
+.cafeLeftThumb:after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(0,0,0,.035);pointer-events:none}
+.cafeLeftThumb>b{position:absolute;right:5px;bottom:5px;z-index:2;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:rgba(25,27,30,.72);color:#fff;font-size:10px;line-height:18px;font-weight:650;text-align:center}
+.cafeLeftPlay{position:absolute;z-index:2;left:50%;top:50%;width:28px!important;height:28px!important;transform:translate(-50%,-50%);filter:drop-shadow(0 1px 3px rgba(0,0,0,.28))}
+.cafeLeftCopy{min-width:0;display:flex;flex-direction:column;justify-content:center}
+.cafeLeftCategory{display:block;margin-bottom:2px;color:#238fe3;font-size:12px;line-height:17px;font-weight:650;letter-spacing:-.025em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cafeLeftCopy>strong{height:42px;display:-webkit-box;overflow:hidden;color:#202124;font-size:16px;line-height:21px;font-weight:520;letter-spacing:-.035em;-webkit-box-orient:vertical;-webkit-line-clamp:2;word-break:keep-all}
+.cafeLeftMeta{height:18px;margin-top:3px;display:flex;align-items:center;gap:7px;overflow:hidden;color:#8a8d91;font-size:12px;line-height:18px;font-weight:400;letter-spacing:-.025em;white-space:nowrap}
+.cafeLeftMeta span{flex:0 0 auto}
+.cafeLeftMeta span:first-child{max-width:32%;overflow:hidden;text-overflow:ellipsis}
+.cafeLeftReply{color:#238fe3}
+.cafeLeftEmpty{padding:44px 0;color:#858990;font-size:14px;text-align:center}
+@media(hover:hover) and (pointer:fine){.cafeLeftRow:hover{background:#f8fafc}}
+@media(max-width:370px){.phone.cafeLeftMode .list{padding-left:16px;padding-right:16px}.cafeLeftRow{grid-template-columns:70px minmax(0,1fr);gap:10px}.cafeLeftThumb{width:70px;height:70px}.cafeLeftCopy>strong{font-size:15.5px}.cafeLeftMeta{gap:5px;font-size:11.5px}}

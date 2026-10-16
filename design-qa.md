@@ -28,6 +28,20 @@
 
 final result: passed
 
+## 네이버카페 좌측 썸네일형 QA (2026-10-17)
+
+- implementation: `/community/naver-cafe-list.html?view=feed-cafe-left`
+- 기존 `피드 네이버 카페`는 유지하고 `네이버 카페 · 좌측 썸네일`을 별도 보기 방식으로 추가했다.
+- information hierarchy: 좌측 이미지 → 말머리 → 제목 2줄 → 작성자·시간·댓글·조회 순서이며 순위 숫자는 표시하지 않는다.
+- 모바일 390×844 실측: 행 x=20px·폭 335.2px, 썸네일 x=20px·74×74px, 제목 x=106px·높이 42px, 행 30개, 가로 넘침 0.
+- responsive evidence: 360px에서는 썸네일 70×70px·제목 x=96px, 412px에서는 74×74px·제목 x=107.9px, 두 화면 모두 가로 넘침 0.
+- interaction evidence: 전체 게시판 메뉴 → 보기 방식에서 새 유형이 노출되고 직접 링크로 연 상태가 선택(`aria-checked=true`)된다.
+- accessibility: 목록 행을 상세 페이지 링크로 제공하고, 영상·사진 수 표기는 이미지 위 보조 정보로 유지했다.
+- console warning/error 0건.
+- automated verification: `node --check`, `npm run build`, `npm run test:sites`, `git diff --check` 통과.
+
+final result: passed
+
 ## 네이버 뉴스형 · 순위 제거 + 좌측 썸네일 QA (2026-10-17)
 
 - source visual truth: `https://media.naver.com/press/056/ranking?type=comment&date=20261017`
