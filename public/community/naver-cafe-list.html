@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../%61ssets/fonts/pretendard/pretendard-guazi.css">
 <link rel="stylesheet" href="./reddit-feed.css?v=20261016redditicons1">
 <link rel="stylesheet" href="./news-card.css?v=20261017threads1">
-<link rel="stylesheet" href="./naver-discussion-feed.css?v=20261017newsthreads2">
+<link rel="stylesheet" href="./naver-discussion-feed.css?v=20261017poll1">
 <link rel="stylesheet" href="./chotot-feed.css?v=20261016saveicon1">
 <link rel="stylesheet" href="./reddit-popular.css?v=20261016besttable1">
 <link rel="stylesheet" href="./hupu-board-navigation.css?v=20261016reorder3">
@@ -96,7 +96,8 @@ var photos=[38,0,2,6,8,0,15,4,1,3,0,2,11,0,5,0,3,2,6,9,0,4,2,7,0,6,3,2,5,0];
 var posts=titles.map(function(t,i){var has=[false,false,true,true,false,true,true,false,false,false][i%10];return{id:i+1,title:t,user:users[i],category:cats[i],time:times[i],view:views[i],reply:replies[i],fresh:i<8,thumb:has?'https://images.unsplash.com/'+imgIds[i%imgIds.length]+'?auto=format&fit=crop&w=220&q=75':'',photos:has?photos[i]:0,video:i%7===2,rank:i%7}});
 var writePostKey='bbm.community.latestPost.v2';
 function categoryForBoard(board){return{'자유게시판':'자유','국산차 오너톡':'국산차','수입차 라운지':'수입차','전기차':'전기차','정비 · DIY':'정비','튜닝':'튜닝','중고차':'중고차','보험 · 사고':'보험','블랙박스 제보':'블박','바이크':'바이크','자동차뉴스/토론':'자동차뉴스','자동차뉴스':'자동차뉴스'}[board]||'자유'}
-function loadLocalPost(){try{var saved=JSON.parse(localStorage.getItem(writePostKey)||'null');if(!saved||saved.status!=='LOCAL_PREVIEW'||!saved.title)return;var submitted=Date.parse(saved.submittedAt||saved.savedAt||'')||Date.now();var localPost={id:submitted,title:'['+esc(saved.head||categoryForBoard(saved.board))+'] '+saved.title,user:'보배드림 회원',category:saved.head||categoryForBoard(saved.board),time:'방금 전',view:0,reply:0,fresh:true,thumb:'',photos:(saved.photos||[]).length,video:(saved.videos||[]).length>0,rank:0,local:true,board:saved.board||'',body:Array.isArray(saved.body)?saved.body:[],media:Array.isArray(saved.media)?saved.media:[],embeds:Array.isArray(saved.embeds)?saved.embeds:[],hideBody:Boolean(saved.hideBody)};posts.unshift(localPost);window.BOBAE_LOCAL_POST=localPost}catch(error){localStorage.removeItem(writePostKey)}}
+function pollFromHtml(html){try{var el=new DOMParser().parseFromString('<div>'+String(html||'')+'</div>','text/html').querySelector('.editor-poll');if(!el)return null;var title=(el.querySelector('strong')||{}).textContent||'';var opts=[].slice.call(el.querySelectorAll('span')).map(function(s){return s.textContent.replace(/^○\s*/,'').trim()}).filter(Boolean);var note=(el.querySelector('small')||{}).textContent||'';return opts.length?{title:title.replace(/^📊\s*/,'').trim(),options:opts,note:note}:null}catch(e){return null}}
+function loadLocalPost(){try{var saved=JSON.parse(localStorage.getItem(writePostKey)||'null');if(!saved||saved.status!=='LOCAL_PREVIEW'||!saved.title)return;var submitted=Date.parse(saved.submittedAt||saved.savedAt||'')||Date.now();var localPost={id:submitted,title:'['+esc(saved.head||categoryForBoard(saved.board))+'] '+saved.title,user:'보배드림 회원',category:saved.head||categoryForBoard(saved.board),time:'방금 전',view:0,reply:0,fresh:true,thumb:'',photos:(saved.photos||[]).length,video:(saved.videos||[]).length>0,rank:0,local:true,board:saved.board||'',body:Array.isArray(saved.body)?saved.body:[],media:Array.isArray(saved.media)?saved.media:[],embeds:Array.isArray(saved.embeds)?saved.embeds:[],hideBody:Boolean(saved.hideBody),poll:pollFromHtml(saved.html)};posts.unshift(localPost);window.BOBAE_LOCAL_POST=localPost}catch(error){localStorage.removeItem(writePostKey)}}
 loadLocalPost();
 var active=0,mode=(function(v){var preserved=['list','detail-list','album','naver-discussion','naver-discussion-thumb','naver-cafe-popular','naver-cafe-popular-left','lounge-best-rank','lounge-best-clean','lounge-best-left','naver-ranking-news','reddit-feed','feed-chotot','feed-chotot-dealer','feed-cafe','feed-cafe-left'];return preserved.indexOf(v)>-1?v:'naver-discussion-thumb'})(new URLSearchParams(location.search).get('view')),thumbPosition='left',boardLabel='전체 게시글',boardNavController=null,display={thumbnail:true,commentBadge:false,recommendCount:false,categoryLabel:true,tag:false,highlight:false,rankBadge:false};
 function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
@@ -264,7 +265,7 @@ renderList();
 <script src="./reddit-feed.js?v=20261016redditicons1"></script>
 <script src="./vendor/embla-carousel/embla-carousel.umd.js?v=8.6.0"></script>
 <script src="./discussion-media.js?v=20261016media2"></script>
-<script src="./naver-discussion-feed.js?v=20261017newsthreads2"></script>
+<script src="./naver-discussion-feed.js?v=20261017poll1"></script>
 <script src="./chotot-feed.js?v=20261016redditicons2"></script>
 <script>if(window.BBM_GET_ACTIVE_BOARD_TABLE&&window.BBM_GET_ACTIVE_BOARD_TABLE()==='fuel-economy'&&window.renderFuelEconomyBoardTable){window.renderFuelEconomyBoardTable({posts:window.BBM_BOARD_TABLE.postsFor('fuel-economy')})}</script>
 </body>
