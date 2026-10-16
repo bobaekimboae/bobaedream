@@ -229,6 +229,7 @@
 /* Naver Cafe popular list: measured from the mobile Cafe popular tab. */
 .phone.naverCafePopularMode .list{min-height:520px;padding:0;background:#fff;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Apple SD Gothic Neo",Arial,sans-serif}
 .phone.naverCafePopularMode .headwordSection{display:none}
+.phone.naverCafePopularMode .popularTableHeader{display:none}
 .naverCafePopularHeader{padding:0 16px;background:#fff;border-bottom:0}
 .naverCafePopularTabs{height:48px;display:flex;align-items:center;justify-content:flex-start;gap:28px;border-bottom:1px solid #eceef0}
 .naverCafePopularTabs button{position:relative;min-width:44px;height:48px;padding:0;background:transparent;color:#7f8287;font-size:15px;line-height:48px;font-weight:600;letter-spacing:-.03em;white-space:nowrap;text-align:left}
