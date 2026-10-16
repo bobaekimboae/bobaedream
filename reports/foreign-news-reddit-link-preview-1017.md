@@ -21,13 +21,13 @@
 
 ## 공식 근거
 
-- Reddit 외부 링크 포스트: 썸네일을 누르면 외부 원문으로, 제목을 누르면 Reddit 게시물로 이동한다.  
+- Reddit 외부 링크 포스트: 썸네일을 누르면 외부 원문으로, 제목을 누르면 Reddit 게시물로 이동한다.
   https://support.reddithelp.com/hc/en-us/articles/37143978167700-Changelog-May-5-2025
-- Reddit 게시물·댓글 임베드: 데스크톱 공유 메뉴의 Embed 또는 oEmbed 사용.  
+- Reddit 게시물·댓글 임베드: 데스크톱 공유 메뉴의 Embed 또는 oEmbed 사용.
   https://support.reddithelp.com/hc/en-us/articles/360043033532-How-do-I-embed-a-Reddit-post-or-comment-in-an-article-or-other-publication
-- Reddit Post 객체는 링크 포스트의 제출 URL, 제목, 프리뷰 썸네일을 별도 필드로 제공한다.  
+- Reddit Post 객체는 링크 포스트의 제출 URL, 제목, 프리뷰 썸네일을 별도 필드로 제공한다.
   https://developers.reddit.com/docs/api/public-api/classes/Post
-- Reddit Embed 이용 조건: 원본 요소 변경·가림 금지, 제휴·보증 오인 금지.  
+- Reddit Embed 이용 조건: 원본 요소 변경·가림 금지, 제휴·보증 오인 금지.
   https://redditinc.com/policies/embeds-terms
 
 ## 검증 결과
