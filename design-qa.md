@@ -4336,3 +4336,18 @@ final result: passed
 final result: passed
 
 ---
+# 전체 게시글 · 추천 엄지척 아이콘 QA · 2026-10-16
+
+- source visual truth: 사용자의 후속 지시 `보트 아이콘 아닌 엄지척`과 기존 프로젝트의 `public/community/assets/detail-parity/reddit-recommend.svg`.
+- implementation: `public/community/naver-cafe-list.html`의 일반 게시글 추천 메타 아이콘.
+- viewport: 모바일 393×844, 기본 `전체 게시글` 상태.
+- fonts and typography: 제목 16px, 메타 13px를 유지했다.
+- spacing and layout rhythm: 추천 아이콘 슬롯 14px와 행 높이 70px를 유지했다.
+- colors/tokens: 기존 회색 메타 색과 동일한 `#4B4B4B` 엄지척 자산을 사용했다.
+- image quality and asset fidelity: 기존 상향 투표 화살표를 프로젝트에 이미 포함된 실제 엄지척 SVG 자산으로 교체했다.
+- copy and content: 게시판명·제목·추천수·조회수 문구는 변경하지 않았다.
+- interaction and console: 정적 메타 아이콘 교체로 기존 목록 동작을 보존했으며 브라우저 콘솔 오류 0건을 확인했다.
+- full-view comparison evidence: 전체 게시글 모바일 목록에서 추천 수 앞 아이콘이 엄지척으로 표시되고 조회 눈 아이콘과 14px 시각 무게로 정렬됐다.
+- focused region comparison evidence: 첫 일반 게시글 메타의 추천 아이콘 `img`가 `reddit-recommend.svg`를 사용하고 14×14px로 렌더링되는지 확인했다.
+- comparison history: P2 — 상향 투표 화살표가 사용자의 의미 요구와 달랐다. 기존 엄지척 자산으로 교체해 해소했다.
+- final result: passed
