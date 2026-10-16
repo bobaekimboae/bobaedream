@@ -57,6 +57,7 @@
       rank:0,
       body:body.length?body:[String(row.summary||'').trim()].filter(Boolean),
       summary:String(row.summary||'').trim(),
+      summary3:list(row.summary3).slice(0,3),
       source:String(row.source||'').trim(),
       sourceUrl:String(row.sourceUrl||'').trim(),
       publishedAt:row.publishedAt||'',

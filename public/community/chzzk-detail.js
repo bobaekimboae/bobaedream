@@ -330,7 +330,8 @@ function setRegularContent() {
     const sourceHtml = post.boardTable && (post.source || post.sourceUrl)
       ? `<p class="detailSource">출처 ${escapeHtml(post.source || '')}${post.sourceUrl && /^https?:\/\//.test(post.sourceUrl) ? ` · <a href="${escapeHtml(post.sourceUrl)}" target="_blank" rel="noopener noreferrer">원문 보기</a>` : ''}</p>`
       : '';
-    $('#postBody').innerHTML = `${photoHtml}${tableEmbedHtml}
+    const summary3 = post.boardTable && Array.isArray(post.summary3) && post.summary3.length ? `<section class="detailSummary3" aria-label="3줄 요약"><strong>3줄 요약</strong><ol>${post.summary3.map((line) => `<li>${escapeHtml(line)}</li>`).join('')}</ol></section>` : '';
+    $('#postBody').innerHTML = `${summary3}${photoHtml}${tableEmbedHtml}
       <div class="detailCopy">${paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>${sourceHtml}`;
     if (window.BBM_EMBED && window.BBM_EMBED.hydrateCards) window.BBM_EMBED.hydrateCards($('#postBody'));
     const photoTarget = Number(new URLSearchParams(location.search).get('photo')) || 0;
