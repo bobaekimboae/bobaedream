@@ -76,5 +76,17 @@
     if (item.render === 'iframe') return '<figure class="detailEmbed' + (item.tall ? ' is-tall' : '') + '">' + frameHtml(item) + caption + '</figure>';
     return '<figure class="detailEmbed">' + cardHtml(item) + caption + '</figure>';
   }
+  /* 노션처럼 원본 높이로: 인스타그램(MEASURE)·레딧(resize.embed)이 보내는 높이 신호로 iframe 높이를 맞춘다 */
+  window.addEventListener('message', function (event) {
+    if (!/(^|\.)(instagram\.com|reddit\.com)$/.test((function () { try { return new URL(event.origin).hostname; } catch (_) { return ''; } })())) return;
+    var data = event.data, height = 0;
+    try { if (typeof data === 'string') data = JSON.parse(data); } catch (_) { return; }
+    if (data && data.type === 'MEASURE' && data.details) height = Number(data.details.height);
+    else if (data && data.type === 'resize.embed') height = Number(data.data);
+    if (!(height > 50)) return;
+    Array.prototype.forEach.call(document.querySelectorAll('iframe'), function (frame) {
+      if (frame.contentWindow === event.source) { frame.setAttribute('data-embed-height', ''); frame.style.setProperty('--embed-h', Math.ceil(height) + 'px'); }
+    });
+  });
   window.BBM_EMBED = { info: info, fetchMeta: fetchMeta, cardHtml: cardHtml, frameHtml: frameHtml, blockHtml: blockHtml };
 })();
