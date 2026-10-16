@@ -22,7 +22,9 @@ for (const match of source.matchAll(categoryPattern)) {
     originalComments: JSON.parse(`[${match[5]}]`),
   };
 }
-const scoreBucket = (score) => score < 2 ? 0 : score < 3 ? 1 : score < 4 ? 2 : score < 5 ? 3 : 4;
+// Native Dongchedi uses paired half-star bands:
+// 0.5/1.0, 1.5/2.0, 2.5/3.0, 3.5/4.0, 4.5/5.0.
+const scoreBucket = (score) => Math.max(0, Math.min(4, Math.ceil(score) - 1));
 const ratingComment = (categoryId, score) => {
   const item = ratingCategories[categoryId];
   const bucket = scoreBucket(score);
@@ -155,13 +157,16 @@ await page.locator(".vr-submit").click();
 check("30자 미만 본문 오류", (await page.locator(".vr-error").innerText()).includes("30자 이상"));
 await page.locator(".vr-body textarea").fill("실제 등록과 상세 이동을 확인하기 위한 테스트 리뷰입니다. 조향 반응과 고속 안정성을 확인했습니다.");
 await page.locator(".vr-submit").click();
-await page.locator(".vr-detail").waitFor();
+await page.locator(".vrb-detail").waitFor();
 const createdId = new URL(page.url()).searchParams.get("review") ?? "";
 check("정상 등록: 상세 이동", createdId.startsWith("local-"), page.url());
-check("정상 등록: 제목 유지", (await page.locator(".vr-detail-title h1").innerText()).trim() === "M3 장거리 주행 테스트");
+check("정상 등록: 커뮤니티 독립 상세 이동", new URL(page.url()).pathname.endsWith("/community/naver-cafe-list.html"), page.url());
+check("정상 등록: 제목 유지", (await page.locator(".vrb-detail-title h1").innerText()).trim() === "M3 장거리 주행 테스트");
+await page.goto(`${baseUrl}?profile=dealer&shop=450554&emp=1&qf=guazi&tab=reviews&review=${encodeURIComponent(createdId)}&v=conditions1017-cleanup`, { waitUntil: "domcontentloaded" });
+await page.locator(".vr-detail").waitFor();
 page.once("dialog", (dialog) => dialog.accept());
 await page.locator(".vr-delete").click();
-await page.waitForURL(/community\/naver-cafe-list\.html\?board=vehicle-review/);
+await page.locator(".vr-list").waitFor();
 check("테스트 리뷰 삭제", !JSON.parse(await page.evaluate(() => localStorage.getItem("bobae-vehicle-reviews-v1") || "[]")).some((item) => item.id === createdId));
 
 // 출시 예정 모델은 체험 사진을 요구한다.
@@ -208,18 +213,18 @@ for (let detailIndex = 0; detailIndex < ids.length; detailIndex += 1) {
     detailPage.on("pageerror", (error) => consoleErrors.push(error.message));
   }
   const id = ids[detailIndex];
-  await detailPage.goto(`${baseUrl}?community=reviews&review=${id}&from=community&v=conditions1017`, { waitUntil: "domcontentloaded" });
+  await detailPage.goto(`${communityUrl}&review=${encodeURIComponent(id)}`, { waitUntil: "domcontentloaded" });
   try {
-    await detailPage.locator(".vr-detail").waitFor({ timeout: 3000 });
-    const title = (await detailPage.locator(".vr-detail-title h1").innerText()).trim();
-    const scoreVisible = await detailPage.locator(".vr-detail-score").isVisible();
+    await detailPage.locator(".vrb-detail").waitFor({ timeout: 3000 });
+    const title = (await detailPage.locator(".vrb-detail-title h1").innerText()).trim();
+    const scoreVisible = await detailPage.locator(".vrb-detail-score").isVisible();
     if (detailIndex === 0) {
-      const scoreColor = await detailPage.locator(".vr-detail-score strong").evaluate((item) => getComputedStyle(item).color);
-      check("상세 종합 평점 숫자 흰색 대비", scoreColor === "rgb(255, 255, 255)", scoreColor);
+      const scoreColor = await detailPage.locator(".vrb-detail-score strong").evaluate((item) => getComputedStyle(item).color);
+      check("상세 종합 평점 숫자 황금색 대비", scoreColor === "rgb(255, 201, 40)", scoreColor);
       await detailPage.screenshot({ path: join(outputDir, "detail-score-contrast-390x844.png"), fullPage: false });
     }
-    const image = detailPage.locator(".vr-detail-cover");
-    const imageOk = await image.count() === 1 && await image.evaluate((item) => item.complete && item.naturalWidth > 0);
+    const images = detailPage.locator(".vrb-detail-gallery img");
+    const imageOk = await images.count() > 0 && await images.evaluateAll((items) => items.every((item) => item.complete && item.naturalWidth > 0));
     if (!title || !scoreVisible || !imageOk) detailFailures.push({ id, title, scoreVisible, imageOk });
   } catch (error) {
     detailFailures.push({ id, error: String(error) });
@@ -239,7 +244,7 @@ const corpusLines = [
   "",
   "생성일: 2026-10-17",
   "",
-  "점수 버킷은 원본 조작 결과대로 `0.5·1.0·1.5 / 2.0·2.5 / 3.0·3.5 / 4.0·4.5 / 5.0`을 사용한다. 한국어는 화면 적용문이며 중국어는 수정하지 않은 원문이다.",
+  "점수 버킷은 원본 조작 결과대로 `0.5·1.0 / 1.5·2.0 / 2.5·3.0 / 3.5·4.0 / 4.5·5.0`을 사용한다. 한국어는 화면 적용문이며 중국어는 수정하지 않은 원문이다.",
   "",
   "| 평가 항목 | 원문 항목 | 점수 | 한국어 적용문 | 중국어 원문 |",
   "|---|---|---:|---|---|",

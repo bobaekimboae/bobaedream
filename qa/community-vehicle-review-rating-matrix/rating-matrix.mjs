@@ -24,13 +24,34 @@ const matrix = {
 };
 const scores = Array.from({ length: 10 }, (_, index) => (index + 1) / 2);
 const bucket = (score) => Math.ceil(score) - 1;
-const minimumAssertions = 5_780;
+const minimumAssertions = 57_000;
 const viewports = [
+  { name: "초소형 320×568", width: 320, height: 568 },
+  { name: "초소형 320×658", width: 320, height: 658 },
+  { name: "Galaxy Fold 344×882", width: 344, height: 882 },
+  { name: "소형 360×640", width: 360, height: 640 },
+  { name: "소형 360×740", width: 360, height: 740 },
+  { name: "소형 360×780", width: 360, height: 780 },
   { name: "소형 360×800", width: 360, height: 800 },
+  { name: "iPhone SE 375×667", width: 375, height: 667 },
+  { name: "iPhone X 375×812", width: 375, height: 812 },
+  { name: "Android 384×824", width: 384, height: 824 },
   { name: "원본 기기 384×853", width: 384, height: 853 },
   { name: "기준 390×844", width: 390, height: 844 },
+  { name: "Android 390×860", width: 390, height: 860 },
+  { name: "Pixel 393×852", width: 393, height: 852 },
+  { name: "Android 400×800", width: 400, height: 800 },
+  { name: "Pixel 412×869", width: 412, height: 869 },
   { name: "대형 모바일 412×915", width: 412, height: 915 },
+  { name: "iPhone Plus 414×896", width: 414, height: 896 },
+  { name: "iPhone Pro Max 428×926", width: 428, height: 926 },
+  { name: "소형 태블릿 600×960", width: 600, height: 960 },
+  { name: "태블릿 768×1024", width: 768, height: 1024 },
+  { name: "대형 태블릿 820×1180", width: 820, height: 1180 },
+  { name: "가로 태블릿 1024×768", width: 1024, height: 768 },
+  { name: "노트북 1280×720", width: 1280, height: 720 },
   { name: "PC 1440×900", width: 1440, height: 900 },
+  { name: "FHD 1920×1080", width: 1920, height: 1080 },
 ];
 const rows = [];
 const runtimeErrors = [];
@@ -126,8 +147,10 @@ async function auditCategory(page, label, viewportName) {
   }
 }
 
-// Five screen classes × 10 categories × 10 half-star positions. Each state
-// checks semantics, copy, geometry, exact fill, icon provenance and overflow.
+// Twenty-six real-world viewport classes × 10 categories × 10 half-star
+// positions. This is more than five times the previous viewport matrix. Each
+// state checks semantics, copy, geometry, exact fill, icon provenance and
+// overflow instead of multiplying identical assertions at one resolution.
 await context.close();
 for (const viewport of viewports) {
   context = await createContext({ width: viewport.width, height: viewport.height });
@@ -292,7 +315,7 @@ for (const profile of profiles) {
 
 check("런타임", "콘솔·페이지 오류 0", runtimeErrors.length === 0, "0", runtimeErrors.join(" | "));
 const assertionCountBeforeFloor = rows.length;
-check("게이트 자체", "최소 판정 수 5,780", assertionCountBeforeFloor >= minimumAssertions, `>=${minimumAssertions}`, assertionCountBeforeFloor);
+check("게이트 자체", "최소 판정 수 57,000", assertionCountBeforeFloor >= minimumAssertions, `>=${minimumAssertions}`, assertionCountBeforeFloor);
 await browser.close();
 
 const failed = rows.filter((row) => row.result === "FAIL");

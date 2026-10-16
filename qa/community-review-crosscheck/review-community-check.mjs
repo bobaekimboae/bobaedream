@@ -44,7 +44,7 @@ async function openWriter() {
 
 async function selectModel(text) {
   await page.locator(".vr-selected-model").click();
-  await page.locator(".vr-model-options button", { hasText: text }).click();
+  await page.locator(".vr-model-options button", { hasText: text }).first().click();
 }
 
 async function auditRows(profile) {
@@ -89,18 +89,18 @@ await page.goto(communityUrl, { waitUntil: "domcontentloaded" });
 await page.locator(".vehicleReviewBoardMode").waitFor();
 check("커뮤니티 독립 차량리뷰 테이블 등록", await page.evaluate(() => Boolean(window.BBM_BOARD_TABLE?.has("vehicle-review"))));
 check("커뮤니티 차량리뷰 목록 진입", await page.locator(".vrb-shell").isVisible());
-check("목록 시드 리뷰 5개", await page.locator(".vrb-card").count() === 5, String(await page.locator(".vrb-card").count()));
+check("목록 시드 리뷰 50개", await page.locator(".vrb-card").count() === 50, String(await page.locator(".vrb-card").count()));
 check("일반 게시글과 분리", await page.locator("#list > .item").count() === 0, String(await page.locator("#list > .item").count()));
 check("실제 SVG 별 아이콘 사용", await page.locator('.vrb-stars img[src*="chotot-common-review-star"]').count() >= 5);
 check("Airbnb 블랙 활성 칩", await page.locator('.vrb-filter button[aria-selected="true"]').evaluate((element) => getComputedStyle(element).backgroundColor === "rgb(34, 34, 34)"));
 await measureType("목록", { heroTitle: ".vrb-intro h2", heroBody: ".vrb-intro p", summaryScore: ".vrb-summary > strong", cardTitle: ".vrb-card h3", cardBody: ".vrb-card p", cardMeta: ".vrb-metrics" });
 await page.screenshot({ path: join(outputPath, "01-community-list-390x844.png"), fullPage: false });
 await page.locator('[data-powertrain="ev"]').click();
-check("전기차 필터 1건", await page.locator(".vrb-card").count() === 1, String(await page.locator(".vrb-card").count()));
+check("전기차 필터 3건", await page.locator(".vrb-card").count() === 3, String(await page.locator(".vrb-card").count()));
 await page.locator('[data-powertrain="all"]').click();
 const subscribe = page.locator(".vrb-subscribe").first();
 await subscribe.click();
-check("구독 토글", await subscribe.getAttribute("aria-pressed") === "true" && await subscribe.innerText() === "구독 중");
+check("팔로우 토글", await subscribe.getAttribute("aria-pressed") === "true" && await subscribe.innerText() === "팔로잉");
 
 await page.locator(".vrb-write").click();
 await page.locator(".vr-write").waitFor();
@@ -142,7 +142,7 @@ await page.locator(".vr-rating-row").first().getByRole("radio", { name: "3점", 
 const typography = await page.locator(".vr-rating-row").first().evaluate((row) => {
   const label = row.querySelector("b");
   const comment = row.querySelector("small");
-  const stars = row.querySelector(".vr-star-input");
+  const stars = row.querySelector(".vr-star-hit");
   const rs = getComputedStyle(row);
   const ls = label ? getComputedStyle(label) : null;
   const cs = comment ? getComputedStyle(comment) : null;
@@ -160,9 +160,11 @@ const typography = await page.locator(".vr-rating-row").first().evaluate((row) =
   };
 });
 check("평가 라벨 13px/18px", typography.labelFont === "13px" && typography.labelLineHeight === "18px", JSON.stringify(typography));
-check("평가 문구 10px/14px", typography.commentFont === "10px" && typography.commentLineHeight === "14px", JSON.stringify(typography));
+check("평가 문구 11px/15px", typography.commentFont === "11px" && typography.commentLineHeight === "15px", JSON.stringify(typography));
 check("동처띠 별 22px·간격 8px·터치영역 142×30", typography.starsWidth === 142 && typography.starsHeight === 30, JSON.stringify(typography));
-const sourceBucketExpected = ["호불호가 커요", "호불호가 커요", "호불호가 커요", "겨우 볼 만해요", "겨우 볼 만해요", "무난한 디자인", "무난한 디자인", "시선 끄는 디자인", "시선 끄는 디자인", "디자인 완성도 최고"];
+// Native Dongchedi changes copy at each full-star boundary, so each phrase
+// covers exactly two half-star positions.
+const sourceBucketExpected = ["호불호가 커요", "호불호가 커요", "겨우 볼 만해요", "겨우 볼 만해요", "무난한 디자인", "무난한 디자인", "시선 끄는 디자인", "시선 끄는 디자인", "디자인 완성도 최고", "디자인 완성도 최고"];
 await page.locator(".vr-rating-row").first().scrollIntoViewIfNeeded();
 for (let half = 1; half <= 10; half += 1) {
   await page.locator(".vr-rating-row").first().getByRole("radio", { name: `${(half / 2)}점`, exact: true }).click();
@@ -174,28 +176,33 @@ check("비오너 구매정보 숨김", await page.locator(".vr-owner-fields-card
 await page.screenshot({ path: join(outputPath, "04-ice-nonowner-390x844.png"), fullPage: false });
 
 await page.goto(communityUrl, { waitUntil: "domcontentloaded" });
+const firstReviewId = await page.locator(".vrb-card").first().getAttribute("data-review-id");
 await page.locator(".vrb-card-main").first().click();
-await page.locator(".vr-detail").waitFor();
-check("목록→상세 이동", new URL(page.url()).searchParams.get("review") === "sample-bmw-m3", page.url());
-check("상세 평점 카드", await page.locator(".vr-detail-score").isVisible());
-await measureType("상세", { headerTitle: ".vr-detail-head strong", author: ".vr-detail-author b", modelTitle: ".vr-detail-score h2", bodyTitle: ".vr-detail-body h3", bodyCopy: ".vr-detail-body p", action: ".vr-detail-actions button" });
+await page.locator(".vrb-detail").waitFor();
+check("목록→상세 이동", new URL(page.url()).searchParams.get("review") === firstReviewId, page.url());
+check("상세 평점 카드", await page.locator(".vrb-detail-score").isVisible());
+await measureType("상세", { headerTitle: ".vrb-detail-head strong", author: ".vrb-detail-author h2", modelTitle: ".vrb-detail-score b", bodyTitle: ".vrb-detail-title h1", bodyCopy: ".vrb-detail-body p", action: ".vrb-detail-actions button" });
 await page.screenshot({ path: join(outputPath, "05-detail-390x844.png"), fullPage: false });
 
 await openWriter();
 await selectModel("M3");
+await page.locator(".vr-title-field input").fill("BMW M3 주행 경험 검수 리뷰");
 await page.locator(".vr-owner-switch").click();
 for (const row of await page.locator(".vr-rating-row").all()) await row.getByRole("radio", { name: "4점", exact: true }).click();
 await page.locator(".vr-body textarea").fill("실제 등록과 삭제 흐름을 확인하기 위한 차량 리뷰 테스트 문장입니다. 주행감과 조향 반응이 안정적이었습니다.");
 await page.locator(".vr-submit").click();
-await page.locator(".vr-detail").waitFor();
+await page.locator(".vrb-detail").waitFor();
 const createdId = new URL(page.url()).searchParams.get("review") ?? "";
 check("리뷰 등록→상세 이동", createdId.startsWith("local-"), page.url());
+await page.goto(`${baseUrl}?profile=dealer&shop=450554&emp=1&qf=guazi&tab=reviews&review=${encodeURIComponent(createdId)}&v=black-table-cleanup`, { waitUntil: "domcontentloaded" });
+await page.locator(".vr-detail").waitFor();
 check("테스트 리뷰 삭제 버튼", await page.locator(".vr-delete").isVisible());
 page.once("dialog", (dialog) => dialog.accept());
 await page.locator(".vr-delete").click();
-await page.waitForURL(/community\/naver-cafe-list\.html\?board=vehicle-review/);
-check("테스트 리뷰 삭제 후 목록 복귀", await page.locator(".vrb-card").count() === 5, String(await page.locator(".vrb-card").count()));
+await page.locator(".vr-list").waitFor();
 check("테스트 데이터 완전 삭제", await page.evaluate((id) => !JSON.parse(localStorage.getItem("bobae-vehicle-reviews-v1") || "[]").some((item) => item.id === id), createdId));
+await page.goto(communityUrl, { waitUntil: "domcontentloaded" });
+check("테스트 리뷰 삭제 후 목록 복귀", await page.locator(".vrb-card").count() === 50, String(await page.locator(".vrb-card").count()));
 
 await page.setViewportSize({ width: 1440, height: 900 });
 await page.goto(communityUrl, { waitUntil: "domcontentloaded" });
