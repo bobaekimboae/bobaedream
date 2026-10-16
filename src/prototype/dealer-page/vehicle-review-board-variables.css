@@ -48,7 +48,7 @@
 
 .vr-star-visual {
   display: inline-flex;
-  gap: 2px;
+  gap: 0;
   color: #dfe3ec;
 }
 
@@ -74,13 +74,14 @@
 
 .vr-star-input {
   position: relative;
-  width: 138px;
+  width: 142px;
   height: 30px;
 }
 
 .vr-star-input .vr-star-visual {
   position: absolute;
-  inset: 2px auto auto 0;
+  inset: 4px auto auto 0;
+  gap: 8px;
 }
 
 .vr-star-hit {
@@ -564,7 +565,7 @@
 }
 
 .vr-write-card {
-  margin: 0 12px 12px;
+  margin: 0 8px 8px;
   border-radius: 12px;
   background: #fff;
 }
@@ -790,7 +791,7 @@
 
 .vr-star-input,
 .vr-star-hit {
-  width: 130px;
+  width: 142px;
 }
 
 .vr-star-input {
@@ -852,9 +853,9 @@
 }
 
 .vr-cover {
-  width: calc(100% - 24px);
+  width: calc(100% - 16px);
   min-height: 112px;
-  margin: 0 12px 12px;
+  margin: 0 8px 8px;
   border: 0;
   border-radius: 12px;
   background: #fff;
@@ -870,7 +871,7 @@
 }
 
 .vr-cover-preview {
-  margin: 0 12px 12px;
+  margin: 0 8px 8px;
 }
 
 .vr-error {
@@ -1098,7 +1099,7 @@
   }
 
   .vr-rating-row {
-    grid-template-columns: minmax(0,1fr) 130px;
+    grid-template-columns: minmax(0,1fr) 142px;
   }
 }
 
@@ -1124,7 +1125,7 @@
 }
 .vr-star-visual i .vr-ui-icon,
 .vr-star-popover .vr-ui-icon {
-  filter: brightness(0);
+  filter: none;
 }
 .vr-community-head span,
 .vr-detail-score strong {

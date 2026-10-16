@@ -161,7 +161,13 @@ const typography = await page.locator(".vr-rating-row").first().evaluate((row) =
 });
 check("평가 라벨 13px/18px", typography.labelFont === "13px" && typography.labelLineHeight === "18px", JSON.stringify(typography));
 check("평가 문구 10px/14px", typography.commentFont === "10px" && typography.commentLineHeight === "14px", JSON.stringify(typography));
-check("별점 터치영역 130×30", typography.starsWidth === 130 && typography.starsHeight === 30, JSON.stringify(typography));
+check("동처띠 별 22px·간격 8px·터치영역 142×30", typography.starsWidth === 142 && typography.starsHeight === 30, JSON.stringify(typography));
+const sourceBucketExpected = ["호불호가 커요", "호불호가 커요", "호불호가 커요", "겨우 볼 만해요", "겨우 볼 만해요", "무난한 디자인", "무난한 디자인", "시선 끄는 디자인", "시선 끄는 디자인", "디자인 완성도 최고"];
+await page.locator(".vr-rating-row").first().scrollIntoViewIfNeeded();
+for (let half = 1; half <= 10; half += 1) {
+  await page.locator(".vr-rating-row").first().getByRole("radio", { name: `${(half / 2)}점`, exact: true }).click();
+  check(`동처띠 외관 ${half / 2}점 문구 일치`, (await page.locator(".vr-rating-row").first().locator("small").innerText()).trim() === sourceBucketExpected[half - 1]);
+}
 
 await page.locator(".vr-owner-switch").click();
 check("비오너 구매정보 숨김", await page.locator(".vr-owner-fields-card").count() === 0);

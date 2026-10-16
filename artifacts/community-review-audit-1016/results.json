@@ -74,12 +74,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/외관/1.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"겨우 볼 만해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"호불호가 커요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/외관/1.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"겨우 볼 만해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"호불호가 커요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/외관/2.0 문구 노출",
@@ -94,12 +94,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/외관/2.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"무난한 디자인\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"겨우 볼 만해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/외관/2.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"무난한 디자인\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"겨우 볼 만해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/외관/3.0 문구 노출",
@@ -114,12 +114,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/외관/3.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"시선 끄는 디자인\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"무난한 디자인\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/외관/3.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"시선 끄는 디자인\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"무난한 디자인\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/외관/4.0 문구 노출",
@@ -134,12 +134,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/외관/4.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"디자인 완성도 최고\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"시선 끄는 디자인\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/외관/4.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"디자인 완성도 최고\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"시선 끄는 디자인\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/외관/5.0 문구 노출",
@@ -174,12 +174,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/실내/1.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"실내 구성이 아쉬움\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"받아들이기 어려움\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":79.66,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/실내/1.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"실내 구성이 아쉬움\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"받아들이기 어려움\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":79.66,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/실내/2.0 문구 노출",
@@ -194,12 +194,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/실내/2.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"소박하고 무난해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":79.66,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"실내 구성이 아쉬움\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/실내/2.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"소박하고 무난해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":79.66,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"실내 구성이 아쉬움\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/실내/3.0 문구 노출",
@@ -214,12 +214,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/실내/3.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"보기 좋고 편안해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"소박하고 무난해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":79.66,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/실내/3.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"보기 좋고 편안해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"소박하고 무난해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":79.66,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/실내/4.0 문구 노출",
@@ -234,12 +234,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/실내/4.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"설계와 마감 훌륭\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"보기 좋고 편안해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/실내/4.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"설계와 마감 훌륭\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"보기 좋고 편안해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/실내/5.0 문구 노출",
@@ -274,12 +274,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/공간/1.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"공간이 부족해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"좁고 답답해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/공간/1.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"공간이 부족해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"좁고 답답해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/공간/2.0 문구 노출",
@@ -294,12 +294,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/공간/2.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"딱 필요한 만큼\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"공간이 부족해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/공간/2.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"딱 필요한 만큼\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"공간이 부족해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/공간/3.0 문구 노출",
@@ -314,12 +314,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/공간/3.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"공간이 여유로워요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":79.66,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"딱 필요한 만큼\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/공간/3.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"공간이 여유로워요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":79.66,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"딱 필요한 만큼\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/공간/4.0 문구 노출",
@@ -334,12 +334,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/공간/4.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"아주 넉넉해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"공간이 여유로워요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":79.66,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/공간/4.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"아주 넉넉해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"공간이 여유로워요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":79.66,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/공간/5.0 문구 노출",
@@ -374,12 +374,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/편의·안전 사양/1.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"필수 사양만 있음\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"기본 사양 부족\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/편의·안전 사양/1.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"필수 사양만 있음\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"기본 사양 부족\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/편의·안전 사양/2.0 문구 노출",
@@ -394,12 +394,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/편의·안전 사양/2.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"일상에는 충분\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"필수 사양만 있음\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/편의·안전 사양/2.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"일상에는 충분\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"필수 사양만 있음\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/편의·안전 사양/3.0 문구 노출",
@@ -414,12 +414,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/편의·안전 사양/3.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"편의 사양 만족\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"일상에는 충분\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/편의·안전 사양/3.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"편의 사양 만족\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"일상에는 충분\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/편의·안전 사양/4.0 문구 노출",
@@ -434,12 +434,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/편의·안전 사양/4.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"사양 매우 풍부\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"편의 사양 만족\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/편의·안전 사양/4.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"사양 매우 풍부\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"편의 사양 만족\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/편의·안전 사양/5.0 문구 노출",
@@ -474,12 +474,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/주행감/1.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"주행감이 아쉬워요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":79.66,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"견디기 어려워요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행감/1.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"주행감이 아쉬워요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":79.66,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"견디기 어려워요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행감/2.0 문구 노출",
@@ -494,12 +494,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/주행감/2.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"무난한 주행감\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"주행감이 아쉬워요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":79.66,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행감/2.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"무난한 주행감\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"주행감이 아쉬워요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":79.66,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행감/3.0 문구 노출",
@@ -514,12 +514,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/주행감/3.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"편안하고 안정적\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"무난한 주행감\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행감/3.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"편안하고 안정적\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"무난한 주행감\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행감/4.0 문구 노출",
@@ -534,12 +534,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/주행감/4.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"주행 완성도 최고\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"편안하고 안정적\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행감/4.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"주행 완성도 최고\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"편안하고 안정적\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행감/5.0 문구 노출",
@@ -574,12 +574,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/주행거리·전비/1.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"거리 불안이 있어요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"주행거리 부족\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행거리·전비/1.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"거리 불안이 있어요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"주행거리 부족\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행거리·전비/2.0 문구 노출",
@@ -594,12 +594,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/주행거리·전비/2.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"출퇴근에는 충분\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"거리 불안이 있어요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행거리·전비/2.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"출퇴근에는 충분\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"거리 불안이 있어요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행거리·전비/3.0 문구 노출",
@@ -614,12 +614,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/주행거리·전비/3.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"거리·효율 우수\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.91,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"출퇴근에는 충분\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행거리·전비/3.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"거리·효율 우수\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.91,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"출퇴근에는 충분\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행거리·전비/4.0 문구 노출",
@@ -634,12 +634,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/주행거리·전비/4.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"장거리도 든든\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"거리·효율 우수\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.91,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행거리·전비/4.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"장거리도 든든\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"거리·효율 우수\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.91,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행거리·전비/5.0 문구 노출",
@@ -674,12 +674,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/주행 보조/1.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"가끔만 쓸 만해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"실용성이 없어요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행 보조/1.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"가끔만 쓸 만해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"실용성이 없어요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행 보조/2.0 문구 노출",
@@ -694,12 +694,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/주행 보조/2.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"기본 기능은 무난\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"가끔만 쓸 만해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행 보조/2.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"기본 기능은 무난\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"가끔만 쓸 만해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행 보조/3.0 문구 노출",
@@ -714,12 +714,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/주행 보조/3.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"똑똑하고 안정적\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"기본 기능은 무난\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행 보조/3.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"똑똑하고 안정적\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"기본 기능은 무난\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행 보조/4.0 문구 노출",
@@ -734,12 +734,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/주행 보조/4.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"믿고 쓸 수 있어요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":76.03,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"똑똑하고 안정적\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행 보조/4.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"믿고 쓸 수 있어요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":76.03,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"똑똑하고 안정적\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/주행 보조/5.0 문구 노출",
@@ -774,12 +774,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/인포테인먼트/1.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"다소 불편해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"사용성이 나빠요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/인포테인먼트/1.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"다소 불편해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"사용성이 나빠요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/인포테인먼트/2.0 문구 노출",
@@ -794,12 +794,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/인포테인먼트/2.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"기본 사용엔 충분\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"다소 불편해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/인포테인먼트/2.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"기본 사용엔 충분\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"다소 불편해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/인포테인먼트/3.0 문구 노출",
@@ -814,12 +814,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/인포테인먼트/3.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"기능 풍부하고 편함\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"기본 사용엔 충분\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/인포테인먼트/3.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"기능 풍부하고 편함\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"기본 사용엔 충분\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/인포테인먼트/4.0 문구 노출",
@@ -834,12 +834,12 @@
     {
       "name": "전기·PHEV·증거리형 공통/인포테인먼트/4.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"빠르고 스마트함\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"기능 풍부하고 편함\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/인포테인먼트/4.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"빠르고 스마트함\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"기능 풍부하고 편함\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"display\":\"block\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "전기·PHEV·증거리형 공통/인포테인먼트/5.0 문구 노출",
@@ -879,12 +879,12 @@
     {
       "name": "내연기관/동력·핸들링/1.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"힘과 핸들링 아쉬움\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"동력·조향 불편\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.91,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "내연기관/동력·핸들링/1.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"힘과 핸들링 아쉬움\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"동력·조향 불편\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.91,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "내연기관/동력·핸들링/2.0 문구 노출",
@@ -899,12 +899,12 @@
     {
       "name": "내연기관/동력·핸들링/2.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"무난한 동력 성능\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"힘과 핸들링 아쉬움\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "내연기관/동력·핸들링/2.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"무난한 동력 성능\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"힘과 핸들링 아쉬움\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "내연기관/동력·핸들링/3.0 문구 노출",
@@ -919,12 +919,12 @@
     {
       "name": "내연기관/동력·핸들링/3.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"쉽고 안정적인 운전\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"무난한 동력 성능\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "내연기관/동력·핸들링/3.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"쉽고 안정적인 운전\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"무난한 동력 성능\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "내연기관/동력·핸들링/4.0 문구 노출",
@@ -939,12 +939,12 @@
     {
       "name": "내연기관/동력·핸들링/4.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"차와 하나 된 느낌\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":76.03,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"쉽고 안정적인 운전\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "내연기관/동력·핸들링/4.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"차와 하나 된 느낌\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":76.03,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"쉽고 안정적인 운전\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":82.17,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "내연기관/동력·핸들링/5.0 문구 노출",
@@ -979,12 +979,12 @@
     {
       "name": "내연기관/연비/1.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"연료 소비 많음\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"연료비 부담 큼\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "내연기관/연비/1.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"연료 소비 많음\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"연료비 부담 큼\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "내연기관/연비/2.0 문구 노출",
@@ -999,12 +999,12 @@
     {
       "name": "내연기관/연비/2.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"평균적인 연비\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"연료 소비 많음\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "내연기관/연비/2.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"평균적인 연비\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"연료 소비 많음\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":64.88,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "내연기관/연비/3.0 문구 노출",
@@ -1019,12 +1019,12 @@
     {
       "name": "내연기관/연비/3.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"연비가 우수해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"평균적인 연비\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "내연기관/연비/3.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"연비가 우수해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"평균적인 연비\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":62.38,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "내연기관/연비/4.0 문구 노출",
@@ -1039,12 +1039,12 @@
     {
       "name": "내연기관/연비/4.5 문구 노출",
       "result": "PASS",
-      "actual": "{\"text\":\"효율 매우 뛰어남\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"연비가 우수해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "내연기관/연비/4.5 문구 무잘림",
       "result": "PASS",
-      "actual": "{\"text\":\"효율 매우 뛰어남\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":73.53,\"height\":14,\"clipped\":false}"
+      "actual": "{\"text\":\"연비가 우수해요\",\"fontSize\":\"10px\",\"lineHeight\":\"14px\",\"color\":\"rgb(154, 159, 170)\",\"visibility\":\"visible\",\"opacity\":\"1\",\"width\":71.02,\"height\":14,\"clipped\":false}"
     },
     {
       "name": "내연기관/연비/5.0 문구 노출",
@@ -1064,17 +1064,67 @@
     {
       "name": "평가 라벨 13px/18px",
       "result": "PASS",
-      "actual": "{\"rowHeight\":48,\"rowPadding\":\"8px 16px 8px 16px\",\"labelFont\":\"13px\",\"labelLineHeight\":\"18px\",\"labelWeight\":\"700\",\"commentFont\":\"10px\",\"commentLineHeight\":\"14px\",\"commentColor\":\"rgb(154, 159, 170)\",\"starsWidth\":130,\"starsHeight\":30}"
+      "actual": "{\"rowHeight\":48,\"rowPadding\":\"8px 16px 8px 16px\",\"labelFont\":\"13px\",\"labelLineHeight\":\"18px\",\"labelWeight\":\"700\",\"commentFont\":\"10px\",\"commentLineHeight\":\"14px\",\"commentColor\":\"rgb(154, 159, 170)\",\"starsWidth\":142,\"starsHeight\":30}"
     },
     {
       "name": "평가 문구 10px/14px",
       "result": "PASS",
-      "actual": "{\"rowHeight\":48,\"rowPadding\":\"8px 16px 8px 16px\",\"labelFont\":\"13px\",\"labelLineHeight\":\"18px\",\"labelWeight\":\"700\",\"commentFont\":\"10px\",\"commentLineHeight\":\"14px\",\"commentColor\":\"rgb(154, 159, 170)\",\"starsWidth\":130,\"starsHeight\":30}"
+      "actual": "{\"rowHeight\":48,\"rowPadding\":\"8px 16px 8px 16px\",\"labelFont\":\"13px\",\"labelLineHeight\":\"18px\",\"labelWeight\":\"700\",\"commentFont\":\"10px\",\"commentLineHeight\":\"14px\",\"commentColor\":\"rgb(154, 159, 170)\",\"starsWidth\":142,\"starsHeight\":30}"
     },
     {
-      "name": "별점 터치영역 130×30",
+      "name": "동처띠 별 22px·간격 8px·터치영역 142×30",
       "result": "PASS",
-      "actual": "{\"rowHeight\":48,\"rowPadding\":\"8px 16px 8px 16px\",\"labelFont\":\"13px\",\"labelLineHeight\":\"18px\",\"labelWeight\":\"700\",\"commentFont\":\"10px\",\"commentLineHeight\":\"14px\",\"commentColor\":\"rgb(154, 159, 170)\",\"starsWidth\":130,\"starsHeight\":30}"
+      "actual": "{\"rowHeight\":48,\"rowPadding\":\"8px 16px 8px 16px\",\"labelFont\":\"13px\",\"labelLineHeight\":\"18px\",\"labelWeight\":\"700\",\"commentFont\":\"10px\",\"commentLineHeight\":\"14px\",\"commentColor\":\"rgb(154, 159, 170)\",\"starsWidth\":142,\"starsHeight\":30}"
+    },
+    {
+      "name": "동처띠 외관 0.5점 문구 일치",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "동처띠 외관 1점 문구 일치",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "동처띠 외관 1.5점 문구 일치",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "동처띠 외관 2점 문구 일치",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "동처띠 외관 2.5점 문구 일치",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "동처띠 외관 3점 문구 일치",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "동처띠 외관 3.5점 문구 일치",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "동처띠 외관 4점 문구 일치",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "동처띠 외관 4.5점 문구 일치",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "동처띠 외관 5점 문구 일치",
+      "result": "PASS",
+      "actual": ""
     },
     {
       "name": "비오너 구매정보 숨김",
@@ -1094,7 +1144,7 @@
     {
       "name": "리뷰 등록→상세 이동",
       "result": "PASS",
-      "actual": "http://127.0.0.1:4313/?community=reviews&review=local-1792152431126&from=community&v=black-table-audit"
+      "actual": "http://127.0.0.1:4313/?community=reviews&review=local-1792156615663&from=community&v=black-table-audit"
     },
     {
       "name": "테스트 리뷰 삭제 버튼",
@@ -1137,7 +1187,7 @@
     "commentFont": "10px",
     "commentLineHeight": "14px",
     "commentColor": "rgb(154, 159, 170)",
-    "starsWidth": 130,
+    "starsWidth": 142,
     "starsHeight": 30
   },
   "typographySurfaces": [
@@ -1258,7 +1308,7 @@
       "lineHeight": "normal",
       "fontWeight": "700",
       "color": "rgb(32, 35, 43)",
-      "width": 238,
+      "width": 246,
       "height": 18
     },
     {
@@ -1270,7 +1320,7 @@
       "lineHeight": "normal",
       "fontWeight": "400",
       "color": "rgb(116, 122, 134)",
-      "width": 238,
+      "width": 246,
       "height": 13
     },
     {
@@ -1306,7 +1356,7 @@
       "lineHeight": "21px",
       "fontWeight": "400",
       "color": "rgb(34, 34, 34)",
-      "width": 334,
+      "width": 342,
       "height": 176
     },
     {
@@ -1405,14 +1455,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "외관",
       "score": 1.5,
-      "text": "겨우 볼 만해요",
+      "text": "호불호가 커요",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 64.88,
+      "width": 62.38,
       "height": 14,
       "clipped": false
     },
@@ -1435,14 +1485,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "외관",
       "score": 2.5,
-      "text": "무난한 디자인",
+      "text": "겨우 볼 만해요",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 62.38,
+      "width": 64.88,
       "height": 14,
       "clipped": false
     },
@@ -1465,14 +1515,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "외관",
       "score": 3.5,
-      "text": "시선 끄는 디자인",
+      "text": "무난한 디자인",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 73.53,
+      "width": 62.38,
       "height": 14,
       "clipped": false
     },
@@ -1495,14 +1545,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "외관",
       "score": 4.5,
-      "text": "디자인 완성도 최고",
+      "text": "시선 끄는 디자인",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 82.17,
+      "width": 73.53,
       "height": 14,
       "clipped": false
     },
@@ -1555,14 +1605,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "실내",
       "score": 1.5,
-      "text": "실내 구성이 아쉬움",
+      "text": "받아들이기 어려움",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 82.17,
+      "width": 79.66,
       "height": 14,
       "clipped": false
     },
@@ -1585,14 +1635,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "실내",
       "score": 2.5,
-      "text": "소박하고 무난해요",
+      "text": "실내 구성이 아쉬움",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 79.66,
+      "width": 82.17,
       "height": 14,
       "clipped": false
     },
@@ -1615,14 +1665,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "실내",
       "score": 3.5,
-      "text": "보기 좋고 편안해요",
+      "text": "소박하고 무난해요",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 82.17,
+      "width": 79.66,
       "height": 14,
       "clipped": false
     },
@@ -1645,14 +1695,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "실내",
       "score": 4.5,
-      "text": "설계와 마감 훌륭",
+      "text": "보기 좋고 편안해요",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 73.53,
+      "width": 82.17,
       "height": 14,
       "clipped": false
     },
@@ -1705,14 +1755,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "공간",
       "score": 1.5,
-      "text": "공간이 부족해요",
+      "text": "좁고 답답해요",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 71.02,
+      "width": 62.38,
       "height": 14,
       "clipped": false
     },
@@ -1735,14 +1785,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "공간",
       "score": 2.5,
-      "text": "딱 필요한 만큼",
+      "text": "공간이 부족해요",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 64.88,
+      "width": 71.02,
       "height": 14,
       "clipped": false
     },
@@ -1765,14 +1815,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "공간",
       "score": 3.5,
-      "text": "공간이 여유로워요",
+      "text": "딱 필요한 만큼",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 79.66,
+      "width": 64.88,
       "height": 14,
       "clipped": false
     },
@@ -1795,14 +1845,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "공간",
       "score": 4.5,
-      "text": "아주 넉넉해요",
+      "text": "공간이 여유로워요",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 62.38,
+      "width": 79.66,
       "height": 14,
       "clipped": false
     },
@@ -1855,14 +1905,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "편의·안전 사양",
       "score": 1.5,
-      "text": "필수 사양만 있음",
+      "text": "기본 사양 부족",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 73.53,
+      "width": 64.88,
       "height": 14,
       "clipped": false
     },
@@ -1885,14 +1935,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "편의·안전 사양",
       "score": 2.5,
-      "text": "일상에는 충분",
+      "text": "필수 사양만 있음",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 62.38,
+      "width": 73.53,
       "height": 14,
       "clipped": false
     },
@@ -1915,14 +1965,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "편의·안전 사양",
       "score": 3.5,
-      "text": "편의 사양 만족",
+      "text": "일상에는 충분",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 64.88,
+      "width": 62.38,
       "height": 14,
       "clipped": false
     },
@@ -1945,7 +1995,7 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "편의·안전 사양",
       "score": 4.5,
-      "text": "사양 매우 풍부",
+      "text": "편의 사양 만족",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
@@ -2005,14 +2055,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "주행감",
       "score": 1.5,
-      "text": "주행감이 아쉬워요",
+      "text": "견디기 어려워요",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 79.66,
+      "width": 71.02,
       "height": 14,
       "clipped": false
     },
@@ -2035,14 +2085,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "주행감",
       "score": 2.5,
-      "text": "무난한 주행감",
+      "text": "주행감이 아쉬워요",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 62.38,
+      "width": 79.66,
       "height": 14,
       "clipped": false
     },
@@ -2065,14 +2115,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "주행감",
       "score": 3.5,
-      "text": "편안하고 안정적",
+      "text": "무난한 주행감",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 71.02,
+      "width": 62.38,
       "height": 14,
       "clipped": false
     },
@@ -2095,14 +2145,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "주행감",
       "score": 4.5,
-      "text": "주행 완성도 최고",
+      "text": "편안하고 안정적",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 73.53,
+      "width": 71.02,
       "height": 14,
       "clipped": false
     },
@@ -2155,14 +2205,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "주행거리·전비",
       "score": 1.5,
-      "text": "거리 불안이 있어요",
+      "text": "주행거리 부족",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 82.17,
+      "width": 62.38,
       "height": 14,
       "clipped": false
     },
@@ -2185,14 +2235,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "주행거리·전비",
       "score": 2.5,
-      "text": "출퇴근에는 충분",
+      "text": "거리 불안이 있어요",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 71.02,
+      "width": 82.17,
       "height": 14,
       "clipped": false
     },
@@ -2215,14 +2265,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "주행거리·전비",
       "score": 3.5,
-      "text": "거리·효율 우수",
+      "text": "출퇴근에는 충분",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 64.91,
+      "width": 71.02,
       "height": 14,
       "clipped": false
     },
@@ -2245,14 +2295,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "주행거리·전비",
       "score": 4.5,
-      "text": "장거리도 든든",
+      "text": "거리·효율 우수",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 62.38,
+      "width": 64.91,
       "height": 14,
       "clipped": false
     },
@@ -2305,14 +2355,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "주행 보조",
       "score": 1.5,
-      "text": "가끔만 쓸 만해요",
+      "text": "실용성이 없어요",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 73.53,
+      "width": 71.02,
       "height": 14,
       "clipped": false
     },
@@ -2335,7 +2385,7 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "주행 보조",
       "score": 2.5,
-      "text": "기본 기능은 무난",
+      "text": "가끔만 쓸 만해요",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
@@ -2365,14 +2415,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "주행 보조",
       "score": 3.5,
-      "text": "똑똑하고 안정적",
+      "text": "기본 기능은 무난",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 71.02,
+      "width": 73.53,
       "height": 14,
       "clipped": false
     },
@@ -2395,14 +2445,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "주행 보조",
       "score": 4.5,
-      "text": "믿고 쓸 수 있어요",
+      "text": "똑똑하고 안정적",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 76.03,
+      "width": 71.02,
       "height": 14,
       "clipped": false
     },
@@ -2455,14 +2505,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "인포테인먼트",
       "score": 1.5,
-      "text": "다소 불편해요",
+      "text": "사용성이 나빠요",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 62.38,
+      "width": 71.02,
       "height": 14,
       "clipped": false
     },
@@ -2485,14 +2535,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "인포테인먼트",
       "score": 2.5,
-      "text": "기본 사용엔 충분",
+      "text": "다소 불편해요",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 73.53,
+      "width": 62.38,
       "height": 14,
       "clipped": false
     },
@@ -2515,14 +2565,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "인포테인먼트",
       "score": 3.5,
-      "text": "기능 풍부하고 편함",
+      "text": "기본 사용엔 충분",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 82.17,
+      "width": 73.53,
       "height": 14,
       "clipped": false
     },
@@ -2545,14 +2595,14 @@
       "profile": "전기·PHEV·증거리형 공통",
       "label": "인포테인먼트",
       "score": 4.5,
-      "text": "빠르고 스마트함",
+      "text": "기능 풍부하고 편함",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "display": "block",
       "visibility": "visible",
       "opacity": "1",
-      "width": 71.02,
+      "width": 82.17,
       "height": 14,
       "clipped": false
     },
@@ -2603,13 +2653,13 @@
       "profile": "내연기관·하이브리드 전용",
       "label": "동력·핸들링",
       "score": 1.5,
-      "text": "힘과 핸들링 아쉬움",
+      "text": "동력·조향 불편",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "visibility": "visible",
       "opacity": "1",
-      "width": 82.17,
+      "width": 64.91,
       "height": 14,
       "clipped": false
     },
@@ -2631,13 +2681,13 @@
       "profile": "내연기관·하이브리드 전용",
       "label": "동력·핸들링",
       "score": 2.5,
-      "text": "무난한 동력 성능",
+      "text": "힘과 핸들링 아쉬움",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "visibility": "visible",
       "opacity": "1",
-      "width": 73.53,
+      "width": 82.17,
       "height": 14,
       "clipped": false
     },
@@ -2659,13 +2709,13 @@
       "profile": "내연기관·하이브리드 전용",
       "label": "동력·핸들링",
       "score": 3.5,
-      "text": "쉽고 안정적인 운전",
+      "text": "무난한 동력 성능",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "visibility": "visible",
       "opacity": "1",
-      "width": 82.17,
+      "width": 73.53,
       "height": 14,
       "clipped": false
     },
@@ -2687,13 +2737,13 @@
       "profile": "내연기관·하이브리드 전용",
       "label": "동력·핸들링",
       "score": 4.5,
-      "text": "차와 하나 된 느낌",
+      "text": "쉽고 안정적인 운전",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "visibility": "visible",
       "opacity": "1",
-      "width": 76.03,
+      "width": 82.17,
       "height": 14,
       "clipped": false
     },
@@ -2743,7 +2793,7 @@
       "profile": "내연기관·하이브리드 전용",
       "label": "연비",
       "score": 1.5,
-      "text": "연료 소비 많음",
+      "text": "연료비 부담 큼",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
@@ -2771,13 +2821,13 @@
       "profile": "내연기관·하이브리드 전용",
       "label": "연비",
       "score": 2.5,
-      "text": "평균적인 연비",
+      "text": "연료 소비 많음",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "visibility": "visible",
       "opacity": "1",
-      "width": 62.38,
+      "width": 64.88,
       "height": 14,
       "clipped": false
     },
@@ -2799,13 +2849,13 @@
       "profile": "내연기관·하이브리드 전용",
       "label": "연비",
       "score": 3.5,
-      "text": "연비가 우수해요",
+      "text": "평균적인 연비",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "visibility": "visible",
       "opacity": "1",
-      "width": 71.02,
+      "width": 62.38,
       "height": 14,
       "clipped": false
     },
@@ -2827,13 +2877,13 @@
       "profile": "내연기관·하이브리드 전용",
       "label": "연비",
       "score": 4.5,
-      "text": "효율 매우 뛰어남",
+      "text": "연비가 우수해요",
       "fontSize": "10px",
       "lineHeight": "14px",
       "color": "rgb(154, 159, 170)",
       "visibility": "visible",
       "opacity": "1",
-      "width": 73.53,
+      "width": 71.02,
       "height": 14,
       "clipped": false
     },

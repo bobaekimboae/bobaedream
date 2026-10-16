@@ -98,11 +98,6 @@
     return '<a class="news-card" href="'+esc(item.url)+'" target="_blank" rel="noopener noreferrer">'+(item.image?'<span class="news-card-image"><img src="'+esc(item.image)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></span>':'')+'<span class="news-card-copy"><span class="news-card-site">'+(item.logo?'<img src="'+esc(item.logo)+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<span>'+esc(item.site||item.provider||host)+'</span>'+(overseas?'<em>해외</em>':'')+'</span><strong class="news-card-title">'+esc(item.title||host)+'</strong>'+(item.description?'<span class="news-card-desc">'+esc(item.description)+'</span>':'')+'<small class="news-card-url">'+esc(host)+'</small></span></a>';
   }
   /* 우측 썸네일형(네이버페이 증권 토론방 목록): 글쓴이 줄 → 제목·본문 2줄 + 오른쪽 72px 썸네일 → 반응 줄 */
-  function sourceAvatar(name){
-    var label=esc(String(name||'뉴스').trim().slice(0,1));
-    var svg='<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><rect width="40" height="40" rx="20" fill="#164e9b"/><text x="20" y="26" font-family="sans-serif" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">'+label+'</text></svg>';
-    return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
-  }
   function thumbCard(post,index){
     var table=Boolean(post.boardTable);
     var likes=table?Number(post.likes)||0:Math.max(0,Math.round(Number(post.view||0)/23)+Number(post.reply||0));
@@ -112,7 +107,7 @@
     var thumbSrc=photos.length?photos[0].src:(post.thumb||(embedItem&&embedItem.image)||'');
     var count=photos.length;
     var title=cleanTitle(post.title);
-    var avatar=table?sourceAvatar(post.user):avatarFor(post,index);
+    var avatar=avatarFor(post,index);
     var thumb=thumbSrc?'<span class="naverDiscussionThumb"><img src="'+esc(thumbSrc)+'" alt="" loading="'+(index<4?'eager':'lazy')+'" referrerpolicy="no-referrer" onerror="this.parentNode.remove()">'+(count>1?'<b class="naverDiscussionThumbCount">'+count+'</b>':'')+'</span>':'';
     return '<article class="naverDiscussionCard is-thumb" data-discussion-post="'+esc(post.id)+'"><span class="naverDiscussionCategory">'+esc(categoryFor(post))+'</span><div class="naverDiscussionIdentity"><img class="naverDiscussionAvatar" src="'+esc(avatar)+'" alt="'+esc(post.user)+' 프로필"><strong class="naverDiscussionAuthor">'+esc(post.user)+'</strong><time class="naverDiscussionTime">'+esc(post.time)+'</time></div><a class="naverDiscussionThumbMain" href="'+detailUrl(post)+'"><span class="naverDiscussionThumbText"><strong class="naverDiscussionTitle">'+esc(title)+'</strong><span class="naverDiscussionBody">'+esc(bodyFor(post,index))+'</span></span>'+thumb+'</a><div class="naverDiscussionMetrics" aria-label="게시물 반응"><button class="naverDiscussionMetric" type="button" data-discussion-vote="up" aria-label="버프 '+metric(likes)+'" aria-pressed="false"><img src="'+icon('buff')+'" alt=""><span>'+metric(likes)+'</span></button><button class="naverDiscussionMetric" type="button" data-discussion-vote="down" aria-label="너프 '+metric(dislikes)+'" aria-pressed="false"><img src="'+icon('nerf')+'" alt=""><span>'+metric(dislikes)+'</span></button><button class="naverDiscussionMetric" type="button" data-discussion-comment="'+esc(post.id)+'" aria-label="댓글 '+Number(post.reply||0).toLocaleString('ko-KR')+'개"><img src="'+icon('comment-reddit')+'" alt="">'+metric(post.reply)+'</button><span class="naverDiscussionViews">조회 '+Number(post.view||0).toLocaleString('ko-KR')+'</span></div></article>';
   }

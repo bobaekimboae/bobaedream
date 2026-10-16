@@ -74,6 +74,49 @@ final result: passed
 final result: passed
 
 ---
+# 동처띠 차량 리뷰 · 등록/목록/상세 최종 QA · 2026-10-16
+
+- source visual truth: USB 연결 Android의 동처띠 `com.ss.android.auto`에서 직접 캡처한 등록·목록·상세 화면. 핵심 캡처는 `artifacts/dongchedi-review-reaudit-1016/04-ev-form-selected.png`, `05-ev-exterior-0_5.png`, `06-ev-exterior-5_0.png`, `artifacts/dongchedi-review-audit-1016/52-review-tab.png`, `60-single-review-entry.png`이다.
+- browser-rendered implementation: `community/naver-cafe-list.html?board=vehicle-review`, `?board=vehicle-review&review=write`, `?board=vehicle-review&review=sample-bmw-m3`.
+- viewport and density: 원본 1080×2400/384×853dp, 구현 모바일 390×844 CSS px, PC 1440×900 CSS px.
+- full-view comparison evidence: 목록→등록→상세의 정보 순서, 카드 배경, 별점 스트립, 소유 정보, 본문, 하단 액션을 화면별 대조했다.
+- focused comparison evidence: 등록 별 22px, 간격 8px, 전체 선택폭 142×30px; 목록·상세 별 20px; 평가 라벨 13px/18px; 코멘트 10px/14px을 실측했다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- 원본 별점 문구 경계는 `0.5~1.5 / 2~2.5 / 3~3.5 / 4~4.5 / 5`였다. 기존 구현이 반점수에서 한 단계 빨리 전환하던 P1을 수정했다.
+- 전기 계열 8항목과 내연기관·하이브리드 고유 2항목의 0.5~5.0점 총 100상태를 검사했고 모든 문구가 보이며 잘리지 않았다.
+- 실소유자/비오너, EV/PHEV/EREV/하이브리드/내연기관, 출시 전 차량의 입력 가변 요소를 확인했다.
+- Chợ Tốt 별·체크·정보, Reddit 뒤로·댓글·추천·작성, AutoScout24 공유, AutoHome 엠블럼 자산을 사용하며 손그림 아이콘은 없다.
+- 등록→상세→테스트 글 삭제까지 통과했고 최종 목록 5개, 테스트 데이터 잔존 0건, 깨진 이미지 0건, 콘솔 오류 0건이다.
+- automated gate: `PASS 235 / FAIL 0 · rating states 100`.
+
+final result: passed
+
+---
+# 네이버 종목토론 피드 규칙·황금 별점 QA · 2026-10-16
+
+- source visual truth: `https://m.stock.naver.com/discussion/home/topic`의 게시글 작성자 메타 행과 프로필 이미지 비율.
+- browser-rendered implementation: `http://127.0.0.1:4311/community/naver-cafe-list.html?view=naver-discussion&v=naver24gold` 및 `?board=vehicle-review&v=naver24gold`.
+- viewport and density: Codex 인앱 브라우저의 393px 모바일 콘텐츠 폭에서 원본과 구현을 동일 브라우저로 비교했다.
+- feed profile rule: 원형 프로필 24×24px, 작성자 13px/18px, 시간 12px/18px, 프로필·작성자 간격 6px, 메타 행 24px, 카드 좌우 16px.
+- spacing and hierarchy: 말머리 다음 메타 행 상단 8px, 메타 다음 제목 상단 8px로 고정해 일반 피드와 우측 썸네일 피드가 같은 리듬을 공유한다.
+- asset fidelity: 임시 글자형 인라인 SVG 프사를 제거하고 `assets/profile-avatars/`의 실제 프로필 자산을 사용한다.
+- review icons: 별은 `icons/chotot/chotot-common-review-star-selected.svg`와 빈 별 SVG를 사용하며, 채운 별의 원본 황금색 `#FFBA00`을 보존한다. 나머지 리뷰 동작 아이콘은 기존 Reddit·초톳·AutoScout24 자산 매핑을 유지한다.
+- measured implementation: 첫 피드 프로필 `24×24px`, border-radius `50%`, object-fit `cover`; 메타 행 `24px`, gap `6px`, margin-top `8px`. 리뷰 채운 별 `15×15px`, CSS filter `none`.
+- interaction and console: 프로필 규격은 목록의 링크·추천·댓글 동작을 변경하지 않는다. 로컬 빌드 성공 및 브라우저 콘솔 오류 0건을 확인했다.
+
+## Comparison history
+
+- Pass 1: 일반 피드는 27px, 우측 썸네일 피드는 24px로 프로필 규격이 나뉘어 있었고 임시 생성 SVG가 섞여 있었다.
+- Fix: 24px 토큰을 공통화하고 실제 프로필 자산으로 통일했다.
+- Pass 2: 리뷰의 초톳 황금 별 SVG에 검정 필터가 덮여 있었다.
+- Fix: 채운 별 필터를 제거해 `#FFBA00` 원색을 복원하고 빈 별만 회색으로 유지했다.
+
+final result: passed
+
+---
 
 # 전체 게시글 · 치지직형 목록 QA · 2026-10-16
 

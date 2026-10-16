@@ -100,7 +100,7 @@ function StarInput({ value = 0, onChange, label }: { value?: number; onChange: (
     timerRef.current = window.setTimeout(() => setAnnouncedScore(null), 900);
   };
   return <div className="vr-star-input" role="radiogroup" aria-label={`${label} 별점`}>
-    <StarVisual score={value} size={26} />
+    <StarVisual score={value} size={22} />
     {announcedScore ? <output className="vr-star-popover" style={{ left: `${Math.max(12, Math.min(88, (announcedScore / 5) * 100))}%` }}><ReviewIcon name="starFilled" size={14} />{announcedScore.toFixed(1)}점</output> : null}
     <div className="vr-star-hit">{Array.from({ length: 10 }, (_, index) => {
       const score = (index + 1) / 2;
@@ -231,7 +231,7 @@ function ReviewList({ reviews, cars, onWrite, onOpen }: { reviews: SavedReview[]
   const negativeRate = reviews.length ? Math.round(reviews.filter((review) => scoreOf(review) <= 3).length / reviews.length * 100) : 0;
   return <section className="vr-list">
     <div className="vr-community-head"><div><span>BOBAE VEHICLE SCORE</span><h2>차량 경험 리뷰</h2><p>실제 오너와 시승자가 남긴 솔직한 평가를 확인하세요.</p></div><button type="button" onClick={onWrite}><ReviewIcon name="write" /> 리뷰 등록</button></div>
-    <div className="vr-summary"><strong>{totalScore.toFixed(1)}</strong><span><ScoreStars score={totalScore} size={17} /><b>리뷰 {reviews.length}개 · 실소유자 {reviews.filter((review) => review.owner).length}명</b><small>평균 만족도 {Math.round(totalScore / 5 * 100)}% · 낮은 평가 {negativeRate}%</small></span></div>
+    <div className="vr-summary"><strong>{totalScore.toFixed(1)}</strong><span><ScoreStars score={totalScore} size={20} /><b>리뷰 {reviews.length}개 · 실소유자 {reviews.filter((review) => review.owner).length}명</b><small>평균 만족도 {Math.round(totalScore / 5 * 100)}% · 낮은 평가 {negativeRate}%</small></span></div>
     <div className="vr-list-toolbar"><button type="button" className="vr-model-filter">전체 모델 <ReviewIcon name="chevronRight" /></button><label className="vr-owner-only"><span>실소유자만</span><input type="checkbox" checked={ownerOnly} onChange={(event) => setOwnerOnly(event.target.checked)} /><i /></label></div>
     <div className="vr-filters" role="tablist" aria-label="동력 방식 필터">{([["all", "전체"], ["ev", "전기차"], ["phev", "플러그인"], ["erev", "증거리형"], ["hybrid", "하이브리드"], ["ice", "내연기관"]] as const).map(([id, label]) => <button key={id} type="button" role="tab" aria-selected={powertrain === id} onClick={() => setPowertrain(id)}>{label}</button>)}</div>
     <div className="vr-list-controls"><div role="tablist" aria-label="리뷰 정렬">{([["all", "전체"], ["latest", "최신 리뷰"], ["negative", `낮은 평가 (${negativeRate}%)`], ["liked", "도움순"]] as const).map(([id, label]) => <button key={id} type="button" role="tab" aria-selected={sort === id} onClick={() => setSort(id)}>{label}</button>)}</div></div>
@@ -244,7 +244,7 @@ function ReviewList({ reviews, cars, onWrite, onOpen }: { reviews: SavedReview[]
       return <article className="vr-card" key={review.id}>
         <header><Logo model={model} /><span><b>{review.author ?? "보배드림 회원"}{review.owner ? <em><ReviewIcon name="check" /> 인증</em> : null}</b><small>{model.brand} {model.model} · {review.location ?? "지역 미입력"}</small></span><button type="button" aria-pressed={following.has(review.id)} onClick={() => setFollowing((current) => { const next = new Set(current); if (next.has(review.id)) next.delete(review.id); else next.add(review.id); return next; })}>{following.has(review.id) ? "구독 중" : "구독"}</button></header>
         <button type="button" className="vr-card-open" onClick={() => onOpen(review)}>
-          <div className="vr-card-rating"><ScoreStars score={score} size={16} /><strong>{score.toFixed(1)}</strong><span>{score >= 4.5 ? "매우 만족" : score >= 4 ? "만족" : score >= 3 ? "보통" : "아쉬움"}</span><small>{model.trim.split(" ")[0]} · {review.ownershipLabel ?? (review.owner ? "실소유자" : "시승 리뷰")}</small></div>
+          <div className="vr-card-rating"><ScoreStars score={score} size={20} /><strong>{score.toFixed(1)}</strong><span>{score >= 4.5 ? "매우 만족" : score >= 4 ? "만족" : score >= 3 ? "보통" : "아쉬움"}</span><small>{model.trim.split(" ")[0]} · {review.ownershipLabel ?? (review.owner ? "실소유자" : "시승 리뷰")}</small></div>
           <p>{review.body}</p>
           {review.imageData ? <img src={review.imageData} alt="리뷰 차량" /> : image ? <img src={asset(image.listThumb ?? image.image)} alt="" aria-hidden="true" /> : null}
           <footer><span>{review.createdAt}</span><span>도움돼요 {review.likes ?? 0} · 댓글 {review.comments ?? 0}</span></footer>
@@ -271,7 +271,7 @@ function ReviewDetail({ review, cars, onBack, onDelete }: { review: SavedReview;
   return <article className="vr-detail">
     <header className="vr-detail-head"><button type="button" onClick={onBack} aria-label="목록으로"><ReviewIcon name="back" /></button><strong>차량 리뷰</strong><button type="button" aria-label="공유" onClick={async () => { await navigator.clipboard?.writeText(window.location.href); setCopied(true); window.setTimeout(() => setCopied(false), 1400); }}><ReviewIcon name="share" /></button></header>
     <div className="vr-detail-model"><Logo model={model} large /><span><h2>{review.author ?? "보배드림 회원"}{review.owner ? <em><ReviewIcon name="check" /> 실소유자</em> : null}</h2><p>{model.brand} {model.model} · {review.location ?? "지역 미입력"}</p></span><button type="button" aria-pressed={subscribed} onClick={() => setSubscribed((value) => !value)}>{subscribed ? "구독 중" : "구독"}</button></div>
-    <div className="vr-detail-score"><div><b>{model.brand} {model.model}</b><ScoreStars score={score} size={18} /><strong>{score.toFixed(2)}</strong><em>{score >= 4.5 ? "매우 만족" : score >= 4 ? "만족" : score >= 3 ? "보통" : "아쉬움"}</em></div><small>{model.trim} · {model.benchmark}</small></div>
+    <div className="vr-detail-score"><div><b>{model.brand} {model.model}</b><ScoreStars score={score} size={20} /><strong>{score.toFixed(2)}</strong><em>{score >= 4.5 ? "매우 만족" : score >= 4 ? "만족" : score >= 3 ? "보통" : "아쉬움"}</em></div><small>{model.trim} · {model.benchmark}</small></div>
     <div className="vr-detail-ratings">{[...profile.required, ...profile.optional].filter((id) => review.ratings[id]).map((id) => { const value = review.ratings[id] ?? 0; const comment = ratingComment(id, value); return <div key={id}><span><b>{ratingCategories[id].label}</b><small>{comment.korean}</small></span><strong>{value.toFixed(1)}</strong><i><em style={{ width: `${value * 20}%` }} /></i></div>; })}</div>
     {review.owner ? <dl className="vr-detail-owner"><div><dt>소유자 인증</dt><dd>실소유자 리뷰</dd></div><div><dt>구매 시기</dt><dd>{review.purchaseDate ?? "미입력"}</dd></div><div><dt>구매 지역</dt><dd>{review.location ?? "미입력"}</dd></div><div><dt>차량 가격</dt><dd>{review.price ? `${review.price}만원` : "미입력"}</dd></div><div><dt>{profile.ownerMetric.label}</dt><dd>{review.ownerMetric ? `${review.ownerMetric}${profile.ownerMetric.unit}` : "미입력"}</dd></div></dl> : null}
     <div className="vr-detail-body"><h3>차량 경험</h3><p>{review.body}</p>{review.imageData ? <img className="vr-detail-cover" src={review.imageData} alt={`${model.model} 대표 이미지`} /> : image ? <img className="vr-detail-cover" src={asset(image.listThumb ?? image.image)} alt={`${model.model} 대표 이미지`} /> : null}</div>

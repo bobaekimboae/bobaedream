@@ -1,4 +1,4 @@
-.phone.naverDiscussionMode{background:#fff}
+.phone.naverDiscussionMode{--discussion-avatar-size:24px;--discussion-meta-gap:6px;--discussion-card-pad-x:16px;background:#fff}
 .phone.naverDiscussionMode .boardDescriptionSection,
 .phone.naverDiscussionMode .popularSection,
 .phone.naverDiscussionMode .noticeRow{display:none}
@@ -38,13 +38,13 @@
 .naverDiscussionCleanbot strong{color:#00a862;font-weight:720}
 .naverDiscussionCleanbot button{margin-left:auto;display:flex;align-items:center;gap:3px;color:#8b8f95;font-size:11.5px}
 .naverDiscussionCleanbot button img{width:16px;height:16px;opacity:.65}
-.naverDiscussionCard{position:relative;padding:13px 16px 14px;border-bottom:1px solid #eceef0;background:#fff;color:#1d1f23}
+.naverDiscussionCard{position:relative;padding:13px var(--discussion-card-pad-x) 14px;border-bottom:1px solid #eceef0;background:#fff;color:#1d1f23}
 .naverDiscussionCategory{display:inline-flex;align-items:center;min-height:22px;padding:2px 7px;border-radius:4px;background:#f4f5f6;color:#5d6167;font-size:11.5px;line-height:16px;font-weight:650;letter-spacing:-.02em}
-.naverDiscussionIdentity{height:31px;margin-top:5px;display:flex;align-items:center;gap:7px}
-.naverDiscussionAvatar{width:27px;height:27px;flex:0 0 27px;border-radius:50%;object-fit:cover;background:#eceef0}
+.naverDiscussionIdentity{height:var(--discussion-avatar-size);margin-top:8px;display:flex;align-items:center;gap:var(--discussion-meta-gap)}
+.naverDiscussionAvatar{width:var(--discussion-avatar-size);height:var(--discussion-avatar-size);flex:0 0 var(--discussion-avatar-size);border-radius:50%;object-fit:cover;background:#f1f2f4;box-shadow:inset 0 0 0 1px rgba(0,0,0,.04)}
 .naverDiscussionAuthor{min-width:0;overflow:hidden;color:#3a3d42;font-size:13px;line-height:18px;font-weight:600;letter-spacing:-.025em;white-space:nowrap;text-overflow:ellipsis}
 .naverDiscussionTime{margin-left:auto;color:#9b9ea4;font-size:12px;line-height:18px;font-weight:430;white-space:nowrap}
-.naverDiscussionTitle{display:block;margin:7px 0 4px;color:#1e1e23;font-size:16px;line-height:24px;font-weight:750;letter-spacing:-.035em;text-decoration:none;word-break:keep-all}
+.naverDiscussionTitle{display:block;margin:8px 0 4px;color:#1e1e23;font-size:16px;line-height:24px;font-weight:750;letter-spacing:-.035em;text-decoration:none;word-break:keep-all}
 .naverDiscussionBody{display:-webkit-box;margin:0;color:#50545a;font-size:14px;line-height:21px;font-weight:420;letter-spacing:-.025em;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;word-break:keep-all}
 .naverDiscussionMediaShell{--rail-h:clamp(184px,52vw,210px);position:relative;height:var(--rail-h);margin-top:10px;overflow:hidden;border-radius:10px;background:transparent}
 .naverDiscussionMediaShell.is-single{height:auto;aspect-ratio:var(--media-ratio,1.7778);max-height:360px;background:#eef0f2}
@@ -93,7 +93,7 @@
 .naverDiscussionHotRail::-webkit-scrollbar{display:none}
 .naverDiscussionHotCard{width:272px;min-height:144px;flex:0 0 272px;padding:13px;border:1px solid #e1e3e6;border-radius:10px;background:#fff;scroll-snap-align:start;text-align:left}
 .naverDiscussionHotCardMeta{display:flex;align-items:center;gap:7px;color:#72767d;font-size:11.5px;line-height:17px}
-.naverDiscussionHotCardMeta img{width:24px;height:24px;border-radius:50%;object-fit:cover}
+.naverDiscussionHotCardMeta img{width:var(--discussion-avatar-size);height:var(--discussion-avatar-size);flex:0 0 var(--discussion-avatar-size);border-radius:50%;object-fit:cover;background:#f1f2f4;box-shadow:inset 0 0 0 1px rgba(0,0,0,.04)}
 .naverDiscussionHotCard strong{display:-webkit-box;margin-top:9px;overflow:hidden;color:#25272b;font-size:15px;line-height:21px;font-weight:730;letter-spacing:-.035em;-webkit-box-orient:vertical;-webkit-line-clamp:2}
 .naverDiscussionHotCard p{display:-webkit-box;margin:4px 0 0;overflow:hidden;color:#686c72;font-size:12.5px;line-height:18px;letter-spacing:-.02em;-webkit-box-orient:vertical;-webkit-line-clamp:2}
 @media(max-width:370px){
@@ -104,8 +104,8 @@
    카드 세로 간격은 네이버 토론 베스트글 기준. 프사·닉네임·날짜 줄만 레딧 실측(1080×2340 ÷2.8125):
    프사 24, 프사→닉네임 6, 닉네임 14 #181C1F, 날짜는 닉네임 바로 뒤 5 · 13 #5C6C74 · 구분점 없음 */
 .naverDiscussionCard.is-thumb{padding:13px 16px 6px}
-.naverDiscussionCard.is-thumb .naverDiscussionIdentity{height:24px;margin-top:6px;gap:0}
-.naverDiscussionCard.is-thumb .naverDiscussionAvatar{width:24px;height:24px;flex-basis:24px;margin-right:6px}
+.naverDiscussionCard.is-thumb .naverDiscussionIdentity{height:var(--discussion-avatar-size);margin-top:6px;gap:0}
+.naverDiscussionCard.is-thumb .naverDiscussionAvatar{width:var(--discussion-avatar-size);height:var(--discussion-avatar-size);flex-basis:var(--discussion-avatar-size);margin-right:6px}
 .naverDiscussionCard.is-thumb .naverDiscussionAuthor{color:#181c1f;font-size:14px;line-height:20px;font-weight:400;letter-spacing:0}
 .naverDiscussionCard.is-thumb .naverDiscussionTime{margin-left:5px;color:#5c6c74;font-size:13px;line-height:20px;font-weight:400}
 .naverDiscussionThumbMain{display:flex;align-items:flex-start;gap:12px;margin-top:8px;color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
