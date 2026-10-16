@@ -4416,3 +4416,31 @@ final result: passed
 - focused region comparison evidence: 첫 일반 게시글 메타의 추천 아이콘 `img`가 `reddit-recommend.svg`를 사용하고 14×14px로 렌더링되는지 확인했다.
 - comparison history: P2 — 상향 투표 화살표가 사용자의 의미 요구와 달랐다. 기존 엄지척 자산으로 교체해 해소했다.
 - final result: passed
+
+---
+# 전체 게시글 · 치지직 그린 추천 아이콘 QA · 2026-10-16
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a128e5-de8a-78d0-9ed9-96cbde6a07c3/05b4afa3-384c-4b00-99d0-0beffae80c58/2-1000018294.png`의 치지직 초록 강조 텍스트와 기존 페이지 토큰 `#00A862`.
+- browser-rendered implementation: `http://127.0.0.1:4173/community/naver-cafe-list.html?v=20261016chzzkgreen1`을 Chrome에서 캡처해 현재 작업에서 확인했다.
+- viewport and density: 구현 페이지는 393px 고정 콘텐츠 폭으로 렌더링했으며 브라우저 캡처는 1536 × 695 CSS px이다. 색상·아이콘 메타 영역을 비교 범위로 삼았다.
+- state: `전체 게시글` 기본 목록, 추천수와 조회수가 함께 보이는 첫 게시물 행.
+- full-view comparison evidence: 목록 구조·제목·썸네일·메타 행 간격은 기존 상태를 유지하고 추천 엄지에만 치지직 초록을 적용했다.
+- focused region comparison evidence: 추천 엄지 16 × 16px, opacity `1`, fill `#00A862`; 조회 눈 14 × 14px, opacity `.68`로 의미 계층이 분리된다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 메타 12.5px/17px와 기존 숫자 굵기·줄높이를 유지했다.
+- spacing and layout rhythm: 추천·조회 아이콘 크기와 기준선, 그룹 간격을 변경하지 않았다.
+- colors and visual tokens: 치지직 화면에서 사용 중인 강조색 `#00A862`를 추천 엄지에만 적용했다. 회색 조회 아이콘과 충분히 구분된다.
+- image quality and asset fidelity: Notion `좋아요` SVG의 기존 Reddit식 엄지 경로를 유지하고 fill만 토큰 색으로 변경했다.
+- copy and content: 추천수·조회수·게시글 문구를 변경하지 않았다.
+- interaction and console: 정적 색상 변경이며 가로 오버플로 0px, Chrome 콘솔 오류 0건을 확인했다.
+
+## Comparison history
+
+- Pass 1: 회색 엄지와 회색 조회 아이콘이 가까이 있어 의미 구분이 약했다.
+- Fix: 추천 엄지에 치지직 그린 `#00A862`를 100% 불투명도로 적용하고 조회 아이콘은 기존 회색 `.68`을 유지했다.
+- Pass 2: 목록 전체 리듬을 유지하면서 추천 지표만 즉시 식별되는 것을 확인했다.
+
+final result: passed
