@@ -57,11 +57,45 @@
         return tp;
       }
     }
+    /* 레딧: 공식 widgets.js와 같은 주소·변수(embed.reddit.com/{경로}/?embed=true&ref_source=embed&ref=share…).
+       글(r|user/…/comments/ID), 댓글(…/comments/ID/슬러그/댓글ID, 윗 댓글 맥락 포함), 서브레딧(/r/이름) 지원 */
     if (/(^|\.)reddit\.com$/.test(host)) {
       var at = parts.indexOf('comments');
-      if (parts[0] === 'r' && parts[1] && at > 1 && parts[at + 1]) {
-        var slug = parts[at + 2] ? encodeURIComponent(parts[at + 2]) + '/' : '';
-        return frame('https://embed.reddit.com/r/' + encodeURIComponent(parts[1]) + '/comments/' + encodeURIComponent(parts[at + 1]) + '/' + slug + '?embed=true&theme=light&showmedia=true&showmore=false', 'Reddit', 'Reddit 게시물', true);
+      var rbase = 'ref_source=embed&ref=share&utm_source=embedv2&utm_medium=widgets&embed_host_url=' + encodeURIComponent(location.origin || '');
+      var rpath = '';
+      var rtitle = 'Reddit 게시물';
+      var rcomment = false;
+      if ((parts[0] === 'r' || parts[0] === 'user') && parts[1] && at === 2 && parts[at + 1]) {
+        rpath = parts[0] + '/' + encodeURIComponent(parts[1]) + '/comments/' + encodeURIComponent(parts[at + 1]) + '/';
+        if (parts[at + 2]) rpath += encodeURIComponent(parts[at + 2]) + '/';
+        if (parts[at + 3]) { rpath += encodeURIComponent(parts[at + 3]) + '/'; rcomment = true; rtitle = 'Reddit 댓글'; }
+      } else if (parts[0] === 'r' && parts[1] && parts.length === 2) {
+        rpath = 'r/' + encodeURIComponent(parts[1]) + '/';
+        rtitle = 'Reddit r/' + parts[1];
+      }
+      if (rpath) {
+        var rq = 'embed=true&theme=light&' + (rcomment ? 'showmedia=false&showmore=false&depth=1&context=1&utm_name=comment_embed' : 'showmedia=true&showmore=false&utm_name=post_embed') + '&' + rbase;
+        return frame('https://embed.reddit.com/' + rpath + '?' + rq, 'Reddit', rtitle, true, parsed.href);
+      }
+    }
+    /* 스레드: 공식 글 임베드(/@이름/post/ID/embed). 계정·검색 주소는 링크 카드 */
+    if (host === 'threads.net' || host === 'threads.com' || host.slice(-12) === '.threads.net' || host.slice(-12) === '.threads.com') {
+      var tuser = parts[0] && parts[0].charAt(0) === '@' ? parts[0] : '';
+      if (tuser && parts[1] === 'post' && parts[2]) {
+        var turl = 'https://www.threads.com/' + tuser + '/post/' + encodeURIComponent(parts[2]);
+        return frame(turl + '/embed', 'Threads', 'Threads 게시물', true, turl);
+      }
+    }
+    /* X(트위터): 공식 위젯 플레이어 */
+    if (host === 'x.com' || host === 'twitter.com' || host === 'mobile.twitter.com') {
+      var si = parts.indexOf('status');
+      if (si > 0 && /^\d+$/.test(parts[si + 1] || '')) return frame('https://platform.twitter.com/embed/Tweet.html?id=' + parts[si + 1] + '&theme=light&lang=ko&dnt=true', 'X', 'X 게시물', true, 'https://x.com/' + parts[0] + '/status/' + parts[si + 1]);
+    }
+    /* 페이스북 공개 글·영상: 공식 플러그인 */
+    if (host === 'facebook.com' || host.slice(-13) === '.facebook.com') {
+      if (/\/(posts|videos|photos|reel|permalink\.php)/.test(parsed.pathname) || parsed.pathname === '/permalink.php' || parsed.pathname === '/watch/') {
+        var kind = /\/(videos|reel)\b|\/watch\//.test(parsed.pathname) ? 'video' : 'post';
+        return frame('https://www.facebook.com/plugins/' + kind + '.php?href=' + encodeURIComponent(parsed.href) + '&show_text=true&width=500', 'Facebook', 'Facebook 게시물', true, parsed.href);
       }
     }
     if (host === 'open.spotify.com' && parts.length >= 2) { var sp = frame('https://open.spotify.com/embed/' + encodeURIComponent(parts[0]) + '/' + encodeURIComponent(parts[1]), 'Spotify', 'Spotify'); sp.height = parts[0] === 'track' || parts[0] === 'episode' ? 152 : 352; sp.kind = 'audio'; return sp; }
@@ -209,7 +243,19 @@
       if (tf) { tf.setAttribute('data-embed-height', ''); tf.style.setProperty('--embed-h', Math.ceil(td.height) + 'px'); }
       return;
     }
-    if (!/(^|\.)(instagram\.com|reddit\.com)$/.test((function () { try { return new URL(event.origin).hostname; } catch (_) { return ''; } })())) return;
+    /* X 위젯: twttr.private.resize 신호로 높이를 맞춘다 */
+    if (/(^|\.)(twitter|x)\.com$/.test((function () { try { return new URL(event.origin).hostname; } catch (_) { return ''; } })())) {
+      var xd = event.data;
+      try { if (typeof xd === 'string') xd = JSON.parse(xd); } catch (_) { return; }
+      var xe = xd && xd['twttr.embed'];
+      var xh = xe && xe.method === 'twttr.private.resize' && xe.params && xe.params[0] ? Number(xe.params[0].height) : 0;
+      if (xh > 50) Array.prototype.forEach.call(document.querySelectorAll('iframe'), function (frame) {
+        if (frame.contentWindow !== event.source) return;
+        frame.setAttribute('data-embed-height', ''); frame.style.setProperty('--embed-h', Math.ceil(xh) + 'px');
+      });
+      return;
+    }
+    if (!/(^|\.)(instagram\.com|reddit\.com|threads\.com|threads\.net)$/.test((function () { try { return new URL(event.origin).hostname; } catch (_) { return ''; } })())) return;
     var data = event.data, height = 0;
     try { if (typeof data === 'string') data = JSON.parse(data); } catch (_) { return; }
     if (data && data.type === 'MEASURE' && data.details) height = Number(data.details.height);
@@ -256,8 +302,8 @@
     wrap.className = 'bbm-embed-live';
     wrap.innerHTML = frameHtml(item, { autoplay: true });
     button.replaceWith(wrap);
-    /* 레딧이 실패한 주소를 오류로 남기듯: 인스타·레딧이 12초 안에 크기 신호를 안 보내면(삭제·비공개·차단) 원문 링크로 바꾼다 */
-    if (item.provider === 'Instagram' || item.provider === 'Reddit') {
+    /* 레딧이 실패한 주소를 오류로 남기듯: 인스타·레딧·X가 12초 안에 크기 신호를 안 보내면(삭제·비공개·차단) 원문 링크로 바꾼다 */
+    if (item.provider === 'Instagram' || item.provider === 'Reddit' || item.provider === 'X') {
       setTimeout(function () {
         var frame = wrap.querySelector('iframe');
         if (!frame || frame.hasAttribute('data-embed-height') || !wrap.isConnected) return;
