@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "pass": 18,
+  "pass": 25,
   "fail": 0,
   "failures": [],
   "errors": [],
@@ -34,6 +34,14 @@
       "pass": true
     },
     {
+      "label": "전기차 상세에 측정 온도 표시",
+      "pass": true
+    },
+    {
+      "label": "상세 브랜드 엠블럼 54px 원형 유지",
+      "pass": true
+    },
+    {
       "label": "상세 댓글 입력 기능 표시",
       "pass": true
     },
@@ -50,11 +58,31 @@
       "pass": true
     },
     {
+      "label": "원본처럼 참고 예시 사진 2장 표시",
+      "pass": true
+    },
+    {
+      "label": "글쓰기 카드 좌우 10px 여백 유지",
+      "pass": true
+    },
+    {
       "label": "전기차 가변 항목 정확",
       "pass": true
     },
     {
+      "label": "전기차 측정 온도 기본값 15℃",
+      "pass": true
+    },
+    {
+      "label": "모바일 글쓰기 화면 실제 세로 스크롤 동작",
+      "pass": true
+    },
+    {
       "label": "플러그인 하이브리드 가변 항목 정확",
+      "pass": true
+    },
+    {
+      "label": "하이브리드 가변 항목 정확",
       "pass": true
     },
     {

@@ -35,6 +35,7 @@ export type SavedEnergyPost = {
   fuelConsumption?: string;
   energyConsumption?: string;
   fullChargeRange?: string;
+  temperature?: string;
   imageData?: string;
   createdAt: string;
   author: string;

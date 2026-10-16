@@ -14,6 +14,17 @@ const page = await browser.newPage({ viewport: { width: 390, height: 844 }, devi
 const errors = [];
 page.on('pageerror', (error) => errors.push(error.message));
 page.on('console', (message) => { if (message.type() === 'error') errors.push(message.text()); });
+const selectModel = async (brand, series, trim) => {
+  await page.locator('.fe-model').click();
+  const sheet = page.locator('.fe-sheet');
+  await sheet.locator('section>button').filter({ hasText: brand }).click();
+  await sheet.locator('section>button').filter({ hasText: series }).click();
+  await sheet.locator('section>button').filter({ hasText: trim }).click();
+};
+const selectCity = async (city) => {
+  await page.locator('.fe-field-button').click();
+  await page.locator('.fe-city-sheet').getByRole('button', { name: new RegExp(`^${city}`) }).click();
+};
 
 await page.goto(`${root}/community/naver-cafe-list.html?board=fuel-economy`, { waitUntil: 'networkidle' });
 await page.locator('.feb-card').first().waitFor();
@@ -29,6 +40,9 @@ check(await page.locator('.feb-card').evaluateAll((nodes) => nodes.every((node) 
 await page.locator('.feb-card-main').first().click();
 await page.locator('.feb-detail').waitFor();
 check(await page.locator('.feb-detail-metrics span').count() >= 2, '전기차 상세에 전비와 완충 실주행거리 표시');
+check((await page.locator('.feb-facts').innerText()).includes('측정 온도'), '전기차 상세에 측정 온도 표시');
+const detailAvatar = await page.locator('.feb-avatar.is-large').evaluate((node) => ({ width: node.getBoundingClientRect().width, height: node.getBoundingClientRect().height }));
+check(detailAvatar.width === 54 && detailAvatar.height === 54, '상세 브랜드 엠블럼 54px 원형 유지');
 check(await page.locator('.feb-comments form').count() === 1, '상세 댓글 입력 기능 표시');
 check(await page.locator('.feb-actions button').count() === 3, '상세 하단 동작 버튼 표시');
 await page.screenshot({ path: path.join(out, '02-detail-mobile.png'), fullPage: true });
@@ -37,19 +51,33 @@ await page.goto(`${root}/?community=fuel-economy&fuel=write&from=community`, { w
 await page.locator('.fe-write').waitFor();
 check((await page.locator('.fe-head strong').textContent())?.trim() === '연비·전비 기록', '전용 글쓰기 화면 진입');
 check(await page.locator('.fe-fields').count() === 0, '차량 선택 전 에너지 입력란 숨김');
-await page.locator('.fe-model').click();
-await page.getByRole('button', { name: /포르쉐 타이칸/ }).click();
+check(await page.locator('.fe-example').count() === 2, '원본처럼 참고 예시 사진 2장 표시');
+const writerCard = await page.locator('.fe-card').first().evaluate((node) => ({ left: node.getBoundingClientRect().left, right: node.getBoundingClientRect().right }));
+check(writerCard.left >= 10 && writerCard.right <= 380, '글쓰기 카드 좌우 10px 여백 유지');
+await selectModel(/포르쉐/, /포르쉐 타이칸/, /2023 EV/);
 const evText = await page.locator('.fe-fields').innerText();
 check(evText.includes('평균 전비') && evText.includes('완충 실주행거리') && !evText.includes('평균 연비'), '전기차 가변 항목 정확');
-await page.locator('.fe-model').click();
-await page.getByRole('button', { name: /우루스 SE/ }).click();
+check(await page.getByLabel('측정 온도').inputValue() === '15', '전기차 측정 온도 기본값 15℃');
+await page.screenshot({ path: path.join(out, '03-writer-ev-top.png') });
+const scrollHost = page.locator('.device-screen.mobile-web-screen');
+const beforeScroll = await scrollHost.evaluate((node) => node.scrollTop);
+await scrollHost.hover();
+await page.mouse.wheel(0, 700);
+await page.waitForTimeout(100);
+const afterScroll = await scrollHost.evaluate((node) => node.scrollTop);
+check(afterScroll > beforeScroll, '모바일 글쓰기 화면 실제 세로 스크롤 동작');
+await page.screenshot({ path: path.join(out, '03-writer-ev-fields.png') });
+await scrollHost.evaluate((node) => { node.scrollTop = 0; });
+await selectModel(/람보르기니/, /람보르기니 우루스 SE/, /2025 플러그인 하이브리드/);
 const phevText = await page.locator('.fe-fields').innerText();
 check(phevText.includes('평균 전비') && phevText.includes('평균 연비') && !phevText.includes('완충 실주행거리'), '플러그인 하이브리드 가변 항목 정확');
-await page.locator('.fe-model').click();
-await page.getByRole('button', { name: /BMW M3/ }).click();
+await selectModel(/렉서스/, /렉서스 RX/, /2022 RX 450h/);
+const hybridText = await page.locator('.fe-fields').innerText();
+check(hybridText.includes('평균 연비') && !hybridText.includes('평균 전비') && !hybridText.includes('완충 실주행거리'), '하이브리드 가변 항목 정확');
+await selectModel(/^BMW/, /^BMW M3/, /2023 M3 xDrive/);
 const iceText = await page.locator('.fe-fields').innerText();
 check(iceText.includes('평균 연비') && !iceText.includes('평균 전비') && !iceText.includes('완충 실주행거리'), '내연기관 가변 항목 정확');
-await page.locator('.fe-fields select').selectOption({ label: '서울' });
+await selectCity('서울');
 await page.locator('.fe-fields input').nth(0).fill('12400');
 await page.locator('.fe-fields input').nth(1).fill('8.7');
 await page.locator('.fe-body textarea').fill('서울 도심 출퇴근과 자동차전용도로를 함께 주행하고 공조를 켠 상태에서 측정한 실제 연비입니다.');

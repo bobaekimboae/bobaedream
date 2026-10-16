@@ -27,7 +27,7 @@
       title:model[1]+' '+model[2]+' '+(variant?'장거리':'출퇴근')+' 실주행 '+(energy?'전비':'연비')+' 기록',summary:bodies[index%bodies.length],body:bodies[index%bodies.length],
       author:authors[index%authors.length],publishedAt:'2026-10-'+String(16-index%14).padStart(2,'0')+'T09:00:00+09:00',time:(index+1)+'시간 전',views:String(180+index*37),comments:String(2+index%9),likes:String(8+index*3),
       thumbnail:first,images:photos,
-      modelId:model[0],brand:model[1],model:model[2],trim:model[3],powertrain:type,brandLogo:model[5],city:cities[index%cities.length],odometer:String(2400+index*1830),fuelConsumption:fuel,energyConsumption:energy,fullChargeRange:type==='ev'?String(382+(index%5)*19):'',verified:index%3!==2
+      modelId:model[0],brand:model[1],model:model[2],trim:model[3],powertrain:type,brandLogo:model[5],city:cities[index%cities.length],odometer:String(2400+index*1830),fuelConsumption:fuel,energyConsumption:energy,fullChargeRange:type==='ev'?String(382+(index%5)*19):'',temperature:type==='ev'?String(10+(index%4)*5):'',verified:index%3!==2
     };
   }
   var rows=[];for(var i=0;i<20;i++)rows.push(make(i));
