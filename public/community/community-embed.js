@@ -110,7 +110,9 @@
     if (!item || !/^https?:\/\//.test(item.url || '')) return '';
     var caption = item.caption ? '<figcaption>' + esc(item.caption) + '</figcaption>' : '';
     if (item.render === 'iframe') return '<figure class="detailEmbed' + (item.tall ? ' is-tall' : '') + '">' + frameHtml(item) + caption + '</figure>';
-    return '<figure class="detailEmbed">' + cardHtml(item) + caption + '</figure>';
+    var card = cardHtml(item);
+    if (!item.image) card = card.replace('<a class="news-card"', '<a class="news-card" data-embed-hydrate');
+    return '<figure class="detailEmbed">' + card + caption + '</figure>';
   }
   /* 노션처럼 원본 높이로: 인스타그램(MEASURE)·레딧(resize.embed)이 보내는 높이 신호로 iframe 높이를 맞춘다 */
   window.addEventListener('message', function (event) {
@@ -182,5 +184,19 @@
     event.preventDefault(); event.stopPropagation();
     activate(button);
   }, true);
-  window.BBM_EMBED = { info: info, fetchMeta: fetchMeta, cardHtml: cardHtml, frameHtml: frameHtml, blockHtml: blockHtml, previewHtml: previewHtml, hydratePreviews: hydratePreviews };
+  /* 기사 링크(네이버 스포츠 등 iframe을 막는 사이트): 노션 북마크처럼 원문 제목·이미지·파비콘을 불러와 카드로 채운다 */
+  function hydrateCards(root) {
+    Array.prototype.forEach.call((root || document).querySelectorAll('a.news-card[data-embed-hydrate]'), function (card) {
+      card.removeAttribute('data-embed-hydrate');
+      var url = card.getAttribute('href');
+      fetchMeta(url).then(function (meta) {
+        if (!meta || !(meta.title || meta.image) || !card.isConnected) return;
+        var fallbackTitle = card.getAttribute('data-embed-title') || '';
+        var html = cardHtml({ url: url, title: meta.title || fallbackTitle, description: meta.description, image: meta.image, logo: meta.logo, site: meta.site, lang: meta.lang });
+        var holder = document.createElement('div'); holder.innerHTML = html;
+        card.replaceWith(holder.firstChild);
+      });
+    });
+  }
+  window.BBM_EMBED = { hydrateCards: hydrateCards, info: info, fetchMeta: fetchMeta, cardHtml: cardHtml, frameHtml: frameHtml, blockHtml: blockHtml, previewHtml: previewHtml, hydratePreviews: hydratePreviews };
 })();

@@ -333,6 +333,7 @@ function setRegularContent() {
       : '';
     $('#postBody').innerHTML = `${photoHtml}${tableEmbedHtml}
       <div class="detailCopy">${paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>${sourceHtml}`;
+    if (window.BBM_EMBED && window.BBM_EMBED.hydrateCards) window.BBM_EMBED.hydrateCards($('#postBody'));
     const photoTarget = Number(new URLSearchParams(location.search).get('photo')) || 0;
     if (fromDiscussion && photoTarget > 1) {
       requestAnimationFrame(() => document.getElementById(`detailPhoto${photoTarget}`)?.scrollIntoView({ block: 'start' }));
