@@ -26,7 +26,7 @@
     displayName:"자동차뉴스",
     idStart:9100001,
     defaultView:"naver-discussion",
-    updatedAt:"2026-10-16T17:14:42.914Z",
+    updatedAt:"2026-10-16T17:53:06.121Z",
     rows:[
       {
         "id": "9100001",
@@ -60,7 +60,9 @@
         "embed": "",
         "embedTitle": "",
         "embedDescription": "",
-        "embedImage": ""
+        "embedImage": "",
+        "embedSite": "",
+        "embedLogo": ""
       },
       {
         "id": "9100002",
@@ -94,7 +96,9 @@
         "embed": "",
         "embedTitle": "",
         "embedDescription": "",
-        "embedImage": ""
+        "embedImage": "",
+        "embedSite": "",
+        "embedLogo": ""
       },
       {
         "id": "9100003",
@@ -128,7 +132,9 @@
         "embed": "",
         "embedTitle": "",
         "embedDescription": "",
-        "embedImage": ""
+        "embedImage": "",
+        "embedSite": "",
+        "embedLogo": ""
       },
       {
         "id": "9100004",
@@ -162,7 +168,9 @@
         "embed": "",
         "embedTitle": "",
         "embedDescription": "",
-        "embedImage": ""
+        "embedImage": "",
+        "embedSite": "",
+        "embedLogo": ""
       },
       {
         "id": "9100005",
@@ -196,7 +204,9 @@
         "embed": "",
         "embedTitle": "",
         "embedDescription": "",
-        "embedImage": ""
+        "embedImage": "",
+        "embedSite": "",
+        "embedLogo": ""
       },
       {
         "id": "9100006",
@@ -230,7 +240,9 @@
         "embed": "",
         "embedTitle": "",
         "embedDescription": "",
-        "embedImage": ""
+        "embedImage": "",
+        "embedSite": "",
+        "embedLogo": ""
       },
       {
         "id": "9100007",
@@ -264,7 +276,9 @@
         "embed": "",
         "embedTitle": "",
         "embedDescription": "",
-        "embedImage": ""
+        "embedImage": "",
+        "embedSite": "",
+        "embedLogo": ""
       },
       {
         "id": "9100008",
@@ -298,7 +312,9 @@
         "embed": "",
         "embedTitle": "",
         "embedDescription": "",
-        "embedImage": ""
+        "embedImage": "",
+        "embedSite": "",
+        "embedLogo": ""
       },
       {
         "id": "9100009",
@@ -332,7 +348,9 @@
         "embed": "",
         "embedTitle": "",
         "embedDescription": "",
-        "embedImage": ""
+        "embedImage": "",
+        "embedSite": "",
+        "embedLogo": ""
       },
       {
         "id": "9100010",
@@ -366,7 +384,9 @@
         "embed": "",
         "embedTitle": "",
         "embedDescription": "",
-        "embedImage": ""
+        "embedImage": "",
+        "embedSite": "",
+        "embedLogo": ""
       },
       {
         "id": "9100011",
@@ -400,7 +420,9 @@
         "embed": "https://www.instagram.com/reel/DdPRAfCDLtA/",
         "embedTitle": "",
         "embedDescription": "",
-        "embedImage": ""
+        "embedImage": "",
+        "embedSite": "",
+        "embedLogo": ""
       },
       {
         "id": "9100012",
@@ -434,7 +456,9 @@
         "embed": "https://youtu.be/d1rVNdJq83c",
         "embedTitle": "",
         "embedDescription": "",
-        "embedImage": ""
+        "embedImage": "",
+        "embedSite": "",
+        "embedLogo": ""
       },
       {
         "id": "9100013",
@@ -468,7 +492,9 @@
         "embed": "https://youtube.com/shorts/jy3olv6MKsU",
         "embedTitle": "",
         "embedDescription": "",
-        "embedImage": ""
+        "embedImage": "",
+        "embedSite": "",
+        "embedLogo": ""
       },
       {
         "id": "9100014",
@@ -502,7 +528,9 @@
         "embed": "https://www.tiktok.com/@bmw",
         "embedTitle": "",
         "embedDescription": "",
-        "embedImage": ""
+        "embedImage": "",
+        "embedSite": "",
+        "embedLogo": ""
       },
       {
         "id": "9100015",
@@ -536,7 +564,9 @@
         "embed": "https://www.tiktok.com/@bmw/video/7694049359599619361",
         "embedTitle": "",
         "embedDescription": "",
-        "embedImage": ""
+        "embedImage": "",
+        "embedSite": "",
+        "embedLogo": ""
       },
       {
         "id": "9100016",
@@ -568,9 +598,11 @@
         "ratings": "",
         "brandLogo": "",
         "embed": "https://n.news.naver.com/article/119/0003143757",
-        "embedTitle": "",
+        "embedTitle": "독일차 값에 이 정도라고?…렉서스 ES, 운전대만 잡아도 풀리는 긴장 [시승기]",
         "embedDescription": "",
-        "embedImage": ""
+        "embedImage": "./media/news-meta/news-9100016.jpg",
+        "embedSite": "네이버 뉴스",
+        "embedLogo": "./media/news-meta/logo-9100016.png"
       },
       {
         "id": "9100017",
@@ -602,9 +634,11 @@
         "ratings": "",
         "brandLogo": "",
         "embed": "https://m.sports.naver.com/kbaseball/article/109/0005624469",
-        "embedTitle": "",
+        "embedTitle": "‘우정은 뜨겁게, 승부는 치열하게’ 울산웨일즈-롱비치 코스트, 특별한 교류전의 하루",
         "embedDescription": "",
-        "embedImage": ""
+        "embedImage": "./media/news-meta/news-9100017.jpg",
+        "embedSite": "네이버 스포츠",
+        "embedLogo": "./media/news-meta/logo-9100017.png"
       },
       {
         "id": "9100018",
@@ -636,9 +670,11 @@
         "ratings": "",
         "brandLogo": "",
         "embed": "https://m.cafe.naver.com/ca-fe/web/cafes/21771803/articles/2164061",
-        "embedTitle": "",
+        "embedTitle": "네이버 카페 전기차동호회 게시글",
         "embedDescription": "",
-        "embedImage": ""
+        "embedImage": "",
+        "embedSite": "네이버 카페",
+        "embedLogo": ""
       },
       {
         "id": "9100019",
@@ -672,7 +708,9 @@
         "embed": "https://vk.ru/wall-210936992_157811",
         "embedTitle": "Те самые вкусные вещи, которые почему-то до сих пор не продаются отдельно",
         "embedDescription": "Что хотели бы больше всего?) · 사진 10장 · 좋아요 2.2K",
-        "embedImage": "https://sun9-7.vkuserphoto.ru/s/v1/ig2/_60jKitovgfBFvxmX0sOjemngQqCq3ZZdmlsznQV_h2a1fTGfCNk7DoVTv7thbSBeWUbtLcQHapQRhIieBNCQRFPmzkcNA.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x854,720x960,1080x1441,1280x1708,1440x1921,1919x2560&from=bu&u=-RPV5AtKStGSFOQfaJCSH5NuGoEQs-c_i5zY_bCjhQc&cs=540x0"
+        "embedImage": "https://sun9-7.vkuserphoto.ru/s/v1/ig2/_60jKitovgfBFvxmX0sOjemngQqCq3ZZdmlsznQV_h2a1fTGfCNk7DoVTv7thbSBeWUbtLcQHapQRhIieBNCQRFPmzkcNA.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x854,720x960,1080x1441,1280x1708,1440x1921,1919x2560&from=bu&u=-RPV5AtKStGSFOQfaJCSH5NuGoEQs-c_i5zY_bCjhQc&cs=540x0",
+        "embedSite": "",
+        "embedLogo": ""
       }
     ]
   };
