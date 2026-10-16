@@ -22,6 +22,18 @@
     var thumb=String(row.thumbnail||'').trim()||images[0]||'';
     var body=String(row.body||row.summary||'').split(/\n+/).map(function(v){return v.trim();}).filter(Boolean);
     var published=Date.parse(row.publishedAt||'');
+    var embeds=list(row.embed).map(function(url){return window.BBM_EMBED?window.BBM_EMBED.info(url):{url:url,render:'preview'};}).filter(Boolean);
+    if(embeds.length&&row.embedTitle){
+      embeds[0]=Object.assign({},embeds[0],{
+        title:String(row.embedTitle||'').trim(),
+        description:String(row.embedDescription||'').trim(),
+        image:String(row.embedImage||'').trim(),
+        site:String(row.embedSite||row.source||'').trim(),
+        lang:String(row.embedLang||row.originalLanguage||'').trim(),
+        // 자동 수집 게시판은 저장된 메타데이터만 써서 브라우저의 외부 메타 API 요청 폭주를 막는다.
+        metaReady:true
+      });
+    }
     return {
       id:num(row.id),
       board:table.board,
@@ -67,7 +79,7 @@
       location:String(row.location||'').trim(),
       ratings:list(row.ratings),
       brandLogo:String(row.brandLogo||'').trim(),
-      embeds:list(row.embed).map(function(url){return window.BBM_EMBED?window.BBM_EMBED.info(url):{url:url,render:'preview'};}).filter(Boolean)
+      embeds:embeds
     };
   }
   function postsFor(boardId){
