@@ -27,3 +27,5 @@ iframe[data-embed-height]{height:var(--embed-h)!important}
 /* 인스타그램: 스레드처럼 계정 줄 + 사진·영상만(본문·반응 줄 숨김), 모서리 8 */
 .bbm-embed-crop{position:relative;max-width:540px;height:var(--crop-h,500px);margin:0 auto;overflow:hidden;border:1px solid rgba(0,0,0,.1);border-radius:8px}
 .bbm-embed-crop iframe{display:block;width:100%;max-width:none;height:700px;margin:0;border:0;border-radius:0}
+/* 유튜브 가로 영상: 16:9 그대로(위아래 검은 띠 없이) */
+iframe[data-embed-wide]{height:auto!important;aspect-ratio:16/9}
