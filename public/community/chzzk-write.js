@@ -197,7 +197,7 @@
   function exitWriter() { if (title.value.trim() || bodyText()) saveDraft(); location.href = returnTo; }
   /* 목록 카드 요약용 본문 줄(임베드·투표 글자는 빼고) */
   function bodyLines() {
-    const copy = body.cloneNode(true);
+    const copy = new DOMParser().parseFromString(`<div>${body.innerHTML}</div>`, 'text/html').body.firstChild;
     copy.querySelectorAll('.write-embed,.editor-poll').forEach((node) => node.remove());
     copy.querySelectorAll('p,div,h3,blockquote,li,br,hr').forEach((node) => { node.before(document.createTextNode('\n')); node.after(document.createTextNode('\n')); });
     return (copy.textContent || '').split(/\n+/).map((line) => line.trim()).filter(Boolean);

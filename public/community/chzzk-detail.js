@@ -86,8 +86,7 @@ function loadLocalPost() {
     const saved = JSON.parse(localStorage.getItem('bbm.community.latestPost.v2') || 'null');
     const savedId = Date.parse(saved?.submittedAt || saved?.savedAt || '');
     if (!saved || !savedId || savedId !== id) return null;
-    const container = document.createElement('div');
-    container.innerHTML = Array.isArray(saved.body) ? '' : (saved.body || '');
+    const container = new DOMParser().parseFromString(`<div>${Array.isArray(saved.body) ? '' : (saved.body || '')}</div>`, 'text/html').body.firstChild;
     const lines = Array.isArray(saved.body) ? saved.body.map((value) => String(value).trim()).filter(Boolean) : (container.innerText || container.textContent || '').split(/\n+/).map((value) => value.trim()).filter(Boolean);
     return { id:savedId, title:saved.title, user:'보배드림 회원', level:1, date:'방금 전', view:0, likes:0, board:saved.board || '자유게시판', tags:saved.tags || '', body:lines.length ? lines : ['내용이 없습니다.'], html:saved.html || (Array.isArray(saved.embeds) && saved.embeds.length && typeof saved.body === 'string' ? saved.body : ''), embeds:Array.isArray(saved.embeds) ? saved.embeds : [], media:Array.isArray(saved.media) ? saved.media : [] };
   } catch { return null; }
@@ -440,8 +439,8 @@ function localPollHtml(node) {
   return `<section class="detailPoll" aria-label="투표"><strong>${escapeHtml(title)}</strong>${options.map((option) => `<label><input type="radio" name="detailPoll" disabled><span>${escapeHtml(option)}</span></label>`).join('')}${note ? `<small>${escapeHtml(note)}</small>` : ''}</section>`;
 }
 function renderLocalHtml(source) {
-  const box = document.createElement('div');
-  box.innerHTML = source.html;
+  /* DOMParser로 읽으면 이미지 로딩·onerror 같은 스크립트가 실행되지 않는다(innerHTML로 임시 div에 넣으면 실행됨) */
+  const box = new DOMParser().parseFromString(`<div>${source.html}</div>`, 'text/html').body.firstChild;
   const byUrl = new Map((source.embeds || []).map((item) => [item.url, item]));
   const parts = [];
   let paragraphs = [];
