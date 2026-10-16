@@ -23,3 +23,59 @@
 .vrb-detail-actions{position:fixed;right:0;bottom:0;left:0;z-index:21;display:grid;grid-template-columns:repeat(4,1fr);width:min(100%,592px);height:58px;margin:auto;padding:0 8px calc(env(safe-area-inset-bottom)/2);border-top:1px solid #e6e6e6;background:rgba(255,255,255,.98);box-shadow:0 -4px 14px rgba(0,0,0,.04)}.vrb-detail-actions button{display:flex;min-width:0;align-items:center;justify-content:center;gap:4px;border:0;background:transparent;color:#222;font-size:10px;font-weight:700;white-space:nowrap}.vrb-detail-actions img{width:19px;height:19px}.vrb-detail-actions button[aria-pressed=true]{color:#9a6c00}.vrb-copy-toast{position:fixed;right:20px;bottom:70px;left:20px;z-index:24;margin:0 auto;padding:11px 16px;border-radius:999px;background:#202124;color:#fff;text-align:center;font-size:12px;font-weight:650;opacity:0;transform:translateY(10px);transition:.16s;pointer-events:none}.vrb-copy-toast.show{opacity:1;transform:translateY(0)}
 @media(min-width:593px){.vrb-detail-actions{right:auto;left:50%;transform:translateX(-50%)}}
 @media(max-width:370px){.vrb-detail-score{padding-right:16px;padding-left:16px}.vrb-detail-score>div{gap:5px}.vrb-detail-score b{font-size:15px}.vrb-detail-score .vrb-stars img{width:17px;height:17px}.vrb-detail-ratings{gap:0 13px;padding-right:16px;padding-left:16px}.vrb-detail-title{padding-right:16px;padding-left:16px}.vrb-detail-title h1{font-size:21px}}
+
+/* 2026-10-17 Dongchedi device re-crosscheck: card rhythm, half stars and detail score grid. */
+.vrb-stars{display:flex!important;width:max-content;flex-flow:row nowrap!important;align-items:center;gap:1px}
+.vrb-star{position:relative;display:block;flex:0 0 auto;width:20px;height:20px}
+.vrb-star>img,.vrb-star>i,.vrb-star>i>img{position:absolute;inset:0;display:block;width:100%;height:100%}
+.vrb-star>i{overflow:hidden}
+.vrb-star>i>img{max-width:none}
+.vrb-rating .vrb-star{width:15px;height:15px}
+.vrb-card{margin-bottom:10px;padding:16px;border-radius:10px}
+.vrb-card-head{grid-template-columns:44px minmax(0,1fr) auto;gap:10px}
+.vrb-card .vrb-avatar{width:44px;height:44px}
+.vrb-card .vrb-avatar img{width:32px;height:32px}
+.vrb-user b{font-size:15px;line-height:20px}
+.vrb-user small{margin-top:2px;font-size:11px;line-height:16px}
+.vrb-subscribe{height:32px;padding:0 8px;border-radius:5px;background:#222;color:#fff;font-size:12px}
+.vrb-subscribe[aria-pressed=true]{background:#f1f1f1;color:#555}
+.vrb-card-main{padding-top:10px}
+.vrb-card h3{margin-top:9px;font-size:17px;line-height:24px}
+.vrb-card h3+p{margin-top:5px;color:#2b2b2b;font-size:16px;line-height:25px;-webkit-line-clamp:3}
+.vrb-card-gallery{height:112px;margin-top:12px;border-radius:7px;gap:2px}
+.vrb-card-gallery img{height:112px}
+.vrb-date{margin-top:10px;font-size:12px;line-height:18px}
+.vrb-metrics{margin-top:6px;gap:15px;font-size:12px}
+.vrb-vote{height:32px;padding:0 9px;border-radius:5px;background:#f2f2f2}
+
+.vrb-detail{background:#f4f5f8}
+.vrb-detail-head{position:relative;height:58px;border-bottom:0;background:#555b68;color:#fff;backdrop-filter:none}
+.vrb-detail-head img{filter:brightness(0) invert(1)}
+.vrb-detail-author{padding:10px 18px 16px;background:#555b68}
+.vrb-detail-title{padding:18px 20px 12px;background:#555b68;color:#fff}
+.vrb-detail-title h1{color:#fff;font-size:20px;line-height:28px}
+.vrb-detail-score{margin:0 14px;padding:16px 15px 10px;border-radius:9px 9px 0 0;background:#3d414b}
+.vrb-detail-score>div{gap:6px;flex-wrap:wrap}
+.vrb-detail-score b{font-size:16px}
+.vrb-detail-score .vrb-star{width:18px;height:18px}
+.vrb-detail-score strong{color:#ffc928;font-size:17px}
+.vrb-detail-score>small{margin-top:5px}
+.vrb-detail-ratings{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 10px;margin:0 14px;padding:5px 15px 15px;border-bottom:12px solid #f4f5f8;border-radius:0 0 9px 9px;background:#3d414b;color:#fff}
+.vrb-score-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px;padding:9px 0;border-bottom:0}
+.vrb-score-row b{color:#d9dce3;font-size:12px;line-height:18px;font-weight:600}
+.vrb-score-row small{display:none}
+.vrb-score-row>strong{color:#fff;font-size:14px;line-height:18px}
+.vrb-score-row>i{display:none}
+.vrb-detail-owner{margin:0 14px 12px;padding:10px 12px 12px;border:0;border-radius:8px;background:#fff}
+.vrb-detail-owner dt{font-size:11px;line-height:16px}
+.vrb-detail-owner dd{font-size:13px;line-height:18px}
+.vrb-detail-body{padding:20px 18px;border-bottom:10px solid #f4f5f8}
+.vrb-detail-body>p{font-size:16px;line-height:28px}
+.vrb-detail-gallery{height:126px;border-radius:7px}
+.vrb-detail-gallery img{height:126px}
+.vrb-comments{padding-right:16px;padding-left:16px}
+
+@media(max-width:370px){
+  .vrb-detail-ratings{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px}
+  .vrb-card{padding-right:14px;padding-left:14px}
+}

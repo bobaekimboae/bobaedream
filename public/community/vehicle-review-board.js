@@ -14,7 +14,18 @@
     'erev-m7':{brand:'AITO',model:'M7',trim:'2026 Max AWD 주행거리 연장형',powertrain:'erev',brandLogo:''},
     'ice-m3':{brand:'BMW',model:'M3',trim:'2025 컴페티션 M xDrive',powertrain:'ice',brandLogo:'../%61ssets/brand/kr/bmw.png'}
   };
-  var categoryCopy={'외관':'시선을 끄는 디자인','실내':'소박하고 무난해요','공간':'딱 필요한 만큼','편의·안전 사양':'편의 사양 만족','동력·핸들링':'쉽고 안정적인 운전','연비':'연비가 우수해요','주행감':'부드럽고 안정적이에요','주행거리·전비':'실주행 효율이 좋아요','주행 보조':'주행 보조가 편리해요','인포테인먼트':'사용성이 직관적이에요'};
+  var categoryComments={
+    '외관':['호불호가 커요','겨우 볼 만해요','무난한 디자인','시선 끄는 디자인','디자인 완성도 최고'],
+    '실내':['받아들이기 어려움','실내 구성이 아쉬움','소박하고 무난해요','보기 좋고 편안해요','설계와 마감 훌륭'],
+    '공간':['좁고 답답해요','공간이 부족해요','딱 필요한 만큼','공간이 여유로워요','아주 넉넉해요'],
+    '편의·안전 사양':['기본 사양 부족','필수 사양만 있음','일상에는 충분','편의 사양 만족','사양 매우 풍부'],
+    '동력·핸들링':['동력·조향 불편','힘과 핸들링 아쉬움','무난한 동력 성능','쉽고 안정적인 운전','차와 하나 된 느낌'],
+    '연비':['연료비 부담 큼','연료 소비 많음','평균적인 연비','연비가 우수해요','효율 매우 뛰어남'],
+    '주행감':['견디기 어려워요','주행감이 아쉬워요','무난한 주행감','편안하고 안정적','주행 완성도 최고'],
+    '주행거리·전비':['주행거리 부족','거리 불안이 있어요','출퇴근에는 충분','거리·효율 우수','장거리도 든든'],
+    '주행 보조':['실용성이 없어요','가끔만 쓸 만해요','기본 기능은 무난','똑똑하고 안정적','믿고 쓸 수 있어요'],
+    '인포테인먼트':['사용성이 나빠요','다소 불편해요','기본 사용엔 충분','기능 풍부하고 편함','빠르고 스마트함']
+  };
   var seededComments=[
     {author:'M 드라이버',role:'BMW M3 오너 · 보유 2년',body:'장거리에서도 시트와 조향감이 편한가요? 데일리카로 고민 중입니다.',meta:'10월 16일 · 서울',likes:11,replies:4},
     {author:'주말오너',role:'실소유자 인증',body:'저도 비슷하게 느꼈어요. 컴포트 모드에서는 승차감이 생각보다 무난했습니다.',meta:'10월 16일 · 경기',likes:3,replies:2},
@@ -28,7 +39,8 @@
   function parseRatings(value){var result={};String(value||'').split('|').forEach(function(item){var parts=item.trim().match(/^(.*?)\s+([0-5](?:\.\d)?)$/);if(parts)result[parts[1]]=Number(parts[2])});return result}
   function ratingMap(post){if(Array.isArray(post.ratings))return parseRatings(post.ratings.join('|'));if(post.ratings&&typeof post.ratings==='object')return post.ratings;return parseRatings(post.ratings)}
   function localRows(){try{return(JSON.parse(localStorage.getItem(storageKey)||'[]')||[]).map(function(review){var meta=modelMeta[review.modelId]||modelMeta['ev-a06'];return{reviewId:review.id,modelId:review.modelId,brand:meta.brand,model:meta.model,trim:meta.trim,powertrain:meta.powertrain,rating:average(review.ratings),ratings:review.ratings||{},owner:!!review.owner,ownershipLabel:review.ownershipLabel||(review.owner?'실소유자':'시승 리뷰'),location:review.location||'지역 미입력',title:review.title||meta.model+' 사용자 리뷰',summary:review.body||'',body:[review.body||''],user:review.author||'보배드림 회원',author:review.author||'보배드림 회원',publishedAt:review.createdAt||'',time:'방금 전',likes:Number(review.likes||0),reply:Number(review.comments||0),comments:Number(review.comments||0),brandLogo:meta.brandLogo,thumb:review.imageData||'',thumbnail:review.imageData||'',purchaseDate:review.purchaseDate,price:review.price,ownerMetric:review.ownerMetric,local:true}})}catch(error){return[]}}
-  function stars(score,sizeClass){return'<span class="vrb-stars '+(sizeClass||'')+'" aria-label="평점 '+score.toFixed(1)+'점">'+[0,1,2,3,4].map(function(index){var on=score>=index+.5;return'<img class="'+(on?'is-filled':'is-empty')+'" src="'+(on?starFilled:starEmpty)+'" alt="">'}).join('')+'</span>'}
+  function stars(score,sizeClass){return'<span class="vrb-stars '+(sizeClass||'')+'" aria-label="평점 '+score.toFixed(1)+'점">'+[0,1,2,3,4].map(function(index){var fill=Math.max(0,Math.min(1,score-index));return'<span class="vrb-star"><img class="is-empty" src="'+starEmpty+'" alt=""><i style="width:'+(fill*100)+'%"><img class="is-filled" src="'+starFilled+'" alt=""></i></span>'}).join('')+'</span>'}
+  function categoryComment(label,score){var rows=categoryComments[label]||[status(score),status(score),status(score),status(score),status(score)];var bucket=score<2?0:score<3?1:score<4?2:score<5?3:4;return rows[bucket]}
   function status(score){return score>=4.5?'매우 만족':score>=4?'만족':score>=3?'보통':'아쉬움'}
   function avatar(post,large){var meta=modelMeta[post.modelId]||{};var src=post.brandLogo||meta.brandLogo||'../%61ssets/brand/kr/hyundai.png';return'<span class="vrb-avatar'+(large?' is-large':'')+'"><img src="'+esc(src)+'" alt="'+esc(post.brand||meta.brand||'자동차')+' 브랜드 로고"></span>'}
   function modelYear(post){var match=String(post.trim||'').match(/(?:^|\s)(20\d{2})(?:\s|$)/);return match?match[1]+'년식':''}
@@ -42,7 +54,7 @@
   function bodyText(post){return(Array.isArray(post.body)?post.body.join('\n\n'):post.body)||post.summary||''}
   function commentRows(reviewId){try{return JSON.parse(localStorage.getItem(commentStorageKey+'.'+reviewId)||'[]')||[]}catch(error){return[]}}
   function saveComment(reviewId,rows){try{localStorage.setItem(commentStorageKey+'.'+reviewId,JSON.stringify(rows))}catch(error){}}
-  function detailRatingRows(post){var ratings=ratingMap(post);return Object.keys(ratings).map(function(label){var value=Number(ratings[label])||0;return'<div class="vrb-score-row"><span><b>'+esc(label)+'</b><small>'+esc(categoryCopy[label]||status(value))+'</small></span><strong>'+value.toFixed(1)+'</strong><i><em style="width:'+(value*20)+'%"></em></i></div>'}).join('')}
+  function detailRatingRows(post){var ratings=ratingMap(post);return Object.keys(ratings).map(function(label){var value=Number(ratings[label])||0;return'<div class="vrb-score-row"><span><b>'+esc(label)+'</b><small>'+esc(categoryComment(label,value))+'</small></span><strong>'+value.toFixed(1)+'</strong><i><em style="width:'+(value*20)+'%"></em></i></div>'}).join('')}
   function renderComments(list,post,localComments){var rows=localComments.map(function(body,index){return{author:'보배드림 회원',role:'실소유자',body:body,meta:'방금 전',likes:0,replies:0,local:true,index:index}}).concat(seededComments);list.innerHTML=rows.map(function(item){return'<article class="vrb-comment" data-local-index="'+(item.local?item.index:'')+'">'+avatar(post)+'<div><b>'+esc(item.author)+'<small>'+esc(item.role)+'</small></b><p>'+esc(item.body)+'</p><footer><span>'+esc(item.meta)+'</span><button type="button">답글</button>'+(item.replies?'<button type="button" class="vrb-replies">답글 '+item.replies+'개 보기</button>':'')+'</footer></div><button class="vrb-comment-like" type="button" aria-pressed="false">'+icon('like')+' <span>'+item.likes+'</span></button></article>'}).join('')}
   function renderDetail(options,reviewId){
     var phone=document.querySelector('.phone'),list=document.getElementById('list');if(!phone||!list)return;
