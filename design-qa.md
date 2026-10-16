@@ -4980,3 +4980,20 @@ final result: passed
 - automated verification: `node --check`, `npm run build`, `npm run test:sites`, `git diff --check` 통과.
 
 final result: passed
+
+## 말머리 — 틱톡형 알약칩 (2026-10-17)
+
+- source visual truth: Google Drive `틱톡 알약칩.png` (`1D0AC68qOuGrga5rP2AihAGTBbOS5Et6Z`)
+- source copy: `artifacts/tiktok-headword-chip-1017/reference-tiktok-chip.png` (1080×2340)
+- implementation screenshot: `artifacts/tiktok-headword-chip-1017/mobile-393-selected.png` (393×852, CSS viewport 393×852, deviceScaleFactor 1)
+- side-by-side comparison: `artifacts/tiktok-headword-chip-1017/comparison.png` (비율을 유지해 함께 축소)
+- state: `테슬라` 말머리 선택, 한 줄 접힘
+- full-view comparison: 틱톡의 무테 연회색 기본 칩과 짙은 검정 선택 칩 계층을 동일하게 적용했고 기존 게시판 밀도를 유지했다.
+- focused comparison: 높이 32px, 좌우 여백 14px, 간격 8px, 반지름 999px, 기본 `#f1f1f2/#4f5156`, 선택 `#161823/#fff`, 테두리 0px을 확인했다.
+- typography: Pretendard 14px/600, 선택 700. 기존 말머리명·순서는 변경하지 않았다.
+- interactions: 360/384/412px에서 선택 전환, `aria-pressed`, 전체 펼치기, 눌림·키보드 포커스 상태를 확인했다.
+- browser-rendered evidence: Chrome 직접 확인, 세 뷰포트 콘솔·런타임 오류 0건.
+- image fidelity: 칩 자체는 이미지 자산이 없는 UI이며 기존 로고·아이콘·게시물 이미지는 변경하지 않았다.
+- findings: P0/P1/P2 없음. 한글 자폭에 맞춘 글꼴만 보배드림 기존 체계를 유지했다.
+- comparison history: 중복 칩 CSS를 하나로 통합한 뒤 선택 대비와 반응형 동작을 재검했고 추가 차이가 없었다.
+- final result: passed
