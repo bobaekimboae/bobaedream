@@ -86,3 +86,11 @@
 @media(max-width:370px){
   .naverDiscussionTabs{padding:0 8px}.naverDiscussionRooms{padding-left:14px;padding-right:14px}.naverDiscussionKeywordArea,.naverDiscussionSortRow{padding-left:14px;padding-right:14px}.naverDiscussionCleanbot{margin-left:14px;margin-right:14px}.naverDiscussionCard{padding-left:14px;padding-right:14px}.naverDiscussionTitle{font-size:15.5px;line-height:23px}
 }
+
+.naverDiscussionEmbed{display:block;margin-top:10px;overflow:hidden;border:1px solid #e3e5e8;border-radius:10px;background:#fff;color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.naverDiscussionEmbedThumb{display:block;aspect-ratio:16/9;background:#eef0f2;overflow:hidden}
+.naverDiscussionEmbedThumb img{display:block;width:100%;height:100%;object-fit:cover}
+.naverDiscussionEmbedCopy{display:grid;gap:3px;padding:10px 12px 12px}
+.naverDiscussionEmbedSource{color:#858990;font-size:12px;line-height:16px;font-weight:500}
+.naverDiscussionEmbedCopy strong{display:-webkit-box;overflow:hidden;color:#25272b;font-size:14.5px;line-height:20px;font-weight:700;letter-spacing:-.03em;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.naverDiscussionEmbedDesc{display:-webkit-box;overflow:hidden;color:#686c72;font-size:12.5px;line-height:18px;-webkit-box-orient:vertical;-webkit-line-clamp:2}
