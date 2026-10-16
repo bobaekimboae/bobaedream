@@ -69,7 +69,7 @@ img { display: block; }
 .operatorBadge { margin-left: 6px; color: var(--green) !important; font-size: 13px; font-weight: 500; }
 .authorMeta { display: flex; align-items: center; gap: 6px; color: var(--sub); }
 .viewCount { display: inline-flex; align-items: center; gap: 4px; }
-.viewCount img { width: 18px; height: 18px; opacity: .65; }
+.viewLabel { font-weight: 500; }
 .postDivider { height: 1px; margin-top: 28px; background: var(--line); }
 .postBody { min-height: 320px; padding: 38px 0 0; }
 .heroSticker { width: 280px; max-width: 78%; height: auto; margin: 0 0 20px 8px; }
@@ -225,7 +225,6 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
   .operatorBadge { margin-left: 4px; font-size: 11px; }
   .authorMeta { gap: 4px; font-size: 12px; line-height: 15px; }
   .viewCount { gap: 3px; }
-  .viewCount img { width: 16px; height: 16px; }
   .postDivider { margin-top: 12px; }
   body.isLongNotice .postDivider { margin-top: 7px; }
   .postBody { min-height: 0; padding-top: 20px; }
