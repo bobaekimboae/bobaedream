@@ -3,7 +3,7 @@
 
   const STORAGE_KEY = "bbm.notion-write.v1";
   const FEED_POST_KEY = "bbm.community.latestPost.v2";
-  const FEED_URL = "./naver-cafe-list.html?view=naver-discussion&board=car-news";
+  const FEED_URL = "./naver-cafe-list.html?view=naver-discussion&board=auto-news";
   const DB_NAME = "bbm-notion-write-media";
   const DB_STORE = "media";
   const MAX_IMAGE_BYTES = 20 * 1024 * 1024;
@@ -1036,7 +1036,7 @@
     localStorage.setItem(FEED_POST_KEY, JSON.stringify({
       status: "LOCAL_PREVIEW",
       source: "notion-write",
-      board: "자동차뉴스/토론",
+      board: "자동차뉴스",
       head: "자동차뉴스",
       title: postTitle,
       body: bodyText ? [bodyText] : [],
@@ -1047,7 +1047,7 @@
       hideBody: false,
       submittedAt: new Date().toISOString(),
     }));
-    showToast("자동차뉴스/토론 피드에 게시했습니다.");
+    showToast("자동차뉴스 피드에 게시했습니다.");
     window.setTimeout(() => { location.href = FEED_URL; }, 220);
   }
 
