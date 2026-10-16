@@ -156,7 +156,7 @@
     info.addEventListener('click',function(){setInfo(popover.hidden);});
     close.addEventListener('click',function(){setInfo(false);info.focus();});
   }
-  var activeRankingMetric='popular';
+  var activeRankingMetric=(function(value){return value==='comment'||value==='recommend'?value:'popular';})(new URLSearchParams(location.search).get('ranking'));
   function rankingValue(post,metricName){
     if(metricName==='comment')return Number(post.reply)||0;
     if(metricName==='recommend')return Number(post.likes)||0;
