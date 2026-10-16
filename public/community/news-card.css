@@ -24,3 +24,6 @@
 .naverDiscussionCard .news-card{margin-top:10px}
 /* 노션 임베드처럼: 회색 상자 없이 원본(인스타그램 등) 높이 그대로 — 높이는 community-embed.js가 원본 크기 신호로 맞춘다 */
 iframe[data-embed-height]{height:var(--embed-h)!important}
+/* 인스타그램: 스레드처럼 계정 줄 + 사진·영상만(본문·반응 줄 숨김), 모서리 8 */
+.bbm-embed-crop{position:relative;max-width:540px;height:var(--crop-h,500px);margin:0 auto;overflow:hidden;border:1px solid rgba(0,0,0,.1);border-radius:8px}
+.bbm-embed-crop iframe{display:block;width:100%;max-width:none;height:700px;margin:0;border:0;border-radius:0}

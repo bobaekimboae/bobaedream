@@ -26,7 +26,10 @@
       if (['p', 'reel', 'reels', 'tv'].indexOf(parts[0]) >= 0 && parts[1]) {
         var type = parts[0] === 'reels' ? 'reel' : parts[0];
         var clean = 'https://www.instagram.com/' + type + '/' + encodeURIComponent(parts[1]) + '/';
-        return frame(clean + 'embed/captioned/', 'Instagram', type === 'reel' ? 'Instagram 릴스' : 'Instagram 게시물', true, clean);
+        /* 스레드처럼 본문(캡션) 없이 계정 줄 + 사진·영상만: 캡션 없는 embed/ 를 쓰고 아래 반응 줄은 잘라 낸다(crop) */
+        var ig = frame(clean + 'embed/', 'Instagram', type === 'reel' ? 'Instagram 릴스' : 'Instagram 게시물', true, clean);
+        ig.crop = 'instagram';
+        return ig;
       }
     }
     if (/(^|\.)reddit\.com$/.test(host)) {
@@ -67,7 +70,10 @@
   }
   function frameHtml(item) {
     if (!/^https:\/\//.test(item.src || '')) return cardHtml(item);
-    return '<iframe src="' + esc(item.src) + '" title="' + esc(item.title || item.provider || '임베드') + '" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts"></iframe>';
+    var crop = item.crop === 'instagram' || /instagram\.com\//.test(item.src || '');
+    var src = crop ? String(item.src).replace(/embed\/captioned\/?$/, 'embed/') : item.src;
+    var html = '<iframe src="' + esc(src) + '" title="' + esc(item.title || item.provider || '임베드') + '" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts"></iframe>';
+    return crop ? '<div class="bbm-embed-crop">' + html + '</div>' : html;
   }
   /* 상세·피드에서 쓰는 블록 하나 */
   function blockHtml(item) {
@@ -85,7 +91,11 @@
     else if (data && data.type === 'resize.embed') height = Number(data.data);
     if (!(height > 50)) return;
     Array.prototype.forEach.call(document.querySelectorAll('iframe'), function (frame) {
-      if (frame.contentWindow === event.source) { frame.setAttribute('data-embed-height', ''); frame.style.setProperty('--embed-h', Math.ceil(height) + 'px'); }
+      if (frame.contentWindow !== event.source) return;
+      frame.setAttribute('data-embed-height', ''); frame.style.setProperty('--embed-h', Math.ceil(height) + 'px');
+      /* 인스타그램 캡션 없는 embed/ 아래 반응·댓글 줄(약 154px)은 잘라 계정 줄 + 사진·영상만 남긴다 */
+      var box = frame.parentElement;
+      if (box && box.classList.contains('bbm-embed-crop')) box.style.setProperty('--crop-h', Math.max(120, Math.ceil(height) - 154) + 'px');
     });
   });
   window.BBM_EMBED = { info: info, fetchMeta: fetchMeta, cardHtml: cardHtml, frameHtml: frameHtml, blockHtml: blockHtml };
