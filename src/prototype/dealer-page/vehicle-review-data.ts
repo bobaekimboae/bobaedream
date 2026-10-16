@@ -55,6 +55,7 @@ export const reviewModels = [
   { id: "hybrid-camry", brand: "토요타", model: "캠리", trim: "2026 2.5 하이브리드", powertrain: "hybrid" as const, logo: "toyota.png", benchmark: "하이브리드 세단 평균 4.3" },
   { id: "erev-m7", brand: "AITO", model: "M7", trim: "2026 Max AWD 주행거리 연장형", powertrain: "erev" as const, logo: "", benchmark: "중형 SUV 평균 4.4" },
   { id: "ice-m3", brand: "BMW", model: "M3", trim: "2025 컴페티션 M xDrive", powertrain: "ice" as const, logo: "bmw.png", benchmark: "고성능 세단 평균 4.4" },
+  { id: "ev-preview", brand: "기아", model: "EV4", trim: "출시 예정 · 사전 체험 모델", powertrain: "ev" as const, logo: "kia.png", benchmark: "준중형 전기차", released: false },
 ] as const;
 
 export type ReviewModel = (typeof reviewModels)[number];

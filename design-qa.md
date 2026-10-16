@@ -28,6 +28,37 @@ final result: passed
 
 ---
 
+# 차량 리뷰 게시판 · 동처띠 교차검증 QA · 2026-10-16
+
+- source visual truth: `artifacts/dongchedi-review-audit-1016/05-selected-vehicle-form.png`, `06-submit-empty-validation.png`, `10-owner-mode.png`, `15-score-3.png`, `16-form-lower-1.png`, `17-form-lower-2.png`, `53-review-detail-top.png`, `60-single-review-entry.png`
+- browser-rendered implementation: `artifacts/dealer-review-crosscheck-1016/writer-top-390x844.png`, `writer-390x844.png`, `list-390x844.png`, `detail-390x844.png`, `list-1440x900.png`
+- automated results: `artifacts/dealer-review-crosscheck-1016/results.json`
+- viewport and density: 모바일 390×844, PC 1440×900, DPR 1
+- state: 등록 초기·반점 별점·PHEV/EREV/HEV/ICE 전환·오너 OFF·출시 전 모델·목록 필터·상세 댓글
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 딜러 페이지 Pretendard 체계 안에서 등록 14~16px, 메타 9~11px, 목록 본문 14px/21px, 상세 점수 18~20px로 원본의 위계를 맞췄다.
+- spacing and layout rhythm: 등록은 옅은 청회색 바탕과 흰 카드, 목록은 요약→필터→작성자 카드, 상세는 작성자 헤더→어두운 점수 카드→평가·오너정보 순서를 따른다.
+- colors and visual tokens: 동처띠의 노란 CTA, 짙은 점수 카드, 흰 정보 카드, 회색 보조 텍스트를 기존 보배드림 화면 토큰과 조화되게 적용했다.
+- image quality and asset fidelity: 차량 엠블럼은 프로젝트의 오토홈 계열 브랜드 자산을 사용한다. 화면 아이콘은 Reddit의 뒤로·작성·채팅·추천, ChoTot의 별점·체크·닫기·정보·북마크, AutoScout24의 공유 SVG를 재사용한다.
+- copy and content: 중국어 원문은 조사 문서와 시트에 보존하고 서비스 화면에서는 10개 평가항목·50개 상태의 한국형 코멘트만 노출한다.
+- interaction and responsiveness: EV/PHEV/EREV/HEV/ICE, 오너/비오너, 출시 예정 모델 분기와 0.5점 입력, 필수 별점·본문·사진 검증, 목록 필터, 상세 댓글을 확인했다.
+- browser verification: 프로덕션 빌드 자동 검증 `PASS 29 / FAIL 0`, 모바일·PC 가로 깨짐 없음, 프로젝트 아이콘 경로 일치, 깨진 이미지·콘솔 오류 0건이다.
+
+## Comparison history
+
+- Pass 1: 원본 조사의 데이터 분기는 반영됐지만 목록 카드에 모델과 무관한 매물 사진이 순환될 수 있었고 필터 칩 폭이 압축됐다.
+- Fix: 제조사·모델이 일치하는 보유 매물만 연결하고 필터 칩에 최소 내용 폭과 좌우 패딩을 부여했다.
+- Pass 2: 임시 Radix 아이콘이 프로젝트의 기존 서비스 시각 언어와 달랐다.
+- Fix: Reddit·ChoTot·AutoScout24 프로젝트 SVG로 전면 교체하고 11~22px 범위에서 용도별 광학 크기를 맞췄다.
+- Final: 등록·목록·상세와 가변 시나리오 27개를 재검증해 남은 P0/P1/P2가 없다.
+
+final result: passed
+
+---
+
 # 네이버 토론형 후속 시나리오 30개 추가 QA · 2026-10-16
 
 - source visual truth: 공개 토론형 시안 390×844에서 카드·미디어·가로 스크롤·반응 아이콘 배치를 직접 확인했다.

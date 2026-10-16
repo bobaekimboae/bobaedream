@@ -1,0 +1,152 @@
+{
+  "baseUrl": "http://127.0.0.1:4312/",
+  "viewport": "390x844",
+  "checks": [
+    {
+      "name": "등록 화면 로드",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "초기 전기차 실주행거리",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "반점 별점 2.5",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "별점 코멘트 한국화",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "PHEV 프로필",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "PHEV 순수 전기 주행거리",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "비오너 구매정보 숨김",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "내연기관 동력·핸들링",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "내연기관 연비",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "내연기관 실연비",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "하이브리드 실연비",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "증거리형 주행감",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "증거리형 주행거리",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "증거리형 선택 평가",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "출시 전 오너 토글 숨김",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "출시 전 사진 안내",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "출시 전 사진 필수 검증",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "필수 별점 검증",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "목록 5개 시드",
+      "result": "PASS",
+      "actual": "5"
+    },
+    {
+      "name": "목록 오너 필터",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "오너 필터 결과 3개",
+      "result": "PASS",
+      "actual": "3"
+    },
+    {
+      "name": "상세 진입",
+      "result": "PASS",
+      "actual": "http://127.0.0.1:4312/?profile=dealer&shop=450554&emp=1&qf=guazi&tab=reviews&v=e2e&review=sample-bmw-m3"
+    },
+    {
+      "name": "상세 평점 카드",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "상세 소유자 정보",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "상세 댓글 펼침",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "PC 목록 레이아웃",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "Reddit·ChoTot·AutoScout24 아이콘",
+      "result": "PASS",
+      "actual": "/community/assets/reddit-ui/write.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /assets/register/chotot-v01/chevron-right.svg | /assets/register/chotot-v01/check-mark.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /assets/register/chotot-v01/check-mark.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /assets/register/chotot-v01/check-mark.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /icons/chotot/chotot-common-review-star-button.svg | /icons/chotot/chotot-common-review-star-selected.svg | /community/assets/reddit-ui/write.svg"
+    },
+    {
+      "name": "깨진 이미지 0건",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "콘솔 오류 0건",
+      "result": "PASS",
+      "actual": ""
+    }
+  ],
+  "errors": []
+}
