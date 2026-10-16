@@ -21,6 +21,8 @@ try {
   await page.reload({ waitUntil: "domcontentloaded" });
 
   await expect(await page.getByTestId("notion-write-page").isVisible(), "전용 글쓰기 페이지가 보이지 않습니다.");
+  await expect((await page.locator("#boardSelect").inputValue()) === "자동차뉴스/토론", "게시 대상이 자동차뉴스/토론으로 설정되지 않았습니다.");
+  await expect((await page.locator(".topbar-leading .icon-button").getAttribute("href")) === "./naver-cafe-list.html?view=naver-discussion&board=car-news", "뒤로가기 주소가 네이버 토론 피드가 아닙니다.");
   const estimateButton = page.getByTestId("car-estimate-button");
   await expect(await estimateButton.isVisible(), "내 차 시세 무료 견적 버튼이 보이지 않습니다.");
   await expect((await estimateButton.getAttribute("href")) === "https://app.notion.com/p/1-701ee9c4b60683d0ae0801d3de2248fb?source=copy_link", "무료 견적 버튼 주소가 일치하지 않습니다.");
@@ -161,6 +163,17 @@ try {
   await expect((await page.locator('.media-block[data-kind="embed"] iframe').getAttribute("src"))?.includes("codepen.io/team/codepen/embed/PNaGbb"), "임베드 블록이 복원되지 않았습니다.");
   await expect(await page.locator("#blockEditor .todo-block.is-done").isVisible(), "할 일 완료 상태가 복원되지 않았습니다.");
   await expect(await page.locator("#blockEditor pre", { hasText: "const car" }).isVisible(), "코드 블록이 복원되지 않았습니다.");
+  await Promise.all([
+    page.waitForURL(/naver-cafe-list\.html\?view=naver-discussion&board=car-news/),
+    page.locator('[data-action="publish"]').click(),
+  ]);
+  await expect(await page.locator(".phone").evaluate((node) => node.classList.contains("naverDiscussionMode")), "게시 후 네이버 토론 피드형으로 이동하지 않았습니다.");
+  await expect((await page.locator("#typeLabel").textContent()) === "네이버 토론형", "네이버 토론형 표시가 없습니다.");
+  await expect((await page.locator(".boardSelectName").textContent()) === "자동차뉴스/토론", "자동차뉴스/토론 게시판이 선택되지 않았습니다.");
+  const publishedCard = page.locator(".naverDiscussionCard").first();
+  await expect((await publishedCard.locator(".naverDiscussionTitle").textContent()) === "퇴근길에 만난 멋진 자동차", "게시한 제목이 피드 맨 위에 표시되지 않았습니다.");
+  await expect((await publishedCard.locator(".naverDiscussionBody").textContent())?.includes("사진과 동영상을 한 페이지에서 정리했습니다."), "게시한 본문이 토론 카드에 표시되지 않았습니다.");
+  await page.waitForFunction(() => document.querySelector(".naverDiscussionCard [data-local-media-id]")?.getAttribute("src")?.startsWith("blob:"));
   await context.close();
 
   const mobileContext = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
@@ -227,7 +240,7 @@ try {
   await expect(!hasHorizontalOverflow, "모바일 화면에 가로 스크롤이 생겼습니다.");
   await mobileContext.close();
 
-  console.log("Notion write check passed: rich text, blocks, media manager, embeds, persistence, and mobile layout.");
+  console.log("Notion write check passed: rich text, blocks, media manager, embeds, persistence, Naver discussion publishing, and mobile layout.");
 } finally {
   await browser.close();
 }

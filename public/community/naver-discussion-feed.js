@@ -49,7 +49,7 @@
   function esc(value){
     return String(value==null?'':value).replace(/[&<>"']/g,function(char){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char];});
   }
-  function posts(){return (window.BOBAE_POSTS||[]).slice();}
+  function posts(){var data=(window.BOBAE_POSTS||[]).slice();if(window.BOBAE_LOCAL_POST)data.unshift(window.BOBAE_LOCAL_POST);return data;}
   function cleanTitle(value){return String(value||'').replace(/^\[[^\]]+\]\s*/,'');}
   function bodyFor(post,index){return Array.isArray(post.body)&&post.body.length?post.body[0]:bodyFallbacks[index%bodyFallbacks.length];}
   function avatarFor(post,index){return post.authorAvatar||'assets/profile-avatars/avatar-'+String(index%48+1).padStart(2,'0')+'.svg';}
@@ -67,23 +67,32 @@
     return scenarioMediaRoot+'post-'+String(postId).padStart(2,'0')+'.webp?v=20261016scenario3';
   }
   function mediaSources(post){
+    if(post.local){
+      if(!Array.isArray(post.media))return [];
+      return post.media.filter(function(item){
+        return item&&item.kind&&(item.id||(item.kind==='image'&&item.url)||(item.kind==='video'&&/\.(?:mp4|webm|mov)(?:\?|$)/i.test(item.url||'')));
+      }).slice(0,6).map(function(item){return{src:item.url||'',id:item.id||'',kind:item.kind};});
+    }
     var postId=Number(post.id);
     var photoCount=Number(post.photos)||0;
     if(photoCount<=0)return [];
     var requested=Math.min(6,photoCount);
     var related=relatedScenarioMedia[postId]||[postId];
-    return related.slice(0,requested).map(scenarioMediaSource);
+    return related.slice(0,requested).map(function(id){return{src:scenarioMediaSource(id),id:'',kind:'image'};});
   }
   function mediaFor(post,index){
     var sources=mediaSources(post,index);
     if(!sources.length)return '';
     var multiple=sources.length>1;
     var title=cleanTitle(post.title);
-    var items=sources.map(function(source,itemIndex){
+    var items=sources.map(function(item,itemIndex){
+      var source=item.src||'';
       var ratio=mediaLayouts[index%mediaLayouts.length][itemIndex%mediaLayouts[index%mediaLayouts.length].length];
-      var isVideo=Boolean(videoMediaByPost[Number(post.id)])&&itemIndex===0;
+      var isVideo=item.kind==='video'||Boolean(videoMediaByPost[Number(post.id)])&&itemIndex===0;
       var contain=/\.png(?:\?|$)/i.test(source);
-      var media=isVideo?'<video muted playsinline preload="metadata" poster="'+esc(source)+'"><source src="'+esc(videoMediaByPost[Number(post.id)])+'" type="video/mp4"></video><button class="naverDiscussionVideoToggle" type="button" data-discussion-video aria-label="영상 재생"><img src="'+chototIcon('chotot-common-video-play-white-bg')+'" alt=""></button>':'<a class="naverDiscussionMediaLink" href="'+detailUrl(post)+'" aria-label="'+esc(title)+' 사진 '+(itemIndex+1)+' / '+sources.length+' 상세 보기"><img src="'+esc(source)+'" alt="" loading="'+(index===0&&itemIndex===0?'eager':'lazy')+'"'+(index===0&&itemIndex===0?' fetchpriority="high"':'')+'></a>';
+      var localMedia=item.id?' data-local-media-id="'+esc(item.id)+'"':'';
+      var videoSource=item.kind==='video'?source:videoMediaByPost[Number(post.id)];
+      var media=isVideo?'<video muted playsinline preload="metadata"'+localMedia+(item.kind==='video'?'':' poster="'+esc(source)+'"')+(videoSource?' src="'+esc(videoSource)+'"':'')+'></video><button class="naverDiscussionVideoToggle" type="button" data-discussion-video aria-label="영상 재생"><img src="'+chototIcon('chotot-common-video-play-white-bg')+'" alt=""></button>':'<a class="naverDiscussionMediaLink" href="'+detailUrl(post)+'" aria-label="'+esc(title)+' 사진 '+(itemIndex+1)+' / '+sources.length+' 상세 보기"><img src="'+esc(source)+'"'+localMedia+' alt="" loading="'+(index===0&&itemIndex===0?'eager':'lazy')+'"'+(index===0&&itemIndex===0?' fetchpriority="high"':'')+'></a>';
       return '<div class="naverDiscussionMediaItem'+(contain?' is-contain':'')+'" data-discussion-media-index="'+itemIndex+'" data-media-post-id="'+esc(post.id)+'" data-kind="'+(isVideo?'video':'image')+'" data-ratio="'+ratio+'">'+media+'</div>';
     }).join('');
     return '<div class="naverDiscussionMediaShell'+(multiple?' is-multi':'')+'"><div class="naverDiscussionMediaRail" tabindex="0" aria-label="'+esc(title)+' 사진과 영상, 좌우로 넘기기">'+items+'</div></div>';
@@ -107,6 +116,19 @@
     list.className='list naverDiscussionList';
     list.innerHTML=feedBody();
     bind();
+    hydrateLocalMedia();
+  }
+  function hydrateLocalMedia(){
+    var elements=[].slice.call(list.querySelectorAll('[data-local-media-id]'));
+    if(!elements.length||!window.indexedDB)return;
+    var request=indexedDB.open('bbm-notion-write-media',1);
+    request.onsuccess=function(){
+      var db=request.result;
+      elements.forEach(function(element){
+        var read=db.transaction('media','readonly').objectStore('media').get(element.dataset.localMediaId);
+        read.onsuccess=function(){if(!read.result)return;var objectUrl=URL.createObjectURL(read.result);element.src=objectUrl;if(element.tagName==='VIDEO')element.load();};
+      });
+    };
   }
   function bind(){
     initMediaCarousels();
