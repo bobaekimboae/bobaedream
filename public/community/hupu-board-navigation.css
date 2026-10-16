@@ -39,13 +39,15 @@
 .boardOrderItem,.boardOrderAdd{height:40px;padding:0 14px;border-radius:8px;background:#f6f7f8;display:flex;align-items:center;justify-content:flex-start;min-width:0;position:relative;border:1px solid transparent;transition:transform .12s,border-color .12s,box-shadow .12s,background-color .12s;user-select:none;cursor:pointer}
 .boardOrderItem:focus-visible,.boardOrderAdd:focus-visible,.boardOrderEdit:focus-visible,.boardOrderClose:focus-visible,.boardOrderViewEntry:focus-visible,.boardOrderSectionTabs button:focus-visible{outline:2px solid #222;outline-offset:2px}
 .boardOrderItem.selected{color:#2864e8;font-weight:760}
-.boardOrderItem.boardOrderFixed{background:#f1f2f3;color:#a4a6aa;cursor:default}
-.boardOrderItem.boardOrderFixed.selected{color:#6f7277}
+.boardOrderItem.boardOrderFixed{background:#f1f2f3;color:#666a70;cursor:default}
+.boardOrderItem.boardOrderFixed.selected{color:#45484d}
 .boardOrderFixedIcon{position:absolute;right:6px;top:50%;width:12px;height:12px;display:block;opacity:.52;transform:translateY(-50%)}
 .boardOrderBackdrop:not(.isEditing) .boardOrderItem.boardOrderFixed{cursor:pointer}
-.boardOrderItem.dragging{transform:scale(1.045);border-color:#252525;background:#fff;box-shadow:0 8px 22px rgba(0,0,0,.16);z-index:3}
+.boardOrderBackdrop.isEditing .boardOrderItem[data-movable="true"]{touch-action:none;-webkit-touch-callout:none;cursor:grab}
+.boardOrderBackdrop.isEditing .boardOrderItem[data-movable="true"].dragging{cursor:grabbing}
+.boardOrderItem.dragging{transform:scale(1.045);border-color:#252525;background:#fff;box-shadow:0 8px 22px rgba(0,0,0,.16);opacity:.92;z-index:3}
 .boardOrderName{min-width:0;max-width:100%;padding:0;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;line-height:18px;font-weight:620;letter-spacing:-.05em}
-.boardOrderRemove{position:absolute;right:-11px;top:-14px;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:transparent;cursor:pointer;touch-action:manipulation;z-index:2}
+.boardOrderRemove{position:absolute;right:-4px;top:-4px;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:transparent;cursor:pointer;touch-action:manipulation;z-index:2}
 .boardOrderRemove img{width:20px;height:20px;padding:5px;box-sizing:border-box;display:block;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.18);opacity:.78}
 .boardOrderAvailable{margin-top:30px}
 .boardOrderSectionTabs{height:42px;display:flex;align-items:stretch;gap:28px;border-bottom:1px solid #ececef;margin-bottom:16px}
