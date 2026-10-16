@@ -72,3 +72,5 @@ iframe[data-embed-tiktok-profile],.naverDiscussionEmbed iframe[data-embed-tiktok
 .bbm-embed-reel{position:relative;width:288px;max-width:100%;aspect-ratio:9/16;margin:0 auto;overflow:hidden;border-radius:12px;background:#000}
 .bbm-embed-reel iframe[data-embed-reel]{position:absolute!important;left:0;top:0;display:block;width:350px!important;height:900px!important;max-width:none!important;aspect-ratio:auto!important;margin:0!important;border:0;background:#000;transform-origin:0 0;transform:scale(1.1707) translate(-52px,-54px)}
 .bbm-embed-preview.is-instagram.is-reel{width:min(100%,288px);aspect-ratio:9/16;border-radius:12px;background:#000}
+/* 스레드 공식 임베드 모양(oEmbed 응답의 인라인 스타일): 흰 바탕, 1px #00000026, 반경 16, 폭 최대 658, 최소 270 */
+iframe[data-embed-threads]{display:block;width:calc(100% - 2px)!important;max-width:658px!important;min-width:270px;margin:1px auto!important;border:1px solid #00000026!important;border-radius:16px!important;background:#fff!important}

@@ -98,12 +98,14 @@
         return frame('https://embed.reddit.com/' + rpath + '?' + rq, 'Reddit', rtitle, true, parsed.href);
       }
     }
-    /* 스레드: 공식 글 임베드(/@이름/post/ID/embed). 계정·검색 주소는 링크 카드 */
+    /* 스레드: 메타 공식 문서(Embed a Threads Post)의 embed.js가 만드는 틀과 같게 — /t/글코드/embed/, 높이는 스레드가 보내는 신호로 자동.
+       주소 형식은 문서대로 @아이디/post/글코드 와 t/글코드 두 가지. 계정·검색 주소는 링크 카드 */
     if (host === 'threads.net' || host === 'threads.com' || host.slice(-12) === '.threads.net' || host.slice(-12) === '.threads.com') {
-      var tuser = parts[0] && parts[0].charAt(0) === '@' ? parts[0] : '';
-      if (tuser && parts[1] === 'post' && parts[2]) {
-        var turl = 'https://www.threads.com/' + tuser + '/post/' + encodeURIComponent(parts[2]);
-        return frame(turl + '/embed', 'Threads', 'Threads 게시물', true, turl);
+      var tcode = parts[0] === 't' ? parts[1] : (parts[0] && parts[0].charAt(0) === '@' && parts[1] === 'post' ? parts[2] : '');
+      if (tcode) {
+        var th = frame('https://www.threads.com/t/' + encodeURIComponent(tcode) + '/embed/', 'Threads', 'Threads 게시물', false, parts[0] === 't' ? 'https://www.threads.com/t/' + encodeURIComponent(tcode) : 'https://www.threads.com/' + parts[0] + '/post/' + encodeURIComponent(tcode));
+        th.height = 520; th.kind = 'card'; th.threads = true;
+        return th;
       }
     }
     /* X(트위터): 공식 위젯 플레이어 */
@@ -125,7 +127,6 @@
     /* 트위터(X) 게시물 */
     if ((host === 'twitter.com' || host === 'x.com' || host === 'mobile.twitter.com') && parts[1] === 'status' && /^\d+$/.test(parts[2] || '')) return sized(frame('https://platform.twitter.com/embed/Tweet.html?id=' + parts[2] + '&lang=ko&dnt=true', 'X(트위터)', 'X 게시물'), 520);
     /* 스레드 */
-    if ((host === 'threads.net' || host === 'threads.com') && parts[0] && parts[0].charAt(0) === '@' && parts[1] === 'post' && parts[2]) return sized(frame('https://www.threads.com/' + parts[0] + '/post/' + encodeURIComponent(parts[2]) + '/embed', 'Threads', 'Threads 게시물'), 560);
     /* 페이스북 게시물·영상 */
     if (host === 'facebook.com' || host === 'm.facebook.com' || host === 'fb.watch') {
       var fbVideo = /\/videos?\/|\/reel\/|watch/.test(parsed.pathname + parsed.search) || host === 'fb.watch';
@@ -241,6 +242,7 @@
     if (!yt && item.wide) shape += ' data-embed-wide';
     var style = item.height ? ' style="height:' + Number(item.height) + 'px"' : '';
     if (/platform\.twitter\.com\//.test(src)) shape += ' data-embed-tweet';
+    if (/threads\.com\/t\/[^/]+\/embed\//.test(src)) shape += ' data-embed-threads';
     var html = '<iframe' + shape + style + ' src="' + esc(src) + '" title="' + esc(item.title || item.provider || '임베드') + '" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts"></iframe>';
     return crop ? '<div class="bbm-embed-crop">' + html + '</div>' : html;
   }
@@ -255,6 +257,13 @@
   }
   /* 노션처럼 원본 높이로: 인스타그램(MEASURE)·레딧(resize.embed)이 보내는 높이 신호로 iframe 높이를 맞춘다 */
   window.addEventListener('message', function (event) {
+    /* 스레드 embed.js와 같게: 틀이 보내는 숫자(높이)로 iframe 높이를 맞춘다 */
+    if (/(^|\.)threads\.(com|net)$/.test((function () { try { return new URL(event.origin).hostname; } catch (_) { return ''; } })())) {
+      var th = Number(typeof event.data === 'string' || typeof event.data === 'number' ? event.data : NaN);
+      if (!(th > 50)) return;
+      Array.prototype.forEach.call(document.querySelectorAll('iframe[data-embed-threads]'), function (frame) { if (frame.contentWindow === event.source) { frame.setAttribute('data-embed-height', ''); frame.style.setProperty('--embed-h', Math.ceil(th) + 'px'); } });
+      return;
+    }
     if (/(^|\.)twitter\.com$/.test((function () { try { return new URL(event.origin).hostname; } catch (_) { return ''; } })())) {
       var xd = event.data; try { if (typeof xd === 'string') xd = JSON.parse(xd); } catch (_) { return; }
       var xr = xd && xd['twttr.embed']; var xh = xr && xr.method === 'twttr.private.resize' && xr.params && xr.params[0] && Number(xr.params[0].height);
