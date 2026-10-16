@@ -57,8 +57,8 @@ img { display: block; }
 .bookmarkButton[aria-pressed="true"] img { filter: invert(29%) sepia(96%) saturate(2600%) hue-rotate(333deg) brightness(101%) contrast(102%); }
 
 .post { padding: 24px 24px 0; }
-.boardLink { display: flex; align-items: center; gap: 5px; color: var(--green); font-size: 18px; font-weight: 750; }
-.boardLink img { width: 13px; height: 13px; transform: rotate(-90deg); filter: invert(54%) sepia(78%) saturate(3360%) hue-rotate(128deg) brightness(86%) contrast(101%); }
+.boardLink { display: flex; align-items: center; gap: 5px; color: var(--brand); font-size: 18px; font-weight: 750; }
+.boardLink img { width: 13px; height: 13px; transform: rotate(-90deg); filter: invert(50%) sepia(91%) saturate(1966%) hue-rotate(177deg) brightness(92%) contrast(93%); }
 .postTitle { margin: 28px 0 22px; font-size: 24px; line-height: 32px; font-weight: 750; letter-spacing: -.04em; }
 .authorRow { display: flex; align-items: center; gap: 14px; }
 .authorAvatar, .commentAvatar, .replyAvatar { border-radius: 50%; object-fit: cover; background: #f1f1f1; }
@@ -310,7 +310,7 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
 }
 
 /* Final Reddit icon normalization after responsive rules. */
-.boardLink img{width:16px;height:16px;transform:none;filter:none}.voteButton img,.roundAction img{width:20px;height:20px}.commentIconButton img{width:19px;height:19px}
+.boardLink img{width:16px;height:16px;transform:none;filter:invert(50%) sepia(91%) saturate(1966%) hue-rotate(177deg) brightness(92%) contrast(93%)}.voteButton img,.roundAction img{width:20px;height:20px}.commentIconButton img{width:19px;height:19px}
 @media(max-width:600px){.boardLink img{width:15px;height:15px}.voteButton img,.roundAction img{width:20px;height:20px}.commentIconButton img{width:18px;height:18px}}
 .voteButton img.voteThumb{width:18px;height:18px;object-fit:contain}
 .voteButton img.voteThumbDown{transform:rotate(180deg)}
