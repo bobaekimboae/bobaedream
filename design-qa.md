@@ -94,6 +94,35 @@ final result: passed
 
 ---
 
+# 상세페이지 좋아요·싫어요 분리 알약칩 QA · 2026-10-16
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a128e5-de8a-78d0-9ed9-96cbde6a07c3/309bf5e7-9636-40c7-89f5-263195470246/1-1000018588.jpg`
+- browser-rendered implementation: CUA Chrome tab `229716765`, `http://127.0.0.1:4313/community/chzzk-detail.html?id=1&v=split-likes`
+- viewport and density: 구현 360 × 800 CSS px, DPR 1. 원본 591 × 1279px은 상세 본문 하단의 투표 액션 구조를 기준으로 비교했다.
+- state: 일반 게시물 상세, 좋아요·싫어요 미선택 및 각 선택 상태
+- full-view comparison evidence: 원본과 브라우저 렌더를 열어 본문 하단에 독립된 두 개의 캡슐 액션이 놓이는 구조를 확인했다.
+- focused region comparison evidence: 구현에서 각 칩 68 × 40px, 반경 22px, 내부 아이콘 18px, 칩 사이 간격 6px을 실측했다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: Pretendard 12px/750으로 `좋아요`, `싫어요`를 동일한 광학 무게와 한 줄 높이로 맞췄다.
+- spacing and layout rhythm: 기존의 결합 투표칩을 68px 동일 폭의 독립 알약칩 두 개로 분리했다. 360px에서 반응행 `clientWidth`와 `scrollWidth`가 모두 315px로 가로 넘침이 없다.
+- colors and visual tokens: 기본은 흰 배경·중립 회색 테두리, 선택은 기존 브랜드 소프트 블루를 유지해 현재 서비스 상태색과 일치한다.
+- image quality and asset fidelity: 기존 상세페이지의 실제 엄지 외곽선 자산을 재사용하고 싫어요만 같은 자산을 180도 회전해 획 굵기와 면적을 동일하게 유지했다.
+- copy and content: `추천/비추`를 `좋아요/싫어요`로 교체했고 공지형 상세에도 같은 명칭과 구조를 적용했다.
+- interaction: 두 선택은 상호 배타적으로 동작하고 내부 점수는 접근성 라이브 영역에서 계속 갱신된다. 좋아요·싫어요 토스트와 콘솔 오류 0건을 확인했다.
+
+## Comparison history
+
+- Pass 1: 좋아요·점수·싫어요가 하나의 긴 알약에 묶여 있어 원본의 독립 액션 구조와 달랐다.
+- Fix: 두 액션을 별도 테두리 알약칩으로 분리하고 점수는 화면에서 숨긴 접근성 라이브 영역으로 이동했다.
+- Pass 2: 360 × 800 브라우저에서 두 칩의 폭·높이·반경이 같고 댓글·재게시·공유와 충돌하지 않음을 확인했다.
+
+final result: passed
+
+---
+
 # 커뮤니티 레딧형 인기글 QA · 2026-10-16
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/1471b383-e429-4a24-a5b1-495c872e45ce/1-1000018552.jpg`
