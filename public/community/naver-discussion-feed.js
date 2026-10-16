@@ -125,6 +125,10 @@
     return data.map(currentVariant==='thumb'?thumbCard:card).join('');
   }
   function render(variant){
+    if(window.BBM_GET_ACTIVE_BOARD_TABLE&&window.BBM_GET_ACTIVE_BOARD_TABLE()==='vehicle-review'){
+      if(window.renderVehicleReviewBoardTable)window.renderVehicleReviewBoardTable({posts:(window.BOBAE_POSTS||[]).slice()});
+      return;
+    }
     currentVariant=variant==='thumb'?'thumb':'';
     mediaCarousels.forEach(function(api){api.destroy();});
     mediaCarousels=[];
@@ -260,6 +264,9 @@
   window.renderNaverDiscussionFeed=render;
   /* 목록 페이지의 현재 보기 방식(mode)을 따른다. 게시판 기본 보기(자동차뉴스 = 좌측 썸네일)도 여기서 반영된다 */
   var startMode=(window.BBM_GET_VIEW_MODE&&window.BBM_GET_VIEW_MODE())||new URLSearchParams(location.search).get('view');
-  if(startMode==='naver-discussion')render();
-  else if(startMode==='naver-discussion-thumb')render('thumb');
+  var activeBoardTable=window.BBM_GET_ACTIVE_BOARD_TABLE&&window.BBM_GET_ACTIVE_BOARD_TABLE();
+  if(activeBoardTable!=='vehicle-review'){
+    if(startMode==='naver-discussion')render();
+    else if(startMode==='naver-discussion-thumb')render('thumb');
+  }
 })();
