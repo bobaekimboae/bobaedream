@@ -357,7 +357,14 @@ export default function VehicleReviewBoard({ cars }: { cars: Car[] }) {
   };
   const openWriter = () => { setSelected(null); setView("write"); syncReviewUrl("write"); };
   const openDetail = (review: SavedReview) => { setSelected(review); setView("detail"); syncReviewUrl(review.id); };
-  const saved = (review: SavedReview) => { setReviews((current) => [review, ...current]); openDetail(review); };
+  const saved = (review: SavedReview) => {
+    setReviews((current) => [review, ...current]);
+    if (new URLSearchParams(window.location.search).get("from") === "community") {
+      window.location.href = `./community/naver-cafe-list.html?board=vehicle-review&review=${encodeURIComponent(review.id)}`;
+      return;
+    }
+    openDetail(review);
+  };
   const remove = (review: SavedReview) => {
     if (!window.confirm("테스트 리뷰를 삭제할까요?")) return;
     const stored = (JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "[]") as SavedReview[]).filter((item) => item.id !== review.id);

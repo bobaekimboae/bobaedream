@@ -48,13 +48,13 @@
     }
     var base = { url: parsed.href, render: 'preview', src: '', provider: host, title: host, tall: false };
     function frame(src, provider, title, tall, url) { return { url: url || parsed.href, render: 'iframe', src: src, provider: provider, title: title, tall: Boolean(tall) }; }
-    function yt(id, shorts) { var item = frame('https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id), 'YouTube', shorts ? '유튜브 쇼츠' : '유튜브 동영상', shorts); item.image = 'https://i.ytimg.com/vi/' + encodeURIComponent(id) + '/hqdefault.jpg'; item.wide = !shorts; return item; }
+    function yt(id, shorts) { var item = frame('https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?rel=0', 'YouTube', shorts ? '유튜브 쇼츠' : '유튜브 동영상', shorts); item.image = 'https://i.ytimg.com/vi/' + encodeURIComponent(id) + '/hqdefault.jpg'; item.wide = !shorts; return item; }
     if (host === 'youtu.be' && parts[0]) return yt(parts[0], false);
     if (host.slice(-11) === 'youtube.com') {
       var id = parsed.searchParams.get('v') || (parts[0] === 'shorts' || parts[0] === 'embed' || parts[0] === 'live' ? parts[1] : '');
       if (id) return yt(id, parts[0] === 'shorts');
     }
-    if (host.slice(-9) === 'vimeo.com' && /^\d+$/.test(parts[parts.length - 1] || '')) { var vm = frame('https://player.vimeo.com/video/' + parts[parts.length - 1], 'Vimeo', 'Vimeo 동영상'); vm.wide = true; vm.kind = 'video'; return vm; }
+    if (host.slice(-9) === 'vimeo.com' && /^\d+$/.test(parts[parts.length - 1] || '')) { var vm = frame('https://player.vimeo.com/video/' + parts[parts.length - 1] + '?app_id=122963', 'Vimeo', 'Vimeo 동영상'); vm.wide = true; vm.kind = 'video'; return vm; }
     if (host === 'instagram.com' || host.slice(-14) === '.instagram.com') {
       if (['p', 'reel', 'reels', 'tv'].indexOf(parts[0]) >= 0 && parts[1]) {
         var type = parts[0] === 'reels' ? 'reel' : parts[0];
@@ -238,7 +238,7 @@
     if (!yt && item.wide) shape += ' data-embed-wide';
     var style = item.height ? ' style="height:' + Number(item.height) + 'px"' : '';
     if (/platform\.twitter\.com\//.test(src)) shape += ' data-embed-tweet';
-    var html = '<iframe' + shape + style + ' src="' + esc(src) + '" title="' + esc(item.title || item.provider || '임베드') + '" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts"></iframe>';
+    var html = '<iframe' + shape + style + ' src="' + esc(src) + '" title="' + esc(item.title || item.provider || '임베드') + '" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts"></iframe>';
     return crop ? '<div class="bbm-embed-crop">' + html + '</div>' : html;
   }
   /* 상세·피드에서 쓰는 블록 하나 */

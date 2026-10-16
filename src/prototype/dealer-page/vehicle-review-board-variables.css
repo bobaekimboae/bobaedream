@@ -1427,3 +1427,30 @@
 .vr-detail-actions button:last-child .vr-ui-icon {
   transform: rotate(180deg);
 }
+
+/* 2026-10-17 live-device crosscheck: keep rating feedback readable at 384dp. */
+.vr-rating-row > div:first-child small {
+  color: #626874;
+  font-size: 11px;
+  line-height: 15px;
+  font-weight: 550;
+}
+
+.vr-rating-row:has([aria-checked="true"]) {
+  background: #fafbfc;
+}
+
+.vr-star-popover {
+  border-color: #222;
+  background: #222;
+  color: #fff;
+}
+
+.vr-star-popover::after {
+  border-color: #222;
+  background: #222;
+}
+
+.vr-star-popover .vr-ui-icon {
+  filter: none;
+}
