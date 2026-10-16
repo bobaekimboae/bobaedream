@@ -157,6 +157,21 @@ function findReviewCar(cars: Car[], model: ReviewModel) {
   });
 }
 
+function reviewPhotos(review: SavedReview, model: ReviewModel, cars: Car[]) {
+  const seeded = reviewSeedVehicles.find((item) => item.id === model.id);
+  if (seeded) return [1, 2, 3].map((index) => asset(`cars/seoul-autogallery-v01/${seeded.photoKey}-${index}.webp`));
+  if (review.imageData) return [review.imageData];
+  const car = findReviewCar(cars, model);
+  return car ? [asset(car.listThumb ?? car.image)] : [];
+}
+
+const seededComments = [
+  { author: "M 드라이버", owner: "BMW M3 오너 · 보유 2년", body: "장거리에서도 시트와 조향감이 편한가요? 데일리카로 고민 중입니다.", meta: "10월 16일 · 서울", likes: 11, replies: 4 },
+  { author: "주말오너", owner: "실소유자 인증", body: "저도 비슷하게 느꼈어요. 컴포트 모드에서는 승차감이 생각보다 무난했습니다.", meta: "10월 16일 · 경기", likes: 3, replies: 2 },
+  { author: "모터다이어리", owner: "차량 리뷰어", body: "보험료와 소모품 비용도 함께 알려주시면 구매를 고민하는 분들께 도움이 될 것 같아요.", meta: "10월 15일 · 부산", likes: 2, replies: 1 },
+  { author: "로드테스터", owner: "실소유자 인증", body: "고속 주행 안정감과 브레이크 답력은 같은 급에서 가장 만족스러웠습니다.", meta: "10월 14일 · 대구", likes: 1, replies: 0 },
+] as const;
+
 function ReviewWriter({ onCancel, onSaved }: { onCancel: () => void; onSaved: (review: SavedReview) => void }) {
   const [model, setModel] = useState<ReviewModel>(reviewModels[0]);
   const [ratings, setRatings] = useState<ScoreMap>({});
@@ -279,15 +294,15 @@ function ReviewList({ reviews, cars, onWrite, onOpen }: { reviews: SavedReview[]
     <div className="vr-list-cards">{visible.map((review) => {
       const model = reviewModels.find((item) => item.id === review.modelId) ?? reviewModels[0];
       const score = average(review.ratings);
-      const image = findReviewCar(cars, model);
+      const photos = reviewPhotos(review, model, cars);
       return <article className="vr-card" key={review.id}>
         <header><Logo model={model} /><span><b>{review.author ?? "보배드림 회원"}{review.owner ? <em><ReviewIcon name="check" /> 인증</em> : null}</b><small>{model.brand} {model.model} · {review.location ?? "지역 미입력"}</small></span><button type="button" aria-pressed={following.has(review.id)} onClick={() => setFollowing((current) => { const next = new Set(current); if (next.has(review.id)) next.delete(review.id); else next.add(review.id); return next; })}>{following.has(review.id) ? "구독 중" : "구독"}</button></header>
         <button type="button" className="vr-card-open" onClick={() => onOpen(review)}>
           <div className="vr-card-rating"><ScoreStars score={score} size={20} /><strong>{score.toFixed(1)}</strong><span>{score >= 4.5 ? "매우 만족" : score >= 4 ? "만족" : score >= 3 ? "보통" : "아쉬움"}</span><small>{model.trim.split(" ")[0]} · {review.ownershipLabel ?? (review.owner ? "실소유자" : "시승 리뷰")}</small></div>
           <h3>{review.title || `${model.brand} ${model.model} 사용자 리뷰`}</h3>
           <p>{review.body}</p>
-          {review.imageData ? <img src={review.imageData} alt="리뷰 차량" /> : image ? <img src={asset(image.listThumb ?? image.image)} alt="" aria-hidden="true" /> : null}
-          <footer><span>{review.createdAt}</span><span>도움돼요 {review.likes ?? 0} · 댓글 {review.comments ?? 0}</span></footer>
+          {photos.length ? <div className={`vr-card-gallery is-${photos.length}`}>{photos.map((photo, index) => <img key={`${photo}-${index}`} src={photo} alt={index === 0 ? `${model.brand} ${model.model} 리뷰 사진` : ""} aria-hidden={index > 0 ? "true" : undefined} />)}</div> : null}
+          <footer><span>{review.createdAt}</span><span><ReviewIcon name="share" /> 공유</span><span><ReviewIcon name="chat" /> 댓글 {review.comments ?? 0}</span><span className="vr-card-like"><ReviewIcon name="like" /> 도움돼요 {review.likes ?? 0}</span></footer>
         </button>
       </article>;
     })}</div>
@@ -299,26 +314,25 @@ function ReviewDetail({ review, cars, onBack, onDelete }: { review: SavedReview;
   const model = reviewModels.find((item) => item.id === review.modelId) ?? reviewModels[0];
   const profile = ratingProfiles[model.powertrain];
   const score = average(review.ratings);
-  const image = findReviewCar(cars, model);
+  const photos = reviewPhotos(review, model, cars);
   const [subscribed, setSubscribed] = useState(false);
   const [helpful, setHelpful] = useState(false);
   const [unhelpful, setUnhelpful] = useState(false);
-  const [showComments, setShowComments] = useState(false);
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState<string[]>([]);
   const [copied, setCopied] = useState(false);
   const [saved, setSaved] = useState(false);
+  const commentsRef = useRef<HTMLElement | null>(null);
   return <article className="vr-detail">
     <header className="vr-detail-head"><button type="button" onClick={onBack} aria-label="목록으로"><ReviewIcon name="back" /></button><strong>차량 리뷰</strong><button type="button" aria-label="공유" onClick={async () => { await navigator.clipboard?.writeText(window.location.href); setCopied(true); window.setTimeout(() => setCopied(false), 1400); }}><ReviewIcon name="share" /></button></header>
     <div className="vr-detail-model"><Logo model={model} large /><span><h2>{review.author ?? "보배드림 회원"}{review.owner ? <em><ReviewIcon name="check" /> 실소유자</em> : null}</h2><p>{model.brand} {model.model} · {review.location ?? "지역 미입력"}</p></span><button type="button" aria-pressed={subscribed} onClick={() => setSubscribed((value) => !value)}>{subscribed ? "구독 중" : "구독"}</button></div>
-    <div className="vr-detail-title"><h1>{review.title || `${model.brand} ${model.model} 사용자 리뷰`}</h1></div>
     <div className="vr-detail-score"><div><b>{model.brand} {model.model}</b><ScoreStars score={score} size={20} /><strong>{score.toFixed(2)}</strong><em>{score >= 4.5 ? "매우 만족" : score >= 4 ? "만족" : score >= 3 ? "보통" : "아쉬움"}</em></div><small>{model.trim} · {model.benchmark}</small></div>
     <div className="vr-detail-ratings">{[...profile.required, ...profile.optional].filter((id) => review.ratings[id]).map((id) => { const value = review.ratings[id] ?? 0; const comment = ratingComment(id, value); return <div key={id}><span><b>{ratingCategories[id].label}</b><small>{comment.korean}</small></span><strong>{value.toFixed(1)}</strong><i><em style={{ width: `${value * 20}%` }} /></i></div>; })}</div>
     {review.owner ? <dl className="vr-detail-owner"><div><dt>소유자 인증</dt><dd>실소유자 리뷰</dd></div><div><dt>구매 시기</dt><dd>{review.purchaseDate ?? "미입력"}</dd></div><div><dt>구매 지역</dt><dd>{review.location ?? "미입력"}</dd></div><div><dt>차량 가격</dt><dd>{review.price ? `${review.price}만원` : "미입력"}</dd></div><div><dt>{profile.ownerMetric.label}</dt><dd>{review.ownerMetric ? `${review.ownerMetric}${profile.ownerMetric.unit}` : "미입력"}</dd></div></dl> : null}
-    <div className="vr-detail-body"><h3>차량 경험</h3><p>{review.body}</p>{review.imageData ? <img className="vr-detail-cover" src={review.imageData} alt={`${model.model} 대표 이미지`} /> : image ? <img className="vr-detail-cover" src={asset(image.listThumb ?? image.image)} alt={`${model.model} 대표 이미지`} /> : null}</div>
+    <div className="vr-detail-body"><h1>{review.title || `${model.brand} ${model.model} 사용자 리뷰`}</h1><p>{review.body}</p>{photos.length ? <div className={`vr-detail-gallery is-${photos.length}`}>{photos.map((photo, index) => <img key={`${photo}-${index}`} src={photo} alt={index === 0 ? `${model.model} 대표 이미지` : `${model.model} 리뷰 사진 ${index + 1}`} />)}</div> : null}</div>
     {copied ? <p className="vr-copy-toast">리뷰 주소를 복사했어요.</p> : null}
-    <div className="vr-detail-actions"><button type="button" aria-pressed={helpful} onClick={() => { setHelpful((value) => !value); setUnhelpful(false); }}><ReviewIcon name="like" /> 도움돼요 {(review.likes ?? 0) + (helpful ? 1 : 0)}</button><button type="button" aria-pressed={unhelpful} onClick={() => { setUnhelpful((value) => !value); setHelpful(false); }}>별로예요</button><button type="button" aria-expanded={showComments} onClick={() => setShowComments((value) => !value)}><ReviewIcon name="chat" /> 댓글 {(review.comments ?? 0) + comments.length}</button><button type="button" aria-pressed={saved} onClick={() => setSaved((value) => !value)}><ReviewIcon name="bookmark" /> {saved ? "저장됨" : "저장"}</button></div>
-    {showComments ? <section className="vr-comments" aria-label="리뷰 댓글"><h3>전체 댓글 {(review.comments ?? 0) + comments.length}</h3><p>차량 경험에 도움이 되는 댓글을 먼저 보여드려요.</p>{comments.map((item, index) => <article key={`${item}-${index}`}><b>보배드림 회원</b><span>{item}</span><small>방금 전 · 답글</small></article>)}<form onSubmit={(event) => { event.preventDefault(); const value = comment.trim(); if (!value) return; setComments((current) => [...current, value]); setComment(""); }}><input value={comment} onChange={(event) => setComment(event.target.value)} placeholder="댓글을 입력하세요" aria-label="댓글 입력" /><button type="submit" disabled={!comment.trim()}>등록</button></form></section> : null}
+    <section ref={commentsRef} className="vr-comments" aria-label="리뷰 댓글"><header><div><h3>전체 댓글 {(review.comments ?? 0) + comments.length}</h3><p>차량 경험에 도움이 되는 댓글을 먼저 보여드려요.</p></div><button type="button">추천순</button></header><form onSubmit={(event) => { event.preventDefault(); const value = comment.trim(); if (!value) return; setComments((current) => [...current, value]); setComment(""); }}><input value={comment} onChange={(event) => setComment(event.target.value)} placeholder="댓글을 입력하세요" aria-label="댓글 입력" /><button type="submit" disabled={!comment.trim()}>등록</button></form>{comments.map((item, index) => <article key={`${item}-${index}`}><Logo model={model} /><div><b>보배드림 회원 <em>실소유자</em></b><span>{item}</span><small>방금 전 · 답글</small></div><button type="button"><ReviewIcon name="like" /> 0</button></article>)}{seededComments.map((item) => <article key={item.author}><Logo model={model} /><div><b>{item.author}<small>{item.owner}</small></b><span>{item.body}</span><footer>{item.meta}<button type="button">답글</button>{item.replies ? <button type="button" className="vr-replies">답글 {item.replies}개 보기</button> : null}</footer></div><button type="button"><ReviewIcon name="like" /> {item.likes}</button></article>)}</section>
+    <div className="vr-detail-actions"><button type="button" onClick={() => commentsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}><ReviewIcon name="chat" /> 댓글 {(review.comments ?? 0) + comments.length}</button><button type="button" aria-pressed={saved} onClick={() => setSaved((value) => !value)}><ReviewIcon name="bookmark" /> {saved ? "저장됨" : "저장"}</button><button type="button" aria-pressed={helpful} onClick={() => { setHelpful((value) => !value); setUnhelpful(false); }}><ReviewIcon name="like" /> 도움돼요 {(review.likes ?? 0) + (helpful ? 1 : 0)}</button><button type="button" aria-pressed={unhelpful} onClick={() => { setUnhelpful((value) => !value); setHelpful(false); }}><ReviewIcon name="like" /> 별로예요</button></div>
     {review.id.startsWith("local-") ? <button type="button" className="vr-delete" onClick={() => onDelete(review)}>테스트 리뷰 삭제</button> : null}
   </article>;
 }

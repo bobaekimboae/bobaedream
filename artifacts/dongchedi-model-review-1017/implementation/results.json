@@ -1,0 +1,112 @@
+{
+  "baseUrl": "http://127.0.0.1:4311/",
+  "checks": [
+    {
+      "name": "모델별 리뷰 50개",
+      "result": "PASS",
+      "actual": "50"
+    },
+    {
+      "name": "브랜드 엠블럼",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "평점·평가어",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "리뷰 제목",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "3분할 실차 사진",
+      "result": "PASS",
+      "actual": "150"
+    },
+    {
+      "name": "공유·댓글·도움 반응",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "상세 작성자·실소유자",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "상세 점수 숫자",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "평점 항목 6개 이상",
+      "result": "PASS",
+      "actual": "6"
+    },
+    {
+      "name": "구매정보 가변 항목",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "상세 제목·본문",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "상세 3분할 사진",
+      "result": "PASS",
+      "actual": "3"
+    },
+    {
+      "name": "댓글 상시 노출",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "댓글 프사·작성자·내용",
+      "result": "PASS",
+      "actual": "4"
+    },
+    {
+      "name": "댓글 답글 기능",
+      "result": "PASS",
+      "actual": "3"
+    },
+    {
+      "name": "댓글 찬성 버튼",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "댓글 등록",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "댓글 수 증가",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "콘솔 오류 0",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "PC 리뷰 목록",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "깨진 이미지 0",
+      "result": "PASS",
+      "actual": ""
+    }
+  ],
+  "errors": [],
+  "failures": []
+}
