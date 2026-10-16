@@ -29,6 +29,8 @@ for (const width of [360, 384, 412]) {
     const firstThumb = firstThumbRow?.querySelector('.thumbWrap');
     const title = firstThumbRow?.querySelector('.body');
     const reply = document.querySelector('.compactReply');
+    const recommendIcon = document.querySelector('.metaRecommend .metaAsset');
+    const viewIcon = document.querySelector('.metaView .metaAsset');
     const item = rows[0];
     const boardTop = document.querySelector('.boardTop');
     const cleanBot = document.querySelector('.compactCleanBot');
@@ -52,7 +54,10 @@ for (const width of [360, 384, 412]) {
       itemHeight: item ? Math.round(item.getBoundingClientRect().height) : 0,
       thumbSize: thumbStyle ? [Math.round(parseFloat(thumbStyle.width)), Math.round(parseFloat(thumbStyle.height))] : [0, 0],
       replyColor: reply ? getComputedStyle(reply).color : '',
-      recommendIcon: document.querySelector('.metaRecommend .metaAsset')?.getAttribute('src') || '',
+      recommendIcon: recommendIcon?.getAttribute('src') || '',
+      viewIcon: viewIcon?.getAttribute('src') || '',
+      recommendIconSize: recommendIcon ? [Math.round(recommendIcon.getBoundingClientRect().width), Math.round(recommendIcon.getBoundingClientRect().height)] : [0, 0],
+      viewIconSize: viewIcon ? [Math.round(viewIcon.getBoundingClientRect().width), Math.round(viewIcon.getBoundingClientRect().height)] : [0, 0],
       brokenImages: [...document.images].filter((image) => image.complete && image.naturalWidth === 0).map((image) => image.getAttribute('src')),
       firstItemTarget: item?.getAttribute('data-id') || ''
     };
@@ -66,7 +71,8 @@ for (const width of [360, 384, 412]) {
     newDots: metrics.visibleDots === metrics.freshRows,
     rightThumb: metrics.rightThumb,
     dimensions: metrics.itemHeight === 70 && metrics.thumbSize[0] === 52 && metrics.thumbSize[1] === 52,
-    preservedExceptions: metrics.replyColor === 'rgb(35, 143, 227)' && metrics.recommendIcon.includes('recommend-thumb-up.svg'),
+    chzzkIcons: metrics.recommendIcon.includes('chzzk-detail/icons/buff.svg') && metrics.viewIcon.includes('chzzk-view.svg') && metrics.recommendIconSize.join('x') === '16x16' && metrics.viewIconSize.join('x') === '16x16',
+    preservedReplyColor: metrics.replyColor === 'rgb(35, 143, 227)',
     targets: metrics.firstItemTarget === '1',
     runtime: errors.length === 0
   };

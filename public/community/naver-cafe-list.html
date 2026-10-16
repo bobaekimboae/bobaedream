@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="./hupu-board-navigation.css?v=20261016reorder3">
 <link rel="stylesheet" href="./reddit-board-profile.css?v=20261016redditsubscribe2">
 <link rel="stylesheet" href="./board-header-variants.css?v=20261016genesiskr2">
-<link rel="stylesheet" href="./chzzk-list-parity.css?v=20261017listparity2">
+<link rel="stylesheet" href="./chzzk-list-parity.css?v=20261017listparity3">
 <link rel="stylesheet" href="./vehicle-review-board.css?v=20261017modely1">
 <link rel="stylesheet" href="./fuel-economy-board.css?v=20261017energy50">
 <link rel="stylesheet" href="./fuel-economy-fixes.css?v=20261017energy50">
@@ -173,7 +173,7 @@ function renderCafePopular(leftThumb){
   var selectedHeadword=list.querySelector('[data-cafe-headword="'+active+'"]');if(selectedHeadword)selectedHeadword.scrollIntoView({inline:'center',block:'nearest'});
   [].forEach.call(list.querySelectorAll('.naverCafePopularRow'),function(row){function open(){location.href='./chzzk-detail.html?id='+row.dataset.id+'&v=20261017navercafe1'}row.querySelector('.naverCafePopularMain').onclick=open;row.querySelector('.naverCafePopularReply').onclick=open});
 }
-function metaIcon(type){var asset={eye:'assets/reddit-ui/view-count.svg',thumb:'assets/reddit-ui/recommend-thumb-up.svg?v=20261016thumbgray2',comment:'assets/chzzk-detail/icons/comment-reddit.svg',clock:'assets/chzzk-detail/icons/refresh.svg'}[type];return asset?'<img class="metaAsset" src="'+asset+'" alt="" aria-hidden="true">':''}
+function metaIcon(type){var asset={eye:'assets/chzzk-view.svg?v=20261017chzzkicons1',thumb:'assets/chzzk-detail/icons/buff.svg?v=20261017chzzkicons1',comment:'assets/chzzk-detail/icons/comment-reddit.svg',clock:'assets/chzzk-detail/icons/refresh.svg'}[type];return asset?'<img class="metaAsset" src="'+asset+'" alt="" aria-hidden="true">':''}
 renderList=function(){
   if(mode!=='naver-cafe-popular'&&mode!=='naver-cafe-popular-left'){var popularSection=document.getElementById('popularSection'),popularAnchor=document.getElementById('popularSectionAnchor');if(popularSection&&popularAnchor&&popularSection.previousElementSibling!==popularAnchor)popularAnchor.insertAdjacentElement('afterend',popularSection)}
   if(activeBoardTable==='best'&&isBestView(mode)&&window.renderNaverDiscussionFeed){window.renderNaverDiscussionFeed(mode);return}

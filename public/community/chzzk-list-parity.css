@@ -35,8 +35,9 @@
 .phone.compactMode .compactTitleText{font-weight:500}
 .phone.compactMode .compactReply{color:#238fe3!important}
 .phone.compactMode .meta{gap:6px!important;color:#777a80!important;font-size:13px!important;line-height:17px!important}
-.phone.compactMode .metaRecommend .metaAsset{width:16px!important;height:16px!important;margin:0 1px 0 0!important;opacity:.68!important}
-.phone.compactMode .metaView .metaAsset{width:14px!important;height:14px!important;margin:-1px 1px -1px 0!important;opacity:.68!important}
+.phone.compactMode .metaMetric{height:17px!important;display:inline-flex!important;align-items:center!important;gap:2px!important}
+.phone.compactMode .metaRecommend .metaAsset,
+.phone.compactMode .metaView .metaAsset{display:block!important;width:16px!important;height:16px!important;margin:0!important;opacity:.64!important;flex:0 0 16px!important}
 .phone.compactMode .dot{display:none!important;left:-9px!important;top:15px!important;width:4px!important;height:4px!important}
 .phone.compactMode .item.fresh .dot{display:block!important}
 .phone.compactMode .thumbWrap,

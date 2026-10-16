@@ -9,7 +9,8 @@
       "newDots": true,
       "rightThumb": true,
       "dimensions": true,
-      "preservedExceptions": true,
+      "chzzkIcons": true,
+      "preservedReplyColor": true,
       "targets": true,
       "runtime": true
     },
@@ -35,7 +36,16 @@
         52
       ],
       "replyColor": "rgb(35, 143, 227)",
-      "recommendIcon": "assets/reddit-ui/recommend-thumb-up.svg?v=20261016thumbgray2",
+      "recommendIcon": "assets/chzzk-detail/icons/buff.svg?v=20261017chzzkicons1",
+      "viewIcon": "assets/chzzk-view.svg?v=20261017chzzkicons1",
+      "recommendIconSize": [
+        16,
+        16
+      ],
+      "viewIconSize": [
+        16,
+        16
+      ],
       "brokenImages": [],
       "firstItemTarget": "1"
     },
@@ -51,7 +61,8 @@
       "newDots": true,
       "rightThumb": true,
       "dimensions": true,
-      "preservedExceptions": true,
+      "chzzkIcons": true,
+      "preservedReplyColor": true,
       "targets": true,
       "runtime": true,
       "itemNavigation": true
@@ -78,7 +89,16 @@
         52
       ],
       "replyColor": "rgb(35, 143, 227)",
-      "recommendIcon": "assets/reddit-ui/recommend-thumb-up.svg?v=20261016thumbgray2",
+      "recommendIcon": "assets/chzzk-detail/icons/buff.svg?v=20261017chzzkicons1",
+      "viewIcon": "assets/chzzk-view.svg?v=20261017chzzkicons1",
+      "recommendIconSize": [
+        16,
+        16
+      ],
+      "viewIconSize": [
+        16,
+        16
+      ],
       "brokenImages": [],
       "firstItemTarget": "1"
     },
@@ -94,7 +114,8 @@
       "newDots": true,
       "rightThumb": true,
       "dimensions": true,
-      "preservedExceptions": true,
+      "chzzkIcons": true,
+      "preservedReplyColor": true,
       "targets": true,
       "runtime": true
     },
@@ -120,7 +141,16 @@
         52
       ],
       "replyColor": "rgb(35, 143, 227)",
-      "recommendIcon": "assets/reddit-ui/recommend-thumb-up.svg?v=20261016thumbgray2",
+      "recommendIcon": "assets/chzzk-detail/icons/buff.svg?v=20261017chzzkicons1",
+      "viewIcon": "assets/chzzk-view.svg?v=20261017chzzkicons1",
+      "recommendIconSize": [
+        16,
+        16
+      ],
+      "viewIconSize": [
+        16,
+        16
+      ],
       "brokenImages": [],
       "firstItemTarget": "1"
     },

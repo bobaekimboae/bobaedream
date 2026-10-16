@@ -38,6 +38,16 @@ final result: passed
 - 360·384·412px에서 공지 DOM 0건, 클린봇 간격 14px, 깨진 이미지·콘솔 오류 0건을 확인했다.
 - final result: passed.
 
+---
+
+## 치지직 간결형 메타 아이콘 정렬 · 2026-10-17
+
+- 목록 메타의 추천·조회 아이콘을 치지직 전용 `buff.svg`, `chzzk-view.svg`로 통일했다.
+- 두 아이콘의 슬롯을 모두 16×16px로 맞추고 숫자와의 간격을 2px, 행 높이를 17px로 통일해 서로 다른 수직 위치와 광학 크기 문제를 제거했다.
+- 댓글 숫자의 보배드림 블루는 사용자 지정 예외로 유지했다.
+- 360·384·412px에서 추천·조회 아이콘 16×16px, 깨진 이미지·콘솔 오류 0건을 확인했다.
+- final result: passed.
+
 ## 해외 자동차뉴스 Threads형 링크 카드 QA (2026-10-17)
 
 - source visual truth: `C:\Users\bobae\OneDrive\문서\ChatGPT\퀵필터 제작\.codex-remote-attachments\01a10689-936d-7973-9ae7-047c763eeb65\a2ed51e8-0dbd-48b2-b904-7f1a656e094a\1-1000018728.jpg`
