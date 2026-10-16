@@ -28,10 +28,11 @@ const selectCity = async (city) => {
 
 await page.goto(`${root}/community/naver-cafe-list.html?board=fuel-economy`, { waitUntil: 'networkidle' });
 await page.locator('.feb-card').first().waitFor();
-check(await page.locator('.feb-card').count() === 20, '독립 게시판 테스트 기록 20개');
-check(await page.locator('.feb-metrics').count() === 20, '모든 피드 카드에 에너지 수치 표시');
-check(await page.locator('.feb-avatar img').count() >= 20, '모든 피드 카드에 브랜드 엠블럼 표시');
+check(await page.locator('.feb-card').count() === 50, '독립 게시판 등록 차량 50대');
+check(await page.locator('.feb-metrics').count() === 50, '50대 피드 카드에 에너지 수치 표시');
+check(await page.locator('.feb-avatar img').count() === 50, '50대 피드 카드에 브랜드 엠블럼 표시');
 check((await page.locator('.boardSelectName').textContent())?.trim() === '연비·전비', '게시판명이 연비·전비로 표시');
+check(await page.evaluate(() => new Set(((window.BBM_BOARD_TABLES||{})['fuel-economy']||{}).rows.map((row) => row.modelId)).size === 50), '50대가 서로 다른 차량 모델로 구성');
 await page.screenshot({ path: path.join(out, '01-list-mobile.png'), fullPage: true });
 
 await page.locator('[data-type="ev"]').click();
@@ -54,7 +55,7 @@ check(await page.locator('.fe-fields').count() === 0, '차량 선택 전 에너�
 check(await page.locator('.fe-example').count() === 2, '원본처럼 참고 예시 사진 2장 표시');
 const writerCard = await page.locator('.fe-card').first().evaluate((node) => ({ left: node.getBoundingClientRect().left, right: node.getBoundingClientRect().right }));
 check(writerCard.left >= 10 && writerCard.right <= 380, '글쓰기 카드 좌우 10px 여백 유지');
-await selectModel(/포르쉐/, /포르쉐 타이칸/, /2023 EV/);
+await selectModel(/포르쉐/, /포르쉐 타이칸/, /2025 Taycan 4S/);
 const evText = await page.locator('.fe-fields').innerText();
 check(evText.includes('평균 전비') && evText.includes('완충 실주행거리') && !evText.includes('평균 연비'), '전기차 가변 항목 정확');
 check(await page.getByLabel('측정 온도').inputValue() === '15', '전기차 측정 온도 기본값 15℃');
@@ -71,10 +72,10 @@ await scrollHost.evaluate((node) => { node.scrollTop = 0; });
 await selectModel(/람보르기니/, /람보르기니 우루스 SE/, /2025 플러그인 하이브리드/);
 const phevText = await page.locator('.fe-fields').innerText();
 check(phevText.includes('평균 전비') && phevText.includes('평균 연비') && !phevText.includes('완충 실주행거리'), '플러그인 하이브리드 가변 항목 정확');
-await selectModel(/렉서스/, /렉서스 RX/, /2022 RX 450h/);
+await selectModel(/렉서스/, /렉서스 RX/, /2025 RX 450h/);
 const hybridText = await page.locator('.fe-fields').innerText();
 check(hybridText.includes('평균 연비') && !hybridText.includes('평균 전비') && !hybridText.includes('완충 실주행거리'), '하이브리드 가변 항목 정확');
-await selectModel(/^BMW/, /^BMW M3/, /2023 M3 xDrive/);
+await selectModel(/^BMW/, /^BMW M3/, /2025 M3 xDrive/);
 const iceText = await page.locator('.fe-fields').innerText();
 check(iceText.includes('평균 연비') && !iceText.includes('평균 전비') && !iceText.includes('완충 실주행거리'), '내연기관 가변 항목 정확');
 await selectCity('서울');
