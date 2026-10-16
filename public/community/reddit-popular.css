@@ -1,25 +1,18 @@
-.popularSection{padding:0 0 13px;border-bottom:1px solid #ececef;background:#fff;color:#1f2023}
-.popularHeading{display:flex;width:100%;height:48px;align-items:center;justify-content:space-between;padding:0 16px;background:#fff;color:#232427;text-align:left}
-.popularHeading strong{font-size:15px;font-weight:750;line-height:20px;letter-spacing:-.035em}
-.popularHeading img{width:16px;height:16px;opacity:.78;transition:transform .16s ease}
-.popularScroller{overflow-x:auto;overflow-y:hidden;padding:0 0 0 14px;scrollbar-width:none;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+.popularSection{padding:8px 0 18px;border-bottom:1px solid #ececef;background:#fff;color:#1f2023}
+.popularHeading{display:flex;width:100%;height:48px;align-items:center;justify-content:space-between;padding:0 16px;background:#fff;color:#202124;text-align:left}
+.popularHeading strong{display:inline-flex;align-items:center;gap:7px;font-size:17px;font-weight:780;line-height:22px;letter-spacing:-.045em}
+.popularHeading .popularFlame{width:19px;height:21px;object-fit:contain;opacity:1}
+.popularHeading .popularNext{width:20px;height:20px;opacity:.82}
+.popularScroller{overflow-x:auto;overflow-y:hidden;padding:0;scrollbar-width:none;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;scroll-padding-inline:16px;scroll-snap-type:x proximity}
 .popularScroller::-webkit-scrollbar{display:none}
-.popularTrack{display:flex;width:max-content;gap:10px;padding-right:14px}
-.popularCard{position:relative;width:148px;height:148px;flex:0 0 148px;overflow:hidden;border:1px solid #d8dade;border-radius:20px;background:#fff;color:#202124;text-align:left;scroll-snap-align:start;box-sizing:border-box}
-.popularCardMedia{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;background:#eef0f2}
-.popularCardShade{position:absolute;inset:0;background:rgba(0,0,0,.37)}
-.popularCardCopy{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:12px;box-sizing:border-box;color:#fff}
-.popularCardTitle{display:-webkit-box;overflow:hidden;font-size:15px;font-weight:760;line-height:20px;letter-spacing:-.04em;word-break:keep-all;-webkit-line-clamp:2;-webkit-box-orient:vertical;text-shadow:0 1px 3px rgba(0,0,0,.28)}
-.popularCardMeta{display:flex;min-width:0;align-items:center;gap:6px;color:rgba(255,255,255,.93);font-size:11px;font-weight:600;line-height:16px;letter-spacing:-.02em}
-.popularCardMeta img{width:23px;height:23px;flex:0 0 23px;border:1px solid rgba(255,255,255,.82);border-radius:50%;object-fit:cover;background:#fff;box-sizing:border-box}
-.popularCardMeta span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.popularCard.isText{background:#fff;color:#202124}
-.popularCard.isText .popularCardCopy{color:#202124}
-.popularCard.isText .popularCardTitle{text-shadow:none}
-.popularCard.isText .popularCardMeta{color:#777a80}
-.popularCard.isText .popularCardMeta img{border-color:#e2e3e5;background:#f0f1f3}
-.popularSection.isCollapsed{padding-bottom:0}
-.popularSection.isCollapsed .popularScroller{display:none}
-.popularSection.isCollapsed .popularHeading img{transform:rotate(180deg)}
+.popularTrack{display:flex;width:max-content;gap:10px;padding:0 16px}
+.popularCard{display:block;width:144px;height:188px;flex:0 0 144px;overflow:hidden;border:0;border-radius:14px;background:#f5f6f7;color:#202124;text-align:left;text-decoration:none;scroll-snap-align:start;box-sizing:border-box}
+.popularCardMediaWrap{position:relative;display:block;width:100%;height:98px;overflow:hidden;background:#e9ebed}
+.popularCardMedia{width:100%;height:100%;display:block;object-fit:cover}
+.popularCardPhotoCount{position:absolute;right:8px;bottom:8px;min-width:25px;height:24px;padding:0 6px;border-radius:12px;background:rgba(31,32,34,.72);color:#fff;font-size:12px;font-weight:750;line-height:24px;text-align:center;box-sizing:border-box}
+.popularCardBody{display:flex;height:90px;flex-direction:column;padding:10px 12px 9px;box-sizing:border-box}
+.popularCardTitle{display:-webkit-box;overflow:hidden;color:#202124;font-size:15px;font-weight:570;line-height:21px;letter-spacing:-.045em;word-break:keep-all;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.popularCardMeta{display:flex;align-items:center;gap:5px;margin-top:auto;color:#8a8d92;font-size:12px;font-weight:430;line-height:17px;letter-spacing:-.025em;white-space:nowrap}
+.popularCardMeta img{width:15px;height:15px;object-fit:contain;opacity:.7}
 .phone.redditFeedMode .popularSection{display:none}
-@media(max-width:370px){.popularScroller{padding-left:12px}.popularTrack{gap:9px;padding-right:12px}.popularCard{width:142px;height:142px;flex-basis:142px}.popularHeading{padding:0 14px}}
+@media(max-width:370px){.popularScroller{scroll-padding-inline:14px}.popularTrack{gap:9px;padding:0 14px}.popularCard{width:138px;flex-basis:138px}.popularHeading{padding:0 14px}}

@@ -1,3 +1,35 @@
+# 커뮤니티 네이버 카페형 HOT 인기글 QA · 2026-10-16
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/10f2cb83-b293-4fc4-99a9-7a9fb5dc4c15/1-1000018586.jpg`
+- browser-rendered implementation: `artifacts/community-board-order-1015/mobile-384-top-menu-tiktok-text.png`
+- normalized source: `artifacts/community-popular-naver-1016/reference-384.png`
+- full-view comparison evidence: `artifacts/community-popular-naver-1016/comparison.png`
+- viewport and density: 구현 384 × 844 CSS px, DPR 1. 원본 592 × 1280px을 폭 384px으로 정규화해 384 × 830px으로 비교했다.
+- state: 자유게시판, HOT 인기글, 기본 가로 스크롤 위치
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 제목 행은 Pretendard 17px/780, 카드 제목은 15px/21px 두 줄 말줄임, 조회·댓글 메타는 12px로 맞췄다.
+- spacing and layout rhythm: 144 × 188px 카드, 이미지 98px·본문 90px, 10px 카드 간격, 16px 시작 여백, 14px 반경으로 참고 화면의 밀도와 일부 노출되는 세 번째 카드를 재현했다.
+- colors and visual tokens: 흰 제목 행, `#f5f6f7` 카드 본문, 중립 회색 메타, 참고 화면에서 추출한 빨간 불꽃 아이콘을 사용했다.
+- image quality and asset fidelity: 참고 화면의 불꽃을 투명 PNG로 정리했고 기존 차량 이미지와 댓글 SVG를 재사용해 선명도를 유지했다.
+- copy and content: `HOT 인기글`, 사진 수 배지, 조회 수, 댓글 수를 반응량 기준 상위 5개 게시물 데이터로 생성한다.
+- interaction: 카드 상세 링크와 우측 화살표 가로 이동을 확인했다. 화살표 클릭 시 `scrollLeft`가 16에서 324로 이동했고 콘솔 오류는 0건이었다.
+- regression verification: `npm run check:runtime`, `npm run community:verify:board-order`, `git diff --check`가 모두 통과했다.
+
+## Comparison history
+
+- Pass 1: 레딧형 전체 이미지 카드가 네이버 카페 참고 화면의 이미지·본문 분할 구조와 달랐다.
+- Fix: 상단 사진·하단 제목/메타 카드로 재구성하고 제목 행에 불꽃과 우측 이동 화살표를 배치했다.
+- Pass 2: 인라인 요소 때문에 카드 크기가 흐트러지는 문제를 발견해 카드와 이미지 래퍼를 블록 요소로 고정했다.
+- Pass 3: 첫 카드가 화면 왼쪽에 붙는 스냅 문제를 발견해 트랙 패딩과 스크롤 패딩을 분리하고 16px 여백을 복원했다.
+- Final: 정규화된 원본과 384px 구현을 나란히 비교해 남은 P0/P1/P2가 없음을 확인했다.
+
+final result: passed
+
+---
+
 # 커뮤니티 레딧형 인기글 QA · 2026-10-16
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/1471b383-e429-4a24-a5b1-495c872e45ce/1-1000018552.jpg`

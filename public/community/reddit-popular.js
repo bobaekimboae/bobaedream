@@ -26,23 +26,23 @@
   function render(){
     var source=(window.BOBAE_POSTS||[]).slice();
     var popular=source.sort(function(a,b){
-      return (Number(b.reply)||0)+(Number(b.likes)||0)*8-(Number(a.reply)||0)-(Number(a.likes)||0)*8;
+      var aScore=(Number(a.view)||0)+(Number(a.likes)||0)*14+Math.min(Number(a.reply)||0,999)*2;
+      var bScore=(Number(b.view)||0)+(Number(b.likes)||0)*14+Math.min(Number(b.reply)||0,999)*2;
+      return bScore-aScore;
     }).slice(0,5);
     track.innerHTML=popular.map(function(post,index){
-      var textOnly=index===1;
       var title=cleanTitle(post.title);
-      var href='./chzzk-detail.html?id='+encodeURIComponent(post.id)+'&v=20261016popular1';
-      return '<a class="popularCard '+(textOnly?'isText':'')+'" href="'+href+'" aria-label="인기글: '+esc(title)+'">'+
-        (textOnly?'':'<img class="popularCardMedia" src="'+esc(imageFor(post,index))+'" alt="" loading="lazy"><span class="popularCardShade" aria-hidden="true"></span>')+
-        '<span class="popularCardCopy"><strong class="popularCardTitle">'+esc(title)+'</strong><span class="popularCardMeta"><img src="'+esc(post.authorAvatar||'assets/profile-avatars/avatar-01.svg')+'" alt=""><span>'+esc(post.user)+' · 댓글 '+Number(post.reply||0).toLocaleString('ko-KR')+'</span></span></span></a>';
+      var href='./chzzk-detail.html?id='+encodeURIComponent(post.id)+'&v=20261016popular2';
+      var photoCount=Math.max(1,Number(post.photos)||1);
+      return '<a class="popularCard" href="'+href+'" aria-label="인기글: '+esc(title)+'"><span class="popularCardMediaWrap"><img class="popularCardMedia" src="'+esc(imageFor(post,index))+'" alt="" loading="lazy"><span class="popularCardPhotoCount">'+(photoCount>1?photoCount+'+':'1')+'</span></span><span class="popularCardBody"><strong class="popularCardTitle">'+esc(title)+'</strong><span class="popularCardMeta"><span>조회 '+Number(post.view||0).toLocaleString('ko-KR')+'</span><span>·</span><img src="assets/chzzk-detail/icons/comment-reddit.svg" alt=""><span>'+Number(post.reply||0).toLocaleString('ko-KR')+'</span></span></span></a>';
     }).join('');
     section.hidden=popular.length===0;
   }
 
   toggle.addEventListener('click',function(){
-    var collapsed=section.classList.toggle('isCollapsed');
-    toggle.setAttribute('aria-expanded',String(!collapsed));
-    toggle.setAttribute('aria-label',collapsed?'인기글 펼치기':'인기글 접기');
+    var scroller=document.getElementById('popularScroller');
+    var nearEnd=scroller.scrollLeft+scroller.clientWidth>=scroller.scrollWidth-12;
+    scroller.scrollTo({left:nearEnd?0:Math.min(scroller.scrollLeft+308,scroller.scrollWidth-scroller.clientWidth),behavior:'smooth'});
   });
 
   render();
