@@ -1,0 +1,34 @@
+/* 치지직 투표 카드(2026-10-17 치지직 앱 캡처 923px ÷2.4 → 384 환산) */
+.bbmPoll{--poll-green:#1a9a68;--poll-mint:#bae6d3;--poll-fill:#8ad3b3;box-sizing:border-box;margin:18px 0;padding:22px 14px 24px;border:1px solid #e2e4e7;border-radius:16px;background:#fff;color:#222;font-family:inherit;text-align:left}
+.bbmPoll *{box-sizing:border-box}
+.bbmPollHead{display:flex;align-items:center;gap:6px;padding:0 6px;min-height:26px}
+.bbmPollIcon{display:inline-flex;align-items:center;justify-content:center;flex:none;width:25px;height:25px;border-radius:50%;background:var(--poll-green)}
+.bbmPollIcon svg{width:15px;height:15px}
+.bbmPollHead strong{margin-left:2px;color:var(--poll-green);font-size:17px;line-height:24px;font-weight:800;letter-spacing:-.02em}
+.bbmPollInfo{display:inline-flex;color:var(--poll-green)}.bbmPollInfo svg{width:15px;height:15px}
+.bbmPollHead em{margin-left:4px;color:var(--poll-green);font-size:15px;line-height:22px;font-style:normal;font-weight:600}
+.bbmPollTitle{margin:12px 6px 0;font-size:19px;line-height:26px;font-weight:700;letter-spacing:-.02em;word-break:keep-all}
+.bbmPollMeta{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;margin:8px 6px 0;color:#555;font-size:13px;line-height:18px}
+.bbmPollMeta span{display:inline-flex;align-items:center;gap:4px}.bbmPollMeta svg{width:14px;height:14px;color:#444}.bbmPollMeta i{color:#aaa;font-style:normal}
+.bbmPollOptions{display:grid;gap:8px;margin-top:20px}
+.bbmPollOption{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:43px;padding:0 15px 0 20px;border:0;border-radius:999px;background:var(--poll-mint);color:#222;font:inherit;text-align:left;overflow:hidden}
+.bbmPollOption:before{content:"";position:absolute;inset:0 auto 0 0;width:var(--pct,0%);background:var(--poll-fill);transition:width .25s ease}
+.bbmPollOption>span{position:relative}
+.bbmPollLabel{min-width:0;font-size:16px;line-height:22px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bbmPollCount{flex:none;color:#333;font-size:14px;line-height:20px}
+button.bbmPollOption{cursor:pointer}
+.bbmPollOption.is-picked,.bbmPollOption.is-mine{outline:2px solid var(--poll-green);outline-offset:-2px}
+.bbmPollOption.is-mine .bbmPollLabel{font-weight:700}
+.bbmPollMore{margin:8px 6px 0;color:#777;font-size:13px}
+.bbmPollActions{display:flex;justify-content:center;gap:8px;margin-top:24px}
+.bbmPollActions button{width:120px;height:40px;border:0;border-radius:8px;background:#f2f2f2;color:#222;font:inherit;font-size:16px;line-height:22px;font-weight:500;cursor:pointer}
+.bbmPollActions button:disabled{color:#aaa;cursor:default}
+.bbmPollActions button[data-poll-end]{color:#555}
+.bbmPoll.is-ended .bbmPollHead strong,.bbmPoll.is-ended .bbmPollHead em,.bbmPoll.is-ended .bbmPollInfo{color:#777}
+.bbmPoll.is-ended .bbmPollIcon{background:#999}
+.bbmPoll.is-compact{margin:10px 0 0;padding:16px 12px 16px}
+.bbmPoll.is-compact .bbmPollOptions{margin-top:14px}
+.bbmPoll button:focus-visible{outline:2px solid #222;outline-offset:2px}
+/* 글쓰기 편집기 안에서도 같은 글꼴·굵기 */
+.editor-poll .bbmPoll{font-family:"Pretendard Variable",Pretendard,-apple-system,system-ui,sans-serif}
+.editor-poll .bbmPollHead strong{font-weight:800}.editor-poll .bbmPollHead em{font-weight:600}.editor-poll .bbmPollTitle{font-weight:700}.editor-poll .bbmPollLabel{font-weight:500}

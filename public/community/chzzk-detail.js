@@ -331,7 +331,7 @@ function setRegularContent() {
       ? `<p class="detailSource">출처 ${escapeHtml(post.source || '')}${post.sourceUrl && /^https?:\/\//.test(post.sourceUrl) ? ` · <a href="${escapeHtml(post.sourceUrl)}" target="_blank" rel="noopener noreferrer">원문 보기</a>` : ''}</p>`
       : '';
     const summary3 = post.boardTable && Array.isArray(post.summary3) && post.summary3.length ? `<section class="detailSummary3" aria-label="3줄 요약"><strong>3줄 요약</strong><p>${escapeHtml(post.summary3.join(' '))}</p></section>` : '';
-    const pollHtml = post.boardTable && post.poll && post.poll.options && post.poll.options.length ? `<section class="editor-poll"><strong>📊 ${escapeHtml(post.poll.title)}</strong>${post.poll.options.map((option) => `<span>○ ${escapeHtml(option)}</span>`).join('')}${post.poll.note ? `<small>${escapeHtml(post.poll.note)}</small>` : ''}</section>` : '';
+    const pollHtml = post.boardTable && post.poll && window.BBM_POLL ? window.BBM_POLL.html(post.poll, { id: `board-${post.id}`, interactive: true }) : '';
     $('#postBody').innerHTML = `${summary3}${photoHtml}${tableEmbedHtml}${pollHtml}
       <div class="detailCopy">${paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>${sourceHtml}`;
     if (window.BBM_EMBED && window.BBM_EMBED.hydrateCards) window.BBM_EMBED.hydrateCards($('#postBody'));
@@ -435,11 +435,17 @@ function safeInline(root) {
     return inner;
   }).join('');
 }
-function localPollHtml(node) {
-  const title = node.querySelector('strong')?.textContent.replace(/^📊\s*/, '') || '투표';
-  const options = Array.from(node.querySelectorAll('span')).map((span) => span.textContent.replace(/^○\s*/, ''));
-  const note = node.querySelector('small')?.textContent || '';
-  return `<section class="detailPoll" aria-label="투표"><strong>${escapeHtml(title)}</strong>${options.map((option) => `<label><input type="radio" name="detailPoll" disabled><span>${escapeHtml(option)}</span></label>`).join('')}${note ? `<small>${escapeHtml(note)}</small>` : ''}</section>`;
+function localPollHtml(node, key) {
+  let poll = null;
+  try { poll = JSON.parse(node.getAttribute('data-poll') || 'null'); } catch (error) { poll = null; }
+  if (!poll) {
+    poll = {
+      title: node.querySelector('strong')?.textContent || '투표',
+      options: Array.from(node.querySelectorAll('span')).map((span) => span.textContent),
+      note: node.querySelector('small')?.textContent || ''
+    };
+  }
+  return window.BBM_POLL ? window.BBM_POLL.html(poll, { id: key, interactive: true }) : '';
 }
 function renderLocalHtml(source) {
   /* DOMParser로 읽으면 이미지 로딩·onerror 같은 스크립트가 실행되지 않는다(innerHTML로 임시 div에 넣으면 실행됨) */
@@ -459,7 +465,7 @@ function renderLocalHtml(source) {
       return;
     }
     if (node.nodeType === 1 && node.tagName === 'HR') { flush(); parts.push('<hr class="detailRule">'); return; }
-    if (node.nodeType === 1 && node.matches('section.editor-poll')) { flush(); parts.push(localPollHtml(node)); return; }
+    if (node.nodeType === 1 && node.matches('section.editor-poll')) { flush(); parts.push(localPollHtml(node, `local-${source.id || source.submittedAt || 'post'}-${parts.length}`)); return; }
     const text = (node.textContent || '').trim();
     if (!text) return;
     const tag = node.nodeType === 1 ? node.tagName : '';
