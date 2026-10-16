@@ -22,7 +22,7 @@ for(const width of [360,384,412,592,1280]){
   await page.reload({waitUntil:'domcontentloaded'});
 
   const nav=page.locator('.boardChannelTab');
-  check(await nav.count()===33,`${width}px 상단 채널 수가 33개가 아닙니다`);
+  check(await nav.count()===32,`${width}px 상단 채널 수가 32개가 아닙니다`);
   check((await nav.nth(0).textContent())?.trim()==='전체',`${width}px 첫 채널이 전체가 아닙니다`);
   check((await nav.nth(1).textContent())?.trim()==='베스트',`${width}px 둘째 채널이 베스트가 아닙니다`);
   check(await nav.nth(0).getAttribute('data-board-id')==='home',`${width}px 전체 ID가 home이 아닙니다`);
@@ -67,7 +67,7 @@ for(const width of [360,384,412,592,1280]){
   await page.keyboard.press('Shift+Tab');
   check(await page.locator('.boardOrderPanel').evaluate(panel=>panel.contains(document.activeElement)),'모달에서 Shift+Tab 포커스가 밖으로 빠졌습니다');
   check(await page.locator('.boardOrderFixed').count()===2,'고정 채널이 2개가 아닙니다');
-  check(await page.locator('.boardOrderItem[data-movable="true"]').count()===31,'이동 채널이 31개가 아닙니다');
+  check(await page.locator('.boardOrderItem[data-movable="true"]').count()===30,'이동 채널이 30개가 아닙니다');
   check(await page.locator('.boardOrderAvatar').count()===0,'전체 게시판 칩에 프로필 이미지가 남아 있습니다');
   check(await page.locator('.boardOrderRemove').count()===0,'일반 상태에 제외 버튼이 노출되었습니다');
   check((await page.locator('.boardOrderEdit').textContent())?.trim()==='편집','일반 상태 버튼이 편집이 아닙니다');
@@ -90,7 +90,7 @@ for(const width of [360,384,412,592,1280]){
     await page.locator('#boardOrderMenu').click();
     await page.locator('.boardOrderEdit').click();
     check((await page.locator('.boardOrderEdit').textContent())?.trim()==='완료','편집 상태 버튼이 완료가 아닙니다');
-    check(await page.locator('.boardOrderRemove').count()===31,'편집 상태 일반 채널 제외 버튼 수가 다릅니다');
+    check(await page.locator('.boardOrderRemove').count()===30,'편집 상태 일반 채널 제외 버튼 수가 다릅니다');
     check(await page.locator('.boardOrderFixed .boardOrderRemove').count()===0,'고정 채널에 제외 버튼이 생겼습니다');
     check(await page.locator('.boardOrderFixed[draggable="true"]').count()===0,'고정 채널이 드래그 가능 상태입니다');
     check(await page.locator('.boardOrderFixedIcon').count()===2,'고정 게시판 잠금 표시가 2개가 아닙니다');
@@ -194,20 +194,10 @@ await migration.evaluate(({storageKey,legacyStorageKey})=>{
 await migration.reload({waitUntil:'domcontentloaded'});
 const migrated=await migration.locator('.boardChannelTab').evaluateAll(elements=>elements.map(element=>element.dataset.boardId));
 check(migrated[0]==='home'&&migrated[1]==='best'&&migrated[2]==='politics'&&migrated[3]==='free','v1 순서 이전 결과가 다릅니다');
-check(new Set(migrated).size===33,'v1 이전 뒤 중복 또는 누락 채널이 있습니다');
+check(new Set(migrated).size===32,'v1 이전 뒤 중복 또는 누락 채널이 있습니다');
 const saved=await migration.evaluate(storageKey=>JSON.parse(localStorage.getItem(storageKey)),storageKey);
 check(saved?.version===2&&JSON.stringify(saved.fixedIds)===JSON.stringify(['home','best']),'v2 저장 구조가 다릅니다');
 await migration.close();
-
-const catalogMigration=await browser.newPage({viewport:{width:384,height:844}});
-await catalogMigration.goto(baseUrl,{waitUntil:'domcontentloaded'});
-await catalogMigration.evaluate(storageKey=>localStorage.setItem(storageKey,JSON.stringify({version:2,fixedIds:['home','best'],activeOrder:['free','car-news','politics'],updatedAt:null})),storageKey);
-await catalogMigration.reload({waitUntil:'domcontentloaded'});
-const catalogMigrated=await catalogMigration.locator('.boardChannelTab').evaluateAll(elements=>elements.map(element=>element.dataset.boardId));
-check(JSON.stringify(catalogMigrated)===JSON.stringify(['home','best','free','car-news','auto-news','politics']),`기존 v2 순서에 신규 자동차뉴스만 추가되지 않았습니다: ${catalogMigrated.join(', ')}`);
-const catalogSaved=await catalogMigration.evaluate(storageKey=>JSON.parse(localStorage.getItem(storageKey)),storageKey);
-check(catalogSaved?.catalogRevision===3,'신규 게시판 카탈로그 마이그레이션 버전이 저장되지 않았습니다');
-await catalogMigration.close();
 
 for(const columns of [3,4]){
   const preview=await browser.newPage({viewport:{width:384,height:844}});
@@ -225,4 +215,4 @@ for(const columns of [3,4]){
 await browser.close();
 
 if(failures.length){console.error(JSON.stringify({ok:false,failures},null,2));process.exit(1)}
-console.log(JSON.stringify({ok:true,channels:33,fixed:['전체','베스트'],movable:31,sections:{게시판:14,자료실:17},widths:[360,384,412,592,1280],defaultColumns:4,previewColumns:[3,4],chipHeight:40,removeTarget:44,undoSeconds:5,migrations:['v1-to-v2','catalog-revision-3'],outputDir},null,2));
+console.log(JSON.stringify({ok:true,channels:32,fixed:['전체','베스트'],movable:30,sections:{게시판:13,자료실:17},widths:[360,384,412,592,1280],defaultColumns:4,previewColumns:[3,4],chipHeight:40,removeTarget:44,undoSeconds:5,migration:'v1-to-v2',outputDir},null,2));
