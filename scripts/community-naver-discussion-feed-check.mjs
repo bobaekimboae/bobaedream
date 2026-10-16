@@ -34,6 +34,8 @@ try {
       mediaRatios: new Set(Array.from(document.querySelectorAll(".naverDiscussionMediaItem[data-ratio]"), (item) => item.dataset.ratio)).size,
       videos: document.querySelectorAll(".naverDiscussionMediaItem[data-kind='video'] video").length,
       scrollSnap: getComputedStyle(document.querySelector(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaRail")).scrollSnapType,
+      scrollBehavior: getComputedStyle(document.querySelector(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaRail")).scrollBehavior,
+      snapStop: getComputedStyle(document.querySelector(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaItem")).scrollSnapStop,
       pagination: document.querySelectorAll(".naverDiscussionMediaCount,.naverDiscussionMediaDots").length,
       overflow: Math.max(0, document.documentElement.scrollWidth - document.documentElement.clientWidth),
     }));
@@ -52,7 +54,9 @@ try {
     if (measurements.multiItems < 2) throw new Error(`${width}px: 다중 사진 수 부족`);
     if (measurements.mediaRatios < 3) throw new Error(`${width}px: 사진 비율 다양성 부족`);
     if (measurements.videos < 1) throw new Error(`${width}px: 영상 카드 없음`);
-    if (!measurements.scrollSnap.includes("x")) throw new Error(`${width}px: 가로 스냅 미적용`);
+    if (!measurements.scrollSnap.startsWith("x") || measurements.scrollSnap.includes("mandatory")) throw new Error(`${width}px: 가로 스냅이 부드러운 proximity가 아님 (${measurements.scrollSnap})`);
+    if (measurements.scrollBehavior !== "auto") throw new Error(`${width}px: 네이티브 관성 스크롤이 아님 (${measurements.scrollBehavior})`);
+    if (measurements.snapStop !== "normal") throw new Error(`${width}px: 카드마다 강제 정지가 남아 있음 (${measurements.snapStop})`);
     if (measurements.pagination !== 0) throw new Error(`${width}px: 페이지 번호 또는 도트가 남아 있음`);
     if (measurements.overflow !== 0) throw new Error(`${width}px: 가로 넘침 ${measurements.overflow}px`);
 
@@ -95,7 +99,7 @@ try {
     if ((await vote.getAttribute("aria-pressed")) !== "true") throw new Error(`${width}px: 버프 아이콘 선택 실패`);
 
     if (consoleErrors.length) throw new Error(`${width}px: 콘솔 오류\n${consoleErrors.join("\n")}`);
-    console.log(`PASS ${width}px · cards ${measurements.cards} · multi rails ${measurements.multiRails} · ratios ${measurements.mediaRatios} · videos ${measurements.videos} · swipe aligned · pagination 0 · overflow 0`);
+    console.log(`PASS ${width}px · cards ${measurements.cards} · multi rails ${measurements.multiRails} · ratios ${measurements.mediaRatios} · videos ${measurements.videos} · native momentum · proximity snap · pagination 0 · overflow 0`);
     await page.close();
   }
 } finally {
