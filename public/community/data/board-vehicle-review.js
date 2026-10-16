@@ -7,7 +7,7 @@
     displayName:"차량리뷰",
     idStart:9200001,
     defaultView:"",
-    updatedAt:"2026-10-16T12:06:44.646Z",
+    updatedAt:"2026-10-16T12:19:02.667Z",
     rows:[
       {
         "id": "9200001",
@@ -19,8 +19,8 @@
         "sourceUrl": "",
         "author": "M드라이버92",
         "publishedAt": "2026-10-15T18:30:00+09:00",
-        "thumbnail": "../assets/cars/seoul-autogallery-v01/m3-original/m3-1.webp",
-        "images": "../assets/cars/seoul-autogallery-v01/m3-original/m3-1.webp",
+        "thumbnail": "../%61ssets/cars/seoul-autogallery-v01/m3-original/m3-1.webp",
+        "images": "../%61ssets/cars/seoul-autogallery-v01/m3-original/m3-1.webp",
         "views": "843",
         "comments": "20",
         "likes": "54",
@@ -37,7 +37,7 @@
         "benchmark": "고성능 세단 평균 4.4",
         "location": "서울",
         "ratings": "외관 4.5|실내 4.0|공간 3.5|편의·안전 사양 4.0|동력·핸들링 5.0|연비 2.5",
-        "brandLogo": "../assets/brand/kr/bmw.png"
+        "brandLogo": "../%61ssets/brand/kr/bmw.png"
       },
       {
         "id": "9200002",
@@ -67,7 +67,7 @@
         "benchmark": "전기 세단 평균 4.3",
         "location": "경기",
         "ratings": "외관 4.0|실내 4.0|공간 4.0|편의·안전 사양 4.5|주행감 4.5|주행거리·전비 4.5|주행 보조 4.0",
-        "brandLogo": "../assets/brand/kr/hyundai.png"
+        "brandLogo": "../%61ssets/brand/kr/hyundai.png"
       },
       {
         "id": "9200003",
@@ -97,7 +97,7 @@
         "benchmark": "중형 SUV 평균 4.4",
         "location": "인천",
         "ratings": "외관 4.5|실내 4.5|공간 4.0|편의·안전 사양 4.5|주행감 4.0|주행거리·전비 3.5|인포테인먼트 4.0",
-        "brandLogo": "../assets/brand/kr/volvo.png"
+        "brandLogo": "../%61ssets/brand/kr/volvo.png"
       },
       {
         "id": "9200004",
@@ -127,7 +127,7 @@
         "benchmark": "하이브리드 세단 평균 4.3",
         "location": "부산",
         "ratings": "외관 3.5|실내 3.5|공간 4.0|편의·안전 사양 3.0|동력·핸들링 3.5|연비 4.5",
-        "brandLogo": "../assets/brand/kr/toyota.png"
+        "brandLogo": "../%61ssets/brand/kr/toyota.png"
       },
       {
         "id": "9200005",
