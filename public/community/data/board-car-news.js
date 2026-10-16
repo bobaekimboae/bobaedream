@@ -492,6 +492,37 @@
         "ratings": "",
         "brandLogo": "",
         "embed": "https://www.tiktok.com/@bmw/video/7694049359599619361"
+      },
+      {
+        "id": "9100016",
+        "category": "수입차",
+        "title": "독일차 값에 이 정도라고?…렉서스 ES, 운전대만 잡아도 풀리는 긴장 [시승기]",
+        "summary": "데일리안 시승기입니다. 네이버 뉴스 원문으로 연결됩니다.",
+        "body": "",
+        "source": "데일리안 · 네이버 뉴스",
+        "sourceUrl": "https://n.news.naver.com/article/119/0003143757",
+        "author": "",
+        "publishedAt": "2026-10-17T00:00:13+09:00",
+        "thumbnail": "",
+        "images": "",
+        "views": "0",
+        "comments": "0",
+        "likes": "0",
+        "tags": "시승기|렉서스|네이버뉴스",
+        "reviewId": "",
+        "modelId": "",
+        "brand": "",
+        "model": "",
+        "trim": "",
+        "powertrain": "",
+        "rating": "",
+        "owner": "",
+        "ownershipLabel": "",
+        "benchmark": "",
+        "location": "",
+        "ratings": "",
+        "brandLogo": "",
+        "embed": "https://n.news.naver.com/article/119/0003143757"
       }
     ]
   };
