@@ -26,7 +26,7 @@
     displayName:"자동차뉴스",
     idStart:9100001,
     defaultView:"naver-discussion",
-    updatedAt:"2026-10-16T16:11:29.792Z",
+    updatedAt:"2026-10-16T16:41:46.328Z",
     rows:[
       {
         "id": "9100001",
@@ -554,6 +554,37 @@
         "ratings": "",
         "brandLogo": "",
         "embed": "https://m.sports.naver.com/kbaseball/article/109/0005624469"
+      },
+      {
+        "id": "9100018",
+        "category": "국내",
+        "title": "네이버 카페 전기차동호회 게시글",
+        "summary": "회원 185만 명의 네이버 카페 「전기차동호회」 글입니다. 카페 회원만 볼 수 있는 글이라 원문에서 확인하세요.",
+        "body": "",
+        "source": "전기차동호회 · 네이버 카페",
+        "sourceUrl": "https://m.cafe.naver.com/ca-fe/web/cafes/21771803/articles/2164061",
+        "author": "",
+        "publishedAt": "2026-10-17T01:40:00+09:00",
+        "thumbnail": "",
+        "images": "",
+        "views": "0",
+        "comments": "0",
+        "likes": "0",
+        "tags": "국내|네이버카페|전기차",
+        "reviewId": "",
+        "modelId": "",
+        "brand": "",
+        "model": "",
+        "trim": "",
+        "powertrain": "",
+        "rating": "",
+        "owner": "",
+        "ownershipLabel": "",
+        "benchmark": "",
+        "location": "",
+        "ratings": "",
+        "brandLogo": "",
+        "embed": "https://m.cafe.naver.com/ca-fe/web/cafes/21771803/articles/2164061"
       }
     ]
   };

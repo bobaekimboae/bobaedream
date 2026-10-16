@@ -95,6 +95,8 @@
       if (mq) return sized(frame('https://maps.google.com/maps?q=' + encodeURIComponent(mq) + '&z=15&output=embed', 'Google 지도', 'Google 지도'), 320, 'map');
     }
     if (host === 'maps.app.goo.gl' || host === 'goo.gl') return base;
+    /* 네이버 카페: 다른 사이트 안에 넣는 것을 막고(X-Frame-Options), 회원 글은 로그인해야 보여 원문 카드로 */
+    if (host === 'cafe.naver.com' || host === 'm.cafe.naver.com') return { url: full, render: 'preview', src: '', provider: '네이버 카페', site: '네이버 카페', title: '', description: '카페 회원만 볼 수 있는 글은 네이버 카페 앱이나 웹에서 로그인 후 확인할 수 있어요.', logo: 'https://ca-fe.pstatic.net/web-mobile/static/favicon/android_legacy_xxxhpdi_192x192.png', noHydrate: true, tall: false };
     /* 구글 드라이브·문서·시트·슬라이드·캘린더(공개 문서만) */
     if (host === 'drive.google.com' && parts[0] === 'file' && parts[2]) return sized(frame('https://drive.google.com/file/d/' + encodeURIComponent(parts[2]) + '/preview', 'Google 드라이브', 'Google 드라이브 파일'), 480, 'doc');
     if (host === 'docs.google.com' && ['document', 'spreadsheets', 'presentation', 'forms'].indexOf(parts[0]) >= 0 && parts[1] === 'd' && parts[2]) {
@@ -187,7 +189,7 @@
     var caption = item.caption ? '<figcaption>' + esc(item.caption) + '</figcaption>' : '';
     if (item.render === 'iframe') return '<figure class="detailEmbed' + (item.tall ? ' is-tall' : '') + '">' + frameHtml(item) + caption + '</figure>';
     var card = cardHtml(item);
-    if (!item.image) card = card.replace('<a class="news-card"', '<a class="news-card" data-embed-hydrate');
+    if (!item.image && !item.noHydrate) card = card.replace('<a class="news-card"', '<a class="news-card" data-embed-hydrate');
     return '<figure class="detailEmbed">' + card + caption + '</figure>';
   }
   /* 노션처럼 원본 높이로: 인스타그램(MEASURE)·레딧(resize.embed)이 보내는 높이 신호로 iframe 높이를 맞춘다 */
