@@ -32,6 +32,34 @@ final result: passed
 
 ---
 
+# 네이버 토론형 시나리오 이미지 전면 교체 QA · 2026-10-16
+
+- source visual truth: `public/community/scenario-data.js`의 게시물 1~30 제목·본문·카테고리
+- generated media: `public/community/media/discussion-scenarios-v2/post-01.webp` ~ `post-30.webp`
+- mapping manifest: `public/community/media/discussion-scenarios-v2/manifest.json`
+- viewport: 360 / 390 / 412 × 844 CSS px
+- state: 네이버 토론형 목록, 단일 이미지·복수 이미지·영상 카드, 좌우 자유 스크롤
+
+## Findings
+
+- 게시물 30개와 대표 이미지 30개를 ID 기준으로 1:1 고정했다.
+- 기존 Unsplash와 슈퍼카 무작위 대체 사진을 토론형 목록에서 완전히 제거했다.
+- 여러 장 카드의 추가 사진은 정비·충전·중고차·사고·튜닝 등 같은 주제군 안에서만 구성한다.
+- 영상 4개는 주행 장면과 연결 가능한 게시물에만 배치하고, 각 영상 포스터는 해당 게시물 전용 이미지다.
+- 모든 게시물에 최소 1개의 전용 미디어가 있고 대표 이미지 중복은 0건이다.
+- 자유 관성 스크롤을 유지하며 강제 스냅·페이지 번호·도트는 없다.
+- 30개 WebP 파일 존재, 대표 매핑 30/30, 무관 이미지 0, 깨진 이미지 0을 자동 검사한다.
+
+## Comparison history
+
+- Pass 1: 게시물 사진 수를 채우기 위해 무관한 슈퍼카 이미지를 순환 삽입해 시나리오가 섞였다.
+- Fix: 30개 시나리오 전용 이미지를 생성하고 ID 고정 매핑 및 주제군 보조 매핑으로 교체했다.
+- Pass 2: 30개 원본을 육안 대조하고 360/390/412px 자동 시나리오 검사로 대표 이미지·영상·스크롤·상세 연결을 재검증했다.
+
+final result: passed
+
+---
+
 # 자유게시판 유튜브형 확정 헤더 QA · 2026-10-16
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/49224cb7-8b54-4b78-8f7f-7e58114fdf36/2-1000018628.jpg`

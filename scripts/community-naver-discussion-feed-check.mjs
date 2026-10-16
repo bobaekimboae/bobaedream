@@ -1,10 +1,15 @@
 import { chromium } from "playwright";
-import { mkdir } from "node:fs/promises";
+import { access, mkdir } from "node:fs/promises";
+import { resolve } from "node:path";
 
 const baseUrl = process.env.BBM_PREVIEW_URL || "http://127.0.0.1:5173";
 const url = `${baseUrl}/community/naver-cafe-list.html?view=naver-discussion`;
 const widths = [360, 390, 412];
 const browser = await chromium.launch({ headless: true });
+
+await Promise.all(Array.from({ length: 30 }, (_, index) =>
+  access(resolve(`public/community/media/discussion-scenarios-v2/post-${String(index + 1).padStart(2, "0")}.webp`))
+));
 
 try {
   for (const width of widths) {
@@ -29,6 +34,7 @@ try {
       visibleVoteLabels: Array.from(document.querySelectorAll("[data-discussion-vote]"))
         .filter((button) => /버프|너프/.test(button.textContent || "")).length,
       cards: document.querySelectorAll(".naverDiscussionCard").length,
+      mediaShells: document.querySelectorAll(".naverDiscussionMediaShell").length,
       multiRails: document.querySelectorAll(".naverDiscussionMediaShell.is-multi").length,
       singleRails: document.querySelectorAll(".naverDiscussionMediaShell:not(.is-multi)").length,
       multiItems: document.querySelector(".naverDiscussionMediaShell.is-multi")?.querySelectorAll(".naverDiscussionMediaItem").length || 0,
@@ -48,6 +54,24 @@ try {
       scrollBehavior: getComputedStyle(document.querySelector(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaRail")).scrollBehavior,
       snapStop: getComputedStyle(document.querySelector(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaItem")).scrollSnapStop,
       pagination: document.querySelectorAll(".naverDiscussionMediaCount,.naverDiscussionMediaDots").length,
+      primaryMediaMatches: Array.from(document.querySelectorAll(".naverDiscussionCard")).every((card) => {
+        const id = String(card.dataset.discussionPost).padStart(2, "0");
+        const image = card.querySelector(".naverDiscussionMediaItem:first-child > .naverDiscussionMediaLink img");
+        const video = card.querySelector(".naverDiscussionMediaItem:first-child > video");
+        const source = image?.src || video?.poster || "";
+        return new URL(source, location.href).pathname.endsWith(`/community/media/discussion-scenarios-v2/post-${id}.webp`);
+      }),
+      uniquePrimaryMedia: new Set(Array.from(document.querySelectorAll(".naverDiscussionCard"), (card) => {
+        const image = card.querySelector(".naverDiscussionMediaItem:first-child > .naverDiscussionMediaLink img");
+        const video = card.querySelector(".naverDiscussionMediaItem:first-child > video");
+        return image?.src || video?.poster || "";
+      })).size,
+      unrelatedMedia: Array.from(document.querySelectorAll(".naverDiscussionMediaItem")).filter((item) => {
+        const image = item.querySelector(".naverDiscussionMediaLink img");
+        const video = item.querySelector("video");
+        const source = image?.src || video?.poster || "";
+        return /images\.unsplash\.com|supercar-sheet-v01/.test(source);
+      }).length,
       overflow: Math.max(0, document.documentElement.scrollWidth - document.documentElement.clientWidth),
     }));
 
@@ -60,13 +84,14 @@ try {
     if (measurements.hotModules !== 0) throw new Error(`${width}px: HOT 모듈이 남아 있음`);
     if (measurements.votes !== measurements.cards * 2) throw new Error(`${width}px: 버프·너프 아이콘 개수 불일치`);
     if (measurements.visibleVoteLabels !== 0) throw new Error(`${width}px: 버프·너프 텍스트가 노출됨`);
-    if (measurements.cards < 1) throw new Error(`${width}px: 게시물 카드 없음`);
+    if (measurements.cards !== 30) throw new Error(`${width}px: 게시물 카드 수 불일치 (${measurements.cards})`);
+    if (measurements.mediaShells !== 30) throw new Error(`${width}px: 게시물별 대표 미디어 수 불일치 (${measurements.mediaShells})`);
     if (measurements.multiRails < 1) throw new Error(`${width}px: 다중 사진 레일 없음`);
     if (measurements.singleRails < 1) throw new Error(`${width}px: 단일 사진 카드 없음`);
     if (measurements.multiItems < 2) throw new Error(`${width}px: 다중 사진 수 부족`);
     if (measurements.mediaLinks < 1) throw new Error(`${width}px: 사진 상세 링크 없음`);
     if (measurements.mediaRatios < 3) throw new Error(`${width}px: 사진 비율 다양성 부족`);
-    if (measurements.videos < 1) throw new Error(`${width}px: 영상 카드 없음`);
+    if (measurements.videos !== 4) throw new Error(`${width}px: 영상 카드 수 불일치 (${measurements.videos})`);
     if (measurements.videoButtons !== measurements.videos) throw new Error(`${width}px: 영상 재생 버튼 수 불일치`);
     if (measurements.brokenImages !== 0) throw new Error(`${width}px: 깨진 미디어 이미지 ${measurements.brokenImages}개`);
     if (measurements.eagerImages !== 1) throw new Error(`${width}px: 첫 이미지 우선 로딩 수 불일치 (${measurements.eagerImages})`);
@@ -76,6 +101,9 @@ try {
     if (measurements.scrollBehavior !== "auto") throw new Error(`${width}px: 네이티브 관성 스크롤이 아님 (${measurements.scrollBehavior})`);
     if (measurements.snapStop !== "normal") throw new Error(`${width}px: 카드마다 강제 정지가 남아 있음 (${measurements.snapStop})`);
     if (measurements.pagination !== 0) throw new Error(`${width}px: 페이지 번호 또는 도트가 남아 있음`);
+    if (!measurements.primaryMediaMatches) throw new Error(`${width}px: 게시물 ID와 대표 이미지 매핑 불일치`);
+    if (measurements.uniquePrimaryMedia !== 30) throw new Error(`${width}px: 대표 이미지 중복 (${measurements.uniquePrimaryMedia}/30)`);
+    if (measurements.unrelatedMedia !== 0) throw new Error(`${width}px: 무관한 외부·슈퍼카 이미지 ${measurements.unrelatedMedia}개`);
     if (measurements.overflow !== 0) throw new Error(`${width}px: 가로 넘침 ${measurements.overflow}px`);
 
     if (width === 390) {
@@ -84,13 +112,15 @@ try {
     }
 
     const rail = page.locator(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaRail").first();
-    await rail.evaluate((element) => {
-      element.scrollLeft = 63;
+    const requestedScroll = await rail.evaluate((element) => {
+      const target = Math.min(63, element.scrollWidth - element.clientWidth);
+      element.scrollLeft = target;
       element.dispatchEvent(new Event("scroll"));
+      return target;
     });
     await page.waitForTimeout(250);
     const scrollLeft = await rail.evaluate((element) => element.scrollLeft);
-    if (Math.abs(scrollLeft - 63) > 1) throw new Error(`${width}px: 자유 스크롤 위치가 강제 보정됨 (${scrollLeft}px)`);
+    if (Math.abs(scrollLeft - requestedScroll) > 1) throw new Error(`${width}px: 자유 스크롤 위치가 강제 보정됨 (${scrollLeft}px)`);
 
     const videoButton = page.locator("[data-discussion-video]").first();
     if (width === 390) {
@@ -132,7 +162,7 @@ try {
     const commentUrl = new URL(page.url());
     if (commentUrl.searchParams.get("id") !== commentId || commentUrl.hash !== "#comments") throw new Error(`${width}px: 댓글 상세 이동 실패`);
 
-    console.log(`PASS ${width}px · 18 scenarios · cards ${measurements.cards} · single/multi ${measurements.singleRails}/${measurements.multiRails} · ratios ${measurements.mediaRatios} · videos ${measurements.videos} · free native scroll · pagination 0 · overflow 0`);
+    console.log(`PASS ${width}px · 30 scenario media · cards/media ${measurements.cards}/${measurements.mediaShells} · primary mapping 30/30 · unrelated 0 · single/multi ${measurements.singleRails}/${measurements.multiRails} · ratios ${measurements.mediaRatios} · videos ${measurements.videos} · free native scroll · pagination 0 · overflow 0`);
     await page.close();
   }
 } finally {

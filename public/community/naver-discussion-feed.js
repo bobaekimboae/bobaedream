@@ -11,12 +11,23 @@
   var list=document.getElementById('list');
   var phone=document.querySelector('.phone');
   var typeLabel=document.getElementById('typeLabel');
-  var slash='/';
-  var projectRoot=/github\.io$/i.test(location.hostname)?slash+'bobaedream':'';
-  var fallbackMedia=Array.from({length:30},function(_,index){
-    return projectRoot+slash+'assets'+slash+'cars'+slash+'supercar-sheet-v01'+slash+'sc-'+String(index+1).padStart(3,'0')+'.jpg?v=20261016navercarousel2';
-  });
-  var videoMedia=['media/car-driving-road-v01.mp4','media/car-sunset-drive-v01.mp4','media/car-desert-drone-v01.mp4'];
+  var scenarioMediaRoot='media/discussion-scenarios-v2/';
+  var relatedScenarioMedia={
+    1:[1],
+    2:[2,14,22,27],3:[3,21,13],4:[4,5,12,18,30],5:[5,4,12,18,30],6:[6],
+    7:[7,10,28,16],8:[8,25],9:[9,24,29],10:[10,7,28,16],11:[11,15,19,23,20],
+    12:[12,4,5,18,30],13:[13,21,3],14:[14,2,22,27],15:[15,11,19,23,20],
+    16:[16,10,7,28],17:[17,25,30],18:[18,12,4,5,30],19:[19,23,15,11,20],
+    20:[20,11,15,19,23],21:[21,13,3],22:[22,14,2,27],23:[23,19,15,11,20],
+    24:[24,9,29],25:[25,8,17],26:[26],27:[27,14,22,2],28:[28,7,10,16],
+    29:[29,24,9],30:[30,17,12,18,4,5]
+  };
+  var videoMediaByPost={
+    8:'media/car-driving-road-v01.mp4',
+    11:'media/car-sunset-drive-v01.mp4',
+    14:'media/car-driving-road-v01.mp4',
+    20:'media/car-desert-drone-v01.mp4'
+  };
   var mediaLayouts=[
     ['landscape','square','portrait','landscape','tall','square'],
     ['portrait','square','landscape','portrait','square','tall'],
@@ -41,28 +52,14 @@
     if(number>=1000){var thousand=Math.floor(number/100)/10;return (thousand%1===0?String(thousand):thousand.toFixed(1))+'천';}
     return String(number);
   }
-  function normalizedMediaSource(source){
-    if(!source)return '';
-    if(/^https?:\/\//i.test(source))return source.replace(/([?&])w=\d+/,'$1w=960');
-    if(source.charAt(0)==='/'&&projectRoot&&source.indexOf(projectRoot+'/')!==0)return projectRoot+source;
-    return source;
+  function scenarioMediaSource(postId){
+    return scenarioMediaRoot+'post-'+String(postId).padStart(2,'0')+'.webp?v=20261016scenario2';
   }
-  function mediaSources(post,index){
-    var requested=Math.min(6,Math.max(0,Number(post.photos)||0));
-    var supplied=[];
-    ['detailImages','images','mediaImages'].forEach(function(field){
-      if(Array.isArray(post[field]))supplied=supplied.concat(post[field]);
-    });
-    supplied.push(post.detailImage||'',post.thumbnail||'');
-    var sources=supplied.map(normalizedMediaSource).filter(function(source,position,all){return source&&all.indexOf(source)===position;});
-    if(!sources.length&&post.video)sources.push(fallbackMedia[(index*4)%fallbackMedia.length]);
-    if(!sources.length)return [];
-    var target=Math.max(1,Math.min(6,requested||sources.length));
-    while(sources.length<target){
-      var fallback=fallbackMedia[(index*4+sources.length-1)%fallbackMedia.length];
-      if(sources.indexOf(fallback)<0)sources.push(fallback);
-    }
-    return sources.slice(0,target);
+  function mediaSources(post){
+    var postId=Number(post.id);
+    var requested=Math.min(6,Math.max(1,Number(post.photos)||1));
+    var related=relatedScenarioMedia[postId]||[postId];
+    return related.slice(0,requested).map(scenarioMediaSource);
   }
   function mediaFor(post,index){
     var sources=mediaSources(post,index);
@@ -71,10 +68,10 @@
     var title=cleanTitle(post.title);
     var items=sources.map(function(source,itemIndex){
       var ratio=mediaLayouts[index%mediaLayouts.length][itemIndex%mediaLayouts[index%mediaLayouts.length].length];
-      var isVideo=Boolean(post.video)&&itemIndex===0;
+      var isVideo=Boolean(videoMediaByPost[Number(post.id)])&&itemIndex===0;
       var contain=/\.png(?:\?|$)/i.test(source);
-      var media=isVideo?'<video muted playsinline preload="metadata" poster="'+esc(source)+'"><source src="'+esc(videoMedia[index%videoMedia.length])+'" type="video/mp4"></video><button class="naverDiscussionVideoToggle" type="button" data-discussion-video aria-label="영상 재생"><img src="'+chototIcon('chotot-common-video-play-white-bg')+'" alt=""></button>':'<a class="naverDiscussionMediaLink" href="'+detailUrl(post)+'" aria-label="'+esc(title)+' 사진 '+(itemIndex+1)+' / '+sources.length+' 상세 보기"><img src="'+esc(source)+'" alt="" loading="'+(index===0&&itemIndex===0?'eager':'lazy')+'"'+(index===0&&itemIndex===0?' fetchpriority="high"':'')+'></a>';
-      return '<div class="naverDiscussionMediaItem'+(contain?' is-contain':'')+'" data-discussion-media-index="'+itemIndex+'" data-kind="'+(isVideo?'video':'image')+'" data-ratio="'+ratio+'">'+media+'</div>';
+      var media=isVideo?'<video muted playsinline preload="metadata" poster="'+esc(source)+'"><source src="'+esc(videoMediaByPost[Number(post.id)])+'" type="video/mp4"></video><button class="naverDiscussionVideoToggle" type="button" data-discussion-video aria-label="영상 재생"><img src="'+chototIcon('chotot-common-video-play-white-bg')+'" alt=""></button>':'<a class="naverDiscussionMediaLink" href="'+detailUrl(post)+'" aria-label="'+esc(title)+' 사진 '+(itemIndex+1)+' / '+sources.length+' 상세 보기"><img src="'+esc(source)+'" alt="" loading="'+(index===0&&itemIndex===0?'eager':'lazy')+'"'+(index===0&&itemIndex===0?' fetchpriority="high"':'')+'></a>';
+      return '<div class="naverDiscussionMediaItem'+(contain?' is-contain':'')+'" data-discussion-media-index="'+itemIndex+'" data-media-post-id="'+esc(post.id)+'" data-kind="'+(isVideo?'video':'image')+'" data-ratio="'+ratio+'">'+media+'</div>';
     }).join('');
     return '<div class="naverDiscussionMediaShell'+(multiple?' is-multi':'')+'"><div class="naverDiscussionMediaRail" tabindex="0" aria-label="'+esc(title)+' 사진과 영상, 좌우로 넘기기">'+items+'</div></div>';
   }
