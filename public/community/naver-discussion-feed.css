@@ -48,9 +48,9 @@
 .naverDiscussionTitle{display:block;margin:7px 0 4px;color:#1e1e23;font-size:16px;line-height:24px;font-weight:750;letter-spacing:-.035em;text-decoration:none;word-break:keep-all}
 .naverDiscussionBody{display:-webkit-box;margin:0;color:#50545a;font-size:14px;line-height:21px;font-weight:420;letter-spacing:-.025em;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;word-break:keep-all}
 .naverDiscussionMediaShell{position:relative;height:clamp(184px,52vw,210px);margin-top:10px;overflow:hidden;border-radius:10px;background:#eef0f2}
-.naverDiscussionMediaRail{display:flex;width:100%;height:100%;gap:8px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scroll-behavior:auto;scrollbar-width:none;overscroll-behavior-inline:contain;touch-action:pan-x pan-y pinch-zoom;-webkit-overflow-scrolling:touch}
+.naverDiscussionMediaRail{display:flex;width:100%;height:100%;gap:8px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:none;scroll-behavior:auto;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
 .naverDiscussionMediaRail::-webkit-scrollbar{display:none}
-.naverDiscussionMediaItem{position:relative;display:block;width:100%;height:100%;flex:0 0 100%;overflow:hidden;border-radius:8px;background:#e7e9ec;scroll-snap-align:start;scroll-snap-stop:normal;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.naverDiscussionMediaItem{position:relative;display:block;width:100%;height:100%;flex:0 0 100%;overflow:hidden;border-radius:8px;background:#e7e9ec;text-decoration:none;-webkit-tap-highlight-color:transparent}
 .naverDiscussionMediaShell.is-multi .naverDiscussionMediaItem{flex-basis:auto}
 .naverDiscussionMediaShell.is-multi .naverDiscussionMediaItem[data-ratio="landscape"]{width:72%;flex-basis:72%}
 .naverDiscussionMediaShell.is-multi .naverDiscussionMediaItem[data-ratio="square"]{width:54%;flex-basis:54%}

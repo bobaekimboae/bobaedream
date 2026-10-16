@@ -30,9 +30,20 @@ try {
         .filter((button) => /버프|너프/.test(button.textContent || "")).length,
       cards: document.querySelectorAll(".naverDiscussionCard").length,
       multiRails: document.querySelectorAll(".naverDiscussionMediaShell.is-multi").length,
+      singleRails: document.querySelectorAll(".naverDiscussionMediaShell:not(.is-multi)").length,
       multiItems: document.querySelector(".naverDiscussionMediaShell.is-multi")?.querySelectorAll(".naverDiscussionMediaItem").length || 0,
+      mediaLinks: document.querySelectorAll(".naverDiscussionMediaLink").length,
       mediaRatios: new Set(Array.from(document.querySelectorAll(".naverDiscussionMediaItem[data-ratio]"), (item) => item.dataset.ratio)).size,
       videos: document.querySelectorAll(".naverDiscussionMediaItem[data-kind='video'] video").length,
+      videoButtons: document.querySelectorAll("[data-discussion-video]").length,
+      brokenImages: Array.from(document.querySelectorAll(".naverDiscussionMediaItem img")).filter((image) => image.complete && image.naturalWidth === 0).length,
+      eagerImages: document.querySelectorAll(".naverDiscussionMediaItem img[fetchpriority='high']").length,
+      lazyImages: document.querySelectorAll(".naverDiscussionMediaItem img[loading='lazy']").length,
+      validDetailLinks: Array.from(document.querySelectorAll(".naverDiscussionCard")).every((card) => {
+        const id = card.dataset.discussionPost;
+        const links = card.querySelectorAll(".naverDiscussionTitle,.naverDiscussionMediaLink");
+        return Array.from(links).every((link) => new URL(link.href).searchParams.get("id") === id);
+      }),
       scrollSnap: getComputedStyle(document.querySelector(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaRail")).scrollSnapType,
       scrollBehavior: getComputedStyle(document.querySelector(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaRail")).scrollBehavior,
       snapStop: getComputedStyle(document.querySelector(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaItem")).scrollSnapStop,
@@ -51,10 +62,17 @@ try {
     if (measurements.visibleVoteLabels !== 0) throw new Error(`${width}px: 버프·너프 텍스트가 노출됨`);
     if (measurements.cards < 1) throw new Error(`${width}px: 게시물 카드 없음`);
     if (measurements.multiRails < 1) throw new Error(`${width}px: 다중 사진 레일 없음`);
+    if (measurements.singleRails < 1) throw new Error(`${width}px: 단일 사진 카드 없음`);
     if (measurements.multiItems < 2) throw new Error(`${width}px: 다중 사진 수 부족`);
+    if (measurements.mediaLinks < 1) throw new Error(`${width}px: 사진 상세 링크 없음`);
     if (measurements.mediaRatios < 3) throw new Error(`${width}px: 사진 비율 다양성 부족`);
     if (measurements.videos < 1) throw new Error(`${width}px: 영상 카드 없음`);
-    if (!measurements.scrollSnap.startsWith("x") || measurements.scrollSnap.includes("mandatory")) throw new Error(`${width}px: 가로 스냅이 부드러운 proximity가 아님 (${measurements.scrollSnap})`);
+    if (measurements.videoButtons !== measurements.videos) throw new Error(`${width}px: 영상 재생 버튼 수 불일치`);
+    if (measurements.brokenImages !== 0) throw new Error(`${width}px: 깨진 미디어 이미지 ${measurements.brokenImages}개`);
+    if (measurements.eagerImages !== 1) throw new Error(`${width}px: 첫 이미지 우선 로딩 수 불일치 (${measurements.eagerImages})`);
+    if (measurements.lazyImages < 1) throw new Error(`${width}px: 후속 이미지 지연 로딩 없음`);
+    if (!measurements.validDetailLinks) throw new Error(`${width}px: 제목 또는 사진의 상세 ID 연결 오류`);
+    if (measurements.scrollSnap !== "none") throw new Error(`${width}px: 가변 폭 미디어의 강제 스냅이 남아 있음 (${measurements.scrollSnap})`);
     if (measurements.scrollBehavior !== "auto") throw new Error(`${width}px: 네이티브 관성 스크롤이 아님 (${measurements.scrollBehavior})`);
     if (measurements.snapStop !== "normal") throw new Error(`${width}px: 카드마다 강제 정지가 남아 있음 (${measurements.snapStop})`);
     if (measurements.pagination !== 0) throw new Error(`${width}px: 페이지 번호 또는 도트가 남아 있음`);
@@ -67,20 +85,12 @@ try {
 
     const rail = page.locator(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaRail").first();
     await rail.evaluate((element) => {
-      const items = element.querySelectorAll(".naverDiscussionMediaItem");
-      const distance = items[1].getBoundingClientRect().left - items[0].getBoundingClientRect().left;
-      element.style.scrollBehavior = "auto";
-      element.scrollLeft = distance;
+      element.scrollLeft = 63;
       element.dispatchEvent(new Event("scroll"));
     });
     await page.waitForTimeout(250);
-    const scrollState = await rail.evaluate((element) => {
-      const item = element.querySelectorAll(".naverDiscussionMediaItem")[1];
-      const railRect = element.getBoundingClientRect();
-      const itemRect = item.getBoundingClientRect();
-      return { scrollLeft: element.scrollLeft, leftDelta: Math.abs(itemRect.left - railRect.left) };
-    });
-    if (scrollState.scrollLeft <= 0 || scrollState.leftDelta > 2) throw new Error(`${width}px: 두 번째 미디어 스냅 실패`);
+    const scrollLeft = await rail.evaluate((element) => element.scrollLeft);
+    if (Math.abs(scrollLeft - 63) > 1) throw new Error(`${width}px: 자유 스크롤 위치가 강제 보정됨 (${scrollLeft}px)`);
 
     const videoButton = page.locator("[data-discussion-video]").first();
     if (width === 390) {
@@ -90,16 +100,39 @@ try {
     }
     await videoButton.click();
     await page.waitForTimeout(300);
-    const videoPaused = await page.locator(".naverDiscussionMediaItem[data-kind='video'] video").first().evaluate((video) => video.paused);
-    if (videoPaused) throw new Error(`${width}px: 영상 재생 실패`);
-    await page.locator(".naverDiscussionMediaItem[data-kind='video'] video").first().evaluate((video) => video.pause());
+    const firstVideo = page.locator(".naverDiscussionMediaItem[data-kind='video'] video").first();
+    const firstVideoState = await firstVideo.evaluate((video) => ({ paused: video.paused, controls: video.controls }));
+    if (firstVideoState.paused || !firstVideoState.controls) throw new Error(`${width}px: 첫 영상 재생 또는 컨트롤 노출 실패`);
+    if ((await videoButton.getAttribute("aria-label")) !== "영상 일시정지") throw new Error(`${width}px: 영상 재생 상태 접근성 문구 불일치`);
 
-    const vote = page.locator('[data-discussion-vote="up"]').first();
-    await vote.click();
-    if ((await vote.getAttribute("aria-pressed")) !== "true") throw new Error(`${width}px: 버프 아이콘 선택 실패`);
+    const secondVideoButton = page.locator("[data-discussion-video]").nth(1);
+    await secondVideoButton.click();
+    await page.waitForTimeout(300);
+    const videoSwitchState = await page.locator(".naverDiscussionMediaItem[data-kind='video'] video").evaluateAll((videos) => ({ firstPaused: videos[0].paused, secondPaused: videos[1].paused }));
+    if (!videoSwitchState.firstPaused || videoSwitchState.secondPaused) throw new Error(`${width}px: 영상 전환 시 이전 영상 자동 정지 실패`);
+    await page.locator(".naverDiscussionMediaItem[data-kind='video'] video").nth(1).evaluate((video) => video.pause());
+
+    const voteCard = page.locator(".naverDiscussionCard").first();
+    const upVote = voteCard.locator('[data-discussion-vote="up"]');
+    const downVote = voteCard.locator('[data-discussion-vote="down"]');
+    await upVote.click();
+    if ((await upVote.getAttribute("aria-pressed")) !== "true") throw new Error(`${width}px: 버프 아이콘 선택 실패`);
+    await downVote.click();
+    if ((await upVote.getAttribute("aria-pressed")) !== "false" || (await downVote.getAttribute("aria-pressed")) !== "true") throw new Error(`${width}px: 버프·너프 상호 배타 선택 실패`);
+    await downVote.click();
+    if ((await downVote.getAttribute("aria-pressed")) !== "false") throw new Error(`${width}px: 너프 재선택 해제 실패`);
 
     if (consoleErrors.length) throw new Error(`${width}px: 콘솔 오류\n${consoleErrors.join("\n")}`);
-    console.log(`PASS ${width}px · cards ${measurements.cards} · multi rails ${measurements.multiRails} · ratios ${measurements.mediaRatios} · videos ${measurements.videos} · native momentum · proximity snap · pagination 0 · overflow 0`);
+    const commentButton = voteCard.locator("[data-discussion-comment]");
+    const commentId = await commentButton.getAttribute("data-discussion-comment");
+    await Promise.all([
+      page.waitForURL((target) => target.pathname.endsWith("/community/chzzk-detail.html")),
+      commentButton.click(),
+    ]);
+    const commentUrl = new URL(page.url());
+    if (commentUrl.searchParams.get("id") !== commentId || commentUrl.hash !== "#comments") throw new Error(`${width}px: 댓글 상세 이동 실패`);
+
+    console.log(`PASS ${width}px · 18 scenarios · cards ${measurements.cards} · single/multi ${measurements.singleRails}/${measurements.multiRails} · ratios ${measurements.mediaRatios} · videos ${measurements.videos} · free native scroll · pagination 0 · overflow 0`);
     await page.close();
   }
 } finally {
