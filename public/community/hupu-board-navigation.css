@@ -1,4 +1,4 @@
-.boardChannelNav{height:44px;display:flex;align-items:stretch;border-bottom:0;background:#fff;position:relative;z-index:4}
+.boardChannelNav{height:44px;display:flex;align-items:stretch;border-bottom:1px solid #ececef;background:#fff;position:relative;z-index:4}
 .boardChannelScroller{min-width:0;flex:1;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain}
 .boardChannelScroller::-webkit-scrollbar{display:none}
 .boardChannelTrack{height:100%;display:flex;align-items:stretch;gap:22px;width:max-content;padding:0 14px 0 16px}
