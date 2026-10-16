@@ -1,7 +1,7 @@
 .phone.naverDiscussionMode{--discussion-avatar-size:24px;--discussion-meta-gap:6px;--discussion-card-pad-x:16px;background:#fff}
 .phone.naverDiscussionMode .boardDescriptionSection,
 .phone.naverDiscussionMode .noticeRow{display:none}
-.phone.naverDiscussionMode .boardTop{margin-bottom:0;border-bottom:1px solid #e8e9ec;box-shadow:none}
+.phone.naverDiscussionMode .boardTop{margin-bottom:0;border-bottom:0;box-shadow:none}
 .phone.naverDiscussionMode .list{min-height:560px;padding:0;background:#fff}
 .phone.naverDiscussionMode .bottomSpace{height:84px}
 .naverDiscussionTabs{height:52px;display:grid;grid-template-columns:repeat(4,1fr);align-items:stretch;padding:0 12px;border-bottom:1px solid #f0f1f3;background:#fff}
