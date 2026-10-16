@@ -3907,6 +3907,34 @@ final result: passed
 - final result: passed
 
 ---
+# 전체 게시글 · 추천/조회 아이콘 밸런스 QA · 2026-10-16
+
+- source visual truth: 사용자 첨부 `1000018664.jpg`의 작성자 · 날짜 · 추천 · 조회 메타 행.
+- browser-rendered implementation: `http://127.0.0.1:4314/community/naver-cafe-list.html?v=20261016thumbbalance1`을 Chrome 모바일 뷰에서 확인했다.
+- viewport and density: 참고 이미지 591 × 1280px, 구현 화면 390 × 844 CSS px. 전체 페이지의 콘텐츠 차이가 아니라 메타 아이콘의 크기·기준선·간격을 비교 범위로 삼았다.
+- state: `전체 게시글` 기본 목록, 첫 게시물부터 썸네일 유무가 다른 여러 행이 보이는 상태.
+- full-view comparison evidence: 모바일 목록의 작성자, 날짜, 추천수, 조회수가 한 줄에 유지되고 썸네일·제목·행 높이는 기존 구성을 보존했다.
+- focused region comparison evidence: 메타 행 17px, 추천 엄지 16 × 16px, 조회 눈 14 × 14px이며 두 아이콘은 같은 중앙 기준선과 opacity `.68`을 사용한다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 메타 12.5px/17px와 기존 숫자 굵기를 유지했다.
+- spacing and layout rhythm: 그룹 간 7px, 아이콘과 숫자 사이 1px을 유지하고 추천 아이콘의 불필요한 좌측 음수 여백을 제거했다.
+- colors and visual tokens: 추천과 조회 아이콘을 같은 회색 농도 `.68`로 통일했다.
+- image quality and asset fidelity: 프로젝트에 있던 Reddit식 엄지 경로를 그대로 재사용하고, SVG의 빈 내부 여백만 타이트한 viewBox로 잘라 선명도를 유지했다.
+- copy and content: 추천수·조회수와 게시물 내용은 변경하지 않았다.
+- interaction and console: 정적 메타 아이콘 변경이며 Chrome 콘솔 오류 0건을 확인했다.
+
+## Comparison history
+
+- Pass 1: 기존 18px SVG 상자 안의 빈 여백 때문에 실제 엄지 모양이 조회 눈보다 작아 보이는 P2가 있었다.
+- Fix: 같은 엄지 경로를 타이트한 viewBox로 재사용하고 16px로 렌더링했다. 조회 눈은 14px을 유지했다.
+- Pass 2: 두 아이콘이 같은 17px 행과 중앙 기준선에 놓이고 시각적 무게가 맞는 것을 확인했다.
+
+final result: passed
+
+---
 
 # 치지직 상세 · 모바일 레퍼런스 v3 QA · 2026-10-15
 
