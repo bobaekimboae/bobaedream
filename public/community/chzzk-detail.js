@@ -77,7 +77,9 @@ const dukkaebiPosts = [
     ],
   },
 ];
-const allPosts = [...posts, ...dukkaebiPosts];
+// 전용 테이블 게시판(자동차뉴스 등)의 글도 상세에서 찾는다
+const boardTablePosts = window.BBM_BOARD_TABLE ? window.BBM_BOARD_TABLE.allPosts() : [];
+const allPosts = [...posts, ...dukkaebiPosts, ...boardTablePosts];
 function loadLocalPost() {
   if (params.get('local') !== '1') return null;
   try {
@@ -307,15 +309,33 @@ function setRegularContent() {
       </li>`;
   } else if (!isReferencePost && !localSourcePost) {
     document.body.classList.add('isScenarioPost');
-    $('#boardBtn').childNodes[0].nodeValue = `${post.category || '자유게시판'} `;
+    $('#boardBtn').childNodes[0].nodeValue = `${post.boardTable ? (window.BBM_BOARD_TABLES?.[post.board]?.displayName || post.category) : (post.category || '자유게시판')} `;
     if (post.authorAvatar) {
       $('#authorAvatar').src = post.authorAvatar;
       $('#authorAvatar').alt = `${post.user || '회원'} 프로필`;
     }
     const paragraphs = post.body && post.body.length ? post.body : ['좋은 정보 함께 나눠요.'];
     const detailImage = post.detailImage || String(post.thumbnail || '').replace(/([?&])w=\d+/, '$1w=960');
-    $('#postBody').innerHTML = `${detailImage ? `<img class="detailPhoto" src="${escapeHtml(detailImage)}" alt="${escapeHtml(post.title)}">` : ''}
-      <div class="detailCopy">${paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>`;
+    // 네이버 토론형 피드에서 온 글은 피드와 같은 사진을 모두 보여 준다(무관한 기본 사진 대신)
+    const fromDiscussion = new URLSearchParams(location.search).get('from') === 'discussion' && window.BBM_DISCUSSION_MEDIA;
+    const discussionPhotos = fromDiscussion ? window.BBM_DISCUSSION_MEDIA.photosFor(post) : [];
+    const discussionVideo = fromDiscussion ? window.BBM_DISCUSSION_MEDIA.videoFor(post) : '';
+    const photoHtml = fromDiscussion
+      ? discussionPhotos.map((photo, index) => (index === 0 && discussionVideo
+        ? `<video class="detailPhoto detailDiscussionPhoto" id="detailPhoto${index + 1}" src="${escapeHtml(discussionVideo)}" poster="${escapeHtml(photo.src)}" controls muted playsinline preload="metadata" ${photo.ratio ? ` style="aspect-ratio:${photo.ratio}"` : ''}></video>`
+        : `<img class="detailPhoto detailDiscussionPhoto" id="detailPhoto${index + 1}" src="${escapeHtml(photo.src)}" alt="${escapeHtml(post.title)} 사진 ${index + 1}" ${photo.ratio ? ` style="aspect-ratio:${photo.ratio}"` : ''} loading="${index < 2 ? 'eager' : 'lazy'}">`)).join('')
+      : post.boardTable && post.images && post.images.length
+        ? post.images.map((src, index) => `<img class="detailPhoto detailDiscussionPhoto" src="${escapeHtml(src)}" alt="${escapeHtml(post.title)} 사진 ${index + 1}" loading="${index < 2 ? 'eager' : 'lazy'}">`).join('')
+        : (detailImage ? `<img class="detailPhoto" src="${escapeHtml(detailImage)}" alt="${escapeHtml(post.title)}">` : '');
+    const sourceHtml = post.boardTable && (post.source || post.sourceUrl)
+      ? `<p class="detailSource">출처 ${escapeHtml(post.source || '')}${post.sourceUrl && /^https?:\/\//.test(post.sourceUrl) ? ` · <a href="${escapeHtml(post.sourceUrl)}" target="_blank" rel="noopener noreferrer">원문 보기</a>` : ''}</p>`
+      : '';
+    $('#postBody').innerHTML = `${photoHtml}
+      <div class="detailCopy">${paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>${sourceHtml}`;
+    const photoTarget = Number(new URLSearchParams(location.search).get('photo')) || 0;
+    if (fromDiscussion && photoTarget > 1) {
+      requestAnimationFrame(() => document.getElementById(`detailPhoto${photoTarget}`)?.scrollIntoView({ block: 'start' }));
+    }
     const tagRow = $('#regularPost .tagRow');
     const tags = (post.tags || [post.category]).filter(Boolean).slice(0, 10);
     tagRow.replaceChildren(...tags.map((tag) => {

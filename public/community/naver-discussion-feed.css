@@ -47,19 +47,33 @@
 .naverDiscussionTime{margin-left:auto;color:#9b9ea4;font-size:12px;line-height:18px;font-weight:430;white-space:nowrap}
 .naverDiscussionTitle{display:block;margin:7px 0 4px;color:#1e1e23;font-size:16px;line-height:24px;font-weight:750;letter-spacing:-.035em;text-decoration:none;word-break:keep-all}
 .naverDiscussionBody{display:-webkit-box;margin:0;color:#50545a;font-size:14px;line-height:21px;font-weight:420;letter-spacing:-.025em;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;word-break:keep-all}
-.naverDiscussionMediaShell{position:relative;height:clamp(184px,52vw,210px);margin-top:10px;overflow:hidden;border-radius:10px;background:#eef0f2}
-.naverDiscussionMediaRail{display:flex;width:100%;height:100%;gap:8px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:none;scroll-behavior:auto;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.naverDiscussionMediaShell{--rail-h:clamp(184px,52vw,210px);position:relative;height:var(--rail-h);margin-top:10px;overflow:hidden;border-radius:10px;background:transparent}
+.naverDiscussionMediaShell.is-single{height:auto;aspect-ratio:var(--media-ratio,1.7778);max-height:360px;background:#eef0f2}
+.naverDiscussionMediaRail{display:flex;width:100%;height:100%;gap:4px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:none;scroll-behavior:auto;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
 .naverDiscussionMediaRail::-webkit-scrollbar{display:none}
 .naverDiscussionMediaShell.is-embla-ready{touch-action:pan-y pinch-zoom;cursor:grab}
 .naverDiscussionMediaShell.is-embla-ready.is-dragging{cursor:grabbing}
 .naverDiscussionMediaShell.is-embla-ready .naverDiscussionMediaRail{overflow:visible;touch-action:pan-y pinch-zoom;will-change:transform;-webkit-overflow-scrolling:auto}
 .naverDiscussionMediaShell.is-embla-ready .naverDiscussionMediaItem{transform:translateZ(0);backface-visibility:hidden}
 .naverDiscussionMediaItem{position:relative;display:block;width:100%;height:100%;flex:0 0 100%;overflow:hidden;border-radius:8px;background:#e7e9ec;text-decoration:none;-webkit-tap-highlight-color:transparent}
-.naverDiscussionMediaShell.is-multi .naverDiscussionMediaItem{min-width:58%;flex-basis:auto}
-.naverDiscussionMediaShell.is-multi .naverDiscussionMediaItem[data-ratio="landscape"]{width:72%;flex-basis:72%}
-.naverDiscussionMediaShell.is-multi .naverDiscussionMediaItem[data-ratio="square"]{width:54%;flex-basis:54%}
-.naverDiscussionMediaShell.is-multi .naverDiscussionMediaItem[data-ratio="portrait"]{width:41%;flex-basis:41%}
-.naverDiscussionMediaShell.is-multi .naverDiscussionMediaItem[data-ratio="tall"]{width:32%;flex-basis:32%}
+.naverDiscussionMediaShell.is-single .naverDiscussionMediaItem{border-radius:0}
+/* 여러 장: 칸 높이는 같고 폭은 사진 원본 비율 그대로(세로 사진은 좁게, 가로 사진은 넓게) */
+.naverDiscussionMediaShell.is-multi .naverDiscussionMediaItem{width:calc(var(--rail-h) * var(--media-ratio,1));flex:0 0 calc(var(--rail-h) * var(--media-ratio,1));min-width:0;max-width:100%}
+.naverDiscussionMediaShell.is-multi .naverDiscussionMediaItem:after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06);pointer-events:none}
+.naverDiscussionMediaCount{position:absolute;top:8px;right:8px;z-index:2;height:22px;padding:0 8px;border-radius:11px;background:rgba(0,0,0,.56);color:#fff;font-size:12px;line-height:22px;font-weight:600;letter-spacing:0;pointer-events:none;font-variant-numeric:tabular-nums}
+.naverDiscussionMediaCount b{font-weight:600}
+.naverDiscussionMediaShell.is-fit .naverDiscussionMediaCount{display:none}
+.naverDiscussionMediaShell.is-fit.is-embla-ready{cursor:default}
+.naverDiscussionMediaArrow{position:absolute;top:50%;z-index:2;width:32px;height:32px;margin-top:-16px;display:none;border-radius:50%;background:rgba(255,255,255,.94);box-shadow:0 1px 4px rgba(0,0,0,.24);cursor:pointer}
+.naverDiscussionMediaArrow:before{content:"";position:absolute;top:50%;left:50%;width:8px;height:8px;border-top:2px solid #222;border-right:2px solid #222;transform:translate(-65%,-50%) rotate(45deg)}
+.naverDiscussionMediaArrow.is-prev{left:8px}
+.naverDiscussionMediaArrow.is-prev:before{transform:translate(-35%,-50%) rotate(-135deg)}
+.naverDiscussionMediaArrow.is-next{right:8px}
+.naverDiscussionMediaArrow[hidden]{display:none!important}
+@media (hover:hover) and (pointer:fine){
+  .naverDiscussionMediaShell.is-embla-ready:hover .naverDiscussionMediaArrow,
+  .naverDiscussionMediaShell.is-embla-ready:focus-within .naverDiscussionMediaArrow{display:block}
+}
 .naverDiscussionMediaLink{display:block;width:100%;height:100%;text-decoration:none}
 .naverDiscussionMediaItem img,.naverDiscussionMediaItem video{display:block;width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none}
 .naverDiscussionMediaItem.is-contain img{object-fit:contain}

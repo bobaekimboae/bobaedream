@@ -12,39 +12,7 @@
   var phone=document.querySelector('.phone');
   var typeLabel=document.getElementById('typeLabel');
   var mediaCarousels=[];
-  var scenarioMediaRoot='media/discussion-scenarios-v2/';
-  var relatedScenarioMedia={
-    1:[1],
-    2:[2,14,22,27],3:[3,21,13],4:[4,5,12,18,30],5:[5,4,12,18,30],6:[6],
-    7:[7,10,28,16],8:[8,25],9:[9,24,29],10:[10,7,28,16],11:[11,15,19,23,20],
-    12:[12,4,5,18,30],13:[13,21,3],14:[14,2,22,27],15:[15,11,19,23,20],
-    16:[16,10,7,28],17:[17,25,30],18:[18,12,4,5,30],19:[19,23,15,11,20],
-    20:[20,11,15,19,23],21:[21,13,3],22:[22,14,2,27],23:[23,19,15,11,20],
-    24:[24,9,29],25:[25,8,17],26:[26],27:[27,14,22,2],28:[28,7,10,16],
-    29:[29,24,9],30:[30,17,12,18,4,5],
-    31:[31,37,51],32:[32,54,48,49],33:[33,42,59,60],34:[34,52,45],35:[35,46,57],
-    36:[36,39,44,47,58],37:[37,31,51],38:[38,44,47],39:[39,44,36],40:[40,33,42],
-    41:[41,50,55],42:[42,33,60],43:[43,56],44:[44,39,36,47],45:[45,52,34],
-    46:[46,35,57],47:[47,44,36],48:[48,49,32,54],49:[49,48,32],50:[50,41,55],
-    51:[51,31,37],52:[52,34,45],53:[53],54:[54,32,48],55:[55,41,50],
-    56:[56,43],57:[57,35,46],58:[58,36,39],59:[59,33,42],60:[60,33,42,59]
-  };
-  var videoMediaByPost={
-    8:'media/car-driving-road-v01.mp4',
-    11:'media/car-sunset-drive-v01.mp4',
-    14:'media/car-driving-road-v01.mp4',
-    20:'media/car-desert-drone-v01.mp4',
-    34:'media/car-driving-road-v01.mp4',
-    37:'media/car-sunset-drive-v01.mp4',
-    53:'media/car-driving-road-v01.mp4',
-    57:'media/car-desert-drone-v01.mp4'
-  };
-  var mediaLayouts=[
-    ['landscape','square','portrait','landscape','tall','square'],
-    ['portrait','square','landscape','portrait','square','tall'],
-    ['portrait','landscape','square','tall','landscape','portrait'],
-    ['square','portrait','landscape','square','tall','portrait']
-  ];
+  var sharedMedia=window.BBM_DISCUSSION_MEDIA||{photosFor:function(){return [];},videoFor:function(){return '';}};
 
   function esc(value){
     return String(value==null?'':value).replace(/[&<>"']/g,function(char){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char];});
@@ -53,7 +21,7 @@
   function cleanTitle(value){return String(value||'').replace(/^\[[^\]]+\]\s*/,'');}
   function bodyFor(post,index){return Array.isArray(post.body)&&post.body.length?post.body[0]:bodyFallbacks[index%bodyFallbacks.length];}
   function avatarFor(post,index){return post.authorAvatar||'assets/profile-avatars/avatar-'+String(index%48+1).padStart(2,'0')+'.svg';}
-  function detailUrl(post){return './chzzk-detail.html?id='+encodeURIComponent(post.id)+'&v=20261016naverdiscussion2';}
+  function detailUrl(post,photoIndex){return './chzzk-detail.html?id='+encodeURIComponent(post.id)+'&from=discussion'+(photoIndex>0?'&photo='+(photoIndex+1):'')+'&v=20261016naverdiscussion3';}
   function icon(name){return 'assets/chzzk-detail/icons/'+name+'.svg?v=20261016naverdiscussion2';}
   function chototIcon(name){return '../icons/chotot/'+name+'.svg?v=20261016navermedia1';}
   function categoryFor(post){return post.category||String(post.title||'').match(/^\[([^\]]+)\]/)?.[1]||'자유';}
@@ -63,39 +31,37 @@
     if(number>=1000){var thousand=Math.floor(number/100)/10;return (thousand%1===0?String(thousand):thousand.toFixed(1))+'천';}
     return String(number);
   }
-  function scenarioMediaSource(postId){
-    return scenarioMediaRoot+'post-'+String(postId).padStart(2,'0')+'.webp?v=20261016scenario3';
-  }
   function mediaSources(post){
     if(post.local){
       if(!Array.isArray(post.media))return [];
       return post.media.filter(function(item){
         return item&&item.kind&&(item.id||(item.kind==='image'&&item.url)||(item.kind==='video'&&/\.(?:mp4|webm|mov)(?:\?|$)/i.test(item.url||'')));
-      }).slice(0,6).map(function(item){return{src:item.url||'',id:item.id||'',kind:item.kind};});
+      }).slice(0,6).map(function(item){return{src:item.url||'',id:item.id||'',kind:item.kind,ratio:item.kind==='video'?16/9:0};});
     }
-    var postId=Number(post.id);
-    var photoCount=Number(post.photos)||0;
-    if(photoCount<=0)return [];
-    var requested=Math.min(6,photoCount);
-    var related=relatedScenarioMedia[postId]||[postId];
-    return related.slice(0,requested).map(function(id){return{src:scenarioMediaSource(id),id:'',kind:'image'};});
+    return sharedMedia.photosFor(post).map(function(photo){return{src:photo.src,id:'',kind:'image',ratio:photo.ratio};});
   }
+  /* 사진 칸 폭 = 줄 높이 × 원본 비율. 너무 길거나 넓은 사진만 9:16 ~ 16:9 안으로 자른다. */
+  function clampRatio(value){var r=Number(value)||1;return Math.min(16/9,Math.max(9/16,r));}
   function mediaFor(post,index){
     var sources=mediaSources(post,index);
     if(!sources.length)return '';
     var multiple=sources.length>1;
     var title=cleanTitle(post.title);
+    var postVideo=sharedMedia.videoFor(post);
     var items=sources.map(function(item,itemIndex){
       var source=item.src||'';
-      var ratio=mediaLayouts[index%mediaLayouts.length][itemIndex%mediaLayouts[index%mediaLayouts.length].length];
-      var isVideo=item.kind==='video'||Boolean(videoMediaByPost[Number(post.id)])&&itemIndex===0;
+      var isVideo=item.kind==='video'||Boolean(postVideo)&&itemIndex===0;
+      var ratio=item.ratio?clampRatio(item.ratio):1;
       var contain=/\.png(?:\?|$)/i.test(source);
       var localMedia=item.id?' data-local-media-id="'+esc(item.id)+'"':'';
-      var videoSource=item.kind==='video'?source:videoMediaByPost[Number(post.id)];
-      var media=isVideo?'<video muted playsinline preload="metadata"'+localMedia+(item.kind==='video'?'':' poster="'+esc(source)+'"')+(videoSource?' src="'+esc(videoSource)+'"':'')+'></video><button class="naverDiscussionVideoToggle" type="button" data-discussion-video aria-label="영상 재생"><img src="'+chototIcon('chotot-common-video-play-white-bg')+'" alt=""></button>':'<a class="naverDiscussionMediaLink" href="'+detailUrl(post)+'" aria-label="'+esc(title)+' 사진 '+(itemIndex+1)+' / '+sources.length+' 상세 보기"><img src="'+esc(source)+'"'+localMedia+' alt="" loading="'+(index===0&&itemIndex===0?'eager':'lazy')+'"'+(index===0&&itemIndex===0?' fetchpriority="high"':'')+'></a>';
-      return '<div class="naverDiscussionMediaItem'+(contain?' is-contain':'')+'" data-discussion-media-index="'+itemIndex+'" data-media-post-id="'+esc(post.id)+'" data-kind="'+(isVideo?'video':'image')+'" data-ratio="'+ratio+'">'+media+'</div>';
+      var needsRatio=item.ratio?'':' data-measure-ratio';
+      var videoSource=item.kind==='video'?source:postVideo;
+      var media=isVideo?'<video muted playsinline preload="metadata"'+localMedia+(item.kind==='video'?'':' poster="'+esc(source)+'"')+(videoSource?' src="'+esc(videoSource)+'"':'')+'></video><button class="naverDiscussionVideoToggle" type="button" data-discussion-video aria-label="영상 재생"><img src="'+chototIcon('chotot-common-video-play-white-bg')+'" alt=""></button>':'<a class="naverDiscussionMediaLink" href="'+detailUrl(post,itemIndex)+'" draggable="false" aria-label="'+esc(title)+' 사진 '+(itemIndex+1)+' / '+sources.length+' 상세 보기"><img src="'+esc(source)+'"'+localMedia+needsRatio+' alt="" draggable="false" loading="'+(index===0&&itemIndex===0?'eager':'lazy')+'"'+(index===0&&itemIndex===0?' fetchpriority="high"':'')+'></a>';
+      return '<div class="naverDiscussionMediaItem'+(contain?' is-contain':'')+'" style="--media-ratio:'+ratio.toFixed(4)+'" data-discussion-media-index="'+itemIndex+'" data-media-post-id="'+esc(post.id)+'" data-kind="'+(isVideo?'video':'image')+'">'+media+'</div>';
     }).join('');
-    return '<div class="naverDiscussionMediaShell'+(multiple?' is-multi':'')+'"><div class="naverDiscussionMediaRail" tabindex="0" aria-label="'+esc(title)+' 사진과 영상, 좌우로 넘기기">'+items+'</div></div>';
+    var count=multiple?'<span class="naverDiscussionMediaCount" aria-hidden="true"><b data-media-current>1</b>/'+sources.length+'</span>':'';
+    var arrows=multiple?'<button class="naverDiscussionMediaArrow is-prev" type="button" data-media-prev aria-label="이전 사진" hidden></button><button class="naverDiscussionMediaArrow is-next" type="button" data-media-next aria-label="다음 사진"></button>':'';
+    return '<div class="naverDiscussionMediaShell'+(multiple?' is-multi':' is-single')+'"'+(multiple?'':' style="--media-ratio:'+Math.max(1,sources[0].ratio?clampRatio(sources[0].ratio):16/9).toFixed(4)+'"')+'><div class="naverDiscussionMediaRail" tabindex="0" aria-label="'+esc(title)+' 사진과 영상 '+sources.length+'개, 좌우로 넘기기">'+items+'</div>'+arrows+count+'</div>';
   }
   function card(post,index){
     var likes=Math.max(0,Math.round(Number(post.view||0)/23)+Number(post.reply||0));
@@ -146,7 +112,22 @@
     list.querySelectorAll('[data-discussion-comment]').forEach(function(button){button.addEventListener('click',function(){location.href='./chzzk-detail.html?id='+encodeURIComponent(button.dataset.discussionComment)+'#comments';});});
   }
 
+  function measureLocalRatios(){
+    list.querySelectorAll('img[data-measure-ratio]').forEach(function(img){
+      function apply(){
+        if(!img.naturalWidth||!img.naturalHeight)return;
+        var r=clampRatio(img.naturalWidth/img.naturalHeight);
+        var item=img.closest('.naverDiscussionMediaItem');
+        var shell=img.closest('.naverDiscussionMediaShell');
+        if(item)item.style.setProperty('--media-ratio',r.toFixed(4));
+        if(shell&&shell.classList.contains('is-single'))shell.style.setProperty('--media-ratio',Math.max(1,r).toFixed(4));
+        if(shell&&shell._discussionEmbla)shell._discussionEmbla.reInit();
+      }
+      if(img.complete)apply();else img.addEventListener('load',apply,{once:true});
+    });
+  }
   function initMediaCarousels(){
+    measureLocalRatios();
     if(typeof window.EmblaCarousel!=='function')return;
     list.querySelectorAll('.naverDiscussionMediaShell.is-multi').forEach(function(shell){
       shell.classList.add('is-embla-ready');
@@ -159,8 +140,45 @@
         duration:24
       });
       shell._discussionEmbla=api;
+      var prev=shell.querySelector('[data-media-prev]');
+      var next=shell.querySelector('[data-media-next]');
+      var current=shell.querySelector('[data-media-current]');
+      function sync(){
+        if(prev)prev.hidden=!api.canScrollPrev();
+        if(next)next.hidden=!api.canScrollNext();
+        var scrollable=api.canScrollPrev()||api.canScrollNext();
+        shell.classList.toggle('is-fit',!scrollable);
+        if(current){
+          var nodes=api.slideNodes();
+          var left=shell.getBoundingClientRect().left;
+          var first=0;
+          /* 왼쪽 끝에 절반 이상 보이는 첫 사진의 번호 */
+          for(var i=0;i<nodes.length;i++){var r=nodes[i].getBoundingClientRect();if(r.left+r.width/2>=left){first=i;break;}}
+          /* 맨 끝에 닿으면 마지막 사진 번호를 보여 준다 */
+          if(!api.canScrollNext())first=nodes.length-1;
+          current.textContent=String(first+1);
+        }
+      }
+      api.on('init',sync);api.on('scroll',sync);api.on('select',sync);api.on('reInit',sync);api.on('settle',sync);
+      sync();
       api.on('pointerDown',function(){shell.classList.add('is-dragging');});
       api.on('pointerUp',function(){shell.classList.remove('is-dragging');});
+      if(prev)prev.addEventListener('click',function(event){event.preventDefault();event.stopPropagation();api.scrollPrev();});
+      if(next)next.addEventListener('click',function(event){event.preventDefault();event.stopPropagation();api.scrollNext();});
+      /* PC 트랙패드·휠: 가로로 더 많이 움직였을 때만 사진을 넘긴다(세로 스크롤은 그대로) */
+      var wheelSum=0,wheelTimer=0,wheelLock=false;
+      shell.addEventListener('wheel',function(event){
+        var dx=event.deltaX||(event.shiftKey?event.deltaY:0);
+        if(Math.abs(dx)<=Math.abs(event.shiftKey?0:event.deltaY))return;
+        event.preventDefault();
+        wheelSum+=dx;
+        clearTimeout(wheelTimer);
+        wheelTimer=setTimeout(function(){wheelSum=0;wheelLock=false;},180);
+        if(wheelLock||Math.abs(wheelSum)<30)return;
+        wheelLock=true;
+        if(wheelSum>0)api.scrollNext();else api.scrollPrev();
+        wheelSum=0;
+      },{passive:false});
       shell.addEventListener('keydown',function(event){
         if(event.key==='ArrowRight'){event.preventDefault();api.scrollNext();}
         if(event.key==='ArrowLeft'){event.preventDefault();api.scrollPrev();}
