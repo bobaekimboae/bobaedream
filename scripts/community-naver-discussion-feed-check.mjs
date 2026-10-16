@@ -7,7 +7,7 @@ const url = `${baseUrl}/community/naver-cafe-list.html?view=naver-discussion`;
 const widths = [360, 390, 412];
 const browser = await chromium.launch({ headless: true });
 
-await Promise.all(Array.from({ length: 30 }, (_, index) =>
+await Promise.all(Array.from({ length: 60 }, (_, index) =>
   access(resolve(`public/community/media/discussion-scenarios-v2/post-${String(index + 1).padStart(2, "0")}.webp`))
 ));
 
@@ -84,14 +84,14 @@ try {
     if (measurements.hotModules !== 0) throw new Error(`${width}px: HOT 모듈이 남아 있음`);
     if (measurements.votes !== measurements.cards * 2) throw new Error(`${width}px: 버프·너프 아이콘 개수 불일치`);
     if (measurements.visibleVoteLabels !== 0) throw new Error(`${width}px: 버프·너프 텍스트가 노출됨`);
-    if (measurements.cards !== 30) throw new Error(`${width}px: 게시물 카드 수 불일치 (${measurements.cards})`);
-    if (measurements.mediaShells !== 30) throw new Error(`${width}px: 게시물별 대표 미디어 수 불일치 (${measurements.mediaShells})`);
+    if (measurements.cards !== 60) throw new Error(`${width}px: 게시물 카드 수 불일치 (${measurements.cards})`);
+    if (measurements.mediaShells !== 60) throw new Error(`${width}px: 게시물별 대표 미디어 수 불일치 (${measurements.mediaShells})`);
     if (measurements.multiRails < 1) throw new Error(`${width}px: 다중 사진 레일 없음`);
     if (measurements.singleRails < 1) throw new Error(`${width}px: 단일 사진 카드 없음`);
     if (measurements.multiItems < 2) throw new Error(`${width}px: 다중 사진 수 부족`);
     if (measurements.mediaLinks < 1) throw new Error(`${width}px: 사진 상세 링크 없음`);
     if (measurements.mediaRatios < 3) throw new Error(`${width}px: 사진 비율 다양성 부족`);
-    if (measurements.videos !== 4) throw new Error(`${width}px: 영상 카드 수 불일치 (${measurements.videos})`);
+    if (measurements.videos !== 8) throw new Error(`${width}px: 영상 카드 수 불일치 (${measurements.videos})`);
     if (measurements.videoButtons !== measurements.videos) throw new Error(`${width}px: 영상 재생 버튼 수 불일치`);
     if (measurements.brokenImages !== 0) throw new Error(`${width}px: 깨진 미디어 이미지 ${measurements.brokenImages}개`);
     if (measurements.eagerImages !== 1) throw new Error(`${width}px: 첫 이미지 우선 로딩 수 불일치 (${measurements.eagerImages})`);
@@ -102,13 +102,19 @@ try {
     if (measurements.snapStop !== "normal") throw new Error(`${width}px: 카드마다 강제 정지가 남아 있음 (${measurements.snapStop})`);
     if (measurements.pagination !== 0) throw new Error(`${width}px: 페이지 번호 또는 도트가 남아 있음`);
     if (!measurements.primaryMediaMatches) throw new Error(`${width}px: 게시물 ID와 대표 이미지 매핑 불일치`);
-    if (measurements.uniquePrimaryMedia !== 30) throw new Error(`${width}px: 대표 이미지 중복 (${measurements.uniquePrimaryMedia}/30)`);
+    if (measurements.uniquePrimaryMedia !== 60) throw new Error(`${width}px: 대표 이미지 중복 (${measurements.uniquePrimaryMedia}/60)`);
     if (measurements.unrelatedMedia !== 0) throw new Error(`${width}px: 무관한 외부·슈퍼카 이미지 ${measurements.unrelatedMedia}개`);
     if (measurements.overflow !== 0) throw new Error(`${width}px: 가로 넘침 ${measurements.overflow}px`);
 
     if (width === 390) {
       await mkdir("reports/naver-discussion-feed-1016", { recursive: true });
       await page.screenshot({ path: "reports/naver-discussion-feed-1016/implementation-390x844.png", fullPage: false });
+      await page.locator('[data-discussion-post="31"]').scrollIntoViewIfNeeded();
+      await page.waitForTimeout(100);
+      await page.screenshot({ path: "reports/naver-discussion-feed-1016/implementation-post31-390x844.png", fullPage: false });
+      await page.locator('[data-discussion-post="60"]').scrollIntoViewIfNeeded();
+      await page.waitForTimeout(100);
+      await page.screenshot({ path: "reports/naver-discussion-feed-1016/implementation-post60-390x844.png", fullPage: false });
     }
 
     const rail = page.locator(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaRail").first();
@@ -162,7 +168,7 @@ try {
     const commentUrl = new URL(page.url());
     if (commentUrl.searchParams.get("id") !== commentId || commentUrl.hash !== "#comments") throw new Error(`${width}px: 댓글 상세 이동 실패`);
 
-    console.log(`PASS ${width}px · 30 scenario media · cards/media ${measurements.cards}/${measurements.mediaShells} · primary mapping 30/30 · unrelated 0 · single/multi ${measurements.singleRails}/${measurements.multiRails} · ratios ${measurements.mediaRatios} · videos ${measurements.videos} · free native scroll · pagination 0 · overflow 0`);
+    console.log(`PASS ${width}px · 60 scenario media · cards/media ${measurements.cards}/${measurements.mediaShells} · primary mapping 60/60 · unrelated 0 · single/multi ${measurements.singleRails}/${measurements.multiRails} · ratios ${measurements.mediaRatios} · videos ${measurements.videos} · free native scroll · pagination 0 · overflow 0`);
     await page.close();
   }
 } finally {

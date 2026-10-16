@@ -20,13 +20,23 @@
     16:[16,10,7,28],17:[17,25,30],18:[18,12,4,5,30],19:[19,23,15,11,20],
     20:[20,11,15,19,23],21:[21,13,3],22:[22,14,2,27],23:[23,19,15,11,20],
     24:[24,9,29],25:[25,8,17],26:[26],27:[27,14,22,2],28:[28,7,10,16],
-    29:[29,24,9],30:[30,17,12,18,4,5]
+    29:[29,24,9],30:[30,17,12,18,4,5],
+    31:[31,37,51],32:[32,54,48,49],33:[33,42,59,60],34:[34,52,45],35:[35,46,57],
+    36:[36,39,44,47,58],37:[37,31,51],38:[38,44,47],39:[39,44,36],40:[40,33,42],
+    41:[41,50,55],42:[42,33,60],43:[43,56],44:[44,39,36,47],45:[45,52,34],
+    46:[46,35,57],47:[47,44,36],48:[48,49,32,54],49:[49,48,32],50:[50,41,55],
+    51:[51,31,37],52:[52,34,45],53:[53],54:[54,32,48],55:[55,41,50],
+    56:[56,43],57:[57,35,46],58:[58,36,39],59:[59,33,42],60:[60,33,42,59]
   };
   var videoMediaByPost={
     8:'media/car-driving-road-v01.mp4',
     11:'media/car-sunset-drive-v01.mp4',
     14:'media/car-driving-road-v01.mp4',
-    20:'media/car-desert-drone-v01.mp4'
+    20:'media/car-desert-drone-v01.mp4',
+    34:'media/car-driving-road-v01.mp4',
+    37:'media/car-sunset-drive-v01.mp4',
+    53:'media/car-driving-road-v01.mp4',
+    57:'media/car-desert-drone-v01.mp4'
   };
   var mediaLayouts=[
     ['landscape','square','portrait','landscape','tall','square'],
@@ -53,7 +63,7 @@
     return String(number);
   }
   function scenarioMediaSource(postId){
-    return scenarioMediaRoot+'post-'+String(postId).padStart(2,'0')+'.webp?v=20261016scenario2';
+    return scenarioMediaRoot+'post-'+String(postId).padStart(2,'0')+'.webp?v=20261016scenario3';
   }
   function mediaSources(post){
     var postId=Number(post.id);
