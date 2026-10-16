@@ -26,7 +26,7 @@
     displayName:"자동차뉴스",
     idStart:9100001,
     defaultView:"naver-discussion",
-    updatedAt:"2026-10-16T14:27:02.888Z",
+    updatedAt:"2026-10-16T14:56:01.401Z",
     rows:[
       {
         "id": "9100001",
@@ -399,6 +399,37 @@
         "ratings": "",
         "brandLogo": "",
         "embed": "https://youtu.be/d1rVNdJq83c"
+      },
+      {
+        "id": "9100013",
+        "category": "해외",
+        "title": "BMW M 공식 유튜브 쇼츠: Frozen finish, Hot colour",
+        "summary": "BMW M 공식 채널의 쇼츠 영상입니다. 게시판에서 바로 재생됩니다.",
+        "body": "",
+        "source": "BMW M · YouTube",
+        "sourceUrl": "https://youtube.com/shorts/jy3olv6MKsU",
+        "author": "",
+        "publishedAt": "2026-10-16T23:50:00+09:00",
+        "thumbnail": "",
+        "images": "",
+        "views": "0",
+        "comments": "0",
+        "likes": "0",
+        "tags": "해외|유튜브|쇼츠|BMW",
+        "reviewId": "",
+        "modelId": "",
+        "brand": "",
+        "model": "",
+        "trim": "",
+        "powertrain": "",
+        "rating": "",
+        "owner": "",
+        "ownershipLabel": "",
+        "benchmark": "",
+        "location": "",
+        "ratings": "",
+        "brandLogo": "",
+        "embed": "https://youtube.com/shorts/jy3olv6MKsU"
       }
     ]
   };

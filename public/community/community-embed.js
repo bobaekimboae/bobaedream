@@ -73,7 +73,9 @@
     if (!/^https:\/\//.test(item.src || '')) return cardHtml(item);
     var crop = item.crop === 'instagram' || /instagram\.com\//.test(item.src || '');
     var src = crop ? String(item.src).replace(/embed\/captioned\/?$/, 'embed/') : item.src;
-    var html = '<iframe' + (/youtube(-nocookie)?\.com\/embed\//.test(src) && !item.tall ? ' data-embed-wide' : '') + ' src="' + esc(src) + '" title="' + esc(item.title || item.provider || '임베드') + '" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts"></iframe>';
+    var yt = /youtube(-nocookie)?\.com\/embed\//.test(src);
+    /* 노션 동영상 블록처럼 유튜브는 본문 폭 16:9, 쇼츠는 세로 9:16(최대 폭 315, 가운데) */
+    var html = '<iframe' + (yt ? (item.tall ? ' data-embed-short' : ' data-embed-wide') : '') + ' src="' + esc(src) + '" title="' + esc(item.title || item.provider || '임베드') + '" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts"></iframe>';
     return crop ? '<div class="bbm-embed-crop">' + html + '</div>' : html;
   }
   /* 상세·피드에서 쓰는 블록 하나 */
