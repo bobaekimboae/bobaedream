@@ -82,6 +82,8 @@
 .naverDiscussionMetrics{height:35px;margin-top:8px;display:flex;align-items:center;gap:13px;color:#6f737a;font-size:12px;line-height:18px;font-weight:560}
 .naverDiscussionMetric{height:32px;display:inline-flex;align-items:center;gap:4px;color:inherit}
 .naverDiscussionMetric img{width:18px;height:18px;object-fit:contain;opacity:.77}
+.naverDiscussionMetric[data-discussion-comment]{color:#238fe3;font-weight:650}
+.naverDiscussionMetric[data-discussion-comment] img{opacity:1;filter:invert(52%) sepia(91%) saturate(2284%) hue-rotate(178deg) brightness(91%) contrast(94%)}
 .naverDiscussionMetric.is-active{color:#238fe3;font-weight:720}
 .naverDiscussionMetric.is-active img{filter:invert(52%) sepia(91%) saturate(2284%) hue-rotate(178deg) brightness(91%) contrast(94%)}
 .naverDiscussionViews{margin-left:auto;white-space:nowrap}

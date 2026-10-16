@@ -1,3 +1,29 @@
+# 네이버 토론형 댓글 블루 QA · 2026-10-16
+
+- source visual truth: 사용자 주석 `댓글색상 블루`
+- browser-rendered implementation: `http://127.0.0.1:4173/community/naver-cafe-list.html?view=naver-discussion`
+- viewport and density: 384 × 844 CSS px, DPR 1
+- state: 네이버 토론형 · 전체 말머리 · 첫 게시물 반응 영역
+- full-view evidence: Chrome 로컬 렌더링에서 댓글 아이콘과 숫자가 보배드림 블루로 표시됐다.
+- focused evidence: `[data-discussion-comment]` 60개 전부 `rgb(35, 143, 227)`이며 아이콘 필터도 같은 블루를 사용한다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- 추천·비추천은 기존 회색/선택 상태 규칙을 유지했다.
+- 폰트·간격·이미지·문구는 변경하지 않았다.
+- 새 탭 재검에서 console warning/error 0건을 확인했다.
+
+## Comparison history
+
+- Pass 1: 댓글 아이콘과 숫자가 공통 반응색 `#6f737a`를 상속했다.
+- Fix: 댓글 컨트롤만 `#238fe3`과 동일 블루 아이콘 필터를 적용했다.
+- Pass 2: 댓글 컨트롤 60개 전부 블루로 계산되고 다른 반응색은 유지됐다.
+
+final result: passed
+
+---
+
 # 전체 게시글 · 치지직형 목록 QA · 2026-10-16
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/4f8c42b6-2ce9-4ad1-ade6-f10423e892ce/1-1000018632.jpg` (591 × 1280px)
