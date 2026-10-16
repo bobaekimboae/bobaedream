@@ -25,7 +25,7 @@
   }
 
   function hrefFor(post){
-    return './chzzk-detail.html?id='+encodeURIComponent(post.sourcePostId)+'&v=20261016besttable1';
+    return './chzzk-detail.html?id='+encodeURIComponent(post.id)+'&v=20261016bestboard1';
   }
 
   function rowMarkup(post){
@@ -43,7 +43,7 @@
     track.innerHTML='<div class="popularPanel">'+popular.map(rowMarkup).join('')+'</div>';
     toggle.innerHTML=dots;
     toggle.setAttribute('aria-label','베스트글 '+(page+1)+' / '+pageCount+' · 다음 묶음 보기');
-    section.hidden=false;
+    section.hidden=new URLSearchParams(location.search).get('board')==='best';
   }
 
   toggle.addEventListener('click',function(){
@@ -59,4 +59,5 @@
   });
 
   render();
+  window.BBM_SYNC_BEST_SECTION=render;
 })();
