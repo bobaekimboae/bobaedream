@@ -1,0 +1,130 @@
+[
+  {
+    "width": 360,
+    "checks": {
+      "compactRoute": true,
+      "chzzkLead": true,
+      "mixedRows": true,
+      "mediaStates": true,
+      "newDots": true,
+      "rightThumb": true,
+      "dimensions": true,
+      "preservedExceptions": true,
+      "targets": true,
+      "runtime": true
+    },
+    "metrics": {
+      "compact": true,
+      "listType": "간결형",
+      "descriptionsHidden": true,
+      "notices": 3,
+      "botVisible": true,
+      "rows": 30,
+      "freshRows": 8,
+      "visibleDots": 8,
+      "thumbs": 12,
+      "noThumbs": 18,
+      "videoBadges": 3,
+      "linkBadges": 4,
+      "photoBadges": 6,
+      "rightThumb": true,
+      "itemHeight": 70,
+      "thumbSize": [
+        52,
+        52
+      ],
+      "replyColor": "rgb(35, 143, 227)",
+      "recommendIcon": "assets/reddit-ui/recommend-thumb-up.svg?v=20261016thumbgray2",
+      "brokenImages": [],
+      "firstItemTarget": "1",
+      "noticeTarget": "1"
+    },
+    "errors": []
+  },
+  {
+    "width": 384,
+    "checks": {
+      "compactRoute": true,
+      "chzzkLead": true,
+      "mixedRows": true,
+      "mediaStates": true,
+      "newDots": true,
+      "rightThumb": true,
+      "dimensions": true,
+      "preservedExceptions": true,
+      "targets": true,
+      "runtime": true,
+      "itemNavigation": true,
+      "noticeNavigation": true
+    },
+    "metrics": {
+      "compact": true,
+      "listType": "간결형",
+      "descriptionsHidden": true,
+      "notices": 3,
+      "botVisible": true,
+      "rows": 30,
+      "freshRows": 8,
+      "visibleDots": 8,
+      "thumbs": 12,
+      "noThumbs": 18,
+      "videoBadges": 3,
+      "linkBadges": 4,
+      "photoBadges": 6,
+      "rightThumb": true,
+      "itemHeight": 70,
+      "thumbSize": [
+        52,
+        52
+      ],
+      "replyColor": "rgb(35, 143, 227)",
+      "recommendIcon": "assets/reddit-ui/recommend-thumb-up.svg?v=20261016thumbgray2",
+      "brokenImages": [],
+      "firstItemTarget": "1",
+      "noticeTarget": "1"
+    },
+    "errors": []
+  },
+  {
+    "width": 412,
+    "checks": {
+      "compactRoute": true,
+      "chzzkLead": true,
+      "mixedRows": true,
+      "mediaStates": true,
+      "newDots": true,
+      "rightThumb": true,
+      "dimensions": true,
+      "preservedExceptions": true,
+      "targets": true,
+      "runtime": true
+    },
+    "metrics": {
+      "compact": true,
+      "listType": "간결형",
+      "descriptionsHidden": true,
+      "notices": 3,
+      "botVisible": true,
+      "rows": 30,
+      "freshRows": 8,
+      "visibleDots": 8,
+      "thumbs": 12,
+      "noThumbs": 18,
+      "videoBadges": 3,
+      "linkBadges": 4,
+      "photoBadges": 6,
+      "rightThumb": true,
+      "itemHeight": 70,
+      "thumbSize": [
+        52,
+        52
+      ],
+      "replyColor": "rgb(35, 143, 227)",
+      "recommendIcon": "assets/reddit-ui/recommend-thumb-up.svg?v=20261016thumbgray2",
+      "brokenImages": [],
+      "firstItemTarget": "1",
+      "noticeTarget": "1"
+    },
+    "errors": []
+  }
+]

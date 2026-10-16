@@ -5011,3 +5011,21 @@ final result: passed
   - detail renders 4.43 overall score, 6 category rows, owner information, and 4 comments;
   - console error count: 0.
 - Current limitations: 2,619 aggregate review count and category/tag counts are reference snapshot data; the visible feed uses 6 representative sample posts until backend model-review aggregation is connected.
+
+## 치지직 간결형 리스트 정밀 동일화 (2026-10-17)
+
+- source visual truth: 사용자 제공 `1000018804.jpg` (치지직 모바일 게시판, 591×1280).
+- implementation: `/community/naver-cafe-list.html?view=compact`.
+- 의도적 예외: 댓글 숫자는 보배드림 블루 `#238fe3`, 추천 아이콘은 기존 `recommend-thumb-up.svg`를 유지했다.
+- route finding: `view=compact`가 허용 목록에서 빠져 네이버 토론형으로 전환되던 P1을 발견해 직접 주소가 간결형을 유지하도록 복구했다.
+- structure: 치지직과 같은 게시판 행 → 고정 공지 3건 → 2점 페이지 표시 → 회색 구분대 → 클린봇 → 목록 순서를 적용했다. 간결형에서는 게시판 설명·말머리 칩을 숨겨 목록 진입 구조를 맞췄다.
+- list measurements: 행 70px, 좌우 15px, 제목 16px/23px, 메타 13px/17px, 우측 썸네일 52×52px·radius 7px, 구분선 1px.
+- media scenarios: 텍스트 전용 18건, 썸네일 12건, 동영상 재생 표시 3건, 외부 링크 표시 4건, 복수 사진 수 표시 6건. 실패 이미지가 생기면 깨진 칸을 남기지 않고 텍스트 행으로 자동 전환한다.
+- new marker: 실제 `fresh` 8건에만 빨간 점 8개가 표시되고 나머지 행에는 표시되지 않는다.
+- interactions: 게시글 행과 공지 행이 각각 상세 주소로 이동한다. 글쓰기·클린봇 설정·보기 방식 기존 동작을 보존했다.
+- responsive evidence: 360·384·412px 모두 행 70px, 썸네일 52×52px, 오른쪽 배치, 가로 넘침 없이 통과했다.
+- runtime evidence: 세 폭에서 콘솔 오류 0건, 깨진 이미지 0건.
+- screenshot: `artifacts/community-chzzk-list-parity-1017/implementation-mobile-384.png`.
+- focused comparison: `artifacts/community-chzzk-list-parity-1017/comparison-list-focused.png`.
+- automated verification: `node scripts/community-chzzk-list-parity-check.mjs`, `npm run test:sites`, `npm run build` 통과.
+- final result: passed.

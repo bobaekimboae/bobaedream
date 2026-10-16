@@ -1,35 +1,67 @@
-.phone.compactMode .itemTitle {
-  align-items: center;
-}
+/* Chzzk compact-board parity. Scope every override to compact mode. */
+.compactLead{display:none}
 
-.phone.compactMode .compactReply {
-  color: #238fe3 !important;
-}
+.phone.compactMode .boardDescriptionSection,
+.phone.compactMode .headwordSection{display:none}
 
-.phone.compactMode .meta {
-  gap: 6px !important;
-  color: #777a80 !important;
-  font-size: 13px !important;
-  line-height: 17px !important;
-}
+.phone.compactMode .boardTop{height:56px;margin:0;padding:0 15px;border-bottom:1px solid #f0f1f2}
+.phone.compactMode .boardTop:before{display:none}
+.phone.compactMode .boardTop .boardSelect,
+.phone.compactMode .boardTop .viewIconBtn,
+.phone.compactMode .boardTop .typeSelect{height:56px}
+.phone.compactMode .boardSelect{gap:7px}
+.phone.compactMode .boardAvatar{width:24px;height:24px;flex-basis:24px;box-shadow:none}
+.phone.compactMode .boardSelectName{font-size:18px;line-height:24px;font-weight:750;letter-spacing:-.045em}
+.phone.compactMode .boardStats{display:none}
+.phone.compactMode .boardTools{gap:13px}
+.phone.compactMode .boardToolLabel,
+.phone.compactMode .viewText{font-size:13.5px;line-height:20px;color:#63666b}
+.phone.compactMode .viewIconBtn svg{width:17px;height:17px;color:#686b70}
 
-.phone.compactMode .metaRecommend .metaAsset {
-  width: 16px !important;
-  height: 16px !important;
-  margin: 0 1px 0 0 !important;
-  opacity: .68 !important;
-}
+.phone.compactMode .compactLead{display:block;background:#fff}
+.compactNotices{padding:4px 15px 0}
+.compactNotice{width:100%;height:42px;display:flex;align-items:center;gap:9px;border-bottom:1px solid #dedfe1;background:#fff;text-align:left;overflow:hidden}
+.compactNotice:last-child{border-bottom:0}
+.compactPin{width:23px;height:23px;border-radius:6px;background:#303136;display:grid;place-items:center;flex:0 0 23px}
+.compactPin img{width:14px;height:14px;display:block}
+.compactNotice strong{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:15.5px;line-height:22px;font-weight:650;letter-spacing:-.04em;color:#2a2c30}
+.compactNoticeReply{color:#238fe3;font-size:13px;line-height:20px;font-weight:600;flex:0 0 auto}
+.compactNoticePager{height:24px;display:flex;align-items:center;justify-content:center;gap:5px}
+.compactNoticePager i{width:4px;height:4px;border-radius:50%;background:#d2d4d7}
+.compactNoticePager i.on{background:#6c6e72}
+.compactLeadDivider{height:14px;background:#f5f6f7}
+.compactCleanBot{height:58px;margin:14px 15px;display:flex;align-items:center;gap:9px;padding:0 13px;border-radius:10px;background:#f4f5f6;color:#2e3034;font-size:14px;line-height:20px;letter-spacing:-.035em}
+.compactCleanBot strong{font-weight:750}
+.compactBotIcon{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;flex:0 0 24px;background:#19b58b}
+.compactBotIcon img{width:16px;height:16px;display:block;filter:brightness(0) invert(1)}
+.compactCleanBot button{width:30px;height:30px;margin-left:auto;display:grid;place-items:center;flex:0 0 30px}
+.compactCleanBot button img{width:20px;height:20px;display:block;opacity:.78}
 
-.phone.compactMode .metaView .metaAsset {
-  width: 14px !important;
-  height: 14px !important;
-  margin: -1px 1px -1px 0 !important;
-  opacity: .68 !important;
-}
+.phone.compactMode .list{padding:0 15px;background:#fff}
+.phone.compactMode .item,
+.phone.compactMode .item.noThumb{min-height:70px;padding:9px 0;gap:12px;border-bottom:1px solid #dedfe1;grid-template-columns:minmax(0,1fr) auto}
+.phone.compactMode .item.noThumb{grid-template-columns:minmax(0,1fr);gap:0}
+.phone.compactMode .item .commentBox{display:none}
+.phone.compactMode .itemTitle{align-items:center}
+.phone.compactMode .compactTitleText{font-weight:500}
+.phone.compactMode .compactReply{color:#238fe3!important}
+.phone.compactMode .meta{gap:6px!important;color:#777a80!important;font-size:13px!important;line-height:17px!important}
+.phone.compactMode .metaRecommend .metaAsset{width:16px!important;height:16px!important;margin:0 1px 0 0!important;opacity:.68!important}
+.phone.compactMode .metaView .metaAsset{width:14px!important;height:14px!important;margin:-1px 1px -1px 0!important;opacity:.68!important}
+.phone.compactMode .dot{display:none!important;left:-9px!important;top:15px!important;width:4px!important;height:4px!important}
+.phone.compactMode .item.fresh .dot{display:block!important}
+.phone.compactMode .thumbWrap,
+.phone.compactMode .thumb{width:52px;height:52px;border-radius:7px}
+.phone.compactMode .thumbWrap>.play{display:block!important}
+.phone.compactMode .mediaLinkBadge{position:absolute;right:3px;bottom:3px;width:19px;height:19px;border-radius:7px;display:grid;place-items:center;background:rgba(36,39,43,.76);box-shadow:0 1px 2px rgba(0,0,0,.18)}
+.phone.compactMode .mediaLinkBadge img{width:12px;height:12px;display:block;filter:brightness(0) invert(1)}
+.phone.compactMode .photoBadge{right:3px;bottom:3px;min-width:18px;height:18px;padding:0 4px;border-radius:7px;background:rgba(36,39,43,.76);font-size:9.5px;line-height:18px}
+.phone.compactMode .fab{background:#25262a}
 
-.phone.compactMode .dot {
-  left: -9px !important;
-  top: 15px !important;
-  width: 4px !important;
-  height: 4px !important;
+@media(max-width:370px){
+  .phone.compactMode .boardTop{padding:0 14px}
+  .phone.compactMode .boardTools{gap:10px}
+  .compactNotices,.phone.compactMode .list{padding-left:14px;padding-right:14px}
+  .compactCleanBot{margin-left:14px;margin-right:14px}
+  .compactNotice strong{font-size:15px}
 }
