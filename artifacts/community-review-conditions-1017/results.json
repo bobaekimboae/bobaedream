@@ -734,7 +734,7 @@
     {
       "name": "정상 등록: 상세 이동",
       "result": "PASS",
-      "actual": "http://127.0.0.1:4311/?community=reviews&review=local-1792163541128&from=community&v=conditions1017"
+      "actual": "http://127.0.0.1:4311/?community=reviews&review=local-1792164727548&from=community&v=conditions1017"
     },
     {
       "name": "정상 등록: 제목 유지",
@@ -770,6 +770,21 @@
       "name": "실제 차량 사진 150개",
       "result": "PASS",
       "actual": ""
+    },
+    {
+      "name": "브랜드 로고 프사 50개",
+      "result": "PASS",
+      "actual": "50"
+    },
+    {
+      "name": "기존 랭크 프사 미사용",
+      "result": "PASS",
+      "actual": ""
+    },
+    {
+      "name": "브랜드 로고 9종 노출",
+      "result": "PASS",
+      "actual": "9"
     },
     {
       "name": "목록 깨진 이미지 0",
