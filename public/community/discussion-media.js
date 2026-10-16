@@ -35,6 +35,11 @@
   /* 게시글 하나의 사진 목록: [{src, ratio}] (최대 6장) */
   function photosFor(post){
     if(!post||post.local)return [];
+    /* 전용 테이블 게시판(자동차뉴스 등) 글은 테이블에 적힌 사진을 그대로 쓴다(비율은 화면에서 잰다) */
+    if(post.boardTable){
+      var own=(post.images&&post.images.length?post.images:[post.thumb]).filter(Boolean);
+      return own.slice(0,6).map(function(src){return {src:src,ratio:0,mediaId:0};});
+    }
     var count=Number(post.photos)||0;
     if(count<=0)return [];
     var id=Number(post.id);
@@ -42,5 +47,5 @@
       return {src:src(mediaId),ratio:ratio[mediaId]||1,mediaId:mediaId};
     });
   }
-  window.BBM_DISCUSSION_MEDIA={photosFor:photosFor,videoFor:function(post){return post?video[Number(post.id)]||'':'';}};
+  window.BBM_DISCUSSION_MEDIA={photosFor:photosFor,videoFor:function(post){return post&&!post.boardTable?video[Number(post.id)]||'':'';}};
 })();

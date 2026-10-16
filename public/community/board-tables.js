@@ -1,0 +1,69 @@
+/* 게시판별 전용 테이블(data/board-*.js)을 화면에서 쓰는 게시글 모양으로 바꿔 준다.
+   전용 테이블이 있는 게시판은 공용 시나리오 글 대신 그 테이블의 글만 보여 준다. */
+(function(){
+  'use strict';
+  var tables=window.BBM_BOARD_TABLES=window.BBM_BOARD_TABLES||{};
+  function list(value){return String(value==null?'':value).split('|').map(function(v){return v.trim();}).filter(Boolean);}
+  function num(value){var n=Number(String(value==null?'':value).replace(/,/g,''));return isFinite(n)?n:0;}
+  function relative(iso){
+    var time=Date.parse(iso||'');
+    if(!time)return '';
+    var diff=Math.max(0,Date.now()-time)/60000;
+    if(diff<1)return '방금 전';
+    if(diff<60)return Math.floor(diff)+'분 전';
+    if(diff<1440)return Math.floor(diff/60)+'시간 전';
+    if(diff<10080)return Math.floor(diff/1440)+'일 전';
+    var d=new Date(time);
+    return String(d.getMonth()+1).padStart(2,'0')+'.'+String(d.getDate()).padStart(2,'0');
+  }
+  function toPost(row,table){
+    var category=String(row.category||'').trim()||table.displayName;
+    var images=list(row.images);
+    var thumb=String(row.thumbnail||'').trim()||images[0]||'';
+    var body=String(row.body||row.summary||'').split(/\n+/).map(function(v){return v.trim();}).filter(Boolean);
+    var published=Date.parse(row.publishedAt||'');
+    return {
+      id:num(row.id),
+      board:table.board,
+      boardTable:true,
+      title:'['+category+'] '+String(row.title||'').trim(),
+      user:String(row.author||row.source||table.displayName).trim(),
+      category:category,
+      time:relative(row.publishedAt),
+      view:num(row.views),
+      reply:num(row.comments),
+      likes:num(row.likes),
+      fresh:published?Date.now()-published<86400000:false,
+      thumb:thumb,
+      thumbnail:thumb,
+      detailImage:images[0]||thumb,
+      images:images,
+      photos:images.length||(thumb?1:0),
+      video:false,
+      rank:0,
+      body:body.length?body:[String(row.summary||'').trim()].filter(Boolean),
+      summary:String(row.summary||'').trim(),
+      source:String(row.source||'').trim(),
+      sourceUrl:String(row.sourceUrl||'').trim(),
+      publishedAt:row.publishedAt||'',
+      tags:list(row.tags)
+    };
+  }
+  function postsFor(boardId){
+    var table=tables[boardId];
+    if(!table)return null;
+    return (table.rows||[]).filter(function(row){return row&&row.title;}).map(function(row){return toPost(row,table);})
+      .sort(function(a,b){return (Date.parse(b.publishedAt)||0)-(Date.parse(a.publishedAt)||0);});
+  }
+  function boardIdForLabel(label){
+    var found='';
+    Object.keys(tables).forEach(function(id){if(tables[id].displayName===label)found=id;});
+    return found;
+  }
+  function allPosts(){
+    var out=[];
+    Object.keys(tables).forEach(function(id){out=out.concat(postsFor(id)||[]);});
+    return out;
+  }
+  window.BBM_BOARD_TABLE={postsFor:postsFor,boardIdForLabel:boardIdForLabel,allPosts:allPosts,has:function(id){return Boolean(tables[id]);}};
+})();
