@@ -89,7 +89,7 @@ function loadLocalPost() {
     const container = document.createElement('div');
     container.innerHTML = saved.body || '';
     const lines = (container.innerText || container.textContent || '').split(/\n+/).map((value) => value.trim()).filter(Boolean);
-    return { id:savedId, title:saved.title, user:'보배드림 회원', level:1, date:'방금 전', view:0, likes:0, board:saved.board || '자유게시판', tags:saved.tags || '', body:lines.length ? lines : ['내용이 없습니다.'] };
+    return { id:savedId, title:saved.title, user:'보배드림 회원', level:1, date:'방금 전', view:0, likes:0, board:saved.board || '자유게시판', tags:saved.tags || '', body:lines.length ? lines : ['내용이 없습니다.'], html:saved.html || '', embeds:Array.isArray(saved.embeds) ? saved.embeds : [] };
   } catch { return null; }
 }
 const localSourcePost = loadLocalPost();
@@ -361,7 +361,7 @@ function setRegularContent() {
   }
   if (localSourcePost) {
     $('#boardBtn').childNodes[0].nodeValue = `${post.board.replace('게시판', '').trim()} `;
-    $('#postBody').innerHTML = `<div class="detailCopy">${post.body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>`;
+    $('#postBody').innerHTML = post.html ? renderLocalHtml(post) : `<div class="detailCopy">${post.body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>`;
     const tagRow = $('#regularPost .tagRow');
     const tags = String(post.tags || '').split('#').map((value) => value.trim()).filter(Boolean).slice(0, 10);
     tagRow.replaceChildren(...tags.map((tag) => { const button = document.createElement('button'); button.textContent = `#${tag}`; return button; }));
@@ -371,6 +371,41 @@ function setRegularContent() {
     $('#actionCommentCount').textContent = '0';
   }
   document.title = `${$('#postTitle').textContent} | 치지직`;
+}
+
+// 노션식 글쓰기로 올린 글: 본문 순서대로 글·임베드(레딧·유튜브)·뉴스 카드를 보여 준다
+function detailEmbedHtml(item) {
+  if (!item || !/^https?:\/\//.test(item.url || '')) return '';
+  const caption = item.caption ? `<figcaption>${escapeHtml(item.caption)}</figcaption>` : '';
+  if (item.render === 'iframe' && /^https:\/\//.test(item.src || '')) {
+    return `<figure class="detailEmbed${item.tall ? ' is-tall' : ''}"><iframe src="${escapeHtml(item.src)}" title="${escapeHtml(item.provider || '임베드')}" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts"></iframe>${caption}</figure>`;
+  }
+  let host = item.url;
+  try { host = new URL(item.url).hostname.replace(/^www\./, ''); } catch (_) {}
+  const overseas = item.lang && !/^ko/i.test(item.lang);
+  const image = item.image ? `<span class="news-card-image"><img src="${escapeHtml(item.image)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></span>` : '';
+  const logo = item.logo ? `<img src="${escapeHtml(item.logo)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">` : '';
+  return `<figure class="detailEmbed"><a class="news-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${image}<span class="news-card-copy"><span class="news-card-site">${logo}<span>${escapeHtml(item.site || item.provider || host)}</span>${overseas ? '<em>해외</em>' : ''}</span><strong class="news-card-title">${escapeHtml(item.title || host)}</strong>${item.description ? `<span class="news-card-desc">${escapeHtml(item.description)}</span>` : ''}<small class="news-card-url">${escapeHtml(host)}</small></span></a>${caption}</figure>`;
+}
+function renderLocalHtml(source) {
+  const box = document.createElement('div');
+  box.innerHTML = source.html;
+  const byUrl = new Map((source.embeds || []).map((item) => [item.url, item]));
+  const parts = [];
+  let paragraphs = [];
+  const flush = () => { if (paragraphs.length) { parts.push(`<div class="detailCopy">${paragraphs.join('')}</div>`); paragraphs = []; } };
+  Array.from(box.children).forEach((node) => {
+    if (node.matches('figure.media-block')) {
+      if (node.dataset.kind === 'embed') { flush(); parts.push(detailEmbedHtml(byUrl.get(node.dataset.embedUrl) || { url: node.dataset.embedUrl })); }
+      return;
+    }
+    const text = (node.textContent || '').trim();
+    if (!text) return;
+    const strong = /^H[1-3]$/.test(node.tagName);
+    paragraphs.push(`<p>${strong ? `<strong>${escapeHtml(text)}</strong>` : escapeHtml(text)}</p>`);
+  });
+  flush();
+  return parts.join('') || `<div class="detailCopy"><p>${escapeHtml(source.body?.[0] || '내용이 없습니다.')}</p></div>`;
 }
 
 function setNoticeMode() {
