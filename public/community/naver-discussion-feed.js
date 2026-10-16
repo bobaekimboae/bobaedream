@@ -199,9 +199,26 @@
       });
     };
   }
+  /* 피드의 뉴스 카드는 주소만 있으므로 제목·요약·대표 이미지를 불러와 채운다 */
+  function hydrateNewsCards(){
+    if(!window.BBM_EMBED||!window.BBM_EMBED.fetchMeta||!window.BBM_EMBED.cardHtml)return;
+    list.querySelectorAll('a.news-card:not([data-news-hydrated])').forEach(function(card){
+      card.setAttribute('data-news-hydrated','');
+      var url=card.getAttribute('href');
+      window.BBM_EMBED.fetchMeta(url).then(function(meta){
+        if(!meta||!card.isConnected||!(meta.title||meta.image))return;
+        var item=Object.assign({url:url},meta);
+        var holder=document.createElement('div');
+        holder.innerHTML=window.BBM_EMBED.cardHtml(item);
+        var next=holder.firstElementChild;
+        if(next){next.setAttribute('data-news-hydrated','');card.replaceWith(next);}
+      }).catch(function(){});
+    });
+  }
   function bind(){
     initMediaCarousels();
     if(window.BBM_EMBED&&window.BBM_EMBED.hydratePreviews)window.BBM_EMBED.hydratePreviews(list);
+    hydrateNewsCards();
     list.querySelectorAll('[data-discussion-video]').forEach(function(button){
       var video=button.parentElement.querySelector('video');
       if(!video)return;
