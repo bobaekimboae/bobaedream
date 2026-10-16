@@ -32,6 +32,41 @@ final result: passed
 
 ---
 
+# 커뮤니티 게시판 헤더 · 유튜브형/레딧형 2안 QA · 2026-10-16
+
+- source visual truth paths:
+  - YouTube: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/49224cb7-8b54-4b78-8f7f-7e58114fdf36/2-1000018628.jpg` (592 × 1280px)
+  - Reddit: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/49224cb7-8b54-4b78-8f7f-7e58114fdf36/1-1000018630.jpg` (592 × 1280px)
+- browser-rendered implementation screenshots: CUA Chrome tabs `229716808` (YouTube) and `229716811` (Reddit), captured inline at 393 × 844 CSS px.
+- implementation URLs:
+  - `http://127.0.0.1:4176/community/naver-cafe-list.html?view=compact&board=free&header=youtube&v=local1`
+  - `http://127.0.0.1:4176/community/naver-cafe-list.html?view=compact&board=free&header=reddit&v=local1`
+- viewport and density: 구현 393 × 844 CSS px, Chrome DPR 1. 원본의 앱 상태바·하단 내비게이션은 비교에서 제외하고 상단 탭부터 프로필 설명까지의 콘텐츠 영역을 비율로 정규화했다.
+- state: 자유게시판 선택, 구독 전, 말머리 첫 줄과 인기글 첫 묶음이 보이는 기본 상태.
+- full-view comparison evidence: 두 원본 이미지를 원본 해상도로 열고, 같은 턴의 393px CUA 구현 캡처 2개와 함께 상단 구조·이미지 비율·프로필 행·설명 영역을 비교했다.
+- focused region comparison evidence: 구현 유튜브 배너 361 × 80px(스크롤바 없는 실제 모바일 기준), 레딧 배너 393 × 102px. 프로필 아바타는 각각 62px, 56px이며 이미지 자연 크기는 1440 × 450px, 1440 × 432px이다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 기존 Pretendard 게시판 위계를 유지하며 채널명은 유튜브형 19px/780, 레딧형 18px/760, 통계는 12px으로 참고 화면의 제목·보조정보 대비를 맞췄다.
+- spacing and layout rhythm: 탑메뉴 텍스트 탭 바로 아래에 헤더를 배치했다. 유튜브형은 좌우 16px과 12px 곡률, 레딧형은 전체 폭 무곡률로 플랫폼별 구도를 분리했다. 프로필은 두 참고 화면처럼 배너 아래 별도 행에 놓였다.
+- colors and visual tokens: 기존 흰 배경·검정 활성 탭·검정 구독 칩을 유지해 새 이미지가 목록과 경쟁하지 않도록 했다.
+- image quality and asset fidelity: 두 배너는 각 슬롯 비율에 맞춘 1440px 실사 WebP 자산이다. 확대·찌그러짐 없이 `object-fit: cover`로 표시되며 깨진 이미지 0건이다.
+- copy and content: `자유게시판`, `구독 38.4만명 · 게시물 1,000개`, 기존 게시판 설명과 말머리를 유지해 헤더 비교 외 정보 구조가 바뀌지 않는다.
+- interaction and accessibility: 게시판 탭 전환 후 `자동차뉴스/토론`에서 `자유게시판`으로 정상 복귀했고 구독 토글도 정상 작동한다. 배너에는 구체적인 대체 텍스트가 있다.
+- browser verification: 두 안 모두 문서 가로 오버플로 0px, 깨진 이미지 0개, 콘솔 오류 0건이다.
+
+## Comparison history
+
+- Pass 1: 유튜브 113px·레딧 118px 높이와 프로필 겹침이 참고 화면보다 무겁게 보여 P2로 분류했다.
+- Fix: 실제 참고 비율에 맞춰 유튜브형을 80px, 레딧형을 102px로 낮추고 프로필을 배너 아래 분리했다.
+- Pass 2: 탭→배너→프로필→설명의 위계와 플랫폼별 모서리 차이가 명확해졌고 남은 P0/P1/P2는 없다.
+
+final result: passed
+
+---
+
 # 상세페이지 레딧형 통합 투표칩 QA · 2026-10-16
 
 - source visual truth: 사용자 제공 Reddit 상세 화면 `1000018620.jpg`의 `추천 아이콘 · 점수 · 비추천 아이콘` 단일 알약칩 구조.

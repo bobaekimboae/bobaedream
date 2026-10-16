@@ -1,0 +1,153 @@
+.boardHero {
+  position: relative;
+  display: none;
+  overflow: hidden;
+  background: #e9eaed;
+}
+
+.boardHeroImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.phone.headerYouTube .boardHero,
+.phone.headerReddit .boardHero {
+  display: block;
+}
+
+.phone.headerYouTube .boardHero {
+  height: 80px;
+  margin: 10px 16px 0;
+  border-radius: 12px;
+}
+
+.phone.headerYouTube .boardHeroImage {
+  object-position: 50% 52%;
+}
+
+.phone.headerYouTube .boardTop.redditProfileReady {
+  min-height: 80px;
+  margin: 0;
+  padding: 10px 16px;
+  align-items: center;
+}
+
+.phone.headerYouTube .boardTop::before,
+.phone.headerReddit .boardTop::before {
+  display: none;
+}
+
+.phone.headerYouTube .boardTop.redditProfileReady .boardSelect {
+  align-items: center;
+  overflow: visible;
+}
+
+.phone.headerYouTube .boardTop.redditProfileReady .boardAvatar {
+  width: 62px;
+  height: 62px;
+  flex-basis: 62px;
+  margin-top: 0;
+  border: 0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .08);
+}
+
+.phone.headerYouTube .boardIdentityCopy {
+  min-width: 0;
+  padding-top: 1px;
+}
+
+.phone.headerYouTube .boardTop.redditProfileReady .boardSelectName {
+  font-size: 19px;
+  line-height: 24px;
+  font-weight: 780;
+}
+
+.phone.headerYouTube .boardTop.redditProfileReady .boardStats {
+  margin-top: 3px;
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.phone.headerYouTube .boardSubscribe {
+  width: 58px;
+  height: 31px;
+  flex-basis: 58px;
+  margin-top: 0;
+  line-height: 29px;
+}
+
+.phone.headerYouTube .boardDescriptionSection.redditDescriptionReady {
+  padding-top: 0;
+  padding-bottom: 12px;
+}
+
+.phone.headerReddit .boardHero {
+  height: 102px;
+  margin: 0;
+  border-radius: 0;
+}
+
+.phone.headerReddit .boardHeroImage {
+  object-position: 50% 56%;
+}
+
+.phone.headerReddit .boardTop.redditProfileReady {
+  min-height: 70px;
+  margin: 0;
+  padding: 7px 16px;
+  align-items: center;
+}
+
+.phone.headerReddit .boardTop.redditProfileReady .boardSelect {
+  overflow: visible;
+}
+
+.phone.headerReddit .boardTop.redditProfileReady .boardAvatar {
+  width: 56px;
+  height: 56px;
+  flex-basis: 56px;
+  margin-top: 0;
+  border: 0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .12);
+}
+
+.phone.headerReddit .boardIdentityCopy {
+  padding-top: 1px;
+}
+
+.phone.headerReddit .boardTop.redditProfileReady .boardSelectName {
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.phone.headerReddit .boardTop.redditProfileReady .boardStats {
+  margin-top: 1px;
+}
+
+.phone.headerReddit .boardSubscribe {
+  margin-top: 0;
+}
+
+.phone.headerReddit .boardDescriptionSection.redditDescriptionReady {
+  padding-bottom: 11px;
+}
+
+@media (max-width: 370px) {
+  .phone.headerYouTube .boardHero {
+    height: 76px;
+    margin-right: 14px;
+    margin-left: 14px;
+  }
+
+  .phone.headerYouTube .boardTop.redditProfileReady .boardAvatar {
+    width: 58px;
+    height: 58px;
+    flex-basis: 58px;
+  }
+
+  .phone.headerReddit .boardHero {
+    height: 96px;
+  }
+}
