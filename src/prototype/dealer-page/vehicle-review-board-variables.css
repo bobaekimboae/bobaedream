@@ -1,0 +1,38 @@
+.vr-unit-input {
+  position: relative;
+  display: block;
+}
+
+.vr-unit-input input {
+  padding-right: 42px;
+}
+
+.vr-unit-input em {
+  position: absolute;
+  right: 8px;
+  bottom: 11px;
+  color: #888;
+  font-size: 9px;
+  font-style: normal;
+}
+
+.vr-nonowner-note {
+  margin-top: 13px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #f7f7f7;
+  color: #777;
+  font-size: 11px;
+  line-height: 17px;
+}
+
+@media (max-width: 767px) {
+  .vr-write,
+  .vr-detail {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}

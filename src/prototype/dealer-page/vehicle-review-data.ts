@@ -1,0 +1,74 @@
+export type Powertrain = "ev" | "phev" | "erev" | "hybrid" | "ice";
+
+export type RatingCategoryId =
+  | "exterior"
+  | "interior"
+  | "space"
+  | "features"
+  | "driving"
+  | "range"
+  | "adas"
+  | "cockpit"
+  | "power"
+  | "fuel";
+
+export type RatingCategory = {
+  id: RatingCategoryId;
+  label: string;
+  originalLabel: string;
+  comments: readonly [string, string, string, string, string];
+  originalComments: readonly [string, string, string, string, string];
+};
+
+const category = (
+  id: RatingCategoryId,
+  label: string,
+  originalLabel: string,
+  comments: RatingCategory["comments"],
+  originalComments: RatingCategory["originalComments"],
+): RatingCategory => ({ id, label, originalLabel, comments, originalComments });
+
+export const ratingCategories: Record<RatingCategoryId, RatingCategory> = {
+  exterior: category("exterior", "외관", "外观", ["디자인이 너무 아쉬워요", "호불호가 클 것 같아요", "무난한 디자인이에요", "눈길을 끄는 디자인이에요", "완성도가 뛰어난 디자인이에요"], ["奇丑无比", "勉强接受", "平淡无奇", "颜值担当", "颜值巅峰"]),
+  interior: category("interior", "실내", "内饰", ["실내 구성이 많이 아쉬워요", "기본기는 갖췄지만 아쉬워요", "담백하고 무난해요", "보기 좋고 편안해요", "설계와 마감이 훌륭해요"], ["不能接受", "勉强接受", "朴素无华", "赏心悦目", "设计完美"]),
+  space: category("space", "공간", "空间", ["답답할 만큼 좁아요", "공간 활용이 제한적이에요", "일상용으로 충분해요", "여유 있게 사용할 수 있어요", "넉넉하고 쾌적해요"], ["狭窄憋屈", "空间有限", "刚好够用", "比较宽裕", "十分充裕"]),
+  features: category("features", "편의·안전 사양", "配置", ["기본 사양이 많이 부족해요", "꼭 필요한 사양만 있어요", "일상 사용에는 충분해요", "편의 사양이 만족스러워요", "사양 구성이 매우 풍부해요"], ["如同毛坯", "轻量简装", "日常够用", "舒适享受", "非常丰富"]),
+  driving: category("driving", "주행감", "驾驶感受", ["승차감과 주행감이 불편해요", "일부 주행 특성이 아쉬워요", "전반적으로 무난해요", "편안하고 안정적으로 달려요", "주행 완성도가 매우 뛰어나요"], ["难以忍受", "或有欠缺", "中规中矩", "驾乘舒适", "极致体验"]),
+  range: category("range", "주행거리·전비", "续航能耗", ["실제 주행거리가 크게 아쉬워요", "충전과 주행거리 부담이 있어요", "출퇴근 용도로는 충분해요", "주행거리와 효율이 우수해요", "장거리에서도 믿음직해요"], ["衰减严重", "有些焦虑", "通勤满足", "续航优秀", "扎实持久"]),
+  adas: category("adas", "주행 보조", "辅助驾驶", ["실사용하기 어려워요", "제한적인 상황에서만 쓸 만해요", "기본 기능은 무난해요", "똑똑하고 안정적으로 작동해요", "안심하고 사용할 수 있어요"], ["毫不实用", "间或可用", "马马虎虎", "聪明可靠", "完全信赖"]),
+  cockpit: category("cockpit", "인포테인먼트", "智能座舱", ["반응과 사용성이 많이 아쉬워요", "기능 사용이 다소 불편해요", "기본 사용에는 충분해요", "기능이 다양하고 쓰기 편해요", "반응이 빠르고 매우 스마트해요"], ["智商为零", "不太好用", "满足使用", "丰富好用", "高度智能"]),
+  power: category("power", "동력·핸들링", "动力操控", ["동력과 조향 감각이 불편해요", "힘과 핸들링에 아쉬움이 있어요", "일상 주행에는 무난해요", "운전하기 쉽고 안정적이에요", "차와 하나가 되는 주행감이에요"], ["难以忍受", "有所欠缺", "中规中矩", "驾驶信心", "人车合一"]),
+  fuel: category("fuel", "연비", "油耗", ["연료비 부담이 매우 커요", "연료 소비가 많은 편이에요", "평균적인 연비예요", "연비가 좋은 편이에요", "효율이 매우 뛰어나요"], ["吞油黑洞", "烧油大户", "正常水平", "油耗优秀", "节油高效"]),
+};
+
+export const ratingProfiles: Record<Powertrain, { label: string; required: RatingCategoryId[]; optional: RatingCategoryId[]; ownerMetric: { label: string; placeholder: string; unit: string } }> = {
+  ev: { label: "전기차", required: ["exterior", "interior", "space", "features", "driving", "range"], optional: ["adas", "cockpit"], ownerMetric: { label: "실주행거리", placeholder: "평균 주행거리", unit: "km" } },
+  phev: { label: "플러그인 하이브리드", required: ["exterior", "interior", "space", "features", "driving", "range"], optional: ["adas", "cockpit"], ownerMetric: { label: "순수 전기 주행거리", placeholder: "실제 전기 주행거리", unit: "km" } },
+  erev: { label: "주행거리 연장형", required: ["exterior", "interior", "space", "features", "driving", "range"], optional: ["adas", "cockpit"], ownerMetric: { label: "실주행거리", placeholder: "평균 주행거리", unit: "km" } },
+  hybrid: { label: "하이브리드", required: ["exterior", "interior", "space", "features", "power", "fuel"], optional: [], ownerMetric: { label: "실연비", placeholder: "평균 연비", unit: "km/L" } },
+  ice: { label: "내연기관", required: ["exterior", "interior", "space", "features", "power", "fuel"], optional: [], ownerMetric: { label: "실연비", placeholder: "평균 연비", unit: "km/L" } },
+};
+
+export const reviewModels = [
+  { id: "ev-a06", brand: "현대", model: "아이오닉 6", trim: "2026 롱레인지 2WD", powertrain: "ev" as const, logo: "hyundai.png", benchmark: "전기 세단 평균 4.3" },
+  { id: "phev-xc60", brand: "볼보", model: "XC60", trim: "2026 T8 AWD 플러그인 하이브리드", powertrain: "phev" as const, logo: "volvo.png", benchmark: "중형 SUV 평균 4.4" },
+  { id: "hybrid-camry", brand: "토요타", model: "캠리", trim: "2026 2.5 하이브리드", powertrain: "hybrid" as const, logo: "toyota.png", benchmark: "하이브리드 세단 평균 4.3" },
+  { id: "erev-m7", brand: "AITO", model: "M7", trim: "2026 Max AWD 주행거리 연장형", powertrain: "erev" as const, logo: "", benchmark: "중형 SUV 평균 4.4" },
+  { id: "ice-m3", brand: "BMW", model: "M3", trim: "2025 컴페티션 M xDrive", powertrain: "ice" as const, logo: "bmw.png", benchmark: "고성능 세단 평균 4.4" },
+] as const;
+
+export type ReviewModel = (typeof reviewModels)[number];
+
+export function scoreBucket(score: number) {
+  if (score <= 1) return 0;
+  if (score <= 2) return 1;
+  if (score <= 3) return 2;
+  if (score <= 4) return 3;
+  return 4;
+}
+
+export function ratingComment(categoryId: RatingCategoryId, score: number) {
+  const item = ratingCategories[categoryId];
+  const bucket = scoreBucket(score);
+  return { korean: item.comments[bucket], original: item.originalComments[bucket] };
+}

@@ -6,6 +6,7 @@ import { FavoritesProvider, asset, seoulAutoGalleryCars, setActiveDetailCar, typ
 import { BbmResultCard } from "../listing/bbm-list";
 import { dealers, type SeoulAutoGalleryDealer } from "../listing/seoul-auto-gallery-dealer-rail";
 import { setPretendard } from "../fonts/pretendard";
+import VehicleReviewBoard from "./VehicleReviewBoard";
 import "./dealer-page.css";
 
 const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.location.href).pathname;
@@ -250,7 +251,7 @@ function ListingsSection({ cars, mode, setMode, onOpen }: { cars: Car[]; mode: L
 }
 
 function AnchorNav({ active, onChange }: { active: SectionId; onChange: (section: SectionId) => void }) {
-  const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["community", "커뮤니티"], ["valuation", "내차견적"], ["reviews", "리뷰"], ["social", "SNS"], ["dealers", "소속딜러"], ["intro", "소개"]];
+  const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["community", "커뮤니티"], ["valuation", "내차견적"], ["reviews", "차량리뷰"], ["social", "SNS"], ["dealers", "소속딜러"], ["intro", "소개"]];
   return <nav className="dp-anchor-nav" aria-label="판매자 페이지 구역" role="tablist">{items.map(([id, label]) => <button key={id} type="button" role="tab" aria-selected={active === id} className={`${active === id ? "is-active" : ""}${id === "valuation" ? " is-valuation" : ""}`} onClick={() => onChange(id)}>{label}</button>)}</nav>;
 }
 
@@ -461,7 +462,10 @@ function Footer() {
 function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; cars: Car[] }) {
   const [following, setFollowing] = useState(true);
   const [mode, setMode] = useState<ListingMode>("active");
-  const [activeSection, setActiveSection] = useState<SectionId>("ads");
+  const [activeSection, setActiveSection] = useState<SectionId>(() => {
+    const requested = new URLSearchParams(window.location.search).get("tab");
+    return (["home", "ads", "community", "valuation", "reviews", "social", "dealers", "intro"] as SectionId[]).includes(requested as SectionId) ? requested as SectionId : "ads";
+  });
   const [toast, setToast] = useState("");
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
@@ -490,6 +494,9 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
   };
   const changeSection = (section: SectionId) => {
     setActiveSection(section);
+    const target = new URL(window.location.href);
+    target.searchParams.set("tab", section);
+    window.history.replaceState(null, "", `${target.pathname}${target.search}${target.hash}`);
     const root = scrollRef.current;
     const nav = root?.querySelector<HTMLElement>(".dp-anchor-nav");
     if (root && nav && nav.getBoundingClientRect().top < 50) root.scrollTo({ top: nav.offsetTop - 50, behavior: "smooth" });
@@ -505,7 +512,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
         {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}
         {activeSection === "community" ? <CommunitySection cars={cars} notify={notify} /> : null}
         {activeSection === "valuation" ? <ValuationSection dealer={dealer} notify={notify} /> : null}
-        {activeSection === "reviews" ? <RatingsSection cars={cars} /> : null}
+        {activeSection === "reviews" ? <VehicleReviewBoard cars={cars} /> : null}
         {activeSection === "social" ? <SocialFeedSection cars={cars} /> : null}
         {activeSection === "dealers" ? <AffiliatedDealersSection currentDealer={dealer} onOpenDealer={openDealer} /> : null}
         {activeSection === "intro" ? <AboutSection dealer={dealer} notify={notify} /> : null}
