@@ -4,7 +4,6 @@
   var section=document.getElementById('popularSection');
   var toggle=document.getElementById('popularToggle');
   var track=document.getElementById('popularTrack');
-  var scroller=document.getElementById('popularScroller');
   var pageOffset=0;
   if(!section||!toggle||!track)return;
 
@@ -32,14 +31,14 @@
     return count.toLocaleString('ko-KR');
   }
 
-  function quoteFor(index){
-    return [
-      '직접 경험한 분들의 평가가 궁금해요',
-      '같은 증상을 겪은 분 계신가요?',
-      '실사용자 의견은 확실히 다르네요',
-      '정비 경험자분들 조언 부탁드려요',
-      '다음 차로 고민 중입니다'
-    ][index%5];
+  function hrefFor(post){
+    return './chzzk-detail.html?id='+encodeURIComponent(post.id)+'&v=20261016popular4';
+  }
+
+  function storyMarkup(post,index){
+    var title=cleanTitle(post.title);
+    var avatar=post.authorAvatar||'assets/profile-avatars/avatar-01.svg';
+    return '<a class="popularStory" href="'+hrefFor(post)+'" aria-label="인기글: '+esc(title)+'"><div class="popularStoryCopy"><div class="popularStoryMeta"><img class="popularStoryAvatar" src="'+esc(avatar)+'" alt=""><span class="popularStoryAuthor">'+esc(post.user)+'</span><span class="popularStoryTime">'+esc(post.time)+'</span></div><strong class="popularStoryTitle">'+esc(title)+'</strong></div><img class="popularStoryMedia" src="'+esc(imageFor(post,index))+'" alt="" loading="lazy"></a>';
   }
 
   function render(){
@@ -48,28 +47,29 @@
       var aScore=(Number(a.view)||0)+(Number(a.likes)||0)*14+Math.min(Number(a.reply)||0,999)*2;
       var bScore=(Number(b.view)||0)+(Number(b.likes)||0)*14+Math.min(Number(b.reply)||0,999)*2;
       return bScore-aScore;
-    }).slice(0,5);
-    var popular=ranked.slice(pageOffset).concat(ranked.slice(0,pageOffset));
-    track.innerHTML=popular.map(function(post,index){
-      var title=cleanTitle(post.title);
-      var href='./chzzk-detail.html?id='+encodeURIComponent(post.id)+'&v=20261016popular3';
-      var replyCount=compactCount(post.reply);
-      return '<article class="popularCard"><a class="popularCardMain" href="'+href+'" aria-label="인기 토론: '+esc(title)+'"><strong class="popularCardTitle"><span class="popularDiscussionBadge">토론</span>'+esc(title)+'</strong><img class="popularCardMedia" src="'+esc(imageFor(post,index))+'" alt="" loading="lazy"><span class="popularCardQuote"><img src="assets/write-parity/quote.svg" alt=""><span>'+esc(quoteFor(index+pageOffset))+'</span></span></a><a class="popularCardAction" href="'+href+'">'+replyCount+'명이 토론 중</a></article>';
-    }).join('');
-    section.hidden=popular.length===0;
+    }).slice(0,6);
+    if(!ranked.length){section.hidden=true;return;}
+    var pageCount=Math.max(1,Math.ceil(ranked.length/3));
+    var page=Math.floor(pageOffset/3)%pageCount;
+    var popular=ranked.slice(page*3).concat(ranked.slice(0,page*3));
+    var lead=popular[0];
+    var stories=popular.slice(1,3);
+    var leadTitle=cleanTitle(lead.title);
+    var dots=Array.from({length:pageCount},function(_,index){return '<span class="'+(index===page?'on':'')+'" aria-hidden="true"></span>';}).join('');
+    track.innerHTML='<article class="popularPanel"><a class="popularLead" href="'+hrefFor(lead)+'" aria-label="대표 인기글: '+esc(leadTitle)+'"><span class="popularLeadIcon"><img src="assets/write-parity/tag.svg" alt=""></span><strong class="popularLeadTitle">'+esc(leadTitle)+'</strong><span class="popularNew">NEW</span><span class="popularHeat">조회 '+compactCount(lead.view)+'</span></a><div class="popularStories">'+stories.map(storyMarkup).join('')+'</div><div class="popularPager" aria-label="'+(page+1)+' / '+pageCount+' 페이지">'+dots+'</div></article>';
+    section.hidden=false;
   }
 
   toggle.addEventListener('click',function(){
-    if(toggle.classList.contains('isRefreshing'))return;
-    toggle.classList.add('isRefreshing');
-    track.classList.add('isRefreshing');
+    if(toggle.classList.contains('isChanging'))return;
+    toggle.classList.add('isChanging');
+    track.classList.add('isChanging');
     window.setTimeout(function(){
-      pageOffset=(pageOffset+2)%Math.max(1,(window.BOBAE_POSTS||[]).length>5?5:(window.BOBAE_POSTS||[]).length);
+      pageOffset=(pageOffset+3)%Math.max(3,Math.min(6,(window.BOBAE_POSTS||[]).length));
       render();
-      scroller.scrollLeft=0;
-      track.classList.remove('isRefreshing');
-      toggle.classList.remove('isRefreshing');
-    },160);
+      track.classList.remove('isChanging');
+      toggle.classList.remove('isChanging');
+    },140);
   });
 
   render();

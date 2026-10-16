@@ -1,3 +1,35 @@
+# 커뮤니티 동처띠 상단 우측 썸네일 인기글 QA · 2026-10-16
+
+- source visual truth: Google Drive `동처띠 우측 썸네일 인기글.jpg`의 상단 `赛事直击` 영역 (`.tmp/dcd-popular-reference.jpg`, 1080 × 2400px)
+- browser-rendered implementation: `artifacts/community-board-order-1015/mobile-384-top-menu-tiktok-text.png` (384 × 844px)
+- focused source: `artifacts/community-popular-dcd-list-1016/reference-popular-384.png` (384 × 245px)
+- focused implementation: `artifacts/community-popular-dcd-list-1016/implementation-popular-384.png` (384 × 241px)
+- full-view comparison evidence: `artifacts/community-popular-dcd-list-1016/comparison.png` (792 × 297px)
+- viewport and density: 구현 384 × 844 CSS px, DPR 1. 원본 상단 인기글 구간을 1080px에서 384px 폭으로 정규화했다.
+- state: 자유게시판, 인기글 첫 묶음(대표 제목 1개 + 우측 썸네일 목록 2개)
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 18px 섹션 제목, 15.5px 대표 제목, 14.5px 목록 제목, 12~13px 메타 정보로 원본의 제목·작성자·보조 정보 위계를 재현했다.
+- spacing and layout rhythm: 16px 좌우 여백, 14px 패널 반경, 60 × 54px 우측 썸네일, 두 줄 목록과 하단 페이지 표시를 원본 상단 패널 순서로 맞췄다. 구현 섹션 241px로 원본 정규화 높이 245px에 맞췄다.
+- colors and visual tokens: 옅은 청회색 배경, 흰 패널, 짙은 제목, 청회색 메타, 하늘색 `NEW` 배지로 원본의 중립적인 정보형 팔레트를 유지했다.
+- image quality and asset fidelity: 게시물 원본 차량 이미지를 `object-fit: cover`로 우측 썸네일에 사용했고, 태그·화살표는 프로젝트의 기존 SVG 자산을 재사용해 임시 도형을 만들지 않았다.
+- copy and content: `인기글 · 지금 많이 보는 이야기`, `더 많은 글`, `조회`, 작성자와 게시 시간으로 한국어 커뮤니티 문맥에 맞게 현지화했다.
+- interaction: `더 많은 글`을 클릭하면 대표 인기글이 `오토파일럿 차선 중앙 유지가 흔들립니다`에서 `랩핑 색상 샘플 받았는데 무광 관리 어렵나요?`로 전환되고 페이지 표시가 함께 바뀌는 것을 확인했다. 제목과 두 목록은 상세 페이지 링크다.
+- browser verification: Chrome 로컬 렌더에서 대표 1개·우측 썸네일 목록 2개를 확인했고 콘솔 오류는 0건이다.
+- regression verification: `npm run check:runtime`, `npm run community:verify:board-order`, `node --check public/community/reddit-popular.js`, `git diff --check`가 통과했다.
+
+## Comparison history
+
+- Pass 1: 직전 구현은 원본 하단의 가로 토론 카드·노란 CTA를 재현해 사용자가 지정한 상단 우측 썸네일형과 구조가 달랐다.
+- Fix: 하단 토론 카드를 제거하고 상단 섹션과 같은 대표 제목, 작성자 메타, 우측 썸네일 2개, 페이지 표시 구조로 교체했다.
+- Pass 2: 정규화한 원본과 384px 구현을 한 이미지에 배치해 비교했다. 정보 위계, 우측 이미지 배치, 패널 색과 반경이 같은 패턴으로 읽히며 남은 P0/P1/P2는 없다.
+
+final result: passed
+
+---
+
 # 커뮤니티 동처띠형 인기글 QA · 2026-10-16
 
 - source visual truth: Google Drive `동처띠 우측 썸네일 인기글.jpg` (`.tmp/dcd-popular-reference.jpg`, 1080 × 2400px)
