@@ -32,6 +32,34 @@ final result: passed
 
 ---
 
+# 상세페이지 레딧형 통합 투표칩 QA · 2026-10-16
+
+- source visual truth: 사용자 제공 Reddit 상세 화면 `1000018620.jpg`의 `추천 아이콘 · 점수 · 비추천 아이콘` 단일 알약칩 구조.
+- browser-rendered implementation: `http://127.0.0.1:4313/community/chzzk-detail.html?id=1&v=reddit-vote-pill`.
+- viewport and density: 모바일 360 × 800 CSS px와 PC 1280 × 900 CSS px에서 확인했다.
+- state: 기본 상태와 좋아요 선택, 싫어요 선택을 각각 검증했다.
+- full-view comparison evidence: 본문 하단 반응바는 통합 투표칩, 댓글칩, 재게시, 공유 순서를 유지하며 모바일 가로 넘침이 없다.
+- focused region evidence: 모바일 투표칩 103.6 × 40px, 좌우 버튼 각 38px, 가운데 점수 영역 26px. PC 투표칩 109.7 × 42px, 좌우 버튼 각 40px으로 균형을 맞췄다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- copy and content: 화면의 `좋아요`, `싫어요` 문구를 제거하고 숫자만 노출했다. 접근성 이름은 버튼에 유지했다.
+- spacing and layout rhythm: 투표 3요소를 하나의 외곽선 안에 묶고 숫자 양옆에 얇은 구분선을 적용해 Reddit의 조밀한 반응바 리듬을 재현했다.
+- interaction: 기본 추천 24에서 좋아요 선택 시 본문 점수와 상단 추천이 모두 25, 싫어요 선택 시 모두 23으로 동기화됐다.
+- responsive behavior: 모바일 반응바 clientWidth/scrollWidth가 모두 315px, PC에서는 모두 1028px으로 오버플로가 없다.
+- browser verification: 모바일·PC 모두 `.voteLabel` 0개, 통합 `.votePill` 2개, 콘솔 오류 0건을 확인했다.
+
+## Comparison history
+
+- Pass 1: 분리된 `좋아요`, `싫어요` 텍스트 칩은 참고 화면보다 폭이 넓고 투표 관계가 분산돼 보였다.
+- Fix: 두 버튼과 점수를 단일 투표칩으로 합치고 보이는 텍스트를 제거했다.
+- Pass 2: 모바일과 PC에서 버튼 폭, 점수 동기화, 오버플로, 콘솔 오류를 재검증했다.
+
+final result: passed
+
+---
+
 # 커뮤니티 에펨형 인기글 강조 QA · 2026-10-16
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/532b35e5-fd28-415f-8d24-e2027aae303e/1-1000018618.jpg` (592 × 1280px)

@@ -86,15 +86,15 @@ img { display: block; }
 .tagRow { display: flex; gap: 10px; margin-top: 24px; }
 .tagRow button { min-height: 42px; padding: 0 14px; border-radius: 10px; background: #f4f4f4; font-size: 17px; }
 .reactionRow { display: flex; min-height: 90px; align-items: center; justify-content: flex-start; gap: 10px; }
-.voteChip, .roundAction { height: 42px; border: 1px solid #d7d7d7; border-radius: 22px; background: #ffffff; }
-.voteGroup { display: flex; align-items: center; gap: 6px; }
+.votePill, .roundAction { height: 42px; border: 1px solid #d7d7d7; border-radius: 22px; background: #ffffff; }
+.votePill { display: flex; align-items: center; overflow: hidden; }
+.votePill strong { min-width: 28px; padding: 0 4px; border-right: 1px solid #e5e5e5; border-left: 1px solid #e5e5e5; font-size: 14px; font-weight: 750; line-height: 22px; text-align: center; font-variant-numeric: tabular-nums; }
 .voteButton { display: flex; height: 40px; align-items: center; gap: 5px; padding: 0 10px; font-size: 13px; font-weight: 750; white-space: nowrap; }
 .voteButton img { width: 18px; height: 18px; }
 .voteButton.active { color: var(--brand-dark); background: var(--brand-soft); }
 .voteButton.active img { filter: invert(50%) sepia(91%) saturate(1966%) hue-rotate(177deg) brightness(92%) contrast(93%); }
 .voteButton.down.active { color: var(--brand-dark); background: var(--brand-soft); }
 .voteButton.down.active img { filter: invert(50%) sepia(91%) saturate(1966%) hue-rotate(177deg) brightness(92%) contrast(93%); }
-.visuallyHidden { position: absolute !important; width: 1px !important; height: 1px !important; overflow: hidden !important; clip: rect(0 0 0 0) !important; clip-path: inset(50%) !important; white-space: nowrap !important; }
 .roundAction { display: flex; min-width: 42px; align-items: center; justify-content: center; gap: 5px; padding: 0 12px; color: var(--ink); font-size: 14px; font-weight: 700; }
 .roundAction img { width: 19px; height: 19px; }
 .commentAction { min-width: 62px; }
@@ -244,7 +244,7 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
   .tagRow { gap: 8px; margin-top: 16px; }
   .tagRow button { min-height: 32px; padding: 0 10px; border-radius: 7px; font-size: 13px; }
   .reactionRow { min-height: 66px; gap: 6px; }
-  .voteChip, .roundAction { height: 40px; }
+  .votePill, .roundAction { height: 40px; }
   .voteButton { height: 38px; gap: 4px; padding: 0 8px; font-size: 12px; }
   .voteButton img { width: 17px; height: 17px; }
   .roundAction { padding: 0 10px; }
@@ -314,8 +314,7 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
 @media(max-width:600px){.boardLink img{width:15px;height:15px}.voteButton img,.roundAction img{width:20px;height:20px}.commentIconButton img{width:18px;height:18px}}
 .voteButton img.voteThumb{width:18px;height:18px;object-fit:contain}
 .voteButton img.voteThumbDown{transform:rotate(180deg)}
-.reactionRow .voteButton{width:76px;justify-content:center;gap:5px;padding:0}
-.reactionRow .voteLabel{font-size:13px;font-weight:750;line-height:1;letter-spacing:-.02em}
+.reactionRow .voteButton{width:40px;justify-content:center;gap:0;padding:0}
 .reactionRow .roundAction{min-width:42px;padding:0}
 .reactionRow .roundAction img{width:18px;height:18px}
 .reactionRow .commentAction{min-width:58px;gap:6px;padding:0 10px}
@@ -323,4 +322,4 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
 .reactionRow>.roundAction:last-child{margin-left:0}
 .reactionRow .roundAction.active{color:var(--brand-dark);background:var(--brand-soft)}
 .reactionRow .roundAction.active img{filter:invert(50%) sepia(91%) saturate(1966%) hue-rotate(177deg) brightness(92%) contrast(93%)}
-@media(max-width:600px){.reactionRow .voteButton{width:68px;gap:3px}.reactionRow .voteLabel{font-size:12px}.reactionRow .roundAction{width:40px;min-width:40px}.reactionRow .commentAction{width:auto;min-width:56px;padding:0 9px}.reactionRow .roundAction img{width:18px;height:18px}}
+@media(max-width:600px){.reactionRow .voteButton{width:38px}.reactionRow .votePill strong{min-width:26px;padding:0 3px;font-size:13px}.reactionRow .roundAction{width:40px;min-width:40px}.reactionRow .commentAction{width:auto;min-width:56px;padding:0 9px}.reactionRow .roundAction img{width:18px;height:18px}}
