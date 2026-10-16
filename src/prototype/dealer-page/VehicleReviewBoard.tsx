@@ -28,7 +28,11 @@ type SavedReview = {
 
 const STORAGE_KEY = "bobae-vehicle-reviews-v1";
 const autohomeLogo = (file: string) => asset(`brand/kr/${file}`);
-const publicIcon = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+// GitHub Pages serves this app below `/bobaedream/`. Unlike `/assets/`, icon
+// paths are not rewritten by the Pages workflow, so resolve them from the
+// current document directory just like DealerPage does.
+const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.location.href).pathname;
+const publicIcon = (path: string) => `${publicBase}${path}`;
 const reviewIcons = {
   back: "community/assets/reddit-ui/back.svg",
   bookmark: "icons/chotot/chotot-common-bookmark.svg",
