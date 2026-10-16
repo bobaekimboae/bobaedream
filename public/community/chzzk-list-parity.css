@@ -2,23 +2,6 @@
   align-items: center;
 }
 
-.phone.compactMode .compactCategory {
-  display: inline-flex;
-  height: 22px;
-  flex: 0 0 auto;
-  align-items: center;
-  justify-content: center;
-  margin-right: 7px;
-  padding: 0 7px;
-  border-radius: 4px;
-  background: #f4f5f6;
-  color: #676a70;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 22px;
-  letter-spacing: -.03em;
-}
-
 .phone.compactMode .compactReply {
   color: #00a66a !important;
 }
@@ -49,13 +32,4 @@
   top: 15px !important;
   width: 4px !important;
   height: 4px !important;
-}
-
-@media (max-width: 370px) {
-  .phone.compactMode .compactCategory {
-    height: 21px;
-    padding: 0 6px;
-    font-size: 11.5px;
-    line-height: 21px;
-  }
 }
