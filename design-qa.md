@@ -46,7 +46,7 @@ final result: passed
 
 - P0/P1/P2 없음.
 - fonts and typography: Pretendard 기반의 배너 제목 23px/820, 채널 제목 20px/800, 통계 12px 계층이 유튜브 채널 헤더의 제목 대비를 유지하면서 게시판 밀도에 맞게 축소됐다.
-- spacing and layout rhythm: 배너는 350 × 106px, 좌우 14px, 반경 12px이다. `자유` 프로필은 56px이며 배너 하단과 14px 겹쳐 채널 정체성이 이어진다.
+- spacing and layout rhythm: 배너는 350 × 106px, 좌우 14px, 반경 12px이다. `자유` 프로필은 56px이며 배너 하단에서 14px 떨어진 독립 행에 배치해 이미지와 프로필의 경계를 명확히 했다.
 - colors and visual tokens: 흰 콘텐츠 바탕, 검정 구독 칩, 파란 자유 프로필과 야간 자동차 배너의 네이비·앰버 톤이 충돌 없이 이어진다.
 - image quality and asset fidelity: 1440 × 450 WebP 원본을 `object-fit: cover`로 사용하며 깨진 이미지 0건, 왜곡·워터마크·브랜드 로고가 없다.
 - copy and content: 배너에는 `자유게시판`, `자동차를 넘어, 사람 사는 이야기`를 배치했고 기존 구독 수·게시물 수·설명은 유지했다.
@@ -56,7 +56,7 @@ final result: passed
 ## Comparison history
 
 - Pass 1 baseline: 기존 유튜브형은 80px 배너와 프로필이 분리돼 채널 헤더 결속이 약했고, 이미지 안에 게시판 타이틀이 없었다.
-- Fix: 106px 전용 배너를 새로 제작하고, 프로필을 하단에 14px 겹치게 배치했으며 배너 제목·태그라인과 동적 게시판명 동기화를 추가했다.
+- Fix: 106px 전용 배너를 새로 제작하고 배너 제목·태그라인과 동적 게시판명 동기화를 추가했다. 후속 요청에 따라 프로필 겹침을 제거하고 배너 아래 14px 간격의 독립 행으로 분리했다.
 - Pass 2: 기준 화면과 구현을 393px 폭으로 나란히 비교했다. 유튜브식 배너→채널 정체성→설명 흐름은 유지하면서 게시판 목록의 정보 밀도도 보존돼 남은 P0/P1/P2가 없다.
 
 final result: passed

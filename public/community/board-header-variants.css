@@ -66,33 +66,29 @@
 }
 
 .phone.headerYouTube .boardTop.redditProfileReady {
-  min-height: 72px;
-  margin: 0;
-  padding: 8px 16px;
-  align-items: flex-start;
-  overflow: visible;
+  min-height: 68px;
+  margin: 8px 0 0;
+  padding: 6px 16px;
+  align-items: center;
 }
 
 .phone.headerYouTube .boardTop.redditProfileReady .boardSelect {
-  align-items: flex-start;
+  align-items: center;
   gap: 11px;
-  overflow: visible;
 }
 
 .phone.headerYouTube .boardTop.redditProfileReady .boardAvatar {
-  position: relative;
-  z-index: 2;
   width: 56px;
   height: 56px;
   flex-basis: 56px;
-  transform: translateY(-22px);
-  border: 3px solid #fff;
-  box-shadow: 0 2px 9px rgba(0, 0, 0, .16);
+  transform: none;
+  border: 0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .08);
 }
 
 .phone.headerYouTube .boardIdentityCopy {
   min-width: 0;
-  padding-top: 4px;
+  padding-top: 0;
 }
 
 .phone.headerYouTube .boardTop.redditProfileReady .boardSelectName {
@@ -112,7 +108,7 @@
   width: 58px;
   height: 31px;
   flex-basis: 58px;
-  margin-top: 9px;
+  margin-top: 0;
   line-height: 29px;
 }
 
@@ -146,6 +142,6 @@
     width: 54px;
     height: 54px;
     flex-basis: 54px;
-    transform: translateY(-21px);
+    transform: none;
   }
 }
