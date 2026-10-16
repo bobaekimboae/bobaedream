@@ -100,14 +100,15 @@
   .naverDiscussionTabs{padding:0 8px}.naverDiscussionRooms{padding-left:14px;padding-right:14px}.naverDiscussionKeywordArea,.naverDiscussionSortRow{padding-left:14px;padding-right:14px}.naverDiscussionCleanbot{margin-left:14px;margin-right:14px}.naverDiscussionCard{padding-left:14px;padding-right:14px}.naverDiscussionTitle{font-size:15.5px;line-height:23px}
 }
 
-/* 우측 썸네일형 (네이버페이 증권 토론방 목록 참고) — 자동차뉴스 기본 보기 */
-.naverDiscussionCard.is-thumb{padding:13px 16px 6px}
+/* 우측 썸네일형 (네이버페이 증권 토론방 목록 참고) — 자동차뉴스 기본 보기
+   세로 간격은 레딧 피드 실측(1080×2340 ÷2.8125): 구분선→첫 줄 11, 프사 24, 프사→제목 글자 9, 본문→반응 아이콘 25, 아이콘→구분선 16 */
+.naverDiscussionCard.is-thumb{padding:11px 16px 8px}
 .naverDiscussionCard.is-thumb .naverDiscussionIdentity{height:24px;margin-top:6px;gap:6px}
-.naverDiscussionCard.is-thumb .naverDiscussionAvatar{width:20px;height:20px;flex-basis:20px}
+.naverDiscussionCard.is-thumb .naverDiscussionAvatar{width:24px;height:24px;flex-basis:24px}
 /* 등록일은 닉네임 바로 옆(오른쪽 끝 정렬 아님) */
 .naverDiscussionCard.is-thumb .naverDiscussionTime{margin-left:0}
 .naverDiscussionCard.is-thumb .naverDiscussionTime:before{content:"·";margin-right:6px;color:#c4c7cc}
-.naverDiscussionThumbMain{display:flex;align-items:flex-start;gap:12px;margin-top:8px;color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.naverDiscussionThumbMain{display:flex;align-items:flex-start;gap:12px;margin-top:4px;color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
 .naverDiscussionThumbText{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:4px}
 .naverDiscussionCard.is-thumb .naverDiscussionTitle{display:-webkit-box;margin:0;overflow:hidden;font-size:16px;line-height:23px;-webkit-box-orient:vertical;-webkit-line-clamp:2}
 .naverDiscussionCard.is-thumb .naverDiscussionBody{-webkit-line-clamp:2}
@@ -116,4 +117,4 @@
 .naverDiscussionThumb:after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(0,0,0,.07);pointer-events:none}
 .naverDiscussionThumb img{display:block;width:100%;height:100%;object-fit:cover}
 .naverDiscussionThumbCount{position:absolute;right:4px;bottom:4px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:rgba(0,0,0,.56);color:#fff;font-size:11px;line-height:18px;font-weight:600;text-align:center}
-.naverDiscussionCard.is-thumb .naverDiscussionMetrics{margin-top:6px}
+.naverDiscussionCard.is-thumb .naverDiscussionMetrics{margin-top:12px}
