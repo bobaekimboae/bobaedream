@@ -108,7 +108,7 @@
     var likes=table?Number(post.likes)||0:Math.max(0,Math.round(Number(post.view||0)/23)+Number(post.reply||0));
     var dislikes=table?0:Math.max(0,Math.round(Number(post.reply||0)/7));
     var photos=mediaSources(post,index).filter(function(item){return item.kind==='image'&&item.src;});
-    var embedItem=firstEmbed(post);
+    var embedItem=(Array.isArray(post.embeds)?post.embeds:[]).filter(function(e){return e&&e.image;})[0]||null;
     var thumbSrc=photos.length?photos[0].src:(post.thumb||(embedItem&&embedItem.image)||'');
     var count=photos.length;
     var title=cleanTitle(post.title);
