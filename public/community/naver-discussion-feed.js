@@ -171,7 +171,7 @@
     var photos=mediaSources(post,index).filter(function(item){return item.kind==='image'&&item.src;});
     var thumbSrc=photos.length?photos[0].src:(post.thumb||'');
     var thumb=thumbSrc?'<span class="naverRankingThumb"><img src="'+esc(thumbSrc)+'" alt="" loading="'+(index<4?'eager':'lazy')+'" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></span>':'';
-    return '<a class="naverRankingRow'+(thumb?'':' no-thumb')+'" href="'+detailUrl(post)+'" data-naver-ranking-post="'+esc(post.id)+'"><em class="naverRankingNumber">'+(index+1)+'</em><span class="naverRankingCopy"><strong>'+esc(cleanTitle(post.title))+'</strong><span>'+rankingMeta(post,activeRankingMetric)+'</span></span>'+thumb+'</a>';
+    return '<a class="naverRankingRow'+(thumb?'':' no-thumb')+'" href="'+detailUrl(post)+'" data-naver-ranking-post="'+esc(post.id)+'">'+thumb+'<span class="naverRankingCopy"><strong>'+esc(cleanTitle(post.title))+'</strong><span>'+rankingMeta(post,activeRankingMetric)+'</span></span></a>';
   }
   function naverRankingGroups(data){
     var groups=[];
