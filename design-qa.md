@@ -1,3 +1,37 @@
+# 커뮤니티 치지직형 인기글 고정 행 QA · 2026-10-16
+
+- source visual truth: 첨부 이미지 `1000018598.jpg`의 게시판 상단 고정 게시물 영역 (592 × 1280px)
+- browser-rendered implementation: `artifacts/community-board-order-1015/mobile-384-top-menu-tiktok-text.png` (384 × 844px)
+- focused source: `artifacts/community-popular-chzzk-pinned-1016/reference-pinned-384.png` (384 × 144px)
+- focused implementation: `artifacts/community-popular-chzzk-pinned-1016/implementation-pinned-384.png` (384 × 163px)
+- full-view comparison evidence: `artifacts/community-popular-chzzk-pinned-1016/comparison.png` (792 × 215px)
+- viewport and density: 구현 384 × 844 CSS px, DPR 1. 첨부 화면의 고정 게시물 구간을 폭 384px로 정규화했다.
+- state: 자유게시판, 인기글 첫 묶음 3개가 말머리 바로 아래에 놓인 기본 상태
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 15px/650 한 줄 제목과 13px 댓글 수를 사용해 치지직의 조밀한 공지 행 위계를 맞췄다.
+- spacing and layout rhythm: 별도 카드·섹션 제목을 제거하고 44px 게시물 행 3개, 1px 구분선, 22px 페이지 표시로 일반 게시물 목록에 자연스럽게 이어지도록 했다.
+- colors and visual tokens: 흰 배경, 짙은 핀 배지, 검정 제목, 초록 댓글 수, 연한 회색 구분선을 원본과 동일한 역할로 사용했다.
+- image quality and asset fidelity: 핀 역할 배지는 기존 프로젝트 태그 SVG 자산을 재사용해 22px 정사각형 안에 배치했으며 래스터 왜곡이나 임시 도형이 없다.
+- copy and content: 실제 인기 점수 상위 게시물 제목과 댓글 수를 표시하며 각 행을 `인기글`로 명확하게 접근성 라벨링했다.
+- interaction: 각 행은 상세 페이지로 연결되고, 하단 페이지 표시 버튼을 누르면 상위 인기글 다음 3개로 전환된다.
+- browser verification: Chrome 로컬 렌더에서 인기글 3개, 섹션 실측 높이 162px, 가로 넘침 없음, 전환 후 첫 인기글 변경, 콘솔 오류 0건을 확인했다.
+- regression verification: `npm run check:runtime`, `npm run community:verify:board-order`, `node --check public/community/reddit-popular.js`, `git diff --check`가 통과했다.
+
+## Comparison history
+
+- Pass 1: 동처띠식 별도 카드 패널은 치지직 참고 화면처럼 게시물 목록 안에서 고정 행으로 읽히지 않았다.
+- Fix: 섹션 제목·썸네일 패널을 제거하고 어두운 핀 배지, 한 줄 제목, 우측 댓글 수로 구성한 고정 게시물 행 3개로 교체했다.
+- Pass 2: 52px 행은 참고 화면보다 세로 밀도가 낮았다.
+- Fix: 행을 44px, 배지를 22px, 페이지 표시를 22px로 줄였다.
+- Final: 정규화한 원본과 구현을 한 이미지에 나란히 비교한 결과 남은 P0/P1/P2는 없다.
+
+final result: passed
+
+---
+
 # 커뮤니티 동처띠 상단 우측 썸네일 인기글 QA · 2026-10-16
 
 - source visual truth: Google Drive `동처띠 우측 썸네일 인기글.jpg`의 상단 `赛事直击` 영역 (`.tmp/dcd-popular-reference.jpg`, 1080 × 2400px)

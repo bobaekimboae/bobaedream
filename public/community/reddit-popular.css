@@ -1,33 +1,16 @@
-.popularSection{padding:0 0 8px;border-bottom:1px solid #e5e8ef;background:#f3f5fa;color:#17191d}
-.popularHeading{display:flex;width:100%;height:48px;align-items:center;justify-content:space-between;padding:0 16px;box-sizing:border-box}
-.popularHeadingCopy{display:flex;min-width:0;align-items:baseline;gap:10px}
-.popularHeadingCopy strong{flex:0 0 auto;font-size:18px;font-weight:800;line-height:24px;letter-spacing:-.055em}
-.popularHeadingCopy span{min-width:0;overflow:hidden;color:#768096;font-size:13px;font-weight:520;line-height:19px;letter-spacing:-.035em;text-overflow:ellipsis;white-space:nowrap}
-.popularMore{display:inline-flex;height:40px;flex:0 0 auto;align-items:center;gap:3px;padding-left:10px;background:transparent;color:#606b82;font-size:13px;font-weight:650;line-height:18px;letter-spacing:-.035em}
-.popularMore img{width:16px;height:16px;opacity:.78;transition:transform .16s ease}
-.popularMore:active img{transform:translateX(2px)}
+.popularSection{border-bottom:8px solid #f5f5f6;background:#fff;color:#17191d}
 .popularScroller{overflow:hidden;padding:0 16px}
 .popularTrack{width:100%;transition:opacity .14s ease,transform .14s ease}
 .popularTrack.isChanging{opacity:.35;transform:translateY(2px)}
-.popularPanel{overflow:hidden;width:100%;padding:10px 12px 7px;border-radius:14px;background:#fff;box-shadow:0 1px 2px rgba(24,33,52,.035);box-sizing:border-box}
-.popularLead{display:flex;min-width:0;align-items:center;gap:8px;color:#17191d;text-decoration:none}
-.popularLeadIcon{display:grid;width:25px;height:25px;flex:0 0 25px;place-items:center;border-radius:50%;background:#12151a}
-.popularLeadIcon img{width:13px;height:13px;filter:invert(1)}
-.popularLeadTitle{min-width:0;overflow:hidden;color:#17191d;font-size:15.5px;font-weight:760;line-height:22px;letter-spacing:-.045em;text-overflow:ellipsis;white-space:nowrap}
-.popularNew{display:inline-flex;height:19px;flex:0 0 auto;align-items:center;padding:0 5px;border-radius:5px;background:#cceeff;color:#12649b;font-size:10.5px;font-weight:850;line-height:19px;letter-spacing:-.02em}
-.popularHeat{margin-left:auto;flex:0 0 auto;color:#748099;font-size:12px;font-weight:520;line-height:18px;white-space:nowrap}
-.popularStories{margin-top:6px}
-.popularStory{display:grid;min-height:60px;grid-template-columns:minmax(0,1fr) 60px;column-gap:10px;align-items:center;color:#17191d;text-decoration:none}
-.popularStory+.popularStory{margin-top:4px}
-.popularStoryCopy{min-width:0}
-.popularStoryMeta{display:flex;min-width:0;align-items:center;gap:7px;color:#7a859b;font-size:12px;font-weight:520;line-height:17px;letter-spacing:-.025em}
-.popularStoryAvatar{width:22px;height:22px;flex:0 0 22px;border-radius:50%;background:#e7e9ee;object-fit:cover;box-shadow:0 0 0 1px rgba(0,0,0,.045)}
-.popularStoryAuthor{max-width:96px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.popularStoryTime{flex:0 0 auto;white-space:nowrap}
-.popularStoryTitle{display:-webkit-box;overflow:hidden;margin-top:4px;color:#17191d;font-size:14px;font-weight:650;line-height:19px;letter-spacing:-.04em;word-break:keep-all;-webkit-box-orient:vertical;-webkit-line-clamp:2}
-.popularStoryMedia{width:60px;height:54px;border-radius:9px;background:#e7e9ee;object-fit:cover}
-.popularPager{display:flex;height:12px;align-items:flex-end;justify-content:center;gap:4px}
-.popularPager span{width:4px;height:4px;border-radius:999px;background:#d9dee8}
-.popularPager span.on{width:14px;background:#27334a}
+.popularPanel{width:100%;background:#fff}
+.popularPinnedRow{display:grid;width:100%;height:44px;grid-template-columns:22px minmax(0,1fr) auto;align-items:center;column-gap:9px;border-bottom:1px solid #e6e7e9;color:#17191d;text-decoration:none;box-sizing:border-box}
+.popularPinnedRow:last-child{border-bottom:0}
+.popularPinBadge{display:grid;width:22px;height:22px;place-items:center;border-radius:6px;background:#33363c}
+.popularPinBadge img{width:12px;height:12px;filter:invert(1)}
+.popularPinnedTitle{min-width:0;overflow:hidden;color:#24262a;font-size:15px;font-weight:650;line-height:21px;letter-spacing:-.045em;text-overflow:ellipsis;white-space:nowrap}
+.popularPinnedReply{flex:0 0 auto;color:#00a176;font-size:13px;font-weight:620;line-height:20px;letter-spacing:-.02em}
+.popularPagerButton{display:flex;width:100%;height:22px;align-items:center;justify-content:center;gap:4px;background:#fff}
+.popularPagerButton span{width:4px;height:4px;border-radius:999px;background:#d6d8dc}
+.popularPagerButton span.on{width:14px;background:#4a4e56}
 .phone.redditFeedMode .popularSection{display:none}
-@media(max-width:370px){.popularHeading{padding:0 14px}.popularHeadingCopy{gap:7px}.popularHeadingCopy span{font-size:12px}.popularMore{padding-left:6px}.popularScroller{padding:0 14px}.popularPanel{padding-right:10px;padding-left:10px}.popularStory{grid-template-columns:minmax(0,1fr) 56px;column-gap:9px}.popularStoryMedia{width:56px;height:52px}}
+@media(max-width:370px){.popularScroller{padding:0 14px}.popularPinnedRow{grid-template-columns:21px minmax(0,1fr) auto;column-gap:8px}.popularPinBadge{width:21px;height:21px}.popularPinnedTitle{font-size:14.5px}}
