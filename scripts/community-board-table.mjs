@@ -7,6 +7,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const boards = {
+  'best': { displayName: '베스트글', idStart: 9300001, defaultView: 'naver-discussion-thumb' },
   'car-news': { displayName: '자동차뉴스', idStart: 9100001, defaultView: 'naver-discussion' },
   'vehicle-review': { displayName: '차량리뷰', idStart: 9200001 },
 };
