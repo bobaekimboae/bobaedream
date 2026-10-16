@@ -23,7 +23,7 @@ const commonColumns = ['id', 'category', 'title', 'summary', 'body', 'source', '
 const reviewColumns = ['reviewId', 'modelId', 'brand', 'model', 'trim', 'powertrain', 'rating', 'owner', 'ownershipLabel', 'benchmark', 'location', 'ratings', 'brandLogo'];
 // 선택 열: embed = 본문에 넣을 임베드 주소(인스타그램·유튜브·레딧·기사), | 로 여러 개
 // summary3 = 3줄 요약(| 로 세 줄)
-const optionalColumns = ['embed', 'embedTitle', 'embedDescription', 'embedImage', 'embedSite', 'embedLogo', 'summary3'];
+const optionalColumns = ['embed', 'embedTitle', 'embedDescription', 'embedImage', 'embedSite', 'embedLogo', 'summary3', 'pollTitle', 'pollOptions', 'pollNote'];
 const columns = commonColumns.concat(reviewColumns, optionalColumns);
 
 function parseCsv(text) {
