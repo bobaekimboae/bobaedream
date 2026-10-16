@@ -21,7 +21,10 @@
   function selectedHeadword(){return activeHeadword;}
   function posts(){
     var data=(window.BOBAE_POSTS||[]).slice();
-    if(window.BOBAE_LOCAL_POST)data.unshift(window.BOBAE_LOCAL_POST);
+    var localPost=window.BOBAE_LOCAL_POST;
+    var activeBoard=window.BBM_GET_ACTIVE_BOARD_TABLE?window.BBM_GET_ACTIVE_BOARD_TABLE():'';
+    var alreadyIncluded=localPost&&data.some(function(post){return String(post.id)===String(localPost.id);});
+    if(localPost&&activeBoard!=='best'&&!alreadyIncluded)data.unshift(localPost);
     var headword=selectedHeadword();
     if(headword==='전체')return data;
     return data.filter(function(post){return categoryFor(post)===headword;});
