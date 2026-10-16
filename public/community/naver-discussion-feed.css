@@ -48,14 +48,15 @@
 .naverDiscussionTitle{display:block;margin:7px 0 4px;color:#1e1e23;font-size:16px;line-height:24px;font-weight:750;letter-spacing:-.035em;text-decoration:none;word-break:keep-all}
 .naverDiscussionBody{display:-webkit-box;margin:0;color:#50545a;font-size:14px;line-height:21px;font-weight:420;letter-spacing:-.025em;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;word-break:keep-all}
 .naverDiscussionMediaShell{position:relative;height:clamp(184px,52vw,210px);margin-top:10px;overflow:hidden;border-radius:10px;background:#eef0f2}
+.naverDiscussionMediaShell.is-multi{--naver-media-peek:28px}
 .naverDiscussionMediaRail{display:flex;width:100%;height:100%;gap:8px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain;touch-action:pan-x pan-y}
 .naverDiscussionMediaRail::-webkit-scrollbar{display:none}
 .naverDiscussionMediaItem{display:block;width:100%;height:100%;flex:0 0 100%;overflow:hidden;background:#e7e9ec;scroll-snap-align:start;scroll-snap-stop:always;text-decoration:none;-webkit-tap-highlight-color:transparent}
-.naverDiscussionMediaShell.is-multi .naverDiscussionMediaItem{flex-basis:calc(100% - 28px);border-radius:8px}
+.naverDiscussionMediaShell.is-multi .naverDiscussionMediaItem{flex-basis:calc(100% - var(--naver-media-peek));border-radius:8px}
 .naverDiscussionMediaItem img{display:block;width:100%;height:100%;object-fit:cover}
-.naverDiscussionMediaCount{position:absolute;right:9px;top:9px;z-index:2;min-width:42px;height:25px;padding:0 9px;display:flex;align-items:center;justify-content:center;border-radius:14px;background:rgba(23,25,28,.72);color:#fff;font-size:11.5px;line-height:25px;font-weight:560;letter-spacing:-.01em;pointer-events:none;backdrop-filter:blur(5px)}
+.naverDiscussionMediaCount{position:absolute;right:calc(var(--naver-media-peek,0px) + 9px);top:9px;z-index:2;min-width:42px;height:25px;padding:0 9px;display:flex;align-items:center;justify-content:center;border-radius:14px;background:rgba(23,25,28,.72);color:#fff;font-size:11.5px;line-height:25px;font-weight:560;letter-spacing:-.01em;pointer-events:none;backdrop-filter:blur(5px)}
 .naverDiscussionMediaCount b{font-weight:750}
-.naverDiscussionMediaDots{position:absolute;left:50%;bottom:8px;z-index:2;display:flex;align-items:center;gap:5px;padding:5px 7px;transform:translateX(-50%);border-radius:12px;background:rgba(19,21,24,.35);pointer-events:auto;backdrop-filter:blur(5px)}
+.naverDiscussionMediaDots{position:absolute;left:calc((100% - var(--naver-media-peek,0px))/2);bottom:8px;z-index:2;display:flex;align-items:center;gap:5px;padding:5px 7px;transform:translateX(-50%);border-radius:12px;background:rgba(19,21,24,.35);pointer-events:auto;backdrop-filter:blur(5px)}
 .naverDiscussionMediaDots button{width:5px;height:5px;flex:0 0 5px;border-radius:50%;background:rgba(255,255,255,.58);transition:width .16s ease,background-color .16s ease}
 .naverDiscussionMediaDots button.is-active{width:13px;border-radius:4px;background:#fff}
 .naverDiscussionMetrics{height:35px;margin-top:8px;display:flex;align-items:center;gap:13px;color:#6f737a;font-size:12px;line-height:18px;font-weight:560}

@@ -32,6 +32,20 @@ try {
       multiRails: document.querySelectorAll(".naverDiscussionMediaShell.is-multi").length,
       multiItems: document.querySelector(".naverDiscussionMediaShell.is-multi")?.querySelectorAll(".naverDiscussionMediaItem").length || 0,
       scrollSnap: getComputedStyle(document.querySelector(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaRail")).scrollSnapType,
+      paginationPlacement: (() => {
+        const shell = document.querySelector(".naverDiscussionMediaShell.is-multi");
+        const item = shell?.querySelector(".naverDiscussionMediaItem");
+        const count = shell?.querySelector(".naverDiscussionMediaCount");
+        const dots = shell?.querySelector(".naverDiscussionMediaDots");
+        if (!item || !count || !dots) return null;
+        const itemRect = item.getBoundingClientRect();
+        const countRect = count.getBoundingClientRect();
+        const dotsRect = dots.getBoundingClientRect();
+        return {
+          countInside: countRect.left >= itemRect.left && countRect.right <= itemRect.right + 1,
+          dotCenterDelta: Math.abs((dotsRect.left + dotsRect.width / 2) - (itemRect.left + itemRect.width / 2)),
+        };
+      })(),
       overflow: Math.max(0, document.documentElement.scrollWidth - document.documentElement.clientWidth),
     }));
 
@@ -48,6 +62,8 @@ try {
     if (measurements.multiRails < 1) throw new Error(`${width}px: 다중 사진 레일 없음`);
     if (measurements.multiItems < 2) throw new Error(`${width}px: 다중 사진 수 부족`);
     if (!measurements.scrollSnap.includes("x")) throw new Error(`${width}px: 가로 스냅 미적용`);
+    if (!measurements.paginationPlacement?.countInside) throw new Error(`${width}px: 사진 번호가 현재 이미지 밖에 있음`);
+    if (measurements.paginationPlacement.dotCenterDelta > 1) throw new Error(`${width}px: 페이지 점이 현재 이미지 중앙과 불일치`);
     if (measurements.overflow !== 0) throw new Error(`${width}px: 가로 넘침 ${measurements.overflow}px`);
 
     if (width === 390) {
