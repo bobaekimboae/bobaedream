@@ -533,6 +533,14 @@
       const source = parsed.href.replace(/\/(edit|view)(?:\?.*)?$/, "/preview");
       return { ...fallback, src: source, provider: "Google", title: "Google 문서 임베드", mode: "embed", tall: true };
     }
+    if (host === "instagram.com" || host.endsWith(".instagram.com")) {
+      const parts = parsed.pathname.split("/").filter(Boolean);
+      const kind = parts[0];
+      if (["p", "reel", "reels", "tv"].includes(kind) && parts[1]) {
+        const type = kind === "reels" ? "reel" : kind;
+        return { ...fallback, url: `https://www.instagram.com/${type}/${encodeURIComponent(parts[1])}/`, src: `https://www.instagram.com/${type}/${encodeURIComponent(parts[1])}/embed/captioned/`, provider: "Instagram", title: type === "reel" ? "Instagram 릴스" : "Instagram 게시물", mode: "embed", tall: true };
+      }
+    }
     if (/(^|\.)reddit\.com$/.test(host)) {
       const parts = parsed.pathname.split("/").filter(Boolean);
       const at = parts.indexOf("comments");

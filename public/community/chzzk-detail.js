@@ -89,7 +89,7 @@ function loadLocalPost() {
     const container = document.createElement('div');
     container.innerHTML = saved.body || '';
     const lines = (container.innerText || container.textContent || '').split(/\n+/).map((value) => value.trim()).filter(Boolean);
-    return { id:savedId, title:saved.title, user:'보배드림 회원', level:1, date:'방금 전', view:0, likes:0, board:saved.board || '자유게시판', tags:saved.tags || '', body:lines.length ? lines : ['내용이 없습니다.'], html:saved.html || '', embeds:Array.isArray(saved.embeds) ? saved.embeds : [] };
+    return { id:savedId, title:saved.title, user:'보배드림 회원', level:1, date:'방금 전', view:0, likes:0, board:saved.board || '자유게시판', tags:saved.tags || '', body:lines.length ? lines : ['내용이 없습니다.'], html:saved.html || (Array.isArray(saved.embeds) && saved.embeds.length && typeof saved.body === 'string' ? saved.body : ''), embeds:Array.isArray(saved.embeds) ? saved.embeds : [] };
   } catch { return null; }
 }
 const localSourcePost = loadLocalPost();
@@ -394,14 +394,19 @@ function renderLocalHtml(source) {
   const parts = [];
   let paragraphs = [];
   const flush = () => { if (paragraphs.length) { parts.push(`<div class="detailCopy">${paragraphs.join('')}</div>`); paragraphs = []; } };
-  Array.from(box.children).forEach((node) => {
-    if (node.matches('figure.media-block')) {
-      if (node.dataset.kind === 'embed') { flush(); parts.push(detailEmbedHtml(byUrl.get(node.dataset.embedUrl) || { url: node.dataset.embedUrl })); }
+  Array.from(box.childNodes).forEach((node) => {
+    if (node.nodeType === 1 && node.matches('figure.media-block, figure.write-embed')) {
+      if (node.dataset.kind === 'embed' || node.classList.contains('write-embed')) { flush(); parts.push(detailEmbedHtml(byUrl.get(node.dataset.embedUrl) || { url: node.dataset.embedUrl })); }
+      return;
+    }
+    if (node.nodeType === 1 && node.querySelector('figure.write-embed')) {
+      // 글쓰기에서 줄 안에 들어간 임베드도 순서대로 꺼낸다
+      Array.from(node.childNodes).forEach((child) => { if (child.nodeType === 1 && child.matches('figure.write-embed')) { flush(); parts.push(detailEmbedHtml(byUrl.get(child.dataset.embedUrl) || { url: child.dataset.embedUrl })); } else { const t = (child.textContent || '').trim(); if (t) paragraphs.push(`<p>${escapeHtml(t)}</p>`); } });
       return;
     }
     const text = (node.textContent || '').trim();
     if (!text) return;
-    const strong = /^H[1-3]$/.test(node.tagName);
+    const strong = node.nodeType === 1 && /^H[1-3]$/.test(node.tagName);
     paragraphs.push(`<p>${strong ? `<strong>${escapeHtml(text)}</strong>` : escapeHtml(text)}</p>`);
   });
   flush();
