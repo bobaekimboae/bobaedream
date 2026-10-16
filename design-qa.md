@@ -27,6 +27,33 @@ final result: passed
 
 ---
 
+# 커뮤니티 초톳 햄버거·검색 문구 색상 QA · 2026-10-16
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/19894d52-9960-400a-8bf7-e614ef801e4e/1-1000018544.jpg` 및 Notion의 초톳 원본 `메뉴 햄버거_s03-chotot-mo-list-036-svgexport-1.svg`
+- browser-rendered implementation: `artifacts/community-board-order-1015/mobile-384-top-menu-tiktok-text.png`
+- viewport and density: 구현 384 × 844 CSS px, DPR 1. 참고 화면 591 × 1280px은 상단 검색 헤더의 색상과 아이콘 비율을 시각 기준으로 사용했다.
+- state: 자유게시판, 간결형 목록, 기본 스크롤 위치
+- full-view comparison evidence: 같은 시각 비교 입력에서 참고 화면과 구현 화면을 함께 열어 검색 문구의 중립 회색과 우측 메뉴의 획·크기를 확인했다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 검색 라벨은 Pretendard 15px/600을 유지하고 색만 `#8C8C8C`로 맞춰 초톳 검색 플레이스홀더와 같은 위계를 만들었다.
+- spacing and layout rhythm: 기존 4열 헤더와 10px 간격을 유지하고 햄버거만 원본 규격인 24px로 조정해 프로필과 기준선이 어긋나지 않는다.
+- colors and visual tokens: 검색 아이콘과 문구는 `#8C8C8C`, 햄버거는 초톳 원본 `#222222`를 사용한다.
+- image quality and asset fidelity: 햄버거는 Notion에서 확인한 초톳 원본 path를 로컬 SVG로 추가했으며 임의 CSS 선이나 대체 아이콘을 사용하지 않았다.
+- interaction: 게시판 선택·정렬 게이트와 모바일 런타임 무결성 검사가 통과했고 런타임 오류는 0건이다.
+
+## Comparison history
+
+- Pass 1: 검색 문구가 `#292B30`으로 참고 화면보다 진했고 햄버거는 Reddit 자산이라 획 길이와 간격이 달랐다.
+- Fix: 검색 문구를 `#8C8C8C`로 낮추고 24px 초톳 햄버거 원본으로 교체했다.
+- Pass 2: 384 × 844 렌더링에서 검색 아이콘·문구의 회색 톤과 프로필·햄버거의 수직 정렬이 안정적이며 남은 P0/P1/P2가 없음을 확인했다.
+
+final result: passed
+
+---
+
 # 커뮤니티 검색·프로필 헤더 QA · 2026-10-16
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/72f45332-bc5d-4cbc-81df-9201e2b11ae4/1-1000018538.jpg` 및 Notion의 초톳 원본 `검색 돋보기_s03-chotot-mo-list-035-svgexport-3.svg`, `기본 프로필 아바타_s03-chotot-mo-list-014-svgexport-23.svg`
