@@ -25,8 +25,8 @@
     board:"car-news",
     displayName:"자동차뉴스",
     idStart:9100001,
-    defaultView:"naver-discussion-thumb",
-    updatedAt:"2026-10-16T13:25:21.746Z",
+    defaultView:"naver-discussion",
+    updatedAt:"2026-10-16T14:06:10.897Z",
     rows:[
       {
         "id": "9100001",
