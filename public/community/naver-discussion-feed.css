@@ -285,3 +285,4 @@
 .naverDiscussionCard.is-thumb .naverDiscussionBody.is-summary3{-webkit-line-clamp:3}
 .naverDiscussionChips{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
 .naverDiscussionCategory.is-brand{background:#fff;box-shadow:inset 0 0 0 1px #e1e3e6;color:#2b2e33}
+.naverDiscussionCategory.is-country{background:#eef3fb;color:#2c4a78}
