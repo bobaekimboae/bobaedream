@@ -159,7 +159,8 @@ final result: passed
 # 네이버 증권 토론형 피드 QA · 2026-10-16
 
 - source visual truth: `https://m.stock.naver.com/discussion/home/topic`
-- browser-rendered implementation: `reports/naver-discussion-feed-1016/implementation-390x844.png`
+- secondary media interaction source: `https://www.chotot.com/danh-gia-tu-cu-dan?area_v2=13107&region_v2=13000&ward=9230`
+- browser-rendered implementation: `reports/naver-discussion-feed-1016/implementation-390x844.png`, `reports/naver-discussion-feed-1016/implementation-video-390x844.png`
 - full-view comparison evidence: 원본과 구현을 390 × 844로 함께 캡처해 로컬에서 나란히 검수했다. 제3자 게시물·브랜드 화면은 PR에 보관하지 않았다.
 - viewport and density: 원본·구현 모두 Chrome 390 × 844 CSS px, DPR 1
 - state: 자유게시판, 네이버 토론형, 게시물 피드 카드만 노출
@@ -170,10 +171,10 @@ final result: passed
 - fonts and typography: 토론 제목은 Pretendard 16px/24px/750, 본문은 14px/21px으로 원본의 제목→요약 위계를 반영했다.
 - spacing and layout rhythm: 보배드림 게시판 프로필 바로 아래에서 16px 좌우 여백의 토론 카드가 연속되며 별도 네이버 탐색 영역이 끼어들지 않는다.
 - colors and visual tokens: 흰 배경, 중립 회색 경계선, 검정 제목과 회색 메타 정보로 피드 카드에만 네이버 토론의 정보 위계를 적용했다. 네이버 브랜드 자산은 복사하지 않았다.
-- image quality and asset fidelity: 게시판·작성자·게시물 이미지는 기존 데이터와 저장소의 차량 이미지를 사용한다. 첫 사진만 우선 로딩하고 나머지는 지연 로딩한다.
+- image quality and asset fidelity: 게시판·작성자·게시물 이미지는 기존 데이터와 저장소의 차량 이미지·영상 3개를 사용한다. PNG 차량 컷은 `contain`, 사진·영상은 `cover`로 처리한다. 첫 사진만 우선 로딩하고 나머지는 지연 로딩한다.
 - copy and content: 네이버 원문 게시물은 복사하지 않고 기존 보배드림 테스트 게시물로 토론 카테고리·작성자·제목·요약·반응 수를 구성했다.
-- interaction: 버프·너프는 아이콘·숫자·선택 기능만 유지하고 보이는 텍스트는 제거했다. 다중 사진은 초톳·스레드 방식의 가로 스와이프, 스냅, 다음 사진 미리보기, 현재/전체 수와 페이지 점을 제공한다. 댓글·상세 이동도 유지한다. 상단 탭·토론방·키워드·정렬·클린봇·중간 HOT 모듈은 렌더하지 않는다.
-- responsive verification: 360/390/412px에서 다중 사진 레일 14개, 첫 레일 1→2 페이지 갱신, 카드마다 투표 아이콘 2개, 보이는 버프·너프 문구 0개, 문서 가로 오버플로 0px을 확인했다.
+- interaction: 버프·너프는 아이콘·숫자·선택 기능만 유지하고 보이는 텍스트는 제거했다. 다중 미디어는 초톳·스레드 방식의 가로 스와이프와 스냅을 제공하고, 가로형·정사각형·세로형·긴 세로형을 같은 높이의 레일에 섞는다. 영상은 중앙 재생 버튼으로 실제 재생되며 다른 영상을 틀면 이전 영상이 멈춘다. 댓글·상세 이동도 유지한다.
+- responsive verification: 360/390/412px에서 다중 미디어 레일 14개, 이미지 비율 4종, 영상 카드 4개, 첫 레일 1→2 이동, 카드마다 투표 아이콘 2개, 보이는 버프·너프 문구 0개, 문서 가로 오버플로 0px을 확인했다.
 - browser verification: Chrome에서 콘솔 오류 0건과 3개 모바일 폭 자동 검사를 확인했다.
 
 ## Comparison history
@@ -185,6 +186,7 @@ final result: passed
 - 사용자 후속 수정 2: 피드 카드의 버프·너프 문구만 제거하고 아이콘·숫자·선택 상태는 유지했다.
 - 사용자 후속 수정 3: 사진이 여러 장인 게시물은 좌우 스와이프 레일로 바꾸고 다음 사진 미리보기, 스냅, `현재 / 전체` 표시와 페이지 점을 추가했다. 사진 한 장은 기존 전체 폭을 유지했다.
 - 사용자 후속 수정 4: `현재 / 전체` 번호는 선택 이미지 우측 상단 안쪽, 페이지 점은 선택 이미지 하단 중앙을 기준으로 배치했다. 다음 이미지 미리보기 영역에는 페이지네이션이 걸치지 않는다.
+- 사용자 후속 수정 5: 초톳 주민 리뷰를 다시 확인해 같은 높이 안에서 가로·정사각·세로 이미지 폭을 보존하도록 바꿨다. 영상 게시물은 실제 로컬 MP4와 재생 버튼을 연결했고 페이지네이션은 각 미디어 카드 안에 개별 배치했다.
 
 final result: passed
 
