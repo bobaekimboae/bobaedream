@@ -130,3 +130,6 @@
 .naverDiscussionCard.is-thumb .naverDiscussionEmbed{margin-top:12px}
 .naverDiscussionThumb.is-play{cursor:pointer}
 .naverDiscussionThumb.is-play.is-open{box-shadow:inset 0 0 0 2px #222}
+.naverDiscussionThumb.is-play.has-image{background:#111}
+.naverDiscussionThumb.is-play.has-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.82}
+.naverDiscussionThumb.is-play.has-image .naverDiscussionThumbPlay,.naverDiscussionThumb.is-play.has-image small{position:relative;z-index:1;text-shadow:0 1px 2px rgba(0,0,0,.5)}

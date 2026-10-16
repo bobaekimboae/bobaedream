@@ -16,10 +16,11 @@
     var parts = parsed.pathname.split('/').filter(Boolean);
     var base = { url: parsed.href, render: 'preview', src: '', provider: host, title: host, tall: false };
     function frame(src, provider, title, tall, url) { return { url: url || parsed.href, render: 'iframe', src: src, provider: provider, title: title, tall: Boolean(tall) }; }
-    if (host === 'youtu.be' && parts[0]) return frame('https://www.youtube-nocookie.com/embed/' + encodeURIComponent(parts[0]), 'YouTube', '유튜브 동영상');
+    function yt(id, shorts) { var item = frame('https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id), 'YouTube', shorts ? '유튜브 쇼츠' : '유튜브 동영상', shorts); item.image = 'https://i.ytimg.com/vi/' + encodeURIComponent(id) + '/hqdefault.jpg'; item.wide = !shorts; return item; }
+    if (host === 'youtu.be' && parts[0]) return yt(parts[0], false);
     if (host.slice(-11) === 'youtube.com') {
       var id = parsed.searchParams.get('v') || (parts[0] === 'shorts' || parts[0] === 'embed' || parts[0] === 'live' ? parts[1] : '');
-      if (id) return frame('https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id), 'YouTube', parts[0] === 'shorts' ? '유튜브 쇼츠' : '유튜브 동영상', parts[0] === 'shorts');
+      if (id) return yt(id, parts[0] === 'shorts');
     }
     if (host.slice(-9) === 'vimeo.com' && /^\d+$/.test(parts[parts.length - 1] || '')) return frame('https://player.vimeo.com/video/' + parts[parts.length - 1], 'Vimeo', 'Vimeo 동영상');
     if (host === 'instagram.com' || host.slice(-14) === '.instagram.com') {
@@ -72,7 +73,7 @@
     if (!/^https:\/\//.test(item.src || '')) return cardHtml(item);
     var crop = item.crop === 'instagram' || /instagram\.com\//.test(item.src || '');
     var src = crop ? String(item.src).replace(/embed\/captioned\/?$/, 'embed/') : item.src;
-    var html = '<iframe src="' + esc(src) + '" title="' + esc(item.title || item.provider || '임베드') + '" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts"></iframe>';
+    var html = '<iframe' + (/youtube(-nocookie)?\.com\/embed\//.test(src) && !item.tall ? ' data-embed-wide' : '') + ' src="' + esc(src) + '" title="' + esc(item.title || item.provider || '임베드') + '" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts"></iframe>';
     return crop ? '<div class="bbm-embed-crop">' + html + '</div>' : html;
   }
   /* 상세·피드에서 쓰는 블록 하나 */
