@@ -215,8 +215,8 @@
     wrap.className = 'bbm-embed-live';
     wrap.innerHTML = frameHtml(item, { autoplay: true });
     button.replaceWith(wrap);
-    /* 레딧이 실패한 주소를 오류로 남기듯: 인스타·레딧이 12초 안에 크기 신호를 안 보내면(삭제·비공개·차단) 원문 링크로 바꾼다 */
-    if (item.provider === 'Instagram' || item.provider === 'Reddit') {
+    /* 레딧이 실패한 주소를 오류로 남기듯: 인스타·레딧·X가 12초 안에 크기 신호를 안 보내면(삭제·비공개·차단) 원문 링크로 바꾼다 */
+    if (item.provider === 'Instagram' || item.provider === 'Reddit' || item.provider === 'X') {
       setTimeout(function () {
         var frame = wrap.querySelector('iframe');
         if (!frame || frame.hasAttribute('data-embed-height') || !wrap.isConnected) return;
