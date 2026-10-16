@@ -26,7 +26,7 @@
     displayName:"자동차뉴스",
     idStart:9100001,
     defaultView:"naver-discussion",
-    updatedAt:"2026-10-16T19:42:23.314Z",
+    updatedAt:"2026-10-16T19:54:40.971Z",
     rows:[
       {
         "id": "9100001",
@@ -62,7 +62,8 @@
         "embedDescription": "",
         "embedImage": "",
         "embedSite": "",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": "현대차·기아가 2026 R&D 협력사 테크 데이를 화성에서 열었다|협력사 37곳이 개발한 신기술 42건을 소개했다|최우수상은 테일게이트 소음을 줄인 대동도어 소프트 오프닝 래치"
       },
       {
         "id": "9100002",
@@ -98,7 +99,8 @@
         "embedDescription": "",
         "embedImage": "",
         "embedSite": "",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": "기아는 셀토스·K4 하이브리드와 고성능 GT 5종을 내세웠다|현대차는 신형 베이온과 AI 음성비서를 앞세웠다|하이브리드·고성능·전기 밴으로 중국 브랜드 유럽 공세에 맞선다"
       },
       {
         "id": "9100003",
@@ -134,7 +136,8 @@
         "embedDescription": "",
         "embedImage": "",
         "embedSite": "",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": "9월 수입 상용차 신규등록은 290대로 전월보다 31.2% 늘었다|다만 전년 같은 달보다는 소폭 줄었다|브랜드별로는 볼보트럭이 가장 많았다"
       },
       {
         "id": "9100004",
@@ -170,7 +173,8 @@
         "embedDescription": "",
         "embedImage": "",
         "embedSite": "",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": "파리모터쇼가 개막하고 현대차·기아가 신차 경쟁에 나섰다|신형 SUV·하이브리드·고성능 GT 모델을 공개했다|현대차는 자율주행 협력 확대 검토도 밝혔다"
       },
       {
         "id": "9100005",
@@ -206,7 +210,8 @@
         "embedDescription": "",
         "embedImage": "",
         "embedSite": "",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": "현대차가 2018년 이후 8년 만에 파리모터쇼에 복귀했다|SUV 신차·소형 전기차·전기 상용차를 공개한다|플레오스 커넥트와 N 브랜드 체험 공간도 마련했다"
       },
       {
         "id": "9100006",
@@ -242,7 +247,8 @@
         "embedDescription": "",
         "embedImage": "",
         "embedSite": "",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": "9월 수입 승용차 신규 등록은 3만4904대로 전월·전년보다 늘었다|테슬라가 1만2372대로 1위였다|전기차 비중이 절반을 넘었다"
       },
       {
         "id": "9100007",
@@ -278,7 +284,8 @@
         "embedDescription": "",
         "embedImage": "",
         "embedSite": "",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": "국산 완성차 5개 브랜드 10월 브랜드평판에서 현대차가 1위|기아·KG모빌리티는 지수가 올랐다|르노코리아·한국지엠은 지수가 내렸다"
       },
       {
         "id": "9100008",
@@ -314,7 +321,8 @@
         "embedDescription": "",
         "embedImage": "",
         "embedSite": "",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": "추석 연휴로 영업일이 줄어 9월 국산차 내수가 약 20% 줄었다|완성차 5사 모두 1년 전보다 판매가 감소했다|현대차는 전월 대비 회복 폭이 가장 컸다"
       },
       {
         "id": "9100009",
@@ -350,7 +358,8 @@
         "embedDescription": "",
         "embedImage": "",
         "embedSite": "",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": "4분기에 연말 신차가 잇따라 나온다|디 올 뉴 투싼, 제네시스 GV80 하이브리드·GV90, BMW 신형 7시리즈 등|일부 모델은 국내 출시일과 가격이 아직 미정"
       },
       {
         "id": "9100010",
@@ -386,12 +395,13 @@
         "embedDescription": "",
         "embedImage": "",
         "embedSite": "",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": "현대차가 6년 만의 5세대 완전변경 「디 올 뉴 투싼」을 공개했다|차체를 키우고 1.6 터보 가솔린·하이브리드 두 가지로 나온다|현대차 SUV 최초 플레오스 커넥트 탑재, 가격은 10월 공개"
       },
       {
         "id": "9100011",
         "category": "해외",
-        "title": "AutoScout24 공식 인스타그램 릴스",
+        "title": "80년대 중형차, 그때 당신 집 앞엔 어떤 차가?",
         "summary": "독일 중고차 플랫폼 AutoScout24 공식 계정의 릴스입니다. 게시판에서 바로 재생됩니다.",
         "body": "",
         "source": "AutoScout24 · Instagram",
@@ -422,12 +432,13 @@
         "embedDescription": "",
         "embedImage": "",
         "embedSite": "",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": ""
       },
       {
         "id": "9100012",
         "category": "해외",
-        "title": "BMW M 공식 유튜브: 신형 BMW M350 xDrive 세단",
+        "title": "신형 BMW M350 xDrive 세단",
         "summary": "BMW M 공식 채널이 공개한 신형 M350 xDrive 세단 영상입니다. 게시판에서 바로 재생됩니다.",
         "body": "",
         "source": "BMW M · YouTube",
@@ -458,12 +469,13 @@
         "embedDescription": "",
         "embedImage": "",
         "embedSite": "",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": ""
       },
       {
         "id": "9100013",
         "category": "해외",
-        "title": "BMW M 공식 유튜브 쇼츠: Frozen finish, Hot colour",
+        "title": "Frozen finish, Hot colour",
         "summary": "BMW M 공식 채널의 쇼츠 영상입니다. 게시판에서 바로 재생됩니다.",
         "body": "",
         "source": "BMW M · YouTube",
@@ -494,7 +506,8 @@
         "embedDescription": "",
         "embedImage": "",
         "embedSite": "",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": ""
       },
       {
         "id": "9100014",
@@ -530,12 +543,13 @@
         "embedDescription": "",
         "embedImage": "",
         "embedSite": "",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": ""
       },
       {
         "id": "9100015",
         "category": "해외",
-        "title": "BMW 틱톡: 신형 BMW iX4 공개",
+        "title": "신형 BMW iX4 공개",
         "summary": "BMW 공식 틱톡에 올라온 신형 iX4 영상입니다. 게시판에서 바로 재생됩니다.",
         "body": "",
         "source": "BMW · TikTok",
@@ -566,7 +580,8 @@
         "embedDescription": "",
         "embedImage": "",
         "embedSite": "",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": ""
       },
       {
         "id": "9100016",
@@ -602,7 +617,8 @@
         "embedDescription": "",
         "embedImage": "./media/news-meta/news-9100016.jpg",
         "embedSite": "네이버 뉴스",
-        "embedLogo": "./media/favicons/n.news.naver.com.png"
+        "embedLogo": "./media/favicons/n.news.naver.com.png",
+        "summary3": ""
       },
       {
         "id": "9100017",
@@ -638,12 +654,13 @@
         "embedDescription": "",
         "embedImage": "./media/news-meta/news-9100017.jpg",
         "embedSite": "네이버 스포츠",
-        "embedLogo": "./media/favicons/m.sports.naver.com.png"
+        "embedLogo": "./media/favicons/m.sports.naver.com.png",
+        "summary3": "울산웨일즈와 롱비치 코스트가 교류전을 치렀다|「우정은 뜨겁게, 승부는 치열하게」를 내건 특별한 하루|OSEN이 네이버 스포츠에 전한 기사"
       },
       {
         "id": "9100018",
         "category": "국내",
-        "title": "네이버 카페 전기차동호회 게시글",
+        "title": "전기차동호회 게시글",
         "summary": "회원 185만 명의 네이버 카페 「전기차동호회」 글입니다. 카페 회원만 볼 수 있는 글이라 원문에서 확인하세요.",
         "body": "",
         "source": "전기차동호회 · 네이버 카페",
@@ -674,12 +691,13 @@
         "embedDescription": "",
         "embedImage": "",
         "embedSite": "네이버 카페",
-        "embedLogo": "./media/favicons/m.cafe.naver.com.png"
+        "embedLogo": "./media/favicons/m.cafe.naver.com.png",
+        "summary3": ""
       },
       {
         "id": "9100019",
         "category": "해외",
-        "title": "VK 게시물: 「아직도 따로 팔지 않는 맛있는 것들」",
+        "title": "「아직도 따로 팔지 않는 맛있는 것들」",
         "summary": "러시아 SNS VK(브콘탁테) 게시물입니다. 「아직도 따로 팔지 않는 그 맛있는 것들, 가장 갖고 싶은 건?」이라는 사진 10장 글이에요.",
         "body": "",
         "source": "ДаДа - НетНет · VK",
@@ -710,12 +728,13 @@
         "embedDescription": "Что хотели бы больше всего?) · 사진 10장 · 좋아요 2.2K",
         "embedImage": "https://sun9-7.vkuserphoto.ru/s/v1/ig2/_60jKitovgfBFvxmX0sOjemngQqCq3ZZdmlsznQV_h2a1fTGfCNk7DoVTv7thbSBeWUbtLcQHapQRhIieBNCQRFPmzkcNA.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x854,720x960,1080x1441,1280x1708,1440x1921,1919x2560&from=bu&u=-RPV5AtKStGSFOQfaJCSH5NuGoEQs-c_i5zY_bCjhQc&cs=540x0",
         "embedSite": "",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": ""
       },
       {
         "id": "9100020",
         "category": "해외",
-        "title": "BMW 스레드: 신형 BMW iX4 50 xDrive",
+        "title": "신형 BMW iX4 50 xDrive",
         "summary": "BMW 공식 스레드에 올라온 신형 iX4 50 xDrive 사진 글입니다. 메타 공식 임베드 방식으로 보여 줍니다.",
         "body": "",
         "source": "BMW · Threads",
@@ -746,7 +765,8 @@
         "embedDescription": "",
         "embedImage": "",
         "embedSite": "",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": ""
       },
       {
         "id": "9100021",
@@ -782,7 +802,8 @@
         "embedDescription": "BMW코리아는 16일부터 내달 9일까지 온라인 판매 채널인 BMW 샵 온라인에서 대형 세단 7시리즈의 부분변경 모델 ‘더 뉴 BMW 7시리즈’의 사전예약을 받는다고 밝혔다.",
         "embedImage": "https://imgnews.pstatic.net/image/018/2026/10/16/0006389657_001_20261016194816242.jpg?type=w800",
         "embedSite": "",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": "BMW코리아가 대형 세단 7시리즈 부분변경 「더 뉴 BMW 7시리즈」 사전예약을 시작했다|기간은 16일부터 내달 9일까지, BMW 샵 온라인에서 받는다|가격은 1억6000만원부터"
       },
       {
         "id": "9100022",
@@ -818,12 +839,13 @@
         "embedDescription": "BYD가 파리모터쇼에서 9분 만에 배터리를 97%까지 충전할 수 있는 신형 플래그십 스포츠유틸리티차(SUV) ‘아토8’을 공개했다고 14일 밝혔다.",
         "embedImage": "https://img1.daumcdn.net/thumb/S1200x630/?fname=https://t1.daumcdn.net/news/202610/14/kukminilbo/20261014171914551ocqt.jpg",
         "embedSite": "",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": "BYD가 파리모터쇼에서 7인승 플래그십 SUV 「아토8」을 공개했다|9분 만에 배터리를 97%까지 충전할 수 있다|덴자 브랜드는 「Z9GT」 「D9 DM-i」를 내놨다"
       },
       {
         "id": "9100023",
         "category": "해외",
-        "title": "모터트렌드: 2026 파리모터쇼 최고의 신차·콘셉트카",
+        "title": "2026 파리모터쇼 최고의 신차·콘셉트카",
         "summary": "미국 자동차 매체 모터트렌드가 2026 파리모터쇼의 주목할 신차와 콘셉트카를 정리했습니다. 「중국차가 유럽에 상륙했다, 유럽은 반격할 수 있을까」라는 관점입니다.",
         "body": "",
         "source": "MotorTrend",
@@ -854,12 +876,13 @@
         "embedDescription": "China has arrived in Europe. Can Europe fight back?",
         "embedImage": "https://hips.hearstapps.com/hmg-prod/images/4f6a5e39-fdf0-4150-a99f-4f61ace70812.jpg",
         "embedSite": "MotorTrend",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": "모터트렌드가 2026 파리모터쇼의 주목할 신차·콘셉트카를 정리했다|핵심 관점은 「중국차가 유럽에 상륙했다」|유럽 브랜드가 반격할 수 있을지 짚었다"
       },
       {
         "id": "9100024",
         "category": "해외",
-        "title": "카앤드라이버: 2027 쉐보레 실버라도 HD·GMC 시에라 HD, 8.3L 디젤 「몽구스」 공개",
+        "title": "2027 쉐보레 실버라도 HD·GMC 시에라 HD, 8.3L 디젤 「몽구스」 공개",
         "summary": "미국 카앤드라이버(Car and Driver)는 2027년형 실버라도 HD·시에라 HD가 8.3L 디젤 엔진 「몽구스」를 달고 견인력을 높였으며 조향 장치도 바꿨다고 전했습니다.",
         "body": "",
         "source": "Car and Driver",
@@ -890,12 +913,13 @@
         "embedDescription": "For 2027, the Silverado HD and Sierra HD also have higher tow ratings and finally switch to a more sophisticated steering setup.",
         "embedImage": "https://hips.hearstapps.com/hmg-prod/images/004c2171-8b88-461a-918f-bdededcced75.jpg?crop=0.564xw:0.423xh;0.273xw,0.294xh&resize=1200:*",
         "embedSite": "Car and Driver",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": "2027년형 쉐보레 실버라도 HD·GMC 시에라 HD가 공개됐다|8.3L 디젤 엔진 「몽구스」를 새로 단다|견인력이 높아지고 조향 장치도 더 정교해졌다"
       },
       {
         "id": "9100025",
         "category": "해외",
-        "title": "카버즈: 2027 기아 쏘렌토 하이브리드 X-Line EX, 더 싸졌다",
+        "title": "2027 기아 쏘렌토 하이브리드 X-Line EX, 더 싸졌다",
         "summary": "미국 카버즈(CarBuzz)는 2027년형 쏘렌토 하이브리드의 새 X-Line EX가 SX-프레스티지보다 수천 달러 싸게 강인한 스타일을 준다고 전했습니다.",
         "body": "",
         "source": "CarBuzz",
@@ -926,12 +950,13 @@
         "embedDescription": "Kia's new X-Line EX gets you tough styling for thousands less than the SX-Prestige version",
         "embedImage": "https://static0.carbuzzimages.com/wordpress/wp-content/uploads/2026/10/25115_2027_sorento_hybrid-1.jpg?w=1600&h=900&fit=crop",
         "embedSite": "CarBuzz",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": "2027년형 기아 쏘렌토 하이브리드에 X-Line EX가 추가됐다|강인한 외관을 그대로 가져가면서|SX-프레스티지보다 수천 달러 싸다"
       },
       {
         "id": "9100026",
         "category": "해외",
-        "title": "모터원: 전기 렉서스 LFA, 가짜 시퀀셜 변속기 단다?",
+        "title": "전기 렉서스 LFA, 가짜 시퀀셜 변속기 단다?",
         "summary": "미국 모터원(Motor1)은 토요타 특허를 근거로 전기 렉서스 LFA가 토크 차단과 주행 모드로 시퀀셜 변속 느낌을 흉내 낼 수 있다고 전했습니다(양산 사양은 미확정).",
         "body": "",
         "source": "Motor1",
@@ -962,7 +987,45 @@
         "embedDescription": "Toyota’s patent shows how the electric Lexus LFA could simulate clutchless shifts with torque cuts and driving modes without confirming final production specs.",
         "embedImage": "https://cdn.motor1.com/images/mgl/g4gW8o/s1/lexus-sport-concept.jpg",
         "embedSite": "Motor1",
-        "embedLogo": ""
+        "embedLogo": "",
+        "summary3": "토요타 특허에 전기 렉서스 LFA의 가상 변속 기능이 담겼다|토크 차단과 주행 모드로 시퀀셜 변속 느낌을 흉내 낸다|양산 사양은 아직 확정되지 않았다"
+      },
+      {
+        "id": "9100027",
+        "category": "해외",
+        "title": "「진짜 다 들어간 차」",
+        "summary": "틱톡 크리에이터 Nasser Hessien(@nasserhessien)의 아랍어 영상 「عربية كل حاجة حرفيا」(말 그대로 모든 게 다 있는 차)입니다. 게시판에서 바로 재생됩니다.",
+        "body": "",
+        "source": "Nasser Hessien · TikTok",
+        "sourceUrl": "https://www.tiktok.com/@nasserhessien/video/7692499721427930388",
+        "author": "",
+        "publishedAt": "2026-10-17T04:53:00+09:00",
+        "thumbnail": "",
+        "images": "",
+        "views": "0",
+        "comments": "0",
+        "likes": "0",
+        "tags": "해외|틱톡",
+        "reviewId": "",
+        "modelId": "",
+        "brand": "",
+        "model": "",
+        "trim": "",
+        "powertrain": "",
+        "rating": "",
+        "owner": "",
+        "ownershipLabel": "",
+        "benchmark": "",
+        "location": "",
+        "ratings": "",
+        "brandLogo": "",
+        "embed": "https://www.tiktok.com/@nasserhessien/video/7692499721427930388",
+        "embedTitle": "",
+        "embedDescription": "",
+        "embedImage": "",
+        "embedSite": "",
+        "embedLogo": "",
+        "summary3": ""
       }
     ]
   };
