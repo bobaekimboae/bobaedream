@@ -1428,6 +1428,11 @@
   transform: rotate(180deg);
 }
 
+/* Keep the local-test cleanup control above the fixed mobile action bar. */
+.vr-delete {
+  margin-bottom: 88px;
+}
+
 /* 2026-10-17 live-device crosscheck: keep rating feedback readable at 384dp. */
 .vr-rating-row > div:first-child small {
   color: #626874;

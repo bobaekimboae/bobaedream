@@ -24,21 +24,34 @@ const matrix = {
 };
 const scores = Array.from({ length: 10 }, (_, index) => (index + 1) / 2);
 const bucket = (score) => Math.ceil(score) - 1;
+const minimumAssertions = 5_780;
+const viewports = [
+  { name: "소형 360×800", width: 360, height: 800 },
+  { name: "원본 기기 384×853", width: 384, height: 853 },
+  { name: "기준 390×844", width: 390, height: 844 },
+  { name: "대형 모바일 412×915", width: 412, height: 915 },
+  { name: "PC 1440×900", width: 1440, height: 900 },
+];
 const rows = [];
 const runtimeErrors = [];
 const check = (section, name, ok, expected = "", actual = "") => rows.push({ section, name, result: ok ? "PASS" : "FAIL", expected: String(expected), actual: String(actual) });
+const near = (actual, expected, tolerance = 0.6) => Math.abs(actual - expected) <= tolerance;
 
 const browser = await chromium.launch({ headless: true });
-const context = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 });
-context.on("page", (page) => {
-  page.on("console", (message) => { if (message.type() === "error") runtimeErrors.push(`console: ${message.text()}`); });
-  page.on("pageerror", (error) => runtimeErrors.push(`pageerror: ${error.message}`));
-});
+const createContext = async (viewport) => {
+  const next = await browser.newContext({ viewport, deviceScaleFactor: 1 });
+  next.on("page", (page) => {
+    page.on("console", (message) => { if (message.type() === "error") runtimeErrors.push(`${viewport.width}x${viewport.height} console: ${message.text()}`); });
+    page.on("pageerror", (error) => runtimeErrors.push(`${viewport.width}x${viewport.height} pageerror: ${error.message}`));
+  });
+  return next;
+};
+let context = await createContext({ width: 390, height: 844 });
 
 async function writerPage() {
   const page = await context.newPage();
-  await page.goto(`${base}?community=reviews&review=write&from=community&v=rating-matrix`, { waitUntil: "domcontentloaded", timeout: 30_000 });
-  await page.locator(".vr-write").waitFor();
+  await page.goto(`${base}?community=reviews&review=write&from=community&v=rating-matrix`, { waitUntil: "commit", timeout: 60_000 });
+  await page.locator(".vr-write").waitFor({ timeout: 60_000 });
   return page;
 }
 
@@ -47,9 +60,10 @@ async function selectModel(page, text) {
   await page.locator(".vr-model-options button", { hasText: text }).first().click();
 }
 
-async function auditCategory(page, label) {
+async function auditCategory(page, label, viewportName) {
   const group = page.getByRole("radiogroup", { name: `${label} 별점` });
   const row = group.locator("..");
+  let previousComment = "";
   for (const score of scores) {
     const radio = group.getByRole("radio", { name: `${score}점`, exact: true });
     await radio.click();
@@ -57,28 +71,81 @@ async function auditCategory(page, label) {
     const value = (await row.locator(".vr-rating-value").textContent())?.trim() ?? "";
     const popover = (await row.locator(".vr-star-popover").textContent())?.trim() ?? "";
     const expectedComment = matrix[label].ko[bucket(score)];
-    check("작성 UI 100상태", `${label} ${score.toFixed(1)} 문구`, comment === expectedComment, expectedComment, comment);
-    check("작성 UI 100상태", `${label} ${score.toFixed(1)} 숫자`, value === `${score.toFixed(1)}점`, `${score.toFixed(1)}점`, value);
-    check("작성 UI 100상태", `${label} ${score.toFixed(1)} 선택 상태`, await radio.getAttribute("aria-checked") === "true", "true", await radio.getAttribute("aria-checked"));
-    check("작성 UI 100상태", `${label} ${score.toFixed(1)} 피드백`, popover.includes(`${score.toFixed(1)}점`), `${score.toFixed(1)}점`, popover);
+    const prefix = `${viewportName} ${label} ${score.toFixed(1)}`;
+    const checkedRadios = group.locator('[role="radio"][aria-checked="true"]');
+    const checkedLabels = await checkedRadios.evaluateAll((nodes) => nodes.map((node) => node.getAttribute("aria-label")));
+    const geometry = await group.evaluate((node) => {
+      const visual = node.querySelector(".vr-star-visual");
+      const hit = node.querySelector(".vr-star-hit");
+      const rowNode = node.closest(".vr-rating-row");
+      const buttons = [...node.querySelectorAll('.vr-star-hit [role="radio"]')];
+      const fills = [...node.querySelectorAll(".vr-star-visual > span > i")];
+      const empty = node.querySelector(".vr-star-visual > span > img");
+      const filled = node.querySelector(".vr-star-visual > span > i img");
+      const visualRect = visual?.getBoundingClientRect();
+      const hitRect = hit?.getBoundingClientRect();
+      return {
+        visualWidth: visualRect?.width ?? 0,
+        visualHeight: visualRect?.height ?? 0,
+        hitWidth: hitRect?.width ?? 0,
+        hitHeight: hitRect?.height ?? 0,
+        buttonWidths: buttons.map((button) => button.getBoundingClientRect().width),
+        fillWidths: fills.map((fill) => fill.getBoundingClientRect().width),
+        emptySrc: empty?.getAttribute("src") ?? "",
+        filledSrc: filled?.getAttribute("src") ?? "",
+        rowBackground: rowNode ? getComputedStyle(rowNode).backgroundColor : "",
+        rowClientWidth: rowNode?.clientWidth ?? 0,
+        rowScrollWidth: rowNode?.scrollWidth ?? 0,
+      };
+    });
+    check("10배 UI 상태", `${prefix} 문구`, comment === expectedComment, expectedComment, comment);
+    check("10배 UI 상태", `${prefix} 숫자`, value === `${score.toFixed(1)}점`, `${score.toFixed(1)}점`, value);
+    check("10배 UI 상태", `${prefix} 선택 상태`, await radio.getAttribute("aria-checked") === "true", "true", await radio.getAttribute("aria-checked"));
+    check("10배 UI 상태", `${prefix} 단일 선택`, checkedLabels.length === 1, "1", checkedLabels.length);
+    check("10배 UI 상태", `${prefix} 선택 라벨`, checkedLabels[0] === `${score}점`, `${score}점`, checkedLabels[0] ?? "없음");
+    check("10배 UI 상태", `${prefix} 즉시 피드백`, popover === `${score.toFixed(1)}점`, `${score.toFixed(1)}점`, popover);
+    geometry.fillWidths.forEach((width, index) => {
+      const expectedWidth = 22 * Math.max(0, Math.min(1, score - index));
+      check("10배 별 채움", `${prefix} 별 ${index + 1} 채움`, near(width, expectedWidth), `${expectedWidth}px`, `${width.toFixed(2)}px`);
+    });
+    check("10배 아이콘", `${prefix} 빈 별 자산`, geometry.emptySrc.includes("chotot-common-review-star-button.svg"), "초톳 빈 별 SVG", geometry.emptySrc);
+    check("10배 아이콘", `${prefix} 황금 별 자산`, geometry.filledSrc.includes("chotot-common-review-star-selected.svg"), "초톳 선택 별 SVG", geometry.filledSrc);
+    check("10배 기하", `${prefix} 별 시각 폭`, near(geometry.visualWidth, 142), "142px", `${geometry.visualWidth.toFixed(2)}px`);
+    check("10배 기하", `${prefix} 별 시각 높이`, near(geometry.visualHeight, 22), "22px", `${geometry.visualHeight.toFixed(2)}px`);
+    check("10배 기하", `${prefix} 입력 폭`, near(geometry.hitWidth, 142), "142px", `${geometry.hitWidth.toFixed(2)}px`);
+    check("10배 기하", `${prefix} 입력 높이`, near(geometry.hitHeight, 30), "30px", `${geometry.hitHeight.toFixed(2)}px`);
+    check("10배 기하", `${prefix} 반점 10구간`, geometry.buttonWidths.length === 10, "10", geometry.buttonWidths.length);
+    check("10배 기하", `${prefix} 반점 균등 폭`, geometry.buttonWidths.every((width) => near(width, 14.2, 0.8)), "각 14.2px±0.8", geometry.buttonWidths.map((width) => width.toFixed(2)).join(","));
+    check("10배 시각", `${prefix} 선택 행 배경`, geometry.rowBackground === "rgb(250, 251, 252)", "rgb(250, 251, 252)", geometry.rowBackground);
+    check("10배 시각", `${prefix} 가로 넘침 없음`, geometry.rowScrollWidth <= geometry.rowClientWidth + 1, `≤${geometry.rowClientWidth + 1}`, geometry.rowScrollWidth);
+    if (score > 0.5) {
+      const shouldChange = bucket(score) !== bucket(score - 0.5);
+      check("10배 경계 전이", `${prefix} 직전 반점 경계`, shouldChange ? comment !== previousComment : comment === previousComment, shouldChange ? "문구 변경" : "문구 유지", `${previousComment} → ${comment}`);
+    }
+    previousComment = comment;
   }
 }
 
-// 8 EV/PHEV categories × 10 half-star positions.
-{
-  const page = await writerPage();
-  await page.locator(".vr-more-ratings").click();
-  for (const label of ["외관", "실내", "공간", "편의·안전 사양", "주행감", "주행거리·전비", "주행 보조", "인포테인먼트"]) await auditCategory(page, label);
-  await page.close();
+// Five screen classes × 10 categories × 10 half-star positions. Each state
+// checks semantics, copy, geometry, exact fill, icon provenance and overflow.
+await context.close();
+for (const viewport of viewports) {
+  context = await createContext({ width: viewport.width, height: viewport.height });
+  {
+    const page = await writerPage();
+    await page.locator(".vr-more-ratings").click();
+    for (const label of ["외관", "실내", "공간", "편의·안전 사양", "주행감", "주행거리·전비", "주행 보조", "인포테인먼트"]) await auditCategory(page, label, viewport.name);
+    await page.close();
+  }
+  {
+    const page = await writerPage();
+    await selectModel(page, "BMW M3");
+    for (const label of ["동력·핸들링", "연비"]) await auditCategory(page, label, viewport.name);
+    await page.close();
+  }
+  await context.close();
 }
-
-// Two ICE-only categories × 10 half-star positions.
-{
-  const page = await writerPage();
-  await selectModel(page, "BMW M3");
-  for (const label of ["동력·핸들링", "연비"]) await auditCategory(page, label);
-  await page.close();
-}
+context = await createContext({ width: 390, height: 844 });
 
 // The preserved source corpus must contain each of the 100 exact KO/ZH rows.
 for (const [label, values] of Object.entries(matrix)) {
@@ -147,6 +214,56 @@ for (const profile of profiles) {
   await page.close();
 }
 
+// Required six categories define the overall score. Optional ADAS/cockpit
+// ratings must remain visible without changing list/detail averages.
+{
+  const page = await context.newPage();
+  const review = {
+    id: "local-10x-required-average",
+    modelId: "ev-a06",
+    title: "필수 항목 종합점수 역검증 리뷰",
+    ratings: { exterior: 5, interior: 5, space: 5, features: 5, driving: 5, range: 5, adas: 0.5, cockpit: 0.5 },
+    body: "선택 평가 두 항목이 낮아도 필수 여섯 항목의 종합점수는 바뀌지 않아야 하는 역검증 본문입니다.",
+    owner: false,
+    createdAt: "2026-10-17",
+    likes: 0,
+    comments: 0,
+    author: "10배 검수 계정",
+    ownershipLabel: "시승 리뷰",
+  };
+  await page.goto(`${base}?profile=dealer&shop=450554&emp=1&qf=guazi&tab=reviews&v=rating-required-average`, { waitUntil: "commit", timeout: 60_000 });
+  await page.evaluate((value) => localStorage.setItem("bobae-vehicle-reviews-v1", JSON.stringify([value])), review);
+  await page.reload({ waitUntil: "domcontentloaded" });
+  const card = page.locator(".vr-card", { hasText: review.title }).first();
+  await card.waitFor();
+  const listScore = (await card.locator(".vr-card-rating strong").textContent())?.trim() ?? "";
+  check("목록·상세 역검증", "선택 평가를 제외한 목록 종합점수", listScore === "5.0", "5.0", listScore);
+  await card.locator(".vr-card-open").click();
+  const detailScore = (await page.locator(".vr-detail-score strong").textContent())?.trim() ?? "";
+  check("목록·상세 역검증", "선택 평가를 제외한 상세 종합점수", detailScore === "5.00", "5.00", detailScore);
+  check("목록·상세 역검증", "선택 평가 포함 상세 행 8개", await page.locator(".vr-detail-ratings > div").count() === 8, "8", await page.locator(".vr-detail-ratings > div").count());
+  const commentInput = page.getByRole("textbox", { name: "댓글 입력" });
+  const commentSubmit = page.locator(".vr-comments form button[type=submit]");
+  check("상세 동작", "빈 댓글 등록 비활성", await commentSubmit.isDisabled(), "true", await commentSubmit.isDisabled());
+  await commentInput.fill("10배 강화 검수 댓글입니다.");
+  check("상세 동작", "댓글 입력 후 등록 활성", await commentSubmit.isEnabled(), "true", await commentSubmit.isEnabled());
+  await commentSubmit.click();
+  check("상세 동작", "댓글 즉시 추가", await page.locator(".vr-comments article", { hasText: "10배 강화 검수 댓글입니다." }).count() === 1, "1", await page.locator(".vr-comments article", { hasText: "10배 강화 검수 댓글입니다." }).count());
+  const save = page.locator('.vr-detail-actions [data-action="save"], .vr-detail-actions button').filter({ hasText: "저장" }).first();
+  await save.click();
+  check("상세 동작", "저장 토글", await save.getAttribute("aria-pressed") === "true", "true", await save.getAttribute("aria-pressed"));
+  const helpful = page.locator(".vr-detail-actions button", { hasText: "도움돼요" });
+  const unhelpful = page.locator(".vr-detail-actions button", { hasText: "별로예요" });
+  await helpful.click();
+  check("상세 동작", "도움돼요 토글", await helpful.getAttribute("aria-pressed") === "true", "true", await helpful.getAttribute("aria-pressed"));
+  await unhelpful.click();
+  check("상세 동작", "상호 배타 평가", await helpful.getAttribute("aria-pressed") === "false" && await unhelpful.getAttribute("aria-pressed") === "true", "도움 false / 별로 true", `${await helpful.getAttribute("aria-pressed")} / ${await unhelpful.getAttribute("aria-pressed")}`);
+  page.once("dialog", (dialog) => dialog.accept());
+  await page.locator(".vr-delete").click();
+  check("테스트 데이터 정리", "테스트 리뷰 삭제", await page.evaluate(() => JSON.parse(localStorage.getItem("bobae-vehicle-reviews-v1") ?? "[]").length) === 0, "0", await page.evaluate(() => JSON.parse(localStorage.getItem("bobae-vehicle-reviews-v1") ?? "[]").length));
+  await page.close();
+}
+
 // Independent community detail must translate saved ID keys and use the same boundaries.
 {
   const page = await context.newPage();
@@ -174,6 +291,8 @@ for (const profile of profiles) {
 }
 
 check("런타임", "콘솔·페이지 오류 0", runtimeErrors.length === 0, "0", runtimeErrors.join(" | "));
+const assertionCountBeforeFloor = rows.length;
+check("게이트 자체", "최소 판정 수 5,780", assertionCountBeforeFloor >= minimumAssertions, `>=${minimumAssertions}`, assertionCountBeforeFloor);
 await browser.close();
 
 const failed = rows.filter((row) => row.result === "FAIL");
@@ -183,7 +302,7 @@ const bySection = Object.fromEntries([...new Set(rows.map((row) => row.section))
 }));
 const result = { generatedAt: new Date().toISOString(), base, total: rows.length, pass: rows.length - failed.length, fail: failed.length, bySection, runtimeErrors, rows };
 await writeFile(join(out, "rating-matrix-results.json"), JSON.stringify(result, null, 2));
-await writeFile(join(out, "rating-matrix-results.tsv"), ["section\tname\tresult\texpected\tactual", ...rows.map((row) => [row.section, row.name, row.result, row.expected, row.actual].map((value) => String(value).replaceAll("\t", " ").replaceAll("\n", " ")).join("\t"))].join("\n"));
+await writeFile(join(out, "rating-matrix-results.tsv"), ["section\tname\tresult\texpected\tactual", ...rows.map((row) => [row.section, row.name, row.result, row.expected, row.actual].map((value) => String(value).replaceAll("\t", " ").replaceAll("\n", " ") || "-").join("\t"))].join("\n"));
 await writeFile(join(out, "rating-matrix-summary.md"), `# 차량 리뷰 강화 평점 검수\n\n- 기준 URL: ${base}\n- 전체: ${rows.length}\n- PASS: ${rows.length - failed.length}\n- FAIL: ${failed.length}\n\n${Object.entries(bySection).map(([section, value]) => `- ${section}: PASS ${value.pass} / FAIL ${value.fail}`).join("\n")}\n\n${failed.length ? `## 실패\n\n${failed.map((row) => `- ${row.name}: 기대 ${row.expected} / 실제 ${row.actual}`).join("\n")}` : "모든 강화 검수 항목을 통과했다."}\n`);
 console.log(`PASS ${rows.length - failed.length} / FAIL ${failed.length}`);
 for (const [section, value] of Object.entries(bySection)) console.log(`${section}: PASS ${value.pass} / FAIL ${value.fail}`);

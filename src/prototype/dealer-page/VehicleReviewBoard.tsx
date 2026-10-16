@@ -112,6 +112,11 @@ function average(ratings: ScoreMap, ids?: RatingCategoryId[]) {
   return values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : 0;
 }
 
+function reviewAverage(review: SavedReview) {
+  const model = reviewModels.find((item) => item.id === review.modelId) ?? reviewModels[0];
+  return average(review.ratings, ratingProfiles[model.powertrain].required);
+}
+
 function Logo({ model, large = false }: { model: ReviewModel; large?: boolean }) {
   return <span className={`vr-logo${large ? " is-large" : ""}`}>{model.logo ? <img src={autohomeLogo(model.logo)} alt={`${model.brand} 엠블럼`} /> : <b className="vr-logo-fallback">{model.brand}</b>}</span>;
 }
@@ -274,7 +279,7 @@ function ReviewList({ reviews, cars, onWrite, onOpen }: { reviews: SavedReview[]
   const [ownerOnly, setOwnerOnly] = useState(false);
   const [tag, setTag] = useState<RatingCategoryId | null>(null);
   const [following, setFollowing] = useState<Set<string>>(() => new Set());
-  const scoreOf = (review: SavedReview) => average(review.ratings);
+  const scoreOf = (review: SavedReview) => reviewAverage(review);
   const visible = reviews
     .filter((review) => powertrain === "all" || reviewModels.find((model) => model.id === review.modelId)?.powertrain === powertrain)
     .filter((review) => !ownerOnly || review.owner)
@@ -293,7 +298,7 @@ function ReviewList({ reviews, cars, onWrite, onOpen }: { reviews: SavedReview[]
     {!visible.length ? <div className="vr-empty"><b>조건에 맞는 리뷰가 아직 없습니다.</b><span>필터를 바꾸거나 첫 리뷰를 등록해 주세요.</span></div> : null}
     <div className="vr-list-cards">{visible.map((review) => {
       const model = reviewModels.find((item) => item.id === review.modelId) ?? reviewModels[0];
-      const score = average(review.ratings);
+      const score = scoreOf(review);
       const photos = reviewPhotos(review, model, cars);
       return <article className="vr-card" key={review.id}>
         <header><Logo model={model} /><span><b>{review.author ?? "보배드림 회원"}{review.owner ? <em><ReviewIcon name="check" /> 인증</em> : null}</b><small>{model.brand} {model.model} · {review.location ?? "지역 미입력"}</small></span><button type="button" aria-pressed={following.has(review.id)} onClick={() => setFollowing((current) => { const next = new Set(current); if (next.has(review.id)) next.delete(review.id); else next.add(review.id); return next; })}>{following.has(review.id) ? "구독 중" : "구독"}</button></header>
@@ -313,7 +318,7 @@ function ReviewList({ reviews, cars, onWrite, onOpen }: { reviews: SavedReview[]
 function ReviewDetail({ review, cars, onBack, onDelete }: { review: SavedReview; cars: Car[]; onBack: () => void; onDelete: (review: SavedReview) => void }) {
   const model = reviewModels.find((item) => item.id === review.modelId) ?? reviewModels[0];
   const profile = ratingProfiles[model.powertrain];
-  const score = average(review.ratings);
+  const score = reviewAverage(review);
   const photos = reviewPhotos(review, model, cars);
   const [subscribed, setSubscribed] = useState(false);
   const [helpful, setHelpful] = useState(false);
