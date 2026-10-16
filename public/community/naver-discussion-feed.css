@@ -84,6 +84,43 @@
 .naverDiscussionMetric.is-active{color:#238fe3;font-weight:720}
 .naverDiscussionMetric.is-active img{filter:invert(52%) sepia(91%) saturate(2284%) hue-rotate(178deg) brightness(91%) contrast(94%)}
 .naverDiscussionViews{margin-left:auto;white-space:nowrap}
+
+/* 해외 자동차뉴스: Threads 앱의 게시물 리듬을 그대로 쓰는 운영 계정 피드. */
+.phone.foreignThreadMode{--discussion-card-pad-x:16px}
+.phone.foreignThreadMode .list{padding:0;background:#fff}
+.phone.foreignThreadMode .fab{display:none}
+.foreignThreadCard{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:12px;padding:18px 16px 15px;border-bottom:1px solid #ededed;background:#fff}
+.foreignThreadAvatar{display:block;width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:left center;background:#1b498c;box-shadow:0 0 0 1px rgba(0,0,0,.07)}
+.foreignThreadPost{min-width:0}
+.foreignThreadIdentity{height:23px;display:flex;align-items:center;min-width:0}
+.foreignThreadIdentity strong{min-width:0;overflow:hidden;color:#101010;font-size:16px;line-height:22px;font-weight:700;letter-spacing:-.02em;text-overflow:ellipsis;white-space:nowrap}
+.foreignThreadIdentity time{margin-left:6px;color:#999;font-size:15px;line-height:22px;font-weight:400;white-space:nowrap}
+.foreignThreadMore{width:28px;height:28px;margin:-2px -4px 0 auto;display:grid;flex:0 0 28px;place-items:center;border-radius:50%;cursor:pointer}
+.foreignThreadMore img{display:block;width:19px;height:19px;opacity:.55}
+.foreignThreadMore.is-active{background:#f2f2f2}
+.foreignThreadSource{display:block;margin-top:1px;overflow:hidden;color:#1799e8;font-size:15px;line-height:22px;font-weight:400;letter-spacing:-.01em;text-decoration:none;text-overflow:ellipsis;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.foreignThreadCard .news-card{width:100%;margin-top:10px;border-color:#e1e1e1;border-radius:16px}
+.foreignThreadCard .naverDiscussionEmbed{margin-top:10px}
+.foreignThreadCard .news-card-image{aspect-ratio:1.88/1;background:#f2f2f2}
+.foreignThreadCard .news-card-copy{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"site" "title" "desc";min-height:0;padding:12px 15px 15px;align-content:start}
+.foreignThreadCard .news-card-site{margin:0 0 4px;color:#929292;font-size:13px;line-height:20px}
+.foreignThreadCard .news-card-site>img{width:20px;height:20px;min-width:20px}
+.foreignThreadCard .news-card-title{font-size:16px;line-height:21px;font-weight:520;letter-spacing:-.025em;-webkit-line-clamp:2}
+.foreignThreadCard .news-card-desc{grid-area:desc;display:-webkit-box;height:auto;margin-top:6px;overflow:hidden;color:#656565;font-size:13px;line-height:19px;font-weight:400;letter-spacing:-.02em;white-space:pre-line;-webkit-box-orient:vertical;-webkit-line-clamp:3}
+.foreignThreadCard .news-card-url{display:none}
+.foreignThreadCard .news-card:not(:has(.news-card-image)){display:block;min-height:0}
+.foreignThreadCard .news-card:not(:has(.news-card-image)) .news-card-copy{min-height:0;padding:13px 15px 15px}
+.foreignThreadActions{height:34px;margin-top:9px;display:flex;align-items:center;gap:18px}
+.foreignThreadActions button{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.foreignThreadActions img{display:block;width:23px;height:23px;object-fit:contain;opacity:.86}
+.foreignThreadActions button.is-active{background:#f2f2f2}
+.foreignThreadActions [data-thread-like].is-active img{filter:invert(20%) sepia(94%) saturate(5183%) hue-rotate(348deg) brightness(96%) contrast(94%)}
+.foreignThreadActions [data-thread-repost].is-active img{filter:invert(51%) sepia(82%) saturate(485%) hue-rotate(91deg) brightness(93%) contrast(90%)}
+@media(max-width:370px){
+  .foreignThreadCard{grid-template-columns:42px minmax(0,1fr);column-gap:11px;padding-right:14px;padding-left:14px}
+  .foreignThreadAvatar{width:42px;height:42px}
+  .foreignThreadIdentity strong{font-size:15.5px}.foreignThreadIdentity time,.foreignThreadSource{font-size:14.5px}
+}
 .naverDiscussionHot{padding:17px 0 17px;border-bottom:8px solid #f5f6f7;background:#fff}
 .naverDiscussionHotHead{display:flex;align-items:center;padding:0 16px 11px}
 .naverDiscussionHotHead strong{color:#202227;font-size:17px;line-height:23px;font-weight:780;letter-spacing:-.04em}
