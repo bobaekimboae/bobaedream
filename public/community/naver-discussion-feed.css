@@ -228,13 +228,15 @@
 
 /* Naver Cafe popular list: measured from the mobile Cafe popular tab. */
 .phone.naverCafePopularMode .list{min-height:520px;padding:0;background:#fff;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Apple SD Gothic Neo",Arial,sans-serif}
-.naverCafePopularHeader{padding:12px 16px 10px;background:#fff;border-bottom:1px solid #f0f1f2}
-.naverCafePopularTabs{height:40px;display:flex;align-items:center;gap:5px}
-.naverCafePopularTabs button{height:38px;padding:0 14px;border-radius:19px;color:#7f8287;font-size:14px;line-height:38px;font-weight:600;letter-spacing:-.03em;white-space:nowrap}
-.naverCafePopularTabs button.on{background:#f5f6f7;color:#17181a;font-weight:700}
-.naverCafePopularHeader p{margin:7px 0 0;color:#9a9ca0;font-size:12px;line-height:17px;font-weight:400;letter-spacing:-.025em}
+.naverCafePopularHeader{padding:0 16px 10px;background:#fff;border-bottom:1px solid #f0f1f2}
+.naverCafePopularTabs{height:48px;display:grid;grid-template-columns:repeat(3,1fr);align-items:center;border-bottom:1px solid #eceef0}
+.naverCafePopularTabs button{position:relative;height:48px;padding:0;background:transparent;color:#7f8287;font-size:15px;line-height:48px;font-weight:600;letter-spacing:-.03em;white-space:nowrap}
+.naverCafePopularTabs button.on{background:transparent;color:#17181a;font-weight:750}
+.naverCafePopularTabs button.on:after{content:"";position:absolute;left:50%;bottom:-1px;width:44px;height:2px;border-radius:2px;background:#17181a;transform:translateX(-50%)}
+.naverCafePopularHeader p{margin:8px 0 0;color:#9a9ca0;font-size:12px;line-height:17px;font-weight:400;letter-spacing:-.025em}
 .naverCafePopularHeader p span{display:inline-grid;place-items:center;width:14px;height:14px;margin-left:3px;border-radius:50%;background:#eef0f2;color:#a8aaad;font-size:10px;font-weight:700;vertical-align:-1px}
 .naverCafePopularRows{padding-left:16px;background:#fff}
+.naverCafePopularEmpty{height:120px;display:grid;place-items:center;padding-right:16px;color:#8e9196;font-size:14px;text-align:center}
 .naverCafePopularRow{position:relative;height:86px;display:grid;grid-template-columns:minmax(0,1fr) 46px;gap:0;align-items:center;padding-right:16px;border-bottom:1px solid #eeeeef;background:#fff}
 .naverCafePopularMain{min-width:0;height:85px;display:grid;grid-template-columns:minmax(0,1fr);align-items:center;padding:12px 12px 12px 0;text-align:left;cursor:pointer}
 .naverCafePopularRow.hasThumb .naverCafePopularMain{grid-template-columns:minmax(0,1fr) 60px;gap:10px}
