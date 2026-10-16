@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { asset, type Car } from "../data";
 import { ratingCategories, ratingComment, ratingProfiles, reviewModels, type RatingCategoryId, type ReviewModel } from "./vehicle-review-data";
 import "./vehicle-review-board.css";
@@ -90,11 +90,21 @@ function StarVisual({ score, size = 18 }: { score: number; size?: number }) {
 }
 
 function StarInput({ value = 0, onChange, label }: { value?: number; onChange: (score: number) => void; label: string }) {
+  const [announcedScore, setAnnouncedScore] = useState<number | null>(null);
+  const timerRef = useRef<number | null>(null);
+  useEffect(() => () => { if (timerRef.current !== null) window.clearTimeout(timerRef.current); }, []);
+  const chooseScore = (score: number) => {
+    onChange(score);
+    setAnnouncedScore(score);
+    if (timerRef.current !== null) window.clearTimeout(timerRef.current);
+    timerRef.current = window.setTimeout(() => setAnnouncedScore(null), 900);
+  };
   return <div className="vr-star-input" role="radiogroup" aria-label={`${label} 별점`}>
     <StarVisual score={value} size={26} />
+    {announcedScore ? <output className="vr-star-popover" style={{ left: `${Math.max(12, Math.min(88, (announcedScore / 5) * 100))}%` }}><ReviewIcon name="starFilled" size={14} />{announcedScore.toFixed(1)}점</output> : null}
     <div className="vr-star-hit">{Array.from({ length: 10 }, (_, index) => {
       const score = (index + 1) / 2;
-      return <button key={score} type="button" role="radio" aria-checked={value === score} aria-label={`${score}점`} onClick={() => onChange(score)} />;
+      return <button key={score} type="button" role="radio" aria-checked={value === score} aria-label={`${score}점`} onClick={() => chooseScore(score)} />;
     })}</div>
   </div>;
 }
@@ -200,7 +210,7 @@ function RatingRow({ id, value, setValue, optional = false }: { id: RatingCatego
   return <div className="vr-rating-row">
     <div><b>{item.label}{optional ? <em>선택</em> : <sup>*</sup>}</b>{comment ? <small>{comment.korean}</small> : null}</div>
     <StarInput value={value} onChange={setValue} label={item.label} />
-    <strong className="vr-rating-value">{value ? `${value.toFixed(1)}점` : "-"}</strong>
+    <strong className="vr-rating-value" aria-live="polite">{value ? `${value.toFixed(1)}점` : "선택 안 함"}</strong>
   </div>;
 }
 

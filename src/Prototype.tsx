@@ -6,6 +6,7 @@ import { configureListingScreens, MarketplaceScreen, SavedListingsHeader, SavedL
 import { BuildBadge } from "./prototype/build-badge";
 import MainHome from "./main-home/MainHome";
 import DealerPage from "./prototype/dealer-page/DealerPage";
+import CommunityVehicleReviewPage from "./prototype/community-review/CommunityVehicleReviewPage";
 import "./prototype.css";
 
 // JOB-7: ?register 매물 등록 화면(dev /car/register 동일).
@@ -26,6 +27,7 @@ const shouldShowMainHome = () => {
   return !listingParams.some((key) => params.has(key));
 };
 const shouldShowDealerPage = () => new URLSearchParams(window.location.search).get("profile") === "dealer";
+const shouldShowCommunityReviews = () => new URLSearchParams(window.location.search).get("community") === "reviews";
 const shouldShowRegister = () => new URLSearchParams(window.location.search).has("register");
 
 export default function Prototype() {
@@ -34,7 +36,7 @@ export default function Prototype() {
 
   useEffect(() => {
     const root = document.documentElement;
-    if (showMainHome || shouldShowDealerPage()) {
+    if (showMainHome || shouldShowDealerPage() || shouldShowCommunityReviews()) {
       root.removeAttribute("data-force-mobile");
       root.removeAttribute("data-force-mobile-wide");
       root.style.removeProperty("--force-mobile-scale");
@@ -69,6 +71,7 @@ export default function Prototype() {
   }, [showMainHome]);
 
   if (showRegister) return <><RegisterPage /><BuildBadge /></>;
+  if (shouldShowCommunityReviews()) return <><CommunityVehicleReviewPage /><BuildBadge /></>;
   if (shouldShowDealerPage()) return <><DealerPage /><BuildBadge /></>;
   if (showMainHome) return <MainHome />;
 

@@ -735,18 +735,29 @@
 
 .vr-rating-row {
   display: grid;
-  grid-template-columns: 92px minmax(138px,1fr) 38px;
+  grid-template-columns: minmax(0,1fr) 130px;
   align-items: center;
-  gap: 7px;
-  padding: 12px 16px;
+  gap: 8px;
+  min-height: 48px;
+  padding: 8px 16px;
   border: 0;
+}
+
+.vr-rating-row > div:first-child {
+  display: flex;
+  min-width: 0;
+  flex-flow: row nowrap;
+  align-items: center;
 }
 
 .vr-rating-row > div:first-child b {
   display: flex;
+  flex: 0 0 auto;
   align-items: center;
   gap: 4px;
   font-size: 13px;
+  line-height: 18px;
+  white-space: nowrap;
 }
 
 .vr-rating-row > div:first-child sup {
@@ -755,18 +766,70 @@
 }
 
 .vr-rating-row > div:first-child small {
-  overflow: hidden;
-  margin-top: 2px;
+  display: block;
+  min-width: 0;
+  margin: 0 0 0 7px;
+  padding-left: 7px;
+  border-left: 1px solid #e4e7ec;
   color: #9a9faa;
-  font-size: 9px;
+  font-size: 10px;
+  line-height: 14px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .vr-rating-value {
-  color: #808691;
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.vr-star-input,
+.vr-star-hit {
+  width: 130px;
+}
+
+.vr-star-input {
+  justify-self: end;
+}
+
+.vr-star-popover {
+  position: absolute;
+  z-index: 4;
+  top: -35px;
+  display: inline-flex;
+  height: 32px;
+  align-items: center;
+  gap: 3px;
+  padding: 0 7px;
+  transform: translateX(-50%);
+  border: 1px solid #ffd15f;
+  border-radius: 5px;
+  background: #fffdf8;
+  box-shadow: 0 3px 10px rgba(36,42,54,.12);
+  color: #4f535b;
   font-size: 10px;
-  text-align: right;
+  font-weight: 700;
+  line-height: 14px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.vr-star-popover::after {
+  position: absolute;
+  bottom: -4px;
+  left: calc(50% - 4px);
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  border-right: 1px solid #ffd15f;
+  border-bottom: 1px solid #ffd15f;
+  background: #fffdf8;
+  content: "";
 }
 
 .vr-more-ratings {
@@ -828,6 +891,7 @@
   border-radius: 9px;
   background: #ffc82d;
   color: #20232b;
+  font-weight: 800;
 }
 
 .vr-model-sheet {
@@ -1031,5 +1095,9 @@
   .vr-model-sheet > section {
     max-width: 620px;
     margin: 0 auto;
+  }
+
+  .vr-rating-row {
+    grid-template-columns: minmax(0,1fr) 130px;
   }
 }

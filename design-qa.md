@@ -27,6 +27,23 @@
 final result: passed
 
 ---
+# 커뮤니티 차량리뷰 · 동처띠 등록/목록/상세 QA · 2026-10-16
+
+- source visual truth: `artifacts/dongchedi-review-audit-1016/15-score-3.png` 및 동 폴더의 전기·내연기관·오너·비오너 전수 캡처.
+- browser-rendered implementation: `?community=reviews`, `?community=reviews&review=write`, 상세 `review=sample-bmw-m3`.
+- viewport: 모바일 390×844, PC 1440×900.
+- typography: 앱바 17/21/700, 평가명 13/18/700, 평가 문구 10/14/400, 본문 13/21 및 14/23. 평가 행 48px, 별점 터치영역 130×30px.
+- copy: 10개 평가 항목의 5단계 원문 50개를 한국 문화화했고, 0.5점 단위 100상태를 실제 클릭해 노출과 무잘림을 확인했다.
+- interaction: 커뮤니티→목록→등록→별점→오너/비오너→상세 경로, 동력원별 평가 항목과 실사용 단위를 확인했다.
+- assets: Reddit·Chợ Tốt·AutoScout24 아이콘과 AutoHome 계열 브랜드 엠블럼을 유지했다.
+- responsive: 모바일 단일 열과 PC 820px 중앙 콘텐츠를 확인했다.
+- browser evidence: `artifacts/community-review-audit-1016/` 6개 캡처와 `results.json`.
+- comparison history: P1 평점 코멘트 9px/92px 숨김·말줄임을 발견했다. 한국어 단문 사전, 10px/14px 인라인 구조, 선택 점수 팝업으로 수정했다. 중간 검사에서 `편의 사양이 만족스러워요` 한 건이 실제로 잘려 FAIL했고 `편의 사양 만족`으로 수정 후 재검사했다.
+- automated result: PASS 215 / FAIL 0, rating states 100, broken images 0, console errors 0.
+
+final result: passed
+
+---
 
 # 차량 리뷰 게시판 · 동처띠 교차검증 QA · 2026-10-16
 
