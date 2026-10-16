@@ -1,23 +1,26 @@
 /* 링크 미리보기 카드(노션 북마크형) — 글쓰기 에디터 · 상세 · 피드 공용 */
-.news-card{display:flex;flex-direction:column;overflow:hidden;border:1px solid #e3e5e8;border-radius:12px;background:#fff;color:#191f28;text-decoration:none;-webkit-tap-highlight-color:transparent}
-.news-card:hover{border-color:#cfd3d8}
-.news-card-image{display:block;aspect-ratio:1.91/1;max-height:320px;overflow:hidden;background:#f1f2f4}
+/* 노션 북마크와 같게(2026-10-16 「노션과 임베드 노출 동일하게」): 글 왼쪽 · 이미지 오른쪽 106px, 좁으면 이미지가 위로(노션 wrap-reverse),
+   제목 14/20 한 줄 · 요약 12/16 두 줄 · 파비콘 16 + 주소 12/16, 테두리 rgba(55,53,47,.16) 반경 10, 매체명·해외 표시는 숨김 */
+.news-card{display:flex;flex-direction:row-reverse;flex-wrap:wrap;align-items:stretch;overflow:hidden;border:1px solid rgba(55,53,47,.16);border-radius:10px;background:#fff;color:#37352f;text-align:left;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.news-card:hover{background:rgba(55,53,47,.03)}
+.news-card-image{display:block;flex:1 1 180px;height:106px;min-width:0;overflow:hidden;background:#f1f1ef}
 .news-card-image img{display:block;width:100%;height:100%;object-fit:cover}
-.news-card-copy{display:flex;flex-direction:column;gap:4px;min-width:0;padding:12px 14px 13px}
-.news-card-site{display:flex;align-items:center;gap:6px;min-width:0;color:#5c6c74;font-size:12px;line-height:16px}
-.news-card-site img{width:16px;height:16px;flex:0 0 16px;border-radius:4px;object-fit:contain}
-.news-card-site span{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-.news-card-site em{flex:0 0 auto;height:16px;padding:0 5px;border-radius:4px;background:#eef3fb;color:#164e9b;font-size:11px;line-height:16px;font-style:normal;font-weight:600}
-.news-card-title{display:-webkit-box;overflow:hidden;font-size:15px;line-height:21px;font-weight:700;letter-spacing:-.02em;-webkit-box-orient:vertical;-webkit-line-clamp:2;word-break:keep-all}
-.news-card-desc{display:-webkit-box;overflow:hidden;color:#50545a;font-size:13px;line-height:19px;-webkit-box-orient:vertical;-webkit-line-clamp:2}
-.news-card-url{overflow:hidden;color:#9b9ea4;font-size:12px;line-height:16px;white-space:nowrap;text-overflow:ellipsis}
+.news-card-copy{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"title title" "desc desc" "fav url";flex:4 1 180px;align-content:start;min-width:0;padding:12px 14px 14px;overflow:hidden}
+.news-card-site{display:contents}
+.news-card-site>span,.news-card-site>em{display:none}
+.news-card-site>img{grid-area:fav;width:16px;height:16px;min-width:16px;margin:6px 6px 0 0;border-radius:2px;object-fit:contain}
+.news-card-title{grid-area:title;display:block;min-height:24px;margin-bottom:2px;overflow:hidden;color:#37352f;font-size:14px;line-height:20px;font-weight:400;letter-spacing:0;white-space:nowrap;text-overflow:ellipsis}
+.news-card-desc{grid-area:desc;display:-webkit-box;height:32px;overflow:hidden;color:rgba(55,53,47,.65);font-size:12px;line-height:16px;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.news-card-url{grid-area:url;margin-top:6px;overflow:hidden;color:#37352f;font-size:12px;line-height:16px;white-space:nowrap;text-overflow:ellipsis}
+.news-card-copy:not(:has(.news-card-site>img)) .news-card-url{grid-column:1 / -1}
 .embed-block .media-surface:has(.news-card){min-height:0;border:0;background:none}
 .embed-block.is-loading .news-card{opacity:.65}
 /* 상세 화면의 임베드(레딧·유튜브 등) */
 .detailEmbed{margin:14px 0}
-.detailEmbed iframe{display:block;width:100%;height:420px;border:0;border-radius:12px;background:#f1f2f4}
+.detailEmbed iframe{display:block;width:100%;max-width:540px;height:420px;margin:0 auto;border:0;background:transparent}
 .detailEmbed.is-tall iframe{height:620px}
 .detailEmbed figcaption{margin-top:6px;color:#767d87;font-size:13px;line-height:18px}
 /* 피드 카드 아래 작은 링크 카드 */
 .naverDiscussionCard .news-card{margin-top:10px}
-.naverDiscussionCard .news-card-image{max-height:200px}
+/* 노션 임베드처럼: 회색 상자 없이 원본(인스타그램 등) 높이 그대로 — 높이는 community-embed.js가 원본 크기 신호로 맞춘다 */
+iframe[data-embed-height]{height:var(--embed-h)!important}

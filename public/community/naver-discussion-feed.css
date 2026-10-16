@@ -120,8 +120,8 @@
 .naverDiscussionCard.is-thumb .naverDiscussionMetrics{margin-top:6px}
 
 /* 피드 안 재생형 임베드(인스타그램 릴스 등) · 썸네일 자리 재생 표시 */
-.naverDiscussionEmbed{margin-top:10px;overflow:hidden;border-radius:10px;background:#f1f2f4}
-.naverDiscussionEmbed iframe{display:block;width:100%;height:420px;border:0}
+.naverDiscussionEmbed{margin-top:10px}
+.naverDiscussionEmbed iframe{display:block;width:100%;max-width:540px;height:420px;margin:0 auto;border:0;background:transparent}
 .naverDiscussionEmbed.is-tall iframe{height:600px}
 .naverDiscussionThumb.is-play{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:linear-gradient(135deg,#feda75,#d62976 55%,#4f5bd5)}
 .naverDiscussionThumbPlay{width:0;height:0;border-left:14px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:3px}
