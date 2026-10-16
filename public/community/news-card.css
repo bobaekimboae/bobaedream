@@ -29,3 +29,4 @@ iframe[data-embed-height]{height:var(--embed-h)!important}
 .bbm-embed-crop iframe{display:block;width:100%;max-width:none;height:700px;margin:0;border:0;border-radius:0}
 /* 유튜브 가로 영상: 16:9 그대로(위아래 검은 띠 없이) */
 iframe[data-embed-wide]{height:auto!important;aspect-ratio:16/9}
+iframe[data-embed-short]{width:min(100%,315px)!important;max-width:315px;height:auto!important;aspect-ratio:9/16;margin:0 auto}
