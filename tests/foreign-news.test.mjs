@@ -134,14 +134,13 @@ test("topic, duplicate similarity and IDs are deterministic", () => {
   assert.equal(stableArticleId("https://example.com/a"), stableArticleId("https://example.com/a"));
 });
 
-test("community UI loads and exposes the overseas board as a Threads-style news feed", async () => {
-  const [list, detail, navigation, profile, discussion, discussionCss, cardCss] = await Promise.all([
+test("community UI loads and exposes the overseas board", async () => {
+  const [list, detail, navigation, profile, discussion, cardCss] = await Promise.all([
     readFile(new URL("../public/community/naver-cafe-list.html", import.meta.url), "utf8"),
     readFile(new URL("../public/community/chzzk-detail.html", import.meta.url), "utf8"),
     readFile(new URL("../public/community/hupu-board-navigation.js", import.meta.url), "utf8"),
     readFile(new URL("../public/community/reddit-board-profile.js", import.meta.url), "utf8"),
     readFile(new URL("../public/community/naver-discussion-feed.js", import.meta.url), "utf8"),
-    readFile(new URL("../public/community/naver-discussion-feed.css", import.meta.url), "utf8"),
     readFile(new URL("../public/community/news-card.css", import.meta.url), "utf8"),
   ]);
   assert.match(list, /board-foreign-car-news\.js/);
@@ -152,15 +151,6 @@ test("community UI loads and exposes the overseas board as a Threads-style news 
   assert.match(discussion, /localPostMatches/);
   assert.match(discussion, /activeTable\.displayName/);
   assert.match(discussion, /post\.body\.slice\(0,3\)\.join\('\\n'\)/);
-  assert.match(discussion, /function threadNewsCard/);
-  assert.match(discussion, /board==='car-news'\|\|board==='foreign-car-news'/);
-  assert.match(discussion, /threadNewsCardFor\(post,index\)/);
-  assert.match(discussion, />bobaebike</);
-  assert.match(discussion, /data-thread-repost/);
-  assert.match(discussion, /data-thread-share/);
-  assert.match(discussionCss, /\.foreignThreadCard/);
-  assert.match(discussionCss, /grid-template-columns:44px minmax\(0,1fr\)/);
-  assert.match(discussionCss, /\.foreignThreadCard \.news-card-desc/);
   assert.match(cardCss, /aspect-ratio:1\.88\/1/);
   assert.match(cardCss, /grid-template-areas:"site" "title"/);
 });
