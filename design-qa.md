@@ -1,3 +1,30 @@
+# 전체 게시글 · 가족형 럭셔리카 헤더 QA · 2026-10-16
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/2367ca60-e6dc-44f6-a7c3-9c543babaca3/1-1000018686.jpg` (591 × 1280px)
+- implementation: `community/naver-cafe-list.html?view=compact`, Chrome 384 × 812 CSS px
+- focused evidence: 전체 게시글 상단 340.8 × 106px 헤더, `board-header-mercedes-glb-family.webp` 1600 × 476px
+- asset source: Mercedes-Benz GLB 공식 가족 캠페인 영상 스틸. AI 생성 이미지가 아니다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- 참고 화면의 핵심인 가족·야외·차량이 한 장면에 함께 보이는 라이프스타일 방향을 반영했다.
+- 차량 단독 보도사진 대신 인물과 생활 맥락이 있는 실제 브랜드 캠페인 장면을 사용했다.
+- 원본 영상 하단 워드마크는 서비스 배너에 노출되지 않도록 크롭만 적용했고 합성·생성형 보정은 하지 않았다.
+- 384px 화면에서 가족과 차량이 모두 남고, 좌측 흰 제목은 어두운 그라데이션 위에서 읽힌다.
+- 이미지 원본 1600 × 476px이 깨짐 없이 로딩되고, 헤더는 기존 106px 높이와 목록 레이아웃을 유지한다.
+- P3: 참고 화면은 숲속 피크닉, 구현은 놀이공원 장면이다. 가족 중심 자동차 라이프스타일이라는 시각 목적은 동일하며 공식 출처 우선 원칙에 따른 허용 차이다.
+
+## Comparison history
+
+- Pass 1: 아스톤마틴 DB12 차량 단독 사진은 브랜드 사진이지만 가족·생활 장면이 없어 사용자 참고 화면의 정서와 달랐다.
+- Fix: Mercedes-Benz GLB 공식 가족 캠페인 스틸로 교체하고 1600 × 476px 헤더 비율로 크롭했다.
+- Pass 2: Chrome 384px에서 가족·차량 동시 노출, 제목 가독성, 원본 크기, 깨진 이미지 여부를 확인했다.
+
+final result: passed
+
+---
+
 # 치지직 간결형 댓글 블루 범위 정정 QA · 2026-10-16
 
 - source visual truth: 사용자 정정 `치지직 간결 게시판만 댓글 파랑색`

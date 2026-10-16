@@ -10,8 +10,8 @@
     phone.classList.add('headerYouTube');
     hero.hidden=false;
     hero.dataset.variant='youtube';
-    image.src='assets/board-header-aston-martin-db12.webp';
-    image.alt='아스톤마틴 DB12 실차가 보이는 전체 게시글 자동차 커뮤니티 배너';
+    image.src='assets/board-header-mercedes-glb-family.webp';
+    image.alt='가족과 메르세데스-벤츠 GLB가 함께하는 자동차 커뮤니티 배너';
 
     var boardName=document.querySelector('.boardSelectName');
     var heroTitle=hero.querySelector('.boardHeroTitle');

@@ -7,5 +7,15 @@
     "sourceFile": "https://media.astonmartin.com/wp-content/uploads/2024/10/fb82ab0c2df5b62e4b45317fadc3f8a0-l.jpg",
     "transformation": "crop-and-resize-only",
     "outputSize": "1600x476"
+  },
+  "board-header-mercedes-glb-family.webp": {
+    "brand": "Mercedes-Benz",
+    "model": "GLB",
+    "sourceType": "official-brand-campaign-still",
+    "sourcePage": "https://media.mercedes-benz.com/en/article/dfd1e322-3ab8-473b-a087-f32dc5301f93",
+    "sourceVideo": "https://www.youtube.com/watch?v=IasPbYdD0DY",
+    "sourceFile": "https://img.youtube.com/vi/IasPbYdD0DY/maxresdefault.jpg",
+    "transformation": "crop-and-resize-only",
+    "outputSize": "1600x476"
   }
 }
