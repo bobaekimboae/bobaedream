@@ -412,7 +412,8 @@ function detailEmbedHtml(item) {
   try { host = new URL(item.url).hostname.replace(/^www\./, ''); } catch (_) {}
   const overseas = item.lang && !/^ko/i.test(item.lang);
   const image = item.image ? `<span class="news-card-image"><img src="${escapeHtml(item.image)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></span>` : '';
-  const logo = item.logo ? `<img src="${escapeHtml(item.logo)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">` : '';
+  const logoUrl = item.logo || (window.BBM_EMBED && window.BBM_EMBED.faviconFor ? window.BBM_EMBED.faviconFor(item.url) : '');
+  const logo = logoUrl ? `<img src="${escapeHtml(logoUrl)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">` : '';
   return `<figure class="detailEmbed"><a class="news-card" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${image}<span class="news-card-copy"><span class="news-card-site">${logo}<span>${escapeHtml(item.site || item.provider || host)}</span>${overseas ? '<em>해외</em>' : ''}</span><strong class="news-card-title">${escapeHtml(item.title || host)}</strong>${item.description ? `<span class="news-card-desc">${escapeHtml(item.description)}</span>` : ''}<small class="news-card-url">${escapeHtml(host)}</small></span></a>${caption}</figure>`;
 }
 /* 글쓰기 본문의 서식(굵게·기울임·밑줄·링크·줄바꿈)만 남기고 나머지 태그·속성은 버린다 */
