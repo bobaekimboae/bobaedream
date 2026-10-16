@@ -1,18 +1,23 @@
-.popularSection{padding:8px 0 18px;border-bottom:1px solid #ececef;background:#fff;color:#1f2023}
-.popularHeading{display:flex;width:100%;height:48px;align-items:center;justify-content:space-between;padding:0 16px;background:#fff;color:#202124;text-align:left}
-.popularHeading strong{display:inline-flex;align-items:center;gap:7px;font-size:17px;font-weight:780;line-height:22px;letter-spacing:-.045em}
-.popularHeading .popularFlame{width:19px;height:21px;object-fit:contain;opacity:1}
-.popularHeading .popularNext{width:20px;height:20px;opacity:.82}
-.popularScroller{overflow-x:auto;overflow-y:hidden;padding:0;scrollbar-width:none;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;scroll-padding-inline:16px;scroll-snap-type:x proximity}
+.popularSection{padding:0 0 18px;border-bottom:1px solid #e8eaf0;background:#f4f6fb;color:#17191d}
+.popularHeading{display:flex;width:100%;height:48px;align-items:center;justify-content:space-between;padding:0 16px;box-sizing:border-box}
+.popularHeadingCopy{display:flex;min-width:0;align-items:baseline;gap:10px}
+.popularHeadingCopy strong{flex:0 0 auto;font-size:18px;font-weight:800;line-height:24px;letter-spacing:-.055em}
+.popularHeadingCopy span{min-width:0;overflow:hidden;color:#7c8496;font-size:13px;font-weight:500;line-height:19px;letter-spacing:-.035em;text-overflow:ellipsis;white-space:nowrap}
+.popularRefresh{display:inline-flex;height:34px;flex:0 0 auto;align-items:center;gap:4px;padding:0 0 0 10px;background:transparent;color:#697286;font-size:13px;font-weight:650;line-height:18px;letter-spacing:-.035em}
+.popularRefresh img{width:18px;height:18px;opacity:.9;transition:transform .28s ease}
+.popularRefresh.isRefreshing img{transform:rotate(180deg)}
+.popularScroller{overflow-x:auto;overflow-y:hidden;padding:0;scrollbar-width:none;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;scroll-padding-inline:16px;scroll-snap-type:x mandatory}
 .popularScroller::-webkit-scrollbar{display:none}
-.popularTrack{display:flex;width:max-content;gap:10px;padding:0 16px}
-.popularCard{display:block;width:144px;height:188px;flex:0 0 144px;overflow:hidden;border:0;border-radius:14px;background:#f5f6f7;color:#202124;text-align:left;text-decoration:none;scroll-snap-align:start;box-sizing:border-box}
-.popularCardMediaWrap{position:relative;display:block;width:100%;height:98px;overflow:hidden;background:#e9ebed}
-.popularCardMedia{width:100%;height:100%;display:block;object-fit:cover}
-.popularCardPhotoCount{position:absolute;right:8px;bottom:8px;min-width:25px;height:24px;padding:0 6px;border-radius:12px;background:rgba(31,32,34,.72);color:#fff;font-size:12px;font-weight:750;line-height:24px;text-align:center;box-sizing:border-box}
-.popularCardBody{display:flex;height:90px;flex-direction:column;padding:10px 12px 9px;box-sizing:border-box}
-.popularCardTitle{display:-webkit-box;overflow:hidden;color:#202124;font-size:15px;font-weight:570;line-height:21px;letter-spacing:-.045em;word-break:keep-all;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-.popularCardMeta{display:flex;align-items:center;gap:5px;margin-top:auto;color:#8a8d92;font-size:12px;font-weight:430;line-height:17px;letter-spacing:-.025em;white-space:nowrap}
-.popularCardMeta img{width:15px;height:15px;object-fit:contain;opacity:.7}
+.popularTrack{display:flex;width:max-content;gap:10px;padding:0 16px;transition:opacity .16s ease,transform .16s ease}
+.popularTrack.isRefreshing{opacity:.34;transform:translateY(2px)}
+.popularCard{display:flex;width:320px;height:158px;flex:0 0 320px;flex-direction:column;padding:13px 14px;border-radius:14px;background:#fff;box-sizing:border-box;box-shadow:0 1px 1px rgba(25,31,46,.03);scroll-snap-align:start}
+.popularCardMain{display:grid;min-height:68px;grid-template-columns:minmax(0,1fr) 74px;grid-template-rows:auto auto;column-gap:12px;color:#17191d;text-decoration:none}
+.popularCardTitle{display:-webkit-box;overflow:hidden;grid-column:1;grid-row:1;color:#17191d;font-size:15px;font-weight:720;line-height:21px;letter-spacing:-.045em;word-break:keep-all;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.popularDiscussionBadge{display:inline-flex;height:20px;align-items:center;margin:0 6px 1px 0;padding:0 5px;border-radius:4px;background:#111318;color:#ffc323;font-size:11px;font-weight:800;line-height:20px;letter-spacing:-.04em;vertical-align:1px}
+.popularCardMedia{width:74px;height:64px;grid-column:2;grid-row:1 / 3;border-radius:9px;background:#e7e9ee;object-fit:cover}
+.popularCardQuote{display:flex;min-width:0;align-items:center;gap:6px;margin-top:8px;color:#d68b13;font-size:13px;font-weight:590;line-height:18px;letter-spacing:-.035em}
+.popularCardQuote img{width:15px;height:15px;flex:0 0 15px;filter:invert(57%) sepia(97%) saturate(577%) hue-rotate(357deg) brightness(90%);opacity:.88}
+.popularCardQuote span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.popularCardAction{display:flex;width:100%;height:40px;align-items:center;justify-content:center;margin-top:auto;border-radius:8px;background:#ffca2d;color:#23252a;font-size:14px;font-weight:760;line-height:20px;letter-spacing:-.04em;text-decoration:none}
 .phone.redditFeedMode .popularSection{display:none}
-@media(max-width:370px){.popularScroller{scroll-padding-inline:14px}.popularTrack{gap:9px;padding:0 14px}.popularCard{width:138px;flex-basis:138px}.popularHeading{padding:0 14px}}
+@media(max-width:370px){.popularHeading{padding:0 14px}.popularHeadingCopy{gap:7px}.popularHeadingCopy strong{font-size:18px}.popularHeadingCopy span{font-size:12px}.popularRefresh{padding-left:6px}.popularScroller{scroll-padding-inline:14px}.popularTrack{gap:9px;padding:0 14px}.popularCard{width:304px;flex-basis:304px}}

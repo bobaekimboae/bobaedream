@@ -1,3 +1,37 @@
+# 커뮤니티 동처띠형 인기글 QA · 2026-10-16
+
+- source visual truth: Google Drive `동처띠 우측 썸네일 인기글.jpg` (`.tmp/dcd-popular-reference.jpg`, 1080 × 2400px)
+- browser-rendered implementation: `artifacts/community-board-order-1015/mobile-384-top-menu-tiktok-text.png`
+- focused source: `artifacts/community-popular-dcd-1016/reference-popular-384.png`
+- focused implementation: `artifacts/community-popular-dcd-1016/implementation-popular-384.png`
+- full-view comparison evidence: `artifacts/community-popular-dcd-1016/comparison.png`
+- viewport and density: 구현 384 × 844 CSS px, DPR 1. 원본의 인기 토론 구간을 잘라 폭 384px으로 정규화했다.
+- state: 자유게시판, `지금 인기` 첫 카드가 왼쪽에 맞춰진 기본 가로 스크롤 위치
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 제목 18px/800, 설명 13px, 카드 제목 15px/21px, 토론 배지 11px로 원본의 굵은 제목·보조 설명·작은 배지 위계를 재현했다.
+- spacing and layout rhythm: 320 × 158px 카드, 16px 시작 여백, 10px 카드 간격, 14px 반경을 사용해 한 카드와 다음 카드 일부가 보이는 원본 구성을 맞췄다.
+- colors and visual tokens: 옅은 청회색 섹션 배경, 흰 카드, 검정/노랑 토론 배지, 주황색 반응 문구, 노란 토론 버튼을 원본 팔레트에 맞췄다.
+- image quality and asset fidelity: 기존 게시물 차량 이미지를 74 × 64px 우측 썸네일로 배치하고 `object-fit: cover`를 적용해 왜곡이 없다. 새로고침·인용 부호는 기존 SVG 자산을 재사용했다.
+- copy and content: 원문의 `正在热议` 흐름을 `지금 인기 · 실시간으로 뜨는 이야기`, `새로고침`, `n명이 토론 중`으로 자연스럽게 현지화했다.
+- interaction: `새로고침` 클릭 시 상위 5개 카드가 두 칸씩 순환하며 첫 카드가 실제로 변경되는 것을 접근성 트리에서 확인했다. 카드 본문과 노란 버튼 모두 상세 페이지로 연결된다.
+- browser verification: Chrome 로컬 렌더에서 카드 5개, 카드 실측 320 × 158px, 콘솔 오류 0건을 확인했다.
+- regression verification: `npm run check:runtime`, `npm run community:verify:board-order`, `git diff --check`가 모두 통과했다.
+
+## Comparison history
+
+- Pass 1: 네이버 카페형 상단 이미지 카드가 동처띠 원본의 우측 썸네일·토론 배지·노란 참여 버튼 구조와 달랐다.
+- Fix: 섹션을 `지금 인기` 헤더와 우측 새로고침, 우측 썸네일 카드, 주황색 반응 문구, 노란 CTA로 전면 재구성했다.
+- Pass 2: 384px 비교에서 카드 높이와 썸네일 비중이 원본보다 컸다.
+- Fix: 카드 높이를 166px에서 158px, 썸네일을 82px에서 74px, 제목을 16px에서 15px로 조정하고 상단 여백을 제거했다.
+- Final: 정규화된 원본과 384px 구현을 한 이미지에 배치해 비교한 결과 남은 P0/P1/P2가 없었다.
+
+final result: passed
+
+---
+
 # 네이버 증권 토론형 피드 QA · 2026-10-16
 
 - source visual truth: `https://m.stock.naver.com/discussion/home/topic`
