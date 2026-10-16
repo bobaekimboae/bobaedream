@@ -1,6 +1,6 @@
 # 차량 리뷰 강화 평점 검수
 
-- 기준 URL: http://127.0.0.1:4322/
+- 기준 URL: https://bobaekimboae.github.io/bobaedream/
 - 전체: 11139
 - PASS: 11139
 - FAIL: 0
