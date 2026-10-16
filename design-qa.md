@@ -4882,3 +4882,29 @@ final result: passed
 - comparison history: 초기 PC 외부 viewport 기준 2열 규칙에서 393px 프레임 내부 제목 폭이 0이 되는 P1을 발견했다. 2열 미디어 규칙을 제거하고 기존 중앙 모바일 프레임 1열로 복원한 뒤 제목 폭 229px, 넘침 0을 재확인했다.
 - final result: passed
 - 자동 검증: `npm run check:runtime`, `npm run test:sites`, `npm run build` 모두 통과.
+
+## 좌측 썸네일형 복원 · 네이버 랭킹뉴스형 정밀 보정 QA (2026-10-17)
+
+- source visual truth: `https://media.naver.com/press/081/ranking?type=popular&date=20261017`
+- implementation: `/community/naver-cafe-list.html?board=best&view=naver-ranking-news` 및 `view=lounge-best-left`
+- viewport and density: 원본·구현 모두 Chrome 390×844 CSS px, device scale 1. 브라우저 스크롤바를 제외한 콘텐츠 폭은 375.2px로 동일하다.
+- full-view comparison evidence: 같은 실행에서 원본과 구현을 연속 캡처해 3개 랭킹 탭 → 제목 → 순위/2줄 제목/조회수/우측 이미지 계층을 대조했다.
+- focused region comparison evidence:
+  - 탭 높이 44px, 선택 글자 15/21px·700, 밑줄은 글자 폭 기준.
+  - 제목 영역 높이 39px, 위 여백 10px, 내부 위 패딩 14px, 제목 18/25px·700.
+  - 첫 행 x=20px·폭 335.2px·높이 75px, 이후 행 간격 13px, 구분선 없음.
+  - 순위 x=20px·22/24px·600, 제목 x=54px·폭 211.2px·16/21px, 메타 x=54px·15/18px.
+  - 썸네일 x=281.2px·74×74px·radius 4px.
+- responsive evidence: 360px에서 썸네일 70×70·가로 넘침 0, 412px에서 74×74·가로 넘침 0.
+- interaction evidence: 많이 본·댓글 많은·추천 많은 탭이 각각 `aria-selected`를 갱신하고 첫 결과 및 숫자를 바꾼다. 다시 많이 본으로 복귀한다.
+- left-thumbnail evidence: `lounge-best-left` 직접 URL에서 행 56개·이미지 56개, 행 x=20px·폭 335.2px, 썸네일 x=20px·56×56px, 글자 x=88px, 가로 넘침 0.
+- colors/tokens: 네이버의 구조·간격만 참고하고 보배드림 색상·콘텐츠·저장소 이미지 자산을 유지했다.
+- accessibility: 화면에는 눈 아이콘과 숫자만 표시하고, `조회수`·`댓글수`·`추천수`는 스크린리더용 `.blind` 텍스트로 보존했다.
+- console: 페이지 자체 warning/error 0건. Chrome 제어 확장 초기화 `log`만 존재한다.
+- comparison history:
+  - P1: 후속 요청을 잘못 해석해 기존 좌측 썸네일형을 제거했던 회귀를 발견했다. 보기 방식·직접 URL·저장값을 모두 복원했다.
+  - P2: 초기 랭킹뉴스형의 행 높이·구분선·제목 굵기·메타 표기·선택 밑줄 폭이 원본과 미세하게 달랐다. 원본 실측값으로 재보정했다.
+  - P3: PC에서도 393px 중앙 모바일 프레임을 유지하는 것은 기존 제품 규칙이므로 변경하지 않았다.
+- automated verification: `node --check`, `npm run build`, `npm run test:sites`, `git diff --check` 통과.
+
+final result: passed
