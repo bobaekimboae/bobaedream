@@ -14,7 +14,7 @@
   var slash='/';
   var projectRoot=/github\.io$/i.test(location.hostname)?slash+'bobaedream':'';
   var fallbackMedia=Array.from({length:30},function(_,index){
-    return projectRoot+'/assets/cars/supercar-sheet-v01/sc-'+String(index+1).padStart(3,'0')+'.jpg?v=20261016navercarousel1';
+    return projectRoot+slash+'assets'+slash+'cars'+slash+'supercar-sheet-v01'+slash+'sc-'+String(index+1).padStart(3,'0')+'.jpg?v=20261016navercarousel2';
   });
 
   function esc(value){
