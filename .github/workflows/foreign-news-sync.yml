@@ -1,0 +1,45 @@
+name: Sync overseas automotive news
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: foreign-news-sync
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Collect permitted feeds
+        run: npm run news:collect
+        env:
+          FOREIGN_NEWS_MAX_ARTICLES: "500"
+          FOREIGN_NEWS_COLLECT_CONCURRENCY: "6"
+          NEWS_TRANSLATE_ENDPOINT: ${{ secrets.NEWS_TRANSLATE_ENDPOINT }}
+          NEWS_TRANSLATE_TOKEN: ${{ secrets.NEWS_TRANSLATE_TOKEN }}
+      - name: Commit changed snapshot
+        run: |
+          if git diff --quiet -- public/community/data/foreign-car-news.json public/community/data/board-foreign-car-news.js; then
+            echo "No article changes"
+            exit 0
+          fi
+          git config user.name "bobaedream-news-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add public/community/data/foreign-car-news.json public/community/data/board-foreign-car-news.js
+          git commit -m "data: refresh overseas automotive news"
+          git push origin HEAD:main
