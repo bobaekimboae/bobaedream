@@ -10,10 +10,8 @@
 .write-embed.is-tall iframe{height:560px}
 .write-embed.is-loading .news-card{opacity:.6}
 .write-embed-remove{position:absolute;top:8px;right:8px;z-index:2;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;font-size:17px;line-height:28px;text-align:center}
-.link-mode{display:grid;gap:8px}
-.link-mode label{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border:1px solid #e3e5e8;border-radius:10px}
-.link-mode label:has(input:checked){border-color:#222}
-.link-mode input{margin-top:3px}
-.link-mode span{display:flex;flex-direction:column;gap:2px}
-.link-mode strong{font-size:14px}
-.link-mode small{color:#767d87;font-size:12px}
+.sheet-form .embed-toggle{align-items:center;min-height:64px;padding:2px 0}
+.embed-toggle>span{display:flex;flex-direction:column;gap:3px;min-width:0}
+.embed-toggle strong{color:#1e1e23;font-size:15px;line-height:21px;font-weight:600}
+.embed-toggle small{color:#8b8e94;font-size:12.5px;line-height:17px}
+.sheet-form input[hidden]{display:none}
