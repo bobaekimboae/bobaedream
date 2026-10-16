@@ -34,20 +34,7 @@ try {
       mediaRatios: new Set(Array.from(document.querySelectorAll(".naverDiscussionMediaItem[data-ratio]"), (item) => item.dataset.ratio)).size,
       videos: document.querySelectorAll(".naverDiscussionMediaItem[data-kind='video'] video").length,
       scrollSnap: getComputedStyle(document.querySelector(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaRail")).scrollSnapType,
-      paginationPlacement: (() => {
-        const shell = document.querySelector(".naverDiscussionMediaShell.is-multi");
-        const item = shell?.querySelector(".naverDiscussionMediaItem");
-        const count = shell?.querySelector(".naverDiscussionMediaCount");
-        const dots = shell?.querySelector(".naverDiscussionMediaDots");
-        if (!item || !count || !dots) return null;
-        const itemRect = item.getBoundingClientRect();
-        const countRect = count.getBoundingClientRect();
-        const dotsRect = dots.getBoundingClientRect();
-        return {
-          countInside: countRect.left >= itemRect.left && countRect.right <= itemRect.right + 1,
-          dotCenterDelta: Math.abs((dotsRect.left + dotsRect.width / 2) - (itemRect.left + itemRect.width / 2)),
-        };
-      })(),
+      pagination: document.querySelectorAll(".naverDiscussionMediaCount,.naverDiscussionMediaDots").length,
       overflow: Math.max(0, document.documentElement.scrollWidth - document.documentElement.clientWidth),
     }));
 
@@ -66,8 +53,7 @@ try {
     if (measurements.mediaRatios < 3) throw new Error(`${width}px: 사진 비율 다양성 부족`);
     if (measurements.videos < 1) throw new Error(`${width}px: 영상 카드 없음`);
     if (!measurements.scrollSnap.includes("x")) throw new Error(`${width}px: 가로 스냅 미적용`);
-    if (!measurements.paginationPlacement?.countInside) throw new Error(`${width}px: 사진 번호가 현재 이미지 밖에 있음`);
-    if (measurements.paginationPlacement.dotCenterDelta > 1) throw new Error(`${width}px: 페이지 점이 현재 이미지 중앙과 불일치`);
+    if (measurements.pagination !== 0) throw new Error(`${width}px: 페이지 번호 또는 도트가 남아 있음`);
     if (measurements.overflow !== 0) throw new Error(`${width}px: 가로 넘침 ${measurements.overflow}px`);
 
     if (width === 390) {
@@ -76,8 +62,6 @@ try {
     }
 
     const rail = page.locator(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaRail").first();
-    const firstRail = page.locator(".naverDiscussionMediaShell.is-multi").first();
-    const beforeCount = await firstRail.locator(".naverDiscussionMediaItem").first().locator(".naverDiscussionMediaCount b").textContent();
     await rail.evaluate((element) => {
       const items = element.querySelectorAll(".naverDiscussionMediaItem");
       const distance = items[1].getBoundingClientRect().left - items[0].getBoundingClientRect().left;
@@ -86,8 +70,13 @@ try {
       element.dispatchEvent(new Event("scroll"));
     });
     await page.waitForTimeout(250);
-    const afterCount = await firstRail.locator(".naverDiscussionMediaItem").nth(1).locator(".naverDiscussionMediaCount b").textContent();
-    if (beforeCount !== "1" || afterCount !== "2") throw new Error(`${width}px: 사진 페이지 표시 갱신 실패 (${beforeCount}→${afterCount})`);
+    const scrollState = await rail.evaluate((element) => {
+      const item = element.querySelectorAll(".naverDiscussionMediaItem")[1];
+      const railRect = element.getBoundingClientRect();
+      const itemRect = item.getBoundingClientRect();
+      return { scrollLeft: element.scrollLeft, leftDelta: Math.abs(itemRect.left - railRect.left) };
+    });
+    if (scrollState.scrollLeft <= 0 || scrollState.leftDelta > 2) throw new Error(`${width}px: 두 번째 미디어 스냅 실패`);
 
     const videoButton = page.locator("[data-discussion-video]").first();
     if (width === 390) {
@@ -106,7 +95,7 @@ try {
     if ((await vote.getAttribute("aria-pressed")) !== "true") throw new Error(`${width}px: 버프 아이콘 선택 실패`);
 
     if (consoleErrors.length) throw new Error(`${width}px: 콘솔 오류\n${consoleErrors.join("\n")}`);
-    console.log(`PASS ${width}px · cards ${measurements.cards} · multi rails ${measurements.multiRails} · ratios ${measurements.mediaRatios} · videos ${measurements.videos} · swipe 1→2 · overflow 0`);
+    console.log(`PASS ${width}px · cards ${measurements.cards} · multi rails ${measurements.multiRails} · ratios ${measurements.mediaRatios} · videos ${measurements.videos} · swipe aligned · pagination 0 · overflow 0`);
     await page.close();
   }
 } finally {

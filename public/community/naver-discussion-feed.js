@@ -74,8 +74,7 @@
       var isVideo=Boolean(post.video)&&itemIndex===0;
       var contain=/\.png(?:\?|$)/i.test(source);
       var media=isVideo?'<video muted playsinline preload="metadata" poster="'+esc(source)+'"><source src="'+esc(videoMedia[index%videoMedia.length])+'" type="video/mp4"></video><button class="naverDiscussionVideoToggle" type="button" data-discussion-video aria-label="영상 재생"><img src="'+chototIcon('chotot-common-video-play-white-bg')+'" alt=""></button>':'<a class="naverDiscussionMediaLink" href="'+detailUrl(post)+'" aria-label="'+esc(title)+' 사진 '+(itemIndex+1)+' / '+sources.length+' 상세 보기"><img src="'+esc(source)+'" alt="" loading="'+(index===0&&itemIndex===0?'eager':'lazy')+'"'+(index===0&&itemIndex===0?' fetchpriority="high"':'')+'></a>';
-      var pagination=multiple?'<span class="naverDiscussionMediaCount"><b>'+(itemIndex+1)+'</b> / '+sources.length+'</span><span class="naverDiscussionMediaDots" aria-hidden="true">'+sources.map(function(_,dotIndex){return '<i'+(dotIndex===itemIndex?' class="is-active"':'')+'></i>';}).join('')+'</span>':'';
-      return '<div class="naverDiscussionMediaItem'+(contain?' is-contain':'')+'" data-discussion-media-index="'+itemIndex+'" data-kind="'+(isVideo?'video':'image')+'" data-ratio="'+ratio+'">'+media+pagination+'</div>';
+      return '<div class="naverDiscussionMediaItem'+(contain?' is-contain':'')+'" data-discussion-media-index="'+itemIndex+'" data-kind="'+(isVideo?'video':'image')+'" data-ratio="'+ratio+'">'+media+'</div>';
     }).join('');
     return '<div class="naverDiscussionMediaShell'+(multiple?' is-multi':'')+'"><div class="naverDiscussionMediaRail" tabindex="0" aria-label="'+esc(title)+' 사진과 영상, 좌우로 넘기기">'+items+'</div></div>';
   }
