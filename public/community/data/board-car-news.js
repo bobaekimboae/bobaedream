@@ -554,6 +554,37 @@
         "ratings": "",
         "brandLogo": "",
         "embed": "https://m.sports.naver.com/kbaseball/article/109/0005624469"
+      },
+      {
+        "id": "9100017",
+        "category": "국내",
+        "title": "네이버 카페 게시글",
+        "summary": "네이버 카페에 올라온 게시글입니다. 누르면 원문으로 이동합니다(카페 글은 로그인·가입 여부에 따라 열람이 제한될 수 있습니다).",
+        "body": "",
+        "source": "네이버 카페",
+        "sourceUrl": "https://naver.me/FSvtZbn3",
+        "author": "",
+        "publishedAt": "2026-10-17T01:10:00+09:00",
+        "thumbnail": "",
+        "images": "",
+        "views": "0",
+        "comments": "0",
+        "likes": "0",
+        "tags": "네이버카페",
+        "reviewId": "",
+        "modelId": "",
+        "brand": "",
+        "model": "",
+        "trim": "",
+        "powertrain": "",
+        "rating": "",
+        "owner": "",
+        "ownershipLabel": "",
+        "benchmark": "",
+        "location": "",
+        "ratings": "",
+        "brandLogo": "",
+        "embed": "https://naver.me/FSvtZbn3"
       }
     ]
   };
