@@ -734,7 +734,7 @@
     {
       "name": "정상 등록: 상세 이동",
       "result": "PASS",
-      "actual": "http://127.0.0.1:4311/?community=reviews&review=local-1792163136518&from=community&v=conditions1017"
+      "actual": "http://127.0.0.1:4311/?community=reviews&review=local-1792163541128&from=community&v=conditions1017"
     },
     {
       "name": "정상 등록: 제목 유지",
