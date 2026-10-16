@@ -303,3 +303,10 @@
 .naverDiscussionSummary3 li+li{margin-top:4px}
 .naverDiscussionSummary3 li:before{content:counter(s3);position:absolute;left:0;top:2px;width:15px;height:17px;border-radius:4px;background:#222;color:#fff;font-size:11px;line-height:17px;font-weight:700;text-align:center}
 .naverDiscussionCard.is-thumb .naverDiscussionSummary3{padding:0;background:none}
+
+/* 투표 글 미리보기(상세의 투표 상자와 같은 모양, 선택지는 최대 4개) */
+.naverDiscussionPoll{display:grid;gap:8px;margin-top:10px;padding:14px 16px;border:1px solid #e3e5e8;border-radius:12px;background:#fff}
+.naverDiscussionPoll strong{color:#25272b;font-size:15px;line-height:21px;font-weight:700;letter-spacing:-.03em}
+.naverDiscussionPoll span{display:block;padding:9px 12px;border:1px solid #e3e5e8;border-radius:10px;color:#3a3d42;font-size:14px;line-height:20px}
+.naverDiscussionPoll em{color:#858990;font-size:12.5px;line-height:18px;font-style:normal}
+.naverDiscussionPoll small{color:#858990;font-size:12px;line-height:16px}

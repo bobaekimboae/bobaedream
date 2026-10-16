@@ -100,10 +100,15 @@
     var arrows=multiple?'<button class="naverDiscussionMediaArrow is-prev" type="button" data-media-prev aria-label="이전 사진" hidden></button><button class="naverDiscussionMediaArrow is-next" type="button" data-media-next aria-label="다음 사진"></button>':'';
     return '<div class="naverDiscussionMediaShell'+(multiple?' is-multi':' is-single')+'"'+(multiple?'':' style="--media-ratio:'+Math.max(1,sources[0].ratio?clampRatio(sources[0].ratio):16/9).toFixed(4)+'"')+'><div class="naverDiscussionMediaRail" tabindex="0" aria-label="'+esc(title)+' 사진과 영상 '+sources.length+'개, 좌우로 넘기기">'+items+'</div>'+arrows+count+'</div>';
   }
+  /* 투표 글: 목록에서도 투표 제목·선택지를 미리 보여 준다(눌러서 상세에서 투표) */
+  function pollPreview(poll){
+    if(!poll||!poll.options||!poll.options.length)return '';
+    return '<div class="naverDiscussionPoll" aria-label="투표"><strong>📊 '+esc(poll.title)+'</strong>'+poll.options.slice(0,4).map(function(o){return '<span>○ '+esc(o)+'</span>';}).join('')+(poll.options.length>4?'<em>+'+(poll.options.length-4)+'개 선택지</em>':'')+(poll.note?'<small>'+esc(poll.note)+'</small>':'')+'</div>';
+  }
   function card(post,index){
     var likes=Math.max(0,Math.round(Number(post.view||0)/23)+Number(post.reply||0));
     var dislikes=Math.max(0,Math.round(Number(post.reply||0)/7));
-    return '<article class="naverDiscussionCard" data-discussion-post="'+esc(post.id)+'"><span class="naverDiscussionCategory">'+esc(categoryFor(post))+'</span><div class="naverDiscussionIdentity"><img class="naverDiscussionAvatar" src="'+esc(avatarFor(post,index))+'" alt="'+esc(post.user)+' 프로필"><strong class="naverDiscussionAuthor">'+esc(post.user)+'</strong><time class="naverDiscussionTime">'+esc(post.time)+'</time></div><a class="naverDiscussionTitle" href="'+detailUrl(post)+'">'+esc(cleanTitle(post.title))+'</a>'+bodyBlock(post,index)+(mediaFor(post,index)||embedInlineFor(post)||newsCardFor(post))+'<div class="naverDiscussionMetrics" aria-label="게시물 반응"><button class="naverDiscussionMetric" type="button" data-discussion-vote="up" aria-label="버프 '+metric(likes)+'" aria-pressed="false"><img src="'+icon('buff')+'" alt=""><span>'+metric(likes)+'</span></button><button class="naverDiscussionMetric" type="button" data-discussion-vote="down" aria-label="너프 '+metric(dislikes)+'" aria-pressed="false"><img src="'+icon('nerf')+'" alt=""><span>'+metric(dislikes)+'</span></button><button class="naverDiscussionMetric" type="button" data-discussion-comment="'+esc(post.id)+'" aria-label="댓글 '+Number(post.reply||0).toLocaleString('ko-KR')+'개"><img src="'+icon('comment-reddit')+'" alt="">'+metric(post.reply)+'</button><span class="naverDiscussionViews">조회 '+Number(post.view||0).toLocaleString('ko-KR')+'</span></div></article>';
+    return '<article class="naverDiscussionCard" data-discussion-post="'+esc(post.id)+'"><span class="naverDiscussionCategory">'+esc(categoryFor(post))+'</span><div class="naverDiscussionIdentity"><img class="naverDiscussionAvatar" src="'+esc(avatarFor(post,index))+'" alt="'+esc(post.user)+' 프로필"><strong class="naverDiscussionAuthor">'+esc(post.user)+'</strong><time class="naverDiscussionTime">'+esc(post.time)+'</time></div><a class="naverDiscussionTitle" href="'+detailUrl(post)+'">'+esc(cleanTitle(post.title))+'</a>'+bodyBlock(post,index)+pollPreview(post.poll)+(mediaFor(post,index)||embedInlineFor(post)||newsCardFor(post))+'<div class="naverDiscussionMetrics" aria-label="게시물 반응"><button class="naverDiscussionMetric" type="button" data-discussion-vote="up" aria-label="버프 '+metric(likes)+'" aria-pressed="false"><img src="'+icon('buff')+'" alt=""><span>'+metric(likes)+'</span></button><button class="naverDiscussionMetric" type="button" data-discussion-vote="down" aria-label="너프 '+metric(dislikes)+'" aria-pressed="false"><img src="'+icon('nerf')+'" alt=""><span>'+metric(dislikes)+'</span></button><button class="naverDiscussionMetric" type="button" data-discussion-comment="'+esc(post.id)+'" aria-label="댓글 '+Number(post.reply||0).toLocaleString('ko-KR')+'개"><img src="'+icon('comment-reddit')+'" alt="">'+metric(post.reply)+'</button><span class="naverDiscussionViews">조회 '+Number(post.view||0).toLocaleString('ko-KR')+'</span></div></article>';
   }
   function sourceLabelFor(post){
     try{
@@ -256,7 +261,8 @@
   function feedBody(){
     var data=posts();
     if(!data.length)return '<div style="padding:44px 16px;color:#858990;font-size:14px;text-align:center">등록된 글이 없습니다.</div>';
-    return data.map(isThreadNewsBoard()?threadNewsCard:currentVariant==='thumb'?thumbCard:card).join('');
+    /* 뉴스 게시판의 스레드식 링크 카드는 수집 기사용이고, 회원이 쓴 글(local)은 일반 글 카드로 보여 준다 */
+    return data.map(function(post,index){return isThreadNewsBoard()&&!post.local?threadNewsCard(post,index):currentVariant==='thumb'?thumbCard(post,index):card(post,index);}).join('');
   }
   function render(variant){
     phone.classList.remove('foreignThreadMode');
