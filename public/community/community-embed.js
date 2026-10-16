@@ -51,6 +51,26 @@
         return frame('https://embed.reddit.com/r/' + encodeURIComponent(parts[1]) + '/comments/' + encodeURIComponent(parts[at + 1]) + '/' + slug + '?embed=true&theme=light&showmedia=true&showmore=false', 'Reddit', 'Reddit 게시물', true);
       }
     }
+    /* 스레드: 공식 글 임베드(/@이름/post/ID/embed). 계정·검색 주소는 링크 카드 */
+    if (host === 'threads.net' || host === 'threads.com' || host.slice(-12) === '.threads.net' || host.slice(-12) === '.threads.com') {
+      var tuser = parts[0] && parts[0].charAt(0) === '@' ? parts[0] : '';
+      if (tuser && parts[1] === 'post' && parts[2]) {
+        var turl = 'https://www.threads.com/' + tuser + '/post/' + encodeURIComponent(parts[2]);
+        return frame(turl + '/embed', 'Threads', 'Threads 게시물', true, turl);
+      }
+    }
+    /* X(트위터): 공식 위젯 플레이어 */
+    if (host === 'x.com' || host === 'twitter.com' || host === 'mobile.twitter.com') {
+      var si = parts.indexOf('status');
+      if (si > 0 && /^\d+$/.test(parts[si + 1] || '')) return frame('https://platform.twitter.com/embed/Tweet.html?id=' + parts[si + 1] + '&theme=light&lang=ko&dnt=true', 'X', 'X 게시물', true, 'https://x.com/' + parts[0] + '/status/' + parts[si + 1]);
+    }
+    /* 페이스북 공개 글·영상: 공식 플러그인 */
+    if (host === 'facebook.com' || host.slice(-13) === '.facebook.com') {
+      if (/\/(posts|videos|photos|reel|permalink\.php)/.test(parsed.pathname) || parsed.pathname === '/permalink.php' || parsed.pathname === '/watch/') {
+        var kind = /\/(videos|reel)\b|\/watch\//.test(parsed.pathname) ? 'video' : 'post';
+        return frame('https://www.facebook.com/plugins/' + kind + '.php?href=' + encodeURIComponent(parsed.href) + '&show_text=true&width=500', 'Facebook', 'Facebook 게시물', true, parsed.href);
+      }
+    }
     if (host === 'open.spotify.com' && parts.length >= 2) return frame('https://open.spotify.com/embed/' + encodeURIComponent(parts[0]) + '/' + encodeURIComponent(parts[1]), 'Spotify', 'Spotify');
     return base;
   }
@@ -124,7 +144,19 @@
       if (tf) { tf.setAttribute('data-embed-height', ''); tf.style.setProperty('--embed-h', Math.ceil(td.height) + 'px'); }
       return;
     }
-    if (!/(^|\.)(instagram\.com|reddit\.com)$/.test((function () { try { return new URL(event.origin).hostname; } catch (_) { return ''; } })())) return;
+    /* X 위젯: twttr.private.resize 신호로 높이를 맞춘다 */
+    if (/(^|\.)(twitter|x)\.com$/.test((function () { try { return new URL(event.origin).hostname; } catch (_) { return ''; } })())) {
+      var xd = event.data;
+      try { if (typeof xd === 'string') xd = JSON.parse(xd); } catch (_) { return; }
+      var xe = xd && xd['twttr.embed'];
+      var xh = xe && xe.method === 'twttr.private.resize' && xe.params && xe.params[0] ? Number(xe.params[0].height) : 0;
+      if (xh > 50) Array.prototype.forEach.call(document.querySelectorAll('iframe'), function (frame) {
+        if (frame.contentWindow !== event.source) return;
+        frame.setAttribute('data-embed-height', ''); frame.style.setProperty('--embed-h', Math.ceil(xh) + 'px');
+      });
+      return;
+    }
+    if (!/(^|\.)(instagram\.com|reddit\.com|threads\.com|threads\.net)$/.test((function () { try { return new URL(event.origin).hostname; } catch (_) { return ''; } })())) return;
     var data = event.data, height = 0;
     try { if (typeof data === 'string') data = JSON.parse(data); } catch (_) { return; }
     if (data && data.type === 'MEASURE' && data.details) height = Number(data.details.height);
