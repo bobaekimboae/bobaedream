@@ -101,10 +101,11 @@
     return '<a class="news-card" href="'+esc(item.url)+'" target="_blank" rel="noopener noreferrer">'+(item.image?'<span class="news-card-image"><img src="'+esc(item.image)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></span>':'')+'<span class="news-card-copy"><span class="news-card-site">'+(item.logo?'<img src="'+esc(item.logo)+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<span>'+esc(item.site||item.provider||host)+'</span>'+(overseas?'<em>해외</em>':'')+'</span><strong class="news-card-title">'+esc(item.title||host)+'</strong>'+(item.description?'<span class="news-card-desc">'+esc(item.description)+'</span>':'')+'<small class="news-card-url">'+esc(host)+'</small></span></a>';
   }
   /* 첫 임베드가 인스타그램·유튜브 같은 재생형이면 피드 카드 안에서 바로 보여 준다 */
-  function embedInlineFor(post){
+  function embedInlineFor(post,autoplay){
     var item=firstEmbed(post);
     if(!item||item.render!=='iframe'||!window.BBM_EMBED)return '';
-    return '<div class="naverDiscussionEmbed'+(item.tall?' is-tall':'')+'">'+window.BBM_EMBED.frameHtml(item)+'</div>';
+    /* 레딧 목록처럼 썸네일 + 재생 버튼만, 누르면 그 자리에서 재생. 썸네일형 타일을 눌러 펼칠 때는 바로 재생(autoplay) */
+    return '<div class="naverDiscussionEmbed'+(item.tall?' is-tall':'')+'">'+(autoplay?window.BBM_EMBED.frameHtml(item,{autoplay:true}):window.BBM_EMBED.previewHtml(item))+'</div>';
   }
   /* 좌측 썸네일형(네이버페이 증권 토론방 목록): 글쓴이 줄 → 왼쪽 72px 썸네일 + 제목·본문 2줄 → 반응 줄 */
   function thumbCard(post,index){
@@ -192,6 +193,7 @@
   }
   function bind(){
     initMediaCarousels();
+    if(window.BBM_EMBED&&window.BBM_EMBED.hydratePreviews)window.BBM_EMBED.hydratePreviews(list);
     list.querySelectorAll('[data-discussion-video]').forEach(function(button){
       var video=button.parentElement.querySelector('video');
       if(!video)return;
@@ -210,7 +212,7 @@
         var open=cardElement.querySelector('.naverDiscussionEmbed');
         if(open){open.remove();tile.classList.remove('is-open');tile.setAttribute('aria-expanded','false');return;}
         var post=posts().filter(function(p){return String(p.id)===tile.dataset.discussionPlay;})[0];
-        var html=post&&embedInlineFor(post);
+        var html=post&&embedInlineFor(post,true);
         if(!html)return;
         cardElement.querySelector('.naverDiscussionThumbMain').insertAdjacentHTML('afterend',html);
         tile.classList.add('is-open');tile.setAttribute('aria-expanded','true');
