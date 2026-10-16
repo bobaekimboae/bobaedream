@@ -21,12 +21,20 @@ test("URL normalization removes tracking without changing the article", () => {
 });
 
 test("RSS items become canonical articles", () => {
-  const xml = '<rss><channel><item><title><![CDATA[New EV launch]]></title><link>https://example.com/a?utm_medium=rss</link><pubDate>Fri, 16 Oct 2026 09:00:00 GMT</pubDate><description><![CDATA[<p>Battery news</p>]]></description></item></channel></rss>';
+  const xml = '<rss xmlns:media="http://search.yahoo.com/mrss/"><channel><item><title><![CDATA[New EV launch]]></title><link>https://example.com/a?utm_medium=rss</link><pubDate>Fri, 16 Oct 2026 09:00:00 GMT</pubDate><description><![CDATA[<p>Battery news</p>]]></description><media:content url="https://cdn.example.com/ev.jpg" type="image/jpeg" /></item></channel></rss>';
   const rows = parseFeed(xml, { id:"s1", nameKo:"예제", country:"미국", region:"북미", language:"en", feedUrl:"https://example.com/feed" });
   assert.equal(rows.length, 1);
   assert.equal(rows[0].originalTitle, "New EV launch");
   assert.equal(rows[0].canonicalUrl, "https://example.com/a");
   assert.equal(rows[0].originalSummary, "Battery news");
+  assert.equal(rows[0].imageUrl, "https://cdn.example.com/ev.jpg");
+});
+
+test("generated board stores Reddit-style link preview metadata", async () => {
+  const board = await readFile(new URL("../public/community/data/board-foreign-car-news.js", import.meta.url), "utf8");
+  assert.match(board, /"defaultView": "naver-discussion"/);
+  assert.match(board, /"embedTitle":/);
+  assert.match(board, /"embedImage": "https:\/\//);
 });
 
 test("robots longest matching rule wins", () => {

@@ -21,7 +21,10 @@ const registry = JSON.parse(await readFile(sourcePath, "utf8"));
 const limit = Math.max(0, Number(process.env.FOREIGN_NEWS_SOURCE_LIMIT || 0));
 const concurrency = Math.max(1, Number(process.env.FOREIGN_NEWS_COLLECT_CONCURRENCY || 8));
 const maxArticles = Math.max(20, Number(process.env.FOREIGN_NEWS_MAX_ARTICLES || 500));
-const allowFeedImages = process.env.FOREIGN_NEWS_ALLOW_FEED_IMAGES === "true";
+// RSS/Atom 제공 이미지 URL만 원격 표시한다. 이미지는 내려받거나 재호스팅하지 않는다.
+// 운영 중 긴급 차단이 필요하면 FOREIGN_NEWS_ALLOW_FEED_IMAGES=false 로 끌 수 있다.
+const allowFeedImages = process.env.FOREIGN_NEWS_ALLOW_FEED_IMAGES !== "false";
+const outputSchemaVersion = 3;
 const activeSources = registry.sources.filter((source) => source.status === "active" && source.feedUrl && ["rss", "atom", "sitemap"].includes(source.fetchType));
 const selectedSources = limit ? activeSources.slice(0, limit) : activeSources;
 
@@ -135,7 +138,12 @@ if (translationEndpoint && visible.length) {
 
 let previous = null;
 try { previous = JSON.parse(await readFile(jsonPath, "utf8")); } catch {}
-const signature = sha1(JSON.stringify(visible.map(({ id, titleKo, summaryKo, relatedCount }) => ({ id, titleKo, summaryKo, relatedCount }))));
+const signature = sha1(JSON.stringify({
+  outputSchemaVersion,
+  articles: visible.map(({ id, originalTitle, originalSummary, titleKo, summaryKo, imageUrl, relatedCount }) => ({
+    id, originalTitle, originalSummary, titleKo, summaryKo, imageUrl, relatedCount,
+  })),
+}));
 if (previous?.signature === signature) {
   console.log(`No news changes (${visible.length} articles, signature ${signature.slice(0, 8)})`);
   process.exit(0);
@@ -143,6 +151,7 @@ if (previous?.signature === signature) {
 
 const generatedAt = new Date().toISOString();
 const payload = {
+  schemaVersion: outputSchemaVersion,
   generatedAt,
   signature,
   sourceCount: registry.sources.length,
@@ -155,7 +164,9 @@ const payload = {
 await writeFile(jsonPath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
 
 const topics = ["전체", ...new Set(visible.map((article) => article.topic))];
-const rows = visible.map((article) => ({
+const rows = visible.map((article) => {
+  const previewImage = allowFeedImages && article.imageUsage === "feed-provided-review" ? article.imageUrl : "";
+  return ({
   id: article.id,
   category: article.topic,
   title: article.titleKo || article.originalTitle,
@@ -165,8 +176,16 @@ const rows = visible.map((article) => ({
   sourceUrl: article.canonicalUrl,
   author: article.source,
   publishedAt: article.publishedAt,
-  thumbnail: allowFeedImages && article.imageUsage === "feed-provided-review" ? article.imageUrl : "",
-  images: allowFeedImages && article.imageUsage === "feed-provided-review" ? article.imageUrl : "",
+  // 대표 이미지는 일반 게시물 사진이 아니라 원문 링크 프리뷰에만 넣는다.
+  // 이렇게 해야 Reddit 링크 포스트처럼 제목·요약·출처와 한 카드로 움직인다.
+  thumbnail: "",
+  images: "",
+  embed: article.canonicalUrl,
+  embedTitle: article.titleKo || article.originalTitle,
+  embedDescription: article.summaryKo || article.originalSummary,
+  embedImage: previewImage,
+  embedSite: article.source,
+  embedLang: article.originalLanguage,
   views: "0",
   comments: "0",
   likes: "0",
@@ -178,12 +197,13 @@ const rows = visible.map((article) => ({
   relatedCount: String(article.relatedCount),
   collectedAt: article.collectedAt,
   collector: "해외자동차뉴스봇",
-}));
+  });
+});
 const table = {
   board: "foreign-car-news",
   displayName: "해외 자동차뉴스",
   idStart: 920000001,
-  defaultView: "naver-discussion-thumb",
+  defaultView: "naver-discussion",
   updatedAt: generatedAt,
   topics,
   rows,

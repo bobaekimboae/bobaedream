@@ -1,3 +1,131 @@
+# 모델별 차량리뷰 목록·상세·댓글 QA · 2026-10-17
+
+- source visual truth paths: `artifacts/dongchedi-model-review-1017/source/12-model-list-card.png`, `01-detail-top.png`, `04-detail-comments.png` (Android 원본 1080 × 2400px).
+- browser-rendered implementation paths: `artifacts/dongchedi-model-review-1017/implementation/01-list-390x844.png`, `02-detail-top-390x844.png`, `03-comments-390x844.png`.
+- combined comparison evidence: `artifacts/dongchedi-model-review-1017/comparisons/list-side-by-side.png`, `detail-side-by-side.png`, `comments-side-by-side.png`.
+- viewport and normalization: 동처띠 1080 × 2400 원본을 390px 폭으로 고품질 정규화했고, 구현은 390 × 844 CSS px / DPR 1로 캡처해 동일 캔버스에서 비교했다.
+- state: 모델별 리뷰 피드, BMW M3 실소유자 상세 상단, 댓글 4건과 답글 링크, 찬성 수가 보이는 상세 하단.
+- primary interactions tested: 목록 50건 렌더, 카드→상세, 댓글 위치 이동, 댓글 등록과 수 증가, 구독·저장·도움/별로 상태, PC 1440 × 900 회귀.
+- console and image checks: 콘솔 오류 0건, 깨진 이미지 0건, 자동 게이트 `PASS 21 / FAIL 0`.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 원본의 작성자 13~14px, 인증·모델 9~10px, 평점 15px, 본문 14~15px, 댓글 본문 13px 위계를 Pretendard로 맞췄다. 숫자 점수는 검정 카드에서 흰색 17px/700으로 고정해 대비 오류를 제거했다.
+- spacing and layout rhythm: 목록은 `브랜드 엠블럼·작성자 → 황금 별점·평가어·연식/보유기간 → 제목 → 본문 → 3분할 사진 → 날짜·공유·댓글·도움` 순서다. 상세는 작성자 헤더→검정 점수/세부평가→구매정보→제목/본문/사진→댓글 순서를 유지한다.
+- colors and visual tokens: 동처띠 노란 면색은 보배드림 Airbnb black으로 치환하고, 별점과 구독 상태만 황금색 Chợ Tốt 자산을 사용한다. 나머지 아이콘은 기존 Reddit·Chợ Tốt·AutoScout24 SVG다.
+- image quality and asset fidelity: 제조사 브랜드 로고를 프사 슬롯에 사용하고, 각 모델의 실제 매물 사진 3장을 왜곡 없이 3열로 배치했다. 상세와 목록 모두 같은 모델 사진 원천을 공유한다.
+- copy and content: 한국형 제목을 유지하면서 원본의 실소유자·연식·보유기간·구매시기·지역·가격·연료별 실사용 항목을 보존했다. 댓글에는 차주 인증, 날짜/지역, 답글 링크, 찬성 수를 포함한다.
+- behavior and accessibility: 댓글 입력은 빈 값 등록이 비활성화되고 정상 등록 뒤 목록 첫 행과 하단 댓글 수가 즉시 갱신된다. 모든 행동 버튼에는 텍스트 또는 접근성 이름이 있다.
+
+## Comparison history
+
+- Pass 1: 기존 목록은 단일 대형 사진과 압축 메타만 있어 동처띠의 3분할 실차 사진·개별 반응 구조가 약했다(P1). 댓글은 회색 요약 상자에 텍스트만 추가돼 프사·인증·답글·찬성 구조가 없었다(P1).
+- Fix: 실제 모델 사진 3장 갤러리와 공유/댓글/도움 반응을 추가하고, 상세 댓글을 독립 흰색 리스트로 재구성했다. 댓글 행에 브랜드 로고, 작성자 역할, 날짜/지역, 답글 수, 찬성 버튼을 넣었다.
+- Pass 2: 상세 점수 카드는 숫자 대비는 통과했지만 세부 평점의 흰 배경이 동처띠 검정 카드와 분리돼 보였다(P2).
+- Fix: 종합 점수와 세부 평점을 하나의 검정 카드처럼 연결하고 숫자·막대·보조문구 대비를 통일했다.
+- Pass 3: 동일 폭 비교판에서 목록·상세·댓글의 정보 계층과 수직 리듬을 재검사했고 남은 P0/P1/P2가 없음을 확인했다.
+
+final result: passed
+
+---
+
+# 차량리뷰 50개 · 제목·연료 가변·원문 보존 QA · 2026-10-17
+
+- source visual truth path: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/6ecd4d1c-3f97-422c-a969-d74e18bff0e5/1-1000018699.jpg` (591 × 1280px) 및 `artifacts/dongchedi-review-reaudit-1016/04-ev-form-selected.png`.
+- browser-rendered implementation screenshots: `artifacts/community-review-conditions-1017/list-50-mobile-390x844.png`, `writer-ev-390x844.png`, `list-50-pc-1440x900.png`.
+- combined comparison evidence: `artifacts/community-review-conditions-1017/comparison-list-source-vs-implementation.png`, `comparison-writer-source-vs-implementation.png`.
+- viewport: 모바일 390 × 844 CSS px, device scale 1; PC 1440 × 900 CSS px. 591 × 1280 원본은 390 × 844로 고품질 정규화해 동일 캔버스에서 대조했다.
+- state: 차량리뷰 독립 게시판 전체 필터, 실제 차량 사진 3장 카드, 등록 화면 전기차 실소유자 상태.
+- primary interactions tested: 제목 우선 검증, 5개 동력 방식 모델 변경, 오너/비오너 전환, 선택 평가 펼침, 0.5~5.0 별점 100상태, 정상 등록→상세→테스트 글 삭제, 목록 필터, 50개 상세 경로.
+- console errors checked: 모바일/PC/등록/상세 전 구간 0건.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 원본의 평가 라벨 13px/18px, 보조 문구 10px/14px, 등록 제목 16px 위계를 유지했다. 요청한 제목 입력은 첫 편집 필드로 추가해 원본 평가 흐름을 밀지 않도록 별도 흰 카드로 분리했다.
+- spacing and layout rhythm: 목록 카드 내부 순서는 `프사·모델 → 평점·평가 → 제목 → 내용 → 3분할 사진 → 반응`으로 원본과 일치한다. 커뮤니티 배너·베스트글은 독립 게시판 문맥을 유지하기 위한 의도적 상위 셸이다.
+- colors and visual tokens: 동처띠 노랑 CTA는 사용자 지시에 따라 Airbnb black으로 치환했고, 별점은 원본 의미를 살린 황금색 Chợ Tốt 자산을 유지했다.
+- image quality and asset fidelity: 23대 실제 차량의 WebP 원본 115장을 순환해 50개 리뷰·150개 이미지 슬롯을 구성했다. 깨진 이미지 0건이며 카드마다 3장 갤러리가 노출된다.
+- copy and content: 중국어 별점 원문 100행을 수정 없이 보존하고 한국어 적용문을 같은 점수 버킷에 병기했다. 제목 5자 이상, 본문 30자 이상 규칙과 오류 순서를 확인했다.
+- behavior and accessibility: 전기차·PHEV·EREV·하이브리드·내연기관별 평가 항목/단위, 실소유자 구매정보, 비오너 숨김, 출시 예정 사진 필수, 키보드 접근 가능한 라디오 별점과 상태 텍스트를 확인했다.
+
+## Comparison history
+
+- Pass 1: 5개 고정 샘플만 있어 실제 차량·사진 다양성과 제목 정보가 부족했다(P1).
+- Fix: 서울오토갤러리 실제 차량 23대와 실제 사진을 기준으로 리뷰 50개를 생성하고 제목을 필수 데이터로 추가했다.
+- Pass 2: 동일 차량의 반복 리뷰가 같은 3장 사진을 사용해 피드 반복감이 컸다(P2).
+- Fix: 리뷰 변형별로 5장 중 시작 사진을 순환해 고유 참조 115장, 전체 150슬롯으로 재생성했다.
+- Pass 3: 50개 상세를 한 브라우저 세션에서 연속 탐색할 때 개발 서버 연결 자원 한도에 도달했다(테스트 인프라 P2).
+- Fix: 10개 단위로 상세 검증 페이지를 교체해 50개 전부 제목·평점·사진을 재검사했다.
+- Post-fix evidence: `PASS 164 / FAIL 0`, 상세 실패 0, 깨진 이미지 0, 콘솔 오류 0.
+
+final result: passed
+
+---
+# 차량리뷰 전체 캡처·브랜드 로고 프사 QA · 2026-10-17
+
+- source visual truth path: `artifacts/dongchedi-review-audit-1016/`의 PNG 164장.
+- implementation screenshot path: `artifacts/community-review-audit-1016/01-community-list-390x844.png` ~ `06-community-list-1440x900.png`.
+- combined comparison evidence: `artifacts/community-review-conditions-1017/all-screen-comparison.png`.
+- complete source contact sheets: `artifacts/community-review-conditions-1017/source-contact-sheets/source-01.jpg` ~ `source-09.jpg`.
+- viewport: 동처띠 384×853dp, 구현 모바일 390×844 CSS px(DPR 1), PC 1440×900 CSS px.
+- source/implementation pixels: 원본 캡처는 1080×2400 계열을 연락시트 셀 180×400으로 정규화했고, 핵심 비교는 양쪽을 390×844 셀로 정규화했다. 구현 원본 캡처는 390×844 및 1440×900이다.
+- state: 목록, 등록 기본, 모델/트림 선택, EV/PHEV/EREV/하이브리드/ICE, 오너/비오너, 구매정보 선택, 0.5~5.0 별점 문구, 모델 변경 확인, 검색, 필터, 상세, 댓글.
+- primary interactions tested: 5개 동력원 전환, 오너 토글, 선택 평가 펼침, 0.5점 입력, 유효성 오류, 정상 등록·상세 이동·테스트 글 삭제, 50개 목록 필터와 상세 경로.
+- browser evidence: 로컬 모바일 목록에서 브랜드 로고 프사 노출, 50개 카드, 9개 브랜드, 랭크 프사 0개를 확인했다. 자동 게이트 `PASS 167 / FAIL 0`, 콘솔 오류 0.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 동처띠의 16sp 제목, 13sp 평가 라벨, 10sp 평가 문구 계층을 16px/13px/10px로 유지했다. 한국어 Pretendard의 줄바꿈과 행간을 모바일 390px에서 확인했다.
+- spacing and layout rhythm: 58px 상단바, 8px 카드 바깥 여백, 22px 별 크기, 8px 별 간격과 섹션 분리를 유지했다. 독립 피드 프사는 32px 슬롯에 24px 로고를 배치했다.
+- colors and visual tokens: 동처띠의 평점 황금색은 프로젝트 Chợ Tốt 별 자산으로 유지하고, CTA는 요청에 따라 Airbnb black edition을 사용했다.
+- image quality and asset fidelity: 사용자 프사 대신 프로젝트 AutoHome 브랜드 로고 원본을 사용했다. `object-fit: contain`으로 벤츠·벤틀리·재규어처럼 종횡비가 다른 로고도 잘리지 않는다. 차량 사진 150개와 로고 50개 모두 로드된다.
+- copy and content: 중국어 원문 100개 평점 문구를 별도 보존하고 한국 문화에 맞는 한국어 문구를 0.5점 단위로 노출한다. 제목·모델·연식·오너 상태·본문 구조는 유지한다.
+- accessibility and interaction: 각 프사 이미지의 대체 텍스트는 `{브랜드} 브랜드 로고`이며, 구독·필터·등록·카드 이동 동작을 유지했다.
+
+## Comparison history
+
+- Pass 1: 기존 독립 피드 카드의 무작위 랭크 프사가 차량 리뷰 맥락과 맞지 않는 P2를 확인했다.
+- Fix: 각 리뷰의 `brandLogo`를 프사로 연결하고 32px 원형/24px contain 규칙을 적용했다.
+- Pass 2: 164장 원본을 9장 연락시트로 모두 확인하고, 핵심 5상태를 한 장의 원본/구현 비교판에서 대조했다. 브랜드 로고 50개·9종·깨짐 0, 게이트 167/0을 확인했다.
+
+final result: passed
+
+---
+
+# 차량리뷰 독립 테이블 · 피드 렌더링 잠금 QA · 2026-10-16
+
+- source visual truth path: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/6ecd4d1c-3f97-422c-a969-d74e18bff0e5/1-1000018699.jpg` (591 × 1280px).
+- implementation screenshot path: Codex 인앱 브라우저 `iab://tab/39/capture/vehicle-review-feed-fix-2`에서 브라우저 렌더 캡처.
+- viewport: 390 × 844 CSS px, device scale 1. 원본은 591 × 1280px 축소 Android 캡처라 동일 모바일 폭 기준으로 정보 구조와 광학 크기를 정규화했다.
+- state: `board=vehicle-review`, 전체 동력방식, 첫 실소유자 리뷰, 팔로우 해제.
+- full-view comparison evidence: 원본과 구현을 열어 `프사/모델 → 황금 별점/점수/평가 → 연식/보유기간 → 본문 → 3분할 사진 → 날짜/공유·댓글·추천` 순서가 유지되는지 대조했다.
+- focused region comparison evidence: 첫 카드에서 프사 32px, 별 아이콘 14px, 본문 15/23px 3줄, 3분할 갤러리 80px, 하단 반응 30px을 확인했다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 동처띠처럼 별점과 평가 문구가 본문보다 먼저 읽히고, 사용자명·모델 인증 문구는 한 단계 작은 위계로 유지된다.
+- spacing and layout rhythm: 리뷰 데이터는 일반 목록 행이 아니라 회색 배경 위 독립 흰색 피드 카드로 렌더링된다. 카드 내부 순서와 간격은 원본의 세로 리듬을 따른다.
+- colors and visual tokens: 동처띠 노랑 대신 보배드림 에어비앤비 블랙 헤더를 유지하고, 평점 별과 팔로우만 황금색 강조를 사용한다.
+- image quality and assets: 사용자 프사는 프로젝트 프로필 자산, 별·공유·댓글·추천은 초톳/레딧 자산, 차량 이미지는 같은 BMW M3 원본 3장을 사용한다.
+- copy and content: 상단 통계를 `구독 2.8만명 · 리뷰 5개`, 보기 상태를 `피드형 · 차량리뷰`로 고정했다.
+- behavior and accessibility: 독립 `vehicle-review` 테이블 5행만 노출되며, 전기차 필터 1행, 팔로우→팔로잉, 카드→상세 이동, 상세 별점 3.92와 세부 평가, 콘솔 오류 0건을 확인했다.
+
+## Comparison history
+
+- Pass 1: 전용 피드가 먼저 렌더링된 뒤 네이버 토론 자동 초기화가 다시 실행되어 일반 게시글 카드로 덮였다(P1). 별점·평가·연식·보유기간이 목록에서 사라졌다.
+- Fix: 현재 활성 독립 테이블을 전역 조회 가능하게 하고, `vehicle-review`일 때 네이버 토론 초기 렌더를 차단했다. 직접 호출되는 경우도 차량리뷰 전용 렌더러로 되돌린다.
+- Pass 2: 피드와 별점은 복구됐지만 상단 구독/게시물 수가 일반 게시판 임의값으로 표시됐다(P2).
+- Fix: 차량리뷰 전용 설명과 `구독 2.8만명 · 리뷰 5개` 통계를 프로필 맵에 등록했다.
+- Pass 3: 390 × 844에서 전용 피드 카드 5개, 평점 행, 전기차 필터, 팔로우, 상세 진입, 콘솔 오류 0건을 다시 확인했다.
+
+final result: passed
+
+---
+
 # 베스트글 독립 테이블 분리 QA · 2026-10-16
 
 - 일반 게시글 원천 `BOBAE_POSTS`와 베스트글 원천 `BOBAE_BEST_POSTS`를 분리했다.
@@ -73,6 +201,38 @@ final result: passed
 - Pass 1: 메르세데스 가족 캠페인 이미지는 구도는 적합했으나 외국인 모델이며 106px 카드형이라 국내 커뮤니티 정서와 참고 화면 위계가 달랐다(P1).
 - Fix: 제네시스 코리아의 한국인 로드트립 사진으로 교체하고 좌우 여백·라운드·그림자를 제거한 210px 풀블리드 헤더로 확장했다.
 - Pass 2: 384px에서 368.8 × 210px, 360px에서 344.8 × 198px로 렌더링됐다. 원본 1600 × 562px 로딩, 피사체 크롭, 제목 가독성, 가로 오버플로 0, 콘솔 경고·오류 0을 확인했다.
+
+final result: passed
+
+---
+
+# 차량리뷰 목록 카드 · 동처띠 구조 재대조 QA · 2026-10-16
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/6ecd4d1c-3f97-422c-a969-d74e18bff0e5/1-1000018699.jpg` (591 × 1280px).
+- browser-rendered implementation: `http://127.0.0.1:4311/community/naver-cafe-list.html?board=vehicle-review&v=naver24gold`, Codex 인앱 브라우저에서 현재 턴 캡처·검사.
+- viewport and density: 구현의 모바일 콘텐츠 폭 393 CSS px. 원본은 Android 1080 × 2400 캡처가 591 × 1280으로 축소된 자료여서 카드 내부의 정보 순서와 CSS 광학 크기를 우선 정규화했다.
+- state: 차량리뷰 전체 필터, 첫 실소유자 카드, 팔로우 해제.
+- full-view comparison evidence: 원본 전체 화면과 구현 목록을 열고 카드의 `프사/사용자·모델 → 평점/연식/보유기간 → 본문 → 사진 → 날짜/반응` 순서를 대조했다.
+- focused region evidence: 구현 첫 카드 377 × 314px, 프사 32px, 사용자 14/18px, 모델 11/15px, 별 14px, 본문 15/23px 3줄, 3분할 사진 353 × 80px, 하단 행동 30px을 브라우저 계산값으로 확인했다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 별점은 황금색 초톳 SVG, 2자리 점수, 따옴표 평가, 연식과 보유기간을 한 줄에 배치했다. 별도 리뷰 제목을 제거해 원본처럼 본문이 평점 바로 아래 시작한다.
+- spacing and layout rhythm: 회색 목록 바탕 위 8px 카드 간격, 4px 카드 반경, 12px 좌우 안쪽 여백을 적용했다. 카드 하단을 가리던 고정 작성 버튼을 제거했다.
+- colors and visual tokens: 프사·본문은 중립 검정/회색, 팔로우는 원본의 주황 강조를 절제한 `#b97800`, 추천 영역은 옅은 황금 배경을 사용한다.
+- image quality and asset fidelity: 제조사 엠블럼을 프사로 쓰던 오류를 제거하고 프로젝트의 실제 프로필 자산을 연결했다. 차량 이미지는 같은 BMW M3 원본 3장을 왜곡 없이 분할했다.
+- copy and content: 모델 보조문구는 `BMW M3 실소유자 · 인증`, 평점은 `3.92 “보통” 2025년식 보유 7개월` 순서로 고정했다. 지역과 별도 제목은 목록 카드에서 제외했다.
+- interaction and accessibility: 팔로우→팔로잉→팔로우 전환, 카드→`sample-bmw-m3` 상세 이동·뒤로가기를 확인했다. 프로필·차량 사진 대체텍스트가 있으며 콘솔 오류 0건이다.
+- P3: 원본의 실제 동처띠 회원 프사는 복제하지 않고 보배드림의 로컬 프로필 자산을 사용했다. 개인정보·브랜드 독립성을 위한 의도적 차이다.
+
+## Comparison history
+
+- Pass 1: 제조사 엠블럼을 프사로 사용했고, 평점 아래 별도 제목, 단일 174px 이미지, 요약형 메타가 있어 원본 카드 구조와 달랐다(P1).
+- Fix: 사용자 프사와 모델 인증 문구를 분리하고, 제목을 제거했으며 3줄 본문·3분할 사진·날짜·공유/댓글·추천/비추천 순서로 재구성했다.
+- Pass 2: 고정 `차량 리뷰 작성` 버튼이 첫 카드 하단 행동을 덮었다(P2).
+- Fix: 상단 `리뷰 등록`을 유지하고 중복 고정 버튼을 제거했다.
+- Pass 3: 최종 카드 구조, 텍스트 잘림, 팔로우 상태, 상세 진입, 이미지 로딩, 콘솔 오류를 재검사했다.
 
 final result: passed
 
@@ -4722,3 +4882,29 @@ final result: passed
 - comparison history: 초기 PC 외부 viewport 기준 2열 규칙에서 393px 프레임 내부 제목 폭이 0이 되는 P1을 발견했다. 2열 미디어 규칙을 제거하고 기존 중앙 모바일 프레임 1열로 복원한 뒤 제목 폭 229px, 넘침 0을 재확인했다.
 - final result: passed
 - 자동 검증: `npm run check:runtime`, `npm run test:sites`, `npm run build` 모두 통과.
+
+## 좌측 썸네일형 복원 · 네이버 랭킹뉴스형 정밀 보정 QA (2026-10-17)
+
+- source visual truth: `https://media.naver.com/press/081/ranking?type=popular&date=20261017`
+- implementation: `/community/naver-cafe-list.html?board=best&view=naver-ranking-news` 및 `view=lounge-best-left`
+- viewport and density: 원본·구현 모두 Chrome 390×844 CSS px, device scale 1. 브라우저 스크롤바를 제외한 콘텐츠 폭은 375.2px로 동일하다.
+- full-view comparison evidence: 같은 실행에서 원본과 구현을 연속 캡처해 3개 랭킹 탭 → 제목 → 순위/2줄 제목/조회수/우측 이미지 계층을 대조했다.
+- focused region comparison evidence:
+  - 탭 높이 44px, 선택 글자 15/21px·700, 밑줄은 글자 폭 기준.
+  - 제목 영역 높이 39px, 위 여백 10px, 내부 위 패딩 14px, 제목 18/25px·700.
+  - 첫 행 x=20px·폭 335.2px·높이 75px, 이후 행 간격 13px, 구분선 없음.
+  - 순위 x=20px·22/24px·600, 제목 x=54px·폭 211.2px·16/21px, 메타 x=54px·15/18px.
+  - 썸네일 x=281.2px·74×74px·radius 4px.
+- responsive evidence: 360px에서 썸네일 70×70·가로 넘침 0, 412px에서 74×74·가로 넘침 0.
+- interaction evidence: 많이 본·댓글 많은·추천 많은 탭이 각각 `aria-selected`를 갱신하고 첫 결과 및 숫자를 바꾼다. 다시 많이 본으로 복귀한다.
+- left-thumbnail evidence: `lounge-best-left` 직접 URL에서 행 56개·이미지 56개, 행 x=20px·폭 335.2px, 썸네일 x=20px·56×56px, 글자 x=88px, 가로 넘침 0.
+- colors/tokens: 네이버의 구조·간격만 참고하고 보배드림 색상·콘텐츠·저장소 이미지 자산을 유지했다.
+- accessibility: 화면에는 눈 아이콘과 숫자만 표시하고, `조회수`·`댓글수`·`추천수`는 스크린리더용 `.blind` 텍스트로 보존했다.
+- console: 페이지 자체 warning/error 0건. Chrome 제어 확장 초기화 `log`만 존재한다.
+- comparison history:
+  - P1: 후속 요청을 잘못 해석해 기존 좌측 썸네일형을 제거했던 회귀를 발견했다. 보기 방식·직접 URL·저장값을 모두 복원했다.
+  - P2: 초기 랭킹뉴스형의 행 높이·구분선·제목 굵기·메타 표기·선택 밑줄 폭이 원본과 미세하게 달랐다. 원본 실측값으로 재보정했다.
+  - P3: PC에서도 393px 중앙 모바일 프레임을 유지하는 것은 기존 제품 규칙이므로 변경하지 않았다.
+- automated verification: `node --check`, `npm run build`, `npm run test:sites`, `git diff --check` 통과.
+
+final result: passed
