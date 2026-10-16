@@ -78,7 +78,7 @@
   var BRAND_COUNTRY={'현대':'한국','기아':'한국','제네시스':'한국','KG모빌리티':'한국','르노코리아':'한국','BMW':'독일','벤츠':'독일','폭스바겐':'독일','아우디':'독일','포르쉐':'독일','렉서스':'일본','토요타':'일본','혼다':'일본','닛산':'일본','마쓰다':'일본','스바루':'일본','스즈키':'일본','미쓰비시':'일본','테슬라':'미국','쉐보레':'미국','GMC':'미국','포드':'미국','BYD':'중국','덴자':'중국','볼보':'스웨덴'};
   function countriesFor(brands){var out=[];brands.forEach(function(b){var c=BRAND_COUNTRY[b];if(c&&out.indexOf(c)<0)out.push(c);});return out;}
   /* 출처 국가: 기사·게시물을 낸 매체(주소)의 나라 */
-  var SOURCE_COUNTRY=[[/\.de\b|autoscout24|bmw-m\b|BMW M|BMW ·/i,'독일'],[/\.jp\b|webcg\.net/i,'일본'],[/motortrend|caranddriver|carbuzz|motor1\.com/i,'미국'],[/vk\.(ru|com)/i,'러시아'],[/\.fr\b|caradisiac|automobile-propre|journalauto/i,'프랑스'],[/\.it\b|motorionline/i,'이탈리아'],[/\.es\b|diariomotor/i,'스페인'],[/naver\.com|daum\.net|inews24\.com|fnnews\.com|yuccapostkorea|\.co\.kr|\.kr\b|보배드림/i,'한국']];
+  var SOURCE_COUNTRY=[[/\.de\b|autoscout24|오토스카우트|bmw-m\b|BMW M|BMW ·/i,'독일'],[/\.jp\b|webcg\.net/i,'일본'],[/motortrend|caranddriver|carbuzz|motor1\.com/i,'미국'],[/vk\.(ru|com)/i,'러시아'],[/\.fr\b|caradisiac|automobile-propre|journalauto/i,'프랑스'],[/\.it\b|motorionline/i,'이탈리아'],[/\.es\b|diariomotor/i,'스페인'],[/naver\.com|daum\.net|inews24\.com|fnnews\.com|yuccapostkorea|\.co\.kr|\.kr\b|보배드림/i,'한국']];
   function sourceCountryFor(post){
     if(!/news|뉴스/.test(String(post.board||'')))return '';
     var embed=Array.isArray(post.embeds)&&post.embeds[0]?post.embeds[0].url:'';
