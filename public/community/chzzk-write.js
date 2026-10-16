@@ -76,10 +76,10 @@
     sheetBody.innerHTML = `<nav class="emoji-tabs">${categories.map(([key,label]) => `<button type="button" data-emoji-category="${key}" class="${key === state.emojiCategory ? 'is-active' : ''}">${label}</button>`).join('')}</nav><div class="emoji-grid">${values.map((item) => `<button type="button" data-emoji="${item.e}" aria-label="${escapeHtml(item.d || item.e)}">${item.e}</button>`).join('')}</div>`;
   }
   function renderLinkSheet() {
-    sheetBody.innerHTML = '<div class="sheet-form"><input id="linkUrl" type="url" inputmode="url" placeholder="URL을 입력하세요."><label class="embed-toggle"><span><strong>임베드로 보여주기</strong><small>유튜브·인스타그램·레딧은 본문에 바로, 기사는 뉴스 카드로 보여줍니다</small></span><input id="linkEmbed" type="checkbox" checked></label><input id="linkLabel" placeholder="표시할 문구 (선택)" hidden><p class="sheet-note">http:// 또는 https:// 주소만 첨부할 수 있습니다.</p></div>';
+    sheetBody.innerHTML = '<div class="sheet-form"><input id="linkUrl" type="text" inputmode="url" placeholder="URL 또는 임베드 코드를 붙여 넣으세요."><label class="embed-toggle"><span><strong>임베드로 보여주기</strong><small>유튜브·인스타그램·레딧은 본문에 바로, 기사는 뉴스 카드로 보여줍니다</small></span><input id="linkEmbed" type="checkbox" checked></label><input id="linkLabel" placeholder="표시할 문구 (선택)" hidden><p class="sheet-note">http:// 또는 https:// 주소만 첨부할 수 있습니다.</p></div>';
     $('#linkEmbed').addEventListener('change', (event) => { $('#linkLabel').hidden = event.target.checked; });
     sheetPrimary.onclick = () => {
-      const raw = $('#linkUrl').value.trim(); let url;
+      const raw = (window.BBM_EMBED && window.BBM_EMBED.fromCode ? window.BBM_EMBED.fromCode($('#linkUrl').value) : $('#linkUrl').value).trim(); let url;
       try { url = new URL(raw); } catch { showToast('올바른 URL을 입력해주세요.'); return; }
       if (!['http:','https:'].includes(url.protocol)) { showToast('웹 주소만 첨부할 수 있습니다.'); return; }
       const mode = $('#linkEmbed').checked ? 'embed' : 'link';

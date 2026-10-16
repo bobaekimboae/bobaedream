@@ -16,8 +16,27 @@
   function hostOf(url) { try { return new URL(url).hostname.replace(/^www\./, ''); } catch (_) { return String(url || ''); } }
 
   /* 주소 → { url, render:'iframe'|'preview', src, provider, title, tall } (잘못된 주소는 null) */
+  /* 공식 '임베드 코드'(틱톡 blockquote·유튜브 iframe·인스타 blockquote·X·레딧)를 붙여 넣어도 글 주소를 뽑아 쓴다 */
+  function fromCode(value) {
+    var text = String(value || '').trim();
+    if (text.charAt(0) !== '<') return text;
+    var m = text.match(/data-instgrm-permalink="([^"]+)"/i) || text.match(/\bcite="(https?:[^"]+)"/i);
+    if (m) return m[1].replace(/&amp;/g, '&');
+    m = text.match(/<iframe[^>]+src="([^"]+)"/i);
+    if (m) {
+      var src = m[1].replace(/&amp;/g, '&');
+      var yt = src.match(/youtube(?:-nocookie)?\.com\/embed\/([\w-]{6,})/i);
+      if (yt) return 'https://www.youtube.com/watch?v=' + yt[1];
+      return src;
+    }
+    m = text.match(/href="(https?:\/\/(?:www\.|mobile\.)?(?:twitter|x|threads|reddit|facebook)\.com\/[^"]*?(?:status|post|comments|posts|videos)[^"]*)"/i);
+    if (m) return m[1].replace(/&amp;/g, '&').replace(/\?ref_src=[^"]*$/, '');
+    m = text.match(/href="(https?:[^"]+)"/i);
+    return m ? m[1].replace(/&amp;/g, '&') : text;
+  }
   function info(value) {
     var parsed;
+    value = fromCode(value);
     try { parsed = new URL(String(value || '').trim()); } catch (_) { return null; }
     if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return null;
     var host = parsed.hostname.replace(/^www\./, '').toLowerCase();
@@ -336,5 +355,5 @@
       });
     });
   }
-  window.BBM_EMBED = { hydrateCards: hydrateCards, info: info, fetchMeta: fetchMeta, cardHtml: cardHtml, frameHtml: frameHtml, blockHtml: blockHtml, previewHtml: previewHtml, hydratePreviews: hydratePreviews };
+  window.BBM_EMBED = { fromCode: fromCode, hydrateCards: hydrateCards, info: info, fetchMeta: fetchMeta, cardHtml: cardHtml, frameHtml: frameHtml, blockHtml: blockHtml, previewHtml: previewHtml, hydratePreviews: hydratePreviews };
 })();
