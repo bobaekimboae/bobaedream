@@ -32,6 +32,10 @@ jobs:
           FOREIGN_NEWS_COLLECT_CONCURRENCY: "6"
           NEWS_TRANSLATE_ENDPOINT: ${{ secrets.NEWS_TRANSLATE_ENDPOINT }}
           NEWS_TRANSLATE_TOKEN: ${{ secrets.NEWS_TRANSLATE_TOKEN }}
+          IFRAMELY_API_KEY: ${{ secrets.IFRAMELY_API_KEY }}
+          IFRAMELY_MAX_URLS: "50"
+          IFRAMELY_CONCURRENCY: "3"
+          IFRAMELY_CACHE_TTL_HOURS: "24"
       - name: Sync Google Sheet
         run: npm run news:sync-sheet
         env:

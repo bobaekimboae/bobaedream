@@ -11,6 +11,7 @@ import {
   titleSimilarity,
 } from "../scripts/foreign-news/lib.mjs";
 import { buildSheetRows, sheetHeaders } from "../scripts/foreign-news/sheet-lib.mjs";
+import { pickIframelyPreview } from "../scripts/foreign-news/iframely.mjs";
 
 test("CSV parser keeps quoted commas and line breaks", () => {
   const rows = parseCsv('\uFEFFname,url,note\r\n"매체, A",https://example.com,"첫 줄\n둘째 줄"\r\n');
@@ -64,6 +65,27 @@ test("Google Sheet rows expose Korean display fields without an original-title c
   assert.deepEqual(rows[0].slice(0, 7), ["신차", "포르쉐", "911", "올리버 블루메", "", "테스트 매체", "포르쉐 신차 관련 해외 보도"]);
   assert.equal(rows[0][7], "첫 줄\n둘째 줄\n셋째 줄");
   assert.equal(rows[0][13], "https://example.com/news-1");
+});
+
+test("Iframely contributes only publisher-approved preview assets", () => {
+  assert.deepEqual(pickIframelyPreview({
+    meta: { site: "Example News", title: "Original title must not be used" },
+    links: {
+      thumbnail: [{ href: "https://cdn.example.com/article.jpg" }],
+      logo: [{ href: "https://cdn.example.com/logo.png" }],
+    },
+    access: { decision: { links: { allowed: true } } },
+  }), {
+    allowed: true,
+    image: "https://cdn.example.com/article.jpg",
+    logo: "https://cdn.example.com/logo.png",
+    site: "Example News",
+    status: "ready",
+  });
+  assert.equal(pickIframelyPreview({
+    links: { thumbnail: [{ href: "https://cdn.example.com/blocked.jpg" }] },
+    access: { decision: { links: { allowed: false } } },
+  }).image, "");
 });
 
 test("robots longest matching rule wins", () => {

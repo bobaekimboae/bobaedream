@@ -28,7 +28,9 @@
         title:String(row.embedTitle||'').trim(),
         description:String(row.embedDescription||'').trim(),
         image:String(row.embedImage||'').trim(),
+        logo:String(row.embedLogo||'').trim(),
         site:String(row.embedSite||row.source||'').trim(),
+        provider:String(row.embedProvider||'').trim(),
         lang:String(row.embedLang||row.originalLanguage||'').trim(),
         // 자동 수집 게시판은 저장된 메타데이터만 써서 브라우저의 외부 메타 API 요청 폭주를 막는다.
         metaReady:true

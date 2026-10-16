@@ -44,7 +44,7 @@ export function buildSheetRows(payload) {
       article.id || "",
       article.publishedAt || "",
       article.collectedAt || payload.generatedAt || "",
-      article.imageUrl || "",
+      article.previewImageUrl || article.imageUrl || "",
       article.canonicalUrl || "",
       article.originalLanguage || "",
       article.displayTranslationStatus || "",

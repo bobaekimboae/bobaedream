@@ -12,6 +12,7 @@ import {
   stableArticleId,
   titleSimilarity,
 } from "./lib.mjs";
+import { fetchIframelyPreview } from "./iframely.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const sourcePath = path.join(root, "data", "foreign-news", "sources.json");
@@ -24,7 +25,7 @@ const maxArticles = Math.max(20, Number(process.env.FOREIGN_NEWS_MAX_ARTICLES ||
 // RSS/Atom 제공 이미지 URL만 원격 표시한다. 이미지는 내려받거나 재호스팅하지 않는다.
 // 운영 중 긴급 차단이 필요하면 FOREIGN_NEWS_ALLOW_FEED_IMAGES=false 로 끌 수 있다.
 const allowFeedImages = process.env.FOREIGN_NEWS_ALLOW_FEED_IMAGES !== "false";
-const outputSchemaVersion = 4;
+const outputSchemaVersion = 5;
 const activeSources = registry.sources.filter((source) => source.status === "active" && source.feedUrl && ["rss", "atom", "sitemap"].includes(source.fetchType));
 const selectedSources = limit ? activeSources.slice(0, limit) : activeSources;
 
@@ -160,9 +161,32 @@ for (const article of articles) {
   }
 }
 
-let visible = representatives.slice(0, maxArticles);
+let previous = null;
+try { previous = JSON.parse(await readFile(jsonPath, "utf8")); } catch {}
+const previousByUrl = new Map((previous?.articles || []).map((article) => [article.canonicalUrl, article]));
+
+let visible = representatives.slice(0, maxArticles).map((article) => {
+  const cached = previousByUrl.get(article.canonicalUrl);
+  if (!cached) return article;
+  return {
+    ...article,
+    titleKo: cached.titleKo || "",
+    summaryKo: cached.summaryKo || "",
+    articleTypeKo: cached.articleTypeKo || "",
+    makesKo: cached.makesKo || [],
+    modelsKo: cached.modelsKo || [],
+    peopleKo: cached.peopleKo || [],
+    iframelyImage: cached.iframelyImage || "",
+    iframelyLogo: cached.iframelyLogo || "",
+    iframelySite: cached.iframelySite || "",
+    iframelyStatus: cached.iframelyStatus || "",
+    iframelyAccessAllowed: cached.iframelyAccessAllowed,
+    iframelyFetchedAt: cached.iframelyFetchedAt || "",
+  };
+});
 const translationEndpoint = process.env.NEWS_TRANSLATE_ENDPOINT || "";
-if (translationEndpoint && visible.length) {
+const translationTargets = visible.filter((article) => !article.titleKo || !article.summaryKo);
+if (translationEndpoint && translationTargets.length) {
   const response = await fetchWithTimeout(translationEndpoint, {
     method: "POST",
     timeoutMs: 30000,
@@ -172,7 +196,7 @@ if (translationEndpoint && visible.length) {
       ...(process.env.NEWS_TRANSLATE_TOKEN ? { authorization: `Bearer ${process.env.NEWS_TRANSLATE_TOKEN}` } : {}),
     },
     body: JSON.stringify({
-      articles: visible.map(({ id, originalTitle, originalSummary, originalLanguage }) => ({ id, originalTitle, originalSummary, originalLanguage })),
+      articles: translationTargets.map(({ id, originalTitle, originalSummary, originalLanguage }) => ({ id, originalTitle, originalSummary, originalLanguage })),
       outputSchema: {
         titleKo: "한국어 번역 제목",
         summaryKo: "줄바꿈으로 구분한 한국어 3줄 요약",
@@ -206,6 +230,45 @@ if (translationEndpoint && visible.length) {
   });
 }
 
+const iframelyApiKey = String(process.env.IFRAMELY_API_KEY || "").trim();
+const iframelyMaxUrls = Math.max(1, Number(process.env.IFRAMELY_MAX_URLS || 50));
+const iframelyConcurrency = Math.max(1, Math.min(5, Number(process.env.IFRAMELY_CONCURRENCY || 3)));
+const iframelyTtlMs = Math.max(1, Number(process.env.IFRAMELY_CACHE_TTL_HOURS || 24)) * 3600000;
+if (iframelyApiKey && visible.length) {
+  const now = Date.now();
+  const targetIndexes = visible
+    .map((article, index) => ({ article, index }))
+    .filter(({ article }) => !article.iframelyFetchedAt || now - (Date.parse(article.iframelyFetchedAt) || 0) >= iframelyTtlMs)
+    .slice(0, iframelyMaxUrls);
+  let iframelyCursor = 0;
+  async function iframelyWorker() {
+    while (iframelyCursor < targetIndexes.length) {
+      const target = targetIndexes[iframelyCursor++];
+      const fetchedAt = new Date().toISOString();
+      try {
+        const preview = await fetchIframelyPreview(target.article.canonicalUrl, iframelyApiKey);
+        visible[target.index] = {
+          ...target.article,
+          iframelyImage: preview.image,
+          iframelyLogo: preview.logo,
+          iframelySite: preview.site,
+          iframelyStatus: preview.status,
+          iframelyAccessAllowed: preview.allowed,
+          iframelyFetchedAt: fetchedAt,
+        };
+      } catch (error) {
+        visible[target.index] = {
+          ...target.article,
+          iframelyStatus: String(error.message || "iframely-error"),
+          iframelyFetchedAt: fetchedAt,
+        };
+      }
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(iframelyConcurrency, targetIndexes.length) }, () => iframelyWorker()));
+  console.log(`Iframely enriched ${targetIndexes.length} URLs (mode=discover, use=reference)`);
+}
+
 visible = visible.map((article) => ({
   ...article,
   displayArticleTypeKo: article.articleTypeKo || article.topic || "자동차 일반",
@@ -217,14 +280,14 @@ visible = visible.map((article) => ({
   displayTitleKo: displayTitleKo(article),
   displaySummaryKo: translatedSummaryLines(article),
   displayTranslationStatus: article.titleKo ? "번역완료" : "한국어 메타 대체",
+  previewImageUrl: article.iframelyImage || (allowFeedImages && article.imageUsage === "feed-provided-review" ? article.imageUrl : ""),
+  previewImageSource: article.iframelyImage ? "iframely-data-api" : (article.imageUrl ? "feed" : "none"),
 }));
 
-let previous = null;
-try { previous = JSON.parse(await readFile(jsonPath, "utf8")); } catch {}
 const signature = sha1(JSON.stringify({
   outputSchemaVersion,
-  articles: visible.map(({ id, originalTitle, originalSummary, titleKo, summaryKo, displayArticleTypeKo, displayMakesKo, displayModelsKo, displayPeopleKo, displayTitleKo, displaySummaryKo, imageUrl, relatedCount }) => ({
-    id, originalTitle, originalSummary, titleKo, summaryKo, displayArticleTypeKo, displayMakesKo, displayModelsKo, displayPeopleKo, displayTitleKo, displaySummaryKo, imageUrl, relatedCount,
+  articles: visible.map(({ id, originalTitle, originalSummary, titleKo, summaryKo, displayArticleTypeKo, displayMakesKo, displayModelsKo, displayPeopleKo, displayTitleKo, displaySummaryKo, previewImageUrl, iframelyLogo, iframelyStatus, relatedCount }) => ({
+    id, originalTitle, originalSummary, titleKo, summaryKo, displayArticleTypeKo, displayMakesKo, displayModelsKo, displayPeopleKo, displayTitleKo, displaySummaryKo, previewImageUrl, iframelyLogo, iframelyStatus, relatedCount,
   })),
 }));
 if (previous?.signature === signature) {
@@ -242,13 +305,14 @@ const payload = {
   collectedSourceCount: selectedSources.length,
   articleCount: visible.length,
   translationMode: translationEndpoint ? "endpoint" : "korean-metadata-fallback",
+  embedPreviewMode: iframelyApiKey ? "iframely-data-api" : "feed-fallback",
   articles: visible,
 };
 await writeFile(jsonPath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
 
 const topics = ["전체", ...new Set(visible.map((article) => article.topic))];
 const rows = visible.map((article) => {
-  const previewImage = allowFeedImages && article.imageUsage === "feed-provided-review" ? article.imageUrl : "";
+  const previewImage = article.previewImageUrl;
   const titleKo = article.displayTitleKo;
   const summaryKo = article.displaySummaryKo;
   return ({
@@ -269,7 +333,9 @@ const rows = visible.map((article) => {
   embedTitle: titleKo,
   embedDescription: summaryKo,
   embedImage: previewImage,
-  embedSite: article.source,
+  embedLogo: article.iframelyLogo || "",
+  embedSite: article.iframelySite || article.source,
+  embedProvider: article.iframelyImage ? "Iframely" : "RSS",
   embedLang: article.originalLanguage,
   views: "0",
   comments: "0",
