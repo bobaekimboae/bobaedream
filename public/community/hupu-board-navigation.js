@@ -6,6 +6,7 @@
     {id:'free',displayName:'자유게시판',shortName:'자유',section:'게시판',topicKey:'전체',avatarLabel:'자유',avatarColor:'#2457d6',avatarAccent:'#6ea8ff'},
     {id:'car-news',displayName:'자동차뉴스',shortName:'자동차뉴스',section:'게시판',topicKey:'전체',avatarLabel:'NEWS',avatarColor:'#164e9b',avatarAccent:'#55a5f5'},
     {id:'foreign-car-news',displayName:'해외 자동차뉴스',shortName:'해외뉴스',section:'게시판',topicKey:'전체',avatarLabel:'WORLD',avatarColor:'#0f4c5c',avatarAccent:'#3fb7a7'},
+    {id:'brand-car-info',displayName:'브랜드 자동차 정보',shortName:'브랜드정보',section:'게시판',topicKey:'전체',avatarLabel:'BRAND',avatarColor:'#263238',avatarAccent:'#90a4ae'},
     {id:'vehicle-review',displayName:'차량리뷰',shortName:'차량리뷰',section:'게시판',topicKey:'전체',avatarLabel:'리뷰',avatarColor:'#1f2937',avatarAccent:'#7c8698'},
     {id:'fuel-economy',displayName:'연비·전비',shortName:'연비전비',section:'게시판',topicKey:'전체',avatarLabel:'효율',avatarColor:'#1f2937',avatarAccent:'#7c8698'},
     {id:'politics',displayName:'정치/시사게시판',shortName:'정치시사',section:'게시판',topicKey:'전체',avatarLabel:'시사',avatarColor:'#5031a9',avatarAccent:'#9678e8'},

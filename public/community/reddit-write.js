@@ -7,6 +7,7 @@
   var STORAGE_KEY='bbm.community.redditWriteDraft.v1';
   var communities=[
     {name:'자동차뉴스',members:'12.8만 명',letter:'N'},
+    {name:'브랜드 자동차 정보',members:'브랜드 정보',letter:'B'},
     {name:'자유게시판',members:'48.2만 명',letter:'자'},
     {name:'국산차 오너톡',members:'19.4만 명',letter:'국'},
     {name:'수입차 라운지',members:'11.7만 명',letter:'수'},

@@ -10,6 +10,12 @@ const boards = {
   'best': { displayName: '베스트글', idStart: 9300001, defaultView: 'lounge-best-rank' },
   'car-news': { displayName: '자동차뉴스', idStart: 9100001, defaultView: 'naver-discussion' },
   'vehicle-review': { displayName: '차량리뷰', idStart: 9200001 },
+  'brand-car-info': {
+    displayName: '브랜드 자동차 정보',
+    idStart: 9500001,
+    defaultView: 'naver-discussion',
+    topics: ['전체', '국산 브랜드', '수입 브랜드', '전기차 브랜드', '상용차 브랜드', '클래식 브랜드', '신규 브랜드', '안내'],
+  },
 };
 const board = process.argv[2];
 if (!boards[board]) {
@@ -21,10 +27,11 @@ const csvPath = path.join(root, 'data', 'boards', `${board}.csv`);
 const outPath = path.join(root, 'public', 'community', 'data', `board-${board}.js`);
 const commonColumns = ['id', 'category', 'title', 'summary', 'body', 'source', 'sourceUrl', 'author', 'publishedAt', 'thumbnail', 'images', 'views', 'comments', 'likes', 'tags'];
 const reviewColumns = ['reviewId', 'modelId', 'brand', 'model', 'trim', 'powertrain', 'rating', 'owner', 'ownershipLabel', 'benchmark', 'location', 'ratings', 'brandLogo'];
+const brandInfoColumns = ['brand', 'manufacturer', 'country', 'foundedYear', 'headquarters', 'officialUrl', 'brandType', 'currentStatus', 'aliases', 'logo'];
 // 선택 열: embed = 본문에 넣을 임베드 주소(인스타그램·유튜브·레딧·기사), | 로 여러 개
 // summary3 = 3줄 요약(| 로 세 줄)
 const optionalColumns = ['embed', 'embedTitle', 'embedDescription', 'embedImage', 'embedSite', 'embedLogo', 'summary3', 'pollTitle', 'pollOptions', 'pollNote'];
-const columns = commonColumns.concat(reviewColumns, optionalColumns);
+const columns = commonColumns.concat(reviewColumns, brandInfoColumns, optionalColumns);
 
 function parseCsv(text) {
   const rows = [];
@@ -47,10 +54,14 @@ function parseCsv(text) {
 }
 
 const [header, ...lines] = parseCsv(fs.readFileSync(csvPath, 'utf8').replace(/^﻿/, ''));
-const requiredColumns = board === 'vehicle-review' ? columns : commonColumns;
+const requiredColumns = board === 'vehicle-review'
+  ? commonColumns.concat(reviewColumns)
+  : board === 'brand-car-info'
+    ? commonColumns.concat(brandInfoColumns)
+    : commonColumns;
 const missing = requiredColumns.filter((c) => !header.includes(c));
 if (missing.length) { console.error(`CSV에 없는 열: ${missing.join(', ')}`); process.exit(1); }
-const { displayName, idStart, defaultView } = boards[board];
+const { displayName, idStart, defaultView, topics } = boards[board];
 const seen = new Set();
 const problems = [];
 const rows = lines.map((line, index) => {
@@ -75,6 +86,7 @@ const body = `(function(){
     displayName:${JSON.stringify(displayName)},
     idStart:${idStart},
     defaultView:${JSON.stringify(defaultView || '')},
+    topics:${JSON.stringify(topics || [])},
     updatedAt:${JSON.stringify(new Date().toISOString())},
     rows:${JSON.stringify(rows, null, 2).replace(/\n/g, '\n    ')}
   };
