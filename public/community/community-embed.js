@@ -43,6 +43,7 @@
         /* 스레드처럼 본문(캡션) 없이 계정 줄 + 사진·영상만: 캡션 없는 embed/ 를 쓰고 아래 반응 줄은 잘라 낸다(crop) */
         var ig = frame(clean + 'embed/', 'Instagram', type === 'reel' ? 'Instagram 릴스' : 'Instagram 게시물', true, clean);
         ig.crop = 'instagram';
+        if (type === 'reel') ig.reel = true; /* 릴스는 스레드 앱처럼 9:16 영상만(계정 줄·하단 반응 줄 잘라냄) */
         return ig;
       }
     }
@@ -198,6 +199,10 @@
   function frameHtml(item, opts) {
     /* 레딧 validate_secure_oembed처럼 https 주소만 iframe으로, 아니면 링크 카드 */
     if (!/^https:\/\//.test(item.src || '')) return cardHtml(item);
+    if (item.reel && /instagram\.com\//.test(item.src || '')) {
+      var rsrc = String(item.src).replace(/embed\/captioned\/?$/, 'embed/');
+      return '<div class="bbm-embed-reel"><iframe data-embed-reel src="' + esc(rsrc) + '" title="' + esc(item.title || 'Instagram 릴스') + '" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen scrolling="no" sandbox="allow-scripts allow-same-origin allow-popups allow-presentation"></iframe></div>';
+    }
     var crop = item.crop === 'instagram' || /instagram\.com\//.test(item.src || '');
     var src = crop ? String(item.src).replace(/embed\/captioned\/?$/, 'embed/') : item.src;
     var yt = /youtube(-nocookie)?\.com\/embed\//.test(src);
@@ -280,7 +285,7 @@
     /* 틱톡 계정 카드는 재생할 영상이 아니라 소개 카드라서 미리보기 없이 바로 보여 준다 */
     if (item.profile || !isPlayable(item)) return frameHtml(item);
     var label = item.provider === 'YouTube' ? (item.tall ? 'YouTube 쇼츠' : 'YouTube') : item.profile ? 'TikTok ' + item.handle : item.provider;
-    return '<button type="button" class="bbm-embed-preview is-' + kindOf(item) + '" data-embed-activate="' + esc(item.url) + '" aria-label="' + esc(label) + ' 재생">' +
+    return '<button type="button" class="bbm-embed-preview is-' + kindOf(item) + (item.reel ? ' is-reel' : '') + '" data-embed-activate="' + esc(item.url) + '" aria-label="' + esc(label) + ' 재생">' +
       (item.image ? '<img src="' + esc(item.image) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">' : '') +
       '<span class="bbm-embed-play" aria-hidden="true"></span><span class="bbm-embed-label">' + esc(label) + '</span></button>';
   }
