@@ -203,51 +203,6 @@
     var info=list.querySelector('[data-ranking-info]'),popover=list.querySelector('[data-ranking-popover]');
     info.addEventListener('click',function(){var open=popover.hidden;popover.hidden=!open;info.setAttribute('aria-expanded',String(open));});
   }
-  var sportsSort='latest';
-  var sportsExcludePhoto=true;
-  var sportsLeague='리그 전체';
-  var sportsLeagues=['리그 전체','프리미어리그','라리가','분데스리가','세리에A','UEFA','해외축구 일반'];
-  function sportsLeagueFor(post,index){return sportsLeagues[1+(Math.abs(Number(post.id)||index)%6)];}
-  function sportsIsPhotoFeature(post){return Number(post.photos||0)>=10;}
-  function sportsThumb(post,index){
-    var images=mediaSources(post,index).filter(function(item){return item.kind==='image'&&item.src;});
-    return images.length?images[0].src:(post.thumb||'media/discussion-scenarios-v2/post-'+String(index%60+1).padStart(2,'0')+'.webp');
-  }
-  function sportsCard(post,index){
-    var title=cleanTitle(post.title);
-    var fallback='media/discussion-scenarios-v2/post-'+String(index%60+1).padStart(2,'0')+'.webp';
-    var oneLine=index%3===0||title.length<18;
-    var boardName=categoryFor(post)+'게시판';
-    var recommends=Number(post.likes)||Math.max(0,Math.round(Number(post.view||0)/23)+Number(post.reply||0));
-    return '<a class="naverSportsRow '+(oneLine?'is-one-line':'is-two-line')+'" href="'+detailUrl(post)+'" data-sports-news-post="'+esc(post.id)+'"><span class="naverSportsThumb"><img src="'+esc(sportsThumb(post,index))+'" data-fallback="'+fallback+'" alt="" loading="'+(index<6?'eager':'lazy')+'" onerror="this.onerror=null;this.src=this.dataset.fallback"></span><span class="naverSportsCopy"><span class="naverSportsBoard">'+esc(boardName)+'</span><span class="naverSportsIdentity"><img src="'+esc(avatarFor(post,index))+'" alt=""><b>'+esc(post.user||'보배드림 회원')+'</b><time aria-label="등록일">'+esc(post.time||'방금 전')+'</time></span><strong>'+esc(title)+'</strong><span class="naverSportsMeta"><span class="naverSportsRecommend"><img src="assets/chzzk-upvote.svg" alt="" aria-hidden="true"><span class="blind">추천</span>'+metric(recommends)+'</span><span class="naverSportsViews"><span>조회</span> '+metric(post.view)+'</span></span></span></a>';
-  }
-  function sportsGroups(data){
-    var groups=[];
-    for(var start=0;start<data.length;start+=6){
-      groups.push('<section class="naverSportsGroup">'+data.slice(start,start+6).map(function(post,index){return sportsCard(post,start+index);}).join('')+'</section>');
-    }
-    return groups.join('');
-  }
-  function renderNaverSports(){
-    var data=posts().map(function(post,index){return{post:post,index:index};});
-    if(sportsExcludePhoto)data=data.filter(function(item){return !sportsIsPhotoFeature(item.post);});
-    if(sportsLeague!=='리그 전체')data=data.filter(function(item){return sportsLeagueFor(item.post,item.index)===sportsLeague;});
-    if(sportsSort==='popular')data.sort(function(a,b){var av=Number(a.post.view||0)+Number(a.post.reply||0)*20,bv=Number(b.post.view||0)+Number(b.post.reply||0)*20;return bv-av||a.index-b.index;});
-    data=data.map(function(item){return item.post;});
-    mediaCarousels.forEach(function(api){api.destroy();});
-    mediaCarousels=[];
-    phone.classList.remove('compactMode','feedCafeMode','cafeLeftMode','redditFeedMode','chototFeedMode','chototBoardFeedMode','chototDealerFeedMode','naverDiscussionMode','naverDiscussionThumbMode','loungeBestMode','loungeBestCleanMode','loungeBestLeftMode','naverRankingMode');
-    phone.classList.add('naverSportsMode');
-    typeLabel.textContent='네이버 스포츠뉴스형';
-    list.className='list naverSportsList';
-    var controls='<section class="naverSportsControls"><div class="naverSportsControlTop"><button class="naverSportsLeagueButton" type="button" data-sports-league-toggle aria-expanded="false"><span>'+esc(sportsLeague)+'</span><i aria-hidden="true"></i></button><div class="naverSportsSort" role="tablist" aria-label="뉴스 정렬"><button type="button" role="tab" aria-selected="'+(sportsSort==='latest')+'" class="'+(sportsSort==='latest'?'on':'')+'" data-sports-sort="latest">최신순</button><button type="button" role="tab" aria-selected="'+(sportsSort==='popular')+'" class="'+(sportsSort==='popular'?'on':'')+'" data-sports-sort="popular">인기순</button></div></div><button class="naverSportsPhotoToggle" type="button" role="checkbox" aria-checked="'+sportsExcludePhoto+'" data-sports-photo-toggle><span class="naverSportsCheck" aria-hidden="true"></span>화보기사 제외</button><div class="naverSportsLeagueMenu" data-sports-league-menu hidden>'+sportsLeagues.map(function(league){return '<button type="button" class="'+(league===sportsLeague?'on':'')+'" data-sports-league="'+esc(league)+'"><span class="naverSportsLeagueIcon" aria-hidden="true"></span><span>'+esc(league)+'</span></button>';}).join('')+'</div></section>';
-    list.innerHTML=controls+'<div class="naverSportsGroups">'+(data.length?sportsGroups(data):'<div class="naverSportsEmpty">선택한 조건의 뉴스가 없습니다.</div>')+'</div>';
-    var leagueToggle=list.querySelector('[data-sports-league-toggle]'),leagueMenu=list.querySelector('[data-sports-league-menu]');
-    leagueToggle.addEventListener('click',function(){var open=leagueMenu.hidden;leagueMenu.hidden=!open;leagueToggle.setAttribute('aria-expanded',String(open));});
-    list.querySelectorAll('[data-sports-league]').forEach(function(button){button.addEventListener('click',function(){sportsLeague=button.dataset.sportsLeague;renderNaverSports();});});
-    list.querySelectorAll('[data-sports-sort]').forEach(function(button){button.addEventListener('click',function(){sportsSort=button.dataset.sportsSort;renderNaverSports();});});
-    list.querySelector('[data-sports-photo-toggle]').addEventListener('click',function(){sportsExcludePhoto=!sportsExcludePhoto;renderNaverSports();});
-  }
   var currentVariant='';
   function feedBody(){
     var data=posts();
@@ -267,16 +222,11 @@
       if(bestView==='naver-ranking-news')renderNaverRanking();else renderLoungeBest(bestView);
       return;
     }
-    if(variant==='naver-sports-news'){
-      currentVariant='naver-sports-news';
-      renderNaverSports();
-      return;
-    }
     currentVariant=variant==='thumb'?'thumb':'';
     mediaCarousels.forEach(function(api){api.destroy();});
     mediaCarousels=[];
     syncHeadwords();
-    phone.classList.remove('compactMode','feedCafeMode','cafeLeftMode','redditFeedMode','chototFeedMode','chototBoardFeedMode','chototDealerFeedMode','loungeBestMode','loungeBestCleanMode','loungeBestLeftMode','naverRankingMode','naverSportsMode');
+    phone.classList.remove('compactMode','feedCafeMode','cafeLeftMode','redditFeedMode','chototFeedMode','chototBoardFeedMode','chototDealerFeedMode','loungeBestMode','loungeBestCleanMode','loungeBestLeftMode','naverRankingMode');
     phone.classList.add('naverDiscussionMode');
     phone.classList.toggle('naverDiscussionThumbMode',currentVariant==='thumb');
     typeLabel.textContent=currentVariant==='thumb'?'네이버 토론 · 좌측 썸네일':'네이버 토론형';
@@ -431,6 +381,6 @@
   if(activeBoardTable!=='vehicle-review'){
     if(startMode==='naver-discussion')render();
     else if(startMode==='naver-discussion-thumb')render('thumb');
-    else if(startMode==='lounge-best-rank'||startMode==='lounge-best-clean'||startMode==='lounge-best-left'||startMode==='naver-ranking-news'||startMode==='naver-sports-news')render(startMode);
+    else if(startMode==='lounge-best-rank'||startMode==='lounge-best-clean'||startMode==='lounge-best-left'||startMode==='naver-ranking-news')render(startMode);
   }
 })();
