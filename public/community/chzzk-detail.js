@@ -227,7 +227,9 @@ function setRegularContent() {
   $('#authorLevel').textContent = post.level || 17;
   $('#authorDate').textContent = post.time || post.date || '7시간 전';
   $('#authorView').textContent = Number(post.view ?? 34).toLocaleString();
-  $('#score').textContent = Number(post.likes ?? 16);
+  const recommendationCount = Number(post.likes ?? 16);
+  $('#score').textContent = recommendationCount;
+  $('#authorLike').textContent = recommendationCount.toLocaleString();
   $('#latestAuthor').textContent = post.user || '쿠로토라';
   if (isLongNotice) {
     document.body.classList.add('isLongNotice');
@@ -362,7 +364,9 @@ function setNoticeMode() {
 
 function updateVote() {
   const base = Number(post.likes ?? 16);
-  $('#score').textContent = base + (up ? 1 : 0) - (down ? 1 : 0);
+  const recommendationCount = base + (up ? 1 : 0) - (down ? 1 : 0);
+  $('#score').textContent = recommendationCount;
+  $('#authorLike').textContent = recommendationCount.toLocaleString();
   $('#upBtn').classList.toggle('active', up);
   $('#downBtn').classList.toggle('active', down);
   $('#upBtn').setAttribute('aria-pressed', String(up));
