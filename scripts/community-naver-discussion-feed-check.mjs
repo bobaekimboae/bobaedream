@@ -7,7 +7,7 @@ const url = `${baseUrl}/community/naver-cafe-list.html?view=naver-discussion`;
 const widths = [360, 390, 412];
 const browser = await chromium.launch({ headless: true });
 
-await Promise.all(Array.from({ length: 30 }, (_, index) =>
+await Promise.all(Array.from({ length: 60 }, (_, index) =>
   access(resolve(`public/community/media/discussion-scenarios-v2/post-${String(index + 1).padStart(2, "0")}.webp`))
 ));
 
@@ -35,6 +35,7 @@ try {
         .filter((button) => /버프|너프/.test(button.textContent || "")).length,
       cards: document.querySelectorAll(".naverDiscussionCard").length,
       mediaShells: document.querySelectorAll(".naverDiscussionMediaShell").length,
+      textOnlyCards: Array.from(document.querySelectorAll(".naverDiscussionCard")).filter((card) => !card.querySelector(".naverDiscussionMediaShell")).length,
       multiRails: document.querySelectorAll(".naverDiscussionMediaShell.is-multi").length,
       singleRails: document.querySelectorAll(".naverDiscussionMediaShell:not(.is-multi)").length,
       multiItems: document.querySelector(".naverDiscussionMediaShell.is-multi")?.querySelectorAll(".naverDiscussionMediaItem").length || 0,
@@ -43,6 +44,9 @@ try {
       videos: document.querySelectorAll(".naverDiscussionMediaItem[data-kind='video'] video").length,
       videoButtons: document.querySelectorAll("[data-discussion-video]").length,
       brokenImages: Array.from(document.querySelectorAll(".naverDiscussionMediaItem img")).filter((image) => image.complete && image.naturalWidth === 0).length,
+      brokenAvatars: Array.from(document.querySelectorAll(".naverDiscussionAvatar")).filter((image) => image.complete && image.naturalWidth === 0).length,
+      legacyAvatars: Array.from(document.querySelectorAll(".naverDiscussionAvatar")).filter((image) => !image.src.includes("/community/assets/profile-avatars/")).length,
+      uniqueAvatars: new Set(Array.from(document.querySelectorAll(".naverDiscussionAvatar"), (image) => image.src)).size,
       eagerImages: document.querySelectorAll(".naverDiscussionMediaItem img[fetchpriority='high']").length,
       lazyImages: document.querySelectorAll(".naverDiscussionMediaItem img[loading='lazy']").length,
       validDetailLinks: Array.from(document.querySelectorAll(".naverDiscussionCard")).every((card) => {
@@ -54,14 +58,14 @@ try {
       scrollBehavior: getComputedStyle(document.querySelector(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaRail")).scrollBehavior,
       snapStop: getComputedStyle(document.querySelector(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaItem")).scrollSnapStop,
       pagination: document.querySelectorAll(".naverDiscussionMediaCount,.naverDiscussionMediaDots").length,
-      primaryMediaMatches: Array.from(document.querySelectorAll(".naverDiscussionCard")).every((card) => {
+      primaryMediaMatches: Array.from(document.querySelectorAll(".naverDiscussionCard")).filter((card) => card.querySelector(".naverDiscussionMediaShell")).every((card) => {
         const id = String(card.dataset.discussionPost).padStart(2, "0");
         const image = card.querySelector(".naverDiscussionMediaItem:first-child > .naverDiscussionMediaLink img");
         const video = card.querySelector(".naverDiscussionMediaItem:first-child > video");
         const source = image?.src || video?.poster || "";
         return new URL(source, location.href).pathname.endsWith(`/community/media/discussion-scenarios-v2/post-${id}.webp`);
       }),
-      uniquePrimaryMedia: new Set(Array.from(document.querySelectorAll(".naverDiscussionCard"), (card) => {
+      uniquePrimaryMedia: new Set(Array.from(document.querySelectorAll(".naverDiscussionCard")).filter((card) => card.querySelector(".naverDiscussionMediaShell")).map((card) => {
         const image = card.querySelector(".naverDiscussionMediaItem:first-child > .naverDiscussionMediaLink img");
         const video = card.querySelector(".naverDiscussionMediaItem:first-child > video");
         return image?.src || video?.poster || "";
@@ -84,16 +88,20 @@ try {
     if (measurements.hotModules !== 0) throw new Error(`${width}px: HOT 모듈이 남아 있음`);
     if (measurements.votes !== measurements.cards * 2) throw new Error(`${width}px: 버프·너프 아이콘 개수 불일치`);
     if (measurements.visibleVoteLabels !== 0) throw new Error(`${width}px: 버프·너프 텍스트가 노출됨`);
-    if (measurements.cards !== 30) throw new Error(`${width}px: 게시물 카드 수 불일치 (${measurements.cards})`);
-    if (measurements.mediaShells !== 30) throw new Error(`${width}px: 게시물별 대표 미디어 수 불일치 (${measurements.mediaShells})`);
-    if (measurements.multiRails < 1) throw new Error(`${width}px: 다중 사진 레일 없음`);
-    if (measurements.singleRails < 1) throw new Error(`${width}px: 단일 사진 카드 없음`);
+    if (measurements.cards !== 60) throw new Error(`${width}px: 게시물 카드 수 불일치 (${measurements.cards})`);
+    if (measurements.mediaShells !== 42) throw new Error(`${width}px: 미디어 카드 수 불일치 (${measurements.mediaShells}/42)`);
+    if (measurements.textOnlyCards !== 18) throw new Error(`${width}px: 텍스트 전용 카드 수 불일치 (${measurements.textOnlyCards}/18)`);
+    if (measurements.multiRails !== 30) throw new Error(`${width}px: 다중 사진 카드 수 불일치 (${measurements.multiRails}/30)`);
+    if (measurements.singleRails !== 12) throw new Error(`${width}px: 단일 사진·영상 카드 수 불일치 (${measurements.singleRails}/12)`);
     if (measurements.multiItems < 2) throw new Error(`${width}px: 다중 사진 수 부족`);
     if (measurements.mediaLinks < 1) throw new Error(`${width}px: 사진 상세 링크 없음`);
     if (measurements.mediaRatios < 3) throw new Error(`${width}px: 사진 비율 다양성 부족`);
-    if (measurements.videos !== 4) throw new Error(`${width}px: 영상 카드 수 불일치 (${measurements.videos})`);
+    if (measurements.videos !== 8) throw new Error(`${width}px: 영상 카드 수 불일치 (${measurements.videos})`);
     if (measurements.videoButtons !== measurements.videos) throw new Error(`${width}px: 영상 재생 버튼 수 불일치`);
     if (measurements.brokenImages !== 0) throw new Error(`${width}px: 깨진 미디어 이미지 ${measurements.brokenImages}개`);
+    if (measurements.brokenAvatars !== 0) throw new Error(`${width}px: 깨진 프로필 이미지 ${measurements.brokenAvatars}개`);
+    if (measurements.legacyAvatars !== 0) throw new Error(`${width}px: 기존 프로필 자산이 아닌 이미지 ${measurements.legacyAvatars}개`);
+    if (measurements.uniqueAvatars < 30) throw new Error(`${width}px: 프로필 이미지 종류 부족 (${measurements.uniqueAvatars})`);
     if (measurements.eagerImages !== 1) throw new Error(`${width}px: 첫 이미지 우선 로딩 수 불일치 (${measurements.eagerImages})`);
     if (measurements.lazyImages < 1) throw new Error(`${width}px: 후속 이미지 지연 로딩 없음`);
     if (!measurements.validDetailLinks) throw new Error(`${width}px: 제목 또는 사진의 상세 ID 연결 오류`);
@@ -102,13 +110,19 @@ try {
     if (measurements.snapStop !== "normal") throw new Error(`${width}px: 카드마다 강제 정지가 남아 있음 (${measurements.snapStop})`);
     if (measurements.pagination !== 0) throw new Error(`${width}px: 페이지 번호 또는 도트가 남아 있음`);
     if (!measurements.primaryMediaMatches) throw new Error(`${width}px: 게시물 ID와 대표 이미지 매핑 불일치`);
-    if (measurements.uniquePrimaryMedia !== 30) throw new Error(`${width}px: 대표 이미지 중복 (${measurements.uniquePrimaryMedia}/30)`);
+    if (measurements.uniquePrimaryMedia !== 42) throw new Error(`${width}px: 미디어 카드 대표 이미지 중복 (${measurements.uniquePrimaryMedia}/42)`);
     if (measurements.unrelatedMedia !== 0) throw new Error(`${width}px: 무관한 외부·슈퍼카 이미지 ${measurements.unrelatedMedia}개`);
     if (measurements.overflow !== 0) throw new Error(`${width}px: 가로 넘침 ${measurements.overflow}px`);
 
     if (width === 390) {
       await mkdir("reports/naver-discussion-feed-1016", { recursive: true });
       await page.screenshot({ path: "reports/naver-discussion-feed-1016/implementation-390x844.png", fullPage: false });
+      await page.locator('[data-discussion-post="31"]').scrollIntoViewIfNeeded();
+      await page.waitForTimeout(100);
+      await page.screenshot({ path: "reports/naver-discussion-feed-1016/implementation-post31-390x844.png", fullPage: false });
+      await page.locator('[data-discussion-post="60"]').scrollIntoViewIfNeeded();
+      await page.waitForTimeout(100);
+      await page.screenshot({ path: "reports/naver-discussion-feed-1016/implementation-post60-390x844.png", fullPage: false });
     }
 
     const rail = page.locator(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaRail").first();
@@ -162,7 +176,7 @@ try {
     const commentUrl = new URL(page.url());
     if (commentUrl.searchParams.get("id") !== commentId || commentUrl.hash !== "#comments") throw new Error(`${width}px: 댓글 상세 이동 실패`);
 
-    console.log(`PASS ${width}px · 30 scenario media · cards/media ${measurements.cards}/${measurements.mediaShells} · primary mapping 30/30 · unrelated 0 · single/multi ${measurements.singleRails}/${measurements.multiRails} · ratios ${measurements.mediaRatios} · videos ${measurements.videos} · free native scroll · pagination 0 · overflow 0`);
+    console.log(`PASS ${width}px · cards 60 · text/media ${measurements.textOnlyCards}/${measurements.mediaShells} · primary mapping 42/42 · avatars ${measurements.uniqueAvatars} local · single/multi ${measurements.singleRails}/${measurements.multiRails} · videos ${measurements.videos} · free native scroll · pagination 0 · overflow 0`);
     await page.close();
   }
 } finally {

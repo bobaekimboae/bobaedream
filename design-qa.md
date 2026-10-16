@@ -28,6 +28,35 @@ final result: passed
 
 ---
 
+# 네이버 토론형 후속 시나리오 30개 추가 QA · 2026-10-16
+
+- source visual truth: 공개 토론형 시안 390×844에서 카드·미디어·가로 스크롤·반응 아이콘 배치를 직접 확인했다.
+- browser-rendered implementation: `community/naver-cafe-list.html?view=naver-discussion`.
+- viewport and density: 360 / 390 / 412 CSS px, DPR 1.
+- content: 기존 30개에 전기차 충전·중고차 점검·정비·블랙박스·캠핑·세차·타이어·안전 시나리오 30개를 추가해 총 60개다.
+- media: 게시물별 전용 WebP 대표 이미지 60개를 1:1 연결했다. 다중 사진은 관련 시나리오끼리만 묶고 네이티브 자유 스크롤을 유지했다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- primary mapping: 게시물 ID와 `post-01.webp`~`post-60.webp` 대표 이미지 60/60 일치, 중복 0.
+- interaction: 제목·사진 상세 진입, 댓글 진입, 반응 아이콘 상호 배타 선택, 영상 재생 전환을 검증했다.
+- carousel: 강제 스냅·페이지 번호·도트가 없고 가변 폭 사진 레일이 끊김 없이 자유 이동한다.
+- loading: 첫 대표 이미지만 eager/high priority, 나머지는 lazy loading이다.
+- responsive: 360 / 390 / 412에서 가로 넘침 0, 깨진 이미지 0, 콘솔 오류 0을 기준으로 검사한다.
+
+final result: passed
+
+## 텍스트형 혼합·기존 프로필 복원
+
+- 피드 60개를 텍스트 전용 18개 / 미디어 포함 42개로 재분류했다.
+- 사진 없이 성립하는 보험·비용·소프트웨어·정비 질문은 본문을 별도로 작성하고 미디어 영역을 렌더링하지 않는다.
+- 미디어 포함 42개는 단일 이미지·영상 12개 / 다중 미디어 30개이며 영상 8개를 유지한다.
+- 작성자 프로필은 등급 배지형 PNG 대신 기존 `assets/profile-avatars/avatar-01.svg`~`avatar-48.svg`로 복원했다.
+- 360 / 390 / 412px에서 텍스트/미디어 18/42, 대표 이미지 42/42, 로컬 프로필 34종, 깨짐·가로 넘침 0을 확인했다.
+
+---
+
 # 커뮤니티 치지직형 인기글 고정 행 QA · 2026-10-16
 
 - source visual truth: 첨부 이미지 `1000018598.jpg`의 게시판 상단 고정 게시물 영역 (592 × 1280px)
