@@ -5029,3 +5029,20 @@ final result: passed
 - focused comparison: `artifacts/community-chzzk-list-parity-1017/comparison-list-focused.png`.
 - automated verification: `node scripts/community-chzzk-list-parity-check.mjs`, `npm run test:sites`, `npm run build` 통과.
 - final result: passed.
+
+
+---
+
+## 연비·전비 독립 게시판 50대 · 2026-10-17
+
+- source visual truth: `artifacts/fuel-economy-crosscheck-20261017/09-dongchedi-ev-form.png`, `07-dongchedi-ice-form.png`, `01-dongchedi-current.png`.
+- implementation evidence: `40a-public-list-all-viewport.png`, `50-public-detail-ev.png`, `25-public-writer-ev.png`.
+- combined comparison evidence: `99-writer-ev-side-by-side.png`.
+- viewport: 390×844 모바일 및 1440×900 PC.
+- scope: 독립 연비·전비 목록 50건, 모델별 상세, 등록 폼, 동력원 필터, 댓글/반응, 격리 저장소 등록 흐름.
+- data verification: 서로 다른 모델 ID 50개, ICE 17 / EV 14 / PHEV 11 / HEV 8, 필수값 누락 0, 깨진 이미지 0, 콘솔 오류 0.
+- variable fields: EV=전비+완충거리+온도, PHEV=전비+연비, HEV/ICE=연비. 차량 선택 카탈로그도 동일한 50개 모델이다.
+- design comparison: 원본의 사진→제목/내용→차량→지역→주행거리→가변 입력 순서를 유지하고, 노란 CTA만 사용자 지정 보배드림 블랙으로 치환했다.
+- deployed commit: `79f6c63c76ca7e6ae3cf6f5bfc8a8518b48dfed7`.
+
+final result: passed
