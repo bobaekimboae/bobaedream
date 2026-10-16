@@ -163,9 +163,9 @@
     return Number(post.view)||0;
   }
   function rankingMeta(post,metricName){
-    if(metricName==='comment')return '<img src="assets/chzzk-detail/icons/comment-reddit.svg" alt=""> 댓글 '+metric(post.reply);
-    if(metricName==='recommend')return '<img src="assets/reddit-ui/recommend-thumb-up.svg" alt=""> 추천 '+metric(post.likes);
-    return '<img src="assets/reddit-ui/view-count.svg" alt=""> 조회 '+metric(post.view);
+    if(metricName==='comment')return '<img src="assets/chzzk-detail/icons/comment-reddit.svg" alt=""><span class="blind">댓글수</span>'+Number(post.reply||0).toLocaleString('ko-KR');
+    if(metricName==='recommend')return '<img src="assets/reddit-ui/recommend-thumb-up.svg" alt=""><span class="blind">추천수</span>'+Number(post.likes||0).toLocaleString('ko-KR');
+    return '<img src="assets/reddit-ui/view-count.svg" alt=""><span class="blind">조회수</span>'+Number(post.view||0).toLocaleString('ko-KR');
   }
   function naverRankingCard(post,index){
     var photos=mediaSources(post,index).filter(function(item){return item.kind==='image'&&item.src;});
@@ -192,7 +192,7 @@
     typeLabel.textContent='네이버 랭킹뉴스형';
     list.className='list naverRankingList';
     var tabs=[['popular','많이 본'],['comment','댓글 많은'],['recommend','추천 많은']];
-    list.innerHTML='<section class="naverRankingHeader"><div class="naverRankingTabs" role="tablist" aria-label="랭킹 기준">'+tabs.map(function(tab){var on=tab[0]===activeRankingMetric;return '<button type="button" role="tab" aria-selected="'+on+'" class="'+(on?'on':'')+'" data-ranking-metric="'+tab[0]+'">'+tab[1]+'</button>';}).join('')+'</div><div class="naverRankingHeading"><strong>'+tabs.filter(function(tab){return tab[0]===activeRankingMetric;})[0][1]+' 랭킹</strong><button type="button" data-ranking-info aria-label="랭킹 집계 기준 안내" aria-expanded="false">i</button><div class="naverRankingPopover" data-ranking-popover hidden>조회·댓글·추천 반응을 기준으로 정렬합니다.<br>실시간 수치와 다를 수 있습니다.</div></div></section><div class="naverRankingRows">'+(data.length?naverRankingGroups(data):'<div class="loungeBestEmpty">등록된 베스트글이 없습니다.</div>')+'</div>';
+    list.innerHTML='<section class="naverRankingHeader"><div class="naverRankingTabs" role="tablist" aria-label="랭킹 기준">'+tabs.map(function(tab){var on=tab[0]===activeRankingMetric;return '<button type="button" role="tab" aria-selected="'+on+'" class="'+(on?'on':'')+'" data-ranking-metric="'+tab[0]+'"><span>'+tab[1]+'</span></button>';}).join('')+'</div><div class="naverRankingHeading"><strong>'+tabs.filter(function(tab){return tab[0]===activeRankingMetric;})[0][1]+' 랭킹</strong><button type="button" data-ranking-info aria-label="랭킹 집계 기준 안내" aria-expanded="false"><img src="../icons/chotot/chotot-common-info.svg" alt=""></button><div class="naverRankingPopover" data-ranking-popover hidden>조회·댓글·추천 반응을 기준으로 정렬합니다.<br>실시간 수치와 다를 수 있습니다.</div></div></section><div class="naverRankingRows">'+(data.length?naverRankingGroups(data):'<div class="loungeBestEmpty">등록된 베스트글이 없습니다.</div>')+'</div>';
     list.querySelectorAll('[data-ranking-metric]').forEach(function(button){button.addEventListener('click',function(){activeRankingMetric=button.dataset.rankingMetric;renderNaverRanking();});});
     var info=list.querySelector('[data-ranking-info]'),popover=list.querySelector('[data-ranking-popover]');
     info.addEventListener('click',function(){var open=popover.hidden;popover.hidden=!open;info.setAttribute('aria-expanded',String(open));});
