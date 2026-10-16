@@ -152,7 +152,9 @@
       const options = $$('.poll-option').map((input) => input.value.trim()).filter(Boolean);
       if (!pollTitle || options.length < 2) { showToast('제목과 선택지 2개 이상을 입력해주세요.'); return; }
       const poll = document.createElement('section'); poll.className = 'editor-poll'; poll.contentEditable = 'false';
-      poll.innerHTML = `<strong>📊 ${escapeHtml(pollTitle)}</strong>${options.map((option) => `<span>○ ${escapeHtml(option)}</span>`).join('')}<small>${$('#pollMultiple').checked ? '복수 선택 · ' : ''}${$('#pollAnonymous').checked ? '무기명 투표' : '기명 투표'}</small>`;
+      const pollData = { title: pollTitle, options, multiple: $('#pollMultiple').checked, anonymous: $('#pollAnonymous').checked, endsAt: $('#pollDeadlineOn').checked ? new Date(Date.now() + 2 * 864e5).toISOString() : '' };
+      poll.setAttribute('data-poll', JSON.stringify(pollData));
+      poll.innerHTML = window.BBM_POLL ? window.BBM_POLL.html(pollData) : `<strong>📊 ${escapeHtml(pollTitle)}</strong>${options.map((option) => `<span>○ ${escapeHtml(option)}</span>`).join('')}`;
       body.append(poll, document.createElement('p')); closeSheet(); syncSubmit();
     };
   }
