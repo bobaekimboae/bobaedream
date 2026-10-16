@@ -144,6 +144,12 @@ function escapeHtml(value) {
   return String(value ?? '').replace(/[&<>"]/g, (character) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[character]));
 }
 
+function latestCommentCount(item) {
+  const explicitCount = Number(item?.reply);
+  if (Number.isFinite(explicitCount)) return Math.max(0, explicitCount);
+  return (item?.comments || []).reduce((total, comment) => total + 1 + (comment.replies || []).length, 0);
+}
+
 function commentActionsHtml(item, label = '댓글', parentId = '') {
   const itemId = escapeHtml(item.id || label);
   const user = escapeHtml(item.user || '회원');
@@ -280,6 +286,7 @@ function setRegularContent() {
     dukkaebiPosts.filter((item) => item.id !== id).forEach((next, index) => {
       latestItems[index].textContent = next.title;
       latestItems[index].dataset.postId = String(next.id);
+      latestItems[index].dataset.comments = String(latestCommentCount(next));
       latestItems[index].hidden = false;
     });
     $('#commentCount').textContent = '댓글 2';
@@ -325,8 +332,10 @@ function setRegularContent() {
       if (next) {
         item.textContent = String(next.title || '').replace(/^\[[^\]]+\]\s*/, '');
         item.dataset.postId = String(next.id);
+        item.dataset.comments = String(latestCommentCount(next));
       } else {
         delete item.dataset.postId;
+        delete item.dataset.comments;
       }
     });
   }
