@@ -206,10 +206,16 @@
   }
 
   /* 사이트 파비콘(스레드 카드처럼 도메인 앞에 표시): 메타에 로고가 없으면 저장해 둔 것을 쓴다 */
-  var FAVICONS = { 'n.news.naver.com': './media/favicons/n.news.naver.com.png', 'm.sports.naver.com': './media/favicons/m.sports.naver.com.png', 'sports.naver.com': './media/favicons/m.sports.naver.com.png', 'm.cafe.naver.com': './media/favicons/m.cafe.naver.com.png', 'cafe.naver.com': './media/favicons/m.cafe.naver.com.png', 'naver.me': './media/favicons/n.news.naver.com.png' };
+  var FAVICONS = { 'n.news.naver.com': './media/favicons/n.news.naver.com.png', 'm.sports.naver.com': './media/favicons/m.sports.naver.com.png', 'sports.naver.com': './media/favicons/m.sports.naver.com.png', 'm.cafe.naver.com': './media/favicons/m.cafe.naver.com.png', 'cafe.naver.com': './media/favicons/m.cafe.naver.com.png', 'naver.me': './media/favicons/n.news.naver.com.png', 'v.daum.net': './media/favicons/v.daum.net.png', 'news.daum.net': './media/favicons/v.daum.net.png', 'm.daum.net': './media/favicons/v.daum.net.png' };
+  /* 노션 북마크처럼 각 사이트 파비콘: 저장본(네이버·다음) → 없으면 구글 파비콘 서비스(사이트 파비콘을 돌려주고, 없으면 기본 지구본) */
+  function faviconFor(url) {
+    var host = hostOf(url);
+    if (!host || !/\./.test(host)) return '';
+    return FAVICONS[host] || 'https://www.google.com/s2/favicons?domain=' + encodeURIComponent(host) + '&sz=64';
+  }
   function cardHtml(item) {
     var host = hostOf(item.url);
-    if (!item.logo) item = Object.assign({}, item, { logo: FAVICONS[host] || '' });
+    if (!item.logo) item = Object.assign({}, item, { logo: faviconFor(item.url) });
     var overseas = item.lang && !/^ko/i.test(item.lang);
     return '<a class="news-card" href="' + esc(item.url) + '" target="_blank" rel="noopener noreferrer">' +
       (item.image ? '<span class="news-card-image"><img src="' + esc(item.image) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></span>' : '') +
@@ -367,5 +373,5 @@
       });
     });
   }
-  window.BBM_EMBED = { fromCode: fromCode, hydrateCards: hydrateCards, info: info, fetchMeta: fetchMeta, cardHtml: cardHtml, frameHtml: frameHtml, blockHtml: blockHtml, previewHtml: previewHtml, hydratePreviews: hydratePreviews };
+  window.BBM_EMBED = { faviconFor: faviconFor, fromCode: fromCode, hydrateCards: hydrateCards, info: info, fetchMeta: fetchMeta, cardHtml: cardHtml, frameHtml: frameHtml, blockHtml: blockHtml, previewHtml: previewHtml, hydratePreviews: hydratePreviews };
 })();

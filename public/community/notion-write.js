@@ -603,9 +603,10 @@
     copy.className = "news-card-copy";
     const site = document.createElement("span");
     site.className = "news-card-site";
-    if (meta.logo) {
+    const logoUrl = meta.logo || (window.BBM_EMBED && window.BBM_EMBED.faviconFor ? window.BBM_EMBED.faviconFor(url) : "");
+    if (logoUrl) {
       const logo = document.createElement("img");
-      logo.src = meta.logo;
+      logo.src = logoUrl;
       logo.alt = "";
       logo.referrerPolicy = "no-referrer";
       logo.addEventListener("error", () => logo.remove());
