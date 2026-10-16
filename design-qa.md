@@ -30,18 +30,18 @@ final result: passed
 
 # 커뮤니티 레딧형 구독 프로필 QA · 2026-10-16
 
-- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/1471b383-e429-4a24-a5b1-495c872e45ce/1-1000018552.jpg`
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/3637378f-bbf6-4e6d-87b8-a3eae2474c30/1-1000018552.jpg`
 - browser-rendered implementation: `artifacts/community-board-order-1015/mobile-384-top-menu-tiktok-text.png`
 - viewport and density: 구현 384 × 844 CSS px, DPR 1. 참고 화면 592 × 1280px은 앱 콘텐츠 폭을 384px 기준으로 정규화해 프로필·문자·버튼 비율을 비교했다.
 - state: 자유게시판, 구독 전, 간결형 목록, 기본 스크롤 위치
 - full-view comparison evidence: 같은 시각 비교 입력에서 참고 화면과 구현 화면을 함께 열어 게시판 프로필 행의 크기·정보 계층·우측 CTA를 확인했다.
-- focused region comparison evidence: 상단 프로필 영역에서 아바타 52px, 게시판명 18px/23px, 통계 13px/18px, 구독 버튼 64×36px을 확인했다.
+- focused region comparison evidence: 원본 592px 폭을 구현 384px 폭으로 환산해 상단 프로필 영역의 아바타 49px, 게시판명 17.5px/22px, 통계 12px/17px, 구독 버튼 60×32px을 확인했다.
 
 ## Findings
 
 - P0/P1/P2 없음.
-- fonts and typography: 게시판명은 Pretendard 18px/760, 구독·게시물 통계는 13px/18px으로 레딧의 제목→보조정보 위계를 유지한다.
-- spacing and layout rhythm: 52px 원형 프로필, 12px 내부 간격, 우측 64×36px 캡슐 버튼으로 레딧 참고 화면의 비율을 맞췄으며 360px에서도 말줄임과 CTA 충돌이 없다.
+- fonts and typography: 게시판명은 Pretendard 17.5px/760, 구독·게시물 통계는 12px/17px으로 레딧의 제목→보조정보 위계를 유지한다.
+- spacing and layout rhythm: 49px 원형 프로필, 10px 내부 간격, 우측 60×32px 캡슐 버튼으로 레딧 원본을 384px에 비례 환산했으며 360px에서는 46px 프로필·56×30px 버튼으로 충돌을 방지한다.
 - colors and visual tokens: 기본 구독 버튼은 `#111214`/흰 글자, 구독중은 흰 배경/검정 테두리로 명확히 구분된다.
 - image quality and asset fidelity: 기존 게시판별 원형 프로필 실자산을 1:1 비율로 사용하며 늘어짐이나 대체 이미지가 없다.
 - copy and content: 기존 방문자·활동 문구를 `구독 38.4만명 · 게시물 1,000개`로 교체했고 모든 게시판에 동일한 형식의 실제형 샘플 수치를 연결했다.
@@ -51,7 +51,9 @@ final result: passed
 
 - Pass 1: 기존 프로필 행에는 구독 CTA가 없고, 보조정보가 `1주일 기준 방문자 · 활동` 형식이었다.
 - Fix: 레딧 비율의 우측 구독 버튼을 추가하고 통계를 구독자·게시물 정보로 교체했다.
-- Pass 2: 384 × 844 렌더링에서 프로필·제목·통계·CTA 정렬과 버튼 상태 전환을 확인했으며 남은 P0/P1/P2가 없다.
+- Pass 2: 사용자 재검토에서 52px 프로필과 64×36px CTA가 원본을 같은 폭으로 환산한 값보다 커 보이는 P2 밀도 차이를 확인했다.
+- Fix: 원본 592px→구현 384px 비율로 다시 계산해 프로필 52→49px, 제목 18→17.5px, 통계 13→12px, CTA 64×36→60×32px, 프로필 행 최소 높이 80→62px로 축소했다.
+- Pass 3: 동일한 384 × 844 렌더링에서 프로필·제목·통계·CTA의 환산 비율과 버튼 상태 전환을 다시 확인했으며 남은 P0/P1/P2가 없다.
 
 final result: passed
 

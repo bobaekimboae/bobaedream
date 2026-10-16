@@ -1,8 +1,8 @@
 .boardTop.redditProfileReady {
-  min-height: 80px;
+  min-height: 62px;
   height: auto;
   margin: 0;
-  padding: 12px 16px;
+  padding: 6px 16px;
   border-top: 1px solid #e7e8eb;
   border-bottom: 0;
   background: #fff;
@@ -14,15 +14,15 @@
   min-width: 0;
   height: auto;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   overflow: hidden;
   text-align: left;
 }
 
 .boardTop.redditProfileReady .boardAvatar {
-  width: 52px;
-  height: 52px;
-  flex: 0 0 52px;
+  width: 49px;
+  height: 49px;
+  flex: 0 0 49px;
   border-radius: 50%;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, .1);
 }
@@ -45,9 +45,9 @@
 .boardTop.redditProfileReady .boardSelectName {
   overflow: hidden;
   color: #1d1d1f;
-  font-size: 18px;
+  font-size: 17.5px;
   font-weight: 760;
-  line-height: 23px;
+  line-height: 22px;
   letter-spacing: -.045em;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -65,12 +65,12 @@
   position: static;
   display: -webkit-box;
   min-width: 0;
-  margin-top: 4px;
+  margin-top: 2px;
   overflow: hidden;
   color: #6b6e73;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 450;
-  line-height: 18px;
+  line-height: 17px;
   letter-spacing: -.025em;
   white-space: normal;
   text-overflow: clip;
@@ -83,17 +83,17 @@
 }
 
 .boardSubscribe {
-  width: 64px;
-  height: 36px;
-  margin-left: 10px;
-  flex: 0 0 64px;
+  width: 60px;
+  height: 32px;
+  margin-left: 8px;
+  flex: 0 0 60px;
   border: 1px solid #111214;
   border-radius: 999px;
   background: #111214;
   color: #fff;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 720;
-  line-height: 34px;
+  line-height: 30px;
   letter-spacing: -.035em;
   text-align: center;
   cursor: pointer;
@@ -150,19 +150,19 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   align-items: end;
-  padding: 0 16px 14px;
+  padding: 0 16px 10px;
   border-bottom: 1px solid #e7e8eb;
   background: #fff;
 }
 
 .boardDescriptionSection.redditDescriptionReady .boardDescription {
-  min-height: 40px;
+  min-height: 38px;
   padding: 0;
   align-items: flex-start;
   color: #34363a;
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 430;
-  line-height: 20px;
+  line-height: 19px;
   letter-spacing: -.03em;
 }
 
@@ -201,14 +201,14 @@
 
 @media (max-width: 370px) {
   .boardTop.redditProfileReady {
-    min-height: 76px;
-    padding: 11px 14px;
+    min-height: 58px;
+    padding: 5px 14px;
   }
 
   .boardTop.redditProfileReady .boardAvatar {
-    width: 50px;
-    height: 50px;
-    flex-basis: 50px;
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
   }
 
   .boardTop.redditProfileReady .boardSelect {
@@ -216,22 +216,22 @@
   }
 
   .boardTop.redditProfileReady .boardSelectName {
-    font-size: 17.5px;
-    line-height: 22px;
+    font-size: 16.5px;
+    line-height: 21px;
   }
 
   .boardTop.redditProfileReady .boardStats {
-    font-size: 12px;
-    line-height: 17px;
+    font-size: 11.5px;
+    line-height: 16px;
   }
 
   .boardSubscribe {
-    width: 60px;
-    height: 34px;
-    margin-left: 8px;
-    flex-basis: 60px;
-    font-size: 13.5px;
-    line-height: 32px;
+    width: 56px;
+    height: 30px;
+    margin-left: 7px;
+    flex-basis: 56px;
+    font-size: 12.5px;
+    line-height: 28px;
   }
 
   .boardTop.redditProfileReady .boardTools {
