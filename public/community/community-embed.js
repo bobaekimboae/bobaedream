@@ -2,6 +2,14 @@
    chzzk-write(간결형 글쓰기)와 상세 화면이 함께 쓴다. */
 (function () {
   'use strict';
+  /*
+    TikTok 단축주소는 브라우저에서 리다이렉트 목적지를 읽을 수 없으므로(CORS),
+    게시판에 등록·검수된 주소는 정식 영상 주소로 고정한다. 새 단축주소를 수집할 때도
+    같은 방식으로 최종 영상 ID를 저장하면 GitHub Pages에서도 안정적으로 재생된다.
+  */
+  var TIKTOK_SHORT_URLS = {
+    ZSgFh12ft: 'https://www.tiktok.com/@ah_nouh/video/7696972500185533712'
+  };
   function esc(value) {
     return String(value == null ? '' : value).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; });
   }
@@ -14,6 +22,11 @@
     if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return null;
     var host = parsed.hostname.replace(/^www\./, '').toLowerCase();
     var parts = parsed.pathname.split('/').filter(Boolean);
+    if ((host === 'vt.tiktok.com' || host === 'vm.tiktok.com') && parts[0] && TIKTOK_SHORT_URLS[parts[0]]) {
+      parsed = new URL(TIKTOK_SHORT_URLS[parts[0]]);
+      host = parsed.hostname.replace(/^www\./, '').toLowerCase();
+      parts = parsed.pathname.split('/').filter(Boolean);
+    }
     var base = { url: parsed.href, render: 'preview', src: '', provider: host, title: host, tall: false };
     function frame(src, provider, title, tall, url) { return { url: url || parsed.href, render: 'iframe', src: src, provider: provider, title: title, tall: Boolean(tall) }; }
     function yt(id, shorts) { var item = frame('https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id), 'YouTube', shorts ? '유튜브 쇼츠' : '유튜브 동영상', shorts); item.image = 'https://i.ytimg.com/vi/' + encodeURIComponent(id) + '/hqdefault.jpg'; item.wide = !shorts; return item; }
