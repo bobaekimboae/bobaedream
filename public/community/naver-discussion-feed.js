@@ -103,7 +103,7 @@
     if(!item||item.render!=='iframe'||!window.BBM_EMBED)return '';
     return '<div class="naverDiscussionEmbed'+(item.tall?' is-tall':'')+'">'+window.BBM_EMBED.frameHtml(item)+'</div>';
   }
-  /* 우측 썸네일형(네이버페이 증권 토론방 목록): 글쓴이 줄 → 제목·본문 2줄 + 오른쪽 72px 썸네일 → 반응 줄 */
+  /* 좌측 썸네일형(네이버페이 증권 토론방 목록): 글쓴이 줄 → 왼쪽 72px 썸네일 + 제목·본문 2줄 → 반응 줄 */
   function thumbCard(post,index){
     var table=Boolean(post.boardTable);
     var likes=table?Number(post.likes)||0:Math.max(0,Math.round(Number(post.view||0)/23)+Number(post.reply||0));
@@ -132,7 +132,7 @@
     phone.classList.remove('compactMode','feedCafeMode','redditFeedMode','chototFeedMode','chototBoardFeedMode','chototDealerFeedMode');
     phone.classList.add('naverDiscussionMode');
     phone.classList.toggle('naverDiscussionThumbMode',currentVariant==='thumb');
-    typeLabel.textContent=currentVariant==='thumb'?'네이버 토론 · 우측 썸네일':'네이버 토론형';
+    typeLabel.textContent=currentVariant==='thumb'?'네이버 토론 · 좌측 썸네일':'네이버 토론형';
     list.className='list naverDiscussionList'+(currentVariant==='thumb'?' is-thumb':'');
     list.innerHTML=feedBody();
     bind();
@@ -258,7 +258,7 @@
   }
 
   window.renderNaverDiscussionFeed=render;
-  /* 목록 페이지의 현재 보기 방식(mode)을 따른다. 게시판 기본 보기(자동차뉴스 = 우측 썸네일)도 여기서 반영된다 */
+  /* 목록 페이지의 현재 보기 방식(mode)을 따른다. 게시판 기본 보기(자동차뉴스 = 좌측 썸네일)도 여기서 반영된다 */
   var startMode=(window.BBM_GET_VIEW_MODE&&window.BBM_GET_VIEW_MODE())||new URLSearchParams(location.search).get('view');
   if(startMode==='naver-discussion')render();
   else if(startMode==='naver-discussion-thumb')render('thumb');

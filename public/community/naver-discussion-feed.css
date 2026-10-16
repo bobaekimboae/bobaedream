@@ -1,6 +1,5 @@
 .phone.naverDiscussionMode{--discussion-avatar-size:24px;--discussion-meta-gap:6px;--discussion-card-pad-x:16px;background:#fff}
 .phone.naverDiscussionMode .boardDescriptionSection,
-.phone.naverDiscussionMode .popularSection,
 .phone.naverDiscussionMode .noticeRow{display:none}
 .phone.naverDiscussionMode .boardTop{margin-bottom:0;border-bottom:1px solid #e8e9ec;box-shadow:none}
 .phone.naverDiscussionMode .list{min-height:560px;padding:0;background:#fff}
@@ -100,7 +99,7 @@
   .naverDiscussionTabs{padding:0 8px}.naverDiscussionRooms{padding-left:14px;padding-right:14px}.naverDiscussionKeywordArea,.naverDiscussionSortRow{padding-left:14px;padding-right:14px}.naverDiscussionCleanbot{margin-left:14px;margin-right:14px}.naverDiscussionCard{padding-left:14px;padding-right:14px}.naverDiscussionTitle{font-size:15.5px;line-height:23px}
 }
 
-/* 우측 썸네일형 (네이버페이 증권 토론방 목록 참고) — 자동차뉴스 기본 보기
+/* 좌측 썸네일형 (네이버페이 증권 토론방 목록 참고) — 자동차뉴스와 전체 게시글 공통 보기
    카드 세로 간격은 네이버 토론 베스트글 기준. 프사·닉네임·날짜 줄만 레딧 실측(1080×2340 ÷2.8125):
    프사 24, 프사→닉네임 6, 닉네임 14 #181C1F, 날짜는 닉네임 바로 뒤 5 · 13 #5C6C74 · 구분점 없음 */
 .naverDiscussionCard.is-thumb{padding:13px 16px 6px}
@@ -109,6 +108,7 @@
 .naverDiscussionCard.is-thumb .naverDiscussionAuthor{color:#181c1f;font-size:14px;line-height:20px;font-weight:400;letter-spacing:0}
 .naverDiscussionCard.is-thumb .naverDiscussionTime{margin-left:5px;color:#5c6c74;font-size:13px;line-height:20px;font-weight:400}
 .naverDiscussionThumbMain{display:flex;align-items:flex-start;gap:12px;margin-top:8px;color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.naverDiscussionThumbMain .naverDiscussionThumb{order:-1}
 .naverDiscussionThumbText{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:4px}
 .naverDiscussionCard.is-thumb .naverDiscussionTitle{display:-webkit-box;margin:0;overflow:hidden;font-size:16px;line-height:23px;-webkit-box-orient:vertical;-webkit-line-clamp:2}
 .naverDiscussionCard.is-thumb .naverDiscussionBody{-webkit-line-clamp:2}
