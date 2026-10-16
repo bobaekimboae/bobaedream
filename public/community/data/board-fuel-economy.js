@@ -29,7 +29,7 @@
       title:model.brand+' '+model.model+' 실주행 '+metricName+' 기록',
       summary:bodies[index%bodies.length],body:bodies[index%bodies.length],
       author:authors[index%authors.length],
-      publishedAt:'2026-'+(index<17?'10-'+String(17-index).padStart(2,'0'):'09-'+String(47-index).padStart(2,'0'))+'T09:00:00+09:00',
+      publishedAt:'2026-'+(index<17?'10-'+String(17-index).padStart(2,'0'):'09-'+String(30-((index-17)%30)).padStart(2,'0'))+'T09:00:00+09:00',
       time:index<12?(index+1)+'시간 전':Math.floor(index/2)+'일 전',
       views:String(260+index*41),comments:String(2+index%11),likes:String(12+index*4),
       thumbnail:model.photo,images:[model.photo,cluster,dashboard].join('|'),
