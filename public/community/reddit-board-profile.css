@@ -82,6 +82,28 @@
   display: none;
 }
 
+.boardSubscribe {
+  width: 64px;
+  height: 36px;
+  margin-left: 10px;
+  flex: 0 0 64px;
+  border: 1px solid #111214;
+  border-radius: 999px;
+  background: #111214;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 720;
+  line-height: 34px;
+  letter-spacing: -.035em;
+  text-align: center;
+  cursor: pointer;
+}
+
+.boardSubscribe[aria-pressed="true"] {
+  background: #fff;
+  color: #111214;
+}
+
 .boardTop.redditProfileReady .boardTools {
   display: none;
 }
@@ -201,6 +223,15 @@
   .boardTop.redditProfileReady .boardStats {
     font-size: 12px;
     line-height: 17px;
+  }
+
+  .boardSubscribe {
+    width: 60px;
+    height: 34px;
+    margin-left: 8px;
+    flex-basis: 60px;
+    font-size: 13.5px;
+    line-height: 32px;
   }
 
   .boardTop.redditProfileReady .boardTools {

@@ -37,32 +37,46 @@
   };
 
   var stats={
-    '전체 게시글':'1주일 기준 방문자 92.6만명 · 활동 3.8만회',
-    '베스트글':'1주일 기준 방문자 64.2만명 · 추천 8.7만회',
-    '자유게시판':'1주일 기준 방문자 38.4만명 · 활동 1.2만회',
-    '자동차뉴스/토론':'1주일 기준 방문자 12.8만명 · 활동 4.1천회',
-    '정치/시사게시판':'1주일 기준 방문자 21.5만명 · 활동 9.6천회',
-    '시승기/배틀/목격담':'1주일 기준 방문자 9.7만명 · 활동 2.8천회',
-    '교통사고/블박':'1주일 기준 방문자 31.2만명 · 활동 7.4천회',
-    '국산차게시판':'1주일 기준 방문자 18.6만명 · 활동 5.3천회',
-    '수입차게시판':'1주일 기준 방문자 14.9만명 · 활동 3.9천회',
-    '오토바이/자전거':'1주일 기준 방문자 8.1만명 · 활동 2.1천회',
-    '올드카/추억거리':'1주일 기준 방문자 5.7만명 · 활동 1.4천회'
+    '전체 게시글':'구독 92.6만명 · 게시물 8,420개',
+    '베스트글':'구독 64.2만명 · 게시물 3,180개',
+    '자유게시판':'구독 38.4만명 · 게시물 1,000개',
+    '자동차뉴스/토론':'구독 12.8만명 · 게시물 786개',
+    '정치/시사게시판':'구독 21.5만명 · 게시물 946개',
+    '시승기/배틀/목격담':'구독 9.7만명 · 게시물 628개',
+    '교통사고/블박':'구독 31.2만명 · 게시물 1,284개',
+    '국산차게시판':'구독 18.6만명 · 게시물 895개',
+    '수입차게시판':'구독 14.9만명 · 게시물 742개',
+    '오토바이/자전거':'구독 8.1만명 · 게시물 516개',
+    '올드카/추억거리':'구독 5.7만명 · 게시물 384개'
   };
 
   function fallbackStats(label){
     var value=0;
     for(var index=0;index<label.length;index+=1)value+=label.charCodeAt(index);
-    var visitors=(4.2+(value%94)/10).toFixed(1);
-    var activity=(1.1+(value%37)/10).toFixed(1);
-    return '1주일 기준 방문자 '+visitors+'만명 · 활동 '+activity+'천회';
+    var subscribers=(4.2+(value%94)/10).toFixed(1);
+    var posts=320+(value%681);
+    return '구독 '+subscribers+'만명 · 게시물 '+posts.toLocaleString('ko-KR')+'개';
   }
 
-  function syncBoardCopy(name,description,boardStats){
+  function subscriptionKey(label){return 'bbm-community-subscription:'+label}
+
+  function isSubscribed(label){
+    try{return localStorage.getItem(subscriptionKey(label))==='1'}catch(error){return false}
+  }
+
+  function syncSubscribeButton(button,label){
+    var subscribed=isSubscribed(label);
+    button.setAttribute('aria-pressed',String(subscribed));
+    button.textContent=subscribed?'구독중':'구독';
+    button.setAttribute('aria-label',label+' '+(subscribed?'구독 취소':'구독'));
+  }
+
+  function syncBoardCopy(name,description,boardStats,subscribeButton){
     var label=(name.textContent||'').trim()||'자유게시판';
     description.textContent=descriptions[label]||label+' 회원들이 최신 정보와 경험을 자유롭게 나누는 공간입니다.';
     boardStats.textContent=stats[label]||fallbackStats(label);
     boardStats.hidden=false;
+    syncSubscribeButton(subscribeButton,label);
   }
 
   function initialize(){
@@ -85,11 +99,23 @@
     identity.appendChild(boardStats);
     boardSelect.appendChild(identity);
 
+    var subscribeButton=document.createElement('button');
+    subscribeButton.type='button';
+    subscribeButton.className='boardSubscribe';
+    boardTop.insertBefore(subscribeButton,boardTop.querySelector('.boardTools'));
+    subscribeButton.addEventListener('click',function(event){
+      event.stopPropagation();
+      var label=(name.textContent||'').trim()||'자유게시판';
+      var next=!isSubscribed(label);
+      try{localStorage.setItem(subscriptionKey(label),next?'1':'0')}catch(error){}
+      syncSubscribeButton(subscribeButton,label);
+    });
+
     boardTop.classList.add('redditProfileReady');
     descriptionSection.classList.add('redditDescriptionReady');
-    syncBoardCopy(name,description,boardStats);
+    syncBoardCopy(name,description,boardStats,subscribeButton);
 
-    new MutationObserver(function(){syncBoardCopy(name,description,boardStats)}).observe(name,{childList:true,subtree:true,characterData:true});
+    new MutationObserver(function(){syncBoardCopy(name,description,boardStats,subscribeButton)}).observe(name,{childList:true,subtree:true,characterData:true});
   }
 
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initialize,{once:true});
