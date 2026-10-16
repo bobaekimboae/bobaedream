@@ -44,7 +44,12 @@
     if(selected)selected.scrollIntoView({inline:'center',block:'nearest'});
   }
   function cleanTitle(value){return String(value||'').replace(/^\[[^\]]+\]\s*/,'');}
-  function bodyFor(post,index){return Array.isArray(post.body)&&post.body.length?post.body[0]:bodyFallbacks[index%bodyFallbacks.length];}
+  function bodyFor(post,index){
+    if(Array.isArray(post.body)&&post.body.length){
+      return post.board==='foreign-car-news'?post.body.slice(0,3).join('\n'):post.body[0];
+    }
+    return bodyFallbacks[index%bodyFallbacks.length];
+  }
   function avatarFor(post,index){return post.authorAvatar||'assets/profile-avatars/avatar-'+String(index%48+1).padStart(2,'0')+'.svg';}
   function detailUrl(post,photoIndex){return './chzzk-detail.html?id='+encodeURIComponent(post.id)+(post.local?'&local=1':'')+'&from=discussion'+(photoIndex>0?'&photo='+(photoIndex+1):'')+'&v=20261016naverdiscussion3';}
   function icon(name){return 'assets/chzzk-detail/icons/'+name+'.svg?v=20261016naverdiscussion2';}
@@ -101,7 +106,8 @@
     var host=String(item.url||'').replace(/^https?:\/\/(www\.)?/,'').split('/')[0];
     var overseas=item.lang&&!/^ko/i.test(item.lang);
     var hydrate=!item.image&&!item.metaReady&&!item.noHydrate?' data-news-hydrated data-embed-hydrate data-embed-title="'+esc(cleanTitle(post.title))+'"':' data-news-hydrated';
-    return '<a class="news-card"'+hydrate+' href="'+esc(item.url)+'" target="_blank" rel="noopener noreferrer">'+(item.image?'<span class="news-card-image"><img src="'+esc(item.image)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></span>':'')+'<span class="news-card-copy"><span class="news-card-site">'+(item.logo?'<img src="'+esc(item.logo)+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<span>'+esc(item.site||item.provider||host)+'</span>'+(overseas?'<em>해외</em>':'')+'</span><strong class="news-card-title">'+esc(item.title||cleanTitle(post.title)||host)+'</strong>'+(item.description?'<span class="news-card-desc">'+esc(item.description)+'</span>':'')+'<small class="news-card-url">'+esc(host)+'</small></span></a>';
+    var media=item.image?'<span class="news-card-image"><img src="'+esc(item.image)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></span>':'<span class="news-card-placeholder" aria-hidden="true"><img src="./assets/write-parity/link.svg" alt=""></span>';
+    return '<a class="news-card"'+hydrate+' href="'+esc(item.url)+'" target="_blank" rel="noopener noreferrer">'+media+'<span class="news-card-copy"><span class="news-card-site">'+(item.logo?'<img src="'+esc(item.logo)+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':'')+'<span>'+esc(item.site||item.provider||host)+'</span>'+(overseas?'<em>해외</em>':'')+'</span><strong class="news-card-title">'+esc(item.title||cleanTitle(post.title)||host)+'</strong>'+(item.description?'<span class="news-card-desc">'+esc(item.description)+'</span>':'')+'<small class="news-card-url">'+esc(host)+'</small></span></a>';
   }
   /* 첫 임베드가 인스타그램·유튜브 같은 재생형이면 피드 카드 안에서 바로 보여 준다 */
   function embedInlineFor(post,autoplay){

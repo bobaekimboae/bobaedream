@@ -13,6 +13,7 @@ import {
   titleSimilarity,
 } from "./lib.mjs";
 import { fetchIframelyPreview } from "./iframely.mjs";
+import { translateArticlesWithOpenAI } from "./openai-translate.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const sourcePath = path.join(root, "data", "foreign-news", "sources.json");
@@ -25,7 +26,7 @@ const maxArticles = Math.max(20, Number(process.env.FOREIGN_NEWS_MAX_ARTICLES ||
 // RSS/Atom 제공 이미지 URL만 원격 표시한다. 이미지는 내려받거나 재호스팅하지 않는다.
 // 운영 중 긴급 차단이 필요하면 FOREIGN_NEWS_ALLOW_FEED_IMAGES=false 로 끌 수 있다.
 const allowFeedImages = process.env.FOREIGN_NEWS_ALLOW_FEED_IMAGES !== "false";
-const outputSchemaVersion = 5;
+const outputSchemaVersion = 6;
 const activeSources = registry.sources.filter((source) => source.status === "active" && source.feedUrl && ["rss", "atom", "sitemap"].includes(source.fetchType));
 const selectedSources = limit ? activeSources.slice(0, limit) : activeSources;
 
@@ -59,7 +60,10 @@ function displayTitleKo(article) {
 }
 
 function translatedSummaryLines(article) {
-  const translated = String(article.summaryKo || "").replace(/\s+/g, " ").trim();
+  const translatedRaw = String(article.summaryKo || "").trim();
+  const suppliedLines = translatedRaw.split(/\r?\n/).map((value) => value.replace(/\s+/g, " ").trim()).filter(Boolean);
+  if (suppliedLines.length >= 3) return suppliedLines.slice(0, 3).join("\n");
+  const translated = translatedRaw.replace(/\s+/g, " ").trim();
   if (translated) {
     const sentences = translated.match(/[^.!?。！？]+[.!?。！？]?/g)?.map((value) => value.trim()).filter(Boolean) || [];
     const lines = (sentences.length ? sentences : [translated]).slice(0, 3);
@@ -186,6 +190,7 @@ let visible = representatives.slice(0, maxArticles).map((article) => {
 });
 const translationEndpoint = process.env.NEWS_TRANSLATE_ENDPOINT || "";
 const translationTargets = visible.filter((article) => !article.titleKo || !article.summaryKo);
+let translationMode = "korean-metadata-fallback";
 if (translationEndpoint && translationTargets.length) {
   const response = await fetchWithTimeout(translationEndpoint, {
     method: "POST",
@@ -228,6 +233,30 @@ if (translationEndpoint && translationTargets.length) {
       translationStatus: next.titleKo ? "translated" : "original",
     } : article;
   });
+  translationMode = "endpoint";
+} else if (process.env.OPENAI_API_KEY && translationTargets.length) {
+  const maxTranslations = Math.max(1, Number(process.env.OPENAI_TRANSLATE_MAX_ARTICLES || 100));
+  const targets = translationTargets.slice(0, maxTranslations);
+  const translated = await translateArticlesWithOpenAI(targets, process.env.OPENAI_API_KEY, {
+    model: process.env.OPENAI_TRANSLATE_MODEL || "gpt-5-mini",
+    batchSize: process.env.OPENAI_TRANSLATE_BATCH_SIZE || 10,
+  });
+  const byId = new Map(translated.map((article) => [String(article.id), article]));
+  visible = visible.map((article) => {
+    const next = byId.get(String(article.id));
+    return next ? {
+      ...article,
+      titleKo: next.titleKo,
+      summaryKo: next.summaryKo,
+      articleTypeKo: next.articleTypeKo,
+      makesKo: normalizedEntityList(next.makesKo),
+      modelsKo: normalizedEntityList(next.modelsKo),
+      peopleKo: normalizedEntityList(next.peopleKo),
+      translationStatus: "translated",
+    } : article;
+  });
+  translationMode = "openai-responses";
+  console.log(`OpenAI translated ${translated.length}/${targets.length} articles`);
 }
 
 const iframelyApiKey = String(process.env.IFRAMELY_API_KEY || "").trim();
@@ -304,7 +333,7 @@ const payload = {
   activeSourceCount: activeSources.length,
   collectedSourceCount: selectedSources.length,
   articleCount: visible.length,
-  translationMode: translationEndpoint ? "endpoint" : "korean-metadata-fallback",
+  translationMode,
   embedPreviewMode: iframelyApiKey ? "iframely-data-api" : "feed-fallback",
   articles: visible,
 };

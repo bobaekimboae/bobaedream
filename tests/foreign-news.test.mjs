@@ -12,6 +12,7 @@ import {
 } from "../scripts/foreign-news/lib.mjs";
 import { buildSheetRows, sheetHeaders } from "../scripts/foreign-news/sheet-lib.mjs";
 import { pickIframelyPreview } from "../scripts/foreign-news/iframely.mjs";
+import { translateArticlesWithOpenAI } from "../scripts/foreign-news/openai-translate.mjs";
 
 test("CSV parser keeps quoted commas and line breaks", () => {
   const rows = parseCsv('\uFEFFname,url,note\r\n"매체, A",https://example.com,"첫 줄\n둘째 줄"\r\n');
@@ -88,6 +89,39 @@ test("Iframely contributes only publisher-approved preview assets", () => {
   }).image, "");
 });
 
+test("OpenAI translation keeps a Korean title and exactly three summary lines", async () => {
+  let request;
+  const rows = await translateArticlesWithOpenAI([{
+    id: "news-1",
+    originalTitle: "A new electric sports car debuts",
+    originalSummary: "The model arrives next spring with 500 km of range.",
+    originalLanguage: "en",
+    source: "Example",
+    country: "미국",
+    canonicalUrl: "https://example.com/news-1",
+  }], "test-key", {
+    fetchImpl: async (_url, options) => {
+      request = JSON.parse(options.body);
+      return {
+        ok: true,
+        async json() {
+          return { output_text: JSON.stringify({ articles: [{
+            id: "news-1",
+            titleKo: "전기 스포츠카 신형 공개",
+            summaryLinesKo: ["신형 전기 스포츠카가 공개됐습니다.", "1회 충전 주행거리는 500km입니다.", "내년 봄 출시될 예정입니다."],
+            articleTypeKo: "신차",
+            makesKo: [], modelsKo: [], peopleKo: [],
+          }] }) };
+        },
+      };
+    },
+  });
+  assert.equal(request.store, false);
+  assert.equal(request.text.format.type, "json_schema");
+  assert.equal(rows[0].titleKo, "전기 스포츠카 신형 공개");
+  assert.equal(rows[0].summaryKo.split("\n").length, 3);
+});
+
 test("robots longest matching rule wins", () => {
   const robots = "User-agent: *\nDisallow: /news\nAllow: /news/public\n";
   assert.equal(robotsAllows(robots, "https://example.com/news/private"), false);
@@ -101,12 +135,13 @@ test("topic, duplicate similarity and IDs are deterministic", () => {
 });
 
 test("community UI loads and exposes the overseas board", async () => {
-  const [list, detail, navigation, profile, discussion] = await Promise.all([
+  const [list, detail, navigation, profile, discussion, cardCss] = await Promise.all([
     readFile(new URL("../public/community/naver-cafe-list.html", import.meta.url), "utf8"),
     readFile(new URL("../public/community/chzzk-detail.html", import.meta.url), "utf8"),
     readFile(new URL("../public/community/hupu-board-navigation.js", import.meta.url), "utf8"),
     readFile(new URL("../public/community/reddit-board-profile.js", import.meta.url), "utf8"),
     readFile(new URL("../public/community/naver-discussion-feed.js", import.meta.url), "utf8"),
+    readFile(new URL("../public/community/news-card.css", import.meta.url), "utf8"),
   ]);
   assert.match(list, /board-foreign-car-news\.js/);
   assert.match(list, /해외 자동차뉴스는 자동 수집 게시판입니다/);
@@ -115,4 +150,7 @@ test("community UI loads and exposes the overseas board", async () => {
   assert.match(profile, /'해외 자동차뉴스':'해외 107개 매체 · 5분 간격 갱신'/);
   assert.match(discussion, /localPostMatches/);
   assert.match(discussion, /activeTable\.displayName/);
+  assert.match(discussion, /post\.body\.slice\(0,3\)\.join\('\\n'\)/);
+  assert.match(cardCss, /aspect-ratio:1\.88\/1/);
+  assert.match(cardCss, /grid-template-areas:"site" "title"/);
 });

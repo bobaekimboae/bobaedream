@@ -28,6 +28,19 @@
 
 final result: passed
 
+## 해외 자동차뉴스 Threads형 링크 카드 QA (2026-10-17)
+
+- source visual truth: `C:\Users\bobae\OneDrive\문서\ChatGPT\퀵필터 제작\.codex-remote-attachments\01a10689-936d-7973-9ae7-047c763eeb65\a2ed51e8-0dbd-48b2-b904-7f1a656e094a\1-1000018728.jpg`
+- implementation evidence: `reports/foreign-news-threads-card-1017/implementation-mobile.png`
+- scope: Threads 링크 미리보기 카드와 해외 자동차뉴스 피드 카드만 비교했다. 상단 앱 내비게이션은 제품별 고유 영역이라 제외했다.
+- image card: 대표 이미지를 카드 상단 전체 폭·1.88:1로 배치하고, 아래에 출처/파비콘 → 한국어 제목을 둔다.
+- no-image card: 74px 링크 아이콘 영역과 출처·한국어 제목 영역으로 압축한다.
+- Korean copy: 원문 URL·출처·대표 이미지는 유지하되 외국어 원문 제목은 숨기고, AI 한국어 제목과 정확히 3개 요약 줄만 노출한다.
+- visual tokens: 흰 배경, `#e2e3e5` 1px 테두리, 16px 모서리, 제목 16/21px를 적용했다.
+- verification: 모바일 390×844에서 한국어 제목/요약 3줄, 이미지형 카드, 링크 동작, 깨진 이미지 0, 콘솔 오류 0을 확인했다.
+
+final result: passed
+
 ## 네이버카페 좌측 썸네일형 QA (2026-10-17)
 
 - implementation: `/community/naver-cafe-list.html?view=feed-cafe-left`

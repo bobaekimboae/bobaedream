@@ -20,8 +20,25 @@
 .detailEmbed iframe{display:block;width:100%;max-width:540px;height:420px;margin:0 auto;border:0;background:transparent}
 .detailEmbed.is-tall iframe{height:620px}
 .detailEmbed figcaption{margin-top:6px;color:#767d87;font-size:13px;line-height:18px}
-/* 피드 카드 아래 작은 링크 카드 */
-.naverDiscussionCard .news-card{margin-top:10px}
+/* 피드 카드: Threads 앱의 링크 미리보기처럼 대표 이미지 → 매체 → 제목 순서.
+   한국어 3줄 요약은 카드 위 게시물 본문에 두고, 원문 메타데이터는 썸네일·출처에만 사용한다. */
+.naverDiscussionCard .naverDiscussionBody{white-space:pre-line}
+.naverDiscussionCard .news-card{display:flex;flex-direction:column;flex-wrap:nowrap;width:100%;margin-top:10px;overflow:hidden;border:1px solid #e2e3e5;border-radius:16px;background:#fff;color:#191919}
+.naverDiscussionCard .news-card:hover{background:#fff}
+.naverDiscussionCard .news-card-image{order:0;width:100%;height:auto;flex:none;aspect-ratio:1.88/1;background:#f1f2f4}
+.naverDiscussionCard .news-card-image img{width:100%;height:100%;object-fit:cover}
+.naverDiscussionCard .news-card-copy{order:1;display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"site" "title";width:100%;min-height:88px;flex:none;align-content:center;padding:12px 16px 15px}
+.naverDiscussionCard .news-card-site{grid-area:site;display:flex;align-items:center;gap:7px;min-width:0;margin-bottom:4px;color:#929292;font-size:13px;line-height:19px;font-style:normal}
+.naverDiscussionCard .news-card-site>span{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.naverDiscussionCard .news-card-site>em{display:none}
+.naverDiscussionCard .news-card-site>img{position:static;display:block;width:20px;height:20px;min-width:20px;margin:0;border-radius:3px;object-fit:contain}
+.naverDiscussionCard .news-card-title{grid-area:title;display:-webkit-box;min-height:0;margin:0;overflow:hidden;color:#171717;font-size:16px;line-height:21px;font-weight:500;letter-spacing:-.02em;white-space:normal;word-break:keep-all;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.naverDiscussionCard .news-card-desc,.naverDiscussionCard .news-card-url{display:none}
+.naverDiscussionCard .news-card-placeholder{display:none}
+.naverDiscussionCard .news-card:not(:has(.news-card-image)){display:grid;grid-template-columns:74px minmax(0,1fr);min-height:92px}
+.naverDiscussionCard .news-card:not(:has(.news-card-image)) .news-card-placeholder{display:grid;width:74px;height:74px;margin:9px;place-items:center;border-radius:7px;background:#f5f5f5}
+.naverDiscussionCard .news-card-placeholder img{width:30px;height:30px;opacity:.8}
+.naverDiscussionCard .news-card:not(:has(.news-card-image)) .news-card-copy{min-height:92px;padding:12px 14px 12px 6px}
 /* 노션 임베드처럼: 회색 상자 없이 원본(인스타그램 등) 높이 그대로 — 높이는 community-embed.js가 원본 크기 신호로 맞춘다 */
 iframe[data-embed-height]{height:var(--embed-h)!important}
 /* 인스타그램: 스레드처럼 계정 줄 + 사진·영상만(본문·반응 줄 숨김), 모서리 8 */
