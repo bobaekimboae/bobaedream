@@ -14,7 +14,11 @@
   const boards = [
     { section:'보배드림 커뮤니티', items:['자유게시판','국산차 오너톡','수입차 라운지','전기차','정비 · DIY','튜닝'] },
     { section:'거래 · 제보', items:['중고차','보험 · 사고','블랙박스 제보','바이크'] },
+    { section:'자동차 정보', items:['자동차뉴스','차량리뷰'] },
   ];
+  /* 주소로 들어온 게시판이 목록에 없으면 맨 위에 「현재 게시판」으로 보여 준다 */
+  const fromBoard = params.get('board') || '';
+  if (fromBoard && !boards.some((group) => group.items.includes(fromBoard))) boards.unshift({ section:'현재 게시판', items:[fromBoard] });
   const postKey = 'bbm.community.latestPost.v2';
   const draftKey = 'bbm.community.chzzkDraft.v1';
   const state = {
@@ -162,9 +166,28 @@
     $('#mediaList').innerHTML = media.map((item) => `<article class="media-card" data-media-id="${item.id}">${item.kind === 'photo' ? `<img src="${item.url}" alt="${escapeHtml(item.name)}">` : `<video src="${item.url}" controls playsinline></video>`}<footer><span>${escapeHtml(item.name)}</span><button type="button" data-remove-media>삭제</button></footer></article>`).join('');
     syncSubmit();
   }
+  /* 사진·영상 원본은 노션식 글쓰기와 같은 브라우저 저장소(IndexedDB bbm-notion-write-media)에 넣어 목록·상세가 읽는다 */
+  let mediaDb = null;
+  const openMediaDb = () => mediaDb || (mediaDb = new Promise((resolve, reject) => {
+    if (!window.indexedDB) { reject(new Error('no indexedDB')); return; }
+    const request = indexedDB.open('bbm-notion-write-media', 1);
+    request.onupgradeneeded = () => request.result.createObjectStore('media');
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  }));
+  const storeMedia = (id, blob) => openMediaDb().then((db) => new Promise((resolve, reject) => {
+    const tx = db.transaction('media', 'readwrite'); tx.objectStore('media').put(blob, id);
+    tx.oncomplete = () => resolve(); tx.onerror = () => reject(tx.error);
+  }));
   function addFiles(files, kind) {
     const target = kind === 'photo' ? state.photos : state.videos;
-    [...files].slice(0, kind === 'photo' ? 20 : 5).forEach((file) => target.push({ id:uid(kind), kind, name:file.name, url:URL.createObjectURL(file) }));
+    const room = (kind === 'photo' ? 20 : 5) - target.length;
+    if (room <= 0) { showToast(kind === 'photo' ? '사진은 최대 20장입니다.' : '동영상은 최대 5개입니다.'); return; }
+    [...files].slice(0, room).forEach((file) => {
+      const item = { id:uid(kind), kind, name:file.name, url:URL.createObjectURL(file) };
+      item.saved = storeMedia(item.id, file).then(() => true).catch(() => false);
+      target.push(item);
+    });
     renderMedia();
   }
   function saveDraft() {
@@ -172,9 +195,19 @@
     showToast('임시 저장했습니다.');
   }
   function exitWriter() { if (title.value.trim() || bodyText()) saveDraft(); location.href = returnTo; }
-  function submitPost() {
+  /* 목록 카드 요약용 본문 줄(임베드·투표 글자는 빼고) */
+  function bodyLines() {
+    const copy = body.cloneNode(true);
+    copy.querySelectorAll('.write-embed,.editor-poll').forEach((node) => node.remove());
+    copy.querySelectorAll('p,div,h3,blockquote,li,br,hr').forEach((node) => { node.before(document.createTextNode('\n')); node.after(document.createTextNode('\n')); });
+    return (copy.textContent || '').split(/\n+/).map((line) => line.trim()).filter(Boolean);
+  }
+  async function submitPost() {
     if ($('.submit-button').disabled) return;
-    localStorage.setItem(postKey, JSON.stringify({ status:'LOCAL_PREVIEW', source:'chzzk-compact', board:state.board, head:'', title:title.value.trim(), body:body.innerHTML, html:body.innerHTML, embeds:collectEmbeds(), tags:state.tags.map((tag) => `#${tag}`).join(' '), photos:state.photos.map(({name}) => ({name})), videos:state.videos.map(({name}) => ({name})), hideBody:$('#hideBody').checked, submittedAt:new Date().toISOString() }));
+    const media = [...state.photos, ...state.videos];
+    const stored = await Promise.all(media.map((item) => item.saved || Promise.resolve(false)));
+    const savedMedia = media.filter((item, index) => stored[index]).map((item) => ({ id:item.id, kind:item.kind === 'photo' ? 'image' : 'video', name:item.name }));
+    localStorage.setItem(postKey, JSON.stringify({ status:'LOCAL_PREVIEW', source:'chzzk-compact', board:state.board, head:'', title:title.value.trim(), body:bodyLines(), html:body.innerHTML, embeds:collectEmbeds(), media:savedMedia, tags:state.tags.map((tag) => `#${tag}`).join(' '), photos:state.photos.map(({id,name}) => ({id,name})), videos:state.videos.map(({id,name}) => ({id,name})), hideBody:$('#hideBody').checked, submittedAt:new Date().toISOString() }));
     localStorage.removeItem(draftKey);
     $('#dialogTitle').textContent = '게시물 등록 완료'; $('#dialogMessage').textContent = '간결형 게시판에서 등록한 글을 확인할 수 있습니다.'; $('#dialogOverlay').hidden = false;
     $('.dialog-confirm').onclick = () => { location.href = returnTo; };
@@ -226,9 +259,20 @@
   $('#fontSize').addEventListener('change', (event) => { body.focus(); document.execCommand('fontSize',false,Math.max(1,Math.min(7,Math.round(Number(event.target.value)/5)))); });
   document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeSheet(); });
 
+  /* 임시 저장한 글을 다시 열면 게시판·제목·본문·태그·본문 숨기기를 되살린다 */
   try {
     const draft = JSON.parse(localStorage.getItem(draftKey) || 'null');
-    if (draft && !state.board) state.board = draft.board || '';
+    if (draft) {
+      if (!state.board) state.board = draft.board || '';
+      if (draft.title || draft.body) {
+        title.value = draft.title || '';
+        body.innerHTML = draft.body || '';
+        state.tags = Array.isArray(draft.tags) ? draft.tags : [];
+        if (state.tags.length) $('#tagSummary').textContent = state.tags.map((tag) => `#${tag}`).join(' ');
+        $('#hideBody').checked = Boolean(draft.hideBody);
+        showToast('임시 저장한 글을 불러왔습니다.');
+      }
+    }
   } catch { /* ignore invalid local draft */ }
   if (state.board) setBoard(state.board);
   syncSubmit();
