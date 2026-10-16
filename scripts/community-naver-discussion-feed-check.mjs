@@ -90,13 +90,15 @@ try {
     if (beforeCount !== "1" || afterCount !== "2") throw new Error(`${width}px: 사진 페이지 표시 갱신 실패 (${beforeCount}→${afterCount})`);
 
     const videoButton = page.locator("[data-discussion-video]").first();
+    if (width === 390) {
+      await videoButton.evaluate((button) => button.scrollIntoView({ block: "center" }));
+      await page.waitForTimeout(100);
+      await page.screenshot({ path: "reports/naver-discussion-feed-1016/implementation-video-390x844.png", fullPage: false });
+    }
     await videoButton.click();
     await page.waitForTimeout(300);
     const videoPaused = await page.locator(".naverDiscussionMediaItem[data-kind='video'] video").first().evaluate((video) => video.paused);
     if (videoPaused) throw new Error(`${width}px: 영상 재생 실패`);
-    if (width === 390) {
-      await page.screenshot({ path: "reports/naver-discussion-feed-1016/implementation-video-390x844.png", fullPage: false });
-    }
     await page.locator(".naverDiscussionMediaItem[data-kind='video'] video").first().evaluate((video) => video.pause());
 
     const vote = page.locator('[data-discussion-vote="up"]').first();
