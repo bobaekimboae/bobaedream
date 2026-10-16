@@ -1,3 +1,15 @@
+# 전체 게시글 · 유튜브 헤더 규격 복구 QA · 2026-10-16
+
+- 사용자 확정 규칙: 유튜브형 헤더 배너 340.8 × 106px
+- 유지: 제네시스 코리아 공식 여수 로드트립 이미지
+- 복구: 14px 좌우 여백, 12px 라운드, 106px 높이, 중앙 제목 배치. 384px 실측 340.8 × 106px 일치
+- 370px 이하: 12px 좌우 여백, 100px 높이
+- 풀블리드 210px 변경은 폐기했다.
+
+final result: passed
+
+---
+
 # 전체 게시글 · FINN형 몰입 배경 재검 QA · 2026-10-16
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0fe77-a06f-7a82-91f7-7cb79bab19bf/ae5197df-59c5-415b-84f7-0b8fbc7c2181/1-1000018686.jpg` (591 × 1280px)
