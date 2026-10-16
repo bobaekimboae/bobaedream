@@ -17,7 +17,27 @@
   function esc(value){
     return String(value==null?'':value).replace(/[&<>"']/g,function(char){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char];});
   }
-  function posts(){var data=(window.BOBAE_POSTS||[]).slice();if(window.BOBAE_LOCAL_POST)data.unshift(window.BOBAE_LOCAL_POST);return data;}
+  var activeHeadword='전체';
+  function selectedHeadword(){return activeHeadword;}
+  function posts(){
+    var data=(window.BOBAE_POSTS||[]).slice();
+    if(window.BOBAE_LOCAL_POST)data.unshift(window.BOBAE_LOCAL_POST);
+    var headword=selectedHeadword();
+    if(headword==='전체')return data;
+    return data.filter(function(post){return categoryFor(post)===headword;});
+  }
+  function syncHeadwords(){
+    var items=Array.isArray(window.BOBAE_TOPICS)&&window.BOBAE_TOPICS.length?window.BOBAE_TOPICS:['전체'];
+    if(items.indexOf(activeHeadword)<0)activeHeadword='전체';
+    var container=document.getElementById('category');
+    if(!container)return;
+    container.innerHTML=items.map(function(item,index){return '<button class="cat '+(item===activeHeadword?'on':'')+'" type="button" data-discussion-headword="'+esc(item)+'" aria-pressed="'+(item===activeHeadword?'true':'false')+'">'+esc(item)+'</button>';}).join('');
+    container.querySelectorAll('[data-discussion-headword]').forEach(function(button){
+      button.addEventListener('click',function(){activeHeadword=button.dataset.discussionHeadword;render();});
+    });
+    var selected=container.querySelector('.cat.on');
+    if(selected)selected.scrollIntoView({inline:'center',block:'nearest'});
+  }
   function cleanTitle(value){return String(value||'').replace(/^\[[^\]]+\]\s*/,'');}
   function bodyFor(post,index){return Array.isArray(post.body)&&post.body.length?post.body[0]:bodyFallbacks[index%bodyFallbacks.length];}
   function avatarFor(post,index){return post.authorAvatar||'assets/profile-avatars/avatar-'+String(index%48+1).padStart(2,'0')+'.svg';}
@@ -96,6 +116,7 @@
     currentVariant=variant==='thumb'?'thumb':'';
     mediaCarousels.forEach(function(api){api.destroy();});
     mediaCarousels=[];
+    syncHeadwords();
     phone.classList.remove('compactMode','feedCafeMode','redditFeedMode','chototFeedMode','chototBoardFeedMode','chototDealerFeedMode');
     phone.classList.add('naverDiscussionMode');
     phone.classList.toggle('naverDiscussionThumbMode',currentVariant==='thumb');
