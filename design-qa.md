@@ -1,24 +1,23 @@
-# 네이버 토론형 댓글 블루 QA · 2026-10-16
+# 치지직 간결형 댓글 블루 범위 정정 QA · 2026-10-16
 
-- source visual truth: 사용자 주석 `댓글색상 블루`
-- browser-rendered implementation: `http://127.0.0.1:4173/community/naver-cafe-list.html?view=naver-discussion`
+- source visual truth: 사용자 정정 `치지직 간결 게시판만 댓글 파랑색`
+- implementation: `public/community/naver-cafe-list.html?view=compact`
 - viewport and density: 384 × 844 CSS px, DPR 1
-- state: 네이버 토론형 · 전체 말머리 · 첫 게시물 반응 영역
-- full-view evidence: Chrome 로컬 렌더링에서 댓글 아이콘과 숫자가 보배드림 블루로 표시됐다.
-- focused evidence: `[data-discussion-comment]` 60개 전부 `rgb(35, 143, 227)`이며 아이콘 필터도 같은 블루를 사용한다.
+- state: 치지직 간결형 목록과 네이버 토론형 반응 영역 교차검증
+- focused evidence: 간결형 `.compactReply`만 `#238fe3`; 토론형 `[data-discussion-comment]`는 공통 회색을 상속한다.
 
 ## Findings
 
 - P0/P1/P2 없음.
-- 추천·비추천은 기존 회색/선택 상태 규칙을 유지했다.
+- 간결형 댓글 숫자만 보배드림 블루로 유지했다.
+- 네이버 토론형 댓글 아이콘·숫자는 기존 회색으로 복원했다.
 - 폰트·간격·이미지·문구는 변경하지 않았다.
 - 새 탭 재검에서 console warning/error 0건을 확인했다.
 
 ## Comparison history
 
-- Pass 1: 댓글 아이콘과 숫자가 공통 반응색 `#6f737a`를 상속했다.
-- Fix: 댓글 컨트롤만 `#238fe3`과 동일 블루 아이콘 필터를 적용했다.
-- Pass 2: 댓글 컨트롤 60개 전부 블루로 계산되고 다른 반응색은 유지됐다.
+- Pass 1: 블루 범위를 네이버 토론형까지 잘못 확대했다.
+- Fix: 토론형 전용 블루 규칙을 제거하고 간결형 `.compactReply` 블루만 유지했다.
 
 final result: passed
 
