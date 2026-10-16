@@ -8,7 +8,7 @@ const failures = [];
 const check = (condition, message) => { if (!condition) failures.push(message); };
 
 const officialBoards = [
-  '베스트글','자유게시판','자동차뉴스/토론','자동차뉴스','정치/시사게시판','시승기/배틀/목격담','유명인의 차','성인게시판',
+  '베스트글','자유게시판','자동차뉴스','정치/시사게시판','시승기/배틀/목격담','유명인의 차','성인게시판',
   '보배드림 이야기','제안/건의','국내야구','해외야구','해외축구','국내축구','이벤트',
   '신유머/감동/이슈','유머게시판','교통사고/블박','국산차게시판','수입차게시판','내차사진','직찍/특종발견',
   '자동차사진/동영상','장착시공사진','자유사진/동영상','후방주의방','레이싱모델','군사/무기','트럭/버스/중기',
@@ -30,8 +30,8 @@ const sectionTitles = await page.locator('.boardSectionTitle').allTextContents()
 const boardLabels = await page.locator('.boardRow [data-board-label], .boardRow > span:nth-of-type(1)').allTextContents();
 const normalizedLabels = boardLabels.map((label) => label.trim()).filter(Boolean);
 check(JSON.stringify(sectionTitles.map((title) => title.trim())) === JSON.stringify(['게시판','자료실']), '게시판/자료실 구역명이 다릅니다');
-check(await page.locator('.boardRow').count() === officialBoards.length + 1, '전체 게시글 포함 게시판 행 수가 33개가 아닙니다');
-check(await page.locator('.boardRowAvatar').count() === officialBoards.length + 1, '게시판 선택 프사가 33개가 아닙니다');
+check(await page.locator('.boardRow').count() === officialBoards.length + 1, '전체 게시글 포함 게시판 행 수가 32개가 아닙니다');
+check(await page.locator('.boardRowAvatar').count() === officialBoards.length + 1, '게시판 선택 프사가 32개가 아닙니다');
 const uniqueBoardAvatars = await page.locator('.boardRowAvatar').evaluateAll((elements) => new Set(elements.map((element) => element.src)).size);
 check(uniqueBoardAvatars === officialBoards.length + 1, `게시판 선택 고유 프사가 ${uniqueBoardAvatars}개입니다`);
 for (const board of officialBoards) check(normalizedLabels.filter((label) => label === board).length === 1, `${board} 게시판이 없거나 중복입니다`);
