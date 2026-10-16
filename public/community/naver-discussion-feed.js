@@ -115,7 +115,7 @@
     var title=cleanTitle(post.title);
     var avatar=avatarFor(post,index);
     var playEmbed=!thumbSrc&&firstEmbed(post)&&firstEmbed(post).render==='iframe'?firstEmbed(post):null;
-    var thumb=playEmbed?'<span class="naverDiscussionThumb is-play" aria-label="'+esc(playEmbed.provider)+' 재생"><span class="naverDiscussionThumbPlay"></span><small>'+esc(playEmbed.provider)+'</small></span>':thumbSrc?'<span class="naverDiscussionThumb"><img src="'+esc(thumbSrc)+'" alt="" loading="'+(index<4?'eager':'lazy')+'" referrerpolicy="no-referrer" onerror="this.parentNode.remove()">'+(count>1?'<b class="naverDiscussionThumbCount">'+count+'</b>':'')+'</span>':'';
+    var thumb=playEmbed?'<span class="naverDiscussionThumb is-play" role="button" tabindex="0" data-discussion-play="'+esc(post.id)+'" aria-label="'+esc(playEmbed.provider)+' 목록에서 재생"><span class="naverDiscussionThumbPlay"></span><small>'+esc(playEmbed.provider)+'</small></span>':thumbSrc?'<span class="naverDiscussionThumb"><img src="'+esc(thumbSrc)+'" alt="" loading="'+(index<4?'eager':'lazy')+'" referrerpolicy="no-referrer" onerror="this.parentNode.remove()">'+(count>1?'<b class="naverDiscussionThumbCount">'+count+'</b>':'')+'</span>':'';
     return '<article class="naverDiscussionCard is-thumb" data-discussion-post="'+esc(post.id)+'"><span class="naverDiscussionCategory">'+esc(categoryFor(post))+'</span><div class="naverDiscussionIdentity"><img class="naverDiscussionAvatar" src="'+esc(avatar)+'" alt="'+esc(post.user)+' 프로필"><strong class="naverDiscussionAuthor">'+esc(post.user)+'</strong><time class="naverDiscussionTime">'+esc(post.time)+'</time></div><a class="naverDiscussionThumbMain" href="'+detailUrl(post)+'"><span class="naverDiscussionThumbText"><strong class="naverDiscussionTitle">'+esc(title)+'</strong><span class="naverDiscussionBody">'+esc(bodyFor(post,index))+'</span></span>'+thumb+'</a><div class="naverDiscussionMetrics" aria-label="게시물 반응"><button class="naverDiscussionMetric" type="button" data-discussion-vote="up" aria-label="버프 '+metric(likes)+'" aria-pressed="false"><img src="'+icon('buff')+'" alt=""><span>'+metric(likes)+'</span></button><button class="naverDiscussionMetric" type="button" data-discussion-vote="down" aria-label="너프 '+metric(dislikes)+'" aria-pressed="false"><img src="'+icon('nerf')+'" alt=""><span>'+metric(dislikes)+'</span></button><button class="naverDiscussionMetric" type="button" data-discussion-comment="'+esc(post.id)+'" aria-label="댓글 '+Number(post.reply||0).toLocaleString('ko-KR')+'개"><img src="'+icon('comment-reddit')+'" alt="">'+metric(post.reply)+'</button><span class="naverDiscussionViews">조회 '+Number(post.view||0).toLocaleString('ko-KR')+'</span></div></article>';
   }
   var currentVariant='';
@@ -161,6 +161,22 @@
       });
       video.addEventListener('play',function(){button.classList.add('is-playing');button.setAttribute('aria-label','영상 일시정지');});
       video.addEventListener('pause',function(){button.classList.remove('is-playing');button.setAttribute('aria-label','영상 재생');});
+    });
+    /* 썸네일형: 재생 타일을 누르면 상세로 가지 않고 카드 아래에 릴스·영상을 펼쳐 바로 재생, 다시 누르면 접기 */
+    list.querySelectorAll('[data-discussion-play]').forEach(function(tile){
+      function toggle(event){
+        event.preventDefault();event.stopPropagation();
+        var cardElement=tile.closest('.naverDiscussionCard');
+        var open=cardElement.querySelector('.naverDiscussionEmbed');
+        if(open){open.remove();tile.classList.remove('is-open');tile.setAttribute('aria-expanded','false');return;}
+        var post=posts().filter(function(p){return String(p.id)===tile.dataset.discussionPlay;})[0];
+        var html=post&&embedInlineFor(post);
+        if(!html)return;
+        cardElement.querySelector('.naverDiscussionThumbMain').insertAdjacentHTML('afterend',html);
+        tile.classList.add('is-open');tile.setAttribute('aria-expanded','true');
+      }
+      tile.addEventListener('click',toggle);
+      tile.addEventListener('keydown',function(event){if(event.key==='Enter'||event.key===' ')toggle(event);});
     });
     list.querySelectorAll('[data-discussion-vote]').forEach(function(button){button.addEventListener('click',function(){var active=button.getAttribute('aria-pressed')==='true';var cardElement=button.closest('.naverDiscussionCard');cardElement.querySelectorAll('[data-discussion-vote]').forEach(function(other){other.classList.remove('is-active');other.setAttribute('aria-pressed','false');});if(!active){button.classList.add('is-active');button.setAttribute('aria-pressed','true');}});});
     list.querySelectorAll('[data-discussion-comment]').forEach(function(button){button.addEventListener('click',function(){location.href='./chzzk-detail.html?id='+encodeURIComponent(button.dataset.discussionComment)+'#comments';});});
