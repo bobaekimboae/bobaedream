@@ -26,6 +26,8 @@ try {
       cleanbots: document.querySelectorAll(".naverDiscussionCleanbot").length,
       hotModules: document.querySelectorAll(".naverDiscussionHot").length,
       votes: document.querySelectorAll("[data-discussion-vote]").length,
+      visibleVoteLabels: Array.from(document.querySelectorAll("[data-discussion-vote]"))
+        .filter((button) => /버프|너프/.test(button.textContent || "")).length,
       cards: document.querySelectorAll(".naverDiscussionCard").length,
       overflow: Math.max(0, document.documentElement.scrollWidth - document.documentElement.clientWidth),
     }));
@@ -37,7 +39,8 @@ try {
     if (measurements.sortRows !== 0) throw new Error(`${width}px: 정렬 행이 남아 있음`);
     if (measurements.cleanbots !== 0) throw new Error(`${width}px: 클린봇 영역이 남아 있음`);
     if (measurements.hotModules !== 0) throw new Error(`${width}px: HOT 모듈이 남아 있음`);
-    if (measurements.votes !== 0) throw new Error(`${width}px: 버프·너프 버튼이 남아 있음`);
+    if (measurements.votes !== measurements.cards * 2) throw new Error(`${width}px: 버프·너프 아이콘 개수 불일치`);
+    if (measurements.visibleVoteLabels !== 0) throw new Error(`${width}px: 버프·너프 텍스트가 노출됨`);
     if (measurements.cards < 1) throw new Error(`${width}px: 게시물 카드 없음`);
     if (measurements.overflow !== 0) throw new Error(`${width}px: 가로 넘침 ${measurements.overflow}px`);
 
@@ -46,8 +49,12 @@ try {
       await page.screenshot({ path: "reports/naver-discussion-feed-1016/implementation-390x844.png", fullPage: false });
     }
 
+    const vote = page.locator('[data-discussion-vote="up"]').first();
+    await vote.click();
+    if ((await vote.getAttribute("aria-pressed")) !== "true") throw new Error(`${width}px: 버프 아이콘 선택 실패`);
+
     if (consoleErrors.length) throw new Error(`${width}px: 콘솔 오류\n${consoleErrors.join("\n")}`);
-    console.log(`PASS ${width}px · feed-only cards ${measurements.cards} · votes 0 · overflow 0`);
+    console.log(`PASS ${width}px · feed-only cards ${measurements.cards} · icon votes ${measurements.votes} · labels 0 · overflow 0`);
     await page.close();
   }
 } finally {
