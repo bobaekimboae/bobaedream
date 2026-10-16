@@ -209,9 +209,11 @@
   }
   function sportsCard(post,index){
     var title=cleanTitle(post.title);
-    var summary=bodyFor(post,index);
     var fallback='media/discussion-scenarios-v2/post-'+String(index%60+1).padStart(2,'0')+'.webp';
-    return '<a class="naverSportsRow" href="'+detailUrl(post)+'" data-sports-news-post="'+esc(post.id)+'"><span class="naverSportsThumb"><img src="'+esc(sportsThumb(post,index))+'" data-fallback="'+fallback+'" alt="" loading="'+(index<6?'eager':'lazy')+'" onerror="this.onerror=null;this.src=this.dataset.fallback"></span><span class="naverSportsCopy"><strong>'+esc(title)+'</strong><span class="naverSportsSummary">'+esc(summary)+'</span><span class="naverSportsMeta"><span>'+esc(post.sourceName||post.user||'보배드림')+'</span><span>'+esc(post.time||'방금 전')+'</span></span></span></a>';
+    var oneLine=index%3===0||title.length<18;
+    var boardName=categoryFor(post)+'게시판';
+    var recommends=Number(post.likes)||Math.max(0,Math.round(Number(post.view||0)/23)+Number(post.reply||0));
+    return '<a class="naverSportsRow '+(oneLine?'is-one-line':'is-two-line')+'" href="'+detailUrl(post)+'" data-sports-news-post="'+esc(post.id)+'"><span class="naverSportsThumb"><img src="'+esc(sportsThumb(post,index))+'" data-fallback="'+fallback+'" alt="" loading="'+(index<6?'eager':'lazy')+'" onerror="this.onerror=null;this.src=this.dataset.fallback"></span><span class="naverSportsCopy"><strong>'+esc(title)+'</strong><span class="naverSportsIdentity"><img src="'+esc(avatarFor(post,index))+'" alt=""><b>'+esc(boardName)+'</b><span>'+esc(post.user||'보배드림 회원')+'</span></span><span class="naverSportsMeta"><span>등록 '+esc(post.time||'방금 전')+'</span><span>조회 '+metric(post.view)+'</span><span>추천 '+metric(recommends)+'</span></span></span></a>';
   }
   function sportsGroups(data){
     var groups=[];
