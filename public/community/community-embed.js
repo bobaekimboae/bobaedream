@@ -33,6 +33,17 @@
         return ig;
       }
     }
+    /* 틱톡: 영상은 공식 플레이어(player/v1, 세로 9:16), 계정 주소는 공식 크리에이터 임베드(embed/@이름) */
+    if (host === 'tiktok.com' || host.slice(-11) === '.tiktok.com') {
+      if (parts[0] && parts[0].charAt(0) === '@') {
+        var vid = parts[1] === 'video' && /^\d+$/.test(parts[2] || '') ? parts[2] : '';
+        if (vid) { var tv = frame('https://www.tiktok.com/player/v1/' + vid + '?description=1&music_info=1', 'TikTok', 'TikTok 동영상', true, 'https://www.tiktok.com/' + parts[0] + '/video/' + vid); tv.short = true; return tv; }
+        var name = parts[0].slice(1);
+        var tp = frame('https://www.tiktok.com/embed/@' + encodeURIComponent(name), 'TikTok', 'TikTok @' + name, false, 'https://www.tiktok.com/@' + encodeURIComponent(name));
+        tp.profile = true; tp.handle = '@' + name;
+        return tp;
+      }
+    }
     if (/(^|\.)reddit\.com$/.test(host)) {
       var at = parts.indexOf('comments');
       if (parts[0] === 'r' && parts[1] && at > 1 && parts[at + 1]) {
@@ -83,7 +94,9 @@
     var yt = /youtube(-nocookie)?\.com\/embed\//.test(src);
     if (yt && opts && opts.autoplay) src += (src.indexOf('?') < 0 ? '?' : '&') + 'autoplay=1&playsinline=1';
     /* 노션 동영상 블록처럼 유튜브는 본문 폭 16:9, 쇼츠는 세로 9:16(최대 폭 315, 가운데) */
-    var html = '<iframe' + (yt ? (item.tall ? ' data-embed-short' : ' data-embed-wide') : '') + ' src="' + esc(src) + '" title="' + esc(item.title || item.provider || '임베드') + '" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts"></iframe>';
+    var tt = /tiktok\.com\/(player|embed)\//.test(src);
+    var shape = yt ? (item.tall ? ' data-embed-short' : ' data-embed-wide') : tt ? (/\/player\//.test(src) ? ' data-embed-short' : ' data-embed-tiktok-profile') : '';
+    var html = '<iframe' + shape + ' src="' + esc(src) + '" title="' + esc(item.title || item.provider || '임베드') + '" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts"></iframe>';
     return crop ? '<div class="bbm-embed-crop">' + html + '</div>' : html;
   }
   /* 상세·피드에서 쓰는 블록 하나 */
@@ -112,10 +125,12 @@
   /* 레딧 목록 방식(expando): 목록에서는 외부 플레이어를 불러오지 않고 썸네일 + 재생 버튼만 보여 주고,
      누르면 그 자리에서 플레이어로 바꿔 바로 재생한다. 썸네일은 레딧 스크래퍼 순서대로
      ① 제공처 썸네일(유튜브 i.ytimg) ② 원문 og:image(microlink) ③ 없으면 제공처 색 타일 */
-  function kindOf(item) { return item.provider === 'YouTube' ? (item.tall ? 'short' : 'wide') : item.provider === 'Instagram' ? 'instagram' : 'tall'; }
+  function kindOf(item) { return item.provider === 'YouTube' ? (item.tall ? 'short' : 'wide') : item.provider === 'Instagram' ? 'instagram' : item.provider === 'TikTok' ? (item.profile ? 'tiktok-profile' : 'short') : 'tall'; }
   function previewHtml(item) {
     if (!item || item.render !== 'iframe') return blockless(item);
-    var label = item.provider === 'YouTube' ? (item.tall ? 'YouTube 쇼츠' : 'YouTube') : item.provider;
+    /* 틱톡 계정 카드는 재생할 영상이 아니라 소개 카드라서 미리보기 없이 바로 보여 준다 */
+    if (item.profile) return frameHtml(item);
+    var label = item.provider === 'YouTube' ? (item.tall ? 'YouTube 쇼츠' : 'YouTube') : item.profile ? 'TikTok ' + item.handle : item.provider;
     return '<button type="button" class="bbm-embed-preview is-' + kindOf(item) + '" data-embed-activate="' + esc(item.url) + '" aria-label="' + esc(label) + ' 재생">' +
       (item.image ? '<img src="' + esc(item.image) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">' : '') +
       '<span class="bbm-embed-play" aria-hidden="true"></span><span class="bbm-embed-label">' + esc(label) + '</span></button>';
