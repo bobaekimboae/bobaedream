@@ -49,3 +49,9 @@ iframe[data-embed-short]{width:100%!important;max-width:540px;height:auto!import
 /* 틱톡 크리에이터 임베드: 틱톡 embed.js가 주는 높이 388 그대로 */
 iframe[data-embed-tiktok-profile],.naverDiscussionEmbed iframe[data-embed-tiktok-profile],.detailEmbed iframe[data-embed-tiktok-profile]{width:100%;max-width:540px;height:389px;margin:0 auto}
 .bbm-embed-preview.is-tiktok-profile{aspect-ratio:352/388;background:#000}
+
+/* 스레드 앱처럼 인스타 릴스: 계정 줄·하단 줄 없이 9:16 영상만, 둥근 모서리 12.
+   인스타 임베드(폭 350 고정) 안에서 영상 칸(폭 246 · 위에서 54)만 확대해 보여 준다 */
+.bbm-embed-reel{position:relative;width:288px;max-width:100%;aspect-ratio:9/16;margin:0 auto;overflow:hidden;border-radius:12px;background:#000}
+.bbm-embed-reel iframe[data-embed-reel]{position:absolute!important;left:0;top:0;display:block;width:350px!important;height:900px!important;max-width:none!important;aspect-ratio:auto!important;margin:0!important;border:0;background:#000;transform-origin:0 0;transform:scale(1.1707) translate(-52px,-54px)}
+.bbm-embed-preview.is-instagram.is-reel{width:min(100%,288px);aspect-ratio:9/16;border-radius:12px;background:#000}
