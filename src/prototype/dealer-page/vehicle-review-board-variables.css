@@ -1127,7 +1127,10 @@
 .vr-star-popover .vr-ui-icon {
   filter: none;
 }
-.vr-community-head span,
-.vr-detail-score strong {
+.vr-community-head span {
   color: #222;
+}
+
+.vr-detail-score strong {
+  color: #fff;
 }

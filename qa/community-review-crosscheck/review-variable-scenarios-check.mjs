@@ -213,6 +213,11 @@ for (let detailIndex = 0; detailIndex < ids.length; detailIndex += 1) {
     await detailPage.locator(".vr-detail").waitFor({ timeout: 3000 });
     const title = (await detailPage.locator(".vr-detail-title h1").innerText()).trim();
     const scoreVisible = await detailPage.locator(".vr-detail-score").isVisible();
+    if (detailIndex === 0) {
+      const scoreColor = await detailPage.locator(".vr-detail-score strong").evaluate((item) => getComputedStyle(item).color);
+      check("상세 종합 평점 숫자 흰색 대비", scoreColor === "rgb(255, 255, 255)", scoreColor);
+      await detailPage.screenshot({ path: join(outputDir, "detail-score-contrast-390x844.png"), fullPage: false });
+    }
     const image = detailPage.locator(".vr-detail-cover");
     const imageOk = await image.count() === 1 && await image.evaluate((item) => item.complete && item.naturalWidth > 0);
     if (!title || !scoreVisible || !imageOk) detailFailures.push({ id, title, scoreVisible, imageOk });
