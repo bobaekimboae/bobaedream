@@ -25,20 +25,16 @@
   }
 
   function hrefFor(post){
-    return './chzzk-detail.html?id='+encodeURIComponent(post.id)+'&v=20261016popular7';
+    return './chzzk-detail.html?id='+encodeURIComponent(post.sourcePostId)+'&v=20261016besttable1';
   }
 
   function rowMarkup(post){
     var title=cleanTitle(post.title);
-    return '<a class="popularPinnedRow" href="'+hrefFor(post)+'" aria-label="인기글: '+esc(title)+'"><span class="popularPinBadge" aria-hidden="true"><img src="assets/radix-drawing-pin-filled-white.svg" alt=""></span><strong class="popularPinnedTitle">'+esc(title)+'</strong></a>';
+    return '<a class="popularPinnedRow" href="'+hrefFor(post)+'" data-best-id="'+esc(post.bestId)+'" aria-label="베스트글 '+esc(post.rank)+'위: '+esc(title)+'"><span class="popularRank" aria-hidden="true">'+esc(post.rank)+'</span><strong class="popularPinnedTitle">'+esc(title)+'</strong></a>';
   }
 
   function render(){
-    var ranked=(window.BOBAE_POSTS||[]).slice().sort(function(a,b){
-      var aScore=(Number(a.view)||0)+(Number(a.likes)||0)*14+Math.min(Number(a.reply)||0,999)*2;
-      var bScore=(Number(b.view)||0)+(Number(b.likes)||0)*14+Math.min(Number(b.reply)||0,999)*2;
-      return bScore-aScore;
-    }).slice(0,6);
+    var ranked=(window.BOBAE_BEST_POSTS||[]).slice().sort(function(a,b){return Number(a.rank)-Number(b.rank)});
     if(!ranked.length){section.hidden=true;return;}
     var pageCount=Math.max(1,Math.ceil(ranked.length/3));
     var page=Math.floor(pageOffset/3)%pageCount;
@@ -46,7 +42,7 @@
     var dots=Array.from({length:pageCount},function(_,index){return '<span class="'+(index===page?'on':'')+'" aria-hidden="true"></span>';}).join('');
     track.innerHTML='<div class="popularPanel">'+popular.map(rowMarkup).join('')+'</div>';
     toggle.innerHTML=dots;
-    toggle.setAttribute('aria-label','인기글 '+(page+1)+' / '+pageCount+' · 다음 묶음 보기');
+    toggle.setAttribute('aria-label','베스트글 '+(page+1)+' / '+pageCount+' · 다음 묶음 보기');
     section.hidden=false;
   }
 
@@ -55,7 +51,7 @@
     toggle.classList.add('isChanging');
     track.classList.add('isChanging');
     window.setTimeout(function(){
-      pageOffset=(pageOffset+3)%Math.max(3,Math.min(6,(window.BOBAE_POSTS||[]).length));
+      pageOffset=(pageOffset+3)%Math.max(3,(window.BOBAE_BEST_POSTS||[]).length);
       render();
       track.classList.remove('isChanging');
       toggle.classList.remove('isChanging');

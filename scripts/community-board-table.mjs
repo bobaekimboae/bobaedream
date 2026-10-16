@@ -20,7 +20,9 @@ const csvPath = path.join(root, 'data', 'boards', `${board}.csv`);
 const outPath = path.join(root, 'public', 'community', 'data', `board-${board}.js`);
 const commonColumns = ['id', 'category', 'title', 'summary', 'body', 'source', 'sourceUrl', 'author', 'publishedAt', 'thumbnail', 'images', 'views', 'comments', 'likes', 'tags'];
 const reviewColumns = ['reviewId', 'modelId', 'brand', 'model', 'trim', 'powertrain', 'rating', 'owner', 'ownershipLabel', 'benchmark', 'location', 'ratings', 'brandLogo'];
-const columns = commonColumns.concat(reviewColumns);
+// 선택 열: embed = 본문에 넣을 임베드 주소(인스타그램·유튜브·레딧·기사), | 로 여러 개
+const optionalColumns = ['embed'];
+const columns = commonColumns.concat(reviewColumns, optionalColumns);
 
 function parseCsv(text) {
   const rows = [];
