@@ -22,7 +22,7 @@
       var id = parsed.searchParams.get('v') || (parts[0] === 'shorts' || parts[0] === 'embed' || parts[0] === 'live' ? parts[1] : '');
       if (id) return yt(id, parts[0] === 'shorts');
     }
-    if (host.slice(-9) === 'vimeo.com' && /^\d+$/.test(parts[parts.length - 1] || '')) return frame('https://player.vimeo.com/video/' + parts[parts.length - 1], 'Vimeo', 'Vimeo 동영상');
+    if (host.slice(-9) === 'vimeo.com' && /^\d+$/.test(parts[parts.length - 1] || '')) { var vm = frame('https://player.vimeo.com/video/' + parts[parts.length - 1], 'Vimeo', 'Vimeo 동영상'); vm.wide = true; vm.kind = 'video'; return vm; }
     if (host === 'instagram.com' || host.slice(-14) === '.instagram.com') {
       if (['p', 'reel', 'reels', 'tv'].indexOf(parts[0]) >= 0 && parts[1]) {
         var type = parts[0] === 'reels' ? 'reel' : parts[0];
@@ -51,7 +51,67 @@
         return frame('https://embed.reddit.com/r/' + encodeURIComponent(parts[1]) + '/comments/' + encodeURIComponent(parts[at + 1]) + '/' + slug + '?embed=true&theme=light&showmedia=true&showmore=false', 'Reddit', 'Reddit 게시물', true);
       }
     }
-    if (host === 'open.spotify.com' && parts.length >= 2) return frame('https://open.spotify.com/embed/' + encodeURIComponent(parts[0]) + '/' + encodeURIComponent(parts[1]), 'Spotify', 'Spotify');
+    if (host === 'open.spotify.com' && parts.length >= 2) { var sp = frame('https://open.spotify.com/embed/' + encodeURIComponent(parts[0]) + '/' + encodeURIComponent(parts[1]), 'Spotify', 'Spotify'); sp.height = parts[0] === 'track' || parts[0] === 'episode' ? 152 : 352; sp.kind = 'audio'; return sp; }
+    /* ─ 노션 도움말 「Embeds, bookmarks & link mentions」의 임베드 지원 서비스(2026-10-17 수집)를 공식 iframe 주소로 ─ */
+    var full = parsed.href, q = encodeURIComponent(full), id;
+    function sized(item, h, kind) { item.height = h; item.kind = kind || 'card'; return item; }
+    /* 트위터(X) 게시물 */
+    if ((host === 'twitter.com' || host === 'x.com' || host === 'mobile.twitter.com') && parts[1] === 'status' && /^\d+$/.test(parts[2] || '')) return sized(frame('https://platform.twitter.com/embed/Tweet.html?id=' + parts[2] + '&lang=ko&dnt=true', 'X(트위터)', 'X 게시물'), 520);
+    /* 스레드 */
+    if ((host === 'threads.net' || host === 'threads.com') && parts[0] && parts[0].charAt(0) === '@' && parts[1] === 'post' && parts[2]) return sized(frame('https://www.threads.com/' + parts[0] + '/post/' + encodeURIComponent(parts[2]) + '/embed', 'Threads', 'Threads 게시물'), 560);
+    /* 페이스북 게시물·영상 */
+    if (host === 'facebook.com' || host === 'm.facebook.com' || host === 'fb.watch') {
+      var fbVideo = /\/videos?\/|\/reel\/|watch/.test(parsed.pathname + parsed.search) || host === 'fb.watch';
+      return sized(frame('https://www.facebook.com/plugins/' + (fbVideo ? 'video' : 'post') + '.php?href=' + q + '&show_text=true&width=500', 'Facebook', fbVideo ? 'Facebook 동영상' : 'Facebook 게시물'), fbVideo ? 420 : 560, fbVideo ? 'video' : 'card');
+    }
+    /* 링크드인 게시물(activity 번호가 있는 주소) */
+    if (host === 'linkedin.com' && (id = (full.match(/(?:activity|share|ugcPost)[:-](\d{10,})/) || [])[1])) return sized(frame('https://www.linkedin.com/embed/feed/update/urn:li:' + (/ugcPost/.test(full) ? 'ugcPost' : /share[:-]/.test(full) ? 'share' : 'activity') + ':' + id, 'LinkedIn', 'LinkedIn 게시물'), 560);
+    /* 핀터레스트 핀 */
+    if (/(^|\.)pinterest\.[a-z.]+$/.test(host) && parts[0] === 'pin' && /^\d+$/.test(parts[1] || '')) return sized(frame('https://assets.pinterest.com/ext/embed.html?id=' + parts[1], 'Pinterest', 'Pinterest 핀'), 620);
+    /* 룸(Loom) 영상 */
+    if (host.slice(-8) === 'loom.com' && (parts[0] === 'share' || parts[0] === 'embed') && parts[1]) { var lm = frame('https://www.loom.com/embed/' + encodeURIComponent(parts[1]), 'Loom', 'Loom 영상'); lm.wide = true; lm.kind = 'video'; return lm; }
+    /* 비메오는 위에서 처리. 지피(GIPHY) */
+    if (host.slice(-9) === 'giphy.com' && (id = (parts[0] === 'gifs' || parts[0] === 'embed' || parts[0] === 'media' ? (parts[parts.length - 1] || '').split('-').pop() : ''))) return sized(frame('https://giphy.com/embed/' + encodeURIComponent(id), 'GIPHY', 'GIPHY'), 300, 'media');
+    /* 사운드클라우드 */
+    if (host.slice(-14) === 'soundcloud.com' && parts.length >= 2) return sized(frame('https://w.soundcloud.com/player/?url=' + q + '&visual=false', 'SoundCloud', 'SoundCloud'), 166, 'audio');
+    /* 구글 지도 */
+    if ((host === 'google.com' || host === 'maps.google.com' || /^google\.[a-z.]+$/.test(host)) && (parts[0] === 'maps' || host === 'maps.google.com')) {
+      var place = parsed.searchParams.get('q') || (parts[1] === 'place' && parts[2] ? decodeURIComponent(parts[2]).replace(/\+/g, ' ') : '');
+      var at = (parsed.pathname.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/) || []);
+      var mq = place || (at[1] ? at[1] + ',' + at[2] : '');
+      if (mq) return sized(frame('https://maps.google.com/maps?q=' + encodeURIComponent(mq) + '&z=15&output=embed', 'Google 지도', 'Google 지도'), 320, 'map');
+    }
+    if (host === 'maps.app.goo.gl' || host === 'goo.gl') return base;
+    /* 구글 드라이브·문서·시트·슬라이드·캘린더(공개 문서만) */
+    if (host === 'drive.google.com' && parts[0] === 'file' && parts[2]) return sized(frame('https://drive.google.com/file/d/' + encodeURIComponent(parts[2]) + '/preview', 'Google 드라이브', 'Google 드라이브 파일'), 480, 'doc');
+    if (host === 'docs.google.com' && ['document', 'spreadsheets', 'presentation', 'forms'].indexOf(parts[0]) >= 0 && parts[1] === 'd' && parts[2]) {
+      var gtail = parts[0] === 'forms' ? '/viewform?embedded=true' : parts[0] === 'presentation' ? '/embed' : '/preview';
+      return sized(frame('https://docs.google.com/' + parts[0] + '/d/' + encodeURIComponent(parts[2]) + gtail, 'Google ' + ({ document: '문서', spreadsheets: '시트', presentation: '슬라이드', forms: '설문' })[parts[0]], 'Google 문서'), parts[0] === 'presentation' ? 300 : 480, 'doc');
+    }
+    if (host === 'calendar.google.com' && parts.indexOf('embed') >= 0) return sized(frame(full, 'Google 캘린더', 'Google 캘린더'), 480, 'doc');
+    /* 피그마 */
+    if (host.slice(-9) === 'figma.com' && ['file', 'design', 'proto', 'board', 'slides'].indexOf(parts[0]) >= 0) return sized(frame('https://www.figma.com/embed?embed_host=bobaedream&url=' + q, 'Figma', 'Figma'), 450, 'doc');
+    /* 코드펜 */
+    var penAt = host === 'codepen.io' ? parts.indexOf('pen') : -1;
+    if (penAt > 0 && parts[penAt + 1]) return sized(frame('https://codepen.io/' + parts.slice(0, penAt).map(encodeURIComponent).join('/') + '/embed/' + encodeURIComponent(parts[penAt + 1]) + '?default-tab=result', 'CodePen', 'CodePen'), 400, 'doc');
+    /* 깃허브 기스트(.pibb = iframe용 HTML) */
+    if (host === 'gist.github.com' && parts.length >= 2) return sized(frame('https://gist.github.com/' + encodeURIComponent(parts[0]) + '/' + encodeURIComponent(parts[1]) + '.pibb', 'GitHub Gist', 'GitHub Gist'), 360, 'doc');
+    /* 미로 보드 */
+    if (host === 'miro.com' && parts[0] === 'app' && parts[1] === 'board' && parts[2]) return sized(frame('https://miro.com/app/live-embed/' + encodeURIComponent(parts[2]) + '/', 'Miro', 'Miro 보드'), 450, 'doc');
+    /* 캔바 디자인 */
+    if (host === 'canva.com' && parts[0] === 'design' && parts[1]) return sized(frame('https://www.canva.com/design/' + encodeURIComponent(parts[1]) + '/' + encodeURIComponent(parts[2] || 'view') + '/view?embed', 'Canva', 'Canva 디자인'), 420, 'doc');
+    /* 타입폼·탤리 설문 */
+    if (host.slice(-12) === 'typeform.com' && parts[0] === 'to' && parts[1]) return sized(frame(full, 'Typeform', 'Typeform 설문'), 500, 'doc');
+    if (host === 'tally.so' && (parts[0] === 'r' || parts[0] === 'embed') && parts[1]) return sized(frame('https://tally.so/embed/' + encodeURIComponent(parts[1]) + '?transparentBackground=1', 'Tally', 'Tally 설문'), 500, 'doc');
+    /* 리플릿·스트림릿·태블로 공개 화면 */
+    if (host === 'replit.com' && parts[0] && parts[0].charAt(0) === '@' && parts[1]) return sized(frame('https://replit.com/' + parts[0] + '/' + encodeURIComponent(parts[1]) + '?embed=true', 'Replit', 'Replit'), 450, 'doc');
+    if (/\.streamlit\.app$/.test(host)) return sized(frame(full.split('#')[0] + (parsed.search ? '&' : '?') + 'embed=true', 'Streamlit', 'Streamlit 앱'), 500, 'doc');
+    if (host === 'public.tableau.com' && parts[0] === 'views') return sized(frame(full.split('?')[0] + '?:showVizHome=no&:embed=true', 'Tableau', 'Tableau'), 500, 'doc');
+    /* 임베드용으로 만든 도구(엑스칼리드로·프레이머·플로커스·인디파이·스케치·인비전·앱스트랙트·믹스패널 공개 화면): 주소 그대로 */
+    if (/(^|\.)(excalidraw\.com|framer\.website|framer\.app|flocus\.com|indify\.co|widgetbox\.app|sketch\.com|invis\.io|invisionapp\.com|abstract\.com|mixpanel\.com)$/.test(host)) return sized(frame(full, host.split('.').slice(-2, -1)[0].replace(/^./, function (c) { return c.toUpperCase(); }), host), 450, 'doc');
+    /* PDF 파일·동영상 파일 */
+    if (/\.pdf($|\?)/i.test(parsed.pathname)) return sized(frame(full, 'PDF', 'PDF 문서'), 520, 'doc');
+    if (/\.(mp4|webm|mov)($|\?)/i.test(parsed.pathname)) { var vf = frame(full, '동영상', '동영상 파일'); vf.wide = true; vf.kind = 'video'; return vf; }
     return base;
   }
 
@@ -102,7 +162,10 @@
       var ttSrc = src + (src.indexOf('?') < 0 ? '?' : '&') + 'lang=ko-KR&referrer=' + encodeURIComponent(location.href);
       return '<iframe' + shape + ' name="' + ttName + '" src="' + esc(ttSrc) + '" title="' + esc(item.title || 'TikTok') + '" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen sandbox="allow-popups allow-popups-to-escape-sandbox allow-scripts allow-top-navigation allow-same-origin"></iframe>';
     }
-    var html = '<iframe' + shape + ' src="' + esc(src) + '" title="' + esc(item.title || item.provider || '임베드') + '" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts"></iframe>';
+    if (!yt && item.wide) shape += ' data-embed-wide';
+    var style = item.height ? ' style="height:' + Number(item.height) + 'px"' : '';
+    if (/platform\.twitter\.com\//.test(src)) shape += ' data-embed-tweet';
+    var html = '<iframe' + shape + style + ' src="' + esc(src) + '" title="' + esc(item.title || item.provider || '임베드') + '" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts"></iframe>';
     return crop ? '<div class="bbm-embed-crop">' + html + '</div>' : html;
   }
   /* 상세·피드에서 쓰는 블록 하나 */
@@ -116,6 +179,13 @@
   }
   /* 노션처럼 원본 높이로: 인스타그램(MEASURE)·레딧(resize.embed)이 보내는 높이 신호로 iframe 높이를 맞춘다 */
   window.addEventListener('message', function (event) {
+    if (/(^|\.)twitter\.com$/.test((function () { try { return new URL(event.origin).hostname; } catch (_) { return ''; } })())) {
+      var xd = event.data; try { if (typeof xd === 'string') xd = JSON.parse(xd); } catch (_) { return; }
+      var xr = xd && xd['twttr.embed']; var xh = xr && xr.method === 'twttr.private.resize' && xr.params && xr.params[0] && Number(xr.params[0].height);
+      if (!(xh > 50)) return;
+      Array.prototype.forEach.call(document.querySelectorAll('iframe[data-embed-tweet]'), function (frame) { if (frame.contentWindow === event.source) { frame.setAttribute('data-embed-height', ''); frame.style.setProperty('--embed-h', Math.ceil(xh) + 'px'); } });
+      return;
+    }
     if (/(^|\.)tiktok\.com$/.test((function () { try { return new URL(event.origin).hostname; } catch (_) { return ''; } })())) {
       var td = event.data;
       try { if (typeof td === 'string' && td.charAt(0) === '{') td = JSON.parse(td); } catch (_) { return; }
@@ -141,11 +211,13 @@
   /* 레딧 목록 방식(expando): 목록에서는 외부 플레이어를 불러오지 않고 썸네일 + 재생 버튼만 보여 주고,
      누르면 그 자리에서 플레이어로 바꿔 바로 재생한다. 썸네일은 레딧 스크래퍼 순서대로
      ① 제공처 썸네일(유튜브 i.ytimg) ② 원문 og:image(microlink) ③ 없으면 제공처 색 타일 */
-  function kindOf(item) { return item.provider === 'YouTube' ? (item.tall ? 'short' : 'wide') : item.provider === 'Instagram' ? 'instagram' : item.provider === 'TikTok' ? (item.profile ? 'tiktok-profile' : 'short') : 'tall'; }
+  function kindOf(item) { return item.provider === 'YouTube' ? (item.tall ? 'short' : 'wide') : item.provider === 'Instagram' ? 'instagram' : item.provider === 'TikTok' ? (item.profile ? 'tiktok-profile' : 'short') : item.wide ? 'wide' : item.kind === 'audio' || item.kind === 'map' || item.kind === 'doc' || item.kind === 'card' ? 'panel' : 'tall'; }
+  /* 영상이 아닌 임베드(지도·문서·오디오·게시물)는 노션처럼 미리보기 없이 바로 보여 준다 */
+  function isPlayable(item) { return item.provider === 'YouTube' || item.provider === 'Instagram' || (item.provider === 'TikTok' && !item.profile) || item.kind === 'video' || item.provider === 'Vimeo'; }
   function previewHtml(item) {
     if (!item || item.render !== 'iframe') return blockless(item);
     /* 틱톡 계정 카드는 재생할 영상이 아니라 소개 카드라서 미리보기 없이 바로 보여 준다 */
-    if (item.profile) return frameHtml(item);
+    if (item.profile || !isPlayable(item)) return frameHtml(item);
     var label = item.provider === 'YouTube' ? (item.tall ? 'YouTube 쇼츠' : 'YouTube') : item.profile ? 'TikTok ' + item.handle : item.provider;
     return '<button type="button" class="bbm-embed-preview is-' + kindOf(item) + '" data-embed-activate="' + esc(item.url) + '" aria-label="' + esc(label) + ' 재생">' +
       (item.image ? '<img src="' + esc(item.image) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">' : '') +
