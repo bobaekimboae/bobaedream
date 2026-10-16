@@ -59,7 +59,8 @@
       benchmark:String(row.benchmark||'').trim(),
       location:String(row.location||'').trim(),
       ratings:list(row.ratings),
-      brandLogo:String(row.brandLogo||'').trim()
+      brandLogo:String(row.brandLogo||'').trim(),
+      embeds:list(row.embed).map(function(url){return window.BBM_EMBED?window.BBM_EMBED.info(url):{url:url,render:'preview'};}).filter(Boolean)
     };
   }
   function postsFor(boardId){
