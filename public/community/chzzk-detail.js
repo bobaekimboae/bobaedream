@@ -327,10 +327,11 @@ function setRegularContent() {
       : post.boardTable && post.images && post.images.length
         ? post.images.map((src, index) => `<img class="detailPhoto detailDiscussionPhoto" src="${escapeHtml(src)}" alt="${escapeHtml(post.title)} 사진 ${index + 1}" loading="${index < 2 ? 'eager' : 'lazy'}">`).join('')
         : (detailImage ? `<img class="detailPhoto" src="${escapeHtml(detailImage)}" alt="${escapeHtml(post.title)}">` : '');
+    const tableEmbedHtml = post.boardTable && Array.isArray(post.embeds) && window.BBM_EMBED ? post.embeds.map((item) => window.BBM_EMBED.blockHtml(item)).join('') : '';
     const sourceHtml = post.boardTable && (post.source || post.sourceUrl)
       ? `<p class="detailSource">출처 ${escapeHtml(post.source || '')}${post.sourceUrl && /^https?:\/\//.test(post.sourceUrl) ? ` · <a href="${escapeHtml(post.sourceUrl)}" target="_blank" rel="noopener noreferrer">원문 보기</a>` : ''}</p>`
       : '';
-    $('#postBody').innerHTML = `${photoHtml}
+    $('#postBody').innerHTML = `${photoHtml}${tableEmbedHtml}
       <div class="detailCopy">${paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>${sourceHtml}`;
     const photoTarget = Number(new URLSearchParams(location.search).get('photo')) || 0;
     if (fromDiscussion && photoTarget > 1) {
