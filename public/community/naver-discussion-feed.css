@@ -241,6 +241,9 @@
 .naverCafeNew{position:absolute;left:-8px;top:20px;width:6px;height:6px;border-radius:50%;background:#ff3441}
 .naverCafePopularBody{display:block;min-width:0}
 .naverCafePopularBody>strong{display:-webkit-box;overflow:hidden;color:#111112;font-size:16px;line-height:22px;font-weight:400;letter-spacing:-.035em;word-break:keep-all;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.naverCafePopularRow.isPopular{background:#eaf5ff;border-bottom-color:#d8eaf8}
+.naverCafePopularRow.isPopular .naverCafePopularReply{background:#dceeff}
+.naverCafePopularBadge{display:inline-flex;align-items:center;justify-content:center;height:22px;margin-right:6px;padding:0 5px;border-radius:4px;background:#3b82e6;color:#fff;font-size:13px;line-height:22px;font-weight:700;letter-spacing:-.03em;vertical-align:1px}
 .naverCafePopularMeta{height:19px;margin-top:2px;display:flex;align-items:center;gap:6px;overflow:hidden;color:#949699;font-size:14px;line-height:19px;font-weight:400;letter-spacing:-.025em;white-space:nowrap}
 .naverCafePopularMeta span{flex:0 0 auto}
 .naverCafePopularMeta span:first-child{max-width:43%;overflow:hidden;text-overflow:ellipsis}
