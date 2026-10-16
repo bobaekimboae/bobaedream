@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../%61ssets/fonts/pretendard/pretendard-guazi.css">
 <link rel="stylesheet" href="./reddit-feed.css?v=20261016redditicons1">
 <link rel="stylesheet" href="./news-card.css?v=20261017ytreddit1">
-<link rel="stylesheet" href="./naver-discussion-feed.css?v=20261017naverranking2">
+<link rel="stylesheet" href="./naver-discussion-feed.css?v=20261017naverranking3">
 <link rel="stylesheet" href="./chotot-feed.css?v=20261016saveicon1">
 <link rel="stylesheet" href="./reddit-popular.css?v=20261016besttable1">
 <link rel="stylesheet" href="./hupu-board-navigation.css?v=20261016reorder3">
@@ -176,7 +176,7 @@ openSheet=function(){
   function dataKey(attribute){return attribute.slice(5).replace(/-([a-z])/g,function(_,letter){return letter.toUpperCase()})}
   function choices(label,items,selected,key,handler){var group=section(label),property=dataKey(key);group.setAttribute('role','radiogroup');group.setAttribute('aria-label',label);group.innerHTML=items.map(function(item){var on=selected===item[0];return '<button class="modeRow '+(on?'on':'')+'" role="radio" aria-checked="'+on+'" '+key+'="'+item[0]+'">'+icon(item[3]||'list')+'<span class="modeText"><b>'+item[1]+'</b>'+(item[2]?'<em class="stateChip">'+item[2]+'</em>':'')+'</span><span class="radio" aria-hidden="true"></span></button>'}).join('');[].forEach.call(group.querySelectorAll('['+key+']'),function(button){button.onclick=function(){handler(button.dataset[property]);renderList();openSheet()}})}
   function toggles(label,items,values,key){var group=section(label),property=dataKey(key);group.innerHTML=items.map(function(item){var on=!!values[item[0]];return '<button class="toggleRow" role="switch" aria-checked="'+on+'" '+key+'="'+item[0]+'"><span>'+item[1]+'</span><span class="switch '+(on?'on':'')+'" aria-hidden="true"></span></button>'}).join('');[].forEach.call(group.querySelectorAll('['+key+']'),function(button){button.onclick=function(){var name=button.dataset[property];values[name]=!values[name];renderList();openSheet()}});return group}
-  var viewModes=activeBoardTable==='best'?[['lounge-best-rank','라운지 인기글형','기본 · 우측 썸네일','thumbRight'],['lounge-best-clean','라운지 간결형','순위 없음 · 우측 썸네일','thumbRight'],['lounge-best-left','라운지 썸네일 좌측형','순위 없음 · 좌측 썸네일','thumbLeft'],['naver-ranking-news','네이버 랭킹뉴스형','네이버 원본 규격 · 우측 74px','thumbRight']]:[['compact','간결형','','text'],['list','목록형','기본','list'],['detail-list','상세 목록형','','list'],['naver-discussion','피드형 · 네이버 토론','','feed'],['naver-discussion-thumb','네이버 토론 · 좌측 썸네일','','list'],['reddit-feed','피드형 · 레딧','','feed'],['feed-chotot','초톳 피드형 · 게시판형','','feed'],['feed-chotot-dealer','초톳 피드형 · 딜러형','','feed'],['feed-cafe','피드 네이버 카페','','feed'],['album','앨범형','','album']];
+  var viewModes=activeBoardTable==='best'?[['lounge-best-rank','라운지 인기글형','기본 · 우측 썸네일','thumbRight'],['lounge-best-clean','라운지 간결형','순위 없음 · 우측 썸네일','thumbRight'],['lounge-best-left','라운지 썸네일 좌측형','순위 없음 · 좌측 썸네일','thumbLeft'],['naver-ranking-news','네이버 랭킹뉴스형','순위 없음 · 좌측 74px','thumbLeft']]:[['compact','간결형','','text'],['list','목록형','기본','list'],['detail-list','상세 목록형','','list'],['naver-discussion','피드형 · 네이버 토론','','feed'],['naver-discussion-thumb','네이버 토론 · 좌측 썸네일','','list'],['reddit-feed','피드형 · 레딧','','feed'],['feed-chotot','초톳 피드형 · 게시판형','','feed'],['feed-chotot-dealer','초톳 피드형 · 딜러형','','feed'],['feed-cafe','피드 네이버 카페','','feed'],['album','앨범형','','album']];
   choices('보기 방식',viewModes,mode,'data-mode',function(value){mode=value;if(activeBoardTable==='best')saveBestView(value)});
   toggles('리스트 표시',[['thumbnail','썸네일'],['commentBadge','댓글 배지'],['rankBadge','계급 배지'],['recommendCount','추천수'],['categoryLabel','말머리'],['tag','태그']],display,'data-display-key');
   choices('썸네일 위치',[['right','오른쪽','기본','thumbRight'],['left','왼쪽','','thumbLeft']],thumbPosition,'data-thumb-position',function(value){thumbPosition=value});
@@ -233,7 +233,7 @@ renderList();
 <script src="./reddit-feed.js?v=20261016redditicons1"></script>
 <script src="./vendor/embla-carousel/embla-carousel.umd.js?v=8.6.0"></script>
 <script src="./discussion-media.js?v=20261016media2"></script>
-<script src="./naver-discussion-feed.js?v=20261017cafe1-naverranking2"></script>
+<script src="./naver-discussion-feed.js?v=20261017cafe1-naverranking3"></script>
 <script src="./chotot-feed.js?v=20261016redditicons2"></script>
 </body>
 </html>

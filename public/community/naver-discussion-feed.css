@@ -193,12 +193,11 @@
 .naverRankingGroup{display:block}
 .naverRankingColumn{display:flow-root}
 .naverRankingGroup+.naverRankingGroup{margin-top:14px}
-.naverRankingRow{position:relative;height:75px;margin-top:13px;display:grid;grid-template-columns:34px minmax(0,1fr) 74px;align-items:start;color:inherit;text-decoration:none;border:0;-webkit-tap-highlight-color:transparent}
+.naverRankingRow{position:relative;height:75px;margin-top:13px;display:grid;grid-template-columns:74px minmax(0,1fr);column-gap:12px;align-items:start;color:inherit;text-decoration:none;border:0;-webkit-tap-highlight-color:transparent}
 .naverRankingColumn .naverRankingRow:first-child{margin-top:12px}
 .naverRankingColumn+.naverRankingColumn .naverRankingRow:first-child{margin-top:13px}
-.naverRankingRow.no-thumb{grid-template-columns:34px minmax(0,1fr)}
-.naverRankingNumber{height:75px;padding-top:13px;box-sizing:border-box;color:#1e1e23;font-size:22px;line-height:24px;font-weight:600;font-style:normal;font-variant-numeric:tabular-nums}
-.naverRankingCopy{min-width:0;height:75px;padding:5px 16px 0 0;box-sizing:border-box}
+.naverRankingRow.no-thumb{grid-template-columns:minmax(0,1fr);column-gap:0}
+.naverRankingCopy{min-width:0;height:75px;padding:5px 0 0;box-sizing:border-box}
 .naverRankingCopy strong{height:42px;display:-webkit-box;overflow:hidden;color:#303038;font-size:16px;line-height:21px;font-weight:400;letter-spacing:normal;-webkit-box-orient:vertical;-webkit-line-clamp:2;word-break:keep-all}
 .naverRankingCopy>span{height:18px;display:flex;align-items:center;gap:3px;margin-top:4px;color:#767678;font-size:15px;line-height:18px;font-weight:400;font-variant-numeric:tabular-nums}
 .naverRankingCopy>span img{width:16px;height:14px;opacity:.54}
@@ -206,4 +205,4 @@
 .naverRankingThumb{width:74px;height:74px;margin-top:0;overflow:hidden;border-radius:4px;background:#eef0f2}
 .naverRankingThumb img{display:block;width:100%;height:100%;object-fit:cover}
 @media(hover:hover) and (pointer:fine){.naverRankingRow:hover{background:#f8fafc}}
-@media(max-width:370px){.naverRankingRows{padding:0 16px}.naverRankingHeading{padding:0 16px}.naverRankingPopover{left:16px}.naverRankingRow{grid-template-columns:32px minmax(0,1fr) 70px}.naverRankingThumb{width:70px;height:70px}.naverRankingCopy{padding-right:12px}}
+@media(max-width:370px){.naverRankingRows{padding:0 16px}.naverRankingHeading{padding-left:16px;padding-right:16px}.naverRankingPopover{left:16px}.naverRankingRow{grid-template-columns:70px minmax(0,1fr);column-gap:10px}.naverRankingRow.no-thumb{grid-template-columns:minmax(0,1fr);column-gap:0}.naverRankingThumb{width:70px;height:70px}}

@@ -28,6 +28,33 @@
 
 final result: passed
 
+## 네이버 뉴스형 · 순위 제거 + 좌측 썸네일 QA (2026-10-17)
+
+- source visual truth: `https://media.naver.com/press/056/ranking?type=comment&date=20261017`
+- implementation: `/community/naver-cafe-list.html?board=best&view=naver-ranking-news`
+- viewport and density: 원본·구현 모두 Chrome 390×844 CSS px, device scale 1. 콘텐츠 폭 375.2px.
+- state: `댓글 많은` 탭 선택 상태. 원본의 행 리듬과 글꼴을 기준으로 삼고, 사용자의 명시적 변경인 `순위 숫자 제거`와 `썸네일 왼쪽 배치`를 적용했다.
+- full-view comparison evidence: 동일 실행에서 KBS 댓글 많은 원본과 보배드림 구현을 같은 390×844 화면으로 연속 캡처해 탭·랭킹 제목·행 밀도·2줄 제목·반응 수·썸네일을 비교했다.
+- focused region comparison evidence:
+  - 행 x=20px·폭 335.2px·높이 75px, 이후 행 간격 13px, 구분선 없음.
+  - 순위 요소 0개. 링크 접근성 이름에서도 순위 숫자가 제거됐다.
+  - 썸네일 x=20px·74×74px·radius 4px, 제목/메타 x=106px·폭 249.2px.
+  - 제목 16/21px·400, 메타 15/18px·400, 탭 15/21px·선택 700을 유지했다.
+- interaction evidence: `댓글 많은` 선택 시 `aria-selected=true`, 제목이 `댓글 많은 랭킹`으로 바뀌고 첫 결과가 댓글수 내림차순으로 갱신된다. 많이 본·추천 많은 탭도 기존 동작을 보존한다.
+- responsive evidence: 360px에서 썸네일 70×70·텍스트 x=96px, 412px에서 썸네일 74×74·텍스트 x=107.9px. 두 폭 모두 가로 넘침 0.
+- fonts and typography: 네이버 뉴스의 시스템 글꼴 스택과 16/21px 제목, 15/18px 반응 수 규격을 유지했다.
+- spacing and layout rhythm: 원본 75px 행 높이와 13px 행 간격을 유지하되, 제거한 순위 34px 슬롯을 없애고 이미지와 본문 사이에 12px 간격을 적용했다.
+- colors/tokens: 원본의 중립 회색 정보 계층을 유지하면서 보배드림 헤더·브랜드 색상은 보존했다.
+- image quality and asset fidelity: 네이버 이미지는 복사·핫링크하지 않고 저장소의 보배드림 게시물 이미지 56개를 사용했다. 모든 썸네일은 cover와 4px radius로 표시된다.
+- copy and content: 네이버 기사 문구는 복사하지 않고 보배드림 베스트글 시나리오를 사용했다. 반응 수에는 스크린리더용 `댓글수/조회수/추천수`를 보존했다.
+- console: warning/error 0건.
+- comparison history:
+  - P1: 기존 구현이 순위 숫자 + 우측 썸네일이어서 사용자 확정안과 반대였다. 숫자 DOM을 제거하고 썸네일을 첫 그리드 열로 이동했다.
+  - P2: 360px에서 74px 이미지를 그대로 쓰면 본문 폭이 빠듯해질 수 있어 70px 썸네일과 10px 간격으로 보정했다. 가로 넘침 0을 재확인했다.
+- automated verification: `node --check`, `npm run build`, `npm run test:sites`, `git diff --check` 통과.
+
+final result: passed
+
 ---
 
 # 차량리뷰 50개 · 제목·연료 가변·원문 보존 QA · 2026-10-17
