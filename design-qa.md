@@ -27,6 +27,35 @@ final result: passed
 
 ---
 
+# 커뮤니티 검색·프로필 헤더 QA · 2026-10-16
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/72f45332-bc5d-4cbc-81df-9201e2b11ae4/1-1000018538.jpg` 및 Notion의 초톳 원본 `검색 돋보기_s03-chotot-mo-list-035-svgexport-3.svg`, `기본 프로필 아바타_s03-chotot-mo-list-014-svgexport-23.svg`
+- browser-rendered implementation: `artifacts/community-board-order-1015/mobile-384-top-menu-tiktok-text.png`
+- viewport and density: 구현 384 × 844 CSS px, DPR 1. 참고 화면 591 × 1280px은 상단 검색 헤더의 구성과 아이콘 비율을 시각 기준으로 사용했다.
+- state: 자유게시판, 간결형 목록, 기본 스크롤 위치
+- full-view comparison evidence: 같은 시각 비교 입력에서 참고 화면과 구현 화면을 함께 열어 검색창 배경·돋보기 색·우측 액션 배치를 확인했다.
+- focused region comparison evidence: 상단 56px 헤더에서 검색 아이콘 20px, 프로필 28px, 햄버거 22px과 10px 간격을 확인해 중요 요소가 충분히 판독되므로 추가 확대 크롭은 필요하지 않았다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 기존 Pretendard 15px/600 검색 라벨을 유지해 본문 계층에 영향을 주지 않는다.
+- spacing and layout rhythm: 헤더를 `24px / 유동 검색창 / 28px 프로필 / 27px 메뉴` 4열로 구성하고 간격을 10px로 통일했다. 384px에서 가로 오버플로와 아이콘 충돌이 없다.
+- colors and visual tokens: 검색창 `#f3f4f5`, 돋보기 원본 `#8C8C8C`, 흰 헤더를 사용해 초톳의 중립 회색 체계를 맞췄다.
+- image quality and asset fidelity: 돋보기는 Notion 원본과 동일한 기존 로컬 SVG를 재사용했고, 기본 프로필은 Notion 원본 SVG를 로컬 자산으로 추가했다. 임의 도형이나 대체 아이콘을 사용하지 않았다.
+- copy and content: 검색 라벨 `커뮤니티`, 접근성 이름 `내 프로필`, `전체 메뉴`를 유지했다.
+- interaction: Chrome에서 검색과 프로필 버튼을 눌러 기존 토스트 반응을 확인했다. 게시판 선택·정렬 회귀 검사와 런타임 무결성 검사가 통과했고 콘솔 런타임 오류는 0건이다.
+
+## Comparison history
+
+- Pass 1: 기존 헤더에는 검정 Reddit 검색 아이콘만 있고 사용자 프로필 액션이 없었다.
+- Fix: 초톳 회색 돋보기 원본으로 교체하고 햄버거 왼쪽에 28px 기본 프로필을 추가했으며 검색창이 남은 폭을 유동 점유하게 했다.
+- Pass 2: 384 × 844 렌더링에서 아이콘 비율, 검색창 여백, 우측 두 액션의 기준선이 안정적이며 남은 P0/P1/P2가 없음을 확인했다.
+
+final result: passed
+
+---
+
 # 커뮤니티 레딧형 게시판 프로필·설명 QA · 2026-10-16
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/dc8d7806-ecb4-4832-9d0d-ed158a1ae4c9/1-1000018526.jpg`
