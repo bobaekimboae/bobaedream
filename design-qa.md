@@ -1,3 +1,33 @@
+# 커뮤니티 레딧형 인기글 QA · 2026-10-16
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/1471b383-e429-4a24-a5b1-495c872e45ce/1-1000018552.jpg`
+- browser-rendered implementation: `artifacts/community-board-order-1015/mobile-384-top-menu-tiktok-text.png`
+- normalized source: `artifacts/community-popular-1016/reference-384.png`
+- full-view comparison evidence: `artifacts/community-popular-1016/comparison.png`
+- viewport and density: 구현 384 × 844 CSS px, DPR 1. 원본 592 × 1280px을 폭 384px으로 정규화해 384 × 830px으로 비교했다.
+- state: 자유게시판, 인기글 펼침, 첫 카드가 왼쪽에 맞춰진 기본 가로 스크롤 위치
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 제목 행은 Pretendard 15px/750, 카드 제목은 15px/760과 두 줄 말줄임으로 레딧의 굵은 카드 제목 위계를 유지한다.
+- spacing and layout rhythm: 48px 제목 행, 148 × 148px 카드, 10px 카드 간격, 14px 시작 여백, 20px 반경으로 참고 화면의 가로 스크롤 밀도를 384px에 맞췄다.
+- colors and visual tokens: 흰 배경·중립 회색 테두리·검정 제목을 사용하고 이미지 카드에만 반투명 검정 레이어를 적용해 글자 대비를 확보했다.
+- image quality and asset fidelity: 기존 게시물 차량 이미지와 작성자 프로필 자산을 재사용하고, 카드 이미지는 1:1 cover 처리해 늘어짐이 없다.
+- copy and content: `인기글` 제목과 반응량 기반 상위 5개 게시물의 제목·작성자·댓글 수를 실제형 데이터에서 생성한다.
+- interaction: 카드 가로 스크롤, 카드 상세 이동 링크, 인기글 접기·펼치기를 Chrome에서 확인했다. 접으면 카드 5개가 접근성 트리에서 제거되고 다시 펼치면 복원된다.
+- browser verification: Chrome 로컬 렌더에서 콘솔 오류 0건, 게시판 정렬 검사와 모바일 런타임 무결성 검사가 통과했다.
+
+## Comparison history
+
+- Pass 1: 기존 화면에는 말머리 아래 인기글 영역이 없어 레딧 참고 화면의 콘텐츠 발견 구간이 빠져 있었다.
+- Fix: 제목 행과 정사각형 가로 스크롤 카드 5개를 추가하고, 실데이터·상세 링크·접기 상태를 연결했다.
+- Pass 2: 정규화된 원본과 384px 구현을 나란히 비교해 카드 면적, 첫 카드 시작점, 텍스트 줄 수, 다음 카드 노출 비율이 일치하며 남은 P0/P1/P2가 없음을 확인했다.
+
+final result: passed
+
+---
+
 # 상세페이지 레딧형 본문 반응바 QA · 2026-10-16
 
 - source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a128e5-de8a-78d0-9ed9-96cbde6a07c3/3eb64c87-ab16-400f-a4ce-4ce1372483b4/1-1000018554.jpg`
