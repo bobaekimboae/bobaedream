@@ -294,6 +294,7 @@
     if(!window.BBM_EMBED||!window.BBM_EMBED.fetchMeta||!window.BBM_EMBED.cardHtml)return;
     list.querySelectorAll('a.news-card:not([data-news-hydrated])').forEach(function(card){
       card.setAttribute('data-news-hydrated','');
+      if(card.querySelector('.news-card-image'))return;
       var url=card.getAttribute('href');
       window.BBM_EMBED.fetchMeta(url).then(function(meta){
         if(!meta||!card.isConnected||!(meta.title||meta.image))return;

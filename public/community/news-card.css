@@ -55,3 +55,20 @@ iframe[data-embed-tiktok-profile],.naverDiscussionEmbed iframe[data-embed-tiktok
 .bbm-embed-reel{position:relative;width:288px;max-width:100%;aspect-ratio:9/16;margin:0 auto;overflow:hidden;border-radius:12px;background:#000}
 .bbm-embed-reel iframe[data-embed-reel]{position:absolute!important;left:0;top:0;display:block;width:350px!important;height:900px!important;max-width:none!important;aspect-ratio:auto!important;margin:0!important;border:0;background:#000;transform-origin:0 0;transform:scale(1.1707) translate(-52px,-54px)}
 .bbm-embed-preview.is-instagram.is-reel{width:min(100%,288px);aspect-ratio:9/16;border-radius:12px;background:#000}
+
+/* 스레드 앱 링크 카드(2026-10-17, 사용자 캡처 923px ÷2.404 환산): 피드 카드 안에서만.
+   위에 큰 이미지(약 1.91:1, og:image 비율) → 파비콘 18 + 도메인(회색) → 제목 최대 2줄, 요약은 숨김.
+   테두리 1px #e6e6e6 · 반경 16. 이미지가 없으면 왼쪽 58px 회색 칸에 링크 아이콘 + 도메인 + 제목 한 줄(스레드의 blocket.se 카드). */
+.naverDiscussionCard .news-card{display:flex;flex-direction:column;flex-wrap:nowrap;border:1px solid #e6e6e6;border-radius:16px;background:#fff;color:#101010}
+.naverDiscussionCard .news-card:hover{background:#fff}
+.naverDiscussionCard .news-card-image{flex:none;width:100%;height:auto;aspect-ratio:1.91/1;background:#f3f3f3}
+.naverDiscussionCard .news-card-copy{flex:none;grid-template-columns:18px minmax(0,1fr);grid-template-areas:"fav url" "title title";column-gap:8px;row-gap:4px;align-items:center;padding:12px 16px 14px}
+.naverDiscussionCard .news-card-site>img{width:18px;height:18px;min-width:18px;margin:0;border-radius:4px}
+.naverDiscussionCard .news-card-url{margin:0;color:#8e8e8e;font-size:14px;line-height:20px}
+.naverDiscussionCard .news-card-copy:not(:has(.news-card-site>img)) .news-card-url{grid-column:1 / -1}
+.naverDiscussionCard .news-card-title{display:-webkit-box;min-height:0;margin:0;color:#101010;font-size:16px;line-height:22px;font-weight:400;white-space:normal;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.naverDiscussionCard .news-card-desc{display:none}
+/* 이미지 없는 카드: 왼쪽 링크 아이콘 칸 */
+.naverDiscussionCard .news-card:not(:has(.news-card-image)){flex-direction:row;align-items:center;gap:12px;padding:12px}
+.naverDiscussionCard .news-card:not(:has(.news-card-image))::before{content:"";flex:none;width:58px;height:58px;border-radius:8px;background:#f3f3f3 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='%23101010' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1'/%3E%3Cpath d='M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1'/%3E%3C/svg%3E") center/28px no-repeat}
+.naverDiscussionCard .news-card:not(:has(.news-card-image)) .news-card-copy{flex:1 1 auto;min-width:0;padding:0}
