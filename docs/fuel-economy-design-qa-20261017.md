@@ -35,4 +35,21 @@
 2. 카드가 좌측으로 잘리는 inline label 문제를 수정하고 좌우 10px 여백과 카드 반경을 원본 구조에 맞췄다.
 3. 상세 브랜드 엠블럼이 가로로 늘어나는 flex 충돌을 수정하고 54px 원형 회귀 검사를 추가했다.
 
-Final result: passed
+final result: passed
+
+
+## 50대 차량 확장 검증 · 2026-10-17
+
+- deployed list: `/community/naver-cafe-list.html?board=fuel-economy&v=79f6c63c`
+- deployed writer: `/?community=fuel-economy&fuel=write&from=community&v=79f6c63c`
+- source/implementation combined comparison: `artifacts/fuel-economy-crosscheck-20261017/99-writer-ev-side-by-side.png`.
+- data completeness: 목록 50건, 모델 ID 50개, 중복 0건, 필수값 누락 0건, 잘못된 날짜 0건.
+- powertrain coverage: 내연기관 17대, 전기차 14대, 플러그인 하이브리드 11대, 하이브리드 8대.
+- writer catalog: BMW 25개, 벤츠 22개, 포르쉐·람보르기니·렉서스 각 1개로 목록과 동일한 50개 차종을 제공한다.
+- list QA: 전체 50건, 전기차 필터 14건, 모델별 실제 이미지, 깨진 이미지 0건, 콘솔 오류 0건.
+- detail QA: 모델·동력원에 따른 연비/전비/완충거리·온도·주행거리·지역·측정일, 갤러리, 댓글과 반응 영역을 확인했다.
+- writer QA: 전기차는 전비+완충 실주행거리+온도, PHEV는 전비+연비, 하이브리드·내연기관은 연비만 노출되는지 확인했다.
+- persistence: 공유 브라우저에는 테스트 글을 등록하지 않아 삭제할 테스트 데이터가 없다. 자동 게이트는 격리 저장소에서 등록→상세 흐름을 검증한다.
+- commit: `79f6c63c76ca7e6ae3cf6f5bfc8a8518b48dfed7`.
+
+final result: passed
