@@ -26,7 +26,7 @@
     displayName:"자동차뉴스",
     idStart:9100001,
     defaultView:"naver-discussion",
-    updatedAt:"2026-10-16T20:41:57.530Z",
+    updatedAt:"2026-10-16T21:45:46.037Z",
     rows:[
       {
         "id": "9100001",
@@ -463,7 +463,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "",
+        "summary3": "독일 중고차 플랫폼 오토스카우트24가 80년대 중형차를 다룬 릴스를 올렸다.|그 시절 집 앞에 서 있던 차를 떠올려 보자는 내용이다.|영상은 게시판에서 바로 재생된다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -503,7 +503,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "",
+        "summary3": "BMW M 공식 유튜브 채널이 신형 M350 xDrive 세단 영상을 공개했다.|영상은 새 세단의 외관과 주행 모습을 담았다.|게시판에서 바로 재생해 볼 수 있다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -543,7 +543,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "",
+        "summary3": "BMW M 공식 채널이 「Frozen finish, Hot colour」라는 쇼츠를 올렸다.|무광(프로즌) 도장과 강렬한 색상을 짧게 보여 주는 영상이다.|쇼츠는 게시판에서 바로 재생된다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -583,7 +583,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "",
+        "summary3": "BMW 공식 틱톡 계정(@bmw)을 소개하는 글이다.|이 계정에는 BMW 신차와 브랜드 영상이 꾸준히 올라온다.|최근 영상은 게시판에서 바로 볼 수 있다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -623,7 +623,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "",
+        "summary3": "BMW 공식 틱톡에 신형 iX4 영상이 올라왔다.|iX4는 BMW의 쿠페형 전기 SUV다.|영상은 게시판에서 바로 재생된다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -663,7 +663,7 @@
         "embedImage": "./media/news-meta/news-9100016.jpg",
         "embedSite": "네이버 뉴스",
         "embedLogo": "./media/favicons/n.news.naver.com.png",
-        "summary3": "",
+        "summary3": "데일리안이 렉서스 ES 시승기를 실었다.|기사는 ES가 독일차와 비슷한 값에 편안한 주행을 준다고 평가했다.|자세한 시승 내용은 네이버 뉴스 원문에서 볼 수 있다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -743,7 +743,7 @@
         "embedImage": "",
         "embedSite": "네이버 카페",
         "embedLogo": "./media/favicons/m.cafe.naver.com.png",
-        "summary3": "",
+        "summary3": "회원 185만 명이 모인 네이버 카페 「전기차동호회」의 게시글이다.|이 글은 카페 회원만 볼 수 있다.|그래서 내용은 원문 카페에서 확인해야 한다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -783,7 +783,7 @@
         "embedImage": "https://sun9-7.vkuserphoto.ru/s/v1/ig2/_60jKitovgfBFvxmX0sOjemngQqCq3ZZdmlsznQV_h2a1fTGfCNk7DoVTv7thbSBeWUbtLcQHapQRhIieBNCQRFPmzkcNA.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x854,720x960,1080x1441,1280x1708,1440x1921,1919x2560&from=bu&u=-RPV5AtKStGSFOQfaJCSH5NuGoEQs-c_i5zY_bCjhQc&cs=540x0",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "",
+        "summary3": "러시아 SNS VK(브콘탁테)에 올라온 사진 10장짜리 게시물이다.|「아직도 따로 팔지 않는 맛있는 것들」을 모아 가장 갖고 싶은 것을 묻는다.|게시물은 좋아요 2,200개 넘게 받았다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -823,7 +823,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "",
+        "summary3": "BMW 공식 스레드에 신형 iX4 50 xDrive 사진 글이 올라왔다.|iX4 50 xDrive는 신형 iX4의 사륜구동 모델이다.|글은 메타 공식 임베드 방식으로 게시판에 그대로 보인다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1103,7 +1103,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "",
+        "summary3": "틱톡 크리에이터 Nasser Hessien(@nasserhessien)이 아랍어 영상을 올렸다.|제목은 「말 그대로 모든 게 다 들어간 차」라는 뜻이다.|영상은 게시판에서 바로 재생된다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1263,7 +1263,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "",
+        "summary3": "올해 출시·공개된 신차 가운데 가장 끌리는 차를 고르는 투표다.|후보는 제네시스 GV80 하이브리드, 기아 EV9, 현대 디 올 뉴 투싼, BMW 5시리즈다.|무기명 투표라 누가 무엇을 골랐는지는 공개되지 않는다.",
         "pollTitle": "올해 가장 끌리는 신차는?",
         "pollOptions": "제네시스 GV80 하이브리드|기아 EV9|현대 디 올 뉴 투싼|BMW 5시리즈",
         "pollNote": "무기명 투표"

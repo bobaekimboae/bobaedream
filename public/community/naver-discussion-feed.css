@@ -281,3 +281,5 @@
 
 /* 3줄 요약(문장 연결형): 세 문장을 한 단락으로, 최대 4줄 */
 .naverDiscussionCard .news-card-desc.is-summary3{display:-webkit-box;height:auto;max-height:none;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;white-space:normal;word-break:keep-all}
+.naverDiscussionBody.is-summary3{-webkit-line-clamp:4}
+.naverDiscussionCard.is-thumb .naverDiscussionBody.is-summary3{-webkit-line-clamp:3}
