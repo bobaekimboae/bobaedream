@@ -50,6 +50,10 @@
 .naverDiscussionMediaShell{position:relative;height:clamp(184px,52vw,210px);margin-top:10px;overflow:hidden;border-radius:10px;background:#eef0f2}
 .naverDiscussionMediaRail{display:flex;width:100%;height:100%;gap:8px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:none;scroll-behavior:auto;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
 .naverDiscussionMediaRail::-webkit-scrollbar{display:none}
+.naverDiscussionMediaShell.is-embla-ready{touch-action:pan-y pinch-zoom;cursor:grab}
+.naverDiscussionMediaShell.is-embla-ready.is-dragging{cursor:grabbing}
+.naverDiscussionMediaShell.is-embla-ready .naverDiscussionMediaRail{overflow:visible;touch-action:pan-y pinch-zoom;will-change:transform;-webkit-overflow-scrolling:auto}
+.naverDiscussionMediaShell.is-embla-ready .naverDiscussionMediaItem{transform:translateZ(0);backface-visibility:hidden}
 .naverDiscussionMediaItem{position:relative;display:block;width:100%;height:100%;flex:0 0 100%;overflow:hidden;border-radius:8px;background:#e7e9ec;text-decoration:none;-webkit-tap-highlight-color:transparent}
 .naverDiscussionMediaShell.is-multi .naverDiscussionMediaItem{flex-basis:auto}
 .naverDiscussionMediaShell.is-multi .naverDiscussionMediaItem[data-ratio="landscape"]{width:72%;flex-basis:72%}

@@ -37,6 +37,8 @@ try {
       mediaShells: document.querySelectorAll(".naverDiscussionMediaShell").length,
       textOnlyCards: Array.from(document.querySelectorAll(".naverDiscussionCard")).filter((card) => !card.querySelector(".naverDiscussionMediaShell")).length,
       multiRails: document.querySelectorAll(".naverDiscussionMediaShell.is-multi").length,
+      emblaRails: document.querySelectorAll(".naverDiscussionMediaShell.is-multi[data-carousel-engine='embla']").length,
+      emblaApis: Array.from(document.querySelectorAll(".naverDiscussionMediaShell.is-multi")).filter((shell) => typeof shell._discussionEmbla?.scrollProgress === "function").length,
       singleRails: document.querySelectorAll(".naverDiscussionMediaShell:not(.is-multi)").length,
       multiItems: document.querySelector(".naverDiscussionMediaShell.is-multi")?.querySelectorAll(".naverDiscussionMediaItem").length || 0,
       mediaLinks: document.querySelectorAll(".naverDiscussionMediaLink").length,
@@ -57,6 +59,7 @@ try {
       scrollSnap: getComputedStyle(document.querySelector(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaRail")).scrollSnapType,
       scrollBehavior: getComputedStyle(document.querySelector(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaRail")).scrollBehavior,
       snapStop: getComputedStyle(document.querySelector(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaItem")).scrollSnapStop,
+      touchAction: getComputedStyle(document.querySelector(".naverDiscussionMediaShell.is-multi")).touchAction,
       pagination: document.querySelectorAll(".naverDiscussionMediaCount,.naverDiscussionMediaDots").length,
       primaryMediaMatches: Array.from(document.querySelectorAll(".naverDiscussionCard")).filter((card) => card.querySelector(".naverDiscussionMediaShell")).every((card) => {
         const id = String(card.dataset.discussionPost).padStart(2, "0");
@@ -92,6 +95,7 @@ try {
     if (measurements.mediaShells !== 42) throw new Error(`${width}px: 미디어 카드 수 불일치 (${measurements.mediaShells}/42)`);
     if (measurements.textOnlyCards !== 18) throw new Error(`${width}px: 텍스트 전용 카드 수 불일치 (${measurements.textOnlyCards}/18)`);
     if (measurements.multiRails !== 30) throw new Error(`${width}px: 다중 사진 카드 수 불일치 (${measurements.multiRails}/30)`);
+    if (measurements.emblaRails !== measurements.multiRails || measurements.emblaApis !== measurements.multiRails) throw new Error(`${width}px: Embla 초기화 누락 (${measurements.emblaRails}/${measurements.emblaApis}/${measurements.multiRails})`);
     if (measurements.singleRails !== 12) throw new Error(`${width}px: 단일 사진·영상 카드 수 불일치 (${measurements.singleRails}/12)`);
     if (measurements.multiItems < 2) throw new Error(`${width}px: 다중 사진 수 부족`);
     if (measurements.mediaLinks < 1) throw new Error(`${width}px: 사진 상세 링크 없음`);
@@ -108,6 +112,7 @@ try {
     if (measurements.scrollSnap !== "none") throw new Error(`${width}px: 가변 폭 미디어의 강제 스냅이 남아 있음 (${measurements.scrollSnap})`);
     if (measurements.scrollBehavior !== "auto") throw new Error(`${width}px: 네이티브 관성 스크롤이 아님 (${measurements.scrollBehavior})`);
     if (measurements.snapStop !== "normal") throw new Error(`${width}px: 카드마다 강제 정지가 남아 있음 (${measurements.snapStop})`);
+    if (!measurements.touchAction.includes("pan-y")) throw new Error(`${width}px: 세로 스크롤 제스처 허용이 없음 (${measurements.touchAction})`);
     if (measurements.pagination !== 0) throw new Error(`${width}px: 페이지 번호 또는 도트가 남아 있음`);
     if (!measurements.primaryMediaMatches) throw new Error(`${width}px: 게시물 ID와 대표 이미지 매핑 불일치`);
     if (measurements.uniquePrimaryMedia !== 42) throw new Error(`${width}px: 미디어 카드 대표 이미지 중복 (${measurements.uniquePrimaryMedia}/42)`);
@@ -125,16 +130,26 @@ try {
       await page.screenshot({ path: "reports/naver-discussion-feed-1016/implementation-post60-390x844.png", fullPage: false });
     }
 
-    const rail = page.locator(".naverDiscussionMediaShell.is-multi .naverDiscussionMediaRail").first();
-    const requestedScroll = await rail.evaluate((element) => {
-      const target = Math.min(63, element.scrollWidth - element.clientWidth);
-      element.scrollLeft = target;
-      element.dispatchEvent(new Event("scroll"));
-      return target;
-    });
-    await page.waitForTimeout(250);
-    const scrollLeft = await rail.evaluate((element) => element.scrollLeft);
-    if (Math.abs(scrollLeft - requestedScroll) > 1) throw new Error(`${width}px: 자유 스크롤 위치가 강제 보정됨 (${scrollLeft}px)`);
+    const shell = page.locator(".naverDiscussionMediaShell.is-multi").first();
+    await shell.scrollIntoViewIfNeeded();
+    await page.waitForTimeout(80);
+    const box = await shell.boundingBox();
+    if (!box) throw new Error(`${width}px: 캐러셀 영역 측정 실패`);
+    const startProgress = await shell.evaluate((element) => element._discussionEmbla.scrollProgress());
+    const dragY = box.y + box.height / 2;
+    await page.mouse.move(box.x + box.width * 0.82, dragY);
+    await page.mouse.down();
+    await page.mouse.move(box.x + box.width * 0.24, dragY, { steps: 12 });
+    await page.mouse.up();
+    const releaseProgress = await shell.evaluate((element) => element._discussionEmbla.scrollProgress());
+    await page.waitForTimeout(220);
+    const momentumProgress = await shell.evaluate((element) => element._discussionEmbla.scrollProgress());
+    await page.waitForTimeout(700);
+    const settledProgress = await shell.evaluate((element) => element._discussionEmbla.scrollProgress());
+    if (releaseProgress <= startProgress) throw new Error(`${width}px: 좌우 드래그 이동 실패 (${startProgress}/${releaseProgress})`);
+    if (Math.abs(momentumProgress - releaseProgress) < 0.001) throw new Error(`${width}px: 손을 놓은 뒤 관성 이동이 없음 (${releaseProgress}/${momentumProgress})`);
+    if (settledProgress < -0.02 || settledProgress > 1.02) throw new Error(`${width}px: 캐러셀 끝 경계 복귀 실패 (${settledProgress})`);
+    if (await shell.evaluate((element) => element.classList.contains("is-dragging"))) throw new Error(`${width}px: 드래그 종료 상태가 남아 있음`);
 
     const videoButton = page.locator("[data-discussion-video]").first();
     if (width === 390) {
@@ -176,7 +191,7 @@ try {
     const commentUrl = new URL(page.url());
     if (commentUrl.searchParams.get("id") !== commentId || commentUrl.hash !== "#comments") throw new Error(`${width}px: 댓글 상세 이동 실패`);
 
-    console.log(`PASS ${width}px · cards 60 · text/media ${measurements.textOnlyCards}/${measurements.mediaShells} · primary mapping 42/42 · avatars ${measurements.uniqueAvatars} local · single/multi ${measurements.singleRails}/${measurements.multiRails} · videos ${measurements.videos} · free native scroll · pagination 0 · overflow 0`);
+    console.log(`PASS ${width}px · cards 60 · text/media ${measurements.textOnlyCards}/${measurements.mediaShells} · primary mapping 42/42 · avatars ${measurements.uniqueAvatars} local · single/multi ${measurements.singleRails}/${measurements.multiRails} · videos ${measurements.videos} · Embla drag-free momentum · pagination 0 · overflow 0`);
     await page.close();
   }
 } finally {
