@@ -32,6 +32,36 @@ final result: passed
 
 ---
 
+# 커뮤니티 에펨형 인기글 강조 QA · 2026-10-16
+
+- source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/532b35e5-fd28-415f-8d24-e2027aae303e/1-1000018618.jpg` (592 × 1280px)
+- browser-rendered implementation: CUA Chrome tab `229716713`, `http://127.0.0.1:4176/community/naver-cafe-list.html?view=compact&board=free&v=fm-popular-before`의 393 × 680px 브라우저 캡처
+- viewport and density: 구현 콘텐츠 폭 393 CSS px, DPR 1. 원본은 모바일 화면에서 인기글 목록의 배경·배지·제목 위계를 기준으로 정규화했다.
+- state: 자유게시판, 인기글 첫 묶음 3개와 일반 게시물 첫 행이 함께 보이는 기본 상태
+- full-view comparison evidence: 현재 작업의 원본 이미지 출력과 CUA 구현 캡처를 함께 열어 인기글 묶음과 일반 글 목록의 대비를 비교했다.
+- focused region comparison evidence: 구현의 인기글 영역은 실측 393 × 168px, 행 46px, `인기` 배지 31 × 22px이다. 요소가 충분히 읽히므로 별도 확대 크롭은 필요하지 않았다.
+
+## Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 인기글 제목은 Pretendard 15px/560, 댓글 수는 13px/560, 배지는 12px/760으로 에펨 참고 화면의 제목·댓글·상태 위계를 유지한다.
+- spacing and layout rhythm: 인기글은 46px 높이의 3개 행으로 묶고, 좌우 16px·배지와 제목 사이 8px·1px 내부 구분선을 적용했다. 일반 게시물과는 기존 8px 회색 밴드로 분리된다.
+- colors and visual tokens: 인기 행은 `#edf7ff`, 내부 구분선은 `#d7e8f5`, 배지는 `#2f86df`, 댓글 수는 `#2878bb`로 구성해 참고 화면의 연한 하늘색 인기 묶음을 재현했다.
+- image quality and asset fidelity: 이번 변경은 텍스트 상태 배지와 배경 토큰이며 신규 래스터 자산이 없다. 기존 핀 이미지를 억지로 변형하지 않고 참고 화면처럼 실제 `인기` 레이블을 사용했다.
+- copy and content: 상위 반응량 게시물 3개에만 `인기` 배지를 표시하고 일반 게시물에는 적용하지 않아 의미가 명확하다.
+- interaction: 페이지 표시 버튼을 누르면 첫 제목이 `오토파일럿 차선 중앙 유지가 흔들립니다`에서 `랩핑 색상 샘플 받았는데 무광 관리 어렵나요?`로 바뀌며 배경과 배지 스타일이 그대로 유지된다.
+- browser verification: `리퍼럴 홍보 안내`는 계속 노출되지 않고, 인기글 바로 아래 일반 게시물이 이어진다. 앱 코드에서 발생한 콘솔 오류는 없으며 관찰된 비동기 메시지 채널 오류는 Chrome 확장 프로그램의 기존 로그다.
+
+## Comparison history
+
+- Pass 1: 어두운 핀 아이콘과 흰 배경은 치지직형 고정글에는 맞았지만 이번 에펨 참고 화면의 인기글 묶음 구분이 약했다.
+- Fix: 핀을 파란 `인기` 배지로 교체하고 인기글 3개 행 전체에 연한 하늘색 배경과 청회색 구분선을 적용했다.
+- Pass 2: 393px 브라우저 캡처에서 배지·제목·댓글 수가 한 줄에 정렬되고 일반 게시물과 명확히 분리되는 것을 확인했다. 남은 P0/P1/P2는 없다.
+
+final result: passed
+
+---
+
 # 커뮤니티 동처띠 상단 우측 썸네일 인기글 QA · 2026-10-16
 
 - source visual truth: Google Drive `동처띠 우측 썸네일 인기글.jpg`의 상단 `赛事直击` 영역 (`.tmp/dcd-popular-reference.jpg`, 1080 × 2400px)

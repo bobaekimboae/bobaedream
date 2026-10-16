@@ -25,12 +25,12 @@
   }
 
   function hrefFor(post){
-    return './chzzk-detail.html?id='+encodeURIComponent(post.id)+'&v=20261016popular5';
+    return './chzzk-detail.html?id='+encodeURIComponent(post.id)+'&v=20261016popular6';
   }
 
   function rowMarkup(post){
     var title=cleanTitle(post.title);
-    return '<a class="popularPinnedRow" href="'+hrefFor(post)+'" aria-label="인기글: '+esc(title)+'"><span class="popularPinBadge"><img src="assets/write-parity/tag.svg" alt=""></span><strong class="popularPinnedTitle">'+esc(title)+'</strong><span class="popularPinnedReply">('+compactCount(post.reply)+')</span></a>';
+    return '<a class="popularPinnedRow" href="'+hrefFor(post)+'" aria-label="인기글: '+esc(title)+'"><span class="popularPinBadge" aria-hidden="true">인기</span><strong class="popularPinnedTitle">'+esc(title)+'</strong><span class="popularPinnedReply">('+compactCount(post.reply)+')</span></a>';
   }
 
   function render(){
