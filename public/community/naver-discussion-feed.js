@@ -68,7 +68,7 @@
   function icon(name){return 'assets/chzzk-detail/icons/'+name+'.svg?v=20261016naverdiscussion2';}
   function chototIcon(name){return '../icons/chotot/'+name+'.svg?v=20261016navermedia1';}
   /* 사각칩 브랜드: 제목·요약에서 자동차 브랜드를 찾아 분류 칩 옆에 최대 2개 */
-  var BRAND_RULES=[['미쓰비시',/미쓰비시/],['혼다',/혼다/],['닛산',/닛산/],['마쓰다',/마쓰다/],['스바루',/스바루/],['스즈키',/스즈키/],['폭스바겐',/폭스바겐/],['아우디',/아우디/],['포르쉐',/포르쉐/],['포드',/포드/],['현대',/현대차|현대 |현대자동차|투싼|베이온|아이오닉/],['기아',/기아|쏘렌토|셀토스|K4|EV9/],['제네시스',/제네시스|GV80|GV90|G90/],['BMW',/BMW|M350|M5 |iX4|7시리즈/],['벤츠',/벤츠|메르세데스|AMG|C-클래스|E-클래스/],['렉서스',/렉서스|LFA/],['토요타',/토요타|도요타|카롤라/],['테슬라',/테슬라/],['BYD',/BYD|아토8/],['덴자',/덴자/],['쉐보레',/쉐보레|실버라도/],['GMC',/GMC|시에라/],['볼보',/볼보/],['KG모빌리티',/KG모빌리티/],['르노코리아',/르노코리아/]];
+  var BRAND_RULES=[['시트로엥',/시트로엥|2CV/],['푸조',/푸조/],['르노',/르노(?!코리아)/],['스코다',/스코다/],['미쓰비시',/미쓰비시/],['혼다',/혼다/],['닛산',/닛산/],['마쓰다',/마쓰다/],['스바루',/스바루/],['스즈키',/스즈키/],['폭스바겐',/폭스바겐/],['아우디',/아우디/],['포르쉐',/포르쉐/],['포드',/포드/],['현대',/현대차|현대 |현대자동차|투싼|베이온|아이오닉/],['기아',/기아|쏘렌토|셀토스|K4|EV9/],['제네시스',/제네시스|GV80|GV90|G90/],['BMW',/BMW|M350|M5 |iX4|7시리즈/],['벤츠',/벤츠|메르세데스|AMG|C-클래스|E-클래스/],['렉서스',/렉서스|LFA/],['토요타',/토요타|도요타|카롤라/],['테슬라',/테슬라/],['BYD',/BYD|아토8/],['덴자',/덴자/],['쉐보레',/쉐보레|실버라도/],['GMC',/GMC|시에라/],['볼보',/볼보/],['KG모빌리티',/KG모빌리티/],['르노코리아',/르노코리아/]];
   function brandsFor(post){
     if(post.poll||!/news|뉴스/.test(String(post.board||'')))return [];
     var text=String(post.title||'')+' '+String(post.summary||'');
@@ -78,7 +78,7 @@
   var BRAND_COUNTRY={'현대':'한국','기아':'한국','제네시스':'한국','KG모빌리티':'한국','르노코리아':'한국','BMW':'독일','벤츠':'독일','폭스바겐':'독일','아우디':'독일','포르쉐':'독일','렉서스':'일본','토요타':'일본','혼다':'일본','닛산':'일본','마쓰다':'일본','스바루':'일본','스즈키':'일본','미쓰비시':'일본','테슬라':'미국','쉐보레':'미국','GMC':'미국','포드':'미국','BYD':'중국','덴자':'중국','볼보':'스웨덴'};
   function countriesFor(brands){var out=[];brands.forEach(function(b){var c=BRAND_COUNTRY[b];if(c&&out.indexOf(c)<0)out.push(c);});return out;}
   /* 출처 국가: 기사·게시물을 낸 매체(주소)의 나라 */
-  var SOURCE_COUNTRY=[[/\.de\b|autoscout24|bmw-m\b|BMW M|BMW ·/i,'독일'],[/\.jp\b|webcg\.net/i,'일본'],[/motortrend|caranddriver|carbuzz|motor1\.com/i,'미국'],[/vk\.(ru|com)/i,'러시아'],[/naver\.com|daum\.net|inews24\.com|fnnews\.com|yuccapostkorea|\.co\.kr|\.kr\b|보배드림/i,'한국']];
+  var SOURCE_COUNTRY=[[/\.de\b|autoscout24|bmw-m\b|BMW M|BMW ·/i,'독일'],[/\.jp\b|webcg\.net/i,'일본'],[/motortrend|caranddriver|carbuzz|motor1\.com/i,'미국'],[/vk\.(ru|com)/i,'러시아'],[/\.fr\b|caradisiac|automobile-propre|journalauto/i,'프랑스'],[/\.it\b|motorionline/i,'이탈리아'],[/\.es\b|diariomotor/i,'스페인'],[/naver\.com|daum\.net|inews24\.com|fnnews\.com|yuccapostkorea|\.co\.kr|\.kr\b|보배드림/i,'한국']];
   function sourceCountryFor(post){
     if(!/news|뉴스/.test(String(post.board||'')))return '';
     var embed=Array.isArray(post.embeds)&&post.embeds[0]?post.embeds[0].url:'';
