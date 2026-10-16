@@ -4997,3 +4997,17 @@ final result: passed
 - findings: P0/P1/P2 없음. 한글 자폭에 맞춘 글꼴만 보배드림 기존 체계를 유지했다.
 - comparison history: 중복 칩 CSS를 하나로 통합한 뒤 선택 대비와 반응형 동작을 재검했고 추가 차이가 없었다.
 - final result: passed
+
+## Tesla Model Y 오너 서클 · 2026-10-17
+
+- Source truth: 동처디 모델 점수 구조(모델 종합점수 → 항목별 점수/동급 평균 → 장단점 태그 → 모델별 리뷰 피드), 공식 Model Y 점수 페이지 https://www.dongchedi.com/auto/series/score/4363-x-S0-P105-x-1-2.
+- Implementation: community/naver-cafe-list.html?board=vehicle-review&model=tesla-model-y&view=compact.
+- Verified deployed commit: 9bf495a96e8f2b77aead2943ab815bc79f921ba2.
+- Visual result: black Bobae/Airbnb-style model header, Tesla brand avatar, 4.04 aggregate score, 7 category statistics, segment-average comparisons, horizontal owner-keyword chips, sticky review filters, Model Y-only feed.
+- Functional QA:
+  - overall screen renders 6 Model Y sample reviews;
+  - owner filter reduces feed from 6 to 5;
+  - first review opens detail while preserving model=tesla-model-y;
+  - detail renders 4.43 overall score, 6 category rows, owner information, and 4 comments;
+  - console error count: 0.
+- Current limitations: 2,619 aggregate review count and category/tag counts are reference snapshot data; the visible feed uses 6 representative sample posts until backend model-review aggregation is connected.
