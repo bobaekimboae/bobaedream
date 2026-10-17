@@ -5200,3 +5200,12 @@ final result: passed
 - phone cleanup: 조사 중 추가한 EV/HEV/PHEV 차량은 삭제하고 BMW 120i 원상태를 `garage-restored.png/xml`로 확인했다.
 
 final result: passed
+# 2026-10-17 처즈왕 결함·불만 10배 강화 감사
+
+- 원본 Android 16개 화면/XML과 웹 6개 화면을 이번 회차에 새로 캡처했다.
+- 원본 가변 항목은 품질 8, 서비스 7, 기타 4, 종합 19개로 재확인했다.
+- 나이 직접 입력, 자동차등록증, 사진/영상 분리, 바이크 사용신고필증을 추가했다.
+- 모바일 393×844에서 목록 32건, 상세, 등록, 종합, 바이크 분기를 확인했다.
+- 깨진 이미지 0, 콘솔 경고/오류 0, 민감 식별정보 상세 노출 0.
+- `node qa/chezhiwang-complaint/ten-x-gate.mjs` 결과 51/51 PASS.
+

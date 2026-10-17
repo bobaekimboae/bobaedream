@@ -1,2 +1,41 @@
 .phone.chezhiwangComplaintMode>#boardChannelNav,
 .phone.chezhiwangComplaintMode>#boardHero{display:none!important}
+
+.czw-form[data-tenx-enhanced="true"]{background:#f5f5f5}
+.czw-required-note{margin:0;padding:12px 18px;background:#f4f4f4;color:#666;font-size:12px;line-height:18px;border-bottom:1px solid #e7e7e7}
+.czw-required-note b{color:#e5193b}
+.czw-form[data-tenx-enhanced="true"] .czw-section{margin:0 0 10px;padding:18px 18px 8px;background:#fff;border-radius:0;box-shadow:none}
+.czw-form[data-tenx-enhanced="true"] .czw-section h2{display:flex;align-items:center;gap:8px;margin:0 0 4px;font-size:18px;line-height:26px}
+.czw-section-icon{width:20px;height:20px;object-fit:contain}
+.czw-form[data-tenx-enhanced="true"] .czw-guide{margin:0 0 8px;color:#777;font-size:12px;line-height:18px}
+.czw-form[data-tenx-enhanced="true"] .czw-grid{display:block}
+.czw-form[data-tenx-enhanced="true"] .czw-field{display:grid;grid-template-columns:112px minmax(0,1fr);align-items:center;min-height:52px;margin:0;border-bottom:1px solid #ededed}
+.czw-form[data-tenx-enhanced="true"] .czw-field>span{font-size:14px;line-height:20px;color:#222}
+.czw-form[data-tenx-enhanced="true"] .czw-field input,.czw-form[data-tenx-enhanced="true"] .czw-field select{height:52px;padding:0;border:0;border-radius:0;background:#fff;text-align:right;font-size:14px;color:#222;outline:none}
+.czw-form[data-tenx-enhanced="true"] .czw-field textarea{grid-column:1/-1;min-height:148px;margin-top:8px;padding:12px;border:1px solid #e5e5e5;border-radius:8px;font-size:14px;line-height:21px;resize:vertical}
+.czw-form[data-tenx-enhanced="true"] .czw-field input:focus,.czw-form[data-tenx-enhanced="true"] .czw-field select:focus,.czw-form[data-tenx-enhanced="true"] .czw-field textarea:focus{border-color:#222;box-shadow:0 0 0 1px #222}
+.czw-form[data-tenx-enhanced="true"] .czw-inline-error{grid-column:1/-1;margin:-2px 0 8px;color:#e5193b;font-size:12px;line-height:17px;text-align:right}
+.czw-form[data-tenx-enhanced="true"] .czw-choice{margin:8px 0 10px;gap:8px}
+.czw-form[data-tenx-enhanced="true"] .czw-choice button{min-height:34px;padding:0 14px;border:1px solid #d9d9d9;border-radius:999px;background:#fff;color:#555;font-size:13px}
+.czw-form[data-tenx-enhanced="true"] .czw-choice button.on{border-color:#222;background:#222;color:#fff}
+.czw-registration-upload{margin:10px 0 4px;padding:12px;border:1px solid #e5e5e5;border-radius:10px;background:#fafafa}
+.czw-registration-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.czw-registration-head strong{font-size:14px;line-height:20px}
+.czw-registration-head button{border:0;background:transparent;color:#555;font-size:12px;text-decoration:underline}
+.czw-registration-button{display:flex;width:100%;align-items:center;gap:12px;margin-top:10px;padding:12px;border:1px dashed #c9c9c9;border-radius:8px;background:#fff;text-align:left}
+.czw-registration-button img{width:24px;height:24px}
+.czw-registration-button span{font-size:13px;font-weight:700;color:#222}
+.czw-registration-button small{display:block;margin-top:2px;color:#777;font-size:11px;font-weight:400;line-height:16px}
+.czw-registration-button.is-ready{border-color:#222;background:#f4f4f4}
+.czw-registration-example{margin:10px 0 0;color:#666;font-size:12px;line-height:18px}
+.czw-media-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.czw-media-grid button{display:flex;min-height:104px;flex-direction:column;align-items:center;justify-content:center;gap:8px;border:1px solid #e0e0e0;border-radius:10px;background:#fafafa;color:#222}
+.czw-media-grid button.is-ready{border-color:#222;background:#f1f1f1}
+.czw-media-grid img{width:24px;height:24px}
+.czw-media-grid span{font-size:13px;font-weight:700;line-height:18px}
+.czw-media-grid small{display:block;margin-top:3px;color:#777;font-size:11px;font-weight:400}
+
+@media (max-width:360px){
+  .czw-form[data-tenx-enhanced="true"] .czw-field{grid-template-columns:100px minmax(0,1fr)}
+  .czw-form[data-tenx-enhanced="true"] .czw-choice button{padding:0 11px}
+}
