@@ -59,7 +59,20 @@ function plain_(text) {
     .replace(/않습니다/g, '않는다').replace(/입니다/g, '이다').replace(/됩니다/g, '된다')
     .replace(/합니다/g, '한다').replace(/([았었였했켰렸])습니다/g, '$1다').replace(/습니다/g, '다')
     .replace(/갑니다/g, '간다').replace(/옵니다/g, '온다').replace(/줍니다/g, '준다').replace(/봅니다/g, '본다')
-    .replace(/ㅂ니다/g, '다');
+    .replace(/ㅂ니다/g, '다').replace(/까요\?/g, '까?')
+    // 형용사·예외: 다릅니다→다르다, 아닙니다→아니다, 큽니다→크다 …
+    .replace(/(다릅|아닙|빠릅|이릅|큽|쌉|비쌉|바쁩|기쁩|나쁩|아픕)니다/g, function (m, w) { return stripB_(w) + '다'; })
+    // 그 밖의 받침 ㅂ + 니다(냅니다·다룹니다·모릅니다)는 받침 ㄴ + 다(낸다·다룬다·모른다)
+    .replace(/([가-힣])니다/g, function (m, ch) {
+      var c = ch.charCodeAt(0) - 0xAC00;
+      return c % 28 === 17 ? String.fromCharCode(0xAC00 + c - 17 + 4) + '다' : m;
+    });
+}
+
+/* 받침 ㅂ 지우기(다릅 → 다르) */
+function stripB_(word) {
+  var last = word.charCodeAt(word.length - 1) - 0xAC00;
+  return last % 28 === 17 ? word.slice(0, -1) + String.fromCharCode(0xAC00 + last - 17) : word;
 }
 
 /* 요약: 번역문을 문장 단위로 잘라 최대 길이 안에서 2문장까지, 끝은 기사체 그대로 */
@@ -132,11 +145,14 @@ function syncForeignNews() {
           budget--; translated++;
         }
       }
-      if (row[COL['번역방식']] === '구글 번역') {
-        row[COL['한국어 제목']] = plain_(row[COL['한국어 제목']]).replace(/\.$/, '');
-        row[COL['한국어 요약']] = plain_(row[COL['한국어 요약']]);
-      }
       row[COL['갱신일']] = now;
+    });
+
+    // 구글 번역 칸은 목록에서 빠진 옛 기사까지 모두 기사체로 다시 맞춘다
+    rows.forEach(function (row) {
+      if (row[COL['번역방식']] !== '구글 번역') return;
+      row[COL['한국어 제목']] = plain_(row[COL['한국어 제목']]).replace(/\.$/, '');
+      row[COL['한국어 요약']] = plain_(row[COL['한국어 요약']]);
     });
 
     // 최신 발행일이 위로
