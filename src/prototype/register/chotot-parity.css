@@ -386,7 +386,7 @@
 }
 
 .ct-field input,
-.ct-field-button select {
+.ct-field-button {
   width: 100%;
   height: 100%;
   padding: 18px 34px 4px 12px;
@@ -394,20 +394,19 @@
   background: transparent;
   border: 0;
   outline: none;
-  appearance: none;
   font-size: 14px;
   text-align: left;
 }
 
 .ct-field input::placeholder,
-.ct-field-button select:has(option[value=""]:checked) {
+.ct-field-button .is-placeholder {
   color: #767676;
 }
 
 .ct-field-button {
   position: relative;
-  width: 100%;
-  height: 100%;
+  display: flex;
+  align-items: flex-end;
 }
 
 .ct-field-button svg {
@@ -416,6 +415,110 @@
   bottom: 11px;
   width: 17px;
   height: 17px;
+}
+
+.ct-picker-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 220;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(0, 0, 0, .42);
+}
+
+.ct-picker-sheet {
+  width: min(100%, 394px);
+  max-height: min(72vh, 610px);
+  overflow: hidden;
+  background: #fff;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -8px 28px rgba(0, 0, 0, .13);
+  animation: ct-picker-rise .18s ease-out;
+}
+
+.ct-picker-sheet > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 58px;
+  padding: 0 16px;
+  border-bottom: 1px solid #ededed;
+}
+
+.ct-picker-sheet h3 {
+  margin: 0;
+  color: #222;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.ct-picker-sheet > header > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-right: -8px;
+  padding: 0;
+  color: #222;
+  background: transparent;
+  border: 0;
+}
+
+.ct-picker-sheet > header svg {
+  width: 21px;
+  height: 21px;
+}
+
+.ct-picker-options {
+  max-height: calc(min(72vh, 610px) - 58px);
+  overflow-y: auto;
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+  overscroll-behavior: contain;
+}
+
+.ct-picker-options > button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 54px;
+  padding: 0 18px;
+  color: #222;
+  background: #fff;
+  border: 0;
+  border-bottom: 1px solid #ededed;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.ct-picker-options > button.is-selected {
+  font-weight: 700;
+}
+
+.ct-picker-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  margin-left: 12px;
+  color: #222;
+  background: #ffd400;
+  border-radius: 50%;
+}
+
+.ct-picker-check svg {
+  width: 15px;
+  height: 15px;
+}
+
+@keyframes ct-picker-rise {
+  from { transform: translateY(18px); }
+  to { transform: translateY(0); }
 }
 
 .ct-clear {

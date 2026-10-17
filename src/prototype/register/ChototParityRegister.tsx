@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type ChangeEvent, type DragEvent } from "react";
 import {
   ChatBubbleIcon,
+  CheckIcon,
   ChevronDownIcon,
   Cross2Icon,
   HamburgerMenuIcon,
@@ -33,18 +34,33 @@ type FieldProps = {
 };
 
 function Field({ id, label, value, required, placeholder, error, suffix, clearable, select, options, onChange, onClear }: FieldProps) {
+  const [pickerOpen, setPickerOpen] = useState(false);
+
+  useEffect(() => {
+    if (!pickerOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setPickerOpen(false);
+    };
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [pickerOpen]);
+
+  const selectOptions = options ?? (value ? [value] : []);
+
   return (
     <div className={`ct-field-wrap${error ? " is-error" : ""}`}>
       <div className="ct-field">
         <label htmlFor={id}>{label}{required && <span aria-hidden="true"> *</span>}</label>
         {select ? (
-          <div className="ct-field-button">
-            <select id={id} aria-label={`${label} 선택`} value={value} onChange={(event) => onChange?.(event.target.value)}>
-              <option value="">{placeholder || "선택"}</option>
-              {(options ?? (value ? [value] : [])).map((option) => <option key={option} value={option}>{option}</option>)}
-            </select>
+          <button id={id} type="button" className="ct-field-button" aria-haspopup="dialog" aria-expanded={pickerOpen} onClick={() => setPickerOpen(true)}>
+            <span className={!value ? "is-placeholder" : ""}>{value || placeholder || "선택"}</span>
             <ChevronDownIcon aria-hidden="true" />
-          </div>
+          </button>
         ) : (
           <input id={id} value={value} placeholder={placeholder} onChange={(event) => onChange?.(event.target.value)} />
         )}
@@ -56,6 +72,30 @@ function Field({ id, label, value, required, placeholder, error, suffix, clearab
         )}
       </div>
       {error && <p className="ct-error" role="alert">{error}</p>}
+      {select && pickerOpen && (
+        <div className="ct-picker-backdrop" role="presentation" onClick={() => setPickerOpen(false)}>
+          <section className="ct-picker-sheet" role="dialog" aria-modal="true" aria-labelledby={`${id}-picker-title`} onClick={(event) => event.stopPropagation()}>
+            <header>
+              <h3 id={`${id}-picker-title`}>{label} 선택</h3>
+              <button type="button" aria-label={`${label} 선택 닫기`} onClick={() => setPickerOpen(false)}><Cross2Icon /></button>
+            </header>
+            <div className="ct-picker-options" role="radiogroup" aria-label={`${label} 선택지`}>
+              {selectOptions.map((option) => {
+                const selected = value === option;
+                return (
+                  <button key={option} type="button" role="radio" aria-checked={selected} className={selected ? "is-selected" : ""} onClick={() => {
+                    onChange?.(option);
+                    setPickerOpen(false);
+                  }}>
+                    <span>{option}</span>
+                    {selected && <span className="ct-picker-check" aria-hidden="true"><CheckIcon /></span>}
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+        </div>
+      )}
     </div>
   );
 }
@@ -81,6 +121,7 @@ export default function ChototParityRegister({ notify }: { notify: (message: str
   const [price, setPrice] = useState("");
   const [address, setAddress] = useState("");
   const [seller, setSeller] = useState("개인");
+  const [category, setCategory] = useState("자동차 / 승용차");
   const [condition, setCondition] = useState("중고");
   const [maker, setMaker] = useState("현대");
   const [model, setModel] = useState("그랜저");
@@ -152,7 +193,7 @@ export default function ChototParityRegister({ notify }: { notify: (message: str
   };
 
   const saveDraft = () => {
-    localStorage.setItem("bbm-register-draft", JSON.stringify({ description, title, price, address, seller, condition, maker, model, year, variant, transmission, fuel, mileage, origin, seats, bodyType, color, ownerCount, accessories, inspection, showDocument }));
+    localStorage.setItem("bbm-register-draft", JSON.stringify({ description, title, price, address, seller, category, condition, maker, model, year, variant, transmission, fuel, mileage, origin, seats, bodyType, color, ownerCount, accessories, inspection, showDocument }));
     notify("임시저장했습니다.");
   };
 
@@ -221,7 +262,7 @@ export default function ChototParityRegister({ notify }: { notify: (message: str
         <section className="ct-card ct-detail-card">
           <h2>상세 정보</h2>
           <div className="ct-detail-grid">
-            <div className="ct-grid-full"><Field id="ct-category" label="카테고리" required value="자동차 / 승용차" select options={["자동차 / 승용차", "자동차 / SUV", "자동차 / 화물차", "자동차 / 기타"]} /></div>
+            <div className="ct-grid-full"><Field id="ct-category" label="카테고리" required value={category} select options={["자동차 / 승용차", "자동차 / SUV", "자동차 / 화물차", "자동차 / 기타"]} onChange={setCategory} /></div>
 
             <div className="ct-grid-full ct-document-box">
               <div className="ct-document-head"><strong>차량 서류</strong><InfoCircledIcon aria-hidden="true" /></div>
