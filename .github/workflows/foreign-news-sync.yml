@@ -40,6 +40,9 @@ jobs:
           IFRAMELY_MAX_URLS: "50"
           IFRAMELY_CONCURRENCY: "3"
           IFRAMELY_CACHE_TTL_HOURS: "24"
+          # 구글 시트 「해외뉴스_번역」(Apps Script 구글 번역) 탭에서 한국어 제목·요약을 읽는다
+          FOREIGN_NEWS_TRANSLATION_SHEET_ID: "1hShhSU2q9CWDK3RSugXpJA6UruWGdBOGKn91MpScaTQ"
+          FOREIGN_NEWS_TRANSLATION_SHEET_TAB: "해외뉴스_번역"
       - name: Sync Google Sheet
         run: npm run news:sync-sheet
         env:
@@ -56,4 +59,11 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add public/community/data/foreign-car-news.json public/community/data/board-foreign-car-news.js
           git commit -m "data: refresh overseas automotive news"
-          git push origin HEAD:main
+          # 다른 작업이 main 에 먼저 올라가 있으면 최신 main 위로 다시 얹어서 올린다(최대 5번)
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then exit 0; fi
+            echo "push rejected, rebasing (attempt $attempt)"
+            git pull --rebase origin main || { git rebase --abort; exit 1; }
+            sleep $((attempt * 3))
+          done
+          exit 1

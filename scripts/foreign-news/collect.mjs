@@ -7,6 +7,7 @@ import {
   extractSitemapLinks,
   fetchWithTimeout,
   normalizeUrl,
+  parseCsv,
   parseFeed,
   sha1,
   stableArticleId,
@@ -188,6 +189,40 @@ let visible = representatives.slice(0, maxArticles).map((article) => {
     iframelyFetchedAt: cached.iframelyFetchedAt || "",
   };
 });
+// 구글 시트 「해외뉴스_번역」 탭(Apps Script가 채움)의 한국어 제목·요약을 먼저 가져온다.
+// 사람이 시트에서 고친 번역도 여기서 반영된다. 시트가 비공개거나 없으면 조용히 건너뛴다.
+const translationSheetId = String(process.env.FOREIGN_NEWS_TRANSLATION_SHEET_ID || "1hShhSU2q9CWDK3RSugXpJA6UruWGdBOGKn91MpScaTQ").trim();
+const translationSheetTab = String(process.env.FOREIGN_NEWS_TRANSLATION_SHEET_TAB || "해외뉴스_번역").trim();
+let sheetTranslated = 0;
+if (translationSheetId && process.env.FOREIGN_NEWS_TRANSLATION_SHEET !== "off") {
+  try {
+    const sheetUrl = `https://docs.google.com/spreadsheets/d/${encodeURIComponent(translationSheetId)}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(translationSheetTab)}`;
+    const response = await fetchWithTimeout(sheetUrl, { timeoutMs: 20000, accept: "text/csv" });
+    if (response.ok) {
+      const rows = parseCsv(await response.text());
+      const header = (rows[0] || []).map((value) => String(value || "").trim());
+      const at = (name) => header.indexOf(name);
+      const idCol = at("기사ID"), titleCol = at("한국어 제목"), summaryCol = at("한국어 요약");
+      if (idCol >= 0 && titleCol >= 0) {
+        const byId = new Map(rows.slice(1).map((row) => [String(row[idCol] || "").trim(), row]));
+        visible = visible.map((article) => {
+          const row = byId.get(String(article.id));
+          const titleKo = row ? String(row[titleCol] || "").trim() : "";
+          if (!titleKo || !/[가-힣]/.test(titleKo)) return article;
+          const summary = summaryCol >= 0 ? String(row[summaryCol] || "").replace(/\s+/g, " ").trim() : "";
+          const lines = summary.match(/[^.!?。！？]+[.!?。！？]?/g)?.map((value) => value.trim()).filter(Boolean).slice(0, 3) || [];
+          sheetTranslated += 1;
+          return { ...article, titleKo, summaryKo: lines.join("\n") || article.summaryKo || "", translationStatus: "translated" };
+        });
+      }
+    } else {
+      console.log(`Translation sheet skipped: HTTP ${response.status}`);
+    }
+  } catch (error) {
+    console.log(`Translation sheet skipped: ${error.message}`);
+  }
+  if (sheetTranslated) console.log(`Google Sheet translations applied to ${sheetTranslated} articles`);
+}
 const translationEndpoint = process.env.NEWS_TRANSLATE_ENDPOINT || "";
 const translationTargets = visible.filter((article) => !article.titleKo || !article.summaryKo);
 let translationMode = "korean-metadata-fallback";
@@ -217,7 +252,7 @@ if (translationEndpoint && translationTargets.length) {
       ],
     }),
   });
-  if (!response.ok) throw new Error(`translation endpoint failed: ${response.status}`);
+  if (!response.ok) throw new Error(`translation endpoint failed: ${response.status}`); // caught below
   const translated = await response.json();
   const byId = new Map((translated.articles || []).map((article) => [String(article.id), article]));
   visible = visible.map((article) => {
@@ -237,10 +272,15 @@ if (translationEndpoint && translationTargets.length) {
 } else if (process.env.OPENAI_API_KEY && translationTargets.length) {
   const maxTranslations = Math.max(1, Number(process.env.OPENAI_TRANSLATE_MAX_ARTICLES || 100));
   const targets = translationTargets.slice(0, maxTranslations);
-  const translated = await translateArticlesWithOpenAI(targets, process.env.OPENAI_API_KEY, {
-    model: process.env.OPENAI_TRANSLATE_MODEL || "gpt-5-mini",
-    batchSize: process.env.OPENAI_TRANSLATE_BATCH_SIZE || 10,
-  });
+  let translated = [];
+  try {
+    translated = await translateArticlesWithOpenAI(targets, process.env.OPENAI_API_KEY, {
+      model: process.env.OPENAI_TRANSLATE_MODEL || "gpt-5-mini",
+      batchSize: process.env.OPENAI_TRANSLATE_BATCH_SIZE || 10,
+    });
+  } catch (error) {
+    console.log(`OpenAI translation skipped: ${error.message}`);
+  }
   const byId = new Map(translated.map((article) => [String(article.id), article]));
   visible = visible.map((article) => {
     const next = byId.get(String(article.id));
