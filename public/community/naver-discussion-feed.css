@@ -284,3 +284,4 @@
 .naverDiscussionBody.is-summary3{-webkit-line-clamp:4}
 .naverDiscussionCard.is-thumb .naverDiscussionBody.is-summary3{-webkit-line-clamp:3}
 .naverDiscussionChips{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+.naverDiscussionBody.is-summary3{-webkit-line-clamp:3}
