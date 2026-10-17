@@ -13,7 +13,7 @@
   .bbm-header-top button { position: relative; padding: 0; border: 0; background: none; color: #767676; font-size: 12px; font-weight: 600; line-height: 16.8px; }
   .bbm-header-top button + button { margin-left: 17px; }
   .bbm-header-top button + button::before { content: ""; position: absolute; top: 4.4px; left: -9px; width: 1px; height: 8px; background: #e0e0e0; }
-  .bbm-header-main { display: grid; height: 48px; grid-template-columns: 122px minmax(320px, 560px) minmax(172px, 1fr); align-items: center; justify-content: space-between; gap: 32px; }
+  .bbm-header-main { display: grid; height: 48px; grid-template-columns: 122px minmax(320px, 560px) minmax(192px, 1fr); align-items: center; justify-content: space-between; gap: 32px; }
   .bbm-logo { display: flex; grid-column: 1; align-items: center; gap: 6px; height: 28px; padding: 0; border: 0; background: none; }
   .bbm-logo > span { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: #1b498c; }
   .bbm-logo > span img { width: 20px; height: 19px; }
@@ -38,7 +38,8 @@
   .bbm-header-icons button { display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; background: none; color: #1a1a1a; }
   .bbm-header-auth { display: flex; grid-column: 3; align-items: center; justify-content: flex-end; gap: 8px; }
   .bbm-header-auth button { display: inline-flex; height: 36px; align-items: center; justify-content: center; padding: 0 15px; border-radius: 999px; font-size: 14px; font-weight: 650; line-height: 20px; white-space: nowrap; }
-  .bbm-login-button { border: 1px solid #e1e1e1; background: #fff; color: #222; }
+  .bbm-login-button { gap: 6px; border: 1px solid #e1e1e1; background: #fff; color: #222; }
+  .bbm-login-button img { width: 18px; height: 18px; flex: none; object-fit: contain; }
   .bbm-login-button:hover { border-color: #c9c9c9; background: #fafafa; }
   .bbm-listing-button { border: 1px solid #306bd9; background: #306bd9; color: #fff; }
   .bbm-listing-button:hover { border-color: #1952ba; background: #1952ba; }
@@ -229,7 +230,7 @@
   .bbm-header-inner { width: min(1200px, calc(100% - 32px)); }
 }
 @media (min-width: 820px) and (max-width: 1199px) {
-  .bbm-header-main { grid-template-columns: 114px minmax(280px, 48vw) minmax(160px, 1fr); gap: 20px; }
+  .bbm-header-main { grid-template-columns: 114px minmax(280px, 48vw) minmax(192px, 1fr); gap: 20px; }
   .bbm-gnb { gap: 10px; }
   .bbm-gnb button { font-size: 14px; line-height: 20px; }
   .bbm-gnb button.is-home { font-size: 14px; }

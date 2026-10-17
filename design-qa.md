@@ -5262,3 +5262,18 @@ final result: passed
 
 final result: passed
 
+---
+
+## PC 메인 로고 락업·로그인 아이콘 교정 · 2026-10-17
+
+- correction source: 사용자 지시(엠블럼만 블루, `보배드림` 워드마크는 블랙, 우측 로그인에 사람 아이콘 표시).
+- implementation screenshot: `qa/pc-main-logo-correction/local-final-1280x720.png`.
+- logo lockup: 원형 엠블럼만 `#306BD9`로 유지하고 워드마크 4개 path를 `#222222`로 복원했다. 흰 내부 엠블럼과 빨간 포인트는 변경하지 않았다.
+- login action: 저장소 기존 `header-mypage.svg`를 18×18px로 사용하고 `로그인` 텍스트와 6px 간격으로 정렬했다. 새 아이콘은 그리지 않았다.
+- measured layout: 1280×720에서 헤더 97px, 로고 113.9×28px, 로그인 91.9×36px, 매물등록 80×36px, 버튼 간격 8px, 가로 넘침 0px.
+- visual hierarchy: 검색 버튼과 매물등록 CTA는 `#306BD9`를 유지하고, 브랜드명과 GNB는 검정으로 두어 블루 사용 범위를 행동·엠블럼에 한정했다.
+- interaction/runtime: BMW 검색 결과, 매물등록 안내 토스트, 콘솔 오류 0건을 확인했다.
+- findings: P0/P1/P2 없음.
+
+final result: passed
+
