@@ -330,7 +330,7 @@ function setRegularContent() {
     const sourceHtml = post.boardTable && (post.source || post.sourceUrl)
       ? `<p class="detailSource">출처 ${escapeHtml(post.source || '')}${post.sourceUrl && /^https?:\/\//.test(post.sourceUrl) ? ` · <a href="${escapeHtml(post.sourceUrl)}" target="_blank" rel="noopener noreferrer">원문 보기</a>` : ''}</p>`
       : '';
-    const summary3 = post.boardTable && Array.isArray(post.summary3) && post.summary3.length ? `<section class="detailSummary3" aria-label="3줄 요약"><strong>3줄 요약</strong><p>${escapeHtml(post.summary3.join(' '))}</p></section>` : '';
+    const summary3 = post.boardTable && Array.isArray(post.summary3) && post.summary3.length ? `<section class="detailSummary3" aria-label="한 줄 요약"><strong>요약</strong><p>${escapeHtml(post.summary3.join(' '))}</p></section>` : '';
     const pollHtml = post.boardTable && post.poll && window.BBM_POLL ? window.BBM_POLL.html(post.poll, { id: `board-${post.id}`, interactive: true }) : '';
     $('#postBody').innerHTML = `${summary3}${photoHtml}${tableEmbedHtml}${pollHtml}
       <div class="detailCopy">${paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div>${sourceHtml}`;
