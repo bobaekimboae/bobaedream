@@ -28,6 +28,37 @@
 
 final result: passed
 
+## PC 메인 초톳형 회원 액션 · 2026-10-18
+
+- source visual truth path: `C:/Users/bobae/Downloads/Tuyển-dụng-74-384-việc-làm-mới-nhất-cập-nhật-18-10-2026.png` (646 × 129px).
+- browser-rendered implementation paths: `artifacts/design-qa/pc-header-chotot-actions-local-v2.png`(1280 × 720px), `artifacts/design-qa/pc-header-account-menu-local.png`.
+- viewport and normalization: 구현은 1280 × 720 CSS px / device scale 1에서 캡처했다. 원본은 우측 회원 액션만 잘라낸 참조이므로 구현 전체 화면의 동일 헤더 영역을 같은 비교 입력에서 집중 확인했다.
+- state: PC 메인 `?qf=guazi&pc=1`, 전체차량 활성, 검색창 기본, 회원 액션 기본 및 계정 메뉴 펼침.
+- primary interactions tested: 관심 매물 패널 열림, 계정 메뉴 열림, 로그인·회원가입·고객센터 3개 메뉴 노출, 배지 접근성 이름.
+- console errors checked: 0건.
+
+### Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 기존 Pretendard를 유지하고 액션 텍스트를 14px/600, 알림 배지를 11px/700으로 맞췄다. 참조의 굵은 알약 텍스트 계층과 동일하다.
+- spacing and layout rhythm: 모든 액션은 `y 16~56`, 높이 40px로 검색창과 같은 수평선을 사용한다. 순서는 관심→알림→연락→매물관리→무료 매물등록→계정이며 8px 간격이다.
+- colors and visual tokens: 외곽선 `#e7e7e7`, 본문 `#222`, 알림 `#ef476f`, 주요 CTA와 프로필 엠블럼은 보배드림 블루 `#306bd9`를 사용했다.
+- image quality and asset fidelity: 관심·알림·연락·화살표는 기존 보배드림 BB SVG 자산을 사용하고, 프로필에는 기존 보배드림 로고 엠블럼을 사용했다. 임시 문자·CSS 드로잉 아이콘은 없다.
+- copy and content: 베트남 원문의 기능 의미를 한국 서비스에 맞춰 `연락`, `매물관리`, `무료 매물등록`으로 현지화했다.
+- responsiveness: 1200px 미만에서는 매물관리부터 단계적으로 감추고, 1020px 미만에서는 핵심 등록·계정만 남겨 검색창과 충돌하지 않는다.
+
+### Comparison history
+
+- Pass 1: 참조의 그룹 구조와 순서는 일치했으나 계정 화살표가 시각 요소만 있고 펼침 상태가 없었다(P2 동작).
+- Fix: 계정 버튼에 `aria-haspopup`, `aria-expanded`, 화살표 회전, 로그인·회원가입·고객센터 메뉴 및 바깥 클릭 닫기를 추가했다.
+- Pass 2: 6개 액션의 높이·수평선·간격을 실측하고 계정 메뉴와 관심 패널 동작, 콘솔 오류 0건을 확인했다. 남은 P0/P1/P2는 없다.
+
+### Follow-up Polish
+
+- P3: 원본 캡처는 버튼이 약 50px로 보이지만 우리 헤더 검색창과 기존 컨트롤이 40px 기준이라 같은 40px 리듬을 유지했다.
+
+final result: passed
+
 ## PC 메인 텍스트 GNB · VieclamTot 블루 검색 버튼 · 2026-10-17
 
 - source visual truth: `qa/pc-main-search/vieclamtot-reference-1440x900.png`과 사용자 지시(탑메뉴 아이콘 제거, 검정 검색 버튼을 블루로 변경).

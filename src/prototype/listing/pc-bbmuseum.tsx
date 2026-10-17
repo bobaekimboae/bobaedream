@@ -61,7 +61,9 @@ const bbmAsset = (name: string) => asset(`bbm/${name}.svg`);
 
 function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searchSlot }: { category: string; onChooseCategory: (category: string) => void; onNotify: (message: string) => void; onOpenFavorites: () => void; searchSlot?: ReactNode }) {
   const [moreOpen, setMoreOpen] = useState(false);
+  const [accountOpen, setAccountOpen] = useState(false);
   const moreRef = useRef<HTMLDivElement>(null);
+  const accountRef = useRef<HTMLDivElement>(null);
   const variant = bbSearchVariant();
   const logoLanguage = bbLogoLanguage();
   const activeItem = category === "전체" ? "전체차량"
@@ -78,6 +80,15 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
     document.addEventListener("pointerdown", closeMore);
     return () => document.removeEventListener("pointerdown", closeMore);
   }, [moreOpen]);
+
+  useEffect(() => {
+    if (!accountOpen) return;
+    const closeAccount = (event: MouseEvent) => {
+      if (!accountRef.current?.contains(event.target as Node)) setAccountOpen(false);
+    };
+    document.addEventListener("pointerdown", closeAccount);
+    return () => document.removeEventListener("pointerdown", closeAccount);
+  }, [accountOpen]);
 
   const chooseMenu = (item: BbGnbItem) => {
     if (item.action === "more") {
@@ -111,12 +122,25 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
             {searchSlot}
           </div> : null}
           {variant === "default" ? <div className="bbm-header-auth" aria-label="회원 메뉴">
-            <button type="button" className="bbm-listing-button" onClick={() => onNotify("무료 매물등록은 정식 서비스에서 이용해 주세요.")}>무료 매물등록</button>
-            <button type="button" className="bbm-login-button" onClick={() => onNotify("로그인은 정식 서비스에서 이용해 주세요.")}>
-              <img src={bbmAsset("header-mypage")} alt="" aria-hidden="true" />
-              <span>로그인</span>
-              <BbIcon name="chevron-down" size={16} className="bbm-login-chevron" />
+            <button type="button" className="bbm-auth-icon" aria-label="관심 매물" onClick={onOpenFavorites}><BbIcon name="heart" size={24} /></button>
+            <button type="button" className="bbm-auth-icon has-badge" aria-label="읽지 않은 알림 80개" onClick={() => onNotify("알림은 정식 서비스에서 이용해 주세요.")}>
+              <BbIcon name="notification" size={24} />
+              <span className="bbm-auth-badge" aria-hidden="true">80</span>
             </button>
+            <button type="button" className="bbm-auth-pill is-contact" onClick={() => onNotify("연락은 정식 서비스에서 이용해 주세요.")}><BbIcon name="chat" size={20} /><span>연락</span></button>
+            <button type="button" className="bbm-auth-pill is-management" onClick={() => onNotify("매물관리는 정식 서비스에서 이용해 주세요.")}>매물관리</button>
+            <button type="button" className="bbm-listing-button" onClick={() => onNotify("무료 매물등록은 정식 서비스에서 이용해 주세요.")}>무료 매물등록</button>
+            <div className="bbm-account-wrap" ref={accountRef}>
+              <button type="button" className="bbm-account-button" aria-label="로그인 및 계정 메뉴" aria-haspopup="menu" aria-expanded={accountOpen} onClick={() => setAccountOpen((open) => !open)}>
+                <span className="bbm-account-avatar" aria-hidden="true"><img src={bbmAsset("header-logo")} alt="" /></span>
+                <BbIcon name="chevron-down" size={20} className="bbm-account-chevron" />
+              </button>
+              {accountOpen ? <div className="bbm-account-menu" role="menu">
+                <button type="button" role="menuitem" onClick={() => { setAccountOpen(false); onNotify("로그인은 정식 서비스에서 이용해 주세요."); }}>로그인</button>
+                <button type="button" role="menuitem" onClick={() => { setAccountOpen(false); onNotify("회원가입은 정식 서비스에서 이용해 주세요."); }}>회원가입</button>
+                <button type="button" role="menuitem" onClick={() => { setAccountOpen(false); onNotify("고객센터는 정식 서비스에서 이용해 주세요."); }}>고객센터</button>
+              </div> : null}
+            </div>
           </div> : <div className={`bbm-header-actions is-${variant}`}>
             {variant === "chotot" ? <>
               <button type="button" className="bbm-act-icon" aria-label="찜" onClick={onOpenFavorites}><img src={bbmAsset("header-heart")} alt="" aria-hidden="true" /></button>
