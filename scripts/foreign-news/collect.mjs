@@ -223,6 +223,21 @@ if (translationSheetId && process.env.FOREIGN_NEWS_TRANSLATION_SHEET !== "off") 
   }
   if (sheetTranslated) console.log(`Google Sheet translations applied to ${sheetTranslated} articles`);
 }
+// 편집본(한국 자동차 기사체로 다듬은 제목·요약)은 시트·자동 번역보다 우선한다.
+try {
+  const editorial = JSON.parse(await readFile(path.join(root, "data", "foreign-news", "editorial-ko.json"), "utf8")).articles || {};
+  let edited = 0;
+  visible = visible.map((article) => {
+    const e = editorial[String(article.id)];
+    if (!e || !e.title) return article;
+    edited += 1;
+    const lines = String(e.summary || "").match(/[^.!?。！？]+[.!?。！？]?/g)?.map((v) => v.trim()).filter(Boolean).slice(0, 3) || [];
+    return { ...article, titleKo: e.title, summaryKo: lines.join("\n") || article.summaryKo || "", translationStatus: "edited" };
+  });
+  if (edited) console.log(`Editorial Korean copy applied to ${edited} articles`);
+} catch (error) {
+  if (error.code !== "ENOENT") console.log(`Editorial copy skipped: ${error.message}`);
+}
 const translationEndpoint = process.env.NEWS_TRANSLATE_ENDPOINT || "";
 const translationTargets = visible.filter((article) => !article.titleKo || !article.summaryKo);
 let translationMode = "korean-metadata-fallback";
