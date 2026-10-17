@@ -189,3 +189,49 @@
 @media (min-width: 820px) and (max-width: 1119px) {
   .bbm-page { grid-template-columns: 240px minmax(0, 1fr); gap: 16px; width: calc(100% - 32px); }
 }
+
+/* 2026-10-17 PC 메인 검색바 시안 (?pcsearch=chotot · ?pcsearch=kaidee) — 레거시 느낌 걷어내기
+   초톳 xe.chotot.com 1440 실측: 지역 알약 139×40 + 간격 8 + 검색 알약 570×40(#F4F4F4, 테두리 없음, 완전 둥근), 입력 16px, 오른쪽 32 원형 검색 버튼(브랜드색), 우측 알약 버튼 40
+   카이디 kaidee.com 1440 실측: 헤더 80, 검색 알약 576×50(#F5F5F5, 테두리 없음), 왼쪽 36 원형 검색 버튼(브랜드 파랑), 입력 16px, 우측 주 버튼 44 반경 12 + 원형 아이콘 44/36 */
+.bbm-header.is-search-chotot, .bbm-header.is-search-kaidee { height: auto; }
+.bbm-header.is-search-chotot .bbm-header-inner, .bbm-header.is-search-kaidee .bbm-header-inner { height: auto; }
+.bbm-header.is-search-chotot .bbm-header-main { height: 68px; grid-template-columns: auto minmax(420px, 720px) auto; gap: 24px; }
+.bbm-header.is-search-kaidee .bbm-header-main { height: 80px; grid-template-columns: auto minmax(420px, 640px) auto; gap: 32px; }
+.bbm-header.is-search-chotot .bbm-header-search-slot { display: flex; align-items: center; gap: 8px; }
+.bbm-region-pill { display: inline-flex; flex: none; align-items: center; gap: 6px; height: 40px; padding: 0 12px 0 14px; border: 0; border-radius: 999px; background: #f4f4f4; color: #222; font-size: 15px; font-weight: 600; letter-spacing: -.2px; cursor: pointer; }
+.bbm-region-pill img { width: 18px; height: 18px; }
+.bbm-region-pill .bb-icon { color: #595959; }
+.bbm-region-pill:hover { background: #ececec; }
+.bbm-catalog-search.is-chotot { flex: 1; height: 40px; gap: 8px; padding: 0 4px 0 14px; border: 0; background: #f4f4f4; transition: background .15s, box-shadow .15s; }
+.bbm-catalog-search.is-chotot > svg { width: 20px; height: 20px; color: #8c8c8c; }
+.bbm-catalog-search.is-kaidee { height: 50px; gap: 12px; padding: 0 20px 0 7px; border: 0; background: #f5f5f5; transition: background .15s, box-shadow .15s; }
+.bbm-catalog-search.is-chotot > input, .bbm-catalog-search.is-kaidee > input { font-size: 16px; letter-spacing: -.2px; color: #222; }
+.bbm-catalog-search.is-chotot > input::placeholder, .bbm-catalog-search.is-kaidee > input::placeholder { color: #8c8c8c; }
+.bbm-catalog-search.is-chotot:hover, .bbm-catalog-search.is-kaidee:hover { background: #efefef; }
+.bbm-catalog-search.is-chotot:focus-within, .bbm-catalog-search.is-kaidee:focus-within { background: #fff; box-shadow: 0 0 0 2px #1b498c, 0 6px 20px rgba(17, 24, 39, .08); }
+.bbm-catalog-search-go { display: grid; flex: none; place-items: center; padding: 0; border: 0; border-radius: 50%; background: #1b498c; color: #fff; cursor: pointer; transition: background .15s, transform .15s; }
+.bbm-catalog-search-go:hover { background: #143a71; }
+.bbm-catalog-search-go:active { transform: scale(.94); }
+.bbm-catalog-search-go svg { width: 18px; height: 18px; }
+.bbm-catalog-search.is-chotot .bbm-catalog-search-go { width: 32px; height: 32px; }
+.bbm-catalog-search.is-kaidee .bbm-catalog-search-go { width: 36px; height: 36px; }
+.bbm-header-actions { display: flex; grid-column: 3; align-items: center; justify-content: flex-end; gap: 8px; }
+.bbm-header-actions button { display: inline-flex; align-items: center; justify-content: center; border: 0; cursor: pointer; font-family: inherit; letter-spacing: -.2px; white-space: nowrap; }
+.bbm-header-actions img { width: 22px; height: 22px; }
+.bbm-act-icon { width: 40px; height: 40px; padding: 0; border-radius: 50%; background: none; }
+.bbm-act-icon:hover, .bbm-act-circle:hover { background: #f4f4f4; }
+.bbm-act-pill { gap: 6px; height: 40px; padding: 0 16px; border-radius: 999px; background: #fff; box-shadow: inset 0 0 0 1px #dadada; color: #222; font-size: 14px; font-weight: 600; }
+.bbm-act-pill img { width: 18px; height: 18px; }
+.bbm-act-pill:hover { background: #f7f7f7; }
+.bbm-header-actions.is-chotot .bbm-act-primary { height: 40px; padding: 0 18px; border-radius: 999px; }
+.bbm-act-primary { background: #1b498c; color: #fff; font-size: 15px; font-weight: 700; }
+.bbm-act-primary:hover { background: #143a71; }
+.bbm-header-actions.is-kaidee { gap: 10px; }
+.bbm-header-actions.is-kaidee .bbm-act-primary { height: 44px; padding: 0 20px; border-radius: 12px; }
+.bbm-act-circle { width: 40px; height: 40px; padding: 0; border-radius: 50%; background: none; }
+.bbm-act-circle.is-tint { width: 44px; height: 44px; background: #eef3fb; }
+.bbm-act-circle.is-tint:hover { background: #e2eaf6; }
+.bbm-header .bbm-header-top[hidden] { display: none; }
+.bbm-catalog-search.is-chotot > input, .bbm-catalog-search.is-kaidee > input { height: 100%; outline: none !important; box-shadow: none !important; }
+.bbm-catalog-search.is-chotot .bbm-catalog-search-clear, .bbm-catalog-search.is-kaidee .bbm-catalog-search-clear { width: 20px !important; height: 20px !important; border: 0 !important; background: #c4c4c4 !important; color: #fff !important; font-size: 15px; line-height: 20px; }
+.bbm-header.is-search-chotot, .bbm-header.is-search-kaidee { box-shadow: 0 1px 0 #efefef; }
