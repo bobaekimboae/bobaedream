@@ -2,6 +2,7 @@ import { chromium } from "playwright";
 import path from "node:path";
 
 const url = process.env.REGISTER_URL || "http://172.30.1.200:4174/?register";
+const capturePath = process.env.REGISTER_CAPTURE;
 const browser = await chromium.launch({ headless: true });
 const page = await browser.newPage({ viewport: { width: 393, height: 852 }, deviceScaleFactor: 1 });
 const consoleErrors = [];
@@ -9,6 +10,17 @@ page.on("console", (message) => {
   if (message.type() === "error") consoleErrors.push(message.text());
 });
 page.on("pageerror", (error) => consoleErrors.push(error.message));
+
+const chooseOption = async (fieldId, option, capture = false) => {
+  await page.locator(`#${fieldId}`).click();
+  const picker = page.getByRole("dialog", { name: /\uC120\uD0DD$/ });
+  await picker.waitFor();
+  if (capture && capturePath) {
+    await page.waitForTimeout(220);
+    await page.screenshot({ path: capturePath });
+  }
+  await picker.getByRole("radio", { name: option, exact: true }).click();
+};
 
 try {
   await page.goto(url, { waitUntil: "networkidle" });
@@ -24,9 +36,18 @@ try {
   if (await page.locator(".ct-media-thumb").count() !== 2) throw new Error("이미지 추가 실패");
 
   await page.locator("#ct-price").fill("3500");
-  await page.locator("#ct-address").selectOption("서울특별시");
-  await page.locator("#ct-transmission").selectOption("자동");
-  await page.locator("#ct-fuel").selectOption("가솔린");
+  await chooseOption("ct-address", "서울특별시");
+  await chooseOption("ct-category", "자동차 / SUV", true);
+  await chooseOption("ct-transmission", "자동");
+  await chooseOption("ct-fuel", "가솔린");
+
+  if (await page.locator(".ct-field-button select").count()) throw new Error("모바일 네이티브 select가 남아 있음");
+  if ((await page.locator("#ct-category").innerText()).trim() !== "자동차 / SUV") throw new Error("선택값 반영 실패");
+  await page.locator("#ct-category").click();
+  await page.getByRole("dialog", { name: "카테고리 선택" }).waitFor();
+  await page.keyboard.press("Escape");
+  await page.getByRole("dialog", { name: "카테고리 선택" }).waitFor({ state: "hidden" });
+  if (await page.evaluate(() => document.body.style.overflow)) throw new Error("선택창 종료 후 스크롤 잠금 해제 실패");
 
   await page.getByRole("button", { name: "미리보기" }).click();
   await page.getByRole("dialog", { name: "매물 미리보기" }).waitFor();

@@ -5145,3 +5145,20 @@ final result: passed
 - intentional localization: Chợ Tốt 로고·베트남어 문구는 보배드림 로고·한국어 매물 항목으로만 치환했고, 배치·크기·간격·상태 구조는 유지했다.
 - validation: `npm run check:runtime`, `npm run verify:qf`, `npm run verify`, `npm run register:verify:chotot-parity` 통과.
 final result: passed
+
+---
+
+## 매물등록 모바일 선택창 교정 · 2026-10-17
+
+- source visual truth: 사용자 제보 `17-mobile-native-select-problem.jpg`와 Chợ Tốt 상세폼 `01-chotot-detail-form.png`.
+- implementation evidence: `18-mobile-custom-picker-local.png`.
+- combined comparison evidence: `19-mobile-picker-comparison.png`.
+- viewport/state: 393×852, 카테고리 선택창 열림, 배경 스크롤 잠금.
+- P1 finding resolved: 모바일 브라우저의 네이티브 `<select>`가 기기별 전체화면 팝업과 일반 제목 `선택`을 만들어 폼 맥락·크기·위치가 달라졌다. 모든 선택 필드를 동일한 커스텀 하단 선택창으로 교체했다.
+- visual checks: 16px 상단 라운드, 58px 제목 바, 54px 선택 행, 15px 옵션 글자, 1px 구분선, Chợ Tốt 노란 선택 표시, 불투명 흰색 시트와 회색 딤을 확인했다.
+- interaction checks: 항목별 제목, 현재값 표시, 옵션 선택 후 값 반영, 배경 탭 닫기, 닫기 버튼, Escape 닫기, 열림 중 본문 스크롤 잠금 및 종료 후 해제를 확인했다.
+- responsive checks: 가로 넘침 0, 상세 필드 2열 유지, 고정 하단 액션보다 선택창이 위에 렌더링됨을 확인했다.
+- automated evidence: 이미지 첨부·미리보기·임시저장·등록 검증까지 포함한 `register:verify:chotot-parity` 통과, 콘솔 오류 0건.
+- remaining findings: P0/P1/P2 없음.
+
+final result: passed
