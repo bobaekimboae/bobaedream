@@ -5290,3 +5290,19 @@ final result: passed
 
 final result: passed
 
+---
+
+## PC 메인 카이디형 중앙 검색바·한글/영문 블루 로고 · 2026-10-17
+
+- decision: 검색창을 로고 뒤 고정 간격으로 두지 않고, 좌측 브랜드·가운데 검색·우측 회원 액션을 3개 대칭 열로 구성해 카이디처럼 화면 중앙축을 안정적으로 유지한다.
+- before: 1280×720에서 검색창 x=236, 중심=516px으로 화면 중심 640px보다 124px 왼쪽에 있었고 영문 워드마크 끝과 검색창 시작 사이가 37.2px라 붙어 보였다.
+- after (1280): 좌우 열 288px, 가운데 검색 560px으로 검색창 x=360~920, 중심=640px을 정확히 맞췄다. 가로 넘침은 0px이다.
+- responsive (1024): 좌우 열 237.6px, 검색 460.8px으로 검색창 중심=512px을 유지했고 가로 넘침은 0px이다. 900px 이하는 기존 모바일 헤더로 안전하게 전환된다.
+- brand variants: 기본 영문 `BOBAEDREAM`과 `?pclogo=ko` 한글 `보배드림` 두 시안을 제공한다. 두 타이틀 모두 원형 엠블럼과 동일한 `#306BD9`를 적용했다.
+- typography: 영문은 Arial 18/24px·800, 한글은 Pretendard 20/24px·800로 각 문자 구조에 맞추되 헤더 높이와 검색 축은 동일하게 유지했다.
+- evidence: `qa/pc-main-logo-correction/local-kaidee-balanced-en-1280x720.png`, `qa/pc-main-logo-correction/local-kaidee-balanced-ko-1280x720.png`.
+- interaction/runtime: `BMW M3` 검색 입력, 로그인·매물등록 안내 토스트, 콘솔 오류 0건을 확인했다.
+- findings: P0/P1/P2 없음.
+
+final result: passed
+

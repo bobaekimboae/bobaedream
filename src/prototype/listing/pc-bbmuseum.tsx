@@ -52,12 +52,18 @@ export function bbSearchVariant(): BbSearchVariant {
   const value = new URLSearchParams(window.location.search).get("pcsearch");
   return value === "chotot" || value === "kaidee" ? value : "default";
 }
+type BbLogoLanguage = "en" | "ko";
+function bbLogoLanguage(): BbLogoLanguage {
+  if (typeof window === "undefined") return "en";
+  return new URLSearchParams(window.location.search).get("pclogo") === "ko" ? "ko" : "en";
+}
 const bbmAsset = (name: string) => asset(`bbm/${name}.svg`);
 
 function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searchSlot }: { category: string; onChooseCategory: (category: string) => void; onNotify: (message: string) => void; onOpenFavorites: () => void; searchSlot?: ReactNode }) {
   const [moreOpen, setMoreOpen] = useState(false);
   const moreRef = useRef<HTMLDivElement>(null);
   const variant = bbSearchVariant();
+  const logoLanguage = bbLogoLanguage();
   const activeItem = category === "전체" ? "전체차량"
     : category === "트럭 · 특장" || category === "건설기계" || category === "자재운반장비" ? "화물 · 특장 · 중기"
       : category === "캠핑카" ? "캠핑카"
@@ -98,7 +104,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
             <span className="bbm-logo-emblem" aria-hidden="true">
               <img src={bbmAsset("header-logo")} alt="" draggable={false} />
             </span>
-            <span className="bbm-logo-word" aria-hidden="true">BOBAEDREAM</span>
+            <span className={`bbm-logo-word is-${logoLanguage}`} aria-hidden="true">{logoLanguage === "ko" ? "보배드림" : "BOBAEDREAM"}</span>
           </button>
           {searchSlot ? <div className="bbm-header-search-slot">
             {variant === "chotot" ? <button type="button" className="bbm-region-pill" aria-label="지역 선택, 현재 전국" onClick={() => onNotify("지역 선택은 목록 위 지역 줄에서 이용해 주세요.")}><img src={bbmAsset("header-location-chotot-v01")} alt="" aria-hidden="true" /><span>전국</span><BbIcon name="chevron-down" size={16} /></button> : null}
