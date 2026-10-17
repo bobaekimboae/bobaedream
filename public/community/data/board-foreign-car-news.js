@@ -6,7 +6,7 @@
   "board": "foreign-car-news",
   "displayName": "해외 자동차뉴스",
   "idStart": 920000001,
-  "defaultView": "naver-discussion",
+  "defaultView": "naver-discussion-thumb-right",
   "updatedAt": "2026-10-17T04:46:49.036Z",
   "topics": [
     "전체",

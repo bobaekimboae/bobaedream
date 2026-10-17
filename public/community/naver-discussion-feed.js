@@ -265,15 +265,16 @@
       if(bestView==='naver-ranking-news')renderNaverRanking();else renderLoungeBest(bestView);
       return;
     }
-    currentVariant=variant==='thumb'?'thumb':'';
+    var thumbRight=variant==='thumb-right';
+    currentVariant=variant==='thumb'||thumbRight?'thumb':'';
     mediaCarousels.forEach(function(api){api.destroy();});
     mediaCarousels=[];
     syncHeadwords();
     phone.classList.remove('compactMode','feedCafeMode','cafeLeftMode','naverCafePopularMode','redditFeedMode','chototFeedMode','chototBoardFeedMode','chototDealerFeedMode','loungeBestMode','loungeBestCleanMode','loungeBestLeftMode','naverRankingMode');
     phone.classList.add('naverDiscussionMode');
     phone.classList.toggle('naverDiscussionThumbMode',currentVariant==='thumb');
-    typeLabel.textContent=currentVariant==='thumb'?'네이버 토론 · 좌측 썸네일':'네이버 토론형';
-    list.className='list naverDiscussionList'+(currentVariant==='thumb'?' is-thumb':'');
+    typeLabel.textContent=currentVariant==='thumb'?(thumbRight?'네이버 토론 · 우측 썸네일':'네이버 토론 · 좌측 썸네일'):'네이버 토론형';
+    list.className='list naverDiscussionList'+(currentVariant==='thumb'?' is-thumb':'')+(thumbRight?' is-thumb-right':'');
     list.innerHTML=feedBody();
     bind();
     hydrateLocalMedia();
@@ -424,6 +425,7 @@
   if(activeBoardTable!=='vehicle-review'){
     if(startMode==='naver-discussion')render();
     else if(startMode==='naver-discussion-thumb')render('thumb');
+    else if(startMode==='naver-discussion-thumb-right')render('thumb-right');
     else if(startMode==='lounge-best-rank'||startMode==='lounge-best-clean'||startMode==='lounge-best-left'||startMode==='naver-ranking-news')render(startMode);
   }
 })();
