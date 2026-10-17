@@ -174,6 +174,48 @@
   /* QF-091: 카드는 원본 car-list-result-card 값(bbm-tokens.css .bbm-result-card)으로 바꿈 */
 }
 
+/* PC 메인 기본 검색: 초톳의 단순한 알약형 구조 + 보배드림 활성색(#222) */
+@media (min-width: 820px) {
+  .bbm-catalog-search.is-main {
+    height: 48px;
+    gap: 8px;
+    padding: 0 6px 0 18px;
+    border: 0;
+    border-radius: 999px;
+    background: #f4f4f4;
+    transition: background .15s, box-shadow .15s;
+  }
+  .bbm-catalog-search.is-main:hover { background: #eeeeee; }
+  .bbm-catalog-search.is-main:focus-within { background: #fff; box-shadow: 0 0 0 2px #222, 0 6px 20px rgba(17, 24, 39, .08); }
+  .bbm-catalog-search.is-main > input {
+    height: 100%;
+    outline: none !important;
+    box-shadow: none !important;
+    color: #222;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -.2px;
+  }
+  .bbm-catalog-search.is-main > input::placeholder { color: #767676; opacity: 1; }
+  .bbm-catalog-search.is-main .bbm-catalog-search-go {
+    width: 36px;
+    height: 36px;
+    background: #222;
+  }
+  .bbm-catalog-search.is-main .bbm-catalog-search-go:hover { background: #000; }
+  .bbm-catalog-search.is-main .bbm-catalog-search-go svg { width: 18px; height: 18px; }
+  .bbm-catalog-search.is-main .bbm-catalog-search-clear {
+    width: 20px !important;
+    height: 20px !important;
+    border: 0 !important;
+    background: #c4c4c4 !important;
+    color: #fff !important;
+    font-size: 15px;
+    line-height: 20px;
+  }
+}
+
 /* 원본 반응형: 1200 이하는 헤더 좌우 16, 본문 좌우 24(300 + 24 + 나머지). 1119 이하는 사이드바 240·간격 16·좌우 16 (원본 1024 실측: 16 + 240 + 16 + 736 + 16) */
 @media (min-width: 820px) {
   .bbm-header-inner { width: min(1200px, calc(100% - 32px)); }

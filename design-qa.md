@@ -5209,3 +5209,17 @@ final result: passed
 - 깨진 이미지 0, 콘솔 경고/오류 0, 민감 식별정보 상세 노출 0.
 - `node qa/chezhiwang-complaint/ten-x-gate.mjs` 결과 51/51 PASS.
 
+---
+
+## PC 메인 초톳형 검색바 · 2026-10-17
+
+- reference truth: Chợ Tốt의 단순한 회색 알약형 검색 구조와 원형 검색 액션. 보배드림에는 활성 메뉴색인 `#222`를 적용했다.
+- implementation URL: `http://127.0.0.1:4312/?qf=guazi&pc=1&v=searchbar-chotot`.
+- visual evidence: Codex in-app browser 1440×900 inline capture.
+- measured: 검색창 560×48px, `#F4F4F4`, 입력 16/24px, 검색 버튼 36×36px, 배경 `#222`, 흰색 18px 아이콘.
+- focus: 컨테이너 바깥쪽 2px `#222`만 노출하고 입력 자체 outline·box-shadow는 제거했다.
+- interaction: `BMW` 입력 시 모델 추천과 매물 필터링, 검색어 지우기 후 초기 목록 복귀를 확인했다.
+- runtime: 브라우저 콘솔 오류 0, `npm run verify:qf`와 `npm run verify` 통과.
+
+final result: passed
+

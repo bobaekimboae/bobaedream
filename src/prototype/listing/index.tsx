@@ -496,11 +496,11 @@ function BbmCatalogHeaderSearch({ query, setQuery, searchPlaceholder, catalogRec
   }, [variant]);
   const placeholder = variant === "kaidee" ? `${searchPlaceholder}에서 무엇을 찾으세요? / 를 눌러 검색` : variant === "chotot" ? `${searchPlaceholder} 모델명, 트림으로 찾기…` : `${searchPlaceholder} 모델명, 트림으로 검색`;
   const submitButton = <button type="button" className="bbm-catalog-search-go" aria-label="검색" onPointerDown={(event) => event.preventDefault()} onClick={() => { if (!query.trim()) inputRef.current?.focus(); else keyboard.hide(); }}><MagnifyingGlassIcon aria-hidden="true" /></button>;
-  return <label className={`bbm-catalog-search${variant === "default" ? "" : ` is-${variant}`}`}>
-    {variant === "kaidee" ? submitButton : <MagnifyingGlassIcon aria-hidden="true" />}
+  return <label className={`bbm-catalog-search is-${variant === "default" ? "main" : variant}`}>
+    {variant === "kaidee" ? submitButton : variant === "chotot" ? <MagnifyingGlassIcon aria-hidden="true" /> : null}
     <KeyboardInput ref={inputRef} aria-label={`${searchPlaceholder} 검색`} value={query} placeholder={placeholder} onFocus={() => { setSearchOpen(true); onCatalogFocus?.(); }} onChange={(event) => { setQuery(event.currentTarget.value); setSearchOpen(true); onCatalogFocus?.(); }} onBlur={() => keyboard.hide()} />
     {query ? <button type="button" className="bbm-catalog-search-clear" aria-label="검색어 지우기" onPointerDown={(event) => event.preventDefault()} onClick={() => setQuery("")}>×</button> : null}
-    {variant === "chotot" ? submitButton : null}
+    {variant === "chotot" || variant === "default" ? submitButton : null}
     {searchOpen && query.trim() && onCatalogChoose ? <CatalogSearchResults records={catalogRecords ?? null} query={query} onChoose={(record) => { setSearchOpen(false); keyboard.hide(); onCatalogChoose(record); }} /> : null}
   </label>;
 }
