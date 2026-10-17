@@ -5162,3 +5162,20 @@ final result: passed
 - remaining findings: P0/P1/P2 없음.
 
 final result: passed
+
+---
+
+## 투후 오너 리뷰 독립 게시판 · 2026-10-17
+
+- source visual truth: `artifacts/tuhu-review-audit-20261017/00-current.png`, `01-rating-*.png`, `02-space-like-open2.png`, `03-space-dislike-actual.png`, `11-review-tab-list.png`, `12-review-detail-origin.png`, `13-review-detail-lower.png`, `33-writer-ev.png`, `48-writer-hybrid.png`, `66-writer-phev.png`.
+- list comparison: 프로필 → 별점·모델 → 제목·내용 → 사진 → 액션 순서를 동일하게 구성했다.
+- detail comparison: 상단 프로필·구독, 이미지 카운터, 장문 본문, 차량 평가 카드, 댓글과 고정 액션 구조를 구현했다.
+- writer comparison: 상단 진행 단계, 차량 정보, 5단계 만족도, 8개 장단점 평가, 30자 본문, 미디어 순서를 구현했다.
+- variable fields: ICE=실연비, EV=실주행거리, HEV=실연비+순수전기 주행거리, PHEV=실주행거리로 즉시 전환한다.
+- interaction: 전체/내연기관/전기차/하이브리드/PHEV 필터, 상세 진입·복귀, 구독, 추천, 공유, 댓글, 작성 검증, 등록 후 상세 이동을 확인했다.
+- content rules: 만족도 5단계 문구, 8개 평가 항목의 긍정/부정 원문과 한국어 현지화 문구를 `docs/tuhu-review-system-audit-20261017.md`에 보존했다.
+- design system: 투후 노란 활성색은 사용자 지정 에어비앤비형 검정으로 치환하고 Pretendard 및 저장소의 Reddit·Chotot·AutoScout24 계열 SVG만 사용했다.
+- responsive/runtime: 393px 모바일 목록·상세·등록 렌더링, 연료별 가변 항목, 가로 넘침, 콘솔 오류 0건 확인.
+- phone cleanup: 조사 중 추가한 EV/HEV/PHEV 차량은 삭제하고 BMW 120i 원상태를 `garage-restored.png/xml`로 확인했다.
+
+final result: passed

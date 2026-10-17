@@ -8,6 +8,7 @@
     {id:'foreign-car-news',displayName:'해외 자동차뉴스',shortName:'해외뉴스',section:'게시판',topicKey:'전체',avatarLabel:'WORLD',avatarColor:'#0f4c5c',avatarAccent:'#3fb7a7'},
     {id:'brand-car-info',displayName:'브랜드 자동차 정보',shortName:'브랜드정보',section:'게시판',topicKey:'전체',avatarLabel:'BRAND',avatarColor:'#263238',avatarAccent:'#90a4ae'},
     {id:'vehicle-review',displayName:'차량리뷰',shortName:'차량리뷰',section:'게시판',topicKey:'전체',avatarLabel:'리뷰',avatarColor:'#1f2937',avatarAccent:'#7c8698'},
+    {id:'tuhu-review',displayName:'투후 오너 리뷰',shortName:'투후리뷰',section:'게시판',topicKey:'전체',avatarLabel:'TUHU',avatarColor:'#17191e',avatarAccent:'#5d626a'},
     {id:'fuel-economy',displayName:'연비·전비',shortName:'연비전비',section:'게시판',topicKey:'전체',avatarLabel:'효율',avatarColor:'#1f2937',avatarAccent:'#7c8698'},
     {id:'autohome-complaint',displayName:'차량 결함·불만',shortName:'결함불만',section:'게시판',topicKey:'전체',avatarLabel:'불만',avatarColor:'#17191e',avatarAccent:'#59616d'},
     {id:'politics',displayName:'정치/시사게시판',shortName:'정치시사',section:'게시판',topicKey:'전체',avatarLabel:'시사',avatarColor:'#5031a9',avatarAccent:'#9678e8'},
@@ -73,6 +74,7 @@
       var stored=JSON.parse(localStorage.getItem(storageKey)||'null');
       if(stored&&stored.version===2&&Array.isArray(stored.activeOrder)){
         var activeOrder=normalizeActiveOrder(stored.activeOrder,false);
+        if(activeOrder.indexOf('tuhu-review')<0){var reviewIndex=activeOrder.indexOf('vehicle-review');activeOrder.splice(reviewIndex<0?activeOrder.length:reviewIndex+1,0,'tuhu-review')}
         if(activeOrder.indexOf('autohome-complaint')<0){var fuelIndex=activeOrder.indexOf('fuel-economy');activeOrder.splice(fuelIndex<0?activeOrder.length:fuelIndex+1,0,'autohome-complaint')}
         return{version:2,fixedIds:fixedIds.slice(),activeOrder:activeOrder,updatedAt:stored.updatedAt||null};
       }
