@@ -17,7 +17,7 @@
 var CONFIG = {
   SOURCE_URL: 'https://bobaekimboae.github.io/bobaedream/community/data/foreign-car-news.json',
   SHEET_NAME: '해외뉴스_번역',
-  MAX_TRANSLATE_PER_RUN: 25,      // 한 번 실행에 새로 번역할 기사 수(구글 번역 하루 한도 보호)
+  MAX_TRANSLATE_PER_RUN: 40,      // 한 번 실행에 새로 번역할 기사 수(구글 번역 하루 한도 보호)
   SUMMARY_MAX_CHARS: 110,         // 한국어 요약 최대 길이(2문장 안팎)
   TRIGGER_MINUTES: 15
 };
@@ -51,6 +51,15 @@ function translate_(text, lang) {
   if (!text) return '';
   try { return LanguageApp.translate(text, lang && lang.length === 2 ? lang : '', 'ko'); }
   catch (e) { return ''; }
+}
+
+/* 구글 번역의 존댓말(~습니다)을 게시판 기사체(~다)로 바꾼다 */
+function plain_(text) {
+  return String(text || '')
+    .replace(/않습니다/g, '않는다').replace(/입니다/g, '이다').replace(/됩니다/g, '된다')
+    .replace(/합니다/g, '한다').replace(/([았었였했켰렸])습니다/g, '$1다').replace(/습니다/g, '다')
+    .replace(/갑니다/g, '간다').replace(/옵니다/g, '온다').replace(/줍니다/g, '준다').replace(/봅니다/g, '본다')
+    .replace(/ㅂ니다/g, '다');
 }
 
 /* 요약: 번역문을 문장 단위로 잘라 최대 길이 안에서 2문장까지, 끝은 기사체 그대로 */
@@ -117,11 +126,15 @@ function syncForeignNews() {
       if (!row[COL['한국어 제목']] && budget > 0) {
         var t = translate_(a.originalTitle, a.originalLanguage);
         if (t) {
-          row[COL['한국어 제목']] = t;
-          row[COL['한국어 요약']] = row[COL['한국어 요약']] || shortSummary_(translate_(a.originalSummary, a.originalLanguage));
+          row[COL['한국어 제목']] = plain_(t).replace(/\.$/, '');
+          row[COL['한국어 요약']] = row[COL['한국어 요약']] || plain_(shortSummary_(translate_(a.originalSummary, a.originalLanguage)));
           row[COL['번역방식']] = '구글 번역';
           budget--; translated++;
         }
+      }
+      if (row[COL['번역방식']] === '구글 번역') {
+        row[COL['한국어 제목']] = plain_(row[COL['한국어 제목']]).replace(/\.$/, '');
+        row[COL['한국어 요약']] = plain_(row[COL['한국어 요약']]);
       }
       row[COL['갱신일']] = now;
     });
