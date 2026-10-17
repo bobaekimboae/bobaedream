@@ -28,6 +28,20 @@
 
 final result: passed
 
+## 커뮤니티 마이페이지 · Reddit 모바일 구조 (2026-10-17)
+
+- source visual truth: 사용자 제공 Reddit 프로필 5화면(`1000018808.jpg`, `1000018810.jpg`, `1000018812.jpg`, `1000018814.jpg`, `1000018806.jpg`).
+- implementation: `/community/reddit-profile.html`, `/community/reddit-profile-edit.html`.
+- visual hierarchy: 대형 커버·원형 프로필·닉네임/소개·4분할 통계·게시물/댓글/저장 항목/정보 탭·하단 5탭 구조를 모바일 원본 순서대로 구현했다.
+- product adaptation: Reddit 브랜드 문구와 샘플은 보배드림 커뮤니티 회원, 자동차 게시판, 차량 이미지로 치환했다. 커버에는 저장소의 자동차 전시장 이미지를 사용했다.
+- interactions: 네 탭 즉시 전환, 숨김 동작, 피드/게시물 메뉴 피드백, 게시판·글쓰기 이동, 프로필 수정 이동을 확인했다.
+- edit flow: 표시 이름·소개·소셜 링크·로컬 이미지 미리보기, 글자 수, 최대 5개 링크, localStorage 저장 후 프로필 화면 반영을 확인했다.
+- responsive evidence: 360px·384px는 전체 폭, 412px는 제품 규칙인 393px 중앙 프레임이며 세 폭 모두 가로 넘침 0이다.
+- assets: 기존 Reddit UI 아이콘·보배드림 GNB 아이콘·실제 프로필 아바타·차량 이미지를 재사용했고 깨진 이미지 0건이다.
+- screenshots: `artifacts/community-reddit-profile-1017/profile-posts-384.png`, `profile-comments-384.png`, `profile-saved-384.png`, `profile-about-384.png`, `profile-edit-384.png`.
+- automated verification: `node scripts/community-reddit-profile-check.mjs` 통과, 콘솔·런타임 오류 0건.
+- final result: passed.
+
 ---
 
 ## 치지직 간결형 공지 제거 · 2026-10-17

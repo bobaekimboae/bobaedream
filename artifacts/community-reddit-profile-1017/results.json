@@ -1,0 +1,91 @@
+[
+  {
+    "width": 360,
+    "checks": {
+      "frame": true,
+      "noOverflow": true,
+      "tabs": true,
+      "hero": true,
+      "images": true,
+      "tab_comments": true,
+      "tab_saved": true,
+      "tab_about": true,
+      "tab_posts": true,
+      "runtime": true
+    },
+    "initial": {
+      "width": 360,
+      "overflow": false,
+      "tabs": [
+        "게시물",
+        "댓글",
+        "저장 항목",
+        "정보"
+      ],
+      "active": "posts",
+      "heroHeight": 405,
+      "broken": []
+    },
+    "errors": []
+  },
+  {
+    "width": 384,
+    "checks": {
+      "frame": true,
+      "noOverflow": true,
+      "tabs": true,
+      "hero": true,
+      "images": true,
+      "tab_comments": true,
+      "tab_saved": true,
+      "tab_about": true,
+      "tab_posts": true,
+      "editEnabled": true,
+      "persisted": true,
+      "runtime": true
+    },
+    "initial": {
+      "width": 384,
+      "overflow": false,
+      "tabs": [
+        "게시물",
+        "댓글",
+        "저장 항목",
+        "정보"
+      ],
+      "active": "posts",
+      "heroHeight": 405,
+      "broken": []
+    },
+    "errors": []
+  },
+  {
+    "width": 412,
+    "checks": {
+      "frame": true,
+      "noOverflow": true,
+      "tabs": true,
+      "hero": true,
+      "images": true,
+      "tab_comments": true,
+      "tab_saved": true,
+      "tab_about": true,
+      "tab_posts": true,
+      "runtime": true
+    },
+    "initial": {
+      "width": 393,
+      "overflow": false,
+      "tabs": [
+        "게시물",
+        "댓글",
+        "저장 항목",
+        "정보"
+      ],
+      "active": "posts",
+      "heroHeight": 405,
+      "broken": []
+    },
+    "errors": []
+  }
+]
