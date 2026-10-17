@@ -7,7 +7,7 @@
   var userIcon = '../icons/chotot/chotot-common-user.svg';
   var cameraIcon = 'assets/chzzk-detail/icons/camera.svg';
   var videoIcon = 'assets/reddit-ui/video.svg';
-  var documentIcon = '../assets/bbm/detail-icons/document.svg';
+  var documentIcon = 'assets/reddit-ui/write.svg';
 
   function sectionIcon(src) {
     var image = document.createElement('img');
@@ -21,7 +21,7 @@
     var sections = form.querySelectorAll('.czw-section');
     var icons = [
       [userIcon, '작성자'],
-      ['../assets/bbm/card-location.svg', '차량'],
+      ['../icons/chotot/chotot-common-location-icon.svg', '차량'],
       ['../icons/dealer-profile/dealership.svg', '업체'],
       [cameraIcon, '첨부'],
       [documentIcon, '불만 내용']

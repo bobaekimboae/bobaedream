@@ -77,7 +77,7 @@ gate('작은 화면 보정', css.includes('@media (max-width:360px)'));
 gate('사용자 아이콘 존재', exists('public/icons/chotot/chotot-common-user.svg'));
 gate('카메라 아이콘 존재', exists('public/community/assets/chzzk-detail/icons/camera.svg'));
 gate('영상 아이콘 존재', exists('public/community/assets/reddit-ui/video.svg'));
-gate('문서 아이콘 존재', exists('public/assets/bbm/detail-icons/document.svg'));
+gate('문서 아이콘 존재', exists('public/community/assets/reddit-ui/write.svg'));
 
 if (failures.length) {
   console.error(`\n${failures.length} failed / ${passed + failures.length} checks`);
