@@ -12,8 +12,8 @@ import {
 } from "@radix-ui/react-icons";
 import "./chotot-parity.css";
 
-const publicAsset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
-const initialPhoto = publicAsset("assets/cars/supercar-sheet-v01/sc-019.jpg");
+const publicAsset = (path: string) => `${import.meta.env.BASE_URL}assets/${path}`;
+const initialPhoto = publicAsset("cars/supercar-sheet-v01/sc-019.jpg");
 
 type MediaItem = { id: string; name: string; src: string; objectUrl?: boolean };
 
@@ -171,7 +171,7 @@ export default function ChototParityRegister({ notify }: { notify: (message: str
       <header className="ct-register-header">
         <div className="ct-register-header__top">
           <button type="button" aria-label="전체 메뉴" onClick={() => notify("전체 메뉴") }><HamburgerMenuIcon /></button>
-          <img src={publicAsset("assets/bbm/header-logo.svg")} alt="보배드림" />
+          <img src={publicAsset("bbm/header-logo.svg")} alt="보배드림" />
           <button type="button" className="ct-open-app" onClick={() => notify("보배드림 앱 열기")}>앱 열기</button>
         </div>
         <div className="ct-register-header__search">
