@@ -48,6 +48,16 @@ final result: passed
 - 360·384·412px에서 추천·조회 아이콘 16×16px, 깨진 이미지·콘솔 오류 0건을 확인했다.
 - final result: passed.
 
+---
+
+## 간결형 동영상 배지 교체 · 2026-10-17
+
+- 썸네일 중앙을 가리던 26px 흰색 동영상 오버레이를 제거했다.
+- 레딧 `video.svg`를 사용한 19×19px 반투명 검정 원형 배지를 썸네일 좌측 아래 3px 위치에 적용했다.
+- 복수 사진 수와 링크 배지는 기존 우측 아래 위치를 유지해 서로 겹치지 않는다.
+- 360·384·412px에서 기존 흰색 오버레이 0건, 레딧 동영상 배지 3건, 깨진 이미지·콘솔 오류 0건을 확인했다.
+- final result: passed.
+
 ## 해외 자동차뉴스 Threads형 링크 카드 QA (2026-10-17)
 
 - source visual truth: `C:\Users\bobae\OneDrive\문서\ChatGPT\퀵필터 제작\.codex-remote-attachments\01a10689-936d-7973-9ae7-047c763eeb65\a2ed51e8-0dbd-48b2-b904-7f1a656e094a\1-1000018728.jpg`

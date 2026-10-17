@@ -42,7 +42,9 @@
 .phone.compactMode .item.fresh .dot{display:block!important}
 .phone.compactMode .thumbWrap,
 .phone.compactMode .thumb{width:52px;height:52px;border-radius:7px}
-.phone.compactMode .thumbWrap>.play{display:block!important}
+.phone.compactMode .thumbWrap>.play{display:none!important}
+.phone.compactMode .redditVideoBadge{position:absolute;left:3px;bottom:3px;width:19px;height:19px;border-radius:50%;display:grid!important;place-items:center;background:rgba(20,21,23,.78);box-shadow:0 1px 2px rgba(0,0,0,.18)}
+.phone.compactMode .redditVideoBadge img{width:12px;height:12px;display:block;filter:brightness(0) invert(1)}
 .phone.compactMode .mediaLinkBadge{position:absolute;right:3px;bottom:3px;width:19px;height:19px;border-radius:7px;display:grid;place-items:center;background:rgba(36,39,43,.76);box-shadow:0 1px 2px rgba(0,0,0,.18)}
 .phone.compactMode .mediaLinkBadge img{width:12px;height:12px;display:block;filter:brightness(0) invert(1)}
 .phone.compactMode .photoBadge{right:3px;bottom:3px;min-width:18px;height:18px;padding:0 4px;border-radius:7px;background:rgba(36,39,43,.76);font-size:9.5px;line-height:18px}
