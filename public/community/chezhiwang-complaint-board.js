@@ -3,9 +3,9 @@
   var storageKey='bobae-chezhiwang-complaints-v1',commentKey='bobae-chezhiwang-complaint-comments-v1';
   var icons={back:'assets/reddit-ui/back.svg',share:'assets/chzzk-detail/icons/share-reddit.svg',chat:'assets/chzzk-detail/icons/comment-reddit.svg',like:'assets/reddit-ui/recommend-thumb-up.svg',save:'assets/chzzk-detail/icons/bookmark.svg',write:'assets/reddit-ui/write.svg',photo:'assets/chzzk-detail/icons/camera.svg',check:'../%61ssets/register/chotot-v01/check-mark.svg'};
   var groups={
-    quality:['엔진·모터','변속기','클러치','조향 시스템','제동 시스템','타이어','전후 차축·서스펜션','차체 부속·전기장치'],
-    service:['서비스 태도','정비 기술','서비스 비용','약속 불이행','판매 과정','부품 분쟁','서비스 절차 미흡'],
-    other:['리콜 문제','제품 문제','공급·협력 문제','기타 문제']
+    quality:['엔진·모터','변속기','클러치','조향 장치','제동 장치','타이어','차축·서스펜션','차체 부속·전장'],
+    service:['서비스 태도','정비 기술','서비스 요금','약속 불이행','판매 문제','부품 분쟁','서비스 절차 미흡'],
+    other:['리콜 문제','제품 문제','지원 체계 문제','기타 문제']
   };
   var motorcycles={'BMW 모토라드':['R 1300 GS','S 1000 RR','CE 04'],'혼다 모터사이클':['골드윙','포르자 350','CBR1000RR-R'],'야마하':['TMAX','MT-09','YZF-R1'],'두카티':['멀티스트라다 V4','파니갈레 V4','몬스터']};
   function esc(v){return String(v==null?'':v).replace(/[&<>\"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]})}

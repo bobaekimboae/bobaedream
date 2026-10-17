@@ -168,3 +168,20 @@
 .czs-picktxt{flex:1;display:flex;flex-direction:column;min-width:0}
 .czs-picktxt b{font-size:15px;font-weight:500}.czs-picktxt small{font-size:12px;color:#8c8c8c}
 .czs-pickrow em{font-style:normal;font-size:13px;color:#8c8c8c}
+/* 2026-10-17 처즈왕 전수 대조 2차: 선택 칩 줄·가나다 색인·연식 묶음·영상 카드 */
+.czs-fsummary{gap:6px;overflow-x:auto;scrollbar-width:none;white-space:nowrap;height:auto;min-height:40px;padding:6px 16px}
+.czs-fsummary::-webkit-scrollbar{display:none}
+.czs-fsummary[hidden]{display:none}
+.czs-fsel{display:inline-flex;gap:6px}
+.czs-fsel .czs-chip{flex:none}
+.czs-picker{position:fixed;inset:0;max-width:393px;margin:0 auto}
+.czs-index{position:absolute;right:4px;top:120px;z-index:2;display:flex;flex-direction:column;gap:2px}
+.czs-index button{width:22px;height:22px;border:0;border-radius:11px;background:none;font-size:11px;color:#127fcf;font-weight:700}
+.czs-index button:hover{background:#e7f4fe}
+.czw-card.is-video-card .czw-thumb{display:none}
+.czs-vthumb{position:relative;margin:10px 16px 0;border-radius:8px;overflow:hidden;background:#1b1f24;aspect-ratio:16/9}
+.czs-vthumb img{width:100%;height:100%;object-fit:cover;opacity:.85}
+.czs-play{position:absolute;left:50%;top:50%;width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;background:rgba(0,0,0,.55)}
+.czs-play:after{content:"";position:absolute;left:19px;top:14px;border-left:15px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent}
+.czs-vthumb em{position:absolute;right:8px;bottom:8px;padding:2px 6px;border-radius:4px;background:rgba(0,0,0,.6);color:#fff;font-style:normal;font-size:12px}
+.czs-picker{z-index:80}.czs-index{z-index:5;top:110px}.czs-picklist{position:relative}
