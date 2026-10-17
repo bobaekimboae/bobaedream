@@ -1,95 +1,38 @@
-/* 처즈왕(车质网) 불만 흐름을 한국형 공개 공론화 게시판으로 옮긴 독립 테이블.
-   2026-10-17 보강: 처리 단계·접수번호·회신·첨부(사진/영상)·업체 불만·해결 소식·순위용 차량 속성 추가.
-   모든 글·회신·업체·작성자는 UI 검증용 가상 데이터이며 실제 사례가 아니다. */
+/* 처즈왕 我要投诉 전수조사 흐름을 한국형 공개 공론화 게시판으로 옮긴 독립 테이블. */
 (function(){
   'use strict';
   var tables=window.BBM_BOARD_TABLES=window.BBM_BOARD_TABLES||{};
-  var L='../%61ssets/vehicle-catalog/logos/',M='../%61ssets/models/kr/';
-  /* [제조사, 모델, 세부 모델, 판매 구분, 로고, 이미지, 차급, 연료, 가중치] */
   var cars=[
-    ['현대','그랜저','2025 그랜저 GN7 하이브리드','국산 신차',L+'logo_hyundai.png',M+'49/87.png','준대형 세단','하이브리드',9],
-    ['기아','쏘렌토','2025 쏘렌토 MQ4 하이브리드','국산 신차',L+'logo_kia.png',M+'3/1977.png','중형 SUV','하이브리드',8],
-    ['기아','EV6','2025 더 뉴 EV6 롱레인지','국산 신차',L+'logo_kia.png',M+'3/2031.png','준중형 SUV','전기',7],
-    ['현대','싼타페','2025 싼타페 MX5 2.5T','국산 신차',L+'logo_hyundai.png',M+'49/1975.png','중형 SUV','가솔린',6],
-    ['현대','투싼','2025 더 뉴 투싼 1.6T','국산 신차',L+'logo_hyundai.png',M+'49/1996.png','준중형 SUV','가솔린',5],
-    ['기아','카니발','2025 더 뉴 카니발 3.5','국산 신차',L+'logo_kia.png',M+'3/1989.png','대형 RV','가솔린',5],
-    ['현대','팰리세이드','2026 디 올 뉴 팰리세이드 하이브리드','국산 신차',L+'logo_hyundai.png',M+'49/2041.png','대형 SUV','하이브리드',4],
-    ['기아','스포티지','2025 더 뉴 스포티지 하이브리드','국산 신차',L+'logo_kia.png',M+'3/2044.png','준중형 SUV','하이브리드',4],
-    ['BMW','X3','2025 X3 xDrive30e','공식 수입차',L+'logo_bmw.png','../%61ssets/cars/bmw/card-three-quarter/x3-three-quarter.png','중형 SUV','플러그인 하이브리드',3],
-    ['벤츠','E클래스','2025 E 300 4MATIC','공식 수입차',L+'logo_mercedes-benz.png','../%61ssets/cars/mercedes/models/card/e-class.png','준대형 세단','가솔린',3],
-    ['렉서스','RX','2025 RX 450h+','공식 수입차',L+'logo_lexus.png','../%61ssets/cars/seoul-autogallery-v01/sag-06-1.webp','중형 SUV','플러그인 하이브리드',2],
-    ['포르쉐','타이칸','2025 Taycan 4S','공식 수입차',L+'logo_porsche.png','../%61ssets/cars/seoul-autogallery-v01/sag-02-1.webp','스포츠 세단','전기',2]
+    ['BMW','X3','2025 X3 xDrive30e','공식 수입차','../%61ssets/vehicle-catalog/logos/logo_bmw.png','../%61ssets/cars/bmw/card-three-quarter/x3-three-quarter.png'],
+    ['벤츠','E클래스','2025 E 300 4MATIC','공식 수입차','../%61ssets/vehicle-catalog/logos/logo_mercedes-benz.png','../%61ssets/cars/mercedes/models/card/e-class.png'],
+    ['포르쉐','타이칸','2025 Taycan 4S','공식 수입차','../%61ssets/vehicle-catalog/logos/logo_porsche.png','../%61ssets/cars/seoul-autogallery-v01/sag-02-1.webp'],
+    ['렉서스','RX','2025 RX 450h+','공식 수입차','../%61ssets/vehicle-catalog/logos/logo_lexus.png','../%61ssets/cars/seoul-autogallery-v01/sag-06-1.webp'],
+    ['BMW','M3','2025 M3 xDrive 컴페티션','공식 수입차','../%61ssets/vehicle-catalog/logos/logo_bmw.png','../%61ssets/cars/bmw/card-three-quarter/m3-three-quarter.png'],
+    ['벤츠','GLS클래스','2025 GLS 450 4MATIC','공식 수입차','../%61ssets/vehicle-catalog/logos/logo_mercedes-benz.png','../%61ssets/cars/mercedes/models/card/gls-class.png'],
+    ['현대','아이오닉 5','2025 롱레인지 AWD','국내 신차','../%61ssets/vehicle-catalog/logos/logo_hyundai.png','../%61ssets/cars/seoul-autogallery-v01/sag-03-1.webp'],
+    ['람보르기니','우루스 SE','2025 플러그인 하이브리드','공식 수입차','../%61ssets/vehicle-catalog/logos/logo_lamborghini.png','../%61ssets/listing-photos/v01/lamborghini_urus_phev_3003.jpg']
   ];
-  /* [대분류, 세부 문제, 제목 뒤 문구, 내용, 요구 사항] */
   var issues=[
-    ['품질','엔진·모터','주행 중 출력 제한 반복','고속도로 합류 구간에서 출력이 떨어지고 경고 메시지가 표시됐습니다. 정차 후 재시동하면 사라지지만 같은 증상이 세 번 반복돼 점검 기록을 공유합니다.','원인 진단 결과를 서면으로 받고, 같은 증상이 재발하면 부품 교체를 원합니다.'],
-    ['품질','변속기','저속 변속 충격 재발','냉간 상태에서 D단 전환과 2단 변속 때 충격이 큽니다. 서비스센터에서 학습값 초기화를 받았지만 일주일 만에 재발했습니다.','변속기 정밀 진단과 수리 기간 대차를 요청합니다.'],
-    ['품질','제동 시스템','제동 시 떨림과 소음','고속 주행 후 감속하면 페달과 핸들에 진동이 전달됩니다. 패드 정상 판정 뒤에도 증상이 이어져 영상과 정비명세서를 보관했습니다.','디스크·캘리퍼 점검과 무상 수리를 요청합니다.'],
-    ['품질','차체 부속·전기장치','내비·후방 카메라 꺼짐','주행 중 내비게이션 화면이 재부팅되며 후방 카메라도 함께 보이지 않습니다. 소프트웨어 업데이트 후에도 같은 시간대에 반복됩니다.','근본 원인 확인과 헤드유닛 교체를 원합니다.'],
-    ['품질','타이어','출고 2개월 만에 타이어 편마모','출고 후 4,000km 주행에 앞바퀴 안쪽만 심하게 닳았습니다. 얼라인먼트 측정값을 받아 두었습니다.','얼라인먼트 재조정과 타이어 교체를 요청합니다.'],
-    ['품질','차체 부속·전기장치','에어컨 응축수 실내 유입','에어컨을 켜고 30분 이상 달리면 조수석 발밑 매트가 젖습니다. 배수 호스 점검을 받았지만 재발했습니다.','누수 원인 수리와 젖은 내장재 교체를 원합니다.'],
-    ['품질','조향 시스템','직진 시 핸들 쏠림','평탄한 도로에서 손을 살짝 떼면 오른쪽으로 쏠립니다. 타이어 위치 교환 후에도 같습니다.','조향 장치 점검과 원인 설명을 요청합니다.'],
-    ['서비스','약속 불이행','안내받은 대차 미제공','예약할 때 확인한 대차가 현장에서 제공되지 않았습니다. 담당자마다 설명이 달라 상담 기록을 기준으로 정리합니다.','약속한 대차 제공과 교통비 보상을 요청합니다.'],
-    ['서비스','서비스 비용','사전 고지 없는 추가 비용','작업 승인 전에 안내받지 못한 항목이 결제서에 포함됐습니다. 작업 전 견적과 최종 명세서를 함께 공개합니다.','미고지 항목 환불을 요청합니다.'],
-    ['서비스','판매 과정','계약 조건과 다른 출고 옵션','계약서에 적힌 옵션 일부가 빠진 채 출고됐습니다. 판매 담당자는 생산 사정이라고만 설명했습니다.','누락 옵션 장착 또는 차액 환급을 원합니다.'],
-    ['서비스','정비 기술','같은 고장으로 세 번 입고','같은 경고등으로 세 번 입고했지만 매번 이상 없음 판정을 받았습니다. 그 사이 주행 중 경고가 다시 켜졌습니다.','상위 기술 인력의 정밀 진단을 요청합니다.'],
-    ['기타','리콜 문제','리콜 대상 통지 지연','같은 연식 차량의 리콜 소식을 커뮤니티에서 먼저 접했습니다. 대상 여부를 문의했지만 답이 늦습니다.','리콜 대상 여부 확인과 일정 안내를 요청합니다.'],
-    ['기타','제품 문제','인도 직후 도장 얼룩과 단차','차량 인수 다음 날 보닛 도장 얼룩과 범퍼 단차를 확인했습니다. 출고 전 검수 기록을 요청했습니다.','도장 보수와 검수 기록 공개를 원합니다.'],
-    ['종합','타이어 · 서비스 절차 미흡','편마모 점검 안내 부족','정기점검에서 이상 없다는 안내를 받았지만 곧 편마모가 확인됐습니다. 품질 증상과 서비스 절차를 함께 공유합니다.','점검 기준 설명과 타이어 교체를 요청합니다.']
+    ['품질','엔진·모터','주행 중 출력이 순간적으로 제한됩니다','고속도로 합류 구간에서 출력이 떨어지고 경고 메시지가 표시됐습니다. 안전한 곳에 정차한 뒤 재시동하면 사라지지만 같은 증상이 반복돼 점검 기록을 공유합니다.'],
+    ['품질','변속기','저속에서 변속 충격이 반복됩니다','냉간 상태에서 D단 전환과 2단 변속 때 충격이 큽니다. 서비스센터에서 학습값 초기화를 받았지만 재발해 추가 진단을 요청했습니다.'],
+    ['품질','제동 시스템','제동 시 진동과 소음이 커졌습니다','고속 주행 후 감속하면 페달과 핸들에 진동이 전달됩니다. 패드 정상 판정 뒤에도 증상이 이어져 영상과 정비명세서를 보관했습니다.'],
+    ['품질','차체 부속·전기장치','인포테인먼트와 후방 카메라가 꺼집니다','내비게이션 화면이 재부팅되며 후방 카메라도 함께 보이지 않습니다. 업데이트 후에도 동일한 발생 시각과 영상을 기록했습니다.'],
+    ['서비스','약속 불이행','예약한 정비와 대차 안내가 달랐습니다','전화로 확인한 예약과 대차 가능 여부가 현장 안내와 달랐습니다. 담당자별 설명도 달라 계약서와 상담 기록을 기준으로 사실관계를 정리합니다.'],
+    ['서비스','서비스 비용','사전 고지 없는 추가 비용이 청구됐습니다','작업 승인 전에 안내받지 못한 항목이 결제서에 포함됐습니다. 작업 전 견적과 최종 명세서의 차이를 공개합니다.'],
+    ['기타','제품 문제','인도 직후 도장 얼룩과 단차를 발견했습니다','차량 인수 다음 날 밝은 곳에서 보닛 도장 얼룩과 범퍼 단차를 확인했습니다. 출고 전 검수 기록과 보수 범위를 요청했습니다.'],
+    ['종합','타이어 · 서비스 절차 미흡','타이어 편마모 점검과 안내가 충분하지 않았습니다','정기점검에서 이상이 없다는 안내를 받았지만 곧 편마모가 확인됐습니다. 품질 증상과 서비스 절차를 함께 공유합니다.']
   ];
-  var statuses=['정보 심사','제조사 접수','처리 회신','작성자 평가','완료'];
-  var authors=['서울오너','차량기록장','안전제보','정비노트','주말드라이버','모터로그','출퇴근차주','패밀리카','캠핑아빠','전기차입문'];
-  var cities=['서울','경기','인천','부산','대전','대구','광주','세종','울산','경남'];
-  var pool=[];cars.forEach(function(c){for(var k=0;k<c[8];k++)pool.push(c)});
+  var authors=['서울오너','차량기록장','안전제보','정비노트','주말드라이버','모터로그','출퇴근차주','패밀리카'];
+  var cities=['서울','경기','인천','부산','대전','대구','광주','세종'];
   var rows=[];
-  for(var i=0;i<pool.length;i++){
-    var car=pool[(i*7)%pool.length],issue=issues[(i*5)%issues.length],status=statuses[(i*3)%statuses.length];
-    var day=17-Math.floor(i/4);var month=day>0?10:9;if(day<=0)day+=30;
-    var stamp='2026-'+String(month).padStart(2,'0')+'-'+String(day).padStart(2,'0')+'T'+String(9+(i%10)).padStart(2,'0')+':'+String((i*13)%60).padStart(2,'0')+':00+09:00';
-    var reply=status==='정보 심사'?'보배드림이 접수 내용을 확인하고 있습니다. 차량 정보와 증빙이 확인되면 제조사·판매사에 전달합니다.':status==='제조사 접수'?'보배드림이 불만 내용을 제조사·판매사에 전달했습니다. 처리 과정을 계속 확인하겠습니다. 진행 상황을 지켜봐 주세요.':'제조사 회신: 접수된 내용을 확인했습니다. 담당 서비스센터에서 고객님께 연락해 점검 일정과 처리 방안을 안내드렸습니다. 불편을 드려 죄송합니다.';
+  for(var i=0;i<32;i++){
+    var car=cars[i%cars.length],issue=issues[i%issues.length];
     rows.push({
-      id:String(9720001+i),complaintId:'czw-'+String(1001+i),complaintNo:String(261001+i*3),
-      category:issue[0],issueType:issue[0],subtypes:issue[1],
-      title:car[0]+' '+car[1]+' '+issue[2],summary:issue[3],body:issue[3],demand:issue[4],
-      status:status,reply:reply,rating:status==='작성자 평가'||status==='완료'?3+(i%3):0,
-      hasPhoto:i%3!==1,hasVideo:i%5===0,
-      author:authors[i%authors.length],publishedAt:stamp,views:String(520+i*131),comments:String((i*7)%19),likes:String(8+(i*13)%91),
-      brand:car[0],manufacturer:car[0],model:car[1],trim:car[2],vehicleType:car[3],brandLogo:car[4],thumbnail:car[5],images:car[5],segment:car[6],fuel:car[7],
-      city:cities[i%cities.length],odometer:String(1800+i*1570),
-      purchaseDate:'2025-'+String(1+(i%9)).padStart(2,'0')+'-12',problemDate:'2026-'+String(month).padStart(2,'0')+'-'+String(Math.max(1,day-3)).padStart(2,'0'),
-      accident:i%7===0?'있음':'없음',injury:'없음',dealerGroup:car[3]==='공식 수입차'?'공식 딜러사':'직영 서비스센터',dealerBranch:cities[i%cities.length]+' 지점',
-      publicLabel:'공개',verified:i%5!==4,kind:'car'
+      id:String(9720001+i),complaintId:'czw-'+String(1001+i),category:issue[0],issueType:issue[0],subtypes:issue[1],title:issue[2],summary:issue[3],body:issue[3],
+      author:authors[i%authors.length],publishedAt:'2026-10-'+String(17-(i%15)).padStart(2,'0')+'T'+String(8+(i%9)).padStart(2,'0')+':20:00+09:00',views:String(520+i*131),comments:String(3+(i*7)%36),likes:String(8+(i*13)%91),
+      brand:car[0],manufacturer:car[0],model:car[1],trim:car[2],vehicleType:car[3],brandLogo:car[4],thumbnail:car[5],images:car[5],city:cities[i%cities.length],odometer:String(1800+i*1570),
+      purchaseDate:'2025-'+String(1+(i%9)).padStart(2,'0')+'-12',problemDate:'2026-10-'+String(2+(i%14)).padStart(2,'0'),accident:i%7===0?'있음':'없음',injury:'없음',dealerGroup:car[3]==='공식 수입차'?'공식 딜러사':'신차 판매점',dealerBranch:cities[i%cities.length]+' 지점',publicLabel:['공개','추가 제보','작성자 업데이트','해결 후기'][i%4],verified:i%5!==4
     });
   }
-  /* 업체 불만(처즈왕 其他平台投诉): 차량 제조사가 아닌 매매상사·정비소 등. 업체명은 가림 처리한 가상 이름. */
-  var shops=[
-    ['매매상사','경기 수원 ○○모터스','중고차 침수 이력 고지 누락','성능점검기록부에 침수 이력이 없었는데 구매 후 정비소에서 침수 흔적을 확인했습니다. 계약서와 점검기록부를 함께 공개합니다.','허위 고지 확인과 계약 해제를 요청합니다.','판매 과정','허위·누락 고지'],
-    ['매매상사','인천 ○○오토','계약금 반환 거부','시승 후 계약을 취소했는데 계약금 반환을 거부합니다. 계약 당일 취소 조건을 문자로 안내받았습니다.','계약금 전액 반환을 요청합니다.','판매 과정','계약금 분쟁'],
-    ['정비소','서울 ○○카센터','수리 후 같은 소음 재발','하체 소음 수리 비용을 냈지만 일주일 만에 같은 소음이 다시 납니다. 교체 부품 확인을 요청했습니다.','재수리 또는 수리비 환불을 원합니다.','정비 기술','수리 품질'],
-    ['부품점','부산 ○○부품','주문과 다른 부품 배송','차대번호로 주문했는데 맞지 않는 부품이 왔습니다. 반품을 요청하자 왕복 배송비를 요구합니다.','배송비 없는 교환을 요청합니다.','부품 분쟁','오배송'],
-    ['렌터카','제주 ○○렌트','반납 후 과도한 수리비 청구','반납 때 이상 없다는 확인을 받았는데 일주일 뒤 범퍼 수리비가 청구됐습니다. 반납 사진이 있습니다.','청구 근거 공개와 청구 취소를 요청합니다.','서비스 비용','추가 청구'],
-    ['탁송','대전 ○○탁송','탁송 중 휠 긁힘','탁송 후 앞 휠에 긁힘이 생겼습니다. 출발 전 사진과 도착 사진을 비교해 공개합니다.','휠 수리비 보상을 요청합니다.','서비스 태도','파손 책임']
-  ];
-  shops.forEach(function(s,k){
-    var status=statuses[(k*2)%statuses.length];
-    rows.push({id:String(9729001+k),complaintId:'czw-b'+String(101+k),complaintNo:String(261501+k*2),category:'서비스',issueType:'서비스',subtypes:s[5],subDetail:s[6],
-      title:s[2],summary:s[3],body:s[3],demand:s[4],status:status,reply:status==='정보 심사'?'보배드림이 접수 내용을 확인하고 있습니다.':'보배드림이 불만 내용을 업체에 전달했습니다. 처리 과정을 계속 확인하겠습니다.',rating:0,hasPhoto:k%2===0,hasVideo:false,
-      author:authors[(k+3)%authors.length],publishedAt:'2026-10-'+String(16-k*2).padStart(2,'0')+'T1'+k+':10:00+09:00',views:String(300+k*90),comments:String(k*3),likes:String(4+k*5),
-      brand:'',model:'',trim:'',businessType:s[0],businessName:s[1],city:s[1].split(' ')[0],kind:'business',publicLabel:'공개',verified:true,brandLogo:'',thumbnail:''});
-  });
-  /* 해결 소식(처즈왕 小道消息): 불만 등록 뒤 어떻게 처리됐는지 작성자가 남기는 짧은 글. */
-  var news=[
-    ['캠핑아빠','쏘렌토 하이브리드 시동 꺼짐, 불만 등록 후 부품 무상 교체','같은 증상으로 두 번 입고했지만 해결되지 않아 불만을 등록했습니다. 등록 열흘 만에 서비스센터에서 연락이 와 관련 부품을 무상 교체받았습니다.','기아','쏘렌토','2026-10-16',28,0],
-    ['출퇴근차주','그랜저 내비 재부팅, 등록 후 헤드유닛 교체','소프트웨어 업데이트로 해결되지 않던 재부팅 증상이 헤드유닛 교체 후 사라졌습니다.','현대','그랜저','2026-10-16',30,2],
-    ['전기차입문','EV6 충전 중단 문제, 점검 후 충전 모듈 교체','급속 충전이 반복해서 끊겨 등록했습니다. 정밀 점검 후 충전 모듈을 교체받았습니다.','기아','EV6','2026-10-15',24,1],
-    ['패밀리카','카니발 슬라이딩 도어 오작동, 무상 수리 완료','도어가 끝까지 닫히지 않는 문제로 등록했고 도어 모터를 무상 수리받았습니다.','기아','카니발','2026-10-14',19,0],
-    ['모터로그','싼타페 도장 단차, 출고 전 검수 기록 받고 보수','검수 기록을 요청한 끝에 도장 보수를 받았습니다. 기록을 꼭 남겨 두세요.','현대','싼타페','2026-10-12',22,3],
-    ['주말드라이버','투싼 변속 충격, 학습값 초기화 대신 부품 교체','초기화만 반복되다가 불만 등록 후 밸브바디를 교체받았습니다.','현대','투싼','2026-10-10',35,4]
-  ];
-  var official=[
-    ['보배드림','결함·불만 게시판 운영 원칙 안내','공개 글에는 연락처·차대번호·차량번호가 표시되지 않습니다. 허위 사실 적시는 삭제될 수 있습니다.','2026-10-15'],
-    ['보배드림','처리 단계 표시 기준 안내','정보 심사, 제조사 접수, 처리 회신, 작성자 평가, 완료 단계의 뜻을 정리했습니다.','2026-10-10'],
-    ['안내','리콜 대상 확인은 자동차리콜센터에서','내 차가 리콜 대상인지는 국토교통부 자동차리콜센터에서 차대번호로 조회할 수 있습니다.','2026-10-02']
-  ];
-  tables['chezhiwang-complaint']={board:'chezhiwang-complaint',displayName:'처즈왕 결함·불만',idStart:9720001,defaultView:'',updatedAt:'2026-10-17T23:00:00+09:00',topics:['전체','품질','서비스','기타','종합'],statuses:statuses,rows:rows,news:news,official:official};
+  tables['chezhiwang-complaint']={board:'chezhiwang-complaint',displayName:'처즈왕 결함·불만',idStart:9720001,defaultView:'',updatedAt:'2026-10-17T23:00:00+09:00',topics:['전체','품질','서비스','기타','종합'],rows:rows};
 })();
