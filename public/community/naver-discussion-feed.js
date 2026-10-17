@@ -52,7 +52,7 @@
   }
   function bodyBlock(post,index){
     var lines=Array.isArray(post.summary3)?post.summary3.filter(Boolean).slice(0,3):[];
-    if(lines.length)return '<p class="naverDiscussionBody is-summary3" aria-label="3줄 요약">'+esc(lines.join(' '))+'</p>';
+    if(lines.length)return '<p class="naverDiscussionBody is-summary3" aria-label="요약">'+esc(lines.join(' '))+'</p>';
     return '<p class="naverDiscussionBody">'+esc(bodyFor(post,index))+'</p>';
   }
   function cleanTitle(value){return String(value||'').replace(/^\[[^\]]+\]\s*/,'');}
