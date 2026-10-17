@@ -27,7 +27,7 @@ const maxArticles = Math.max(20, Number(process.env.FOREIGN_NEWS_MAX_ARTICLES ||
 // RSS/Atom 제공 이미지 URL만 원격 표시한다. 이미지는 내려받거나 재호스팅하지 않는다.
 // 운영 중 긴급 차단이 필요하면 FOREIGN_NEWS_ALLOW_FEED_IMAGES=false 로 끌 수 있다.
 const allowFeedImages = process.env.FOREIGN_NEWS_ALLOW_FEED_IMAGES !== "false";
-const outputSchemaVersion = 6;
+const outputSchemaVersion = 7;
 const activeSources = registry.sources.filter((source) => source.status === "active" && source.feedUrl && ["rss", "atom", "sitemap"].includes(source.fetchType));
 const selectedSources = limit ? activeSources.slice(0, limit) : activeSources;
 
@@ -394,13 +394,10 @@ const payload = {
 };
 await writeFile(jsonPath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
 
-// 게시판에는 최근 기사 10개만 올린다(번역된 기사 우선). 전체 목록 JSON은 시트 번역용으로 그대로 둔다.
-const boardLimit = Math.max(1, Number(process.env.FOREIGN_NEWS_BOARD_LIMIT || 10));
+// 게시판에는 수집된 기사를 모두 최신순으로 올린다(FOREIGN_NEWS_BOARD_LIMIT를 주면 그 수만큼만).
+const boardLimit = Math.max(0, Number(process.env.FOREIGN_NEWS_BOARD_LIMIT || 0));
 const byNewest = [...visible].sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)));
-const hasKo = (article) => /[가-힣]/.test(article.titleKo || "");
-const boardArticles = [...byNewest.filter(hasKo), ...byNewest.filter((article) => !hasKo(article))]
-  .slice(0, boardLimit)
-  .sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)));
+const boardArticles = boardLimit ? byNewest.slice(0, boardLimit) : byNewest;
 const topics = ["전체", ...new Set(boardArticles.map((article) => article.topic))];
 const rows = boardArticles.map((article) => {
   const previewImage = article.previewImageUrl;
@@ -414,7 +411,7 @@ const rows = boardArticles.map((article) => {
   body: summaryKo,
   source: article.source,
   sourceUrl: article.canonicalUrl,
-  author: article.source,
+  author: "자동차뉴스",
   publishedAt: article.publishedAt,
   // 대표 이미지는 일반 게시물 사진이 아니라 원문 링크 프리뷰에만 넣는다.
   // 이렇게 해야 Reddit 링크 포스트처럼 제목·요약·출처와 한 카드로 움직인다.

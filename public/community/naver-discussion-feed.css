@@ -288,3 +288,6 @@
 
 /* 2026-10-17 네이버 토론 · 우측 썸네일(해외 자동차뉴스 기본) */
 .naverDiscussionList.is-thumb-right .naverDiscussionThumbMain .naverDiscussionThumb{order:1}
+.naverDiscussionLinkDomain{display:block;margin-top:4px;overflow:hidden;color:#5c6c74;font-size:12px;line-height:16px;white-space:nowrap;text-overflow:ellipsis}
+.naverDiscussionThumb.is-link .naverDiscussionThumbLink{position:absolute;right:0;bottom:0;left:0;display:flex;align-items:center;justify-content:flex-end;height:22px;padding-right:5px;background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.55))}
+.naverDiscussionThumbLink svg{width:14px;height:14px}
