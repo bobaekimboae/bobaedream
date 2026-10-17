@@ -45,8 +45,7 @@ const bbGnbMoreItems: readonly BbGnbItem[] = [
   { label: "올드카", category: "올드카" },
 ];
 // QF-091: 헤더 아이콘·로고는 개발 시안 원본 파일(public/assets/bbm/)
-const bbHeaderIcons: Array<[string, string]> = [["heart", "찜"], ["mypage", "마이페이지"]];
-/* 2026-10-17 PC 메인 검색바 시안: ?pcsearch=chotot(초톳 xe.chotot.com) · ?pcsearch=kaidee(카이디 kaidee.com). 기본 화면은 그대로 */
+/* 2026-10-17 PC 메인 검색바 시안: 기본=비엑람똣형 블루 CTA, ?pcsearch=chotot(초톳 xe.chotot.com) · ?pcsearch=kaidee(카이디 kaidee.com) 비교안 */
 export type BbSearchVariant = "default" | "chotot" | "kaidee";
 export function bbSearchVariant(): BbSearchVariant {
   if (typeof window === "undefined") return "default";
@@ -94,9 +93,6 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
   return (
     <header className={`bbm-header${variant === "default" ? "" : ` is-search-${variant}`}`} aria-label="보배드림">
       <div className="bbm-header-inner">
-        <div className="bbm-header-top" hidden={variant !== "default"}>
-          {["로그인", "회원가입", "고객센터"].map((label, index) => <span key={label} className="bbm-header-top-item">{index ? <img src={bbmAsset("header-top-divider")} alt="" aria-hidden="true" /> : null}<button type="button" onClick={() => onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`)}>{label}</button></span>)}
-        </div>
         <div className="bbm-header-main">
           <button type="button" className="bbm-logo" aria-label="보배드림 처음으로" onClick={() => document.querySelector(".app-screen")?.scrollTo({ top: 0 })}>
             <img src={bbmAsset("header-logo")} alt="보배드림" draggable={false} />
@@ -105,8 +101,9 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
             {variant === "chotot" ? <button type="button" className="bbm-region-pill" aria-label="지역 선택, 현재 전국" onClick={() => onNotify("지역 선택은 목록 위 지역 줄에서 이용해 주세요.")}><img src={bbmAsset("header-location-chotot-v01")} alt="" aria-hidden="true" /><span>전국</span><BbIcon name="chevron-down" size={16} /></button> : null}
             {searchSlot}
           </div> : null}
-          {variant === "default" ? <div className="bbm-header-icons">
-            {bbHeaderIcons.map(([icon, label]) => <button key={icon} type="button" aria-label={label} onClick={() => icon === "heart" ? onOpenFavorites() : onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`)}><img src={bbmAsset(`header-${icon}`)} alt="" aria-hidden="true" /></button>)}
+          {variant === "default" ? <div className="bbm-header-auth" aria-label="회원 메뉴">
+            <button type="button" className="bbm-login-button" onClick={() => onNotify("로그인은 정식 서비스에서 이용해 주세요.")}>로그인</button>
+            <button type="button" className="bbm-listing-button" onClick={() => onNotify("매물등록은 정식 서비스에서 이용해 주세요.")}>매물등록</button>
           </div> : <div className={`bbm-header-actions is-${variant}`}>
             {variant === "chotot" ? <>
               <button type="button" className="bbm-act-icon" aria-label="찜" onClick={onOpenFavorites}><img src={bbmAsset("header-heart")} alt="" aria-hidden="true" /></button>

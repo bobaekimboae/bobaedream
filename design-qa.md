@@ -5243,3 +5243,22 @@ final result: passed
 
 final result: passed
 
+---
+
+## PC 메인 블루 로고 · 로그인/매물등록 헤더 · 2026-10-17
+
+- source visual truth: 기존 공개본 `qa/pc-main-logo/source-e39b946f-1280x720.png`, 비엑람똣 헤더 `qa/pc-main-logo/vieclamtot-header-reference-1280x720.png`, 사용자 지시(보배드림 로고도 블루, 우측은 로그인·매물등록).
+- implementation screenshot: `qa/pc-main-logo/local-final-1280x720.png`.
+- combined comparison evidence: `qa/pc-main-logo/header-comparison-old-reference-final.png`; 기존/참조/구현의 상단 120px을 한 캔버스에 세로로 배치했고 1270×714 참조는 1280×720으로 정규화했다.
+- viewport/state: PC 메인 `?qf=guazi&pc=1`, 1280×720 CSS px, device scale 1, 전체차량 활성 및 BMW 검색 결과 상태.
+- fonts and typography: Pretendard를 유지하고 로그인·매물등록은 14/20px·650으로 맞췄다. GNB 14~16px 계층과 검색 입력 16/24px은 바꾸지 않았다.
+- spacing and layout rhythm: 유틸 로그인/회원가입 중복 행을 제거해 헤더를 117px에서 97px로 줄였다. 로고 113.9×28px, 검색 560×48px, 우측 버튼 높이 36px·간격 8px이다.
+- colors and visual tokens: 로고 엠블럼·워드마크와 검색 버튼·매물등록 버튼을 `#306BD9`, 호버를 `#1952BA`로 통일했다. 로그인은 흰 바탕·회색 테두리, 메뉴 선택은 검정으로 유지했다.
+- image quality and asset fidelity: 기존 `header-logo.svg` 원본의 네이비 fill만 교체했고 흰 엠블럼과 빨간 포인트를 보존했다. 새 로고나 근사 아이콘을 그리지 않았다.
+- copy and content: 우측 기능을 `로그인`과 `매물등록`으로 명확히 정리했으며 기존 찜·마이페이지 장식 아이콘은 헤더에서 제거했다.
+- interaction: BMW 검색→BMW X5 필터링, 매물등록 클릭→안내 토스트를 확인했다. 브라우저 콘솔 오류 0건, 가로 넘침 0건이다.
+- comparison history: 1차 구현은 상단 고객센터 유틸 행이 남아 로그인 CTA와 수직 위계가 중복되는 P2가 있었다. 유틸 행을 제거하고 헤더를 97px로 압축한 뒤 로고·검색·회원 액션이 한 줄에 정렬됨을 재캡처했다.
+- findings: P0/P1/P2 없음. 비엑람똣의 남는 찜·알림·프로필 아이콘은 사용자 지시에 따라 복제하지 않은 의도적 차이다.
+
+final result: passed
+
