@@ -45,6 +45,7 @@
   .bbm-auth-icon.has-badge { margin-right: 2px; }
   .bbm-auth-badge { position: absolute; top: -3px; left: 20px; display: grid; min-width: 20px; height: 18px; padding: 0 5px; place-items: center; border: 2px solid #fff; border-radius: 9px; box-sizing: content-box; background: #ef476f; color: #fff; font-size: 11px; font-weight: 700; line-height: 18px; font-variant-numeric: tabular-nums; }
   .bbm-auth-pill { gap: 6px; min-width: 78px; padding: 0 14px; border: 1px solid #e7e7e7; background: #fff; color: #222; }
+  .bbm-auth-pill.is-login { min-width: 78px; }
   .bbm-auth-pill.is-management { min-width: 88px; }
   .bbm-auth-pill:hover, .bbm-account-button:hover { border-color: #d3d3d3; background: #fafafa; }
   .bbm-listing-button { min-width: 112px; padding: 0 16px; border: 1px solid #306bd9; background: #306bd9; color: #fff; }
@@ -53,6 +54,7 @@
   .bbm-account-wrap { position: relative; display: flex; align-items: center; }
   .bbm-account-avatar { display: block; overflow: hidden; width: 30px; height: 30px; flex: 0 0 30px; border-radius: 50%; background: #306bd9; }
   .bbm-account-avatar img { display: block; width: 122px; max-width: none; height: 30px; }
+  .bbm-account-avatar.is-guest { display: grid; place-items: center; background: #fff; color: #333; }
   .bbm-account-chevron { color: #222; transition: transform .16s ease; }
   .bbm-account-button[aria-expanded="true"] .bbm-account-chevron { transform: rotate(180deg); }
   .bbm-account-menu { position: absolute; top: 46px; right: 0; z-index: 170; display: grid; min-width: 136px; padding: 7px; border: 1px solid #e5e5e5; border-radius: 12px; background: #fff; box-shadow: 0 12px 30px rgba(0, 0, 0, .14); }

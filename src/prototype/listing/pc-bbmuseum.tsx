@@ -57,15 +57,22 @@ function bbLogoLanguage(): BbLogoLanguage {
   if (typeof window === "undefined") return "en";
   return new URLSearchParams(window.location.search).get("pclogo") === "ko" ? "ko" : "en";
 }
+type BbAuthState = "guest" | "member";
+function bbAuthState(): BbAuthState {
+  if (typeof window === "undefined") return "guest";
+  return new URLSearchParams(window.location.search).get("pcauth") === "member" ? "member" : "guest";
+}
 const bbmAsset = (name: string) => asset(`bbm/${name}.svg`);
 
 function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searchSlot }: { category: string; onChooseCategory: (category: string) => void; onNotify: (message: string) => void; onOpenFavorites: () => void; searchSlot?: ReactNode }) {
   const [moreOpen, setMoreOpen] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
+  const [authState, setAuthState] = useState<BbAuthState>(bbAuthState);
   const moreRef = useRef<HTMLDivElement>(null);
   const accountRef = useRef<HTMLDivElement>(null);
   const variant = bbSearchVariant();
   const logoLanguage = bbLogoLanguage();
+  const isMember = authState === "member";
   const activeItem = category === "전체" ? "전체차량"
     : category === "트럭 · 특장" || category === "건설기계" || category === "자재운반장비" ? "화물 · 특장 · 중기"
       : category === "캠핑카" ? "캠핑카"
@@ -107,6 +114,14 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
     }
     if (item.category) onChooseCategory(item.category);
   };
+  const changeAuthState = (next: BbAuthState) => {
+    setAuthState(next);
+    setAccountOpen(false);
+    const url = new URL(window.location.href);
+    if (next === "member") url.searchParams.set("pcauth", "member");
+    else url.searchParams.delete("pcauth");
+    window.history.replaceState({}, "", url);
+  };
   return (
     <header className={`bbm-header${variant === "default" ? "" : ` is-search-${variant}`}`} aria-label="보배드림">
       <div className="bbm-header-inner">
@@ -123,21 +138,27 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
           </div> : null}
           {variant === "default" ? <div className="bbm-header-auth" aria-label="회원 메뉴">
             <button type="button" className="bbm-auth-icon" aria-label="관심 매물" onClick={onOpenFavorites}><BbIcon name="heart" size={24} /></button>
-            <button type="button" className="bbm-auth-icon has-badge" aria-label="읽지 않은 알림 80개" onClick={() => onNotify("알림은 정식 서비스에서 이용해 주세요.")}>
+            <button type="button" className={`bbm-auth-icon${isMember ? " has-badge" : ""}`} aria-label={isMember ? "읽지 않은 알림 80개" : "알림"} onClick={() => onNotify("알림은 정식 서비스에서 이용해 주세요.")}>
               <BbIcon name="notification" size={24} />
-              <span className="bbm-auth-badge" aria-hidden="true">80</span>
+              {isMember ? <span className="bbm-auth-badge" aria-hidden="true">80</span> : null}
             </button>
             <button type="button" className="bbm-auth-pill is-contact" onClick={() => onNotify("채팅은 정식 서비스에서 이용해 주세요.")}><BbIcon name="chat" size={20} /><span>채팅</span></button>
-            <button type="button" className="bbm-auth-pill is-management" onClick={() => onNotify("매물관리는 정식 서비스에서 이용해 주세요.")}>매물관리</button>
-            <button type="button" className="bbm-listing-button" onClick={() => onNotify("무료 매물등록은 정식 서비스에서 이용해 주세요.")}>무료 매물등록</button>
+            {isMember
+              ? <button type="button" className="bbm-auth-pill is-management" onClick={() => onNotify("매물관리는 정식 서비스에서 이용해 주세요.")}>매물관리</button>
+              : <button type="button" className="bbm-auth-pill is-login" onClick={() => { changeAuthState("member"); onNotify("로그인 상태 화면으로 전환했습니다."); }}>로그인</button>}
+            <button type="button" className="bbm-listing-button" onClick={() => onNotify("매물등록은 정식 서비스에서 이용해 주세요.")}>{isMember ? "무료 매물등록" : "매물등록"}</button>
             <div className="bbm-account-wrap" ref={accountRef}>
-              <button type="button" className="bbm-account-button" aria-label="로그인 및 계정 메뉴" aria-haspopup="menu" aria-expanded={accountOpen} onClick={() => setAccountOpen((open) => !open)}>
-                <span className="bbm-account-avatar" aria-hidden="true"><img src={bbmAsset("header-logo")} alt="" /></span>
+              <button type="button" className={`bbm-account-button${isMember ? " is-member" : " is-guest"}`} aria-label={isMember ? "회원 계정 메뉴" : "로그인 및 계정 메뉴"} aria-haspopup="menu" aria-expanded={accountOpen} onClick={() => setAccountOpen((open) => !open)}>
+                {isMember
+                  ? <span className="bbm-account-avatar" aria-hidden="true"><img src={bbmAsset("header-logo")} alt="" /></span>
+                  : <span className="bbm-account-avatar is-guest" aria-hidden="true"><BbIcon name="mypage" size={20} /></span>}
                 <BbIcon name="chevron-down" size={20} className="bbm-account-chevron" />
               </button>
               {accountOpen ? <div className="bbm-account-menu" role="menu">
-                <button type="button" role="menuitem" onClick={() => { setAccountOpen(false); onNotify("로그인은 정식 서비스에서 이용해 주세요."); }}>로그인</button>
-                <button type="button" role="menuitem" onClick={() => { setAccountOpen(false); onNotify("회원가입은 정식 서비스에서 이용해 주세요."); }}>회원가입</button>
+                {isMember
+                  ? <button type="button" role="menuitem" onClick={() => { changeAuthState("guest"); onNotify("미로그인 상태 화면으로 전환했습니다."); }}>로그아웃</button>
+                  : <button type="button" role="menuitem" onClick={() => { changeAuthState("member"); onNotify("로그인 상태 화면으로 전환했습니다."); }}>로그인</button>}
+                {!isMember ? <button type="button" role="menuitem" onClick={() => { setAccountOpen(false); onNotify("회원가입은 정식 서비스에서 이용해 주세요."); }}>회원가입</button> : null}
                 <button type="button" role="menuitem" onClick={() => { setAccountOpen(false); onNotify("고객센터는 정식 서비스에서 이용해 주세요."); }}>고객센터</button>
               </div> : null}
             </div>
