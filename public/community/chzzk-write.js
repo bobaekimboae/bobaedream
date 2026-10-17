@@ -23,7 +23,7 @@
   const draftKey = 'bbm.community.chzzkDraft.v1';
   const state = {
     board: params.get('board') || '',
-    photos: [], videos: [], tags: [], sheet:'', emojis:[], emojiCategory:'face-emotion',
+    photos: [], videos: [], tags: [], sheet:'', emojis:[], emojiCategory:'face-emotion', pollImageRow:null,
   };
   const title = $('#postTitle');
   const body = $('#postBody');
@@ -65,9 +65,10 @@
 
   function openSheet(kind, heading, primary = '') {
     state.sheet = kind; sheetTitle.textContent = heading; sheetPrimary.textContent = primary; sheetPrimary.hidden = !primary;
+    sheetOverlay.classList.toggle('is-poll', kind === 'poll');
     sheetOverlay.hidden = false; document.body.style.overflow = 'hidden'; renderSheet();
   }
-  function closeSheet() { sheetOverlay.hidden = true; document.body.style.overflow = ''; state.sheet = ''; sheetPrimary.onclick = null; }
+  function closeSheet() { sheetOverlay.hidden = true; sheetOverlay.classList.remove('is-poll'); document.body.style.overflow = ''; state.sheet = ''; state.pollImageRow = null; sheetPrimary.onclick = null; sheetPrimary.disabled = false; sheetBody.oninput = null; sheetBody.onchange = null; sheetBody.ondragstart = null; sheetBody.ondragover = null; sheetBody.ondrop = null; sheetBody.ondragend = null; }
   function renderBoardSheet() {
     sheetBody.innerHTML = boards.map((group) => `<h3 class="sheet-section-title">${group.section}</h3>${group.items.map((name) => `<button class="board-option${state.board === name ? ' is-selected' : ''}" type="button" data-board="${escapeHtml(name)}"><img src="assets/write-parity/community.svg" alt=""><span>${escapeHtml(name)}</span></button>`).join('')}`).join('');
   }
@@ -144,19 +145,129 @@
       image: figure.dataset.metaImage || '', site: figure.dataset.metaSite || '', logo: figure.dataset.metaLogo || '', lang: figure.dataset.metaLang || '',
     })).filter((item) => item.url);
   }
-  function pollRows(values = ['','','']) { return values.map((value,index) => `<div class="poll-row"><b>${index + 1}</b><input class="poll-option" maxlength="40" placeholder="항목을 입력하세요" value="${escapeHtml(value)}"><button type="button" data-remove-option aria-label="항목 삭제">×</button></div>`).join(''); }
+  const pollImageIcon = 'assets/write-parity/photo.svg';
+  function pollRows(values = [{ text:'', image:'' }, { text:'', image:'' }, { text:'', image:'' }]) {
+    return values.map((item,index) => {
+      const value = typeof item === 'string' ? item : item.text || '';
+      const image = typeof item === 'object' ? item.image || '' : '';
+      return `<div class="poll-row" draggable="true" data-poll-image="${escapeHtml(image)}">
+        <b>${index + 1}</b>
+        <input class="poll-option" maxlength="60" aria-label="항목 ${index + 1}" placeholder="항목을 입력하세요" value="${escapeHtml(value)}">
+        <button class="poll-image-button${image ? ' has-image' : ''}" type="button" data-poll-image-button aria-label="항목 ${index + 1} 이미지 추가">${image ? `<img src="${escapeHtml(image)}" alt="">` : `<img src="${pollImageIcon}" alt="">`}</button>
+        <button class="poll-reorder" type="button" data-poll-reorder aria-label="항목 ${index + 1} 순서 변경" title="끌어서 순서 변경"><span></span><span></span><span></span></button>
+        <button class="poll-remove" type="button" data-remove-option aria-label="항목 ${index + 1} 삭제">×</button>
+      </div>`;
+    }).join('');
+  }
+  function pollRowValues() {
+    return $$('.poll-row', sheetBody).map((row) => ({ text:$('.poll-option', row).value, image:row.dataset.pollImage || '' }));
+  }
+  function dateOptions(start, end, selected, suffix) {
+    return Array.from({ length:end - start + 1 }, (_, index) => start + index).map((value) => `<option value="${value}" ${value === selected ? 'selected' : ''}>${String(value).padStart(2,'0')}${suffix}</option>`).join('');
+  }
+  function pollDeadlineFields(value = '') {
+    const base = value && Date.parse(value) > Date.now() ? new Date(value) : new Date(Date.now() + 864e5);
+    const years = dateOptions(new Date().getFullYear(), new Date().getFullYear() + 3, base.getFullYear(), '년');
+    return `<div class="poll-deadline-fields" id="pollDeadlineFields">
+      <select id="pollEndYear" aria-label="종료 연도">${years}</select>
+      <select id="pollEndMonth" aria-label="종료 월">${dateOptions(1,12,base.getMonth()+1,'월')}</select>
+      <select id="pollEndDay" aria-label="종료 일">${dateOptions(1,31,base.getDate(),'일')}</select>
+      <select id="pollEndHour" aria-label="종료 시">${dateOptions(0,23,base.getHours(),'시')}</select>
+      <select id="pollEndMinute" aria-label="종료 분">${dateOptions(0,59,Math.ceil(base.getMinutes()/5)*5%60,'분')}</select>
+    </div>`;
+  }
+  function currentPollFromEditor() {
+    const poll = body.querySelector('.editor-poll');
+    if (!poll) return null;
+    try { return JSON.parse(poll.getAttribute('data-poll') || 'null'); } catch { return null; }
+  }
+  function editorPollHtml(pollData) {
+    const card = window.BBM_POLL ? window.BBM_POLL.html(pollData) : `<strong>${escapeHtml(pollData.title)}</strong>`;
+    return `<div class="editor-poll-actions"><button type="button" data-edit-poll>수정</button><button type="button" data-remove-poll>삭제</button></div>${card}`;
+  }
   function renderPollSheet() {
-    sheetBody.innerHTML = `<div class="sheet-form"><input id="pollTitle" maxlength="60" placeholder="제목을 입력해주세요"><div class="poll-options" id="pollOptions">${pollRows()}</div><button class="add-option" type="button" data-add-option>＋ 항목 추가</button><label><span>복수 선택</span><input id="pollMultiple" type="checkbox"></label><label><span>무기명 투표</span><input id="pollAnonymous" type="checkbox" checked></label><label>투표 현황 보기<select id="pollVisibility"><option>투표 참여 후 보기</option><option>항상 보기</option><option>투표 종료 후 보기</option></select></label><label><span>자동 종료일</span><input id="pollDeadlineOn" type="checkbox"></label></div>`;
+    const current = currentPollFromEditor();
+    const values = (current?.options || ['', '', '']).map((text,index) => ({ text, image:(current?.images || [])[index] || '' }));
+    const visibility = current?.visibility || 'after_vote';
+    const deadlineOn = Boolean(current?.endsAt);
+    sheetBody.innerHTML = `<div class="poll-form">
+      <label class="poll-title-field"><span class="sr-only">투표 제목</span><input id="pollTitle" maxlength="100" placeholder="제목을 입력해주세요" value="${escapeHtml(current?.title || '')}"></label>
+      <div class="poll-options" id="pollOptions">${pollRows(values)}</div>
+      <button class="add-option" type="button" data-add-option><span>＋</span> 항목 추가</button>
+      <p class="poll-limit"><span id="pollOptionCount">${values.length}</span>/20</p>
+      <div class="poll-setting-list">
+        <label class="poll-check-row"><span>복수 선택 허용</span><input id="pollMultiple" type="checkbox" ${current?.multiple ? 'checked' : ''}></label>
+        <label class="poll-check-row"><span>무기명 투표</span><input id="pollAnonymous" type="checkbox" ${current?.anonymous !== false ? 'checked' : ''}></label>
+        <label class="poll-select-row"><strong>투표 현황 보기</strong><select id="pollVisibility" aria-label="투표 현황 보기"><option value="after_vote" ${visibility === 'after_vote' ? 'selected' : ''}>투표 참여 후 보기</option><option value="after_close" ${visibility === 'after_close' ? 'selected' : ''}>투표 종료 후 보기</option><option value="hidden" ${visibility === 'hidden' ? 'selected' : ''}>비공개</option></select></label>
+        <fieldset class="poll-deadline"><legend>자동 종료 설정</legend><label><input type="radio" name="pollEndMode" value="date" ${deadlineOn ? 'checked' : ''}>특정 날짜에 종료</label><label><input type="radio" name="pollEndMode" value="none" ${deadlineOn ? '' : 'checked'}>자동 종료 없음</label>${pollDeadlineFields(current?.endsAt || '')}</fieldset>
+      </div>
+      <input id="pollImageInput" class="sr-only" type="file" accept="image/png,image/jpeg,image/gif,image/bmp">
+      <p class="sheet-note">선택지는 2개 이상 20개까지 추가할 수 있습니다. 이미지는 항목당 1장까지 등록됩니다.</p>
+    </div>`;
+    sheetOverlay.classList.add('is-poll');
+    sheetPrimary.textContent = '확인';
+    const syncDeadline = () => { $('#pollDeadlineFields').hidden = $('[name="pollEndMode"]:checked').value !== 'date'; };
+    const syncPollApply = () => {
+      const rows = pollRowValues();
+      sheetPrimary.disabled = !$('#pollTitle').value.trim() || rows.length < 2 || rows.some((item) => !item.text.trim());
+      $('#pollOptionCount').textContent = rows.length;
+      $('[data-add-option]').disabled = rows.length >= 20;
+      $$('.poll-row', sheetBody).forEach((row,index) => {
+        $('b',row).textContent = index + 1;
+        $('.poll-option',row).setAttribute('aria-label',`항목 ${index + 1}`);
+        $('[data-poll-image-button]',row).setAttribute('aria-label',`항목 ${index + 1} 이미지 추가`);
+        $('[data-poll-reorder]',row).setAttribute('aria-label',`항목 ${index + 1} 순서 변경`);
+        $('[data-remove-option]',row).setAttribute('aria-label',`항목 ${index + 1} 삭제`);
+      });
+    };
+    syncDeadline(); syncPollApply();
+    sheetBody.oninput = syncPollApply;
+    sheetBody.onchange = (event) => { if (event.target.name === 'pollEndMode') syncDeadline(); syncPollApply(); };
+    let dragged = null;
+    sheetBody.ondragstart = (event) => { dragged = event.target.closest('.poll-row'); if (dragged) dragged.classList.add('is-dragging'); };
+    sheetBody.ondragover = (event) => { if (dragged && event.target.closest('.poll-row')) event.preventDefault(); };
+    sheetBody.ondrop = (event) => { const target = event.target.closest('.poll-row'); if (!dragged || !target || dragged === target) return; event.preventDefault(); const rect = target.getBoundingClientRect(); target.parentNode.insertBefore(dragged, event.clientY < rect.top + rect.height / 2 ? target : target.nextSibling); syncPollApply(); };
+    sheetBody.ondragend = () => { dragged?.classList.remove('is-dragging'); dragged = null; };
     sheetPrimary.onclick = () => {
       const pollTitle = $('#pollTitle').value.trim();
-      const options = $$('.poll-option').map((input) => input.value.trim()).filter(Boolean);
-      if (!pollTitle || options.length < 2) { showToast('제목과 선택지 2개 이상을 입력해주세요.'); return; }
-      const poll = document.createElement('section'); poll.className = 'editor-poll'; poll.contentEditable = 'false';
-      const pollData = { title: pollTitle, options, multiple: $('#pollMultiple').checked, anonymous: $('#pollAnonymous').checked, endsAt: $('#pollDeadlineOn').checked ? new Date(Date.now() + 2 * 864e5).toISOString() : '' };
+      const rows = pollRowValues();
+      const options = rows.map((item) => item.text.trim());
+      if (!pollTitle || options.length < 2 || options.some((option) => !option)) { showToast('제목과 모든 선택지를 입력해주세요.'); return; }
+      if (new Set(options).size !== options.length) { showToast('같은 항목은 한 번만 입력해주세요.'); return; }
+      let endsAt = '';
+      if ($('[name="pollEndMode"]:checked').value === 'date') {
+        const end = new Date(Number($('#pollEndYear').value), Number($('#pollEndMonth').value)-1, Number($('#pollEndDay').value), Number($('#pollEndHour').value), Number($('#pollEndMinute').value));
+        if (end.getTime() <= Date.now()) { showToast('현재보다 뒤의 종료 시각을 선택해주세요.'); return; }
+        endsAt = end.toISOString();
+      }
+      const pollData = { title:pollTitle, options, images:rows.map((item) => item.image || ''), multiple:$('#pollMultiple').checked, anonymous:$('#pollAnonymous').checked, visibility:$('#pollVisibility').value, endsAt };
+      let poll = body.querySelector('.editor-poll');
+      if (!poll) { poll = document.createElement('section'); poll.className = 'editor-poll'; poll.contentEditable = 'false'; const after = document.createElement('p'); after.append(document.createElement('br')); body.append(poll, after); }
       poll.setAttribute('data-poll', JSON.stringify(pollData));
-      poll.innerHTML = window.BBM_POLL ? window.BBM_POLL.html(pollData) : `<strong>📊 ${escapeHtml(pollTitle)}</strong>${options.map((option) => `<span>○ ${escapeHtml(option)}</span>`).join('')}`;
-      body.append(poll, document.createElement('p')); closeSheet(); syncSubmit();
+      poll.innerHTML = editorPollHtml(pollData);
+      closeSheet(); syncSubmit();
     };
+  }
+  function pollImageData(file) {
+    return new Promise((resolve, reject) => {
+      if (!file || !/^image\/(png|jpe?g|gif|bmp)$/i.test(file.type)) { reject(new Error('type')); return; }
+      if (file.size > 8 * 1024 * 1024) { reject(new Error('size')); return; }
+      const reader = new FileReader();
+      reader.onerror = () => reject(new Error('read'));
+      reader.onload = () => {
+        const image = new Image();
+        image.onerror = () => reject(new Error('image'));
+        image.onload = () => {
+          const scale = Math.min(1, 720 / Math.max(image.naturalWidth, image.naturalHeight));
+          const canvas = document.createElement('canvas');
+          canvas.width = Math.max(1, Math.round(image.naturalWidth * scale)); canvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
+          canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height);
+          resolve(canvas.toDataURL('image/jpeg', .82));
+        };
+        image.src = String(reader.result);
+      };
+      reader.readAsDataURL(file);
+    });
   }
   function renderSheet() {
     if (state.sheet === 'board') renderBoardSheet();
@@ -248,13 +359,18 @@
     if (button.dataset.emoji) { body.focus(); document.execCommand('insertText', false, button.dataset.emoji); closeSheet(); syncSubmit(); }
     if (button.dataset.emojiCategory) { state.emojiCategory = button.dataset.emojiCategory; renderEmojiSheet(); }
     if (button.hasAttribute('data-add-option')) {
-      const values = $$('.poll-option').map((input) => input.value); if (values.length >= 10) return showToast('선택지는 최대 10개입니다.');
-      $('#pollOptions').innerHTML = pollRows([...values,'']);
+      const values = pollRowValues(); if (values.length >= 20) return showToast('선택지는 최대 20개입니다.');
+      $('#pollOptions').innerHTML = pollRows([...values,{ text:'', image:'' }]);
+      $('#pollOptions .poll-row:last-child .poll-option')?.focus();
+      sheetBody.dispatchEvent(new Event('input', { bubbles:true }));
     }
     if (button.hasAttribute('data-remove-option')) {
       const rows = $$('.poll-row'); if (rows.length <= 2) return showToast('선택지는 2개 이상 필요합니다.');
-      button.closest('.poll-row').remove(); $$('.poll-row b').forEach((item,index) => { item.textContent = index + 1; });
+      button.closest('.poll-row').remove(); sheetBody.dispatchEvent(new Event('input', { bubbles:true }));
     }
+    if (button.hasAttribute('data-poll-image-button')) { state.pollImageRow = button.closest('.poll-row'); $('#pollImageInput').click(); }
+    if (button.hasAttribute('data-edit-poll')) { openSheet('poll','투표','확인'); }
+    if (button.hasAttribute('data-remove-poll')) { const card = button.closest('.editor-poll'); const after = card?.nextElementSibling; if (after?.tagName === 'P' && !after.textContent.trim()) after.remove(); card?.remove(); syncSubmit(); showToast('투표를 삭제했습니다.'); }
     if (button.hasAttribute('data-remove-embed')) { button.closest('.write-embed')?.remove(); syncSubmit(); return; }
     if (button.hasAttribute('data-remove-media')) {
       const id = button.closest('[data-media-id]').dataset.mediaId;
@@ -266,6 +382,17 @@
   sheetOverlay.addEventListener('click', (event) => { if (event.target === sheetOverlay) closeSheet(); });
   photoInput.addEventListener('change', () => addFiles(photoInput.files,'photo'));
   videoInput.addEventListener('change', () => addFiles(videoInput.files,'video'));
+  sheetBody.addEventListener('change', async (event) => {
+    if (event.target.id !== 'pollImageInput') return;
+    const file = event.target.files?.[0]; const row = state.pollImageRow;
+    event.target.value = '';
+    if (!file || !row) return;
+    try {
+      const image = await pollImageData(file); row.dataset.pollImage = image;
+      const button = $('[data-poll-image-button]', row); button.classList.add('has-image'); button.innerHTML = `<img src="${image}" alt="">`;
+      showToast('항목 이미지를 추가했습니다.');
+    } catch (error) { showToast(error.message === 'size' ? '이미지는 8MB 이하만 추가할 수 있습니다.' : '이미지를 불러오지 못했습니다.'); }
+  });
   title.addEventListener('input', syncSubmit); body.addEventListener('input', syncSubmit);
   $('#blockStyle').addEventListener('change', (event) => insertBlock(event.target.value));
   $('#fontFamily').addEventListener('change', (event) => { body.focus(); document.execCommand('fontName',false,event.target.value === 'system' ? 'sans-serif' : event.target.value); });

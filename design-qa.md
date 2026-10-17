@@ -28,6 +28,19 @@
 
 final result: passed
 
+## 커뮤니티 글쓰기 투표 기능 · 2026-10-17
+
+- source visual truth: 네이버 게임 라운지 FIFA ONLINE 4 글쓰기의 투표 편집 화면 `https://game.naver.com/lounge/FIFA_ONLINE4/write?boardId=-1&loungeId=FIFA_ONLINE4`.
+- implementation: `/community/chzzk-write.html` → 투표 작성 → `/community/naver-cafe-list.html?view=naver-discussion` 목록 → `/community/chzzk-detail.html` 상세.
+- source measurements: PC 모달 폭 570px, 모서리 12px, 기본 선택지 3개, 최대 20개, 선택지 이미지·순서 변경·복수 선택·무기명·결과 공개 시점·자동 종료 설정을 확인했다.
+- implementation evidence: `artifacts/community-poll-1017/01-mobile-poll-editor.png`, `02-mobile-list-registered.png`, `03-mobile-detail-voted.png`, `04-desktop-poll-editor.png`.
+- functional QA: 작성 유효성, 20개 제한, 드래그 순서 변경, 선택지 이미지, 특정 날짜 종료 입력, 실제 등록, 목록 최상단 노출, 상세 투표, 공개 시점, 종료, 새로고침 유지까지 자동 검증했다.
+- responsive QA: 390×844 모바일과 1440×900 PC에서 가로 넘침 0, 런타임·콘솔 오류 0. PC 모달은 570px/12px를 유지한다.
+- intentional adaptations: 네이버 상표·자산은 복제하지 않고 보배드림 편집기의 기존 글꼴·아이콘·색상 체계를 유지했다. 네이버 모바일 원본의 570px 모달 잘림은 재현하지 않고 모바일 전체 화면 시트로 반응형 개선했다.
+- persistence note: 현재 GitHub Pages 시안은 브라우저 로컬 저장 방식이다. 실제 회원 간 공유·기기 간 동기화에는 게시글·투표 API 연결이 필요하다.
+
+final result: passed
+
 ## 커뮤니티 마이페이지 · Reddit 모바일 구조 (2026-10-17)
 
 - source visual truth: 사용자 제공 Reddit 프로필 5화면(`1000018808.jpg`, `1000018810.jpg`, `1000018812.jpg`, `1000018814.jpg`, `1000018806.jpg`).

@@ -12,8 +12,10 @@
     return {
       title: String(poll.title || '투표').replace(/^📊\s*/, ''),
       options: (poll.options || []).map(function (o) { return String(o).replace(/^○\s*/, ''); }).filter(Boolean),
+      images: (poll.images || []).map(function (value) { return String(value || ''); }),
       multiple: poll.multiple != null ? !!poll.multiple : /복수/.test(note),
       anonymous: poll.anonymous != null ? !!poll.anonymous : !/기명 투표/.test(note.replace(/무기명/g, '')),
+      visibility: ['after_vote','after_close','hidden','always'].indexOf(poll.visibility) > -1 ? poll.visibility : 'after_vote',
       endsAt: poll.endsAt || ''
     };
   }
@@ -42,13 +44,16 @@
     var mine = st.mine || [];
     var shown = opts.compact ? p.options.slice(0, 4) : p.options;
     var time = remain(p.endsAt);
-    var meta = [time ? '<span>' + CLOCK + esc(time) + '</span>' : '', p.multiple ? '<span>' + CHECK + '복수 선택 가능</span>' : ''].filter(Boolean).join('<i aria-hidden="true">·</i>');
+    var showResults = p.visibility === 'always' || (p.visibility === 'after_vote' && !!st.voted) || (p.visibility === 'after_close' && ended);
+    var resultNote = p.visibility === 'after_vote' ? '참여 후 결과 공개' : p.visibility === 'after_close' ? '종료 후 결과 공개' : p.visibility === 'hidden' ? '결과 비공개' : '';
+    var meta = [time ? '<span>' + CLOCK + esc(time) + '</span>' : '', p.multiple ? '<span>' + CHECK + '복수 선택 가능</span>' : '', resultNote ? '<span>' + INFO + esc(resultNote) + '</span>' : ''].filter(Boolean).join('<i aria-hidden="true">·</i>');
     var rows = shown.map(function (o, i) {
       var pct = voters ? Math.round(counts[i] / voters * 100) : 0;
       var on = mine.indexOf(i) > -1;
       var tag = opts.interactive && !ended && !st.voted ? 'button type="button" data-poll-option="' + i + '" aria-pressed="false"' : 'div';
       var end = tag === 'div' ? 'div' : 'button';
-      return '<' + tag + ' class="bbmPollOption' + (on ? ' is-mine' : '') + '" style="--pct:' + pct + '%"><span class="bbmPollLabel">' + esc(o) + '</span><span class="bbmPollCount">' + counts[i] + '명 ' + pct + '%</span></' + end + '>';
+      var image = p.images[i] ? '<img class="bbmPollOptionImage" src="' + esc(p.images[i]) + '" alt="">' : '';
+      return '<' + tag + ' class="bbmPollOption' + (on ? ' is-mine' : '') + (showResults ? ' has-result' : '') + '" style="--pct:' + (showResults ? pct : 0) + '%">' + image + '<span class="bbmPollLabel">' + esc(o) + '</span>' + (showResults ? '<span class="bbmPollCount">' + counts[i] + '명 ' + pct + '%</span>' : '') + '</' + end + '>';
     }).join('');
     var more = opts.compact && p.options.length > 4 ? '<p class="bbmPollMore">+' + (p.options.length - 4) + '개 항목</p>' : '';
     var actions = opts.interactive ? '<div class="bbmPollActions">' + (ended ? '<button type="button" disabled>투표 종료</button>' : st.voted ? '<button type="button" data-poll-revote>다시 투표하기</button><button type="button" data-poll-end>종료하기</button>' : '<button type="button" data-poll-vote disabled>투표하기</button><button type="button" data-poll-end>종료하기</button>') + '</div>' : '';
