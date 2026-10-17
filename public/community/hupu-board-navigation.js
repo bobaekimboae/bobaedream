@@ -11,6 +11,7 @@
     {id:'tuhu-review',displayName:'투후 오너 리뷰',shortName:'투후리뷰',section:'게시판',topicKey:'전체',avatarLabel:'TUHU',avatarColor:'#17191e',avatarAccent:'#5d626a'},
     {id:'fuel-economy',displayName:'연비·전비',shortName:'연비전비',section:'게시판',topicKey:'전체',avatarLabel:'효율',avatarColor:'#1f2937',avatarAccent:'#7c8698'},
     {id:'autohome-complaint',displayName:'차량 결함·불만',shortName:'결함불만',section:'게시판',topicKey:'전체',avatarLabel:'불만',avatarColor:'#17191e',avatarAccent:'#59616d'},
+    {id:'chezhiwang-complaint',displayName:'처즈왕 결함·불만',shortName:'처즈왕불만',section:'게시판',topicKey:'전체',avatarLabel:'CZ',avatarColor:'#17191e',avatarAccent:'#59616d'},
     {id:'politics',displayName:'정치/시사게시판',shortName:'정치시사',section:'게시판',topicKey:'전체',avatarLabel:'시사',avatarColor:'#5031a9',avatarAccent:'#9678e8'},
     {id:'test-drive',displayName:'시승기/배틀/목격담',shortName:'시승배틀',section:'게시판',topicKey:'전체',avatarLabel:'시승',avatarColor:'#c65316',avatarAccent:'#ff9c57'},
     {id:'celebrity-car',displayName:'유명인의 차',shortName:'유명인차',section:'게시판',topicKey:'전체',avatarLabel:'STAR',avatarColor:'#9e3f77',avatarAccent:'#f08bc2'},
@@ -76,6 +77,7 @@
         var activeOrder=normalizeActiveOrder(stored.activeOrder,false);
         if(activeOrder.indexOf('tuhu-review')<0){var reviewIndex=activeOrder.indexOf('vehicle-review');activeOrder.splice(reviewIndex<0?activeOrder.length:reviewIndex+1,0,'tuhu-review')}
         if(activeOrder.indexOf('autohome-complaint')<0){var fuelIndex=activeOrder.indexOf('fuel-economy');activeOrder.splice(fuelIndex<0?activeOrder.length:fuelIndex+1,0,'autohome-complaint')}
+        if(activeOrder.indexOf('chezhiwang-complaint')<0){var complaintIndex=activeOrder.indexOf('autohome-complaint');activeOrder.splice(complaintIndex<0?activeOrder.length:complaintIndex+1,0,'chezhiwang-complaint')}
         return{version:2,fixedIds:fixedIds.slice(),activeOrder:activeOrder,updatedAt:stored.updatedAt||null};
       }
     }catch(error){}

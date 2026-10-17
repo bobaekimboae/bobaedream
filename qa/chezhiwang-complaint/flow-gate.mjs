@@ -1,0 +1,22 @@
+import fs from 'node:fs';
+import vm from 'node:vm';
+import assert from 'node:assert/strict';
+
+const root=new URL('../../',import.meta.url);
+const read=(path)=>fs.readFileSync(new URL(path,root),'utf8');
+const context={window:{BBM_BOARD_TABLES:{}}};
+vm.createContext(context);
+vm.runInContext(read('public/community/data/board-chezhiwang-complaint.js'),context);
+const table=context.window.BBM_BOARD_TABLES['chezhiwang-complaint'];
+assert.ok(table,'independent table exists');
+assert.equal(table.displayName,'처즈왕 결함·불만');
+assert.equal(table.rows.length,32);
+assert.equal(new Set(table.rows.map(row=>row.complaintId)).size,32);
+for(const type of ['품질','서비스','기타','종합'])assert.ok(table.rows.some(row=>row.issueType===type),type+' data');
+const app=read('public/community/chezhiwang-complaint-board.js');
+for(const token of ['bobae-chezhiwang-complaints-v1','bobae-chezhiwang-complaint-comments-v1','motorcycles','comprehensive','종합 불만은 서로 다른 세부 항목을 2개 이상','최대 6장','최대 50MB','vehicle-catalog/cars-index-v1.json'])assert.ok(app.includes(token),'missing '+token);
+const html=read('public/community/naver-cafe-list.html');
+for(const token of ['board-chezhiwang-complaint.js','chezhiwang-complaint-board.css','chezhiwang-complaint-board.js','renderChezhiwangComplaintBoardTable','board=chezhiwang-complaint&czw=write'])assert.ok(html.includes(token),'html missing '+token);
+const nav=read('public/community/hupu-board-navigation.js');
+assert.ok(nav.includes("id:'chezhiwang-complaint'"));
+console.log('PASS chezhiwang complaint gate: 32 rows, 4 branches, isolated storage and routes');

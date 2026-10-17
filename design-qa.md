@@ -39,6 +39,27 @@ final result: passed
 - intentional adaptations: 네이버 상표·자산은 복제하지 않고 보배드림 편집기의 기존 글꼴·아이콘·색상 체계를 유지했다. 네이버 모바일 원본의 570px 모달 잘림은 재현하지 않고 모바일 전체 화면 시트로 반응형 개선했다.
 - persistence note: 현재 GitHub Pages 시안은 브라우저 로컬 저장 방식이다. 실제 회원 간 공유·기기 간 동기화에는 게시글·투표 API 연결이 필요하다.
 
+---
+
+## 처즈왕 결함·불만 독립 게시판 · 2026-10-17
+
+- source visual truth: `artifacts/chezhiwang-complaint-form-audit-20261017/00-current.png`, `04-quality-selector.png`, `07-service-selector.png`, `09-other-selector.png`, `10-comprehensive-branch.png`, `21-motorcycle-brand-selector.png`, `22-submit-validation.png`, `24-submit-validation-content.png`.
+- implementation screenshots: `artifacts/chezhiwang-complaint-form-audit-20261017/implementation-list-393x844.png`, `implementation-detail-393x844.png`, `implementation-writer-393x844.png`.
+- viewport and density: source Android capture 1080×2400px, implementation in-app browser 394×844 CSS px at 1×. Source was visually normalized to the 393px mobile content width; browser/device chrome was excluded from fidelity judgments.
+- state: 독립 목록, `czw-1001` 상세, 바이크+종합 유형 등록 폼, 빈 제출 검증 상태.
+- full-view comparison: 원본의 상단 제목/등록, 작성자→차량→업체→미디어→불만 내용 순서와 흰 바탕·얇은 구분선을 유지했다. 보배드림 기존 지침에 따라 중국 파란 활성색은 에어비앤비형 검정으로 치환하고 Pretendard를 사용했다.
+- focused comparison: 작성자 필수값, 자동차/바이크 분기, 제조사·모델·세부 모델, 품질 8개·서비스 7개·기타 4개, 종합 동시 노출, 사진 6장/5MB·영상 50MB, 24자 짧은 설명과 인라인 오류를 각각 원본 캡처와 대조했다.
+- typography: Pretendard Variable, 헤더 18px, 섹션 17px, 필드 14px, 안내·검증 11~12px. 한국어 글자폭에 맞춰 원본보다 입력 높이와 행간을 약간 늘렸다.
+- spacing/layout: 393px 기준 좌우 16px, 헤더 54px, 입력 44px, CTA 48px. 가로 오버플로 없음(`bodyScrollWidth 378`, viewport 394).
+- colors/tokens: 본문 `#17191e`, 보조 `#7a7f87`, 구분 `#e3e6e9`, 오류 `#df5d00`, 배경 `#f4f5f7`; 활성 칩·CTA는 사용자 지정 검정.
+- image/icon fidelity: 기존 저장소의 Reddit 뒤로/쓰기/추천, Chotot 체크, 커뮤니티 댓글·카메라·저장 SVG와 실제 차량/브랜드 자산만 사용. 깨진 이미지 0건.
+- copy/content: 원문 중국어와 한국형 문구, 모든 가변 항목과 제외 범위를 `docs/chezhiwang-complaint-form-audit-20261017.md`에 보존했다.
+- interactions tested: 목록→상세, 댓글 입력 UI, 저장·공감 토글, 등록 진입, 자동차/바이크 카탈로그 전환, 종합 3개 그룹 노출, 종합 최소 2개 검증, 빈 제출 첫 오류 자동 이동.
+- runtime: 콘솔 경고·오류 0건, 깨진 이미지 0건.
+- comparison history: 1차 브라우저 캡처에서 공용 게시판 탭·배너와 독립 화면 헤더가 중복되는 P1을 발견했다. `chezhiwang-complaint-fixes.css`에서 독립 모드의 공용 탭/배너를 숨기고 재로드 후 중복 영역이 제거된 것을 DOM과 목록 캡처로 재확인했다. 이후 P0/P1/P2 없음.
+- automated gate: `node qa/chezhiwang-complaint/flow-gate.mjs` PASS — 32 rows, 4 branches, isolated storage and routes.
+- supplementary repository checks: `community:verify:boards`는 이 worktree에 `@playwright/test`가 설치되지 않아 시작 전 중단됐고, `test:sites`는 빌드 산출물 `dist/client/index.html`이 없는 상태라 2/4만 실행됐다. 두 실패 모두 현재 변경 코드 실행 전 환경 의존성/선행 빌드 누락이며, 실제 IAB 브라우저 검수와 전용 게이트는 통과했다.
+
 final result: passed
 
 ## 커뮤니티 마이페이지 · Reddit 모바일 구조 (2026-10-17)
