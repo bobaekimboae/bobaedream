@@ -9,6 +9,7 @@
    - RSS·사이트맵으로 새 기사와 바뀐 기사를 모아 `public/community/data/foreign-car-news.json`과 `board-foreign-car-news.js`로 저장한다.
    - 예약은 5분마다지만 GitHub가 실제로는 더 드물게 돌린다. 수동 실행은 Actions → Sync overseas automotive news → Run workflow.
    - main에 다른 커밋이 먼저 올라가 있으면 다시 얹어서 최대 5번 올린다(2026-10-17 push 실패 수정).
+   - 게시판에는 최근 기사 10개만 올린다(번역된 기사 우선, `FOREIGN_NEWS_BOARD_LIMIT`). 전체 500건 JSON은 시트 번역용으로 유지(2026-10-17).
    - 봇이 올린 커밋은 GitHub Pages 배포를 깨우지 않으므로, 올린 직후 `deploy-pages.yml`을 직접 실행한다(2026-10-17, 이 연결이 없어 번역이 게시판에 안 보였음).
 2. **번역 (구글 시트 Apps Script `scripts/foreign-news/apps-script/ForeignNewsTranslate.gs`)**
    - 15분마다 위 JSON을 읽어 같은 시트의 「해외뉴스_번역」 탭에 새 기사는 추가, 기존 기사는 원문만 갱신한다.
