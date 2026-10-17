@@ -1,0 +1,129 @@
+/* 처즈왕 순위·필터(2026-10-17, 앱 캡처 923px ÷2.4 → 384 환산) */
+.phone.czsMode{overflow:visible;overflow-x:clip;background:#fff}
+.czs{padding:0!important;background:#fff!important;color:#222}
+.czs a{color:inherit;text-decoration:none}
+.czs img{display:block}
+.czs button{cursor:pointer}
+.czs-bar{position:sticky;top:0;z-index:30;display:grid;grid-template-columns:44px 1fr 44px;align-items:center;height:52px;padding:0 8px;background:#fff}
+.czs-bar button{display:grid;width:40px;height:40px;place-items:center}
+.czs-bar img{width:24px;height:24px}
+.czs-bar strong{justify-self:center;font-size:18px;font-weight:700}
+.czs-tabs{position:sticky;top:52px;z-index:20;display:flex;gap:22px;padding:0 16px;overflow-x:auto;scrollbar-width:none;background:#fff;border-bottom:1px solid #eef0f2}
+.czs-tabs::-webkit-scrollbar{display:none}
+.czs-tabs a{position:relative;flex:none;height:46px;display:grid;place-items:center;font-size:16px;color:#555}
+.czs-tabs a.on{color:#111;font-weight:700}
+.czs-tabs a.on:after{content:"";position:absolute;left:50%;bottom:6px;width:18px;height:3px;margin-left:-9px;border-radius:3px;background:#1e9bf0}
+.czs-rank-head,.czs-filterbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px 6px;background:#fff}
+.czs-filterbar{padding:10px 16px;border-bottom:1px solid #eef0f2}
+.czs-rank-head>a,.czs-filterbar>a{display:flex;flex:none;align-items:center;gap:3px;color:#1e9bf0;font-size:14px}
+.czs-rank-head>a img,.czs-filterbar>a img{width:14px;height:14px}
+.czs-chips{display:flex;flex-wrap:wrap;gap:6px;min-width:0}
+.czs-period{padding:3px 8px;border-radius:3px;background:#e7f4fe;color:#127fcf;font-size:13px}
+.czs-chip{display:inline-flex;align-items:center;gap:4px;height:26px;padding:0 8px;border-radius:3px;background:#e7f4fe;color:#127fcf;font-size:13px}
+.czs-chip span{font-size:15px;line-height:1}
+.czs-rank-sub{margin:0;padding:8px 16px;background:#f5f6f8;color:#777;font-size:13px}
+.czs-rank-row{position:relative;padding:14px 16px 14px 46px;border-bottom:1px solid #eef0f2}
+.czs-rank{position:absolute;left:14px;top:26px;width:26px;text-align:center;font-size:24px;font-style:italic;font-weight:800;color:#a9adb3}
+.czs-rank.r1{color:#ff5a1f}.czs-rank.r2{color:#ff8a00}.czs-rank.r3{color:#f5b400}
+.czs-rank-car{display:flex;align-items:center;gap:10px}
+.czs-rank-car img{width:76px;height:44px;object-fit:contain;flex:none}
+.czs-rank-car span{display:flex;flex-direction:column;flex:1;min-width:0}
+.czs-rank-car span b{font-size:16px;line-height:22px}
+.czs-rank-car span small{color:#888;font-size:13px}
+.czs-rank-car em{display:flex;flex-direction:column;align-items:flex-end;flex:none;color:#999;font-size:12px;font-style:normal}
+.czs-rank-car em b{color:#ff5a1f;font-size:18px;line-height:24px}
+.czs-rank-car em small{font-size:12px;font-weight:600}
+.czs-typical{margin-top:10px;padding:8px 10px;border-radius:6px;background:#f5f6f8}
+.czs-typical-head{display:flex;width:100%;align-items:center;justify-content:space-between;font-size:13px}
+.czs-chev{width:16px;height:16px;transition:transform .15s}
+.czs-typical.open .czs-chev{transform:rotate(180deg)}
+.czs-typical .czw-pairs{margin-top:8px;max-height:28px;overflow:hidden}
+.czs-typical.open .czw-pairs{max-height:none}
+.czs-make{position:fixed;right:max(16px,calc(50% - 196px + 16px));bottom:90px;z-index:35;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#3c8cf6,#1e9bf0);color:#fff;font-size:11px;font-weight:700;line-height:14px;box-shadow:0 3px 10px rgba(30,155,240,.35)}
+.czs-empty{margin:0;padding:40px 16px;text-align:center;color:#999;font-size:14px;background:#fff}
+.czs-filter{min-height:100dvh;background:#fff}
+.czs-fwrap{display:grid;grid-template-columns:96px 1fr;height:calc(100dvh - 52px - 72px)}
+.czs-fnav{overflow-y:auto;background:#f5f6f8}
+.czs-fnav button{display:block;width:100%;min-height:50px;padding:0 6px;font-size:14px;color:#444;word-break:keep-all}
+.czs-fnav button.on{background:#fff;color:#111;font-weight:700}
+.czs-fbody{overflow-y:auto;padding:0 14px 24px}
+.czs-fbody section{padding-top:16px}
+.czs-fbody h3{display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:16px;font-weight:700}
+.czs-fbody h3:after{content:"";flex:1;height:1px;background:#eef0f2}
+.czs-fchips{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.czs-fchip{min-height:34px;padding:4px 6px;border-radius:4px;background:#f3f4f6;color:#333;font-size:13px;line-height:17px;word-break:keep-all}
+.czs-fchip.on{background:#e7f4fe;color:#127fcf;box-shadow:inset 0 0 0 1px #8cc9f5;font-weight:600}
+.czs-dates{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px}
+.czs-dates input{height:36px;padding:0 6px;border:0;border-radius:4px;background:#f3f4f6;font:inherit;font-size:13px;min-width:0}
+.czs-note{grid-column:1/-1;margin:0;color:#999;font-size:13px}
+.czs-factions{position:fixed;left:50%;bottom:0;z-index:40;display:flex;gap:10px;width:100%;max-width:393px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));transform:translateX(-50%);background:#fff;border-top:1px solid #eef0f2}
+.czs-factions button{height:48px;border-radius:8px;font-size:16px;font-weight:600}
+.czs-factions [data-reset]{flex:0 0 92px;color:#222;background:#fff}
+.czs-factions [data-reset]:disabled{color:#b7b7b7;cursor:default}
+.czs-factions [data-apply]{flex:1;background:#1e9bf0;color:#fff}
+.czs-rank-link{justify-self:end;padding:0 6px;font-size:15px;font-weight:700;color:#17191e;text-decoration:none}
+.czs-toast{position:fixed;left:50%;bottom:140px;z-index:99;padding:10px 16px;border-radius:999px;background:rgba(0,0,0,.78);color:#fff;font-size:14px;transform:translateX(-50%)}
+/* 2026-10-17 진입 카드·탭·검색·해결 소식·공식 발표·법률 상담·업체 불만 */
+.czs-bar-links{display:flex;align-items:center;gap:10px}
+.czs-search-link{display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center}
+.czs-search-link img,.czs-bar span a img{width:22px;height:22px}
+.czs-entry{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:12px 16px 4px}
+.czs-entry a{display:flex;flex-direction:column;gap:2px;padding:12px;border-radius:10px;text-decoration:none;color:#222;min-width:0}
+.czs-entry b{font-size:15px;line-height:20px;font-weight:700}
+.czs-entry small{font-size:10px;line-height:14px;color:#8c8c8c;letter-spacing:.02em}
+.czs-entry .is-legal{background:#eef3ff}.czs-entry .is-official{background:#fff3e8}.czs-entry .is-news{background:#e9f7f1}
+.czw-tabs.czs-done a{flex:1;text-align:center;padding:12px 0;font-size:15px;color:#8c8c8c;text-decoration:none;border-bottom:2px solid transparent}
+.czw-tabs.czs-done a.on{color:#222;font-weight:700;border-bottom-color:#222}
+.czs-biz .czw-main{padding-right:16px}
+.czs-sec{background:#fff;margin-top:10px;padding:16px}
+.czs-sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.czs-sec-head h2{margin:0;font-size:18px;line-height:24px;font-weight:700;color:#222}
+.czs-sec-head a{display:inline-flex;align-items:center;font-size:14px;color:#595959;text-decoration:none}
+.czs-sec-head button{border:0;background:none;padding:4px}.czs-sec-head button img{width:20px;height:20px}
+.czs-chev-r{width:16px;height:16px}
+.czs-news-row{display:block;padding:12px 0;border-top:1px solid #ebebeb;text-decoration:none;color:#222}
+.czs-news-row:first-of-type{border-top:0}
+.czs-news-row b{display:block;font-size:15px;line-height:22px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.czs-news-row span{display:flex;gap:8px;margin-top:4px;font-size:13px;color:#8c8c8c;min-width:0}
+.czs-news-row i{font-style:normal;color:#14a586}.czs-news-row em{font-style:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.czs-carcard{display:flex;gap:12px;align-items:center;margin-top:14px;padding:12px;border:1px solid #ebebeb;border-radius:10px;text-decoration:none;color:#222}
+.czs-carcard img{width:96px;height:60px;object-fit:contain;flex:none}
+.czs-carcard span{display:flex;flex-direction:column;gap:2px;min-width:0}
+.czs-carcard b{font-size:16px;line-height:22px}.czs-carcard small{font-size:13px;line-height:18px;color:#595959}
+.czs-carcard em{font-style:normal;color:#e8833a;font-weight:600}
+.czs-page{background:#f5f6f7;min-height:100vh;padding-bottom:96px}
+.czs-main{background:#fff;padding:16px}
+.czs-main h1{margin:0 0 12px;font-size:20px;line-height:28px;font-weight:700;color:#222}
+.czs-body{font-size:16px;line-height:24px;color:#222;white-space:pre-wrap;margin:14px 0 0}
+.czs-private{margin:14px 0 0;font-size:13px;line-height:18px;color:#8c8c8c}
+.czs-bar.is-search{gap:8px}
+.czs-sbox{flex:1;display:flex;align-items:center;gap:6px;height:38px;padding:0 12px;border-radius:19px;background:#f1f1f1;min-width:0}
+.czs-sbox img{width:18px;height:18px}.czs-sbox input{flex:1;min-width:0;border:0;background:none;font-size:15px;outline:none}
+.czs-go{border:0;background:none;font-size:15px;font-weight:600;color:#222;padding:0 4px}
+.czs-history{background:#fff;padding:16px}
+.czs-hchips{display:flex;flex-wrap:wrap;gap:8px}
+.czs-hchips a{display:inline-flex;align-items:center;height:32px;padding:0 12px;border-radius:16px;background:#f1f1f1;font-size:14px;color:#222;text-decoration:none}
+.czs-result{display:block;background:#fff;padding:14px 16px;border-bottom:1px solid #ebebeb;text-decoration:none;color:#222}
+.czs-result b{display:block;font-size:15px;line-height:22px;font-weight:600}
+.czs-result>span{display:block;margin:2px 0 6px;font-size:13px;color:#8c8c8c}
+.czs-news-item{display:block;background:#fff;margin-top:8px;padding:14px 16px;text-decoration:none;color:#222}
+.czs-who{display:flex;align-items:center;gap:8px;font-size:13px;color:#595959}
+.czs-avatar{display:inline-flex;width:26px;height:26px;border-radius:50%;background:#e9f7f1;color:#14a586;font-size:13px;font-weight:700;align-items:center;justify-content:center;flex:none}
+.czs-news-item b{display:block;margin-top:8px;font-size:16px;line-height:23px;font-weight:600}
+.czs-news-meta{display:flex;gap:10px;margin-top:6px;font-size:13px;color:#8c8c8c}
+.czs-who.is-big .czs-avatar{width:40px;height:40px;font-size:16px}
+.czs-who.is-big b{display:block;font-size:15px;color:#222}.czs-who.is-big i{font-style:normal;font-size:11px;color:#14a586;border:1px solid #14a586;border-radius:4px;padding:0 4px;margin-left:4px}
+.czs-who.is-big small{font-size:12px;color:#8c8c8c}
+.czs-more{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding:12px;border-radius:8px;background:#f5f6f7;font-size:14px;color:#222;text-decoration:none}
+.czs-bottom{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:100%;max-width:393px;padding:12px 16px 20px;background:#fff;box-shadow:0 -1px 0 #ebebeb}
+.czs-bottom button{width:100%;height:48px;border:0;border-radius:12px;background:#222;color:#fff;font-size:16px;font-weight:600}
+.czs-official{background:#fff;margin-top:8px;padding:16px}
+.czs-official b{display:block;font-size:16px;line-height:23px}.czs-official p{margin:6px 0 8px;font-size:14px;line-height:21px;color:#595959}
+.czs-official span{display:flex;gap:10px;font-size:13px;color:#8c8c8c}.czs-official i{font-style:normal;color:#e8833a;font-weight:600}
+.czs-legal-hero{padding:28px 16px;background:linear-gradient(135deg,#24324d,#3b5a8f);color:#fff}
+.czs-legal-hero b{display:block;font-size:20px;line-height:28px}.czs-legal-hero small{font-size:13px;opacity:.8}
+.czs-legal-h{margin:16px 0 10px;font-size:16px;font-weight:700;color:#222}.czs-legal-h:first-child{margin-top:0}
+.czs-legal-list{list-style:none;margin:0;padding:0}
+.czs-legal-list li{padding:12px 0;border-top:1px solid #ebebeb}.czs-legal-list li:first-child{border-top:0}
+.czs-legal-list b{display:block;font-size:15px}.czs-legal-list span{font-size:13px;color:#8c8c8c}
+.czs-bar-links .czs-rank-link{white-space:nowrap;flex:none}.czs-bar-links{flex:none}
