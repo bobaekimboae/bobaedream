@@ -38,36 +38,6 @@ jobs:
           node apps/variable-category-admin/scripts/sync-pages-demo.mjs
       - name: Prepare project-site paths
         run: find dist/client -type f \( -name '*.html' -o -name '*.js' -o -name '*.css' \) -exec sed -i 's|/assets/|/bobaedream/assets/|g' {} +
-      # 서울오토갤러리 Flutter 앱 웹 빌드를 /bobaedream/seoul-autogallery/ 에 함께 올린다.
-      # 실패해도 기존 사이트 배포는 막지 않는다(continue-on-error). 위 sed 가 끝난 뒤에 복사해 자산 경로가 바뀌지 않게 한다.
-      - name: Set up Flutter
-        id: flutter
-        continue-on-error: true
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: 3.47.7
-          channel: stable
-          cache: true
-      - name: Build Seoul Auto Gallery Flutter web
-        if: steps.flutter.outcome == 'success'
-        continue-on-error: true
-        working-directory: apps/seoul-autogallery-flutter
-        run: |
-          flutter pub get
-          flutter test
-          flutter build web --release --no-web-resources-cdn --base-href /bobaedream/seoul-autogallery/
-          mkdir -p ../../dist/client/seoul-autogallery
-          cp -r build/web/. ../../dist/client/seoul-autogallery/
-      - name: Build Kim Tae-gyu dealer Flutter web
-        if: steps.flutter.outcome == 'success'
-        continue-on-error: true
-        working-directory: apps/dealer_flutter
-        run: |
-          flutter pub get
-          flutter test
-          flutter build web --release --no-web-resources-cdn --base-href /bobaedream/dealer-app/
-          mkdir -p ../../dist/client/dealer-app
-          cp -r build/web/. ../../dist/client/dealer-app/
       - uses: actions/configure-pages@v5
         with:
           enablement: true
