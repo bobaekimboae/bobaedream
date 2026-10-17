@@ -6,7 +6,7 @@ import regionsKr from "../data/regions-kr.json";
 import "./stable-top.css";
 import "./qf-align.css";
 
-// QF-106 상단 구조 안정성 매뉴얼 v1.1(docs/stable-top-manual.md) — 과쯔 모드 PC 상단 카드 ③ 지역 칩 줄 · ④ 연식 알약 줄 · 제목 고정 · 모바일 ⑤ 관련 검색어
+// QF-106 상단 구조 안정성 매뉴얼(docs/stable-top-manual.md) — 과쯔 모드 PC 상단 지역 칩 줄 없음 · 연식 알약 줄 · 제목 고정 · 모바일 관련 검색어
 
 /** 제목 = 상단 메뉴(유형)로 들어온 카테고리 이름만. 대수·날짜·칩 조건은 넣지 않는다 */
 // QF-113 T6: 유형 줄에서 고른 유형이면 제목 = 유형 이름("트럭 · 특장" · "바이크" · "캠핑카" · "올드카" · "건설기계" · "부품 · 용품"), 중고차면 "중고차"
@@ -50,9 +50,7 @@ function PillRow({ label, className, children }: { label: string; className?: st
   );
 }
 
-// ③ 지역 칩 줄(PC만, 항상, 높이 32 고정). QF-111 시도 → 구·군 단계(src/prototype/data/regions-kr.json):
-//  처음 "지역:" + 시도 17 + "내 주변" → 시도 누름: 칩 [서울 ×], 같은 자리가 "서울:" + "서울 전체"(선택, 700) + 구·군 알약 줄
-//  구·군 누름: 칩 [강남구 ×], 줄 유지, 다른 구·군은 바뀜(하나만), 같은 구·군·"서울 전체"는 해제. 세종처럼 구·군이 없는 시도는 시도 줄 유지
+// QF-111 모바일 지역 시트 상태. PC에서는 같은 값을 전체 필터로만 고르고 상단 지역 칩 줄은 렌더하지 않는다.
 export const STABLE_REGION_OPTIONS = regionsKr.sido;
 const districtsOf = (sido: string | null) => (sido ? (regionsKr.districts as Record<string, string[]>)[sido] ?? [] : []);
 export const stableRegionState = (value: BbmFilterValues) => {
@@ -72,30 +70,6 @@ export const chooseStableDistrict = (value: BbmFilterValues, name: string | null
   if (!sido) return value;
   return setBbmChecks(value, "district", !name || name === districtName ? [] : [`${sido} ${name}`]);
 };
-export function StableRegionRow({ value, onChange, onNearby }: { value: BbmFilterValues; onChange: (next: BbmFilterValues) => void; onNearby: () => void }) {
-  const { sido, districtName, districts } = stableRegionState(value);
-  if (sido && districts.length) {
-    return (
-      <PillRow key={`drill-${sido}`} label={`${sido}:`} className="bbm-ct-region-row is-district">
-        <button type="button" className={`stable-pill is-all${districtName ? "" : " is-selected"}`} aria-pressed={!districtName} onClick={() => onChange(chooseStableDistrict(value, null))}>{sido} 전체</button>
-        {districts.map((name) => {
-          const on = districtName === name;
-          return <button key={name} type="button" className={`stable-pill${on ? " is-selected" : ""}`} aria-pressed={on} onClick={() => onChange(chooseStableDistrict(value, name))}>{name}</button>;
-        })}
-      </PillRow>
-    );
-  }
-  return (
-    <PillRow key="sido" label="지역:" className="bbm-ct-region-row">
-      {STABLE_REGION_OPTIONS.map((name) => {
-        const on = sido === name;
-        return <button key={name} type="button" className={`stable-pill${on ? " is-selected" : ""}`} aria-pressed={on} onClick={() => onChange(chooseStableSido(value, name))}>{name}</button>;
-      })}
-      <button type="button" className="stable-pill is-nearby" onClick={onNearby}><img src={bbmIcon("m-region-location")} alt="" aria-hidden="true" />내 주변</button>
-    </PillRow>
-  );
-}
-
 // QF-111 모바일 "지역: 전국 ▾" 바텀시트(칩 줄은 추가하지 않음): 1단계 시도 17 알약(3열, 높이 40) + "내 주변"
 // → 구·군이 있는 시도: 같은 시트가 2단계("← 서울", "서울 전체"(선택) + 구·군 3열) → 구·군 누르면 닫힘(칩 [서울 ×][강남구 ×])
 // → 세종처럼 구·군이 없으면 1단계에서 바로 적용하고 닫힘

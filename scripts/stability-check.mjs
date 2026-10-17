@@ -2,10 +2,10 @@
 // QF-106 상단 구조 안정성 자동 점검(docs/stable-top-manual.md v1.3 — 아래 기준 값은 매뉴얼 표와 같아야 한다). check:rail-vertical 을 합쳤다.
 // QF-106b: PC 0층 경로는 카드 밖(상단 메뉴 아래 16 · 카드 왼쪽 선 · 경로 → 카드 12), 첫 화면(유형 줄)도 이미지 줄 높이로 점검
 // QF-113/v46: 처음 → C200 정렬 점검(제목 없는 첫 칸 x · 필터 다음 칩 x · 이미지 줄 위 끝·바닥선)
-// QF-111: 끝에 지역 단계(PC 서울 → 강남구, 모바일 시트 서울 → 강남구)
+// QF-111: 모바일 끝에 지역 단계(서울 → 강남구). PC 상단 지역 칩 줄은 노출하지 않는다.
 // 흐름: 첫 화면(유형 줄) → 처음(유형 "중고차") → 벤츠 → C클래스 → W206 → C200 → 2023 → 연식 해제 → 필터 초기화 · 크기: PC 1440·1280 / 모바일 393·360 · 모양: plain(기본)·card
 // 확인: ① 층 순서·개수 ② 층 간격(±0.5) ③ PC 카드 높이 = 허용 두 값 중 하나, 앞으로 가는 흐름(처음 → 2023) 높이 변화 1회
-//       ④ 칸 넘침 0 · 가로 스크롤바 보임 0 · 줄바꿈 0 ⑤ 페이지 제목 고정, 숫자·"년"·"월" 0 ⑥ 이미지 로딩 전후 층 위치 차이 0 ⑦ 모바일 지역 칩 줄 없음 · 경로·제목이 회색 띠 아래
+//       ④ 칸 넘침 0 · 가로 스크롤바 보임 0 · 줄바꿈 0 ⑤ 페이지 제목 고정, 숫자·"년"·"월" 0 ⑥ 이미지 로딩 전후 층 위치 차이 0 ⑦ PC·모바일 지역 칩 줄 없음 · 모바일 경로·제목이 회색 띠 아래
 // 사용: npm run check:stability [-- --base=<주소>] [-- --mode=plain|card] [-- --only=pc-1440|pc-1280|m-393|m-360]
 // 결과: reports/qf-106/stability-<모양>.json · 단계 × 크기 표(콘솔) · 실패 캡처 reports/qf-106/fail-*.png
 import { chromium } from "@playwright/test";
@@ -28,8 +28,7 @@ const SPEC = {
     layers: [
       { id: "①", sel: ".bbm-ct-title-row", h: 32, gap: 16 },
       { id: "②", sel: ".bbm-ct-chip-row", h: 32, gap: 18 },
-      { id: "③", sel: ".bbm-ct-region-row", h: 32, gap: 18 },
-      { id: "④", sel: ".bbm-quick-slot", h: null, gap: 16 },
+      { id: "④", sel: ".bbm-quick-slot", h: null, gap: 18 },
     ],
     endGap: { image: 16, pill: 24 },
     row: { plain: 102, card: 72, pill: 32 },
@@ -45,7 +44,7 @@ const SPEC = {
     row: { plain: 2 + 74 + 6, card: 2 + 72 + 6, pill: 2 + 32 + 6 },
   },
 };
-const pcCardHeight = (row) => 16 + 32 + 18 + 32 + 18 + 32 + 16 + row + (row === 32 ? 24 : 16);
+const pcCardHeight = (row) => 16 + 32 + 18 + 32 + 18 + row + (row === 32 ? 24 : 16);
 const TITLE = "중고차";
 
 const browser = await chromium.launch({ args: ["--disable-lcd-text"] });
@@ -83,7 +82,7 @@ const measure = (page, device) => page.evaluate(([device, spec]) => {
   // 제목
   const titleEl = device === "pc" ? card.querySelector(".bbm-ct-title") : document.querySelector(".bbm-m-title");
   const title = titleEl?.textContent.trim() ?? null;
-  // 모바일: 지역 칩 줄 없음 · 경로·제목이 ⑤(회색 띠 아래)
+  // PC·모바일: 지역 칩 줄 없음 · 모바일 경로·제목이 ⑤(회색 띠 아래)
   const regionRow = Boolean(document.querySelector(".bbm-ct-region-row"));
   const head = document.querySelector(".bbm-m-head");
   const headOk = device === "m" ? Boolean(head && head.querySelector(".bbm-ct-crumbs") && head.querySelector(".bbm-m-title") && head.getBoundingClientRect().top >= (slot?.getBoundingClientRect().bottom ?? 0) - 0.5 && parseFloat(getComputedStyle(head).borderTopWidth) === 8) : null;
@@ -142,8 +141,8 @@ const judge = (m, device, mode) => {
   if (m.wrapPills.length) problems.push(`줄바꿈(칩) ${m.wrapPills.join(",")}`);
   if (m.wrapNames.length) problems.push(`줄바꿈(이름) ${m.wrapNames.join(",")}`);
   if (m.title !== TITLE || /[0-9년월]/.test(m.title ?? "")) problems.push(`제목 "${m.title}"`);
+  if (m.regionRow) problems.push(`${device === "pc" ? "PC" : "모바일"} 지역 칩 줄 있음`);
   if (device === "m") {
-    if (m.regionRow) problems.push("모바일 지역 칩 줄 있음");
     if (!m.headOk) problems.push("경로·제목이 회색 띠 아래 아님");
   }
   return problems;
@@ -200,11 +199,9 @@ for (const mode of modes) {
       if (await confirm.count()) await click(confirm);
     } else await click(page.locator(".region-bar.is-bbm .reset-button").first());
     await record("필터 초기화");
-    // QF-111 지역 단계: PC 지역 줄 서울 → 강남구(줄 높이 32 · 카드 높이 그대로), 모바일 지역 시트 서울 → 강남구(칩만 늘고 층 그대로)
+    // QF-111 지역 단계: PC는 지역 칩 줄이 없어야 하고, 모바일은 지역 시트 서울 → 강남구(칩만 늘고 층 그대로)
     if (device === "pc") {
-      const pill = (text) => page.locator(".bbm-ct-region-row .stable-pill").filter({ hasText: new RegExp(`^${text}$`) }).first();
-      await click(pill("서울")); await record("지역 서울");
-      await click(pill("강남구")); await record("지역 강남구");
+      await record("지역 줄 숨김");
     } else {
       await click(page.locator(".region-bar.is-bbm button").first());
       await click(page.locator(".stable-region-cell").filter({ hasText: /^서울$/ }).first()); await record("지역 서울");

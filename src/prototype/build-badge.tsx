@@ -19,12 +19,11 @@ const read = (key: ToggleKey) => { try { return window.localStorage.getItem(STOR
 const write = (key: ToggleKey, on: boolean) => { try { window.localStorage.setItem(STORE[key], on ? "1" : "0"); } catch { /* 저장소를 못 쓰면 기억하지 않는다 */ } };
 const GUIDE_BOXES = ".kr-brand-logo.is-rail, .kr-brand-logo.is-list, .kr-brand-logo.is-plain, .depth-card-media:not(.is-brand), .bbm-quick-slot .bbm-category-menu__icon-box, .bbm-m-quick-slot .bbm-category-menu__icon-box";
 
-// 매뉴얼 v1.3 층 표(scripts/stability-check.mjs 와 같은 값). PC 0층 경로는 카드 밖: 상단 메뉴 아래 16 · 경로 → 카드 12
+// 매뉴얼 v1.6 층 표(scripts/stability-check.mjs 와 같은 값). PC 0층 경로는 카드 밖: 상단 메뉴 아래 16 · 경로 → 카드 12
 const PC_LAYERS = [
   { id: "①", sel: ".bbm-ct-title-row", h: 32, gap: 16 },
   { id: "②", sel: ".bbm-ct-chip-row", h: 32, gap: 18 },
-  { id: "③", sel: ".bbm-ct-region-row", h: 32, gap: 18 },
-  { id: "④", sel: ".bbm-quick-slot", h: 0, gap: 16 },
+  { id: "④", sel: ".bbm-quick-slot", h: 0, gap: 18 },
 ];
 const M_LAYERS = [
   { id: "①", sel: ".top-bar.is-bbm .search-field", h: 40, gap: 10 },
@@ -33,7 +32,7 @@ const M_LAYERS = [
   { id: "④", sel: ".bbm-m-quick-slot", h: 0, gap: 14 },
   { id: "⑤", sel: ".bbm-m-head", h: 0, gap: 0 },
 ];
-const pcCardHeight = (row: number) => 16 + 32 + 18 + 32 + 18 + 32 + 16 + row + (row === 32 ? 24 : 16);
+const pcCardHeight = (row: number) => 16 + 32 + 18 + 32 + 18 + row + (row === 32 ? 24 : 16);
 
 type Box = { x: number; y: number; w: number; h: number };
 type Mark = { kind: "layer" | "gap" | "dot"; box: Box; text: string; ok?: boolean };
