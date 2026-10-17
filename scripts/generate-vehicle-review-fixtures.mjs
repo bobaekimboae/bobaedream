@@ -4,7 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const inventory = JSON.parse(fs.readFileSync(path.join(root, 'apps/seoul-autogallery-flutter/assets/data/cars.json'), 'utf8'));
+const inventory = JSON.parse(fs.readFileSync(path.join(root, 'data/inventory/seoul-autogallery-cars.json'), 'utf8'));
 const cars = inventory.cars.filter((car) => car.id >= 1 && car.id <= 23).sort((a, b) => a.id - b.id);
 const modelIds = {
   1: 'sag-01-m3', 2: 'sag-02-taycan', 3: 'sag-03-gls', 4: 'sag-04-glc', 5: 'sag-05-eclass', 6: 'sag-06-rx',
