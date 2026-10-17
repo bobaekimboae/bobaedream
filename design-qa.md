@@ -5277,3 +5277,16 @@ final result: passed
 
 final result: passed
 
+---
+
+## PC 메인 영문 워드마크 교체 · 2026-10-17
+
+- decision: 원형 엠블럼은 `#306BD9`로 유지하고 한글 워드마크 대신 검정 대문자 `BOBAEDREAM`을 사용한다.
+- implementation screenshot: `qa/pc-main-logo-correction/local-english-final-1280x720.png`.
+- measured layout: 엠블럼 30×30px, 영문 워드마크 121.8×24px, 간격 7px, 전체 로고 슬롯 164×30px이다.
+- alignment: 1280×720에서 검색창은 x=236부터 560×48px, 로그인은 91.9×36px, 매물등록은 80×36px을 유지했다.
+- interaction/runtime: BMW 검색 결과, 로그인 안내 토스트, 가로 넘침 0px, 콘솔 오류 0건을 확인했다.
+- findings: P0/P1/P2 없음.
+
+final result: passed
+

@@ -95,7 +95,10 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
       <div className="bbm-header-inner">
         <div className="bbm-header-main">
           <button type="button" className="bbm-logo" aria-label="보배드림 처음으로" onClick={() => document.querySelector(".app-screen")?.scrollTo({ top: 0 })}>
-            <img src={bbmAsset("header-logo")} alt="보배드림" draggable={false} />
+            <span className="bbm-logo-emblem" aria-hidden="true">
+              <img src={bbmAsset("header-logo")} alt="" draggable={false} />
+            </span>
+            <span className="bbm-logo-word" aria-hidden="true">BOBAEDREAM</span>
           </button>
           {searchSlot ? <div className="bbm-header-search-slot">
             {variant === "chotot" ? <button type="button" className="bbm-region-pill" aria-label="지역 선택, 현재 전국" onClick={() => onNotify("지역 선택은 목록 위 지역 줄에서 이용해 주세요.")}><img src={bbmAsset("header-location-chotot-v01")} alt="" aria-hidden="true" /><span>전국</span><BbIcon name="chevron-down" size={16} /></button> : null}

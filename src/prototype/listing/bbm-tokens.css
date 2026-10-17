@@ -129,7 +129,7 @@
   .marketplace.is-bbm .bbm-header-top-item img { width: 1px; height: 8px; }
   .marketplace.is-bbm .bbm-header-top button + button::before, .marketplace.is-bbm .bbm-header-top-item button::before { display: none; }
   .marketplace.is-bbm .bbm-header-top button + button { margin-left: 0; }
-  .marketplace.is-bbm .bbm-logo { gap: 0; }
+  .marketplace.is-bbm .bbm-logo { gap: 7px; }
   .marketplace.is-bbm .bbm-logo > img { width: 113.9px; height: 28px; }
   .marketplace.is-bbm .bbm-gnb-more img { width: 18px; height: 18px; }
   .marketplace.is-bbm .bbm-header-icons img { width: 24px; height: 24px; }
