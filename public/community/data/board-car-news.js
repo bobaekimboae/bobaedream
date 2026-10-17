@@ -27,7 +27,7 @@
     idStart:9100001,
     defaultView:"naver-discussion",
     topics:[],
-    updatedAt:"2026-10-16T23:42:59.189Z",
+    updatedAt:"2026-10-17T00:50:44.977Z",
     rows:[
       {
         "id": "9100001",
@@ -73,7 +73,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "현대차·기아가 화성에서 2026 R&D 협력사 테크 데이를 열었다.|이 자리에서 협력사 37곳이 개발한 신기술 42건을 소개했다.|최우수상은 테일게이트 소음을 줄인 대동도어의 소프트 오프닝 래치가 받았다.",
+        "summary3": "현대차·기아가 협력사 테크 데이를 열었다.|협력사 37곳이 신기술 42건을 소개했다.|최우수상은 대동도어가 받았다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -122,7 +122,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "파리모터쇼에서 기아는 셀토스·K4 하이브리드와 고성능 GT 5종을 내세웠다.|현대차는 신형 베이온과 AI 음성비서를 앞세웠다.|두 회사는 하이브리드·고성능·전기 밴으로 중국 브랜드의 유럽 공세에 맞서고 있다.",
+        "summary3": "기아는 GT 5종을 내세웠다.|현대차는 신형 베이온과 AI 비서를 앞세웠다.|중국 브랜드 공세에 기술로 맞선다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -171,7 +171,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "9월 수입 상용차 신규등록은 290대로 전월보다 31.2% 늘었다.|다만 1년 전 같은 달과 비교하면 소폭 줄었다.|브랜드별로는 볼보트럭이 가장 많이 등록됐다.",
+        "summary3": "9월 수입 상용차는 290대 등록됐다.|전월보다 31.2% 늘었다.|볼보트럭이 가장 많았다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -220,7 +220,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "파리모터쇼가 개막하면서 현대차·기아가 신차 경쟁에 나섰다.|두 회사는 신형 SUV와 하이브리드, 고성능 GT 모델을 공개했다.|현대차는 자율주행 협력을 넓히는 방안도 검토한다고 밝혔다.",
+        "summary3": "파리모터쇼가 개막했다.|현대차·기아가 SUV·하이브리드·GT를 공개했다.|현대차는 자율주행 협력도 검토한다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -269,7 +269,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "현대차가 2018년 이후 8년 만에 파리모터쇼에 다시 참가했다.|이번에는 SUV 신차와 소형 전기차, 전기 상용차를 공개한다.|전시장에는 플레오스 커넥트와 N 브랜드 체험 공간도 마련했다.",
+        "summary3": "현대차가 8년 만에 파리모터쇼에 왔다.|SUV 신차와 소형 전기차를 공개한다.|N 브랜드 체험 공간도 마련했다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -318,7 +318,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "9월 수입 승용차 신규 등록은 3만4904대로 전월과 전년보다 모두 늘었다.|브랜드별로는 테슬라가 1만2372대로 1위에 올랐다.|그 결과 전기차 비중이 절반을 넘어섰다.",
+        "summary3": "9월 수입 승용차는 3만4904대다.|테슬라가 1만2372대로 1위다.|전기차 비중이 절반을 넘었다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -367,7 +367,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "국산 완성차 5개 브랜드의 10월 브랜드평판에서 현대차가 1위를 차지했다.|기아와 KG모빌리티는 지수가 올라 그 뒤를 이었다.|반면 르노코리아와 한국지엠은 지수가 내려갔다.",
+        "summary3": "10월 브랜드평판 1위는 현대차다.|기아·KG모빌리티가 뒤를 이었다.|르노코리아·한국지엠은 내려갔다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -416,7 +416,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "추석 연휴로 영업일이 줄면서 9월 국산차 내수 판매가 약 20% 감소했다.|완성차 5사 모두 1년 전보다 판매가 줄었다.|그중 현대차는 전월 대비 회복 폭이 가장 컸다.",
+        "summary3": "추석 연휴로 9월 내수가 약 20% 줄었다.|완성차 5사 모두 감소했다.|현대차의 회복 폭이 가장 컸다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -465,7 +465,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "올해 4분기에는 연말 신차가 잇따라 출시된다.|디 올 뉴 투싼과 제네시스 GV80 하이브리드·GV90, BMW 신형 7시리즈 등이 대기 중이다.|다만 일부 모델은 아직 국내 출시일과 가격이 정해지지 않았다.",
+        "summary3": "4분기 신차가 잇따라 나온다.|투싼, GV80 하이브리드, GV90, 7시리즈다.|일부는 출시일이 미정이다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -514,7 +514,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "현대차가 6년 만의 5세대 완전변경 ‘디 올 뉴 투싼’을 공개했다.|새 투싼은 차체를 키우고 1.6 터보 가솔린과 하이브리드 두 가지로 나온다.|현대차 SUV 가운데 처음으로 플레오스 커넥트를 넣었고, 가격은 10월에 공개된다.",
+        "summary3": "5세대 투싼이 공개됐다.|1.6 터보와 하이브리드로 나온다.|가격은 10월에 공개된다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -563,7 +563,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "독일 중고차 플랫폼 오토스카우트24가 인스타그램에 80년대 중형차를 다룬 릴스를 올렸다.|영상은 그 시절 집 앞에 서 있던 차를 떠올려 보자고 묻는다.",
+        "summary3": "오토스카우트24가 80년대 중형차 릴스를 올렸다.|그 시절 집 앞의 차를 떠올리게 한다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -612,7 +612,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "BMW M 공식 유튜브 채널이 신형 M350 xDrive 세단 영상을 올렸다.|M350 xDrive는 M 퍼포먼스 모델에 사륜구동을 더한 세단이다.",
+        "summary3": "BMW M이 신형 M350 xDrive 영상을 올렸다.|M 퍼포먼스 사륜구동 세단이다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -661,7 +661,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "BMW M 공식 유튜브 채널이 짧은 쇼츠 영상을 올렸다.|영상 제목은 ‘Frozen finish, Hot colour’로, 무광(프로즌) 도장에 강렬한 색을 입힌 차를 보여 준다.",
+        "summary3": "BMW M이 쇼츠를 올렸다.|무광 도장에 강렬한 색을 입힌 차다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -710,7 +710,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "BMW가 공식 틱톡 계정(@bmw)을 운영하고 있다.|이 계정에는 신차와 브랜드 영상이 꾸준히 올라온다.|가장 최근 영상은 게시글에서 바로 볼 수 있다.",
+        "summary3": "BMW 공식 틱톡 계정이다.|신차와 브랜드 영상이 올라온다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -759,7 +759,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "BMW가 공식 틱톡에 신형 iX4 영상을 올렸다.|iX4는 BMW의 쿠페형 전기 SUV다.",
+        "summary3": "BMW가 틱톡에 신형 iX4 영상을 올렸다.|iX4는 쿠페형 전기 SUV다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -808,7 +808,7 @@
         "embedImage": "./media/news-meta/news-9100016.jpg",
         "embedSite": "네이버 뉴스",
         "embedLogo": "./media/favicons/n.news.naver.com.png",
-        "summary3": "데일리안이 렉서스 ES 시승기를 실었다.|기사는 ES가 독일차와 비슷한 값에 운전대만 잡아도 긴장이 풀릴 만큼 편안하다고 평가했다.|자세한 시승 내용은 네이버 뉴스 원문에서 볼 수 있다.",
+        "summary3": "데일리안이 렉서스 ES를 시승했다.|독일차 값에 편안함이 강점이라고 평가했다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -857,7 +857,7 @@
         "embedImage": "./media/news-meta/news-9100017.jpg",
         "embedSite": "네이버 스포츠",
         "embedLogo": "./media/favicons/m.sports.naver.com.png",
-        "summary3": "울산웨일즈와 롱비치 코스트가 특별한 교류전을 치렀다.|두 팀은 ‘우정은 뜨겁게, 승부는 치열하게’라는 구호 아래 하루를 함께했다.|이 소식은 OSEN이 네이버 스포츠를 통해 전했다.",
+        "summary3": "울산웨일즈와 롱비치 코스트가 교류전을 치렀다.|OSEN이 전한 소식이다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -906,7 +906,7 @@
         "embedImage": "",
         "embedSite": "네이버 카페",
         "embedLogo": "./media/favicons/m.cafe.naver.com.png",
-        "summary3": "회원 185만 명이 모인 네이버 카페 ‘전기차동호회’의 게시글이다.|이 글은 카페 회원만 볼 수 있다.|내용은 원문 카페에서 확인할 수 있다.",
+        "summary3": "네이버 카페 ‘전기차동호회’ 게시글이다.|회원만 볼 수 있는 글이다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -955,7 +955,7 @@
         "embedImage": "https://sun9-7.vkuserphoto.ru/s/v1/ig2/_60jKitovgfBFvxmX0sOjemngQqCq3ZZdmlsznQV_h2a1fTGfCNk7DoVTv7thbSBeWUbtLcQHapQRhIieBNCQRFPmzkcNA.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x854,720x960,1080x1441,1280x1708,1440x1921,1919x2560&from=bu&u=-RPV5AtKStGSFOQfaJCSH5NuGoEQs-c_i5zY_bCjhQc&cs=540x0",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "러시아 SNS VK(브콘탁테)에 사진 10장짜리 게시물이 올라왔다.|글은 아직도 따로 팔지 않는 맛있는 것들 가운데 가장 갖고 싶은 것을 묻는다.|게시물은 좋아요 2,200개 넘게 받았다.",
+        "summary3": "러시아 SNS VK의 사진 10장 글이다.|따로 팔지 않는 음식 중 갖고 싶은 것을 묻는다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1004,7 +1004,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "BMW가 공식 스레드에 신형 iX4 50 xDrive 사진을 올렸다.|iX4 50 xDrive는 신형 iX4의 사륜구동 모델이다.",
+        "summary3": "BMW가 스레드에 신형 iX4 50 xDrive 사진을 올렸다.|iX4의 사륜구동 모델이다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1053,7 +1053,7 @@
         "embedImage": "https://imgnews.pstatic.net/image/018/2026/10/16/0006389657_001_20261016194816242.jpg?type=w800",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "BMW코리아가 7시리즈 부분변경 모델 ‘더 뉴 BMW 7시리즈’의 사전예약을 시작했다.|예약은 16일부터 내달 9일까지 온라인 판매 채널 BMW 샵 온라인에서 받는다.|가격은 1억6000만원부터다.",
+        "summary3": "BMW 신형 7시리즈 사전예약이 시작됐다.|BMW 샵 온라인에서 받는다.|가격은 1억6000만원부터다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1102,7 +1102,7 @@
         "embedImage": "https://img1.daumcdn.net/thumb/S1200x630/?fname=https://t1.daumcdn.net/news/202610/14/kukminilbo/20261014171914551ocqt.jpg",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "BYD가 파리모터쇼에서 7인승 플래그십 SUV ‘아토8’을 공개했다.|이 차는 9분 만에 배터리를 97%까지 충전할 수 있다.|함께 덴자 브랜드도 ‘Z9GT’와 ‘D9 DM-i’를 선보였다.",
+        "summary3": "BYD가 7인승 SUV 아토8을 공개했다.|9분 만에 97%까지 충전된다.|덴자도 Z9GT를 선보였다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1151,7 +1151,7 @@
         "embedImage": "https://hips.hearstapps.com/hmg-prod/images/4f6a5e39-fdf0-4150-a99f-4f61ace70812.jpg",
         "embedSite": "모터트렌드",
         "embedLogo": "",
-        "summary3": "모터트렌드가 2026 파리모터쇼에서 주목할 신차와 콘셉트카를 정리했다.|이번 모터쇼의 핵심은 중국차가 유럽 시장에 본격 상륙했다는 점이다.|매체는 유럽 브랜드가 이에 맞서 반격할 수 있을지를 짚었다.",
+        "summary3": "모터트렌드가 파리모터쇼 신차를 골랐다.|핵심은 중국차의 유럽 상륙이다.|유럽의 반격 여부를 짚었다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1200,7 +1200,7 @@
         "embedImage": "https://hips.hearstapps.com/hmg-prod/images/004c2171-8b88-461a-918f-bdededcced75.jpg?crop=0.564xw:0.423xh;0.273xw,0.294xh&resize=1200:*",
         "embedSite": "카앤드라이버",
         "embedLogo": "",
-        "summary3": "2027년형 쉐보레 실버라도 HD와 GMC 시에라 HD가 공개됐다.|두 모델에는 ‘몽구스’라는 이름의 8.3L 디젤 엔진이 새로 들어간다.|견인 능력도 높아졌고, 조향 장치는 더 정교한 방식으로 바뀌었다.",
+        "summary3": "2027 실버라도 HD·시에라 HD가 공개됐다.|8.3L 디젤 몽구스가 들어간다.|견인 능력도 높아졌다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1249,7 +1249,7 @@
         "embedImage": "https://static0.carbuzzimages.com/wordpress/wp-content/uploads/2026/10/25115_2027_sorento_hybrid-1.jpg?w=1600&h=900&fit=crop",
         "embedSite": "카버즈",
         "embedLogo": "",
-        "summary3": "2027년형 기아 쏘렌토 하이브리드에 X-Line EX 트림이 새로 추가됐다.|이 트림은 강인한 외관 스타일을 그대로 갖췄다.|그러면서도 SX-프레스티지보다 수천 달러 싸다.",
+        "summary3": "쏘렌토 하이브리드에 X-Line EX가 추가됐다.|강인한 외관을 갖췄다.|상위 트림보다 수천 달러 싸다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1298,7 +1298,7 @@
         "embedImage": "https://cdn.motor1.com/images/mgl/g4gW8o/s1/lexus-sport-concept.jpg",
         "embedSite": "모터원",
         "embedLogo": "",
-        "summary3": "토요타의 특허에 전기 렉서스 LFA의 가상 변속 기능이 담겼다.|토크를 순간적으로 끊고 주행 모드를 바꿔 시퀀셜 변속 느낌을 흉내 내는 방식이다.|다만 최종 양산 사양은 아직 확정되지 않았다.",
+        "summary3": "토요타 특허에 전기 LFA 기능이 담겼다.|가상 시퀀셜 변속을 흉내 낸다.|양산 사양은 미정이다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1347,7 +1347,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "틱톡 크리에이터 Nasser Hessien(@nasserhessien)이 아랍어 영상을 올렸다.|영상 제목은 ‘말 그대로 모든 게 다 들어간 차’라는 뜻이다.",
+        "summary3": "크리에이터 Nasser Hessien의 아랍어 영상이다.|제목은 ‘모든 게 다 들어간 차’라는 뜻이다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1396,7 +1396,7 @@
         "embedImage": "https://images.autozeitung.de/mercedes-c-klasse-elektrisch-test,id=5ea02d90,b=autozeitung,w=1600,ca=4.40,27.74,94.40,88.90,rm=sk.jpeg",
         "embedSite": "아우토 차이퉁",
         "embedLogo": "",
-        "summary3": "새 전기 메르세데스 C-클래스가 첫 본격 시승에 나섰다.|시승한 모델은 C 400 4MATIC이다.|아우토 차이퉁은 이 순수 전기 세단이 얼마나 설득력 있는지 따져 봤다.",
+        "summary3": "전기 벤츠 C-클래스를 처음 시승했다.|모델은 C 400 4MATIC이다.|설득력을 따져 봤다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1445,7 +1445,7 @@
         "embedImage": "https://img.auto-motor-und-sport.de/_/bg:FFFFFF/f:best/h:1238/rt:fill/w:2200/plain/2322786.jpg",
         "embedSite": "아우토 모토 운트 슈포르트",
         "embedLogo": "",
-        "summary3": "차세대 메르세데스 E-클래스가 처음으로 순수 전기 모델로 테스트 중이다.|새로 찍힌 AMG 버전은 위장이 줄고 양산형에 가까운 부분이 늘었다.|기사는 이 차를 900마력급 전기 세단으로 소개했다.",
+        "summary3": "전기 AMG E-클래스가 포착됐다.|위장이 줄어 양산형에 가깝다.|900마력급 전기 세단이다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1494,7 +1494,7 @@
         "embedImage": "https://i.auto-bild.de/ir_img/4/1/1/2/0/8/5/BMW-M5-Touring-Polizei-2869-1080x608-fba49a772491834c.jpg?impolicy=og_images",
         "embedSite": "아우토빌트",
         "embedLogo": "",
-        "summary3": "BMW M5 투어링이 경찰 도색을 입고 등장했다.|이 차의 출력은 727마력에 이른다.|아우토빌트는 경찰도 스포티한 업무용 차를 원할 것이라며 이 차를 소개했다.",
+        "summary3": "BMW M5 투어링이 경찰 도색을 입었다.|출력은 727마력이다.|아우토빌트가 소개했다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1543,7 +1543,7 @@
         "embedImage": "",
         "embedSite": "",
         "embedLogo": "",
-        "summary3": "올해 출시·공개된 신차 가운데 가장 끌리는 차를 고르는 투표다.|후보는 제네시스 GV80 하이브리드, 기아 EV9, 현대 디 올 뉴 투싼, BMW 5시리즈다.|무기명 투표라 누가 무엇을 골랐는지는 공개되지 않는다.",
+        "summary3": "올해 가장 끌리는 신차를 고르는 투표다.|후보는 GV80 하이브리드, EV9, 투싼, 5시리즈다.|무기명으로 진행된다.",
         "pollTitle": "올해 가장 끌리는 신차는?",
         "pollOptions": "제네시스 GV80 하이브리드|기아 EV9|현대 디 올 뉴 투싼|BMW 5시리즈",
         "pollNote": "무기명 투표"
@@ -1592,7 +1592,7 @@
         "embedImage": "https://img.bestcarweb.jp/wp-content/uploads/2026/10/16104415/e1f999b4518f853a13d209a908b4b6f5.jpg",
         "embedSite": "베스트카",
         "embedLogo": "",
-        "summary3": "토요타 차기 카롤라에 새 4기통 1.5L 하이브리드가 들어간다.|이 시스템은 연비를 15% 넘게 높이면서도 가속감과 정숙성은 지금의 1.8L 하이브리드에 뒤지지 않는다고 한다.|인버터를 엔진에 합쳐 파워유닛 전체가 작아지고 더 낮게 자리 잡는다.",
+        "summary3": "차기 카롤라에 새 1.5L 하이브리드가 들어간다.|연비는 15% 넘게 좋아진다.|파워유닛도 작아진다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1641,7 +1641,7 @@
         "embedImage": "https://motor-fan.jp/wp-content/uploads/2026/10/NISSAN_KICKS_LONG-DRIVE_41.jpeg",
         "embedSite": "모터팬",
         "embedLogo": "",
-        "summary3": "일본 모터팬이 3세대 e-POWER를 단 신형 닛산 킥스로 5일 동안 646km를 달렸다.|평균 실연비는 19.7km/L로 카탈로그 연비(WLTC 21.5km/L)에 가까웠다.|시속 120km로 고속도로를 정속 주행했을 때도 약 17~18km/L가 나왔다.",
+        "summary3": "신형 킥스로 646km를 달렸다.|실연비는 19.7km/L였다.|시속 120km 정속에선 17~18km/L다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1690,7 +1690,7 @@
         "embedImage": "https://www.webcg.net/mwimgs/6/4/-/img_6476bab562963c796920a206e6e53cb5305711.jpg",
         "embedSite": "카그래픽(webCG)",
         "embedLogo": "",
-        "summary3": "일본 webCG(카그래픽)가 미쓰비시 경차 전기차 eK 크로스 EV를 시승했다.|2022년 5월 출시 뒤 처음으로 외관 디자인을 바꾼 모델이고, 시승차는 최상위 P 등급이다.|기사는 새로 나온 경쟁 경차 전기차와 견줘도 버틸 수 있는지를 따졌다.",
+        "summary3": "미쓰비시 eK 크로스 EV를 시승했다.|출시 4년 만에 외관을 바꿨다.|시승차는 최상위 P 등급이다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1739,7 +1739,7 @@
         "embedImage": "https://d1uzk9o9cg136f.cloudfront.net/f/16783018/rc/2026/10/07/09e345a65942a6a754a8e02460516afb0cfc40d7_xlarge.jpg",
         "embedSite": "모터매거진",
         "embedLogo": "",
-        "summary3": "스즈키가 첫 경승용 전기차 ‘e스카이’를 11월 16일부터 판매한다.|배터리는 26kWh 리튬인산철 방식이다.|한 번 충전으로 WLTC 기준 310km를 달린다.",
+        "summary3": "스즈키 첫 경차 전기차 e스카이가 나온다.|11월 16일 판매를 시작한다.|주행거리는 310km다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1788,7 +1788,7 @@
         "embedImage": "https://cdn-webcartop.com/wp-content/uploads/2026/09/260922_rogue_013.jpg",
         "embedSite": "카탑",
         "embedLogo": "",
-        "summary3": "닛산이 9월 21일 북미용 새 로그 하이브리드를 공개했다.|최신 e-POWER와 e-4ORCE를 묶어 시스템 최고출력 225마력을 낸다.|가격은 3만5490~4만3490달러이고 SR AWD부터 올가을 미국에서 판매된다.",
+        "summary3": "닛산이 로그 하이브리드를 공개했다.|시스템 출력은 225마력이다.|차기 엑스트레일로 보인다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1837,7 +1837,7 @@
         "embedImage": "https://images.caradisiac.com/logos/6/4/5/6/296456/S8-c-est-vrai-qu-elle-est-jolie-mais-ce-que-pensent-les-visiteurs-de-la-nouvelle-2cv-224533.jpg",
         "embedSite": "카라디악",
         "embedLogo": "",
-        "summary3": "시트로엥 2CV 콘셉트가 2026 파리모터쇼에서 가장 큰 관심을 끌었다.|관람객 대부분은 디자인, 특히 실내에 호감을 보였지만 실제로 사겠다는 사람은 많지 않았다.|가격은 1만5000유로로 알려졌지만 주행거리는 아직 공개되지 않았다.",
+        "summary3": "새 2CV가 파리모터쇼의 화제가 됐다.|디자인 호평에도 구매 의사는 적었다.|가격은 1만5000유로다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1886,7 +1886,7 @@
         "embedImage": "https://cdn.automobile-propre.com/uploads/2026/10/mondial_2026_nouveautes_francaises_4x3.jpg",
         "embedSite": "오토모빌 프로프르",
         "embedLogo": "",
-        "summary3": "시트로엥은 2CV 전기 콘셉트를 선보였고, 이를 바탕으로 한 양산차가 2028년 나온다.|푸조 E-T16 콘셉트에는 2027년 하반기 나올 차기 e-208의 디자인 단서가 담겼다.|르노 E-Space와 알핀 A310 비전, 차기 DS 3를 예고한 DS F3ver도 함께 공개됐다.",
+        "summary3": "프랑스 신차 5종을 골랐다.|2CV, 푸조 E-T16, 르노 E-Space가 있다.|알핀 A310, DS F3ver도 공개됐다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1935,7 +1935,7 @@
         "embedImage": "https://journalauto.com/wp-content/uploads/2026/10/ESpace-1984.jpg",
         "embedSite": "주르날 드 로토모빌",
         "embedLogo": "",
-        "summary3": "제91회 파리모터쇼가 10월 12일부터 18일까지 파리 엑스포 포르트 드 베르사유에서 열린다.|참가 브랜드는 60곳이 넘어 2022년 20곳, 2024년 48곳보다 크게 늘었다.|중국 브랜드는 약 20곳이 참가하고, 메르세데스-벤츠·스마트·볼보는 2014년 이후 처음 돌아왔다.",
+        "summary3": "파리모터쇼에 60개 넘는 브랜드가 왔다.|중국 브랜드는 약 20곳이다.|벤츠·볼보는 12년 만에 돌아왔다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -1984,7 +1984,7 @@
         "embedImage": "https://statics.quattroruote.it/content/quattroruote/it/news/nuovi-modelli/2026/10/14/tesla_roadster/jcr:content/image.img2.social.jpg/1791992192108.jpg",
         "embedSite": "콰트로루오테",
         "embedLogo": "",
-        "summary3": "테슬라 로드스터 공개 행사가 악천후로 10월 1일에서 15일로 미뤄졌다.|2017년 콘셉트 때 제시된 성능은 0→96km/h 1.9초, 최고속도 400km/h 이상이다.|당시 예약금은 5만 달러였고, 머스크는 오스틴 기가팩토리에서 2027~2028년 생산을 시작한다고 밝혔다.",
+        "summary3": "테슬라 로드스터 공개가 15일로 미뤄졌다.|악천후 때문이다.|생산은 2027~2028년 시작된다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -2033,7 +2033,7 @@
         "embedImage": "https://immagini.alvolante.it/sites/default/files/styles/image_gallery_big/public/news_galleria/2026/10/volkswagen-id-tiguan-2026-10_05_0.jpg",
         "embedSite": "알볼란테",
         "embedLogo": "",
-        "summary3": "폭스바겐 ID.티구안의 이탈리아 가격은 4만4750유로부터 5만5400유로까지다.|배터리는 58kWh와 77kWh 두 가지이고, 사륜구동 4MOTION은 최고 299마력을 낸다.|길이 462cm, 트렁크 534L의 중형 전기 SUV로 ID.4를 대신한다.",
+        "summary3": "ID.티구안 이탈리아 가격이 나왔다.|4만4750유로부터다.|ID.4 후속 전기 SUV다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -2082,7 +2082,7 @@
         "embedImage": "https://www.motorionline.com/wp-content/uploads/2026/10/maxresdefault-6-1200x675.jpg",
         "embedSite": "모토리온라인",
         "embedLogo": "",
-        "summary3": "기아가 파리모터쇼에서 전륜·사륜구동을 고를 수 있는 셀토스 하이브리드를 공개했다.|LPG와 하이브리드를 묶은 셀토스 트라이퓨얼은 몇 달 안에 이탈리아에 나온다.|EV3·EV4·EV5에도 사륜구동, 약 300마력의 GT 모델이 더해진다.",
+        "summary3": "기아 셀토스 트라이퓨얼이 공개됐다.|LPG와 하이브리드를 묶었다.|이탈리아에 곧 나온다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -2131,7 +2131,7 @@
         "embedImage": "https://www.autopista.es/uploads/s1/15/39/69/31/todos-los-nuevos-coches-de-hyundai-hasta-2027-del-bayon-al-tucson-llegan-otros-5-modelos-al-mercado_7_1200x690.jpeg",
         "embedSite": "아우토피스타",
         "embedLogo": "",
-        "summary3": "현대차가 2027년 말까지 유럽 전용 신차 5종을 내놓고 모두 전동화 파워트레인을 단다.|새 바이온은 길이 4.24m, 트렁크 440L로 커지고 1.0 터보 가솔린과 138마력 하이브리드가 나온다.|새 투싼은 2027년 초 유럽에 나오며 디젤은 빠지고 전기차 모델은 계획에 없다.",
+        "summary3": "현대차가 유럽에 신차 5종을 낸다.|새 바이온과 투싼이 포함된다.|투싼은 2027년 초 나온다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -2180,7 +2180,7 @@
         "embedImage": "https://static.motor.es/fotos-noticias/2026/10/mitsubishi-outlander-2027-lanzamiento-espana-2026117072-1792168974_1.jpg",
         "embedSite": "모토르",
         "embedLogo": "",
-        "summary3": "2027년형 미쓰비시 아웃랜더는 새 Motion+를 더해 6개 트림으로 나온다.|스페인 가격은 Motion 4WD 4만5619유로부터 Black Edition 4WD 5만8119유로까지다.|2.4L 가솔린과 모터 2개를 묶은 플러그인 하이브리드로 합산 306마력, 전기로만 86km를 달린다.",
+        "summary3": "2027 아웃랜더 스페인 가격이 나왔다.|4만5619유로부터다.|PHEV로 전기만 86km 달린다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
@@ -2229,7 +2229,7 @@
         "embedImage": "https://www.diariomotor.com/imagenes/2026/10/skoda-epiq-sportline-adelanto-1-6aca424a0c536.jpeg",
         "embedSite": "디아리오모토르",
         "embedLogo": "",
-        "summary3": "스코다 에픽은 폭스바겐 나바라 공장에서 만드는 스코다의 첫 스페인 생산 모델이다.|에픽 40은 135마력 모터와 38.5kWh LFP 배터리로 324km를 달린다.|판매가는 보조금을 포함해 1만8500유로부터이고 트렁크는 475L다.",
+        "summary3": "스코다 에픽은 스페인에서 만든다.|주행거리는 324km다.|가격은 1만8500유로부터다.",
         "pollTitle": "",
         "pollOptions": "",
         "pollNote": ""
