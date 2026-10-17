@@ -174,8 +174,10 @@
   /* QF-091: 카드는 원본 car-list-result-card 값(bbm-tokens.css .bbm-result-card)으로 바꿈 */
 }
 
-/* PC 메인 기본 검색: 초톳의 단순한 알약형 구조 + 보배드림 활성색(#222) */
+/* PC 메인: 텍스트형 GNB + 초톳의 단순한 알약형 검색 + 보배드림 브랜드 블루 */
 @media (min-width: 820px) {
+  .bbm-gnb > button > .bbm-gnb-icon,
+  .bbm-gnb-more > .bbm-gnb-icon { display: none; }
   .bbm-catalog-search.is-main {
     height: 48px;
     gap: 8px;
@@ -186,7 +188,7 @@
     transition: background .15s, box-shadow .15s;
   }
   .bbm-catalog-search.is-main:hover { background: #eeeeee; }
-  .bbm-catalog-search.is-main:focus-within { background: #fff; box-shadow: 0 0 0 2px #222, 0 6px 20px rgba(17, 24, 39, .08); }
+  .bbm-catalog-search.is-main:focus-within { background: #fff; box-shadow: 0 0 0 2px #306bd9, 0 6px 20px rgba(17, 24, 39, .08); }
   .bbm-catalog-search.is-main > input {
     height: 100%;
     outline: none !important;
@@ -201,9 +203,9 @@
   .bbm-catalog-search.is-main .bbm-catalog-search-go {
     width: 36px;
     height: 36px;
-    background: #222;
+    background: #306bd9;
   }
-  .bbm-catalog-search.is-main .bbm-catalog-search-go:hover { background: #000; }
+  .bbm-catalog-search.is-main .bbm-catalog-search-go:hover { background: #1952ba; }
   .bbm-catalog-search.is-main .bbm-catalog-search-go svg { width: 18px; height: 18px; }
   .bbm-catalog-search.is-main .bbm-catalog-search-clear {
     width: 20px !important;

@@ -28,6 +28,26 @@
 
 final result: passed
 
+---
+
+## PC 메인 텍스트 GNB · VieclamTot 블루 검색 버튼 · 2026-10-17
+
+- source visual truth: `qa/pc-main-search/vieclamtot-reference-1440x900.png`과 사용자 지시(탑메뉴 아이콘 제거, 검정 검색 버튼을 블루로 변경).
+- implementation screenshot: `qa/pc-main-search/local-blue-button-1280x720.png`.
+- combined comparison evidence: `qa/pc-main-search/comparison-blue-button-2432x720.png`; 참조 화면은 종횡비를 유지해 1152×720으로 정규화하고 구현 화면 1280×720과 나란히 비교했다.
+- viewport/state: PC 메인 `?qf=guazi&pc=1`, 구현 캡처 1280×720 CSS px, device scale 1, 전체차량 메뉴 활성, 검색창 기본 상태.
+- measured colors: VieclamTot 스타일 자산의 주 블루 `#306BD9`, 진한 단계 `#1952BA`를 확인해 검색 버튼·포커스와 호버에 각각 적용했다.
+- typography: 기존 Pretendard GNB 15px 계층과 검색 입력 16/24px을 유지해 기능 변경 외 타이포그래피 드리프트가 없다.
+- spacing/layout: 560×48px 검색창과 36×36px 원형 버튼은 유지하고, GNB 아이콘만 제거해 텍스트 간격과 좌측 정렬을 단순화했다.
+- colors/tokens: 메뉴 활성은 `#222`로 유지하고 검색 CTA만 `#306BD9`로 분리해 활성 메뉴와 검색 행동의 의미가 겹치지 않는다.
+- imagery/icons: GNB 장식 아이콘은 제거했으며 검색 돋보기·로고·찜·마이페이지 등 기능 아이콘은 기존 자산을 유지했다.
+- copy/content: 메뉴명과 검색 안내 문구는 변경하지 않았다.
+- interaction: `BMW` 입력 시 모델 추천 목록 노출, URL 검색어 반영, BMW 매물 필터링을 확인했다.
+- runtime: 브라우저 콘솔 오류 0건, 모바일 런타임 보호 파일 28개 무결성 통과, `npm run verify:qf` 통과.
+- findings: P0/P1/P2 없음. 블루 적용 범위를 검색 CTA에만 제한한 것은 의도된 브랜드 계층이다.
+
+final result: passed
+
 ## 커뮤니티 글쓰기 투표 기능 · 2026-10-17
 
 - source visual truth: 네이버 게임 라운지 FIFA ONLINE 4 글쓰기의 투표 편집 화면 `https://game.naver.com/lounge/FIFA_ONLINE4/write?boardId=-1&loungeId=FIFA_ONLINE4`.
