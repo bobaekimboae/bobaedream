@@ -1,11 +1,11 @@
 // JOB-7: 매물 등록 화면(dev https://dev.bbmuseum.co.kr/car/register → /car/register/form 기준, 2026-10-07 실측).
 // ?register 로 연다. 1단계(차량번호·동의) → 다음(14러0927 목업 조회) → 등록 폼. 실제 API·업로드·등록 요청은 보내지 않는다.
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
-import { BbmFooter } from "../listing/bbm-list-area";
 import "../listing/bbm-list-area.css";
 import "./register.css";
 import BikeRegister from "./BikeRegister";
-import { registerHeaderHtml, registerPhotoGuideHtml, registerPolicyHtml } from "./header-html";
+import ChototParityRegister from "./ChototParityRegister";
+import { registerPhotoGuideHtml, registerPolicyHtml } from "./header-html";
 import { inspectionPcHtml } from "./inspection-pc-html";
 import {
   countOptions,
@@ -827,7 +827,6 @@ function OptionSlot({ draft, setDraft, tab, setTab }: { draft: Set<string>; setD
 }
 
 function CarRegisterPage() {
-  const [step, setStep] = useState<"lookup" | "form">(() => new URLSearchParams(window.location.search).get("register") === "form" ? "form" : "lookup");
   const { toast, notify } = useToast();
   useEffect(() => {
     document.documentElement.classList.add("bbm-register-page");
@@ -836,17 +835,15 @@ function CarRegisterPage() {
   useEffect(() => {
     document.title = "매물 등록 - 보배드림";
     window.scrollTo(0, 0);
-  }, [step]);
+  }, []);
   return (
     <div className="bbm-register">
       <div className="app-shell">
-        <header className="app-shell__header" dangerouslySetInnerHTML={{ __html: registerHeaderHtml }} onClick={(event) => { if ((event.target as HTMLElement).closest("a,button")) { event.preventDefault(); notify("시안에서는 상단 메뉴를 지원하지 않습니다."); } }} />
         <main className="app-shell__content">
           <div className="app-shell__content-inner">
-            {step === "lookup" ? <LookupStep notify={notify} onNext={() => setStep("form")} /> : <RegisterForm notify={notify} onBack={() => setStep("lookup")} />}
+            <ChototParityRegister notify={notify} />
           </div>
         </main>
-        <BbmFooter onNotify={notify} />
       </div>
       <Toast text={toast} />
     </div>
