@@ -5306,3 +5306,17 @@ final result: passed
 
 final result: passed
 
+---
+
+## PC 메인 검색창 상단 밀착 교정 · 2026-10-17
+
+- finding: 중앙축은 맞았지만 검색창 48px과 첫 헤더 행 48px이 같아 검색창이 화면 최상단 y=0에 붙었다.
+- correction: 첫 헤더 행을 72px로 확장하고 검색창 48px을 수직 중앙 정렬해 상단 12px·하단 12px의 동일 여백을 확보했다.
+- resulting hierarchy: 로고 y=21~51, 검색창 y=12~60, GNB y=72~121이며 전체 헤더는 121px이다.
+- horizontal stability: 검색창 x=360~920·중심=640px, 좌우 대칭 열과 560px 검색 폭은 유지했다.
+- variants: 영문 `BOBAEDREAM`과 한글 `보배드림` 모두 동일한 상하 여백과 블루 타이틀 규칙을 공유한다.
+- evidence: `qa/pc-main-logo-correction/local-kaidee-top-gap-1280x720.png`.
+- runtime: 1280×720 가로 넘침 0px, 한글·영문 렌더링 및 콘솔 오류 0건.
+
+final result: passed
+
