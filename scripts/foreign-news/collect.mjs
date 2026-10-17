@@ -445,7 +445,7 @@ const table = {
   board: "foreign-car-news",
   displayName: "해외 자동차뉴스",
   idStart: 920000001,
-  defaultView: "naver-discussion",
+  defaultView: "naver-discussion-thumb-right",
   updatedAt: generatedAt,
   topics,
   rows,
