@@ -127,7 +127,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
               <BbIcon name="notification" size={24} />
               <span className="bbm-auth-badge" aria-hidden="true">80</span>
             </button>
-            <button type="button" className="bbm-auth-pill is-contact" onClick={() => onNotify("연락은 정식 서비스에서 이용해 주세요.")}><BbIcon name="chat" size={20} /><span>연락</span></button>
+            <button type="button" className="bbm-auth-pill is-contact" onClick={() => onNotify("채팅은 정식 서비스에서 이용해 주세요.")}><BbIcon name="chat" size={20} /><span>채팅</span></button>
             <button type="button" className="bbm-auth-pill is-management" onClick={() => onNotify("매물관리는 정식 서비스에서 이용해 주세요.")}>매물관리</button>
             <button type="button" className="bbm-listing-button" onClick={() => onNotify("무료 매물등록은 정식 서비스에서 이용해 주세요.")}>무료 매물등록</button>
             <div className="bbm-account-wrap" ref={accountRef}>
