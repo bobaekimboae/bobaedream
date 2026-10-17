@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: foreign-news-sync
@@ -50,6 +51,8 @@ jobs:
           FOREIGN_NEWS_SHEET_TAB: "해외자동차뉴스_자동수집"
           GOOGLE_SHEETS_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SHEETS_SERVICE_ACCOUNT_JSON }}
       - name: Commit changed snapshot
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           if git diff --quiet -- public/community/data/foreign-car-news.json public/community/data/board-foreign-car-news.js; then
             echo "No article changes"
@@ -61,7 +64,11 @@ jobs:
           git commit -m "data: refresh overseas automotive news"
           # 다른 작업이 main 에 먼저 올라가 있으면 최신 main 위로 다시 얹어서 올린다(최대 5번)
           for attempt in 1 2 3 4 5; do
-            if git push origin HEAD:main; then exit 0; fi
+            if git push origin HEAD:main; then
+              # 봇 커밋은 배포를 자동으로 깨우지 않으므로 GitHub Pages 배포를 직접 실행한다
+              gh api -X POST "repos/${{ github.repository }}/actions/workflows/deploy-pages.yml/dispatches" -f ref=main
+              exit 0
+            fi
             echo "push rejected, rebasing (attempt $attempt)"
             git pull --rebase origin main || { git rebase --abort; exit 1; }
             sleep $((attempt * 3))
