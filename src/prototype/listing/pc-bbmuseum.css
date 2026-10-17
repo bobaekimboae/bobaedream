@@ -39,11 +39,12 @@
   .bbm-header-icons { display: flex; grid-column: 3; flex: none; align-items: center; justify-content: flex-end; gap: 14px; }
   .bbm-header-icons button { display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; background: none; color: #1a1a1a; }
   .bbm-header-auth { display: flex; grid-column: 3; align-items: center; justify-content: flex-end; gap: 8px; }
-  .bbm-header-auth button { display: inline-flex; height: 36px; align-items: center; justify-content: center; padding: 0 15px; border-radius: 999px; font-size: 14px; font-weight: 650; line-height: 20px; white-space: nowrap; }
-  .bbm-login-button { gap: 6px; border: 1px solid #e1e1e1; background: #fff; color: #222; }
-  .bbm-login-button img { width: 18px; height: 18px; flex: none; object-fit: contain; }
-  .bbm-login-button:hover { border-color: #c9c9c9; background: #fafafa; }
-  .bbm-listing-button { border: 1px solid #306bd9; background: #306bd9; color: #fff; }
+  .bbm-header-auth button { display: inline-flex; height: 40px; align-items: center; justify-content: center; padding: 0 16px; border-radius: 999px; box-sizing: border-box; font-size: 14px; font-weight: 600; line-height: 20px; white-space: nowrap; }
+  .bbm-login-button { gap: 7px; min-width: 116px; border: 1px solid #e8e8e8; background: #fff; color: #222; }
+  .bbm-login-button img { width: 20px; height: 20px; flex: none; object-fit: contain; }
+  .bbm-login-button .bbm-login-chevron { margin-left: -2px; color: #555; }
+  .bbm-login-button:hover { border-color: #cfcfcf; background: #fafafa; }
+  .bbm-listing-button { min-width: 112px; border: 1px solid #306bd9; background: #306bd9; color: #fff; }
   .bbm-listing-button:hover { border-color: #1952ba; background: #1952ba; }
   .bbm-header-search-slot { position: relative; grid-column: 2; width: 100%; min-width: 0; }
   .bbm-catalog-search { position: relative; display: flex; height: 40px; align-items: center; gap: 8px; padding: 0 15px; border: 1px solid #ededed; border-radius: 999px; background: #f7f7f8; box-sizing: border-box; }

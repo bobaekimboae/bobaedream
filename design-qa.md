@@ -28,8 +28,6 @@
 
 final result: passed
 
----
-
 ## PC 메인 텍스트 GNB · VieclamTot 블루 검색 버튼 · 2026-10-17
 
 - source visual truth: `qa/pc-main-search/vieclamtot-reference-1440x900.png`과 사용자 지시(탑메뉴 아이콘 제거, 검정 검색 버튼을 블루로 변경).
@@ -5317,6 +5315,19 @@ final result: passed
 - variants: 영문 `BOBAEDREAM`과 한글 `보배드림` 모두 동일한 상하 여백과 블루 타이틀 규칙을 공유한다.
 - evidence: `qa/pc-main-logo-correction/local-kaidee-top-gap-1280x720.png`.
 - runtime: 1280×720 가로 넘침 0px, 한글·영문 렌더링 및 콘솔 오류 0건.
+
+final result: passed
+
+---
+
+## PC 메인 우측 회원 메뉴 초톳형 교정 · 2026-10-18
+
+- 기준 화면: `https://xe.chotot.com/mua-ban-oto` PC 1280×720.
+- 초톳 실측: 로그인 약 `103×40px`, 등록 CTA 높이 `40px`, 버튼 간격 `8px`, `14px/600`, 완전 원형 모서리.
+- 보배드림 적용: 로그인 `118×40px`, `프로필 20px + 로그인 + 아래 화살표 16px`; CTA `112×40px`, 문구 `무료 매물등록`, 브랜드 블루 `#306BD9` 유지.
+- 검색창은 기존 `560×48px`, `x=360`, `y=12`를 유지해 가운데 정렬을 보존했다.
+- 1280×720 확인: 회원 메뉴 `x=952~1240`, 가로 넘침 `0`, 검색창과 충돌 `0`.
+- 로컬 증거: `C:/Users/bobae/.codex/visualizations/2026/10/01/01a0f512-065a-7300-9ce1-d86601ce6384/pc-main-auth-chotot-local-1018.png`.
 
 final result: passed
 
