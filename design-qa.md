@@ -5090,3 +5090,34 @@ final result: passed
 - deployed commit: `79f6c63c76ca7e6ae3cf6f5bfc8a8518b48dfed7`.
 
 final result: passed
+
+
+---
+
+## 차량 결함·불만 이해관계자 식별 · 2026-10-17
+
+- 목적: 공식 접수·업체 통지 기능 없이 보배드림 안에서 결함과 불만을 공개하고 동일 사례를 공론화한다.
+- 차량 구분: 국내 신차 / 공식 수입차 / 병행수입차 / 중고차.
+- 국내 신차: 제조사·모델·세부 모델 + 신차 딜러사 + 판매·정비 지점.
+- 공식 수입차: 제조사·모델·세부 모델 + 공식 수입사 + 수입차 딜러사 + 판매·정비 지점.
+- 병행수입차: 제조사·모델·세부 모델 + 병행수입 업체 + 판매 업체·지점.
+- 중고차: 제조사·모델·세부 모델 + 판매 상사 + 판매자·담당자(선택).
+- 공개 상태: 공개 / 추가 제보 / 작성자 업데이트 / 해결 후기. 답변 대기·제조사 전달·조치 완료 등 공식 처리로 오인될 상태는 제거했다.
+- current-run UI audit: 393px 모바일 레이아웃에서 네 가지 차량 유형의 조건부 필드, 공식 수입차 상세 이해관계자 표, 가로 오버플로 없음 확인.
+- automated gate: `node qa/community-autohome-complaint/flow-gate.mjs` PASS 36 / FAIL 0.
+- source flow report: `docs/autohome-complaint-platform-flow-20261017.md`.
+
+final result: passed
+
+
+---
+
+## 수입사·딜러사 자동 후보 사전 · 2026-10-17
+
+- scope: BMW, 벤츠, 렉서스, 포르쉐, 람보르기니 공식 출처 기반 후보 사전.
+- interaction: 제조사 변경 시 수입사 자동값과 딜러·지점 후보가 함께 갱신되며, 사전 미등록 브랜드는 값을 비우고 직접 입력 안내를 노출한다.
+- source safety: 수입 법인 명칭이 공식 출처에서 확인되지 않은 람보르기니는 수입사 자동값을 제공하지 않는다.
+- current-run UI audit: BMW 선택 시 `BMW 코리아` 자동 입력과 공식자료 안내 노출, BYD 선택 시 이전 값 초기화와 직접 입력 폴백 노출 확인.
+- automated gate: `node qa/community-autohome-complaint/flow-gate.mjs` PASS 41 / FAIL 0.
+
+final result: passed
