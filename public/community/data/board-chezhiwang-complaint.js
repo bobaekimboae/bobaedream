@@ -14,18 +14,18 @@
   };
   /* [제조사, 모델, 세부 모델, 판매 구분, 로고, 이미지, 차종, 연료, 가격대, 브랜드 속성, 국가, 가중치, 월 판매량(가상)] */
   var cars=[
-    ['현대','그랜저','2025 그랜저 GN7 하이브리드','국산 신차',L+'logo_hyundai.png',M+'49/87.png','세단','하이브리드','4~5천만원','국산','한국',9,7800],
-    ['기아','쏘렌토','2025 쏘렌토 MQ4 하이브리드','국산 신차',L+'logo_kia.png',M+'3/1977.png','SUV','하이브리드','3~4천만원','국산','한국',8,8900],
-    ['기아','EV6','2025 더 뉴 EV6 롱레인지','국산 신차',L+'logo_kia.png',M+'3/2031.png','SUV','전기','5~7천만원','국산','한국',7,1500],
-    ['현대','싼타페','2025 싼타페 MX5 2.5T','국산 신차',L+'logo_hyundai.png',M+'49/1975.png','SUV','가솔린','3~4천만원','국산','한국',6,5600],
-    ['현대','투싼','2025 더 뉴 투싼 1.6T','국산 신차',L+'logo_hyundai.png',M+'49/1996.png','SUV','가솔린','3~4천만원','국산','한국',5,4800],
-    ['기아','카니발','2025 더 뉴 카니발 3.5','국산 신차',L+'logo_kia.png',M+'3/1989.png','MPV','가솔린','4~5천만원','국산','한국',5,7200],
-    ['현대','팰리세이드','2026 디 올 뉴 팰리세이드 하이브리드','국산 신차',L+'logo_hyundai.png',M+'49/2041.png','SUV','하이브리드','5~7천만원','국산','한국',4,5100],
-    ['기아','스포티지','2025 더 뉴 스포티지 하이브리드','국산 신차',L+'logo_kia.png',M+'3/2044.png','SUV','하이브리드','3~4천만원','국산','한국',4,6300],
-    ['BMW','X3','2025 X3 xDrive30e','공식 수입차',L+'logo_bmw.png','../%61ssets/cars/bmw/card-three-quarter/x3-three-quarter.png','SUV','플러그인 하이브리드','7천만원~1억','수입','독일',3,900],
-    ['벤츠','E클래스','2025 E 300 4MATIC','공식 수입차',L+'logo_mercedes-benz.png','../%61ssets/cars/mercedes/models/card/e-class.png','세단','가솔린','7천만원~1억','수입','독일',3,2100],
-    ['렉서스','RX','2025 RX 450h+','공식 수입차',L+'logo_lexus.png','../%61ssets/cars/seoul-autogallery-v01/sag-06-1.webp','SUV','플러그인 하이브리드','1억 이상','수입','일본',2,300],
-    ['포르쉐','타이칸','2025 Taycan 4S','공식 수입차',L+'logo_porsche.png','../%61ssets/cars/seoul-autogallery-v01/sag-02-1.webp','스포츠카','전기','1억 이상','수입','독일',2,120]
+    ['현대','그랜저','2025 그랜저 GN7 하이브리드','국산 신차',L+'logo_hyundai.png',M+'49/87.png','세단','하이브리드','4~5천만원','국산','국산',9,7800,'준대형',4300],
+    ['기아','쏘렌토','2025 쏘렌토 MQ4 하이브리드','국산 신차',L+'logo_kia.png',M+'3/1977.png','SUV','하이브리드','3~4천만원','국산','국산',8,8900,'중형',3900],
+    ['기아','EV6','2025 더 뉴 EV6 롱레인지','국산 신차',L+'logo_kia.png',M+'3/2031.png','SUV','전기','5~7천만원','국산','국산',7,1500,'중형',5500],
+    ['현대','싼타페','2025 싼타페 MX5 2.5T','국산 신차',L+'logo_hyundai.png',M+'49/1975.png','SUV','가솔린','3~4천만원','국산','국산',6,5600,'중형',3800],
+    ['현대','투싼','2025 더 뉴 투싼 1.6T','국산 신차',L+'logo_hyundai.png',M+'49/1996.png','SUV','가솔린','3~4천만원','국산','국산',5,4800,'준중형',3100],
+    ['기아','카니발','2025 더 뉴 카니발 3.5','국산 신차',L+'logo_kia.png',M+'3/1989.png','MPV','가솔린','4~5천만원','국산','국산',5,7200,'대형',4200],
+    ['현대','팰리세이드','2026 디 올 뉴 팰리세이드 하이브리드','국산 신차',L+'logo_hyundai.png',M+'49/2041.png','SUV','하이브리드','5~7천만원','국산','국산',4,5100,'대형',5800],
+    ['기아','스포티지','2025 더 뉴 스포티지 하이브리드','국산 신차',L+'logo_kia.png',M+'3/2044.png','SUV','하이브리드','3~4천만원','국산','국산',4,6300,'준중형',3500],
+    ['BMW','X3','2025 X3 xDrive30e','공식 수입차',L+'logo_bmw.png','../%61ssets/cars/bmw/card-three-quarter/x3-three-quarter.png','SUV','플러그인 하이브리드','7천만원~1억','수입','독일',3,900,'중형',8600],
+    ['벤츠','E클래스','2025 E 300 4MATIC','공식 수입차',L+'logo_mercedes-benz.png','../%61ssets/cars/mercedes/models/card/e-class.png','세단','가솔린','7천만원~1억','수입','독일',3,2100,'준대형',8900],
+    ['렉서스','RX','2025 RX 450h+','공식 수입차',L+'logo_lexus.png','../%61ssets/cars/seoul-autogallery-v01/sag-06-1.webp','SUV','플러그인 하이브리드','1억 이상','수입','일본',2,300,'준대형',11500],
+    ['포르쉐','타이칸','2025 Taycan 4S','공식 수입차',L+'logo_porsche.png','../%61ssets/cars/seoul-autogallery-v01/sag-02-1.webp','스포츠카','전기','1억 이상','수입','독일',2,120,'대형',15000]
   ];
   /* [대분류, 문제 분류, 제목(차명 뒤), 내용, 대표 문제 [[분류, 구체 증상]...]] */
   var issues=[
@@ -63,7 +63,7 @@
       id:String(9720001+i),complaintId:'czw-'+String(1001+i),category:issue[0],issueType:issue[0],subtypes:issue[1],title:issue[2],summary:issue[3],body:issue[3],problems:issue[4],
       author:authors[i%authors.length],publishedAt:ymd(posted)+'T'+pad(8+(i%11))+':'+pad((i*13)%60)+':00+09:00',views:String(520+i*131),comments:String(3+(i*7)%36),likes:String(8+(i*13)%91),
       brand:car[0],manufacturer:car[0],model:car[1],trim:car[2],vehicleType:car[3],brandLogo:car[4],thumbnail:car[5],images:car[5],
-      bodyType:car[6],fuel:car[7],priceBand:car[8],brandOrigin:car[9],country:car[10],monthlySales:car[12],
+      bodyType:car[6],fuel:car[7],priceBand:car[8],brandOrigin:car[9],country:car[10],monthlySales:car[12],carClass:car[13],price:car[14],
       city:cities[i%cities.length],odometer:String(1800+i*1570),purchaseDate:ymd(bought),problemDate:ymd(problem),
       accident:i%7===0?'있음':'없음',injury:'없음',dealerGroup:car[3]==='공식 수입차'?'공식 딜러사':'신차 판매점',dealerBranch:cities[i%cities.length]+' 지점',
       publicLabel:['공개','추가 제보','작성자 업데이트','해결 후기'][i%4],verified:i%5!==4,hasPhoto:i%3!==1,hasVideo:i%5===0
