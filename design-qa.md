@@ -5104,7 +5104,6 @@ final result: passed
 
 final result: passed
 
-
 ---
 
 ## 차량 결함·불만 이해관계자 식별 · 2026-10-17
@@ -5132,5 +5131,17 @@ final result: passed
 - source safety: 수입 법인 명칭이 공식 출처에서 확인되지 않은 람보르기니는 수입사 자동값을 제공하지 않는다.
 - current-run UI audit: BMW 선택 시 `BMW 코리아` 자동 입력과 공식자료 안내 노출, BYD 선택 시 이전 값 초기화와 직접 입력 폴백 노출 확인.
 - automated gate: `node qa/community-autohome-complaint/flow-gate.mjs` PASS 41 / FAIL 0.
+---
 
+## GitHub Pages 매물등록 × Chợ Tốt 등록폼 동일화 · 2026-10-17
+
+- source visual truth: `artifacts/register-ui-audit-20261017/01-chotot-detail-form.png`, `01a-chotot-detail-top.png`.
+- implementation evidence: `12-implementation-full-v3.png`, `13-implementation-mobile-v3.png`, `15-implementation-pc-v3.png`.
+- combined comparison evidence: `14-comparison-v3.png`, `16-full-comparison-final.png`.
+- viewport: 393×852 모바일, 1280×900 PC.
+- structure: 사진/영상 → 설명 → 제목 → 가격 → 지역 → 판매자 → 2열 상세 정보 → 3분할 고정 하단 액션 순서를 원본과 동일하게 재구성했다.
+- interaction verification: 이미지 첨부, 삭제, 드래그/터치 순서 변경, 서류 첨부, 선택 필드, 미리보기, 임시저장, 등록 검증 흐름을 자동화로 통과했다.
+- responsive verification: 모바일 가로 넘침 0, 상세 필드 2열 유지, PC에서 등록폼 394px 중앙 정렬.
+- intentional localization: Chợ Tốt 로고·베트남어 문구는 보배드림 로고·한국어 매물 항목으로만 치환했고, 배치·크기·간격·상태 구조는 유지했다.
+- validation: `npm run check:runtime`, `npm run verify:qf`, `npm run verify`, `npm run register:verify:chotot-parity` 통과.
 final result: passed
