@@ -6,7 +6,7 @@
   .marketplace.is-bbm { min-height: 100%; padding: 0 0 48px; background: #f4f4f4; color: #1a1a1a; }
   .marketplace.is-bbm button { font-family: inherit; cursor: pointer; }
 
-  /* 카이디형 검색 중심 헤더: 검색 48을 72px 행 중앙에 배치(상하 12) · 메뉴 49 */
+  /* 초톳형 검색 중심 헤더: 로고·검색·우측 액션 40px을 72px 행 중앙에 배치(상하 16) · 메뉴 49 */
   .bbm-header { height: 121px; background: #fff; box-shadow: 0 1px 0 #ebebeb; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
   .bbm-header-inner { position: relative; width: min(1200px, calc(100% - 48px)); height: 121px; margin: 0 auto; }
   .bbm-header-top { display: flex; align-items: center; justify-content: flex-end; height: 20px; padding: 3px 0 1px; box-sizing: border-box; }
@@ -14,7 +14,7 @@
   .bbm-header-top button + button { margin-left: 17px; }
   .bbm-header-top button + button::before { content: ""; position: absolute; top: 4.4px; left: -9px; width: 1px; height: 8px; background: #e0e0e0; }
   .bbm-header-main { display: grid; height: 72px; grid-template-columns: minmax(192px, 1fr) minmax(320px, 560px) minmax(192px, 1fr); align-items: center; gap: 32px; }
-  .bbm-logo { display: flex; grid-column: 1; align-items: center; gap: 8px; height: 30px; padding: 0; border: 0; background: none; }
+  .bbm-logo { display: flex; grid-column: 1; align-items: center; gap: 8px; height: 40px; padding: 0; border: 0; background: none; }
   .bbm-logo-emblem { display: block; overflow: hidden; width: 30px; height: 30px; flex: 0 0 30px; border-radius: 50%; background: none; }
   .bbm-logo-emblem img { display: block; width: 122px; max-width: none; height: 30px; }
   .bbm-logo-word { width: auto; height: auto; flex: none; background: none; color: #306bd9; font-size: 18px; font-weight: 800; line-height: 24px; letter-spacing: -.35px; }
@@ -189,9 +189,9 @@
   .bbm-gnb > button > .bbm-gnb-icon,
   .bbm-gnb-more > .bbm-gnb-icon { display: none; }
   .bbm-catalog-search.is-main {
-    height: 48px;
+    height: 40px;
     gap: 8px;
-    padding: 0 6px 0 18px;
+    padding: 0 4px 0 16px;
     border: 0;
     border-radius: 999px;
     background: #f4f4f4;
@@ -211,8 +211,8 @@
   }
   .bbm-catalog-search.is-main > input::placeholder { color: #767676; opacity: 1; }
   .bbm-catalog-search.is-main .bbm-catalog-search-go {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     background: #306bd9;
   }
   .bbm-catalog-search.is-main .bbm-catalog-search-go:hover { background: #1952ba; }

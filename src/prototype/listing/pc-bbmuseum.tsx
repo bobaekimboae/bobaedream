@@ -111,12 +111,12 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
             {searchSlot}
           </div> : null}
           {variant === "default" ? <div className="bbm-header-auth" aria-label="회원 메뉴">
+            <button type="button" className="bbm-listing-button" onClick={() => onNotify("무료 매물등록은 정식 서비스에서 이용해 주세요.")}>무료 매물등록</button>
             <button type="button" className="bbm-login-button" onClick={() => onNotify("로그인은 정식 서비스에서 이용해 주세요.")}>
               <img src={bbmAsset("header-mypage")} alt="" aria-hidden="true" />
               <span>로그인</span>
               <BbIcon name="chevron-down" size={16} className="bbm-login-chevron" />
             </button>
-            <button type="button" className="bbm-listing-button" onClick={() => onNotify("무료 매물등록은 정식 서비스에서 이용해 주세요.")}>무료 매물등록</button>
           </div> : <div className={`bbm-header-actions is-${variant}`}>
             {variant === "chotot" ? <>
               <button type="button" className="bbm-act-icon" aria-label="찜" onClick={onOpenFavorites}><img src={bbmAsset("header-heart")} alt="" aria-hidden="true" /></button>
