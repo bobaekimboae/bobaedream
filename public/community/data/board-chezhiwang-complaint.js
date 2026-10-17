@@ -22,16 +22,27 @@
     ['기타','제품 문제','인도 직후 도장 얼룩과 단차를 발견했습니다','차량 인수 다음 날 밝은 곳에서 보닛 도장 얼룩과 범퍼 단차를 확인했습니다. 출고 전 검수 기록과 보수 범위를 요청했습니다.'],
     ['종합','타이어 · 서비스 절차 미흡','타이어 편마모 점검과 안내가 충분하지 않았습니다','정기점검에서 이상이 없다는 안내를 받았지만 곧 편마모가 확인됐습니다. 품질 증상과 서비스 절차를 함께 공유합니다.']
   ];
+  /* 처즈왕 대표 문제(典型问题) 방식: [결함 부위 또는 서비스 유형, 구체 증상] */
+  var problems=[
+    [['엔진·모터','출력 제한'],['계기판','경고등 반복']],
+    [['변속기','변속 충격']],
+    [['제동 시스템','떨림·소음']],
+    [['차체 부속·전기장치','내비 재부팅'],['차체 부속·전기장치','후방 카메라 꺼짐']],
+    [['약속 불이행','대차 미제공'],['약속 불이행','안내 불일치']],
+    [['서비스 비용','미고지 추가 청구']],
+    [['도장·외관','도장 얼룩'],['도장·외관','범퍼 단차']],
+    [['타이어','편마모'],['서비스 절차','점검 안내 부족']]
+  ];
   var authors=['서울오너','차량기록장','안전제보','정비노트','주말드라이버','모터로그','출퇴근차주','패밀리카'];
   var cities=['서울','경기','인천','부산','대전','대구','광주','세종'];
   var rows=[];
   for(var i=0;i<32;i++){
-    var car=cars[i%cars.length],issue=issues[i%issues.length];
+    var car=cars[i%cars.length],k=(i+Math.floor(i/cars.length)*3)%issues.length,issue=issues[k];
     rows.push({
       id:String(9720001+i),complaintId:'czw-'+String(1001+i),category:issue[0],issueType:issue[0],subtypes:issue[1],title:issue[2],summary:issue[3],body:issue[3],
       author:authors[i%authors.length],publishedAt:'2026-10-'+String(17-(i%15)).padStart(2,'0')+'T'+String(8+(i%9)).padStart(2,'0')+':20:00+09:00',views:String(520+i*131),comments:String(3+(i*7)%36),likes:String(8+(i*13)%91),
       brand:car[0],manufacturer:car[0],model:car[1],trim:car[2],vehicleType:car[3],brandLogo:car[4],thumbnail:car[5],images:car[5],city:cities[i%cities.length],odometer:String(1800+i*1570),
-      purchaseDate:'2025-'+String(1+(i%9)).padStart(2,'0')+'-12',problemDate:'2026-10-'+String(2+(i%14)).padStart(2,'0'),accident:i%7===0?'있음':'없음',injury:'없음',dealerGroup:car[3]==='공식 수입차'?'공식 딜러사':'신차 판매점',dealerBranch:cities[i%cities.length]+' 지점',publicLabel:['공개','추가 제보','작성자 업데이트','해결 후기'][i%4],verified:i%5!==4
+      purchaseDate:'2025-'+String(1+(i%9)).padStart(2,'0')+'-12',problemDate:'2026-10-'+String(2+(i%14)).padStart(2,'0'),accident:i%7===0?'있음':'없음',injury:'없음',dealerGroup:car[3]==='공식 수입차'?'공식 딜러사':'신차 판매점',dealerBranch:cities[i%cities.length]+' 지점',publicLabel:['공개','추가 제보','작성자 업데이트','해결 후기'][i%4],verified:i%5!==4,problems:problems[k],hasPhoto:i%3!==1,hasVideo:i%5===0
     });
   }
   tables['chezhiwang-complaint']={board:'chezhiwang-complaint',displayName:'처즈왕 결함·불만',idStart:9720001,defaultView:'',updatedAt:'2026-10-17T23:00:00+09:00',topics:['전체','품질','서비스','기타','종합'],rows:rows};
