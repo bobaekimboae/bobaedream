@@ -420,6 +420,11 @@
 .bbmf-section-title { margin: 0 0 12px; color: #1a1a1a; font-size: 14px; font-weight: 600; line-height: 19.6px; }
 .bbmf-section-title.is-muted { margin-bottom: 12px; color: #767676; font-weight: 400; }
 .bbmf-section-title.is-option { margin-bottom: 4px; color: #333; font-size: 15px; font-weight: 500; line-height: 15px; }
+.bbmf-region-depth { display: grid; gap: 18px; padding-top: 8px; }
+.bbmf-region-depth section { min-width: 0; }
+.bbmf-region-depth .bbmf-section-title { margin-bottom: 8px; }
+.bbmf-region-depth .bbmf-select { width: 100%; }
+.bbmf-region-depth .bbmf-select select { width: 100%; }
 
 /* ── 옵션 모달: 왼쪽 탭 62 + 간격 16 + 목록 */
 .bbmf-options { display: flex; align-items: flex-start; gap: 16px; }

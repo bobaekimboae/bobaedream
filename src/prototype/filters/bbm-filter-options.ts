@@ -12,6 +12,8 @@ export const bbmCheckOptions: Record<BbmCheckKey, string[]> = {
   region: ["서울", "부산", "대구", "인천", "광주", "전남광주", "대전", "울산", "세종", "경기", "충북", "충남", "전남", "경북", "경남", "제주", "강원", "전북"],
   // QF-111 구·군("서울 강남구" 형식, regions-kr.json 228개) — 퀵필터 지역 줄·모바일 지역 시트에서만 고른다
   district: Object.entries(regionsKr.districts).flatMap(([sido, list]) => list.map((name) => `${sido} ${name}`)),
+  // 바이크 지역 모달에서 시·군·구 선택 뒤 동 단위로 동적 생성한다.
+  neighborhood: [],
   complex: ["서울", "부산", "대구", "인천", "광주", "대전", "울산", "경기", "충북", "충남", "전남", "경북", "경남", "제주", "강원", "전북"],
   seats: ["2인승", "3인승", "4인승", "5인승", "6인승", "7인승", "8인승", "9인승", "10인승", "11인승", "15인승~"],
   drive: ["전륜", "후륜", "4륜"],
@@ -99,6 +101,7 @@ export const bbmSidebarItems: BbmFilterItem[] = [
   { label: "장르", mode: "modal", checkKey: "bikeGenre", scope: "bike" },
   { label: "면허", mode: "modal", checkKey: "bikeLicense", scope: "bike" },
   { label: "매물출처", mode: "modal", checkKey: "bikeSource", scope: "bike" },
+  { label: "바이크 지역", displayLabel: "지역", modalTitle: "지역 선택", mode: "modal", scope: "bike" },
   { label: "부품 분류", displayLabel: "분류", mode: "modal", checkKey: "partsSubtype", scope: "parts" },
   { label: "부품 상태", displayLabel: "상태", mode: "modal", checkKey: "partsCondition", scope: "parts" },
   { label: "적용 차종", mode: "modal", checkKey: "partsFit", scope: "parts", columns: 2 },
@@ -124,7 +127,7 @@ export const partsFilterOrder: string[] = [BBM_MAKER_ITEM, "부품 분류", "부
 // 부품·용품 가격 구간(만원). 승용 구간(천만원 단위) 대신 쓴다
 export const partsPricePresets: string[] = ["전체", "~5만원", "5~20만원", "20~50만원", "50~100만원", "100~300만원", "300만원~"];
 // 라이트바겐 중고 바이크 PC 좌측 필터(2026-10-18 실측) 순서.
-export const bikeFilterOrder: string[] = [BBM_MAKER_ITEM, "연식", "가격", "주행거리", "장르", "배기량", "면허", "지역"];
+export const bikeFilterOrder: string[] = [BBM_MAKER_ITEM, "연식", "가격", "주행거리", "장르", "배기량", "연료", "면허", "바이크 지역"];
 export const truckFilterOrder: string[] = [
   BBM_MAKER_ITEM,
   "트럭 가변축",

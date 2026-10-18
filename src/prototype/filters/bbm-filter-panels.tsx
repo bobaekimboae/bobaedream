@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
-import { asset } from "../data";
+import { asset, bikeNeighborhoodsForDistrict } from "../data";
 import { BbmCheckGrid, BbmCheckRow, BbmChoiceGrid, BbmColorChips, BbmKeywordInput, BbmPresetChips, BbmRangeInputs, BbmSelectBox, BbmSheet, BbmSlider, BbmTabs } from "./bbm-filter-parts";
 import { bbmAdPeriods, bbmCheckOptions, bbmOptionGroups, bbmRangePresets, type BbmFilterItem } from "./bbm-filter-options";
 import { bbmOriginalCounts } from "./bbm-original-counts";
@@ -332,6 +332,36 @@ export function BbmExpandPanel({ label, value, onChange, countOf, variant = "sid
 export function BbmModalPanel({ item, value, onChange, countOf }: PanelProps & { item: BbmFilterItem }) {
   const [optionTab, setOptionTab] = useState(bbmOptionGroups[0][0]);
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
+  if (item.label === "바이크 지역") {
+    const province = value.checks.region?.[0] ?? "";
+    const districtPath = value.checks.district?.[0] ?? "";
+    const district = districtPath.split(" ").slice(1).join(" ");
+    const neighborhoodPath = value.checks.neighborhood?.[0] ?? "";
+    const neighborhood = neighborhoodPath.split(" ").slice(2).join(" ");
+    const districts = province
+      ? bbmCheckOptions.district.filter((option) => option.startsWith(`${province} `)).map((option) => option.slice(province.length + 1))
+      : [];
+    const neighborhoods = districtPath ? bikeNeighborhoodsForDistrict(districtPath) : [];
+    const chooseProvince = (next: string) => {
+      let out = setBbmChecks(value, "region", next ? [next] : []);
+      out = setBbmChecks(out, "district", []);
+      onChange(setBbmChecks(out, "neighborhood", []));
+    };
+    const chooseDistrict = (next: string) => {
+      const path = province && next ? `${province} ${next}` : "";
+      let out = setBbmChecks(value, "district", path ? [path] : []);
+      out = setBbmChecks(out, "neighborhood", []);
+      onChange(out);
+    };
+    const chooseNeighborhood = (next: string) => onChange(setBbmChecks(value, "neighborhood", districtPath && next ? [`${districtPath} ${next}`] : []));
+    return (
+      <div className="bbmf-region-depth">
+        <section><h4 className="bbmf-section-title">시/도</h4><BbmSelectBox label="시/도 선택" value={province} options={bbmCheckOptions.region.filter((option) => option !== "전남광주")} onChange={chooseProvince} /></section>
+        <section><h4 className="bbmf-section-title">시/군/구</h4><BbmSelectBox label="시/군/구 선택" value={district} options={districts} onChange={chooseDistrict} /></section>
+        <section><h4 className="bbmf-section-title">동·읍·면</h4><BbmSelectBox label="동·읍·면 선택" value={neighborhood} options={neighborhoods} onChange={chooseNeighborhood} /></section>
+      </div>
+    );
+  }
   if (item.label === "외부색상") {
     return <BbmColorChips options={bbmCheckOptions.exteriorColor} swatches={exteriorSwatches} selected={value.checks.exteriorColor ?? []} onToggle={(option) => onChange(toggleBbmCheck(value, "exteriorColor", option))} />;
   }
@@ -385,6 +415,7 @@ export function BbmModalPanel({ item, value, onChange, countOf }: PanelProps & {
 
 // 모달 [초기화]: 이 항목의 값만 지운다
 export function clearBbmItem(item: BbmFilterItem, value: BbmFilterValues): BbmFilterValues {
+  if (item.label === "바이크 지역") return setBbmChecks(setBbmChecks(setBbmChecks(value, "region", []), "district", []), "neighborhood", []);
   if (item.label === "시트색상") return setBbmChecks(setBbmChecks(value, "seatColor", []), "seatFinish", []);
   if (item.label === "크기") return (["length", "width", "height"] as BbmRangeKey[]).reduce((next, key) => setBbmRange(next, key, { min: "", max: "" }), value);
   if (item.label === "광고기간") return setBbmAdPeriod(value, "전체");

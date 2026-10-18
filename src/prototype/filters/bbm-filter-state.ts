@@ -3,7 +3,7 @@
 // 원본처럼 고르는 즉시 조건이 걸린다. 우리 데이터(Car.filter 등)에 값이 있는 항목만 목록을 거르고(BBM_DATA_*), 나머지는 선택 모양만 남는다.
 
 export type BbmCheckKey =
-  | "bodyType" | "carClass" | "region" | "district" | "complex" | "seats" | "drive" | "history" | "sellerKind" | "saleType"
+  | "bodyType" | "carClass" | "region" | "district" | "neighborhood" | "complex" | "seats" | "drive" | "history" | "sellerKind" | "saleType"
   | "exteriorColor" | "seatColor" | "seatFinish" | "fuel" | "transmission" | "options" | "features"
   | "bikeGenre" | "bikeLicense" | "bikeSource"
   | "partsSubtype" | "partsCondition" | "partsFit"
@@ -30,7 +30,7 @@ export const emptyBbmFilters: BbmFilterValues = { checks: {}, ranges: {}, priceT
 // 우리 데이터로 실제로 거르는 항목(QF-090)
 // QF-111: district(구·군) 값은 "서울 강남구"처럼 시도를 포함(중구 등 이름 겹침 방지). 매물은 place 앞 두 단어로 비교
 export const BBM_DATA_CHECK_KEYS: BbmCheckKey[] = [
-  "bodyType", "fuel", "transmission", "seats", "exteriorColor", "sellerKind", "region", "district",
+  "bodyType", "fuel", "transmission", "seats", "exteriorColor", "sellerKind", "region", "district", "neighborhood",
   "bikeGenre", "bikeLicense", "bikeSource",
   "partsSubtype", "partsCondition", "partsFit",
   "truckAxle", "truckInspection", "truckPerformance", "truckSellerKind", "truckUse", "truckColor", "truckFuel", "truckTransmission", "truckOptions", "truckCargoLength",
@@ -194,6 +194,7 @@ export function bbmCarChecks(car: BbmCarLike): Partial<Record<BbmCheckKey, strin
     sellerKind: car.sellerType === "딜러" ? ["딜러"] : car.sellerType === "개인" ? ["개인"] : [],
     region: car.place ? [car.place.split(" ")[0]] : [],
     district: car.place && car.place.split(" ").length > 1 ? [car.place.split(" ").slice(0, 2).join(" ")] : [],
+    neighborhood: car.place && car.place.split(" ").length > 2 ? [car.place.split(" ").slice(0, 3).join(" ")] : [],
     truckAxle: car.truck?.axle ? [car.truck.axle] : [],
     truckInspection: car.truck?.inspection ? [car.truck.inspection] : [],
     truckPerformance: car.truck?.performance ? [car.truck.performance] : [],

@@ -10,6 +10,7 @@ import {
   chototTestCars,
   bbmSampleCars,
   bikeCars,
+  bikeNeighborhoodsForDistrict,
   campingCars,
   luxuryUiTestCars,
   luxuryCategoryCars,
@@ -707,11 +708,13 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
   );
 }
 
-function RegionSheet({ value, resultCount, onChange, onClose, onConfirm }: { value: RegionSelection; resultCount: number; onChange: (value: RegionSelection) => void; onClose: () => void; onConfirm: () => void }) {
+function RegionSheet({ value, resultCount, onChange, onClose, onConfirm, allowNeighborhood = false }: { value: RegionSelection; resultCount: number; onChange: (value: RegionSelection) => void; onClose: () => void; onConfirm: () => void; allowNeighborhood?: boolean }) {
   const [menu, setMenu] = useState<RegionMenu>(null);
   const districtOptions = value.province ? districtsByProvince[value.province] ?? ["전체"] : [];
+  const districtPath = value.province && value.district ? `${value.province} ${value.district}` : "";
+  const neighborhoodOptions = allowNeighborhood && districtPath ? bikeNeighborhoodsForDistrict(districtPath) : [];
   const chooseProvince = (province: string) => {
-    onChange(province === "전국" ? emptyRegion : { province, district: "", radius: "" });
+    onChange(province === "전국" ? emptyRegion : { province, district: "", neighborhood: "", radius: "" });
     setMenu(null);
   };
   const chooseQuickRegion = (label: string) => chooseProvince(label === "전남광주" ? "광주" : label);
@@ -727,14 +730,18 @@ function RegionSheet({ value, resultCount, onChange, onClose, onConfirm }: { val
         <div className="region-quick-chips" aria-label="빠른 지역 선택">{quickRegions.map((label) => <button key={label} type="button" className={(value.province === (label === "전남광주" ? "광주" : label)) ? "is-selected" : ""} aria-pressed={value.province === (label === "전남광주" ? "광주" : label)} onClick={() => chooseQuickRegion(label)}>{label}</button>)}</div>
         <div className="region-select-wrap">
           <button className="region-select" type="button" disabled={!value.province} aria-expanded={menu === "district"} onClick={() => setMenu((current) => current === "district" ? null : "district")}><span className={`region-select-value${value.district ? " has-value" : ""}`}>{value.district || "시/군/구 선택"}</span><span className="region-select-chevron" aria-hidden="true"><Icon name="sheet-chevron.svg" /></span></button>
-          {menu === "district" ? <div className="region-menu" role="listbox" aria-label="시군구 선택">{districtOptions.map((district) => <button key={district} type="button" role="option" aria-selected={(value.district || "전체") === district} onClick={() => { onChange({ ...value, district: district === "전체" ? "" : district, radius: "" }); setMenu(null); }}>{district}</button>)}</div> : null}
+          {menu === "district" ? <div className="region-menu" role="listbox" aria-label="시군구 선택">{districtOptions.map((district) => <button key={district} type="button" role="option" aria-selected={(value.district || "전체") === district} onClick={() => { onChange({ ...value, district: district === "전체" ? "" : district, neighborhood: "", radius: "" }); setMenu(null); }}>{district}</button>)}</div> : null}
         </div>
+        {allowNeighborhood ? <div className="region-select-wrap">
+          <button className="region-select" type="button" disabled={!value.district} aria-expanded={menu === "neighborhood"} onClick={() => setMenu((current) => current === "neighborhood" ? null : "neighborhood")}><span className={`region-select-value${value.neighborhood ? " has-value" : ""}`}>{value.neighborhood || "동·읍·면 선택"}</span><span className="region-select-chevron" aria-hidden="true"><Icon name="sheet-chevron.svg" /></span></button>
+          {menu === "neighborhood" ? <div className="region-menu" role="listbox" aria-label="동읍면 선택">{["전체", ...neighborhoodOptions].map((neighborhood) => <button key={neighborhood} type="button" role="option" aria-selected={(value.neighborhood || "전체") === neighborhood} onClick={() => { onChange({ ...value, neighborhood: neighborhood === "전체" ? "" : neighborhood, radius: "" }); setMenu(null); }}>{neighborhood}</button>)}</div> : null}
+        </div> : null}
       </div>
       <div className="region-around">
         <div className="region-around-heading"><span /><strong>내 주변 검색</strong></div>
         <div className="region-select-wrap">
           <button className="region-select" type="button" aria-expanded={menu === "radius"} onClick={() => setMenu((current) => current === "radius" ? null : "radius")}><span className={`region-select-value${value.radius ? " has-value" : ""}`}>{value.radius ? `내 위치에서 ${value.radius}` : "내 위치와 검색 반경 선택"}</span><span className="region-select-chevron" aria-hidden="true"><Icon name="sheet-chevron.svg" /></span></button>
-          {menu === "radius" ? <div className="region-menu is-upward" role="listbox" aria-label="검색 반경 선택">{radiusOptions.map((radius) => <button key={radius} type="button" role="option" aria-selected={value.radius === radius} onClick={() => { onChange({ province: "", district: "", radius }); setMenu(null); }}>{radius}</button>)}</div> : null}
+          {menu === "radius" ? <div className="region-menu is-upward" role="listbox" aria-label="검색 반경 선택">{radiusOptions.map((radius) => <button key={radius} type="button" role="option" aria-selected={value.radius === radius} onClick={() => { onChange({ province: "", district: "", neighborhood: "", radius }); setMenu(null); }}>{radius}</button>)}</div> : null}
         </div>
       </div>
       <div className="region-actions"><button type="button" className="region-reset" onClick={() => { onChange(emptyRegion); setMenu(null); }}>초기화</button><button type="button" className="region-confirm" onClick={onConfirm}>{Math.max(798, resultCount).toLocaleString("ko-KR")}대 매물 보기</button></div>
@@ -924,7 +931,7 @@ function MarketplaceScreen() {
     setSheet(null);
   };
 
-  const regionLabel = region.radius ? `내 주변 ${region.radius}` : [region.province, region.district].filter(Boolean).join(" ") || "전국";
+  const regionLabel = region.radius ? `내 주변 ${region.radius}` : [region.province, region.district, region.neighborhood].filter(Boolean).join(" ") || "전국";
   const regionKeyword = region.province === "광주" ? "광주" : region.province;
   const { maker, model: selectedModel, price, seller: sellerType, videoOnly, category } = filters;
   const isBikeCategory = category === "바이크";
@@ -1210,9 +1217,9 @@ function MarketplaceScreen() {
       const oldcarDecadeMatch = category !== "올드카" || selectedOldcarDecade === null || Math.floor((car.filter?.year ?? 0) / 10) * 10 === selectedOldcarDecade;
       const ferrariDealerMatch = maker !== "페라리" || !selectedFerrariDealer || car.dealer === selectedFerrariDealer;
       const bikeShopMatch = !isBikeCategory || !selectedBikeShop || car.dealer === selectedBikeShop;
-      return categoryChildMatch && heavyMatch && oldcarDecadeMatch && matchesTruckSelection(car) && matchesChoTotFilters(car, filters) && catalogModelMatch && generationMatch && trimMatch && ferrariDealerMatch && bikeShopMatch && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!normalized || searchText.toLowerCase().includes(normalized));
+      return categoryChildMatch && heavyMatch && oldcarDecadeMatch && matchesTruckSelection(car) && matchesChoTotFilters(car, filters) && catalogModelMatch && generationMatch && trimMatch && ferrariDealerMatch && bikeShopMatch && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!region.neighborhood || car.place.includes(region.neighborhood)) && (!normalized || searchText.toLowerCase().includes(normalized));
     });
-  }, [bbmCategoryChild, category, effectiveSelectedVariants, filters, heavySelection, isBikeCategory, isCampingCategory, isCatalogMaker, isGuaziQuickStyle, isHeavyCategory, isTruckCategory, listingCars, maker, query, region.district, regionKeyword, selectedBikeShop, selectedFerrariDealer, selectedGeneration, selectedGenerationOption, selectedOldcarDecade, selectedTruckFormat, selectedTruckSpec, selectedTruckSubtype, selectedVariants, trimApplied]);
+  }, [bbmCategoryChild, category, effectiveSelectedVariants, filters, heavySelection, isBikeCategory, isCampingCategory, isCatalogMaker, isGuaziQuickStyle, isHeavyCategory, isTruckCategory, listingCars, maker, query, region.district, region.neighborhood, regionKeyword, selectedBikeShop, selectedFerrariDealer, selectedGeneration, selectedGenerationOption, selectedOldcarDecade, selectedTruckFormat, selectedTruckSpec, selectedTruckSubtype, selectedVariants, trimApplied]);
   // QF-090: 우리 데이터가 있는 개발 시안형 항목(바디타입·연식·주행거리·가격·연료·변속기·인승·외부색상·판매자 구분·지역)으로 거른다
   const filteredWithoutPrice = useMemo(() => isGuaziQuickStyle ? baseListCars.filter((car) => matchesBbmFilters(car, filters.bbm)) : baseListCars, [baseListCars, filters.bbm, isGuaziQuickStyle]);
   // QF-097 보완(매물 수 기준 하나로): 과쯔 카탈로그 제조사의 모델·세부 모델·트림 수 = 화면 샘플 매물 수(모델·세부 모델·트림만 뺀 지금 조건).
@@ -1220,9 +1227,9 @@ function MarketplaceScreen() {
   const depthBaseCars = useMemo(() => {
     if (!isGuaziQuickStyle) return [];
     return listingCars.filter((car) => {
-      return matchesTruckSelection(car) && matchesChoTotFilters(car, { ...filters, model: null }) && matchesBbmFilters(car, filters.bbm) && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district));
+      return matchesTruckSelection(car) && matchesChoTotFilters(car, { ...filters, model: null }) && matchesBbmFilters(car, filters.bbm) && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!region.neighborhood || car.place.includes(region.neighborhood));
     });
-  }, [filters, isGuaziQuickStyle, isTruckCategory, listingCars, region.district, regionKeyword, selectedTruckFormat, selectedTruckSpec, selectedTruckSubtype]);
+  }, [filters, isGuaziQuickStyle, isTruckCategory, listingCars, region.district, region.neighborhood, regionKeyword, selectedTruckFormat, selectedTruckSpec, selectedTruckSubtype]);
   const { generationsByMakerModelMap, modelVisualsByMakerMap } = useMemo(() => {
     if (!isGuaziQuickStyle || supportsVehicleCatalog && vehicleCatalog.index) return { generationsByMakerModelMap: rawGenerationsByMakerModelMap, modelVisualsByMakerMap: rawModelVisualsByMakerMap };
     const generations = { ...rawGenerationsByMakerModelMap };
@@ -1901,8 +1908,8 @@ function MarketplaceScreen() {
     },
   ] as Array<QuickFilterChip | null>).filter((chip): chip is QuickFilterChip => Boolean(chip));
   const marketSheet = (
-      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && closeSheet()} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" || sheet === "maker" || sheet === "vehicle" || sheet === "price" || sheet === "filter" || sheet === "quick" || sheet === "carType" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "filter" || sheet === "maker" || sheet === "quick" ? 0.96 : sheet === "vehicle" ? 0.8 : sheet === "carType" ? 0.8 : sheet === "region" ? 0.53 : sheet === "price" ? 0.62 : 0.48}>
-        {sheet === "filter" ? <ChoTotFilterSheet value={draftFilters} focus={filterFocus} onChange={setDraftFilters} onClose={() => { setFilterFocus(null); closeSheet(); }} onReset={() => resetFilters({ closeActiveSheet: false })} onConfirm={() => { setFilters(draftFilters); setFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "carType" ? <CategoryFilterSheet selected={category} onChoose={chooseCategoryFilter} onClose={closeSheet} /> : sheet === "quick" && quickFilterFocus ? <ChoTotQuickFilterSheet focus={quickFilterFocus} value={draftFilters} onChange={setDraftFilters} onClose={() => { setQuickFilterFocus(null); closeSheet(); }} onConfirm={() => { setFilters(draftFilters); setQuickFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "vehicle" ? supportsVehicleCatalog && vehicleCatalog.index ? <CatalogVehiclePickerSheet catalog={vehicleCatalog} maker={maker} model={selectedModel} generation={selectedGeneration} initialRecord={catalogSelectionRecord} onChoose={chooseCatalogRecord} onReset={clearMakerFilter} /> : <VehiclePickerSheet maker={maker} model={selectedModel} generation={selectedGeneration} makerOptions={categoryBrandRail.options} onApply={applyVehicleSummarySelection} modelsByMaker={modelsByMakerMap} generationsByMakerModel={generationsByMakerModelMap} modelVisualsByMaker={modelVisualsByMakerMap} renderMakerLogo={isGuaziQuickStyle ? (option) => <CategoryBrandLogo category={category} name={option.maker ?? option.name} kind="list" /> : undefined} /> : sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} resultCount={filteredWithoutPrice.length} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} /> : sheet === "price" ? <PriceSheet value={draftFilters.price} onChange={(nextPrice) => setDraftFilters((current) => ({ ...current, price: nextPrice }))} onClose={closeSheet} onReset={() => setDraftFilters((current) => ({ ...current, price: emptyPrice }))} onConfirm={() => { setFilters((current) => ({ ...current, price: draftFilters.price })); closeSheet(); }} resultCount={draftFilterCount} /> : <div className="sheet-options">
+      <BottomSheet open={sheet !== null} onOpenChange={(open) => !open && closeSheet()} title={sheet ? sheetLabels[sheet] : "필터"} description={sheet === "region" || sheet === "maker" || sheet === "vehicle" || sheet === "price" || sheet === "filter" || sheet === "quick" || sheet === "carType" ? undefined : "원하는 조건을 선택해 매물을 좁혀보세요."} snap={sheet === "filter" || sheet === "maker" || sheet === "quick" ? 0.96 : sheet === "vehicle" ? 0.8 : sheet === "carType" ? 0.8 : sheet === "region" ? (isBikeCategory ? 0.68 : 0.53) : sheet === "price" ? 0.62 : 0.48}>
+        {sheet === "filter" ? <ChoTotFilterSheet value={draftFilters} focus={filterFocus} onChange={setDraftFilters} onClose={() => { setFilterFocus(null); closeSheet(); }} onReset={() => resetFilters({ closeActiveSheet: false })} onConfirm={() => { setFilters(draftFilters); setFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "carType" ? <CategoryFilterSheet selected={category} onChoose={chooseCategoryFilter} onClose={closeSheet} /> : sheet === "quick" && quickFilterFocus ? <ChoTotQuickFilterSheet focus={quickFilterFocus} value={draftFilters} onChange={setDraftFilters} onClose={() => { setQuickFilterFocus(null); closeSheet(); }} onConfirm={() => { setFilters(draftFilters); setQuickFilterFocus(null); closeSheet(); }} resultCount={draftFilterCount} /> : sheet === "vehicle" ? supportsVehicleCatalog && vehicleCatalog.index ? <CatalogVehiclePickerSheet catalog={vehicleCatalog} maker={maker} model={selectedModel} generation={selectedGeneration} initialRecord={catalogSelectionRecord} onChoose={chooseCatalogRecord} onReset={clearMakerFilter} /> : <VehiclePickerSheet maker={maker} model={selectedModel} generation={selectedGeneration} makerOptions={categoryBrandRail.options} onApply={applyVehicleSummarySelection} modelsByMaker={modelsByMakerMap} generationsByMakerModel={generationsByMakerModelMap} modelVisualsByMaker={modelVisualsByMakerMap} renderMakerLogo={isGuaziQuickStyle ? (option) => <CategoryBrandLogo category={category} name={option.maker ?? option.name} kind="list" /> : undefined} /> : sheet === "maker" ? <MakerSheet selected={maker} onChoose={chooseMaker} onClose={closeSheet} /> : sheet === "region" ? <RegionSheet value={draftRegion} resultCount={filteredWithoutPrice.length} onChange={setDraftRegion} onClose={closeSheet} onConfirm={() => { setRegion(draftRegion); closeSheet(); }} allowNeighborhood={isBikeCategory} /> : sheet === "price" ? <PriceSheet value={draftFilters.price} onChange={(nextPrice) => setDraftFilters((current) => ({ ...current, price: nextPrice }))} onClose={closeSheet} onReset={() => setDraftFilters((current) => ({ ...current, price: emptyPrice }))} onConfirm={() => { setFilters((current) => ({ ...current, price: draftFilters.price })); closeSheet(); }} resultCount={draftFilterCount} /> : <div className="sheet-options">
           {sheet === "sort" ? ["최신순", "낮은 가격순", "높은 가격순"].map((label) => <button key={label} type="button" className={sort === label ? "is-selected" : ""} onClick={() => { setSort(label); setSheet(null); }}>{label}</button>) : ["전체", "추천 조건", "인기 조건"].map((label) => <button key={label} type="button" onClick={() => setSheet(null)}>{label}</button>)}
         </div>}
       </BottomSheet>
@@ -2515,6 +2522,7 @@ function MarketplaceScreen() {
     const [kind, key] = id.split(":");
     if (id === "ad") return "광고기간";
     if (id === "keyword") return "차량번호 / 판매자";
+    if (isBikeCategory && kind === "check" && ["region", "district", "neighborhood"].includes(key)) return "바이크 지역";
     return bbmSidebarItems.find((item) => kind === "check" ? item.checkKey === key || (key === "seatFinish" && item.label === "시트색상") : item.rangeKey === key || (["length", "width", "height"].includes(key) && item.label === "크기"))?.label ?? null;
   };
   const openBbmChipPanel = (panel: string | null) => { setBbmFrozen({ cars: visibleCars, history: bbmValue.history ?? 0 }); setBbmChipPanel(panel); };
@@ -2565,7 +2573,7 @@ function MarketplaceScreen() {
   const bikeDisplacementApplied = bbmApplied.filter((chip) => chip.id === "range:displacement");
   const bikeLicenseApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:bikeLicense:"));
   const truckAxleApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:truckAxle:"));
-  const regionApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:region:") || chip.id.startsWith("check:district:"));
+  const regionApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:region:") || chip.id.startsWith("check:district:") || chip.id.startsWith("check:neighborhood:"));
   const complexApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:complex:"));
   const hideSellerQuickChip = desktop && isGuaziQuickStyle && (isUsedCarCategory || isBikeCategory || isTruckCategory);
   const fixedSlotAppliedIds = new Set([...sellerApplied, ...priceApplied, ...yearApplied, ...mileageApplied, ...fuelApplied, ...bikeGenreApplied, ...bikeDisplacementApplied, ...bikeLicenseApplied, ...truckAxleApplied, ...regionApplied, ...complexApplied].map((chip) => chip.id));
@@ -2648,7 +2656,7 @@ function MarketplaceScreen() {
       ...(isPartsCategory ? [] : fuelApplied.length ? fuelApplied.map(toAppliedBbmChip) : [groupChip("fuel", "연료", "연료", false)]),
     ]),
     ...(hideSellerQuickChip ? [] : sellerApplied.length ? sellerApplied.map(toAppliedBbmChip) : [groupChip("seller", "판매자", "판매자 유형", false)]),
-    ...(regionApplied.length ? regionApplied.map(toAppliedBbmChip) : desktop || isBikeCategory ? [groupChip("region-filter", "지역", "지역", false)] : []),
+    ...(regionApplied.length ? regionApplied.map(toAppliedBbmChip) : desktop || isBikeCategory ? [groupChip("region-filter", "지역", isBikeCategory ? "바이크 지역" : "지역", false)] : []),
     ...(isBikeCategory
       ? [
         selectedBikeShop

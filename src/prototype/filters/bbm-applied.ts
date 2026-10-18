@@ -33,9 +33,10 @@ export function bbmAppliedChips(value: BbmFilterValues): BbmAppliedChip[] {
     if (id === "ad") return { id, label: value.adPeriod, clear: (next) => clearBbmKey(next, "adPeriod") };
     if (id === "keyword") return { id, label: value.keyword, clear: (next) => clearBbmKey(next, "keyword") };
     const [kind, key, option] = id.split(":");
-    // QF-111: 구·군 칩은 시도를 뺀 이름([강남구 ×]), 시도 칩 ×는 그 시도의 구·군까지 함께 푼다
-    if (kind === "check" && key === "district") return { id, label: option.split(" ").slice(1).join(" "), clear: (next) => toggleBbmCheck(next, "district", option) };
-    if (kind === "check" && key === "region") return { id, label: option, clear: (next) => { let out = toggleBbmCheck(next, "region", option); for (const d of out.checks.district ?? []) if (d.startsWith(`${option} `)) out = toggleBbmCheck(out, "district", d); return out; } };
+    // 구·군·동 칩은 상위 경로를 생략하고, 상위를 풀면 그 아래 선택도 함께 해제한다.
+    if (kind === "check" && key === "neighborhood") return { id, label: option.split(" ").slice(2).join(" "), clear: (next) => toggleBbmCheck(next, "neighborhood", option) };
+    if (kind === "check" && key === "district") return { id, label: option.split(" ").slice(1).join(" "), clear: (next) => { let out = toggleBbmCheck(next, "district", option); for (const n of out.checks.neighborhood ?? []) if (n.startsWith(`${option} `)) out = toggleBbmCheck(out, "neighborhood", n); return out; } };
+    if (kind === "check" && key === "region") return { id, label: option, clear: (next) => { let out = toggleBbmCheck(next, "region", option); for (const d of out.checks.district ?? []) if (d.startsWith(`${option} `)) out = toggleBbmCheck(out, "district", d); for (const n of out.checks.neighborhood ?? []) if (n.startsWith(`${option} `)) out = toggleBbmCheck(out, "neighborhood", n); return out; } };
     if (kind === "check") return { id, label: option, clear: (next) => toggleBbmCheck(next, key as BbmCheckKey, option) };
     return { id, label: bbmRangeLabel(key as BbmRangeKey, value), clear: (next) => clearBbmKey(next, key as BbmRangeKey) };
   }).filter((chip) => chip.label);
@@ -46,6 +47,7 @@ export function bbmItemValue(label: string, value: BbmFilterValues): string {
   const item = bbmSidebarItems.find((entry) => entry.label === label);
   if (!item) return "";
   if (label === "시트색상") return [...(value.checks.seatColor ?? []), ...(value.checks.seatFinish ?? [])].join(", ");
+  if (label === "바이크 지역") return [value.checks.region?.[0], value.checks.district?.[0]?.split(" ").slice(1).join(" "), value.checks.neighborhood?.[0]?.split(" ").slice(2).join(" ")].filter(Boolean).join(" ");
   if (label === "크기") return (["length", "width", "height"] as BbmRangeKey[]).map((key) => bbmRangeLabel(key, value)).filter(Boolean).join(", ");
   if (label === "광고기간") return value.adPeriod !== "전체" ? value.adPeriod : "";
   if (label === "차량번호 / 판매자") return value.keyword.trim();

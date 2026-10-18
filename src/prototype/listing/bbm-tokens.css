@@ -193,13 +193,14 @@
   .marketplace.is-bbm .bbm-result-card .bbm-card-time { font-size: 12px; font-weight: 500; line-height: 16.8px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-content { gap: 9px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-text { gap: 4px; }
-  .marketplace.is-bbm .bbm-result-card .bbm-card-title { font-size: 16px; font-weight: 400; line-height: 24px; letter-spacing: normal; }
-  .marketplace.is-bbm .bbm-result-card .bbm-card-spec { height: 20px; color: var(--bbm-text-sub); font-weight: 400; line-height: 20px; letter-spacing: normal; }
+  /* 차란차 우측 매물 카드 실측: 모델 #191F28 16/24 600, 메타 #505C6C 14/20 400, 가격 #191F28 18/26 700. */
+  .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-title { color: #191f28; font-size: 16px; font-weight: 600; line-height: 24px; letter-spacing: normal; }
+  .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-spec { height: 20px; color: #505c6c; font-size: 14px; font-weight: 400; line-height: 20px; letter-spacing: normal; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-spec:has(+ .bbm-card-spec.is-capacity) { height: 20px; }
   .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-spec.is-capacity.is-priority { height: 20px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-price-badges { display: flex; align-items: center; gap: 8px; height: 27px; }
-  .marketplace.is-bbm .bbm-result-card .bbm-card-price { font-size: 18px; font-weight: 600; line-height: 27px; letter-spacing: normal; }
-  .marketplace.is-bbm .bbm-result-card .bbm-card-price-unit { margin-left: 2px; font-size: 15px; font-weight: 500; line-height: 22px; }
+  .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-price { color: #191f28; font-size: 18px; font-weight: 700; line-height: 26px; letter-spacing: normal; }
+  .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-price-unit { margin-left: 0; color: #191f28; font-size: 18px; font-weight: 700; line-height: 26px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-location { height: 20px; padding-top: 0; box-sizing: border-box; color: #505050; font-size: 14px; line-height: 20px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-meta-row { height: 32px; margin-top: 15px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-seller-logo { width: 20px; height: 20px; }

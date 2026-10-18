@@ -43,7 +43,12 @@ export function bbmCardSpec(source: SampleSource, withPower = true) {
 function bbmCardSpecRaw(source: SampleSource, withPower = true) {
   // 지시값을 그대로 보여줄 매물(등록연월·주행 정확값)
   // 주행거리는 정확값(56,067km)도 축약(6만km · 4천km)한다(2026-10-08 「주행거리는 축약해라」)
-  if (source.cardSpec?.length) return source.cardSpec.map((part) => /^[\d,]+km$/.test(part) ? mileageLabel({ ...source, filter: { year: 0, fuel: "", mileage: Number(part.replace(/[^\d]/g, "")) } }) : part).join(" · ");
+  if (source.cardSpec?.length) {
+    const parts = source.cardSpec.map((part) => /^[\d,]+km$/.test(part) ? mileageLabel({ ...source, filter: { year: 0, fuel: "", mileage: Number(part.replace(/[^\d]/g, "")) } }) : part);
+    const passenger = !(source.truck || source.bike || source.heavy || source.virtualCategory);
+    if (withPower && passenger && !parts.some((part) => /마력$/.test(part))) parts.push(bbmSampleHorsepower(source.id));
+    return parts.join(" · ");
+  }
   // 트레일러: 적재량 · 길이 · 축(엔진 없음)
   // 트레일러: 등록연월 · 적재 · 축수 · 길이(2026-10-10 「트레일러는 적재도 추가, 축 앞에」), 목록형·피드형 모두 한 줄
   if (source.truck?.trailer) return [source.truck.trailer.reg ?? `${String(yearFromSpecs(source) % 100).padStart(2, "0")}년${String(((source.id * 5) % 12) + 1).padStart(2, "0")}월`, source.truck.trailer.load, source.truck.trailer.axles, source.truck.trailer.length].filter(Boolean).join(" · ");
