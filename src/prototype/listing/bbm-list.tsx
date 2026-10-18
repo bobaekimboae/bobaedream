@@ -488,7 +488,7 @@ function cardTitleText(car: Car) {
 
 // ── 매물 카드(원본 car-list-result-card). variant pc: 사진 160, 마력 포함 / mobile 목록형: 초톳 기준 사진 120×120, 마력 없음
 // 피드 사양 줄 아이콘(노션 「N_독일_오토스카우트 24」 02_승용_매물리스트 · 차량 필터 원본, 2026-10-10 「메타정보에 아이콘 배치」)
-const specIconFiles = { year: "year-calendar", mileage: "mileage-odometer", fuelGasoline: "fuel-gasoline", fuelDiesel: "fuel-diesel", fuelElectric: "fuel-electric", fuelHybrid: "fuel-hybrid", fuelLpg: "fuel-lpg", fuelCng: "fuel-cng", fuelOther: "fuel-other", power: "power", axle: "axle", displacement: "engine-displacement", berth: "sleeping-berth", seats: "seats", hours: "usage-hours" } as const;
+const specIconFiles = { year: "year-calendar", mileage: "mileage-road", fuelGasoline: "fuel-gasoline", fuelDiesel: "fuel-diesel", fuelElectric: "fuel-electric", fuelHybrid: "fuel-hybrid", fuelLpg: "fuel-lpg", fuelCng: "fuel-cng", fuelOther: "fuel-other", power: "power", axle: "axle", displacement: "engine-displacement", berth: "sleeping-berth", seats: "seats", hours: "usage-hours" } as const;
 const specIconOf = (item: string): keyof typeof specIconFiles | null => {
   if (/^\d{2}년\d{2}월(\(\d{2}년형\))?$/.test(item) || /^(19|20)\d{2}$/.test(item)) return "year";
   if (/km$/.test(item)) return "mileage";
