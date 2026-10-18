@@ -192,7 +192,8 @@
 /* 모바일 퀵필터 줄 아래 구분선 제거(2026-10-10 「업데이트순 위 구분선도 없애라, 초톳은 없다」): 깊이 줄(.depth-rail)의 아래 1px box-shadow(#F3F3F3)가 정렬 줄 위에 선으로 보였다. 초톳에는 없다 */
 .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .depth-rail,
 .marketplace.is-bbm-m.is-qf-guazi .bbm-m-quick-slot .depth-rail.is-kr-maker { box-shadow: none; }
-/* 2026-10-10 「전체차량에 또 업데이트순 위로 구분선」: 모바일 유형 줄 아래 1px 선을 없앤다(초톳은 없음). PC는 그대로 */
+/* 초톳처럼 검색·필터 카드의 유형 줄 아래 1px 구분선을 PC·모바일 모두 표시하지 않는다. */
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu.is-hierarchical::after,
 .marketplace.is-bbm-m.is-qf-guazi .bbm-category-menu.is-hierarchical::after { content: none; }
 
 /* 테마별 중고차 하위 칩 줄(2026-10-11): 동그란 카테고리 줄 자리에 들어가는 한 줄 알약 */

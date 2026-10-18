@@ -17,17 +17,20 @@ for (const width of [1440, 1280]) {
   page.on("pageerror", (e) => errors.push(String(e))); page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
   await page.goto(`${base}?qf=guazi&pc=1`, { waitUntil: "networkidle" }); await page.waitForTimeout(500);
   await page.addStyleTag({ content: "*,*::before,*::after{transition:none!important;animation:none!important}" });
+  const categoryDivider = await page.locator(".bbm-category-menu.is-hierarchical").evaluate((el) => getComputedStyle(el, "::after").content !== "none");
   await page.locator(".bbm-category-menu__button").filter({ hasText: /^중고차/ }).first().click(); await page.waitForTimeout(400);
   await page.getByText("필터 더보기", { exact: true }).click(); await page.waitForTimeout(250);
-  const state = await page.evaluate(() => ({
+  const measured = await page.evaluate(() => ({
     regionRow: Boolean(document.querySelector(".bbm-ct-region-row")),
     fullFilterRegion: [...document.querySelectorAll("aside.bbm-filter .bbm-filter-toggle")].some((el) => el.textContent?.trim() === "지역"),
     cardH: document.querySelector(".bbm-hybrid-top .bbm-content-head")?.getBoundingClientRect().height,
   }));
+  const state = { ...measured, categoryDivider };
   result.pc[width] = { state, errors: errors.length };
   if (width === 1440) await page.locator(".bbm-hybrid-top").screenshot({ path: join(out, "pc-region-hidden.png") });
   check(`${width} PC 상단 지역 칩 줄 없음`, !state.regionRow, JSON.stringify(state));
   check(`${width} PC 전체 필터 지역 항목 유지`, state.fullFilterRegion, JSON.stringify(state));
+  check(`${width} PC 검색·필터 카드 아래 구분선 없음`, !state.categoryDivider, JSON.stringify(state));
   check(`${width} 콘솔 오류 0`, errors.length === 0, `${errors.length}`);
   await page.close();
 }
