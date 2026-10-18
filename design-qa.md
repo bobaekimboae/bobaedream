@@ -30,6 +30,30 @@ final result: passed
 
 ---
 
+## 2026-10-18 페라리 배너 전체 폭 비교 시안
+
+- Source visual truth: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/ferrari-banner-content-width-local-1280.jpg`
+- Implementation screenshot: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/ferrari-banner-full-width-local-1280.jpg`
+- Combined comparison: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/ferrari-banner-width-comparison.png`
+- Route: `/?qf=guazi&pc=1&filterLayout=compact&category=수입차&maker=페라리&bannerLayout=full`
+- Viewport/source/implementation: 1280×720 CSS px, 1280×720 screenshots, density 1:1.
+- State: PC compact filter, 페라리 제조사 선택, 기본 밝은 테마.
+
+### Comparison
+
+- Full-view composition: passed — 기존 880px 배너 대신 1200×118px 배너가 페이지 전체 폭을 채운다.
+- Focused alignment: passed — 풀 배너 아래 좌측 필터 `x=40, y=271, width=280px`와 우측 검색조건 `x=360, y=271, width=880px`가 같은 상단선에서 시작한다.
+- Typography: passed — 기존 페라리 제목·설명 서체, 크기, 대비를 그대로 보존했다.
+- Spacing and tokens: passed — 배너 높이 118px, 하단 간격 16px, 반경 10px과 기존 카드 색상·간격을 유지했다.
+- Image quality: passed — 동일한 공식 페라리 영상/포스터를 CSS 확대나 대체 자산 없이 원본 품질로 사용한다.
+- Copy/content: passed — `보배드림 페라리 / 국내 유일 페라리 쇼핑몰` 문구와 필터·모델 콘텐츠는 동일하다.
+- Regression: passed — 기본 880px 시안은 파라미터가 없을 때 그대로 유지된다.
+- Interaction/console: passed — 필터 아코디언 동작과 브라우저 콘솔 오류 0건을 확인했다.
+
+final result: passed
+
+---
+
 ## 2026-10-18 수입차 좌측 필터 높이 정렬
 
 - Reference screenshot: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/used-car-left-filter-reference-1280.png`

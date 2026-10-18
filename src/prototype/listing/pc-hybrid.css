@@ -42,6 +42,14 @@
     width: calc(100% - 320px);
     margin-left: auto;
   }
+  /* 비교 시안: 배너는 1200px 전체 폭, 필터와 검색조건 카드는 배너 아래 같은 선에서 시작한다. */
+  .marketplace.is-bbm.is-hybrid.is-ferrari-category.is-ferrari-banner-full.is-compact-top-filter .bbm-hybrid-top > .ferrari-category-hero {
+    width: 100%;
+    margin-left: 0;
+  }
+  .marketplace.is-bbm.is-hybrid.is-ferrari-category.is-ferrari-banner-full.is-compact-top-filter .bbm-page > .bbm-filter {
+    margin-top: -264px;
+  }
   /* 비교안: 하위 카테고리 메뉴는 유지하고 큰 상단 검색조건·브랜드 박스만 제거한다. */
   .marketplace.is-bbm.is-hybrid.is-no-top-filter .bbm-hybrid-top > .bbm-content-head.is-chotot { display: none; }
   /* 기본 균형안(헤이딜러·하틀라투이): 배너만 1200 전체 폭, 그 아래 좌측 필터 280 · 간격 40 · 우측(검색조건 카드 → 매물).
