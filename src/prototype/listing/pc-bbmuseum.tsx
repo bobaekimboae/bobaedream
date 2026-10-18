@@ -521,6 +521,33 @@ const popularModelsByMaker: Record<string, string[]> = {
   벤츠: ["E클래스", "S클래스", "C클래스", "GLC클래스", "GLE클래스"],
 };
 
+// 스크롤 목록의 아래 끝이 행 경계에 걸리면 빈 칸처럼 보인다(2026-10-19 「수입차도 적용해봐라」).
+// 기준 높이(CSS max-height) 근처에서 가로지르는 행을 찾아 그 행이 정확히 절반 보이게 높이를 맞춘다.
+// 묶음 제목 높이가 화면마다 달라도 같은 규칙이 되도록 실제 행 위치를 잰다. 트럭도 같은 규칙(2026-10-19 「우리 커스텀으로」).
+const HALF_ROW_SELECTOR = ".bbm-catalog-row, .bbm-encar-selected-row, .bbm-truck-spec-list > button";
+function useHalfRowFit(ref: { current: HTMLDivElement | null }, enabled: boolean, deps: unknown[]) {
+  useLayoutEffect(() => {
+    const box = ref.current;
+    if (!enabled || !box) return;
+    const fit = () => {
+      box.style.maxHeight = "";
+      const base = parseFloat(getComputedStyle(box).maxHeight);
+      if (!Number.isFinite(base) || box.scrollHeight <= base) return;
+      const top = box.getBoundingClientRect().top - box.scrollTop;
+      const mids = [...box.querySelectorAll<HTMLElement>(HALF_ROW_SELECTOR)]
+        .map((row) => row.getBoundingClientRect())
+        .map((r) => r.top - top + r.height / 2)
+        .filter((mid) => mid >= base - 24)
+        .sort((a, b) => a - b);
+      if (mids.length) box.style.maxHeight = `${Math.round(mids[0])}px`;
+    };
+    fit();
+    window.addEventListener("resize", fit);
+    return () => window.removeEventListener("resize", fit);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [enabled, ...deps]);
+}
+
 function BbMakerGradeFilter({ selection, view, setView, brandLogos = false, brandLogoCategory, makerSections = bbCatalog, referenceStyle = false, showInventoryCounts = true, allowEmptyOptions = false }: { selection: BbMakerSelection; view: BbDrillView; setView: (view: BbDrillView) => void; brandLogos?: boolean; brandLogoCategory?: string; makerSections?: BbMakerSection[]; referenceStyle?: boolean; showInventoryCounts?: boolean; allowEmptyOptions?: boolean }) {
   const { maker, model, grades } = selection;
   const catalogRef = useRef<HTMLDivElement>(null);
@@ -530,26 +557,7 @@ function BbMakerGradeFilter({ selection, view, setView, brandLogos = false, bran
   useLayoutEffect(() => {
     if (referenceStyle && catalogRef.current) catalogRef.current.scrollTop = 0;
   }, [referenceStyle, view]);
-  // 스크롤 목록의 아래 끝이 행 경계에 걸리면 빈 칸처럼 보인다(2026-10-19 「수입차도 적용해봐라」).
-  // 기준 높이(CSS max-height) 근처에서 가로지르는 행을 찾아 그 행이 정확히 절반 보이게 높이를 맞춘다.
-  // 묶음 제목 높이가 화면마다 달라도 같은 규칙이 되도록 실제 행 위치를 잰다.
-  useLayoutEffect(() => {
-    const box = catalogRef.current;
-    // 트럭은 엔카 실측 400 상자를 그대로 쓴다
-    if (!referenceStyle || !box || box.closest(".is-truck-reference")) return;
-    const fit = () => {
-      box.style.maxHeight = "";
-      const base = parseFloat(getComputedStyle(box).maxHeight);
-      if (!Number.isFinite(base) || box.scrollHeight <= base) return;
-      const top = box.getBoundingClientRect().top - box.scrollTop;
-      const rows = [...box.querySelectorAll<HTMLElement>(".bbm-catalog-row")].map((row) => row.getBoundingClientRect());
-      const mids = rows.map((r) => r.top - top + r.height / 2).filter((mid) => mid >= base - 24);
-      if (mids.length) box.style.maxHeight = `${Math.round(mids[0])}px`;
-    };
-    fit();
-    window.addEventListener("resize", fit);
-    return () => window.removeEventListener("resize", fit);
-  }, [referenceStyle, view]);
+  useHalfRowFit(catalogRef, referenceStyle, [view]);
   const pathRows = [
     maker ? { key: "maker", label: bbMakerLabel(maker), onOpen: () => setView({ stage: "maker" }), onClear: selection.onClearMaker } : null,
     maker && model ? { key: "model", label: selection.modelLabel ?? model, onOpen: () => setView({ stage: "model", maker }), onClear: selection.onClearModel } : null,
@@ -691,6 +699,8 @@ export function BbTruckFormatFilter({ value, showImages = true, referenceStyle =
           ? "subtype"
           : value.specGroups.length ? "spec" : "subtype";
   const [view, setView] = useState<BbTruckView>(stageFor);
+  const truckCatalogRef = useRef<HTMLDivElement>(null);
+  useHalfRowFit(truckCatalogRef, referenceStyle, [view, value.format, value.subtype, value.spec]);
   useEffect(() => { setView(stageFor()); }, [value.format, value.subtype, value.spec, value.specGroups.length]);
   const count = (rowCount: number) => <em className={rowCount === 0 ? "is-zero" : ""}>{rowCount.toLocaleString("ko-KR")}</em>;
   const pathChips = [
@@ -705,7 +715,7 @@ export function BbTruckFormatFilter({ value, showImages = true, referenceStyle =
   if (referenceStyle) {
     return (
       <div className="bbm-maker-grade bbm-truck-format is-reference is-encar" aria-label="형식과 적재용량 선택">
-        <div className="bbm-catalog">
+        <div className="bbm-catalog" ref={truckCatalogRef}>
           {view === "format" ? <div className="bbm-catalog-section">
             <p className="bbm-catalog-title">형식</p>
             {value.formats.map((option) => <button key={option.name} type="button" className="bbm-catalog-row" aria-pressed={false} onClick={() => { value.onChooseFormat(option.name); setView("subtype"); }}><BbTruckOptionLabel name={option.name} image={null} />{count(option.count)}</button>)}

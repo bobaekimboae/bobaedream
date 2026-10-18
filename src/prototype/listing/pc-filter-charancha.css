@@ -158,94 +158,40 @@
   .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference .bbm-catalog::-webkit-scrollbar { width: 6px; }
   .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference .bbm-catalog::-webkit-scrollbar-track { background: transparent; }
   .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference .bbm-catalog::-webkit-scrollbar-thumb { border-radius: 3px; background: #8d8f92; }
-  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference .bbm-maker-grade.is-reference .bbm-catalog-row { min-height: 38px; padding-top: 7px; padding-bottom: 7px; }
 }
 
-/* 엔카 트럭 PC 좌측 필터(2026-10-19 실측): 228.4px 열 · 54.8px 제목 ·
-   펼친 목록 400px · 행 34px(14/22). 형식과 제조사는 각각 독립적으로 열리고,
-   선택 경로도 같은 400px 스크롤 안에 포함되어 다음 섹션 시작선이 밀리지 않는다. */
+/* 트럭 PC 좌측 필터 = 우리 커스텀(2026-10-19 「트럭은 엔카 필터 사이즈인데 우리 커스텀으로 변경」).
+   엔카 실측값(열 228 · 제목 55 · 15px · 목록 400 · 행 34 · 14/22)을 버리고 국산차·바이크와 같은 값을 쓴다:
+   열 280 · 간격 40 · 흰 카드 반경 12 · 안쪽 20 · 닫힌 항목 57(16 + 16/24 600 + 16) · 펼친 내용 제목 아래 16 ·
+   목록 기준 500 + 다음 행 절반(useHalfRowFit) · 글자만 있는 행 40(9 + 14/22 + 9). 단계 구조(형식 → 세부형식 → 적재용량,
+   선택 × 행)는 그대로다. */
 @media (min-width: 1280px) {
   .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-page {
-    grid-template-columns: 228px minmax(0, 1fr);
-    gap: 24px;
-  }
-  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-page > .bbm-filter.is-truck-reference {
-    width: 228px;
-    padding: 0;
-    border-radius: 0;
-    background: #fff;
-  }
-  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-filter-summary.is-charancha {
-    padding-right: 19px;
-    padding-left: 19px;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 40px;
   }
   .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-cha-title {
     flex: none;
     white-space: nowrap;
   }
-  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-cha-actions > button:first-child,
-  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-cha-actions > i {
-    display: none;
+  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-filter-item.is-maker-grade.is-open,
+  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-filter-item.is-truck-format.is-open {
+    padding-bottom: 12px;
   }
-  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-filter-item {
-    padding: 0;
-  }
-  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-filter-item .bbm-filter-toggle,
-  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-filter-item.is-open .bbm-filter-toggle,
-  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-filter-item.is-maker-grade.is-open .bbm-filter-toggle {
-    min-height: 55px;
-    padding: 0 19px;
-    font-size: 15px;
-    line-height: 22px;
-  }
-  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-filter-item.is-open > :not(.bbm-filter-toggle):not(.bbm-filter-item-reset),
-  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-maker-grade.is-reference,
-  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-truck-format.is-encar {
-    margin-top: 0;
-  }
-  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-filter-item.is-open > .bbm-maker-grade .bbm-catalog {
-    height: 400px;
-    max-height: 400px;
-    padding: 0 15px 0 19px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    box-sizing: border-box;
-  }
-  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-catalog-section,
-  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-truck-format.is-encar .bbm-catalog-section {
-    padding: 0;
-  }
-  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-catalog-title {
-    margin: 0;
-    padding: 6px 0;
-    font-size: 13px;
-    line-height: 22px;
+  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-catalog-section:last-child {
+    padding-bottom: 0;
   }
   .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-page > .bbm-filter.is-truck-reference .bbm-catalog-row,
   .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-page > .bbm-filter.is-truck-reference .bbm-maker-grade.is-reference .bbm-catalog-row,
-  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-page > .bbm-filter.is-truck-reference .bbm-truck-format.is-encar .bbm-catalog-row {
-    height: 34px;
-    min-height: 34px;
-    padding: 6px 0;
-    box-sizing: border-box;
-    font-size: 14px;
-    line-height: 22px;
-  }
+  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-page > .bbm-filter.is-truck-reference .bbm-truck-format.is-encar .bbm-catalog-row,
   .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-encar-selected-row,
-  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-selection-row {
-    height: 34px;
-    min-height: 34px;
-    padding: 6px 0;
+  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-truck-spec-list > button {
+    min-height: 40px;
+    padding-top: 9px;
+    padding-bottom: 9px;
     box-sizing: border-box;
     font-size: 14px;
     line-height: 22px;
-  }
-  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-encar-selected-row.is-child {
-    padding-left: 12px;
-  }
-  .marketplace.is-bbm.is-hybrid.is-truck-category .bbm-filter.is-truck-reference .bbm-filter-item-reset {
-    top: 18px;
-    right: 38px;
   }
 }
 /* 1024~1279 왼쪽 펼침판: 펼침판 머리가 「필터」를 이미 보여 주므로 차란차 머리는 숨긴다 */
