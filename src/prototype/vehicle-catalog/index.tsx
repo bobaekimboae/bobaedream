@@ -4,6 +4,7 @@ import type { QuickGenerationOption, QuickModelVisual } from "../data";
 import { searchVehicleCatalog, type VehicleSearchRecord } from "./search.mjs";
 import { carMakerLogoAsset } from "./car-maker-logos-v4";
 import { daangnImportedModelImages } from "./daangn-imported-visuals.generated";
+import { daangnGenerationImages, daangnMakerLogos, daangnModelImages } from "./daangn-drive-visuals.generated";
 import { selectedBikeBrandLogo } from "../listing/brand-logos-bike-motofan-v01";
 import "./vehicle-catalog.css";
 
@@ -54,6 +55,13 @@ export const publicCatalogAsset = (path?: string | null) => {
   return /^(?:https?:)?\/\//.test(variantPath) || variantPath.startsWith("/") ? variantPath : `${publicBase}${variantPath}`;
 };
 const yearsLabel = (start?: string | null, end?: string | null) => start ? `${start.slice(0, 4)}~${end?.slice(0, 4) ?? "현재"}` : "연식 정보 없음";
+const daangnModelImage = (makeName?: string | null, modelName?: string | null) => makeName && modelName
+  ? daangnModelImages[makeName]?.[modelName] ?? daangnImportedModelImages[makeName]?.[modelName] ?? null
+  : null;
+const daangnGenerationImage = (generation: Pick<CatalogGeneration, "id" | "makeName" | "groupName">) => daangnGenerationImages[generation.id]
+  ?? daangnModelImage(generation.makeName, generation.groupName);
+const daangnRecordImage = (record: VehicleSearchRecord) => daangnGenerationImages[record.pathIds[2] ?? ""]
+  ?? daangnModelImage(record.path[0], record.path[1]);
 
 async function fetchJson<T>(path: string): Promise<T> {
   const response = await fetch(`${catalogBase}/${path}`);
@@ -123,8 +131,7 @@ export function useVehicleCatalog(scope: CatalogScope, selectedMake?: string | n
       for (const generation of index.generations ?? []) {
         const variants = details?.grades.filter((grade) => grade.generationId === generation.id).sort((a, b) => a.sortOrder - b.sortOrder).map((grade) => ({ name: grade.name, count: 1 })) ?? [];
         const rows = result[generation.makeName][generation.groupName] ??= [];
-        const temporaryModelImage = daangnImportedModelImages[generation.makeName]?.[generation.groupName];
-        rows.push({ name: generation.name, years: yearsLabel(generation.releaseYm, generation.endYm), variants, image: publicCatalogAsset(generation.imagePath) ?? temporaryModelImage, count: 1, cardLabel: generation.generationCode ?? generation.name, cardSub: yearsLabel(generation.releaseYm, generation.endYm) });
+        rows.push({ name: generation.name, years: yearsLabel(generation.releaseYm, generation.endYm), variants, image: publicCatalogAsset(generation.imagePath) ?? daangnGenerationImage(generation), count: 1, cardLabel: generation.generationCode ?? generation.name, cardSub: yearsLabel(generation.releaseYm, generation.endYm) });
       }
     }
     return result;
@@ -164,7 +171,7 @@ export function useVehicleCatalog(scope: CatalogScope, selectedMake?: string | n
     const result: Record<string, Record<string, QuickModelVisual>> = {};
     for (const make of index.manufacturers) result[make.name] = {};
     for (const group of index.modelGroups) result[group.makeName][group.name] = {
-      image: publicCatalogAsset(group.imagePath) ?? daangnImportedModelImages[group.makeName]?.[group.name] ?? "",
+      image: publicCatalogAsset(group.imagePath) ?? daangnModelImage(group.makeName, group.name) ?? "",
       count: "1대",
     };
     return result;
@@ -177,11 +184,14 @@ export function CatalogLogo({ path, name, kind = "list", scope = "car" }: { path
   const selectedBikeLogo = scope === "bike" ? selectedBikeBrandLogo(name) : null;
   const bikeLogo = selectedBikeLogo?.logo ?? null;
   const approved = scope === "car" ? carMakerLogoAsset(name) : null;
+  const daangnLogo = scope === "car" ? daangnMakerLogos[name] : null;
   const source = bikeLogo
     ? `${publicBase}assets/bike/logos/${selectedBikeLogo?.directory}/${bikeLogo.file}`
-    : approved
-      ? `${publicBase}assets/maker-model/logos/encar-1005-trim/${approved.file}`
-      : publicCatalogAsset(path);
+    : daangnLogo
+      ? daangnLogo
+      : approved
+        ? `${publicBase}assets/maker-model/logos/encar-1005-trim/${approved.file}`
+        : publicCatalogAsset(path);
   const scale = kind === "rail" ? 1 : 24 / 38;
   const bikeSize = bikeLogo ? (() => {
     let width = 26 * Math.sqrt(bikeLogo.ratio);
@@ -190,8 +200,8 @@ export function CatalogLogo({ path, name, kind = "list", scope = "car" }: { path
     if (height > 26) { height = 26; width = height * bikeLogo.ratio; }
     return { width: `${width * scale}px`, height: `${height * scale}px` };
   })() : null;
-  const style = bikeSize ?? (approved ? { width: `${approved.width * scale}px`, height: `${approved.height * scale}px` } : undefined);
-  return <span className={`catalog-logo is-${kind}${source ? "" : " is-placeholder"}`} data-testid={`catalog-logo-${name}`} data-logo-standard={selectedBikeLogo?.set ?? (approved ? "v4" : "legacy")}>{source ? <img src={source} alt="" draggable={false} style={style} /> : <span aria-hidden="true">{name.slice(0, 1)}</span>}</span>;
+  const style = daangnLogo ? undefined : bikeSize ?? (approved ? { width: `${approved.width * scale}px`, height: `${approved.height * scale}px` } : undefined);
+  return <span className={`catalog-logo is-${kind}${source ? "" : " is-placeholder"}`} data-testid={`catalog-logo-${name}`} data-logo-standard={selectedBikeLogo?.set ?? (daangnLogo ? "daangn-drive" : approved ? "v4" : "legacy")}>{source ? <img src={source} alt="" draggable={false} style={style} /> : <span aria-hidden="true">{name.slice(0, 1)}</span>}</span>;
 }
 
 export function CatalogVehicleImage({ path, name, compact = false }: { path?: string | null; name: string; compact?: boolean }) {
@@ -219,7 +229,7 @@ export function CatalogSearchResults({ records, query, onChoose, scope = "car" }
   return <div className="catalog-search-results" role="listbox" aria-label="차량 기준표 검색 결과" data-testid="catalog-search-results">
     {!records ? <p>차량 기준표를 불러오는 중입니다.</p> : results.length ? results.map((record) => <button key={record.id} type="button" role="option" onMouseDown={(event) => event.preventDefault()} onClick={() => onChoose(record)} data-testid={`catalog-result-${record.id}`}>
       <CatalogLogo path={record.logoPath} name={record.path[0]} scope={scope} />
-      <CatalogVehicleImage path={record.imagePath} name={record.path[2] ?? record.name} compact />
+      <CatalogVehicleImage path={record.imagePath ?? daangnRecordImage(record)} name={record.path[2] ?? record.name} compact />
       <span><strong>{record.path.join(" › ")}</strong><small>{yearsLabel(record.releaseYm, record.endYm)}</small></span>
     </button>) : <p>일치하는 제조사·모델·등급이 없습니다.</p>}
   </div>;
@@ -277,9 +287,9 @@ export function CatalogVehiclePickerSheet({ catalog, maker, model, generation, i
       <header><button type="button" onClick={goBack} disabled={step === 0} aria-label="이전 단계"><ChevronLeftIcon /></button><strong>{titles[Math.min(step, titles.length - 1)]}</strong><small>{path.join(" › ") || "전체 차량"}</small></header>
       <div className="catalog-picker-list">
         {step === 0 ? catalog.index?.manufacturers.map((item) => <button key={item.id} type="button" onClick={() => choose(item.name, item.id)}><CatalogLogo path={item.logoPath} name={item.name} scope={catalog.scope} /><span>{item.name}</span></button>) : null}
-        {step === 1 ? groups.map((item) => <button key={item.id} type="button" onClick={() => choose(item.name, item.id)}><CatalogVehicleImage path={item.imagePath} name={item.name} compact /><span>{item.name}</span></button>) : null}
+        {step === 1 ? groups.map((item) => <button key={item.id} type="button" onClick={() => choose(item.name, item.id)}><CatalogVehicleImage path={item.imagePath ?? daangnModelImage(item.makeName, item.name)} name={item.name} compact /><span>{item.name}</span></button>) : null}
         {catalog.scope === "bike" && step === 2 ? bikeModels.map((item) => <button key={item.id} type="button" onClick={() => chooseLeaf(item.name, item.id, "BIKE_MODEL")}><CatalogVehicleImage name={item.name} compact /><span><strong>{item.name}</strong><small>{[item.genre, item.displacementBand].filter(Boolean).join(" · ")}</small></span></button>) : null}
-        {catalog.scope === "car" && step === 2 ? generations.map((item) => <button key={item.id} type="button" onClick={() => choose(item.name, item.id)}><CatalogVehicleImage path={item.imagePath} name={item.name} compact /><span><strong>{item.name}</strong><small>{yearsLabel(item.releaseYm, item.endYm)}</small></span></button>) : null}
+        {catalog.scope === "car" && step === 2 ? generations.map((item) => <button key={item.id} type="button" onClick={() => choose(item.name, item.id)}><CatalogVehicleImage path={item.imagePath ?? daangnGenerationImage(item)} name={item.name} compact /><span><strong>{item.name}</strong><small>{yearsLabel(item.releaseYm, item.endYm)}</small></span></button>) : null}
         {catalog.scope === "car" && step === 3 ? fuels.map((item) => <button key={item.id} type="button" onClick={() => choose(item.name, item.id)}><span>{item.name}</span></button>) : null}
         {catalog.scope === "car" && step === 4 ? grades.map((item) => <button key={item.id} type="button" onClick={() => { const children = carFile?.subgrades.filter((child) => child.gradeId === item.id) ?? []; if (children.length) choose(item.name, item.id); else chooseLeaf(item.name, item.id, "GRADE"); }}><span>{item.name}</span></button>) : null}
         {catalog.scope === "car" && step === 5 ? subgrades.map((item) => <button key={item.id} type="button" onClick={() => chooseLeaf(item.name, item.id, "SUBGRADE")}><span>{item.name}</span></button>) : null}

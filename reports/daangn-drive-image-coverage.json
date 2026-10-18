@@ -1,0 +1,640 @@
+{
+  "source": {
+    "driveSpreadsheet": "모델이미지_승용_한국_당근(daangn)",
+    "manufacturers": 156,
+    "models": 1507,
+    "submodels": 2571
+  },
+  "catalog": {
+    "manufacturers": 62,
+    "models": 662,
+    "generations": 1255
+  },
+  "matched": {
+    "manufacturerLogos": 56,
+    "modelImages": 632,
+    "generationDistinctImages": 1177,
+    "generationFallbackToModel": 41
+  },
+  "productionNeeded": {
+    "manufacturerLogos": 6,
+    "modelImages": 30,
+    "generationDistinctImages": 78
+  },
+  "matchKinds": {
+    "models": {
+      "exact": 548,
+      "normalized": 38,
+      "submodel": 46
+    },
+    "generations": {
+      "code": 179,
+      "exact": 680,
+      "generation-number": 45,
+      "normalized": 129,
+      "year": 144
+    }
+  },
+  "unmatched": {
+    "manufacturers": [
+      "기타 제조사",
+      "신위안",
+      "쉐보레",
+      "어큐라",
+      "이네오스",
+      "기타 수입차"
+    ],
+    "models": [
+      {
+        "maker": "쉐보레(GM대우)",
+        "model": "볼트(Volt)"
+      },
+      {
+        "maker": "르노코리아(삼성)",
+        "model": "캡처"
+      },
+      {
+        "maker": "기타 제조사",
+        "model": "어울림모터스"
+      },
+      {
+        "maker": "기타 제조사",
+        "model": "기타 승용차"
+      },
+      {
+        "maker": "BMW",
+        "model": "M 쿠페/로드스터"
+      },
+      {
+        "maker": "GMC",
+        "model": "밴츄라"
+      },
+      {
+        "maker": "도요타",
+        "model": "4Runner"
+      },
+      {
+        "maker": "도요타",
+        "model": "RAV4"
+      },
+      {
+        "maker": "도요타",
+        "model": "야리스(비츠)"
+      },
+      {
+        "maker": "동풍소콘",
+        "model": "C31"
+      },
+      {
+        "maker": "동풍소콘",
+        "model": "C35"
+      },
+      {
+        "maker": "동풍소콘",
+        "model": "펜콘 ix5"
+      },
+      {
+        "maker": "르노",
+        "model": "알핀"
+      },
+      {
+        "maker": "마이바흐",
+        "model": "57"
+      },
+      {
+        "maker": "마이바흐",
+        "model": "62"
+      },
+      {
+        "maker": "마이바흐",
+        "model": "62s"
+      },
+      {
+        "maker": "마쯔다",
+        "model": "마쯔다 3"
+      },
+      {
+        "maker": "미니",
+        "model": "로버 미니"
+      },
+      {
+        "maker": "벤츠",
+        "model": "SEL/SEC"
+      },
+      {
+        "maker": "벤틀리",
+        "model": "플라잉스퍼"
+      },
+      {
+        "maker": "쉐보레",
+        "model": "픽업트럭"
+      },
+      {
+        "maker": "쉐보레",
+        "model": "기타"
+      },
+      {
+        "maker": "재규어",
+        "model": "F-TYPE"
+      },
+      {
+        "maker": "재규어",
+        "model": "S-TYPE"
+      },
+      {
+        "maker": "재규어",
+        "model": "X-TYPE"
+      },
+      {
+        "maker": "캐딜락",
+        "model": "컨코어"
+      },
+      {
+        "maker": "포드",
+        "model": "E-Series"
+      },
+      {
+        "maker": "포드",
+        "model": "레인저"
+      },
+      {
+        "maker": "폭스바겐",
+        "model": "EOS"
+      },
+      {
+        "maker": "기타 수입차",
+        "model": "기타"
+      }
+    ],
+    "generations": [
+      {
+        "id": "generation_0d986543738971",
+        "maker": "쉐보레(GM대우)",
+        "model": "볼트(Volt)",
+        "generation": "볼트(Volt)"
+      },
+      {
+        "id": "generation_d841d1220aa4b9",
+        "maker": "르노코리아(삼성)",
+        "model": "캡처",
+        "generation": "캡처"
+      },
+      {
+        "id": "generation_3f00b861faee0b",
+        "maker": "기타 제조사",
+        "model": "기타 승용차",
+        "generation": "기타"
+      },
+      {
+        "id": "generation_c87355fda4a6e3",
+        "maker": "기타 제조사",
+        "model": "어울림모터스",
+        "generation": "어울림모터스-스피라"
+      },
+      {
+        "id": "generation_3303888fc3a89a",
+        "maker": "BMW",
+        "model": "M 쿠페/로드스터",
+        "generation": "M 쿠페/로드스터 (E85)"
+      },
+      {
+        "id": "generation_59f77b3125bdd7",
+        "maker": "GMC",
+        "model": "밴츄라",
+        "generation": "밴츄라"
+      },
+      {
+        "id": "generation_48143fe7325c2f",
+        "maker": "닛산",
+        "model": "로그",
+        "generation": "로그 (T33)"
+      },
+      {
+        "id": "generation_29819485f1eaae",
+        "maker": "닛산",
+        "model": "맥시마",
+        "generation": "맥시마 (A36)"
+      },
+      {
+        "id": "generation_8ef2ea29121350",
+        "maker": "닛산",
+        "model": "스카이라인",
+        "generation": "스카이라인"
+      },
+      {
+        "id": "generation_02b0bb8d86ab88",
+        "maker": "다이하쯔",
+        "model": "미라",
+        "generation": "미라 코코아"
+      },
+      {
+        "id": "generation_647e7a683cbf10",
+        "maker": "도요타",
+        "model": "4Runner",
+        "generation": "4Runner"
+      },
+      {
+        "id": "generation_b85a3c6fb13198",
+        "maker": "도요타",
+        "model": "86",
+        "generation": "GR86"
+      },
+      {
+        "id": "generation_1ec0e6204a553b",
+        "maker": "도요타",
+        "model": "야리스(비츠)",
+        "generation": "야리스(비츠)"
+      },
+      {
+        "id": "generation_eb5f84446f4c53",
+        "maker": "도요타",
+        "model": "RAV4",
+        "generation": "RAV4 6세대"
+      },
+      {
+        "id": "generation_51464ee5724601",
+        "maker": "도요타",
+        "model": "RAV4",
+        "generation": "RAV4 5세대"
+      },
+      {
+        "id": "generation_8749bd9cde4410",
+        "maker": "도요타",
+        "model": "RAV4",
+        "generation": "RAV4"
+      },
+      {
+        "id": "generation_0a80102f7cefa6",
+        "maker": "동풍소콘",
+        "model": "펜콘 ix5",
+        "generation": "펜콘 ix5"
+      },
+      {
+        "id": "generation_05c641527fcb3a",
+        "maker": "동풍소콘",
+        "model": "C31",
+        "generation": "C31"
+      },
+      {
+        "id": "generation_03063e8609ebfe",
+        "maker": "동풍소콘",
+        "model": "C35",
+        "generation": "C35"
+      },
+      {
+        "id": "generation_57afd437d625e6",
+        "maker": "랜드로버",
+        "model": "디스커버리 스포츠",
+        "generation": "디스커버리 스포츠 2세대"
+      },
+      {
+        "id": "generation_8deb9f312fe09c",
+        "maker": "렉서스",
+        "model": "IS",
+        "generation": "뉴 IS200t"
+      },
+      {
+        "id": "generation_8d0acd11ee3a4f",
+        "maker": "렉서스",
+        "model": "IS",
+        "generation": "뉴 IS300"
+      },
+      {
+        "id": "generation_d278ed94a9761b",
+        "maker": "렉서스",
+        "model": "IS",
+        "generation": "IS F"
+      },
+      {
+        "id": "generation_523e0060fe2325",
+        "maker": "렉서스",
+        "model": "NX",
+        "generation": "NX300"
+      },
+      {
+        "id": "generation_3733befd80e810",
+        "maker": "렉서스",
+        "model": "UX",
+        "generation": "UX300h"
+      },
+      {
+        "id": "generation_3f4c518dc4ee66",
+        "maker": "르노",
+        "model": "알핀",
+        "generation": "알핀"
+      },
+      {
+        "id": "generation_f2160662d641e3",
+        "maker": "마이바흐",
+        "model": "57",
+        "generation": "57"
+      },
+      {
+        "id": "generation_cc8d10376b5676",
+        "maker": "마이바흐",
+        "model": "62",
+        "generation": "62"
+      },
+      {
+        "id": "generation_62e342c2b4bbeb",
+        "maker": "마이바흐",
+        "model": "62s",
+        "generation": "62s"
+      },
+      {
+        "id": "generation_5002c8c72536f9",
+        "maker": "마쯔다",
+        "model": "마쯔다 3",
+        "generation": "마쯔다 3"
+      },
+      {
+        "id": "generation_e7551802efb6b2",
+        "maker": "미니",
+        "model": "로버 미니",
+        "generation": "로버 미니"
+      },
+      {
+        "id": "generation_48590ccc1d7a8b",
+        "maker": "미니",
+        "model": "쿠퍼",
+        "generation": "쿠퍼 일렉트릭"
+      },
+      {
+        "id": "generation_fefe18ad3279ab",
+        "maker": "미니",
+        "model": "쿠퍼",
+        "generation": "쿠퍼 SD"
+      },
+      {
+        "id": "generation_326555b3a8de43",
+        "maker": "미니",
+        "model": "쿠퍼 컨버터블",
+        "generation": "쿠퍼 S 컨버터블"
+      },
+      {
+        "id": "generation_a93fb76e2941aa",
+        "maker": "미니",
+        "model": "클럽맨",
+        "generation": "쿠퍼 SD 클럽맨"
+      },
+      {
+        "id": "generation_e8e7c6aa107f35",
+        "maker": "벤츠",
+        "model": "S-클래스",
+        "generation": "S-클래스"
+      },
+      {
+        "id": "generation_7892d4b0c2e9bf",
+        "maker": "벤츠",
+        "model": "SEL/SEC",
+        "generation": "SEL/SEC"
+      },
+      {
+        "id": "generation_d54e85330d19a9",
+        "maker": "벤츠",
+        "model": "SL-클래스",
+        "generation": "뉴 SL-클래스"
+      },
+      {
+        "id": "generation_ccc2ebfdf96324",
+        "maker": "벤틀리",
+        "model": "플라잉스퍼",
+        "generation": "플라잉스퍼 4세대"
+      },
+      {
+        "id": "generation_32a6838037ba49",
+        "maker": "벤틀리",
+        "model": "플라잉스퍼",
+        "generation": "플라잉스퍼 3세대"
+      },
+      {
+        "id": "generation_11b2899657cc1f",
+        "maker": "벤틀리",
+        "model": "플라잉스퍼",
+        "generation": "플라잉스퍼 2세대"
+      },
+      {
+        "id": "generation_a3d51734edfdd3",
+        "maker": "벤틀리",
+        "model": "플라잉스퍼",
+        "generation": "플라잉스퍼 1세대"
+      },
+      {
+        "id": "generation_dba1887ceb5707",
+        "maker": "사브",
+        "model": "9000",
+        "generation": "9000"
+      },
+      {
+        "id": "generation_1c8c676abed24b",
+        "maker": "쉐보레",
+        "model": "기타",
+        "generation": "기타"
+      },
+      {
+        "id": "generation_73c16b92e9a118",
+        "maker": "쉐보레",
+        "model": "서버밴",
+        "generation": "서버밴"
+      },
+      {
+        "id": "generation_977a4487ecb1c3",
+        "maker": "쉐보레",
+        "model": "픽업트럭",
+        "generation": "픽업트럭"
+      },
+      {
+        "id": "generation_66f0747ca53b0b",
+        "maker": "스마트",
+        "model": "포투",
+        "generation": "포투 쿠페"
+      },
+      {
+        "id": "generation_f5e1a90d210a7e",
+        "maker": "스마트",
+        "model": "포투",
+        "generation": "포투 카브리오"
+      },
+      {
+        "id": "generation_1be649bd0bf991",
+        "maker": "스즈키",
+        "model": "알토",
+        "generation": "알토웍스"
+      },
+      {
+        "id": "generation_eb63c9bebfc13b",
+        "maker": "시트로엥/DS",
+        "model": "C4 스페이스투어러",
+        "generation": "그랜드 C4 스페이스투어러"
+      },
+      {
+        "id": "generation_858ea6cc628e41",
+        "maker": "시트로엥/DS",
+        "model": "DS3",
+        "generation": "DS3 크로스백"
+      },
+      {
+        "id": "generation_29009bc6a5ca43",
+        "maker": "아우디",
+        "model": "A7",
+        "generation": "A7 (4K)"
+      },
+      {
+        "id": "generation_3ed88b6d5a574a",
+        "maker": "아우디",
+        "model": "Q8",
+        "generation": "Q8 (4M)"
+      },
+      {
+        "id": "generation_87784774de199c",
+        "maker": "아우디",
+        "model": "S3",
+        "generation": "S3"
+      },
+      {
+        "id": "generation_56c08e90c5fa39",
+        "maker": "아우디",
+        "model": "S8",
+        "generation": "S8"
+      },
+      {
+        "id": "generation_f0e21caf55337e",
+        "maker": "인피니티",
+        "model": "G",
+        "generation": "G25"
+      },
+      {
+        "id": "generation_4120d3e90e2b1b",
+        "maker": "재규어",
+        "model": "F-TYPE",
+        "generation": "F-TYPE"
+      },
+      {
+        "id": "generation_95cb8768f6faf8",
+        "maker": "재규어",
+        "model": "S-TYPE",
+        "generation": "S-TYPE"
+      },
+      {
+        "id": "generation_746982f13a1e38",
+        "maker": "재규어",
+        "model": "X-TYPE",
+        "generation": "X-TYPE"
+      },
+      {
+        "id": "generation_5c56c408d79953",
+        "maker": "재규어",
+        "model": "XF",
+        "generation": "New XF"
+      },
+      {
+        "id": "generation_3f65a70e645b29",
+        "maker": "재규어",
+        "model": "XJR",
+        "generation": "XJR"
+      },
+      {
+        "id": "generation_f1c2c578bbf4ef",
+        "maker": "캐딜락",
+        "model": "컨코어",
+        "generation": "컨코어"
+      },
+      {
+        "id": "generation_ee22e03f17cfd1",
+        "maker": "크라이슬러",
+        "model": "그랜드 보이저",
+        "generation": "그랜드 보이저"
+      },
+      {
+        "id": "generation_cc67c5cd9dc3ce",
+        "maker": "포드",
+        "model": "레인저",
+        "generation": "레인저 4세대"
+      },
+      {
+        "id": "generation_a57b2602ccd0b3",
+        "maker": "포드",
+        "model": "레인저",
+        "generation": "레인저 3세대"
+      },
+      {
+        "id": "generation_247a4f06552373",
+        "maker": "포드",
+        "model": "레인저",
+        "generation": "레인저"
+      },
+      {
+        "id": "generation_ddb4fa5de6116c",
+        "maker": "포드",
+        "model": "E-Series",
+        "generation": "E-Series"
+      },
+      {
+        "id": "generation_0be16dbf4ca300",
+        "maker": "포르쉐",
+        "model": "911",
+        "generation": "911"
+      },
+      {
+        "id": "generation_c550ffbeb29294",
+        "maker": "폭스바겐",
+        "model": "멀티밴",
+        "generation": "멀티밴"
+      },
+      {
+        "id": "generation_913af221e37f35",
+        "maker": "폭스바겐",
+        "model": "CC",
+        "generation": "뉴 CC"
+      },
+      {
+        "id": "generation_33c8eaac9dca71",
+        "maker": "폭스바겐",
+        "model": "EOS",
+        "generation": "EOS"
+      },
+      {
+        "id": "generation_18a9aba87bcb90",
+        "maker": "푸조",
+        "model": "206",
+        "generation": "206CC"
+      },
+      {
+        "id": "generation_c6f28ae3c8fe62",
+        "maker": "푸조",
+        "model": "206",
+        "generation": "206RC"
+      },
+      {
+        "id": "generation_96eb22e884155f",
+        "maker": "푸조",
+        "model": "207",
+        "generation": "207SW"
+      },
+      {
+        "id": "generation_dd18bf320f22e2",
+        "maker": "푸조",
+        "model": "208",
+        "generation": "e-208 2세대"
+      },
+      {
+        "id": "generation_0834b22ca6f14f",
+        "maker": "푸조",
+        "model": "익스퍼트",
+        "generation": "익스퍼트 티피"
+      },
+      {
+        "id": "generation_1dc025dd84841f",
+        "maker": "피아트",
+        "model": "500",
+        "generation": "500C"
+      },
+      {
+        "id": "generation_119fed7f72780c",
+        "maker": "기타 수입차",
+        "model": "기타",
+        "generation": "기타"
+      }
+    ]
+  }
+}
