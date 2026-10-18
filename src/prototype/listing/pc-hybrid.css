@@ -29,6 +29,8 @@
   .marketplace.is-bbm.is-hybrid.is-compact-top-filter .bbm-content-head.is-chotot .bbm-chips .filter-chip:not(:first-child) { display: none; }
   .marketplace.is-bbm.is-hybrid.is-compact-top-filter .bbm-content-head.is-chotot > .bbm-ct-chip-row { margin-top: 0; }
   .marketplace.is-bbm.is-hybrid.is-compact-top-filter .bbm-content-head.is-chotot .bbm-ct-chip-scroll { margin-right: 0; }
+  /* 184px 상단 카드 + 24px 본문 간격만큼 좌측 필터를 올려 두 열의 시작선을 맞춘다. */
+  .marketplace.is-bbm.is-hybrid.is-compact-top-filter .bbm-page > .bbm-filter { margin-top: -208px; }
   /* 비교안: 하위 카테고리 메뉴는 유지하고 큰 상단 검색조건·브랜드 박스만 제거한다. */
   .marketplace.is-bbm.is-hybrid.is-no-top-filter .bbm-hybrid-top > .bbm-content-head.is-chotot { display: none; }
   /* QF-119: 위 기준 sticky + 자기 스크롤 영역(qf-sidebar-stable.css). 예전 "아래 붙는 사이드바"(음수 top, bbm-sticky-sidebar.ts)는 없앰 */
