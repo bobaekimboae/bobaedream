@@ -17,7 +17,7 @@
   .bbm-filter.is-charancha .bbm-cha-reset-icon { font-size: 14px; line-height: 14px; }
 
   .bbm-filter.is-charancha .bbm-filter-menu { padding: 0; }
-  .bbm-filter.is-charancha .bbm-filter-item { padding: 22px 0; border-bottom: 1px solid #eceef0; }
+  .bbm-filter.is-charancha .bbm-filter-item { padding: 16px 0; border-bottom: 1px solid #eceef0; }
   .bbm-filter.is-charancha .bbm-filter-item:last-child { border-bottom: 1px solid #eceef0; }
   .marketplace.is-bbm .bbm-filter.is-charancha .bbm-filter-item .bbm-filter-toggle,
   .marketplace.is-bbm .bbm-filter.is-charancha .bbm-filter-item.is-open .bbm-filter-toggle,
@@ -50,7 +50,7 @@
   }
   /* 필터 더보기: 같은 항목 줄 모양(가운데 버튼 상자 대신) */
   .bbm-filter.is-charancha .bbm-filter-more-toggle {
-    justify-content: space-between; width: 100%; height: auto; margin: 0; padding: 22px 0; border: 0; border-bottom: 1px solid #eceef0; border-radius: 0;
+    justify-content: space-between; width: 100%; height: auto; margin: 0; padding: 16px 0; border: 0; border-bottom: 1px solid #eceef0; border-radius: 0;
     color: #707b89; font-size: 16px; font-weight: 600; line-height: 24px;
   }
   .bbm-filter.is-charancha .bbm-filter-more-toggle i { margin-right: 4px; }
