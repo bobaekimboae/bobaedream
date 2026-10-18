@@ -33,17 +33,18 @@
   .bbm-gnb > button:hover,
   .bbm-gnb > .bbm-vehicle-search-wrap > button:hover,
   .bbm-gnb > .bbm-gnb-more-wrap > button:hover { background: transparent; color: #222; }
-  .bbm-gnb button.is-active { align-self: stretch; height: 49px; padding: 0 1px; border-radius: 0; background: transparent; color: #111; font-weight: 700; }
+  .bbm-gnb button.is-active { align-self: stretch; height: 49px; padding: 0 1px; border-radius: 0; background: transparent; color: var(--blue, #306bd9); font-weight: 700; }
   .bbm-gnb button.is-active::after { display: none; }
+  .bbm-gnb button.is-active .bbm-gnb-item-icon { color: var(--blue, #306bd9); }
   .bbm-gnb-more-wrap { position: relative; display: flex; flex: none; align-items: center; }
   .bbm-gnb .bbm-gnb-more { gap: 5px; height: 49px; padding: 0 1px; border: 0; border-radius: 0; background: transparent; }
   .bbm-gnb .bbm-gnb-more:hover { background: transparent; }
-  .bbm-gnb .bbm-gnb-more.is-active { background: transparent; color: #111; }
+  .bbm-gnb .bbm-gnb-more.is-active { background: transparent; color: var(--blue, #306bd9); }
   /* 더보기 안의 메뉴 수는 검정 당구공처럼 짧고 분명하게 표시한다. */
   .bbm-gnb-more-count { display: inline-flex; width: 18px; min-width: 18px; height: 18px; align-items: center; justify-content: center; padding: 0; border-radius: 50%; background: #222; color: #fff; font-size: 11px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
-  .bbm-gnb-more.is-active .bbm-gnb-more-count { background: #222; color: #fff; }
+  .bbm-gnb-more.is-active .bbm-gnb-more-count { background: var(--blue, #306bd9); color: #fff; }
   .bbm-gnb-more .bb-icon { color: #505050; transition: transform 160ms ease; }
-  .bbm-gnb-more.is-active .bb-icon { color: #222; }
+  .bbm-gnb-more.is-active .bb-icon { color: var(--blue, #306bd9); }
   .bbm-gnb-more[aria-expanded="true"] .bb-icon { transform: rotate(180deg); }
   .bbm-gnb-more-menu { position: absolute; top: 46px; right: -12px; z-index: 150; display: grid; min-width: 164px; padding: 8px; border: 1px solid #e5e5e5; border-radius: 10px; background: #fff; box-shadow: 0 8px 24px rgba(0, 0, 0, .12); }
   .bbm-gnb .bbm-gnb-more-menu button { justify-content: flex-start; width: 100%; height: 38px; padding: 0 12px; border-radius: 7px; font-size: 14px; font-weight: 500; line-height: 20px; text-align: left; }
@@ -399,9 +400,9 @@ html[data-lnb] .marketplace .bbm-gnb > button:hover,
 html[data-lnb] .marketplace .bbm-gnb > .bbm-vehicle-search-wrap > button:hover,
 html[data-lnb] .marketplace .bbm-gnb > .bbm-gnb-more-wrap > button:hover { background: none; color: #222; }
 html[data-lnb] .marketplace .bbm-gnb button.is-active,
-html[data-lnb] .marketplace .bbm-gnb .bbm-gnb-more.is-active { color: #222; font-weight: 700; }
+html[data-lnb] .marketplace .bbm-gnb .bbm-gnb-more.is-active { color: var(--blue, #306bd9); font-weight: 700; }
 html[data-lnb] .marketplace .bbm-gnb button.is-active::after,
-html[data-lnb] .marketplace .bbm-gnb .bbm-gnb-more.is-active::after { content: ""; position: absolute; right: 0; bottom: 0; left: 0; display: block; height: 2px; background: #222; }
+html[data-lnb] .marketplace .bbm-gnb .bbm-gnb-more.is-active::after { content: ""; position: absolute; right: 0; bottom: 0; left: 0; display: block; height: 2px; background: var(--blue, #306bd9); }
 html[data-lnb] .marketplace .bbm-gnb .bbm-gnb-more-menu button,
 html[data-lnb] .marketplace .bbm-gnb .bbm-vehicle-type-option { height: 38px; color: #222; font-size: 14px; }
 
@@ -465,7 +466,7 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
 /* 2026-10-18 「탑메뉴는 엔카처럼 밑줄」: 엔카 PC 1440 실측 — 선택 메뉴 아래 2px #181818 밑줄, 글자 폭만큼, 메뉴 줄 아래끝. */
 @media (min-width: 1024px) {
   html:not([data-lnb]) .bbm-gnb button.is-active::after,
-  html:not([data-lnb]) .bbm-gnb .bbm-gnb-more.is-active::after { content: ""; position: absolute; right: 1px; bottom: 0; left: 1px; display: block; height: 2px; background: #181818; }
+  html:not([data-lnb]) .bbm-gnb .bbm-gnb-more.is-active::after { content: ""; position: absolute; right: 1px; bottom: 0; left: 1px; display: block; height: 2px; background: var(--blue, #306bd9); }
 }
 
 /* 2026-10-18 「하위 메뉴는 노출하지 말고 필터 박스 안에서 해결, 탑메뉴 밑줄만」:
