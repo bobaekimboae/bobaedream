@@ -2513,7 +2513,7 @@ function MarketplaceScreen() {
                     ))}
                     <ModelImagePill
                       label="전체 브랜드"
-                      image={<span className="kr-all-brands" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="3" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /></svg></span>}
+                      image={<span className="kr-all-brands" aria-hidden="true"><svg viewBox="0 0 22 24" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M17 13.5c-.85 0-1.5-.65-1.5-1.5s.65-1.5 1.5-1.5 1.5.65 1.5 1.5-.65 1.5-1.5 1.5Zm0-1c.3 0 .5-.2.5-.5s-.2-.5-.5-.5-.5.2-.5.5.2.5.5.5Zm-6-2c.85 0 1.5.65 1.5 1.5s-.65 1.5-1.5 1.5-1.5-.65-1.5-1.5.65-1.5 1.5-1.5Zm0 1c-.3 0-.5.2-.5.5s.2.5.5.5.5-.2.5-.5-.2-.5-.5-.5Zm-4.5.5c0-.85-.65-1.5-1.5-1.5s-1.5.65-1.5 1.5.65 1.5 1.5 1.5 1.5-.65 1.5-1.5Zm-2 0c0-.3.2-.5.5-.5s.5.2.5.5-.2.5-.5.5-.5-.2-.5-.5Z" fill="currentColor" /></svg></span>}
                       variant="brand"
                       onClick={() => setBbmChipPanel("제조사")}
                     />
@@ -2586,7 +2586,7 @@ function MarketplaceScreen() {
                     {oldcarListingBrands ? oldcarListingBrands.map(card) : <>
                       {sections.domestic.map(card)}
                       {sections.imported.map(card)}
-                      <DepthCard key="전체 브랜드" label="전체 브랜드" image={<span className="kr-all-brands" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="3" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /></svg></span>} mediaKind="brand" onClick={() => supportsVehicleCatalog ? setSheet("vehicle") : setBbmChipPanel("제조사")} />
+                      <DepthCard key="전체 브랜드" label="전체 브랜드" image={<span className="kr-all-brands" aria-hidden="true"><svg viewBox="0 0 22 24" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M17 13.5c-.85 0-1.5-.65-1.5-1.5s.65-1.5 1.5-1.5 1.5.65 1.5 1.5-.65 1.5-1.5 1.5Zm0-1c.3 0 .5-.2.5-.5s-.2-.5-.5-.5-.5.2-.5.5.2.5.5.5Zm-6-2c.85 0 1.5.65 1.5 1.5s-.65 1.5-1.5 1.5-1.5-.65-1.5-1.5.65-1.5 1.5-1.5Zm0 1c-.3 0-.5.2-.5.5s.2.5.5.5.5-.2.5-.5-.2-.5-.5-.5Zm-4.5.5c0-.85-.65-1.5-1.5-1.5s-1.5.65-1.5 1.5.65 1.5 1.5 1.5 1.5-.65 1.5-1.5Zm-2 0c0-.3.2-.5.5-.5s.5.2.5.5-.2.5-.5.5-.5-.2-.5-.5Z" fill="currentColor" /></svg></span>} mediaKind="brand" onClick={() => supportsVehicleCatalog ? setSheet("vehicle") : setBbmChipPanel("제조사")} />
                     </>}
                   </QuickRailCarousel>
                 </section>
