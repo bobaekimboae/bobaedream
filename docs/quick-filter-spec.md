@@ -2,6 +2,8 @@
 
 ## Shared Rules
 
+- PC construction machinery (2026-10-18): place the left text filter and right quick-filter card at the same top edge, followed by results on the right. The left `유형 · 형식` list follows the existing equipment rail order and keeps inventory-only types available; the selected type reveals text subtypes inline. `제조사 · 모델` uses text rows and inventory counts. Both columns share HeavySelection, reset dependent values on parent changes, and restore valid selections from the URL. The existing mobile and ChoTot comparison layouts remain unchanged.
+
 - Preserve the depth order: `차량유형 → 제조사 → 모델 → 세대 → 트림`.
 - The main-home search submits its trimmed value as `q`; a main-home brand card submits `maker`. The listing restores both from the URL so entry intent survives navigation and reload.
 - A keyword filters result cards only. It does not remove the selected maker/model/generation rail or recalculate its available hierarchy. When a keyword produces zero results, the primary recovery action clears only `q` and preserves the selected vehicle depth.
