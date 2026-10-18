@@ -185,9 +185,14 @@ export function CatalogLogo({ path, name, kind = "list", scope = "car" }: { path
   const bikeLogo = selectedBikeLogo?.logo ?? null;
   const approved = scope === "car" ? carMakerLogoAsset(name) : null;
   const daangnLogo = scope === "car" ? daangnMakerLogos[name] : null;
+  const latestKgmLogo = scope === "car" && name === "KG모빌리티(쌍용)"
+    ? `${publicBase}assets/brand/rail-v01/kgm.png`
+    : null;
   const source = bikeLogo
     ? `${publicBase}assets/bike/logos/${selectedBikeLogo?.directory}/${bikeLogo.file}`
-    : daangnLogo
+    : latestKgmLogo
+      ? latestKgmLogo
+      : daangnLogo
       ? daangnLogo
       : approved
         ? `${publicBase}assets/maker-model/logos/encar-1005-trim/${approved.file}`
@@ -200,8 +205,12 @@ export function CatalogLogo({ path, name, kind = "list", scope = "car" }: { path
     if (height > 26) { height = 26; width = height * bikeLogo.ratio; }
     return { width: `${width * scale}px`, height: `${height * scale}px` };
   })() : null;
-  const style = daangnLogo ? undefined : bikeSize ?? (approved ? { width: `${approved.width * scale}px`, height: `${approved.height * scale}px` } : undefined);
-  return <span className={`catalog-logo is-${kind}${source ? "" : " is-placeholder"}`} data-testid={`catalog-logo-${name}`} data-logo-standard={selectedBikeLogo?.set ?? (daangnLogo ? "daangn-drive" : approved ? "v4" : "legacy")}>{source ? <img src={source} alt="" draggable={false} style={style} /> : <span aria-hidden="true">{name.slice(0, 1)}</span>}</span>;
+  const style = latestKgmLogo
+    ? { width: `${38 * scale}px`, height: `${6 * scale}px` }
+    : daangnLogo
+      ? undefined
+      : bikeSize ?? (approved ? { width: `${approved.width * scale}px`, height: `${approved.height * scale}px` } : undefined);
+  return <span className={`catalog-logo is-${kind}${source ? "" : " is-placeholder"}`} data-testid={`catalog-logo-${name}`} data-logo-standard={selectedBikeLogo?.set ?? (latestKgmLogo ? "kgm-drive-latest" : daangnLogo ? "daangn-drive" : approved ? "v4" : "legacy")}>{source ? <img src={source} alt="" draggable={false} style={style} /> : <span aria-hidden="true">{name.slice(0, 1)}</span>}</span>;
 }
 
 export function CatalogVehicleImage({ path, name, compact = false }: { path?: string | null; name: string; compact?: boolean }) {
