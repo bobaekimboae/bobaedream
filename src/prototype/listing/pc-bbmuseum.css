@@ -27,12 +27,6 @@
   .bbm-gnb button.is-home { font-size: 15px; font-weight: 500; }
   .bbm-gnb button.is-active { align-self: center; height: 38px; padding: 0 12px; border-radius: 9999px; background: #2a3038; color: #fff; font-weight: 700; }
   .bbm-gnb button.is-active::after { display: none; }
-  .bbm-gnb-icon { display: inline-block; width: 17px; height: 17px; flex: 0 0 17px; background: currentColor; -webkit-mask: var(--bbm-nav-icon) center / contain no-repeat; mask: var(--bbm-nav-icon) center / contain no-repeat; }
-  .bbm-gnb-icon.is-vehicle-search { transform: scale(.94); }
-  .bbm-gnb-icon.is-used-car { transform: scale(.98); }
-  .bbm-gnb-icon.is-truck { transform: scale(.94); }
-  .bbm-gnb-icon.is-heavy-equipment { transform: scale(.9); }
-  .bbm-gnb-icon.is-bike { transform: scale(.96); }
   .bbm-gnb-more-wrap { position: relative; display: flex; flex: none; align-items: center; }
   .bbm-gnb .bbm-gnb-more { gap: 6px; height: 36px; padding: 0 10px 0 12px; border: 1px solid #dedede; border-radius: 10px; background: #fff; }
   .bbm-gnb .bbm-gnb-more:hover { border-color: #bcbcbc; background: #f8f8f8; }
@@ -266,7 +260,6 @@
   .bbm-gnb { gap: 10px; }
   .bbm-gnb button { font-size: 14px; line-height: 20px; }
   .bbm-gnb button.is-home { font-size: 14px; }
-  .bbm-gnb-icon { width: 16px; height: 16px; flex-basis: 16px; }
   .bbm-gnb-more .bb-icon { width: 16px; height: 16px; }
 }
 @media (min-width: 820px) and (max-width: 1019px) {
