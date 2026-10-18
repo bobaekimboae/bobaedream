@@ -614,7 +614,7 @@ function BbTruckOptionLabel({ name, image, secondary }: { name: string; image: s
   return <span className="bbm-truck-option">{image ? <span className="bbm-truck-option-image"><img src={asset(image)} alt="" draggable={false} /></span> : null}<span className="bbm-truck-option-name">{name}{secondary ? <small>{secondary}</small> : null}</span></span>;
 }
 
-export function BbTruckFormatFilter({ value, showImages = true }: { value: BbTruckFilter; showImages?: boolean }) {
+export function BbTruckFormatFilter({ value, showImages = true, referenceStyle = false }: { value: BbTruckFilter; showImages?: boolean; referenceStyle?: boolean }) {
   const stageFor = (): BbTruckView => !value.format
     ? "format"
     : !value.subtype || inlineTruckPayloadSubtypes.has(value.subtype)
@@ -628,6 +628,49 @@ export function BbTruckFormatFilter({ value, showImages = true }: { value: BbTru
     value.subtype ? { key: "subtype", label: value.subtype, clear: value.onClearSubtype } : null,
     value.spec ? { key: "spec", label: value.spec, clear: value.onClearSpec } : null,
   ].filter((chip): chip is NonNullable<typeof chip> => Boolean(chip));
+
+  // 엔카 화물·특장 좌측 필터: 선택 경로를 칩/뒤로가기/별도 제목으로 반복하지 않고,
+  // 선택된 부모 행 바로 아래에 다음 단계 선택지를 같은 텍스트 행으로 이어 붙인다.
+  if (referenceStyle) {
+    return (
+      <div className="bbm-maker-grade bbm-truck-format is-reference is-encar" aria-label="형식과 적재용량 선택">
+        <div className="bbm-catalog">
+          {view === "format" ? <div className="bbm-catalog-section">
+            <p className="bbm-catalog-title">형식</p>
+            {value.formats.map((option) => <button key={option.name} type="button" className="bbm-catalog-row" aria-pressed={false} onClick={() => { value.onChooseFormat(option.name); setView("subtype"); }}><BbTruckOptionLabel name={option.name} image={null} />{count(option.count)}</button>)}
+          </div> : <div className="bbm-catalog-section is-drill">
+            <button type="button" className="bbm-encar-selected-row" aria-label={`${value.format} 선택 해제`} onClick={value.onClearFormat}>
+              <span>{value.format}</span><span className="bbm-encar-selected-x" aria-hidden="true">×</span>
+            </button>
+            {view === "subtype" ? value.subtypes.map((option) => {
+              const inlinePayload = inlineTruckPayloadSubtypes.has(option.name);
+              const expanded = inlinePayload && value.subtype === option.name;
+              return <Fragment key={option.name}>
+                <button type="button" className={`bbm-catalog-row${value.subtype === option.name ? " is-selected" : ""}`} aria-pressed={value.subtype === option.name} aria-expanded={inlinePayload ? expanded : undefined} onClick={() => { value.onChooseSubtype(option.name); setView(inlinePayload ? "subtype" : "spec"); }}>
+                  <BbTruckOptionLabel name={option.name} image={null} secondary={truckSubtypeSecondaryLabel(value.format, option.name)} />
+                  <span className="bbm-truck-option-tail">{count(option.count)}{inlinePayload ? <BbIcon name="chevron-down" size={16} className={expanded ? "is-expanded" : ""} /> : null}</span>
+                </button>
+                {expanded ? <div className="bbm-truck-inline-payload" aria-label={`${option.name} 적재중량`}>
+                  <p className="bbm-catalog-title">적재중량</p>
+                  {value.specGroups.map((group) => <div key={group.label} className="bbm-truck-spec-chips">
+                    {group.options.map((specOption) => <button key={`${group.label}-${specOption.name}`} type="button" className={value.spec === specOption.name ? "is-selected" : ""} aria-pressed={value.spec === specOption.name} onClick={() => value.onChooseSpec(specOption.name)}><span>{specOption.name}</span>{count(specOption.count)}</button>)}
+                  </div>)}
+                </div> : null}
+              </Fragment>;
+            }) : <>
+              <button type="button" className="bbm-encar-selected-row is-child" aria-label={`${value.subtype} 선택 해제`} onClick={value.onClearSubtype}>
+                <span>{value.subtype}</span><span className="bbm-encar-selected-x" aria-hidden="true">×</span>
+              </button>
+              {value.specGroups.map((group) => <div key={group.label} className="bbm-grade-group bbm-truck-spec-group">
+                <p className="bbm-catalog-title">{group.label}</p>
+                <div className="bbm-truck-spec-chips">{group.options.map((option) => <button key={`${group.label}-${option.name}`} type="button" className={value.spec === option.name ? "is-selected" : ""} aria-pressed={value.spec === option.name} onClick={() => value.onChooseSpec(option.name)}><span>{option.name}</span>{count(option.count)}</button>)}</div>
+              </div>)}
+            </>}
+          </div>}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bbm-maker-grade bbm-truck-format" aria-label="형식과 적재용량 선택">
@@ -765,12 +808,12 @@ function BbFilterSidebar({ leadingFilters, selection, appliedCount, historyCount
     const path = [truckFilter.format, truckFilter.subtype, truckFilter.spec].filter(Boolean).join(" › ");
     return <section className={`bbm-filter-item is-truck-format${open ? " is-open" : ""}${applied ? " is-applied" : ""}`}>
       <button type="button" className="bbm-filter-toggle" aria-expanded={open} onClick={() => toggle(truckFilterLabel)}>
-        <span className="bbm-filter-label"><span className="bbm-filter-label-text">형식/적재용량</span>{path ? <small className="bbm-filter-path">{path}</small> : null}</span>
+        <span className="bbm-filter-label"><span className="bbm-filter-label-text">형식/적재용량</span>{path && !referenceMakerFlow ? <small className="bbm-filter-path">{path}</small> : null}</span>
         <img className="bbm-filter-chevron" src={bbmAsset("filter-chevron")} alt="" aria-hidden="true" />
       </button>
       {truckFilter.format ? <button type="button" className="bbm-filter-item-reset" onClick={truckFilter.onClearFormat}>초기화</button> : null}
       {/* 엔카 화물·특장 필터처럼 왼쪽 탐색은 이미지 없이 형식명과 매물 수만 읽게 한다. */}
-      {open ? <BbTruckFormatFilter value={truckFilter} showImages={false} /> : null}
+      {open ? <BbTruckFormatFilter value={truckFilter} showImages={false} referenceStyle={referenceMakerFlow} /> : null}
     </section>;
   };
   if (collapsible && sidebarCollapsed) {

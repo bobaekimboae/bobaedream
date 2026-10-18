@@ -75,6 +75,22 @@
   .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar .bbmf-check-label { color: inherit; font: inherit; white-space: nowrap; }
   /* 적용된 항목 제목도 파랑 대신 검정(파랑은 로고·검색·주 버튼 전용) */
   .marketplace.is-bbm .bbm-filter.is-charancha .bbm-filter-item.is-applied .bbm-filter-label-text { color: #191f28; }
+  /* 엔카 화물 필터는 적용 상태를 파란 세로선으로 표시하지 않는다. 선택된 부모 행의 ×만 계층 이동을 담당한다. */
+  .marketplace.is-bbm .bbm-filter.is-charancha .bbm-filter-item.is-truck-format.is-applied .bbm-filter-toggle::before { content: none; }
+  .bbm-filter.is-charancha .bbm-truck-format.is-encar { margin-top: 16px; }
+  .bbm-filter.is-charancha .bbm-truck-format.is-encar .bbm-catalog-section { padding: 0 0 4px; }
+  .bbm-filter.is-charancha .bbm-truck-format.is-encar .bbm-catalog-title { margin: 0 0 4px 6px; padding: 0; color: #919ba7; font-size: 12px; font-weight: 500; line-height: 18px; }
+  .bbm-filter.is-charancha .bbm-truck-format.is-encar .bbm-catalog-row { min-height: 38px; padding: 8px 6px; border-radius: 0; color: #191f28; font-size: 14px; font-weight: 400; line-height: 20px; }
+  .bbm-filter.is-charancha .bbm-truck-format.is-encar .bbm-catalog-row:hover { background: #f7f8fa; }
+  .bbm-filter.is-charancha .bbm-truck-format.is-encar .bbm-catalog-row.is-selected { background: transparent; color: #191f28; font-weight: 600; }
+  .bbm-filter.is-charancha .bbm-truck-format.is-encar .bbm-catalog-row em { color: #919ba7; font-size: 12px; font-weight: 400; line-height: 18px; }
+  .bbm-filter.is-charancha .bbm-truck-format.is-encar .bbm-truck-option-name small { margin-top: 0; color: #919ba7; font-size: 11px; line-height: 15px; }
+  .bbm-filter.is-charancha .bbm-encar-selected-row { display: flex; width: 100%; min-height: 38px; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 6px; border: 0; box-sizing: border-box; background: #fff; color: #191f28; font-size: 14px; font-weight: 600; line-height: 20px; text-align: left; }
+  .bbm-filter.is-charancha .bbm-encar-selected-row:hover { background: #f7f8fa; }
+  .bbm-filter.is-charancha .bbm-encar-selected-row.is-child { padding-left: 18px; font-weight: 500; }
+  .bbm-filter.is-charancha .bbm-encar-selected-x { display: inline-grid; width: 14px; height: 14px; flex: 0 0 14px; place-items: center; border-radius: 50%; background: #222; color: #fff; font-size: 12px; font-weight: 400; line-height: 14px; }
+  .bbm-filter.is-charancha .bbm-truck-format.is-encar .bbm-truck-spec-group { padding: 6px 6px 8px; }
+  .bbm-filter.is-charancha .bbm-truck-format.is-encar .bbm-truck-inline-payload { margin: 2px 6px 8px 18px; border-left-color: #d1d6db; background: #f7f8fa; }
   .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar:hover:not(:disabled):not([aria-checked="true"]) { border-color: #d1d6db; }
   .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar[aria-checked="true"] { position: relative; border-color: #222; background: #fff; color: #222; font-weight: 600; }
   .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar[aria-checked="true"]::after { content: ""; position: absolute; inset: 0; border: 1px solid #222; border-radius: 4px; pointer-events: none; }

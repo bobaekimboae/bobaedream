@@ -30,6 +30,28 @@ final result: passed
 
 ---
 
+## 2026-10-18 엔카형 트럭 선택 단계 정렬
+
+- Reference: `https://www.encar.com/tr/tr_carsearchlist.do#!`의 `카고(화물)트럭` 선택 상태
+- Reference screenshot: `reports/truck-encar-layout/encar-selected.png`
+- Implementation: `/?qf=guazi&pc=1&filterLayout=compact&category=트럭 · 특장&truckFormat=카고(화물)트럭`
+- Implementation screenshot: `reports/truck-encar-layout/implementation-selected.png`
+- Viewport: 1280×720
+- Browser: ChatGPT in-app browser
+
+### Comparison
+
+- Selected hierarchy: passed — 선택 형식 한 행과 검정 원형 × 바로 아래에 하위 텍스트 행을 펼쳐 엔카의 단계 구조와 맞췄다.
+- Duplicate navigation: passed — 파란 선택 경로 칩, 뒤로가기 행, `세부형식` 중복 제목, 제목 아래 반복 경로를 제거했다.
+- Color hierarchy: passed — 엔카 선택 영역처럼 본문·수량은 검정/중립 회색을 쓰고 적용 상태 파란 세로선을 제거했다.
+- Geometry: passed — 선택 전후 좌측 280px, 열 사이 40px, 오른쪽 880px와 양 열의 시작선을 유지한다.
+- Product taxonomy: passed — 엔카의 정보 구조만 적용하고 보배드림의 카고 차급·대표 적재중량·매물 수 데이터는 보존한다.
+- Regression: passed — TypeScript, 모바일 런타임 보호, 퀵필터 프로덕션 빌드를 통과했다.
+
+final result: passed
+
+---
+
 ## 2026-10-18 트럭·특장 PC 엔카형 2열 필터
 
 - Reference: `https://www.encar.com/tr/tr_carsearchlist.do#!`
