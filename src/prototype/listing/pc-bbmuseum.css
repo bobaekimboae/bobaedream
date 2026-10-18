@@ -463,8 +463,8 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
   html:not([data-lnb]) .marketplace.is-bbm.is-hybrid > .bbm-hybrid-top > .bbm-secondary-nav { height: 56px; margin: 0 0 16px; border-bottom: 0; background: none; border-image: linear-gradient(to top, #e5e7eb 1px, #fff 1px) fill 0 / 0 / 0 100vmax; }
 }
 
-/* 2026-10-18 선택 GNB: 비활성은 텍스트, 현재 메뉴만 보배드림 블루 알약칩. */
-@media (min-width: 1024px) {
+/* 2026-10-18 선택 GNB: PC 레이아웃 시작점(820px)부터 현재 메뉴만 보배드림 블루 알약칩. */
+@media (min-width: 820px) {
   .marketplace.is-bbm .bbm-gnb button.is-active,
   .marketplace.is-bbm .bbm-gnb .bbm-gnb-more.is-active,
   html[data-lnb] .marketplace.is-bbm .bbm-gnb button.is-active,
