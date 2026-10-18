@@ -29,17 +29,17 @@
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-ct-title-row { height: 32px; margin-top: 0; }
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot > .bbm-ct-crumbs + .bbm-ct-title-row { margin-top: 8px; }
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-ct-chip-row { height: 32px; margin-top: 18px; margin-bottom: 0; padding: 0; }
-/* 트럭 전체 폭 카드: 초톳 목록처럼 필터 칩 위를 `지역 / 초기화` 한 줄로 단순화한다.
+/* 트럭·국산차 전체 폭 카드: 초톳 목록처럼 필터 칩 위를 `지역 / 초기화` 한 줄로 단순화한다.
    기존 유형 텍스트 탭과 지역 칩은 각각 유형 이미지 레일·이 줄과 겹치므로 렌더하지 않는다. */
-.marketplace.is-bbm.is-qf-guazi.is-truck-full-top-filter .bbm-ct-region-row { display: flex; align-items: center; justify-content: space-between; height: 32px; }
-.marketplace.is-bbm.is-qf-guazi.is-truck-full-top-filter .bbm-ct-region-select,
-.marketplace.is-bbm.is-qf-guazi.is-truck-full-top-filter .bbm-ct-clear-all { display: inline-flex; align-items: center; height: 32px; padding: 0; border: 0; background: none; color: #222; font: inherit; font-size: 14px; line-height: 20px; cursor: pointer; }
-.marketplace.is-bbm.is-qf-guazi.is-truck-full-top-filter .bbm-ct-region-select { gap: 5px; font-weight: 600; }
-.marketplace.is-bbm.is-qf-guazi.is-truck-full-top-filter .bbm-ct-region-select strong { font-weight: 700; }
-.marketplace.is-bbm.is-qf-guazi.is-truck-full-top-filter .bbm-ct-region-select img { width: 14px; height: 14px; margin-left: -1px; }
-.marketplace.is-bbm.is-qf-guazi.is-truck-full-top-filter .bbm-ct-clear-all { font-weight: 700; }
-.marketplace.is-bbm.is-qf-guazi.is-truck-full-top-filter .bbm-ct-clear-all:disabled { color: #b8b8b8; cursor: default; }
-.marketplace.is-bbm.is-qf-guazi.is-truck-full-top-filter .bbm-content-head.is-chotot .bbm-ct-chip-row { margin-top: 8px; }
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-region-row { display: flex; align-items: center; justify-content: space-between; height: 32px; }
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-region-select,
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-clear-all { display: inline-flex; align-items: center; height: 32px; padding: 0; border: 0; background: none; color: #222; font: inherit; font-size: 14px; line-height: 20px; cursor: pointer; }
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-region-select { gap: 5px; font-weight: 600; }
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-region-select strong { font-weight: 700; }
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-region-select img { width: 14px; height: 14px; margin-left: -1px; }
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-clear-all { font-weight: 700; }
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-clear-all:disabled { color: #b8b8b8; cursor: default; }
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-content-head.is-chotot .bbm-ct-chip-row { height: 52px; margin-top: 8px; padding: 10px 0; }
 /* 초톳 PC 실측: 바이크 필터 칩 32px + 위아래 10px = 필터 줄 52px. 가격·지역을 포함한 한 줄 전체가 같은 수직 리듬을 쓴다. */
 .marketplace.is-bbm.is-qf-guazi.is-bike-category .bbm-content-head.is-chotot .bbm-ct-chip-row,
 .marketplace.is-bbm.is-qf-guazi.is-truck-category .bbm-content-head.is-chotot .bbm-ct-chip-row { height: 52px; padding: 10px 0; }

@@ -3078,14 +3078,17 @@ function MarketplaceScreen() {
     // QF-095: 과쯔 PC 상단 카드 — 초톳 PC 상단과 같은 구조(1줄 경로 · 2줄 제목 + 검색저장 · 3줄 칩 줄 + 필터 초기화 · 4줄 유형 줄/퀵필터 레일)
     const lnbVariant = bbLnbVariant();
     /* 헤이딜러·하틀라투이식 균형 배치(2026-10-18 기본): 좌측 필터와 우측 검색조건 카드가 같은 윗선에서 시작한다. */
-    // 트럭 compact는 예외로 검색조건 카드를 두 열 위의 1200px 전체 폭에 둔다.
-    // 형식·제조사처럼 선택지가 긴 트럭 퀵필터가 오른쪽 880px 칸에서 답답해지지 않고,
+    // 트럭 compact와 국산차 기본 화면은 검색조건 카드를 두 열 위의 1200px 전체 폭에 둔다.
+    // 선택지가 긴 퀵필터가 오른쪽 880px 칸에서 답답해지지 않고,
     // 그 아래부터 좌측 상세 필터와 매물 목록이 같은 윗선에서 시작한다.
-    const truckFullTopCard = isGuaziQuickStyle && usesReferencePcLayout && isTruckCategory && pcFilterLayout === "compact";
-    const balancedTopCard = isGuaziQuickStyle && usesReferencePcLayout && (isHeavyCategory || pcFilterLayout === "balanced");
-    // 트럭 compact는 전체 폭 퀵필터 자체가 카테고리 문맥을 충분히 제공하므로
+    const fullTopQuickCard = isGuaziQuickStyle && usesReferencePcLayout && (
+      isTruckCategory && pcFilterLayout === "compact"
+      || category === "국산차" && pcFilterLayout === "balanced"
+    );
+    const balancedTopCard = isGuaziQuickStyle && usesReferencePcLayout && !fullTopQuickCard && (isHeavyCategory || pcFilterLayout === "balanced");
+    // 전체 폭 퀵필터 자체가 카테고리 문맥을 충분히 제공하므로
     // 제목 배너를 중복 노출하지 않고 GNB 다음에 바로 검색 조건을 배치한다.
-    const bbmCategoryBanner = lnbVariant === "default" && !truckFullTopCard && (!isBikeCategory || isStandaloneBikeSite) ? (
+    const bbmCategoryBanner = lnbVariant === "default" && !fullTopQuickCard && (!isBikeCategory || isStandaloneBikeSite) ? (
           <div className="bbm-ct-banner">{/* 포쉬마크식 카테고리 헤더 배너(2026-10-18) */}
             <h1 className="bbm-ct-banner-title bbm-summary" data-count={shownCars.length}>{pageCategoryTitle}</h1>
             <button type="button" className={`bbm-save-search bbm-ct-save${searchSaved ? " is-saved" : ""}`} aria-pressed={searchSaved} onClick={toggleSearchSaved}><img src={bbmIcon("search-save")} alt="" aria-hidden="true" />검색저장</button>
@@ -3096,7 +3099,7 @@ function MarketplaceScreen() {
         {lnbVariant === "c"
           ? <BbBreadcrumb category={category} categoryDetail={category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild} onChooseCategory={chooseHierarchyCategory} />
           : null}
-        {truckFullTopCard ? <div className="bbm-ct-region-row" aria-label="지역 선택과 필터 초기화">
+        {fullTopQuickCard ? <div className="bbm-ct-region-row" aria-label="지역 선택과 필터 초기화">
           <button type="button" className="bbm-ct-region-select" aria-label={`현재 지역 ${stableRegionLabel(bbmValue)}, 지역 선택 열기`} onClick={() => openBbmChipPanel("지역")}>
             <span>지역:</span><strong>{stableRegionLabel(bbmValue)}</strong><img src={bbmIcon("triangle-down-chotot")} alt="" aria-hidden="true" />
           </button>
@@ -3119,7 +3122,7 @@ function MarketplaceScreen() {
               {bbmChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} prefix={chip.prefix} onClick={chip.onClick} onClear={chip.onClear} />)}
             </BbmChipScroller>
           </div>
-          {bbmAppliedCount && !truckFullTopCard ? <button type="button" className="bbm-ct-reset" onClick={() => setBbmTopReset((value) => value + 1)}>필터 초기화</button> : null}
+          {bbmAppliedCount && !fullTopQuickCard ? <button type="button" className="bbm-ct-reset" onClick={() => setBbmTopReset((value) => value + 1)}>필터 초기화</button> : null}
         </div>
         {/* PC 지역 선택은 전체 필터에서 제공한다. 상단에는 지역 나열 칩을 렌더하지 않는다. */}
         <div className="bbm-quick-slot">{quickRail}</div>
@@ -3137,7 +3140,7 @@ function MarketplaceScreen() {
     return (
       <>
         <MobileScroll className="app-screen">
-          <main className={`marketplace is-bbm${isStandaloneBikeSite ? " is-bike-site" : ""}${isStandaloneTruckSite ? " is-truck-site" : ""}${isGuaziQuickStyle ? " is-hybrid" : ""}${balancedTopCard ? " is-balanced-layout" : ""}${truckFullTopCard ? " is-truck-full-top-filter" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "right" ? " is-list-first-layout" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "compact" && !balancedTopCard && !truckFullTopCard ? " is-compact-top-filter" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "bare" ? " is-no-top-filter" : ""}${isGuaziQuickStyle && isUsedCarCategory && pcFilterLayout === "modern" ? " is-modern-filter-layout" : ""}${isGuaziQuickStyle && isUsedCarCategory && pcFilterLayout === "charancha" ? " is-charancha-filter-layout" : ""}${plainQuickCards ? " is-qf-plain" : ""}${guaziCardChipPreview ? " is-qf-guazi-card-chip" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}${isHeavyCategory ? " is-heavy-category" : ""}${category === "수입차" && !maker ? " is-imported-car-category" : ""}${maker === "페라리" ? ` is-ferrari-category${ferrariBannerFull ? " is-ferrari-banner-full" : ""}` : ""}${category === "올드카" ? " is-oldcar-category" : ""}`} aria-label={isStandaloneBikeSite ? "바이크 매물 리스트" : isStandaloneTruckSite ? "트럭 매물 리스트" : "중고차 리스트"}>
+          <main className={`marketplace is-bbm${isStandaloneBikeSite ? " is-bike-site" : ""}${isStandaloneTruckSite ? " is-truck-site" : ""}${isGuaziQuickStyle ? " is-hybrid" : ""}${balancedTopCard ? " is-balanced-layout" : ""}${fullTopQuickCard ? " is-full-top-filter" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "right" ? " is-list-first-layout" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "compact" && !balancedTopCard && !fullTopQuickCard ? " is-compact-top-filter" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "bare" ? " is-no-top-filter" : ""}${isGuaziQuickStyle && isUsedCarCategory && pcFilterLayout === "modern" ? " is-modern-filter-layout" : ""}${isGuaziQuickStyle && isUsedCarCategory && pcFilterLayout === "charancha" ? " is-charancha-filter-layout" : ""}${plainQuickCards ? " is-qf-plain" : ""}${guaziCardChipPreview ? " is-qf-guazi-card-chip" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}${isHeavyCategory ? " is-heavy-category" : ""}${category === "수입차" && !maker ? " is-imported-car-category" : ""}${maker === "페라리" ? ` is-ferrari-category${ferrariBannerFull ? " is-ferrari-banner-full" : ""}` : ""}${category === "올드카" ? " is-oldcar-category" : ""}`} aria-label={isStandaloneBikeSite ? "바이크 매물 리스트" : isStandaloneTruckSite ? "트럭 매물 리스트" : "중고차 리스트"}>
             <BbHeader category={category} onChooseCategory={chooseHierarchyCategory} onNotify={setSearchToast} onOpenFavorites={() => flow.push(savedListingsScreen)} searchSlot={<BbmCatalogHeaderSearch query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} catalogRecords={supportsVehicleCatalog ? vehicleCatalog.records : undefined} onCatalogFocus={supportsVehicleCatalog ? () => { void vehicleCatalog.ensureSearch(); } : undefined} onCatalogChoose={supportsVehicleCatalog ? chooseCatalogRecord : undefined} category={category} onChooseCategory={(value) => chooseHierarchyCategory(value)} />} />
             {/* QF-093: 과쯔는 상단 패널(전체차량 · N대 · 검색저장 · 칩 줄 · 유형 줄/퀵필터 레일)을 본문 폭 전체로 */}
             {/* 중고차·트럭은 텍스트 GNB 바로 아래 사각형 LNB를 유지하고, 필터 카드에는 경로·중복 카테고리 칩을 두지 않는다. */}
