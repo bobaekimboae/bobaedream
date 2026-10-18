@@ -674,4 +674,9 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
   html .marketplace.is-bbm .bbm-header.is-gnb-searchpill .bbm-gnb > .bbm-vehicle-search-wrap > button[aria-expanded="true"] { background: #ebebeb; color: #222; }
   html .marketplace.is-bbm .bbm-header.is-gnb-searchpill .bbm-gnb > .bbm-vehicle-search-wrap > button .bb-icon { width: 20px; height: 20px; color: #222; }
   html .marketplace.is-bbm .bbm-header.is-gnb-searchpill .bbm-gnb > .bbm-vehicle-search-wrap > button::after { display: none !important; }
+  html .marketplace.is-bbm .bbm-header.is-gnb-searchpill-blue .bbm-gnb > .bbm-vehicle-search-wrap > button,
+  html .marketplace.is-bbm .bbm-header.is-gnb-searchpill-blue .bbm-gnb > .bbm-vehicle-search-wrap > button.is-active { background: #eaf0fb; color: #306bd9; }
+  html .marketplace.is-bbm .bbm-header.is-gnb-searchpill-blue .bbm-gnb > .bbm-vehicle-search-wrap > button:hover,
+  html .marketplace.is-bbm .bbm-header.is-gnb-searchpill-blue .bbm-gnb > .bbm-vehicle-search-wrap > button[aria-expanded="true"] { background: #dce6f8; color: #1952ba; }
+  html .marketplace.is-bbm .bbm-header.is-gnb-searchpill-blue .bbm-gnb > .bbm-vehicle-search-wrap > button .bb-icon { color: currentColor; }
 }
