@@ -1,0 +1,134 @@
+/* PC 메인 시안 v01 (2026-10-18) — ./?home=pc */
+.pmh {
+  --pmh-blue: #306bd9;
+  --pmh-blue-hover: #1952ba;
+  --pmh-ink: #222;
+  --pmh-sub: #595959;
+  --pmh-muted: #8c8c8c;
+  --pmh-line: #ebebeb;
+  --pmh-page: #f4f4f4;
+  min-height: 100vh;
+  overflow-y: auto;
+  height: 100%;
+  background: var(--pmh-page);
+  color: var(--pmh-ink);
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+}
+.pmh *, .pmh *::before, .pmh *::after { box-sizing: border-box; }
+.pmh a { color: inherit; text-decoration: none; }
+.pmh button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+.pmh h1, .pmh h2, .pmh p, .pmh ol, .pmh ul { margin: 0; padding: 0; }
+.pmh-wrap { width: 1200px; max-width: calc(100% - 40px); margin: 0 auto; }
+
+/* 헤더 */
+.pmh-header { background: #fff; border-bottom: 1px solid var(--pmh-line); }
+.pmh-header-row { height: 72px; display: flex; align-items: center; gap: 40px; }
+.pmh-logo { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
+.pmh-logo img { width: 30px; height: 30px; object-fit: cover; object-position: left center; }
+.pmh-logo span { font-size: 20px; font-weight: 800; color: var(--pmh-blue); letter-spacing: -.02em; }
+.pmh-gnb { display: flex; gap: 24px; flex: 1 1 auto; min-width: 0; }
+.pmh-gnb a { font-size: 16px; line-height: 22px; font-weight: 500; color: var(--pmh-sub); white-space: nowrap; }
+.pmh-gnb a:hover { color: var(--pmh-ink); }
+.pmh-header-actions { display: flex; gap: 8px; flex: 0 0 auto; }
+.pmh-btn-line, .pmh-btn-blue { height: 40px; padding: 0 16px !important; border-radius: 999px; font-size: 14px; font-weight: 600; }
+.pmh-btn-line { border: 1px solid #dadada !important; background: #fff !important; }
+.pmh-btn-blue { background: var(--pmh-blue) !important; color: #fff !important; }
+.pmh-btn-blue:hover { background: var(--pmh-blue-hover) !important; }
+
+/* 상단 검색 띠 — 유럽식(mobile.de · AutoScout24 · Autotrader) */
+.pmh-hero { background: #fff; padding: 28px 0 20px; border-bottom: 1px solid var(--pmh-line); }
+.pmh-hero h1 { font-size: 28px; line-height: 38px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 16px; }
+.pmh-search-card { border: 1px solid #dadada; border-radius: 16px; padding: 0 24px 18px; box-shadow: 0 4px 16px rgba(0, 0, 0, .06); }
+.pmh-search-tabs { display: flex; gap: 24px; border-bottom: 1px solid var(--pmh-line); margin-bottom: 18px; }
+.pmh-search-tabs button { height: 52px; font-size: 16px; font-weight: 500; color: var(--pmh-muted); border-bottom: 3px solid transparent !important; margin-bottom: -1px; }
+.pmh-search-tabs button.is-on { color: var(--pmh-ink); font-weight: 700; border-bottom-color: var(--pmh-ink) !important; }
+.pmh-search-row { display: flex; gap: 12px; align-items: flex-end; }
+.pmh-field { display: flex; flex-direction: column; gap: 6px; width: 200px; }
+.pmh-field-grow { flex: 1 1 auto; width: auto; }
+.pmh-field span { font-size: 13px; line-height: 18px; color: var(--pmh-sub); font-weight: 500; }
+.pmh-field input, .pmh-field select { height: 52px; border: 1px solid #dadada; border-radius: 12px; padding: 0 14px; font: inherit; font-size: 16px; color: var(--pmh-ink); background: #fff; outline: 0; }
+.pmh-field input:focus, .pmh-field select:focus { border-color: var(--pmh-blue); box-shadow: 0 0 0 1px var(--pmh-blue); }
+.pmh-search-submit { height: 52px; padding: 0 28px !important; border-radius: 12px; background: var(--pmh-blue) !important; color: #fff !important; font-size: 16px; font-weight: 700; white-space: nowrap; }
+.pmh-search-submit:hover { background: var(--pmh-blue-hover) !important; }
+.pmh-sell-row { justify-content: space-between; align-items: center; min-height: 76px; }
+.pmh-sell-row p { font-size: 16px; line-height: 24px; color: var(--pmh-sub); }
+.pmh-sell-row strong { color: var(--pmh-ink); }
+.pmh-keywords { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 16px; }
+.pmh-keywords span { font-size: 13px; color: var(--pmh-muted); margin-right: 4px; }
+.pmh-keywords a { height: 28px; padding: 0 12px; border-radius: 999px; background: #f4f4f4; font-size: 13px; line-height: 28px; color: var(--pmh-sub); }
+.pmh-keywords a:hover { color: var(--pmh-ink); background: #ebebeb; }
+.pmh-types { display: grid; grid-template-columns: repeat(9, 1fr); gap: 8px; margin-top: 16px; }
+.pmh-types a { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 8px 0; border-radius: 12px; font-size: 14px; line-height: 20px; color: var(--pmh-ink); }
+.pmh-types a:hover { background: #f7f7f7; }
+.pmh-types span { width: 56px; height: 56px; border-radius: 50%; background: #f4f4f4; display: grid; place-items: center; }
+.pmh-types img { width: 32px; height: 32px; object-fit: contain; }
+
+/* 본문 2단: 좌 860 · 간격 40 · 우 300 */
+.pmh-body { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 40px; padding: 24px 0 48px; }
+.pmh-left { align-self: start; }
+.pmh-left { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.pmh-sticky { position: sticky; top: 16px; display: flex; flex-direction: column; gap: 16px; }
+.pmh-box { background: #fff; border-radius: 12px; padding: 20px; }
+.pmh-box-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.pmh-box-head h2 { font-size: 18px; line-height: 26px; font-weight: 700; }
+.pmh-box-head p { font-size: 13px; color: var(--pmh-muted); }
+.pmh-more { margin-left: auto; font-size: 13px; color: var(--pmh-sub); white-space: nowrap; }
+.pmh-more::after { content: " ›"; }
+.pmh-seg { display: flex; gap: 4px; }
+.pmh-seg button, .pmh-chips button { height: 32px; padding: 0 12px !important; border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--pmh-sub); border: 1px solid #dadada !important; background: #fff !important; }
+.pmh-seg button.is-on, .pmh-chips button.is-on { color: #fff; background: var(--pmh-ink) !important; border-color: var(--pmh-ink) !important; font-weight: 600; }
+.pmh-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+
+/* 매물 카드 */
+.pmh-grid { display: grid; gap: 16px 12px; }
+.pmh-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pmh-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.pmh-card { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.pmh-card-photo { position: relative; aspect-ratio: 4 / 3; border-radius: 8px; overflow: hidden; background: #ebebeb; }
+.pmh-card-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .2s ease; }
+.pmh-card:hover .pmh-card-photo img { transform: scale(1.03); }
+.pmh-card-rank { position: absolute; left: 8px; top: 8px; min-width: 24px; height: 24px; padding: 0 6px; border-radius: 6px; background: rgba(0, 0, 0, .72); color: #fff; font-size: 13px; line-height: 24px; font-weight: 700; text-align: center; }
+.pmh-card-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.pmh-card-title { font-size: 15px; line-height: 22px; font-weight: 600; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.pmh-card-spec { font-size: 13px; line-height: 18px; color: var(--pmh-sub); display: flex; align-items: center; gap: 0; white-space: nowrap; overflow: hidden; }
+.pmh-card-spec i { width: 2px; height: 2px; border-radius: 50%; background: currentColor; margin: 0 5px; flex: 0 0 auto; }
+.pmh-card-price { font-size: 17px; line-height: 24px; font-weight: 700; margin-top: 4px; }
+.pmh-card-price small { font-size: 14px; font-weight: 400; margin-left: 1px; }
+.pmh-card-place { font-size: 13px; line-height: 18px; color: var(--pmh-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.pmh-price-links { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+.pmh-price-links a { height: 48px; border: 1px solid #dadada; border-radius: 10px; display: grid; place-items: center; font-size: 14px; font-weight: 500; }
+.pmh-price-links a:hover { border-color: var(--pmh-ink); }
+
+/* 우측 커뮤니티 */
+.pmh-community { padding-bottom: 12px; }
+.pmh-tabs { display: flex; border-bottom: 1px solid var(--pmh-line); margin: -4px 0 4px; }
+.pmh-tabs button { flex: 1; height: 40px; font-size: 14px; color: var(--pmh-muted); font-weight: 500; border-bottom: 2px solid transparent !important; margin-bottom: -1px; }
+.pmh-tabs button.is-on { color: var(--pmh-ink); font-weight: 700; border-bottom-color: var(--pmh-ink) !important; }
+.pmh-posts { list-style: none; }
+.pmh-posts li { padding: 9px 0; border-bottom: 1px solid #f2f2f2; }
+.pmh-posts li:last-child { border-bottom: 0; }
+.pmh-posts a { display: flex; align-items: baseline; gap: 10px; }
+.pmh-posts b { flex: 0 0 16px; font-size: 14px; font-weight: 700; color: var(--pmh-muted); text-align: center; }
+.pmh-posts b.is-top { color: var(--pmh-blue); }
+.pmh-post-title { flex: 1 1 auto; min-width: 0; font-size: 14px; line-height: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pmh-posts a:hover .pmh-post-title { text-decoration: underline; }
+.pmh-posts em { flex: 0 0 auto; font-style: normal; font-size: 12px; color: var(--pmh-blue); font-weight: 600; }
+.pmh-posts small { display: block; padding-left: 26px; font-size: 12px; line-height: 16px; color: var(--pmh-muted); }
+.pmh-side .pmh-box-head { margin-bottom: 10px; }
+.pmh-side h2 { font-size: 16px; line-height: 22px; }
+.pmh-news { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.pmh-news li { font-size: 14px; color: var(--pmh-sub); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pmh-guide { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.pmh-guide span { height: 40px; border-radius: 8px; background: #f7f7f7; display: grid; place-items: center; font-size: 12px; color: var(--pmh-sub); text-align: center; }
+
+.pmh-footer { border-top: 1px solid var(--pmh-line); background: #fff; padding: 24px 0; color: var(--pmh-muted); font-size: 13px; }
+
+@media (max-width: 1100px) {
+  .pmh-gnb { gap: 16px; }
+  .pmh-body { grid-template-columns: 1fr; }
+  .pmh-sticky { position: static; }
+  .pmh-types { grid-template-columns: repeat(5, 1fr); }
+}
