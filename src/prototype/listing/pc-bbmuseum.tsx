@@ -705,7 +705,8 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
   ].filter(Boolean).join(" › ");
   // 차란차 PC 좌측 필터(2026-10-18 「레퍼런스 하나 정해서 그대로」): 차란차 노출 순서를 그대로 쓰고 나머지는 「필터 더보기」 아래로
   const charancha = referenceMakerFlow;
-  const charanchaPrimary = charancha ? charanchaFilterOrder.filter((label) => order.includes(label)) : [];
+  // 바이크는 라이트바겐 기준 항목을 전부 좌측에 노출하고, 승용만 차란차 핵심 항목/더보기 구성을 쓴다.
+  const charanchaPrimary = charancha ? brandLogoCategory === "바이크" ? order : charanchaFilterOrder.filter((label) => order.includes(label)) : [];
   const { primary: primaryFilterOrder, secondary: secondaryFilterOrder } = charancha
     ? { primary: charanchaPrimary, secondary: order.filter((label) => !charanchaPrimary.includes(label)) }
     : splitDaangnFilterOrder(order);

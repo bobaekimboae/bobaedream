@@ -925,7 +925,10 @@ const bikeShopNames = [
   "리버사이드 바이크샵", "센터스탠드 모터스", "모토파크", "브레이크포인트 바이크", "신호등 바이크샵", "모터사이클웍스", "가속페달 바이크샵", "라이트바이크", "모토원", "다이나믹 바이크샵",
 ];
 const stableHash = (value: string) => [...value].reduce((total, char) => (total * 31 + char.charCodeAt(0)) >>> 0, 7);
-const bikeShopLabel = (name: string) => name.endsWith("바이크샵") ? name : `${name.replace(/\s*바이크$/, "")} 바이크샵`;
+const bikeShopLabel = (name: string) => {
+  const sellerName = name.replace(/\s*(?:바이크샵|모터사이클|모터스|바이크)$/, "").trim();
+  return `${sellerName} · 바이크샵`;
+};
 // 바이크 목록 시안은 전문샵 매물을 약 70%까지 늘려 개인 매물보다 충분히 자주 노출한다.
 // 원본 시나리오의 업체 매물은 유지하고, 개인 매물 절반만 안정적인 ID 해시로 바이크샵 매물로 표시한다.
 const displaysAsBikeShop = (row: { id: string; sellerType: string }) => row.sellerType !== "개인 판매" || stableHash(row.id) % 10 < 5;

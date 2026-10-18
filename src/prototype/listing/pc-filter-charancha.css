@@ -32,6 +32,8 @@
   /* 펼친 내용: 제목 아래 16 */
   .bbm-filter.is-charancha .bbm-filter-item.is-open > :not(.bbm-filter-toggle):not(.bbm-filter-item-reset) { margin-top: 16px; }
   .bbm-filter.is-charancha .bbm-maker-grade.is-reference { margin-top: 16px; }
+  /* 차란차 실측: 펼친 제목 아래 16px 뒤에 그룹 제목이 바로 시작한다. 공통 catalog의 추가 12px 상단 패딩은 제거한다. */
+  .bbm-filter.is-charancha .bbm-maker-grade.is-reference .bbm-catalog-section { padding-top: 0; }
   .bbm-filter.is-charancha .bbm-filter-item.is-open .bbmf-expand,
   .bbm-filter.is-charancha .bbm-filter-item.is-open > div { padding-left: 0; padding-right: 0; }
   /* 제조사 행 로고 = 차란차 PC 실측 28×28, 이름과 간격 12 */

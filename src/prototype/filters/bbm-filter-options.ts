@@ -123,7 +123,8 @@ export const bbmFilterOrder: string[] = [...bbmFilterHead, ...bbmSidebarItems.fi
 export const partsFilterOrder: string[] = [BBM_MAKER_ITEM, "부품 분류", "부품 상태", "적용 차종", "가격", "지역"];
 // 부품·용품 가격 구간(만원). 승용 구간(천만원 단위) 대신 쓴다
 export const partsPricePresets: string[] = ["전체", "~5만원", "5~20만원", "20~50만원", "50~100만원", "100~300만원", "300만원~"];
-export const bikeFilterOrder: string[] = [BBM_MAKER_ITEM, "연식", "가격", "배기량", "면허", "주행거리", "연료", "지역"];
+// 라이트바겐 중고 바이크 PC 좌측 필터(2026-10-18 실측) 순서.
+export const bikeFilterOrder: string[] = [BBM_MAKER_ITEM, "연식", "가격", "주행거리", "장르", "배기량", "면허", "지역", "매물출처"];
 export const truckFilterOrder: string[] = [
   BBM_MAKER_ITEM,
   "트럭 가변축",
