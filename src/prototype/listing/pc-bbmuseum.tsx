@@ -29,7 +29,7 @@ const bbGnbItems: readonly BbGnbItem[] = [
   { label: "차량검색", category: "전체" },
   { label: "중고차", category: "중고차" },
   { label: "트럭", category: "트럭 · 특장" },
-  { label: "건설기계", category: "건설기계" },
+  { label: "중기", category: "건설기계" },
   { label: "바이크", category: "바이크" },
   { label: "중고부품", category: "부품 · 용품" },
   { label: "커뮤니티", action: "community" },
@@ -53,7 +53,7 @@ const bbGnbSubmenus: Readonly<Record<string, readonly BbGnbSubItem[]>> = {
     { label: "트럭/특장", category: "트럭 · 특장" },
     { label: "바이크", category: "바이크" },
     { label: "캠핑카", category: "캠핑카" },
-    { label: "건설기계", category: "건설기계" },
+    { label: "중기", category: "건설기계" },
     { label: "자재운반장비", category: "자재운반장비" },
     { label: "부품/용품", category: "부품 · 용품" },
   ],
@@ -71,8 +71,8 @@ const bbGnbSubmenus: Readonly<Record<string, readonly BbGnbSubItem[]>> = {
     { label: "전체 트럭", category: "트럭 · 특장" },
     ...truckFormatCatalog.slice(0, 7).map((item) => ({ label: item.name, category: "트럭 · 특장", detail: item.name })),
   ],
-  건설기계: [
-    { label: "건설기계 전체", category: "건설기계" },
+  중기: [
+    { label: "중기 전체", category: "건설기계" },
     { label: "자재운반장비", category: "자재운반장비" },
   ],
   바이크: [{ label: "바이크 전체", category: "바이크" }],
@@ -87,7 +87,7 @@ function bbActiveGnbItem(category: string) {
   return category === "전체" ? "차량검색"
     : bbUsedCarCategories.has(category) ? "중고차"
       : category === "트럭 · 특장" ? "트럭"
-        : category === "건설기계" ? "건설기계"
+        : category === "건설기계" ? "중기"
           : category === "캠핑카" ? "더보기"
             : category === "부품 · 용품" ? "중고부품"
               : category === "바이크" ? category : "더보기";
@@ -240,7 +240,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
         <div className="bbm-gnb-row">
           <nav className="bbm-gnb" aria-label="주 메뉴">
             {bbGnbItems.map((item) => {
-              const itemClassName = `${item.label === activeItem ? "is-active" : ""}${item.action === "home" ? " is-home" : ""}${item.action === "community" ? " is-community-chip" : ""}`;
+              const itemClassName = `${item.label === activeItem ? "is-active" : ""}${item.action === "home" ? " is-home" : ""}`;
               if (item.label === "차량검색") return <BbmVehicleTypeDropdown key={item.label} active={item.label === activeItem} onChoose={(nextCategory) => onChooseCategory(nextCategory)} />;
               return <Fragment key={item.label}>
               {item.action === "more" ? <div className="bbm-gnb-more-wrap" ref={moreRef}>

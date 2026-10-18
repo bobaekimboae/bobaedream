@@ -21,21 +21,25 @@
   .bbm-logo-word.is-en { font-family: Arial, Helvetica, sans-serif; }
   .bbm-logo-word.is-ko { color: #306bd9; font-family: Pretendard, "Noto Sans KR", sans-serif; font-size: 20px; font-weight: 800; letter-spacing: -.7px; }
   .bbm-gnb-row { display: flex; align-items: center; justify-content: flex-start; height: 49px; }
-  .bbm-gnb { display: flex; width: 100%; min-width: 0; align-items: stretch; justify-content: flex-start; gap: 16px; height: 49px; overflow: visible; scrollbar-width: none; }
+  .bbm-gnb { display: flex; width: 100%; min-width: 0; align-items: stretch; justify-content: flex-start; gap: 8px; height: 49px; overflow: visible; scrollbar-width: none; }
   .bbm-gnb::-webkit-scrollbar { display: none; }
   .bbm-gnb button { position: relative; display: flex; align-items: center; gap: 6px; height: 49px; padding: 0; border: 0; background: none; color: #202124; font-size: 15px; font-weight: 600; line-height: 22px; letter-spacing: -.15px; white-space: nowrap; }
   .bbm-gnb button.is-home { font-size: 15px; font-weight: 500; }
-  .bbm-gnb button.is-community-chip { align-self: center; height: 36px; padding: 0 13px; border-radius: 9999px; background: #f1f2f4; }
-  .bbm-gnb button.is-community-chip:hover { background: #e8eaed; }
-  .bbm-gnb button.is-active { align-self: center; height: 38px; padding: 0 12px; border-radius: 9999px; background: #2a3038; color: #fff; font-weight: 700; }
+  .bbm-gnb > button,
+  .bbm-gnb > .bbm-vehicle-search-wrap > button,
+  .bbm-gnb > .bbm-gnb-more-wrap > button { align-self: center; height: 36px; padding: 0 13px; border-radius: 9999px; background: #f4f5f6; color: #444; }
+  .bbm-gnb > button:hover,
+  .bbm-gnb > .bbm-vehicle-search-wrap > button:hover,
+  .bbm-gnb > .bbm-gnb-more-wrap > button:hover { background: #e8eaed; }
+  .bbm-gnb button.is-active { align-self: center; height: 36px; padding: 0 13px; border-radius: 9999px; background: #306bd9; color: #fff; font-weight: 700; }
   .bbm-gnb button.is-active::after { display: none; }
   .bbm-gnb-more-wrap { position: relative; display: flex; flex: none; align-items: center; }
-  .bbm-gnb .bbm-gnb-more { gap: 6px; height: 36px; padding: 0 10px 0 12px; border: 0; border-radius: 9999px; background: #f1f2f4; }
+  .bbm-gnb .bbm-gnb-more { gap: 6px; height: 36px; padding: 0 10px 0 12px; border: 0; border-radius: 9999px; background: #f4f5f6; }
   .bbm-gnb .bbm-gnb-more:hover { background: #e8eaed; }
-  .bbm-gnb .bbm-gnb-more.is-active { background: #222; color: #fff; }
+  .bbm-gnb .bbm-gnb-more.is-active { background: #306bd9; color: #fff; }
   .bbm-gnb .bbm-gnb-more.is-active::after { display: none; }
   .bbm-gnb-more-count { display: grid; min-width: 20px; height: 20px; padding: 0 5px; place-items: center; border-radius: 10px; box-sizing: border-box; background: #222; color: #fff; font-size: 11px; font-weight: 700; line-height: 20px; font-variant-numeric: tabular-nums; }
-  .bbm-gnb-more.is-active .bbm-gnb-more-count { background: #fff; color: #222; }
+  .bbm-gnb-more.is-active .bbm-gnb-more-count { background: #fff; color: #306bd9; }
   .bbm-gnb-more .bb-icon { color: #505050; transition: transform 160ms ease; }
   .bbm-gnb-more.is-active .bb-icon { color: #fff; }
   .bbm-gnb-more[aria-expanded="true"] .bb-icon { transform: rotate(180deg); }
@@ -265,7 +269,7 @@
   .bbm-header-main { grid-template-columns: minmax(176px, 1fr) minmax(280px, 45vw) minmax(176px, 1fr); gap: 20px; }
   .bbm-header:not(.is-search-chotot):not(.is-search-kaidee) .bbm-header-main { grid-template-columns: 168px minmax(280px, 1fr) auto; gap: 16px; }
   .bbm-header-auth .bbm-auth-pill.is-management { display: none; }
-  .bbm-gnb { gap: 10px; }
+  .bbm-gnb { gap: 6px; }
   .bbm-gnb button { font-size: 14px; line-height: 20px; }
   .bbm-gnb button.is-home { font-size: 14px; }
   .bbm-gnb-more .bb-icon { width: 16px; height: 16px; }
