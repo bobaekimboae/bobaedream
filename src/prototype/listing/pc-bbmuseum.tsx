@@ -355,7 +355,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
                   <span>{item.label}</span><span className="bbm-gnb-more-count" aria-hidden="true">{bbGnbMoreItems.length}</span><BbIcon name="chevron-down" size={18} />
                 </button>
                 {moreOpen ? <div className="bbm-gnb-more-menu" role="menu">{bbGnbMoreItems.map((moreItem) => <button key={moreItem.label} type="button" role="menuitem" className={moreItem.category === category ? "is-current" : ""} onClick={() => chooseMenu(moreItem)}><span>{moreItem.label}</span></button>)}</div> : null}
-              </div> : <button type="button" className={itemClassName} aria-current={item.label === activeItem ? "page" : undefined} onClick={() => chooseMenu(item)}><span>{item.label}</span></button>}
+              </div> : <button type="button" className={itemClassName} aria-current={item.label === activeItem ? "page" : undefined} onClick={() => chooseMenu(item)}>{item.label === "바이크" ? <img className="bbm-gnb-item-icon" src={asset("bbm/filter-bike-selected.svg")} alt="" aria-hidden="true" /> : null}<span>{item.label}</span></button>}
             </Fragment>})}
           </nav>
         </div>

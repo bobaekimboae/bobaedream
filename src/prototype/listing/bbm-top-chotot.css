@@ -44,8 +44,8 @@
 .bbm-content-head.is-chotot .bbm-ct-chip-arrow img { width: 20px; height: 20px; transform: rotate(-90deg); }
 .bbm-content-head.is-chotot .bbm-ct-chip-arrow.is-prev img { transform: rotate(90deg); }
 .marketplace.is-bbm .bbm-content-head.is-chotot .bbm-chips .filter-chip { flex: none; gap: 2px; height: 32px; padding: 4px 12px; border: 0; border-radius: 9999px; box-sizing: border-box; background: #f4f4f4; color: #222; font-size: 14px; font-weight: 500; line-height: 20px; }
-/* 펼침 아이콘: 노션의 초톳 원본 SVG를 경로 수정 없이 20px 슬롯에 표시한다. */
-.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-chips .filter-chip > .ui-icon { display: block; flex: none; width: 20px; height: 20px; }
+/* PC 펼침 아이콘도 모바일 칩과 같은 14.5px 규격으로 맞춘다. */
+.marketplace.is-bbm .bbm-content-head.is-chotot .bbm-chips .filter-chip > .ui-icon { display: block; flex: none; width: 14.5px; height: 14.5px; }
 .marketplace.is-bbm .bbm-content-head.is-chotot .bbm-chips button.filter-chip:not(.is-active)::after { content: none; }
 /* 값이 걸린 칩: #222 · 흰 글자 · 뒤에 × 14(회색 #8C8C8C 원 + 흰 ×), 글자와 × 사이 6 */
 .marketplace.is-bbm .bbm-content-head.is-chotot .bbm-chips .filter-chip.is-active { gap: 6px; background: #222; color: #fff; box-shadow: none; }
