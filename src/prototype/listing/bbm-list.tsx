@@ -205,16 +205,20 @@ function categoryGroupForSelection(selected: string) {
 }
 
 // 첫 화면 유형 줄은 이미 전체차량 상태라 「전체차량」을 빼고(includeAll 아님), 카테고리 시트에서만 맨 앞에 보인다
-function BbmCategoryIconRow({ activeValue, onActivate, includeAll = false }: { activeValue: string; onActivate: (value: string) => void; includeAll?: boolean }) {
+function BbmCategoryIconRow({ activeValue, onActivate, includeAll = false, counts }: { activeValue: string; onActivate: (value: string) => void; includeAll?: boolean; counts?: Readonly<Record<string, number>> }) {
   return (
     <ul className="bbm-category-menu__list" role="list">
       {bbmCategoryGroups.filter((group) => includeAll || group.value !== "전체").map((group) => {
         const isActiveGroup = group.value === activeValue;
+        const count = counts?.[group.value];
         return (
           <li key={group.value} className="bbm-category-menu__item">
-            <button type="button" className="bbm-category-menu__button" data-active-group={isActiveGroup ? "true" : undefined} onClick={() => onActivate(group.value)}>
+            <button type="button" className="bbm-category-menu__button" data-category-value={group.value} data-active-group={isActiveGroup ? "true" : undefined} onClick={() => onActivate(group.value)}>
               <span className="bbm-category-menu__icon-box is-category-icon"><img src={asset(group.icon)} alt="" aria-hidden="true" draggable={false} /></span>
-              <span className="bbm-category-menu__label">{group.label}</span>
+              <span className="bbm-category-menu__copy">
+                <span className="bbm-category-menu__label">{group.label}</span>
+                {count !== undefined ? <span className="bbm-category-menu__count" aria-hidden="true">{count.toLocaleString("ko-KR")}대</span> : null}
+              </span>
             </button>
           </li>
         );
@@ -260,7 +264,7 @@ function getImageGuideFamily(): ImageGuideFamily | null {
   return value === "body" || value === "gclass" || value === "heavy" ? value : null;
 }
 
-export function BbmCategoryMenu({ onChoose, onOpenGroup }: { onChoose: (label: string, detail?: string) => void; onOpenGroup?: (value: string) => void }) {
+export function BbmCategoryMenu({ onChoose, onOpenGroup, counts }: { onChoose: (label: string, detail?: string) => void; onOpenGroup?: (value: string) => void; counts?: Readonly<Record<string, number>> }) {
   const imageGuideFamily = getImageGuideFamily();
   const items = imageGuideFamily ? imageGuideItems[imageGuideFamily] : bbmCategoryItems;
   const [activeValue, setActiveValue] = useState("중고차");
@@ -277,9 +281,9 @@ export function BbmCategoryMenu({ onChoose, onOpenGroup }: { onChoose: (label: s
       onChoose(onlyChild?.value ?? value, onlyChild?.detail);
     };
     return (
-      <section className="bbm-category-menu is-hierarchical" aria-label="차량 카테고리">
+      <section className={`bbm-category-menu is-hierarchical${counts ? " has-listing-counts" : ""}`} aria-label="차량 카테고리">
         <div className="bbm-category-labeled-row is-type-row is-titleless">
-          <div className="bbm-category-labeled-content"><BbmCategoryIconRow activeValue={activeGroup.value} onActivate={activateGroup} /></div>
+          <div className="bbm-category-labeled-content"><BbmCategoryIconRow activeValue={activeGroup.value} onActivate={activateGroup} counts={counts} /></div>
         </div>
         {entersNextDepthDirectly(activeGroup) ? null : (
           <div className="bbm-category-labeled-row is-detail-row is-titleless">

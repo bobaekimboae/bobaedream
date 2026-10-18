@@ -172,7 +172,14 @@
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-menu__icon-box.is-category-icon img { width:25px; height:25px; object-fit:contain; transform:none; }
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-menu__button.is-selected .bbm-category-menu__icon-box.is-category-icon { border-color:#222; background:#fff; box-shadow:0 0 0 1px #222 inset; }
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-menu__label { display:block; width:76px; min-height:36px; overflow:visible; color:#595959; font-size:13px; font-weight:500; line-height:18px; text-align:center; white-space:normal; word-break:keep-all; -webkit-line-clamp:unset; }
+.marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-menu__copy { display:flex; flex-direction:column; align-items:center; }
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-menu__button.is-selected .bbm-category-menu__label { color:#222; font-weight:700; }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu.is-hierarchical.has-listing-counts .bbm-category-menu__button { gap:6px; }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu.is-hierarchical.has-listing-counts .bbm-category-menu__label { width:auto; min-height:18px; max-width:100%; white-space:nowrap; }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu.is-hierarchical.has-listing-counts .bbm-category-menu__count { color:#a0a0a0; font-size:11px; font-weight:400; line-height:16px; white-space:nowrap; }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu.is-hierarchical.has-listing-counts .bbm-category-menu__button[data-category-value="테마별 중고차"],
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu.is-hierarchical.has-listing-counts .bbm-category-menu__button[data-category-value="테마별 중고차"] .bbm-category-menu__label { width:104px; }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-category-menu.is-hierarchical.has-listing-counts .bbm-category-menu__item:has(.bbm-category-menu__button[data-category-value="테마별 중고차"]) { width:104px; }
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-child-pills { display:flex; width:100%; overflow-x:auto; flex-wrap:nowrap; gap:8px; padding:0 20px 16px; box-sizing:border-box; scrollbar-width:none; overscroll-behavior-x:contain; touch-action:pan-x; }
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-child-pills::-webkit-scrollbar { display:none; }
 .marketplace.is-qf-guazi .bbm-category-menu.is-hierarchical .bbm-category-child-pills button { flex:none; min-height:32px; padding:6px 12px; border:0; border-radius:9999px; background:#f4f4f4; color:#222; font:inherit; font-size:14px; font-weight:500; line-height:20px; white-space:nowrap; cursor:pointer; }

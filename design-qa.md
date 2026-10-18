@@ -47,6 +47,35 @@ final result: passed
 
 final result: passed
 
+---
+
+## PC 차량 카테고리 매물 수 시안 · 2026-10-18
+
+- source visual truth path: `artifacts/live-pc-no-filter-divider-3bb7fb3.png` (공개본 1440×1000px).
+- browser-rendered implementation path: `artifacts/category-counts-proposal-pc.png` (Codex in-app browser 1280×720 CSS px, DPR 1).
+- combined focused comparison evidence: `artifacts/category-counts-card-source-vs-proposal.png`.
+- viewport and normalization: 공개본 카드 `x=120, y=167, 1200×234`와 시안 카드 `x=40, y=167, 1200×234`를 같은 CSS 크기로 잘라 2400×234 비교판에 나란히 배치했다. 화면 폭은 달라도 카드의 고정 최대 폭과 내부 좌표는 동일하다.
+- state: PC `?qf=guazi&pc=1`, 전체차량 기본 상태, 차량 카테고리 8개 노출.
+- primary interactions tested: `테마별 중고차` 클릭 뒤 `슈퍼카·럭셔리카·올드카·JDM·튜닝·커스텀카·셀럽카` 하위 레일 노출.
+- console errors checked: 0건.
+
+### Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 기존 카테고리명 13px 계층을 유지하고 매물 수만 11/16px·`#A0A0A0` 보조 정보로 추가했다. `테마별 중고차`는 104px 슬롯 안에서 한 줄이다.
+- spacing and layout rhythm: 아이콘·이름·대수를 기존 102px 버튼 안에 수용해 234px 상단 카드 높이와 다음 목록 카드 시작 위치가 바뀌지 않았다. 테마 슬롯만 84px에서 104px로 넓히고 뒤 카테고리는 동일 8px 간격을 유지했다.
+- colors and visual tokens: 새 강조색을 만들지 않고 기존 본문 `#595959`보다 약한 회색만 사용했다.
+- image quality and asset fidelity: 차량 카테고리 SVG 8개는 변경하거나 대체하지 않았다.
+- copy and content: 숫자는 현재 샘플 데이터에서 계산한다. `테마별 중고차`는 슈퍼카·럭셔리카·올드카·JDM 합계이며, 각 숫자 뒤에 `대`를 붙였다.
+- responsiveness: 시안은 PC에만 적용하고 모바일의 기존 두 줄 라벨과 높이는 유지한다.
+
+### Comparison history
+
+- Pass 1: 동일 1200×234 카드 비교에서 이름과 숫자 사이 충돌, 카드 높이 변화, 가로 넘침이 없었다. `테마별 중고차` 한 줄과 8개 숫자의 중앙 정렬을 확인했다.
+- Interaction pass: 테마 카테고리 클릭과 하위 레일 6개 노출을 확인했고 브라우저 콘솔 오류는 없었다.
+
+final result: passed
+
 ## PC 메인 초톳형 회원 액션 · 2026-10-18
 
 - source visual truth path: `C:/Users/bobae/Downloads/Tuyển-dụng-74-384-việc-làm-mới-nhất-cập-nhật-18-10-2026.png` (646 × 129px).
