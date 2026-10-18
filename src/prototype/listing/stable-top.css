@@ -106,6 +106,12 @@
 /* ── ④ 알약 줄(트림 · 연식) 알약 = 매뉴얼 알약 규격(1px #DADADA · 14/20 500 — 트림은 qf-trim.css), 연식은 고른 알약만 #222 흰 글자 */
 .marketplace.is-qf-guazi .depth-rail.is-year-row .stable-pill-row { flex: 1; min-width: 0; }
 .marketplace.is-qf-guazi .depth-rail.is-year-row .brand-carousel { display: none; }
+/* PC 연식 줄도 상단 선택 칩과 같은 카드 안쪽 20px 시작선에 맞춘다. */
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .depth-rail.is-year-row .stable-pill-track-wrap {
+  padding-inline: 20px;
+  box-sizing: border-box;
+  scroll-padding-inline: 20px;
+}
 /* 모바일 연식 알약은 다른 상단 요소의 16px 시작선에 맞춘다.
    첫 알약의 둥근 테두리가 화면 가장자리에서 잘리지 않도록 스크롤 영역 자체에 안전 여백을 둔다. */
 .marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-year-row .stable-pill-track-wrap {

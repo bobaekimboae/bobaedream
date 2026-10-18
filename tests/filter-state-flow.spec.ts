@@ -97,6 +97,10 @@ test("compact PC keeps applied vehicle chips stable across breakpoints", async (
     }));
     expect(clearSizes.every(([chipWidth, chipHeight]) => chipWidth >= 24 && chipHeight >= 24)).toBe(true);
 
+    const filterStart = await top.locator(".bbm-filter-button").evaluate((button) => button.getBoundingClientRect().left);
+    const yearStart = await top.locator(".depth-rail.is-year-row .stable-pill").first().evaluate((pill) => pill.getBoundingClientRect().left);
+    expect(Math.abs(yearStart - filterStart)).toBeLessThanOrEqual(1);
+
     if (width < 1280) await expect(page.locator(".bbm-page > .bbm-filter")).toBeHidden();
   }
 });
