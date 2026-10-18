@@ -636,7 +636,6 @@ export function BbTruckFormatFilter({ value, showImages = true, referenceStyle =
       <div className="bbm-maker-grade bbm-truck-format is-reference is-encar" aria-label="형식과 적재용량 선택">
         <div className="bbm-catalog">
           {view === "format" ? <div className="bbm-catalog-section">
-            <p className="bbm-catalog-title">형식</p>
             {value.formats.map((option) => <button key={option.name} type="button" className="bbm-catalog-row" aria-pressed={false} onClick={() => { value.onChooseFormat(option.name); setView("subtype"); }}><BbTruckOptionLabel name={option.name} image={null} />{count(option.count)}</button>)}
           </div> : <div className="bbm-catalog-section is-drill">
             <button type="button" className="bbm-encar-selected-row" aria-label={`${value.format} 선택 해제`} onClick={value.onClearFormat}>

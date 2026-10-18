@@ -30,6 +30,34 @@ final result: passed
 
 ---
 
+## 2026-10-18 엔카형 트럭 목록 내부 `형식` 소제목 제거
+
+- Source visual truth: `reports/truck-encar-layout/encar-default.png` (`https://www.encar.com/tr/tr_carsearchlist.do#!`)
+- Implementation screenshots: `reports/truck-encar-layout/implementation-default-no-title.png`, `reports/truck-encar-layout/implementation-selected-no-title.png`
+- Combined comparison evidence: `reports/truck-encar-layout/default-side-by-side.png`
+- Viewport and normalization: 원본 1253×705px, 구현 1280×720px, DPR 1. 필터 열의 상단·왼쪽 목록 영역을 동일한 기본 펼침 상태로 비교했다.
+- State: 트럭·특장 PC, `형식/적재용량` 펼침 기본 상태와 `카고(화물)트럭` 선택 상태.
+
+### Findings
+
+- P0/P1/P2 없음.
+- Copy and hierarchy: passed — 엔카처럼 바깥 `형식/적재용량` 제목만 유지하고 목록 안쪽의 중복 `형식` 소제목을 제거했다.
+- Spacing and layout rhythm: passed — 첫 형식 행이 아코디언 제목 아래에서 바로 시작하며, 제거된 소제목만큼 불필요한 위 여백도 함께 사라졌다.
+- Selected behavior: passed — 카고 선택 뒤에는 선택 부모 행과 검정 원형 ×, 하위 차급 행이 이어지는 기존 엔카형 단계 구조가 보존된다.
+- Typography and colors: passed — 왼쪽 행 14px 계층과 검정/중립 회색 수량 체계를 유지하며 새 파란 강조를 추가하지 않았다.
+- Image and asset fidelity: passed — 엔카 왼쪽 텍스트 필터처럼 이 영역에는 차량 이미지나 별도 장식 아이콘을 넣지 않았다.
+- Regression: passed — 기본 목록·카고 선택 상태를 브라우저에서 확인했고 런타임 무결성 검사와 퀵필터 빌드를 통과했다.
+
+### Comparison history
+
+- Pass 1: 구현 기본 상태에 엔카 원본에 없는 내부 `형식` 소제목이 남아 정보 계층과 첫 행 시작 위치가 한 단계 밀렸다(P2).
+- Fix: `referenceStyle` 기본 형식 목록에서 내부 소제목만 제거하고 바깥 아코디언 제목과 선택 단계는 유지했다.
+- Pass 2: 원본·수정본 결합 비교판에서 첫 형식 행의 직접 시작과 선택 상태의 단계 구조를 다시 확인했다. 남은 P0/P1/P2 없음.
+
+final result: passed
+
+---
+
 ## 2026-10-18 엔카형 트럭 선택 단계 정렬
 
 - Reference: `https://www.encar.com/tr/tr_carsearchlist.do#!`의 `카고(화물)트럭` 선택 상태
