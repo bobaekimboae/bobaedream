@@ -9,6 +9,7 @@ import { bbmItemValue } from "../filters/bbm-applied";
 import { asset, displayListPlace, displaySpecs, sellerAvatar, sellerLabel, type Car } from "../data";
 import { truckFormatCatalog, truckFormatImageFor, truckSubtypeImageFor } from "../data/truck-format-catalog";
 import { TruckTypePicker } from "../filters/truck-type-picker";
+import { BbmVehicleTypeDropdown } from "./bbm-vehicle-type-dropdown";
 
 // 보배드림 개발 시안(bbmuseum) PC 매물리스트 1단계 이식(QF-048~050). 구조·수치·문구만 따르고 코드·이미지는 새로 만든다.
 
@@ -179,13 +180,15 @@ function BbHeader({ category, categoryDetail, onChooseCategory, onNotify, onOpen
           </div> : null}
           {variant === "default" ? <div className="bbm-header-auth" aria-label="회원 메뉴">
             <button type="button" className="bbm-auth-icon" aria-label="관심 매물" onClick={onOpenFavorites}><BbIcon name="heart" size={24} /></button>
-            <button type="button" className={`bbm-auth-icon${isMember ? " has-badge" : ""}`} aria-label={isMember ? "읽지 않은 알림 80개" : "알림"} onClick={() => onNotify("알림은 정식 서비스에서 이용해 주세요.")}>
-              <BbIcon name="notification" size={24} />
-              {isMember ? <span className="bbm-auth-badge" aria-hidden="true">80</span> : null}
-            </button>
-            <button type="button" className="bbm-auth-pill is-contact" onClick={() => onNotify("채팅은 정식 서비스에서 이용해 주세요.")}><BbIcon name="chat" size={20} /><span>채팅</span></button>
             {isMember
-              ? <button type="button" className="bbm-auth-pill is-management" onClick={() => onNotify("매물관리는 정식 서비스에서 이용해 주세요.")}>매물관리</button>
+              ? <>
+                <button type="button" className="bbm-auth-icon has-badge" aria-label="읽지 않은 알림 80개" onClick={() => onNotify("알림은 정식 서비스에서 이용해 주세요.")}>
+                  <BbIcon name="notification" size={24} />
+                  <span className="bbm-auth-badge" aria-hidden="true">80</span>
+                </button>
+                <button type="button" className="bbm-auth-pill is-contact" onClick={() => onNotify("채팅은 정식 서비스에서 이용해 주세요.")}><BbIcon name="chat" size={20} /><span>채팅</span></button>
+                <button type="button" className="bbm-auth-pill is-management" onClick={() => onNotify("매물관리는 정식 서비스에서 이용해 주세요.")}>매물관리</button>
+              </>
               : <button type="button" className="bbm-auth-pill is-login" onClick={() => { changeAuthState("member"); onNotify("로그인 상태 화면으로 전환했습니다."); }}>로그인</button>}
             <button type="button" className="bbm-listing-button" onClick={() => onNotify("판매하기는 정식 서비스에서 이용해 주세요.")}>판매하기</button>
             <div className="bbm-account-wrap" ref={accountRef}>
@@ -221,14 +224,15 @@ function BbHeader({ category, categoryDetail, onChooseCategory, onNotify, onOpen
         <div className="bbm-gnb-row">
           <nav className="bbm-gnb" aria-label="주 메뉴">
             {bbGnbItems.map((item) => {
-              const itemClassName = `${item.label === activeItem ? "is-active" : ""}${item.action === "home" ? " is-home" : ""}${item.label === "차량검색" ? " is-vehicle-search" : ""}`;
+              const itemClassName = `${item.label === activeItem ? "is-active" : ""}${item.action === "home" ? " is-home" : ""}${item.action === "community" ? " is-community-chip" : ""}`;
+              if (item.label === "차량검색") return <BbmVehicleTypeDropdown key={item.label} active={item.label === activeItem} onChoose={(nextCategory) => onChooseCategory(nextCategory)} />;
               return <Fragment key={item.label}>
               {item.action === "more" ? <div className="bbm-gnb-more-wrap" ref={moreRef}>
                 <button type="button" className={`bbm-gnb-more ${itemClassName}`.trim()} aria-current={item.label === activeItem ? "page" : undefined} aria-haspopup="menu" aria-expanded={moreOpen} onClick={() => chooseMenu(item)}>
                   <span>{item.label}</span><span className="bbm-gnb-more-count" aria-hidden="true">{bbGnbMoreItems.length}</span><BbIcon name="chevron-down" size={18} />
                 </button>
                 {moreOpen ? <div className="bbm-gnb-more-menu" role="menu">{bbGnbMoreItems.map((moreItem) => <button key={moreItem.label} type="button" role="menuitem" className={moreItem.category === category ? "is-current" : ""} onClick={() => chooseMenu(moreItem)}><span>{moreItem.label}</span></button>)}</div> : null}
-              </div> : <button type="button" className={itemClassName} aria-current={item.label === activeItem ? "page" : undefined} onClick={() => chooseMenu(item)}><span>{item.label}</span>{item.label === "차량검색" ? <BbIcon name="chevron-down" size={12} className="bbm-vehicle-search-chevron" /> : null}</button>}
+              </div> : <button type="button" className={itemClassName} aria-current={item.label === activeItem ? "page" : undefined} onClick={() => chooseMenu(item)}><span>{item.label}</span></button>}
             </Fragment>})}
           </nav>
         </div>

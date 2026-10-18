@@ -1,0 +1,13 @@
+@media (min-width: 820px) {
+  .bbm-vehicle-search-wrap { position: relative; display: flex; flex: none; align-items: center; }
+  .bbm-gnb .bbm-vehicle-search-trigger { gap: 4px; }
+  .bbm-vehicle-search-caret { width: 7px; height: 7px; margin: -3px 1px 0 2px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform 160ms ease, margin 160ms ease; }
+  .bbm-vehicle-search-trigger[aria-expanded="true"] .bbm-vehicle-search-caret { margin-top: 3px; transform: rotate(225deg); }
+  .bbm-vehicle-type-menu { position: absolute; top: 46px; left: -8px; z-index: 180; width: 456px; padding: 16px; border: 1px solid #e5e7eb; border-radius: 14px; box-sizing: border-box; background: #fff; box-shadow: 0 14px 36px rgba(0, 0, 0, .14); }
+  .bbm-vehicle-type-heading { padding: 0 2px 10px; color: #222; font-size: 14px; font-weight: 700; line-height: 20px; }
+  .bbm-vehicle-type-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .bbm-gnb .bbm-vehicle-type-option { display: flex; width: 100%; height: 62px; min-width: 0; align-items: center; justify-content: flex-start; gap: 9px; padding: 0 10px; border: 0; border-radius: 10px; background: #fff; color: #222; font-size: 14px; font-weight: 600; line-height: 20px; text-align: left; }
+  .bbm-gnb .bbm-vehicle-type-option:hover, .bbm-gnb .bbm-vehicle-type-option:focus-visible { background: #f3f4f6; outline: none; }
+  .bbm-gnb .bbm-vehicle-type-option::after { display: none; }
+  .bbm-vehicle-type-icon { display: inline-block; width: 34px; height: 28px; flex: 0 0 34px; background: currentColor; -webkit-mask: var(--bbm-vehicle-type-icon) center / contain no-repeat; mask: var(--bbm-vehicle-type-icon) center / contain no-repeat; }
+}
