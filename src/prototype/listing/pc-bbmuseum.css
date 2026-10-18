@@ -38,19 +38,19 @@
   .bbm-gnb .bbm-gnb-more-menu button::after { display: none; }
   .bbm-header-icons { display: flex; grid-column: 3; flex: none; align-items: center; justify-content: flex-end; gap: 14px; }
   .bbm-header-icons button { display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; background: none; color: #1a1a1a; }
-  .bbm-header-auth { display: flex; grid-column: 3; align-items: center; justify-content: flex-end; gap: 8px; }
+  .bbm-header-auth { display: flex; grid-column: 3; align-items: center; justify-content: flex-end; gap: 6px; }
   .bbm-header-auth button { display: inline-flex; height: 40px; align-items: center; justify-content: center; border-radius: 999px; box-sizing: border-box; font-family: inherit; font-size: 14px; font-weight: 600; line-height: 20px; letter-spacing: -.2px; white-space: nowrap; }
   .bbm-auth-icon { position: relative; width: 36px; padding: 0; border: 0; background: #fff; color: #222; }
   .bbm-auth-icon:hover { background: #f4f4f4; }
   .bbm-auth-icon.has-badge { margin-right: 2px; }
   .bbm-auth-badge { position: absolute; top: -3px; left: 20px; display: grid; min-width: 20px; height: 18px; padding: 0 5px; place-items: center; border: 2px solid #fff; border-radius: 9px; box-sizing: content-box; background: #ef476f; color: #fff; font-size: 11px; font-weight: 700; line-height: 18px; font-variant-numeric: tabular-nums; }
-  .bbm-auth-pill { gap: 6px; min-width: 78px; padding: 0 14px; border: 1px solid #e7e7e7; background: #fff; color: #222; }
-  .bbm-auth-pill.is-login { min-width: 78px; }
-  .bbm-auth-pill.is-management { min-width: 88px; }
+  .bbm-auth-pill { gap: 5px; min-width: 72px; padding: 0 11px; border: 1px solid #e7e7e7; background: #fff; color: #222; }
+  .bbm-auth-pill.is-login { min-width: 72px; }
+  .bbm-auth-pill.is-management { min-width: 80px; }
   .bbm-auth-pill:hover, .bbm-account-button:hover { border-color: #d3d3d3; background: #fafafa; }
-  .bbm-listing-button { min-width: 112px; padding: 0 16px; border: 1px solid #306bd9; background: #306bd9; color: #fff; }
+  .bbm-listing-button { min-width: 92px; padding: 0 13px; border: 1px solid #306bd9; background: #306bd9; color: #fff; }
   .bbm-listing-button:hover { border-color: #1952ba; background: #1952ba; }
-  .bbm-account-button { gap: 9px; min-width: 80px; padding: 0 11px 0 8px; border: 1px solid #e7e7e7; background: #fff; color: #222; }
+  .bbm-account-button { gap: 7px; min-width: 72px; padding: 0 9px 0 7px; border: 1px solid #e7e7e7; background: #fff; color: #222; }
   .bbm-account-wrap { position: relative; display: flex; align-items: center; }
   .bbm-account-avatar { display: block; overflow: hidden; width: 30px; height: 30px; flex: 0 0 30px; border-radius: 50%; background: #306bd9; }
   .bbm-account-avatar img { display: block; width: 122px; max-width: none; height: 30px; }

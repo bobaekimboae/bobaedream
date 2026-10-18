@@ -146,7 +146,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
             {isMember
               ? <button type="button" className="bbm-auth-pill is-management" onClick={() => onNotify("매물관리는 정식 서비스에서 이용해 주세요.")}>매물관리</button>
               : <button type="button" className="bbm-auth-pill is-login" onClick={() => { changeAuthState("member"); onNotify("로그인 상태 화면으로 전환했습니다."); }}>로그인</button>}
-            <button type="button" className="bbm-listing-button" onClick={() => onNotify("매물등록은 정식 서비스에서 이용해 주세요.")}>{isMember ? "무료 매물등록" : "매물등록"}</button>
+            <button type="button" className="bbm-listing-button" onClick={() => onNotify("판매하기는 정식 서비스에서 이용해 주세요.")}>판매하기</button>
             <div className="bbm-account-wrap" ref={accountRef}>
               <button type="button" className={`bbm-account-button${isMember ? " is-member" : " is-guest"}`} aria-label={isMember ? "회원 계정 메뉴" : "로그인 및 계정 메뉴"} aria-haspopup="menu" aria-expanded={accountOpen} onClick={() => setAccountOpen((open) => !open)}>
                 {isMember
