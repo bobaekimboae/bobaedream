@@ -24,8 +24,8 @@ function BbAssetIcon({ name, size }: { name: "circle-check" | "circle-check-off"
   return <img className="bb-asset-icon" src={asset(`icons/bb/${name}.svg`)} width={size} height={size} alt="" aria-hidden="true" draggable={false} />;
 }
 
-type BbGnbItem = { label: string; category?: string; action?: "home" | "community" | "more" };
-type BbGnbSubItem = { label: string; category: string; detail?: string; action?: "bike-sell" | "bike-parts" };
+type BbGnbItem = { label: string; category?: string; action?: "home" | "community" | "more" | "bike-sell" | "bike-parts" };
+type BbGnbSubItem = { label: string; category: string; detail?: string };
 
 const bbGnbItems: readonly BbGnbItem[] = [
   { label: "차량검색", category: "전체" },
@@ -42,6 +42,11 @@ const bbGnbMoreItems: readonly BbGnbItem[] = [
   { label: "캠핑카", category: "캠핑카" },
   { label: "자재운반장비", category: "자재운반장비" },
   { label: "올드카", category: "올드카" },
+];
+const bbBikeSiteGnbItems: readonly BbGnbItem[] = [
+  { label: "중고 바이크", category: "바이크" },
+  { label: "바이크 판매", category: "바이크", action: "bike-sell" },
+  { label: "바이크 용품", category: "부품 · 용품", action: "bike-parts" },
 ];
 const bbUsedCarCategories = new Set([
   "중고차", "국산차", "수입차", "전기차", "리스/렌트차량", "서울오토갤러리", "도이치오토월드",
@@ -80,11 +85,7 @@ const bbGnbSubmenus: Readonly<Record<string, readonly BbGnbSubItem[]>> = {
     { label: "중장비 전체", category: "건설기계" },
     { label: "자재운반장비", category: "자재운반장비" },
   ],
-  바이크: [
-    { label: "중고 바이크", category: "바이크" },
-    { label: "바이크 판매", category: "바이크", action: "bike-sell" },
-    { label: "바이크 용품", category: "부품 · 용품", action: "bike-parts" },
-  ],
+  바이크: [{ label: "바이크 전체", category: "바이크" }],
   중고부품: [{ label: "부품/용품 전체", category: "부품 · 용품" }],
   더보기: [
     { label: "캠핑카", category: "캠핑카" },
@@ -103,12 +104,13 @@ function bbActiveGnbItem(category: string) {
             : category === "부품 · 용품" ? "중고부품"
               : category === "바이크" ? category : "더보기";
 }
-const bbSubnavDetail = (item: BbGnbSubItem) => item.action === "bike-sell" ? "__bike_sell__" : item.action === "bike-parts" ? "__bike_parts__" : item.detail;
 const bbSubnavCurrent = (item: BbGnbSubItem, category: string, categoryDetail: string | null) => {
-  if (item.action === "bike-sell") return false;
-  if (item.action === "bike-parts") return category === "부품 · 용품" && typeof window !== "undefined" && new URLSearchParams(window.location.search).get("bikeMenu") === "parts";
   return item.category === category && (item.detail ? item.detail === categoryDetail : !categoryDetail);
 };
+export function bbStandaloneBikeSite() {
+  if (typeof window === "undefined") return false;
+  return /\/bike\/?$/.test(window.location.pathname);
+}
 export function BbSecondaryNav({ category, categoryDetail, onChooseCategory }: { category: string; categoryDetail: string | null; onChooseCategory: (category: string, detail?: string) => void }) {
   const activeItem = bbActiveGnbItem(category);
   const subnavItems = bbGnbSubmenus[activeItem] ?? bbGnbSubmenus.차량검색;
@@ -119,7 +121,7 @@ export function BbSecondaryNav({ category, categoryDetail, onChooseCategory }: {
       <nav className={`bbm-snb${activeItem === "중고차" ? " is-all-visible" : ""}`} aria-label={`${activeItem} 하위 메뉴`}>
         {subnavItems.map((item) => {
           const current = bbSubnavCurrent(item, category, categoryDetail);
-          return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" className={current ? "is-current" : ""} aria-current={current ? "page" : undefined} onClick={() => onChooseCategory(item.category, bbSubnavDetail(item))}>{item.label}</button>;
+          return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" className={current ? "is-current" : ""} aria-current={current ? "page" : undefined} onClick={() => onChooseCategory(item.category, item.detail)}>{item.label}</button>;
         })}
       </nav>
     </div>
@@ -134,7 +136,7 @@ export function BbLnbTitleTabs({ category, categoryDetail, onChooseCategory }: {
     <nav className="bbm-lnb-title-tabs" aria-label={`${activeItem} 하위 메뉴`}>
       {items.map((item) => {
         const current = bbSubnavCurrent(item, category, categoryDetail);
-        return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" className={current ? "is-current" : ""} aria-current={current ? "page" : undefined} onClick={() => onChooseCategory(item.category, bbSubnavDetail(item))}>{item.label}</button>;
+        return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" className={current ? "is-current" : ""} aria-current={current ? "page" : undefined} onClick={() => onChooseCategory(item.category, item.detail)}>{item.label}</button>;
       })}
     </nav>
   );
@@ -214,7 +216,7 @@ export function BbLnbTitleMenu({ title, category, categoryDetail, onChooseCatego
       {open ? <div className="bbm-lnb-title-menu" role="menu">
         {items.map((item) => {
           const isCurrent = item === current;
-          return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" role="menuitem" className={isCurrent ? "is-current" : ""} aria-current={isCurrent ? "page" : undefined} onClick={() => { setOpen(false); onChooseCategory(item.category, bbSubnavDetail(item)); }}>{item.label}</button>;
+          return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" role="menuitem" className={isCurrent ? "is-current" : ""} aria-current={isCurrent ? "page" : undefined} onClick={() => { setOpen(false); onChooseCategory(item.category, item.detail); }}>{item.label}</button>;
         })}
       </div> : null}
     </div>
@@ -262,7 +264,10 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
   const variant = bbSearchVariant();
   const logoLanguage = bbLogoLanguage();
   const isMember = authState === "member";
-  const activeItem = bbActiveGnbItem(category);
+  const isBikeSite = bbStandaloneBikeSite();
+  const isBikeParts = category === "부품 · 용품" && typeof window !== "undefined" && new URLSearchParams(window.location.search).get("bikeMenu") === "parts";
+  const activeItem = isBikeSite ? isBikeParts ? "바이크 용품" : "중고 바이크" : bbActiveGnbItem(category);
+  const gnbItems = isBikeSite ? bbBikeSiteGnbItems : bbGnbItems;
 
   useEffect(() => {
     const lnb = bbLnbVariant();
@@ -304,6 +309,14 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
       onNotify("커뮤니티는 정식 서비스에서 이용해 주세요.");
       return;
     }
+    if (item.action === "bike-sell") {
+      onChooseCategory("바이크", "__bike_sell__");
+      return;
+    }
+    if (item.action === "bike-parts") {
+      onChooseCategory("부품 · 용품", "__bike_parts__");
+      return;
+    }
     if (item.category) onChooseCategory(item.category);
   };
   const changeAuthState = (next: BbAuthState) => {
@@ -315,14 +328,15 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
     window.history.replaceState({}, "", url);
   };
   return (
-    <header className={`bbm-header${variant === "default" ? "" : ` is-search-${variant}`}${bbGnbActiveMode() === "pill" ? "" : bbGnbActiveMode() === "text" ? " is-gnb-text" : " is-gnb-text is-gnb-line"}`} aria-label="보배드림">
+    <header className={`bbm-header${isBikeSite ? " is-bike-site" : ""}${variant === "default" ? "" : ` is-search-${variant}`}${bbGnbActiveMode() === "pill" ? "" : bbGnbActiveMode() === "text" ? " is-gnb-text" : " is-gnb-text is-gnb-line"}`} aria-label={isBikeSite ? "보배드림 바이크" : "보배드림"}>
       <div className="bbm-header-inner">
         <div className="bbm-header-main">
-          <button type="button" className="bbm-logo" aria-label="보배드림 처음으로" onClick={() => document.querySelector(".app-screen")?.scrollTo({ top: 0 })}>
+          <button type="button" className="bbm-logo" aria-label={isBikeSite ? "보배드림 바이크 처음으로" : "보배드림 처음으로"} onClick={() => { if (isBikeSite) onChooseCategory("바이크"); document.querySelector(".app-screen")?.scrollTo({ top: 0 }); }}>
             <span className="bbm-logo-emblem" aria-hidden="true">
               <img src={bbmAsset("header-logo")} alt="" draggable={false} />
             </span>
             <span className={`bbm-logo-word is-${logoLanguage}`} aria-hidden="true">{logoLanguage === "ko" ? "보배드림" : "BOBAEDREAM"}</span>
+            {isBikeSite ? <span className="bbm-bike-site-badge" aria-hidden="true">바이크</span> : null}
           </button>
           {searchSlot ? <div className="bbm-header-search-slot">
             {variant === "chotot" ? <button type="button" className="bbm-region-pill" aria-label="지역 선택, 현재 전국" onClick={() => onNotify("지역 선택은 목록 위 지역 줄에서 이용해 주세요.")}><img src={bbmAsset("header-location-chotot-v01")} alt="" aria-hidden="true" /><span>전국</span><BbIcon name="chevron-down" size={16} /></button> : null}
@@ -340,7 +354,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
                 <button type="button" className="bbm-auth-pill is-management" onClick={() => onNotify("매물관리는 정식 서비스에서 이용해 주세요.")}>매물관리</button>
               </>
               : <button type="button" className="bbm-auth-pill is-login" onClick={() => { changeAuthState("member"); onNotify("로그인 상태 화면으로 전환했습니다."); }}>로그인/가입</button>}
-            <button type="button" className="bbm-listing-button" onClick={() => onNotify("차량 판매하기는 정식 서비스에서 이용해 주세요.")}>차량 판매하기</button>
+            <button type="button" className="bbm-listing-button" onClick={() => isBikeSite ? onChooseCategory("바이크", "__bike_sell__") : onNotify("차량 판매하기는 정식 서비스에서 이용해 주세요.")}>{isBikeSite ? "바이크 판매" : "차량 판매하기"}</button>
             <div className="bbm-account-wrap" ref={accountRef}>
               <button type="button" className={`bbm-account-button${isMember ? " is-member" : " is-guest"}`} aria-label={isMember ? "회원 계정 메뉴" : "로그인 및 계정 메뉴"} aria-haspopup="menu" aria-expanded={accountOpen} onClick={() => setAccountOpen((open) => !open)}>
                 {isMember
@@ -373,7 +387,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
         </div>
         <div className="bbm-gnb-row">
           <nav className="bbm-gnb" aria-label="주 메뉴">
-            {bbGnbItems.map((item) => {
+            {gnbItems.map((item) => {
               const itemClassName = `${item.label === activeItem ? "is-active" : ""}${item.action === "home" ? " is-home" : ""}`;
               const itemDisplayLabel = item.label === "중고차" && ["국산차", "전기차"].includes(category) ? category : item.label;
               if (item.label === "차량검색") return <BbmVehicleTypeDropdown key={item.label} active={item.label === activeItem} onChoose={(nextCategory) => onChooseCategory(nextCategory)} />;

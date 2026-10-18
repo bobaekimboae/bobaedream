@@ -78,7 +78,7 @@ import {
   type SheetType,
 } from "../data";
 import { BrandRailMark, CategoryFilterSheet, DepthCard, DepthTextChip, MakerSheet, ModelImagePill, PriceSheet, TrimChip, VehiclePickerSheet } from "../quick-filter";
-import { bbCatalog, BbBreadcrumb, bbLnbVariant, BbLnbTitleMenu, BbLnbTitleTabs, bbSearchVariant, BbCarCard, ChototSearchIcon, BbFilterSidebar, BbHeader, BbIcon, BbSecondaryNav, BbSwitch, type BbMakerSelection, type BbMakerSection, type BbTruckFilter } from "./pc-bbmuseum";
+import { bbCatalog, BbBreadcrumb, bbLnbVariant, BbLnbTitleMenu, BbLnbTitleTabs, bbSearchVariant, bbStandaloneBikeSite, BbCarCard, ChototSearchIcon, BbFilterSidebar, BbHeader, BbIcon, BbSecondaryNav, BbSwitch, type BbMakerSelection, type BbMakerSection, type BbTruckFilter } from "./pc-bbmuseum";
 import { bbmCarChecks, emptyBbmFilters, isBbmDataOption, matchesBbmFilters, rangeIsSet, resetBbmFilters, setBbmChecks, setBbmRange, type BbmCheckKey, type BbmFilterValues } from "../filters/bbm-filter-state";
 import { bbmAppliedChips, bbmItemValue } from "../filters/bbm-applied";
 import { MileageFinalSheet, mileageSummary } from "../filters/bbm-mileage";
@@ -1002,7 +1002,7 @@ function MarketplaceScreen() {
   const isCampingCategory = category === "캠핑카";
   const isPartsCategory = category === "부품 · 용품";
   const bikeMenuMode = typeof window === "undefined" ? null : new URLSearchParams(window.location.search).get("bikeMenu");
-  const isBikeMenuContext = isBikeCategory || isPartsCategory && bikeMenuMode === "parts";
+  const isStandaloneBikeSite = bbStandaloneBikeSite();
   // 럭셔리카(차량 › 중고차 › 럭셔리카): 과쯔에서는 전용 가상 매물 29대(luxury-category-v01)
   const isLuxuryCategory = category === "럭셔리카";
   // 수입차·슈퍼카·서울오토갤러리는 럭셔리카와 같은 16개 브랜드·로고 슬롯을 사용한다.
@@ -1051,8 +1051,8 @@ function MarketplaceScreen() {
   const categoryIsDefault = category === "전체";
   const usedCarChildValues = (bbmCategoryGroups.find((group) => group.value === "중고차")?.children ?? []).map((child) => child.value).filter((value) => value !== "중고차");
   // 전체 중고차 랜딩은 GNB와 제목만 유지하고 퀵필터 안의 중복 텍스트 하위 카테고리는 표시하지 않는다.
-  const showDefaultCategoryLnb = isTruckCategory || isBikeMenuContext || ["국산차", "수입차", "전기차", "리스/렌트차량", "브랜드 인증중고차", "서울오토갤러리", "매매단지별 검색"].includes(category);
-  const pageCategoryTitle = isPartsCategory && bikeMenuMode === "parts" ? "바이크 용품" : category === "중고차" ? "전체 중고차" : stablePageTitle(category);
+  const showDefaultCategoryLnb = !isStandaloneBikeSite && (isTruckCategory || ["국산차", "수입차", "전기차", "리스/렌트차량", "브랜드 인증중고차", "서울오토갤러리", "매매단지별 검색"].includes(category));
+  const pageCategoryTitle = isStandaloneBikeSite && isBikeCategory ? "중고 바이크" : isPartsCategory && bikeMenuMode === "parts" ? "바이크 용품" : category === "중고차" ? "전체 중고차" : stablePageTitle(category);
   const categorySearchPlaceholder = categoryIsDefault ? "전체차량" : pageCategoryTitle;
   const categoryBrandRail = categoryBrandRails[category] ?? categoryBrandRails["전체"];
   // QF-097: 과쯔 카탈로그 제조사(9개)도 모델 → 세부 모델 → 트림 단계
@@ -3049,7 +3049,7 @@ function MarketplaceScreen() {
     // 오른쪽 열 안에 직접 배치한다. 형식 단계가 바뀌어 퀵필터 높이가 달라져도
     // 왼쪽 필터와 오른쪽 카드의 윗선이 유지된다.
     const balancedTopCard = isGuaziQuickStyle && usesReferencePcLayout && (isHeavyCategory || pcFilterLayout === "balanced" || isTruckCategory && pcFilterLayout === "compact");
-    const bbmCategoryBanner = lnbVariant === "default" && !isBikeCategory ? (
+    const bbmCategoryBanner = lnbVariant === "default" && (!isBikeCategory || isStandaloneBikeSite) ? (
           <div className="bbm-ct-banner">{/* 포쉬마크식 카테고리 헤더 배너(2026-10-18) */}
             <h1 className="bbm-ct-banner-title bbm-summary" data-count={shownCars.length}>{pageCategoryTitle}</h1>
             <button type="button" className={`bbm-save-search bbm-ct-save${searchSaved ? " is-saved" : ""}`} aria-pressed={searchSaved} onClick={toggleSearchSaved}><img src={bbmIcon("search-save")} alt="" aria-hidden="true" />검색저장</button>
@@ -3096,7 +3096,7 @@ function MarketplaceScreen() {
     return (
       <>
         <MobileScroll className="app-screen">
-          <main className={`marketplace is-bbm${isGuaziQuickStyle ? " is-hybrid" : ""}${balancedTopCard ? " is-balanced-layout" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "right" ? " is-list-first-layout" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "compact" && !balancedTopCard ? " is-compact-top-filter" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "bare" ? " is-no-top-filter" : ""}${isGuaziQuickStyle && isUsedCarCategory && pcFilterLayout === "modern" ? " is-modern-filter-layout" : ""}${isGuaziQuickStyle && isUsedCarCategory && pcFilterLayout === "charancha" ? " is-charancha-filter-layout" : ""}${plainQuickCards ? " is-qf-plain" : ""}${guaziCardChipPreview ? " is-qf-guazi-card-chip" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}${isHeavyCategory ? " is-heavy-category" : ""}${category === "수입차" && !maker ? " is-imported-car-category" : ""}${maker === "페라리" ? ` is-ferrari-category${ferrariBannerFull ? " is-ferrari-banner-full" : ""}` : ""}${category === "올드카" ? " is-oldcar-category" : ""}`} aria-label="중고차 리스트">
+          <main className={`marketplace is-bbm${isStandaloneBikeSite ? " is-bike-site" : ""}${isGuaziQuickStyle ? " is-hybrid" : ""}${balancedTopCard ? " is-balanced-layout" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "right" ? " is-list-first-layout" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "compact" && !balancedTopCard ? " is-compact-top-filter" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "bare" ? " is-no-top-filter" : ""}${isGuaziQuickStyle && isUsedCarCategory && pcFilterLayout === "modern" ? " is-modern-filter-layout" : ""}${isGuaziQuickStyle && isUsedCarCategory && pcFilterLayout === "charancha" ? " is-charancha-filter-layout" : ""}${plainQuickCards ? " is-qf-plain" : ""}${guaziCardChipPreview ? " is-qf-guazi-card-chip" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}${isHeavyCategory ? " is-heavy-category" : ""}${category === "수입차" && !maker ? " is-imported-car-category" : ""}${maker === "페라리" ? ` is-ferrari-category${ferrariBannerFull ? " is-ferrari-banner-full" : ""}` : ""}${category === "올드카" ? " is-oldcar-category" : ""}`} aria-label={isStandaloneBikeSite ? "바이크 매물 리스트" : "중고차 리스트"}>
             <BbHeader category={category} onChooseCategory={chooseHierarchyCategory} onNotify={setSearchToast} onOpenFavorites={() => flow.push(savedListingsScreen)} searchSlot={<BbmCatalogHeaderSearch query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} catalogRecords={supportsVehicleCatalog ? vehicleCatalog.records : undefined} onCatalogFocus={supportsVehicleCatalog ? () => { void vehicleCatalog.ensureSearch(); } : undefined} onCatalogChoose={supportsVehicleCatalog ? chooseCatalogRecord : undefined} category={category} onChooseCategory={(value) => chooseHierarchyCategory(value)} />} />
             {/* QF-093: 과쯔는 상단 패널(전체차량 · N대 · 검색저장 · 칩 줄 · 유형 줄/퀵필터 레일)을 본문 폭 전체로 */}
             {/* 중고차·트럭은 텍스트 GNB 바로 아래 사각형 LNB를 유지하고, 필터 카드에는 경로·중복 카테고리 칩을 두지 않는다. */}
