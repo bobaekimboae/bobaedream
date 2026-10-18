@@ -488,8 +488,9 @@ function cardTitleText(car: Car) {
 
 // ── 매물 카드(원본 car-list-result-card). variant pc: 사진 160, 마력 포함 / mobile 목록형: 초톳 기준 사진 120×120, 마력 없음
 // 피드 사양 줄 아이콘(노션 「N_독일_오토스카우트 24」 02_승용_매물리스트 · 차량 필터 원본, 2026-10-10 「메타정보에 아이콘 배치」)
-const specIconFiles = { year: "year-calendar", mileage: "mileage-road", fuelGasoline: "fuel-gasoline", fuelDiesel: "fuel-diesel", fuelElectric: "fuel-electric", fuelHybrid: "fuel-hybrid", fuelLpg: "fuel-lpg", fuelCng: "fuel-cng", fuelOther: "fuel-other", power: "power", axle: "axle", displacement: "engine-displacement", berth: "sleeping-berth", seats: "seats", hours: "usage-hours" } as const;
-const specIconOf = (item: string): keyof typeof specIconFiles | null => {
+const specIconFiles = { motorcycle: "motorcycle", year: "year-calendar", mileage: "mileage-road", fuelGasoline: "fuel-gasoline", fuelDiesel: "fuel-diesel", fuelElectric: "fuel-electric", fuelHybrid: "fuel-hybrid", fuelLpg: "fuel-lpg", fuelCng: "fuel-cng", fuelOther: "fuel-other", power: "power", axle: "axle", displacement: "engine-displacement", berth: "sleeping-berth", seats: "seats", hours: "usage-hours" } as const;
+const specIconOf = (item: string, bikeGenre = false): keyof typeof specIconFiles | null => {
+  if (bikeGenre && /^(네이키드|스쿠터|스포츠|멀티퍼포즈|크루저|클래식|언더본|투어러|오프로드|전기|삼륜|ATV|기타)$/.test(item)) return "motorcycle";
   if (/^\d{2}년\d{2}월(\(\d{2}년형\))?$/.test(item) || /^(19|20)\d{2}$/.test(item)) return "year";
   if (/km$/.test(item)) return "mileage";
   // 연료는 종류별 아이콘(노션 「보정된 폭스바겐 독일 연료」 01 가솔린 · 02 디젤 · 03 전기 · 04 하이브리드(가솔린/전기) · 06 LPG · 08 CNG · 09 기타 연료, 2026-10-10)
@@ -509,12 +510,12 @@ const specIconOf = (item: string): keyof typeof specIconFiles | null => {
   return null;
 };
 // 아이콘이 하나라도 있는 줄은 아이콘이 항목 구분을 맡고 가운데 점을 쓰지 않는다(없는 줄은 가운데 점 유지)
-function renderFeedSpec(text: string, forceIcons = false) {
+function renderFeedSpec(text: string, forceIcons = false, bikeGenre = false) {
   const items = text.split(" · ");
   // 2026-10-10 「아이콘 빼자, 복잡하다」: 기본은 아이콘 없는 가운데 점 사양 줄. 주소 끝 &specicon=on 이면 아이콘(비교용)
   // 2026-10-18 바이크 PC 목록은 노션 「독일/스위스 오토스카우트 아이콘」의 메타정보 원본을 항상 사용한다.
   const iconsOff = !forceIcons && new URLSearchParams(window.location.search).get("specicon") !== "on";
-  const iconOf = (item: string) => iconsOff ? null : specIconOf(item);
+  const iconOf = (item: string) => iconsOff ? null : specIconOf(item, bikeGenre);
   const hasIcon = items.some((item) => iconOf(item));
   return items.map((item, index) => {
     const icon = iconOf(item);
@@ -726,7 +727,7 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
             {car.bike?.listingTitle ? <span className="bbm-card-listing-title">{car.bike.listingTitle}</span> : null}
             {headlinePosition === "after-model" ? headline : null}
             {prioritizeTruckCapacity ? <span className="bbm-card-spec is-capacity is-priority">{specCapacity}</span> : null}
-            <span className={`bbm-card-spec${prioritizeTruckCapacity ? " is-secondary" : ""}${car.adDescription ? " is-ad-description" : ""}${car.bike && variant === "pc" ? " has-meta-icons" : ""}`}>{car.adDescription ?? (car.bike && variant === "pc" ? renderFeedSpec(specMain, true) : featured ? renderFeedSpec(specMain) : specMain)}{car.adDescription ? null : <span className="bbm-card-spec-seller"> · {seller}</span>}</span>
+            <span className={`bbm-card-spec${prioritizeTruckCapacity ? " is-secondary" : ""}${car.adDescription ? " is-ad-description" : ""}${car.bike && variant === "pc" ? " has-meta-icons" : ""}`}>{car.adDescription ?? (car.bike && variant === "pc" ? renderFeedSpec(specMain, true, true) : featured ? renderFeedSpec(specMain) : specMain)}{car.adDescription ? null : <span className="bbm-card-spec-seller"> · {seller}</span>}</span>
             {!prioritizeTruckCapacity && !car.adDescription && specCapacity ? <span className="bbm-card-spec is-capacity">{specCapacity}</span> : null}
             <div className="bbm-card-price-badges">
               <strong className="bbm-card-price"><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</strong>
