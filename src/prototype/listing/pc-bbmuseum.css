@@ -26,7 +26,6 @@
   .bbm-gnb::-webkit-scrollbar { display: none; }
   .bbm-gnb button { position: relative; display: flex; align-items: center; gap: 6px; height: 49px; padding: 0; border: 0; background: none; color: #202124; font-size: 16px; font-weight: 500; line-height: 22px; letter-spacing: normal; white-space: nowrap; }
   .bbm-gnb button.is-home { font-size: 16px; font-weight: 500; }
-  .bbm-gnb-item-icon { display: block; width: 20px; height: 20px; flex: none; color: #222; }
   .bbm-gnb > button,
   .bbm-gnb > .bbm-vehicle-search-wrap > button,
   .bbm-gnb > .bbm-gnb-more-wrap > button { align-self: stretch; height: 49px; padding: 0 1px; border-radius: 0; background: transparent; color: #444; }
@@ -35,7 +34,6 @@
   .bbm-gnb > .bbm-gnb-more-wrap > button:hover { background: transparent; color: #222; }
   .bbm-gnb button.is-active { align-self: stretch; height: 49px; padding: 0 1px; border-radius: 0; background: transparent; color: var(--blue, #306bd9); font-weight: 700; }
   .bbm-gnb button.is-active::after { display: none; }
-  .bbm-gnb button.is-active .bbm-gnb-item-icon { color: var(--blue, #306bd9); filter: invert(39%) sepia(90%) saturate(1123%) hue-rotate(194deg) brightness(88%) contrast(91%); }
   .bbm-gnb-more-wrap { position: relative; display: flex; flex: none; align-items: center; }
   .bbm-gnb .bbm-gnb-more { gap: 5px; height: 49px; padding: 0 1px; border: 0; border-radius: 0; background: transparent; }
   .bbm-gnb .bbm-gnb-more:hover { background: transparent; }
@@ -463,8 +461,7 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
   html:not([data-lnb]) .marketplace.is-bbm.is-hybrid > .bbm-hybrid-top > .bbm-secondary-nav { height: 56px; margin: 0 0 16px; border-bottom: 0; background: none; border-image: linear-gradient(to top, #e5e7eb 1px, #fff 1px) fill 0 / 0 / 0 100vmax; }
 }
 
-/* 선택 GNB: PC 레이아웃 시작점(820px)부터 현재 메뉴만 검정 알약칩.
-   바이크 아이콘은 선택 상태에서만 렌더링하며 흰색으로 반전한다. */
+/* 선택 GNB: PC 레이아웃 시작점(820px)부터 현재 메뉴 텍스트만 검정 알약칩으로 표시한다. */
 @media (min-width: 820px) {
   .marketplace.is-bbm .bbm-gnb button.is-active,
   .marketplace.is-bbm .bbm-gnb .bbm-gnb-more.is-active,
@@ -484,10 +481,6 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
   .marketplace.is-bbm .bbm-gnb .bbm-gnb-more.is-active::after,
   html[data-lnb] .marketplace.is-bbm .bbm-gnb button.is-active::after,
   html[data-lnb] .marketplace.is-bbm .bbm-gnb .bbm-gnb-more.is-active::after { display: none !important; }
-  .marketplace.is-bbm .bbm-gnb button.is-active .bbm-gnb-item-icon {
-    color: #fff;
-    filter: brightness(0) invert(1);
-  }
   .marketplace.is-bbm .bbm-gnb .bbm-gnb-more.is-active .bb-icon { color: #fff; }
   .marketplace.is-bbm .bbm-gnb .bbm-gnb-more.is-active .bbm-gnb-more-count { background: #fff; color: #181818; }
 }
