@@ -2933,10 +2933,10 @@ export const truckSpecGroupsFor = (format: string | null, subtype: string | null
     const tonnage = (value: string) => Number.parseFloat(value.replace("톤", ""));
     const inBand: Readonly<Record<string, (value: number) => boolean>> = {
       "경형": (value) => value <= 1,
-      "소형": (value) => value >= 1.4 && value <= 2.5,
-      "준중형": (value) => value > 2 && value <= 3.5,
-      "중형": (value) => value >= 3.5 && value <= 5,
-      "준대형": (value) => value >= 8 && value <= 11,
+      "소형": (value) => value >= 1 && value <= 2.5,
+      "준중형": (value) => value > 2.5 && value <= 3.5,
+      "중형": (value) => value > 3.5 && value <= 7.5,
+      "준대형": (value) => value > 7.5 && value < 14,
       "대형": (value) => value >= 14,
     };
     const predicate = inBand[subtype];

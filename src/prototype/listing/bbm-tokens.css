@@ -205,7 +205,6 @@
   .marketplace.is-bbm .bbm-result-card .bbm-card-seller-text strong { color: var(--bbm-text-strong); }
   .marketplace.is-bbm .bbm-result-card .bbm-card-seller-text strong::after { content: "·"; margin-left: 4px; color: var(--bbm-text-weak); }
   .marketplace.is-bbm.is-bike-category .bbm-result-card .bbm-card-seller-text strong::after { content: none; }
-  .marketplace.is-bbm.is-bike-category .bbm-result-card .bbm-card-sold-count { flex: none; color: #8c8c8c; font-size: 12px; font-weight: 400; line-height: 18px; white-space: nowrap; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-actions button { width: 48px; height: 48px; padding: 12px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-actions img { width: 24px; height: 24px; }
 }

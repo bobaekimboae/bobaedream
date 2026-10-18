@@ -2564,15 +2564,16 @@ function MarketplaceScreen() {
   const bikeGenreApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:bikeGenre:"));
   const bikeDisplacementApplied = bbmApplied.filter((chip) => chip.id === "range:displacement");
   const bikeLicenseApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:bikeLicense:"));
+  const truckAxleApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:truckAxle:"));
   const regionApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:region:") || chip.id.startsWith("check:district:"));
   const complexApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:complex:"));
-  const hideSellerQuickChip = desktop && isGuaziQuickStyle && (isUsedCarCategory || isBikeCategory);
-  const fixedSlotAppliedIds = new Set([...sellerApplied, ...priceApplied, ...yearApplied, ...mileageApplied, ...fuelApplied, ...bikeGenreApplied, ...bikeDisplacementApplied, ...bikeLicenseApplied, ...regionApplied, ...complexApplied].map((chip) => chip.id));
+  const hideSellerQuickChip = desktop && isGuaziQuickStyle && (isUsedCarCategory || isBikeCategory || isTruckCategory);
+  const fixedSlotAppliedIds = new Set([...sellerApplied, ...priceApplied, ...yearApplied, ...mileageApplied, ...fuelApplied, ...bikeGenreApplied, ...bikeDisplacementApplied, ...bikeLicenseApplied, ...truckAxleApplied, ...regionApplied, ...complexApplied].map((chip) => chip.id));
   const otherApplied = bbmApplied.filter((chip) => !fixedSlotAppliedIds.has(chip.id));
   const bbmChips: BbmChip[] = ([
     // 기본 중고차 목록의 실제 선택값은 상위 그룹 "중고차"가 아니라 하위 "전체차량"이다.
-    isBikeCategory
-      ? { key: "bike-category", label: "바이크", active: true, className: "is-vehicle-summary is-step", onClick: () => { setBbmCategoryDraft(category); setBbmCategoryChildDraft(bbmCategoryChild); setBbmCategoryOpen(true); } }
+    isBikeCategory || isTruckCategory
+      ? { key: `${isTruckCategory ? "truck" : "bike"}-category`, label: isTruckCategory ? "트럭 · 특장" : "바이크", active: true, className: "is-vehicle-summary is-step", onClick: () => { setBbmCategoryDraft(category); setBbmCategoryChildDraft(isTruckCategory ? selectedTruckFormat : bbmCategoryChild); setBbmCategoryOpen(true); }, onClear: isBikeCategory ? clearCategoryFilter : undefined }
       : desktop && isGuaziQuickStyle ? null : chipByKey("category"),
     // 바이크는 카테고리 다음에 유형(장르) → 제조사 → 모델 순서로 탐색한다.
     ...(isBikeCategory ? [
@@ -2595,13 +2596,14 @@ function MarketplaceScreen() {
     ...(isTruckCategory ? [
       selectedTruckFormat
         ? { key: "truck-format", label: selectedTruckFormat, active: true, className: "is-vehicle-summary is-step", onClick: () => setTruckTypePickerOpen(true), onClear: clearTruckFormat }
-        : { key: "truck-format", label: "트럭 유형", active: false, onClick: () => setTruckTypePickerOpen(true) },
+        : { key: "truck-format", label: "형식/적재용량", active: false, onClick: () => setTruckTypePickerOpen(true) },
       selectedTruckFormat && selectedTruckSubtype
         ? { key: "truck-subtype", label: selectedTruckFormat === "카고(화물)트럭" ? truckSubtypeSecondaryLabel(selectedTruckFormat, selectedTruckSubtype) ?? truckSubtypeLabel(selectedTruckSubtype) : truckSubtypeLabel(selectedTruckSubtype), active: true, className: "is-vehicle-summary is-step", onClick: () => setTruckTypePickerOpen(true), onClear: clearTruckSubtype }
         : selectedTruckFormat ? { key: "truck-subtype", label: "세부 유형", active: false, onClick: () => setTruckTypePickerOpen(true) } : null,
       selectedTruckSubtype && truckSpecOptions.length && selectedTruckSpec
         ? { key: "truck-spec", label: selectedTruckSpec, active: true, className: "is-vehicle-summary is-step", onClick: clearTruckSpec, onClear: clearTruckSpec }
-        : selectedTruckSubtype && truckSpecOptions.length ? { key: "truck-spec", label: "적재·규격", active: false, onClick: clearTruckSpec } : null,
+        : selectedTruckSubtype && truckSpecOptions.length ? { key: "truck-spec", label: "적재용량", active: false, onClick: clearTruckSpec } : null,
+      ...(!maker ? [{ key: "maker", label: "제조사", active: false, onClick: () => supportsVehicleCatalog ? setSheet("vehicle") : openBbmChipPanel("제조사") }] : []),
     ] : []),
     // 원본: 제조사를 고르면 [현대 ×][모델] 이 적용 칩 앞, 고르기 전에는 적용 칩 뒤에 [제조사]
     // QF-097 보완: 제조사·모델·세부 모델을 단계별 검정 적용 칩으로 [벤츠 ×][E클래스 ×][W213 ×]. 각 × 는 그 단계부터 아래만 푼다
@@ -2620,16 +2622,21 @@ function MarketplaceScreen() {
     // QF-105: 트림을 고르면 빈 "트림" 칩 대신 단계 칩 [트림 ×]
     selectedVariants.length || (selectedGeneration && guaziTrimRailOptions.length <= 1) ? null : chipByKey("variant"),
     ...otherApplied.map(toAppliedBbmChip),
-    isHeavyCategory || isBikeCategory || isTruckCategory && (!selectedTruckSubtype || !truckSpecDepthComplete) ? null : maker ? null : { key: "maker", label: "제조사", active: false, onClick: () => supportsVehicleCatalog ? setSheet("vehicle") : openBbmChipPanel("제조사") },
+    isHeavyCategory || isBikeCategory || isTruckCategory ? null : maker ? null : { key: "maker", label: "제조사", active: false, onClick: () => supportsVehicleCatalog ? setSheet("vehicle") : openBbmChipPanel("제조사") },
     // 부품·용품: 연식·주행거리·연료 대신 분류 · 상태 · 적용 차종(2026-10-07)
     ...(isPartsCategory ? [
       groupChip("parts-subtype", "분류", "부품 분류", Boolean(bbmValue.checks.partsSubtype?.length)),
       groupChip("parts-condition", "상태", "부품 상태", Boolean(bbmValue.checks.partsCondition?.length)),
       groupChip("parts-fit", "적용 차종", "적용 차종", Boolean(bbmValue.checks.partsFit?.length)),
     ] : []),
-    ...(isBikeCategory ? [
+    ...(isTruckCategory ? [
       ...(yearApplied.length ? yearApplied.map(toAppliedBbmChip) : [groupChip("year", "연식", "연식", false)]),
       ...(priceApplied.length ? priceApplied.map(toAppliedBbmChip) : [(() => { const chip = groupChip("price", "가격", "가격", false); return chip ? { ...chip, className: "is-price" } : null; })()]),
+      ...(mileageApplied.length ? mileageApplied.map(toAppliedBbmChip) : [(() => { const chip = groupChip("mileage", "주행거리", "주행거리", false); return chip ? { ...chip, className: "is-mileage" } : null; })()]),
+      ...(truckAxleApplied.length ? truckAxleApplied.map(toAppliedBbmChip) : [groupChip("truck-axle", "가변축", "트럭 가변축", false)]),
+    ] : isBikeCategory ? [
+      ...(priceApplied.length ? priceApplied.map(toAppliedBbmChip) : [(() => { const chip = groupChip("price", "가격", "가격", false); return chip ? { ...chip, className: "is-price" } : null; })()]),
+      ...(yearApplied.length ? yearApplied.map(toAppliedBbmChip) : [groupChip("year", "연식", "연식", false)]),
       ...(mileageApplied.length ? mileageApplied.map(toAppliedBbmChip) : [(() => { const chip = groupChip("mileage", "주행거리", "주행거리", false); return chip ? { ...chip, className: "is-mileage" } : null; })()]),
       ...(bikeDisplacementApplied.length ? bikeDisplacementApplied.map(toAppliedBbmChip) : [groupChip("bike-displacement", "배기량", "배기량", false)]),
       ...(bikeLicenseApplied.length ? bikeLicenseApplied.map(toAppliedBbmChip) : [groupChip("bike-license", "면허", "면허", false)]),
@@ -2647,7 +2654,7 @@ function MarketplaceScreen() {
         selectedBikeShop
         ? { key: "bike-shop", label: selectedBikeShop, active: true, className: "is-applied", onClick: () => openBbmChipPanel("바이크샵"), onClear: () => setSelectedBikeShop(null) }
         : groupChip("bike-shop", "바이크샵", "바이크샵", false)]
-      : complexApplied.length ? complexApplied.map(toAppliedBbmChip) : desktop ? [groupChip("complex", "매매단지", "매매단지", false)] : []),
+      : isTruckCategory ? [] : complexApplied.length ? complexApplied.map(toAppliedBbmChip) : desktop ? [groupChip("complex", "매매단지", "매매단지", false)] : []),
   ] as Array<BbmChip | null | undefined>).filter((chip): chip is BbmChip => Boolean(chip));
   // 초톳처럼(2026-10-11 「리스트에서는 카테고리 칩 빼자, 선택된 카테고리 누르면 카테고리 나오게」): 별도 `카테고리 ▾` 칩 없이
   // 선택된 카테고리 칩(`전체차량 ×`)의 이름을 누르면 카테고리 시트가 열리고, ×는 해제. 트럭·특장은 기존 동작(형식 퀵필터) 유지.
@@ -3009,7 +3016,7 @@ function MarketplaceScreen() {
             {/* 중고차·트럭은 텍스트 GNB 바로 아래 사각형 LNB를 유지하고, 필터 카드에는 경로·중복 카테고리 칩을 두지 않는다. */}
             {isGuaziQuickStyle ? <div className="bbm-hybrid-top">{lnbVariant === "a" || lnbVariant === "b" || lnbVariant === "d" ? <BbSecondaryNav category={category} categoryDetail={category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild} onChooseCategory={chooseHierarchyCategory} /> : null}{bbmCategoryBanner}{lnbVariant === "default" && pcFilterLayout === "bare" && isUsedCarCategory && showDefaultCategoryLnb ? <div className="bbm-bare-lnb"><BbLnbTitleTabs category={category} categoryDetail={category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild} onChooseCategory={chooseHierarchyCategory} /></div> : null}{categoryComplexHeader}{balancedTopCard ? null : bbmTopCard}</div> : null}
             <div className="bbm-page">
-              <BbFilterSidebar collapsible mileageFinal={isGuaziQuickStyle} priceFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? isTruckCategory ? truckFilterOrder : category === "바이크" ? bikeFilterOrder : isPartsCategory ? partsFilterOrder : bbmFilterOrder : undefined} pricePresets={isPartsCategory ? partsPricePresets : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} brandLogoCategory={category} truckFilter={truckSidebarFilter} referenceMakerFlow={charanchaMakerFlow} makerOpenByDefault={isBikeCategory} singleOpen={pcFilterLayout === "charancha"} showMakerCounts allowEmptyMakerOptions={charanchaMakerFlow} makerLabel={isBikeCategory ? "브랜드 · 모델" : charanchaMakerFlow ? "제조사 · 모델 · 등급" : undefined} />
+              <BbFilterSidebar collapsible mileageFinal={isGuaziQuickStyle} priceFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? isTruckCategory ? truckFilterOrder : category === "바이크" ? bikeFilterOrder : isPartsCategory ? partsFilterOrder : bbmFilterOrder : undefined} pricePresets={isPartsCategory ? partsPricePresets : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} brandLogoCategory={category} truckFilter={truckSidebarFilter} referenceMakerFlow={charanchaMakerFlow} makerOpenByDefault={isBikeCategory || isTruckCategory} singleOpen={pcFilterLayout === "charancha"} showMakerCounts allowEmptyMakerOptions={charanchaMakerFlow} makerLabel={isBikeCategory ? "브랜드 · 모델" : charanchaMakerFlow ? "제조사 · 모델 · 등급" : undefined} />
               <div className="bbm-content">
                 {isGuaziQuickStyle ? balancedTopCard ? bbmTopCard : null : bbmContentHead}
                 <section className="bbm-results" aria-label="매물 목록">
@@ -3017,7 +3024,7 @@ function MarketplaceScreen() {
                   <nav className="bbm-toolbar" aria-label="매물 유형과 정렬">
                     <div className="bbm-seller-tabs" role="tablist" aria-label="판매자 유형">
                       {(["전체", "개인", "딜러"] as SellerType[]).map((tab) => <button key={tab} type="button" role="tab" aria-selected={sellerType === tab} className={sellerType === tab ? "is-selected" : ""} onClick={() => setFilters((current) => ({ ...current, seller: tab }))}>{sellerTabLabel(tab)}</button>)}
-                      <button type="button" role="tab" aria-selected={false} onClick={() => setSearchToast("브랜드 매물은 정식 서비스에서 이용해 주세요.")}>브랜드</button>
+                      <button type="button" role="tab" aria-selected={false} onClick={() => setSearchToast(`${isBikeCategory ? "브랜드 인증" : "브랜드"} 매물은 정식 서비스에서 이용해 주세요.`)}>{isBikeCategory ? "브랜드인증" : "브랜드"}</button>
                     </div>
                     <div className="bbm-toolbar-actions">
                       <label className="bbm-video-filter"><span>숏폼카</span><BbSwitch checked={videoOnly} label="숏폼카" onChange={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))} /></label>
@@ -3055,7 +3062,7 @@ function MarketplaceScreen() {
         {truckSidebarFilter ? <TruckTypePicker desktop open={truckTypePickerOpen} onClose={() => setTruckTypePickerOpen(false)} value={truckSidebarFilter} /> : null}
         {drawerFilterChip && bbmDrawerOpen ? (
           <BbmFilterDrawer count={visibleCars.length} onClose={() => setBbmDrawerOpen(false)} onReset={() => setBbmDrawerReset((value) => value + 1)}>
-            <BbFilterSidebar mileageFinal={isGuaziQuickStyle} priceFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? isTruckCategory ? truckFilterOrder : category === "바이크" ? bikeFilterOrder : isPartsCategory ? partsFilterOrder : bbmFilterOrder : undefined} pricePresets={isPartsCategory ? partsPricePresets : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmDrawerReset} brandLogos={isGuaziQuickStyle} brandLogoCategory={category} truckFilter={truckSidebarFilter} referenceMakerFlow={charanchaMakerFlow} makerOpenByDefault={isBikeCategory} showMakerCounts allowEmptyMakerOptions={charanchaMakerFlow} makerLabel={isBikeCategory ? "브랜드 · 모델" : charanchaMakerFlow ? "제조사 · 모델 · 등급" : undefined} />
+            <BbFilterSidebar mileageFinal={isGuaziQuickStyle} priceFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? isTruckCategory ? truckFilterOrder : category === "바이크" ? bikeFilterOrder : isPartsCategory ? partsFilterOrder : bbmFilterOrder : undefined} pricePresets={isPartsCategory ? partsPricePresets : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmDrawerReset} brandLogos={isGuaziQuickStyle} brandLogoCategory={category} truckFilter={truckSidebarFilter} referenceMakerFlow={charanchaMakerFlow} makerOpenByDefault={isBikeCategory || isTruckCategory} showMakerCounts allowEmptyMakerOptions={charanchaMakerFlow} makerLabel={isBikeCategory ? "브랜드 · 모델" : charanchaMakerFlow ? "제조사 · 모델 · 등급" : undefined} />
           </BbmFilterDrawer>
         ) : null}
         {marketSheet}
