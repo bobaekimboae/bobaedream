@@ -2119,11 +2119,10 @@ function MarketplaceScreen() {
               {cardChipModelQuickOptions.map((model) => {
                 const modelVisual = guaziVisualsForMaker?.[model];
                 // The unified vehicle catalog intentionally leaves model-group images empty.
-                // Keep that behavior everywhere else, but let the Guazi card-chip comparison
-                // reuse the already-approved model catalogue images so the image-led cards can
-                // be evaluated as designed.
+                // Until the dedicated Bobaedream artwork is ready, use the already-audited
+                // Daangn-backed catalogue cutouts as a temporary visual fallback.
                 const dedicatedCardVisual = guaziCardChipPreview && maker ? quickModelVisualsByMaker[maker]?.[model] : undefined;
-                const catalogCardVisual = guaziCardChipPreview && maker ? guaziModelVisualsByMaker[maker]?.[model] : undefined;
+                const catalogCardVisual = maker ? guaziModelVisualsByMaker[maker]?.[model] : undefined;
                 const angleCardVisual = guaziCardThreeQuarterPreview
                   ? bmwGuaziThreeQuarterVisuals[model]
                   : guaziCardSidePreview
@@ -2170,10 +2169,22 @@ function MarketplaceScreen() {
           </section> : showGenerationQuickRail && isGuaziQuickStyle ? <section className={`depth-rail no-label${brandShadowCard ? " is-brand-shadowcard is-shadow-model-row" : ""}`} aria-label={`${accessibleDepthLabel(selectedModel)} 세부모델 빠른 선택`}>
             <QuickRailCarousel ariaLabel={`${accessibleDepthLabel(selectedModel)} 세부모델`} className="brand-carousel" contentClassName="depth-rail-track">
               {railGenerationOptions.map((generation) => {
-                // QF-097: 카탈로그 세부 모델은 자기 이미지만(없으면 점선 빈 칸)
-                const generationImage = isCatalogMaker ? generation.image : generation.image ?? (selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel]?.image : undefined);
                 const selectedModelVisual = selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel] : undefined;
-                const generationImageFit = generation.bodyFit ?? selectedModelVisual?.bodyFit ?? "width";
+                const daangnGenerationVisual = maker && selectedModel
+                  ? (guaziGenerationsByMakerModel[maker]?.[selectedModel] ?? []).find((candidate) => {
+                    const candidateKeys = [candidate.cardLabel, candidate.displayLabel, generationCodeLabel(candidate), candidate.name]
+                      .filter(Boolean)
+                      .map((value) => normalizeModelSearchText(String(value)));
+                    const generationKeys = [generation.cardLabel, generation.displayLabel, generationCodeLabel(generation), generation.name]
+                      .filter(Boolean)
+                      .map((value) => normalizeModelSearchText(String(value)));
+                    return candidateKeys.some((key) => key && generationKeys.includes(key));
+                  })
+                  : undefined;
+                // 전용 제작 이미지 전까지 세부모델도 당근 매칭 컷을 우선 사용하고,
+                // 정확한 세대 매칭이 없으면 해당 모델 대표 컷으로만 임시 보완한다.
+                const generationImage = generation.image || daangnGenerationVisual?.image || selectedModelVisual?.image;
+                const generationImageFit = generation.bodyFit ?? daangnGenerationVisual?.bodyFit ?? selectedModelVisual?.bodyFit ?? "width";
                 return (
                   <DepthCard
                     key={generation.name}
