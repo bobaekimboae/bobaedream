@@ -107,6 +107,20 @@ export function BbSecondaryNav({ category, categoryDetail, onChooseCategory }: {
   );
 }
 
+/* 2026-10-18 ?lnb=f: 카드 제목 자리를 하위 메뉴 큰 글자 탭으로 */
+export function BbLnbTitleTabs({ category, categoryDetail, onChooseCategory }: { category: string; categoryDetail: string | null; onChooseCategory: (category: string, detail?: string) => void }) {
+  const activeItem = bbActiveGnbItem(category);
+  const items = bbGnbSubmenus[activeItem] ?? bbGnbSubmenus.차량검색;
+  return (
+    <nav className="bbm-lnb-title-tabs" aria-label={`${activeItem} 하위 메뉴`}>
+      {items.map((item) => {
+        const current = item.category === category && (item.detail ? item.detail === categoryDetail : !categoryDetail);
+        return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" className={current ? "is-current" : ""} aria-current={current ? "page" : undefined} onClick={() => onChooseCategory(item.category, item.detail)}>{item.label}</button>;
+      })}
+    </nav>
+  );
+}
+
 type BbBreadcrumbItem = { label: string; category: string; detail?: string; current?: boolean };
 
 export function BbBreadcrumb({ category, categoryDetail, onChooseCategory }: { category: string; categoryDetail: string | null; onChooseCategory: (category: string, detail?: string) => void }) {
@@ -150,11 +164,11 @@ export function BbBreadcrumb({ category, categoryDetail, onChooseCategory }: { c
 }
 
 /* 2026-10-18 GNB·LNB: 기본=초톳형 브레드크럼. ?lnb=a/b/c는 이전 비교안 확인용. */
-export type BbLnbVariant = "default" | "a" | "b" | "c";
+export type BbLnbVariant = "default" | "a" | "b" | "c" | "d" | "e" | "f";
 export function bbLnbVariant(): BbLnbVariant {
   if (typeof window === "undefined") return "default";
   const value = new URLSearchParams(window.location.search).get("lnb");
-  return value === "a" || value === "b" || value === "c" ? value : "default";
+  return value === "a" || value === "b" || value === "c" || value === "d" || value === "e" || value === "f" ? value : "default";
 }
 export function BbLnbTitleMenu({ title, category, categoryDetail, onChooseCategory }: { title: string; category: string; categoryDetail: string | null; onChooseCategory: (category: string, detail?: string) => void }) {
   const [open, setOpen] = useState(false);
