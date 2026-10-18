@@ -3,6 +3,7 @@ import { ChevronLeftIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import type { QuickGenerationOption, QuickModelVisual } from "../data";
 import { searchVehicleCatalog, type VehicleSearchRecord } from "./search.mjs";
 import { carMakerLogoAsset } from "./car-maker-logos-v4";
+import { daangnImportedModelImages } from "./daangn-imported-visuals.generated";
 import { selectedBikeBrandLogo } from "../listing/brand-logos-bike-motofan-v01";
 import "./vehicle-catalog.css";
 
@@ -122,7 +123,8 @@ export function useVehicleCatalog(scope: CatalogScope, selectedMake?: string | n
       for (const generation of index.generations ?? []) {
         const variants = details?.grades.filter((grade) => grade.generationId === generation.id).sort((a, b) => a.sortOrder - b.sortOrder).map((grade) => ({ name: grade.name, count: 1 })) ?? [];
         const rows = result[generation.makeName][generation.groupName] ??= [];
-        rows.push({ name: generation.name, years: yearsLabel(generation.releaseYm, generation.endYm), variants, image: publicCatalogAsset(generation.imagePath) ?? undefined, count: 1, cardLabel: generation.generationCode ?? generation.name, cardSub: yearsLabel(generation.releaseYm, generation.endYm) });
+        const temporaryModelImage = daangnImportedModelImages[generation.makeName]?.[generation.groupName];
+        rows.push({ name: generation.name, years: yearsLabel(generation.releaseYm, generation.endYm), variants, image: publicCatalogAsset(generation.imagePath) ?? temporaryModelImage, count: 1, cardLabel: generation.generationCode ?? generation.name, cardSub: yearsLabel(generation.releaseYm, generation.endYm) });
       }
     }
     return result;
@@ -161,7 +163,10 @@ export function useVehicleCatalog(scope: CatalogScope, selectedMake?: string | n
     if (!index) return {};
     const result: Record<string, Record<string, QuickModelVisual>> = {};
     for (const make of index.manufacturers) result[make.name] = {};
-    for (const group of index.modelGroups) result[group.makeName][group.name] = { image: publicCatalogAsset(group.imagePath) ?? "", count: "1대" };
+    for (const group of index.modelGroups) result[group.makeName][group.name] = {
+      image: publicCatalogAsset(group.imagePath) ?? daangnImportedModelImages[group.makeName]?.[group.name] ?? "",
+      count: "1대",
+    };
     return result;
   }, [index]);
 
