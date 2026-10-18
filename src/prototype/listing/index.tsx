@@ -2169,18 +2169,29 @@ function MarketplaceScreen() {
           </section> : showGenerationQuickRail && isGuaziQuickStyle ? <section className={`depth-rail no-label${brandShadowCard ? " is-brand-shadowcard is-shadow-model-row" : ""}`} aria-label={`${accessibleDepthLabel(selectedModel)} 세부모델 빠른 선택`}>
             <QuickRailCarousel ariaLabel={`${accessibleDepthLabel(selectedModel)} 세부모델`} className="brand-carousel" contentClassName="depth-rail-track">
               {railGenerationOptions.map((generation) => {
-                const selectedModelVisual = selectedModel && guaziVisualsForMaker ? guaziVisualsForMaker[selectedModel] : undefined;
-                const daangnGenerationVisual = maker && selectedModel
-                  ? (guaziGenerationsByMakerModel[maker]?.[selectedModel] ?? []).find((candidate) => {
-                    const candidateKeys = [candidate.cardLabel, candidate.displayLabel, generationCodeLabel(candidate), candidate.name]
-                      .filter(Boolean)
-                      .map((value) => normalizeModelSearchText(String(value)));
-                    const generationKeys = [generation.cardLabel, generation.displayLabel, generationCodeLabel(generation), generation.name]
-                      .filter(Boolean)
-                      .map((value) => normalizeModelSearchText(String(value)));
-                    return candidateKeys.some((key) => key && generationKeys.includes(key));
-                  })
+                const catalogModelVisual = selectedModel && maker ? guaziModelVisualsByMaker[maker]?.[selectedModel] : undefined;
+                const selectedModelVisual = selectedModel && guaziVisualsForMaker?.[selectedModel]?.image
+                  ? guaziVisualsForMaker[selectedModel]
+                  : catalogModelVisual;
+                const daangnCandidates = maker && selectedModel ? guaziGenerationsByMakerModel[maker]?.[selectedModel] ?? [] : [];
+                const generationKeys = [generation.cardLabel, generation.displayLabel, generationCodeLabel(generation), generation.name]
+                  .filter(Boolean)
+                  .map((value) => normalizeModelSearchText(String(value)));
+                const exactDaangnGeneration = daangnCandidates.find((candidate) => [candidate.cardLabel, candidate.displayLabel, generationCodeLabel(candidate), candidate.name]
+                  .filter(Boolean)
+                  .map((value) => normalizeModelSearchText(String(value)))
+                  .some((key) => key && generationKeys.includes(key)));
+                const generationNameKey = normalizeModelSearchText(generation.name);
+                const namedDaangnGeneration = generationNameKey.length > 3
+                  ? daangnCandidates.find((candidate) => normalizeModelSearchText(candidate.name).includes(generationNameKey))
                   : undefined;
+                const generationStartYear = generation.years.match(/\d{2,4}/)?.[0]?.slice(-2);
+                const sameStartYear = generationStartYear
+                  ? daangnCandidates.filter((candidate) => candidate.years.match(/\d{2,4}/)?.[0]?.slice(-2) === generationStartYear)
+                  : [];
+                const daangnGenerationVisual = exactDaangnGeneration
+                  ?? namedDaangnGeneration
+                  ?? (sameStartYear.length === 1 ? sameStartYear[0] : undefined);
                 // 전용 제작 이미지 전까지 세부모델도 당근 매칭 컷을 우선 사용하고,
                 // 정확한 세대 매칭이 없으면 해당 모델 대표 컷으로만 임시 보완한다.
                 const generationImage = generation.image || daangnGenerationVisual?.image || selectedModelVisual?.image;
