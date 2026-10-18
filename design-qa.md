@@ -28,6 +28,45 @@
 
 final result: passed
 
+## 2026-10-18 · Encar-style PC secondary navigation
+
+### Evidence
+
+- Source visual truth: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/encar-submenu-reference.png`
+- Implementation: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/bobaedream-encar-subnav-local.png`
+- Combined comparison: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/encar-subnav-comparison.png`
+- Viewport and density: source and implementation captured at 1280×720 CSS px, device scale 1; no density normalization required.
+- State: desktop listing, `중고차 → 국산차` selected, light theme.
+- Focused region: the full captures keep the complete two-level navigation readable; the header region in the combined comparison is sufficient, so a separate crop was not needed.
+
+### Comparison
+
+- Information hierarchy: passed — active primary navigation controls one persistent secondary row, matching the source's GNB/SNB relationship without copying its unrelated advertising rail.
+- Fonts and typography: passed — Pretendard 14/20 and 600–700 weights retain the product typography while matching the source's compact submenu density.
+- Spacing and layout rhythm: passed — the 52px row, 40px controls, 8px gap, and single-line horizontal behavior align cleanly with the existing 1200px header grid.
+- Colors and visual tokens: passed — current child uses the established black selection token; neutral white/border states preserve the existing blue brand/action axis.
+- Image quality and asset fidelity: passed — no new image assets or substitute glyphs were introduced; existing logo and navigation assets remain unchanged.
+- Copy and content: passed — vehicle, used-car, and truck child labels reuse the project's category and truck-format vocabulary.
+- Interaction: passed — `중고차 → 국산차` updates the active child and category URL; `트럭 → 카고(화물)트럭` updates the active child and `truckFormat` URL parameter.
+- Responsive: passed — at 1024×800 the document remains 1024px wide with no page-level horizontal overflow; the submenu keeps its own non-wrapping rail.
+- Browser console: passed — no errors after the tested category transitions.
+
+### Findings
+
+- No actionable P0, P1, or P2 differences. The primary GNB intentionally retains Bobaedream's rounded black active treatment instead of copying Encar's underline treatment.
+
+### Comparison History
+
+- First pass: passed; no visual fixes were required after the combined source/implementation review.
+
+### Implementation Checklist
+
+- Keep the row desktop-only.
+- Preserve working category and truck-format transitions.
+- Recheck the deployed bundle at `?qf=guazi&pc=1` after GitHub Pages completes.
+
+final result: passed
+
 ---
 
 ## PC 메인 카와우·당근형 탑메뉴 아이콘 실험 · 2026-10-18

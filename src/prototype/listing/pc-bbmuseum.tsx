@@ -7,7 +7,7 @@ import type { BbmCheckKey, BbmFilterValues } from "../filters/bbm-filter-state";
 import { CategoryBrandLogo } from "./bbm-brand-logos";
 import { bbmItemValue } from "../filters/bbm-applied";
 import { asset, displayListPlace, displaySpecs, sellerAvatar, sellerLabel, type Car } from "../data";
-import { truckFormatImageFor, truckSubtypeImageFor } from "../data/truck-format-catalog";
+import { truckFormatCatalog, truckFormatImageFor, truckSubtypeImageFor } from "../data/truck-format-catalog";
 import { TruckTypePicker } from "../filters/truck-type-picker";
 
 // 보배드림 개발 시안(bbmuseum) PC 매물리스트 1단계 이식(QF-048~050). 구조·수치·문구만 따르고 코드·이미지는 새로 만든다.
@@ -21,6 +21,7 @@ function BbIcon({ name, size = 20, className = "" }: { name: BbIconName; size?: 
 }
 
 type BbGnbItem = { label: string; category?: string; action?: "home" | "community" | "more" };
+type BbGnbSubItem = { label: string; category: string; detail?: string };
 
 const bbGnbItems: readonly BbGnbItem[] = [
   { label: "홈", action: "home" },
@@ -39,6 +40,48 @@ const bbGnbMoreItems: readonly BbGnbItem[] = [
   { label: "자재운반장비", category: "자재운반장비" },
   { label: "올드카", category: "올드카" },
 ];
+const bbUsedCarCategories = new Set([
+  "중고차", "국산차", "수입차", "전기차", "리스/렌트차량", "서울오토갤러리", "도이치오토월드",
+  "브랜드 인증중고차", "매매단지별 검색", "팔린매물", "장애인차", "슈퍼카", "럭셔리카", "JDM",
+  "튜닝·커스텀카", "셀럽카",
+]);
+const bbGnbSubmenus: Readonly<Record<string, readonly BbGnbSubItem[]>> = {
+  차량검색: [
+    { label: "전체차량", category: "전체" },
+    { label: "중고차", category: "중고차" },
+    { label: "트럭/특장", category: "트럭 · 특장" },
+    { label: "바이크", category: "바이크" },
+    { label: "캠핑카", category: "캠핑카" },
+    { label: "건설기계", category: "건설기계" },
+    { label: "자재운반장비", category: "자재운반장비" },
+    { label: "부품/용품", category: "부품 · 용품" },
+  ],
+  중고차: [
+    { label: "전체 중고차", category: "중고차" },
+    { label: "국산차", category: "국산차" },
+    { label: "수입차", category: "수입차" },
+    { label: "전기차", category: "전기차" },
+    { label: "리스·렌트", category: "리스/렌트차량" },
+    { label: "브랜드 인증", category: "브랜드 인증중고차" },
+    { label: "서울오토갤러리", category: "서울오토갤러리" },
+    { label: "매매단지", category: "매매단지별 검색" },
+  ],
+  트럭: [
+    { label: "전체 트럭", category: "트럭 · 특장" },
+    ...truckFormatCatalog.slice(0, 7).map((item) => ({ label: item.name, category: "트럭 · 특장", detail: item.name })),
+  ],
+  건설기계: [
+    { label: "건설기계 전체", category: "건설기계" },
+    { label: "자재운반장비", category: "자재운반장비" },
+  ],
+  바이크: [{ label: "바이크 전체", category: "바이크" }],
+  중고부품: [{ label: "부품/용품 전체", category: "부품 · 용품" }],
+  더보기: [
+    { label: "캠핑카", category: "캠핑카" },
+    { label: "자재운반장비", category: "자재운반장비" },
+    { label: "올드카", category: "올드카" },
+  ],
+};
 // QF-091: 헤더 아이콘·로고는 개발 시안 원본 파일(public/assets/bbm/)
 /* 2026-10-17 PC 메인 검색바 시안: 기본=비엑람똣형 블루 CTA, ?pcsearch=chotot(초톳 xe.chotot.com) · ?pcsearch=kaidee(카이디 kaidee.com) 비교안 */
 export type BbSearchVariant = "default" | "chotot" | "kaidee";
@@ -59,7 +102,7 @@ function bbAuthState(): BbAuthState {
 }
 const bbmAsset = (name: string) => asset(`bbm/${name}.svg`);
 
-function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searchSlot }: { category: string; onChooseCategory: (category: string) => void; onNotify: (message: string) => void; onOpenFavorites: () => void; searchSlot?: ReactNode }) {
+function BbHeader({ category, categoryDetail, onChooseCategory, onNotify, onOpenFavorites, searchSlot }: { category: string; categoryDetail: string | null; onChooseCategory: (category: string, detail?: string) => void; onNotify: (message: string) => void; onOpenFavorites: () => void; searchSlot?: ReactNode }) {
   const [moreOpen, setMoreOpen] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
   const [authState, setAuthState] = useState<BbAuthState>(bbAuthState);
@@ -69,11 +112,13 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
   const logoLanguage = bbLogoLanguage();
   const isMember = authState === "member";
   const activeItem = category === "전체" ? "차량검색"
+    : bbUsedCarCategories.has(category) ? "중고차"
     : category === "트럭 · 특장" ? "트럭"
       : category === "건설기계" ? "건설기계"
       : category === "캠핑카" ? "더보기"
         : category === "부품 · 용품" ? "중고부품"
-          : category === "바이크" || category === "중고차" ? category : "더보기";
+          : category === "바이크" ? category : "더보기";
+  const subnavItems = bbGnbSubmenus[activeItem] ?? bbGnbSubmenus.차량검색;
 
   useEffect(() => {
     if (!moreOpen) return;
@@ -185,6 +230,14 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
                 {moreOpen ? <div className="bbm-gnb-more-menu" role="menu">{bbGnbMoreItems.map((moreItem) => <button key={moreItem.label} type="button" role="menuitem" className={moreItem.category === category ? "is-current" : ""} onClick={() => chooseMenu(moreItem)}><span>{moreItem.label}</span></button>)}</div> : null}
               </div> : <button type="button" className={itemClassName} aria-current={item.label === activeItem ? "page" : undefined} onClick={() => chooseMenu(item)}><span>{item.label}</span>{item.label === "차량검색" ? <BbIcon name="chevron-down" size={12} className="bbm-vehicle-search-chevron" /> : null}</button>}
             </Fragment>})}
+          </nav>
+        </div>
+        <div className="bbm-snb-row">
+          <nav className="bbm-snb" aria-label={`${activeItem} 하위 메뉴`}>
+            {subnavItems.map((item) => {
+              const current = item.category === category && (item.detail ? item.detail === categoryDetail : !categoryDetail);
+              return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" className={current ? "is-current" : ""} aria-current={current ? "page" : undefined} onClick={() => onChooseCategory(item.category, item.detail)}>{item.label}</button>;
+            })}
           </nav>
         </div>
       </div>

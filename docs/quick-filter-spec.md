@@ -48,6 +48,7 @@
 
 ## Summary Chips And Top Rail
 
+- PC Encar-style secondary navigation (2026-10-18): below the primary GNB, always show one 52px horizontal child-menu row for the active section. The current child is a 40px black pill; the other children are white 40px pills with a neutral border and 8px radius. `차량검색` exposes the top-level vehicle categories, `중고차` exposes the main used-car searches, and `트럭` exposes the first-level truck formats. The rail scrolls horizontally below 1200px and does not wrap or alter the mobile header.
 - PC header wordmark balance (2026-10-18): the default listing header uses Korean `보배드림` in brand blue `#306BD9` beside the existing 30px blue circular emblem. Search and `판매하기` use the same blue, while GNB/icon copy remains black, producing one blue brand/primary-action axis against neutral navigation. The shorter Korean lockup is the production default; `&pclogo=en` keeps the former English wordmark as a comparison-only preview.
 - Guazi 필터 버튼 아이콘은 노션 `0_0_필터 FilterHeader`의 원본 SVG를 `public/assets/bbm/chip-filter-header.svg`에 적용한다. 24×24 viewBox 안의 세 조절선이며 위·아래 핸들은 x=8, 가운데 핸들은 x=16이다. PC와 모바일이 같은 파일을 20×20px로 표시한다. 파일명을 별도로 두어 이전 브라우저 캐시와 구분한다. 이전 깔때기·단순 조절선·비교용 아이콘은 기본안으로 사용하지 않는다.
 - Top chip order (2026-10-18 classified-site audit, 지역·매매단지 추가): `[필터] [중고차/카테고리] [세부 차종·선택 단계] [제조사] [가격] [연식] [주행거리] [연료] [판매자] [지역] [매매단지]`. 사용자가 대상을 먼저 좁히고 예산·차량 상태·판매 주체를 정한 뒤 거래 위치를 좁히도록 배치한다. 지역과 매매단지는 각각 기존 전체 필터 패널을 재사용한다.
