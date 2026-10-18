@@ -416,3 +416,9 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
 @media (min-width: 1024px) {
   html:not([data-lnb]) .marketplace.is-bbm.is-hybrid > .bbm-hybrid-top > .bbm-secondary-nav { height: 56px; margin: 0 0 16px; border-bottom: 0; background: none; border-image: linear-gradient(to top, #e5e7eb 1px, #fff 1px) fill 0 / 0 / 0 100vmax; }
 }
+
+/* 2026-10-18 「탑메뉴는 엔카처럼 밑줄」: 엔카 PC 1440 실측 — 선택 메뉴 아래 2px #181818 밑줄, 글자 폭만큼, 메뉴 줄 아래끝. */
+@media (min-width: 1024px) {
+  html:not([data-lnb]) .bbm-gnb button.is-active::after,
+  html:not([data-lnb]) .bbm-gnb .bbm-gnb-more.is-active::after { content: ""; position: absolute; right: 1px; bottom: 0; left: 1px; display: block; height: 2px; background: #181818; }
+}
