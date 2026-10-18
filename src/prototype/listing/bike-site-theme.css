@@ -1,22 +1,22 @@
 /* 독립 /bike/ 전용 Nhà Tốt 오렌지 테마. 공유 보배드림 화면에는 적용하지 않는다. */
 html[data-site="bike"] {
-  --blue: #d86c38;
-  --bbm-blue: #d86c38;
-  --bike-orange: #d86c38;
-  --bike-orange-hover: #bd5528;
-  --bike-orange-soft: #fff1ea;
-  --bike-orange-border: #f0b69a;
-  --color-primary-25: #fff8f4;
-  --color-primary-50: #fff1ea;
-  --color-primary-100: #f9dacb;
-  --color-primary-200: #f0b69a;
-  --color-primary-300: #e79670;
-  --color-primary-400: #df7c4e;
-  --color-primary-500: #d86c38;
-  --color-primary-600: #bd5528;
-  --color-primary-700: #97401d;
-  --color-primary-800: #713015;
-  --color-primary-900: #4d200e;
+  --blue: #fa6819;
+  --bbm-blue: #fa6819;
+  --bike-orange: #fa6819;
+  --bike-orange-hover: #fb7328;
+  --bike-orange-soft: #ffe5cf;
+  --bike-orange-border: #fa6819;
+  --color-primary-25: #fff6ef;
+  --color-primary-50: #ffe5cf;
+  --color-primary-100: #ffd3b4;
+  --color-primary-200: #fdb88a;
+  --color-primary-300: #fc9a5e;
+  --color-primary-400: #fb7328;
+  --color-primary-500: #fa6819;
+  --color-primary-600: #d9560f;
+  --color-primary-700: #ad440c;
+  --color-primary-800: #7f330a;
+  --color-primary-900: #552206;
 }
 
 html[data-site="bike"] .bbm-logo-emblem img,
