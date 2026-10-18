@@ -93,46 +93,15 @@ function bbActiveGnbItem(category: string) {
               : category === "바이크" ? category : "더보기";
 }
 export function BbSecondaryNav({ category, categoryDetail, onChooseCategory }: { category: string; categoryDetail: string | null; onChooseCategory: (category: string, detail?: string) => void }) {
-  const [specialOpen, setSpecialOpen] = useState(false);
-  const specialRef = useRef<HTMLDivElement>(null);
   const activeItem = bbActiveGnbItem(category);
   const subnavItems = bbGnbSubmenus[activeItem] ?? bbGnbSubmenus.차량검색;
-  const specialCategoryNames = new Set(["서울오토갤러리", "매매단지별 검색"]);
-  const specialItems = activeItem === "중고차" ? subnavItems.filter((item) => specialCategoryNames.has(item.category)) : [];
-  const visibleItems = specialItems.length ? subnavItems.filter((item) => !specialCategoryNames.has(item.category)) : subnavItems;
-  const specialCurrent = specialItems.some((item) => item.category === category && (item.detail ? item.detail === categoryDetail : !categoryDetail));
-
-  useEffect(() => {
-    if (!specialOpen) return;
-    const closeSpecial = (event: MouseEvent) => {
-      if (!specialRef.current?.contains(event.target as Node)) setSpecialOpen(false);
-    };
-    document.addEventListener("pointerdown", closeSpecial);
-    return () => document.removeEventListener("pointerdown", closeSpecial);
-  }, [specialOpen]);
-
-  const chooseSubnavItem = (item: BbGnbSubItem) => {
-    setSpecialOpen(false);
-    onChooseCategory(item.category, item.detail);
-  };
   return (
     <div className="bbm-secondary-nav">
-      <nav className={`bbm-snb${specialItems.length ? " is-used-car" : ""}`} aria-label={`${activeItem} 하위 메뉴`}>
-        {visibleItems.map((item) => {
+      <nav className={`bbm-snb${activeItem === "중고차" ? " is-all-visible" : ""}`} aria-label={`${activeItem} 하위 메뉴`}>
+        {subnavItems.map((item) => {
           const current = item.category === category && (item.detail ? item.detail === categoryDetail : !categoryDetail);
-          return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" className={current ? "is-current" : ""} aria-current={current ? "page" : undefined} onClick={() => chooseSubnavItem(item)}>{item.label}</button>;
+          return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" className={current ? "is-current" : ""} aria-current={current ? "page" : undefined} onClick={() => onChooseCategory(item.category, item.detail)}>{item.label}</button>;
         })}
-        {specialItems.length ? <div className="bbm-snb-special-wrap" ref={specialRef}>
-          <button type="button" className={`bbm-snb-special-toggle${specialCurrent ? " is-current" : ""}`} aria-current={specialCurrent ? "page" : undefined} aria-haspopup="menu" aria-expanded={specialOpen} onClick={() => setSpecialOpen((open) => !open)}>
-            <span>더보기</span><BbIcon name="chevron-down" size={16} />
-          </button>
-          {specialOpen ? <div className="bbm-snb-special-menu" role="menu" aria-label="중고차 더보기 메뉴">
-            {specialItems.map((item) => {
-              const current = item.category === category && (item.detail ? item.detail === categoryDetail : !categoryDetail);
-              return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" role="menuitem" className={current ? "is-current" : ""} onClick={() => chooseSubnavItem(item)}>{item.label}</button>;
-            })}
-          </div> : null}
-        </div> : null}
       </nav>
     </div>
   );
