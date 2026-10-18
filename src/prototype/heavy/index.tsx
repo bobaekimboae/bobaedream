@@ -19,7 +19,7 @@ import "./heavy.css";
 type HeavyQuickFilterProps = { value: HeavySelection; onChange: (next: HeavySelection) => void };
 const heavyAsset = (fileName: string) => `${import.meta.env.BASE_URL}assets/heavy/${fileName}`;
 
-const heavyTypeQuickFilters = [
+export const heavyTypeQuickFilters = [
   { code: "hydraulic_excavator", label: "굴착기", imageFile: "types/v03/web/heavy_excavator_side_v03.png" },
   { code: "bulldozer", label: "불도저", imageFile: "types/v03/web/heavy_bulldozer_side_v03.png" },
   { code: "wheel_loader", label: "로더", imageFile: "types/v03/web/heavy_loader_side_v03.png" },

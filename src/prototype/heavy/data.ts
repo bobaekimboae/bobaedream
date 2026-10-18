@@ -316,6 +316,17 @@ export const heavyRowsFor = (selection: Partial<HeavySelection>) => heavyInvento
   && (!selection.submodel || selection.submodelCode || row.submodel === selection.submodel));
 
 export function normalizeHeavySelection(selection: HeavySelection): HeavySelection {
+  // Text filters also expose inventory models that do not yet have an approved image slot.
+  // Preserve those valid selections when restoring the URL.
+  if (selection.manufacturerCode) {
+    const rows = heavyRowsFor({ ...selection, model: null, modelCode: null, submodel: null, submodelCode: null });
+    const model = rows.find((row) => row.modelCode === selection.modelCode);
+    if (rows.length && (!selection.modelCode || model)) {
+      const manufacturer = approvedHeavyManufacturers.find((slot) => slot.manufacturerCode === selection.manufacturerCode);
+      const submodel = model && rows.find((row) => row.modelCode === model.modelCode && row.submodelCode === selection.submodelCode);
+      return { ...selection, maker: manufacturer?.name ?? rows[0].maker, model: model?.model ?? null, submodel: submodel?.submodel ?? null, submodelCode: submodel?.submodelCode ?? null };
+    }
+  }
   const manufacturer = approvedHeavyManufacturers.find((slot) => slot.manufacturerCode === selection.manufacturerCode || slot.name === selection.maker);
   if (!manufacturer) {
     return {
