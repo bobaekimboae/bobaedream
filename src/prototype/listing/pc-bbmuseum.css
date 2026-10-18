@@ -501,3 +501,20 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
 @media (min-width: 1024px) {
   html:not([data-lnb]) .marketplace.is-bbm .bbm-content-head.is-chotot > .bbm-ct-chip-row:first-child { margin-top: 0; }
 }
+
+/* 시안 2개(2026-10-18 「필터 박스 없는 시안과 필터 박스 있는 시안으로」): 기본 = 필터 박스 있음, &filterLayout=bare = 필터 박스 없음.
+   박스 없는 시안은 필터 카드가 사라지며 하위메뉴 탭도 같이 사라졌으므로, 배너 아래에 하위메뉴 탭만 얇은 흰 줄로 다시 둔다
+   (높이 56 · 반경 12 · 배너 → 16 · 탭 모양은 카드 안 탭과 같음) */
+@media (min-width: 1024px) {
+  html:not([data-lnb]) .marketplace.is-bbm .bbm-hybrid-top > .bbm-bare-lnb {
+    display: flex; align-items: center; height: 56px; margin: 0 0 16px; padding: 0 8px; box-sizing: border-box;
+    border-radius: 12px; background: #fff;
+  }
+  html:not([data-lnb]) .marketplace.is-bbm .bbm-bare-lnb .bbm-lnb-title-tabs { display: flex; gap: 4px; }
+  html:not([data-lnb]) .marketplace.is-bbm .bbm-bare-lnb .bbm-lnb-title-tabs button {
+    display: inline-flex; height: 32px; align-items: center; padding: 0 12px; border: 0; border-radius: 9999px;
+    background: transparent; color: #8c8c8c; font-size: 16px; font-weight: 500; line-height: 24px; cursor: pointer;
+  }
+  html:not([data-lnb]) .marketplace.is-bbm .bbm-bare-lnb .bbm-lnb-title-tabs button:hover { background: #f7f7f8; color: #222; }
+  html:not([data-lnb]) .marketplace.is-bbm .bbm-bare-lnb .bbm-lnb-title-tabs button.is-current { background: #f1f2f4; color: #222; font-weight: 700; }
+}
