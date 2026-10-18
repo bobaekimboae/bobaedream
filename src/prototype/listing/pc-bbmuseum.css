@@ -28,7 +28,7 @@
   .bbm-gnb button.is-home { font-size: 16px; font-weight: 500; }
   .bbm-gnb > button,
   .bbm-gnb > .bbm-vehicle-search-wrap > button,
-  .bbm-gnb > .bbm-gnb-more-wrap > button { align-self: stretch; height: 49px; padding: 0 1px; border-radius: 0; background: transparent; color: #444; }
+  .bbm-gnb > .bbm-gnb-more-wrap > button { align-self: stretch; height: 49px; padding: 0 1px; border-radius: 0; background: transparent; color: #595959; }
   .bbm-gnb > button:hover,
   .bbm-gnb > .bbm-vehicle-search-wrap > button:hover,
   .bbm-gnb > .bbm-gnb-more-wrap > button:hover { background: transparent; color: #222; }
@@ -41,7 +41,7 @@
   /* 더보기 안의 메뉴 수는 검정 당구공처럼 짧고 분명하게 표시한다. */
   .bbm-gnb-more-count { display: inline-flex; width: 18px; min-width: 18px; height: 18px; align-items: center; justify-content: center; padding: 0; border-radius: 50%; background: #222; color: #fff; font-size: 11px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
   .bbm-gnb-more.is-active .bbm-gnb-more-count { background: var(--blue, #306bd9); color: #fff; }
-  .bbm-gnb-more .bb-icon { color: #505050; transition: transform 160ms ease; }
+  .bbm-gnb-more .bb-icon { color: #595959; transition: transform 160ms ease; }
   .bbm-gnb-more.is-active .bb-icon { color: var(--blue, #306bd9); }
   .bbm-gnb-more[aria-expanded="true"] .bb-icon { transform: rotate(180deg); }
   .bbm-gnb-more-menu { position: absolute; top: 46px; right: -12px; z-index: 150; display: grid; min-width: 164px; padding: 8px; border: 1px solid #e5e5e5; border-radius: 10px; background: #fff; box-shadow: 0 8px 24px rgba(0, 0, 0, .12); }
@@ -635,18 +635,3 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
   .bbm-catalog-search.is-posh.is-posh-gray.is-posh-blue { padding-right: 4px; }
 }
 
-/* 2026-10-18 탑메뉴 폰트 컨설팅: 크기 16·굵기 500 유지, 비활성 글자색만 비교. `&gnbcolor=daangn` = 당근 회청색 #555D6D, `&gnbcolor=neutral` = 중립 회색 #595959. 마우스 올림 #222 */
-.bbm-header.is-gnb-daangn .bbm-gnb > button:not(.is-active),
-.bbm-header.is-gnb-daangn .bbm-gnb > .bbm-vehicle-search-wrap > button:not(.is-active),
-.bbm-header.is-gnb-daangn .bbm-gnb > .bbm-gnb-more-wrap > button:not(.is-active) { color: #555d6d; }
-.bbm-header.is-gnb-neutral .bbm-gnb > button:not(.is-active),
-.bbm-header.is-gnb-neutral .bbm-gnb > .bbm-vehicle-search-wrap > button:not(.is-active),
-.bbm-header.is-gnb-neutral .bbm-gnb > .bbm-gnb-more-wrap > button:not(.is-active) { color: #595959; }
-.bbm-header.is-gnb-daangn .bbm-gnb > button:not(.is-active):hover,
-.bbm-header.is-gnb-daangn .bbm-gnb > .bbm-vehicle-search-wrap > button:not(.is-active):hover,
-.bbm-header.is-gnb-daangn .bbm-gnb > .bbm-gnb-more-wrap > button:not(.is-active):hover,
-.bbm-header.is-gnb-neutral .bbm-gnb > button:not(.is-active):hover,
-.bbm-header.is-gnb-neutral .bbm-gnb > .bbm-vehicle-search-wrap > button:not(.is-active):hover,
-.bbm-header.is-gnb-neutral .bbm-gnb > .bbm-gnb-more-wrap > button:not(.is-active):hover { color: #222; }
-.bbm-header.is-gnb-daangn .bbm-gnb-more:not(.is-active) .bb-icon { color: #555d6d; }
-.bbm-header.is-gnb-neutral .bbm-gnb-more:not(.is-active) .bb-icon { color: #595959; }
