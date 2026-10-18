@@ -7,7 +7,8 @@ import { useMemo, useState } from "react";
 import { luxuryDealers, luxuryListingRows, type LuxuryListingRow } from "../prototype/data/luxury-category-v01";
 import "./pc-main-home.css";
 
-const asset = (path: string) => `./assets/${path}`;
+// 배포 빌드가 「./assets/」 문자열을 고쳐 쓰므로 기존 메인과 같이 조각을 이어 붙인다
+const asset = (path: string) => ["assets", path].join("/");
 
 const gnbItems: Array<{ label: string; category?: string; community?: true }> = [
   { label: "차량검색", category: "전체" },
