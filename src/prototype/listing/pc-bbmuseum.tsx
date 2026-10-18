@@ -789,7 +789,7 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
           {renderTruckFormat()}
           {truckFilter ? <div className="bbm-filter-group-title">추가 필터</div> : null}
           {secondaryFilterOrder.map(renderFilterItem)}
-          {primaryFilterOrder.includes(bbMakerItem) ? <div className="bbm-filter-action"><button type="button" className="bbmf-exclude" onClick={() => onNotify("제조사·모델 제외하기는 정식 서비스에서 이용해 주세요.")}><i className="bbmf-circle-icon is-minus" aria-hidden="true" />제조사·모델 제외하기</button></div> : null}
+          {primaryFilterOrder.includes(bbMakerItem) && brandLogoCategory !== "바이크" ? <div className="bbm-filter-action"><button type="button" className="bbmf-exclude" onClick={() => onNotify("제조사·모델 제외하기는 정식 서비스에서 이용해 주세요.")}><i className="bbmf-circle-icon is-minus" aria-hidden="true" />제조사·모델 제외하기</button></div> : null}
         </> : null}
       </div>
       {modalItem ? (
