@@ -20,22 +20,21 @@ function BbIcon({ name, size = 20, className = "" }: { name: BbIconName; size?: 
   return <span className={`bb-icon ${className}`} style={style} aria-hidden="true" />;
 }
 
-type BbGnbItem = { label: string; category?: string; action?: "home" | "community" | "more"; icon?: string };
+type BbGnbItem = { label: string; category?: string; action?: "home" | "community" | "more"; icon?: string; iconClass?: string };
 
-function BbNavIcon({ src }: { src: string }) {
+function BbNavIcon({ src, className = "" }: { src: string; className?: string }) {
   const style = { "--bbm-nav-icon": `url("${asset(`bbm/nav-icons/${src}`)}")` } as CSSProperties;
-  return <span className="bbm-gnb-icon" style={style} aria-hidden="true" />;
+  return <span className={`bbm-gnb-icon ${className}`.trim()} style={style} aria-hidden="true" />;
 }
 
 const bbGnbItems: readonly BbGnbItem[] = [
   { label: "홈", action: "home", icon: "home.svg" },
-  // Auto.ru·당근·Carwow 비교 결과: 작은 GNB에서는 복잡한 합성 실루엣보다
-  // 동일한 24px 원본 픽토그램을 한 광학 크기로 쓰는 편이 빠르게 식별된다.
-  { label: "차량검색", category: "전체", icon: "search.svg" },
-  { label: "중고차", category: "중고차", icon: "used-car.svg" },
-  { label: "트럭", category: "트럭 · 특장", icon: "truck.svg" },
-  { label: "중장비", category: "건설기계", icon: "heavy-equipment.svg" },
-  { label: "바이크", category: "바이크", icon: "filled/bike-filled-v1.svg" },
+  // 차량 카테고리는 생성한 필형 실루엣을 사용하고, 종류별 광학 크기만 보정한다.
+  { label: "차량검색", category: "전체", icon: "filled/all-vehicles-filled.png", iconClass: "is-vehicle-search" },
+  { label: "중고차", category: "중고차", icon: "filled/used-car-filled.png", iconClass: "is-used-car" },
+  { label: "트럭", category: "트럭 · 특장", icon: "filled/truck-filled.png", iconClass: "is-truck" },
+  { label: "중장비", category: "건설기계", icon: "filled/heavy-equipment-filled.png", iconClass: "is-heavy-equipment" },
+  { label: "바이크", category: "바이크", icon: "filled/bike-filled-v1.svg", iconClass: "is-bike" },
   { label: "중고부품", category: "부품 · 용품", icon: "parts.svg" },
   { label: "커뮤니티", action: "community", icon: "community.svg" },
   { label: "더보기", action: "more", icon: "more.svg" },
@@ -187,10 +186,10 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
               return <Fragment key={item.label}>
               {item.action === "more" ? <div className="bbm-gnb-more-wrap" ref={moreRef}>
                 <button type="button" className={`bbm-gnb-more ${itemClassName}`.trim()} aria-current={item.label === activeItem ? "page" : undefined} aria-haspopup="menu" aria-expanded={moreOpen} onClick={() => chooseMenu(item)}>
-                  {item.icon ? <BbNavIcon src={item.icon} /> : null}<span>{item.label}</span><span className="bbm-gnb-more-count" aria-hidden="true">{bbGnbMoreItems.length}</span><BbIcon name="chevron-down" size={18} />
+                  {item.icon ? <BbNavIcon src={item.icon} className={item.iconClass} /> : null}<span>{item.label}</span><span className="bbm-gnb-more-count" aria-hidden="true">{bbGnbMoreItems.length}</span><BbIcon name="chevron-down" size={18} />
                 </button>
                 {moreOpen ? <div className="bbm-gnb-more-menu" role="menu">{bbGnbMoreItems.map((moreItem) => <button key={moreItem.label} type="button" role="menuitem" className={moreItem.category === category ? "is-current" : ""} onClick={() => chooseMenu(moreItem)}>{moreItem.icon ? <BbNavIcon src={moreItem.icon} /> : null}<span>{moreItem.label}</span></button>)}</div> : null}
-              </div> : <button type="button" className={itemClassName} aria-current={item.label === activeItem ? "page" : undefined} onClick={() => chooseMenu(item)}>{item.icon ? <BbNavIcon src={item.icon} /> : null}<span>{item.label}</span></button>}
+              </div> : <button type="button" className={itemClassName} aria-current={item.label === activeItem ? "page" : undefined} onClick={() => chooseMenu(item)}>{item.icon ? <BbNavIcon src={item.icon} className={item.iconClass} /> : null}<span>{item.label}</span></button>}
             </Fragment>})}
           </nav>
         </div>
