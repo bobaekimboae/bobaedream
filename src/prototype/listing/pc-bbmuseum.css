@@ -556,3 +556,12 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
   /* 2026-10-18 「색상은 블루가 맞다 · 검색바 가로 줄여보자」: 버튼·포커스 테두리는 파랑(#306BD9) 그대로, 검색칸 최대 578 → 480 */
   .bbm-catalog-search.is-main { max-width: 480px; }
 }
+
+/* 2026-10-18 「검색바 정렬 가운데로」: 1200 이상 기본 헤더는 좌우 칸을 같은 1fr로 두어 검색칸(480)을 헤더 가운데에 둔다. 1199 이하는 공간이 모자라 기존(로고 바로 뒤) 그대로 */
+@media (min-width: 1200px) {
+  .bbm-header:not(.is-search-chotot):not(.is-search-kaidee) .bbm-header-main {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 480px) minmax(max-content, 1fr);
+    gap: 16px;
+  }
+  .bbm-header:not(.is-search-chotot):not(.is-search-kaidee) .bbm-header-search-slot { justify-content: center; }
+}
