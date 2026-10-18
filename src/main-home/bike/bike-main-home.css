@@ -8,6 +8,7 @@
   min-height: 100vh;
   background: var(--page);
   color: var(--ink);
+  overflow-x: clip;
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
   font-size: 16px;
   line-height: 24px;
