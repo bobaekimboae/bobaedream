@@ -34,6 +34,18 @@
   .bbm-filter.is-charancha .bbm-maker-grade.is-reference { margin-top: 16px; }
   .bbm-filter.is-charancha .bbm-filter-item.is-open .bbmf-expand,
   .bbm-filter.is-charancha .bbm-filter-item.is-open > div { padding-left: 0; padding-right: 0; }
+  /* 제조사 행 로고 = 차란차 PC 실측 28×28, 이름과 간격 12 */
+  .bbm-filter.is-charancha .bbm-catalog-name { gap: 12px; }
+  .bbm-filter.is-charancha .bbm-catalog-name .kr-brand-logo.is-list {
+    width: 28px;
+    height: 28px;
+    margin: -2px 0;
+  }
+  .bbm-filter.is-charancha .bbm-catalog-name .kr-brand-logo.is-list img {
+    width: 28px !important;
+    height: 28px !important;
+    object-fit: contain;
+  }
   /* 필터 더보기: 같은 항목 줄 모양(가운데 버튼 상자 대신) */
   .bbm-filter.is-charancha .bbm-filter-more-toggle {
     justify-content: space-between; width: 100%; height: auto; margin: 0; padding: 22px 0; border: 0; border-bottom: 1px solid #eceef0; border-radius: 0;
