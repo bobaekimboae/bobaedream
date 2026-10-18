@@ -58,8 +58,8 @@ import {
 export type SellerType = "전체" | "개인" | "딜러";
 type SheetType = "filter" | "quick" | "carType" | "maker" | "vehicle" | "year" | "price" | "region" | "sort" | null;
 type DetailSheet = "contact" | "more" | "priceHistory" | "cost" | null;
-type RegionSelection = { province: string; district: string; radius: string };
-type RegionMenu = "province" | "district" | "radius" | null;
+type RegionSelection = { province: string; district: string; neighborhood?: string; radius: string };
+type RegionMenu = "province" | "district" | "neighborhood" | "radius" | null;
 type PriceMode = "cash" | "lease";
 type QuickFilterStyle = "chotot" | "guazi" | "dongchedi";
 export type PriceSelection = { mode: PriceMode; min: number; max: number | null };
@@ -432,6 +432,8 @@ const placeSidoGugun = (region: string) => region.trim().split(/\s+/).slice(0, 2
 const displayListPlace = (place: string, sellerType?: SellerType) => {
   const region = place.split(" · ")[0].trim();
   if (sellerType === "개인" || !sellerType) return placeSidoGugun(region);
+  // 바이크샵 주소는 단지명이 없고 동 자체가 핵심 정보이므로 세 단계까지 그대로 노출한다.
+  if (!place.includes(" · ") && region.trim().split(/\s+/).length >= 3) return region.trim().split(/\s+/).slice(0, 3).join(" ");
   const [complexRegion, ...complex] = (dealerComplexByRegion[region] ?? dealerComplexByRegion[placeSidoGugun(region)] ?? place.trim()).split(" · ");
   return [placeSidoGugun(complexRegion), ...complex].join(" · ")
     .replaceAll("자동차매매단지", "단지")
@@ -886,8 +888,28 @@ const districtsByProvince: Record<string, string[]> = {
   대구: ["전체", "수성구"], 인천: ["전체", "연수구", "남동구"], 광주: ["전체", "서구"], 대전: ["전체", "유성구"],
   울산: ["전체", "남구"], 경남: ["전체", "창원시"],
 };
+// 바이크샵은 같은 구·시 안에서도 방문 거리가 중요해 동까지 고른다.
+const bikeNeighborhoodsByDistrict: Record<string, string[]> = {
+  "서울 강남구": ["역삼동", "논현동", "대치동"], "서울 서초구": ["양재동", "방배동", "서초동"],
+  "서울 성동구": ["성수동1가", "성수동2가", "용답동"], "서울 용산구": ["한남동", "이태원동", "원효로동"],
+  "서울 마포구": ["서교동", "합정동", "성산동"], "서울 강동구": ["천호동", "성내동", "길동"],
+  "서울 강서구": ["화곡동", "가양동", "마곡동"], "서울 은평구": ["응암동", "불광동", "갈현동"],
+  "서울 영등포구": ["문래동3가", "당산동", "영등포동"], "서울 송파구": ["잠실동", "문정동", "석촌동"],
+  "서울 성북구": ["길음동", "장위동", "동선동"], "서울 구로구": ["구로동", "개봉동", "오류동"],
+  "경기 수원시": ["권선동", "영통동", "인계동"], "경기 성남시": ["정자동", "야탑동", "상대원동"],
+  "경기 고양시": ["화정동", "백석동", "장항동"], "경기 용인시": ["보정동", "상현동", "역북동"],
+  "경기 부천시": ["상동", "중동", "춘의동"], "경기 안양시": ["안양동", "평촌동", "호계동"],
+  "경기 포천시": ["소흘읍", "신읍동"], "인천 남동구": ["구월동", "간석동", "논현동"],
+  "인천 연수구": ["송도동", "연수동", "옥련동"], "인천 부평구": ["부평동", "삼산동", "청천동"],
+  "부산 해운대구": ["우동", "중동", "재송동"], "부산 사상구": ["괘법동", "감전동", "주례동"],
+  "부산 연제구": ["연산동", "거제동"], "부산 동구": ["초량동", "범일동", "수정동"],
+  "대구 수성구": ["범어동", "만촌동", "황금동"], "대전 유성구": ["봉명동", "관평동", "노은동"],
+  "대전 대덕구": ["오정동", "송촌동", "중리동"], "광주 광산구": ["수완동", "월곡동", "쌍암동"],
+  "울산 남구": ["삼산동", "달동", "신정동"], "경남 창원시": ["상남동", "팔용동", "중앙동"],
+};
+const bikeNeighborhoodsForDistrict = (district: string) => bikeNeighborhoodsByDistrict[district] ?? ["중앙동"];
 const radiusOptions = ["5km", "10km", "20km", "50km"];
-const emptyRegion: RegionSelection = { province: "", district: "", radius: "" };
+const emptyRegion: RegionSelection = { province: "", district: "", neighborhood: "", radius: "" };
 const getInitialChoTotFilters = (): ChoTotFilterState => {
   const params = new URLSearchParams(window.location.search);
   const categoryParam = params.get("category") ?? "";
@@ -925,6 +947,13 @@ const bikeShopNames = [
   "리버사이드 바이크샵", "센터스탠드 모터스", "모토파크", "브레이크포인트 바이크", "신호등 바이크샵", "모터사이클웍스", "가속페달 바이크샵", "라이트바이크", "모토원", "다이나믹 바이크샵",
 ];
 const stableHash = (value: string) => [...value].reduce((total, char) => (total * 31 + char.charCodeAt(0)) >>> 0, 7);
+const bikePlaceWithNeighborhood = (region: string, id: string) => {
+  const parts = region.trim().split(/\s+/);
+  const district = parts.slice(0, 2).join(" ");
+  if (parts.length >= 3) return region;
+  const options = bikeNeighborhoodsForDistrict(district);
+  return [region, options[stableHash(id) % options.length]].filter(Boolean).join(" ");
+};
 const bikeShopLabel = (name: string) => {
   const sellerName = name.replace(/\s*(?:바이크샵|모터사이클|모터스|바이크)$/, "").trim();
   return `${sellerName} · 바이크샵`;
@@ -967,7 +996,7 @@ const bikeCars: Car[] = bikeInventoryDisplayOrdered.map((row, index) => {
   trim: "",
   specs: [`${row.year}년식`, `${row.mileage.toLocaleString("ko-KR")}km`, `${row.displacement.toLocaleString("ko-KR")}cc`, row.fuel],
   price: `${Math.round(row.price / 10000).toLocaleString("ko-KR")} 만원`,
-  place: row.region,
+  place: bikeShopListing ? bikePlaceWithNeighborhood(row.region, row.id) : row.region,
   views: 30 + index * 9,
   // 바이크는 딜러·매매단지가 없다(2026-10-10 사용자 지시): 업체 매물은 가상 「바이크샵」 이름, 개인은 개인판매자
   dealer: bikeShopListing ? bikeShopLabel(bikeShopNames[stableHash(row.id) % bikeShopNames.length]) : "개인판매자",
@@ -2100,6 +2129,8 @@ export {
   quickFilterStyleOptions,
   provinceOptions,
   districtsByProvince,
+  bikeNeighborhoodsByDistrict,
+  bikeNeighborhoodsForDistrict,
   radiusOptions,
   emptyRegion,
   getInitialChoTotFilters,
