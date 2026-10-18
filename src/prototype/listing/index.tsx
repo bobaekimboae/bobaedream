@@ -2638,7 +2638,7 @@ function MarketplaceScreen() {
   const bbmChips: BbmChip[] = ([
     // 기본 중고차 목록의 실제 선택값은 상위 그룹 "중고차"가 아니라 하위 "전체차량"이다.
     isBikeCategory || isTruckCategory
-      ? { key: `${isTruckCategory ? "truck" : "bike"}-category`, label: isTruckCategory ? "트럭 · 특장" : "바이크", active: true, className: "is-vehicle-summary is-step", prefix: isBikeCategory ? <img className="filter-chip-bike-icon" src={asset("bbm/filter-bike-selected.svg")} alt="" aria-hidden="true" /> : undefined, onClick: () => { setBbmCategoryDraft(category); setBbmCategoryChildDraft(isTruckCategory ? selectedTruckFormat : bbmCategoryChild); setBbmCategoryOpen(true); }, onClear: isBikeCategory ? clearCategoryFilter : undefined }
+      ? { key: `${isTruckCategory ? "truck" : "bike"}-category`, label: isTruckCategory ? "트럭 · 특장" : "바이크", active: true, className: "is-vehicle-summary is-step", onClick: () => { setBbmCategoryDraft(category); setBbmCategoryChildDraft(isTruckCategory ? selectedTruckFormat : bbmCategoryChild); setBbmCategoryOpen(true); }, onClear: isBikeCategory ? clearCategoryFilter : undefined }
       : desktop && isGuaziQuickStyle ? null : chipByKey("category"),
     // 바이크는 카테고리 다음에 유형(장르) → 제조사 → 모델 순서로 탐색한다.
     ...(isBikeCategory ? [
