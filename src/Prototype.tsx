@@ -5,6 +5,7 @@ import { DetailFooter, DetailUiProvider, VehicleDetail } from "./prototype/detai
 import { configureListingScreens, MarketplaceScreen, SavedListingsHeader, SavedListingsScreen } from "./prototype/listing";
 import { BuildBadge } from "./prototype/build-badge";
 import MainHome from "./main-home/MainHome";
+import PcMainHome from "./main-home/PcMainHome";
 import DealerPage from "./prototype/dealer-page/DealerPage";
 import CommunityVehicleReviewPage from "./prototype/community-review/CommunityVehicleReviewPage";
 import CommunityFuelEconomyPage from "./prototype/community-fuel-economy/CommunityFuelEconomyPage";
@@ -76,6 +77,8 @@ export default function Prototype() {
   if (shouldShowCommunityFuelEconomy()) return <><CommunityFuelEconomyPage /><BuildBadge /></>;
   if (shouldShowCommunityReviews()) return <><CommunityVehicleReviewPage /><BuildBadge /></>;
   if (shouldShowDealerPage()) return <><DealerPage /><BuildBadge /></>;
+  // PC 메인 시안 v01(2026-10-18): ./?home=pc
+  if (showMainHome && new URLSearchParams(window.location.search).get("home") === "pc") return <><PcMainHome /><BuildBadge /></>;
   if (showMainHome) return <MainHome />;
 
   return <FavoritesProvider><DetailUiProvider><FlowStack initial={listScreen} /><BuildBadge /></DetailUiProvider></FavoritesProvider>;
