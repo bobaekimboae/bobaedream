@@ -10,7 +10,7 @@ type VehicleTypeItem = {
 
 const vehicleTypes: readonly VehicleTypeItem[] = [
   { label: "전체차량", category: "전체", icon: "category_all_vehicles_v01.svg" },
-  { label: "국산차", category: "국산차", icon: "category_used_car_v01.svg" },
+  { label: "중고차", category: "중고차", icon: "category_used_car_v01.svg" },
   { label: "테마별 중고차", category: "테마별 중고차", icon: "category_theme_used_car_v01.svg" },
   { label: "트럭 · 특장", category: "트럭 · 특장", icon: "category_truck_special_v01.svg" },
   { label: "바이크", category: "바이크", icon: "category_bike_v01.svg" },

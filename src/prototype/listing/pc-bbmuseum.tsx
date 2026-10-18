@@ -29,7 +29,7 @@ type BbGnbSubItem = { label: string; category: string; detail?: string };
 
 const bbGnbItems: readonly BbGnbItem[] = [
   { label: "차량검색", category: "전체" },
-  { label: "중고차", category: "중고차" },
+  { label: "국산차", category: "국산차" },
   { label: "수입차", category: "수입차" },
   { label: "트럭 · 특장", category: "트럭 · 특장" },
   { label: "중장비", category: "건설기계" },
@@ -71,16 +71,7 @@ const bbGnbSubmenus: Readonly<Record<string, readonly BbGnbSubItem[]>> = {
     { label: "자재운반장비", category: "자재운반장비" },
     { label: "부품/용품", category: "부품 · 용품" },
   ],
-  중고차: [
-    { label: "전체 중고차", category: "중고차" },
-    { label: "국산차", category: "국산차" },
-    { label: "수입차", category: "수입차" },
-    { label: "전기차", category: "전기차" },
-    { label: "리스·렌트", category: "리스/렌트차량" },
-    { label: "브랜드 인증", category: "브랜드 인증중고차" },
-    { label: "서울오토갤러리", category: "서울오토갤러리" },
-    { label: "매매단지", category: "매매단지별 검색" },
-  ],
+  국산차: [{ label: "전체 국산차", category: "국산차" }],
   수입차: [
     { label: "전체 수입차", category: "수입차" },
   ],
@@ -103,13 +94,14 @@ const bbGnbSubmenus: Readonly<Record<string, readonly BbGnbSubItem[]>> = {
 function bbActiveGnbItem(category: string) {
   if (category === "부품 · 용품" && typeof window !== "undefined" && new URLSearchParams(window.location.search).get("bikeMenu") === "parts") return "바이크";
   return category === "전체" ? "차량검색"
-    : category === "수입차" ? "수입차"
-      : bbUsedCarCategories.has(category) ? "중고차"
-      : category === "트럭 · 특장" ? "트럭 · 특장"
-        : category === "건설기계" || category === "자재운반장비" ? "중장비"
-          : category === "캠핑카" ? "더보기"
-            : category === "부품 · 용품" ? "중고부품"
-              : category === "바이크" ? category : "더보기";
+    : category === "국산차" ? "국산차"
+      : category === "수입차" ? "수입차"
+        : bbUsedCarCategories.has(category) ? "차량검색"
+          : category === "트럭 · 특장" ? "트럭 · 특장"
+            : category === "건설기계" || category === "자재운반장비" ? "중장비"
+              : category === "캠핑카" ? "더보기"
+                : category === "부품 · 용품" ? "중고부품"
+                  : category === "바이크" ? category : "더보기";
 }
 const bbSubnavCurrent = (item: BbGnbSubItem, category: string, categoryDetail: string | null) => {
   return item.category === category && (item.detail ? item.detail === categoryDetail : !categoryDetail);
@@ -130,7 +122,7 @@ export function BbSecondaryNav({ category, categoryDetail, onChooseCategory }: {
   if (bbLnbVariant() === "d" && subnavItems.length <= 1) return null;
   return (
     <div className="bbm-secondary-nav">
-      <nav className={`bbm-snb${activeItem === "중고차" ? " is-all-visible" : ""}`} aria-label={`${activeItem} 하위 메뉴`}>
+      <nav className={`bbm-snb${activeItem === "국산차" ? " is-all-visible" : ""}`} aria-label={`${activeItem} 하위 메뉴`}>
         {subnavItems.map((item) => {
           const current = bbSubnavCurrent(item, category, categoryDetail);
           return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" className={current ? "is-current" : ""} aria-current={current ? "page" : undefined} onClick={() => onChooseCategory(item.category, item.detail)}>{item.label}</button>;
@@ -162,13 +154,7 @@ export function BbBreadcrumb({ category, categoryDetail, onChooseCategory }: { c
   const currentSubnavItem = subnavItems.find((item) => bbSubnavCurrent(item, category, categoryDetail));
   const items: BbBreadcrumbItem[] = [{ label: "보배드림 차량", category: "전체" }];
 
-  if (activeItem === "중고차") {
-    if (category === "중고차" && !categoryDetail) items.push({ label: "중고차", category, current: true });
-    else {
-      items.push({ label: "중고차", category: "중고차" });
-      items.push({ label: currentSubnavItem?.label ?? categoryDetail ?? category, category, detail: categoryDetail ?? undefined, current: true });
-    }
-  } else if (activeItem === "트럭 · 특장") {
+  if (activeItem === "트럭 · 특장") {
     if (!categoryDetail) items.push({ label: "트럭 · 특장", category, current: true });
     else {
       items.push({ label: "트럭 · 특장", category: "트럭 · 특장" });
@@ -426,7 +412,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
           <nav className="bbm-gnb" aria-label="주 메뉴">
             {gnbItems.map((item) => {
               const itemClassName = `${item.label === activeItem ? "is-active" : ""}${item.action === "home" ? " is-home" : ""}`;
-              const itemDisplayLabel = item.label === "중고차" && ["국산차", "전기차"].includes(category) ? category : item.label;
+              const itemDisplayLabel = item.label;
               if (item.label === "차량검색") return <BbmVehicleTypeDropdown key={item.label} active={item.label === activeItem} onChoose={(nextCategory) => onChooseCategory(nextCategory)} />;
               return <Fragment key={item.label}>
               {item.action === "more" ? <div className="bbm-gnb-more-wrap" ref={moreRef}>
