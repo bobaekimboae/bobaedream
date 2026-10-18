@@ -102,7 +102,7 @@ import { setPretendard } from "../fonts/pretendard";
 import { BBM_PAGE_SIZE, BbmFooter, BbmPagination, BbmPopOptions, BbmToolbarMenu, bbmSortOptions, bbmViewOptionsMobile, bbmViewOptionsPc, sortBbmCars, type BbmSort } from "./bbm-list-area";
 import { bikeListingModelsByMaker, bikeListingModelVisualsByMaker } from "../bike/data";
 import { bikeModelsByMaker } from "../data/bike-filter-catalog";
-import { normalizeTruckFormatSelection, truckCargoQuickSpecs, truckFormatCatalog, truckFormatImageFor, truckSubtypeImageFor, truckSubtypeLabel, truckSubtypesFor, truckSubtypeSecondaryLabel, truckSubtypeValuesForSelection } from "../data/truck-format-catalog";
+import { normalizeTruckFormatSelection, truckCargoQuickSpecs, truckFormatCatalog, truckSubtypeImageFor, truckSubtypeLabel, truckSubtypesFor, truckSubtypeSecondaryLabel, truckSubtypeValuesForSelection } from "../data/truck-format-catalog";
 import { truckSpecGroupsFor, truckSpecOptionsFor } from "../data/truck-depth4-catalog";
 import { QuickRailCarousel } from "./quick-rail-carousel";
 import { truckModelsByMaker } from "../truck/scenario-v09";
@@ -2227,9 +2227,16 @@ function MarketplaceScreen() {
                 ))}
               </QuickRailCarousel>
             </section>
-            <section className={`depth-rail no-label is-truck-image-row is-format-root is-truck-type-row${brandShadowCard ? " is-brand-shadowcard" : ""}`} aria-label="트럭 유형 빠른 선택">
-              <QuickRailCarousel ariaLabel="트럭 형식" className="brand-carousel" contentClassName="depth-rail-track">
-                {truckFormatCatalog.map((group) => <DepthCard key={group.name} className="is-truck-depth" label={desktop ? group.name : truckQuickLabel(group.name)} ariaLabel={group.name} sub={brandShadowCard ? `(${listingCars.filter((car) => car.truck?.format === group.name).length})` : undefined} image={<img src={asset(truckFormatImageFor(group.name) ?? "")} alt="" aria-hidden="true" draggable={false} />} onClick={() => chooseTruckFormat(group.name)} />)}
+            <section className="depth-rail no-label is-truck-depth-chip-row is-truck-type-pill-row" aria-label="트럭 유형 빠른 선택">
+              <QuickRailCarousel ariaLabel="트럭 유형" className="brand-carousel" contentClassName="depth-rail-track is-chips is-truck-type-pill-track">
+                {truckFormatCatalog.map((group) => (
+                  <TrimChip
+                    key={group.name}
+                    label={desktop ? group.name : truckQuickLabel(group.name)}
+                    selected={selectedTruckFormat === group.name}
+                    onClick={() => chooseTruckFormat(group.name)}
+                  />
+                ))}
               </QuickRailCarousel>
             </section>
           </> :

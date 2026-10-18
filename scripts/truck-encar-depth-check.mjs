@@ -28,6 +28,29 @@ await page.goto(`${baseUrl}${common}&v=qa-all-formats`, { waitUntil: "networkidl
 const formatLabels = await page.locator(".bbm-filter.is-truck-reference .bbm-truck-format .bbm-catalog-row .bbm-truck-option-name").allTextContents();
 assert(JSON.stringify(formatLabels.map((label) => label.trim())) === JSON.stringify(expectedFormats), `13개 형식 불일치: ${JSON.stringify(formatLabels)}`);
 
+const truckTypePills = page.locator('section[aria-label="트럭 유형 빠른 선택"] .trim-chip');
+const truckTypePillLabels = (await truckTypePills.allTextContents()).map((label) => label.trim());
+assert(JSON.stringify(truckTypePillLabels) === JSON.stringify(expectedFormats), `상단 트럭 유형 알약칩 불일치: ${JSON.stringify(truckTypePillLabels)}`);
+const truckTypePillMetrics = await truckTypePills.evaluateAll((pills) => pills.map((pill) => {
+  const style = getComputedStyle(pill);
+  return {
+    height: pill.getBoundingClientRect().height,
+    radius: style.borderRadius,
+    background: style.backgroundColor,
+    fontSize: style.fontSize,
+    fontWeight: style.fontWeight,
+  };
+}));
+assert(truckTypePillMetrics.length === expectedFormats.length, `상단 트럭 유형 알약칩 수 오류: ${truckTypePillMetrics.length}`);
+assert(truckTypePillMetrics.every((metric) => Math.abs(metric.height - 32) <= 1), `상단 트럭 유형 알약칩 높이 오류: ${JSON.stringify(truckTypePillMetrics)}`);
+assert(truckTypePillMetrics.every((metric) => cssNumber(metric.radius) >= 999), `상단 트럭 유형 알약칩 반경 오류: ${JSON.stringify(truckTypePillMetrics)}`);
+assert(truckTypePillMetrics.every((metric) => cssNumber(metric.fontSize) === 14 && Number(metric.fontWeight) === 500), `상단 트럭 유형 알약칩 타이포 오류: ${JSON.stringify(truckTypePillMetrics)}`);
+await page.screenshot({ path: "artifacts/qa/truck-type-pills.png", fullPage: true });
+await truckTypePills.filter({ hasText: /^버스$/ }).click();
+await page.waitForTimeout(150);
+assert(new URL(page.url()).searchParams.get("truckFormat") === "버스", `버스 알약칩 선택 URL 오류: ${page.url()}`);
+assert(await page.locator('section[aria-label="버스 세부 형식 빠른 선택"]').count() === 1, "버스 알약칩 선택 후 세부 형식 레일이 열리지 않음");
+
 await page.goto(`${baseUrl}${common}&v=qa-bus&truckFormat=%EB%B2%84%EC%8A%A4&truckSubtype=%EB%B2%84%EC%8A%A4&maker=%ED%98%84%EB%8C%80`, { waitUntil: "networkidle" });
 const sidebar = page.locator(".bbm-page > .bbm-filter.is-truck-reference");
 const openItems = sidebar.locator(".bbm-filter-item.is-open");
@@ -90,5 +113,5 @@ assert(cssNumber(metrics.rowFontSize) === 14 && cssNumber(metrics.rowLineHeight)
 await page.screenshot({ path: "artifacts/qa/truck-encar-regression.png", fullPage: true });
 const actionableConsoleErrors = consoleErrors.filter((message) => !message.startsWith("Failed to load resource: the server responded with a status of 403"));
 assert(actionableConsoleErrors.length === 0, `브라우저 오류: ${actionableConsoleErrors.join(" | ")}`);
-console.log(JSON.stringify({ ok: true, formatCount: formatLabels.length, selectedDepth, modelCount: modelLabels.length, quickModelImageCount: quickModelImageMetrics.length, metrics, ignoredExternalAsset403: consoleErrors.length - actionableConsoleErrors.length, screenshot: "artifacts/qa/truck-encar-regression.png" }, null, 2));
+console.log(JSON.stringify({ ok: true, formatCount: formatLabels.length, truckTypePillCount: truckTypePillMetrics.length, selectedDepth, modelCount: modelLabels.length, quickModelImageCount: quickModelImageMetrics.length, metrics, ignoredExternalAsset403: consoleErrors.length - actionableConsoleErrors.length, screenshots: ["artifacts/qa/truck-type-pills.png", "artifacts/qa/truck-encar-regression.png"] }, null, 2));
 await browser.close();

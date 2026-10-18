@@ -584,6 +584,47 @@
   font-weight: 500;
   line-height: 20px;
 }
+
+/* 트럭 유형 1뎁스 알약칩: 이미지 카드를 걷어내고 상단 필터칩과 같은 밀도로 정리한다.
+   비선택은 중립 회색, 선택은 #222로 하며 기존 형식 → 세부형식 URL 흐름은 유지한다. */
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-type-pill-row,
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-type-pill-row .brand-carousel,
+.marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-type-pill-row .depth-rail-track {
+  min-height: 56px;
+  height: 56px;
+}
+.marketplace.is-truck-category.is-qf-guazi .is-truck-type-pill-track {
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+}
+.marketplace.is-bbm-m.is-truck-category.is-qf-guazi .is-truck-type-pill-track {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+.marketplace.is-truck-category.is-qf-guazi .is-truck-type-pill-track .trim-chip,
+.marketplace.is-truck-category.is-qf-guazi .is-truck-type-pill-track .trim-chip.is-selected {
+  height: 32px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 9999px;
+  background: #f4f4f4;
+  color: #222;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.marketplace.is-truck-category.is-qf-guazi .is-truck-type-pill-track .trim-chip:hover {
+  background: #e9e9e9;
+}
+.marketplace.is-truck-category.is-qf-guazi .is-truck-type-pill-track .trim-chip.is-selected {
+  background: #222;
+  color: #fff;
+}
+.marketplace.is-bbm.is-truck-category.is-qf-guazi .bbm-content-head.is-chotot
+  .bbm-quick-slot:has(> .depth-rail.is-cargo-tonnage-row):has(> .depth-rail.is-truck-type-pill-row) {
+  height: 112px;
+}
 .marketplace.is-truck-category.is-qf-guazi .depth-text-chip {
   display: flex;
   width: auto;
