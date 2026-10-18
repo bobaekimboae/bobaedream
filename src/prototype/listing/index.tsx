@@ -2725,7 +2725,7 @@ function MarketplaceScreen() {
     const lnbVariant = bbLnbVariant();
     const bbmTopCard = (
       <section className={`bbm-content-head is-chotot${showCategoryQuickRail ? " has-category-menu" : ""}`} aria-label="검색 조건">
-        {lnbVariant === "default" || lnbVariant === "c"
+        {(lnbVariant === "default" && !isTruckCategory) || lnbVariant === "c"
           ? <BbBreadcrumb category={category} categoryDetail={category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild} onChooseCategory={chooseHierarchyCategory} />
           : null}
         <div className="bbm-ct-title-row">
@@ -2763,8 +2763,8 @@ function MarketplaceScreen() {
           <main className={`marketplace is-bbm${isGuaziQuickStyle ? " is-hybrid" : ""}${plainQuickCards ? " is-qf-plain" : ""}${guaziCardChipPreview ? " is-qf-guazi-card-chip" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}${category === "올드카" ? " is-oldcar-category" : ""}`} aria-label="중고차 리스트">
             <BbHeader category={category} onChooseCategory={chooseHierarchyCategory} onNotify={setSearchToast} onOpenFavorites={() => flow.push(savedListingsScreen)} searchSlot={supportsVehicleCatalog ? <BbmCatalogHeaderSearch query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} catalogRecords={vehicleCatalog.records} onCatalogFocus={() => { void vehicleCatalog.ensureSearch(); }} onCatalogChoose={chooseCatalogRecord} /> : undefined} />
             {/* QF-093: 과쯔는 상단 패널(전체차량 · N대 · 검색저장 · 칩 줄 · 유형 줄/퀵필터 레일)을 본문 폭 전체로 */}
-            {/* 초톳형 기본안은 카드 안 경로를 쓰고, ?lnb=a/b만 이전 LNB 비교안을 보존한다. */}
-            {isGuaziQuickStyle ? <div className="bbm-hybrid-top">{lnbVariant === "a" || lnbVariant === "b" ? <BbSecondaryNav category={category} categoryDetail={category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild} onChooseCategory={chooseHierarchyCategory} /> : null}{categoryComplexHeader}{bbmTopCard}</div> : null}
+            {/* 초톳형 기본안은 카드 안 경로를 쓰되, 트럭은 텍스트 GNB 아래 사각형 LNB를 유지한다. ?lnb=a/b는 이전 비교안. */}
+            {isGuaziQuickStyle ? <div className="bbm-hybrid-top">{lnbVariant === "a" || lnbVariant === "b" || (lnbVariant === "default" && isTruckCategory) ? <BbSecondaryNav category={category} categoryDetail={category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild} onChooseCategory={chooseHierarchyCategory} /> : null}{categoryComplexHeader}{bbmTopCard}</div> : null}
             <div className="bbm-page">
               <BbFilterSidebar collapsible mileageFinal={isGuaziQuickStyle} priceFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? isTruckCategory ? truckFilterOrder : category === "바이크" ? bikeFilterOrder : isPartsCategory ? partsFilterOrder : bbmFilterOrder : undefined} pricePresets={isPartsCategory ? partsPricePresets : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} brandLogoCategory={category} truckFilter={truckSidebarFilter} />
               <div className="bbm-content">

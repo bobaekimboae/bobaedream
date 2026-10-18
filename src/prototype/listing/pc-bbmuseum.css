@@ -57,6 +57,7 @@
   .bbm-snb > .bbm-snb-special-wrap > button.is-current { border: 0; background: #306bd9; color: #fff; font-weight: 700; }
   .bbm-snb > button.is-current::after,
   .bbm-snb > .bbm-snb-special-wrap > button.is-current::after { display: none; }
+  .marketplace.is-truck-category .bbm-snb > button { border-radius: 6px; }
   .bbm-snb.is-used-car { overflow: visible; }
   .bbm-snb-special-wrap { position: relative; display: flex; flex: none; align-items: center; }
   .bbm-snb .bbm-snb-special-toggle { gap: 5px; }
