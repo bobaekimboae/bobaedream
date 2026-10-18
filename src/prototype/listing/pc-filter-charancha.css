@@ -91,6 +91,19 @@
   .bbm-filter.is-charancha .bbm-encar-selected-x { display: inline-grid; width: 14px; height: 14px; flex: 0 0 14px; place-items: center; border-radius: 50%; background: #222; color: #fff; font-size: 12px; font-weight: 400; line-height: 14px; }
   .bbm-filter.is-charancha .bbm-truck-format.is-encar .bbm-truck-spec-group { padding: 6px 6px 8px; }
   .bbm-filter.is-charancha .bbm-truck-format.is-encar .bbm-truck-inline-payload { margin: 2px 6px 8px 18px; border-left-color: #d1d6db; background: #f7f8fa; }
+  /* 엔카 화물 PC 실동작: 적재용량은 칩이 아니라 한 줄 체크 목록이다. */
+  .bbm-filter.is-charancha .bbm-truck-format.is-encar .bbm-truck-spec-group.is-encar-list { padding: 6px 0 8px; }
+  .bbm-filter.is-charancha .bbm-truck-spec-list { display: block; }
+  .bbm-filter.is-charancha .bbm-truck-spec-list > button {
+    display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; width: 100%; min-height: 36px; align-items: center; gap: 8px;
+    padding: 7px 6px; border: 0; background: #fff; color: #191f28; font-size: 14px; font-weight: 400; line-height: 20px; text-align: left;
+  }
+  .bbm-filter.is-charancha .bbm-truck-spec-list > button:hover:not(:disabled) { background: #f7f8fa; }
+  .bbm-filter.is-charancha .bbm-truck-spec-list > button:disabled { color: #c8cdd3; cursor: default; }
+  .bbm-filter.is-charancha .bbm-truck-spec-list > button:disabled em { color: #dfe3e7; }
+  .bbm-filter.is-charancha .bbm-encar-checkbox { display: grid; width: 14px; height: 14px; place-items: center; border: 1px solid #d1d6db; border-radius: 3px; box-sizing: border-box; color: #fff; font-size: 10px; line-height: 1; }
+  .bbm-filter.is-charancha .bbm-truck-spec-list > button.is-selected .bbm-encar-checkbox { border-color: #222; background: #222; }
+  .bbm-filter.is-charancha .bbm-truck-spec-list > button.is-selected .bbm-truck-spec-name { font-weight: 600; }
   .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar:hover:not(:disabled):not([aria-checked="true"]) { border-color: #d1d6db; }
   .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar[aria-checked="true"] { position: relative; border-color: #222; background: #fff; color: #222; font-weight: 600; }
   .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar[aria-checked="true"]::after { content: ""; position: absolute; inset: 0; border: 1px solid #222; border-radius: 4px; pointer-events: none; }
@@ -117,6 +130,30 @@
     max-height: 500px;
     overscroll-behavior: auto;
   }
+  /* 화물·특장은 차란차식 개별 카탈로그 스크롤이 아니라 엔카식 좌측 필터 전체 단일 스크롤을 쓴다.
+     형식·세부형식·적재용량 다음에 제조사와 나머지 필터가 같은 축으로 이어진다. */
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference {
+    overflow: hidden;
+  }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference > .bbm-filter-menu {
+    height: clamp(320px, calc(100vh - 370px), 680px);
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-color: #8d8f92 transparent;
+    scrollbar-width: thin;
+  }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference > .bbm-filter-menu::-webkit-scrollbar { width: 6px; }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference > .bbm-filter-menu::-webkit-scrollbar-track { background: transparent; }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference > .bbm-filter-menu::-webkit-scrollbar-thumb { border-radius: 3px; background: #8d8f92; }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference .bbm-catalog {
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+    overscroll-behavior: auto;
+  }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference .bbm-maker-grade.is-reference .bbm-catalog-row { min-height: 38px; padding-top: 7px; padding-bottom: 7px; }
 }
 /* 1024~1279 왼쪽 펼침판: 펼침판 머리가 「필터」를 이미 보여 주므로 차란차 머리는 숨긴다 */
 .bbm-drawer .bbm-filter.is-charancha .bbm-filter-summary.is-charancha { display: none; }

@@ -628,9 +628,13 @@ function BbTruckOptionLabel({ name, image, secondary }: { name: string; image: s
 export function BbTruckFormatFilter({ value, showImages = true, referenceStyle = false }: { value: BbTruckFilter; showImages?: boolean; referenceStyle?: boolean }) {
   const stageFor = (): BbTruckView => !value.format
     ? "format"
-    : !value.subtype || inlineTruckPayloadSubtypes.has(value.subtype)
+    : !value.subtype
       ? "subtype"
-      : value.specGroups.length ? "spec" : "subtype";
+      : referenceStyle
+        ? value.specGroups.length ? "spec" : "subtype"
+        : inlineTruckPayloadSubtypes.has(value.subtype)
+          ? "subtype"
+          : value.specGroups.length ? "spec" : "subtype";
   const [view, setView] = useState<BbTruckView>(stageFor);
   useEffect(() => { setView(stageFor()); }, [value.format, value.subtype, value.spec, value.specGroups.length]);
   const count = (rowCount: number) => <em className={rowCount === 0 ? "is-zero" : ""}>{rowCount.toLocaleString("ko-KR")}</em>;
@@ -640,40 +644,38 @@ export function BbTruckFormatFilter({ value, showImages = true, referenceStyle =
     value.spec ? { key: "spec", label: value.spec, clear: value.onClearSpec } : null,
   ].filter((chip): chip is NonNullable<typeof chip> => Boolean(chip));
 
-  // 엔카 화물·특장 좌측 필터: 선택 경로를 칩/뒤로가기/별도 제목으로 반복하지 않고,
-  // 선택된 부모 행 바로 아래에 다음 단계 선택지를 같은 텍스트 행으로 이어 붙인다.
+  // 엔카 화물·특장 PC 좌측 필터(2026-10-18 실동작 대조):
+  // 형식 → 세부형식 → 적재용량을 한 단계씩 전환한다. 선택 부모는 × 행으로 남기고,
+  // 적재용량은 칩이 아니라 한 줄 체크 행으로 표시한다. 모바일용 2줄 차급 설명은 섞지 않는다.
   if (referenceStyle) {
     return (
       <div className="bbm-maker-grade bbm-truck-format is-reference is-encar" aria-label="형식과 적재용량 선택">
         <div className="bbm-catalog">
           {view === "format" ? <div className="bbm-catalog-section">
+            <p className="bbm-catalog-title">형식</p>
             {value.formats.map((option) => <button key={option.name} type="button" className="bbm-catalog-row" aria-pressed={false} onClick={() => { value.onChooseFormat(option.name); setView("subtype"); }}><BbTruckOptionLabel name={option.name} image={null} />{count(option.count)}</button>)}
           </div> : <div className="bbm-catalog-section is-drill">
             <button type="button" className="bbm-encar-selected-row" aria-label={`${value.format} 선택 해제`} onClick={value.onClearFormat}>
               <span>{value.format}</span><span className="bbm-encar-selected-x" aria-hidden="true">×</span>
             </button>
-            {view === "subtype" ? value.subtypes.map((option) => {
-              const inlinePayload = inlineTruckPayloadSubtypes.has(option.name);
-              const expanded = inlinePayload && value.subtype === option.name;
-              return <Fragment key={option.name}>
-                <button type="button" className={`bbm-catalog-row${value.subtype === option.name ? " is-selected" : ""}`} aria-pressed={value.subtype === option.name} aria-expanded={inlinePayload ? expanded : undefined} onClick={() => { value.onChooseSubtype(option.name); setView(inlinePayload ? "subtype" : "spec"); }}>
-                  <BbTruckOptionLabel name={option.name} image={null} secondary={truckSubtypeSecondaryLabel(value.format, option.name)} />
-                  <span className="bbm-truck-option-tail">{count(option.count)}{inlinePayload ? <BbIcon name="chevron-down" size={16} className={expanded ? "is-expanded" : ""} /> : null}</span>
-                </button>
-                {expanded ? <div className="bbm-truck-inline-payload" aria-label={`${option.name} 적재중량`}>
-                  <p className="bbm-catalog-title">적재중량</p>
-                  {value.specGroups.map((group) => <div key={group.label} className="bbm-truck-spec-chips">
-                    {group.options.map((specOption) => <button key={`${group.label}-${specOption.name}`} type="button" className={value.spec === specOption.name ? "is-selected" : ""} aria-pressed={value.spec === specOption.name} onClick={() => value.onChooseSpec(specOption.name)}><span>{specOption.name}</span>{count(specOption.count)}</button>)}
-                  </div>)}
-                </div> : null}
-              </Fragment>;
-            }) : <>
+            {view === "subtype" ? <>
+              <p className="bbm-catalog-title">세부형식</p>
+              {value.subtypes.map((option) => <button key={option.name} type="button" className={`bbm-catalog-row${value.subtype === option.name ? " is-selected" : ""}`} aria-pressed={value.subtype === option.name} onClick={() => { value.onChooseSubtype(option.name); setView("spec"); }}>
+                <BbTruckOptionLabel name={option.name} image={null} />
+                {count(option.count)}
+              </button>)}
+            </> : <>
               <button type="button" className="bbm-encar-selected-row is-child" aria-label={`${value.subtype} 선택 해제`} onClick={value.onClearSubtype}>
                 <span>{value.subtype}</span><span className="bbm-encar-selected-x" aria-hidden="true">×</span>
               </button>
-              {value.specGroups.map((group) => <div key={group.label} className="bbm-grade-group bbm-truck-spec-group">
-                <p className="bbm-catalog-title">{group.label}</p>
-                <div className="bbm-truck-spec-chips">{group.options.map((option) => <button key={`${group.label}-${option.name}`} type="button" className={value.spec === option.name ? "is-selected" : ""} aria-pressed={value.spec === option.name} onClick={() => value.onChooseSpec(option.name)}><span>{option.name}</span>{count(option.count)}</button>)}</div>
+              {value.specGroups.map((group) => <div key={group.label} className="bbm-grade-group bbm-truck-spec-group is-encar-list">
+                <p className="bbm-catalog-title">{group.label.replace(/\s*\([^)]*\)\s*$/, "")}</p>
+                <div className="bbm-truck-spec-list">{group.options.map((option) => {
+                  const selected = value.spec === option.name;
+                  return <button key={`${group.label}-${option.name}`} type="button" role="checkbox" aria-checked={selected} disabled={option.count === 0 && !selected} className={selected ? "is-selected" : ""} onClick={() => value.onChooseSpec(option.name)}>
+                    <span className="bbm-encar-checkbox" aria-hidden="true">{selected ? "✓" : ""}</span><span className="bbm-truck-spec-name">{option.name}</span>{count(option.count)}
+                  </button>;
+                })}</div>
               </div>)}
             </>}
           </div>}
@@ -832,7 +834,7 @@ function BbFilterSidebar({ leadingFilters, selection, appliedCount, historyCount
     </aside>;
   }
   return (
-    <aside className={`bbm-filter${charancha ? " is-charancha" : ""}`} aria-label="필터">
+    <aside className={`bbm-filter${charancha ? " is-charancha" : ""}${hasTruckFilter ? " is-truck-reference" : ""}`} aria-label="필터">
       {charancha ? <div className="bbm-filter-summary is-charancha">
         <h4 className="bbm-cha-title">필터</h4>
         <div className="bbm-cha-actions">

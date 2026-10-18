@@ -30,6 +30,31 @@ final result: passed
 
 ---
 
+## 2026-10-18 엔카 PC 트럭 좌측 필터 뎁스·스크롤 전수 대조
+
+- Reference: `https://www.encar.com/tr/tr_carsearchlist.do#!`
+- Reference screenshot: `C:/Users/bobae/.codex/visualizations/2026/10/01/01a0f512-065a-7300-9ce1-d86601ce6384/truck-filter-scroll-audit/01-encar.png`
+- Implementation screenshots:
+  - `C:/Users/bobae/.codex/visualizations/2026/10/01/01a0f512-065a-7300-9ce1-d86601ce6384/encar-left-filter-depth-audit/01-default.png`
+  - `C:/Users/bobae/.codex/visualizations/2026/10/01/01a0f512-065a-7300-9ce1-d86601ce6384/encar-left-filter-depth-audit/02-format.png`
+  - `C:/Users/bobae/.codex/visualizations/2026/10/01/01a0f512-065a-7300-9ce1-d86601ce6384/encar-left-filter-depth-audit/03-capacity.png`
+- Routes: 기본 트럭 / `truckFormat=카고(화물)트럭` / `truckFormat=카고(화물)트럭&truckSubtype=경형`
+- Viewport: 1253×705 reference, 1280×720 implementation
+
+### Comparison
+
+- Depth flow: passed — `형식 → 세부형식 → 적재용량` 3단 전환과 선택한 상·하위 행의 원형 × 해제 동작을 맞췄다.
+- Row structure: passed — PC 형식·세부형식은 모두 한 줄 이름·우측 대수이며 모바일용 두 줄 설명을 제거했다.
+- Capacity selector: passed — 적재용량을 알약 칩 대신 엔카와 같은 한 줄 원형 체크박스 목록으로 바꿨고 0건 항목은 비활성으로 표시한다.
+- Scroll ownership: passed — 각 카탈로그의 중첩 스크롤을 없애고 좌측 메뉴 전체가 하나의 스크롤만 소유한다.
+- Manufacturer continuation: passed — 적재용량 목록 뒤에 `제조사/모델/등급`이 같은 스크롤 흐름으로 이어진다.
+- Layout stability: passed — 선택 전후 좌측 280px·열 간격 40px·우측 매물 열 정렬을 유지한다.
+- Regression: passed — TypeScript, Vite production build, 모바일 런타임 보호 검사를 통과했다.
+
+final result: passed
+
+---
+
 ## 2026-10-18 엔카형 트럭 목록 내부 `형식` 소제목 제거
 
 - Source visual truth: `reports/truck-encar-layout/encar-default.png` (`https://www.encar.com/tr/tr_carsearchlist.do#!`)
