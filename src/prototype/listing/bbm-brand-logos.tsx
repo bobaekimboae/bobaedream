@@ -78,15 +78,26 @@ export function KrBrandLogo({ name, kind, initialFallback = false }: { name: str
   const logoSet = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("brandlogo") : null;
   const driveLogo = logoSet === "drive10" ? driveTop10BrandLogos[resolvedName] : null;
   const autohomeLogo = logoSet === "autohome" ? autohomeTop10BrandLogos[resolvedName] : null;
+  // Drive에서 확인한 현행 KGM 워드마크를 기본 제조사 목록에도 공용한다.
+  // 구형 쌍용 엠블럼이나 검정 위키 로고 대신 퀵필터 레일과 같은 남색 원본을 쓴다.
+  const latestKgmLogo = resolvedName === "KG모빌리티(쌍용)" ? railBrandLogosV01[resolvedName] : null;
   const previewLogo = autohomeLogo ?? driveLogo;
   const defaultLogo = krBrandLogo(name);
-  const logo = previewLogo ?? defaultLogo;
-  const logoSource = autohomeLogo ? asset(`brand/autohome10/${autohomeLogo.file}`) : driveLogo ? asset(`brand/drive10/${driveLogo.file}`) : defaultLogo ? asset(`brand/kr/${defaultLogo.slug}.png`) : null;
+  const logo = previewLogo ?? latestKgmLogo ?? defaultLogo;
+  const logoSource = autohomeLogo
+    ? asset(`brand/autohome10/${autohomeLogo.file}`)
+    : driveLogo
+      ? asset(`brand/drive10/${driveLogo.file}`)
+      : latestKgmLogo
+        ? asset(`brand/rail-v01/${latestKgmLogo.file}`)
+        : defaultLogo
+          ? asset(`brand/kr/${defaultLogo.slug}.png`)
+          : null;
   // QF-114: 로고를 못 구한 브랜드(바이크·트럭)는 이름 첫 글자 원형(#F4F4F4, 600)으로 임시 표시
   if (!logo && initialFallback) return <span className={`kr-brand-logo is-${kind} is-initial`} data-brand={name}><span className="kr-brand-initial" aria-hidden="true">{krRailLabel(name).slice(0, 1)}</span></span>;
   const size = logo ? (kind === "plain" ? krPlainLogoSize(logo.ratio) : (() => { const value = kind === "rail" ? krRailLogoSize(logo.ratio) : krListLogoSize(logo.ratio); return { width: px(value.width), height: px(value.height) }; })()) : null;
   return (
-    <span className={`kr-brand-logo is-${kind}${logo ? "" : " is-empty"}`} data-brand={resolvedName} data-ratio={logo?.ratio} data-logo-set={autohomeLogo ? "autohome10" : driveLogo ? "drive10" : "default"}>
+    <span className={`kr-brand-logo is-${kind}${logo ? "" : " is-empty"}`} data-brand={resolvedName} data-ratio={logo?.ratio} data-logo-set={autohomeLogo ? "autohome10" : driveLogo ? "drive10" : latestKgmLogo ? "rail-v01" : "default"}>
       {logoSource && size ? <img src={logoSource} alt="" draggable={false} style={size} /> : null}
     </span>
   );
