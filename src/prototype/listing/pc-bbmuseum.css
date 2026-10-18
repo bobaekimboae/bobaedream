@@ -463,7 +463,7 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
   html:not([data-lnb]) .marketplace.is-bbm.is-hybrid > .bbm-hybrid-top > .bbm-secondary-nav { height: 56px; margin: 0 0 16px; border-bottom: 0; background: none; border-image: linear-gradient(to top, #e5e7eb 1px, #fff 1px) fill 0 / 0 / 0 100vmax; }
 }
 
-/* 2026-10-18 선택 GNB: PC 레이아웃 시작점(820px)부터 현재 메뉴만 보배드림 블루 알약칩. */
+/* 2026-10-18 선택 GNB: PC 레이아웃 시작점(820px)부터 현재 메뉴만 검정 알약칩. */
 @media (min-width: 820px) {
   .marketplace.is-bbm .bbm-gnb button.is-active,
   .marketplace.is-bbm .bbm-gnb .bbm-gnb-more.is-active,
@@ -473,12 +473,12 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
     height: 34px;
     padding: 0 13px;
     border-radius: 999px;
-    background: #306bd9;
+    background: #222;
     color: #fff;
     font-weight: 700;
   }
   .marketplace.is-bbm .bbm-gnb button.is-active:hover,
-  .marketplace.is-bbm .bbm-gnb .bbm-gnb-more.is-active:hover { background: #245fc8; color: #fff; }
+  .marketplace.is-bbm .bbm-gnb .bbm-gnb-more.is-active:hover { background: #111; color: #fff; }
   .marketplace.is-bbm .bbm-gnb button.is-active::after,
   .marketplace.is-bbm .bbm-gnb .bbm-gnb-more.is-active::after,
   html[data-lnb] .marketplace.is-bbm .bbm-gnb button.is-active::after,
@@ -488,7 +488,7 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
     filter: brightness(0) invert(1);
   }
   .marketplace.is-bbm .bbm-gnb .bbm-gnb-more.is-active .bb-icon { color: #fff; }
-  .marketplace.is-bbm .bbm-gnb .bbm-gnb-more.is-active .bbm-gnb-more-count { background: #fff; color: #306bd9; }
+  .marketplace.is-bbm .bbm-gnb .bbm-gnb-more.is-active .bbm-gnb-more-count { background: #fff; color: #222; }
 }
 
 /* 2026-10-18 「탑메뉴는 엔카처럼 밑줄」: 엔카 PC 1440 실측 — 선택 메뉴 아래 2px #181818 밑줄, 글자 폭만큼, 메뉴 줄 아래끝. */
