@@ -201,7 +201,8 @@
   /* 노션 AutoScout24 매물 리스트 원본: 바이크 메타는 14px 아이콘이 항목 구분을 맡고 텍스트는 기존 14/20 리듬을 유지한다. */
   .marketplace.is-bbm.is-bike-category .bbm-result-card.is-pc .bbm-card-spec.has-meta-icons { display: flex; align-items: center; gap: 12px; }
   .marketplace.is-bbm.is-bike-category .bbm-result-card.is-pc .bbm-card-spec.has-meta-icons .bbm-card-spec-item { display: inline-flex; flex: none; align-items: center; gap: 4px; }
-  .marketplace.is-bbm.is-bike-category .bbm-result-card.is-pc .bbm-card-spec.has-meta-icons .bbm-card-spec-icon { width: 14px; height: 14px; color: #505c6c; }
+  /* 보배드림 기준색으로 아이콘 대비만 올리고 메타 텍스트의 #505C6C 계층은 유지한다. */
+  .marketplace.is-bbm.is-bike-category .bbm-result-card.is-pc .bbm-card-spec.has-meta-icons .bbm-card-spec-icon { width: 14px; height: 14px; color: #222; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-spec:has(+ .bbm-card-spec.is-capacity) { height: 20px; }
   .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-spec.is-capacity.is-priority { height: 20px; }
   /* 차란차보다 조밀했던 메타→가격 호흡을 8px로 분리한다(기본 4px gap + margin 4px). */
