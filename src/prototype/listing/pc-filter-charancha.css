@@ -129,9 +129,9 @@
     overflow: visible;
     scrollbar-gutter: auto;
   }
-  /* 512 = 그룹 제목 + 행 43 × 11 + 다음 행 절반. 500이면 목록이 행 경계에서 잘려 빈 칸처럼 보여(2026-10-19) 다음 행을 절반 보여 스크롤 단서로 쓴다 */
+  /* 기준 500. 실제 높이는 화면에서 이 근처를 가로지르는 행이 정확히 절반 보이도록 스크립트가 맞춘다(BbMakerGradeFilter, 2026-10-19) */
   .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha .bbm-catalog {
-    max-height: 512px;
+    max-height: 500px;
     overscroll-behavior: auto;
   }
   /* 트럭도 차란차 기본 좌측 필터처럼 문서 높이대로 이어진다. 화면 높이로 카드를 자르지 않고,

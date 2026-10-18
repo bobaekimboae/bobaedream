@@ -530,6 +530,26 @@ function BbMakerGradeFilter({ selection, view, setView, brandLogos = false, bran
   useLayoutEffect(() => {
     if (referenceStyle && catalogRef.current) catalogRef.current.scrollTop = 0;
   }, [referenceStyle, view]);
+  // 스크롤 목록의 아래 끝이 행 경계에 걸리면 빈 칸처럼 보인다(2026-10-19 「수입차도 적용해봐라」).
+  // 기준 높이(CSS max-height) 근처에서 가로지르는 행을 찾아 그 행이 정확히 절반 보이게 높이를 맞춘다.
+  // 묶음 제목 높이가 화면마다 달라도 같은 규칙이 되도록 실제 행 위치를 잰다.
+  useLayoutEffect(() => {
+    const box = catalogRef.current;
+    // 트럭은 엔카 실측 400 상자를 그대로 쓴다
+    if (!referenceStyle || !box || box.closest(".is-truck-reference")) return;
+    const fit = () => {
+      box.style.maxHeight = "";
+      const base = parseFloat(getComputedStyle(box).maxHeight);
+      if (!Number.isFinite(base) || box.scrollHeight <= base) return;
+      const top = box.getBoundingClientRect().top - box.scrollTop;
+      const rows = [...box.querySelectorAll<HTMLElement>(".bbm-catalog-row")].map((row) => row.getBoundingClientRect());
+      const mids = rows.map((r) => r.top - top + r.height / 2).filter((mid) => mid >= base - 24);
+      if (mids.length) box.style.maxHeight = `${Math.round(mids[0])}px`;
+    };
+    fit();
+    window.addEventListener("resize", fit);
+    return () => window.removeEventListener("resize", fit);
+  }, [referenceStyle, view]);
   const pathRows = [
     maker ? { key: "maker", label: bbMakerLabel(maker), onOpen: () => setView({ stage: "maker" }), onClear: selection.onClearMaker } : null,
     maker && model ? { key: "model", label: selection.modelLabel ?? model, onOpen: () => setView({ stage: "model", maker }), onClear: selection.onClearModel } : null,
