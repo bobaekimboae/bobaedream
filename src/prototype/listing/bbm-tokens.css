@@ -182,7 +182,7 @@
   .marketplace.is-bbm .bbm-view img { width: 20px; height: 20px; }
   .marketplace.is-bbm .bbm-results { margin-top: 24px; }
 
-  /* 카드 PC: 당근형 제목 16/24 400 + 가격 18/27 600. 정보 밀도는 기존 160px 카드 안에서 유지한다. */
+  /* 카드 PC: 초톳처럼 160px 사진 안에서 가격 → 지역 9px, 지역 → 판매자 21px의 조밀한 세로 리듬을 유지한다. */
   .marketplace.is-bbm .bbm-result-card { padding: 16px 20px; }
   .marketplace.is-bbm .bbm-result-card::after { content: ""; position: absolute; right: 20px; bottom: 0; left: 20px; height: 1px; background: var(--bbm-line); }
   /* JOB-8: dev는 마지막 카드 아래에도 같은 선을 긋는다(마지막 카드 숨김 규칙 삭제) */
@@ -191,22 +191,22 @@
   .marketplace.is-bbm.is-truck-category .bbm-result-card .bbm-card-photo { width: 160px; height: 112px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-media-footer { height: 24px; padding: 0 8px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-time { font-size: 12px; font-weight: 500; line-height: 16.8px; }
-  .marketplace.is-bbm .bbm-result-card .bbm-card-content { gap: 12px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-content { gap: 9px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-text { gap: 4px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-title { font-size: 16px; font-weight: 400; line-height: 24px; letter-spacing: normal; }
-  .marketplace.is-bbm .bbm-result-card .bbm-card-spec { height: 24px; color: var(--bbm-text-sub); font-weight: 400; line-height: 20px; letter-spacing: normal; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-spec { height: 20px; color: var(--bbm-text-sub); font-weight: 400; line-height: 20px; letter-spacing: normal; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-spec:has(+ .bbm-card-spec.is-capacity) { height: 20px; }
   .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-spec.is-capacity.is-priority { height: 20px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-price-badges { display: flex; align-items: center; gap: 8px; height: 27px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-price { font-size: 18px; font-weight: 600; line-height: 27px; letter-spacing: normal; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-price-unit { margin-left: 2px; font-size: 15px; font-weight: 500; line-height: 22px; }
-  .marketplace.is-bbm .bbm-result-card .bbm-card-location { height: 32px; padding-top: 8px; box-sizing: border-box; color: #505050; font-size: 14px; line-height: 19.6px; }
-  .marketplace.is-bbm .bbm-result-card .bbm-card-meta-row { height: 48px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-location { height: 20px; padding-top: 0; box-sizing: border-box; color: #505050; font-size: 14px; line-height: 20px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-meta-row { height: 32px; margin-top: 15px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-seller-logo { width: 20px; height: 20px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-seller-text strong { color: var(--bbm-text-strong); }
   .marketplace.is-bbm .bbm-result-card .bbm-card-seller-text strong::after { content: "·"; margin-left: 4px; color: var(--bbm-text-weak); }
   .marketplace.is-bbm.is-bike-category .bbm-result-card .bbm-card-seller-text strong::after { content: none; }
-  .marketplace.is-bbm .bbm-result-card .bbm-card-actions button { width: 48px; height: 48px; padding: 12px; }
+  .marketplace.is-bbm .bbm-result-card .bbm-card-actions button { width: 32px; height: 32px; padding: 4px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-actions img { width: 24px; height: 24px; }
 }
 
