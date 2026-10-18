@@ -2240,6 +2240,14 @@ function MarketplaceScreen() {
           // QF-106: ④ 퀵필터 자리는 닫지 않는다 — 계층(제조사 → 모델 → 세부모델 → 트림)이 끝나면 연식 알약 줄
           showGroupRail && groupRail ? <BbmGroupRail groupValue={groupRail} onChoose={chooseHierarchyCategory} /> :
           isHeavyCategory ? <HeavyQuickFilter value={heavySelection} onChange={applyHeavySelection} /> :
+          // 바이크 유형 = 우리 알약칩 규칙(적재중량 알약과 같은 모양, 2026-10-19). 그림자 카드 시안(&qfbrand=shadowcard)만 이미지 카드 유지
+          showBikeTypeQuickRail && !brandShadowCard ? <section className="depth-rail no-label is-bike-type-pill-row is-rule-pill-row" aria-label="바이크 유형 빠른 선택">
+            <QuickRailCarousel ariaLabel="바이크 유형" className="brand-carousel" contentClassName="depth-rail-track is-chips is-rule-pill-track">
+              {bikeTypeQuickOptions.map((option) => (
+                <TrimChip key={option.label} label={option.label} onClick={() => setBbmFilters(setBbmChecks(bbmValue, "bikeGenre", [option.label]))} />
+              ))}
+            </QuickRailCarousel>
+          </section> :
           showBikeTypeQuickRail ? <section className={`depth-rail no-label is-bike-type-row${brandShadowCard ? " is-brand-shadowcard" : ""}`} aria-label="바이크 유형 빠른 선택">
             <QuickRailCarousel ariaLabel="바이크 유형" className="brand-carousel" contentClassName="depth-rail-track">
               {bikeTypeQuickOptions.map((option) => (
@@ -2255,16 +2263,9 @@ function MarketplaceScreen() {
             </QuickRailCarousel>
           </section> :
           showTruckFormatRail ? <>
-            <section className="depth-rail no-label is-truck-depth-chip-row is-cargo-tonnage-row" aria-label="적재중량 빠른 선택">
-              <QuickRailCarousel ariaLabel="적재중량" className="brand-carousel" contentClassName="depth-rail-track is-chips is-truck-tonnage-track">
-                <span className="truck-tonnage-label">적재중량:</span>
-                {truckCargoQuickSpecs.map((spec) => (
-                  <TrimChip key={spec} label={spec} onClick={() => applyTruckQuickSpec(spec)} />
-                ))}
-              </QuickRailCarousel>
-            </section>
-            <section className="depth-rail no-label is-truck-depth-chip-row is-truck-type-pill-row" aria-label="트럭 유형 빠른 선택">
-              <QuickRailCarousel ariaLabel="트럭 유형" className="brand-carousel" contentClassName="depth-rail-track is-chips is-truck-type-pill-track">
+            {/* 적재중량 줄은 뺐다(2026-10-19 「적재중량은 빼고 트럭 형식 유형만」). 적재용량은 좌측 필터 · 형식 선택 뒤 단계에서 고른다 */}
+            <section className="depth-rail no-label is-truck-depth-chip-row is-truck-type-pill-row is-rule-pill-row" aria-label="트럭 유형 빠른 선택">
+              <QuickRailCarousel ariaLabel="트럭 유형" className="brand-carousel" contentClassName="depth-rail-track is-chips is-rule-pill-track">
                 {truckFormatCatalog.map((group) => (
                   <TrimChip
                     key={group.name}

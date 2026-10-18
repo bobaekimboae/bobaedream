@@ -948,3 +948,45 @@
   border-color: #b8b8bf;
   background: #f7f7f7;
 }
+
+/* 우리 알약칩 규칙(2026-10-19 「적재중량 알약칩처럼 · 이게 우리 알약칩 규칙이다」):
+   흰 바탕(투명) · 1px #DEDEE3 · 높이 32 · 좌우 10 · 최소 폭 48 · 14/20 500 #1A1A1A · 칩 사이 8 · 줄 높이 56.
+   선택은 #222 채움 흰 글자. 트럭 형식 유형 줄과 바이크 유형 줄이 같은 규칙을 쓴다. */
+.marketplace.is-qf-guazi .depth-rail.is-rule-pill-row,
+.marketplace.is-qf-guazi .depth-rail.is-rule-pill-row .brand-carousel,
+.marketplace.is-qf-guazi .depth-rail.is-rule-pill-row .depth-rail-track {
+  min-height: 56px;
+  height: 56px;
+}
+.marketplace.is-qf-guazi .depth-rail.is-rule-pill-row .is-rule-pill-track {
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+}
+.marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-rule-pill-row .is-rule-pill-track {
+  padding: 12px 16px;
+}
+.marketplace.is-qf-guazi .depth-rail.is-rule-pill-row .is-rule-pill-track .trim-chip {
+  flex: 0 0 auto;
+  min-width: 48px;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid #dedee3;
+  border-radius: 9999px;
+  background: transparent;
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+}
+.marketplace.is-qf-guazi .depth-rail.is-rule-pill-row .is-rule-pill-track .trim-chip.is-selected {
+  border-color: #222;
+  background: #222;
+  color: #fff;
+}
+/* PC: 알약 줄은 칩 줄 → 알약 30 · 알약 → 카드 끝 28로 트럭·바이크를 같게 둔다 */
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail.is-rule-pill-row) {
+  height: 56px;
+  margin-top: 8px;
+}
