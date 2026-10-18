@@ -1,9 +1,10 @@
 // PC 메인 시안 v01 (2026-10-18) — 레거시 보배드림 메인(좌 매물 · 우 커뮤니티 베스트)을 신버전으로 정리한 미리보기.
 // 진입: ./?home=pc  (기존 모바일 메인 ./ 는 그대로)
+// v02(2026-10-18 「腾讯网 汽车처럼 분리」): 전체 폭 검색 띠를 없애고 헤더 바로 아래부터 좌(큰 추천 슬라이드 + 3열 카드) · 우(커뮤니티 레일) 두 칸으로 나눴다. 검색은 헤더로 올렸다.
 // 구성 근거: 유럽(mobile.de · AutoScout24 · Autotrader UK · La Centrale) 상단 검색 띠 + 차량 유형 줄,
 // 한국 레거시 보배드림의 좌 매물 · 우 커뮤니티 베스트 2단. 매물은 럭셔리카 가상 매물 v01(UI 검증용 가상 값),
 // 커뮤니티 글은 화면 확인용 예시 문구다(실제 게시글 · 작성자 아님).
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { luxuryDealers, luxuryListingRows, type LuxuryListingRow } from "../prototype/data/luxury-category-v01";
 import "./pc-main-home.css";
 
@@ -136,16 +137,15 @@ function CarCard({ row, rank }: { row: LuxuryListingRow; rank?: number }) {
 }
 
 export default function PcMainHome() {
-  const [sellTab, setSellTab] = useState<"buy" | "sell">("buy");
   const [bestTab, setBestTab] = useState<"전체" | "SUV" | "세단" | "스포츠카">("전체");
   const [postTab, setPostTab] = useState<keyof typeof bestPosts>("실시간");
   const [rareTag, setRareTag] = useState(rareTags[0]);
   const [query, setQuery] = useState("");
-  const [maker, setMaker] = useState("");
-  const [priceMax, setPriceMax] = useState("");
+  const maker = "";
+  const priceMax = "";
+  const [slide, setSlide] = useState(0);
 
   const rows = useMemo(() => luxuryListingRows.filter((r) => r.image), []);
-  const makers = useMemo(() => [...new Set(rows.map((r) => r.maker))], [rows]);
   const bestRows = useMemo(() => {
     const pool = bestTab === "SUV" ? rows.filter((r) => r.body === "SUV")
       : bestTab === "세단" ? rows.filter((r) => r.body === "세단" || r.body === "왜건")
@@ -153,11 +153,17 @@ export default function PcMainHome() {
       : rows;
     return pool.slice(0, 6);
   }, [bestTab, rows]);
-  const scoopRows = rows.slice(6, 10);
+  const scoopRows = rows.slice(6, 12);
+  const slideRows = useMemo(() => [...rows].sort((x, y) => y.price - x.price).slice(0, 5), [rows]);
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
+    const timer = window.setTimeout(() => setSlide((n) => (n + 1) % slideRows.length), 5000);
+    return () => window.clearTimeout(timer);
+  }, [slide, slideRows.length]);
   const rareRows = useMemo(() => {
     const pool = rows.slice(10);
     const offset = (rareTags.indexOf(rareTag) * 3) % pool.length;
-    return [...pool, ...pool].slice(offset, offset + 4);
+    return [...pool, ...pool].slice(offset, offset + 6);
   }, [rareTag, rows]);
 
   const submitSearch = () => {
@@ -181,6 +187,10 @@ export default function PcMainHome() {
               <a key={item.label} href={item.community ? communityUrl : listingUrl({ category: item.category ?? "전체" })}>{item.label}</a>
             ))}
           </nav>
+          <form className="pmh-header-search" role="search" onSubmit={(e) => { e.preventDefault(); submitSearch(); }}>
+            <input value={query} onChange={(e) => setQuery(e.currentTarget.value)} placeholder="어떤 차를 찾으세요?" aria-label="차량 검색" />
+            <button type="submit" aria-label="검색"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="#fff" strokeWidth="2.4" /><path d="m20 20-4-4" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" /></svg></button>
+          </form>
           <div className="pmh-header-actions">
             <button type="button" className="pmh-btn-line">로그인/회원가입</button>
             <button type="button" className="pmh-btn-blue" onClick={() => go("./?register=car")}>차량 판매하기</button>
@@ -188,47 +198,29 @@ export default function PcMainHome() {
         </div>
       </header>
 
-      <section className="pmh-hero" aria-labelledby="pmh-hero-title">
-        <div className="pmh-wrap">
-          <h1 id="pmh-hero-title">찾는 차, 보배드림에서 한 번에</h1>
-          <div className="pmh-search-card">
-            <div className="pmh-search-tabs" role="tablist" aria-label="거래 방식">
-              <button type="button" role="tab" aria-selected={sellTab === "buy"} className={sellTab === "buy" ? "is-on" : ""} onClick={() => setSellTab("buy")}>내차사기</button>
-              <button type="button" role="tab" aria-selected={sellTab === "sell"} className={sellTab === "sell" ? "is-on" : ""} onClick={() => setSellTab("sell")}>내차팔기</button>
-            </div>
-            {sellTab === "buy" ? (
-              <form className="pmh-search-row" role="search" onSubmit={(e) => { e.preventDefault(); submitSearch(); }}>
-                <label className="pmh-field pmh-field-grow">
-                  <span>검색어</span>
-                  <input value={query} onChange={(e) => setQuery(e.currentTarget.value)} placeholder="모델명, 트림 (예: 그랜저 하이브리드)" />
-                </label>
-                <label className="pmh-field">
-                  <span>제조사</span>
-                  <select value={maker} onChange={(e) => setMaker(e.currentTarget.value)}>
-                    <option value="">전체</option>
-                    {makers.map((m) => <option key={m} value={m}>{m}</option>)}
-                  </select>
-                </label>
-                <label className="pmh-field">
-                  <span>최대 가격</span>
-                  <select value={priceMax} onChange={(e) => setPriceMax(e.currentTarget.value)}>
-                    <option value="">제한 없음</option>
-                    {["1000", "2000", "3000", "5000", "10000"].map((v) => <option key={v} value={v}>{Number(v).toLocaleString("ko-KR")}만원</option>)}
-                  </select>
-                </label>
-                <button type="submit" className="pmh-search-submit">차량 검색</button>
-              </form>
-            ) : (
-              <div className="pmh-search-row pmh-sell-row">
-                <p><strong>차량번호만 입력하면</strong> 딜러 견적을 비교해 드려요.</p>
-                <button type="button" className="pmh-search-submit" onClick={() => go("./?register=car")}>내 차 팔기 시작</button>
-              </div>
-            )}
-            <div className="pmh-keywords" aria-label="인기 검색어">
-              <span>인기 검색어</span>
-              {popularKeywords.map((k) => <a key={k} href={listingUrl({ q: k })}>{k}</a>)}
-            </div>
-          </div>
+      <div className="pmh-wrap pmh-body">
+        <main className="pmh-left">
+          <section className="pmh-hero-slide" aria-roledescription="carousel" aria-label="오늘의 추천 매물">
+            {(() => {
+              const row = slideRows[slide];
+              return (
+                <a className="pmh-slide" href={listingUrl({ category: "럭셔리카", maker: row.maker })}>
+                  <span className="pmh-slide-copy">
+                    <b className="pmh-slide-tag">오늘의 추천</b>
+                    <strong>{titleOf(row)}</strong>
+                    <span className="pmh-card-spec">{row.registered}<i />{formatMileage(row.mileage)}<i />{row.fuel}</span>
+                    <span className="pmh-slide-price">{formatPrice(row.price).replace(/만원$/, "")}<small>만원</small></span>
+                    <span className="pmh-card-place">{placeOf(row)}</span>
+                    <span className="pmh-slide-dots" aria-hidden="true">{slideRows.map((r, i) => <i key={r.number} className={i === slide ? "is-on" : ""} />)}</span>
+                  </span>
+                  <span className="pmh-slide-photo">{row.image ? <img src={asset(row.image)} alt="" /> : null}</span>
+                </a>
+              );
+            })()}
+            <button type="button" className="pmh-slide-nav is-prev" aria-label="이전 매물" onClick={() => setSlide((slide + slideRows.length - 1) % slideRows.length)}>‹</button>
+            <button type="button" className="pmh-slide-nav is-next" aria-label="다음 매물" onClick={() => setSlide((slide + 1) % slideRows.length)}>›</button>
+          </section>
+
           <nav className="pmh-types" aria-label="차량 유형">
             {vehicleTypes.map((t) => (
               <a key={t.label} href={listingUrl({ category: t.category })}>
@@ -237,11 +229,7 @@ export default function PcMainHome() {
               </a>
             ))}
           </nav>
-        </div>
-      </section>
 
-      <div className="pmh-wrap pmh-body">
-        <main className="pmh-left">
           <section className="pmh-box" aria-labelledby="pmh-best-title">
             <div className="pmh-box-head">
               <h2 id="pmh-best-title">오늘의 베스트카</h2>
@@ -263,7 +251,7 @@ export default function PcMainHome() {
               <p>딜러가 광고로 올린 추천 매물이에요</p>
               <a className="pmh-more" href={listingUrl({ category: "중고차" })}>전체보기</a>
             </div>
-            <div className="pmh-grid pmh-grid-4">
+            <div className="pmh-grid pmh-grid-3">
               {scoopRows.map((row) => <CarCard key={row.number} row={row} />)}
             </div>
           </section>
@@ -278,7 +266,7 @@ export default function PcMainHome() {
                 <button key={t} type="button" role="tab" aria-selected={rareTag === t} className={rareTag === t ? "is-on" : ""} onClick={() => setRareTag(t)}>#{t}</button>
               ))}
             </div>
-            <div className="pmh-grid pmh-grid-4">
+            <div className="pmh-grid pmh-grid-3">
               {rareRows.map((row) => <CarCard key={row.number} row={row} />)}
             </div>
           </section>
@@ -322,6 +310,15 @@ export default function PcMainHome() {
               <div className="pmh-box-head"><h2 id="pmh-news-title">자동차 뉴스 · 공지</h2></div>
               <ul className="pmh-news">{newsItems.map((n) => <li key={n}>{n}</li>)}</ul>
             </section>
+            <section className="pmh-box pmh-side" aria-labelledby="pmh-kw-title">
+              <div className="pmh-box-head"><h2 id="pmh-kw-title">인기 검색어</h2></div>
+              <div className="pmh-keywords">{popularKeywords.map((k) => <a key={k} href={listingUrl({ q: k })}>{k}</a>)}</div>
+            </section>
+            <a className="pmh-box pmh-sell" href="./?register=car">
+              <strong>내 차 팔기</strong>
+              <span>차량번호만 입력하면 딜러 견적을 비교해 드려요</span>
+              <b>견적 받기 ›</b>
+            </a>
           </div>
         </aside>
       </div>

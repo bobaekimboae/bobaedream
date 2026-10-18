@@ -24,11 +24,11 @@
 
 /* 헤더 */
 .pmh-header { background: #fff; border-bottom: 1px solid var(--pmh-line); }
-.pmh-header-row { height: 72px; display: flex; align-items: center; gap: 40px; }
+.pmh-header-row { height: 72px; display: flex; align-items: center; gap: 24px; }
 .pmh-logo { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
 .pmh-logo img { width: 30px; height: 30px; object-fit: cover; object-position: left center; }
 .pmh-logo span { font-size: 20px; font-weight: 800; color: var(--pmh-blue); letter-spacing: -.02em; }
-.pmh-gnb { display: flex; gap: 24px; flex: 1 1 auto; min-width: 0; }
+.pmh-gnb { display: flex; gap: 20px; flex: 0 0 auto; }
 .pmh-gnb a { font-size: 16px; line-height: 22px; font-weight: 500; color: var(--pmh-sub); white-space: nowrap; }
 .pmh-gnb a:hover { color: var(--pmh-ink); }
 .pmh-header-actions { display: flex; gap: 8px; flex: 0 0 auto; }
@@ -66,7 +66,7 @@
 .pmh-types img { width: 32px; height: 32px; object-fit: contain; }
 
 /* 본문 2단: 좌 860 · 간격 40 · 우 300 */
-.pmh-body { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 40px; padding: 24px 0 48px; }
+.pmh-body { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 40px; padding: 24px 0 48px; }
 .pmh-left { align-self: start; }
 .pmh-left { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
 .pmh-sticky { position: sticky; top: 16px; display: flex; flex-direction: column; gap: 16px; }
@@ -132,3 +132,39 @@
   .pmh-sticky { position: static; }
   .pmh-types { grid-template-columns: repeat(5, 1fr); }
 }
+
+/* v02 — 腾讯网 汽车처럼 헤더 아래부터 좌 · 우 분리 (좌 820 · 간격 40 · 우 340) */
+.pmh-header-search { flex: 1 1 auto; min-width: 160px; max-width: 320px; margin-left: auto; height: 40px; display: flex; align-items: center; background: #f4f4f4; border-radius: 999px; padding: 0 4px 0 16px; }
+.pmh-header-search:focus-within { background: #fff; box-shadow: 0 0 0 2px var(--pmh-blue); }
+.pmh-header-search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; font-size: 15px; color: var(--pmh-ink); }
+.pmh-header-search input::placeholder { color: #999; }
+.pmh-header-search button { width: 32px; height: 32px; border-radius: 50%; background: var(--pmh-blue) !important; display: grid; place-items: center; }
+.pmh-header-search button:hover { background: var(--pmh-blue-hover) !important; }
+.pmh-header-actions { margin-left: 0; }
+
+.pmh-hero-slide { position: relative; background: #fff; border-radius: 12px; overflow: hidden; }
+.pmh-slide { display: grid; grid-template-columns: 300px minmax(0, 1fr); height: 300px; }
+.pmh-slide-copy { display: flex; flex-direction: column; gap: 6px; padding: 32px 28px; min-width: 0; }
+.pmh-slide-tag { align-self: flex-start; height: 24px; padding: 0 8px; border-radius: 4px; background: #222; color: #fff; font-size: 12px; line-height: 24px; font-weight: 600; margin-bottom: 8px; }
+.pmh-slide-copy strong { font-size: 24px; line-height: 32px; font-weight: 700; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.pmh-slide-price { font-size: 22px; line-height: 30px; font-weight: 700; margin-top: 8px; }
+.pmh-slide-price small { font-size: 16px; font-weight: 400; }
+.pmh-slide-dots { margin-top: auto; display: flex; gap: 6px; }
+.pmh-slide-dots i { width: 6px; height: 6px; border-radius: 50%; background: #d9d9d9; }
+.pmh-slide-dots i.is-on { width: 18px; border-radius: 3px; background: #222; }
+.pmh-slide-photo { background: #ebebeb; overflow: hidden; }
+.pmh-slide-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pmh-slide-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 50% !important; background: rgba(255, 255, 255, .92) !important; box-shadow: 0 1px 4px rgba(0, 0, 0, .2); font-size: 22px !important; line-height: 34px; color: #222; }
+.pmh-slide-nav.is-prev { left: 312px; }
+.pmh-slide-nav.is-next { right: 12px; }
+
+.pmh-left > .pmh-types { margin-top: 0; background: #fff; border-radius: 12px; padding: 12px 8px; }
+.pmh-left > .pmh-types span { width: 48px; height: 48px; }
+.pmh-left > .pmh-types img { width: 28px; height: 28px; }
+.pmh-left > .pmh-types a { font-size: 13px; gap: 6px; }
+
+.pmh-side .pmh-keywords { margin-top: 0; }
+.pmh-sell { display: flex; flex-direction: column; gap: 4px; }
+.pmh-sell strong { font-size: 16px; line-height: 22px; }
+.pmh-sell span { font-size: 13px; color: var(--pmh-sub); }
+.pmh-sell b { margin-top: 6px; font-size: 14px; color: var(--pmh-blue); font-weight: 600; }
