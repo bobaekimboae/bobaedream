@@ -240,7 +240,13 @@ function bbGnbActiveMode(): "line" | "text" | "pill" {
 
 // 2026-10-18 「초톳의 지역」 `&gnbsearch=pill`: 탑메뉴 `차량검색 ▾`만 초톳 지역 버튼(Toàn quốc ▾) 모양의 연회색 알약
 function bbGnbSearchPill(): boolean {
-  return typeof window !== "undefined" && new URLSearchParams(window.location.search).get("gnbsearch") === "pill";
+  if (typeof window === "undefined") return false;
+  const v = new URLSearchParams(window.location.search).get("gnbsearch");
+  return v === "pill" || v === "pillblue";
+}
+// 2026-10-18 「초톳 알약이 연한 블루」 `&gnbsearch=pillblue`: 같은 알약을 보배드림 파랑 #306BD9의 10% 연한 파랑으로(비교용)
+function bbGnbSearchPillBlue(): boolean {
+  return typeof window !== "undefined" && new URLSearchParams(window.location.search).get("gnbsearch") === "pillblue";
 }
 
 export function bbSearchVariant(): BbSearchVariant {
@@ -333,7 +339,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
     window.history.replaceState({}, "", url);
   };
   return (
-    <header className={`bbm-header${isBikeSite ? " is-bike-site" : ""}${variant === "default" ? "" : ` is-search-${variant}`}${bbGnbActiveMode() === "pill" ? "" : bbGnbActiveMode() === "text" ? " is-gnb-text" : " is-gnb-text is-gnb-line"}${bbGnbSearchPill() ? " is-gnb-searchpill" : ""}`} aria-label={isBikeSite ? "보배드림 바이크" : "보배드림"}>
+    <header className={`bbm-header${isBikeSite ? " is-bike-site" : ""}${variant === "default" ? "" : ` is-search-${variant}`}${bbGnbActiveMode() === "pill" ? "" : bbGnbActiveMode() === "text" ? " is-gnb-text" : " is-gnb-text is-gnb-line"}${bbGnbSearchPill() ? " is-gnb-searchpill" : ""}${bbGnbSearchPillBlue() ? " is-gnb-searchpill-blue" : ""}`} aria-label={isBikeSite ? "보배드림 바이크" : "보배드림"}>
       <div className="bbm-header-inner">
         <div className="bbm-header-main">
           <button type="button" className="bbm-logo" aria-label={isBikeSite ? "보배드림 바이크 처음으로" : "보배드림 처음으로"} onClick={() => { if (isBikeSite) onChooseCategory("바이크"); document.querySelector(".app-screen")?.scrollTo({ top: 0 }); }}>
