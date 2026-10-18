@@ -487,11 +487,17 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
 /* 포쉬마크식 카테고리 헤더 배너(2026-10-18, poshmark.com/category 1440 실측: 회색 #F2F2F2 상자 높이 118 · 제목 26/600 · 왼쪽 36)
    경로 줄·설명 줄은 빼고, 배너가 카테고리 제목과 검색저장을 맡는다. 하위메뉴 탭은 배너 아래 그대로 */
 @media (min-width: 1024px) {
-  html:not([data-lnb]) .marketplace.is-bbm .bbm-content-head.is-chotot .bbm-ct-banner {
+  html:not([data-lnb]) .marketplace.is-bbm .bbm-hybrid-top > .bbm-ct-banner {
     display: flex; align-items: center; justify-content: space-between; gap: 16px;
     height: 118px; margin: 0 0 16px; padding: 0 28px 0 36px; box-sizing: border-box;
-    border-radius: 8px; background: #f2f2f2;
+    border-radius: 12px; background: #e8e9ec;
   }
   html:not([data-lnb]) .marketplace.is-bbm .bbm-ct-banner-title { margin: 0; color: #222; font-size: 26px; font-weight: 600; line-height: 34px; }
   html:not([data-lnb]) .marketplace.is-bbm .bbm-ct-banner .bbm-ct-save { margin-left: auto; }
+}
+
+/* 배너를 필터 카드와 분리(2026-10-18 「필터 박스와 분리해야지」): 배너는 카드 밖 독립 상자(페이지 회색 #F4F4F4 위에서 보이도록 한 단계 진한 #E8E9EC),
+   배너 → 카드 16. 제목 줄이 빠진 카드는 칩 줄이 카드 맨 위(위 안쪽 여백 16)에서 바로 시작한다 */
+@media (min-width: 1024px) {
+  html:not([data-lnb]) .marketplace.is-bbm .bbm-content-head.is-chotot > .bbm-ct-chip-row:first-child { margin-top: 0; }
 }
