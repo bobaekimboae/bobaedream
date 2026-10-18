@@ -1,0 +1,62 @@
+/* PC 좌측 필터 = 차란차(charancha.com/cars, 2026-10-18 1440 실측) 그대로.
+   · 머리: 「필터」 20/30 600 #191F28 · 오른쪽 「최근 필터 기록 | ↺ 초기화」 14/20 400 #707B89 → 아래 1px #ECEEF0
+   · 항목: 위아래 22 · 제목 16/24 600 #191F28 · 꺾쇠 16 · 아래 1px #ECEEF0(피치 69)
+   · 상태 줄·검색조건 유지·숨기기·적용 개수 배지는 그리지 않는다(차란차에 없음)
+   우리 페이지는 회색 바탕이라 흰 카드(반경 12)와 안쪽 좌우 20만 더한다. */
+@media (min-width: 1024px) {
+  .marketplace.is-bbm .bbm-filter.is-charancha { padding: 0 20px; box-sizing: border-box; }
+  .bbm-filter.is-charancha .bbm-filter-summary.is-charancha {
+    display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 8px;
+    height: auto; padding: 22px 0 14px; border-bottom: 1px solid #eceef0;
+  }
+  .bbm-filter.is-charancha .bbm-cha-title { margin: 0; color: #191f28; font-size: 20px; font-weight: 600; line-height: 30px; }
+  .bbm-filter.is-charancha .bbm-cha-actions { display: flex; align-items: center; gap: 8px; }
+  .bbm-filter.is-charancha .bbm-cha-actions button { display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none; color: #707b89; font-size: 14px; font-weight: 400; line-height: 20px; white-space: nowrap; cursor: pointer; }
+  .bbm-filter.is-charancha .bbm-cha-actions button:hover { color: #191f28; }
+  .bbm-filter.is-charancha .bbm-cha-actions i { width: 1px; height: 10px; background: #d1d6db; }
+  .bbm-filter.is-charancha .bbm-cha-reset-icon { font-size: 14px; line-height: 14px; }
+
+  .bbm-filter.is-charancha .bbm-filter-menu { padding: 0; }
+  .bbm-filter.is-charancha .bbm-filter-item { padding: 22px 0; border-bottom: 1px solid #eceef0; }
+  .bbm-filter.is-charancha .bbm-filter-item:last-child { border-bottom: 1px solid #eceef0; }
+  .marketplace.is-bbm .bbm-filter.is-charancha .bbm-filter-item .bbm-filter-toggle,
+  .marketplace.is-bbm .bbm-filter.is-charancha .bbm-filter-item.is-open .bbm-filter-toggle,
+  .marketplace.is-bbm .bbm-filter.is-charancha .bbm-filter-item.is-maker-grade.is-open .bbm-filter-toggle {
+    height: auto; min-height: 24px; padding: 0; border: 0; color: #191f28; font-size: 16px; font-weight: 600; line-height: 24px;
+  }
+  .bbm-filter.is-charancha .bbm-filter-chevron { width: 16px; height: 16px; flex: none; filter: brightness(0) saturate(100%) invert(9%) sepia(12%) saturate(1400%) hue-rotate(176deg); }
+  .bbm-filter.is-charancha .bbm-filter-label-text { color: #191f28; }
+  .bbm-filter.is-charancha .bbm-filter-path { color: #0740e4; font-size: 13px; font-weight: 400; line-height: 18px; }
+  .bbm-filter.is-charancha .bbm-filter-item-reset { top: 24px; right: 28px; color: #707b89; font-weight: 400; text-decoration: none; }
+  .bbm-filter.is-charancha .bbm-filter-item.is-open .bbm-filter-item-reset { top: 24px; }
+  /* 펼친 내용: 제목 아래 16 */
+  .bbm-filter.is-charancha .bbm-filter-item.is-open > :not(.bbm-filter-toggle):not(.bbm-filter-item-reset) { margin-top: 16px; }
+  .bbm-filter.is-charancha .bbm-maker-grade.is-reference { margin-top: 16px; }
+  .bbm-filter.is-charancha .bbm-filter-item.is-open .bbmf-expand,
+  .bbm-filter.is-charancha .bbm-filter-item.is-open > div { padding-left: 0; padding-right: 0; }
+  /* 필터 더보기: 같은 항목 줄 모양(가운데 버튼 상자 대신) */
+  .bbm-filter.is-charancha .bbm-filter-more-toggle {
+    justify-content: space-between; width: 100%; height: auto; margin: 0; padding: 22px 0; border: 0; border-bottom: 1px solid #eceef0; border-radius: 0;
+    color: #707b89; font-size: 16px; font-weight: 600; line-height: 24px;
+  }
+  .bbm-filter.is-charancha .bbm-filter-more-toggle i { margin-right: 4px; }
+  /* 차종·바디타입 선택지 = 차란차 사각 칩(1440 실측): 높이 52 · 안쪽 13/18 · 1px #ECEEF0 · 반경 5 · 14/20 400 #919BA7 · 간격 8.
+     선택은 글자 #0740E4 · 바탕 #FAFBFF · 테두리 #CDD7FA. 체크박스·아이콘·대수는 차란차처럼 그리지 않는다 */
+  .bbm-filter.is-charancha .bbm-filter-item .bbmf-panel { padding: 0; }
+  .bbm-filter.is-charancha .bbm-filter-item .bbmf-check-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar {
+    display: inline-flex; width: auto; min-width: 0; height: 52px; min-height: 52px; align-items: center; justify-content: center; gap: 0;
+    padding: 13px 18px; border: 1px solid #eceef0; border-radius: 5px; background: #fff; box-sizing: border-box;
+    color: #919ba7; font-size: 14px; font-weight: 400; line-height: 20px;
+  }
+  .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar .bbmf-check-box,
+  .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar .bbmf-check-leading-icon,
+  .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar .bbmf-check-count { display: none; }
+  .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar .bbmf-check-label { color: inherit; font: inherit; white-space: nowrap; }
+  .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar:hover:not(:disabled) { border-color: #d1d6db; }
+  .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar[aria-checked="true"] { border-color: #cdd7fa; background: #fafbff; color: #0740e4; }
+  .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar:disabled { opacity: .45; }
+}
+/* 1024~1279 왼쪽 펼침판: 펼침판 머리가 「필터」를 이미 보여 주므로 차란차 머리는 숨긴다 */
+.bbm-drawer .bbm-filter.is-charancha .bbm-filter-summary.is-charancha { display: none; }
+.bbm-drawer .bbm-filter.is-charancha { padding: 0 16px; }
