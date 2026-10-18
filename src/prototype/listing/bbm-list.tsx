@@ -666,9 +666,9 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
   const seatSplit = featured ? -1 : car.virtualCategory?.category === "캠핑카" ? specText.search(/ · 승차 /) : car.truck && !car.truck.trailer ? specText.search(/ · (적재 [\d.]+톤|\d+인승|[\d.]+(㎘|㎥|m) · |\d+마력)/) : -1;
   const specMain = seatSplit > 0 ? specText.slice(0, seatSplit) : specText;
   const specCapacity = seatSplit > 0 ? specText.slice(seatSplit + 3) : "";
-  // PC 트럭 목록은 핵심 적재 제원(마력 · 적재 · 차축)을 연식·주행·연료보다 먼저 읽게 한다.
-  // 모바일 목록·피드와 엔진이 없는 트레일러의 기존 순서는 유지한다.
-  const prioritizeTruckCapacity = variant === "pc" && Boolean(car.truck && !car.truck.trailer && specCapacity);
+  // 2026-10-19 「트럭 마력이 위로 올라가」: PC 트럭도 모바일과 같이 연식·주행·연료 줄 다음에 마력 · 적재 · 차축 줄을 둔다
+  // (2026-10-18 PC만 마력 줄을 먼저 두던 순서를 되돌림).
+  const prioritizeTruckCapacity = false;
   const [locationBase, ...locationSecondaryParts] = listPlace.split(" · ");
   const locationMain = locationDong ? `${locationBase} ${locationDong}` : locationBase; // 상세 상단만 동까지(2026-10-14)
   const priceMatch = car.price.match(/^(월\s*)?(.+?)\s*(만원)$/);
