@@ -33,7 +33,7 @@ final result: passed
 ## PC 메인 카와우·당근형 탑메뉴 아이콘 실험 · 2026-10-18
 
 - source visual truth: `C:/Users/bobae/Downloads/Carwow_차량 카테고리 아이콘/04_Used_중고차.svg`, `05_Vans_밴.svg`, `06_SUVs_SUV.svg`와 저장소 기존 `public/assets/bbm/m-gnb-home.svg`, `public/assets/bbm/category-bike.svg`.
-- mapping: 홈→홈, 전체차량→SUV 실루엣, 중고차→중고차, 트럭·특장→밴, 바이크→바이크, 부품·용품→부품, 커뮤니티→커뮤니티, 더보기→더보기 아이콘으로 매핑했다.
+- mapping: 홈→홈, 전체차량→SUV 실루엣, 중고차→중고차, 트럭·특장→밴, 바이크→바이크, 중고부품→부품, 커뮤니티→커뮤니티, 더보기→더보기 아이콘으로 매핑했다.
 - implementation URL: `http://127.0.0.1:4318/?qf=guazi&pc=1&v=carwow-nav-icons-2`.
 - browser evidence: CUA 데스크톱 탭 38, 1280×720 CSS px, light theme, guest 상태, 전체차량 활성 화면. 원본 `04-used.svg` 직접 렌더 탭 41과 구현 화면을 같은 비교 출력에서 확인했다.
 - typography: 기존 Pretendard 메뉴 타이포와 활성 상태 굵기를 유지했다. 메뉴 문구와 클릭 동작은 변경하지 않았다.

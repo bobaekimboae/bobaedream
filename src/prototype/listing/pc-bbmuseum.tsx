@@ -33,7 +33,7 @@ const bbGnbItems: readonly BbGnbItem[] = [
   { label: "중고차", category: "중고차", icon: "carwow/04-used.svg" },
   { label: "트럭 · 특장", category: "트럭 · 특장", icon: "carwow/05-vans.svg" },
   { label: "바이크", category: "바이크", icon: "bike.svg" },
-  { label: "부품 · 용품", category: "부품 · 용품", icon: "parts.svg" },
+  { label: "중고부품", category: "부품 · 용품", icon: "parts.svg" },
   { label: "커뮤니티", action: "community", icon: "community.svg" },
   { label: "더보기", action: "more", icon: "more.svg" },
 ];
