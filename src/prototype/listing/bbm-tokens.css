@@ -196,9 +196,9 @@
   .marketplace.is-bbm .bbm-result-card .bbm-card-text { gap: 4px; }
   /* 차란차 우측 매물 카드 실측: 모델 #191F28 16/24 600, 메타 #505C6C 14/20 400, 가격 #191F28 18/26 700. */
   .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-title { color: #191f28; font-size: 16px; font-weight: 600; line-height: 24px; letter-spacing: normal; }
-  /* 바이크 매물은 모델명만 보배드림 블루로 강조해 메타·가격과 계층을 분리한다. */
-  .marketplace.is-bbm.is-bike-category .bbm-result-card.is-pc .bbm-card-title { color: var(--bbm-blue); }
   .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-listing-title { height: 20px; color: #3f4650; font-size: 14px; font-weight: 500; line-height: 20px; letter-spacing: normal; }
+  /* 바이크 매물은 모델명 아래 설명형 제목만 보배드림 블루로 강조한다. */
+  .marketplace.is-bbm.is-bike-category .bbm-result-card.is-pc .bbm-card-listing-title { color: var(--bbm-blue); }
   .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-spec { height: 20px; color: #505c6c; font-size: 14px; font-weight: 400; line-height: 20px; letter-spacing: normal; }
   /* 노션 AutoScout24 매물 리스트 원본: 바이크 메타는 14px 아이콘이 항목 구분을 맡고 텍스트는 기존 14/20 리듬을 유지한다. */
   .marketplace.is-bbm.is-bike-category .bbm-result-card.is-pc .bbm-card-spec.has-meta-icons { display: flex; align-items: center; gap: 12px; }
