@@ -65,6 +65,7 @@
   .depth-rail.is-car-body-pill-row .depth-rail-track {
   min-height: 48px;
   height: 48px;
+  align-items: center;
 }
 /* 초톳 PC 실측: 바이크 필터 칩 32px + 위아래 10px = 필터 줄 52px. 가격·지역을 포함한 한 줄 전체가 같은 수직 리듬을 쓴다. */
 .marketplace.is-bbm.is-qf-guazi.is-bike-category .bbm-content-head.is-chotot .bbm-ct-chip-row,
