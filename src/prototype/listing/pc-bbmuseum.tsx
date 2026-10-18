@@ -106,7 +106,50 @@ export function BbSecondaryNav({ category, categoryDetail, onChooseCategory }: {
     </div>
   );
 }
-/* 2026-10-18 GNB·LNB: 기본=GNB 글자 탭 + LNB 평면 글자 탭. ?lnb=a/b/c는 이전 비교안 확인용. */
+
+type BbBreadcrumbItem = { label: string; category: string; detail?: string; current?: boolean };
+
+export function BbBreadcrumb({ category, categoryDetail, onChooseCategory }: { category: string; categoryDetail: string | null; onChooseCategory: (category: string, detail?: string) => void }) {
+  const activeItem = bbActiveGnbItem(category);
+  const subnavItems = bbGnbSubmenus[activeItem] ?? bbGnbSubmenus.차량검색;
+  const currentSubnavItem = subnavItems.find((item) => item.category === category && (item.detail ? item.detail === categoryDetail : !categoryDetail));
+  const items: BbBreadcrumbItem[] = [{ label: "보배드림 차량", category: "전체" }];
+
+  if (activeItem === "중고차") {
+    if (category === "중고차" && !categoryDetail) items.push({ label: "중고차", category, current: true });
+    else {
+      items.push({ label: "중고차", category: "중고차" });
+      items.push({ label: currentSubnavItem?.label ?? categoryDetail ?? category, category, detail: categoryDetail ?? undefined, current: true });
+    }
+  } else if (activeItem === "트럭") {
+    if (!categoryDetail) items.push({ label: "트럭", category, current: true });
+    else {
+      items.push({ label: "트럭", category: "트럭 · 특장" });
+      items.push({ label: currentSubnavItem?.label ?? categoryDetail, category, detail: categoryDetail, current: true });
+    }
+  } else {
+    const activeLabel = bbGnbItems.find((item) => item.label === activeItem)?.label;
+    const currentLabel = currentSubnavItem?.label ?? categoryDetail ?? (category === "전체" ? "전체차량" : activeLabel ?? category);
+    items.push({ label: currentLabel, category, detail: categoryDetail ?? undefined, current: true });
+  }
+
+  return (
+    <nav className="bbm-ct-crumbs" aria-label="현재 위치">
+      <ol>
+        {items.map((item, index) => (
+          <li key={`${item.category}-${item.detail ?? item.label}`}>
+            {index > 0 ? <span className="bbm-ct-crumb-sep" aria-hidden="true">/</span> : null}
+            {item.current
+              ? <strong aria-current="page">{item.label}</strong>
+              : <button type="button" onClick={() => onChooseCategory(item.category, item.detail)}>{item.label}</button>}
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+}
+
+/* 2026-10-18 GNB·LNB: 기본=초톳형 브레드크럼. ?lnb=a/b/c는 이전 비교안 확인용. */
 export type BbLnbVariant = "default" | "a" | "b" | "c";
 export function bbLnbVariant(): BbLnbVariant {
   if (typeof window === "undefined") return "default";

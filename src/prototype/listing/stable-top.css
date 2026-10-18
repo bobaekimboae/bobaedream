@@ -27,6 +27,7 @@
 .marketplace.is-bbm.is-qf-guazi .bbm-hybrid-top > .bbm-ct-crumbs strong { color: #222; font-weight: 700; }
 .marketplace.is-bbm.is-qf-guazi .bbm-hybrid-top > .bbm-ct-crumbs .bbm-ct-crumb-sep { margin: 0 7px; color: #8c8c8c; }
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-ct-title-row { height: 32px; margin-top: 0; }
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot > .bbm-ct-crumbs + .bbm-ct-title-row { margin-top: 8px; }
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-ct-chip-row { height: 32px; margin-top: 18px; margin-bottom: 0; padding: 0; }
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot,
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail) { height: auto; margin: 18px -20px 0; justify-content: flex-start; }

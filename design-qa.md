@@ -30,6 +30,22 @@ final result: passed
 
 ---
 
+## PC 초톳형 카드 내 브레드크럼 · 2026-10-18
+
+- 기준 화면: `https://xe.chotot.com/tags/xe-kawasaki-400cc` PC. 원본 캡처는 `C:/Users/bobae/.codex/visualizations/2026/10/18/chotot-breadcrumb/chotot-kawasaki-source-full.png`.
+- 구현 화면: `/?qf=guazi&pc=1&category=국산차`; 로컬 캡처는 `C:/Users/bobae/.codex/visualizations/2026/10/18/chotot-breadcrumb/bobaedream-chotot-breadcrumb-local.png`.
+- 정보 구조: 별도 알약/평면 LNB를 기본 화면에서 제거하고, 흰 필터 카드 첫 줄에 `보배드림 차량 / 중고차 / 국산차`를 배치했다. 상위 2단계는 버튼, 현재 단계는 `aria-current="page"` 정적 텍스트다.
+- 초톳 실측 대조: 카드 안쪽 왼쪽 20px, 경로 줄 21px, 상위 12/18px·400·`#8C8C8C`, 현재 12/18px·700·`#222`, 제목까지 8px을 동일하게 적용했다.
+- 구현 실측: 1280px 뷰포트에서 카드 `x=40`, 폭 `1200`; 경로 `x=60`, `y=153`, 높이 `21`; 제목 간격 `8px`이다.
+- 긴 경로 안전성: 한 줄을 유지하며 현재 항목만 말줄임한다.
+- 동작 확인: `중고차` 상위 경로를 누르면 URL이 `category=중고차`로 바뀌고 경로가 `보배드림 차량 / 중고차`로 축약된다.
+- 비교안 보존: `?lnb=a/b`의 기존 LNB와 `?lnb=c`의 제목 메뉴 비교안은 유지하며 모바일은 변경하지 않았다.
+- findings: P0/P1/P2 없음.
+
+final result: passed
+
+---
+
 ## 2026-10-18 Daangn-style Korean typography
 
 - source visual truth path: `C:/Users/bobae/.codex/visualizations/2026/10/18/daangn-font/daangn-cars-reference.png`.
