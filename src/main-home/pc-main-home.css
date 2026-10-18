@@ -1,219 +1,219 @@
-/* PC 메인 시안 v01 (2026-10-18) — ./?home=pc */
+/* PC 메인 시안 v04 「쇼룸」 (2026-10-19) — ./?home=pc
+   흰 바탕 · 여백과 가는 선으로 구획 · 파랑은 로고와 검색 버튼 · 판매하기 버튼에만.
+   상자(카드 테두리 · 그림자)는 검색 캡슐 하나와 선택 창에만 쓴다. */
 .pmh {
-  --pmh-blue: #306bd9;
-  --pmh-blue-hover: #1952ba;
-  --pmh-ink: #222;
-  --pmh-sub: #595959;
-  --pmh-muted: #8c8c8c;
-  --pmh-line: #ebebeb;
-  --pmh-page: #f4f4f4;
+  --ink: #222;
+  --sub: #595959;
+  --faint: #8c8c8c;
+  --rule: #e6e6e6;
+  --mist: #f5f5f5;
+  --blue: #306bd9;
+  --blue-hover: #1952ba;
+  --pmh-blue: var(--blue);
+  --pmh-blue-hover: var(--blue-hover);
+  height: 100%;
   min-height: 100vh;
   overflow-y: auto;
-  height: 100%;
-  background: var(--pmh-page);
-  color: var(--pmh-ink);
+  background: #fff;
+  color: var(--ink);
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 15px;
+  line-height: 22px;
+  font-feature-settings: "tnum" 1;
+  -webkit-font-smoothing: antialiased;
 }
 .pmh *, .pmh *::before, .pmh *::after { box-sizing: border-box; }
 .pmh a { color: inherit; text-decoration: none; }
 .pmh button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
-.pmh h1, .pmh h2, .pmh p, .pmh ol, .pmh ul { margin: 0; padding: 0; }
-.pmh-wrap { width: 1200px; max-width: calc(100% - 40px); margin: 0 auto; }
+.pmh h1, .pmh h2, .pmh h3, .pmh p, .pmh ol, .pmh ul { margin: 0; padding: 0; }
+.pmh :focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 4px; }
+.pmh-wrap { width: 1200px; max-width: calc(100% - 48px); margin: 0 auto; }
 
 /* 헤더 */
-.pmh-header { background: #fff; border-bottom: 1px solid var(--pmh-line); }
-.pmh-header-row { height: 72px; display: flex; align-items: center; gap: 24px; }
+.pmh-header { border-bottom: 1px solid var(--rule); background: #fff; }
+.pmh-header-row { height: 72px; display: flex; align-items: center; gap: 40px; }
 .pmh-logo { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
 .pmh-logo img { width: 30px; height: 30px; object-fit: cover; object-position: left center; }
-.pmh-logo span { font-size: 20px; font-weight: 800; color: var(--pmh-blue); letter-spacing: -.02em; }
-.pmh-gnb { display: flex; gap: 20px; flex: 0 0 auto; }
-.pmh-gnb a { font-size: 16px; line-height: 22px; font-weight: 500; color: var(--pmh-sub); white-space: nowrap; }
-.pmh-gnb a:hover { color: var(--pmh-ink); }
-.pmh-header-actions { display: flex; gap: 8px; flex: 0 0 auto; }
-.pmh-btn-line, .pmh-btn-blue { height: 40px; padding: 0 16px !important; border-radius: 999px; font-size: 14px; font-weight: 600; }
-.pmh-btn-line { border: 1px solid #dadada !important; background: #fff !important; }
-.pmh-btn-blue { background: var(--pmh-blue) !important; color: #fff !important; }
-.pmh-btn-blue:hover { background: var(--pmh-blue-hover) !important; }
+.pmh-logo span { font-size: 20px; font-weight: 800; color: var(--blue); letter-spacing: -.02em; }
+.pmh-gnb { display: flex; gap: 28px; }
+.pmh-gnb a { font-size: 16px; line-height: 22px; font-weight: 500; color: var(--sub); white-space: nowrap; }
+.pmh-gnb a:hover { color: var(--ink); }
+.pmh-header-actions { margin-left: auto; display: flex; align-items: center; gap: 20px; }
+.pmh-btn-line { font-size: 14px; font-weight: 500; color: var(--sub); }
+.pmh-btn-line:hover { color: var(--ink); }
+.pmh-btn-blue { height: 40px; padding: 0 18px !important; border-radius: 999px; background: var(--blue) !important; color: #fff !important; font-size: 14px; font-weight: 600; }
+.pmh-btn-blue:hover { background: var(--blue-hover) !important; }
 
-/* 상단 검색 띠 — 유럽식(mobile.de · AutoScout24 · Autotrader) */
-.pmh-hero { background: #fff; padding: 28px 0 20px; border-bottom: 1px solid var(--pmh-line); }
-.pmh-hero h1 { font-size: 28px; line-height: 38px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 16px; }
-.pmh-search-card { border: 1px solid #dadada; border-radius: 16px; padding: 0 24px 18px; box-shadow: 0 4px 16px rgba(0, 0, 0, .06); }
-.pmh-search-tabs { display: flex; gap: 24px; border-bottom: 1px solid var(--pmh-line); margin-bottom: 18px; }
-.pmh-search-tabs button { height: 52px; font-size: 16px; font-weight: 500; color: var(--pmh-muted); border-bottom: 3px solid transparent !important; margin-bottom: -1px; }
-.pmh-search-tabs button.is-on { color: var(--pmh-ink); font-weight: 700; border-bottom-color: var(--pmh-ink) !important; }
-.pmh-search-row { display: flex; gap: 12px; align-items: flex-end; }
-.pmh-field { display: flex; flex-direction: column; gap: 6px; width: 200px; }
-.pmh-field-grow { flex: 1 1 auto; width: auto; }
-.pmh-field span { font-size: 13px; line-height: 18px; color: var(--pmh-sub); font-weight: 500; }
-.pmh-field input, .pmh-field select { height: 52px; border: 1px solid #dadada; border-radius: 12px; padding: 0 14px; font: inherit; font-size: 16px; color: var(--pmh-ink); background: #fff; outline: 0; }
-.pmh-field input:focus, .pmh-field select:focus { border-color: var(--pmh-blue); box-shadow: 0 0 0 1px var(--pmh-blue); }
-.pmh-search-submit { height: 52px; padding: 0 28px !important; border-radius: 12px; background: var(--pmh-blue) !important; color: #fff !important; font-size: 16px; font-weight: 700; white-space: nowrap; }
-.pmh-search-submit:hover { background: var(--pmh-blue-hover) !important; }
-.pmh-sell-row { justify-content: space-between; align-items: center; min-height: 76px; }
-.pmh-sell-row p { font-size: 16px; line-height: 24px; color: var(--pmh-sub); }
-.pmh-sell-row strong { color: var(--pmh-ink); }
-.pmh-keywords { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 16px; }
-.pmh-keywords span { font-size: 13px; color: var(--pmh-muted); margin-right: 4px; }
-.pmh-keywords a { height: 28px; padding: 0 12px; border-radius: 999px; background: #f4f4f4; font-size: 13px; line-height: 28px; color: var(--pmh-sub); }
-.pmh-keywords a:hover { color: var(--pmh-ink); background: #ebebeb; }
-.pmh-types { display: grid; grid-template-columns: repeat(9, 1fr); gap: 8px; margin-top: 16px; }
-.pmh-types a { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 8px 0; border-radius: 12px; font-size: 14px; line-height: 20px; color: var(--pmh-ink); }
-.pmh-types a:hover { background: #f7f7f7; }
-.pmh-types span { width: 56px; height: 56px; border-radius: 50%; background: #f4f4f4; display: grid; place-items: center; }
-.pmh-types img { width: 32px; height: 32px; object-fit: contain; }
+/* 본문 2단: 좌 820 · 사이 선 · 우 340 */
+.pmh-body { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 0 60px; padding: 0 0 80px; }
+.pmh-left { align-self: start; min-width: 0; padding-top: 48px; }
+.pmh-right { border-left: 1px solid var(--rule); padding-left: 32px; }
+.pmh-sticky { position: sticky; top: 0; padding-top: 48px; }
 
-/* 본문 2단: 좌 860 · 간격 40 · 우 300 */
-.pmh-body { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 40px; padding: 24px 0 48px; }
-.pmh-left { align-self: start; }
-.pmh-left { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
-.pmh-sticky { position: sticky; top: 16px; display: flex; flex-direction: column; gap: 16px; }
-.pmh-box { background: #fff; border-radius: 12px; padding: 20px; }
-.pmh-box-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-.pmh-box-head h2 { font-size: 18px; line-height: 26px; font-weight: 700; }
-.pmh-box-head p { font-size: 13px; color: var(--pmh-muted); }
-.pmh-more { margin-left: auto; font-size: 13px; color: var(--pmh-sub); white-space: nowrap; }
-.pmh-more::after { content: " ›"; }
-.pmh-seg { display: flex; gap: 4px; }
-.pmh-seg button, .pmh-chips button { height: 32px; padding: 0 12px !important; border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--pmh-sub); border: 1px solid #dadada !important; background: #fff !important; }
-.pmh-seg button.is-on, .pmh-chips button.is-on { color: #fff; background: var(--pmh-ink) !important; border-color: var(--pmh-ink) !important; font-weight: 600; }
-.pmh-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.pmh-lead { font-size: 34px; line-height: 44px; font-weight: 700; letter-spacing: -.03em; margin-bottom: 24px; }
 
-/* 매물 카드 */
-.pmh-grid { display: grid; gap: 16px 12px; }
+/* 섹션 */
+.pmh-sec, .pmh-feature { margin-top: 72px; }
+.pmh-sec-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px; }
+.pmh-sec-title { font-size: 22px; line-height: 30px; font-weight: 700; letter-spacing: -.02em; }
+.pmh-feature .pmh-sec-title { margin-bottom: 20px; }
+.pmh-sec-head p { font-size: 14px; color: var(--faint); }
+.pmh-more { margin-left: auto; font-size: 14px; font-weight: 500; color: var(--sub); white-space: nowrap; }
+.pmh-more:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.pmh-seg { display: flex; gap: 20px; margin-left: 8px; }
+.pmh-seg button { font-size: 15px; line-height: 30px; font-weight: 500; color: var(--faint); border-bottom: 2px solid transparent !important; }
+.pmh-seg button:hover { color: var(--ink); }
+.pmh-seg button.is-on { color: var(--ink); font-weight: 700; border-bottom-color: var(--ink) !important; }
+.pmh-sec > .pmh-seg { margin: -8px 0 20px; }
+
+/* 오늘의 추천: 큰 사진 1장 + 고르는 썸네일 */
+.pmh-feature-main { display: block; }
+.pmh-feature-photo { display: block; aspect-ratio: 16 / 9; border-radius: 6px; overflow: hidden; background: var(--mist); }
+.pmh-feature-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; display: block; }
+.pmh-feature-copy { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto; column-gap: 24px; padding-top: 16px; }
+.pmh-feature-copy strong { font-size: 20px; line-height: 28px; font-weight: 700; letter-spacing: -.02em; }
+.pmh-feature-copy .pmh-card-spec { grid-row: 2; margin-top: 2px; }
+.pmh-feature-price { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-size: 24px; line-height: 32px; font-weight: 700; }
+.pmh-feature-price small { font-size: 16px; font-weight: 400; margin-left: 1px; }
+.pmh-feature-thumbs { display: flex; gap: 8px; margin-top: 20px; }
+.pmh-feature-thumbs button { width: 88px; height: 58px; border-radius: 4px; overflow: hidden; opacity: .55; outline: 2px solid transparent; outline-offset: 2px; transition: opacity .15s; }
+.pmh-feature-thumbs button:hover { opacity: .85; }
+.pmh-feature-thumbs button.is-on { opacity: 1; outline-color: var(--ink); }
+.pmh-feature-thumbs img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* 매물 카드: 테두리 없음 */
+.pmh-grid { display: grid; gap: 36px 20px; }
 .pmh-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.pmh-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.pmh-card { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
-.pmh-card-photo { position: relative; aspect-ratio: 4 / 3; border-radius: 8px; overflow: hidden; background: #ebebeb; }
-.pmh-card-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .2s ease; }
-.pmh-card:hover .pmh-card-photo img { transform: scale(1.03); }
-.pmh-card-rank { position: absolute; left: 8px; top: 8px; min-width: 24px; height: 24px; padding: 0 6px; border-radius: 6px; background: rgba(0, 0, 0, .72); color: #fff; font-size: 13px; line-height: 24px; font-weight: 700; text-align: center; }
-.pmh-card-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.pmh-card-title { font-size: 15px; line-height: 22px; font-weight: 600; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.pmh-card-spec { font-size: 13px; line-height: 18px; color: var(--pmh-sub); display: flex; align-items: center; gap: 0; white-space: nowrap; overflow: hidden; }
-.pmh-card-spec i { width: 2px; height: 2px; border-radius: 50%; background: currentColor; margin: 0 5px; flex: 0 0 auto; }
-.pmh-card-price { font-size: 17px; line-height: 24px; font-weight: 700; margin-top: 4px; }
-.pmh-card-price small { font-size: 14px; font-weight: 400; margin-left: 1px; }
-.pmh-card-place { font-size: 13px; line-height: 18px; color: var(--pmh-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pmh-card { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.pmh-card-photo { display: block; aspect-ratio: 3 / 2; border-radius: 6px; overflow: hidden; background: var(--mist); }
+.pmh-card-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; display: block; transition: opacity .15s; }
+.pmh-card:hover .pmh-card-photo img { opacity: .9; }
+.pmh-card:hover .pmh-card-title { text-decoration: underline; text-underline-offset: 3px; }
+.pmh-card-body { display: flex; flex-direction: column; min-width: 0; }
+.pmh-card-title { font-size: 16px; line-height: 24px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pmh-card-spec { font-size: 14px; line-height: 20px; color: var(--sub); display: flex; align-items: center; white-space: nowrap; overflow: hidden; }
+.pmh-card-spec i { width: 2px; height: 2px; border-radius: 50%; background: currentColor; margin: 0 6px; flex: 0 0 auto; }
+.pmh-card-price { font-size: 19px; line-height: 26px; font-weight: 700; margin-top: 8px; }
+.pmh-card-price small { font-size: 15px; font-weight: 400; margin-left: 1px; }
+.pmh-card-place { font-size: 13px; line-height: 18px; color: var(--faint); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-.pmh-price-links { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
-.pmh-price-links a { height: 48px; border: 1px solid #dadada; border-radius: 10px; display: grid; place-items: center; font-size: 14px; font-weight: 500; }
-.pmh-price-links a:hover { border-color: var(--pmh-ink); }
+/* 가격대: 글자 줄 */
+.pmh-price-links { display: grid; grid-template-columns: repeat(6, 1fr); border-top: 1px solid var(--ink); }
+.pmh-price-links a { padding: 16px 0; font-size: 15px; font-weight: 500; border-bottom: 1px solid var(--rule); }
+.pmh-price-links a + a { padding-left: 16px; border-left: 1px solid var(--rule); }
+.pmh-price-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-/* 우측 커뮤니티 */
-.pmh-community { padding-bottom: 12px; }
-.pmh-tabs { display: flex; border-bottom: 1px solid var(--pmh-line); margin: -4px 0 4px; }
-.pmh-tabs button { flex: 1; height: 40px; font-size: 14px; color: var(--pmh-muted); font-weight: 500; border-bottom: 2px solid transparent !important; margin-bottom: -1px; }
-.pmh-tabs button.is-on { color: var(--pmh-ink); font-weight: 700; border-bottom-color: var(--pmh-ink) !important; }
-.pmh-posts { list-style: none; }
-.pmh-posts li { padding: 9px 0; border-bottom: 1px solid #f2f2f2; }
-.pmh-posts li:last-child { border-bottom: 0; }
-.pmh-posts a { display: flex; align-items: baseline; gap: 10px; }
-.pmh-posts b { flex: 0 0 16px; font-size: 14px; font-weight: 700; color: var(--pmh-muted); text-align: center; }
-.pmh-posts b.is-top { color: var(--pmh-blue); }
-.pmh-post-title { flex: 1 1 auto; min-width: 0; font-size: 14px; line-height: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.pmh-posts a:hover .pmh-post-title { text-decoration: underline; }
-.pmh-posts em { flex: 0 0 auto; font-style: normal; font-size: 12px; color: var(--pmh-blue); font-weight: 600; }
-.pmh-posts small { display: block; padding-left: 26px; font-size: 12px; line-height: 16px; color: var(--pmh-muted); }
-.pmh-side .pmh-box-head { margin-bottom: 10px; }
-.pmh-side h2 { font-size: 16px; line-height: 22px; }
-.pmh-news { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-.pmh-news li { font-size: 14px; color: var(--pmh-sub); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.pmh-guide { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
-.pmh-guide span { height: 40px; border-radius: 8px; background: #f7f7f7; display: grid; place-items: center; font-size: 12px; color: var(--pmh-sub); text-align: center; }
+/* 우측 레일 */
+.pmh-rail-sec + .pmh-rail-sec { margin-top: 40px; }
+.pmh-rail-sec .pmh-sec-head { margin-bottom: 8px; }
+.pmh-rail-sec h2 { font-size: 18px; line-height: 26px; font-weight: 700; letter-spacing: -.02em; }
+.pmh-tabs { display: flex; gap: 18px; margin-bottom: 8px; }
+.pmh-tabs button { font-size: 14px; line-height: 32px; font-weight: 500; color: var(--faint); border-bottom: 2px solid transparent !important; }
+.pmh-tabs button:hover { color: var(--ink); }
+.pmh-tabs button.is-on { color: var(--ink); font-weight: 700; border-bottom-color: var(--ink) !important; }
+.pmh-posts { list-style: none; border-top: 1px solid var(--rule); }
+.pmh-posts li { display: grid; grid-template-columns: 22px minmax(0, 1fr); padding: 11px 0; border-bottom: 1px solid var(--rule); }
+.pmh-posts a { display: contents; }
+.pmh-posts b { grid-row: 1 / span 2; font-size: 14px; line-height: 21px; font-weight: 500; color: var(--faint); }
+.pmh-posts b.is-top { color: var(--ink); font-weight: 700; }
+.pmh-post-title { font-size: 14px; line-height: 21px; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pmh-posts li:hover .pmh-post-title { text-decoration: underline; text-underline-offset: 3px; }
+.pmh-posts em { display: none; }
+.pmh-posts small { grid-column: 2; font-size: 12px; line-height: 18px; color: var(--faint); }
+.pmh-posts small::after { content: attr(data-c); }
+.pmh-news { list-style: none; border-top: 1px solid var(--rule); }
+.pmh-news li { padding: 11px 0; border-bottom: 1px solid var(--rule); font-size: 14px; line-height: 21px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pmh-sell { display: flex; flex-direction: column; gap: 4px; padding-top: 20px; border-top: 1px solid var(--ink); }
+.pmh-sell strong { font-size: 18px; line-height: 26px; }
+.pmh-sell span { font-size: 14px; color: var(--sub); }
+.pmh-sell a { align-self: flex-start; margin-top: 12px; height: 40px; padding: 0 18px; border: 1px solid var(--ink); border-radius: 999px; font-size: 14px; font-weight: 600; line-height: 38px; }
+.pmh-sell a:hover { background: var(--ink); color: #fff; }
 
-.pmh-footer { border-top: 1px solid var(--pmh-line); background: #fff; padding: 24px 0; color: var(--pmh-muted); font-size: 13px; }
+.pmh-footer { border-top: 1px solid var(--rule); padding: 28px 0 40px; color: var(--faint); font-size: 13px; }
+
+/* 검색: 차종 탭 + 하나로 이은 캡슐 (AutoScout24 3칸 · 결과 대수 버튼) */
+.as24 { position: relative; }
+.as24-tabs { display: flex; gap: 24px; margin-bottom: 16px; overflow-x: auto; scrollbar-width: none; }
+.as24-tabs button { flex: 0 0 auto; font-size: 15px; line-height: 32px; font-weight: 500; color: var(--faint); border-bottom: 2px solid transparent !important; }
+.as24-tabs button:hover { color: var(--ink); }
+.as24-tabs button.is-on { color: var(--ink); font-weight: 700; border-bottom-color: var(--ink) !important; }
+.as24-capsule { display: grid; grid-template-columns: 1.4fr 1fr auto; align-items: center; height: 68px; padding: 0 8px 0 0; border: 1px solid #dadada; border-radius: 999px; box-shadow: 0 2px 10px rgba(0, 0, 0, .06); }
+.as24-seg { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: center; gap: 2px; padding: 0 28px !important; text-align: left; border-radius: 999px; cursor: pointer; }
+.as24-seg + .as24-seg::before { content: ""; position: absolute; left: 0; top: 18px; bottom: 18px; width: 1px; background: var(--rule); }
+.as24-seg:hover:not(:disabled) { background: var(--mist) !important; }
+.as24-seg:disabled { cursor: default; }
+.as24-seg small { font-size: 12px; line-height: 16px; font-weight: 600; color: var(--ink); }
+.as24-seg span { font-size: 15px; line-height: 22px; color: var(--faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.as24-seg span.is-filled { color: var(--ink); font-weight: 600; }
+.as24-region select { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.as24-cta { height: 52px; padding: 0 28px !important; border-radius: 999px; background: var(--blue) !important; color: #fff !important; font-size: 16px; font-weight: 700; white-space: nowrap; }
+.as24-cta:hover { background: var(--blue-hover) !important; }
+.as24-types { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); margin-top: 24px; }
+.as24-types a { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 14px; line-height: 20px; font-weight: 500; color: var(--sub); text-align: center; }
+.as24-types a:hover { color: var(--ink); }
+.as24-types span { width: 100%; height: 52px; display: flex; align-items: flex-end; justify-content: center; }
+.as24-types img { max-width: 84px; max-height: 50px; object-fit: contain; object-position: center bottom; transition: transform .15s; }
+.as24-types a:hover img { transform: translateY(-2px); }
+.as24-more { position: absolute; right: 0; top: 4px; font-size: 14px; font-weight: 500; color: var(--sub); line-height: 32px; }
+.as24-more:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+
+/* 제조사 · 모델 선택 창 */
+.as24-layer { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; }
+.as24-dim { position: absolute; inset: 0; background: rgba(0, 0, 0, .45) !important; cursor: default; }
+.as24-modal { position: relative; width: min(480px, calc(100vw - 48px)); max-height: calc(100vh - 96px); display: flex; flex-direction: column; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 16px 48px rgba(0, 0, 0, .2); }
+.as24-modal header { height: 64px; flex: 0 0 auto; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 12px; border-bottom: 1px solid var(--rule); }
+.as24-modal header h2 { text-align: center; font-size: 17px; line-height: 24px; font-weight: 700; }
+.as24-icon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 10px; color: var(--ink); }
+.as24-icon:hover { background: var(--mist) !important; }
+.as24-modal-search { margin: 16px 20px 4px; height: 44px; border-radius: 999px; background: var(--mist); display: flex; align-items: center; gap: 8px; padding: 0 16px; }
+.as24-modal-search input { flex: 1; border: 0; outline: 0; background: transparent; font: inherit; font-size: 15px; }
+.as24-modal-body { flex: 1 1 auto; overflow-y: auto; padding: 8px 20px 8px; }
+.as24-modal-body h3 { font-size: 13px; line-height: 18px; font-weight: 600; color: var(--faint); padding: 8px 0 4px; }
+.as24-modal-body ul { list-style: none; }
+.as24-modal-body li button { width: 100%; height: 48px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--rule) !important; font-size: 15px; color: var(--ink); text-align: left; }
+.as24-modal-body li button span { flex: 1; }
+.as24-modal-body li button em { font-style: normal; font-size: 13px; color: var(--faint); }
+.as24-modal-body li button.is-on { font-weight: 700; }
+.as24-modal-body li button.is-on span::after { content: "  ✓"; }
+.as24-modal-body li button svg { color: var(--faint); }
+.as24-modal footer { flex: 0 0 auto; height: 80px; display: grid; grid-template-columns: 92px 1fr; gap: 10px; align-items: center; padding: 0 20px; border-top: 1px solid var(--rule); }
+.as24-reset { height: 52px; font-size: 15px; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.as24-reset:disabled { color: #b7b7b7; text-decoration: none; cursor: default; }
+.as24-modal footer .as24-cta { height: 52px; border-radius: 12px; }
 
 @media (max-width: 1100px) {
-  .pmh-gnb { gap: 16px; }
   .pmh-body { grid-template-columns: 1fr; }
+  .pmh-right { border-left: 0; padding-left: 0; }
   .pmh-sticky { position: static; }
-  .pmh-types { grid-template-columns: repeat(5, 1fr); }
+  .pmh-gnb { gap: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pmh * { transition: none !important; }
 }
 
-/* v02 — 腾讯网 汽车처럼 헤더 아래부터 좌 · 우 분리 (좌 820 · 간격 40 · 우 340) */
-.pmh-header-search { flex: 1 1 auto; min-width: 160px; max-width: 320px; margin-left: auto; height: 40px; display: flex; align-items: center; background: #f4f4f4; border-radius: 999px; padding: 0 4px 0 16px; }
-.pmh-header-search:focus-within { background: #fff; box-shadow: 0 0 0 2px var(--pmh-blue); }
-.pmh-header-search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; font-size: 15px; color: var(--pmh-ink); }
-.pmh-header-search input::placeholder { color: #999; }
-.pmh-header-search button { width: 32px; height: 32px; border-radius: 50%; background: var(--pmh-blue) !important; display: grid; place-items: center; }
-.pmh-header-search button:hover { background: var(--pmh-blue-hover) !important; }
-.pmh-header-actions { margin-left: 0; }
+/* v05 — 네이버 증권처럼: 위쪽만 좌·우(좌 흰 바탕 · 우 회색 판, 사이 40, 세로선 없음), 아래는 전체 폭 4열 */
+.pmh-body { grid-template-columns: minmax(0, 1fr) 320px; gap: 0 40px; padding-bottom: 0; }
+.pmh-right { border-left: 0; padding-left: 0; }
+.pmh-sticky { position: static; padding-top: 48px; }
+.pmh-sec-title a { display: inline-flex; align-items: center; gap: 2px; }
+.pmh-sec-title a::after { content: ""; width: 8px; height: 8px; margin-left: 6px; border-right: 2px solid currentColor; border-top: 2px solid currentColor; transform: rotate(45deg); opacity: .55; }
+.pmh-sec-title a:hover { text-decoration: none; }
+.pmh-sec-title, .pmh-rail-sec h2.pmh-sec-title { font-size: 20px; line-height: 28px; font-weight: 700; letter-spacing: -.02em; }
+.pmh-rail-sec .pmh-sec-head { margin-bottom: 12px; }
+.pmh-community .pmh-tabs { margin-bottom: 4px; }
+.pmh-posts, .pmh-news { border-top: 0; background: #f7f8fa; border-radius: 16px; padding: 6px 16px; }
+.pmh-posts li, .pmh-news li { border-bottom: 1px solid #eceef1; }
+.pmh-posts li:last-child, .pmh-news li:last-child { border-bottom: 0; }
+.pmh-rail-sec + .pmh-rail-sec { margin-top: 32px; }
+.pmh-sell { border-top: 0; background: #f7f8fa; border-radius: 16px; padding: 20px; }
+.pmh-feature { margin-top: 48px; }
 
-.pmh-hero-slide { position: relative; background: #fff; border-radius: 12px; overflow: hidden; }
-.pmh-slide { display: grid; grid-template-columns: 300px minmax(0, 1fr); height: 300px; }
-.pmh-slide-copy { display: flex; flex-direction: column; gap: 6px; padding: 32px 28px; min-width: 0; }
-.pmh-slide-tag { align-self: flex-start; height: 24px; padding: 0 8px; border-radius: 4px; background: #222; color: #fff; font-size: 12px; line-height: 24px; font-weight: 600; margin-bottom: 8px; }
-.pmh-slide-copy strong { font-size: 24px; line-height: 32px; font-weight: 700; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.pmh-slide-price { font-size: 22px; line-height: 30px; font-weight: 700; margin-top: 8px; }
-.pmh-slide-price small { font-size: 16px; font-weight: 400; }
-.pmh-slide-dots { margin-top: auto; display: flex; gap: 6px; }
-.pmh-slide-dots i { width: 6px; height: 6px; border-radius: 50%; background: #d9d9d9; }
-.pmh-slide-dots i.is-on { width: 18px; border-radius: 3px; background: #222; }
-.pmh-slide-photo { background: #ebebeb; overflow: hidden; }
-.pmh-slide-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.pmh-slide-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 50% !important; background: rgba(255, 255, 255, .92) !important; box-shadow: 0 1px 4px rgba(0, 0, 0, .2); font-size: 22px !important; line-height: 34px; color: #222; }
-.pmh-slide-nav.is-prev { left: 312px; }
-.pmh-slide-nav.is-next { right: 12px; }
-
-.pmh-left > .pmh-types { margin-top: 0; background: #fff; border-radius: 12px; padding: 12px 8px; }
-.pmh-left > .pmh-types span { width: 48px; height: 48px; }
-.pmh-left > .pmh-types img { width: 28px; height: 28px; }
-.pmh-left > .pmh-types a { font-size: 13px; gap: 6px; }
-
-.pmh-side .pmh-keywords { margin-top: 0; }
-.pmh-sell { display: flex; flex-direction: column; gap: 4px; }
-.pmh-sell strong { font-size: 16px; line-height: 22px; }
-.pmh-sell span { font-size: 13px; color: var(--pmh-sub); }
-.pmh-sell b { margin-top: 6px; font-size: 14px; color: var(--pmh-blue); font-weight: 600; }
-
-/* v03 — AutoScout24 검색 카드 응용 (as24 실측: 카드 반경 16 · 안쪽 24/32 · 탭 20/700 · 16/400 · 한 줄 3칸 높이 40 · 간격 8 · 그림 120×73) */
-.as24 { background: #fff; border-radius: 16px; padding: 24px 28px 20px; box-shadow: 0 0 2px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.05); }
-.as24-tabs { display: flex; gap: 24px; align-items: flex-end; margin-bottom: 20px; overflow-x: auto; scrollbar-width: none; }
-.as24-tabs button { flex: 0 0 auto; padding: 0 0 6px !important; font-size: 16px; line-height: 24px; font-weight: 400; color: #333; border-bottom: 2px solid transparent !important; }
-.as24-tabs button.is-on { font-size: 20px; line-height: 28px; font-weight: 700; color: #222; border-bottom-color: #222 !important; }
-.as24-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
-.as24-select { position: relative; height: 48px; border: 1px solid #8c8c8c !important; border-radius: 6px; background: #fff !important; display: flex; align-items: center; justify-content: space-between; padding: 0 12px 0 14px !important; font-size: 16px; color: #222; text-align: left; }
-.as24-select:disabled { color: #b7b7b7; border-color: #dadada !important; cursor: default; }
-.as24-select.is-filled { border-color: #222 !important; font-weight: 600; }
-.as24-select span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.as24-select svg { flex: 0 0 auto; color: #595959; }
-.as24-region select { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
-.as24-region { cursor: pointer; }
-.as24-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-.as24-cta { height: 48px; border-radius: 8px; background: var(--pmh-blue) !important; color: #fff !important; font-size: 16px; font-weight: 700; }
-.as24-cta:hover { background: var(--pmh-blue-hover) !important; }
-.as24-more-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 12px; }
-.as24-more-row a { grid-column: 3; text-align: center; font-size: 15px; font-weight: 600; color: var(--pmh-blue); }
-.as24-more-row a:hover { text-decoration: underline; }
-.as24-type-title { margin: 12px 0 10px; font-size: 16px; line-height: 22px; font-weight: 700; }
-.as24-types { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 4px; }
-.as24-types a { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 6px 0 8px; border-radius: 10px; font-size: 14px; line-height: 20px; font-weight: 600; color: #333; text-align: center; }
-.as24-types a:hover { background: #f7f7f7; }
-.as24-types span { width: 100%; height: 54px; display: flex; align-items: flex-end; justify-content: center; }
-.as24-types img { max-width: 88px; max-height: 54px; object-fit: contain; object-position: center bottom; }
-
-.as24-layer { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; }
-.as24-dim { position: absolute; inset: 0; background: rgba(0,0,0,.5) !important; cursor: default; }
-.as24-modal { position: relative; width: min(480px, calc(100vw - 48px)); max-height: calc(100vh - 96px); display: flex; flex-direction: column; background: #fff; border-radius: 16px; overflow: hidden; }
-.as24-modal header { height: 64px; flex: 0 0 auto; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 12px; }
-.as24-modal header h2 { text-align: center; font-size: 18px; line-height: 26px; font-weight: 700; }
-.as24-icon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 10px; color: #222; }
-.as24-icon:hover { background: #f4f4f4 !important; }
-.as24-modal-search { margin: 0 16px 8px; height: 44px; border-radius: 999px; background: #f4f4f4; display: flex; align-items: center; gap: 8px; padding: 0 16px; }
-.as24-modal-search input { flex: 1; border: 0; outline: 0; background: transparent; font: inherit; font-size: 15px; }
-.as24-modal-body { flex: 1 1 auto; overflow-y: auto; padding: 4px 16px 8px; }
-.as24-modal-body h3 { font-size: 16px; line-height: 22px; font-weight: 700; padding: 8px 0; }
-.as24-modal-body ul { list-style: none; }
-.as24-modal-body li button { width: 100%; height: 44px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #ebebeb !important; font-size: 15px; color: #222; text-align: left; }
-.as24-modal-body li button span { flex: 1; }
-.as24-modal-body li button em { font-style: normal; font-size: 13px; color: #8c8c8c; }
-.as24-modal-body li button.is-on { font-weight: 700; }
-.as24-modal-body li button.is-on span::after { content: " ✓"; color: var(--pmh-blue); }
-.as24-modal-body li button svg { color: #595959; }
-.as24-modal footer { flex: 0 0 auto; height: 80px; display: grid; grid-template-columns: 92px 1fr; gap: 10px; align-items: center; padding: 0 20px; border-top: 1px solid #ebebeb; }
-.as24-reset { height: 52px; font-size: 15px; font-weight: 600; color: #222; }
-.as24-reset:disabled { color: #b7b7b7; cursor: default; }
-.as24-modal footer .as24-cta { height: 52px; border-radius: 12px; }
+.pmh-full { padding-bottom: 80px; }
+.pmh-full .pmh-sec { margin-top: 72px; }
+.pmh-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 36px 24px; }
+/* 네이버 증권 랭킹 칩처럼: 선택 = 검정 채움, 나머지 = 회색 테두리 */
+.pmh-seg { gap: 6px; margin-left: 12px; }
+.pmh-seg button { height: 32px; padding: 0 12px !important; border: 1px solid #d9dce1 !important; border-radius: 6px; font-size: 14px; line-height: 30px; font-weight: 500; color: #404040; }
+.pmh-seg button:hover { border-color: #222 !important; color: #222; }
+.pmh-seg button.is-on { background: #222 !important; border-color: #222 !important; color: #fff; font-weight: 600; }
+.pmh-sec > .pmh-seg { margin: -6px 0 20px; }
