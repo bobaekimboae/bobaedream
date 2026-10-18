@@ -328,3 +328,41 @@
 .bbm-catalog-search.is-chotot > input, .bbm-catalog-search.is-kaidee > input { height: 100%; outline: none !important; box-shadow: none !important; }
 .bbm-catalog-search.is-chotot .bbm-catalog-search-clear, .bbm-catalog-search.is-kaidee .bbm-catalog-search-clear { width: 20px !important; height: 20px !important; border: 0 !important; background: #c4c4c4 !important; color: #fff !important; font-size: 15px; line-height: 20px; }
 .bbm-header.is-search-chotot, .bbm-header.is-search-kaidee { box-shadow: 0 1px 0 #efefef; }
+
+/* 2026-10-18 GNB·LNB 시안 (?lnb=a|b|c). 공통: GNB를 칩 대신 글자 탭 + 선택 밑줄(엔카 방식) */
+html[data-lnb] .marketplace .bbm-gnb { gap: 28px; }
+html[data-lnb] .marketplace .bbm-gnb > button,
+html[data-lnb] .marketplace .bbm-gnb > .bbm-vehicle-search-wrap > button,
+html[data-lnb] .marketplace .bbm-gnb > .bbm-gnb-more-wrap > button,
+html[data-lnb] .marketplace .bbm-gnb button.is-active,
+html[data-lnb] .marketplace .bbm-gnb .bbm-gnb-more,
+html[data-lnb] .marketplace .bbm-gnb .bbm-gnb-more.is-active { align-self: stretch; height: 49px; padding: 0; border-radius: 0; background: none; color: #555; font-size: 16px; font-weight: 600; }
+html[data-lnb] .marketplace .bbm-gnb > button:hover,
+html[data-lnb] .marketplace .bbm-gnb > .bbm-vehicle-search-wrap > button:hover,
+html[data-lnb] .marketplace .bbm-gnb > .bbm-gnb-more-wrap > button:hover { background: none; color: #222; }
+html[data-lnb] .marketplace .bbm-gnb button.is-active,
+html[data-lnb] .marketplace .bbm-gnb .bbm-gnb-more.is-active { color: #222; font-weight: 700; }
+html[data-lnb] .marketplace .bbm-gnb button.is-active::after,
+html[data-lnb] .marketplace .bbm-gnb .bbm-gnb-more.is-active::after { content: ""; position: absolute; right: 0; bottom: 0; left: 0; display: block; height: 2px; background: #222; }
+html[data-lnb] .marketplace .bbm-gnb .bbm-gnb-more-menu button,
+html[data-lnb] .marketplace .bbm-gnb .bbm-vehicle-type-option { height: 38px; color: #222; font-size: 14px; }
+
+/* B: LNB도 글자(작게·회색), 칩은 필터 전용. 필터 줄의 카테고리 칩은 LNB와 겹쳐 숨김 */
+html[data-lnb="b"] .marketplace .bbm-secondary-nav { height: 44px; margin: 0 0 8px; }
+html[data-lnb="b"] .marketplace .bbm-snb { gap: 22px; }
+html[data-lnb="b"] .marketplace .bbm-snb button { height: 44px; padding: 0; border: 0; border-radius: 0; background: none; color: #767676; font-size: 15px; font-weight: 500; }
+html[data-lnb="b"] .marketplace .bbm-snb button:hover { background: none; color: #222; }
+html[data-lnb="b"] .marketplace .bbm-snb button.is-current { border: 0; background: none; color: #222; font-weight: 700; }
+html[data-lnb="b"] .marketplace .bbm-ct-chip-row .is-category-chip,
+html[data-lnb="c"] .marketplace .bbm-ct-chip-row .is-category-chip { display: none; }
+
+/* C: LNB 줄 없음. 카드 제목 「중고차 ▾」를 누르면 하위 메뉴 */
+html[data-lnb="c"] .marketplace .bbm-secondary-nav { display: none; }
+.bbm-lnb-title { position: relative; }
+.bbm-lnb-title-button { display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none; color: #222; font: inherit; cursor: pointer; }
+.bbm-lnb-title-button .bbm-lnb-title-sub { margin-left: 2px; color: #306bd9; }
+.bbm-lnb-title-button .bbm-lnb-title-sub::before { content: "·"; margin-right: 4px; color: #b0b0b0; }
+.bbm-lnb-title-menu { position: absolute; z-index: 40; top: calc(100% + 8px); left: -8px; display: grid; min-width: 200px; padding: 6px; border: 1px solid #ebebeb; border-radius: 12px; background: #fff; box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+.bbm-lnb-title-menu button { display: flex; height: 40px; align-items: center; padding: 0 12px; border: 0; border-radius: 8px; background: none; color: #222; font-size: 15px; font-weight: 500; text-align: left; white-space: nowrap; }
+.bbm-lnb-title-menu button:hover { background: #f7f7f7; }
+.bbm-lnb-title-menu button.is-current { background: #f7f7f7; font-weight: 700; }

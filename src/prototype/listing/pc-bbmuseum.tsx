@@ -106,6 +106,44 @@ export function BbSecondaryNav({ category, categoryDetail, onChooseCategory }: {
     </div>
   );
 }
+/* 2026-10-18 GNB·LNB 시안: 기본=칩 2겹, ?lnb=a(엔카형: GNB 글자 탭) · b(GNB 글자 탭 + LNB 작은 글자 탭, 칩은 필터 전용) · c(LNB 줄 없이 제목 ▾ 드롭다운) */
+export type BbLnbVariant = "default" | "a" | "b" | "c";
+export function bbLnbVariant(): BbLnbVariant {
+  if (typeof window === "undefined") return "default";
+  const value = new URLSearchParams(window.location.search).get("lnb");
+  return value === "a" || value === "b" || value === "c" ? value : "default";
+}
+export function BbLnbTitleMenu({ title, category, categoryDetail, onChooseCategory }: { title: string; category: string; categoryDetail: string | null; onChooseCategory: (category: string, detail?: string) => void }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const activeItem = bbActiveGnbItem(category);
+  const items = bbGnbSubmenus[activeItem] ?? bbGnbSubmenus.차량검색;
+  const current = items.find((item) => item.category === category && (item.detail ? item.detail === categoryDetail : !categoryDetail));
+  useEffect(() => {
+    if (!open) return;
+    const close = (event: globalThis.MouseEvent) => { if (!ref.current?.contains(event.target as Node)) setOpen(false); };
+    const esc = (event: globalThis.KeyboardEvent) => { if (event.key === "Escape") setOpen(false); };
+    document.addEventListener("mousedown", close);
+    document.addEventListener("keydown", esc);
+    return () => { document.removeEventListener("mousedown", close); document.removeEventListener("keydown", esc); };
+  }, [open]);
+  return (
+    <div className="bbm-lnb-title" ref={ref}>
+      <h1 className="bbm-ct-title bbm-summary">
+        <button type="button" className="bbm-lnb-title-button" aria-haspopup="menu" aria-expanded={open} onClick={() => setOpen((value) => !value)}>
+          <span>{title}</span>{current && current.label !== title && !current.label.includes("전체") ? <span className="bbm-lnb-title-sub">{current.label}</span> : null}
+          <BbIcon name="chevron-down" size={20} />
+        </button>
+      </h1>
+      {open ? <div className="bbm-lnb-title-menu" role="menu">
+        {items.map((item) => {
+          const isCurrent = item === current;
+          return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" role="menuitem" className={isCurrent ? "is-current" : ""} aria-current={isCurrent ? "page" : undefined} onClick={() => { setOpen(false); onChooseCategory(item.category, item.detail); }}>{item.label}</button>;
+        })}
+      </div> : null}
+    </div>
+  );
+}
 // QF-091: 헤더 아이콘·로고는 개발 시안 원본 파일(public/assets/bbm/)
 /* 2026-10-17 PC 메인 검색바 시안: 기본=비엑람똣형 블루 CTA, ?pcsearch=chotot(초톳 xe.chotot.com) · ?pcsearch=kaidee(카이디 kaidee.com) 비교안 */
 export type BbSearchVariant = "default" | "chotot" | "kaidee";
@@ -136,6 +174,13 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
   const logoLanguage = bbLogoLanguage();
   const isMember = authState === "member";
   const activeItem = bbActiveGnbItem(category);
+
+  useEffect(() => {
+    const lnb = bbLnbVariant();
+    if (lnb === "default") return;
+    document.documentElement.dataset.lnb = lnb;
+    return () => { delete document.documentElement.dataset.lnb; };
+  }, []);
 
   useEffect(() => {
     if (!moreOpen) return;
