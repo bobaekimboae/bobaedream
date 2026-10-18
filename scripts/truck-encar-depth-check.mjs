@@ -59,7 +59,8 @@ const topCardMetrics = await page.evaluate(() => {
     lastRight: lastRect?.right ?? 0,
   };
 });
-assert(topCardMetrics.childClasses[0] === "bbm-ct-region-row" && topCardMetrics.childClasses[1] === "bbm-ct-chip-row" && topCardMetrics.childClasses[2] === "bbm-quick-slot", `상단 줄 순서 오류: ${JSON.stringify(topCardMetrics.childClasses)}`);
+assert(topCardMetrics.childClasses[0] === "bbm-ct-chip-row" && topCardMetrics.childClasses[1] === "bbm-quick-slot", `상단 줄 순서 오류: ${JSON.stringify(topCardMetrics.childClasses)}`);
+assert(await page.locator('.bbm-content-head.is-chotot .bbm-ct-region-row').count() === 0, "필터칩과 중복되는 별도 지역 행이 남아 있음");
 assert(await page.locator('.bbm-ct-chip-row .filter-chip').filter({ hasText: "트럭 · 특장" }).count() === 0, "GNB와 중복된 트럭 · 특장 칩이 남아 있음");
 assert(topCardMetrics.trackScrollWidth <= topCardMetrics.trackClientWidth + 1, `1280px에서 트럭 유형이 가로로 넘침: ${JSON.stringify(topCardMetrics)}`);
 assert(topCardMetrics.lastRight <= topCardMetrics.cardRight, `마지막 트럭 유형이 카드 밖으로 잘림: ${JSON.stringify(topCardMetrics)}`);
