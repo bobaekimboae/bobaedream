@@ -78,9 +78,6 @@
 .bbm-card-photo { position: relative; flex: none; overflow: hidden; background: var(--bbm-photo-bg); }
 .bbm-card-photo > img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .bbm-card-photo > img.is-catalog { padding: 6px; box-sizing: border-box; background: #fff; object-fit: contain; }
-.bbm-card-photo-seller { position: absolute; z-index: 2; top: 8px; left: 8px; display: flex; max-width: calc(100% - 16px); height: 28px; align-items: center; gap: 6px; padding: 3px 9px 3px 3px; border: 1px solid rgba(34, 34, 34, 0.1); border-radius: 999px; box-sizing: border-box; background: rgba(255, 255, 255, 0.94); box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12); color: #222; font-size: 11px; font-weight: 600; line-height: 16px; backdrop-filter: blur(4px); }
-.bbm-card-photo-seller > img { display: block; width: 20px; height: 20px; flex: none; border-radius: 50%; object-fit: cover; }
-.bbm-card-photo-seller > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .bbm-card-media-footer { position: absolute; right: 0; bottom: 0; left: 0; display: flex; align-items: center; justify-content: space-between; box-sizing: border-box; background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)); color: #fff; }
 .bbm-card-count { display: inline-flex; align-items: center; gap: 2px; font-size: 11px; font-weight: 600; line-height: 12px; }
 .bbm-card-count img { width: 12px; height: 12px; }
@@ -100,7 +97,6 @@
 .bbm-card-location-text { display: flex; min-width: 0; gap: 4px; }
 .bbm-card-location-secondary { color: var(--list-secondary); }
 .bbm-card-meta-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.bbm-card-meta-row.is-actions-only { justify-content: flex-end; }
 .bbm-card-seller { display: flex; min-width: 0; align-items: center; gap: 8px; }
 .bbm-card-seller-logo { display: block; width: 20px; height: 20px; flex: none; overflow: hidden; border-radius: 50%; background: var(--bbm-text); object-fit: cover; object-position: center; }
 .bbm-card-seller-text { display: flex; min-width: 0; overflow: hidden; align-items: center; gap: 4px; font-size: 12px; line-height: 16.8px; }

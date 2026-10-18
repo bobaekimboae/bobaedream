@@ -677,15 +677,6 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
   const headlineTone = car.uiTest ? getHeadlineTone() : "default";
   const headline = car.uiTest ? <strong className={`bbm-card-headline is-${headlinePosition}${headlineTone === "blue" ? " is-blue" : ""}`}>{car.uiTest.headline}</strong> : null;
   const alt = car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim();
-  // PC 바이크 목록은 판매자 정보를 본문 한 줄로 두지 않고 썸네일 위에 고정한다.
-  // 상호 길이와 판매자 유형이 달라도 본문 및 카드 구분선의 세로 리듬이 일정해진다.
-  const sellerOnPhoto = variant === "pc" && Boolean(car.bike) && !featured && !detailSummary;
-  const photoSeller = sellerOnPhoto ? (
-    <span className="bbm-card-photo-seller">
-      <img src={asset(sellerAvatar(car))} alt="" aria-hidden="true" draggable={false} />
-      <span>{seller}</span>
-    </span>
-  ) : null;
   const timeFooter = <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span></div>;
   const photo = featured && car.image && feedPhotos && feedPhotos.length > 1 ? (
     <div className="bbm-card-photo is-carousel">
@@ -696,7 +687,6 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
     <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`}>
       {car.image && car.listCrop && car.listCrop[0] === 100 && !listPhoto ? <img className="bbm-card-photo-fill" src={asset(car.image)} alt="" aria-hidden="true" draggable={false} loading={eagerPhoto ? "eager" : "lazy"} decoding="async" /> : null}
       {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(listPhoto ?? car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} loading={eagerPhoto ? "eager" : "lazy"} decoding="async" style={car.listCrop && !listPhoto ? { position: "absolute", width: `${car.listCrop[0]}%`, height: `${car.listCrop[1]}%`, left: `${car.listCrop[2]}%`, top: `${car.listCrop[3]}%`, objectFit: "fill" } : { objectPosition: listPhoto ? "center center" : car.imagePosition ?? "center center" }} /> : null}
-      {photoSeller}
       <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span></div>
     </div>
   );
@@ -710,11 +700,11 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
   );
   const titleSlot = detailSummary ? <div className="bbm-card-detail-title-row">{title}{wishButton}</div> : title;
   const sellerRow = (
-    <div className={`bbm-card-meta-row${variant === "mobile" ? " bbm-card-mobile-footer" : ""}${sellerOnPhoto ? " is-actions-only" : ""}`}>
-      {sellerOnPhoto ? null : <div className="bbm-card-seller">
+    <div className={`bbm-card-meta-row${variant === "mobile" ? " bbm-card-mobile-footer" : ""}`}>
+      <div className="bbm-card-seller">
         <img className="bbm-card-seller-logo" src={asset(featured ? sellerRealPhoto(car) : sellerAvatar(car))} alt="" draggable={false} />
         <div className="bbm-card-seller-text"><strong>{seller}{!featured && car.luxuryCategory?.certified ? <img className="bbm-card-verified" src={asset("bbm/verified-dealer-wavy-chotot-v01.svg")} alt="인증딜러" draggable={false} /> : null}</strong></div>
-      </div>}
+      </div>
       <div className="bbm-card-actions">
         {/* 피드 보기 전용(테스트 서버 car-list-feed-card__seller-action): 전화 · 채팅 · 찜 20, 간격 24. 다른 보기에서는 CSS로 숨김 */}
         {featured ? <>
@@ -737,7 +727,7 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
             {car.bike?.listingTitle ? <span className="bbm-card-listing-title">{car.bike.listingTitle}</span> : null}
             {headlinePosition === "after-model" ? headline : null}
             {prioritizeTruckCapacity ? <span className="bbm-card-spec is-capacity is-priority">{specCapacity}</span> : null}
-            <span className={`bbm-card-spec${prioritizeTruckCapacity ? " is-secondary" : ""}${car.adDescription ? " is-ad-description" : ""}`}>{car.adDescription ?? (featured ? renderFeedSpec(specMain) : specMain)}{car.adDescription || sellerOnPhoto ? null : <span className="bbm-card-spec-seller"> · {seller}</span>}</span>
+            <span className={`bbm-card-spec${prioritizeTruckCapacity ? " is-secondary" : ""}${car.adDescription ? " is-ad-description" : ""}`}>{car.adDescription ?? (featured ? renderFeedSpec(specMain) : specMain)}{car.adDescription || (variant === "pc" && Boolean(car.bike)) ? null : <span className="bbm-card-spec-seller"> · {seller}</span>}</span>
             {!prioritizeTruckCapacity && !car.adDescription && specCapacity ? <span className="bbm-card-spec is-capacity">{specCapacity}</span> : null}
             <div className="bbm-card-price-badges">
               <strong className="bbm-card-price"><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</strong>
