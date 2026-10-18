@@ -858,6 +858,15 @@
   padding-top: 12px;
   padding-bottom: 12px;
 }
+.marketplace.is-truck-category.is-qf-guazi .truck-subtype-label {
+  flex: 0 0 auto;
+  align-self: center;
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+}
 .marketplace.is-truck-category.is-qf-guazi .depth-text-chip,
 .marketplace.is-truck-category.is-qf-guazi .depth-text-chip.is-title {
   width: auto;

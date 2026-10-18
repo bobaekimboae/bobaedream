@@ -1966,7 +1966,7 @@ function MarketplaceScreen() {
               </> : showWingbodyPillDepth ? <>
                 {wingbodyQuickSubtypes.map((subtype) => <TrimChip key={subtype} label={subtype} onClick={() => chooseTruckSubtype(subtype)} />)}
               </> : <>
-                <DepthTextChip label={"형식\n변경"} title onClick={clearTruckFormat} />
+                <span className="truck-subtype-label">유형:</span>
                 {truckSubtypeOptions.map((subtype) => {
                   const secondaryLabel = truckSubtypeSecondaryLabel(selectedTruckFormat, subtype);
                   return <DepthTextChip key={subtype} label={desktop ? subtype : truckQuickLabel(subtype)} sub={secondaryLabel ?? undefined} onClick={() => chooseTruckSubtype(subtype)} />;
