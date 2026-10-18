@@ -2527,7 +2527,7 @@ function MarketplaceScreen() {
   const otherApplied = bbmApplied.filter((chip) => !fixedSlotAppliedIds.has(chip.id));
   const bbmChips: BbmChip[] = ([
     // 기본 중고차 목록의 실제 선택값은 상위 그룹 "중고차"가 아니라 하위 "전체차량"이다.
-    desktop && isGuaziQuickStyle && showDefaultCategoryLnb ? null : chipByKey("category"),
+    desktop && isGuaziQuickStyle ? null : chipByKey("category"),
     // 건설기계 퀵필터 3단계: 제조사 로고 → 모델 이미지 → 세부모델·세부 형식 이미지
     ...(isHeavyCategory ? [
       heavySelection.manufacturerCode
@@ -2881,19 +2881,25 @@ function MarketplaceScreen() {
     const lnbVariant = bbLnbVariant();
     const bbmTopCard = (
       <section className={`bbm-content-head is-chotot${showCategoryQuickRail ? " has-category-menu" : ""}`} aria-label="검색 조건">
-        {(lnbVariant === "default" && !showDefaultCategoryLnb) || lnbVariant === "c"
+        {lnbVariant === "c"
           ? <BbBreadcrumb category={category} categoryDetail={category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild} onChooseCategory={chooseHierarchyCategory} />
           : null}
-        <div className="bbm-ct-title-row">
+        {lnbVariant === "default" ? (
+          <div className="bbm-ct-banner">{/* 포쉬마크식 카테고리 헤더 배너(2026-10-18) */}
+            <h1 className="bbm-ct-banner-title bbm-summary" data-count={shownCars.length}>{category === "중고차" ? "전체 중고차" : stablePageTitle(category)}</h1>
+            <button type="button" className={`bbm-save-search bbm-ct-save${searchSaved ? " is-saved" : ""}`} aria-pressed={searchSaved} onClick={toggleSearchSaved}><img src={bbmIcon("search-save")} alt="" aria-hidden="true" />검색저장</button>
+          </div>
+        ) : null}
+        {lnbVariant === "default" && !showDefaultCategoryLnb ? null : <div className="bbm-ct-title-row">
           {/* QF-106: 제목은 상단 메뉴 카테고리 이름으로 고정(대수·날짜·칩 조건 없음). 탭 제목은 그대로 */}
           {lnbVariant === "f" || (lnbVariant === "default" && showDefaultCategoryLnb)
             ? <BbLnbTitleTabs category={category} categoryDetail={category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild} onChooseCategory={chooseHierarchyCategory} />
             : lnbVariant === "c"
             ? <BbLnbTitleMenu title={stablePageTitle(category)} category={category} categoryDetail={category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild} onChooseCategory={chooseHierarchyCategory} />
             : <h1 className="bbm-ct-title bbm-summary" data-count={shownCars.length}>{category === "중고차" ? "전체 중고차" : stablePageTitle(category)}</h1>}
-          <button type="button" className={`bbm-save-search bbm-ct-save${searchSaved ? " is-saved" : ""}`} aria-pressed={searchSaved} onClick={toggleSearchSaved}><img src={bbmIcon("search-save")} alt="" aria-hidden="true" />검색저장</button>
-        </div>
-        <p className="bbm-ct-desc">{bbmCategoryDescription(category)}</p>
+          {lnbVariant === "default" ? null : <button type="button" className={`bbm-save-search bbm-ct-save${searchSaved ? " is-saved" : ""}`} aria-pressed={searchSaved} onClick={toggleSearchSaved}><img src={bbmIcon("search-save")} alt="" aria-hidden="true" />검색저장</button>}
+        </div>}
+        {lnbVariant !== "default" ? <p className="bbm-ct-desc">{bbmCategoryDescription(category)}</p> : null}
         {lnbVariant === "e" ? <BbSecondaryNav category={category} categoryDetail={category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild} onChooseCategory={chooseHierarchyCategory} /> : null}
         <div className="bbm-ct-chip-row">
           <div className="bbm-chips">
