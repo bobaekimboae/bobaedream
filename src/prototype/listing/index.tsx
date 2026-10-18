@@ -524,8 +524,10 @@ function BbmCatalogHeaderSearch({ query, setQuery, searchPlaceholder, catalogRec
   }, [catMode, catOpen, searchOpen]);
   if (catMode) {
     const popular = bbSearchPopular[catValue] ?? bbSearchPopular["전체"];
-    const posh = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("pcsearch") === "posh";
-    return <div className={`bbm-catalog-search is-main is-cat${posh ? " is-posh" : ""}`} ref={catRef}>
+    const poshParam = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("pcsearch") : null;
+    const posh = poshParam === "posh" || poshParam === "posh2";
+    const poshBlue = poshParam === "posh2";
+    return <div className={`bbm-catalog-search is-main is-cat${posh ? " is-posh" : ""}${poshBlue ? " is-posh-blue" : ""}`} ref={catRef}>
       <button type="button" className="bbm-search-cat" aria-haspopup="listbox" aria-expanded={catOpen} aria-label={`검색 범위 ${catLabel}, 바꾸기`} onClick={() => { setCatOpen((open) => !open); setSearchOpen(false); }}>
         <span>{catLabel}</span><BbIcon name="chevron-down" size={16} />
       </button>
@@ -533,7 +535,7 @@ function BbmCatalogHeaderSearch({ query, setQuery, searchPlaceholder, catalogRec
       {posh ? null : <ChototSearchIcon />}
       <KeyboardInput ref={inputRef} aria-label={`${catLabel}에서 검색`} value={query} placeholder={posh ? "어떤 차를 찾으세요?" : `${catLabel}에서 모델명, 트림 검색`} onFocus={() => { setSearchOpen(true); setCatOpen(false); onCatalogFocus?.(); }} onChange={(event) => { setQuery(event.currentTarget.value); setSearchOpen(true); onCatalogFocus?.(); }} onBlur={() => keyboard.hide()} />
       {query ? <button type="button" className="bbm-catalog-search-clear" aria-label="검색어 지우기" onPointerDown={(event) => event.preventDefault()} onClick={() => setQuery("")}>×</button> : null}
-      <button type="button" className="bbm-catalog-search-go" aria-label="검색" onPointerDown={(event) => event.preventDefault()} onClick={() => { if (!query.trim()) inputRef.current?.focus(); else { setSearchOpen(false); keyboard.hide(); } }}><ChototSearchIcon size={posh ? 22 : 16} /></button>
+      <button type="button" className="bbm-catalog-search-go" aria-label="검색" onPointerDown={(event) => event.preventDefault()} onClick={() => { if (!query.trim()) inputRef.current?.focus(); else { setSearchOpen(false); keyboard.hide(); } }}><ChototSearchIcon size={posh && !poshBlue ? 22 : 16} /></button>
       {catOpen ? <ul className="bbm-search-cat-menu" role="listbox" aria-label="검색 범위">
         {bbSearchCategories.map((item) => <li key={item.value}><button type="button" role="option" aria-selected={item.value === catValue} className={item.value === catValue ? "is-selected" : ""} onClick={() => { setCatOpen(false); if (item.value !== catValue) onChooseCategory?.(item.value); inputRef.current?.focus(); }}><span>{item.label}</span>{item.value === catValue ? <BbIcon name="check" size={16} /> : null}</button></li>)}
       </ul> : null}
