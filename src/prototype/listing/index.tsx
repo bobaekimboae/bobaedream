@@ -2192,6 +2192,40 @@ function MarketplaceScreen() {
   const bbmCategoryRootCounts = Object.fromEntries(
     bbmCategoryGroups.filter((group) => group.value !== "전체").map((group) => [group.value, bbmCategoryDraftCount(group.value, null)]),
   );
+  // 2026-10-19 「초톳처럼 우측에 필터 잡아라」: PC 전체 차량은 좌측 필터 대신 xe.chotot.com처럼 목록 오른쪽 300 칸에
+  // 흰 상자(반경 12 · 위아래 16) 묶음 — 차량 종류 · 지역 · 유용한 정보. 상자 제목 14/700 + 접기 꺾쇠, 항목 14/400 줄 높이 41.
+  const [allRailOpen, setAllRailOpen] = useState<Record<string, boolean>>({ type: true, region: true, info: true });
+  const allRailRegions = ["서울", "경기", "인천", "부산", "대구", "대전", "광주", "울산", "세종", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"];
+  const allRailTypes: Array<[string, string]> = [["중고차", "중고차"], ["테마별 중고차", "테마별 중고차"], ["트럭 · 특장", "트럭 · 특장"], ["바이크", "바이크"], ["캠핑카", "캠핑카"], ["건설기계", "건설기계"], ["자재운반장비", "자재운반장비"], ["부품 · 용품", "부품 · 용품"]];
+  const renderAllVehiclesRail = () => {
+    const selectedRegions = bbmValue.checks.region ?? [];
+    const toggleRegion = (sido: string) => {
+      const next = selectedRegions.includes(sido) ? selectedRegions.filter((r) => r !== sido) : [sido];
+      setBbmFilters({ ...bbmValue, checks: { ...bbmValue.checks, region: next } });
+    };
+    const box = (key: string, title: string, body: ReactNode) => (
+      <section className="bbm-all-rail-box" key={key} aria-label={title}>
+        <button type="button" className="bbm-all-rail-head" aria-expanded={allRailOpen[key]} onClick={() => setAllRailOpen((v) => ({ ...v, [key]: !v[key] }))}>
+          <span>{title}</span><i aria-hidden="true" />
+        </button>
+        {allRailOpen[key] ? body : null}
+      </section>
+    );
+    return (
+      <aside className="bbm-all-rail" aria-label="전체 차량 필터">
+        {box("type", "차량 종류", <ul>{allRailTypes.map(([label, value]) => {
+          const n = value === "테마별 중고차" ? bbmCategoryDraftCount(value, null) : bbmCategoryDraftCount(value, null);
+          return <li key={value}><button type="button" onClick={() => value === "테마별 중고차" ? setGroupRail("테마별 중고차") : chooseHierarchyCategory(value)}><span>{label}</span><em>{n.toLocaleString("ko-KR")}</em></button></li>;
+        })}</ul>)}
+        {box("region", "지역", <ul>{allRailRegions.map((sido) => {
+          const on = selectedRegions.includes(sido);
+          const n = countWithBbm({ ...bbmValue, checks: { ...bbmValue.checks, region: [sido] } });
+          return <li key={sido}><button type="button" aria-pressed={on} className={on ? "is-on" : ""} onClick={() => toggleRegion(sido)}><span>{sido}</span><em>{n.toLocaleString("ko-KR")}</em></button></li>;
+        })}</ul>)}
+        {box("info", "유용한 정보", <ul>{["허위매물 구별법", "매매 서류 안내", "이전비 계산"].map((t) => <li key={t}><button type="button" onClick={() => setSearchToast(`${t} 화면은 준비 중입니다.`)}><span>{t}</span></button></li>)}</ul>)}
+      </aside>
+    );
+  };
   // 필터 칩 줄과 퀵필터 레일은 모바일·PC가 같은 마크업을 쓰고, PC에서는 필터 헤더 패널 안으로 위치만 옮긴다.
   const filterShell = (
           <section className={`filter-shell quick-style-${quickFilterStyle}${activeFilterCount ? " has-active-filters" : ""}`} aria-label="중고차 필터">
@@ -3278,6 +3312,7 @@ function MarketplaceScreen() {
                   {isGuaziQuickStyle && shownCars.length ? <BbmPagination page={bbmPageNow} total={bbmPageCount} windowSize={10} onChange={goBbmPage} /> : null}
                 </section>
               </div>
+              {allVehiclesWide ? renderAllVehiclesRail() : null}
             </div>
             {isGuaziQuickStyle ? <BbmFooter onNotify={setSearchToast} /> : null}
           </main>

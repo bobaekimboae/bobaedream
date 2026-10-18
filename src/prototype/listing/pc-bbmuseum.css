@@ -690,7 +690,19 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
   html .marketplace.is-bbm .bbm-header.is-gnb-searchpill-blue .bbm-gnb > .bbm-vehicle-search-wrap > button .bb-icon { width: 24px; height: 24px; color: #222; }
 }
 
-/* 2026-10-19 전체 차량(PC): 좌측 필터 없이 목록을 1200 전체 폭으로 */
+/* 2026-10-19 전체 차량(PC): 좌측 필터 없이 목록 + 오른쪽 초톳식 필터 칸 300 (xe.chotot.com 1536 실측: 목록 876 · 간격 24 · 우 300) */
 @media (min-width: 1024px) {
-  .marketplace.is-bbm.is-hybrid.is-all-vehicles-wide .bbm-page { grid-template-columns: minmax(0, 1fr); }
+  .marketplace.is-bbm.is-hybrid.is-all-vehicles-wide .bbm-page { grid-template-columns: minmax(0, 1fr) 300px; gap: 24px; }
+  .bbm-all-rail { display: flex; flex-direction: column; gap: 12px; }
+  .bbm-all-rail-box { background: #fff; border-radius: 12px; padding: 16px 0; }
+  .bbm-all-rail-head { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 16px 8px; border: 0; background: none; font: inherit; font-size: 14px; line-height: 20px; font-weight: 700; color: #222; cursor: pointer; }
+  .bbm-all-rail-head i { width: 7px; height: 7px; margin-right: 4px; border-left: 1.6px solid #222; border-top: 1.6px solid #222; transform: translateY(2px) rotate(45deg); transition: transform .15s; }
+  .bbm-all-rail-head[aria-expanded="false"] i { transform: translateY(-2px) rotate(225deg); }
+  .bbm-all-rail ul { list-style: none; margin: 0; padding: 0; }
+  .bbm-all-rail li button { width: 100%; height: 41px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border: 0; background: none; font: inherit; font-size: 14px; line-height: 21px; font-weight: 400; color: #222; text-align: left; cursor: pointer; }
+  .bbm-all-rail li button:hover { background: #f7f7f7; }
+  .bbm-all-rail li button span { flex: 1; }
+  .bbm-all-rail li button em { font-style: normal; font-size: 13px; color: #8c8c8c; }
+  .bbm-all-rail li button.is-on { font-weight: 700; }
+  .bbm-all-rail li button.is-on span::after { content: ""; display: inline-block; width: 5px; height: 9px; margin-left: 8px; border-right: 2px solid #222; border-bottom: 2px solid #222; transform: translateY(-2px) rotate(45deg); }
 }
