@@ -48,9 +48,10 @@
 
 ## Summary Chips And Top Rail
 
+- PC header wordmark balance (2026-10-18): the default listing header uses Korean `보배드림` in `#222` beside the existing 30px blue circular emblem. Search and `판매하기` remain blue, while GNB/icon copy remains black, so blue is reserved for identity and primary actions. The shorter Korean lockup is the production default; `&pclogo=en` keeps the former English wordmark as a comparison-only preview.
 - Guazi 필터 버튼 아이콘은 노션 `0_0_필터 FilterHeader`의 원본 SVG를 `public/assets/bbm/chip-filter-header.svg`에 적용한다. 24×24 viewBox 안의 세 조절선이며 위·아래 핸들은 x=8, 가운데 핸들은 x=16이다. PC와 모바일이 같은 파일을 20×20px로 표시한다. 파일명을 별도로 두어 이전 브라우저 캐시와 구분한다. 이전 깔때기·단순 조절선·비교용 아이콘은 기본안으로 사용하지 않는다.
-- Top chip order (2026-10-18 classified-site audit): `[필터] [중고차/카테고리] [세부 차종·선택 단계] [제조사] [가격] [연식] [주행거리] [연료] [판매자]`. 사용자가 대상을 먼저 좁히고 예산·차량 상태·판매 주체 순으로 결정하도록 배치한다. 지역은 PC 상단 칩에 중복 노출하지 않고 전체 필터에 둔다.
-- Guazi: before a manufacturer, PC uses `[필터] [전체차량] [제조사] [가격] [연식] [주행거리] [연료] [판매자]`; after a manufacturer, category-specific steps and the selected maker/model/generation/trim chips stay between category and the price slot. Price, year, mileage, fuel, and seller applied chips remain in their semantic slots instead of jumping into the general applied-chip group. Mobile keeps its existing compact omissions (no empty mileage chip and no seller chip). The summary chip keeps its 220px max width, clear, and depth-return behavior.
+- Top chip order (2026-10-18 classified-site audit, 지역·매매단지 추가): `[필터] [중고차/카테고리] [세부 차종·선택 단계] [제조사] [가격] [연식] [주행거리] [연료] [판매자] [지역] [매매단지]`. 사용자가 대상을 먼저 좁히고 예산·차량 상태·판매 주체를 정한 뒤 거래 위치를 좁히도록 배치한다. 지역과 매매단지는 각각 기존 전체 필터 패널을 재사용한다.
+- Guazi: before a manufacturer, PC uses `[필터] [전체차량] [제조사] [가격] [연식] [주행거리] [연료] [판매자] [지역] [매매단지]`; after a manufacturer, category-specific steps and the selected maker/model/generation/trim chips stay between category and the price slot. Price, year, mileage, fuel, seller, region/district, and complex applied chips remain in their semantic slots instead of jumping into the general applied-chip group. Mobile keeps its existing compact omissions (no empty mileage, seller, region, or complex chip) while applied values can still appear. The summary chip keeps its 220px max width, clear, and depth-return behavior.
 - Guazi (QF-091): the category landing shows the original circular vehicle-type row instead of the depth-0 type cards. Choosing a type swaps the same slot to the quick-filter rail from the manufacturer step; clearing the category chip brings the type row back. Rail, DepthCard, and trim chip specs are unchanged.
 - Show `연식` until generation selection; hide it after generation selection.
 - Always show `색상`.
@@ -235,7 +236,7 @@
 
 ## PC Mileage Chip Modal (QF-118)
 
-- Guazi PC (1024+) top chip row: `필터 · 중고차 · 제조사 · 가격 · 연식 · 주행거리 · 연료 · 판매자` (2026-10-18 classified-site priority). The `주행거리 ▾` chip uses the same chip spec; with a value it is replaced in place by the black applied chip (`1만km 이하` · `3~6만km` · `3.5~8만km` · `15만km 이상` + ×, mileage only) and counts in `필터 N`. Mobile keeps no empty mileage chip.
+- Guazi PC (1024+) top chip row: `필터 · 중고차 · 제조사 · 가격 · 연식 · 주행거리 · 연료 · 판매자 · 지역 · 매매단지` (2026-10-18 classified-site priority). The `주행거리 ▾` chip uses the same chip spec; with a value it is replaced in place by the black applied chip (`1만km 이하` · `3~6만km` · `3.5~8만km` · `15만km 이상` + ×, mileage only) and counts in `필터 N`. Mobile keeps no empty mileage chip.
 - The chip opens `MileageFinalSheet variant="modal"` (same QF-117 part and QF-119 rules): centered, width `min(480px, 100vw − 48px)`, radius 16, max height `100vh − 96px` (only the body scrolls), 50% dim, page scroll locked with scrollbar-width compensation, 0.15s fade + 8px rise (none with reduced motion). Content = mobile sheet (header 64, inputs `1fr 12px 1fr` gap 10, chips 3 columns, footer 80); at 480 the grid gives inputs 208 and chips 144.
 - Draft starts from the applied value; `N대 보기` applies mileage only (list, chips, left sidebar); close, backdrop and Esc discard; 초기화 clears only the mileage draft. The list stays frozen while open.
 - Accessibility: `role="dialog"`, `aria-modal`, `aria-labelledby`, focus on close (preventScroll) when opened, Tab trapped, focus returns to the mileage chip (or its applied chip). Check: `node scripts/mileage-modal-check.mjs`.
@@ -246,7 +247,7 @@
 
 ## Seller Type Sheet
 
-- The `판매자` quick-filter chip is the final PC chip after `연료`, because seller type is a late-stage trust/transaction condition rather than the first vehicle-discovery condition. When applied, its dark applied chip stays in that final semantic slot. Mobile keeps seller type inside the full filter and its separate `개인 · 딜러` listing-control tabs.
+- The `판매자` quick-filter chip follows `연료` and precedes the location hierarchy `지역 → 매매단지`, because seller type and transaction location are late-stage conditions rather than first vehicle-discovery conditions. When applied, its dark applied chip stays in that semantic slot. Mobile keeps seller type inside the full filter and its separate `개인 · 딜러` listing-control tabs.
 - Guazi `판매자 유형` uses a 24px top-radius bottom sheet, `max-height: calc(100dvh - 36px)`, and `rgba(15,18,24,.48)` backdrop. Mobile is full width; PC preview is centered at the bottom with `max-width: 480px`. Header and footer stay fixed while only the body scrolls.
 - Header is 64 high with centered `판매자 유형` at 20/28 700 and a 1px `#E8E8E8` divider. Close control has a 44×44 hit area at top 10/right 16, a 24×24 visible X at 1.8px, and closes through the shared `BbmSheet` handler. Its history marker cleanup is Strict Mode-safe, so the sheet does not close immediately after opening in development.
 - Body starts 16 below the header and has 20 side padding. Rows are 56 high without a description and 68 with one. Layout is checkbox 20×20 → 12 gap → icon slot 32×32 (visible SVG max 24×24) → 12 gap → copy → right count. Title is 16/22 600, description 13/18 400, count 13/18 500. Dividers start at the title column and use `#E8E8E8`; the last row has none.

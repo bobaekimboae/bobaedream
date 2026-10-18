@@ -56,8 +56,8 @@ export function bbSearchVariant(): BbSearchVariant {
 }
 type BbLogoLanguage = "en" | "ko";
 function bbLogoLanguage(): BbLogoLanguage {
-  if (typeof window === "undefined") return "en";
-  return new URLSearchParams(window.location.search).get("pclogo") === "ko" ? "ko" : "en";
+  if (typeof window === "undefined") return "ko";
+  return new URLSearchParams(window.location.search).get("pclogo") === "en" ? "en" : "ko";
 }
 type BbAuthState = "guest" | "member";
 function bbAuthState(): BbAuthState {

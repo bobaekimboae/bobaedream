@@ -5423,3 +5423,24 @@ final result: passed
 
 final result: passed
 
+---
+
+## 2026-10-18 PC Korean Header + Location Chips
+
+- Target: `C:/Users/bobae/.codex/generated_images/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/exec-94981483-e197-4e7c-bc81-91a401a05859.png`
+- Implementation screenshot: `reports/design-qa/header-ko-black-implementation.jpg`
+- Route: `/?qf=guazi&pc=1`
+- Viewport: 1440×1000
+- Browser: ChatGPT in-app browser
+
+### Comparison
+
+- Composition: passed — the header keeps the target's compact left lockup, wide centered search field, right-side account actions, and black secondary GNB.
+- Branding: passed — default wordmark is the shorter Korean `보배드림`, the word is `#222`, and the existing circular emblem remains blue.
+- Color hierarchy: passed — blue is concentrated on the emblem, search action, and `판매하기`; navigation and utility icons remain black.
+- Typography and density: passed — Korean wordmark renders at 20/24, weight 800, without forcing the search or account controls out of alignment.
+- Product-specific additions: passed — the production screen keeps the requested `지역 → 매매단지` chips after `판매자`; these were not present in the earlier visual target.
+- Responsive/interaction check: passed — region and complex chips each open their corresponding dialog, and the PC top row remains on one line at 1440px.
+
+final result: passed
+
