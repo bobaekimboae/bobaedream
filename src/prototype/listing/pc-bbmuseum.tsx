@@ -31,6 +31,7 @@ const bbGnbItems: readonly BbGnbItem[] = [
   { label: "홈", action: "home" },
   { label: "차량검색", category: "전체" },
   { label: "중고차", category: "중고차" },
+  { label: "수입차", category: "수입차" },
   { label: "트럭", category: "트럭 · 특장" },
   { label: "중기", category: "건설기계" },
   { label: "바이크", category: "바이크" },
@@ -40,7 +41,6 @@ const bbGnbItems: readonly BbGnbItem[] = [
 ];
 const bbGnbMoreItems: readonly BbGnbItem[] = [
   { label: "캠핑카", category: "캠핑카" },
-  { label: "수입차", category: "수입차" },
   { label: "자재운반장비", category: "자재운반장비" },
   { label: "올드카", category: "올드카" },
 ];
