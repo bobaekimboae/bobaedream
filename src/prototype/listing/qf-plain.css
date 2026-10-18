@@ -104,7 +104,7 @@
 .marketplace.is-qf-plain .depth-card:has(> .depth-card-media.is-brand > .kr-all-brands) .depth-card-label { color: #222; font-weight: 600; }
 
 /* PC 국산차·수입차: 초톳 아이콘 슬롯처럼 로고 캔버스 뒤 14px에서 이름을 시작한다.
-   카드 상단 기준 이름 y=60으로 맞춰 한 줄 라벨 아래 공백을 37px로 고정한다. */
+   한 줄 브랜드명은 90px 슬롯과 결합해 카드 하단의 빈 면적을 과도하게 만들지 않는다. */
 .marketplace.is-bbm.is-qf-guazi.is-qf-plain
   .bbm-quick-slot:has(> .is-car-body-pill-row)
   > .depth-rail.is-kr-maker

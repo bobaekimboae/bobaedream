@@ -3241,12 +3241,6 @@ function MarketplaceScreen() {
         </div>}
         {lnbVariant !== "default" ? <p className="bbm-ct-desc">{bbmCategoryDescription(category)}</p> : null}
         {lnbVariant === "e" ? <BbSecondaryNav category={category} categoryDetail={category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild} onChooseCategory={chooseHierarchyCategory} /> : null}
-        {fullTopQuickCard ? <div className="bbm-ct-region-row" aria-label="지역 선택과 필터 초기화">
-          <button type="button" className="bbm-ct-region-select" aria-label={`현재 지역 ${stableRegionLabel(bbmValue)}, 지역 선택 열기`} onClick={() => openBbmChipPanel("지역")}>
-            <span>지역:</span><strong>{stableRegionLabel(bbmValue)}</strong><img src={bbmIcon("triangle-down-chotot")} alt="" aria-hidden="true" />
-          </button>
-          <button type="button" className="bbm-ct-reset bbm-ct-clear-all" onClick={() => resetFilters()}>필터 초기화</button>
-        </div> : null}
         <div className="bbm-ct-chip-row">
           <div className="bbm-chips">
             <button type="button" className={`bbm-filter-button${bbmAppliedCount ? " is-applied" : ""}${fullTopQuickCard ? " is-reference-active" : ""}`} aria-disabled={drawerFilterChip ? undefined : "true"} aria-haspopup={drawerFilterChip ? "dialog" : undefined} onClick={drawerFilterChip ? () => setBbmDrawerOpen(true) : undefined} aria-label={bbmAppliedCount ? `필터 ${bbmAppliedCount}개 적용됨` : "필터"}><img src={bbmIcon(bbmFilterIconName)} alt="" aria-hidden="true" />{/* QF-113 T2: "필터" 글자는 늘 두고 조건 수를 덧붙임(폭 고정, qf-align.css) */}<span>필터</span>{bbmAppliedCount ? <b>{bbmAppliedCount}</b> : null}</button>
@@ -3254,7 +3248,9 @@ function MarketplaceScreen() {
               {topCardChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} prefix={chip.prefix} onClick={chip.onClick} onClear={chip.onClear} />)}
             </BbmChipScroller>
           </div>
-          {!fullTopQuickCard && bbmAppliedCount
+          {fullTopQuickCard
+            ? <button type="button" className="bbm-ct-reset bbm-ct-clear-all" onClick={() => resetFilters()}>필터 초기화</button>
+            : bbmAppliedCount
               ? <button type="button" className="bbm-ct-reset" onClick={() => setBbmTopReset((value) => value + 1)}>필터 초기화</button>
               : null}
         </div>

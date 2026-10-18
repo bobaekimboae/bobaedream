@@ -29,21 +29,16 @@
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-ct-title-row { height: 32px; margin-top: 0; }
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot > .bbm-ct-crumbs + .bbm-ct-title-row { margin-top: 8px; }
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-ct-chip-row { height: 32px; margin-top: 18px; margin-bottom: 0; padding: 0; }
-/* 트럭·국산차 전체 폭 카드: 지역/초기화 → 필터 칩 → 퀵필터 순.
-   지역을 첫 문맥 줄에 고정해 조건 칩 아래로 밀리지 않게 하고, 초기화도 같은 줄 오른쪽에 둔다. */
-.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-region-row { display: flex; align-items: center; justify-content: space-between; height: 48px; }
-.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-region-select,
+/* 트럭·국산차 전체 폭 카드: 지역은 이미 필터칩에 있으므로 중복 행을 만들지 않는다.
+   초기화는 초톳처럼 필터 행 오른쪽에 둔다. */
 .marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-clear-all { display: inline-flex; align-items: center; height: 32px; padding: 0; border: 0; background: none; color: #222; font: inherit; font-size: 14px; line-height: 20px; cursor: pointer; }
-.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-region-select { gap: 5px; font-weight: 600; }
-.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-region-select strong { font-weight: 700; }
-.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-region-select img { width: 14px; height: 14px; margin-left: -1px; }
 .marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-clear-all { font-weight: 700; }
 .marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-clear-all:disabled { color: #b8b8b8; cursor: default; }
 .marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-content-head.is-chotot .bbm-ct-chip-row { height: 52px; margin-top: 0; padding: 10px 0; }
 .marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-content-head.is-chotot .bbm-filter-button.is-reference-active { background: #222; color: #fff; }
 .marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-content-head.is-chotot .bbm-filter-button.is-reference-active img { filter: brightness(0) invert(1); }
-/* 초톳 PC 실측 리듬: 필터 52 → 지역/유형 48 → 8 → 카테고리·모델 102 → 카드 끝 16.
-   국산차 풀사이즈 퀵필터도 같은 순서로 맞추고, 레일 사이의 임의 구분선은 없앤다. */
+/* 전체 폭 국산차는 필터 52 → 바디타입 48 → 8 → 브랜드 90 → 카드 끝 16.
+   한 줄 브랜드명만 쓰므로 초톳의 두 줄 카테고리용 102px 슬롯에서 12px을 덜어 하단 공백을 줄인다. */
 .marketplace.is-bbm.is-qf-guazi.is-full-top-filter
   .bbm-content-head.is-chotot
   .bbm-quick-slot:has(> .is-car-body-pill-row) {
@@ -68,6 +63,25 @@
   min-height: 48px;
   height: 48px;
   align-items: center;
+}
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter.is-qf-plain
+  .bbm-content-head.is-chotot
+  .bbm-quick-slot:has(> .is-car-body-pill-row)
+  > .depth-rail:not(.is-car-body-pill-row),
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter.is-qf-plain
+  .bbm-content-head.is-chotot
+  .bbm-quick-slot:has(> .is-car-body-pill-row)
+  > .depth-rail:not(.is-car-body-pill-row) .brand-carousel,
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter.is-qf-plain
+  .bbm-content-head.is-chotot
+  .bbm-quick-slot:has(> .is-car-body-pill-row)
+  > .depth-rail:not(.is-car-body-pill-row) .depth-rail-track,
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter.is-qf-plain
+  .bbm-content-head.is-chotot
+  .bbm-quick-slot:has(> .is-car-body-pill-row)
+  > .depth-rail:not(.is-car-body-pill-row) .depth-card:has(> .depth-card-media) {
+  min-height: 90px;
+  height: 90px;
 }
 /* 초톳 PC 실측: 바이크 필터 칩 32px + 위아래 10px = 필터 줄 52px. 가격·지역을 포함한 한 줄 전체가 같은 수직 리듬을 쓴다. */
 .marketplace.is-bbm.is-qf-guazi.is-bike-category .bbm-content-head.is-chotot .bbm-ct-chip-row,

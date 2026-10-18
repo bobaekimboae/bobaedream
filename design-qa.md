@@ -5997,3 +5997,34 @@ final result: passed
 
 final result: passed
 
+---
+
+## 2026-10-19 사용자 표시 퀵필터 여백 교정
+
+- Source visual truth: `C:/Users/bobae/Downloads/보배드림-중고차 (2).png` (1628×588px, 사용자가 중복 지역행과 브랜드명 아래 공백을 빨간색으로 표시한 공개 화면).
+- Implementation screenshot: `reports/chotot-box-annotation-fix/local-fixed.png` (1280×720px).
+- Combined comparison evidence: `reports/chotot-box-annotation-fix/before-after.png` (원본을 1280×462px로 정규화하고 구현의 동일 상단 영역과 한 캔버스에서 비교).
+- Route/state: `/?qf=guazi&pc=1&category=국산차`, PC 1280×720 CSS px, DPR 1.25, 기본 국산차 상태.
+- Full-view comparison: 표시된 중복 지역행이 제거되고 카드와 결과 영역 사이의 전체 높이·밀도가 정리됐다.
+- Focused comparison: 필터행 아래 바디타입행이 바로 이어지며, 브랜드 라벨 하단부터 카드 끝까지의 가시 공백이 37px에서 25px로 줄었다.
+
+### Findings and comparison history
+
+- Pass 1 [P2]: 상단 `지역` 필터칩과 별도의 `지역: 전국` 행이 중복돼 왼쪽에 비어 보이는 48px 행이 생겼다. 별도 지역행을 제거하고 지역 선택은 기존 필터칩/좌측 필터에서 유지했다.
+- Pass 1 [P2]: 한 줄 브랜드명에 초톳의 두 줄 카테고리용 102px 슬롯을 그대로 적용해 라벨 아래 공백이 과했다. 브랜드·모델 레일을 90px로 줄여 라벨 아래 공백을 25px로 맞췄다.
+- Pass 2 [P2]: 기본 브랜드 레일은 90px이지만 SUV 선택 뒤 모델 레일이 102px으로 바뀌어 카드가 12px 점프했다. 두 번째 레일 전체를 90px으로 통일했다.
+- Pass 3: 기본/`SUV` 선택/초기화 모두 카드 230px, 두 번째 레일 90px, 가로 오버플로 0, 지역 중복행 0, 콘솔 오류 0을 확인했다.
+
+### Required fidelity surfaces
+
+- Fonts and typography: passed — 기존 14/20px 필터·바디타입과 14/21px 브랜드명을 유지했다.
+- Spacing and layout rhythm: passed — 카드 `52px 필터 + 48px 바디타입 + 8px 간격 + 90px 브랜드/모델`, 상하 패딩 16px; 카드 전체 230px.
+- Colors and tokens: passed — 검정 활성 필터, 회색 보조칩, 흰 카드와 회색 페이지 토큰을 그대로 유지했다.
+- Image quality/assets: passed — 공식 제조사 로고의 비율·선명도·40×40px 슬롯을 변경하지 않았다.
+- Copy/content: passed — 지역 필터칩, 바디타입 10종, 제조사 6종, 전체 브랜드, 필터 초기화를 보존했고 중복된 `지역: 전국` 문구만 제거했다.
+- Interaction/accessibility: passed — SUV 선택과 초기화가 작동하고 선택 전후 카드 높이가 고정된다. 콘솔 오류 0건.
+
+- P0/P1/P2 findings: none remaining.
+
+final result: passed
+
