@@ -28,7 +28,7 @@ type BbGnbItem = { label: string; category?: string; action?: "home" | "communit
 type BbGnbSubItem = { label: string; category: string; detail?: string };
 
 const bbGnbItems: readonly BbGnbItem[] = [
-  { label: "차량검색", category: "전체" },
+  { label: "전체 차량", category: "전체" },
   { label: "국산차", category: "국산차" },
   { label: "수입차", category: "수입차" },
   { label: "트럭 · 특장", category: "트럭 · 특장" },
@@ -60,7 +60,7 @@ const bbUsedCarCategories = new Set([
   "튜닝·커스텀카", "셀럽카",
 ]);
 const bbGnbSubmenus: Readonly<Record<string, readonly BbGnbSubItem[]>> = {
-  차량검색: [
+  "전체 차량": [
     { label: "전체차량", category: "전체" },
     { label: "중고차", category: "중고차" },
     { label: "트럭 · 특장", category: "트럭 · 특장" },
@@ -88,12 +88,12 @@ const bbGnbSubmenus: Readonly<Record<string, readonly BbGnbSubItem[]>> = {
 };
 function bbActiveGnbItem(category: string) {
   if (category === "부품 · 용품" && typeof window !== "undefined" && new URLSearchParams(window.location.search).get("bikeMenu") === "parts") return "바이크";
-  return category === "전체" ? "차량검색"
+  return category === "전체" ? "전체 차량"
     : category === "국산차" ? "국산차"
       : category === "수입차" ? "수입차"
-        : bbUsedCarCategories.has(category) ? "차량검색"
+        : bbUsedCarCategories.has(category) ? "전체 차량"
           : category === "트럭 · 특장" ? "트럭 · 특장"
-            : category === "건설기계" || category === "자재운반장비" ? "차량검색"
+            : category === "건설기계" || category === "자재운반장비" ? "전체 차량"
               : category === "캠핑카" ? "더보기"
                 : category === "부품 · 용품" ? "중고부품"
                   : category === "바이크" ? category : "더보기";
@@ -112,7 +112,7 @@ export function bbStandaloneTruckSite() {
 }
 export function BbSecondaryNav({ category, categoryDetail, onChooseCategory }: { category: string; categoryDetail: string | null; onChooseCategory: (category: string, detail?: string) => void }) {
   const activeItem = bbActiveGnbItem(category);
-  const subnavItems = bbGnbSubmenus[activeItem] ?? bbGnbSubmenus.차량검색;
+  const subnavItems = bbGnbSubmenus[activeItem] ?? bbGnbSubmenus["전체 차량"];
   /* ?lnb=d: 하위 메뉴가 하나뿐(바이크 전체 등)이면 칩 줄을 그리지 않는다 */
   if (bbLnbVariant() === "d" && subnavItems.length <= 1) return null;
   return (
@@ -130,7 +130,7 @@ export function BbSecondaryNav({ category, categoryDetail, onChooseCategory }: {
 /* 2026-10-18 ?lnb=f: 카드 제목 자리를 하위 메뉴 큰 글자 탭으로 */
 export function BbLnbTitleTabs({ category, categoryDetail, onChooseCategory }: { category: string; categoryDetail: string | null; onChooseCategory: (category: string, detail?: string) => void }) {
   const activeItem = bbActiveGnbItem(category);
-  const items = bbGnbSubmenus[activeItem] ?? bbGnbSubmenus.차량검색;
+  const items = bbGnbSubmenus[activeItem] ?? bbGnbSubmenus["전체 차량"];
   return (
     <nav className="bbm-lnb-title-tabs" aria-label={`${activeItem} 하위 메뉴`}>
       {items.map((item) => {
@@ -145,7 +145,7 @@ type BbBreadcrumbItem = { label: string; category: string; detail?: string; curr
 
 export function BbBreadcrumb({ category, categoryDetail, onChooseCategory }: { category: string; categoryDetail: string | null; onChooseCategory: (category: string, detail?: string) => void }) {
   const activeItem = bbActiveGnbItem(category);
-  const subnavItems = bbGnbSubmenus[activeItem] ?? bbGnbSubmenus.차량검색;
+  const subnavItems = bbGnbSubmenus[activeItem] ?? bbGnbSubmenus["전체 차량"];
   const currentSubnavItem = subnavItems.find((item) => bbSubnavCurrent(item, category, categoryDetail));
   const items: BbBreadcrumbItem[] = [{ label: "보배드림 차량", category: "전체" }];
 
@@ -188,7 +188,7 @@ export function BbLnbTitleMenu({ title, category, categoryDetail, onChooseCatego
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const activeItem = bbActiveGnbItem(category);
-  const items = bbGnbSubmenus[activeItem] ?? bbGnbSubmenus.차량검색;
+  const items = bbGnbSubmenus[activeItem] ?? bbGnbSubmenus["전체 차량"];
   const current = items.find((item) => bbSubnavCurrent(item, category, categoryDetail));
   useEffect(() => {
     if (!open) return;
@@ -408,7 +408,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
             {gnbItems.map((item) => {
               const itemClassName = `${item.label === activeItem ? "is-active" : ""}${item.action === "home" ? " is-home" : ""}`;
               const itemDisplayLabel = item.label;
-              if (item.label === "차량검색") return <BbmVehicleTypeDropdown key={item.label} active={item.label === activeItem} onChoose={(nextCategory) => onChooseCategory(nextCategory)} />;
+              if (item.label === "전체 차량") return <BbmVehicleTypeDropdown key={item.label} active={item.label === activeItem} onChoose={(nextCategory) => onChooseCategory(nextCategory)} />;
               return <Fragment key={item.label}>
               {item.action === "more" ? <div className="bbm-gnb-more-wrap" ref={moreRef}>
                 <button type="button" className={`bbm-gnb-more ${itemClassName}`.trim()} aria-current={item.label === activeItem ? "page" : undefined} aria-haspopup="menu" aria-expanded={moreOpen} onClick={() => chooseMenu(item)}>
