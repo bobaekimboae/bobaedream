@@ -3210,6 +3210,12 @@ function MarketplaceScreen() {
       isTruckCategory && pcFilterLayout === "compact"
       || category === "국산차" && pcFilterLayout === "balanced"
     );
+    // 전체 폭 트럭 카드에서는 GNB가 이미 현재 카테고리를 표시한다.
+    // 같은 이름의 검정 칩을 한 번 더 두면 필터 진입점과 선택값이 모두 강조되어
+    // 첫 줄이 무거워지므로, 이 화면에서만 중복 카테고리 칩을 걷어낸다.
+    const topCardChips = fullTopQuickCard && isTruckCategory
+      ? bbmChips.filter((chip) => chip.key !== "truck-category")
+      : bbmChips;
     const balancedTopCard = isGuaziQuickStyle && usesReferencePcLayout && !fullTopQuickCard && (isHeavyCategory || pcFilterLayout === "balanced");
     // 전체 폭 퀵필터 자체가 카테고리 문맥을 충분히 제공하므로
     // 제목 배너를 중복 노출하지 않고 GNB 다음에 바로 검색 조건을 배치한다.
@@ -3235,24 +3241,23 @@ function MarketplaceScreen() {
         </div>}
         {lnbVariant !== "default" ? <p className="bbm-ct-desc">{bbmCategoryDescription(category)}</p> : null}
         {lnbVariant === "e" ? <BbSecondaryNav category={category} categoryDetail={category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild} onChooseCategory={chooseHierarchyCategory} /> : null}
+        {fullTopQuickCard ? <div className="bbm-ct-region-row" aria-label="지역 선택과 필터 초기화">
+          <button type="button" className="bbm-ct-region-select" aria-label={`현재 지역 ${stableRegionLabel(bbmValue)}, 지역 선택 열기`} onClick={() => openBbmChipPanel("지역")}>
+            <span>지역:</span><strong>{stableRegionLabel(bbmValue)}</strong><img src={bbmIcon("triangle-down-chotot")} alt="" aria-hidden="true" />
+          </button>
+          <button type="button" className="bbm-ct-reset bbm-ct-clear-all" onClick={() => resetFilters()}>필터 초기화</button>
+        </div> : null}
         <div className="bbm-ct-chip-row">
           <div className="bbm-chips">
             <button type="button" className={`bbm-filter-button${bbmAppliedCount ? " is-applied" : ""}${fullTopQuickCard ? " is-reference-active" : ""}`} aria-disabled={drawerFilterChip ? undefined : "true"} aria-haspopup={drawerFilterChip ? "dialog" : undefined} onClick={drawerFilterChip ? () => setBbmDrawerOpen(true) : undefined} aria-label={bbmAppliedCount ? `필터 ${bbmAppliedCount}개 적용됨` : "필터"}><img src={bbmIcon(bbmFilterIconName)} alt="" aria-hidden="true" />{/* QF-113 T2: "필터" 글자는 늘 두고 조건 수를 덧붙임(폭 고정, qf-align.css) */}<span>필터</span>{bbmAppliedCount ? <b>{bbmAppliedCount}</b> : null}</button>
             <BbmChipScroller>
-              {bbmChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} prefix={chip.prefix} onClick={chip.onClick} onClear={chip.onClear} />)}
+              {topCardChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} prefix={chip.prefix} onClick={chip.onClick} onClear={chip.onClear} />)}
             </BbmChipScroller>
           </div>
-          {fullTopQuickCard
-            ? <button type="button" className="bbm-ct-reset bbm-ct-clear-all" onClick={() => resetFilters()}>필터 초기화</button>
-            : bbmAppliedCount
+          {!fullTopQuickCard && bbmAppliedCount
               ? <button type="button" className="bbm-ct-reset" onClick={() => setBbmTopReset((value) => value + 1)}>필터 초기화</button>
               : null}
         </div>
-        {fullTopQuickCard ? <div className="bbm-ct-region-row" aria-label="지역 선택">
-          <button type="button" className="bbm-ct-region-select" aria-label={`현재 지역 ${stableRegionLabel(bbmValue)}, 지역 선택 열기`} onClick={() => openBbmChipPanel("지역")}>
-            <span>지역:</span><strong>{stableRegionLabel(bbmValue)}</strong><img src={bbmIcon("triangle-down-chotot")} alt="" aria-hidden="true" />
-          </button>
-        </div> : null}
         {/* PC 지역 선택은 전체 필터에서 제공한다. 상단에는 지역 나열 칩을 렌더하지 않는다. */}
         <div className="bbm-quick-slot">{quickRail}</div>
         {seoulAutoGalleryDealerRail}

@@ -595,7 +595,7 @@
 }
 .marketplace.is-truck-category.is-qf-guazi .is-truck-type-pill-track {
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   padding: 12px 20px;
 }
 .marketplace.is-bbm-m.is-truck-category.is-qf-guazi .is-truck-type-pill-track {
@@ -605,7 +605,7 @@
 .marketplace.is-truck-category.is-qf-guazi .is-truck-type-pill-track .trim-chip,
 .marketplace.is-truck-category.is-qf-guazi .is-truck-type-pill-track .trim-chip.is-selected {
   height: 32px;
-  padding: 0 14px;
+  padding: 0 10px;
   border: 0;
   border-radius: 9999px;
   background: #f4f4f4;

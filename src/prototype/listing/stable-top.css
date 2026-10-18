@@ -29,9 +29,9 @@
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-ct-title-row { height: 32px; margin-top: 0; }
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot > .bbm-ct-crumbs + .bbm-ct-title-row { margin-top: 8px; }
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-ct-chip-row { height: 32px; margin-top: 18px; margin-bottom: 0; padding: 0; }
-/* 트럭·국산차 전체 폭 카드: 초톳처럼 필터 칩 → 지역 → 유형 순으로 둔다.
-   지역 행은 초톳 contextual row와 같은 48px, 초기화는 필터 행 오른쪽에 둔다. */
-.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-region-row { display: flex; align-items: center; justify-content: flex-start; height: 48px; }
+/* 트럭·국산차 전체 폭 카드: 지역/초기화 → 필터 칩 → 퀵필터 순.
+   지역을 첫 문맥 줄에 고정해 조건 칩 아래로 밀리지 않게 하고, 초기화도 같은 줄 오른쪽에 둔다. */
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-region-row { display: flex; align-items: center; justify-content: space-between; height: 48px; }
 .marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-region-select,
 .marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-clear-all { display: inline-flex; align-items: center; height: 32px; padding: 0; border: 0; background: none; color: #222; font: inherit; font-size: 14px; line-height: 20px; cursor: pointer; }
 .marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-region-select { gap: 5px; font-weight: 600; }

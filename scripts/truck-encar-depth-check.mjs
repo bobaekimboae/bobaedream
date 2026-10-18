@@ -45,6 +45,25 @@ assert(truckTypePillMetrics.length === expectedFormats.length, `상단 트럭 �
 assert(truckTypePillMetrics.every((metric) => Math.abs(metric.height - 32) <= 1), `상단 트럭 유형 알약칩 높이 오류: ${JSON.stringify(truckTypePillMetrics)}`);
 assert(truckTypePillMetrics.every((metric) => cssNumber(metric.radius) >= 999), `상단 트럭 유형 알약칩 반경 오류: ${JSON.stringify(truckTypePillMetrics)}`);
 assert(truckTypePillMetrics.every((metric) => cssNumber(metric.fontSize) === 14 && Number(metric.fontWeight) === 500), `상단 트럭 유형 알약칩 타이포 오류: ${JSON.stringify(truckTypePillMetrics)}`);
+const topCardMetrics = await page.evaluate(() => {
+  const card = document.querySelector(".bbm-content-head.is-chotot");
+  const track = document.querySelector(".is-truck-type-pill-track");
+  const last = track?.querySelector(".trim-chip:last-child");
+  const cardRect = card?.getBoundingClientRect();
+  const lastRect = last?.getBoundingClientRect();
+  return {
+    childClasses: card ? [...card.children].slice(0, 3).map((element) => element.className) : [],
+    trackClientWidth: track?.clientWidth ?? 0,
+    trackScrollWidth: track?.scrollWidth ?? 0,
+    cardRight: cardRect?.right ?? 0,
+    lastRight: lastRect?.right ?? 0,
+  };
+});
+assert(topCardMetrics.childClasses[0] === "bbm-ct-region-row" && topCardMetrics.childClasses[1] === "bbm-ct-chip-row" && topCardMetrics.childClasses[2] === "bbm-quick-slot", `상단 줄 순서 오류: ${JSON.stringify(topCardMetrics.childClasses)}`);
+assert(await page.locator('.bbm-ct-chip-row .filter-chip').filter({ hasText: "트럭 · 특장" }).count() === 0, "GNB와 중복된 트럭 · 특장 칩이 남아 있음");
+assert(topCardMetrics.trackScrollWidth <= topCardMetrics.trackClientWidth + 1, `1280px에서 트럭 유형이 가로로 넘침: ${JSON.stringify(topCardMetrics)}`);
+assert(topCardMetrics.lastRight <= topCardMetrics.cardRight, `마지막 트럭 유형이 카드 밖으로 잘림: ${JSON.stringify(topCardMetrics)}`);
+assert(await page.locator('section[aria-label="트럭 유형 빠른 선택"] .quick-rail-nav.is-next').count() === 0, "1280px에서 불필요한 다음 화살표가 노출됨");
 await page.screenshot({ path: "artifacts/qa/truck-type-pills.png", fullPage: true });
 await truckTypePills.filter({ hasText: /^버스$/ }).click();
 await page.waitForTimeout(150);
@@ -113,5 +132,5 @@ assert(cssNumber(metrics.rowFontSize) === 14 && cssNumber(metrics.rowLineHeight)
 await page.screenshot({ path: "artifacts/qa/truck-encar-regression.png", fullPage: true });
 const actionableConsoleErrors = consoleErrors.filter((message) => !message.startsWith("Failed to load resource: the server responded with a status of 403"));
 assert(actionableConsoleErrors.length === 0, `브라우저 오류: ${actionableConsoleErrors.join(" | ")}`);
-console.log(JSON.stringify({ ok: true, formatCount: formatLabels.length, truckTypePillCount: truckTypePillMetrics.length, selectedDepth, modelCount: modelLabels.length, quickModelImageCount: quickModelImageMetrics.length, metrics, ignoredExternalAsset403: consoleErrors.length - actionableConsoleErrors.length, screenshots: ["artifacts/qa/truck-type-pills.png", "artifacts/qa/truck-encar-regression.png"] }, null, 2));
+console.log(JSON.stringify({ ok: true, formatCount: formatLabels.length, truckTypePillCount: truckTypePillMetrics.length, topCardMetrics, selectedDepth, modelCount: modelLabels.length, quickModelImageCount: quickModelImageMetrics.length, metrics, ignoredExternalAsset403: consoleErrors.length - actionableConsoleErrors.length, screenshots: ["artifacts/qa/truck-type-pills.png", "artifacts/qa/truck-encar-regression.png"] }, null, 2));
 await browser.close();
