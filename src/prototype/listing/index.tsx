@@ -502,7 +502,8 @@ const bbSearchPopular: Record<string, readonly string[]> = {
   "자재운반장비": ["전동 지게차", "디젤 지게차 3톤", "리치 지게차"],
   "부품 · 용품": ["타이어", "휠", "블랙박스", "브레이크 패드"],
 };
-function bbSearchCatMode() { return typeof window !== "undefined" && new URLSearchParams(window.location.search).get("pcsearch") === "cat"; }
+// 2026-10-18 「왜 카테고리 없어진거야」: 범위 선택 검색을 기본으로. 이전 검색칸은 `&pcsearch=basic` 비교용
+function bbSearchCatMode() { return typeof window === "undefined" || new URLSearchParams(window.location.search).get("pcsearch") !== "basic"; }
 
 function BbmCatalogHeaderSearch({ query, setQuery, searchPlaceholder, catalogRecords, onCatalogFocus, onCatalogChoose, category, onChooseCategory }: { query: string; setQuery: (query: string) => void; searchPlaceholder: string; catalogRecords?: VehicleSearchRecord[] | null; onCatalogFocus?: () => void; onCatalogChoose?: (record: VehicleSearchRecord) => void; category?: string; onChooseCategory?: (category: string) => void }) {
   const keyboard = useKeyboard();
