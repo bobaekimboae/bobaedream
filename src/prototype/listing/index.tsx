@@ -2432,7 +2432,6 @@ function MarketplaceScreen() {
                   <QuickRailCarousel ariaLabel={categoryBrandRail.title} className="brand-carousel" contentClassName="depth-rail-track">
                     {oldcarListingBrands ? oldcarListingBrands.map(card) : <>
                       {sections.domestic.map(card)}
-                      {sections.domestic.length && sections.imported.length ? <span className="kr-maker-divider" aria-hidden="true" /> : null}
                       {sections.imported.map(card)}
                       <DepthCard key="전체 브랜드" label="전체 브랜드" image={<span className="kr-all-brands" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="3" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="3" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /><rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" /></svg></span>} mediaKind="brand" onClick={() => supportsVehicleCatalog ? setSheet("vehicle") : setBbmChipPanel("제조사")} />
                     </>}

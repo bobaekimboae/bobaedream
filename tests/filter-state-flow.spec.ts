@@ -111,5 +111,6 @@ test("used-car landing omits duplicate text subcategories from quick filters", a
 
   await expect(page.getByRole("heading", { name: "전체 중고차" })).toBeVisible();
   await expect(page.locator(".bbm-lnb-title-tabs")).toHaveCount(0);
+  await expect(page.locator(".kr-maker-divider")).toHaveCount(0);
   await expect(page.locator(".bbm-content-head.is-chotot .bbm-quick-slot")).toBeVisible();
 });
