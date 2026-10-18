@@ -1,0 +1,123 @@
+/* 독립 /bike/ 전용 Nhà Tốt 오렌지 테마. 공유 보배드림 화면에는 적용하지 않는다. */
+html[data-site="bike"] {
+  --blue: #d86c38;
+  --bbm-blue: #d86c38;
+  --bike-orange: #d86c38;
+  --bike-orange-hover: #bd5528;
+  --bike-orange-soft: #fff1ea;
+  --bike-orange-border: #f0b69a;
+  --color-primary-25: #fff8f4;
+  --color-primary-50: #fff1ea;
+  --color-primary-100: #f9dacb;
+  --color-primary-200: #f0b69a;
+  --color-primary-300: #e79670;
+  --color-primary-400: #df7c4e;
+  --color-primary-500: #d86c38;
+  --color-primary-600: #bd5528;
+  --color-primary-700: #97401d;
+  --color-primary-800: #713015;
+  --color-primary-900: #4d200e;
+}
+
+html[data-site="bike"] .bbm-logo-emblem img,
+html[data-site="bike"] .bbm-account-avatar img,
+html[data-site="bike"] .bike-site-mobile-brand__logo img {
+  width: 30px;
+  height: 30px;
+  max-width: 30px;
+}
+
+html[data-site="bike"] .bbm-logo-word,
+html[data-site="bike"] .bbm-logo-word.is-ko,
+html[data-site="bike"] .bbm-lnb-title-button .bbm-lnb-title-sub,
+html[data-site="bike"] .app-footer-link--primary,
+html[data-site="bike"] .app-footer-mobile__link--primary,
+html[data-site="bike"] .ui-btn--ghost,
+html[data-site="bike"] .bbm-filter-path,
+html[data-site="bike"] .bbm-search-cat-menu .bb-icon {
+  color: var(--bike-orange);
+}
+
+html[data-site="bike"] .bbm-listing-button,
+html[data-site="bike"] .ui-btn--outline.is-selected:not(:disabled):not(.is-loading) {
+  border-color: var(--bike-orange);
+  background: var(--bike-orange);
+}
+
+html[data-site="bike"] .bbm-listing-button:hover,
+html[data-site="bike"] .bbm-catalog-search.is-main .bbm-catalog-search-go:hover,
+html[data-site="bike"] .bbm-catalog-search.is-posh.is-posh-blue .bbm-catalog-search-go:hover {
+  border-color: var(--bike-orange-hover);
+  background: var(--bike-orange-hover) !important;
+}
+
+html[data-site="bike"] .bbm-account-avatar {
+  background: var(--bike-orange);
+}
+
+html[data-site="bike"] .bbm-path-chip,
+html[data-site="bike"] .bbmf-overlay .bbm-truck-format .bbm-path-chip {
+  border-color: var(--bike-orange);
+  background: var(--bike-orange-soft);
+  color: var(--bike-orange);
+}
+
+html[data-site="bike"] .bbm-chips .filter-chip.is-active:not(.is-vehicle-summary),
+html[data-site="bike"] .region-quick-chips button.is-selected,
+html[data-site="bike"] .bbmf-overlay .bbm-truck-format .bbm-truck-spec-chips button.is-selected {
+  border-color: var(--bike-orange-border);
+  background: var(--bike-orange-soft);
+  color: var(--bike-orange-hover);
+  box-shadow: inset 0 0 0 1px var(--bike-orange-border);
+}
+
+html[data-site="bike"] .region-menu button[aria-selected="true"],
+html[data-site="bike"] .bbm-snb .bbm-snb-special-menu button.is-current {
+  background: var(--bike-orange-soft);
+  color: var(--bike-orange-hover);
+}
+
+html[data-site="bike"] .bbm-catalog-search.is-main:focus-within,
+html[data-site="bike"] .bbm-catalog-search.is-posh.is-posh-gray:focus-within {
+  box-shadow: 0 0 0 2px var(--bike-orange), 0 6px 20px rgba(17, 24, 39, .08);
+}
+
+html[data-site="bike"] .bbm-catalog-search.is-main .bbm-catalog-search-go,
+html[data-site="bike"] .bbm-catalog-search.is-posh.is-posh-blue .bbm-catalog-search-go {
+  background: var(--bike-orange) !important;
+}
+
+html[data-site="bike"] .trim-chip:focus-visible,
+html[data-site="bike"] .heavy-sidebar-option:focus-visible,
+html[data-site="bike"] .bbm-register :focus-visible {
+  outline-color: var(--bike-orange);
+}
+
+html[data-site="bike"] .bbmf-check.is-checked .bbmf-check-box,
+html[data-site="bike"] .bbmf-choices button.is-selected,
+html[data-site="bike"] .bbmf-keep-switch.is-on,
+html[data-site="bike"] .bbmf-daangn-switch.is-on,
+html[data-site="bike"] .bbmf-actions.is-full .bbmf-confirm,
+html[data-site="bike"] .bbmf-slider i {
+  border-color: var(--bike-orange) !important;
+  background: var(--bike-orange);
+}
+
+html[data-site="bike"] .bbmf-color-chips button.is-selected,
+html[data-site="bike"] .bbmf-presets button.is-selected {
+  border-color: var(--bike-orange);
+  color: var(--bike-orange);
+  box-shadow: inset 0 0 0 1px var(--bike-orange);
+}
+
+html[data-site="bike"] .bbmf-overlay .bbm-truck-format .bbm-catalog-row.is-selected {
+  color: var(--bike-orange);
+}
+
+html[data-site="bike"] .maker-option input {
+  accent-color: var(--bike-orange);
+}
+
+html[data-site="bike"] .bbm-card-verified {
+  filter: brightness(0) saturate(100%) invert(48%) sepia(57%) saturate(1265%) hue-rotate(337deg) brightness(92%) contrast(83%);
+}

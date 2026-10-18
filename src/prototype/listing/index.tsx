@@ -111,6 +111,7 @@ import { HeavySidebarFilters } from "../heavy/sidebar";
 import "./qf-car-body-types.css";
 import "./qf-chotot-vehicle-slots.css";
 import "./qf-brand-shadowcard.css";
+import "./bike-site-theme.css";
 import { dealers as seoulAutoGalleryDealers, SeoulAutoGalleryDealerRail, type SeoulAutoGalleryDealer } from "./seoul-auto-gallery-dealer-rail";
 import { SeoulAutoGalleryHeader } from "./seoul-auto-gallery-header";
 import { DeutschAutoworldHeader } from "./deutsch-autoworld-header";
@@ -612,7 +613,7 @@ function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearc
 
   return (
     <>{siteTitle && !searchOpen ? <div className="bike-site-mobile-brand" aria-label={siteTitle}>
-      <span className="bike-site-mobile-brand__logo" aria-hidden="true"><img src={asset("bbm/header-logo.svg")} alt="" draggable={false} /></span>
+      <span className="bike-site-mobile-brand__logo" aria-hidden="true"><img src={asset("bbm/bike-emblem.svg")} alt="" draggable={false} /></span>
       <h1>{siteTitle}</h1>
     </div> : null}
     <header className={`top-bar${bbm ? " is-bbm" : ""}${searchOpen ? " is-search-open" : ""}`} aria-label={siteTitle ? `${siteTitle} 검색` : "중고차 검색"}>

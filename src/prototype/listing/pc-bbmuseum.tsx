@@ -47,6 +47,7 @@ const bbBikeSiteGnbItems: readonly BbGnbItem[] = [
   { label: "중고 바이크", category: "바이크" },
   { label: "바이크 판매", category: "바이크", action: "bike-sell" },
   { label: "바이크 용품", category: "부품 · 용품", action: "bike-parts" },
+  { label: "커뮤니티", action: "community" },
 ];
 const bbUsedCarCategories = new Set([
   "중고차", "국산차", "수입차", "전기차", "리스/렌트차량", "서울오토갤러리", "도이치오토월드",
@@ -338,7 +339,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
         <div className="bbm-header-main">
           <button type="button" className="bbm-logo" aria-label={isBikeSite ? "보배드림 바이크 처음으로" : "보배드림 처음으로"} onClick={() => { if (isBikeSite) onChooseCategory("바이크"); document.querySelector(".app-screen")?.scrollTo({ top: 0 }); }}>
             <span className="bbm-logo-emblem" aria-hidden="true">
-              <img src={bbmAsset("header-logo")} alt="" draggable={false} />
+              <img src={bbmAsset(isBikeSite ? "bike-emblem" : "header-logo")} alt="" draggable={false} />
             </span>
             <span className={`bbm-logo-word is-${logoLanguage}`} aria-hidden="true">{logoLanguage === "ko" ? "보배드림" : "BOBAEDREAM"}</span>
             {isBikeSite ? <span className="bbm-bike-site-badge" aria-hidden="true">바이크</span> : null}
@@ -363,7 +364,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
             <div className="bbm-account-wrap" ref={accountRef}>
               <button type="button" className={`bbm-account-button${isMember ? " is-member" : " is-guest"}`} aria-label={isMember ? "회원 계정 메뉴" : "로그인 및 계정 메뉴"} aria-haspopup="menu" aria-expanded={accountOpen} onClick={() => setAccountOpen((open) => !open)}>
                 {isMember
-                  ? <span className="bbm-account-avatar" aria-hidden="true"><img src={bbmAsset("header-logo")} alt="" /></span>
+                  ? <span className="bbm-account-avatar" aria-hidden="true"><img src={bbmAsset(isBikeSite ? "bike-emblem" : "header-logo")} alt="" /></span>
                   : <span className="bbm-account-avatar is-guest" aria-hidden="true"><BbIcon name="mypage" size={20} /></span>}
                 <BbIcon name="chevron-down" size={20} className="bbm-account-chevron" />
               </button>
