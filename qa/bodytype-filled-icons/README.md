@@ -2,7 +2,7 @@
 
 ## 목적
 
-- PC 탑메뉴의 `전체차량 · 중고차 · 트럭 · 특장 · 바이크`를 카와우 임시 아이콘에서 우리 차종 원본 기반 아이콘으로 교체한다.
+- PC 탑메뉴의 `차량검색 · 중고차 · 트럭 · 중장비 · 바이크`를 카와우 임시 아이콘에서 우리 차종 원본 기반 아이콘으로 교체한다.
 - 20px 메뉴 크기와 활성 검정 칩에서 차종이 즉시 구분되어야 한다.
 
 ## 기준 원본
@@ -22,9 +22,10 @@
 
 | 메뉴 | 적용 자산 |
 | --- | --- |
-| 전체차량 | `public/assets/bbm/nav-icons/filled/all-vehicles-filled.png` |
+| 차량검색 | `public/assets/bbm/nav-icons/filled/all-vehicles-filled.png` |
 | 중고차 | `public/assets/bbm/nav-icons/filled/used-car-filled.png` |
-| 트럭 · 특장 | `public/assets/bbm/nav-icons/filled/truck-filled.png` |
+| 트럭 | `public/assets/bbm/nav-icons/filled/truck-filled.png` |
+| 중장비 | `public/assets/bbm/nav-icons/filled/heavy-equipment-filled.png` |
 | 바이크 | `public/assets/bbm/nav-icons/filled/bike-filled-v1.svg` |
 
 ## 검수
