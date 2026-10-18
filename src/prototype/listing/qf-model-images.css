@@ -281,8 +281,8 @@
   height: 98px;
   flex: 0 0 96px;
 }
-.marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-card > .depth-card-media:not(.is-brand),
-.marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-card > .depth-card-media.is-brand {
+.marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card > .depth-card-media:not(.is-brand),
+.marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-kr-maker .depth-card > .depth-card-media.is-brand {
   display: flex;
   width: 88px;
   height: 88px;
@@ -290,7 +290,7 @@
   align-items: center;
   justify-content: center;
 }
-.marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-card > .depth-card-media:not(.is-brand) img {
+.marketplace.is-bbm.is-truck-category.is-qf-guazi.is-qf-plain .depth-rail.is-truck-image-row .depth-card > .depth-card-media:not(.is-brand) img {
   width: 88px;
   height: 88px;
   object-fit: contain;

@@ -48,16 +48,18 @@ final result: passed
 - Iteration 1 [P2]: 선택 경로가 스크롤 밖에 있어 다음 섹션이 밀림 → 선택 경로를 400px 카탈로그 안으로 이동.
 - Iteration 1 [P2]: 228px 열에서 `필터`가 두 줄로 깨짐 → 최근 필터 기록을 숨기고 제목 줄바꿈 금지.
 - Iteration 2: 수정 화면 재캡처 후 P0/P1/P2 잔여 없음.
+- Iteration 3 [P1]: 현대 버스 모델명이 승용 카탈로그의 `e-` 표기와 달라 상단 레일 9개 중 일부만 이미지가 생기고, 트럭 유형용 `88×88px` 규칙이 모델 레일까지 적용돼 이미지·모델명이 잘림. 버스 9종 전용 내부 이미지 매핑을 추가하고 유형 이미지 선택자의 범위를 한정해 모델 레일을 `76×40px`로 복원.
+- Iteration 4: 9개 이미지의 자연 크기 로드, 미디어 슬롯 `76×40px`, 이미지·모델명 기준선 편차 `≤1px`를 자동 검사하고 재캡처 — passed.
 
 ### Required fidelity surfaces
 
 - Typography: 행 `14/22px`, 섹션 제목 `15/22px`, 줄바꿈/잘림 없음 — passed.
 - Spacing/layout: 좌측 `228px`, 본문 간격 `24px`, 제목 `55px`, 카탈로그 `400px`, 행 `34px` — passed.
 - Colors/tokens: 중립 필터 톤과 보배드림 파랑의 역할 분리 — passed.
-- Image quality/assets: 필터에 원본과 동일하게 별도 브랜드 로고·형식 이미지를 넣지 않음 — passed.
+- Image quality/assets: 좌측 필터에는 원본과 동일하게 별도 브랜드 로고·형식 이미지를 넣지 않는다. 상단 현대 버스 레일은 정규화된 내부 자산 9개를 `object-fit: contain`으로 표시하고 빈 슬롯·왜곡·잘림이 없다 — passed.
 - Copy/content: 엔카 13개 형식·세부형식 원문, `형식/적재용량`, `제조사/모델/등급`, `모델` 문구 — passed.
 - Interaction: 형식 → 세부형식 → 완료, 개별 해제, 동시 펼침, 제조사 → 모델, 내부 스크롤, 0대 규격 비활성 — passed.
-- Automated evidence: `node scripts/truck-encar-depth-check.mjs` 통과(13개 형식, 두 선택 행, 9개 모델, 228/55/400/34/14/22). 앱 JavaScript 예외 없음. 외부 매물 이미지 403 네 건은 로컬 headless 환경의 원격 자산 거부로 분리.
+- Automated evidence: `node scripts/truck-encar-depth-check.mjs` 통과(13개 형식, 두 선택 행, 9개 모델·이미지, 이미지 `76×40`, 기준선 편차 `≤1px`, 228/55/400/34/14/22). 앱 JavaScript 예외 없음. 외부 매물 이미지 403 네 건은 로컬 headless 환경의 원격 자산 거부로 분리.
 - Residual: 재고 숫자는 보배드림 가상 데이터 기준이며 엔카 실시간 재고값을 복제하지 않는다.
 
 final result: passed

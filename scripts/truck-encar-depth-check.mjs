@@ -41,6 +41,28 @@ assert(await sidebar.getByText("모델", { exact: true }).count() === 1, "제조
 const modelLabels = (await sidebar.locator(".bbm-filter-item.is-maker-grade .bbm-catalog-row > span:first-child").allTextContents()).map((text) => text.trim());
 assert(JSON.stringify(modelLabels) === JSON.stringify(expectedHyundaiBusModels), `버스 현대 모델 뎁스 불일치: ${JSON.stringify(modelLabels)}`);
 
+const quickModelCards = page.locator('section[aria-label="현대 모델 빠른 선택"] .depth-card');
+const quickModelImageMetrics = await quickModelCards.evaluateAll((cards) => cards.map((card) => {
+  const media = card.querySelector(".depth-card-media");
+  const image = media?.querySelector("img");
+  const label = card.querySelector(".depth-card-label");
+  const mediaRect = media?.getBoundingClientRect();
+  const labelRect = label?.getBoundingClientRect();
+  return {
+    mediaWidth: mediaRect?.width ?? 0,
+    mediaHeight: mediaRect?.height ?? 0,
+    mediaTop: mediaRect?.top ?? 0,
+    labelTop: labelRect?.top ?? 0,
+    naturalWidth: image?.naturalWidth ?? 0,
+    naturalHeight: image?.naturalHeight ?? 0,
+  };
+}));
+assert(quickModelImageMetrics.length === expectedHyundaiBusModels.length, `상단 버스 모델 카드 수 오류: ${quickModelImageMetrics.length}`);
+assert(quickModelImageMetrics.every((metric) => metric.naturalWidth > 0 && metric.naturalHeight > 0), `상단 버스 모델 이미지 누락: ${JSON.stringify(quickModelImageMetrics)}`);
+assert(quickModelImageMetrics.every((metric) => Math.abs(metric.mediaWidth - 76) <= 1 && Math.abs(metric.mediaHeight - 40) <= 1), `상단 버스 이미지 슬롯 크기 오류: ${JSON.stringify(quickModelImageMetrics)}`);
+assert(Math.max(...quickModelImageMetrics.map((metric) => metric.mediaTop)) - Math.min(...quickModelImageMetrics.map((metric) => metric.mediaTop)) <= 1, "상단 버스 이미지 기준선이 서로 다름");
+assert(Math.max(...quickModelImageMetrics.map((metric) => metric.labelTop)) - Math.min(...quickModelImageMetrics.map((metric) => metric.labelTop)) <= 1, "상단 버스 모델명 기준선이 서로 다름");
+
 const metrics = await page.evaluate(() => {
   const side = document.querySelector(".bbm-page > .bbm-filter.is-truck-reference");
   const header = document.querySelector(".bbm-filter.is-truck-reference .bbm-filter-item.is-open .bbm-filter-toggle");
@@ -68,5 +90,5 @@ assert(cssNumber(metrics.rowFontSize) === 14 && cssNumber(metrics.rowLineHeight)
 await page.screenshot({ path: "artifacts/qa/truck-encar-regression.png", fullPage: true });
 const actionableConsoleErrors = consoleErrors.filter((message) => !message.startsWith("Failed to load resource: the server responded with a status of 403"));
 assert(actionableConsoleErrors.length === 0, `브라우저 오류: ${actionableConsoleErrors.join(" | ")}`);
-console.log(JSON.stringify({ ok: true, formatCount: formatLabels.length, selectedDepth, modelCount: modelLabels.length, metrics, ignoredExternalAsset403: consoleErrors.length - actionableConsoleErrors.length, screenshot: "artifacts/qa/truck-encar-regression.png" }, null, 2));
+console.log(JSON.stringify({ ok: true, formatCount: formatLabels.length, selectedDepth, modelCount: modelLabels.length, quickModelImageCount: quickModelImageMetrics.length, metrics, ignoredExternalAsset403: consoleErrors.length - actionableConsoleErrors.length, screenshot: "artifacts/qa/truck-encar-regression.png" }, null, 2));
 await browser.close();

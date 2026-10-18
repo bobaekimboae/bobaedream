@@ -126,6 +126,21 @@ import { CatalogLogo, CatalogSearchResults, CatalogVehicleImage, CatalogVehicleP
 type BbmMobileView = "목록으로 보기" | "피드로 보기" | "갤러리로 보기" | "한줄 광고로 보기" | "텍스트로 보기";
 type OldcarDecade = 1950 | 1960 | 1970 | 1980 | 1990;
 
+// 엔카 버스 모델명은 승용 카탈로그의 표기(e- 하이픈, 그룹명)와 달라
+// 이름 기반 자동 매칭만 쓰면 일부 카드만 이미지가 생겨 레일 기준선이 무너진다.
+// 같은 228×120 규격으로 정규화된 내부 자산을 명시적으로 연결한다.
+const hyundaiBusModelVisuals: Readonly<Record<string, QuickModelVisual>> = {
+  "e에어로타운": { image: "assets/models/kr/49/710.png", bodyFit: "width" },
+  "e카운티": { image: "assets/models/kr/49/757.png", bodyFit: "width" },
+  "글로벌 900 (그린시티)": { image: "assets/models/kr/49/799.png", bodyFit: "width" },
+  "뉴 카운티": { image: "assets/models/kr/49/1281.png", bodyFit: "width" },
+  "슈퍼에어로시티": { image: "assets/models/kr/49/799.png", bodyFit: "width" },
+  "에어로타운": { image: "assets/models/kr/49/710.png", bodyFit: "width" },
+  "유니버스": { image: "assets/models/kr/49/734.png", bodyFit: "width" },
+  "유니시티": { image: "assets/models/kr/49/734.png", bodyFit: "width" },
+  "카운티": { image: "assets/models/kr/49/413.png", bodyFit: "width" },
+};
+
 const oldcarDecades: Array<{ value: OldcarDecade; label: string }> = [
   { value: 1950, label: "50년대" },
   { value: 1960, label: "60년대" },
@@ -2252,6 +2267,9 @@ function MarketplaceScreen() {
             <QuickRailCarousel ariaLabel={`${maker} 모델`} className="brand-carousel" contentClassName={`depth-rail-track${guaziCardChipPreview ? " is-guazi-card-chip-track" : ""}`}>
               {cardChipModelQuickOptions.map((model) => {
                 const modelVisual = guaziVisualsForMaker?.[model];
+                const truckModelVisual = isTruckCategory && selectedTruckFormat === "버스" && maker === "현대"
+                  ? hyundaiBusModelVisuals[model]
+                  : undefined;
                 // The unified vehicle catalog intentionally leaves model-group images empty.
                 // Until the dedicated Bobaedream artwork is ready, use the already-audited
                 // Daangn-backed catalogue cutouts as a temporary visual fallback.
@@ -2264,7 +2282,9 @@ function MarketplaceScreen() {
                     : undefined;
                 // 전용 카드 이미지가 있는 모델은 색과 실루엣 차이가 더 잘 보이는
                 // 해당 자산을 우선하고, 나머지만 카탈로그 최신 세대 이미지로 보완한다.
-                const cardVisual = angleCardVisual?.image
+                const cardVisual = truckModelVisual?.image
+                  ? truckModelVisual
+                  : angleCardVisual?.image
                   ? angleCardVisual
                   : dedicatedCardVisual?.image
                   ? dedicatedCardVisual
