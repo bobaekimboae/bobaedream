@@ -29,6 +29,8 @@
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-ct-title-row { height: 32px; margin-top: 0; }
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot > .bbm-ct-crumbs + .bbm-ct-title-row { margin-top: 8px; }
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-ct-chip-row { height: 32px; margin-top: 18px; margin-bottom: 0; padding: 0; }
+/* 초톳 PC 실측: 바이크 필터 칩 32px + 위아래 10px = 필터 줄 52px. 가격·지역을 포함한 한 줄 전체가 같은 수직 리듬을 쓴다. */
+.marketplace.is-bbm.is-qf-guazi.is-bike-category .bbm-content-head.is-chotot .bbm-ct-chip-row { height: 52px; padding: 10px 0; }
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot,
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail) { height: auto; margin: 18px -20px 0; justify-content: flex-start; }
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot > * { margin-top: 0 !important; margin-bottom: 0 !important; }

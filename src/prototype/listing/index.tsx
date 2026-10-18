@@ -2561,14 +2561,24 @@ function MarketplaceScreen() {
   const yearApplied = bbmApplied.filter((chip) => chip.id === "range:year");
   const mileageApplied = bbmApplied.filter((chip) => chip.id === "range:mileage");
   const fuelApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:fuel:"));
+  const bikeGenreApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:bikeGenre:"));
+  const bikeDisplacementApplied = bbmApplied.filter((chip) => chip.id === "range:displacement");
+  const bikeLicenseApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:bikeLicense:"));
   const regionApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:region:") || chip.id.startsWith("check:district:"));
   const complexApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:complex:"));
   const hideSellerQuickChip = desktop && isGuaziQuickStyle && (isUsedCarCategory || isBikeCategory);
-  const fixedSlotAppliedIds = new Set([...sellerApplied, ...priceApplied, ...yearApplied, ...mileageApplied, ...fuelApplied, ...regionApplied, ...complexApplied].map((chip) => chip.id));
+  const fixedSlotAppliedIds = new Set([...sellerApplied, ...priceApplied, ...yearApplied, ...mileageApplied, ...fuelApplied, ...bikeGenreApplied, ...bikeDisplacementApplied, ...bikeLicenseApplied, ...regionApplied, ...complexApplied].map((chip) => chip.id));
   const otherApplied = bbmApplied.filter((chip) => !fixedSlotAppliedIds.has(chip.id));
   const bbmChips: BbmChip[] = ([
     // 기본 중고차 목록의 실제 선택값은 상위 그룹 "중고차"가 아니라 하위 "전체차량"이다.
-    desktop && isGuaziQuickStyle ? null : chipByKey("category"),
+    isBikeCategory
+      ? { key: "bike-category", label: "바이크", active: true, className: "is-vehicle-summary is-step", onClick: () => { setBbmCategoryDraft(category); setBbmCategoryChildDraft(bbmCategoryChild); setBbmCategoryOpen(true); } }
+      : desktop && isGuaziQuickStyle ? null : chipByKey("category"),
+    // 바이크는 카테고리 다음에 유형(장르) → 제조사 → 모델 순서로 탐색한다.
+    ...(isBikeCategory ? [
+      ...(bikeGenreApplied.length ? bikeGenreApplied.map(toAppliedBbmChip) : [groupChip("bike-type", "유형", "장르", false)]),
+      ...(!maker ? [{ key: "maker", label: "제조사", active: false, onClick: () => supportsVehicleCatalog ? setSheet("vehicle") : openBbmChipPanel("제조사") }] : []),
+    ] : []),
     // 건설기계 퀵필터 3단계: 제조사 로고 → 모델 이미지 → 세부모델·세부 형식 이미지
     ...(isHeavyCategory ? [
       heavySelection.manufacturerCode
@@ -2617,15 +2627,24 @@ function MarketplaceScreen() {
       groupChip("parts-condition", "상태", "부품 상태", Boolean(bbmValue.checks.partsCondition?.length)),
       groupChip("parts-fit", "적용 차종", "적용 차종", Boolean(bbmValue.checks.partsFit?.length)),
     ] : []),
-    ...(priceApplied.length ? priceApplied.map(toAppliedBbmChip) : [(() => { const chip = groupChip("price", "가격", "가격", false); return chip ? { ...chip, className: "is-price" } : null; })()]),
-    ...(isPartsCategory ? [] : yearApplied.length ? yearApplied.map(toAppliedBbmChip) : [groupChip("year", "연식", "연식", false)]),
-    // QF-118: 과쯔 PC 는 연식 다음 "주행거리 ▾"(누르면 가운데 모달). 모바일은 적용값만 칩으로 보여 준다.
-    ...(isPartsCategory ? [] : mileageApplied.length ? mileageApplied.map(toAppliedBbmChip) : desktop && isGuaziQuickStyle ? [(() => { const chip = groupChip("mileage", "주행거리", "주행거리", false); return chip ? { ...chip, className: "is-mileage" } : null; })()] : []),
-    ...(isPartsCategory ? [] : fuelApplied.length ? fuelApplied.map(toAppliedBbmChip) : [groupChip("fuel", "연료", "연료", false)]),
+    ...(isBikeCategory ? [
+      ...(yearApplied.length ? yearApplied.map(toAppliedBbmChip) : [groupChip("year", "연식", "연식", false)]),
+      ...(priceApplied.length ? priceApplied.map(toAppliedBbmChip) : [(() => { const chip = groupChip("price", "가격", "가격", false); return chip ? { ...chip, className: "is-price" } : null; })()]),
+      ...(mileageApplied.length ? mileageApplied.map(toAppliedBbmChip) : [(() => { const chip = groupChip("mileage", "주행거리", "주행거리", false); return chip ? { ...chip, className: "is-mileage" } : null; })()]),
+      ...(bikeDisplacementApplied.length ? bikeDisplacementApplied.map(toAppliedBbmChip) : [groupChip("bike-displacement", "배기량", "배기량", false)]),
+      ...(bikeLicenseApplied.length ? bikeLicenseApplied.map(toAppliedBbmChip) : [groupChip("bike-license", "면허", "면허", false)]),
+    ] : [
+      ...(priceApplied.length ? priceApplied.map(toAppliedBbmChip) : [(() => { const chip = groupChip("price", "가격", "가격", false); return chip ? { ...chip, className: "is-price" } : null; })()]),
+      ...(isPartsCategory ? [] : yearApplied.length ? yearApplied.map(toAppliedBbmChip) : [groupChip("year", "연식", "연식", false)]),
+      // QF-118: 과쯔 PC 는 연식 다음 "주행거리 ▾"(누르면 가운데 모달). 모바일은 적용값만 칩으로 보여 준다.
+      ...(isPartsCategory ? [] : mileageApplied.length ? mileageApplied.map(toAppliedBbmChip) : desktop && isGuaziQuickStyle ? [(() => { const chip = groupChip("mileage", "주행거리", "주행거리", false); return chip ? { ...chip, className: "is-mileage" } : null; })()] : []),
+      ...(isPartsCategory ? [] : fuelApplied.length ? fuelApplied.map(toAppliedBbmChip) : [groupChip("fuel", "연료", "연료", false)]),
+    ]),
     ...(hideSellerQuickChip ? [] : sellerApplied.length ? sellerApplied.map(toAppliedBbmChip) : [groupChip("seller", "판매자", "판매자 유형", false)]),
     ...(regionApplied.length ? regionApplied.map(toAppliedBbmChip) : desktop || isBikeCategory ? [groupChip("region-filter", "지역", "지역", false)] : []),
     ...(isBikeCategory
-      ? [selectedBikeShop
+      ? [
+        selectedBikeShop
         ? { key: "bike-shop", label: selectedBikeShop, active: true, className: "is-applied", onClick: () => openBbmChipPanel("바이크샵"), onClear: () => setSelectedBikeShop(null) }
         : groupChip("bike-shop", "바이크샵", "바이크샵", false)]
       : complexApplied.length ? complexApplied.map(toAppliedBbmChip) : desktop ? [groupChip("complex", "매매단지", "매매단지", false)] : []),

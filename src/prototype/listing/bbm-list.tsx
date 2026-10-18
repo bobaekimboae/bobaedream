@@ -629,6 +629,8 @@ function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string
 
 export function BbmResultCard({ car, variant, featured = false, detailSummary = false, detailPower, detailBodyType, liked, onToggleLike, onOpen, onChat, onCall, feedPhotos, eagerPhoto = true, locationDong, detailLocation }: { car: Car; eagerPhoto?: boolean; locationDong?: string; detailLocation?: { dealer?: string; shop?: string }; variant: "pc" | "mobile"; featured?: boolean; detailSummary?: boolean; detailPower?: string; detailBodyType?: string; feedPhotos?: string[]; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void; onCall?: () => void }) {
   const seller = sellerLabel(car);
+  // 초톳처럼 판매자명 옆에 누적 판매완료 건수를 짧게 노출한다. 실제 API 필드가 생기기 전까지 매물 ID 기반의 안정적인 목업 값이다.
+  const bikeSoldCount = car.bike ? 1 + ((car.id * 7) % 36) : 0;
   // 목록 썸네일은 정규화 사본(럭셔리카와 같은 규칙)을 쓰고, 피드 대표 사진·그림(contain)은 원본 그대로
   const listPhoto = featured || car.imageFit === "contain" ? undefined : car.listThumb ?? normalizedListThumb(car.image);
   // 중고차(승용)는 「시도 구군 · 단지」, 그 밖의 카테고리(트럭·바이크·건설기계·캠핑카 등)는 「시도 구군」까지만(2026-10-08)
@@ -701,7 +703,7 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
     <div className={`bbm-card-meta-row${variant === "mobile" ? " bbm-card-mobile-footer" : ""}`}>
       <div className="bbm-card-seller">
         <img className="bbm-card-seller-logo" src={asset(featured ? sellerRealPhoto(car) : sellerAvatar(car))} alt="" draggable={false} />
-        <div className="bbm-card-seller-text"><strong>{seller}{!featured && car.luxuryCategory?.certified ? <img className="bbm-card-verified" src={asset("bbm/verified-dealer-wavy-chotot-v01.svg")} alt="인증딜러" draggable={false} /> : null}</strong></div>
+        <div className="bbm-card-seller-text"><strong>{seller}{!featured && car.luxuryCategory?.certified ? <img className="bbm-card-verified" src={asset("bbm/verified-dealer-wavy-chotot-v01.svg")} alt="인증딜러" draggable={false} /> : null}</strong>{car.bike ? <span className="bbm-card-sold-count">{bikeSoldCount}대 판매완료</span> : null}</div>
       </div>
       <div className="bbm-card-actions">
         {/* 피드 보기 전용(테스트 서버 car-list-feed-card__seller-action): 전화 · 채팅 · 찜 20, 간격 24. 다른 보기에서는 CSS로 숨김 */}
