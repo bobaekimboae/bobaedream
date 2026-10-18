@@ -370,7 +370,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
         <div className="bbm-header-main">
           <button type="button" className="bbm-logo" aria-label={isStandaloneSite ? `보배드림 ${siteName} 처음으로` : "보배드림 처음으로"} onClick={() => { if (isBikeSite) onChooseCategory("바이크"); if (isTruckSite) onChooseCategory("트럭 · 특장"); document.querySelector(".app-screen")?.scrollTo({ top: 0 }); }}>
             <span className="bbm-logo-emblem" aria-hidden="true">
-              <img src={bbmAsset(isStandaloneSite ? siteEmblem : "header-logo")} alt="" draggable={false} />
+              <img src={bbmAsset(isBikeSite && document.documentElement.dataset.bikelogo === "mark" ? "bike-logo-mark" : isStandaloneSite ? siteEmblem : "header-logo")} alt="" draggable={false} />
             </span>
             <span className={`bbm-logo-word is-${logoLanguage}`} aria-hidden="true">{logoLanguage === "ko" ? "보배드림" : "BOBAEDREAM"}</span>
             {isStandaloneSite ? <span className="bbm-bike-site-badge" aria-hidden="true">{siteName}</span> : null}

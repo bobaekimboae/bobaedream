@@ -614,8 +614,8 @@ function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearc
 
   return (
     <>{siteTitle && !searchOpen ? <div className="bike-site-mobile-brand" aria-label={siteTitle}>
-      <span className="bike-site-mobile-brand__logo" aria-hidden="true"><img src={asset(bbStandaloneTruckSite() ? "bbm/truck-emblem.svg" : "bbm/bike-emblem.svg")} alt="" draggable={false} /></span>
-      <h1>{siteTitle}</h1>
+      <span className="bike-site-mobile-brand__logo" aria-hidden="true"><img src={asset(bbStandaloneTruckSite() ? "bbm/truck-emblem.svg" : document.documentElement.dataset.bikelogo === "mark" ? "bbm/bike-logo-mark.svg" : "bbm/bike-emblem.svg")} alt="" draggable={false} /></span>
+      <h1>{siteTitle.startsWith("보배드림 ") ? <>보배드림 <span className="bike-site-mobile-brand__accent">{siteTitle.slice(5)}</span></> : siteTitle}</h1>
     </div> : null}
     <header className={`top-bar${bbm ? " is-bbm" : ""}${searchOpen ? " is-search-open" : ""}`} aria-label={siteTitle ? `${siteTitle} 검색` : "중고차 검색"}>
       <button className="icon-button back-button" type="button" aria-label={searchOpen ? "검색 닫기" : "뒤로 가기"} onClick={() => searchOpen ? closeSearch() : window.history.back()}>{headerIcon("back", "back.svg")}</button>
