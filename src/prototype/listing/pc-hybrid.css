@@ -16,7 +16,7 @@
   .marketplace.is-bbm.is-hybrid .bbm-page { grid-template-columns: 280px minmax(0, 1fr); gap: 40px; }
   .marketplace.is-bbm.is-hybrid .bbm-page:has(> .bbm-filter.is-collapsed) { grid-template-columns: 48px minmax(0, 1fr); }
   /* 일반 중고차: 매물 탐색을 먼저 읽도록 목록을 왼쪽, 필터를 오른쪽으로 교체한다. */
-  .marketplace.is-bbm.is-hybrid.is-list-first-layout .bbm-page { grid-template-columns: minmax(0, 1fr) 300px; }
+  .marketplace.is-bbm.is-hybrid.is-list-first-layout .bbm-page { grid-template-columns: minmax(0, 1fr) 280px; }
   .marketplace.is-bbm.is-hybrid.is-list-first-layout .bbm-page:has(> .bbm-filter.is-collapsed) { grid-template-columns: minmax(0, 1fr) 48px; }
   .marketplace.is-bbm.is-hybrid.is-list-first-layout .bbm-page > .bbm-content { grid-column: 1; grid-row: 1; }
   .marketplace.is-bbm.is-hybrid.is-list-first-layout .bbm-page > .bbm-filter { grid-column: 2; grid-row: 1; }
