@@ -71,10 +71,10 @@
 @media (min-width: 768px) {
   .ferrari-category-hero {
     width: 100%;
-    height: auto;
-    aspect-ratio: 31 / 5;
+    height: 118px;
+    aspect-ratio: auto;
     min-height: 0;
-    max-height: none;
+    max-height: 118px;
     margin: 0 0 16px;
     border-radius: 10px;
   }

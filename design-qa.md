@@ -30,6 +30,32 @@ final result: passed
 
 ---
 
+## 2026-10-18 페라리 PC 배너를 트럭·특장 배너 크기로 통일
+
+- Source visual truth: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/truck-special-banner-reference-1280.png`
+- Implementation screenshot: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/ferrari-truck-banner-size-local-1280.png`
+- Focused side-by-side evidence: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/truck-vs-ferrari-banner-1200x118.png`
+- Viewport/state: PC 1280×720, `filterLayout=compact`, 트럭·특장 기본 화면 대 페라리 제조사 선택 화면.
+- Pixel/CSS normalization: 양쪽 모두 1× 캡처, 외곽 `x=40`, `y=137`, CSS·이미지 영역 `1200×118px`; 별도 밀도 보정 불필요.
+
+### Findings and comparison history
+
+- Initial P2: 페라리 배너가 `1200×193.5px`로 트럭·특장 `1200×118px`보다 75.5px 높아 첫 화면의 검색 조건과 매물이 아래로 밀렸다.
+- Fix: PC 전용 페라리 배너를 `height/max-height: 118px`, `aspect-ratio: auto`로 변경하고 모바일 규격은 보존했다.
+- Post-fix evidence: 집중 비교 이미지에서 두 배너의 폭·높이·모서리와 다음 영역 시작 리듬이 동일하다. 페라리 영상은 `object-fit: cover`, `object-position: 62% 54%`를 유지한다.
+- Fonts and typography: passed — 페라리 타이틀·보조 문구의 기존 위계와 가독성이 118px 높이에서도 유지된다.
+- Spacing and layout rhythm: passed — 외곽 1200×118, 좌우 40px, 하단 16px이 트럭·특장 배너 규격과 일치한다.
+- Colors and visual tokens: passed — 페라리 영상·그라데이션과 기존 브랜드 색을 변경하지 않았다.
+- Image quality and asset fidelity: passed — 원본 영상 자산을 그대로 사용하며 찌그러짐 없이 cover 크롭된다.
+- Copy and content: passed — `보배드림 페라리 / 국내 유일 페라리 쇼핑몰` 문구를 그대로 보존했다.
+- Full-view comparison: passed — 동일 1280×720에서 헤더 이후 배너와 검색 조건의 전체 세로 흐름을 확인했다.
+- Focused region comparison: passed — 두 1200×118 배너를 한 이미지에 위아래로 합쳐 외곽 크기를 직접 대조했다.
+- Runtime: passed — 로컬 화면 콘솔 오류·경고 0건.
+
+final result: passed
+
+---
+
 ## 2026-10-18 페라리 배너·퀵필터 칩 균형 및 PC 탑메뉴
 
 - source visual truth path: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/youtube-channel-reference-1280.png` (사용자 지정 유튜브 채널, 1280×720px).
