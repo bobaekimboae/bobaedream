@@ -19,7 +19,7 @@
   .bbm-logo-emblem img { display: block; width: 122px; max-width: none; height: 30px; }
   .bbm-logo-word { width: auto; height: auto; flex: none; background: none; color: #306bd9; font-size: 18px; font-weight: 800; line-height: 24px; letter-spacing: -.35px; }
   .bbm-logo-word.is-en { font-family: Arial, Helvetica, sans-serif; }
-  .bbm-logo-word.is-ko { color: #222; font-family: Pretendard, "Noto Sans KR", sans-serif; font-size: 20px; font-weight: 800; letter-spacing: -.7px; }
+  .bbm-logo-word.is-ko { color: #306bd9; font-family: Pretendard, "Noto Sans KR", sans-serif; font-size: 20px; font-weight: 800; letter-spacing: -.7px; }
   .bbm-gnb-row { display: flex; align-items: center; justify-content: flex-start; height: 49px; }
   .bbm-gnb { display: flex; width: 100%; min-width: 0; align-items: stretch; justify-content: flex-start; gap: 16px; height: 49px; overflow: visible; scrollbar-width: none; }
   .bbm-gnb::-webkit-scrollbar { display: none; }
