@@ -685,14 +685,14 @@ export function BbTruckFormatFilter({ value, showImages = true, referenceStyle =
         <div className="bbm-catalog">
           {view === "format" ? <div className="bbm-catalog-section">
             <p className="bbm-catalog-title">형식</p>
-            {value.formats.map((option) => <button key={option.name} type="button" disabled={option.count === 0} className="bbm-catalog-row" aria-pressed={false} onClick={() => { value.onChooseFormat(option.name); setView("subtype"); }}><BbTruckOptionLabel name={option.name} image={null} />{count(option.count)}</button>)}
+            {value.formats.map((option) => <button key={option.name} type="button" className="bbm-catalog-row" aria-pressed={false} onClick={() => { value.onChooseFormat(option.name); setView("subtype"); }}><BbTruckOptionLabel name={option.name} image={null} />{count(option.count)}</button>)}
           </div> : <div className="bbm-catalog-section is-drill">
             <button type="button" className="bbm-encar-selected-row" aria-label={`${value.format} 선택 해제`} onClick={value.onClearFormat}>
               <span>{value.format}</span><span className="bbm-encar-selected-x" aria-hidden="true">×</span>
             </button>
             {view === "subtype" ? <>
               <p className="bbm-catalog-title">세부형식</p>
-              {value.subtypes.map((option) => <button key={option.name} type="button" disabled={option.count === 0} className={`bbm-catalog-row${value.subtype === option.name ? " is-selected" : ""}`} aria-pressed={value.subtype === option.name} onClick={() => { value.onChooseSubtype(option.name); setView(value.specGroups.length ? "spec" : "subtype"); }}>
+              {value.subtypes.map((option) => <button key={option.name} type="button" className={`bbm-catalog-row${value.subtype === option.name ? " is-selected" : ""}`} aria-pressed={value.subtype === option.name} onClick={() => { value.onChooseSubtype(option.name); setView(value.specGroups.length ? "spec" : "subtype"); }}>
                 <BbTruckOptionLabel name={option.name} image={null} />
                 {count(option.count)}
               </button>)}
@@ -704,7 +704,7 @@ export function BbTruckFormatFilter({ value, showImages = true, referenceStyle =
                 <p className="bbm-catalog-title">{group.label.replace(/\s*\([^)]*\)\s*$/, "")}</p>
                 <div className="bbm-truck-spec-list">{group.options.map((option) => {
                   const selected = value.spec === option.name;
-                  return <button key={`${group.label}-${option.name}`} type="button" role="checkbox" aria-checked={selected} disabled={option.count === 0 && !selected} className={selected ? "is-selected" : ""} onClick={() => value.onChooseSpec(option.name)}>
+                  return <button key={`${group.label}-${option.name}`} type="button" role="checkbox" aria-checked={selected} className={selected ? "is-selected" : ""} onClick={() => value.onChooseSpec(option.name)}>
                     <span className="bbm-encar-checkbox" aria-hidden="true">{selected ? "✓" : ""}</span><span className="bbm-truck-spec-name">{option.name}</span>{count(option.count)}
                   </button>;
                 })}</div>

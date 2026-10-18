@@ -2930,6 +2930,10 @@ export const truckSpecGroupsFor = (format: string | null, subtype: string | null
       ...(catalog["중형 트럭 (4~8.5톤)"]?.[0]?.options ?? []),
       ...(catalog["대형 트럭 (9톤 이상)"]?.[0]?.options ?? []),
     ];
+    // 엔카 원형은 카고 자체가 세부형식이고 그 다음 단계가 전체 적재톤수다.
+    if (subtype === "카고(화물)트럭") {
+      return [{ label: "적재용량 (톤수)", options: [...new Set(legacyOptions)] }];
+    }
     const tonnage = (value: string) => Number.parseFloat(value.replace("톤", ""));
     const inBand: Readonly<Record<string, (value: number) => boolean>> = {
       "경형": (value) => value <= 1,
@@ -2942,7 +2946,34 @@ export const truckSpecGroupsFor = (format: string | null, subtype: string | null
     const predicate = inBand[subtype];
     if (predicate) return [{ label: "적재용량 (톤수)", options: [...new Set(legacyOptions)].filter((value) => predicate(tonnage(value))) }];
   }
-  return (truckSpecCatalog as Record<string, Record<string, readonly TruckSpecGroup[]>>)[format]?.[subtype] ?? [];
+  // Drive 원장의 표시명과 과거 형식별 탭의 내부 키가 다른 항목을 연결한다.
+  // 화면과 URL은 원장 표시명을 유지하고, 규격 데이터만 기존 수집 키에서 읽는다.
+  const subtypeAliases: Readonly<Record<string, string>> = {
+    "저상 내장탑": "저상형 내장탑",
+    "익스(하이)탑": "익스(하이)내장탑",
+    "씨티밴(워크스루밴)": "씨티/워크스루밴",
+    "이동·광고·응급차": "이동/광고/응급차",
+    "고소작업차": "바가지차",
+    "활선차": "활선차(고소작업)",
+    "LPG 탱크로리": "LPG/LNG탱크로리",
+    "유류 탱크로리": "유류/액상탱크로리",
+    "분말(벌크) 탱크로리": "소맥분/분말탱크로리",
+    "암롤": "암롤/롤온",
+    "음식물수거차": "음식물수거",
+    "재활용품수거차": "재활용품수집차",
+    "언더리프트(렉카·구난)": "언더리프트",
+    "카캐리어": "카케리어",
+    "LPG 트레일러": "LPG/LNG트레일러",
+    "곡물 트레일러": "곡물트레일러",
+    "덤프 트레일러": "덤프트레일러",
+    "로우베드": "로우베드/릴리리",
+    "BCT 벌크(벌크시멘트)": "벌크시멘트트레일러",
+    "윙 트레일러": "윙트레일러",
+    "유류 탱크 트레일러": "유류/액상탱크트레일러",
+    "평판 트레일러": "평판트레일러",
+  };
+  const sourceSubtype = subtypeAliases[subtype] ?? subtype;
+  return (truckSpecCatalog as Record<string, Record<string, readonly TruckSpecGroup[]>>)[format]?.[sourceSubtype] ?? [];
 };
 
 export const truckSpecOptionsFor = (format: string | null, subtype: string | null): readonly string[] =>

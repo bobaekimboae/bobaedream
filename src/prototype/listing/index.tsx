@@ -102,7 +102,7 @@ import { setPretendard } from "../fonts/pretendard";
 import { BBM_PAGE_SIZE, BbmFooter, BbmPagination, BbmPopOptions, BbmToolbarMenu, bbmSortOptions, bbmViewOptionsMobile, bbmViewOptionsPc, sortBbmCars, type BbmSort } from "./bbm-list-area";
 import { bikeListingModelsByMaker, bikeListingModelVisualsByMaker } from "../bike/data";
 import { bikeModelsByMaker } from "../data/bike-filter-catalog";
-import { normalizeTruckFormatSelection, truckCargoQuickSubtypes, truckFormatCatalog, truckFormatImageFor, truckSubtypeImageFor, truckSubtypeLabel, truckSubtypesFor, truckSubtypeSecondaryLabel, truckSubtypeValuesForSelection } from "../data/truck-format-catalog";
+import { normalizeTruckFormatSelection, truckCargoQuickSpecs, truckFormatCatalog, truckFormatImageFor, truckSubtypeImageFor, truckSubtypeLabel, truckSubtypesFor, truckSubtypeSecondaryLabel, truckSubtypeValuesForSelection } from "../data/truck-format-catalog";
 import { truckSpecGroupsFor, truckSpecOptionsFor } from "../data/truck-depth4-catalog";
 import { QuickRailCarousel } from "./quick-rail-carousel";
 import { truckModelsByMaker } from "../truck/scenario-v09";
@@ -1025,8 +1025,8 @@ function MarketplaceScreen() {
   const vehicleCatalog = useVehicleCatalog(isBikeCategory ? "bike" : "car", maker);
   const autohomeLogoPreview = new URLSearchParams(window.location.search).get("brandlogo") === "autohome";
   const truckDepthPreviewMode = typeof window === "undefined" ? null : new URLSearchParams(window.location.search).get("truckdepth");
-  const showWingbodyImageDepth = selectedTruckFormat === "윙바디·탑차" && truckDepthPreviewMode === "image";
-  const showWingbodyPillDepth = selectedTruckFormat === "윙바디·탑차" && truckDepthPreviewMode === "pill";
+  const showWingbodyImageDepth = selectedTruckFormat === "윙바디/탑" && truckDepthPreviewMode === "image";
+  const showWingbodyPillDepth = selectedTruckFormat === "윙바디/탑" && truckDepthPreviewMode === "pill";
   const truckSubtypeOptions = truckSubtypesFor(selectedTruckFormat);
   const truckSpecGroups = truckSpecGroupsFor(selectedTruckFormat, selectedTruckSubtype);
   const truckSpecOptions = truckSpecGroups.flatMap((group) => group.options.map((option) => ({ group: group.label, value: option })));
@@ -1589,6 +1589,23 @@ function MarketplaceScreen() {
     replaceTruckParams(formatName, formatName ? subtypeName : null, null);
   };
 
+  const applyTruckQuickSpec = (spec: string) => {
+    const formatName = "카고(화물)트럭";
+    const subtypeName = "카고(화물)트럭";
+    setSelectedTruckFormat(formatName);
+    setSelectedTruckSubtype(subtypeName);
+    setSelectedTruckSpec(spec);
+    setFilters((current) => ({ ...current, maker: null, model: null }));
+    setDraftFilters((current) => ({ ...current, maker: null, model: null }));
+    setSelectedGeneration(null);
+    setSelectedVariants([]);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
+    setTrimApplied(false);
+    replaceFilterParams(null, null);
+    replaceTruckParams(formatName, subtypeName, spec);
+  };
+
   const clearMakerFilter = () => {
     setFilters((current) => ({ ...current, maker: null, model: null }));
     setDraftFilters((current) => ({ ...current, maker: null, model: null }));
@@ -2144,8 +2161,8 @@ function MarketplaceScreen() {
             <section className="depth-rail no-label is-truck-depth-chip-row is-cargo-tonnage-row" aria-label="적재중량 빠른 선택">
               <QuickRailCarousel ariaLabel="적재중량" className="brand-carousel" contentClassName="depth-rail-track is-chips is-truck-tonnage-track">
                 <span className="truck-tonnage-label">적재중량:</span>
-                {truckCargoQuickSubtypes.map((subtype) => (
-                  <TrimChip key={subtype} label={truckSubtypeSecondaryLabel("카고(화물)트럭", subtype) ?? subtype} onClick={() => applyTruckTypeSelection("카고(화물)트럭", subtype)} />
+                {truckCargoQuickSpecs.map((spec) => (
+                  <TrimChip key={spec} label={spec} onClick={() => applyTruckQuickSpec(spec)} />
                 ))}
               </QuickRailCarousel>
             </section>
@@ -2157,16 +2174,11 @@ function MarketplaceScreen() {
           </> :
                     showTruckSubtypeRail ? <section className={showWingbodyImageDepth
             ? "depth-rail no-label is-truck-image-row is-format-sub"
-            : `depth-rail no-label is-truck-depth-chip-row${selectedTruckFormat === "카고(화물)트럭" ? " is-cargo-tonnage-row" : ""}${showWingbodyPillDepth ? " is-wingbody-pill-row" : ""}`} aria-label={`${selectedTruckFormat} 세부 형식 빠른 선택`}>
+            : `depth-rail no-label is-truck-depth-chip-row${showWingbodyPillDepth ? " is-wingbody-pill-row" : ""}`} aria-label={`${selectedTruckFormat} 세부 형식 빠른 선택`}>
             <QuickRailCarousel ariaLabel={`${selectedTruckFormat} 세부 형식`} className="brand-carousel" contentClassName={showWingbodyImageDepth
               ? "depth-rail-track"
-              : `depth-rail-track${selectedTruckFormat === "카고(화물)트럭" ? " is-chips is-truck-tonnage-track" : ""}${showWingbodyPillDepth ? " is-chips" : ""}`}>
-              {selectedTruckFormat === "카고(화물)트럭" ? <>
-                <span className="truck-tonnage-label">적재중량:</span>
-                {truckCargoQuickSubtypes.map((subtype) => (
-                  <TrimChip key={subtype} label={truckSubtypeSecondaryLabel(selectedTruckFormat, subtype) ?? subtype} onClick={() => chooseTruckSubtype(subtype)} />
-                ))}
-              </> : showWingbodyImageDepth ? <>
+              : `depth-rail-track${showWingbodyPillDepth ? " is-chips" : ""}`}>
+              {showWingbodyImageDepth ? <>
                 {wingbodyQuickSubtypes.map((subtype) => (
                   <DepthCard
                     key={subtype}
@@ -2188,7 +2200,7 @@ function MarketplaceScreen() {
           </section> :
           showTruckSpecRail ? <section className="depth-rail is-trim-row no-label" aria-label={`${selectedTruckSubtype} 적재용량 및 규격 빠른 선택`}>
             <QuickRailCarousel ariaLabel={`${selectedTruckSubtype} 적재용량 및 규격`} className="brand-carousel" contentClassName="depth-rail-track is-chips">
-              {truckSpecOptions.map((option) => <TrimChip key={`${option.group}-${option.value}`} label={truckSpecGroups.length > 1 ? `${option.group}: ${option.value}` : option.value} onClick={() => chooseTruckSpec(option.value)} />)}
+              {truckSpecOptions.map((option) => <TrimChip key={`${option.group}-${option.value}`} label={option.value} onClick={() => chooseTruckSpec(option.value)} />)}
             </QuickRailCarousel>
           </section> :
           showYearQuickRail ? <StableYearRow value={bbmValue} onChange={(next) => setBbmFilters(next)} /> :

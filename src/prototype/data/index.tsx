@@ -30,7 +30,7 @@ import { bikeInventory } from "../bike/data";
 import { heavyInventory } from "../heavy/data";
 import { truckListingRowsV09, truckModelsByMaker, truckPlaceV09 } from "../truck/scenario-v09";
 import { truckScenarioImageV02 } from "../truck/scenario-images-v02";
-import { truckSubtypeLabel } from "./truck-format-catalog";
+import { normalizeTruckFormatSelection, truckSubtypeLabel } from "./truck-format-catalog";
 import { luxuryDealers, luxuryListingRows } from "./luxury-category-v01";
 import { oldCarListingRows } from "./old-car-category-v01";
 import { oldCarBobaeRows } from "./old-car-bobae-v01";
@@ -1200,6 +1200,11 @@ const truckCars: Car[] = truckListingRowsV09.map((row, index) => {
   const options = row.options ?? [truckOptionPool[index % truckOptionPool.length], truckOptionPool[(index + 2) % truckOptionPool.length]] as string[];
   if (!row.options && (row.subtype.includes("파워게이트") || index % 5 === 0)) options.unshift("리프트(파워게이트)");
   const subtypeLabel = row.subtype ? truckSubtypeLabel(row.subtype) : "";
+  // 시나리오 원본에는 과거 보배드림 통합 분류가 남아 있다. 목록과 좌측 필터는
+  // Google Drive 엔카 원장(형식 → 세부형식)을 단일 기준으로 사용한다.
+  const encarSelection = normalizeTruckFormatSelection(row.format, row.subtype);
+  const encarFormat = encarSelection.format ?? "기타";
+  const encarSubtype = encarSelection.subtype ?? "기타";
   // 트레일러는 엔진이 없어 주행·연료 대신 적재량 · 길이 · 축(2026-10-07 사용자 지시, UI 검증용 가상 값)
   const trailer = row.trailer ?? (row.format === "트레일러" ? trailerSpecsV01[row.id] : undefined);
   return ({
@@ -1226,8 +1231,8 @@ const truckCars: Car[] = truckListingRowsV09.map((row, index) => {
   photos: 1,
   badges: [],
   truck: {
-    format: row.format,
-    subtype: row.subtype,
+    format: encarFormat,
+    subtype: encarSubtype,
     load: row.load,
     scenarioId: row.id,
     isVirtual: true,
