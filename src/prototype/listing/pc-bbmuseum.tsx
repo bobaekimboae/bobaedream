@@ -32,7 +32,6 @@ const bbGnbItems: readonly BbGnbItem[] = [
   { label: "국산차", category: "국산차" },
   { label: "수입차", category: "수입차" },
   { label: "트럭 · 특장", category: "트럭 · 특장" },
-  { label: "중장비", category: "건설기계" },
   { label: "바이크", category: "바이크" },
   { label: "중고부품", category: "부품 · 용품" },
   { label: "커뮤니티", action: "community" },
@@ -79,10 +78,6 @@ const bbGnbSubmenus: Readonly<Record<string, readonly BbGnbSubItem[]>> = {
     { label: "전체 트럭", category: "트럭 · 특장" },
     ...truckFormatCatalog.slice(0, 7).map((item) => ({ label: item.name, category: "트럭 · 특장", detail: item.name })),
   ],
-  중장비: [
-    { label: "중장비 전체", category: "건설기계" },
-    { label: "자재운반장비", category: "자재운반장비" },
-  ],
   바이크: [{ label: "바이크 전체", category: "바이크" }],
   중고부품: [{ label: "부품/용품 전체", category: "부품 · 용품" }],
   더보기: [
@@ -98,7 +93,7 @@ function bbActiveGnbItem(category: string) {
       : category === "수입차" ? "수입차"
         : bbUsedCarCategories.has(category) ? "차량검색"
           : category === "트럭 · 특장" ? "트럭 · 특장"
-            : category === "건설기계" || category === "자재운반장비" ? "중장비"
+            : category === "건설기계" || category === "자재운반장비" ? "차량검색"
               : category === "캠핑카" ? "더보기"
                 : category === "부품 · 용품" ? "중고부품"
                   : category === "바이크" ? category : "더보기";
