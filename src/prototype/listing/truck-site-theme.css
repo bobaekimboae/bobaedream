@@ -1,14 +1,14 @@
 /* 독립 /truck/ 전용 Cars & Bids 초록 테마(2026-10-18 carsandbids.com 실측). 공유 보배드림 화면에는 적용하지 않는다. */
 html[data-site="truck"] {
-  /* 글자·로고용 초록(로고·링크) #3DB07A, 버튼 채움 #4AD493 + 진남색 글자 #0F2236, 마우스 #30C880 — Cars & Bids 실측 */
+  /* 단일 초록(2026-10-18 「단일 녹색으로 가자」): Cars & Bids 로고 초록 #3DB07A 하나를 글자·버튼에 모두 쓰고 버튼 글자는 흰색 */
   --blue: #3db07a;
   --bbm-blue: #3db07a;
   --truck-green: #3db07a;
-  --truck-green-fill: #4ad493;
-  --truck-green-ink: #0f2236;
-  --truck-green-hover: #30c880;
+  --truck-green-fill: #3db07a;
+  --truck-green-ink: #ffffff;
+  --truck-green-hover: #34a06e;
   --truck-green-soft: #e8f9f0;
-  --truck-green-border: #4ad493;
+  --truck-green-border: #3db07a;
   --color-primary-25: #f3fcf7;
   --color-primary-50: #e8f9f0;
   --color-primary-100: #c9f1dd;
