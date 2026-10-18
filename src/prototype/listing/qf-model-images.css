@@ -990,3 +990,5 @@
   height: 56px;
   margin-top: 8px;
 }
+/* 알약 줄 넘김 화살표: 이미지 줄 기준 top 20을 쓰면 알약 가운데보다 11 아래로 처졌다(2026-10-19 「우측 이동 버튼 틀어졌다」). 줄 세로 가운데에 맞춘다 */
+.marketplace.is-qf-guazi .depth-rail.is-rule-pill-row .quick-rail-nav { top: calc(50% - 19px); }
