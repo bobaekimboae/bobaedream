@@ -33,6 +33,13 @@
   .marketplace.is-bbm.is-hybrid.is-compact-top-filter .bbm-page > .bbm-filter { margin-top: -208px; }
   /* 바이크 상단 카드 194px + 본문 간격 24px. 좌측 필터와 오른쪽 상단 카드의 윗선을 정확히 맞춘다. */
   .marketplace.is-bbm.is-hybrid.is-bike-category.is-compact-top-filter .bbm-page > .bbm-filter { margin-top: -218px; }
+  /* 페라리 상단에는 118px 배너·16px 간격·56px 지역 레일이 추가된다.
+     좌측 필터는 일반 중고차와 같은 y=137 시작선을 유지한다. */
+  .marketplace.is-bbm.is-hybrid.is-ferrari-category.is-compact-top-filter .bbm-page > .bbm-filter { margin-top: -398px; }
+  .marketplace.is-bbm.is-hybrid.is-ferrari-category.is-compact-top-filter .bbm-hybrid-top > .ferrari-category-hero {
+    width: calc(100% - 320px);
+    margin-left: auto;
+  }
   /* 비교안: 하위 카테고리 메뉴는 유지하고 큰 상단 검색조건·브랜드 박스만 제거한다. */
   .marketplace.is-bbm.is-hybrid.is-no-top-filter .bbm-hybrid-top > .bbm-content-head.is-chotot { display: none; }
   /* 기본 균형안(헤이딜러·하틀라투이): 배너만 1200 전체 폭, 그 아래 좌측 필터 280 · 간격 40 · 우측(검색조건 카드 → 매물).

@@ -30,6 +30,33 @@ final result: passed
 
 ---
 
+## 2026-10-18 페라리 좌측 필터를 중고차 기준으로 정렬
+
+- Source visual truth: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/used-car-left-filter-reference-1280.png`
+- Implementation screenshot: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/ferrari-left-filter-usedcar-aligned-local-v2-1280.png`
+- Full/focused comparison evidence: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/usedcar-vs-ferrari-left-filter-comparison.png`
+- Viewport/state: PC 1280×720, `filterLayout=compact`; 중고차 기본 화면 대 수입차·페라리 선택 화면.
+- Pixel/CSS normalization: 양쪽 1× 캡처. 좌측 필터는 모두 `x=40`, `y=137`, `width=280px`; 별도 밀도 보정 불필요.
+
+### Findings and comparison history
+
+- Initial P2: 페라리 좌측 필터가 `y=327`에서 시작해 중고차의 `y=137`보다 190px 아래였다.
+- Fix 1: 페라리 PC 상태 클래스를 추가하고 compact 좌측 필터 여백을 보정해 `x=40, y=137, width=280px`로 맞췄다.
+- Iteration P2: 전체 폭 페라리 배너와 상단으로 올린 필터가 겹쳤다.
+- Fix 2: compact 페라리 배너·검색 박스를 매물 열과 같은 `x=360, width=880px`에 배치해 겹침을 제거했다.
+- Post-fix: 필터 헤더 66.8px, 아코디언 순서·행 간격·구분선·화살표·최근 기록·초기화가 중고차와 동일하다. 페라리 선택 표시만 의도대로 유지한다.
+- Fonts and typography: passed — 필터 제목, 섹션명, 보조 선택값의 글꼴·크기·굵기가 중고차 기준과 같다.
+- Spacing and layout rhythm: passed — 좌측 280px, 열 간격 40px, 오른쪽 880px이며 필터·배너의 상단선이 y=137로 일치한다.
+- Colors and visual tokens: passed — 흰 필터 바탕, 회색 구분선, 검정 본문과 보조 회색 토큰을 그대로 재사용한다.
+- Image quality and asset fidelity: passed — 페라리 영상과 모델 이미지는 원본 자산을 유지하며 필터와 겹치지 않는다.
+- Copy and content: passed — 중고차 필터 항목 전체를 유지하고 `페라리` 선택값만 추가 표시한다.
+- Interaction: passed — 제조사·모델·등급 아코디언 열기/닫기와 선택 트리가 정상 동작한다.
+- Runtime: passed — 로컬 콘솔 오류·경고 0건.
+
+final result: passed
+
+---
+
 ## 2026-10-18 페라리 PC 배너를 트럭·특장 배너 크기로 통일
 
 - Source visual truth: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/truck-special-banner-reference-1280.png`
