@@ -525,9 +525,11 @@ function BbmCatalogHeaderSearch({ query, setQuery, searchPlaceholder, catalogRec
   if (catMode) {
     const popular = bbSearchPopular[catValue] ?? bbSearchPopular["전체"];
     const poshParam = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("pcsearch") : null;
-    const posh = poshParam === "posh" || poshParam === "posh2";
-    const poshBlue = poshParam === "posh2";
-    return <div className={`bbm-catalog-search is-main is-cat${posh ? " is-posh" : ""}${poshBlue ? " is-posh-blue" : ""}`} ref={catRef}>
+    // 기본 = 회색 간결형(포쉬마크 요소 + 회색 채움). cat1 = 이전 기본(회색 · 굵은 범위 · 왼쪽 돋보기) 보존
+    const poshGray = poshParam !== "posh" && poshParam !== "posh2" && poshParam !== "cat1";
+    const posh = poshParam === "posh" || poshParam === "posh2" || poshGray;
+    const poshBlue = poshParam === "posh2" || poshGray;
+    return <div className={`bbm-catalog-search is-main is-cat${posh ? " is-posh" : ""}${poshBlue ? " is-posh-blue" : ""}${poshGray ? " is-posh-gray" : ""}`} ref={catRef}>
       <button type="button" className="bbm-search-cat" aria-haspopup="listbox" aria-expanded={catOpen} aria-label={`검색 범위 ${catLabel}, 바꾸기`} onClick={() => { setCatOpen((open) => !open); setSearchOpen(false); }}>
         <span>{catLabel}</span><BbIcon name="chevron-down" size={16} />
       </button>
