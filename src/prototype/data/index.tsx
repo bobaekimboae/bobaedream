@@ -926,15 +926,35 @@ const bikeShopNames = [
 ];
 const stableHash = (value: string) => [...value].reduce((total, char) => (total * 31 + char.charCodeAt(0)) >>> 0, 7);
 const bikeShopLabel = (name: string) => name.endsWith("바이크샵") ? name : `${name.replace(/\s*바이크$/, "")} 바이크샵`;
-// 2026-10-08: 바이크 시트 매물(v08)은 게시일 최신순(같은 날은 시트 순서), 사용자 지시 매물 bike-001은 맨 위. updateRank로 업데이트순을 고정한다
+// 바이크 목록 시안은 전문샵 매물을 약 70%까지 늘려 개인 매물보다 충분히 자주 노출한다.
+// 원본 시나리오의 업체 매물은 유지하고, 개인 매물 절반만 안정적인 ID 해시로 바이크샵 매물로 표시한다.
+const displaysAsBikeShop = (row: { id: string; sellerType: string }) => row.sellerType !== "개인 판매" || stableHash(row.id) % 10 < 5;
+// 각 페이지에서도 비율이 무너지지 않도록 최신순을 유지한 두 그룹을 7(바이크샵):3(개인)으로 교차 배치한다.
+const interleaveBikeSellerMix = <T,>(shops: T[], personals: T[]) => {
+  const result: T[] = [];
+  let shopIndex = 0;
+  let personalIndex = 0;
+  while (shopIndex < shops.length || personalIndex < personals.length) {
+    for (let count = 0; count < 7 && shopIndex < shops.length; count += 1) result.push(shops[shopIndex++]);
+    for (let count = 0; count < 3 && personalIndex < personals.length; count += 1) result.push(personals[personalIndex++]);
+  }
+  return result;
+};
+// 2026-10-08: 바이크 시트 매물(v08)은 게시일 최신순(같은 날은 시트 순서). 각 판매자 그룹 안에서는 이 순서를 보존한다.
 const bikeInventoryOrdered = [...bikeInventory].sort((a, b) => (a.postedDays ?? -1) - (b.postedDays ?? -1));
-const bikeCars: Car[] = bikeInventoryOrdered.map((row, index) => ({
-  updateRank: bikeInventoryOrdered.length - index,
+const bikeInventoryDisplayOrdered = interleaveBikeSellerMix(
+  bikeInventoryOrdered.filter(displaysAsBikeShop),
+  bikeInventoryOrdered.filter((row) => !displaysAsBikeShop(row)),
+);
+const bikeCars: Car[] = bikeInventoryDisplayOrdered.map((row, index) => {
+  const bikeShopListing = displaysAsBikeShop(row);
+  return ({
+  updateRank: bikeInventoryDisplayOrdered.length - index,
   id: 7000 + index,
   ...(bikeListingOverridesV01[row.id] ?? {}),
   maker: row.maker,
   modelGroup: row.model,
-  sellerType: row.sellerType === "개인 판매" ? "개인" : "딜러",
+  sellerType: bikeShopListing ? "딜러" : "개인",
   image: `bike/listings/${row.imageFile}`,
   imageFit: "cover",
   // v11 시트 매물은 목록 썸네일 정규화 사본(차 폭 90% · 바닥선 85%)을 쓴다
@@ -947,20 +967,21 @@ const bikeCars: Car[] = bikeInventoryOrdered.map((row, index) => ({
   place: row.region,
   views: 30 + index * 9,
   // 바이크는 딜러·매매단지가 없다(2026-10-10 사용자 지시): 업체 매물은 가상 「바이크샵」 이름, 개인은 개인판매자
-  dealer: row.sellerType === "개인 판매" ? "개인판매자" : bikeShopLabel(bikeShopNames[stableHash(row.id) % bikeShopNames.length]),
+  dealer: bikeShopListing ? bikeShopLabel(bikeShopNames[stableHash(row.id) % bikeShopNames.length]) : "개인판매자",
   stock: 1,
   // v08 시트 매물은 상세페이지 게시일 기준(오늘 게시 = N시간 전, 그 외 N일 전)
   posted: row.postedDays === undefined || row.postedDays === 0 ? `${(index % 12) + 1}시간 전` : `${row.postedDays}일 전`,
   photos: 1,
   badges: row.certified === "가능" ? ["인증중고차"] : [],
-  sellerProfile: null,
+  // 목록 카드의 판매자 프로필 사진. 승인된 초톳 인물 이미지 풀을 매물 ID 기준으로 안정적으로 배정한다.
+  sellerProfile: chototHumanSellerProfiles[stableHash(row.id) % chototHumanSellerProfiles.length],
   bike: {
     scenarioId: row.id,
     imageFile: row.imageFile,
     displacement: row.displacement,
     genre: row.genre,
     licenseClass: row.licenseClass,
-    sellerType: row.sellerType,
+    sellerType: bikeShopListing ? "바이크샵" : "개인 판매",
     condition: row.condition,
     certified: row.certified,
     delivery: row.delivery,
@@ -990,7 +1011,8 @@ const bikeCars: Car[] = bikeInventoryOrdered.map((row, index) => ({
     bikeLicense: row.licenseClass,
     bikeSource: row.sellerType,
   },
-}));
+  });
+});
 
 // 사용자 지시 매물(2026-10-08): 지시값 스펙 줄 고정
 const heavyListingOverridesV01: Record<string, { cardSpec: string[] }> = {
