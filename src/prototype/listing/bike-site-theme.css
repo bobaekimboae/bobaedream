@@ -51,7 +51,8 @@ html[data-site="bike"] .bbm-catalog-search.is-posh.is-posh-blue .bbm-catalog-sea
   background: var(--bike-orange-hover) !important;
 }
 
-html[data-site="bike"] .bbm-account-avatar {
+/* 로그인 전(게스트) 아이콘은 메인 사이트와 같은 흰 바탕·검정 아이콘 — 주황 제외 */
+html[data-site="bike"] .bbm-account-avatar:not(.is-guest) {
   background: var(--bike-orange);
 }
 
