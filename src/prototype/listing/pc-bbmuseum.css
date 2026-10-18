@@ -550,3 +550,19 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
   html:not([data-lnb]) .marketplace.is-bbm .bbm-bare-lnb .bbm-lnb-title-tabs button:hover { background: #f7f7f8; color: #222; }
   html:not([data-lnb]) .marketplace.is-bbm .bbm-bare-lnb .bbm-lnb-title-tabs button.is-current { background: #f1f2f4; color: #222; font-weight: 700; }
 }
+
+/* 2026-10-18 헤더 검색바 = 초톳 원본(xe.chotot.com 1440 실측, vieclamtot와 같은 헤더) — 기본(pcsearch 없음)
+   지역 알약 40 · #F4F4F4 · 16/700 · 핀 20 + 삼각 24 → 간격 8 → 검색 알약 최대 578(초톳 1440 폭) · 높이 40 · #F4F4F4 · 안쪽 왼쪽 12 ·
+   돋보기 20 #8C8C8C · 입력 16 · 안내 글자 #757575 · 오른쪽 32 원형 검색 버튼(초톳 노랑 대신 보배드림 #306BD9, 흰 돋보기 16). 전체 폭을 채우지 않는다 */
+@media (min-width: 820px) {
+  .bbm-header:not(.is-search-chotot):not(.is-search-kaidee) .bbm-header-search-slot { display: flex; align-items: center; gap: 8px; }
+  .bbm-region-pill.is-ct { gap: 4px; height: 40px; padding: 0 14px 0 10px; background: #f4f4f4; color: #222; font-size: 16px; font-weight: 700; line-height: 24px; letter-spacing: 0; }
+  .bbm-region-pill.is-ct:hover { background: #ececec; }
+  .bbm-region-pill.is-ct .ct-icon { flex: none; color: #222; }
+  .bbm-catalog-search.is-main { flex: 1 1 auto; min-width: 0; max-width: 578px; gap: 0; padding: 0 4px 0 12px; }
+  .bbm-catalog-search.is-main > .ct-icon { flex: none; margin-right: 0; color: #8c8c8c; }
+  .bbm-catalog-search.is-main > input { padding: 0 4px 0 8px; letter-spacing: 0; }
+  .bbm-catalog-search.is-main > input::placeholder { color: #757575; }
+  .bbm-catalog-search.is-main .bbm-catalog-search-go .ct-icon { width: 16px; height: 16px; color: #fff; }
+  .bbm-catalog-search.is-main .bbm-catalog-search-clear { margin-right: 6px; }
+}
