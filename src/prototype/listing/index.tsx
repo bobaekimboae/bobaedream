@@ -1001,6 +1001,8 @@ function MarketplaceScreen() {
   const isMaterialHandlingCategory = category === "자재운반장비";
   const isCampingCategory = category === "캠핑카";
   const isPartsCategory = category === "부품 · 용품";
+  const bikeMenuMode = typeof window === "undefined" ? null : new URLSearchParams(window.location.search).get("bikeMenu");
+  const isBikeMenuContext = isBikeCategory || isPartsCategory && bikeMenuMode === "parts";
   // 럭셔리카(차량 › 중고차 › 럭셔리카): 과쯔에서는 전용 가상 매물 29대(luxury-category-v01)
   const isLuxuryCategory = category === "럭셔리카";
   // 수입차·슈퍼카·서울오토갤러리는 럭셔리카와 같은 16개 브랜드·로고 슬롯을 사용한다.
@@ -1049,8 +1051,9 @@ function MarketplaceScreen() {
   const categoryIsDefault = category === "전체";
   const usedCarChildValues = (bbmCategoryGroups.find((group) => group.value === "중고차")?.children ?? []).map((child) => child.value).filter((value) => value !== "중고차");
   // 전체 중고차 랜딩은 GNB와 제목만 유지하고 퀵필터 안의 중복 텍스트 하위 카테고리는 표시하지 않는다.
-  const showDefaultCategoryLnb = isTruckCategory || ["국산차", "수입차", "전기차", "리스/렌트차량", "브랜드 인증중고차", "서울오토갤러리", "매매단지별 검색"].includes(category);
-  const categorySearchPlaceholder = categoryIsDefault ? "전체차량" : category;
+  const showDefaultCategoryLnb = isTruckCategory || isBikeMenuContext || ["국산차", "수입차", "전기차", "리스/렌트차량", "브랜드 인증중고차", "서울오토갤러리", "매매단지별 검색"].includes(category);
+  const pageCategoryTitle = isPartsCategory && bikeMenuMode === "parts" ? "바이크 용품" : category === "중고차" ? "전체 중고차" : stablePageTitle(category);
+  const categorySearchPlaceholder = categoryIsDefault ? "전체차량" : pageCategoryTitle;
   const categoryBrandRail = categoryBrandRails[category] ?? categoryBrandRails["전체"];
   // QF-097: 과쯔 카탈로그 제조사(9개)도 모델 → 세부 모델 → 트림 단계
   const usesUxDepth = Boolean(isTruckCategory && maker) || Boolean(supportsVehicleCatalog && maker && vehicleCatalog.index?.manufacturers.some((item) => item.name === maker));
@@ -1846,9 +1849,23 @@ function MarketplaceScreen() {
   };
 
   const chooseHierarchyCategory = (categoryName: string, detail?: string) => {
+    if (detail === "__bike_sell__") {
+      const url = new URL(window.location.href);
+      url.searchParams.set("register", "bike");
+      url.searchParams.set("category", "바이크");
+      url.searchParams.delete("bikeMenu");
+      window.location.assign(`${url.pathname}${url.search}${url.hash}`);
+      return;
+    }
+    const bikeParts = detail === "__bike_parts__";
+    const normalizedDetail = bikeParts ? undefined : detail;
     chooseVehicleCategory(categoryName);
-    setBbmCategoryChild(detail ?? null);
-    if (categoryName === "트럭 · 특장" && detail) chooseTruckFormat(detail);
+    setBbmCategoryChild(normalizedDetail ?? null);
+    if (categoryName === "트럭 · 특장" && normalizedDetail) chooseTruckFormat(normalizedDetail);
+    const url = new URL(window.location.href);
+    if (bikeParts) url.searchParams.set("bikeMenu", "parts");
+    else url.searchParams.delete("bikeMenu");
+    window.history.replaceState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`);
   };
 
   const guaziVisualsForMaker = maker ? (isBikeCategory && maker === "BMW" ? bikeListingModelVisualsByMaker.BMW : modelVisualsByMakerMap[maker]) : undefined;
@@ -3034,7 +3051,7 @@ function MarketplaceScreen() {
     const balancedTopCard = isGuaziQuickStyle && usesReferencePcLayout && (isHeavyCategory || pcFilterLayout === "balanced" || isTruckCategory && pcFilterLayout === "compact");
     const bbmCategoryBanner = lnbVariant === "default" && !isBikeCategory ? (
           <div className="bbm-ct-banner">{/* 포쉬마크식 카테고리 헤더 배너(2026-10-18) */}
-            <h1 className="bbm-ct-banner-title bbm-summary" data-count={shownCars.length}>{category === "중고차" ? "전체 중고차" : stablePageTitle(category)}</h1>
+            <h1 className="bbm-ct-banner-title bbm-summary" data-count={shownCars.length}>{pageCategoryTitle}</h1>
             <button type="button" className={`bbm-save-search bbm-ct-save${searchSaved ? " is-saved" : ""}`} aria-pressed={searchSaved} onClick={toggleSearchSaved}><img src={bbmIcon("search-save")} alt="" aria-hidden="true" />검색저장</button>
           </div>
         ) : null;
@@ -3049,7 +3066,7 @@ function MarketplaceScreen() {
             ? <BbLnbTitleTabs category={category} categoryDetail={category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild} onChooseCategory={chooseHierarchyCategory} />
             : lnbVariant === "c"
             ? <BbLnbTitleMenu title={stablePageTitle(category)} category={category} categoryDetail={category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild} onChooseCategory={chooseHierarchyCategory} />
-            : <h1 className="bbm-ct-title bbm-summary" data-count={shownCars.length}>{category === "중고차" ? "전체 중고차" : stablePageTitle(category)}</h1>}
+            : <h1 className="bbm-ct-title bbm-summary" data-count={shownCars.length}>{pageCategoryTitle}</h1>}
           {lnbVariant === "default" ? null : <button type="button" className={`bbm-save-search bbm-ct-save${searchSaved ? " is-saved" : ""}`} aria-pressed={searchSaved} onClick={toggleSearchSaved}><img src={bbmIcon("search-save")} alt="" aria-hidden="true" />검색저장</button>}
         </div>}
         {lnbVariant !== "default" ? <p className="bbm-ct-desc">{bbmCategoryDescription(category)}</p> : null}

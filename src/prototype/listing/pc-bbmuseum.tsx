@@ -25,7 +25,7 @@ function BbAssetIcon({ name, size }: { name: "circle-check" | "circle-check-off"
 }
 
 type BbGnbItem = { label: string; category?: string; action?: "home" | "community" | "more" };
-type BbGnbSubItem = { label: string; category: string; detail?: string };
+type BbGnbSubItem = { label: string; category: string; detail?: string; action?: "bike-sell" | "bike-parts" };
 
 const bbGnbItems: readonly BbGnbItem[] = [
   { label: "홈", action: "home" },
@@ -81,7 +81,11 @@ const bbGnbSubmenus: Readonly<Record<string, readonly BbGnbSubItem[]>> = {
     { label: "중장비 전체", category: "건설기계" },
     { label: "자재운반장비", category: "자재운반장비" },
   ],
-  바이크: [{ label: "바이크 전체", category: "바이크" }],
+  바이크: [
+    { label: "중고 바이크", category: "바이크" },
+    { label: "바이크 판매", category: "바이크", action: "bike-sell" },
+    { label: "바이크 용품", category: "부품 · 용품", action: "bike-parts" },
+  ],
   중고부품: [{ label: "부품/용품 전체", category: "부품 · 용품" }],
   더보기: [
     { label: "캠핑카", category: "캠핑카" },
@@ -90,6 +94,7 @@ const bbGnbSubmenus: Readonly<Record<string, readonly BbGnbSubItem[]>> = {
   ],
 };
 function bbActiveGnbItem(category: string) {
+  if (category === "부품 · 용품" && typeof window !== "undefined" && new URLSearchParams(window.location.search).get("bikeMenu") === "parts") return "바이크";
   return category === "전체" ? "차량검색"
     : category === "수입차" ? "수입차"
       : bbUsedCarCategories.has(category) ? "중고차"
@@ -99,6 +104,12 @@ function bbActiveGnbItem(category: string) {
             : category === "부품 · 용품" ? "중고부품"
               : category === "바이크" ? category : "더보기";
 }
+const bbSubnavDetail = (item: BbGnbSubItem) => item.action === "bike-sell" ? "__bike_sell__" : item.action === "bike-parts" ? "__bike_parts__" : item.detail;
+const bbSubnavCurrent = (item: BbGnbSubItem, category: string, categoryDetail: string | null) => {
+  if (item.action === "bike-sell") return false;
+  if (item.action === "bike-parts") return category === "부품 · 용품" && typeof window !== "undefined" && new URLSearchParams(window.location.search).get("bikeMenu") === "parts";
+  return item.category === category && (item.detail ? item.detail === categoryDetail : !categoryDetail);
+};
 export function BbSecondaryNav({ category, categoryDetail, onChooseCategory }: { category: string; categoryDetail: string | null; onChooseCategory: (category: string, detail?: string) => void }) {
   const activeItem = bbActiveGnbItem(category);
   const subnavItems = bbGnbSubmenus[activeItem] ?? bbGnbSubmenus.차량검색;
@@ -108,8 +119,8 @@ export function BbSecondaryNav({ category, categoryDetail, onChooseCategory }: {
     <div className="bbm-secondary-nav">
       <nav className={`bbm-snb${activeItem === "중고차" ? " is-all-visible" : ""}`} aria-label={`${activeItem} 하위 메뉴`}>
         {subnavItems.map((item) => {
-          const current = item.category === category && (item.detail ? item.detail === categoryDetail : !categoryDetail);
-          return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" className={current ? "is-current" : ""} aria-current={current ? "page" : undefined} onClick={() => onChooseCategory(item.category, item.detail)}>{item.label}</button>;
+          const current = bbSubnavCurrent(item, category, categoryDetail);
+          return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" className={current ? "is-current" : ""} aria-current={current ? "page" : undefined} onClick={() => onChooseCategory(item.category, bbSubnavDetail(item))}>{item.label}</button>;
         })}
       </nav>
     </div>
@@ -123,8 +134,8 @@ export function BbLnbTitleTabs({ category, categoryDetail, onChooseCategory }: {
   return (
     <nav className="bbm-lnb-title-tabs" aria-label={`${activeItem} 하위 메뉴`}>
       {items.map((item) => {
-        const current = item.category === category && (item.detail ? item.detail === categoryDetail : !categoryDetail);
-        return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" className={current ? "is-current" : ""} aria-current={current ? "page" : undefined} onClick={() => onChooseCategory(item.category, item.detail)}>{item.label}</button>;
+        const current = bbSubnavCurrent(item, category, categoryDetail);
+        return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" className={current ? "is-current" : ""} aria-current={current ? "page" : undefined} onClick={() => onChooseCategory(item.category, bbSubnavDetail(item))}>{item.label}</button>;
       })}
     </nav>
   );
@@ -135,7 +146,7 @@ type BbBreadcrumbItem = { label: string; category: string; detail?: string; curr
 export function BbBreadcrumb({ category, categoryDetail, onChooseCategory }: { category: string; categoryDetail: string | null; onChooseCategory: (category: string, detail?: string) => void }) {
   const activeItem = bbActiveGnbItem(category);
   const subnavItems = bbGnbSubmenus[activeItem] ?? bbGnbSubmenus.차량검색;
-  const currentSubnavItem = subnavItems.find((item) => item.category === category && (item.detail ? item.detail === categoryDetail : !categoryDetail));
+  const currentSubnavItem = subnavItems.find((item) => bbSubnavCurrent(item, category, categoryDetail));
   const items: BbBreadcrumbItem[] = [{ label: "보배드림 차량", category: "전체" }];
 
   if (activeItem === "중고차") {
@@ -184,7 +195,7 @@ export function BbLnbTitleMenu({ title, category, categoryDetail, onChooseCatego
   const ref = useRef<HTMLDivElement>(null);
   const activeItem = bbActiveGnbItem(category);
   const items = bbGnbSubmenus[activeItem] ?? bbGnbSubmenus.차량검색;
-  const current = items.find((item) => item.category === category && (item.detail ? item.detail === categoryDetail : !categoryDetail));
+  const current = items.find((item) => bbSubnavCurrent(item, category, categoryDetail));
   useEffect(() => {
     if (!open) return;
     const close = (event: globalThis.MouseEvent) => { if (!ref.current?.contains(event.target as Node)) setOpen(false); };
@@ -204,7 +215,7 @@ export function BbLnbTitleMenu({ title, category, categoryDetail, onChooseCatego
       {open ? <div className="bbm-lnb-title-menu" role="menu">
         {items.map((item) => {
           const isCurrent = item === current;
-          return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" role="menuitem" className={isCurrent ? "is-current" : ""} aria-current={isCurrent ? "page" : undefined} onClick={() => { setOpen(false); onChooseCategory(item.category, item.detail); }}>{item.label}</button>;
+          return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" role="menuitem" className={isCurrent ? "is-current" : ""} aria-current={isCurrent ? "page" : undefined} onClick={() => { setOpen(false); onChooseCategory(item.category, bbSubnavDetail(item)); }}>{item.label}</button>;
         })}
       </div> : null}
     </div>
