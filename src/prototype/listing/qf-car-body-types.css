@@ -142,15 +142,8 @@
   font-weight: 600;
 }
 
-/* PC 국산차·수입차: 로고 줄 앞 "제조사:" 라벨. 위 "바디타입:"과 같은 폭(64)으로 첫 알약·첫 로고 시작선을 맞추고, 40×40 로고 상자(위 6) 세로 가운데에 둔다. */
-.marketplace.is-bbm.is-qf-guazi .is-car-body-pill-track .car-body-pill-label,
-.marketplace.is-bbm.is-qf-guazi .car-body-pill-label.is-maker-label {
+/* PC 국산차·수입차: 바디타입 제목만 64px로 고정한다.
+   제조사 로고 줄은 별도 제목 없이 왼쪽 패딩부터 바로 시작한다. */
+.marketplace.is-bbm.is-qf-guazi .is-car-body-pill-track .car-body-pill-label {
   min-width: 64px;
-}
-.marketplace.is-bbm.is-qf-guazi .depth-rail.is-kr-maker .car-body-pill-label.is-maker-label {
-  align-self: flex-start;
-  margin-top: 10px;
-  /* 로고 칸은 가운데 정렬이라 칸 시작선을 알약과 맞추면 로고·이름이 약 20px 안쪽에 보인다.
-     칸을 18px 당겨 첫 로고·브랜드명의 보이는 시작선을 첫 알약 테두리와 맞춘다. */
-  margin-right: -16px;
 }

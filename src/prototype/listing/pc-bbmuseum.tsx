@@ -32,8 +32,7 @@ const bbGnbItems: readonly BbGnbItem[] = [
   { label: "차량검색", category: "전체" },
   { label: "중고차", category: "중고차" },
   { label: "수입차", category: "수입차" },
-  { label: "트럭 · 특장", category: "트럭 · 특장" },
-  { label: "중기", category: "건설기계" },
+  { label: "트럭 · 특장 · 중기", category: "트럭 · 특장" },
   { label: "바이크", category: "바이크" },
   { label: "중고부품", category: "부품 · 용품" },
   { label: "커뮤니티", action: "community" },
@@ -73,11 +72,9 @@ const bbGnbSubmenus: Readonly<Record<string, readonly BbGnbSubItem[]>> = {
   수입차: [
     { label: "전체 수입차", category: "수입차" },
   ],
-  "트럭 · 특장": [
+  "트럭 · 특장 · 중기": [
     { label: "전체 트럭", category: "트럭 · 특장" },
     ...truckFormatCatalog.slice(0, 7).map((item) => ({ label: item.name, category: "트럭 · 특장", detail: item.name })),
-  ],
-  중기: [
     { label: "중기 전체", category: "건설기계" },
     { label: "자재운반장비", category: "자재운반장비" },
   ],
@@ -93,8 +90,7 @@ function bbActiveGnbItem(category: string) {
   return category === "전체" ? "차량검색"
     : category === "수입차" ? "수입차"
       : bbUsedCarCategories.has(category) ? "중고차"
-      : category === "트럭 · 특장" ? "트럭 · 특장"
-        : category === "건설기계" ? "중기"
+      : category === "트럭 · 특장" || category === "건설기계" || category === "자재운반장비" ? "트럭 · 특장 · 중기"
           : category === "캠핑카" ? "더보기"
             : category === "부품 · 용품" ? "중고부품"
               : category === "바이크" ? category : "더보기";
@@ -144,11 +140,11 @@ export function BbBreadcrumb({ category, categoryDetail, onChooseCategory }: { c
       items.push({ label: "중고차", category: "중고차" });
       items.push({ label: currentSubnavItem?.label ?? categoryDetail ?? category, category, detail: categoryDetail ?? undefined, current: true });
     }
-  } else if (activeItem === "트럭 · 특장") {
-    if (!categoryDetail) items.push({ label: "트럭 · 특장", category, current: true });
+  } else if (activeItem === "트럭 · 특장 · 중기") {
+    if (category === "트럭 · 특장" && !categoryDetail) items.push({ label: "트럭 · 특장", category, current: true });
     else {
-      items.push({ label: "트럭 · 특장", category: "트럭 · 특장" });
-      items.push({ label: currentSubnavItem?.label ?? categoryDetail, category, detail: categoryDetail, current: true });
+      items.push({ label: "트럭 · 특장 · 중기", category: "트럭 · 특장" });
+      items.push({ label: currentSubnavItem?.label ?? categoryDetail ?? category, category, detail: categoryDetail ?? undefined, current: true });
     }
   } else {
     const activeLabel = bbGnbItems.find((item) => item.label === activeItem)?.label;
