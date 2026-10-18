@@ -722,6 +722,7 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
         <div className="bbm-card-content">
           <div className="bbm-card-text">
             {titleSlot}
+            {car.bike?.listingTitle ? <span className="bbm-card-listing-title">{car.bike.listingTitle}</span> : null}
             {headlinePosition === "after-model" ? headline : null}
             {prioritizeTruckCapacity ? <span className="bbm-card-spec is-capacity is-priority">{specCapacity}</span> : null}
             <span className={`bbm-card-spec${prioritizeTruckCapacity ? " is-secondary" : ""}${car.adDescription ? " is-ad-description" : ""}`}>{car.adDescription ?? (featured ? renderFeedSpec(specMain) : specMain)}{car.adDescription ? null : <span className="bbm-card-spec-seller"> · {seller}</span>}</span>

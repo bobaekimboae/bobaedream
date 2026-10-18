@@ -84,6 +84,7 @@
 .bbm-card-content { display: flex; min-width: 0; flex: 1; flex-direction: column; }
 .bbm-card-text { display: flex; min-width: 0; flex-direction: column; }
 .bbm-card-title { align-self: flex-start; max-width: 100%; overflow: hidden; color: var(--bbm-text-strong); font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.bbm-card-listing-title { display: block; min-width: 0; overflow: hidden; color: #3f4650; font-size: 14px; font-weight: 500; line-height: 20px; text-overflow: ellipsis; white-space: nowrap; }
 /* JOB-8: dev처럼 " · " 텍스트 한 줄. 블록이라야 text-overflow 말줄임이 걸린다 */
 .bbm-card-spec { display: block; min-width: 0; overflow: hidden; font-size: 14px; font-weight: 400; text-overflow: ellipsis; white-space: nowrap; }
 .bbm-card-price { display: inline-flex; align-items: baseline; color: var(--bbm-text-strong); font-size: 16px; font-weight: 700; white-space: nowrap; }
@@ -195,6 +196,7 @@
   .marketplace.is-bbm .bbm-result-card .bbm-card-text { gap: 4px; }
   /* 차란차 우측 매물 카드 실측: 모델 #191F28 16/24 600, 메타 #505C6C 14/20 400, 가격 #191F28 18/26 700. */
   .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-title { color: #191f28; font-size: 16px; font-weight: 600; line-height: 24px; letter-spacing: normal; }
+  .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-listing-title { height: 20px; color: #3f4650; font-size: 14px; font-weight: 500; line-height: 20px; letter-spacing: normal; }
   .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-spec { height: 20px; color: #505c6c; font-size: 14px; font-weight: 400; line-height: 20px; letter-spacing: normal; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-spec:has(+ .bbm-card-spec.is-capacity) { height: 20px; }
   .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-spec.is-capacity.is-priority { height: 20px; }

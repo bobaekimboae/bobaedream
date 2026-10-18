@@ -104,6 +104,7 @@ type Car = {
   badges?: ListingBadge[];
   bike?: {
     scenarioId: string;
+    listingTitle: string;
     imageFile: string;
     displacement: number;
     genre: string;
@@ -958,6 +959,25 @@ const bikeShopLabel = (name: string) => {
   const sellerName = name.replace(/\s*(?:바이크샵|모터사이클|모터스|바이크)$/, "").trim();
   return `${sellerName} · 바이크샵`;
 };
+const bikeListingTitle = (row: { id: string; fuel: string }, bikeShopListing: boolean) => {
+  if (row.fuel.includes("전기")) return "배터리 점검 완료 · 도심 출퇴근 추천";
+  const shopTitles = [
+    "출고 전 점검 완료 · 전국 배송 상담 가능",
+    "소모품 점검 완료 · 바로 출고 가능한 매물",
+    "정비 이력 확인 가능 · 관리 상태 좋은 차량",
+    "입고 점검 완료 · 깔끔한 컨디션 유지",
+  ] as const;
+  const personalTitles = [
+    "실내 보관 · 순정 상태로 깔끔하게 관리",
+    "출퇴근 위주 운행 · 생활 기스 외 양호",
+    "투어링 위주 운행 · 관리 상태 좋은 매물",
+    "짧은 주행거리 · 소모품 최근 교체",
+    "순정 상태 유지 · 바로 운행 가능합니다",
+    "꾸준히 관리한 차량 · 컨디션 양호",
+  ] as const;
+  const titles = bikeShopListing ? shopTitles : personalTitles;
+  return titles[stableHash(row.id) % titles.length];
+};
 // 바이크 목록 시안은 전문샵 매물을 약 70%까지 늘려 개인 매물보다 충분히 자주 노출한다.
 // 원본 시나리오의 업체 매물은 유지하고, 개인 매물 절반만 안정적인 ID 해시로 바이크샵 매물로 표시한다.
 const displaysAsBikeShop = (row: { id: string; sellerType: string }) => row.sellerType !== "개인 판매" || stableHash(row.id) % 10 < 5;
@@ -1009,6 +1029,7 @@ const bikeCars: Car[] = bikeInventoryDisplayOrdered.map((row, index) => {
   sellerProfile: chototHumanSellerProfiles[stableHash(row.id) % chototHumanSellerProfiles.length],
   bike: {
     scenarioId: row.id,
+    listingTitle: bikeListingTitle(row, bikeShopListing),
     imageFile: row.imageFile,
     displacement: row.displacement,
     genre: row.genre,
