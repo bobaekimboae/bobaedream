@@ -5,7 +5,7 @@
 // 구성 근거: 유럽(mobile.de · AutoScout24 · Autotrader UK · La Centrale) 상단 검색 띠 + 차량 유형 줄,
 // 한국 레거시 보배드림의 좌 매물 · 우 커뮤니티 베스트 2단. 매물은 럭셔리카 가상 매물 v01(UI 검증용 가상 값),
 // 커뮤니티 글은 화면 확인용 예시 문구다(실제 게시글 · 작성자 아님).
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { luxuryDealers, luxuryListingRows, type LuxuryListingRow } from "../prototype/data/luxury-category-v01";
 import As24SearchCard from "./As24SearchCard";
 import "./pc-main-home.css";
@@ -109,12 +109,11 @@ const listingUrl = (params: Record<string, string>) => `./?${new URLSearchParams
 const go = (url: string) => { window.location.href = url; };
 const communityUrl = "./community/bobaedream-pc-board-list.html?layout=reddit";
 
-function CarCard({ row, rank }: { row: LuxuryListingRow; rank?: number }) {
+function CarCard({ row }: { row: LuxuryListingRow }) {
   return (
     <a className="pmh-card" href={listingUrl({ category: "럭셔리카", maker: row.maker })}>
       <span className="pmh-card-photo">
         {row.image ? <img src={asset(row.image)} alt="" loading="lazy" /> : null}
-        {rank ? <b className="pmh-card-rank">{rank}</b> : null}
       </span>
       <span className="pmh-card-body">
         <strong className="pmh-card-title">{titleOf(row)}</strong>
@@ -141,19 +140,14 @@ export default function PcMainHome() {
       : bestTab === "세단" ? rows.filter((r) => r.body === "세단" || r.body === "왜건")
       : bestTab === "스포츠카" ? rows.filter((r) => r.body === "쿠페" || r.body === "컨버터블")
       : rows;
-    return pool.slice(0, 6);
+    return pool.slice(0, 8);
   }, [bestTab, rows]);
-  const scoopRows = rows.slice(6, 12);
+  const scoopRows = rows.slice(8, 12);
   const slideRows = useMemo(() => [...rows].sort((x, y) => y.price - x.price).slice(0, 5), [rows]);
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
-    const timer = window.setTimeout(() => setSlide((n) => (n + 1) % slideRows.length), 5000);
-    return () => window.clearTimeout(timer);
-  }, [slide, slideRows.length]);
   const rareRows = useMemo(() => {
-    const pool = rows.slice(10);
+    const pool = rows.slice(12);
     const offset = (rareTags.indexOf(rareTag) * 3) % pool.length;
-    return [...pool, ...pool].slice(offset, offset + 6);
+    return [...pool, ...pool].slice(offset, offset + 4);
   }, [rareTag, rows]);
 
   const submitSearch = () => {
@@ -177,10 +171,6 @@ export default function PcMainHome() {
               <a key={item.label} href={item.community ? communityUrl : listingUrl({ category: item.category ?? "전체" })}>{item.label}</a>
             ))}
           </nav>
-          <form className="pmh-header-search" role="search" onSubmit={(e) => { e.preventDefault(); submitSearch(); }}>
-            <input value={query} onChange={(e) => setQuery(e.currentTarget.value)} placeholder="어떤 차를 찾으세요?" aria-label="차량 검색" />
-            <button type="submit" aria-label="검색"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="#fff" strokeWidth="2.4" /><path d="m20 20-4-4" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" /></svg></button>
-          </form>
           <div className="pmh-header-actions">
             <button type="button" className="pmh-btn-line">로그인/회원가입</button>
             <button type="button" className="pmh-btn-blue" onClick={() => go("./?register=car")}>차량 판매하기</button>
@@ -190,86 +180,40 @@ export default function PcMainHome() {
 
       <div className="pmh-wrap pmh-body">
         <main className="pmh-left">
+          <h1 className="pmh-lead">어떤 차를 찾으세요?</h1>
           <As24SearchCard rows={rows} placeOf={placeOf} listingUrl={listingUrl} />
-          <section className="pmh-hero-slide" aria-roledescription="carousel" aria-label="오늘의 추천 매물">
+          <section className="pmh-feature" aria-labelledby="pmh-feature-title">
+            <h2 id="pmh-feature-title" className="pmh-sec-title">오늘의 추천</h2>
             {(() => {
               const row = slideRows[slide];
               return (
-                <a className="pmh-slide" href={listingUrl({ category: "럭셔리카", maker: row.maker })}>
-                  <span className="pmh-slide-copy">
-                    <b className="pmh-slide-tag">오늘의 추천</b>
+                <a className="pmh-feature-main" href={listingUrl({ category: "럭셔리카", maker: row.maker })}>
+                  <span className="pmh-feature-photo">{row.image ? <img src={asset(row.image)} alt="" /> : null}</span>
+                  <span className="pmh-feature-copy">
                     <strong>{titleOf(row)}</strong>
-                    <span className="pmh-card-spec">{row.registered}<i />{formatMileage(row.mileage)}<i />{row.fuel}</span>
-                    <span className="pmh-slide-price">{formatPrice(row.price).replace(/만원$/, "")}<small>만원</small></span>
-                    <span className="pmh-card-place">{placeOf(row)}</span>
-                    <span className="pmh-slide-dots" aria-hidden="true">{slideRows.map((r, i) => <i key={r.number} className={i === slide ? "is-on" : ""} />)}</span>
+                    <span className="pmh-card-spec">{row.registered}<i />{formatMileage(row.mileage)}<i />{row.fuel}<i />{placeOf(row)}</span>
+                    <span className="pmh-feature-price">{formatPrice(row.price).replace(/만원$/, "")}<small>만원</small></span>
                   </span>
-                  <span className="pmh-slide-photo">{row.image ? <img src={asset(row.image)} alt="" /> : null}</span>
                 </a>
               );
             })()}
-            <button type="button" className="pmh-slide-nav is-prev" aria-label="이전 매물" onClick={() => setSlide((slide + slideRows.length - 1) % slideRows.length)}>‹</button>
-            <button type="button" className="pmh-slide-nav is-next" aria-label="다음 매물" onClick={() => setSlide((slide + 1) % slideRows.length)}>›</button>
-          </section>
-
-
-          <section className="pmh-box" aria-labelledby="pmh-best-title">
-            <div className="pmh-box-head">
-              <h2 id="pmh-best-title">오늘의 베스트카</h2>
-              <div className="pmh-seg" role="tablist" aria-label="베스트카 구분">
-                {(["전체", "SUV", "세단", "스포츠카"] as const).map((t) => (
-                  <button key={t} type="button" role="tab" aria-selected={bestTab === t} className={bestTab === t ? "is-on" : ""} onClick={() => setBestTab(t)}>{t}</button>
-                ))}
-              </div>
-              <a className="pmh-more" href={listingUrl({ category: "럭셔리카" })}>전체보기</a>
-            </div>
-            <div className="pmh-grid pmh-grid-3">
-              {bestRows.map((row, i) => <CarCard key={row.number} row={row} rank={i + 1} />)}
-            </div>
-          </section>
-
-          <section className="pmh-box" aria-labelledby="pmh-scoop-title">
-            <div className="pmh-box-head">
-              <h2 id="pmh-scoop-title">특종매물</h2>
-              <p>딜러가 광고로 올린 추천 매물이에요</p>
-              <a className="pmh-more" href={listingUrl({ category: "중고차" })}>전체보기</a>
-            </div>
-            <div className="pmh-grid pmh-grid-3">
-              {scoopRows.map((row) => <CarCard key={row.number} row={row} />)}
-            </div>
-          </section>
-
-          <section className="pmh-box" aria-labelledby="pmh-rare-title">
-            <div className="pmh-box-head">
-              <h2 id="pmh-rare-title">보배에서만 볼 수 있는 희귀차</h2>
-              <a className="pmh-more" href={listingUrl({ category: "슈퍼카" })}>전체보기</a>
-            </div>
-            <div className="pmh-chips" role="tablist" aria-label="희귀차 테마">
-              {rareTags.map((t) => (
-                <button key={t} type="button" role="tab" aria-selected={rareTag === t} className={rareTag === t ? "is-on" : ""} onClick={() => setRareTag(t)}>#{t}</button>
-              ))}
-            </div>
-            <div className="pmh-grid pmh-grid-3">
-              {rareRows.map((row) => <CarCard key={row.number} row={row} />)}
-            </div>
-          </section>
-
-          <section className="pmh-box" aria-labelledby="pmh-price-title">
-            <div className="pmh-box-head"><h2 id="pmh-price-title">가격대별 중고차</h2></div>
-            <div className="pmh-price-links">
-              {priceShortcuts.map((p) => (
-                <a key={p.label} href={listingUrl({ ...(p.min ? { priceMin: p.min } : {}), ...(p.max ? { priceMax: p.max } : {}) })}>{p.label}</a>
+            <div className="pmh-feature-thumbs" role="tablist" aria-label="추천 매물 고르기">
+              {slideRows.map((r, i) => (
+                <button key={r.number} type="button" role="tab" aria-selected={i === slide} aria-label={titleOf(r)} className={i === slide ? "is-on" : ""} onClick={() => setSlide(i)}>
+                  {r.image ? <img src={asset(r.image)} alt="" /> : null}
+                </button>
               ))}
             </div>
           </section>
+
+
         </main>
 
         <aside className="pmh-right" aria-label="커뮤니티">
           <div className="pmh-sticky">
-            <section className="pmh-box pmh-community" aria-labelledby="pmh-community-title">
-              <div className="pmh-box-head">
-                <h2 id="pmh-community-title">커뮤니티 베스트</h2>
-                <a className="pmh-more" href={communityUrl}>더보기</a>
+            <section className="pmh-rail-sec pmh-community" aria-labelledby="pmh-community-title">
+              <div className="pmh-sec-head">
+                <h2 id="pmh-community-title" className="pmh-sec-title"><a href={communityUrl}>커뮤니티 베스트</a></h2>
               </div>
               <div className="pmh-tabs" role="tablist" aria-label="베스트글 기준">
                 {(Object.keys(bestPosts) as Array<keyof typeof bestPosts>).map((t) => (
@@ -282,32 +226,80 @@ export default function PcMainHome() {
                     <a href={communityUrl}>
                       <b className={i < 3 ? "is-top" : ""}>{i + 1}</b>
                       <span className="pmh-post-title">{title}</span>
-                      <em>{comments}</em>
+                      <em aria-label={`댓글 ${comments}개`}>{comments}</em>
                     </a>
-                    <small>{board}</small>
+                    <small>{board} · 댓글 {comments}</small>
                   </li>
                 ))}
               </ol>
             </section>
-            <section className="pmh-box pmh-side" aria-labelledby="pmh-news-title">
-              <div className="pmh-box-head"><h2 id="pmh-news-title">자동차 뉴스 · 공지</h2></div>
+            <section className="pmh-rail-sec" aria-labelledby="pmh-news-title">
+              <div className="pmh-sec-head"><h2 id="pmh-news-title" className="pmh-sec-title"><a href={communityUrl}>자동차 뉴스 · 공지</a></h2></div>
               <ul className="pmh-news">{newsItems.map((n) => <li key={n}>{n}</li>)}</ul>
             </section>
-            <section className="pmh-box pmh-side" aria-labelledby="pmh-kw-title">
-              <div className="pmh-box-head"><h2 id="pmh-kw-title">인기 검색어</h2></div>
-              <div className="pmh-keywords">{popularKeywords.map((k) => <a key={k} href={listingUrl({ q: k })}>{k}</a>)}</div>
-            </section>
-            <a className="pmh-box pmh-sell" href="./?register=car">
+            <section className="pmh-rail-sec pmh-sell">
               <strong>내 차 팔기</strong>
               <span>차량번호만 입력하면 딜러 견적을 비교해 드려요</span>
-              <b>견적 받기 ›</b>
-            </a>
+              <a href="./?register=car">견적 받기</a>
+            </section>
           </div>
         </aside>
       </div>
 
+      <div className="pmh-wrap pmh-full">
+        <section className="pmh-sec" aria-labelledby="pmh-best-title">
+          <div className="pmh-sec-head">
+            <h2 id="pmh-best-title" className="pmh-sec-title"><a href={listingUrl({ category: "럭셔리카" })}>오늘의 베스트카</a></h2>
+            <div className="pmh-seg" role="tablist" aria-label="베스트카 구분">
+              {(["전체", "SUV", "세단", "스포츠카"] as const).map((t) => (
+                <button key={t} type="button" role="tab" aria-selected={bestTab === t} className={bestTab === t ? "is-on" : ""} onClick={() => setBestTab(t)}>{t}</button>
+              ))}
+            </div>
+            
+          </div>
+          <div className="pmh-grid pmh-grid-4">
+            {bestRows.map((row) => <CarCard key={row.number} row={row} />)}
+          </div>
+        </section>
+
+        <section className="pmh-sec" aria-labelledby="pmh-scoop-title">
+          <div className="pmh-sec-head">
+            <h2 id="pmh-scoop-title" className="pmh-sec-title"><a href={listingUrl({ category: "중고차" })}>특종매물</a></h2>
+            <p>딜러가 광고로 올린 매물</p>
+            
+          </div>
+          <div className="pmh-grid pmh-grid-4">
+            {scoopRows.map((row) => <CarCard key={row.number} row={row} />)}
+          </div>
+        </section>
+
+        <section className="pmh-sec" aria-labelledby="pmh-rare-title">
+          <div className="pmh-sec-head">
+            <h2 id="pmh-rare-title" className="pmh-sec-title"><a href={listingUrl({ category: "슈퍼카" })}>보배에서만 볼 수 있는 희귀차</a></h2>
+            
+          </div>
+          <div className="pmh-seg" role="tablist" aria-label="희귀차 테마">
+            {rareTags.map((t) => (
+              <button key={t} type="button" role="tab" aria-selected={rareTag === t} className={rareTag === t ? "is-on" : ""} onClick={() => setRareTag(t)}>{t}</button>
+            ))}
+          </div>
+          <div className="pmh-grid pmh-grid-4">
+            {rareRows.map((row) => <CarCard key={row.number} row={row} />)}
+          </div>
+        </section>
+
+        <section className="pmh-sec" aria-labelledby="pmh-price-title">
+          <div className="pmh-sec-head"><h2 id="pmh-price-title" className="pmh-sec-title">가격대별 중고차</h2></div>
+          <div className="pmh-price-links">
+            {priceShortcuts.map((p) => (
+              <a key={p.label} href={listingUrl({ ...(p.min ? { priceMin: p.min } : {}), ...(p.max ? { priceMax: p.max } : {}) })}>{p.label}</a>
+            ))}
+          </div>
+        </section>
+      </div>
+
       <footer className="pmh-footer">
-        <div className="pmh-wrap">보배드림 PC 메인 시안 v01 · 매물과 커뮤니티 글은 화면 확인용 예시입니다.</div>
+        <div className="pmh-wrap">보배드림 PC 메인 시안 v05 · 매물과 커뮤니티 글은 화면 확인용 예시입니다.</div>
       </footer>
     </div>
   );

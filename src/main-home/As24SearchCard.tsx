@@ -122,25 +122,23 @@ export default function As24SearchCard({ rows, placeOf, listingUrl }: Props) {
             onClick={() => { setTab(t); setMaker(""); setModel(""); }}>{t}</button>
         ))}
       </div>
-      <div className="as24-row">
-        <button ref={opener} type="button" className={`as24-select${hasData && maker ? " is-filled" : ""}`} onClick={openPicker} disabled={!hasData} aria-haspopup="dialog">
-          <span>{pickerLabel}</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+      <div className="as24-capsule">
+        <button ref={opener} type="button" className="as24-seg" onClick={openPicker} disabled={!hasData} aria-haspopup="dialog">
+          <small>제조사 · 모델</small>
+          <span className={hasData && maker ? "is-filled" : ""}>{hasData && maker ? pickerLabel : hasData ? "전체" : "준비 중"}</span>
         </button>
-        <label className="as24-select as24-region">
-          <span>{region === "전국" ? "지역 (전국)" : region}</span>
+        <label className="as24-seg as24-region">
+          <small>지역</small>
+          <span className={region !== "전국" ? "is-filled" : ""}>{region}</span>
           <select value={region} onChange={(e) => setRegion(e.currentTarget.value)} aria-label="지역">
-            {regions.map((r) => <option key={r} value={r}>{r === "전국" ? "지역 (전국)" : r}</option>)}
+            {regions.map((r) => <option key={r} value={r}>{r}</option>)}
           </select>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </label>
         <button type="button" className="as24-cta" onClick={go}>{hasData ? `${count.toLocaleString("ko-KR")}대 보기` : "매물 보기"}</button>
       </div>
-      <div className="as24-more-row"><a href={listingUrl({ category: categoryOf[tab] })}>상세 조건 검색</a></div>
       {row ? (
         <>
-          <h3 className="as24-type-title">{row.title}</h3>
-          <div className="as24-types">
+          <div className="as24-types" aria-label={row.title}>
             {row.items.map((it) => (
               <a key={it.label} href={listingUrl({ category: categoryOf[tab], body: it.value })}>
                 <span><img src={it.src} alt="" loading="lazy" /></span>
@@ -150,6 +148,7 @@ export default function As24SearchCard({ rows, placeOf, listingUrl }: Props) {
           </div>
         </>
       ) : null}
+      <a className="as24-more" href={listingUrl({ category: categoryOf[tab] })}>상세 조건으로 검색</a>
 
       {open ? (
         <div className="as24-layer">
