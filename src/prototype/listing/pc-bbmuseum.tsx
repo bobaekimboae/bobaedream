@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef, useState, type CSSProperties, type KeyboardEvent, type ReactNode } from "react";
+import { Fragment, useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type KeyboardEvent, type ReactNode } from "react";
 import { BbmActionBar, BbmModal } from "../filters/bbm-filter-parts";
 import { BBM_MAKER_ITEM, bbmSidebarItems, daangnFilterLabel, splitDaangnFilterOrder, type BbmFilterItem } from "../filters/bbm-filter-options";
 import { BbmExpandPanel, BbmModalPanel, clearBbmItem } from "../filters/bbm-filter-panels";
@@ -459,6 +459,13 @@ const popularModelsByMaker: Record<string, string[]> = {
 
 function BbMakerGradeFilter({ selection, view, setView, brandLogos = false, brandLogoCategory, makerSections = bbCatalog, referenceStyle = false, showInventoryCounts = true, allowEmptyOptions = false }: { selection: BbMakerSelection; view: BbDrillView; setView: (view: BbDrillView) => void; brandLogos?: boolean; brandLogoCategory?: string; makerSections?: BbMakerSection[]; referenceStyle?: boolean; showInventoryCounts?: boolean; allowEmptyOptions?: boolean }) {
   const { maker, model, grades } = selection;
+  const catalogRef = useRef<HTMLDivElement>(null);
+  // 차란차 원본은 제조사 → 모델 → 세부모델 → 등급 화면이 바뀔 때마다
+  // 같은 500px 목록 상자를 맨 위에서 다시 시작한다. 이전 단계의 scrollTop을
+  // 유지하면 짧아진 다음 목록의 중간/끝으로 브라우저가 보정해 화면이 꼬인다.
+  useLayoutEffect(() => {
+    if (referenceStyle && catalogRef.current) catalogRef.current.scrollTop = 0;
+  }, [referenceStyle, view]);
   const pathRows = [
     maker ? { key: "maker", label: bbMakerLabel(maker), onOpen: () => setView({ stage: "maker" }), onClear: selection.onClearMaker } : null,
     maker && model ? { key: "model", label: selection.modelLabel ?? model, onOpen: () => setView({ stage: "model", maker }), onClear: selection.onClearModel } : null,
@@ -485,7 +492,7 @@ function BbMakerGradeFilter({ selection, view, setView, brandLogos = false, bran
           <button type="button" className="bbm-selection-clear" aria-label={`${row.label} 선택 해제`} onClick={row.onClear}><BbAssetIcon name="circle-close" size={20} /></button>
         </div>)}
       </div> : null}
-      <div className="bbm-catalog">
+      <div className="bbm-catalog" ref={catalogRef}>
         {view.stage === "maker" ? makerSections.map((section) => (
           <div key={section.title} className="bbm-catalog-section">
             <p className="bbm-catalog-title">{section.title}</p>

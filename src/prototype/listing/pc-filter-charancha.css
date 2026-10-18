@@ -66,6 +66,28 @@
   .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar[aria-checked="true"]::after { content: ""; position: absolute; inset: 0; border: 1px solid #222; border-radius: 4px; pointer-events: none; }
   .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar:disabled { opacity: .45; }
 }
+
+/* 차란차 원본의 스크롤 소유권(2026-10-18 재측정)
+   · 제조사·모델 목록만 높이 500px의 내부 스크롤
+   · 좌측 필터 전체는 별도 스크롤/고정 영역이 아니라 문서와 함께 이동
+   · 목록 끝의 휠은 필터 안의 다른 스크롤 상자가 아니라 페이지로 이어짐 */
+@media (min-width: 1280px) {
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha {
+    position: relative;
+    top: auto;
+    display: block;
+    height: auto;
+  }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha > .bbm-filter-menu {
+    min-height: initial;
+    overflow: visible;
+    scrollbar-gutter: auto;
+  }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha .bbm-catalog {
+    max-height: 500px;
+    overscroll-behavior: auto;
+  }
+}
 /* 1024~1279 왼쪽 펼침판: 펼침판 머리가 「필터」를 이미 보여 주므로 차란차 머리는 숨긴다 */
 .bbm-drawer .bbm-filter.is-charancha .bbm-filter-summary.is-charancha { display: none; }
 .bbm-drawer .bbm-filter.is-charancha { padding: 0 16px; }
