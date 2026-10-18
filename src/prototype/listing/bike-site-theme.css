@@ -122,3 +122,21 @@ html[data-site="bike"] .maker-option input {
 html[data-site="bike"] .bbm-card-verified {
   filter: brightness(0) saturate(100%) invert(48%) sepia(57%) saturate(1265%) hue-rotate(337deg) brightness(92%) contrast(83%);
 }
+
+/* 로고 밸런스 미리보기(2026-10-18 「보배드림 검정색으로 하고 사이클트레이더 로고 붙여보자」, &bikelogo=mark):
+   원에 걸친 오토바이 마크(우리가 새로 그린 그림, 44×32 → 41×30) + 「보배드림」 #222 + 「바이크」 주황. 기본 화면은 그대로. */
+html[data-site="bike"][data-bikelogo="mark"] .bbm-logo-emblem,
+html[data-site="bike"][data-bikelogo="mark"] .bike-site-mobile-brand__logo {
+  overflow: visible; width: 41px; height: 30px; flex: 0 0 41px; border-radius: 0;
+}
+html[data-site="bike"][data-bikelogo="mark"] .bbm-logo-emblem img,
+html[data-site="bike"][data-bikelogo="mark"] .bike-site-mobile-brand__logo img { width: 41px; max-width: none; height: 30px; }
+html[data-site="bike"][data-bikelogo="mark"] .bbm-logo { gap: 6px; }
+html[data-site="bike"][data-bikelogo="mark"] .bbm-logo-word,
+html[data-site="bike"][data-bikelogo="mark"] .bbm-logo-word.is-ko { color: #222; }
+html[data-site="bike"][data-bikelogo="mark"] .bbm-bike-site-badge {
+  padding-left: 0; border-left: 0; color: var(--bike-orange); font-size: 20px; font-weight: 800; letter-spacing: -.4px;
+}
+html[data-site="bike"][data-bikelogo="mark"] .bike-site-mobile-brand { gap: 8px; }
+html[data-site="bike"][data-bikelogo="mark"] .bike-site-mobile-brand h1 { color: #222; }
+html[data-site="bike"][data-bikelogo="mark"] .bike-site-mobile-brand__accent { color: var(--bike-orange); }

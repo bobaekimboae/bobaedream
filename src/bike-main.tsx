@@ -17,6 +17,8 @@ if (!bikeParts) {
 
 window.history.replaceState({}, "", url);
 document.documentElement.dataset.site = "bike";
+// 로고 밸런스 미리보기(2026-10-18): &bikelogo=mark → 원에 걸친 오토바이 마크 + 「보배드림」 검정
+if (url.searchParams.get("bikelogo") === "mark") document.documentElement.dataset.bikelogo = "mark";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
