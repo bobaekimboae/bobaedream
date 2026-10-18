@@ -759,7 +759,8 @@ function BbFilterSidebar({ leadingFilters, selection, appliedCount, historyCount
         <img className="bbm-filter-chevron" src={bbmAsset("filter-chevron")} alt="" aria-hidden="true" />
       </button>
       {truckFilter.format ? <button type="button" className="bbm-filter-item-reset" onClick={truckFilter.onClearFormat}>초기화</button> : null}
-      {open ? <BbTruckFormatFilter value={truckFilter} /> : null}
+      {/* 엔카 화물·특장 필터처럼 왼쪽 탐색은 이미지 없이 형식명과 매물 수만 읽게 한다. */}
+      {open ? <BbTruckFormatFilter value={truckFilter} showImages={false} /> : null}
     </section>;
   };
   if (collapsible && sidebarCollapsed) {

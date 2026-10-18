@@ -30,6 +30,27 @@ final result: passed
 
 ---
 
+## 2026-10-18 트럭·특장 PC 엔카형 2열 필터
+
+- Reference: `https://www.encar.com/tr/tr_carsearchlist.do#!`
+- Implementation route: `/?qf=guazi&pc=1&filterLayout=compact&category=트럭 · 특장`
+- Browser: ChatGPT in-app browser
+- Viewport: PC 1280×720
+
+### Comparison
+
+- Column hierarchy: passed — 최종 리베이스 후 왼쪽 `x=40, y=279, width=280px`, 오른쪽 퀵필터 `x=360, y=279, width=880px`로 40px 간격과 같은 윗선을 확인했다.
+- Quick filters: passed — 트럭 하위 메뉴, 조건 칩, 적재중량, 유형 레일이 오른쪽 매물 열 안에만 배치된다.
+- Encar text pattern: passed — 왼쪽 `형식/적재용량`은 차량 이미지 없이 형식명과 매물 수만 보여주며 해당 영역 이미지 수는 `0`이다.
+- Drill-down behavior: passed — `카고(화물)트럭` 선택 시 왼쪽은 `세부형식` 텍스트 목록으로 전환되고 오른쪽은 적재중량 퀵필터로 전환된다.
+- Result synchronization: passed — 형식 선택 뒤 URL의 `truckFormat`이 갱신되고 매물 목록도 해당 형식으로 즉시 좁혀진다.
+- Layout stability: passed — 퀵필터 높이가 1단계 유형 이미지 레일에서 2단계 적재중량 칩으로 바뀌어도 좌우 상단 정렬이 유지된다.
+- Regression: passed — 모바일 런타임 무결성 검사, TypeScript, Vite 프로덕션 빌드를 통과했다.
+
+final result: passed
+
+---
+
 ## 2026-10-18 페라리 배너 전체 폭 비교 시안
 
 - Source visual truth: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/ferrari-banner-content-width-local-1280.jpg`
