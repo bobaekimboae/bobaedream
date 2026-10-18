@@ -2480,7 +2480,7 @@ function MarketplaceScreen() {
             </div>
           </section> : showGuaziMakerRail && isGuaziQuickStyle ? (() => {
             // 제조사 줄은 현재 초톳처럼 별도 왼쪽 제목 칸 없이 로고 슬롯부터 배치한다.
-            // QF-108: 월 단위 상위 10(brand-top10.json) + 11번째 "전체 브랜드"(제조사 칩과 같은 목록 창을 연다)
+            // QF-108: 월 단위 상위 10(brand-top10.json) + 11번째 "기타 브랜드"(제조사 칩과 같은 목록 창을 연다)
             // QF-114: 바이크 · 트럭·특장은 유형별 상위 10(승용 브랜드 없음), 샘플 0대 칸은 흐리게(빼지 않음), 로고가 없으면 첫 글자 원형
             const typeList = categoryTypeBrandList;
             const sections = krTopTenSections(category === "국산차" ? "domestic" : category === "수입차" || category === "도이치오토월드" ? "imported" : "all", typeList ? category : undefined);
@@ -2512,7 +2512,7 @@ function MarketplaceScreen() {
                       />
                     ))}
                     <ModelImagePill
-                      label="전체 브랜드"
+                      label="기타 브랜드"
                       image={<span className="kr-all-brands" aria-hidden="true"><svg viewBox="0 0 22 24" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M17 13.5c-.85 0-1.5-.65-1.5-1.5s.65-1.5 1.5-1.5 1.5.65 1.5 1.5-.65 1.5-1.5 1.5Zm0-1c.3 0 .5-.2.5-.5s-.2-.5-.5-.5-.5.2-.5.5.2.5.5.5Zm-6-2c.85 0 1.5.65 1.5 1.5s-.65 1.5-1.5 1.5-1.5-.65-1.5-1.5.65-1.5 1.5-1.5Zm0 1c-.3 0-.5.2-.5.5s.2.5.5.5.5-.2.5-.5-.2-.5-.5-.5Zm-4.5.5c0-.85-.65-1.5-1.5-1.5s-1.5.65-1.5 1.5.65 1.5 1.5 1.5 1.5-.65 1.5-1.5Zm-2 0c0-.3.2-.5.5-.5s.5.2.5.5-.2.5-.5.5-.5-.2-.5-.5Z" fill="currentColor" /></svg></span>}
                       variant="brand"
                       onClick={() => setBbmChipPanel("제조사")}
@@ -2586,7 +2586,7 @@ function MarketplaceScreen() {
                     {oldcarListingBrands ? oldcarListingBrands.map(card) : <>
                       {sections.domestic.map(card)}
                       {sections.imported.map(card)}
-                      <DepthCard key="전체 브랜드" label="전체 브랜드" image={<span className="kr-all-brands" aria-hidden="true"><svg viewBox="0 0 22 24" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M17 13.5c-.85 0-1.5-.65-1.5-1.5s.65-1.5 1.5-1.5 1.5.65 1.5 1.5-.65 1.5-1.5 1.5Zm0-1c.3 0 .5-.2.5-.5s-.2-.5-.5-.5-.5.2-.5.5.2.5.5.5Zm-6-2c.85 0 1.5.65 1.5 1.5s-.65 1.5-1.5 1.5-1.5-.65-1.5-1.5.65-1.5 1.5-1.5Zm0 1c-.3 0-.5.2-.5.5s.2.5.5.5.5-.2.5-.5-.2-.5-.5-.5Zm-4.5.5c0-.85-.65-1.5-1.5-1.5s-1.5.65-1.5 1.5.65 1.5 1.5 1.5 1.5-.65 1.5-1.5Zm-2 0c0-.3.2-.5.5-.5s.5.2.5.5-.2.5-.5.5-.5-.2-.5-.5Z" fill="currentColor" /></svg></span>} mediaKind="brand" onClick={() => supportsVehicleCatalog ? setSheet("vehicle") : setBbmChipPanel("제조사")} />
+                      <DepthCard key="기타 브랜드" label="기타 브랜드" image={<span className="kr-all-brands" aria-hidden="true"><svg viewBox="0 0 22 24" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M17 13.5c-.85 0-1.5-.65-1.5-1.5s.65-1.5 1.5-1.5 1.5.65 1.5 1.5-.65 1.5-1.5 1.5Zm0-1c.3 0 .5-.2.5-.5s-.2-.5-.5-.5-.5.2-.5.5.2.5.5.5Zm-6-2c.85 0 1.5.65 1.5 1.5s-.65 1.5-1.5 1.5-1.5-.65-1.5-1.5.65-1.5 1.5-1.5Zm0 1c-.3 0-.5.2-.5.5s.2.5.5.5.5-.2.5-.5-.2-.5-.5-.5Zm-4.5.5c0-.85-.65-1.5-1.5-1.5s-1.5.65-1.5 1.5.65 1.5 1.5 1.5 1.5-.65 1.5-1.5Zm-2 0c0-.3.2-.5.5-.5s.5.2.5.5-.2.5-.5.5-.5-.2-.5-.5Z" fill="currentColor" /></svg></span>} mediaKind="brand" onClick={() => supportsVehicleCatalog ? setSheet("vehicle") : setBbmChipPanel("제조사")} />
                     </>}
                   </QuickRailCarousel>
                 </section>
