@@ -28,6 +28,27 @@
 
 final result: passed
 
+---
+
+## PC GNB·LNB·필터 시각 위계 분리 · 2026-10-18
+
+- source visual truth: `C:/Users/bobae/.codex/visualizations/2026/10/18/gnb-lnb-audit/01-bobaedream-gnb-lnb.png`(기존 보배드림 화면)과 `C:/Users/bobae/.codex/visualizations/2026/10/18/gnb-lnb-audit/02-encar-gnb-lnb.png`(엔카의 텍스트 GNB·사각 LNB 위계).
+- implementation screenshot: `C:/Users/bobae/.codex/visualizations/2026/10/18/gnb-lnb-build/05-local-flat-lnb-final.png`.
+- combined comparison evidence: `C:/Users/bobae/.codex/visualizations/2026/10/18/gnb-lnb-build/07-before-after-flat-lnb.png`; 기존 화면과 최종 구현을 1280×720씩 같은 크기·같은 목록 상태로 한 캔버스에 좌우 배치했다.
+- viewport/density/state: 1280×720 CSS px, source·implementation 모두 1280×720 PNG, density 72, device scale 1, 국산차 선택 상태.
+- fonts and typography: 기존 Pretendard 14~15px 위계를 유지했다. GNB 활성 항목은 배경 없이 700 굵기와 3px 블루 밑줄로 표시하며, LNB와 필터 텍스트 크기는 변경하지 않았다.
+- spacing and layout rhythm: GNB 알약 배경을 제거하고 항목 사이를 16~22px로 벌렸다. LNB는 44px 평면 텍스트 탭·24px 간격·하단 구분선으로 바꾸고 `더보기`에 저빈도 2개 메뉴를 넣어 반복되는 칩 모양을 제거했다. 가로 넘침은 0px이다.
+- colors and visual tokens: GNB 활성선은 3px `#306BD9`, LNB 활성선은 2px `#306BD9`, 선택 필터는 `#EAF1FF` 배경·`#1F5FC7` 텍스트·`#BFD0F2` 내부 테두리로 역할을 분리했다.
+- image quality and asset fidelity: 로고·차량·브랜드 이미지는 기존 승인 자산을 그대로 사용했으며, 새 래스터·근사 아이콘·CSS 그림을 만들지 않았다.
+- copy and content: `전체 중고차·국산차·수입차·전기차·리스·렌트·브랜드 인증`은 1차 LNB에 유지하고 `서울오토갤러리·매매단지`는 `더보기` 메뉴로 묶었다.
+- interaction evidence: LNB `더보기` 열기/닫기와 두 메뉴 노출을 확인했다. 바깥 클릭 닫기와 기존 카테고리 이동도 보존했다.
+- focused comparison: 1280×720 1:1 전체 비교에서 44~49px 메뉴 높이, 활성선과 필터 선택색이 명확히 판독된다. 드롭다운 열린 상태는 `06-local-flat-lnb-menu-open.png`로 별도 확인했다.
+- comparison history: 1차 구현에서 상위 `bbm-top-chotot.css`가 선택 필터를 검정으로 덮는 P2가 있었다. 해당 규칙을 연한 블루 상태로 교정하고 재빌드한 뒤 계산 색상 `rgb(234, 241, 255)`·텍스트 `rgb(31, 95, 199)`를 확인했다.
+- browser checks: 콘솔 오류 0건, 수평 overflow 0px, GNB 활성 배경 투명·밑줄 3px, LNB 활성 배경 투명·텍스트 `rgb(48, 107, 217)`·밑줄 2px.
+- findings: P0/P1/P2 없음. 키보드 실제 순회와 고대비 모드는 후속 접근성 검수 범위다.
+
+final result: passed
+
 ## 2026-10-18 · Encar-style PC secondary navigation
 
 ### Evidence
