@@ -595,3 +595,8 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
   .bbm-search-popular button { height: 32px; padding: 0 12px; border: 1px solid #dadada; border-radius: 999px; background: #fff; color: #222; font-size: 14px; font-weight: 500; line-height: 20px; cursor: pointer; }
   .bbm-search-popular button:hover { border-color: #222; }
 }
+
+/* 2026-10-18 「로그인 및 판매하기 텍스트 크기·웨이트 대조」: 초톳 헤더(xe.chotot.com 1440 실측, vieclamtot와 같은 헤더) 로그인 `Đăng nhập`·판매 `Bán xe` = 14/20 600. 우리 500 → 600으로 맞춰 검색 범위 버튼(14/600)과 같은 굵기 */
+@media (min-width: 820px) {
+  .bbm-header-auth .bbm-auth-pill, .bbm-header-auth .bbm-listing-button { font-size: 14px; font-weight: 600; line-height: 20px; }
+}
