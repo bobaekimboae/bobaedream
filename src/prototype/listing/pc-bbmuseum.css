@@ -409,3 +409,10 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
 .bbm-lnb-title-tabs button { flex: none; padding: 0; border: 0; background: none; color: #8c8c8c; font-size: 18px; font-weight: 600; line-height: 26px; white-space: nowrap; cursor: pointer; }
 .bbm-lnb-title-tabs button:hover { color: #222; }
 .bbm-lnb-title-tabs button.is-current { color: #222; font-weight: 700; }
+
+/* 2026-10-18 「구분선을 위아래 따서 거기에 하위메뉴」: 기본 하위메뉴 줄을 화면 전체 폭 흰 띠로.
+   위 구분선 = 헤더 아래 1px #EBEBEB(그대로), 아래 구분선 = 띠 아래 1px #E5E7EB(전체 폭). 칩은 띠 세로 가운데.
+   border-image 로 바깥까지 칠해 가로 스크롤이 생기지 않는다. */
+@media (min-width: 1024px) {
+  html:not([data-lnb]) .marketplace.is-bbm.is-hybrid > .bbm-hybrid-top > .bbm-secondary-nav { height: 56px; margin: 0 0 16px; border-bottom: 0; background: none; border-image: linear-gradient(to top, #e5e7eb 1px, #fff 1px) fill 0 / 0 / 0 100vmax; }
+}
