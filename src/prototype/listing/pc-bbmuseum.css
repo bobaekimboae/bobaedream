@@ -647,3 +647,13 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
   html .marketplace.is-bbm .bbm-header.is-gnb-text .bbm-gnb button.is-active .bb-icon { color: #222; }
   html .marketplace.is-bbm .bbm-header.is-gnb-text .bbm-gnb .bbm-gnb-more.is-active .bbm-gnb-more-count { background: #222; color: #fff; }
 }
+
+/* 2026-10-18 「밑줄은 있는건 어떠냐」 `&gnbactive=line`: 알약 없는 700 #222 글자 + 메뉴 줄 맨 아래 2px #222 밑줄(글자 폭). 파랑은 쓰지 않는다 */
+@media (min-width: 820px) {
+  html .marketplace.is-bbm .bbm-header.is-gnb-line .bbm-gnb button.is-active,
+  html .marketplace.is-bbm .bbm-header.is-gnb-line .bbm-gnb .bbm-gnb-more.is-active { position: relative; }
+  html .marketplace.is-bbm .bbm-header.is-gnb-line .bbm-gnb button.is-active::after,
+  html .marketplace.is-bbm .bbm-header.is-gnb-line .bbm-gnb .bbm-gnb-more.is-active::after {
+    content: "" !important; display: block !important; position: absolute; right: 0; bottom: 0; left: 0; height: 2px; background: #222;
+  }
+}

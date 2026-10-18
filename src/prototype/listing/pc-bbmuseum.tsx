@@ -219,6 +219,11 @@ export function ChototSearchIcon({ size = 20 }: { size?: number }) {
 /* 2026-10-17 PC 메인 검색바 시안: 기본=비엑람똣형 블루 CTA, ?pcsearch=chotot(초톳 xe.chotot.com) · ?pcsearch=kaidee(카이디 kaidee.com) 비교안 */
 export type BbSearchVariant = "default" | "chotot" | "kaidee";
 // 2026-10-18 탑메뉴 현재 메뉴 알약 없는 미리보기: `&gnbactive=text`면 검정 알약 대신 700 #222 글자만
+// `&gnbactive=line`: 알약 없는 글자 + 아래 2px 검정 밑줄
+function bbGnbActiveLine(): boolean {
+  return typeof window !== "undefined" && new URLSearchParams(window.location.search).get("gnbactive") === "line";
+}
+
 function bbGnbActiveText(): boolean {
   return typeof window !== "undefined" && new URLSearchParams(window.location.search).get("gnbactive") === "text";
 }
@@ -302,7 +307,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
     window.history.replaceState({}, "", url);
   };
   return (
-    <header className={`bbm-header${variant === "default" ? "" : ` is-search-${variant}`}${bbGnbActiveText() ? " is-gnb-text" : ""}`} aria-label="보배드림">
+    <header className={`bbm-header${variant === "default" ? "" : ` is-search-${variant}`}${bbGnbActiveText() ? " is-gnb-text" : ""}${bbGnbActiveLine() ? " is-gnb-text is-gnb-line" : ""}`} aria-label="보배드림">
       <div className="bbm-header-inner">
         <div className="bbm-header-main">
           <button type="button" className="bbm-logo" aria-label="보배드림 처음으로" onClick={() => document.querySelector(".app-screen")?.scrollTo({ top: 0 })}>
