@@ -28,6 +28,8 @@ export const krBrandAliases: Record<string, string> = {
   MG로버: "로버",
   "쉐보레(GM대우)": "쉐보레(국산)",
   "시트로엥/DS": "시트로엥",
+  KGM: "KG모빌리티(쌍용)",
+  "KGM(쌍용)": "KG모빌리티(쌍용)",
   "KG모빌리티": "KG모빌리티(쌍용)",
 };
 
