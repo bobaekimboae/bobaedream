@@ -26,7 +26,7 @@
   }
   .bbm-filter.is-charancha .bbm-filter-chevron { width: 16px; height: 16px; flex: none; filter: brightness(0) saturate(100%) invert(9%) sepia(12%) saturate(1400%) hue-rotate(176deg); }
   .bbm-filter.is-charancha .bbm-filter-label-text { color: #191f28; }
-  .bbm-filter.is-charancha .bbm-filter-path { color: #0740e4; font-size: 13px; font-weight: 400; line-height: 18px; }
+  .bbm-filter.is-charancha .bbm-filter-path { color: #222; font-size: 13px; font-weight: 400; line-height: 18px; }
   .bbm-filter.is-charancha .bbm-filter-item-reset { top: 24px; right: 28px; color: #707b89; font-weight: 400; text-decoration: none; }
   .bbm-filter.is-charancha .bbm-filter-item.is-open .bbm-filter-item-reset { top: 24px; }
   /* 펼친 내용: 제목 아래 16 */
@@ -47,7 +47,7 @@
     border-radius: 10px; background: #222; color: #fff; font-size: 12px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums;
   }
   /* 차종·바디타입 선택지 = 차란차 사각 칩(1440 실측): 높이 52 · 안쪽 13/18 · 1px #ECEEF0 · 반경 5 · 14/20 400 #919BA7 · 간격 8.
-     선택은 글자 #0740E4 · 바탕 #FAFBFF · 테두리 #CDD7FA. 체크박스·아이콘·대수는 차란차처럼 그리지 않는다 */
+     선택은 차란차 파랑 대신 보배드림 규칙(파랑은 로고·검색·주 버튼 전용)대로 검정: 글자 #222 600 · 흰 바탕 · 테두리 2px #222(1px 테두리 + 안쪽 1px). 체크박스·아이콘·대수는 차란차처럼 그리지 않는다 */
   .bbm-filter.is-charancha .bbm-filter-item .bbmf-panel { padding: 0; }
   .bbm-filter.is-charancha .bbm-filter-item .bbmf-check-grid { display: flex; flex-wrap: wrap; gap: 8px; }
   .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar {
@@ -59,8 +59,11 @@
   .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar .bbmf-check-leading-icon,
   .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar .bbmf-check-count { display: none; }
   .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar .bbmf-check-label { color: inherit; font: inherit; white-space: nowrap; }
-  .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar:hover:not(:disabled) { border-color: #d1d6db; }
-  .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar[aria-checked="true"] { border-color: #cdd7fa; background: #fafbff; color: #0740e4; }
+  /* 적용된 항목 제목도 파랑 대신 검정(파랑은 로고·검색·주 버튼 전용) */
+  .marketplace.is-bbm .bbm-filter.is-charancha .bbm-filter-item.is-applied .bbm-filter-label-text { color: #191f28; }
+  .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar:hover:not(:disabled):not([aria-checked="true"]) { border-color: #d1d6db; }
+  .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar[aria-checked="true"] { position: relative; border-color: #222; background: #fff; color: #222; font-weight: 600; }
+  .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar[aria-checked="true"]::after { content: ""; position: absolute; inset: 0; border: 1px solid #222; border-radius: 4px; pointer-events: none; }
   .bbm-filter.is-charancha .bbm-filter-item .bbmf-check.is-sidebar:disabled { opacity: .45; }
 }
 /* 1024~1279 왼쪽 펼침판: 펼침판 머리가 「필터」를 이미 보여 주므로 차란차 머리는 숨긴다 */
