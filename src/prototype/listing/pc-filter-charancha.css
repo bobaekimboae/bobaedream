@@ -130,29 +130,30 @@
     max-height: 500px;
     overscroll-behavior: auto;
   }
-  /* 화물·특장은 차란차식 개별 카탈로그 스크롤이 아니라 엔카식 좌측 필터 전체 단일 스크롤을 쓴다.
-     형식·세부형식·적재용량 다음에 제조사와 나머지 필터가 같은 축으로 이어진다. */
+  /* 트럭도 차란차 기본 좌측 필터처럼 문서 높이대로 이어진다. 화면 높이로 카드를 자르지 않고,
+     형식·제조사 카탈로그만 각각 최대 500px에서 스크롤해 아래 필터 제목을 항상 페이지에서 찾을 수 있게 한다. */
   .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference {
-    overflow: hidden;
+    height: auto;
+    overflow: visible;
   }
   .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference > .bbm-filter-menu {
-    height: clamp(320px, calc(100vh - 370px), 680px);
-    min-height: 0;
+    height: auto;
+    min-height: initial;
+    overflow: visible;
+    scrollbar-gutter: auto;
+  }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference .bbm-catalog {
+    max-height: 500px;
     overflow-x: hidden;
     overflow-y: auto;
-    overscroll-behavior: contain;
+    padding-right: 4px;
+    overscroll-behavior: auto;
     scrollbar-color: #8d8f92 transparent;
     scrollbar-width: thin;
   }
-  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference > .bbm-filter-menu::-webkit-scrollbar { width: 6px; }
-  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference > .bbm-filter-menu::-webkit-scrollbar-track { background: transparent; }
-  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference > .bbm-filter-menu::-webkit-scrollbar-thumb { border-radius: 3px; background: #8d8f92; }
-  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference .bbm-catalog {
-    max-height: none;
-    overflow: visible;
-    padding-right: 0;
-    overscroll-behavior: auto;
-  }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference .bbm-catalog::-webkit-scrollbar { width: 6px; }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference .bbm-catalog::-webkit-scrollbar-track { background: transparent; }
+  .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference .bbm-catalog::-webkit-scrollbar-thumb { border-radius: 3px; background: #8d8f92; }
   .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha.is-truck-reference .bbm-maker-grade.is-reference .bbm-catalog-row { min-height: 38px; padding-top: 7px; padding-bottom: 7px; }
 }
 /* 1024~1279 왼쪽 펼침판: 펼침판 머리가 「필터」를 이미 보여 주므로 차란차 머리는 숨긴다 */
