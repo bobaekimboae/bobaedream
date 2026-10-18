@@ -40,7 +40,7 @@ export function BbmVehicleTypeDropdown({ active, onChoose }: { active: boolean; 
 
   return <div className="bbm-vehicle-search-wrap" ref={rootRef}>
     <button type="button" className={`bbm-vehicle-search-trigger${active ? " is-active" : ""}`} aria-current={active ? "page" : undefined} aria-haspopup="menu" aria-expanded={open} onClick={() => setOpen((value) => !value)}>
-      <span>전체 차량</span><span className="bbm-vehicle-search-caret" aria-hidden="true" />
+      <span>전체 차량</span>
     </button>
     {open ? <div className="bbm-vehicle-type-menu" role="menu" aria-label="차량 유형 선택">
       <div className="bbm-vehicle-type-heading">차량 유형</div>
