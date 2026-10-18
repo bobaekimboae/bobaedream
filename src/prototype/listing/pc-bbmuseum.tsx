@@ -70,6 +70,9 @@ const bbGnbSubmenus: Readonly<Record<string, readonly BbGnbSubItem[]>> = {
     { label: "서울오토갤러리", category: "서울오토갤러리" },
     { label: "매매단지", category: "매매단지별 검색" },
   ],
+  수입차: [
+    { label: "전체 수입차", category: "수입차" },
+  ],
   트럭: [
     { label: "전체 트럭", category: "트럭 · 특장" },
     ...truckFormatCatalog.slice(0, 7).map((item) => ({ label: item.name, category: "트럭 · 특장", detail: item.name })),
@@ -88,7 +91,8 @@ const bbGnbSubmenus: Readonly<Record<string, readonly BbGnbSubItem[]>> = {
 };
 function bbActiveGnbItem(category: string) {
   return category === "전체" ? "차량검색"
-    : bbUsedCarCategories.has(category) ? "중고차"
+    : category === "수입차" ? "수입차"
+      : bbUsedCarCategories.has(category) ? "중고차"
       : category === "트럭 · 특장" ? "트럭"
         : category === "건설기계" ? "중기"
           : category === "캠핑카" ? "더보기"
