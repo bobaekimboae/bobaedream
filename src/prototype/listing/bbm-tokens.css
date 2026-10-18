@@ -169,6 +169,7 @@
   .marketplace.is-bbm .bbm-chips .filter-chip .ui-icon { width: 20px; height: 20px; }
   .marketplace.is-bbm .bbm-chips .filter-chip.is-active { gap: 4px; background: var(--bbm-text-strong); color: #fff; }
   .marketplace.is-bbm .bbm-chips .filter-chip.is-active .filter-chip-label { padding: 0; color: #fff; font: inherit; }
+  .marketplace.is-bbm .bbm-chips .filter-chip-bike-icon { display: block; width: 18px; height: 18px; flex: none; margin-right: 6px; filter: brightness(0) invert(1); }
   .marketplace.is-bbm .bbm-chips .filter-chip.is-active .filter-chip-clear { width: 20px; height: 20px; padding: 0; }
   .marketplace.is-bbm .bbm-quick-slot { margin-left: 0; border-radius: 0 0 12px 12px; background: #fff; overflow: hidden; }
   .marketplace.is-bbm .bbm-content-head.has-category-menu .bbm-quick-slot { background: none; }
@@ -269,6 +270,7 @@
 .filter-shell.is-bbm .filter-chip:not(.is-active) > .ui-icon { width: 18px; height: 18px; }
 .filter-shell.is-bbm .filter-chip.is-active { padding: 3px 9px 3px 14px; gap: 8px; background: var(--bbm-text-strong); color: #fff; }
 .filter-shell.is-bbm .filter-chip.is-active .filter-chip-label { padding: 0; color: #fff; font: inherit; }
+.filter-shell.is-bbm .filter-chip-bike-icon { display: block; width: 18px; height: 18px; flex: none; margin-right: 6px; filter: brightness(0) invert(1); }
 .filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear { display: grid; width: 14px; height: 14px; margin-left: 0; padding: 0; border-radius: 0; background: transparent; place-items: center; }
 .filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear .ui-icon { width: 14px; height: 14px; }
 .filter-chip-clear-mark { display: none; }
