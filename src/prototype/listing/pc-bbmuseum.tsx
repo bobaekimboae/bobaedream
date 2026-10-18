@@ -29,12 +29,12 @@ function BbNavIcon({ src }: { src: string }) {
 
 const bbGnbItems: readonly BbGnbItem[] = [
   { label: "홈", action: "home", icon: "home.svg" },
-  // 노션 AutoScout24 차종 원본을 ImageGen으로 단순 필드형화한 PC GNB 전용 아이콘.
-  // 바이크는 생성 일러스트가 20px 픽토그램과 맞지 않아 우리 기존 원본 SVG를 같은 currentColor 마스크로 쓴다.
-  { label: "차량검색", category: "전체", icon: "filled/all-vehicles-filled.png" },
-  { label: "중고차", category: "중고차", icon: "filled/used-car-filled.png" },
-  { label: "트럭", category: "트럭 · 특장", icon: "filled/truck-filled.png" },
-  { label: "중장비", category: "건설기계", icon: "filled/heavy-equipment-filled.png" },
+  // Auto.ru·당근·Carwow 비교 결과: 작은 GNB에서는 복잡한 합성 실루엣보다
+  // 동일한 24px 원본 픽토그램을 한 광학 크기로 쓰는 편이 빠르게 식별된다.
+  { label: "차량검색", category: "전체", icon: "search.svg" },
+  { label: "중고차", category: "중고차", icon: "used-car.svg" },
+  { label: "트럭", category: "트럭 · 특장", icon: "truck.svg" },
+  { label: "중장비", category: "건설기계", icon: "heavy-equipment.svg" },
   { label: "바이크", category: "바이크", icon: "filled/bike-filled-v1.svg" },
   { label: "중고부품", category: "부품 · 용품", icon: "parts.svg" },
   { label: "커뮤니티", action: "community", icon: "community.svg" },
