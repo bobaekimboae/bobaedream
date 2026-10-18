@@ -150,5 +150,7 @@
 .marketplace.is-bbm.is-qf-guazi .depth-rail.is-kr-maker .car-body-pill-label.is-maker-label {
   align-self: flex-start;
   margin-top: 10px;
-  margin-right: 2px;
+  /* 로고 칸은 가운데 정렬이라 칸 시작선을 알약과 맞추면 로고·이름이 약 20px 안쪽에 보인다.
+     칸을 18px 당겨 첫 로고·브랜드명의 보이는 시작선을 첫 알약 테두리와 맞춘다. */
+  margin-right: -16px;
 }
