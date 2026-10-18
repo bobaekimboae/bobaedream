@@ -1,8 +1,8 @@
-/* 보배드림 바이크 메인 v01 — AutoScout24.de 1536 실측 구성 (노랑 · 청록 → 바이크 주황) */
+/* 보배드림 바이크 메인 v02 — AutoScout24 비례·색상·측면 유형 이미지 규칙 */
 .bmh {
-  --or: #fa6819;
-  --or-hover: #e5580c;
-  --or-soft: #ffe5cf;
+  --or: #0a8f90;
+  --or-hover: #087c7d;
+  --or-soft: #dff3f3;
   --ink: #333;
   --page: #f4f4f4;
   min-height: 100vh;
@@ -19,58 +19,52 @@
 .bmh :focus-visible { outline: 2px solid var(--or); outline-offset: 2px; }
 .bmh-wrap { width: 1240px; max-width: calc(100% - 48px); margin: 0 auto; }
 
-/* 헤더: 짙은 회색 72 */
-.bmh-header { background: #333; color: #fff; }
+/* 헤더: 보배드림 브랜드는 유지하되 밝은 PC 내비게이션으로 정리 */
+.bmh-header { background: #fff; color: #17191c; border-bottom: 1px solid #e4e6e9; }
 .bmh-header-row { height: 72px; display: flex; align-items: center; gap: 48px; padding: 0 32px; }
 .bmh-logo { display: flex; align-items: center; gap: 8px; }
 .bmh-logo img { width: 30px; height: 30px; }
-.bmh-logo span { font-size: 19px; font-weight: 800; letter-spacing: -.02em; color: #fff; }
-.bmh-logo b { color: var(--or); }
+.bmh-logo span { font-size: 19px; font-weight: 800; letter-spacing: -.02em; color: #1b498c; }
+.bmh-logo b { color: #17191c; }
 .bmh-gnb { display: flex; gap: 32px; }
-.bmh-gnb a { font-size: 16px; font-weight: 600; color: #fff; }
-.bmh-gnb a:hover { color: var(--or); }
+.bmh-gnb a { font-size: 16px; font-weight: 600; color: #17191c; }
+.bmh-gnb a:hover { color: #1b498c; }
 .bmh-header-right { margin-left: auto; display: flex; align-items: center; gap: 20px; }
-.bmh-header-right > button:first-child { width: 36px; height: 36px; display: grid; place-items: center; color: #fff; }
-.bmh-divider { width: 1px; height: 32px; background: #666; }
-.bmh-login { font-size: 16px; font-weight: 600; color: #fff !important; }
-.bmh-sell-btn { height: 40px; padding: 0 18px; border: 1px solid #fff; border-radius: 4px; font-size: 16px; font-weight: 600; line-height: 38px; }
-.bmh-sell-btn:hover { background: #fff; color: #333; }
+.bmh-header-right > button:first-child { width: 36px; height: 36px; display: grid; place-items: center; color: #17191c; }
+.bmh-divider { width: 1px; height: 32px; background: #d6d9dd; }
+.bmh-login { font-size: 16px; font-weight: 600; color: #17191c !important; }
+.bmh-sell-btn { height: 40px; padding: 0 18px; border: 1px solid #cfd3d8; border-radius: 4px; font-size: 16px; font-weight: 600; line-height: 38px; }
+.bmh-sell-btn:hover { border-color: #1b498c; color: #1b498c; }
 
-/* 히어로: 400 높이, 사진 + 곡선 + 가격 말풍선 */
-.bmh-hero { position: relative; height: 400px; overflow: hidden; background: linear-gradient(100deg, #2a2522 0%, #4a3a30 45%, #8a5a3c 100%); }
-.bmh-hero h1 { position: relative; z-index: 2; padding-top: 112px; padding-left: 32px; max-width: 620px; font-size: 48px; line-height: 58px; font-weight: 600; color: #fff; letter-spacing: -.02em; }
-.bmh-hero-art { position: absolute; inset: 0; }
-.bmh-swoosh { position: absolute; right: -140px; top: -260px; width: 620px; height: 900px; border-radius: 50%; border: 90px solid var(--or); border-right-color: transparent; border-bottom-color: transparent; transform: rotate(18deg); }
-.bmh-hero-bike { position: absolute; right: 13%; bottom: 36px; width: 560px; filter: drop-shadow(0 24px 30px rgba(0, 0, 0, .45)); }
-.bmh-bubble { position: absolute; display: flex; align-items: center; gap: 8px; height: 48px; padding: 0 16px 0 6px; border-radius: 999px; background: #fff; box-shadow: 0 4px 12px rgba(0, 0, 0, .25); font-size: 14px; line-height: 18px; font-weight: 700; color: #222; }
-.bmh-bubble i { width: 36px; height: 36px; border-radius: 50%; background: var(--or); color: #fff; font-style: normal; font-weight: 700; display: grid; place-items: center; }
-.bmh-bubble small { display: block; font-size: 11px; line-height: 14px; font-weight: 500; color: #595959; }
-.bmh-bubble.is-0 { left: 50%; top: 70px; }
-.bmh-bubble.is-1 { left: 44%; top: 236px; }
-.bmh-bubble.is-2 { right: 8%; top: 270px; }
+/* 히어로: AutoScout24식 얕은 비율, 실제 제품 이미지 중심 */
+.bmh-hero { position: relative; height: 310px; overflow: hidden; background: linear-gradient(102deg, #eef2f6 0 54%, #dce4eb 54% 100%); }
+.bmh-hero-copy { position: relative; z-index: 2; padding: 62px 0 0 32px; }
+.bmh-hero-copy > span { color: #5e6872; font-size: 15px; font-weight: 650; }
+.bmh-hero h1 { margin-top: 14px; max-width: 620px; font-size: 42px; line-height: 49px; font-weight: 800; color: #17202a; letter-spacing: -.035em; }
+.bmh-hero-art { position: absolute; inset: 0; width: 1240px; max-width: calc(100% - 48px); margin: 0 auto; left: 0; right: 0; }
+.bmh-hero-bike { position: absolute; right: 58px; bottom: -24px; width: 530px; max-height: 300px; object-fit: contain; filter: drop-shadow(0 22px 24px rgba(21, 29, 36, .26)); }
 
-/* 검색 카드: 히어로 위로 48 겹침, 반경 16, 안쪽 24/32 */
-.bmh-search { position: relative; z-index: 3; margin-top: -48px; background: #fff; border-radius: 16px; padding: 24px 32px 28px; box-shadow: 0 -8px 16px rgba(0, 0, 0, .05), 0 -4px 8px rgba(0, 0, 0, .05), 0 0 2px rgba(0, 0, 0, .12); }
-.bmh-tabs { display: flex; align-items: flex-end; gap: 32px; height: 36px; margin-bottom: 20px; }
-.bmh-tabs button { font-size: 16px; line-height: 24px; font-weight: 400; color: var(--ink); padding-bottom: 4px !important; border-bottom: 2px solid transparent !important; }
-.bmh-tabs button.is-on { font-size: 20px; line-height: 28px; font-weight: 700; border-bottom-color: var(--ink) !important; }
-.bmh-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-.bmh-field { position: relative; height: 40px; display: flex; align-items: center; justify-content: space-between; padding: 0 10px 0 12px !important; border: 1px solid #000 !important; border-radius: 4px; background: #fff !important; font-size: 16px; text-align: left; cursor: pointer; }
-.bmh-field:disabled { border-color: #c4c4c4 !important; color: #a0a0a0; cursor: default; }
-.bmh-field span { color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.bmh-field span.is-filled { font-weight: 600; color: #000; }
+/* 검색 카드: AutoScout24식 64px 겹침과 4열 검색 */
+.bmh-search { position: relative; z-index: 3; margin-top: -64px; background: #fff; border: 1px solid #dfe2e5; border-radius: 18px; padding: 0 32px 28px; box-shadow: 0 4px 14px rgba(18, 28, 38, .08); }
+.bmh-tabs { display: flex; align-items: stretch; gap: 34px; height: 72px; margin-bottom: 0; }
+.bmh-tabs button { position: relative; min-width: 44px; font-size: 18px; line-height: 24px; font-weight: 650; color: #31363b; padding: 3px 0 0 !important; border-bottom: 0 !important; }
+.bmh-tabs button.is-on { font-size: 18px; line-height: 24px; font-weight: 800; color: #121518; }
+.bmh-tabs button.is-on::after { content: ""; position: absolute; right: 0; bottom: 0; left: 0; height: 3px; border-radius: 3px 3px 0 0; background: #1d252c; }
+.bmh-row { display: grid; grid-template-columns: 1fr 1.2fr .92fr 1.08fr; gap: 10px; }
+.bmh-field { position: relative; height: 51px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px 0 15px !important; border: 1px solid #8f969d !important; border-radius: 4px; background: #fff !important; font-size: 15px; font-weight: 600; text-align: left; cursor: pointer; }
+.bmh-field span { color: #282d32; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bmh-field span.is-filled { font-weight: 700; color: #111; }
 .bmh-field select { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
-.bmh-cta { height: 40px; border-radius: 8px; background: var(--or) !important; color: #fff !important; font-size: 16px; font-weight: 600; }
+.bmh-cta { height: 51px; border-radius: 5px; background: var(--or) !important; color: #fff !important; font-size: 16px; font-weight: 800; }
 .bmh-cta:hover { background: var(--or-hover) !important; }
-.bmh-more { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 12px; }
-.bmh-more a { grid-column: 3; text-align: center; font-size: 16px; font-weight: 600; color: #006bd6; }
+.bmh-more { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 12px; }
+.bmh-more a { grid-column: 4; text-align: center; font-size: 14px; font-weight: 750; color: #1264d8; }
 .bmh-more a:hover { text-decoration: underline; }
-.bmh-search-sub { margin-top: 12px; font-size: 16px; line-height: 24px; font-weight: 600; }
-.bmh-genres { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 18px; margin-top: 16px; }
-.bmh-genres a { display: flex; flex-direction: column; align-items: center; gap: 12px; font-size: 16px; font-weight: 600; text-align: center; }
-.bmh-genres span { width: 120px; max-width: 100%; height: 73px; display: flex; align-items: flex-end; justify-content: center; }
-.bmh-genres img { max-width: 100%; max-height: 73px; object-fit: contain; object-position: center bottom; transition: transform .15s; }
-.bmh-genres a:hover img { transform: translateY(-3px); }
+.bmh-genres { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 16px; margin-top: 13px; }
+.bmh-genres a { min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 14px; font-weight: 750; text-align: center; white-space: nowrap; }
+.bmh-genres span { width: 100%; height: 72px; display: flex; align-items: flex-end; justify-content: center; }
+.bmh-genres img { display: block; width: auto; max-width: 118px; height: auto; max-height: 68px; object-fit: contain; object-position: center bottom; transition: transform .15s; }
+.bmh-genres a:hover img { transform: translateY(-2px); }
 
 /* 섹션 제목 32/600 */
 .bmh-sec { margin-top: 64px; }
