@@ -85,6 +85,7 @@ export default function BikeMainHome() {
   const [draftModel, setDraftModel] = useState("");
   const [keyword, setKeyword] = useState("");
   const [toast, setToast] = useState("");
+  const [headerQuery, setHeaderQuery] = useState("");
   const opener = useRef<HTMLButtonElement>(null);
   const closeBtn = useRef<HTMLButtonElement>(null);
 
@@ -162,26 +163,37 @@ export default function BikeMainHome() {
 
   return (
     <div className="bmh">
-      <header className="bmh-header">
-        <div className="bmh-wrap bmh-header-row">
-          <a className="bmh-logo" href="./?home=as24" aria-label="보배드림 바이크 홈">
-            <img src={pic("..", "assets", "bbm", "bike-emblem.svg")} alt="" />
-            <span>보배드림 <b>바이크</b></span>
+      <header className="bmh-site-header" aria-label="보배드림 바이크">
+        <div className="bmh-wrap bmh-site-header-main">
+          <a className="bmh-site-logo" href="./?home=as24" aria-label="보배드림 바이크 처음으로">
+            <span className="bmh-site-logo-emblem"><img src={pic("..", "assets", "bbm", "bike-emblem.svg")} alt="" /></span>
+            <span className="bmh-site-logo-word">보배드림</span>
+            <span className="bmh-site-logo-badge">바이크</span>
           </a>
-          <nav className="bmh-gnb" aria-label="주 메뉴">
-            <a href={listUrl()}>중고 바이크</a>
+          <form className="bmh-site-search" onSubmit={(event) => { event.preventDefault(); const query = headerQuery.trim(); if (query) window.location.href = listUrl({ search: query }); }}>
+            <input value={headerQuery} onChange={(event) => setHeaderQuery(event.currentTarget.value)} placeholder="어떤 바이크를 찾으세요?" aria-label="바이크 검색" />
+            <button type="submit" aria-label="검색"><img src={pic("..", "assets", "icons", "bb", "search.svg")} alt="" /></button>
+          </form>
+          <div className="bmh-site-actions" aria-label="회원 메뉴">
+            <button type="button" className="bmh-site-icon" aria-label="관심 매물" onClick={() => setToast(`찜한 매물 ${saved.size}대`)}><img src={pic("..", "assets", "icons", "bb", "heart.svg")} alt="" /></button>
+            <button type="button" className="bmh-site-login" onClick={() => setToast("로그인/회원가입은 정식 서비스에서 이용해 주세요.")}>로그인/회원가입</button>
+            <a className="bmh-site-sell" href={listUrl({ register: "bike" })}>바이크 판매</a>
+            <button type="button" className="bmh-site-account" aria-label="로그인 및 계정 메뉴" onClick={() => setToast("계정 메뉴는 정식 서비스에서 이용해 주세요.")}>
+              <span><img src={pic("..", "assets", "icons", "bb", "mypage.svg")} alt="" /></span>
+              <img src={pic("..", "assets", "icons", "bb", "chevron-down.svg")} alt="" />
+            </button>
+          </div>
+        </div>
+        <div className="bmh-wrap bmh-site-nav-row">
+          <nav className="bmh-site-gnb" aria-label="주 메뉴">
+            <a className="is-active" href={listUrl()}>중고 바이크</a>
             <a href={listUrl({ register: "bike" })}>바이크 판매</a>
             <a href={listUrl({ category: "부품 · 용품", bikeMenu: "parts" })}>바이크 용품</a>
             <a href="../community/bobaedream-pc-board-list.html?layout=reddit">커뮤니티</a>
           </nav>
-          <div className="bmh-header-right">
-            <button type="button" aria-label="찜한 매물" onClick={() => setToast(`찜한 매물 ${saved.size}대`)}>
-              <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.5 2.6 5.3 5.9.9-4.25 4.1 1 5.85L12 16.9l-5.25 2.75 1-5.85L3.5 9.7l5.9-.9Z" fill="currentColor" /></svg>
-            </button>
-            <span className="bmh-divider" aria-hidden="true" />
-            <button type="button" className="bmh-login">로그인</button>
-            <a className="bmh-sell-btn" href={listUrl({ register: "bike" })}>바이크 판매</a>
-          </div>
+          <a className="bmh-site-notice" href="../community/bobaedream-pc-board-list.html?layout=reddit">
+            <strong>공지</strong><span aria-hidden="true" /><em>새로운 보배드림 서비스 안내</em>
+          </a>
         </div>
       </header>
 
