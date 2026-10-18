@@ -1,0 +1,179 @@
+/* 보배드림 바이크 메인 v01 — AutoScout24.de 1536 실측 구성 (노랑 · 청록 → 바이크 주황) */
+.bmh {
+  --or: #fa6819;
+  --or-hover: #e5580c;
+  --or-soft: #ffe5cf;
+  --ink: #333;
+  --page: #f4f4f4;
+  min-height: 100vh;
+  background: var(--page);
+  color: var(--ink);
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+.bmh *, .bmh *::before, .bmh *::after { box-sizing: border-box; }
+.bmh a { color: inherit; text-decoration: none; }
+.bmh button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+:where(.bmh) :where(h1, h2, h3, h4, p, ul) { margin: 0; padding: 0; }
+.bmh :focus-visible { outline: 2px solid var(--or); outline-offset: 2px; }
+.bmh-wrap { width: 1240px; max-width: calc(100% - 48px); margin: 0 auto; }
+
+/* 헤더: 짙은 회색 72 */
+.bmh-header { background: #333; color: #fff; }
+.bmh-header-row { height: 72px; display: flex; align-items: center; gap: 48px; padding: 0 32px; }
+.bmh-logo { display: flex; align-items: center; gap: 8px; }
+.bmh-logo img { width: 30px; height: 30px; }
+.bmh-logo span { font-size: 19px; font-weight: 800; letter-spacing: -.02em; color: #fff; }
+.bmh-logo b { color: var(--or); }
+.bmh-gnb { display: flex; gap: 32px; }
+.bmh-gnb a { font-size: 16px; font-weight: 600; color: #fff; }
+.bmh-gnb a:hover { color: var(--or); }
+.bmh-header-right { margin-left: auto; display: flex; align-items: center; gap: 20px; }
+.bmh-header-right > button:first-child { width: 36px; height: 36px; display: grid; place-items: center; color: #fff; }
+.bmh-divider { width: 1px; height: 32px; background: #666; }
+.bmh-login { font-size: 16px; font-weight: 600; color: #fff !important; }
+.bmh-sell-btn { height: 40px; padding: 0 18px; border: 1px solid #fff; border-radius: 4px; font-size: 16px; font-weight: 600; line-height: 38px; }
+.bmh-sell-btn:hover { background: #fff; color: #333; }
+
+/* 히어로: 400 높이, 사진 + 곡선 + 가격 말풍선 */
+.bmh-hero { position: relative; height: 400px; overflow: hidden; background: linear-gradient(100deg, #2a2522 0%, #4a3a30 45%, #8a5a3c 100%); }
+.bmh-hero h1 { position: relative; z-index: 2; padding-top: 112px; padding-left: 32px; max-width: 620px; font-size: 48px; line-height: 58px; font-weight: 600; color: #fff; letter-spacing: -.02em; }
+.bmh-hero-art { position: absolute; inset: 0; }
+.bmh-swoosh { position: absolute; right: -140px; top: -260px; width: 620px; height: 900px; border-radius: 50%; border: 90px solid var(--or); border-right-color: transparent; border-bottom-color: transparent; transform: rotate(18deg); }
+.bmh-hero-bike { position: absolute; right: 13%; bottom: 36px; width: 560px; filter: drop-shadow(0 24px 30px rgba(0, 0, 0, .45)); }
+.bmh-bubble { position: absolute; display: flex; align-items: center; gap: 8px; height: 48px; padding: 0 16px 0 6px; border-radius: 999px; background: #fff; box-shadow: 0 4px 12px rgba(0, 0, 0, .25); font-size: 14px; line-height: 18px; font-weight: 700; color: #222; }
+.bmh-bubble i { width: 36px; height: 36px; border-radius: 50%; background: var(--or); color: #fff; font-style: normal; font-weight: 700; display: grid; place-items: center; }
+.bmh-bubble small { display: block; font-size: 11px; line-height: 14px; font-weight: 500; color: #595959; }
+.bmh-bubble.is-0 { left: 50%; top: 70px; }
+.bmh-bubble.is-1 { left: 44%; top: 236px; }
+.bmh-bubble.is-2 { right: 8%; top: 270px; }
+
+/* 검색 카드: 히어로 위로 48 겹침, 반경 16, 안쪽 24/32 */
+.bmh-search { position: relative; z-index: 3; margin-top: -48px; background: #fff; border-radius: 16px; padding: 24px 32px 28px; box-shadow: 0 -8px 16px rgba(0, 0, 0, .05), 0 -4px 8px rgba(0, 0, 0, .05), 0 0 2px rgba(0, 0, 0, .12); }
+.bmh-tabs { display: flex; align-items: flex-end; gap: 32px; height: 36px; margin-bottom: 20px; }
+.bmh-tabs button { font-size: 16px; line-height: 24px; font-weight: 400; color: var(--ink); padding-bottom: 4px !important; border-bottom: 2px solid transparent !important; }
+.bmh-tabs button.is-on { font-size: 20px; line-height: 28px; font-weight: 700; border-bottom-color: var(--ink) !important; }
+.bmh-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.bmh-field { position: relative; height: 40px; display: flex; align-items: center; justify-content: space-between; padding: 0 10px 0 12px !important; border: 1px solid #000 !important; border-radius: 4px; background: #fff !important; font-size: 16px; text-align: left; cursor: pointer; }
+.bmh-field:disabled { border-color: #c4c4c4 !important; color: #a0a0a0; cursor: default; }
+.bmh-field span { color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bmh-field span.is-filled { font-weight: 600; color: #000; }
+.bmh-field select { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.bmh-cta { height: 40px; border-radius: 8px; background: var(--or) !important; color: #fff !important; font-size: 16px; font-weight: 600; }
+.bmh-cta:hover { background: var(--or-hover) !important; }
+.bmh-more { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 12px; }
+.bmh-more a { grid-column: 3; text-align: center; font-size: 16px; font-weight: 600; color: #006bd6; }
+.bmh-more a:hover { text-decoration: underline; }
+.bmh-search-sub { margin-top: 12px; font-size: 16px; line-height: 24px; font-weight: 600; }
+.bmh-genres { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 18px; margin-top: 16px; }
+.bmh-genres a { display: flex; flex-direction: column; align-items: center; gap: 12px; font-size: 16px; font-weight: 600; text-align: center; }
+.bmh-genres span { width: 120px; max-width: 100%; height: 73px; display: flex; align-items: flex-end; justify-content: center; }
+.bmh-genres img { max-width: 100%; max-height: 73px; object-fit: contain; object-position: center bottom; transition: transform .15s; }
+.bmh-genres a:hover img { transform: translateY(-3px); }
+
+/* 섹션 제목 32/600 */
+.bmh-sec { margin-top: 64px; }
+.bmh-h2 { font-size: 32px; line-height: 40px; font-weight: 600; margin-bottom: 24px; padding-left: 32px; }
+.bmh-brands { display: grid; grid-template-columns: repeat(8, 1fr); padding: 0 32px; }
+.bmh-brands a { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; }
+.bmh-brands span { width: 96px; height: 60px; display: grid; place-items: center; }
+.bmh-brands img { max-width: 60px; max-height: 48px; object-fit: contain; }
+.bmh-brands a:hover { color: var(--or); }
+
+/* 내 바이크 팔기: 왼쪽 문구 + 곡선 위 바이크, 오른쪽 두 카드 */
+.bmh-sell { position: relative; margin-top: 72px; display: grid; grid-template-columns: 1fr 360px 360px; gap: 20px; padding: 0 32px; align-items: stretch; }
+.bmh-sell-lead { position: relative; min-height: 300px; }
+.bmh-sell-lead h2 { position: relative; z-index: 1; font-size: 32px; line-height: 40px; font-weight: 600; }
+.bmh-sell-swoosh { position: absolute; left: -400px; right: -900px; top: 70px; height: 200px; border-radius: 50%; background: var(--or-soft); transform: rotate(-6deg); z-index: 0; }
+.bmh-sell-lead img { position: absolute; z-index: 1; left: 0; bottom: 0; width: 300px; }
+.bmh-sell-card { position: relative; z-index: 1; display: flex; flex-direction: column; background: #fff; border-radius: 8px; padding: 32px 24px 24px; box-shadow: 0 1px 3px rgba(0, 0, 0, .08); }
+.bmh-sell-card.is-fast { border-top: 4px solid #333; }
+.bmh-sell-flag { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); height: 24px; padding: 0 12px; border-radius: 999px; background: #333; color: #fff; font-size: 12px; line-height: 24px; font-weight: 600; }
+.bmh-sell-card h3 { font-size: 16px; line-height: 24px; font-weight: 700; margin-bottom: 16px; }
+.bmh-sell-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 32px; }
+.bmh-sell-card li { position: relative; padding-left: 28px; font-size: 15px; }
+.bmh-sell-card li::before { content: ""; position: absolute; left: 0; top: 3px; width: 18px; height: 18px; border-radius: 50%; background: #2e7d32; }
+.bmh-sell-card li::after { content: ""; position: absolute; left: 6px; top: 7px; width: 6px; height: 9px; border-right: 2px solid #fff; border-bottom: 2px solid #fff; transform: rotate(45deg); }
+.bmh-solid, .bmh-outline { margin-top: auto; height: 44px; border-radius: 4px; display: grid; place-items: center; font-size: 16px; font-weight: 600; }
+.bmh-solid { background: var(--or); color: #fff !important; }
+.bmh-solid:hover { background: var(--or-hover); }
+.bmh-outline { border: 1px solid var(--or); color: var(--or) !important; }
+.bmh-outline:hover { background: var(--or-soft); }
+
+/* 매물 카드 279 × 422 · 반경 8 · 사진 4:3 */
+.bmh-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; padding: 0 32px; }
+.bmh-card { display: flex; flex-direction: column; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0, 0, 0, .05); }
+.bmh-card-link { display: flex; flex-direction: column; flex: 1; }
+.bmh-card-photo { aspect-ratio: 4 / 3; background: #e8e8e8; overflow: hidden; }
+.bmh-card-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bmh-card-body { display: flex; flex-direction: column; padding: 12px 16px 12px; }
+.bmh-card-title { font-size: 16px; line-height: 24px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bmh-card-title b { font-weight: 700; }
+.bmh-card-link:hover .bmh-card-title { text-decoration: underline; }
+.bmh-card-price { margin-top: 4px; font-size: 20px; line-height: 28px; font-weight: 700; }
+.bmh-card-meta { margin-top: 8px; font-size: 12px; line-height: 18px; color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bmh-badge { align-self: flex-start; margin-top: 8px; height: 22px; padding: 0 8px; border-radius: 4px; background: var(--or-soft); color: #9a3b00; font-size: 12px; line-height: 22px; font-weight: 700; }
+.bmh-card-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0 16px; padding: 12px 0 16px; border-top: 1px solid #e5e5e5; }
+.bmh-card-foot span { font-size: 12px; line-height: 16px; color: #333; }
+.bmh-card-foot small { display: block; font-size: 12px; }
+.bmh-card-foot button { width: 32px; height: 32px; border: 1px solid #c4c4c4 !important; border-radius: 4px; display: grid; place-items: center; color: #006bd6; }
+.bmh-card-foot button.is-on { color: var(--or); border-color: var(--or) !important; }
+
+/* 뉴스레터 띠 */
+.bmh-news { position: relative; margin: 80px 32px 0; display: grid; grid-template-columns: 1fr 360px; background: #fff; border-radius: 8px; overflow: hidden; min-height: 270px; }
+.bmh-news-copy { padding: 32px; }
+.bmh-news-copy h2 { font-size: 32px; line-height: 40px; font-weight: 600; }
+.bmh-news-copy p { margin-top: 8px; font-size: 16px; }
+.bmh-news-copy form { display: flex; gap: 8px; margin-top: 24px; max-width: 700px; }
+.bmh-news-copy input { flex: 1; height: 44px; border: 1px solid #8c8c8c; border-radius: 4px; padding: 0 12px; font: inherit; }
+.bmh-news-copy button { height: 44px; padding: 0 20px !important; border-radius: 8px; background: var(--or) !important; color: #fff !important; font-weight: 600; }
+.bmh-news-art { position: relative; overflow: hidden; }
+.bmh-news-art span { position: absolute; left: 20px; top: -120px; width: 520px; height: 520px; border-radius: 50%; border: 70px solid var(--or); border-right-color: transparent; border-bottom-color: transparent; transform: rotate(-30deg); }
+.bmh-news-art img { position: absolute; right: -20px; bottom: 16px; width: 330px; }
+
+/* 인기 모델 글자 링크 */
+.bmh-seo { padding: 72px 32px 80px; }
+.bmh-seo h2 { font-size: 32px; line-height: 40px; font-weight: 400; margin-bottom: 40px; }
+.bmh-seo h3 { font-size: 20px; line-height: 28px; font-weight: 600; margin: 24px 0 20px; }
+.bmh-seo-cols { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+.bmh-seo-cols h4 { font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+.bmh-seo-cols a, .bmh-seo-inline a { display: block; font-size: 14px; line-height: 24px; color: #006bd6; }
+.bmh-seo-cols a:hover, .bmh-seo-inline a:hover { text-decoration: underline; }
+.bmh-seo-inline { display: flex; flex-wrap: wrap; gap: 4px 32px; }
+
+.bmh-footer { background: #333; color: #ccc; padding: 32px 0 40px; font-size: 13px; }
+.bmh-footer .bmh-wrap { display: flex; flex-direction: column; gap: 6px; padding: 0 32px; }
+.bmh-footer strong { color: #fff; font-size: 16px; }
+
+/* 제조사 · 모델 창 */
+.bmh-layer { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; }
+.bmh-dim { position: absolute; inset: 0; background: rgba(0, 0, 0, .5) !important; cursor: default; }
+.bmh-modal { position: relative; width: min(480px, calc(100vw - 48px)); max-height: calc(100vh - 96px); display: flex; flex-direction: column; background: #fff; border-radius: 12px; overflow: hidden; }
+.bmh-modal header { height: 60px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 12px; }
+.bmh-modal header h2 { text-align: center; font-size: 18px; font-weight: 700; }
+.bmh-icon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 8px; }
+.bmh-icon:hover { background: #f4f4f4 !important; }
+.bmh-modal-search { margin: 0 16px 8px; height: 44px; border-radius: 999px; background: #f4f4f4; display: flex; align-items: center; gap: 8px; padding: 0 16px; color: #595959; }
+.bmh-modal-search input { flex: 1; border: 0; outline: 0; background: transparent; font: inherit; font-size: 15px; color: #222; }
+.bmh-modal-body { flex: 1; overflow-y: auto; padding: 0 16px 8px; }
+.bmh-modal-body h3 { font-size: 16px; font-weight: 700; padding: 8px 0; }
+.bmh-modal-body ul { list-style: none; }
+.bmh-modal-body li button { width: 100%; height: 44px; display: flex; align-items: center; gap: 8px; border-top: 1px solid #e5e5e5 !important; font-size: 15px; text-align: left; }
+.bmh-modal-body li button span { flex: 1; }
+.bmh-modal-body li button em { font-style: normal; font-size: 13px; color: #8c8c8c; }
+.bmh-modal-body li button.is-on { font-weight: 700; color: var(--or); }
+.bmh-modal footer { height: 76px; display: grid; grid-template-columns: 96px 1fr; gap: 12px; align-items: center; padding: 0 16px; border-top: 1px solid #e5e5e5; }
+.bmh-reset { height: 44px; font-weight: 600; color: #006bd6; }
+.bmh-reset:disabled { color: #b7b7b7; cursor: default; }
+.bmh-modal footer .bmh-cta { height: 44px; }
+.bmh-toast { position: fixed; left: 50%; bottom: 32px; transform: translateX(-50%); z-index: 60; padding: 12px 20px; border-radius: 8px; background: #222; color: #fff; font-size: 14px; }
+
+@media (max-width: 1100px) {
+  .bmh-genres, .bmh-brands { grid-template-columns: repeat(4, 1fr); row-gap: 20px; }
+  .bmh-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bmh-sell { grid-template-columns: 1fr 1fr; }
+  .bmh-sell-lead { grid-column: 1 / -1; }
+  .bmh-hero-bike { width: 420px; right: 4%; }
+}
+@media (prefers-reduced-motion: reduce) { .bmh * { transition: none !important; } }

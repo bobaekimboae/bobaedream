@@ -2,15 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "@fontsource/roboto/latin-500.css";
 import App from "./App";
+import BikeMainHome from "./main-home/bike/BikeMainHome";
 import "./styles.css";
 import "./prototype.css";
 
 const url = new URL(window.location.href);
-url.searchParams.set("qf", "guazi");
-url.searchParams.set("pc", "1");
+// 바이크 메인 시안(2026-10-19): /bike/?home=as24 → AutoScout24식 메인. 목록 주소 값은 붙이지 않는다.
+const showBikeHome = url.searchParams.get("home") === "as24";
+if (!showBikeHome) url.searchParams.set("qf", "guazi");
+if (!showBikeHome) url.searchParams.set("pc", "1");
 
 const bikeParts = url.searchParams.get("category") === "부품 · 용품" && url.searchParams.get("bikeMenu") === "parts";
-if (!bikeParts) {
+if (!bikeParts && !showBikeHome) {
   url.searchParams.set("category", "바이크");
   url.searchParams.delete("bikeMenu");
 }
@@ -22,6 +25,6 @@ if (url.searchParams.get("bikelogo") === "mark") document.documentElement.datase
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    {showBikeHome ? <BikeMainHome /> : <App />}
   </React.StrictMode>,
 );
