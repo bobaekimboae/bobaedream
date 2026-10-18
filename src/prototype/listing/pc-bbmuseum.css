@@ -635,3 +635,15 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
   .bbm-catalog-search.is-posh.is-posh-gray.is-posh-blue { padding-right: 4px; }
 }
 
+
+/* 2026-10-18 「알약 없는 버전」 `&gnbactive=text`: 현재 메뉴는 검정 알약 없이 700 #222 글자만(기준 문서 「current section only with 700-weight black text」). 높이·좌우 여백은 다른 메뉴와 같게 */
+@media (min-width: 820px) {
+  html .marketplace.is-bbm .bbm-header.is-gnb-text .bbm-gnb button.is-active,
+  html .marketplace.is-bbm .bbm-header.is-gnb-text .bbm-gnb .bbm-gnb-more.is-active {
+    align-self: stretch; height: 49px; padding: 0 1px; border-radius: 0; background: transparent; color: #222; font-weight: 700;
+  }
+  html .marketplace.is-bbm .bbm-header.is-gnb-text .bbm-gnb button.is-active:hover,
+  html .marketplace.is-bbm .bbm-header.is-gnb-text .bbm-gnb .bbm-gnb-more.is-active:hover { background: transparent; color: #000; }
+  html .marketplace.is-bbm .bbm-header.is-gnb-text .bbm-gnb button.is-active .bb-icon { color: #222; }
+  html .marketplace.is-bbm .bbm-header.is-gnb-text .bbm-gnb .bbm-gnb-more.is-active .bbm-gnb-more-count { background: #222; color: #fff; }
+}
